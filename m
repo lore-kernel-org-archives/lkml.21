@@ -1,88 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795319578;
-	b=Mg3lYQqAsx9kfdACRn1BDJbLZVvoeiop/uF9ghHanCvKKjd0tYde9Vk0XgoYbNZtsMEf
-	 LDXLkPOesfDGH+fn1AMy+hoone2p1VD5caSVaGs7UOyxN+yEGIbMQL/xJRdHRnVghqb8L
-	 lUdtzFjFgz8UcLDOGrePR7DFIwnG0pHzYSZGLxiJ7YoQr9AVh/fjF1/XU1mKV7q6iKRgx
-	 dKaiNuAjQ98FXzpVkyD5sgreMm7iRsmmuM+IkvWq7Ry+EiwIdYY7UfqVPjXIL5Bn2cjHA
-	 vt6ca/u1O+cfrK1tQEH8JBQ1I9TwhtziqYUTiCwBVhM01oTAPntzl/XzC6kKQ2HP9Ew==
+	t=1795319661;
+	b=Q+u9ipGvjgt1nC4/d3RBnOTy6SVrh9W2YFRhOQse9bYBx0UWcptJrm7rGRv2EB81XLTd
+	 Zg3GauS0lP1PEh/mzPhAGxzBpSy0K/fk7O3U3h+Vz0XQu5jXJNs23MY/mq06gs3qXBIYd
+	 87TrNgRWOhqHU4B1aBnZD1l9zyQWh5TtOnl0GIAop4jsQ0MnFXoosL6tjKTZZd0G4GwNL
+	 xf0BvFr4v27EJl25P50wJNbV9IjEZnvEoC9cKNEOXR+AlVJODu9evFXfEDW2vDTUcIkdu
+	 dND5vDc6kuFrzitGqopaff5moySiccazFjT66PmGyGceNbUV0l2YIVr5SZSDanCL+Dw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795319578;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Subject:In-Reply-To:Date:Message-ID:References;
-	bh=3/acJDvQZeUDuSHYPSXBbXR1HyKyAQ1dnjG4woxCX1E=;
-	b=Y1ChqovXTZRdZBwmqSlqLxa+9gHCi7FcZU7CtMzfNBnxX5A5SlqkkIF6cOD7GKn8btJp
-	 PQOAYeWHrik+Gvf5j+YAeQ9qejV6iTT0NuD+DQCNn5qEabJjwqVRSfaxfpG9XaLHTHINb
-	 v6p5yXRieChYxy+orDO+YzgML13vxd2TtCGdb5I9CCTJoJo6Gu/tcS8fMT6odHNmOeaNr
-	 5d3AKsVa3tZxHs6XgWqfkqHPl87zZjCof7Xdk974uVki771U1IW0d/g1Op7Km+h5GUr/z
-	 RxDGRjNe8de/Pzi4gowSFdLlD/d9C9UOWv07kyTwGAAEo9V2eOI8iTbPFOGBvWxXYvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795319661;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=fQMcubyEGLJDkcZ4DTTyA3Id5oJxjLW06dRC7LXqSD8=;
+	b=ijKi+I/tJczaljxE7+eaxLiR7RFUOK8hrGMm3iEhNMXqIfVo3aLcQcD8oU0KMZ83fSxL
+	 csI4sRrxJF/sOoDt7S4drWTMue/8utEy93FOKjZplqwfTXxf2IYatAioEAJPXJIIiPd8R
+	 qqP7BqH9MVzKEmKAUROzbuy4xhMUQ6bzV3gTJ1yHtV8D+rvK6Afr735IvKqFO5Fgv1UJu
+	 ct2EalAXUSIigY5oCFywajsIh4lWEeMOJmNykwP6XMQTwdesuKMhPsF7SDe800n+i966h
+	 7HWw4ypGX8mdNk/KTEsPF272YMubaIphugdIvEdm8wV7KFvjk7W1OokwujyszqyVs9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KO2CK3Uy;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PxXEN2wD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 436E7606A339
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:52:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 436E7606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9154A606A320;
+	Sun, 22 Nov 2026 03:54:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KO2CK3Uy
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-38190551625so4507593eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:52:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795319577; x=1795924377; darn=vger.kernel.org;
-        h=references:message-id:date:in-reply-to:subject:to:from:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=3/acJDvQZeUDuSHYPSXBbXR1HyKyAQ1dnjG4woxCX1E=;
-        b=KO2CK3UyhXKE9D8xAFZWzqSwNZ1K/eoQn5DSm2PlhJKM088S3y58HlUXE4CbPZAdtn
-         y7bfEsI1UIgnWN+HmIx+Fw7w62DQk2njd5LCl0EJdhsAYx896chKGa0F+2QaHGnqqPVe
-         aapCRybowlt02Vytgvofs+1mkSU6VKfFglgZY1a3chaiNkr2D1WJBcQpVhkWdhxlrbzd
-         vcctgjM1ySlRoQgc5V4VRv/fio6ELy3CNfwnM6X0wnjs09XPp1mRxkruc1+dqUPWDV2f
-         TgeWB7Lmeo9HKd3tb8O39SavkUEtS02Hnt8ZhljvSy4u9rFYd8aPUmpkTTqu8wWzu/aH
-         x7Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795319577; x=1795924377;
-        h=references:message-id:date:in-reply-to:subject:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3/acJDvQZeUDuSHYPSXBbXR1HyKyAQ1dnjG4woxCX1E=;
-        b=PYFMEPWnAYnvqKU/oZ2lMhA2yzyMoAbkzELyn9AdkezMq8B18sA4aRX9+aFXeQLmTF
-         OfkEhhP6tHdU4+xQIImPOek0jEG8pJAjqzubVE1eABNXmX7zmeX6h5GIusljmN3n8g6q
-         E4GP4P9RWL97KJHrHU+skhZz5r0GqRPohhlVYejTMwlT5IOK0ACXI8yLB/RojorRt4qL
-         w3sP8c8gSn7FDCwtEuPECOFndXoZ56xXG4JgFQPORXeU64Eshztl9+i0QUd9MZJfwaxq
-         Bzu7e3aYljF3T9NRToI/nV/xO6If2xMSwibBEu8IXBq2VTrFj7tTSzw5WXiN7SZP0z0D
-         hRvQ==
-X-Forwarded-Encrypted: i=1; AL+hErET9mVIq2JEPmyD5f8baK4kROSaeZmy/NL8Cj87w+0w0mgidPdcjcDGyRjcqAL+xFFMf2xJ5apz/G2mKOg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8B8Q7Aeix/VAVa56qONoi4CiZesPfUtU89ZtIQCbxCURIW68ME
-	9ironxP/cD6f8Xsgtu+Jjm+KszlSKP7SlYP1DMnl7a+dFaShKARGAN7V
-X-Gm-Gg: AZFdTZdx9LItecTRyNidsxtk2I0MS5tzrfoK4YwHIZ7hBgqeh+8VFQJasOJpLRtB0sk
-	xlC6WLHeSderE5Oj9kgFePwfL8AImyxnn/a/ZjNcFfE0Yn8vkprYEKtzfXEduKXF025HiytJE9T
-	4j5o6IN7k8pRF3UtNdnn+oLg/SzVpMLUZSwTHnuKy8kaa8T+OvmAx/7aIENkmXXPCjTuQ8xRIou
-	IT/BdP7m5zcjSE58Gy8x2Ojmd8kXQN13u06Lvtg0c70eUU9RVOGZQLqe15ctDh44zmhOsyeHwjz
-	/IZKYNQ9l4NsQ1z3ysbAwEmMi1pW82QOIUwOvFzI58APlBJUtf1XcevTl9EKCAEPaEvnFt++EFo
-	FaYtn2orpt1LI4OqWxvrENQ+FCGGm42iGRLCa3EZ9VBEne6lA9ErqaVF/FeJSyhKkFZ7Ia0r+7o
-	j7u/M7S2kK6tEArMURn01Gs+Dixd170Rp/yu1HcVFa2r3NcmY/ILqExrEiA0H0pipOnzDSitu48
-	//OOvdrrQrX/QLPM9w5pEmGhFhR2CXETAzGqyDkWMp84CgQmD3py/RzzcRD9W8kHQLx9xOVLRZH
-	WNqXw4U7DcYNrcIfgnUXRNUpPrKi4oLYaEiXfh4YyPWEgf/+
-X-Received: by 2002:a05:7300:e9ce:10b0:385:2564:c509 with SMTP id 5a478bee46e88-385700541a6mr9198641eec.24.1795319577262;
-        Sat, 21 Nov 2026 19:52:57 -0800 (PST)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm22045349eec.23.2026.11.21.19.52.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 19:52:56 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH] KVM: PPC: remove unnecessary #ifdef
-In-Reply-To: <20261120133413.475489-1-pbonzini@redhat.com>
-Date: Sun, 22 Nov 2026 09:13:29 +0530
-Message-ID: <tsl9jztq.ritesh.list@gmail.com>
-References: <20261120133413.475489-1-pbonzini@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PxXEN2wD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6A4C1F000C0;
+	Sun, 22 Nov 2026 03:54:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795319661;
+	bh=fQMcubyEGLJDkcZ4DTTyA3Id5oJxjLW06dRC7LXqSD8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PxXEN2wDc6p5i8Oq29JkzmrQ127/499ioh0oRAdUIOdTh5Y9eoHqd36eBSM7czt8a
+	 lgaYPCl24VbcfHdXXJgYqCy/ZVqlGOpR4d2nv4zutDBPnRuuEjraTpc/Rn5rsmK9BF
+	 d0mmNxIkbkCL2M6H9/Q/ROzWZzlJAL6sMxpcU+eC5E/yk0gOpoq5946mJZ/Jt8w8UI
+	 kGZpxkhuGaC4q+jHOtN2IyWH0LwlkeIZS70pBenXcgKv+6zvP7jzXm7GgjC0OBiEfN
+	 jQkseteln6dlqaELg/HokrXVlt9k8rfZOf6MWQyBSXoAoOzYtPIayiG6KeJ2iwFfl8
+	 BSThVr8jwSlLQ==
+Subject:
+ Re: [PATCH net-next v2] net: sfp: add 2500base-X quirk for ODI DFP-34X-2C3
+From: netdev-bot+sashiko@kernel.org
+To: github@bumblecito.com
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
+Date: Sun, 22 Nov 2026 03:54:20 +0000
+Message-ID: <179531966042.3135.7432680981389421641@kernel.org>
+In-Reply-To: <20261118034510.434732-1-github@bumblecito.com>
+References: <20261118034510.434732-1-github@bumblecito.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,28 +62,126 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-++ linuxppc-dev 
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Paolo Bonzini <pbonzini@redhat.com> writes:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> booke.o is only built as part of kvm-e500-objs (which is conditional
-> on $(CONFIG_KVM_E500V2)) or kvm-e500mc-objs (likewise conditional
-> on $(CONFIG_KVM_E500MC)).  Thus, the #ifdef in kvmppc_core_check_requests
-> is always true.  Remove it.
->
+- [Medium] The new sfp_quirks[] entry SFP_QUIRK_S("ODI", "DFP-34X-2C3",
+  sfp_quirk_2500basex) in drivers/net/phy/sfp.c (lines 617-618) has a…
+- [Low] The new ODI DFP-34X-2C3 entry uses only sfp_quirk_2500basex
+  (drivers/net/phy/sfp.c:485-491).
 
-That is correct. Looks like after KVM_440 removal via the following
-commit, the above is always true.
+--
 
-commit b2677b8dd8de0dc1496ede4da09b9dfd59f15cea
-Author: Alexander Graf <agraf@suse.de>
-Date:   Fri Jul 25 10:38:59 2014 +0200
+net: sfp: add 2500base-X quirk for ODI DFP-34X-2C3
 
-    KVM: PPC: Remove 440 support
- 
+This adds an sfp_quirks[] entry for the ODI DFP-34X-2C3 XPON SFP module so
+that sfp_quirk_2500basex() advertises 2500base-X for it. It was tested on
+a Horaco ZX-SWTGW2C8F switch with speed and duplex forced and
+autonegotiation disabled.
 
-Thanks for spotting it. LGTM. Feel free to add:
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+> diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
+> index 915156743701b..960ac89cc2a0b 100644
+> --- a/drivers/net/phy/sfp.c
+> +++ b/drivers/net/phy/sfp.c
+> @@ -614,6 +614,9 @@ static const struct sfp_quirk sfp_quirks[] = {
+>  	SFP_QUIRK("Lantech", "8330-265D", sfp_quirk_2500basex,
+>  		  sfp_fixup_ignore_los),
+>  
+> +	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
+> +	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
 
+[Severity: Medium]
+Should this entry also use sfp_fixup_ignore_tx_fault_and_los()?
+
+SFP_QUIRK_S() sets .fixup to NULL. The SFP state machine therefore still
+acts on this module's TX_FAULT and LOS signals. The other Realtek RTL960x
+GPON/XPON ONT sticks in sfp_quirks[] ignore both signals:
+
+	SFP_QUIRK("HSGQ", "HSGQ-XPON-Stick", sfp_quirk_2500basex,
+		  sfp_fixup_ignore_tx_fault_and_los),
+
+HUAWEI MA5671A, Hisense-Leox LXT-010S-H and Hisense ZNID-GPON-2311NA do
+the same.
+
+Commit 95aca8602ef70ffd ("net: sfp: add quirks for Hisense and HSGQ GPON
+ONT SFP modules") says TX_FAULT must be ignored "during the module's ~40s
+Linux boot time".
+
+Commit 0fd5dfa99cfc75 ("net: sfp: ignore LOS also on Hisense GPON
+modules") added LOS ignoring. This keeps the module reachable for
+configuration when no fiber is connected.
+
+The HSGQ stick is often said to be a rebranded ODI, but I could not
+confirm that from the tree. If the ODI stick behaves the same way, can a
+cold plug use up all the retries in sfp_sm_fault()? It gets N_FAULT_INIT
+retries spaced T_FAULT_RECOVER apart, which is about 5 seconds in total.
+Then it does:
+
+drivers/net/phy/sfp.c:sfp_sm_fault() {
+	if (sfp->sm_fault_retries && !--sfp->sm_fault_retries) {
+		dev_err(sfp->dev,
+			"module persistently indicates fault, disabling\n");
+		sfp_sm_next(sfp, SFP_S_TX_DISABLE, 0);
+    ...
+}
+
+Also, with no fiber connected, would an asserted LOS keep the link down?
+That would leave the stick's management interface unreachable.
+
+The commit message does not say how this module drives TX_FAULT and LOS,
+or whether fiber was connected during the test. Could that be added? Or,
+if the module does not need these fixups, could the message say why it
+differs from its siblings?
+
+[Severity: Low]
+The commit message says the 2500 Mb/s link came up "with speed and
+duplex forced and autonegotiation disabled". However,
+sfp_quirk_2500basex() does not clear ETHTOOL_LINK_MODE_Autoneg_BIT:
+
+static void sfp_quirk_2500basex(const struct sfp_eeprom_id *id,
+				struct sfp_module_caps *caps)
+{
+	linkmode_set_bit(ETHTOOL_LINK_MODE_2500baseX_Full_BIT,
+			 caps->link_modes);
+	__set_bit(PHY_INTERFACE_MODE_2500BASEX, caps->interfaces);
+}
+
+phylink_get_inband_type() maps PHY_INTERFACE_MODE_2500BASEX to
+INBAND_BASEX. Consider a Base-X SFP with no PHY, on a PCS that supports
+both in-band modes (pcs-mtk-lynxi, for example). Because Autoneg is still
+advertised, phylink_pcs_neg_mode() picks PHYLINK_PCS_NEG_INBAND_ENABLED.
+The default configuration from this quirk therefore runs in-band AN,
+which is not the configuration that was tested.
+
+If the module can't do in-band AN at 2500base-X, does it also need
+sfp_quirk_disable_autoneg()? sfp_quirk_oem_2_5g() already calls it.
+Without it, users would have to run "ethtool -s ... autoneg off" by hand.
+
+On the other hand, commit 95aca8602ef70ffd reports a 2.5Gbps link with the
+sibling HSGQ stick on a Banana Pi R3 (MT7986) using the default quirk. So
+the need to disable AN may come from the host's PCS, not the module.
+
+Could the commit message say which kernel and PCS driver the Horaco
+switch was running?
+
+Separately, this isn't a bug, but the comments on the other
+sfp_quirk_2500basex entries say what the EEPROM misreports, for example
+"1000BASE-LX / 1300MBd" or "1.2GBd NRZ". Could the new comment say the
+same for this module?
+
+>  	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
+>  
+>  	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118034510.434732-1-github%40bumblecito.com
