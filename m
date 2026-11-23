@@ -1,101 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795476474;
-	b=J8hCOejcqwt4MZvGRRBNMZAfbTnIjR0ICaVp3oBbEMc0uizbPPXs8sS6D+C0MQ7VzBW+
-	 Xj2KEx4G657/zbGYA85F/Gjwnn/S9i2DBJDhEbQc3hP3+Oehv4GReDZ0gU9X+xm0pBed7
-	 6c//gZqf+TJl9BdXuyjJk/zwTuPbrFpr96WBMX0zCQ5+gEdzHepzUsVQfmdUpI2WW1W6t
-	 te2hvSurFzil7dPKX29vLQ0Wxnl2cy6iOkfdpCHm56Pv6Ao9KbEwYP7yQwZ3w9y8+droW
-	 Ft1rFVqNlwD8cUc8W7Q9PsF0l7nwHBl3ug5tRf0iXnNrYKNimF9E9S3xxPHu51bv1xg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476474;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
-	b=YE/o7ujpnnG8RWe9jinWOtzFCDj9wh0D48J8eGIqWtoDJqvmgqBTx6KBezcqZByynRAr
-	 A2arGcz/vk6ybyiV3M6anXjc/YF5RdYgDuPQtJLw4UfEoCCUPkMIGH2+kdfe/+y754GyR
-	 CqLema5XtQdY2ySwnseZRidzL4jVS9k5ytVNxd6FoTDHkj0CH94konoPDm5lj5vxezVnp
-	 db0mwndo6i/xAGzwqEcLQtFobhEyhpihb6nwQASD4l4ANgTt6aM+0LLUdPwE0ixEcF8FA
-	 XFtB5e7RnhQBHTce5WyvIpW6AmrD+OKRj3xBiHaF0JgWitfqdrUyJS+9VMm2B1I0R5g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NMcT+Z3E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.53
-Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795476489;
+	b=IIElkNBYKYl3iOlpCgJL+V3fYV+YFbwjCuwi5jcR41vO1K4+q9flSN+JIah2EFHA1SG9
+	 0ECvgI5YVTgS5zgvZu89Jhhipb9oxXQD1Kyt70rHfo09DKP9XcYzIhZlru9VibRdyxLS1
+	 htr/bO0UaM8UTXTmTm4enIajOvpEHjuLQV/Hu5tXvfBR0rF5ah1YL/yRX6m9OBNupWIBz
+	 lkApsGLju0/ZcjAjXExBUCYL+qJGVTcjIRlNgkrERf6Inwvwhu4dAZG4J50cmxzm6e5Oc
+	 5VkCMrrkDmeUrMZ+FgOaEHVIx7Ef9gmf7Q6UA0ozfBp2d1+ofn9l+Sqcp3gUzV80k+A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476489;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version;
+	bh=OmzTRubTnAu2LE3ZA88luIqbHMLI1ENdVnQ5aQlfvrg=;
+	b=ctfxybW8nMPYaw0B+LulpG0SIscvMdp+Y/Hk2BMIEz5r2bRyboBLfxQka/W7Bj3gX6lZ
+	 zNh6P6xEgAHBWVrQjax6xdsiwtURDMY8gYWQadvBPE9OhL2OKdIDIvZ28pbF+BudtgyxU
+	 FJrP7JGafFIHXmo5p+CYyyf/bgvsVcQPXHImYLr3oCGtHcG2uU9snB2gZI7Y4GQBFo8OJ
+	 t7irrBsfshSbewCStlIdrEtJe396QrNAGACT2I8FyR8lKV09jfuGc8nvHn8DExCSnO34p
+	 uuS7BtuLJwrJf+W0A8fxDnOMtEd25EpHIFDI/Nb6vi/HfJgkNbFSwkLnc/Z4vlTuwlA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="W9sr/JvA";
+	arc=none smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE23E606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:27:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE23E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10D5D606A31E;
+	Mon, 23 Nov 2026 23:28:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10D5D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NMcT+Z3E
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso3232928e87.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:27:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795476472; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MoBVWM6sr4hbb+ZGiVOymVzr/FP4EKE2Tc6qg23/JJ7Vn3YygQKRB+/SDB8WdIu7M2
-         OjaMDpwUdq8zpRe2M5RrLGg9sY3HZSaHw/BtIwKno+6nPEQwSUgNXnMh1YLXivVRFBtX
-         ChY3QwCazbdr5fftUwB2MFnAYs3TmWuvqVUX51/CEiTVHnmKVcAlRcdjL4RQu1qKY47S
-         47scCvD7GSapUyewc/Y+AcJgdhhPKxBDN9WJR1SJc1LzGdihJob9ZXtXCCtw5Jui6sDp
-         fvjj4FdATrloTQyARQ+9syVvmoiIfLEEpgeTTk8Z6SQy6AlRn/nxSkPU0Hqs67OY2nxg
-         X0gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
-        fh=RvDGoZpzpU5hQZornpWqcxo7rI40cks3aKkXGDDbKcY=;
-        b=griK90aVyIUPO/PgSn5PMic/YSOVdmDYt4lgHK+GrN8QhG5FqqbrnJlipBoiMm3Hgw
-         68x8yJFFE2ALIHT1PYT01uyBc6ovYwHs3az2q1dS7du3lpINg6P240n/PG+OK5MAvszT
-         +Ryt0NbpjrSft0dXN7oLQFFwg3KVMufouAdSbAB7N9wRDeLRtUYPvxymlcQEMo1CtFjc
-         CeJMLtwFiJmvBEj2Ei+d2Aj60fUMH1V3hZpwUofmHNGo5MYZLzwaxXng4gZXax/Hit1t
-         QoOj+U1+RvMlScndn4RTMaZoFUKRh4esZDMrDz8ZcheRdTMG33megy4cwRclRNG4Nwfk
-         NZEw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795476472; x=1796081272; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
-        b=NMcT+Z3EWVSltCE/coZjzMnbe3jyoET7db2g3MvPumVoKqrqYuKj3k15iFKvzhn3dw
-         /7+k8pCIZ1sKbn7QJ0qUPbq/vvZ6MWRfK6fH6UI9dj5fN2g1mM9z90CZpHy+ikqYj84k
-         Lc0CE+CB58imOUkfsfliZZAvyz6xBlT+op858RjEk+sMC74LRtS6MXIKqV1Y4Ozs4NzI
-         pfb8jZvcWbpUGt2m1xHoXkg0iFhFNxl4qqQtVvsJj9t38u6S6c9YmiTsNY6Xgzg7aJWk
-         +MHl81Rv2Ns1vgXuvZ+6aJaa9t/mSIvXLxRNSlJx9Ox48MoVDZgdNW43jMft7IifD8/q
-         cONQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795476472; x=1796081272;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=j99f7KwqCGFPCQ5UxSgKf/Q6ehYNM1RCLTZobLCSX8U=;
-        b=aLZ+CAH0K4tIv2UR5y94zCJFAjHFaupdJGyFnpdGeQ1HhvRZ6OyyRIGfLfE/3cEgnm
-         5HWB+ul16OobAd0KFVk9WcryqorQH0kl7nQK8U72SlB0+TZvCJZK+d9pgQATqvizQTbW
-         EeNbLp0+xptQOkW5Shc5CPxD2WlGXCJ0uc3gUTRPKMHDOuHeDu5RTK9301sI5oZNlXWn
-         ydkmZmmRKRtYQv4pdo+UNW9EZI2+0P9aSa5vSVJ5M25D/vjrzIQTMWYOOFqR7wE6yb8I
-         Xix4bqrGMKs4bHu5OOk+lwVg1mnX2HgRqGgYOMTmJJB+hnA0uVgd+5XKc9bgXAXBCMYF
-         yEtQ==
-X-Forwarded-Encrypted: i=1; AL+hErERfJXYks911XHFRNIbpWlC39tzox7/edvK0RtH3oLZBys3ZezRaek++RJ9pyET6Hil4tv6I2sEkbvKNzg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FFjuHtGFi1yDP4+QSjrPKg8uMKozQ1pqGw49bRDdgprk1YgaF
-	kkwBv4vbfV2MdCjW+iP32Z5g9hA5r0Pf/aGHZy+Qb94qo9fKdYO8jVYo7IWBwCGcyudj9f0SDtP
-	iKslfAXqUAceAMVOSU1Pan1zBWdWEZ60Mohii
-X-Gm-Gg: AZFdTZdROQGEUi4Wqb/paeaf1ZZBvVM+Rbn8vhTG2X/pkQZbCVd9i8A7AqiHTZtJWjS
-	vKvnV8wBmI8ku7qyrwhc9IpidwSeMSDLoHCPvGEYIZ+PVp3KRO9jNzMYf05I0ZBxQeQ8Ut9YwGM
-	f78jCUAALi5WEm9NWHXFHIxD6CqoGoiNshB+t4jSYZCfBXsmLh/hG1u8+d0koiwT52C/yYHs/Hr
-	O4TuE+s1oLRGVtM0hUzQqaA8Tbk5Iu85hgNtiM4Dz/r3uz2FW61gVi4drRoqchgvGowVREAAz8p
-	kSvhAr+M9+0DyrxXOaao/v9cHmqJtU/zOJPFK9Mlo+s298nqfxe+8TEfwcQXEkfppDUhbTIirkA
-	oOpXG7v/XLhG56bD84hYGeA4vMx/wDruum0/nlne4nYGpKntaaYms7kRKhSdoryaSd9wqVOfXXU
-	CqA8bAlkv0exgCdV1CiolsrapD/k2GevN5p85vKo61CD2xhJtFhDLb7dQWyYEo
-X-Received: by 2002:a05:6512:3041:b0:5bf:d26e:7992 with SMTP id
- 2adb3069b0e04-5c1bc81c6femr3148270e87.28.1795476471695; Mon, 23 Nov 2026
- 15:27:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=W9sr/JvA
+Received: from pps.filterd (m0528004.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJw3au2537414;
+	Mon, 23 Nov 2026 15:27:27 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=OmzTRubTnAu2LE3ZA88luIqbHMLI1ENdVnQ5a
+	Qlfvrg=; b=W9sr/JvAIs8cJ34Gr3QUpPpcZguNxMAmXtmgD+57sgPNDHaM4gqpc
+	vo2llu8v4j3c0kWOnkLSqnvP7OIyI0KFft3pTM2VdhccZIzwFkFVws8y02mx4sqa
+	p1KU7d8A5ww5AkvypNHNFxij7Y0ggbb/aBGeoq77hzeP0uI12YBIbwkXkSB5yuJ6
+	1oMwBWJu0V/fGjK/qRId4En9QfbFp48qewkCcw1178akVLqEjNc19y2S1EjsL3Lj
+	aweXwnEz/7hNCRl+YuhDEZJ0fOILvOrhJj5QoAa75kOAssPWeGRh8Ql1of05tabe
+	SHwXLNLhGdtpXau8+tzIkrkwvKptkoNeQ==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j3wth9xrv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 23 Nov 2026 15:27:27 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:fe::f072) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 23 Nov
+ 2026 23:27:26 +0000
+From: Todd Freed <toddfreed@meta.com>
+To: <netfilter-devel@vger.kernel.org>
+CC: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+        Phil Sutter <phil@nwl.cc>, Nikolay Aleksandrov <razor@blackwall.org>,
+        Ido
+ Schimmel <idosch@nvidia.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Boris Pismenny
+	<borisp@nvidia.com>,
+        Sabrina Dubroca <sd@queasysnail.net>,
+        John Fastabend
+	<john.fastabend@gmail.com>,
+        Daniel Zahka <daniel.zahka@gmail.com>,
+        Willem de
+ Bruijn <willemdebruijn.kernel@gmail.com>,
+        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=
+	<bjorn@kernel.org>,
+        <coreteam@netfilter.org>, <bridge@lists.linux.dev>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH nf-next 0/2] netfilter: don't send decrypted skbs in clear text
+Date: Mon, 23 Nov 2026 15:27:25 -0800
+Message-ID: <20261123232725.2459168-1-toddfreed@meta.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261111003111.3826942-1-toddfreed@meta.com>
+References: <20261111003111.3826942-1-toddfreed@meta.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,323 +95,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261021200841.75370-1-vishnuocv@gmail.com> <6e562b92-afbe-4c01-a703-81d55f2fdc65@app.fastmail.com>
-In-Reply-To: <6e562b92-afbe-4c01-a703-81d55f2fdc65@app.fastmail.com>
-From: Vishnu Sankar <vishnuocv@gmail.com>
-Date: Tue, 24 Nov 2026 08:27:13 +0900
-X-Gm-Features: Aa3M54qGkSlPb6AAF4Q4xv6wOZZMDja4nj8z44oGFfWi0CKH1H0cvTYAtZkZBFM
-Message-ID: <CABxCQKuRk3ZV0bRbcautcfkOWWQF1Y+_DrtHzk2+cfiuDVOVZQ@mail.gmail.com>
-Subject: Re: [PATCH] HID: lenovo: Add keyboard backlight support for the X13
- detachable folio
-To: Mark Pearson <mpearson-lenovo@squebb.ca>
-Cc: "Derek J . Clark" <derekjohn.clark@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
-	Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Vishnu Sankar <vsankar@lenovo.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5MyBTYWx0ZWRfXzlCzCYpFAcqS
+ VuKhpy7ngEj61iY6BteWZ3SJFTzOBG9htSFTUuIXZUE+Az290e+1qWLz1ZQkczOXlmEGZKGLj+K
+ xNwYZNYSJW5HViri/Gsfie5LxIZQH9s=
+X-Proofpoint-ORIG-GUID: 62SX9WHEWbHBKIvWWcJ2JNkX6d19_jle
+X-Authority-Analysis: v=2.4 cv=U9sHnuru c=1 sm=1 tr=0 ts=6b04cbdf cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=GbPsI2Ihf5RTnMjR_gZv:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
+ a=Jh7froBkOg0y2yNVTH0A:9 a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-GUID: 62SX9WHEWbHBKIvWWcJ2JNkX6d19_jle
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5MyBTYWx0ZWRfX8uyonCn6MmGI
+ 4t/NxPr2CHgFpbSFcqG6zarIqEUr78WzGpuhj4/wkvoN2OkK17SXKSMNAnyyWAkc6x6wfvOaoMd
+ ixGg8CqA/rtcM8hFcnCYrBlNkaMLlnbTBZ3GgcIahaWVUPhJW2nSwDLELfDfo/8cfjf7KjgTnSr
+ DHUqOv+ksxD8UCm2tdpNGOBPUgjyLy9tgQqqLM+4k8QjIq6IyxXRgd1hNQ02wa/FMH5a+39Gt99
+ 4x1TvUV/iFXaTLCdTFjtrdh890pUMUJtAm7mzxPAiYxARX16FSMy3zkfiMmT8jrym1AJASm8UHP
+ IbYyjJ0dbbZxx6H31pgBClcFDQFqRkP/lChaUXWaQg3jY0mNreyYPWPan8OSBp1oZ9XZWgKZ0D1
+ jKI4MHbXjzaHAqrglO5c6Z4KowagmavC82c2HLFr4ytCrGRXkEiXCc8Cl5HciZlB1CvvfG/jVr0
+ d/I/4puQFReZu03BYwA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 
-Hi Jiri, Benjamin, Derek,
+This series is superseded, please drop it.
 
-Gentle ping on this one - posted on Oct 21, and I have not had any
-feedback yet.
+1/2 netfilter: bridge: don't refragment decrypted skbs - dropped.
+It can no longer be reproduced on net/main or with socket-less psp
+series, so is no longer relevant.
 
-It still applies to the current mainline and I have
-retested on the X13 Detachable.
-Is there anything you would like changed before this can be picked up,
-or would you prefer that I resend it rebased as v3?
+2/2 netfilter: reject: don't reply to decrypted skbs - reproduces on net/main,
+so resent to nf as Fixes (also reduced to the ICMP errors),
 
-Mark - Thanks for the "Reviewed-by" tag.
+https://lore.kernel.org/netfilter-devel/20261123231835.2356740-1-toddfreed@meta.com/
 
-Thanks,
-Vishnu
-
-On Fri, Oct 30, 2026 at 10:02=E2=80=AFPM Mark Pearson <mpearson-lenovo@sque=
-bb.ca> wrote:
->
-> Thanks Vishnu,
->
-> On Wed, Oct 21, 2026, at 4:08 PM, Vishnu Sankar wrote:
-> > The keyboard backlight of the ThinkPad X13 detachable folio is reached
-> > over HID rather than through the EC, so thinkpad_acpi exposes nothing
-> > for it and userspace can neither read the level nor set it.
-> >
-> > The folio takes and reports the level over the same vendor reports this
-> > driver already uses for the Fn-lock, mute and mic-mute indicators, so
-> > register a kbd_backlight LED class device on top of them.
-> >
-> > The firmware cycles the level on Fn+Space by itself.  Report the
-> > resulting state to the LED class device instead of the keypress, which
-> > userspace would otherwise act on a second time.
-> >
-> > Tested on a ThinkPad X13 Detachable (17ef:62af), BIOS R3IET32WM.
-> >
-> > Suggested-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-> > Signed-off-by: Vishnu Sankar <vishnuocv@gmail.com>
-> > ---
-> >  drivers/hid/hid-lenovo.c | 122 ++++++++++++++++++++++++++++++++++++++-
-> >  1 file changed, 119 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/hid/hid-lenovo.c b/drivers/hid/hid-lenovo.c
-> > index 3976d7b53b14..956c26128f40 100644
-> > --- a/drivers/hid/hid-lenovo.c
-> > +++ b/drivers/hid/hid-lenovo.c
-> > @@ -24,6 +24,7 @@
-> >  /*
-> >   */
-> >
-> > +#include <linux/cleanup.h>
-> >  #include <linux/module.h>
-> >  #include <linux/sysfs.h>
-> >  #include <linux/device.h>
-> > @@ -51,6 +52,8 @@ struct lenovo_drvdata {
-> >       struct mutex led_report_mutex;
-> >       struct led_classdev led_mute;
-> >       struct led_classdev led_micmute;
-> > +     struct led_classdev led_kbd_bl;
-> > +     struct work_struct kbd_bl_sync_work;
-> >       struct work_struct fn_lock_sync_work;
-> >       struct hid_device *hdev;
-> >       int press_to_select;
-> > @@ -75,10 +78,19 @@ struct lenovo_drvdata {
-> >  #define TP10UBKBD_FN_LOCK_LED                0x54
-> >  #define TP10UBKBD_MUTE_LED           0x64
-> >  #define TP10UBKBD_MICMUTE_LED                0x74
-> > +#define TP10UBKBD_KBD_BL_LED         0xc4
-> >
-> >  #define TP10UBKBD_LED_OFF            1
-> >  #define TP10UBKBD_LED_ON             2
-> >
-> > +/* Above the levels, 0x04 selects the firmware's own automatic mode. *=
-/
-> > +#define TP10UBKBD_KBD_BL_MAX         2
-> > +
-> > +static bool lenovo_has_kbd_backlight(struct hid_device *hdev)
-> > +{
-> > +     return hdev->product =3D=3D USB_DEVICE_ID_LENOVO_X13_TAB;
-> > +}
-> > +
-> >  /* Function to report raw_events as key events*/
-> >  static inline void report_key_event(struct input_dev *input, int
-> > keycode)
-> >  {
-> > @@ -87,8 +99,8 @@ static inline void report_key_event(struct input_dev
-> > *input, int keycode)
-> >       input_sync(input);
-> >  }
-> >
-> > -static int lenovo_led_set_tp10ubkbd(struct hid_device *hdev, u8
-> > led_code,
-> > -                                 enum led_brightness value)
-> > +static int lenovo_send_led_report_tp10ubkbd(struct hid_device *hdev,
-> > u8 led_code,
-> > +                                         u8 value)
-> >  {
-> >       struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
-> >       int ret;
-> > @@ -97,7 +109,7 @@ static int lenovo_led_set_tp10ubkbd(struct
-> > hid_device *hdev, u8 led_code,
-> >
-> >       data->led_report[0] =3D TP10UBKBD_LED_OUTPUT_REPORT;
-> >       data->led_report[1] =3D led_code;
-> > -     data->led_report[2] =3D value ? TP10UBKBD_LED_ON : TP10UBKBD_LED_=
-OFF;
-> > +     data->led_report[2] =3D value;
-> >       ret =3D hid_hw_raw_request(hdev, data->led_report[0], data->led_r=
-eport,
-> > 3,
-> >                                HID_OUTPUT_REPORT, HID_REQ_SET_REPORT);
-> >       if (ret !=3D 3) {
-> > @@ -114,6 +126,33 @@ static int lenovo_led_set_tp10ubkbd(struct
-> > hid_device *hdev, u8 led_code,
-> >       return ret;
-> >  }
-> >
-> > +static int lenovo_led_set_tp10ubkbd(struct hid_device *hdev, u8
-> > led_code,
-> > +                                 enum led_brightness value)
-> > +{
-> > +     return lenovo_send_led_report_tp10ubkbd(hdev, led_code,
-> > +                     value ? TP10UBKBD_LED_ON : TP10UBKBD_LED_OFF);
-> > +}
-> > +
-> > +static int lenovo_read_led_state_tp10ubkbd(struct hid_device *hdev, u8
-> > led_code,
-> > +                                        u8 *state)
-> > +{
-> > +     struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
-> > +     int ret;
-> > +
-> > +     guard(mutex)(&data->led_report_mutex);
-> > +
-> > +     data->led_report[0] =3D led_code;
-> > +     ret =3D hid_hw_raw_request(hdev, data->led_report[0], data->led_r=
-eport,
-> > 2,
-> > +                              HID_FEATURE_REPORT, HID_REQ_GET_REPORT);
-> > +
-> > +     if (ret !=3D 2)
-> > +             return ret < 0 ? ret : -EIO;
-> > +
-> > +     *state =3D data->led_report[1];
-> > +
-> > +     return 0;
-> > +}
-> > +
-> >  static void lenovo_tp10ubkbd_sync_fn_lock(struct work_struct *work)
-> >  {
-> >       struct lenovo_drvdata *data =3D
-> > @@ -725,6 +764,7 @@ static const struct attribute_group
-> > lenovo_attr_group_cptkbd =3D {
-> >  /* Function to handle Lenovo Thinkpad TAB X12's HID raw inputs for fn
-> > keys*/
-> >  static int lenovo_raw_event_TP_X12_tab(struct hid_device *hdev, u32
-> > raw_data)
-> >  {
-> > +     struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
-> >       struct hid_input *hidinput;
-> >       struct input_dev *input =3D NULL;
-> >
-> > @@ -764,6 +804,15 @@ static int lenovo_raw_event_TP_X12_tab(struct
-> > hid_device *hdev, u32 raw_data)
-> >                       return 1;
-> >               case TP_X12_RAW_HOTKEY_FN_SPACE:
-> >                       /* Keyboard LED backlight toggle*/
-> > +                     if (data && lenovo_has_kbd_backlight(hdev)) {
-> > +                             /*
-> > +                              * The firmware has already cycled the
-> > +                              * backlight; reporting the key as well w=
-ould
-> > +                              * have userspace change the level again.
-> > +                              */
-> > +                             schedule_work(&data->kbd_bl_sync_work);
-> > +                             return 1;
-> > +                     }
-> >                       report_key_event(input, KEY_KBDILLUMTOGGLE);
-> >                       return 1;
-> >               default:
-> > @@ -1178,6 +1227,60 @@ static int lenovo_led_brightness_set(struct
-> > led_classdev *led_cdev,
-> >       return ret;
-> >  }
-> >
-> > +static int lenovo_kbd_bl_brightness_set(struct led_classdev *led_cdev,
-> > +                                     enum led_brightness value)
-> > +{
-> > +     struct hid_device *hdev =3D to_hid_device(led_cdev->dev->parent);
-> > +
-> > +     return lenovo_send_led_report_tp10ubkbd(hdev, TP10UBKBD_KBD_BL_LE=
-D,
-> > +                                             value);
-> > +}
-> > +
-> > +static enum led_brightness
-> > +lenovo_kbd_bl_brightness_get(struct led_classdev *led_cdev)
-> > +{
-> > +     struct hid_device *hdev =3D to_hid_device(led_cdev->dev->parent);
-> > +     u8 state;
-> > +
-> > +     if (lenovo_read_led_state_tp10ubkbd(hdev, TP10UBKBD_KBD_BL_LED, &=
-state))
-> > +             return led_cdev->brightness;
-> > +
-> > +     if (state > TP10UBKBD_KBD_BL_MAX)
-> > +             return led_cdev->brightness;
-> > +
-> > +     return state;
-> > +}
-> > +
-> > +/* Reading the state sleeps, so it cannot be done from the report hand=
-ler. */
-> > +static void lenovo_kbd_bl_sync(struct work_struct *work)
-> > +{
-> > +     struct lenovo_drvdata *data =3D
-> > +             container_of(work, struct lenovo_drvdata, kbd_bl_sync_wor=
-k);
-> > +     enum led_brightness value;
-> > +
-> > +     value =3D lenovo_kbd_bl_brightness_get(&data->led_kbd_bl);
-> > +     data->led_kbd_bl.brightness =3D value;
-> > +     led_classdev_notify_brightness_hw_changed(&data->led_kbd_bl, valu=
-e);
-> > +}
-> > +
-> > +static int lenovo_register_kbd_backlight(struct hid_device *hdev)
-> > +{
-> > +     struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
-> > +
-> > +     data->led_kbd_bl.name =3D devm_kasprintf(&hdev->dev, GFP_KERNEL, =
-"%s::%s",
-> > +                                            dev_name(&hdev->dev),
-> > +                                            LED_FUNCTION_KBD_BACKLIGHT=
-);
-> > +     if (!data->led_kbd_bl.name)
-> > +             return -ENOMEM;
-> > +
-> > +     data->led_kbd_bl.max_brightness =3D TP10UBKBD_KBD_BL_MAX;
-> > +     data->led_kbd_bl.brightness_set_blocking =3D lenovo_kbd_bl_bright=
-ness_set;
-> > +     data->led_kbd_bl.brightness_get =3D lenovo_kbd_bl_brightness_get;
-> > +     data->led_kbd_bl.flags =3D LED_HW_PLUGGABLE | LED_BRIGHT_HW_CHANG=
-ED;
-> > +
-> > +     return led_classdev_register(&hdev->dev, &data->led_kbd_bl);
-> > +}
-> > +
-> >  static int lenovo_register_leds(struct hid_device *hdev)
-> >  {
-> >       struct lenovo_drvdata *data =3D hid_get_drvdata(hdev);
-> > @@ -1344,6 +1447,7 @@ static int lenovo_probe_tp10ubkbd(struct hid_devi=
-ce *hdev)
-> >               return -ENOMEM;
-> >
-> >       mutex_init(&data->led_report_mutex);
-> > +     INIT_WORK(&data->kbd_bl_sync_work, lenovo_kbd_bl_sync);
-> >       INIT_WORK(&data->fn_lock_sync_work, lenovo_tp10ubkbd_sync_fn_lock=
-);
-> >       data->hdev =3D hdev;
-> >
-> > @@ -1374,7 +1478,16 @@ static int lenovo_probe_tp10ubkbd(struct
-> > hid_device *hdev)
-> >       if (ret)
-> >               goto err;
-> >
-> > +     if (lenovo_has_kbd_backlight(hdev)) {
-> > +             ret =3D lenovo_register_kbd_backlight(hdev);
-> > +             if (ret)
-> > +                     goto err_leds;
-> > +     }
-> > +
-> >       return 0;
-> > +err_leds:
-> > +     led_classdev_unregister(&data->led_micmute);
-> > +     led_classdev_unregister(&data->led_mute);
-> >  err:
-> >       sysfs_remove_group(&hdev->dev.kobj, &lenovo_attr_group_tp10ubkbd)=
-;
-> >       return ret;
-> > @@ -1477,6 +1590,9 @@ static void lenovo_remove_tp10ubkbd(struct
-> > hid_device *hdev)
-> >       if (data =3D=3D NULL)
-> >               return;
-> >
-> > +     cancel_work_sync(&data->kbd_bl_sync_work);
-> > +
-> > +     led_classdev_unregister(&data->led_kbd_bl);
-> >       led_classdev_unregister(&data->led_micmute);
-> >       led_classdev_unregister(&data->led_mute);
-> >
-> >
-> > base-commit: 0fcb05b72344f40806cbe810de8872f1698bf053
-> > --
-> > 2.56.0
->
-> Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-> Mark
-
-
-
---=20
-
-Regards,
-
-      Vishnu Sankar
+-Todd
