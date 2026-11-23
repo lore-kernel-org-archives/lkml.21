@@ -1,95 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.101
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795442205;
-	b=GHlYgLv5TbITGtrUmPeUsPwTfI9RVp5SirGO+qnXsTZUDAybYFPuV8wcmedSll1wLEnu
-	 ZiBCh6xbFBlEyVWreqIZtWpPkJjJ+hFL6b2XDfXKrohJGN9Pko0j5LVzHYDZKIF8AKmcg
-	 orecmrQBg6WgvsItmXBMGhyTGUyHiXe3+MzU92t5nPwhzdz1CzAbcRCnEWWS4nQEVcGj4
-	 gbdC/ghwiW+1aw5hkrpd1MMHSBJYMkaqAxTAu3445mDLU5w/QCu0UBd0hUBUtyYDNFsq4
-	 FLj6Dsz3dna2wgE4yukAWqdboZqSKkL/ZoqaqSm8ItfepJg2NutuDI2KpvFIskAgW7Q==
+	t=1795442206;
+	b=Cc1epw/1QwvjQJiEPCrhBizuoiJUFNIutXtCbzU8jEfTl8fatGIixaY854c+SIFENa26
+	 ce1P0guskEtijB9OburtRqdyYd3ZmzQzu8vPqFoJIVhqmfsLbW7U7yltmDK2jCCEdyDk/
+	 pxaKPGbwo5ttm0gvr1C+7cc4PLPIisjvVxJdqoPEbBCS2trcV1A2sARkKic60lIE025Qo
+	 ZqMI/zkyKmgT/IcrIFKFje8Z79os+BrS1qbiVQ13S24T2Xw7f/ngvGkhERA2wotVbI96k
+	 Fmh4PHIcpqvaYXD4PNOiz97jc2yLmQjBjkJf3Y9j4OU5Zwm8bJdskF/JPhs+ctasCOg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442205;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
-	b=uXGwFNxJLGc/lhpcTL2YYAB7HgDKSEvdlrs1fJKPqThn7grZE67KcLpiF+V1KwntjclL
-	 uohbk6bbVjFxux781okIqxdnQ7kARGBIgxGS74Qq/5J0kkwj95zJOc3oNdJ/kRv6HB25j
-	 tC6CZTTBAa23ANM6ZmVhjwZbITnHDuYE22VqWLPA8LhRGookzoR4LGpcF7cKnbu4U6a7J
-	 UoZN56oxDMTZY7DDFJGV1xqVmPUWYsjLfUz7Bw+q6ThJKmn4XE+wQzWUnHPlFrk3dN0Ge
-	 jcmA/iz/HDToyM5cYcNbZU21cTF4G9Wx2CLY6lKNOUo/PX+VtMiw+35/7pzOe/zQdBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442206;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=f+P71RNRXkO/XJ60Knn9OfDKwgA4tBC3l1UBBqmqROY=;
+	b=KSD8IYk8dTkcOsbpPm0Nu6G6LJXjspWcNqTpzdzw5c6RIhtm5V3Ge9k4jgQhQyFD5g+n
+	 ooCMwgfK4DUmGmBvfcngCbERzJvpUZ8euxpUW2sdfDiVtbfUsi/dKQUvDUiHrURsehiFu
+	 1mH8HAL0PHOCthUmWDz1jt7ffAvbHM0MK2ti7QlLVk5XOgnl2XPpKbP4PvcSERXSosL4M
+	 DG/DxRTeyLKh+kdOprFotEIZ83g0f3VzsYib3pDzwmy8ERaKuLUjLNoAmD8L/7Kxr/o8F
+	 tVxF+9V0e4BqK/15sFE7W/zmnQkq84ysmbTbr1PCHbN+RZZNAW/+1eTDCKXC/kZgAIw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N05ndNkH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
-Received: from mail-yx1-f50.google.com (mail-yx1-f50.google.com [74.125.224.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Kj8kIDiu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.101
+Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022101.outbound.protection.outlook.com [40.107.193.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7DA0606A339
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7DA0606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 819AA606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 819AA606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N05ndNkH
-Received: by mail-yx1-f50.google.com with SMTP id 956f58d0204a3-67da7d18f2fso3653432d50.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795442204; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cqOFvBh3oa1Xwp9CnO2kViPqH7o7iwsG1bv7HpLvcqZYWs8014Na9lBgVOUo2SEhX2
-         bG3kODerH5M+yOPXRdvuqalpsABBkIpztESEC0vZgfsmGRq76ZavPFAeZlkQVPoPPGX+
-         H1FfbxlrQjg4vNgsmxxHQMn/+c+RDb98CjCvdQXdgaQIZieGC79ocfozyTq6gLzTP6MO
-         tEo0SXvwzwBDQecm9ZVuV+xEc50eKCIpeXoPRpXgeqebcCoS8AhS+MDSY/QrSfd7O9xd
-         ep9s5Ydz2XPhwknGmGHZO79W7Tmf35hX/smwECpmVYdkK/Go3gp4p6ikLQKEghInD1/G
-         XtQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
-        fh=CuRqwbgI/PQZ53jSMyQQojuqjbZ8dLFO/9LcvPBaem8=;
-        b=Q4+uicXvhKIhaOMfoOkvYa4qseoQfZRGuhyChUIoz1wmrkdP6fg6IE/f40sIpWgLx9
-         Tp+BN6IMf7B71u9PJWcdpywtw08ylq1P7Lv+sUY73tpZ1r9k3jN4nXaNB8sLnzswqsqm
-         scqVoPUpHwIYLKRiTAMFfbwWvGP090nVN3FJ6TBjpEe5eo0FVNbb9neax0bcQUlwndXG
-         HHBI6EMsgt34CTYft52TzHkzTj1J0bdP6+vwGl5KGVyeXLjKMctJC98XqnI9A+SeDk/d
-         QRJOTCQv/jtQq3LfY8oRMRzxInA42uLe31H3uxlJnPS9WXk1ZmELmhucUX5oAs+1Y+hX
-         ImBA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795442204; x=1796047004; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
-        b=N05ndNkHQknyOMHIsNDSQqDEHwWvBE34ol5L+NvHcll/S/4WXaj++2GoPLo1p0IC8z
-         gX/I3PJUYDJrIBjomKK5he6tDcr+7qNfzTw/fVNK6iyw7MXQHR+h9Lu0yzCnVSjbFqTX
-         vT1RZlgf8szD33EB47X817ciOpxJuCTCUyTPbW6oS820UTQzA35wsGhglddcxYJMPaum
-         cl03V+nb6AAHXAaSOWdd1M0KIH/jBpnDLiyY2KhsPK02Y/3kSKsrWoU+xGzuuLNoyb8B
-         +PPPLQCj+/5OLf25/GpHP22dca45YRXd+cHd6qmSOgxOBJJW0GdT4HuEbz1UWoAlgVBz
-         Qe5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795442204; x=1796047004;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
-        b=rtOLg5Ek4boZ9kc5Qxhgtd81Of1Bw7cu6QPpS0aKbuZEaVxFXYEnRkHOpYz+YbB9Ik
-         nUSe+ZSm2ANeU6k88aiENcFwZMC8zS8ih0RpaakltOgXLr5KoXrDaZRM4huuQhPv9zOU
-         /YFMFABoTQEP5X6fleCXq5n6Etcup8qsUDK9ak1jLcZcdp2OPtASqDUPKl3bH1vDJYQb
-         V/TnwMPqsdKY0jX6Muy+9LmvxLkBybDRmnLrct3MwfytmYJX2+37iEmY7gaYp53ZlrSY
-         Nr/6Ri0vQI3hV3h0lDYYK4DTHkAMHDedfOmDnJFsb9emHDjphTp9tUAoIw93Q2CNSaMn
-         iF4w==
-X-Gm-Message-State: APuU4Z+mvYRl/uQ6Qlb4zaR9plQGcZA9AnSNd6TDhMA9pfN/EuCVqS6d
-	aZDEDKZ7z/5duD6IRxUC8ao1ufGp3ChUXEcF3WgpXwcfBge/jywu8D0kpMoRjRRItsTexMtprq4
-	sBNzQttEF5zD2Z2EMYZgsuTzPdeO6Dmzr8Ex/ek8=
-X-Gm-Gg: AZFdTZfPD+MJIuUa9+ySfO5tfeFiOLiUecrJvgEfWOU1JJA0XOyjDzjbZBlxzrFcqeO
-	OslVR8jEjHDQTHtgPlrIe1dZpeJdEslmavxGQFSHP1dbM24qUjbQdeQkoa8iKSAZbS+ijgApQf5
-	I1jzeqMxwEGKlwa1+ffrgboEGAoLTYJj42opxPpdTdWF0CWsJnza4WWWywFEMomCpomGpVCwnlK
-	ntngmtNWIdg5hCtwIEra1tPxopUcdu6f71fZeHFHJ65OIMzzTvos6R3O+O/qPdl4NPcsed+KXOO
-	ze1j/VXDofjdhipaZZxHAVuC3SEKwviyn2jz1rWzh/obXTnfXrmpw6xlG1Ia5ABIVgH80vmqC1a
-	/+B6Trh1tTSnvBQ7uDN0BKSqwLviH++zIXaWN
-X-Received: by 2002:a05:690e:4009:b0:67d:c045:d0bb with SMTP id
- 956f58d0204a3-67dec2bb682mr5299099d50.5.1795442203710; Mon, 23 Nov 2026
- 05:56:43 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Kj8kIDiu
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m6/XCxAH/3B4z8z03XISuB1DWCzKiGkCYSoYIa8kVHzT1nwscICnNQKrV9Lxrp0UsbVxmg9vGcegsyuZAepQqnmGp89+nGX9DvKqtvHzMmuX9HMDm7KeK31vaO13rgLNBulpyvD6k7mbVEMFDCwm7xzOf3hylQ2FRslBNPJU3B8OiBImMO5mZPgYTrmzzzkP2j/aKCXBv+UQBCENrxXRyu0C9Hh5kwHYW0GxcoUAikhcRrhfjz6w4+M9QPFfhnfxZX2XlaPdX0pttwqZfcMqUcq9vFuepNZCaLx8JXMMERkremtHoiF1fTpM1pKnC+VkZG2tpI3IpDy2JQ4SJOreYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f+P71RNRXkO/XJ60Knn9OfDKwgA4tBC3l1UBBqmqROY=;
+ b=vww4XpCy5kTksNoCYmbBYMrbJvNrT1cXFbjHRxHbkw9N2K0FaqlkaGpwxXW6OFvb6m4rN79V6P+hblUZqfgBHJV3AywmFVy3UunRayDwWcTpmYg4f7ir3y/Ftssbv4yAbDWypRuvRiIDlQiHJHIV8ZXB///m0Dld5Kot2Z/vWKMv2jGhVNs9wDEgTSJfkxJUkMebhBziX8bCSMTZb/K2nzJ/P+GwMV7jYd2APVoBktDyMmecgZ2ldq+/Qw8PIfRmhBzP4Flp883tTz4N4TLmB5KR5DlfURzJOenwpyKWLNIZ/N9mMPagOaiq+FxRRUvLMfPwBJEb+v2KLoqxtNrmXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f+P71RNRXkO/XJ60Knn9OfDKwgA4tBC3l1UBBqmqROY=;
+ b=Kj8kIDiuIAb/8pdarvI21QDOMk9PubXiN1DSURnC1G9Ctm18hNabzgGBQATu7Rp+xf/Ej2B0xIQbgKmmvTR8RmR4k4xEDYLw9G1yZ5mYyco4Q6R2X2S8fnDX1utfLSYDZrTGjB4NIXSfF85vqWgRFYre9rwCt4bDNjdATyq6hP0IJBWRe0UIOuhfJLt3MPRHW3JpN1ss6oU/YXwSiEkdQyJAyB1+BFteDSZyksZ7IbZ/DLsul173W53Nb878L2TN68+3ww/uWN8uwc1yJjsLaYizBn/Zk9rXovQ0jRO1QmTq6CJSKoRjYGbdTVu4Slhm8ZPLN7MjeeoXkmiw2yGhOw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YQXPR01MB5199.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:2f::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 13:56:40 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 13:56:39 +0000
+Message-ID: <08e953d4-9960-4855-a1fb-1a6127b993e5@efficios.com>
+Date: Mon, 23 Nov 2026 08:56:38 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 03/40] sched/deadline: Record the root domain holding
+ a task's bandwidth
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+ <1d10d1a2f94b18ec7e51c1c57833a34c2481c092.1795207232.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-226154@kernel.org>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <sashiko-outbox-226154@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQBPR0101CA0130.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:5::33) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,141 +100,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Topaz Tatiana <topaz.tatiana@gmail.com>
-Date: Mon, 23 Nov 2026 16:56:32 +0300
-X-Gm-Features: Aa3M54oaOANjxm60lcXKWTf95uEoy0bGNPmQx6GVjt7EoZcN70llMH67uYSpuw8
-Message-ID: <CAOhmvYWzq8MOg2C=kkKU5oXSquxXOjCxQNd=ZS0rEt92HxKZgg@mail.gmail.com>
-Subject: [REGRESSION] 6.12.117: soft lockup in sched_balance_softirq /
- _nohz_idle_balance on KVM guest without NUMA
-To: linux-kernel@vger.kernel.org
-Cc: mingo@redhat.com, peterz@infradead.org, vincent.guittot@linaro.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQXPR01MB5199:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac6d1ba9-8cf4-4564-d705-08df496998fc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261022105027099003|261026121527099003|261026140227099003|261028144727099003|56012099006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	v9C+PfNcbPLytStdiMM2cJqfzS7kq9lC4cvCRbyF7v/avaE3ENhiIwgWgkTwTzBfUoOFb/ah8Ij8EeaGmzF2dsFWYv7+ZNdwu7FtUzyRHIptuyLHQV0BrOV6FPXr0aQCczi9Tsf7hdNSxiSq7LO6Gm/Gdy8RXq8nW3G346SujuV7POfxaz8xVo35Oq+t1ypKOyrG/H8ccXCf2VupGuf7cBrtpVN0nYpWRMZ6qNIPDwhaXFtOSKR9m2BAscPFBTWxHfokyCVLnI2cCmZBLcUyX3FldMnF5HEhiJJbanCLmIkTfh125I12zIvlFHkaFZ1Slcq6eHbVF2r1R5ukA/keHSs8/Hf4EXRbEvdkV0PmMzmbAHPV+oTnUNrbAan5rZoKHuTHRdOGKCN1jQcDUTR3JSkODeV5amsBu1mGUjxPv4nPOP5cdvyPJY3RaMviHhSmPwu+0oa/mM12UfKcqchRDilvCoRriQycAaakNL3HQKHDBjlXiFcGvQDOcwO0XwIJO5ZJH+kFCljvPMO7x2N59Z2U01NqusPqwHUs2VdZ6+3/skEicmeJ/BN/QSOvvUhT5iG4pfA+XUkmAZ3spFqgy3LoBDk3UIvt7dvTpLN75mo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?cHhLS3c4d0o5N1c0d1p5aERvcFgzK3ArK2RPNnVYWlFxamJkQXNFeHEwVmlF?=
+ =?utf-8?B?VFIxS3NQRzcvS1dlMElvaGtJQjEvam8zZzA4cHNmVlQ1ek5QSTFjUnVTT3E3?=
+ =?utf-8?B?S2N0MHlBQTVvN2lBNERVNE5Eb3MrK05ib1A0NVhUcE54RWlyL2NzZ0U3S0c5?=
+ =?utf-8?B?ZDZXSDFzYmJReldHM0tJanlHL3NpWHAzOGltdFhXRXdlcVlIcmdTNW1mWno4?=
+ =?utf-8?B?UVRkdlRWZVZQR2VxQjZTQytqR2cvMnlDUktiNlB6amNiZVRkdXJuWkdRZ2pN?=
+ =?utf-8?B?NjZDYWtlL294QzlrZTdIalFQZFQxenhxQXZMQ1hHWnRwR3IzVWM4ZStsTG1K?=
+ =?utf-8?B?b3Z1SWVsRXJPbFA2ZjJqN1FJa1VNcGFSV0xEZzJUWTRxaWQ4WGp6RklPbytI?=
+ =?utf-8?B?QkhDYUpYMkwyem1CK3dZTkdQVUgwNXAxbDBDWGdtelhtbm5QQTBrZjVzYUpY?=
+ =?utf-8?B?Skw4OUg1M1FFeXhTOTJHd1FQS3ZpMFh6RWtsR2cxQVRKSkJWRlRCUC9SaW9h?=
+ =?utf-8?B?ODdGU0t6RW1RejNYU3VnVEg4cEw3STdJVHZTbXRaTHJTNVFXWGZwTVh0dHhw?=
+ =?utf-8?B?bTFya1VmVDBOdjRwU0ZtaktMNUZtM2hnOHM3NkovWDlOcXlkY3cvRE1aSU5Z?=
+ =?utf-8?B?ZFVHUERXcU5MR0kvTW03Q3FMSzJWblJqZW5wK3d4NERoSVdYUUE5VmFyVjR3?=
+ =?utf-8?B?TnJYOTVPclJFdVFSOHE1Rm9QMUZmV015ZFI4WVBRdHNLZzFvQ0pYMzRnZkNu?=
+ =?utf-8?B?WDB5N2Y3c0hmL2ZLSWQrdGNOR1ZyNFE0S040dW5pcGVXanE4NE5uY2RjZW5T?=
+ =?utf-8?B?TVM0ZUtaM2JkWldjZDJjdGU0NTRXUit5OWlhNWI2TEQ3c2ViOGNDdCt5aTBS?=
+ =?utf-8?B?M0w1Yk0ycXRMY1RzcWhsdVhZaGZPOFRRamc3SWZyUE1aNDhMM3llTnFIaGtZ?=
+ =?utf-8?B?SlVvRlZvbnQ0aCtYWS8wVzlZRm1temh5MGJYL3ptNWlpUEE0dUcrSmdMbUtR?=
+ =?utf-8?B?OUJYRDczN2lMM0k1bXhjUGR3TjdYREpUK20vN1I1aWc0MndYNU5MNjUzRFlU?=
+ =?utf-8?B?d1FqM2pFNFp0OVRBRzVQUGF3QU5KODlVOWdMWGZ4Y2ZGcWdLQStIOUU3ZGlM?=
+ =?utf-8?B?cmV1L0xveTlXUFBMeTFuSW81WXBkZUlGaURoK1N5NEJuV29JQWFYRnhxYkZ4?=
+ =?utf-8?B?WllTQmc2RW14WW9jL0FVTmtYRTVQWFFFVmgvUEsrQTVpdHhjK3g0Q2JOaXFp?=
+ =?utf-8?B?NkN5UEtHVWxkNUxpL3EyWXprT3RmWnRmZUlWYXBGTVJJR1I0Um9nd1NxaXA3?=
+ =?utf-8?B?TGEzcDVRNkxaUGxrbUtvc1VJUUlYeGQ1Sm5lNm5vZkZma2ZCRlBrWlFsa2cr?=
+ =?utf-8?B?ejZ3Q0VNLzlpdDBIK3l2d0hsbFlGU005OFFRNkR5Mi9yRWtpSllWd1liQmMz?=
+ =?utf-8?B?MGNZT0lpOTliQlBJcGVZaUNDUlUxdWdqZThDLzkrajlaOGRQWWI4RzEwQVZD?=
+ =?utf-8?B?d1d4TitEMjZLTERRR1Y5MkQ4RGNmQmVjYXpGUHpQNk9hdFB1anUzYS95cHA3?=
+ =?utf-8?B?YmF2S0Zzcnp6Z0t2R253OEJkdm9KK2JUNHJKNm44TDBBd3lnWG1PVm5QanUx?=
+ =?utf-8?B?Ynk3NVpzNThUTCtqbkRZQ1gyQm1LNGxZcXpPdzF2aVhlMDYvTmpoMzZ0U2Zx?=
+ =?utf-8?B?V3B4YWVNbVdUdzNtQnJnQXZPcEdKaHlPWk1TVDhnY0Y1NXM2Z2U3akdaaUMv?=
+ =?utf-8?B?aFhQNzVyOUJtOUJLV0J0YjNPbm93aU9HbWNIRlhidTlMN3dEeFJxQUdPZlBt?=
+ =?utf-8?B?RlRaRFd3MWxlZXBnL0RWVzB5N2c5TjdsZTFKU0hMS1NqZjM3Q0s0YkRjekFa?=
+ =?utf-8?B?eVlzT2l2c3MwNmFTMnZManZ5NGhrdTU0eUtkMzRCK3VQK3BMZk5zdVc0amtw?=
+ =?utf-8?B?d2crdGpNSGxqcmF1b2V0ejRrZk5aL3hVVWNXYkRaeVVmTjhiKzZ4N1NoUkFw?=
+ =?utf-8?B?aGZweFVScWZNS2tMN0tmSVVadU1ob3pYS1NUN1JkY05pZFdRWXNOZWZXdUd6?=
+ =?utf-8?B?aHc5QVE1QkZzUzdaMW1VaHUvVk5VZFVaQWZnU1FCaTBvWXdUSGIwSWZYRDU3?=
+ =?utf-8?B?eUxZMzJEa3MrN3BPNDlBSzBhdWJKajUwNWlIWjJoV05OYjE1Sk9OMzdmcFUz?=
+ =?utf-8?B?Nzl6TmZzT2syeWo2T2tld1l5VGp1b0k5K1loUG1iY2dqeEN3ekJHY29ib2tI?=
+ =?utf-8?B?SDNOOHlEL3NOZmJaSHcxV2src1RoZ0hxUFpHWWJQZGtHeE91LzNRemlBT0xq?=
+ =?utf-8?B?M05SZUpoTXNadkFjK3E0ZkVuVDlib3Q4UUN4eXZuVFR6OUJ3RDZLY1lwazZK?=
+ =?utf-8?Q?YL6ycrxz3NMI7V7U=3D?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac6d1ba9-8cf4-4564-d705-08df496998fc
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 13:56:39.7926
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FZdqFltQUPLi0kZs4RIIOMFjInB3A1AOgrRk3rPXb+QjCbaBE48NfW7bylMRGfAXuvximIjcQOmo/gWQZ3JZuiCbsfPyhDZn7JK2F9vvS4E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5199
 
-Hi all, after upgrading to kernel 6.12.117+deb12-amd64 (Debian), we
-are observing
-massive soft lockups in the scheduler on a KVM guest. The previous kernel
-version worked without any issues.
+> Can dl_task_admit_cpu() return an offline CPU when p is asleep on a CPU
+> that went offline?
 
-Environment:
-- Virtualization: kvm (QEMU Standard PC)
-- NUMA: No NUMA configuration found (Faking a node)
-- CPU: 200 vCPUs, 4 sockets, 1 thread per core (see lscpu below)
-- uname: Linux dev-kulet2 6.12.117+deb12-amd64 #1 SMP PREEMPT_DYNAMIC
-Debian 6.12.117-1~deb12u1 (2026-11-14) x86_64 GNU/Linux
-- Cmdline: BOOT_IMAGE=/vmlinuz-6.12.117+deb12-amd64
-root=/dev/mapper/vg1-lv--root ro ipv6.disable=1 quiet
-- watchdog_thresh: 10
-- nohz_full: (null) (NOHZ_FULL is not used)
+Yes. In the top cpuset, or without cpusets, the offline does not remove
+the CPU from cpus_mask. v11 will also fall back to an active CPU of the
+mask when task_cpu() is not active. A new case,
+hotplug_asleep_setattr, will make a deadline task of a task asleep on a
+CPU that went offline. Without the fix, sched_setattr() fails with
+EBUSY. v7.4-rc2 charges the root domain of task_cpu() too.
 
-Symptoms:
-CPUs are 99% idle, memory is free (419 GiB free), and load average is low.
-However, the kernel watchdog triggers on swapper/N and kworker/N with delays
-of 60-97 seconds. The stack traces point directly to the scheduler functions:
-sched_balance_softirq, sched_balance_update_blocked_averages, and
-_nohz_idle_balance.
+> When p->dl.dl_bw is 0 and p was moved to another cpuset partition while
+> asleep, doesn't task_cpu(p) still point to the old root domain that p left?
 
-Trace 1 (_nohz_idle_balance):
-[Mon Nov 23 11:48:17 2026]  _nohz_idle_balance.isra.0+0x31a/0x3c0
-[Mon Nov 23 11:48:17 2026]  do_idle+0x31/0x2a0
-[Mon Nov 23 11:48:17 2026]  cpu_startup_entry+0x29/0x30
-[Mon Nov 23 11:48:17 2026]  start_secondary+0x11e/0x140
-[Mon Nov 23 11:48:17 2026]  common_startup_64+0x13e/0x141
-[Mon Nov 23 11:48:17 2026]  </TASK>
-[Mon Nov 23 11:48:17 2026] watchdog: BUG: soft lockup - CPU#6 stuck
-for 50s! [swapper/6:0]
-[Mon Nov 23 11:48:17 2026] CPU: 6 UID: 0 PID: 0 Comm: swapper/6
-Tainted: G             L     6.12.117+deb12-amd64 #1  Debian
-6.12.117-1~deb12u1
-[Mon Nov 23 11:48:17 2026] Tainted: [L]=SOFTLOCKUP
-[Mon Nov 23 11:48:17 2026] Hardware name: QEMU Standard PC (i440FX +
-PIIX, 1996), BIOS rel-1.16.2-0-gea1b7a073390-prebuilt.qemu.org
-04/01/2014
-[Mon Nov 23 11:48:17 2026] RIP:
-0010:sched_balance_update_blocked_averages+0x62b/0x7b0
-[Mon Nov 23 11:48:17 2026] Code: 74 07 c7 41 20 00 00 00 00 45 84 f6
-0f 85 b9 00 00 00 48 89 cf e8 65 3b ff ff 48 f7 04 24 00 02 00 00 74
-06 fb 0f 1f 44 00 00 <48> 83 c4 48 5b 41 5c 41 5d 41 5e 41 5f 5d e9 7d
-28 de 00 80 3d 6d
-[Mon Nov 23 11:48:17 2026] RSP: 0018:ff7601b9c00f3df8 EFLAGS: 00000206
-[Mon Nov 23 11:48:17 2026] RAX: 0000000000000001 RBX: 0000000000000000
-RCX: ff26d7d979bb6040
-[Mon Nov 23 11:48:17 2026] RDX: 0000000000000007 RSI: 0000000000000000
-RDI: ff26d7d979bb6040
-[Mon Nov 23 11:48:17 2026] RBP: ff7601b9c00f3e68 R08: 0000000000000434
-R09: 0000000000000003
-[Mon Nov 23 11:48:17 2026] R10: 000000000000000a R11: 0000000000000000
-R12: 0000000000000000
-[Mon Nov 23 11:48:17 2026] R13: ff26d7d979bb6950 R14: 0000000000000001
-R15: ff26d7d979bb6a98
-[Mon Nov 23 11:48:17 2026] FS:  0000000000000000(0000)
-GS:ff26d7d979b00000(0000) knlGS:0000000000000000
-[Mon Nov 23 11:48:17 2026] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[Mon Nov 23 11:48:17 2026] CR2: 00007f32c305ce00 CR3: 0000000106884004
-CR4: 0000000000771ef0
-[Mon Nov 23 11:48:17 2026] PKRU: 55555554
-[Mon Nov 23 11:48:17 2026] Call Trace:
-[Mon Nov 23 11:48:17 2026]  <TASK>
+Yes, by reading. v11 will check such a task against dl_task_admit_cpu(),
+as sched_setattr() does: the CPU the task runs on once it wakes. It
+needs a bandwidth that rounds to 0, so no case will test it.
 
-Trace 2 (sched_balance_update_blocked_averages):
-[Mon Nov 23 11:48:17 2026] RIP:
-0010:sched_balance_update_blocked_averages+0x62b/0x7b0
-[Mon Nov 23 11:48:17 2026] Code: 74 07 c7 41 20 00 00 00 00 45 84 f6
-0f 85 b9 00 00 00 48 89 cf e8 65 3b ff ff 48 f7 04 24 00 02 00 00 74
-06 fb 0f 1f 44 00 00 <48> 83 c4 48 5b 41 5c 41 5d 41 5e 41 5f 5d e9 7d
-28 de 00 80 3d 6d
-[Mon Nov 23 11:48:17 2026] RSP: 0018:ff7601b9c0663df8 EFLAGS: 00000206
-[Mon Nov 23 11:48:17 2026] RAX: 0000000000000001 RBX: 0000000000000000
-RCX: ff26d7d97f2b6040
-[Mon Nov 23 11:48:17 2026] RDX: 00000000000000b5 RSI: 0000000000000000
-RDI: ff26d7d97f2b6040
-[Mon Nov 23 11:48:17 2026] RBP: ff7601b9c0663e68 R08: 0000000000000015
-R09: 0000000000000001
-[Mon Nov 23 11:48:17 2026] R10: 000000000000b944 R11: 000000000000cef5
-R12: 0000000000000000
-[Mon Nov 23 11:48:17 2026] R13: ff26d7d97f2b6950 R14: 0000000000000001
-R15: ff26d7d97f2b6a98
-[Mon Nov 23 11:48:17 2026] FS:  0000000000000000(0000)
-GS:ff26d7d97f200000(0000) knlGS:0000000000000000
-[Mon Nov 23 11:48:17 2026] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[Mon Nov 23 11:48:17 2026] CR2: 00007f2fca0ccccc CR3: 00000001a8058002
-CR4: 0000000000771ef0
-[Mon Nov 23 11:48:17 2026] PKRU: 55555554
-[Mon Nov 23 11:48:17 2026] Call Trace:
-[Mon Nov 23 11:48:17 2026]  <TASK>
-[Mon Nov 23 11:48:17 2026]  ? srso_alias_return_thunk+0x5/0xfbef5
-[Mon Nov 23 11:48:17 2026]  ? srso_alias_return_thunk+0x5/0xfbef5
-[Mon Nov 23 11:48:17 2026]  ? finish_task_switch.isra.0+0x97/0x2f0
-[Mon Nov 23 11:48:17 2026]  _nohz_idle_balance.isra.0+0x31a/0x3c0
-[Mon Nov 23 11:48:17 2026]  do_idle+0x31/0x2a0
-[Mon Nov 23 11:48:17 2026]  cpu_startup_entry+0x29/0x30
-[Mon Nov 23 11:48:17 2026]  start_secondary+0x11e/0x140
-[Mon Nov 23 11:48:17 2026]  common_startup_64+0x13e/0x141
-[Mon Nov 23 11:48:17 2026]  </TASK>
-[Mon Nov 23 11:48:17 2026] watchdog: BUG: soft lockup - CPU#6 stuck
-for 50s! [swapper/6:0]
+Thanks,
 
-CPU Topology (lscpu -e, first 30 lines out of 200):
-CPU NODE SOCKET CORE L1d:L1i:L2:L3   ONLINE
-  0    0      0    0 0:0:0:0            yes
-  1    0      0    1 1:1:1:0            yes
-  2    0      0    2 2:2:2:0            yes
-  3    0      0    3 3:3:3:0            yes
-  4    0      0    4 4:4:4:0            yes
-  5    0      0    5 5:5:5:0            yes
-  6    0      0    6 6:6:6:0            yes
-  7    0      0    7 7:7:7:0            yes
-  8    0      0    8 8:8:8:0            yes
-  9    0      0    9 9:9:9:0            yes
- 10    0      0   10 10:10:10:0         yes
-...
-149    0      2  149 177:177:177:128    yes
-150    0      3  150 192:192:192:192    yes
-...
-199    0      3  199 241:241:241:192    yes
+Mathieu
 
-This looks like a regression in NOHZ idle balancing for large KVM systems
-without NUMA. Are there any known fixes for this in the 6.12 stable branch
-or mainline?
-
-Best regards, Tatiana Topaz
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
