@@ -1,61 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427610;
-	b=TBb5T6ZBFCzHYxwGgPlFRwngv9KBZeL0gAgTY+WR23Bh8rXtEZ1C0aTK0qAuEqkrfD8J
-	 EadXp9pFiIpXJGj9izJSoXqb+5iNPfEW8F4bA/tVWFr1vIl9xo68YitTE08jfdFTuPZna
-	 THnBUO/ifvFBw8vC4vywFQfR1sNZMQj5rKrW2vYw85wVmVxog1+Se7gzV36I6vb+COOle
-	 z01kIO0fs8tNTDOrqd8YAV65CovK/q0tXYCYAg7uosZ9xDzOfecXwC+OIOK0Q6O9kqPaT
-	 38extO0ykq/Vty9+RfiOnWTfR4MS/tgtGonSHrBiDP98oH9yH/9ZIYH7U11R0kDM4kA==
+	t=1795427613;
+	b=B9a/JezXKuqmMNcbhSLNIOOKz4dGAs5KBam7z3z5jFu3HYNEad0AjDGdgkqA4y8L7i8y
+	 tMCP+QVa4z7pz352hXCcjgtfC/Ax9IzsXRfxF1b/lc6LwHmmapMnxjMcGdVssX6Eby5HK
+	 UOCsKfb0EZDWw1URqJA3qnoWv8tZjhoBCSLTUMqq9e3Eg0j72Q3wlFXPPHuyc1QHJeN/p
+	 soT3xBQ650KDmNAzdeD+KNgu8eY0hM2FAmdczLldSqKrtxRlhoHglP4n2WDt9Xl9t0ANl
+	 qHzGGWUHTyfUaxkBRgCRyq0pa3e49h4YhprB+A+LjLGLwzT0C5jlFeFmtZWBRjnV4wA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427610;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=jwWnh8RkLdLXa8dXxPcL5S74muNIqLdmK/Zo0hTb3J4=;
-	b=2uDmUNwvXCSGm8q3gJLwbsdRBzpDuse7RsEzxBsF2744c5zy/YHAPB309UjifG0NmQeV
-	 7af+lKhXCE2EE5THr4aDIkr9XgOqaJX6u9OrIXMBsUKlns6TDdJApJ2OD3SsLdn/sBjf7
-	 +8Vblouz9AtSKWmjEy6AloTrFCTQjTaUSfsm/UEvU9QgIuBDcNj0eRqOdZaUCgDjQEXp+
-	 BoqBw/g+2dAJ2dxWU7G6T20pSsgdYDMCKzHi/47t++IWAIZYCRh/PSx/1bmKoVbF3xTPO
-	 5sR3xplUDz4AspDoRhJKzIcpRkER4yCV3FH+K75JW/aCc9MIqPyzh6rPrQ2zSpL216A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427613;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Spamd-Result:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id;
+	bh=+oVyYgl6b2gLIr7f27UmkTo1zRzv9x8FeUby/c3kXZA=;
+	b=Yxt1wRK8pU4ACvYAh9rQlCSoxJMDyTwBY3cc3CFgjuUeM3h613ITBNlzg9zDqm9mzVJl
+	 7emiUOOT55Zh95jn21y9oHe3SsnujT2gBKFEwxIy7B/LW6JCGj79Xh+pDUhYR5VrnowYJ
+	 aL7wBXrAYFxah9WzHj2HU4OXFQtotV7/Dpv9tjQuoBFZHulAGj1MXIkTox13P7V2LQVgV
+	 1a8/x1mKxk1TOsHMyRZ0tVcdG3Acs7yvexSs54qZoJvlfqKHCjhCshVgmHKA1CQehcpfk
+	 2353l93Gt9FzpKPPz4XAyPXxBKbiiaNnOzT7cmzCnMPBFj5EajObIf+c3lgDIkeFtyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.ustc.edu.cn;
-	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=avCo+KQ0;
-	arc=none smtp.remote-ip=202.38.64.46
-Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EF94E606A333;
-	Mon, 23 Nov 2026 09:53:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF94E606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="Q+b9A/E6";
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=5pdxL2dz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="Q+b9A/E6";
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=5pdxL2dz;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EC14606A335;
+	Mon, 23 Nov 2026 09:53:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EC14606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=avCo+KQ0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=jwWnh8RkLdLXa8dXxPcL5S74muNIqLdmK/
-	Zo0hTb3J4=; b=avCo+KQ0sswPOdyAIXLk7t1PpLV2OQSqBzhin5OnVeD9bdLe5Y
-	g5DCmaZlNipGo6K4qhg2A5LaWN44PEzfn4pZU2UJpfdJ1PidebysXJhLOFKyPDZE
-	GAkL40X3h6/XoXIW9SHjDHF0MSrZuXfa/Uls4vaWl+o/u9c/OhG0GiUhM=
-Received: from xuqianhui.tail7a2807.ts.net (unknown [114.214.185.179])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgC3KzAGDQRrr9vrAA--.766S5;
-	Mon, 23 Nov 2026 17:53:18 +0800 (CST)
-From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-To: Thinh.Nguyen@synopsys.com
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	gregkh@linuxfoundation.org,
-	devicetree@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v12 3/3] usb: dwc3: select the shared HS data bus with a mux controller
-Date: Mon, 23 Nov 2026 17:53:09 +0800
-Message-ID: <20261123095310.154352-4-xiaqinghuan@mail.ustc.edu.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123095310.154352-1-xiaqinghuan@mail.ustc.edu.cn>
-References: <20261123095310.154352-1-xiaqinghuan@mail.ustc.edu.cn>
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Q+b9A/E6;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=5pdxL2dz;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Q+b9A/E6;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=5pdxL2dz
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 49A891F385;
+	Mon, 23 Nov 2026 09:53:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795427610; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+oVyYgl6b2gLIr7f27UmkTo1zRzv9x8FeUby/c3kXZA=;
+	b=Q+b9A/E6TjtjdB34W92HlMan6o4IV68KzHiffQ0+Emxp7zXtbFIREt5032lteXIylVmN7/
+	UEF4UZ2amQVIZhR8b3yT0G5souxWc7E+QeISXvZ8/DFUFE+ti/Qq2Jg+MQsfJVMEEfEzjl
+	+JiYqOQJdhfKbRvli3tg9f9Nb4JdQ6A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795427610;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+oVyYgl6b2gLIr7f27UmkTo1zRzv9x8FeUby/c3kXZA=;
+	b=5pdxL2dzRJDHaTwYQk8wGOat9amdD9Pw+eeVsq5je4NQsjb306NFS7op/QmpNwGAd5ftyF
+	vDOWI0vtTuQA5ICg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="Q+b9A/E6";
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=5pdxL2dz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795427610; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+oVyYgl6b2gLIr7f27UmkTo1zRzv9x8FeUby/c3kXZA=;
+	b=Q+b9A/E6TjtjdB34W92HlMan6o4IV68KzHiffQ0+Emxp7zXtbFIREt5032lteXIylVmN7/
+	UEF4UZ2amQVIZhR8b3yT0G5souxWc7E+QeISXvZ8/DFUFE+ti/Qq2Jg+MQsfJVMEEfEzjl
+	+JiYqOQJdhfKbRvli3tg9f9Nb4JdQ6A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795427610;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+oVyYgl6b2gLIr7f27UmkTo1zRzv9x8FeUby/c3kXZA=;
+	b=5pdxL2dzRJDHaTwYQk8wGOat9amdD9Pw+eeVsq5je4NQsjb306NFS7op/QmpNwGAd5ftyF
+	vDOWI0vtTuQA5ICg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 20B581352B;
+	Mon, 23 Nov 2026 09:53:30 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 7i+MOxkNBGuAPAAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 23 Nov 2026 09:53:30 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id A93CB27632; Mon, 23 Nov 2026 10:53:29 +0100 (CET)
+Date: Mon, 23 Nov 2026 10:53:29 +0100
+From: Jan Kara <jack@suse.cz>
+To: Amir Goldstein <amir73il@gmail.com>
+Cc: Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
+	Jake Edge <jake@lwn.net>
+Subject: Re: [PATCH v5 2/5] fsnotify: update children flags only when adding
+ mask bits
+Message-ID: <4gx6ksbwjwsv3roi4m4dcq56nkogfj6zmkwielb4v3epb7irbi@fevnoqepuqns>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+ <20261119025942.2848130-3-neilb@ownmail.net>
+ <mk7u4brorzgbyol7x4nyolufk3s3piqwqd5hnya3nhoq43d5ui@x5sdqeyrhde6>
+ <CAOQ4uxgEqDiw2=dCM_PV9kObBboCmt7ohnHehKR8cgKyvLTPUw@mail.gmail.com>
+ <CAOQ4uxjpLOmESHfkTRGziY-MuFvhD5B_Ay3dxZLLbsr2KafUvw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,727 +123,427 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgC3KzAGDQRrr9vrAA--.766S5
-X-Coremail-Antispam: 1UD129KBjvAXoWfZF45tr4xZrWrJryxWr4DArb_yoW8Kw1fCo
-	WfX3ykZw48KryrWrykCFn7Jry8Za92krW7Ar1rZrsrZF18XrWFg3srGF4jqFW3JF4avr15
-	XayxAr4FgFWIyr95n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUO87k0a2IF6w4kM7kC6x804xWl14x267AKxVWrJVCq3wAFc2x0
-	x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87
-	I2jVAFwI0_JrWl82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY
-	1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20x
-	vEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280
-	aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzV
-	Aqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S
-	6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1DMxkIec
-	xEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02
-	F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GF
-	ylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r
-	1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07br
-	pBhUUUUU=
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREAB2sDQttJXQBTsh
+In-Reply-To: <CAOQ4uxjpLOmESHfkTRGziY-MuFvhD5B_Ay3dxZLLbsr2KafUvw@mail.gmail.com>
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_TO(0.00)[gmail.com];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:email,suse.cz:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -13.01
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 49A891F385
 
-Two connectors can share one High Speed D+/D- pair only if a multiplexer
-selects which receptacle drives the controller, and that selection has to
-follow the USB mode: leaving it to a board level GPIO means the controller
-can end up driving the data lines of the connector that is not in use, and
-a host or gadget instance cannot be torn down while its own lines are still
-selected.
+On Fri 20-11-26 18:42:59, Amir Goldstein wrote:
+> On Fri, Nov 20, 2026 at 1:43 PM Amir Goldstein <amir73il@gmail.com> wrote:
+> >
+> > On Fri, Nov 20, 2026 at 10:48 AM Jan Kara <jack@suse.cz> wrote:
+> > >
+> > > On Thu 19-11-26 13:57:02, NeilBrown wrote:
+> > > > From: Amir Goldstein <amir73il@gmail.com>
+> > > >
+> > > > Since we only ever set the PARENT_WATCHED flag from
+> > > > fsnotify_recalc_mask(), there is never a need to update children flags
+> > > > when removing mark mask bits only when adding them.
+> > > >
+> > > > Add a helper fsnotify_recalc_mask_and_update_children() to be called
+> > > > in cases where updating children flags may be needed (i.e. add mark).
+> > > >
+> > > > Also avoid update children walk with mark spinlock held.
+> > > > This was only done by dnotify and can be easily avoided.
+> > > >
+> > > > neilb: added update_children flag in fcntl_dirnotify() so we only
+> > > >   do the update when needed.
+> > > >
+> > > > Fixes: 172e422ffea20 ("fsnotify: clear PARENT_WATCHED flags lazily")
+> > > > Signed-off-by: Amir Goldstein <amir73il@gmail.com>
+> > > > Signed-off-by: NeilBrown <neil@brown.name>
+> > >
+> > > One question to Amir below. Otherwise I like it.
+> > >
+> > > > +/*
+> > > > + * Recalculate mask and update children dentry PARENT_WATCHED flags if the
+> > > > + * connector started watching children.  When parent stops watching, we
+> > > > + * clear false positive PARENT_WATCHED flags lazily in __fsnotify_parent().
+> > > > + *
+> > > > + * The caller must make sure connector and connector->obj cannot disappear
+> > > > + * under us.  This is achieved by holding mark->group->mark_mutex for a
+> > > > + * mark on this list.  mark->lock must not be held by the caller.
+> > > > + */
+> > > > +void fsnotify_recalc_mask_and_update_children(
+> > > > +                                     struct fsnotify_mark_connector *conn)
+> > > > +{
+> > > > +     if (fsnotify_recalc_mask(conn))
+> > > >               fsnotify_conn_set_children_dentry_flags(conn);
+> > > >  }
+> > > >
+> > > > @@ -367,8 +383,8 @@ void fsnotify_modify_mark_mask(struct fsnotify_mark *mark, u32 set, u32 clear)
+> > > >               recalc = true;
+> > > >       spin_unlock(&mark->lock);
+> > > >
+> > > > -     if (recalc)
+> > > > -             fsnotify_recalc_mask(mark->connector);
+> > > > +     if (recalc && fsnotify_recalc_mask(mark->connector) && set)
+> > >
+> > > Amir, why is the '&& set' check here? Under normal circumstances if
+> > > fsnotify_recalc_mask() return's true, 'set' is true as well. We can be
+> > > racing with other updates to the connector list of marks and in that case our
+> > > fsnotify_recalc_mask() call could be the first one that noticed the marks
+> > > attached to the inode are now watching children and is thus resposible for
+> > > setting children dentry flags even if 'set' was false. So I think it can do
+> > > only harm...
+> >
+> > You're right. It's wrong.
+> >
+> > >
+> > > And for similar reasons I believe fsnotify_recalc_mask() call in
+> > > fanotify_remove_mark() needs to be updated to
+> > > fsnotify_recalc_mask_and_update_children() as well. Standalone
+> > > fsnotify_recalc_mask() is simply never safe unless it is followed by the
+> > > update children later - perhaps make it __must_check?
+> >
+> > Yeh... neither dnotify_flush() nor dnotify_handle_event() check return
+> > value now. I'll need to look into that.
+> >
+> 
+> Here is a candidate for v6
+> 
+> No more races.
+> Set a conn flag under lock for need_update
+> First thread to see the flag clears it under lock
+> and then updates children without lock.
+> 
+> Neil,
+> 
+> I removed your propagation of return value from
+> dnotify_recalc_inode_mask() because now the cost of checking
+> the flag is low enough to check it unconditionally.
+> If this still bothers you much you can put it back.
+> 
+> This is of course only sanity tested - none of the races are
+> covered by our tests.
+> 
+> Thanks,
+> Amir.
 
-A mux controller cannot be read back, so the connector in use at boot
-cannot be detected: the first mode request claims the mux for state 0
-instead.  A move of the data path to the other connector is a mode
-switch even when the role does not change, which is why it goes through
-the same worker.
+> From 30dfb2688065e4733e81cef398894e119f3cf7a0 Mon Sep 17 00:00:00 2001
+> From: Amir Goldstein <amir73il@gmail.com>
+> Date: Thu, 19 Nov 2026 13:57:02 +1100
+> Subject: [PATCH v6] fsnotify: update children flags only when parent starts
+>  watching children
+> 
+> We only need to set the PARENT_WATCHED flag on children when the parent
+> inode starts watching children.  When the parent stops watching, false
+> positive PARENT_WATCHED flags are cleared lazily in __fsnotify_parent().
+> 
+> The recalc that observes the parent starting to watch children is not
+> necessarily the recalc of the mark that added the watch.  It may be the
+> recalc of a concurrent remover in another group, or a recalc in a context
+> that cannot walk the children, such as dnotify event handling.
+> 
+> Record the need to update children flags in a connector flag when the
+> recalc observes the transition and let callers that are allowed to walk
+> the children consume the flag via fsnotify_conn_set_children_dentry_flags()
+> after mask recalc.  This way, the caller that added the watch is
+> guaranteed to either update the children flags or find that another
+> caller has already done so.
+> 
+> Also avoid the update children walk with mark spinlock held.  This was
+> only done by dnotify and can be easily avoided.
+> 
+> Fixes: 172e422ffea20 ("fsnotify: clear PARENT_WATCHED flags lazily")
+> Signed-off-by: Amir Goldstein <amir73il@gmail.com>
 
-mux_control_select() sleeps while waiting for the controller and
-mux_control_deselect() may sleep as well, so both are only called from
-__dwc3_set_mode() on system_freezable_wq and from dwc3_drd_exit() after the
-mode work has been drained; the role-switch set() callback keeps recording
-the request and never touches the mux.  The mux stays selected between
-switches, since the controller always drives exactly one of the two
-connectors, and it is deselected on unbind.  The arbitration,
-publication ordering and teardown rules of the per-connector role switches
-are unchanged.
+The patch looks good to me. Feel free to add:
 
-Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
----
-*** AI-assistance disclosure ***
-This patch was prepared with the help of an LLM coding assistant.  The
-author reviewed every line and ran the gates quoted in the series notes.
+Reviewed-by: Jan Kara <jack@suse.cz>
 
+								Honza
 
-Changes since v10:
- - deselect the mux in dwc3_drd_exit() after the active role has been torn
-   down instead of before: mux_control_deselect() switches the shared High
-   Speed lines back to the mux' idle state, so deselecting first cuts the
-   data path off underneath a host or gadget instance that is still
-   running.  This is the order __dwc3_set_mode() already used: role exit,
-   then the data path switch.
----
- drivers/usb/dwc3/core.c    |  116 +++++++++++++++-
- drivers/usb/dwc3/core.h    |   43 ++++++
- drivers/usb/dwc3/debugfs.c |    4 +
- drivers/usb/dwc3/drd.c     |  329 ++++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 489 insertions(+), 3 deletions(-)
+> ---
+>  fs/notify/dnotify/dnotify.c        |  6 +++
+>  fs/notify/fanotify/fanotify_user.c |  4 +-
+>  fs/notify/inotify/inotify_user.c   |  2 +-
+>  fs/notify/mark.c                   | 86 +++++++++++++++++++++---------
+>  include/linux/fsnotify_backend.h   |  6 +++
+>  5 files changed, 77 insertions(+), 27 deletions(-)
+> 
+> diff --git a/fs/notify/dnotify/dnotify.c b/fs/notify/dnotify/dnotify.c
+> index 9fb73bafd41d2..0afd2b0393333 100644
+> --- a/fs/notify/dnotify/dnotify.c
+> +++ b/fs/notify/dnotify/dnotify.c
+> @@ -181,6 +181,11 @@ void dnotify_flush(struct file *filp, fl_owner_t id)
+>  	}
+>  
+>  	spin_unlock(&fsn_mark->lock);
+> +	/*
+> +	 * We only remove mask bits here, but our recalc may be the first to
+> +	 * observe another group starting to watch children.
+> +	 */
+> +	fsnotify_conn_set_children_dentry_flags(fsn_mark->connector);
+>  
+>  	/* nothing else could have found us thanks to the dnotify_groups
+>  	   mark_mutex */
+> @@ -380,6 +385,7 @@ int fcntl_dirnotify(int fd, struct file *filp, unsigned int arg)
+>  	dnotify_recalc_inode_mask(fsn_mark);
+>  out:
+>  	spin_unlock(&fsn_mark->lock);
+> +	fsnotify_conn_set_children_dentry_flags(fsn_mark->connector);
+>  
+>  	if (destroy)
+>  		fsnotify_detach_mark(fsn_mark);
+> diff --git a/fs/notify/fanotify/fanotify_user.c b/fs/notify/fanotify/fanotify_user.c
+> index 63c9759fc3b06..c064b0070c519 100644
+> --- a/fs/notify/fanotify/fanotify_user.c
+> +++ b/fs/notify/fanotify/fanotify_user.c
+> @@ -1264,7 +1264,7 @@ static int fanotify_remove_mark(struct fsnotify_group *group,
+>  	removed = fanotify_mark_remove_from_mask(fsn_mark, mask, flags,
+>  						 umask, &destroy_mark);
+>  	if (removed & fsnotify_conn_mask(fsn_mark->connector))
+> -		fsnotify_recalc_mask(fsn_mark->connector);
+> +		fsnotify_recalc_mask_and_update_children(fsn_mark->connector);
+>  	if (destroy_mark)
+>  		fsnotify_detach_mark(fsn_mark);
+>  	fsnotify_group_unlock(group);
+> @@ -1538,7 +1538,7 @@ static int fanotify_add_mark(struct fsnotify_group *group,
+>  
+>  	recalc = fanotify_mark_add_to_mask(fsn_mark, mask, fan_flags);
+>  	if (recalc)
+> -		fsnotify_recalc_mask(fsn_mark->connector);
+> +		fsnotify_recalc_mask_and_update_children(fsn_mark->connector);
+>  
+>  out:
+>  	fsnotify_group_unlock(group);
+> diff --git a/fs/notify/inotify/inotify_user.c b/fs/notify/inotify/inotify_user.c
+> index 5f19c24ec187f..6018c2d717ac2 100644
+> --- a/fs/notify/inotify/inotify_user.c
+> +++ b/fs/notify/inotify/inotify_user.c
+> @@ -562,7 +562,7 @@ static int inotify_update_existing_watch(struct fsnotify_group *group,
+>  	fsn_mark->flags |= inotify_arg_to_flags(arg);
+>  	spin_unlock(&fsn_mark->lock);
+>  
+> -	fsnotify_recalc_mask(fsn_mark->connector);
+> +	fsnotify_recalc_mask_and_update_children(fsn_mark->connector);
+>  
+>  	/* return the wd */
+>  	ret = i_mark->wd;
+> diff --git a/fs/notify/mark.c b/fs/notify/mark.c
+> index cb07f42d34222..1658fbef61dfc 100644
+> --- a/fs/notify/mark.c
+> +++ b/fs/notify/mark.c
+> @@ -238,21 +238,37 @@ static struct inode *fsnotify_update_iref(struct fsnotify_mark_connector *conn,
+>  	return inode;
+>  }
+>  
+> +static bool fsnotify_conn_watches_children(
+> +					struct fsnotify_mark_connector *conn)
+> +{
+> +	if (conn->type != FSNOTIFY_OBJ_TYPE_INODE)
+> +		return false;
+> +
+> +	return fsnotify_inode_watches_children(fsnotify_conn_inode(conn));
+> +}
+> +
+>  /*
+>   * Calculate mask of events for a list of marks.
+>   *
+> + * If the connector started watching children, flag it so that the next call
+> + * to fsnotify_conn_set_children_dentry_flags() updates the children dentry
+> + * flags.  The caller that observes the transition may not be allowed to walk
+> + * the children, so the update may be done by another caller.
+> + *
+>   * Return true if any of the attached marks want to hold an inode reference.
+>   */
+>  static bool __fsnotify_recalc_mask(struct fsnotify_mark_connector *conn)
+>  {
+>  	u32 new_mask = 0;
+>  	bool want_iref = false;
+> +	bool watched_children;
+>  	struct fsnotify_mark *mark;
+>  
+>  	assert_spin_locked(&conn->lock);
+>  	/* We can get detached connector here when inode is getting unlinked. */
+>  	if (!fsnotify_valid_obj_type(conn->type))
+>  		return NULL;
+> +	watched_children = fsnotify_conn_watches_children(conn);
+>  	hlist_for_each_entry(mark, &conn->list, obj_list) {
+>  		if (!(mark->flags & FSNOTIFY_MARK_FLAG_ATTACHED))
+>  			continue;
+> @@ -267,6 +283,13 @@ static bool __fsnotify_recalc_mask(struct fsnotify_mark_connector *conn)
+>  	 */
+>  	WRITE_ONCE(*fsnotify_conn_mask_p(conn), new_mask);
+>  
+> +	if (fsnotify_conn_watches_children(conn) != watched_children) {
+> +		if (watched_children)
+> +			conn->flags &= ~FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
+> +		else
+> +			conn->flags |= FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
+> +	}
+> +
+>  	return want_iref;
+>  }
+>  
+> @@ -298,22 +321,30 @@ static void *fsnotify_recalc_mask_clear_iref(struct fsnotify_mark_connector *con
+>  	return fsnotify_update_iref(conn, want_iref);
+>  }
+>  
+> -static bool fsnotify_conn_watches_children(
+> +/*
+> + * Update children dentry PARENT_WATCHED flags if the connector started
+> + * watching children since the last update.  When parent stops watching, we
+> + * clear false positive PARENT_WATCHED flags lazily in __fsnotify_parent().
+> + *
+> + * The caller must make sure connector and connector->obj cannot disappear
+> + * under us.  This is achieved by holding mark->group->mark_mutex for a
+> + * mark on this list.  mark->lock must not be held by the caller.
+> + */
+> +void fsnotify_conn_set_children_dentry_flags(
+>  					struct fsnotify_mark_connector *conn)
+>  {
+> -	if (conn->type != FSNOTIFY_OBJ_TYPE_INODE)
+> -		return false;
+> -
+> -	return fsnotify_inode_watches_children(fsnotify_conn_inode(conn));
+> -}
+> +	bool update_children;
+>  
+> -static void fsnotify_conn_set_children_dentry_flags(
+> -					struct fsnotify_mark_connector *conn)
+> -{
+> -	if (conn->type != FSNOTIFY_OBJ_TYPE_INODE)
+> +	if (!conn || conn->type != FSNOTIFY_OBJ_TYPE_INODE)
+>  		return;
+>  
+> -	fsnotify_set_children_dentry_flags(fsnotify_conn_inode(conn));
+> +	spin_lock(&conn->lock);
+> +	update_children = conn->flags & FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
+> +	conn->flags &= ~FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
+> +	spin_unlock(&conn->lock);
+> +
+> +	if (update_children)
+> +		fsnotify_set_children_dentry_flags(fsnotify_conn_inode(conn));
+>  }
+>  
+>  /*
+> @@ -321,26 +352,33 @@ static void fsnotify_conn_set_children_dentry_flags(
+>   * connector and connector->obj cannot disappear under us.  Callers achieve
+>   * this by holding a mark->lock or mark->group->mark_mutex for a mark on this
+>   * list.
+> + *
+> + * Callers that may sleep should use fsnotify_recalc_mask_and_update_children()
+> + * or call fsnotify_conn_set_children_dentry_flags() after dropping mark->lock.
+>   */
+>  void fsnotify_recalc_mask(struct fsnotify_mark_connector *conn)
+>  {
+> -	bool update_children;
+> -
+>  	if (!conn)
+>  		return;
+>  
+>  	spin_lock(&conn->lock);
+> -	update_children = !fsnotify_conn_watches_children(conn);
+>  	fsnotify_recalc_mask_set_iref(conn);
+> -	update_children &= fsnotify_conn_watches_children(conn);
+>  	spin_unlock(&conn->lock);
+> -	/*
+> -	 * Set children's PARENT_WATCHED flags only if parent started watching.
+> -	 * When parent stops watching, we clear false positive PARENT_WATCHED
+> -	 * flags lazily in __fsnotify_parent().
+> -	 */
+> -	if (update_children)
+> -		fsnotify_conn_set_children_dentry_flags(conn);
+> +}
+> +
+> +/*
+> + * Recalculate mask and update children dentry PARENT_WATCHED flags if the
+> + * connector started watching children.
+> + *
+> + * The caller must make sure connector and connector->obj cannot disappear
+> + * under us.  This is achieved by holding mark->group->mark_mutex for a
+> + * mark on this list.  mark->lock must not be held by the caller.
+> + */
+> +void fsnotify_recalc_mask_and_update_children(
+> +					struct fsnotify_mark_connector *conn)
+> +{
+> +	fsnotify_recalc_mask(conn);
+> +	fsnotify_conn_set_children_dentry_flags(conn);
+>  }
+>  
+>  /**
+> @@ -368,7 +406,7 @@ void fsnotify_modify_mark_mask(struct fsnotify_mark *mark, u32 set, u32 clear)
+>  	spin_unlock(&mark->lock);
+>  
+>  	if (recalc)
+> -		fsnotify_recalc_mask(mark->connector);
+> +		fsnotify_recalc_mask_and_update_children(mark->connector);
+>  }
+>  EXPORT_SYMBOL_GPL(fsnotify_modify_mark_mask);
+>  
+> @@ -1007,7 +1045,7 @@ int fsnotify_add_mark_locked(struct fsnotify_mark *mark,
+>  	if (ret)
+>  		goto err;
+>  
+> -	fsnotify_recalc_mask(mark->connector);
+> +	fsnotify_recalc_mask_and_update_children(mark->connector);
+>  
+>  	return ret;
+>  err:
+> diff --git a/include/linux/fsnotify_backend.h b/include/linux/fsnotify_backend.h
+> index faf21564380d9..052d8674ad896 100644
+> --- a/include/linux/fsnotify_backend.h
+> +++ b/include/linux/fsnotify_backend.h
+> @@ -567,6 +567,7 @@ struct fsnotify_mark_connector {
+>  #define FSNOTIFY_CONN_FLAG_IS_WATCHED	0x01
+>  #define FSNOTIFY_CONN_FLAG_HAS_IREF	0x02
+>  #define FSNOTIFY_CONN_FLAG_DESTROYING	0x04
+> +#define FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN	0x08
+>  	unsigned short flags;	/* flags [lock] */
+>  	union {
+>  		/* Object pointer [lock] */
+> @@ -888,6 +889,11 @@ static inline __u32 fsnotify_calc_mask(struct fsnotify_mark *mark)
+>  extern __u32 fsnotify_conn_mask(struct fsnotify_mark_connector *conn);
+>  /* Calculate mask of events for a list of marks */
+>  extern void fsnotify_recalc_mask(struct fsnotify_mark_connector *conn);
+> +/* Recalculate mask and update children dentry flags if needed */
+> +extern void fsnotify_recalc_mask_and_update_children(
+> +					struct fsnotify_mark_connector *conn);
+> +extern void fsnotify_conn_set_children_dentry_flags(
+> +					struct fsnotify_mark_connector *conn);
+>  extern void fsnotify_init_mark(struct fsnotify_mark *mark,
+>  			       struct fsnotify_group *group);
+>  /* Find mark belonging to given group in the list of marks */
+> -- 
+> 2.56.1
+> 
 
-diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 372737f4750b..ce309792864b 100644
---- a/drivers/usb/dwc3/core.c
-+++ b/drivers/usb/dwc3/core.c
-@@ -21,6 +21,7 @@
- #include <linux/io.h>
- #include <linux/list.h>
- #include <linux/delay.h>
-+#include <linux/mux/consumer.h>
- #include <linux/dma-mapping.h>
- #include <linux/of.h>
- #include <linux/of_graph.h>
-@@ -165,7 +166,11 @@ EXPORT_SYMBOL_GPL(dwc3_set_prtcap);
- static void __dwc3_set_mode(struct work_struct *work)
- {
- 	struct dwc3 *dwc = work_to_dwc(work);
-+	struct dwc3_role_mux *mux = dwc->role_mux;
- 	unsigned long flags;
-+	bool pending, port_switch;
-+	int mux_port = 0;
-+	int active_port = -1;
- 	int ret;
- 	u32 reg;
- 	u32 desired_dr_role;
-@@ -174,6 +179,10 @@ static void __dwc3_set_mode(struct work_struct *work)
- 	mutex_lock(&dwc->mutex);
- 	spin_lock_irqsave(&dwc->lock, flags);
- 	desired_dr_role = dwc->desired_dr_role;
-+	if (mux) {
-+		mux_port = mux->desired_port;
-+		active_port = mux->active_port;
-+	}
- 	spin_unlock_irqrestore(&dwc->lock, flags);
- 
- 	pm_runtime_get_sync(dwc->dev);
-@@ -184,7 +193,14 @@ static void __dwc3_set_mode(struct work_struct *work)
- 	if (!desired_dr_role)
- 		goto out;
- 
--	if (desired_dr_role == dwc->current_dr_role)
-+	/*
-+	 * Moving the shared data path to the other connector is a mode switch even
-+	 * when the role does not change: the running host or gadget instance has to
-+	 * be torn down while its own data lines are still selected.
-+	 */
-+	port_switch = mux && mux_port != active_port;
-+
-+	if (desired_dr_role == dwc->current_dr_role && !port_switch)
- 		goto out;
- 
- 	if (desired_dr_role == DWC3_GCTL_PRTCAP_OTG && dwc->edev)
-@@ -233,8 +249,60 @@ static void __dwc3_set_mode(struct work_struct *work)
- 		dwc3_writel(dwc, DWC3_GCTL, reg);
- 	}
- 
-+	/*
-+	 * The previous host or gadget instance has been torn down above, so the
-+	 * shared High Speed data path can now be moved to the requesting
-+	 * connector.  A failure here must not abort the mode change half-way:
-+	 * the controller would be left with a torn-down role and a stale
-+	 * current_dr_role, which the next request would tear down a second time.
-+	 */
-+	if (port_switch) {
-+		/*
-+		 * mux_control_select() sleeps while waiting for the controller, so
-+		 * the switch is only done here, in the mode worker.  The mux is kept
-+		 * selected between switches: dwc3 is its only consumer and always
-+		 * drives one of the two connectors.
-+		 *
-+		 * Only deselect a mux that is actually selected: active_port is -1
-+		 * before the first selection and after a failed one, and deselecting
-+		 * an unselected mux would release a semaphore that was never taken.
-+		 */
-+		if (active_port >= 0)
-+			mux_control_deselect(mux->ctrl);
-+		ret = mux_control_select(mux->ctrl, mux_port);
-+		if (ret)
-+			dev_err_ratelimited(dwc->dev,
-+					    "failed to select USB port %d: %d\n",
-+					    mux_port, ret);
-+
-+		spin_lock_irqsave(&dwc->lock, flags);
-+		if (ret) {
-+			mux->ports[mux_port].errors++;
-+			/*
-+			 * No port owns the mux any more: the previous one has been
-+			 * deselected above and the new one could not be selected.
-+			 * Keeping the old index would make the next request skip
-+			 * the select and drive a connector that is not connected.
-+			 */
-+			mux->active_port = -1;
-+		} else {
-+			mux->active_port = mux_port;
-+		}
-+		spin_unlock_irqrestore(&dwc->lock, flags);
-+	}
-+
- 	spin_lock_irqsave(&dwc->lock, flags);
- 
-+	/*
-+	 * dwc3_set_prtcap() only clears GUSB3PIPECTL.SUSPENDENABLE and
-+	 * GUSB2PHYCFG.SUSPHY when PRTCAP actually changes, but a same-role port
-+	 * switch reinitialises the controller too and must start from the same
-+	 * state: the instance created below would otherwise inherit the SUSPHY
-+	 * setting of the one torn down above.
-+	 */
-+	if (port_switch)
-+		dwc3_enable_susphy(dwc, false);
-+
- 	dwc3_set_prtcap(dwc, desired_dr_role, false);
- 
- 	spin_unlock_irqrestore(&dwc->lock, flags);
-@@ -283,24 +351,68 @@ static void __dwc3_set_mode(struct work_struct *work)
- 	}
- 
- out:
-+	/*
-+	 * A request that arrived while this work was running did not re-queue it:
-+	 * queue_work() returns false for a work item that is already running.  Pick
-+	 * such a request up here instead of waiting for the next connector event.
-+	 * The pair is compared with the snapshot taken above, so a data-path switch
-+	 * that failed is not retried in a loop.
-+	 */
-+	if (mux) {
-+		spin_lock_irqsave(&dwc->lock, flags);
-+		pending = dwc->desired_dr_role != desired_dr_role ||
-+			  mux->desired_port != mux_port;
-+		spin_unlock_irqrestore(&dwc->lock, flags);
-+		if (pending)
-+			queue_work(system_freezable_wq, &dwc->drd_work);
-+	}
-+
- 	pm_runtime_put_autosuspend(dwc->dev);
- 	mutex_unlock(&dwc->mutex);
- }
- 
--void dwc3_set_mode(struct dwc3 *dwc, u32 mode)
-+static void dwc3_queue_mode(struct dwc3 *dwc, u32 mode, int port)
- {
- 	unsigned long flags;
- 
- 	if (dwc->dr_mode != USB_DR_MODE_OTG)
- 		return;
- 
-+	/*
-+	 * The connector that owns the shared data path is published together with
-+	 * the mode request: __dwc3_set_mode() snapshots both under dwc->lock, and
-+	 * a torn pair would move the data path for the connector that asked last
-+	 * while bringing up the role requested by the one before it.
-+	 */
- 	spin_lock_irqsave(&dwc->lock, flags);
- 	dwc->desired_dr_role = mode;
-+	if (dwc->role_mux && port >= 0)
-+		dwc->role_mux->desired_port = port;
- 	spin_unlock_irqrestore(&dwc->lock, flags);
- 
- 	queue_work(system_freezable_wq, &dwc->drd_work);
- }
- 
-+void dwc3_set_mode(struct dwc3 *dwc, u32 mode)
-+{
-+	dwc3_queue_mode(dwc, mode, -1);
-+}
-+
-+/**
-+ * dwc3_set_mode_port - request a mode and the connector that owns the data path
-+ * @dwc: pointer to our controller context structure
-+ * @mode: mode to be requested
-+ * @port: index of the connector that should drive the shared data path
-+ *
-+ * Same as dwc3_set_mode(), except that the data-path selection is published
-+ * atomically with the mode request, so the mode worker never pairs the new
-+ * connector with the previous role.
-+ */
-+void dwc3_set_mode_port(struct dwc3 *dwc, u32 mode, int port)
-+{
-+	dwc3_queue_mode(dwc, mode, port);
-+}
-+
- u32 dwc3_core_fifo_space(struct dwc3_ep *dep, u8 type)
- {
- 	struct dwc3		*dwc = dep->dwc;
-diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index f3dabb37f806..e6cf7b240b23 100644
---- a/drivers/usb/dwc3/core.h
-+++ b/drivers/usb/dwc3/core.h
-@@ -1008,6 +1008,46 @@ struct dwc3_glue_ops {
- 	void	(*pre_run_stop)(struct dwc3 *dwc, bool is_on);
- };
- 
-+/* Per-connector state of the optional shared-HS-data-bus mux. */
-+struct dwc3_role_port {
-+	struct dwc3		*dwc;
-+	struct usb_role_switch	*sw;
-+	struct fwnode_handle	*fwnode;
-+	enum usb_role		role;
-+	unsigned int		state;
-+	/* request order, see dwc3_role_mux.seq */
-+	u64			seq;
-+	/* data-path switch failures, for diagnostics only */
-+	unsigned int		errors;
-+};
-+
-+/**
-+ * struct dwc3_role_mux - optional data-path mux between two connectors
-+ * @ctrl: mux controller selecting which connector drives the shared HS data lines
-+ * @lock: serialises role requests coming from both connectors
-+ * @ready: both switches registered and the initial mode request issued
-+ * @ports: per-connector state, indexed by the endpoint's "mux-state"
-+ * @desired_port: index of the connector that currently wins
-+ * @active_port: index of the connector currently driving the data lines
-+ * @seq: monotonic request counter used to order pending requests
-+ *
-+ * Two connectors can share the High Speed data lines of one controller while
-+ * keeping their Super Speed lanes separate.  Each connector then needs its own
-+ * role-switch input, and the shared data path has to be moved before the
-+ * controller is reinitialised for the requested role.
-+ */
-+struct dwc3_role_mux {
-+	struct mux_control	*ctrl;
-+	/* serialises role requests coming from both connectors */
-+	struct mutex		lock;
-+	/* false until both switches are registered and the mode was requested */
-+	bool			ready;
-+	struct dwc3_role_port	ports[2];
-+	int			desired_port;
-+	int			active_port;
-+	u64			seq;
-+};
-+
- /**
-  * struct dwc3 - representation of our controller
-  * @drd_work: workqueue used for role swapping
-@@ -1064,6 +1104,7 @@ struct dwc3_glue_ops {
-  *		- USBPHY_INTERFACE_MODE_UTMI
-  *		- USBPHY_INTERFACE_MODE_UTMIW
-  * @role_sw: usb_role_switch handle
-+ * @role_mux: optional shared data-path mux plus per-connector role switches
-  * @role_switch_default_mode: default operation mode of controller while
-  *			usb role is USB_ROLE_NONE.
-  * @usb_psy: pointer to power supply interface.
-@@ -1265,6 +1306,7 @@ struct dwc3 {
- 	struct notifier_block	edev_nb;
- 	enum usb_phy_interface	hsphy_mode;
- 	struct usb_role_switch	*role_sw;
-+	struct dwc3_role_mux	*role_mux;
- 	enum usb_dr_mode	role_switch_default_mode;
- 
- 	struct power_supply	*usb_psy;
-@@ -1614,6 +1656,7 @@ struct dwc3_gadget_ep_cmd_params {
- /* prototypes */
- void dwc3_set_prtcap(struct dwc3 *dwc, u32 mode, bool ignore_susphy);
- void dwc3_set_mode(struct dwc3 *dwc, u32 mode);
-+void dwc3_set_mode_port(struct dwc3 *dwc, u32 mode, int port);
- u32 dwc3_core_fifo_space(struct dwc3_ep *dep, u8 type);
- 
- #define DWC3_IP_IS(_ip)							\
-diff --git a/drivers/usb/dwc3/debugfs.c b/drivers/usb/dwc3/debugfs.c
-index 01ebd73198e0..82e7a334b135 100644
---- a/drivers/usb/dwc3/debugfs.c
-+++ b/drivers/usb/dwc3/debugfs.c
-@@ -434,6 +434,10 @@ static ssize_t dwc3_mode_write(struct file *file,
- 	u32			mode = 0;
- 	char			buf[32];
- 
-+	/* The connector providers own both the role and the data-path selection. */
-+	if (dwc->role_mux)
-+		return -EBUSY;
-+
- 	if (copy_from_user(&buf, ubuf, min_t(size_t, sizeof(buf) - 1, count)))
- 		return -EFAULT;
- 
-diff --git a/drivers/usb/dwc3/drd.c b/drivers/usb/dwc3/drd.c
-index f3e37d383627..906cac4f3e6e 100644
---- a/drivers/usb/dwc3/drd.c
-+++ b/drivers/usb/dwc3/drd.c
-@@ -8,6 +8,7 @@
-  */
- 
- #include <linux/extcon.h>
-+#include <linux/mux/consumer.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
-@@ -501,10 +502,319 @@ static enum usb_role dwc3_usb_role_switch_get(struct usb_role_switch *sw)
- 	return role;
- }
- 
-+/*
-+ * Index of the connector that should own the shared data path: the oldest
-+ * pending request wins, and the last selection is kept when neither connector
-+ * requests a role.  Requests are ordered by a monotonic counter rather than by
-+ * a timestamp, so a wrapped counter cannot be mistaken for an old request.
-+ */
-+static int dwc3_role_mux_pick(struct dwc3_role_mux *mux)
-+{
-+	int sel = mux->desired_port;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(mux->ports); i++) {
-+		if (mux->ports[i].role == USB_ROLE_NONE)
-+			continue;
-+		if (mux->ports[sel].role == USB_ROLE_NONE ||
-+		    mux->ports[i].seq < mux->ports[sel].seq)
-+			sel = i;
-+	}
-+
-+	return sel;
-+}
-+
-+static u32 dwc3_role_mux_mode(struct dwc3 *dwc, enum usb_role role)
-+{
-+	if (role == USB_ROLE_HOST)
-+		return DWC3_GCTL_PRTCAP_HOST;
-+	if (role == USB_ROLE_DEVICE)
-+		return DWC3_GCTL_PRTCAP_DEVICE;
-+	if (dwc->role_switch_default_mode == USB_DR_MODE_HOST)
-+		return DWC3_GCTL_PRTCAP_HOST;
-+
-+	return DWC3_GCTL_PRTCAP_DEVICE;
-+}
-+
-+static int dwc3_mux_role_set(struct usb_role_switch *sw, enum usb_role role)
-+{
-+	struct dwc3_role_port *port = usb_role_switch_get_drvdata(sw);
-+	struct dwc3 *dwc = port->dwc;
-+	struct dwc3_role_mux *mux = dwc->role_mux;
-+	unsigned long flags;
-+	enum usb_role selected_role;
-+	int selected;
-+
-+	if (role > USB_ROLE_DEVICE)
-+		return -EINVAL;
-+
-+	mutex_lock(&mux->lock);
-+
-+	/*
-+	 * The switches are registered before the initial mode request is issued and
-+	 * before mux->ready is set, so a connector can find its switch while the
-+	 * mux is still being set up.  Refusing the request keeps it from racing
-+	 * with the initial mode request and from queueing work that the error path
-+	 * would then have to undo.
-+	 */
-+	if (!mux->ready) {
-+		mutex_unlock(&mux->lock);
-+		return -ENODEV;
-+	}
-+
-+	spin_lock_irqsave(&dwc->lock, flags);
-+	/*
-+	 * A role change between two non-NONE roles of the same connector must not
-+	 * give that connector a new request ticket: it would otherwise steal the
-+	 * data path from the connector that asked first.
-+	 */
-+	if (port->role == USB_ROLE_NONE && role != USB_ROLE_NONE)
-+		port->seq = ++mux->seq;
-+	port->role = role;
-+	selected = dwc3_role_mux_pick(mux);
-+	selected_role = mux->ports[selected].role;
-+	spin_unlock_irqrestore(&dwc->lock, flags);
-+
-+	/*
-+	 * Notify the glue layer before touching the controller, in the same order
-+	 * as the single-connector path.  It may sleep (the Qualcomm glue calls
-+	 * pm_runtime_resume_and_get()), so it runs outside of dwc->lock -
-+	 * dwc3_set_mode() takes that lock itself and a recursive take deadlocks
-+	 * the controller on the very first role change.
-+	 *
-+	 * Pairing with the selection above is provided by mux->lock: a second
-+	 * connector blocks in mutex_lock() until this request has been issued.
-+	 *
-+	 * Same asynchronous semantics as the single-connector role switch: the
-+	 * data path and the controller are reprogrammed from __dwc3_set_mode().
-+	 */
-+	dwc3_pre_set_role(dwc, selected_role);
-+	/*
-+	 * The selected connector and the mode are published by one call, under
-+	 * dwc->lock, so __dwc3_set_mode() cannot observe the new connector together
-+	 * with the role of the previous request.  Publishing happens after
-+	 * dwc3_pre_set_role() so the work cannot start before the glue layer has
-+	 * been notified.
-+	 */
-+	dwc3_set_mode_port(dwc, dwc3_role_mux_mode(dwc, selected_role), selected);
-+
-+	mutex_unlock(&mux->lock);
-+
-+	/*
-+	 * A data-path switch failure is reported through the console and counted
-+	 * per connector; it is not returned here.  This call has already updated
-+	 * the request state, so a stale error from another connector must not be
-+	 * reported as the result of this (successful) request.
-+	 */
-+	return 0;
-+}
-+
-+static enum usb_role dwc3_mux_role_get(struct usb_role_switch *sw)
-+{
-+	struct dwc3_role_port *port = usb_role_switch_get_drvdata(sw);
-+	struct dwc3 *dwc = port->dwc;
-+	unsigned long flags;
-+	enum usb_role role;
-+
-+	/*
-+	 * Report the role this connector itself requested, whether or not it owns
-+	 * the shared data path right now.  Hiding a pending request behind
-+	 * active_port makes connector drivers read back USB_ROLE_NONE, so they
-+	 * never send the set_role(USB_ROLE_NONE) that would release it; the stale
-+	 * request then keeps winning dwc3_role_mux_pick() after the connector has
-+	 * been unplugged and starves the other one.
-+	 */
-+	spin_lock_irqsave(&dwc->lock, flags);
-+	role = port->role;
-+	spin_unlock_irqrestore(&dwc->lock, flags);
-+
-+	return role;
-+}
-+
-+static void dwc3_role_mux_exit(struct dwc3 *dwc)
-+{
-+	struct dwc3_role_mux *mux = dwc->role_mux;
-+	unsigned int i;
-+
-+	if (!mux)
-+		return;
-+
-+	/*
-+	 * Refuse new requests first.  dwc3_mux_role_set() takes this lock for its
-+	 * whole duration, so once it is held no request is in flight, and every
-+	 * later one returns before it can queue a mode request.  The work itself
-+	 * is drained by the caller, which is the only way to keep a request from
-+	 * being queued after the drain.
-+	 */
-+	mutex_lock(&mux->lock);
-+	mux->ready = false;
-+	mutex_unlock(&mux->lock);
-+
-+	for (i = 0; i < ARRAY_SIZE(mux->ports); i++) {
-+		if (mux->ports[i].sw)
-+			usb_role_switch_unregister(mux->ports[i].sw);
-+		mux->ports[i].sw = NULL;
-+		fwnode_handle_put(mux->ports[i].fwnode);
-+		mux->ports[i].fwnode = NULL;
-+	}
-+}
-+
-+/*
-+ * Release the mux when this controller still owns it.  devm_mux_control_get()
-+ * only puts the controller on release and does not restore its idle state, so
-+ * the mux has to be deselected explicitly; the caller must already have drained
-+ * dwc->drd_work, otherwise a switch could select it again.
-+ */
-+static void dwc3_role_mux_deselect(struct dwc3 *dwc)
-+{
-+	struct dwc3_role_mux *mux = dwc->role_mux;
-+	unsigned long flags;
-+	int active_port;
-+
-+	if (!mux)
-+		return;
-+
-+	spin_lock_irqsave(&dwc->lock, flags);
-+	active_port = mux->active_port;
-+	mux->active_port = -1;
-+	spin_unlock_irqrestore(&dwc->lock, flags);
-+
-+	if (active_port >= 0)
-+		mux_control_deselect(mux->ctrl);
-+}
-+
-+/* Returns 1 when the optional two-connector mux has been set up. */
-+static int dwc3_role_mux_init(struct dwc3 *dwc, u32 mode)
-+{
-+	struct usb_role_switch_desc desc = {};
-+	struct dwc3_role_mux *mux;
-+	struct fwnode_handle *ep;
-+	char name[64];
-+	u32 state;
-+	int ret, i;
-+
-+	if (!fwnode_property_present(dev_fwnode(dwc->dev), "mux-controls"))
-+		return 0;
-+
-+	mux = devm_kzalloc(dwc->dev, sizeof(*mux), GFP_KERNEL);
-+	if (!mux)
-+		return -ENOMEM;
-+
-+	mux->ctrl = devm_mux_control_get(dwc->dev, NULL);
-+	if (IS_ERR(mux->ctrl))
-+		return PTR_ERR(mux->ctrl);
-+
-+	/*
-+	 * Both connectors must be addressable states of the mux controller.
-+	 */
-+	if (mux_control_states(mux->ctrl) < ARRAY_SIZE(mux->ports))
-+		return -EINVAL;
-+
-+	/*
-+	 * The current position of a mux controller cannot be read back, so the
-+	 * boot-time connector cannot be detected here.  The first mode request
-+	 * selects state 0 instead (the mode worker sees active_port == -1 and
-+	 * claims the mux for endpoint 0).
-+	 */
-+	mux->desired_port = 0;
-+	mux->active_port = -1;
-+	mutex_init(&mux->lock);
-+
-+	/*
-+	 * Publish the mux before the first endpoint reference is taken:
-+	 * dwc3_role_mux_exit() is a no-op while dwc->role_mux is NULL, so every
-+	 * error path below would otherwise leak the fwnode references already
-+	 * acquired.
-+	 */
-+	dwc->role_mux = mux;
-+
-+	fwnode_graph_for_each_endpoint(dev_fwnode(dwc->dev), ep) {
-+		if (!fwnode_property_present(ep, "usb-role-switch"))
-+			continue;
-+
-+		ret = fwnode_property_read_u32(ep, "mux-state", &state);
-+		if (ret || state >= ARRAY_SIZE(mux->ports)) {
-+			ret = -EINVAL;
-+			goto err_put_ep;
-+		}
-+		if (mux->ports[state].fwnode) {
-+			ret = -EINVAL;
-+			goto err_put_ep;
-+		}
-+
-+		mux->ports[state].fwnode = fwnode_handle_get(ep);
-+		mux->ports[state].state = state;
-+		mux->ports[state].dwc = dwc;
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(mux->ports); i++) {
-+		if (!mux->ports[i].fwnode) {
-+			ret = -EINVAL;
-+			goto err;
-+		}
-+	}
-+
-+	/*
-+	 * Registering the switches makes them reachable from the connector
-+	 * drivers, so the initial mode request has to be issued inside the same
-+	 * critical section: a set() arriving in between would be silently
-+	 * overwritten by it while port->role keeps the requested value.
-+	 * dwc3_mux_role_set() serialises on the same lock.
-+	 */
-+	mutex_lock(&mux->lock);
-+
-+	for (i = 0; i < ARRAY_SIZE(mux->ports); i++) {
-+		snprintf(name, sizeof(name), "%s-port%u", dev_name(dwc->dev), i);
-+		desc.name = name;
-+		desc.fwnode = mux->ports[i].fwnode;
-+		desc.set = dwc3_mux_role_set;
-+		desc.get = dwc3_mux_role_get;
-+		desc.driver_data = &mux->ports[i];
-+		mux->ports[i].sw = usb_role_switch_register(dwc->dev, &desc);
-+		if (IS_ERR(mux->ports[i].sw)) {
-+			ret = PTR_ERR(mux->ports[i].sw);
-+			mux->ports[i].sw = NULL;
-+			mutex_unlock(&mux->lock);
-+			goto err;
-+		}
-+	}
-+
-+	/*
-+	 * The controller is only started in its default role once both switches
-+	 * are registered: before that a connector driver cannot request a role,
-+	 * so nothing can race with this initial mode request.
-+	 */
-+	dwc3_set_mode(dwc, mode);
-+	mux->ready = true;
-+
-+	mutex_unlock(&mux->lock);
-+
-+	return 1;
-+
-+err:
-+	/*
-+	 * Unregister the switches before draining the work: dwc3_role_mux_exit()
-+	 * refuses every further request, and a request that was already past that
-+	 * check has queued its work by the time the lock is released, so the drain
-+	 * below cannot miss it.  The reverse order would let a blocked request
-+	 * queue the work after the drain and run it on a half-torn-down mux.
-+	 * dwc->role_mux is left in place: it is devm-managed and freeing it here
-+	 * would only turn a late request into a NULL dereference.
-+	 */
-+	dwc3_role_mux_exit(dwc);
-+	cancel_work_sync(&dwc->drd_work);
-+	dwc3_role_mux_deselect(dwc);
-+	return ret;
-+err_put_ep:
-+	fwnode_handle_put(ep);
-+	goto err;
-+}
-+
- static int dwc3_setup_role_switch(struct dwc3 *dwc)
- {
- 	struct usb_role_switch_desc dwc3_role_switch = {NULL};
- 	u32 mode;
-+	int ret;
- 
- 	dwc->role_switch_default_mode = usb_get_role_switch_default_mode(dwc->dev);
- 	if (dwc->role_switch_default_mode == USB_DR_MODE_HOST) {
-@@ -513,6 +823,11 @@ static int dwc3_setup_role_switch(struct dwc3 *dwc)
- 		dwc->role_switch_default_mode = USB_DR_MODE_PERIPHERAL;
- 		mode = DWC3_GCTL_PRTCAP_DEVICE;
- 	}
-+
-+	ret = dwc3_role_mux_init(dwc, mode);
-+	if (ret)
-+		return ret < 0 ? ret : 0;
-+
- 	dwc3_set_mode(dwc, mode);
- 
- 	dwc3_role_switch.fwnode = dev_fwnode(dwc->dev);
-@@ -526,7 +841,7 @@ static int dwc3_setup_role_switch(struct dwc3 *dwc)
- 
- 	if (dwc->dev->of_node) {
- 		/* populate connector entry */
--		int ret = devm_of_platform_populate(dwc->dev);
-+		ret = devm_of_platform_populate(dwc->dev);
- 
- 		if (ret) {
- 			usb_role_switch_unregister(dwc->role_sw);
-@@ -541,6 +856,8 @@ static int dwc3_setup_role_switch(struct dwc3 *dwc)
- #else
- #define ROLE_SWITCH 0
- #define dwc3_setup_role_switch(x) 0
-+static inline void dwc3_role_mux_exit(struct dwc3 *dwc) {}
-+static inline void dwc3_role_mux_deselect(struct dwc3 *dwc) {}
- #endif
- 
- int dwc3_drd_init(struct dwc3 *dwc)
-@@ -597,6 +914,7 @@ void dwc3_drd_exit(struct dwc3 *dwc)
- {
- 	unsigned long flags;
- 
-+	dwc3_role_mux_exit(dwc);
- 	if (dwc->role_sw)
- 		usb_role_switch_unregister(dwc->role_sw);
- 
-@@ -626,6 +944,15 @@ void dwc3_drd_exit(struct dwc3 *dwc)
- 		break;
- 	}
- 
-+	/*
-+	 * Deselect only after the active role has been torn down, in the same
-+	 * order as __dwc3_set_mode(): mux_control_deselect() switches the shared
-+	 * High Speed lines back to the mux' idle state, which would cut the data
-+	 * path off underneath a host or gadget instance that is still running.
-+	 * The mode worker is drained, so nothing can select the mux again.
-+	 */
-+	dwc3_role_mux_deselect(dwc);
-+
- 	if (dwc->otg_irq)
- 		free_irq(dwc->otg_irq, dwc);
- }
-
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
