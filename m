@@ -1,54 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422273;
-	b=utDo6/Id151/Kc3iPSTReuR0pAaP+3+bSNStE/2zhsZhFEG5RuP3Yx2nz6K0Q4OgtOUn
-	 UtJ9Xvjkg8LmNXx0R0ZqbJwL5IfwGcpMPvzpXZwiWT2odaWEog0w0JyN/AQeqvn2zXofn
-	 /BCSxUMhEIqytW2ltYOBsHVbKhwkhZ4B2nsFZ3iJoJL6gPFOjuhdqXaD+3Xn23MoHdSSn
-	 CI0vwFoe1F0iirfT8sWSClb3klaqTxNwBfTJu+px2ge6sLKM4Kd1uaKNClDMyKH/vycCr
-	 Hou1PifaGe8FSE27V0GUe21btcguqkwT/hxrPWWeRYTFEPlQHhsP45wpCp71sUBwxeg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422273;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=IQO4tn0OyPdxMhtPAGNESRuXYu8NbrwjcIpFVzP0og8=;
-	b=l4R3aJ0rYyifN/TrLbRWG7n/6zQ/EXMYmFX8sfDqah2Z39qwdqGlScHTtRBEHcPYFvTl
-	 N6CLAzSiW1LFhnWYBwRV9Hx+pHbioYSET1Cbz92wkZUhyqPIoCeAtAv4TIpNkkszwOxcr
-	 cQB2M+Ql6iyUsgU+sPEIyHdYgKRCfv46blXTVEyH+H7shXuCk2FuuUExCaz1QFZuAIcMa
-	 t1JxaDCrW+e76ILe9LpIVCWQkWDKBcGNKSO126oh9k1P7H2a9cP1xJ4Vk9XH8PZ/s9sq+
-	 BbaqbbfPao7lSE9EMCUmNK0LBmB4g8xJZOQ1pmxSwaWTl4j7zP+1Hx5P+dQGvoEA5Sw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=D6Fh9qWC;
-	arc=none smtp.remote-ip=95.215.58.172
-Received: from mta1.migadu.com (out-172.mta1.migadu.com [95.215.58.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795422303;
+	b=NdH1Uz5P1Bl3YNhSuC/oFAaC4qBAsUNYzOQiwapbP+N2AhT0vo0NVNHGS6CClrMr7BDl
+	 pjBaPKNFZT+VxcZnTgJiCEpNj1j+ksGrFvBFtyQEe6njAng7PZHAS7wmrvveo0Z/+LTvN
+	 wzghHPiv0hWq6zoPVHWLZK22+WZNOUjqh16t5VXWn5eM04C4/2M7koGgbjdUeVZZf8kco
+	 gpn6Vp7NB9KFX1+vVGyASxOL9LmtUnrZoCm0zguh1HDuUDluQHh/TeFinibcgVV3JRKb+
+	 6VoelLY9k848kEJbzp7qawgHPO/RlAb9GnOkPCjUB7qX1riT1Sc8saIYn59OofcWogQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422303;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=eWwZSVnTTdj+etI/fDq4YnbyDy94jcEEPt8yqACsXOY=;
+	b=lL0q6dJMhGwXLMsCwzEeJypw+ZU5jYhbnDDhtME5Y5hor8WVPmYMD12ZJ49KBM7to639
+	 BrHg97tWD/xebJeX7TP3pSdMeAKRiXi5gLWzQw0n6IwtDKBWO6OVp1E7TNDB7bX6qMa9o
+	 zHAG/3ljczuZFkPAWwnI0CAqVkjSri+d8+0Gt0cwUYPRU9ObJ4pWCvEzgE/zJxxtdAM5A
+	 BQnh+7+82ycSsHKwcfSx8NGdpl9x91u8Y5/MmoCP8xz1UtTpMOAwLMaO89VztizlT3KXP
+	 DIKIm/WSq0EyWe2j0yrKf/AqvYAFQv6rJCuxB4aFU4N2vyqB90nSZy+2FadXQ3WwHMQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ogRty5oH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7892606A31E;
+	Mon, 23 Nov 2026 08:25:03 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ogRty5oH
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795422303;
+	b=2BXkzopxQFLzqfYRGc+JAp3eepRK2A8PI3yfFNIyE5blOOaJMF4FSSaDDDNGFBe47H/M
+	 uhfE7IsD66Ro9LemuVBpWvbzuy0LngrhuUklbnfl1enkh++hQamTyQkWis8RE2KcEAbbv
+	 y2n/hPbgUAzs4t18EsS2FvkrkxTG8ljp2QtFZBDZ2/0DXEQwSNSSjiQBT50nRrEXEIvFC
+	 JoO26Qu4eKf5FYFGyvfL9byF4Ye/dlTUHtRfD3HrBgnhATwsnQ7ukimJ64if21dtdSfcy
+	 YgshyUJZbMCRJluCMk9N0SMz7yKgfjCreRi9DklVYSRjffI4LT1onov5pYeMjIG1KaA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795422303;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=eWwZSVnTTdj+etI/fDq4YnbyDy94jcEEPt8yqACsXOY=;
+	b=t1jlKfDqA3FxGNEnGepQ5lFK7+USshMX2+szWT64/q9PFywRhre9jBLHN4bxdACnMwbl
+	 BZoMuGMmUzQ2AtRqJrEc6NIN3nXv1UXQShkQMiA3BO6smb/8qP+dsuAggKmwqqbjebfNC
+	 PDa2m0e79fXMcSUZGv7tf7Yd+f3kRl7jX/YYTOxok4z15q9ixBGx8FKEbCd6m80BYE1+I
+	 uJvy/HQWPCCjlqQI8jVhopLkdCjeyulSSbfA/m8pZlfemm2ZLLU305aI2HMtNz6ng+r8Z
+	 1qLmJFZaN9fKITJ6PeCGDR6R6CRaulsJX85tK14gY121MKN6x7ZhOoyXnXbF2a+qEiA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AEA9606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:24:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AEA9606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=D6Fh9qWC
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=HSUyFp+EYllNTrLsXxEGxRMBuqpbPPoIyuQ1COVxKsE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795422270; v=1; x=1796027070;
- b=D6Fh9qWCPEswhAg5emIFm6DBkMe74EM6ay3Mi3HuZUBJNeGqHpWo2PZ+RBhuA+TCw7/pdfYM
- fNbX7Sep8iwoCOQFiu1FXC9I/doZUWoDJV2AXczIR6+kywooOFjb3+eDPROR5/ViWJePvPi3DFO
- GXwYoS62jRK5yXqQteoZ2vmM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4f28e3a27007a1d5;
-	Mon, 23 Nov 2026 08:24:29 +0000
-X-Mizu-Trace-ID: 4f28e3a27007a1d5
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <1e7d39f1-382c-49e2-b3ae-935f25b22a57@linux.dev>
-Date: Mon, 23 Nov 2026 16:24:23 +0800
+	by smtp.kernel.org (Postfix) with ESMTPS id 17ACB1F000C6;
+	Mon, 23 Nov 2026 08:24:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795422303;
+	bh=eWwZSVnTTdj+etI/fDq4YnbyDy94jcEEPt8yqACsXOY=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=ogRty5oHHmLAONxMDMouuQ2HjewcC3aF6deTwPDZ6LdkITKQWRs64oeovH/M1TxqX
+	 bRVQsv+xEeSLgyeOAZJB9++tEpg3eae7Qw7yePc+E7uBaGk1aCjNZ5T1h3YMv/IA28
+	 EXNGDFcInSw+90Qqwh8sxelAoYb5ZATb2qLwHLtisry4GEoVCEp6AEyi2sDv60xguu
+	 cZ5UCdWiUZQ5gQkPlnlhCZjYiT/2m8fcmNm2AvXKGEA0Qe8GIfjgO73IujdQQvQpxN
+	 vNmVCjlVfWZaHuhWHWhg3rMgirmc7ScQhBqqBDgdf9k7AekE0K+sHg0BK8lf5tAR4y
+	 RwC9+G8xQQA/w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 6A7984C3CF;
+	Mon, 23 Nov 2026 08:24:54 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Mon, 23 Nov 2026 08:24:53 +0000
+Subject: [PATCH RESEND] arm64: dts: amlogic: a4: fix pinctrl node
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,104 +82,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 04/11] mm/vmalloc: reject an unaligned range in
- __vunmap_range_noflush()
-To: Suren Baghdasaryan <surenb@google.com>, Dev Jain <dev.jain@arm.com>
-Cc: Uladzislau Rezki <urezki@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, Dennis Zhou <dennis@kernel.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, linux-mm@kvack.org,
- Sashiko <sashiko-bot@kernel.org>
-References: <20261116071325.263682-1-hao.ge@linux.dev>
- <20261116071325.263682-5-hao.ge@linux.dev>
- <4c233641-15ad-4e5a-a106-423bc31f357c@arm.com>
- <CAJuCfpG5shRGvjHJyEOveSxkPE=x7nGTo4xmy0XLabV7NutrMQ@mail.gmail.com>
-Content-Language: en-US
-From: Hao Ge <hao.ge@linux.dev>
-In-Reply-To: <CAJuCfpG5shRGvjHJyEOveSxkPE=x7nGTo4xmy0XLabV7NutrMQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-fix-a4-pinctl-node-v1-1-c92b931a1766@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795422293; l=1293;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=F6Np6Gg5OfDL8SOtdbBhRnTvyEqILZTAt6VZ6iphZjU=;
+ b=2dxV+0wsY1Ywhc+kDyD+eZvF3rsgbZstTiIl1B/WVrx9YK6YakfBPZQrpFk5WF0T3+IeHAgt1
+ 9IA6xRRM3OjDcCrYZYMLqMJTZzDCqnCVhf9KFj6lSByienpTJswTQpr
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Reply-To: xianwei.zhao@amlogic.com
+Content-Transfer-Encoding: 7bit
 
-Hi Suren and Dev
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-On 2026/11/21 06:13, Suren Baghdasaryan wrote:
-> On Tue, Nov 17, 2026 at 6:05 AM Dev Jain <dev.jain@arm.com> wrote:
->>
->>
->>
->> On 16/11/26 12:43 pm, Hao Ge wrote:
->>> The PTE loop stops only at addr == end. An unaligned end is never
->>> reached, so the loop keeps clearing past the range. An unaligned
->>> start clears the page below the range first. Both are caller bugs,
->>> and the damage is hard to attribute afterwards.
->>>
->>> vmap only installs page aligned mappings, so an unaligned unmap
->>> request is never a legitimate teardown. Warn and bail out at the
->>> entry of __vunmap_range_noflush(), before any PTE is cleared.
->>>
->>> Reported-by: Sashiko <sashiko-bot@kernel.org>
->>> Closes: https://lore.kernel.org/all/sashiko-outbox-178439@kernel.org/
->>> Signed-off-by: Hao Ge <hao.ge@linux.dev>
->>> ---
->>>  mm/vmalloc.c | 3 +++
->>>  1 file changed, 3 insertions(+)
->>>
->>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->>> index a168f6f20f4f..e2b63cb1592b 100644
->>> --- a/mm/vmalloc.c
->>> +++ b/mm/vmalloc.c
->>> @@ -523,6 +523,9 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end,
->>>       pgtbl_mod_mask mask = 0;
->>>
->>>       BUG_ON(addr >= end);
->>
->> Nit: It is usually a practice to change the existing BUG_ON's to
->> WARN_ON's too, if you are changing around that part.
+Fix incorrect pinctrl device reference when adding GPIO to pinctrl device.
 
-Ack.
+Fixes: e9bb91734871 ("arm64: dts: amlogic: a4: add pinctrl node")
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Fix A4 pinctrl node.
+---
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
->>
->>
->>> +     if (WARN_ON_ONCE(!PAGE_ALIGNED(addr) || !PAGE_ALIGNED(end)))
->>> +             return;
-> 
-> nit: It's also better not to combine multiple conditions into one
-> warning so that the generated report clearly shows which condition
-> (code line) caused the warning. IOW:
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+index fce45933fa28..6587e3578f8d 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+@@ -218,7 +218,7 @@ gpioao: gpio@4 {
+ 			reg-names = "gpio", "mux";
+ 			gpio-controller;
+ 			#gpio-cells = <2>;
+-			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
++			gpio-ranges = <&ao_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 7>;
+ 		};
+ 
+ 		test_n: gpio@44 {
+@@ -226,7 +226,7 @@ test_n: gpio@44 {
+ 			reg-names = "gpio";
+ 			gpio-controller;
+ 			#gpio-cells = <2>;
+-			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
++			gpio-ranges = <&ao_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
+ 		};
+ 	};
+ 
 
-Ack on applying the same to the previous patch in the series, "mm/vmalloc:
-reject an unaligned range in vmap_page_range()", as well, it is done the
-same way there now.  
+---
+base-commit: e3194dfb772304a1b7ca3bcfccacefec3468b7bf
+change-id: 20260128-fix-a4-pinctl-node-6d7f9c29b32a
 
-Thanks
-Best Regards
-Hao
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-> 
-> if (WARN_ON_ONCE(!PAGE_ALIGNED(addr))
->         return;
-> 
-> if (WARN_ON_ONCE(!PAGE_ALIGNED(end))
->         return;
-> 
-> 
->>
->> Reviewed-by: Dev Jain <dev.jain@arm.com>
-> 
-> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
-> 
->>
->>> +
->>>       pgd = pgd_offset_k(addr);
->>>       do {
->>>               next = pgd_addr_end(addr, end);
->>
+
