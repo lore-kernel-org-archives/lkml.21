@@ -1,90 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441395;
-	b=TNeRD8Me9aJ2sQhZdJsipe+ygToa7ZutegxWTuQfHlstO4ctrxc17RMAyvEHrATifGBf
-	 A7IIrSFi7165E4OZtNqQLAXuqfT0kSyBjLKb8M0M1I5G2R7D7EszyudAOz6fegozpl9W4
-	 Iz9bDJVeicPEeQhUSqWH+HAWhoUiBzG6NYkPFrDkH3gxX+/D/1FDBYuw7H2Dfc/WYImr/
-	 GMJxp2ATTXTyeN64k0LJHPBW4XcR1laffoHwQyb1HzTwU5b9MmCMc/XWpUUqhuL+ukkID
-	 ZBrxjN6HK9omYpNSFYn2SxrxRCqCpF9Q09B34NPXIn1b04MiFTpzAlSZ6TvOwu8nizg==
+	t=1795441448;
+	b=S/0NQLjVdMg0ZaQO16bV4oPd64CDniCWx5mtyI7637bqEsTV0XKzdOB0JJHYW3Thi9d0
+	 uCycFWJ+HScgIfCMa1xN35iaX67Xw0kyXPfBKTjAWp56OkhkDx8sMelybw5P0cGS8BBX0
+	 WondQJv487IFxa8A7GRcsQ3yMG40VXBMdDup0zAMXutJ3TpVVOoq0iQ35mr/CC9iZr9D1
+	 9J7vsHiFs4J5XDmBAqsN1kqkdj8BCucZpZX099JtWwDuHZT60trygXfXnIrWPNqi0/CV0
+	 11d+Ru7N8NIo8YzYYS14idTTTJmUlf7gPTng87d+JBBqWv6DEIAzV5Dj23BmM38kJtQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441395;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kqCL8yR438jqEfqX8sdAOmG8GdM6o1iX2qDOd73H3eE=;
-	b=UFOIxxY3WgC9j8NJVxqRRMsF2S23eXYzSqzefF+tpvn8tbU2GRJbBp6mxKdxTEC8HSyy
-	 LfHwl54JPqWx3bMlPrcm3279+m8YitmH4p2AmBu47GIk7AAcCI3RNzqC4rRxF4rJFUSgF
-	 fd1VK2Zhvf5VFjCgTta96mKPNCBBeiuOA4n2q6yIOGHDlyXZOQerWOsXwvdrumnQltVdM
-	 Ky/k77gb4HdCngtdLmgiBwTe/hq+7yQqB3JxV5DaSa5dFHz/YJib9RHP0EOi18eP448tq
-	 GwtNmvsfWUnbxPoef0QvgDRg/Hp3uiD2GuWgOMKIBZA46RUiOVL9R30b4c2Pwmp8d7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441448;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=oS4crIHkXag3wnnPASJ03R2UVkt5O45hrU3WSbggrF8=;
+	b=x+5uP7W8g1GWDxMvphDxzOkJqxb+qke/kVOle2tdL24WHuMecoLg1JO1Dsq7FdM+rCr5
+	 SUQqJWvlYQRB7E/ygCJoJzyV1Z1H+VRrMoN82xCPzHk/nebFBYyWo31evIiEcsk/pLHpF
+	 oPcdg6Hrcu0RAz7xLYgyeFQa55+zBtjx+VwHwLTynK1R/5q3qOa7cwe6n9J1B+QIRpzlz
+	 7p1T7IQhtJ4htBPzNZ2cO0jfBqgm8quKo0xqScVCzIxwSAAiyIEcFRHPCkO/ADEZ2shAb
+	 lGMUfaeSuu9LZR1g/11yB2exBcoxoZL7mtoFHz3NR9l1gyNl/8ThOew/tTTRGmgGa/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="tSQq84S/";
-	arc=none smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=TBKrmsCl;
+	arc=none smtp.remote-ip=109.224.244.116
+Received: from mail-244116.protonmail.ch (mail-244116.protonmail.ch [109.224.244.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0993606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:43:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0993606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 398F0606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:44:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 398F0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tSQq84S/
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c4d21051042so539167366b.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:43:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795441393; x=1796046193; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kqCL8yR438jqEfqX8sdAOmG8GdM6o1iX2qDOd73H3eE=;
-        b=tSQq84S/1UMt0IuanHyasApDHPmNpDwhzVwotDPkeVq/SQyYZhFtggn3Cq/Gk/1tCk
-         h2cA1OEReS/CYPQpS40RC7oB08MVqUd7hmoO2j5ugvGQeh1InNKeFitZ+YOOi7s7VDVk
-         kyDC14iqfVs+yv1uzySejV0P+NH+PFQwPOU+3jS3mTPfmL6qomnI8+BCpKJhq3+wnmK0
-         /3c4tviGXnzIz6iHoW1QhfVYLYZTEEUWmKBd+iYSEEDhv2iVJJ3HF5eOOzXLPrYX1BfL
-         bAi0dp13I8lbGwD8qBUh4z2IGeZE250GZYAMy2MdxG0g/K6rOzOXfmCJZ62/M2fgsumP
-         2CPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441393; x=1796046193;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kqCL8yR438jqEfqX8sdAOmG8GdM6o1iX2qDOd73H3eE=;
-        b=GQBLBTm1+y/Pcnuqm61xYPuv9P//TyVAnAXePsrejHygt3xX9mIaowI5PMv2NwkNgd
-         qlppou6IjKYH1IV7e5XaQitMLoIr7bzC69cwTsNdy1KmnrC5o+1tPmncyCCOjm8cTSPt
-         X87pUips97VANpNlB2LgqSIAVVFsj2PiDhpTMXLvFCVMEHxHJgAnIKbaqpkw/c6n8Gun
-         Ob/wf11d8Un0ioEY2LVVE4Pf/TmXwMkJXR1oguOPzo2pBjKYVmC2A9HirMhwk8thfTux
-         X8jiv1skpMjo1dZwkY6qyrJ/sOPuV3VPcGYCYWnv/gORuMdzYlv+9vf+cZ5bNuH1u+c4
-         R9Dw==
-X-Forwarded-Encrypted: i=1; AL+hErFY36ZKtZQavN71LAN3DDdJZpzy7r/IJKhaFB6CgTnjUyA6pEs7iz9Bpb2oOkTo2kauWJRvWf6YH8bAoU8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9V/l+bNbxbag5AmkbANK0mCY26oduBWIpVPDS6Eohnq+1CNoWd
-	Dwa74oCnoJ/eB5nM39go76Qic5Mf+knUPEsxW0cGOL56m8AtFwZuHwoW
-X-Gm-Gg: AZFdTZcGq1Y8fXAGWUFzuj4bir84NOtNdkCE9UTNW62+KyBsoYXGHrZ5UHrT0dztm23
-	yUEy6fNiDI4J5qUStytKw2qwLgFKXClX6dj27QZaLGI9bpZa8FS0Frxyo6n/CPUyorIhE+MiRd5
-	vNDk9bYbt+oOR4bYp2xUzdxkgsVMGf8TC8DpGNZ+yzMKIFHwTjWqCxN8B/zq8hNsMH6rFi5JdST
-	BPDqKQUH3nWpircWvWar+lORoF7T8jEK2LOSaNb30P8mvuJMwtGGpyum2f0/8U9Vs1CQgK/eoYs
-	W+ZtTey6Ydd9KQWjAY4zn6Qw8/vMrD64Dmv1/KBHylrO8Ys/uA1UB32vo1XoW1tK9rAhRDgrII3
-	98W92UldFMHse7WkxX9NCBjI04EwoGGWB5cuEdFekaTVoeAfNLOw+YR1LJ9O2h0lRhgj+VqYHvg
-	lcQcwmaIRn+AZGexfwqZP46yIAcrrAvb2UZCVwYvR/0VoKxmIqEl7AgEZ6aPfM/CeqK9lrzjzcH
-	caQWpfrr7DpnTWblNFTY4k0v4VFEXDEcFNMtgCuJOKC4XOMiJVc++i+BKBmHg115yeitXeA2RgY
-	xxo/PA1+Bz66WQWpSJ6Fj2uSTVU+GwAnKR7f1LHZFLGD8S+Mq7nYvKfxsOpILWHbmRsjMMPEBnh
-	vMZTKSNmEph8g54Pd9dMmT0PbwdnEhridU/p86w9Db7aV9oVcsp8itXUONGMMdEfRS45ODGVxHz
-	f9rZI=
-X-Received: by 2002:a17:907:2d13:b0:c50:ca93:19a0 with SMTP id a640c23a62f3a-c513aab9bcemr968102666b.40.1795441393323;
-        Mon, 23 Nov 2026 05:43:13 -0800 (PST)
-Received: from ?IPV6:2a01:4b00:bd21:4f00:7cc6:d3ca:494:116c? ([2a01:4b00:bd21:4f00:7cc6:d3ca:494:116c])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aeca720sm409336466b.53.2026.11.23.05.43.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 05:43:12 -0800 (PST)
-Message-ID: <664a18cc-24d8-4140-9c3a-d522945cd2cb@gmail.com>
-Date: Mon, 23 Nov 2026 13:42:49 +0000
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=TBKrmsCl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795441446; x=1795700646;
+	bh=oS4crIHkXag3wnnPASJ03R2UVkt5O45hrU3WSbggrF8=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=TBKrmsClmY+jE4pey9hma2lPeNp2tG5fXgNGLYa3X5Ub1tqZDBMm9HD34UIICceWY
+	 XA12sAlz/S3WfiI7iU9l0D92Cxk6MmpBIzMUGR1qXPyQSG5VQWvTlHu1zOZJwPAL17
+	 z/q0BkyXIJbvNnzebzuPzti2m/l6c/d5jhl2KiUbhftBIBNDtEIJx7yEozuDOTzuB2
+	 5aDHEJo4OstuMlPudYQc0zYNOG5Mxg5A6VOgH76+kILWPRx+zqTi8BlYhPtVaZEgH2
+	 obr/m+MySWwdKGkgC6Wvykv3NIxG8ChWnfYqVQFtVCoExc5aXRMccF+7nL8vxX5TpH
+	 bl5JzzotcNIVQ==
+Date: Mon, 23 Nov 2026 13:43:58 +0000
+To: linux-wpan@vger.kernel.org, netdev@vger.kernel.org
+From: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: Alexander Aring <alex.aring@gmail.com>, Stefan Schmidt <stefan@datenfreihafen.org>, Miquel Raynal <miquel.raynal@bootlin.com>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH net v4] ieee802154: 6lowpan: validate fragment offset against datagram size
+Message-ID: <20261123134343.1638026-1-rc4d5a@protonmail.com>
+In-Reply-To: <20261112153034.1015181-1-rc4d5a@protonmail.com>
+References: <20261107223217.718177-1-rc4d5a@protonmail.com> <20261109090226.799973-1-rc4d5a@protonmail.com> <20261112153034.1015181-1-rc4d5a@protonmail.com>
+Feedback-ID: 190731814:user:proton
+X-Pm-Message-ID: 673f9152a276bae12744019e9e648d26e2b1484e
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,43 +64,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dma-buf: fix leak of ctx and dmabuf reference in
- dma_buf_io_ctx_create() WARN path
-To: Falconet3 <Falconet3@proton.me>,
- "sumit.semwal@linaro.org" <sumit.semwal@linaro.org>,
- "christian.koenig@amd.com" <christian.koenig@amd.com>
-Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "axboe@kernel.dk" <axboe@kernel.dk>,
- "io-uring@vger.kernel.org" <io-uring@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <htm5h9oaY-vk0g9JVYJmz5XCaKe_nPoWkUJYJqDulyNvv_sAWfzSMp0T6GWt5okc8R4SyvXXpJQ3VGhetKnjEa2KGem5uCYdxpmdzUFf6XA=@proton.me>
- <tRqxbL7txMRAzNLKylzBLQURNLpU-D0Xx5CrngGwLoYrK7V7kREharagUfgQLGIfiYFyTALR0BwL93AL_PWmFXq_MoZPhvPfUojBsyCnilI=@proton.me>
-Content-Language: en-US
-From: Pavel Begunkov <asml.silence@gmail.com>
-In-Reply-To: <tRqxbL7txMRAzNLKylzBLQURNLpU-D0Xx5CrngGwLoYrK7V7kREharagUfgQLGIfiYFyTALR0BwL93AL_PWmFXq_MoZPhvPfUojBsyCnilI=@proton.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On 11/22/26 10:49, Falconet3 wrote:
-> Withdrawing this patch. Apologies for the noise.
-> 
-> The WARN_ON_ONCE() path in dma_buf_io_ctx_create() is not reachable with
-> in-tree code: the only in-tree implementation, nvme_init_io_ctx_locked(),
-> installs all of dev_ops (map/unmap/release) before it returns 0.
+A 6LoWPAN fragment carries the datagram's total size (d_size) and its
+own offset within it. lowpan_frag_queue() never checks that the
+offset, or offset plus length, fits inside d_size, and never rejects
+an empty fragment.
 
-Right, it's a warning for the same exact reason, and cleanup considerations
-for it are different as well.
+A datagram is considered complete once enough bytes have been counted
+(fq->q.meat) toward d_size, regardless of whether those bytes actually
+form a contiguous range. So an out-of-range or empty fragment's length
+still counts toward completion, even though it doesn't belong anywhere
+in the datagram.
 
-> And on the only path where it could ever fire — an importer violating the
-> contract — freeing ctx directly is not safe: init_dma_buf_io_ctx() has
-> already attached ctx to the dmabuf and linked it into the importer's
-> tracking, so kfree() + dma_buf_put() leaves dangling pointers and turns an
-> unreachable leak into a potential use-after-free. Since dev_ops->release
-> may itself be one of the missing callbacks, the core has no safe generic
-> cleanup on that path.
--- 
-Pavel Begunkov
+IPv6's ip6_frag_queue() already bounds each fragment's end against
+IPV6_MAXPLEN and rejects zero-length fragments; 6LoWPAN had no
+equivalent checks.
+
+Fixed by rejecting any fragment that is empty, or whose offset (or
+offset + length) exceeds d_size.
+
+Fixes: 7240cdec60b1 ("6lowpan: handling 6lowpan fragmentation via inet_frag=
+ api")
+Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
+---
+v4:
+ - Added a check for zero-length fragments (!skb->len), which the
+   previous check missed. ip6_frag_queue() and nf_ct_frag6_queue()
+   already reject these; this patch now does too.
+ - Reworded the impact description to stop claiming one specific
+   mechanism for how an out-of-range fragment causes harm. A
+   separate, pre-existing bug elsewhere in the reassembly code made
+   that mechanism unreliable; it's left out of scope here and will
+   be addressed on its own.
+
+Reproduced two ways: with a local kernel module calling
+lowpan_frag_rcv() directly, and over mac802154_hwsim with three
+independent processes standing in for sender, receiver and attacker.
+An attacker in radio range who observes one fragment of an
+in-progress transmission reads d_tag, d_size and the addressing in the
+clear, then sends a single out-of-range fragment of its own before the
+legitimate fragment for that span arrives. In this arrival order, the
+receiver's reassembly completed with the attacker's bytes included in
+the final buffer instead of the out-of-range fragment being rejected.
+Both reproducers were re-run against this fix to confirm the
+out-of-range fragment is now rejected outright.
+
+AI Disclosure: An AI assistant (Claude) was used to assist with the
+analysis and testing. I have verified the vulnerability, the fix, and
+the test results myself and take responsibility for this contribution,
+per Documentation/process/coding-assistants.rst.
+
+ net/ieee802154/6lowpan/reassembly.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/net/ieee802154/6lowpan/reassembly.c b/net/ieee802154/6lowpan/r=
+eassembly.c
+index ddb6a5817d09..4edd307000c8 100644
+--- a/net/ieee802154/6lowpan/reassembly.c
++++ b/net/ieee802154/6lowpan/reassembly.c
+@@ -103,6 +103,9 @@ static int lowpan_frag_queue(struct lowpan_frag_queue *=
+fq,
+ =09offset =3D lowpan_802154_cb(skb)->d_offset << 3;
+ =09end =3D lowpan_802154_cb(skb)->d_size;
+
++=09if (!skb->len || offset > end || skb->len > end - offset)
++=09=09goto err;
++
+ =09/* Is this the final fragment? */
+ =09if (offset + skb->len =3D=3D end) {
+ =09=09/* If we already have some bits beyond end
+--
+2.51.2
 
