@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795431769;
-	b=BMaC7I/IwwHaAiLmI/WZ8BCTLGlgvbsD/0nnsie5+IUg/WwyYxsJmCnMmCm00SWsQBcb
-	 +kEKgtD5fi8LliMbZ7l85wl8TwTQk9RMshn1DuvcPkKzWgpe+XBn6KBerXs3r8yUhMjfN
-	 /BfttFqo2JE5qtwBtr256bERXBiPGDF9Cue7oYghody5kdOwmgMo2YhO+yLqfGmksKJE+
-	 +KSix4YHI7j2ciiDzRt5Q3pbZ9qu/1KRm8OrtqrjizUYQkSALpCtt873CWLgUBHYsh/4K
-	 SO6bmRdNxKt+zATzu039AKeJMh+uB0aeGW9mf/djmrD7QW7YHLtaw+as1WOaEJC3T6g==
+	b=iQebFueOtvgzLnUI/hDcYA+eU2hDKOJx/eZzY60RimywWCq/8EVW/u6lk5qxVB+PdD+a
+	 6MJlKktFwfL+zBHh2A7VkQEaACXYUXLglvm8K8CrPdhGlEAqmcwegHkF5u7eObfrfG2bX
+	 WXCz+svSupZd2Y4gG1o2cvbxoLWqITJPVvAzNS3nIn7Ou+iEIlCr+smjOBSrNuCAwL5Rg
+	 nk3FI6CifySyinvqbjWAsLlCRBbZISZ/aROzohDPJFENJWlXRqR4vzqQmXP8aUuG8Rmrm
+	 RVdZKZKMIM+hN4xcR73NUm6BvTp2Hs6Eix6zTsx+hglNuWhOsXwOI/ary+SjwevjZlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795431769;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=6jBC/pBEW6tYgxH37sEhPb6qD30sa5Ji6tQCEaIdAGU=;
-	b=HkqlDySRDgU5vIaM8lwcl341djDsSZ0YvaK6HTCZaUAH/+JvbhOdPrSKsYOuxwbkg+Jp
-	 CraQNX/Yn48PYMx3m7ed4LkxgtT1K01fwJVqyHoBYtFvBzT9hqxiaRann3asod4zhr7Q5
-	 TxZWLp1tq7ivxmDB773aDgjnbluxZJQ9wKSCfKxYG8mMttzDkgkhkc5r9RAhtv3Cmd7nY
-	 VyrfMVYZdAOIf3WZKZzkgcrrO4rvFl3+A6+z1uFXYUK1tWcZuSWwT5KTUKOXkOAaRK8i+
-	 gPA4BXyx8Nj4gHpA7qqEch66fqtHvjDdHmTbol3T15SKHL/QUOhHizdGN2ee+6wtPmw==
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=3K3SdUj3JwWWepPg9rr3kbx+dxUkOhrE6gER+eC/FuI=;
+	b=QNFP/1OzldfV7A6ASQatN5SqiL+IWVolR8FYKu53vzWGgwgD8c4uDKgQO2Ogpi2gIp/v
+	 1GZ/gri2ZpAO27FkmklOLu+XMvZQvTwBmWKce7LbOZGNodPIpOGXrEmaytzcmeCJt1G1H
+	 CpcY1PhFVjS+Yop6d3OPuw8EvzJvCnL20I1JKN5qL9k1uXl4mrhPQtM68WldxlgdFlbqf
+	 t0gfZfGJDXYrL0Tu/iuQi2gYsj3GyAC8x5S89+Nccczvgj7edR5BJnhxvIMtCCEjP7ovd
+	 ylZ9hBNGu+8T/WKF1cSVTrBzEldcL+VDoIQAKeAH8hBYOvyp+nZdIWFOBUGuOZXtLog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YlGkbCal;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bXwBCzOt;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25871606A33B
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:02:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25871606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6217A606A33D;
+	Mon, 23 Nov 2026 11:02:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6217A606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YlGkbCal
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2ee23ca87eeso929325ad.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:02:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795431767; x=1796036567; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6jBC/pBEW6tYgxH37sEhPb6qD30sa5Ji6tQCEaIdAGU=;
-        b=YlGkbCalmmbY1KS03lHZeM2uOkAZimmPVuxZtwqkBZthDiNoSrxrX12MgKNBANEJ2s
-         egLHnVxXnNbrfvqNqEvMvezAwheoE2lFMekgH0VmiCSWHCf8q5rh/vkrTSpoETyrTWKV
-         grvfCC53MGwDHJvYJJAmfzXdGXYN4PRYrEjlQRdU/wlhZAva4NjLsSaeNfj28Qo6sltp
-         fe/uIyt7OzsUzIENgbugbsboIVDfNXHruVG+0c++7uQou3GYbJo0dAEv/ln6GXxlFwqP
-         eOK9A9vRq46fIqK+9rQEkj8RP5Mv/UHMgB3cKFpq451GRfcUo7fEYaNGet9AsFHo+yil
-         HOOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795431767; x=1796036567;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6jBC/pBEW6tYgxH37sEhPb6qD30sa5Ji6tQCEaIdAGU=;
-        b=ani2e6jhL5FzSkeKs5kGLSqZJm5ZNvk9w6tI5xpgqYt2kmK5b3jDNTq/DltKOEMWFi
-         GLNs3mNVNAlRQS4scZPR/fxiaVgodPb0x1UNwcNOn95kVZ4Il9O456MvsMNqk7N2bfsx
-         PrrmxtgzwWefgnjHIZs77BFJRLWDs2AWt2FEbPqYnlXtrkYiRIzp0xgr32B08K6mB9Cn
-         5s2rWyaWRO7C8fgJ/6flBKlD8Q+OBbM/IwiDBEwutkOXayTLfvp5v/pCeKvsk5kjB0BW
-         +Yz8Mrc2Dos4M3A+2+iwdRDfM/rThTMVE7mlH2Z1MnxvuwygpKH+QnoaaEVJxWpF7knT
-         xzCg==
-X-Forwarded-Encrypted: i=1; AL+hErEMqjxnIpgaclcRC03qBKmq4KL8LhRBc4aoYiZhO1IrYGc3nd09CGZJ0sphnusn+5bAemNye5PW3PUJnBI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/gmkZioajq4Hb9qiKXtTq/cKswHg6cI6+8066GWX8szJGRrzkc
-	tz1z8HWch/Dtw4/mUXCDFB/NiuGaoMXgyal3/cJYUCX/kPbzr80KC7C5
-X-Gm-Gg: AZFdTZdLc+R/HJlm8UHcmvVF13R1iRo+1V7OWDKfZaXZK5EbYRyw+j0qHqKebSW9pJA
-	fAuXmSrLh1HqtvnxorVHmWy7j/+bLPxApyKg0a53hNqqik5Ljdp1zIl/uBEv5uYkSiMjyCFLR91
-	aos+ETpffupMEx0nAsDmOnkX+vAWCNC12kFeBiGOrGlWWRMLhq2Oj8UyLdSeRc+tH7guxM1QLjJ
-	cXlZFMq+e0i5pycBauIHBGtqy7j0qW9F0bkh8Zxo3IcMtmLLo15ZNe25vMbV3O+C/B8OhTGL6/0
-	yiXywvzYszD0pibJBgSt1jg3rJFarb673oHnsaZrEN4Rzk+2q0G1E3MeFaiqPMMdzOTssJCt8Rw
-	SnhL9OeK+aQUm4BpM2iucouL53ByKp54wyLQa/OrdESzRTwP1ySag4XJDaNToGQobMZ9L/FAVVP
-	jfkIoPr1cNM6Agkya4OqTVh4L/Gknf+n+2QtzmM5DFiuqBzjvOOLBqJTdTpPp8HjtsiqOTJrmvB
-	gwKr05kA5/WGbWYuJHzA6gZbOzhhcUYiOR+3tdP73VAm1ZtMZzSTFX/Iin37b2pq+5SWtUQ5vpU
-	ccmy6lzbtSjJc2w1HUZbEKVxTtz2bO3dr6hGJfNQNDMfG2a+XMWoCTrBy0VX1hcT6gCpBc4KYZn
-	bFOQyqx7er3nEGlKg4pcoLMky
-X-Received: by 2002:a17:903:1c9:b0:2e9:5714:607b with SMTP id d9443c01a7336-2f03ee6aec7mr177577965ad.0.1795431767354;
-        Mon, 23 Nov 2026 03:02:47 -0800 (PST)
-Received: from chenyou.ncku.edu.tw ([140.116.19.16])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1aa3sm50380785ad.21.2026.11.23.03.02.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:02:46 -0800 (PST)
-From: Chen-Yu Yeh <chenyou910331@gmail.com>
-To: alexs@kernel.org,
-	corbet@lwn.net
-Cc: wy@wyuan.org,
-	dzm91@hust.edu.cn,
-	si.yanteng@linux.dev,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Chen-Yu Yeh <chenyou910331@gmail.com>
-Subject: [PATCH v2 07/25] docs/zh_TW: process: sync 8.Conclusion.rst with the English original
-Date: Mon, 23 Nov 2026 19:01:58 +0800
-Message-ID: <20261123110217.170025-8-chenyou910331@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123110217.170025-1-chenyou910331@gmail.com>
-References: <20261123110217.170025-1-chenyou910331@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bXwBCzOt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795431769; x=1826967769;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=PMvGXM24+YAzr+Vo5Xdliur1cF2wjMWZvGWFVWM2Zaw=;
+  b=bXwBCzOtlU9sg061FZ1lzgktM8HF14kAsE3EEKBK+OHNBaxo0xc51XV0
+   jV8RYI7BcOb2lkTnCW19DsYbH8BO1qiySMvyin5Cz8ghlsep4Dogip3z0
+   pyOWW6Euw8oNytehktxxMDbJ1+wrHmtNiOasU108TwxhhQm3kDonsJomd
+   C7HMLTXtD9XNOKwC7fJJUWS/VgJWZ75Ax0BUe4iKOTpW5jF3LseUWvdsD
+   X9Sy6IIU3VXnSptkOektMR7ACRPr2VPfB+3UzeLLlcQgTQqVBScuMF4xo
+   aPq8fkuC7wLFpcv4KXIA15aIcUf92Eks0YRYSZbEzCjcmRgu90zkhKpNH
+   w==;
+X-CSE-ConnectionGUID: HcQHFHt1Sb+6Si8GpvQVvw==
+X-CSE-MsgGUID: 9NGSqb0PS3e5Ouah+EdJtA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4128363"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4128363"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:02:48 -0800
+X-CSE-ConnectionGUID: /zKTeBfNRYebpLxtGW4ytg==
+X-CSE-MsgGUID: VfYkf8ujT+ybiRg9Psk3LQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11689719"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:02:46 -0800
+Date: Mon, 23 Nov 2026 13:02:44 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Ondrej Zary <linux@zary.sk>
+Cc: linux-kernel@vger.kernel.org,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Hans de Goede <hansg@kernel.org>,
+	platform-driver-x86@vger.kernel.org
+Subject: Re: [PATCH v2] Introduce Synology NAS x86 platform driver
+Message-ID: <awQdVBHiNY_J-A4y@ashevche-desk.local>
+References: <20261120214014.4188702-1-linux@zary.sk>
+ <b3be68b5-b363-85bb-513a-733ab31cf1b7@linux.intel.com>
+ <202611231025.06940.linux@zary.sk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,93 +83,222 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <202611231025.06940.linux@zary.sk>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-The translation carried no "update to commit" marker.  Its first
-paragraph still followed the wording from before
-commit 9db370de2780 ("docs: process: remove outdated
-submitting-drivers.rst"): it called howto.rst "an important starting
-point" and described submitting-patches.rst as "something which all
-kernel developers should read", while the English text now simply says
-to start with howto.rst and also read submitting-patches.rst.  A
-section-by-section comparison against the current English text brings it
-in line with the full current original:
+On Mon, Nov 23, 2026 at 10:25:06AM +0100, Ondrej Zary wrote:
+> On Friday 20 November 2026, Ilpo J�rvinen wrote:
+> > On Fri, 20 Nov 2026, Ondrej Zary wrote:
+> > 
+> > > Add platform driver for Synology x86-based NAS devices to support HDD LEDs
+> > > controller by ICH9 GPIO pins.
 
-- retranslate the opening paragraph to match the current wording, and
-  write TeX as in the original
-- retranslate the sentence on why the kernel has progressed as quickly
-  and as well as it has, which had been rendered as "as fast as before"
-- wrap the :Original: line, the cross-references and the LDD3 entry to
-  keep them within 80 columns, as in 7.AdvancedTopics.rst and
-  5.Posting.rst
+We usually host more than that in PDx86, you need to rephrase to point that
+this code only supports HDD LEDs on the platform in question.
+Same for the Kconfig help text.
 
-update to commit 9db370de2780 ("docs: process: remove outdated
-submitting-drivers.rst")
+> > > Only DS411+II is supported for now (DS411+ should be the same except CPU).
+> > > 
+> > > Unfortunately, the DMI data in BIOS is not very helpful to identify the
+> > > device as almost all strings are "To be filled by O.E.M.". Match also the
+> > > BIOS date and then check presence of the onboard SiI3531 SATA controller
+> > > and i82574L ethernet controller to avoid activation on other systems.
+> > 
+> > Hans, Andy,
+> > 
+> > Do you have an opinion on the selected approach?
 
-Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
----
- .../zh_TW/process/8.Conclusion.rst            | 25 ++++++++++---------
- 1 file changed, 13 insertions(+), 12 deletions(-)
+Let me briefly look into this...
 
-diff --git a/Documentation/translations/zh_TW/process/8.Conclusion.rst b/Documentation/translations/zh_TW/process/8.Conclusion.rst
-index 2436263c6506..e0737d6e83e8 100644
---- a/Documentation/translations/zh_TW/process/8.Conclusion.rst
-+++ b/Documentation/translations/zh_TW/process/8.Conclusion.rst
-@@ -2,7 +2,8 @@
- 
- .. include:: ../disclaimer-zh_TW.rst
- 
--:Original: :ref:`Documentation/process/8.Conclusion.rst <development_conclusion>`
-+:Original: :ref:`Documentation/process/8.Conclusion.rst
-+           <development_conclusion>`
- 
- .. _tw_development_conclusion:
- 
-@@ -10,13 +11,13 @@
- ========
- 
- 關於Linux核心開發和相關主題的資訊來源很多。首先是在核心原始碼分發中找到的
--文件目錄。頂級
-+文件目錄。請從頂層的
- :ref:`Documentation/translations/zh_TW/process/howto.rst <tw_process_howto>`
--文件是一個重要的起點；
--:ref:`Documentation/translations/zh_TW/process/submitting-patches.rst <tw_submittingpatches>`
--也是所有核心開發人員都應該閱讀的內容。許多內部核心API都是使用kerneldoc機制
--記錄的；“make htmldocs”或“make pdfdocs”可用於以HTML或PDF格式產生這些文件
--（儘管某些發行版提供的tex版本會遇到內部限制，無法正確處理文件）。
-+開始；也請閱讀
-+:ref:`Documentation/translations/zh_TW/process/submitting-patches.rst <tw_submittingpatches>`。
-+許多內部核心 API 都是使用 kerneldoc 機制記錄的；“make htmldocs”或“make pdfdocs”
-+可用於以 HTML 或 PDF 格式產生這些文件（儘管某些發行版提供的 TeX 版本會遇到內部
-+限制，無法正確處理文件）。
- 
- 不同的網站在各個細節層次上討論核心開發。本文作者想謙虛地建議用 https://lwn.net/
- 作為來源；有關許多特定核心主題的資訊可以透過以下網址的 LWN 核心索引找到：
-@@ -31,8 +32,8 @@
- 
- 關於核心開發有很多書：
- 
--  《Linux設備驅動程序》第三版（Jonathan Corbet、Alessandro Rubini和Greg Kroah-Hartman）
--  線上版本在 https://lwn.net/Kernel/LDD3/
-+  《Linux設備驅動程序》第三版（Jonathan Corbet、Alessandro Rubini和
-+  Greg Kroah-Hartman）。線上版本在 https://lwn.net/Kernel/LDD3/ 。
- 
-   《Linux核心設計與實現》（Robert Love）
- 
-@@ -54,9 +55,9 @@
- 以及您如何參與這個過程。
- 
- 最後，重要的是參與。任何開源軟體專案都不會超過其貢獻者投入其中的總和。Linux
--核心的發展速度和以前一樣快，因為它得到了大量開發人員的幫助，他們都在努力使它
--變得更好。核心是一個最成功的例子，說明了當成千上萬的人為了一個共同的目標一起
--工作時，可以做出什麼。
-+核心之所以能發展得如此迅速、如此良好，是因為有一大群人數驚人的開發人員協助，
-+他們都在努力使它變得更好。核心是一個最成功的例子，說明了當成千上萬的人為了一個
-+共同的目標一起工作時，可以做出什麼。
- 
- 不過，核心總是可以從更大的開發人員基礎中獲益。總有更多的工作要做。但是同樣
- 重要的是，Linux生態系統中的大多數其他參與者可以透過為核心做出貢獻而受益。
+> Thinking more about that, maybe we should check the PCI host bridge (CPU) and
+> ISA bridge (ICH9R) too. And if we also check the bus and device number of the
+> onboard devices (02:00 and 03:00), the chance of false detection is almost
+> zero.
+> 
+> Unfortunately, the subsystem IDs are not set either. Only the ethernet
+> interface has subsystem device ID 0x0000 (how common is that?)
+
+Usually Ethernet cards need a specific ROM part (where MAC address is written
+and possible other configuration pieces) that usually IFWI has and the proper
+ID of the Ethernet is updated with that information (yes, there are some stub
+PCI IDs are used for Intel Ethernet cards). But I haven't checked if 10d3 is
+a stub ID. And assuming device is recognized and working, I can simply guess
+that this is a miss in the BIOS (non-critical BIOS bug when they forgot to file
+that data into PCI configuration space).
+
+> # lspci -vnn | egrep '^0|Subsystem'
+> 00:00.0 Host bridge [0600]: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge [8086:a000] (rev 02)
+>         Subsystem: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge [8086:a000]
+> 00:02.0 VGA compatible controller [0300]: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx Integrated Graphics Controller [8086:a001] (rev 02) (prog-if 00 [VGA controller])
+>         Subsystem: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx Integrated Graphics Controller [8086:a001]
+> 00:02.1 Display controller [0380]: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx Integrated Graphics Controller [8086:a002] (rev 02)
+>         Subsystem: Intel Corporation Device [8086:a001]
+> 00:1a.0 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #4 [8086:2937] (rev 02) (prog-if 00 [UHCI])
+>         Subsystem: Intel Corporation Optiplex 755 [8086:2937]
+> 00:1a.1 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #5 [8086:2938] (rev 02) (prog-if 00 [UHCI])
+>         Subsystem: Intel Corporation Optiplex 755 [8086:2938]
+> 00:1a.2 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #6 [8086:2939] (rev 02) (prog-if 00 [UHCI])
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #6 [8086:2939]
+> 00:1a.7 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB2 EHCI Controller #2 [8086:293c] (rev 02) (prog-if 20 [EHCI])
+>         Subsystem: Intel Corporation Optiplex 755 [8086:293c]
+> 00:1c.0 PCI bridge [0604]: Intel Corporation 82801I (ICH9 Family) PCI Express Port 1 [8086:2940] (rev 02) (prog-if 00 [Normal decode])
+>         Subsystem: Intel Corporation Optiplex 755 [8086:2940]
+>         Capabilities: [90] Subsystem: Intel Corporation Optiplex 755 [8086:2940]
+> 00:1c.1 PCI bridge [0604]: Intel Corporation 82801I (ICH9 Family) PCI Express Port 2 [8086:2942] (rev 02) (prog-if 00 [Normal decode])
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) PCI Express Port 2 [8086:2942]
+>         Capabilities: [90] Subsystem: Intel Corporation 82801I (ICH9 Family) PCI Express Port 2 [8086:2942]
+> 00:1c.4 PCI bridge [0604]: Intel Corporation 82801I (ICH9 Family) PCI Express Port 5 [8086:2948] (rev 02) (prog-if 00 [Normal decode])
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) PCI Express Port 5 [8086:2948]
+>         Capabilities: [90] Subsystem: Intel Corporation 82801I (ICH9 Family) PCI Express Port 5 [8086:2948]
+> 00:1d.0 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #1 [8086:2934] (rev 02) (prog-if 00 [UHCI])
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #1 [8086:2934]
+> 00:1d.1 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #2 [8086:2935] (rev 02) (prog-if 00 [UHCI])
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #2 [8086:2935]
+> 00:1d.2 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #3 [8086:2936] (rev 02) (prog-if 00 [UHCI])
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) USB UHCI Controller #3 [8086:2936]
+> 00:1d.7 USB controller [0c03]: Intel Corporation 82801I (ICH9 Family) USB2 EHCI Controller #1 [8086:293a] (rev 02) (prog-if 20 [EHCI])
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) USB2 EHCI Controller #1 [8086:293a]
+> 00:1e.0 PCI bridge [0604]: Intel Corporation 82801 PCI Bridge [8086:244e] (rev 92) (prog-if 01 [Subtractive decode])
+>         Subsystem: Intel Corporation 82801 PCI Bridge [8086:244e]
+>         Capabilities: [50] Subsystem: Intel Corporation 82801 PCI Bridge [8086:244e]
+> 00:1f.0 ISA bridge [0601]: Intel Corporation 82801IR (ICH9R) LPC Interface Controller [8086:2916] (rev 02)
+>         Subsystem: Intel Corporation 82801IR (ICH9R) LPC Interface Controller [8086:2916]
+> 00:1f.2 SATA controller [0106]: Intel Corporation 82801IR/IO/IH (ICH9R/DO/DH) 6 port SATA Controller [AHCI mode] [8086:2922] (rev 02) (prog-if 01 [AHCI 1.0])
+>         Subsystem: Intel Corporation 82801IR/IO/IH (ICH9R/DO/DH) 6 port SATA Controller [AHCI mode] [8086:2922]
+> 00:1f.3 SMBus [0c05]: Intel Corporation 82801I (ICH9 Family) SMBus Controller [8086:2930] (rev 02)
+>         Subsystem: Intel Corporation 82801I (ICH9 Family) SMBus Controller [8086:2930]
+> 02:00.0 Mass storage controller [0180]: Silicon Image, Inc. SiI 3531 [SATALink/SATARaid] Serial ATA Controller [1095:3531] (rev 01)
+>         Subsystem: Silicon Image, Inc. SiI 3531 [SATALink/SATARaid] Serial ATA Controller [1095:3531]
+> 03:00.0 Ethernet controller [0200]: Intel Corporation 82574L Gigabit Network Connection [8086:10d3]
+>         Subsystem: Intel Corporation Device [8086:0000]
+
+...
+
+> > > + * Synology x86 NAS platform driver
+
+Make this line same as tristate in Kconfig.
+
+...
+
+> > > +#include <linux/array_size.h>
+> > > +#include <linux/dmi.h>
+> > > +#include <linux/err.h>
+> > > +#include <linux/gpio/machine.h>
+> > > +#include <linux/leds.h>
+> > > +#include <linux/module.h>
+> > > +#include <linux/pci.h>
+
+> > > +#include <linux/pci_ids.h>
+
+It's assumed by pci.h.
+
+> > > +#include <linux/platform_device.h>
+> > > +#include <linux/printk.h>
+> > > +#include <linux/string.h>
+
+...
+
+> > > +static struct gpiod_lookup_table synology_leds_table = {
+> > > +	.dev_id = "leds-gpio",
+> > > +	.table = {
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 16, NULL, 0, GPIO_ACTIVE_HIGH),
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 18, NULL, 1, GPIO_ACTIVE_HIGH),
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 20, NULL, 2, GPIO_ACTIVE_HIGH),
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 32, NULL, 3, GPIO_ACTIVE_HIGH),
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 33, NULL, 4, GPIO_ACTIVE_HIGH),
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 34, NULL, 5, GPIO_ACTIVE_HIGH),
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 49, NULL, 6, GPIO_ACTIVE_HIGH),
+> > > +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 55, NULL, 7, GPIO_ACTIVE_HIGH),
+> > > +		{}
+> > > +	}
+> > > +};
+
+Please, switch to use GPIO swnodes.
+
+...
+
+> > > +static const struct dmi_system_id synology_systems[] __initconst = {
+> > > +	{
+> > > +		.ident = "DS411+",	/* DS411+II is the same with faster CPU */
+> > > +		.matches = {
+> > > +			/* Synology did not put anything in DMI strings */
+> > > +			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "To Be Filled By O.E.M."),
+> > > +			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "To Be Filled By O.E.M."),
+> > > +			DMI_EXACT_MATCH(DMI_BOARD_NAME, "To be filled by O.E.M."),
+> > > +			DMI_EXACT_MATCH(DMI_BIOS_DATE, "05/21/2012"),
+> > > +		},
+
+This needs a better comment assuring that this is unique enough. See what Hans
+did elsewhere for the similar DMI case.
+
+> > > +	},
+> > > +	{}
+> > > +};
+
+...
+
+> > > +static int __init synology_init(void)
+> > > +{
+> > > +	int ret;
+> > > +
+> > > +	static const struct pci_device_id pci_sii3531[] = {
+> > > +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531, PCI_VENDOR_ID_CMD, 0x3531) },
+> > > +		{ }
+> > > +	};
+> > > +
+> > > +	static const struct pci_device_id pci_i82574l[] = {
+> > > +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3, PCI_VENDOR_ID_INTEL, 0x0000) },
+> > > +		{ }
+> > > +	};
+> > > +
+> > > +	const struct dmi_system_id *dmi = dmi_first_match(synology_systems);
+
+> > > +
+
+Unneeded blank line.
+
+> > > +	if (!dmi)
+> > > +		return -ENODEV;
+> > > +
+> > > +	/* DS411+ DMI match is too generic, confirm by onboard PCI devices */
+> > > +	if (!strcmp(dmi->ident, "DS411+")) {
+> > > +		if (!pci_dev_present(pci_sii3531) ||
+> > > +		    !pci_dev_present(pci_i82574l))
+> > > +			return -ENODEV;
+> > > +	}
+> > > +
+> > > +	pr_info("Detected Synology NAS %s\n", dmi->ident);
+> > > +
+> > > +	gpiod_add_lookup_table(&synology_leds_table);
+> > > +
+> > > +	synology_leds_pdev = platform_device_register_data(NULL,
+> > > +		"leds-gpio", PLATFORM_DEVID_NONE, &synology_leds_pdata,
+> > > +		sizeof(synology_leds_pdata));
+
+	ret = PTR_ERR_OR_ZERO(...);
+
+> > > +	if (IS_ERR(synology_leds_pdev)) {
+> > > +		pr_err("error registering platform device: %pe\n", synology_leds_pdev);
+> > 
+> > Won't these be prefixless and you should add the usual pr_fmt line?
+> > 
+> > > +		ret = PTR_ERR(synology_leds_pdev);
+> > > +		goto err;
+> > > +	}
+> > > +
+> > > +	return 0;
+> > > +
+> > > +err:
+> > > +	gpiod_remove_lookup_table(&synology_leds_table);
+> > > +	return ret;
+> > > +}
+
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
