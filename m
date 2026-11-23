@@ -1,54 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.222
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.128
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795419461;
-	b=hQ7iE/NUhVq+BT1R7wi8/YVsyZr2mDmEuF90Kxjs1LHEhwnmSq+U16Alx2+5SMB4+904
-	 Jh0vv1pwnU8uaRjmev3AZzzV5vorWFVAf7xCq8MBg4sPyQTKZHz8ht7CRkMvAfrXgVcd0
-	 LCnzCWmPFn1djHcl7r1OK1qreKSi521F9q+dRbnSXFYIm/fsVC7rdSotS2dFFSweqxgw6
-	 cPdPBdI0gZv8IKaWpsJCVlbSMem/FLHrXoNCjPX6do+5ySUiwwRwmdNDxb6VfH4qotOI4
-	 Zh167gx8Zs0svi61pg1XGsau4dzTg6Wj6pfThcIZthY61jZFh/nGjIlUGhZTz9WcEWQ==
+	t=1795419635;
+	b=5Aqy0ienfhRmq2hc/IzeSUQywrwjjOx/2oFraUiM9Gw4USYTUARtOsMYn71fznFLHw/2
+	 muM7vnqiakyHrYN887IpvFijSpBvBbkEeWXXxjVPKhaZxkVMpC4cVeeKqUpe1E65+o5WU
+	 VqN6uW1HC4cPlJW7DLitH4SqBJQ20McUhqlo6kjuR69nWLcXwbtbfGIRYda0hTNsMyNLt
+	 M4qrFO/42MUMn7u2tORi/GLWY7PzRWX+MsGY5RnlOtMwbeFAakIJxz2se74/Zn912BgB4
+	 x1VbU3YBN4WlfiIqiyrnG/4eQf8Df8A7tRQGrBG/Dc9y+ftbiy5firfnBCVg59fJt0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795419461;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NmodjGeKHDCfxRhpWSEVp9AH2hRjN+0p/3GpG2Sg1w8=;
-	b=EYTGKOpN5fzvr5ENAScMNOT29fP0C7xS/DtQlNViVyvFmYD1INMtmaeBvryDzjXB3T4+
-	 tDLr0PjC3quh3pxFFuR4XNQ6Kyk/SWCFKeNSV0Og2iEHO681C8jWUXvAJc9B7kgG4Cxqk
-	 O6YFdwe0P05K8q0vmCxjG14kKbvWiFlqOB8+HGJVnM/4h7iBQnj9lhk25rxLgbXXan3/u
-	 eDohm/UzEdIe88tjlB/V9HovCmLM+FxC/rXzM1A8VrEIHMW0R413EMoXsH7YhlO46Zeoz
-	 Jqo4b7GlBK/MPDKkhyU/NtLqBkVquEt7k3TYjXpaWE+c2L2/rM+WCxtDRaLQywaEn2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795419635;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=0OSpOlJ5QU7jjdI5ogSU6KcCruhdHca3yQivXfMqClg=;
+	b=TyVTc2JJX6Tkey4iIy4/ZdK/kX+sJO9Aw1EZGTD2Z8CF2TAwwf+pPKaATzkCrsiviewM
+	 OaHf767V2dmsZjq3kL/cu/uZ/jKfp1ptfNGdeVRNfloky7edlI1pWXNAMi7ILT/6ofak2
+	 ukEe0NcIkgS9Q1gdkhCMYuo7dCQPSu6DD6C2SDoiGuxunycS2f7jfFxzbkk7rXdoWtAZe
+	 qxiil6+o96AZuLf5HpPqjqE22zUImc5aFyanMfS657ZGhKD/9jEOnd8YK2JWy4Iiryx62
+	 5DvlRitVd9xWe6XP5yITLziCJH7P6ier3cAcRxaMUoLI0FsWb2xzjShU7apGb83qwFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="CKIFl/24";
-	arc=none smtp.remote-ip=91.218.175.222
-Received: from mta0.migadu.com (out-222.mta0.migadu.com [91.218.175.222])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q49cmi4v;
+	arc=none smtp.remote-ip=74.125.227.128
+Received: from mail-pj2-f0.google.com (mail-pj2-f0.google.com [74.125.227.128])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F04CB606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:37:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F04CB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8525D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:40:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8525D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=CKIFl/24
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=xIzYw8/Ro5xzMGJMzNGSSSnMkdVNEoq8ZUwi7dXoTsw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795419459; v=1; x=1796024259;
- b=CKIFl/24BMuYv6VYlzHSMMfwr2AN1enC6IMMKqNdonZaUYbUsI8/eI5Q4QrMOiL7FJqCeYd0
- W0L0DWvDFhkfuup0tUZszdPwmX2XQC9dNa9Yl7Shp4T/ZhYDa3377piscm6tBitv6u/aWiMXy1i
- aZ6wNSG8sAjm8eNr+/V+1VR0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 999da549a628da71;
-	Mon, 23 Nov 2026 07:37:38 +0000
-X-Mizu-Trace-ID: 999da549a628da71
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <5036e26a-0889-4def-a3ec-1b35802ac0ca@linux.dev>
-Date: Mon, 23 Nov 2026 15:37:30 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q49cmi4v
+Received: by mail-pj2-f0.google.com with SMTP id 98e67ed59e1d1-3b094d5f1b4so604082a91.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:40:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795419635; x=1796024435; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0OSpOlJ5QU7jjdI5ogSU6KcCruhdHca3yQivXfMqClg=;
+        b=Q49cmi4vugsVNUTGmPetabr03sslo8eARVBGjoS8x5vCtM62A79skCcIK7pMMgV8Or
+         PK5x7jkYAtco/0fj7DhWFUpmqMBnlSnUAtJoH82f9Gq/hNwdzLp0yJOCP69waTHVXudn
+         o6e4Bh9fKXRRtbRKloY1MzAyxgZYHfCVv0a3wLNqVYuNrPXrNymAKt4mAAJnhDsZQ9DG
+         h5qZ8mxW+K3ST4ADdr7jLqESvA2t4tZHfVFSUOdFgcPaKvmdMm0Tkh2kSALS16/bJdzv
+         2FyUKU6bvghLA8iLdDXQD52NUNu9BWTDWldCZeJ8IjHd6Nul0/rYhcAqBM7au/+l0njL
+         UngA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795419635; x=1796024435;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0OSpOlJ5QU7jjdI5ogSU6KcCruhdHca3yQivXfMqClg=;
+        b=eHUrBjnamSAVT6UlRJEVHxNvT7IghTO0KFCTHk9hiTqzoTpn9qGk2yLkSPAQ57hlb7
+         luJJh8TJ6jg5eKfop+bq313AAPHHUWOsTq323bDc5B2RruErrsQv0ZV1ixhyX+5z0n98
+         GFTH2jxDfnGEXJHpjcmTB1GlPa+FTlrX7PGL9adDQ02YFCjVvlZrcKk7dn9BWUhxD3m4
+         AdC6fJ1D/sJxEUz4YmCXjVdniBmTfPZ5doUG7aaj62r3Rc4RFY07zAeO/x2ygC8rxv7M
+         Y3rBlg2Gkh4krWThZZnBmj9YY9W/gHzPSl7j1fxK3bv2OrytKv8UTpmddUMYhjSFJCjR
+         Podg==
+X-Forwarded-Encrypted: i=1; AL+hErF1DBs/F9V1QexjchzIxFtbCUvqS/k/WsTrG4dUZpdL3CjStR7LU+s0uC3F+KRNboJgv1Kmen8P5yxD7p8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/d84aGyqoKYwtuNdNujOeT8APZs5PADF67s+5aFoy+XPu7WfGs
+	iMl6g1+7Aqp1y9NieQM508xZZqbsMWwS+Uyyia7GqCE81M2dN3ZNQ8so
+X-Gm-Gg: AZFdTZeb9xBiNajBUXNj3nKz1Or8ARHKn5kvNnRXYWPRfEIenayeYJmQUWdjVVW/ccN
+	x7ebb5WuTiXhYZOG4pZxKoi/3CuOPiiLy0+BPmWOVurkb6wy2gDD4gNYrVwi+W2Ud1BossUcGsX
+	v5gmyOsKHd6kwxSL1XXFSSiLvK5aXzC8lL1gO0zo+g/IaAskwgcG3NBbHQ2vIilNn4Y4YsAa5Iz
+	pRP9fs4efVPNHkMhssD6EvY95JdbYZg5koYt2KhEat+VKJ4pBi1DojPYkxgUNfmaY2kZIwoxfdf
+	T13XyU9ax64YXhlSZzfFWUxKe/AggeSEQTA03KNV0on9lEoiggtTh7jXFBKCzx/cTO+Xee+aV/e
+	rU+7A5TuNoblshXXKMb/rwmPOtHJ1wd0X297wsy5KZLOTgTt6f1uql7ci5ynS4s5iBGbNmCqOMr
+	9FCJfc+60Ll5x8woI9Zjy6XKIxcxclkLPD/dLCvSLUfaD3HXIjYIH5vC2Ywj16xE/ILYkrueNi2
+	gN4hXYA7tec/cVIuLlb3tqfCqMP6xqmcySK3jHf3JA8gYsNayBaN7HHzx8KXAm9R9UU7NIqTUg3
+	kuy384Cd/PLFOKA+k98ChH0CLb9ptQyTl2m2
+X-Received: by 2002:a17:90b:2f8c:b0:3b4:1997:3495 with SMTP id 98e67ed59e1d1-3b41c9613bbmr9155015a91.57.1795419634749;
+        Sun, 22 Nov 2026 23:40:34 -0800 (PST)
+Received: from [10.125.112.22] ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8ef99sm17103994a91.12.2026.11.22.23.40.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 23:40:34 -0800 (PST)
+Message-ID: <a3ebfc1c-9c98-44a1-96e2-4d92daed4ba4@gmail.com>
+Date: Mon, 23 Nov 2026 15:40:19 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,39 +91,132 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/11] mm/mm_init: make __init_single_page() static
-To: Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>
-Cc: "Liam R . Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Muchun Song <muchun.song@linux.dev>, Li Zhe <lizhe.67@bytedance.com>,
- Andrew Popple <apopple@nvidia.com>, Balbir Singh <balbirs@nvidia.com>,
- Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-9-songmuchun@bytedance.com>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <20261120100856.16929-9-songmuchun@bytedance.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v9 1/8] riscv: build crash_mem ranges from memblock
+ instead of resource tree
+From: Wandun <chenwandun1@gmail.com>
+To: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ chenhuacai@kernel.org, kernel@xen0n.name, alex@ghiti.fr, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, saravanak@kernel.org, akpm@linux-foundation.org,
+ pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev,
+ robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ kexec@lists.infradead.org, linux-mm@kvack.org, iommu@lists.linux.dev,
+ robh@kernel.org, baoquan.he@linux.dev, rppt@kernel.org,
+ m.szyprowski@samsung.com
+References: <20261021083011.2170525-1-chenwandun1@gmail.com>
+ <20261021083011.2170525-2-chenwandun1@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20261021083011.2170525-2-chenwandun1@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
 
 
-On 11/20/26 6:08 PM, Muchun Song wrote:
-> __init_single_page() is only used within mm/mm_init.c, so make it
-> static.
+On 10/21/26 16:30, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
 > 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> ---
->   mm/mm_init.c | 2 +-
->   mm/mm_init.h | 2 --
->   2 files changed, 1 insertion(+), 3 deletions(-)
+> Replace walk_system_ram_res() with for_each_mem_range(). A later patch
+> introduces MEMBLOCK_NODUMP in memblock, the reserved-memory regions
+> marked with MEMBLOCK_NODUMP can be excluded from the vmcore by walking
+> memblock.
 > 
+> for_each_mem_range() iterates memblock.memory, which is freed after
+> init unless ARCH_KEEP_MEMBLOCK is selected. riscv needs ARCH_KEEP_MEMBLOCK
+> to filter reserved memory from the vmcore, so extend its condition
+> (ACPI || KEXEC) with CRASH_DUMP. arm64 and loongarch already select
+> ARCH_KEEP_MEMBLOCK unconditionally.
 
-Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+
+Hi Paul, Palmer, Albert,
+
+A gentle ping on this patch.
+
+Mike has requested a RISC-V maintainer Ack before taking the revised
+series through the kexec tree. Could you please take a look when you
+have a chance?
 
 Thanks,
-Qi
+Wandun
+
+> 
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> Acked-by: Baoquan He <baoquan.he@linux.dev>
+> ---
+>  arch/riscv/Kconfig                     |  2 +-
+>  arch/riscv/kernel/machine_kexec_file.c | 31 ++++++++++----------------
+>  2 files changed, 13 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e7891a2a89da..e21d0bab77ee 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -58,7 +58,7 @@ config RISCV
+>  	select ARCH_HAS_UBSAN
+>  	select ARCH_HAS_VDSO_ARCH_DATA
+>  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
+> -	select ARCH_KEEP_MEMBLOCK if ACPI || KEXEC
+> +	select ARCH_KEEP_MEMBLOCK if ACPI || KEXEC || CRASH_DUMP
+>  	select ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE	if 64BIT && MMU
+>  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+>  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+> diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+> index 26cd2a8bd0cd..808e872f4063 100644
+> --- a/arch/riscv/kernel/machine_kexec_file.c
+> +++ b/arch/riscv/kernel/machine_kexec_file.c
+> @@ -37,39 +37,32 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image)
+>  }
+>  
+>  #ifdef CONFIG_CRASH_DUMP
+> -static int get_nr_ram_ranges_callback(struct resource *res, void *arg)
+> -{
+> -	unsigned int *nr_ranges = arg;
+> -
+> -	(*nr_ranges)++;
+> -	return 0;
+> -}
+> -
+>  unsigned int arch_get_system_nr_ranges(void)
+>  {
+>  	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* For exclusion of crashkernel region */
+> +	u64 i;
+> +	phys_addr_t start, end;
+>  
+> -	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
+> +	for_each_mem_range(i, &start, &end)
+> +		nr_ranges++;
+>  
+>  	return nr_ranges;
+>  }
+>  
+> -static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+> +int arch_crash_populate_cmem(struct crash_mem *cmem)
+>  {
+> -	struct crash_mem *cmem = arg;
+> +	u64 i;
+> +	phys_addr_t start, end;
+>  
+> -	cmem->ranges[cmem->nr_ranges].start = res->start;
+> -	cmem->ranges[cmem->nr_ranges].end = res->end;
+> -	cmem->nr_ranges++;
+> +	for_each_mem_range(i, &start, &end) {
+> +		cmem->ranges[cmem->nr_ranges].start = start;
+> +		cmem->ranges[cmem->nr_ranges].end = end - 1;
+> +		cmem->nr_ranges++;
+> +	}
+>  
+>  	return 0;
+>  }
+>  
+> -int arch_crash_populate_cmem(struct crash_mem *cmem)
+> -{
+> -	return walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
+> -}
+> -
+>  static char *setup_kdump_cmdline(struct kimage *image, char *cmdline,
+>  				 unsigned long cmdline_len)
+>  {
+
