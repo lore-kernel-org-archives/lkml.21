@@ -1,112 +1,112 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431219;
-	b=slTm61Pn4OqzcfbBHFuBQe4by6Z5+CbDBBSROJu6bq4U1IlsJzyyLsD9mqpVkre5wY94
-	 acCMSE2lZmRixrg57JTPFlJ3Etj6N5A+P7O+M/AQw6/IM/SgQ5cyLA3DQP+HrIDdpCG6f
-	 Msa5LlCcV6rnFYmMvelWFmHiekM0DLT/mWU/G1OEdxglFTlmYRu/NQyaXwgAntLSwXlAP
-	 I8836FXdYqI5VMaULsdNdHfKZlqr6A2WojuHPKEsbVWrjvmI4iZ5/ppAXDxhe4TLUmVtI
-	 98CwUHPQ/C9SXU+aU5MVDVLm4ZqPxAoXw36revjtMnRtKF/fBQBhDBfK3okzqhMNTSA==
+	t=1795431223;
+	b=CdTYdO4uBLGLIHTsGNjaIsBHNHZda4lIUClO4yqnc8jWw2dzcpL7qDBUZvWTcQtuxV/K
+	 9UmMAI2OpLJVbgXU9/Wj/evzud6FsyvGXQobW2vONaLt3c91ZPVBblINxG40pTFhDH8UL
+	 ZVOsVpTsGTEsNRPhVU7RjUq9fW3jlUpw/w7yk6wLMh4R9dtYp/s6I2ae0QvowJWeN97r2
+	 VE8y0b8ols2ZqUAC3zvscFp2+Odx39+B8aBJyWBc9Iftjq7rY93oCef2fAOtNcES4sXYl
+	 iG05AqW895Cl/sZEkLM+/G6bZCb+0V20TjaLeEe2o/60FYHG5M1Hj8jjQDPwsDv7z+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431219;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431223;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
-	 Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=bNh+CyyEc4DwqBf8wMJAEGceVFKZ9FL5VhwVvApn47g=;
-	b=3PM7qxc6Ivk2ZBqaebf7n1eAlPIFIybb/m441GznsQfgNPTSsbxSo64YNEulVjFL3M+U
-	 rBX4E7NNOUMCykHl2n09VXdGfnjyOoxsBlQ4Z9iKRmjmDW6CbJnbcuva4dcAqcFv3BPik
-	 NZ7cdskKRTomnCNfrp12EN/K0ZdUJzGUB0ML4bvXlKlccBVU8Pvcef4CpWPGJG4vB+PB5
-	 FV0nPw/uVi/OliNS+EeWgLb2/aO1qfQaxt4ynckz6VXfWL0tFW8HWVVetMBDKFtnyZXSJ
-	 F+VeIQve0mDp/na+Cfg7bz1a+r3TqbTwfSnNYjD3b5IU9Tbd74T9MdcMScI8QRTFi2w==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=xWWYM5hufS1mOg/9f/oIBWOsERbRGwhQB+M3hkQU4XE=;
+	b=vGGbXIUTEWKJ9RCwPtynJGAcOEh5r0t0fRxovTJHrGaoi7KzN1y6p2+HTDVnDx2peYrA
+	 tq+scYGOFg9073lnYO9KfyOPO1sn5V1LLpC4Iw0XFCBNoqG89fBeW+OB1nEXHOEAq/lma
+	 E5VWfXtbameLoj/Fh7wTwXH8V8vxWC29uIMLI8+qkVF0WpL4+vE0+6+j/wGjLPdTvyJ8C
+	 XH1SRSmHMi9UWtE6jLmTGxOlAjDcIlwntLu/1ZmssiC7ORcRyUmIqMKmoy33Ubl4El5t1
+	 ArWNWXfFokN0bcfVxTObr8bfC9AgCeiwBLaWv9NtjJewMDW7DWVZaI4uefN3BBLhVLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HX3HwfBC;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=b0NRInf+;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GLDhGM+G;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Dhx35+DQ;
 	arc=none smtp.remote-ip=205.220.180.131
 Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ACF4606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:53:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ACF4606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7EFC606A337
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:53:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7EFC606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HX3HwfBC;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=b0NRInf+
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9Fuwx1427508
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:53:37 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GLDhGM+G;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Dhx35+DQ
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9G7ll4095715
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:53:41 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=bNh+CyyEc4DwqBf8wMJAEG
-	ceVFKZ9FL5VhwVvApn47g=; b=HX3HwfBCWdXddtSwB4vmaRfMN8yczlk5b1UupW
-	RdZJC7p3jzLKWOdaFpDy8J4KzHGAfX+9dN94BPJ036lS7WA65NjVSB6oCOVplQuS
-	VVWxOU28L5Env2+ooo/tK2NQVqQIbEATQtacmCNhP1JytBHmAbM/bErZRjHUCeIw
-	pYXU+bh97mXVDWGAVTmSB5KRtkyxFUnaM5WcER/Da2pulRCo24a2D3gg27vXu2P9
-	E+ZGv7zWJh9wwsbLGZlhlpHNYW/HingX8FXsMAJgvlfXu/2Y3yZDP55j3S/GpTMP
-	f3qHp43Bbk5d9YKEXOu3Twyj1mGBPi3ftb7w+aD1CV3sGjcA==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyh11a3-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xWWYM5hufS1mOg/9f/oIBWOsERbRGwhQB+M3hkQU4XE=; b=GLDhGM+Gu8YdqAbv
+	F0fXr/OprH0QQJSCflx/jY8SjE7/50uEBfu4VFmw9zY0Cewt5Hbp9eBFkB7eo+3F
+	Og9m296OUHR+6NdIirtq0A7+kXhpxO+Wk2b91fw6xswhLDw0Pyt2cwcwY4dpDGD2
+	58GwXVz3U63oJYPAaH/OIRJbCO2rSoLdk0YCww1cMpzy9+97jnjiODC99j7CMEdX
+	76Pmys9aN8rhJ27vMaL51gaqwGtF5Bfr8siR6gUa77yhpivfEO+Aaou/Fqyt8gbP
+	+b00gdOjIjGyh7ba9xN8i/+8/7G9lA/6qYuAuAOVA1/oa4Ln7yCCyBsSuqdNrrPW
+	HWSCXw==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g74115y-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:53:36 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cd5ca3840c5so3385263a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:53:36 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:53:41 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a0619b1fe5so2716097b3a.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:53:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795431216; x=1796036016; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=bNh+CyyEc4DwqBf8wMJAEGceVFKZ9FL5VhwVvApn47g=;
-        b=b0NRInf+k+rov2pCqiSbuliuxvZN5qe/RO0VdbSD9tdUFIgLNJkyCg/BiAl8FNedHP
-         MqiL7EG6Y1CkQ4mGPTiXbvjB1OJ7F9cCmrHHvrNM/ZYRAdU4oK5p2uZR0N4LxVzYqDnD
-         NKmNpzHPXb/6iZpG2CW7yu3i5Vcbzc1sWHdPJ/WmnfBlAetFtctSIMToK2NOr4MJc8eq
-         xgRbWAsqvks/enCbtOw+bFMpSOp/VFwev0IElOTDlYSXttddiWr2QvUuH7SRT5FXfpKu
-         1YcvhYbUno4/x9Ij5i+FITZlM+9N1DAhd19jPmwJuIpUFx2h1ls8Pp1g076qX3jhH/Mb
-         4dSw==
+        d=oss.qualcomm.com; s=google; t=1795431221; x=1796036021; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xWWYM5hufS1mOg/9f/oIBWOsERbRGwhQB+M3hkQU4XE=;
+        b=Dhx35+DQ84T/CUoxcxt2wmpc6/hYmG9scTK3XoXR0GG0riyGELZ4mAHqEKoeel/Y4V
+         B5PmfTk3YvAIk5mtlROEMOKdwY7Hxz0Q0iNGJxj21bEVkCmbsc6n/g5NxQ7HHdkhkFSU
+         aBZMq0f/MnOnrxTiNEIRYSwhuvSL3bZ8soiNoPSjwvKqiIbYt95Wq2qkdxCtSucHCtUl
+         O5rUNmTiUY4y5hlgxTxrMXG+gTPJgz+gHsHKfasGsvjKGISpi02y36P+1qHZE71eXuiY
+         mk1fC1b3pu4yplE2d9E/MQnCwwzdDtHmvX2qZGST/DbxzY2+FfJFn7+b0yYKAdx1+A/M
+         dANg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795431216; x=1796036016;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=bNh+CyyEc4DwqBf8wMJAEGceVFKZ9FL5VhwVvApn47g=;
-        b=OiZvi+ghbFu2m0POsTlVuFw6EecLLfqjLkiKS5siC2nauUGN2uaNRyMO2E0Yl1llz5
-         EzY9LZwN3H0WSeVmkqc0ILjwqMQNY7eVOKIy5AefUQL1Cv3nAmYtcJnjURnZvQEIvw+m
-         MKkX0xDVMTRJEIsXfh0W8FMCXl8BhQjjNF3iwFaR7jRoW38RIduJTYl38ivY/8BWeR3P
-         9Clw8Xq9pRn1brhZNHHKjwDPNNH9A211G/95noxogi247Zjhy3fzh4xW7bj17Y5kDSrf
-         zYotN0G5/wyQT7AEkkimE15dPZH7Uft4cyLydFop3gUZhyISs0dUYVxw/lQA4CLaewY5
-         efKw==
-X-Forwarded-Encrypted: i=1; AL+hErHYu/a8no+dYL5YMCHLBUWVb32YlRNwDK6pgUiZxQAf0UQS/G2Jy12cy1cGzMiMDCcjhyoo8JLuWsNctx8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/XZPYbwd/n8eRj9CpcGtBxlC2+LVRBG53FvAMmfDGZkmRSDr3
-	g0VA1XCrF9SibPyIjRlNDYUKN8nvSPU183XGT/VNBUdB6v5nwhSMfArluLQAftCItbcpGYduMdP
-	4nQwXA6npEbkB0+f/4ZS9agx0DPwsP/thuG+A9Ljv/IvD9RcY9iWhZaLxGBCmj/bAFRk=
-X-Gm-Gg: AZFdTZctt8/E+yt5S9d+4ubYYykSF4j73HNk33sx49TZlekV/nq3lOivMUk+wbnjyAn
-	lw8H7HFo3tPDHerMZ5cQaLqx9KcosW76XwIhQRWO9vpknk0YOOco/AVmaLpPr3Xo0XfhCPo+tN8
-	mJVUbAr/89SQ/b2S9Nwu/z1aGJF6bzs6KVAB36dm/ALK4TSa3ugjBiNVQePlBC6f+zdMYFVX8Bt
-	PH7rUybIoHOigP9EdIdFU4h62eBuChe5cWejQQpEJ0B1gzaZRgEQnyNbGStzv+oGlkBP5lKZ8Nl
-	Tc4CSx4d3svqieHqgxeuqhBxOGIahv5Jhx6C9Eu0DsOx5fp6kWeVSUDYY5yqKmYBq+tug7CNXaP
-	Bc0PVc68fCgMFGuFi3HyHGK7i1luIbShGWa2DO2ea//MSx/A0ESkrLnve8D0FTia2P+HXGsIZCE
-	ZoJ5jFFZwyHfo=
-X-Received: by 2002:a05:6a20:7351:b0:3eb:a4ae:3aa9 with SMTP id adf61e73a8af0-4014db5890emr12796882637.63.1795431215946;
-        Mon, 23 Nov 2026 02:53:35 -0800 (PST)
-X-Received: by 2002:a05:6a20:7351:b0:3eb:a4ae:3aa9 with SMTP id adf61e73a8af0-4014db5890emr12796862637.63.1795431215504;
-        Mon, 23 Nov 2026 02:53:35 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795431221; x=1796036021;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xWWYM5hufS1mOg/9f/oIBWOsERbRGwhQB+M3hkQU4XE=;
+        b=mBOLzPjbO4EV0o5uoEfLu+9QilYip9G3Ko2hUXEeY6ZbhSdVduZssxDUE6lxjGpYg5
+         2/bKBP7dUcCv9TbBchhBl2/qdBeJx34aESaZ/Y/dlx3mVXKTz/eFLEA51VwoBovzT2Ma
+         zajYs0XkMx3YWuUJ28G3lJLOc1lS4wsVGIgR8BOVQumGKk1sDm3In0XyYD/9JxcE/sJf
+         OgdAyPq/214GEtFpJgDypB/fMJa7mSgTra/koIezTxA+Qs//lsZL31q5efcVakNylpBl
+         njooXfbuExdIzFObCySBo3sznrP3izm2RW20VLYghZz9zd7QKxFdI8r64jIwKTSG7Xg0
+         0WQA==
+X-Forwarded-Encrypted: i=1; AL+hErF6x41p5Dk8UckczerVCSga2VJpSLp7G+kvI1tWLNNStzFjK2PD9B0Xx5aouRGQ34tByGGMfC6rCemaUbU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rcttQlBfo78Yvl/2DBBivUC3lyhdAtDM//WktsGWwKz3e1ocu
+	6Ae0Oma7FlOM8VvIYxMxSjI5x6zkyqq5cm6dEXEiwNEw2Vqpem6jcw6udi4wiEnCHyJNsemrCa6
+	/JALWMbtJCP99BaGjoU+WILdC95KZS+b3MzwF080Q09InC1q+k0amWjh22ilgtgv7/h4=
+X-Gm-Gg: AZFdTZfFt5mg6QPI33pmunGpMthSIjqrm2K79m2T5kPtktUTj59ps/SrLtksPsYLERF
+	mfTq1tji76EV6Xnd3JbNpmTneBkj6k2IGV14v8EdtyIE2nSAEewR5zl4QADs9VJQqEg5KgqF1mf
+	lOgyMf/wAgsNOUgBl3GSjjX+wueKu8DJRSOMxxKgejbTB5yEk90LcGSlsusD/vgvREie+hza0RF
+	fVF3se9MxNnMx8azyfrLR4taxxJIHfsCH3Qr+579mm4XDOMmgqURQI3j/a7ZBYmDwNR2dVXlUBG
+	xv5+YcWHp0ofYCIsVQzAxJl/vFlLlUjxPY2ZrbuyY1EwGSYtVRyIzSzaXuvAlhejjBlP9m7TqVu
+	K+JDvrP7Uk5yftbl+fBGFwvvPVcKJJ3D6eSDZwaKU6NIkala6fLj7TCVhcoMkQtNnHDnGO71ANQ
+	6y7gUreDgI6Mw=
+X-Received: by 2002:a05:6a00:2c94:b0:8a9:b07c:7715 with SMTP id d2e1a72fcca58-8c8792a497dmr9325319b3a.1.1795431220683;
+        Mon, 23 Nov 2026 02:53:40 -0800 (PST)
+X-Received: by 2002:a05:6a00:2c94:b0:8a9:b07c:7715 with SMTP id d2e1a72fcca58-8c8792a497dmr9325301b3a.1.1795431220221;
+        Mon, 23 Nov 2026 02:53:40 -0800 (PST)
 Received: from hu-gthawre-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e456a7sm5330863b3a.29.2026.11.23.02.53.28
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e456a7sm5330863b3a.29.2026.11.23.02.53.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:53:35 -0800 (PST)
+        Mon, 23 Nov 2026 02:53:39 -0800 (PST)
 From: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
-Subject: [PATCH v4 0/3] arm64: dts: qcom: lemans: Add LeMans Draco EVK
- board support
-Date: Mon, 23 Nov 2026 16:23:09 +0530
-Message-Id: <20261123-lemans-draco-final-changes-bringup-v4-0-dbfc15cd0883@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 16:23:10 +0530
+Subject: [PATCH v4 1/3] dt-bindings: arm: qcom: Add LeMans Draco EVK board
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,13 +118,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABYbBGsC/42RwW7DIBBEfyXiXCxY7NjOqf9R9QB4iWlsSMC2W
- kX590Lcqq2USr4gDQxvhuVKIgaLkRx2VxJwsdF6l0T5tCO6l+6I1HZJE2Cw54wLOuAoXaRdkNp
- TY50c6GqMVAXrjvOZclWrem8aBShIAp0DGvt+D3l5XXWc1RvqKZOzQ8mI6bp0us9bfzLyWfb0N
- k4+fNybLjyzvku1W0otnDLaaamwLQ1ndfnsYywusxy0H8ciLSR3W+CHzLc9d4FEFhIb3XHdtgL
- +IYvf5G2dRe6sWGM4GKa76gH5tg404GVOnzetU/5KAcFqqAAKEFXTpExOTzJMvT0V8RHq9glav
- eC3DwIAAA==
-X-Change-ID: 20261013-lemans-draco-final-changes-bringup-1b7b76f8b2e3
+Message-Id: <20261123-lemans-draco-final-changes-bringup-v4-1-dbfc15cd0883@oss.qualcomm.com>
+References: <20261123-lemans-draco-final-changes-bringup-v4-0-dbfc15cd0883@oss.qualcomm.com>
+In-Reply-To: <20261123-lemans-draco-final-changes-bringup-v4-0-dbfc15cd0883@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Konrad Dybcio <konradybcio@kernel.org>,
         Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -134,135 +130,75 @@ To: Bjorn Andersson <andersson@kernel.org>,
 Cc: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>,
         linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Kishor Buchi <kbuchi@qti.qualcomm.com>,
-        Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
-        Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
-        Ajinkya Inchure <ainchure@qti.qualcomm.com>,
-        Anuj Tripathi <anuj.tripathi@oss.qualcomm.com>,
-        Sushrut Shree Trivedi <sushrut.trivedi@oss.qualcomm.com>,
-        Wei Deng <wei.deng@oss.qualcomm.com>,
-        Karthik S <karthik.s@oss.qualcomm.com>
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795431208; l=3830;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795431208; l=1219;
  i=gopikishan.thawre@oss.qualcomm.com; s=20261019; h=from:subject:message-id;
- bh=Dx9co28BgHh+ZbRepP+Xi3Pa2bEV5oGrB1qLTdgcJbU=;
- b=4zyKjN5Pm0j88C6+45ST9/N/UP/MG+/PJBJwPyESKzaRhVvZPWR2YeOUtk+X/MWhfcNyDDiY4
- DDpJnBPQg2zChKMMKOSBz3q1NibLJe9gOKuu9y4L/DFwQ1L3JpJm2bN
+ bh=J11m6SiF1xvvFn7gQOySTxQ2FArKpUmIzJhDjDucqOA=;
+ b=v/JQPrZtMh9CPiRHeJ/1lQdAnsmbifrQ9YeQZwNf+toWfXHTY4kwDntqTOT1G6r7bgPxk7NcD
+ d3fPqeQU97PBujMJEWvc36ZJ9U0LivjEAd6xOda/g4UFOD/p9YM+yeW
 X-Developer-Key: i=gopikishan.thawre@oss.qualcomm.com; a=ed25519;
  pk=l7diN2ZWn/39T24vZixhPPrGDEUF6RKc19MsWZubM6s=
-X-Authority-Analysis: v=2.4 cv=NM1AaE6g c=1 sm=1 tr=0 ts=6b041b30 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-GUID: lZLI8cbNuObUOUSTmTS9T8VD2Y4pqdlP
+X-Proofpoint-ORIG-GUID: lZLI8cbNuObUOUSTmTS9T8VD2Y4pqdlP
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MyBTYWx0ZWRfX/1M1tc1d40t8
+ LE65WZZzmy0nZaQj9PSzu/VqtSr0XtdqVfFHFLcC6jCj0yBZ8QeMptPaAJPxAfVaV/TKqpXgnci
+ Ic9stFVxVVTabrbkcw3GAgN+Myf0pvU=
+X-Authority-Analysis: v=2.4 cv=T/cZ3PKQ c=1 sm=1 tr=0 ts=6b041b35 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bC-a23v3AAAA:8 a=pGLkceISAAAA:8
- a=aa3sxGzdGyLt4iHDoZcA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
- a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MyBTYWx0ZWRfX+RpfKo7DJVVc
- lOIX5jh0SHLWE+Tl+1JsmZhs9YzmUS9BFjc8sCep7T8hfeHQLmULni3FStQjL4oEU/PPebocLZH
- Nt8K4qR8FMaKNA8jmtjNd66Pk5Np3ho=
-X-Proofpoint-ORIG-GUID: qtOP5RDC-6glD2KGDG-sTcUzBu-vF3oY
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MyBTYWx0ZWRfX+d+6tvmngr8x
- OzQgWNJQemFX4dGCH6CWlNAAaWJpP8WEeqyQbKqSyEnKIPRDPVDWs2eDbIT1+crjfXa1m5J/dDi
- Y4buxlyNdcYXSGymTqmpi99jbKDb0xP20CypRRMCstwPjFGsD2nlTgrDtZy3FkWNyXK2rYbHIt+
- 255opqUrTfvrzDrszpglRLjtKskmAsa1vhPgcvdA1IaNNcmeM7zHQ2/a2HPJi7b7YTV2BhQ1x2i
- 4PnhBJ0L4e+FNKWXq+avUWs3G6ZGeEzpX8P0YDOqL1BCM3Dq2URr2Ma5xaM1ZfM1B0Q0aGgPBlF
- ttRg77ggYWNIgicJwzvJjAKz+iRWLaumL43zTst6r6eNLMCu89gaqhdCHqgeP8VMutJsV9RPsdc
- hPrqMiCIm4ioICjgGpd6Wal1ClvDdBUBwPl5Deg+wCAi7saGZcDhv7y4QfxCjSM3o430LZqiqq0
- x+a/oEQEstRVb4wlxYA==
-X-Proofpoint-GUID: qtOP5RDC-6glD2KGDG-sTcUzBu-vF3oY
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=jgbjWhLY81TnJwHp3GQA:9 a=QEXdDO2ut3YA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MyBTYWx0ZWRfX9KDCwVai0mv6
+ Aq7yTs1XnzYc4euMUjLUR+rEvTqvMGE97RkSmV+XWemp4O5zYPcdFI97zVBcHVTigI1HjZfcFlJ
+ H33vVPtPzO4iGA1lUzglbI2Makbn4Z3cl25VZ7x56QVMyfa1nS/D05mt34zH2QUok6uJUhrXgAk
+ Uh12ZmcbMgdlODdTcX1sXlhQR+GV4VkV4uMfw6qoKLYE1ccYal7DU1KyFV5f0sKwCynDgEcsSeQ
+ wV/DcHDRjb0/Mu16Tfig72TN94zCyFWc0nOOmZ04VWx6f0a4ASWLchbufKjsmvg3lQpe109l/an
+ 6XjKHcB2k7FhCiOUy8CHgFZ02HkGjlocA5Df6cqILxN8iNB79qyMEnHlBT81DS+6juMC+1GIuYM
+ QZYicThL+Z7FN5yCs+agKGE3SI0xUMINfNre2A4TI6TxywZ79H7p7pPuilDc3KY0bFcUxmiqxK3
+ 5OXb8qZE04oKvY12jdQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- adultscore=0 impostorscore=0 phishscore=0 malwarescore=0 priorityscore=1501
+ spamscore=0 clxscore=1015 bulkscore=0 suspectscore=0 lowpriorityscore=0
+ impostorscore=0 priorityscore=1501 adultscore=0 phishscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230043
 
-Add device tree support for the LeMans Draco EVK, an evaluation kit
-based on the SA8775P/QCS9100 SoC targeting automotive and industrial
-use cases. The platform consists of a System on Module (SoM) paired
-with the Draco carrier board.
+Add compatible strings for the LeMans Draco EVK, an evaluation board
+based on the SA8775P/QCS9100 SoC family.
 
-The LeMans Draco SoM integrates the SA8775P/QCS9100 SoC, three
-PMM8654AU PMICs, UFS storage, USB 0/1/2, GPU (Adreno 663), and
-essential connectivity. A dedicated SoM .dtsi allows carrier board
-device trees to reuse common SoM peripherals without duplication.
+The platform uses a two-board design: the LeMans Draco SoM carrying
+the SA8775P/QCS9100 SoC and core connectivity, paired with the Draco
+carrier board providing application-specific peripherals.
 
-The Draco carrier board provides board-specific peripherals:
-- Four DisplayPort outputs (DP0-DP3) via MDSS0 and MDSS1
-- I2C GPIO expanders (TCA6416 x4, PCA9534 x2) and EEPROM-based MAC
-  address storage on i2c18
-- Dual Ethernet (ethernet0/ethernet1) with HSGMII PHY over SerDes
-- ST33HTPM TPM over SPI16
-- AMC6821 fan controller on i2c4
-- PCIe0 to NTN3 switch and PCIe1 to x4 slot or M.2 M-key (dip switch)
-- M.2 E-key slot with 3.3V supply and PCIe/UART for Wi-Fi/BT module
-- Audio playback and capture via max98091 codec (Tertiary MI2S) and
-  VA macro for DMIC capture
-
-This series is functionally dependent on the ASoC driver and binding
-changes for audio support posted here:
-
-https://lore.kernel.org/all/20261123072522.2358819-1-karthik.s@oss.qualcomm.com/
-
-Link: https://lore.kernel.org/r/20261019-lemans-draco-final-changes-bringup-v1-0-dcabe94f1074@oss.qualcomm.com
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
 ---
-Changes in v4:
-- Add audio playback and capture support via max98091 codec (Tertiary
-  MI2S) and VA macro for DMIC capture. [Karthik S]
-- Add #include <dt-bindings/sound/qcom,q6afe.h> to lemans-draco-som.dtsi
-  for Q6 AFE DAI ID constants shared across carrier boards.
-- Link to v3: https://patch.msgid.link/20261119-lemans-draco-final-changes-bringup-v3-0-db08f12f0cd5@oss.qualcomm.com
+ Documentation/devicetree/bindings/arm/qcom.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Changes in v3:
-  - Add PCIe0 (connects to NTN3 switch) and PCIe1 (routable to x4 slot
-    or M.2 M-key depending on dip switch) with pinctrl states and IOMMU
-    mappings. [Sushrut Shree Trivedi]
-  - Add M.2 E-key connectivity slot with always-on 3.3V supply and
-    PCIe/UART graph connections for Wi-Fi/BT via pwrseq-pcie-m2.
-    [Wei Deng]
-  - Move MDSS DP PHY supply assignments to lemans-draco-som.dtsi.
+diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+index 7ffa4f69987f..3d63e797cf60 100644
+--- a/Documentation/devicetree/bindings/arm/qcom.yaml
++++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+@@ -545,6 +545,13 @@ properties:
+           - const: qcom,qcs9100
+           - const: qcom,sa8775p
+ 
++      - items:
++          - enum:
++              - qcom,lemans-draco-evk
++          - const: qcom,lemans-draco-som
++          - const: qcom,qcs9100
++          - const: qcom,sa8775p
++
+       - description: Qualcomm AR2 Gen1 platform
+         items:
+           - enum:
 
-Changes in v2:
-  - Sort DT node order: move tlmm block after i2c18 node. [Dmitry Baryshkov]
-  - Drop unused sub-node labels ethernet0_mdc, ethernet0_mdio,
-    ethernet1_mdc and ethernet1_mdio. [Konrad Dybcio]
-  - Improve dt-bindings commit message to explain the two-compatible
-    SoM/carrier hierarchy. [Krzysztof Kozlowski]
-
-To: Bjorn Andersson <andersson@kernel.org>
-To: Konrad Dybcio <konradybcio@kernel.org>
-To: Abel Vesa <abelvesa@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Richard Cochran <richardcochran@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: netdev@vger.kernel.org
-
-Change-Id: I1ef390e8d1538ad58c74b8247dc6b405267b3d19
-
----
-Gopikishan Thawre (3):
-      dt-bindings: arm: qcom: Add LeMans Draco EVK board
-      arm64: dts: qcom: lemans: Add LeMans Draco EVK SoM platform
-      arm64: dts: qcom: lemans: Add LeMans Draco EVK board
-
- Documentation/devicetree/bindings/arm/qcom.yaml |   7 +
- arch/arm64/boot/dts/qcom/Makefile               |   5 +
- arch/arm64/boot/dts/qcom/lemans-draco-evk.dts   | 990 ++++++++++++++++++++++++
- arch/arm64/boot/dts/qcom/lemans-draco-som.dtsi  | 422 ++++++++++
- 4 files changed, 1424 insertions(+)
----
-base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
-change-id: 20261013-lemans-draco-final-changes-bringup-1b7b76f8b2e3
-
-Best regards,
---  
-Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
+-- 
+2.43.0
 
