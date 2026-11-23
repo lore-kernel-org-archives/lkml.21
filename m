@@ -1,95 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445102;
-	b=oVmnSx50+vIaj/jKnhae6MHGFXILj10Swgi2lAFosxNzEvfsA49WOS28qhCElPb0Cg70
-	 3x2JrEcllG59btoaqjEPpukHxEIoGCGhO4D/6NwV4Zyr4K61+GyR/2UMaX1hqESMruZHH
-	 16atsGkz8bUSrMwDlstCBfYDRWdIjlUxtD6gel+CG8+RlgGD5m8TVSSqEXZv5ar+OZprU
-	 aJD98edfnuVQyxMCPaPCFPr6SYcvZ/M2ZVMGsbg5lQxnWwZTqiViYJFJHVrRBVyXgaWAX
-	 S/h2JMhuWGEdY6E0v4oKLoPymcZZWX0m0PmBNhj9DRFltDLBjLByealpJxoO3BSItzw==
+	t=1795445138;
+	b=H2kGy88KfWdWx+M4vAnNCdX8sMgOeqsfWR0jMHKKCKR39vJOG74MTXmbYt1m7k9KzDf4
+	 P3dMgEU0vT9If2/nA9j30zUv6R+iz0Uk9Javg+L5/bAYDrN5kiLZnMSv/wVztRu5EsgVd
+	 hX8ijrx8/p3lZ+FcdLBCcCduo5h2qVhXzLH3AVn8H9IAulg23JDUtFFVoJJqGEImqHLhp
+	 z1lDh28GvKxmsPWJ5cP4QWebsJIG0vMHzT8+l0kG6TNiTHNnObeDH8E9qXGz1e9cJtnA2
+	 tAT7ipXNt5s1ZzrOObp6C1u7u46tYDRE/Gr7Ui9Fsu8GaP+CeMv8UoS7HDLtpXuwWvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445102;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=oroJDpKY2n8cvcz82AUhbS2tqIsCRV2vr8OBoeaBK8I=;
-	b=kt64sOnXQBWXHxrErvS1OqTqzJN4xS5PhixkrwIeK79xeDx+JJLT1QGlkDwRqtlZkrqh
-	 Hc5hQpnd5wwWCoSDGlFUvcFiRA4Q5xQ3FR8NczbcwSkWjwc8IQNton8jvMTzCarfJycjE
-	 NX8Wzmexvr2kn34AuvYGNr96ZWDRiPr6YzlNjIje8dkLcsZVllYpQCEttd5lLVKRHp3ma
-	 KUNA3yEgb/pJO/E0nEN3XtXDU+l0MAPQHUXIJ0wvNx9NVZIXoc/lYQr+n3IvoKIT3eMkF
-	 Bb1M3vxNTxyb2mTuNQnrz4Gi5s8JaWAQH4yBxvSIiRMcGiufLnZac+3AQsIQQSjqyuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445138;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=EJQxp1b8WsNMfoVFurNpPhpxRv6/KYmR7xfHGB3nybg=;
+	b=TlQ8ntXQIvZyp924SwTuCF2bLiTbxjzYm/ogDp4bDidjfehrqVaG5OY3jZfcbd0ikAzS
+	 ravhFeI6oadquqgNnN/Lx6RrXhI2OeZ3jZjaVxpn0knf8NQFaxblE06SPa2gzACcVYALR
+	 +OgAG5+Zf4HoeUgrDDI6gZnI6wXqiuWuibZw8a3fgxyMyck4NTJTtIakqpFAv7psf60Ta
+	 hZEed0iA7J9/q8hPffcLRATSHvkBKmAC9ugMk+qtJa+O7IZhXhvYmzbyqwKKlCkMXEvw+
+	 93KgjH/CzgAXiUQ72fE9w2pkmA0HFuz/U2BltOzPI+eHUs/mdnUJRoG4GADGda0YlPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nKvEr3le;
-	arc=none smtp.remote-ip=209.85.216.54
-Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="d7A/z+sA";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B40DB606A337
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:45:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B40DB606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 279C7606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:45:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 279C7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nKvEr3le
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b403511a3eso405424a91.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:45:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795445101; x=1796049901; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oroJDpKY2n8cvcz82AUhbS2tqIsCRV2vr8OBoeaBK8I=;
-        b=nKvEr3leziv3c4sG72Z0We+liDj+aNB3C84dddoOCQ6mzbB4izvIXB3GU2dLJJZAkR
-         cLLpoEs7sT4JsRBd1qEl78UlnQvpw0Gt9/ppOd4LvCvS05LU8Smldxrh3QWciGUelJbI
-         7n19l+XK7G1Fammfo50hJGt11iOnmd7/9JBFe8goPWvwF3CJXi8rCfpu/aJZdBUosE8k
-         S0cJawnBatIMml+VaOBvPJhTnGQ96Bq6gA/bRb6lHJTRoCkY9l7atcj+xQUxKDFTIZPS
-         p464wBR3TLqiWIklYivSHlau5FSdWFaZxUcp4Li+F/JDp8HgFZqjy6X+792FnRdI9ysW
-         Zrqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445101; x=1796049901;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oroJDpKY2n8cvcz82AUhbS2tqIsCRV2vr8OBoeaBK8I=;
-        b=jSRaUNv54yNnw3jTjPiGpdH/BZcKnnOCA2BfILN/Xt5EsYKhkOnxZYDZNhUfviDpNe
-         gBCv6aWcKOHnOSP5yM2SEQKPpLv78aUdYwtOceAPRqvMHM4HQLqiopvZE6AFJ9wpR7Fk
-         LEe661PCiURKnwSdooHIU6P7rUq5dg6Ein0pUBpZM1Cs2RO4ALbSIud5FAs0gDYHGTJM
-         GKi16JxnutkVnCXsgRnFD42ArMyMtCsG3dMgAhAO2W+b7cr4XdpJvJ7Lcg//WVoGf3hS
-         aa5WVwBTD/m0C4Z6V84h0iX+gWS1UXgYY1gC4r7/kdEHpCTKQbmPO+3dvepzyPpfE8g0
-         M67g==
-X-Forwarded-Encrypted: i=1; AL+hErECBPPD3SimHEU5dV+J/8uo19umoonY0Z04CCsA9syRezMmK/p+sHRjjE7iUnPs3XuDKdC7tw5uFn6xvrw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/HMirLaNy+qVx0JvywM/Kyc2rK7+iRZAq2UIQ7fDkDGA+JjcIL
-	1ItV9+R3HZUQEJCoElxHeT258t82x8y08hgkxV3tLYkfxWwy1jx10ao7
-X-Gm-Gg: AZFdTZe0rxEAS0nuIBTLjN58My+3mgGDnqO0tN2JA7Wgph2+Ja6dOVozkYp6ddRidhH
-	wlzoaHj2mNNghowdqdj324n4PXeylRmiDwUqzgo2cs7aSywUwEssPGlJro3L8CpYLsNYHWIk7qw
-	6e0AzRN/5k8ta81SwhZkogr0tekFAKkHaVNPW/L4r1yzmmcrtXvaynH6P3ReNdRIxKII8nNJNVq
-	//wh2sdi+8TvblfMW2U+kcANUX26EjBr5J0v3eOQ6eyCX3uC5RFz0DhwjtjwqfL2LlDum/1U+1K
-	mQw2plpfDjd2s7pSaneEx+OePn/7vQahGx693yyUu6CxlYRRCH8417Y3EZ7B7jbtU7k86OBaZZZ
-	HcZQLd5F8G0CwzB6TdtyjXpH0TxgS4q/DsEEeV2BN5DEDzKRQ5CojOFj/Y1Wg0oKAElVI1akiCv
-	OGYXwEeEJ6EaQkfgBR8i9fWf57TvRmAJa3pXApRg9PmutAsoC3AExhOcNh0zKzXVueG+uqQoXlh
-	o3cpVcIUyXlDWf8XTeHFnENYAC1R7PANGMZVcKZUcWdzS5107SuS13Q48MPhdS9YU/JcUT+2H8W
-	2tH58MZRNqyaW/wFfdR/RE5Qfzj0WW8GuWM+ovho
-X-Received: by 2002:a17:90b:498c:b0:3ac:73c7:9c07 with SMTP id 98e67ed59e1d1-3b41c55b914mr15888941a91.0.1795445100877;
-        Mon, 23 Nov 2026 06:45:00 -0800 (PST)
-Received: from gmail.com ([124.127.13.134])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b217a5bsm7810096a91.0.2026.11.23.06.44.51
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 06:45:00 -0800 (PST)
-From: Ziyu Zhang <ziyuzhang201@gmail.com>
-To: sagi@grimberg.me,
-	mgurtovoy@nvidia.com,
-	jgg@ziepe.ca,
-	leon@kernel.org
-Cc: linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	baijiaju1990@gmail.com,
-	ziyuzhang201@gmail.com
-Subject: [PATCH] IB/iser: Fix deadlock during blocking connect
-Date: Mon, 23 Nov 2026 22:44:40 +0800
-Message-Id: <20261123144440.65441-1-ziyuzhang201@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=d7A/z+sA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795445137;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EJQxp1b8WsNMfoVFurNpPhpxRv6/KYmR7xfHGB3nybg=;
+	b=d7A/z+sAHfm5bp5h5mMmIciJ9HA+XVmBAP0FJ/zJzi4cr5XYrjCXpfcOZcrMpRoAbry38b
+	Rhde+RHjNpW1F17kmXwfbdB3PqC8/r/OyNYo6+/xaYbAViXqpm7bMdI6e9VqewGTHK9t7R
+	byLHM/QEWiMmIXw9pbCPYHxtf6Bkr0U=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-274-j0KvJMa_O22XrITh9ygvgw-1; Mon,
+ 23 Nov 2026 14:45:32 +0000
+X-MC-Unique: j0KvJMa_O22XrITh9ygvgw-1
+X-Mimecast-MFC-AGG-ID: j0KvJMa_O22XrITh9ygvgw_1795445129
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 622581955D7C;
+	Mon, 23 Nov 2026 14:45:28 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 12FE1345;
+	Mon, 23 Nov 2026 14:45:23 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Mon, 23 Nov 2026 15:45:28 +0100 (CET)
+Date: Mon, 23 Nov 2026 15:45:22 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Keenan Dong <keenanat2000@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+	namhyung@kernel.org, mhiramat@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH] uprobes: clear extra_consumers before pooling return
+ instances
+Message-ID: <awRRgnRmeMDUvUWz@redhat.com>
+References: <20260408100247.2065245-1-keenanat2000@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,38 +84,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260408100247.2065245-1-keenanat2000@gmail.com>
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-iser_connect() holds state_mutex while waiting for up_completion. The
-CMA handler for the same connection needs state_mutex before it can call
-iser_connected_handler() and complete up_completion. A blocking connect
-can therefore prevent its own connection completion and leave the waiter
-blocked until a signal arrives.
+Andrii, can you take a look? I never understood this code in details,
+and today I forgot everything...
 
-Drop state_mutex around the wait and reacquire it before checking the
-connection state, preserving serialization of state and cleanup paths.
+On 04/08, Keenan Dong wrote:
+>
+> ri_pool_push() returns a return_instance to the per-task pool for
+> later reuse. The pool reset clears cons_cnt, but it leaves
+> extra_consumers behind.
 
-Fixes: 504130c039f9 ("IB/iser: Protect iser state machine with a mutex")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
----
- drivers/infiniband/ulp/iser/iser_verbs.c | 2 ++
- 1 file changed, 2 insertions(+)
+So at first glance this doesn't look right no matter what...
 
-diff --git a/drivers/infiniband/ulp/iser/iser_verbs.c b/drivers/infiniband/ulp/iser/iser_verbs.c
-index 55fe68e..9fe2d3f 100644
---- a/drivers/infiniband/ulp/iser/iser_verbs.c
-+++ b/drivers/infiniband/ulp/iser/iser_verbs.c
-@@ -778,7 +778,9 @@ int iser_connect(struct iser_conn *iser_conn, struct sockaddr *src_addr,
- 	}
- 
- 	if (!non_blocking) {
-+		mutex_unlock(&iser_conn->state_mutex);
- 		wait_for_completion_interruptible(&iser_conn->up_completion);
-+		mutex_lock(&iser_conn->state_mutex);
- 
- 		if (iser_conn->state != ISER_CONN_UP) {
- 			err =  -EIO;
--- 
-2.34.1
+> A reused return_instance can later grow a fresh extra_consumers
+> array and then reach the cleanup path with a stale pointer from its
+> previous lifetime, leading to a double free of the recycled object.
+
+Can you add more details to explain the possible double free?
+This is not immediately obvious, at least not to me.
+
+Oleg.
+
+> Free and clear extra_consumers before putting the instance back into
+> the pool so every reused entry starts from a clean state.
+> 
+> Fixes: 8622e45b5da1 ("uprobes: Reuse return_instances between multiple uretprobes within task")
+> Reported-by: Keenan Dong <keenanat2000@gmail.com>
+> Signed-off-by: Keenan Dong <keenanat2000@gmail.com>
+> ---
+>  kernel/events/uprobes.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
+> index 923b24b321cc..24b9884a2667 100644
+> --- a/kernel/events/uprobes.c
+> +++ b/kernel/events/uprobes.c
+> @@ -1945,6 +1945,8 @@ unsigned long uprobe_get_trap_addr(struct pt_regs *regs)
+>  
+>  static void ri_pool_push(struct uprobe_task *utask, struct return_instance *ri)
+>  {
+> +	kfree(ri->extra_consumers);
+> +	ri->extra_consumers = NULL;
+>  	ri->cons_cnt = 0;
+>  	ri->next = utask->ri_pool;
+>  	utask->ri_pool = ri;
+> -- 
+> 2.43.0
+> 
 
