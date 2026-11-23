@@ -1,59 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430112;
-	b=XxNkywbNjTrmiE1J5OJacWnXDf2Y+Hm5dLZf65EikQK1t8uCqUnCByHObniXgCH0AFyx
-	 AeJ8Sby9UVthtMeFH6q5CD4mI2D8kzYMHDTAvvXG1dgHqJqdpDckL49eizAIN6FT5K6ex
-	 NTBwSNha8VkvNILVX4y+5EOP6WTtIbh/7tS/3w3suJQ94ctjmkjdtBgMl7PFB+F3OHg4i
-	 HAVVNP8Yrg44cPd6jLvgVi+7/BPEqKbbhioNenPJ0LE6DkHF1mVfUh4FWy8OImofKVd1F
-	 /DQ1ykvVbua0DsSIexttCyDG9GWv/gQhqQHiK6Lu+Z4vz/qDtfGi7UHwdjOM+9YaLeg==
+	t=1795430113;
+	b=X1N0xgvXV/T0JDM3IXEDzooSBBlFqPPPAPJLqHE1pc5A8J4VBlA+buCtrR+QxbzeVjZ1
+	 V6uS+Ebk9ZakOA2RFjsMjGJOw+DdANnWoL2RUDOh7NLQQtZDxtkoM0o1wD1iVhXnakid9
+	 07q5FtW8zMXQIKKwmN/QcrV6VQ+TayIwLiNoAKlapX6BNXbAbK60dNKPhboO+1mXGWaIs
+	 uvOujUQiQMRNSOBCbCR1IAKIKm+YBSNNY8YPzvluMEuO/QF7HdAD2dJeBL3fyOsNN5VOH
+	 NK5gHi+yFfD1VmCo4viWQu1ilYXTJ5bsd/bNAl7jI1s/7GNaRhKeWz3aRovzPv8EyJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430112;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=i3MzbPidfDG/rjrcBIfelpXh/DBIpMthv6i7dnSWlog=;
-	b=W5BRJoP4RX1tyNDzzrzVxOQHy+LvskHgj06JybKfokcmM2lBadAp5c6TtVPSZ8jy6UDy
-	 bPrJrWjonl1wxRsafazQw1rQNbZsx6GMZKak+lbuEHWph64AQ9+XowwCzB6m3H4Z1cGIF
-	 1w7M4tnaj23+G3Xqpz49dlD8R61XDubTlAwAU1p/gVX9grgTUMzZvSeMq7EibczM5Xf+t
-	 ORf2XmnCop1N8SIL+eGr6GxfGrzc3Bp05JmcGN2gG+icE4RkY5tXoshn/uuAqYx4nZGXi
-	 8nK+Ta+q9SQ3QFUECNSpxtSAfc4jLedp1S2y1J+uLzJ/LyuYvjw3hCANcX7AE4nFZaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430113;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=JNegrRp/NUexDN4FEoZ14wbn4iQ1tVQRQNeyZoOBH0s=;
+	b=FYOwO1QQ54b6gDFDp6WvsB38/gDZWatOmoa0mGa3rRdkY402nvYDA7wmVTAPoFp5SVvi
+	 /njuFHWX3Rv/7r4GDNWPmFEcvxMvxtDgnkNrivW4iYe0mOCfHUSElFp69mPX3eSUHOD1L
+	 gFrP6ODIMKUtsiqCMDbVGPunXCT7oyMFkdpqaqDVU53rgh8Z5uaiRblz2stsK7pKLSrJO
+	 pVMuolTkh9zGq6EHfwgSQ9SYDTdUWwqygVEBcp28ViO0ZhJGuPt+vgD6wsjUCm/xmNm2j
+	 Jj3K2nwi32OGRRSx7xzuoPDJ6Bw2cYbRRniODELznOUEEDeAGQJ1HPl2CYKpPnEOLAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Va6ZtEvD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xWfhXSM2;
+	arc=none smtp.remote-ip=95.215.58.78
+Received: from mta1.migadu.com (out-78.mta1.migadu.com [95.215.58.78])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 827F2606A321;
-	Mon, 23 Nov 2026 10:35:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3713C606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:35:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3713C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Va6ZtEvD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABBC31F000C6;
-	Mon, 23 Nov 2026 10:35:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795430111;
-	bh=i3MzbPidfDG/rjrcBIfelpXh/DBIpMthv6i7dnSWlog=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Va6ZtEvDlTvYtjj1YNjK7xNoTVJVh0Y/RAsRQEpFFiOZKLvESai/4iNhDf4+R7V9C
-	 ELYYIOeKUslx/uevHFFmUOa+ybosLAf+klOjQN8sm0qH7fwENosPMkhrPRxd0pV430
-	 lUSDBrs4KPK1M5IyXIpxo34u1B+liENE6ktgyHWx8fEdKkSm7rto093fWZF7vE7ZVI
-	 NFA/DIX2Hm1pKuPfXNo5reMBGK8bOkLUqfsZR1GSzQnxZvEpa49TE2CyXUQr6R4oah
-	 GRLbZvHgBKMP2EvVGv1CwqZl22nKepg49hWbuhAvt9b62pptvhFFfKIHiTT9AhetqS
-	 tGewm1yhT/fxw==
-Date: Mon, 23 Nov 2026 11:35:07 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Linus Walleij <linusw@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 12/13] arm64: dts: synaptics: add SL2610 family SoCs
-Message-ID: <20261123-petite-oarfish-of-merriment-dd7e79@quoll>
-References: <20261115102401.3520-1-jszhang@kernel.org>
- <20261115102401.3520-13-jszhang@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xWfhXSM2
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=e7GMFbIO7ODomw2VAv04MqAxjpRjG/NYtGRnw2lyuKg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795430108; v=1; x=1796034908;
+ b=xWfhXSM27ELGPggwdUiw9YbpsPUnExY7Y5Xk5r8Y8wed35kWjr36YcmXC1Ftx2QhChXgsdNP
+ SF4Xq7aADZBFk5dwl4C1z9wF3CYrYGTLMCgL2SVVFBAegQAAAJzjAfR0B7IUbBgfEIS/PF/d9kq
+ 28o+GyIfDdkWPaSOnHaVuNAI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1b19a606ff982d8d;
+	Mon, 23 Nov 2026 10:35:06 +0000
+X-Mizu-Trace-ID: 1b19a606ff982d8d
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Gavin Shan <gshan@redhat.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH 0/2] KVM: arm64: Fix stage-2 THP mapping on hosts with 2-level page tables
+Date: Mon, 23 Nov 2026 10:35:03 +0000
+Message-ID: <20261123103505.1006067-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,183 +75,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261115102401.3520-13-jszhang@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 15, 2026 at 06:23:51PM +0800, Jisheng Zhang wrote:
-> Describe the CPUs, interrupt controller, system controllers and supported
-> serial, I2C, I3C, SPI and GPIO peripherals for the SL2610 family.
-> 
-> Use the SL2610 peripheral compatibles already documented in the upstream
-> bindings and share clock, reset and pin configuration providers through
-> the system controller nodes.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/arm64/boot/dts/synaptics/sl2611.dtsi | 457 ++++++++++++++++++++++
->  arch/arm64/boot/dts/synaptics/sl2613.dtsi |  12 +
->  arch/arm64/boot/dts/synaptics/sl2615.dtsi |  46 +++
->  arch/arm64/boot/dts/synaptics/sl2617.dtsi |  46 +++
->  arch/arm64/boot/dts/synaptics/sl2619.dtsi |  44 +++
->  5 files changed, 605 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/synaptics/sl2611.dtsi
->  create mode 100644 arch/arm64/boot/dts/synaptics/sl2613.dtsi
->  create mode 100644 arch/arm64/boot/dts/synaptics/sl2615.dtsi
->  create mode 100644 arch/arm64/boot/dts/synaptics/sl2617.dtsi
->  create mode 100644 arch/arm64/boot/dts/synaptics/sl2619.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/synaptics/sl2611.dtsi b/arch/arm64/boot/dts/synaptics/sl2611.dtsi
-> new file mode 100644
-> index 000000000000..663fe6034ba0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/synaptics/sl2611.dtsi
-> @@ -0,0 +1,457 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2024 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +#include <dt-bindings/clock/syna,sl2610.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/reset/syna,sl2610-reset.h>
-> +
-> +/ {
-> +	compatible = "syna,sl2611";
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0";
-> +		method = "smc";
-> +	};
-> +
-> +	optee {
-> +		compatible = "linaro,optee-tz";
-> +		method = "smc";
-> +	};
-> +
-> +	cpus {
+Hi folks,
 
-Messed order of nodes. Please run dt-check-style.
+A fix for how KVM maps a THP at stage-2 on a host with 2-level page
+tables (64K pages with a 42-bit VA, or 16K pages with a 36-bit VA).
+There, KVM also maps the host memory that follows a THP into the guest
+if the guest's first access to the THP isn't to its first page.
+
+transparent_hugepage_adjust() is meant to round the faulting pfn down to
+the start of the THP, but its mask is a no-op when the PMD level is
+folded, and has been since THP support was added. Before 6f745f1bb5bf2
+("KVM: arm64: Convert user_mem_abort() to generic page-table API"), KVM
+mapped only the THP anyway, which is why the Fixes: tag is on that
+commit. Kernels before f583a53c2b8a ("KVM: arm64: Make fault_ipa
+immutable") round the IPA with PMD_MASK, so only the pfn line of the fix
+applies there.
+
+Tested on QEMU with a 64K, 42-bit VA host kernel, where the new
+selftest scenario fails without the fix and passes with it.
+
+Based on Linux 7.4-rc3 (aebb727447640).
+
+Cheers,
+/fuad
+
+Fuad Tabba (2):
+  KVM: arm64: Fix THP block mapping when the PMD level is folded
+  KVM: arm64: selftests: Test a THP whose first fault is on a tail page
+
+ arch/arm64/kvm/mmu.c                          |  4 +-
+ .../kvm/arm64/stage2_block_transitions.c      | 56 ++++++++++++++++++-
+ 2 files changed, 55 insertions(+), 5 deletions(-)
 
 
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible = "arm,cortex-a55";
-> +			device_type = "cpu";
-> +			reg = <0x0>;
-> +			enable-method = "psci";
-> +			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			i-cache-size = <32768>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <128>;
-> +			d-cache-size = <32768>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			next-level-cache = <&L2_0>;
-> +
-> +			L2_0: l2-cache {
-
-Labels should be lowercase rather.
-
-> +				compatible = "cache";
-> +				cache-size = <65536>;
-> +				cache-line-size = <64>;
-> +				cache-sets = <256>;
-> +				cache-level = <2>;
-> +				cache-unified;
-> +				next-level-cache = <&L3>;
-> +			};
-> +		};
-> +
-> +		L3: l3-cache0 {
-> +			compatible = "cache";
-> +			cache-level = <3>;
-> +			cache-unified;
-> +			cache-size = <262144>;
-> +			cache-line-size = <64>;
-> +			cache-sets = <256>;
-> +		};
-> +
-> +		idle-states {
-> +			entry-method = "psci";
-> +			CPU_SLEEP_0: cpu-sleep-0 {
-> +				compatible = "arm,idle-state";
-> +				local-timer-stop;
-> +				arm,psci-suspend-param = <0x0010000>;
-> +				entry-latency-us = <75>;
-> +				exit-latency-us = <155>;
-> +				min-residency-us = <50000>;
-> +			};
-> +		};
-> +	};
-> +
-> +	osc: osc {
-
-Please use name for all fixed clocks which matches current format
-recommendation: 'clock-<freq>' (see also the pattern in the binding for
-any other options).
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
-
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +	};
-> +
-
-...
-
-> +		cpuclk: cpu_wrap: syscon@f7e30000 {
-> +			compatible = "syna,sl2610-cpu-syscon", "syscon";
-> +			reg = <0xf7e30000 0x4000>;
-> +			#clock-cells = <1>;
-> +			clocks = <&osc>;
-> +			syna,gbl-syscon = <&chip>;
-> +		};
-> +
-> +		gic: interrupt-controller@f7e59000 {
-> +			compatible = "arm,gic-400";
-> +			#interrupt-cells = <3>;
-> +			interrupt-controller;
-> +			reg = <0xf7e59000 0x1000>,
-> +			      <0xf7e5a000 0x2000>,
-> +			      <0xf7e5c000 0x2000>,
-> +			      <0xf7e5e000 0x2000>;
-
-Please follow DTS coding style in ordering properties.
-
-> +			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-
-...
-
-> +		soc_spi0: spi@f7f04000 {
-> +			compatible = "syna,sl2610-spi", "snps,dw-apb-ssi";
-> +			reg = <0xf7f04000 0x100>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			num-cs = <4>;
-> +			clocks = <&clk CLK_APBSPI0>;
-> +			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
-> +			status = "disabled";
-> +		};
-> +
-> +		soc_i2c0: i2c@f7f05000 {
-> +			compatible = "syna,sl2610-i2c", "snps,designware-i2c";
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			reg = <0xf7f05000 0x100>;
-> +			clocks = <&clk CLK_APBI2C0>;
-> +			i2c-sda-hold-time-ns = <449>;
-> +			i2c-sda-falling-time-ns = <425>;
-> +			i2c-scl-falling-time-ns = <205>;
-
-If these are here, then they are implied by compatible, no?
-
-Best regards,
-Krzysztof
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.47.3
 
