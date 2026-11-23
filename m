@@ -1,93 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795465457;
-	b=hHnKGcFiDgt2R0wyu//d9MgWwSdFKoI+IJfb/RHis+keQzUBDC7sDdb2jvYq92X//xOe
-	 HwbjxP876qfwNEEJ+qKVdNHd17H3N6i5WJVknlQ/7stKQ2A+aRpTr6MJL56yPXqKubmE6
-	 BDZZUrA86BGDcVzSZrhajb3EFbxJNESdrtmB8AVvSdWC76tXc6eXgQXSbXF/AfP4nKfll
-	 u9K6yW/nQFMhpgc+IbFzS4mUPEhkKefs41OPMvpa41aIwjdXQDPjpr/wSt6zanIaK19C1
-	 pvLA0QQLUQURgmSj6xyJgL9vggYN5pSuyaqM6xNcz8CU9yxrLpsdRcT05QgvYIgxpjg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=1a3CR51XsPQlmCVqE/w4EBM4VTdG9QAR7SKWSp/bxUAphqzCKpEdgKBiAWz8fqDvPqGn
+	 n+606wnFrlSZOV3SN6gibUllZcV44csWRmlIbyca6j1dPcDDN5Tj9mpctC5w/GsLzbZOD
+	 gohJX2qolV2+btJhs7sFtp2DSKBiWykHQZcoGLPaRtl14+BB9R4MUimcCVYu0u2Z8N0bY
+	 bnbDk9fr4hC7q4BrgCud4m6aMobRJWtsp4v6bus245H+WG+bNtlpxu2LIQmOI7bv8kjRn
+	 DN7xmlvZOsIHNlvW89Mky1pjqR2uRkU/Wu5X7DLkPd0oWgXoIS2n6gmv4A3lFEPcolw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795465457;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=VhrSqJvKPH7vyEmzaeryEZV6/W0LjCCQM07s0dLC7gs=;
-	b=lxXdMKxBhPC3rxNy8aDQChT08rEMFoN+k5PH1jZFaeLK1XdoPZHjC71b6B7MUeadSbs0
-	 ONRo//etE8tNyhIASD05dUBsAwoLDexpaJIA+aH8rMwrkJapbn74hw+3HwXYX+II33yS4
-	 dj+YEYjkFX5HlY8sKlOfFph2FJy9XBoESb3TtAwIPze75C1s/NS0bTcg6H+lFrFih7avi
-	 igiGWOu+i3w+3EiYBZXPir6zPOQL0RuO1jCFlGlFifLz0/StSGLzWcm4uDinMrGj9nyAj
-	 zYbiK090OeQ6Ei+WIqjr/Wj8pWKn6/e4bHsnUtTgyLdq5c4ZdwpiK1qLcRQP95AOENQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="SZTZzos/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.13
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011013.outbound.protection.outlook.com [52.101.70.13])
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=1G36OaovxXTu0LQ+kkMP7/TVPf07CFUGx7fGAbDpiaQ=;
+	b=TyycF0tPe8lXQI+9clHw2/Os+oOvZQWI4t3wgrBOnEdoSWSx0jifjUaJgxokd1myl4K+
+	 1STN1BEnrYzhi6zC4srMsp2DlQBT8S1oteQqA85lRraBveyx7YFUSmbyVwcPTpnWzVKS1
+	 yQjruR88r/coDXgDjoFsJ35dPaUanB0K+LW19KLO8RMCWgvpm6FA9wpdemx9BzFPJ1t94
+	 J6PWeqB0h95i7bYp6zjx8lFlBFExmOR+3JFX2up21OK8SDGsE+8VQ8Xk1RPCj8H4r23i0
+	 MCrEx7/n01J6YnZfXSLFMxLFH+Cv9KvkmC5zTTGWHGp/BBDRgexXVYBUjYT8Ds8GPbg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Te4b5n+8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B07F2606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:24:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B07F2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 553BE606A321;
+	Mon, 23 Nov 2026 20:24:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=SZTZzos/
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=opBgBuK6xmNUcrGH2f5WD9V6mTXwcu/RKiaS5SlGLb+o4G1/5ndZj/hvFMwzixZHcArXQU9xJgxsJ6foLFuR7M+/HyiDQf9uzT6yS6lgXIAvNkBMOswNCssOnTkpo0clvaA1G5BNE/sec/vEEIZh98hcS5dmxSPjRrDl2TeG8I3+1AoQHjiwX0L1dB5jSmXmSjz8Ynio+n2tD9Yb9rsmKJ0quAUx65vcf1wELZH7N0mJ3cDxHjkJpel33rDmFVTNIGBLhB2FZYCklcavLajJbjEkRAJG1DshO9Kj1wg5Q9VM6a/3fxaujhx1MSYFv09h3/CINVKLUTeg720n0nNydQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VhrSqJvKPH7vyEmzaeryEZV6/W0LjCCQM07s0dLC7gs=;
- b=Rr2kGa11BG3kLo9OU/6AviprZI4jAJVsOPwnjIkKosVsk6KO1JtDdhlzStn8+5z4mzYQw4+ZupJwgim2o5iMPXacxqJ3udArmijGcwE9PSps0H056cLmEcA+kNAsw75BVsiZrX9uwGx9hX+Zao6zSN+MkBPMnGasWocf64lN+8ZbmpSnHikqy95AC9BMCM4UUQ2JCF/7wP/bbjt0/zYyMLTOCafITcqlSyF+7BcetMBCu5T4O+eVTbc9fThsLvE07woHs8YY3S1D58Oi/bxD2T7fhIvoBBd1Fgw7AQ8uWBCcCWqehblkJje37CWEF5ned8IkaBpC5UN/jxZJNVxycQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VhrSqJvKPH7vyEmzaeryEZV6/W0LjCCQM07s0dLC7gs=;
- b=SZTZzos/4wDrHYtHodnx6Az+AnhQ2Cf5MqRXwIcChE3JVKfaILDYllvtpkt5DUuRDJlF/KkL0Z5ZzAZ1ppzvqtYkRdyPI6YNH6Kr8WBvrFVPU31SEOXlajwWP2ltUDAo465YegBKE20B12X//0kPV09ZuehMgy8Ei8xfvSRf5lyagnEtxusNHLbH1cEc87lEmLjFggh6UypPfVdGyB5k4ltPF6MSw9I1JN3Cx+J6O7Xo+FeVYwuh+Ucv9Xj1OvcFXH0fuNo8zKFeZGRWm4kJ3Wtp27vn8i7dhfbZJbWE9MLZlF+zQIMxlwtwdnvosssMj/k0TCWKM11U8q83utFw7A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by PAXPR04MB8701.eurprd04.prod.outlook.com (2603:10a6:102:21c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 20:24:12 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 20:24:12 +0000
-Date: Mon, 23 Nov 2026 15:24:05 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Dineshkumar Parameswaran <Dineshkumar.Parameswaran@synopsys.com>
-Cc: Frank.Li@nxp.com, alexandre.belloni@bootlin.com,
-	linux-i3c@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] i3c: master: dw-i3c-master: Add HDR-DDR support to
- Designware Controller.
-Message-ID: <awSg5WQFw6NktkEi@lizhi-Precision-Tower-5810>
-References: <20261111021151.58380-1-parame@synopsys.com>
- <20261119135703.22729-1-parame@synopsys.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119135703.22729-1-parame@synopsys.com>
-X-ClientProxiedBy: PH7PR03CA0029.namprd03.prod.outlook.com
- (2603:10b6:510:339::20) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Te4b5n+8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A0EF1F000C6;
+	Mon, 23 Nov 2026 20:24:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795465456;
+	bh=1G36OaovxXTu0LQ+kkMP7/TVPf07CFUGx7fGAbDpiaQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Te4b5n+8loWeAUEtLMSZUihv3ZWV7+y2VMUsUhocvoi18aRAwUrVt08Y4H/HXqT9X
+	 YREbK+Ny794vhIcCK+FyThQG7FxeRtRys69sz3QL0XZfOSsILHUWv/66cNfqKepEAs
+	 KsJZrB5P7mbwaEoTpc2FeEKgqvWvlFunCrgWD2jihVmiZrB3Twe3IMxXl24krJ5tIn
+	 1lthtYmcA4TFxrwOiqMmPRF5F9r8gtqWSn83nV4e3t1mol4U+iJ7ktRQJh6YLGLPLq
+	 Xqixsj7zWDp2I+tt/9NWyth/cEeGtjbv9saAeUb8xVkV/NcnhnmqfQFuu8rVvcMg5B
+	 b3sfyov5sZjFg==
+Date: Mon, 23 Nov 2026 14:24:10 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Selvaraj <jo@jsfamily.in>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Ondrej Jirman <megi@xff.cz>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Michael Tretter <m.tretter@pengutronix.de>,
+	Cristian Cozzolino <cristian_ci@protonmail.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Ryan Brue <ryanbrue.dev@gmail.com>,
+	Nickolay Goppen <setotau@mainlining.org>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Alexander Koskovich <akoskovich@pm.me>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Barnabas Czeman <barnabas.czeman@mainlining.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Arpit Saini <arpit.saini@oss.qualcomm.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Ritesh Kumar <quic_riteshk@quicinc.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Danila Tikhonov <danila@mainlining.org>,
+	Jens Reidel <adrian@travitia.xyz>,
+	Michael Srba <Michael.Srba@seznam.cz>,
+	Shawn Guo <shawn.guo@linaro.org>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	Alexander Baransky <sanyapilot496@gmail.com>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	Romain TISSERAND <romain.tisserand@gmail.com>
+Subject: Re: [PATCH v3] dt-bindings: display: panel: Make DSI panels port
+ optional
+Message-ID: <20261123202410.GA1813552-robh@kernel.org>
+References: <20261113084236.53336-2-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,211 +97,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8701:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3576840e-e4d6-4299-c46a-08df499fbca6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|376014|19092799006|1800799024|261028144727099003|10067099003|11063799006|56012099006|4143699003|261021121427099003|261102123227099003|261022105027099003|261021123027099003|261026140227099003|261026121527099003|261009223327099003|261009223027099003|261009221227099003|261009220027099003|261009221727099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	VkH4f1CqG5zDzse603SFHtFrBnmhqLKuAd5xYiScwnxGUf7hRIQdSkxeMEVmBPCSqhJjctUr2oHUkMzz/DSAWZn25vrnxYs3tCtUfWvAzCJMHaNhxfhZlSIKD36QYcxokPe0VAxMux1ZQ9EoGYR37dDE5FEIShKdJvjg/fcfcpZeCXiVr5mfN1yVJ+FEiVoNcnGkv48/gxUa5obyR0mOtwuLtkBFsKtOAv97zVO6pro12LN/5pfF1d5rMDvFdyZmicsMDt5QrjyjG8JWbujpVS6XVmfT0kFjvUg1qFe8xDenT4UHFpzu5ZUX9wnCbb9rcoxbY6cYTKvBC8DaO9xO+V56/MBA7tIDNrQSfJ14gRZ/3jCBugcMf7c5LXWJAtnis2aDi6GwPSmN/ymMI3urIgEIcy1BDMS2tq//h9blPBSnwps+Akzff4YeVkFPiX2rk0cASr3BF3DnYyGTFpaz+/6NlagTU3z5m9gucKZo3vHYkQgi6h3kBkMbdCSx7R0TakuDLv+2pFbkyeHgVKh68Jdp9532XsEQeAQSaiC67YtHUtzbR9RxSbjtH1lOwgJdqWeQArjHd1ZhoWSphlYTi7Ww0l8Kf6NVkaGfzKo/fmK32PYDg0rmFFMP8bxIMBYUEklGEKPWtF8JZxkb83qu+WDn/Xs4i+SMNQRzsd/jAHA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(19092799006)(1800799024)(261028144727099003)(10067099003)(11063799006)(56012099006)(4143699003)(261021121427099003)(261102123227099003)(261022105027099003)(261021123027099003)(261026140227099003)(261026121527099003)(261009223327099003)(261009223027099003)(261009221227099003)(261009220027099003)(261009221727099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?wBmbb2kdm466CepWqr6LP7GixCDzmOJCPbFXY4GSH7eQjm9psoIxObKBvr7g?=
- =?us-ascii?Q?RnrUU6fpTW5js+pLi4wAKJbGIL91SfsB0I/p5amMvVTAO97dv7XNhP1sYpx1?=
- =?us-ascii?Q?6sQU5nRNVNvnE5LAWJ9hGQCu2DEocev0qQ8zsD4rl1VQbDlexmfts9hpGpu4?=
- =?us-ascii?Q?y0cIFrY6av+Wy4FxYFoY9iuLsEvKMGOtp+/ATyw8TXVvYajmll6oVzjMd83s?=
- =?us-ascii?Q?2ET9eA3mQYjnbcbedPrrhReKRc5gLZnjeDl6JmLgGUL2J5Xw30qPy0XDu+d0?=
- =?us-ascii?Q?HOiwMGs9JEO6Sw20kGMU8UUVFakBRknbNGgVoCOWDqzQF1E1fcEePsuD/qpD?=
- =?us-ascii?Q?wMgzRQGfpllxZ359PUqGpn4VN/AHtJExiPdQ98GOb1Gd/Hr5/5N9exnP71Y+?=
- =?us-ascii?Q?CsOrttCDUYndTHH0roi5inYrpqtLHyx6aIPn+A/ckCX0bSnMfJ2s8DlYdqBz?=
- =?us-ascii?Q?fMjJQJuMK4k8wu47hGo2cq+UG3z9LBMJn5aYKrlI6t5s7JaMeBvEutgZ+QSv?=
- =?us-ascii?Q?gk9HcwMFMcHqxXIDM7tdPvvu3FtDGtcHbZD7DHK7X5hy4Q+BgE50siYM+ctL?=
- =?us-ascii?Q?mNGc0VhqFr1Qrz2DdisE8pFKiTzXjGxf5i5P3+9TClS9leBuiXJ6qrV3m1HI?=
- =?us-ascii?Q?TlwuY6u1eCkcCuAzxKNexo2fAAdr9xjk/WqykTdFGs7cJW4wUk7pn668Hv9N?=
- =?us-ascii?Q?eFLZvcv0Ng1bxQCyGoXIct7mssCcQgs3TJUaO7g/cU12ZfynvS9XJFOXj8IY?=
- =?us-ascii?Q?b1g2biFRED70T+/lANT9hUY8frwgAQ3vrX9LigUCu0oXszFWK4vQkVVQ4QeT?=
- =?us-ascii?Q?d1p7ho+LrPpWLDaQFSgB8CdUit/rY5CGM8CqD1yEtli9wMluj/QGHkn33wDI?=
- =?us-ascii?Q?hZ64XsAVGf6JB4s9jmm6T1ZoTs/PdBg5u80gG2qhKCIO6Ruj2x2nH22QmWJA?=
- =?us-ascii?Q?2HOTZ0Zs3jGEbkiLXQXSGWaGWJWwKIJjBUbWSqmpsBC2ib1NF2aOORwLPrgS?=
- =?us-ascii?Q?sW6swmdM7wmNNUePYX0d7V+J+0APgQSgXDgMSafwgdTkQijhC7PL2AXxSYUQ?=
- =?us-ascii?Q?tagUBonGjEYFx+vwRVttezJknBC8O4p3Xs2VmjGVxlTBMLo7XUvFMGutpled?=
- =?us-ascii?Q?mScaAhN1HSBTyng/20YDzMYEaWaus3xboZf4d5zmPH/ZwhIQ8mNmhVLzTr+d?=
- =?us-ascii?Q?DorLYS3mLPWwfI4OiVWdK8GKWEW5Ll3wnPGQRAiI1mlHNlHH453RaXy/ZO0S?=
- =?us-ascii?Q?e0HkIqy5jWmE3z5M5N1GdCTSwShdi+YQNYzd+LH/oam6Tqtkwveqlh545X6e?=
- =?us-ascii?Q?CdZ74zWla/sADU9jleh9jsHWaBfZbW67EZ/+5kX/PKV00qmUR7jarpWZAKEg?=
- =?us-ascii?Q?W5KAeP+pcmoknR6py2s+kGoeR9aZ2jZwD7poVQvrwnm47XiFiT9hjX+NENYE?=
- =?us-ascii?Q?xQFkVI4+oEe6s2Twp5cwSdVyS9FqxWSWaCLPcbJNeKJH9SHOW7XGh3JPGlye?=
- =?us-ascii?Q?ibbAi9Q9VXvS2W3ZYQsyAs7Y5I1x70WQQDGPss3W2umgP8bFTQ2g1x8+PK5q?=
- =?us-ascii?Q?diFtCYRuk+x7irR4QHufJkEedJcHLdrGhWzP1BoDp1YvBlLGIJ+h0IeZXn6+?=
- =?us-ascii?Q?v2oHEeerBAgIwQffkyBtPR2SbF/Ldw4iX+3BbtTM9GbBOon2Swr8GahugQcc?=
- =?us-ascii?Q?oUgTWiwVe1oci1KWu3dBeOT4WdF2Zgq7S/L6Co4qlvC51JG6nhk1m6D5fb/j?=
- =?us-ascii?Q?J7Fg/Vue6yfDwz6zqQvBsK2T215o1g5r/pwU0tSIM6KZZsHzL07I?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3576840e-e4d6-4299-c46a-08df499fbca6
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 20:24:12.4742
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iYL/2cvfYd3cwsp9jMtkQIMSO5tygKzN7uE9Qg6qLCpNxXy2xgP2vMP2Ttx0bnQVEA2dMaCrMPPlHRt6AIKGRkSMq6VToIj20To/yXEqlKro3/eTacYtoemNT0oEg2ip
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8701
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113084236.53336-2-krzysztof.kozlowski@oss.qualcomm.com>
 
-On Thu, Nov 19, 2026 at 07:27:03PM +0530, Dineshkumar Parameswaran wrote:
-> Implement HDR-DDR transfer support for the DesignWare Controller.
-> Only support for private transfers and does not support sending CCC
-> commands in HDR mode.
->
-> Key differences:
-> - Sets the speed to HDR_DDR_SPEED(6) and COMMAND_PORT_CP to do
-> data transfer in HDR-DDR mode. Hardware will generate the ENTHDR0
-> based on this.
-> - HDR exit pattern will generated from the hardware when it sees
-> the TOC on HDR-DDR mode.
->
-> Signed-off-by: Dineshkumar Parameswaran <parame@synopsys.com>
-> ---
+On Fri, Nov 13, 2026 at 09:42:37AM +0100, Krzysztof Kozlowski wrote:
+> DSI panels can be placed under DSI bus directly and some of the Linux DRM
+> drivers will work fine with it: mipi_dsi_host_register() adds device for
+> such panel and DRM driver does not use OF graph to configure lanes.
+> Examples are Samsung Exynos and Allwinner DRM drivers.
+> 
+> The Linux panel drivers affected here do not use OF graph, either.
+> 
+> Requiring graph port for such panels is tying the binding to one
+> specific implementation of Linux DRM drivers, e.g. Qualcomm DRM which
+> requires the port.  That's a mistake, because:
+> 1. It prevents usage of such panel in DTS for other platforms,
+> 2. Places the constraint (port requirement) in wrong domain - the DSI
+>    host needs the port, not the panel.
+> 
+> The port is not needed for the panel hardware to operate thus it should
+> be optional.
+> 
+> Suggested-by: Romain TISSERAND <romain.tisserand@gmail.com>
+> Reviewed-by: Svyatoslav Ryhel <clamor95@gmail.com> # renesas r61307 and r69328
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-I already said, don't post new patch at old thread.
+Applied to drm-misc.
 
-> changes in v4:
-> - Fixed using HDR-DDR cmd direction instead of using rnw directly.
->
->  drivers/i3c/master/dw-i3c-master.c | 41 ++++++++++++++++++++++++------
->  1 file changed, 33 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
-> index 05584ddaf104..d94e7a6d28f9 100644
-> --- a/drivers/i3c/master/dw-i3c-master.c
-> +++ b/drivers/i3c/master/dw-i3c-master.c
-> @@ -65,6 +65,8 @@
->  #define COMMAND_PORT_DEV_COUNT(x)	(((x) << 21) & GENMASK(25, 21))
->  #define COMMAND_PORT_ADDR_ASSGN_CMD	0x03
->
-> +#define HDR_DDR_CMD_READ		0x80
-> +
->  #define RESPONSE_QUEUE_PORT		0x10
->  #define RESPONSE_PORT_ERR_STATUS(x)	(((x) & GENMASK(31, 28)) >> 28)
->  #define RESPONSE_NO_ERROR		0
-> @@ -232,6 +234,8 @@
->  #define I3C_BUS_I2C_FMP_TLOW_MIN_NS	500
->  #define I3C_BUS_THIGH_MAX_NS		41
->
-> +#define DW_I3C_HDR_DDR_SPEED	6
-> +
->  #define XFER_TIMEOUT (msecs_to_jiffies(1000))
->  #define RPM_AUTOSUSPEND_TIMEOUT 1000 /* ms */
->
-> @@ -381,6 +385,11 @@ static void dw_i3c_master_read_ibi_fifo(struct dw_i3c_master *master,
->  	i3c_readl_fifo(master->regs + IBI_QUEUE_STATUS, bytes, nbytes);
->  }
->
-> +static bool dw_cmd_is_read(u32 rnw_cmd, enum i3c_xfer_mode mode)
-> +{
-> +	return (mode == I3C_HDR_DDR) ? (rnw_cmd & HDR_DDR_CMD_READ) : rnw_cmd;
-> +}
-> +
->  static struct dw_i3c_xfer *
->  dw_i3c_master_alloc_xfer(struct dw_i3c_master *master, unsigned int ncmds)
->  {
-> @@ -726,6 +735,8 @@ static int dw_i3c_master_bus_init(struct i3c_master_controller *m)
->  	memset(&info, 0, sizeof(info));
->  	info.dyn_addr = ret;
->
-> +	info.hdr_cap = I3C_CCC_HDR_MODE(I3C_HDR_DDR);
-> +
->  	ret = i3c_master_set_info(&master->base, &info);
->  	if (ret)
->  		goto rpm_out;
-> @@ -962,7 +973,8 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
->  	struct dw_i3c_i2c_dev_data *data = i3c_dev_get_master_data(dev);
->  	struct i3c_master_controller *m = i3c_dev_get_master(dev);
->  	struct dw_i3c_master *master = to_dw_i3c_master(m);
-> -	unsigned int nrxwords = 0, ntxwords = 0;
-> +	unsigned int nrxwords = 0, ntxwords = 0, rnw_cmd;
-> +	bool rnw;
->  	int i, ret = 0;
->
->  	if (!i3c_nxfers)
-> @@ -972,7 +984,10 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
->  		return -EOPNOTSUPP;
->
->  	for (i = 0; i < i3c_nxfers; i++) {
-> -		if (i3c_xfers[i].rnw)
-> +		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
-> +		rnw = dw_cmd_is_read(rnw_cmd, mode);
-> +
-> +		if (rnw)
->  			nrxwords += DIV_ROUND_UP(i3c_xfers[i].len, 4);
->  		else
->  			ntxwords += DIV_ROUND_UP(i3c_xfers[i].len, 4);
-> @@ -995,28 +1010,36 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
->  	}
->
->  	for (i = 0; i < i3c_nxfers; i++) {
-> +		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
-> +		rnw = dw_cmd_is_read(rnw_cmd, mode);
-
-Can you pass down &(i3c_xfers[i]) instand rnw_cmd? so in dw_cmd_is_read()
-there already have I3C_SDR check logic.
-
-And actually rnw and cmd is union, which point to the same value.
-
-Frank
-
->  		struct dw_i3c_cmd *cmd = &xfer->cmds[i];
->
->  		cmd->cmd_hi = COMMAND_PORT_ARG_DATA_LEN(i3c_xfers[i].len) |
->  			COMMAND_PORT_TRANSFER_ARG;
->
-> -		if (i3c_xfers[i].rnw) {
-> +		if (rnw) {
->  			cmd->rx_buf = i3c_xfers[i].data.in;
->  			cmd->rx_len = i3c_xfers[i].len;
-> -			cmd->cmd_lo = COMMAND_PORT_READ_TRANSFER |
-> -				      COMMAND_PORT_SPEED(dev->info.max_read_ds);
-> +			cmd->cmd_lo = COMMAND_PORT_READ_TRANSFER;
->
->  		} else {
->  			cmd->tx_buf = i3c_xfers[i].data.out;
->  			cmd->tx_len = i3c_xfers[i].len;
-> -			cmd->cmd_lo =
-> -				COMMAND_PORT_SPEED(dev->info.max_write_ds);
->  		}
->
->  		cmd->cmd_lo |= COMMAND_PORT_TID(i) |
->  			       COMMAND_PORT_DEV_INDEX(data->index) |
->  			       COMMAND_PORT_ROC;
->
-> +		if (mode == I3C_HDR_DDR) {
-> +			cmd->cmd_lo |= COMMAND_PORT_CMD(rnw_cmd) | COMMAND_PORT_CP |
-> +				COMMAND_PORT_SPEED(DW_I3C_HDR_DDR_SPEED);
-> +		} else {
-> +			cmd->cmd_lo |= (i3c_xfers[i].rnw) ?
-> +				COMMAND_PORT_SPEED(dev->info.max_read_ds) :
-> +				COMMAND_PORT_SPEED(dev->info.max_write_ds);
-> +		}
-> +
->  		if (i == (i3c_nxfers - 1))
->  			cmd->cmd_lo |= COMMAND_PORT_TOC;
->  	}
-> @@ -1027,8 +1050,10 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
->
->  	for (i = 0; i < i3c_nxfers; i++) {
->  		struct dw_i3c_cmd *cmd = &xfer->cmds[i];
-> +		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
-> +		rnw = dw_cmd_is_read(rnw_cmd, mode);
->
-> -		if (i3c_xfers[i].rnw)
-> +		if (rnw)
->  			i3c_xfers[i].len = cmd->rx_len;
->  	}
->
-> --
-> 2.34.1
->
+Rob
