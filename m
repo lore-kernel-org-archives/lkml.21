@@ -1,73 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795414447;
-	b=f3StJMMNL74/0C7wNkKERThsusqdYqpkdutZ3EW34mRplY9MnKQWv50pNClmvC4whTdb
-	 fXRM10FJM9tkmdNM+6P2UkG1HkrTzSgHcOBNOOIhcf7fdrf1Ax2I/S6tiZCERoKi0QtZm
-	 YlPBG16LEVldgu5tTCeRm71UmnL+IBgyqv+XcieRkU4GKqNRwqakFc6hQY8Yh7iliRcj9
-	 M7wHsaZaZ4O69Jr4aysjyONO41KFReTb+vp3zHzWNgBDxphS97+ns7fgjBNIAkx/nUHlp
-	 h4IEvnDT8gJB+i9IzPjUVYmxrJDnyveupG+LmWXEYKMTi/PIAIWHdmjKi1IYT79dG7A==
+	t=1795414458;
+	b=HuxVsVUpAgk58pwZli6zJs4trT0Wo+8SIU/PQGrFt6FOeF9PR0vO9Jh45qbR+u5zHQvp
+	 O+4hGkqNwPA/lYThw4eduHLTOvCM30oCPJqKuX8ntuCgvif8b4RCLWZeFueHWf3nLJ04/
+	 Q12C+etNQDPw0la7WRu58iPmA9L+qh5V3gUb2Qx6hUec3d1DH70jMWGNGUv76oERlqge2
+	 syYzcXisy4/qZ6SjOY5Kr/7BfjeNGSRLC7Jzum/syaf3XflNuF/nxtrXUuftMv9sGo6qr
+	 1Gy0FEUPpAALKcpSIkOeHvi4sAL4ra5pXoa7zb34TEtfetFZ5uCH7qCZ8BCtLNODJHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795414447;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Proofpoint-Reinject:
-	 X-QCInternal:X-QCInternal:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=UUSdb7GhbdJGsEth6SJ34W7vHVCnsU2vlRUxl4txdnY=;
-	b=PRDvEseOw9MoFQjjf9e7KuEFvstv019jxBgtMybl60Dlx2s+0g86Naa6Wmgz6yTh3bbP
-	 fSS5xtPoaHEpMKNE/nFsbI1ygUr8e4qKXR2wfsUp6f1DXI12pCeCHQV9ALMKTMfGN+h/e
-	 dv9gq0SStFWOPlvu0ynrplJFCTzpf486c/VhI7c9ExviHsF4RzZsjWCMqozVI0Z2hPj2a
-	 VUH82BqJHuhHSpZLror+MTCqtmnz/oNHDOizXg6a1av4hnDsD7wmlaxnTxsRTK8dnnHP5
-	 mMdxwLtJA3CgJfb1ezV0meIdZF2zidPxXD4k5L+YZWZvFOBj3RYERqfXZ9Hna5oyfIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414458;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=SHhqxyIvi1H8U2rpd4aCXqvgpSyP2JDBne5lwDZqiDA=;
+	b=GaXp5JK37lWOT3XzzrEfTWH8TN8e17eWLM9pwfTf3lOhakmFH6EBO8JSN3FY3vhQysQi
+	 +uYiHrMsT9owp9RlWDpwFB8d0Tw8L3JSoQusKn4p5fUuuKe5F9x+qZvYZqb6ylP0KYJhi
+	 sxAzubEuy8sszgO+cgAKJ3orA+eXrwD/GKlv0nEDegkVxMMPmKzn+qAoPv3ZR6KTqFAAi
+	 EagubSgc1DeP9pe7I1sLKHEHsD62JmOf4d2MGBllbDkN4ZrTeI1YqpmO5bCEbRRcWDAph
+	 /eJBgAQ7g0sn/yDD24xxnZRE5bUlXG7Djae1Z1+LPP44lkadsniKTztEyAzJM1Wj5iQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZDYVgXgb;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="i/VbpO73";
+	arc=none smtp.remote-ip=91.218.175.4
+Received: from mta0.migadu.com (out-4.mta0.migadu.com [91.218.175.4])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5B13606A31A;
-	Mon, 23 Nov 2026 06:14:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5B13606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DD9C606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:14:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DD9C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZDYVgXgb
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN69C5X1011315;
-	Mon, 23 Nov 2026 06:13:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	UUSdb7GhbdJGsEth6SJ34W7vHVCnsU2vlRUxl4txdnY=; b=ZDYVgXgbWt+lHxj0
-	KSw4pGlhuIL4YtmZYy7pVwxJKc301vuxOafKBipsAmMZHH7jql95NJ7LIXMAfdAi
-	+7LkKVqRgm9kJR6OqMhlM82kiIAk4hQTecszB4g1LpAoQpKCv8D5fqY+AD7TqF+p
-	ASZX2999SYhsI8UMIEosZoWQbqUgD1cpULvz2AcXAMB4YsAEu6arCy2lJMrZmoza
-	miwQ1yZrT0hgXj37GGnsvhLBC0rPCGnfXO/5t4bz5KfvX1uMWM1XKK5KXv99P0Xh
-	oirPRdsw03LwDEzqZNfAzePjSo/7oR4/hOFftMF4BRXD5Q7ZKNzSO0nUwmRqTChV
-	zgi8+w==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyh00e6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 06:13:27 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN695Zv4100829;
-	Mon, 23 Nov 2026 06:09:05 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mdsor-hyd.qualcomm.com [10.147.243.209])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AN695Y54100817
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 06:09:05 +0000 (GMT)
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4770534)
-	id 2CD4AC1E; Mon, 23 Nov 2026 11:39:04 +0530 (+0530)
-From: mohit.dsor@oss.qualcomm.com
-Date: Mon, 23 Nov 2026 11:39:02 +0530
-Subject: [PATCH v19 1/2] dt-bindings: bridge: Add Lontium LT9611C(EX/UXD)
- MIPI DSI to HDMI driver
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=i/VbpO73
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=8leuJkCR02HJkwbVtT7h+Y6uZAx1n0OSx/Rh8/dbJII=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795414454; v=1; x=1796019254;
+ b=i/VbpO73YPgCx/M9LcFeekAOXziWLmth0/Wohodwa4gJorzoO7dRmGN3mxbqFurtSLJfCt28
+ bWs+XF1pU4aiAp41r2mlVqo4iAeRfxqo0f35GqzuqfrbOT3gohmEily4CRtcvqZZ0pT0VVUG7vi
+ 5+G0IVd/U0Hn+i8oufECMbdY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 3a93840281764757;
+	Mon, 23 Nov 2026 06:14:13 +0000
+X-Mizu-Trace-ID: 3a93840281764757
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <00efba16-87da-4fb1-8da9-2fe554a6eed9@linux.dev>
+Date: Mon, 23 Nov 2026 14:14:06 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,133 +58,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mm: shrinker: stop counting when the seq buffer
+ overflows
+To: Xuewen Wang <wangxuewen_ky@163.com>, akpm@linux-foundation.org,
+ david@fromorbit.com, roman.gushchin@linux.dev, muchun.song@linux.dev
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Xuewen Wang <wangxuewen@kylinos.cn>
+References: <20261123055020.287151-1-wangxuewen_ky@163.com>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <20261123055020.287151-1-wangxuewen_ky@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-lt9611c-v7-v19-1-1fbe2b7b5211@oss.qualcomm.com>
-References: <20261123-lt9611c-v7-v19-0-1fbe2b7b5211@oss.qualcomm.com>
-In-Reply-To: <20261123-lt9611c-v7-v19-0-1fbe2b7b5211@oss.qualcomm.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>
-Cc: Mohit Dsor <mohit.dsor@oss.qualcomm.com>, dri-devel@lists.freedesktop.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        venkata.valluru@oss.qualcomm.com,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Sunyun Yang <syyang@lontium.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795414144; l=2049;
- i=mohit.dsor@oss.qualcomm.com; s=20260808; h=from:subject:message-id;
- bh=ut+CndQz/jrWa/IvwRM0rWOCvN47R5Wgsw+GSTdue28=;
- b=7aoCwFckUAaAd/b8vDdnYGNFu5MK8GsUisGfq0MNw4KSgjSu3zxmNft34aL6vsprUD1um/n2v
- HEREkTIWhULCmCrbpxV9OfPTwYhkSX45lpZ8+9SXPGxAfdNj8PxvILB
-X-Developer-Key: i=mohit.dsor@oss.qualcomm.com; a=ed25519;
- pk=outHVBN53JhozDw1xkj3G1qrqqE5scMBP7M4WL3aHQQ=
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Authority-Analysis: v=2.4 cv=NM1AaE6g c=1 sm=1 tr=0 ts=6b03d987 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=gEfo2CItAAAA:8
- a=Kz8-B0t5AAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=SdC2vBNBQt3qShdCGKMA:9
- a=QEXdDO2ut3YA:10 a=sptkURWiP4Gy88Gu7hUp:22 a=RuZk68QooNbwfxovefhk:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAyNCBTYWx0ZWRfX71Zj1iMqzMzE
- Yg98Ve+leU0p8DKHS1JSe3lGmRzFLX86BiRHSJAUFqqhSsA0I3nRNMoy5b4r6jvEkPh7AYVtDl7
- KqFZuJO0pjqJiVqvduw0FqhqQ3Go6jE=
-X-Proofpoint-ORIG-GUID: SYhAx70y2--jGpi22dF0UUur6-DjE0mN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAyNCBTYWx0ZWRfX+TUbEOODT1Ja
- TJ5d2U+RPPmKwKZwDn6lQR/AGVDtgPvC/DbKT2Fduq5a2Hq/6vN1zec4K/9ZdnxjyyfNfv4YEQb
- 1AvLu6euWjLwHeTv9O02qjgqIGzttE29XiJ3v6RflrAcaEizAu39R+1Mmy5Vtc+tlvGNTmzLXjK
- IPt6xX3fFt9jZp4SPiIVVDAESABUSPID4mAmVNHEN5lyWkYbAIAlG6NT2hSM/mu1j1xwJQ7wJzU
- Z4G8xgKc1bIsx2tIS2jt90qc05dwe3fWjSgM1UmvK9sJpvI6SSqRSmTNc3kn0cSYidp74gZPMPe
- yx86tP0+S9KP+z1qtA+TjCIOiVy+9TANKh/ChcFoX3Kav1YIjEL0epyq6nE9rY8CynfnM0ZLccw
- 7olB3LthLAWyQMR8YBr9EVBcMhbQ0WiL/ePwrYmMG0EKvyCc2Cc2+OiHmAlNsaT/+TthurI+5h6
- gKQZ0nn6JVO7ubWSsvw==
-X-Proofpoint-GUID: SYhAx70y2--jGpi22dF0UUur6-DjE0mN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 bulkscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- adultscore=0 impostorscore=0 phishscore=0 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230024
 
-From: Sunyun Yang <syyang@lontium.com>
 
-LT9611C(EX/UXD) is an I2C-controlled chip that Receiver signal/dual port
-mipi dsi and output hdmi, differences in hardware features:
-- LT9611C: supports 1-port mipi dsi to hdmi 1.4
-- LT9611EX: supports 2-port mipi dsi to hdmi 1.4
-- LT9611UXD: supports 2-port mipi dsi to hdmi 1.4/2.0
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Sunyun Yang <syyang@lontium.com>
-Signed-off-by: Mohit Dsor <mohit.dsor@oss.qualcomm.com>
----
- .../bindings/display/bridge/lontium,lt9611.yaml        | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+On 11/23/26 1:50 PM, Xuewen Wang wrote:
+> From: Xuewen Wang <wangxuewen@kylinos.cn>
+> 
+> The shrinker debugfs count file uses single_open(), so all memcg rows
+> belong to one seq_file record. When the buffer overflows, seq_file grows
+> it and retries the entire record. Queries for subsequent memcgs in
+> an overflowing pass cannot contribute to the final output.
+> 
+> Stop the traversal once seq_has_overflowed() is true, using the existing
+> mem_cgroup_iter_break() path to release the current memcg reference.
+> Check for pending signals first to preserve the existing -EINTR
+> priority. Leave the overflow state intact and return zero on overflow
+> so seq_file can grow the buffer and retry.
+> 
+> Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
+> ---
+> Changes in v2:
+> - Move the overflow check after signal_pending(), as suggested by Qi
+>    Zheng, preserving the original -EINTR priority.
+> 
+> Retested in a single-node KVM guest with 1024 cgroups each caching 16
+> ordinary files on ext4. Output remained 8865 bytes with three show
+> attempts. Count callbacks fell from 3075 to 2472 (19.6%). Six fresh
+> guests per variant each performed 101 full reads with no probes
+> registered. The median of guest medians fell from 127.8 us to 114.0 us
+> (10.7%, about 13.7 us per read).
+> 
+> Output matched byte-for-byte across the tested guests. Small reads,
+> seek-to-zero rereads, populated memcg teardown and signal stress passed.
+> Separate probe runs had no missed or dropped events. Small/sparse cases
+> had unchanged callbacks. The 64-cgroup baseline timings were bimodal,
+> so their apparent timing difference is not attributed to this change.
+> 
+>   mm/shrinker_debug.c | 5 +++++
+>   1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml b/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml
-index 429a06057ae8..194aeaac601f 100644
---- a/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml
-+++ b/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml
-@@ -4,19 +4,23 @@
- $id: http://devicetree.org/schemas/display/bridge/lontium,lt9611.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Lontium LT9611(UXC) 2 Port MIPI to HDMI Bridge
-+title: Lontium LT9611(UXC/C/EX/UXD) 2 Port MIPI DSI to HDMI Bridge
- 
- maintainers:
-   - Vinod Koul <vkoul@kernel.org>
- 
- description: |
--  The LT9611 and LT9611UXC are bridge devices which convert DSI to HDMI
-+  The LT9611, LT9611UXC, LT9611C, LT9611EX, and LT9611UXD
-+  are bridge devices which convert DSI to HDMI
- 
- properties:
-   compatible:
-     enum:
-       - lontium,lt9611
-+      - lontium,lt9611c
-+      - lontium,lt9611ex
-       - lontium,lt9611uxc
-+      - lontium,lt9611uxd
- 
-   reg:
-     maxItems: 1
-@@ -78,6 +82,16 @@ required:
- 
- allOf:
-   - $ref: /schemas/sound/dai-common.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: lontium,lt9611c
-+    then:
-+      properties:
-+        ports:
-+          properties:
-+            port@1: false
- 
- unevaluatedProperties: false
- 
+LGTM, so:
 
--- 
-2.34.1
+Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+
+Thanks,
+Qi
+
+> 
+> diff --git a/mm/shrinker_debug.c b/mm/shrinker_debug.c
+> index cafb566301326..eabdb33353a45 100644
+> --- a/mm/shrinker_debug.c
+> +++ b/mm/shrinker_debug.c
+> @@ -84,6 +84,11 @@ static int shrinker_debugfs_count_show(struct seq_file *m, void *v)
+>   			ret = -EINTR;
+>   			break;
+>   		}
+> +
+> +		if (seq_has_overflowed(m)) {
+> +			mem_cgroup_iter_break(NULL, memcg);
+> +			break;
+> +		}
+>   	} while ((memcg = mem_cgroup_iter(NULL, memcg, NULL)) != NULL);
+>   
+>   	kfree(count_per_node);
+> 
 
