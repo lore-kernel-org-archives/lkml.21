@@ -1,82 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443795;
-	b=HDYXVFR5EnPYMMNGX+p4xl/uRUlAw0HCI5EPF0+LK9POraGB+LMbwvnECqlTgzko3OD3
-	 d3vkjvl2N+jmDvYJ7MZhozsuJ5NbYDFSW243Bbx/pL9od7UMSHzibHLUTOvj6AcJVyy9W
-	 6mPcrCgSO6+4lHxBl5uHW8weNWmINXHqr/TwfcuEoMAFJISjgGrIUoC+hbnV+h+iZtyxc
-	 vdHSo5ltpzNqzPqAwSp1KHMCJ9yyyU8sdOTceW1usCk4oQA7dSgTeh0FUIJRo/h9gb03e
-	 0h1Z8UlqTBRHbJrDftBDxuISYqH/sY5XpEQVfDC5KyaBMTqHgMTx7bWIVyMXkZxtu+g==
+	t=1795443806;
+	b=Zjnp03EW9m13ott7SRoVGRazzKK8g3upLZbGc2D9r0T4bHzrANvPd82ezXKVVIYKlSOc
+	 ZVG3BU5gq9z4NNDeXwV8+HkrO1fEXYpK4wzzmLD5xlUOLW74n0MZi7U8cDY571N26QZbC
+	 lSLCHL0NUfBdyknGbsbhsgtLGnqSpLVchdJC+Qa+KiwEmD33URm/wlRr0accO039FwMhd
+	 8TT30JLrP56U3EHCKf/gnnPggVRVvbNZd6Q3phHJJ6FovlL116+ajvtYiChrxtvNJNatM
+	 uFqzidwms3KEd+sPGWm4JhA7NQTaHxO5x4t4hSJ6fa3gWs+flsW0agfMnWhuILn6E3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443795;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=UqgaRl/LQSFKZbxctWfIJSioOqpnACPmqjUCBtWSvIA=;
-	b=i+WaCVurvu2lwK68qQ7+5i61dZFT2AP/2je2aRxlhE/JfY5N+mR+rAD2XS0AKFU8pmPT
-	 yfZdbI/v4IekjPn6dI4iWvPu8oxVXv3C0iO9Yagjhlg/ZUBKn/E2q7m6fPFLc4LpHQyu2
-	 j6VFB8oaA7HdAPOClMKHe1wsuu5cA+0mWwPIOu3YkWrOWIYg17Ptsw337M83Zuy3xlIEe
-	 FY/YTSmx/0ysiXgUsG9QRwX9MK/ARRfQuKVPRZDG4GCmpEhPkxCrETImSmYs523BwzhVA
-	 zkV4QMJyflfkcd5NW2A19i6iSdFC0/a6MgF2G2ijfDRHV1No8oI7vQdnSb7N5t0WDrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443806;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=OpQr4PRrzddDAqShvvVLVLwmk/lLDIsrrmjqDSHpTHo=;
+	b=HyM9oZqhTl/rQXUiVZOmxB56IdomxWreb0JWF7KC1TziKAl82LLqpFzwwtcL6zYYX8Zz
+	 Hbfelt1AvHFjU4cPsRkDrp6/zWZKgk9kDQ8vw4dBn73P0dM2q492pnAQ2XInrgzEg9NEc
+	 7Cqh0FH7nUSuANmWJWctFP+svCCNOourPsJBPyxcu0YES3F4Ph3O2BuGAdkt93As6QhZJ
+	 HZs6mUY5OjZUFnQAVrS5flo30gexqbFxpR3RILDI3zSDBJPT428oBjJiCZS1Wzl5kIxoc
+	 IZnI3hOXdiPGyK3z3X9onmgyTETk/FhEzlXI8kzfSzLe10QFf2JJFzh5Hp44MH4ejzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hlcNvac6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=Q0EReoL3;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 659FD606A31A;
-	Mon, 23 Nov 2026 14:23:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F1D1606A31A;
+	Mon, 23 Nov 2026 14:23:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F1D1606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hlcNvac6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1F61F000D0;
-	Mon, 23 Nov 2026 14:23:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795443794;
-	bh=UqgaRl/LQSFKZbxctWfIJSioOqpnACPmqjUCBtWSvIA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hlcNvac6vwok/7CieJjhHh3PFZe3EyPF7vLUnjW/zfIxKZyPr+iDkUp1VjUF/qJhc
-	 ryq9ScXld34BM0RBzO8yLA6gI2vNM8AjOMdzTZNXrHzT7eUTWgjEghYaGZHafT5DKl
-	 fXt9GWwRwFRSCqWX1YfTidD1dokw4IV2jm6Kfhk77hjiEP8RnoomGkmRdfn7qIsw1B
-	 +xLNzebD3QrGUi/CeKvbpfEzHCdtTGNSALkq8rqw2Y66IJoSwNNdK+0Xh45C15q92l
-	 ixB4qLF+XzgxQbF6O+43m2qeKOEQjFUFoN05BFhsHi/UlZfd4igw+9p4MrqKUhAkdY
-	 VyvX2OJG40u5A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xVUwq-000000021WE-0roY;
-	Mon, 23 Nov 2026 14:23:12 +0000
-Date: Mon, 23 Nov 2026 14:23:11 +0000
-Message-ID: <86fqwrzkxc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	kvm-riscv@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v3 0/3] KVM: Bound KVM_PRE_FAULT_MEMORY by the vCPU's dirty ring
-In-Reply-To: <20261123113435.1170711-1-fuad.tabba@linux.dev>
-References: <20261123113435.1170711-1-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=Q0EReoL3
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6564CA05A6;
+	Mon, 23 Nov 2026 15:23:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795443802; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=OpQr4PRrzddDAqShvvVLVLwmk/lLDIsrrmjqDSHpTHo=;
+	b=Q0EReoL3g1wpHAY0/Q9oDwbs5Qle42cSV1WRXxEnU/OhWr3Jr5xyVLWqnfryK3VFozkbSp
+	dkQR0Ut1AWUbGBeI2PExzoAPDk3ZDXEy8WtYA4N/BxJYO53xvRUGnKag7hYRSjoJRO7S2U
+	wIEVj6aZj0iMCR2Y+k6DJ0J/rMzjJihErIuPdpSi84mV5mRvE+MxcWaPbMGkC0TaX+NBAd
+	5YHCs8z5SnoeloCxCcQz+SvM/LVOQT74IpoQkkOxyHTQicKvPzkgf/Xy4ba3UXMcIMxDU8
+	CdCU/wwB7JiTSnyGE/NYAgcQaOmzS48xP6hxo7QJWprG8ASYoh3drPmQXpMhAw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,74 +52,37 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, pbonzini@redhat.com, seanjc@google.com, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, isaku.yamahata@intel.com, rick.p.edgecombe@intel.com, ljs@kernel.org, alexandru.elisei@arm.com, oupton@kernel.org, kvmarm@lists.linux.dev, weilin.chang@arm.com, anup@brainfault.org, atish.patra@linux.dev, kvm-riscv@lists.infradead.org, will@kernel.org, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Date: Mon, 23 Nov 2026 15:23:19 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Doug Berger <opendmb@gmail.com>, Florian Fainelli
+ <florian.fainelli@broadcom.com>, Nicolai Buchwitz <nb@tipi-net.de>, Broadcom
+ internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Pierre-Marin Leclercq
+ <pierremarinleclercq88@gmail.com>, Dave Stevenson
+ <dave.stevenson@raspberrypi.com>, Justin Chen <justin.chen@broadcom.com>
+Subject: Re: [PATCH net-next v9 0/8] net: bcmgenet: support larger MTUs
+In-Reply-To: <20261123-nb-genet-mtu-nn-v2-v9-0-4f93ded19bbb@tipi-net.de>
+References: <20261123-nb-genet-mtu-nn-v2-v9-0-4f93ded19bbb@tipi-net.de>
+Message-ID: <a87b05ca08afc7ff02c0abcb3978302c@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon, 23 Nov 2026 11:34:32 +0000,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi folks,
-> 
-> Changes since v2 [1]:
->   - Added patch 2, which warns in api.rst against calling ioctls other
->     than KVM_RUN while an exit is pending. (Sean)
->   - Mentioned riscv as well as arm64 in patch 1's exit_reason
->     paragraph. (Lorenzo)
->   - Collected Lorenzo's Acked-by on patch 3. (thanks!)
-> 
-> KVM_PRE_FAULT_MEMORY never checks the vCPU's dirty ring, so one call
-> over a large enough range of populated, dirty-logged pages overflows
-> it. The first patch stops the loop at the soft limit, as KVM_RUN does.
-> The second warns userspace against calling ioctls other than
-> KVM_RUN while an exit is pending. The third adds the case to
-> pre_fault_memory_test.
-> 
-> Pre-faulting isn't the only ioctl that can push past the ring's
-> reserve. On x86, KVM_SET_MSRS does too when it writes the wall clock or
-> the Hyper-V hypercall page. A guest can also push past the reserve
-> within one exit, for example through the arm64 ITS. What those paths
-> should do when the ring fills is an open question for the dirty ring
-> API, which I don't think belongs in this series.
-> 
-> I didn't include the kvm_dirty_ring_check_request() rewrite that Sean
-> sketched on v1, since I think it can lose a request. It tests the
-> request first and clears it afterwards. If the vCPU is scheduled out in
-> between, loongarch sets the PV preempted flag in guest memory and x86
-> updates a Xen guest's runstate area, either of which pushes an entry.
-> When that push makes the ring soft full, the request it makes is then
-> cleared, and the vCPU runs with the ring soft full until its next push.
-> Clearing first and re-setting, as the code does now, doesn't have that
-> window.
-> 
-> Based on Linux 7.4-rc2 (7475ea8b58616; also applies to kvm-x86/next
-> cbe54fc3462b3 with git am -3).
-> 
-> Cheers,
-> /fuad
-> 
-> [1] https://lore.kernel.org/all/20261117074428.7544-1-fuad.tabba@linux.dev/
-> 
-> Fuad Tabba (3):
->   KVM: Stop KVM_PRE_FAULT_MEMORY when the vCPU's dirty ring is full
->   KVM: Warn userspace against ioctls while an exit is pending
->   KVM: selftests: Test KVM_PRE_FAULT_MEMORY against a full dirty ring
-> 
->  Documentation/virt/kvm/api.rst                |  20 ++--
->  include/linux/kvm_dirty_ring.h                |   5 +
->  .../selftests/kvm/pre_fault_memory_test.c     | 102 ++++++++++++++++++
->  virt/kvm/kvm_main.c                           |   5 +
->  4 files changed, 126 insertions(+), 6 deletions(-)
-> 
-> 
-> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+On 23.11.2026 10:17, Nicolai Buchwitz wrote:
+> This is v9 of my genet series which adds larger MTU / jumbo packet 
+> support.
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+> [...]
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Patchwork mentions a conflict with my other pending net series. If this 
+lands
+first I will rebase, buts let's wait for any other feedback on v9. Maybe 
+9 is
+a good number and MTU even lands first :-)
