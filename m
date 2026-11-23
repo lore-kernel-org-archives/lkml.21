@@ -1,75 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451012;
-	b=HTKeNU6OieMTIeo3kcRTvbODK9rXkwPse+9rqsGgGOGdp7JhGzNEQ45sWbStFM/AsVyP
-	 XMMp9MAxbiRW49S9kvN9AoLJTjAxKolGrOpedo0n4lgeFdDklDH2bRJNNOeApzwrmRvz4
-	 T6SYd4PZreQ/xRD6zF3UTeozjM8jPwmlPqhGxvtLtH/F8gGPmJRy8rKctBu/oe43kmTLY
-	 lboOhCBZNOq5jFlMJyVPPctA8CHHCVU3dmF+OMkQPwyQ0FnN3iKzIA5wL4tB284+xz+yU
-	 WfZXYfG35Kf5f/bFmLiuU9YrWwga/8Tr6v3k55gGUhDosRwN4Uh8LAtT7NA15yqgg+A==
+	t=1795451044;
+	b=3tjP1e33FkHlLvW598prooZRBTge6xEyaFwJxrDaILW3YhPFAnNHS+6wID1B9yFXi+hD
+	 7hLHWiZZppJFr4HAFP86dG3dz/k7jQ0G8uOB6HNS0cwMAELy9RVQ4LLyjphmKsAdg5LSD
+	 DSVkT64KvPbuJ5nFOOLtkq5DRnro7cR7yCn2EZsHGMdEyg/zdIObahMofeerM3BwntrRT
+	 OaGDel8m8MxKUDOxma3E4cFCtXooCjQ/jn02X+1U3hP+ibQjqJNgOdn5EBo7oZxOIQP3g
+	 Bnq0maiDe50ed1zRv8a73CyO5seuGRvQwtnbVNWDMy2BxBgBThlvXSQZ9TQb/8QenWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451012;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
-	 Content-Language:Cc:From:Subject:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=X3yr2M2g/qTvSv+jcYlpkHtUUF45VS+YXGmnSQ08rlc=;
-	b=sCdlMTRrWJ1W/HQwH0PktY+w4hYXELF7mKZL+L/QgwxpHualnQuOnf4S3mnsYfSUAtwI
-	 FEkNXXFs1EhMktKWBrlRSchhwITTUGOmxiFnOAEt/6n2yRhM2ZQxs6EESY6sPF9SYnIrn
-	 Ku1K8GghYk305iukXr0yXGXr7UmCCztZo4sZp6UWYE+vMY+288WZIMtu9TWTSgNoeXoY7
-	 6OPL2G8X8Y1tMgq+EWsjd/Iddf+g8oG//X/A010pVEsR/jHF78huB6R/KX15jDC8kS6px
-	 17/8bSvL+m1KT4WLLpBdKW35tRi7BlF8nZE8+X2ZFmYgPbFbHz0o2Apw3jGfM1dpHow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451044;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=DXavW4JWzr1Q6W/lcF7e/uXGv4HjAfnzdjNwVnsw0mE=;
+	b=UxQ8cEqj7kW1fjVEOEWDPtOmjDWYZutEwB2OQ+boQUtPr/WkGS1YO9lFEPUFh3eyfN/G
+	 esff7JOz4Wu5U6Xv8P8pCoX4GdxLzqQgxJBCFsSiXscaTafUjz3mXcKxzzdKJZurtLTTy
+	 rACiBo2BCGQ4LJLKfaMjrgjhDQlrIQGBTMh8rjqmGf7iAb1XQ/s9wW2FTBAo1ZPZWQlmK
+	 anrMAeRKFtQ8BRhk06nSkwY45OpKA3+VS0z8y5QvQsIQdYPlG+vX+J5fN83lOO7gqRPw5
+	 hxW5eAnyDoVjVR00zhA/xxHOnX+1/ZqA66PFuclqWbkdEDW6w8ZG/HuSLf6DTkGU8Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=mnZIXW1A;
-	arc=none smtp.remote-ip=212.227.15.4
-Received: from mout.web.de (mout.web.de [212.227.15.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="HRTPwa/C";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AE92606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:23:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AE92606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CCF5606A31E;
+	Mon, 23 Nov 2026 16:24:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=mnZIXW1A
-DKIM2-Signature:  i=1; m=1; t=1795451009;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:pr4Jt6ONojFbvO5yIU3b2RV5s5Mr
-   SGgb74eeYCYmXP6omBDZwOnkvnidN2tIHj3Ll0az5162X0uGF5JmACxKLplzJJlAbQuOchcBsRp
-   r7fxzGX+lHWyqpPB6DaCoLpIWsRkauqomCi3BR7SILST9bk+JZIQ/jMHraDBw1FMqqX+5egXJ0z
-   JI5LmyleSULbGKJoaclXiDKNds4PvWBkPGyzH/d1Ywjo+b8RaBRWGzBYybcoQb4rSnjDAt0IKFH
-   XZQNzGgoxzyB3Kw34+R4FhlcQhnmaG8HZc8rDK1lCClzq2rwaDFn2A2p9YOxItw4Sr8VFARCb8T
-   DiQFudqqfVfWDA==;
-Message-Instance:  m=1;
- h=sha256:
-   Hrdq8KIwcn/AdX6M7b5tP2DTPx7H/mxCGGwbl6NuK8o=:
-   2PsbQVCwzemTr25ZHIDUT8zps6viXcOVve+219qWt2M=,
-  sha512:
-   LZP52UeQDBTA7A7SjLNbtCnMWVxfv4XZtgwyhjgmEq7m68vVy9V2tdg2hxJ5gX8CACG5GeeqYICVNqWX7nxuEg==:
-   Xr4ZVZKa0tiDH6GxxdMDt/JHrwN5CWHatPmuaxAnUW3Z3sNTitKqziJZdBxXGx5QK6UKUmklQ+2eZJG+0rwqNg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795450995; x=1796055795; i=markus.elfring@web.de;
-	bh=X3yr2M2g/qTvSv+jcYlpkHtUUF45VS+YXGmnSQ08rlc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=mnZIXW1AXe3APiehopt1hb6Solue76O1yN0RyiN+wudDkyRRiNSoF8Oxmm+oh0UE
-	 wMP2IlkUNymDRfBM5mR63QkBgB5JeZPnasXsYFFh5libNGRHOtjWj7FCM3xSB2l4H
-	 NG98ef+yRM6pDqKFHOC+a1oZtr5TqXYSzy6te7uqtNS/4+mCYV4JqSuTyEug5PaTM
-	 2MPXZUIXmeCzdghp1+g1ndx7D4pSWY5Y+HgpdOmaru+yLU9chXZvRnDsK+04nimZR
-	 PPmn4vOpeN9fDXo7Tm28TT7nAPUBY08a1TSrU7dMpwBNz5MnzVHVj+XEG2qL9Xq9V
-	 w7PFsFVB/GfddS3ing==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MEUSE-1xlSBN1QBm-002Bsn; Mon, 23
- Nov 2026 17:23:15 +0100
-Message-ID: <895d50a6-3a42-44d2-8625-3b8cba8fbfff@web.de>
-Date: Mon, 23 Nov 2026 17:23:12 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HRTPwa/C
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 026541F000E6;
+	Mon, 23 Nov 2026 16:24:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795451044;
+	bh=DXavW4JWzr1Q6W/lcF7e/uXGv4HjAfnzdjNwVnsw0mE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HRTPwa/CG7GeJX/h6unRrUok3iyt++C87ZisW5dSA1pkNjBFXoKnQGd2R3+99lWbf
+	 tCetkOzw10KfiAfqEDb1zDLFv4dSTB2BpsmYl3iNpebQ7hv/xp3wS7tvtpJJa02uwR
+	 cWfyimQxDjn0P8ABZU7kIiHW3OOa5izFSY2TAj6KjfDZ5K5c4NNBj7+23dHYLhz01P
+	 5G5QuAYWkHHF59D7fxqFV4RmpzUN6f7pMDyC7k4H5a+AAMLrnAgF2jgE6mfDpZnnN3
+	 xFsw8dAcIFFyrXfH5mCymvWuv218H/b5jt86qgLvxzV/SBpK/t0zlUKbz90HWv9EDM
+	 kWUJXsBcJy++A==
+Subject: Re: [PATCH net 1/3] net: multicast: keep source filter state when a
+ source update fails
+From: netdev-bot+sashiko@kernel.org
+To: x-professor@outlook.com
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, hannes@cmpxchg.org, mhocko@kernel.org,
+ roman.gushchin@linux.dev, shakeel.butt@linux.dev, muchun.song@linux.dev,
+ akpm@linux-foundation.org, vdavydov.dev@gmail.com, cgroups@vger.kernel.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 16:24:02 +0000
+Message-ID: <179545104255.3135.1386420892995095806@kernel.org>
+In-Reply-To: <fcc87bc014e01d9571fa33aaabd22180908e55d1.1795102467.git.x-professor@outlook.com>
+References: <fcc87bc014e01d9571fa33aaabd22180908e55d1.1795102467.git.x-professor@outlook.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,200 +66,273 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: imx@lists.linux.dev, linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Johan Hovold <johan@kernel.org>, Mark Brown <broonie@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Content-Language: en-GB, de-DE
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- Florian Fainelli <f.fainelli@gmail.com>, Michal Simek <michal.simek@amd.com>
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] spi: imx: Use devm_clk_get_enabled() calls in spi_imx_probe()
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:0+GByxQdUJwHdHxbxuioaRqzxaRNM7BhSR9Mzr+3Dt7wPWgUxSg
- eKp0BNEYapil+kruCa8k4T1tK+eM35mAg7Cz4W408+XbY5aRIAMY4LpbK4LXkfjxUxEnw4S
- 4EcC3BPQEhf78C7vzmAMjIJwaToBFCE2hrheFNWrzcfpPRjwuLGXXVQewEI8AUd8KAgk1rg
- Y6DOSqkRIFguXryEbX9SQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:Zrzli6ViF9Y=;tvYvmqSxnlsxF91toNuJ/eREf5B
- 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
- C+ZdL24XDGN4/1Kt5PHw==
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Mon, 23 Nov 2026 17:07:22 +0100
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-* Reuse existing functionality from devm_clk_get_enabled() instead of
-  keeping duplicate source code.
+Critical: 0 · High: 0 · Medium: 3 · Low: 0
 
-* Delete clk_disable_unprepare() calls on error handling paths.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-* Omit the label =E2=80=9Cout_put_per=E2=80=9D.
+- [Medium] ip_mc_source() (net/ipv4/igmp.c) and ip6_mc_source()
+  (net/ipv6/mcast.c) still switch the mode of an empty filter before…
+- [Medium] The patch now returns every non-zero result of
+  ip_mc_add_src()/ip6_mc_add_src() from the add paths, not only…
+- [Medium] The new `done:` rollback in ip6_mc_source()
+  (net/ipv6/mcast.c:504-508), and its IPv4 twin in ip_mc_source()…
 
-This issue was detected by using the Coccinelle software.
+--
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
- drivers/spi/spi-imx.c | 17 ++---------------
- 1 file changed, 2 insertions(+), 15 deletions(-)
+net: multicast: keep source filter state when a source update fails
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index cadf0b93f440..a99edfbf2d61 100644
-=2D-- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -2319,22 +2319,14 @@ static int spi_imx_probe(struct platform_device *p=
-dev)
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "can't get irq%d\n", irq);
-=20
--	spi_imx->clk_ipg =3D devm_clk_get(&pdev->dev, "ipg");
-+	spi_imx->clk_ipg =3D devm_clk_get_enabled(&pdev->dev, "ipg");
- 	if (IS_ERR(spi_imx->clk_ipg))
- 		return PTR_ERR(spi_imx->clk_ipg);
-=20
--	spi_imx->clk_per =3D devm_clk_get(&pdev->dev, "per");
-+	spi_imx->clk_per =3D devm_clk_get_enabled(&pdev->dev, "per");
- 	if (IS_ERR(spi_imx->clk_per))
- 		return PTR_ERR(spi_imx->clk_per);
-=20
--	ret =3D clk_prepare_enable(spi_imx->clk_per);
--	if (ret)
--		return ret;
--
--	ret =3D clk_prepare_enable(spi_imx->clk_ipg);
--	if (ret)
--		goto out_put_per;
--
- 	pm_runtime_set_autosuspend_delay(spi_imx->dev, MXC_RPM_TIMEOUT);
- 	pm_runtime_use_autosuspend(spi_imx->dev);
- 	pm_runtime_get_noresume(spi_imx->dev);
-@@ -2378,11 +2370,6 @@ static int spi_imx_probe(struct platform_device *pd=
-ev)
- 	pm_runtime_disable(spi_imx->dev);
- 	pm_runtime_put_noidle(spi_imx->dev);
- 	pm_runtime_set_suspended(&pdev->dev);
--
--	clk_disable_unprepare(spi_imx->clk_ipg);
--out_put_per:
--	clk_disable_unprepare(spi_imx->clk_per);
--
- 	return ret;
- }
-=20
-=2D-=20
-2.56.1
+This patch restores the previous socket filter mode when ip_mc_source() or
+ip6_mc_source() fail after switching the mode of an empty filter. It also
+returns device-side errors from ip_mc_add_src()/ip6_mc_add_src() before
+the socket filter is published. When the source update fails, it drops a
+membership that the same MCAST_JOIN_SOURCE_GROUP or
+IP_ADD_SOURCE_MEMBERSHIP call created.
 
+> diff --git a/net/ipv4/igmp.c b/net/ipv4/igmp.c
+> index 52cde8782eebd..bfa448028f8a1 100644
+> --- a/net/ipv4/igmp.c
+> +++ b/net/ipv4/igmp.c
+
+[ ... ]
+
+> @@ -2530,9 +2531,10 @@ int ip_mc_source(int add, int omode, struct sock *sk, struct
+>  		}
+>  	} else if (pmc->sfmode != omode) {
+>  		/* allow mode switches for empty-set filters */
+> +		oldmode = pmc->sfmode;
+>  		ip_mc_add_src(in_dev, &mreqs->imr_multiaddr, omode, 0, NULL, 0);
+> -		ip_mc_del_src(in_dev, &mreqs->imr_multiaddr, pmc->sfmode, 0,
+> -			NULL, 0);
+> +		ip_mc_del_src(in_dev, &mreqs->imr_multiaddr, oldmode, 0,
+> +			      NULL, 0);
+>  		pmc->sfmode = omode;
+>  	}
+>  
+
+[Severity: Medium]
+
+The mode switch still happens before the request is validated. It is only
+undone at done: if the request fails. While the switch is in effect, can
+other code see the temporary INCLUDE{} state?
+
+At the socket level, ip_mc_sf_allow() runs under rcu_read_lock() only and
+does this:
+
+    psl = rcu_dereference(pmc->sflist);
+    ret = (pmc->sfmode == MCAST_EXCLUDE);
+    if (!psl)
+        goto unlock;
+
+inet6_mc_check() follows the same pattern:
+
+    psl = rcu_dereference(mc->sflist);
+    if (!psl) {
+        rv = mc->sfmode == MCAST_EXCLUDE;
+
+So group datagrams that arrive inside the window would be dropped for this
+socket.
+
+At the device level on IPv4, suppose this socket holds the only EXCLUDE
+reference. The forward ip_mc_del_src() then drops sfcount[MCAST_EXCLUDE]
+to 0 and switches im->sfmode to MCAST_INCLUDE. ip_check_mc_rcu() reads
+this without a lock. Would traffic for the group be rejected for every
+socket on the host until the rollback runs?
+
+ip_mc_del_src() also calls igmp_ifc_event(), which arms mr_ifc_timer.
+igmpv3_send_cr() only takes pmc->lock, not RTNL. If the timer fires inside
+the window, it looks like it could send a CHANGE_TO_INCLUDE{} record,
+which is a leave on the wire.
+
+Even if the timer does not fire, the rollback is a second device-level
+mode change. A call that changed nothing would still produce qrv
+CHANGE_TO_EXCLUDE records, or MLD change reports on IPv6.
+
+When !add and sflist == NULL, the call always ends here:
+
+    if (!psl)
+        goto done;	/* err = -EADDRNOTAVAIL */
+
+So that path never needs the switch, and it is always rolled back.
+
+On the add path, the window includes a GFP_KERNEL sock_kmalloc(), which
+can sleep in reclaim. Allocation failure under memory pressure is the
+failure case this commit is fixing.
+
+The commit message says "the EADDRNOTAVAIL case keeps the EXCLUDE filter
+and the group is still received". That does not hold during the window.
+
+Could the code fail early when !add && !sflist? On the add path, could
+the allocation and validation run before the mode switch, so the window
+goes away rather than just getting shorter? The same applies to
+ip6_mc_source().
+
+[ ... ]
+
+> @@ -2585,10 +2596,30 @@ int ip_mc_source(int add, int omode, struct sock *sk, struct
+
+[ ... ]
+
+> +	/* update the interface list */
+> +	err = ip_mc_add_src(in_dev, &mreqs->imr_multiaddr, omode, 1,
+> +			    &mreqs->imr_sourceaddr, 1);
+> +	if (err) {
+> +		if (newpsl)
+> +			sock_kfree_s(sk, newpsl,
+> +				     struct_size(newpsl, sl_addr,
+> +						 newpsl->sl_max));
+> +		goto done;
+> +	}
+
+[Severity: Medium]
+
+This now returns any non-zero result from ip_mc_add_src(). The matching
+change in ip6_mc_source() does the same for ip6_mc_add_src(). Both
+helpers also return -ESRCH when the device has no entry for the group:
+
+    if (!pmc) {
+        /* MCA not found?? bug */
+        rcu_read_unlock();
+        return -ESRCH;
+    }
+
+Can setsockopt() now fail with ESRCH in cases that used to return 0? That
+would affect IP_BLOCK_SOURCE, IP_ADD_SOURCE_MEMBERSHIP, MCAST_BLOCK_SOURCE
+and MCAST_JOIN_SOURCE_GROUP.
+
+This looks reachable in a few ways.
+
+On IPv6, without privilege: a socket joins G on interface A with an
+explicit ifindex. It then calls MCAST_BLOCK_SOURCE with gsr_interface ==
+0. The idev comes from ip6_mc_find_dev()->rt6_lookup() and can be
+interface B. The pmc loop in ip6_mc_source() still matches the A
+membership, because the ifindex check is skipped. ip6_mc_add_src(B, ...)
+then returns -ESRCH.
+
+Before this patch, the socket-level filter in that case was committed and
+still enforced by inet6_mc_check(), which matches by address only. The
+call returned 0. Now the call fails and the filter is not applied.
+
+On IPv4: lowering the MTU below the minimum and raising it again goes
+through inetdev_event()->inetdev_destroy() and a later inetdev_init().
+The socket memberships survive, but the new in_device has no group entry.
+Source operations would then return ESRCH.
+
+Also on IPv4: __ip_mc_join_group() ignores the result of
+____ip_mc_inc_group(). If that allocation fails, the membership has no
+device entry. A new IP_ADD_SOURCE_MEMBERSHIP or MCAST_JOIN_SOURCE_GROUP
+would then drop the membership and return ESRCH, not ENOBUFS.
+
+The commit message says:
+
+    Return device-side allocation errors before publishing the socket filter.
+
+Should only allocation errors (-ENOBUFS) be returned here, with the
+-ESRCH cases handled separately?
+
+[ ... ]
+
+> diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
+> index ecef55f261890..0d982f7d29cda 100644
+> --- a/net/ipv6/mcast.c
+> +++ b/net/ipv6/mcast.c
+
+[ ... ]
+
+> @@ -403,8 +404,9 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
+>  		}
+>  	} else if (pmc->sfmode != omode) {
+>  		/* allow mode switches for empty-set filters */
+> +		oldmode = pmc->sfmode;
+>  		ip6_mc_add_src(idev, group, omode, 0, NULL, 0);
+> -		ip6_mc_del_src(idev, group, pmc->sfmode, 0, NULL, 0);
+> +		ip6_mc_del_src(idev, group, oldmode, 0, NULL, 0);
+>  		pmc->sfmode = omode;
+>  	}
+>  
+
+[ ... ]
+
+> @@ -494,6 +501,11 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
+>  	kfree_rcu(psl, rcu);
+>  	err = 0;
+>  done:
+> +	if (err && oldmode >= 0) {
+> +		ip6_mc_add_src(idev, group, oldmode, 0, NULL, 0);
+> +		ip6_mc_del_src(idev, group, omode, 0, NULL, 0);
+> +		pmc->sfmode = oldmode;
+> +	}
+
+[Severity: Medium]
+
+This rollback undoes the forward mode-switch calls without checking
+whether they succeeded. The forward call
+
+    ip6_mc_del_src(idev, group, oldmode, 0, NULL, 0);
+
+returns -EINVAL and changes nothing when mca_sfcount[oldmode] is 0:
+
+    if (!delta) {
+        if (!pmc->mca_sfcount[sfmode])
+            return -EINVAL;
+
+        pmc->mca_sfcount[sfmode]--;
+    }
+
+The rollback's ip6_mc_add_src(idev, group, oldmode, 0, NULL, 0) still
+increments mca_sfcount[oldmode] every time. Can this leave a phantom
+reference on another socket's device entry?
+
+This looks reachable without privilege, through an existing mismatch in
+ip6_mc_source(). With gsr_interface == 0, the pmc loop matches any
+membership for the group, while idev comes from a route lookup. Nothing
+checks that idev->dev->ifindex == pmc->ifindex. For example:
+
+1. Socket S2 joins G on device B with MCAST_JOIN_SOURCE_GROUP. B now has
+   mca_sfcount[MCAST_INCLUDE] = 1, mca_sfcount[MCAST_EXCLUDE] = 0, and
+   mode INCLUDE.
+
+2. Socket S1 joins G on device A with IPV6_JOIN_GROUP (EXCLUDE{}). The
+   route for G points to B.
+
+3. S1 calls MCAST_LEAVE_SOURCE_GROUP with gsr_interface = 0 for a source
+   it never added.
+
+4. The forward ops run on B. The INCLUDE add raises the INCLUDE count to
+   2. The EXCLUDE del fails with -EINVAL. The call then fails with
+   -EADDRNOTAVAIL.
+
+5. The rollback runs on B. The EXCLUDE add sets the EXCLUDE count to 1 and
+   switches B to EXCLUDE. The INCLUDE del lowers the INCLUDE count to 1.
+
+B would be left in EXCLUDE mode with a phantom EXCLUDE count. MLD would
+report EXCLUDE{} for G on B, and device-level filtering on B would accept
+all sources.
+
+S1's later leave works on device A, because __ipv6_sock_mc_drop() uses
+mc_lst->ifindex. So the phantom count would remain as long as B's group
+entry exists.
+
+Before this patch, the same sequence only left a phantom INCLUDE count
+on B.
+
+The IPv4 rollback in ip_mc_source() has the same unchecked pattern. It can
+be hit when a socket membership has no device entry of its own, for
+example after an MTU drop and restore or a failed ____ip_mc_inc_group().
+Another socket then has to create the entry later.
+
+This also seems to conflict with the commit message's claim that
+failures "preserve the previous filter and membership state".
+
+Could the rollback undo only the forward operations that actually
+succeeded?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795102467.git.x-professor%40outlook.com
