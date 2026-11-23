@@ -1,64 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795426658;
-	b=oBFnMs0b9TEaSqb7dalEvacfgahPHdJXsGTGu4VR0eEPa04nTvUtLPrj9y2Pr1etVYZg
-	 XGTQ5LXSI9qfFYbZaPrlmWU/1xDwg9d7OYzXcyPBiH8qUPO5sNhjaYZEybSelLJQPMQTT
-	 l1V84sgEuDHQQ7eV82RoL2iOvn4Kby06syxEBZ9zgPKU106Zq9H4Mnvoc4SM4MsgYHJCf
-	 RwWlQ0JBypdJerxyjEOQ0+hT8RvAKf9n5YNXPI8cbfrJVb9+IaNJGZpZofS8PBPSUIIcH
-	 dehcIF5kWQbiArT3yjtfy4mXGg6BCyMIy6JRTRS50Ak1t2YD5K7X3EyE0F5cnoYwFyg==
+	t=1795426714;
+	b=CZBMNsAirjFh+L/x57D9bmgcAIBxEIVHXGuE/33f50e8e6gaafub8dnhtlLRvv9TuXri
+	 dEKLeeWSKuXN3F+xMWiXiaSIJFZu7aY28vnTi3g6KY0pKpK2ARtTT17Lg68hOZVaAoEtk
+	 Ti9550zvNZ2g6ug8ys538mUguDV2G/B0fWAJ9cOIfFB3ueA1ZQ17+9PIsg8UPxWTkXox9
+	 7sBwXTpGyrratD8Mtok8Ar5GZ0pe/TJWQSdrsRHyqcBLkN43TLsepP1mAQVyu0KX2V8s/
+	 8UFu+Gne3q1iDMdnD90MT3UAnTZKG+X7EsWW616d0ipso46ft+i+PAYEMZ3I2oC+KnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426658;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Developer-Signature:X-Developer-Key;
-	bh=l/BiTKNpCaOxND2c83McUOfReF7CsUOwl4ywWdEVIsc=;
-	b=aHkchmqpDVhu98jZ4GDd7HkJJcvwG8OcpFnk5lZHpXWjjt9yLVlbDLmK2XSInd6r8XOL
-	 Gyj/h2wU80CT9plrS/rRTUKkazMuAXvCaRER3HEo48+3RXyWlQTtm5nOpWba3rGkJACJr
-	 XMG2q2o0bHsyZrmnyUNtftjixg1N7i8IPJJOxkt5sj4dEPAtLITF6Jk9pGADiE/rIfU5m
-	 nsFUxgfVs12t1mnC548Dg9nu1A98CZwspEIG9HRiT4FEDe9F2ru6SVEr3IwCQrFrXqTUR
-	 XxsBvUcTK2BuFuXcTsOgZ8ir3ox0GhKlT70275UFd9Nl9zZpakqciMdPwDgqjrBoV9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426714;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=lvpypAiJlblh4fELwTtTXu0MlEx5B97kH+hMlKAqU3U=;
+	b=4VpQRM18377RicAlit9QfE44g0SwxvAqFBuaj0OdTFRnrs7GvikM1eP1/D9vuKsvOU0s
+	 BJtLZr28UVlWgeLZ2NfePV8G3ZCzaMACYfDh7mD3dwEti4ldbY8n6d8CLQawI3foX38+j
+	 clmkGmosuzyMtWrLfG6yHYZQDawvB4Tej3GVjCao12L3kotzcBdZelm2ymW6xR1FOE//e
+	 M8TITpB+XIm1gOdsvOYD83RQ5vMXlhVGhlqLb/iGK/iYdKpoYIBUWjxbws0Z73eU7iIHc
+	 sUr0l67xeJfHS5TL3YcHH072oQHKd+Wlyt57kAIUILqqgvNs/aP5HLYOOz8TnN23doQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=jkhqAnQN;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=KGBqyz3G;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE9C260A5BC5;
-	Mon, 23 Nov 2026 09:37:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE9C260A5BC5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=jkhqAnQN;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=KGBqyz3G
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795426656;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l/BiTKNpCaOxND2c83McUOfReF7CsUOwl4ywWdEVIsc=;
-	b=jkhqAnQNELqjAUyPC+ah0b+ywki2lualhhUkxkV7P3TMrXvXwGyiycaGYRoCbZBpM0RcTn
-	X2q9PPlCsravdT3r794YuvNNdQagbYQKFtf9bNwRN1Iu/5EZlLemXEjySqRl802oCFXXBN
-	xFQ7t0rPYG02dO0BgPjMOt67Zar5eE6hJqTwbrFc8Ac6PQY+OebLC3xD9Ckcd97nVxtC2Q
-	p8pcYvW94R0pQNY9SPNX3yq/qhkzYWAU70LE6jHJ8gf1Bkj3Spqu9mEzfFYbTQtQa2KpjV
-	Y9THEgzS7mxC3lm/z8O4Wde4DU0UBYUi74rZ2qlM2nIFIOUzQujqAWDNxKjtsQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795426656;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l/BiTKNpCaOxND2c83McUOfReF7CsUOwl4ywWdEVIsc=;
-	b=KGBqyz3GdaK1oBFiUeoizJlsqPljXvKlT3ga2tV8p7wV+lhoSN1YNMjumnKIpgLiGs3g+I
-	tWCAeCC0Wv8iJ9BA==
-Date: Mon, 23 Nov 2026 10:37:19 +0100
-Subject: [PATCH v3 14/15] alpha: remove AT_VECTOR_SIZE_ARCH from UAPI
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C081C606A31F;
+	Mon, 23 Nov 2026 09:38:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C081C606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=lvpypAiJlblh4fELwTtTXu0MlEx5B97kH+
+	hMlKAqU3U=; b=MrmDC5uVvUzrDaL5f4hSqdtYN67IdmZVArYX/PVdlS2fkN+aWl
+	qehV0o/pCULE4EamNWvgsQk282X3wxuUfYF2BE9FNav1Qxv2YeDzRYQVHVTEtNQx
+	xzp7Gr2NhuRljyYzkucLnrND+/qoaRj5TOJfN+BKTpe0oFjJ7+iQw7ZME=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.33])
+	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkCmxfuCCQRr38IbAg--.672S2;
+	Mon, 23 Nov 2026 17:38:12 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>
+Cc: Oliver Hartkopp <socketcan@hartkopp.net>,
+	linux-can@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH net v4] can: dev: reject unusable bit-timing constants
+Date: Mon, 23 Nov 2026 17:38:09 +0800
+Message-Id: <20261123093809.5154-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261123-loon-of-wondrous-aurora-cb3d93-mkl@pengutronix.de>
+References: <20261123-loon-of-wondrous-aurora-cb3d93-mkl@pengutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,77 +62,186 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261123-at-vector-size-arch-v3-14-d342dae9e843@linutronix.de>
-References: <20261123-at-vector-size-arch-v3-0-d342dae9e843@linutronix.de>
-In-Reply-To: <20261123-at-vector-size-arch-v3-0-d342dae9e843@linutronix.de>
-To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
- linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
- linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- Magnus Lindholm <linmag7@gmail.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795426640; l=1710;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=vXjkxYJIlc0NCEosFzkpX8TeQp7Um4IKFK3k2WrdPLI=;
- b=EL3RVXJCnvkuQSc9r9Cl1BTDgl6XF0yfwf03AwNKQGGyAiPL6VTd53BWrWQo89v0CFbbKICYh
- V+VEt6hrynCCWJXvzqn4zeLgAiNjUEfCVNRVTmgGZhdW4+BddfJZUHx
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+X-CM-TRANSID:BrQMCkCmxfuCCQRr38IbAg--.672S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtryUJr48KFy7ZF4kGrW3Jrb_yoWxJr1kpr
+	s8Ar45Gr90qr12qayxtwn2yF95Ww4vqF4Fkr98Jwnay3sFqFW0yrW7GF45Z3W3GrnFkry8
+	t3yjqF43Gws8CaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
+	73UjIFyTuYvjxUcw0eDUUUU
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUGD2sDBVituQAAss
 
-There is nothing userspace can do with this value. In the kernel is
-always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
-userspace and also changes from time to time.
+can_bittiming_const_valid() is the hook register_candev() uses to verify
+the constants a driver registers, but it only looks at sjw_max.  The
+values can_calc_bittiming() and can_calc_pwm() depend on are not
+checked.
 
-Move the symbol to a kernel-internal header.
+gs_usb builds its struct can_bittiming_const and its clock frequency from
+the response of the GS_USB_BREQ_BT_CONST control request, so both come
+from the USB device.  A device that reports brp_inc = 0 crashes the
+kernel with a division by zero as soon as a user with CAP_NET_ADMIN
+configures a bitrate:
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-Acked-by: Magnus Lindholm <linmag7@gmail.com>
-Reviewed-by: Kees Cook <kees@kernel.org>
+  Oops: divide error: 0000 [#1] SMP KASAN
+  RIP: 0010:can_calc_bittiming+0x3dd/0xcd0
+  Call Trace:
+   can_get_bittiming (drivers/net/can/dev/bittiming.c:146)
+   can_changelink (drivers/net/can/dev/netlink.c:594)
+   rtnetlink_rcv_msg (net/core/rtnetlink.c:7137)
+
+Controllers may read the bit timing constants via USB, check the
+minimum/maximum values and avoid divide by zero in the calculation.
+
+can_calc_bittiming() also divides by the clock frequency, gs_usb and ucan
+take it from the device as well, so reject a zero frequency while the
+device is registered.  CAN-FD data bit timing requires CAN-CC bit timing
+and CAN XL data bit timing and the XL PWM constants go through the same
+calculation, validate them as well.
+
+The 32 bit overflow of tsegall * bt->bitrate is not caused by the
+constants but by the bitrate supplied from user space, it is a separate
+problem.
+
+Reject unusable values during registration, so that a device or driver
+handing out such values fails to probe instead of taking the kernel down
+later.
+
+Fixes: d58ac89d0d38 ("can: dev: register_candev(): ensure that bittiming const are valid")
+Cc: stable@vger.kernel.org
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
 ---
- arch/alpha/include/asm/auxvec.h      | 7 +++++++
- arch/alpha/include/uapi/asm/auxvec.h | 8 +++-----
- 2 files changed, 10 insertions(+), 5 deletions(-)
+v4: https://lore.kernel.org/all/20261123062614.7811-1-25031212351@stu.xidian.edu.cn/
+- move the clock frequency check to register_candev(), CAN-FD data bit
+  timing requires CAN-CC bit timing
+- re-order the checks to the order of struct can_bittiming_const
+- replace the comments with a short summary
+- drop the brp_max * bit time limit, the multiplication is fixed separately
+- use check_add_overflow() for the shortest PWM symbol
+v3: https://lore.kernel.org/all/20261121094534.5221-1-25031212351@stu.xidian.edu.cn/
+- validate the XL data bit-timing and the XL PWM constants, too
+- reject a zero clock frequency at the point of use
+- describe the checks as rejecting unusable values instead of
+  predicting crashes
+v2: https://lore.kernel.org/all/20261121064449.9706-1-25031212351@stu.xidian.edu.cn/
+- reject constants with an inconsistent minimum/maximum range
+- bound the maximum bit time and the brp_max * bit time product
+---
+ drivers/net/can/dev/dev.c | 66 ++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 62 insertions(+), 4 deletions(-)
 
-diff --git a/arch/alpha/include/asm/auxvec.h b/arch/alpha/include/asm/auxvec.h
-new file mode 100644
-index 000000000000..fa90ee4f899c
---- /dev/null
-+++ b/arch/alpha/include/asm/auxvec.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_ALPHA_AUXVEC_H
-+#define __ASM_ALPHA_AUXVEC_H
-+
-+#define AT_VECTOR_SIZE_ARCH 4 /* entries in ARCH_DLINFO */
-+
-+#endif /* __ASM_ALPHA_AUXVEC_H */
-diff --git a/arch/alpha/include/uapi/asm/auxvec.h b/arch/alpha/include/uapi/asm/auxvec.h
-index 57cae8780d81..d21b87b6730a 100644
---- a/arch/alpha/include/uapi/asm/auxvec.h
-+++ b/arch/alpha/include/uapi/asm/auxvec.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
--#ifndef __ASM_ALPHA_AUXVEC_H
--#define __ASM_ALPHA_AUXVEC_H
-+#ifndef __UAPI_ASM_ALPHA_AUXVEC_H
-+#define __UAPI_ASM_ALPHA_AUXVEC_H
+diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+index 769745e22a3c..9325406ff1a8 100644
+--- a/drivers/net/can/dev/dev.c
++++ b/drivers/net/can/dev/dev.c
+@@ -13,6 +13,7 @@
+ #include <linux/kernel.h>
+ #include <linux/netdevice.h>
+ #include <linux/of.h>
++#include <linux/overflow.h>
+ #include <linux/slab.h>
+ #include <linux/workqueue.h>
  
- /* Reserve these numbers for any future use of a VDSO.  */
- #if 0
-@@ -22,6 +22,4 @@
- #define AT_L2_CACHESHAPE	36
- #define AT_L3_CACHESHAPE	37
+@@ -595,15 +596,54 @@ static int can_get_termination(struct net_device *ndev)
+ 	return 0;
+ }
  
--#define AT_VECTOR_SIZE_ARCH 4 /* entries in ARCH_DLINFO */
--
--#endif /* __ASM_ALPHA_AUXVEC_H */
-+#endif /* __UAPI_ASM_ALPHA_AUXVEC_H */
-
++/* Upper bound for the bit time in time quanta. The bit times of the
++ * currently supported CAN controllers are well below it, the limit keeps the
++ * time segment scan in can_calc_bittiming() bounded.
++ */
++#define CAN_MAX_BIT_TIME_TQ 1024
++
+ static bool
+ can_bittiming_const_valid(const struct can_bittiming_const *btc)
+ {
+-	if (!btc)
+-		return true;
++	u64 bit_time;
++
++	/* Controllers may read the bit timing constants via USB, check the
++	 * minimum/maximum values and avoid divide by zero in the calculation.
++	 */
++	if (!btc->tseg1_min || btc->tseg1_min > btc->tseg1_max)
++		return false;
++
++	if (!btc->tseg2_min || btc->tseg2_min > btc->tseg2_max)
++		return false;
+ 
+ 	if (!btc->sjw_max)
+ 		return false;
+ 
++	if (!btc->brp_min || btc->brp_min > btc->brp_max || !btc->brp_inc)
++		return false;
++
++	bit_time = (u64)btc->tseg1_max + btc->tseg2_max + CAN_SYNC_SEG;
++	if (bit_time > CAN_MAX_BIT_TIME_TQ)
++		return false;
++
++	return true;
++}
++
++static bool
++can_pwm_const_valid(const struct can_pwm_const *pwm_const)
++{
++	u32 shortest_symbol;
++
++	if (pwm_const->pwms_min > pwm_const->pwms_max ||
++	    pwm_const->pwml_min > pwm_const->pwml_max ||
++	    pwm_const->pwmo_min > pwm_const->pwmo_max)
++		return false;
++
++	/* can_calc_pwm() divides by the shortest PWM symbol. */
++	if (check_add_overflow(pwm_const->pwms_min, pwm_const->pwml_min,
++			       &shortest_symbol) || !shortest_symbol)
++		return false;
++
+ 	return true;
+ }
+ 
+@@ -632,8 +672,26 @@ int register_candev(struct net_device *dev)
+ 	    (priv->bittiming_const || priv->fd.data_bittiming_const))
+ 		return -EINVAL;
+ 
+-	if (!can_bittiming_const_valid(priv->bittiming_const) ||
+-	    !can_bittiming_const_valid(priv->fd.data_bittiming_const))
++	/* Validate CAN clock and CAN-CC bittiming */
++	if (priv->bittiming_const &&
++	    (!priv->clock.freq ||
++	     !can_bittiming_const_valid(priv->bittiming_const)))
++		return -EINVAL;
++
++	/* For CAN-FD:
++	 * Ensure CAN-CC bittiming and validate CAN-FD bittiming
++	 */
++	if (priv->fd.data_bittiming_const &&
++	    (!priv->bittiming_const ||
++	     !can_bittiming_const_valid(priv->fd.data_bittiming_const)))
++		return -EINVAL;
++
++	/* For CAN XL: validate CAN XL bittiming and PWM constants */
++	if (priv->xl.data_bittiming_const &&
++	    !can_bittiming_const_valid(priv->xl.data_bittiming_const))
++		return -EINVAL;
++
++	if (priv->xl.pwm_const && !can_pwm_const_valid(priv->xl.pwm_const))
+ 		return -EINVAL;
+ 
+ 	if (!priv->termination_const) {
 -- 
-2.56.1
+2.34.1
 
