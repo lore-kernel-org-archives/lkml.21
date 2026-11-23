@@ -1,58 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.50
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795430726;
-	b=zuJ6m8k6j86iVfilNYymhTXIjw/MV+6bP/U/ZydxEpdQjNzHTBFpIlqXPMfdITXGKv5v
-	 r5GIxq11dvp0faPnwAIXkXlQklfV+7RlGi/avopZvxHU4LY0Yvb6FCaD4rb7hYl1zTaBc
-	 LGocoTgUQDa+JSIiNRnLo3YeQf7gWwiXwtZGH8PEcQVSwKrkTuIdlGoqdlfWTnAHzJnPI
-	 5/kFlGIwxz+wAuIUlQwQytfJAP+V17oNDC4FqwVJ5ASYwmEEH5ogJu8mMLwfin5poEav0
-	 TUFhpSox42u52bjEDc5etK5/GUaXPUsF8E0PD/AdeOYobJSai1uaX1XcWwxI+epPo7Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=ZqaWWHajEOI8wglACO46naTKzSsU1usrc/1OiHoGNo3pMBtYQwZyxL1sWtkpU8M1haBz
+	 8CRO1r1INcRgU4jhQ1uoNj/fN823rZlDsdkNQjhDl+3zEo4FeGlRmE948AjOczLYqP8J4
+	 VrMlquDSUhzaiAiM4Hj7sZRK3vjW8NHPo4Frk+oP4CIA0YFTYnATGI1oxIJfw5oD0WQNv
+	 PPHm1YmPm1gz6JtY3R09r9R9JI1yApv8f/1ZpY3b2r9hN0Ctxx3dIuttipsW+sheYHavJ
+	 Totn60DFGtxad+5wm50AX+YPXcbH7sW0vHX4kizvP/0U5vnzdsFOvjuKaHRhks6UFkg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795430726;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=/qPYmDvU6/tNYx5q3aQ8plRWWnZskWOlIWsw9PX0tvk=;
-	b=sr6x+6tA+2H1JzuAyP9cLXZLxyLLRbw4GABlDC6aGz6INny+HDtm5sa+qbqjOyRvb9pG
-	 OiQ8patqrd8WY2twGB2ePloK9vxrdnp9AI5RE9LYh9nLr/fJr9m5jOEi4MlCKoZdnO4eE
-	 oX5Hkd1RCcsF30E0J6/HErtxwgcM7FiZu91Hd6h4730ILawj4x6etnda3t7pkcWTHRDq0
-	 6QF8jYRCQYIS4ZQ4ib7IWHO6dSo3SNpdmtV9pNliT1fjuoHoDfqfjBlUl02x6NnGTWZT5
-	 0AFOUX0TYz467/vry09y85ipr3mX/Ali/eD55NkRAl8O1Xm5BRqcfFk155Kf8euaqqQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=TDY5wph7;
-	arc=none smtp.remote-ip=115.124.28.50
-Received: from out28-50.mail.aliyun.com (out28-50.mail.aliyun.com [115.124.28.50])
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=z/zmpz0TamTPeoYCPc5+PhM53Ju6/rNyQtIdD9TkNvA=;
+	b=fdhSrF/OeaSB7mDob+hhE1tdketyKGBh5IDEh63kZfVaOUxexrOyDspMonywLxtXkYy4
+	 Iqz0PHSxcmYRL0+HGcRJ3QFgbx5uVM6w30NUHhEfOhbd30+A9kBYBYPwHl1H0MQy5AqzU
+	 RkoWjcmt8x3w6sq8YdDB5vTE3O4DvDVVFqjEEYQeydPbpaTyxN2c7SfVQxBZxLK3YfuFZ
+	 WB6q8rGCd4+VIP5jldkwLZPWVeFR2U0nQ2FuRkYnHylMKVhaclS/GL93mKtzPrfNA4zTF
+	 rhxh8ELzSJfn6Yfd6YxeBhlKMvx5WA3hgfN0jvcHjYLw5Aq39s+Gr/nKlxie6R+2IwA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RIjnvKM9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16844606A31A;
-	Mon, 23 Nov 2026 10:45:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16844606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EF31606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:45:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EF31606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=TDY5wph7
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795430714; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=/qPYmDvU6/tNYx5q3aQ8plRWWnZskWOlIWsw9PX0tvk=;
-	b=TDY5wph75b0CUpz8TLBqKHs3xYNAUiJqPNbnSkkv7rdH/wIvQvLacDGDgMlM2XcOlf17ecSZs8KUiA8VYVZzGfCCp/wl7+LnVWMqWvzgJuAzll6i7uYsATgeud88dfvNLR9PdsWtjPv56tqLNnUNYFsh2SqbmGNoWOI8dAEFavg=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06318961|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0252662-0.000486688-0.974247;FP=15535778311839784065|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034184;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=4;RT=4;SR=0;TI=SMTPD_---.k8JXEr._1795430713;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8JXEr._1795430713 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Mon, 23 Nov 2026 18:45:13 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Subject: Re: [PATCH] asm-generic: bitsperlong: Remove the disabled BITS_PER_LONG check
-Date: Mon, 23 Nov 2026 18:45:12 +0800
-Message-ID: <20261123104512.58227-1-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <423ac235-513e-4850-ba1c-5fe98eb2b294@app.fastmail.com>
-References: <423ac235-513e-4850-ba1c-5fe98eb2b294@app.fastmail.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RIjnvKM9
+Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
+	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 93A692004F5;
+	Mon, 23 Nov 2026 11:45:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795430723;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z/zmpz0TamTPeoYCPc5+PhM53Ju6/rNyQtIdD9TkNvA=;
+	b=RIjnvKM9/sml5/I68OAzMHquglOuil1ZFv5/SHYRYteoKPjt5jlein8W/0w6/xjhzHCIIV
+	refavobv5KFomJ6Ba4iHhyh6SjQ6xbZlX5sDk0XDWfSr8hzgso98vkBnvKmzwMd2fZdbXJ
+	v/E3lIpYJL4uCX3xbZ05DAZLbZZVXCEiitJgT4+PNAboGlOYHu8wUH7Pt4XprEqQl+XM34
+	dpk8OIBiP3Zrlebe66/UmGwdBS+rot5LXN8OoZt9R98G+e91u/REn6HBsHk4NFvzerzbhY
+	/+ZsEYaRF7xE6CpUd/dcqfDdcHOvtHiSOOT3RVbyJl5Yr6DsE4OE2hbFPpsXPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795430723;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z/zmpz0TamTPeoYCPc5+PhM53Ju6/rNyQtIdD9TkNvA=;
+	b=UsAr9rh0cp2RkRVjU7JO1PGEJ33tH8u91Ls8m2nIOHuOfFv3XgI0DEC3I/KWFCPqNmQ8Vb
+	P1EOhWWZo6LGvrMggy/O0HXR/u3pwwP2qdYEO8wPhad1pgkfx189DBD53pcpyVE7YQtCoi
+	YgTEqmMhWpTqzOTDDswRQOQh5B4qX1FPUeh481U8w4hbWXSLkICnFkyOJruD6bC9N3gfMs
+	ahrQMQf0OQ66HmQhkE7gmD3hBmAFWn4YPipGJcpKe+L0TyVMiqK1OziLnAonLqBT/a8+vU
+	SU8L5b7HkwsrHwsHi3Zia3Dk8qEUu1IMf4fvP/xhq9ky55akqxb6eqplbrc3MA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=mfe@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795430723; a=rsa-sha256;
+	cv=none;
+	b=frP32e+r/gQjOr9s3T9UeKlTnbzy2SaEoU40sY+pC6uGpdlGzL7W6XTGipl6L+ukqLMML1
+	3/RKB4L8fDLOsaThmAwit53GKeSELhDhbdpP2sHk+O6vdLdNLWN7wwW4df0XTWAdE7Bneb
+	ugyf6eg2H2ZdnxuiWAmgI+J+M3vCJ/FzsdSgLdwQaJkB0oLs9g32/LrCIiLkv6AYmMQwy8
+	rFfSZOJAkczbgPKihbzDuk4+cN04AHM8paOJYKz3wMuIz1EZ/cAWb9w+mCWpTmMhONf0K1
+	IBUap/dN5Zr9htDPpXKHgymQFt5CXLcHOYBZqzi0yw/fbQNRdfQXnIbPSZWOeQ==
+Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1064)
+	id 723791BF694; Mon, 23 Nov 2026 11:45:23 +0100 (CET)
+Date: Mon, 23 Nov 2026 11:45:23 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: =?utf-8?B?VsOtdCBLYXrDrWs=?= <vitkazik@vitkazik.cz>
+Cc: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, 
+	tudor.ambarus@linaro.org, linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	sshivamurthy@micron.com
+Subject: Re: [PATCH] mtd: spinand: micron: add support for MT29F1G01AAADD
+Message-ID: <34hku3cwz5tgpz4l7jtcsupictopwpwv6dmbkyhwvi2husszfo@5pufgrbxligl>
+References: <20261121234125.16093-1-vitkazik@vitkazik.cz>
+ <DF6A2762-566D-4A13-892A-AA18B9F987F0@vitkazik.cz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,30 +92,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <DF6A2762-566D-4A13-892A-AA18B9F987F0@vitkazik.cz>
 
-On Mon, Nov 23, 2026, at 09:08, Arnd Bergmann wrote:
-> I think the correct fix would be to stop the x86 vdso from including
-> this header. The general rule is that any VDSO code should only
-> include headers from include/vdso/, but not include/linux or
-> include/asm.
+Hey,
 
-Thanks, that makes sense.
+On 26-11-22 00:26, Vít Kazík wrote:
+> Hi,
+> I found Marco Felsch's earlier submission for this chip (2019/2020)
 
-The compat vDSO ABI difference is valid, but it should not require
-the VDSO to include this kernel-internal header. I'll drop this
-removal.
+Uhh that's an old series ^^ Can you send me a link so I can check it
+quickly please?
 
-I re-enabled the check in a test build to see what actually breaks.
-On x86-64 the vdso32 build passes, because fake_32bit_build.h
-undefines CONFIG_64BIT to fake a 32-bit configuration. The failures
-are the realmode build (32-bit code with the real 64-bit config),
-and the arm64/parisc compat vDSO builds, which include this header
-via <vdso/gettime.h> -> <linux/types.h> without faking the config.
+Regards,
+  Marco
 
-I'll investigate the include chains and look into removing the
-dependencies on include/linux and include/asm before revisiting the
-check.
 
-Thanks,
-Fang Xieyan
+> only after sending this patch, and have read that discussion now. My patch was written independently from the datasheet, and it already uses
+> 4-bit/512-byte ECC as agreed there.
+> 
+> One difference is the free OOB area. I expose bytes 2-7 of each
+> section, following Table 11, while Marco's version
+> exposed bytes 4-7 so that the free area is always ECC-protected. I'm
+> happy to switch to 4-7 if that is preferred.
+> 
+> Marco, if you still plan to send an updated version, please say so and I will happily step aside.
+
+
+> 
+> Thanks,
+> Vít
+> 
