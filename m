@@ -1,60 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423643;
-	b=ug5GUOonisR83PsJPtADgsUdabU9EgXHbDAmBRHPkYZnsOqpGBT5hHJkpphYa9JvpaYE
-	 hNpA1ikUgnKODhQ3U1xvFadjmxCE2X0yW69yp71igp8aKr5+tFGcj72Nts3NeJXhdRsi1
-	 WN2bbEmMlOwKXPEQPZ1rbjFeg5ujp80ngXqWEaOCQuvdtm5pPAtwwbFvd3woP1fwInEsj
-	 150Gn9D/om35gRR8CsWxMocnEqW2u5OCOpYXmO6LI6tFJ/4E/L1Ecs+UFYbn0yiiQNmdz
-	 V8C3r07gwY4/UJmmBjWd8j4dx8ELlfkObGDoUezhJdBvX3SwI3rVZvmOMez+WR1v8pQ==
+	t=1795423644;
+	b=xKFbk9tTG2PGiDxBPiykSCx+/i5LlSBK2G1fXhanF+k133MArIM+MwE8N/WCyW8LdKvg
+	 sZQc7mNCauk6hEP1wU/St2ZmR/Qz85N6GGWgSuJmCeMf2EDth7sI9XRhnp67XVaaHG8rm
+	 Fk8dN4scmcRzNARG/RW9ewOt97EgIrw0w/AS0iq6PaQOWk+ujIKwQh2wX+qZJkNoEwI0i
+	 b29xiNux114hrwgSsLn1JsuRpTXV6Y6Bvxilm/8xkwb/+5wSditOH7jhp1kV1VXMz2f4o
+	 U6goHoDiYUG29SqUJtpcVChffbmHQORh66bx0hsePgtH3tfC6qx1JZDWgM/6rw0e4YA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423643;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=0xoAI2aZiZKz5fbdLwbV+D0yONBgbldgE9alS44kdKk=;
-	b=OEeKWWiGGaKaqgXUvg+ocfTyWILUVreUEUauniwLNTSB1A9SbG2C7fEXev6xWAzfTkRP
-	 0oR2Cn203T1NHPX//q35Yju6ocA1rXW5+PtLaF/bbDkNnCUftTBIbZ60KT1KzgldBzfdd
-	 3VmrklB+nEo+pQ9Br86uyDB+OeSibBn8+KOW2crOv6QFv+gH6XsWhcbSgpbrqNcGvFLo2
-	 IhC9jdwFQXaN50taKxZnlb2y9tUYVjKgJ2DYxitNBM2bejElnJ6n9DVZUDZcPnbAlxFVM
-	 Bp9nH4Wt9SoCH7u/xhD5RAepff70ri/LfCKMLkZtV+MUwkyotQYbscBjl/2COtRFE3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423644;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=a9avre7WPVBTm+1ssGfTak2MnTio6f4/ruqgmNL/TRE=;
+	b=SnS/YCgZTd0HtXXBNdJww29kFnnfYcTQTs/1oWmAPbuxQN/elIrvjHNq6H9Vhz9UYRS1
+	 ZDvYEV3di/P4msxCbuGuJFakYGHrIlVUtfW/pw5qBQ+lOFET1c3iZXDqNcKBQ9LQdtwU+
+	 qtkHnVjXaTghekT9BwTx2WnFuwyhHFj7wPVT3B9ETfr3QJx3cykm1N9RbkwyPZR0zqzOe
+	 6kv2Icm7N8rsko2xRBeWI00nR1A9UTXcSDAk6QJu2trwH5z4iv2dEQBiK3Lw0sciOou4s
+	 F5KyuEKUBS1qPLt8uX0E6IlFPpyp3+uyVHIheq18FyNimlLfxRSpVrQccg3IPezweBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rwf2JgKV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QEWpBz0U;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAC30606A31A;
-	Mon, 23 Nov 2026 08:47:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C383606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:47:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C383606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rwf2JgKV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 874071F000CF;
-	Mon, 23 Nov 2026 08:47:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795423643;
-	bh=0xoAI2aZiZKz5fbdLwbV+D0yONBgbldgE9alS44kdKk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Rwf2JgKVsS3H77PJppUUvv4nvblUNhTmnDqxT48OAdT320TnAi1uKuDRQraIwOHaG
-	 JCzJ0OKgG61F1cK9knaS845UxSk6CpippWqnnhBaPP5kYAdH9M+C0gsvV7tLUQGHCh
-	 OYaNnjGujS3YmQ29L0uKMFj6fmB/N2KhhCHIYHIXxOOiRJ3xCrRqTKz+Zc9N9SqsxD
-	 UPcft5J44vREXgLF+PiIpSqO8lP5qv4OQsuiqZEE6jf2GPoR/dEMPrmUrc4i3eGM+Y
-	 gXGhyXAhr+71ykOkbRT5qUvGqrhZi0iQvmPyWDIwEYQaas4XC0apDCmcu5MBMAmCHu
-	 U1ZraY5e/o6Lg==
-Subject: Re: [PATCH net] net: reuseport: honour SO_LOCK_FILTER in
- SO_DETACH_REUSEPORT_BPF
-From: netdev-bot+sashiko@kernel.org
-To: shyckless@gmail.com
-Cc: pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net,
- kuba@kernel.org, kuniyu@google.com, willemb@google.com,
- netdev@vger.kernel.org, bpf@vger.kernel.org, martin.lau@linux.dev,
- linux-kernel@vger.kernel.org, horms@kernel.org
-Date: Mon, 23 Nov 2026 08:47:22 +0000
-Message-ID: <179542364209.3135.6346728453187808939@kernel.org>
-In-Reply-To: <20261122-reuseport-lock-filter-v1-1-a3e5324c8d55@gmail.com>
-References: <20261122-reuseport-lock-filter-v1-1-a3e5324c8d55@gmail.com>
-X-sashiko-severity: Medium
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QEWpBz0U
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdb15cd8558so1243453a12.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:47:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795423643; x=1796028443; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=a9avre7WPVBTm+1ssGfTak2MnTio6f4/ruqgmNL/TRE=;
+        b=QEWpBz0UF+1mc1fKVDkphV8Vq4Od5PrcQOIScdeTZwTHzNVAeyUZ7atmbcZwDRSx5C
+         N9BE3MswpXI2ysrY0V0pC+iuFUgXVGkjHCcJZDhk/J3TfM5WJPkPVU1sdHjuMkm93WoD
+         4wnmZiMs/Tj0led+OWYVnQfjkFsVsDw0SSpyr9gK7Kxr1fgpqa4VD7KGk1iblYk27dfV
+         bx69GBVCacNwq6JbAY8ZKc1kQytU15PmLYTEWqSF8MJrqyy8pJwad8dcqj22RWS76bTg
+         W7ddBTGFIvgJcat39+CKHAyp+puat+bN1IEcW5U9ibMNVNbanKAKvpOLobUxkD9/N9YE
+         uAGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795423643; x=1796028443;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=a9avre7WPVBTm+1ssGfTak2MnTio6f4/ruqgmNL/TRE=;
+        b=tkrvteS7UJoFTfwjp7j0cI+f2iqosOIo7miy19NTe6yGIN8DUB+qA2ZwVhvMKy37A3
+         WxRNsF/htcvElRkLkMPgryN4MHW9uSGxlsfMcQ75e79GlJowRooH9uDSx5yqEc9HsTkv
+         LPhBMChWjGHzTMPrhQIcTRadW9vogLf9hWKAmbInfA1BVmPev+Z8BJtM9wqYMig3/c9K
+         y7BJKeOjG9uhXlYGcyrCMQ3Fr9K/3A9JXNclq5A4uUHdOyQSuo5SVDovprBoWRbF7fs7
+         EoqiwVVC+IuvweleVAWmpFmgrvCJZvW5GDFieibMbrMMhmqbcTvFcxlDq2ix3UWP6gBs
+         YbnQ==
+X-Forwarded-Encrypted: i=1; AL+hErHxa0xoj7rRZr6OfYVGYlN2qGVeJROOFqFTfd3DsWelMD+Sz6IFitQ+nzA356BV3+S9885q6YEU5j9jVsU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nxr7UTCwLFepPndCnS1oTD4KWvVn0nG50EvdVC/gDf8M3QFR0
+	nPoM3K+is37M7tCge1JvbOCjhzMzFRzEDEDRe+odK6mYekc4eU3J1qPj
+X-Gm-Gg: AZFdTZfX0zSvqR9AAaWBN23vFgM13bK+pcsypi16RTQRhpXirPnMmCL6U/DgljrgUsL
+	aKeUiD0H8YJ0ACp6KSIpFuMMVdcbB2beKt/k5ZTuy5BjE+j6ikT6EJMPpE8MKmz6WnYUP/phRj5
+	XTLJx47PdPW8Buj5R1S69B0iUBT8tJAJEJTWTZ6JOreS57whIuEUPhJ8ZFAVtpaqLZ8Gea/vjWw
+	UnnKRhv6QYjlYW8zJvB/NkNGQI7GXOlT/eJGHNOPCIARyFnhqGlGacy8L3AqTRVj7n/fv0cB4eg
+	wsaOqrcs3yaPwoKQslryRGG8D1MJlDVyXTux/Afu5jo5LhYE5RZIWFryBKlgr1sGNOqwpfZhigk
+	RkrjOAh3SpgrdiBqll9q4DzQKxrSNainxkkgELYxU8gHv9U4O2p0kSW70Qd4nCILurZhIF17H2o
+	1rg3fWiQYr0OAFij8Q7XMbOFeq3yJmGDlkqemUVGMt8WQWolo1os2Kt6sqzh7q8CnO7gOxcVoPA
+	EBDZFugFQmiOSgpHnF4qFWZ4RioTjUk5KqEgoW0Dpi2RGvNRVmr3ArKjJzCWSK1IbneoLVag5QF
+	887NdR1yHPrHMSFyed38eIA2Nd+wXV+zo9RQVpHpFnrjff0N
+X-Received: by 2002:a17:90b:1cc4:b0:3ac:ffb8:1809 with SMTP id 98e67ed59e1d1-3b41caea9e3mr8391385a91.39.1795423643465;
+        Mon, 23 Nov 2026 00:47:23 -0800 (PST)
+Received: from [169.254.42.106] ([113.200.174.114])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm18558082a91.3.2026.11.23.00.47.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:47:23 -0800 (PST)
+From: Zheng Shuhao <viennaoffh@gmail.com>
+To: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
+Cc: kapoorarnav43@gmail.com, jikos@kernel.org, bentiss@kernel.org,
+ srinivas.pandruvada@linux.intel.com, jic23@kernel.org, lee@kernel.org,
+ heiko@sntech.de, lixu.zhang@intel.com, linux-input@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
+Subject: Re: [PATCH v2] HID: hid-sensor-hub: avoid lock inversion in
+ sensor_hub_remove()
+Date: Mon, 23 Nov 2026 16:47:15 +0800
+Message-ID: <179542363584.4684.890797902249469950@gmail.com>
+In-Reply-To:
+ <CAJi8Lv-orD3VA1NJ71L1Qcw6=AWuBZesVFOHe5Y+bwzWxT8KRg@mail.gmail.com>
+References: <20261120210317.184756-1-kapoorarnav43@gmail.com>
+ <179526830578.567.7445109567862298713@viennaoffh.gmail.com>
+ <CAJi8Lv-orD3VA1NJ71L1Qcw6=AWuBZesVFOHe5Y+bwzWxT8KRg@mail.gmail.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,112 +107,33 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi Ayaan,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+OK, I think it would be better if you sent v3.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Thanks,
+Zheng
 
-- [Medium] The fix only covers the setsockopt(SO_DETACH_REUSEPORT_BPF)
-  path.
-
---
-
-net: reuseport: honour SO_LOCK_FILTER in SO_DETACH_REUSEPORT_BPF
-
-This commit makes reuseport_detach_prog() return -EPERM when
-SOCK_FILTER_LOCKED is set. Without it, an unprivileged process that is
-handed a locked socket can remove the reuseport program with
-SO_DETACH_REUSEPORT_BPF. This matches what sk_detach_filter() already
-does.
-
-> diff --git a/net/core/sock_reuseport.c b/net/core/sock_reuseport.c
-> index b9e5648fa4c51..cdff61161a70a 100644
-> --- a/net/core/sock_reuseport.c
-> +++ b/net/core/sock_reuseport.c
-> @@ -727,6 +727,9 @@ int reuseport_detach_prog(struct sock *sk)
->  	struct sock_reuseport *reuse;
->  	struct bpf_prog *old_prog;
->  
-> +	if (sock_flag(sk, SOCK_FILTER_LOCKED))
-> +		return -EPERM;
-> +
-
-[Severity: Medium]
-This closes the setsockopt(SO_DETACH_REUSEPORT_BPF) path. Can the holder
-of a locked TCP SO_REUSEPORT listener still drop the program by
-disconnecting the listener and then calling listen() again?
-
-connect(fd, AF_UNSPEC) or shutdown(fd, SHUT_RD) on a listener goes
-through this chain, and none of these functions check SOCK_FILTER_LOCKED:
-
-tcp_disconnect()
-  tcp_set_state(sk, TCP_CLOSE)
-    sk->sk_prot->unhash(sk)
-      inet_unhash()
-        reuseport_stop_listen_sock()
-          reuseport_detach_sock()
-
-With net.ipv4.tcp_migrate_req at its default of 0, and a program that is
-not BPF_SK_REUSEPORT_SELECT_OR_MIGRATE, reuseport_stop_listen_sock()
-reaches the immediate detach:
-
-net/core/sock_reuseport.c:reuseport_stop_listen_sock() {
-    ...
-	/* Not capable to do migration, detach immediately */
-	reuseport_detach_sock(sk);
-    ...
-}
-
-reuseport_detach_sock() clears sk->sk_reuseport_cb. If this socket was
-the only member, it also frees the group:
-
-	if (reuse->num_socks + reuse->num_closed_socks == 0)
-		call_rcu(&reuse->rcu, reuseport_free_rcu);
-
-reuseport_free_rcu() then releases the locked program:
-
-	sk_reuseport_prog_free(rcu_dereference_protected(reuse->prog, 1));
-
-tcp_set_state() keeps the port bound when SOCK_BINDPORT_LOCK is set, so
-listen() can be called again on the same port:
-
-		sk->sk_prot->unhash(sk);
-		if (inet_csk(sk)->icsk_bind_hash &&
-		    !(sk->sk_userlocks & SOCK_BINDPORT_LOCK))
-			inet_put_port(sk);
-
-On the second listen(), inet_reuseport_add_sock() finds no sibling and
-calls reuseport_alloc(). Because sk_reuseport_cb is now NULL, this
-creates a new group with prog == NULL. The socket keeps listening on
-the same port, but the program is gone.
-
-Documentation/networking/filter.rst says that once SO_LOCK_FILTER is
-set, "a filter cannot be removed or changed" and that the filter "will
-be kept until the socket is closed".
-
-This only happens when the locked socket is the only member of its
-group. If it has siblings, re-listen puts it back into the existing
-group through reuseport_add_sock(). With migration enabled, the socket
-moves to the closed section and keeps the program.
-
-In a one-socket group, the program matters mostly when an SK_REUSEPORT
-eBPF program uses SK_DROP to decide which connections are admitted. The
-group-wide load-balancing change described in the commit message cannot
-happen through this path.
-
-Should the disconnect and re-listen path also respect
-SOCK_FILTER_LOCKED, or should the commit message say that only the
-setsockopt detach path is covered?
-
->  	old_prog = NULL;
->  	spin_lock_bh(&reuseport_lock);
->  	reuse = rcu_dereference_protected(sk->sk_reuseport_cb,
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122-reuseport-lock-filter-v1-1-a3e5324c8d55%40gmail.com
+> Hi Zheng,
+>
+> I'm fine with merging the fixes into a single version. I've just now
+> read the other mail thread.
+> If you can, please send the v3; else let me know and i'll do it.
+>
+> Thanks,
+> Ayaan
+>
+>
+>
+> On Sat, Nov 21, 2026 at 7:08 PM Zheng Shuhao <viennaoffh@gmail.com> wrote:
+> >
+> > Hi Ayaan,
+> >
+> > Hmm, I overlooked the latest discussion, which caused some overlap
+> > between our patches. Sorry for the confusion.
+> >
+> > We can merge the fixes into a single version or find another
+> > compromise. Either way works for me.
+> >
+> > Thanks,
+> > Zheng
