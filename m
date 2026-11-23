@@ -1,100 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795474038;
-	b=fpWEPs+FTdNRee4UQsiY9lhyAXVqzKf/ohhujRhrnqsMi+9abtO58tJvEtYV6yekQ0VK
-	 HB8WqDAZ6ai1RG+mOqmuwxxeUjCjsa62sKybLF7r36g2SZQ7ZmVQlFdeM+XAh4TTwu79y
-	 ZPNcqsivzK2+AdSywRW4jhtEPawyoRvDeNnagxp3atlxv4mgmdsk68OWa647xYSM1VDzl
-	 QVqtbpG9Gn+/2ffwkBL0ANY8HTByeNapPPS8lN9sI9FRA+JY9FsIpigyFzsvCzNn331/s
-	 qArFvrmJivWs5m1TtYgVYSa1HB7zekKqfMDLI2P1OVvMHvBEYBGHINhC1lEKNH17+Cw==
+	t=1795474204;
+	b=Pbfuu5A/jz9QEe8OwxT5vCdxdCPuzjVgKytH1T3N/Eqis2/5BvAyDmC1VkYICArszkcp
+	 8VEaBCSX3hpFnCelw3MfiUg/6Zp0v5zSujNmqUbb3SojTFgXa3Y0IisihpedjS/dHH1ty
+	 B92WsPkAmsD+kTj9v3TxXrZoL8gqvz3bIz5jdDwD3o3WAk+TEbOaYrhejp/wYPf1C+Yqg
+	 os+uZFk6NTgHX2fyO+fyF/n096a7VX5bYfn3wHZJ6cXqByW3cJKHksxrJ5oghJCBWIEKF
+	 WEwuo0kxV9DE3rz0RLd/bg3/2vs/GvQGUA/4Kct/39u8fZyaLvkCijq1doxJ4XIZQzw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795474038;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=prDmnot/bOxVS2gCc8v9HfYcjzpcvwnB8HRgvfXYsr0=;
-	b=Il9Y478Aguu2LssezBFTZoBO4tptsTANfVhi9AIQnpC+tkw85QP+vwZKM9YHi7xkOBz2
-	 1ln7lUdJ3Dw8+W2SNZEOTFv0hwY5sHbSwvgvW+kCfKwClb7IwFKn2NIDkuFC3+j/URZ0G
-	 8kHOHg3WXYoDzToykge7ASp2DPZzrpDC9CWcLQPGXL+9dse2JGrMTxEY0I4cf/B86L9pM
-	 8TVjzm6YBzkrBDzp2Fnv0po8P+qNkoDMJvnCowwOx4cShm062ODRT0PcCOaYeTbkkomuy
-	 S4bUrlP7+7cqqIE9IpvlXn5ZdOO2cRI6OnmZb1IFOrNoF6HRC0epQWRqSZDGQB/sFdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795474204;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=aGR2ezp9P4Ja129w/l+m8Ayy/DbyQLAojBQ0FlM8kps=;
+	b=U7Rf4l+tkYQLSLuix7EvjKw9r1GQv5qIgFKdPUNy9mVmamPH+XamyRY81NFqHnwzkU+H
+	 Y4N9OeDjSP18eHrbpd5r+AbsHvPsT2gFy53ENBwr8mk+VQp6Pkb9Qb6/ZcUwICHAoOMrG
+	 51LgsGytsXzFulJx7mloSIPzpJOZD54UCzkFNM4lfgvABw8huaf/UHasQ2DEcN/6wlSF9
+	 3fS0b8EvOxbKPUaZjIQXyN+Cz8lkdGl1UqXEgGFv5G1bZL7q7IZPtSZ263Q3bWZxEVUPT
+	 XnJaLPGE6QLMobMLYpG4TAZopxTRTpACnjok7vDzA+Ld61WlZ1I4QRptZiyAsUpT44w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e9TlTdXc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XQaMpVHT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4E5D606A31E;
+	Mon, 23 Nov 2026 22:50:04 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XQaMpVHT
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795474204;
+	b=Zm50c1xB+pzZQe1th8fpFmOMMwK5CkTMwG3LjtPMybrQQgABcZ5gRzGCpWVQZt3fhps8
+	 xuIe+FrAfnb7N6bhxx2DiPhXoNOnh71+3JFL36SKxmFjy3GK39CAVGrrRNta2lziRrleB
+	 V3tuJxNgLJYl/gE7GYt3l9tEBmx5ZIMOsDZX0UxjmsLI3WOucFRBuWcSrEShN7T4jx7iA
+	 Qk+xX1whqZrWZPp855LVjqmNZP/1eZUV8iPuVNmPAElHC7kEMAm+Zhph5q9Z5YxHVsJzG
+	 pWvYEY3gYDlW9RoVZMZYhmN1Jc495s7fAcjhf9Kf9LXmpN2Jb2a24hooYFVOx8jz7Yg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795474204;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=aGR2ezp9P4Ja129w/l+m8Ayy/DbyQLAojBQ0FlM8kps=;
+	b=f/cARXIWrXCndgJ4q5sr64BDejCDGRrJAWMnMwgkXTa5GUC26W+qg8Y5qXI47XmUVMqb
+	 RwZEHISeia2Dz9UcHhK3anQgINnLBJLcCFZeuGEmhi1cd2O5EN1iQTqpC6czgB10bPvWh
+	 632W6k3k0Vl0957Au3ERgt4Lt7YpdMb9oUycDeiVRRIhdg4ES9QKcu+JqSGQLFIRxjtAR
+	 E7jN8/Ur8RhA9m2yZJXBm08ws7LuQhaEC7hyFUy7dSB3lfIJAUdqWLJclV/q6GwKympbi
+	 Hlt0Z0c82nn44a2U0r9tCLHgGaqSfy7VDxuiKYo2nmGp1j1CnG5eGELGhp+3vwYxnow==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 075CE606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:47:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 075CE606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e9TlTdXc
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b8627e0eb2so5036448a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:47:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795474036; cv=none;
-        d=google.com; s=arc-20260327;
-        b=S7I77Vs0ws9lWHw3r3wLUJRcSSpwSHzNxgCN/Hz+D1XxFt/HOVMeJoFCAisIlyY7aJ
-         vhI7tlKTDCRz3lDJOeWwJlMAUtjyXfqrjbetKGgZ9v08bU/I/woJgN/Xod2tNrlTjPG/
-         IWvE2KbuwUmFB2qV5ljQZq1JF8zviCciJpyu0oOfIw0fix/787/JyyusQZdHlb2raTjG
-         gelyPEGIp5NTCAIGycVmuRse3Oz8Hl2jzttMFNboqbxndr8aM5tgxsHoO+YqjE8SqXEF
-         fuWXRTsFAPxsjG54ft9uFu9tP2+/Q2ScYz0j4POT0qEkN6hEiDIgjcYm25us+uwViDHu
-         wfSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=prDmnot/bOxVS2gCc8v9HfYcjzpcvwnB8HRgvfXYsr0=;
-        fh=b0FbsFD3hndHbrR7hTzcwSUIMBoG1u/ivslMMTasxFc=;
-        b=P0h/oPn+ECUNuk8mscAEbdxpmuOWn5OIdHmOTjaKYP+wsgOEkWj0bMWDzzSoDQRCpL
-         lFtUV6J2PCMihcG6v8mpNStRivV3vB437okfFC1D+rSLI0UP74ZNdH1JdPlP/f8wPHP8
-         ivKA9kUzyTXJ/XHETOcdNPeBkEPFx+UyegRpRw8J+CzJ3dIjjeJbW5riL8rdOrLrctk/
-         hzAdLhYQBQqG5QH/bMtzpgH54GtEyA/+pjWB3HHgg/7S/OghAB//DRSZaHgEW2oo9ecP
-         m1Ka0g0/H1Lg/ubEOMXrtVEmjYjSv36QHKESajC1Jw6d4Ieanx7dr5WcXHLVBE1Nckt4
-         At+A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795474036; x=1796078836; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=prDmnot/bOxVS2gCc8v9HfYcjzpcvwnB8HRgvfXYsr0=;
-        b=e9TlTdXc+gatXcuCFKKb7aj/RyvKZZs3Fc22DsvCbrqYMGGtwci3FfIjibOfYQ/CZW
-         9N8fj6eIrKNnVRdbxmnkFIx1GgLKrWEmFGL9vOQOEa0GR8Bc8q6jIgpflc/R1WmaKkIq
-         a1L/XNzQgQR2OfVdP5ZWakzu06AC21i4FBAOG3jwYP8Lhy9AUkzJO9T8iBSrC7rM4aSU
-         +QCy52SpD8tCCzGsrVoCDffQdo0iiSxV39ldqNaCG7VxnqiWEDVWhmyRn5+Uk0DxMQhg
-         +jgf5l52Pyk6Ega5GmFX/ULCv5YHSq3eiAljutksNIdRm4c/i9EcMfRht5xGucVDbs5/
-         qj8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795474036; x=1796078836;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=prDmnot/bOxVS2gCc8v9HfYcjzpcvwnB8HRgvfXYsr0=;
-        b=BLAVuCz9LuOFqZ423Vo25hnHyOYyuUMgyUxA5zfOYXdIecBk38cAJ4eSDfqw7R+9EM
-         pvSuNcynxXaLvwGf8YX6sf+QUhAiuVyYpG9yETghXj4WW1J/tJwbO1MgTJnvpMglRJzr
-         hvRZShX98crm17Lg35JLWZDeVFyCz1H+01WAiDMQdfy5SkvDiFMmQFtYOEA7s1crfYna
-         ap5E7I1aKI8MucW1YDwcwfu8n8rI5v1J0SfahR+6RDpEw0t8qWer/U/lkUV4fWLqGaFf
-         m9VnLR8l0vdR3Tpznh+HMxqKERPUixXxnQFCh4TiRcKFKpxtSajPVgLerd+BmPecE22W
-         InqQ==
-X-Forwarded-Encrypted: i=1; AL+hErGdIdlUPQ/KzifXonD3HxYKMKdIgt6dRtVsBnwLpvA4CZp9cQCBpy5cWyQa54bjM12GxqLpWV6/7yK05kI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9LonWOoj2eU1EX/S7WPnUotmF8WjqhFlDnSnLSDdYbhf0EbP9v
-	tmGlBN5x1TEQ+UUcPsE3BaKWCUpqxN3aD4YUUOzPWdUO2zdczPrgLXAMlh7B/0cf86dlsVHSWkO
-	WIkivie+mJLaFSFlqC54lStV8926/hso=
-X-Gm-Gg: AZFdTZfR24j/g8KON1rwskgKCnjl9BqDCmqWUVk4TCnhtrOWeXueyvnVGD0mejHbLTP
-	rWVuk/vd0Nza5/RDPBiRfN5s69je3rrn5zCdnCWyD44mSVd66d/smWpAXtGCzZTlVs/lqLa4+fq
-	1eOJcIGFKgTt9O9aIhFjIFQQA9vgksVDs9EktFKGvdxxLc7rwVQ49smCbqXq8u5PK+i6A5VvuvX
-	vQkvvPF/jv3XiFAbfVjG8c0//ja0peJjxuas9ea7o5sL1NJqW9M+WmKQCNkyY8+5vb0lMzykwDE
-	AwiTjITkfqJXWbU6nNYCVmWBfyVMKf9fuXSy2k7lKU3wf+UYBRNHur/y/FNGbzsMQ9A8mzfnJDD
-	oxF6hiD1nYyYQi8nZQdKnF6T53U7yH34UtXlvIj6Qqdp/bJO0dTFIreRzu7yTEm2vEOTLuw==
-X-Received: by 2002:aa7:c710:0:b0:6b8:e848:d004 with SMTP id
- 4fb4d7f45d1cf-6ba37e8dec5mr6855932a12.29.1795474036043; Mon, 23 Nov 2026
- 14:47:16 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id E16CA1F000CA;
+	Mon, 23 Nov 2026 22:50:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795474204;
+	bh=aGR2ezp9P4Ja129w/l+m8Ayy/DbyQLAojBQ0FlM8kps=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=XQaMpVHTb7BArGyhjeF62QsOk5zJ3Dlg83buTDKE5lGaJ8C19chG96Ninjv+HufVW
+	 Uhb4wRmYnOZeegy1WSZHQBukjfLSf3N6lnySTXDA8DFb6iCFc9TocPjRfTKIBxcgiL
+	 Nzn8j2XAV/WFB1I1Z2tIMFMl5qNABD7jgq44x2qLZnVnZxNZspoE6u40MGabe3Mz8C
+	 k/YLiD7y1KBs+fy+7nGSkvfX7vH3lzs0BtwcP0k54qNFjh96GNWqJ3N4O0AWq6/oUQ
+	 AQNZ0ZDsE7sMGVyWkgaNjx4hoLzH8fCJNCXWYN5C7cVOgTjomr1ZiF4OqQutmICmU5
+	 pNYELCgvOpEnw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 65D264C7A3;
+	Mon, 23 Nov 2026 22:50:01 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Tue, 24 Nov 2026 01:50:01 +0300
+Subject: [PATCH v4 1/3] dt-bindings: rtc: Add Cortina Systems CS7542 RTC
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,84 +82,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122000856.536902-1-koray.fra@gmail.com> <CAOQ4uxgf2KE=Ag13EPAu5=KnrFwt7zRH=im-qmLc8+i10Tjd+Q@mail.gmail.com>
- <DN2X3RC5JUFQ.2LNGLQOUX4ZPF@gmail.com>
-In-Reply-To: <DN2X3RC5JUFQ.2LNGLQOUX4ZPF@gmail.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Mon, 23 Nov 2026 23:47:04 +0100
-X-Gm-Features: Aa3M54pZr_aGN97hdgjJEJclpmHDWTbmXWMujrk4s8rCr1BMot2r_DEgpbuT4T0
-Message-ID: <CAOQ4uxhsv_1EEqAZ3Ebp5Uy8Q6nvEnE3EAomJjjQO86nTcW0cg@mail.gmail.com>
-Subject: Re: [PATCH 0/3] Add f*_xflags_{rw,ro}_mask flags to the fileattr API
-To: koraynilay <koray.fra@gmail.com>
-Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
-	"Darrick J . Wong" <djwong@kernel.org>, Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
-	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-b4-cs7542-rtc-v4-1-bceefd844074@gmail.com>
+References: <20261124-b4-cs7542-rtc-v4-0-bceefd844074@gmail.com>
+In-Reply-To: <20261124-b4-cs7542-rtc-v4-0-bceefd844074@gmail.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795474200; l=1725;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=zpMLao1XyuPRjMljD/Vh3jkbZiWoCb7Hr28HjaR1ywM=;
+ b=oR9esJeUokeEbZbQ02JskhlGOH4puiHttYHl17UuOIWe6aXpRWccZ2ZqaICQjdZb/s5vaU3mA
+ 14QGt6UnM/TDu5W93R1uxBzV6ZVsC19Y3sygKEm/Vya7Miqgi4SJZgB
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 10:45=E2=80=AFPM koraynilay <koray.fra@gmail.com> w=
-rote:
->
-> On Mon Nov 23, 2026 at 2:35 PM CET, Amir Goldstein wrote:
-> > On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail.com=
-> wrote:
-> >>
-> >> This is a follow up patch series stemmed from [1] and [2], splitting t=
-he
-> >> _mask change for the fileattr API into its own separate patch.
-> >>
-> >> The first patch is a preparatory patch so that the code in the patch
-> >> after can be formatted better.
-> >>
-> >> The second patch is the actual implementation, which introduces:
-> >> - fa_xflags_{rw,ro}_mask fields to struct file_attr
-> >> - fsx_xflags_{rw,ro}_mask fields and has_masks selector to struct file=
-_kattr
-> >>
-> >> These masks have the following semantics:
-> >> - rw_mask:
-> >>   * for filesystems: advertise which xflags they support changing
-> >>   * for userspace: specify which xflags it wants to modify
-> >> - ro_mask:
-> >>   * for filesystems: advertise which xflags they support only reading
-> >>   * for userspace: ignored
-> >
-> > Nice!
-> > I think this API description is very clear and coherent
->
-> By the way, should I use this description in the commit message (and
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-You could use that as a short TLDR intro
+Describe the RTC register block and its optional alarm and periodic
+interrupt lines. The initial driver supports the calendar without
+requiring those interrupts.
 
-> integrate it with missing information before/after the bullet points),
-> or should I keep the current one?
->
-> (current one:)
-> > This lets filesystems advertise their support for specific xflags, like
-> > statx.stx_attributes_mask does, and userspace can specify only which
-> > xflags it wants to change without needing a RMW cycle:
-> > - on GET: each filesystem that wants to support this new API fills the
-> >   masks according to its supported and read-only xflags, then:
-> >   * for boolean xflags: it fills fsx_xflags with the current on-disk va=
-lue
-> >   * for value xflags: it sets the xflag bit to 1 in fsx_xflags and the
-> >     xflag value in the struct field;
-> > - on SET: userspace fills the rw_mask with the bits of the xflags it
-> >   wants to change, then:
-> >   * for boolean xflags: it provides the xflag value as a bit in fa_xfla=
-gs
-> >   * for value xflags: it sets the xflag bit to 1 in fa_xflags and then
-> >     provides the value in the struct field; if the xflag bit is set to =
-0
-> >     instead, this informs the kernel to unset/clear that value.
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ .../bindings/rtc/cortina,cs7542-rtc.yaml           | 48 ++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-You can keep it also but tbh UAPI documentation is more useful in
-comments and in Documentation than in commit messages.
+diff --git a/Documentation/devicetree/bindings/rtc/cortina,cs7542-rtc.yaml b/Documentation/devicetree/bindings/rtc/cortina,cs7542-rtc.yaml
+new file mode 100644
+index 000000000..8c2cc7ec9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rtc/cortina,cs7542-rtc.yaml
+@@ -0,0 +1,48 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rtc/cortina,cs7542-rtc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS7542 real-time clock
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++allOf:
++  - $ref: rtc.yaml#
++
++properties:
++  compatible:
++    const: cortina,cs7542-rtc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: Alarm interrupt
++      - description: Periodic interrupt
++
++  interrupt-names:
++    items:
++      - const: alarm
++      - const: periodic
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    rtc@f4920000 {
++        compatible = "cortina,cs7542-rtc";
++        reg = <0xf4920000 0x50>;
++        interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "alarm", "periodic";
++    };
 
-Thanks,
-Amir.
+-- 
+2.53.0
+
+
