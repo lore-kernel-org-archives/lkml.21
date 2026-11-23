@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477180;
-	b=mrZ4SE3W93Lit986YlfmkW+BqP7FUeWbkTe4zPMKJx88JeNwtObsENoqkG1Jc9UK98TB
-	 eP7Lq1McdMcGMkfl/BUfqOTmV/OGaX8lN694PbgSZRZMlDq40o+C0CQAMVTuZs+DMHeSn
-	 n3gehAQ37gLUc1yl6pwJ8UbvdEpFr5q65II5CLcwO1y/qw+8s2sdZvFBQPZBXNT74R9dE
-	 EnQ0MVvDHC6OReZI1fgJjhJDz+PulS29nsMe8ULgokNbggjARVaeGpKDVtknh4OfnCarX
-	 jSIjNSfkh9562It5pRcYqBYUXHy4f6/Ysv8A1UwSSsUSnhVpxTaQSBMgmPfWyEN79nw==
+	t=1795477182;
+	b=nMTzLjSNphbNJHa9IiEJqWP5Qz8MYj49BHyc49/nEVxhhKZUwahTv7q3yV+UtWw2rt4z
+	 oBsH1UKfzHVhpO3BmzxJrJ8uzJ5JivL+HMKOJt+i4zONmwazbKmOFsmv0RLy0vG7YoAiw
+	 hW8fbhsEWIIDIyFM/4G3ZV7z4Tgg8hSm6XAvny5m5/IiCt6fbvRI2JROsPD2W2VW6y1zz
+	 Hwa5F/VqaYvTT8Df3tpbQo8RrrKxDEBQhJBh6PV97H1Pz0EeYISerIfohegP9kOxFlCOX
+	 +cDU4AizOtHWYpIKzDBGNsBGF9BjKEGim3gE/Uzbn5nFG6n+nnMyeN4gtZC2HDlletA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477180;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477182;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=0U5hcBRCn7DYeLCXQ7hEVh/crdm6HmQ04G7xSZHONUs=;
-	b=H1ntxofKPXPLmU24zM2uTwPeLDNvGfGeNJ1h+82KQgAEgPUNZR8WYBSjnJ7lAQEhHGGe
-	 NI2pVSJoypE9Q7a0dHpYhj+txM+GcyKJC81pUomujt/dQe854dXUYaxbU1m3X07BdZTX3
-	 QA5ZAAaBLjd4Eg/b0pOPd4UOnQR3i8J5y37K5mkkgjBBajXozd0P0kLxq2zHUoe+gk19N
-	 nM8VZchb7Xb6xi6BHokmGbHBZX51+XSF5LGYmmgrpsE/oEvixvlzsRk9XygsZFT2XGCcN
-	 sGFCPe3xQluIFh0Wenh1UGc7j7wWEB0SWnd+nh/q98rehBNOa2IsbRIL2P2s9jNuy0Q==
+	bh=PdON3gXs/6uQsPuxGzIPmKwz1/GfU1B3j8DG4CMn1QI=;
+	b=5Ei1m/qZrwwX8GJil3ZiDjNKK4AkMGohb+j1Rniy11o6FjTdkJNguFjCDfHi32fLeRjN
+	 btt7HtsijcfBUAYEJj7gMv2z0ifWDm5xDCJ7eqRpisj/m7LBFF10SlWOj/eLy6tzIVU6+
+	 xq3aFi5QIrO8WpZGn7HQBMuRNGO8kuE0sGuPZtpwDNPe4gEfi984w43+my6NChBbKMGsq
+	 ss2qzSWzE4I9Ax0eUnuB9vf+IPcFRPI8dULzc+PHm/189USN6NFzn/n7uOAILb5/FYxle
+	 5bWM8Q9H3ZGOq/TT5BGVF4wLEXsW/0uFmmtpdOS8Q3BCbVHinIAHMPFKjq9/fKeRqVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WCDrUpQw;
-	arc=none smtp.remote-ip=209.85.167.200
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Tg5uHf+V;
+	arc=none smtp.remote-ip=209.85.167.197
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55719606A686
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:39:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55719606A686
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D49A606A6A0
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:39:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D49A606A6A0
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WCDrUpQw
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-57e3f40cc16so621051b6e.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:39:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Tg5uHf+V
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-5641cd2cc13so4279695b6e.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:39:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795477179; x=1796081979; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795477180; x=1796081980; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=0U5hcBRCn7DYeLCXQ7hEVh/crdm6HmQ04G7xSZHONUs=;
-        b=WCDrUpQw4KJhHcdJiYxKeYAhc3EQtTDCanAzb9KhDmQ4KMlW9CFOInrIq3rHkY/rf3
-         qsLT/dIKBM3mDKz1q09xH4QbdsFwyEyAkCO0w/HwOHCgo60mv+cRPSsR2uD/WSXBks+R
-         EEiFkxVtpXXmfo6CwTp7/Utri18E/qzyJ7y+lRWW5NVCtFEeWJ7fSQKvmOq+tA7kqQO8
-         ko0Atg3xLk92yWrgmT8n+h+PuV4LQvQWUP8zXy4mhUQUIZjbefCfE4GmrPXixO01fZB3
-         FOhJMjlos86mfIO6roqSLPbPiVMPIPlEzc3ulcF7V6OAmZKAqt/XzDvqZqQFQImgWg38
-         LtdA==
+        bh=PdON3gXs/6uQsPuxGzIPmKwz1/GfU1B3j8DG4CMn1QI=;
+        b=Tg5uHf+Vyqt4fZAmNnX6DnXyEluzcyytloUbGuqjd0ChyCGCHJMW9y6W0SpzmvRfyc
+         MsQr4HmGCvRVSfZ2SuYWA08QiuNLgxjWsxYhh5kl7Alw0pisLg83anZiGSucjHCeuo95
+         mkeenOCT+pCZuPZfaPmQA3jDIR1Tf5bL3I2DRqGWwOJYt2DOfNY4uaE/75u/Qhv2SGHi
+         J6L1yr6MSJSRvZGBFG03ha4I3wRNYVjlWeHDAXtu82JePa9IlsvhvgfRXJk6pmCaFul0
+         8wZGNwiwlCjLgLWXgCwqpqLC/8y1TaMOSGJvPc9x9n5rlQkWAjxjA1uBHOYtFqWtSmNv
+         X75A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795477179; x=1796081979;
+        d=1e100.net; s=20260707; t=1795477180; x=1796081980;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0U5hcBRCn7DYeLCXQ7hEVh/crdm6HmQ04G7xSZHONUs=;
-        b=giB7JL14Fwcw/nHgP979GhWSTJTWfympaa3TUztABuW6GrVzSD9orfan1fMKCdMLBz
-         fFi+QLzgQYF/IMRLcgBfzAs/g4naViB+5rjS6XbjwkEJS7u5HqaO8cPx+6I1pjgDjZNU
-         l7LWMRAFbz7VTSvFA6VH0B8ZXB4+5k+kISq2gvgLpArg1oTUqLJArqNL6q5S9MW4wsu5
-         85uhVsqlRuOtP5jWSmxSDiJA9q3dQJfLdHt8oeWbqZ9d4mL4UUHroLVTwUT+7lMUnMz+
-         IdwEdjoFA7wty5E6z0OsLcRc6N9oQPkxgtNIs5oBqD3GlPIU076LDhqQGzS5PRf6Dew8
-         Y5bw==
-X-Forwarded-Encrypted: i=1; AL+hErHU9dAsm3fxTClFd41A/7gAeMlVf/oyfanDtinR/9pwd14LpCyno9ZH/pzbU3jNmYibPF1HfOWEvpziExM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8kwv6YVeefgs57BWUua7clgXUHdeBV5f0imMR/+/jFgtRW5IZs
-	1WmjhGxndm8nMKFTUpwIW13aH3hetGDvU0XgeYucaEqNzguirAYvtmX274+nV6tClGt7x1GHJ/Q
-	qQSAqf/PQ0RgdWw==
-X-Received: from ioi10-n2.prod.google.com ([2002:a05:6602:c64a:20b0:9c7:7dbd:f35a])
+        bh=PdON3gXs/6uQsPuxGzIPmKwz1/GfU1B3j8DG4CMn1QI=;
+        b=QaeIjk5NBQgR+QUATvxBcCd39TDWMWo+uk14aIuZQadoS8GhC/ZvPXMtBveZ7AxQ+O
+         a9NBj5rt54CLvCdvIsGJ4AH5vthy3g1P/YGgKsBGoWcdu22FOedeEnX0QzR2yOS4lc8q
+         +IMJ2Gwb179te1lt5XxGSmSLDdFS8dJ1xCd9vQR4fdkTDTAbJk8qpEB+NO8Cr51MeBDe
+         sG4ztlWXl4RJ0lPm1r+auXnW1NnC///y7WxPu4ilfBk7P0UDhwAJpHybQfCxmdqhRlla
+         bEs1u23uZOPtsTSAZ99XpNTsLe/sS+JhNGmGCdi6HwjZ3rxEH2Jh0pm9+uKbVvb4EAzR
+         H5XA==
+X-Forwarded-Encrypted: i=1; AL+hErFkUC/foiOXSNxHlYiYF9dwsFAIrvv49iU/k9fuGMumVG0vim1l8NoujAcgsOc6PjfH/hjyKylZBva5tSA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8qF/F+uLOschnNWzmZWq6YZsbH4ajlpBIfgy0lulzd5Bpsh/SL
+	/svv51XZA2sbhNTLwmSVzs9ivZn8xuX08NEeBlbqvoigAv3DZEGldt6nliMzQfLfcK2qX2zpBVY
+	+MxBTdW9GH1LMgg==
+X-Received: from jabio27.prod.google.com ([2002:a05:6638:831b:b0:608:c2f0:a34d])
  (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:4fc9:b0:573:4ad5:7e4d with SMTP id 5614622812f47-57a0ac2fa3bmr15601210b6e.35.1795477179082;
- Mon, 23 Nov 2026 15:39:39 -0800 (PST)
-Date: Mon, 23 Nov 2026 23:39:12 +0000
+ 2002:a05:6808:1507:b0:4f5:20:d847 with SMTP id 5614622812f47-57a0b64ef2fmr14660562b6e.36.1795477180255;
+ Mon, 23 Nov 2026 15:39:40 -0800 (PST)
+Date: Mon, 23 Nov 2026 23:39:13 +0000
 In-Reply-To: <20261123233924.3970932-1-dmatlack@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261123233924.3970932-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261123233924.3970932-8-dmatlack@google.com>
-Subject: [PATCH v5 07/18] liveupdate: Add helpers to track the files that LUO manages
+Message-ID: <20261123233924.3970932-9-dmatlack@google.com>
+Subject: [PATCH v5 08/18] liveupdate: Let file handlers retrieve into an
+ existing file
 From: David Matlack <dmatlack@google.com>
 To: kexec@lists.infradead.org, linux-doc@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
@@ -98,105 +99,171 @@ Cc: Alexander Graf <graf@amazon.com>, Andrew Morton <akpm@linux-foundation.org>,
 	David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Add luo_track_file() and luo_untrack_file(), which add a file to and
-remove it from luo_preserved_files, and use them instead of open-coding
-xa_insert() and xa_erase() with luo_get_id() for preserved and retrieved
-files.
+Add liveupdate_claim_file() and liveupdate_unclaim_file(), which a file
+handler's .retrieve() callback can use to make LUO manage a file before
+restoring the preserved state into it.
 
-The next commit lets file handlers make LUO track the file they retrieve
-into, which adds more users. The helpers keep the key and the -EBUSY
-behavior in one place.
+LUO starts managing a retrieved file after .retrieve() returns it, and
+fails the retrieve if it already manages the file. That works for new
+files. The shmem file handler will restore tmpfs files into an existing
+file, though, and such a handler has to know that LUO accepts the file
+before it modifies it, not after the preserved state is consumed.
+Otherwise, it could restore into a file that is preserved in an outgoing
+session, or into a file that was already retrieved. Since preserve also
+makes LUO manage the file before calling the handler, claiming the file
+also keeps a concurrent preserve of the same file from racing with the
+retrieve.
 
-No functional change intended.
+If .retrieve() claimed the file it returns, LUO doesn't track it again.
+A callback that fails after claiming a file must unclaim it.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- kernel/liveupdate/luo_file.c | 32 ++++++++++++++++++++------------
- 1 file changed, 20 insertions(+), 12 deletions(-)
+ include/linux/liveupdate.h   | 20 +++++++++++
+ kernel/liveupdate/luo_file.c | 67 ++++++++++++++++++++++++++++++++++--
+ 2 files changed, 85 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/liveupdate/luo_file.c b/kernel/liveupdate/luo_file.c
-index 0755a6478aec..d51bd75723fa 100644
---- a/kernel/liveupdate/luo_file.c
-+++ b/kernel/liveupdate/luo_file.c
-@@ -192,6 +192,19 @@ static unsigned long luo_get_id(struct liveupdate_file_handler *fh,
- 	return fh->ops->get_id ? fh->ops->get_id(file) : (unsigned long)file;
+diff --git a/include/linux/liveupdate.h b/include/linux/liveupdate.h
+index e4ad0bf78a5c..03ac06a2b24a 100644
+--- a/include/linux/liveupdate.h
++++ b/include/linux/liveupdate.h
+@@ -79,6 +79,8 @@ struct liveupdate_arg_spec {
+  *                    to the handler's expected argument size with any trailing
+  *                    bytes beyond the user-supplied size zero-filled. Valid
+  *                    only for the duration of the callback.
++ * @claimed:          For .retrieve(): Set while the callback has claimed a file
++ *                    with liveupdate_claim_file(). Private to LUO.
+  *
+  * This structure bundles all parameters for the file operation callbacks.
+  * The 'data' and 'file' fields are used for both input and output.
+@@ -92,6 +94,7 @@ struct liveupdate_file_op_args {
+ 	u64 serialized_data;
+ 	void *private_data;
+ 	const void *arg;
++	bool claimed;
+ };
+ 
+ /**
+@@ -306,6 +309,12 @@ int liveupdate_get_file_incoming(struct liveupdate_session *s, u64 token,
+ int liveupdate_get_token_outgoing(struct liveupdate_session *s,
+ 				  struct file *file, u64 *tokenp);
+ 
++/* For .retrieve() callbacks that restore into an existing file */
++int liveupdate_claim_file(struct liveupdate_file_op_args *args,
++			  struct file *file);
++void liveupdate_unclaim_file(struct liveupdate_file_op_args *args,
++			     struct file *file);
++
+ #else /* CONFIG_LIVEUPDATE */
+ 
+ static inline bool liveupdate_enabled(void)
+@@ -370,5 +379,16 @@ static inline int liveupdate_get_token_outgoing(struct liveupdate_session *s,
+ 	return -EOPNOTSUPP;
  }
  
-+/* Make LUO manage @file, or fail with -EBUSY if it already does. */
-+static int luo_track_file(struct liveupdate_file_handler *fh, struct file *file)
++static inline int liveupdate_claim_file(struct liveupdate_file_op_args *args,
++					struct file *file)
 +{
-+	return xa_insert(&luo_preserved_files, luo_get_id(fh, file), file,
-+			 GFP_KERNEL);
++	return -EOPNOTSUPP;
 +}
 +
-+static void luo_untrack_file(struct liveupdate_file_handler *fh,
-+			     struct file *file)
++static inline void liveupdate_unclaim_file(struct liveupdate_file_op_args *args,
++					   struct file *file)
 +{
-+	xa_erase(&luo_preserved_files, luo_get_id(fh, file));
 +}
 +
- static bool luo_token_is_used(struct luo_file_set *file_set, u64 token)
- {
- 	struct luo_file *iter;
-@@ -312,14 +325,13 @@ int luo_preserve_file(struct luo_file_set *file_set, u64 token, int fd,
- 	if (err)
- 		goto err_module_put;
- 
--	err = xa_insert(&luo_preserved_files, luo_get_id(fh, file),
--			file, GFP_KERNEL);
-+	err = luo_track_file(fh, file);
- 	if (err)
- 		goto err_free_arg;
- 
- 	err = luo_flb_file_preserve(fh);
- 	if (err)
--		goto err_erase_xa;
-+		goto err_untrack;
- 
- 	luo_file = kzalloc_obj(*luo_file);
- 	if (!luo_file) {
-@@ -351,8 +363,8 @@ int luo_preserve_file(struct luo_file_set *file_set, u64 token, int fd,
- 	kfree(luo_file);
- err_flb_unpreserve:
- 	luo_flb_file_unpreserve(fh);
--err_erase_xa:
--	xa_erase(&luo_preserved_files, luo_get_id(fh, file));
-+err_untrack:
-+	luo_untrack_file(fh, file);
- err_free_arg:
+ #endif /* CONFIG_LIVEUPDATE */
+ #endif /* _LINUX_LIVEUPDATE_H */
+diff --git a/kernel/liveupdate/luo_file.c b/kernel/liveupdate/luo_file.c
+index d51bd75723fa..82ec05c7d3ce 100644
+--- a/kernel/liveupdate/luo_file.c
++++ b/kernel/liveupdate/luo_file.c
+@@ -676,6 +676,9 @@ int luo_retrieve_file(struct luo_file_set *file_set, u64 token,
+ 	err = luo_file->fh->ops->retrieve(&args);
  	kfree(args.arg);
- err_module_put:
-@@ -401,8 +413,7 @@ void luo_file_unpreserve_files(struct luo_file_set *file_set)
- 		luo_file->fh->ops->unpreserve(&args);
- 		luo_flb_file_unpreserve(luo_file->fh);
- 
--		xa_erase(&luo_preserved_files,
--			 luo_get_id(luo_file->fh, luo_file->file));
-+		luo_untrack_file(luo_file->fh, luo_file->file);
- 		module_put(luo_file->fh->ops->owner);
- 
- 		list_del(&luo_file->list);
-@@ -675,9 +686,7 @@ int luo_retrieve_file(struct luo_file_set *file_set, u64 token,
+ 	if (err) {
++		/* A handler that fails must unclaim the file it claimed. */
++		WARN_ON_ONCE(args.claimed);
++
+ 		/*
+ 		 * Keep the error code for later use unless the handler marked
+ 		 * the failure as retryable (e.g. invalid user argument before
+@@ -686,9 +689,14 @@ int luo_retrieve_file(struct luo_file_set *file_set, u64 token,
  		return err;
  	}
  
--	err = xa_insert(&luo_preserved_files,
--			luo_get_id(luo_file->fh, args.file), args.file,
--			GFP_KERNEL);
-+	err = luo_track_file(luo_file->fh, args.file);
+-	err = luo_track_file(luo_file->fh, args.file);
++	/* A file that the handler claimed is already tracked. */
++	if (!args.claimed)
++		err = luo_track_file(luo_file->fh, args.file);
  	if (err) {
- 		/* A retrieved file is new, so it can't be tracked already. */
+-		/* A retrieved file is new, so it can't be tracked already. */
++		/*
++		 * A retrieved file that the handler didn't claim is new, so it
++		 * can't be tracked already.
++		 */
  		WARN_ON_ONCE(err == -EBUSY);
-@@ -796,8 +805,7 @@ int luo_file_finish(struct luo_file_set *file_set)
  
- 		/* Only a successfully retrieved file was tracked. */
- 		if (luo_file->retrieve_status > 0)
--			xa_erase(&luo_preserved_files,
--				 luo_get_id(luo_file->fh, luo_file->file));
-+			luo_untrack_file(luo_file->fh, luo_file->file);
- 		if (luo_file->file)
- 			fput(luo_file->file);
- 		module_put(luo_file->fh->ops->owner);
+ 		/*
+@@ -1093,3 +1101,58 @@ int liveupdate_get_file_incoming(struct liveupdate_session *s, u64 token,
+ 				 token, NULL, filep);
+ }
+ EXPORT_SYMBOL_GPL(liveupdate_get_file_incoming);
++
++/**
++ * liveupdate_claim_file - Claim the file that the preserved state is restored
++ *                         into.
++ * @args: The arguments of the .retrieve() callback.
++ * @file: The existing file that the callback restores the preserved state into.
++ *
++ * LUO starts managing the file that .retrieve() returns after the callback,
++ * and a file can only be managed once. A handler that restores the preserved
++ * state into an existing file, instead of a new one, must call this before
++ * modifying @file, so that a file that LUO already manages is rejected before
++ * the preserved state is consumed. For example, @file could be preserved in an
++ * outgoing session, or be another retrieved file.
++ *
++ * After a successful claim, the callback must either return @file in
++ * @args->file, or call liveupdate_unclaim_file() and fail.
++ *
++ * Context: Can only be called from a .retrieve() callback.
++ * Return: 0 on success, -EBUSY if LUO already manages @file, or another
++ *         negative errno on failure.
++ */
++int liveupdate_claim_file(struct liveupdate_file_op_args *args,
++			  struct file *file)
++{
++	int err;
++
++	if (WARN_ON_ONCE(args->claimed))
++		return -EINVAL;
++
++	err = luo_track_file(args->handler, file);
++	if (err)
++		return err;
++
++	args->claimed = true;
++	return 0;
++}
++EXPORT_SYMBOL_GPL(liveupdate_claim_file);
++
++/**
++ * liveupdate_unclaim_file - Undo liveupdate_claim_file().
++ * @args: The arguments of the .retrieve() callback.
++ * @file: The file that was claimed.
++ *
++ * Context: Can only be called from a .retrieve() callback.
++ */
++void liveupdate_unclaim_file(struct liveupdate_file_op_args *args,
++			     struct file *file)
++{
++	if (WARN_ON_ONCE(!args->claimed))
++		return;
++
++	luo_untrack_file(args->handler, file);
++	args->claimed = false;
++}
++EXPORT_SYMBOL_GPL(liveupdate_unclaim_file);
 -- 
 2.56.1.809.ga0b61035b5-goog
 
