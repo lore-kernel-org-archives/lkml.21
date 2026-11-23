@@ -1,114 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442189;
-	b=gsE4bYsb50LlaPQ7HWQmrsWs6BhgeizCU6Xj82/dXBRD73b+IZNRdpDiZ5IEQAGjJ3SB
-	 +w78J7PTNjyRv6TIjwUlJlS+rF2WlBUoY+ARdBhlzPfSogtuqwk3HHVV+7U7Lf8qo+wyb
-	 lvFFX8mAprhqI+svBWhLGYVTPDd1YstquD/iujk8j0ZZb2SJHqIWpwpsuwe6VpZledpLt
-	 fve/ivloyhZyHErZOYbKnWkGSpdNbOgwMAzPMr32HGf3sm5+QmACE+fWtUc8y521X6STD
-	 HFsCGy/ervAxhWuh8a4eKJcf/QVZjKDfiQjEQnnV5vNClcMROdMKmQIHUYd+j0HVagg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442189;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=;
-	b=xG0BmSzmZdXED+eLMokteBQf4MQvCOpR3xscnp9dKKuKqV/kO4LCsNz1dh5VZoU6hqGY
-	 kAreMIfK3UYzwMaVaqMXLseq+49+eVlThAf26E2OfhJCEJdLCtpe3EeRK9pRLgZn8C7i1
-	 aR3kMHMzfQj7RbooGLNiEj9YapXJiJ6j3X2yGs1Y63KYBSo8iKFkdoZ2LHau+Q+apfsH6
-	 gK6O3ukvEl3UlWIH9gcXjhqwbCh4K3Ndb3UQshL05yVraeSF3/fK2rNO9TLKm0JzHi6dJ
-	 CTdXnnKRC8zCy8kWTXc7Hyqr6CF5GVRhUkQv/6lwLBs9amWbqiOtsHryvpfCO+7MOdQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XU6bWoIR;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PduUGB8g;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795442205;
+	b=GHlYgLv5TbITGtrUmPeUsPwTfI9RVp5SirGO+qnXsTZUDAybYFPuV8wcmedSll1wLEnu
+	 ZiBCh6xbFBlEyVWreqIZtWpPkJjJ+hFL6b2XDfXKrohJGN9Pko0j5LVzHYDZKIF8AKmcg
+	 orecmrQBg6WgvsItmXBMGhyTGUyHiXe3+MzU92t5nPwhzdz1CzAbcRCnEWWS4nQEVcGj4
+	 gbdC/ghwiW+1aw5hkrpd1MMHSBJYMkaqAxTAu3445mDLU5w/QCu0UBd0hUBUtyYDNFsq4
+	 FLj6Dsz3dna2wgE4yukAWqdboZqSKkL/ZoqaqSm8ItfepJg2NutuDI2KpvFIskAgW7Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442205;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+	b=uXGwFNxJLGc/lhpcTL2YYAB7HgDKSEvdlrs1fJKPqThn7grZE67KcLpiF+V1KwntjclL
+	 uohbk6bbVjFxux781okIqxdnQ7kARGBIgxGS74Qq/5J0kkwj95zJOc3oNdJ/kRv6HB25j
+	 tC6CZTTBAa23ANM6ZmVhjwZbITnHDuYE22VqWLPA8LhRGookzoR4LGpcF7cKnbu4U6a7J
+	 UoZN56oxDMTZY7DDFJGV1xqVmPUWYsjLfUz7Bw+q6ThJKmn4XE+wQzWUnHPlFrk3dN0Ge
+	 jcmA/iz/HDToyM5cYcNbZU21cTF4G9Wx2CLY6lKNOUo/PX+VtMiw+35/7pzOe/zQdBw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N05ndNkH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
+Received: from mail-yx1-f50.google.com (mail-yx1-f50.google.com [74.125.224.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CCEE60A2609
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CCEE60A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7DA0606A339
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7DA0606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XU6bWoIR;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PduUGB8g
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDKxuo2442774
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=; b=XU6bWoIRNoP/hn/X
-	/1yyiYzYxgc+ZrU4eTUh67MIg+w7+VEbkPRbtAqBZi4gb2bkXZAMej6aDoqHoMNg
-	wNJmfgkORkyQghNOTxO1Bz7clI450BguHS6qRBPLhaZuPH133rUs6BTJl7CHPO3j
-	kD4HoxQKBSnPDUSQ5uw+TzkSlq6aCL70qLl9hSZhpkXUNKYagYNpaF9k6D0aXTYH
-	RkrniMdgILlRqrYxFMvqII9sRcblCjFR6ov+kHuZiJFpsq28FfEbVUb8KTq9jLJP
-	oDH88enNzRWcA60+zXhVFikQHrQ5OwlJuhNz3mhBVVSzdw4zQSrQCMRYhzQ8aPz2
-	y7pgHw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g1k1nnf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:28 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-946038e22f5so681725985a.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N05ndNkH
+Received: by mail-yx1-f50.google.com with SMTP id 956f58d0204a3-67da7d18f2fso3653432d50.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795442204; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cqOFvBh3oa1Xwp9CnO2kViPqH7o7iwsG1bv7HpLvcqZYWs8014Na9lBgVOUo2SEhX2
+         bG3kODerH5M+yOPXRdvuqalpsABBkIpztESEC0vZgfsmGRq76ZavPFAeZlkQVPoPPGX+
+         H1FfbxlrQjg4vNgsmxxHQMn/+c+RDb98CjCvdQXdgaQIZieGC79ocfozyTq6gLzTP6MO
+         tEo0SXvwzwBDQecm9ZVuV+xEc50eKCIpeXoPRpXgeqebcCoS8AhS+MDSY/QrSfd7O9xd
+         ep9s5Ydz2XPhwknGmGHZO79W7Tmf35hX/smwECpmVYdkK/Go3gp4p6ikLQKEghInD1/G
+         XtQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+        fh=CuRqwbgI/PQZ53jSMyQQojuqjbZ8dLFO/9LcvPBaem8=;
+        b=Q4+uicXvhKIhaOMfoOkvYa4qseoQfZRGuhyChUIoz1wmrkdP6fg6IE/f40sIpWgLx9
+         Tp+BN6IMf7B71u9PJWcdpywtw08ylq1P7Lv+sUY73tpZ1r9k3jN4nXaNB8sLnzswqsqm
+         scqVoPUpHwIYLKRiTAMFfbwWvGP090nVN3FJ6TBjpEe5eo0FVNbb9neax0bcQUlwndXG
+         HHBI6EMsgt34CTYft52TzHkzTj1J0bdP6+vwGl5KGVyeXLjKMctJC98XqnI9A+SeDk/d
+         QRJOTCQv/jtQq3LfY8oRMRzxInA42uLe31H3uxlJnPS9WXk1ZmELmhucUX5oAs+1Y+hX
+         ImBA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795442187; x=1796046987; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=;
-        b=PduUGB8gi9U4YVrDNo4fys1U68+xUVSE9UgLVYPmSQD6FnMggjiyfOttyMb4toYkbT
-         WnVtV/yNsuGcUG6Rm4mxt/RGStPCsxFHOS4FcmTusmE7cZsTt3QuST/vpra6x0KxHeSR
-         lqpY1lSwNCg7mGyfHW7cxBHU2fXgx1RP0drFXKxQ5wNd6LNzLEWsBILp9FIiiKOSnd+D
-         mEPAoaLSPw7XqOzVnbCtIhsBbe2Mv1iYyeBsGe3JvRelldQJtQl4imYBU99YoFbu4zWk
-         HQHZuZVX0PaDmpI4ao91w9WRZXO7gzblnKMsUX7fyd6g9Ys6K6yE71IBAZxerzAXCyPc
-         nEUw==
+        d=gmail.com; s=20260707; t=1795442204; x=1796047004; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+        b=N05ndNkHQknyOMHIsNDSQqDEHwWvBE34ol5L+NvHcll/S/4WXaj++2GoPLo1p0IC8z
+         gX/I3PJUYDJrIBjomKK5he6tDcr+7qNfzTw/fVNK6iyw7MXQHR+h9Lu0yzCnVSjbFqTX
+         vT1RZlgf8szD33EB47X817ciOpxJuCTCUyTPbW6oS820UTQzA35wsGhglddcxYJMPaum
+         cl03V+nb6AAHXAaSOWdd1M0KIH/jBpnDLiyY2KhsPK02Y/3kSKsrWoU+xGzuuLNoyb8B
+         +PPPLQCj+/5OLf25/GpHP22dca45YRXd+cHd6qmSOgxOBJJW0GdT4HuEbz1UWoAlgVBz
+         Qe5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795442187; x=1796046987;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=;
-        b=Ewf0woUkr9YhTx61Kqj2ZeUMbEI2q4rjf67ZJN/NzpcEPoBg1QHN9Y9G3OsIYUyfHa
-         hrUXeklSLUGXecll1oNrtcZpgqaQWYFrooFhUhMDaG1OKqMHISjzyTP4IVj5G/kb192u
-         A2vxT7oqId+ZI/o8VO3H40qDAm4wu57iWqKkXK4+Uqdcp5j1b5wUXdt8yChx6vWgdGUN
-         EVKlQduts5T26bTsRbjsnZTOhNpFqh60ivBfc7RGvpVaTtxMnUIcg7nqBH3G0g2jnQnz
-         FGrJJI/8b0wIPhZqO08i2ISYiAq5FLbJ8jySaKM0ZV2uGDWksGMbt5ivpoH0NuK9cdLa
-         EPBg==
-X-Forwarded-Encrypted: i=1; AL+hErEPHWnpzjuu0lYZLNGvfNyZt8pQQxKOlCL5/8+AVa6mhmND1v6z9ptVK96vHSwNOUrazv3ibAfHhXcPvT0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+4jFsxAko/I05mZaJsSkOG2wnxAtpfGq2QTQ8T6cjZPSCPhgVj
-	4OBjrzzHyHFVC9Q9OqRJ2ZGgDlPli1fRZTAJxl352QspqmC070lg3aaa+699HHvnx4VSXcIL7WV
-	lyP7DCBiOOa0Dk3DGa+k1taNE8Fcq7NW7WV6sjzWfhzv3A9HTGuY5Y25VTIQciZhSg8o=
-X-Gm-Gg: AZFdTZdx4Y6MstiRA8+xYkXkr53rScexZIzpAAFZT4eGiigsqC9aDnbE+muadkUqmXa
-	SLvkNURPBG9H6an7MgtSKVCGs8RNBkHNM0GNh4+cAfvRLKm6HYQ1M+ITT7yuk63XOkmGnFJRkPY
-	8lx02tIW0fT7dL+/4zPh2TMfbpV0OJzbGEqv9sgrEBQnxG9NilwTCww5YUnpuhfrhOrjWkYA2TN
-	nRiSYtsn1TVEGCcn0R6MZUoGQzzewBrhRcHZWJXvO2bgiln+pBjjZAV8XUUzZd6QRWFg8IkV6JF
-	GiT3xMKIkLrkju/3ZxIkR+4wfKaZMsrd938DX6QXea8mrU9bq8OF3IvUCVEdYdgWW8U1wTeYdbr
-	fsbDFWMhRtIW6lehZP48XU/JbTSU4pTeclxFPx3im4LUjzJ3Xc4i+zb1nwEyvfldPkw4bzayCNn
-	83lHxmDc9PZJDlSVBaLIevAfZh6mfipFUyvP+ww2MMdbeVVlNq/NuM/KJ6sxVCdzx3VUF/ngKQK
-	cNm96HSZsCLUKPXuoNnMqyz80Cq
-X-Received: by 2002:a05:620a:2995:b0:93c:7040:bf7b with SMTP id af79cd13be357-949ba827c54mr1899040585a.9.1795442187392;
-        Mon, 23 Nov 2026 05:56:27 -0800 (PST)
-X-Received: by 2002:a05:620a:2995:b0:93c:7040:bf7b with SMTP id af79cd13be357-949ba827c54mr1899036685a.9.1795442186934;
-        Mon, 23 Nov 2026 05:56:26 -0800 (PST)
-Received: from QCOM-eG0v1AUPpu.na.qualcomm.com ([2a01:e0a:830:450:6c6b:1e5a:79dd:a527])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm21724625f8f.56.2026.11.23.05.56.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:56:26 -0800 (PST)
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 14:56:15 +0100
-Subject: [PATCH v9 8/8] arm64: dts: qcom: monaco-arduino-monza: Add QCA2066
- M.2 WiFi/BT support
+        d=1e100.net; s=20260707; t=1795442204; x=1796047004;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+        b=rtOLg5Ek4boZ9kc5Qxhgtd81Of1Bw7cu6QPpS0aKbuZEaVxFXYEnRkHOpYz+YbB9Ik
+         nUSe+ZSm2ANeU6k88aiENcFwZMC8zS8ih0RpaakltOgXLr5KoXrDaZRM4huuQhPv9zOU
+         /YFMFABoTQEP5X6fleCXq5n6Etcup8qsUDK9ak1jLcZcdp2OPtASqDUPKl3bH1vDJYQb
+         V/TnwMPqsdKY0jX6Muy+9LmvxLkBybDRmnLrct3MwfytmYJX2+37iEmY7gaYp53ZlrSY
+         Nr/6Ri0vQI3hV3h0lDYYK4DTHkAMHDedfOmDnJFsb9emHDjphTp9tUAoIw93Q2CNSaMn
+         iF4w==
+X-Gm-Message-State: APuU4Z+mvYRl/uQ6Qlb4zaR9plQGcZA9AnSNd6TDhMA9pfN/EuCVqS6d
+	aZDEDKZ7z/5duD6IRxUC8ao1ufGp3ChUXEcF3WgpXwcfBge/jywu8D0kpMoRjRRItsTexMtprq4
+	sBNzQttEF5zD2Z2EMYZgsuTzPdeO6Dmzr8Ex/ek8=
+X-Gm-Gg: AZFdTZfPD+MJIuUa9+ySfO5tfeFiOLiUecrJvgEfWOU1JJA0XOyjDzjbZBlxzrFcqeO
+	OslVR8jEjHDQTHtgPlrIe1dZpeJdEslmavxGQFSHP1dbM24qUjbQdeQkoa8iKSAZbS+ijgApQf5
+	I1jzeqMxwEGKlwa1+ffrgboEGAoLTYJj42opxPpdTdWF0CWsJnza4WWWywFEMomCpomGpVCwnlK
+	ntngmtNWIdg5hCtwIEra1tPxopUcdu6f71fZeHFHJ65OIMzzTvos6R3O+O/qPdl4NPcsed+KXOO
+	ze1j/VXDofjdhipaZZxHAVuC3SEKwviyn2jz1rWzh/obXTnfXrmpw6xlG1Ia5ABIVgH80vmqC1a
+	/+B6Trh1tTSnvBQ7uDN0BKSqwLviH++zIXaWN
+X-Received: by 2002:a05:690e:4009:b0:67d:c045:d0bb with SMTP id
+ 956f58d0204a3-67dec2bb682mr5299099d50.5.1795442203710; Mon, 23 Nov 2026
+ 05:56:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,177 +99,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-monza-wireless-v9-8-450d7d764aea@oss.qualcomm.com>
-References: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
-In-Reply-To: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
-To: Manivannan Sadhasivam <mani@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Marcel Holtmann <marcel@holtmann.org>,
-        Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-bluetooth@vger.kernel.org, devicetree@vger.kernel.org,
-        Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1NSBTYWx0ZWRfXwrz+IrbQVjBX
- ktFYCVIFwQLXEn4Bm6Yf1OWrhhRDImek5zie1fbuFObFGnL/DrmLl3tBOo88bpVZZfSYatweOVy
- MusSalqP9ozqArfSLtMbYgNlMtFbOCo=
-X-Proofpoint-GUID: v-LHjTv9lC11ScJGeQo0YOo43cGypAED
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1NSBTYWx0ZWRfX8uoC7dhY5xNY
- DzQwiRHdpHTqLBIBlrg6eLsZuDUjfo3RfuDcjjQwWEsNSoZnlfILln0fpKYDdJfSIkTkuty1dAz
- aEuygqQMtmPTaeybgAEIr6qxp6PmQ55wTRwbhINZya9eJPXZrgWUMXKR9uZPBo6Prgirmu73ZMT
- vCj8VbrWVNjdYG/JvqcwwsW7jRUKGs+qRmB5IOAfypqP5LEBEYfaYiFlrdpe+0g8qHMxWoePTh6
- mDOwUT7NjKUrA/4yiW6Mow6MnkXwnCRXn9oC9sw5cqVpxHoUz67C/5NmWWJyiGGh03cNCkpDrT1
- BkcAKLVITKQTkGe5QMXdySUuFAEunqeZppZmt6T0h97Op1gg7uU18S0e8LeoNmzikTpyjuI0Dey
- 3yzy0T4r1DlB3Ufa9u6vFd716Z162YE0iyKYAulbGBMjS3npBX7y1fQ2wGv/m+WE/jtw9eQMkfH
- zoQXrpEJvOvSq5PqUeg==
-X-Proofpoint-ORIG-GUID: v-LHjTv9lC11ScJGeQo0YOo43cGypAED
-X-Authority-Analysis: v=2.4 cv=cpIOAF4i c=1 sm=1 tr=0 ts=6b04460c cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
- a=VwQbUJbxAAAA:8 a=EzCDy3pf2FPqfMyO2-oA:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 adultscore=0 impostorscore=0 suspectscore=0
- bulkscore=0 spamscore=0 clxscore=1015 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230055
+From: Topaz Tatiana <topaz.tatiana@gmail.com>
+Date: Mon, 23 Nov 2026 16:56:32 +0300
+X-Gm-Features: Aa3M54oaOANjxm60lcXKWTf95uEoy0bGNPmQx6GVjt7EoZcN70llMH67uYSpuw8
+Message-ID: <CAOhmvYWzq8MOg2C=kkKU5oXSquxXOjCxQNd=ZS0rEt92HxKZgg@mail.gmail.com>
+Subject: [REGRESSION] 6.12.117: soft lockup in sched_balance_softirq /
+ _nohz_idle_balance on KVM guest without NUMA
+To: linux-kernel@vger.kernel.org
+Cc: mingo@redhat.com, peterz@infradead.org, vincent.guittot@linaro.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Add support for the QCA2066 (QCNFA765) WiFi/Bluetooth module on the
-Arduino VENTUNO Q board. The module is interfaced via LGA and is
-compatible with the M.2 Key E.
+Hi all, after upgrading to kernel 6.12.117+deb12-amd64 (Debian), we
+are observing
+massive soft lockups in the scheduler on a KVM guest. The previous kernel
+version worked without any issues.
 
-Add wireless-lga-connector node using pcie-m2-e-connector binding,
-connecting PCIe port 0 to the WiFi interface and UART10 port 3 to
-the Bluetooth interface.
+Environment:
+- Virtualization: kvm (QEMU Standard PC)
+- NUMA: No NUMA configuration found (Faking a node)
+- CPU: 200 vCPUs, 4 sockets, 1 thread per core (see lscpu below)
+- uname: Linux dev-kulet2 6.12.117+deb12-amd64 #1 SMP PREEMPT_DYNAMIC
+Debian 6.12.117-1~deb12u1 (2026-11-14) x86_64 GNU/Linux
+- Cmdline: BOOT_IMAGE=/vmlinuz-6.12.117+deb12-amd64
+root=/dev/mapper/vg1-lv--root ro ipv6.disable=1 quiet
+- watchdog_thresh: 10
+- nohz_full: (null) (NOHZ_FULL is not used)
 
-Add pcie@1,0 downstream port node with pciclass,0604 compatible so
-the pci-pwrctrl driver can acquire the power sequencer and enable
-the M.2 slot before PCIe enumeration.
+Symptoms:
+CPUs are 99% idle, memory is free (419 GiB free), and load average is low.
+However, the kernel watchdog triggers on swapper/N and kworker/N with delays
+of 60-97 seconds. The stack traces point directly to the scheduler functions:
+sched_balance_softirq, sched_balance_update_blocked_averages, and
+_nohz_idle_balance.
 
-Add nfa725b_default_state pinctrl for the W_DISABLE1/2 GPIOs
-(gpio56/gpio55) used by the power sequencer.
+Trace 1 (_nohz_idle_balance):
+[Mon Nov 23 11:48:17 2026]  _nohz_idle_balance.isra.0+0x31a/0x3c0
+[Mon Nov 23 11:48:17 2026]  do_idle+0x31/0x2a0
+[Mon Nov 23 11:48:17 2026]  cpu_startup_entry+0x29/0x30
+[Mon Nov 23 11:48:17 2026]  start_secondary+0x11e/0x140
+[Mon Nov 23 11:48:17 2026]  common_startup_64+0x13e/0x141
+[Mon Nov 23 11:48:17 2026]  </TASK>
+[Mon Nov 23 11:48:17 2026] watchdog: BUG: soft lockup - CPU#6 stuck
+for 50s! [swapper/6:0]
+[Mon Nov 23 11:48:17 2026] CPU: 6 UID: 0 PID: 0 Comm: swapper/6
+Tainted: G             L     6.12.117+deb12-amd64 #1  Debian
+6.12.117-1~deb12u1
+[Mon Nov 23 11:48:17 2026] Tainted: [L]=SOFTLOCKUP
+[Mon Nov 23 11:48:17 2026] Hardware name: QEMU Standard PC (i440FX +
+PIIX, 1996), BIOS rel-1.16.2-0-gea1b7a073390-prebuilt.qemu.org
+04/01/2014
+[Mon Nov 23 11:48:17 2026] RIP:
+0010:sched_balance_update_blocked_averages+0x62b/0x7b0
+[Mon Nov 23 11:48:17 2026] Code: 74 07 c7 41 20 00 00 00 00 45 84 f6
+0f 85 b9 00 00 00 48 89 cf e8 65 3b ff ff 48 f7 04 24 00 02 00 00 74
+06 fb 0f 1f 44 00 00 <48> 83 c4 48 5b 41 5c 41 5d 41 5e 41 5f 5d e9 7d
+28 de 00 80 3d 6d
+[Mon Nov 23 11:48:17 2026] RSP: 0018:ff7601b9c00f3df8 EFLAGS: 00000206
+[Mon Nov 23 11:48:17 2026] RAX: 0000000000000001 RBX: 0000000000000000
+RCX: ff26d7d979bb6040
+[Mon Nov 23 11:48:17 2026] RDX: 0000000000000007 RSI: 0000000000000000
+RDI: ff26d7d979bb6040
+[Mon Nov 23 11:48:17 2026] RBP: ff7601b9c00f3e68 R08: 0000000000000434
+R09: 0000000000000003
+[Mon Nov 23 11:48:17 2026] R10: 000000000000000a R11: 0000000000000000
+R12: 0000000000000000
+[Mon Nov 23 11:48:17 2026] R13: ff26d7d979bb6950 R14: 0000000000000001
+R15: ff26d7d979bb6a98
+[Mon Nov 23 11:48:17 2026] FS:  0000000000000000(0000)
+GS:ff26d7d979b00000(0000) knlGS:0000000000000000
+[Mon Nov 23 11:48:17 2026] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[Mon Nov 23 11:48:17 2026] CR2: 00007f32c305ce00 CR3: 0000000106884004
+CR4: 0000000000771ef0
+[Mon Nov 23 11:48:17 2026] PKRU: 55555554
+[Mon Nov 23 11:48:17 2026] Call Trace:
+[Mon Nov 23 11:48:17 2026]  <TASK>
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts | 64 +++++++++++++++++++++--
- 1 file changed, 60 insertions(+), 4 deletions(-)
+Trace 2 (sched_balance_update_blocked_averages):
+[Mon Nov 23 11:48:17 2026] RIP:
+0010:sched_balance_update_blocked_averages+0x62b/0x7b0
+[Mon Nov 23 11:48:17 2026] Code: 74 07 c7 41 20 00 00 00 00 45 84 f6
+0f 85 b9 00 00 00 48 89 cf e8 65 3b ff ff 48 f7 04 24 00 02 00 00 74
+06 fb 0f 1f 44 00 00 <48> 83 c4 48 5b 41 5c 41 5d 41 5e 41 5f 5d e9 7d
+28 de 00 80 3d 6d
+[Mon Nov 23 11:48:17 2026] RSP: 0018:ff7601b9c0663df8 EFLAGS: 00000206
+[Mon Nov 23 11:48:17 2026] RAX: 0000000000000001 RBX: 0000000000000000
+RCX: ff26d7d97f2b6040
+[Mon Nov 23 11:48:17 2026] RDX: 00000000000000b5 RSI: 0000000000000000
+RDI: ff26d7d97f2b6040
+[Mon Nov 23 11:48:17 2026] RBP: ff7601b9c0663e68 R08: 0000000000000015
+R09: 0000000000000001
+[Mon Nov 23 11:48:17 2026] R10: 000000000000b944 R11: 000000000000cef5
+R12: 0000000000000000
+[Mon Nov 23 11:48:17 2026] R13: ff26d7d97f2b6950 R14: 0000000000000001
+R15: ff26d7d97f2b6a98
+[Mon Nov 23 11:48:17 2026] FS:  0000000000000000(0000)
+GS:ff26d7d97f200000(0000) knlGS:0000000000000000
+[Mon Nov 23 11:48:17 2026] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[Mon Nov 23 11:48:17 2026] CR2: 00007f2fca0ccccc CR3: 00000001a8058002
+CR4: 0000000000771ef0
+[Mon Nov 23 11:48:17 2026] PKRU: 55555554
+[Mon Nov 23 11:48:17 2026] Call Trace:
+[Mon Nov 23 11:48:17 2026]  <TASK>
+[Mon Nov 23 11:48:17 2026]  ? srso_alias_return_thunk+0x5/0xfbef5
+[Mon Nov 23 11:48:17 2026]  ? srso_alias_return_thunk+0x5/0xfbef5
+[Mon Nov 23 11:48:17 2026]  ? finish_task_switch.isra.0+0x97/0x2f0
+[Mon Nov 23 11:48:17 2026]  _nohz_idle_balance.isra.0+0x31a/0x3c0
+[Mon Nov 23 11:48:17 2026]  do_idle+0x31/0x2a0
+[Mon Nov 23 11:48:17 2026]  cpu_startup_entry+0x29/0x30
+[Mon Nov 23 11:48:17 2026]  start_secondary+0x11e/0x140
+[Mon Nov 23 11:48:17 2026]  common_startup_64+0x13e/0x141
+[Mon Nov 23 11:48:17 2026]  </TASK>
+[Mon Nov 23 11:48:17 2026] watchdog: BUG: soft lockup - CPU#6 stuck
+for 50s! [swapper/6:0]
 
-diff --git a/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts b/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
-index 940a03732eefc49280b4182101cf3fb9ee951053..f24a87bd7cbf63bda803161f3659b0538a5ee35a 100644
---- a/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
-+++ b/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
-@@ -178,6 +178,40 @@ vreg_nvme: regulator-3p3-m2 {
- 		enable-active-high;
- 		startup-delay-us = <20000>;
- 	};
-+
-+	wireless-lga-connector {
-+		compatible = "qcom,pcie-m2-1418-lga-connector",
-+			     "pcie-m2-e-connector";
-+		vpcie3v3-supply = <&vdc_3v3>;
-+		vpcie1v8-supply = <&vdc_1v8>;
-+		w-disable1-gpios = <&tlmm 56 GPIO_ACTIVE_LOW>;
-+		w-disable2-gpios = <&tlmm 55 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&nfa725b_default_state>;
-+		pinctrl-names = "default";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* WiFi/PCIe */
-+			port@0 {
-+				reg = <0>;
-+
-+				lga_pcie_ep: endpoint {
-+					remote-endpoint = <&pcie_ep>;
-+				};
-+			};
-+
-+			/* Bluetooth/UART */
-+			port@3 {
-+				reg = <3>;
-+
-+				lga_uart_ep: endpoint {
-+					remote-endpoint = <&uart10_ep>;
-+				};
-+			};
-+		};
-+	};
- };
- 
- &cci1 {
-@@ -541,6 +575,22 @@ pcie@0,0 {
- 		ranges;
- 		reg = <0x010000 0x00 0x00 0x00 0x00>;
- 
-+		pcie@1,0 {
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			device_type = "pci";
-+			compatible = "pciclass,0604";
-+			bus-range = <0x00 0xff>;
-+			ranges;
-+			reg = <0x020800 0x00 0x00 0x00 0x00>;
-+
-+			port {
-+				pcie_ep: endpoint {
-+					remote-endpoint = <&lga_pcie_ep>;
-+				};
-+			};
-+		};
-+
- 		pcie@2,0 {
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -694,6 +744,12 @@ max98091_default: max98091-default-state {
- 		bias-pull-up;
- 	};
- 
-+	nfa725b_default_state: nfa725b-default-state {
-+		pins = "gpio55", "gpio56";
-+		function = "gpio";
-+		bias-disable;
-+	};
-+
- 	pcie1_default_state: pcie1-default-state {
- 		wake-pins {
- 			pins = "gpio21";
-@@ -745,10 +801,10 @@ &uart7 {
- &uart10 {
- 	status = "okay";
- 
--	bluetooth: bluetooth {
--		compatible = "qcom,qca2066-bt";
--		enable-gpios = <&tlmm 55 GPIO_ACTIVE_HIGH>;
--		clocks = <&sleep_clk>;
-+	port {
-+		uart10_ep: endpoint {
-+			remote-endpoint = <&lga_uart_ep>;
-+		};
- 	};
- };
- 
+CPU Topology (lscpu -e, first 30 lines out of 200):
+CPU NODE SOCKET CORE L1d:L1i:L2:L3   ONLINE
+  0    0      0    0 0:0:0:0            yes
+  1    0      0    1 1:1:1:0            yes
+  2    0      0    2 2:2:2:0            yes
+  3    0      0    3 3:3:3:0            yes
+  4    0      0    4 4:4:4:0            yes
+  5    0      0    5 5:5:5:0            yes
+  6    0      0    6 6:6:6:0            yes
+  7    0      0    7 7:7:7:0            yes
+  8    0      0    8 8:8:8:0            yes
+  9    0      0    9 9:9:9:0            yes
+ 10    0      0   10 10:10:10:0         yes
+...
+149    0      2  149 177:177:177:128    yes
+150    0      3  150 192:192:192:192    yes
+...
+199    0      3  199 241:241:241:192    yes
 
--- 
-2.34.1
+This looks like a regression in NOHZ idle balancing for large KVM systems
+without NUMA. Are there any known fixes for this in the 6.12 stable branch
+or mainline?
 
+Best regards, Tatiana Topaz
