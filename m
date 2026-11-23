@@ -1,49 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444259;
-	b=4BMea/bdMUT4uxBO1nhL5NO1jjosAb/FbHfrPTtSSrV8PJFGQlxfO0lK8wjBT+vyKOm/
-	 skIGJiiR5oeUf0TYKfICfq8nuARNMK/5Z0Prsep8Rg9OARek+KASWAtffjxGrD63CG7yB
-	 M+oG0Vw7tpN2as5lPoGTeyK90BlMzXqhJ/mnRndnb02mA3cevwlLrOeRYf/DZuQQDUWUh
-	 64hxGfNDtwqNvIx5tQZaSdhkY9YF2MiA+P6w1XgKCpf83fZr/NDldv6ifykmZeAIgY0cR
-	 ZagztUKgZjCnhHq69D3qpAyigRfbdQkQ5biTvoNzR75oXaXYQTT2D3R8i10/kBf+TnQ==
+	t=1795444270;
+	b=H1QEA0OzZlJsWt5eozNviTPbAWhTQR5OPDni/vPhUh1vQkzbBy9HRB7Yf8HtGbwhkvrn
+	 guhdpf3+ti+zTIp3SPe/lAzeb750Kth+3R3NzqO4rODYKhAwbIK7oStzoZT/RxfuWfO6N
+	 /w0XGaD3N4LipMEz6+whnChMtMqGCBAJLRIu/CJLSK5+uOB0vkDFgTTSbPeS7ASfUTyUA
+	 CCV1r3VMcrP+iHVDRtTj6gB/kM3dqORFMRXZFbOhIdnlQvG9mX9pyeeb5ZOl5RS53AwyR
+	 +naJa2pcTSiwXbWdYGY0z8I81+Bvh+DQdcQbmLsxtl7M3OdIYnBBT+4DnLF+QUF0VQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444259;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=1bRpmPlchmG8os/g09/lUk7pZ2BsvLbAqXllNGqyq/g=;
-	b=rdfJpDNWbnC2unm55wNOWEN/ZObXr4dPRQ/I0a8f5MC12qDXD4f3L3PgeY4y/RHO2OTH
-	 2Tm0n9jOYMad8UgIHFqmbgxM5yBNW5wBWyUZ6is/NR1D+tMliSpEHhIqOzAlppnjc0Uqo
-	 RNSBnSGFOaT1vRTmcCngNIauQsan1cMlCneWuFHxTibnInxEEaGZ9XYko8p0o6N/1M2m5
-	 uMidqnUFG6mRZQqhM+wT0p7cf1RKiBHRUBbnmTlVOkyij4k4mKNUSmdfbPc0TDb54QmB7
-	 +w9HARA37K7USf7n0QYEygs9XmDpdK8qp73u5HQlMghextMKZvbxgsD65BdjZgAslAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444270;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
+	 References:In-Reply-To;
+	bh=Q4jTJ4I7+4H3U2t4gGtedRgvTT6Hqn+CljxWSv/Jr1w=;
+	b=o7qU7KUll3FvrAps5+2BRpjmo5Zv97f/1Uf6uukGTpVi32ZjxmcWsTHBRxAFeX7D1yYh
+	 YJoFfk0oLlctI2PlLG3K0qtKHw8RxnVcKu7NotmDL6qN/YUoHdSJPByV8JFXauDk5MrKa
+	 ko0yeObN40ty+gWf44FXLEqWXVINSJZ1lKcWAfPTwTo1JLuFYyXPHOT1G42zWEGGccKnB
+	 dRNALYMcD4XwmvO3LYRwi5UvM0Re/YtLi/NxF0Lnk+YLoKEib3cVzWWm+8XeUTQqrv8xO
+	 EG34lli8ZgPzt/Gb8cJxDEmruMIpK2hReM0m94oEWda7AHfCnN5AQC2emXrTQWDdKYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DxjhmWRd;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 36922606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:30:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36922606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VETaX+Oc;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0E3B606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:31:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E3B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DxjhmWRd
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28A01143D;
-	Mon, 23 Nov 2026 06:30:55 -0800 (PST)
-Received: from [10.57.63.212] (unknown [10.57.63.212])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9A903F632;
-	Mon, 23 Nov 2026 06:30:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795444258; bh=xOUAg1fyT1SZ0PS2uIQRQByBhSfnOvlInpF7l4hI1f4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DxjhmWRdLEzvpWkMv9DOWhOqgMMYGGjw8eHCCUWWwsXZGmVOkHsmx7Gp59N4PQDKB
-	 qxUIDP+YlvbZGO+NnobexxUAAtX3yAip/YYuxj2vsOUjxxtGh0zp2lUE+Cbfk+NWUq
-	 /M3IyxSnPZjqcZocZw4fvObjTbDuI8hUqWlCmpgc=
-Message-ID: <9906d872-8e9c-46cf-b365-9f2d6ff0d61d@arm.com>
-Date: Mon, 23 Nov 2026 14:30:51 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VETaX+Oc
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so2739492f8f.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:31:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795444268; x=1796049068; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Q4jTJ4I7+4H3U2t4gGtedRgvTT6Hqn+CljxWSv/Jr1w=;
+        b=VETaX+OczrckAdA40CS7vxCZvBrG7y727OkscWpuPH8NoqiwvNXiRk+iJHMiEnyahS
+         RBfZSEAqPImQAgWzcD9CuB7TFbHgO7sTwpuUTArl1ERE2IPVFTM73x6AvLE8XuR2BQtI
+         NfM/EDLchi7RpmRnIOG/fzpQ1VgdnuEYs56uKDFZJTocpt3Rphhzad1vr6ivfPvQfs7q
+         zDPLeOj/0veY/zCOvit2isQTXe6V7TaBZ+m/Npv6BE32nGK/+xrI7JVkEb55IXUlhXV2
+         5UmV9Fzv40OpemFZElWoQEjVt/wI5iQduzGzqM2a2l/IFqmMlSFsl3sDpjo6ExZub6aC
+         DrRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795444268; x=1796049068;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Q4jTJ4I7+4H3U2t4gGtedRgvTT6Hqn+CljxWSv/Jr1w=;
+        b=laCI+/hQopNEX8Vr+RmMa/vS93j/ToFx0yyYwUVXNlw/qY2hSriuPaaDf8x/zIHbOr
+         d3XUdRZokuZhz8xSqKfF/Zv923Dmk0Chi6+ei748MBJFss0/qmfIk5PHGdKkB0DPkeGk
+         5bvIyK5Ej+c+U0YwkvMcIfmoEbTV82oKNfwJy5Pk2nPvYMLfsXsJQEHphxdI6xU7NZXR
+         RjAA+5MJCVoGboP1PJM5TwcP7lvF1QuTP64FQ+ZLdD5ra1UTyUu8FpYZXhcgA1gLKlxf
+         UNpqTiQVE8MiEdAYnKe0liZLGWYmmDJVcVqV7V5LY1D0tNXbMyeFzst7BWlE3XyO2Zkw
+         3JUA==
+X-Forwarded-Encrypted: i=1; AL+hErG61LgsT+jydCCsLhzFNRijxOcTIEGlaNgfVTk+oTsBGY8fb217R1E4lH94bFbM11KRg1QAE9lOU7ZwAUw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QvDDK2pPniZPmUtRIJ95ychkOLgg3h1U9TndOk2yj36ZAssXe
+	Z7Ixan7XkfVrLIpAeo7P/I+AmGIHxqxSrqlefX5KjbkmA1RNOVmHe1gT
+X-Gm-Gg: AZFdTZdT2NYMlalqs5fLcwC+YfJuyZGoZKDNZwvdS1B0B8AZwAZAvPV5XpQGrx+V/cp
+	NPId0GRyx1+ejeiJPxS1NFcekpxHo4MZZNpXTRfT92HU1EgCthVaFH7jBlH8czKZ2D53R4dNG42
+	zJq4cOL77DM0PSgw/mHtbU7ZEB7srHJxjiUQGVNPBpTMU4fgvM5UYIMXFsxgq3m4vRtOEFdyqHq
+	J3YfUfo6cMy9l1GDtJ7N0Sqo42qbzLTUFoIutr7LBWrKGank1KwbBbiTvHL647GyBTp2MjvyFW7
+	Q1xgjgs+SBWC6OkiprWg7C3q6428jZDbBlDAzu2RZESZ4AKszsj5qSYmdZbD0U+8ayM1xCtSjTl
+	6xnSYOUoa8Az45n6ZfZ01nnAvKMfGV/Sda7iWoSCLj2JNGWcrZA33nxR3YWJsaHOogXAe7/cjYd
+	UXC4YzbGYPBNuE3eJ6FVjojuRxpDaWW1qcWcwtUJbotvwj2VLGt0AC0hjOyq6RXrQPze5HK1ZQj
+	HbC69qbZfqrM+Sz2YzUpApy7bOf9EyvRLmEFYSoBVIZ+l848XqipDTC7+v15L+5NQu0neBEAIQY
+	BtiFVfUOq6vJsfJccihrFme9lg==
+X-Received: by 2002:a05:6000:4616:b0:491:8286:5f0e with SMTP id ffacd0b85a97d-4abb514609amr20025380f8f.55.1795444267943;
+        Mon, 23 Nov 2026 06:31:07 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b205443sm23631206f8f.39.2026.11.23.06.31.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 06:31:07 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,122 +86,143 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/8] drm/panthor: Add performance counter uAPI
-To: Lukas Zapolskas <lukas.zapolskas@arm.com>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Alice Ryhl <aliceryhl@google.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Liviu Dudau <liviu.dudau@arm.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- nd@arm.com, Mihail Atanassov <mihail.atanassov@arm.com>
-References: <20261011-panthor-performance-counters-v7-0-12c32495062f@arm.com>
- <20261011-panthor-performance-counters-v7-1-12c32495062f@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261011-panthor-performance-counters-v7-1-12c32495062f@arm.com>
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=dc84db75a66914bb784f1de9596eb2f7bc5819cd207268d8e5d18dd76353;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 23 Nov 2026 15:31:05 +0100
+Message-Id: <DN2NVGUNO0GA.89JAB2PVI0LA@gmail.com>
+Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
+ <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian
+ Brauner" <brauner@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff
+ Layton" <jlayton@kernel.org>, "Jan Kara" <jack@suse.cz>, "Darrick J . Wong"
+ <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
+ <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
+ Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+Subject: Re: [PATCH 3/3] ntfs: switch to the new xflags fileattr API
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261122000856.536902-1-koray.fra@gmail.com>
+ <20261122000856.536902-4-koray.fra@gmail.com>
+ <CAOQ4uxgc6pP+_xvJMbqj6wOdGzS75Vn6x6i_vUfCJDD46DAA_Q@mail.gmail.com>
+ <DN2N0BY83OY2.1OV3ZAZFSWCDG@gmail.com>
+ <CAOQ4uxg9O-R_SUPAZ75ESGB99-4Z4EEUKGMkCF2f-sXkGPq1GA@mail.gmail.com>
+In-Reply-To: <CAOQ4uxg9O-R_SUPAZ75ESGB99-4Z4EEUKGMkCF2f-sXkGPq1GA@mail.gmail.com>
+
+--dc84db75a66914bb784f1de9596eb2f7bc5819cd207268d8e5d18dd76353
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/10/2026 18:36, Lukas Zapolskas wrote:
-> This patch extends the DEV_QUERY ioctl to return information about the
-> performance counter setup for userspace, and introduces the new
-> DRM_PANTHOR_PERF_SESSION ioctls in order to allow for the sampling of
-> performance counters.
-> 
-> The new design is inspired by the perf aux ringbuffer [0], with the
-> insert and extract indices being mapped to userspace, allowing
-> multiple samples to be exposed at any given time. The buffer is
-> annotated to include sample metadata and block metadata inline with
-> the elements they describe.
-> 
-> Userspace is responsible for passing in resources for samples to be
-> exposed, including the event file descriptor for notification of new
-> sample availability, the ringbuffer BO to store samples, and the
-> control BO.
-> 
-> [0]: https://docs.kernel.org/userspace-api/perf_ring_buffer.html
-> 
-> Co-developed-by: Mihail Atanassov <mihail.atanassov@arm.com>
-> Signed-off-by: Mihail Atanassov <mihail.atanassov@arm.com>
-> Signed-off-by: Lukas Zapolskas <lukas.zapolskas@arm.com>
-
-I think we need a little more documentation on how these new ioctls
-work. Ideally you shouldn't need to dig through the code to figure this out.
-
-E.g. DRM_PANTHOR_PERF_SESSION_CREATE apparently returns a session handle
-- but that's not mentioned anywhere here. There's also no information on
-the range that session handles can take. Again digging through the code
-it appears that <0 is an error but >=0 is valid. Although digging harder
-it seems like in the current implementation only 0 is actually returned?
-
-You also have a shared "control BO" but there's no information about
-memory barriers. It would be good to document what user space is
-required to do between reading the insert_idx, reading the samples and
-writing extract_idx.
-
-One more minor point below...
-
-> ---
->  include/uapi/drm/panthor_drm.h | 370 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 370 insertions(+)
-> 
-> diff --git a/include/uapi/drm/panthor_drm.h b/include/uapi/drm/panthor_drm.h
-> index a2ff0f4ec691..e45f75b76245 100644
-> --- a/include/uapi/drm/panthor_drm.h
-> +++ b/include/uapi/drm/panthor_drm.h
-
+On Mon Nov 23, 2026 at 3:14 PM CET, Amir Goldstein wrote:
+> On Mon, Nov 23, 2026 at 2:50=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
+wrote:
+>>
+>> On Mon Nov 23, 2026 at 2:00 PM CET, Amir Goldstein wrote:
+>> > On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail.co=
+m> wrote:
+>> >>
 [...]
+>> > Rule:
+>> >
+>> > You cannot add a flag to common without carefully auditing all
+>> > filesystems that support the legacy flag.
+>>
+>> Yeah, sashiko pointed out a problem in f2fs, and I could reproduce it in
+>> testing, where adding COMPR to COMMON makes f2fs crash, it also needs
+>> NOCOMP in COMMON.
+>>
+>
+> I don't think this is correct, or at least not enough.
+> My agent said that this breaks or changes things on  f2fs/ext4/ubifs
+> I didn't bother to check if all of them are true - I doubt it
+> bottom line - need careful audit and good testing.
 
-> +/**
-> + * struct drm_panthor_perf_session_create - Arguments passed to DRM_PANTHOR_PERF_SESSION_CREATE.
-> + */
-> +struct drm_panthor_perf_session_create {
-> +	/**
-> +	 * @block_set: Set of performance counter blocks, member of
-> +	 *             enum drm_panthor_perf_counter_set.
-> +	 *
-> +	 * This is a global configuration and only one set can be active at a time. If
-> +	 * another client has already requested a counter set, any further requests
-> +	 * for a different counter set will fail and return an -EBUSY.
-> +	 *
-> +	 * If the requested set does not exist, the request will fail and return an -EINVAL.
-> +	 *
-> +	 * Some sets have additional requirements to be enabled, and the setup request will
-> +	 * fail with an -EACCES if these requirements are not satisfied.
-> +	 */
-> +	__u8 block_set;
-> +
-> +	/** @pad: MBZ. */
-> +	__u8 pad[7];
-> +
-> +	/** @fd: eventfd for signalling the availability of a new sample. */
-> +	__u32 fd;
-> +
-> +	/** @ringbuf_handle: Handle to the BO to write perf counter sample to. */
-> +	__u32 ringbuf_handle;
-> +
-> +	/**
-> +	 * @control_handle: Handle to the BO containing a contiguous 16 byte range, used for the
-> +	 * insert and extract indices for the ringbuffer.
-> +	 */
-> +	__u32 control_handle;
-> +
-> +	/**
-> +	 * @sample_slots: The number of slots available in the userspace-provided BO. Must be
-> +	 * a power of 2.
-> +	 *
-> +	 * If sample_slots * sample_size does not match the BO size, the setup request will fail.
+Yes, definitely.
 
-Actually the BO size must be PFN_ALIGN(sample_slots * sample_size) -
-i.e. rounded up to the nearest page size. I also wonder if this will
-come back to bite us if we ever have to deal with multiple page sizes.
-Is there a reason to enforce exact sizing rather than just 'big enough'?
+>
+>> > FS_XFLAG_ENCRYPT can go into common but must also
+>> > go to FS_XFLAG_RDONLY_MASK because it's read-only for
+>> > all existing fs.
+>> >
+>> > COMPR is rw for some fs and ro for others.
+>> > As with CASEFOLD, you cannot make it COMMON before
+>> > converting all casefold fs to new API so that each can say
+>> > whether it wants RO or RW.
+>>
+>> How's CASEFOLD currently handled? in the v2 I'm drafting, I added
+>> fileattr_mask_to_legacy() and fileattr_legacy_to_mask(), which convert
+>> between the old format (filtering by FS_XFLAGS_MASK) and the new mask
+>> format.
+>>
+>
+> Good question.
+> Need to check this.
+
+Can you do that? If not, I'll check tonight, no problem.
+
+>> > I think there may be a way to deal with this easily since
+>> > ntfs doesn't need to set either but not sure.
+>>
+>> We could export the 2 other helpers I added for v2 (xflags_to_flags and
+>> flags_to_xflags) and make NTFS use them?
+>> Though adding the fileattr_ prefix will make the current (v2) vfs code
+>> maybe too verbose.
+>>
+>
+> Honestly, I can't say for sure - you can try
+>
+> I think you may need a different set of helpers fileattr_prep_ used by th=
+e
+> filesystsems that are converted to xflags_mask, which may be different fr=
+om
+> the set of helpers used by the user facing ioctls but I'm not sure.
+>
+
+I guess I'll think about it when I move NTFS's impl to the updated vfs
+code.
+
+> The thing is - this is all hard to wrap our heads around
+Yes.
+> You and I have parts of the design in our heads w.r.t backward
+> compat with legacy API, both UAPI and vfs internal api.
+>
+> I think you should put it in writing to see that you and I have
+> not left anything out because this v1 surely does get it wrong
+> in several places both wrt legacy UAPI breakage and internal
+> API correctness.
+
+I agree, now the version in my head is not finalized yet, so I'll do
+that in the v2 patch/cover letter.
+
+TLDR is "use the legacy to/from mask converters whenever needed, so:
+- user legacy -> fs legacy: keep as the old code did
+- user legacy -> fs mask: fileattr_legacy_to_mask()
+- user mask -> fs legacy: fileattr_mask_to_legacy()
+- user mask -> fs mask: pass it through
+
+(before finalizing the GET path I want to finish the SET path).
 
 Thanks,
-Steve
+koraynilay
 
+> Thanks,
+> Amir.
+
+--dc84db75a66914bb784f1de9596eb2f7bc5819cd207268d8e5d18dd76353
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCawROKQAKCRDmj22qf5IG
+XIluAQCkRERpwhiWlAG1vnH4LLTLbZOFc6HLeE1vttoO1MkJnAEAs/LzOmQQYKAR
+R7lCcHjWSuolpqeVgvCGo0f1qKCRTw0=
+=50n4
+-----END PGP SIGNATURE-----
+
+--dc84db75a66914bb784f1de9596eb2f7bc5819cd207268d8e5d18dd76353--
