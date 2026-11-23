@@ -1,101 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436209;
-	b=C+nimGLPal+4SjAPe4cXPnjrjqw9D83e94Stbp486eQDFBa3sVErfA9k66+XI/wM+OFJ
-	 P0FPydZa1ZU+cXTUe1R3OXDudBHifs1e1dn01oehlePB26csXIpMxqEUjebhA0sxoNAg7
-	 AC/4PvlOfd46dkMfsuOuCEnv/nWUHGhWiMcnnDHQH6uyRJvbrjQR/FqHqZuiQQZ5R5tgm
-	 x+rlkzR3/u9XRW0vzvo3mclqwNiq/nzHmaIqgKQPmG5088sM3CB7Izd6BQgwkRIGcxFev
-	 +WFbfoB6Kft70WS5uTuZuBT1U3qiU3mZIacAa8kK8i96yvVMh7QU9t8nc8YHqR1lwyg==
+	t=1795436259;
+	b=K4VEZt0VWMPaB0HK+xNzfTboorDJofweWLhN2bgDhUSH6I9zyXsoY9kYXyjwHMj+AFfW
+	 pQK87Z/MAVGhXZ4WL1U5Ve853p3jO1qEoDGw2ScqeQbpEbP5Ria2zQpbFFli4hJxvJUv4
+	 fMB6MoMmrxx2HMH3Qg1VleCwDJEGxrmXakvc7SBbAewHugsI1F+Hw3OYcIlqQGQb5xCX0
+	 bxXfb/P8QUKamaE7brP1I0n/GbMoazPflaEWFk3Qfa2nlpJQGO0Lz/qI0wncCvzQaEmeE
+	 gK53d4N/3S3l0qk4V35cucjH1as6vYLMaA08CA5OVCItdiIKYW0Oo+u5QAPifARNK5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436209;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=e4OCxwaZr9TnfdRR/mUAU5CvloH0RPFSydGvfkrf2yc=;
-	b=OPYazFUanBNf4dxW9vBD0elFiqox2ZquByWFahFbWfOoOb8V/c7ZWaVZWHDNhTBlCqEN
-	 1znIo6GB+TBJx6+9oaWfgZotnqNbV1RWlO8tWTjPIk22kHNi5TmKvzGZmmNP/T6DvWEcn
-	 K7EWVnZnLHPTZQg6+rS3V6opEcLlYD0YmQO2C7iatK8mQVL9alSTGZljQufHYbeZiSCpi
-	 i3QNyJzpyNhxZFMfEZ2LRcgLpbpkYGlgzQbfScBslmqsLruMDPKlgUTLicUxLUJ5DbVO2
-	 bpQt67Jjz02oizTFyvimaBkngmjbHlKIFVNTJfeSj8FampysdKa4xj7WiPYCKdf79QQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436259;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w7ugEVjzY=;
+	b=mmV1JmgTmv0M/RyaLocXp/4SSEdTBdAdjPvFe1zsPLY4oHf8momljtBp58W1A+KwRSoZ
+	 ICC6ZBR3YuqG+X8xqYk8VnZDqiDsyVU7KL2bWr7sX8uGR4JNRgfujrul5+lTzJy4tA/zH
+	 TY2TY3xrK46REt+WWlxRwNPk75s0GFa6pEJZtzZMbquTygO/N1inaC7oF1dk17c4IDFvl
+	 qP2c5G8OzWzDcm2Qy/HxxNdATJO+gePM8H3Idvwqd2SYEbUF9cfcUFvDNPlaHqTlCXSv8
+	 n3oKihkp02lMcNeiaZ/eB9VvQ9C2rc9cBCaRNJ3fZYrzte7+uVPU1WrJ1SUCpITZWmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nebusec.ai;
-	spf=pass smtp.mailfrom=nebusec.ai;
-	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=AZ+pu4fU;
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XS0+RJtX;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etT+Bikg;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAB9E606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:16:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAB9E606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76692606A335
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:17:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76692606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=AZ+pu4fU
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b0d0b80fb9so1755904a91.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:16:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XS0+RJtX;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etT+Bikg
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCG2tC551169
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:17:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w
+	7ugEVjzY=; b=XS0+RJtX105nSFxgAukR6L9PMcjowkTDVLfpGA0AI9qgnMOxQq4
+	C7JcSK24Hatf7WtNOJUqcwiK1S2v1bDB5IIE1HvDRuboh6Q41O+QHYsWpWJXsSFF
+	taDm1FBtoeBL9ZWbu1GXSWPoL5mGEcH+peg0KQVK99yiNxBqrTVqNV50xJ7t34xL
+	MoiKfxMeM2oN+FR19wwJgu3eZOKst2qDzN7QJ3WIWzzhItt7G2vDm/bXmWvDke6s
+	mG5XJskkvSP7ft3Zoc+n+ikobK9SuJh+pVgD9tTB19SCK9uf+Paz6KCxB7TRHHpj
+	sx/rf6M9CjjgwHOZA0hLjXnwSLImDLMPkBA==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4ma0r7sd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:17:37 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-375bac6bd21so3689696eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:17:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nebusec.ai; s=google; t=1795436208; x=1796041008; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=e4OCxwaZr9TnfdRR/mUAU5CvloH0RPFSydGvfkrf2yc=;
-        b=AZ+pu4fUW5C3yU0jWujygtb0exx8BPNC7PxGbFsDy6EZwM00MIooSzqsAG+tfUtz9P
-         c8qX4iH4AYLbHTd5wMHTfxQHJsvUnbTmOZ/u+B9fW87beiOFKuo87jSU+vWF2qA81yb5
-         5XwYD1pcT8I3dXzVpk7Y3sOk4cWThlJK0rnV4LcXuL9MzwNeLWlzomy2Nnwkf6qWGkJK
-         lYK3uMdD1Wr7sw9ycsd4vU9MrjVFUQqNev/jI8pJjJdbEbJlv87K3v+Ic5E77oBegbwP
-         rY+IajHI84UUcgs+8LONG8Ma4nD4nokoemb8n4XgmfvQduPO6WkD330hjMfmzLqnAzST
-         UF/A==
+        d=oss.qualcomm.com; s=google; t=1795436252; x=1796041052; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w7ugEVjzY=;
+        b=etT+Bikg2W09oGnMwrz4e5x7MPh4HI4IZaEj7TqA4oYLvUEpRwazwqIRAM/KMlU7xO
+         nIJ6jRA6rEWTkU9YafuASLT9QoHD3Zr1BPC9kHTQ3NSBxmZ3i3LCQ7q6FOdqlkkAKSHa
+         fDPKuoxmKPeBISkqMLf6+ZEgrtt4xPcaFszYW5jR5j3FjIBn944uVkOEL3DG8Q0Eb0Cd
+         W+MImVoxsCCasYS2JZPthCiFqQj34vXMbkTxCOQT7WrTy60Nf0SAMuy775ajjzPxNG0T
+         X9T2Jf/Pk31wc15eBCYzXASe1Y0rU5vLJJa/muw+1xzvCNAwWgWa7VHkBBDFnvjqec2A
+         oYtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436208; x=1796041008;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=e4OCxwaZr9TnfdRR/mUAU5CvloH0RPFSydGvfkrf2yc=;
-        b=tXbxiCDxQAGgYHKdCwJfUGJ0U55xp6oArrdMpd8AKuyQaADgEjzhurS74Obuj6tOIT
-         AAkgDJKqwSRnte7Zl0x2ddIDogiazDi9gI0Ji6woujwhEdpHJZG4urnfHrGFKJ3bPdAj
-         g22bnlqD6cGMk5ucbZXOqy3PhLR/bpm5GH61gcsGadMy4yIU+eSdA0U4KmNL6MvXihSL
-         8CiyYiNTyhb/MM5vk/YtKfu/Nx6AClU9TlZt0iuUk/HCqwbN1z/bx4OuydTibsGPUSkQ
-         QuCD9w+G20CnW91HswIkPRLFbVUCrQw2fBoibXbaVkaoiIDvViFF7mUnFRb0tbqyAx1b
-         gxyw==
-X-Gm-Message-State: APuU4Z/sJ/IS9AnZxnycGOZ+lTGzB4G9dLOb9PqHEg64Ypeg6Aav0YhN
-	Xsg5tfWxN6dICuMmPG2PWlk9fSo7dQ9lCm3+3I+DM6bpFz/uJ6pUDgx+CGxxVQ/iVE9jPHEJk2A
-	cvObdOw==
-X-Gm-Gg: AZFdTZeamu8n4tx8cuVWf+P+78+68H1d9AEI1bDJf6XBFCCiEsiH7as6iZEGTqna6Q1
-	eusjQcf8tGGne7Ve85ZPeoZC28LwwZLEq21NoBiW7dGAW3n+vQTuM72NiQ5rFleegY0RxUKe9bW
-	8wb3pFDBl2eSu6ZOZD9A/85N/FXFwYR3dyQB59xDV1YFfJK1prK0M3okItdJVHZaE4d7mfs0mof
-	oZ+3WdVsI4gOnbrXjm1aGVcNQeNpy+gQ0Oufp6WYsb//SZNFIhRhYmhXiwsR3jxaMn1CdS8FK5R
-	VwAFB90DAGeup9zXRnDw4kVK+FJobw70hK1HgQHv+OUU5QGV3FZ9FsMDw3qbSmDvjs7QilDS75L
-	IZeZalna+HiqETReGp2nS4E5yNWtawLEVacmNqBBaMGIq8IUQShW+Dkh65i7kZ0JcTjCNlbg1w8
-	JD8lz4Yug+R8EmAe/0YhJjGJdZmoqyqmgI9wj8Vn5C5HZ5XjsB2vbHh16WSaG1jtBqcIW4/tdvR
-	N9YibSuZmM9i/YXq/iNyKooK4obxZ0bjl1VzQ2N22LStf+sfGs4gTrTpo4KzFDlaPPu2nO4jk9v
-	QTBQ0fvAEWQW7hXDiCNrWInCwbeWpXg8/QDT88cM8HXpXW1EgUifiS+aiYzHEw==
-X-Received: by 2002:a17:90a:e70f:b0:3b3:c8dc:a109 with SMTP id 98e67ed59e1d1-3b41c7abf75mr9733374a91.6.1795436208040;
-        Mon, 23 Nov 2026 04:16:48 -0800 (PST)
-Received: from enjou-Legion-Y7000P-2019 ([191.223.218.36])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm21112338a91.2.2026.11.23.04.16.44
+        d=1e100.net; s=20260707; t=1795436252; x=1796041052;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ENIBo4TW/TNvgyJmwawzafOY2EW2zkIQk5w7ugEVjzY=;
+        b=Xtagq3eg/ys2bw12AfjQ2KI2Hj8Iz1MtxbPjFKuh3Imska948LCEyEHKcyRSbAQwbZ
+         fRJsryMx0PCTQgrK8QgO26DQZZBhWgVwcBFh42gZ+bIeKKi2BwzdNNTGfkkXIIYXkWfT
+         Pdhc73JYFLnBUmRyr5ZQHHA0WDCua5IuOUmAlLgv4qKHodzXgRP1KYwjI9nrRfzeaFGf
+         GqBXja21S58ZWJz+Uwk/f2iWys+oCB9UEWQszGsozFXEdeQ5i6wRandY7Ija51JooXVN
+         WVMZrX8MRVT9gb6vJjDpFl+P9BfojCpcXwnGQknKnRLK2DLluzffjnco30SNaIc1NpEj
+         kxQQ==
+X-Gm-Message-State: APuU4Z/chYV+wzzmg5DXC37sVu1WsL7j5pzOCqFcNgGm19iCvfLWWRxW
+	2TajntB/zl41YPq0p5GZwQ3VYq/hcI94mXhrLwnyZtc0NPLTS4q3UCf6BGr8PHP6YpVp9SZnTpb
+	F3tVFr10Mqt/vMTp8xywjsuKBWjPUDj6ndFxAlU3qBzInqcVYm4vuH8+WP4MdnzGYclQ=
+X-Gm-Gg: AZFdTZcBIO4Ti13barSnX6kjDAk0lGBfsfcl+MxkFuYocsZ1n5c/k3x0xRj+bQSzqe0
+	62AEn5d6oFYjONWhDKoGBuhTF5D9yCDWTc2BMncrpbXo6YnfKH7wRVbJUe1JoU6b6iDGQPtDt2M
+	qkRpa35x+Ked5Mlp5rH2HkoVHmLvpzo6aRCBQvP0euCXMgOzIPoYA9rRq3BWRaV7KZDCKlsOcA5
+	gpt67qe0SXPy9vZwWJH5sZjovokEMXF+b1h32artqY8xL498oYIVRVnwpq5TqY5MTIuPe5xn3Dt
+	laiz8kG6fGwrlloSsrB59JISZkbudT5whAU9eafuKZbmbUJvctJeRfqfNHn52AGAtLsb2jrAZKw
+	IYDDBLq6TCezSyIbkkjCpKLW/RPSEFWwAS9v+zHVoe8ZNuhrpEbsH3xU4IaRo5KAVr5Mc7G2IsG
+	Avxw==
+X-Received: by 2002:a05:7300:a228:b0:386:6685:1492 with SMTP id 5a478bee46e88-386668523cfmr10189042eec.12.1795436251658;
+        Mon, 23 Nov 2026 04:17:31 -0800 (PST)
+X-Received: by 2002:a05:7300:a228:b0:386:6685:1492 with SMTP id 5a478bee46e88-386668523cfmr10189017eec.12.1795436251060;
+        Mon, 23 Nov 2026 04:17:31 -0800 (PST)
+Received: from hu-akakum-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm34338054eec.7.2026.11.23.04.17.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:16:47 -0800 (PST)
-From: Ren Wei <weir@nebusec.ai>
-To: linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev
-Cc: gregkh@linuxfoundation.org,
-	rafael@kernel.org,
-	dakr@kernel.org,
-	johan@kernel.org,
-	akpm@linux-foundation.org,
-	kay.sievers@vrfy.org,
-	vega@nebusec.ai,
-	caoruide123@gmail.com,
-	weir@nebusec.ai
-Subject: [PATCH driver-core 1/1] kobject: reserve an envp slot for the terminator
-Date: Mon, 23 Nov 2026 20:16:37 +0800
-Message-ID: <cd35c5682ebe0f5a58fa6beed90bb7d0e7d5e9a2.1795426787.git.caoruide123@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1795426787.git.caoruide123@gmail.com>
-References: <cover.1795426787.git.caoruide123@gmail.com>
+        Mon, 23 Nov 2026 04:17:30 -0800 (PST)
+From: Akash Kumar <akash.kumar@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org
+Subject: [PATCH] arm64: dts: qcom: shikra: Add CYPD6129/CYPD6229 Type-C controller support
+Date: Mon, 23 Nov 2026 17:42:08 +0530
+Message-ID: <20261123121729.2418019-1-akash.kumar@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,42 +121,381 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: sFCZyl6Tb7PAqjiobzdsU_syfvTvDuyO
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0OCBTYWx0ZWRfX/Votp42udNyW
+ VJBdAh0YztAcALtGG1Gp0L95OQoxwPf3AbQKgKGv6NQ+IixpqlQ12Vhs8mdE/QEUeAN4cfHLFEA
+ TNnvKBr4jodUuSyuG3wsSp4D6OtsQsw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0OCBTYWx0ZWRfX1wXasqsutNxY
+ wp3NNTXfCz/sfTFg1CFGu8OKKPTJUOQWtjKSeIG/LIvPMphsUSOzONQTVkQ4HxnZh+4yLAgj8fx
+ SDRH7z/USHAPUD8fnTPmvU2aZQ4tz/NaSaVnRr3G2Cbx3bhMef6W4qGQ5PSwSlM2ARZPo4SEypD
+ ZQfzDnRd2Utr9CpGAFBnhT3FTUhmA6weTgYbl/O24vHJdo6z5xlQd2WsyEUb6xNjBwHpSNJ7znb
+ JQBVh8WUQIHiM/j7eXOWArb382trXNdNGxSs+Epm8suiys31k+N3ApK9Twac+ymuE2HsvpHjrgI
+ sA/hqCcGc4jQdzs25SDurd1Y++BKILPyvY9A+jnlnkR3Z9hI4fFL8LXukVzALv1oz9HTC0JS7Mq
+ GgCa9Ru3kSsgG8rM64FPy01L4Sq7YiuPo0ovnqtB3er6hjsL/3gXL6wfR9tcMU5xpcCdLakKcJS
+ Xm9SD52xpDj+/IBOxQg==
+X-Authority-Analysis: v=2.4 cv=Yr+a1IYX c=1 sm=1 tr=0 ts=6b042ee1 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8
+ a=3W-5HPClo8dsW9dVm38A:9 a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-ORIG-GUID: sFCZyl6Tb7PAqjiobzdsU_syfvTvDuyO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 impostorscore=0 malwarescore=0 suspectscore=0
+ clxscore=1015 phishscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230048
 
-From: Ruide Cao <caoruide123@gmail.com>
+From: Akash Kumar <akakum@qti.qualcomm.com>
 
-add_uevent_var() currently allows envp_idx to reach ARRAY_SIZE(envp).
-This fills the final pointer slot without leaving room for the NULL
-terminator expected by usermode helper consumers.
+Add the Cypress CYPD6129/CYPD6229 Type-C PD controllers used on the
+Shikra CQM, CQS and IQS platforms, and wire up their connectors to
+the corresponding USB controllers.
 
-A synthetic uevent can supply enough variables to make this happen.
-When CONFIG_UEVENT_HELPER is enabled, kernel_execve() then scans beyond
-the array while counting the environment and may dereference arbitrary
-data as a string pointer.
+CQM and CQS each expose a single USB-C port driven by a CYPD6129 on
+I2C3, connected to the HS-only usb_2 controller. IQS exposes two
+USB-C ports driven by a CYPD6229 (CYPD6129-compatible) on I2C3: the
+first port is HS-only and connects to usb_2, while the second port
+carries both the HS and SuperSpeed lanes and connects to usb_1 and
+its QMP SS PHY.
 
-Reserve the final slot so an environment is always terminated.
+Both affected USB controllers are switched from the board-default
+peripheral-only mode to OTG, so that the role-switch framework can
+move them between host and device roles based on the data role the
+PD controller negotiates.
 
-Fixes: 7eff2e7a8b65 ("Driver core: change add_uevent_var to use a struct")
-Cc: stable@vger.kernel.org
-Reported-by: Vega <vega@nebusec.ai>
-Signed-off-by: Ruide Cao <caoruide123@gmail.com>
-Signed-off-by: Ren Wei <weir@nebusec.ai>
+The PD controller's interrupt line is routed through a TLMM pin and
+marked as a wakeup source, since Type-C attach/detach and role
+events need to wake the SoC. On IQS, the 5V VBUS boost supply is
+driven by a GPIO rather than a PMIC rail, so it is modeled as a
+regulator-fixed node, matching the existing boost-supply pattern
+used elsewhere on Shikra/Purwa, and wired to both connectors via
+vbus-supply, giving the regulator and connector frameworks control
+over it instead of unconditionally latching it on with a GPIO hog.
+
+Signed-off-by: Akash Kumar <akakum@qti.qualcomm.com>
 ---
- lib/kobject_uevent.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts |  55 ++++++++++
+ arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts |  55 ++++++++++
+ arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts | 108 ++++++++++++++++++++
+ 3 files changed, 218 insertions(+)
 
-diff --git a/lib/kobject_uevent.c b/lib/kobject_uevent.c
-index 1d29378d4f55..f7aa67d6ee54 100644
---- a/lib/kobject_uevent.c
-+++ b/lib/kobject_uevent.c
-@@ -673,7 +673,7 @@ int add_uevent_var(struct kobj_uevent_env *env, const char *format, ...)
- 	va_list args;
- 	int len;
+diff --git a/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts b/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts
+index bde3b7d81ace..46835a44cfbb 100644
+--- a/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts
++++ b/arch/arm64/boot/dts/qcom/shikra-cqm-evk.dts
+@@ -15,6 +15,7 @@ / {
+ 	chassis-type = "embedded";
  
--	if (env->envp_idx >= ARRAY_SIZE(env->envp)) {
-+	if (env->envp_idx >= ARRAY_SIZE(env->envp) - 1) {
- 		WARN(1, KERN_ERR "add_uevent_var: too many keys\n");
- 		return -ENOMEM;
- 	}
+ 	aliases {
++		i2c3 = &i2c3;
+ 		mmc0 = &sdhc_1;
+ 		mmc1 = &sdhc_2; /* SDC2 SD card slot */
+ 		serial0 = &uart0;
+@@ -29,6 +30,43 @@ &audiocorecc {
+ 	status = "okay";
+ };
+ 
++&i2c3 {
++	status = "okay";
++
++	typec@40 {
++		compatible = "cypress,cypd6129";
++		reg = <0x40>;
++		interrupts-extended = <&tlmm 136 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&usb0_intr_state>;
++		pinctrl-names = "default";
++		wakeup-source;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		connector@0 {
++			compatible = "usb-c-connector";
++			reg = <0>;
++			label = "USB-C";
++			data-role = "dual";
++			power-role = "dual";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					ucsi_ccg_port: endpoint {
++						remote-endpoint = <&usb_2_dwc3_hs>;
++					};
++				};
++			};
++		};
++	};
++};
++
+ &pm4125_hs_in {
+ 	remote-endpoint = <&usb_1_dwc3_hs>;
+ };
+@@ -79,6 +117,15 @@ &sdhc_2 {
+ 	status = "okay";
+ };
+ 
++&tlmm {
++	usb0_intr_state: usb0-intr-state {
++		pins = "gpio136";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-pull-up;
++	};
++};
++
+ &usb_1 {
+ 	dr_mode = "otg";
+ };
+@@ -106,6 +153,14 @@ &usb_qmpphy_out {
+ 	remote-endpoint = <&pm4125_ss_in>;
+ };
+ 
++&usb_2 {
++	dr_mode = "otg";
++};
++
++&usb_2_dwc3_hs {
++	remote-endpoint = <&ucsi_ccg_port>;
++};
++
+ &usb_2_hsphy {
+ 	vdd-supply = <&pm4125_l12>;
+ 	vdda-pll-supply = <&pm4125_l13>;
+diff --git a/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts b/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
+index 2ded25c4304e..de058d2978a9 100644
+--- a/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
++++ b/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
+@@ -15,6 +15,7 @@ / {
+ 	chassis-type = "embedded";
+ 
+ 	aliases {
++		i2c3 = &i2c3;
+ 		mmc0 = &sdhc_1;
+ 		mmc1 = &sdhc_2; /* SDC2 SD card slot */
+ 		serial0 = &uart0;
+@@ -25,6 +26,43 @@ chosen {
+ 	};
+ };
+ 
++&i2c3 {
++	status = "okay";
++
++	typec@40 {
++		compatible = "cypress,cypd6129";
++		reg = <0x40>;
++		interrupts-extended = <&tlmm 136 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&usb0_intr_state>;
++		pinctrl-names = "default";
++		wakeup-source;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		connector@0 {
++			compatible = "usb-c-connector";
++			reg = <0>;
++			label = "USB-C";
++			data-role = "dual";
++			power-role = "dual";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					ucsi_ccg_port: endpoint {
++						remote-endpoint = <&usb_2_dwc3_hs>;
++					};
++				};
++			};
++		};
++	};
++};
++
+ &pm4125_hs_in {
+ 	remote-endpoint = <&usb_1_dwc3_hs>;
+ };
+@@ -75,6 +113,15 @@ &sdhc_2 {
+ 	status = "okay";
+ };
+ 
++&tlmm {
++	usb0_intr_state: usb0-intr-state {
++		pins = "gpio136";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-pull-up;
++	};
++};
++
+ &usb_1 {
+ 	dr_mode = "otg";
+ };
+@@ -102,6 +149,14 @@ &usb_qmpphy_out {
+ 	remote-endpoint = <&pm4125_ss_in>;
+ };
+ 
++&usb_2 {
++	dr_mode = "otg";
++};
++
++&usb_2_dwc3_hs {
++	remote-endpoint = <&ucsi_ccg_port>;
++};
++
+ &usb_2_hsphy {
+ 	vdd-supply = <&pm4125_l12>;
+ 	vdda-pll-supply = <&pm4125_l13>;
+diff --git a/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts b/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
+index 5df30ad8211f..4fde2ddb5393 100644
+--- a/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
++++ b/arch/arm64/boot/dts/qcom/shikra-iqs-evk.dts
+@@ -15,6 +15,7 @@ / {
+ 	chassis-type = "embedded";
+ 
+ 	aliases {
++		i2c3 = &i2c3;
+ 		mmc0 = &sdhc_1;
+ 		mmc1 = &sdhc_2; /* SDC2 SD card slot */
+ 		serial0 = &uart0;
+@@ -23,6 +24,84 @@ aliases {
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
++
++	vbus_boost_5v: regulator-vbus-boost-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "vbus_boost_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&tlmm 79 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-boot-on;
++	};
++};
++
++&i2c3 {
++	status = "okay";
++
++	typec@40 {
++		compatible = "cypress,cypd6229", "cypress,cypd6129";
++		reg = <0x40>;
++		interrupts-extended = <&tlmm 50 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&usb0_intr_state>;
++		pinctrl-names = "default";
++		wakeup-source;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		connector@0 {
++			compatible = "usb-c-connector";
++			reg = <0>;
++			label = "USB2-Type-C";
++			data-role = "dual";
++			power-role = "dual";
++			vbus-supply = <&vbus_boost_5v>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					ucsi_ccg_port0_hs: endpoint {
++						remote-endpoint = <&usb_2_dwc3_hs>;
++					};
++				};
++			};
++		};
++
++		connector@1 {
++			compatible = "usb-c-connector";
++			reg = <1>;
++			label = "USB3-Type-C";
++			data-role = "dual";
++			power-role = "dual";
++			vbus-supply = <&vbus_boost_5v>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					ucsi_ccg_port_1_hs: endpoint {
++						remote-endpoint = <&usb_1_dwc3_hs>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					ucsi_ccg_port_1_ss: endpoint {
++						remote-endpoint = <&usb_qmpphy_out>;
++					};
++				};
++			};
++		};
++	};
+ };
+ 
+ &remoteproc_cdsp {
+@@ -67,6 +146,23 @@ &sdhc_2 {
+ 	status = "okay";
+ };
+ 
++&tlmm {
++	usb0_intr_state: usb0-intr-state {
++		pins = "gpio50";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-pull-up;
++	};
++};
++
++&usb_1 {
++	dr_mode = "otg";
++};
++
++&usb_1_dwc3_hs {
++	remote-endpoint = <&ucsi_ccg_port_1_hs>;
++};
++
+ &usb_1_hsphy {
+ 	vdd-supply = <&pm8150_l4>;
+ 	vdda-pll-supply = <&pm8150_l12>;
+@@ -82,6 +178,18 @@ &usb_qmpphy {
+ 	status = "okay";
+ };
+ 
++&usb_qmpphy_out {
++	remote-endpoint = <&ucsi_ccg_port_1_ss>;
++};
++
++&usb_2 {
++	dr_mode = "otg";
++};
++
++&usb_2_dwc3_hs {
++	remote-endpoint = <&ucsi_ccg_port0_hs>;
++};
++
+ &usb_2_hsphy {
+ 	vdd-supply = <&pm8150_l4>;
+ 	vdda-pll-supply = <&pm8150_l12>;
 -- 
-2.47.3
+2.43.0
 
