@@ -1,69 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.244.194.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431426;
-	b=DFR/CdExXNizclShOs+qQv8gYHvT8qoJ4gfbI7sCD+3+6rmnq8h9Zy5uJO6PpgUvG1ad
-	 LvUUWWq6C9L863ERlaE4aPuwZzTsuzegqCs1OV/qsjN7V18ldDn7TzahScu0cVMKYaUZJ
-	 ZpfGQjSPXPZ9xlnenpF3lgLkyA/CQZq92og1BXJX2vTwiYi4IERHyh/UENRaMuAouSbDO
-	 mGy/MElb/2JozUe3YY1oRXjiFwjR7p5zkBnNfQyTx0pnfLLS4jaj4S7q1iGp9CGZeZSwv
-	 aI3XptIlSa3cvDWUr2uZWKZuMZFE9QdV57hAK9xFP3Op/gnoDpwRLLzzIVDg0z+UOLQ==
+	t=1795431488;
+	b=GrmUthtNaPvbqS3FvqUN6BBoa3MXs6FHEN8cyuJZUxOKoEMX7OSF+NWUihzUf5el1If6
+	 IJUcLg6Hhjb6AOT2xcicYpX/dbZdjhcfW55exyj+NzQvl2oxvJJJBGsDpgxdJATk1XTTQ
+	 L0J4mStldC1gneIvVGZ5TCRFzIKEptdOSfGh9rTgU6ISM/V6WvYjSvHC91ggC805LGJjW
+	 dRjLx4jQZF0gjDgPS8AEkEGWbA71XBfBmpRr8SZHZtgs7fvwVc9vNTfPgrHzuOwt/7nFK
+	 gAmk9ujXq2pSc3WHnwtrwJPgZ6hPPpOsdCfC/aLedgGnX4Gqn2gzlFcNUjFCoZEEAbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431426;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-NC-CID;
-	bh=X5svZ998AfK7SFajFSBgAeoI0l40RLsVySjObineKnM=;
-	b=YEvQzGx/DHb31z0BAy2Yj4nOGwJj+gWGmOed0VBLM4hWnrp7HWFJ/v4MR/TaZuN4gzFo
-	 ydJDVbo/1yU3K0Ybp212jMEcUB2mqZgXc5NdWayEw0S9L3rT2w43zCuJkOArIYQvF/JxS
-	 65swLTpT0cazYqMBo5E+FXEg/qOZygndmru4eXgkQ5egXGbR7KlYHFG+F7+5NeEUFQIDo
-	 AmRlfjNJ1gpyg6yg7nL04ZFziGDTcTEKjmplM9JG6YsxkxNNoOSntROnlWWuZg2gBQ9/P
-	 PkvDjPTAnPigkIPixnJtpF8sapad/CudKr8plmqx9snNTFHHWbrt+x78KisU7mEPaLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431488;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=55vp1rgyy0L+BcAK3ve3ZlJ1e2OePWPl2FZy/TQWsXw=;
+	b=MRXO2Q4SWZzhI/vVeEyF9GYb0BQt2T2oflNHlgMRTD0plh08aHq7VCNTpTtDDnwuXKag
+	 zQYQCk4R1ZW0K9kfYBggpzzk9Q0WreEfHPwDLo6jAhwVLJEd/rZXEWUrJv8CG75OMxgvy
+	 yfVCjP4020tdOnONDf/fv2C7OpgzoFqSAqD6JNPP4TnSLez3B+W5xOJUwTmyTK3f1UtDL
+	 UrYwV4xkdikHcmy2bYa8EZOiEl5X2FfYNA8eaIuc+PeOH55WukeQWcMCi0uWKIORlDA+j
+	 JYEkielGq93QS+inSnzfo/cQ1ZnICImybFMZh+dxjSCcl9femZ/i8QMYJsXGQ0QVClw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=LQfu8CMo;
-	arc=none smtp.remote-ip=185.244.194.184
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [185.244.194.184])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMCqUx1r;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEBC4606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:57:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEBC4606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C847606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=LQfu8CMo
-Received: from relay01-mors.netcup.net (localhost [127.0.0.1])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4jY2st2bTXz9HF1;
-	Mon, 23 Nov 2026 11:55:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795431346;
-	bh=rxwxq7gPotnmPGcefVQ3QwGpF3KbLCwKtYmRQBY/L+E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LQfu8CMomI9wbHqn9dA9sjkUsdWTqhpkd+3BKy5iWLoMX+iwvR0ZQ0V1EXK/X/TNa
-	 x2U+T1sXkHnQNvsFqIYnmojLzz16FGlzNUSsp+EHJ5PYf2rOvrtHoPNK3QE9RiJUMr
-	 L1HHRvnQ3OjK0g9Q4rU4yazQxkDAujbJ3oUg2pqtf3SkUwNWfazJI1zW8xjHB2o1Zz
-	 YXo5efkCLW9Kpvt11ezv0rsOmBPIy/kvHLAmiGqM13ctF64DxkmF8LmGp4+FvsHBlg
-	 P5/aSCfRVfNsd2woY6bvvntlFmwZwpml1S8YwvYyxNC+RFvdrDSFDAKDX2naR4GKAo
-	 5gSQtkUzNcygA==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4jY2st1tkpz7vRN;
-	Mon, 23 Nov 2026 11:55:46 +0100 (CET)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jY2sq21vTz8svc;
-	Mon, 23 Nov 2026 11:55:43 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 4E55B5F8B0;
-	Mon, 23 Nov 2026 11:55:27 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <b2c5e6b7-d579-449c-b894-ee162230e328@leemhuis.info>
-Date: Mon, 23 Nov 2026 11:55:26 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMCqUx1r
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15C4B1F000C0;
+	Mon, 23 Nov 2026 10:58:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795431487;
+	bh=55vp1rgyy0L+BcAK3ve3ZlJ1e2OePWPl2FZy/TQWsXw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fMCqUx1rfzUSVGsb2g0v260dZoKckJsNK6pNC67P0cpDtalX7T7xXKtnQ/MLFd4vf
+	 xSiYl3UhLsnFAeJrPoa/UIjXiAv+jZtjdgr1ePFEzaS1IPb4nJigdsx0q7QSthD3dn
+	 LmSMuBSDjgL9FZn12KGwEhm4lm05VY0L0cWmljwrqfIn6p4lB4eU2JsSkkVDZYgARS
+	 2ByMtEXj6klidW0eWPtax8Q53EA3FSqnRVRK3qk5m1bcJtfBBj/Rqx5BBC4UpopBbK
+	 pcbUrNkETezyGAWE1C2xAkTn1lBZd+03j9gKeQNwgvRogqYWRtnRbqzJnomX5aUV+C
+	 RDVnZS5UIAOIw==
+Date: Mon, 23 Nov 2026 11:58:04 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: michael@amarulasolutions.com, linux-amarula@amarulasolutions.com, 
+	David Airlie <airlied@gmail.com>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 2/8] drm/panel: Add sro_install hook
+Message-ID: <awQb7eQd6P7NatX4@houat>
+References: <20261122153032.2782768-1-dario.binacchi@amarulasolutions.com>
+ <20261122153032.2782768-3-dario.binacchi@amarulasolutions.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,164 +60,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] drm/nouveau: NULL pointer dereference in
- drm_atomic_commit during GP107 initialization
-To: lyude@redhat.com
-Cc: dakr@kernel.org, "regressions@lists.linux.dev"
- <regressions@lists.linux.dev>, maarten.lankhorst@linux.intel.com,
- Eric Kim <seohyun.kim@outlook.kr>, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, nouveau@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: 
- <OS7PR01MB1391484D564CF93DFBB4C1DCE966A2@OS7PR01MB13914.jpnprd01.prod.outlook.com>
- <b89c176a-922e-4628-b549-a6d4b7520ec7@leemhuis.info>
- <b89b83ee3de3ab113820ad94cf09be6b98ec3585.camel@redhat.com>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <b89b83ee3de3ab113820ad94cf09be6b98ec3585.camel@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-PPP-Message-ID: <179543132790.1428421.6043635296124573607@mxe9fb.netcup.net>
-X-NC-CID: ykwqwavNXtJHKi1LboJkRmODmsG3XG50Gpsc1NWLrA1tquAvwVc=
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ha574b4xdcjtwxnj"
+Content-Disposition: inline
+In-Reply-To: <20261122153032.2782768-3-dario.binacchi@amarulasolutions.com>
 
-On 11/10/26 01:54, lyude@redhat.com wrote:
-> Hi - I'm back! Sorry about this, I've been busy moving and only just
-> got my machine setup. I will take a look at this tomorrow
 
-Any progress on this? Looks like nothing happened, but it's easy to miss
-something from the outside.
+--ha574b4xdcjtwxnj
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RFC PATCH 2/8] drm/panel: Add sro_install hook
+MIME-Version: 1.0
 
-Just wondering: should we maybe just revert the culprit for now and
-retry in a later cycle?
+Hi,
 
-Ciao, Thorsten
-> On Mon, 2026-11-09 at 08:45 +0100, Thorsten Leemhuis wrote:
->> On 11/2/26 13:47, Eric Kim wrote:
->>>
->>> On my laptop, which has GP107 GPU with intel graphics and uses
->>> nouveau
->>> driver, booting kernels after commit
->>> 2652aca460dcfdd0d169bbfa358aa15804dc736b causes NULL pointer
->>> dereference
->>> at initialization.
->>
->> Thx for your report. Hmm, no reply yet afaics. Wondering if it would
->> have been better to report it at the dedicated place for nouveau
->> kernel
->> bugs: https://gitlab.freedesktop.org/drm/nouveau/-/work_items/
->>
->> You thus might want to at least check if any similar reports are
->> found
->> there.
->>
->> Would also be good to know if reverting 2652aca460dc ontop of latest
->> mainline fixes this.
->>
->> Ciao, Thorsten
->>> [   17.556328] [drm] Initialized nouveau 1.4.3 for 0000:01:00.0 on
->>> minor 0
->>> [   17.556364] nouveau 0000:01:00.0: [drm] No compatible format
->>> found
->>> [   17.556792] nouveau 0000:01:00.0: [drm] Cannot find any crtc or
->>> sizes
->>> [   17.557237] BUG: kernel NULL pointer dereference, address:
->>> 0000000000000000
->>> [   17.583880] #PF: supervisor instruction fetch in kernel mode
->>> [   17.598078] #PF: error_code(0x0010) - not-present page
->>> [   17.601475] PGD 0 P4D 0 [   17.608839] Oops: Oops: 0010 [#1] SMP
->>> PTI
->>> [   17.608914] CPU: 6 UID: 0 PID: 1443 Comm: modprobe Not tainted
->>> 7.3.0+
->>> #1 PREEMPT(lazy) [   17.608954] Hardware name: SAMSUNG ELECTRONICS
->>> CO.,
->>> LTD. 800G5M/800G5W/NT800G5M-X78W, BIOS P11RDV.075.170829.XJ
->>> 08/29/2017
->>> [   17.608990] RIP: 0010:0x0
->>> [   17.609090] Code: Unable to access opcode bytes at
->>> 0xffffffffffffffd6.
->>> [   17.610081] RSP: 0018:ffffca4d86537828 EFLAGS: 00010246
->>> [   17.610135] RAX: 0000000000000000 RBX: ffff89b74dcf1180 RCX:
->>> ffffffffa97d8091
->>> [   17.610172] RDX: 0000000000000000 RSI: ffff89b74dcf1180 RDI:
->>> ffff89b74c466800
->>> [   17.610207] RBP: ffff89b74c466800 R08: ffff89b74dcf1180 R09:
->>> 0000000000000000
->>> [   17.610245] R10: 0000000000000010 R11: ffffffffa9b65410 R12:
->>> ffff89b74c466800
->>> [   17.610283] R13: 0000000000000001 R14: ffff89b74c466800 R15:
->>> ffff89b77f1a2400
->>> [   17.610320] FS:  00007fc4a888d780(0000)
->>> GS:ffff89bac4364000(0000)
->>> knlGS:0000000000000000
->>> [   17.610357] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->>> [   17.610414] CR2: ffffffffffffffd6 CR3: 0000000144b20004 CR4:
->>> 00000000003726f0
->>> [   17.610448] Call Trace:
->>> [   17.610483]  <TASK>
->>> [   17.610521]  drm_atomic_commit+0xb1/0xe0
->>> [   17.610558]  ? __pfx___drm_printfn_info+0x10/0x10
->>> [   17.610590]  drm_client_modeset_commit_atomic+0x25c/0x2d0
->>> [   17.610618]  drm_client_modeset_commit_locked+0x5a/0x170
->>> [   17.610647]  ? drm_master_internal_acquire+0x1d/0x40
->>> [   17.610675]  drm_client_modeset_commit+0x25/0x40
->>> [   17.610700]  drm_fb_helper_single_fb_probe+0x1aa/0x1c0
->>> [   17.610729] 
->>> __drm_fb_helper_initial_config_and_unlock+0xa8/0x1b0
->>> [   17.610754]  drm_fbdev_client_hotplug+0x79/0xb0
->>> [   17.610782]  ? drm_client_init+0x13e/0x180
->>> [   17.610811]  drm_client_register+0x79/0xc0
->>> [   17.610839]  drm_fbdev_client_setup+0xc9/0x1c0
->>> [   17.610867]  drm_client_setup+0x6a/0x90
->>> [   17.610893]  nouveau_drm_probe+0x15b/0x1e0 [nouveau]
->>> [   17.610922]  local_pci_probe+0x4a/0x90
->>> [   17.610951]  ? cpu_hotplug_disable+0x15/0x30
->>> [   17.610977]  pci_call_probe+0x5a/0x1a0
->>> [   17.611009]  pci_device_probe+0xdb/0x180
->>> [   17.611060]  call_driver_probe+0x23/0x100
->>> [   17.611104]  ? driver_sysfs_add+0x55/0xc0
->>> [   17.611137]  really_probe+0xd7/0x2d0
->>> [   17.611171]  ? __pm_runtime_resume+0x50/0x60
->>> [   17.611220]  __driver_probe_device+0x9c/0x1b0
->>> [   17.611261]  driver_probe_device+0x1f/0x80
->>> [   17.611297]  ? __pfx___driver_attach+0x10/0x10
->>> [   17.611335]  __driver_attach+0xcc/0x200
->>> [   17.611373]  ? __pfx___driver_attach+0x10/0x10
->>> [   17.611409]  bus_for_each_dev+0x97/0x100
->>> [   17.611451]  bus_add_driver+0x1d0/0x280
->>> [   17.611493]  ? __pfx_init_module+0x10/0x10 [nouveau]
->>> [   17.611530]  ? __pfx_init_module+0x10/0x10 [nouveau]
->>> [   17.611567]  driver_register+0x75/0xe0
->>> [   17.611602]  nouveau_drm_init+0x60/0xff0 [nouveau]
->>> [   17.611633]  do_one_initcall+0x89/0x3d0
->>> [   17.611667]  do_init_module+0x8e/0x290
->>> [   17.611703]  init_module_from_file+0xc8/0x180
->>> [   17.611736]  idempotent_init_module+0x23e/0x360
->>> [   17.611773]  __x64_sys_finit_module+0x7f/0x110
->>> [   17.611805]  do_syscall_64+0xbe/0x470
->>> [   17.611844]  ? do_syscall_64+0x37/0x470
->>> [   17.611883]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
->>>
->>> It boots without this problem when booting with nouveau.atomic=0
->>> kernel parameter.
->>>
->>> My guess is that atomic_(commit|check) operation is not present in
->>> nouveau_mode_config_funcs, and commit
->>> 2652aca460dcfdd0d169bbfa358aa15804dc736b enabled
->>> atomic modesetting by default for NV50+ gpus caused
->>> the problem.
->>>
->>> Also, drm_helper_(commit|check) was added to
->>> nouveau_mode_config_funcs
->>> at commit 604826acb3f53c6648a7ee99a3914ead680ab7fb, but it was
->>> reverted at commit 6c65db809796717f0a96cf22f80405dbc1a31a4b due to
->>> unreliability.
->>>
->>> I hope this problem can be fixed at one of the next releases.
->>>
->>> Thanks,
->>> Eric Kim
->>>
->>> #regzbot introduced: 2652aca460dc
-> 
+On Sun, Nov 22, 2026 at 04:30:02PM +0100, Dario Binacchi wrote:
+> The panel bridge assumes the panel is enabled whenever its pipeline
+> is read out as active, but the panel is left marked as unprepared and
+> disabled. The following disable is then skipped, and the panel driver
+> never gets the chance to acquire the resources it will release when
+> unprepared.
+>=20
+> Add the sro_install hook, called when the state read out from the
+> hardware is installed. On success the panel is marked as prepared and
+> enabled.
+>=20
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> ---
+>=20
+>  drivers/gpu/drm/drm_panel.c | 16 ++++++++++++++++
+>  include/drm/drm_panel.h     | 10 ++++++++++
+>  2 files changed, 26 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/drm_panel.c b/drivers/gpu/drm/drm_panel.c
+> index bef0e6af73ba..daccf98e5513 100644
+> --- a/drivers/gpu/drm/drm_panel.c
+> +++ b/drivers/gpu/drm/drm_panel.c
+> @@ -346,6 +346,21 @@ panel_bridge_connector_readout(struct drm_bridge *br=
+idge,
+>  	return 0;
+>  }
+> =20
+> +static void panel_bridge_install_state(struct drm_bridge *bridge,
+> +				       struct drm_bridge_state *bridge_state)
+> +{
+> +	struct drm_panel *panel =3D drm_bridge_to_panel(bridge);
+> +
+> +	if (!panel->funcs || !panel->funcs->sro_install)
+> +		return;
+> +
+> +	if (panel->funcs->sro_install(panel))
+> +		return;
+> +
+> +	panel->prepared =3D true;
+> +	panel->enabled =3D true;
+> +}
+> +
+>  static const struct drm_bridge_funcs panel_bridge_bridge_funcs =3D {
+>  	.attach =3D panel_bridge_attach,
+>  	.detach =3D panel_bridge_detach,
+> @@ -360,6 +375,7 @@ static const struct drm_bridge_funcs panel_bridge_bri=
+dge_funcs =3D {
+>  	.atomic_get_input_bus_fmts =3D drm_atomic_helper_bridge_propagate_bus_f=
+mt,
+>  	.debugfs_init =3D panel_bridge_debugfs_init,
+>  	.atomic_sro_readout_state =3D panel_bridge_readout_state,
+> +	.atomic_sro_install_state =3D panel_bridge_install_state,
+>  	.atomic_sro_compare_state =3D drm_atomic_helper_bridge_compare_state,
+>  	.atomic_sro_connector_readout =3D panel_bridge_connector_readout,
+>  };
+> diff --git a/include/drm/drm_panel.h b/include/drm/drm_panel.h
+> index 58113ea7d63a..66f9fc0828f1 100644
+> --- a/include/drm/drm_panel.h
+> +++ b/include/drm/drm_panel.h
+> @@ -148,6 +148,16 @@ struct drm_panel_funcs {
+>  	 * Allows panels to create panels-specific debugfs files.
+>  	 */
+>  	void (*debugfs_init)(struct drm_panel *panel, struct dentry *root);
+> +
+> +	/**
+> +	 * @sro_install:
+> +	 *
+> +	 * Acquire the resources of a panel found enabled when the hardware
+> +	 * state was read out, without touching the hardware.
+> +	 *
+> +	 * This function is optional.
+> +	 */
+> +	int (*sro_install)(struct drm_panel *panel);
 
+In the panel context, I'm not sure "install" is the better word here
+since we don't have any state to install in the first place.
+"sro_enable_resources" maybe?
+
+Maxime
+
+--ha574b4xdcjtwxnj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawQcPAAKCRAnX84Zoj2+
+dvBkAYCiIabbXhEPWOXGEzLDWnXhRX31FO3NJrLjEZgy0AX+Ptd3X5P9XLNjRF5b
+eMxjDcYBegOfUhSrwp8IqSnJA4SnFZqhcZrXkZHXfCwqO1x8/7P3c4D0ivrNpsLW
+bUmdSbMXFQ==
+=C5UR
+-----END PGP SIGNATURE-----
+
+--ha574b4xdcjtwxnj--
