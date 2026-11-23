@@ -1,100 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.160.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795453767;
-	b=eCWf79SonnTOtO8cde5gkddRX8XV7ISyq+23mc8CsQZQNBChF395WIyvGwKo2WCobtnL
-	 day4MiItafVPRyBAg9MoeL/U9Pxwuq7aLxs2EHQym/3NRusGiA642ZJ5NY9DDv06w2KKI
-	 fLobgkY9TPHUrOfA3UlVv6FkuhdtD2umnfP0jzEtRzTdtv0dDmydi4RtKv7gWfff1NbT1
-	 HvB4p6aNDJCUcoCAzzyVpnsqCdqQ18CBS3lTcNe8SON5gP7AZ3xVQdNOgtE+Ztd8sxqN2
-	 xZj+0kS/AjYJryBL4VfJiXNfPmzdz6FK5/fRYQnmT5DJJrYa9hTALk7649UNH7vPuUQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795453767;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=5t5JP4GO9Laq1Lv8Hq7DQj1ZPWjPnYaLMekX3WEbiFg=;
-	b=4xjscFpPEk2gHjiepc12IJqRVnmlYhTqnJc1xZkNIDXXHjzyvyoHiPKhX5J/5xhDa+D7
-	 YB/G12GvkyJDdGyxqHLo3RCUsuOFtXyXX4d40qvxTXglgF4CfyPUz6GaysI3IT7itUO8t
-	 i1tMyKgTmLDGPSpbAyTojRL8nq6Ry/U8x6IFUmgYEtcpYvHc5ZNGoHOz6S+Z2qMf+6bru
-	 ZxRDQhcoFa5gYkYTxzJgpLRTjx0EqqOwW3Ez/BXV4zAjMkdJe+++kPbGuYQBGpHAdhApH
-	 Z9IN9grSXi9UUC6CR1KKZM25aSbXpXmDgNxvLTDd4ureN9PJ1Epj/VIS+VS2raTm9ag==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qlOPitY2;
-	arc=fail smtp.remote-ip=209.85.160.42
-Received: from mail-oa1-f42.google.com (mail-oa1-f42.google.com [209.85.160.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795453814;
+	b=z7MqR0iTatYJCw0d7qJ1puAZMwmWv3AevD3bn6twZkjplEv26SylXlMSjpFFSM52uMaI
+	 PR8efW7RZUrDNMZWrAJA75UgHkNBz3PZnHievagGZSkNAowekMW+ntnLudgSWLCV5/TPz
+	 MAaY+AYUW9UCq2sUXlCXwAj/o2f5Xms2VBZVe2dh1wG4h8xdm2ReDRuU81kx8QUN2Rwip
+	 yf2Cw+PN6menpHTJ3dVDIs5N7VkQ2gPOkF2X+i/11ckFZbIIjew9ey00/dgEuWsNessL1
+	 BcmQj1Y6VjxPNwT5S+5UZrITsFJaTFoQY4C6Nopxz672eXppSmpFAgYJAFHw5K+zsng==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795453814;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=c3TaoASfd8PzD5S4tgYOpeLOWlNif+silHEuUYg9+28=;
+	b=xFU07Io74XatOVffcaH8i/FCBrzq3aZa7T6abgrIM95IPwkeuGUYK1sNsyYR2vT4LKUe
+	 Qhz155D6EzcTH+vStJQWlensQx3KmA2wR7AUovZ04AJaBl+1+VTxbNdCsySMiNqAzE1IM
+	 y97QuPblHKbtMMvH3ACVErqg7/B/m629IjrsAQmoDOeodPyPS36lrcc80OV9/72NvxZCa
+	 5osM4I7gIvT1L691VP4yJqry/4iYGu+pDxxWeE0nKPmYY07gptXrVPBeq3EUCth1gvvB5
+	 6FUkLOl1h94+MUxN8CoqS6AWPxd6q2PXdNZZaMtfeN83LtBEtAHqQ6VoozebphdzqvA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P0Wp1NYD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2F80606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:09:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2F80606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B08C606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:10:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qlOPitY2
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-475920b9ca2so1157942fac.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:09:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795453765; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UiuK7VIqh4IaD92t8gQY2N9nXWmSyOuiYpO7gh+/I17/eX7typlhtAhMr1D3cGX1bK
-         eUpPtYEgWuVCxSbqMEkg/YS2+3/JQ+uR9PhC8uTg7CzC7FtNUWhDu5d4dninHuEPEoyo
-         B0JwT5cSaHtXh9Lr6fLiid/NvmE7dP1ZWK8sxxkL2dco9rQrgb7XBku/gVnq7aejfUL8
-         INU3X/gqp0YBDrXrLZjTA7YFfrFG/6oKFUWYaYWRFXRK59iNB8cPROvrXEj78tJWu+o4
-         xFTu9OepRBD4f9/cD+itVX2vufzcVW/aoHDCTyaA16w2lyXOhuYdf4MN8t3Ji2RDfEcL
-         sRPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=5t5JP4GO9Laq1Lv8Hq7DQj1ZPWjPnYaLMekX3WEbiFg=;
-        fh=ojJJHrkIsd3qI9aT/qOQ4UwIU470xRKltQfPqpowwBg=;
-        b=KNDGTcS8DTVV5etyQgHNLZcKe72zoWEOe2KgHoDbF0XCHNHM3IF95O9+v31cnmhVUw
-         dA+Y9tFOCrK/2LezlyhzsxSjtWkWW76FnqzhmFQ5dAUsw+O+BXHGgqmNx3lDnyrD1aKW
-         g27z+sGz0BssesDLEPoeTu/9p9D7r9ror5VCIqF4lpAviu9ph9qF2DLVoEDpX7DvcUWV
-         RZeNY/Dgs8gPcGGtsZnwezaYMwENsNXtGDGFl95zue3mf+zCO4pgen2VJpEo2Gzm08aL
-         MRs3ck0QzM2sxjk32UEkWH+JHo1DdGdACnL2hmskEZ9ET/UVZihTdbQkkieGy2N9KJi/
-         S/kQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795453765; x=1796058565; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5t5JP4GO9Laq1Lv8Hq7DQj1ZPWjPnYaLMekX3WEbiFg=;
-        b=qlOPitY2Buuta2NKhfIC8ihTl5lKc/rmhPKb+O41MmVX1/G9X5LG0SwJ0wHRTm/ECo
-         bnXFRpCgzSn5WpxzEKapeCXNqCTyJcZ6Z7gg6yHJnRYLGk42l5ojm56PBBhR8Kmi2MF1
-         cxy1oj4FkbzW2dTONKs9ymlri8fFlP2evX9jIeqdAnQHl1a7+FRPyVLTfyXWaB1MAftd
-         n1xAxUcPqNpPpKxhn6sfFMhgZAIIUT+zYic9WAa3S/cDP9S3wCWvc7cOMZpgqzfM2JQh
-         YpZgCqCzQZbCCaPnUhG60VTzB6V2N4TKxJv5rgHTzc1heE5JusBz7bDg0Oq/2hSZVM40
-         BqTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795453765; x=1796058565;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=5t5JP4GO9Laq1Lv8Hq7DQj1ZPWjPnYaLMekX3WEbiFg=;
-        b=myeFulFBiRiOiFzILj112cb+QPwSUC7MN2OBvFmeypfkkVz3C6LE2/pRqr6KZk93zI
-         tyQg88te3yaR8ekPUS0duMVEaChcHE8VUi7jiLncBxjPQujULkukf89z4TdgCCYg7pJD
-         Uf0sBgH4sErSxvTUfaB05KShsSXcVMsr8rWSGWtyAGKDxiY+ahZUUZHeKHdyWn9SvoGD
-         JHStGdJZihYkml0SYxGQM7IrR5QZKAq95agdwiKQLtSDzqF3c76+P4jyyEzUHXZFBn9I
-         DrX4uB5LLUvaJHxDHkBsmD35k4TezSciwyHgXDT4vKyPXCuk7aEhEXe70RpULAyIWmDm
-         NHaA==
-X-Forwarded-Encrypted: i=1; AL+hErF69yced3pT8YJ4iPtW3txUO2QKLLHXEZzL6LbcBdXsDCu3dhoSi+KWZ8NqXKQiWlIMq8tmE6N2mEEAiUs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SUvUt00UAzsEEdXd8shgtY12Krb8hb2VNzLva2Ux6dBOkuKSw
-	9oWfovp+6xqFIBpQRl31KW+YXG+pt7BLHTAtryMjTUtggjtHEiJaW3QNtxVa6Rd6ITey6J1knyI
-	6j9XOYC/q3rrenOTSZMGWSpKEhDVY0u4=
-X-Gm-Gg: AZFdTZcik1p9HozP2x93FGvXc5+3/tCupNA7HnJTWDThbrkzyO9Vc/YWtF7Rt/wyN2y
-	HUgfiY3rK5V24oBftENjIXRYniKHFLfxtGfhAErZqGoTOVlHEYG/537KeD6twAo3dMkybKavmBi
-	KYeAmiz9lbgONb80cHqriSo2DifouU/6/CHrG/2A9XtPRR2IrYClF8ep/Yr6Af+LKssVfEaiNeF
-	6GrxHZkE8ptQECzEJzemrkOHG1K2RoH6x/e6QSVYxWLIbx4amTjb2+eXgwAHnQhjsR5xKVkVHTt
-	teTGID0fQumCFuExx4StHt3rtKGSNOsCj4YnIpD2cP7hUKwMAVeDn762n1BHwrlr7OZj71uEHMf
-	Kh894LbuGC/eIo1PWVE0z2u0OekR9nbYXWp6kPZyLgFOlHwd/OwsOseeVjZkzjp1MV83pIDQ5A2
-	m/CZ5BJltlrKH4qARRoA3VBjSB9vTRZ7k=
-X-Received: by 2002:a05:6870:4cc6:b0:4ad:8800:b277 with SMTP id
- 586e51a60fabf-4bc82c96091mr11693060fac.24.1795453765399; Mon, 23 Nov 2026
- 09:09:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P0Wp1NYD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FA391F000C4;
+	Mon, 23 Nov 2026 17:10:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795453813;
+	bh=c3TaoASfd8PzD5S4tgYOpeLOWlNif+silHEuUYg9+28=;
+	h=From:Subject:Date:To:Cc;
+	b=P0Wp1NYDxrcIM/ovxNdDS2GML5fETI33+s23IQyeMMUOPdCBGzc1Q2IuS70wSxsdn
+	 kfeKfNwsLon8IYx2XhR3BYX/rg7HTYhxh5urAl8B98fMBHm4LMROASzcf5pYxWXwK5
+	 WwcQR3tQNr7iHFXyK+l75GFY0EHBNr2gDfEgKeB+Y8Wqlgj4nfswpHABgZjtSkW+W+
+	 tVu4XPQSlFObSZv2rvXSU3kF05Td+gpdkWMXfsStWCyJfA9FTqIhMltrMAbX2WTJsN
+	 qKaQcDEu0YztWLoyzfj51efHqw1+YvExLTu6dlhiFH2/Pjh07FULonFb/pvbVy2oIY
+	 LYYZj/IKlwTYQ==
+From: Hannes Reinecke <hare@kernel.org>
+Subject: [PATCH v6 0/9] nvme-auth: switch to use the kernel keyring
+Date: Mon, 23 Nov 2026 18:10:00 +0100
+Message-Id: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,36 +53,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120113116.153232-1-hjf3108@gmail.com> <20261120113116.153232-2-hjf3108@gmail.com>
- <1f9ad0fcc61446fb8ce49ef98d5292e8@realtek.com>
-In-Reply-To: <1f9ad0fcc61446fb8ce49ef98d5292e8@realtek.com>
-From: Jie Feng <hjf3108@gmail.com>
-Date: Tue, 24 Nov 2026 01:08:48 +0800
-X-Gm-Features: Aa3M54oVM5aty3xWPhSZL5u0WDH31EPxrmoQScFCe11fczaCvx4o9mUEUFn49LQ
-Message-ID: <CABOQOSV-vbUazUTwb_Lt11Wv3-47P91OswOsH6r2=ngxOUcAKA@mail.gmail.com>
-Subject: Re: [PATCH rtw-next v3 1/5] wifi: rtlwifi: rc: start no BA session
- for QoS null frames
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>, 
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGhzBGsC/33NTQrCMBCG4avIrI0kMemPK+8hLtpk0g6VtCQSL
+ KV3N+1KQVy+H8wzC0QMhBEuhwUCJoo0+hzF8QCmb3yHjGxukFwWQkjObJ/3iQ04B/IdS4rx2vG
+ 2McJWRkO+mwI6eu3m7Z67p/gcw7y/SGpb/2kbyLSrTGnrWhaI1wGDx8dpDB1sXNKfxPkXoTNRC
+ UTXKsNLqb6IdV3fM7+1HvYAAAA=
+X-Change-ID: 20261120-dhchap-keyring-v4-09f0bac1d8c5
+To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+ Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
+ Hannes Reinecke <hare@suse.de>, Chaitanya Kulkarni <kch@nvidia.com>
+Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Hannes Reinecke <hare@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795453811; l=3667;
+ i=hare@kernel.org; s=20260619; h=from:subject:message-id;
+ bh=V+0LlW5boOKjqhOSfCsSFocUMOFEm9YF8ORqXxyW5FU=;
+ b=87eeiZDT71LjnfENvAOJN84m+RtQNL7gTyHnReEVG5tGhUAkF29Wg60BDRpFCmW3GRDT7YXvI
+ TnpyvyQchRBDIFKGTGepHpTq5BUc778P/I8fU+Jrgo1zkN/HFaECwAu
+X-Developer-Key: i=hare@kernel.org; a=ed25519;
+ pk=iekPF4ZZFva3sutm7d1ryPNR1G/WFfUgHaDB423JXho=
 
-On Sun, 22 Nov 2026 at 11:28, Ping-Ke Shih <pkshih@realtek.com> wrote:
->
->
-> Ho Jie Feng <hjf3108@gmail.com> wrote:
-> > rtl_tx_status() starts a TX BA session for any QoS null data frames,
-> > so these polls start a session even though they do not carry data.
-> > That costs an ADDBA exchange.
->
-> Will ieee80211_is_data_qos() be more suitable?
+Hey all,
 
-ieee80211_is_data_qos() only tests the QoS bit (0x80), which is also set
-for QoS null (0xC0), so the BA session would still be started.
+the current NVMe authentication code is using a hand-crafted key
+structure; idea was to have the initial implementation with a minimal
+set of dependencies.
+(And me not having a good grasp on how to use the kernel keyring :-)
+That had the drawback that keys always had to be specified on the
+nvme-cli commandline, which is far from ideal from a security standpoint.
 
-> >
-> > Check ieee80211_is_data_present() instead, so only frames that carry
-> > data start a BA session.
->
->
+So this patchset switches the authentication code over to use the
+kernel keyring. User-facing interface (namely argument to 'nvme
+connect') remain the same, but the key data is converted into keys
+which are stored as a new key type 'dhchap' with a random UUID as
+description in the kernel keyring.
+
+With this I have updated the dhchap arguments to 'nvme connect' and
+the configfs interface to either be the keydata (ie the original
+interface) _or_ a key description referring to a pre-populated dhchap
+key in the kernel keyring. This allows for easier provisioning of keys
+and avoids the security risk from having to specify the key data on
+the kernel commandline.
+
+The entire patchset can be found at
+git://git.kernel.org/pub/scm/linux/kernel/git/hare/nvme.git
+branch dhchap-keyring.v6
+
+As usual, comments and reviews are welcome.
+
+Changes to v3:
+- Update to 7.4
+- Add patch to set keyring for nvmet
+
+Changes to v2:
+- Update to v7.1
+- Include reviews fromn Sagi
+- Clarify decoded PSK length
+- Add more function descriptions
+
+Changes to the original submission:
+- Dropped patches merged with upstream
+- Modified the interface to refer to keys via the description
+  and not the serial number
+
+Signed-off-by: Hannes Reinecke <hare@kernel.org>
+---
+Changes in v6:
+- Fixup next round of issues from sashiko
+- Fixup kbuild robot issues
+- Link to v5: https://lore.kernel.org/r/20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org
+
+Changes in v5:
+- Fixup issues found by sashiko
+- Link to v4: https://lore.kernel.org/r/20261120-dhchap-keyring-v4-v4-0-5f8c7d9926ee@kernel.org
+
+---
+Hannes Reinecke (9):
+      nvme-auth: modify nvme_auth_transform_key() to return status
+      nvme-keyring: add 'dhchap' key type
+      nvme-auth: switch to use 'struct key'
+      nvme: parse dhchap keys during option parsing
+      nvmet-auth: parse dhchap key from configfs attribute
+      nvme: allow to pass in key description as dhchap secret
+      nvme-auth: wait for authentication to finish when changing keys
+      nvme-fabrics: allow to pass in keyring by name
+      nvmet: add configfs attribute 'dhchap_keyring'
+
+ Documentation/ABI/stable/sysfs-nvme |  10 ++
+ drivers/nvme/common/Kconfig         |   2 +
+ drivers/nvme/common/auth.c          | 216 +++++++++++--------------
+ drivers/nvme/common/keyring.c       | 315 ++++++++++++++++++++++++++++++++++++
+ drivers/nvme/host/Kconfig           |   1 -
+ drivers/nvme/host/auth.c            | 173 ++++++++++++++------
+ drivers/nvme/host/fabrics.c         | 131 +++++++++++----
+ drivers/nvme/host/fabrics.h         |  12 +-
+ drivers/nvme/host/nvme.h            |   6 +-
+ drivers/nvme/host/sysfs.c           | 246 ++++++++++++++++++++++------
+ drivers/nvme/target/Kconfig         |   1 -
+ drivers/nvme/target/auth.c          | 204 ++++++++++++++---------
+ drivers/nvme/target/configfs.c      | 150 +++++++++++++++--
+ drivers/nvme/target/nvmet.h         |  16 +-
+ include/linux/nvme-auth.h           |  17 +-
+ include/linux/nvme-keyring.h        |  26 ++-
+ 16 files changed, 1140 insertions(+), 386 deletions(-)
+---
+base-commit: 68099cf27253a8c89d703a282d3d811446d9453b
+change-id: 20261120-dhchap-keyring-v4-09f0bac1d8c5
+
+Best regards,
+-- 
+Hannes Reinecke <hare@kernel.org>
+
