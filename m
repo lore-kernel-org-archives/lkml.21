@@ -1,72 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.66
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420120;
-	b=qDAyZdul5VmJHtnWR2LBp6pTe0NoCJW/mLDYk7TrEox19LKKl0Jm0udGy8zTW//SBl3S
-	 0GSmjmvgNuiZGvylQPVoKPtipIZ4tqnGVrKYYG/2CvCOpY7jD0GpLyHTzD4LCGNPU0yWd
-	 GALYneOhANicqZkXtpNhpIi4koabaQ98921CmKbgT+mYhS+l/zNJO3/HbbCr5ZEbqqfNK
-	 t6KkIG2VdOx4GfctqOyIO8mz5tnkbgyyIIfzJROs5dsxasVQk/CoPP4RlQh9yamgM+Z4K
-	 spVaLoF0TI/lSuY7RnOJoFVhp3GilV/P3BnDxNDLj6Rye2ql8mNPhzFVlZvDL4Tm94g==
+	t=1795420122;
+	b=yCzXLOc3/TUG9T706VyPM4YjXaO7/SHmDD2qTsj3bNwZyLcoYi2KIcEUPlYM7Q+M78r9
+	 xJchrLH8anIX/ElgiltnSsDwyuqS5MPTOHrU1MjA0rkrE9i0lITWcN+Ah8WAhLA+yt9L2
+	 SWudH1FmBZ5DNXEITxEdOyWiFet9IZBueAfFQxbiwl1lE20tg5CoH8nhG1UwdAUxC6t9f
+	 pBAsqvkIyIIcMhOZ0lCPiOEUB3vxVo5RJovtDsE9P3NMndHRBikehcr8jRhuV8/Klj0Ag
+	 4XsyR6wlelCuH+bBuocbHiX2RAg85B4g/KDQ6LyQ1GdWNiC4NTMNWDPL5lPZoT9KbmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420120;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TeEb+VkEV9Za4392jc0izFxAy0GlccQfW+OhledsOuw=;
-	b=0MrsDCSqtTByvisxPn6weZWBl/t3wOqvOMXXRTdJT134CcMIFH7jAFX5YKmYIgigulHu
-	 xQrJyYYwzsOLuggYWe9KD9Pxy7+HHljBqKKeCpORAViOtTT1fnuxRAmbntIy3Yr5Zg+Ka
-	 GXtQdUi3NyUgW5OA0oWF43+9sNA4XYX1oTTHnJ1rgt0KXpgi3z/Z81UFEG7YqA8vfwY2D
-	 9cY6Yx4SQ+RUtWomQ/EKVizhZ+HX/crSuDWUyyn1/qz+O32zQgzfoYn5wAO0tqPB/xLOV
-	 8etpP8JZHKVfdggad6n7zVk42adsQo+BRZb8UJL97WrbFQYf8hAHvG/EbVK/j2ZgdjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420122;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wokkkNFzIsEepckDi99FN8dnTWAUR1CbtTzouCd22Tg=;
+	b=mHJN5HstvJNhecibR5sNbmclfn6T4m9Fo2DCOfVht9vTYZk0T290wDNlAvM8JAukmF44
+	 v8rffN247d24IgYApq9wkDTe0fypFlwL5pFj0KGF5qM+xE081QMTW6qvHmx//9MqG1NLZ
+	 0zqvgcjYX2crQ8jJMLuDfHU4tbIf9RVfWTqhoCnhOidS+U/9BvU8xvTDswbDKZ2csezcg
+	 jdgOCB3bTGBYgmlS0pj2C/gpZIhRFJS3LESOK9eB8XfST+zpFXh++KFOrxy1X/Bw8xqAJ
+	 cPGl2vAjTH7nQRugD/1eNLVbpTtA1h97Dq1GBvqzvMh+xiMzOsjT7vF2zzgJcyxhXdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=r4+GXb7W;
-	arc=none smtp.remote-ip=95.215.58.66
-Received: from mta1.migadu.com (out-66.mta1.migadu.com [95.215.58.66])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="H/09oUYo";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26AAA606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:48:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26AAA606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C11E606A327;
+	Mon, 23 Nov 2026 07:48:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=r4+GXb7W
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=E3TRoGuyGmOYWn3zhujfxKl0PtdHJnYxb332iPImYlg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795420117; v=1; x=1796024917;
- b=r4+GXb7WxzzeMrY5K++9oC84DqOUfct4AMVlLpiHqPExM+RoOIWSf1Xc9TDH+8EPOXq54co5
- zVOMm+FWseyUWB61I2K0szZ5FFvsZ9k+6F3QCw12l+hefNQMaLdszi48Lx4u77l0HdEzp+ym6xp
- s7Sf6gvVm042u2yNABxuXk58=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 43d223002f5a23af;
-	Mon, 23 Nov 2026 07:48:37 +0000
-X-Mizu-Trace-ID: 43d223002f5a23af
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-To: Li kunyu <likunyu@open-hieco.net>
-Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] sched/fair: Drop the active CPU check from unthrottle_offline_cfs_rqs()
-Date: Mon, 23 Nov 2026 02:48:27 -0500
-Message-ID: <20261123074827.671080-1-qiliang.yuan@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <1add44bb-c9a4-2bf2-6de0-a748648e99bc@open-hieco.net>
-References: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev> <20261120-bug-sched-fair-offline-active-v3-3-325e9eefa56d@linux.dev> <1add44bb-c9a4-2bf2-6de0-a748648e99bc@open-hieco.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H/09oUYo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3393A1F000C0;
+	Mon, 23 Nov 2026 07:48:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795420121;
+	bh=wokkkNFzIsEepckDi99FN8dnTWAUR1CbtTzouCd22Tg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=H/09oUYoKCSYwJaW3GkPBONE8TRwPwEk8ZbiKnv9b9YP27Y3LV5Q84YuhNBNtkNkH
+	 x0yS+zWDWDfVwBvmGas7wYDYLry6drkRy1/QTYfS2XDJIAoU3fzJq7ZpEqHIYAltSt
+	 Vy8j0HsJJ30DjVtr+Tvww2mWIQMRRIt0+7lgMENzmB0yIBEY8c6+XwSdlF+ZVqe78v
+	 j7xYhMrH41G4+tv6YpjNzUrCE55V15wmLv9usx+oK3EnhbrWkKkZp9SR8F66yMOpnr
+	 z2jP+17DrGid3+IM1hL7Cdx0qGFgCeDGtcghVmjk5Ra1ox4L4s5RVOeqyPKT6CrLeY
+	 pLollFP25n7yg==
+Date: Sun, 22 Nov 2026 23:48:40 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: joro@8bytes.org, palmer@dabbelt.com, tony.luck@intel.com,
+	reinette.chatre@intel.com, tomasz.jeznach@linux.dev, jgg@ziepe.ca,
+	james.morse@arm.com, ben.horgan@arm.com, xiaqinxin@huawei.com,
+	will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, Dave.Martin@arm.com,
+	babu.moger@amd.com, kevin.tian@intel.com, corbet@lwn.net,
+	skhan@linuxfoundation.org, shuah@kernel.org,
+	randy.dunlap@infradead.org, cuiyunhui@bytedance.com,
+	yuanzhu@bytedance.com, iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [RFC PATCH v2 2/4] iommu/riscv: Register independently tagged
+ devices with resctrl
+Message-ID: <awPv2KwSZdE_Biuj@thelio>
+References: <20261116071338.35991-6-zhangzhanpeng.jasper@bytedance.com>
+ <20261116071338.35991-8-zhangzhanpeng.jasper@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,21 +68,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116071338.35991-8-zhangzhanpeng.jasper@bytedance.com>
 
-On Mon, Nov 23, 2026 at 03:28:38PM +0800, Li kunyu wrote:
-> > -	// Do not unthrottle for an active CPU
-> > -	if (cpumask_test_cpu(cpu_of(rq), cpu_active_mask))
-> > -		return;
-> > -
+On Mon, Nov 16, 2026 at 03:13:41PM +0800, Zhanpeng Zhang wrote:
+> Register independently tagged devices after default-domain setup and
+> retain their IDs in driver-private state across domain changes. Program
+> all firmware IDs under the context-update lock and report command
+> completion failures to resctrl.
 >
-> Per patch 2, this check is no longer needed.
+> The DC.ta field size does not describe the implemented QoS ID widths.
+> Probe the low bits of the global write-any, read-legal fields with DDTP
+> OFF and all queues disabled and idle. Preserve and verify restoration of
+> the original register. If the widths cannot be obtained safely, do not
+> register devices with resctrl. Reject IDs outside the probed range before
+> changing any device context.
+>
+> Track exclusive device-context ownership without changing IOMMU core.
+> Discovering an alias resets and unregisters any previous QoS owner before
+> marking the context shared. Shared contexts are excluded from independent
+> QoS assignment until IOMMU reprobe, without failing ordinary DMA probing.
+> Serialize registration, alias discovery and release so an old owner
+> cannot become independently assignable again after its context is shared.
+>
+> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+[..]
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index fbdca69c436e..dd2ebb25312d 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+[..]
+> +static void riscv_iommu_probe_qosid_limits(struct riscv_iommu_device *iommu)
+[..]
+> +	iommu->qos_rcid_max = rcid;
+> +	iommu->qos_mcid_max = mcid;
+> +	iommu->qos_ids_valid = true;
 
-Right. With patch 2, set_rq_offline() only runs for CPUs that already
-left cpu_active_mask: sched_cpu_deactivate() clears it first, and
-rq_attach_root() only takes inactive CPUs offline.
+The iommu spec requires rcid and mcid to be at least as wide as on any
+hart, and resctrl only hands out IDs that the harts already use in
+srmcfg. Maybe the limit probe could be dropped?
 
-Thanks for reviewing the series.
+[..]
+> diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+> index 5676001548cc..72bb536190d1 100644
+> --- a/drivers/iommu/riscv/iommu.h
+> +++ b/drivers/iommu/riscv/iommu.h
+> @@ -15,6 +15,9 @@
+>  #include <linux/spinlock.h>
+>  #include <linux/types.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/mutex.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/xarray.h>
+
+spinlock.h is already included above.
 
 Thanks,
-Qiliang
+Drew
