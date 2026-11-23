@@ -1,86 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795441310;
-	b=OeU3iq4WcsM7IDz++oAsdbcKp8O4+7Xwo7w4XpZB590Q8Ju3Sx3xspMShacBCal+8NHY
-	 4GOWDf4j2kDyPRb21E3U0uS7EGlAlcRLRmg8Isrq0pwvzPpotEcqS9ih+DMiGTcHDvl0D
-	 xNGJffvDkEzL+n1K/6+fOZjLKZXm0lnkcEl2ZypH+bJOIuLrkQ4h+aVkbrCK7xohogPpt
-	 hvaYh89Sjqg3atEra4K7XImj3Q7ygEYCtjiWFz5xM6exEL4AG31loPBc6G5j+FaBCMcMw
-	 7l23CFgE1V3Dyk1Ww9wwiWXiAbUvH9lqopvb8xodW5jTIwIhFgpvyywU+9fpW6cli1g==
+	b=aJ6CNUfm8gCOrxlz4ugfERjSyZ5wUWWkGIdqkj3lTFWRf/xbrcy+H/UoFhYC5njpLLhn
+	 pIU/uYS93xxTT0hMNXbw6JnzgDUzFyPlK3V9UWUn57JXwB5GtY7OhmFymj0eIXOnE/oJA
+	 tf4H800IZag6/qdYuwN1uErnDfpkiox56U2+/q8Tjlj7+tdIUhDiSGIE4oxjpOlSIIVzs
+	 lkOteGvTtfmbAUrsNoe2n7jquxwqhETFqwbW1KNIgtBRJMav4h7iEJ18uKc9bKCgkd+E2
+	 lqWxwb7cJYVDwEL4NxoOW40r62ir/MqO+7GVU2YyvP2F6TBiJTj2aahu0Beu0S2A5RQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795441310;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Fj+OoHnoKDSF1Cc8xTYrIE9l6WkpswTqQj7BBV45TBk=;
-	b=dONBXTJHYOMdv92nEL2/g0o/MesMNYuHktYXAkL4cSQEzizuPJRJNZbLTinEuOPw/PH5
-	 syx8VYX2XjiM1hXFTtzM9An2wOkxM+ZjI5oPd5udBY+tFXOc8SPYZtAORDIDRuUfIQgcH
-	 KzbdWHe71+AFyRLK+fSbt+dD/b8m56QiB9RPtbwbFb+wt/KAv6KPnu8iaPtl3YirhLbp/
-	 +HVT+ziUjBz0DjpvbIYVAKVonffNTknpt+uSMRs0nO7HvOHh8IGh5jPAb27xcJl7FD7CX
-	 sZVhRZXulzKt/atOG5e7J2WpXV5n5E8LcciPVz/Uol7ubTF8t+gp/1Z1jt8PNbStKtQ==
+	bh=JEwCxqYSa78a+8RvsiiGGU+aVSJtIui2RNJ0j0sohk8=;
+	b=lP9EhlWMkSFxfcOGu7oO6TdBThxo9qCfykNNv5trI0kFAzj2ezdl80Jz068BxP0EghLv
+	 AW5H8oiua72Rhq4+Pc4WQqUxM2vgG/+B5t6QNipeVm1YrXndn2/+Js2csCHrQ5oVsPuKX
+	 9IQNsmBwdrFDvDtFlbEu06CbCJDnPHtR8HARiHsz2rBbtroH9JHAhx3lofy4hTC0jDx2Q
+	 gZ7K3pbUKIhH4OZYvdCYFGMmztLmUzeHrwhv1iOrj4Vp3T0vmyVBhADoiJBjyPdNDAFZA
+	 5PS1zbzTfW8daWtBRpqvcWxcIqkc5LVnz3PH9SwBWPjGdaEym0bTKViGtLnrmNTlB3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=KZsqN54u;
-	arc=none smtp.remote-ip=209.85.208.50
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=CVBN7bkd;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 087F8606B531
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 087F8606B531
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C408A60724FB
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C408A60724FB
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=KZsqN54u
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6ba380cd8dbso4239527a12.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=CVBN7bkd
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b587538a37so4836299a12.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795441307; x=1796046107; darn=vger.kernel.org;
+        d=bairaktaris.de; s=google; t=1795441308; x=1796046108; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Fj+OoHnoKDSF1Cc8xTYrIE9l6WkpswTqQj7BBV45TBk=;
-        b=KZsqN54uIUV5KqzVpJdLqLSlFLeZ/4wBMv4DgbJG/D3Xow+hA9SX2YgN3NP+kVCuLP
-         ptslrvf+J4XNUj4FI0kKTg4cxhrKnZANCTvnMziogfMOq95HXywXd+oatWK0qIu1TImN
-         APOdih1RzcsWBMN6I6x4Yec/HlzRssVGvF1ht+8uwfh4nSOpY+mwpaD5iXg5htNb5gPU
-         YDHqoIB1lqk6rS11DnT91RvWGijpPF9czveS/mfeOR3LzB62mEh0JrEUeq3dwTDbKNVf
-         pc4A77OaA0oCGjZdBfQEnXIjtjH6TCdNatQdlvagSsE7Sq5MYJNVtRMhRQEa8cw8lcxi
-         BX3g==
+        bh=JEwCxqYSa78a+8RvsiiGGU+aVSJtIui2RNJ0j0sohk8=;
+        b=CVBN7bkd/BZGPJoW8CbECg3mPq8FieJKLu1s+0qaxSck6Z4P5NwmKDF6tEI/KsSzE+
+         A7jFUFyy88eiwh1NZhPe7R+jGvFJDwR+SP8QYput/zw6r5rHYjGICwgoe0dwNo+xm0Vj
+         CJxpnHAPmp2r5GkdOeiVavT8y8Kius+vnP9CCpwkyKBw5ejEPH3Q96s/gBNZfh8D8ypF
+         +1Q0Qyw0npiFpYbU71Ma04pVkO+T7wxQWCUajREkk5m7PD8WB8Xhz2qwZX+l/4hkNWLB
+         eTmA8PFGJv5cPF9eJDbzitFXBENsb+Jhl43kXf3VWMZd1rEnTX1qpjLZUPlO9VQX9P5J
+         p3Qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441307; x=1796046107;
+        d=1e100.net; s=20260707; t=1795441308; x=1796046108;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Fj+OoHnoKDSF1Cc8xTYrIE9l6WkpswTqQj7BBV45TBk=;
-        b=NI6NQQnyqYW1sakE/iQukMlu6Q6mM929ev8TW9hoMhCN9BZ6txEXI2g4OF0yxTdkCR
-         C61QId/mOloDjTZwYXwtVmQRyYRVqD/HNCAYrJtCdkkSTe9Pr/JkA3HRIgsav7RxIInu
-         Nf2p5ciu480xvBGFVC/8z2iRhpCAqjPNF+5wjAUJTS6UjBWyn6fX1VZIKG4u0kgZX6Ul
-         OdhsWQPsE+1+T8vNjfKJ4cd+l48GpW9KNhdJYSFiOz+/eirc6pFYUym+Y0TsDcSprq+3
-         lA4mPx2PTHZGTB94lNMutdDICqyNc0884dWupF2xaBOukoeuS76401MwPn9aVs4vX0Gw
-         xSUw==
-X-Forwarded-Encrypted: i=1; AL+hErFOQ6e1h4Pk2orB2NzPtdda5xeE5bBFIBN5o2BTtaAD7sntNOYlxL7ogEnnVPUTqWjhDKYySwoeDj+4GZ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Uf4GX0Bqe/cab4mC5nIqeqxf1J727vYdNDM1lOHhKLcH76AO6
-	/eR+fpkNytqr+lBuskrmoJzgbRFXmgwjUdQthF7joqZCVI+xqHGLhvdjsxL1mwuH1Q==
-X-Gm-Gg: AZFdTZfoYi5oaAWAnIK5BtpHjXVK4vs3gws556TvZeInfAttb+pWZDscd18qKLzeCcv
-	MWPis9R6VcPnAjqjg6fZPfUcGKl7uniUpwBlUJDS7ZBCgxQ1BWVr2ZpmEfq/MEA5hMDEaCyoDC2
-	93TPBuBlWmHI/i2XaoKeoq/DsZjFvgEvae5+MnYU1sLZpKNKnuozMXaa6nCc1GVVjbGfThk0Kbp
-	gc6lPLHb628Gssz8x83xhHtbJ1H2FsSyFWcl8j/P5J5bBceWkDRscILtNE6Sh4nwgSRDzJm0Xdp
-	HAnLAgPgjHCI+Le4crQE79gT2OoEfd1HIrKTn7bYSlF8Oi8sYTCZGR/yjRUZ4UBB8RzYGjSa7um
-	U1+MRekwGnT4CA0Y4vxPGwaC9fJNGbbYs9GF9AQygk23mIbiV5yXJDHouOrWZ7E/4SX2Vmazul4
-	sSPcxtDtDX61ZiHkQDDvh2LxbFpE9nN83AUdSiVrPJ7v26t3IdFPwsGo4PX3hmJMaldVSnKbaUx
-	bprA6FYTd8PY/BWiRNh6QbFRIBXMGVgPJmJEBvgg9nUBK9XoCapNz4d4Mr+APlSSoKDRbR9GHvV
-	FNL8psnryg9tdmgjy4Y7mOZY2nW/8vhbxXFIHyeaDBzQJy154TNSuJSAa0cVc5mZPYg/XYKBswV
-	hqI7yZ2cfxLWgtj0Vwmt3GLqUPYWXhf2yo1bSti7emdAEi/XHYyP/TZRitGLS9dDmSMH8JEQ0sc
-	BSz9jcj2Cg6yGvJB9Ny3woxN96pD4gwJy/MBVwWZaRHB/VQcg6rfof/0CcKF0faPBvicInTXWz2
-	mPYETQLB+sCNSacVyIIGh2c8YsVesCYKccs4BA3QEyJaDFxfz3YKPg8BWOWzVmb0rIhTMMw8WZ1
-	oZ8rRHAxRarBO+FJNjVMPDvncF6l3B6AIhVHY4vn4gwMB55DMDrUOcR/pfgGSaVl2dLgx/Pv3f6
-	p1O9hVSG+0Ik5ZHEJmZ8=
-X-Received: by 2002:a05:6402:1cc3:b0:6b8:7816:8735 with SMTP id 4fb4d7f45d1cf-6ba37cc09f1mr7420178a12.3.1795441307436;
-        Mon, 23 Nov 2026 05:41:47 -0800 (PST)
+        bh=JEwCxqYSa78a+8RvsiiGGU+aVSJtIui2RNJ0j0sohk8=;
+        b=Tx1FyMfBOPpq0UHcHFf4w/bEANqVPwq3Hy12u18R7O8hfu72a0i7nHTF9mJzRDO3TZ
+         dwM3IYY4vH6LvV3/kK8yV8wrj63gazUmdn96SeTrQwjcdFhMesGYcFpX0y2IGc3fUn+1
+         ipWlXYy4Ok/enKUwgKRs2idTIahTqhGHQkVm5JlsLpgmXBbnFSdFpXOFQ4F2SO4wzdOT
+         sS2xuP6+O0Yys53OOIHDjely2GhwmknKEWDHa9weDDPnoBqv431yzIwZZ8kd/AdV7e+U
+         /fcSl7I//CFMuoqqAzgf3zzbBFAn1BASGNiGJoXNIIWZfuEhxerNAwzdX1hna2h+Ztnu
+         9j4A==
+X-Forwarded-Encrypted: i=1; AL+hErHkQK21E8SZ/w/1bce/gfnatYme1DS+1kp1TTq1CSl6ZFD58STcLlSchon18N6uEqfviIHGMiV9ndNNE7Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+6C3irFuE1WWZ9A48m4xVhVfSnJugCas4MR7db5y2ezgyLh4wb
+	3umM3MdNL0r2FhyfvcItfKvmQj9n+jSZTimUiBpz47H7F6eKDHijTIts5q4Szfyv7Q==
+X-Gm-Gg: AZFdTZevF4IodF4NkVeolzKkxte76d9wGNyCxwVVgBKv4QqYOV4VLxc2dYfJuljfsGG
+	p5HWhE4zjC0JukG+FqUpwhhj502dhgiumGLKP1vfipn5UQQ5RPvQ0WOm9YLpYZA636tAmwZmEoU
+	DOhomVmEvDPWdcjmauwwP/LHRL7hX3N7BqLD/1jQ49c3hDbPHMHaYP5G1CWfAYJYwjl3BgxOfQ3
+	Z2PtBSKLzkopcAfHtfpWoDvsKCC/xqcfSWopNvi8igxZZSN6WkC/qV2RIIoJcQlRPjNReaB7GNg
+	DogSosJt9OLA47TizVnOY0Dfnvkb3caLhBcXaepTqoEOPBy+fP7BAICpwfEMoau/qxlKHfJAcGm
+	TeQ+yfc3EvlW6GhFGlnmeE2URcd5h6vM4EI9A7Am+ozHWoIuf8nIK+xrUelXrnAVlxwitEEshuU
+	SBTypPpwpC295KhjcJxBfuvhIsvxbDaI7rWPJd2XAy5fP2lo4SNMTvuVcxqdKJIj0BgsrZo43Qa
+	PGOQL2lVXuKd8mS3+3uJp5thLm47DE6P/Ofdr2ejcro8e71E6TjSWGA83SDbPW+iL+Cisej3JQt
+	rY1jEDvqDJJYMPNCdclTwQGk2pldOtXzu3V862YVn/81FUQNiF357NYmcHFSXteOzX6GXzorwGS
+	98EDNeB56yDIOr2hVPctuIinU8X+2zP3RrsFp4j83SmfIphu6vvBQl1B18Ss5ndVFApLrGYnBvo
+	xZdxlGIFTm4Dstr+clVzoEpYF19zpXCceqONyMJ7eAsp57LUEmAykgtvmL7NygRCXFH09cYJuBT
+	7gMCnoSyA+G7DBUxdm/RKGEJvLWizbNcA+knaxTX1ZrpismlC3JJ13PLZg/E1Ljq05ni9W+SUBg
+	RV2ld7YMomU6OvJOePB40KzfmkE1bc+3c+Tx2r8d9t/i6RAg9ZzkikfmS61qBOAwz6rN/keHMg=
+	=
+X-Received: by 2002:a05:6402:5411:b0:6ba:1f74:ba6b with SMTP id 4fb4d7f45d1cf-6ba37eed98fmr8090525a12.36.1795441308127;
+        Mon, 23 Nov 2026 05:41:48 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f247012000e9a6b19fb24a0d13.dip0.t-ipconnect.de. [2003:f2:4701:2000:e9a6:b19f:b24a:d13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.46
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Mon, 23 Nov 2026 05:41:47 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
@@ -95,9 +95,9 @@ Cc: ath11k@lists.infradead.org,
 	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
 	Mark Ruvald Pedersen <wabsie@gmail.com>,
 	Rosen Penev <rosenp@gmail.com>
-Subject: [PATCH ath-next v1 09/10] wifi: ath11k: hand the CPU only the part of a REO buffer the device wrote
-Date: Mon, 23 Nov 2026 14:41:36 +0100
-Message-ID: <20261123134137.718575-10-julius@bairaktaris.de>
+Subject: [PATCH ath-next v1 10/10] wifi: ath11k: give the refill buffers their ids a chunk at a time
+Date: Mon, 23 Nov 2026 14:41:37 +0100
+Message-ID: <20261123134137.718575-11-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261123134137.718575-1-julius@bairaktaris.de>
 References: <20261123134137.718575-1-julius@bairaktaris.de>
@@ -112,189 +112,203 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The REO reap takes each page pool buffer back from the device with a
-dma_sync_single_for_cpu() over the whole buffer, 2048 bytes, while the
-device wrote the descriptor, the L3 padding and the MSDU, whose length
-the REO entry carries. A TCP acknowledgment, which is what a station
-sends back on downlink, takes 453 bytes of it on IPQ8074 (384 of
-descriptor, at most 3 of padding, 66 of frame): on a non-coherent system
-the invalidation walks 32 cache lines where 8 hold what the device wrote.
+The refill takes the buffer table lock of the refill ring once per
+buffer, and the cache line of the lock moves between the CPUs of the REO
+rings, whose reaps take it for every frame: in a profile of bridged
+uplink at 850 Mbit/s (IPQ8074, one run) the compare-and-swap of that
+spin_lock() in ath11k_dp_rxbufs_replenish() takes 0.84 % of all samples.
 
-Take back the descriptor, the largest padding of the two padding fields
-and the MSDU length of the entry. The buffers of an MSDU that spans
-several, the one with the continuation bit and the ones after it on the
-ring, are taken whole as before; whether the last entry reaped had the
-bit is kept per ring, so a chain split between two polls is still seen.
-The length taken is recorded in the frame's control block, and
-ath11k_dp_rx_process_msdu() takes back the rest, up to the length the
-descriptor gives, before it reads the frame, should that be longer than
-the entry's: the CPU never reads a byte of the buffer it has not
-invalidated after the device wrote it. A line past what was taken back
-is not read and may hold a stale copy; the page pool syncs the whole
-page for the device before the device gets it again, and the reap of its
-next frame invalidates what that frame covers.
-
-A buffer of its own, without a page pool, is unmapped whole as before.
+Allocate the buffers of a chunk of up to 16 first, outside the lock, and
+give them their ids under one hold of it. A buffer that gets no id or no
+ring entry goes back and ends the refill with what is on the ring, as an
+allocation failure does. The reaps still hold the lock for one table
+entry at a time, so they wait at most for 16 id operations.
 
 Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- drivers/net/wireless/ath/ath11k/core.h  |  2 +
- drivers/net/wireless/ath/ath11k/dp.h    |  4 ++
- drivers/net/wireless/ath/ath11k/dp_rx.c | 71 +++++++++++++++++++++++--
- 3 files changed, 72 insertions(+), 5 deletions(-)
+ drivers/net/wireless/ath/ath11k/dp_rx.c | 142 +++++++++++++++---------
+ 1 file changed, 92 insertions(+), 50 deletions(-)
 
-diff --git a/drivers/net/wireless/ath/ath11k/core.h b/drivers/net/wireless/ath/ath11k/core.h
-index 4eb40e674c14..6b05b2e4d926 100644
---- a/drivers/net/wireless/ath/ath11k/core.h
-+++ b/drivers/net/wireless/ath/ath11k/core.h
-@@ -142,6 +142,8 @@ struct ath11k_skb_rxcb {
- 	u8 tid;
- 	u16 peer_id;
- 	u16 seq_no;
-+	/* the bytes of the buffer from its start that the CPU took back */
-+	u16 sync_len;
- 	struct ieee80211_sta *sta;
- };
- 
-diff --git a/drivers/net/wireless/ath/ath11k/dp.h b/drivers/net/wireless/ath/ath11k/dp.h
-index 5e973c337cb2..861cf65c5218 100644
---- a/drivers/net/wireless/ath/ath11k/dp.h
-+++ b/drivers/net/wireless/ath/ath11k/dp.h
-@@ -234,6 +234,8 @@ struct ath11k_pdev_dp {
- #define DP_RX_BUFFER_SIZE	2048
- #define	DP_RX_BUFFER_SIZE_LITE  1024
- #define DP_RX_BUFFER_ALIGN_SIZE	128
-+/* The most L3 header padding the msdu_end TLV of any chip gives */
-+#define DP_RX_L3_PAD_MAX	3
- #define DP_RX_PP_ORDER		1
- #define DP_RX_PP_FRAG_SIZE	ALIGN(SKB_HEAD_ALIGN(DP_RX_BUFFER_SIZE), \
- 				      DP_RX_BUFFER_ALIGN_SIZE)
-@@ -279,6 +281,8 @@ struct ath11k_dp {
- 	struct dp_srng reo_cmd_ring;
- 	struct dp_srng reo_status_ring;
- 	struct dp_srng reo_dst_ring[DP_REO_DST_RING_MAX];
-+	/* the last entry reaped from the ring had the continuation bit */
-+	bool reo_dst_cont[DP_REO_DST_RING_MAX];
- 	struct dp_tx_ring tx_ring[DP_TCL_NUM_RING_MAX];
- 	struct hal_wbm_idle_scatter_list scatter_list[DP_IDLE_SCATTER_BUFS_MAX];
- 	struct list_head reo_cmd_list;
 diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
-index dd5bc35581f7..313a39f15781 100644
+index 313a39f15781..a85edaf19bfb 100644
 --- a/drivers/net/wireless/ath/ath11k/dp_rx.c
 +++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
-@@ -410,17 +410,59 @@ static bool ath11k_dp_rx_buf_is_pp(struct sk_buff *skb)
- 	return skb->pp_recycle && skb->head_frag;
+@@ -497,12 +497,65 @@ static struct sk_buff *ath11k_dp_rx_pp_alloc_skb(struct dp_rxdma_ring *rx_ring)
+ 	return skb;
  }
  
--static void ath11k_dp_rx_unmap_buf(struct ath11k_base *ab, struct sk_buff *skb,
--				   enum dma_data_direction dir)
 +/*
-+ * Hands a receive buffer back to the CPU: of a page pool buffer the first
-+ * @want bytes, or all of it for a @want of 0 or past its end, and records
-+ * how much in sync_len. A buffer of its own is unmapped whole.
++ * The refill takes buffer ids for this many buffers under one hold of the
++ * buffer table lock, which the reaps of every REO ring take too.
 + */
-+static void ath11k_dp_rx_unmap_buf_len(struct ath11k_base *ab,
-+				       struct sk_buff *skb,
-+				       enum dma_data_direction dir,
-+				       unsigned int want)
- {
- 	struct ath11k_skb_rxcb *rxcb = ATH11K_SKB_RXCB(skb);
- 	unsigned int len = skb->len + skb_tailroom(skb);
- 
--	if (ath11k_dp_rx_buf_is_pp(skb))
-+	BUILD_BUG_ON(FIELD_MAX(RX_MSDU_END_INFO2_L3_HDR_PADDING) >
-+		     DP_RX_L3_PAD_MAX);
-+	BUILD_BUG_ON(FIELD_MAX(RX_MSDU_END_INFO4_L3_HDR_PADDING) >
-+		     DP_RX_L3_PAD_MAX);
++#define ATH11K_DP_RX_REFILL_CHUNK	16
 +
-+	if (ath11k_dp_rx_buf_is_pp(skb)) {
-+		if (want && want < len)
-+			len = want;
- 		dma_sync_single_for_cpu(ab->dev, rxcb->paddr, len,
- 					DMA_BIDIRECTIONAL);
--	else
-+	} else {
- 		dma_unmap_single(ab->dev, rxcb->paddr, len, dir);
++/* A buffer for the refill of @rx_ring and the address the device writes it at */
++static struct sk_buff *ath11k_dp_rx_refill_alloc(struct ath11k_base *ab,
++						 struct dp_rxdma_ring *rx_ring,
++						 dma_addr_t *paddr)
++{
++	struct sk_buff *skb;
++
++	if (rx_ring->page_pool) {
++		skb = ath11k_dp_rx_pp_alloc_skb(rx_ring);
++		if (skb)
++			*paddr = ath11k_dp_rx_pp_dma_addr(skb);
++		return skb;
 +	}
-+	rxcb->sync_len = len;
++
++	skb = dev_alloc_skb(DP_RX_BUFFER_SIZE + DP_RX_BUFFER_ALIGN_SIZE);
++	if (!skb)
++		return NULL;
++
++	if (!IS_ALIGNED((unsigned long)skb->data, DP_RX_BUFFER_ALIGN_SIZE))
++		skb_pull(skb, PTR_ALIGN(skb->data, DP_RX_BUFFER_ALIGN_SIZE) -
++			      skb->data);
++
++	*paddr = dma_map_single(ab->dev, skb->data,
++				skb->len + skb_tailroom(skb), DMA_FROM_DEVICE);
++	if (dma_mapping_error(ab->dev, *paddr)) {
++		dev_kfree_skb_any(skb);
++		return NULL;
++	}
++
++	return skb;
 +}
 +
-+static void ath11k_dp_rx_unmap_buf(struct ath11k_base *ab, struct sk_buff *skb,
-+				   enum dma_data_direction dir)
++/* Frees a buffer ath11k_dp_rx_refill_alloc() gave that is not on the ring */
++static void ath11k_dp_rx_refill_free(struct ath11k_base *ab,
++				     struct dp_rxdma_ring *rx_ring,
++				     struct sk_buff *skb, dma_addr_t paddr)
 +{
-+	ath11k_dp_rx_unmap_buf_len(ab, skb, dir, 0);
++	if (!rx_ring->page_pool)
++		dma_unmap_single(ab->dev, paddr, skb->len + skb_tailroom(skb),
++				 DMA_FROM_DEVICE);
++	dev_kfree_skb_any(skb);
 +}
 +
-+/*
-+ * Takes back from the device the bytes of @msdu past those it took at the
-+ * reap, up to @need, for a frame whose descriptor says it is longer than
-+ * its REO entry did.
-+ */
-+static void ath11k_dp_rx_sync_more(struct ath11k_base *ab, struct sk_buff *msdu,
-+				   unsigned int need)
-+{
-+	struct ath11k_skb_rxcb *rxcb = ATH11K_SKB_RXCB(msdu);
-+	unsigned int len = msdu->len + skb_tailroom(msdu);
-+
-+	need = min(need, len);
-+	if (likely(need <= rxcb->sync_len))
-+		return;
-+
-+	dma_sync_single_for_cpu(ab->dev, rxcb->paddr + rxcb->sync_len,
-+				need - rxcb->sync_len, DMA_BIDIRECTIONAL);
-+	rxcb->sync_len = need;
- }
- 
- static dma_addr_t ath11k_dp_rx_pp_dma_addr(struct sk_buff *skb)
-@@ -2870,6 +2912,8 @@ static int ath11k_dp_rx_process_msdu(struct ath11k *ar,
- 					sizeof(struct hal_rx_desc));
- 			goto free_out;
- 		}
-+		ath11k_dp_rx_sync_more(ab, msdu, hal_rx_desc_sz + l3_pad_bytes +
-+				       msdu_len);
- 		skb_put(msdu, hal_rx_desc_sz + l3_pad_bytes + msdu_len);
- 		skb_pull(msdu, hal_rx_desc_sz + l3_pad_bytes);
- 	} else {
-@@ -3027,6 +3071,8 @@ static void ath11k_dp_rx_prefetch_frame(struct ath11k_base *ab,
- int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
- 			 struct napi_struct *napi, int budget)
+ /* Returns number of Rx buffers replenished */
+ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
+ 			       struct dp_rxdma_ring *rx_ring,
+ 			       int req_entries,
+ 			       enum hal_rx_buf_return_buf_manager mgr)
  {
-+	unsigned int want;
-+	u32 info0;
- 	struct ath11k_dp *dp = &ab->dp;
- 	struct dp_rxdma_ring *rx_ring;
- 	int num_buffs_reaped[MAX_RADIOS] = {};
-@@ -3067,6 +3113,21 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
- 				   cookie);
- 		mac_id = FIELD_GET(DP_RXDMA_BUF_COOKIE_PDEV_ID, cookie);
++	struct sk_buff *skbs[ATH11K_DP_RX_REFILL_CHUNK];
++	dma_addr_t paddrs[ATH11K_DP_RX_REFILL_CHUNK];
++	int ids[ATH11K_DP_RX_REFILL_CHUNK];
++	int n, got, ided, i, j;
+ 	struct hal_srng *srng;
+ 	u32 *desc;
+ 	struct sk_buff *skb;
+@@ -528,70 +581,59 @@ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
+ 	num_remain = req_entries;
  
-+		/*
-+		 * The device wrote the descriptor, the padding and the MSDU
-+		 * of the length the entry gives. A buffer of an MSDU that
-+		 * spans several, which follows one with the continuation bit
-+		 * or has it, is taken whole.
-+		 */
-+		info0 = desc->rx_msdu_info.info0;
-+		want = ab->hw_params.hal_desc_sz + DP_RX_L3_PAD_MAX +
-+		       FIELD_GET(RX_MSDU_DESC_INFO0_MSDU_LENGTH, info0);
-+		if (dp->reo_dst_cont[ring_id] ||
-+		    (info0 & RX_MSDU_DESC_INFO0_MSDU_CONTINUATION))
-+			want = 0;
-+		dp->reo_dst_cont[ring_id] =
-+			!!(info0 & RX_MSDU_DESC_INFO0_MSDU_CONTINUATION);
-+
- 		if (unlikely(buf_id == 0))
- 			continue;
+ 	while (num_remain > 0) {
+-		if (rx_ring->page_pool) {
+-			skb = ath11k_dp_rx_pp_alloc_skb(rx_ring);
+-			if (!skb)
+-				break;
+-
+-			paddr = ath11k_dp_rx_pp_dma_addr(skb);
+-		} else {
+-			skb = dev_alloc_skb(DP_RX_BUFFER_SIZE +
+-					    DP_RX_BUFFER_ALIGN_SIZE);
++		n = min(num_remain, ATH11K_DP_RX_REFILL_CHUNK);
++		for (got = 0; got < n; got++) {
++			skb = ath11k_dp_rx_refill_alloc(ab, rx_ring, &paddr);
+ 			if (!skb)
+ 				break;
+-
+-			if (!IS_ALIGNED((unsigned long)skb->data,
+-					DP_RX_BUFFER_ALIGN_SIZE)) {
+-				skb_pull(skb,
+-					 PTR_ALIGN(skb->data,
+-						   DP_RX_BUFFER_ALIGN_SIZE) -
+-					 skb->data);
+-			}
+-
+-			paddr = dma_map_single(ab->dev, skb->data,
+-					       skb->len + skb_tailroom(skb),
+-					       DMA_FROM_DEVICE);
+-			if (dma_mapping_error(ab->dev, paddr))
+-				goto fail_free_skb;
++			skbs[got] = skb;
++			paddrs[got] = paddr;
+ 		}
  
-@@ -3086,7 +3147,7 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
+ 		/* bottom halves are off with the ring lock */
+ 		spin_lock(&rx_ring->bufs_lock);
+-		buf_id = ath11k_dp_rx_buf_get_id(rx_ring, skb);
++		for (ided = 0; ided < got; ided++) {
++			buf_id = ath11k_dp_rx_buf_get_id(rx_ring, skbs[ided]);
++			if (buf_id <= 0)
++				break;
++			ids[ided] = buf_id;
++		}
  		spin_unlock(&rx_ring->bufs_lock);
+-		if (buf_id <= 0)
+-			goto fail_dma_unmap;
+-
+-		desc = ath11k_hal_srng_src_get_next_entry(ab, srng);
+-		if (!desc)
+-			goto fail_idr_remove;
+-
+-		ATH11K_SKB_RXCB(skb)->paddr = paddr;
  
- 		rxcb = ATH11K_SKB_RXCB(msdu);
--		ath11k_dp_rx_unmap_buf(ab, msdu, DMA_FROM_DEVICE);
-+		ath11k_dp_rx_unmap_buf_len(ab, msdu, DMA_FROM_DEVICE, want);
- 		if (cached)
- 			ath11k_dp_rx_prefetch_frame(ab, msdu);
+-		cookie = FIELD_PREP(DP_RXDMA_BUF_COOKIE_PDEV_ID, mac_id) |
+-			 FIELD_PREP(DP_RXDMA_BUF_COOKIE_BUF_ID, buf_id);
++		for (i = 0; i < ided; i++) {
++			desc = ath11k_hal_srng_src_get_next_entry(ab, srng);
++			if (!desc)
++				break;
+ 
+-		num_remain--;
++			ATH11K_SKB_RXCB(skbs[i])->paddr = paddrs[i];
+ 
+-		ath11k_hal_rx_buf_addr_info_set(desc, paddr, cookie, mgr);
+-	}
++			cookie = FIELD_PREP(DP_RXDMA_BUF_COOKIE_PDEV_ID, mac_id) |
++				 FIELD_PREP(DP_RXDMA_BUF_COOKIE_BUF_ID, ids[i]);
+ 
+-	ath11k_hal_srng_access_end(ab, srng);
++			num_remain--;
+ 
+-	spin_unlock_bh(&srng->lock);
++			ath11k_hal_rx_buf_addr_info_set(desc, paddrs[i], cookie,
++							mgr);
++		}
+ 
+-	return req_entries - num_remain;
++		/*
++		 * A buffer that got no id or no ring entry goes back, and the
++		 * refill ends with what is on the ring.
++		 */
++		if (i < got) {
++			spin_lock(&rx_ring->bufs_lock);
++			for (j = i; j < ided; j++)
++				ath11k_dp_rx_buf_put_id(rx_ring, ids[j]);
++			spin_unlock(&rx_ring->bufs_lock);
++			for (j = i; j < got; j++)
++				ath11k_dp_rx_refill_free(ab, rx_ring, skbs[j],
++							 paddrs[j]);
++			break;
++		}
+ 
+-fail_idr_remove:
+-	spin_lock(&rx_ring->bufs_lock);
+-	ath11k_dp_rx_buf_put_id(rx_ring, buf_id);
+-	spin_unlock(&rx_ring->bufs_lock);
+-fail_dma_unmap:
+-	if (!rx_ring->page_pool)
+-		dma_unmap_single(ab->dev, paddr, skb->len + skb_tailroom(skb),
+-				 DMA_FROM_DEVICE);
+-fail_free_skb:
+-	dev_kfree_skb_any(skb);
++		if (got < n)
++			break;
++	}
+ 
+ 	ath11k_hal_srng_access_end(ab, srng);
  
 -- 
 2.53.0
