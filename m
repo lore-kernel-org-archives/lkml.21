@@ -1,79 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422778;
-	b=1Uvmu+V3H9cB+w8ZKPmXCetRwTBjUVJ0vMBI+i2orrzJP+NHqTAftEj5GjfLLbBm2t5Z
-	 4eh6AFUZRBJ9umudHvLeIA0m7qkwQHiwpCiwPOsS5JCplkzNr8F25qYqydM4Om6utTkh3
-	 OAVOKdVAziuJkk5H7SXRUGf++bZO/gNzH44BIdOVR6lIFFbh1sNwIpLolvVFiB+P5grts
-	 cD5zOCp4d91tEDRCyW2eHLC3+eHDk6IA8+9+QBEcGRSRGpl/5hsX/SDO2NGU7fpzYjsUi
-	 q2NfnW+lzWnqubzr/z83IpEEjkXVIt/2MgFb4LoEjj9L4lqCqgGqO884LEqOtY37P/w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422778;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=n55dgsYNis5nMkVCX76zkEz0gmaGG+jJDQmh0p+MIrA=;
-	b=Mcg5jHnuox5YWbYsDwDoRIdNqjaVE14FjFIIUyOxNwC1AZdgOKgsxlccXDb/m/eHsw1c
-	 OYS402m7r7nyZgHGlpfmQ6BiHTRkz1ImcqcY3P78U9uM0ruXfcl82/yI1rBU6j0SxOGnM
-	 d6VAVj12y+oZ9MKmxGUugChdyu6luI36CSmnlKjX+L6GonYRrTaQr3e//BQesm+MQErT8
-	 27RSnQDU1b3jMwGkS0f/cqKPol7XtAos3JoIfoQN30vXATaKyaq+dcFC9bgdINApx0R/s
-	 ChZ6tsUrgk6MEZiQwcLrBe/6/5gA9jSjfN8gp9XxdIbbK/hgVbVW1vy7LZL5P4dPSWA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=oCJ+mkSZ;
-	arc=none smtp.remote-ip=192.198.163.8
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.24
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795422784;
+	b=Czy6z2pqqKJgo2w2fifuVo6xtq8vuaAZ0HvXzW+1D41/4NksEhTgciLm6mQuZmZ4pw3y
+	 WzpeDvFhgNVwWjHoYEk8dBPiPT1RY6sN51azKwiaSEPRJPTqXu+rokB8xT6aTRLA7oNWp
+	 VCOgKHKh3aK0kMpeVPdILSve+tb3QMk+6JY0XDHeO4hQTyF6eNoABOZctXh7F+yNtBerF
+	 kUzT4PboLQb0FkBKglYhHl/2lXD68u1Qwz6rmcdzFzjRT+F4MdCvSjGcDooswk82BKiYW
+	 kO6jqvp4xJC4fyKkY2iM6Hc+pLav2TcEci2Bk7ldoy5F3e2OCq5uXGdAwgIOs8UUJdg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422784;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=VXbUu6pN/foWSpf5t/cqIEwwRDxnml53J2oU9Q82DXg=;
+	b=jeLPUuJ/Kr1Mu8/ncfhDb0AJtvvuVSrUPIDn7V/IXEARZrRiFsDP+D8LEjxieYWPeKgw
+	 P++GC9n8lIJUNiaSGU55MDdnA1E7mKXZZ8uDj1nr+bRy90zJeGdiCoRm56mk8YJ5kPMUL
+	 /v8dDbJ8DbKztYU6ajfI9Vw9fem1U/+ro7lP/T75qD0Un46Cuu2B7L6LgL/SCHjtol3Gv
+	 D/0UlNlj7QnOSQVX97AFH0phxtX9BIoyvlO6Gsk5vwm0/iL4+7RDflzKNmQiXFSNwlo0b
+	 JKFivfr+qq6Xp47jXPmLkDnnrDSq1ULbGjebBh5j1GcSGv/yftB9SrIm8mKT9Ad/qFw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=g+Gol8FT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.24
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012024.outbound.protection.outlook.com [52.101.43.24])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F252606A321;
-	Mon, 23 Nov 2026 08:32:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F252606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62FF1606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:33:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62FF1606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=oCJ+mkSZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795422778; x=1826958778;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=za0vRKr80ynhtYaXvLncKEjvB6Yq1k+fm4wxoQh6+YI=;
-  b=oCJ+mkSZ1AFzhK3wyHAfTRJC7gneioQgEywffdVWmC+WpQGpeaZnsDY2
-   sM9QwFiweLagksnWA9P46vRL+h3j1OLruvCPFUzgoYey9ieS26RL/HDGT
-   OXU3opydrOotnKqxPz+D3Z2ZC9M7NSHBqMu8lgafdrbkUXesfwx7IAeOW
-   R4/Q6X+LnavkGE3OeGsobTOLBtCxJFRay8sai4k8+nYl9Lpbb5VtPmwg2
-   zgWrq1HilfUG0LElLh2ZdQjcCKKm/mjI2aNBP7YQ0+gVxJhUqUBUgALCb
-   Ke9ZjzqqLKXfbko3J5Nn1tc3p3ESAnv5UoJtPqKMisEh5yNIOpyPheMQO
-   Q==;
-X-CSE-ConnectionGUID: lfbP05YSTiWoyJZNCidHiQ==
-X-CSE-MsgGUID: BAhhIb8YSzCIadyWQu00fQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4114360"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4114360"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:32:58 -0800
-X-CSE-ConnectionGUID: mq7Szv1SQo+J2OjIU5YbWA==
-X-CSE-MsgGUID: h1ug/Oh9ToO8cQkWj9fC1g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11542955"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.225])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:32:54 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Mon, 23 Nov 2026 10:32:45 +0200 (EET)
-To: Rosen Penev <rosenp@gmail.com>
-cc: Matthew Garrett <mjg59@srcf.ucam.org>, 
-    =?ISO-8859-15?Q?Pali_Roh=E1r?= <pali@kernel.org>, 
-    Hans de Goede <hansg@kernel.org>, 
-    Gabriele Mazzotta <gabriele.mzt@gmail.com>, 
-    Darren Hart <dvhart@linux.intel.com>, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 3/3] platform/x86: dell-laptop: Parse the charge end
- threshold as an int
-In-Reply-To: <6abac23d8f9985b55282ee56c97155a67076257c.1795219225.git.rosenp@gmail.com>
-Message-ID: <51f6631e-62df-0e64-b358-805d343475b7@linux.intel.com>
-References: <cover.1795219225.git.rosenp@gmail.com> <6abac23d8f9985b55282ee56c97155a67076257c.1795219225.git.rosenp@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=g+Gol8FT
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=re4+a+1uRzymc77jf7jIVJcDcRSMbVJ30VI2WjRrvlyBZ5RlUy6gV8/7WXCgcbi2cdMhD3pRxZzgwTLq/5KfIc2FKEzXsC4iYMbx6g5AAA4zzTpAP4JPfJyY3Z0FUMTOCIuAxiGuClVcHWaIx8jnkqTiQ9yQDtX9ERvg43V+UKyykJGmIf86U0AqlHjtdTtBus6WOeSzTFYvYWVQmW8RA/Ukg7onpWWyFDIbcMWVbJ3Ha2JnSbIdqVJmReO6BXYLghh5Bb4RrTGVSFPAir9X+VgvqdgYOb4ydFuK9jaxZq2GdTFCFVXnH+WtqpSHCOlkuL32EjxSIX01uKilpoULZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VXbUu6pN/foWSpf5t/cqIEwwRDxnml53J2oU9Q82DXg=;
+ b=g/XYOWpye1wl1S2rITwxSHOuD/k11z7ycwB7g79ZD8thz6PHKkCh+3QQGX1HFT+F6lFxhQ53WUcdluZhnlj8V89K5DnDNUEIHxyOnKNseLA48zkdkwMydNov/SqdWFb2pUnxWhIt/46DrUbeH1t9w6GiWHwdhUYr3/E2AzYk0buuH9A3Qib6qFLsqfxP6iU2DNEDHNNMStB5x8EhyuP4wG22JL1Qaemm9HH9WAT3+vR49/X8x5LrUyxU3kg9a9Wbj/f6G2KDhaVNhEliq6oW+GHRHuxuGTGQaldpgnZNQzOnqcQGYxLfKBp6OyoA3hFbw3QRfxc45Md0FRL9Qor2RA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VXbUu6pN/foWSpf5t/cqIEwwRDxnml53J2oU9Q82DXg=;
+ b=g+Gol8FT/t0Y/UeWavu7GjwWsqDRdbpmSndZnHpJ1d4VVZPXiH299AU9TkvOgYyjngQ+A6AtjXCpvwoEnLuZSyUcY0r3fuke3nj+iP1tDuFBibTc6PyWeCLDRmzZFc1p9vK1QGv4ogTrNaOexcxEJhlBZA75UKrQlpzfAfMNBio=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com (2603:10b6:208:591::16)
+ by SA1PR12MB6749.namprd12.prod.outlook.com (2603:10b6:806:255::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 08:33:01 +0000
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83]) by BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83%5]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
+ 08:33:01 +0000
+Message-ID: <1f0dfd17-9cbd-4d7c-be9d-05c04d9c8150@amd.com>
+Date: Mon, 23 Nov 2026 14:02:55 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iommu/amd: Do not clear unobserved log overflow status
+ bits
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>, ankit.soni@amd.com
+Cc: iommu@lists.linux.dev, joro@8bytes.org, linux-kernel@vger.kernel.org,
+ robin.murphy@arm.com, suravee.suthikulpanit@amd.com, will@kernel.org
+References: <4nnekry6a3q52hsibm7cqrwbtrkr5vp6yuhwucreaz3pckt2a7@rh36fx2u5i3o>
+ <20261119141348.1601037-1-guanghuifeng@linux.alibaba.com>
+Content-Language: en-US
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <20261119141348.1601037-1-guanghuifeng@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0322.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:21a::10) To BL4PR12MB9505.namprd12.prod.outlook.com
+ (2603:10b6:208:591::16)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,43 +98,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL4PR12MB9505:EE_|SA1PR12MB6749:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0de52289-8f0c-4602-cd01-08df493c62a4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|261026121527099003|261026140227099003|261022105027099003|261028144727099003|11063799006|4143699003|56012099006|10067099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	ogN2JOZrELIE17LuFQIFBxGr1YZBD3MO52CKhJdfqWaHJKTsKDY4NuLdPXMVYdhDkbBruK2+eK5EtT2S917RBZwPq2SscdMpSvm8Tno80OHpYo9TPESSiJkB/JSAZkr+2Goupo37a8uiLRl97KKy33uJin1EYy7FAJQtbn8xyYo/7racYxR5qDMGGpEZJqcJc6Vad6YFi7/u/UpklDLIijoMhyIoNXBlmTkpWStoY5bGdIYRlGWL+lcB1jqsVVJOhU6Oyl7BZMuf5ffT54I5PGRr51crZO5P02Il0tqJYzQ2NjKnyB2CwUb/Z1OcCDKt+Svqhg/tkSUVxgIzz5PDEoSWQ6Y326gIT9Lf4cv9EVVC3JF8mY5X6Fd2buvQUDQwOe/hfLGE9fcaeWBpveAHx0cFvr42hYj516YVOOcbW++I6Q4ogd2Z7HxsJBztBkWaqzlQEtH4u46dMTMsIkR01N7C1ZZkkhibll5vObUHpLanDIlQe4yl+gv1SSmbdUORnXREp5OpsUFBj2PLte5/1I/TGH74hl3A2n76OLfzN0RioGZjI9Z3ZV+wnP3AVNAgWODFb+LL0hbVaQiojnDfyYN5ULpVUx5Er0+U+xNh0xFDCc7Ka7zBhXF2CW8mJ7PpbJpCWIZLtr2dGNvrKtKJX5YSQoOTYN8PeVKFBzTrz+Q=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR12MB9505.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(11063799006)(4143699003)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?WFNIZzNNL29CbnhqOVRhSGdMMnA3ck9PQ2xKaGFzZEV3WVJsV0hmL2lnWHly?=
+ =?utf-8?B?SWxCckNuU1VWTEc5TUVpMW5oeHA3UHlwN29QMlpNaS95UXduTGxQYnJqeldB?=
+ =?utf-8?B?bUI4bW9OemozNks4ZEdVQk4xZXdYOTNhMDBTbW83WE9WVUJkWFVpOHZkcWpC?=
+ =?utf-8?B?TEUrdGRNcG9QcTF2cGVpK2pnaFdrN3RhbTN1a2pEUFUweEJxK3JXN0hVYjFU?=
+ =?utf-8?B?eUovS3VRcXRWOE5tUy9CajIzWXVUSVQ4OENhZkxjWTZLeEhtVzhldW5WbXgw?=
+ =?utf-8?B?L0ZPdXgwYUdwRUF2Qm5zVG5NdHUyVE1laVhiZmluZnVLOXU0VlBTbTl6Z2VW?=
+ =?utf-8?B?aEVJdnNSNnAvOXBkVzhUR0E0eWVvWHVQRXJhY0lnL3BiUWljbjBVSENEMDk0?=
+ =?utf-8?B?RjVzZzJoc3dYdTRyc2FIck9aSDdGei9JWnNYTnlCU1pvVkZxbjdXTlcxRmYz?=
+ =?utf-8?B?Qy96Unc5S21keEdkOFV1aWdQVCs1Q1JWcHJ0R2llUlFIWjM3WTd3YWlIazRT?=
+ =?utf-8?B?RVBjdSs5VGtpWW9oRUUrMTY3Kzc3ZXRuVHZnWGFjd0thNDdSN0hKa2dhaDBH?=
+ =?utf-8?B?cmhQL3gyUkRnWW9GaGs3LzRuNVg4QXFSc1VmYW84Y3NkaFNUV0xnUTFnL1l3?=
+ =?utf-8?B?VVdSRGNENHM4c1JhVkRZZytwR3REM01yOUpSTHVyck5WK0s2RUVvK3N0MUl4?=
+ =?utf-8?B?TWZxbkY0TlpQTThLaXBVSnZyajZrUWNJNjlaVGdjUHdsSThCeU1iVFRKM2py?=
+ =?utf-8?B?VjMzL001ME52bjZpWC9wMkVqeTlucTRDLzZ4U2FXZjdOYkVYc1FJUHd3U0pO?=
+ =?utf-8?B?UG80U2s0aXNQblBuenRKeUpibm1udkFnNVNpUndOWkpIcG10NEpmeGpqem9R?=
+ =?utf-8?B?ZlgxbStnZnNpS2s1VGZ5Nlo1clZtQUhSSE5mVHRJMGpIajREQm9qTWIvZzhu?=
+ =?utf-8?B?Q2ZvNFJ3QktrajFIS2E2akwxRVVoUm8xN2RwZ0lCYWx5Sk9oVTNSSzF2SGtO?=
+ =?utf-8?B?cndvaFduOEdqTnB4NnZWVHVxQjdwNm1VYXdBTGRKRWVwSzhaa0xQL2dOb0tD?=
+ =?utf-8?B?ZlJaNmV5ZmNFVmtxbUF0UnhnN2lIL1NLZkdZVmZUZC92bStIUWZqRUdJYjFY?=
+ =?utf-8?B?eTVpMUNaRGx0b2psQUFNOTMzdllPNStJeWRWYlpFcnhpZVc5Ump5RnppTnhQ?=
+ =?utf-8?B?eWVYWk5XalRwL2hZVldDcnVYcW9qZTBrZ2NxdjZ3RmVwcVhoSXlGbzBzbU92?=
+ =?utf-8?B?Tzd2azY2M01za1gyaU5oUnZ5TFJpcVNrSzcwZnV5dUlIOGpZQ3RiNlV5ZTJz?=
+ =?utf-8?B?UFcwSGdYejhVNUU5Y0JmN3o0bWRrVTRFQ1hpSWlqYmYzdkRHYm03MlBCVnBx?=
+ =?utf-8?B?R2FycXh2Q010Nk9jRXFrekJGeGpxdXAzL2xudEJPcTJRZW40amJQTWx6d0tB?=
+ =?utf-8?B?ZGdtK0NONGZMTjFuTHVIRjN4TVB5VkRMSGFYOWJGaTVhc0dWb3NnNDRPTHU1?=
+ =?utf-8?B?dkNCZG4wcmwvb0ZWU0FMUm84dmpxSWhhOGt4aTl4S3M5aVovMVlKQ3p5Z2J5?=
+ =?utf-8?B?WXgyUFdWblZacDlJODZtcFNXbkNYMzA1MjF4cG93M2FldkxiTFNwRlJuU3h6?=
+ =?utf-8?B?OWtsMUxkVFZiV1A4OTNrTERvQUh3ZGNic0tUdXRZcEhZYzVPME00S1FZeHVv?=
+ =?utf-8?B?eXQ5M1ZGamtGay96RnN5T3FjbFl0QVFqb2FET0pvVVVJTVlYQUlKWTBkbERC?=
+ =?utf-8?B?RGFSdkQvRjVzMFJVb2owV25xQXpDcGVxNmVIRGdYZER3RTI2TlJ3cmdFcXJ5?=
+ =?utf-8?B?VENWNjVqOExuT1Exb1c0NnJRQkFjOEVobEs0ODRnY01TSU5iSXFhSm5VL1lr?=
+ =?utf-8?B?ZERqM0NxR1l4a0dqNHQ4UHQ0YTN5QWZWdnBIK2hYcVh5UVBYaUVOMzU3aGNj?=
+ =?utf-8?B?ZzZnbzVSVndCZ1ZnVElCSVloSFFrL0hxMjdIZU81cHJLS2R3MzhRb3FMV21H?=
+ =?utf-8?B?SG0wV3lDbG9YcXgzeWhDdjg5aEFBOTFES3phRHhrcUNtSnNIMllIMU52Znd2?=
+ =?utf-8?B?b2tCdmRqKzVCMXZkZzZzQmhqRHZMUEJRRUtmczF6dnJnQXhtaGtyVnoyM3Vi?=
+ =?utf-8?B?QjBIdXlOVEVWdDNpU2Z3MDJNbkFBRStUclg2LzFqUlZkVzF6NVMvekdSQW13?=
+ =?utf-8?B?ZGxUUkxkc0h3WXhTWTJobGZlRkMvYkV6WmpjdzMxUWFQYjQ2SlVyWUNQQjkv?=
+ =?utf-8?B?djBWQWFQeWwxWDBuMmozMEF4T3dGdHJzSkptYnBUL3RBVlNxRWpVZFd1YnRk?=
+ =?utf-8?Q?+lG46u+ZW49ASJ/vVA?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0de52289-8f0c-4602-cd01-08df493c62a4
+X-MS-Exchange-CrossTenant-AuthSource: BL4PR12MB9505.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:33:01.3296
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wKi6YHRSWOhJKd0v5TyAvwnMFGtgx3mcnGgJC4UIGDLtOzjTK99JVANQnOE5uDrFlxWu1/L1uIuTDihOnui/Sw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6749
 
-On Fri, 20 Nov 2026, Rosen Penev wrote:
 
-> charge_control_end_threshold_store() passes a pointer to an int to
-> kstrtouint(), which only builds because the kernel disables
-> -Wpointer-sign, and makes the following "end < 0" check dead code.
-> Use kstrtoint() like charge_control_start_threshold_store(). Values
-> outside 0 to 100 are rejected either way.
 
-Why the <0 check has to be kept on the driver side?
-
-Why not change the variable type instead and remove the then dead code 
-check?
-
-It's somewhat disappointing this even has to be pointed out by review.
-
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/platform/x86/dell/dell-laptop.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On 11/19/2026 7:43 PM, Guanghui Feng wrote:
+> amd_iommu_handle_irq() clears the interrupt status with an unconditional
+> writel(mask, MMIO_STATUS_OFFSET), where mask is int_mask | overflow_mask.
+> If hardware sets a log overflow bit after the status register is sampled
+> at the top of the loop but before that write, the write clears the
+> freshly-set bit while the stale sampled status does not contain it, so
+> overflow_handler() is skipped for an overflow that really happened.
 > 
-> diff --git a/drivers/platform/x86/dell/dell-laptop.c b/drivers/platform/x86/dell/dell-laptop.c
-> index eca348497ac3..c512267be4c4 100644
-> --- a/drivers/platform/x86/dell/dell-laptop.c
-> +++ b/drivers/platform/x86/dell/dell-laptop.c
-> @@ -2382,7 +2382,7 @@ static ssize_t charge_control_end_threshold_store(struct device *dev,
->  {
->  	int ret, end;
->  
-> -	ret = kstrtouint(buf, 10, &end);
-> +	ret = kstrtoint(buf, 10, &end);
->  	if (ret)
->  		return ret;
->  	if (end < 0 || end > 100)
+> This is fatal for the GA log: GALOverflow generates no interrupt of its
+> own (MMIO Offset 2020h bit 9), amd_iommu_restart_ga_log() is the only
+> recovery path, and per spec section 2.7.4 logging stays halted until
+> GALogEn is toggled -- a bare W1C of GALOverflow is not part of that
+> recovery.  The GA log then stays halted, GAInt never re-asserts and the
+> GA log interrupt line goes permanently silent, losing all AVIC
+> non-running vCPU wakeups on that IOMMU.
 > 
+> Clear only the bits observed this round by writing status & mask.  An
+> overflow bit set concurrently is then left asserted and is re-observed by
+> the existing ERBT1312 status read-back at the bottom of the loop, which
+> re-enters the loop and runs overflow_handler().
+> 
+> The unconditional write has cleared an overflow bit since commit
+> 5ce97f4ec5e0 ("iommu/amd: Recover from event log overflow"); commit
+> af47b0a24058 ("iommu/amd: Handle GALog overflows") and commit
+> 274c2218b8b2 ("iommu/amd: Handle PPR log overflow") later added the GA
+> and PPR overflow bits to the same write.
 
--- 
- i.
+Applied, thanks!
+
+-Vasant
 
