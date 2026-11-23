@@ -1,124 +1,140 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.145
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795420744;
-	b=RzP/eBLCTkI9sZJ+Ar8sg8SkOcUqihLqGSIs+Q+r4zOiWOQQxItNtF32waZ9y/2Lg1Gx
-	 wUNnfWLTpSFoDg4yuBq8zlYo5Nz6VmlczOl+mIvzHKeF4Nzno6K+Insrl7JCC41Iw7aFm
-	 kJX3oIt+eUvs5owjUU8guhW+6Avk9gct/fuYYane/VGFoDa66YdTSK0jG1/UchTwxAaH8
-	 zd0xKq74SX0Jq1JFNW6G+QGZ2VqkLBc/Cf9QChgtAWXIh1CUNR51DO0bkt/OEVuShpaIR
-	 QD6HYAcgfFRvtWpKj3W1ggLmIu9vbdFaSbdHFA+VwOU2EYO/I7kgpNesAJ9ELAtlGwg==
+	b=yWAlHDxMWbwXKnojcp6ldQnNzxCWee2UD9txYc4Yd0NHUVoAZnPoe3H+x9GQv1/ZbzxJ
+	 gl613WCi5trn1uihOANohDkXn/gxRoA0yc7qYW/A8dMe9q4tJJHXLSgqlqcQGWCEBrU79
+	 bsrp4YREARVSWYYFyZ9JHUuWbIkRcjJDYvUSB36Kp1x6HkH+piTDo9THHznwWERBEa0Sm
+	 gRB539VuvLTK93trVh3P7wXb1XMseldEIk+ZGq0bvRm2rNOk94F/fgK2DDOf3drDU0ZzV
+	 qNYtMwb+grFGb4iwHaaplbCrcL7h/aTkawxPgu2RxRwyWS4GbxZtCMxo0j2DLGnjIww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795420744;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=WMnYn7CucJXMDmQQ72D/rwn1+Zu+vHLwv+7N9kcUGos=;
-	b=ll5uLy6qSxWmYufRaDFoLA1TqeJZTzWNgRBQcrcdkk0MESosDeMjWyTSU9CVJttAZIEI
-	 DVityTo2kjS6CU/Bee1dgxcjxUVmXSwF3S+mNrtwa6aGB3Sm9tu5Lpbb5IfXGQoxmjDrR
-	 DK3gy6pLioG2CXgtc3AHkoJIG79U6/PkQup7pjnMMF+jyFXnkI+7maH7jhya8G3wmEILJ
-	 5c1KCa2CIJV0i1QhtthwKwwSB7evl/UipUtoyEktEO2VStkdiRjYiQdYmCQePxQbhDqLz
-	 ArZGygnWSTd+AUjP3FF/d8Dncj7Jt8lEXvxfYx3WD8iGabK0d+VuQR++AKrPKFG009A==
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=W+zsJJ1aBB5y23DhHkSQAtsEWnBqQa/ccFUCBqopeOY=;
+	b=y3Q05mvtmzgHXzFlESgMEta9K2WirZm3yBBUtUdpr4I1blZaOCGW6d/ZthaAdNbCZVuy
+	 62uakG7FZh0oKqm7fL3sZuwQRUBCyusLlndz5INjfmVuEDayQeGskCS9R/0JiYaTQmmq3
+	 WqC5SGu2i8uLlI3Cp9CsGTb4cffrucnn4TBW6OaI6PHez5UBtD0iS6JIM+6gE+n3u4xzF
+	 sTiP/9zfwnagRNGgDeRKK7tGyyzViLP2QxLtlx5NnfqdHxbJ1pdTr4ngR2hXJAnx1Jxqh
+	 kiWn+KFirB0EREbm41jzmBP3Kqvo+DH39k91J/yRMOLeCfR65kK+XW3M1ri55Dt9DUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ragnatech.se;
-	spf=pass smtp.mailfrom=ragnatech.se;
-	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=t4YODsgy;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=UfnJXUqf;
-	arc=none smtp.remote-ip=103.168.172.145
-Received: from fout-a2-smtp.messagingengine.com (fout-a2-smtp.messagingengine.com [103.168.172.145])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QISGdT3k;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=pzoYqGoq;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1364C606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:59:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1364C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D05A5606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:59:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D05A5606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=t4YODsgy;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=UfnJXUqf
-Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
-	by mailfout.phl.internal (Postfix) with ESMTP id 1F129EC0B76
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:59:02 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-09.internal (MEProxy); Mon, 23 Nov 2026 02:59:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795420742;
-	 x=1795507142; bh=WMnYn7CucJXMDmQQ72D/rwn1+Zu+vHLwv+7N9kcUGos=; b=
-	t4YODsgyHRXK+aFaI1LP+tykKz+49m7uk+zmk3oIQ0d/UfzEjoy/BsVf4HgJdgA8
-	r6TuPU/jjo0caX4q0mu5JzBu7HRC2/afRrB1fu2FdcTU0qj8vkNi1hzeZ5wU7bsS
-	VrfVqVYsDsMtxSyQzHJtjWApcrrrOLa/tkOLOtve1E5kz4jME1cI4NBN7jWPal9i
-	SV1Kd2UuSXEq43QBUmnxQbRal6qv6T69WVRIVOb/CT7ityhJhf3VY562Nq0H+hap
-	XKly1z3d/1Qp17Xub5Z9nLb5m/97mL1cdza02wmB8yfXA85wdvVluqr3obl07ZDt
-	TDc8teHHn8CuFOku/txViA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795420742; x=
-	1795507142; bh=WMnYn7CucJXMDmQQ72D/rwn1+Zu+vHLwv+7N9kcUGos=; b=U
-	fnJXUqf5Y+reeAJ8Pp372lyv1CYXbNoyUuyJPUXeNS32Kjvi7lcfhjK0cCOS4jC3
-	cBnCSOV6wWaQCX4W7KG12fHqCWrKlhftJl8E6ebKk0q9KBTzsDN5gUS/t66Re5hO
-	lGUNC9keyqWM/1tOsDn2DEoYPz0u5wDYi12TFiXdXrwh185ZRcWPtXuL4WXBiyhJ
-	IgFFb/qtqpwXTVzz6f3lIeZYZyTYgcB7sMCSg29T4s8ZbX0sncSDU/u8wB4BMmPD
-	yks20d1XXnZNdVOEToHUk0bpRqoQknf2JPE8NJlGq5cZmHIG8ZwVJa6ZvX+ncc1F
-	h2LVjsv2gt+OTb4fu8RPg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795420742; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmQrcmVuZXNhc0ByYWduYXRlY2guc2U+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:ffZ69vzj+Qcts2Z/Ue1SH4MMsYHUnkYliDnnwgnyGjblDcb
-	JvR/lOMNPDzz4OxO07K7UhfgijuTCn+KeLJwv3C3cOt20xaU/dF9OCZR0FUILPaT
-	Wg3108rvGkO40wuku3SQzJvIqL5o4gFHdRotZcbLMKgGkbBUF3MwDiyDpiaHldtG
-	GuAYzkKkZfKVJMJIVnGNhYVFQJsaVmTrFDik7w9k4lACJ9CkyTBAYMBkLehYcZY2
-	A+QsAyv8vbIUbkItHh0ebr4nrntIYlaTAjA1rmr/h1YlgFU/Ty7X65Jv1OysVm2u
-	rXRTYfNszpxxH1QBiShBYJnPyOn9ttkAEFAZ4Kg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:L4esAuQCnTSY25CZFfklU+iOJAPKG6P5sVClUzxl7gY=:ihL0nNUMmVStnSP+bHrBDKTlqefKokarBHNZUYFOe4w=;
-X-ME-Sender: <xms:RfIDa8dKEhGOw1EiMe_KYyxo-uAqlkuqYfhCly2Nm4wUsVAhH6nraQ>
-    <xme:RfIDa4QAuof50N9GZoYtUm_tTcwC-RMcXv06My05H6J2g7k_zfFGh2D_Wnudn5JO2
-    J9dUtqCa6_5GkQMGyCmr28IPY1n23qMp0dxPkSfIsupioNdrMk3I2U>
-X-ME-Received: <xmr:RfIDa9YrM0yzmuVZNhyHme5dsk0Epm9kZmrchuPZUboBAVfGdov9ch1cECKuSTRRO9Ocx5Rc6u-Ime5Feu9-P2e09Bj3QPc>
-X-ME-Proxy-Cause: dmFkZTEz23yIZFbrLpej6KDJnuyetGUSWYqss4FSPTmGioW63uhDAvs0G/o8ZM/eJXJMkm
-    WGahkttIm9ACTcOpwqGgPwyFaoR/BXTJzvGvmfM4xEjLk9jgpKilZnXHGKnPnQhDRx+CEy
-    5WzjBNsIyWHVffflg1tZ8xUQRU+g1sBESdc3qfx89ZRdiwAhMPikFWzp/kHHbOE9XpTE8o
-    CkYBWWJvEQb23e/TWAusFt70ooDpXsdYL+I/amZULkL5ZsuKFLU4L2awkRvL0UyZVKI0u/
-    yHYkAzIQaL7cxbYFdB1sHSFL6hlvu5iW5C53Zk2iVzHdU6WmXTl3PlSi6MPl02FSwXU7io
-    Ekuob3r0Q4HRGJblmuGYFlTG82TT7dCCVQV+jktz+zwWPA0dABFeBcVndDJeiAWcq8Lk+i
-    ciRPffL1V9bRBKqYwo42gZgkwLlR6XxgX12ojdiFgGa60oL5EWP7zvLwt711/1fmwjmD8k
-    M22GFpJ6T7LrqUZVdAsnZipkt+M3DK6FO+75727oHPKTkICsFTS/11JVwyt7XSmuh1A/E9
-    TbmoPc8uIbJ08cELSWNUNXpp3jw2Hd/MigbYy1ZTFzgb4Me28AfzJ8Cv1ehAkSXxdTcJAp
-    s0OYohUIgA1GPpt6lsoCy/cuxxTCW3/MDYpo8Cb9HVggOL0oUFZoV7e1+zfg
-X-ME-Proxy: <xmx:RfIDazfp3PaTKyhLAQ8FS5EzTkjmuw8unZVdx99rXrrNwAEQqE2TYA>
-    <xmx:RfIDa2J019lPWFSmsEqYAxX7_tzmFSKRIJkflc7RgiuDgmI8ATsmEQ>
-    <xmx:RfIDa4K3jQ5KXr_IgqYf4DBYxAyJS41KS7nd8N43wF-XWcJoz66Zdg>
-    <xmx:RfIDa9V8TJW7B0-DNiWO3bJ_kfwnqfBPSud8CQh4lfD-r8d6NTrmdA>
-    <xmx:RvIDa2Im8It-ecrvLWXNCxmy_17QdeEIee0CbA_jMy8BP9TD518mQu5Z>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 23 Nov 2026 02:59:01 -0500 (EST)
-Date: Mon, 23 Nov 2026 08:58:58 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, linux-media@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] media: rcar-vin: Return unused buffers correctly
-Message-ID: <20261123075858.GE3898744@ragnatech.se>
-References: <20261121-vin-fix-vb2-v2-1-602a3d876853@ragnatech.se>
- <awMzb15zjEf3n3XU@zed>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QISGdT3k;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=pzoYqGoq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795420742;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=W+zsJJ1aBB5y23DhHkSQAtsEWnBqQa/ccFUCBqopeOY=;
+	b=QISGdT3koEGTFcYByJZX8zPTULxzW7fGETNvivrXfNYBNyK4BH45wd1/PR4X7kNMYwrTJE
+	3lAiJgiaKq66ISBPGqto8dyRQyJ8ANbt7l0HC6oWFAwqLUOsbUTL51pwDuxJ0vgomhXrIV
+	Ckpc9r1wjEmSZllnwzZ8pbb5rOHXGMU=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-639-DRQARebwMPa-SjKYUSBgLw-1; Mon, 23 Nov 2026 07:59:00 +0000
+X-MC-Unique: DRQARebwMPa-SjKYUSBgLw-1
+X-Mimecast-MFC-AGG-ID: DRQARebwMPa-SjKYUSBgLw_1795420740
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4b0a307487aso13973015e9.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:59:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795420739; x=1796025539; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=W+zsJJ1aBB5y23DhHkSQAtsEWnBqQa/ccFUCBqopeOY=;
+        b=pzoYqGoqML8EpEkLBFXlsnFXXKnDIAH8c8QsznzmkKr3JE+coZBudrIQXiCXeYjY/B
+         e638N/bGtTMvx14tsYrMiperx9x1uZAhFWZ4Osr22zZmU0f4wCwJrdsJtci81pbIsr8W
+         dvk8Y6SS5W2YDhwo5tuHhYpnXDkejTRMg9t1SPHTddn+9lW90iRdR7oTgxJIo3aarYrl
+         p2Gm7+WZRjUqnZt9hae1x+4n50oYcc5Hb2pK/FgYBHihB8gPQsATGOsib4D2aWXqMwkk
+         3EUYjKp2PSoE/fjYQuzeDdM+X04E6bwDZ4lmmwLBNqrvm8ZMDiGe3kPz70TXvHktMJaV
+         B/1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795420739; x=1796025539;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=W+zsJJ1aBB5y23DhHkSQAtsEWnBqQa/ccFUCBqopeOY=;
+        b=hjzGSj6kFdws6bOZcasgvGLYuisEkbYfLgi2CudImgsdOETjN0q+7hLOOJaOk44/jy
+         tszBpyT6+GVKhdhex6Ung+7GzDQlmerSXIQYUEKbzjexGH4PZwJdTXq88n09Y7OJfEwX
+         0azMSEb5MS++ZeVbRxpz8l+ulRzPVWXZ3e8Qvy2wUiLMH4gKzKm+BntHXH+WHkgjUQjM
+         udsu8mV3gLmJ5mB57bejWcTDW4fmnmhjkl+N5jgFddfDGa4TD/DmUtscJyU+EM5+Lpn1
+         I0TADYwAK07wJc9g/+IXWt6Fh13Qo5nOZ4DMMinWNu6kc7ten/PHXWXYX3DCYbscYtuh
+         3+cw==
+X-Forwarded-Encrypted: i=1; AL+hErFVk45s2Q9eAtM80F9VTZSTDCWybk1/sAAzeZTdutp3JA/5hiLRyfGyiAJdZQ1OZILjC6rmpPJeKzJ3z0U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qqHU5bBfugkAnv99X4V9vaMImDfwesQPEKLE38Y9s0nKIZvXS
+	01KaBegyjiC8TQ1Zw781dGeTVU2R6Sc4jq/pmGSem3n6qLPfRVAE4ZwgUW7tqkq60LTlN+zMpsw
+	6y8MOp4RMC9SL1vuUToR6pleta77Jn5vII4IkZOBB1VrfxHXm5QvxxSrNpvf9L6DLYw==
+X-Gm-Gg: AZFdTZefvDLEOlg4YJ+i3dnspIh9gePlLDyJShEVSNRacSK+CT1WyyP/cPdVmEDuQ6B
+	G0NL5E7dhMZOrgQbpXoYkqeLq3SuuhZ3bNIiuhdlapCpILilJvrXz5cJZVcU8njPOSLOrm0fCQx
+	RRQnxSU1P6h4zYDmCjItFB6pwegRECGGEUbHE4OcHT+oEDvwrdtWisYMMZs3nycpjlOPXr5I/zE
+	9HwJiSVX7vEfmFC/Tc0GQ9oeFdQiclhi1rd33wkwfyxrihqIyVxkb1Oe6uCUvve88YV3n/YnsuB
+	7+cnfmxEXTJ2IsM9NrVSW3J0G4P4ykvZrk4nDCS4ceDlLOzw8Ods7TWqakcBwFBshn3ry475hQ8
+	5qbLMXiiXSPQ8s7pvnRZo6jyEiKJxPBu4IBYIJq9cwHoCqmfbWlJdL7dn4EpnQbt1i072MFasNy
+	ET
+X-Received: by 2002:a05:600d:82d0:b0:4bb:818d:8d8f with SMTP id 5b1f17b1804b1-4bb88818955mr254816335e9.23.1795420739769;
+        Sun, 22 Nov 2026 23:58:59 -0800 (PST)
+X-Received: by 2002:a05:600d:82d0:b0:4bb:818d:8d8f with SMTP id 5b1f17b1804b1-4bb88818955mr254815915e9.23.1795420739428;
+        Sun, 22 Nov 2026 23:58:59 -0800 (PST)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm148906565e9.0.2026.11.22.23.58.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 23:58:58 -0800 (PST)
+Message-ID: <b8c1ad21d862b1da1cab0f5370f3a2885501e9f6.camel@redhat.com>
+Subject: Re: [RFC PATCH v2 4/9] rv: Add a monitor for IRQ-exit scheduling
+ ownership
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>, Steven Rostedt
+	 <rostedt@goodmis.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers	
+ <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Sebastian Andrzej Siewior	 <bigeasy@linutronix.de>, Clark Williams
+ <clrkwllms@kernel.org>, Ingo Molnar	 <mingo@redhat.com>, Peter Zijlstra
+ <peterz@infradead.org>, Andy Lutomirski	 <luto@kernel.org>, Juri Lelli
+ <juri.lelli@redhat.com>, Vincent Guittot	 <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,  Ben Segall
+ <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
+ <vschneid@redhat.com>,  K Prateek Nayak <kprateek.nayak@amd.com>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,  Randy
+ Dunlap <rdunlap@infradead.org>, Wen Yang <wen.yang@linux.dev>,
+ linux-trace-kernel@vger.kernel.org, 	linux-rt-devel@lists.linux.dev,
+ linux-doc@vger.kernel.org, 	linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 08:58:56 +0100
+In-Reply-To: <20261107171252.25090-5-kmehltretter@gmail.com>
+References: <20261107171252.25090-1-kmehltretter@gmail.com>
+	 <20261107171252.25090-5-kmehltretter@gmail.com>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
+ cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
+ T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
+ eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
+ 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,83 +144,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <awMzb15zjEf3n3XU@zed>
 
-Hi Jacopo,
+On Sat, 2026-11-07 at 18:12 +0100, Karl Mehltretter wrote:
+...
+> +static void handle_resched_entry(void *data, struct task_struct *owner)
+> +{
+> +=09da_handle_start_run_event(owner, resched_entry_irqexit);
+> +}
+> +
+> +static void handle_resched_exit(void *data, struct task_struct *owner)
+> +{
+> +=09/* Do not hide an invalid return behind enable-mid-invocation sync.
+> */
+> +=09if (owner !=3D rv_get_current() || hardirq_count() || !irqs_disabled(=
+))
+> +=09=09da_handle_start_run_event(owner, resched_exit_irqexit);
+> +=09else
+> +=09=09da_handle_start_event(owner, resched_exit_irqexit);
 
-On 2026-11-22 19:25:56 +0100, Jacopo Mondi wrote:
-> Hi Niklas
-> 
-> On Sat, Nov 21, 2026 at 12:54:59PM +0100, Niklas Söderlund wrote:
-> > Unused VB2 buffers should be returned with state DONE not ERROR when
-> > stopping.
-> >
-> > Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-> 
-> Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> 
-> I'll take it as you don't consider a Fixes required.
+What's the added value of this logic? As far as I see from the model,
+resched_entry is only available from the initial state and reschd_exit
+is always going to the initial state.
 
-Thanks.
+You don't need to set both up, since both are equally likely, you're
+eventually getting to start the monitor anyway.
+But in case you really want a start from both, I'd say you can do:
+* resched_entry -> handle_start_run (we are in init and handle)
+* resched_exit -> handle_start (we are now in init, handle next event)
 
-> This however
-> count as a bug to me as it doesn't respect the expected API behaviour.
-> Am I too concerned ?
+No need for any further condition.
+Or am I missing something?
 
-I think so, but I'm not against adding a fixes tag if you feel strongly 
-about it. If we do want it I think it needs to be to the commit which 
-first added the driver.
+> +}
+> +
+> +static void probe_resched_entry(void *data, struct task_struct *owner,
+> +=09=09=09=09unsigned long pc, bool irq_off)
 
-Fixes: f00add9655e1 ("[media] rcar-vin: add Renesas R-Car VIN driver")
+Do you really need this level of indirection?
+Just give all arguments to handle_* and drop the probe_*
 
-Please let me know if you want me to spin a v3 with this tag added.
+> +{
+> +=09handle_resched_entry(data, owner);
+> +}
+> +
+> +static void probe_resched_exit(void *data, struct task_struct *owner,
+> +=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned long pc, bool irq=
+_off)
+> +{
+> +=09handle_resched_exit(data, owner);
+> +}
 
-> 
-> > ---
-> > Changes in v2:
-> > - Link to v1: https://patch.msgid.link/20260828-vin-fix-vb2-v1-1-97eb1f4f75c9@ragnatech.se
-> > ---
-> > * Changes since v1
-> > - Fix unused buffers returned in rvin_stop_streaming() too.
-> > ---
-> >  drivers/media/platform/renesas/rcar-vin/rcar-dma.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> > index 5e515d16c164..d3d1af47f8b1 100644
-> > --- a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> > +++ b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> > @@ -1434,7 +1434,7 @@ void rvin_stop_streaming(struct rvin_dev *vin)
-> >  	for (unsigned int i = 0; i < HW_BUFFER_NUM; i++) {
-> >  		if (vin->buf_hw[i].buffer)
-> >  			vb2_buffer_done(&vin->buf_hw[i].buffer->vb2_buf,
-> > -					VB2_BUF_STATE_ERROR);
-> > +					VB2_BUF_STATE_DONE);
-> >  	}
-> >
-> >  }
-> > @@ -1449,7 +1449,7 @@ static void rvin_stop_streaming_vq(struct vb2_queue *vq)
-> >  	dma_free_coherent(vin->dev, vin->format.sizeimage, vin->scratch,
-> >  			  vin->scratch_phys);
-> >
-> > -	return_unused_buffers(vin, VB2_BUF_STATE_ERROR);
-> > +	return_unused_buffers(vin, VB2_BUF_STATE_DONE);
-> >  }
-> >
-> >  static const struct vb2_ops rvin_qops = {
-> >
-> > ---
-> > base-commit: aa0f4c41d4870a18e65772a1817af16427200371
-> > change-id: 20260828-vin-fix-vb2-28e1bb24a618
-> >
-> > Best regards,
-> > --
-> > Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-> >
+Thanks,
+Gabriele
 
--- 
-Kind Regards,
-Niklas Söderlund
