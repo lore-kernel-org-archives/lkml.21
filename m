@@ -1,95 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445573;
-	b=osX+f/H92/I4JArzfx/GWyl3Dl3sjPUdSRoNGEBpuXRq4DhzVZqae0s6+e3NpNIECnG0
-	 Aw8c94Abi4oUnPoWCtBM2c5wHC655lu3ZVXA8VKO1Lv4/X2YBy8UMgAMnoUdy8+PLbvzC
-	 C8D7KSlkwuy4RHky1OP0xKDFae+46yJ25bT9pJOKHXx/QxLUjWLoQE+sLwjycbe2p70tJ
-	 1TaFCLWDhf4uBofzXdljVa4arm4RXuxXCeRb5T4s+L/6cWWr+E3ALdyBh7AUkePHsP54W
-	 IogufbmoJ9/HAEZyI3Fj976jByWmTjktQiXu2JHYSmdI+XNT/wiZUboqmzT2YEI+w6w==
+	t=1795445615;
+	b=HcHjvRkT95i3jnadvS0Z3gEU9metU337sb4Kfeb+CO/LhkYknV3OePCVfHMR4iCWqwgg
+	 0Qe9TbSmi8PmH8TFwv567x9lKzgKWXGd17JM1rhdqb+R+s0X7t+z0ogtt4X1iHL5Vo6ZW
+	 CrFRf5nlrBiiaMkDu4O9jBuytKKC8txI9PxKtTjTE+UOk6Ju62lM9MQlXcSiV4+wkQ+o2
+	 lAY9FcqOvGb2zvRmC2ah53mHBTYPofA+/2hP7ZfQNXcX9N99VIwMxx6srvSROp6cDzWQo
+	 IoHcK1sjem7LMXX0iPBh3WzVdeRVWeBDIVpcSx2rqqeapIR6T8w+2z7UwssFFGsPldQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445573;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445615;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=my/e9rVRY0PZrp8Qn9WyVLOhcF3tGqiKq2YRoFGvX+Y=;
-	b=QfUuMFYkOlN/A9WwRc+RCzSCD3zeU6dXI/mCcNqsVrJvXOrKqU/cnwfkV07lnZ/xdUBE
-	 NNaPfKRUUnl6y8My+X9XWRhuqznmqnmaoQxQ51hk3v14YF3X6T7h/5cxNzr8UTBe98pSH
-	 nNLLtgOdmyB4mZsAFk+orhEAOinCDBp00oWyEeVYTibVejF4RJwqQBLXp3I8czPcblsiG
-	 eCJx0hcYXaqkLpSxxunheIi+FMIpAVky5MPR4rM+CGDSsjCphGfxs6OX39F56My0UAuAJ
-	 Sdakta6g93cmnnnOtcAkBF+DOw29U98+io9qKLIxlvFKUZKiYwJOxXgi3HqURIasyvw==
+	bh=lA6oYuprAkHK4elm//iRd0jX7g4QWezwyzygSAeIMm4=;
+	b=0NAGT8cznpV6KdYCbg+/Hf/bVGKnNyypTNdkQkUz8lSDF8O25huQMrkqrpFt0WMdGAyl
+	 /H5ZLclCHaDLGNon5ZhBijffYVOYdC7TNluu89SAwgoyYU4K88s/Y0gDSphABsWfIr8hd
+	 0z4Q72FLgFF0qOQivTIC5ciahglMzb36PjV+QPzilVndufiLYdrRLaWgcwM409OEiDyIG
+	 M6tFCLZOAPul+NcpvyB1svlCow5N6WIQiE6Yzr3iMJmNjkOnC0g4j97B74s0WpWwFIPow
+	 LcbyM8OkyQQhjqdlViBPIQiu5yDNMBXGShmmCm2PRnJR/HUJ8LDP1vHkfRunrsE3tAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qc0S6699;
-	arc=none smtp.remote-ip=209.85.210.52
-Received: from mail-ot1-f52.google.com (mail-ot1-f52.google.com [209.85.210.52])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CB8Ph7HX;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B91C5606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:52:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B91C5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC95D606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:53:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC95D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qc0S6699
-Received: by mail-ot1-f52.google.com with SMTP id 46e09a7af769-862b3a39d0dso1686030a34.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:52:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CB8Ph7HX
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so31150385e9.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:53:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795445572; x=1796050372; darn=vger.kernel.org;
+        d=suse.com; s=google; t=1795445613; x=1796050413; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=my/e9rVRY0PZrp8Qn9WyVLOhcF3tGqiKq2YRoFGvX+Y=;
-        b=qc0S6699MGS7RYfZu3v1TouzhTqr/zOF/BBu0V9fonsw0Qw0yLtdbHeLIOcFQ8wHKd
-         R0QQQNhL7IAJDxUbzsTR+EciasKsB6PSaAlo0jf1wsRU48kxrtiTpKAEgwa7myzsB2vS
-         hO7CIzDupE84yX3umPIp9I5QLrYX0zTR4QzhC9WC4Oa/STjMTLdIY16lugOSmHB8ugSG
-         GBJpBlwOpiVM1DaVENaSzYwEaqGpCwR/0oUY38/N7DBwMTh1PdQhsloi3pdKPFhu06DV
-         S+6KJMyGz7WqC0a7ywskb2/7amZFAuRLEvUY+pGHF/cv0U1TJkhpJiOdvc+PHdlAknFU
-         uYTA==
+        bh=lA6oYuprAkHK4elm//iRd0jX7g4QWezwyzygSAeIMm4=;
+        b=CB8Ph7HX5v4FLIDCkrhrAMiKlxsuMGiM4MlTI3b2rryQE0MyQaps9LzthZnMRqQbdK
+         mk1wyE7JLhlANoYCek8V70kIxf73baE7VAcMV32bVnBFJmf67wwZ7jJ95zbrLdQ/aIlN
+         5DJLAnHvMumwoyEpTaqOm/maBrQ3e5sh+XDsIoqMzAAMdCkh3zkVvYp3XJwaSTHx8zdC
+         GLBTSASgW5hqUY2+QITiDLGl055H0U48/vFd5Jf357+bdLmeLrLTUg54kefc+mvae1+5
+         2YzUUWa+8uitJwRYx0+MEV0JlJzDSmRwVQ90vCaGU9TetY5bRrqjC1JkFmRJmknq3VgE
+         dRdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445572; x=1796050372;
+        d=1e100.net; s=20260707; t=1795445613; x=1796050413;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=my/e9rVRY0PZrp8Qn9WyVLOhcF3tGqiKq2YRoFGvX+Y=;
-        b=FFLxGZ9Tm8UcHMnnfcxXST1mhRn6FC1VY3lka5faKPe+v4/ULzSZHnVAloaQCXkeq4
-         0jg32PmSz2yis+31gF6Jt9s3OdR9nTUA4B3tkUTKUS3E/zn7pYaXOEYlZYi+VQgqrXHZ
-         4sIhsJcoUgisILdq58pJdLhWcj4M3AAd8r1AVy2p/RutPuFHty83trmdOlsn0SosU8Sq
-         3d/pfxQqugjbeEeWs6fHv7syU0o7OhQBaubmZYvZoJ8os/rDnYWBS2YoMtXgvF9DQCjF
-         lKjgEilovpcK+VUymu9c8gXHWiJTPxLJ8bum2qb89jhhDpO+B7K43DgRMfPQONjTNKQT
-         P8lw==
-X-Forwarded-Encrypted: i=1; AL+hErEgwTLrBJq/hfExWsMN2WmdOmlHI9lliAtTyLuq3C3mSsKJLHgNeoTtp/Bw9dmnu9Zdu+v6GuNuV9jkekI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91xOx6EX6qFjkwLxkAPzXWbnqqvbgBYh2H//O1Zft7xu6e0Ty/
-	mnuUQQbvH5kS6mxM6yMEdc2hYA13qrQgLfctAuedfYEwQDoYfHBXHlxq
-X-Gm-Gg: AZFdTZeL2K53Bw5Bv/RYFNXA9LuK8/4VzBAB+IT75tT6QbKOkU6vPq4xyo2Cltl3gVV
-	m6WjaHX1LZiIdC6a5QsuOluUJnAR09z7WicUrjaVVNC067VD0gTRa6Y/HFuPzOsWDPcLR7OEAjj
-	w6ENc6gxX/BAqSbQiNWYGjkIacnamQS02VksqywWUpylZAU2TRkkCg6ltxt1Q9ZFIliRX4Xd8b0
-	ZlUmJkLIe8hlmFM+B3pTVivmzJzjGdfjAUmkBC+lCGMtA6npARfHZrJ2oKnsVBRlvIucRhnS6Im
-	LVVhHgSh5cGyQmMfT59kytVhEWAtHvH5mHFyGwsDHViQH3fc83Jbi5cqo+howfoqsNCEVsJGKvw
-	HCdifZl6Xkch5FwMBZT23DOZsP914R1JK0I5q2vbVgjxipYLLS7lnvUY/mIj6Vr1hQeoS6mb0LG
-	jvC/KvPmfjrE3W8bezROp51WXgCYljQcKgkVlg/mX04Y4vkvcOdvGk5VDmQddXoQwBcaYArBLhY
-	aw9hSWj8BqS8syyaB7KDroKVu3Mu4Y4XhrLHvRnj4txsbdedDMz4fhNFHU/skYy4O2UfnsslAuY
-	IOaVluZbBYUA0HwELCqs+DHrgmGy0obOZngHeD/krfCmz8fL+/ZrhKDtZPykhDNFecFBFZ7xMMI
-	4vwJUu72Fr4H09K6qhvno1A4zRiwyRMOOF8b1kylKW7srUHI0Havc2vzVCWdJSWGGpG8=
-X-Received: by 2002:a05:6830:4103:b0:81a:9522:f00f with SMTP id 46e09a7af769-863158f0dbfmr13041034a34.6.1795445571585;
-        Mon, 23 Nov 2026 06:52:51 -0800 (PST)
-Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dde05sm9169376a34.13.2026.11.23.06.52.50
+        bh=lA6oYuprAkHK4elm//iRd0jX7g4QWezwyzygSAeIMm4=;
+        b=WkS3HKQJF7xFc3oZmTzcA16cb2NztEPRTcR9phOe3UXdJvg3lMH2hoTUs7WaH76jh5
+         1rfbLb2At09/2dcgWk6QdT6fNIsf4R9fTIgrTGPMAZBodFzFITDKF3WjPC0qiHisJ2ih
+         Fh/bucD7Lq441dnrwrp2fpIzCLmbgo4asy7/HZZYpA0iq99OUNC+lWBrS6MYteIKzX9N
+         S52/uzNkMYWlHmiqSVaby6XyIXib32NBHmZRPdiSKFFu3nrq4MI5DBaaVCh1YxrxJqZz
+         8+LqyW6zLwxXVh45wuoTjbCNIB/yp2EwJgR7/XraQ/7WwocwVoXCZ5et6GeODCD6vw1c
+         PQPg==
+X-Forwarded-Encrypted: i=1; AL+hErHXs9M+/P1EU1FfvXoz9Mj2e8HXJYpcEaV9QNUucbYMGZmsaZuyFK2xgsvBMKL1gj7iQm8/vDDWxDUKk38=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/1VrF0m37wDEIM3MH8h2rwY4BASjqcAtwgdcbiMbXfGj8Mo3+h
+	ysVNs9Hh+OYo1Dm7uqumXFlCmQH/L+nTVXAysoXd5S5wr8i7YbK26E46sd4xcrLF+Qk=
+X-Gm-Gg: AZFdTZdKWz7g3DpD1l16VRVRrwjjVabPzbuxgIeP+EIFKQTkNqLWQAhP/xqfBmq4+XU
+	71H0CPdn6bdJvqzALSFl3EI6Ec0efzWuFC/4IOF6P3BmSu3gYrxHm20bsIBoYXNCzMaK/mB3NUO
+	X4AqPx4kXb29ROibDqYz9Yly8aPhG/0P25AvK+jNpmQOxIDo2GxfDioXa9UlO/eylrd8rcMyFdH
+	hUshPdfS+WgPzk9+v9Re5KV+dOwv08rZlEu7r6gNqwoff+Wd91AlH1u6dMxIAwPZwkBOjpdvOMj
+	HHS5qpuZK2B7ef1EZuR9yIbW5GlhGCkaciW72smZluyiWd+FZoSh6+6VI4L4q8JR7/4g/HACFvy
+	joLASvLmqy7Ej/ezBhJL8kjPkYpvDB0WtsPfJPJOJu+hrqfCPkIJ+lIE3eSW2VVMSILw1Rpfwgl
+	hnRDK/5TIUELYn0Scn93ZAH6w3JJbqNf2AvJItF2k6DLrO/R/s8nYuRIaBDHCLKMKsOLcviLrcC
+	m9M9H4Ca/C7IS/CvTh1ox1zZV0wKkwutb+i9k4RlBkZLRHSW9NXdwTcx0eh8HoBWVZQ6MVwFCB7
+	toN/ZESePztJKp0bsF5sQMkETgLl
+X-Received: by 2002:a05:600c:4e4c:b0:4b6:5dac:b61e with SMTP id 5b1f17b1804b1-4bb88938d2dmr220141985e9.32.1795445613020;
+        Mon, 23 Nov 2026 06:53:33 -0800 (PST)
+Received: from localhost ([82.192.120.76])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9066f6e6sm142773895e9.3.2026.11.23.06.53.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:52:50 -0800 (PST)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Bryan Tan <bryan-bt.tan@broadcom.com>,
-	Vishnu Dasa <vishnu.dasa@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	bcm-kernel-feedback-list@broadcom.com,
+        Mon, 23 Nov 2026 06:53:32 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dom Cobley <popcornmix@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH v2] misc: vmw_vmci: Leak queue pair endpoint if detach fails on exit
-Date: Mon, 23 Nov 2026 14:51:57 +0000
-Message-ID: <20261123145248.194039-2-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	David Airlie <airlied@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	Jaroslav Kysela <perex@perex.cz>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	linux-mmc@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	Mark Brown <broonie@kernel.org>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Takashi Iwai <tiwai@suse.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Ulf Hansson <ulfh@kernel.org>
+Subject: [PATCH v3 00/28] dmaengine: bcm2835: add BCM2711 and BCM2712 40-bit DMA support
+Date: Mon, 23 Nov 2026 15:56:38 +0100
+Message-ID: <20261123145728.29082-1-andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,101 +129,192 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When the VMCI guest device is removed, vmci_qp_guest_endpoints_exit()
-asks the hypervisor to detach each remaining queue pair and then frees
-its queue pages with qp_guest_endpoint_destroy(), even if the detach
-hypercall failed.
+The BCM2711 has 4 DMA channels with a 40-bit address range, allowing them
+to access the whole memory of a Pi 4, and the BCM2712 has 6 of them. This
+series adds support for them to the bcm2835-dma driver, on top of the
+platform abstraction from Stefan Wahren and some features from the
+downstream Raspberry Pi kernel.
 
-If the detach fails, the hypervisor may still have the queue pair, and
-the peer may keep writing to the queue pages after they have gone back
-to the page allocator. The device reset that follows in
-vmci_guest_remove_device() comes only after the pages have been freed.
+The main change since v2 is the handling of the slave (peripheral)
+addresses, as requested in the v1/v2 discussions [1][2][3]: instead of
+hardcoding the 0x4_0000_0000 offset of the 40-bit channels and relying on
+clients passing pre-translated VideoCore bus addresses, the clients now
+pass CPU physical addresses and the DMA driver translates them with
+dma_map_resource(). Since the conversion of dma_map_resource() to
+dma_map_phys() with DMA_ATTR_MMIO, the dma-direct implementation honours
+the dma-ranges of the device, which was the open question raised by
+Robin in [1].
 
-qp_detatch_guest_work() already handles the same failure by keeping the
-entry, because the peer "might still be accessing the shared memory",
-and leaves the cleanup to this exit path, which then frees it anyway.
+To keep old device trees working (they only describe the RAM in
+dma-ranges), the driver detects at probe time whether the peripheral
+window is described in dma-ranges, by looking up its own registers, and
+otherwise falls back to reverting the translation given by the ranges of
+the parent bus, as suggested by Dave in [3]. Addresses outside of the
+ranges are passed through, so that out of tree clients still providing
+bus addresses keep working with old device trees. The same fallback
+works for the BCM2712 40-bit channels, whose bus maps the peripherals
+1:1, while the BCM2711 40-bit channels see the peripherals 16 GiB above
+their VideoCore bus address, which cannot be derived from the ranges:
+they require dma-ranges, which all the device trees describing them
+(the downstream ones and the one added here) provide.
 
-Leak the endpoint instead if the detach fails, and warn with its handle
-and the detach result so that the leak is not silent. This also keeps
-its handle in the resource table, so the handle is not given to a new
-queue pair while the hypervisor may still have the old one.
+Structure of the series:
 
-Fixes: 06164d2b72aa ("VMCI: queue pairs implementation.")
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
-v2:
-- Reworded the comment above vmci_qp_guest_endpoints_exit() as
-  suggested by Vishnu.
-- Added a pr_warn() with the handle and the detach result when an
-  endpoint is leaked (Vishnu).
-- Rebased on current mainline (8dac6df92a2e).
+  1-5:   preparatory patches and features from downstream (per-channel
+         flags, wide accesses, bursts, abort fixes)
+  6-7:   generic dma-channel-mask property
+  8-13:  hardware abstraction (Stefan Wahren)
+  14-19: slave address translation with dma_map_resource(), conversion
+         of the clients (spi, mmc, ASoC, vc4 HDMI) and dma-ranges
+  20-23: BCM2711 40-bit channels
+  24-26: BCM2712 40-bit channels
+  27:    DMA flags for the HDMI audio of BCM283x
+  28:    HDMI audio on BCM2712 through the 40-bit channels
 
-v1: https://lore.kernel.org/all/20261106034419.134545-2-oss.patchbox@gmail.com/
+Changes in v3:
+- Drop the hardcoded addr_offset, translate slave addresses with
+  dma_map_resource() in device_config() and unmap them on
+  reconfiguration and when freeing the channel.
+- Convert spi-bcm2835, mmc/bcm2835, bcm2835-i2s and vc4_hdmi to provide
+  CPU physical addresses, and describe the peripheral window in the
+  dma-ranges of the BCM283x/BCM2711 soc bus.
+- Put the BCM2711 40-bit controller in its own bus, whose dma-ranges map
+  the peripherals at 0x4_7c000000, instead of the scb bus, to not change
+  the DMA configuration of PCIe and GENET and to avoid refactoring the
+  entire DTS to fit the cell size.
+- Fix the abort sequences, which were swapped between the legacy and the
+  40-bit channels, breaking terminate_all on all the Raspberry Pis.
+- Fix the interrupt acknowledge of the 40-bit channels, which used the
+  INTEN bit of the TI register instead of the INT bit of CS.
+- Make the abort sequence a platform callback, drop the CS/TI masks only
+  used by it.
+- Keep the period handling of bcm2835_dma_create_cb_set_length(), which
+  v2 changed to flag every control block of cyclic transfers.
+- Use the platform cb_append_extra() callback for every control block,
+  and convert every control block address with to_cb_addr().
+- Preserve the width and burst settings of SRCI/DESTI when setting the
+  addresses of slave_sg transfers.
+- Fix the argument order of cb_init() in the patch introducing it, to
+  keep the series bisectable.
+- Fix the free_irq() cookie, which did not match the request_irq() one.
+- Derive the first channel of an instance from the physical register
+  address instead of the ioremap()ed one, initialize all the IRQ array
+  entries, and split this into its own patch.
+- Refuse to probe the 40-bit channels if dma_addr_t is 32-bit wide, and
+  avoid shifting dma_addr_t by 32 bits.
+- Include linux/bitfield.h, fixing COMPILE_TEST builds.
+- Drop the unused bcm2835_dma_count_frames_for_sg(), resurrected by a
+  rebase, and the dead code and duplicated defines of the 40-bit patch.
+- Split out the style changes from the 40-bit patch (Stefan), reword the
+  subject of the first patch (Florian).
+- dt-bindings: sort the compatibles (Krzysztof), document the flags in
+  the DREQ cell (Stefan), allow the generic dma-channel-mask, constrain
+  the interrupts of the new compatibles. The Acked-by of v2 has been
+  dropped because of the additional changes.
+- Use the generic dma-channel-mask in the new nodes (Krzysztof).
+- Use the DMA specifier flags for the HDMI audio channels of BCM283x,
+  so that patches 2-4 have in-tree users (Stefan)
+- Describe in the platform data which channels of the DMA block use its
+  programming model and ignore the others, so that nodes describing
+  channels with another model under the same compatible (as the
+  downstream BCM2712 device tree does) are not driven with the wrong one.
+- Add BCM2712 support.
 
-Compile-tested only (x86_64 with VMWARE_VMCI, W=1); I do not have a
-VMware setup to test it on.
+Backward compatibility with installed device trees:
+- Upstream device trees without the peripheral window in dma-ranges keep
+  working through the ranges fallback, which yields the same bus
+  addresses the clients used to provide.
+- Downstream Raspberry Pi device trees already describe the peripheral
+  window in dma-ranges (for both the soc and scb buses), and their
+  40-bit controllers are handled through dma_map_resource().
+- The node of the downstream BCM2712 device tree describing channels 0-5
+  is rejected instead of being driven with the wrong programming model.
+- The current upstream device trees do not describe any 40-bit DMA
+  controller, so the new compatibles have no legacy to support. A
+  brcm,bcm2711-dma node without dma-ranges makes the probe fail instead
+  of programming wrong addresses.
+- Older kernels booted with the new device trees are not affected: the
+  extra dma-ranges entries do not change the DMA limits of the existing
+  devices and the new nodes use compatibles unknown to them.
 
- drivers/misc/vmw_vmci/vmci_queue_pair.c | 27 +++++++++++++++++++------
- 1 file changed, 21 insertions(+), 6 deletions(-)
+Not supported yet: No device tree consumer is converted to the 40-bit
+channels either.
 
-diff --git a/drivers/misc/vmw_vmci/vmci_queue_pair.c b/drivers/misc/vmw_vmci/vmci_queue_pair.c
-index ceafda4bf32f..f90d99b14128 100644
---- a/drivers/misc/vmw_vmci/vmci_queue_pair.c
-+++ b/drivers/misc/vmw_vmci/vmci_queue_pair.c
-@@ -2387,30 +2387,45 @@ int vmci_qp_broker_unmap(struct vmci_handle handle,
- }
- 
- /*
-- * Destroys all guest queue pair endpoints. If active guest queue
-- * pairs still exist, hypercalls to attempt detach from these
-- * queue pairs will be made. Any failure to detach is silently
-- * ignored.
-+ * Destroys all guest queue pair endpoints. If active guest queue pairs
-+ * still exist, hypercalls to attempt detach from these queue pairs will
-+ * be made.
-+ *
-+ * If a detach hypercall fails, the hypervisor may still have the queue
-+ * pair's pages mapped. Freeing them can cause a use-after-free bug if
-+ * the peer continues to access the pages. The endpoint is therefore
-+ * intentionally leaked instead.
-  */
- void vmci_qp_guest_endpoints_exit(void)
- {
- 	struct qp_entry *entry;
- 	struct qp_guest_endpoint *ep;
-+	int result;
- 
- 	mutex_lock(&qp_guest_endpoints.mutex);
- 
- 	while ((entry = qp_list_get_head(&qp_guest_endpoints))) {
- 		ep = (struct qp_guest_endpoint *)entry;
-+		result = VMCI_SUCCESS;
- 
- 		/* Don't make a hypercall for local queue_pairs. */
- 		if (!(entry->flags & VMCI_QPFLAG_LOCAL))
--			qp_detatch_hypercall(entry->handle);
-+			result = qp_detatch_hypercall(entry->handle);
- 
- 		/* We cannot fail the exit, so let's reset ref_count. */
- 		entry->ref_count = 0;
- 		qp_list_remove_entry(&qp_guest_endpoints, entry);
- 
--		qp_guest_endpoint_destroy(ep);
-+		/*
-+		 * If the detach failed, the peer may still access the
-+		 * queues, so leak the endpoint.
-+		 */
-+		if (result >= VMCI_SUCCESS)
-+			qp_guest_endpoint_destroy(ep);
-+		else
-+			pr_warn("Failed to detach queue pair (handle=0x%x:0x%x), error: %d, leaking it\n",
-+				entry->handle.context, entry->handle.resource,
-+				result);
- 	}
- 
- 	mutex_unlock(&qp_guest_endpoints.mutex);
+This patchset has been tested on Rpi3/4/5 with both downstream and
+upstream DTBs. The upstream DTBs have been customized to allow for several
+peripherals (SPI, I2S, HDMI audio, mem2mem) to be tested against dma40,
+an example of which can be found in patch 28.
+Future patches will convert said consumer nodes to use the new dma
+controller.
 
-base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
+This version has been prepared with the help of an AI coding assistant
+(Claude Opus 5.5).
+
+[1] https://lore.kernel.org/linux-arm-kernel/ee19a95d-fe1e-4f3f-bc81-bdef38475469@arm.com/
+[2] https://lore.kernel.org/all/CAPY8ntCcz7ysTq_78Rb8ohLLETTYZeoZ3DXdPFvDLAkPc9jPWw@mail.gmail.com/
+[3] https://lore.kernel.org/all/CAPY8ntByJYzSv0kTAc1kY0Dp=vwrzcA0oWiPpyg7x7_BQwGSnA@mail.gmail.com/
+
+Previous versions:
+v2: https://lore.kernel.org/all/cover.1710226514.git.andrea.porta@suse.com/
+v1: https://lore.kernel.org/linux-arm-kernel/cover.1706948717.git.andrea.porta@suse.com/
+
+Andrea della Porta (24):
+  dmaengine: bcm2835: Fix coding style issues and a typo
+  dt-bindings: dma: brcm,bcm2835-dma: Document dma-channel-mask and DREQ
+    flags
+  dmaengine: bcm2835: Support common dma-channel-mask
+  dmaengine: bcm2835: move CB info generation into separate function
+  dmaengine: bcm2835: move CB final extra info generation into function
+  dmaengine: bcm2835: make address increment platform independent
+  dmaengine: bcm2835: drop info parameters
+  dmaengine: bcm2835: pass dma_chan to generic functions
+  dmaengine: bcm2835: introduce multi platform support
+  dmaengine: bcm2835: Use dma_map_resource() to translate slave
+    addresses
+  spi: bcm2835: Pass the CPU physical address of the FIFO to the DMA
+    engine
+  mmc: bcm2835: Pass the CPU physical address of SDDATA to the DMA
+    engine
+  ASoC: bcm2835-i2s: Pass the CPU physical address of the FIFO to the
+    DMA engine
+  drm/vc4: hdmi: Pass the CPU physical address of MAI_DATA to the DMA
+    engine
+  ARM: dts: broadcom: Describe the peripheral window in dma-ranges
+  dmaengine: bcm2835: Support channel subsets in a controller instance
+  dt-bindings: dma: brcm,bcm2835-dma: Add BCM2711 40-bit DMA
+  dmaengine: bcm2835: Add BCM2711 40-bit DMA support
+  ARM: dts: bcm2711: Add the 40-bit DMA controller
+  dt-bindings: dma: brcm,bcm2835-dma: Add BCM2712 40-bit DMA
+  dmaengine: bcm2835: Add BCM2712 40-bit DMA support
+  arm64: dts: broadcom: bcm2712: Add the 40-bit DMA controller
+  ARM: dts: broadcom: Set the DMA flags of the HDMI audio channel on
+    BCM283x
+  arm64: dts: broadcom: bcm2712: Enable HDMI audio
+
+Dom Cobley (2):
+  dmaengine: bcm2835: Support dma flags for multi-beat burst
+  dmaengine: bcm2835: Fixes for dma_abort
+
+Phil Elwell (2):
+  dmaengine: bcm2835: Add support for per-channel flags
+  dmaengine: bcm2835: Add NO_WAIT_RESP, DMA_WIDE_SOURCE and
+    DMA_WIDE_DEST flag
+
+ .../bindings/dma/brcm,bcm2835-dma.yaml        |   88 +-
+ arch/arm/boot/dts/broadcom/bcm2711.dtsi       |   40 +-
+ .../arm/boot/dts/broadcom/bcm2835-common.dtsi |    3 +-
+ arch/arm/boot/dts/broadcom/bcm2835.dtsi       |    3 +-
+ arch/arm/boot/dts/broadcom/bcm2836.dtsi       |    3 +-
+ arch/arm/boot/dts/broadcom/bcm2837.dtsi       |    3 +-
+ .../boot/dts/broadcom/bcm2712-d-rpi-5-b.dts   |    9 +
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |   26 +
+ drivers/dma/bcm2835-dma.c                     | 1229 ++++++++++++++---
+ drivers/gpu/drm/vc4/vc4_hdmi.c                |   16 +-
+ drivers/mmc/host/bcm2835.c                    |   20 +-
+ drivers/spi/spi-bcm2835.c                     |   27 +-
+ sound/soc/bcm/bcm2835-i2s.c                   |   19 +-
+ 13 files changed, 1229 insertions(+), 257 deletions(-)
+
 -- 
-2.56.1
+2.51.0
 
