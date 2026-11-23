@@ -1,54 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795458082;
-	b=Fwfh2Z5LqYc8dl+D3N97659jDarlKs3ajYazDJ8KJIKSozmOJUy5rd2PZQsqUPW2AWXH
-	 hYz02oYyx9LblDCcAwa22QmCzb1TLjVOWb/YMH5HzBT7c/TRkRlEZ68Lc14ph5lajE+qq
-	 nh08kxffz34dW8y1LrCB4pG37+TezipnbHIgD3J19jj7vbjdvgFzssbuGHsr+5qukTjcv
-	 uFsgbY/ZOaKmpsoya0RRNwHGhCCnReVn76BLndLi2kwo6nGcqzhEh6wqlqcPGfaKcSOFl
-	 qT4gH+mfaxgpDxfEsa80hVaiE4MItDI24ioZGUSG4gfdnTKeP1pVQj/cPhkZ1Nb2Rdg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458082;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=DMFJWLlwc5pul+0VLMZP1nIXedHQe4kuVQv1OvmExD0=;
-	b=x8hBzCLB3vo2r0YIlHwCPIT+djs+XT4p/muilWQvWpo9F1eOj8+PZ7s+znScRxgfIWz6
-	 UmJTjmajejZNHYCQzZ44uU/DThXSUPfQ9l50myKDAdCWXCaRu4azMw/IjfyDChoLRXuQx
-	 D72BvZmWlLrtHd7501Vs6Xjqf1cap/N4AKaBiAJoV90iQvPzPgFDf4LpRkgfmK5AYigiy
-	 AY94kNqpZHMdIpENSn7+CWJEodF8QC26Rv7vSeYkbSyc+QJYwDT9JFk2NihcXsb2oKxxj
-	 Ha8lBUaolbDZ77CHQJ2rBhACcV0BPeaZgNL1W65sHTOWzCqMG3MUwZCtYcPihVWuqLw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I7w54SJa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795458123;
+	b=rbK+hz+J903Jmeu5/5LOFVsPYNCnRZh3TDzarYcEwZUvC7+YEQLWc8SRZDxv0dHg7vmt
+	 d2pKELnGjjmwitDivOEAeEdHr9V5mRj0AxlmYoUUJAvQunOwjYJ4I9NY4FYWBAEgwRhIC
+	 RKtMYTmAAQCO7Nh2OMu53FJF+RW8ic/V+cSqZ6k8upu16JXwp4Jbd2GlVqk0mJI3LtMKs
+	 y/eR4LdDoeO3W7+Vw8MElillZE5UcWMTqMHvP07X//5Sf5ApvPGws/GE7dP+C+zz60eif
+	 gPaR5NO8YRXa8vX+iESV4eVR3E6sd2SUQ4Z28z7CBiPeV1ufQGgVL6frotzfHKyuGfA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458123;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=gQaw9Vk9+tQPLXBi7VU6YjTxlhQ/2eyTFTJHqY1EySE=;
+	b=zxrx2rTZGYNZ9hjMn6auq9L1osC0awcKlU1yDCBfoVM8kZ8CXTJZPQvvr5bIESm4YV0U
+	 1G23Vy30+u6ZvZgwedSjj/6mdfa5rIkn9T12sDxfA+2bado2rpe4A6NBHRwo6UD+aomuL
+	 BEpFk+UBGBHefxgUV1XifXw3riMcr0zLt6P9tnY54W++pmU30kV0u6ZNPPcvOEkuGRxuW
+	 APzi2rv7Eo6Yy/WdW+zAp4n2CX6BbMP7YZht3wKefNu0Q3QGmL78cxCVDIcMrXtkYay6I
+	 52rNX6QoF1fec9+REncGeZ4GpACvFDO0WOqgVQFsehZ+CEyLjRdMzi3F3CLS9wOn9aQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=laveeshbansal.com;
+	spf=pass smtp.mailfrom=laveeshbansal.com;
+	dkim=pass header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b=NQCKQ6Re;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
+Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E292606A31A;
-	Mon, 23 Nov 2026 18:21:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 857EC606A31A;
+	Mon, 23 Nov 2026 18:22:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 857EC606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=laveeshbansal.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=laveeshbansal.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I7w54SJa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D70F31F000C4;
-	Mon, 23 Nov 2026 18:21:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795458081;
-	bh=DMFJWLlwc5pul+0VLMZP1nIXedHQe4kuVQv1OvmExD0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=I7w54SJaXgNpMDXbzdZvlTkM1RpmDNqxhpjkCeuYTIrNZT7Y78uMvNWlhaie9rl4R
-	 z7M75V+1+/ORFhlpBL+nfVax7NjHBoPMGhany81CjzVffd7m9PMup2Jxps/09OyiJh
-	 rBcAhHttEYz0dVgAmp2zQXg9Dg8Log7mNYKrCYKmGhptc/LSgk49P9eZGvmBKJtMTS
-	 4GzPNeIC7Ns4d730u0pmdUl3gfHLrlc1GtbQRKBWlerS9xWkWGPsJga7hYcM0Sh/n8
-	 8vYSfXvR9g5wD16unNh4GV0DGS2+REBJbTNkKbqJ/P6PnYIdDM+y8vKxdOjowdwGE2
-	 XkkK803+N1dXA==
-Date: Mon, 23 Nov 2026 18:21:18 +0000
-From: Mark Brown <broonie@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-next@vger.kernel.org
-Subject: Re: Missing signoff in the mediatek tree
-Message-ID: <4388067b-a139-4893-b5b6-e4604404d66e@sirena.org.uk>
-References: <avw2yoxCfKfHK9Hv@sirena.org.uk>
- <a7337b3d-2621-4c68-b165-904f7b88e4dd@kernel.org>
+	dkim=pass (1024-bit key) header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b=NQCKQ6Re
+ARC-Seal: i=1; a=rsa-sha256; t=1795458104; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZGtKsHgNSS/ZvE454aeZ4AE+SU6epq4GNeJPu7klKjDuRv3LiUCnhTXu1PkRi11JRd6vWNnWoYGe4mdLS0dDpxztXw23z/jCLdtitDKoXLNA8fmKa/zJ7hvPeO2wDQ+Xg5UJwTxrg7NtRLHHM5lqfDHlnb2M+KXFNipxrBAOXP8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795458104; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gQaw9Vk9+tQPLXBi7VU6YjTxlhQ/2eyTFTJHqY1EySE=; 
+	b=mVe3qmonBAON3Sybd7Y2rbLUZm4fZ71en/kHkS6sMDponfrmdeGIq+g4enwAHTvTUrHmppBHdTmCSC636KC0Lol70c7dIrODsHXUlyFVAJ1dZeC2oEChSpUWa13RaU/Mfw11Ggr9Uaw+NQZg1vZkgnOJefqeYz1ZlnNi4A9M3LM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=laveeshbansal.com;
+	spf=pass  smtp.mailfrom=laveeshb@laveeshbansal.com;
+	dmarc=pass header.from=<laveeshb@laveeshbansal.com>
+DKIM-Signature: a=rsa-sha256; b=NQCKQ6Rex/xA5RTPVCehzSMw9tNJYBOBZANzW1pFmeU5Qd1fm/53Q6FGRcSMvNE3pMq+/m9bw4BYc7RRdFnlGCjUjrvFaOcaLm95ekTOWwsRgsMxOQY9jy0tN6eElJC3988gyYYMBE6lYIBE7SaMq4rj93IqoxusfYgYL5b3Gvs=; c=relaxed/relaxed; s=zoho; d=laveeshbansal.com; v=1; bh=gQaw9Vk9+tQPLXBi7VU6YjTxlhQ/2eyTFTJHqY1EySE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795458102373833.7656003546538;
+	Mon, 23 Nov 2026 10:21:42 -0800 (PST)
+From: Laveesh Bansal <laveeshb@laveeshbansal.com>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Jens Axboe <axboe@kernel.dk>,
+	Eric Biggers <ebiggers@kernel.org>,
+	"Theodore Y. Ts'o" <tytso@mit.edu>,
+	Jaegeuk Kim <jaegeuk@kernel.org>,
+	syzbot+20d60aafd9a0d1f2a380@syzkaller.appspotmail.com,
+	linux-block@vger.kernel.org,
+	linux-fscrypt@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] blk-crypto: avoid fs reclaim under profile->lock in the fallback
+Date: Mon, 23 Nov 2026 10:21:36 -0800
+Message-ID: <20261123182136.63256-1-laveeshb@laveeshbansal.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261123093134.GA23224@lst.de>
+References: <20261123093134.GA23224@lst.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,85 +74,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gnhsLZOL7+PXQCQY"
-Content-Disposition: inline
-In-Reply-To: <a7337b3d-2621-4c68-b165-904f7b88e4dd@kernel.org>
-X-Cookie: Brain off-line, please wait.
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 
+Hi Christoph
 
---gnhsLZOL7+PXQCQY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks for the review. v2 moves the NOIO scope into
+blk_crypto_hw_enter()/blk_crypto_hw_exit(), and into
+blk_crypto_reprogram_all_keys(), which takes the lock directly:
 
-On Tue, Nov 17, 2026 at 12:50:14PM +0100, AngeloGioacchino Del Regno wrote:
-> On 11/17/26 12:13, Mark Brown wrote:
-> > Commits
-> >=20
-> >    af557feaed1f9 ("clk: mediatek: mt7981: fix "emmc_400m_sel" clock mux=
- sources")
-> >    6fe7aa32b1063 ("clk: mediatek: pllfh: clear state data in mtk_clk_cl=
-eanup_pllfhs")
-> >    a3ef44f33667d ("clk: mediatek: Move fhctl_parse_dt call into mtk_clk=
-_register_pllfhs")
-> >    2def5260f4be1 ("clk: mediatek: pllfh: Add ops for PLLs using set/clr=
- regs")
-> >    4587b6170ea5f ("clk: mediatek: pllfh: Add configurable clock ops to =
-mtk_pllfh_data")
-> >    7cbf375f78def ("clk: mediatek: pll: Add ops for PLLs using set/clr r=
-egs")
-> >    b7285135ac890 ("clk: mediatek: pll: Add PLL stabilization delay defi=
-nition")
-> >    efa27fb633420 ("clk: mediatek: pll: Factorise pll power on/off seque=
-nces")
-> >    696eb5f8af066 ("clk: mediatek: pll: Add BAR reset register offsets")
-> >    e998b6e82a481 ("clk: mediatek: Harmonize mtk_pll_fenc related symbol=
- names")
-> >    294637d60bc0d ("dt-bindings: clock: mediatek: Add MT8189 system/base=
- clocks and resets")
-> >    dc3a6ae2eeab9 ("dt-bindings: clock: mediatek: regroup MT8195 dt-bind=
-ings into MT8186")
-> >    833dc5fe7832f ("dt-bindings: clock: mediatek: regroup MT8192 dt-bind=
-ings into MT8186")
-> >    09b156611b0a8 ("dt-bindings: clock: mediatek: regroup MT8188 dt-bind=
-ings into MT8186")
-> >    3b372542144aa ("dt-bindings: clock: mediatek: reorder MT8186 compati=
-bles")
-> >    cb47a7976bb5e ("dt-bindings: clock: mediatek: Make '#clock-cells' re=
-quired for MT8195")
-> >    1a2b86804febe ("dt-bindings: clock: mediatek: Make '#clock-cells' re=
-quired for MT8192")
-> >    51928be3081a2 ("dt-bindings: clock: mediatek: Make '#clock-cells' re=
-quired for MT8186")
-> >    24bf5189aadf3 ("clk: mediatek: Reserve missing MT8516 top clock IDs")
-> >    8779893558124 ("clk: mediatek: Reserve missing MT8196 MDP clock IDs")
-> >    afd8231b5a434 ("clk: mediatek: Reserve missing MT8173 topckgen IDs")
-> >    3ccbdb37d10af ("clk: mediatek: Reserve missing MT8167 clock ID")
-> >    dbed26f4c4895 ("clk: mediatek: Fix MT6797 clock onecell IDs")
-> >    8dcfe9e6b3cc7 ("clk: mediatek: Fix MT6779 clock onecell IDs")
-> >    336f7db3af40c ("clk: mediatek: mt6795: fix the FHCTL DDS mask width")
-> >    351444cd006ef ("clk: mediatek: mt8173: fix the FHCTL DDS mask width")
-> >=20
-> > are missing a Signed-off-by from their committers
->=20
-> No idea how this happened, but it's fixed.
+https://lore.kernel.org/r/20261123181408.62972-1-laveeshb@laveeshbansal.com
 
-Still seeing this today.
-
---gnhsLZOL7+PXQCQY
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEhB0ACgkQJNaLcl1U
-h9Br0Af/Y4WlWHASqJuehMLC8C14wHwLZi+dyVGtGqhSm344Ga+9/ZdhPLkkssCO
-rSukqf6pzGw1db1QCdPddOGEVtjHwuCSjOB06tSYSR+Aza3ohbL7cC+uP4aUmFPh
-ySWSKnF3a/s3hdpmRp/2XDFXTkoyxuZw8+VUZ7KA4LurhexUyxPNWEpwGmjtlgfP
-2apIha4S2af5ti/O8Q8Dji4HpRFMd2pPrsQ+0rLdNO2Nfkk8+gWGupjWvm4cnBwP
-kQQVF2Bx78RB6ZecGBJ9ptMfKAYQ843ya1yP0ZN4fLrQI3aM+cbyi99N6zr4/JU1
-P5ft/DzYSR49A+oGzDA9AbeKZwlUvQ==
-=W3wR
------END PGP SIGNATURE-----
-
---gnhsLZOL7+PXQCQY--
+Thanks
+Laveesh
