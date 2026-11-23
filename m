@@ -1,55 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448493;
-	b=l/8gs8w7PZBRgEThlRKy64z+uM1LPQOvFQuLopYwUBp7lei+bkwxZY8wHJM69b1aJdmK
-	 ZGBuEp0al3K6HmmLZOnzH6iSj6yDH475cbV4Lq/aBvUHlEU4D92+MhD4rfUQnLailj+Aq
-	 vG9fKvB5+LggPTiEiJQD93IzzrPyRpgLaXEpZVTnUdrOx5nI6xEbk+BuhcPnJBzAoZxtO
-	 SKlWfbshaqn7ao+dm0UiAK2i3zzv6Rmhq4TbBR6VMc3BuSG4RVOIl9VPw709wekcT1jvO
-	 kEFn/3wkhjX+uP6IjJLlPRgfSvHGsGJ1I3ndFAjnHEhty57p2YT8L4BZ8o/8BuUi1bQ==
+	t=1795448497;
+	b=Q60zul8z4cr7q+0Cu1d+fpzAnCaOb/e3oarw+O7svylof1v6UGrYY+fqaI5CF48GA256
+	 nfPBA12STEFtMZ5uSgX8oiyD0a2XXDBg+8eqSGjl3c2xl8GcXHEqj3YNIiZgwtO789YWx
+	 heinHmO5DpC+RJaTpD1TCwto0m7tv5tr52chwUnQBggIa+XNbETIW8ztYiVJy9Ny55qdT
+	 EPBPPa6lcoJlh/B8Jiq3nnM7UlzOrscoH5DYt9mpnsbsS2k0KzR8t558h1LK4KhSkcN9u
+	 M1P3IlwqCsnC03xAQrJFHeF/olvqFGzYqjvZeUIxRhMGYbmyItOLRS4CLaaCCcVO50A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448493;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=PwBm1IcM1lfZmkWEHC9cN+WkeWysjbiIwKr8KptSUas=;
-	b=KbJ2GcDmPS61IEtHzB81V6p4iz/AwcTaWGDac9zlIF1VxSPqWmQnyJBQDfodUoW+oBL7
-	 AbBr83zWRfiK+rvaiOb7wUU5IhohOccYpkWcxh3Q7BuQ/CdPM2pC2EJeYwJWy2Pt6HOtf
-	 INZ0tR47okux+uYbCXY2u+nxv7jTQZul/GI30L07xuCC67VwmiotS70cYrHsbPWc0iowP
-	 HLxbqDuFJeW0a76BeFXg6yC8cUdtbxo4bYhpS4LgdArHBqKQf9jHoKg/cw5qTF66KE4ag
-	 ndKbXox9a4SwqiayiVm++9BwIgTtpe3X820VfkN+6wGgiaRZyaH8+puRQPnvyLvP7Gw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448497;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=ajq0I1jTHg94BEb2kR+C72Yoj6Dn+cM5m8kty+Pico0=;
+	b=aHeJJBXN1+Knb4TqRxXCWgnnaQOpZ+9q3sM/QmCMaEta/QXjK8QPcasCyPMYY5QumsC/
+	 38SleuWIDBh6g1smYi7tDMr2Lo7OU4AotNIWQSvfgYRfr4bEY1UPVTkK1L8NCPtTLyCxB
+	 sGWuXU7uvI1B85pRghGthzvVIryHeonVOxxqpTc17ZMpjujvGVRpvfRx6Rq6UkBzAdSt/
+	 UdR9NQ5R6tkM5KAZztR7umerf0xb5qp8K4ZvgIIektoDEnWlv+KNsPFs1dvKNSD6D+aEY
+	 Zg40vrijkTPDvh5m7K4/pD93xZKoROCIN3jbuVIlRS5LKqLAPf9WPLruuDQffZNK7hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EoaoBPCk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=heo5z1JP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FF51606A33E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 747F8606A33E;
+	Mon, 23 Nov 2026 15:41:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EoaoBPCk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA7841F01561
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=heo5z1JP
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id B7A601F00A36;
+	Mon, 23 Nov 2026 15:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448492;
-	bh=PwBm1IcM1lfZmkWEHC9cN+WkeWysjbiIwKr8KptSUas=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EoaoBPCk5xlBbmcyZnLlAayGwUrD1lH9GkXZhVLwd6R3Sbgf2pWTuUc9fFkkVxG9O
-	 KRsYj3ZKAn7kTn9kTc9iRxnKgtcsfKXKyMRvxxnGSb7YazKCjk61Ci0xhQiaJZS9fo
-	 fDQ8//zpVBzA4XdMhhCmFeCwA30Tba+zOhWZBFICu7otJSlmUfDnupMUU8KPYNosGx
-	 r3QCPtpAWSkxvgmTf0bgfhYQTjDgZYtXg84kooCVq+mv2rdPABnwLyXLooKHyWZcAf
-	 Yvo8/3Ot1a0XbNJdFolHsyfzSTYGxbCzi6wfQX92YFIfzQJ9Ev8og+OKFGisN0E4X/
-	 9oXiOA8PyZrJQ==
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1a2761c69fbso2291584c88.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:41:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEw8w4Ng2TgV3xJOZ9F3eYGB0x1LRC7Bp6TxHggoC3HiZlroGjifQ1ZlM2XnGaGUImGIY5FZbrT9sCK8hM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Vbjk5vu0f48osCosEESclbwiCBH7mEyo6GtQC3rt2UacFClT+
-	eyNxhF5S9hcydN4HX9ywSx31D281AnHDSap0irGKym9+am9LY9jIK6RBS/9jiucX1KK7F+erneM
-	C4lZS7xnp134+CwxBeevRtAI477+ouQ==
-X-Received: by 2002:a05:701b:450d:20b0:1b2:4378:3545 with SMTP id
- a92af1059eb24-1b5568e825emr13210367c88.21.1795448492121; Mon, 23 Nov 2026
- 07:41:32 -0800 (PST)
+	s=k20260515; t=1795448496;
+	bh=ajq0I1jTHg94BEb2kR+C72Yoj6Dn+cM5m8kty+Pico0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=heo5z1JP8A5yxkIctS+s13VURgxZBYP4NbGicVeLFprLdGRLp4z++VF4P5Ksijb9J
+	 19GXOsxzXFHDoK08+NSy4F2C7QAknIiaW+6LkddaRjovaFzj39ZV/dCUB0skHJ1nK5
+	 qCq/Z+3ohu5obCI5WdGdDC27j1GmEWrYpKQba9bbqUgBZsulHdXpevCylt16SuslTt
+	 Ay1PFtS8BNU9Om11cKrCm51zB0DYk/tYFx9AMtRgSFpEhUgdgy2+sIl5Jc6ExQRhZE
+	 MnZnRwc6fw9hE4wPenPq8ZzZACGh9cMfRaKbcboytfz5FUriXvOU7QspbkxuAb3ZDc
+	 pcGMAuXy8e+Hw==
+Date: Mon, 23 Nov 2026 16:41:32 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Kent Gibson <warthog618@gmail.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-sh@vger.kernel.org, "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	linux-wireless@vger.kernel.org
+Subject: Re: [PATCH 0/2 v8] gpiolib: finish the legacy cleanup
+Message-ID: <7dpg3x3gkypkznzhuetjsqmk5fhqwuwkc6kupbs52zqh5mibgx@fjow6eodw4pf>
+References: <20261123085723.156933-1-arnd@kernel.org>
+ <tdc6h325jthjgyik2ne4oistkm563maoc2cpnffqu7hh34tpl7@oscripzv4dwq>
+ <qvmy7iaxc7cjy2gkajqkr5ma6b4lwxz5ff64a5zsqrgewkxodr@odbjlv5x3hix>
+ <8296a5c2-0aa2-4fc7-b65b-9d336bc4dff6@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,67 +64,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261011004248.1117649-1-agentzoan@gmail.com> <20261011004248.1117649-2-agentzoan@gmail.com>
-In-Reply-To: <20261011004248.1117649-2-agentzoan@gmail.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 23 Nov 2026 15:41:18 +0000
-X-Gmail-Original-Message-ID: <CAAOTY_8_90si7frBxHCtBqk=V+nr3WhkYbc8YYWTcAq=oL40eA@mail.gmail.com>
-X-Gm-Features: Aa3M54qUVOXJZJP1GdyNU65SHuNK_sE0j5xy6sPPN1MXY2yoHWIA_tbhn9S-dUs
-Message-ID: <CAAOTY_8_90si7frBxHCtBqk=V+nr3WhkYbc8YYWTcAq=oL40eA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] drm/mediatek: mtk_crtc: Look up connector routes in
- the CRTC's own mmsys
-To: zoan37 <agentzoan@gmail.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Jason-JH Lin <jason-jh.lin@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
-	Nancy Lin <nancy.lin@mediatek.com>, Nathan Lu <nathan.lu@mediatek.com>, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8296a5c2-0aa2-4fc7-b65b-9d336bc4dff6@app.fastmail.com>
 
-zoan37 <agentzoan@gmail.com> =E6=96=BC 2026=E5=B9=B410=E6=9C=8811=E6=97=A5=
-=E9=80=B1=E6=97=A5 =E4=B8=8A=E5=8D=8812:43=E5=AF=AB=E9=81=93=EF=BC=9A
+On Mon, Nov 23, 2026 at 04:24:49PM +0100, Arnd Bergmann wrote:
+> On Mon, Nov 23, 2026, at 16:08, Bartosz Golaszewski wrote:
+> > On Mon, Nov 23, 2026 at 03:59:24PM +0100, Bartosz Golaszewski wrote:
+> >> On Mon, Nov 23, 2026 at 09:57:21AM +0100, Arnd Bergmann wrote:
+> >> > 
+> >> > This was planned for 7.3 originally[1], but kept conflicting with
+> >> > ongoing cleanups for the broken rsk7203 board. I've skipped the
+> >> > oneline rsk change now, which will be fixed properly by Dmitry's
+> >> > patch [2].
+> >> 
+> > Sashiko is right:
+> >
+> >   CC      arch/sh/boards/mach-rsk/devices-rsk7203.o
+> > arch/sh/boards/mach-rsk/devices-rsk7203.c: In function 
+> > ‘rsk7203_devices_setup’:
+> > arch/sh/boards/mach-rsk/devices-rsk7203.c:127:9: error: implicit 
+> > declaration of function ‘gpio_request’; did you mean ‘symbol_request’? 
+> > [-Wimplicit-function-declaration]
+> >   127 |         gpio_request(GPIO_FN_TXD0, NULL);
+> >       |         ^~~~~~~~~~~~
+> >       |         symbol_request
+> 
+> Yes, this just seemed the easiest way out to avoid clashing with Dmitry's
+> patches again. If you want the version that doesn't break the build,
+> you can still apply v7 [1], but that likely means his series has go
+> through another revision to undo my change and remove the linux/gpio/legacy.h
+> inclusion.
 >
-> mtk_crtc_update_output() finds the private data of the display
-> controller (mmsys) that a CRTC belongs to with
->
->   priv->all_drm_private[drm_crtc_index(crtc)]
->
-> but all_drm_private[] has one entry per mmsys (mmsys_dev_num entries),
-> not one per CRTC. mtk_crtc_create() gets the right entry from its
-> priv_data_index argument, and the two only agree when every mmsys
-> drives exactly one CRTC and the CRTCs are created in mmsys order.
->
-> When a CRTC with connector routes sits on an mmsys that drives more
-> than one CRTC, the lookup reads past the end of all_drm_private[] (or
-> picks another mmsys' data), and the route component taken from that
-> data's ddp_comp[] array is bogus. On an MT8189 board with connector
-> routes on the external display path (CRTC 1 on the only mmsys), the
-> first HDMI hotplug oopsed in the compositor's atomic commit.
->
-> With the route tables currently in the tree (only MT8188 VDOSYS0, whose
-> main path is always CRTC 0 and all_drm_private[0]) the two indices
-> happen to match, so nothing in-tree hits this yet. It triggers as soon
-> as routes are used on a path that is not the first CRTC of the first
-> mmsys.
->
-> Remember the mmsys private data mtk_crtc_create() used for the CRTC and
-> use it in mtk_crtc_update_output().
 
-Applied to mediatek-drm-fixes [1], thanks.
+Can I apply v7 and provide it to the SH maintainers on an immutable
+branch?
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
-
-Regards,
-Chun-Kuang.
-
->
-> Fixes: 01389b324c97 ("drm/mediatek: Add connector dynamic selection capab=
-ility")
-> Assisted-by: LLM
-> Signed-off-by: zoan37 <agentzoan@gmail.com>
-> ---
+Bart
