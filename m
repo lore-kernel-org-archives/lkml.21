@@ -1,101 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432765;
-	b=Nd3BsPICzUJCcCS5FMtPXuk+PrKwT0rRogtGfu5WM4TtLb6rMc6CGx9WqcvGG3KfeIcy
-	 cBgYoSbejRVSk34pD72RFOVIz5YetRlLndSJAMubXXGczOgq+wCfT/kBlp9KQOFQjt+EF
-	 Zum5yfbzrfIo8B2OqnMzpu7aQsw2yV0XiZrrNNpCDYZz9dR2hhWQaHg1eW6BOBjG3fY0Z
-	 4LoMoswwNbea0LRp6gu/wsQqLa8WSgZ1dUIiyXx2eifL/dEBfzWCmqWAuXetKvSg6YOLX
-	 0L+LZt4vPEG3yHcjlvrLDzGr/1Km6THRzj5Ztalyq9PFcWLb3UwOtJ0ZMDLYbVnh7hg==
+	t=1795432760;
+	b=JpXN/p/4zGWH1ekMmreN+WU5fWbF/Y2pPP5OYFnJ9L05zemU3LLPR+VtkVcD5PgbONwu
+	 v04dd+kYDQ1XHLEfn4oQcsPRtCVB2EvebchpNa00kpygRCuQbDHi/tYCaJi91EKQVNTBY
+	 kemAec+No/MS5dNAhlqVp1SU8UQCejgXTIPUW1cmIxwqgo/fobNChuICotLUZvhJhs2fV
+	 1DYX6nc0pTkiJNDClMqI7ijdq5hGqC3w9YS/99kHmL77tKxbiU0TICIJUykp+JsdqPtHw
+	 PdxbiwpM9q94U8uywnMFQKJc5oK/NhqUN5HMhfDuaUONyiETht3tQomOEr2ajBwoY9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432765;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432760;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=wnHe+aJ2WsrFZPDl6pOfeR0Olf3ozD9pArGhE6Lcr50=;
-	b=jbGds3g5+wVWpYG4uTp9YVuNw69P/qtIaX16+QsBFlsX5gK5QumxyfNDcGQeX9FMQ2Zk
-	 uPtIcVIiGzf9445pSso7FhxDmPagrBOGWMiojUrhVp97IWdl+QRL49sNgA/E7wGEBPhkW
-	 FOaR7PcZ2yeGAuE+MDyCSignh8JDAVr/xNsFZMnMkqYyuEIK9BTKjV6vPx1q0oOuhO7fL
-	 AxDaZ2nt6SWl/bXrGAZL6QbqkKWic+sH2WbmFJR0sv/625EoJNzeKtfEsGrHbz6jp3yUj
-	 mHG0Ov52z3zbtTynLk/OBbzPtnAvvZnWNnAoJxI6ucYjUyWyM0WGcHYVAFOU13CdD1g==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=ZTYyCf3yq+FPJgr8Karin0tCSx+qzJ4PS7WFFQlBVEg=;
+	b=DmofwkjOy2DA5VTxOZrdm768Ek3v6S8yegeVeL/u7eZzMoJi4tzBMv/mCTDQ+rltStyj
+	 YoeT0M8e0AzC6zI5EW4a5BoR0xgWa8QdiTIFIZOSJchsBnoA+4AXE21WGGnPfQ5/0emfd
+	 ksJZNuCXHnpCJRBQRK84ALlS43Tm6ZUfzEA9xDHqPD6dTV4G9TPMDNE57rkUojTzaXsuW
+	 3gXmIc5yDeL7b4FhAN4hgIrRvi8NOaZQ2ZX0cIRWGz9Ny9RE+Vgb3ABlcGaAvP4Vcsuu0
+	 eTmb7OjbfEFQ7DpAPcjWxgI40iAvsfWyZItnkP/l51JC4qHipLQm26BV2Hrb2sTIBBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Mc61rJnX;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=irj4LZ5k;
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F003E606A6BD
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F003E606A6BD
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F90560A5BC0
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F90560A5BC0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=Mc61rJnX
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so30444575e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=irj4LZ5k
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c4d28f75d62so522462566b.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795432762; x=1796037562; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wnHe+aJ2WsrFZPDl6pOfeR0Olf3ozD9pArGhE6Lcr50=;
-        b=Mc61rJnXoEpVe59quky0mZr+m/LAL42aIfNBOt5g4cFwk1FpdGd9oUlFZ6hws74mdT
-         KNlhHLOuhwWgOneeYGsJI8bzHXJGZMDHwCTUE6WhuB3pfIHuPkUwsTi7KGdgr7RcbUUe
-         7gzrmRjMldDF1ywQlcAZeBacmd6SraQS9Piq1DUH5wNxiSnM5WKopQnhtUF8nlrfcbbN
-         PEAKHiB/VGHk3drWsZc3v4/rrdNI/YNS5FPaloBlhPs7e7ptmhFukTaUjUhkW/oZQ7/Z
-         STlfjUUZYq9c9Su2RFgFjbTGQfY7W+wVQX8k89xVqyq9qa0ty9hwObc75u6EjshmMBWM
-         0+wQ==
+        d=gmail.com; s=20260707; t=1795432758; x=1796037558; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZTYyCf3yq+FPJgr8Karin0tCSx+qzJ4PS7WFFQlBVEg=;
+        b=irj4LZ5kRy6yRgUhGg1kbm92HcmMCoMLneUJ1641AVWfolLANDiIf3OmqL1qK0R86g
+         Ztg59feCeB4uIqZUKmoBPxBg/H4XEYVkaT/eYEZiltNrG1SOnYRgzj3YAfeFfVEoJIWK
+         1V8zI8+9kody6xxnD1ow7f5yu/kMdzDAEOkfRvWDx1qaHJaU1uqD9tbt1X9kQ8FYZ0yz
+         +FvAag8XgfIO+LISFHNN6d5eq9vULtLoT2Pe+xNlwSAzXonylDjoWKMEgxRgc7a3ZBZV
+         HK/8SCrP+GMGX7FMKXF8E9mc9oPeOQdPThDbIVyMdZ6aouGkPUI2Ik7Zu7LDLThHuUfO
+         Bxbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795432762; x=1796037562;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795432758; x=1796037558;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wnHe+aJ2WsrFZPDl6pOfeR0Olf3ozD9pArGhE6Lcr50=;
-        b=v0N3TUpzOYkZ0AAi98as2AeuMxetVeusiQleGYJFNg9L99rndYltX4junIDLP1JSI9
-         zt0L7Xw4TYk8S2EYPsE/fi0MeEAfqCizAWYZvQa59j2fH8FNuv7Y16MIfjBOEcrKYF4Q
-         Z+jvajqyhkEjOsdy7cwHzR90TfXn76r+XFqCs5ZMIOQr4I0TAY9OYIl8alLe4W85fmyR
-         M9n6PMqxcRQzPWki9BJBLU36EFCabR7/liiHcyBWVKP/ptCVqddJAajgIRbXerNyQFRs
-         8hohz9ODlsQpkAwU5drU/79/0y8Hue9z2OaZ63N8Dl6Bo4Uyv+0+Ox+qqbZ4TyK2dmbM
-         wBEA==
-X-Forwarded-Encrypted: i=1; AL+hErEXAjkVHnoFyjBM6qnN4jbLSfVqtC+w5gPFStEYjJHQFMj546Ojyqi3cyBHm4Hd+9VbsUyXLe5GMIPtflY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/1v2CN5uL1pV3RUbhFMABq+Rqvk1yl5hCes9RgW48bZ7fb2zlF
-	EGYxNZIra9bYUtvORWjnSi7niQrQ7ns2TB2DPYy/nMxN+dkUtj7jl1FtnI8C66BuR7c=
-X-Gm-Gg: AZFdTZf6zlsRny7n2vzaqam8+w27WUfQ4pH28OZqxCIAZZtHIVaCWtkoD7DOsZE2r4V
-	xVaROjm/ID2i0voYC5Ou2Dm8vew4frJ7pBMXHcqntrLY6SdVjyjxAiyYK5Y/kV18AQivbIj5MiP
-	u/gdvIZfRAQomSM7IZJ+F8pzopDMIOsNkpXTUEw75DlIiMJHjM3DUz/MRZrGYO/457JspNqankY
-	qMwzUSl+iO226vfiiPjFiI1lHO5js5KItU8McvU8yeVnGtiNg1ZkQmIiBhCsA8p7rnErCX0bzle
-	vsSH26a2lHILNVOLt9FiVi7rRp/Qg6XvND9k3EGzgaYUCCgHXY4rlVgrq1AiQrouSA5IaWofl+u
-	/d/h8cj2IdUpfHVkHx/qp9I50Uy7o1/VLGiBoHAABceoOWFSivCnZ4sbQC0uebSCYdVXbwnLvVr
-	P9Zxd6PiJZIg3EQ5T4VWhU30us5lvWrDKjESOWiPAJDl+l57dtpOoV94JV+HnfLk2ZHoD59+7wN
-	4GQuWbKZdy3nJjljYNyxBnvMzt8/fzVXTx4Ot3FN6l+eDH9VaISg74FyhNK+GIbY1S2l3ZFbhRd
-	8WAdobWzSYhGes35R+1bNyRLIQKTJVwESJH1HLDBOuXYxzwHIYIP/cbdbZWvGgtJwu63WyuS/AI
-	XJyIxiiYj+RWc5n/6
-X-Received: by 2002:a05:600c:3555:b0:4a1:9663:7639 with SMTP id 5b1f17b1804b1-4bb8882907fmr231833505e9.34.1795432762456;
-        Mon, 23 Nov 2026 03:19:22 -0800 (PST)
-Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6b2052c8sm21640122f8f.41.2026.11.23.03.19.21
+        bh=ZTYyCf3yq+FPJgr8Karin0tCSx+qzJ4PS7WFFQlBVEg=;
+        b=W5p+GnZRDv+Ly4jPgA4PYVgGfNMo5qC/sVgaIZ4d7YB2PwF3fMnAYtzC40lQDIHXAK
+         akUgsrMOvXTcrg+BNnDwyKH/ymR+ErJZ+QIMR5xW11XNzYN3ax3wuEjlnZUH1px5c7zF
+         PKiabxaS77dOKo7Zxd1Fw6erbXZFKNafMMGEXiLfGSv4Ub8wdFLi9ZVres2frqH73SHI
+         KX4fXfF/Om6Y4lXlLhON6TiUwmyTjJMh48e+Cw1xx8FF2KkVCDUMW0v/pDeN6ey5Kf8W
+         qIfSD39kYRSlTzsAVZhUmUWVBnFICoMie2ZzhEk7bdL9MTmfnQiTrkyT2pp+wTk7/puL
+         eDBg==
+X-Forwarded-Encrypted: i=1; AL+hErFCvzn24kdYVgSp+N3B7OFvNH3cPvrQcFsz7YULd4J5ZWEW1HSobp1rf/R1JiovPlIK25lYKnRQT5czPbo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LB/wsE2kdvWaMbtqWpOkAFILtrHKzo/bjHuOVweLLgdrvJc4Y
+	RBcyacKlKEdnKGLHlt2X2mJgBy8QgCP8LX4fOQWYevedpIgZmIg3nBTl
+X-Gm-Gg: AZFdTZd2a3645GZ9dx60fQDc+dguu3SQ4DFxGpS2TdtpS3CVkU0E5zTns1ZYi56AKf/
+	Zkz4qKrBIVnZtylg0X4yiqCux6bU8B669wVf8yv09WUqjYgNQTszB33SC39ESeowtieyRJsGG4q
+	O68H39vaoI4wmho8u7QIsrupOauzk7L54+0hhbyNYN9zi2PGq5CDDNRI5qzMqgGy8TqpP5rpijf
+	SWJb73lJQif0z4QQr72sdei9qIE2YlSRtha9GMUIpbPl3XTJUjfMeW0Oqi5sHnyglGTGafa1oXX
+	LtX8xTQelMnc+mULtJ/Ra0G8Zr+2+tlHE8ZBp3L7LaTncJXobp3tBV6OYZ/bPltoLEMF2Xa8dGi
+	qzpRuA5ACbj0f8YRIF5ZRmFu30f7mAqts0H/36F2dNqdX04CrrAyRAbia55cXo8cQQJLNS5vLbl
+	Sd3zNDleHS896P/rx2uqqP6dTZ9klXvOiJ7FB8BuOGz6/6WPlIdf2mksBoMMwst6zQPAk7vqmfm
+	D70gWhgEuzTlRL9u6V+ETimai6hxAPw2mPKY9ctKITWC8ejbc2C5Eh+85OG/bo2uEtmAcOCns2r
+	2oaF2qxPyCHGW/aAIzyKDWopIkBCVJ9MAuqogkunemwIR/zo0MwTXBcI63q6Pa/pTA==
+X-Received: by 2002:a17:907:1396:b0:c48:a838:c16d with SMTP id a640c23a62f3a-c513ab4925bmr609639066b.30.1795432758535;
+        Mon, 23 Nov 2026 03:19:18 -0800 (PST)
+Received: from [10.120.183.232] ([50.7.123.82])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc679bsm392442266b.63.2026.11.23.03.19.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:19:22 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Lee Jones <lee@kernel.org>
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
-	Thomas Richard <thomas.richard@bootlin.com>,
-	mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	Linus Walleij <linusw@kernel.org>
-Subject: [PATCH v5 14/17] mfd: Unify style of dmi_system_id arrays
-Date: Mon, 23 Nov 2026 12:18:12 +0100
-Message-ID:  <2ad1457d2b4d6c036934321d6afeda15e4112704.1795431460.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
-References: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
+        Mon, 23 Nov 2026 03:19:18 -0800 (PST)
+From: Alexander Letuchiy <asalde.le1@gmail.com>
+Date: Mon, 23 Nov 2026 14:18:40 +0300
+Subject: [PATCH v3 7/7] arm64: dts: mediatek: Add Xiaomi Poco X4 GT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,87 +91,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2444; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=r3z65v4UhgVjo0/cvLPO1/pZfgRWfVroU9ADDGE99HQ=; b=owGbwMvMwMXY3/A7olbonx/jabUkhmwWRS5R3l82m+93Gx6KDja80BrZo/1aREnp7FTPuiieR Q3nrvZ1MhqzMDByMciKKbLYN67JtKqSi+xc++8yzCBWJpApDFycAjARvXT2vwKy71Y+0JnV4nDI UI9n//PjR1scE6brn7ecseX3TiWvNLvkOJsbK0U8gqyqrq6sztHzXv5ye3eCeV6p3+97p4I28gW m5zCuX+/PqDX3dGCl3SaTxseLFZQaNwpP+OBz6rrB4oh7X14vfj79Hfc/hkrXCqGAuCNeciemG8 y1TzeWKLjuLD9vp8YFo+Udkx1k5Oe3zG3N+fd9R4HSh7j7rRdr5GZaPJfxLdNgMN1m3Flum3G9u /sgB6fdT5kmufMnDS9pfvwsdUzxslEg95/0PavTt7TpeDQ9DlR6r8/kz7nq8ha57xUte2Lfl5xh 68g1cjz8aRn/2wmV3YXOQrfmuYqcL2xoStlc6lPheI8FAA==
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-initial-mt6895-v3-7-95c46597e63d@gmail.com>
+References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+In-Reply-To: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-serial@vger.kernel.org, linux-input@vger.kernel.org, 
+ phone-devel@vger.kernel.org, Alexander Letuchiy <asalde.le1@gmail.com>
+X-Mailer: b4 0.15.2
 
-From: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Add a device tree for the Xiaomi xaga board, which is sold as Xiaomi
+Poco X4 GT, Redmi Note 11T Pro/Pro+ and Redmi K50i. It enables a serial
+console on UART0 and the volume down key on the SoC keypad. The power
+and volume up keys are connected to the MT6363 PMIC, which isn't
+supported yet.
 
-These arrays already mostly match the most used and generally
-recommended coding style. That is:
+The DT only describes the memory that Linux itself uses, which is the
+ramoops region. The bootloader updates the /memory node and adds the
+firmware carveouts to /reserved-memory, so their addresses are not
+hardcoded here. This DT must not be booted with a bootloader that does
+not do this, as Linux would then use memory owned by the firmware.
 
- - no comma after the list terminator;
- - a comma after an initializer if (and only if) the closing } is not
-   directly following;
- - no explicit zeros in the list terminator;
- - a space after an opening { and before a closing }, a single space in
-   the list terminator;
+The ramoops zone sizes place the console zone at the offset where the
+bootloader expects to find it.
 
-Only the list terminators didn't match this style as they didn't use a
-space.
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
 ---
- drivers/mfd/cgbc-core.c            | 2 +-
- drivers/mfd/intel_quark_i2c_gpio.c | 2 +-
- drivers/mfd/kempld-core.c          | 2 +-
- drivers/mfd/tqmx86.c               | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/mediatek/Makefile              |  1 +
+ .../arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts | 87 ++++++++++++++++++++++
+ 2 files changed, 88 insertions(+)
 
-diff --git a/drivers/mfd/cgbc-core.c b/drivers/mfd/cgbc-core.c
-index 8a63923d1912..d1dee7b411fd 100644
---- a/drivers/mfd/cgbc-core.c
-+++ b/drivers/mfd/cgbc-core.c
-@@ -393,7 +393,7 @@ static const struct dmi_system_id cgbc_dmi_table[] __initconst = {
- 			DMI_MATCH(DMI_BOARD_NAME, "conga-SA8"),
- 		},
- 	},
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(dmi, cgbc_dmi_table);
- 
-diff --git a/drivers/mfd/intel_quark_i2c_gpio.c b/drivers/mfd/intel_quark_i2c_gpio.c
-index 443a1a0cf777..7f8c16d82738 100644
---- a/drivers/mfd/intel_quark_i2c_gpio.c
-+++ b/drivers/mfd/intel_quark_i2c_gpio.c
-@@ -74,7 +74,7 @@ static const struct dmi_system_id dmi_platform_info[] = {
- 		},
- 		.driver_data = (void *)&intel_quark_i2c_controller_fast_node,
- 	},
--	{}
-+	{ }
- };
- 
- /* This is used as a place holder and will be modified at run-time */
-diff --git a/drivers/mfd/kempld-core.c b/drivers/mfd/kempld-core.c
-index 93e35f6be9d5..e61d35664c03 100644
---- a/drivers/mfd/kempld-core.c
-+++ b/drivers/mfd/kempld-core.c
-@@ -737,7 +737,7 @@ static const struct dmi_system_id kempld_dmi_table[] __initconst = {
- 			DMI_MATCH(DMI_BOARD_NAME, "Qseven-Q7AL"),
- 		},
- 	},
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(dmi, kempld_dmi_table);
- 
-diff --git a/drivers/mfd/tqmx86.c b/drivers/mfd/tqmx86.c
-index 1c2fe3f91238..16f47566cf3c 100644
---- a/drivers/mfd/tqmx86.c
-+++ b/drivers/mfd/tqmx86.c
-@@ -338,7 +338,7 @@ static const struct dmi_system_id tqmx86_dmi_table[] __initconst = {
- 		},
- 		.callback = tqmx86_create_platform_device,
- 	},
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(dmi, tqmx86_dmi_table);
- 
+diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+index a86fb313b1a9..d73489149ab5 100644
+--- a/arch/arm64/boot/dts/mediatek/Makefile
++++ b/arch/arm64/boot/dts/mediatek/Makefile
+@@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt6795-evb.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt6795-sony-xperia-m5.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt6797-evb.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt6797-x20-dev.dtb
++dtb-$(CONFIG_ARCH_MEDIATEK) += mt6895-xiaomi-xaga.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7622-rfb1.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7622-bananapi-bpi-r64.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7981b-cudy-wr3000-v1.dtb
+diff --git a/arch/arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts b/arch/arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts
+new file mode 100644
+index 000000000000..7bfe0d438803
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts
+@@ -0,0 +1,87 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2026 Alexander Letuchiy <asalde.le1@gmail.com>
++ */
++
++/dts-v1/;
++#include <dt-bindings/input/input.h>
++
++#include "mt6895.dtsi"
++
++/ {
++	model = "Xiaomi Poco X4 GT";
++	compatible = "xiaomi,xaga", "mediatek,mt6895";
++	chassis-type = "handset";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:921600n8";
++	};
++
++	memory@40000000 {
++		device_type = "memory";
++		/* The size will be filled in by the bootloader */
++		reg = <0x0 0x40000000 0 0>;
++	};
++
++	reserved-memory {
++		ranges;
++		#address-cells = <2>;
++		#size-cells = <2>;
++
++		/* The firmware carveouts are added by the bootloader. */
++
++		ramoops@48090000 {
++			compatible = "ramoops";
++			reg = <0 0x48090000 0 0xe0000>;
++			no-map;
++			console-size = <0x40000>;
++			ftrace-size = <0x10000>;
++			pmsg-size = <0x10000>;
++			record-size = <0x10000>;
++		};
++	};
++};
++
++&keypad {
++	debounce-delay-ms = <32>;
++	keypad,num-columns = <1>;
++	keypad,num-rows = <1>;
++	linux,keymap = <MATRIX_KEY(0, 0, KEY_VOLUMEDOWN)>;
++	pinctrl-0 = <&keypad_pins>;
++	pinctrl-names = "default";
++
++	status = "okay";
++};
++
++&pio {
++	keypad_pins: keypad-pins {
++		pins-col {
++			pinmux = <PINMUX_GPIO107__FUNC_KPCOL0>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			input-enable;
++		};
++	};
++
++	uart0_pins: uart0-pins {
++		pins-rx {
++			pinmux = <PINMUX_GPIO88__FUNC_URXD0>;
++			bias-pull-up;
++			input-enable;
++		};
++
++		pins-tx {
++			pinmux = <PINMUX_GPIO89__FUNC_UTXD0>;
++		};
++	};
++};
++
++&uart0 {
++	pinctrl-0 = <&uart0_pins>;
++	pinctrl-names = "default";
++
++	status = "okay";
++};
+
 -- 
-2.47.3
+2.56.0
 
