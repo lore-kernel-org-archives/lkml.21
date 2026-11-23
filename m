@@ -1,74 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423623;
-	b=r/R7lbVR+KEOwV3Pq9nd+SE8sy68vOPwdPKfP7BlQgtAEzTU1Kvs8xhFIEQFOkUzyHei
-	 dSLc1q7fhdcQQoLQeDs+wJ9WUqEG76bySeL1YTdyMdyoO4zBfK1iGqe45gsFDEUB9/R1c
-	 hmH3OJtvIbE27BEzl6eT7IN4nCajKD7KmZCFQHibzejeZMho1nMJvmHq/TG23AR8kZLjC
-	 eWXManh/lijbFoyU88rV5ZqbtCdV0WoW+3QuiwVp8c2Mz66qJVjRXAloaVc3RvbnMzmzt
-	 1GrxBNe6PtbCmwvOdbrzm9nDYE1vDuwjNO1/gD75iqxzaM4fiMHr+2QOri+g+0mpvwg==
+	t=1795423630;
+	b=XguA5zhqcI+E9UWdGABAzF+VH2045h0gG+UULnMRv2mnRtBdqr9+xapo6NO+/1YNkkNU
+	 7cL2vS/fW7YzhQW8mdWiPTJIkGfqe0MKSYUD1UQ0dPwZ5CBplHJdlmErUSmj3aGQbSXHb
+	 LC6Elm2kjSgLsxKum6hWB57j9sLg5EgPZYXWkZ/ShZEFbcD/LH0g9dIIiUf3x6hukPFiV
+	 gQh7aZrXZuWeg6jD81auamFPXquMWuiPDVdAcSLGobcPGGTjD0w8tbiYQLzKZEXYGVugX
+	 d5u9R9ZzF7NH1rtRtLYVZwcsJg+e+sr7/EKWcYjYscABmvmmVMTPSd6Q1j4L/5I+2sQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423623;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=XKs3ZboUJb81K6jYdxKiscT4UE5YzLnyDfc+uI4E3Uc=;
-	b=b/nPEMGpmpj+avO/o45CeUuOTnVcXm6QQtNh6jVToMbf/incjz8ehFnkL0txz769BuG0
-	 qD7Ce/g/udBAsW+MuLBSO4onZbMcKmCSjV0Iij2CS7ANhqVetFtrxOfwxMz7K3AZbAwLF
-	 +jtG+Kmgj7Jn+x1l9TWg2wHh1nBeWdMFytUE/463n0FgvKVSrSTWjmYriJBA4KoGCeSCg
-	 i7zUp58Yp5qPddfllk4j1E/q7jso92LWYdoYA27teMbVjElB2rTmJUNCNKmz/5LHOwJPO
-	 Hpvct5X2/OI59lbt7kA4JlRx4Mw2HxiZHCBhlN/yXRKtoO2aNuqKkSZ2N0cjMexpSYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423630;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=6TuXSWDdixhSOXgwiZNhSVNfQgsPxpgQ0Wl0SXXvDBk=;
+	b=1ebIjzfwT6/dkNGD/iwRXUKQv9RzIpOPYiP1kARDPE9WSLPUCXlQy0by0f2JDBQ4y3Gd
+	 FCBMbd5H8lNdg84hAIwUoM6gSB9LKFxQS4jSn4e6NfTA2x/nLh44r+5Vcfn2PQhnxIbaf
+	 EFpEhwx/E3X0OMjCzvDeL0NvRPxD2koc3X3TgtnfjpvwoxMwYQpOxsGMo07ifuZcuyeM+
+	 O7uZ90DcAkNqYg5JizwzREsrbAkvrI547pGELaKUozJVRHVB0TptDTchomgSy+o26Vp1O
+	 AbjAizoyuDKgTmVcSbEfkdzdGwt1RQm+IHX0z3dcwpW3t6TOzmfzuYfQTW7wA3PYTwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aKgEMsXw;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="USn5/FiM";
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D04FD606A31A;
-	Mon, 23 Nov 2026 08:47:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D04FD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CFCC606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:47:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CFCC606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aKgEMsXw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795423623; x=1826959623;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=7OxixJdbq+kdjcr4VURCC1HEh52of1vBNIlLajwhFHw=;
-  b=aKgEMsXwKmWJ3zfjsgLvgP2sFyYQY1uKihaYcVPDzgodYj/KK3vrJNeJ
-   MHQqgfkS7dgSTmyDw+zD/NzhBTcnI0PwKorUoFzJOHPtI8v69dTK2Zsqf
-   Fcrt+H8Gym0Yw2Cu7CwPKA7kY6tRjnYj/YnzE1XJ26YF8XSRSfDheMuLo
-   l5184gZho1kba3mugyktiNSBezdkP+GtBnjZZiZUr5oFBc+LfTV5U4dVp
-   sB45Oq902YTGzpX0Fh8EnijuG6JfoelqG2PpJdAB6W5YZk/2rwwk/5iKw
-   6ULB1vReFNbSZL5PODoigFHNqKl19ppo0BB5+sMZLjsON5TsNg84k0oBL
-   w==;
-X-CSE-ConnectionGUID: rFSHJkcOTH6FZoVUDNM4mw==
-X-CSE-MsgGUID: llEO4COhT7Kdhtg0ZlNO3g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4273104"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4273104"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:47:03 -0800
-X-CSE-ConnectionGUID: JSCPwAj7TT2d882AAVgQDw==
-X-CSE-MsgGUID: nrj/kHBaSTa94iFNUsOHNg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11329815"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.225])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:47:01 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Mon, 23 Nov 2026 10:46:57 +0200 (EET)
-To: Sourav Nayak <nonameblank007@gmail.com>
-cc: LKML <linux-kernel@vger.kernel.org>, platform-driver-x86@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] platform/x86: hp-wmi: fix fan freeze during load
- for Victus 15-fb0xxx (8A3D)
-In-Reply-To: <20261121071534.28473-3-nonameblank007@gmail.com>
-Message-ID: <47c9dd58-774b-20ea-b78e-0d3453be0a42@linux.intel.com>
-References: <1061c0e1-9e05-a09f-3eb6-5702f4fbcf08@linux.intel.com> <20261121071534.28473-1-nonameblank007@gmail.com> <20261121071534.28473-3-nonameblank007@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=USn5/FiM
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38587f3de36so3674097eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:47:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795423629; x=1796028429; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6TuXSWDdixhSOXgwiZNhSVNfQgsPxpgQ0Wl0SXXvDBk=;
+        b=USn5/FiMiXtfonckmifWNZaUXgbtRUUj0WWQIefud08911IOpuM4pYR2XBCRPrKz8B
+         a6cNRdaVPG2aNb5wEGCYWUfZbUtrDuC7nS2mP5LHKSZ+sgI+k4ZsQFxFK7hc1L/aIalD
+         pOcVcYvZ0gGsGXYpiH5ZlaT272vEqzYEaobIcLPdIDVDhEzkcVR7V/6pFuuiBWd/er+B
+         ls2T/whCK7JU/QydAPtlcYtC+ybcPjHjW+k8E2RHsw7Xxile1On2NajZCPr8MhNa9gfb
+         6gtniwBsy7C/Ppl+XFnHfLlyVkgNJLQwWXdmYn94xwNt/nDRNmDuPseMdLYrCQBH5c37
+         HsXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795423629; x=1796028429;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6TuXSWDdixhSOXgwiZNhSVNfQgsPxpgQ0Wl0SXXvDBk=;
+        b=wM1Vb6b37lLuCBMUDaSxL+Dahh29Ys2sSTKMfUkMVcajGk43P8MqQPyN4RqPLzVPup
+         Z4MeTrnFaVw1KBJeLcrUq3eFuaEqQ7QA6d/KzquRj49fGslNlFS7DHxTu2CFVtMlpdIP
+         5GZZzy0SaaS25HhHbv2IJWJqH9utm1OlNbwBkkcoHfAxlXYiVCKz2y8VjZgTMjd3WIlC
+         Wmj3aOXXTvIQgFWE8cYR+MGLyj/cD1Imhe4P6yzB8NZ7j3Cj1nmKE+6B0OPPyLXS4x23
+         UCCAe+aUyXt4US8jvxv8etqyNIVUCS8GnKoIUoKencZu16vj3oDZmggLkaD3ut5D9Vm1
+         RNtA==
+X-Forwarded-Encrypted: i=1; AL+hErGwcasIMIDEQBYWRSJWpjr4XaBbX/orDNil01PiBYZUSBtsL3adARttg4eHEBXIM1wUImP5tXFEVhTsmdw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8nnCHPAaPEVtVygQHAO+XQQx/EVOLNt42qzNdHNAhcTvlQVuho
+	i1eOAFXuufXmEZO02XYOGDdpDLktsRoQ4eaiVSBEZ/MTA+5xs8eBkneU
+X-Gm-Gg: AZFdTZfQt/Sjs2xk6YG1BAViQxftUd1STURH/hTGQ9ldPccB9uO5HPuzjB9Kv7O8qEr
+	QcoIDQVl0RBOpcTAE0H9IRYOPbSVZmQ9CvdBwjdJFX9kcKZpDK8wv9ASeSZ73t27EGo6SlUkIzt
+	B4O/IrQ0q+6n1/68YHE8nQE4MexZ4SVGx4Sl1737iZ1VOw9mGKNXjZ6iLDt74kvcj/eCS65Rp9N
+	UAjDW1Jsn0fmSn6i+xZzcaXG6qpDS5xWVjjtlh+2LBNvI6KhwhkQ0wYw95DQBhupGhhMBCUXc4h
+	mu89fMkCIMBAXMJV+svhCUZ5YMCwl3HLu0xQLye8xaVVeQpGZraydKVWsyWP1fAidBDXIxYaa3Z
+	B6K9w2h6fy9a9DBx/bOus4CAq6KkwomR5BUeHFQ+xYEnVtDd35WQ1QwtxUD6XBy8cGe3c1V/ohy
+	hODXofgkaE3ztfOiyQyD4Vc4PaNv/QZHc0fj/8uui6M7AQ1veW4jFQTFUfecmiu+sCV3WeK7bqG
+	5BEicyedWboHAGUOfq1muNnsTBTv3XJAICu5EZ3E5bVIwCm/I3OT0om7lpulIFXeNSVl9jhb9DR
+	hXrZ2iA1r8bbmdMGh7JgqFEyVI/qetgPpM2L1RrJm0nWOXzK9lT3XNdfjaz6JV220eBm49c=
+X-Received: by 2002:a05:7301:6187:10b0:386:a193:7eeb with SMTP id 5a478bee46e88-386a1938b8dmr5853810eec.30.1795423629042;
+        Mon, 23 Nov 2026 00:47:09 -0800 (PST)
+Received: from annie-ProLiant-DL380-Gen11.. ([119.204.109.68])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm36040839eec.6.2026.11.23.00.47.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:47:08 -0800 (PST)
+From: Annie Kim <pulpannie@gmail.com>
+To: "Michael S . Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>
+Cc: Hyokyung Kim <pulpannie@gmail.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	virtualization@lists.linux.dev,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] virtio_blk: validate zone append sector from device
+Date: Mon, 23 Nov 2026 17:46:59 +0900
+Message-ID: <20261123084701.2616027-1-pulpannie@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,137 +99,158 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 
-On Sat, 21 Nov 2026, Sourav Nayak wrote:
+From: Hyokyung Kim <pulpannie@gmail.com>
 
-Thanks for the update.
+The device reports the starting sector for REQ_OP_ZONE_APPEND completions,
+and virtio_blk copies it into req->__sector without checking that it
+still refers to the requested zone. A buggy or malicious device can
+therefore make upper layers believe the append landed at an arbitrary
+location.
 
-This looks better but the changelog needs work.
+Validate successful zone append completions before updating
+req->__sector. The returned sector must not precede the request start
+and the entire request must fit within the zone writable capacity.
+Reject invalid completions with BLK_STS_IOERR.
 
-> hp_wmi_fan_speed_max_reset() caused fans to freeze during loads at 0RPM,
+The polling path may batch successful completions, and a batch can only
+be completed as successful. Perform the same validation in
+virtblk_poll() before admitting a request to the batch, so that invalid
+zone append completions are not batched and are completed with an error
+instead. Move the request completion into __virtblk_request_done(),
+which takes the status from its caller, so that a polled completion that
+is not batched is not validated a second time.
 
-This reads badly, as if something is missing. Do not assume shortlog 
-preceeds the changelog body, the body should be totally independent from 
-shortlog and fully readable on its own.
+Fixes: 95bfec41bd3d ("virtio-blk: add support for zoned block devices")
+Signed-off-by: Hyokyung Kim <pulpannie@gmail.com>
+---
+Damien, thank you so much for the thoughtful review of v1. As a beginner
+contributor I learned a lot from your comments :).
 
-It think you want to tell right from the start that is happens on a 
-particular HW.
+Changes in v2:
+- Check the request op and status in the callers and drop the status
+  argument of virtblk_update_zone_append_sector() (Damien). The function
+  still returns blk_status_t, since the callers need to fail the request
+  when the reported sector is invalid.
+- Initialize req_start and nr_sectors at declaration (Damien)
+- Drop the Assisted-by tag (Damien)
+- Fix the sector being validated twice for polled requests that were not
+  batched (Sashiko). virtblk_poll() now completes those requests through
+  __virtblk_request_done(), which does not validate again.
+- Link to v1: https://lore.kernel.org/lkml/20261120063039.4155597-1-pulpannie@gmail.com/
 
-> So, assign a custom victus_s_ec_fan_profile_params for 8A3D,
-> introduce a 'if' statement with hp_wmi_fan_speed_auto_reapply to resolve it by
+Tested on v7.4-rc3+ using modified QEMU backend that returned incorrect
+zone-append sectors on a memory-backed null_blk zoned device.
 
-No need to tell you 'introduce a 'if' statement'. Please write with the 
-changelog with assumption that the readers are experienced kernel 
-developers, but not necessarily familiar with this driver or HW).
+ drivers/block/virtio_blk.c | 63 +++++++++++++++++++++++++++++---------
+ 1 file changed, 49 insertions(+), 14 deletions(-)
 
-You should instead be telling that you add "fan_speed_auto_reapply", what 
-it does on a high-level (the code details about if statements are too 
-low-level and can be easily read from the diff below), and mention "use 
-fan_speed_auto_reapply for board 8A3D.
-
-Any function name quoted should have () added to it.
-
-> calling hp_wmi_fan_speed_max_set(0), and passing platform active again to reactive curves.
-
-Please reflow the paragraph to up to 72 chars.
-
-> Test data:
-> 
-> auto/max:
-> hp-isa-0000
-> Adapter: ISA adapter
-> fan1: 5400 RPM
-> fan2: 5200 RPM
-> 
-> mannual[255]:
-> hp-isa-0000
-> Adapter: ISA adapter
-> fan1: 5800 RPM
-> fan2: 5800 RPM
-> 
-> Tested-by: Sourav Nayak <nonameblank007@gmail.com>
-
-The assumption is that you've tested the patches you create :-) so these 
-tested-by tags can be dropped.
-
-> Signed-off-by: Sourav Nayak <nonameblank007@gmail.com>
-> ---
->  drivers/platform/x86/hp/hp-wmi.c | 28 ++++++++++++++++++++++++++--
->  1 file changed, 26 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/platform/x86/hp/hp-wmi.c b/drivers/platform/x86/hp/hp-wmi.c
-> index 0166b9cc4d9e..583e1c0dda07 100644
-> --- a/drivers/platform/x86/hp/hp-wmi.c
-> +++ b/drivers/platform/x86/hp/hp-wmi.c
-> @@ -155,6 +155,7 @@ static const struct thermal_profile_params omen_v1_no_ec_thermal_params = {
->  
->  struct hp_wmi_fan_profile_params {
->  	int (*get_fan_speed)(int fan);
-> +	bool fan_speed_auto_reapply;
->  	bool fan_table;
->  };
->  
-> @@ -170,6 +171,12 @@ static const struct hp_wmi_fan_profile_params victus_s_fan_profile_params = {
->  	.fan_table	= true,
->  };
->  
-> +static const struct hp_wmi_fan_profile_params victus_s_ec_fan_profile_params = {
-> +	.get_fan_speed	= hp_wmi_get_fan_speed_victus_s,
-> +	.fan_speed_auto_reapply = true,
-> +	.fan_table	= true,
-> +};
-> +
->  static const struct hp_wmi_board_params victus_s_board_params = {
->  	.thermal_profile	= &victus_s_thermal_params,
->  	.fan_profile		= &victus_s_fan_profile_params,
-> @@ -177,7 +184,7 @@ static const struct hp_wmi_board_params victus_s_board_params = {
->  
->  static const struct hp_wmi_board_params victus_s_ec_board_params = {
->  	.thermal_profile	= &victus_s_ec_thermal_params,
-> -	.fan_profile		= &victus_s_fan_profile_params,
-> +	.fan_profile		= &victus_s_ec_fan_profile_params,
->  };
->  
->  static const struct hp_wmi_board_params omen_v1_board_params = {
-> @@ -2286,6 +2293,13 @@ static bool hp_wmi_fan_control_supported(void)
->  	return params && params->get_fan_speed;
->  }
->  
-> +static bool hp_wmi_fan_speed_auto_reapply(void)
-> +{
-> +	const struct hp_wmi_fan_profile_params *params = hp_wmi_fan_profile();
-> +
-> +	return params && params->fan_speed_auto_reapply;
-> +}
-> +
->  static bool hp_wmi_fan_table_supported(void)
->  {
->  	const struct hp_wmi_fan_profile_params *params = hp_wmi_fan_profile();
-> @@ -2945,7 +2959,17 @@ static int hp_wmi_apply_fan_settings(struct hp_wmi_hwmon_priv *priv)
->  				 secs_to_jiffies(KEEP_ALIVE_DELAY_SECS));
->  		return 0;
->  	case PWM_MODE_AUTO:
-> -		if (hp_wmi_fan_control_supported()) {
-> +		/*
-> +		 * Victus models like 8A3D, calling hp_wmi_fan_speed_max_reset()
-> +		 * freezes fans at 0 RPM under load. Instead, disable max fans and re-apply
-> +		 * the active platform profile, so the EC firmware thermal curves regain control.
-
-Please limit comments to 80 chars per line.
-
-> +		 */
-> +		if (hp_wmi_fan_speed_auto_reapply()) {
-> +			ret = hp_wmi_fan_speed_max_set(0);
-> +			if (ret < 0)
-> +				return ret;
-> +			ret = platform_profile_victus_s_set_ec(active_platform_profile);
-> +		} else if (hp_wmi_fan_control_supported()) {
->  			ret = hp_wmi_get_fan_count_userdefine_trigger();
->  			if (ret < 0)
->  				return ret;
-> 
-
+diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
+index 2b462005cdb6..547291c3ab99 100644
+--- a/drivers/block/virtio_blk.c
++++ b/drivers/block/virtio_blk.c
+@@ -331,29 +331,60 @@ static inline u8 virtblk_vbr_status(struct virtblk_req *vbr)
+ 	return *((u8 *)&vbr->in_hdr + vbr->in_hdr_len - 1);
+ }
+ 
+-static inline void virtblk_update_zone_append_sector(struct request *req,
+-						     struct virtblk_req *vbr)
++#ifdef CONFIG_BLK_DEV_ZONED
++static inline blk_status_t
++virtblk_update_zone_append_sector(struct request *req, struct virtblk_req *vbr)
+ {
+ 	struct virtio_blk *vblk = req->mq_hctx->queue->queuedata;
++	sector_t req_start = blk_rq_pos(req);
++	unsigned int nr_sectors = blk_rq_sectors(req);
++	sector_t sector, zone_end;
++
++	sector = virtio64_to_cpu(vblk->vdev, vbr->in_hdr.zone_append.sector);
++	zone_end = req_start + disk_zone_capacity(vblk->disk, req_start);
++
++	if (zone_end < req_start || sector < req_start || sector >= zone_end ||
++	    nr_sectors > zone_end - sector) {
++		dev_err_ratelimited(&vblk->vdev->dev,
++				    "zone append sector %llu + %u outside valid range [%llu, %llu)\n",
++				    (u64)sector, nr_sectors,
++				    (u64)req_start, (u64)zone_end);
++		return BLK_STS_IOERR;
++	}
+ 
+-	if (req_op(req) == REQ_OP_ZONE_APPEND)
+-		req->__sector = virtio64_to_cpu(vblk->vdev,
+-						vbr->in_hdr.zone_append.sector);
++	req->__sector = sector;
++	return BLK_STS_OK;
++}
++#else
++static inline blk_status_t
++virtblk_update_zone_append_sector(struct request *req, struct virtblk_req *vbr)
++{
++	return BLK_STS_OK;
+ }
++#endif
+ 
+-static inline void virtblk_request_done(struct request *req)
++static inline void __virtblk_request_done(struct request *req,
++					  blk_status_t status)
+ {
+ 	struct virtblk_req *vbr = blk_mq_rq_to_pdu(req);
+-	blk_status_t status = virtblk_result(virtblk_vbr_status(vbr));
+ 
+ 	virtblk_unmap_data(req, vbr);
+ 	virtblk_cleanup_cmd(req);
+ 
+-	virtblk_update_zone_append_sector(req, vbr);
+-
+ 	blk_mq_end_request(req, status);
+ }
+ 
++static inline void virtblk_request_done(struct request *req)
++{
++	struct virtblk_req *vbr = blk_mq_rq_to_pdu(req);
++	blk_status_t status = virtblk_result(virtblk_vbr_status(vbr));
++
++	if (req_op(req) == REQ_OP_ZONE_APPEND && status == BLK_STS_OK)
++		status = virtblk_update_zone_append_sector(req, vbr);
++
++	__virtblk_request_done(req, status);
++}
++
+ static void virtblk_done(struct virtqueue *vq)
+ {
+ 	struct virtio_blk *vblk = vq->vdev->priv;
+@@ -1242,7 +1273,6 @@ static void virtblk_complete_batch(struct io_comp_batch *iob)
+ 
+ 		virtblk_unmap_data(req, vbr);
+ 		virtblk_cleanup_cmd(req);
+-		virtblk_update_zone_append_sector(req, vbr);
+ 	}
+ 	blk_mq_end_request_batch(iob);
+ }
+@@ -1260,13 +1290,18 @@ static int virtblk_poll(struct blk_mq_hw_ctx *hctx, struct io_comp_batch *iob)
+ 
+ 	while ((vbr = virtqueue_get_buf(vq->vq, &len)) != NULL) {
+ 		struct request *req = blk_mq_rq_from_pdu(vbr);
+-		u8 status = virtblk_vbr_status(vbr);
++		blk_status_t status = virtblk_result(virtblk_vbr_status(vbr));
+ 
+ 		found++;
+-		if (!blk_mq_complete_request_remote(req) &&
+-		    !blk_mq_add_to_batch(req, iob, status != VIRTIO_BLK_S_OK,
++		if (blk_mq_complete_request_remote(req))
++			continue;
++
++		if (req_op(req) == REQ_OP_ZONE_APPEND && status == BLK_STS_OK)
++			status = virtblk_update_zone_append_sector(req, vbr);
++
++		if (!blk_mq_add_to_batch(req, iob, status != BLK_STS_OK,
+ 					 virtblk_complete_batch))
+-			virtblk_request_done(req);
++			__virtblk_request_done(req, status);
+ 	}
+ 
+ 	if (found)
 -- 
- i.
+2.43.0
 
