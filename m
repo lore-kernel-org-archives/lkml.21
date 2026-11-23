@@ -1,96 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443467;
-	b=AKUrcuzMQASC8Pi/HQXqvqm0zMgWxxL+H29sYgGzol3LDO+6M8oNQ0cw0nDiiMp0zUcb
-	 FMaU8XhNjDXHJoLBUdcjtdteXaNAPccUET+U5qhL2KzvK7lj8z8T6TY2XpVySgu1MtgZy
-	 b9yXOy1A7Mt3oG8PdzrXHmmUCmzyek6ZVjiVQ8FZGzZKscQiI8JDFk4YVoXsEoY9emVaf
-	 Tw8TeJXQCnrrrjMzf9sABslKfgPlbNSepRg9feqGtjIWvuSm7dzypEE5xru9L8DuScBZV
-	 Fw09McvqSzRr4iUlO6jpXC5SxqDiYnetIiZt/r1/RDK6jYPRbbt3JSWc4ii/g1qdSKw==
+	t=1795443483;
+	b=DPEux09AH49pbI+hF3laSRAIo1ZJU9Vkebm9wSeuItUhhmD4GrwCXipLWhNqds+T0tsB
+	 vgFexJBl+AXUw2Wy0jxBpOJKxFSaTCeg0yRv3W6exAIyxkth0hQCAIJZdKO1odfMQDowR
+	 YXhJL2nLEQMO527Y+3FtItUdfdSFmN0jNo3fb3LV6HAYFCmtSqxsGK1q1Rg496vOnwqwv
+	 EVOLfthCXs5t2LhsbySMn4LuL71rhKgncJJE8mucjA+qFqR+aD2gk0oEXyL5nwuaHdSom
+	 aNFzw1iZ1oCm/9N+k16Z3K3xe4Q/OPF6GouELF58mPosiT9j6QSoYrqwT6wr+QA2zVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443467;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=mmLjqOdC5jJ874kc/yb76i/bBMhfJA46OxJXhAdQn20=;
-	b=jqfmc66ooNu2AayGiUOR6KibXuQLtRfN/ls7kO0EPKpwMXO/2Joz0BWrFM1nEb2tIr/p
-	 mUj8gE6FGmYLqUmb775vdj9mWEENNFdmdG7PeEI+5O9BhWXgU1syJB2riq0+xbLJJ8BhM
-	 80kN8dEJ7u0wHq5TsFfWkOrM79hnik+BkZCgjjZLWIcLUgoZDJFs/A9DIYO9FIBiC1T+a
-	 pN0V5PWqXYUyYIyvGRo2TtRZcizmwh/iDpzxlf/xDbPFIaqHoMwdKD9g4sxwGTedz968d
-	 CRh+4XIjJBH4hnZDU4de404T387efZFLx1IcFg6NOVsbKwNtXesNu19PF+udewVxUFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443483;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ybF47ocCWvIcKUYoyrk7fg1lx4d/sG4pX4J45rdUS78=;
+	b=QAGyIBqt785Dw2hVWjYDs1jN2ZTySDAs7wyGbjwi/WXNk84o4DD3tcugVbXRM0Oyc1kc
+	 ooizg3tY0G75yT9rbNE+8sR6J95EqNb0zvECXIe0diIT/SlNBTx017Nz+qzNfoC4cfjXc
+	 TvKxgMINkAGpDIZjqRL8E0f51WzG58bIO746hwBioILsOv3KW38eufXEDNe4ueVaIECjF
+	 zxF6HbGWi2DgNWPbGT9J+JtMWvfiFeoRRcAvT9HwB7xhlzFrySABBuaW1lqdhqIkyWp5t
+	 GnEkqznlJgtJzef5Zw4cld3ApdMtpWqMMXXYsEaqNumxWNcj5kqniSSd0zQs9VcY4Yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=OorltFdB;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=nLZ74Ce7;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iSXBhr9f;
+	arc=none smtp.remote-ip=74.125.82.49
+Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C0C7606A31A;
-	Mon, 23 Nov 2026 14:17:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C0C7606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF102606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:18:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF102606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=OorltFdB;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=nLZ74Ce7
-Date: Mon, 23 Nov 2026 15:17:42 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795443464;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mmLjqOdC5jJ874kc/yb76i/bBMhfJA46OxJXhAdQn20=;
-	b=OorltFdBfCkP24O9uW0zSrkwtk574JG7H+C8zI/UM1VNLbcE/V5vrVq2kT9gEqPWDPBXBX
-	Gz48GTq0k58gXeh7+772U7s0MIsNiStSewIzNbIbBWnsrDKvLvoqtginYW6134ZYjJIYTe
-	yD25lXj+qPgV5beRtqMqyr6KVHuYjuXUUzmZ+QqHqOzd5yx37QxzjEEKKS7MSGvNIOC8ze
-	rSYB+d+L1LR0ofGdCcHoagG7FAk0GNzkQD1yeTkLsAe1+yK4CPrI6V0MuPXtPLp8YT5HAj
-	zhF4h0r+KOigYisKZv46FMF0dwnnVamsaru1PP1blbk841EqYiNiGyF0d4S9/g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795443464;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mmLjqOdC5jJ874kc/yb76i/bBMhfJA46OxJXhAdQn20=;
-	b=nLZ74Ce7CELGWuJsSJUHvoyvsj43rjgPnaHCF/WKXBOLnW039ahlTOaccw8RWUL4iP38cp
-	vfJNmgOjs/iAh+BQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
-	rcu@vger.kernel.org, linux-doc@vger.kernel.org
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	luca abeni <luca.abeni@santannapisa.it>,
-	Yuri Andriaccio <yurand2000@gmail.com>,
-	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	John Ogness <john.ogness@linutronix.de>
-Subject: Re: [PATCH v4 5/6] Documentation/sched: Drop the section enumeration
- in sched-deadline
-Message-ID: <20261123141742.Cdq5EAtX@linutronix.de>
-References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
- <20261123-sched_dl-v4-5-d523e4d960d3@linutronix.de>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iSXBhr9f
+Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1b3ada81853so3758747c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:18:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795443482; x=1796048282; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ybF47ocCWvIcKUYoyrk7fg1lx4d/sG4pX4J45rdUS78=;
+        b=iSXBhr9fHhHt+ry818OrCRZXfqLqm+dx1CCyn39WRoQWTVO53R+//KGJr6qsUsYEol
+         fBRvENBRyEikvkkfyljwzr2rKfUIWplDUVPbuD9YbyV86DW+IryxhFFnKafi+tGbNFA1
+         PNJ7jDBOHSaypVNsMinKI/Wu/MrPtFFAca1uqUrLKfEMAIP50f+E5r4djXncZkj/Lk2K
+         AZBM5cFsy4XOxXdOAdvYWjEnXmcascz7q0e4raARzOYmPdCydphIr+6KfsjWp8mpoT8V
+         uwVvQDEqzjQEYDHuSPzPB2kOIbEYCWH/PGyEcU4rN5clBWmDTjyjizdiePujE8VeS5WU
+         UnUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795443482; x=1796048282;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ybF47ocCWvIcKUYoyrk7fg1lx4d/sG4pX4J45rdUS78=;
+        b=KV0SjuId4kCz9GKmKVge/QOMKvAP/DJJXNDo+dWwwdk1GyPs1/thSFAC+bO1fYNyBU
+         fw8pNFMs2hZYJ8UQbfY/PkG+8kmi8hDZ/Hq44yjIAoHTgWoo4669m1r2/hWzzSPmTin4
+         5bKoRFqRafBk1uzkzqFBlH7Uw29FZanfTB8gq5RV6fKWGozcliXLrGaCY3LIrnoE8Gy3
+         MpZOZlp74PmP9XrJSmgMGrX4yikjSPDNVc92MmOAKHE/fQsToQ8cO/RTru/ILLIxagd9
+         mLoSdfuXlpi/4jpR6HGWn1mxke9eJQZql2ftRlR1dtU7sGeue6xx5S/VL+h9Ymur+QDC
+         8Z9A==
+X-Gm-Message-State: APuU4Z9fD5WoVQCRImxv6XIxAZk1+4991maDEH6NGWIlvwXkfRtNcsUB
+	fkjgVnD7b/PKZuWtvJUmJgYjdBJxtioBOuj53ZJ037qBELFoLbXhk+UT
+X-Gm-Gg: AZFdTZdg/2tVY86bY+ElVK5x1kfsUA8n9ZrXoNpyEpDUYLFeHDBv9cHT4gwhOPLoQbU
+	UfcXowkEWHWeR/klgQSRUOP285AFFNSJ5R1o/NB8rcOidXC7kr4qXPPih7Ivwgcndl8pGJce1fz
+	x+VjufCF7hiU275tU1Kp5eDjQ/LSg79ySI3gh1OmB7gbBlSpVXlBGaeOyNpIbMsk46h8QbgqcDo
+	0OuiSl1xNuDPgB17HgGFdR+hUozAzdIVT7ePUTfqwL/UoPnHt2t66YmYb4Bq+V37SE1ol/++aYt
+	lP+5yNHF++QBQ0MYi/cl8kLWYmefFNrfrviORlK7He0qQpisyhbbx9/QbGr2BgF8QmtK3RtUUA/
+	+INAvk/3Dtj5Ot1JKxgzrxohDHfN6t5Is3bZ61XnTY2rM5ELZQ08o+z1JXWY0xlyj4AZIvdF75d
+	uKSdz4YjRWkCV0ygse8l+Zqy2xcUys+DZ//wnvW5cuyuWxnuKmDa7LdlG3gmwOzqIRZAdt3xQ5R
+	AJHOz1ghp6uugbXLkBW1CWgbBVE0YvfiQaf5tdx9rgiGW7NS+i4/JHWq9hukeTIS3iJLccT/PgK
+	0wEPvRgwM+IUyPMaZV430LecwQLnPljrgfAc0XFPcNCnfaal5uLN/fCZWRx/k3NQBVA6SVSzIc8
+	C5Cn3O4U2kFZIeg==
+X-Received: by 2002:a05:701b:4587:b0:1b5:1a7a:2ebc with SMTP id a92af1059eb24-1b56f87ab60mr4253583c88.16.1795443481741;
+        Mon, 23 Nov 2026 06:18:01 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55ff0e4e6sm21509155c88.11.2026.11.23.06.17.32
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 06:18:01 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Chris Li <chrisl@kernel.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v5 08/19] mm/swap: change back to use each swap device's percpu cluster
+Date: Mon, 23 Nov 2026 22:17:21 +0800
+Message-ID: <8d0a8b9726974ec0dc73d2400f817c9ebe193c47.1795439990.git.lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,347 +110,394 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261123-sched_dl-v4-5-d523e4d960d3@linutronix.de>
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-23 14:41:11 [+0100], To linux-kernel@vger.kernel.org wrote:
-> Each headline within the document has a manual numbering. If a new
-> section is added in the middle of the document then one has to renumber
-> the sections that follow plus update the maunal TOC at the top of the
-> document.
-> 
-> Remove the manual created TOC and the numbers before the section. The
-> rendered HTML has a TOC.
+From: Youngjun Park <youngjun.park@lge.com>
 
-sashiko complained that the that the references within the document
-(such ass "see 5.") are now broken.
+This reverts commit 1b7e90020eb7 ("mm, swap: use percpu cluster as
+allocation fast path").
 
-This should deal with it:
+The global percpu cluster causes several issues:
 
---- a/Documentation/scheduler/sched-deadline.rst
-+++ b/Documentation/scheduler/sched-deadline.rst
-@@ -2,53 +2,29 @@
- Deadline Task Scheduling
- ========================
+1) It prevents efficient swap allocation for users that do not want
+   the default swap device policy.  Because the cluster cache sits
+   above device selection, users that need a different policy must
+   bypass or replace the cache. This complicates incoming ideas like
+   swap tiering.
+
+2) It can bypass a caller's preferred device policy. Consider a future
+   policy with per-memcg device restrictions: memcg1 can access devices
+   A and B, where A has higher priority; memcg2 can only access B. Memcg2
+   can write the global percpu cluster with device B, then memcg1 takes B
+   in the fast path even though higher-priority device A is not exhausted.
+
+3) The fast-path / slow-path design bundled with the global per-CPU
+   cache is problematic: only the fast path uses the global cache,
+   and the slow path is forced to rotate the allocation list.  This
+   complicates consumers like discard.
+
+Revert to per-device percpu clusters first.  A later patch will
+introduce new infrastructure for a high-performance global
+allocation path.
+
+Suggested-by: Kairui Song <kasong@tencent.com>
+Co-developed-by: Baoquan He <bhe@redhat.com>
+Signed-off-by: Baoquan He <bhe@redhat.com>
+Signed-off-by: Youngjun Park <youngjun.park@lge.com>
+Signed-off-by: Kairui Song <kasong@tencent.com>
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+---
+ include/linux/swap.h |  13 +++-
+ mm/swapfile.c        | 170 ++++++++++++++-----------------------------
+ 2 files changed, 63 insertions(+), 120 deletions(-)
+
+diff --git a/include/linux/swap.h b/include/linux/swap.h
+index 717387e16a2d..c8a5684b2f4f 100644
+--- a/include/linux/swap.h
++++ b/include/linux/swap.h
+@@ -241,10 +241,17 @@ enum {
+ #endif
  
--.. CONTENTS
--
--    0. WARNING
--    1. Overview
--    2. Scheduling algorithm
--      2.1 Main algorithm
--      2.2 Bandwidth reclaiming
--    3. Scheduling Real-Time Tasks
--      3.1 Definitions
--      3.2 Schedulability Analysis for Uniprocessor Systems
--      3.3 Schedulability Analysis for Multiprocessor Systems
--      3.4 Relationship with SCHED_DEADLINE Parameters
--    4. Bandwidth management
--      4.1 System-wide settings
--      4.2 Task interface
--      4.3 Default behavior
--      4.4 Behavior of sched_yield()
--    5. Tasks CPU affinity
--      5.1 Using cgroup v1 cpuset controller
--      5.2 Using cgroup v2 cpuset controller
--    6. Future plans
--    A. Test suite
--    B. Minimal main()
--
--
--0. WARNING
--==========
-+WARNING
-+=======
- 
-  Fiddling with these settings can result in an unpredictable or even unstable
-  system behavior. As for -rt (group) scheduling, it is assumed that root users
-  know what they're doing.
- 
- 
--1. Overview
--===========
-+Overview
-+========
- 
-  The SCHED_DEADLINE policy contained inside the sched_dl scheduling class is
-  basically an implementation of the Earliest Deadline First (EDF) scheduling
-  algorithm, augmented with a mechanism (called Constant Bandwidth Server, CBS)
-  that makes it possible to isolate the behavior of tasks between each other.
- 
-+.. _scheduling_algorithm:
- 
--2. Scheduling algorithm
--=======================
-+Scheduling algorithm
-+====================
- 
--2.1 Main algorithm
--------------------
-+Main algorithm
-+--------------
- 
-  SCHED_DEADLINE [18] uses three parameters, named "runtime", "period", and
-  "deadline", to schedule tasks. A SCHED_DEADLINE task should receive
-@@ -60,7 +36,7 @@ Deadline Task Scheduling
-  scheduled using EDF[1] on these scheduling deadlines (the task with the
-  earliest scheduling deadline is selected for execution). Notice that the
-  task actually receives "runtime" time units within "deadline" if a proper
-- "admission control" strategy (see Section "4. Bandwidth management") is used
-+ "admission control" strategy (see :ref:`bandwidth_management`) is used
-  (clearly, if the system is overloaded this guarantee cannot be respected).
- 
-  Summing up, the CBS[2,3] algorithm assigns scheduling deadlines to tasks so
-@@ -68,8 +44,8 @@ Deadline Task Scheduling
-  interference between different tasks (bandwidth isolation), while the EDF[1]
-  algorithm selects the task with the earliest scheduling deadline as the one
-  to be executed next. Thanks to this feature, tasks that do not strictly comply
-- with the "traditional" real-time task model (see Section 3) can effectively
-- use the new policy.
-+ with the "traditional" real-time task model (see :ref:`scheduling_real_time_tasks`)
-+ can effectively use the new policy.
- 
-  In more details, the CBS algorithm assigns scheduling deadlines to
-  tasks in the following way:
-@@ -123,8 +99,8 @@ Deadline Task Scheduling
-  signals.
- 
- 
--2.2 Bandwidth reclaiming
--------------------------
-+Bandwidth reclaiming
-+--------------------
- 
-  Bandwidth reclaiming for deadline tasks is based on the GRUB (Greedy
-  Reclamation of Unused Bandwidth) algorithm [15, 16, 17] and it is enabled
-@@ -287,8 +263,8 @@ Deadline Task Scheduling
-     running_bw is incremented.
- 
- 
--2.3 Energy-aware scheduling
-----------------------------
-+Energy-aware scheduling
-+-----------------------
- 
-  When cpufreq's schedutil governor is selected, SCHED_DEADLINE implements the
-  GRUB-PA [19] algorithm, reducing the CPU operating frequency to the minimum
-@@ -299,9 +275,10 @@ Deadline Task Scheduling
-  is of the same order of magnitude of the reservation period. In such cases,
-  setting a fixed CPU frequency results in a lower amount of deadline misses.
- 
-+.. _scheduling_real_time_tasks:
- 
--3. Scheduling Real-Time Tasks
--=============================
-+Scheduling Real-Time Tasks
-+==========================
- 
- 
- 
-@@ -311,7 +288,7 @@ Deadline Task Scheduling
- 
-    This section contains a (not-thorough) summary on classical deadline
-    scheduling theory, and how it applies to SCHED_DEADLINE.
--   The reader can "safely" skip to Section 4 if only interested in seeing
-+   The reader can "safely" skip to :ref:`bandwidth_management` if only interested in seeing
-    how the scheduling policy can be used. Anyway, we strongly recommend
-    to come back here and continue reading (once the urge for testing is
-    satisfied :P) to be sure of fully understanding all technical details.
-@@ -323,8 +300,8 @@ Deadline Task Scheduling
-  suited for periodic or sporadic real-time tasks that need guarantees on their
-  timing behavior, e.g., multimedia, streaming, control applications, etc.
- 
--3.1 Definitions
--------------------------
-+Definitions
-+-----------
- 
-  A typical real-time task is composed of a repetition of computation phases
-  (task instances, or jobs) which are activated on a periodic or sporadic
-@@ -369,8 +346,8 @@ Deadline Task Scheduling
-  is the minimum WCET, and U_max = max{WCET_i/P_i} is the maximum
-  utilization[12].
- 
--3.2 Schedulability Analysis for Uniprocessor Systems
------------------------------------------------------
-+Schedulability Analysis for Uniprocessor Systems
-+------------------------------------------------
- 
-  If M=1 (uniprocessor system), or in case of partitioned scheduling (each
-  real-time task is statically assigned to one and only one CPU), it is
-@@ -411,11 +388,12 @@ Deadline Task Scheduling
-  between 0 and a maximum value L. The cited papers contain all of the
-  mathematical details and explain how to compute h(t) and L.
-  In any case, this kind of analysis is too complex as well as too
-- time-consuming to be performed on-line. Hence, as explained in Section
-- 4 Linux uses an admission test based on the tasks' utilizations.
-+ time-consuming to be performed on-line. Hence, as explained in
-+ :ref:`bandwidth_management`
-+ Linux uses an admission test based on the tasks' utilizations.
- 
--3.3 Schedulability Analysis for Multiprocessor Systems
--------------------------------------------------------
-+Schedulability Analysis for Multiprocessor Systems
-+--------------------------------------------------
- 
-  On multiprocessor systems with global EDF scheduling (non partitioned
-  systems), a sufficient test for schedulability can not be based on the
-@@ -464,16 +442,17 @@ Deadline Task Scheduling
-  the total utilization is smaller or equal than M then the response times of
-  the tasks are limited.
- 
--3.4 Relationship with SCHED_DEADLINE Parameters
-------------------------------------------------
-+Relationship with SCHED_DEADLINE Parameters
-+-------------------------------------------
- 
-  Finally, it is important to understand the relationship between the
-- SCHED_DEADLINE scheduling parameters described in Section 2 (runtime,
-+ SCHED_DEADLINE scheduling parameters described in
-+ :ref:`scheduling_algorithm` (runtime,
-  deadline and period) and the real-time task parameters (WCET, D, P)
-  described in this section. Note that the tasks' temporal constraints are
-  represented by its absolute deadlines d_j = r_j + D described above, while
-  SCHED_DEADLINE schedules the tasks according to scheduling deadlines (see
-- Section 2).
-+ :ref:`scheduling_algorithm`).
-  If an admission test is used to guarantee that the scheduling deadlines
-  are respected, then SCHED_DEADLINE can be used to schedule real-time tasks
-  guaranteeing that all the jobs' deadlines of a task are respected.
-@@ -549,8 +528,10 @@ Deadline Task Scheduling
-        2018), Pau, France, April 2018.
- 
- 
--4. Bandwidth management
--=======================
-+.. _bandwidth_management:
+ /*
+- * We keep using same cluster for rotational device so IO will be sequential.
+- * The purpose is to optimize SWAP throughput on these device.
++ * We assign a cluster to each CPU, so each CPU can allocate swap entry from
++ * its own cluster and swapout sequentially. The purpose is to optimize swapout
++ * throughput.
+  */
++struct percpu_cluster {
++	local_lock_t lock; /* Protect the percpu_cluster above */
++	unsigned int next[SWAP_NR_ORDERS]; /* Likely next allocation offset */
++};
 +
-+Bandwidth management
-+====================
+ struct swap_sequential_cluster {
++	spinlock_t lock; /* Serialize usage of global cluster */
+ 	unsigned int next[SWAP_NR_ORDERS]; /* Likely next allocation offset */
+ };
  
-  As previously mentioned, in order for -deadline scheduling to be
-  effective and useful (that is, to be able to provide "runtime" time units
-@@ -559,7 +540,8 @@ Deadline Task Scheduling
-  This is usually called "admission control" and if it is not performed, then
-  no guarantee can be given on the actual scheduling of the -deadline tasks.
+@@ -267,8 +274,8 @@ struct swap_info_struct {
+ 					/* list of cluster that are fragmented or contented */
+ 	unsigned int pages;		/* total of usable pages of swap */
+ 	atomic_long_t inuse_pages;	/* number of those currently in use */
++	struct percpu_cluster	__percpu *percpu_cluster; /* per cpu's swap location */
+ 	struct swap_sequential_cluster *global_cluster; /* Use one global cluster for rotating device */
+-	spinlock_t global_cluster_lock;	/* Serialize usage of global cluster */
+ 	struct rb_root swap_extent_root;/* root of the swap extent rbtree */
+ 	struct block_device *bdev;	/* swap device or bdev of swap file */
+ 	struct file *swap_file;		/* seldom referenced */
+diff --git a/mm/swapfile.c b/mm/swapfile.c
+index 4fac894f8c2a..cd2cb360f274 100644
+--- a/mm/swapfile.c
++++ b/mm/swapfile.c
+@@ -145,18 +145,6 @@ static atomic_t proc_poll_event = ATOMIC_INIT(0);
  
-- As already stated in Section 3, a necessary condition to be respected to
-+ As already stated in :ref:`scheduling_real_time_tasks`,
-+ a necessary condition to be respected to
-  correctly schedule a set of real-time tasks is that the total utilization
-  is smaller than M. When talking about -deadline tasks, this requires that
-  the sum of the ratio between runtime and period for all tasks is smaller
-@@ -587,13 +569,13 @@ Deadline Task Scheduling
-  interface we can put a cap on total utilization of -deadline tasks (i.e.,
-  \Sum (runtime_i / period_i) < global_dl_utilization_cap).
+ atomic_t nr_rotate_swap = ATOMIC_INIT(0);
  
--4.1 System wide settings
--------------------------
-+System wide settings
-+--------------------
- 
-  The system wide settings are configured under /sys/kernel/sched.
- 
-- The ideal situation (see 5.) is to run -rt tasks from a -deadline server; in
-- which case the -rt bandwidth is a direct subset of dl_bw.
-+ The ideal situation (see ref:`tasks_cpu_affinity`) is to run -rt tasks from a
-+ -deadline server; in which case the -rt bandwidth is a direct subset of dl_bw.
- 
-  This means that, for a root_domain comprising M CPUs, -deadline tasks
-  can be created while the sum of their bandwidths stays below:
-@@ -604,9 +586,8 @@ Deadline Task Scheduling
-  be thus free of oversubscribing the system up to any arbitrary level.
-  This is done by writing -1 in /sys/kernel/sched/dl_runtime_us.
- 
+-struct percpu_swap_cluster {
+-	struct swap_info_struct *si[SWAP_NR_ORDERS];
+-	unsigned long offset[SWAP_NR_ORDERS];
+-	local_lock_t lock;
+-};
 -
--4.2 Task interface
--------------------
-+Task interface
-+--------------
+-static DEFINE_PER_CPU(struct percpu_swap_cluster, percpu_swap_cluster) = {
+-	.si = { NULL },
+-	.offset = { SWAP_ENTRY_INVALID },
+-	.lock = INIT_LOCAL_LOCK(),
+-};
+-
+ /* May return NULL on invalid type, caller must check for NULL return */
+ static struct swap_info_struct *swap_type_to_info(int type)
+ {
+@@ -523,9 +511,10 @@ static int swap_cluster_alloc_table(struct swap_info_struct *si,
+ lock:
+ 	if (!locked) {
+ 		if (si) {
+-			local_lock(&percpu_swap_cluster.lock);
+-			if (!(si->flags & SWP_SOLIDSTATE))
+-				spin_lock(&si->global_cluster_lock);
++			if (si->flags & SWP_SOLIDSTATE)
++				local_lock(&si->percpu_cluster->lock);
++			else
++				spin_lock(&si->global_cluster->lock);
+ 		}
+ 		spin_lock(&ci->lock);
+ 	}
+@@ -610,9 +599,10 @@ swap_cluster_populate(struct swap_info_struct *si,
+ 	 * Only cluster isolation from the allocator does table allocation.
+ 	 * Swap allocator uses percpu clusters and holds the local lock.
+ 	 */
+-	lockdep_assert_held(&this_cpu_ptr(&percpu_swap_cluster)->lock);
+-	if (!(si->flags & SWP_SOLIDSTATE))
+-		lockdep_assert_held(&si->global_cluster_lock);
++	if (si->flags & SWP_SOLIDSTATE)
++		lockdep_assert_held(this_cpu_ptr(&si->percpu_cluster->lock));
++	else
++		lockdep_assert_held(&si->global_cluster->lock);
+ 	lockdep_assert_held(&ci->lock);
  
-  Specifying a periodic/sporadic task that executes for a given amount of
-  runtime at each instance, and that is scheduled according to the urgency of
-@@ -640,8 +621,8 @@ Deadline Task Scheduling
-  reference, that is not directly usable from user-space.
+ 	if (!swap_cluster_alloc_table(si, ci, __GFP_HIGH | __GFP_NOMEMALLOC |
+@@ -625,9 +615,10 @@ swap_cluster_populate(struct swap_info_struct *si,
+ 	 * the potential recursive allocation is limited.
+ 	 */
+ 	spin_unlock(&ci->lock);
+-	if (!(si->flags & SWP_SOLIDSTATE))
+-		spin_unlock(&si->global_cluster_lock);
+-	local_unlock(&percpu_swap_cluster.lock);
++	if (si->flags & SWP_SOLIDSTATE)
++		local_unlock(&si->percpu_cluster->lock);
++	else
++		spin_unlock(&si->global_cluster->lock);
  
+ 	ret = swap_cluster_alloc_table(si, ci, __GFP_HIGH | __GFP_NOMEMALLOC |
+ 					     GFP_KERNEL, false);
+@@ -749,7 +740,7 @@ static bool swap_do_scheduled_discard(struct swap_info_struct *si)
+ 		ci = list_first_entry(&si->discard_clusters, struct swap_cluster_info, list);
+ 		/*
+ 		 * Delete the cluster from list to prepare for discard, but keep
+-		 * the CLUSTER_FLAG_DISCARD flag, percpu_swap_cluster could be
++		 * the CLUSTER_FLAG_DISCARD flag, there could be percpu_cluster
+ 		 * pointing to it, or ran into by relocate_cluster.
+ 		 */
+ 		list_del(&ci->list);
+@@ -1104,12 +1095,10 @@ static unsigned int alloc_swap_scan_cluster(struct swap_info_struct *si,
+ out:
+ 	relocate_cluster(si, ci);
+ 	swap_cluster_unlock(ci);
+-	if (si->flags & SWP_SOLIDSTATE) {
+-		this_cpu_write(percpu_swap_cluster.offset[order], next);
+-		this_cpu_write(percpu_swap_cluster.si[order], si);
+-	} else {
++	if (si->flags & SWP_SOLIDSTATE)
++		this_cpu_write(si->percpu_cluster->next[order], next);
++	else
+ 		si->global_cluster->next[order] = next;
+-	}
+ 	return found;
+ }
  
--4.3 Default behavior
-----------------------
-+Default behavior
-+----------------
+@@ -1210,13 +1199,17 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
+ 	if (order && !(si->flags & SWP_BLKDEV))
+ 		return 0;
  
-  The default value for SCHED_DEADLINE bandwidth is to have dl_runtime_us equal to
-  1000000. With rt_period equal to 1000000, by default, it means that -deadline
-@@ -651,7 +632,8 @@ Deadline Task Scheduling
-  and that -deadline tasks will receive their runtime with a guaranteed
-  worst-case delay respect to the "deadline" parameter. If "deadline" = "period"
-  and the cpuset mechanism is used to implement partitioned scheduling (see
-- Section 5), then this simple setting of the bandwidth management is able to
-+ :ref:`tasks_cpu_affinity`),
-+ then this simple setting of the bandwidth management is able to
-  deterministically guarantee that -deadline tasks will receive their runtime
-  in a period.
+-	if (!(si->flags & SWP_SOLIDSTATE)) {
++	if (si->flags & SWP_SOLIDSTATE) {
++		/* Fast path using per CPU cluster */
++		local_lock(&si->percpu_cluster->lock);
++		offset = __this_cpu_read(si->percpu_cluster->next[order]);
++	} else {
+ 		/* Serialize HDD SWAP allocation for each device. */
+-		spin_lock(&si->global_cluster_lock);
++		spin_lock(&si->global_cluster->lock);
+ 		offset = si->global_cluster->next[order];
+-		if (offset == SWAP_ENTRY_INVALID)
+-			goto new_cluster;
++	}
  
-@@ -659,8 +641,8 @@ Deadline Task Scheduling
-  -deadline task cannot fork.
++	if (offset != SWAP_ENTRY_INVALID) {
+ 		ci = swap_cluster_lock(si, offset);
+ 		/* Cluster could have been used by another order */
+ 		if (cluster_is_usable(ci, order)) {
+@@ -1230,7 +1223,6 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
+ 			goto done;
+ 	}
  
+-new_cluster:
+ 	if (swap_prefer_free_cluster(si)) {
+ 		found = alloc_swap_scan_list(si, &si->free_clusters, folio, false);
+ 		if (found)
+@@ -1283,8 +1275,10 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
+ 			goto done;
+ 	}
+ done:
+-	if (!(si->flags & SWP_SOLIDSTATE))
+-		spin_unlock(&si->global_cluster_lock);
++	if (si->flags & SWP_SOLIDSTATE)
++		local_unlock(&si->percpu_cluster->lock);
++	else
++		spin_unlock(&si->global_cluster->lock);
  
--4.4 Behavior of sched_yield()
-------------------------------
-+Behavior of sched_yield()
-+-------------------------
+ 	return found;
+ }
+@@ -1440,41 +1434,8 @@ static bool get_swap_device_info(struct swap_info_struct *si)
+ 	return true;
+ }
  
-  When a SCHED_DEADLINE task calls sched_yield(), it gives up its
-  remaining runtime and is immediately throttled, until the next
-@@ -674,9 +656,10 @@ Deadline Task Scheduling
-  make the leftoever runtime available for reclamation by other
-  SCHED_DEADLINE tasks.
+-/*
+- * Fast path try to get swap entries with specified order from current
+- * CPU's swap entry pool (a cluster).
+- */
+-static bool swap_alloc_fast(struct folio *folio)
+-{
+-	unsigned int order = folio_order(folio);
+-	struct swap_cluster_info *ci;
+-	struct swap_info_struct *si;
+-	unsigned int offset;
+-
+-	/*
+-	 * Once allocated, swap_info_struct will never be completely freed,
+-	 * so checking it's liveness by get_swap_device_info is enough.
+-	 */
+-	si = this_cpu_read(percpu_swap_cluster.si[order]);
+-	offset = this_cpu_read(percpu_swap_cluster.offset[order]);
+-	if (!si || !offset || !get_swap_device_info(si))
+-		return false;
+-
+-	ci = swap_cluster_lock(si, offset);
+-	if (cluster_is_usable(ci, order)) {
+-		if (cluster_is_empty(ci))
+-			offset = cluster_offset(si, ci);
+-		alloc_swap_scan_cluster(si, ci, folio, offset);
+-	} else {
+-		swap_cluster_unlock(ci);
+-	}
+-
+-	put_swap_device(si);
+-	return folio_test_swapcache(folio);
+-}
+-
+ /* Rotate the device and switch to a new cluster */
+-static void swap_alloc_slow(struct folio *folio)
++static void swap_alloc_entry(struct folio *folio)
+ {
+ 	struct swap_info_struct *si, *next;
  
-+.. _tasks_cpu_affinity:
+@@ -1842,10 +1803,7 @@ int folio_alloc_swap(struct folio *folio)
+ 	}
  
--5. Tasks CPU affinity
--=====================
-+Tasks CPU affinity
-+==================
+ again:
+-	local_lock(&percpu_swap_cluster.lock);
+-	if (!swap_alloc_fast(folio))
+-		swap_alloc_slow(folio);
+-	local_unlock(&percpu_swap_cluster.lock);
++	swap_alloc_entry(folio);
  
-  Deadline tasks cannot have a cpu affinity mask smaller than the root domain they
-  are created on. So, using ``sched_setaffinity(2)`` won't work. Instead, the
-@@ -685,8 +668,8 @@ Deadline Task Scheduling
-  See :ref:`Documentation/admin-guide/cgroup-v1/cpusets.rst <cpusets>` and
-  :ref:`Documentation/admin-guide/cgroup-v2.rst <cgroup-v2>` for more information.
+ 	if (!order && unlikely(!folio_test_swapcache(folio))) {
+ 		if (swap_sync_discard())
+@@ -2251,31 +2209,14 @@ void swap_put_entries_direct(swp_entry_t entry, int nr)
+  */
+ swp_entry_t swap_alloc_hibernation_slot(int type)
+ {
+-	struct swap_info_struct *pcp_si, *si = swap_type_to_info(type);
+-	unsigned long pcp_offset, offset = SWAP_ENTRY_INVALID;
+-	struct swap_cluster_info *ci;
++	struct swap_info_struct *si = swap_type_to_info(type);
++	unsigned long offset = SWAP_ENTRY_INVALID;
+ 	swp_entry_t entry = {0};
  
--5.1 Using cgroup v1 cpuset controller
---------------------------------------
-+Using cgroup v1 cpuset controller
-+---------------------------------
+ 	if (!si)
+ 		goto fail;
  
-  An example of a simple configuration (pin a -deadline task to CPU0) follows::
+-	/*
+-	 * Try the local cluster first if it matches the device. If
+-	 * not, try grab a new cluster and override local cluster.
+-	 */
+-	local_lock(&percpu_swap_cluster.lock);
+-	pcp_si = this_cpu_read(percpu_swap_cluster.si[0]);
+-	pcp_offset = this_cpu_read(percpu_swap_cluster.offset[0]);
+-	if (pcp_si == si && pcp_offset) {
+-		ci = swap_cluster_lock(si, pcp_offset);
+-		if (cluster_is_usable(ci, 0))
+-			offset = alloc_swap_scan_cluster(si, ci, NULL, pcp_offset);
+-		else
+-			swap_cluster_unlock(ci);
+-	}
+-	if (!offset)
+-		offset = cluster_alloc_swap_entry(si, NULL);
+-	local_unlock(&percpu_swap_cluster.lock);
++	offset = cluster_alloc_swap_entry(si, NULL);
+ 	if (offset)
+ 		entry = swp_entry(si->type, offset);
  
-@@ -703,8 +686,8 @@ Deadline Task Scheduling
-    echo $$ > cpu0/tasks
-    chrt --sched-runtime 100000 --sched-period 200000 --deadline 0 yes > /dev/null
+@@ -3253,27 +3194,6 @@ static void free_swap_cluster_info(struct swap_cluster_info *cluster_info,
+ 	kvfree(cluster_info);
+ }
  
--5.2 Using cgroup v2 cpuset controller
---------------------------------------
-+Using cgroup v2 cpuset controller
-+---------------------------------
+-/*
+- * Called after swap device's reference count is dead, so
+- * neither scan nor allocation will use it.
+- */
+-static void flush_percpu_swap_cluster(struct swap_info_struct *si)
+-{
+-	int cpu, i;
+-	struct swap_info_struct **pcp_si;
+-
+-	for_each_possible_cpu(cpu) {
+-		pcp_si = per_cpu_ptr(percpu_swap_cluster.si, cpu);
+-		/*
+-		 * Invalidate the percpu swap cluster cache, si->users
+-		 * is dead, so no new user will point to it, just flush
+-		 * any existing user.
+-		 */
+-		for (i = 0; i < SWAP_NR_ORDERS; i++)
+-			cmpxchg(&pcp_si[i], si, NULL);
+-	}
+-}
+-
+ SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
+ {
+ 	struct swap_info_struct *p = NULL;
+@@ -3325,7 +3245,6 @@ SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
  
-  Assuming the cgroup v2 root is mounted at ``/sys/fs/cgroup``, an example of a
-  simple configuration (pin a -deadline task to CPU0) follows::
-@@ -717,8 +700,8 @@ Deadline Task Scheduling
-    echo $$ > deadline_group/cgroup.procs
-    chrt --sched-runtime 100000 --sched-period 200000 --deadline 0 yes > /dev/null
+ 	flush_work(&p->discard_work);
+ 	flush_work(&p->reclaim_work);
+-	flush_percpu_swap_cluster(p);
  
--6. Future plans
--===============
-+Future plans
-+============
+ 	destroy_swap_extents(p, p->swap_file);
  
-  Still missing:
+@@ -3346,6 +3265,8 @@ SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
+ 	percpu_up_write(&swapon_rwsem);
+ 	arch_swap_invalidate_area(p->type);
+ 	zswap_swapoff(p->type);
++	free_percpu(p->percpu_cluster);
++	p->percpu_cluster = NULL;
+ 	kfree(p->global_cluster);
+ 	p->global_cluster = NULL;
+ 	free_swap_cluster_info(cluster_info, maxpages);
+@@ -3690,7 +3611,7 @@ static int setup_swap_clusters_info(struct swap_info_struct *si,
+ {
+ 	unsigned long nr_clusters = DIV_ROUND_UP(maxpages, SWAPFILE_CLUSTER);
+ 	struct swap_cluster_info *cluster_info;
+-	int err = -ENOMEM;
++	int cpu, err = -ENOMEM;
+ 	unsigned long i;
  
--- 
-2.55.0
-
-
-Sebastian
+ 	cluster_info = kvzalloc_objs(*cluster_info, nr_clusters);
+@@ -3700,13 +3621,26 @@ static int setup_swap_clusters_info(struct swap_info_struct *si,
+ 	for (i = 0; i < nr_clusters; i++)
+ 		spin_lock_init(&cluster_info[i].lock);
+ 
+-	if (!(si->flags & SWP_SOLIDSTATE)) {
++	if (si->flags & SWP_SOLIDSTATE) {
++		si->percpu_cluster = alloc_percpu(struct percpu_cluster);
++		if (!si->percpu_cluster)
++			goto err;
++
++		for_each_possible_cpu(cpu) {
++			struct percpu_cluster *cluster;
++
++			cluster = per_cpu_ptr(si->percpu_cluster, cpu);
++			for (i = 0; i < SWAP_NR_ORDERS; i++)
++				cluster->next[i] = SWAP_ENTRY_INVALID;
++			local_lock_init(&cluster->lock);
++		}
++	} else {
+ 		si->global_cluster = kmalloc_obj(*si->global_cluster);
+ 		if (!si->global_cluster)
+ 			goto err;
+ 		for (i = 0; i < SWAP_NR_ORDERS; i++)
+ 			si->global_cluster->next[i] = SWAP_ENTRY_INVALID;
+-		spin_lock_init(&si->global_cluster_lock);
++		spin_lock_init(&si->global_cluster->lock);
+ 	}
+ 
+ 	/*
+@@ -3980,6 +3914,8 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
+ bad_swap_unlock_inode:
+ 	inode_unlock(inode);
+ bad_swap:
++	free_percpu(si->percpu_cluster);
++	si->percpu_cluster = NULL;
+ 	kfree(si->global_cluster);
+ 	si->global_cluster = NULL;
+ 	inode = NULL;
