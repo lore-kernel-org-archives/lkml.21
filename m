@@ -1,96 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401690;
-	b=qSRkX38v2h1cNCnu7kZV2c2eMrXb2BGuYCon23Jk32lMFUHj37Pk1p2TOtZXT9+VwRfo
-	 uUEmeva6Qj/PRaU/Q4fUw9VlGLmQno08JrUn1Ty/qh+Ssi2UYcmlpjbfOllpzO3Qe5b41
-	 ePss8yOy2/8jIP5FHeGM0J1jqIMSxM5sg2MBGyyt3EUYWo5dA4pZbC3lyPPv6uLVpz4MM
-	 XYgnlw8J3n5aEzIDZNj2ogfaFoFt1Q6H52cN+4Hdf6BPwv8Zulx0VomCkC70rG+rDvw+q
-	 TfbVeT5bHDv8ZBvdeWEn78ntz2ZajVUSV+hVsrbirP03igOcZQP57UMX5rvIp7y+O2g==
+	t=1795401723;
+	b=lzarU4CAHKZXAmkgxU/pMLxQyDAzp7RHgzvJH4VChyYIa2Np+NDZ4O4yt9UgMz0oXrFV
+	 I9ub4HQVbXSGJZ9G2Aa4bT8Zr27o3uT2/2O+NY4bg4qwdHSssasepEI7ZTxgQq+eJFzX2
+	 y5on5vRKIAdaDgG5Ik59n6LUk+l2U/U4CsfIKB0EKUG5pmHH/vkXgQb+lg6PW36obEbSy
+	 Bjx8oHpcou+F3AyN3JstQrni4rMJwRwo6UvjuvHuj9zbfkYcUV5w74N/sHi27+mAHx8OF
+	 AnfStDQG6zZCVGb7oVwAbJolQpqFWxEB1I8LsDU4zjtk8B4fcLmgRSX35czGq3H4G6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401690;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DCR5n0TbPRkgr0wo/HBC8V7L6UUpxciDosZVJpsgNo4=;
-	b=45AEAUU0YiZp0/CIlwOFW5XrLP/VvvNyLdKkfuRumtt0sE4zDQ4NB+0FuROmUyaxl9Et
-	 FI0qLLJ780XSe/OR2bO061yHMwuagsSyXugSFDkhZFlkZJSg/EYM8cbrO/dM9ahFCWpMK
-	 JtY9ZmsT3Dyy/yrR2wyW+n0v9IqHJMPNMPZ2t5LfNwca6BWUdBpDYDEOSvOs8hfWEbif0
-	 BY4hZ7cPi+XSgMHqAdX+WIFuOgbrL6MKabFTaxlCtEYVukM+Efm/yvj/Xa3WKW684lMqe
-	 Kxoprkt9ygAopytx4JaaMa6i6a3cWmcIdPRGYxJ/9MDEBhtzxpgsqjZqDGhP//67/TQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401723;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=mfL5Wgk6pZ0N+3mT3cQv6ztLBcyTk1MQkPmbfooOQOQ=;
+	b=Wpwm8yAWfw6KIIHOLkg0NeAni8nwko1OInNmUOgD4zLZy3XOnZcJyt7fmkhOSNgq7qI5
+	 U3LX8Dd7A6clMncuiyAYAIoloGNfqG9B/DTPERZEwE2itG2ickMZ0Ixq8OUTjC4vDH37X
+	 L6W8t87LIPGA43zjrjCEtAZNADtvkwxGECB+Knm0/ituCFpYbJRTX/QIl6EKqqY3xxqtM
+	 Jlj1EmEXoN6obR8J93RmlMB/zielYEzinN1SJJthBjcWImhHvKYmyKTOk5m3o7moWqgP0
+	 GeOo1byX6OZ0ogLnBkGPXhaH+AUJUIsYmOaga9jrAhy9cfahVCh7V7U2WSUR3IU9YQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xlIlDPv6;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=mucse.com;
+	spf=pass smtp.mailfrom=mucse.com;
+	arc=none smtp.remote-ip=54.206.34.216
+Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6FD9606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:41:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6FD9606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xlIlDPv6
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f020d0169eso12456665ad.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:41:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795401689; x=1796006489; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DCR5n0TbPRkgr0wo/HBC8V7L6UUpxciDosZVJpsgNo4=;
-        b=xlIlDPv67XPYULIFOaX4co/fFKiXdHOFa6LiQwo6g8rb6SCWpxerQXmsmE5IdzJ2sH
-         h46V/emgEHVLlpczAOB0WpLo9fXwq0Z73I4voLNt7wgJfRp3DK3O+PfvII3Lf0USlF1y
-         BmHj+imZrqNDNglQKaNrSi7YvloxECE+jLmgH42A8HsBRG92G220ndS9FvMfwfA9/lfD
-         6WsgZcHcKR/jBxRsOET6Cl3Dk/bWpvZJzBhHrUIWcd+3UeO6vSJtG8gid9GBls/b5TGL
-         NHyI2zcQ6Sf7zCe+3zPgX2Qnne9EBj1b7mDJjs5Q9EdyoGSj/HfXBKn2FxXEqFlStUgG
-         MQkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795401689; x=1796006489;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DCR5n0TbPRkgr0wo/HBC8V7L6UUpxciDosZVJpsgNo4=;
-        b=KafOfzjO7WC6/VXPmBAAilmvNC2LwjPWiYYADY8FWI397sNWHr2V8Wl7dJVL22DSpG
-         PKZi9K2QsK1qDX+6a3jLdY2k9Cg2gqNCXzjS0B9B4wngbBa7hdh8PDOqf/9LnTuxpuSB
-         vZIyb/6EXndg8uL7EixJ37yOoCwLJHuUIgNgZF7pfgVq1ipH1BF7Mp67CytU6DZPEe38
-         JMduHN515xeCfZMDW6OszBHxUZwX2dkfG4MvIu18rEMxYjuUib4qfyqF1ps3q1oGQXPg
-         7CRx6EsRjsA4ZrJdfX51duhjUyngHkmyGHvIdRVxGLkdyQ8LAREmupDgB6p1SmMC8HUe
-         nz0w==
-X-Forwarded-Encrypted: i=1; AL+hErFxPlP5EwBvM9MzxbD101Kcb/wJaDd9braDIJDmNtkhaQxQTjglChPPchz27DO5Vh/NdtL12sA+tojFeJ8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+MF8ebI0sT6y3XqESWfbKJCqM+zBnOJlzt2ti7Y0N6/q3E35rB
-	Sli31ibve0cDQKkzilRnHR6YMKMhtCWm2PUz2KyM7ok+yTkL6tn/Ztl2
-X-Gm-Gg: AZFdTZeno0dNh8pu4ieRZ0SPa+EyMMsvNmnQSHsEivPsTAHU8/nNzBbvBWGygFGzNoU
-	3tA5X9Ktu6y385L8bPFt3I0gJO1b+7N5uWgJT0A5E1+5+5k8kXuvyih3fFD+loZghPAIos5UJOk
-	Tr4L8GBm+yet7rNTGIScsZ/x8f78bbPHA0Kt3wwy7eDSPNxLi/j9QgS5S1J2CQIt3FQ2Bp70qBj
-	UDyiAd23SHOcL06lcU4evXnsHwlzuvtMvQIE4433PpAb3Nw8QiMA8cOkvpwirqgrS9/KYmQxb+N
-	3MX94rFNhqbnMDLaIb5+xEkilXMthDGuTeZeYgXRncr84w0s9EOUgkoLM4XjleHwRsLZkoS8MFi
-	Y2dG6i3V0Ncr71HlLyzaPtGCMaKYWQpN4rwnuStNQsAZd3F3BUFcLla/MPIe+6CsiD/ZZRydWjv
-	6aZkwNFWBHPE2KqozkLyS1/JqHGO8gBms0K4KWWoncSxZ9eZxZXOnSyljF587J2VcUfRXJ2FxVM
-	FhS/N9ciGOsZQHjBx9bUnUE5IUVlZeKqyE9vdWHjXy/EsIrDjG1HXft4PdlMl6JtY/HaFZ9S5gL
-	VNIdiNjEErRGsuwlEUJXcgfOAJ/ZzTdKMPxjxpph3aG63d4FJS/af2GyElr3OnRd+nMlbUZoerK
-	nIPdSEZZ/2ZqeNS2GEGAt1yA=
-X-Received: by 2002:a17:903:1ce:b0:2ef:d157:e128 with SMTP id d9443c01a7336-2f03f1e8493mr100110335ad.52.1795401689016;
-        Sun, 22 Nov 2026 18:41:29 -0800 (PST)
-Received: from localhost.localdomain ([240e:46c:1b00:720:54e4:b505:2937:4e95])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a69sm42783495ad.18.2026.11.22.18.41.26
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 18:41:28 -0800 (PST)
-From: Yafang Shao <laoar.shao@gmail.com>
-To: jpoimboe@kernel.org,
-	mbenes@suse.cz,
-	pmladek@suse.com,
-	joe.lawrence@redhat.com,
-	song@kernel.org
-Cc: live-patching@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yafang Shao <laoar.shao@gmail.com>
-Subject: [PATCH v2] livepatch: Avoid blocking tasklist_lock too long
-Date: Mon, 23 Nov 2026 10:41:19 +0800
-Message-ID: <20261123024119.16154-1-laoar.shao@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FEE6606A31A;
+	Mon, 23 Nov 2026 02:41:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FEE6606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
+X-QQ-mid: esmtpsz10t1795401610t2ee855ed
+X-QQ-Originating-IP: xqRzMGlNuotEU1WUJME9cGTUhHEAQ9meuvI+SdzLkks=
+Received: from localhost ( [203.174.112.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 23 Nov 2026 10:40:08 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6404561023919649307
+EX-QQ-RecipientCnt: 10
+Date: Mon, 23 Nov 2026 10:40:07 +0800
+From: Yibo Dong <dong100@mucse.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	yaojun@mucse.com
+Subject: Re: [PATCH net-next v2 5/5] net: rnpgbe: Add hardware and queue
+ statistics
+Message-ID: <9D6BBC7AB42EE9D4+20261123024007.GA35839@nic-Precision-5820-Tower>
+References: <65EB247A8B937B64+20261116031055.1330377-1-dong100@mucse.com>
+ <179510098686.3136.4654059971237578202@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,197 +61,158 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <179510098686.3136.4654059971237578202@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: NAYFIXJ3sbUsJGws8Ctu4wc5qcVT679qDmqUbcMZE4SWbHIPhJRwGvlQ
+	sxB5GMEnVGwLwzqkOOFWgN9cs+IgAZ7VJVYC/6M/Q10cVwMtOwlwLai7e4t7UFZujhUlm56
+	V89hQEegsPE2UxrXsxXySxEzg7ipP0/jYyKjOV6LP2P6O4n6V1vdGt8Gw3y2lhUNhGPNohv
+	IBSqdGAKOHTCr664pjN9flOtuDTuEqTbjgb3SpOW5q+3z/wQudutICr9TNn5FuhdGQxPV8U
+	4zt25r/yaRQo8oooipBAgCXzHSy3YNC1qKGeul/TvNHvnTtwqkl3YmA5FxQhTtQYPfGGjjv
+	61I/7iTTNe/2nLQMyj2iRRKii2syMDFUEuJcuxO6bH9lO1Og19r3xsmIx5QY3rOU0AM6Us3
+	sdxpqlKmzQ9YbHn6o0YT+daaq86+LJwBWGdw2JGE75w5hPyIx4L/oxXrptbAT1pCT/b190e
+	/i94aK/2ojvXn5bGfzdSjiDsNzYPbMNBG/5UUH+/69YdaN6v6lhoZD7YPa9JzDy5MeEVUVZ
+	y3oVQ/aCE+rGpX437rqoM7pmvf0YRAj6AbI4JGSwVpVLLqhvPE7ESZxkczzN8ouPBBEe+rj
+	WxxmtKfGdybramqnYX8PKCjFPfYBsLQ1kToFYMbj8ZMzCMmaX0cE3ma0+EG2TCMp2DkVSxD
+	2tm/4CsyIEzRt6YJ2ZJkzgluVypgxsFwydoPOExZ8A10IBX8Ghn9ZOZgYokSpasVcmvc9b5
+	TwtJWmOX4l4uCH2YiZ1QKfLaYAlNjThAjHJb+uD+hjC2BSQ98K4mlcQlwHSeiHINgDv/7Mu
+	B2XBtST6K29M6F2Y1bzE7AiWust50r+kuSfAn69XEspRbtkUgWSLA5V7YcmzCplzxrOGcN8
+	/qZyMMohFk7TtRDDXMsPTj/qYp69Sl+R2x1L5AIl/jNmbyvHxxCwp39k9GNt5buvAXoyjL9
+	9LDhzkDkInVFeEGU8FpSzk5pg+reLdo9cA9QAEtOHFF6oOXcG6SaGEHAj6DJiaHe0CqHIdb
+	GoYpqfpysd3FysIKqkbdxHOj36vHaooYuen3HqZ3i1yBLtIDiaSPj/RWcN7d/5qv+Aem8W5
+	CFQn4FLhA0BhV0ixxXc3PmGIM4jWfYVQLKrrocDUqHvLuLZRPrn3d4=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 
-Problem
-=======
+On Thu, Nov 19, 2026 at 03:09:46PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The patch makes the device-level RX packet and byte counts in
+>   netdev qstats disagree with the rtnl stats64 counts, so the in-tree…
+> 
+> --
+> 
+> net: rnpgbe: Add hardware and queue statistics
+> 
+> This commit adds the hardware RX CRC-error and multicast counters to
+> ndo_get_stats64. It also reports per-queue RX and TX packet and byte
+> counters through netdev queue statistics, and exposes per-queue TX DMA
+> mapping failures through ethtool statistics.
+> 
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> > index b7b0c45a0f664..fe320c4f389ba 100644
+> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> 
+> [ ... ]
+> 
+> > @@ -615,6 +620,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
+> >  
+> >  		/* probably a little skewed due to removing CRC */
+> >  		total_rx_bytes += skb->len;
+> > +		delivered_bytes += skb->len;
+> > +		delivered_packets++;
+> >  		rnpgbe_process_skb_fields(rx_ring, skb);
+> >  		rx_desc->wb.cmd = 0;
+> >  		napi_gro_receive(&q_vector->napi, skb);
+> 
+> [ ... ]
+> 
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
+> > new file mode 100644
+> > index 0000000000000..efd2284fd93af
+> > --- /dev/null
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
+> 
+> [ ... ]
+> 
+> > +static void rnpgbe_get_queue_stats_rx(struct net_device *netdev, int idx,
+> > +				      struct netdev_queue_stats_rx *stats)
+> > +{
+> > +	struct mucse *mucse = netdev_priv(netdev);
+> > +	const struct mucse_queue_stats *queue;
+> > +	unsigned int start;
+> > +
+> > +	queue = &mucse->rx_stats[idx];
+> > +	do {
+> > +		start = u64_stats_fetch_begin(&queue->syncp);
+> > +		stats->packets = queue->delivered_packets;
+> > +		stats->bytes = queue->delivered_bytes;
+> > +	} while (u64_stats_fetch_retry(&queue->syncp, start));
+> 
+> [Severity: Medium]
+> 
+> Will the qstat rx-packets and rx-bytes reported here ever match the
+> rx_packets and rx_bytes that rnpgbe_get_stats64() reports?
+> 
+> rnpgbe_get_stats64() reads queue_stats->packets and queue_stats->bytes.
+> rnpgbe_clean_rx_irq() also increments those for good packets that the
+> driver drops. One example is the skb build failure path:
+> 
+> 	if (!skb) {
+> 		atomic64_inc(&rx_ring->stats->skb_alloc_failures);
+> 		...
+> 			if (rnpgbe_test_staterr(rx_desc, M_RXD_STAT_EOP)) {
+> 				total_rx_bytes += size;
+> 				total_rx_packets++;
+> 				total_rx_dropped++;
+> 
+> The same thing happens when a MUCSE_RX_DROP_RESOURCE frame reaches EOP,
+> and when rnpgbe_cleanup_headers() fails with size >= ETH_HLEN. None of
+> these paths update delivered_packets or delivered_bytes.
+> 
+> rnpgbe_get_stats64() covers all RNPGBE_MAX_QUEUES. So do the qstat device
+> totals, which pick up inactive queues through rnpgbe_get_base_stats().
+> That means after the first such drop, the rtnl RX counts stay above the
+> qstat RX counts for good.
+> 
+> tools/testing/selftests/drivers/net/stats.py pkt_byte_sum() expects the
+> two to match:
+> 
+>     # Compare stats, rtnl stats and qstats must match,
+>     ...
+>         if stat_cmp(rtstat, qstat) > 0:
+>             raise KsftFailEx("Qstats are lower, fetched later")
+> 
+> Once any RX drop has happened, wouldn't this test fail on rnpgbe? The
+> commit message describes the split: "RX queue counters cover packets
+> delivered to the networking stack, while interface RX totals also include
+> good packets dropped by the driver".
+> 
+> Could both interfaces report the same packets and bytes? Alternatively,
+> could driver drops be counted only in rx_dropped, and not in the rtnl
+> rx_packets and rx_bytes?
+> 
+After checking the documented semantics, I think these counters need to
+remain different when the driver drops a received packet.
 
-As more and more patches accumulate in the cumulative livepatch, we see an
-increasing number of latency spikes from latency-sensitive services during
-livepatch upgrades. The most recent case is the redis data_server [0].
+include/uapi/linux/if_link.h defines rx_packets as including good packets
+received by the host but subsequently dropped, even within the driver.
+In contrast, Documentation/netlink/specs/netdev.yaml defines qstats
+rx-packets as packets successfully received and passed to the stack.
 
-With some tracing added to the userspace redis code and a hard trace in the
-kernel, we finally tracked the root cause down to tasklist_lock contention
-during livepatch transition.
+The pkt_byte_sum selftest can consequently fail after such a drop. I do
+not think changing the driver counters solely to satisfy that equality
+would preserve the documented semantics.
 
-When redis flushes data, it clones a new task, which takes the write side
-of tasklist_lock. If a livepatch upgrade is in progress at the same time,
-tasklist_lock is held for the whole transition. Below is the trace we
-captured while reproducing the issue:
-
-=== [2026-11-15 15:18:06] tid=1635309 comm=data_server  WRITE wait=79372 us
-
-        queued_write_lock_slowpath+276
-        queued_write_lock_slowpath+276
-        _raw_write_lock_irq+69
-        copy_process+3474
-        kernel_clone+157
-        __do_sys_clone+102
-        __x64_sys_clone+37
-        do_syscall_64+56
-        entry_SYSCALL_64_after_hwframe+100
-
-=== [2026-11-15 15:18:06] klp scan held tasklist_lock(read) ~ 96864 us (comm=insmod)
-
-        klp_enable_patch.cold+247
-        init_module+477
-        do_one_initcall+70
-        do_init_module+82
-        load_module+2526
-        __do_sys_finit_module+200
-        __x64_sys_finit_module+24
-        do_syscall_64+56
-        entry_SYSCALL_64_after_hwframe+100
-
-=== [2026-11-15 15:18:08] klp scan held tasklist_lock(read) ~ 3504145 us (comm=kworker/8:2)
-
-        klp_transition_work_fn+36
-        process_one_work+492
-        worker_thread+83
-        kthread+235
-        ret_from_fork+31
-
-  crash> p klp_signals_cnt
-  klp_signals_cnt = $1 = 1
-
-The latency budget of our redis workload is 50 ms, while the clone() call
-observed during the livepatch transition took ~79 ms.
-
-Environment used for the reproduction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  server: 256C AMD EPYC server
-  tasks: 1000~2000
-  number of patched functions: around 80
-
-Solution
-========
-
-The redis application can work around this issue by removing the clone()
-from its data flush path, but I believe we should improve this in the
-kernel if we can.
-
-In 2025, we discussed completely replacing tasklist_lock with RCU [1], but
-Petr pointed out that it is far more complicated than we expected [2], so
-we ended up abandoning that idea.
-
-We still have a more lightweight way to partially replace this heavy
-tasklist_lock with RCU, as Josh suggested [3]:
-
-  : Maybe klp_try_complete_transition() could iterate the tasks in two
-  : passes?  The first pass would use rcu_read_lock().  Then if all tasks
-  : appear to be patched, try again with tasklist_lock.
-
-This patch implements that suggestion.
-
-Verification
-============
-
-I verified this solution on my test server:
-
-  server: 64C AMD virtual server
-  tasks: ~2000 processes with ~8000 threads, ~30 running
-  number of patched functions: 200
-
-- Before this patch
-  the maximum clone() latency during the livepatch transition exceeded
-  500 ms.
-
-- After this patch
-  the maximum clone() latency during the livepatch transition is below
-  20 ms, which is within the range expected by the redis side.
-
-Link: https://github.com/redis/redis [0]
-Link: https://lore.kernel.org/all/20250227024733.16989-1-laoar.shao@gmail.com/ [1]
-Link: https://lore.kernel.org/all/Z8CRXxfI24E9_IHC@pathway.suse.cz/ [2]
-Link: https://lore.kernel.org/all/20250213013603.i6uxtjvc3qxlsqwc@jpoimboe/ [3]
-Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Signed-off-by: Yafang Shao <laoar.shao@gmail.com>
----
- kernel/livepatch/transition.c | 48 ++++++++++++++++++++++++++++++-----
- 1 file changed, 41 insertions(+), 7 deletions(-)
-
----
-
-v1->v2: improve further by skipping the second pass if the first pass fail
-	(Josh)
-
-diff --git a/kernel/livepatch/transition.c b/kernel/livepatch/transition.c
-index 2351a19ac2a9..0953372359b7 100644
---- a/kernel/livepatch/transition.c
-+++ b/kernel/livepatch/transition.c
-@@ -444,12 +444,38 @@ void klp_try_complete_transition(void)
- 	 *
- 	 * Usually this will transition most (or all) of the tasks on a system
- 	 * unless the patch includes changes to a very common function.
-+	 *
-+	 * To avoid holding the tasklist_lock for too long, we iterate over the
-+	 * tasks in two passes. In the first pass, we use the lightweight RCU
-+	 * read lock to iterate through most tasks. This pass will cover the
-+	 * majority of tasks, except for some newly forked tasks which may be
-+	 * added into the tasklist concurrently. In the second pass, we acquire
-+	 * the tasklist_lock to handle the tasks missed in the first pass.
- 	 */
--	read_lock(&tasklist_lock);
--	for_each_process_thread(g, task)
-+
-+	/* First pass: Iterate over tasks using the lightweight RCU read lock. */
-+	rcu_read_lock();
-+	for_each_process_thread(g, task) {
-+		/* klp_check_stack() requires preemption to be disabled */
-+		if (task == current)
-+			continue;
-+
- 		if (!klp_try_switch_task(task))
- 			complete = false;
--	read_unlock(&tasklist_lock);
-+	}
-+	rcu_read_unlock();
-+
-+	/*
-+	 * If the first pass succeeded, grab the more heavyweight tasklist lock
-+	 * to check current and any newly forked tasks.
-+	 */
-+	if (complete) {
-+		read_lock(&tasklist_lock);
-+		for_each_process_thread(g, task)
-+			if (!klp_try_switch_task(task))
-+				complete = false;
-+		read_unlock(&tasklist_lock);
-+	}
- 
- 	/*
- 	 * Ditto for the idle "swapper" tasks.
-@@ -681,17 +707,25 @@ void klp_copy_process(struct task_struct *child)
- 	 * the thread flag was copied in setup_thread_stack earlier. Bring
- 	 * the task flag up to date with the parent here.
- 	 *
--	 * The operation is serialized against all klp_*_transition()
--	 * operations by the tasklist_lock. The only exceptions are
--	 * klp_update_patch_state(current) and __klp_sched_try_switch(), but we
--	 * cannot race with them because we are current.
-+	 * Disabling preemption explicitly is only needed on CONFIG_PREEMPT_RT:
-+	 * there tasklist_lock is a sleeping lock, so write_lock_irq() doesn't
-+	 * disables preemption. Without it we could be preempted between the two
-+	 * reads below and the RCU pass could switch us, tearing the
-+	 * flag/patch_state pair. On !CONFIG_PREEMPT_RT the spinning
-+	 * tasklist_lock already disables preemption, so this is a no-op.
-+	 *
-+	 * The only other updaters are klp_update_patch_state(current) and
-+	 * __klp_sched_try_switch(), but we cannot race with them because we
-+	 * are current.
- 	 */
-+	preempt_disable();
- 	if (test_tsk_thread_flag(current, TIF_PATCH_PENDING))
- 		set_tsk_thread_flag(child, TIF_PATCH_PENDING);
- 	else
- 		clear_tsk_thread_flag(child, TIF_PATCH_PENDING);
- 
- 	child->patch_state = current->patch_state;
-+	preempt_enable();
- }
- 
- /*
--- 
-2.52.0
-
+> > +	stats->alloc_fail = atomic64_read(&queue->page_alloc_failures) +
+> > +			    atomic64_read(&queue->skb_alloc_failures);
+> > +}
+> 
+> [ ... ]
+> 
+> -- 
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/BD205A7832D36E7D%2B20261116030917.1329989-1-dong100%40mucse.com
+> 
