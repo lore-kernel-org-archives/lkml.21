@@ -1,96 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.72
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795442252;
-	b=3TjeM5O3jvUeAmBbetyB1tah7GrmgU2ijqx6YqxFfJBMvUbj+hMzRjQpbPYqj4VKAB/N
-	 Xx1lf7G5242jRokOKTvL7qTp08UkurVy5sH2ZYjHTqnNC8amneVqoVjN1g3XZBfE94Tn4
-	 nLWqlweWELzVt1hPqgXm61H/EbAEKpmWPk41MdCSM0M47JRuLFoXWN6GNY3hLe6j/hTKD
-	 NQroHH6I1C9CRY/6vvLYumy91AnC3mkgSM3bx1Wn70O8tyo6I8QvGTF/hVdiepenqcXyI
-	 sOjg+kdTfLwPd8SxU4QLv46bZY51cS5FWG4Vd/7kaR67hpjdE0tdqklAx/et6psz3AA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442252;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=/dY9JgruKbWx4GdY/zRzxoDiMmuXM1kyEY9Ljq27QPc=;
-	b=Lg1ybD1rSRHxORx9jIOBdjxtMmjbi0kYIWZ4js7ClasOu0hHgqZ3P3wVaJR5mJR5yA8o
-	 9FNQfQPwgsPmWfecajvVabrRNHUwMtdrAlxq8niVGyaDOkp5cJxld1orVJaKhN9ZLpy9P
-	 Btjuqk6NU+ASnSsLQJXpoaMuJOjbStbTB9YdfqinOa0qGGazD5uMOBdIE2sGNT/nBGt0n
-	 QdbOAfB0q/WRpqStO/j5NvHE9WyWrb3eE1X3y/d6nWbC0E7rsFAY3HiM6gKUOadOtzh+o
-	 SI+ohpS7r/RotXMCbcaYsox9lmbDQjDbncKxcZf46dHsTEOgSdYT9Khc5a6Q8n8ycSQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Bc5ftud9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.72
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022072.outbound.protection.outlook.com [40.107.193.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795442281;
+	b=MwcgSfZm3moQEWetu8NPSjL5zOc2KAkmDBxeNYqpy3sj8IFSNmp+vagA4Cc0SEWosBfm
+	 s0FFVJtqYdEHIe5PvQ9VAHZyRLBEmvnOnfCn5GLCMhYkyHXQSb1Av71vBfWjuK7/aUll3
+	 bxQs9BLalzYtuMA2YBM1kKtJVjcfis1d0ym7VJAksQllJnsonnOMErju0mqAZd2I5s6pg
+	 cxfap3mXsabx8EUw6a8DrBZ69IikEqb8Do4IJ6XnwMIGGH6P31B+DNp3qdKkTYsf4cWVS
+	 FnUKPpB+zDgUsDjnx1f8ZoYleQA2MIuNH97Rhcn5paRV+0ARQfZmPu/1uoSrNY6aeHg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442281;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=aDsGpgT4oiUwzFQMguwS59INDZNOdr4HuQWSjUgJW9c=;
+	b=YgrEZvk+FwioIwvzbqHt7y8WqLEqmq2PVfz8D8ervKb4oSxpymrR9ZEb6bzlk2Qaayb4
+	 Z1YYMvmsrt7AuOvqIu/TcE686xu6GVuu/hjqTSzLaLvMj4xn0DJIWykkMfRVtPS6CL9gD
+	 7L0VfSTCB1wGYKVKrofapUMn9xac1dIK2YiJLIWhR0Q4uAN4QAnwI1Hrcu4mhSeoVbzpO
+	 ZNBSOTfv4R0s57uQNdM7nQkoVreEm9pwrk3bS4SMq7Vcq0IkutQy/9MM7EpGjH18b/8vb
+	 f6FcAt7zzb+gLkv/mX5kh/ELXY+9oI2nWChxy3PVrAvaOAmiq6EoAUuhWGw/uv9Cjhw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pzeZsyNx;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96216606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:57:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96216606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEDC0606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:58:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEDC0606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Bc5ftud9
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w0pKpZscZz9kSI8vzG4iBV9vc3cnIwRL4dUPR7gdSE5BOGW3IBe6aaDI9cUVDonSejS2YSmjUmLQRJNq8OeIChEfLvTOvqEaHR/4GGIwICTuyfJtKDMYh14RqoNl3NE2pHBtHTbiGaughLHpTQhp6EP4XbqSwNkSYhbVq0D6/V9gOFfh4fqm6AjbDq5W3OWf2q7vW1WQ8Bc1sMN7NKQTMDq99vpavvhuK2FR7D+wiIVDb/VgfM2cgipsA96SLUGaz19FejfQWZ78RgiKrzlt3rlG3/mdNXY7RDnzBxF5crwNCWdevHQofY2OC2AA5BIZHnwoTYC8EMIn0FUarQaWNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/dY9JgruKbWx4GdY/zRzxoDiMmuXM1kyEY9Ljq27QPc=;
- b=U57gdq1nrGUm+tMpDVFPTmqVX+ve+dZfG+BSqUGkg3DeqmGlaN3BTjGgfAjR58Rb/bIC4gGT1Oez2Z3AEwCK+j57zk3UeSuXLgKq8ysLJXse9ZKtxFWkcv7ze1KmDmV9sJqSR+d17zxtMY+ICwULKl7XMmVl5QYPIZxbAHH0yjMUp0aZyJ4UBZ/1/sxuYu560x4dAX7/y9NqUK9WmPmTX2sBaC2GaXFC1836FygfxZ4/0EnO32KVDb3CAaEWi7eQUX2nAafggyyE4TBEr1yLDaWcpAYKaq3WlZG8JLgFqN6jj5qzdOl3UwC82YaulJL1u825X4T9n/rhcGpoAws3gA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/dY9JgruKbWx4GdY/zRzxoDiMmuXM1kyEY9Ljq27QPc=;
- b=Bc5ftud9O3dK6K4GHL8yiCR8vmcwwo3H7fCXBw+M3r4TQM/4eXeosc+7aETD8MQrCo4VqINEfa66ZLHVtKdsa3rTQQe9ACuH9xVEYFrjlDYBkbgpwiXIvzXXJ+PwffvxLXE43+UByq6zszlrj/iClzAP/xR07/ydSCH8LsYrZK+ARKRO2oSV7JZof4yFZsl0o/DxacNWNq/e5w9Ol5B0/wOlPjBpQ1sE7bs3BmZYviOR9w5fO+t68B1tYIvzZkJOKqF5y16tzxMaemrYzIlCkr8TtHt2QJEUk1OmaE3cRmIXOXw23QcUWk731dG3ULvd+h4xwT91Tzy4dGL9jQj/Zg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YQXPR01MB5199.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:2f::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 13:57:28 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 13:57:28 +0000
-Message-ID: <043dbfe8-f1a0-46f0-b4eb-373a1abeb7f4@efficios.com>
-Date: Mon, 23 Nov 2026 08:57:27 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 13/40] sched/deadline: Make a rebuild count a task in
- the root domain it runs in
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
- <c7c27e2c74c13bb8580f84ac9ed12a5a8001947a.1795207232.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-226138@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-226138@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0108.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:5::11) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pzeZsyNx
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so14440055e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:58:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795442279; x=1796047079; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aDsGpgT4oiUwzFQMguwS59INDZNOdr4HuQWSjUgJW9c=;
+        b=pzeZsyNxCcSLOvb5ZTiPqotXWgZtNU1ZgFRQEJjq1w7SFLFw6shqlo59UlRkGvvDO8
+         F+nUElgorIUrWtcyoFWcwo4AwqvTEixKT2WH9KTdgOqbdMrb4VeEi38bJ4Yjl4nxRsYr
+         eoX0w7bSg62grmuK7CXBRNhjBhLzrGa33xubOiye+ebPHHZn+kyHdliJQEaT8kkF4oqa
+         1MEBMze4fuXpQA299zcgYnHH/741b6OYSZABpqt+aIqt+fCTPtbzWjw9F7WWqfiuXbgU
+         +EV7yklakZpvtcMZHg9GMgDETZ+yh27HtlkA7fyvzOvd4+ip1C5xv8Vj4dLEbnqM/vq0
+         umdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795442279; x=1796047079;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aDsGpgT4oiUwzFQMguwS59INDZNOdr4HuQWSjUgJW9c=;
+        b=Sj/tBKnYk//fvu0qZi7ZQqDb2UTVRql1kJSkF/HHqsWgV5dlmcsxuhP+b4DJMibPoF
+         xspAd7HGrA4HEWTMj/TP+9LDfR/goGyQ+oxcdyg4qhgDmlOCetRd2Q+DfopeGGNBHNz9
+         cpBB/f/HhAnq3CRb6jvqWJSrJAaez23CZQV9gDyDGs6Zqxo9k1V6xjy5g6hq1x2dN+u1
+         7f+JuYUaDF2mC0A5UM7q3v4HZpKIuzPchdXjlmCJFCxgW8lxAh2fijiP/fhWx1+eDkYA
+         9P/Keb15cVvgHwutcp2CyLabDrr4Z4hVF/g//39pTgT7B0dQCYIAqFUZ85fQo9c94NOi
+         sd1w==
+X-Forwarded-Encrypted: i=1; AL+hErHMmrAQOAiL1wZAGrMC67nnMaZIMtnvyZCKvSbBMolFV1DNiQWu5aKZ2JlF3ORqvkNvvwds7nGyGibs8R8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+c77vLSWbD5/aKiUJdNrkJJXU18I/GOxZl1zsGA4UJQNyd7Bfl
+	+c7YvZfz42oTlZePYCKku8PmVgvVp0FiDZjeu52OcifmzcqTWQLsqtq03Szz7w==
+X-Gm-Gg: AZFdTZe/Sjqr2M6sRsj2ZUJlUq5iwB76I1DPoIn1Rl74Ol4tx9pCcWnBfUDyVLtEVOt
+	wTPR1boJbpgRkTiZzfe/d2UslKG9Hyu3HE5Ekf2DJt4k/0QjKLQhhsSwl3BjcpzfLY6N4JSoP40
+	LTY6mBBXgeEU4ZjyAymZBtBTqd22x4YNk0e6J3hOjGTOpJfD+l3a2wUXVWBJOMJqE4kU149jnqQ
+	SeFKN6F/rLq2jkd/aMrhhdBrmAB1Hsaz1JUpkTz9rAOLI5n6AFM+NonQGRxehO2WFyRES5eQVfI
+	CHa6KSFoKE7btAVE4Y/1ziA80rtjZFaKsu/+uLdkKnao+xwvQYzZ8uRuH4oJB3IMYim9pLuBIBE
+	glteV9uLGA2fMM7TICfIBsYjDZFWrfNlOL68AjC16YI3u+GhMA3pBsORhcNBlkBrshwbeRGl0Yu
+	/HzT7Pct7bWdXjeOTz9rUGlzFIoN+O9+SFFYOgys9mhb1GixkPzh6+7YksxK3BtI3G9g1LRKs9v
+	EirMkIyQy3SeTBK+D35cYLAmcmXCGzuyFRtLGrahsIxHWO65Uv3+6xR0JoRVTL9qK4Oeng+bSSx
+	0l5GLhy0FKKoDxaRlzd6awBOX/+MvH3dmmsRWbLmnl5xj6nI4Z+V8KAeftCm60omnw==
+X-Received: by 2002:a05:600c:4e0b:b0:4bb:6f45:2a79 with SMTP id 5b1f17b1804b1-4bb88817920mr259820585e9.22.1795442279068;
+        Mon, 23 Nov 2026 05:57:59 -0800 (PST)
+Received: from [127.0.1.1] ([2a00:23c4:a702:d301:d6f4:1401:6558:1dff])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c3csm22109308f8f.36.2026.11.23.05.57.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 05:57:58 -0800 (PST)
+From: Biju Das <biju.das.au@gmail.com>
+Date: Mon, 23 Nov 2026 13:57:53 +0000
+Subject: [PATCH v2 1/3] arm64: dts: renesas: r9a08g046: Add SDHI nodes for
+ RZ/G3L SoC and SDHI1 pincontrol on SMARC EVK
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,86 +93,260 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQXPR01MB5199:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4816464a-9189-4694-a4df-08df4969b5f7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261009223027099003|261022075727099003|56012099006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	A9hRY001stif9dBU4WkwhP32YJv7T06Tt7eGmYKFky06PWMCyE4FON6oH6bZIkG9tUXnh0yXLA7YJkBjPZCzQBn+4rG36hgPspz+Fb+9pA96aWz6LS6+wvqezW6A8RB1/OV9FBXMwJSZxTBTxsz6RVX2eC0dP+rnzXHvj7CC+ySSwTXFAlIX2m6XeRokWGEmA/dGMqXlzB06VxQ4P0RLb8br4uKH0ZIgSFgSAxEf6LA/OzMLAXfosCxP7oDA9ESahcenLvzg5qnguggPQ6NSbUrvffj+Rde329ipHzz2DSiionj9FSsYFB+68mhIGYQt+X05XdzzhoiYpLvtvLPFC/6xlspLcpOkO/0CemVkwwunnV2Au0NKCakJ5h50iNS/eQr/Wk24yNR8bwDAChQmUVIKvNJxLrwBEreO/Q+vvK/X+DOFOwp3iMwJAXLA5Bp4Op84bGH6r7VQvvVU7/+Q/Al4ssHRrC+fb/QWBhinJf/ZpS9aFPDbThNeXvzU5j1a/39IREiPlSkCi7ZEft+2/WZknfGreqmUHKqdYB6iByeXd4hRpTwpZt1T6kR85dELYbEAR8QZbRNYUOjuJRVj4zuVTl8C43LO7fJLYZBqRMs=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261022075727099003)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?ZWNLWFc1Z0dpKzZBT205MFdqUFgyQXFtcjZhN2l2dEg4NHEydWsyakdKbi9Q?=
- =?utf-8?B?VVNNdmk2aFMvUTVVUExLeDcrb3VsTC92QkFaZFdpN0cwN0xiRjFicjlialJL?=
- =?utf-8?B?bVJiUlR1OWdWWGgrbDljb04yYS84MlFjR2ZjVDl2RDNieVdtNm9vV3dlU0xa?=
- =?utf-8?B?VzVlWGpDNVJFTzBjVUtYOXlFZjZQQzMxOXF1aGE3TzgwRDBST2xiM200bG9s?=
- =?utf-8?B?cmU5RDUxZjFOT2hDbGFBUHpGZDJBN2dnQmN3S24xQ1oxSXNzZmV2T3VxTUND?=
- =?utf-8?B?b2tIakVFYitkU1Y0aHo2YzFqR3pZNG1Tb2dnb2dkSnVJUDk4ckNnOW5xSFM2?=
- =?utf-8?B?VXk4b0gxU3dlVk1HYjZJeGZXZm0xTWE4Zm5rcURjOGp1KzdvNFhoN2phSFR3?=
- =?utf-8?B?WHNzcDEvYmVjSmVKMkpWWThzK0VzY1JQYVBGa21NMEYwZDNUQUlHWkNqeUNH?=
- =?utf-8?B?aVlrUEpUbkxyN0JTVEFRN0p1UW5YR1pQcDF2RmpFRHJ4ZEoxUG4xOEx4OHJR?=
- =?utf-8?B?ZzBaY2NkV1loUldyVnBpR0NHVjIweUJOTE4wRDlNeUFqaVhFcjUzN2FUeWJC?=
- =?utf-8?B?VVhlTXdZSGkyb2haY0FwQVVoenhKbjBDSitSajZxM04vT3lnVTRXWk1zWThu?=
- =?utf-8?B?TUNwMW5GL2d5bDFrMmI5cWVQdmZlMW1vbDR6VWlCSmh1VE9yR2RTR09uRmlK?=
- =?utf-8?B?R2NFcElqMDE3UFVtWG15dmh1NGgrNndzY0gvWExpa1VZY0ZIVXJuWWUzTWtn?=
- =?utf-8?B?REtla2o2aUNIMEN3YUlESjdLT0dyaHhnbHh2QWx5RXlyK2krcE9UeUd0ZGNB?=
- =?utf-8?B?cWNlZkFwWU1ENnVQT0VQbjNRa1pUV3N4Q0VTMU9Wb3dsS2wxNFFSZXh1Wjhy?=
- =?utf-8?B?YytnODlMQTRqRER5L21sSnhLbDB2Slo5Z0puTVRQeFhhU242WWppS0FpYjJM?=
- =?utf-8?B?cFZwS3ZNME9GZjlsV251TnNYNmRsd2ZTRjlsUExNVlJOMllJRHR4dmJoRkY5?=
- =?utf-8?B?ZWtIQS94dFJVS09TS3g0L2tTUytONUJ6U0gyWDZmR3hwOUhHamsvb0RxT2Zp?=
- =?utf-8?B?cWFQNmN0L1pmYUU3end5d0tka1U5bURMNEI3WHk4Umpubk9BWkZ0UjBib3Ba?=
- =?utf-8?B?cE1OampHMFZwKzAzT0VHRkFsNUhjeXFSb0tBVzJ5MEd6Z0trVDJYN1lIa0Mr?=
- =?utf-8?B?U3l2Y3VOYkF6cTBWL3h3clJpaDMySG41RUtsZXhGNGlseWFwamMvRXlRbkdO?=
- =?utf-8?B?amRvM2plSjZ0WDFYTGgzRXB1QWl5T1RMVi9RQWZBQjJTQXlEY21MTm4zRmtX?=
- =?utf-8?B?SjQ3ajUrOWorQ3NEUmpmMjEyc0xsaEVNZ0lPOVAxMnRheHlVMnRpMXJUakl3?=
- =?utf-8?B?UCttT3phZXVSeWRKcVdDd2NZa3BpQmliSU9CbTNvcHV4Z0d1QnpBUS9qTnhm?=
- =?utf-8?B?K0s3YzNTWkhjbUVHVTdjVUc4anY0TDY2Y3oxMUJXRGVVbUpoNVVETlY4dHpx?=
- =?utf-8?B?NWlvblZmZ3E0TUFkMFI4NURxYStnRkUweDJFNDVpR1FqQkZ5WnBOZU4yL3dh?=
- =?utf-8?B?b3g4akZNVmduUkV2MzlJWkxFSXdoeXlvSHB6R2VOZ1Qza2crTHZLYkRXdFpi?=
- =?utf-8?B?WXYzcEN5Q3g1eGZGbysrN2ZTV1pKSG5VVUJncExrNEZGc0wxMDltTXR1WkIv?=
- =?utf-8?B?d2UrbFNQbUhZWW9saDk2Sjd1aDhzRThjdXBDeUhWczlzTTB2clV4ZW5QQjF3?=
- =?utf-8?B?RWl0Mm0waVJma1QxS3Z3cU1XRXE1N1pZQ1pRcFBzcVVGTS9wWU1VemMvb214?=
- =?utf-8?B?OTRveFRhK2Y0Uk1Dd3NCdVlBd1d0SFFxZm5aQWpLTzBpcFl1NDVhNWF5d2lr?=
- =?utf-8?B?WVdmcUJRZnRUdHF5ejd6RlY4Z2NiRi95b0tVaHI5VUdBRVYrRmhtNUpXVGZC?=
- =?utf-8?B?YUg4Q3pFRmp1OU4vczBDYTNvenREZk50VHc0blllODR3alN3dG1aSmttTXRs?=
- =?utf-8?B?QWZ2V2o3TEZlSGk2OUFQNTlObmpMZlFVVHZpMzgxLytYTFVBbVVRTWxYeHlW?=
- =?utf-8?B?VGZpcGRmRlVKUHEyQmZKaVMrKzZNRmM1dExoZkc0UWllc2VvZDRCcEVmQjhv?=
- =?utf-8?B?SHpJZEZTMndVWkRBUjVpczRUL2hIWUVXZEVTR1JLZ0E4Y0lkTFVqSjk3SGQ0?=
- =?utf-8?B?T014ZGhQUzRIbExxVXN6M3p0eXNqQTRNL25HSThWeGRubGNHbVFIT3dBRW1y?=
- =?utf-8?B?WXY3Y0NrQlNrYXFsWnVKcER0eUlJNVpzRFJ0aWV0eU90ODNIT1Zza1RXQ280?=
- =?utf-8?B?K1BYY2FaczlYdmk0dUFxZkhKd3VTbzdRc01zZFptRmlsZzlNU0s0U1ExN2NJ?=
- =?utf-8?Q?uqyyS35cP3s/wJoU=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4816464a-9189-4694-a4df-08df4969b5f7
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 13:57:28.4476
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: S+207Cfu1+Vf+BioVon5lpnak6YbILQwhw92BCzM0Cb9JB9Ug7SfPMxaJAzke3qeIChI/V2x+KUZJEHs3xT5cgUsmeZg8D8259pEir0TnMc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5199
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-sdhi_rzg3l-v2-1-bad3a6358849@bp.renesas.com>
+References: <20261123-sdhi_rzg3l-v2-0-bad3a6358849@bp.renesas.com>
+In-Reply-To: <20261123-sdhi_rzg3l-v2-0-bad3a6358849@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795442277; l=6931;
+ i=biju.das.jz@bp.renesas.com; s=20261020; h=from:subject:message-id;
+ bh=ocrWc0zB2k+scyvCAQsjt8c4dk1BRCOtrssBM2yNUqw=;
+ b=MOD6Ih9GZIFcC0onSOpAMdIiFWq3REAwC1cHuZiQtioKYWJXR9RqiU8sy0DPZEGnn5wEUVXSH
+ aLVicdAlN6yBYt4lhtKHoNZlT3hMh+yyffpQVD/q6yH3ktvHsUUvxir
+X-Developer-Key: i=biju.das.jz@bp.renesas.com; a=ed25519;
+ pk=yzD2T1OLS3lEYflbk64xhLlxhk75lZ+NoOtkTOqrlVw=
 
-> Can this early return drop the departing bandwidth of a task that was 
-> migrated outside its mask by dl_task_offline_migration() and exited
-> during the rebuild?
+From: Biju Das <biju.das.jz@bp.renesas.com>
 
-Yes, by reading. It needs admission control off, every CPU of the mask
-offline, and an exit during the rebuild. In v11, the check for a task
-with no active CPU will come after the check for a departed task, under
-dl_departed_lock. A departed task will then be counted on the CPU
-recorded with it. No case will test it.
+Add device tree nodes for the three SDHI controllers (SDHI{0,1,2})
+on the RZ/G3L SoC (r9a08g046) and enable SDHI1 on the RZ/G3L SMARC
+EVK platform with pincontrol and GPIO-based voltage switching
+regulator support.
 
-Thanks,
+Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+---
+v2
+- Disabled sdhi1 when RZ_BOOT_MODE3 is 0, so its pinctrl and regulators
+  are not left enabled.
+---
+ arch/arm64/boot/dts/renesas/r9a08g046.dtsi         | 73 +++++++++++++++++-
+ arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts | 90 ++++++++++++++++++++++
+ 2 files changed, 162 insertions(+), 1 deletion(-)
 
-Mathieu
+diff --git a/arch/arm64/boot/dts/renesas/r9a08g046.dtsi b/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
+index bb69e5e3528d..b710f47d3f03 100644
+--- a/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
+@@ -1068,9 +1068,80 @@ dmac: dma-controller@11820000 {
+ 			dma-channels = <16>;
+ 		};
+ 
++		sdhi0: mmc@11c00000 {
++			compatible = "renesas,sdhi-r9a08g046";
++			reg = <0x0 0x11c00000 0 0x10000>;
++			interrupts = <GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cpg CPG_MOD R9A08G046_SDHI0_IMCLK>,
++				 <&cpg CPG_MOD R9A08G046_SDHI0_CLK_HS>,
++				 <&cpg CPG_MOD R9A08G046_SDHI0_IMCLK2>,
++				 <&cpg CPG_MOD R9A08G046_SDHI0_IACLKM>,
++				 <&cpg CPG_MOD R9A08G046_SDHI0_IACLKS>;
++			clock-names = "core", "clkh", "cd", "aclkm", "aclks";
++			max-frequency = <150000000>;
++			resets = <&cpg R9A08G046_SDHI0_IXRST>,
++				 <&cpg R9A08G046_SDHI0_IXRSTAXIM>,
++				 <&cpg R9A08G046_SDHI0_IXRSTAXIS>;
++			reset-names = "rst", "axim", "axis";
++			power-domains = <&cpg>;
++			status = "disabled";
++		};
++
+ 		sdhi1: mmc@11c10000 {
++			compatible = "renesas,sdhi-r9a08g046";
+ 			reg = <0x0 0x11c10000 0 0x10000>;
+-			/* placeholder */
++			interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cpg CPG_MOD R9A08G046_SDHI1_IMCLK>,
++				 <&cpg CPG_MOD R9A08G046_SDHI1_CLK_HS>,
++				 <&cpg CPG_MOD R9A08G046_SDHI1_IMCLK2>,
++				 <&cpg CPG_MOD R9A08G046_SDHI1_IACLKM>,
++				 <&cpg CPG_MOD R9A08G046_SDHI1_IACLKS>;
++			clock-names = "core", "clkh", "cd", "aclkm", "aclks";
++			max-frequency = <150000000>;
++			resets = <&cpg R9A08G046_SDHI1_IXRST>,
++				 <&cpg R9A08G046_SDHI1_IXRSTAXIM>,
++				 <&cpg R9A08G046_SDHI1_IXRSTAXIS>;
++			reset-names = "rst", "axim", "axis";
++			power-domains = <&cpg>;
++			status = "disabled";
++
++			sdhi1_vqmmc: vqmmc-regulator {
++				regulator-name = "SDHI1-VQMMC";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <1200>;
++				status = "disabled";
++			};
++		};
++
++		sdhi2: mmc@11c20000 {
++			compatible = "renesas,sdhi-r9a08g046";
++			reg = <0x0 0x11c20000 0 0x10000>;
++			interrupts = <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cpg CPG_MOD R9A08G046_SDHI2_IMCLK>,
++				 <&cpg CPG_MOD R9A08G046_SDHI2_CLK_HS>,
++				 <&cpg CPG_MOD R9A08G046_SDHI2_IMCLK2>,
++				 <&cpg CPG_MOD R9A08G046_SDHI2_IACLKM>,
++				 <&cpg CPG_MOD R9A08G046_SDHI2_IACLKS>;
++			clock-names = "core", "clkh", "cd", "aclkm", "aclks";
++			max-frequency = <150000000>;
++			resets = <&cpg R9A08G046_SDHI2_IXRST>,
++				 <&cpg R9A08G046_SDHI2_IXRSTAXIM>,
++				 <&cpg R9A08G046_SDHI2_IXRSTAXIS>;
++			reset-names = "rst", "axim", "axis";
++			power-domains = <&cpg>;
++			status = "disabled";
++
++			sdhi2_vqmmc: vqmmc-regulator {
++				regulator-name = "SDHI2-VQMMC";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <1200>;
++				status = "disabled";
++			};
+ 		};
+ 
+ 		eth0: ethernet@11c30000 {
+diff --git a/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts b/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
+index 517747aef36e..e9b7b3280615 100644
+--- a/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
+@@ -16,6 +16,7 @@
+ #define SW_GPIO9_CAN1_STB	0
+ #define SW_I3C_EN		0
+ #define SW_SER0_PMOD		1
++#define SW_SDIO_M2E		0
+ 
+ #define PMOD_GPIO4		0
+ #define PMOD_GPIO6		0
+@@ -40,6 +41,7 @@ / {
+ 	aliases {
+ 		i2c2 = &i2c2;
+ 		i2c3 = &i2c3;
++		mmc1 = &sdhi1;
+ 		serial0 = &rsci2;
+ 		serial1 = &rsci3;
+ 		serial2 = &rsci1;
+@@ -71,6 +73,19 @@ codec_dai: codec {
+ 		};
+ 	};
+ #endif
++
++#if RZ_BOOT_MODE3
++	vqmmc_sd1_pvdd: regulator-vqmmc-sd1-pvdd {
++		compatible = "regulator-gpio";
++		regulator-name = "SD1_PVDD";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <3300000>;
++		gpios = <&pinctrl RZG3L_GPIO(J, 1) GPIO_ACTIVE_HIGH>;
++		gpios-states = <0>;
++		states = <3300000 0>, <1800000 1>;
++		regulator-ramp-delay = <1200>;
++	};
++#endif
+ };
+ 
+ &canfd {
+@@ -257,6 +272,68 @@ scif0_pins: scif0 {
+ 		power-source = <1800>;
+ 	};
+ 
++#if RZ_BOOT_MODE3
++	sd1-pwr-en-hog {
++		gpio-hog;
++		gpios = <RZG3L_GPIO(J, 2) GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "sd1_pwr_en";
++	};
++#endif
++
++	sdhi1_pins: sd1 {
++		sd1-cd {
++			pinmux = <RZG3L_PORT_PINMUX(J, 0, 8)>; /* SD1_CD */
++		};
++
++		sd1-clk {
++			pinmux = <RZG3L_PORT_PINMUX(G, 0, 1)>; /* SD1_CLK */
++			power-source = <3300>;
++		};
++
++		sd1-cmd {
++			pinmux = <RZG3L_PORT_PINMUX(G, 1, 1)>; /* SD1_CMD */
++			input-enable;
++			power-source = <3300>;
++			bias-pull-up;
++		};
++
++		sd1-data {
++			pinmux = <RZG3L_PORT_PINMUX(G, 2, 1)>, /* SD1_DAT0 */
++				 <RZG3L_PORT_PINMUX(G, 3, 1)>, /* SD1_DAT1 */
++				 <RZG3L_PORT_PINMUX(G, 4, 1)>, /* SD1_DAT2 */
++				 <RZG3L_PORT_PINMUX(G, 5, 1)>; /* SD1_DAT3 */
++			input-enable;
++			power-source = <3300>;
++		};
++	};
++
++	sdhi1_uhs_pins: sd1-uhs {
++		sd1-cd {
++			pinmux = <RZG3L_PORT_PINMUX(J, 0, 8)>; /* SD1_CD */
++		};
++
++		sd1-clk {
++			pinmux = <RZG3L_PORT_PINMUX(G, 0, 1)>; /* SD1_CLK */
++			power-source = <1800>;
++		};
++
++		sd1-cmd {
++			pinmux = <RZG3L_PORT_PINMUX(G, 1, 1)>; /* SD1_CMD */
++			input-enable;
++			power-source = <1800>;
++		};
++
++		sd1-data {
++			pinmux = <RZG3L_PORT_PINMUX(G, 2, 1)>, /* SD1_DAT0 */
++				 <RZG3L_PORT_PINMUX(G, 3, 1)>, /* SD1_DAT1 */
++				 <RZG3L_PORT_PINMUX(G, 4, 1)>, /* SD1_DAT2 */
++				 <RZG3L_PORT_PINMUX(G, 5, 1)>; /* SD1_DAT3 */
++			input-enable;
++			power-source = <1800>;
++		};
++	};
++
+ 	ssi0_pins: ssi0 {
+ 		pinmux = <RZG3L_PORT_PINMUX(H, 0, 9)>, /* SSIF0_RXD */
+ 			 <RZG3L_PORT_PINMUX(H, 1, 9)>, /* SSIF0_BCK */
+@@ -312,6 +389,19 @@ &scif0 {
+ 	pinctrl-names = "default";
+ };
+ 
++#if RZ_BOOT_MODE3
++&sdhi1 {
++	pinctrl-0 = <&sdhi1_pins>;
++	pinctrl-1 = <&sdhi1_uhs_pins>;
++	pinctrl-names = "default", "state_uhs";
++
++	vmmc-supply = <&reg_3p3v>;
++	vqmmc-supply = <&vqmmc_sd1_pvdd>;
++};
++#else
++	status = "disabled";
++#endif
++
+ #if !SW_SD2_EN
+ &ssi0 {
+ 	clocks = <&cpg CPG_MOD R9A08G046_SSI0_PCLK2>,
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+2.43.0
+
