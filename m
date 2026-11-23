@@ -1,67 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795467123;
-	b=uzVAHI1CC2iVFrciEZvCMqhXuzip+JQorp25961AWZAdx9PT7PuU21rnmqFNshcO4U6a
-	 Fg5VbDx473xoomYtp6t7AhVU/Dj+qsOl655XIG1a8/64QWhJlHJZABrmhGWw4aEB0oWpf
-	 BjEoyNvhdTiB2xYwpgSEg59eCFo8l2Hw00oAqnTp87xRuIl14/EjHo6GqkEuppkQoKGZd
-	 Ng08u6OuDfUivf3n/cEJYCjQ61HBv5EyG97lYQ8eHtx+cDEDWbljden1ttwk84mu2YfIq
-	 l3lbn6KKsuwUROO5uli1LNr/UAm3msCyvA8aD0Il2ndEo6D7CJA9rGuyfAa0VMW9iNg==
+	t=1795467155;
+	b=A9pdS0PAZYWXKDPglEOMWhCskkLHnurkfPD+9TiInNNE4VYUXN/liZA1YuKZ9FdmJLJ8
+	 zM2wXtZuxkbxhmIg+9TIgrsav43XRbdjKd9Idje4xSWeZOGka3VlQgWwFRdOetwioHMDx
+	 q7PaEs7bpsmXF8/f/Or2OUOj/SlMczYO7lW5xEVhqL7UYowJbcOHoxYTmGNwmO3iI9pYA
+	 W0r5sjAMu4P/W822EJRNVQEm4U+CO+VNdbIWk6trA343ASpLJjFn4zk1sY9CmeWDShW7l
+	 +6v8zKJXFKQ24djHHyTDAK7qShPMz0PT9dSgpDxLZDAWmM0+yWNUgFmZArdnAhqZlMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467123;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=eoFBuZX7cl9z83u/LMcI/j8Tx2rvqIARdyS6MqH8nbI=;
-	b=KigGTir2z2gueiXVXLN2yzXvpstwIva5FL4hVB2sZcuG94bPz/VTU1BlCdx/+oEHn4dw
-	 JoDlY1pke0Hp0/R7FB2ogs/Dg6qg1U7UqOoEJe5Sj+oPkkD1kGTd9eQmL8KhZPGbpraT1
-	 FBx3ckjonVL9Sp6mWOxje2KYrU/mkurw1d03oRnxn5B70pt3yH/264s1RmJDeJBx7vVZa
-	 z93BB39mHlhdot92PzzEYVdjYg2qXMSEpJImmMYmPO1V0FwCUVoo0Q0C3OESvbHj8I0wA
-	 God7PUbJlBw4UG/PebaD9UYK8H2I6HY8qrVDwPOe5Kxw8sMy2vRPG8esRYHT+UCV7ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795467155;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=fksJyEcnalo6jb/77jNJkfTc1PGgVk2uV8ZWMr9EGV0=;
+	b=RLf0kzDyxAIkA3QxJttm+oWYoO2YvCkFpnpIWafxBxvuGfgN0c42QHmXMfs+5zVb7nHx
+	 l5kNETNPIaGF3XXUKy9/oAcBHTcwpA7j9sCDkzRdQ+Fcrfp6cO8JFTMp2rPnrcS58SP3j
+	 pa2HNn8AvXOAC4I2rd7IywoYMnjNVnTwvfZYvMbYJE9Wn52EquSyOPwKzW4cgfkcty6SI
+	 EULTkfU994GdxtdWyJw8b0jx2lzG44mOxk2s1ItOhF355Rv7926WrHZ/WF+vykmdBRPOa
+	 98Wv17/nc/AlOwzt6llxWlFECcJu7aAAZp0xNirVeP2KLTPcoZzdr2p0Kz1LojSnLmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=codewreck.org;
-	spf=pass smtp.mailfrom=codewreck.org;
-	dkim=pass header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=yyGK7Ykb;
-	arc=none smtp.remote-ip=62.210.214.84
-Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CKTYim9b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2F01606A327;
-	Mon, 23 Nov 2026 20:51:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2F01606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 59C7E606A321;
+	Mon, 23 Nov 2026 20:52:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=yyGK7Ykb
-Received: from gaia.codewreck.org (localhost [127.0.0.1])
-	by submarine.notk.org (Postfix) with ESMTPS id BBA2B14C2D6;
-	Mon, 23 Nov 2026 21:51:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
-	s=2; t=1795467117;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eoFBuZX7cl9z83u/LMcI/j8Tx2rvqIARdyS6MqH8nbI=;
-	b=yyGK7YkbpvEiGOvMLTEouavV1EopCvmE6S2Eucjf3YMnoWaFdsiBBq3fCIPJcq304G6zB6
-	MGyyaWaVqej28o27zWOChlZJ8fixouayRSheV2+7Pxi48CeSakT9ldhZyOl0NNN1vP4/PN
-	6Xzk2oYai4BAZWDJ2kSNeSIvcDSBj5LDJMXe2WW/6rxX7oL488+l5tUNuOOIMQKdQ0VjlK
-	1E8HkWjyztBqcW5n9slVMPro/XOm6LGcNvAVixpvjd54KNhuw3an3elQcZIpp2eL+KcX2N
-	LIjG9DAXiUV3qhB17rgBQo681ao8mfGGLTPMxrGpDSAxq8sy3Q2oAuQsbGb1Eg==
-Received: from localhost (gaia.codewreck.org [local])
-	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id fffc9bb8;
-	Mon, 23 Nov 2026 20:51:54 +0000 (UTC)
-Date: Tue, 24 Nov 2026 05:51:38 +0900
-From: Dominique Martinet <asmadeus@codewreck.org>
-To: Michael Grzeschik <mgr@kernel.org>
-Cc: Zhu Jun <zhujun2@cmss.chinamobile.com>, nkapron@google.com,
-	gregkh@linuxfoundation.org, linux-usb@vger.kernel.org,
-	v9fs@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tools: usb: p9_fwd: Send complete requests to the TCP
- server
-Message-ID: <awSnWlnvyPkzYzJG@codewreck.org>
-References: <20261120061937.98224-1-zhujun2@cmss.chinamobile.com>
- <awOQD-9KMTflKrd4@codewreck.org>
- <awRYqogEpIWuCN9-@line.checkpat.ch>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CKTYim9b
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 183631F000D0;
+	Mon, 23 Nov 2026 20:52:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795467154;
+	bh=fksJyEcnalo6jb/77jNJkfTc1PGgVk2uV8ZWMr9EGV0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CKTYim9bo57X3lLqJNpjcn4nFFi+OU4uyDtvREyDbORALz85hyB/EX2WLAQVlOSZD
+	 Bp/suq09MjzYEJ5/naC7w2V3WowWbepV06dZLYuIys1XwOoHdsYBaL67MMgi5ntYi/
+	 NSZYS8AWIbPTh8IYC5i/S/VQVCOJYridPEPsmffoeMHU7yBatIWkAhBrAu+msTDVZd
+	 rksb8ZRVuvFZGSQT+3VAQTcgRXSMCLiogJ7r7GZEce2EzBSB2n52vEih0IbqPM4jjg
+	 jb/uHs/L2PJPD2+YruTzMNUsoE5OG54I0UM3o9fo3RnyXJ5JmA3o20vV63d/u1j3BO
+	 veYo4KbxvoosA==
+Date: Mon, 23 Nov 2026 21:52:31 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Manush Prajwal <manushprajwal555@gmail.com>
+Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pwm: tiehrpwm: fix copy-paste error in obsolete DT
+ binding fallback
+Message-ID: <awSm7G-UanPOS_ZQ@monoceros>
+References: <artTMprq3aNbVrLN@monoceros>
+ <6abb8db0.721b4d7a.30484d.cb00@mx.google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,27 +57,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rbx3embdugogtuhb"
 Content-Disposition: inline
-In-Reply-To: <awRYqogEpIWuCN9-@line.checkpat.ch>
+In-Reply-To: <6abb8db0.721b4d7a.30484d.cb00@mx.google.com>
 
-Michael Grzeschik wrote on Mon, Nov 23, 2026 at 04:16:21PM +0100:
-> On Mon, Nov 23, 2026 at 09:59:59AM +0900, Dominique Martinet wrote:
-> > Zhu Jun wrote on Fri, Nov 20, 2026 at 02:19:37PM +0800:
-> > > socket.send() can return after sending only a prefix of a request.
-> > > The forwarder ignores that result and waits for a response to an
-> > > incomplete message. Use sendall() so request forwarding completes
-> > > only once all bytes have been sent or a write error is reported.
-> > > 
-> > > Fixes: 673f0c3ffc75 ("tools: usb: p9_fwd: add usb gadget packet forwarder script")
-> > > Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
-> > 
-> > Thank you, picked up
-> 
-> gregkh already picked it to usb-next
 
-Oh.
-Dropped from 9p-next, thanks for the heads up.
+--rbx3embdugogtuhb
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: tiehrpwm: fix copy-paste error in obsolete DT
+ binding fallback
+MIME-Version: 1.0
 
--- 
-Dominique
+Hello,
+
+On Tue, Sep 29, 2026 at 03:36:40PM +0530, Manush Prajwal wrote:
+> Hi Uwe,
+>=20
+> Thanks for the quick review and for digging up the Fixes commit.
+>=20
+> > Looks right, I guess it needs:
+> > Fixes: ae5200d22716 ("pwm: pwm-ti*: Get the clock from the PWMSS parent=
+ when using old bindings")
+> >=20
+> > I wonder: Did you find this because you still use the old bindings, or
+> > by code inspection somehow? If the latter, maybe it's time to drop the
+> > handling instead?
+>=20
+> This was found purely by code inspection during a review of the PWM
+> drivers, not from running older bindings on actual hardware.
+>=20
+> Given that this fallback in pwm-tiehrpwm has been effectively broken ever
+> since commit ae5200d22716 was merged in 2014 without anyone noticing or
+> reporting it, it seems very likely that nobody relies on this obsolete
+> binding anymore.
+>=20
+> I would be happy to send a patch dropping the obsolete binding handling
+> instead (from pwm-tiehrpwm, or from both pwm-tiehrpwm and pwm-tiecap if
+> you prefer keeping them consistent).
+>=20
+> Or if you'd rather keep backward compatibility, I can send a v2 of this
+> fix with the Fixes: tag included.
+>=20
+> Which direction would you prefer?
+
+I think dropping the compat handling is fine. I didn't check if
+according to the binding, this compat handling is still ok. If yes, this
+needs deprecation, too. I wouldn't touch the tiecap driver for now, as
+(AFAIU) there is no such breakage and keeping the compat handling there
+isn't a burden.
+
+Best regards
+Uwe
+
+--rbx3embdugogtuhb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsEp4sACgkQj4D7WH0S
+/k6dAgf9EYLJB+F/YORYQ9Um8ddDE4Wk+2BRr6QGRQY/sjVXNIlOaY/xaM6okXqc
+HfkXC8zBkG211Hjdl5fq+8eY3ayY8JkBb59W8z4IJiQv1mMN9ogG21VHbSIPvRCI
+ovd7WiUpyuCJuHeVc/5RDfY8/IriAX1rl++VMn46GPA7z9ORwCJojG5NEzSzwhGx
+zhVMeneDGQPOBexHcatWxyKv4WQa4j54RcrqZ9QYORc5iLFUUQDZg2klRRxNKV4r
+AeSXkHVFY5qIiYiauv0StwKjZXNsBEpPw9epGU/XckMC9E7/rMEzwQaVXu32N3Tq
+g+HJODpM4gENNxDOnN2b/2hoyG9m8Q==
+=cbvy
+-----END PGP SIGNATURE-----
+
+--rbx3embdugogtuhb--
