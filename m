@@ -1,87 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433249;
-	b=33LCswIGCfinDknH/QvBsCqS0azMalWj367RdsXvOjJYqml08IqmBC+U5brUZrLrePxm
-	 2IwjK1IGKJQ6fwItCxzpP1BZfos202isS53VFBxNtN534yY+6d8Na/9HvPK8DlpAAQX8l
-	 CriMUxW+B60iFurHFuaJ1GozXSdw5vQ0Z996BT3a1kuAbakK2f8gVymH09IOe2ERW2NEu
-	 uRzWzCOSqAYNB7hnHHz5wvSVrpBTOWiV9wuE5+5b+PED68h/Z2CJSGzXUqpQ9HZyuBbJd
-	 APW31F3wYqWKrSlnlNm+zqg4uK7gBGToNl8B8HL8UBFQyiMoM8wy1DEuaUSqxh73L2A==
+	t=1795433269;
+	b=4DzS9Be2m41MKINAWVPwdEyEcQAPvP5J8LkRNtT2qGE9FxA6CDHcHwd1jQxtg/Tng17y
+	 E8TCHPAAemS2iQCAF3S9Xl4mRgCJ/TURphx5PZn2CLvoP6bc97G3km/odzULcXSZX96AM
+	 q0AosCOylH3Uldphmbg9Y3f+129CXo2DBpOKTmspr4BCha84f6kkXALqKxGDm+Mdi04qg
+	 JTGt54QdvV4nvQj6zdUVxRf91HiB+uaRJ9j4KCJ2SlFscwV0UezuD2E5i8B/vouXUwayx
+	 IAA5vDcA8GKwM/56o3deCs0P8q5m0xZGgPx7SAP0AsRcgQ/NoiI9ZRhvcoBdK7ge48Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433249;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=Z7l6Yjh1JSeT2JRed35IiGX95vMbKdZloECt/CtA1YI=;
-	b=LLmE+jSOtR5+8twC0qRbexlY1xl62B1qVORQl33x+/wDGTnfE640BL8gAYSfNXjfwL7Y
-	 NsrDuqHQRtOMsmSqcgDbTltFeYxtQZRl8zZRgHqVWFSrbb3LKvmlZSwyzQoa522gsHmhx
-	 5qLOsD/YZN39MU6sLQrDbtHukSj0lKNJVKcP9yLZ9Vmm23VkUbgjd+qITZUFQt7QKr9yR
-	 kK1X1sHVTZEC3hDmMmRRogdxC6L5eT0Q7dTuprQ9sVlhvcVRyXISjjnn5HHLsxq7nMokv
-	 /PxGwkgAxSCtBlhKr7v0uSm0oOAZKlmuTOJzfpkEQ7q8kHwB1oic+z9OgAdLy77UuAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433269;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Organization:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ssgL7DxzXbUZ7tJgWltGij1VtPlNzWyPW+YycDs+SSQ=;
+	b=2F5HbKFkbJ0kG9Q3cczpE41F1EJewK1O1/YkGsj5c28OkZI9xkf3KTvtPCMCjVSJug6U
+	 CM1FKy/4pt6rUHIFOYakwgWbY7h03zpksZsDUIPvd5GDuC33844T/jDN69/+wqcp0O3Qy
+	 cxohKmqnBuRm3pzZeMFIksFSbtvs+Jq22rl5MG6jonlvv7FP8c9UPOtFrWAUarpFQ0KWQ
+	 CI4Thf90Tc7lC2ntGfl8Ftt0QcOLfeuAIUY651vpLbwYYd4g5R8Mekb/pshcn5jgh0WR4
+	 Hju7zvNcQLE1OEWICWMKynkN+I8m4pAwQ72eBMZTCEe15VBJ9jzgNzT8kelSBcQsJyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZAySEIkE;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A580606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:27:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A580606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BlDbpH9G;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C1673606A31A;
+	Mon, 23 Nov 2026 11:27:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1673606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZAySEIkE
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-49a92144733so1487023f8f.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:27:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795433247; x=1796038047; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z7l6Yjh1JSeT2JRed35IiGX95vMbKdZloECt/CtA1YI=;
-        b=ZAySEIkE61SkfF4pAwbFbxeQZEzLM6mFoV/OleA96jpiJX4Ny+kNOQILppSPnNMLnY
-         hZMhUhe0p5CqZsewICIRtJu6hAum6xQ+HW8vWJnWzMZdO4lk7nYrjHBxBhgpQ7ob7ROP
-         +C0NmrdhyJDZYg88as0TilMinT9IDRNK/NcLLFxbHYMQbRaZRdZFgOSgpPfc+eCFJM7M
-         1l9cDxzbTh3Mg2TRa7EfTqt2GLQ+9ogUENdaf1/noFGxpVwf3X2kk7rb0tonQN3dW5tV
-         RzMjmYy3tZZsWc2sXqaFXR4sPt9wui1k+DvVkQHbhj8LZkhk1GLehU2Yyq/F5Cjgw6iw
-         FSCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795433247; x=1796038047;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z7l6Yjh1JSeT2JRed35IiGX95vMbKdZloECt/CtA1YI=;
-        b=210jKhm9LwZOsqUZB3e9ehzEeKcLj/xK/GK0CAcMkLKNujS34f7zFciCeRCQHgKJcY
-         1ihsyM2JYA8Lntt0hdPM5eKw4Ckjua0Ykg+eTSyDzjNU3AGHPXVUDFai8oXIMpGD0CTw
-         2EOdq6M/Q1YTyKiE+KJRlN8voH4n0hjPQ0dmLP1KZkUHpN5Cugwk5R1dzAq3LsS8Dm6g
-         I33oEVhJYunZcPTxjXx9CW87YbHIKQ+BMXWtBTU/McOraAznST/wuGAcs+3iE58MKHZ/
-         p0/zTdt4P1Z5ayrvDMdJS4TgivKaCnCW5E3C+0tNOcGT9YbANU8b+9FxR9bC4GVibapG
-         WNXw==
-X-Forwarded-Encrypted: i=1; AL+hErHDgK4yo7nKR2hnApHX/5YPBKfb5XaaY51b6UYWDjW5KJxtZb5flsJsp+38mygpkVoRtVFcuPkk/cJNe70=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8dIzXNtg4HHH9o1CBNhbbiKoZMNZMlTJ9yzu4KvLxY7/vMdNmj
-	YW+eh+/W3oFHSs7AHhYwZIaY6NaWp5ZCiP5hTcyQRD2wZ/WC5ob69sUL
-X-Gm-Gg: AZFdTZczu/iEPzUEopl+wL7lXlCu5EZoz+cyaUoGrkXoytTyQQMblZEtTcaYZCWA5UJ
-	E8rtrt7/+cJZ7kExlahU7FnPz+RiE4hG/5MG4TYanSKcKJJyShBVN9wslaR+WQhrPwApsgAvomw
-	E9IgnHqdgESY3RNxUSwtDtjmph+xjE4wGI8aCHMQ19zpyqkxQPEJD8pSTT0NcrIetFRDWqxs21D
-	sz6sDCQe3uirGUBfqZ0tG/ybHNgvgJ/cRvIiSwXuNafpyku02VzxveOc6t+IHlq9Jac+41RN7dc
-	ZH0D6M/XNZm2ctV/TY2oVrfGR/cRrVCRU8sEVJuA3XpEAdIshREfSOhBmkkews+ryZd9yeQ/+9l
-	bWh8tCkADtKKmgA3Ug397LBvP/GSH+3nb7uO96XJ3tgNjJbeF15X4v+COEN2qJnbYllfc4pPblp
-	Z2kTKw8AKccXdPZNZdkRezKpOJGKpXF5p2ELdIRAdIup4sdML54iytX/PTJJG8dM+sHyfcHZ8ay
-	7Ura8/nRlLKooAAeusMibnexcYobzbqeTaxR2BPbL1CGMBZmGIjj8e7JKH29VaziPK9QcylUbyE
-	vggmU1AW0wBf2znmVvhmF6Bx9Dyr5MqXdbRXhKLm2QXQfR7PRIDtun3TiOnhIQEQM/gwXDtwpzi
-	eK8KKq6CWZ0Wr8awzgpO+VOmd
-X-Received: by 2002:a05:600c:468c:b0:4bb:6d61:af7c with SMTP id 5b1f17b1804b1-4bb88944bf5mr221650055e9.35.1795433246798;
-        Mon, 23 Nov 2026 03:27:26 -0800 (PST)
-Received: from ?IPV6:240e:47e:509a:b87f:26b:b35a:8dbf:81dd? ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm336307275e9.5.2026.11.23.03.27.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 03:27:26 -0800 (PST)
-Message-ID: <2f885fbf-1887-4740-a7ee-0189d74260a3@gmail.com>
-Date: Mon, 23 Nov 2026 12:27:12 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BlDbpH9G
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45116143D;
+	Mon, 23 Nov 2026 03:27:45 -0800 (PST)
+Received: from [10.2.213.11] (unknown [10.2.213.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D7323F882;
+	Mon, 23 Nov 2026 03:27:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795433268; bh=ssgL7DxzXbUZ7tJgWltGij1VtPlNzWyPW+YycDs+SSQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BlDbpH9GOBYSN/1fZzJq1X8wn0398nEuLJMN7Lftbd1i1Z+673bgMeFgBM73EZ+fD
+	 TMCWiWL0SrE0T/ocQVq5iEnYFkaa7E9tkSksb8AWEWegoyBO6JmnO4ZNj+OyTh4ymr
+	 R0cO5BUY8o0g9BEdQeTg7Xi2MY6QF7ixE36FCq/E=
+Message-ID: <9b0461dd-0616-4c7e-9c03-6eca1e452a3d@arm.com>
+Date: Mon, 23 Nov 2026 11:27:43 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,92 +55,47 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Oarora Etimis <oaroraetimis@gmail.com>
-Subject: Re: [PATCH v6 02/43] drm/vkms: Lock the config dump against
- concurrent configfs changes
-To: Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Melissa Wen <melissa.srw@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com,
- Jonathan Corbet <corbet@lwn.net>, Harry Wentland <harry.wentland@amd.com>,
- Lucas De Marchi <demarchi@kernel.org>,
- =?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
- Randy Dunlap <rdunlap@infradead.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com,
- victoria@system76.com, thomas.petazzoni@bootlin.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>,
- llvm@lists.linux.dev
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
- <20261120-vkms-all-config-v6-2-78ace90f4fc1@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120-vkms-all-config-v6-2-78ace90f4fc1@bootlin.com>
+Subject: Re: [PATCH 3/3] arm64: head: set __entry_task along with task setup
+To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
+ linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Breno Leitao <leitao@debian.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
+ Doug Anderson <dianders@chromium.org>, Linus Walleij <linusw@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Thomas Huth <thuth@redhat.com>,
+ Dawei Li <dawei.li@linux.dev>, mrigendrachaubey
+ <mrigendra.chaubey@gmail.com>, kernel-team@meta.com,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Ada Couprie Diaz <ada.coupriediaz@arm.com>
+References: <20261117174814.95936-1-ada.coupriediaz@arm.com>
+ <20261117174814.95936-4-ada.coupriediaz@arm.com>
+ <f232d0ff-3286-4d85-b9e3-cad8c6bc7178@arm.com>
+ <2ce350f9-4dc4-480f-8a53-07ef9586d49b@arm.com>
+ <av8sxUCg4m492Tx6@shutemov.name>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Content-Language: en-US, en-GB, fr
+Organization: Arm Ltd.
+In-Reply-To: <av8sxUCg4m492Tx6@shutemov.name>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-Hello Louis,
+Hi Kyril,
 
- > The vkms_config debugfs dump iterates the configuration lists while
- > configfs can concurrently mutate or free them, which leads to a
- > use-after-free. Move the configuration lock into struct vkms_config and
- > run the dump under it.
- >
- > Fixes: 13fc9b9745cc ("drm/vkms: Add and remove VKMS instances via 
-configfs")
- > Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
- >
- > @@ -347,6 +349,14 @@ static int vkms_config_show(struct seq_file *m, 
-void *data)
- >      struct vkms_config_crtc *crtc_cfg;
- >      struct vkms_config_encoder *encoder_cfg;
- >      struct vkms_config_connector *connector_cfg;
- > +    struct vkms_config *config = (struct vkms_config *)vkmsdev->config;
- > +
- > +    /*
- > +     * The configuration lists and fields are concurrently mutated by
- > +     * configfs (creation, removal, attribute stores); iterate under the
- > +     * configuration lock to keep the iteration coherent.
- > +     */
- > +    guard(mutex)(&config->lock);
- >
- > @@ -711,7 +709,7 @@ static ssize_t device_enabled_store(struct 
-config_item *item, const char *page,
- >      if (kstrtobool(page, &enabled))
- >          return -EINVAL;
- >
- > -    scoped_guard(mutex, &dev->lock) {
- > +    scoped_guard(mutex, &dev->config->lock) {
- >          if (!dev->enabled && enabled) {
- >              if (!vkms_config_is_valid(dev->config))
- >                  return -EINVAL;
+On 19/11/2026 17:09, Kiryl Shutsemau (Meta) wrote:
+> On Wed, Nov 18, 2026 at 03:30:06PM +0000, Ada Couprie Diaz wrote:
+>> However, as far as I can tell this is not the case for secondaries :
+>> their first task on boot is set to the idle task, which they go to
+>> without switching until (and unless) something gets scheduled on the core.
+>> This would be the same path taken for CPU hotplug.
+> Secondaries brought up at boot have run their cpuhp thread before SDEI
+> probes: smp_init() comes before the initcalls. A CPU that was online
+> before still has its idle task in __entry_task. So only a CPU onlined
+> for the first time after SDEI probed can see NULL there.
+That makes sense, thanks for clarifying.
+So there is a very small window, only on first booting secondaries,
+where we could see this issue, but it does exist.
 
-Now that the dump takes the same lock, holding it across
-vkms_create()/vkms_destroy() closes a cycle. vkms_destroy() calls
-drm_dev_unregister(), which removes the vkms_config debugfs file and
-waits for its readers to drain, while a reader in vkms_config_show() is
-waiting for that same lock:
-
-     echo 0 > enabled : holds config->lock, waits for the debugfs readers
-     cat vkms_config  : holds a debugfs read, waits for config->lock
-
-Also, vkms_connector_detect() reads cfg->status without taking
-config->lock, while connector_status_store() writes it under the lock
-and still allows the write after the device is enabled. The kref in
-detect only keeps the object alive, so these two are a data race on the
-same field.
-
-By the way, Fixes: 13fc9b9745cc looks wrong -- the device cannot be
-enabled at that commit, 64229b846a7e looks like the first reachable
-point.
-
-Thanks,
-Oarora Etimis
+Kind regards,
+Ada
 
