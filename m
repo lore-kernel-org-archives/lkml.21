@@ -1,44 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.79.60.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795397140;
-	b=DLMYf/Y1fry4lDRaDFbdOdFmmgxpKW25RvBlwncCnYffDzNP9500aiFePG/7SRS1giJY
-	 BfzIT8IN6F8KEqmR7fTM5eCbCyA2NLjxI3HpvWuJ0G4kY5CFPjFo+nzWPNr11vTu/7hGD
-	 Z+Six95Mz8BgHFTLh5JkwWnjuEVoQEy3QbRsIHGeAljD9NQygx4TMLdvcWKV0hy+t5fRv
-	 5SSs1CRbuo9Yo690teXT90JrdHlPcatuTaj3/VtWtSmuogB2S1eW0WiQ7FQGBMzCiKyFf
-	 DfxlqvaZdP3/8VDCOT4r72ev5n66dwppdsspupGk8LUJyt+B2wodsiIZU+eUjS8f5tg==
+	t=1795397153;
+	b=WpXCKgIjHsnLqOaVBZC0mDxG6xWA7E5KN1yzoXgvNbeXv04zLCTNw72OL2UO4n90Fvyw
+	 JR9oeoqs+uA1mHcNARd3uP6b0NnI8s5qlV1NZOQXpjTY4K+nWjKvOEb2TA1xty6bhVmBj
+	 L3odpUQEV3Elarg8am0y7TXlAFO0mi7ryDp99dP16Vp0TsIFeTBuTFrXwN3LvHzATr4Fl
+	 umgn7RG4j0mKlMCIuNvyoSU6jnSRamZxDpCS1sBJNtwx2gpW3u/qsbSa5AQMERz1OOSZM
+	 tQYxWnrFcgwlE9hVr4P5XO4pnoVHBMEuiAWhsdCfEin5PTvl2F5+47rEGFqhTXBcEmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795397140;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=LliMgjnXMFNyw0KxKrefKqjXgD5lvXyOXgtZPmEuFlM=;
-	b=NzIE+ia/s6N6GsMzXLWED6rUoEfZafp6D6KF35+oqjxeIHrNSngklg7AqLZ1YPr/izdk
-	 V8y1U+kn1jvT0uFFjwrOMjgxFv6easzuoBQcpc4vhzadfVXv4EBrQ8kAl+/Xf8fEGCIt/
-	 T9lCV8avWIeYgr8TPX+8FDbiY13NnOznTVypBmo8EwTP0sEN9no8pe795dJY9z1lPg2mS
-	 TSMrInkboBaveEE30twnQgnZ/ujRmdpcfVYd20Jgy9geZgbGt2BOZTs7H8Fghq7GjxHOS
-	 oeOwneB+3zKff1k1fE+/ZpwXCAhDwOqqSy2R9B9n2UWu68b0xmgvfQrn+G5SWeYGbCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795397153;
+	h=DMARC-Filter:Received:Received:Subject:To:Cc:References:From:
+	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=6YsYPTuo2VbtL6rAHEG5MgX/FjIFiklyL5vCpof+Lk4=;
+	b=ega3VnZGxYyo/c0S9eGEraFfw2Dgv9KwAP5leTZ5YrhCP2BVoy4QvBNYjL8U9ZM++GON
+	 ujiSilK0L9mQcgdqDnwj6BoQx73sAqT1ZwPWvH3h3/VlG7jz+qzw4LHIWAZMK72cSZD1K
+	 +GYxEVCsulqZhvrfB3AGUABSEiJOrEf9R7yRHtzKD94yrhD0oeGYKIr1JBrC+luaKKUnr
+	 6zYbiNzx0XNAQXnWUOv8J4rqGfi5k+FC0EW6pTfA2YPuueNUmNtxuf2EPSlpfiYrjt2Jw
+	 GF62Wcp7jNoTTX/R3Opr6ZXme7nUo4zy3YhFLtR3sikfDMrLxfegJ5Nki8l4pU8CF7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="GT3jbs/W";
-	arc=none smtp.remote-ip=210.79.60.112
-Received: from mail-m60112.netease.com (mail-m60112.netease.com [210.79.60.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7926E606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:25:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7926E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=GT3jbs/W
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5594cef32;
-	Mon, 23 Nov 2026 09:25:29 +0800 (GMT+08:00)
-Message-ID: <0befeff5-c51d-4c4b-a85a-b00835889664@rock-chips.com>
-Date: Mon, 23 Nov 2026 09:25:27 +0800
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E76FC606A327;
+	Mon, 23 Nov 2026 01:25:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E76FC606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [10.20.42.62])
+	by gateway (Coremail) with SMTP id _____8DxytEalgNrqRQiAA--.31297S3;
+	Mon, 23 Nov 2026 09:25:46 +0800 (CST)
+Received: from [127.0.0.1] (unknown [127.0.0.1])
+	by front1 (Coremail) with SMTP id qMiowJCxNs13lANrO782AA--.30056S2;
+	Mon, 23 Nov 2026 09:18:49 +0800 (CST)
+Subject: Re: [PATCH v2 42/42] ACPICA: acpica: Fix typo in the IOVT_IOMMU table
+ definitions
+To: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+ Huacai Chen <chenhuacai@kernel.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Pawel Chmielewski <pawel.chmielewski@intel.com>
+Cc: linux-acpi@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-kernel@vger.kernel.org, acpica-devel@lists.linux.dev
+References: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
+ <e20e813ff50db584712f86edd2bb8c672ad755e3.1795194329.git.maciej.wieczor-retman@intel.com>
+From: Bibo Mao <maobibo@loongson.cn>
+Message-ID: <38cd8d64-8e08-4eab-78d3-3775b0eb93cc@loongson.cn>
+Date: Mon, 23 Nov 2026 09:20:00 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,107 +58,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] phy: rockchip: inno-dsidphy: fix 1.5 GHz rate units
-To: ZhuXiangyu <1194781887@qq.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
- Manivannan Sadhasivam <mani@kernel.org>, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <tencent_6A9CF9A2529C8FA2C04933F2D5D1A259B506@qq.com>
+In-Reply-To: <e20e813ff50db584712f86edd2bb8c672ad755e3.1795194329.git.maciej.wieczor-retman@intel.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <tencent_6A9CF9A2529C8FA2C04933F2D5D1A259B506@qq.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa2060212fb03a7kunm415fa07ab4eba9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTE4YVhgfQxpKHUweThkYHVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=GT3jbs/WA5Wwx71x54Vye2Ydhd1iE17VsTClqOa7d6cCPDGkX8CbWc7o5X5NBn9zVdfZp66mexixazzG2g15WTqX1CcAUxdW9phTnwi4Q3mrOlCnuuuoIcf97JxnBauQ3YUyHxV9cVtSWjEJSZ1e0IFNxhHEsVjUMi5/Uzre2S8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=LliMgjnXMFNyw0KxKrefKqjXgD5lvXyOXgtZPmEuFlM=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJCxNs13lANrO782AA--.30056S2
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7CF18CFW7GrWDKr4xGFWxAFc_yoW8Kw48pr
+	sF9F47KF4xJrs7GF18A3sF9F1rZa95KFy2gr43Kr9F9F1qkr15tayayFWYyFn8GFWkuas3
+	tFyUtr1rJF4jqwcCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	Gr0_Gr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
+	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWU
+	twAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
+	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l
+	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxV
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUcpBTUUUUU
 
-Hi Xiangyu,
+Hi Maciej,
 
-On 11/22/2026 1:11 AM, ZhuXiangyu wrote:
-> The 1.5 GHz Innosilicon DSI PHY timing table stores its rates in Mbps,
-> whereas the other timing tables and the lookup loop use Hz. When
-> enabling a mode, the driver compares inno->pll.rate in Hz (e.g.
-> 372000000) against timings[].rate in Mbps (e.g. 400), so no entry
-> matches. The loop falls through to the last, fastest entry and programs
-> an excessively large TLPX/LPX counter, preventing panels from decoding
-> low-power DCS initialization commands.
+Thanks for the fix.
+
+Reviewed-by: Bibo Mao <maobibo@loongson.cn>
+
+On 2026/11/21 上午1:19, Maciej Wieczor-Retman wrote:
+> Change MAGAGE to MANAGE in ACPI_IOVT_IOMMU_MAGAGE_BY_SEGMENT.
 > 
-> Convert the 1.5 GHz timing table rate values to Hz so the lookup
-> selects the matching entry.
-> 
-> Tested on an RK3506B board: the panel receives the low-power init
-> sequence and the framebuffer console displays properly.
-> 
-> Fixes: 785a9d5bb145 ("phy: rockchip: inno-dsidphy: Add support for rk3506")
-> Signed-off-by: Xiangyu Zhu <1194781887@qq.com>
+> Link: https://github.com/acpica/acpica/commit/dee9a9e3c797
+> Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 > ---
-> Changes in v2:
-> - Split out from the combined drm/phy patch into a standalone phy
->   subsystem patch per Heiko's review.
-> - Limit recipients to phy and Rockchip maintainers/lists.
-> - Fix Signed-off-by author name formatting.
+>   drivers/acpi/loongarch/iovt.c | 6 +++---
+>   include/acpi/actbl2.h         | 2 +-
+>   2 files changed, 4 insertions(+), 4 deletions(-)
 > 
->  .../phy/rockchip/phy-rockchip-inno-dsidphy.c  | 28 +++++++++----------
->  1 file changed, 14 insertions(+), 14 deletions(-)
+> diff --git a/drivers/acpi/loongarch/iovt.c b/drivers/acpi/loongarch/iovt.c
+> index 1e97669eaeea..e891170d9b8b 100644
+> --- a/drivers/acpi/loongarch/iovt.c
+> +++ b/drivers/acpi/loongarch/iovt.c
+> @@ -42,7 +42,7 @@ static void __init iovt_enable_acs(struct acpi_iovt_iommu *iommu)
+>   
+>   	/* IOMMU V1 only supports PCI device management */
+>   	if ((iommu->header.type == ACPI_IOVT_IOMMU_V1) ||
+> -	    (iommu->flags & (ACPI_IOVT_IOMMU_PCI_DEVICE | ACPI_IOVT_IOMMU_MAGAGE_BY_SEGMENT))) {
+> +	    (iommu->flags & (ACPI_IOVT_IOMMU_PCI_DEVICE | ACPI_IOVT_IOMMU_MANAGE_BY_SEGMENT))) {
+>   		pci_request_acs();
+>   		acs_enabled = true;
+>   	}
+> @@ -151,7 +151,7 @@ static int __init iovt_add_iommu(struct acpi_iovt_iommu *iommu)
+>   	}
+>   
+>   	/* All devices in the segment are managed by this IOMMU */
+> -	if (np->flag & ACPI_IOVT_IOMMU_MAGAGE_BY_SEGMENT)
+> +	if (np->flag & ACPI_IOVT_IOMMU_MANAGE_BY_SEGMENT)
+>   		goto skip;
+>   
+>   	if (iovt_validate_entries(iommu) < 0) {
+> @@ -280,7 +280,7 @@ static int iovt_pci_iommu_init(struct pci_dev *pdev, u16 dev_id, void *data)
+>   		if (dev_id == np->devid)
+>   			return -EINVAL;
+>   
+> -		if (np->flag & ACPI_IOVT_IOMMU_MAGAGE_BY_SEGMENT)
+> +		if (np->flag & ACPI_IOVT_IOMMU_MANAGE_BY_SEGMENT)
+>   			goto found;
+>   
+>   		list_for_each_entry(entry, &np->ep_list, list) {
+> diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
+> index 1dafb2a71368..fe767fcf5726 100644
+> --- a/include/acpi/actbl2.h
+> +++ b/include/acpi/actbl2.h
+> @@ -928,7 +928,7 @@ struct acpi_iovt_iommu {
+>   /* Masks for Flags field above */
+>   #define ACPI_IOVT_IOMMU_PCI_DEVICE		(1<<0)
+>   #define ACPI_IOVT_IOMMU_PXM_VALID		(1<<1)
+> -#define ACPI_IOVT_IOMMU_MAGAGE_BY_SEGMENT	(1<<2)
+> +#define ACPI_IOVT_IOMMU_MANAGE_BY_SEGMENT	(1<<2)
+>   #define ACPI_IOVT_IOMMU_HW_CAP_SUPPORT		(1<<3)
+>   #define ACPI_IOVT_IOMMU_MSI_INT_BYPASS		(1<<4)
+>   
 > 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-> index 6ad04b0c..fcf7aa17 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-> @@ -282,20 +282,20 @@ struct inno_mipi_dphy_timing inno_mipi_dphy_timing_table_max_1ghz[] = {
->  
->  static const
->  struct inno_mipi_dphy_timing inno_mipi_dphy_timing_table_max_1_5ghz[] = {
-> -	{ 110, 0x02, 0x7f, 0x16, 0x02, 0x02},
-> -	{ 150, 0x02, 0x7f, 0x16, 0x03, 0x02},
-> -	{ 200, 0x02, 0x7f, 0x17, 0x04, 0x02},
-> -	{ 250, 0x02, 0x7f, 0x17, 0x05, 0x04},
-> -	{ 300, 0x02, 0x7f, 0x18, 0x06, 0x04},
-> -	{ 400, 0x03, 0x7e, 0x19, 0x07, 0x04},
-> -	{ 500, 0x03, 0x7c, 0x1b, 0x07, 0x08},
-> -	{ 600, 0x03, 0x70, 0x1d, 0x08, 0x10},
-> -	{ 700, 0x05, 0x40, 0x1e, 0x08, 0x30},
-> -	{ 800, 0x05, 0x02, 0x1f, 0x09, 0x30},
-> -	{1000, 0x05, 0x08, 0x20, 0x09, 0x30},
-> -	{1200, 0x06, 0x03, 0x32, 0x14, 0x0f},
-> -	{1400, 0x09, 0x03, 0x32, 0x14, 0x0f},
-> -	{1500, 0x0d, 0x42, 0x36, 0x0e, 0x0f},
-> +	{ 110000000, 0x02, 0x7f, 0x16, 0x02, 0x02},
-> +	{ 150000000, 0x02, 0x7f, 0x16, 0x03, 0x02},
-> +	{ 200000000, 0x02, 0x7f, 0x17, 0x04, 0x02},
-> +	{ 250000000, 0x02, 0x7f, 0x17, 0x05, 0x04},
-> +	{ 300000000, 0x02, 0x7f, 0x18, 0x06, 0x04},
-> +	{ 400000000, 0x03, 0x7e, 0x19, 0x07, 0x04},
-> +	{ 500000000, 0x03, 0x7c, 0x1b, 0x07, 0x08},
-> +	{ 600000000, 0x03, 0x70, 0x1d, 0x08, 0x10},
-> +	{ 700000000, 0x05, 0x40, 0x1e, 0x08, 0x30},
-> +	{ 800000000, 0x05, 0x02, 0x1f, 0x09, 0x30},
-> +	{1000000000, 0x05, 0x08, 0x20, 0x09, 0x30},
-> +	{1200000000, 0x06, 0x03, 0x32, 0x14, 0x0f},
-> +	{1400000000, 0x09, 0x03, 0x32, 0x14, 0x0f},
-> +	{1500000000, 0x0d, 0x42, 0x36, 0x0e, 0x0f},
->  };
->  
->  static const
-
-It seems I cannot apply your patch. Please consider rebase it.
-
-Other than that, it looks good.
-
-Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-
--- 
-Best, 
-Chaoyi
 
