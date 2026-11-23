@@ -1,90 +1,143 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401355;
-	b=TFWhxMr6j4tL/Ett8CZqRxWTJ9KOK4xXbIERR6gU8i6Jn2+piAE1U69CE9T4Ppesgc4L
-	 j8mCt6VuQh9tsz5B5yifDsaTHQgG3sgxBhfWJJko9tqItYW97bF8ozzZwp5FeU2eD/sAq
-	 Gui9S4fVvOID3V0k7uFAsZmzNsuHSYYnKj5eQ6xiCKky8q4X8fq77R7awLzSbctCLrTc1
-	 RNhVY/KJSzNJDAv+6WY1kodu3qJ453wIGjxq+gOrEtUMQKDHm+BIM2YjVaOzHL0FpXahA
-	 kGqmv45D3Z8kI4WPtbHVqLpYmvBYiMGo7vsObhUsCV1aJdDzknVudhTUIwSKLOOUcbQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401355;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Zta3sFkY9ZZMc3gNgFpjOMOV1WUQyr5rBabD1DfSZCg=;
-	b=NfWBiav1I7Q4DaIFlmECdSjzz+k8pQxDd6mKh3r+2KTQRZih5mMiZE+qaV7OaN36aBAj
-	 01HrXtGtrLqOGwWGwESUaGju8EYK2M3TR5r3t+PGnIQWuJ9aP4dq8Pz5XnYfFZkODSuPP
-	 YL4+Y8lpKZ2SODOo9uJrf3wDUlHqbjsaVWaboKfrZPV4BW0gPJPaHAVU4ZQwRdTUhGKmW
-	 uir92RuBu0pG/osfh4NW0OC8bP/uIw84vUoDWn8Lijlo/cM0LxwxVq+U3+BymG3w1eu/g
-	 1zM32KegGH1CPF2PyrYYc4HG2woijRIB1CUvqsfRJVChzPeXVRH7Xok8cUsGoKkfHNg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=BJCrS3JH;
-	arc=none smtp.remote-ip=209.85.214.170
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795401486;
+	b=DfwlEp+dnPzafRiCCX46EnICub6rIGl0+jwwHhyd1abqn9z6nvQQwI1BY06rBOB0ArH7
+	 97icCir5BkndylpJpPeaLfpS2jPBWAV4OzMfi/bUVNxAbL4UfhtF3P7WE9wI/0NRw2CJM
+	 DelBN9XSZikDVFuxYjjolbLJYsLsbLVvrWvg8UvxVNBPsI1i7oZ7tcPfVQpMCxFJ8Pk3A
+	 qFSSZOeXS0/HdTLebtfz6AiAe8uWZBpTBhpPP8KJNnIORJic+DXh/ljlzKJLZh0/6uXiR
+	 2Jdu+a8dltixiNfLjkv4w7zuCYCZD33zyKzpFhhbdvbh7/0d4nUjcNaLkMusHifRm9Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401486;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=txVnAByyQVKjlThZ3PzZthm0N/TrgCmOwmUxRsQNhVE=;
+	b=FL7j86DmNlbsQiqe84UJE+EkHCXkMzlc3cbCp5xNRMAQ1BzCcgRdTKL3m4tTyCz1VfJp
+	 RqgQkivLG5BwBuIzMBOxbOLIpboeeWy41Sgy2hvpd9cIWLPFHPZ5ML0GWjgOt4AK1Kc9i
+	 UAVNzEwXDdzXO4r8da3YueER2xvHsML6J5BPFMH2NN68K064uBZTQaIui1ZIWYmMeY43H
+	 YVaxhj6q90rGDvw6QXJdWMlzl8Kjiy1CGB6CCZy4J+VcqgAQRSal7UIDrgQpV+XZ1e5/J
+	 TpNufeIbn8nnGL9vlsP0FmVys/g887cFzbWSn+b+zo/wdwxscS28KS5tUkMktfxX+rA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=est.tech;
+	spf=pass smtp.mailfrom=est.tech;
+	dkim=pass header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=TA2sAEx5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.21
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011021.outbound.protection.outlook.com [52.101.70.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCE26606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:35:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCE26606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AB3B606A31A;
+	Mon, 23 Nov 2026 02:38:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AB3B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=est.tech
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=est.tech
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=BJCrS3JH
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f046b0adc0so12668515ad.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:35:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795401354; x=1796006154; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Zta3sFkY9ZZMc3gNgFpjOMOV1WUQyr5rBabD1DfSZCg=;
-        b=BJCrS3JHZno1ZOGCIRrsnBlhxJL7LQiQbtgUazIMUf1wxGRUVwTAiN3WZHnkVH0aP4
-         4XG4QAc6ow+9yekJ46j9bdcsIEQNsezCcArr+GlIxsfqXKUBjYOpUnKJ0nP+ZnsiP+u3
-         8o6Dfh23f+59hbZTTCYiRhQahRZSgboDcy3Aw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795401354; x=1796006154;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Zta3sFkY9ZZMc3gNgFpjOMOV1WUQyr5rBabD1DfSZCg=;
-        b=JmSgt+hi55Gp2mvO8JuAVEtC0HrDVT+VFMEjPY2afkbAvh39rZsX6bk1iRU5rkN6Ma
-         HxGNi+UcmqX78NY8pNGSTjWLlPU0qgGj5XOyKi9xP5swYZUdFJlllW0XAWKahn1p7GuH
-         q1LV5/5t1H7p9JJeMw/mHG71v++M/+x/Cdr0uQJfcQLysoP2WweQcUaGfLYM6MpRw4A/
-         29EgAvh+fbzPWRGd1B4G7tZjN4SAttgglP6H0ioTfFHicT4sflp9JxHS4JQ/xS6yHpHo
-         7g+tsqr/ngM5zdiCCR62eAc9pfB14NxUa4ePgb0YFwVLhsASUMUyCPXZPwDsXl2tUd9b
-         bccQ==
-X-Forwarded-Encrypted: i=1; AL+hErETNfUT3QOPY/fbQ6DCn8zzHfAY/JVRZx7523zYK/d2oujItxglc9ahax8BVDPrqsR+IjzZk92dsqWtcXQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/mcxVYglZCuEWnq8p49RaLAMi5bXEXtT0WqkgT1gvyJ7TBiWk9
-	N/1ioDfTl2oTP9ttKpPeS3ci2z7dJOi1Wq8QubFi594Q8jVbuvDMGP3YhzFH/hrcLbs=
-X-Gm-Gg: AZFdTZcF41+TZDn9WG2z9bU70q0FimfVeri6YRtK4HUM4Ubddxt+O3YOR8hePTfhcGd
-	xASNeZYgqJ9EW1M2x9nodnsFABnJxG5aLq5YGy0UdiwZLzCD32FksNTPRQ8EbQjT+Qv0tTMXB5G
-	dg+CXbbKAZLZbAiD9xnvJVObO1BUpYEGLyWGyekzfdZ9a20Z8IB+T0A9Qf4L0s3CZPIv0P9tc8D
-	RCtrmVl54XB2WVn0uIJh+Htmx1ov4Emf/i3hYK5AslbXf8iUkwCLbTRNrDDJ/z450sFaVy8VtXt
-	I2TgZ2J88pwesGKHxSdQ2QolJ4KfuEPDwt0v6DWeXPgEW/tpieizeTC9c8jcmWzrYXuPB+gwKhC
-	uvrYOSIo00FlSHo9gNixChsubrEYJBodLKt/WJO9jDIHAON7fY3An/Z41R29x017TwFYs0RiciK
-	rGfUUC3ato3pGU1ceMOhkJDjX6dzaVBlXKtDkNBRe0dG65i4hW8Y97Mw8IWC7Knz4MPirsAbDVA
-	48xHuQeZnn+jjxHFvU0ygrM4UADySTcCPR3HRmPp6wkFtEgslkqWrp9DSWf5kQU1O0RcC0Z3wVg
-	QykaEWFBPMJEqGn6MyGiN5WLakS4z2oXzMyWI8KJARBaeBUVAOl5J/XPo5oAeAEymjyXXd+bf2B
-	b/xCeSMyB+VvAMwyaojpsGVSZEQGrVJVYvShz7mPEYH9EHprdgheyOlIgGS5DR/YO
-X-Received: by 2002:a17:903:32ce:b0:2ef:ed25:514a with SMTP id d9443c01a7336-2f03f16ac68mr91947455ad.44.1795401354275;
-        Sun, 22 Nov 2026 18:35:54 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120282sm43609925ad.59.2026.11.22.18.35.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 18:35:53 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org
-Cc: oe-linux-nfc@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>
-Subject: [BUG] net/nfc: a 16-bit truncation in nfc_llcp_allocate_snl() overruns the SNL response skb and BUGs the kernel
-Date: Mon, 23 Nov 2026 08:05:47 +0530
-Message-Id: <20261123023548.3351531-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=TA2sAEx5
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v45RCJJDtTTOLrFKRKEez6Ov46947D9WNC3jytaZxqNILZjEUO7Ob4vSjKTNcw+h7IKCB/0MYSNaPJE6NXNe+ieaJ48KxZnGNAm+t00X7o6NNRGfYLj/ygrEznxQQs++w02cwYywyXhqRHYaIwSCf7cqPo8mWzPOf+BDsYovNb/x96sx3dEAADpVNgi39kYCnBMZmRpGDF2qi1dAm/c94tO6DBbrCn190js8dCyGn+Y7U49odIR8LsaCRXFxk1qzzGH3zJDHCEukayKctIp9HU7l6wYPAdqcagEAW6M5oAPRn3ThrLcb5jfXFwox1yOMghudtKaGEBXqL8dKK2xIuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=txVnAByyQVKjlThZ3PzZthm0N/TrgCmOwmUxRsQNhVE=;
+ b=BWPR0mfw9HZlfQBSfbl+tyMNGo7B9foRsvmYjGdbbipM0nagGspSN0X6ERZefyhVEjSM3XRKWzIsyu7nHXuu8UdY1HndTkMUfo4MngspGDGvkmwSKvqKnJCJ6+4g/vw+Ayl0F0qX/VTigqjTtBuDoX3Tt3pfsXW6OAvJYaCi+Uxz3bNamKTUrTKDTbevb4pZ7t8f1dRF3d4fZN7tyfPcy4DY1kB1AFBsYaW+pLjzmbsXyTdCie0N0lo226cuux7QxMJppDRNT4njsKMhAF3C7YVAN9EigIYtburJ5SLvbwNibmW3zCXKflbXMH8TKcHn198i5O1NQeCb3W5IDZAKDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
+ dkim=pass header.d=est.tech; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=txVnAByyQVKjlThZ3PzZthm0N/TrgCmOwmUxRsQNhVE=;
+ b=TA2sAEx52xW+4EQ4sTT9EYJ02Pcmn3b4Sp9bcAhv/0p5dEa4ck9V0jUHKFaVpgAw4KOea+70w6mLe9Mny8/YGwxOLcIO0Ur/L5rcEnV6xJ8Z8NXNfacxc6E2++Hd5KCDV5WH8y2ztztIhfayyJnvvHwtBbYnnnSLnZNstyXoQGDPivRnihkLN32qya3ubYm9D6J9wG816c9jpGjK5Y792+TLFLrjMhKx1UPLfdyLcrR7ImMmVUBpme6ASmaGkMMho4klR7cuwAZHJ4HNRlFo901My9mK/s6SP6u3jcJjPqe8dnPbNocsyjfMlroz6UyEJrmvEQlf1TsH1WcWWvDwUw==
+Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:17e::23)
+ by GVXP189MB3386.EURP189.PROD.OUTLOOK.COM (2603:10a6:150:2ac::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 02:37:59 +0000
+Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
+ ([fe80::86f0:8ce1:a437:b2d5]) by AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
+ ([fe80::86f0:8ce1:a437:b2d5%6]) with mapi id 15.21.0615.013; Mon, 23 Nov 2026
+ 02:37:59 +0000
+From: Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+To: Andrew Stellman <astellman@stellman-greene.com>
+CC: "David S. Miller" <davem@davemloft.net>, Jon Maloy <jmaloy@redhat.com>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"tipc-discussion@lists.sourceforge.net"
+	<tipc-discussion@lists.sourceforge.net>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH net] tipc: zero the pad bytes between bundled messages
+Thread-Topic: [PATCH net] tipc: zero the pad bytes between bundled messages
+Thread-Index: AQHdeFWhT+A+mLk8JE+y4QvaRqRCCLc69jKg
+Date: Mon, 23 Nov 2026 02:37:59 +0000
+Message-ID:
+ <AM7P189MB11376459A3A6F49643AC25AEC6452@AM7P189MB1137.EURP189.PROD.OUTLOOK.COM>
+References: <20261119184127.24931-1-astellman@stellman-greene.com>
+In-Reply-To: <20261119184127.24931-1-astellman@stellman-greene.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=est.tech;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM7P189MB1137:EE_|GVXP189MB3386:EE_
+x-ms-office365-filtering-correlation-id: 2102c75d-1433-491c-2a9f-08df490ac9df
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261026121527099003|261026140227099003|261022105027099003|261022075727099003|261028144727099003|261021121427099003|261021123027099003|261102123227099003|38070700021|11063799006|56012099006|10067099003|261009223027099003|18002099003|22082099003|3023799007;
+x-microsoft-antispam-message-info:
+ J+/Psp+WNiArsqrPU/N+euICzdMaXd97YBedNcltjVfBnfUjc5zqe9ttUuaSu9jANCkwdhS/g1htghaEXrGLukTo4nbH7J1Olq+Z2giUCMwPZbjMXJwvx21nmC6OPuJXFT53MjWiZYLOx01kbKeIfetKPR4rzaCnESx+TOA32C7fH/U1VYIwtKUXS5zGyVOBsM/tSN0zPUoWchmZA+Zp93t7p2b3ArzQ2vqHY/0wAxfnbKtm1FnBT8+dTWgEShIXvRyJ0oivFCN+MqWSwDE7fE8DIxKtaDzWn4BSpBdO+kRCRBclCJ+05k/sAdGMqK6d4ThCejm94JNc19LxtW4qQbZrbOM9w2Kg23u/Kqj23IMhRjJfvY1jXXjW5YYUkmd/7uT/dPA8mFaVoqw0gOlO5zHqF9dfEVEZqbGEXaaYoaADgHUgvFjwTo619KeR5M5Hm/U0ECWpEZqIH2kriJADnqXbkhqs6m/yM1RH/PAtah93xmdFFGHc14F3FMkjMss56A6myZH5K6dhouDWE16GHpm2lBD3C6ICWVLhxM7a5LuEOwTCt/Ppvn0sMYAie3OHrMG797+XBgU/maVnq1kX4fvZhdOXZjLXSsNHsqv2atf+HPMUa/XLoD2IcHIJlZhY6fbvMz9wGJT1Nq4C8aI6xcUIejIY+yAHQkCieLWj+4dhMvVzV1fD9EjQ5YD2Xnd6jybteNppIjLjNqTJpaVuS3nV8CKz9ZRDtB/VeNR2/HM=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7P189MB1137.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261026121527099003)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003)(261021121427099003)(261021123027099003)(261102123227099003)(38070700021)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?V5ZcpIO3k5cEurp9hd5hJSAmNqjgonr0iiUK+6pvbdOJ/Qza/WqSoNHB5Tze?=
+ =?us-ascii?Q?+u5/DIu85F/D42c35iAkGhrpo6OflQc/ASbRnRsAJfVSCcLYfzTC+le2lxRc?=
+ =?us-ascii?Q?dKdRsUeadizoBUGZQUf9W7KkkjpoJngO1yrOwt4OsyWvZ1CS3EfAETLUhlBz?=
+ =?us-ascii?Q?iuHlA4ZL7nUI7e6+vQg2+q9x0lefwRaCi7ZEipUZryxhb4czeDCus3RBWgfG?=
+ =?us-ascii?Q?3miHz7cpFBcd5VYXguRZEynqFC7WjVwNJwD39i6PVbr2t4IhKGbiYMt+kqKl?=
+ =?us-ascii?Q?cpYD0+FCFX/dkR/DITu6ZZj1rDC4PTTIXncg3dRKKV8swyh31h2I2v4dd5DM?=
+ =?us-ascii?Q?9TtzeiK829+vKmiVjyQOvYqD4KJ/O5HwwqY6o1poTksH64YZHB6gGqQVXhJu?=
+ =?us-ascii?Q?3uaihhxI9UYGUxCHv8RHNOka0WvcJBZmlcQTI7/uyZK+sCeuFc8diN4RRXo6?=
+ =?us-ascii?Q?WAfU0YCGFW5IW3eNEO1JZvxRCAQeZyyxR/00GZFwI/9eftSHhiJvH48zPlwL?=
+ =?us-ascii?Q?WK5X0UP/xIlIZurjIr9jrREyjxkBi3L9V/yxUyodtqDlFvu9gy0bfFNJ39Og?=
+ =?us-ascii?Q?L2xoR8H7D7PGc+rUPHzgPucJXfaHJE+Xxx63Q7JuJp21qNS3BmJHV29NMq0Z?=
+ =?us-ascii?Q?+uE1SBrXTNRdztcIo3zhrzLQToG+Oo1hpOnDhF/L2jvnUt2w0wsZr4yZ9FB4?=
+ =?us-ascii?Q?suyZ9OjzDgnO+LkCJzibRVnMaOyCekhUNH3ba3PE5uHIKcVcF5oAZRGAIycK?=
+ =?us-ascii?Q?xb8/xVAm9SxDSwfOGeYurGF59gUpmZQbtrApHQE10K6c2GLxW+/Sk2ouS8R3?=
+ =?us-ascii?Q?dD6Oq3LANh/FBAEwVKXGXFGoKrJ7fn3xmfeaduCfajNr+uXgNdTUMO0KL8LE?=
+ =?us-ascii?Q?6xWVamOzZsk/Phj+NeXeYXUEZhivC5atm9ien4C8LhfkYXkxgTmPqf6KtxFQ?=
+ =?us-ascii?Q?CIzefQNeONyfyEehEHQZrb4hddxPlfmrWRP+vaGtTElwlpYt4a0OpDtHeODp?=
+ =?us-ascii?Q?4C0d9ywk4zSS7gXmvMe5jY0nW8dM7ri5V/C32GkReKR1iz+5Sujemq2n3o7n?=
+ =?us-ascii?Q?5B98mgNEfVkZgJzQ4uiQ0NYmQFCac6GduliWLP/5GLMqqL3rhshTH8KJjDM2?=
+ =?us-ascii?Q?jGVzPctTv2bOXkZsOYdNDWNT33c7mHMo/sODEGZQDXNsMUG68oocH5qN7HGP?=
+ =?us-ascii?Q?eQZ28fVh/k01k0bmiFy2qWtwdUcgrOanlx/H0ooWu6KBz0J0q7gw+ldv1QDz?=
+ =?us-ascii?Q?XNh9ZcNB8NUukru5tQXG7qqFaOi3J1JWMHn7k1Jw5pYNwxOOOamnoBEu7zLP?=
+ =?us-ascii?Q?DdZFN1zNxhUQEnhZGyf6x+ARQuyEKHYxlwuRe/J896VwRlhE3bc82QAhrOd9?=
+ =?us-ascii?Q?yczI13jG+tEQxxdqGpVCdsswataX4MCy5F7tlji/ph0Zho+eZZMZjKtloXOt?=
+ =?us-ascii?Q?rp9wxBSyyUIIrZLjUBn+ONqwVyMCBonhMKV8CLGqRI69B/Hew1CfnH+cRURs?=
+ =?us-ascii?Q?19WfKlK4MctU1vrt+FDdt3AgUwsT8fmfUQP/zLCc5J6TZALdPWQZvbMCaSMo?=
+ =?us-ascii?Q?mrfahPHZ5bX9h8R7eSBMSfuCN0T71TWchP8BGcjI5IHrC2PnGWxddhNGeJaJ?=
+ =?us-ascii?Q?BuYU68berliJd8gP4nNr5LiaAEygNPIv7Y7EjoDPUsmw86m1lQ6nYbN40tNe?=
+ =?us-ascii?Q?6D835tAukaIClQGbwau+fsDw2Gkl1MvF6nQ/+HST8ohg7KBPdUz00kqaGLYP?=
+ =?us-ascii?Q?GB/FfUEj0g=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,168 +147,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: est.tech
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2102c75d-1433-491c-2a9f-08df490ac9df
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 02:37:59.4640
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: aQ6MrMguRSLG+ZgqOwbKt8i/031qgI6iIE9nox7ZpYi8TI5/7pCMQcT4pxGKCyfwMRH8ozy3eeEscp2CqFUIZVLwuHPoyav1iWyRXyoSugM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXP189MB3386
 
-Hello,
+>Subject: [PATCH net] tipc: zero the pad bytes between bundled messages
+>
+>tipc_msg_bundle() places each message in a bundle at a 4-byte aligned offs=
+et.
+>It extends the bundle with skb_put() to cover both the padding and the
+>message, but copies only the message, so the 0 to 3 pad bytes before it ke=
+ep
+>whatever was in the skb's tailroom, and they are sent to the peer node.
+>
+>Zero the pad bytes. Commit 81c600c26302 ("tipc: Dont send random pad bytes
+>in RESET/ACTIVATE messages") fixed the same kind of leak in link protocol
+>messages.
+>
+>Reproduced on v7.4-rc3 with two QEMU guests as TIPC nodes, booted with
+>slub_debug=3DP, which fills free slab objects with 0x6b. One guest sends
+>60,000 SOCK_RDM messages with 41, 45 and 37 bytes of data to the other.
+>That fills the link window, so some are bundled, and a packet socket on th=
+e
+>sender captures the outgoing frames. Without this patch every captured pad
+>byte was 0x6b; with it they are all zero and every message is still delive=
+red. No
+>other kernel changes, debug code or error injection were needed, and there=
+ is
+>no TIPC selftest to run.
+>
+>The issue was found by Claude Opus 5.5 running Quality Playbook, an LLM-
+>driven code review tool:
+>https://github.com/andrewstellman/quality-playbook
+>The fix and this changelog were drafted with the same tool and reviewed by
+>me.
+>
+>Fixes: b97bf3fd8f6a ("[TIPC] Initial merge")
+>Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+>---
+>A reproducer is available on request.
+>
+> net/tipc/msg.c | 3 ++-
+> 1 file changed, 2 insertions(+), 1 deletion(-)
+>
+>diff --git a/net/tipc/msg.c b/net/tipc/msg.c index 39dfd33c8eec..b0d52609b=
+03d
+>100644
+>--- a/net/tipc/msg.c
+>+++ b/net/tipc/msg.c
+>@@ -509,7 +509,8 @@ static bool tipc_msg_bundle(struct sk_buff *bskb,
+>struct tipc_msg *msg,
+> 	if (unlikely(max < (offset + msz)))
+> 		return false;
+>
+>-	skb_put(bskb, pad + msz);
+>+	skb_put_zero(bskb, pad);
+>+	skb_put(bskb, msz);
+> 	skb_copy_to_linear_data_offset(bskb, offset, msg, msz);
+> 	msg_set_size(bmsg, offset + msz);
+> 	msg_set_msgcnt(bmsg, msg_msgcnt(bmsg) + 1);
+>
 
-nfc_llcp_allocate_snl() accumulates its allocation size in a u16 while the
-length it is given is a size_t.  An SNL PDU carrying enough SDREQ TLVs makes
-that sum wrap, the response skb is allocated far too small, and
-nfc_llcp_send_snl_sdres() then puts the full TLV list into it: skb_put()
-trips skb_over_panic() and the kernel BUGs.
-
-Reproduced on net.git main at af6737b90668 ("net: af_key: fix use-after-free
-in dump_sp()"), 7.4.0-rc3-01164, with KASAN.  A patch is in the next mail of
-this thread.
-
-
-1. Root cause
-
-net/nfc/llcp_commands.c, nfc_llcp_allocate_snl():
-
-	struct sk_buff *skb;
-	struct nfc_dev *dev;
-	u16 size = 0;                           <-- u16
-	...
-	size += LLCP_HEADER_SIZE;
-	size += dev->tx_headroom + dev->tx_tailroom + NFC_HEADER_SIZE;
-	size += tlv_length;                     <-- tlv_length is a size_t
-
-	skb = alloc_skb(size, GFP_KERNEL);
-
-The caller is net/nfc/llcp_core.c, nfc_llcp_recv_snl(), which walks the TLVs
-of a received SNL PDU and builds one SDRES TLV for every SDREQ it finds:
-
-	case LLCP_TLV_SDREQ:
-		...
-add_snl:
-		sdp = nfc_llcp_build_sdres_tlv(tid, sap);
-		if (sdp == NULL)
-			goto exit;
-
-		sdres_tlvs_len += sdp->tlv_len;
-		hlist_add_head(&sdp->node, &llc_sdres_list);
-
-and at the end passes the accumulated length:
-
-	if (!hlist_empty(&llc_sdres_list))
-		nfc_llcp_send_snl_sdres(local, &llc_sdres_list, sdres_tlvs_len);
-
-The accounting on this side is exact - every entry added to the list also
-adds its length - so the list and sdres_tlvs_len always agree.  What does
-not agree is the u16 inside the allocator.
-
-An inbound SDREQ TLV costs three bytes (type, length, tid, with an empty
-service name), and the SDRES it produces is four, so sdres_tlvs_len is four
-thirds of the PDU's TLV area.  About 48 KiB of SDREQs therefore pushes it
-past 65535.  nfc_llcp_send_snl_sdres() then walks the list regardless:
-
-	hlist_for_each_entry_safe(sdp, n, tlv_list, node) {
-		skb_put_data(skb, sdp->tlv, sdp->tlv_len);
-
-		hlist_del(&sdp->node);
-
-		nfc_llcp_free_sdp_tlv(sdp);
-	}
-
-With 16400 SDREQs the accumulated length is 65600, which truncates to 64,
-and the skb that should have held 64 KiB holds none of it.
-
-
-2. How the PDU gets large enough
-
-The NCI data path reassembles fragments before the LLCP layer sees them
-(net/nfc/nci/data.c, nci_add_rx_data_frag()), so the PDU that reaches
-nfc_llcp_recv_snl() is not limited to one NCI packet: a sequence of
-PBF_CONT fragments accumulates into one skb, and the final fragment
-delivers it.  The reproducer uses 64 KiB fragments.
-
-The LLCP MIU negotiated for I-frames does not bound this path; SNL is
-handled directly out of the receive skb by nfc_llcp_rx_skb(), and
-nfc_llcp_recv_snl() walks whatever linear area that skb has.
-
-
-3. KASAN reports
-
-net.git main, 7.4.0-rc3-01164-gaf6737b90668, KASAN (full log attached as
-kasan-nfc-snl-skb-over-panic-mainline-7.4-rc3.txt):
-
-  skbuff: skb_over_panic: text:ffffffff87e134e6 len:382 put:4
-          head:ffff88801d2016c0 data:ffff88801d2016c4 tail:0
-  kernel BUG at net/core/skbuff.c:215!
-  Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
-  Workqueue: events nfc_llcp_rx_work
-  RIP: 0010:skb_over_panic+0xcd/0xd0
-   skb_put
-   skb_put_data
-   nfc_llcp_send_snl_sdres
-   nfc_llcp_recv_snl
-   nfc_llcp_rx_skb
-   nfc_llcp_rx_work
-   process_scheduled_works
-
-"put:4" is one SDRES TLV; the skb had no tailroom left for it.
-
-The same reproducer on 7.3.1 gives the identical BUG at the line that
-skb_over_panic() occupies in that tree (skbuff.c:214,
-kasan-nfc-snl-skb-over-panic-7.3.1.txt).
-
-
-4. Impact
-
-A kernel BUG() in a workqueue context: the machine panics with
-panic_on_oops, and otherwise the worker thread is killed with the LLCP
-local's locks still held, which wedges the NFC stack.
-
-The overflow itself never writes past the allocation, because skb_put()
-checks before copying - this is a denial of service rather than memory
-corruption.  It is reachable by whoever can deliver an SNL PDU to an NFC
-device: an NFC peer over the air, or a local process that owns an NFC
-device able to inject target-mode data.  No capability check stands between
-a peer's PDU and this path.
-
-
-5. Reproducer
-
-nfc_llcp_snl_sdres_overflow.c in this directory (sent off-list on request;
-see the note at the end).  It brings up a virtual NCI device, answers the
-kernel's bring-up commands, activates target mode, then delivers an SNL PDU
-of 16400 SDREQ TLVs across PBF_CONT fragments.  It BUGs the kernel within a
-second on both trees.
-
-
-6. Suggested fix
-
-Hold the size in a size_t, so the value that reaches alloc_skb() is the one
-the caller computed:
-
-	-	u16 size = 0;
-	+	size_t size = 0;
-
-A request that large can now fail the allocation instead of wrapping, and
-both callers of nfc_llcp_allocate_snl() already handle the IS_ERR() return.
-
-The patch follows in this thread.  Checkpatch is clean.
-
-
-7. What was and was not checked
-
-Checked: the fault reproduces on net.git main under KASAN; the patched
-kernel is clean on the same reproducer; ordinary LLCP traffic (SYMM, CONNECT,
-I-frames, an SDREQ/SDRES exchange of a few TLVs) still works with the patch
-applied; net/nfc/llcp_commands.c and net/nfc/llcp_core.c are byte-identical
-between 7.3.1 and af6737b90668, so nothing in between changes this path.
-
-Not checked: real hardware - all of this is on a virtual NCI device under
-QEMU.  We have not tried to drive the path from an over-the-air peer.
-
-No Fixes: tag is given: the u16 has been in nfc_llcp_allocate_snl() since
-the SNL support was added, and our clone of net.git does not reach that
-commit.  Happy to add the exact tag if you would like one.
-
-This was found by AI-driven fuzzing built on top of syzkaller; its analysis
-was then checked by hand against the code and every claim above was
-reproduced.
-
-Kapil Vaswani
-Piyus Kedia
+Reviewed-by: Tung Nguyen <tung.quang.nguyen@est.tech>
