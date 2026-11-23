@@ -1,61 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.120.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447630;
-	b=Zl4qL7a04/8qtVJsdr5fO6xMsQnt1LuryNol9zp4QkbRLmMlIZeh1iGh7xY3EH+kW6a6
-	 TsCQvmZY+ptsHaAAepQ+LkGi1VSfBebJWR5gMW96VwSm+CoH4vGcvr7FV3Ah5MJIcg1u0
-	 +r47llJgcEP2+ROjpUrutihqkV67PfjLULvN4UaU+VBMGcgcVzsS2N6PNM5WOAvxabn8y
-	 KQuhe2D+UUh2nbsenZg8+uZrRadu0ktNVpDZQxw6oTY0fygH49qtKOjwS//9DqJVzjZ08
-	 0g29nDGjulzahhyJ9AKgti1zfmNiSdT9XmMcrasZ1hI6rqHOic62bbT6mXrcl8r7Rng==
+	t=1795447661;
+	b=l8FhFvbGH5uZqdaw3nHT3yEhod1QGp/DMLwxAqM3/uiQ4VRcgLtE4UAegERTbg/FWYDH
+	 L7+aCs+ZznZZVz4Nvf/CgLsDDTGB1onBn9fQfmPxbaq2Kgh3///+5j23hKL9Y6Pa/uaSc
+	 ZoChpM1Cx52DC+zIFk6u9KPVG3ARvTMut5Vc+eLtNdvfboopeuokJIWXJV2sPytnV4GMr
+	 xcyyv4JhBnDJit7ByrkA+vu0O1NVz4dTv83lX+dnU3OKANZSC1rOIFVg8kHGvct6vcxb7
+	 wVDnF4PcAJothP+Etyu38GHIcfWqWMaIq3ax4KoiUIjzdG9DPZAt0Ai0QhzChrx3URQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447630;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=9TZM6XuQCVdejYnoblYTNL9KeRxvPg2JJEEUf+a0CiE=;
-	b=ILA4+T/o1nGBxc5h9eCFdRHAduMKrcu9h6Dqntn+S34gseMzzAxvW1EMD54XnRZumWGH
-	 wR8Dtsww+pH8JeG9FkslmNQ7Syf5/+gwNkOAAsAeXeSJKNxWgMMTFyMUEv9+ETynplJbZ
-	 CINbBdFLl8UUs6e77szDLt2OzEHRHnWT2wIM7yanqjEP7mwpAWd+b921hHYPU9K5h1LMB
-	 R1sJ0fZ6QwevVjc6QhkdKt4/ImrCBMJKsVk5F/U8oYnrhdK17aKhQPCjQzF9b0t3KAUgd
-	 sY7gwj7/f3aPSmdcrjkqgXfNMMCxqPkaCVI46z9ZRmdemHKYnRBwov2FPITZbuRteZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447661;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-Id:In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Spam_score:X-Spam_bar;
+	bh=wxsDx62TnzRXUdbgzy7FdIxDq2O5Hyr3+67xg1qIVVQ=;
+	b=uO50IHVKNWc1Q1ppO8oSdsxUJ77W5mQqh2IMVf2kskzPbeQuXjpnqya8d/4jv5DKvUoj
+	 F/eQ8gCEiG3n6Mxmdj+adYM7n9fiB7nxXvO7LCS9GOE4zHixvnYuIdV32GNA9mvwd5q2x
+	 jxJ4uo0qYF7VuM15HrGxSNRk2Sv3M6q22T0pHNLIs+4MocqbIuSl2GILZEj0U2U5DTMSw
+	 vPQtatLt+pORR+dgaHc6sYm0h4p6g9oW6kHGN4heDLPHEGJYlG5JNwEUT/iX/S4Ksibli
+	 NaO1Bt4m/1yjZGDRZofG0jiQ59CrsvSM4BVB4ELUrxadSw+oGyXfZdg+8MA6SESpFQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e9Uq4Xe1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=hugovil.com;
+	spf=pass smtp.mailfrom=hugovil.com;
+	dkim=pass header.d=hugovil.com header.i=@hugovil.com header.a=rsa-sha256 header.s=default header.b=IdDYRSdd;
+	arc=none smtp.remote-ip=162.243.120.170
+Received: from mail.hugovil.com (mail.hugovil.com [162.243.120.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30F93606A31E;
-	Mon, 23 Nov 2026 15:27:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28F02606A327;
+	Mon, 23 Nov 2026 15:27:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28F02606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hugovil.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hugovil.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e9Uq4Xe1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F14A1F000CA;
-	Mon, 23 Nov 2026 15:27:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795447629;
-	bh=9TZM6XuQCVdejYnoblYTNL9KeRxvPg2JJEEUf+a0CiE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=e9Uq4Xe1qpaATaiDo5wOIGfM+EwwcSQCdX2R2WULHbjBs1ZKYHp5YWudfo93wnIy5
-	 /EhRUZq0GSxcIuK9YxYvHnRR5XYYZ4V2QQ7T4acP62KJQSB0P4u2p+GsiWTqdMR5Fi
-	 z+ih5lmoVRpbnEDzOThc0xJ4cyzHo+8go0bQAqSuS2gcJiuVz/EZRvD5IQWJa8vj0J
-	 Dvg9kXq7oPJFI6klRrQcc37C/KER5hExgJomgHTE/a0s4Zfgc9yNZhTDqX/6URCxR3
-	 ti4Ppj9+UFttR1Ut9xW8NOhqoUUxbYhCt7YJZHZFqIEDcO9rh1rdwELZoH2asAErZr
-	 KGA11e44z4i3Q==
-Date: Mon, 23 Nov 2026 15:27:01 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	Wei-Lin Chang <weilin.chang@arm.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atish.patra@linux.dev>, kvm-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, 
-	Fuad Tabba <tabba@google.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] KVM: Stop KVM_PRE_FAULT_MEMORY when the vCPU's
- dirty ring is full
-Message-ID: <awRaeD7ut2Y5Lv8n@gremlin>
-References: <20261123113435.1170711-1-fuad.tabba@linux.dev>
- <20261123113435.1170711-2-fuad.tabba@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=hugovil.com header.i=@hugovil.com header.a=rsa-sha256 header.s=default header.b=IdDYRSdd
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
+	To:From:Date:subject:date:message-id:reply-to;
+	bh=wxsDx62TnzRXUdbgzy7FdIxDq2O5Hyr3+67xg1qIVVQ=; b=IdDYRSdd65PYiv0GUNkY9gRA+h
+	m1AsFJm6s86j5ULuiMaDUlbRAmMmeIbtLv6Qm/2Szhl4dyKYmLttUkpMChoIjKb5mRp557A90IdID
+	umG9EorYiSWjSpsO8k9RO5RDslON5sWPGfeHdu51AwWDjUYeJhlO3sDP7LA0o0q5QC6M=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.98.2)
+	(envelope-from <hugo@hugovil.com>)
+	id 1xVVx6-000000000h9-1xbV;
+	Mon, 23 Nov 2026 10:27:32 -0500
+Date: Mon, 23 Nov 2026 10:27:32 -0500
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Stefan Kerkmann <s.kerkmann@pengutronix.de>, linux-rtc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bruno.thomsen@gmail.com,
+ giampiero@sferalabs.cc, p.rosenberger@kunbus.com, antonio@amsobr.com, Hugo
+ Villeneuve <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH 3/4] rtc: add battery low voltage detection feature
+Message-Id: <20261123102732.6ca739becd4992892b2d1e23@hugovil.com>
+In-Reply-To: <20261121123632576d91fd@mail.local>
+References: <20260311200237.3531981-1-hugo@hugovil.com>
+	<20260311200237.3531981-4-hugo@hugovil.com>
+	<eeff2fb8-889a-4884-81d8-e4cda7ac5e9e@pengutronix.de>
+	<2026112013404685aba5df@mail.local>
+	<202611201612495c31b58f@mail.local>
+	<20261120184027.650463c9b2a1ee1d5528ef36@hugovil.com>
+	<20261121123632576d91fd@mail.local>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,130 +70,79 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123113435.1170711-2-fuad.tabba@linux.dev>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Spam_score: -2.0
+X-Spam_bar: --
 
-On Mon, Nov 23, 2026 at 11:34:33AM +0000, Fuad Tabba wrote:
-> Pre-faulting can map a dirty-logged page writable, which pushes it to
-> the vCPU's dirty ring. KVM_RUN exits with KVM_EXIT_DIRTY_RING_FULL
-> before the ring overflows, but the pre-fault loop never checks it, so
-> one call can push more entries than the ring has free, which trips the
-> WARN in kvm_dirty_ring_push() and overwrites entries userspace hasn't
-> harvested. On x86:
->
->   WARNING: arch/x86/kvm/../../../virt/kvm/dirty_ring.c:225 at kvm_dirty_ring_push+0x7a/0xd0
->   Call Trace:
->    make_spte+0x2cc/0x450
->    kvm_tdp_mmu_map+0x5e1/0x7f0
->    kvm_tdp_page_fault+0x12c/0x1b0
->    kvm_mmu_do_page_fault+0x181/0x250
->    kvm_arch_vcpu_pre_fault_memory+0x136/0x1d0
->    kvm_vcpu_pre_fault_memory+0xcf/0x180
->    kvm_vcpu_ioctl+0x455/0x770
->
-> Stop the loop once the ring is soft full, with the check KVM_RUN makes
-> before entering the guest. Return the pages already processed, or
-> -ENOSPC when there aren't any, since a retry can't succeed until
-> userspace harvests and resets the ring. s390 has the ioctl but no ring,
-> so give kvm_dirty_ring_check_request() a stub.
->
-> The check also sets run->exit_reason to KVM_EXIT_DIRTY_RING_FULL. On
-> arm64, KVM_RUN completes a pending MMIO exit only if exit_reason is
-> still KVM_EXIT_MMIO, and on riscv KVM_RUN does the same for its MMIO,
-> SBI and CSR exits. If a pre-fault stops on a full ring while such an
-> exit is pending, the next KVM_RUN doesn't complete it and the guest
-> repeats the instruction that caused the exit. Userspace can avoid that
-> by completing the exit with KVM_RUN before pre-faulting.
+Hi Alexandre,
 
-Thanks for adding!
+On Sat, 21 Nov 2026 13:36:32 +0100
+Alexandre Belloni <alexandre.belloni@bootlin.com> wrote:
 
->
-> Fixes: bc1a5cd002116 ("KVM: Add KVM_PRE_FAULT_MEMORY vcpu ioctl to pre-populate guest memory")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> On 20/11/2026 18:40:27-0500, Hugo Villeneuve wrote:
+> > Hi Alexandre,
+> > 
+> > On Fri, 20 Nov 2026 17:12:49 +0100
+> > Alexandre Belloni <alexandre.belloni@bootlin.com> wrote:
+> > 
+> > > On 20/11/2026 14:40:50+0100, Alexandre Belloni wrote:
+> > > > Hello,
+> > > > 
+> > > > On 06/08/2026 14:55:00+0200, Stefan Kerkmann wrote:
+> > > > > 
+> > > > > 
+> > > > > On 3/11/26 21:02, Hugo Villeneuve wrote:
+> > > > > > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > > > > > 
+> > > > > > Some RTCs have a battery low voltage detection function. Add new feature
+> > > > > > so that it can be enabled, disabled or queried at runtime.
+> > > > > > 
+> > > > > > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > > > > > ---
+> > > > > >   include/uapi/linux/rtc.h | 7 ++++++-
+> > > > > >   1 file changed, 6 insertions(+), 1 deletion(-)
+> > > > > > 
+> > > > > > diff --git a/include/uapi/linux/rtc.h b/include/uapi/linux/rtc.h
+> > > > > > index 97aca4503a6a3..596eec119bb3a 100644
+> > > > > > --- a/include/uapi/linux/rtc.h
+> > > > > > +++ b/include/uapi/linux/rtc.h
+> > > > > > @@ -134,18 +134,23 @@ struct rtc_param {
+> > > > > >   #define RTC_FEATURE_CORRECTION		5
+> > > > > >   #define RTC_FEATURE_BACKUP_SWITCH_MODE	6
+> > > > > >   #define RTC_FEATURE_ALARM_WAKEUP_ONLY	7
+> > > > > > -#define RTC_FEATURE_CNT			8
+> > > > > > +#define RTC_FEATURE_BATTERY_LOW_DETECT	8
+> > > > > > +#define RTC_FEATURE_CNT			9
+> > > > 
+> > > > This is adding a new ABI and it took me a while to find enough time to
+> > > > review the datasheet for the RTCs  we support and others. What we need
+> > > > instead of a boolean is a voltage threshold. So maybe this should be
+> > > > better named something like RTC_FEATURE_BATTERY_LOW_THRES_MV
+> > 
+> > I am not sure to understand that proposal, because with the
+> > pcf2127/31, you can enable the low battery detection function, but you
+> > cannot select the threshold voltage...
+> 
+> This is exactly my point, there are RTCs where you can select the
+> threshold voltage so we have to design for them. We can have 0mv mean
+> disabled because we are never going to have a 0 or negative threshold.
 
-Thanks! LGTM so:
+For me, it is confusing and weird to have a threshold voltage
+parameter that you can set on ICs that a have a fixed threshold voltage.
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Also, once you set a threshold voltage for an IC that have that
+capability, setting it to 0 to disable it seems more complicated than
+simply setting the parameter to enable or disable. This also means that
+if some application/service at startup were to set a threshold voltage,
+then disabling it later by setting it to 0mv would lose the threshold
+voltage previously set.
 
-> ---
->  Documentation/virt/kvm/api.rst | 9 +++++++--
->  include/linux/kvm_dirty_ring.h | 5 +++++
->  virt/kvm/kvm_main.c            | 5 +++++
->  3 files changed, 17 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index e95c9cda085d9..89eb6be9bc6e3 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6544,6 +6544,7 @@ Errors:
->    ENOENT     The specified `gpa` is outside defined memslots.
->    ENOEXEC    The vCPU has not been initialised (arm64).
->    EINTR      An unmasked signal is pending and no page was processed.
-> +  ENOSPC     The vCPU's dirty ring is full and no page was processed.
->    EFAULT     The parameter address was invalid.
->    EHWPOISON  A poisoned host page was encountered.
->    EOPNOTSUPP Mapping memory for a GPA is unsupported by the
-> @@ -6588,7 +6589,9 @@ case, the ioctl can be called in parallel.
->
->  When the ioctl returns, the input values are updated to point to the
->  remaining range.  If `size` > 0 on return, the caller can just issue
-> -the ioctl again with the same `struct kvm_map_memory` argument.
-> +the ioctl again with the same `struct kvm_pre_fault_memory` argument.
-> +If that fails with ENOSPC, the vCPU's dirty ring has to be harvested
-> +and reset first.
->
->  On x86, shadow page tables cannot support this ioctl because they
->  are indexed by virtual address or nested guest physical address.
-> @@ -8957,7 +8960,9 @@ Therefore, the ioctl must be called *before* reading the content of
->  the dirty pages.
->
->  The dirty ring can get full.  When it happens, the KVM_RUN of the
-> -vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL.
-> +vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL, and
-> +KVM_PRE_FAULT_MEMORY on the vcpu will process no more pages until the
-> +ring has been harvested and reset.
->
->  The dirty ring interface has a major difference comparing to the
->  KVM_GET_DIRTY_LOG interface in that, when reading the dirty ring from
-> diff --git a/include/linux/kvm_dirty_ring.h b/include/linux/kvm_dirty_ring.h
-> index eb10d87adf7d5..729615ae0cf4d 100644
-> --- a/include/linux/kvm_dirty_ring.h
-> +++ b/include/linux/kvm_dirty_ring.h
-> @@ -60,6 +60,11 @@ static inline void kvm_dirty_ring_push(struct kvm_vcpu *vcpu,
->  {
->  }
->
-> +static inline bool kvm_dirty_ring_check_request(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
-> +
->  static inline struct page *kvm_dirty_ring_get_page(struct kvm_dirty_ring *ring,
->  						   u32 offset)
->  {
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index cf4cb586f1407..ac8b94a386e4a 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -4461,6 +4461,11 @@ static int kvm_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
->  			break;
->  		}
->
-> +		if (kvm_dirty_ring_check_request(vcpu)) {
-> +			r = -ENOSPC;
-> +			break;
-> +		}
-> +
->  		r = kvm_arch_vcpu_pre_fault_memory(vcpu, range);
->  		if (WARN_ON_ONCE(r == 0 || r == -EIO))
->  			break;
-> --
-> 2.47.3
->
->
+So, why not simply add a new parameter like you suggested to set the
+threshold voltage on ICs that support it,
+RTC_FEATURE_BATTERY_LOW_THRES_MV? Then you can reuse the enable/disable
+boolean to enable/disable the function and keep the threshold voltage
+unaffected/unmodified.
 
---
-Cheers, Lorenzo
+Hugo.
