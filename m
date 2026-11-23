@@ -1,147 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.10
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795462153;
-	b=kxOVizZ8Ee5LExU1nruFZugy3y0otGXVHPi8jtX3DZZO5b0SwSbnl50AZRZgFt9C//04
-	 m4FRVzQP0oDsAbFYmaTFOzjKx4+o3EtV2QJ9wdvG6vpKzUPq8ElSKet33gRSgM71COJXH
-	 voAnWigo5FY7HpqSvEzFFJcmSo10CDiNIHeCqy5VeuENu3e/TbHqq4IkZ7tW4sjmdz/gM
-	 bHXeB0kCmXhmAIHUCdkEysEUaxtwr/XePwwnTGRfmkYN95CAd04sYqdxn1IKl0bHuHraG
-	 hDPsYSjz4DGFEm4rToVw+FNPRmpROJBgzWWXaDDBEnW7ohAg77gSuiQ/yUyBnLH/ZSw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795462153;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=uZ0k6beVZQu218nmFTQMMlvzZ30cdV2uRd57GEvg+5A=;
-	b=gDj50cZ9Mo6y8ZE1kDJFwvO60qL3ESusMuyeHpxJ+aPIMjfOigvOuhUyghv6QMGmt7Ed
-	 GfNDxh4xzScqEQhKDBi/HtJXjk3Vmow1INV2rbqNPGKGl6LWXK89rhwAXD19VS1c6/oeb
-	 +U+U5J1soa1pzTtMrq6ZbG/wSMbU9uKpJGefxm/RcdtZoPD1wlSTLDSn4cISRROdVwNl+
-	 eOJ/bkzp1E4/LOV/MEM82ooVcubYA5E8l8Ada8IwjvRBTPI+hzZcHrLbyJ8MUUdYRAIzr
-	 9e8LNmC/IXUfaekDuMaFX5HKo2D5KQwxh98VN8joozZDWH2lZOrXOJVe/A2lRuBR97w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mqe3axXM;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b="jwjlE/jA";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795462169;
+	b=wla7r4P8AQnBmvs40BTkKq38O/esWC18nuo37J2hBldBC75co0uSazkQg5lboFDDU1x+
+	 UfkZIMtwkqHeK2m2FxclvAfmeAkPiDreVhemnEq0t+Shp0TcSnd3CJx6G3oWPxfbWyTBv
+	 MIOO+M/04+6ATqJ8wxoAiF3rLjJNnYj4EINUUrxlFU32+XQUY/LSB7V3Kcu8L5IsmBpaB
+	 9R5qabTmul2Le5RlMoJno5cZEYH1FJOGhc6Xy7ZbTQ6SwOr8nF/6hQ9qVzkRLu0cb3P2P
+	 oFF4qvlwhleItwuTVUQesedZ7398WXrDCzbGqfSi9FGNprd6DYAr4E0TOm5ZWToctbw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795462169;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=dK6izBnVztalFUd9ZDZGnPYRw3kapxyvZkhsazeP+5g=;
+	b=Xcjl2ErWnMMSy1KCiWPvwql5T+he2sHy8kP83+bl4+RIrALR1/7vhChDEhRW6R7svBwO
+	 SNzHy3MVVM4AbLiSf9NHJIufoocGggYeDcrwxfdjJpuQLw4oZCZOpXyfhAVtp7huaGQmk
+	 NMBXvc6tARjocpRisYyLFZFN+H/NehEbtThEuv2PLe4Xe4J5dflSTGAqVB7EJl5JvY9Mp
+	 BVpf1Z6AlELEjv4YdvlcxTsBbc+27PulmBKKuMMo3QxexcxuvgD7eIhc5PI7d5IVIRuXP
+	 CKX+HtUSi4wQdgdQ+lP3Rfe8L1E8alg7vft1m+CEmAySfVsAWuOA8gvHsU3wvlL2gEA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nve7NswH;
+	arc=none smtp.remote-ip=209.85.160.54
+Received: from mail-oa1-f54.google.com (mail-oa1-f54.google.com [209.85.160.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40033606A31A;
-	Mon, 23 Nov 2026 19:29:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40033606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CD4C606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:29:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CD4C606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mqe3axXM;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=jwjlE/jA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795462153; x=1826998153;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=f9SjSSjaJkRCFQQ2Olo1KyFegN/kn9cINHAJnbaucAU=;
-  b=mqe3axXMox5EzQNYv/ST1BD6amvl8YZwDODlUTNZt0iGYHpMDW44AvPc
-   SI2eQESzL3P4dmcWSK1In+uB8BVjuPqWl5+1pRFC6nlMTximJLy/rxUuW
-   Av47ejSZ4qjCI77ZNZu781PZlP0DcXxwL4K7/ooLP2IZHFQdEdtjIMmla
-   qtEuNNUlt/1C1CzNmhymL4Z+daEGg1f3e1nQDxqO0d1nB2xiIkj6qnW+b
-   x1FccYwUsfisv6ItPFUoCPWf4H6LYYVu90j8lcqxgz9mrIclBf8mHyeKZ
-   sgSNSCv5CLaOJ74M7xcG/W+uhW7di/dVQpxNkWGaTWPiuolcUGwDYShB/
-   g==;
-X-CSE-ConnectionGUID: Hi6sqpzCRNK+i0V/nRhJXg==
-X-CSE-MsgGUID: RkNQdAozS6GG7b8EU1SkKQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4193949"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4193949"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:29:13 -0800
-X-CSE-ConnectionGUID: arPWtJMzQIGRqftgzE33wQ==
-X-CSE-MsgGUID: FPucJXzwSrW2E/rh1JOlFA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="13071795"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by fmviesa012.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:29:12 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Mon, 23 Nov 2026 11:29:11 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Mon, 23 Nov 2026 11:29:11 -0800
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.7) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 11:29:11 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sZSIQruSfZs+uyuCXUIkGumwDtiYkpKV4cxyR2JtK+ie75ZNRUevNueRN1AgEknc7PbdOsjD5/Lr1icZgmWffW1KmOgLxGbQyKzTDq7UKCL2mJlP6cfq4fTLPUdp8yfyoCik4Qyr6Oz7EuXsDCBk+GJqacmq1Vcfq1E5C1UvqkT8qGsADFPR3IKhxE/CfFxfU1g9NQffX+8Z11MoxkzsID2ncpXqJt5AeIHY/dDIokPu66LeOtzhz9PB3krXgOd9UUan2ANEDa95pDcrehejEN17wouu09LfHxH0sQnE13thdPlWrGBMtmv4DJI7/QDh4SVeljKH0pmgfMTJ756ZJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uZ0k6beVZQu218nmFTQMMlvzZ30cdV2uRd57GEvg+5A=;
- b=NkcPs+hIvXgntesqqaoE6a6hgqa8os3JOddrVHWR2K4/9pV/xgtzRstL4372PuWv1+nkIQ6pvFK1Wzox8q3D6ev3KBNSXhN2fthi87wBcpz6YukMqACEf4XFR336vDnjP5iT8gLm01q58DKVMKnqO5UE04issWI763w4BwGD8WTV7w7RZq+HZnCJdRzKXw+w/A+HoyNHP8IprC4L5Lf8ir6TXguQ++uAjMxaRBMr1D1nMznaZBGXvIDzxLiAT8vBytkaceis5dSU/KpUxD7T18hK9scBXX082bF+p1kNepE8i8H43OQqR/4TRPX8G/+B9aLH1nBSQDnnV7ehNVZ7UA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uZ0k6beVZQu218nmFTQMMlvzZ30cdV2uRd57GEvg+5A=;
- b=jwjlE/jAcVSI60ZZ9OlJkRC6O1xi/UEkzKcvCB2iFSh76wNjq9tTWkm8kWO0HP5MUQKc+gqINhc9CmPgmLbdNa5jYiF1NiHmLgr+Wlxd5gyndGrIszuJg6BEYnzk6TVmGvNW3Fq5IyP3hEWsoFmGdCrUa+khN1GO8j5BH/OwXTw=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8451.namprd11.prod.outlook.com (2603:10b6:a03:56e::20)
- by SA2PR11MB5081.namprd11.prod.outlook.com (2603:10b6:806:118::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 19:29:08 +0000
-Received: from SJ2PR11MB8451.namprd11.prod.outlook.com
- ([fe80::7d5f:b2ba:92d4:5f3c]) by SJ2PR11MB8451.namprd11.prod.outlook.com
- ([fe80::7d5f:b2ba:92d4:5f3c%4]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
- 19:29:08 +0000
-Message-ID: <7717b2d7-b72e-40ff-82ad-54d0fbd8c36e@intel.com>
-Date: Mon, 23 Nov 2026 11:29:06 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3] driver core: auxiliary bus: Fix IRQ sysfs directory
- cleanup
-To: Tariq Toukan <tariqt@nvidia.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	"Danilo Krummrich" <dakr@kernel.org>, Johan Hovold <johan@kernel.org>
-CC: <driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Saeed Mahameed <saeedm@nvidia.com>, Leon Romanovsky
-	<leon@kernel.org>, Mark Bloch <mbloch@nvidia.com>, Amir Tzin
-	<amirtz@nvidia.com>, Moshe Shemesh <moshe@nvidia.com>, Shay Drory
-	<shayd@nvidia.com>, Parav Pandit <parav@nvidia.com>, Przemek Kitszel
-	<przemyslaw.kitszel@intel.com>, Gal Pressman <gal@nvidia.com>, "Leon
- Romanovsky" <leonro@nvidia.com>
-References: <20261112081319.3466442-1-tariqt@nvidia.com>
-From: Jacob Keller <jacob.e.keller@intel.com>
-Content-Language: en-US
-In-Reply-To: <20261112081319.3466442-1-tariqt@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0313.namprd04.prod.outlook.com
- (2603:10b6:303:82::18) To SJ2PR11MB8451.namprd11.prod.outlook.com
- (2603:10b6:a03:56e::20)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nve7NswH
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-4932b13c4ccso2132308fac.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:29:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795462167; x=1796066967; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dK6izBnVztalFUd9ZDZGnPYRw3kapxyvZkhsazeP+5g=;
+        b=nve7NswH44QeF2trNPTW/32lsYzTS04DUc00sH3qKWzHNyxnZNSXAfW5B+3N3b8C2C
+         gt6eBP60VsLMaviqNcDj64zFpIU5rEx7r9CVqiCe74CLeDm3PpSPy171FR/oysRgEYve
+         lZyadAcICqg9MkCUZLZaCG6uHde8v5/rupyLKSAAqWXKK4AKEbW08QI3yiHPaIGAoPrU
+         gvS6AOFWy8qxTaL4McAtfajQSnSWGRnzLK3GmZSketdAFLSshvS6fmwEenAYcTiacrNG
+         L42tcfB197w4f6hGn3RXhFVk+GtgKxpUDnVHoV5Xgjm+m7AAa5w1/yaCV1sLXMhhgwmu
+         iWEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795462167; x=1796066967;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=dK6izBnVztalFUd9ZDZGnPYRw3kapxyvZkhsazeP+5g=;
+        b=x6LNvtkbi2uZf3EYBA5FQYMBRvD2gPWOn4H1dKMefdJdiZ9zAm16RqimgC5VpaaMVv
+         ylH7GKyJAXTlURjvWukkmcqWcGvgefcJrpcPYdsa/n0lzAj/Gll/c2pPxjHehK9NAO0v
+         BAaQPDYGNmVQZALn11fqNv3iaF01wwOvHaE9HtS/JkDB//WrRrUlPk2Qia8ne8+jvryp
+         zhAupDEZ8Wvb7qH13fnljrkts7Zj7O2j69iS7/hawy6QALgnhsx0kuCW7w7Y5NISCuhh
+         A3enk0tNPrZfF7vCCRee2szxx2cGCkpUHXswBUglhBR2WJQvXQRhHjTbpAw2/Fu6G6cP
+         EjTg==
+X-Forwarded-Encrypted: i=1; AL+hErEtUr+2eYxKdcl60u5HvVT2q/Nr/eOkuol9nlnUiTN73p6g3gHtYxw/QzCtzSotawwZXt8UpciF7h/Q5a8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9jGczsqKptYl+WYa1g5H3c2fRqGN8oTOWgpy5YyutIySoMRywC
+	bRxLa0jNeYEwCpjPxrFOftm9OCDi6mUqOaqpZfZX5QOIt9A6eXSpsbTq
+X-Gm-Gg: AZFdTZe4lVJ1oyY4J0fKSmUxw4FhpbaqC5gcB/HZlow+KXr4tG9Bqlvg3KpY9fghVMi
+	faldz1RX2okKj0z10bVa1b5MPQuKPy3YOHShXSJi7NHA9kzwMUtPI93khRT74M/gcHVa+sQDkT8
+	WbO4wBxBxNIcAwWV6r9vqOcuLKsudwyjPifa98HGYF/hhHjsR6L6V9ytA+juVMnlzko5frM8kb5
+	kY+5TFSehHKUJnlIl/s755MHphrrucuShf8r6de5CP/Xvl49vHljdviQTMGijQJO1wxX+OdPr/Q
+	w6vCd+7TFvXxYeq/rnmiDByi03kCvTDu12N+TQWT0BCAcBbosnimh74WtMnSnS3OBK916zgDkfX
+	7CHZArVPvkFGVUBVw26DTguDFKUCzwUfUznUnr4MDepg6Du7vMxrHcF36bY9yOlpt2N7sEZ/Ce5
+	U5p1pmij7rwgz/lOELJ26dPoG+XHnaj/T2wMj0nEyXkk111Of0KPX4+P7Rc6wJvd2SxcjHElXep
+	BjrxTzcyDibwjru7iu3/wi6nQRek6jfse7eEyX6EdHi+LzFgCsFD0GnylZIb6BCbo99oB+W6JpX
+	pBI1bRuzVKBLoeYEZbyaXF8USXrJhc9G/bC+rcCGsj1TwvvicOP3XIloktgH
+X-Received: by 2002:a05:6871:89f:b0:494:a2cf:8dce with SMTP id 586e51a60fabf-4bc7beaef71mr11196329fac.4.1795462166843;
+        Mon, 23 Nov 2026 11:29:26 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:44::])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc60491337sm11539135fac.12.2026.11.23.11.29.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 11:29:26 -0800 (PST)
+Date: Mon, 23 Nov 2026 11:29:24 -0800
+From: Joshua Hahn <joshua.hahnjy@gmail.com>
+To: Li Zhe <lizhe.67@bytedance.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, gourry@gourry.net, 
+	hannes@cmpxchg.org, ljs@kernel.org, mhocko@suse.com, muchun.song@linux.dev, 
+	rakie.kim@sk.com, roman.gushchin@linux.dev, shakeel.butt@linux.dev, 
+	weixugc@google.com, ying.huang@linux.alibaba.com, ziy@nvidia.com, 
+	cgroups@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [PATCH v3] mm: add source selector to memory.reclaim
+Message-ID: <awSSDehzWsJ68V5y@devbig011.atn3.facebook.com>
+Mail-Followup-To: Li Zhe <lizhe.67@bytedance.com>, 
+	akpm@linux-foundation.org, david@kernel.org, gourry@gourry.net, hannes@cmpxchg.org, 
+	ljs@kernel.org, mhocko@suse.com, muchun.song@linux.dev, rakie.kim@sk.com, 
+	roman.gushchin@linux.dev, shakeel.butt@linux.dev, weixugc@google.com, 
+	ying.huang@linux.alibaba.com, ziy@nvidia.com, cgroups@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20261116110459.11048-1-lizhe.67@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -151,159 +106,352 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8451:EE_|SA2PR11MB5081:EE_
-X-MS-Office365-Filtering-Correlation-Id: 53477da5-d482-41c2-4416-08df49980b22
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|261102123227099003|261026140227099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|10067099003|11063799006|56012099006|260925021911599003|260925022911599003|260925021311599003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: iDjCGIvPPUGUT98Dn6VGQ6A3KEHb2r1hQveomoepk3FZzuZOwpvAXGv+CZafWCVhF0sONQq5G4G+9JfV2XG5ilU1uCGU7/vVecuk9tGkbhFTiYvepid3tY4C6ETf+IG70SU/RZqTHsA3TjVgLrj+Pq1D8WAQDFVsN2/kFOWLfBZ3tCCLVH6w/Gd9lRtFfeD7lWAg6Tf81pQgzqPpe48dFnY+B9eF8hguWlm7m+AgbOc9atqG35VbsZP9u7NcwPZjIoPsMm0E9N614iljXqU4S7sNXvz927KxRHIceQSCEChVX5zpztXstR4HhxEnkL/Zo4aMBCW4+PVI7bUM9Onl7m4u62FZ/yVW7wQtdNBxahFBSCOPYGnYX00tcfiHtwS+CYsW6OWKBlTE7uusoKlEnhXnxhj9+W2iYv3ByxKZ8efDDo5cibtWDa3LAf0iWosv411MEkDrpPiD4uJ2aD+22x80sB6PaI8JxjSFjmP2RDwTKyeSseze5eW1CkJ/13v+fvyfOzC2xo6VB2g8wbxYX0aY2iE+Fsh5lwIScvcOXSTjcJrfSRlAa/WP7oGWwZwKpHwd5SbY1K55iDz6bStq45nY7O1L6MyvsJtQ1jfQBSn+rOeAqsJRtSZESldQVvf6
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8451.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(261102123227099003)(261026140227099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(10067099003)(11063799006)(56012099006)(260925021911599003)(260925022911599003)(260925021311599003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGNUUFFMOXRMQ2RzRGcrRXVTd0RlanhJSHBBemU4UC9qaXVzakUvckxKclZn?=
- =?utf-8?B?RGt1bWhTUnhUVjgvUTUxZ2paZ0twRkFidWVHNlRuTFRCdkJUczNRaHYzc0M0?=
- =?utf-8?B?ZHA5VkxFYjg3bHZGbXpycnVCckdPLzBKbUNnVkg0SEYybzRqNncrRHV5bWNl?=
- =?utf-8?B?RUlHRjN6bnAzbStTcEhGUDBTTmZTeW1oNVZsY1dYYnI4S05wQ0pWMVV2N2RM?=
- =?utf-8?B?RUNrZU5pWTJnOU81MGpyNWVCK3A3ckZUVDlwblZDQ1RWMVpjMmxHUFRIWDB6?=
- =?utf-8?B?L2ZCU1FNenlvV01EYnZLMEVxOFhac3N6Mzc2cW14TTkrUnFoZTlqRHo3dzJT?=
- =?utf-8?B?SnRiTGhOemZKR3k2MXNHYVpxcGxNK3V1MFlYMXFaUVNVa3NHQjQ1ZEhLL0RK?=
- =?utf-8?B?eTltazB2NG5uU1VzYnVrODFiS0ZMSU1GWW9NdHBIcXZ3WmpqSVQzWTU4bVlh?=
- =?utf-8?B?c2xPTzlyaXZkSjIvRVF5TUlubVIyejlsdnJ4MWxVYUxMWThEejduOWdHNk5T?=
- =?utf-8?B?NFRzRWpHdHAwckpSV1pvZ1VaRi9DTG9VY2doKzhkWkFmU2tERHVVbjI4VHNL?=
- =?utf-8?B?ZldRZ2RvU2dESVV5VDB5amQ4RmVoY3plSWQwOXNqSFlsMmhJMmN5NXB3ZzZC?=
- =?utf-8?B?YmZBampBVXhjTm5yYVdKdHNCenkrNGZKOWs4Mk9jMFJmZnErRUd6RGVaekRX?=
- =?utf-8?B?enVtOUhXb29iNmxGQXhiOVlIbFl1YkJRdjJpM01ka3V2akY4OTFsY1VEMWli?=
- =?utf-8?B?QmVvTWl3N0t0RXlDdUw1dEVPd3J1RWVESGRrbGhoMVF4b1VncUJHYUhraXNT?=
- =?utf-8?B?OHFxK0pGT0ltZUx2MzF0OHl3NUJ5UFk3TktnMXJLa2Y1ci9QV0NjbWJKMkNM?=
- =?utf-8?B?dzhCNEdQSU9RM2d5cC9WZzVFbU5MQ0NtMWdsQWNjcWgzK0xVVWcrUjVKbWhw?=
- =?utf-8?B?eC80b1hBVVRzYlpxRk1DdUg1anNDT0kwaERnbVppUkNOS2hHcXN4eHRLdlh6?=
- =?utf-8?B?QlBEMTA4QmR6TDNyYWUzMzNsRlU5TlNuNHpwcTI4VUtONXJNdjE3UTBVenIr?=
- =?utf-8?B?eS9uM2NWTkwvcndJK1YySm00TEpMTHgvYU0yRVNUQkxRVTd5anpkWjNPRDBk?=
- =?utf-8?B?V0xkemttbDBYUElXampYSmhPYXMxRi9NTUVLZDl6ajQyTURvS0NEcnFPOHl1?=
- =?utf-8?B?dXZuWkJhaURjdlNteThobWplSm9oZUhqTHB3YVY5OFdUWXRsL1ZBVHRLOGZL?=
- =?utf-8?B?a0ZzQ0c2WXl0SisyVG9mLzZKY3loOWhRS2RuQjFObloxWHFtWm5sbTVkUDVX?=
- =?utf-8?B?U1gyWndQaHFhVGpKcGxrKzJFQktxcWtEZjZkLzczellUUTBOcGVtU1VlL1FL?=
- =?utf-8?B?dUxtVllKbDFDVm9LNHJ4MlBaYUhuL2FuQlBxSkhPMDVCVUJJRjVUcGY2ck80?=
- =?utf-8?B?SFdIdDVEQU0wZys5cDMrc041WjZGajJ5SmQ5YUNIUlNLQVJkTGJSWFdrMW10?=
- =?utf-8?B?dUptY2RzWERzMFhlYStML29TdWpwdEJtTHB5TUpnWjA1ZXhCajE4OXZaRGFr?=
- =?utf-8?B?SDRiM0pMdWd3ZTN6UjU0cWk4MitnanFlV2RPckpQckdLZHAzQ1hvdi9JRVBE?=
- =?utf-8?B?SHJvZVlXcUVlOFErRVJIWGIwR0kwZVlVL1JmQnJzbis0Y0ZJZzQ0YkloeDVv?=
- =?utf-8?B?UVJEWk5KSWpoUGE1QW11TWFCTFNtc2FCUnpnNjRIMEJJT0toL0trcDlqZU54?=
- =?utf-8?B?NHBCRy82MzRMU1BaQUZBQ1pjVW5OcHVUZDd4bzExcWIyc3NNZlIyTUFpbGdU?=
- =?utf-8?B?VWRMZ2xlSTZtaUNBWG5FSzZlVmc3M3huTXllK2pnYlZOL3drTWViM3FWU3Qw?=
- =?utf-8?B?a0VhK01YRkVDdjJMejMya1VaUHoxQWlCUkxqbzFIc1RYdUNsRk1MRUFjdS9L?=
- =?utf-8?B?ZE5UZ1BWSzEyV0dwOEJnNUR6TWprcEczaWFVMHpTTTg5czBoRklpZC9MRi8w?=
- =?utf-8?B?MDQ2aWdEeEd0L3pRZW5XY1hkNjFRQzB1NGlxMjEraWpHaWxXYVQveHNROUtJ?=
- =?utf-8?B?Tjd5aG11aGN4WGhEc2dhQ2ExQlZGZ3kyYnNxOWFuY2g0aHdWT0k2VTlBUloz?=
- =?utf-8?B?a2IzcEZBSWVUcXpPV1JOTXdqanBteC8yNUpUd2lZNHk2ZUVrRmxURDcyQU4w?=
- =?utf-8?B?WjlNNmMxRFU3VmJiRndxVkxPV0o2eFhEaXRzSnN4UlZtYUV2cHBvbEtOaXl6?=
- =?utf-8?B?bUN1bkM1RzlKYi9BZ1FNVXl1Q3dxdy9vNjJkNFgrcWFNaVF4SDNOVGFaNlAz?=
- =?utf-8?B?S1BXTmo0QXZQa0QzZWNvUThFUjdhK3JLUS9JT1VLMDRXUFkwWDQvVEgvRUxo?=
- =?utf-8?Q?/+alJLb8R6kKASe4=3D?=
-X-Exchange-RoutingPolicyChecked: IoC/5INqWJHr6qejJ7hdQxcf2AnWvVW2lYCXhlnLiHQwKWBryLMWwcdzUVX8w2tLrpYVrFhRHKHKjh+th2PbfAG6UFZvYC8ABnhPjeXJoibI5YInaswwsP3S4wJ3HShPHjunRWaXSnqeTgXVBcy2hZi+ymVP9qMvEo0glBXQv5C8FufO5cuhnhEVjzgs2qI+OZFKZZC5xylwqccvK+CiIoFE4SQtzgEemMYr67VIi3COF6Eh04uiKG4sAnOLNkYbTAQdgslHyxpGThGagIhBEo0Y9xO05zQlTOD7aQd7VWmUIwG5tvNNoKp0wF2K9TFoehSZIGwJc4MyQ9TZ6n+y7A==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53477da5-d482-41c2-4416-08df49980b22
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8451.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 19:29:08.2869
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dOjP1HZU2kvV0x6GCpPOHZo76qQJM4O+LWF1puLxNXSMiEQ/VwxuZO1XXRwn6waqcdAxI+hYaUniFFUwPk9x1PTWTJVzJCU/7lPI0IlLB1M=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB5081
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116110459.11048-1-lizhe.67@bytedance.com>
 
-On 11/12/2026 12:13 AM, Tariq Toukan wrote:
-> From: Amir Tzin <amirtz@nvidia.com>
+On Mon, Nov 16, 2026 at 07:04:59PM +0800, Li Zhe wrote:
+> memory.reclaim can apply proactive reclaim to a memcg, but it cannot
+> target source nodes the way global node reclaim can. Proactive memcg
+> reclaim follows a fast-to-slow fallback order, which attempts demotion
+> before reclaiming from slower tiers.
 > 
-> In case an auxiliary device with IRQs directory is unbound, the
-> directory is released, but auxdev->sysfs.irq_dir_exists remains true.
-> This leads to a failure recreating the directory on bind.
+> As a result, a memcg controller cannot decide whether reclaim should
+> start from DRAM or from a slower tier. For a cgroup that is close to OOM
+> and needs charge reduction, or for a controller trying to shape a
+> workload's DRAM/CXL resident distribution, the default policy may spend
+> reclaim effort on the wrong source tier.
 > 
-> [] mlx5_core.sf mlx5_core.sf.2: mlx5_irq_affinity_request:167:(pid 1939):
->    Failed to create sysfs entry for irq 56, ret = -2
-> [] mlx5_core.sf mlx5_core.sf.2: mlx5_eq_table_create:1195:(pid 1939):
->    Failed to create async EQs
-> [] mlx5_core.sf mlx5_core.sf.2: mlx5_load:1362:(pid 1939):
->    Failed to create EQs
+> Add source=nodes:<nodelist> to memory.reclaim. The selector only chooses
+> the resident source nodes where the existing memcg reclaim path applies
+> pressure. It does not select demotion targets, force demotion, force
+> eviction, promote pages, or change completion accounting. Leaving source
+> unspecified preserves existing behavior.
+
+Hi Zhe,
+
+Thanks for the patch and sorry that it took so long to reply.
+I've actually spent a lot of time thinking about this commit to see if
+it can be used to establish per-memcg-tier residency limits on machines
+running multiple workloads via memcgs.
+
+So you could have a daemon running, checking the per-tier usage for a
+cgroup, and creating pressure to evict pages downward from that cgroup
+specifically.
+
+So if a cgroup is using 10G more node0 (DRAM) than it should be, you can
+write "echo 10G source=nodes:0" > memory.reclaim to try and free up that
+space. I'm running some experiments locally and really thinking through
+this to see what that would lead to.
+
+Anyways, to me the only concern that I have is what happens when that
+reclaim fails. Let's say that you have a situation where CXL is
+completely full, preventing future demtions. At the same time, we have
+a memcg that is using too much DRAM, so we try to reclaim from the
+DRAM node and pressure downwards.
+
+The thing is, I think proactive reclaim doesn't allow swapouts on tiered
+systems. 
+
+So what would happen is, you would (1) fail demotions, and then (2) fail
+to swap out, which means the pages have nowhere to go. And repeatedly
+running the same command over and over again will not lead to any
+progress at all.
+
+> With this, userspace can build the policy it needs on top of existing
+> kernel reclaim behavior:
 > 
-> The irqs directory state is described by three pieces: the sysfs group,
-> the irq_dir_exists flag and the irqs xarray. Currently, only the sysfs
-> group removal is managed by the devres API, and on unbind the group is
-> removed while the flag and xarray are left intact. Thus, a subsequent
-> bind sees irq_dir_exists still set and skips recreating the directory.
+> 1. start reclaim from lower-tier nodes to reduce the cgroup's memory
+>    usage more directly;
+> 2. steer reclaim toward over-represented nodes to shape a workload's
+>    DRAM/CXL resident distribution; and
+> 3. reclaim from lower-tier nodes first so later top-tier reclaim has
+>    room for demotion.
 > 
-> Manage all three under a single release function passed to
-> devm_add_action_or_reset(), so the whole directory state is created and
-> destroyed as a unit.
+> Example: nodes 0-2=DRAM, node3=CXL
 > 
-> Fixes: a808878308a8 ("driver core: auxiliary bus: show auxiliary device IRQs")
-> Suggested-by: Danilo Krummrich <dakr@kernel.org>
-> Signed-off-by: Amir Tzin <amirtz@nvidia.com>
-> Reviewed-by: Mark Bloch <mbloch@nvidia.com>
-> Reviewed-by: Leon Romanovsky <leonro@nvidia.com>
-> Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
+>   echo 1G > memory.reclaim # progress from nodes 0-3
+>   echo "1G source=nodes:3" > memory.reclaim # reclaim from CXL
+>   echo "1G source=nodes:0-2" > memory.reclaim # usually demote to CXL
+
+And so I can see why you would have to run something like this in order
+to actually make room, moving from the bottom going up. Make space for
+the memory that's about to come in from the top.
+
+To me this makes a lot of sense, and it's something that we (Meta) has
+thought about quite extensively internally as well (from Johannes and
+Gregory, who are also CC-ed in this mail).
+
+But at the same time, this is not really an atomic operation. So memory
+usage between the two operations can change very rapidly. I wanted to
+start a conversation about this point and whether this is something that
+the commit should address. I would like to hone in on a use case and
+think about how the users should be expected to use these things first.
+
+Thanks a lot Zhe, and sorry again for the delayed response.
+I hope you have a great day!
+Joshua
+
+> The typed source= form also leaves room for future source selectors
+> without changing the ABI introduced here.
+> 
+> Tested in a CXL setup with nodes 0-2 as DRAM and node 3 as CXL. A
+> userspace controller steered eight cgroups toward a 50:50 DRAM:CXL
+> resident ratio while a background workload created reclaim and demotion
+> pressure. With source=nodes, all eight cgroups ended with 45%-55% of
+> their memory on DRAM. Under the same pressure, the plain memory.reclaim
+> baseline left the worst cgroup far away from the target range.
+> 
+> Signed-off-by: Li Zhe <lizhe.67@bytedance.com>
 > ---
->  drivers/base/auxiliary_sysfs.c | 17 ++++++++++++++---
->  1 file changed, 14 insertions(+), 3 deletions(-)
+> v2: https://lore.kernel.org/all/20261102070440.16262-1-lizhe.67@bytedance.com/#t
+> v1: https://lore.kernel.org/all/20261019141401.11927-1-lizhe.67@bytedance.com/
 > 
-> V3:
-> - New approach.
-> - Retitle, and add Danilo's Suggested-by.
-> - Drop Jacob's Reviewed-by, as the approach changed.
+> Changes since v2:
+> - Dropped the separate cover letter and shortened/refocused the commit
+>   message, as suggested by Joshua Hahn and Gregory Price.
+> - Added an eight-cgroup CXL test summary under background
+>   reclaim/demotion pressure, as suggested by Joshua Hahn.
 > 
-
-This is much better since the existing behavior already relied on
-devm/devres, and this avoids needing a lot of changes throughout.
-
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-
-> V2:
-> https://lore.kernel.org/all/20260219210435.1769394-1-tariqt@nvidia.com/
+> ---
+>  Documentation/admin-guide/cgroup-v2.rst | 11 ++++++
+>  mm/bpf_memcontrol.c                     |  3 +-
+>  mm/internal.h                           |  3 +-
+>  mm/memcontrol-v1.c                      |  6 ++-
+>  mm/memcontrol.c                         | 11 ++++--
+>  mm/vmscan.c                             | 49 +++++++++++++++++++++++--
+>  6 files changed, 72 insertions(+), 11 deletions(-)
 > 
-> V1:
-> https://lore.kernel.org/all/1761200367-922346-1-git-send-email-tariqt@nvidia.com/
-> 
-> diff --git a/drivers/base/auxiliary_sysfs.c b/drivers/base/auxiliary_sysfs.c
-> index dea7f46f7dd0..656ba057dc98 100644
-> --- a/drivers/base/auxiliary_sysfs.c
-> +++ b/drivers/base/auxiliary_sysfs.c
-> @@ -22,21 +22,32 @@ static const struct attribute_group auxiliary_irqs_group = {
->  	.attrs = auxiliary_irq_attrs,
+> diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
+> index 9e3c67b02ae2..992f9bdc46a1 100644
+> --- a/Documentation/admin-guide/cgroup-v2.rst
+> +++ b/Documentation/admin-guide/cgroup-v2.rst
+> @@ -1458,6 +1458,7 @@ The following nested keys are defined.
+>  
+>  	  ==========            ================================
+>  	  swappiness            Swappiness value to reclaim with
+> +	  source                Source to apply reclaim pressure to
+>  	  ==========            ================================
+>  
+>  	Specifying a swappiness value instructs the kernel to perform
+> @@ -1468,6 +1469,16 @@ The following nested keys are defined.
+>  	The valid range for swappiness is [0-200, max], setting
+>  	swappiness=max exclusively reclaims anonymous memory.
+>  
+> +	Specifying a source value constrains where proactive reclaim applies
+> +	pressure. Currently only source=nodes:<nodelist> is supported. For
+> +	example::
+> +
+> +	  echo "1G source=nodes:0-1" > memory.reclaim
+> +
+> +	This applies proactive reclaim pressure to memory of the target cgroup
+> +	resident on nodes 0-1. It does not constrain demotion targets and does
+> +	not change memory.reclaim completion accounting.
+> +
+>    memory.peak
+>  	A read-write single value file which exists on non-root cgroups.
+>  
+> diff --git a/mm/bpf_memcontrol.c b/mm/bpf_memcontrol.c
+> index d8f579c28560..7d98f55a044f 100644
+> --- a/mm/bpf_memcontrol.c
+> +++ b/mm/bpf_memcontrol.c
+> @@ -201,7 +201,8 @@ __bpf_kfunc long bpf_proactive_reclaim(struct mem_cgroup *memcg,
+>  	nr_reclaimed = try_to_free_mem_cgroup_pages(memcg, nr_pages, GFP_KERNEL,
+>  						    MEMCG_RECLAIM_MAY_SWAP |
+>  						    MEMCG_RECLAIM_PROACTIVE,
+> -						    swappiness == -1 ? NULL : &swappiness);
+> +						    swappiness == -1 ? NULL : &swappiness,
+> +						    NULL);
+>  
+>  	return nr_reclaimed * PAGE_SIZE;
+>  }
+> diff --git a/mm/internal.h b/mm/internal.h
+> index e3f92883bf23..ff24a58d47e8 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -83,7 +83,8 @@ unsigned long try_to_free_mem_cgroup_pages(struct mem_cgroup *memcg,
+>  					   unsigned long nr_pages,
+>  					   gfp_t gfp_mask,
+>  					   unsigned int reclaim_options,
+> -					   int *swappiness);
+> +					   int *swappiness,
+> +					   const nodemask_t *source_nodes);
+>  
+>  #ifdef CONFIG_NUMA
+>  extern int sysctl_min_unmapped_ratio;
+> diff --git a/mm/memcontrol-v1.c b/mm/memcontrol-v1.c
+> index b7f286888507..74aa06fee76a 100644
+> --- a/mm/memcontrol-v1.c
+> +++ b/mm/memcontrol-v1.c
+> @@ -1464,7 +1464,8 @@ static int mem_cgroup_resize_max(struct mem_cgroup *memcg,
+>  		}
+>  
+>  		if (!try_to_free_mem_cgroup_pages(memcg, 1, GFP_KERNEL,
+> -				memsw ? 0 : MEMCG_RECLAIM_MAY_SWAP, NULL)) {
+> +				memsw ? 0 : MEMCG_RECLAIM_MAY_SWAP,
+> +				NULL, NULL)) {
+>  			ret = -EBUSY;
+>  			break;
+>  		}
+> @@ -1500,7 +1501,8 @@ static int mem_cgroup_force_empty(struct mem_cgroup *memcg)
+>  			break;
+>  
+>  		if (!try_to_free_mem_cgroup_pages(memcg, 1, GFP_KERNEL,
+> -						  MEMCG_RECLAIM_MAY_SWAP, NULL))
+> +						  MEMCG_RECLAIM_MAY_SWAP,
+> +						  NULL, NULL))
+>  			nr_retries--;
+>  	}
+>  
+> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+> index 84f4a8fd4d16..116c6853c9ba 100644
+> --- a/mm/memcontrol.c
+> +++ b/mm/memcontrol.c
+> @@ -2444,7 +2444,7 @@ static unsigned long reclaim_high(struct mem_cgroup *memcg,
+>  		nr_reclaimed += try_to_free_mem_cgroup_pages(memcg, nr_pages,
+>  							gfp_mask,
+>  							MEMCG_RECLAIM_MAY_SWAP,
+> -							NULL);
+> +							NULL, NULL);
+>  		psi_memstall_leave(&pflags);
+>  	} while ((memcg = parent_mem_cgroup(memcg)) &&
+>  		 !mem_cgroup_is_root(memcg));
+> @@ -2774,7 +2774,8 @@ static int try_charge_memcg(struct mem_cgroup *memcg, gfp_t gfp_mask,
+>  
+>  	psi_memstall_enter(&pflags);
+>  	nr_reclaimed = try_to_free_mem_cgroup_pages(mem_over_limit, nr_pages,
+> -						    gfp_mask, reclaim_options, NULL);
+> +						    gfp_mask, reclaim_options,
+> +						    NULL, NULL);
+>  	psi_memstall_leave(&pflags);
+>  
+>  	if (mem_cgroup_margin(mem_over_limit) >= nr_pages)
+> @@ -5001,7 +5002,8 @@ static ssize_t memory_high_write(struct kernfs_open_file *of,
+>  		}
+>  
+>  		reclaimed = try_to_free_mem_cgroup_pages(memcg, nr_pages - high,
+> -					GFP_KERNEL, MEMCG_RECLAIM_MAY_SWAP, NULL);
+> +					GFP_KERNEL, MEMCG_RECLAIM_MAY_SWAP,
+> +					NULL, NULL);
+>  
+>  		if (!reclaimed && !nr_retries--)
+>  			break;
+> @@ -5060,7 +5062,8 @@ static ssize_t memory_max_write(struct kernfs_open_file *of,
+>  
+>  		if (nr_reclaims) {
+>  			if (!try_to_free_mem_cgroup_pages(memcg, nr_pages - max,
+> -					GFP_KERNEL, MEMCG_RECLAIM_MAY_SWAP, NULL))
+> +					GFP_KERNEL, MEMCG_RECLAIM_MAY_SWAP,
+> +					NULL, NULL))
+>  				nr_reclaims--;
+>  			continue;
+>  		}
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index 6a1af9b92349..15e2e5710468 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -7013,12 +7013,14 @@ unsigned long try_to_free_mem_cgroup_pages(struct mem_cgroup *memcg,
+>  					   unsigned long nr_pages,
+>  					   gfp_t gfp_mask,
+>  					   unsigned int reclaim_options,
+> -					   int *swappiness)
+> +					   int *swappiness,
+> +					   const nodemask_t *source_nodes)
+>  {
+>  	unsigned long nr_reclaimed;
+>  	unsigned int noreclaim_flag;
+>  	struct scan_control sc = {
+>  		.nr_to_reclaim = max(nr_pages, SWAP_CLUSTER_MAX),
+> +		.nodemask = source_nodes,
+>  		.proactive_swappiness = swappiness,
+>  		.gfp_mask = (current_gfp_context(gfp_mask) & GFP_RECLAIM_MASK) |
+>  				(GFP_HIGHUSER_MOVABLE & ~GFP_RECLAIM_MASK),
+> @@ -7054,7 +7056,8 @@ unsigned long try_to_free_mem_cgroup_pages(struct mem_cgroup *memcg,
+>  					   unsigned long nr_pages,
+>  					   gfp_t gfp_mask,
+>  					   unsigned int reclaim_options,
+> -					   int *swappiness)
+> +					   int *swappiness,
+> +					   const nodemask_t *source_nodes)
+>  {
+>  	return 0;
+>  }
+> @@ -8098,20 +8101,51 @@ static unsigned long __node_reclaim(struct pglist_data *pgdat,
+>  enum {
+>  	MEMORY_RECLAIM_SWAPPINESS = 0,
+>  	MEMORY_RECLAIM_SWAPPINESS_MAX,
+> +	MEMORY_RECLAIM_SOURCE,
+>  	MEMORY_RECLAIM_NULL,
+>  };
+>  static const match_table_t tokens = {
+>  	{ MEMORY_RECLAIM_SWAPPINESS, "swappiness=%d"},
+>  	{ MEMORY_RECLAIM_SWAPPINESS_MAX, "swappiness=max"},
+> +	{ MEMORY_RECLAIM_SOURCE, "source=%s"},
+>  	{ MEMORY_RECLAIM_NULL, NULL },
 >  };
 >  
-> +static void auxiliary_irq_dir_release(void *data)
-> +{
-> +	struct auxiliary_device *auxdev = data;
+> +#define MEMORY_RECLAIM_SOURCE_NODES	"nodes:"
+> +#define MEMORY_RECLAIM_SOURCE_NODES_LEN	(sizeof(MEMORY_RECLAIM_SOURCE_NODES) - 1)
 > +
-> +	xa_destroy(&auxdev->sysfs.irqs);
-> +	auxdev->sysfs.irq_dir_exists = false;
-> +	sysfs_remove_group(&auxdev->dev.kobj, &auxiliary_irqs_group);
+> +static int parse_memory_reclaim_source(const char *source,
+> +				       nodemask_t *source_nodes)
+> +{
+> +	const char *nodes;
+> +
+> +	if (strncmp(source, MEMORY_RECLAIM_SOURCE_NODES,
+> +		    MEMORY_RECLAIM_SOURCE_NODES_LEN))
+> +		return -EINVAL;
+> +
+> +	nodes = source + MEMORY_RECLAIM_SOURCE_NODES_LEN;
+> +	if (!*nodes)
+> +		return -EINVAL;
+> +
+> +	nodes_clear(*source_nodes);
+> +	if (nodelist_parse(nodes, *source_nodes))
+> +		return -EINVAL;
+> +
+> +	nodes_and(*source_nodes, *source_nodes, node_states[N_MEMORY]);
+> +	if (nodes_empty(*source_nodes))
+> +		return -EINVAL;
+> +
+> +	return 0;
 > +}
 > +
->  static int auxiliary_irq_dir_prepare(struct auxiliary_device *auxdev)
+>  int user_proactive_reclaim(char *buf,
+>  			   struct mem_cgroup *memcg, pg_data_t *pgdat)
 >  {
-> -	int ret = 0;
-> +	int ret;
->  
->  	guard(mutex)(&auxdev->sysfs.lock);
->  	if (auxdev->sysfs.irq_dir_exists)
->  		return 0;
->  
-> -	ret = devm_device_add_group(&auxdev->dev, &auxiliary_irqs_group);
-> +	ret = sysfs_create_group(&auxdev->dev.kobj, &auxiliary_irqs_group);
->  	if (ret)
->  		return ret;
->  
->  	auxdev->sysfs.irq_dir_exists = true;
->  	xa_init(&auxdev->sysfs.irqs);
-> -	return 0;
-> +
-> +	return devm_add_action_or_reset(&auxdev->dev,
-> +					auxiliary_irq_dir_release, auxdev);
->  }
->  
->  /**
-> 
-> base-commit: b71c101bbb9814d163c00234d43c41f0a17907d4
-
+>  	unsigned int nr_retries = MAX_RECLAIM_RETRIES;
+>  	unsigned long nr_to_reclaim, nr_reclaimed = 0;
+>  	int swappiness = -1;
+> +	nodemask_t source_nodes;
+> +	const nodemask_t *source_nodemask = NULL;
+>  	char *old_buf, *start;
+>  	substring_t args[MAX_OPT_ARGS];
+>  	gfp_t gfp_mask = GFP_KERNEL;
+> @@ -8142,6 +8176,14 @@ int user_proactive_reclaim(char *buf,
+>  		case MEMORY_RECLAIM_SWAPPINESS_MAX:
+>  			swappiness = SWAPPINESS_ANON_ONLY;
+>  			break;
+> +		case MEMORY_RECLAIM_SOURCE:
+> +			if (!memcg || source_nodemask)
+> +				return -EINVAL;
+> +			if (parse_memory_reclaim_source(args[0].from,
+> +							&source_nodes))
+> +				return -EINVAL;
+> +			source_nodemask = &source_nodes;
+> +			break;
+>  		default:
+>  			return -EINVAL;
+>  		}
+> @@ -8181,7 +8223,8 @@ int user_proactive_reclaim(char *buf,
+>  			reclaimed = try_to_free_mem_cgroup_pages(memcg,
+>  						 batch_size, gfp_mask,
+>  						 reclaim_options,
+> -						 swappiness == -1 ? NULL : &swappiness);
+> +						 swappiness == -1 ? NULL : &swappiness,
+> +						 source_nodemask);
+>  		} else {
+>  			struct scan_control sc = {
+>  				.gfp_mask = current_gfp_context(gfp_mask),
+> -- 
+> 2.20.1
