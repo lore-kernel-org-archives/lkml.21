@@ -1,75 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795460460;
-	b=BRCqJhEIyVMN+z6CHqsgvaJODubDYP0Ju0y8T9hszyw4IHNiU5kKua9O8cC0IeZhNAZx
-	 wnIJOCo+m/646Zv74ItJdBFMyNzQCxIvE0JQZ0Myoe6UDudqUOQS+segAzdrYBb16sUus
-	 VhtpRhHwgVU4zFUGl6ORklsr0u8soDaHfpxhRivqFsToWwLUk4xblSLa22ywX2bvEma+D
-	 p0xvBtkDIiIRaABR4LW9hyq4jVb19EXaUI5q/4N01TXAJj+KBR4+mq6xFeJ83K1KifyGV
-	 g5EKTIq0zGyYwLP7+iRuASPYFIEQ8iGpT7dLn1qxJnqaAffD5XQrloEnHUn79+uyGcg==
+	t=1795460474;
+	b=SzqtkR3gsJ27+Pp8897U9hSzuEcXx9q9nHqP2r3J2K6rvH73EKpFtjqTY5RtIvwuzSss
+	 DoOq7kRoL2P8iLV227SDKsyjsrdSKcyuPAZgGF3Ab1sBNs2bo9j3jbBB705lDDenzpUFj
+	 dYKCkD4dTq7sEImMnZNqcPOKmuwZhuCoLmcwFKCkFFi/iS5oreJqd76rh88VmiqHEJ0BF
+	 3XDRzP7N5NXMDXNj9fsDZl1D31VbEnBBm2yCgZqoOZtQoPSwpTOALoMmgHkSLf7vxo9HN
+	 oMlPNgk2g3bnQW/kFDRNf4G5CO7Vui7iygvmhbwnP2jeK9KLPOWgWCAnSoMGi6GECVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795460460;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=l4CNQ2xoCIzIiOKM0YDrq2t5ezZfH9cmVn2diC4Zwwo=;
-	b=bhzpWjMeAeS1HlpZ7mLNvg6IDZYYGvrB7qlRvBDrGUG1whWvGOLpa3hP2SqRLmvPc64T
-	 oiHLC5Yabdtqnof1bZPHX0CZnyfdAqp7+Wa5lTvLC6XGQwsiXfIOZG4QgC1ukMAs7M+Yq
-	 u0xbNGzpcsfP1bwnO2i2YUy7L8AQVo2sj9AUpkgqPT+4LRKUGEw1PaDg3dbJXC/55ddsk
-	 mnRkP6tKAlWWnRoQEkbZ/lQDZwitRqC9REdRKEh06M57D2ViOUqHRMhod7q9tVJaqw602
-	 L838WQjR32+gCJIzx36X/jCsHHtFna9mrYaI8RKimvwE24zbSx8X42njFBGNODT2Orw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795460474;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=OM1l1a6MaFYM6UQWajjylj0wSszPBen8KKq+VqeSNlI=;
+	b=TGnKQuT8EeBy51i50E1IT46+D6564W9UT9NcT80NN93jNRBfIEXjGz0hyo6upyJ4gqf6
+	 bA+bHyis8ystb528tcj3/ndBdKSYPiKx9VMrebhjhgDtGkgNNS4jzvERnnl1q1VdvX1VN
+	 LanDbiHOJ29BRtnZ+HShUn0haqDhibY7CpmJVo1rTViVn6ZwC+t9nyC3Ncf9drXy5oXOE
+	 D/L+4L0MAvfxs+nNHb63QMok80z4DpL8SPAOl8VrFB4Tr0Z5Mj8Uhjaum/Q2hykrjzPDX
+	 +ptWUaI4x4VdMK0Q2HZFmyMFk51CSQgsCBUSSnhTGyMckP9uRFoYHHLuhQFJBMsJtgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bnN3kAek;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DiBe3VvV;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B24A7606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:00:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B24A7606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B10EC606A32C;
+	Mon, 23 Nov 2026 19:01:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B10EC606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bnN3kAek
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4ea2c058e67so4099536b6e.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:00:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795460458; x=1796065258; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l4CNQ2xoCIzIiOKM0YDrq2t5ezZfH9cmVn2diC4Zwwo=;
-        b=bnN3kAekdygRkf4aioGdSq8An4GHgXCCm1kXSoVZ/CUF1NIBzabNfrDkSVhJJjMcFn
-         vuERHPE5Nz6gDKNGNwLcwiCNUNlLlL3QE3vmVR9SdAWSVLbI7QQbCC0u0tGD5lSzUEzq
-         7U0PA4ipzIMVzqhJshQmPCgVzTV3NJp5l5wrQmWgxqU57C5wGltMjGSjgVO+CjuU7BWG
-         KfqzN6KkSGC6qdaNg47vfeHw/9pfu6zriNkVvGiBdB8fQkErrp728KicbvQPhyBxq2EI
-         nq+Re/o5PQqETyhnsGakKkUl8rQGZpjk3ANbnyMI3n9fN0vq98BBNBeHo6Bnmeba43As
-         6AXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795460458; x=1796065258;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l4CNQ2xoCIzIiOKM0YDrq2t5ezZfH9cmVn2diC4Zwwo=;
-        b=TxmLJCauNDe7SGDL1nlHo7js5JLC8gsnlLp0aRphXE7X0sU4RihkLIB0Qvf0bhxH27
-         JpSTrjLreyjJGtPq1rlr4w4WnR3HP3tcdE42HZFMyUyuAny1NLewlniUS1gxJVv0NNJM
-         jkL4HIVksTTACvFg9mH+SaJh/kApMWHNUIo27H9pDDUpy9h4uzEg9Jm1lSsnW1ltudpn
-         tCQh/zHhQeW9oS5undNwUW8lGA3zGf9SHxFeTPElIlo4y0Ni3ufkXDdoci2ra58FYQ0X
-         G7x3Hf2700zgrTQGVZHrphxoGpXpJJqg5GlaWj/RjxAF3nsheADbWc+UVgwrzkDHXigM
-         0gPA==
-X-Forwarded-Encrypted: i=1; AL+hErF8IRnWwEcQR4ZyJGPhTNLNxguigYOcVq+3df1QurWByaekfZZosHvuJ5zjYK86Ttg1rRwZxOwYyHA1aic=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/gIr/SSSrJkdNKfARaz1ErAdCrnyQsTflkvumEwoxec0vpZ0Jn
-	stedjTbeOJy2CMMEy6MeN5b4fO5gO83cWqNRHCNYhVFvWT7AV32Ir2jbe2OTsj3FDXBdlF21V7D
-	W1MM6TA6NYYGC7g==
-X-Received: from ilbcb19.prod.google.com ([2002:a05:6e02:3193:b0:54f:8d15:4dbc])
- (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:3084:b0:55c:844:98ff with SMTP id 5614622812f47-57a0a93940fmr14754171b6e.34.1795460458168;
- Mon, 23 Nov 2026 11:00:58 -0800 (PST)
-Date: Mon, 23 Nov 2026 19:00:42 +0000
-In-Reply-To: <20261118223704.3286085-4-dmatlack@google.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DiBe3VvV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795460474; x=1826996474;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=ecKjDsDaB9Pn4lvanWhrhh0Qxeke2fq2ZAe/eYi4PXo=;
+  b=DiBe3VvVG7srBP1kmI64jQzLN11oIfsvo+7qlscq389MXYcmmkzYx2MF
+   CUjb1lR8o9jmowsjY7tbzh2ZA2jk7m+T+lF+l8WYt3djUOX7IFAKNpBX3
+   aphHvpXA59thJIKetjtPcsr4uM1zT6SQBIxOvFn2Cv2hycb4He782jvZF
+   XjljfAhaOn9j/MCoEo+SoHRECd8MweVjBOp4kdXU3ekCq5GQSWJ9YTYIo
+   gbLijRUkg8Z/rt2RaE1nblEEp+hwcCT/nz5YUs/+iD0HQopo2nDXkm67r
+   pZr0D8uVHWDP5TOvyPZTjzwBKErv//24DGJMA6Rn0PGsQNfgTABCgAo+i
+   w==;
+X-CSE-ConnectionGUID: XW/hT8cuRNiokU3oQPd6Rg==
+X-CSE-MsgGUID: fVuXxTKmRsm886Sp9TIUZQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4173902"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4173902"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:01:14 -0800
+X-CSE-ConnectionGUID: gJ6pmc+hSe22J6YUqkmvXw==
+X-CSE-MsgGUID: vMGGdCEiS1SWS+p5o9xSzw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11142338"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:01:09 -0800
+Date: Mon, 23 Nov 2026 21:01:07 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Lee Jones <lee@kernel.org>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-iio@vger.kernel.org, mfd@lists.linux.dev
+Subject: Re: [PATCH v3 3/4] iio: adc: Add support for MAX8907 ADC cell
+Message-ID: <awSNc2piI26LgyAU@ashevche-desk.local>
+References: <20261123150725.212836-1-clamor95@gmail.com>
+ <20261123150725.212836-4-clamor95@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,55 +87,132 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118223704.3286085-4-dmatlack@google.com>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261123190045.2166865-1-dmatlack@google.com>
-Subject: [PATCH] fixup! PCI: liveupdate: Track incoming preserved PCI devices
-From: David Matlack <dmatlack@google.com>
-To: kexec@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org
-Cc: Adithya Jayachandran <ajayachandra@nvidia.com>, Alex Williamson <alex.williamson@nvidia.com>, 
-	Alex Williamson <alex@shazbot.org>, Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Chris Down <chris@chrisdown.name>, Chris Li <chrisl@kernel.org>, 
-	David Matlack <dmatlack@google.com>, David Rientjes <rientjes@google.com>, 
-	Jacob Pan <jacob.pan@linux.microsoft.com>, Jason Gunthorpe <jgg@nvidia.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Josh Hilke <jrhilke@google.com>, Leon Romanovsky <leonro@nvidia.com>, 
-	Lukas Wunner <lukas@wunner.de>, Mike Rapoport <rppt@kernel.org>, Parav Pandit <parav@nvidia.com>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Pranjal Shrivastava <praan@google.com>, 
-	Pratyush Yadav <pratyush@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Saeed Mahameed <saeedm@nvidia.com>, Samiullah Khawaja <skhawaja@google.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Vipin Sharma <vipinsh@google.com>, 
-	William Tu <witu@nvidia.com>, Yi Liu <yi.l.liu@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261123150725.212836-4-clamor95@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-pci_flb_finish() logged args->data, but LUO does not pass args->data to
-the FLB .finish() callback, so it always logged 0x0. Log the physical
-address of the incoming struct pci_ser instead.
+On Mon, Nov 23, 2026 at 05:07:24PM +0200, Svyatoslav Ryhel wrote:
+> The MAX8907 PMIC has a dedicated ADC cell, which provides 8 ADC channels
+> with information about different parts of the power system, including the
+> battery, charger/plug, jack and thermal readings.
 
-Reported by Sashiko.
+...
 
-Signed-off-by: David Matlack <dmatlack@google.com>
----
- drivers/pci/liveupdate.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> +#define MAX8907_CHAN(_type, _idname, _datasheet_name) {		\
+> +	.type = (_type),					\
+> +	.address = MAX8907_REG_##_idname##_MSB |		\
+> +		   MAX8907_REG_##_idname##_MEASURE << 8,	\
+> +	.indexed = 1,						\
+> +	.channel = (_idname),					\
+> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |		\
+> +			      BIT(IIO_CHAN_INFO_SCALE),		\
+> +	.scan_index = (_idname),				\
 
-diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
-index 493576119a76..520c7530475c 100644
---- a/drivers/pci/liveupdate.c
-+++ b/drivers/pci/liveupdate.c
-@@ -409,7 +409,8 @@ static void pci_flb_finish(struct liveupdate_flb_op_args *args)
- {
- 	struct pci_flb_incoming *incoming = args->obj;
- 
--	pr_debug("Finished struct pci_ser (0x%llx)\n", args->data);
-+	pr_debug("Finished struct pci_ser (0x%llx)\n",
-+		 (u64)virt_to_phys(incoming->ser));
- 	pci_check_all_devices_released(incoming->ser, &incoming->block_set);
- 
- 	xa_destroy(&incoming->xa);
+Using () means that you expect an expression as a possible input. In such
+a case the macro is buggy as it will evaluate it twice for _idname. The
+simple solution is to drop these parentheses and expect that this macro
+won't ever be used with the expressions in the parameters.
 
-base-commit: fd54e32f7903199e8acb2762dd2debfffe4501c4
+> +	.scan_type = {						\
+> +		.format = IIO_SCAN_FORMAT_UNSIGNED_INT,		\
+> +		.realbits = 12,					\
+> +		.storagebits = 16,				\
+> +		.endianness = IIO_CPU,				\
+> +	},							\
+> +	.datasheet_name = (_datasheet_name),			\
+> +}
+
+...
+
+> +static int max8907_adc_read(struct iio_dev *indio_dev,
+> +			    struct iio_chan_spec const *chan,
+> +			    int *val, int *val2, long mask)
+> +{
+> +	struct regmap **regmap = iio_priv(indio_dev);
+
+Then logically better to go further and have
+
+	struct regmap *map = *regmap;
+
+> +	__be16 data;
+> +	int ret;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		ret = regmap_write(*regmap, MAX8907_TO_MEASURE(chan->address), 0);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = regmap_bulk_read(*regmap, MAX8907_TO_REG(chan->address), &data, sizeof(data));
+
+This is a bit too long.
+
+		ret = regmap_bulk_read(map, MAX8907_TO_REG(chan->address),
+				       &data, sizeof(data));
+
+> +		if (ret)
+> +			return ret;
+> +
+> +		*val = be16_to_cpu(data) >> 4;
+> +
+> +		return IIO_VAL_INT;
+> +
+> +	case IIO_CHAN_INFO_SCALE:
+> +		*val = max8907_default_ref[chan->channel];
+> +		*val2 = chan->scan_type.realbits;
+> +
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+...
+
+> +static int max8907_adc_init(struct regmap *regmap)
+
+Why not name it 'map'?
+
+> +{
+> +	u32 value;
+> +	int ret;
+> +
+> +	/* Enable internal voltage reference. Exact purpose of bits is not known. */
+> +	ret = regmap_update_bits(regmap, MAX8907_REG_TSC_CNFG1, GENMASK(1, 0), BIT(1));
+
+	ret = regmap_update_bits(map, MAX8907_REG_TSC_CNFG1, GENMASK(1, 0), BIT(1));
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Check for internal reference IRQ */
+
+Please, make style of one-line comments consistent ("all or none" are with or
+without period, same for the first letter — capital or small).
+
+> +	ret = regmap_read_poll_timeout(regmap, MAX8907_REG_TSC_STA_INT, value,
+> +				       !(value & MAX8907_MASK_NREF_OK), 10, 1000);
+
+	ret = regmap_read_poll_timeout(map, MAX8907_REG_TSC_STA_INT, value,
+				       !(value & MAX8907_MASK_NREF_OK),
+				       10, 1 * USEC_PER_MSEC);
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	return regmap_update_bits(regmap, MAX8907_REG_ADC_SCHED,
+> +				  MAX8907_ADC_SCHED_AUTOSCH_ENABLE |
+> +				  MAX8907_ADC_SCHED_AUTOSCH_TIME,
+> +				  MAX8907_ADC_SCHED_AUTOSCH_ENABLE);
+> +}
+
 -- 
-2.56.1.809.ga0b61035b5-goog
+With Best Regards,
+Andy Shevchenko
+
 
