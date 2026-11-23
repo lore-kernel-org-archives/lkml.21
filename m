@@ -1,88 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795466824;
-	b=4RCtxqS3I8nWVpqHb/usvXGcD6Q49GmG0IJDE4W2oaKtg+dsmuTLxVf3XOutDShs6NB5
-	 v1wW1Zus6Zr7BZBZUQzWFYU/lczcpFFY20ccmQ/9r0o8JtyVOlfu/oXKv+L8lh++xTpeG
-	 pAImeuRBrf9Vx37qUAvC0h+NpUxCBbywGMM3NpSdoOHwiVqi5SC+3VhW51dnEP5lODFOQ
-	 gW1WQWfZraRUu+QGi+2Xk3rXU874HDJHE5oTfPpBTmlRuL1udLKvIq0Y6lGSvt+PRKI38
-	 wLlNL+kt1DuR3Yrseao700GEWS33LndsZCV4nht9w9mxefVffN4dkmlQ9pzIMuwwdKg==
+	t=1795466834;
+	b=oVe668VyOM3+iKJKve4+QA42B2lfQGs9xXSvDarhmgVnhwC4Ljo3NiXDx98xggdSBllx
+	 n4d3XlXCuKYHXIjb2W/KHHKmgU3Qa5rcpMmEkww+PeKQw34+4TG1dz6QX9eSCijvv9ShC
+	 orBETTTkFrpPTsa/4z7peImYWLoCyQVunOli8vt2O5abeJowNIAMUeetjdfNHEyjowbBS
+	 alMKxVXVcf99OxkxPx4f1woNziNP6idHwrk0HuZf6mLrT+sw6HcG/zX9DQdVn/9U2nTdL
+	 cRfOSTwacL5FLByLfacnYdOH+oAae2YWjF2dh+bVNE2igOsOSppOhDS0m1HE24xVqBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795466824;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=q/ieQ1somtCPNNRmWO29BblscBs9YmYyywCgLFSgw7c=;
-	b=azMBVBiU9wlWne65MLnpvYfpcx5aBr7VzM0ID29GNAwry5bmA2ajsfSWWbz927M8tFuu
-	 4d0x0nJdKvDSlfRGP2kfqtcVopQ9hc/U5C7OUmRfJNUBzCBMWpUSv+Bfln86XRMGsZfbd
-	 +GLs9Jmnu4DjiKe2CaGAcozyqfHtGr3jFR+iE8vIN5zztRA6KU6OykM5tDUilQ0EwcGu7
-	 MDWVNSi9yuR240a+ZxRENeg4qTglokW98rfDUKGWEnB4xxiZxwgpG920BohWLhS4ZU+PU
-	 FNV30UXniMT1iYOsez9PiBmr0RK3ltiriG6G07EmOkF2AL4qCx/aNQLd475T1kXgMtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795466834;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	b=cVr9CvCfaY6crDqi2W8mLXD/jLDxwe2pLyUCLOkkIV2CyrtzNsd2FCl+sx3BZ/Zlpu0X
+	 S3yOd577MdVFJTzk9YzAXqYQIwYXON3N4+fxVreHLIMb/t+xWBI7NCrboLAQv8iG1unsF
+	 euHB+13sLPoWspLJAJki6hGMNtTLlzcdth6AbgShz5cf7yDnaC55u2EOfYGMIneGfbDjD
+	 zDwPZcGT9RV6kh/kiExDuewA+W/Kf8JzN16Bxru7/CwlSmO2Cw8JcBUYDQbFaoVaVRnhW
+	 lllHt95JngXS4JSCLpF4uFGxvGyo+wUp+A/gAm47kfxKhKhreMcEFRJfb6k5K5dWXxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="m1/NGxri";
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UruE3yZi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C812606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:47:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C812606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CD66606A321;
+	Mon, 23 Nov 2026 20:47:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m1/NGxri
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so29935615e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:47:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795466821; x=1796071621; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=q/ieQ1somtCPNNRmWO29BblscBs9YmYyywCgLFSgw7c=;
-        b=m1/NGxriI3u1HEVL7ejtsoa3to+D6e1vuTomhiQS/TAyZHdHRaY0GUNAnQvSC+92Z0
-         TTOPEbj5K2K+a8sHhhDpE0Mbo3PYU3U/9pe3OhGdA1wqISOlOxOz5i5P3y+he/7t2TkO
-         yeousO+/yv3dErVXdBzhMSU3Zi3+N0XSYfhrJoOMRxbP5N16kCWhaL3+GU0/5E423+k6
-         wXCs3M+OcHtvnZLRUdYxhQTJ4EZhVrWXO6tLtm/9XM2iK5gBTS2oxy5rZbPt4JN7y1+e
-         wIY8gL9rUJ3mWmBEuMaSjolbGYfnEr2rbZAIXa8sc3WfWqN8Bh5oSVfS0Aj8uav/BhEg
-         ItwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795466821; x=1796071621;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=q/ieQ1somtCPNNRmWO29BblscBs9YmYyywCgLFSgw7c=;
-        b=V14fhepWNZyb78lG5OZvdTsMztlUPf28SYvaESGLnwmDSiibp+Jr3KRJevdkJVjOUS
-         qiVhqPjV+0/1+aC5bQ7BVSjIAnF0+oMNR5iqTiRKTRuy6U4ywhpTtOnZqcZDhe8MGbp6
-         Px3+jf27mgoW/yb5MT4fG6XWwWcHXyyc8WgPRjOekq2RUPA/fIs+GeDLHFd5jFACw+Vf
-         5sgzNpPXw7qnyKKxalpL6T2XdBjTeg69Po0F8UNKjUp+CAnz8WloC0B6y7ohkv761KHX
-         R6hrV7ZNMZfBMnEvluYzNmJnPpuhVsFjb0Jc054qZUFKIIkvFbgK6gxHLCJgGwfv0Cx5
-         C4hw==
-X-Forwarded-Encrypted: i=1; AL+hErEOL8jEpoaXW2nTnDDiPIwyufV2OWQhWb3stI1ZjjrxQHRZvyJLNxhcYMCBaZ70wdNIz1ylj5IJuRDB7Fk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9fd0VyoEpsCrXOjQ+8JcBpfM7BT8K4pLEPy5zw5F5h8DQFxjTl
-	cn1kTRIFqVfws2OvG60oPdJkOgGxTIVME6X+NVaQb61/iil87JPrlDk8
-X-Gm-Gg: AZFdTZd1lfsEdN+BYkKTjkzI6TEXWs/rMNOLA419SOd+i/xJcicphfuWPJyOVMtIp/r
-	AmE+P7XlHUqoSAjvgzmkNwNlpoIbcVoFm88zYQhR88/djTe4QjPN7LLoNqhwjBWhbtnsXldFlcS
-	wbEuizlEV0E8WxJEJnYGHPfTRTt9y57+4giaFDTEzJ04gZvYp/2n/k3lKQdF8tlbXrPJ0yppqo2
-	IneRGn+fzLnmwf5eOMOEY9L9r8V1ZcoU6oabvLOyqcwxE6RLDBx3PfnuJOB6pJNGVVQlNJnY8vL
-	BEgYvKzMEofDkjmUcsGjjracZkX+6VGDt/pOwLmhxHjwloAE9Gg273yewMCBovZ0hasIMx2Zmwz
-	Rw2xXl01A/iHbDv3T4owSLQxFVlXtWHcwmq/Oy2m/uHpIiioTH0WqfDgYb8b1FK5TF46gVQL3+2
-	rm5S4Wjr2t0w2c3LzrdyQMZ36mpwes8Vy5qBwbygADhUKX0BVbGLLKD9vrVT6y7O28sNyNx3WHF
-	9KbQMrUz4H+AOj+rquhWLfyZGoTZsFnbqJJ/dwhfvwilPrAa4DL6SF1rVPyH9gDHP7qK/ebwgnw
-	hOt5oPobOA1Q497I4yIhMSLjZKKnxlQjhJ9d7K39GWXEKOrhHF+1l1Vd2vo6Hg==
-X-Received: by 2002:a05:600c:6298:b0:4bb:6375:aa41 with SMTP id 5b1f17b1804b1-4bb88934652mr240358145e9.27.1795466821552;
-        Mon, 23 Nov 2026 12:47:01 -0800 (PST)
-Received: from [192.168.0.15] ([2a02:a312:c59b:a180:251a:f25f:80fa:af1d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b216esm425076175e9.12.2026.11.23.12.47.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 12:47:01 -0800 (PST)
-From: Artur Kowalski <arturkow2000@gmail.com>
-Date: Mon, 23 Nov 2026 21:46:49 +0100
-Subject: [PATCH] watchdog: core: Fix module refcount imbalance when open
- fails
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UruE3yZi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 351851F000C0;
+	Mon, 23 Nov 2026 20:47:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795466833;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=UruE3yZiYMf4wPtABxAm7ydyUDi2e15/I5Pse5AI2RMc4UKuVxSXbuTxDtXfcADAg
+	 si9DXDKJIkjZ6xV+2VrUME80LIhbH0Q9YfrRDoymjtBjumS3pguTxGCHx5jiYy4WTU
+	 3nluY3n7+ndDjt7SQq+FqKg3oMjBC+fYGelbxHn51Hc/T/VQQY48WyilPUzQZZDrfl
+	 QjPYlus21H1eRka6xeR9lDATwYiD2Kz7l6NP9WjJvcTOc+ntnArCK14UAsNHINPXGD
+	 aU56btEfEEypZnX3jb2WV0nsXbSzfr/h9qUOWEeUNXNOHi3M/dFFRWJQ8duPYkDll2
+	 R/lK4/wBsDG9Q==
+From: netdev-bot+sinfo@kernel.org
+To: Mani Tofigh <mt4022@columbia.edu>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Martin Karsten <mkarsten@uwaterloo.ca>,
+ Joe Damato <joe@dama.to>, Dragos Tatulea <dtatulea@nvidia.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>,
+ Stanislav Fomichev <sdf.kernel@gmail.com>,
+ Sridhar Samudrala <sridhar.samudrala@intel.com>,
+ Cosmin Ratiu <cratiu@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+ Wang Zhan <wang.zhan@smartx.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, tz2294@columbia.edu
+Subject: 
+ Re: [PATCH net v2] net: don't leave napi->timer queued when deleting a napi
+Date: Mon, 23 Nov 2026 20:47:11 +0000
+Message-ID: <179546683171.3294.6057882042843846314@kernel.org>
+In-Reply-To: <20261123-napi-timer-cancel-v2-1-00e6fc1be30f@columbia.edu>
+References: <20261123-napi-timer-cancel-v2-1-00e6fc1be30f@columbia.edu>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,78 +71,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-core-wdt-fix-v1-1-a315269dce4b@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMQQ6CQAwF0Ks0f00TpiSKcxXjAjpF6wLMDCgJ4
- e5EXb7N21AsuxVE2pDt7cWnEZFCRdBHN96NPSESpJZTCNKwTtn4k2YefOX20jZyTlprJ6gIr2y
- Dr7/uevu7LP3TdP4e2PcDS+qFgnAAAAA=
-X-Change-ID: 20261123-core-wdt-fix-898327dc0ca2
-To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>
-Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Wim Van Sebroeck <wim@iguana.be>, Artur Kowalski <arturkow2000@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2210;
- i=arturkow2000@gmail.com; s=default; h=from:subject:message-id;
- bh=ERqf4DZatBQEmIQzSk8fpEPJ7HixucgVur5PzZ2WhlE=;
- b=owGbwMvMwCVmYeTc/TaVxZzxtFoSQzbLModPRTdPzqnK3xT/pTHqWjXjQ/m1dk4rjAOOs33pt
- fvZsNujo5SFQYyLQVZMkcXsodAXnnle7ze83NoJM4eVCWQIAxenAEzk6l1GhkVh7ltKjwkumry4
- pkvmYv7NyJruRsPbur/XGBjnzrnN1Mjwz259S6m92rEvi4QUP97I6f4Y1jmZ70X51dNyHdUnOT/
- P4wEA
-X-Developer-Key: i=arturkow2000@gmail.com; a=openpgp;
- fpr=F60710C8D69E03A01A2801CD87A47D20C2709637
 
-watchdog_open() doesn't take a module reference for a watchdog that is
-running in hardware, as watchdog_cdev_register() already holds one for
-it. If watchdog_start() then fails, which for such a watchdog means the
-driver's ping failed, the error path drops a module reference anyway.
+Hi!
 
-This drops the reference held for the running watchdog, so the module
-can be unloaded while the watchdog is running and the core still uses
-it. Stopping the watchdog through the core later drops the reference a
-second time, underflowing the module refcount.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-Only drop the module reference on the error path if it was taken.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-This was found with the help of Sashiko and Claude. It can be triggered
-by any modular driver whose ping can fail on a watchdog that was running
-when it was registered. No in-tree driver was checked for that. The fix
-was build tested only, and no reproducer was run.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Fixes: ee142889e32f ("watchdog: Introduce WDOG_HW_RUNNING flag")
-Signed-off-by: Artur Kowalski <arturkow2000@gmail.com>
----
-This was found while developing a Tegra20 watchdog driver. A watchdog
-reset hangs Tegra20's boot ROM once the VDE power partition is off, so
-the driver stops the watchdog behind the core's back when that happens.
-Failing pings afterwards would trigger this bug when opening a watchdog
-left running by the bootloader, so the driver keeps them succeeding
-until user space has started the watchdog.
----
- drivers/watchdog/watchdog_dev.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/watchdog/watchdog_dev.c b/drivers/watchdog/watchdog_dev.c
-index e8c1fcb53c56..9ad715d4d46d 100644
---- a/drivers/watchdog/watchdog_dev.c
-+++ b/drivers/watchdog/watchdog_dev.c
-@@ -913,7 +913,8 @@ static int watchdog_open(struct inode *inode, struct file *file)
- 	return stream_open(inode, file);
- 
- out_mod:
--	module_put(wd_data->wdd->ops->owner);
-+	if (!hw_running)
-+		module_put(wd_data->wdd->ops->owner);
- out_clear:
- 	clear_bit(_WDOG_DEV_OPEN, &wd_data->status);
- 	return err;
-
----
-base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-change-id: 20261123-core-wdt-fix-898327dc0ca2
-
-Best regards,
---  
-Artur Kowalski <arturkow2000@gmail.com>
-
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
