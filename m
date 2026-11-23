@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795435251;
-	b=SPEhpGWVR/fQpUS16hlNTQkPfMZo+sdxsKI7I/gtA+TbNrlSUupV7qIM9CDmaiHXple2
-	 AUDRjbSMsdfaILIDPZ2EvBEriuytIXxbSH9ZbCUqXl+4duoC+1Pp3BHa3UI8GWmjIohr6
-	 O2SJYAngeNZ8AGQCyZKJE+K7qbWtQfZqAjX1wxp4kwDTcKa9Y4H4n3CpEw5RlVhFkpP2w
-	 WDGfkIvwBgO3J4dk1AghUhXED0FPLxViOrUyXT56aEcCUHZXik2j8qKZ18p3tDHHlqY2g
-	 HM8MA4/Gu7diTwdvM7jakWrQ5aBYgB26pT+sSTOmGpBZEjS5sF8ZgIoTiZ1daGkAyDg==
+	t=1795435299;
+	b=tUeINOt4BheZw22WwFfKAalWRbHmdGBKWBLNE1ECTKLg4sG3icVfgjt0S0VQ/lKSot1C
+	 03UTtft7ejFCEQ4EdgUbeD5e1fqCDCcx2iMRePqXp6uUN6VexM64AbIgdgVUnk/HFZ5mI
+	 vzm7OnU3WG+NxaQ20lBF07P8nmCkpCxRpGO+KQ9OKtD0zeGcC8xMNHraD58AjvCHoytBK
+	 41DdS28nFbPLTh1GiQiSlKL0Dy4w2WdiZRh0IL7zjvCIC+pTNdTO744qeusm1eobupl6r
+	 YXGdg3fl2XvrG/pITtoYi8K1fHR3LL26XdPD4uwCCKt0rY/Lv1ltSy3VLxWIgvjRZQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795435251;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=z8qg3U6Qej1tpAsWPfwFQnfSv2z3+luuDln9nLU+vFA=;
-	b=5tBfJNuxr5YsvkNJJFcEph1Z5zh2gXl9MYnm+iMrI4bhEOAlPjaYuDmy3hPKdwIngmyB
-	 wz4/X4VLmtr7q9IT3GS2cQsJ+Rc+F7sfhvK4kv37tsfLQSjCLVP1m4SJS9EiLBKmzBWyb
-	 MKXsej2CeQuuk6sqA5ya8z8adK7OB4U171ZvAI+F26qucS0PahLGtj/ua5LRtXeJp5Kmv
-	 pse689cxq6wEvXjJexlIGlJyGdE40rTOwnDAET8AwUfAEpP586/2Mk+iBGq3t/3PEis8L
-	 YmpeL2nkhxU0kWbGlRlnMqGm3t4IAlPW5N79EKFLaXDTNn++veI/d2lm9hYKMLbF76Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795435299;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=YnMwHbaiMPLKKj5/cjoUKKWrX4fraOVi4tcjJaxhKGA=;
+	b=apWBb3OX+V8uQGf2wDHvaFHo7MuMSK2ln+5wuU9xvt19n619DfGV9UYOlViH0vwb31qo
+	 isit47+R6g5EeebTgq80xRX8nyKZhNg6iy0dgHNi2ybNcxzMUlpn9Rrg6zqZz63oMZw+q
+	 Wzj239sV3Xrj5Bzk5OtHH05/72pVcof8CANRd7q3fztH8zdG1Eaj1NiZXispCHuXmSBHZ
+	 yp/1vAPy0t7+ZdzgeJByyJz8rq+GekARDY4nhZsJiVCW+mv/iz15sG7iCXrL7X/bmNfnx
+	 B79eUKFBcGN/Ux7WXJUN3d+tgeDJ2QIUBwGSPwXhR0WVsxCUlhtL6YWa/nyloPxjvnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b="ghMx/3dg";
-	arc=none smtp.remote-ip=185.70.43.16
-Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch [185.70.43.16])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gx0ANp02;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C809606A31A;
-	Mon, 23 Nov 2026 12:00:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C809606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A04C2606A31A;
+	Mon, 23 Nov 2026 12:01:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ghMx/3dg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795435247; x=1795694447;
-	bh=z8qg3U6Qej1tpAsWPfwFQnfSv2z3+luuDln9nLU+vFA=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=ghMx/3dg2zSJoKg0v4LkFmgAUSKTrtj4meQAd2seNAMRVfXTtmg1YxOln2MsOhJlr
-	 pZGQa6rX0m2gnWgBQZr0GnHkW51Uh6dus3KW6oDJP1LHR5h+om9Rnq2NCkdIBWOE/8
-	 VeloCQFtp7ed9geyWVbdZ9wDa7ruV5BigJpoA5oILwc4s2/bH/mjKPF2MQxfRiih+2
-	 n9PswQ7IuYeiLNfRF/i8581MXOhqX3quSCwkCxG9hDeLDxcAcZ74+t/dX+fZ0Hc4Rv
-	 RoKM1I4noQ3HNHsVbUzMsOek23H/M+TLbuaMJS46Ptt+q8hkAoAChVm7bXXc2eY1+k
-	 kse3Sh7kLUc8g==
-Date: Mon, 23 Nov 2026 12:00:40 +0000
-To: Alexander Letuchiy <asalde.le1@gmail.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Mattijs Korpershoek <mkorpershoek@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-serial@vger.kernel.org, linux-input@vger.kernel.org, phone-devel@vger.kernel.org
-Subject: Re: [PATCH v3 7/7] arm64: dts: mediatek: Add Xiaomi Poco X4 GT
-Message-ID: <cYX8v2leizSJfWjS_2dbkU2i6ApgjEKmgar6xjZopFQipSXW6YZNgjexWomHucqKghaTzW7oO5GN_jeNBM1MBy0u7aEDR2ygQ1s7x_L2jpA=@protonmail.com>
-In-Reply-To: <20261123-initial-mt6895-v3-7-95c46597e63d@gmail.com>
-References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com> <20261123-initial-mt6895-v3-7-95c46597e63d@gmail.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 9176670b887ca86ce9dd7243954764b2d1874340
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gx0ANp02
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB3501F000CA;
+	Mon, 23 Nov 2026 12:01:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795435298;
+	bh=YnMwHbaiMPLKKj5/cjoUKKWrX4fraOVi4tcjJaxhKGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Gx0ANp02D3JqsPCteetrYneO5TI7uhaEJAiEWrKK9CT6pfG3zvICVfDt/pKF4AUS1
+	 wjH/F8JgMqlbejuPZV4i7cnHpoT5hiMhxYminv2oVZ8U1FN6RhGkNZXYULR3JZ32wz
+	 AqKHhT+Nk5o26cGyhf7iRRivIhvsEOx01OGJWxrgMi9V1VueTy++XRlVzM6s0/lR8y
+	 sjbREv7VuybQ1hQat32YWzIIixStS98CasnwbVfZQn9YtwpgS/VWmZLeveHsziAvQY
+	 AQI9j3a4Tsmg83KJ1oNStNgKVP+J9MDshLWhatknLEfzn3ylvZp5q6FHV57HvQukWs
+	 bbkbwgUwO1bmQ==
+Date: Mon, 23 Nov 2026 12:01:34 +0000
+From: Simon Horman <horms@kernel.org>
+To: Changyul Lee <lcy8047@gmail.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH iwl-net] i40e: hold mac_filter_hash_lock while validating
+ VF cloud filters
+Message-ID: <20261123120134.GA31322@horms.kernel.org>
+References: <20261117031553.1728084-1-lcy8047@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,124 +63,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117031553.1728084-1-lcy8047@gmail.com>
 
-On Monday, November 23rd, 2026 at 1:20 PM, Alexander Letuchiy <asalde.le1@g=
-mail.com> wrote:
-
-> Add a device tree for the Xiaomi xaga board, which is sold as Xiaomi
-> Poco X4 GT, Redmi Note 11T Pro/Pro+ and Redmi K50i. It enables a serial
-> console on UART0 and the volume down key on the SoC keypad. The power
-> and volume up keys are connected to the MT6363 PMIC, which isn't
-> supported yet.
->=20
-> The DT only describes the memory that Linux itself uses, which is the
-> ramoops region. The bootloader updates the /memory node and adds the
-> firmware carveouts to /reserved-memory, so their addresses are not
-> hardcoded here. This DT must not be booted with a bootloader that does
-> not do this, as Linux would then use memory owned by the firmware.
->=20
-> The ramoops zone sizes place the console zone at the offset where the
-> bootloader expects to find it.
->=20
-> Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
+On Mon, Nov 16, 2026 at 10:15:53PM -0500, Changyul Lee wrote:
+> i40e_validate_cloud_filter() runs in the VF message path, which holds
+> neither RTNL nor vsi->mac_filter_hash_lock. It looks up the destination
+> MAC with i40e_find_mac() and walks vsi->mac_filter_hash for the VLAN
+> without the lock. Meanwhile the host can change the VF MAC or port VLAN
+> with i40e_ndo_set_vf_mac() or i40e_ndo_set_vf_port_vlan(), which delete
+> filters under the lock and free them in __i40e_del_filter() or
+> i40e_sync_vsi_filters(). The lookup and the walk can then read a freed
+> struct i40e_mac_filter.
+> 
+> Do the lookup and the walk under mac_filter_hash_lock, as
+> i40e_vc_add_mac_addr_msg() does, and do not use the filter after
+> dropping the lock.
+> 
+> Fixes: e284fc280473 ("i40e: Add and delete cloud filter")
+> Signed-off-by: Changyul Lee <lcy8047@gmail.com>
 > ---
->  arch/arm64/boot/dts/mediatek/Makefile              |  1 +
->  .../arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts | 87 ++++++++++++++++=
-++++++
->  2 files changed, 88 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/=
-mediatek/Makefile
-> index a86fb313b1a9..d73489149ab5 100644
-> --- a/arch/arm64/boot/dts/mediatek/Makefile
-> +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> @@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6795-evb.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6795-sony-xperia-m5.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6797-evb.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6797-x20-dev.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6895-xiaomi-xaga.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7622-rfb1.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7622-bananapi-bpi-r64.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7981b-cudy-wr3000-v1.dtb
-> diff --git a/arch/arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts b/arch/a=
-rm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts
-> new file mode 100644
-> index 000000000000..7bfe0d438803
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts
-> @@ -0,0 +1,87 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2026 Alexander Letuchiy <asalde.le1@gmail.com>
-> + */
-> +
-> +/dts-v1/;
-> +#include <dt-bindings/input/input.h>
-> +
-> +#include "mt6895.dtsi"
-> +
-> +/ {
-> +=09model =3D "Xiaomi Poco X4 GT";
-> +=09compatible =3D "xiaomi,xaga", "mediatek,mt6895";
-> +=09chassis-type =3D "handset";
-> +
-> +=09aliases {
-> +=09=09serial0 =3D &uart0;
-> +=09};
-> +
-> +=09chosen {
-> +=09=09stdout-path =3D "serial0:921600n8";
-> +=09};
-> +
-> +=09memory@40000000 {
-> +=09=09device_type =3D "memory";
-> +=09=09/* The size will be filled in by the bootloader */
-> +=09=09reg =3D <0x0 0x40000000 0 0>;
-> +=09};
-> +
-> +=09reserved-memory {
-> +=09=09ranges;
-> +=09=09#address-cells =3D <2>;
-> +=09=09#size-cells =3D <2>;
-> +
-> +=09=09/* The firmware carveouts are added by the bootloader. */
-> +
-> +=09=09ramoops@48090000 {
-> +=09=09=09compatible =3D "ramoops";
-> +=09=09=09reg =3D <0 0x48090000 0 0xe0000>;
-> +=09=09=09no-map;
-> +=09=09=09console-size =3D <0x40000>;
-> +=09=09=09ftrace-size =3D <0x10000>;
-> +=09=09=09pmsg-size =3D <0x10000>;
-> +=09=09=09record-size =3D <0x10000>;
-> +=09=09};
-> +=09};
-> +};
-> +
-> +&keypad {
-> +=09debounce-delay-ms =3D <32>;
-> +=09keypad,num-columns =3D <1>;
-> +=09keypad,num-rows =3D <1>;
-> +=09linux,keymap =3D <MATRIX_KEY(0, 0, KEY_VOLUMEDOWN)>;
-> +=09pinctrl-0 =3D <&keypad_pins>;
-> +=09pinctrl-names =3D "default";
-> +
-> +=09status =3D "okay";
-> +};
+> Found with a static analysis tool we are developing.
+> 
+> Compile-tested only, with x86_64_defconfig plus PCI_IOV, I40E and W=1.
 
-Nit: vendor,property should go after pinctrl.
+Thanks, as a fix this approach looks good to me.
 
-debounce-delay-ms
-pinctrl-0
-pinctrl-names
-keypad,*
-linux,keymap
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-status
+I do wonder if, as a follow-up for net-next, it would be worth
+factoring-out the basic filter check. It seems to lead to easier
+handling of unlocking on error. And as a bonus, tighter scoping
+of local variables.
 
-P.S. scripts/dtc/dt-check-style --mode stricter can be handy.
+Something along these lines (compile tested only!):
 
-Best regards,
-Roman
+diff --git a/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c b/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c
+index da1f1a9c4124..d4f0fb7b5996 100644
+--- a/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c
++++ b/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c
+@@ -3579,6 +3579,62 @@ static int i40e_vc_disable_vlan_stripping(struct i40e_vf *vf, u8 *msg)
+ 				       aq_ret);
+ }
+ 
++/**
++ * i40e_validate_basic_filter
++ * @vf: pointer to VF structure
++ * @tc_filter: pointer to filter requested
++ *
++ * This function validates a basic cloud filter programmed as TC filter for ADq
++ *
++ * Return: 0 on success, negative value on failure
++ **/
++static int i40e_validate_basic_filter(struct i40e_vf *vf,
++				      const struct virtchnl_filter *tc_filter)
++{
++	struct virtchnl_l4_spec mask = tc_filter->mask.tcp_spec;
++	struct virtchnl_l4_spec data = tc_filter->data.tcp_spec;
++	struct i40e_pf *pf = vf->pf;
++	struct i40e_mac_filter *f;
++	struct i40e_vsi *vsi;
++	struct hlist_node *h;
++	bool found = false;
++	int bkt, err;
++
++	vsi = pf->vsi[vf->lan_vsi_idx];
++	spin_lock_bh(&vsi->mac_filter_hash_lock);
++	f = i40e_find_mac(vsi, data.dst_mac);
++
++	if (!f) {
++		dev_info(&pf->pdev->dev,
++			 "Destination MAC %pM doesn't belong to VF %d\n",
++			 data.dst_mac, vf->vf_id);
++		err = -EIO;
++		goto out_unlock;
++	}
++
++	if (!mask.vlan_id)
++		goto out_unlock;
++
++	hash_for_each_safe(vsi->mac_filter_hash, bkt, h, f, hlist) {
++		if (f->vlan == ntohs(data.vlan_id)) {
++			found = true;
++			break;
++		}
++	}
++
++	if (!found) {
++		dev_info(&pf->pdev->dev, "VF %d doesn't have any VLAN id %u\n",
++			 vf->vf_id, ntohs(data.vlan_id));
++		err = -EIO;
++		goto out_unlock;
++	}
++
++	err = 0;
++out_unlock:
++	spin_unlock_bh(&vsi->mac_filter_hash_lock);
++	return err;
++}
++
+ /**
+  * i40e_validate_cloud_filter
+  * @vf: pointer to VF structure
+@@ -3592,11 +3648,6 @@ static int i40e_validate_cloud_filter(struct i40e_vf *vf,
+ 	struct virtchnl_l4_spec mask = tc_filter->mask.tcp_spec;
+ 	struct virtchnl_l4_spec data = tc_filter->data.tcp_spec;
+ 	struct i40e_pf *pf = vf->pf;
+-	struct i40e_vsi *vsi = NULL;
+-	struct i40e_mac_filter *f;
+-	struct hlist_node *h;
+-	bool found = false;
+-	int bkt;
+ 
+ 	if (tc_filter->action != VIRTCHNL_ACTION_TC_REDIRECT) {
+ 		dev_info(&pf->pdev->dev,
+@@ -3623,37 +3674,9 @@ static int i40e_validate_cloud_filter(struct i40e_vf *vf,
+ 	 *		  Trusted.
+ 	 */
+ 	if (mask.dst_mac[0] && !mask.dst_ip[0]) {
+-		vsi = pf->vsi[vf->lan_vsi_idx];
+-		spin_lock_bh(&vsi->mac_filter_hash_lock);
+-		f = i40e_find_mac(vsi, data.dst_mac);
+-
+-		if (!f) {
+-			spin_unlock_bh(&vsi->mac_filter_hash_lock);
+-			dev_info(&pf->pdev->dev,
+-				 "Destination MAC %pM doesn't belong to VF %d\n",
+-				 data.dst_mac, vf->vf_id);
+-			goto err;
+-		}
+-
+-		if (mask.vlan_id) {
+-			hash_for_each_safe(vsi->mac_filter_hash, bkt, h, f,
+-					   hlist) {
+-				if (f->vlan == ntohs(data.vlan_id)) {
+-					found = true;
+-					break;
+-				}
+-			}
+-		}
+-		spin_unlock_bh(&vsi->mac_filter_hash_lock);
+-
+-		if (mask.vlan_id) {
+-			if (!found) {
+-				dev_info(&pf->pdev->dev,
+-					 "VF %d doesn't have any VLAN id %u\n",
+-					 vf->vf_id, ntohs(data.vlan_id));
+-				goto err;
+-			}
+-		}
++		int err = i40e_validate_basic_filter(vf, tc_filter);
++		if (err < 0)
++			return err;
+ 	} else {
+ 		/* Check if VF is trusted */
+ 		if (!test_bit(I40E_VIRTCHNL_VF_CAP_PRIVILEGE, &vf->vf_caps)) {
