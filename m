@@ -1,88 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795472739;
-	b=lMZyunnjphToClUdw34i75wVbfV+rQqAlUkZbmJyuAtrjcInyDBMqJkpJyRqYXk7ThQ0
-	 5T5Xh1P6OsXTnfORYoakHdhaOFKu3PKIGOTWiz1Uh9Y1ejy201O5JfO5Xpx7sv+T9RQXX
-	 uzfTbIU1zj71BUvHDArfI1xffoKmS+THZyb+/bwpfOgdAEB0zIBM0Dw5MQ1YkbmX+yWrS
-	 o6OYiRTgkK14adjdDnRk2O9ceMX82A0iOzGpkY6IOZAK3+DzsD1GwFIiFux8FYZbxg2qM
-	 SFDVl5WRP0iYr+hl7k3qWbZgpPHmFWE3T46ClF7Y2SfOvlBQGz2+i1paQpRfZ+GYB2Q==
+	t=1795472751;
+	b=HEOixPCB2jXnK8LZxgqZIfUYyDdiBwLM84R0Rsz+Puye73u6LThmPrLM7BUXStcMQ9i2
+	 dRrYGW50cwjhUmDmnchG96o68gVETJ9pGWhn6EyQiaP49Yjja+QBtHakTl+VnYQ9Sm71C
+	 DufwwPDZrGvEieyysE4MXjpY0TegtGtA77C5UnaypJhSnp+8aU+AZRAS/FX/FGZegFJf0
+	 IHIrICJvLEp6XhePNnwgAD1pR0AtM+WXnckwBlqMBXSJoL9NtNrqXCAfLjzIsKIYnFnn3
+	 5DWg/+4k+ItcepJ4jD3t7loHEyvuQXWHHXCjkXjRBEJVFSzmkw0PmrL4t3J6/+6qK+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795472739;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=O1a7RAdIgYYpZ0y9e91WZapXgmnwOdHR9E+EflWRRo4=;
-	b=3avA6fvHsaW0pxYtWtZZolVXrDqNMwOlZCg8yToXnTAP1z+xgagpXkRl3MDGy5uEGtRx
-	 z1AZG0wiy5/72FAGVJza19mo5jXx+GRND6w/+fvyVEXgJ/T7oRpHo3WsN/SstIVugSHW5
-	 7xFJwEXR90iTkZVFJZYt02PZoNIn59fXIgN7CA+PtN1n6P41ihJ0fILiV/zBO/USK8WKD
-	 Cfa5MlputRe5PdgOTvm51xIhCkow7Fkp2uAmR+q1ANB9LraLQxn+ttvrGM5iQcsyF3cGM
-	 u28NCV/rmlo0ASJ9HgxHrKe51euwK5EWgQzecT48VvC/kdsNMi8UU/xkp88Vgh64zJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472751;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=JX+HHBcYrn3L5tSgwvRkhN44cZXQrgeMOcFjZIISQlg=;
+	b=culzhfyptZuUiTJzLLIV+s7Fxtf7ySihDYL/PdE3jlJxFy9q1N815DIy34BgT7VPrkXC
+	 jega/dXOLlqO45sYPhwkzul18YFiXAo7TIfZ+uj6v4C5ua8eA0VjSkYlqJ7ug3TZssyLX
+	 C6Gfm/6wyq5NWSKBefGDX2RXxMzM+tOoBpeBST6H/BdBUa7s4n6iV1Dd1yL+sUvejZvdL
+	 FmXacBzMllDxePVeK0mOMzDZksPFSKkimbUt7n4HVB+GKXQK9FInGUkMnUm+xuNx2eGih
+	 c91xfvC5+QrFnSZQxiNrtOLJGqj3BleWU+MSxJQ9SM/F5CfTi89xcYlNOq08/kKr9kA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=riscstar.com;
-	spf=pass smtp.mailfrom=riscstar.com;
-	dkim=pass header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=6LEkh1Wz;
-	arc=none smtp.remote-ip=209.85.161.45
-Received: from mail-oo1-f45.google.com (mail-oo1-f45.google.com [209.85.161.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=GhC6SClc;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA14C606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:25:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA14C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=riscstar.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=riscstar.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35406606A327;
+	Mon, 23 Nov 2026 22:25:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35406606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=6LEkh1Wz
-Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-71ac798b8bbso2504040eaf.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:25:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar.com; s=google; t=1795472737; x=1796077537; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=O1a7RAdIgYYpZ0y9e91WZapXgmnwOdHR9E+EflWRRo4=;
-        b=6LEkh1WzWlOSIoIIHWHHvGGe8ls6F5uMHZ1h/oA0Mfj/yUszyLlz328XQa9sRllh0p
-         tVUeWXGJcqXx9ToqGSMoiqIXv1E7puZXYIJTrpse7wiOimDRxg1VWeA9864K5z7DuTPa
-         iDKLedXwVP1geqUl+GNOhRu11khMsxrj3SrIfw0k2lxgSTTsR5qEBPlQsbzZzVqnOoyp
-         64/NqX3sCgdpxbp7WX7Cx1QzlVVorxFLiiLf2bE72H+3UlP6o4AQCaJn0Ru4kBM/y6Iz
-         /V/6jfXFmv49jLvEo9diYhTSYIrK3tnOyQodcRn6CIPXedblij46nG12w6shkcsVS0g1
-         UZAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795472737; x=1796077537;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=O1a7RAdIgYYpZ0y9e91WZapXgmnwOdHR9E+EflWRRo4=;
-        b=wf3xRCY+2oDCGQqtun2of1nIG7gfD342u3UMWqmMqQ95A1I0ZLltwvbS0mNQZvbOtD
-         NZOdpX/sSu8oZIueKEMlWHPVZEqgfWNBse+rD5AFnJnN75f6rtPXeDWTxzgNVYha6ZQO
-         WGLV1Shr1fng0Aic/4c9mSIkXcGpauqbwryEc6ZAV79xBp7ydbL9PshTTjUO1hu/Hscb
-         sU1Sih8p1BYWqzzhV3Iaj1IJdYgdgPMCpC9wQ6q4+esxXzLlorCzId8Ki+PoeYKJr8vz
-         ILrv9ZrBRx26RqrLyXy9ipJBsLDz0frS6+6eOUI5nVbSUdhNtPteYOgOfB+OtRe7WBQR
-         9rKA==
-X-Forwarded-Encrypted: i=1; AL+hErG826cAD020AYqhR/KKAKl9oZXMc9XA/+95vHswirQAjTip8rcSqHZPKv6TEioBFJvYg2MMtr8XBxFgTtA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/16LFosQglNXcpwrjMmZK8xhHEjbQwoMJUCjgohfE6v067I6+t
-	IxRxi9Hx3V4iptNn6AWp19w0LFUlON+qEzv2B0pCN3CDez0XtKfXawrqRArVRVk5wQg=
-X-Gm-Gg: AZFdTZdrMzxZG/zhi5Fyuvfy0g1ob1ZEhdD8XClIfgL99/n3XFVApn8shsZJ65epnlh
-	gIT9THxmgOiCVzPGoZXlIltmnGBs802uGgGyi8opHy5iKuggZTnGkSHUxJSE35yfyN2Y2WRUX90
-	LF4K1qkn2Ar6rjb9W9bbUKFiCkVaWGIPPWejgA12e3aD7gfGBF8Swr+kWTb/5Wxh63lxHYPTVxc
-	5ccFwFGU0q4tiEVaVzib9AeysLGqEQER0YOgBt9sYxic7QoFdfg2FmRRY+PpcHrkcmoEbxASoNX
-	AL0zhkNlYpgpIoX/xJFUpGInLq+aVREWjuDnaTiGIX4wBH9cllivNUemxSEhboBpRlZyu3ltJcI
-	bWHrVDvstOhfj87aHWDiSnDKa5KAkT3mzAze4XI5TrFlg7c4oMxFfty98wp8R+VolRaYCDQMPGn
-	rrajk/YSX6QxulEni5+d//bHYcsMoGGn/zqlh2w5TGGN2TxPy0ektvpMmBknTFPlc8mFPkLppW9
-	isFzTMdo4EUHtXJxDBEdHDeTm2X9EUdA2shNfMvpIC28thoNS9TXzjLk8fzcvx9v3H+cC7V1VaF
-	LTwG6jddTlJo3SsvbBhBfkbj7LxQ4a8j
-X-Received: by 2002:a05:6820:1391:b0:71a:dd93:2974 with SMTP id 006d021491bc7-71b39039602mr10599042eaf.0.1795472737591;
-        Mon, 23 Nov 2026 14:25:37 -0800 (PST)
-Received: from [172.22.22.28] ([76.156.233.211])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm8511306eaf.13.2026.11.23.14.25.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 14:25:37 -0800 (PST)
-Message-ID: <ca6115bb-1c45-408a-be55-68b74977a380@riscstar.com>
-Date: Mon, 23 Nov 2026 16:25:36 -0600
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=GhC6SClc
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795472748;
+	bh=fGAAPcKd6neM53/qNC4krvVR7BMl/k9dOCzKOiSZl1w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=GhC6SClc0hZW2vieXL75I5S4Soj0UI262Mm8goxTT6F5gkpZ4O/dfD47hr+sJ1C1P
+	 BSMKy51uiY/6vKfZFPa2n82onhcR5sA2l057o8ynNoi0EatkmAswyxUj6L7rvTLjMb
+	 o3GkgI3axQtvTGp1UGx4Ye2h/U/B82kz4Sw5DZyhjPKWzn9LULLK+45M+VJJgGCdZw
+	 CthGBLlHQybBawW4rJBYTY6uh3lwrsYEYcCLRUObc+wk77ldDxQhCdX7IwI8fz5AO7
+	 K3LNbTOLVjswX0eKA6l+zDSbvKguMKzvI2yX1VOKK4lZmqltLqzV9Nm2wdZUX2qJvh
+	 tNe+CueCnVl/g==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 05B7517E0DB6;
+	Mon, 23 Nov 2026 23:25:45 +0100 (CET)
+Message-ID: <24a2298a6aaa561990b38fe6aabd1a6734c01982.camel@collabora.com>
+Subject: Re: [PATCH v2 1/3] media: uapi: mpeg2: add MPEG-1 flags
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: aiyengar1990@gmail.com, Hans Verkuil <hverkuil@kernel.org>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>, Philipp Zabel	 <p.zabel@pengutronix.de>,
+ Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski	 <paulk@sys-base.io>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Chen-Yu Tsai
+ <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland	 <samuel@sholland.org>
+Cc: Jonas Karlman <jonas@kwiboo.se>, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, Christian Stefan
+ =?ISO-8859-1?Q?K=F6v=E9r-Draxl?=	 <ckoever@outlook.de>
+Date: Mon, 23 Nov 2026 17:25:44 -0500
+In-Reply-To: <20261121-b4-cedrus-mpeg1-v2-1-95e4decf03fa@gmail.com>
+References: <20261121-b4-cedrus-mpeg1-v2-0-95e4decf03fa@gmail.com>
+	 <20261121-b4-cedrus-mpeg1-v2-1-95e4decf03fa@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-4L4mp99RXxCJlUHtrXto"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,64 +95,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] remoteproc: qcom: Skip unregistering uninitialised
- SSR subdevice
-To: Lee Jones <lee@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Rishabh Bhatnagar <rishabhb@codeaurora.org>,
- Siddharth Gupta <sidgup@codeaurora.org>, Alex Elder <elder@kernel.org>,
- linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-References: <20261123172140.3547896-1-lee@kernel.org>
- <20261123172140.3547896-9-lee@kernel.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20261123172140.3547896-9-lee@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+
+--=-4L4mp99RXxCJlUHtrXto
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+Le samedi 21 novembre 2026 =C3=A0 10:10 +0000, Arun Iyengar via B4 Relay a =
+=C3=A9crit=C2=A0:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+>=20
+> Stateless MPEG-2 decoders can decode MPEG-1, but the uAPI cannot say a
+> stream is MPEG-1, and decoding it as MPEG-2 is wrong: MPEG-1 has its own
+> inverse quantisation mismatch control, full pel motion vectors and
+> D-pictures.
+>=20
+> Add V4L2_MPEG2_SEQ_FLAG_MPEG1, V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD and
+> _BACKWARD, and allow V4L2_MPEG2_PIC_CODING_TYPE_D for MPEG-1. Drivers
+> that cannot decode MPEG-1 or D-pictures reject them, also in
+> VIDIOC_TRY_EXT_CTRLS. Kernels without this change accept the flag and
+> decode the stream as MPEG-2.
+
+We require open source users to demonstrate the usage of new APIs. You coul=
+d try
+and port either ffmpeg or gstreamer. Considering how hard these are to find=
+, its
+pretty historical kind of stream, you should document few known sources too=
+.
+
+Nicolas
+
+>=20
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
+>  .../media/v4l/ext-ctrls-codec-stateless.rst        | 34 ++++++++++++++++=
+++++--
+>  drivers/media/v4l2-core/v4l2-ctrls-core.c          |  1 +
+>  include/uapi/linux/v4l2-controls.h                 |  3 ++
+>  3 files changed, 36 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-statel=
+ess.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.r=
+st
+> index d7a3b8ef03a7..f51017b5d6f0 100644
+> --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+> +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+> @@ -1317,6 +1317,22 @@ FWHT Flags
+>        - 0x01
+>        - Indication that all the frames for the sequence are progressive =
+instead
+>  =09of interlaced.
+> +    * - ``V4L2_MPEG2_SEQ_FLAG_MPEG1``
+> +      - 0x02
+> +      - The sequence is an ISO/IEC 11172-2 (MPEG-1) sequence: the invers=
+e
+> +=09quantisation uses the MPEG-1 mismatch control, motion vectors may be
+> +=09full pel and pictures may be D-pictures. Drivers that cannot decode
+> +=09MPEG-1 reject this flag, also in ``VIDIOC_TRY_EXT_CTRLS``. MPEG-1 has
+> +=09no sequence or picture extensions: applications set the fields that
+> +=09come from them to chroma_format 1, V4L2_MPEG2_SEQ_FLAG_PROGRESSIVE,
+> +=09frame pictures with V4L2_MPEG2_PIC_FLAG_FRAME_PRED_DCT and
+> +=09V4L2_MPEG2_PIC_FLAG_PROGRESSIVE, intra_dc_precision 0, the flags
+> +=09V4L2_MPEG2_PIC_FLAG_Q_SCALE_TYPE, V4L2_MPEG2_PIC_FLAG_INTRA_VLC,
+> +=09V4L2_MPEG2_PIC_FLAG_ALT_SCAN, V4L2_MPEG2_PIC_FLAG_CONCEALMENT_MV,
+> +=09V4L2_MPEG2_PIC_FLAG_TOP_FIELD_FIRST and
+> +=09V4L2_MPEG2_PIC_FLAG_REPEAT_FIRST cleared, both components of
+> +=09``f_code[0]`` set to forward_f_code and of ``f_code[1]`` to
+> +=09backward_f_code.
+> =20
+>  .. raw:: latex
+> =20
+> @@ -1366,8 +1382,12 @@ FWHT Flags
+>      * - __u8
+>        - ``picture_coding_type``
+>        - Picture coding type for the frame covered by the current slice
+> -=09(V4L2_MPEG2_PIC_CODING_TYPE_I, V4L2_MPEG2_PIC_CODING_TYPE_P or
+> -=09V4L2_MPEG2_PIC_CODING_TYPE_B).
+> +=09(V4L2_MPEG2_PIC_CODING_TYPE_I, V4L2_MPEG2_PIC_CODING_TYPE_P,
+> +=09V4L2_MPEG2_PIC_CODING_TYPE_B, or V4L2_MPEG2_PIC_CODING_TYPE_D in MPEG=
+-1
+> +=09sequences). Decoding D-pictures is optional: drivers that cannot
+> +=09decode them reject V4L2_MPEG2_PIC_CODING_TYPE_D, also in
+> +=09``VIDIOC_TRY_EXT_CTRLS``, which applications can use to find out
+> +=09whether D-pictures are supported.
+>      * - __u8
+>        - ``picture_structure``
+>        - Picture structure (1: interlaced top field, 2: interlaced bottom=
+ field,
+> @@ -1415,6 +1435,16 @@ FWHT Flags
+>      * - ``V4L2_MPEG2_PIC_FLAG_PROGRESSIVE``
+>        - 0x00000080
+>        - Indicates whether the current frame is progressive.
+> +    * - ``V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD``
+> +      - 0x00000100
+> +      - full_pel_forward_vector of an MPEG-1 picture header: the forward
+> +=09motion vectors are in full pel units. Only valid with
+> +=09V4L2_MPEG2_SEQ_FLAG_MPEG1.
+> +    * - ``V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD``
+> +      - 0x00000200
+> +      - full_pel_backward_vector of an MPEG-1 picture header: the backwa=
+rd
+> +=09motion vectors are in full pel units. Only valid with
+> +=09V4L2_MPEG2_SEQ_FLAG_MPEG1.
+> =20
+>  .. raw:: latex
+> =20
+> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4=
+l2-core/v4l2-ctrls-core.c
+> index 6e751a043a21..a12359626121 100644
+> --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> @@ -1049,6 +1049,7 @@ static int std_validate_compound(const struct v4l2_=
+ctrl *ctrl, u32 idx,
+>  =09=09case V4L2_MPEG2_PIC_CODING_TYPE_I:
+>  =09=09case V4L2_MPEG2_PIC_CODING_TYPE_P:
+>  =09=09case V4L2_MPEG2_PIC_CODING_TYPE_B:
+> +=09=09case V4L2_MPEG2_PIC_CODING_TYPE_D:
+>  =09=09=09break;
+>  =09=09default:
+>  =09=09=09return -EINVAL;
+> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2=
+-controls.h
+> index d17e41d51d2e..e7e6030ac00c 100644
+> --- a/include/uapi/linux/v4l2-controls.h
+> +++ b/include/uapi/linux/v4l2-controls.h
+> @@ -2007,6 +2007,7 @@ struct v4l2_ctrl_vp8_frame {
+>  /* Stateless MPEG-2 controls */
+> =20
+>  #define V4L2_MPEG2_SEQ_FLAG_PROGRESSIVE=090x01
+> +#define V4L2_MPEG2_SEQ_FLAG_MPEG1=090x02
+> =20
+>  #define V4L2_CID_STATELESS_MPEG2_SEQUENCE (V4L2_CID_CODEC_STATELESS_BASE=
++220)
+>  /**
+> @@ -2055,6 +2056,8 @@ struct v4l2_ctrl_mpeg2_sequence {
+>  #define V4L2_MPEG2_PIC_FLAG_ALT_SCAN=09=09=090x0020
+>  #define V4L2_MPEG2_PIC_FLAG_REPEAT_FIRST=09=090x0040
+>  #define V4L2_MPEG2_PIC_FLAG_PROGRESSIVE=09=09=090x0080
+> +#define V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD=09=090x0100
+> +#define V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD=09=090x0200
+> =20
+>  #define V4L2_CID_STATELESS_MPEG2_PICTURE (V4L2_CID_CODEC_STATELESS_BASE+=
+221)
+>  /**
+
+--=-4L4mp99RXxCJlUHtrXto
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
-On 11/23/26 11:20 AM, Lee Jones wrote:
-> If qcom_ssr_get_subsys() fails in qcom_add_ssr_subdev(), the function
-> logs an error and returns early without calling rproc_add_subdev(),
-> leaving ssr->info NULL and ssr->subdev.node uninitialised.  When driver
-> probe unwinds or the device is later removed, qcom_remove_ssr_subdev()
-> unconditionally calls rproc_remove_subdev(), dereferencing a NULL list
-> pointer in list_del().
+-----BEGIN PGP SIGNATURE-----
 
-At first I thought a failure seen in qcom_add_ssr_subdev() should
-mean that qcom_remove_ssr_subdev() never gets called.  But now
-I see that doesn't return any error, hence the check for a null
-ssr->info pointer is necessary here.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawS9aAAKCRDZQZRRKWBy
+9DjeAQD/AB413RIOudh7Noe1qnnb5Kzj1Cmq6mZZKtnd2um+CAD/fcf5tS7LToUl
+fYVwwCwQ4ktac4g5XWrf68wO+Afn0wE=
+=9OjG
+-----END PGP SIGNATURE-----
 
-So... this looks good to me.
-
-Reviewed-by: Alex Elder <elder@riscstar.com>
-
-> Guard qcom_remove_ssr_subdev() on ssr->info being non-NULL, matching the
-> GLINK and SMD subdevice teardown helpers.
-> 
-> Fixes: 5abfe5cf0b83 ("remoteproc: qcom: Add per subsystem SSR notification")
-> Closes: https://sashiko.dev/#/bug/linux-5594c348-0c41-4482-b001-481878256d30
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
-> ---
->   drivers/remoteproc/qcom_common.c | 3 +++
->   1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/remoteproc/qcom_common.c b/drivers/remoteproc/qcom_common.c
-> index c53190f0c537..6fd92c33392b 100644
-> --- a/drivers/remoteproc/qcom_common.c
-> +++ b/drivers/remoteproc/qcom_common.c
-> @@ -537,6 +537,9 @@ EXPORT_SYMBOL_GPL(qcom_add_ssr_subdev);
->    */
->   void qcom_remove_ssr_subdev(struct rproc *rproc, struct qcom_rproc_ssr *ssr)
->   {
-> +	if (!ssr->info)
-> +		return;
-> +
->   	rproc_remove_subdev(rproc, &ssr->subdev);
->   	ssr->info = NULL;
->   }
-
+--=-4L4mp99RXxCJlUHtrXto--
