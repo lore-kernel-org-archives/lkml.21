@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795393549;
-	b=YuFJN9+RkESyoDtcTspvcmu3dhnz7JA7YcgeFr0yEGpbALrLnDqpjgIv8CtljueuUNVR
-	 3BeqOrO87XaLUkdtGQ0w7Y+b9/eVEFZM60VcQ8jZG7heRFX8VRcsjXR21+zoSaUnzV5mL
-	 Ew2b9wCTPcYYlDYOrxnYjizp2jTij4VNZtL2KkTaqS30QNGJMXqnA26nixkjnAsVLbGXj
-	 2b09WeCLLZjArPqZlfcSgyAR/uqZ6qjzrugKfoBhWEdRU9Gwr0teYC1feLsMjrQqzU7B5
-	 1F/IyxvvKZENhtbK+xTAgStpXM829IWjDcni9RoBHsS1SK4B1TgTbp/2LC82AvD4d6g==
+	t=1795393545;
+	b=QAxAP4SznzHD0fRZyz3N89IoSeBuYW5e6yy+cPsRD6zZJ5ZQthdXCYfjq2oHtiTCR4Lt
+	 dvY5lBWkhE0k6qrHFihAzmFBpxaryL7HRhVLIo27X4y1H0FYjzV7e7/Pg5WWMUmxSa5MD
+	 8dLfICKm8etQ16yRO+hJVSrSWx4Cac9Qa/ucOvnsfWyNFSQqP9Z5Nb+9MUAHsGKWxGlxk
+	 /u7JLqbmcBm2rpd6OqfoDtKL/QFpfa/xuWoBGewI92dcmEDVN7iVTP9XPaCIhJCWVHRr7
+	 SWS4Qo9hn8FYidk/NlFO/MGx3kr3Wuhb59p6dINp9xRvniwtiOuMv679vXAY6KHn5CA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795393549;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393545;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=x3ncCyWJI0oNs/+akg/GeXDiW5NuNouBcyrkOXqIEmI=;
-	b=bUwNo85VlxGop1n4zdASVV7OeWdFpU9lRrbHBomGY/221BpRJUqlbCvRZT28J1abFqbC
-	 YBjMFraXU531Ue/VvCo4FhA0o8g73xtla0WKb4RNsxtQCnEn/Fz+dGOeXyMTRBufgDYnp
-	 7zIZXcL5U4pbn1EuGEsVtZWO4hzjvhn3BcFcpgzo3I2maQWPOgC80EiZOWT034/dOn5rG
-	 2CmGOrJBqirjEw6vTnh3DxG55wJiRg/qRKU5Cvasv/zZ1IcNKqbWgmIvtguqPVtsWu/th
-	 TlFrXhCyX5D4NPdDzU9vDZ11VDq47TIK1Yp3C80+N53nfE3ISmLT/4TomaEmbXPQj4w==
+	bh=maWlAAFqQjxbn3YXaSl729CQEIP7qAtbCEyOK+WjJsc=;
+	b=pdvwqzur3Ub2LWiyVPU7n2ML57Zx/IVhuhEML7cEgGaUCI+a5r82rSLuurm3lWzdbEi7
+	 EnuGAg/HLG/Ggh9hY4/7gJ+WE/8xxeT66/jlRaWCz6EbmxWByyEvM5xL8q/T5xWrJUz6G
+	 yn0/whzQgL6sOiJQHHbrtKNe+zfoRju/daZp87+VCKXH1FkGRz2UwuBqKX4Jtqz4PZV/M
+	 MBXn41THL+6wlBWgIPhOTzl4KFzHObFa5wIvnNFCXfRY3g0MUPA0MzFJ3BZkPkSFP1im6
+	 6xKWIjJtCg18+MqzcZl9jc+42pPYNVEEPVAEdQMDUHOPw5hsRGEWxHZN/nqgXf2Um4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jLxLY0EQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="f2liLc8/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48DF6606A32A;
-	Mon, 23 Nov 2026 00:25:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DD07606A335;
+	Mon, 23 Nov 2026 00:25:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jLxLY0EQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F33B1F000ED;
-	Mon, 23 Nov 2026 00:25:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f2liLc8/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AC6B1F000D8;
+	Mon, 23 Nov 2026 00:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795393548;
-	bh=x3ncCyWJI0oNs/+akg/GeXDiW5NuNouBcyrkOXqIEmI=;
+	s=k20260515; t=1795393545;
+	bh=maWlAAFqQjxbn3YXaSl729CQEIP7qAtbCEyOK+WjJsc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jLxLY0EQ58PO4v6I43woUnmoZ86qP0MzRdtY3vCShfUCa6m/FgHIARViAp915MLT7
-	 vA9mWnhbaQJOB3BvR1eeLpcH1jdabug45lLOGy4zKp2WaHgmNxy/rdki7y0HokcYm4
-	 1IwLtB89Jm2Kh8bPsYvuXkX2kn/CMpDqHtzh9koNDQho9aIzpZfAUsFAYC4vS87eMi
-	 oWQO9Ti13HKJdspf6xAzUybHDCV+4v180paTtVVmS9x3ip6zGARW5W6IPrKwQ4mDE1
-	 vnwKu1pVjsnlUoyyUC2TXCG9uiReQb3uCMh+19YFYenLDEUhNiWB7IIpAyWU1GG+ji
-	 1Gdv+0TVXpxPQ==
-Subject: Re: [PATCH net-next v5 4/4] net: remove rcu_barrier() from
- __dev_change_net_namespace()
+	b=f2liLc8/SHgTB9PUk9mec04JNXtmqa8gXddil96Ml7wb9kv12fqEI1je63EiYLRHx
+	 2msCpGjcZ2nQNkFqyHRZzedssasz2+tnct3goH2yWeiG1K+XnZy0bqn2UShrytZlKt
+	 n4pk9lFjFArorDthKm96ztCm9hWueP//ZXgVxAVm/ihf2p6Q57FAk9gZnnlD240nAd
+	 7o44Du5ovfGz/9olrdZ+zZPI/gRpItwzk2WI9bJX2y/yWY/xmq1CNZj6D0uEAK3r0S
+	 3NSng6n8dnPdmp9n7520dkDNIJmuvrBivF6rGeE+w4w5I9K9LUUB0GXqSBku9Wn8Xk
+	 qR1XZN+vUoqnA==
+Subject: Re: [PATCH net-next v5 2/4] ipv6: take fib6_sernum from a sequence
+ shared by all netns
 From: netdev-bot+sashiko@kernel.org
 To: qiliang.yuan@linux.dev
 Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
  pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
  razor@blackwall.org, kuniyu@google.com, ralf@mandelbit.com,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 00:25:47 +0000
-Message-ID: <179539354761.3135.3163461672937357719@kernel.org>
-In-Reply-To: <20261121-bug-net-netns-move-rcu-barrier-v5-4-100a3b5d9090@linux.dev>
-References: <20261121-bug-net-netns-move-rcu-barrier-v5-4-100a3b5d9090@linux.dev>
+Date: Mon, 23 Nov 2026 00:25:43 +0000
+Message-ID: <179539354386.3135.18364920527227915268@kernel.org>
+In-Reply-To: <20261121-bug-net-netns-move-rcu-barrier-v5-2-100a3b5d9090@linux.dev>
+References: <20261121-bug-net-netns-move-rcu-barrier-v5-2-100a3b5d9090@linux.dev>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +65,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,218 +76,117 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] Removing rcu_barrier() from __dev_change_net_namespace()
-  (net/core/dev.c, right after…
-- [Medium] net: race in __dev_change_net_namespace() leaves moved dev on
-  xfrm_dst
-- [Medium] net: missing dst_dev_put() wait in
-  __dev_change_net_namespace()
+- [Medium] Once the shared fib6_sernum_seq has wrapped, a bump in
+  fib6_new_sernum() (net/ipv6/ip6_fib.c) can set a netns' fib6_sernum to…
+- [Low] The commit message has no Fixes: tag and does not mention stable.
 
 --
 
-net: remove rcu_barrier() from __dev_change_net_namespace()
+ipv6: take fib6_sernum from a sequence shared by all netns
 
-This patch removes the rcu_barrier() that follows the NETDEV_UNREGISTER
-notifier call in __dev_change_net_namespace(). The commit message says the
-barrier is left over from NETDEV_UNREGISTER_FINAL handling. It also says
-routes cached through the moved device are rejected by the rt_genid and
-fib6_sernum checks once the device's netns changes.
+This patch makes fib6_new_sernum() draw every fib6_sernum bump from one
+sequence shared by all netns. The sequence hands out values from 2 to
+INT_MAX and then wraps to 2. The goal is that a per-cpu nexthop route
+cached against one netns no longer matches the sernum of another netns
+after its device moves. rt6_is_valid() also now rejects sernum 1, the
+value every netns starts with.
 
-> diff --git a/net/core/dev.c b/net/core/dev.c
-> index 1a63f6b939f70..88dcd30f59d22 100644
-> --- a/net/core/dev.c
-> +++ b/net/core/dev.c
-> @@ -13168,7 +13168,6 @@ int __dev_change_net_namespace(struct net_device *dev, struct net *net,
->  	 * the device is just moving and can keep their slaves up.
->  	 */
->  	call_netdevice_notifiers(NETDEV_UNREGISTER, dev);
-> -	rcu_barrier();
+> diff --git a/net/ipv6/ip6_fib.c b/net/ipv6/ip6_fib.c
+> index e1d49897d6ab0..71490edb01e99 100644
+> --- a/net/ipv6/ip6_fib.c
+> +++ b/net/ipv6/ip6_fib.c
+> @@ -123,12 +123,38 @@ static void fib6_walkers_skip_rt(struct net *net, struct fib6_info *rt)
+
+[ ... ]
+
+> +static atomic_t fib6_sernum_seq = ATOMIC_INIT(1);
+> +
+> +static int fib6_sernum_draw(void)
+> +{
+> +	int new, old = atomic_read(&fib6_sernum_seq);
+> +
+> +	do {
+> +		new = old < INT_MAX ? old + 1 : 2;
+> +	} while (!atomic_try_cmpxchg(&fib6_sernum_seq, &old, new));
+> +
+> +	return new;
+> +}
+
+[ ... ]
+
+>  static int fib6_new_sernum(struct net *net)
+>  {
+>  	int new, old = atomic_read(&net->ipv6.fib6_sernum);
 >  
->  	new_nsid = peernet2id_alloc(dev_net(dev), net, GFP_KERNEL);
+>  	do {
+> -		new = old < INT_MAX ? old + 1 : 1;
+> +		new = fib6_sernum_draw();
+>  	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
 >  
+>  	return new;
 
 [Severity: Medium]
-Is there still anything that makes dst_dev_put() run on the old
-netns's cached routes before the device is usable in the new netns?
+Once fib6_sernum_seq has wrapped, can fib6_new_sernum() publish the value
+the netns already holds?
 
-For IPv4 routes with fi->nh == NULL, the per-cpu and exception routes
-are only released from free_fib_info_rcu(), through fib_nh_release()
-and fib_nh_common_release(). For IPv6 routes with f6i->nh == NULL,
-fib6_drop_pcpu_from() clears pcpu_rt->from at purge time but does not
-call dst_dev_put(). That only happens in fib6_info_destroy_rcu(),
-through fib6_nh_release() and fib6_nh_release_dsts(). Both callbacks
-are queued from NETDEV_UNREGISTER. The rcu_barrier() removed here was
-what made them run before dev_net_set().
+Suppose a netns publishes V and then makes no more bumps. Meanwhile other
+netns make about 2^31 - 2 bumps through route add/del, PMTU exceptions or
+flushes. The next draw for this netns can then return V again:
 
-The synchronize_net() at the end of __dev_change_net_namespace() only
-waits for a grace period, not for those callbacks to be invoked. So
-they can still be pending after the move returns and the device has
-been brought up in the new netns.
+fib6_new_sernum()
+    old = atomic_read(&net->ipv6.fib6_sernum);   /* V */
+    new = fib6_sernum_draw();                    /* V again after the wrap */
+    atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new);  /* succeeds */
 
-Until they run, dst->output is still ip_output() or ip6_output()
-rather than dst_discard_out. dst->dev_rcu also still points at the
-moved device. Some users never go through dst_check(). A corked UDP
-or RAW socket in the old netns keeps the dst it got in ip_setup_cork()
-or ip6_setup_cork(). On uncork, udp_push_pending_frames() reaches
-__ip_make_skb(), which moves cork->dst onto the skb, and then
-ip_send_skb() and dst_output(). The corked packet would then go out
-through the device in the new netns.
+The callers then write V onto nodes that already hold V:
 
-Socket offload setup has the same problem. get_netdev_for_sock() (used
-by tls_set_device_offload() and tls_set_device_offload_rx()),
-net_devmem_get_sock_binding(), smc_clc_prfx_set(),
-smc_clc_prfx_match(), smc_vlan_by_tcpsk() and
-smc_pnet_find_roce_resource() read dst_dev_rcu(__sk_dst_get(sk))
-without sk_dst_check(). In this window they would bind to the moved
-device rather than blackhole_netdev.
+  - fib6_add() via __fib6_update_sernum_upto_root()
+  - fib6_update_sernum_upto_root()
+  - fib6_update_sernum() from rt6_insert_exception()
+  - fib6_flush_trees() via __fib6_clean_all()
 
-The window is narrow. The callbacks have to still be pending after the
-final synchronize_net(), and the device has to be up in the new netns.
-Still, the commit message reasons only from the rt_genid and
-fib6_sernum checks, and none of these paths use them. Can the barrier
-be removed without first releasing these dsts some other way? For
-example, would a synchronous dst_dev_put() at NETDEV_UNREGISTER work
-when the device is moving?
+So the bump has no effect.
 
-[Severity: Medium]
-Can an xfrm bundle still be built on the moved device after this?
+Would cookie-validated dsts then still pass fib6_check() and rt6_check(),
+and would nexthop per-cpu dsts with sernum V still pass rt6_is_valid()?
+If so, sockets would keep stale routes after a new more-specific route,
+an exception insert or a flush, until the next real bump.
 
-ip_route_output_flow() and ip6_dst_lookup_flow() take a reference on
-the base route and drop rcu_read_lock() before calling
-xfrm_lookup_route(). xfrm_policy_queue_process() also passes
-xfrm_dst_path(skb_dst(skb)) for skbs on pq->hold_queue straight to
-xfrm_lookup(), without a dst_check(). None of these callers sit inside
-an RCU read section, so the synchronize_net() before dev_shutdown()
-does not wait for them.
+The old formula (old < INT_MAX ? old + 1 : 1) could never return a value
+equal to old. Would drawing again while new == old be enough to close
+this?
 
-For a normal FIB route, dst_dev_put() on the cached per-cpu routes
-only happens from free_fib_info_rcu() and fib6_info_destroy_rcu().
-NETDEV_UNREGISTER queues both with call_rcu(). The removed
-rcu_barrier() made sure those callbacks had pointed the dsts at
-blackhole_netdev before dev_net_set(dev, net) and NETDEV_REGISTER.
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index 4a4c5ace63c54..6731665fbb16d 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -1466,7 +1466,11 @@ static struct rt6_info *ip6_rt_pcpu_alloc(const struct fib6_result *res)
+>  
+>  static bool rt6_is_valid(const struct rt6_info *rt6)
+>  {
+> -	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
+> +	/* Reject the initial sernum, which every netns shares and which a
+> +	 * route can record before its insertion bumps the sernum.
+> +	 */
+> +	return rt6->sernum != 1 &&
+> +	       rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
+>  }
 
-Without the barrier, NETDEV_REGISTER in the target netns can run
-ipv6_add_dev() and install a new inet6_dev in dev->ip6_ptr while the
-callbacks are still pending. Suppose xfrm_bundle_create() or
-xfrm_create_dummy_bundle() runs in that window:
+[Severity: Low]
+This isn't a bug, but should the commit message carry a Fixes: tag, and
+possibly a Cc: stable line?
 
-net/xfrm/xfrm_policy.c:xfrm_bundle_create() {
-    ...
-	dev = dst_dev_rcu(dst);
-	if (!dev || !netif_is_alive(dev)) {
-    ...
-}
+The comparison in rt6_is_valid() and this line in ip6_rt_pcpu_alloc()
+both come from commit 8f34e53b60b3 ("ipv6: Use global sernum for dst
+validation with nexthop objects"):
 
-dst_dev_rcu(dst) still returns the moved device. netif_is_alive() is
-true because reg_state stays NETREG_REGISTERED during the move.
-xfrm4_fill_dst() and xfrm6_fill_dst() then netdev_hold() the device.
-xfrm6_fill_dst() also takes in6_dev_get(dev), which is now the target
-netns's inet6_dev. The xfrm_dst then goes onto rt_uncached_list or
-rt6_uncached_list, but rt_flush_dev() and
-rt6_uncached_list_flush_dev() have already run for this move.
+    pcpu_rt->sernum = rt_genid_ipv6(dev_net(dev));
 
-Would this leave an xfrm_dst in the old netns that sends or queues
-packets through the device in its new netns? It would also hold device
-and inet6_dev references that the flush for this move already missed.
+That line stores the sernum of the creating netns on per-cpu nexthop
+routes.
 
-The commit message argues from the rt_genid and fib6_sernum checks.
-These paths, though, hold the base route across the move and do not
-recheck it before building the bundle. Was the xfrm case considered?
-
-A plain synchronize_net() in place of the barrier would not cover
-this. It waits for readers, not for the queued callbacks to be
-invoked. Is there something else that orders free_fib_info_rcu() and
-fib6_info_destroy_rcu() before NETDEV_REGISTER in the new netns?
-
-[Severity: Medium]
-
-Without this barrier, is there still a grace period between the IPv4
-teardown in the old netns and dev_net_set(dev, net) plus NETDEV_REGISTER?
-
-Only two waits remain. One is the synchronize_net() before dev_shutdown(),
-which runs before the notifiers. The other is the synchronize_net() at the
-end, which runs after the switch.
-
-An IPv4 output lookup in the old netns that starts after the first
-synchronize_net() can still pick the moving device as dev_out. One way in is
-ip_route_output_key_hash_rcu() with saddr set, oif 0 and a multicast or
-limited broadcast daddr:
-
-net/ipv4/route.c:ip_route_output_key_hash_rcu() {
-    ...
-		if (fl4->flowi4_oif == 0 &&
-		    (ipv4_is_multicast(fl4->daddr) ||
-		     ipv4_is_lbcast(fl4->daddr))) {
-			/* It is equivalent to inet_addr_type(saddr) == RTN_LOCAL */
-			dev_out = __ip_dev_find(net, fl4->saddr, false);
-    ...
-}
-
-The device's addresses stay in the hash until inetdev_destroy() runs at
-NETDEV_UNREGISTER.
-
-A host-scope route through the device is another way in.
-fib_create_info() sets fib_nh_scope = RT_SCOPE_NOWHERE for it, and
-fib_sync_down_dev() with force == false skips that scope at NETDEV_DOWN.
-
-Suppose that reader is preempted under PREEMPT_RCU, or stalled some other
-way, until after dev_net_set(). It then resumes in __mkroute_output() and
-calls rt_dst_alloc(), which takes the genid from the device's current
-netns:
-
-net/ipv4/route.c:rt_dst_alloc() {
-    ...
-		rt->rt_genid = rt_genid_ipv4(dev_net(dev));
-    ...
-}
-
-At that point this is the new netns's genid. On the multicast/broadcast
-path fi is NULL, so the route goes onto the uncached list. rt_flush_dev()
-has already run for the old netns by then.
-
-The validity check reads the same netns:
-
-net/ipv4/route.c:rt_is_expired() {
-    ...
-	res = rth->rt_genid != rt_genid_ipv4(dev_net_rcu(rth->dst.dev));
-    ...
-}
-
-So ipv4_dst_check() would accept the dst. Can a socket in the old netns
-then hold a dst that passes the check while its device belongs to the new
-netns? That would last until the new netns bumps rt_genid through
-NETDEV_UP, an address add or a route insert.
-
-Between dev_activate() and the NETDEV_UP flush, packets would go out
-through the device in the other netns.
-
-The shared genid sequence from "ipv4: draw rt_genid from a sequence shared
-by all netns" doesn't seem to help here, because the stored value really is
-the new netns's genid.
-
-The old rcu_barrier() covered this case. NETDEV_UNREGISTER always queues
-RCU callbacks (neigh_parms_release(), inet_free_ifa()), and waiting for
-them needs a grace period that covers the stalled reader.
-
-Given that, does this part of the commit message hold for this
-interleaving?
-
-    Routes cached through the moved device are rejected once its
-    netns changes: IPv4 and per-cpu IPv6 routes no longer match the rt_genid
-    or fib6_sernum of another netns
-
-The IPv6 nexthop object case looks unreachable this way. There,
-ip6_rt_pcpu_alloc() takes sernum from dev_net(dev), but
-nexthop_flush_dev() removes those nexthops at NETDEV_DOWN, before the first
-synchronize_net().
-
-Would replacing rcu_barrier() with synchronize_net() be enough here? Under
-RTNL that is an expedited grace period. It costs much less than
-rcu_barrier() but still makes readers from the teardown phase finish before
-the switch.
-
-Another option might be to take rt_genid from the netns of the lookup
-rather than from dev_net(dev).
+Without Fixes: 8f34e53b60b3, stable backporters and automated stable
+selection cannot tell which kernels need this fix.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121-bug-net-netns-move-rcu-barrier-v5-0-100a3b5d9090%40linux.dev
