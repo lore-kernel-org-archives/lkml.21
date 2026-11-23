@@ -1,68 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.15
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795457684;
-	b=nbIE6ozgHuIxe0sRhj44xyOMGKoziueiBSDxluBEDwgZHlR+pTg4gSD2Qreg1L9U/XBB
-	 kyvUIgfqtk5OqFBJx2oD0CX/+f5iHSjG8lWa3c0fxYpHIWW456wYeHOXO68VCq08dXieb
-	 VmO6lQKsrxdXlyWFKV20Cy9PlObRc4g3rAiSIWxBW86XiH3j2X9azdCRNCRQJNmJHpnLn
-	 ER6GTTB8Q5RSKJyBuiUzJZm1+gGFFg+gnzk3FPBLgMk8MELzDy1LDOY2MzgGfNLK16eTB
-	 i9TvxmxZuxc/oml+5o7mf6tVysXgZxlrSSZTdXlMQ7WGeyEq2r8eMJdUNP9kQGEnGmw==
+	t=1795457748;
+	b=QmdTWqAmUkh6mFno5Cbcq2eV1cpozwHbAxiSjXRecGbnH1nXP0fWxYXIHCMr1rLE/0+1
+	 WlEmj/q8mEzaIKQvS5xhXvCBcq/QCHBxzzSYNrB6n+A3TWjIejOXT/sJLgEKUsVYVJKzs
+	 BTN4DKfjG+FUoHNYHLfQ+Z/94qZ9CpHRqnSgkp4Igme7lErPKLyoT6Xl3wHJuN8jpVafE
+	 /b7449Tblq7aqLVTIPcSuHRy81T5GnTfZLWazqM9soqLgWWcpec0rOnn1bfGw88C8s8xC
+	 2HkEhpgRwUTQ515P5mjGviCymGZZfld4YQtBp/jc+WMe7DmyJ3kHNLeiib27Ooc80gQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457684;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-ZohoMailClient;
-	bh=yOy40zyrDNkufLfX1+5C1rSlLdTXQCSrlMTkU/yGIbE=;
-	b=kxNu6xUoBJwWoOhPdgksddAZjI4E7g2CDNpCHvlWmQJG8zmR5332m3sSUiQaWETveVuw
-	 5vIOwKbtAgFnZRBR7aKkTmQpxrzbRbLFf8OQqBqfOaUItJRRiIPL+i8lBwzFCw5GAuzle
-	 lLyAWTJUoIbAGNB0MzQlHDkFaCrbDT6/opCnF0OEzbeAaQAi3WO6SpmoISPUalSvHfdiV
-	 5Ohc191kBfeKX3kBA/Ti6fITS/Hz5YraL+eTliA/DZSZXkhs0GX8ZqT/UPA+VfiziQdmK
-	 5A0UUF+09LCjwW7G96QcAFMrh19nu5eWTr8jqGe2Qd6aOvPh+R9ApoCe3FVO2omzaEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457748;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
+	b=huVGzlE3CCDBaqDTEG6RfwtK/WDWkwAsBDfJuO2bm6s9DQw7fZ+o1LuN5puQaljSXPcv
+	 ObvTnj5t6EimI3nuXgkzP9NRQG4Ug+6gDGSD2iO/+VOuhtzBvlJAOKMwxS5qFD4DGO2fg
+	 J5mVmPCtRqK+NG4EwG2gBnA8JBKuiBnvppvs/BHMCI3lVx/QXx6gRWxNsRJdeoVGLMwMe
+	 0mHegU9QZG/GOUAFnnT90UGtZJvIszviWvljy4pz74yquJobEeCIndFfnezzM5+c44J1g
+	 yBJAcdPd2nCTlT6XxLKGCSFg5ubM8CaEZCDsQVdWh7VL7YQzgMcpenn0pJGs+02jNig==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=laveeshbansal.com;
-	spf=pass smtp.mailfrom=laveeshbansal.com;
-	dkim=pass header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b="WUZJWl/W";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.15
-Received: from sender5-op-o15.zoho.com (sender5-op-o15.zoho.com [165.173.182.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QAvQ0XWo;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.182
+Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com [209.85.128.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74173606A31A;
-	Mon, 23 Nov 2026 18:14:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74173606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=laveeshbansal.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=laveeshbansal.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD6AC606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:15:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD6AC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b=WUZJWl/W
-ARC-Seal: i=1; a=rsa-sha256; t=1795457656; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GO/PQr/knQKRwutlrxpwmQnlF4ufiC1/MxPjTAEzuUQ1JguR57eiMoVdXUD1X0AUduAakU6A5sLNMSyGaFSYW7Sp4oR8jNmF2f5WP04t0LCn25Up5MlHbWvURM+l4L9OwnxpM9F/ALmJf7zgJXHXmzEk04rjIWqUagq70iDzuFw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795457656; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=yOy40zyrDNkufLfX1+5C1rSlLdTXQCSrlMTkU/yGIbE=; 
-	b=awhHWwnYOwCb3N6C0YPM59LdRm3Y5BtyaYEuTOhHe7hijdDD+gIFhTAMqLfheZiDkFuQdnb0E/xEh03lFogFBLQx3zcoKpGGK+gX2/GEiP3POJFhYC0VQw8BFzCIzGQc7bpnmV4r6dAmaOrNqa72f56FOXjS9zSU0veebSdWEc0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=laveeshbansal.com;
-	spf=pass  smtp.mailfrom=laveeshb@laveeshbansal.com;
-	dmarc=pass header.from=<laveeshb@laveeshbansal.com>
-DKIM-Signature: a=rsa-sha256; b=WUZJWl/WqOw+OCdZAhZQPiZ+P3MWrUa09CnEksyxXKsCB/Am4F1s50PJq0XhRWHTAPRz+UgEEK3KWCFOlcBNZ/xAFnk4XDXHVjt5GNseG/05CMmBT1aXVCLIhdsUht96tV/TvlU4ZfIVrSNekJMUVAR2wWzv/mHlX1xFmtcjGQk=; c=relaxed/relaxed; s=zoho; d=laveeshbansal.com; v=1; bh=yOy40zyrDNkufLfX1+5C1rSlLdTXQCSrlMTkU/yGIbE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795457654842487.56845822427283;
-	Mon, 23 Nov 2026 10:14:14 -0800 (PST)
-From: Laveesh Bansal <laveeshb@laveeshbansal.com>
-To: Jens Axboe <axboe@kernel.dk>,
-	Eric Biggers <ebiggers@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>,
-	"Theodore Y. Ts'o" <tytso@mit.edu>,
-	Jaegeuk Kim <jaegeuk@kernel.org>,
-	syzbot+20d60aafd9a0d1f2a380@syzkaller.appspotmail.com,
-	linux-block@vger.kernel.org,
-	linux-fscrypt@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] blk-crypto: use a NOIO scope while holding profile->lock
-Date: Mon, 23 Nov 2026 10:14:08 -0800
-Message-ID: <20261123181408.62972-1-laveeshb@laveeshbansal.com>
-X-Mailer: git-send-email 2.54.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QAvQ0XWo
+Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-8b4cd576f2aso26772127b3.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:15:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795457747; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rfHa23iqZmRCwtcSVa0+h8VWlPyacZ/ccfBGEPby0hUhxd+h+2KZrrqsjJSt3oOjUz
+         KpV5zYA8kB7s+mQejpY7BB/xwrP6D9TGsxIbJcie1iR4/vag9HrL64Um9AcJ7KS4a11j
+         Jscfk3T0Cs/rrMWMGyLwHWaI+5ruhSLok/dEyGfqCrW3Luwai8ndp+jxPnZooXCUk2K1
+         xwZW5w0z0CZR2ucwXJl6AKhk+PspAuUWHkTsyXBeuvssFKgArHf1k+N9JQIFeGqK0eii
+         +siQYctoi2DL1MWe3IXaWTHcezdD9HNK2ug+B/aHLYQrvs3PyGKyaoioCxaoFvUWnBKj
+         j3hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
+        fh=x5LgXrRM2Dc3Tm1cxzqtwAt5je/oVXk995POctBVVQ0=;
+        b=JIGCcHdP7/EWbBz0DcRcR+sdNhAvBSH+XSHohWWHGS2ker60bZgRJQNSjRwDdtlnzg
+         Jg+pgh4MP5VqV6572j0RE1xPFHNir5QcgDAlC2uA/O2S5XvreVGwAEeJc0eGKsufShw8
+         7eV5eSvAG5eSNjIIICzmb1rdvwySLCA2y/pULxg9U3zIVPLxmSz/JjpCm1EzqNB7Ru4n
+         UgpypTm6rrecslxsZI0Q/UVOsaL0kT94cp8MhxLxPMFzox+K72HG/QMXFPFTLWKjnmx1
+         8WK5XUKSDDSBBtxgB0RyXTTyyCZIbSZnayq2O7zDQqzhFtKEHV22kFCHMv/8EspqzAWg
+         Okhw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795457747; x=1796062547; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
+        b=QAvQ0XWo0tcExbNOFzJESQZNbHYBLhpD32HKNvni4HEhtOqZEL5GCt+suncaWlBUiO
+         FZtlYyNOqn9GHma1eRgPcYdd0NoljW9zR1Rc3Q6xInR6kvJqQNoPNRRrvYNNLbRwErFT
+         C5Xb2wcOQSFScBdI2yQWvbeXEHGwhJMNY699xitU3dlCIUs7wu1tGJEo+Yar4GHnXN0U
+         wLc//ydgb6yiwdJhE/yc8kHeO5YrOdlZnMqS9IH1XC7S+sN200e2Re8+RSKxq2UlZI6C
+         C4TtJme+P2FM5uP3jC74YS73mzHG34FPYNDILJ0QBlMq6nWOwr9hYQ0pZ6Zj3bui1vtz
+         H+nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795457747; x=1796062547;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nMsBK5JZkeseYTz3X1TgvJ2SrDeEmSZ7YqTTt41Yzdk=;
+        b=Wwp3TdEm8caWmAYhrMkr0qjzfFydA6n5aFylabH9uv6uFO4M21VuzUOPBtTMqW9m4p
+         9QLx4Xl/3xJ2bpD2s/K2zmdjCuo4rYmMj0JVtGOsIlTN+OORCz3hktjEY6rj7azhJSvO
+         XU563OPBn+im6ulHjweyxXjhqU7Z/AjT7MZ8YIs0sS8PaesJhFOtc9h6LZgrNdS0+20k
+         5MIHxiMTGXCFfh2EBrIuoDV2OQUz74Wp3XNEL3mCGpVpYWH+Kw963SO8K5Y/sGh7L7kA
+         atf6c3ovhfStt2OfhsMLvjSNXvib6TOUxDQ5mnehfoe44hafKG0NvBCNwGydecBr0XmB
+         y4iw==
+X-Forwarded-Encrypted: i=1; AL+hErF3mxdEBsC40HOhiWqV8mlNzHMThvx4Q8hH6CHyMk/so//49r7Buy8ns7ul6n4BZzWrT3KYvIh+x18Cm8g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+suQjE5OFZsTtXemYvG3V/liYFCLmH78n4O/LQgeEHkrw5EqF0
+	fvMdlmJLtl6cpo/ZMI/QJONvEksMNMEsd7ZbYX2s4W9P1f3vkOgbw1C0/rI23CgKaxApU+4I861
+	xFyKwPVHS55haiwPNvb5V/zHAI3QdjT8=
+X-Gm-Gg: AZFdTZdXpUrpuHsGrGRIFWIo0jD98W9ef3b9CmA5KA8eZUSeNWUg0m5Dfbd/+oZH5Gb
+	vtz/Kw3h/0gproPYF+VlO60Sd+288+QsapRTSomRKCYg6kd0bpI8lN8BtP9/u5iuGMhMzqn9B0q
+	/MWsMITez194HWugFP7upmMZ/10OPr/6Eexwg1etcjf/SjVvBC9uRT7pYhA4lS58t5Pb1YpQxJX
+	szdutIyd0S13ZiWhBYn1N6bD5YWzqQemuzIAoDFOOOXyemaoRwQgXsawP94n8wHtvQAVRFeOvUV
+	PsDGRlCqX/0LOz1GYdRlZGWwJOovVxfSo7I1YrZNR7xE6tAxZIooDSG9+8WSp085NibHHWuWQ8q
+	mepi47u6751z1/5IMN7A9R3HkWPLGlqwZePKazSI+wxokNfNVo9NVHhZ7j0Zi+wvRT9cettLUNf
+	oY6BQBsi+7rueoNrA=
+X-Received: by 2002:a05:690c:797:b0:8ae:87e7:9ab8 with SMTP id
+ 00721157ae682-8b5205437abmr48277337b3.67.1795457746844; Mon, 23 Nov 2026
+ 10:15:46 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,131 +105,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+References: <20261121-vmlinux-lds-v1-0-49818f3f5cc0@gmail.com>
+ <20261121-vmlinux-lds-v1-6-49818f3f5cc0@gmail.com> <a6fdcd6d4bce5ace3b4e34d1393f5cfe58e17c0d.camel@perches.com>
+In-Reply-To: <a6fdcd6d4bce5ace3b4e34d1393f5cfe58e17c0d.camel@perches.com>
+From: jim.cromie@gmail.com
+Date: Mon, 23 Nov 2026 11:15:20 -0700
+X-Gm-Features: Aa3M54oFOAYf6UTkbI4OQkVdZIf4cCrnHVvp22FVwZTxOnodSxK6PbkkLux5L8g
+Message-ID: <CAJfuBxxJMwrBKTrwC8RoLKRs7uBBPrgfWmPom_r49JmnOPvMvQ@mail.gmail.com>
+Subject: Re: [PATCH 6/6] checkpatch.pl: generalize linker script macro exceptions
+To: Joe Perches <joe@perches.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Jason Baron <jbaron@akamai.com>, 
+	Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
+	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Aaron Tomlin <atomlin@atomlin.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-modules@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Setting a key in blk-crypto-fallback can deadlock on profile->lock.
-blk_crypto_get_keyslot() holds it across keyslot_program, whose setkey
-allocates with GFP_KERNEL (Adiantum); direct reclaim can evict an fscrypt
-inode, and blk_crypto_evict_key() then takes profile->lock again. syzbot
-reports it as an fs_reclaim vs profile->lock cycle. Since
-commit 5acc6f649a68 ("fscrypt: Always use blk-crypto for contents on
-block-based filesystems") hitting it no longer needs -o inlinecrypt.
+On Sat, Nov 21, 2026 at 7:27=E2=80=AFPM Joe Perches <joe@perches.com> wrote=
+:
+>
+> On Sat, 2026-11-21 at 15:49 -0700, Jim Cromie via B4 Relay wrote:
+> > From: Jim Cromie <jim.cromie@gmail.com>
+> >
+> > checkpatch skips macro-rule checks in linker scripts; 3 of them
+> > explicitly check for vmlinux.lds.h, and 1 (the 1st) skips on any
+> > *.lds.h.  Generalize the 3 to match the 1st, including the escapes on
+> > the dots, so they're literal checks for '.'
+>
+> Please remember to email the checkpatch maintainer too.
 
-Enter a NOIO scope in blk_crypto_hw_enter() and leave it in
-blk_crypto_hw_exit(), so allocations made under the lock, by the
-fallback or a hardware driver, can't recurse into the filesystem. The
-saved flags live in the profile. blk_crypto_reprogram_all_keys() takes
-the lock directly, so it gets the same scope.
+ack.
+I missed that b4 prep -c didnt add you.
 
-Fixes: 488f6682c832 ("block: blk-crypto-fallback for Inline Encryption")
-Cc: stable@vger.kernel.org # v7.3+
-Reported-by: syzbot+20d60aafd9a0d1f2a380@syzkaller.appspotmail.com
-Closes: https://lore.kernel.org/r/6a9b25c3.b5d4176b.238c3e.0004.GAE@google.com
-Signed-off-by: Laveesh Bansal <laveeshb@laveeshbansal.com>
----
-I used an LLM for the analysis, the patch and the test runs.
+>
+> >
+> > Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+> > ---
+> >  scripts/checkpatch.pl | 6 +++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+> > index b8b64f720191..318e1f2577fd 100755
+> > --- a/scripts/checkpatch.pl
+> > +++ b/scripts/checkpatch.pl
+> > @@ -6016,7 +6016,7 @@ sub process {
+> >  # Usually multi-statement macros should be enclosed in a do {} while
+> >  # (0) loop.  Grab the first statement and ensure its the whole macro
+> >  # if its not enclosed in a known good container
+> > -             if ($realfile !~ m@/vmlinux.lds.h$@ &&
+> > +             if ($realfile !~ m@/\.lds\.h$@ &&
+>
+> Probably better to have something like
+> my $is_linker_file =3D '\.lds\.h$';
+> or maybe
+> my $is_linker_file =3D '\Q.lds.h\E$';
+>
+> and use that everywhere
 
-Changes in v2:
- - Moved the NOIO scope from the two setkey calls into
-   blk_crypto_hw_enter()/blk_crypto_hw_exit(), as Christoph suggested,
-   and added it to blk_crypto_reprogram_all_keys().
- - The scope now also covers the hardware drivers' keyslot callbacks. I
-   could not test those; it only narrows reclaim for them.
-v1: https://lore.kernel.org/r/20261122213120.20974-1-laveeshb@laveeshbansal.com
+yup.
 
-Tested on arm64 and x86_64 (QEMU, base c44104f3642d, KASAN and lockdep;
-patched runs include comment-only revisions): f2fs with an Adiantum
-policy, creating encrypted files and reading them back with O_DIRECT
-under a memory hog, about a minute per run. Runs showing each symptom:
-
-                                              base      v2
-  lockdep cycle warning, arm64                2 of 2    0 of 8
-  lockdep cycle warning, x86_64               6 of 6    0 of 12
-  task deadlocked on its own lock, arm64      0 of 2    0 of 8
-  task deadlocked on its own lock, x86_64     5 of 6    0 of 12
-  lockdep cycle warning, x86_64 as uid 65534  2 of 2    0 of 2
-  task deadlocked, x86_64 as uid 65534        1 of 2    0 of 2
-  profile->lock -> fs_reclaim edge in
-    lockdep's dump (runs that got to it)      3 of 3    0 of 18
-
-No KASAN reports. Under the hog memory runs out, and 3 of the 12 x86 runs
-stalled in page allocation, two without finishing; base stalls the same
-way. In one, the task holding profile->lock was waiting in the setkey
-allocation with kswapd queued behind it. That stall began earlier, in the
-RAM-backed disk's own allocation, and lockdep reported nothing: NOIO stops
-the allocation recursing into key eviction, not a wait for free memory.
-
-fstests -g encrypt on arm64 passes on f2fs and ext4. Could not reproduce
-on ext4; fstests not run on x86_64.
-
- block/blk-crypto-profile.c         | 7 +++++++
- include/linux/blk-crypto-profile.h | 1 +
- 2 files changed, 8 insertions(+)
-
-diff --git a/block/blk-crypto-profile.c b/block/blk-crypto-profile.c
-index 53126c091b0b..395829fe7bcc 100644
---- a/block/blk-crypto-profile.c
-+++ b/block/blk-crypto-profile.c
-@@ -29,6 +29,7 @@
- #include <linux/atomic.h>
- #include <linux/mutex.h>
- #include <linux/pm_runtime.h>
-+#include <linux/sched/mm.h>
- #include <linux/wait.h>
- #include <linux/blkdev.h>
- #include <linux/blk-integrity.h>
-@@ -53,11 +54,14 @@ static inline void blk_crypto_hw_enter(struct blk_crypto_profile *profile)
- 	if (profile->dev)
- 		pm_runtime_get_sync(profile->dev);
- 	down_write(&profile->lock);
-+	/* Reclaim evicts keys under this lock; don't recurse into the fs. */
-+	profile->memflags = memalloc_noio_save();
- }
- 
- static inline void blk_crypto_hw_exit(struct blk_crypto_profile *profile)
- 	__releases(&profile->lock)
- {
-+	memalloc_noio_restore(profile->memflags);
- 	up_write(&profile->lock);
- 	if (profile->dev)
- 		pm_runtime_put_sync(profile->dev);
-@@ -397,6 +401,7 @@ int __blk_crypto_evict_key(struct blk_crypto_profile *profile,
-  */
- void blk_crypto_reprogram_all_keys(struct blk_crypto_profile *profile)
- {
-+	unsigned int memflags;
- 	unsigned int slot;
- 
- 	if (profile->num_slots == 0)
-@@ -404,6 +409,7 @@ void blk_crypto_reprogram_all_keys(struct blk_crypto_profile *profile)
- 
- 	/* This is for device initialization, so don't resume the device */
- 	down_write(&profile->lock);
-+	memflags = memalloc_noio_save();
- 	for (slot = 0; slot < profile->num_slots; slot++) {
- 		const struct blk_crypto_key *key = profile->slots[slot].key;
- 		int err;
-@@ -414,6 +420,7 @@ void blk_crypto_reprogram_all_keys(struct blk_crypto_profile *profile)
- 		err = profile->ll_ops.keyslot_program(profile, key, slot);
- 		WARN_ON(err);
- 	}
-+	memalloc_noio_restore(memflags);
- 	up_write(&profile->lock);
- }
- EXPORT_SYMBOL_GPL(blk_crypto_reprogram_all_keys);
-diff --git a/include/linux/blk-crypto-profile.h b/include/linux/blk-crypto-profile.h
-index 4f39e9cd7576..9209b6a14b98 100644
---- a/include/linux/blk-crypto-profile.h
-+++ b/include/linux/blk-crypto-profile.h
-@@ -174,6 +174,7 @@ struct blk_crypto_profile {
- 	 */
- 	struct rw_semaphore lock;
- 	struct lock_class_key lockdep_key;
-+	unsigned int memflags;
- 
- 	/* List of idle slots, with least recently used slot at front */
- 	wait_queue_head_t idle_slots_wait_queue;
--- 
-2.43.0
-
+>
+> > @@ -6175,7 +6175,7 @@ sub process {
+> >
+> >  # check for line continuations outside of #defines, preprocessor #, an=
+d asm
+> >
+> > -             } elsif ($realfile =3D~ m@/vmlinux.lds.h$@) {
+> > +             } elsif ($realfile =3D~ m@/\.lds\.h$@) {
+>
+> >                   $line =3D~ s/(\w+)/$maybe_linker_symbol{$1}++/ge;
+> >                   #print "REAL: $realfile\nln: $line\nkeys:", sort keys=
+ %maybe_linker_symbol;
+> >               } else {
+> > @@ -6192,7 +6192,7 @@ sub process {
+> >  # single-statement macros do not need to be enclosed in do while (0) l=
+oop,
+> >  # macro should not end with a semicolon
+> >               if ($perl_version_ok &&
+> > -                 $realfile !~ m@/vmlinux.lds.h$@ &&
+> > +                 $realfile !~ m@/\.lds\.h$@ &&
+> >                   $line =3D~ /^.\s*\#\s*define\s+$Ident(\()?/) {
+> >                       my $ln =3D $linenr;
+> >                       my $cnt =3D $realcnt;
