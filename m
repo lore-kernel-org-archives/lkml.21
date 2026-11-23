@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430177;
-	b=hCuae8pMP6F6kqwTdL838Qgn6ymJwwszl3Z2W6W8dAdCxAs615jfISaiUx8meDVb/077
-	 K2D+2kzg0dGP7Kadwdl2265oU1ETkw02meQF4eL+Cb94NT75jId5x/JX/WcPF3N1Xhwel
-	 JHYgMmDMNGSqfKgOIlu2SdISxLwLPScYqEby0WllOOWRdc2CdfEzuSdm8xpRX/mCJi6qD
-	 pBCxaSXlTlVksUNxmClR8oA5nTMJRn/6m9RW8DWh6HyAaXmFkQay6mAQvcVpYMIXHhLea
-	 DHLp99bqYprbN0jKamb1Pom8qblJ0Cm/jkW0y280kStaGaHfaBnx+U5BJh3RABhPMJw==
+	t=1795430213;
+	b=XHqV5VHXACkOfM1mTBM/jbphqR/uhgJlzjz3FRHzrnpqRMZg4/U19SDbnxyc1Uuhh+6Z
+	 Gx3BQcDOQFiISNpYjB1L3EKlJ8N0otyjxVy6iEA/zZjzf8V/rNnYzKZ786pxgDn4wNJzP
+	 e61fHiLqN7jeFYVmP6frDvTO50tyiO3ie5J4AtfXmxD6dL53Fw9kBw/E9AtUHq1hKr3kT
+	 oSWzFY322wjRf3Byk2WT4jUn9Fs0+DfIWrWfM5T/cBeOyRsZeIiTowOIA/kVX5Nmz9884
+	 2k7V6+nVgRVpEViiPuTq4xuPQXkVTfaJlduk8B44ASDNutY/J62o3CVkCryy/WsPWpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430177;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=KVAwAmpRSmknIyClKub1M0gfNyqLqu3C1IfFJjeNKqg=;
-	b=4OBkO6PbPghRtemqc25tTb2dCMldBmqYepzSwCydYjstbknh0tfGQ2EqPpiHV1SVlj9m
-	 JAqgdvmGMghtscaBBPqt2lQu8l8LVi0GhrK4n/9pzqUoIlzwE+IIlp7IGKvj+R6zTx6dm
-	 GB5BOOpPOpfZXvj/HGY5jlYZSG4orsRQsf8lnGDSErfP9kGO/tmdkBauuXkflpG5rz2Da
-	 yvVymlDpM47dyjrY2l1nm3Iv9LJmpweHByiLaOiEVXw6Bb9gCDfUoHz3+r20uw0reh2v+
-	 uKcaEjaPC8apNy2OEz8MFy2MsV1LyQdRf6DgD4N2irrtO3wvFoAwYKq2MYoppPF4caA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430213;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=uDIyL8csS0OafYWL+DTmNWGdhbsOuiWOQJkObodqJlE=;
+	b=0g4d5LFxy+mTJx5+onRRiplcvYN8wu1csUrnGn4+doGdqs1TlfaZXemzE8whJXOvlesk
+	 QT/gPoAwTXPOGkTKo/ng1UnN/aMhMZ+09q7tDarPo90zHXXF0e+5XoZBbznBxcatpBpqr
+	 H1sKd63s3lOOtlPiwdTIMZCJKbAHewvfoKO6IUyoJqqEiyoywPUrpdAZdmOdFazO8Q+kf
+	 jNPqH97HyOO2w0W/w/KAncfamC0StB4hu8y85bbBb/NYk8sthnCCom5SfNGxAg8+4fEIH
+	 MClnB/956wo82fcktita7koZS2Uxgf+S71cF2KAiZ9y+wNfg8ZOBon5l8HTQMXnXfUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NJDj6yV5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D37ED606A31A;
-	Mon, 23 Nov 2026 10:36:17 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=pkO3cxgd;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 37113606A31E;
+	Mon, 23 Nov 2026 10:36:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37113606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NJDj6yV5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64CCF1F000CF;
-	Mon, 23 Nov 2026 10:36:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795430176;
-	bh=KVAwAmpRSmknIyClKub1M0gfNyqLqu3C1IfFJjeNKqg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NJDj6yV5Kqnr0nqj5198k/VbhCfX8/6rBbAUmZDNrc6V1L7pCIsUncqFhtGiUS62T
-	 BO4D9BcDIlgbOF5gPfuC4FShYUISn70oRGgoOVnpdZki7NP6hhcwTu6LogDo+o+/l8
-	 WxLFN2UzSVyYnmsdqaFuM5sHsjxZw4tcQlIV5IJJdjkSg1aWcNpJ5wED7hpnLytwYt
-	 CJvM8LnzKGny2rIjM/pF2Ayt/Zi/nGIUXsaVqU2UjIUXJY4A3TGfdks7cOCKFCOIVc
-	 j9cXvtcjhm7/bkBdej6DHDo6HO5rU8+tXFo5nHg0FZ5koRsaEifAUsOov36Fu2A8e2
-	 qPCm//Z8BABDA==
-Date: Mon, 23 Nov 2026 11:36:13 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Linus Walleij <linusw@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 13/13] arm64: dts: synaptics: add SL2610 family RDK
- boards
-Message-ID: <20261123-vivid-godlike-hoatzin-3a818d@quoll>
-References: <20261115102401.3520-1-jszhang@kernel.org>
- <20261115102401.3520-14-jszhang@kernel.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=pkO3cxgd
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62F0A143D;
+	Mon, 23 Nov 2026 02:36:49 -0800 (PST)
+Received: from [10.57.91.245] (unknown [10.57.91.245])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25D723F632;
+	Mon, 23 Nov 2026 02:36:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795430212; bh=zxMgJ0Zod2wpdsyWepEtw4oVnjAoyPgBY3VWNAhnP7M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pkO3cxgdC1Ma9566c7PDIZgUyDTw/GTPNKPYUHG2BR63OXTEzzEQs+CraFnUg2myV
+	 5AIDh+wbSitzPRL3+3WA0saItk2Mgsq01o/7l++5BdhZ2n1FKd8uE58qHfkf3GUHTD
+	 ozS0U8gq/7uNSrzNX6QhEEhYJr4uc0eTMD/zGtko=
+Message-ID: <5b0a26ee-30b0-4a79-9cca-9848dc9d65c5@arm.com>
+Date: Mon, 23 Nov 2026 10:36:48 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,67 +53,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261115102401.3520-14-jszhang@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: mm: Don't defer the barriers when installing a
+ fixmap entry
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Kevin Brodsky
+ <kevin.brodsky@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261120121638.194154-1-fuad.tabba@linux.dev>
+ <20261120121638.194154-4-fuad.tabba@linux.dev>
+ <6782b5ee-3dfe-4076-a79c-fbeb2c2ac7da@arm.com>
+ <CA+EHjTziXrRdR+guikKbj93Az96T+AMx_=0sVeyWG5C4fwaaTg@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CA+EHjTziXrRdR+guikKbj93Az96T+AMx_=0sVeyWG5C4fwaaTg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 15, 2026 at 06:23:52PM +0800, Jisheng Zhang wrote:
-> +/ {
-> +	aliases {
-> +		serial0 = &sm_uart0;
-> +		serial1 = &sm_uart1;
-> +		serial2 = &sm_uart2;
-> +		serial3 = &sm_uart3;
-> +		serial4 = &soc_uart0;
-> +		serial5 = &soc_uart1;
-> +		serial6 = &soc_uart2;
-> +		serial7 = &soc_uart3;
-> +		i2c0 = &sm_i2c0;
-> +		i2c1 = &sm_i2c1;
-> +		i2c2 = &soc_i2c0;
-> +		i2c3 = &soc_i2c1;
-> +		spi1 = &sm_spi1;
-> +		spi2 = &soc_spi0;
-> +		spi3 = &soc_spi1;
-> +		spi4 = &soc_spi2;
-> +		spi5 = &soc_spi3;
-> +	};
-> +
-> +	cpus {
-> +		cpu@0 {
-> +			cpu0-supply = <&vcore>;
-> +		};
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +		bootargs = "earlycon";
+On 23/11/2026 07:35, Fuad Tabba wrote:
+> Hi Ryan,
+> 
+> On Sat, 21 Nov 2026 11:01:49 +0000, Ryan Roberts <ryan.roberts@arm.com> wrote:
+> [...]
+>>> kernel then warns about a spurious translation fault. When kgdb stops a
+>>> CPU in lazy MMU mode, its breakpoint writes through FIX_TEXT_POKE0 can
+>>> fault the same way, and fail.
+>>>
+>>> Emit the barriers directly in __set_fixmap().
+>>>
+>>> Fixes: 5fdd05efa1cd3 ("arm64/mm: Batch barriers when updating kernel mappings")
+>>
+>> My memory might be betraying me, but I think this change went in before BBML3
+>> (BBML2_NOABORT)? In which case, the bug is only exposed by the latter series?
+> 
+> It did, and the set_swapper_pgd() path is only exposed by the later
+> series. The tag is for the kgdb path, which doesn't depend on BBML3.
+> When kgdb is entered from a breakpoint in process context,
+> in_interrupt() is false, so in lazy MMU mode the barriers for its
+> FIX_TEXT_POKE0 mapping are still deferred.
 
-Drop bootargs, that's only for debugging.
+ACK
 
-> +	};
-> +
-> +	memory@0 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x00000000 0x0 0x80000000>;
-> +	};
-> +};
-> +
-> +&osc {
-> +	clock-frequency = <25000000>;
-> +};
-> +
-> +&pinctrl {
-> +	soc_i2c0_pmux: soc_i2c0-pmux {
+> 
+> [...]
+>>> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> [...]
+>>> @@ -127,7 +127,9 @@ void __set_fixmap(enum fixed_addresses idx,
+>>>          ptep = fixmap_pte(addr);
+>>>
+>>>          if (pgprot_val(flags)) {
+>>> -                __set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+>>> +                /* The slot must be usable on return, even in lazy MMU mode. */
+>>> +                __set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+>>> +                emit_pte_barriers();
+>>
+>> I wonder if it would be clearer to wrap __set_ptes():
+>>
+>> lazy_mmu_mode_pause()
+>> __set_ptes()
+>> lazy_mmu_mode_resume()
+> 
+> That would work. However, there's the stable backport. 6.18 has the
+> bug, but lazy_mmu_mode_pause() was added in 7.0, so 6.18.y would need
+> its own patch. This patch applies to 6.18 unchanged.
+> 
+> I'm happy with either, or with a followup patch in the same series.
 
-Underscores should not be in node names. Please follow DTS coding style.
+I'd personally prefer to use pause/resume since it's makes it very clear what's
+going on and avoids the layer violation. Perhaps your approach as the back
+portable one, then pause/resume as follow up (along with ptep_try_set() tidy
+up)? Others might think differently though...
 
-> +		groups = "GPIO23", "GPIO24";
-> +		function = "tw2";
-> +		drive-strength = <7>;
-> +	};
-> +};
+Regardless:
 
-Best regards,
-Krzysztof
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+
+> 
+> Cheers,
+> /fuad
 
