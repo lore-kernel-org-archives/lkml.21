@@ -1,79 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795447544;
-	b=hRcOUB3piov/z2o30wS/1270zC4ksPTYK0Mjb94ZBgf9Fb+AG2R6FlkruZUmIkPYJQfA
-	 X2SzmNwf/6Wgjygl9YNihDbw9e85bRm7XEO4qk95QkB/Kw8HvsT+sOeKuIiTqkh0L0B+V
-	 bm7rLZRA1B+YMox8Bwh6uqz+TClXRL62ByN5RkbHHHErp74mdeOk+UESc7HfXrjOHlCDM
-	 pnqWO1xhMxiTujaYnRmfwkUN+AU+8xj5GDqmcBEXk5tECKPUkjPHkhvW5eKQJK/fYu39F
-	 RsKqIIlZFi9fxSlc4TWniCVYP0FkgrJPyWZidv56mu7eVPtYpmGm3pt2LUADs0p+XOg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447544;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=FeWTS8Q48bWPnQCGmjUGgs00u6eCx3a6nfu0+I6v/Og=;
-	b=eZd76h7B+xTZYYNxkVOWPcwPgeOq+/3YNh+yWfodmQ/347Iv8Kr20DYmwACspzfldYuN
-	 pGOSEtqP6ikJnwycfxZl5ToXmfYsY5sHderoGXW5SX+kDT7vodBd4rA0mWecmfUhar6HP
-	 W+JKUpXQSkz+DIZcmSIw43QvTlwdgLEo+EX5vhKIr3QeDnuDADIK1zTsuR7Glrh9fzbIy
-	 O+jCEa/r+Y+9kQWmHrHgmzgMljimsV00W6aF92/OY8rzx+c3YKhX4g2TxSg5kK+jyppaP
-	 5zoljAkG9TzShBaMGNbFqSjqo6ifhr6J5/IKf7oTAfHQtptfwlA5IMvawM1z62f4/Yg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Yn3NtIas;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795447598;
+	b=CScDRajfQMGnYLOJZIusUAy5Y/LqgeyXu1g+UQg2fkfUDxV6VZ9FWt49fVXvte+JGNWX
+	 Y3G6WFYdrQ6AqW+0wGJ71SvDZJhN6Lic9a6RyqeE6f/XwvbjO5QiBKMW2P3Tfbi190jsY
+	 bKwjRUopdrwni7U+StoKfdt+EtFuFu+3FMg8GdZsp1lv+IK+71NtAkzbzdxhAVKujLIA6
+	 4Xr9wqTbY38jNGa0/P0KJEDVA1OXSfoNuHDqth9vFxaswnb6JxwVxFWosBy9tKkIU3+DE
+	 ivBnHbQlcj/bqMo2/0jIZuZ8hkJdUqdetW6xuGV4dh5lxZfTojlbUcUlnyOpotlBa/g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447598;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=;
+	b=wfpxD680sYnz7mLLfSvQn5yL3qPdocThbTARuYKMY6qq7w6dXneQQFfzexPD3OmEcUII
+	 sZ3ZG06GPTVBB3Fo1eJ7ZaE/9fKdyToMaJdCVXissget/UW7Yfc7tgmIIEDBP0X0Zz0N/
+	 C9p7WpHgNvuDjXDNguLv5J8N0odx5v1QOyombDtp66DZN1zmVpVKXyJvcL3RIZRgTq+Zw
+	 RLsbB5AidefED7GbFz7y3uZk2jcACQBa9y/gziGfIMO2qkln/1GDyHzRcRTYYqVJYMsV9
+	 5NYgFIAg8wmp3x/nTuPq0xYdI6t8VxIuU3jaPiwep7RVw+t4qRcnkGnkLx/IoYK06cw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dW4qkRhD;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V28LrlRp;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44680606A68C;
-	Mon, 23 Nov 2026 15:25:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44680606A68C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0EDF606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0EDF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Yn3NtIas
-Received: from [127.0.1.1] (unknown [IPv6:2a02:560:5c0a:3200:9ebf:dff:fe00:fdb5])
-	(Authenticated sender: sha@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B82AA20228C;
-	Mon, 23 Nov 2026 16:25:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795447538;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FeWTS8Q48bWPnQCGmjUGgs00u6eCx3a6nfu0+I6v/Og=;
-	b=Yn3NtIasFB4bNE7hi+meOpZRKsfmggAyxK/Lt1XQcngGebdL97xbLGrBLYV/S6aru4k9e3
-	8XbLPmmcnjA2ogBJVTSeopfkQU7PFmo+LiAIqEl9WMCVT2HKvYRsKjLl+jzh24MQcfiRU4
-	ORo2OCcDiJwtBdqrHde8xpb7M2LCdz0gwd6m5QxbBRXW+QE4A+sVjqYj6cinz/tbx+f+Ja
-	v7Mv23v70VdvUsQspP6vYE6t40sVCNCPsahgvD+C7vVUWWvUAceekF5v/52i4JAXFJWaLo
-	4K8Jh4pH1YqFLw2AFMnPLMu+MAUbpG0A9Ul5Rl+XdzYfmJuBxjKUO9qcOHe8Yg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795447538;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FeWTS8Q48bWPnQCGmjUGgs00u6eCx3a6nfu0+I6v/Og=;
-	b=daweakudbzmXaAc8BSHk7NvyNlAz6B/bgoBK7LLyaMMRSwXoYFHhhVWS0JnPBhC0R6cU5y
-	CJ1spp/BFcD4GYCFYtiNJU5l/IsSXgXz+dZGU1XD87gDwEtl6KJZVm5h8TvLNMi57wTubJ
-	/RJoX0hr5bAYKH9Vmq5m+6zANy10/rpbQ3aP8PdprW4bT72dVs4grNpE5DnZoGt+odNK0h
-	H1diJYCcULeu7bXD1SnUfZJlslmj4v00wVtGwVsVVAfZseJIy3iFSFRtACLnOuDDkhnqux
-	d2+KZPd55hK54zCt/ekG13KkPr1Xb1UQe8nqkUW9KivuQ+/8LSeU49f6savByg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sha@pengutronix.de smtp.mailfrom=s.hauer@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795447538; a=rsa-sha256;
-	cv=none;
-	b=NVQAQ9R5wm3fVB0ui2uwrt59wxEhUq8rqrmW7s3mFMKBI6Q+wn5KxHJf4/qulzs11qxHMV
-	odSY0DNSvbFMl4XfL6ITdI1lv3J7pT7/H+kvPn0yzQAqJAEPWaRT2cIj1Y6oIMYY2IP93t
-	3PdseBy5yjXotyCo5fblAmgGmB6SuvrnQj6YjXtrrLWkpxdhNVTH0yUxQ3HzLecNZIfcV+
-	jjFb4wSy4OcDgFiu8l/f0Sz726c7MLQJ10H3y3X7TWNnr2l6WcOozK8NywrvZoPnDhfpst
-	6t8MCVXvRIjvjIDHot/E3FLv4jFBZoEb9PAbufCM10J/CazfTM8H1qIXnABKdg==
-From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Mon, 23 Nov 2026 16:25:23 +0100
-Subject: [PATCH v8 4/4] arm64: dts: rockchip: rk356x: Add JPEG decoder node
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dW4qkRhD;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V28LrlRp
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDL2OC3072544
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=; b=dW4qkRhD6imxWpO8
+	u5HFt+cbJ2A5mj1c1Ds7HXJFBiwHhG8/isQUmEVOmN7Q5yCgvPESuKphzSseuY4X
+	F9YEIBVBT1rILBMztZWXjiPF+1SnhEwm5opt4/mrlJNr0M6zeY/dB36oxtnRyUoM
+	tDMuRHv5ZaVAwy8If3ybdWC85Fbh0ZVD+q6ZeC2t2NuTIqYUGrLY3sdwXP2lBrbd
+	Z9w4j5qU5t1595g8SPztX96GWeNFLLPFKdg3McdjKgraKLdhZahNnueNV0togGOP
+	KfoZa9K1/Q+EdN7BO+S9pKid3qQllXMCtbsoH4td8IOMjY46VyK6qcXYVJWcNfBV
+	OubzFg==
+Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4hn7speq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:36 +0000 (GMT)
+Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5ee433ab272so94089e0c.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:26:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795447595; x=1796052395; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=;
+        b=V28LrlRpTMct+D7dJUYrxLp+GV9hljsC7Ycb/Y/2lV4SnqzeNTcg6agujnLiybBWd2
+         +D2gBxOFCN9ED11KMHk9/0QY4nn3OBua/8nRzDMb8cTthUiriTMfVEQgK79ZZgaWycaF
+         EMZUQSg7aeq21h7eeeQ7+NOfHYu/0otDFJhbd+hwdA8h0svBSqTZcRzy59mhDSGuT9E1
+         Jm1b94HBwAJ8fzlA3rmRMDUCePcBI+diNUgg0Y5VQrTk9I4RjtnjhLA2H5hkyQ5I9stT
+         sHDgK2RCEAVtVFQaMEkWU1vLzbFGL6wJiOueervUx8+sjMwq2qWApiEjtQ0w34UcgFSV
+         PW/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795447595; x=1796052395;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=;
+        b=JtXTmDek08HMQ520eYvqVlRUHRrVJmqDFPb4v0UOHuhsMXt+wHZ8r1sTa4e72BRQx0
+         rOQ5/2s5qTK9WlqVmFa9m5yhRDP5Ab+TnZ1j1cpjolS+w2TNpqJdp2w/hLpgeQe7yLJs
+         7WiGg8q9TjA649kEaKFwH7MgvI6ckfA4ED3KTkR1pU3CaRVdFLHd8+GPPk4DU6ZyYgTZ
+         /og9ELdjB56rvq+APxhTtedD9ycK5wBS7V29dsfbOSud4qpIIzlkNDcm6+hLWMJ8wIdr
+         Q8weQTblqPOqDNgMtFSg/fzZQ65fOy+NC+CPxjn7D5vK7oHSpy+3g1RIANT0W2gGruJV
+         Gklw==
+X-Forwarded-Encrypted: i=1; AL+hErHTGed7xHMDs1XMa78q5lzLMGeopAIz9uBN+XbFlbuF4P87iXTSSxP3n16JixsGHHonbSZV6BEDk5BUcCg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8gYit17Cnh0jjFarYBRVtJKciAMhj5/bXTny/NjFrCKQpQlmuo
+	zb8M2pC7IqUwMyd3N1lIsubjsUVYq7mXWovxkeXdCaMREnqPAfslfY5L41CkSo1VPhqGQYyVKTJ
+	rVg4vYIFHvXLes5qRuzwN/cHObf4AcQz88P6fbGvJti/cD5ykWZ3jzA7C4qezoCI0sfQ=
+X-Gm-Gg: AZFdTZfA52fztZYMqVIlALMqqOZRin9Mi+Crqwl4EYp91txwZzXAU3rArPKXEjS4zTC
+	ZpFnv6U1QzHDbYP5/yQklmd4zl6G1kDilBppW6QdcMLgHBN5olWoGCQJ/eOdUjAs9TALkkdb+4X
+	RWT0BENokpCsdIydiJKMwPMT04iG9LTBugFauWGUtyt9zSikkzjFNQV6WlwCm8akUs+srrdRjRI
+	IBdr7JhdBGhS8I7aSQOI9LZewTfpl7JcT68MjJeXu/kxIXd5Kn/wA3LjzLPgV4KsWGNQhVXrRaX
+	B/YfjIM/z/hqljezN3UeV1eFEjrJj3ORMqTJgRVUj4UC03qb/HQKbKPTDaEX+2/ClqrSCyDktJ+
+	68CsgOVFJo5ZUX3AyZW5P6L6lHsmf6CZ0Off7XJ1UD6TgxhWHpGOYJbpuJvJWYvlMP3+5O9M=
+X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr7291731e0c.4.1795447595301;
+        Mon, 23 Nov 2026 07:26:35 -0800 (PST)
+X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr7291684e0c.4.1795447594833;
+        Mon, 23 Nov 2026 07:26:34 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe25asm420926666b.11.2026.11.23.07.26.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 07:26:34 -0800 (PST)
+Message-ID: <8560f4a8-41e4-4f78-bd0f-3aabe731b79a@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 16:26:32 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,88 +115,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/qcom: Disable clocks if restoring the secure config
+ fails
+To: shyckless@gmail.com, joro@8bytes.org, will@kernel.org,
+        robin.clark@oss.qualcomm.com
+Cc: iommu@lists.linux.dev, robin.murphy@arm.com, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261122-qcom-iommu-v1-1-ecb20a28871f@gmail.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261122-qcom-iommu-v1-1-ecb20a28871f@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-rockchip-jpegdec-v8-4-3316cd31b043@pengutronix.de>
-References: <20261123-rockchip-jpegdec-v8-0-3316cd31b043@pengutronix.de>
-In-Reply-To: <20261123-rockchip-jpegdec-v8-0-3316cd31b043@pengutronix.de>
-To: Lucas Sinn <lucas.sinn@wolfvision.net>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795447521; l=2421;
- i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=XKKZeAn83nsSxMgXM9Bvv6Y9OauycMDu579tqOq4OqA=;
- b=jh7bgTelvaHbCA5tQHRb7KpAP9ZtNbAJvWi5fzaI3ndM4ha3PDuG/w1OsEgUkdSFlC2TmWhn4
- HcBgXQRZoWhAIEC53vTjocjrmVx9dq/38iJQZbu1KNr2NdgSuLb0Zrr
-X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
- pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
+X-Authority-Analysis: v=2.4 cv=Ls0HWXdc c=1 sm=1 tr=0 ts=6b045b2c cx=c_pps
+ a=wuOIiItHwq1biOnFUQQHKA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=_2H1bLmklXDtjbdw0hQA:9 a=QEXdDO2ut3YA:10
+ a=ZXulRonScM0A:10 a=XD7yVLdPMpWraOa8Un9W:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2MSBTYWx0ZWRfX1t8PxOGf5vyi
+ J4SP5f/IyYGG/628/dhxA9gMn48ex+VOqikSZxP+2xqSfaSBSDLggP79GskIBdKAKreu9a13PJB
+ IvAClC4KofDDJSDjfOgrAe+TAtOg5RCTAGk9NnN8dx53pU0dwkzcBUwh3OpVlYro/ZOE44w4xpg
+ nLTwta8SQE4/4BjiGRfG5AKr6fq8CslKHGnflWYdKX4e6j/7dC0iP1k5/io7MjbOSedMfU4hgG/
+ Di8a3j4/03UhoudmL59A4ZwGzwwQJxQwBojgTId+oud1JBOsVfbcANRxthpGwCnE72hbXRjFcfw
+ lKj/MOaJfu1NxbiuN2mYFZVjW62bpGF9RFn++DPop4NOBTmBflOj5BavcHW4w1elfTTQI6y9Lfg
+ kcjGyocttEnSvRjQKUttEJzTEz/yaok0SzcVNkZ/nwU9mkaM59ER3sNyzdhgnfqT1XzZt/ACZAK
+ p+aB/hqbkbzHISlwjIw==
+X-Proofpoint-GUID: BfmAwJB7YkM5kn53F1S4wC8oPwIRmQjm
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2MSBTYWx0ZWRfX+2FUc0/DuaCb
+ GaiJ6+ffFQ24BTOVGLguMgDU1qfacGH36y71e5WSqbsQCj6s47TJ+eJfod7X6m++s0pyghXmQjW
+ +5RDiOyLUfTFVTl1j7gVbP0E+4gO3WU=
+X-Proofpoint-ORIG-GUID: BfmAwJB7YkM5kn53F1S4wC8oPwIRmQjm
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 malwarescore=0 suspectscore=0
+ priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611230061
 
-Add device tree nodes for the Rockchip JPEG hardware decoder and its
-IOMMU on the RK356x.
+On 11/22/26 11:11 AM, Suyuan Wang via B4 Relay wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
+> 
+> qcom_iommu_resume() enables the clocks and then, for an IOMMU with a
+> power domain, calls qcom_scm_restore_sec_cfg(). If that call fails, the
+> error is returned but the clocks stay enabled. The PM core then treats
+> the device as still suspended, so qcom_iommu_suspend() will not run to
+> turn them off.
+> 
+> Disable the clocks again when qcom_scm_restore_sec_cfg() fails.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: 268dd4edb748 ("iommu/qcom: restore IOMMU state if needed")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+> ---
+> Compile tested on arm64 (W=1). I don't have the hardware.
+> ---
 
-The decoder is the same block as on the RK3588, here at 0xfded0000 with
-its MMU at 0xfded0480 and the same 0x400 register window.  Only the
-integration differs: ACLK_JDEC and HCLK_JDEC instead of the JPEG decoder
-clocks, SRST_A_JDEC and SRST_H_JDEC for the AXI and AHB resets, and the
-RGA power domain rather than VDPU.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-No rate is assigned to the AXI clock here.  Unlike on the RK3588 it is a
-gate off aclk_rga_pre, shared with the RGA, the IEP and the EBC, so a
-rate set for the decoder would move those too.  Its mux tops out at
-300 MHz, which is also the default rate of the downstream driver.  The
-downstream device tree assigns no rate to it either, and the vepu node
-on the same clock tree already leaves it alone.
-
-The domain needs nothing else, it already lists qos_jpeg_dec.
-
-Both blocks are entirely on-SoC and have no board dependency, so they are
-enabled unconditionally like the other codec blocks in this file.
-
-Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index a5832895bd392..e6c7ae908a99f 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -619,6 +619,28 @@ rga: rga@fdeb0000 {
- 		power-domains = <&power RK3568_PD_RGA>;
- 	};
- 
-+	jpegd: video-codec@fded0000 {
-+		compatible = "rockchip,rk3568-jpegd";
-+		reg = <0x0 0xfded0000 0x0 0x400>;
-+		interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&cru ACLK_JDEC>, <&cru HCLK_JDEC>;
-+		clock-names = "axi", "ahb";
-+		resets = <&cru SRST_A_JDEC>, <&cru SRST_H_JDEC>;
-+		reset-names = "axi", "ahb";
-+		iommus = <&jpegd_mmu>;
-+		power-domains = <&power RK3568_PD_RGA>;
-+	};
-+
-+	jpegd_mmu: iommu@fded0480 {
-+		compatible = "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfded0480 0x0 0x40>;
-+		interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&cru ACLK_JDEC>, <&cru HCLK_JDEC>;
-+		clock-names = "aclk", "iface";
-+		power-domains = <&power RK3568_PD_RGA>;
-+		#iommu-cells = <0>;
-+	};
-+
- 	vepu: video-codec@fdee0000 {
- 		compatible = "rockchip,rk3568-vepu";
- 		reg = <0x0 0xfdee0000 0x0 0x800>;
-
--- 
-2.47.3
-
+Konrad
