@@ -1,54 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448095;
-	b=ts/yB+aSH7au2qKtTfsJM4J1KZAkG4bfeijgKtbOMlxuWXq6l2Bc2oH+4i5uaR0kDIQT
-	 LYgsciaHRoUAdXX3AxQ8zRGcZyulfpxcs9SxoHMvdZ9r4LqRDp5W4BlX4nYhxrmRnSXrC
-	 yYfk0O5xDmnysIW6OpBdaRHIK5gYw5xP+eg4IRHluDJC+YOYuGek80ubezImU3jI6DCM/
-	 LjXlNp9jUuHvyPFWfBnC9ylhgyZ8OQ2HP/Wv0Pe0zn9TC4jw9zny+v7LVrmWoPuGHfG1H
-	 q/XTyJZgSGkNN5rznbSRyFBQk+XhWQSxx3m/i6vFpKfCAlyGbQiQMFhNDvtvulXOkyw==
+	t=1795448116;
+	b=bvtLW0jqZDn6qihvOWFgeCX2CQhKwKLzPTHVRzVSiKpLUrZRcPsSebAn6U1z5FgfUJdg
+	 GE1rVtSzb4W+yvvLO8xe0L4dbzsfjkFGGzohBoAfz0n3OUAxH1onQBcvyM08kPIowWwUx
+	 /IM5J50x7orhsXRbDJXY4XNwr1O9QGWa66NMkaYOIUcF74iDB2Wuf54b8R9t8pdKk4tGt
+	 d6x/uT6U3fp8XiGysodMgc35aV0U2jKgN09jYx24x2ylUTIFgPhoYdBFlgNH1iZGwZCUa
+	 W1vZ0CyHvIWoLG83olsvDsMFtpqKM2Wkq3iyxByny5oiA5E+jQH7Xj6Gn+MVmB8kMMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448095;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448116;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=jf07Udiq2p+O4qiPOafk709qI4gZ7bjn4qKb4VieSNs=;
-	b=ljDqHjcK3bcCDfSS4w3KiTW6/sR0zNozOxJQK4idiBt2E9o8VKBMTJDmWeca3BxH71TR
-	 Fg78XzwcCZ5y+G0VTckumkESAR0W05p9r+FOwIfncKr4eKstjFDyKdnRJnCsAH0yyzSUD
-	 4KqejAW/sXCbODwSlHkSEE298x+iz44qmQqjfClRxpwbpp/RKwui127c41nHsZsRzl5Wk
-	 JWQKPo2shnw/BhhwVyVfnwaKAr5kVzCw1yGBIY5kwA1cS64HIVIRLF+oXQq8udYkL8Q16
-	 r4GLbG2xo/Y7t/rp/Zd3lLmuUbhLQrLO/EcfJVftDpDqkv0HVP/25AZsUhm0iAZEfIg==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=NrKgzfcLZFljaKhwZAHVe0DSjWSfUpDmRRp+D9I8Z5M=;
+	b=clZRXzKaUjWFpAqJYDVaSG9fnTXhVV10Io+E3kw0ob5IOGJ4tDgElWn7eoxWmKRJUi0V
+	 8ICWqMXy6FIMoh4yTIlV9qjq2mgqrXOTrzLdMps6BUZ+o4YfqsZYQD0rnoMkbSSEPcp3B
+	 URAfKOZmSYJ+/nzXJC3z5jnDKeCUhA5JdnZcW/hi014A/4uPLefAFzFJiis2eR2SkilvY
+	 I0PozXJoG6sgWqJ2okwJ+hJYBJi5jXgZ8aovoO2Edi3o4saJoe1Gr+xejOz4hFL67uN6Y
+	 zHZQpbAB884fINjIrE5W530NipbHpRxNgf3n/92XOHyJr6c/FxRoJBzAO/mEybD9NzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LukvrL1O;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mUg64a7U;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23665606A31A;
-	Mon, 23 Nov 2026 15:34:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3CEAC606A327;
+	Mon, 23 Nov 2026 15:35:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LukvrL1O
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538881F000CA;
-	Mon, 23 Nov 2026 15:34:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mUg64a7U
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 1F8121F000CA;
+	Mon, 23 Nov 2026 15:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448094;
-	bh=jf07Udiq2p+O4qiPOafk709qI4gZ7bjn4qKb4VieSNs=;
-	h=Date:From:To:Cc:Subject;
-	b=LukvrL1OQMzuaX0VEwj/HCMtNSIDrpmYSWQcjNPwZMimCi6wLM+wuTvu35GSB3ROT
-	 asqksnvpdQ15Vx9YOS2nEk9Nhn0BW+vama/Ic5mFz2Jlc1LlyVMiob95DQEZM/WZlj
-	 KKvKqEAN4LRe4HWykVJb1YGxXtqJkUySln5l7EwAvL88DTuoOInMejp99o355PqkKE
-	 eV7cnkdUOQ5XA0fqT5ZSGbhQQN9WM4r2Nhk3ED8tjXwdS2yZ1EaG8mzTL59wyIjWaP
-	 mdwJ2UpmxM2lUYZOSvlargWJXQRPKw7IEKmRZIjIdpjG74Dln8MieE2s9oZpxSbkVn
-	 dJopZwZ0A5hVA==
-Date: Mon, 23 Nov 2026 15:34:50 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Greg KH <greg@kroah.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Priyanka Mani <priyankamani2100@gmail.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Subject: linux-next: manual merge of the usb tree with the usb.current tree
-Message-ID: <awRdGojPVH1LpICe@sirena.org.uk>
+	s=k20260515; t=1795448115;
+	bh=NrKgzfcLZFljaKhwZAHVe0DSjWSfUpDmRRp+D9I8Z5M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mUg64a7UkZwIbJ8HajTqlauh9v4J6st9Ev173OIHS3l6CBfz+3ChN12Hg5qDqpM2/
+	 SycAiy/PkMBtodaeZvL6Pjhcq7EXJxBHQOiuLS46gY2Q/HGp7vWd6hHZwdI5DR2Hse
+	 WXkB72nQv59nw7S4RkNHUWEPqgCn/L3VKL4Bx0KlN41su24+LZQywhkpjN5pqxhZta
+	 RrkRA44WZEx/u36m1OBzeu1O+gH54a3KZ6L5IWruRVOH6XEa+Dx5yQ9O3oOsYM6gWE
+	 6cEyhav0eT1A5KPBrrcBTDNZ8FV+ld+UpaMNroNyQWMgiLGoZ66NiyhYOxaxEOZxA5
+	 ouKg7PRjrmn+w==
+Date: Mon, 23 Nov 2026 16:35:12 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Stanimir Varbanov <svarbanov@mm-sol.com>, 
+	Eneas U de Queiroz <cotequeiroz@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Eric Biggers <ebiggers@kernel.org>, Demi Marie Obenour <demiobenour@gmail.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>, linux-crypto@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v12 4/4] arm: multi_v7_defconfig: update the Qualcomm
+ Crypto Engine entry
+Message-ID: <67x7gbbhew4xkqhy2wpg2pqjges6kbbswlgpuxhcjuzaj5jtm3@aseuedq5zf5z>
+References: <20261120-qce-fix-self-tests-v12-0-b5a2a44bc5ae@oss.qualcomm.com>
+ <20261120-qce-fix-self-tests-v12-4-b5a2a44bc5ae@oss.qualcomm.com>
+ <e3d2cca6-056f-4ce1-8701-a2592b18b729@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,91 +66,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XNZJx/CKyAdHbDVI"
-Content-Disposition: inline
-
-
---XNZJx/CKyAdHbDVI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <e3d2cca6-056f-4ce1-8701-a2592b18b729@kernel.org>
 
-Hi all,
+On Sat, Nov 21, 2026 at 02:07:40PM +0100, Krzysztof Kozlowski wrote:
+> On 20/11/2026 20:34, Bartosz Golaszewski wrote:
+> >  CONFIG_KEYSTONE_NAVIGATOR_QMSS=y
+> > @@ -1306,7 +1307,6 @@ CONFIG_CRYPTO_DEV_ATMEL_AES=m
+> >  CONFIG_CRYPTO_DEV_ATMEL_TDES=m
+> >  CONFIG_CRYPTO_DEV_ATMEL_SHA=m
+> >  CONFIG_CRYPTO_DEV_MARVELL_CESA=m
+> > -CONFIG_CRYPTO_DEV_QCE=m
+> 
+> I don't understand what is the base here. base-commit from cover letter
+> is unknown for my tree.
+> 
+> There is no such code for half a year.
+>
 
-Today's linux-next merge of the usb tree got a conflict in:
+What? Base commit is just next-20261120, full hash in cover letter is
+909ef7a9a30fa139e69e555e3606680f5cca7726.
 
-  drivers/usb/gadget/function/uvc_configfs.c
-
-between commit:
-
-  8709574b03899 ("usb: gadget: uvc: fix dwFrameInterval array leak on frame=
- removal")
-
-=66rom the usb.current tree and commit:
-
-  01ad61c08da9f ("usb: Constify struct configfs_attribute pointers")
-
-=66rom the usb tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc drivers/usb/gadget/function/uvc_configfs.c
-index a8717c95e5edf,3387060bab55a..0000000000000
---- a/drivers/usb/gadget/function/uvc_configfs.c
-+++ b/drivers/usb/gadget/function/uvc_configfs.c
-@@@ -2143,27 -2027,15 +2028,27 @@@ static const struct configfs_attribute=
-=20
-  	NULL,
-  };
- =20
- +static void uvcg_frame_release(struct config_item *item)
- +{
- +	struct uvcg_frame *frm =3D to_uvcg_frame(item);
- +
- +	kfree(frm->dw_frame_interval);
- +	kfree(frm);
- +}
- +
- +static const struct configfs_item_operations uvcg_frame_item_ops =3D {
- +	.release	=3D uvcg_frame_release,
- +};
- +
-  static const struct config_item_type uvcg_frame_type1 =3D {
- -	.ct_item_ops	=3D &uvcg_config_item_ops,
- +	.ct_item_ops	=3D &uvcg_frame_item_ops,
-- 	.ct_attrs	=3D uvcg_frame_attrs1,
-+ 	.ct_attrs_const	=3D uvcg_frame_attrs1,
-  	.ct_owner	=3D THIS_MODULE,
-  };
- =20
-  static const struct config_item_type uvcg_frame_type2 =3D {
- -	.ct_item_ops    =3D &uvcg_config_item_ops,
- +	.ct_item_ops    =3D &uvcg_frame_item_ops,
-- 	.ct_attrs       =3D uvcg_frame_attrs2,
-+ 	.ct_attrs_const       =3D uvcg_frame_attrs2,
-  	.ct_owner       =3D THIS_MODULE,
-  };
- =20
-
---XNZJx/CKyAdHbDVI
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEXRoACgkQJNaLcl1U
-h9Cnagf/armNty2Wk2k6JlKmR5PF+ZWt7qSkf5GnAhbFAMBLacoDHErnwzOTZiXB
-YxW32XjiBp4YrdwU1Rn+coTKgIaQhEHUE+nZFaYL3SrBUfjgyaBo1fAkxeB98hEH
-vvdFr3h1YwcqXx/cZcvRTe5yHa5k3kCQT5br95awB8fxDjH326gAHquHeYHCmxf+
-5gCwhC5JAtlz1E06Kpy7Y5K9pWYHN/4Kz6uEXmcAp3A3608dzXPaHOMCxbbnImgU
-bGBG2d3ActSXlgLcMkxw6AUiA151vGdD+tAk4NCx2PmslQCj3Rita0d4wsL5GMKB
-vrgyiXZX8YYtlwVeGfLOejZZ/oGQeg==
-=KmEn
------END PGP SIGNATURE-----
-
---XNZJx/CKyAdHbDVI--
+Bart
