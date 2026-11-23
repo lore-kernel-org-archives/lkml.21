@@ -1,60 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795429055;
-	b=lbzgfc/tXHSLBgCinemVYa1EWWibQ6+OFZB6PbU0zcisuGsK7PX+UmrCEaEzA21jwIjS
-	 Vvk77RxQZfiSb4hno1ly3qeWgIU9oHjX1/aejlLT337c9klZGYjT6J9QdMcVbu6o22zJU
-	 sLFPA6NpJnKipoJSAbKF8ccvgE4b3Qp49If4mqVGX6rPU6UJyHXHQV4EcwVjy6DrPGuzI
-	 5yNspQdQ4aCKuoFVmH/JRTThlvg8lcFAg1IekEFBiz5WPxLa7znBF3gJL+s/rPtD8aF0P
-	 XLbjOQV7bk1XRq0fusP+5rfL2GLnm3rdyR2JzEdgHfiZnSAJCYF/fa7Wadn67G0p4Jw==
+	t=1795429102;
+	b=pZKVGzYYEY5Sou0EBgfxOydReiWYGW47PUjGaVT0rVae8mAshbnPe0FyUwPDvaHlZokq
+	 nPp6nLCHFy8YeV6H/PODrFdCTKr1FUvYcFfZlcmG4/5Z9fYtZXicDFzHJtwfuFIvVm3UF
+	 kx5BPV1T6FW62D3VQEl0T7kLrxQB3x/qQ+j9UYXooNnJKwpZ38YQ1vztokI4CY78fUQf5
+	 /GxG2QzYWoApBJFuMaMO6u/ZPE+2ozDiU98OuEYsyz+cIafNNTcRzPenbV9IRnGZZxS6J
+	 euG9eGOr1jnmBJy0FqgCNPsxmd5WE5660CmfT9acC0CK4sHhH1SIPh4He1+B0lqrUsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795429055;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ducv/mz4hmKhT5QO6HCKfk5+lde9Z7VIz0eteTv3C9c=;
-	b=wXN0RVQx36vXeQOb2N1dIWfOFvKTv3CiMmPLvnyYrP2Ix7I6CnF02H7Kj8rH1QKvYmet
-	 CYcXruC3iFOdTLta6e2xc5LreNpXd60mMdSrsxt70nzboe4yXPd5Z7QHyMDseiN6Aku38
-	 TiwshNLmky8U+oxf54thkCb4gjtav6H2veBJCOc/Wu7OSMzzLwf76tDtciKT6Zc0n2CQN
-	 QFbvLE8c1qlTjL7AOjgc8af0VTQkn1JBQ8Ge5XpjJsujbU6pFEr7Og4HKDZMp5hsh6ott
-	 LdpU1vZXZrNhS5qj6wSOIm18Nx6OA7Qp3zzLRyOdZ7CJTBCWVBJsW4EhCPHwgQG5YCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429102;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=QaFTrSB1UKnHwp3T3biJ5IgaoaKliB/c0FJCbEihJKo=;
+	b=dOR5utwroTcJol5DUp8EflSbpobwVAEtOevciCFXwBS4fqxaRXCx4ItrdGSQuEyfm1DF
+	 ZbvOCUtznffjNYCb4jYS/XLF/LgEct9jafX1plGfp9xEM9bpXsaoQGfAkyRv77R29s6of
+	 aKDqhEqhlGV5NKLqSaSWmflTTBj5kUR5BZ83WoGh+a6DvEuFNsiQZcKSp5j84LRMSa51a
+	 D6Uuj+nGpKgejoSRhmmhjp42KgTi8Js4xa3wI1r5IBSJ2D7JE3snVrVOxUr5n9vDp8gJ6
+	 0Hmi9KP5utk0h+lzrvDxR2b5v3J/Bx2jpHXSC1zvaOTHqkJN99gyzsw641CQFVLUZ0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=bbnraiON;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IklTar8G;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36B44606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:17:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36B44606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D04EB606A31A;
+	Mon, 23 Nov 2026 10:18:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=bbnraiON
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=ducv
-	/mz4hmKhT5QO6HCKfk5+lde9Z7VIz0eteTv3C9c=; b=bbnraiON6bV5sSTu5iru
-	PYflYZSl9jl+IuxyLlgEY9+JPOcuQOMQMXrmURJyetU+kabeTdeykCRi83G+Eyhs
-	RKyogmgjDPRmqOWCwfP2rq6f0XpNsmcwIZ3w+WyKIciPahXKrNz5j4w/wHSblyiJ
-	9zpqpRPmpZQBtyWkXEJFs0lx1WlpJeyOvZe9DLsQDFOn+8eA1kwuTPkz9bS5zP3i
-	jekw62Ww7RvO/lNgQ/EXU4cC0ldkDc7TndTEF5J2L2kCq1x2H7xdlhWjJFnc9UN3
-	5otU9T4QpUYEmpKPYHN9ZqTDV1OlCngEy6zHo9feCuTxPncd4v/37UVVi5qlstIW
-	+Q==
-Received: (qmail 2658429 invoked from network); 23 Nov 2026 11:17:31 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 23 Nov 2026 11:17:31 +0100
-X-UD-Smtp-Session: l3s3148p1@+anU5u5g8JIujnsu
-Date: Mon, 23 Nov 2026 11:17:31 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Artem Novak <artem122novak@gmail.com>
-Cc: geert+renesas@glider.be, linusw@kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: renesas: fix typo in RZ/A1 driver description
-Message-ID: <awQSuzxVZkCZr-9q@ninjato>
-References: <20261122174427.276446-1-artem122novak@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IklTar8G
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 191BB1F000C6;
+	Mon, 23 Nov 2026 10:18:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795429102;
+	bh=QaFTrSB1UKnHwp3T3biJ5IgaoaKliB/c0FJCbEihJKo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=IklTar8GkpzS5SgnfSwWWbLh1sSJinFmu+k/1OJWy/qpRxNRJlIjjXxW5e6GUzrf/
+	 o99rhTjEIPf1GepylnbUnQlQdkjJP5Tkf5N6PA9gv1+dx5xG1EYXiRZIyLWfDpDw1V
+	 JyeX//L46WSL8wrdbR7tGnP2AUXqf/26ufbuCmNL8VXc46oSFOxeuK1wjQyr3k7cDa
+	 TBqJOJd/7b+o5dk1+xNW2PRnWrxvrgh6ALQO2CMv5uzbedw+m4g0EfOmiaD8Tptvvy
+	 chxqk5h3zX88ji1NRWb4X6pMQL9aP+7j08q8a4zAOgiGanr3Kp6Zspdw+DBm9O5smp
+	 OTAaP0yRd3TrQ==
+Message-ID: <4640f676-bcad-4ad8-aa38-14ac99c2d6d7@kernel.org>
+Date: Mon, 23 Nov 2026 11:18:13 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,43 +51,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="j7CUZoOm/IRBz0Hw"
-Content-Disposition: inline
-In-Reply-To: <20261122174427.276446-1-artem122novak@gmail.com>
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net-next v4 0/2] tcp/mptcp: prevent blackhole timeout
+ arithmetic wraparound
+Content-Language: fr
+To: Yingjie Wang <x-professor@outlook.com>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "corbet@lwn.net" <corbet@lwn.net>,
+ "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
+ "rdunlap@infradead.org" <rdunlap@infradead.org>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "edumazet@kernel.org" <edumazet@kernel.org>,
+ "ncardwell@google.com" <ncardwell@google.com>,
+ "gang.yan@linux.dev" <gang.yan@linux.dev>,
+ "kuniyu@google.com" <kuniyu@google.com>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>,
+ "martineau@kernel.org" <martineau@kernel.org>,
+ "geliang@kernel.org" <geliang@kernel.org>,
+ "ycheng@google.com" <ycheng@google.com>,
+ "weiwan@google.com" <weiwan@google.com>,
+ "joel.granados@kernel.org" <joel.granados@kernel.org>
+References: <cover.1795424546.git.x-professor@outlook.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <cover.1795424546.git.x-professor@outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
---j7CUZoOm/IRBz0Hw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Yingjie,
 
-On Sun, Nov 22, 2026 at 11:44:27AM -0600, Artem Novak wrote:
-> Correct the spelling of "Renesas" in the RZ/A1 pin
-> controller driver's module description.
->=20
-> Signed-off-by: Artem Novak <artem122novak@gmail.com>
+On 23/11/2026 10:04, Yingjie Wang wrote:
+> The TCP Fast Open and MPTCP blackhole timeout calculations can wrap in
+> 32-bit unsigned arithmetic, even on 64-bit kernels. With HZ=1000 and a
+> 64-fold backoff, 67109 seconds becomes 8.7 seconds instead of about
+> 50 days.
+> 
+> Compute both delays in u64, cap them at MAX_JIFFY_OFFSET, and limit both
+> initial timeout sysctls to one day. The new input limits reject values
+> that were previously accepted, so this series remains for net-next and
+> is not intended for stable.
 
-Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Thank you for the v4, it looks good to me:
 
+Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 
---j7CUZoOm/IRBz0Hw
-Content-Type: application/pgp-signature; name=signature.asc
+> Changes since v3:
 
------BEGIN PGP SIGNATURE-----
+Note for next time: you can put the ChangeLog in a "notes" section, so
+under "---"
 
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsEErsACgkQFA3kzBSg
-KbZuMQ//XjKsOZ8XOyC+BXwMuoP/w7PbhG9gpNmPX/bdH6ZJOKYBe+pkezMbWKDf
-PHi/H5BVJmt3OK5/9H0/W/xjxnHKLLk+goSuPwzZbzS6q8Gc4IU3KCmDkVX2D7At
-9+GaeZ1+E2abW9Yh/sPI42srzyg6GbrsAnAfDGzgT9/AhTk4DoWy/DkU/rFN2I31
-T0Ex9npTV5ghMnk3HJffn2AhfzRllEMfBEZtVEQFP0AzT/9I85++3XKGu7+an9AF
-enFKpEMsTMa/cmgWVS3w3mchtd7+7EZzyWhhtcJ3Rg6dmJ3tu3JqtN/9JP2xRN6B
-Bl3Qy80nD2p0BoH1PYFvwWczpPdgsC1rBySjiHSVG8Wg1EWWtSxTsuhskSWxpf8Z
-788Ng76yTxl5GiPCXZ8kclUTt5q4XrSdtAfIIcN7NrvCg4CT6KsKgG92PN8Ni7Qv
-Ok/xkg7FxxMz39KDJzfRtSlr7UoV0FjFqY01gkhu7cmILnFc274k8kGSmEx+/oBq
-QbF/Z+nikopUHVdxSReDyDXRoZE+eG75Zv+Fxt0SJ7tEBUkWc6D3L/gWfOv80qnF
-D8Veaph0U4pAh2n2h6nZolkXBFbdB2ELBDMUuR1doWIct3nzrOgkqEUaofVQjR24
-JjWbC27msnYk+RNsNOv//tLJ3vPM8K2SzjU6xC9874PiXe+6ihs=
-=7AD0
------END PGP SIGNATURE-----
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
 
---j7CUZoOm/IRBz0Hw--
