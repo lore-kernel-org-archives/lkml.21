@@ -1,146 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.69
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795456399;
-	b=Qfqb6xTN3AjohKjzgR9JFjSNB0AAKiCc0+F/aCrhySIR+7CLyKkUg35YqlPAgI2YzhD6
-	 duL3pkV6JVhSwSSQtmvAsM2vxHCt2FJm6856+mZGp1fTVlbW+ynyjl7z1g0QVJ5mKjQFe
-	 92JQ2zCKtxqHRcVBjn0KvlPNwZ9fZeaZHfa5rDXXvNCl015w2P0Cq+odn/5reiz2IZPZq
-	 U4GoDzFV4ZAXkC2me96znVC5qgMBvlZMWB/5E54QngGawkrdVmN00X0XUANd31Tj4OGXQ
-	 wsIIPE9igKN2wqre3pEPdHYI+pPyI1cwEoatzJX5Jb0twvChSrTQHiKK2vCsmBVR3AQ==
+	t=1795456421;
+	b=0Fw71FqVY7nS0vyOBl7TKITMCwDUphpA8SWJhF1s1eB8Xld+4F54ZrzPwh+g3HuFdI4P
+	 +BY6uFRlnmvWARHcrtlzZ51mOOacOudQicYvJNWyzSbkpbCs0m/7BY+TzBwE1cFjGMTQ3
+	 uePRDUFLmnn2/sv1X2G8SkqRdd132jeMfLuw/yymT1AFMwGLUH0exkHaambraEAbZcXkA
+	 YsPTAoAEg8DIlLpXbl8EcIgmFszhwOAq5HuhHaZlzQcbZvJ8l5n83ya9/99E9/m0lUZ5y
+	 TKIZqsRjH3O5jlJWAeHBpCRjGj0XH4rbTLN5xW6SLcnFk0TXv94nNA6hXOmBMD6U2lQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456399;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456421;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
 	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
 	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
 	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=4Dq+YwzsVUWwxDs4mWO9B2BBSIyPOZb22GTwNrl0Q74=;
-	b=qGqIG8tJtBLeA1LtgJsf4eG2Vlld223S2gsP3GLbAwt3FLvnDmWehhQ25g1B8BiuBG7c
-	 iNhj3qgFbDj+1NktEmMrgTTvwVAFY+SrxUzstTkGbcBI+GiMk4bUVG+eTUDffXBrOunTm
-	 zahuPpF6x1rjC1I39rFx/pBuBLcHmjh7UFdqPqACaW3B3DZpCOR/wehfaxfngcUxlvDGU
-	 XL8nnlTT4iWrYoTvDsX1jhpep1uwSigk9E2B9LkhS7B7gK9BRJ9NvBKJiVaG/dia/bVlS
-	 ADkp2HtNzKA7Id845M1GbZKZzMwrigdNrlTjLUX9So0870/jIFh4fuePDqP4PyP5gEw==
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=8FbvJQyyxt3sYIM3lDbK047s3Rg+KLP80gisFASdZZ4=;
+	b=C4O4jCLx1RRbeWf9UOtpnMGvAyU6sLkjtx7YeU1QjMFhGVvf7PF7pn+GQdMzH8XaVagw
+	 mkPyF0/G47wimrekhkmRPwwT2yHYg2INd49CYwkKaNLvvPag7eDY14TSSrKvCZNATFN7d
+	 p1MYBkpKQv0d1MXume5956oFTL0bGsKlvnz7V3Hi2JAXiYNrhyusYkKhDjAfJ0YE4FzJs
+	 CqMBefHVVJFxcTMejz3dCb5Gut2iG/AOQIO6b21dCw05+wsGufwOlaQ2+k0Cqtje9THUu
+	 XQAZi2jKsgyTA8ljAdt5l+VpnaNHT7DgVnx4a5I72pBzcIxU1kvSAJ07cpqf5eOfRJg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="aYwCE/My";
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=gpW12da0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=RCUvTSAz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.69
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010069.outbound.protection.outlook.com [52.101.69.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52CC6606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:53:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52CC6606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D375606A31A;
+	Mon, 23 Nov 2026 17:53:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D375606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aYwCE/My;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=gpW12da0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795456399; x=1826992399;
-  h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=OdUF5bayg46syr2VV14Crl2icr+qetOZrfAIPbINZek=;
-  b=aYwCE/MySBeYf7cVpQ8RWmxSab8C0Y/or/jMfeUR31yjxkD8UQNrg2YW
-   p6ZttbwriTbtx5XtFb0OrCr1eYqg+81nR5ChOpjCxxUIhVw1L1l0jq6kC
-   fPbtYHfum3t2qZp9UOU/DGqe4Zt+ob9pbAlGux5D4l46gufDAmeDx4ZFu
-   GXRVJ0ZBzHGYsZgNmjQ5Dwe9m3C6nuH+whrPIfK3G/ifsu+ZsNZJS4AT3
-   udajVeRlidPuUePCmFQ07vKdP3EglkAgiwQPneXdu13+zSwXYhnteQk//
-   ZwPxv/QgWAduBbfCkY8x8va5c9e5LxbZtqVNeJVVD80138q3AfePCtEM0
-   g==;
-X-CSE-ConnectionGUID: 6cMOzuxwSsuCflLbAdZFSQ==
-X-CSE-MsgGUID: pCXbc4CpR62+3dV9+e0eIA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4114620"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4114620"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 09:53:18 -0800
-X-CSE-ConnectionGUID: Qczz/tJHTQaZAKJW9XBHMQ==
-X-CSE-MsgGUID: mGd9sYLASFKsEVOZoC1XMw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11384635"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 09:53:17 -0800
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Mon, 23 Nov 2026 09:53:16 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Mon, 23 Nov 2026 09:53:16 -0800
-Received: from PH0PR06CU001.outbound.protection.outlook.com (40.107.208.52) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 09:53:16 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=RCUvTSAz
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bTNAt7Laq86uW0FT1Yaf/5KZ7U1TjKxG3CYNy/bAV4YrRsY8gid/4lxGlhrKzoiQVrGpmDtlY8Z3wjdte9pEkuWQwIq6sR03z6oXCp2A0KOWuDr6fvVX1ifxxFLGQXIw7V/JcywWt+1omZL7ZAxvM2zRUsiCZkRNlKkSdLT0TGVSLveb080/ljVxlwifZtPrxTPqC0Urwbm4UPj653HYWIrd5xgIGvjEFs5S5qo80B+l8gjwlA4rEsMNxtKCEiuA5wo13rSTZfSJBOooSp6LOZM2ZkFKI3KEBCsZctGBZYKWcqo5WQgfXELxrUdPyuR+Va1ynmtkC8HQGwvQ/cf+0w==
+ b=yRV5LA+y/ZcHM/ZyHuIAcYib2Bw/Odgdn4QSrwgbjMaOySJUI228reiZV7vp8JzN/Gtdpx4W3xIwa9Z8rYhBcefiiVyLbCg8aCWBvvfAWIZfST99LaJCoYYRnsToHugrGFz0UbGsKne0QlCyW5GJFiPYbUZZfWUxN3+2PoWh4U8IhpqC8UnbqgGmD7M1XLPLZk/Gt0fGvGCrsupKghtuwZzxaQL6u8seGbZZ9BGYIsExIOyz12rHMjoMFZTDEW3NuWck5yKTiACphZt+rbVHRp0sofsIg5swCJB9v/OqWlEuOjTYp4MHW1X1sZCHgIT1fAnLSI+SmF8GoU3vqUfPOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4Dq+YwzsVUWwxDs4mWO9B2BBSIyPOZb22GTwNrl0Q74=;
- b=o1Rpkq3IBCIY6t7eOzPSfNHNUa7Zw3MvAaXmbDPtPMlVMyvsMDJFlGIgt8nOlBUSaU1pserOBKSOkbmD5xVJNThIe8mvpSkJB7RaGyz9SkWQUg4epI0f9f+S+GsKPRCjkJFR629H2UHaN9Y6r5TrbhBRvn4jkIhPJtSFgHEMIkiJG/j760tehckav24RBjfY4H4S2RHDqi0cpjv3axWZJ3Iy7mVlV7+QfMw2r6ESznE17Ed0tdto6zeTJ5oyRosCqyIgnAEGELLOOGEf5JO9+KMDydX0ii6JxIpkBLPM3uu/dBsuCYPJL0/534ShJgVONReqm6R1GBpFhAClsTas0w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
+ bh=8FbvJQyyxt3sYIM3lDbK047s3Rg+KLP80gisFASdZZ4=;
+ b=WOp6hUK3IdZZJxvGBvE7Rd/bDndfsI58APXa9GjSBuJ9NdtJNJemX4tNE6aoKAtPHr+NCUf8XtjDt/Y+6aEInZbQpEIhqfrGEfm7oUHN66KAYVckHpmoY5MTIt1Pc8YvBdbNMkEEISweu6UGnY73v1BEPdXvV0bV/QJEVVyRhNO2k0yicI3N3g7OlkG/F6mbtjaaihOXfetkTRwRjBZOORUGraL86D/EmdSc7uT45UN7ssV9niGHzH2CRsfAx2FoUpyMv/u0x/ginTGEsj5IKb5tmpOzvTjDKZhSjV07c3yc+JWiPCg/dLlDxUsnnUIXVdy8hDSAY98x02dwQmwkMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4Dq+YwzsVUWwxDs4mWO9B2BBSIyPOZb22GTwNrl0Q74=;
- b=gpW12da03wHnyXdlmjEArsS0G8gre4JPHj81ydUS/OBSPtEjbm1uFtqGaEOY5l/oJ8PTqPo75H2FbB141xyhclKn6EZnQCuQD2wS5onmH++NGCKauVPKGYY6fsjaAiYFo6lCpnwNaLp2wccEaneVcM7BSw+wFhK2wK0Z6oV/bNU=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
- by SA3PR11MB185972.namprd11.prod.outlook.com (2603:10b6:806:53b::5) with
+ bh=8FbvJQyyxt3sYIM3lDbK047s3Rg+KLP80gisFASdZZ4=;
+ b=RCUvTSAzRTkEOENQAXryHfmeHtDcLYJIKdVVceJSVLQ5i8T9ASRzECJ17hHheGSLUB7CcM4KXvtuQLoFMQ6+lJpXekOeqlBBVLpNuUjdzynP6AvxVkHzOgrMn0zqZpAhlffqb+R+3LFBZ2nNcWjJ1fXs3O2jxPe7jCThO9Soub6Dl6QAGMlSuK2xDUyqLn/+uCs/ViD7b/jQ21ql2OxRWfglJdujPNOB4V5DOG3h3uSQt5/QkuLYmR3NaFp/sFAkuv4hPYYbUtdh2RUrF+jT5fWwGWr12FiEbbvd6ZmYFzBEAN6q7owpDVsfY7G2XEfBqR4vsrNxO2hTiyV75cfQTg==
+Received: from DU2PR04CA0231.eurprd04.prod.outlook.com (2603:10a6:10:2b1::26)
+ by BR2PR10MB992284.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:2c8:1d::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 17:53:07 +0000
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 17:53:06 +0000
-Date: Mon, 23 Nov 2026 09:53:03 -0800
-From: Matthew Brost <matthew.brost@intel.com>
-To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
-CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
-	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
-	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
- =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
-Subject: Re: [PATCH v3 05/33] drm/ttm: Support defragmentation moves
-Message-ID: <awR9f/cIDBFDl+sS@gsse-cloud1.jf.intel.com>
-References: <20260711025619.2540575-1-matthew.brost@intel.com>
- <20260711025619.2540575-6-matthew.brost@intel.com>
- <au1Ax4zGApeRJF47@nvishwa1-desk>
- <av9Yz12dG7+vtgb2@gsse-cloud1.jf.intel.com>
- <awE6dk5EYBiu8k1-@nvishwa1-desk>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <awE6dk5EYBiu8k1-@nvishwa1-desk>
-X-ClientProxiedBy: SJ2PR07CA0003.namprd07.prod.outlook.com
- (2603:10b6:a03:505::26) To CO1PR11MB4787.namprd11.prod.outlook.com
- (2603:10b6:303:95::23)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Mon, 23 Nov
+ 2026 17:53:35 +0000
+Received: from DU2PEPF00028D0B.eurprd03.prod.outlook.com
+ (2603:10a6:10:2b1:cafe::61) by DU2PR04CA0231.outlook.office365.com
+ (2603:10a6:10:2b1::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 17:53:35 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU2PEPF00028D0B.mail.protection.outlook.com (10.167.242.171) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 17:53:35 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 23 Nov
+ 2026 18:54:39 +0100
+Received: from [10.48.87.100] (10.48.87.100) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 23 Nov
+ 2026 18:53:33 +0100
+Message-ID: <7493faea-092a-412b-8332-8fd68d20057e@foss.st.com>
+Date: Mon, 23 Nov 2026 18:53:33 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -150,479 +104,307 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH 1/7] dt-bindings: power: st: add STM32MP PM domain
+ binding
+To: Krzysztof Kozlowski <krzk@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+References: <20261116104054.94115-1-patrick.delaunay@foss.st.com>
+ <20261116114024.RESEND.1.If3d55e03486413ca40ac73f9bf07046e76a00f0a@changeid>
+ <20261123-pretty-strict-caracara-bfcaac@quoll>
+Content-Language: en-US
+From: Patrick DELAUNAY <patrick.delaunay@foss.st.com>
+In-Reply-To: <20261123-pretty-strict-caracara-bfcaac@quoll>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|SA3PR11MB185972:EE_
-X-MS-Office365-Filtering-Correlation-Id: 444e5a4d-254c-4141-3889-08df498aa113
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0B:EE_|BR2PR10MB992284:EE_
+X-MS-Office365-Filtering-Correlation-Id: d576ef52-45dd-44b4-7972-08df498ab20b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|6133799003|18002099003|22082099003|11063799006|5023799004|56012099006|4143699003|261026135527099003|261026121527099003|261026140227099003|261009220027099003|261026130827099003|261028144727099003|261102123227099003|261009221227099003|261022105027099003|261021130227099003|261022075727099003|261021121427099003|261022115727099003|261021133027099003|261021123027099003|261009221727099003|261009223327099003|261022113327099003|261009223027099003|261021135927099003|10067099003;
-X-Microsoft-Antispam-Message-Info: 5ofgx2xOCGFFwvQ4xObmYqnXN+V1TvgnAm+y9IxMVxHejj6f8dZcL6q3CEBvtDb8EUu9jeWeuQlRhHq3Ndns4PGhldmjYaBD48IvYt3YXN6qxKwSrfzej4ne8NKpdT93DnulXLWKUewOuTTJv5uhY1T3Ax49s9LDVIH5KehdJnrJbWHcTlHs32bL2R1r2GwWNu/osDYnJAJwQkfyCq65+3MnGe8lKSiBfy4wnBLvjEUgf/EsAOeNEOVu4sSKQs8cKwzrfPEVJSQqpDRUfo7G2UwKQH5hDkJyk13gWAqMdmrdMU6gO6HMouU3KPUEYJvW9G0kZvjetChuDkE8qyRXkXMl/5bHjaE2B7n8aVhxWHsO4bZjKfrsIcgUR40AX+0SeORQLJ44Eagwic7k2uu6ezC8p3f80GZdAKCBZVb6vtgbCfsMOM3tFp4qfx+8Cd4VehI9YWsGvbEukZv53j2tOXrUcEgZeKwvS8XvjRfVVDe7vVC1+RXFUkWxozF1WJxaYBwfXiIFpW80b0cKHyrHM9N5x7NGz5Wp043hO+vt0WXVlPpoAc/IfsFl/vMVvlKBQ+vgrkNvmPLsckt3tJgh9XT9MeQ6n0EyD/6pUFwpzlhZfQsI29EEZFUCQxuwxL5GZ83qJGYdSgzsUP5u/x4203NQPabJuguoDrgbRQ1bwoU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(11063799006)(5023799004)(56012099006)(4143699003)(261026135527099003)(261026121527099003)(261026140227099003)(261009220027099003)(261026130827099003)(261028144727099003)(261102123227099003)(261009221227099003)(261022105027099003)(261021130227099003)(261022075727099003)(261021121427099003)(261022115727099003)(261021133027099003)(261021123027099003)(261009221727099003)(261009223327099003)(261022113327099003)(261009223027099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|7416014|261026140227099003|261026121527099003|261028144727099003|261021121427099003|261021123027099003|261021135927099003|261022105027099003|261022075727099003|261102123227099003|5023799004|11063799006|4143699003|56012099006|10067099003|18002099003|22082099003|261009223027099003|261009221727099003|261009221227099003|261009220027099003|261009223327099003|13003099007|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	+zdvSpeHJEKPjgLsCOy3eLtRbOH0xyZuFIHtMzFzsKD8/r3sJG6wbrZgN36WcXJQZNj8BL/EMBtXUCNILfMrMMaZ4dSxD50jimfa5yiKONjHI3wuIJTlviy8HJeXxgToHCdtWRZrwp26TFBdDw6cKUiTB3nx2DCK+qnBAZiiI3bWcznwIzXkAplv0q/yhUvOVT2mPaS+kZ7d8fAHBc9fxzWqm5CNcbo54UfB+ScrAKCRkUIQiBhoWtDbwTnwvnquXNC8xIHy1KQuoo4WZ/NEQD2IZZZmXZmPbu3fCEqj6YWRwVzdrc0s8pbTpm6sPDPTBpDX10fOJytSpTTFUmAo8e4JIPS2yQiyRHbN4tQ2TN/uXkInvUDunDY0ahDESdcUF1yQ7YESskgzDmv7q95+dQcr6UYgD/BhUD95vK3auuWnE5wQr5aWP4Wr5DnB7H544nZ1UWTrtBuEH/1uykYeOQgpk6pjAVSTZuFq7PBIfPB9Hotsg7Lbx3dsV3q5imDHlDwc2a5mb2cw4T+bqeZSbG05WJFMSvlng+991Ji106hRALZ7p5mEqbvkT9IQx5qzhc5gqzt2dcmUcayQ8NDJYIux7wlWR0QakSNQuv2MCvCwUsSJqxma2HEPOMZQ39AiZm6Es1js2deXXhbVnpcjdA==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(7416014)(261026140227099003)(261026121527099003)(261028144727099003)(261021121427099003)(261021123027099003)(261021135927099003)(261022105027099003)(261022075727099003)(261102123227099003)(5023799004)(11063799006)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003)(261009223027099003)(261009221727099003)(261009221227099003)(261009220027099003)(261009223327099003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b1VNUWRaTXMyN1hJRCtPQ05aQTBBQXhNWE1kbjJ6MnFSRHcrOW14OG1DOHZj?=
- =?utf-8?B?Qkx4d2ZJb0Jmc3hHcUNNcVE1Q3hBNXgwSllNSkExUTNMYnpiMDFheEFlYlVv?=
- =?utf-8?B?RFhCZVZNSmpDdFZwT1FWcit5aU5ibEw1U1NocDc5ckVtYkVxL2FOVC9QK3M0?=
- =?utf-8?B?SWwrN3dDMExiU2xrWlFoU2NWWTJXKzN2aStUam44NzdFc3lEYzRURUUrVEUz?=
- =?utf-8?B?VFNmYURFSEt6V1NBZkpDNEZUY0IrdWdFZUhaczVvTEhYOFNXRVpGNUFsOXcz?=
- =?utf-8?B?M2QySDZ0ajVWdkphaTluKzQxeVpIWHdjSDNpMGhxcnBTVHpNK2lRWWMwNU8y?=
- =?utf-8?B?OHF6dTNaUEczVGhiMmZmYmxBeUpjWUpiYW92eElWa3pqWGpraFBtN3FsMDBL?=
- =?utf-8?B?Ni80U3RUZTNCN09lUGk0VUhjS3pSNUV0SjRjaStSM3BNNkM0bHRRc0NwUEtL?=
- =?utf-8?B?SmtCU1dSYS83eEJqa3NwSzE1RGw0NVA2RWVMVjhTb2hpQmxIOEE2L2w2Z1V2?=
- =?utf-8?B?WFl6a2dSaWNFa0FDTU5YaDdzZmRLRmhEUDlmWWM1Y0RuQjRWcGwrOTVQWWZ1?=
- =?utf-8?B?L3JraFdHRWR1NmVRQW83czR3VGZyOXVyOTl6WFlOQTMyWkRtN3QxcDRONVRY?=
- =?utf-8?B?SlpPVXdpbWRJQXUvRGFsaDBOTTNpZmIxZkwxZG5KZEdCaXJVR05PYUhPVWM4?=
- =?utf-8?B?dTlJRXhWa3p3dnZzWXo4aExiNXNYUzZXR0FnaldwTXRpbnlldWRSQkRacFNF?=
- =?utf-8?B?NjY0elFJU3VzbFVaWkRleHdtcXd2OXBiZkRXZ01TRDE1TnNJbjc2ZS80b295?=
- =?utf-8?B?elB6WE5pL2duSkF6bCtTWEFYbEprZTExYytoMVNWSkZuLzF3bGJ0TzVDK3kw?=
- =?utf-8?B?eVdZcEJqMXlncmIvQytIM0FteDlBSnYzdnNEYmZGdEJpdkxvWFBOczFQVE1G?=
- =?utf-8?B?NHBSdjkwbDE2M2FIcnFYMkdPRUcxZU5EMjdVcElQTEtJdFhkZThhWmExc1E4?=
- =?utf-8?B?TDRmbE5TdDUyN1JTR0c5eHZuRks5Y0NrdmI1Wk1WSTdBU0JaS3MyU1Awd29T?=
- =?utf-8?B?aTNDRWhDcW5LY3JiMzRxRTNCN1RwNE92elJXbGd6ZGhFYzdwTTlvdU9JV0JF?=
- =?utf-8?B?clpsME5uRi95SEdsNmEwY0ZJaW5VMGRRT0VEYjlCaFpRMmFCQzZ3Tk9yN3lX?=
- =?utf-8?B?SlZuRW91YkIxUFk2TklBMjhqMUpNMlQ1aW1rVk5NU3V4dEFUeVVIY0VZL00x?=
- =?utf-8?B?TmF1bmpLUEZDYjhEVGVCVWtzZXB1SkltWGh5OVVKRGxUMWUxS1Q3VllDOU9t?=
- =?utf-8?B?Rm9EU1EyRjV5S2tVdldEMnA3ZUhsbmlaNHkxT0JId3Bqd0d0SFFyckUxcXZP?=
- =?utf-8?B?VEpIRzU0bWdtTjJPWFk3R0hyUHM0N0t2NklLcmhJOUl5RGRoYld2S2JSM3Vm?=
- =?utf-8?B?REQwWUpFS1c2TjNWRTFOZytDNVJXanZMcE1RQnlqZ2d1bktLWEd6U0RLNHR2?=
- =?utf-8?B?emhBWmJJMEE1aFJZR0tpT3pwaFZHaTl0RjVoY1ErWEF0TWozTEtqdVdwVm9a?=
- =?utf-8?B?UGtSK0g0aElHRE91bTg0cndVN3VSL3dueWg0R1ZPTW5ZZGlSQXFaZjdwOTlh?=
- =?utf-8?B?YkVaVzZOdEd0MHlQdzNHeUpVa3k1UHI1UkJnbjlDUFhIdjZ5dlRnMG56TjVF?=
- =?utf-8?B?WmE1QVphdDNybElGa3VLNFRJQjdXMkc2QU9QZUFMZmRjTitmaHlBUVNVczAy?=
- =?utf-8?B?QnVOeTRUZ2t1WWxnVzc5d0huSmpqbjBRSGluS1Y2WEl5YkZUY2Y5UE5zSDFa?=
- =?utf-8?B?bjB0V2duTVZCK3hyYTNPOVNLdmxVUkp1bm9lVlF6cS9DbmJybDBNNVgzZXll?=
- =?utf-8?B?TGtud2NCb29JNmNFYzZNdytoZlhpV01xaW83TWpYOFczaEFxYllIdXI0Y1VS?=
- =?utf-8?B?dVhQYWpFV0MxbzZ6Z0F2L3pHTWpRWEZmSUE5TFE5Q044d1BNdnhFS0dnL1Rp?=
- =?utf-8?B?bjR6d1FYL0R5WSsxVjF3bWZjWjdKS1d6S2RWSlFlZnc5ZEVsZ1NqaFZlTWIy?=
- =?utf-8?B?azhBblRrcWdMcVBTRkpKVk40QmJIOXdpOUIxdzlvYmZSdi9vRkl6aDVYYlVI?=
- =?utf-8?B?dzF5aDZsMlVaNXBoMkQ2bHkyaENsWlB5ZlIrQzZoM2toSERTRDZMZ1dnQi9W?=
- =?utf-8?B?WlhZN0duQkVhZllqdFdrR2YvR2M3QkJHSnE1T05iSGdPQ3Jab0pxOURuek42?=
- =?utf-8?B?NVRLQ1EyUkNUR1VQTHA1bHdPdnppSFR3MkpuMHlFZVdyVU5XUmJpVXJtV2xD?=
- =?utf-8?B?dVM3QzU4S2Y0QVh5aHZpWEdoL0xBT3lwRy96a2dmTGhiRnRnVUpVQT09?=
-X-Exchange-RoutingPolicyChecked: mgBZud9dJZRWivUdZo4HiKQX/kcOd2pA//cuTw3nWR5h2prOGMsihBTr/G95oEsEaJrTs9bPIOPcQ0NplGR6/UtUTf9djeqDscsFTCmTiWSUZlVqZwDCDmKb6zGStzbwRhW+wR/vrHObMvPJfWqIdgM1hd5XU6qx0S4ZbOvGEPae7v9POf726CKQF7R/eUDDA/4XdBADXd2DVahPD3yHgssnoQoTk8LyuPXPJlvJcaQCFeCAa/pHc7cIfEU/26DX/1xfQtrfNzjQittUTu6h/Hc0YOMxef1+wAG8WO+Ujueh/Rf2A4sT3BLlVTy7/f1kBWiUMnGAJFKEisE0MSt7QA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 444e5a4d-254c-4141-3889-08df498aa113
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 17:53:06.8468
+X-MS-Exchange-AntiSpam-MessageData-0:
+	RzvvuHLsZpJboDo/bpP2ThXCWcM7pJX3+ArO/VXssPEw02NMGyOByAbRiCXSFG6YRUauvUAJKCCbrZl5XJe8JtcRwSFvcHhf7eS+YizEENaaUrdLLTyGCw+GQVKo4XJeiw97XPygIN1KaBQmffJeLnSyfX8L/uGR9Y5lqODpZnhoNCOorxADLuLQj9tBCTG0WdX+ktF2WBc+5NMMgDuf0TjB+5S0IXohEThdbZ1Mm7kKK54wbm5FXVYCn49SoOLvu8DfYvvkzL0MOH+piDcwTv3cZxyuogt/NajP9pUVtJB4npEsct0WlzNcKCN2Hf/ORYOPvS4E+64GdsxmLzuviLiwkcvwoQAet+C35yiSFTMowCZOy+q8Ami2kml4RhEkBN6RBLT+486983P0mceoKmFeJKxva/ofZx4mMoCsepfmIE2ahDXEzEB30eygq3/3
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 17:53:35.0112
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NLh5383hAEpPjRW5nk4ezacoNCqGVFPoG19/kH83YUxJAMv/q6LbwmfHGniJ7aweV609qWnKm9jjOWyQ6p4H6g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB185972
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d576ef52-45dd-44b4-7972-08df498ab20b
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DU2PEPF00028D0B.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR2PR10MB992284
 
-On Fri, Nov 20, 2026 at 10:30:14PM -0800, Niranjana Vishwanathapura wrote:
-> On Thu, Nov 19, 2026 at 12:15:11PM -0800, Matthew Brost wrote:
-> > On Thu, Nov 05, 2026 at 06:51:51PM -0800, Niranjana Vishwanathapura wrote:
-> > > On Fri, Jul 10, 2026 at 07:55:51PM -0700, Matthew Brost wrote:
-> > > > Add infrastructure to let a driver re-back an already-resident BO with
-> > > > fresh pages (e.g. at a more beneficial order) by reusing the normal move
-> > > > machinery.
-> > > >
-> > > > Add ctx->defrag, which makes ttm_bo_validate() skip the "current
-> > > > resource already compatible" short-circuit so a move is forced even when
-> > > > placement is unchanged. In ttm_bo_handle_move_mem(), when defragging a
-> > > > populated BO, stash the old tt, create and populate a fresh one
-> > > > (allocating new backing), and hand the old tt to the driver move
-> > > > callback via bo->defrag_old_tt for copying. On success the old tt is
-> > > > unpopulated and freed; if populate or the move fails, the freshly
-> > > > allocated backing is discharged and the BO is restored to its original
-> > > > tt and placement.
-> > > >
-> > > > The old tt is handed off through bo->defrag_old_tt (reservation-lock
-> > > > protected) rather than the operation context. The pointer describes BO
-> > > > state for the duration of the move, so keeping it on the buffer object
-> > > > is better layering and lets ttm_bo_move_accel_cleanup() pick it up.
-> > > >
-> > > > Because a defrag move commonly fails (beneficial-order pages are often
-> > > > unavailable) and then leaves the BO untouched on its original backing,
-> > > > defer ttm_bo_unmap_virtual() for the defrag case until the new backing
-> > > > has been populated and the move is about to commit. Ordinary moves still
-> > > > unmap up front. This avoids needlessly zapping and refaulting every
-> > > > userspace mapping on the common failure path where nothing moved.
-> > > >
-> > > > Teach ttm_bo_move_accel_cleanup()'s ghost path about defrag: instead of
-> > > > tearing the move's source tt down synchronously, hand bo->defrag_old_tt
-> > > > to the ghost object so it is kept populated until the copy fence signals
-> > > > and then unbound and destroyed asynchronously, while the BO keeps its
-> > > > new tt. This lets a driver pipeline defrag teardown behind the GPU copy
-> > > > rather than blocking on it.
-> > > >
-> > > > This is driver-opt-in and a no-op unless ctx->defrag is set.
-> > > >
-> > > > Cc: Carlos Santa <carlos.santa@intel.com>
-> > > > Cc: Ryan Neph <ryanneph@google.com>
-> > > > Cc: Christian Koenig <christian.koenig@amd.com>
-> > > > Cc: Huang Rui <ray.huang@amd.com>
-> > > > Cc: Matthew Auld <matthew.auld@intel.com>
-> > > > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > > > Cc: Maxime Ripard <mripard@kernel.org>
-> > > > Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > > > Cc: David Airlie <airlied@gmail.com>
-> > > > Cc: Simona Vetter <simona@ffwll.ch>
-> > > > Cc: dri-devel@lists.freedesktop.org
-> > > > Cc: linux-kernel@vger.kernel.org
-> > > > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
-> > > > Assisted-by: GitHub_Copilot:claude-opus-4.8
-> > > > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
-> > > >
-> > > > ---
-> > > >
-> > > > v3:
-> > > > - Reject defrag moves needing a multihop bounce: WARN, restore backing,
-> > > >   -EINVAL (Sashiko)
-> > > > ---
-> > > > drivers/gpu/drm/ttm/ttm_bo.c      | 100 +++++++++++++++++++++++++++---
-> > > > drivers/gpu/drm/ttm/ttm_bo_util.c |  16 ++++-
-> > > > drivers/gpu/drm/ttm/ttm_pool.c    |   5 +-
-> > > > include/drm/ttm/ttm_bo.h          |  17 +++++
-> > > > 4 files changed, 127 insertions(+), 11 deletions(-)
-> > > >
-> > > > diff --git a/drivers/gpu/drm/ttm/ttm_bo.c b/drivers/gpu/drm/ttm/ttm_bo.c
-> > > > index 3980f376e3ba..c1629b4c4f0f 100644
-> > > > --- a/drivers/gpu/drm/ttm/ttm_bo.c
-> > > > +++ b/drivers/gpu/drm/ttm/ttm_bo.c
-> > > > @@ -125,49 +125,133 @@ static int ttm_bo_handle_move_mem(struct ttm_buffer_object *bo,
-> > > > {
-> > > > 	struct ttm_device *bdev = bo->bdev;
-> > > > 	bool old_use_tt, new_use_tt;
-> > > > +	bool defrag;
-> > > > 	int ret;
-> > > >
-> > > > 	old_use_tt = !bo->resource || ttm_manager_type(bdev, bo->resource->mem_type)->use_tt;
-> > > > 	new_use_tt = ttm_manager_type(bdev, mem->mem_type)->use_tt;
-> > > >
-> > > > -	ttm_bo_unmap_virtual(bo);
-> > > > +	/*
-> > > > +	 * Only the BO that is the actual defrag target (moved in place via
-> > > > +	 * ttm_bo_validate(), evict == false) is being defragmented. The same
-> > > > +	 * ctx->defrag is threaded into evictions triggered while allocating
-> > > > +	 * that target's new backing (ttm_bo_evict_alloc()), so guard against
-> > > > +	 * an unrelated victim BO (evict == true) being misclassified as a
-> > > > +	 * defrag move and needlessly reallocating its backing.
-> > > > +	 */
-> > > > +	defrag = ctx->defrag && !evict && new_use_tt && bo->ttm &&
-> > > > +		 ttm_tt_is_populated(bo->ttm);
-> > > > +
-> > > 
-> > > The sashiko reports a bug about '!evict' check which seems legitimate.
-> > > 
-> > 
-> > See below - we don't allow multi-hop if ctx->defrag == true - i.e., we
-> > pop a warning if driver tries to do this. Thus the Sashiko feedback
-> > isn't right.
-> > 
-> 
-> I think the issue is in ttm_bo_evict():
-> 
->         ret = ttm_bo_handle_move_mem(bo, evict_mem, true, ctx, &hop);
->         if (ret != -EMULTIHOP)
->                 break;
-> 
->         ret = ttm_bo_bounce_temp_buffer(bo, ctx, &hop);
-> 
-> The bo here is an unrelated victim BO being evicted to make room for the defrag target's new backing —
-> not the BO actually being defragged. ctx is the same ctx threaded down from the defrag target's
-> ttm_bo_validate() call, so ctx->defrag is still set.
-> 
-> If the first call (evict=true) returns -EMULTIHOP, ttm_bo_bounce_temp_buffer() calls
-> ttm_bo_handle_move_mem(bo, hop_mem, false, ctx, NULL) — evict=false this time,
-> with ctx->defrag still true. defrag = ctx->defrag && !evict && ...now evaluates true for
-> this unrelated victim, misclassifying its bounce-completion as a defrag move.
-> 
-> Since this is the final hop (it's completing the bounce, not requesting another one),
-> it doesn't return -EMULTIHOP itself, so the WARN_ON_ONCE+EINVAL guard below never triggers
-> here — that guard only catches a defrag-classified move that itself needs another hop.
+Hi,
+On 11/23/26 12:11, Krzysztof Kozlowski wrote:
+>On Mon, Nov 16, 2026 at 11:40:26AM +0100, Patrick Delaunay wrote:
+>>Add binding documentation for the power domains found on
+>>STMicroelectronics STM32MP SoCs.
 >
+>A nit, subject: drop second/last, redundant "binding". The
+>"dt-bindings" prefix is already stating that these are bindings.
+>See also:
+>https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+Thanks for the review. I will drop the redundant “binding” from the 
+subject and
+move additionalProperties: false below the required block.
+>
+>
+>>
+>>Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+>>---
+>>
+>>.../bindings/power/st,stm32mp-pm-domain.yaml | 46 +++++++++++++++++++
+>>1 file changed, 46 insertions(+)
+>>create mode 100644 
+Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
+>>
+>>diff --git 
+a/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml 
+b/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
+>>new file mode 100644
+>>index 000000000000..4ab477fb4499
+>>--- /dev/null
+>>+++ b/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
+>>@@ -0,0 +1,46 @@
+>>+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>+%YAML 1.2
+>>+---
+>>+$id: http://devicetree.org/schemas/power/st,stm32mp-pm-domain.yaml#
+>>+$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>+
+>>+title: STM32MP generic power domain
+>>+
+>>+maintainers:
+>>+-Patrick Delaunay <patrick.delaunay@foss.st.com>
+>>+
+>>+allOf:
+>>+-$ref: /schemas/power/power-domain.yaml#
+>>+
+>>+description: |
+>>+The STM32MP SoCs contain a D1 domain which defines the devices assigned to
+>>+Cortex A cluster, the devices in this domain are functional only when this
+>>+cluster is not in low power modes (Stop modes) with clock OFF.
+>>+
+>>+This PM domain node represents this dependency, based on PM framework and
+>>+without wake-up path support.
+>>+
+>>+properties:
+>>+compatible:
+>>+const: st,stm32mp-pm-domain
+>>+
+>>+'#power-domain-cells':
+>>+const: 0
+>>+
+>>+power-domains:
+>>+maxItems: 1
+>
+>I don't get the purpose of this binding. There are no resources here, so
+>this looks like fake intermediary (meaning: non-controllable). Why the 
+devices cannot reference
+>final domain?
+Regarding the purpose of this domain, I agree that it does not control a 
+power
+switch or any other hardware resource. It is an intermediate genpd used to
+represent a functional dependency. Devices attached to D1 need the 
+Cortex-A35
+cluster to remain in Run1, with their clocks available, regardless of 
+whether
+they are wakeup-capable. Wake-up events are handled by EXTI1.
+This SoC power domain allows STM32MP to represent two paths in the 
+power-domain
+hierarchy for PSCI OSI:
+one for device functionality (clock availability → cluster_pd) and
+one for wake-up handling (EXTI → ret_pd).
+Currently, GENPD_FLAG_ACTIVE_WAKEUP propagates wake-up requirements 
+through the
+Linux power-domain hierarchy used by PSCI CPU Idle. As a result, the cluster
+domain cannot be powered off when an associated device has an active wakeup
+source. Consequently, the PSCI cluster domain cannot enter the 
+associated idle
+state (Stop1).
+In STM32MP SoCs, D1 domain is a hardware concept shared by PWR and RCC. 
+In RCC,
+kernel clocks are supplied to peripherals only when the associated CPU is
+running: each device is assigned to a CPU through RIFSC and the IP blocks
+associated with CPU1 = Cortex-A35 are not functional in low-power modes when
+the associated CPU is stopped in low power mode.
+When a node is present and enabled in the Linux device tree, its associated
+device is always assigned to CPU1. If the device is not functional in 
+low-power
+modes (Stop1/2 and LP-Stop1/2), it is implicitly part of the D1 domain.
+The added SoC power domain makes this relationship explicit, although 
+this may
+not be the best solution. If this intermediate domain is not the right 
+way to
+model the dependency, I would appreciate your guidance on an alternative.
+>
+>
+>>+
+>>+additionalProperties: false
+>
+>this goes after required block.
+>
+>>+
+>>+required:
+>>+-compatible
+>>+-'#power-domain-cells'
+>>+-power-domains
+>>+
+>>+examples:
+>>+-|
+>>+power-domain-d1 {
+>
+>Node names should be generic. See also an explanation and list of
+>examples (not exhaustive) in DT specification:
+>https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+>If you cannot find a name matching your device, please check in kernel
+>sources for similar cases or you can grow the spec (via pull request to
+>DT spec repo).
+Sorry about that. I understood “power-domain” to be a generic node name, 
+based
+mainly on the pattern in /bindings/arm/psci.yaml and on node-name 
+patterns such
+as power-domain@[0-9a-f]+ used in the power bindings.
+I now understand your point: power-domain-d1 is not a generic node name and
+it is not a subnode of a power-controller, as described in
+bindings/power/power-domain.yaml.
+The PWR device, which manages the low-power modes and the power supplies 
+for
+each domain (including DVFS for the CPU and GPU), is handled by PSCI 
+firmware.
+I added an SoC power domain because I did not want to modify the PSCI 
+binding
+or driver; however, this may not be the best solution.
+I also considered changing the PSCI domain handling to use a wakeup-source
+property, but that would change the behavior of existing device trees.
+In the driver drivers/cpuidle/cpuidle-psci-domain.c
+static int psci_pd_init(struct device_node *np, bool use_osi)
+{
+...
+/*
+* Allow power off when OSI has been successfully enabled.
+* PREEMPT_RT is not yet ready to enter domain idle states.
+*/
+if (use_osi && !IS_ENABLED(CONFIG_PREEMPT_RT)) {
+pd->power_off = psci_pd_power_off;
+-pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP;
++if (of_property_read_bool(np, "wakeup-source"))
++pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP;
+} else {
+pd->flags |= GENPD_FLAG_ALWAYS_ON;
+}
+....
+The proposed STM32MP251 device tree becomes
+-d1_pd: power-domain-d1 {
+-compatible = "st,stm32mp-pm-domain";
+-#power-domain-cells = <0>;
+-power-domains = <&cluster_pd>;
+-};
+psci {
+bootph-all;
+compatible = "arm,psci-1.0";
+method = "smc";
+cpu0_pd: power-domain-cpu0 {
+#power-domain-cells = <0>;
+domain-idle-states = <&CPU_PWRDN>;
+power-domains = <&cluster_pd>;
+};
+cluster_pd: power-domain-cluster {
+#power-domain-cells = <0>;
+domain-idle-states = <&STOP1>, <&LP_STOP1>;
+power-domains = <&ret_pd>;
+};
++d1_pd: power-domain-d1 {
++#power-domain-cells = <0>;
++power-domains = <&cluster_pd>;
++};
+ret_pd: power-domain-retention {
+#power-domain-cells = <0>;
+domain-idle-states = <&LPLV_STOP1>;
++wakeup-source;
+};
+};
+...
+exti1: interrupt-controller@44220000 {
+compatible = "st,stm32mp1-exti";
+interrupt-controller;
+#interrupt-cells = <2>;
+power-domains = <&ret_pd>;
+...
+}
+Moreover with this PSCI change, I could remove the need for the D1 domain:
+-cluster_pd would not have a wakeup-source property, so the wake-up path 
+would
+not propagate.
+-ret_pd would have a wakeup-source property, and EXTI1 would belong to this
+domain.
+psci {
+bootph-all;
+compatible = "arm,psci-1.0";
+method = "smc";
+cpu0_pd: power-domain-cpu0 {
+#power-domain-cells = <0>;
+domain-idle-states = <&CPU_PWRDN>;
+power-domains = <&cluster_pd>;
+};
+cluster_pd: power-domain-cluster {
+#power-domain-cells = <0>;
+domain-idle-states = <&STOP1>, <&LP_STOP1>;
+power-domains = <&ret_pd>;
+};
+ret_pd: power-domain-retention {
+#power-domain-cells = <0>;
+domain-idle-states = <&LPLV_STOP1>;
++wakeup-source;
+};
+};
+>
+>
+>
+>Best regards,
+>Krzysztof
+>
+I add Ulf or Sudeep to the To: list to get feedback on the PSCI domain 
+hierarchy,
+particularly regarding backward compatibility.
+For this proposal, I could also use a negated property ("no-wakeup-path' 
+by exmaple)
+to avoid breaking backward compatibility (property name to be confirmed,
+perhaps need "arm," prefix).
+If you think this is an acceptable proposal, I can submit a V2 of the 
+series
+using this approach:
+in code:
+-pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP;
++if (!of_property_read_bool(np, "no-wakeup-path"))
++pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP;
+in STM32MP device tree:
+cluster_pd: power-domain-cluster {
+#power-domain-cells = <0>;
+domain-idle-states = <&STOP1>, <&LP_STOP1>;
+power-domains = <&ret_pd>;
++no-wakeup-path;
+};
+the cluster_pd domain can be powered-off even if on device is in the 
+wake-up patch.
+Regards
+Patrick
 
-Right but actually evict isn't reachable from the Xe defrag path.
-
-We set TTM_PL_FLAG_TEMPORARY which doesn't change the new allocation.
-
-I could change ttm_bo_bounce_temp_buffer to clear defrag I guess, but
-would rather not have hack like that in the code. Maybe I'll add WARN_ON
-to ttm_bo_bounce_temp_buffer if defrag is set?
-
-> > > > +	/*
-> > > > +	 * Tear down userspace mappings up front for ordinary moves. A defrag
-> > > > +	 * move is likely to leave the BO in place (beneficial-order allocation
-> > > > +	 * commonly fails), so defer the unmap until the new backing has been
-> > > > +	 * populated and the move is about to commit. This avoids a needless
-> > > > +	 * zap and refault of every userspace mapping on the common failure,
-> > > > +	 * where the BO keeps its original, still-mapped backing.
-> > > > +	 */
-> > > > +	if (!defrag)
-> > > > +		ttm_bo_unmap_virtual(bo);
-> > > >
-> > > > 	/*
-> > > > 	 * Create and bind a ttm if required.
-> > > > 	 */
-> > > >
-> > > > 	if (new_use_tt) {
-> > > > +		struct ttm_tt *defrag_old_tt = NULL;
-> > > > +
-> > > > +		/*
-> > > > +		 * For a defrag move, stash the current populated tt and force a
-> > > > +		 * fresh one to be created and populated (at beneficial order).
-> > > > +		 * The old tt is handed to the driver move callback to copy the
-> > > > +		 * contents from, and freed once the move completes.
-> > > > +		 */
-> > > > +		if (defrag) {
-> > > > +			defrag_old_tt = bo->ttm;
-> > > > +			bo->ttm = NULL;
-> > > > +		}
-> > > > +
-> > > > 		/* Zero init the new TTM structure if the old location should
-> > > > 		 * have used one as well.
-> > > > 		 */
-> > > > -		ret = ttm_tt_create(bo, old_use_tt);
-> > > > -		if (ret)
-> > > > +		ret = ttm_tt_create(bo, old_use_tt && !defrag_old_tt);
-> > > > +		if (ret) {
-> > > > +			if (defrag_old_tt)
-> > > > +				bo->ttm = defrag_old_tt;
-> > > > 			goto out_err;
-> > > > +		}
-> > > >
-> > > > -		if (mem->mem_type != TTM_PL_SYSTEM) {
-> > > > +		if (defrag_old_tt || mem->mem_type != TTM_PL_SYSTEM) {
-> > > > 			ret = ttm_bo_populate(bo, ctx);
-> > > > -			if (ret)
-> > > > +			if (ret) {
-> > > > +				/*
-> > > > +				 * Discharge the freshly allocated backing and
-> > > > +				 * leave the BO on its original tt/placement.
-> > > > +				 */
-> > > > +				if (defrag_old_tt) {
-> > > > +					ttm_tt_destroy(bo->bdev, bo->ttm);
-> > > > +					bo->ttm = defrag_old_tt;
-> > > > +				}
-> > > > 				goto out_err;
-> > > > +			}
-> > > > 		}
-> > > > +
-> > > > +		bo->defrag_old_tt = defrag_old_tt;
-> > > > 	}
-> > > >
-> > > > 	ret = dma_resv_reserve_fences(bo->base.resv, 1);
-> > > > 	if (ret)
-> > > > 		goto out_err;
-> > > >
-> > > > +	/*
-> > > > +	 * A defrag move deferred its virtual unmap until the new backing was
-> > > > +	 * successfully populated; tear the userspace mappings down now, before
-> > > > +	 * the move swaps in the new pages, so the next fault re-establishes
-> > > > +	 * them against the new backing.
-> > > > +	 */
-> > > > +	if (defrag)
-> > > > +		ttm_bo_unmap_virtual(bo);
-> > > > +
-> > > 
-> > > NIT...would it be good to always do virtual unmap here defrag or not?
-> > > 
-> > 
-> > We could unconditionally move the ttm_bo_unmap_virtual here. I didn't do
-> > that to not mess non-defrag behavior but it looks harmless to
-> > unconditionally shuffle around.
-> 
-> yes, ok.
-> 
-> > 
-> > > > 	ret = bdev->funcs->move(bo, evict, ctx, mem, hop);
-> > > 
-> > > Sashiko reports a bug here when ttm_bo_move_memcpy() is used as move()
-> > > function. Though xe doesn't use that function, it is perhaps good to
-> > > guard against.
-> > > 
-> > 
-> > What is suggestion to guard against this?
-> > 
-> 
-> As ttm_bo_move_memcpy() is not defragmentation aware, it will cause both
-> source and destination kmap to refer to same bo->ttm. we should probably
-> guard against drivers falling back on ttm_bo_move_memcpy(). May be in
-> ttm_bo_move_memcpy(), add a WARN_ON if bo->defrag_old_tt is set and
-> return error?
-> 
-
-+1
-
-> > > > 	if (ret) {
-> > > > -		if (ret == -EMULTIHOP)
-> > > > +		if (ret == -EMULTIHOP) {
-> > > > +			/*
-> > > > +			 * A defrag move targets the BO's current placement and
-> > > > +			 * must complete in a single hop. A driver requesting a
-> > > > +			 * bounce here is unsupported: restore the original
-> > > > +			 * backing and fail the defrag rather than retrying the
-> > > > +			 * multihop with ctx->defrag still set, which would
-> > > > +			 * misclassify the bounce as another defrag move and
-> > > > +			 * overwrite/leak bo->defrag_old_tt.
-> > > > +			 */
-> > > > +			if (unlikely(defrag)) {
-> > 
-> > Here is what makes -EMULTIHOP (Sashiko evict issue) impossible.
-> > 
-> 
-> Responded above.
-> 
-> > > > +				WARN_ON_ONCE(1);
-> > > > +				ret = -EINVAL;
-> > > > +				goto out_err;
-> > > > +			}
-> > > > 			return ret;
-> > > > +		}
-> > > > 		goto out_err;
-> > > > 	}
-> > > >
-> > > > +	if (bo->defrag_old_tt) {
-> > > > +		ttm_tt_unpopulate(bo->bdev, bo->defrag_old_tt);
-> > > > +		ttm_tt_destroy(bo->bdev, bo->defrag_old_tt);
-> > > > +		bo->defrag_old_tt = NULL;
-> > > > +	}
-> > > > +
-> > > > 	ctx->bytes_moved += bo->base.size;
-> > > > 	return 0;
-> > > >
-> > > > out_err:
-> > > > -	if (!old_use_tt)
-> > > > +	if (bo->defrag_old_tt) {
-> > > > +		/* Failed defrag move: restore the original backing. */
-> > > > +		ttm_bo_tt_destroy(bo);
-> > > > +		bo->ttm = bo->defrag_old_tt;
-> > > > +		bo->defrag_old_tt = NULL;
-> > > > +	} else if (!old_use_tt) {
-> > > 
-> > > Another sashiko reported bug about tearing down the old pages while an
-> > > async copy is still in progress. Looks like xe driver waits for move to
-> > > complete before returning, so should be fine. But probably worth adding
-> > > a documentation for defrag_old_tt that "a defrag-aware move callback must
-> > > not return an error while a copy into the new backing is still in flight
-> > > 
-> > 
-> > I think it is implied in the ->move() contract if one fails after
-> > triggering an async move, you must wait on async move before returning
-> > or TTM will explode. This appears to be existing behavior too.
-> > 
-> 
-> Ok.
-> 
-> One more point below.
-> 
-> > Matt
-> > 
-> > > Niranjana
-> > > 
-> > > > 		ttm_bo_tt_destroy(bo);
-> > > > +	}
-> > > >
-> > > > 	return ret;
-> > > > }
-> > > > @@ -835,7 +919,7 @@ int ttm_bo_validate(struct ttm_buffer_object *bo,
-> > > > 	force_space = false;
-> > > > 	do {
-> > > > 		/* Check whether we need to move buffer. */
-> > > > -		if (bo->resource &&
-> > > > +		if (bo->resource && !ctx->defrag &&
-> > > > 		    ttm_resource_compatible(bo->resource, placement,
-> > > > 					    force_space))
-> > > > 			return 0;
-> > > > diff --git a/drivers/gpu/drm/ttm/ttm_bo_util.c b/drivers/gpu/drm/ttm/ttm_bo_util.c
-> > > > index 3e3c201a0222..771313162c8d 100644
-> > > > --- a/drivers/gpu/drm/ttm/ttm_bo_util.c
-> > > > +++ b/drivers/gpu/drm/ttm/ttm_bo_util.c
-> > > > @@ -626,10 +626,22 @@ static int ttm_bo_move_to_ghost(struct ttm_buffer_object *bo,
-> > > > 	 * bo to be unbound and destroyed.
-> > > > 	 */
-> > > >
-> > > > -	if (dst_use_tt)
-> > > > +	if (bo->defrag_old_tt) {
-> > > > +		/*
-> > > > +		 * Defrag move: @bo already points at the freshly allocated,
-> > > > +		 * beneficial-order tt that the move copied into. Hand the old
-> > > > +		 * tt (the move's source) to the ghost so it is kept populated
-> > > > +		 * until @fence signals and then unbound and destroyed, instead
-> > > > +		 * of being torn down synchronously. @bo keeps its new tt.
-> > > > +		 */
-> > > > +		ghost_obj->ttm = bo->defrag_old_tt;
-> > > > +		ghost_obj->defrag_old_tt = NULL;
-> > > > +		bo->defrag_old_tt = NULL;
-> > > > +	} else if (dst_use_tt) {
-> > > > 		ghost_obj->ttm = NULL;
-> > > > -	else
-> > > > +	} else {
-> > > > 		bo->ttm = NULL;
-> > > > +	}
-> > > >
-> > > > 	dma_resv_unlock(&ghost_obj->base._resv);
-> > > > 	ttm_bo_put(ghost_obj);
-> > > > diff --git a/drivers/gpu/drm/ttm/ttm_pool.c b/drivers/gpu/drm/ttm/ttm_pool.c
-> > > > index 0ca63f5ce73c..d045105afc24 100644
-> > > > --- a/drivers/gpu/drm/ttm/ttm_pool.c
-> > > > +++ b/drivers/gpu/drm/ttm/ttm_pool.c
-> > > > @@ -860,8 +860,11 @@ static int ttm_pool_iter_lower_order(struct ttm_pool_alloc_iter *it)
-> > > > 	 * pages. Record it so the driver can later try to defragment the object
-> > > > 	 * back to beneficial order.
-> > > > 	 */
-> > > > -	if (it->beneficial_order && it->order == it->beneficial_order)
-> > > > +	if (it->beneficial_order && it->order == it->beneficial_order) {
-> > > > 		it->tt->page_flags |= TTM_TT_FLAG_BENEFICIAL_ORDER_FAILED;
-> > > > +		if (it->ctx->defrag)
-> > > > +			return -ENOMEM;
-> > > > +	}
-> > > 
-> > > NIT...probably good to add a comment here that says something like,
-> > > 'return error here as the purpose of defragmentation is to get beneficial order'.
-> > > 
-> 
-> I guess, you missed this point (sorry for signing early at previous comment).
-> 
-
-Sure.
-
-Matt
-
-> Niranjana
-> 
-> > > >
-> > > > 	it->order--;
-> > > > 	it->page_caching = it->tt->caching;
-> > > > diff --git a/include/drm/ttm/ttm_bo.h b/include/drm/ttm/ttm_bo.h
-> > > > index fd814b5cf535..f4f8a8c29f04 100644
-> > > > --- a/include/drm/ttm/ttm_bo.h
-> > > > +++ b/include/drm/ttm/ttm_bo.h
-> > > > @@ -135,6 +135,16 @@ struct ttm_buffer_object {
-> > > > 	 * reservation lock.
-> > > > 	 */
-> > > > 	struct sg_table *sg;
-> > > > +
-> > > > +	/**
-> > > > +	 * @defrag_old_tt: Used internally during a defrag move to hand the BO's
-> > > > +	 * previous, populated struct ttm_tt to the driver's move callback so
-> > > > +	 * that it can copy the contents into the freshly allocated
-> > > > +	 * beneficial-order backing. Set by TTM, consumed by the driver; the old
-> > > > +	 * tt is freed (or restored on failure) by TTM once the move completes.
-> > > > +	 * Protected by the reservation lock.
-> > > > +	 */
-> > > > +	struct ttm_tt *defrag_old_tt;
-> > > > };
-> > > >
-> > > > #define TTM_BO_MAP_IOMEM_MASK 0x80
-> > > > @@ -194,6 +204,13 @@ struct ttm_operation_ctx {
-> > > > 	 * reclaim/compaction before falling back to a smaller order anyway.
-> > > > 	 */
-> > > > 	bool beneficial_reclaim_backoff;
-> > > > +	/**
-> > > > +	 * @defrag: Defragmentation pass. Attempt a move even when the bo's
-> > > > +	 * current resource is already compatible with the requested placement,
-> > > > +	 * so that the backing store can be reallocated at the pool's beneficial
-> > > > +	 * order.
-> > > > +	 */
-> > > > +	bool defrag;
-> > > > 	/**
-> > > > 	 * @resv: Reservation object to be used together with
-> > > > 	 * @allow_res_evict.
-> > > > --
-> > > > 2.34.1
-> > > >
