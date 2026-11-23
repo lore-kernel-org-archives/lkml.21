@@ -1,84 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455141;
-	b=KHlgE9x/hA4S0/QNF8zckLPz0iLkyEq1nFb3yi+u+c9yf3lXa4m7vA3PUcmvn2JA+qQh
-	 auuqLj3a9ymW816RkeOfkVv+AatGHRIybGJX0LCL1D+Oj3aaBo0S06CUn7sDFoRE7ELud
-	 izNgTzdRrl+ayWZFFfQysX45ZfpLJzX1LVX4vjqKke2Eis8KjCjyN4Z0VIGan3Qt652eJ
-	 6eZiX0uqD0vAal1Ivdrs2yIErFLD0wmyjzAYjw6gTM3aUVMy2dX0jmQd0i+aa2KkR7icL
-	 Po0bj8ppoPalm8aAYsE2W7fGIv0jJBra3hGbOvjkNF0wU48vGxn1E8YCNlxxTa/q0tw==
+	t=1795455158;
+	b=GlDg3UYjW8W6mZY0/X2n+UlI/rUUeLRCgHoSSjlv4VXffua2566yGkgpWcpt6LVDrt6I
+	 mSED4MLjr5YUfEhpya7LQiIVFChgkpHtjKgiascZx6EMY9efgobuIyKGP/zgBXxfxeH9E
+	 yIxO+Prnu/j3H9cXW+yuYE+mBZbqH7rjA4g2mpNCJAbIsqRCODoDr6kjJh+J6Og0oyUEy
+	 EfF8paPHZ052bR51VhjigxQO4fCcmF2VgOVQU5Qls2H4vOmLlcVhkv1HkBoPBR+62yahK
+	 ZhNkYxIRF30vdmds0UKalukfG3ab1q4Oa1BTsouPdlkUPtL8FZjeYZUS1B3bVINXswA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455141;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 From:To:Cc:Subject:X-Mailer:References:In-Reply-To;
-	bh=P+l/VRR07HqPbgm9tEPK7SVr6Tlf5vY5XKwCiYVXpnE=;
-	b=XG7TGefSkDcNOhh62Q+pZdPCFTYx5jcIiJMBK4zgI36vVlP79XLVTkImHcQYND5DmcjH
-	 z5kvDHdGoQDLW2gb/w5/haJgjUBtlc+HDx33olY2EYVpbigu65PzuWPZUv6cBoFhN6nlf
-	 keIAW2f+uJByDG1VdvqFZftd6qDTpfgg7y0cjyesmT5bd+gvQ41DfpnkruoymHZm7rzW2
-	 ACRywX+aE9TYZ309NxHy57QZtZeUH7r57xKjCy7y4qPX0GUMOeM/OlAfHaVLqiGUbSqBn
-	 U+3gqOq8ydrBLRE/eknQbV6dJSYwqszE7kj6DmazHQoAPCy3PYYlIkSLEmgyUe6J9/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455158;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=Dac1FERf1Emk9l+Dj72gPWmV4FN/j45L9H+ZPXsL8co=;
+	b=UeMRgN32fBjTtftPD/vZ+kA+lFP3+bRHYi9G/YHBPbJEu6GQGOh/SPxUAy70SY6wGafC
+	 wcOwz1AdQgxnaaNpB1EfHRkQZK2rrKtbutQp+kTKlfPHrUNkbYLna7k6t4O8MeiU2pMOp
+	 TiV6edQo2aao81iitrEqJVUPOUSbat8JJp8Fqk8oHXiZ3iyY2PSW7rFEZn4uuq+jPsvkA
+	 5MhPJHxT14qaLU+kws/5obOgwabFt5a5WnaRD6As3kyEpJFHJJkUglud8bFzrI1FK3Wlg
+	 RY06owcckyT345pVIY/C+CslixLh8fcAKzYjQaJ8Ulgoq5HvYC3dnqvu6dM2YEYLPjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=GUqMwfdW;
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KR0pgCCq;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47471606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:32:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47471606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02DF8606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:32:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02DF8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=GUqMwfdW
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f07a960666so16497125ad.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:32:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795455140; x=1796059940; darn=vger.kernel.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=P+l/VRR07HqPbgm9tEPK7SVr6Tlf5vY5XKwCiYVXpnE=;
-        b=GUqMwfdWySOE88STspofkPaLQaaZjEwFfhZBDcvXCKXUdwt0IqoJuHyz6c4xJs/dnO
-         RLel3qR6lTtHRWvCqUUH6V5nO10hZZlnSxyrXXoEH6W8FwXVOVGLxiAv30EQ6HvrMt1x
-         4gFCm0+JmjZI5aW6RAsyZvO6EbM46xOijpgUC6/Gi8xQTSRJxGbSJwxabd7/tnVmiQXO
-         v4nAVDKIubL2xTU2aRRz7NEg9/ux/TdNw2zEhqyeTsdVJAu9Sgw1uALVn6Q6ZcCySPur
-         zNiBzRfxUKrP/aEvbxj+n/QxJwBzo3JvMo7sIRnvm9/J8aQiFzLnERdkb664faMxpA5G
-         xcwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795455140; x=1796059940;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=P+l/VRR07HqPbgm9tEPK7SVr6Tlf5vY5XKwCiYVXpnE=;
-        b=ru0kgb+SqcpbHgZ3JotG9bRBbunVMtJDCUI8SBTdOr2GmoTP23md+W2cxgOoYxKDmU
-         J7WD9n+7KnxLAI39BjE2+m+tlVgdX3oVnkmZHcda8qWdQ6QUdV7AmVYogRqrkbOE5gta
-         6KlMGHX8m+EyfcX5mU28O7I98ZLxl54KGfLpndWXucSaCSQhcE181yEqiAEOsr2K347X
-         irGYRWbzoYOYxT3lbs4xG2BBtGuB9SOvcO9bPzh+bfeChDDjJXfbdsVzdK8YbDz+2Zju
-         OPNwsBcNfcsdHX3bPTHRbTVU77uZfFDIry9I1sDF77yBHyclATIoVWqngh8K9YClcRUf
-         r3pw==
-X-Forwarded-Encrypted: i=1; AL+hErEVJ85IMD7n3qud3VoebGpN0n5CG9V25u8aDf1gcR3ui+sitkGzeF6eMAu9jUp1GecKCs5ZixF62/gBOCI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/wIztAe6ArTLmNjywULkcqFuY0QAYUTpfg1wYNV1DaA6ozw/Pe
-	Q1rja3p3Cbu2Vyl8P6tiDRYMuaY9Doxa/AbX7OU2ncFbJQomNkHawfvYdF6gfCOaPw==
-X-Gm-Gg: AZFdTZdlly8uDC4tXk/BFS1TWZxTz7YpeaZfcp8s0BFVG/Zh0w7kExI9f0WpiM2MlMt
-	aq9j+99jr5pvbQRdDk5sTeFZ8DT6+/HqthYAUgcbbdeDEL6HWzxHY97r5menVpxTnTUDuhn5NXG
-	i+PNvZ9svECg56Ie5vCrNcttZ0SBPitDeZ+WEXFxZEtknyaagV8JdHd3UOSlOIdXU3GwbElRB9s
-	oVvwm49dHdTVTLXi9KMKi3pstnaKIfbZErMterfm+Du6yyUqTdlqZEn1iogONrTRVRYBwfPhkzG
-	Y5qr4pPbAMFK/fzVcx9Kgc0Z3BveGIT10h8LofWOq6AmGPQvGht+2n+65T2RF8ZkTtD2oCrDQ9+
-	0H92BuiTHvA84sfipROoiQTMul9MVUVSk3F3sltSheFRsj/L1TXc+W/8kglLl2BQsxazf/rX7Me
-	dO9Q261HO1Nn1fpRRw8+H87ytr4nBmwxiRHSjCzp8k5hGM4sMKbpya56pKRmvi2bWIa/5SLw1lo
-	1ft+Im5BYFoALdyMjHLxxeEqfh75NSk42Gw+5Phz7KyyGTx9EmmbxMM+E8m5Vc/WxUeDnXzJi7W
-	BYmexEVbJvAuOduJThy0OyxN6p6d6pKXgd/h9nqKZndss10LVRA/bN0VyzlVBDZ7
-X-Received: by 2002:a17:902:e807:b0:2ee:1fab:158f with SMTP id d9443c01a7336-2f03f167d4emr115089865ad.43.1795455139780;
-        Mon, 23 Nov 2026 09:32:19 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f051a566f7sm45650825ad.41.2026.11.23.09.32.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 09:32:18 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KR0pgCCq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795455157;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Dac1FERf1Emk9l+Dj72gPWmV4FN/j45L9H+ZPXsL8co=;
+	b=KR0pgCCqewGwO6MeDTQ5jp+IrJ3pQcHU4ZF8NhJ/TT8i9uR4MiOPsb97IL6tWXdjSnWhPf
+	Sj0TZ4qB+7Pgb0PNlgZbAD8l+IMWS52TMHghnlDdLFy6m+C9gGYk/mDliiUlkn4LFiNTl6
+	CvK67SCm5qmZG3pD9jfEmYVEhqP85V0=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-691-TP4QAAtUMu2j5Hiba3cvAQ-1; Mon,
+ 23 Nov 2026 17:32:30 +0000
+X-MC-Unique: TP4QAAtUMu2j5Hiba3cvAQ-1
+X-Mimecast-MFC-AGG-ID: TP4QAAtUMu2j5Hiba3cvAQ_1795455147
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 735EC180289D;
+	Mon, 23 Nov 2026 17:32:27 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 1BA621955F01;
+	Mon, 23 Nov 2026 17:32:22 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Mon, 23 Nov 2026 18:32:27 +0100 (CET)
+Date: Mon, 23 Nov 2026 18:32:22 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Keenan Dong <keenanat2000@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+	namhyung@kernel.org, mhiramat@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH] uprobes: clear extra_consumers before pooling return
+ instances
+Message-ID: <awR4plQC_oIvoc2R@redhat.com>
+References: <20260408100247.2065245-1-keenanat2000@gmail.com>
+ <awRRgnRmeMDUvUWz@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,89 +84,55 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 09:32:17 -0800
-Message-Id: <DN2RQ7LGX224.3W3PSQ2PBHTJZ@google.com>
-From: "David Matlack" <dmatlack@google.com>
-To: "Pratyush Yadav" <pratyush@kernel.org>, "Tarun Sahu"
- <tarunsahu@google.com>
-Cc: "Pasha Tatashin" <pasha.tatashin@soleen.com>, "Mike Rapoport"
- <rppt@kernel.org>, <robin.murphy@arm.com>, <maz@kernel.org>,
- <will@kernel.org>, "David Matlack" <dmatlack@google.com>, "Alexander Graf"
- <graf@amazon.com>, <seanjc@google.com>, <jgg@nvidia.com>,
- <loganodell@google.com>, <arnd@arndb.de>, <dwmw2@infradead.org>,
- <baolu.lu@linux.intel.com>, "Bjorn Helgaas" <bhelgaas@google.com>,
- <oupton@kernel.org>, <alex@shazbot.org>, <gle.com@google.com>,
- <pbonzini@redhat.com>, "Andrew Morton" <akpm@linux-foundation.org>,
- <kevin.tian@intel.com>, <joro@8bytes.org>, <kvmarm@lists.linux.dev>,
- <linux-pci@vger.kernel.org>, <kexec@lists.infradead.org>,
- <kvm@vger.kernel.org>, <iommu@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <skhawaja@google.com>,
- <sagis@google.com>, <linux-arch@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 05/19] kho: Add feature header for fine-grained ABI
- compatibility
-X-Mailer: aerc 0.21.0
-References: <20261110050202.529473-1-tarunsahu@google.com>
- <20261110050202.529473-6-tarunsahu@google.com>
- <2vxzse0rzjdn.fsf@kernel.org>
-In-Reply-To: <2vxzse0rzjdn.fsf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awRRgnRmeMDUvUWz@redhat.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-On Mon Nov 23, 2026 at 6:56 AM PST, Pratyush Yadav wrote:
-[...]
+On 11/23, Oleg Nesterov wrote:
+>
+> Andrii, can you take a look? I never understood this code in details,
+> and today I forgot everything...
+>
+> On 04/08, Keenan Dong wrote:
+> >
+> > ri_pool_push() returns a return_instance to the per-task pool for
+> > later reuse. The pool reset clears cons_cnt, but it leaves
+> > extra_consumers behind.
+>
+> So at first glance this doesn't look right no matter what...
+>
+> > A reused return_instance can later grow a fresh extra_consumers
+> > array and then reach the cleanup path with a stale pointer from its
+> > previous lifetime, leading to a double free of the recycled object.
+>
+> Can you add more details to explain the possible double free?
+> This is not immediately obvious, at least not to me.
 
-> When we have all this available, I don't see the point in
-> differentiating between optional and required features at the ABI level.
-> At the ABI level, all that matters is what the incoming kernel
-> understands. If the incoming kernel does not understand a specific
-> field, the outgoing kernel should just not use it. There's no point.
-> Best case, it gets ignored.
+May be this has something to do with dup_utask() -> dup_return_instance() ?
 
-I pretty strongly disagree.
+If cons_cnt = 0 but ri->extra_consumers != NULL, then
+dup_return_instance() -> kmemdup() will copy old->extra_consumers, but
+but kmemdup(old->extra_consumers) won't be called?
 
-An optional feature is one that the next kernel does not need to
-understand to correctly restore the object. A required feature is one
-that the next kernel must understand to correctly restore the object.
-Optional features can be enabled without any compatibility concerns.
-Required features must be enabled carefully (IMO via uAPI) to avoid
-breaking Live Update.
+Damn this code is too complex for me ;) Anyway, I think the changelog
+should say more.
 
-I agree it's a good idea for the outgoing kernel to check that the next
-kernel supports all of the required features it is using, so the Live
-Update can be stopped before the kexec. But that doesn't remove the
-need for the distinction. The next kernel still has to decide what to
-do when it sees a feature bit it doesn't understand, e.g. because no
-spec was provided, the spec was wrong, or we kexec'd into a different
-kernel than planned. Without the distinction it can only:
+Oleg.
 
- A. Treat all features as optional, which risks misinterpreting state
-    and corrupting memory if the previous kernel did not properly
-    validate the next kernel's capabilities.
+> > --- a/kernel/events/uprobes.c
+> > +++ b/kernel/events/uprobes.c
+> > @@ -1945,6 +1945,8 @@ unsigned long uprobe_get_trap_addr(struct pt_regs *regs)
+> >  
+> >  static void ri_pool_push(struct uprobe_task *utask, struct return_instance *ri)
+> >  {
+> > +	kfree(ri->extra_consumers);
+> > +	ri->extra_consumers = NULL;
+> >  	ri->cons_cnt = 0;
+> >  	ri->next = utask->ri_pool;
+> >  	utask->ri_pool = ri;
+> > -- 
+> > 2.43.0
+> > 
 
- B. Treat all features as required, which means no new feature can be
-    enabled until every kernel it might Live Update to (including
-    rollback targets) understands it, even when those kernels could
-    safely ignore it.
-
-Neither of those is a good outcome.
-
-> The semantics of required or optional then become "can I describe this
-> object with the capabilities I can use?". If the answer is yes,
-> serialization succeeds, if the answer is no, serialization fails. So
-> with this, KHO_MAP_F_MULTI_INDEX or KHO_MAP_F_DYN_DEPTH are indeed
-> optional. All memfds can be described without these, they just will be
-> less efficient.
-
-I think this is a different meaning of "optional". Whether the outgoing
-kernel can choose not to use a feature is a decision for the serializer.
-Whether the next kernel can safely ignore a feature's data is a property
-of the ABI. KHO_MAP_F_MULTI_INDEX is optional in the first sense, but
-required in the second: a kernel that doesn't understand it will
-misinterpret the map. The header needs to convey the second.
-
-So I see the spec and required bits as complementary: the spec lets the
-outgoing kernel avoid features the next kernel doesn't support and fail
-before kexec, and required bits let the next kernel fail safely if that
-check was skipped or wrong.
