@@ -1,95 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438402;
-	b=zNKjSC1Qjj3iUUiBxj2XK6BRVxe5xkqA36y36Qfsoq0nLRhWP+mFuHOhwvn5Zv7jfCmM
-	 LOnucpgN6Apb7I5d7HvQjTzb2NW8VUBZYmHYF4jJpPYVaMezP5EVua5cpeMFkyVuDdkSh
-	 +CEu4+Qx+jChQ/wZXy4ceNiHGerVsFw8fSE8pHM9O3q8jFimoBbb9bFc7VhZBhicHh4xM
-	 AoaMcY9Uu4z3NDAY39FQUfnpzxRkWmWrnH2iOzRfWTWGZz8rDj/+rsRsMgcbAPtsITdG8
-	 54qqzkjEEyy2eVEm4TnWEIjPs7yHPXqsoicL55BEvETmnYrFpIKSCHAH9798nUplL2w==
+	t=1795438470;
+	b=ybg8y5rsijohJSl0QxTqSkeefaezn4hemAAwdDxn/bXJ3sR1jeMwSvRxC7qbVTAaSA3S
+	 GX9+C6oUx9omocPDW9MRNmJeJGF1uKR0a3+Vjp4A8hDPtEQlbLF0WKA7vVXslAt5Ciojt
+	 xR1BgvnMkuseMu1Z4/iNyyxG63M70se6i30ni9RSxCc8G/0V95ESHBCVymJ+P9YcNvjic
+	 8MPj+fJBHuSHABquMYm7jOphkTUWrqVOss0O5GngiNE8byihz0aD5bi8essyahXGPs8+N
+	 crAKZUWbgjCu01c22rXPjwPTbraEQfnVJlFDfEj1U+sFz6lvleZHFOe4V6hNTL2pVJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438402;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:Message-ID:
-	 References:User-Agent:MIME-Version:Content-Type:X-Spamd-Result:
-	 X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=MoVZGgFSknxuhmxQ2EcJuliGRiUE0WfStLh+wY9rmGI=;
-	b=Xajzd9VJ/INPKziQTJHmFIw7NY9pmc7veObqu2LbswD2LLcd1tg7BCCtB/Frdz7+BnFG
-	 fxp1JzM3t+0SegKaRL3EE8tCYWDNECxUaLt6nVwkG4TLciyXfv7GRa6OHmvNJX+YrUTlV
-	 sSsaWWY08XrCgN5fyx+l+vCvMl1zXMuaywWk3ln2ha3qope6WI4nUMcaV2zosKhDaHI8b
-	 pis/YboQT8zD7fIARFxPKUdx9EYZRsqBGLOb2qFXPSNfhmOwGeUDSeYJtIBHdsfgDw5bx
-	 UiLUYtaMoJOyej9LN/UyYykCojMMmefFAtHSQjiNzRlFCTLM5bHV/2jksRtsSgQJRzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438470;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ikrkT4unPcBTp2tgWugemt3WecqbaPqo/nqUTFKC3Es=;
+	b=M4oydKLICFiijmDDHPfdgGLi3ZuCM6l/g12St6zfOL753VAtDootJPOABjAxcU7Y9Ng5
+	 zsVy/YV6gM4c7dIjhSSA09M1wuCeGF5pBGFKHHwZcOe4Hv7saZwxx7GX21bZ5/9sDcNCu
+	 9sNo7LbkHYLAmxxLoM+tktJiykCABQqVTRBNNIO82wXMTjkunfaJQdPq6RUdx/Zd7KfYL
+	 7N8qnE7xHUx2L8a5EpVd+tHAALxd8TLAkVbew2aWg5TTCNywdGJwpSy5UX/VHQv5l+VfB
+	 4vDoq5AYYFnnyGZLz0O0ER9DT2Y4CF40ZG/JXKzgiKAVytcraGMaLZdgHjxsH+5LyiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=nYLhIYZo;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="q/8utAhV";
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=dou9wGyd;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=nkWJ0fxk;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=frqtt9rs;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30D0C606A31E;
-	Mon, 23 Nov 2026 12:53:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30D0C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29CFA606A31A;
+	Mon, 23 Nov 2026 12:54:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=nYLhIYZo;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=q/8utAhV;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=dou9wGyd;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=nkWJ0fxk
-Received: from pobox.suse.cz (unknown [10.128.32.1])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 2987F21E4E;
-	Mon, 23 Nov 2026 12:53:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795438400; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MoVZGgFSknxuhmxQ2EcJuliGRiUE0WfStLh+wY9rmGI=;
-	b=nYLhIYZoZt+z8/qQL1wNLYzwcoT9etR7xuWAOprZP2lYQA42dXFDm57RqHIVn2bmA9s9T9
-	Zcv7werF81yUDNfmuNxgP7OTbZjmY7Vcqm+rUmlfX/1eu91MHIRyHdnukXttLJxkwH0uvK
-	glx8fjOBeSZ8PsSzNUtNHV1ljqMxmek=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795438400;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MoVZGgFSknxuhmxQ2EcJuliGRiUE0WfStLh+wY9rmGI=;
-	b=q/8utAhVa8dTOdmzAZoXP1X4C4yIMI7h6iD83BqfxFo1f+Xu9JRpkwfcNDF6wxgRZpG3Mr
-	+lQmBXAEVA3nL9Cg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795438399; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MoVZGgFSknxuhmxQ2EcJuliGRiUE0WfStLh+wY9rmGI=;
-	b=dou9wGydYm5qki2o3EwiOEvLgYBrRHZH7Ynj/yJ5sFVDkF9EDxu2CCFjR13R64y7iqpL/h
-	NLHrMaFQIxs1n1umEcDoTXoF1LSN83SKDK9f17Ybe+zFJZJXLdRU+p4n4ugN5vP8pgZqgN
-	wJlmlp7A6E3cBDti0IhNt3h2jlGQel4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795438399;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MoVZGgFSknxuhmxQ2EcJuliGRiUE0WfStLh+wY9rmGI=;
-	b=nkWJ0fxkAETTO0eRhC5dGXKPcnwqnLxsmfX+0c6rBGOvORF4dPGVrbyiQkIkgxJ5bavT1u
-	J0WCduZY+EblGtCw==
-Date: Mon, 23 Nov 2026 13:53:19 +0100 (CET)
-From: Miroslav Benes <mbenes@suse.cz>
-To: Yafang Shao <laoar.shao@gmail.com>
-cc: jpoimboe@kernel.org, pmladek@suse.com, joe.lawrence@redhat.com, 
-    song@kernel.org, live-patching@vger.kernel.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] livepatch: clear internal flags at init
-In-Reply-To: <20261123024000.15130-1-laoar.shao@gmail.com>
-Message-ID: <alpine.LSU.2.21.2611231352550.30311@pobox.suse.cz>
-References: <20261123024000.15130-1-laoar.shao@gmail.com>
-User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=frqtt9rs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FF331F000C4;
+	Mon, 23 Nov 2026 12:54:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795438469;
+	bh=ikrkT4unPcBTp2tgWugemt3WecqbaPqo/nqUTFKC3Es=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=frqtt9rsqngqM53eCgPeF+xKKrhBTfsfd2UB6R8Et1Xxpkjp3jY90OguMFWibf4FS
+	 8Pk2ck/WOrzk59vkCuAh/rY66LUBpYUr0wimeYtXjWYv6PUtSeu4FHyyUu5ZVghgLD
+	 sQ2uuezGNrbvvR4zTet2A10LdJDjYJVcRi8RsulqSt4hbSAckIPp4amT/hC5LFFCvg
+	 M/Lj+krM1Ja21tNrnftbGNNuKivIAAqDrkQVUeh0V9cl9tmD6wTHaKFLzR4QLNSIcT
+	 Ccl82+XTNVuczqwcUXdE5ZElKe2s09C7b9bN+rSyM/URyXiwrJ5RWlrxYj6i/zOTkL
+	 +DtW42d5Bu3yQ==
+Date: Mon, 23 Nov 2026 20:34:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v2 06/13] soc: synaptics: add SL2610 system controller
+ support
+Message-ID: <awQyw9fp8qTj3kbU@xhacker>
+References: <20261115102401.3520-1-jszhang@kernel.org>
+ <20261115102401.3520-7-jszhang@kernel.org>
+ <20261123-knowing-eggplant-buffalo-fddfc3@quoll>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,45 +69,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-11.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_COUNT_ZERO(0.00)[0];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[gmail.com];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[pobox.suse.cz:helo,suse.cz:email]
-X-Spam-Score: -11.80
-X-Spam-Level: 
-X-Spam-Flag: NO
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261123-knowing-eggplant-buffalo-fddfc3@quoll>
 
-On Mon, 23 Nov 2026, Yafang Shao wrote:
-
-> func->nop and obj->dynamic are internal flags. However, a patch module can
-> set them in its static initializer and nothing validates that. The release
-> path uses them to decide whether kfree() has to be called, so with such a
-> patch the kernel ends up calling kfree() on memory it does not own.
+On Mon, Nov 23, 2026 at 11:31:42AM +0100, Krzysztof Kozlowski wrote:
+> On Sun, Nov 15, 2026 at 06:23:45PM +0800, Jisheng Zhang wrote:
 > 
-> Explicitly clear these flags during init to avoid that.
+> > +static const struct sl2610_syscon_data sl2610_mcu_data = {
+> > +	.cells = sl2610_mcu_cells,
+> > +	.num_cells = ARRAY_SIZE(sl2610_mcu_cells),
+> > +};
+> > +
+> > +static const struct sl2610_syscon_data sl2610_avio_data = {
+> > +	.cells = sl2610_avio_cells,
+> > +	.num_cells = ARRAY_SIZE(sl2610_avio_cells),
+> > +};
+> > +
+> > +static const struct sl2610_syscon_data sl2610_cpu_data = {
+> > +	.cells = sl2610_cpu_cells,
+> > +	.num_cells = ARRAY_SIZE(sl2610_cpu_cells),
 > 
-> Suggested-by: Miroslav Benes <mbenes@suse.cz>
-> Signed-off-by: Yafang Shao <laoar.shao@gmail.com>
+> That's just MFD driver, so should be in MFD, no? Why placing standard
+> MFD code - nothing soc specific - in the soc directory?
 
-Reviewed-by: Miroslav Benes <mbenes@suse.cz>
+I'm not sure which is better. But FWICT, sophgo, samsung, microchip put
+mfd drivers in soc directory. So I guess the reason behind this is these
+drivers are soc specific?
 
-Thank you
-M
+> 
+> 
+> > +};
+> > +
+> > +static int sl2610_syscon_probe(struct platform_device *pdev)
+> > +{
+> > +	const struct sl2610_syscon_data *data = device_get_match_data(&pdev->dev);
+> > +
+> > +	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO,
+> > +				    data->cells, data->num_cells, NULL, 0, NULL);
+> > +}
+> 
+> Best regards,
+> Krzysztof
+> 
