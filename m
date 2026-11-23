@@ -1,56 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437052;
-	b=bGiSubVp8XLPWpZNOoSZ6QOWkwb4+qiE+mBzVXM74tqofeQ/7N3d5z5RQ0JR9yNWMhO+
-	 ySgfjGg70Q5WOiQ6yZ9zlaEwxinJz+dyucIwBXadILeMzbe38M+pjbXF478YtVwsyk9/+
-	 0+kCJOBMNgWrf+TyHAZ/qmzmDY546tfBUoDuHNzIpASaBsilz/sYaHK8JIB7sIems+c5y
-	 jav/4aHENCmKyvFG6F3+oDERm31mi6C5+eRjEVwXxT+HZZs5KATVeUgubEmAGDo1Ayj9v
-	 29lxxRdLtCdpDSZ+TnRQlXPNOhLzlZjCz6EOYWGvqcpO7SwwCypF7FghTiSwY++6lOQ==
+	t=1795437074;
+	b=kZZMYrVqAvVfMwWDNZTMHl5LLzZbQPaxfvgfIROlg11aKM8eLFWhSkbx6HKx8yVuz/4Z
+	 wES7uBa8HxrJun9NtCzmbu5iwIfOvC5ecpderFzx31dOF0Fxzpr9p47gN2no4+H4BdBkK
+	 OfAU0zd3evyatcZWe1VlBYERErVKGJsSm2aga5YN2gyTQchGpSYzaULhJwDVhWnbyDGrB
+	 j6v3U+F18ROAs+P1VRmDkxHr6PMxuB5sXUqF74JByx6wRcsAQytbJEX9TEmXnrRgHC2wR
+	 +JVuxzDVHXmFwSC7a7OnIjlZG9axtsQd4tn3Yb1R1pWpWvEpaaGz6mm1WxX9NCB6YHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437052;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=IvwQY8SLzqMXTEsIq2u8alrkPfd4VmYg0fzyhZJHZhk=;
-	b=MlZvPrTO/CDBktvUvtFYrD2f8SnQ2wEGdAyFoYQKXhbkJgXkGxxmxHsy1XJ4oLp+KBh1
-	 lJqyrL5lYIAH+rBMMwTAy/CciR1nsP6GcazMHlHZrOr3V3umO1gsx3OCgR95DnyjCninT
-	 3HpXiykawnIbbBVx1j7+oCcOfLghjgV51tj48FgsMRJK7I7P3fqEU2bTaZ7YsUL931hkV
-	 eYs4WwNylMWcVzxQX9hAH85RdKo6IJlEM89M83oWCQRuSKgDX6KBDUUkfmfwpcLE1Ylar
-	 Ksdc8aWxdox+L/mVvfEvs/sbfVPvROErezSjRG1xaEfofkbJveQfkWcvIsDe9nJDVig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437074;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Organization:
+	 Content-Transfer-Encoding;
+	bh=8JFUc6suryLmfObSBujdkrzuaogAoNtsW4YHTMKxBuY=;
+	b=gjv7CH2H1/v7t2A+LhM/itlKMN5KJMutvTmAnJ05cziBaKl6eG9HqsGCtIqO6Ireev7Z
+	 k/HdrzImPRfRSZN1Z327asW/vos9rMadDIWu+zq2XTtdpxARetLhk8BfpOx7QpqgmeX3+
+	 D0X6UJAC1+08dvNolkdrNYx2q+q3CrQ0okmtzt6yCXPascmfuEXdo57lL2h0anShf+fSC
+	 xrxqZY059VSnNuSdi2bMLjDN396BwYr8I9c86RzZychV1BuT5tOMVJPrMdNArMffqXjrL
+	 7SrTNwIkylb4cww3ckov3gEwR+3jTgqST3saU4yuWQ0C3VEscLjZ5f1LWFRhEzYiatA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="F9dWfn/B";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EG246gS6;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 762F1606A31E;
-	Mon, 23 Nov 2026 12:30:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90681606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:31:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90681606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F9dWfn/B
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640461F000C0;
-	Mon, 23 Nov 2026 12:30:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795437052;
-	bh=IvwQY8SLzqMXTEsIq2u8alrkPfd4VmYg0fzyhZJHZhk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=F9dWfn/Bsx6nfEV69VN+Bwli+1liqO3hOgQUdVvcSXmY0nSkI2QVYa70rIcuYv4VJ
-	 B+mxuwvssGDfjZekuOzOCxYPdemUAub4iwxFmH8HAajGAH4ky1msGLY9UP/u6jWr4h
-	 2P+YzisJtKp+yci0TRUd34CtVSaRm6rE+hqFKE4QuBVayzMpWH7Z8twUDqUrB6fQdr
-	 f0AP9wJ+FOOhOmgyaeR7KHI5E3v+y2CQvyFf6aWbjUdt7OFU3h4s2lKwYNbTnp9ZGA
-	 Jhb6koXcD4nyp0NNFuKUdAf0c4bmaqthmKivwhmHzx0tPrRBK+JArvnmRrHVntdJMJ
-	 ZUDfYO0oMitxA==
-Date: Mon, 23 Nov 2026 13:30:48 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Adil =?utf-8?Q?H=C3=BCsrev?= Tepe <tadilhusrev@gmail.com>
-Cc: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EG246gS6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795437074; x=1826973074;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Zi2Jr8R15Cer++hvJocwT7HbnrhTKE9bZDw8hOdhdck=;
+  b=EG246gS6J7RL6G6MC0EXqKz8Pp8hHYG7i56wdj9qfh6Y0IyZMEs6C8Bs
+   R0+GI3lepeabwddMhaH2j5iVccaxQR1k4HL3MbBTcK4aiR/svKHvG0N19
+   RcJVZEfLZVzYnfUkcnh+Iqv0y3L3103Ul+Uqsvy9jVfU/MsDc099IkC9M
+   2HVJwxDOGvVKGPj7JxhvSB/t1i1Cfe2ehTJKHTI9d+HZDTnAqdR75yQK2
+   EFbEO7c7TgVhcGO2C7YR9sGh0/+54hq37Hr1aWiD1DooSqmO2BQuAW7Pa
+   wQGm+wNKAMShPpqbPE70qyGfGPR29LFsNS8qlRjOeGIzNihEkmBRWsF3H
+   g==;
+X-CSE-ConnectionGUID: Sn65LwT+RUaAXW92QX1G4Q==
+X-CSE-MsgGUID: 1N4lAwf/Qza6YBCd/ixLFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4137807"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4137807"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:31:13 -0800
+X-CSE-ConnectionGUID: tYLevqRtT2qgcRX9sYOYHQ==
+X-CSE-MsgGUID: 8UeKGM8gQEqSBZkUfBqmNw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11620245"
+Received: from try2-8594.igk.intel.com ([10.91.220.58])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:31:11 -0800
+From: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
+To: dri-devel@lists.freedesktop.org
+Cc: oded.gabbay@gmail.com,
+	jeff.hugo@oss.qualcomm.com,
+	karol.wachowski@linux.intel.com,
+	lizhi.hou@amd.com,
+	andrzej.kacprowski@linux.intel.com,
+	dawid.osuchowski@linux.intel.com,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] power: supply: s2mu106-fuelgauge: add standalone
- driver
-Message-ID: <20261123-tasteful-famous-dragon-00ee8d@quoll>
-References: <20261117104328.1176951-1-tadilhusrev@gmail.com>
- <20261117104328.1176951-3-tadilhusrev@gmail.com>
+Subject: [PATCH] MAINTAINERS: Add Dawid Osuchowski as Intel VPU maintainer
+Date: Mon, 23 Nov 2026 13:20:07 +0100
+Message-ID: <20261123122007.2580451-1-dawid.osuchowski@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,81 +83,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261117104328.1176951-3-tadilhusrev@gmail.com>
+Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-31
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 01:43:28PM +0300, Adil H=C3=BCsrev Tepe wrote:
-> Add a standalone driver for the fuel gauge in the Samsung S2MU106
-> PMIC, as fitted on the Samsung Galaxy XCover5 (own I2C address, 0x3b).
-> It shares the S2MU005 fuel gauge's STATUS/RVBAT/RCURCC/RSOC register
-> layout and scaling, which this driver reads directly with the stock
-> fixed-point formulas; it has no MONOUT average-monitoring registers,
-> so unlike s2mu005-battery.c it never reads VOLTAGE_AVG/CURRENT_AVG or
-> uses current_avg to decide POWER_SUPPLY_STATUS.
->=20
-> This replaces a previous version of this series
-> (https://lore.kernel.org/all/20261116074000.355176-1-tadilhusrev@gmail.co=
-m/)
-> that instead extended s2mu005-battery.c with a samsung,s2mu106-fuel-gauge
-> fallback compatible; see "dt-bindings: power: supply: add
-> samsung,s2mu106-fuelgauge" in this series for why that shape was
-> dropped.
+Add myself as a new accel/ivpu driver maintainer.
 
-No relevant
+Signed-off-by: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
->=20
-> The driver was drafted with an AI coding assistant (Claude Code,
-> Anthropic) from this register map; I reviewed every line, built it
-
-Not relevant!
-
-> (arm64, 0 warnings), ran checkpatch --strict (clean), and tested it on
-> a Samsung Galaxy XCover5 (re-confirmed 2026-11-17, kernel
-> 7.4.0-rc1-00023-gdcb8b91fb779+ #30): it probes, and
-> /sys/class/power_supply/s2mu106-battery/ reports plausible voltage,
-> capacity and charging-status values that track the device's actual
-> state (confirmed live, including across a flash/reboot cycle).
-
-Even less relevant, drop. AI usage goes to changelog.
-
-
-> +static int s2mu106_fg_probe(struct i2c_client *client)
-> +{
-> +	struct s2mu106_fg *fg;
-> +	struct power_supply_config cfg =3D {};
-> +
-> +	fg =3D devm_kzalloc(&client->dev, sizeof(*fg), GFP_KERNEL);
-> +	if (!fg)
-> +		return -ENOMEM;
-> +
-> +	fg->dev =3D &client->dev;
-> +	mutex_init(&fg->lock);
-> +
-> +	fg->regmap =3D devm_regmap_init_i2c(client, &s2mu106_fg_regmap_config);
-> +	if (IS_ERR(fg->regmap))
-> +		return PTR_ERR(fg->regmap);
-> +
-> +	i2c_set_clientdata(client, fg);
-> +
-> +	cfg.drv_data =3D fg;
-> +	fg->psy =3D devm_power_supply_register(&client->dev, &s2mu106_fg_desc, =
-&cfg);
-> +	if (IS_ERR(fg->psy))
-> +		return PTR_ERR(fg->psy);
-> +
-> +	dev_info(&client->dev, "S2MU106 fuel gauge registered (addr 0x%02x)\n",
-> +		 client->addr);
-
-Drop, drivers should be silent on success.
-
-> +	return 0;
-
-Why do you need a new driver instead of integrating it into existing
-s2mu005?
-
-
-Best regards,
-Krzysztof
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bcade5bfbafe..0afa391498d0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -8198,6 +8198,7 @@ F:	include/linux/power/smartreflex.h
+ DRM ACCEL DRIVERS FOR INTEL VPU
+ M:	Karol Wachowski <karol.wachowski@linux.intel.com>
+ M:	Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
++M:	Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
+ L:	dri-devel@lists.freedesktop.org
+ S:	Supported
+ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+-- 
+2.43.0
 
