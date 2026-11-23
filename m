@@ -1,44 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.29.242.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795439487;
-	b=RHx6mwu8o37UAl/lCq8vyC/QFMrITI5HOdg892X5U/YU5ZBCN4CVq9+wJ1aWvxF+1rmT
-	 yB+70dzL7dFzYOmPMxhPBMxS+GwqBKJTUcq5qQGPDbR4ABFaRPyYKdR09lYRiqR66gZJr
-	 +0J17PknlRdM0ajOiB4PvkEWWgL2vFlXDjA01Fb7TAfq0gRicDeX1nKienR3UWkRjK+fC
-	 so7muK0wuKtKmTNPD5iNkQC9zc6/rr4wqnKT7GKMEyys9b+WrbsyA4ydwctwZQGXwNMhL
-	 E52h0CbBi4Fwfdo+N/nvqanjR7o2tXxVP4HgaurFzjYzIrffpGZ3nwyvJwnVx2PsbdA==
+	t=1795439506;
+	b=AWwu8cvMuQxksiSWelcKNMsCZUXuMiejbKNXYq/hW1Xm8IrbSNEDmWEQcquFmsn0foHu
+	 ++jrqHzPlzLA0rJfj5oU0ys9Y45yne+9M934b36c2vKCiz0kGZ9B0zN/HusGorm19wbtB
+	 uonIJT6e06ZxShquhqNgupkyuq2SnRyjFApD9Zf9bzaT9KMHDCXZtjo2rQ1uaT5YciRrD
+	 MFFa/8BzAdAt5B4VQJ0bcpDfNrTVSTJ0rxbJhX99PdZYp/vKn4Sh0HBhbj700p4x2H8bi
+	 WZG7zFMvZw3fRPQ68648y8VcolkzCP/8AcdqSwb3HLqY9a2t6tvWY+yjusm+fFieTdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795439487;
-	h=DMARC-Filter:Received:X-Spam-Checker-Version:X-Spam-Level:
-	 X-Spam-Status:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=N/hUyT208PWL628P3dp42I10YIeJiwbXLU10EQAkCuU=;
-	b=oOjRRo67m+BsVivUgDrx1nUpgkgbMH/nKFtjnm+rh3OH2DxrHmyX4O16mVih9zbvVnMa
-	 f2wxhgr72qpmzRBN8wTWuP9FgM4VUT1/tLNthXPgqAWLmF60YCFWyzzw00gdcDqWqMtnU
-	 w3wC0qUvpZBvH3V0UaydDCK9daQINjn9LRSxmJyJ1rhqU9+Q6gzs7HygGRicc/ztOjiBo
-	 RRjivdZLu5tShWpeyBAjwQYIqPZw+GRhw86xvaynu8RbvTp/e3zDGCrK+IJ2fh2LxKucq
-	 hO8YM5cFI/8W4h17vUGKvnqEOKhJxEfyoTPa/omAUPElNSeAT0MSwYMCG+sn/c5jz/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795439506;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=EdMsunFDcUtQDGISK9BC5BpmhF0KnQn+rijOh7gG9a8=;
+	b=TBWRa/SnWiIOoWIsclbqx7JMFIYZqzPgFXsz5nFQ4+u4snlaCV5RAkD34vWNbXEWJ53O
+	 PYEnnG2opc0GeHqGTIqe94UJFrzYsmStMH8d+nV5xoG3ewEzVMYmil4Jl2w2GUjU0oXYU
+	 p0kUP/q7E3dMZRAXYLInoLFTjJEGDL4wE55soMx/dsyghSblJ7q9APHFncHRgllkwBLx7
+	 Jc97OYDAjmc92bG2UDX6IJagpWQ0XJLv8Wy7M7wilOycbiZuYZVrykAofySkYSWf1vIwN
+	 NtXLBxiy89Mq+hdxUg9ArtfwbWOuhSkR26dE4XtiIotpEdNRRif38Yfn4dTDk92C7fg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=davidgow.net;
-	spf=pass smtp.mailfrom=davidgow.net;
-	arc=none smtp.remote-ip=203.29.242.92
-Received: from sphereful.davidgow.net (sphereful.davidgow.net [203.29.242.92])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m7P3m4i7;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AEFC606A31A;
-	Mon, 23 Nov 2026 13:11:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AEFC606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=davidgow.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=davidgow.net
-Received: by sphereful.davidgow.net (Postfix, from userid 119)
-	id 0A6E4200DF4; Mon, 23 Nov 2026 21:11:24 +0800 (AWST)
-X-Spam-Level: 
-Received: from [IPV6:2001:8003:8802:7000::41b] (unknown [IPv6:2001:8003:8802:7000::41b])
-	by sphereful.davidgow.net (Postfix) with ESMTPSA id 1A151200DF0;
-	Mon, 23 Nov 2026 21:11:22 +0800 (AWST)
-Message-ID: <c6c991f6-f92e-4621-b5b2-7d21e4396fee@davidgow.net>
-Date: Mon, 23 Nov 2026 21:11:18 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC0D8606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:11:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC0D8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m7P3m4i7
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b3a914e4c8so1676489a91.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:11:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795439505; x=1796044305; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EdMsunFDcUtQDGISK9BC5BpmhF0KnQn+rijOh7gG9a8=;
+        b=m7P3m4i7mpTAsF5vYQUL2a3YyTEZyXaP5vtj1pseQbnG1cviEluS7w/CpTuyZpfkAo
+         ESOXXv1h5Ah7ImMP2vqT4lqwG2AglXSmSQEDVpxvdnxQSXDSsX2v7OjpQe+l/a/4TkbV
+         rfliWXysYAm28oJSbD2H807c94SFJXqc8NqVRr2FjOTBx87YjUB8ecJXBZPUWEwtyOES
+         yHI5H3KuXuBIrlYi0qmXZjcxHsRq4ycbUy9/IpINj4R5yrdwX2tGMxuAY80YqWKW4VOQ
+         g0nkcC435JSG9A6x6dYHjiRGLnyty16lG9urLH+//C+wuxJvqGdsOwiV1snjowuTmgEL
+         I8aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795439505; x=1796044305;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EdMsunFDcUtQDGISK9BC5BpmhF0KnQn+rijOh7gG9a8=;
+        b=l4YsU0zv2e/W1b8SevthtyuCFVEAH1RjFTkJk6//TSKDAS4Njs3kVclPeHlO/4yTfa
+         a+ryH0bUFir9Pnosp0tLC+aSlQsadQkevWZobA9hYR+8lFge+lDTNC3dIC5b2cQup4wA
+         VfhPbabKgq8O9J+QhYgnnI8zIRXiRMXY7M8XjQbRLZoXAPy+9+81m2rVaisdRrMPy9fL
+         FqpB3NpT3gSe4S95Aun3a+uvxBrWzWSgapgtWsFDtJCQndkuPkTxDgDfsA9qWtJvICgu
+         mMRtLQ+7WLRwAjCIjrMCuUKR2FQdtUgjNGj79NSfgdNRw828Qdrph8xyo2v7Hs54NP4B
+         cmpw==
+X-Forwarded-Encrypted: i=1; AL+hErETPPjEUIvzrfh0GkQd4pKejo7fVXkcZb/S1fbsQlV/yzOl04Y1YyTAo6BrCSXxRHCHYciPQ43PDNorBuk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Wov2Wl+dHj+rKw535Drl/XCj3kR9/JkfjopSndeyCjeHCEOMY
+	Q65BAzC8infHQXg7oeZcvc6gESEBkqixbl7ukFNZSBE7dTYrHSsahn8L
+X-Gm-Gg: AZFdTZd0AjLBXTW68Yuojb5t60QMcDtc5iO7f7eJ/UCzJrX2F9remoktqg3rYXJVSHw
+	0VQRsbI6Wr4KkErSNxNnMU7RO3XeVTz/d4O/dPNpR5tOv6fJvNcoO/oy/36vKl0BPZzL2nk7RfA
+	SxViY2/iu+I3aC+YXRWpaDbRB6w5HLgDlLzs658oQDhyL1xLd+j6oNIvmh95JNhbZYj89tZiBfh
+	ZQhEJPud46GJf6ZJPBOh+sjK4STHlqKUblLgqlDOwXCS1M+ITjbZJigxaHf8vghIpuN/h1+Cdq6
+	NEHbmcLk4IL+z09s2buIa1PXKhxx+mmn9iL68sKXBtkFjww9J8Zj3moOnK6sORKwaxyaslH2/to
+	VfTqQpeRixG7Oflo9xQwNgiOZWrEuBeky3lKb5a5r0PDGeYwORygn7yk7jEnXOg+8+qcHXqCtQr
+	2s7AjRAUAOz+dcKNEy8dBDYRlXF3TooT8qbkdnQtYqpKAvN9D5+CQzqv9+VIDd3sbIrz+Fmkush
+	SmPqPItofjMpIO98DGGwDK1wc9Xgeluvd9P6iyMUipNTrYb5RhL97dgXbGh22O+rFbd9WTjSy48
+	uBopVT4uaK19zG8Oi2wGX8TjQId+eK1fkQ==
+X-Received: by 2002:a17:90b:2d8a:b0:3ab:413:49b6 with SMTP id 98e67ed59e1d1-3b41c952eefmr10186812a91.41.1795439504874;
+        Mon, 23 Nov 2026 05:11:44 -0800 (PST)
+Received: from arm-a100.. ([140.112.28.118])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b409330ae8sm20903469a91.7.2026.11.23.05.11.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 05:11:44 -0800 (PST)
+From: Tzu-Ching Yang <shingekinocore@gmail.com>
+To: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-m68k@lists.linux-m68k.org,
+	Angelo Dureghello <adureghello@baylibre.com>,
+	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Arnd Bergmann <arnd@arndb.de>,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] m68k: coldfire: Use the builtin fls() and __fls() on ISA_A+ and ISA_C
+Date: Mon, 23 Nov 2026 21:11:01 +0800
+Message-Id: <20261123131101.639643-1-shingekinocore@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,202 +101,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] kunit: tool: report executor errors when listing tests
-To: simonsudarushkin@gmail.com, Brendan Higgins <brendan.higgins@linux.dev>,
- Rae Moar <raemoar63@gmail.com>, Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com,
- linux-kernel@vger.kernel.org
-References: <20260929-kunit-list-errors-v1-1-16bf855e2ec3@gmail.com>
-Content-Language: en-US
-From: David Gow <david@davidgow.net>
-In-Reply-To: <20260929-kunit-list-errors-v1-1-16bf855e2ec3@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-Le 29/09/2026 à 23:50, Simon Sudarushkin via B4 Relay a écrit :
-> From: Simon Sudarushkin <simonsudarushkin@gmail.com>
-> 
-> --list_tests, --list_suites, --list_tests_attr and --run_isolated first
-> ask the kernel for the list of tests. extract_tap_lines() keeps the
-> "kunit executor:" lines printed before the KTAP header, but the list
-> code then drops the first line as the dummy header and filters the rest
-> by name, so an executor error is silently lost:
-> 
->    $ ./tools/testing/kunit/kunit.py run --list_tests --filter 'nosuchattr=1'
->    ...
->    $ echo $?
->    0
-> 
-> The kernel log has "attribute not found: nosuchattr=1" and "error
-> filtering suites: -22", while a normal run with the same filter reports
-> the error and exits with 1. If the kernel prints no KTAP output at all,
-> the same pop() raises ValueError and kunit.py exits with a traceback.
-> 
-> Move the code shared by _list_tests() and _list_tests_attr() into
-> _run_list_action(), which raises ListError on executor errors or when
-> there is no KTAP output. exec_tests() prints the error and returns
-> TEST_FAILURE, as a normal run does.
-> 
-> Fixes: ff9e09a3762f ("kunit: tool: support running each suite/test separately")
-> Fixes: 723c8258c8fe ("kunit: tool: Add command line interface to filter and report attributes")
-> Assisted-by: LLM
-> Signed-off-by: Simon Sudarushkin <simonsudarushkin@gmail.com>
-> ---
-> Tested with kunit.py on arm64 (QEMU with KVM): a bad --filter now prints
-> both executor errors and exits with 1 for --list_tests and
-> --run_isolated, while normal listing, --list_suites, --list_tests_attr
-> and --run_isolated=suite behave as before. In run_checks.py,
-> kunit_tool_test.py and mypy pass; the UML smoke test could not be run,
-> as UML does not build on this arm64 host (it fails the same way
-> without this patch).
-> ---
+Let fls() and __fls() use the ff1 instruction on ColdFire ISA_A+ and
+ISA_C cores instead of the generic binary search in C, as __ffs() and
+ffs() already do. GCC emits ff1 for __builtin_clz() on exactly the cores
+for which it defines __mcfisaaplus__ or __mcfisac__, the macros that
+already select the ff1 versions of __ffs() and ffs(), so no new
+condition is needed. Commit a6260ef84103 ("m68knommu: add ffs and __ffs
+plattform which support ISA A+ or ISA C") added the ff1 versions of
+__ffs() and ffs() in 2008 and kept the generic fls(); the generic
+__fls() followed in 2009.
 
-Thanks very much: this is a nice catch.
+Use the asm-generic builtin versions of fls() and __fls() when
+__mcfisaaplus__ or __mcfisac__ is defined, and keep the generic C
+versions for ISA_A, ISA_B and 68000. The bitrev/ff1 asm of __ffs() and
+ffs() stays, as this asm is shorter than the code GCC generates for
+the builtin versions of __ffs() and ffs().
 
-I'm pretty happy with it overall, though I'm starting to feel that we're 
-pushing a bit more functionality into the main kunit.py than we want, 
-and this probably should live in another module (like kunit_kernel.py or 
-kunit_parser.py, or possibly something new). That'd probably require 
-more refactoring than we want for a fix (and there are a few other 
-patches which also would benefit from some refactoring, so I think we 
-can save that for a future version).
+With GCC 12 to 16, fls() shrinks from 28 instructions to 8 or 9 and
+__fls() from 24 to 6. With GCC 8 to 16, the functions of each ISA_A+ or
+ISA_C defconfig kernel shrink in total by at least 8676 and at most
+13266 bytes (scripts/bloat-o-meter -t), depending on the defconfig and
+the compiler. In lib/find_bit.c, only _find_last_bit() changes, from 55
+to 35 instructions for m5208evb with GCC 16.
 
-Regardless,
-Reviewed-by: David Gow <david@davidgow.net>
+fls(0) still returns 0, and __fls() still returns unsigned int.
+__fls(0), which is undefined, now returns ~0 instead of 0. For other
+CPUs, the preprocessed source changes only in its line numbers.
 
-Cheers,
--- David
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Link: https://lore.kernel.org/all/dbb44e92-0bc5-449d-9e43-1f93362aa6c3@app.fastmail.com/
+Signed-off-by: Tzu-Ching Yang <shingekinocore@gmail.com>
+---
+I have no ColdFire hardware. On QEMU mcf5208evb (ISA_A+), the ffs and
+bitops KUnit tests pass before and after with GCC 8.3 to 16.2. In
+find_bit_benchmark on that machine, with the bitmaps drawn from a fixed
+seed so that the kernels before and after use the same bitmaps, and the
+executed instructions counted by a TCG plugin, find_last_bit goes from
+52.3 to 38.3 instructions per iteration on the random bitmap with GCC
+16, and bitmap_find_next_zero_area_off, which calls find_last_bit(),
+from 3302 to 2864; the tests of the other helpers do not change. The
+ISA_C kernels were only built, as QEMU has no ISA_C machine.
 
->   tools/testing/kunit/kunit.py           | 57 +++++++++++++++++++++-------------
->   tools/testing/kunit/kunit_tool_test.py | 18 +++++++++++
->   2 files changed, 54 insertions(+), 21 deletions(-)
-> 
-> diff --git a/tools/testing/kunit/kunit.py b/tools/testing/kunit/kunit.py
-> index 91d234ac3b579..6db09144d7cfc 100755
-> --- a/tools/testing/kunit/kunit.py
-> +++ b/tools/testing/kunit/kunit.py
-> @@ -109,8 +109,12 @@ def config_and_build_tests(linux: kunit_kernel.LinuxSourceTree,
->   
->   	return build_tests(linux, request)
->   
-> -def _list_tests(linux: kunit_kernel.LinuxSourceTree, request: KunitExecRequest) -> List[str]:
-> -	args = ['kunit.action=list']
-> +class ListError(Exception):
-> +	"""Represents an error from the kernel while listing tests."""
-> +
-> +
-> +def _run_list_action(linux: kunit_kernel.LinuxSourceTree, request: KunitExecRequest, action: str) -> List[str]:
-> +	args = ['kunit.action=' + action]
->   
->   	if request.kernel_args:
->   		args.extend(request.kernel_args)
-> @@ -121,31 +125,34 @@ def _list_tests(linux: kunit_kernel.LinuxSourceTree, request: KunitExecRequest)
->   			   filter=request.filter,
->   			   filter_action=request.filter_action,
->   			   build_dir=request.build_dir)
-> -	lines = kunit_parser.extract_tap_lines(output)
-> +	stream = kunit_parser.extract_tap_lines(output)
-> +	lines = []  # type: List[str]
-> +	errors = []  # type: List[str]
-> +	while stream:
-> +		line = stream.pop()
-> +		match = kunit_parser.EXECUTOR_ERROR.search(line)
-> +		if match:
-> +			errors.append(match.group(0).strip())
-> +		else:
-> +			lines.append(line)
-> +
-> +	# The executor reports a bad filter or action instead of listing.
-> +	if errors:
-> +		raise ListError('\n'.join(errors))
-> +	if not lines:
-> +		raise ListError('Could not find any KTAP output. Did any KUnit tests run?')
-> +
->   	# Hack! Drop the dummy TAP version header that the executor prints out.
-> -	lines.pop()
-> +	return lines[1:]
-> +
-> +def _list_tests(linux: kunit_kernel.LinuxSourceTree, request: KunitExecRequest) -> List[str]:
-> +	lines = _run_list_action(linux, request, 'list')
->   
->   	# Filter out any extraneous non-test output that might have gotten mixed in.
->   	return [l for l in lines if re.match(r'^[^\s.]+\.[^\s.]+$', l)]
->   
->   def _list_tests_attr(linux: kunit_kernel.LinuxSourceTree, request: KunitExecRequest) -> Iterable[str]:
-> -	args = ['kunit.action=list_attr']
-> -
-> -	if request.kernel_args:
-> -		args.extend(request.kernel_args)
-> -
-> -	output = linux.run_kernel(args=args,
-> -			   timeout=request.timeout,
-> -			   filter_glob=request.filter_glob,
-> -			   filter=request.filter,
-> -			   filter_action=request.filter_action,
-> -			   build_dir=request.build_dir)
-> -	lines = kunit_parser.extract_tap_lines(output)
-> -	# Hack! Drop the dummy TAP version header that the executor prints out.
-> -	lines.pop()
-> -
-> -	# Filter out any extraneous non-test output that might have gotten mixed in.
-> -	return lines
-> +	return _run_list_action(linux, request, 'list_attr')
->   
->   def _suites_from_test_list(tests: List[str]) -> List[str]:
->   	"""Extracts all the suites from an ordered list of tests."""
-> @@ -160,6 +167,14 @@ def _suites_from_test_list(tests: List[str]) -> List[str]:
->   	return suites
->   
->   def exec_tests(linux: kunit_kernel.LinuxSourceTree, request: KunitExecRequest) -> KunitResult:
-> +	try:
-> +		return _exec_tests(linux, request)
-> +	except ListError as e:
-> +		for line in str(e).splitlines():
-> +			stdout.print_with_timestamp(stdout.red('[ERROR] ') + line)
-> +		return KunitResult(status=KunitStatus.TEST_FAILURE, elapsed_time=0.0)
-> +
-> +def _exec_tests(linux: kunit_kernel.LinuxSourceTree, request: KunitExecRequest) -> KunitResult:
->   	filter_globs = [request.filter_glob]
->   	if request.list_tests:
->   		output = _list_tests(linux, request)
-> diff --git a/tools/testing/kunit/kunit_tool_test.py b/tools/testing/kunit/kunit_tool_test.py
-> index 85ae21754bdf9..d0cb3340a328d 100755
-> --- a/tools/testing/kunit/kunit_tool_test.py
-> +++ b/tools/testing/kunit/kunit_tool_test.py
-> @@ -991,6 +991,24 @@ class KUnitMainTest(unittest.TestCase):
->   				     kunit.KunitExecRequest(None, None, None, False, False, '.kunit', 300, 'suite*', '', None, None, 'suite', False, False, False))
->   		self.assertEqual(got, want)
->   
-> +	def test_list_tests_executor_error(self):
-> +		self.linux_source_mock.run_kernel.return_value = [
-> +			'[    0.100000] kunit executor: attribute not found: nosuchattr=1',
-> +			'[    0.100000] kunit executor: error filtering suites: -22']
-> +
-> +		with self.assertRaises(SystemExit) as e:
-> +			kunit.main(['exec', '--list_tests'])
-> +		self.assertEqual(e.exception.code, 1)
-> +		self.print_mock.assert_any_call(StrContains('attribute not found: nosuchattr=1'))
-> +
-> +	def test_list_tests_no_output(self):
-> +		self.linux_source_mock.run_kernel.return_value = []
-> +
-> +		with self.assertRaises(SystemExit) as e:
-> +			kunit.main(['exec', '--list_suites'])
-> +		self.assertEqual(e.exception.code, 1)
-> +		self.print_mock.assert_any_call(StrContains('Could not find any KTAP output'))
-> +
->   	@mock.patch.object(kunit, '_list_tests')
->   	def test_run_isolated_by_suite(self, mock_tests):
->   		mock_tests.return_value = ['suite.test1', 'suite.test2', 'suite2.test1']
-> 
-> ---
-> base-commit: e38f53f0482468efd04397f66bda4648b70ac9fa
-> change-id: 20260929-kunit-list-errors-63c1b3066812
-> 
-> Best regards,
-> --
-> Simon Sudarushkin <simonsudarushkin@gmail.com>
-> 
-> 
+Under QEMU user mode, with the kernel's flags for -mcpu=5208, 532x and
+54455 and each GCC at -O2 and -Os, old and new fls(), __fls() and
+fls64() agree on all 2^32 inputs (fls64() in either 32-bit half)
+except the undefined __fls(0).
+
+The seven ISA_A+ and ISA_C defconfigs (m5208evb, m5235evb, m5275evb,
+m5282evb, m5329evb, m54418evb and stmark2) were built with GCC 8.3 to
+16.2 before and after, with the same .config before and after. A W=1
+build of these seven and of twenty other ColdFire and m68k defconfigs,
+each with at least GCC 8.3, 12.5 and 16.2, has no new warning.
+
+The new out-of-line fls() for m5208evb with GCC 16.2:
+
+	movel %sp@(4),%d0
+	tstl %d0
+	beqs 1f
+	movel %d0,%d1
+	ff1 %d1
+	moveq #32,%d0
+	subl %d1,%d0
+1:	rts
+
+Against v7.4-rc1; also applies to the m68knommu and m68k for-next
+branches and to next-20261113.
+
+ arch/m68k/include/asm/bitops.h | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/arch/m68k/include/asm/bitops.h b/arch/m68k/include/asm/bitops.h
+index e9639e48c6c3c..81923a9fa4494 100644
+--- a/arch/m68k/include/asm/bitops.h
++++ b/arch/m68k/include/asm/bitops.h
+@@ -506,13 +506,14 @@ static inline __attribute_const__ int ffs(int x)
+ 	return __ffs(x) + 1;
+ }
+ 
++#include <asm-generic/bitops/builtin-fls.h>
++#include <asm-generic/bitops/builtin-__fls.h>
+ #else
+ #include <asm-generic/bitops/ffs.h>
+ #include <asm-generic/bitops/__ffs.h>
+-#endif
+-
+ #include <asm-generic/bitops/fls.h>
+ #include <asm-generic/bitops/__fls.h>
++#endif
+ 
+ #else
+ 
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.34.1
 
