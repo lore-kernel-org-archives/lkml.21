@@ -1,88 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447298;
-	b=VwbieE4rl0hqBtOYQ8T/jKlcv10q0A3DaFd+BefR/QCTHzDq2hZwQuUrhWOnVEFap4HI
-	 HVGJ6VHQA9/CnmUhI24r23775zpxXrJfh01YMuQd/aCtrJTDF3SOoAFRZKWq0E+81flg4
-	 5UvWpSi6McLJ3SpkujiHNP2lwxEljxZg4TM+oLmbBFGbc3p83Q239v2Qz2yShW9E4rjZ4
-	 6pNs3KHAeVWnpl0ulrmXovviOlRDcRZqcG9vF1Azejf3QDZMyjcLvR5o9Ses5kDm1XOT6
-	 IIi+yT+6WVDP+eMUZsCrDO6KcX80fUCRXKVkz8Ml8jM1911KRPxR/BIIIN5UrVxcDig==
+	t=1795447313;
+	b=Th2Qtz9gvd8qHl5sfufMbif/38Ku2xxvJs7CjyfOL/PfWX09Axu0fSNrCK7i61UjE6CE
+	 cu5YHuc6BrkTJrSenly9ILLgRFn9w7vn4r8/fbrXvjRZgMAhCoNccWZyvgpJonv250Uco
+	 6E7vBykVafigbMrX98WAZCSrOxJjh3CpJ30nBHdTKvglswENopvlZbO/x2HRboiaRlvK1
+	 Ruy3XF/TdI6Pzjxh+DwgIPeW4PwnAQDV3l7ZYkftsutXeRRdn3fB8TQNtZ8Mpf25JFDQG
+	 OwmKTCmJ3r9t+4/auFnthLvVfiZ+V1LM2ZUx7oOt8M6fHXFRzhL1o5DskhOn6TfNXRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447298;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=19wtD7ctexcupGN1rAHyajgeUpgLFt6VgBl9fWgXjN8=;
-	b=gELVOzoW5/IvzSPD3Lm1CEBMEu185qvecoR+8JlbzZyZ/cEdPNo9LthndCK443CbNz5/
-	 9cqr4EZMdfkyGHhah6IHdJBhRrAckmBetU0O7Cmtt4Krbgx+3qlXx6bxGC0Qr+Si6jQ1v
-	 vrejO0rkBmLytnxQTNl/MYBzZF7Qn0lC3jkLmASJw3ryvX6EEjdAkqGa1UPI7ffhZc9vX
-	 a2uA7N+aFoMsCxfHfXCvQF21yz+G35oQbdml1bZgACGCvFW46BdjGr7M+MJMHxWtEE4lu
-	 gxE5ulZR5PxgZD+17x1cGNRpzA0bgYVKAW1KzP6x+kGKIWjC6E0CSUowwAIVRJLkgsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447313;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
+	bh=FDHhwxCxCbXmvaM7MXxMxxf1AWoTVfTVQx5EL51XTSY=;
+	b=yYSuOLPysBvNcF5tNTNBjcSzlnMiTUAnyQhJ+sOfBJe62Rjabv+HFDPUDtEw5dVlMx9j
+	 QO1lzKqZsXR2PJ9pggvg9ogqu1iAkVfG26qx/aCo3NLS7m+DeQuYKC6rs4YJe8Y7LCjRm
+	 5RiBnpsRBIcEi+6aI6hIoPGebAv3+2KUmuoyRNuKDZs/5PyOkNsD3dajbiUaSIirfsvPE
+	 2Ll3Ymz97ABJfsZc5EDBLu8GcRuATOO4uIGFt8uvRWG4FBbWCEjNLfNSlBJY1FQZRIg+6
+	 xOq+nZjbJLSmBGHPudO8TND3aZRlTyKSEH7sCJHlVhLqQ2Bj8198zrkLUCubdyH2TdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=MaZi7CmT;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A867606A6AD
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:21:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A867606A6AD
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=J1P3PFoa;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id F3441606A31F;
+	Mon, 23 Nov 2026 15:21:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3441606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=MaZi7CmT
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so15195495e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:21:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795447294; x=1796052094; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=19wtD7ctexcupGN1rAHyajgeUpgLFt6VgBl9fWgXjN8=;
-        b=MaZi7CmTAvz5jvCoW/2LqujGaVlkK/ho53r4KJmPkYOBQvqOWQR793J4rzW+E6GpfU
-         SoPesaayq8f8Hj0W/aUOilS8O83Ui9hZ72F4VNAP3slPOmkroXFB92GR8u/icdi0iWnZ
-         i7sDT/CI9pEyn8EakiDCImc0jYixycjVt7VOT3OoXMcquWQaCDgXy6QAGE8DxqMLCnV1
-         JO22HGL4yDIFB1r5Rf8YhueROhChV7yaKapldMWLdFmL0nQ6OhLn+BPmHCQRvA0og3LW
-         5lsjxTpFYUp3dV4p05blvT12WrQ7DfOTOW4QfMwq9ZOE0w4VGfr8cgwaOdWpKBJMmqHZ
-         Eo7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447294; x=1796052094;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=19wtD7ctexcupGN1rAHyajgeUpgLFt6VgBl9fWgXjN8=;
-        b=uxnYLaynUIu14aiPqOoOexvLDjrSXHeGEjj+0ljMC0rPBX7mNZnX/mriSwuYeO3Qmi
-         wh4wqHlRVESMvkyp1z5XE/oaGWL9C9rjuutic7+VdHBfX8mwlTLDvuuTBe3HsaI2xe/w
-         U93QDSudEbzoDc5RPidvUTKIK8zPxwNWOIuSc3RoyEB6KFroxQ+i1jIYu9YGwOyAxQ3P
-         KnI6vkWs4ENhZrQFbgWpm2IpSMn/sEJD9OWRXPvJfs58tDYzGwY4EmJ0kRAmDak7ib/j
-         gHSpLxudkA6hqa8etmqGZmt5Y91YIRGbz2dJ2p4cOJdR7HXDvKDZnJPGFkVZw1CYCNRb
-         9LBg==
-X-Forwarded-Encrypted: i=1; AL+hErE5qUo4WBBKIu4sGDzgRDRhhKUgl0s0xdjtMdLYE2kfA8uqqPQl/5ahgbX6jkYAM2tIDa65e3Q366FO8pk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Xds4+H2wOq54MuYe1cmB2DToObP9wXeO+l3DXhLH/TE6VlZG3
-	BIR5vjbwRb80iqddya7oB3iDZCtTLCRRvhmJZd6/yaEuBLEhDoNSvq3yGt81gvSDb6g=
-X-Gm-Gg: AZFdTZe4CvqFvD340xyd98ZwsWdC3m6TSR2My0rP9d2ODSBO4Kat3G2eAvEgbmqH0Ja
-	dXsjuj4lYqsEStImJChzyaaH8iBIkft7fJ+LzF/TdUhjOfUVz45uBOp4pUqCe2LF1aukg3pJyH3
-	ktOZXfdJ444hygKq6qEsNfN906aTcG6S8cnO/Gl51RdxS4rIaSUHmzcla0eprKSdz7opfxxuyws
-	GdnZ4IdFqYH8v/EkSwLHpukzxaM0m0muChJRahcHU5sQWH9euUWAbhI/bXE4emxLyDrlSDKcRGc
-	GVF6d+73BF9GUXFv6xjGq55aXTcENTCHab3LljULH/h53xmAlvdijpnvG+kr8VmaLKVR6AipNPQ
-	xD0b3u3chNG8DXSGcKBMsAor/mQG4jCJViQLDMdQytTfGMFo4I2UXPPJyAxPGfc62EsTWVhoG21
-	7UEMdod9IidRBcEdpHAaI/O/j7n9MeybV/iHzFn04nVC3hGoDNmnPc7hZjvOAr8zr0qoveEwBNO
-	RgIo2vdjmeBu7MwDwP1uIxaB7zT7ydEC2llwZdbWUDwkRuvOmx/IewxzL0MAtVhQ+p1VfLti0rh
-	eS1hADymsb0s9JlQgwivR7+ukfDq5pMJPQ3+6WqhyyIqo3On7Uw=
-X-Received: by 2002:a05:600c:5303:b0:4ba:495c:2f5d with SMTP id 5b1f17b1804b1-4bb8880767amr217009255e9.9.1795447294554;
-        Mon, 23 Nov 2026 07:21:34 -0800 (PST)
-Received: from localhost (140.30.66.37.rev.sfr.net. [37.66.30.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895f7bc1sm133041265e9.3.2026.11.23.07.21.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:21:34 -0800 (PST)
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
-Date: Mon, 23 Nov 2026 16:21:26 +0100
-Subject: [PATCH v3 04/10] firmware: arm_scmi: report the pin-only and GPIO
- flags of functions
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=J1P3PFoa
+Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 87B0320B7167;
+	Mon, 23 Nov 2026 07:21:47 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 87B0320B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795447308;
+	bh=FDHhwxCxCbXmvaM7MXxMxxf1AWoTVfTVQx5EL51XTSY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=J1P3PFoa9nR7k2KaZQn4p3MoCICXl+phdl58ZUlBuX/wXLkMPyF1M6ne2cWYQ+n6H
+	 gpBWeFkU1+O/zbw8VIgfThH8iyxKUaCaa4NLLwCXPbM0lryhPuTH2z0kOpxjGv9br4
+	 ALdYvK1B6Ch0CB/X6qb6ZfvKG/GjqRTum51UIGLM=
+From: Wei Hu <weh@linux.microsoft.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: longli@kernel.org,
+	kotaranov@microsoft.com,
+	kuba@kernel.org,
+	davem@davemloft.net,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	andrew+netdev@lunn.ch,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	shradhagupta@linux.microsoft.com,
+	horms@kernel.org,
+	ernis@linux.microsoft.com,
+	stephen@networkplumber.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	gargaditya@linux.microsoft.com,
+	kees+treewide@kernel.org,
+	kees@kernel.org,
+	mawasthi@linux.microsoft.com,
+	weh@microsoft.com,
+	edumazet@kernel.org
+Subject: Re: [PATCH net-next v11 1/4] net: mana: prepare HWC ownership for safe reinitialization
+Date: Mon, 23 Nov 2026 15:21:44 +0000
+Message-ID: <20261122064231.hwc-v11-netdev-p1.weh@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179527856753.3135.1812581824985082274@kernel.org>
+References: <f94c7f71d4228c7c30838f9c901b429ec5b1428c.1794751992.git.weh@linux.microsoft.com> <179527856753.3135.1812581824985082274@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,168 +84,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261123-clegoffic-pinctrl-scmi-gpio-v3-4-d61f039be008@baylibre.com>
-References: <20261123-clegoffic-pinctrl-scmi-gpio-v3-0-d61f039be008@baylibre.com>
-In-Reply-To: <20261123-clegoffic-pinctrl-scmi-gpio-v3-0-d61f039be008@baylibre.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Linus Walleij <linusw@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Oleksii Moisieiev <oleksii_moisieiev@epam.com>, 
- Andy Shevchenko <andy@kernel.org>, Dhruva Gole <d-gole@ti.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.17-dev
 
-PINCTRL_ATTRIBUTES flags a function as pin-only when its associations are
-pins, but the flag was dropped and callers took them for groups. Keep the
-pin-only and GPIO flags of functions, and add a function_flags_get
-operation to read them.
+On Sat, Nov 21, 2026, netdev-bot+sashiko wrote:
+> Should mana_ib unpublish the slot, wait for a grace period, and only then
+> free the object, as the HWC teardown path in this patch does?
 
-Fixes: 2145af01b9cb ("firmware: arm_scmi: Add basic support for SCMI v3.2 pincontrol protocol")
-Signed-off-by: Clément Le Goffic <clegoffic@baylibre.com>
----
- drivers/firmware/arm_scmi/pinctrl.c | 42 ++++++++++++++++++++++++++++++++-----
- include/linux/scmi_protocol.h       |  6 +++++-
- 2 files changed, 42 insertions(+), 6 deletions(-)
+The HWC teardown protects the table itself, not the lifetime of each
+RDMA CQ in it. The individual CQ race exists upstream; v12 leaves it
+out of this series.
 
-diff --git a/drivers/firmware/arm_scmi/pinctrl.c b/drivers/firmware/arm_scmi/pinctrl.c
-index b071d31b5c33..1bc4bca4c48f 100644
---- a/drivers/firmware/arm_scmi/pinctrl.c
-+++ b/drivers/firmware/arm_scmi/pinctrl.c
-@@ -27,6 +27,8 @@
- #define GET_FUNCTIONS_NR(x)	le32_get_bits((x), GENMASK(15, 0))
- 
- #define EXT_NAME_FLAG(x)	le32_get_bits((x), BIT(31))
-+#define GPIO_FUNC(x)		le32_get_bits((x), BIT(17))
-+#define PIN_ONLY_FUNC(x)	le32_get_bits((x), BIT(16))
- #define NUM_ELEMS(x)		le32_get_bits((x), GENMASK(15, 0))
- 
- #define REMAINING(x)		le32_get_bits((x), GENMASK(31, 16))
-@@ -107,6 +109,8 @@ struct scmi_group_info {
- struct scmi_function_info {
- 	char name[SCMI_MAX_STR_SIZE];
- 	bool present;
-+	bool pin_only;
-+	bool gpio;
- 	u32 *groups;
- 	u32 nr_groups;
- };
-@@ -188,8 +192,8 @@ static int scmi_pinctrl_validate_id(const struct scmi_protocol_handle *ph,
- 
- static int scmi_pinctrl_attributes(const struct scmi_protocol_handle *ph,
- 				   enum scmi_pinctrl_selector_type type,
--				   u32 selector, char *name,
--				   u32 *n_elems)
-+				   u32 selector, char *name, u32 *n_elems,
-+				   bool *pin_only, bool *gpio)
- {
- 	int ret;
- 	struct scmi_xfer *t;
-@@ -219,6 +223,12 @@ static int scmi_pinctrl_attributes(const struct scmi_protocol_handle *ph,
- 		if (n_elems)
- 			*n_elems = NUM_ELEMS(rx->attributes);
- 
-+		if (pin_only)
-+			*pin_only = PIN_ONLY_FUNC(rx->attributes);
-+
-+		if (gpio)
-+			*gpio = GPIO_FUNC(rx->attributes);
-+
- 		strscpy(name, rx->name, SCMI_SHORT_NAME_MAX_SIZE);
- 
- 		ext_name_flag = !!EXT_NAME_FLAG(rx->attributes);
-@@ -614,7 +624,7 @@ static int scmi_pinctrl_get_group_info(const struct scmi_protocol_handle *ph,
- 		return 0;
- 
- 	ret = scmi_pinctrl_attributes(ph, GROUP_TYPE, selector, group->name,
--				      &group->nr_pins);
-+				      &group->nr_pins, NULL, NULL);
- 	if (ret)
- 		return ret;
- 
-@@ -691,7 +701,8 @@ static int scmi_pinctrl_get_function_info(const struct scmi_protocol_handle *ph,
- 		return 0;
- 
- 	ret = scmi_pinctrl_attributes(ph, FUNCTION_TYPE, selector, func->name,
--				      &func->nr_groups);
-+				      &func->nr_groups, &func->pin_only,
-+				      &func->gpio);
- 	if (ret)
- 		return ret;
- 
-@@ -753,6 +764,26 @@ scmi_pinctrl_function_groups_get(const struct scmi_protocol_handle *ph,
- 	return 0;
- }
- 
-+static int
-+scmi_pinctrl_function_flags_get(const struct scmi_protocol_handle *ph,
-+				u32 selector, bool *pin_only, bool *gpio)
-+{
-+	struct scmi_pinctrl_info *pi = ph->get_priv(ph);
-+	int ret;
-+
-+	if (!pin_only || !gpio)
-+		return -EINVAL;
-+
-+	ret = scmi_pinctrl_get_function_info(ph, selector);
-+	if (ret)
-+		return ret;
-+
-+	*pin_only = pi->functions[selector].pin_only;
-+	*gpio = pi->functions[selector].gpio;
-+
-+	return 0;
-+}
-+
- static int scmi_pinctrl_mux_set(const struct scmi_protocol_handle *ph,
- 				u32 selector, u32 group)
- {
-@@ -773,7 +804,7 @@ static int scmi_pinctrl_get_pin_info(const struct scmi_protocol_handle *ph,
- 	if (pin->present)
- 		return 0;
- 
--	ret = scmi_pinctrl_attributes(ph, PIN_TYPE, selector, pin->name, NULL);
-+	ret = scmi_pinctrl_attributes(ph, PIN_TYPE, selector, pin->name, NULL, NULL, NULL);
- 	if (ret)
- 		return ret;
- 
-@@ -821,6 +852,7 @@ static const struct scmi_pinctrl_proto_ops pinctrl_proto_ops = {
- 	.name_get = scmi_pinctrl_name_get,
- 	.group_pins_get = scmi_pinctrl_group_pins_get,
- 	.function_groups_get = scmi_pinctrl_function_groups_get,
-+	.function_flags_get = scmi_pinctrl_function_flags_get,
- 	.mux_set = scmi_pinctrl_mux_set,
- 	.settings_get_one = scmi_pinctrl_settings_get_one,
- 	.settings_get_all = scmi_pinctrl_settings_get_all,
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 3f7cc35eb861..072190e89064 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -785,7 +785,9 @@ enum scmi_pinctrl_conf_type {
-  * @name_get: returns name by index of given type
-  * @group_pins_get: returns the set of pins, assigned to the specified group
-  * @function_groups_get: returns the set of groups, assigned to the specified
-- *	function
-+ *	function, or the set of pins for a pin-only function
-+ * @function_flags_get: tells whether the specified function is pin-only and
-+ *	whether it is a GPIO function
-  * @mux_set: set muxing function for groups of pins
-  * @settings_get_one: returns one configuration parameter for pin or group
-  *	specified by config_type
-@@ -806,6 +808,8 @@ struct scmi_pinctrl_proto_ops {
- 	int (*function_groups_get)(const struct scmi_protocol_handle *ph,
- 				   u32 selector, unsigned int *nr_groups,
- 				   const unsigned int **groups);
-+	int (*function_flags_get)(const struct scmi_protocol_handle *ph,
-+				  u32 selector, bool *pin_only, bool *gpio);
- 	int (*mux_set)(const struct scmi_protocol_handle *ph, u32 selector,
- 		       u32 group);
- 	int (*settings_get_one)(const struct scmi_protocol_handle *ph,
+> Can this leak repeat without limit through the existing PCI recovery loop?
 
--- 
-2.56.1
+Yes, in v11. In v12, if probe cleanup can't get a DESTROY_HWC ack,
+the driver doesn't schedule another PCI probe. If teardown fails during
+removal for a driver-initiated rescan, it skips the rescan. A bound
+device can retry the destroy. Final removal can still leak the last set
+of HWC buffers: the PF may still be using them.
 
+> What happens to setup_active when the PF returns possession with a
+> well-formed ESTABLISH_HWC response that carries a non-zero status?
+
+It stays set. Once the VF has submitted the queue addresses, an error
+reply doesn't establish that the PF has dropped the mappings. The VF
+still attempts DESTROY_HWC and waits for its ack before freeing them.
+A reset notification isn't a substitute for that ack.
+
+Thanks,
+Wei
