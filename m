@@ -1,95 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795410847;
-	b=hnqvvH2Y2pKO/TDUkAcLieZY5TkfdIOB6tKg1ytob3H4jWSAl0+hTMONw8hvkZRITAdK
-	 +3prDQrc6AVki9Thu+9e5GhRcUJGg91YvQAuwJl2AAnbSHaZl4F6fWl7Lmk8z3i7I3yWZ
-	 wMZHZrToTEQa/OizuM4BwDIKUN6adMjvU3kd5IY5fTc+mdUrSwYTYLjn+iThdShAeyfXq
-	 GZ3UszDAhWHg1fZiA3U7Bgj5NoEO4n7K2VQwGPDhl889Y10oCN4dbQFZPsHQtoojgwbV3
-	 N60Um5b6TOZdRv3r00KSSwrts2qoKXfG/SwRxkSGNNsk/Ids1vY961BYxjSCCc9Ws2w==
+	t=1795410887;
+	b=q0rb38iS69VMU9EoL9wifjIdBDv2nXiadgdpgF0XiSuLIK3d/q2bH1ttXcp1sitUXt2S
+	 wCnCF7NhKqDjJiDYSy1sEk6/B0lJ4YYUpvPh9jid2lLzAB0nv5cbSzmDgK2TOzjuZNqDr
+	 VPnee7EaplQNWTxXi8dCmBWkgLEl2F6kJ+yXf3D7923Dhw3SPo46vEy/8KYUVYUDHpccX
+	 eOdSB7VP/v0VJeqCF21UBGVrWLuAz+r3k91+Aat+b5H/9IezhCcH/LdunaJD5zhH3GYvY
+	 9vN6W/1RVhcNHx72YG+/hQEtItZ4Nf1DpyYvDfAJE0s3tLAOwpd5LHbjcIup8iNr4ow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795410847;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Message-ID:User-Agent;
-	bh=k7+r1wcmBXlzcUNyEBTS2c1P+mYURGBhM2xcEBNrIAo=;
-	b=tV+kRHIBjRY0A/YfJdPSN+zhWyoSs6mj4fBDyojF4r7LFxrJqaasHslcc06SS4ZNNNlt
-	 d2Xc1zXDpME+s7DCfCqKdcGXxvqvoKLmEFjtbYapoS9pNtzIrrbu3xmV9gLrz1jYx7/id
-	 Pu+dQ4G9gur+NE/WT7N0H0hM2hTQmRyNQa2/5qwGNxM4OR0Sb8sMbH8sx2CK9CLeLvSWG
-	 WlU9JpW9LU6yh065xtZDIhuqr8bhTgrDP6YquMBPguLuaR3fMdDL5sUHmBJaQxOuTSrB9
-	 M4HxXQd0Zo6460a0Y2qXyR0MvSPME8uoUofYn9BYeaatq2Y/8ImyRGmCkpUgLLEJr+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795410887;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=FuEsR0gl/FRBomGQtdy1DpOLnKBF4WvHwtlAdJIMaXk=;
+	b=o+jXNnD+0hq9M8x6jPnKcJoB++s1CLD2AflhaytlIG7RdGvdUCcgoKDZ/58PvjhGO45y
+	 ExXHN23wxmDEFcP0w6L1YynkpmcRKT5grPAASKvief8geFddxOUbmjce6FzrqTtXatU/X
+	 fCrRwd2lj5fL3pog7jtXXBuKftE3mnS+f1VFGkEQM+ro2EM/p0Rkgbi3Lk+vcXMXczF8S
+	 iJccYIyMdVZMcHLbLl6wnkL3SubjsxH9Rky+wWYYdx5kI047bTkahX+2aQfV62hL77I6I
+	 ht8EK7/4HCqqfABcX6PxZ1geDdaxk1zLOFg5yawxg9UWHaMMq1bIWSZvZF13whSiXnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrisdown.name;
-	spf=pass smtp.mailfrom=chrisdown.name;
-	dkim=pass header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b="GsL2OZ/4";
-	arc=none smtp.remote-ip=209.85.128.170
-Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com [209.85.128.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DPEadBDo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AC4E606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:14:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AC4E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chrisdown.name
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrisdown.name
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBF32606A31A;
+	Mon, 23 Nov 2026 05:14:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chrisdown.name header.i=@chrisdown.name header.a=rsa-sha256 header.s=google header.b=GsL2OZ/4
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-8b360828905so23720937b3.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:14:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chrisdown.name; s=google; t=1795410846; x=1796015646; darn=vger.kernel.org;
-        h=user-agent:message-id:content-disposition:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=k7+r1wcmBXlzcUNyEBTS2c1P+mYURGBhM2xcEBNrIAo=;
-        b=GsL2OZ/4Mo6bTLXTKfrUK0FbIXP/1qWkbs+Suznb/L3HShQQ4vSmJDxfkxx+3OWXn1
-         sw4f1SFlFBshgqTApz2A87JLxgbHhd6oEYtVX1kf/VDb2cbXaDRC8kbECVBl2beMDl+8
-         mozblqlQACTMV2Qkuvf0hzvK+yJnTpl6xzZtY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795410846; x=1796015646;
-        h=user-agent:message-id:content-disposition:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k7+r1wcmBXlzcUNyEBTS2c1P+mYURGBhM2xcEBNrIAo=;
-        b=h7BKM2Hznnz60i10mC6i6w58HZdEILeQwjkdzJHwfrCNGMPyIXFUVbPt2QHE3zNYtd
-         tgmqlpayWf6JkhiNf5O1kt3oLJTv0iKH7xy7dL6H3A5GuQZtMt962dshibQGatojMasg
-         ZMMku5WcW9k4iL9FqL+5nQucGGUre7bqTT9RJx74uZHYEPs6z2bBlOIkvbvSKq3dZPOC
-         Q7Fux0lDp0s0UqXO1AaKe23k4H0x4p+aPvL+wsbZk09BQmu94Thw3reJJKP99dmmdWbx
-         xylfotsWX5xFOjrr3+LGe0mosRxA3WT7vvS0Z+UNduKEVJ54W8OZX4gl04htEuiAfBwg
-         DqEA==
-X-Forwarded-Encrypted: i=1; AL+hErH+AGfPYRiSBygbwyW6V+0ok+T8RuUGijdvGrZzn/SCuPyt5go3Q4JTGId0Dz6BcTYRDsBGJBzvfMqyaWA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92HRcpzoMMey7jKhjvI0okuEp8xuF5nGDoBY9scr2grvo5pi4q
-	ID+xEXoaIafiAaM9/Drg+8wi/ulCqeZnUyAOwWwLP7/wnhy4PUjutD6qaQcOd+szCSM=
-X-Gm-Gg: AZFdTZfmcPzGJ6MkRMiEixOyZMDKoazwnWHDCgU0CZVPrahNsgtLDvdf+IhbS/FhZ37
-	bzP9ACk0E9VnbepwPoCH1U666sagIbSHzXGLC+iFxfpapWSb4AFTLeg0+j5VKgQaSLnNq0RXWDK
-	nYrohjT9Tg+JwaO3oIJcy2wI0N8hzQI6fHuuXW72/QTeIkSkOPdWJxSkUl1blv8za8rpalQvyvk
-	ppu+C7sJxEwXO2TFbIQjgT8FZHV4zlTexmgAXBuHNSRSBv2tHlUCI29RfIPIgpKtgMUr95P4cy8
-	Mj9XwchQrIF6zYc/pcoW+cLP/0JwJD9YK2AvfIUBdKEnDTEA4rcjQ5ix7c2m6gGC/JBqszrnSHo
-	wisLl8c1JURVy6q+m/dZwHcQ10hYChY3SgLYbplYe6D6mdl9f8zESCr1sxkn2So1y3hmP13JlPR
-	LECTwP0FP6ZCac1DpFcoT4XIXh0gIRofJsYeaoMkfjLUYaAfK2UH+s3M4XOQKGDqKz4j9mdo4FJ
-	CdPJtGXf52tdrj7tlfzst88b4Icyc4TeizOiMeARIhpK9PNfjLvX7IWT4uqKNz5T49b53NA2BoL
-	vgVoH4+Xe42En3Hd41AT63YZJqYyGDnEAT8g+R2WY4Mw6+gS1i1tDLY05xfJX871FEOEitJBxpl
-	eC+Ggy4SfvxQy0uR6q2Fl/pGfaNBxMUIoSocuArYVKcbPIm01OdE8nUlOgVjYBwe3bGFN/m3RWi
-	9a+3y4JmWeeESEjJ6GMV2VAmBbhhLwQSYzhUtK2rGlPebTnCxugoFV/0Yd2eTQXaDoGrCMpd3cU
-	NxUlK0D8N+UpwnXyyRJ5m1Ro8aH4Ce7p9zxzK7U8yTe
-X-Received: by 2002:a05:690c:15:b0:8b0:a957:80d4 with SMTP id 00721157ae682-8b520435b72mr34672047b3.20.1795410845935;
-        Sun, 22 Nov 2026 21:14:05 -0800 (PST)
-Received: from [172.20.0.3] (static-host-74-205-137-217.epbinternet.com. [74.205.137.217])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52035bd70sm41821627b3.44.2026.11.22.21.14.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 21:14:05 -0800 (PST)
-Date: Sun, 22 Nov 2026 21:14:02 -0800
-From: Chris Down <chris@chrisdown.name>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Mark Brown <broonie@kernel.org>, Christian Brauner <brauner@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: Re: linux-next: manual merge of the fs-next tree with the
-	mm-nonmm-unstable tree
-In-Reply-To: <20261117091535.39481792f30792e6067a26a2@linux-foundation.org>
-References: <avx98jYYXsZAmkDN@sirena.org.uk>
-	<20261117091535.39481792f30792e6067a26a2@linux-foundation.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DPEadBDo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E57881F000C0;
+	Mon, 23 Nov 2026 05:14:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795410887;
+	bh=FuEsR0gl/FRBomGQtdy1DpOLnKBF4WvHwtlAdJIMaXk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=DPEadBDo1O+G3J99wgmQd5wQRx/GLhLpE/iAUQjjiacT9Z2xIYN7XtCJ3Kx9P2ltX
+	 58uxquPCJ28Z+zukyGXCJlRdt1HF91dseT+FZEPGo8jpeDQvAODr5LMEYWsbnS3baa
+	 W1o0xWLD/5lNzkqzhur0d34qRzF70GCa3cuQCt7+J4+f2ED9ERtnr6z40h1Zwh5Flp
+	 YDRWabcI3JoZrgNPsB4lgrGlBSDh0wUQkEiQK5pmm1k+pRB4c+yH6Z3Gd9/NE+lHl6
+	 6h+EITCArQ0wRxBnTYK8RwUHA92szzqJ78japFV+9BqTfZNJtuqQdQb1pcMpfbMAjp
+	 DyWky68Rbo45w==
+Subject:
+ Re: [PATCH net] virtio_net: mask callbacks before handing off NAPI ownership
+From: netdev-bot+sashiko@kernel.org
+To: mst@redhat.com
+Cc: linux-kernel@vger.kernel.org, zcjie0802@qq.com, jasowangio@gmail.com,
+ eperezma@redhat.com, xuanzhuo@linux.alibaba.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, netdev@vger.kernel.org, virtualization@lists.linux.dev
+Date: Mon, 23 Nov 2026 05:14:46 +0000
+Message-ID: <179541088645.3135.14221394097883219540@kernel.org>
+In-Reply-To: <ad74886a8429a862c00d1e42f1dc746f2924b75f.1795108341.git.mst@redhat.com>
+References: <ad74886a8429a862c00d1e42f1dc746f2924b75f.1795108341.git.mst@redhat.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,23 +64,214 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-Message-ID: <awPLmjLsDIPg_dD8@chrisdown.name>
-User-Agent: Mutt/2.4.3 (cc9e3943) (2026-10-09)
 
-Hi Andrew,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Andrew Morton writes:
->Chris, could you please redo?  Against fs-next, I guess.  With the
->ro_after_init thing that Kees suggested?
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-Sorry, I only just saw this. v3 [1] already has the __ro_after_init change,
-and Christian has applied it to vfs-7.5.procfs, so I think there's nothing
-left to redo, but let me know if not.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks!
+- [Medium] napi_complete_done_finish() (net/core/dev.c:7142-7150) repeats
+  the `n->state & (NAPIF_STATE_NPSVC | NAPIF_STATE_IN_BUSY_POLL)` test…
+- [Low] The commit has no Signed-off-by trailer.
+- [Low] The patch adds a second way to complete NAPI
+  (napi_complete_done_prepare()/napi_complete_done_finish(), exported…
 
-Chris
+--
 
-[1] https://lore.kernel.org/r/7c10f2e01b6f19229c83e81d887a87f5d1151841.1794904698.git.chris@chrisdown.name
+virtio_net: mask callbacks before handing off NAPI ownership
+
+This commit splits napi_complete_done() into napi_complete_done_prepare()
+and napi_complete_done_finish(). With the split, a false return keeps NAPI
+ownership until the caller calls finish. virtio_net's
+virtqueue_napi_complete() uses this to disable virtqueue callbacks before
+ownership passes to another poll, which avoids an RX stall when IRQ
+deferral is in use.
+
+Closes: https://lore.kernel.org/netdev/tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com/
+
+> Reported-by: Congjie Zhou <zcjie0802@qq.com>
+> Closes: https://lore.kernel.org/netdev/tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com/
+> Fixes: 6f8b12d661d0 ("net: napi: add hard irqs deferral feature")
+> Message-ID: <20261119064843-mutt-send-email-mst@kernel.org>
+> Assisted-by: LLM
+> Tested-by: Congjie Zhou <zcjie0802@qq.com>
+
+[Severity: Low]
+
+This isn't a code issue, but the trailer block has no Signed-off-by.
+
+Documentation/process/coding-assistants.rst says AI agents must not add
+Signed-off-by. It also says the human submitter is responsible for
+"Adding their own Signed-off-by tag to certify the DCO".
+
+This patch carries Assisted-by: LLM. Could the author's Signed-off-by be
+added?
+
+> diff --git a/net/core/dev.c b/net/core/dev.c
+> index 6140fd9d11cd0..4be810fb5175e 100644
+> --- a/net/core/dev.c
+> +++ b/net/core/dev.c
+
+[ ... ]
+
+> @@ -7085,8 +7108,48 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
+
+[ ... ]
+
+> +/**
+> + * napi_complete_done_prepare - prepare NAPI completion
+> + * @n: NAPI context
+> + * @work_done: number of packets processed
+> + * @completion: opaque completion token
+> + *
+> + * Return: true if NAPI is complete and interrupts may remain enabled;
+> + * false if ownership is retained. On false, mask interrupts and call
+> + * napi_complete_done_finish().
+> + */
+
+[Severity: Low]
+
+Should Documentation/networking/napi.rst be updated to cover this API?
+
+It currently says:
+
+  napi_complete_done() releases the ownership of the instance.
+
+and:
+
+  IRQ should only be unmasked after a successful call to napi_complete_done():
+
+The new API uses a different contract. Interrupts are enabled before
+completion. A false return from napi_complete_done_prepare() keeps
+ownership. The caller must then call napi_complete_done_finish(), or
+NAPIF_STATE_SCHED stays set.
+
+Right now that requirement is only described in this kernel-doc.
+
+> +bool napi_complete_done_prepare(struct napi_struct *n, int work_done,
+> +				struct napi_completion *completion)
+> +{
+> +	return __napi_complete_done_prepare(n, work_done, true, completion);
+> +}
+> +EXPORT_SYMBOL_GPL(napi_complete_done_prepare);
+> +
+> +/**
+> + * napi_complete_done_finish - finish NAPI completion after masking interrupts
+> + * @n: NAPI context
+> + * @completion: token passed to napi_complete_done_prepare()
+> + *
+> + * The caller must provide any device-specific interrupt ordering.
+> + */
+> +void napi_complete_done_finish(struct napi_struct *n,
+> +			       struct napi_completion *completion)
+> +{
+> +	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
+> +				 NAPIF_STATE_IN_BUSY_POLL)))
+> +		return;
+> +
+> +	__napi_complete_done_finish(n, completion->timeout, false, false, NULL);
+> +}
+
+[Severity: Medium]
+
+Can this second check of n->state disagree with the decision made in
+__napi_complete_done_prepare()?
+
+struct napi_completion only records the timeout. So finish() works out
+which path prepare() took by testing NPSVC and IN_BUSY_POLL again. The
+early return in __napi_complete_done_prepare() never writes
+completion->timeout:
+
+	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
+				 NAPIF_STATE_IN_BUSY_POLL)))
+		return false;
+
+IN_BUSY_POLL is only set by whoever acquires SCHED, so it can't change
+while this poll owns the instance.
+
+NPSVC is different. poll_one_napi() sets and clears it while holding only
+napi->poll_owner:
+
+net/core/netpoll.c:poll_one_napi() {
+	...
+	if (test_and_set_bit(NAPI_STATE_NPSVC, &napi->state))
+		return;
+	...
+	clear_bit(NAPI_STATE_NPSVC, &napi->state);
+}
+
+A regular poller only takes poll_owner if dev->npinfo was already set
+when the poll started:
+
+include/linux/netpoll.h:netpoll_poll_lock() {
+	...
+	if (dev && rcu_access_pointer(dev->npinfo)) {
+		int owner = smp_processor_id();
+
+		while (cmpxchg(&napi->poll_owner, -1, owner) != -1)
+			cpu_relax();
+	...
+}
+
+__netpoll_setup() publishes npinfo with a bare rcu_assign_pointer(). It
+does not wait for polls that are already running.
+
+Say netconsole, or a bond/bridge netpoll setup, attaches to a virtio_net
+device while a poll is between prepare() and finish(). netpoll_poll_dev()
+can then take poll_owner and toggle NPSVC inside that window.
+
+In the first case, prepare() saw NPSVC clear and returned false because of
+MISSED or defer_hard_irqs. By then it has already done list_del_init() and
+set list_owner to -1, but SCHED is still set. If NPSVC gets set before
+finish() runs, finish() returns early:
+
+virtqueue_napi_complete()
+  napi_complete_done_prepare()     <- returns false, SCHED kept
+  virtqueue_disable_cb(vq)
+                                   netpoll sets NPSVC
+  napi_complete_done_finish()      <- returns early
+
+Doesn't this leave SCHED set, callbacks masked, and the NAPI on no poll
+list? The queue would stall, and a later napi_disable() in
+virtnet_close() would spin forever.
+
+The opposite case also looks wrong. If prepare() saw NPSVC set and took
+the early return, the on-stack token in virtqueue_napi_complete() is
+never written:
+
+	struct napi_completion completion;
+
+Now suppose NPSVC is cleared before finish() runs. Then
+__napi_complete_done_finish() runs with an uninitialized
+completion->timeout. It clears SCHED and can call hrtimer_start() with
+that stack value:
+
+	if (timeout)
+		hrtimer_start(&n->timer, ns_to_ktime(timeout),
+			      HRTIMER_MODE_REL_PINNED);
+
+The old single-pass napi_complete_done() could not hit either case,
+because its cmpxchg ran regardless of a late NPSVC change.
+
+The window for concurrent polls during netpoll attach predates this
+patch. What is new is that the decision is now split across two separate
+reads of n->state.
+
+Could prepare() record its decision in struct napi_completion, or always
+initialize the token, and finish() use that instead of re-reading
+n->state?
+
+> +EXPORT_SYMBOL_GPL(napi_complete_done_finish);
+> +
+>  static void __skb_defer_free_flush(struct skb_defer_node *sdn, int budget)
+>  {
+>  	struct llist_node *free_list;
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/ad74886a8429a862c00d1e42f1dc746f2924b75f.1795108341.git.mst%40redhat.com
