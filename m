@@ -1,156 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.33
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795451834;
-	b=eaVDkmoS0sGTHClxexwDa1ru8CG99LFBtnQzwAVJeQ80LuES4IoRADECVdKVwnm41rk0
-	 rkW9yR5hmRWHylDDKytzJiSkENFJ9tFm0eF2O0cU3auLQ9odvjiV1Ea7ditayrdfXnino
-	 dphvgfl61iFPXv211Ztxzi572HFJR9K0kead6p4az09opMJraBJPeoWX5X89TTowaPRoR
-	 ylJn/8ABqVGbYEKknFjHddziJyvBSeMsFCW4C77Xb5fcuR84V3FAYigy7d6+EjmH9Mhnr
-	 LkP/kb4I4aRn37U5fkbkLX4gp2UZ1JjFCFym6h97mYhAWxo5TuOQnfTDwTLQQH4fMSg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451834;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=gwZ5wuL7aU6V1maTKCO8aoXsbLF/1B4ztV4vdP6tg8M=;
-	b=cSovxD/9Wt8HnMoSTRde59sJQxjNJ0ZZ+Ardy7ABdqE5ZS8xX7eEcIEZAcmwsUOmtk2c
-	 XnOenszqfuQC1hxi4p4+1Q7JfVNiFwvZnoHg8eC6mzl64zVrMnmaylrTgnkQRZ6FsmNfJ
-	 LDMkQ2KIJW9FgN6BuGyY50dzVHhPlboTvExT10EFBTJC1GpOfZy11BGhHF1dDRlNjywtd
-	 HYHOp5m4/S37Pv3xZy+B41MD/w8kwRpN8D/iDXQe5/mDdNtGVk43JnjTfYyJp2pYYwMX/
-	 hBukko5a0O8veZybBJLOJtasJr6xhmEMC0nB2VQlDC5xxBV2KkEZOYwnGCC2CzsXlRw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bp.renesas.com;
-	spf=pass smtp.mailfrom=bp.renesas.com;
-	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=v0vWeWxZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.33
-Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11011033.outbound.protection.outlook.com [52.101.125.33])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795451894;
+	b=dNZzwCqbvIfi90zPwsM+ULbe8tfZZYKPnkj8Ke7lYoUbhsDFu6iBcQQvjjd5eLblWs4X
+	 MnchFP4aMLlpMU3yE5FU8h3kaRKTZsLLlZrTom2n12M9OgmxltmuSyEdsayd/br5SPF/G
+	 4db5F0M5ivQgiJ6ELkbikeKQ+a59nevzj47PoKUVDu7ZB0Uu0Vl6rD9wkZZeUFrm13mtg
+	 rl6Lsx4/RLT6WYQzGVPyfb4gIkf90CH9L5AsMqxV2/i+qY4BL4rPIJF3R4UHO0q6I0Aur
+	 OSTkg14tC2QzD3oOtxaCwltNjRcxZUONKOHD5bC2W9seDw6AowuO0MIOAHzk1Zqxq5A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451894;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=BX2g8Y4HGKdlZ1kRSAOIsbxsW5G+eW95mvD7IhCq3Nk=;
+	b=2eMm0Z400jGIkWA9dMRPhtjDEruQz3Z0BxOgv05kUEJ8fmKwFKz6+Dan26FCkrtPs7Uj
+	 JFXRijaHjzDEGheRyK2VITmy2qCsrQDNM2aaYGs+uYInZt0XERt5FxJOqDg3saz8CiQJI
+	 Olghq6eQAQkndNr9obGH6NozHbec7yKWd8vSPs6K6nckkCFKvTb9PnzTRZnOJr2LpUr5q
+	 YYdtgtjO3d2IFLhjezf+Q/57Op/v81uCuJZke20t4ov17xi+ByIAZ82jnO5JFLoPp0+5U
+	 4ZnGnX1KvgYd2wj8nu6t0+AfhduzuZp0Zz3pUC3vRevta5wPYPRdfSJnMsrKOH7g0Iw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRBwAeck;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D50BF606A321;
-	Mon, 23 Nov 2026 16:37:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D50BF606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D4CF606A31A;
+	Mon, 23 Nov 2026 16:38:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=v0vWeWxZ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NWAE1NoZZktUYD+pCxgUHN6ZQ9O5duNlkYEqNdmR5/E4mW8DRVkmznW0o2SIva9vrCewNeBQi6eVZjx9dSfBMXLP8zumpq9Jk3KA3b2gZZPUo25qLQIxUn1Ng4I02rwlSdTWm6WHCnujxUfpLyjOYeH5dwGezG3HjkuQ4oXzN1RRMtS+ZYbii41YEg3hxBTC8p+HRTuWxCJl2jBddmg7QuzixkO0Tj14AqdgyQ0qQKAuwRohV95fMd8v0RY3zo1CSEqPnHy9XKRzJ40I2ZKMEFFa4sMRN4bUHOTDcarn3bvEp/spMWr3q54HTJa2aKH3GWWXaTJwNKEGErR8+/vKUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gwZ5wuL7aU6V1maTKCO8aoXsbLF/1B4ztV4vdP6tg8M=;
- b=JyFw7EqSgWKMMmKH9DNTc0cbAgoznnw1QSA0mtYgjp6wbmLkXAcbJQdgeqBTbGXwUyNQMQ8Br8zAkLm+XTli1SGZ8XHKZAK8ENtB+4pHZh/TzeKWP2v8hLzd+ijXq/uRF+MiFokJwHCW2uyUIwyc2ghkJ7lNqcYB5ed35ohXjpwOoxLWamVMgeOwE267J4tEIcPPTmzDxDmhqWb4/gewvQBvvnCxPYFyngDyBuXeDBNzlNf42sAwWJ+gaYbhfUCuceO+QJEhyNIwiVuejS7uk0451gRlqLjpjSXsTXFLGBz4zJj/nDCMah5rTVHGUqGaUc7+nuih/EIjQ3txjSgbdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gwZ5wuL7aU6V1maTKCO8aoXsbLF/1B4ztV4vdP6tg8M=;
- b=v0vWeWxZN8CPdKoEuLbUr2W4LDMMMF7EkZVMGXe02MzzaOLY6zffuw9dAHcpXkEEd7wMjicy4tbHweJ2wXEyXsLt95VgjxUM3iLp+q2iy/CtkzpFAnEt8KHejCXuZulIT6a/Bnooe8HI6fWgHdW2BD/oHtKkgaWQlNqcPPzZldI=
-Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com (2603:1096:400:e0::9)
- by OS7PR01MB14820.jpnprd01.prod.outlook.com (2603:1096:604:398::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 16:37:11 +0000
-Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com
- ([fe80::145b:b854:162:2e7f]) by TYYPR01MB6603.jpnprd01.prod.outlook.com
- ([fe80::145b:b854:162:2e7f%5]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 16:37:11 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>, Tommaso Merciai
-	<tomm.merciai@gmail.com>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>
-CC: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	"magnus.damm" <magnus.damm@gmail.com>, Laurent Pinchart
-	<laurent.pinchart+renesas@ideasonboard.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v10 06/12] drm: renesas: rz-du: Make the CRTC index
- relative to the DRM device
-Thread-Topic: [PATCH v10 06/12] drm: renesas: rz-du: Make the CRTC index
- relative to the DRM device
-Thread-Index: AQHdc2l/CzWzTm+fYkKfdsqmbKSfkrc76m3w
-Date: Mon, 23 Nov 2026 16:37:11 +0000
-Message-ID:
- <TYYPR01MB6603CEBF9A3145D374663CEC86452@TYYPR01MB6603.jpnprd01.prod.outlook.com>
-References: <cover.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
- <04be21c034849955186adc9af9f6e70c9f740be0.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
-In-Reply-To:
- <04be21c034849955186adc9af9f6e70c9f740be0.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYYPR01MB6603:EE_|OS7PR01MB14820:EE_
-x-ms-office365-filtering-correlation-id: 2ceaa67b-62b1-45aa-299e-08df498005cb
-x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|38070700021|10067099003|261009223027099003|4143699003|56012099006|11063799006|5023799004|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261026140227099003|261028144727099003|261102123227099003|18002099003|22082099003|3023799007;
-x-microsoft-antispam-message-info:
- J5viTtG8JCHblJIJUwJdfOSmGB9l+W7vVKvYynzfr9ISPOXK/Goft3Pf8U77SqY6jVHSDG4wXEWwJEiqrWKmDd9/i+GXEWHi4gCo7g889gcvx9/kGljH2nuT/5OXw3mQntzSOzHkAcyEjRfkk+VljWBdo6gQBp6R0eYowC+NVWiVi3U2ch+58Dlb/MAjzn02NSBivPnrLISXF9Of6fmFaYYr82rmbp/Z33D5cH/M+iLtERQTa4Kwd9HLKfJp7i+N8xvi9A7V9BFZnOdFyK9rh+Rc816lCSK7p0clfRMMmTsr1ksX/+qH2p5bUZDK53B3UXVO22bKiEujuwY+Jj4K2ZukztKyAJ22kCz5vz9B6a+nHA660sf/u1ZQieBCAN97CzklLUA5gjj/LI03PSJCE18DMtFmy1medF25VgFW/hC2jsu1brEN2QITyso6/gOdbZ0jQmLurjjLgXXiLVQmN/nVGPNPAYkiYvANcRPkleK1eJPxqEYI0HCV/QVWl0pmcEKRGbE/RjRyMuWwfiQZ/GLYdEyhfDl5X0xNubdY0WyxcRhl5PEk8RGQQESCTpy9AbfrA+kSbym8x1nT2dMY4YrsT+XNvcyKBQ9wT11hlTm2Yn80C3cUz1KKEykJUNqcrrrEtN+0DIYITiNgz86XHgCTztkW2aECE6kVeBgdD3oazXPD6hbNcMKvcWSlJkTtay7lqh21sTdTQqsRkH1rnaE35FHImRIMui7z2MJWTuA=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6603.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(38070700021)(10067099003)(261009223027099003)(4143699003)(56012099006)(11063799006)(5023799004)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261026140227099003)(261028144727099003)(261102123227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?esHnyG0eG2m8zTXq+VqHJYO0rH9MB2LWA0WnNfbdSGyb+1He9iZYy9cVyXXP?=
- =?us-ascii?Q?z6umr3/xYcvqECAFYgaOsjaNdisuP4MW49gejXP7pI7rJEXxiJjtUaLMB/F6?=
- =?us-ascii?Q?k46ql9HyYyR0AlDkv2neWeM4ixnYK61Qq3vDgM+mvC11Lo/oYmBFgptLBq1X?=
- =?us-ascii?Q?puVasDwHNgLv2oGv30R6iYuA7j7bat4Jqcv2vKW7QZQq2RPtzlLS+svRCZQB?=
- =?us-ascii?Q?tO65iztn4dE9GZrT8wnyn65PVpT5IT4mGvmGwebTiFC8r0NzCLCN9wRC8FcV?=
- =?us-ascii?Q?73HCV5xPV63BRofcrGvktUY6u9K9bW5P9iJfYf3TfDaVspTgcwCSWdoEP8+S?=
- =?us-ascii?Q?JlLrWJb4/6wUGFVjx1/4AeHJ4rzx4JhDB9Kh3Fkyl2OVFbuLEcJQz0Qspqgd?=
- =?us-ascii?Q?urixsZDblPiibpf41xQnwGw0yFFfOHq+L0VJ85Gbq412G1P6YsyzAKQwfREK?=
- =?us-ascii?Q?Fu8qnDHCvR7ZHOpE8fnYpD3EvGZydx3wWqt/VwI56EA/JiFjjYq1zGsy5WRe?=
- =?us-ascii?Q?xv0GHqmgx9pT9kLIYMfD5ZMIiyki02HDVOphtRNM2/bT4k6Rh29OKxL6Ew6N?=
- =?us-ascii?Q?RBYdbybLAsSPkgwHGJE7p2fuI/HAk88cbmiItJrVGmFfzoUlMWwdX4tfYeQD?=
- =?us-ascii?Q?iyiT2lCWc901s4G2BSZYeFJkctAhF1JJBMd7iZaMXt5Il0DMwhjbOU19LOlK?=
- =?us-ascii?Q?6Qtv0MQe4f/crHgcks+AgYF2QpjAqeB5Ss2EH8C0av+0IezQUBuHWq+wi9f0?=
- =?us-ascii?Q?TkRcdVqABrURM+RGf4JFLkc2dEND/EF310XCfDvDd6aAYTBJ6sGNtF5IOcIF?=
- =?us-ascii?Q?//o3pWjDaqN5mtrWkxrxyLk2T3zMMjkMaIBsoUbYU2krNjT8hcNyncOqeZnj?=
- =?us-ascii?Q?HqocMmhNE9bGLXQRDLwmT0j2fVBwlanz8kfFT8FtVJTbIbEYV4U0NEx+MYLE?=
- =?us-ascii?Q?mKaJ7jxLm7IKhmVk3zASZFe35PZtdLoa4tx0mPMNYLmtToKd5nZFJ0JjYyR/?=
- =?us-ascii?Q?hItZuUywn2Nl9c0zpD8hVFl/5yDuLJDlVT1Nbb3IYjim+dJAdbWno4bwtdCT?=
- =?us-ascii?Q?qyOAMZorCEY7r7ltUN8Agl0dUDMg2KPj9UxWQZBjM+rvYxOmSubIIvFf6xzn?=
- =?us-ascii?Q?k+/PxAYD0Wf9OLk2oGBmZXqjg90nIMXhjLke15HL8yX34ilzomYD3VVInEl6?=
- =?us-ascii?Q?MLoChhcn2mLsVSXXsDYCbRDnBeVxlNYdTleE5vMH+vJeyBls2G2Sf5EgE0iT?=
- =?us-ascii?Q?dvivCDHSqxFi8nsITAlGWA2VvcgbDFTgXi4hlgr9SEF27BwQrQ23WVx3lrPg?=
- =?us-ascii?Q?Mrz7yrUGusmSlA1cJp7ba8aZloyrR3ibjXT2SZNWOiTP2yP3mthAQa7Gcjp/?=
- =?us-ascii?Q?2Y4Dlbu7mkCKHtPsPa3kZkmiz6t+9JFphOrH9kUZJaUN84GQgMs9l53yCJyy?=
- =?us-ascii?Q?tPSEzEpVSj9BxazEvspMnLfBH7Qfg36VFwkEyuyDXfLdI5MJ8v/5O2lub94R?=
- =?us-ascii?Q?v4pyVe+YfZevCRlNsnz3+o4Aike2XVu42ZXML070ejiIfPgOJlk7mtIkRnu9?=
- =?us-ascii?Q?sMFFKwIfffFPacTySbpzUk3p4iO6y4ss5qvgN2kYujmMUay2X8io1B/BJ98d?=
- =?us-ascii?Q?75X3thC1/YscucW4V5mv/2C3/Dcl8EB916qlLM9KOVU/hLp9JGY/SWWgV74T?=
- =?us-ascii?Q?A6XCLhJargr8PmUSjgt3vU3J2xRGUFVuzVSKX3jk9pRpM9o4c8l/6GGZeiK6?=
- =?us-ascii?Q?yG8//fNQvg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRBwAeck
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 584FB1F000C4;
+	Mon, 23 Nov 2026 16:38:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795451893;
+	bh=BX2g8Y4HGKdlZ1kRSAOIsbxsW5G+eW95mvD7IhCq3Nk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=eRBwAeckG0wIXF13+5haRM83QgRUvcGG5FS1ubKeHVkvDr3k65QyJcsTA+0TW+aoY
+	 3U8kOTLamW1dN0MDrNuBUQpFmQpQc/Oe5NcKSDiwYKK4EiNZZBvWM8rFbBA2fizqSs
+	 baZ9FmtEe47sdBH1KJYkvwTGBa2c03cFCjE5d6TA4egY4dEIzbSJO7MJP3Mf/KIwmY
+	 RBL4cZm+/K1/jDmrQeV9wCbcJ0FSLViAFKVaUgSbAIPrR7NebZ4YQwYfXpXODwIKAv
+	 QiA5DOz+EeGSIUphl35vUfT/UU+0X/fa8yUuSBRtAGOr8V+YoJ+7XFcNg0ZFMbSlLE
+	 yNfTAgeqIeRyQ==
+Message-ID: <43ecd498-71a8-4b60-9f03-3cd96810a4ca@kernel.org>
+Date: Mon, 23 Nov 2026 17:38:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -160,104 +51,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6603.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ceaa67b-62b1-45aa-299e-08df498005cb
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 16:37:11.1370
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rBzwPr/OMOIZqa92E4BPpRyf/2sAwYl4CkF8uwGVJ5nWJuD0FzdYmDbbnDeorGCURQox6uWX9UhQsR5g7ySZqOMd2uxHGM2srPK5BotjEpU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB14820
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] mm/ksm: do not inherit ksm_zero_pages counter or
+ PTE markers on fork
+To: "Xu Xin (vivo)" <xu.xin@linux.dev>
+Cc: akpm@linux-foundation.org, chengming.zhou@linux.dev,
+ donettom@linux.ibm.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ stable@vger.kernel.org, Karl Mehltretter <kmehltretter@gmail.com>
+References: <20261123034136.209410-1-xu.xin@linux.dev>
+ <20261123034331.236509-1-xu.xin@linux.dev>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261123034331.236509-1-xu.xin@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Tommaso,
-
-> -----Original Message-----
-> From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
-> Sent: 13 November 2026 12:20
-> Subject: [PATCH v10 06/12] drm: renesas: rz-du: Make the CRTC index relat=
-ive to the DRM device
->=20
-> The possible_crtcs masks of planes and encoders hold CRTC indices within =
-the DRM device, but
-> rzg2l_du_vsps_init() and
-> rzg2l_du_modeset_init_finish() build them from the index of the CRTC with=
-in the DU instance. The two
-> only match while an instance owns the whole DRM device.
->=20
-> In preparation for supporting RZ/G3E, where two instances share one, reco=
-rd in each instance the index
-> of its first CRTC and offset the masks by it. The index is zero for insta=
-nces that own their DRM
-> device, so their masks are unchanged.
->=20
-> No functional change intended.
->=20
-> Signed-off-by: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+On 11/23/26 04:43, Xu Xin (vivo) wrote:
+> As documented in Documentation/admin-guide/mm/ksm.rst, ksm_zero_pages
+> accounts only for zero pages actually placed by KSM.  However, the
+> current implementation wrongly accounts for forked zero-page PTEs as
+> KSM's contribution, inflating both the child's per-mm counter and the
+> global ksm_zero_pages counter.
+> 
+> Originally, commit e2942062e01d ("ksm: count all zero pages placed by
+> KSM") marked KSM-placed zero-page PTEs with the dirty bit for unmap
+> accounting, but forgot to clear this marker during fork().  Later, to
+> prevent ksm_might_unmap_zero_page() from underflowing the counters on
+> child exit[1], commit 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter
+> handling in mm_struct during fork") kept the child's inherited per-mm
+> counter and added it to the global counter.
+> 
+> Instead of inflating the counters, fix the root cause by resetting the
+> child's mm->ksm_zero_pages to 0 in ksm_fork() and clearing the KSM
+> zero-page marker via ksm_fork_pte() when copying present PTEs in
+> copy_present_ptes().  With the marker cleared,
+> ksm_might_unmap_zero_page() will not decrement the counters on child
+> exit, MADV_UNMERGEABLE in the child will not unnecessarily unshare
+> inherited zero pages, and the global counter remains untouched.
+> 
+> [1] https://lore.kernel.org/all/53a7bf3d-843d-4e19-b0a3-cc6852fe72c1@redhat.com/
+> 
+> Fixes: 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter handling in mm_struct during fork")
+> Cc: stable@vger.kernel.org
+> Tested-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
 > ---
-> v9->v10:
->  - No changes.
->=20
-> v8->v9:
->  - New patch.
->=20
->  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.h | 1 +  drivers/gpu/drm/rene=
-sas/rz-du/rzg2l_du_kms.c | 4
-> ++--
->  2 files changed, 3 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.h b/drivers/gpu/d=
-rm/renesas/rz-
-> du/rzg2l_du_drv.h
-> index 47ceaf892339..2952c9d7348b 100644
-> --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.h
-> +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.h
-> @@ -70,6 +70,7 @@ struct rzg2l_du_device {
->  	void __iomem *mmio;
->=20
->  	struct drm_device *ddev;
-> +	unsigned int index;
->=20
->  	struct rzg2l_du_crtc crtcs[RZG2L_DU_MAX_CRTCS];
->  	unsigned int num_crtcs;
-> diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c b/drivers/gpu/d=
-rm/renesas/rz-
-> du/rzg2l_du_kms.c
-> index 73cb3199f90f..456b29538db9 100644
-> --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
-> +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
-> @@ -367,7 +367,7 @@ static int rzg2l_du_vsps_init(struct rzg2l_du_device =
-*rcdu)
->  		else
->  			vsps[vsps_count++].np =3D args.np;
->=20
-> -		vsps[j].crtcs_mask |=3D BIT(i);
-> +		vsps[j].crtcs_mask |=3D BIT(rcdu->index + i);
->=20
->  		/*
->  		 * Store the VSP pointer and pipe index in the CRTC. If the @@ -480,7 =
-+480,7 @@ int
-> rzg2l_du_modeset_init_finish(struct drm_device *dev)
->  		const struct rzg2l_du_output_routing *route =3D
->  			&renc->dev->info->routes[renc->output];
->=20
-> -		encoder->possible_crtcs =3D route->possible_outputs;
-> +		encoder->possible_crtcs =3D route->possible_outputs <<
-> +renc->dev->index;
+> Changes in v3:
+> - Rename might_clear_ksm_zero_pte() to ksm_fork_pte() and move the
+>   is_ksm_zero_pte() check into copy_present_ptes() under the !page
+>   branch, as suggested by David Hildenbrand.
+> - Expand the comment above ksm_fork_pte() to explain why the marker is
+>   cleared on fork.
+> - Add Tested-by tag from Karl Mehltretter.
+> 
+>  Documentation/admin-guide/mm/ksm.rst |  7 ++++++-
+>  include/linux/ksm.h                  | 22 +++++++++++++++++++---
+>  mm/memory.c                          |  5 ++++-
+>  3 files changed, 29 insertions(+), 5 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/mm/ksm.rst b/Documentation/admin-guide/mm/ksm.rst
+> index c329ca747b8c..8968ae3f55c0 100644
+> --- a/Documentation/admin-guide/mm/ksm.rst
+> +++ b/Documentation/admin-guide/mm/ksm.rst
+> @@ -214,7 +214,12 @@ stable_node_dups
+>          number of duplicated KSM pages
+>  ksm_zero_pages
+>          how many zero pages that are still mapped into processes were mapped by
+> -        KSM when deduplicating.
+> +        KSM when deduplicating. Note: on fork(), the child process does not
+> +        inherit the ``ksm_zero_pages`` counter, and any inherited KSM-placed
+> +        zero-page mappings are converted into ordinary shared zero-page
+> +        mappings. Consequently, these mappings are neither accounted for in
+> +        the child's counter nor unshared when ``MADV_UNMERGEABLE`` is called
+> +        in the child.
+>  
+>  When ``use_zero_pages`` is/was enabled, the sum of ``pages_sharing`` +
+>  ``ksm_zero_pages`` represents the actual number of pages saved by KSM.
+> diff --git a/include/linux/ksm.h b/include/linux/ksm.h
+> index 596c04ca7326..f29aec4496d0 100644
+> --- a/include/linux/ksm.h
+> +++ b/include/linux/ksm.h
+> @@ -32,6 +32,17 @@ void __ksm_exit(struct mm_struct *mm);
+>   */
+>  #define is_ksm_zero_pte(pte)	(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte))
+>  
+> +/*
+> + * Since the inherited mappings on fork are not expected to be accounted for
+> + * in the child's ksm_zero_pages counter (reset in ksm_fork()), we must
+> + * clear KSM's dirty-bit marker on KSM-placed zero-page PTEs to avoid
+> + * underflowing the counters on child exit.
+> + */
+> +static inline pte_t ksm_fork_pte(pte_t pte)
+> +{
 
-If you define struct rzg2l_du_device *rcdu =3D renc->rcdu; in patch#5
+Instead of the long function comment, I'd just have here instead:
 
-encoder->possible_crtcs =3D route->possible_outputs << rcdu->index;
+/*
+ * Strip KSM information from the PTE for the child to simplify
+ * ksm_zero_pages accounting, and to indicate each deduplicated zeropage
+ * only once towards the user.
+ */
 
+I can fix that up when applying.
+
+-- 
 Cheers,
-Biju
 
-
->  		encoder->possible_clones =3D (1 << num_encoders) - 1;
->  	}
->=20
-> --
-> 2.54.0
-
+David
