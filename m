@@ -1,148 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.66.15
-ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795437386;
-	b=LYOMa5lAsPBdXAVBTQH39bN6qsBbcekheG1Wee3cTvav7rkfBO2bnSc2oC08W6X0mCRo
-	 kGUoZYKO0wN5AKH9saICLGaY+VjJowhR4zN6p3/50QZ5eSqLqFDimlOGy/pvY1g/lOubp
-	 I2otP9Ay67lhL23URvw53LuYAdCUEOwklXRXwctMIKaDBtggmHAb2VN1k7aoBXjZ/dmfW
-	 iC/cSVQg0Dz5IFa9dLRKOitYda5UbvX7lY9riLTLuluFJNbaQw2jdy4pltoqjBxIi+iCd
-	 L/YUGIzQTNCEOa32eEsO2jcV6RupE837r2q1yYAFK5Slo9/XyNa1phD9bNpCfAhwu7A==
-ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437386;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
-	 DKIM-Signature:Authentication-Results-Original:Received:Received:
-	 Message-ID:Date:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-ClientProxiedBy:MIME-Version:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:x-checkrecipientrouted:
-	 NoDisclaimer:X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam-Untrusted:
-	 X-Microsoft-Antispam-Message-Info-Original:
-	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-EOPAttributedMessage:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
-	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Yv6ybAiWCJ7JLIyWK84aqsBP/EYsFSMKlj9kIXF5s4I=;
-	b=njktRRIAI4x/1OxjhmZhGZzkqVR4AFWwmnf3J6fViACH18H43a8x/ZYCFF8JkCx4uOlz
-	 axidoFwJ3yqgFNwrEdaw95Mm5PHaFc9go5EPMl0Q+tKJT6V09rc87arlzLL/Z5WeZDtCq
-	 u0He1xCNTn2EsKOzzBrLMdowzVWhjsxiUF7aFPU+bmmFJEia1g83J6I8FIKTEjdGGlnk8
-	 s/UZpU3RE+Ty2BiH9N97hMYoAwjix8ncBEtARmE3IJ/aWYcBwKWaJI2BTBx1dTniqKNhW
-	 W2i0zdsjaSwFdAeeAD+V7kGsZxrzBKdXkCcX+OerCMVkpK78FhwZ0q61dUXdX24g7OA==
-ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=fI55uv3y;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=fI55uv3y;
-	arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.66.15
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012015.outbound.protection.outlook.com [52.101.66.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795437395;
+	b=yR8x5PM5OzjaTL670RgxOWA23de5p+ERp+hhG68MXlaCaQkfsgrmzIQEWq+y/UUrYz6N
+	 m8CmC6TjtGkyWWSgUWM2xFiN9OaDxzmWWj+6ENzdUS6Tmnp6x3BOuu8eDMbqXVoPap4cS
+	 IVTU2xIjcc+sreOTfbfHHwJLJ+SQ32vc6aaHqfAY3XgYv/VkLlhh1qlO0q/mpwaDA8tLA
+	 mz0F4pJcs+sB2rcp5MYccKghrolIfht57zWx0j4IYpu5rcIJEvfR5c5Gp1MoiEwOqWtTu
+	 3wSHI3QVMrfNcjVe2ZYMpSjDmby3MWY2mwmqIm5Ahp5BKkjHApQPT4HydUsxVw0W8AA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437395;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=x7l3HyGBgYzilhkgREt6OnvuyMhEiUR4RK0sciVZyzM=;
+	b=Vkqibc+k0dL6uNGCu+xM5CFtYCTCrZegSMSfrD2FwBHK+AJgLJ3nUWWr4wZ+PwJ3eEeF
+	 mwX517THBeriACceoMmObN5upPIiEU9GEz1J+OlJ7joqVBvBqhL6U7WdE7pDOc3gyfk4F
+	 rB8IUYFeU7rtbcRLQ2u1R6IFCR3ozjKvwK5is476/nwV2a/bZU4FvlfqK9Ki5i6d2ZPWI
+	 MHqLG5wxWXRfOrMAc0qF2pA0znxkPbPWjLROMjgmTZhoiGrg3VPAY7fY9dFxOl1rr2mgU
+	 qCmprLo5EYpL7Cx9C2o/atqe4qUt6seIRLTYBIazIHP5GdWsbSrwNqPpHUE1VYyCeBQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ziC8epsO;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C62A1606A687;
-	Mon, 23 Nov 2026 12:36:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C62A1606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 962C060A2600
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:36:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 962C060A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=fI55uv3y;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=fI55uv3y
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=gGJ19SrUhLWJzP98zizMpeViVhuRWS5KK63u5b6WEZjSgCxkqHqKmR+FII8afcUCWSQR8vr4MZ3QEH0kMiyLyAWmfN0KLpsVd92x+mgW0A/SYrKW5YDCUytmz0S3vBxZFSZOfcNHtLjoiABZBZMyJ1PdJFkzXz1xZFh8JpDsfRSiR4aeZVECJrsM+r8gYbYcWHuuxqSh/bz0VmeLWOtPrY4uuDZQkhBADMLDn5fz1CwpCw4dSCvjlPiq5iEm350Rr7PBwtN6mthT3Q0NKzMMy0ZwcQnl8SoEE/MjWBJighTBgRQvthsD52B1bzIjpwrpbFz3b0ydKA/WCk/jS2C+Pw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yv6ybAiWCJ7JLIyWK84aqsBP/EYsFSMKlj9kIXF5s4I=;
- b=gUh2pFV33IhERBw9Nl44mYoFMmrlmNQ1jKZS/F5l9xzaIg/SjPxKuZONReN919sexIDUH9On9tDWR4mKw9y8meyyZxe0Cf+LfzKqkiH5d6aKxQ3pSeWwI0yMbwB7AMtRIApXWPVjm+80AaZVQ8NMH2CNidgJy2nQKtr1Pqpjah7yYjgCAl2SKZrGwjpbxCApr9TpsZYeBFgzoo1oFhOPFr80dD3iVahnrbUNH4lTaTZG0hArvFvOCijMfH5QneujDlMgIOL/lBRqAk5REBC5S/334eGuqm5sE3DVo8c8gkgfNmIMcu62E9qg+zpdDL6+x0+FVgcJXB4+uMj6GNZeVQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=gmail.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yv6ybAiWCJ7JLIyWK84aqsBP/EYsFSMKlj9kIXF5s4I=;
- b=fI55uv3ySIsglVkD+PKKta4a8CNz11N9eHfX7wK9wujr7mZb91YdL84lE6VYjUwYFACZlU+xX62EfdbUvty/tVP5i0UTgnj7UziCaaVZmrpdlVin4yEYzAGJ/URC8ITieU9n1+n02jgkt+9C+XnvXf5DsQi9h8R+tKrupQ/2z4s=
-Received: from MA3P292CA0040.ESPP292.PROD.OUTLOOK.COM (2603:10a6:250:46::12)
- by AS8PR08MB6453.eurprd08.prod.outlook.com (2603:10a6:20b:31b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 12:36:19 +0000
-Received: from MA3PEPF00000407.eurprd04.prod.outlook.com
- (2603:10a6:250:46:cafe::4c) by MA3P292CA0040.outlook.office365.com
- (2603:10a6:250:46::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 12:36:18 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- MA3PEPF00000407.mail.protection.outlook.com (10.167.241.152) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.5
- via Frontend Transport; Mon, 23 Nov 2026 12:36:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tQFpkzaTlT17Yjz/Ptn7+CoPSHjzT6BAP92at3hsyS1niWYUkTpkdYSKT1F/EyMKajOVYFVkrCBEhMGeWj9RH69drwcw2xzwEwIXjKnxogjWRvHU17hi7PiH1Nt4eoWN1GtRnJAPuEiE3OpskcASQ+R5ElLsbaQ9rJ/sBTsIJ4OgQM9+OLbViPfoTyx5qVfHMN9DJuu5+yzZDqY0GJc3FvtC+boEmLg27glk4kGkn1uIcyvenIHzObftzV0wrIUiQjUZ+2OqtwdxRmS0YWzJjtcNL66S1SBenel/YXUJsYkrRj88mg8MqoDPVSMJzw7DSXzR7PCrH5hs2qlBn2djGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yv6ybAiWCJ7JLIyWK84aqsBP/EYsFSMKlj9kIXF5s4I=;
- b=a0LsNGUHzlTLitvtWHUQU9NFrLRewY9174C2oho3etdpu2IHW62oKQrbj2pyjdOkwY7omDp4ie/mdSe1+pO2HlDzlrkXESr+L4shOK7iHYTfzNdiieAI/YhQtG/3GgIEpC42BJlN7e2BkEn5qSlPUz8gjPdY2zYKcg2ddKbTpbTsZBfclYvw9OeXz3fwzi9Envi4zrXFIhEUYVtxHnPI2DOT53qTXFFy2EbN1hPRSbdTErkGg88uyNErwPQy6Xj3ZsWiy82G12jFSVzP+qVuTgl8wXSKhk57yXHUGBufZ3zt54H4+PInVvfkhgWHB6zcmrK8tOCC3a0uLtB/sg6S/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yv6ybAiWCJ7JLIyWK84aqsBP/EYsFSMKlj9kIXF5s4I=;
- b=fI55uv3ySIsglVkD+PKKta4a8CNz11N9eHfX7wK9wujr7mZb91YdL84lE6VYjUwYFACZlU+xX62EfdbUvty/tVP5i0UTgnj7UziCaaVZmrpdlVin4yEYzAGJ/URC8ITieU9n1+n02jgkt+9C+XnvXf5DsQi9h8R+tKrupQ/2z4s=
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10370.eurprd08.prod.outlook.com (2603:10a6:150:a7::7)
- by AS2PR08MB10180.eurprd08.prod.outlook.com (2603:10a6:20b:62d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 12:35:45 +0000
-Received: from GV1PR08MB10370.eurprd08.prod.outlook.com
- ([fe80::722:98ea:caeb:b988]) by GV1PR08MB10370.eurprd08.prod.outlook.com
- ([fe80::722:98ea:caeb:b988%6]) with mapi id 15.21.0615.009; Mon, 23 Nov 2026
- 12:35:44 +0000
-Message-ID: <8f9f9752-4c23-48de-9483-63268627ff3c@arm.com>
-Date: Mon, 23 Nov 2026 13:35:44 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: allwinner: add Radxa Cubie A7Z board
-To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: Enzo Adriano <enzo.adriano.code@gmail.com>,
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261111134919.90264-1-vinicius.eduardo.pedrosa@gmail.com>
- <20261111134919.90264-3-vinicius.eduardo.pedrosa@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20261111134919.90264-3-vinicius.eduardo.pedrosa@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BE1P281CA0438.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:81::18) To GV1PR08MB10370.eurprd08.prod.outlook.com
- (2603:10a6:150:a7::7)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ziC8epsO
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-385d8a00598so4420434eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:36:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795437394; x=1796042194; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=x7l3HyGBgYzilhkgREt6OnvuyMhEiUR4RK0sciVZyzM=;
+        b=ziC8epsOB/UsiXAh+FD0a21JfDcCxpV0oAIxLDLkI+nHa5bu1LceX5kBzQeNx9Sqsn
+         6LX1Gv8ZGhsOn0RtcE/XC5PClVFvaVh0BJ2ZfFruEUDA2r6XKhMANHwMpBH/4e5I4tMX
+         PT83gZ/tCvn6ZgdtC7mjlQ6J4fn3Jd9mMvCYVIAHvAGUCMNUgCzt9xc57DfmHZorVq6m
+         JtZ7O8SO65lzaIWrO6+KNq7V2/j/J/1Zxt3pJ5BjroIQkkMc/PgGiuh/k7PPS5943+Zt
+         /lWoCG3rUVa9bwtdvgJc5vzqyMgt6MPO1WwDG+Dtz0VJQBt52c35RVyaiNgTlZBlRHvd
+         jtNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795437394; x=1796042194;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=x7l3HyGBgYzilhkgREt6OnvuyMhEiUR4RK0sciVZyzM=;
+        b=Q6nI4sPd1y2vZZPEev0CwZHdmEez3meq3S1MCoSO6YJs7fOOeSHK4YItpyfjp8nht8
+         9IKs+iSk56zOnC+01fzEdbUV0YuofrJ+Ne6IOdhjPEQQEj0dGpRs1jxAhznI3nAq1XPy
+         Ddeq6X3CYgcO6Ao8obTlugtCLLmVFcv6Aiq988z3pezHiBykVQBoOdc/iM9tRE2XOt1Q
+         AxKXt1QJz2gnh213xDWcyU9bFHPDi3a4yeY7rsz9azExMKXU109TC+BZPqBJFZdMvYAD
+         7RVIN3+g/8a5AOkhOvzp07HQgZD7PvS0Dsy9rtHOZ/1zVAICahUY350EFvrBP0ATlA7t
+         1QOQ==
+X-Forwarded-Encrypted: i=1; AL+hErHw+5i9KZTgHz5s02sbSZ8bc/9grbfgBwtKyHLhEFuC1XGslqNx9CIQUaUGl0yTAdYiNj4NMySfmmP9tps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HiH+x0LsJ/3JV9C+h893Rmj6zcrnJhpTivqcN70CPP2IgaGMl
+	pR3eq0z75eKEptSl6HJpQko+UyIYEJiO2cw0Q7pVT1KdKTqiYND4268m
+X-Gm-Gg: AZFdTZdPkQmustvvDcFEvvv30uePT5cyOWvK2grzfIAOwq0jRyULSkPyqZi0QA5pwa2
+	cobnvIF5TEBs3y1M2zfdUMGOLmn5aeCotzWZ+Q8E0KzHxO1EfoqPZLeMVG7HsEUdyqTmW2x6EAB
+	BEQklaBQb++ibmQcvy+OrcfVhg1AHQpZvFTVsXUbofvt4MRT9GxP2Oy9gZh5ZwOD+4I6CoeGAix
+	SrxTz0UDG6nojsYp6eNquYMQIXIaHfgC9vaq05Z/VabYV4rYyqwh+ZGCDr7FNRmtS2+pPipqUPz
+	KYsIR2Utqvogk7cVpF+V890mOQhHx2WEb6HQjHIWPmbmMa9Nb6a0w2TN4T8SmSvLM9lMHPe6GuU
+	mT88S8/J7I6Nte8ApMSSC/qnFAosoxKyE4a8e1uNt4qGvSlzPp+QdBjdtQruHruYL5/goxADJ6b
+	cfqISHXFmTXsp0MLNVHoOWqh1yCSb38STalgwVmrqlQDpDENq9HM9p85B5mxvr14ZRgYOdBtmjq
+	pexp0Z9+gVt1deGk3BOKn7SUBrRxLutqq5efJe2VFAq1WKz9g/6yd1xHbRdii9iA5MYi0BPTs+O
+	o2paT1MF/A34jelTdPXQHZLCIU3DpgZS8I8OgTDsKtfryVY=
+X-Received: by 2002:a05:7300:6881:b0:386:9ffb:33b4 with SMTP id 5a478bee46e88-3869ffb51abmr7123463eec.33.1795437393684;
+        Mon, 23 Nov 2026 04:36:33 -0800 (PST)
+Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm32854353eec.13.2026.11.23.04.36.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 04:36:33 -0800 (PST)
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v2 5/7] media: i2c: add ov12a10 image sensor driver
+Date: Mon, 23 Nov 2026 19:35:44 +0700
+Message-ID: <20261123123546.152162-6-hikmahgumelar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261123123546.152162-1-hikmahgumelar@gmail.com>
+References: <20261123110805.119610-1-hikmahgumelar@gmail.com>
+ <20261123123546.152162-1-hikmahgumelar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -152,483 +112,774 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic:
-	GV1PR08MB10370:EE_|AS2PR08MB10180:EE_|MA3PEPF00000407:EE_|AS8PR08MB6453:EE_
-X-MS-Office365-Filtering-Correlation-Id: e7df7923-3557-4c08-901f-08df495e5f53
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted:
- BCL:0;ARA:13230040|23010399003|10070799003|366016|1800799024|7416014|376014|18002099003|22082099003|3023799007|56012099006|4143699003|5023799004|11063799006|261102123227099003|261028144727099003|261022075727099003|261022105027099003|261021121427099003|261021123027099003|261021135927099003|261026140227099003|261026121527099003|261009223027099003|10067099003;
-X-Microsoft-Antispam-Message-Info-Original:
- D/XG8NKUhg6z7SDoL+J0egEJc3snJ6TAaWsIQBER8+gKLrFyEecPjyWaT5DfzHkHL6QgrNWXeZ2cQW+2Ux7lMUdFU8VpY3ctCCu67TBu5gU0xnfU1SioeYDhWp02O7+db5A/b9LXxUpvuobA9Cy7F9IKN/fImiQ0SUstxHyO1Hz6EExjVVE+ShVrQSARyoEy/qomZRRMHdfEowZDFUbJk1ewTCTRoQ1ntQ3T4F5Ym/1Fqc0TjwBdSA/BnIvRrUUIGmRS5sCpju0fQgaOXaxooODRWCh38OJ9bX1TGXwb8y2XPUeIdXgyzRjKCpI7we+7Z0pwRHGL7chFoK3vk6HX47TnCHSH/mPMJE3h8nrbKm5H318PQ2kbir/U/eP3Vpy8UMP+VWjxCb9A4LjmRtDOqLwztzkTxkhtNs4cACN42r+gyl4HwAqr7XpJR48j63Z4UT/aTe2tjEmBBG66JHbfmrlkHnIKOQLhvj57qjkpHIQj/v1ufMSkHeYIoEwGkZo8KJR+Efe7Fvr5KbnzatIX1g3CfaQazRQfcrh6PXIrJJiMGZCqAM+R+M+Vqf+v67uDrG7n5Uu1XU1ThugBashjPmcsCXEa7Be8mZzPctGcIBjAHONj25VmEzLUnb/EEcXUoS660YhMBTjVL3xGvBdPQ9dY2N4HKhBrdqWm2I1NYn4=
-X-Forefront-Antispam-Report-Untrusted:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10370.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(3023799007)(56012099006)(4143699003)(5023799004)(11063799006)(261102123227099003)(261028144727099003)(261022075727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261021135927099003)(261026140227099003)(261026121527099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked:
- BDDLnOjiU9nwFON9bYNCbpRf5RK64GW2yE8KGkhbdAVrDPDXmFsWq91usozb7iD74rI19Le2W2i8f6mNdYWzqLBsb4e9SENwxxijvyMV+QD5Zv5/EXPF5Egcl1pUShlJoTrZwImPCrv8sZy/DdB+L/xEritX6KRuRB9rZy6Eej/2V8JnF50qSJLfHqVqdKFA6yPxVHKnIHZLVsi0/Ot0XvRK3zuZtn5b2bbVSGEBbH63FQNG4loacV5FEDVkb1p0im94H+Q/jBeehL35bu7e92MucggMTkwSp0g5BQtBp9k3sqjGHMl0EVUabblcpFg4GjiU9yV50LHvNKWQCfKajQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB10180
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped:
- MA3PEPF00000407.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	e77a0588-8c4a-465f-f623-08df495e4b04
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|14060799003|82310400026|1800799024|36860700016|35042699022|376014|7416014|18002099003|22082099003|261009223027099003|3023799007|4143699003|11063799006|5023799004|56012099006|261026121527099003|261028144727099003|261021135927099003|261021121427099003|261021123027099003|261102123227099003|261022075727099003|261022105027099003|261026140227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	wrXwC1qq1bL7XQrVk6bORaRpFTiSgA6aTtEqnHQgE1755TG+YgcAQGkCF1xla3R/+EPp38FrEQfdla032+JNg2wkBJIpRQnqqi9hEsfFweqCsTTkA+FmkPxitq669RDrxu5qGkYfVH+XQHYEqOLVjS/CtOs6raiw3kMQxk8PcjOXp2W3dUBA79MbZrxW1db7vu4THfs5La+IRvSnEH2+Dwo+NXrsSR+3ht4tx4qN2wqkCZoU10AcuH3z+l2PHQPHr6gSzew1YZrCc8+l2pKLXO8SJJQlSYoyh0jmXh9nA+YvP/+AH/fKGAbN/oPzATwbYWE5AitveHtMPYaKJEbeyp0JrixkdyjOWbg/5mdNTad7xZEG266jb/ydgDEO3EU8MJow6PiVRv8PTHFu94bjs4fniyZZxNVLlKItoYuTE5v3Uvk20fJ5GgF5k6XCyXAPXk5++HIIu4OzLIkMn81MnX+mAo7k7NqPrxqS3RuZKT7uZz40wz4rNbaxhIFMKUemaO2EMmcY/omC/mkEUEaB5Bs7H9roy/nM8kgym2TO7dkSOy5sGMEMxvWHjYEbMZIsGlptPHbahCjNvUyrXUTm6kczJ/k9/MM1BAoR4FUcf5JOhEmkkTPbccZEvRBakxMi1y5XYENYJM8CYnIQLx1epfJmcIkXVsBU5V9kWp392XaAjcg5Gv0Ettp4m6wlUCXyCKUcCfAXbMr35eWfVRgn7A==
-X-Forefront-Antispam-Report:
-	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(14060799003)(82310400026)(1800799024)(36860700016)(35042699022)(376014)(7416014)(18002099003)(22082099003)(261009223027099003)(3023799007)(4143699003)(11063799006)(5023799004)(56012099006)(261026121527099003)(261028144727099003)(261021135927099003)(261021121427099003)(261021123027099003)(261102123227099003)(261022075727099003)(261022105027099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	lQFURTOeGp52T5e8dfnc6jwwcHA2y6M13D8PEIpSln/yeLxS5hqpD7uz2X6VYD7t86IebdZ/+tJFPXTjbRJbqTceUxexjGoNZeXDYdZNdEMxzNybMFkfcAq/gED9ZkERpzjUuhkw+ge2oPiOJmv8wnIaev+mPiNrRbp3fyI2c+YNbu4QL1ZuepChaFmvYDyjJ3OVTYYANZsbqojfVu/tqrJeVOPXBgbNTTVTecEPne5MexBELsWaSJ/IiUTTBB6FKPt/gdhww0xLM2qfwTID0KOJtTWo4C6XCJD9qMgDhav74NwnurLwgofEIc0OTixGnLlUUmSgP3fIckPXsNAsXCqHy5TeC7Ls2QBOV9RgMKLcjCgIUdfaHKtC37nhb9uB/3wYN1kZFfB30y6giWTm0YdDpktC/psw/vIMcwSVetXOMI/THIOvXGP4pCkWSVFT
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 12:36:18.3135
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e7df7923-3557-4c08-901f-08df495e5f53
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MA3PEPF00000407.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6453
-
-Hi Vinicius,
-
-sorry, I missed your post earlier, so made my own version of the DT 
-yesterday. So this is more like comparing this to yours ;-)
-As you saw my reply to Enzo's .dtsi and A7S .dts, I will keep the same 
-issues I mentioned there brief.
-
-On 11/11/26 14:49, Vinicius Pedrosa wrote:
-> Add the device tree for the Radxa Cubie A7Z. Describe UART0, the AXP318W
-> PMIC over R-I2C0, MMC0, RTC and the bank supplies. It is based on the
-> Cubie A7S DT.
-> 
-> Unlike the A7S, this board uses BLDO5 for PG and a SY8089 regulator for
-> the PMIC's BLDO and CLDO inputs, and the microSD card-detect line has an
-> external pull-up, so no internal pull-down is used. ELDO1 only supplies
-> VDD2L for LPDDR5 and this board uses LPDDR4, so it is not described.
-> SWOUT1 only feeds ports D and J on the 40-pin header, so it is not kept
-> always-on.
-
-I think this stanza does not belong into the commit message, as 
-comparing to some different board is not relevant here.
-Instead you should briefly list the features/connectors of this board, 
-look at other commit messages for board .dts files.
-
-> 
-> Signed-off-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-> ---
->   arch/arm64/boot/dts/allwinner/Makefile        |   1 +
->   .../dts/allwinner/sun60i-a733-cubie-a7z.dts   | 286 ++++++++++++++++++
->   2 files changed, 287 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-> index 792152525b43..2eee91dcbd77 100644
-> --- a/arch/arm64/boot/dts/allwinner/Makefile
-> +++ b/arch/arm64/boot/dts/allwinner/Makefile
-> @@ -69,3 +69,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
->   dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
->   dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
->   dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7s.dtb
-> +dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7z.dtb
-> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts
-> new file mode 100644
-> index 000000000000..ab3d3d70f9ff
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts
-> @@ -0,0 +1,286 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-
-I think you need a copyright line here.
-
-Also please explain the situation with the v1.10 and v1.11 versions here.
-
-> +/dts-v1/;
-> +
-> +#include "sun60i-a733.dtsi"
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +/ {
-> +	model = "Radxa Cubie A7Z";
-> +	compatible = "radxa,cubie-a7z", "allwinner,sun60i-a733";
-> +
-> +	aliases {
-> +		mmc0 = &mmc0;
-
-Please remove.
-
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	reg_ps: regulator-system-power {
-
-Please add a short comment where this power comes from (USB-C connector).
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "ps";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
-> +	};
-> +
-
-As mentioned in the other mail, please add a comment that this has been 
-added in v1.11, and v1.10 doesn't have it.
-
-> +	reg_ldo_input: regulator-ldo-input {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "ldo2v5-input";
-> +		/* SY8089: 0.6 V * (1 + RP11 / RP6), 30k / 10k. */
-> +		regulator-min-microvolt = <2400000>;
-> +		regulator-max-microvolt = <2400000>;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_ps>;
-> +	};
-> +
-> +	osc32k: osc32k-clk {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <32768>;
-> +	};
-> +};
-> +
-> +&cpu0 {
-> +	cpu-supply = <&reg_dcdc5>;
-> +};
-> +
-> +&cpu1 {
-> +	cpu-supply = <&reg_dcdc5>;
-> +};
-> +
-> +&cpu2 {
-> +	cpu-supply = <&reg_dcdc5>;
-> +};
-> +
-> +&cpu3 {
-> +	cpu-supply = <&reg_dcdc5>;
-> +};
-> +
-> +&cpu4 {
-> +	cpu-supply = <&reg_dcdc5>;
-> +};
-> +
-> +&cpu5 {
-> +	cpu-supply = <&reg_dcdc5>;
-> +};
-> +
-> +&cpu6 {
-> +	cpu-supply = <&reg_dcdc3>;
-> +};
-> +
-> +&cpu7 {
-> +	cpu-supply = <&reg_dcdc3>;
-> +};
-> +
-> +&mmc0 {
-> +	bus-width = <4>;
-> +	cap-sd-highspeed;
-
-Same as the A7S, please add the others.
-
-> +	/* PF6 has an external 10k pull-up and reads high with a card. */
-
-"reads high with a card" is a redundant comment, since this is what 
-GPIO_ACTIVE_HIGH already says.
-Please explain the situation with the v1.10 vs. v1.11 versions here.
-And my v1.10 board needs GPIO_PULL_DOWN
-
-> +	cd-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>;
-> +	disable-wp;
-> +	max-frequency = <50000000>;
-> +	no-1-8-v;
-
-Please remove both.
-
-> +	vmmc-supply = <&reg_swout2>;
-> +	/* The 3.3 V path uses VCC-IO; no Port F voltage switching yet. */
-> +	vqmmc-supply = <&reg_swout2>;
-
-Please remove those two lines, we will add vqmmc later.
-
-> +	status = "okay";
-> +};
-> +
-> +&osc {
-> +	clock-frequency = <26000000>;
-> +};
-> +
-> +&pio {
-> +	vcc-pb-supply = <&reg_swout2>;
-
-Please add a comment that this comes from VCC-IO. See the Cubie A5E DT.
-
-> +	vcc-pc-supply = <&reg_cldo5>;
-> +	vcc-pd-supply = <&reg_swout1>;
-> +	vcc-pe-supply = <&reg_bldo1>;
-> +	/* CLDO5 feeds VCC18-PF; the 3.3 V path uses VCC-IO. */
-> +	vcc-pf-supply = <&reg_cldo5>;
-
-As it stands this is VCC-IO, so swout2, please change that, plus the 
-VCC-IO comment.
-
-> +	vcc-pg-supply = <&reg_bldo5>;
-> +	vcc-ph-supply = <&reg_swout2>;
-
-VCC-IO comment, please.
-
-> +	vcc-pj-supply = <&reg_swout1>;
-> +	vcc-pk-supply = <&reg_bldo1>;
-> +};
-> +
-> +&r_i2c0 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&r_i2c0_pl_pins>;
-> +
-> +	axp318w: pmic@36 {
-> +		compatible = "x-powers,axp318w";
-> +		reg = <0x36>;
-> +		interrupt-parent = <&nmi_intc>;
-> +		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <1>;
-> +
-> +		aldo156in-supply = <&reg_ps>;
-> +		aldo234in-supply = <&reg_aldo1>;
-> +		bldoin-supply = <&reg_ldo_input>;
-> +		cldoin-supply = <&reg_ldo_input>;
-
-Please add a comment about v1.10 differing.
-
-> +		dldoin-supply = <&reg_ps>;
-> +		eldoin-supply = <&reg_dcdc9>;
-> +		ips-supply = <&reg_ps>;
-> +		vin19-supply = <&reg_ps>;
-> +		vin23-supply = <&reg_ps>;
-> +		vin45-supply = <&reg_ps>;
-> +		vin678-supply = <&reg_ps>;
-> +
-> +		regulators {
-> +			reg_dcdc1: dcdc1 {
-> +				regulator-name = "vcc-3v3";
-> +				regulator-min-microvolt = <3300000>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dcdc2: dcdc2 {
-> +				regulator-name = "vdd-sys";
-
-Please add the voltage: 0.8V.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dcdc3: dcdc3 {
-> +				regulator-name = "vdd-cpub";
-
- From the OPP tables I could find in the Radxa repo on github, the range 
-should be 0.8V - 1.05V. We can adjust this later when we add proper DVFS 
-support, if needed.
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dcdc4: dcdc4 {
-> +				regulator-name = "vdd-gpu";
-> +				regulator-always-on;
-
-Voltage range should be 0.8V - 0.96V, and drop the always-on.
-
-> +			};
-> +
-> +			reg_dcdc5: dcdc5 {
-> +				regulator-name = "vdd-cpul";
-
-Voltage range 0.8V - 1.05V.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dcdc6: dcdc6 {
-> +				regulator-name = "vcc-draml";
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dcdc7: dcdc7 {
-> +				regulator-name = "vcc-dram";
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dcdc8: dcdc8 {
-> +				regulator-name = "vcc-ufs-io";
-
-The voltage is 1.2V, and please drop the always-on.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dcdc9: dcdc9 {
-> +				regulator-name = "eldo-input";
-
-The schematic says 1.1V/1.25V. Can you check what it is on your board, 
-at runtime? If in doubt, go with 1.1V, this should be enough headroom 
-for the ELDO6 this supplies, with outputs 0.8V.
-
-> +				regulator-always-on;
-
-Please remove.
-
-> +			};
-> +
-> +			reg_swout1: swout1 {
-> +				regulator-name = "vcc33-lcd";
-
-Please use "vcc-pd-pj" as the name.
-
-> +			};
-> +
-> +			reg_swout2: swout2 {
-> +				regulator-name = "vcc-io-card";
-
-I used "vcc-io-ph-usb", "card" does not seem to be used.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_aldo1: aldo1 {
-> +				regulator-name = "vcc-pl";
-
-Also USB it seems, so I used "vcc-pl-usb".
-
-> +				regulator-min-microvolt = <3300000>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_bldo1: bldo1 {
-> +				regulator-name = "vcc-pe-pk-mcsi";
-
-Voltage is 1.8V.
-
-> +			};
-> +
-> +			reg_bldo2: bldo2 {
-> +				regulator-name = "vcc-lvds0";
-
-1.8V as well.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_bldo4: bldo4 {
-> +				regulator-name = "vcc18-codec";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +			};
-> +
-> +			reg_bldo5: bldo5 {
-> +				regulator-name = "vcc-pg";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +			};
-> +
-> +			reg_cldo1: cldo1 {
-> +				regulator-name = "vcc33-18-usb";
-
-That is a confusing name ;-) "vcc-pm-lpddr" should explain the always-on.
-
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_cldo2: cldo2 {
-> +				regulator-name = "vcc18-hdmi";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +			};
-> +
-> +			reg_cldo3: cldo3 {
-> +				regulator-name = "vcc-pll-dram";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_cldo5: cldo5 {
-> +				regulator-name = "vcc18-pf-pc";
-
-"pf" is somewhat misleading. I had "vcc-pc-combo".
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dldo1: dldo1 {
-> +				regulator-name = "vcc-efuse";
-
-Voltage is 1.8V.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_dldo6: dldo6 {
-> +				regulator-name = "vcc-ufs";
-
-Voltage is 2.5V, and no always-on should be needed.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_eldo6: eldo6 {
-> +				regulator-name = "vdd-cpus";
-
-Voltage is 0.8V.
-
-> +				regulator-always-on;
-> +			};
-> +
-> +			reg_rtc_ldo: rtc-ldo {
-> +				regulator-name = "vcc-rtc";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-always-on;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&r_pio {
-> +	/* PL powers the PMIC bus itself; firmware must keep ALDO1 enabled. */
-
-Probably better to copy the comment from the other DTs, and have the 
-"would-be" line inside the comment (vcc-pl-supply = <&reg_aldo1>;)
-
-Cheers,
-Andre
-
-> +	vcc-pm-supply = <&reg_aldo1>;
-> +};
-> +
-> +&rtc {
-> +	clocks = <&r_ccu CLK_BUS_R_RTC>, <&osc>, <&r_ccu CLK_R_AHB>,
-> +		 <&osc32k>;
-> +	clock-names = "bus", "hosc", "ahb", "ext-osc32k";
-> +};
-> +
-> +&uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart0_pb_pins>;
-> +	status = "okay";
-> +};
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+---
+ drivers/media/i2c/Kconfig   |   9 +
+ drivers/media/i2c/Makefile  |   1 +
+ drivers/media/i2c/ov12a10.c | 720 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 730 insertions(+)
+ create mode 100644 drivers/media/i2c/ov12a10.c
+
+diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
+index 095a911c5043..280c8ba9a215 100644
+--- a/drivers/media/i2c/Kconfig
++++ b/drivers/media/i2c/Kconfig
+@@ -538,6 +538,15 @@ config VIDEO_OV08X40
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called ov08x40.
+ 
++config VIDEO_OV12A10
++	tristate "OmniVision OV12A10 sensor support"
++	depends on I2C && VIDEO_DEV
++	select MEDIA_CONTROLLER
++	select VIDEO_V4L2_SUBDEV_API
++	select V4L2_FWNODE
++	help
++	  V4L2 sensor driver for OmniVision OV12A10.
++
+ config VIDEO_OV13858
+ 	tristate "OmniVision OV13858 sensor support"
+ 	help
+diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
+index bdcb8f34aca3..8148ee872a31 100644
+--- a/drivers/media/i2c/Makefile
++++ b/drivers/media/i2c/Makefile
+@@ -99,6 +99,7 @@ obj-$(CONFIG_VIDEO_OV02E10) += ov02e10.o
+ obj-$(CONFIG_VIDEO_OV05C10) += ov05c10.o
+ obj-$(CONFIG_VIDEO_OV08D10) += ov08d10.o
+ obj-$(CONFIG_VIDEO_OV08X40) += ov08x40.o
++obj-$(CONFIG_VIDEO_OV12A10) += ov12a10.o
+ obj-$(CONFIG_VIDEO_OV13858) += ov13858.o
+ obj-$(CONFIG_VIDEO_OV13B10) += ov13b10.o
+ obj-$(CONFIG_VIDEO_OV2640) += ov2640.o
+diff --git a/drivers/media/i2c/ov12a10.c b/drivers/media/i2c/ov12a10.c
+new file mode 100644
+index 000000000000..ce2e01bc67e0
+--- /dev/null
++++ b/drivers/media/i2c/ov12a10.c
+@@ -0,0 +1,720 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/gpio/consumer.h>
++#include <linux/i2c.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/pm_runtime.h>
++#include <linux/regulator/consumer.h>
++#include <linux/unaligned.h>
++#include <media/v4l2-ctrls.h>
++#include <media/v4l2-device.h>
++#include <media/v4l2-fwnode.h>
++
++#define OV12A10_CHIP_ID_REG		0x300a
++#define OV12A10_CHIP_ID			0x5612
++#define OV12A10_REG_MODE_SELECT		0x0100
++#define OV12A10_MODE_STANDBY		0x00
++#define OV12A10_MODE_STREAMING		0x01
++#define OV12A10_REG_VTS			0x380e
++#define OV12A10_REG_EXPOSURE		0x3501
++#define OV12A10_REG_ANALOG_GAIN		0x3508
++#define OV12A10_REG_TEST_PATTERN		0x5080
++#define OV12A10_XVCLK_FREQ		24000000
++#define OV12A10_LINK_FREQ_216MHZ		216000000ULL
++#define OV12A10_PIXEL_RATE		144000000ULL
++
++struct ov12a10_reg { u16 address;
++u8 val;
++};
++struct ov12a10_mode {
++	u32 width, height, hts_def, vts_def, vts_min, num_regs;
++	const struct ov12a10_reg *regs;
++};
++
++static const char * const ov12a10_supply_names[] = { "avdd", "dvdd", "dovdd" };
++#define OV12A10_NUM_SUPPLIES ARRAY_SIZE(ov12a10_supply_names)
++
++static const struct ov12a10_reg ov12a10_common_regs[] = {
++	{ 0x0103, 0x01 },
++	{ 0x0302, 0x49 },
++	{ 0x0303, 0x00 },
++	{ 0x0304, 0x00 },
++	{ 0x0305, 0x01 },
++	{ 0x0312, 0x11 },
++	{ 0x030b, 0x06 },
++	{ 0x030c, 0x02 },
++	{ 0x030d, 0x88 },
++	{ 0x030e, 0x02 },
++	{ 0x0313, 0x05 },
++	{ 0x3002, 0x21 },
++	{ 0x3012, 0x40 },
++	{ 0x3013, 0x72 },
++	{ 0x3016, 0x72 },
++	{ 0x301b, 0xd0 },
++	{ 0x301d, 0xf0 },
++	{ 0x301f, 0xd0 },
++	{ 0x3021, 0x23 },
++	{ 0x3022, 0x01 },
++	{ 0x3106, 0x15 },
++	{ 0x3107, 0x23 },
++	{ 0x3500, 0x00 },
++	{ 0x3501, 0xd0 },
++	{ 0x3502, 0x00 },
++	{ 0x3505, 0x83 },
++	{ 0x3508, 0x02 },
++	{ 0x3509, 0x00 },
++	{ 0x3600, 0x43 },
++	{ 0x3611, 0x8a },
++	{ 0x3613, 0x97 },
++	{ 0x3620, 0x80 },
++	{ 0x3624, 0x2c },
++	{ 0x3625, 0xa0 },
++	{ 0x3626, 0x00 },
++	{ 0x3631, 0x60 },
++	{ 0x3632, 0x00 },
++	{ 0x3641, 0x80 },
++	{ 0x3642, 0x12 },
++	{ 0x3644, 0x78 },
++	{ 0x3645, 0xa7 },
++	{ 0x364e, 0x44 },
++	{ 0x364f, 0x44 },
++	{ 0x3650, 0x11 },
++	{ 0x3654, 0x00 },
++	{ 0x3657, 0x31 },
++	{ 0x3659, 0x0c },
++	{ 0x365f, 0x07 },
++	{ 0x3661, 0x17 },
++	{ 0x3662, 0x17 },
++	{ 0x3663, 0x17 },
++	{ 0x3664, 0x17 },
++	{ 0x3666, 0x08 },
++	{ 0x366b, 0x20 },
++	{ 0x366c, 0xa4 },
++	{ 0x366d, 0x20 },
++	{ 0x366e, 0xa4 },
++	{ 0x3680, 0x00 },
++	{ 0x3714, 0x24 },
++	{ 0x371a, 0x3e },
++	{ 0x3737, 0x04 },
++	{ 0x3739, 0x12 },
++	{ 0x3765, 0x20 },
++	{ 0x3767, 0x00 },
++	{ 0x37a1, 0x3e },
++	{ 0x37a8, 0x4d },
++	{ 0x37ab, 0x2c },
++	{ 0x37c2, 0x04 },
++	{ 0x37d8, 0x03 },
++	{ 0x37d9, 0x0c },
++	{ 0x37e0, 0x00 },
++	{ 0x37e1, 0x0a },
++	{ 0x37e2, 0x14 },
++	{ 0x37e3, 0x04 },
++	{ 0x37e4, 0x2a },
++	{ 0x37e5, 0x03 },
++	{ 0x37e6, 0x04 },
++	{ 0x3800, 0x00 },
++	{ 0x3801, 0x00 },
++	{ 0x3802, 0x00 },
++	{ 0x3803, 0x00 },
++	{ 0x3804, 0x10 },
++	{ 0x3805, 0x0f },
++	{ 0x3806, 0x0c },
++	{ 0x3807, 0x0f },
++	{ 0x3808, 0x10 },
++	{ 0x3809, 0x00 },
++	{ 0x380a, 0x0c },
++	{ 0x380b, 0x00 },
++	{ 0x380c, 0x04 },
++	{ 0x380d, 0x28 },
++	{ 0x380e, 0x0d },
++	{ 0x380f, 0x12 },
++	{ 0x3811, 0x0a },
++	{ 0x3813, 0x08 },
++	{ 0x3814, 0x01 },
++	{ 0x3815, 0x01 },
++	{ 0x3816, 0x01 },
++	{ 0x3817, 0x01 },
++	{ 0x3820, 0xa8 },
++	{ 0x3821, 0x00 },
++	{ 0x3822, 0x91 },
++	{ 0x3823, 0x18 },
++	{ 0x3826, 0x00 },
++	{ 0x3827, 0x00 },
++	{ 0x3829, 0x03 },
++	{ 0x3832, 0x08 },
++	{ 0x3833, 0x30 },
++	{ 0x3c80, 0x00 },
++	{ 0x3c87, 0x01 },
++	{ 0x3c8c, 0x1a },
++	{ 0x3c8d, 0x68 },
++	{ 0x3c97, 0x02 },
++	{ 0x3cc0, 0x40 },
++	{ 0x3cc1, 0x54 },
++	{ 0x3cc2, 0x34 },
++	{ 0x3cc3, 0x04 },
++	{ 0x3cc4, 0x00 },
++	{ 0x3cc5, 0x00 },
++	{ 0x3cc6, 0x00 },
++	{ 0x3cc7, 0x00 },
++	{ 0x3cc8, 0x00 },
++	{ 0x3cc9, 0x00 },
++	{ 0x3d8c, 0x73 },
++	{ 0x3d8d, 0xc0 },
++	{ 0x4001, 0x2b },
++	{ 0x4008, 0x02 },
++	{ 0x4009, 0x0f },
++	{ 0x4011, 0xff },
++	{ 0x4013, 0x08 },
++	{ 0x4014, 0x08 },
++	{ 0x4015, 0x08 },
++	{ 0x4017, 0x08 },
++	{ 0x401a, 0x58 },
++	{ 0x4050, 0x04 },
++	{ 0x4051, 0x0b },
++	{ 0x405e, 0x20 },
++	{ 0x4501, 0x00 },
++	{ 0x4503, 0x00 },
++	{ 0x450a, 0x04 },
++	{ 0x4601, 0x30 },
++	{ 0x4800, 0x24 },
++	{ 0x481f, 0x30 },
++	{ 0x4837, 0x0d },
++	{ 0x483c, 0x0f },
++	{ 0x484b, 0x01 },
++	{ 0x4d00, 0x05 },
++	{ 0x4d01, 0x19 },
++	{ 0x4d02, 0xfd },
++	{ 0x4d03, 0xd1 },
++	{ 0x4d04, 0xff },
++	{ 0x4d05, 0xff },
++	{ 0x5000, 0x09 },
++	{ 0x5001, 0x42 },
++	{ 0x5002, 0x45 },
++	{ 0x5005, 0x00 },
++	{ 0x5081, 0x04 },
++	{ 0x5180, 0x00 },
++	{ 0x5181, 0x10 },
++	{ 0x5182, 0x02 },
++	{ 0x5183, 0x0f },
++	{ 0x5185, 0x6c },
++	{ 0x5200, 0x03 },
++	{ 0x5203, 0x7c },
++	{ 0x5204, 0x1f },
++	{ 0x5205, 0x41 },
++	{ 0x520b, 0x07 },
++	{ 0x520c, 0x0f },
++	{ 0x0300, 0x02 },
++	{ 0x0302, 0x53 },
++	{ 0x380c, 0x04 },
++	{ 0x380d, 0x90 },
++	{ 0x380e, 0x0c },
++	{ 0x380f, 0xe6 },
++	{ 0x4837, 0x10 },
++};
++
++static const struct ov12a10_reg ov12a10_1280x720_regs[] = {
++	{ 0x0300, 0x06 },
++	{ 0x0301, 0x02 },
++	{ 0x0302, 0x48 },
++	{ 0x0307, 0x01 },
++	{ 0x0303, 0x01 },
++	{ 0x030b, 0x06 },
++	{ 0x030c, 0x02 },
++	{ 0x030d, 0x88 },
++	{ 0x0312, 0x11 },
++	{ 0x0313, 0x09 },
++	{ 0x3642, 0x10 },
++	{ 0x3666, 0x00 },
++	{ 0x366b, 0xa4 },
++	{ 0x366c, 0x20 },
++	{ 0x366d, 0xa4 },
++	{ 0x366e, 0x20 },
++	{ 0x3714, 0x28 },
++	{ 0x371a, 0x3e },
++	{ 0x3737, 0x08 },
++	{ 0x3739, 0x20 },
++	{ 0x37c2, 0x14 },
++	{ 0x37d9, 0x0c },
++	{ 0x37e3, 0x08 },
++	{ 0x37e4, 0x36 },
++	{ 0x37e6, 0x08 },
++	{ 0x3800, 0x03 },
++	{ 0x3801, 0x20 },
++	{ 0x3802, 0x03 },
++	{ 0x3803, 0x68 },
++	{ 0x3804, 0x0d },
++	{ 0x3805, 0x3f },
++	{ 0x3806, 0x09 },
++	{ 0x3807, 0x27 },
++	{ 0x3808, 0x05 },
++	{ 0x3809, 0x00 },
++	{ 0x380a, 0x02 },
++	{ 0x380b, 0xd0 },
++	{ 0x380c, 0x04 },
++	{ 0x380d, 0x28 },
++	{ 0x380e, 0x03 },
++	{ 0x380f, 0x4c },
++	{ 0x3810, 0x00 },
++	{ 0x3811, 0x08 },
++	{ 0x3813, 0x08 },
++	{ 0x3814, 0x03 },
++	{ 0x3816, 0x03 },
++	{ 0x3820, 0xab },
++	{ 0x4009, 0x0d },
++	{ 0x4050, 0x04 },
++	{ 0x4051, 0x0b },
++	{ 0x4501, 0x00 },
++	{ 0x4837, 0x1b },
++	{ 0x5001, 0x42 },
++	{ 0x5002, 0x45 },
++	{ 0x3501, 0x34 },
++	{ 0x3502, 0x00 },
++	{ 0x4800, 0x24 },
++};
++
++static const struct ov12a10_mode supported_modes[] = {
++	{
++		.width = 1280, .height = 720, .hts_def = 1440,
++		.vts_def = 3376, .vts_min = 844,
++		.num_regs = ARRAY_SIZE(ov12a10_1280x720_regs),
++		.regs = ov12a10_1280x720_regs,
++	},
++};
++
++static const s64 link_freq_menu_items[] = { OV12A10_LINK_FREQ_216MHZ };
++
++struct ov12a10 {
++	struct device *dev;
++	struct v4l2_subdev sd;
++	struct media_pad pad;
++	struct clk *xvclk;
++	struct gpio_desc *reset_gpio, *vana_gpio, *pwdn_gpio;
++	struct regulator_bulk_data supplies[OV12A10_NUM_SUPPLIES];
++	struct v4l2_ctrl_handler ctrl_handler;
++	struct v4l2_ctrl *link_freq, *pixel_rate, *vblank, *hblank, *exposure;
++	const struct ov12a10_mode *cur_mode;
++	/* Serialize access to sensor registers and streaming state */
++	struct mutex mutex;
++	bool streaming;
++};
++
++static inline struct ov12a10 *to_ov12a10(struct v4l2_subdev *sd)
++{
++	return container_of(sd, struct ov12a10, sd);
++}
++
++static int ov12a10_read_reg(struct ov12a10 *ov12a10, u16 reg, u32 len, u32 *val)
++{
++	struct i2c_client *client = v4l2_get_subdevdata(&ov12a10->sd);
++	struct i2c_msg msgs[2];
++	u8 addr_buf[2], data_buf[4] = { 0 };
++	int ret;
++
++	put_unaligned_be16(reg, addr_buf);
++	msgs[0].addr = client->addr;
++	msgs[0].flags = 0;
++	msgs[0].len = 2;
++	msgs[0].buf = addr_buf;
++	msgs[1].addr = client->addr;
++	msgs[1].flags = I2C_M_RD;
++	msgs[1].len = len;
++	msgs[1].buf = &data_buf[4 - len];
++	ret = i2c_transfer(client->adapter, msgs, 2);
++	if (ret != 2)
++		return ret < 0 ? ret : -EIO;
++	*val = get_unaligned_be32(data_buf);
++	return 0;
++}
++
++static int ov12a10_write_reg(struct ov12a10 *ov12a10, u16 reg, u32 len, u32 val)
++{
++	struct i2c_client *client = v4l2_get_subdevdata(&ov12a10->sd);
++	u8 buf[6];
++	int ret;
++
++	put_unaligned_be16(reg, buf);
++	put_unaligned_be32(val << (8 * (4 - len)), buf + 2);
++	ret = i2c_master_send(client, buf, len + 2);
++	return ret == len + 2 ? 0 : (ret < 0 ? ret : -EIO);
++}
++
++static int ov12a10_write_regs(struct ov12a10 *ov12a10, const struct ov12a10_reg *regs, u32 len)
++{
++	u32 i;
++	int ret;
++
++	for (i = 0; i < len; i++) {
++		ret = ov12a10_write_reg(ov12a10, regs[i].address, 1, regs[i].val);
++		if (!ret && regs[i].address == 0x0103)
++			usleep_range(5000, 6000);
++		if (ret)
++			return ret;
++	}
++	return 0;
++}
++
++static int ov12a10_power_on(struct device *dev)
++{
++	struct ov12a10 *ov12a10 = to_ov12a10(dev_get_drvdata(dev));
++	int ret;
++
++	if (ov12a10->vana_gpio)
++		gpiod_set_value_cansleep(ov12a10->vana_gpio, 1);
++
++	ret = regulator_bulk_enable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
++	if (ret)
++		return ret;
++
++	ret = clk_prepare_enable(ov12a10->xvclk);
++	if (ret) {
++		regulator_bulk_disable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
++		return ret;
++	}
++
++	msleep(35);
++	if (ov12a10->pwdn_gpio)
++		gpiod_set_value_cansleep(ov12a10->pwdn_gpio, 0);
++	if (ov12a10->reset_gpio) {
++		gpiod_set_value_cansleep(ov12a10->reset_gpio, 1);
++		usleep_range(3000, 5000);
++		gpiod_set_value_cansleep(ov12a10->reset_gpio, 0);
++		msleep(35);
++	}
++	return 0;
++}
++
++static int ov12a10_power_off(struct device *dev)
++{
++	struct ov12a10 *ov12a10 = to_ov12a10(dev_get_drvdata(dev));
++
++	if (ov12a10->reset_gpio)
++		gpiod_set_value_cansleep(ov12a10->reset_gpio, 1);
++	if (ov12a10->pwdn_gpio)
++		gpiod_set_value_cansleep(ov12a10->pwdn_gpio, 1);
++	if (ov12a10->vana_gpio)
++		gpiod_set_value_cansleep(ov12a10->vana_gpio, 0);
++	clk_disable_unprepare(ov12a10->xvclk);
++	regulator_bulk_disable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
++	return 0;
++}
++
++static int ov12a10_set_ctrl(struct v4l2_ctrl *ctrl)
++{
++	struct ov12a10 *ov12a10 = container_of(ctrl->handler, struct ov12a10, ctrl_handler);
++	int ret = 0;
++
++	if (!pm_runtime_get_if_in_use(ov12a10->dev))
++		return 0;
++	switch (ctrl->id) {
++	case V4L2_CID_ANALOGUE_GAIN:
++		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_ANALOG_GAIN, 2, ctrl->val);
++	break;
++	case V4L2_CID_EXPOSURE:
++		ret = ov12a10_write_reg(ov12a10, 0x3500, 3, ctrl->val << 4);
++	break;
++	case V4L2_CID_VBLANK:
++		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_VTS, 2,
++				ov12a10->cur_mode->height + ctrl->val);
++	break;
++	case V4L2_CID_TEST_PATTERN:
++		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_TEST_PATTERN, 1, ctrl->val);
++	break;
++	}
++	pm_runtime_put(ov12a10->dev);
++	return ret;
++}
++
++static const struct v4l2_ctrl_ops ov12a10_ctrl_ops = { .s_ctrl = ov12a10_set_ctrl };
++static const char * const ov12a10_test_pattern_menu[] = {
++	"Disabled",
++	"Solid Color",
++	"100% Color Bars",
++	"Fade to Grey",
++	"PN9",
++};
++
++static int ov12a10_init_controls(struct ov12a10 *ov12a10)
++{
++	struct v4l2_fwnode_device_properties props;
++	struct v4l2_ctrl_handler *hdl = &ov12a10->ctrl_handler;
++	s64 hblank = ov12a10->cur_mode->hts_def - ov12a10->cur_mode->width;
++	int ret = v4l2_ctrl_handler_init(hdl, 8);
++
++	if (ret)
++		return ret;
++	hdl->lock = &ov12a10->mutex;
++	ov12a10->link_freq = v4l2_ctrl_new_int_menu(hdl, &ov12a10_ctrl_ops, V4L2_CID_LINK_FREQ,
++			0, 0, link_freq_menu_items);
++	if (ov12a10->link_freq)
++		ov12a10->link_freq->flags |= V4L2_CTRL_FLAG_READ_ONLY;
++	ov12a10->pixel_rate = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_PIXEL_RATE,
++			OV12A10_PIXEL_RATE, OV12A10_PIXEL_RATE, 1, OV12A10_PIXEL_RATE);
++	ov12a10->vblank = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_VBLANK, 124,
++			0x7fff - ov12a10->cur_mode->height, 1, 2656);
++	ov12a10->hblank = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_HBLANK, hblank,
++			hblank, 1, hblank);
++	if (ov12a10->hblank)
++		ov12a10->hblank->flags |= V4L2_CTRL_FLAG_READ_ONLY;
++	v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_ANALOGUE_GAIN, 0x80, 0x7ff, 1, 0x300);
++	ov12a10->exposure = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_EXPOSURE, 4,
++			3360, 1, 2400);
++	v4l2_ctrl_new_std_menu_items(hdl, &ov12a10_ctrl_ops, V4L2_CID_TEST_PATTERN, 4, 0, 0,
++			ov12a10_test_pattern_menu);
++	if (hdl->error) {
++		ret = hdl->error;
++		goto err;
++	}
++	ret = v4l2_fwnode_device_parse(ov12a10->dev, &props);
++	if (ret)
++		goto err;
++	ret = v4l2_ctrl_new_fwnode_properties(hdl, &ov12a10_ctrl_ops, &props);
++	if (ret)
++		goto err;
++	ov12a10->sd.ctrl_handler = hdl;
++	return 0;
++err:
++	v4l2_ctrl_handler_free(hdl);
++	return ret;
++}
++
++static void ov12a10_update_pad_format(const struct ov12a10_mode *mode,
++		struct v4l2_mbus_framefmt *fmt)
++{
++	fmt->width = mode->width;
++	fmt->height = mode->height;
++	fmt->code = MEDIA_BUS_FMT_SRGGB10_1X10;
++	fmt->field = V4L2_FIELD_NONE;
++	fmt->colorspace = V4L2_COLORSPACE_SRGB;
++}
++
++static int ov12a10_get_format(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
++		struct v4l2_subdev_format *fmt)
++{
++	struct ov12a10 *ov12a10 = to_ov12a10(sd);
++
++	fmt->format = (fmt->which == V4L2_SUBDEV_FORMAT_TRY) ? *v4l2_subdev_state_get_format(sd_state,
++			fmt->pad) : fmt->format;
++	if (fmt->which != V4L2_SUBDEV_FORMAT_TRY)
++		ov12a10_update_pad_format(ov12a10->cur_mode, &fmt->format);
++	return 0;
++}
++
++static int ov12a10_set_format(struct v4l2_subdev *sd, const struct v4l2_subdev_client_info *ci, struct v4l2_subdev_state *sd_state,
++		struct v4l2_subdev_format *fmt)
++{
++	struct ov12a10 *ov12a10 = to_ov12a10(sd);
++
++	ov12a10_update_pad_format(&supported_modes[0], &fmt->format);
++	if (fmt->which == V4L2_SUBDEV_FORMAT_TRY)
++		*v4l2_subdev_state_get_format(sd_state, fmt->pad) = fmt->format;
++	else
++		ov12a10->cur_mode = &supported_modes[0];
++
++	return 0;
++}
++
++static int ov12a10_enum_mbus_code(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
++		struct v4l2_subdev_mbus_code_enum *code)
++{
++	if (code->index > 0)
++		return -EINVAL;
++	code->code = MEDIA_BUS_FMT_SRGGB10_1X10;
++	return 0;
++}
++
++static int ov12a10_enum_frame_size(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
++		struct v4l2_subdev_frame_size_enum *fse)
++{
++	if (fse->index >= ARRAY_SIZE(supported_modes) ||
++	    fse->code != MEDIA_BUS_FMT_SRGGB10_1X10)
++		return -EINVAL;
++	fse->min_width = fse->max_width = supported_modes[fse->index].width;
++	fse->min_height = fse->max_height = supported_modes[fse->index].height;
++	return 0;
++}
++
++static int ov12a10_set_stream(struct v4l2_subdev *sd, int enable)
++{
++	struct ov12a10 *ov12a10 = to_ov12a10(sd);
++	int ret = 0;
++
++	mutex_lock(&ov12a10->mutex);
++	if (ov12a10->streaming == enable) {
++		mutex_unlock(&ov12a10->mutex);
++		return 0;
++	}
++	if (enable) {
++		ret = pm_runtime_resume_and_get(ov12a10->dev);
++		if (ret < 0)
++			goto out;
++		ret = ov12a10_write_regs(ov12a10, ov12a10_common_regs,
++				ARRAY_SIZE(ov12a10_common_regs));
++		if (!ret)
++			ret = ov12a10_write_regs(ov12a10, ov12a10->cur_mode->regs,
++					ov12a10->cur_mode->num_regs);
++		if (!ret)
++			ret = __v4l2_ctrl_handler_setup(ov12a10->sd.ctrl_handler);
++		if (!ret) {
++			static const struct ov12a10_reg stream_on_regs[] = {
++				{ 0x0100, 0x01 },
++			};
++			usleep_range(10000, 12000);
++			ret = ov12a10_write_regs(ov12a10, stream_on_regs,
++					ARRAY_SIZE(stream_on_regs));
++		}
++		if (ret) {
++			pm_runtime_put(ov12a10->dev);
++			goto out;
++		}
++	} else {
++		ov12a10_write_reg(ov12a10, OV12A10_REG_MODE_SELECT, 1, OV12A10_MODE_STANDBY);
++		pm_runtime_put(ov12a10->dev);
++	}
++	ov12a10->streaming = enable;
++out:
++	mutex_unlock(&ov12a10->mutex);
++	return ret;
++}
++
++static int ov12a10_open(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh)
++{
++	struct ov12a10 *ov12a10 = to_ov12a10(sd);
++
++	mutex_lock(&ov12a10->mutex);
++	ov12a10_update_pad_format(&supported_modes[0], v4l2_subdev_state_get_format(fh->state,
++			0));
++	mutex_unlock(&ov12a10->mutex);
++	return 0;
++}
++
++static const struct v4l2_subdev_video_ops ov12a10_video_ops = { .s_stream = ov12a10_set_stream };
++
++static int ov12a10_get_selection(struct v4l2_subdev *sd, const struct v4l2_subdev_client_info *ci,
++				struct v4l2_subdev_state *sd_state,
++				struct v4l2_subdev_selection *sel)
++{
++	switch (sel->target) {
++	case V4L2_SEL_TGT_CROP:
++	case V4L2_SEL_TGT_CROP_DEFAULT:
++	case V4L2_SEL_TGT_CROP_BOUNDS:
++	case V4L2_SEL_TGT_NATIVE_SIZE:
++		sel->r.left = 0;
++		sel->r.top = 0;
++		sel->r.width = 1280;
++		sel->r.height = 720;
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++static const struct v4l2_subdev_pad_ops ov12a10_pad_ops = {
++	.get_selection = ov12a10_get_selection,
++	.set_fmt = ov12a10_set_format, .get_fmt = ov12a10_get_format,
++	.enum_mbus_code = ov12a10_enum_mbus_code, .enum_frame_size = ov12a10_enum_frame_size,
++};
++static const struct v4l2_subdev_ops ov12a10_subdev_ops = {
++	.video = &ov12a10_video_ops,
++	.pad = &ov12a10_pad_ops,
++};
++static const struct media_entity_operations ov12a10_entity_ops = {
++	.link_validate = v4l2_subdev_link_validate,
++};
++static const struct v4l2_subdev_internal_ops ov12a10_internal_ops = { .open = ov12a10_open };
++
++static int ov12a10_probe(struct i2c_client *client)
++{
++	struct device *dev = &client->dev;
++	struct ov12a10 *ov12a10;
++	u32 val = 0;
++	unsigned int i;
++	int ret;
++
++	ov12a10 = devm_kzalloc(dev, sizeof(*ov12a10), GFP_KERNEL);
++	if (!ov12a10)
++		return -ENOMEM;
++	ov12a10->dev = dev;
++	v4l2_i2c_subdev_init(&ov12a10->sd, client, &ov12a10_subdev_ops);
++	ov12a10->xvclk = devm_v4l2_sensor_clk_get(dev, NULL);
++	if (IS_ERR(ov12a10->xvclk))
++		return dev_err_probe(dev, PTR_ERR(ov12a10->xvclk), "xvclk\n");
++	clk_set_rate(ov12a10->xvclk, OV12A10_XVCLK_FREQ);
++	ov12a10->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
++	ov12a10->vana_gpio = devm_gpiod_get_optional(dev, "vana", GPIOD_OUT_LOW);
++	ov12a10->pwdn_gpio = devm_gpiod_get_optional(dev, "pwdn", GPIOD_OUT_HIGH);
++	if (IS_ERR(ov12a10->reset_gpio))
++		return dev_err_probe(dev, PTR_ERR(ov12a10->reset_gpio), "reset\n");
++	for (i = 0; i < OV12A10_NUM_SUPPLIES; i++)
++		ov12a10->supplies[i].supply = ov12a10_supply_names[i];
++	ret = devm_regulator_bulk_get(dev, OV12A10_NUM_SUPPLIES, ov12a10->supplies);
++	if (ret)
++		return dev_err_probe(dev, ret, "regulators\n");
++	ret = ov12a10_power_on(dev);
++	if (ret)
++		return ret;
++	ret = ov12a10_read_reg(ov12a10, OV12A10_CHIP_ID_REG, 2, &val);
++	if (ret || val != OV12A10_CHIP_ID) {
++		dev_err(dev, "failed to identify ov12a10 (ret=%d, id=0x%04x)\n", ret, val);
++		ret = ret ? ret : -ENXIO;
++		goto err_power;
++	}
++	dev_info(dev, "identified OmniVision OV12A10 sensor (0x%04x)\n", val);
++	mutex_init(&ov12a10->mutex);
++	ov12a10->cur_mode = &supported_modes[0];
++	ret = ov12a10_init_controls(ov12a10);
++	if (ret)
++		goto err_mutex;
++	ov12a10->sd.internal_ops = &ov12a10_internal_ops;
++	ov12a10->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
++	ov12a10->sd.entity.ops = &ov12a10_entity_ops;
++	ov12a10->sd.entity.function = MEDIA_ENT_F_CAM_SENSOR;
++	ov12a10->pad.flags = MEDIA_PAD_FL_SOURCE;
++	ret = media_entity_pads_init(&ov12a10->sd.entity, 1, &ov12a10->pad);
++	if (ret)
++		goto err_ctrl;
++	ov12a10->sd.state_lock = &ov12a10->mutex;
++	ret = v4l2_subdev_init_finalize(&ov12a10->sd);
++	if (ret)
++		goto err_media;
++	ret = v4l2_async_register_subdev_sensor(&ov12a10->sd);
++	if (ret)
++		goto err_media;
++	pm_runtime_set_active(dev);
++	pm_runtime_enable(dev);
++	pm_runtime_idle(dev);
++	return 0;
++err_media: media_entity_cleanup(&ov12a10->sd.entity);
++err_ctrl: v4l2_ctrl_handler_free(ov12a10->sd.ctrl_handler);
++err_mutex: mutex_destroy(&ov12a10->mutex);
++err_power: ov12a10_power_off(dev);
++	return ret;
++}
++
++static void ov12a10_remove(struct i2c_client *client)
++{
++	struct v4l2_subdev *sd = i2c_get_clientdata(client);
++	struct ov12a10 *ov12a10 = to_ov12a10(sd);
++
++	v4l2_async_unregister_subdev(sd);
++	media_entity_cleanup(&sd->entity);
++	v4l2_ctrl_handler_free(sd->ctrl_handler);
++	mutex_destroy(&ov12a10->mutex);
++	pm_runtime_disable(&client->dev);
++	if (!pm_runtime_status_suspended(&client->dev))
++		ov12a10_power_off(&client->dev);
++	pm_runtime_set_suspended(&client->dev);
++}
++
++static const struct dev_pm_ops ov12a10_pm_ops = { SET_RUNTIME_PM_OPS(ov12a10_power_off,
++		ov12a10_power_on, NULL) };
++static const struct of_device_id ov12a10_of_match[] = { { .compatible = "ovti,ov12a10" }, { } };
++MODULE_DEVICE_TABLE(of, ov12a10_of_match);
++static struct i2c_driver ov12a10_i2c_driver = {
++	.driver = { .name = "ov12a10", .pm = &ov12a10_pm_ops, .of_match_table = ov12a10_of_match },
++	.probe = ov12a10_probe, .remove = ov12a10_remove,
++};
++module_i2c_driver(ov12a10_i2c_driver);
++MODULE_DESCRIPTION("OmniVision OV12A10 12MP sensor driver");
++MODULE_LICENSE("GPL");
+-- 
+2.47.3
 
