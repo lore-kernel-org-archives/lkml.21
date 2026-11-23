@@ -1,87 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795473054;
-	b=Iaq4c9SKNVkPYS/kDGN9pIi5nLDsr+FCZk/TC6LNETuw9eH9YzDwdFNJqRV5m7oWHxJn
-	 r5sI8vh538SbTa/X3gJxMihjGQ+CVHtNCcvvWQ4YvIifFJ70KEgnEd6FInb8O2QrTgIfd
-	 wP+VCPOqaJspj9p25lUXnPT+nzIUfxrO6oFAf5ybgZ9Nrc6SvAIVkLUg/sJGIXle4NWY9
-	 CINu9NHGkKSTGSqjNzRNVur4rMNVfHPQ0xAG8I4bJu5m4IUn83289+crhD5q3pkE426XD
-	 moNlN5Xu+GRIPR1yLrwOpJyOff9m/wuWMywTYZWLX/9a4GG9gbhoZMoeKIUfyjQTmng==
+	t=1795473089;
+	b=5Q0gB2xXUP7GsEwbjbu/u2Jfu2RLSgAPxTLmkxgT66rFJzAZg45yoh1eQNM5uiOqpE8G
+	 Sg1T4ifv7TAHp36AkRERuyrrcveAweKG5xnAMAevlLfpDZz6enGXTcg20lv+qq3WiDey3
+	 M6NnkqlN1IBojy34zb0Gq8cDS14DgQ/jSGqzqOpsuU5S3hNucHaZC/2LbHKxg57ClWm0A
+	 AunDjSSbB8FhK/NBCwgiftZsVTQQs4z8EIQqz1EWyXjYUd+PDdz57jBqBVreKFZ/L17xs
+	 DU6PlQh6PtqAYgQuhEmvPoqtFAFdmn2U+Bzzx9k2yhPUNoQ1WAat7wfT0DKyvuLZ8Xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795473054;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795473089;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:From:To:Cc:Subject:References:In-Reply-To;
-	bh=oODydi93NQ+fgEUmV6NqimJSqpMLIfkaExo4urVZ1L8=;
-	b=2rdA1MYerRwk3r7h8HigxtgyNMs1KxmkXCudAuH3v2fIiK8ATBMqunuW8gETBLf6KLZ8
-	 /n5+xlZVwzI9Z6bcPTFY17lfIIJOZ+LD8C/U0OImGnybwfKyeg8DNwIfUZdLghToAOTUx
-	 X7r8AVhoSpvGuPIPQ2q/htvohRBhCW4uk3EOkcNGDz2xiXA00pjwnUlSqHJgwOQfk1Xja
-	 0tofnfL+nBPtPLZLyqQraWYxMrFALy+sZWl0Wr9Bmo4KP7ugF4Zofmx172vDqy//S1SrT
-	 yIHX9eq+52mp+QSref7wstoMW0QlP+xlJkePc8bmxOl/0cUKrTj0SJRc89cwRFVQh9g==
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=Ax0eaG/jsWAkDsExZygRxtPuN7mkDGzN/6dMy4dDBRk=;
+	b=VNyfPLMApl/H0pIkuHXMsjQVElBEbrMHUXntY4NtZVLEmeu2ET39tz7bETEW3B8Y0Zzx
+	 ASzTYN3q+So8aYRFSG3MJfch0xhOv/qosefeZRSlaM3oSpQYKHwfkw2x8uiP+ux5yhMCB
+	 0pHlfvWfFjh6ehYMZJYgkHp+Hh9G8qjcnmdTPgqFfTrJdr6sjpVlZMbYtNCGxc3Z9RtRn
+	 ZAqI4yUN+K1A5v/G3MDI4tKgXV0tJZ5uIyV+bVhuIv4G6kRVMue1ZMBbbIH3cA4geGMTz
+	 MOZOX4H4usGLEcrNt9Nl2F44RtL7QnLWmtL7Wow1/VzY4A/DxRshnkj2y29+ZQ7iYRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paul-moore.com;
-	spf=pass smtp.mailfrom=paul-moore.com;
-	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=a7MvHckH;
-	arc=none smtp.remote-ip=74.125.224.41
-Received: from mail-yx1-f41.google.com (mail-yx1-f41.google.com [74.125.224.41])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YlCAErAB;
+	arc=none smtp.remote-ip=209.85.167.43
+Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com [209.85.167.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C43F5606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:30:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C43F5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACAB606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:31:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ACAB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=a7MvHckH
-Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-67db8985419so4847692d50.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:30:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YlCAErAB
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c14f3dab0cso2215701e87.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:31:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1795473053; x=1796077853; darn=vger.kernel.org;
-        h=in-reply-to:references:subject:cc:to:from:content-transfer-encoding
-         :content-type:mime-version:message-id:date:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oODydi93NQ+fgEUmV6NqimJSqpMLIfkaExo4urVZ1L8=;
-        b=a7MvHckH7GXPRbAhOihzELw8KMPY7uwwnbx3s0SVq4zm++TWoTZOqhwByy8RJUFj2L
-         xbdC8dTFtGgOkbhzfRhEe2kAacfozhwN+oB3nAPlJoi8v8eTaNofE2QizrlRsK4vtlxG
-         +/whljmInWZSFiyan+Wj94WVK8as1lcGaL6fvNqzI9PZe46iR+RDiockj0TBUfNLkszI
-         VRuAZhOsW1m69Ca6n5ANZNHP5n8YO4objinbJ6LS2CZbRhau44cb2hmA9BiyNzOFwvjl
-         dpvYhj2rOrzGtGg9VLl4igLpyt5S4GVvs0FxAfuur9GTd1iEiBGScOboYVWYH4PNPHSk
-         UzbQ==
+        d=gmail.com; s=20260707; t=1795473087; x=1796077887; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ax0eaG/jsWAkDsExZygRxtPuN7mkDGzN/6dMy4dDBRk=;
+        b=YlCAErABvSeA3HncMRsR56t8K9bcfLsLA9UItBrKavJ0SpSC7Lc3NsWwBU6JFHrpLW
+         vio/WvPHUN08i3vmw6OXqvtfm+sri6unRkoP4lzi17rUtqVlDgSYGjEbXkq6ob+1y3Oa
+         VLp7qG2/eyoRRfamv4pJVW+5GV/T+NN87nr2qskak44iC0g6cZx1PJGYr29Qu//2Ts4b
+         YZo5hYRUr/I0llLLEpJcPo380RttdeQFS4LgkCpUSMswutkEMSXhE3lgeXbZXZrKtqFO
+         fKt+/dh8nnpIrKJ0bfcZDAMaA1+z6C4HgIr/DSmOrZtnzEznZm0jkHn0eS9YRiTM5Feg
+         CssQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795473053; x=1796077853;
-        h=in-reply-to:references:subject:cc:to:from:content-transfer-encoding
-         :content-type:mime-version:message-id:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795473087; x=1796077887;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=oODydi93NQ+fgEUmV6NqimJSqpMLIfkaExo4urVZ1L8=;
-        b=s9krfaRr2dVk2iIm7GkIK3IlueBKv/VkciYL/ZkpobkYQIdg1dCUzFivVEsKFABmXM
-         LArDeImBxa45CLKDUx+6oEXJutjBZUjIfamWDwMdwwSLhT19V+rsddCem9mKcbNzf4zY
-         3vBZlJ6MSjyDt8owkx1jc5WnP9wDxp3swecdbVYa9XWPOYsC3nP4RS/YaG8IMiAno68E
-         AYZY3+6XgeiBIqw4s5/u2cmJG6WZFxPjhDY1yEjiI00UQ8GrIc4Pg1uMjbh4jXmeoDR2
-         MGLjKLEWlzBSvLYvhO1mKo2ov+BN28b/llnvZBT7smjbGiE7gqdymKW8Bdru3vYTQa0B
-         d+5Q==
-X-Forwarded-Encrypted: i=1; AL+hErG/lMaEp1PBI9tgMtye9rkZy/La1uNE8YDAsqF7KBo1BUih8JjXmy65P6gQLe0eow7DSu3SnHF+BR8EI0M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+MZMlkQiyCVFokg5gYPIboziCagfF3B9/7Xle2oMVQoYPkv4Th
-	nrDKtiDUQIe1iw3jkyev9EgJstB0SM6dGZGUIQlbhlJX4NtDXddRt5y6nUl3LZ8PxA==
-X-Gm-Gg: AZFdTZdu1A3bVEuE7lDTrJoycopWo9kqbteNlO4lPXOQ+6GC66Q/toEhkcKeY7TIsbv
-	8/Poe4ky0my4qcT9gcpBQRM4Q4iPSDymaSofEhF9cxVxrVy9r8jDvsH4RKCDMQvMumY/ACBMku2
-	msSwbdERcfuacOWfEr04UEFD/vLKn5vEKE0KJfHWQnDpC5kq/msrsgumRFeU+KAFSUGBw7HLtXY
-	A1JhfzDLj4sNLpQJBVAEcXAbsj8Bo279suxVOQX97GxMqr/NP3ogP0/WGTXs0r92QGpBwGh6iYv
-	Ca/MQFnYGklqJjWj3sVbMauwVi7z4tBLEj0liqq0vS/u315mEeG66pb/eawblGG5Owx/KddYuYk
-	8W35rhIG3B6Ut8SPMPhoKI5ZEL7blS9xMed1pPTjMdKbS9lFRrGzll9uyEfuksLZ0kT9UyRaJ1x
-	2ftXO34BF2ivuB5rOuNGB9H7gl//K3DZ0ngrL8lRympQV1O6l8HSNE5Fk2SK18YjZjGr2XYo687
-	KXVA/4p7umM1MGAPg2KoQve9WP4m88zdxYE3ScB4lWbI/Kl5XPcCzWS2xYQgBHQmBIh8LEgIrDT
-	QVP8O5FAhnZ+lrUM3w3UaMml+xp7pjKRNZGWJCciVGbvRh1DuDltZaRg0Cj/uYl9mmua5Sqg1Ar
-	1G9kgZoHYsnEIToL4HTGoXlf4XmX9gwh3m+37LL8FwjTVKiNdEu8=
-X-Received: by 2002:a05:690e:4084:b0:67c:2674:ec88 with SMTP id 956f58d0204a3-67df44e46e0mr6456005d50.93.1795473052767;
-        Mon, 23 Nov 2026 14:30:52 -0800 (PST)
-Received: from localhost (pool-71-126-255-178.bstnma.fios.verizon.net. [71.126.255.178])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a24e91sm116781976d6.43.2026.11.23.14.30.51
+        bh=Ax0eaG/jsWAkDsExZygRxtPuN7mkDGzN/6dMy4dDBRk=;
+        b=xDW8XFZSgWYteyocgYzQoha4Nxkmo3w0jiWezANDmWkpLajjFFquIJxKf6WP0GRijw
+         KAUwUynFn1/muzN6cA00g7I9XBGwdn4B0M4OSB1Szkss6mtzH/HsQIKVp7oxPc4/Ossm
+         quvUjh/LdpP7xmaGKxFg9Wcos/LMVFha5+iV03heTA0b8cx4Rb0bxgjgOwccHyAAwJo4
+         o/toeqopJOWRiL3uQErh5dX4/QbTSuFHY6c+/w7NLwtkn410AvCJa0Zk2hfpaFqgliPi
+         fl5spxEoeVJnICcIinvgtcP16Zvl7fYe+9pNcc0vc22C/MhAQLZMw3sZoRZ6/y8uYo9c
+         8eRA==
+X-Forwarded-Encrypted: i=1; AL+hErFu5OuMgQk3BA5zDhcMQRrcwCokWx5rAhMEBXHjzehUwju4izCRcSmnsPMsnOdya0DhamuehcBzDiv15gk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9QKCYibYbYm0eCIQ6TThuwBkhRinATafyMbRH6FLe/fYrnBu+F
+	KAgO19nkDqioa0Vqn3GVO0RWp+q16sdhWFkrxrmazHdBrlTMoOcK7ban
+X-Gm-Gg: AZFdTZfAaQl+IXu2oxWniiW6OmjG+xv5vsxxjhGeMCRzV54mFl6CN8N6dUfUcFP7JrF
+	T0GIzNSesC9WdD4j8va5+xsQdZ3YC8PFQ0SQLSQQwmY1G7zvmqIgGX0o1Dd+tJNu7pVc6iYne3x
+	gVpIG2B/rZX2i+PkKQPjRFt3R+vnZmtYrT0oKttr0alRb6KQIzfRP6tniTAtO52Mb1FD9Q1SosE
+	8msTZ45EQa02YKP4J06ZcFnm6EC1mVvvyGlX3xpdNlKAHTU+otaDqmm8+pmvgQ36LYrIVspmNkj
+	oO4DTOd5KoTu4B36IH8Ajdh8iD7KSsL669+VsRlj7WAgZTTH9I+6XEWNl42CFOyfJZkPImgG76N
+	LjCKuZHM2hpzIpD6Lp0Ptf7bXA6M3OSUaVblGTJIWTHO++VxFZNN4wJVIAXHeYAY2BckRnTi5vA
+	5jcHtosMFXjQNyGzhZrfXLBWMfeIn7YjfgtdK4RZwHzEUGlnwCgTZxn1oWU77zpCiKXPIsBEpRp
+	gG6X0Xm3GtOckPcT5lzFyu9YowNOC54DHiaS2w5A49JZGaVL4DrT2JdbDGsl2fvgPIsppvoWfCL
+	5gw7tX5MMBPKOWWMPbGGJghlb3gqPXdmTU2sDx9SKKMfvGPwbaW1pbc=
+X-Received: by 2002:a05:6512:32cd:b0:5c1:57cd:50b with SMTP id 2adb3069b0e04-5c1bc847888mr3847641e87.14.1795473087230;
+        Mon, 23 Nov 2026 14:31:27 -0800 (PST)
+Received: from [127.0.1.1] (ip-024-180.users.dtel.ru. [91.210.24.180])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd052d6bsm3315161e87.65.2026.11.23.14.31.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 14:30:52 -0800 (PST)
-Date: Mon, 23 Nov 2026 17:30:51 -0500
-Message-ID: <cb0b141881f7e5ceb7de8b407bcc691d@paul-moore.com>
+        Mon, 23 Nov 2026 14:31:25 -0800 (PST)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+ Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject:
+ Re: [PATCH net-next 3/5] dt-bindings: net: Add Cortina CS7542 network engine
+Date: Tue, 24 Nov 2026 01:31:21 +0300
+Message-ID: <179547308136.447306.5703918766544571012@gmail.com>
+In-Reply-To: <1d4fce88-c959-4bae-993a-c5aa1d792177@lunn.ch>
+References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
+ <20261123-b4-cs7542-ethernet-v1-3-fdb5e8c2d508@gmail.com>
+ <1d4fce88-c959-4bae-993a-c5aa1d792177@lunn.ch>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,71 +107,30 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 
-Content-Type: text/plain; charset=UTF-8 
-Content-Transfer-Encoding: 8bit 
-X-Mailer: pstg-pwork:20261123_1724/pstg-lib:20261123_1443/pstg-pwork:20261123_1724
-From: Paul Moore <paul@paul-moore.com>
-To: Stephen Smalley <stephen.smalley.work@gmail.com>, Eduard Orehov <e.orehov@ideco.ru>
-Cc: Ondrej Mosnacek <omosnacek@gmail.com>, selinux@vger.kernel.org, linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org
-Subject: Re: [PATCH] selinux: initialize sport/dport in __ad_net_init()
-References: <20261123113724.35381-1-e.orehov@ideco.ru>
-In-Reply-To: <20261123113724.35381-1-e.orehov@ideco.ru>
+MIME-Version: 1.0
 
-On Nov 23, 2026 Stephen Smalley <stephen.smalley.work@gmail.com> wrote:
-> 
-> Since commit dd51fcd42fd6 ("selinux: introduce and use lsm_ad_net_init*()
-> helpers") the struct lsm_network_audit used by the SELinux network hooks
-> is no longer zeroed; __ad_net_init() sets only netif, sk and family.
-> The addresses are always filled in by selinux_parse_skb(), but sport
-> and dport are set by selinux_parse_skb_ipv4()/selinux_parse_skb_ipv6()
-> only for TCP, UDP and SCTP. For any other protocol (e.g. a raw
-> socket with IPPROTO_IGMP, UDP-Lite) and for non-first fragments they
-> are left uninitialized.
-> 
-> When such a packet hits an AVC denial (e.g. with NetLabel or secmark
-> peer labeling enabled), dump_common_audit_data() passes the garbage
-> ports to print_ipv4_addr()/print_ipv6_addr(), which leaks up to four
-> bytes of kernel stack into the audit log as "src=" / "dest=" and is
-> reported by KMSAN:
-> 
->   BUG: KMSAN: uninit-value in common_lsm_audit+0x2196/0x2ff0
->    print_ipv6_addr security/lsm_audit.c:178 [inline]
->    dump_common_audit_data security/lsm_audit.c:373 [inline]
->    common_lsm_audit+0x2196/0x2ff0 security/lsm_audit.c:458
->    slow_avc_audit+0x17f/0x1d0 security/selinux/avc.c:773
->    avc_has_perm+0x2d6/0x360 security/selinux/avc.c:1191
->    selinux_inet_sys_rcv_skb+0x116/0x280 security/selinux/hooks.c:5326
->    selinux_socket_sock_rcv_skb+0xaae/0x1270 security/selinux/hooks.c:5408
->    security_sock_rcv_skb+0x79/0x120 security/security.c:4853
->    sk_filter_trim_cap+0x18b/0xa60 net/core/filter.c:151
->    sock_queue_rcv_skb_reason+0x46/0x1a0 net/core/sock.c:522
->    rawv6_rcv+0x1b17/0x1c20 net/ipv6/raw.c:371
->    ...
->   Local variable net created at:
->    selinux_socket_sock_rcv_skb+0x118/0x1270 security/selinux/hooks.c
-> 
-> Initialize sport and dport in __ad_net_init(). Zeroing only these two
-> fields keeps the cost low, which was the point of dd51fcd42fd6.
-> 
-> Found by Ideco on behalf of Linux Verification Center
-> (linuxtesting.org) with Syzkaller.
-> 
-> Fixes: dd51fcd42fd6 ("selinux: introduce and use lsm_ad_net_init*() helpers")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Eduard Orehov <e.orehov@ideco.ru>
-> Acked-by: Stephen Smalley <stephen.smalley.work@gmail.com>
-> ---
-> Tested on a 6.12.114-based kernel with KMSAN: the reproducer (NetLabel
-> static default label + raw IPv4/IPv6 socket with protocol 2, and UDP-Lite
-> over IPv6) triggers the report on the unpatched kernel and no longer does
-> with the fix. Mainline was not booted; the affected code there is
-> identical.
-> 
->  security/selinux/hooks.c | 2 ++
->  1 file changed, 2 insertions(+)
+The hardware has three GMAC interfaces feeding a shared NI/FE, queue
+manager, traffic manager and scheduler. The forwarding engine can steer
+frames between GMAC ports without the CPU, including rewrite/NAT in the
+vendor acceleration path. The posted driver configures CPU forwarding
+and exposes the three MAC interfaces; it does not enable hardware flow
+forwarding. I should make that shared datapath clearer in the binding.
 
-Merged into selinux/stable-7.4, thanks!
+On Almond+ there is also a separate QCA8337 Ethernet switch. GMAC1 is
+wired to its CPU port 0, and GMAC0 to CPU port 6; the external copper
+PHYs belong to that switch. Those MAC-to-switch connections are the
+reason for the fixed 1 Gbit/s links in the example.
 
---
-paul-moore.com
+You are right about the phy-mode description. Both QCA CPU port nodes
+already use rgmii-id, so qca8k programs the internal clock delays there.
+I used rgmii on the SoC side to mean that its peer supplies the delays,
+but that is not what the PCB-level phy-mode describes. I have no evidence
+of deliberately extended PCB clock traces. I will correct the example
+and the SoC MAC nodes to rgmii-id, and explain the fixed MAC-to-switch
+connection. The existing QCA delay programming remains in place; the NI
+driver does not add another set of internal delays.
+
+I will keep the Ethernet reroll within the requested netdev cadence.
+
+Thanks,
+Fil
