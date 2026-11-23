@@ -1,94 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795473106;
-	b=E4z9YxZO+86kaDWlyKJoFSsDGdiYJ/YMi6+O16BCqdtJcoDdFuyg4TOnCmNj7IuZMj4X
-	 j4KqnBc50hWWPqSw/zYxbzleAwjOurYsLuHELm9OPKwzYYLehjnFaQJI9YL/TH21wetW5
-	 Ym55ZSTdpF70otu8mes7AlyC3xdsb/6Jpc2xpvE1fbGLvMk/Bg4HEloLNb/gkCeXyIVO7
-	 LZY8tW0UkeIwNcExoQkFkeZ02gZZaLSh0hAw8LKdBllAGX/7gJsSuOh45YSILTAeblpHS
-	 RamDep+nMN0emdUpnYjTnhFVgcukJ6eVONywWwCG655UiGmhEyclGSugDvg6W6uijVA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795473106;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795473142;
+	b=AO6HgvUg4dZ8uzrX3fL9CrIhq36OVNuF1VAPOYoandyFvCHKbYIs10ibNP+4vEmyUtY1
+	 e0cnPdxV4CQdQwS5NdMwnI2Y1eFm4fM6ulM7UFbcJMggkpy62M550slITFV/KgXpqN1y7
+	 M77L47vf6TyUTvK1KuyrA2AsIz7++HlacK94mHT1a3PMHo++u2ihI6X0BuugBGQW7Akd+
+	 7PE0HhdIWdF3h92ROGZfE5X/Wk5FN+AZD35uKGA2E3rDaVFPfNP2FrHdNkyqEOB8DW0fN
+	 6Sp+UqKuaZrCnZltZz/1wpDGER5wiqpMhopJItFnMcVvUcdV7EhMfjbbnUETroDIy0Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795473142;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vxMGbe5FaOFrEGMfmq39YEeJbVxbtwlJMdZhgTQG6dE=;
-	b=cNKJmTJ7dzfKizobY4g6HbNd1AhnUgzm3XS/TsGboFIrMACt6lr44OQphdSUf3ergIGe
-	 7iuRWCJBdoR+YtJ5qKaRY9n1DLnSygHdtRXvDrcuGvMbiyXBXG2c/xUwxHcbfp97gfzkz
-	 zGQ9A6Me24+LlBW5lZo+UcSYn4wCjd6q1CQ5tVxNClr6SYOMU5PNjNBCnV+8Eb7uoUWCN
-	 Unkl22CCwBPTO57jZzFQpxuWXVzpZwQu6bNl/XD3ZUuvGVJRoCtezu4JQXuTZfglsI/hc
-	 EYMLmUXNJmie1OsX2Q2vDC/H74KRiMQS2sZTkBSPk0Cc2vfnd6mTbBcNDZ3GGyf0Rig==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KzPlHuKZ;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=2Eh/Scg4g1fmeoxJAaW6QP4PNDVs9nNzors+g2yL14I=;
+	b=k8eqCuO97e+BzG2upO8F89Q3iGe5iB4eLc+by3fK1WCQ00hhrpmOHO6v1QFhCtMit8WO
+	 X2cFhHfdeOD7F+dRiAYfJnuNwnd6KLOaRAPPVWh0KdegZW8NxuFbNsgiDQ2JFBSMUPOFS
+	 +X52WUh2ZOKLM37CFLFn3lEmuq+o7TiQNhRQXMzrOt3H380a9E+Dzc++Ok9YtcpEHMmNS
+	 K//h8tH9gC6E3/HgCnWDJzWP6nwjuXItTI4fS2bL9agio/x3qC6F5dxrF4Lwrz+cWXxFI
+	 j2xIF3gSNORctfV/k0ttI6HtUd7sJSG2HRsvtHAdLpXyyjPx6mWY7r4gEMAFX5FKOZg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=uber.com;
+	spf=fail smtp.mailfrom=uber.com;
+	dkim=pass header.d=uber.com header.i=@uber.com header.a=rsa-sha256 header.s=google header.b=pa297P7u;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.48
+Received: from mail-yx1-f48.google.com (mail-yx1-f48.google.com [74.125.224.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19458606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:31:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19458606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D30FC606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:32:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D30FC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=uber.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=uber.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KzPlHuKZ
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3869f03af6aso2988770eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:31:45 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=uber.com header.i=@uber.com header.a=rsa-sha256 header.s=google header.b=pa297P7u
+Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-67db3a48dc6so4375755d50.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:32:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795473141; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SyXK/nfU1Qt1tmWZQg9jw7x6SV/xImTfJKYzf7wTwiYZ659Vykr5qFZJsQaGalTtpp
+         mPmr1zXbxsuAojEgCPiaueih2hIbMLH0Qku7RFeUP0McQQ/fCZsTVYPho2A/ovVF2sBw
+         WZOS5Ump0Fp2EGjPDvYvjNImtYdlN+ULZgYsY5xyR6VxS1vI4zhhtyQGofoyRDYtqfh3
+         +rAA9r3htyWs9eik1e1KK1SooEnzF/8qNWlxc/rLaFHPiULc25OZ4dsGZo/IW3FMLkTx
+         mgCjOxhXeiPX9Zq1h8+qij7wg9oWrj4Gp5SVmEfd1YpYXsuzF1oRp6wgAMqAKWMFJUJd
+         oScw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=2Eh/Scg4g1fmeoxJAaW6QP4PNDVs9nNzors+g2yL14I=;
+        fh=GyzzP2GAX5viRINY/Fufo2Z+oQUARZIh9v9qfpZjEQ0=;
+        b=NwRjXEnEhHfOlpHKYpCEdUpvS3UOKqqIqGXaKc59ZNIFzKofQ3lnLakHhuMSI9cuH+
+         X1Ou8kF5kcdkM5Ovn6qhnQXSzoNGn//ARNXu/y8c2OHDQ6DpdI9NqZlNJPCKPwkKtQbp
+         2xbqbtnRBt3FFZr7j0GvqZgORumgeOxb5HKR08707uugieuu2hgf7fvWjk9NlUyp3z0Q
+         jcswfrmfKqzrJQKHgDXvV5NoMvjY5/WyBTCl6yzGhpp4u9tHhhRu1IiRqBlDCi87yVZ+
+         KsjwbggyMOvy/giKXahfA2gWA/iPPKYpD/sMXCia2dTviXDJuAXKuaHjFqGOBVMcUvJv
+         +LYA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795473105; x=1796077905; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vxMGbe5FaOFrEGMfmq39YEeJbVxbtwlJMdZhgTQG6dE=;
-        b=KzPlHuKZisnZAqTv8PHS9cRJ9AEMo7rOicyFQdHLLDJFPtSRAOWQ/kZ7LfHPfr73xx
-         qfgQMovLzYwCEjfu0qZDlHlvLvlrrafNdg+Bn0fH0qXkBtJGwxmZiBl9pvIhnqlv0rdL
-         tIKseaEwTPr0qq1EuLMENYWfRaos+q8jY1b80GVixfVhmVN7kTpWHmOuQRfgeJXa4NRi
-         3spGX5deR32vpKv++FCTheF2Gw1d4Y8t0mk7vQTkFVJAIDjyKJql32L0zpFSVHItx/Vc
-         KM4I+3OAAC5uEKIvK4Jnk7sVWAl70DHYZkPwaMZCNYOTxu10rnr7pVO2/EmRm9ewR06W
-         7frQ==
+        d=uber.com; s=google; t=1795473141; x=1796077941; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2Eh/Scg4g1fmeoxJAaW6QP4PNDVs9nNzors+g2yL14I=;
+        b=pa297P7uVZvyycGhMJz0l2Xa740O5yETkXpOiyeBLj6SRme8nWzeEkfhNNf0ReXq62
+         PQN3DP9nHQiS3S7C+LsR8YWvAfvwamyZvdIFFsSMsC2QEOYOC+tZXhMBVqUwZK4Qpq4u
+         nowomlaQpVIZ0g5LVa3ziiHCNLLbmRO9KRApw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795473105; x=1796077905;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vxMGbe5FaOFrEGMfmq39YEeJbVxbtwlJMdZhgTQG6dE=;
-        b=qGL5k5NjkCelpKe1FyqTpvDkD2mcQB+umIsBJkzSSxf05fBXOd2EQG/lQ5mcE3ACoJ
-         H6OMYVN1o0rwvhctGhasbKxvwTnI8Hxikxbgf4ybzyjyTxTX0tHbW5qmtx9ZL9QdsDj8
-         8D9ann9Usi672tcdyoWuV1VJYXMqG+FzI0k6det25P8MWOgcia7SE3KyC8U6ufQzsyxh
-         3MeciHHdLWiaW/YLBm7YG4z0BlGwoPQyiuPg5qVKzOOJhKmJhcSX5VCZ0221mkJKXewj
-         f26Lp9MJTeuliktMYUeWnl/t5HCxzfBvAV/iMZAc/SMV8UWQ761QFTarix9UU3OB/ojA
-         +PxQ==
-X-Forwarded-Encrypted: i=1; AL+hErEamJX9wYHnLhRG3Y3C6ckUWJvhsRZNP/JymuEeBra4oJYEzMR32Z2Vmuf6NdXRLCJv91koTXUAo8BOrrA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9u7b4C0iVQNtLuq7yR4w2eDWv6ZXILO4UaM3k+TcaatpMKLfy+
-	wFPLPX/QIKDvfIzH2O8sW6Oc9wvFlgTXi3ysGb6L0cbznoTMMk8+6TjIOdzB
-X-Gm-Gg: AZFdTZcvfcyhcTgy5xPL1hv0M2Hl65hypFu73fA2ZT17M1kH71VSHTI/iG1vsmA06jX
-	KLaY9kmzmPHc+OZ7Hd9UNJjzjqIBzI1qPUzNKkFsd2r0bGMepfx8A+Wd0HX9jjZWKKkJlMTFJU+
-	sSGRlTV4N2mki3iKFuuNvU15VA+EkxZrPkeTbPDR7+UaUE32xtbmUuOsJsWrZdDasQuevkzLfvG
-	FQwtBLE61dsiQFpJJjAMI1a+4EtVtua904IYv1OFqiX3cSjJwvBphO80JAwThjILKx+iv2Uenc1
-	qmNq6Hulku3rQq4yU6RxS4j9kyNtQnQXZc9b7tZzhRktBZi4aJgOfYsXxBzp3G5vRZar7rlv9rX
-	ZG71ngvWu6DFICLuOETBT4wB7CHm/cxq5WUneK4+hfKdciZ7mSOXa8JcU6N3MiMVYyRvbNY4Z4D
-	8fvilorircreD+HJvriKURGHLnkcdMbcY4TyhOkkIfweL5uz0supL8bxJyDFfSvYQlnAMubJtHf
-	rJiUp+yQTWw9T6BrC16ivIVzURVcYvFiFy36zVlaXLxUasqjX6gZhRiFS1qzl76j2WegJ2HvgEV
-	wKCSXuloa5MbYuVYjY64u3GzGGuraKcFk0rvAgFLXh3v3g+DQ++lt8ilHzsZ8qvwwtJDJSLpToX
-	5kOHMlO3+2MRG0g==
-X-Received: by 2002:a05:7300:6b0a:b0:382:75b5:e77 with SMTP id 5a478bee46e88-384b4a80eeemr15380222eec.25.1795473104914;
-        Mon, 23 Nov 2026 14:31:44 -0800 (PST)
-Received: from at-Standard-PC-Q35-ICH9-2009.tailbdca44.ts.net ([106.205.242.239])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm45787611eec.10.2026.11.23.14.31.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 14:31:44 -0800 (PST)
-From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-To: 
-Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
-	Mathias Nyman <mathias.nyman@intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org (open list:USB XHCI DRIVER),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v4] usb: xhci-pci: Add Power handling for Card readers on Apple systems
-Date: Mon, 23 Nov 2026 17:31:36 -0500
-Message-ID: <20261123223138.1165-1-atharvatiwarilinuxdev@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        d=1e100.net; s=20260707; t=1795473141; x=1796077941;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=2Eh/Scg4g1fmeoxJAaW6QP4PNDVs9nNzors+g2yL14I=;
+        b=O6NOr41V3EbI2DT7L6Tp+GzLWbW5YvDqUyLThHwk49K35UK3h0Iyg9w3eEvSwzbq9/
+         0NaTPEpplhtL/8R0KvqYF1NHHy87rJhvFdLlCK+bcnHfBl5S8gzIXvfwiQXtcPO0IT/I
+         M14jrb77VQAX+aJ61IQy1urERuD2CkEWSsH9ptKY15Tkyja1zAw0WMRNzMMssQlFqa37
+         lK3PBAn6cFJ7P4ES5q975Fsi8PDu8OhKJYbs//sVVvJcLyNlZWOOAK+at1T23x77opWq
+         smYeQgTw6+XtP5OuD8gW02kYO5TO8Dl03I66K6nsst4TaoiWIbLvkry9tQ/RuOzdKHB2
+         Pt8A==
+X-Forwarded-Encrypted: i=1; AL+hErFqX+b2tNgryrhxvZURWMdCnbmAcBYAvFBpX6zI0epUdV4JNoszHeuOBGtOKDSzXeTzLSaelhea/xw9QVM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/s43SDtGlTfKun+vwjOJTY78RiekXEjfQP94i0Hh0duBfuzb+o
+	S4Kt3bV/HiY35rZgnAbaW8JyOzgXJujm+wuP5F+Gf75lHRODyoUSKe8bUB5E8DQ2jYH6sDmiWzL
+	WwMh7g955iiIHJA0JNka/39/JVu0fbEMk8lQ8m5SPBQ==
+X-Gm-Gg: AZFdTZcrwpBR4RjeycN8v1iCzp6XOOAlMM1ymLYgDug8ds/ZUXy/FxlFaj3MnVBvYOR
+	8zsZwkarnQqZhltoClo6TgczoCIYwzi15tRXDsedzBW+2KprldZ03kwy18i+OWkg3yaMmOUPi88
+	jJu0WrNHtPwLKXzS/xA4SY7eKvo69YWFl2Uht4IsHnMRtN52GaYPdhwRpyUCGR4NpzJ7erBK3IV
+	3hgr7fkIsdGzBWu+s658rcDPg5aCufhrtCbnLWb9Chy8zeEj5zZWYhF/o4Ws2ZI4awmHlABzcXb
+	kCMwBEsiN90UAoN8re6XASsI+S6vN6crYkJhM7+hnu3qqOjhY9ShdqxR9bOEagk97s+WOXv5jau
+	1eFm1Gy18Ou1XhpbKVBOCXO4k2Dwnqw0ieoAwb5r0nZ31Cv005XXXUK5Caiulm8ZTPjxYQRA=
+X-Received: by 2002:a05:690e:12c7:b0:67d:bff8:c405 with SMTP id
+ 956f58d0204a3-67df42b57d5mr4783638d50.5.1795473140377; Mon, 23 Nov 2026
+ 14:32:20 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,141 +100,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
+ <20261121-perf-symbol-memory-send-v8-5-370561cbb5a7@uber.com> <awOQ90bOx9fbW8vo@google.com>
+In-Reply-To: <awOQ90bOx9fbW8vo@google.com>
+From: Alireza Haghdoost <haghdoost@uber.com>
+Date: Mon, 23 Nov 2026 14:32:03 -0800
+X-Gm-Features: Aa3M54r5vhVadGvkZQpkU9NkhzNGma8R6ZXlcVM2afldFAt8JUqLUoTZvG8z8Xo
+Message-ID: <CA+w=M=T0FJyuH1LcQLVNHi8LvE3qvBCdFMM-DyRw_mPVq4XPpg@mail.gmail.com>
+Subject: Re: [PATCH v8 5/7] perf script: Add --lazy-load-symbols to load
+ symbol names lazily
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	James Clark <james.clark@linaro.org>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Add Power handling for Card readers on Apple systems using SPWR
-ACPI method, SPWR(1) turns on the card reader, SPWR(0) turns off
-the card reader, on newer systems SPWR just writes a variable in EC.
-On previous systems it writes to GPIO pins.
+Hi Namhyung,
 
-Its also used by the macOS driver with the function
-AppleUSB30XHCICardReaderPort::setDevicePower in AppleUSBXHCIPCI.kext.
+On Sun, Nov 22, 2026 at 5:03 PM Namhyung Kim <namhyung@kernel.org> wrote:
+> > + bool lazy_allowed = symbol_conf.lazy_load_symbols && !dso__kernel(dso) &&
+> > +  !kmodule && syms_ss->type == dso__symtab_type(dso) &&
+>
+> I think kmodule has DSO_SPACE__KERNEL so it's enough to check only
+> dso__kernel().
 
-(This should fix https://bugzilla.kernel.org/show_bug.cgi?id=111201
- But thats not confirmed)
+Right, module DSOs are always created as kernel DSOs. I'll drop the
+kmodule checks here and in dso__load_sym().
 
-(Tested on iMac20,1)
+> > + if (lazy_names)
+> > + pr_debug("%s: %d %s symbols with lazy names\n", dso__long_name(dso),
+> > + nr_lazy, dynsym ? ".dynsym" : ".symtab");
+>
+> I'm afraid it'd add many debug messages for -v which is often used for
+> quick debugging.  Maybe pr_debug2() would be better.
+>
+> Also please put parenthesis for multi-line expressions even if it's in a
+> statement.
 
-Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
----
-Changes in v4:
-- Check for !do_wakeup in suspend to prevent breaking sd card in
-  runtime pm
-- Set card reader power to 0 on xhci_pci_remove
-- Added blank line
-- Fixed comment style
+Will do both in v9.
 
-Changes in v3:
-- Added changes at correct location
-- Removed accidental usb-acpi code.
-
-Changes in v2:
-- Fixed grammatical errors.
-- Added CONFIG_ACPI check
-- Checked for xhci_suspend success before turning off power
-
-Link to v3:
-https://lore.kernel.org/all/20261123051459.9581-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v2:
-https://lore.kernel.org/all/20261123044412.8721-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v1:
-https://lore.kernel.org/all/20261116231926.5891-1-atharvatiwarilinuxdev@gmail.com/
-
- drivers/usb/host/xhci-pci.c | 28 ++++++++++++++++++++++++++++
- drivers/usb/host/xhci.h     |  1 +
- 2 files changed, 29 insertions(+)
-
-diff --git a/drivers/usb/host/xhci-pci.c b/drivers/usb/host/xhci-pci.c
-index e278db940..b89dd83ec 100644
---- a/drivers/usb/host/xhci-pci.c
-+++ b/drivers/usb/host/xhci-pci.c
-@@ -15,6 +15,7 @@
- #include <linux/reset.h>
- #include <linux/suspend.h>
- #include <linux/bitfield.h>
-+#include <linux/platform_data/x86/apple.h>
- 
- #include "xhci.h"
- #include "xhci-trace.h"
-@@ -517,6 +518,19 @@ static void xhci_pci_quirks(struct device *dev, struct xhci_hcd *xhci)
- 	if (xhci->hci_version >= 0x120)
- 		xhci->quirks |= XHCI_DEFAULT_PM_RUNTIME_ALLOW;
- 
-+#ifdef CONFIG_ACPI
-+	/*
-+	 * On Apple machines with a card reader, the reader is powered
-+	 * off at boot. Evaluate SPWR(1) to turn it on, so it works at
-+	 * boot. SPWR(0) turns it off again.
-+	 */
-+	if (x86_apple_machine && ACPI_HANDLE(&pdev->dev) &&
-+			acpi_has_method(ACPI_HANDLE(&pdev->dev), "SPWR")) {
-+		acpi_execute_simple_method(ACPI_HANDLE(&pdev->dev), "SPWR", 1);
-+		xhci->quirks |= XHCI_APPLE_CARD_READER_POWER;
-+	}
-+#endif /* CONFIG_ACPI */
-+
- 	if (xhci->quirks & XHCI_RESET_ON_RESUME)
- 		xhci_dbg_trace(xhci, trace_xhci_dbg_quirks,
- 				"QUIRK: Resetting on resume");
-@@ -563,9 +577,14 @@ static void xhci_find_lpm_incapable_ports(struct usb_hcd *hcd, struct usb_device
- 	}
- }
- 
-+static void xhci_apple_card_reader_power(struct pci_dev *pdev, u64 on)
-+{
-+	acpi_execute_simple_method(ACPI_HANDLE(&pdev->dev), "SPWR", on);
-+}
- #else
- static void xhci_pme_acpi_rtd3_enable(struct pci_dev *dev) { }
- static void xhci_find_lpm_incapable_ports(struct usb_hcd *hcd, struct usb_device *hdev) { }
-+static void xhci_apple_card_reader_power(struct pci_dev *pdev, u64 on) { }
- #endif /* CONFIG_ACPI */
- 
- /* called during probe() after chip reset completes */
-@@ -750,6 +769,9 @@ void xhci_pci_remove(struct pci_dev *dev)
- 
- 	usb_hcd_pci_remove(dev);
- 
-+	if (xhci->quirks & XHCI_APPLE_CARD_READER_POWER)
-+		xhci_apple_card_reader_power(dev, 0);
-+
- 	/* Workaround for spurious wakeups at shutdown with HSW */
- 	if (set_power_d3)
- 		pci_set_power_state(dev, PCI_D3hot);
-@@ -853,6 +875,9 @@ static int xhci_pci_suspend(struct usb_hcd *hcd, bool do_wakeup)
- 	/* synchronize irq when using MSI-X */
- 	xhci_msix_sync_irqs(xhci);
- 
-+	if (!ret && (xhci->quirks & XHCI_APPLE_CARD_READER_POWER) && !do_wakeup)
-+		xhci_apple_card_reader_power(pdev, 0);
-+
- 	if (ret && (xhci->quirks & XHCI_SSIC_PORT_UNUSED))
- 		xhci_ssic_port_unused_quirk(hcd, false);
- 
-@@ -895,6 +920,9 @@ static int xhci_pci_resume(struct usb_hcd *hcd, pm_message_t msg)
- 	if (xhci->quirks & XHCI_PME_STUCK_QUIRK)
- 		xhci_pme_quirk(hcd);
- 
-+	if (xhci->quirks & XHCI_APPLE_CARD_READER_POWER)
-+		xhci_apple_card_reader_power(pdev, 1);
-+
- 	return xhci_resume(xhci, power_lost, is_auto_resume);
- }
- 
-diff --git a/drivers/usb/host/xhci.h b/drivers/usb/host/xhci.h
-index ec4bfeb48..579ddea52 100644
---- a/drivers/usb/host/xhci.h
-+++ b/drivers/usb/host/xhci.h
-@@ -1652,6 +1652,7 @@ struct xhci_hcd {
- #define XHCI_CDNS_SCTX_QUIRK	BIT_ULL(48)
- #define XHCI_ETRON_HOST	BIT_ULL(49)
- #define XHCI_LIMIT_ENDPOINT_INTERVAL_9 BIT_ULL(50)
-+#define XHCI_APPLE_CARD_READER_POWER	BIT_ULL(51)
- 
- 	unsigned int		num_active_eps;
- 	unsigned int		limit_active_eps;
--- 
-2.55.0
-
+Thanks,
+Alireza
