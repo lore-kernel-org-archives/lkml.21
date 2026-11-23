@@ -1,49 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454779;
-	b=jIAYfeVBpp7RB4tGT368hqFQKqJtQx0jaQbUL5LUJO+M16IWGYnrvjgGG7BIfTL9VMDe
-	 aPWC+UWOCcDjs38SOCMIWYEnjBWtVluOXTzC+o48YJvylvZbLNVhv1NPBSCJPwsJKCFL6
-	 GHL4rNS1DtX+Uhi2C1AwRUw7OgZvM1S8SWpmMyABuapVW8RwcH+Rw8sFgGzfnt4EpMgWi
-	 ZNvsq5eoWt4R1Y1juRvTiqJ9JQb5lrrVtSF+qEuc9aBCPHfFntLrSSEssGFLwN27PkpvM
-	 PCXY/Ui0ryHHk16j/H9j8zDj1h+GmJzyZyxUSEmrqS9UzESSr7ejkOJpjZxWIFYV+ZA==
+	t=1795454807;
+	b=pmtxdWXchFZ8r9eeGiLSXLA0bcSMvJ5Fhiomky+ddyAr2AGwuOyZGI7cfwLSuTWeTwk0
+	 RmdydyTcmVIe+otchxBZHEj/mn6GVMAxu/oWgvZezynHBxa3jOmbMh9qCE6w4TO9XmM5h
+	 6c/oOLaH7Xt9pJhnPJtG87T5LEryI+HGOo3W3F+8XeWSDKen4Np77sK88nabNaSrB9OKe
+	 OnwVMOzwnSia75IpT6Xk1hisuZqVuaDArIHay7gigcWKf93ievnSKIx9PenZsN9xJmCdp
+	 YA8FoSYEyNgIjJ1+IaGzQJmqrScQ/HpLJ18yh2MrjPcyM5mGUI257U401bcv0siX5dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454779;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=tEZSjcMo5tFr0lKonrNZvE7Hg9BctyWphBzFRSdQf6A=;
-	b=Pzc6lo0qymIzcdzU3pdxyjATurkWlHHYjiyhqSlgPw1fuD5Yr8P7yh8o0mOJrLiCyVZ6
-	 yY9To87qOyYAyp+cKrtZWi7xrWRqBmoJsaXOOJ/Uv2zxqi1KWLTz2g3VgJBQMh35NWMs1
-	 G7n5AVBFWNG/pNFNg2HIzzU1BB7MY6T+IsnXfxiv+iO46PsNClAEPVVLzNn18pe0/fbxo
-	 KiK53aZx/wnEV+sKqeNCcYLRumAqNZzMLeYIhnWeWGnc31580lc2iigeYbyglQUB5zNKo
-	 2TcLmhqvEeaiWN3UgvjyDW9nU/K/PciPCmq27lJrVFhrigS4C1YNTm1lDQYISmbnNoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454807;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=RxK9WwiPMWhUvSnP5bQzWfmCjy6XNvfbfYHJbk6okn0=;
+	b=Wd1HvgJcBkzP2sMEzi9gQzcVJ3Ptk1joTBng1AqKEp+TNJ5Oi7RG44MpJ0ZziwxLNjfF
+	 /Wj0mvRBOf+wAPU/OJ5SVbeYlcQ4yZdxerDQUZDBs/kav+lJs05DONVfIPyNNNuAMAMSw
+	 uXM1JGGwGBzryFepHpbCJhlqbmFvfGocsfEzrbaSfzuUD5Egvc665I5Cbb58X2gLE9pFi
+	 B1r/UcNQ3BApbqvyt/46pU9he3SEzVtkdiYsaWLU9IA07foQpn0DMTEPbJuFUMH2B9wGw
+	 s7fafOt9M+XzuBpTRiYqAzdOxisW9MiQ4AcfFixWFbPHjurKUKiShJreNbFnkVorzjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QE3Jkr6Y;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 523B2606A31A;
-	Mon, 23 Nov 2026 17:26:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 523B2606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="R6QIJ/yn";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8A14606A31A;
+	Mon, 23 Nov 2026 17:26:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QE3Jkr6Y
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A518E143D;
-	Mon, 23 Nov 2026 09:26:15 -0800 (PST)
-Received: from [10.2.201.43] (e140322.arm.com [10.2.201.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A081E3F763;
-	Mon, 23 Nov 2026 09:26:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795454778; bh=3o9SAOACMinUblxdO6CqMzislYW/cZpQbgYWlEMnX4M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QE3Jkr6Y6PwKatYN4j7gDNS1cy5qhU0Xt7GLqA3tnZCgEPoUS1KNlIyD1rgh0NxZi
-	 9JkBlKtTYf0si6ANoDPflMw4n5u/coK1CnpwJC/+wDnHK0zNw40pt2gPoFu3rHnH+T
-	 XR0X3NxO7N5A7Odex5umeqA8X75iRn3SQ3lbAYa0=
-Message-ID: <162bf4ec-c23a-49c6-ad7d-7485a5cce2b7@arm.com>
-Date: Mon, 23 Nov 2026 17:26:14 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R6QIJ/yn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A2811F000C6;
+	Mon, 23 Nov 2026 17:26:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795454806;
+	bh=RxK9WwiPMWhUvSnP5bQzWfmCjy6XNvfbfYHJbk6okn0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=R6QIJ/yndruX4g/WD6Tf6L/UmL4uvbrpw7JbnR3bkIVFf727QH+R7tZIwh8qG23kg
+	 JN9OzRI3nyYGErukZ6splkVHylRIUCN/GBikdfCf9/v0Lek/OinUPrYJtyzCKRbOym
+	 0XvNQpsX0rP4LHkgqK1Nvb5qAKaQvzISQg+rGWYtfrkXUyAD2OpH3qpWNUWDORRpaV
+	 3jEJqX8qPlZUME8EY5XJUsPkayiMd737mkbenwaNbXRPP/lZMtCvdetmHIKz1KT8Rv
+	 KSPKTaUVbPaT3YBWzkAOKZx0K68iTcrAJnFSWWI0oibcUJXN5a2QPj81we2kD7HWtW
+	 hCIsuuQUq0kDQ==
+Message-ID: <ff973b48-043c-4cd8-88fb-dc38ec54c09d@kernel.org>
+Date: Mon, 23 Nov 2026 18:26:37 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,154 +52,92 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 07/28] media: mali-vpu: implement TRY_FMT and S_FMT
- ioctls
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
- Shobhit Pandey <shobhit.pandey@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
- <20261119153758.1426673-8-charvi.mehta@arm.com>
- <3415e7b52c3d05214ec125b2b4f8612129c53ae0.camel@ndufresne.ca>
+Subject: Re: [PATCH 07/10] clk: samsung: exynos5420: Terminate PLL rate tables
+ with sentinels
+To: Lee Jones <lee@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Thomas Abraham <thomas.ab@samsung.com>,
+ Chander Kashyap <k.chander@samsung.com>,
+ Amit Daniel Kachhap <amit.daniel@samsung.com>,
+ Tomasz Figa <t.figa@samsung.com>, Lukasz Luba <lukasz.luba@arm.com>,
+ Marian Mihailescu <mihailescu2m@gmail.com>,
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20261123164834.3330320-1-lee@kernel.org>
+ <20261123164834.3330320-8-lee@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Charvi Mehta <charvi.mehta@arm.com>
-In-Reply-To: <3415e7b52c3d05214ec125b2b4f8612129c53ae0.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261123164834.3330320-8-lee@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+On 23/11/2026 17:47, Lee Jones wrote:
+> _samsung_clk_register_pll() sizes each PLL rate table by scanning until
+> it encounters an entry with .rate == 0, then copies the counted entries
+> into pll->rate_table.  However, exynos5420_pll2550x_24mhz_tbl,
+> exynos5422_bpll_rate_table, exynos5420_epll_24mhz_tbl, and
+> exynos5420_vpll_24mhz_tbl all omit a terminating zero sentinel, causing
+> out-of-bounds reads into adjacent read-only data and populating
+> pll->rate_table with bogus entries.
+> 
+> Append a sentinel entry to each of the four PLL rate tables.
+> 
+> Fixes: ca5b40293822 ("clk: samsung: register exynos5420 apll/kpll configuration data")
+> Fixes: 9842452acd3d ("clk: samsung: exynos542x: Add EPLL rate table")
+> Fixes: 8b4a7acf7b30 ("clk: samsung: add BPLL rate table for Exynos 5422 SoC")
+> Fixes: b92981de92cb ("clk: samsung: exynos5420: Add VPLL rate table")
+> Closes: https://sashiko.dev/#/bug/linux-553831f9-0a7b-4e94-be60-222de60ca8c3
 
-On 11/19/26 20:44, Nicolas Dufresne wrote:
->> +int mali_vpu_fill_pixmp_fmt(const struct mali_vpu_format_desc *fmt,
->> +			    u32 width, u32 height,
->> +			    struct v4l2_pix_format_mplane *pix_mp)
->> +{
->> +	u32 sizeimage;
->> +	int ret;
->> +
->> +	memset(pix_mp->reserved, 0, sizeof(pix_mp->reserved));
->> +	memset(pix_mp->plane_fmt, 0, sizeof(pix_mp->plane_fmt));
->> +	pix_mp->flags = 0;
->> +
->> +	if (fmt->flags & V4L2_FMT_FLAG_COMPRESSED) {
->> +		pix_mp->width = width;
->> +		pix_mp->height = height;
->> +		pix_mp->pixelformat = fmt->fourcc;
->> +		pix_mp->num_planes = 1;
->> +		pix_mp->plane_fmt[0].bytesperline = 0;
->> +
->> +		/*
->> +		 * Use one byte per pixel as the default compressed sizeimage,
->> +		 * with a minimum of one page, aligned to a page boundary.
->> +		 */
->> +		if (check_mul_overflow(width, height, &sizeimage))
->> +			return -EOVERFLOW;
->> +
->> +		sizeimage = max_t(u32, PAGE_SIZE, sizeimage);
->> +
->> +		if (sizeimage > U32_MAX - (PAGE_SIZE - 1))
->> +			return -EOVERFLOW;
-> The "moved" code is not exactly identical, and this is not said in the commit
-> message. Depending on you max_width/height, this might all be exaggerated.
-The checks were intended as defensive handling in a common helper for future
-variants. However, given the frame-size constraints applied before this
-calculation, they are overly defensive. I’ll remove them and preserve the
-original calculation.
+Also drivers/clk/samsung/clk-artpec8.c, artpec9, exynos5410,
+clk-exynos7885.c and probably others?
 
->>   
->> -	switch (type) {
->> -	case V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE:
->> -		fmt_list = sess->port_src.supported_fmts.fmts;
->> -		num_fmts = sess->port_src.supported_fmts.num_fmts;
->> -		break;
->> -	case V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE:
->> -		fmt_list = sess->port_dst.supported_fmts.fmts;
->> -		num_fmts = sess->port_dst.supported_fmts.num_fmts;
->> -		break;
->> -	default:
->> -		return NULL;
->> +	vpu_fmt = mali_vpu_find_format(sess, pix_mp->pixelformat, fmt->type);
->> +	if (!vpu_fmt) {
->> +		port_fmt = mali_vpu_get_port_fmt(sess, fmt->type);
-> Maybe it would be better called get_default_port_fmt() ?
-This helper actually returns the current port format, and it is also used by
-`G_FMT`. On a fresh session that contains the defaults, but it subsequently
-contains the negotiated format. I’ll rename it to
-`mali_vpu_get_current_port_fmt()` to make that clear.
-
->> +		if (!port_fmt)
->> +			return -EINVAL;
->> +
->> +		*pix_mp = port_fmt->fmt.pix_mp;
->> +		return 0;
->> +	}
->> +
->> +	/* Requested format found, validate other fields */
->> +	w = pix_mp->width ? pix_mp->width : fmsz->width_default;
->> +	h = pix_mp->height ? pix_mp->height : fmsz->height_default;
-> No, width = 0 should return min_width, same for height, just drop, and let the
-> below function do that. The default width/height are what you set on a fresh
-> session.
-Agreed. In v2, I’ll pass the requested width and height directly to
-`v4l2_apply_frmsize_constraints()`, and let it adjust zero to the supported
-minimum.
-
->> +
->> +	v4l2_apply_frmsize_constraints(&w, &h, &fmsz->stepwise);
->> +
->> +	/* Decode CAPTURE queue: lock geometry to input if streaming */
->> +	if (sess->role == MALI_VPU_DECODER && fmt->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
->> +		src_q = v4l2_m2m_get_src_vq(sess->m2m_ctx);
->> +		if (vb2_is_streaming(src_q)) {
->> +			port_fmt_dec = &sess->port_src.curr_fmt;
->> +			w = port_fmt_dec->fmt.pix_mp.width;
->> +			h = port_fmt_dec->fmt.pix_mp.height;
->> +		}
-> This is try_fmt, it should not care if you are streaming or not.
-The intention was to use the parsed CAPTURE dimensions once available, but
-OUTPUT streaming does not guarantee that parsing has completed. I’ll track
-whether firmware has supplied the parameters instead I'll keep the 
-adjustment
-logic shared with `S_FMT`, so both return the same format for the same
-request and known stream parameters.
-
->> +	}
->> +
->> +	ret = mali_vpu_fill_pixmp_fmt(vpu_fmt, w, h, pix_mp);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (pix_mp->field == V4L2_FIELD_ANY)
->> +		pix_mp->field = V4L2_FIELD_NONE;
-> Well, only if you support interlaced.
-Since I’m adding interlaced decoding support in v2, I’ll normalize 
-`field` to
-`V4L2_FIELD_NONE` on the compressed OUTPUT queue and derive the CAPTURE 
-field
-layout from the stream information reported by firmware.
-
->> +static int mali_vpu_try_fmt(struct file *filp, void *fh, struct v4l2_format *fmt)
->> +{
->> +	struct mali_vpu_session *sess = mali_vpu_get_session(filp);
->> +	int ret;
->> +
->> +	mutex_lock(&sess->vq_lock);
-> This is suspicious, the vb queue already do some locking in most of the vidioc
-> call.
-Both queues assign `&sess->vq_lock` to `vb2_queue::lock`, but 
-`video_device::lock`
-is unset. The V4L2 core acquires it for queue-management ioctls marked
-INFO_FL_QUEUE, but not for G_FMT, TRY_FMT or S_FMT.
-
-video_device::lock is unset, as this driver uses per-session locking and
-format ioctls are not required to be serialized among different sessions.
-The explicit locks therefore protect format access against queue operations
-and asynchronous firmware updates, which use the same mutex. They do not
-reacquire a lock already held by the ioctl core.
-
-
-Regards,
-Charvi
+Best regards,
+Krzysztof
