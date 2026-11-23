@@ -1,66 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404485;
-	b=kgrsY+PwzyHKVvOeb7hgrvfHNWs8flG2gamEtJpstE1DOT/GCKK+R09pZK9gglcHMkAN
-	 IAzR/WzPy5C5qsEK5eJlTKl+lnci/vblajto8F4yFsohn4C1F4ScxMhP2tltdGurECzaD
-	 RPnH0okKQEiAi/u6u3D4HP16h2UIKuU+1Bc+xRRNY3SNpDiHz/owe3+JEx7I/jWJlBzeM
-	 cLZeQkVo0GJn68W7oKLxNU92FGAR0bkhqP4q1OGbvBqY3wDl89QhDLzT1AwAZoKLYqAK+
-	 I0VfhA4ipcElriZdYnofENgxuzdeQFDD0xHkLOBnR3NMWh8HuWlGuvM3ArHEvDxSAqw==
+	t=1795404488;
+	b=Mwy7vbJco9JiQ2Mvavicfun0vXyhmEVgKpRKperv83TD5rwxb6I+RMcvb7GE53gAAmH9
+	 lGPotMvA79/lDnjYOI5bqqvk/y2jBJ9+y0ODjJEzWvAweQg3W0baoutUg6BwFaVz6mPxs
+	 nCKxecjHdlKDCAE21GwexYDXHej+KUdmMUQUceQiltNOjuy0CQ/vHp1KOk2Ued3Fmmmii
+	 lZCIQDSm/TSUjyk/4M5s7T1n5Zr5jzbydLIYLLhztTLHWGwz9Xh6C5URU6iY46ikqBa12
+	 CeOqh08PY0GTFK2pIQ+NauXFYveYfirBCIhMRdBfa2VPCQqLYD0358F0ZsQeNA01CuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404485;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404488;
 	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
 	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
 	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=q3kZGC0uAv7mDcOauD1MOZfUEdWCpqbSFrC5+aUK4G0=;
-	b=Ob+L0HsvP53Gvrge09M7x9CfV635xD0R0nnfov5WPr2T+vdYgF2ixEm9y7GPMJ11xwva
-	 8zzB3HjC5qhFGNNwhbx117hcmTRdv0ji/4k0jd0j8gT8tmNAMfoLCf0RE+H2LDvXIk3Sb
-	 2/+IXT/uaOiIp2NXjDSUFhlJUYRe1XbsHn8+MbBEN0AyDrMPV5Rn1Gp1cVFiWN1ET9+3F
-	 G/l6w5N8Xpjx7NvYj5RM3oBABt/uNgkWw81jqlx4aspKHKGnr1XJUMJ1m4P5l7U82tW7v
-	 ys+GtZSIQenvN/LeNNbV9Tbrbp7td5rfgp/4wqHAUsexgUqTfO+0hOEtM3Kav8kKqaQ==
+	bh=3OcNsE5BiTvJ0Z5anDFahPqafPoJf9lHCANaqQ2uhnU=;
+	b=pS89Q4o5dh04eKkTozMxumx2cKSPN8yWQIEHoG1DlXwzsE9rqNEN/abaHJBalNTUedMs
+	 k2e3fJVCDKPSvz8J/WbNjw/nPWQDwhTccH6FRGFWn2A+hRABV9r0AFbS5SpZIpOc3lX4H
+	 d9FINsR6JBryqxt0P0/2cXFLjePTNInCxJeUqK1d0xg+JEICAyv8QycxNBCURmI7pBBPn
+	 Tyrh7NbreAbtboTc8Sy7D+Gwq7qNND1+xXi0BT/to/sAMlnpUrGueXD/uwRUQkbT8C3nJ
+	 +Mm8DHta72+Z58pbPLAeaHwXZPjuGwbOGFvuj8ZibWKo/e58rubUZflr155nWuJofrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cmss.chinamobile.com;
 	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=I1oQ+GzX;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8F404606A339;
-	Mon, 23 Nov 2026 03:28:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F404606A339
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=q9+sooj2;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9C16C606A33A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:28:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C16C606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=I1oQ+GzX
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=q9+sooj2
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=cmss.chinamobile.com; s=default; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=I1oQ+GzXy0kzGHkATdiv4VdakYA2r1NMptee6WbeC1v9d7pzmc4K+jNx0smi5968YaxYOFyAhQrTw
-	 IkFiehrQ8DPTAKl5wOMZFfyQmzC0LjI34WxLP22smOtB7DICB06aipOPr2YFGxPHAHgM9boNFXuEZN
-	 hosl4kQjBCbQ3+YU=
+	b=q9+sooj2XJykjEbdB/hJzjLwCP2ClJNhElJQTSjEP+m6iiHfq4JdFQy1dTZmbyMxHL5BJRYHk4D9o
+	 08kdcc3muQnBnJLWb0WvcqozLwzHSgbpg/G+7Csg3DPo2Rjz/WUnbw8UIp1Ea8zHkxH4H3fVOx2ilK
+	 IMfR/ayccfg3ewKU=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b03b2c359b-74d06;
-	Mon, 23 Nov 2026 11:28:03 +0800 (CST)
-X-RM-TRANSID:2ee26b03b2c359b-74d06
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96b03b2c4803-3e3af;
+	Mon, 23 Nov 2026 11:28:05 +0800 (CST)
+X-RM-TRANSID:2ee96b03b2c4803-3e3af
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b03b2c15c7-84e03;
-	Mon, 23 Nov 2026 11:28:03 +0800 (CST)
-X-RM-TRANSID:2ee16b03b2c15c7-84e03
+	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96b03b2c33ef-84efa;
+	Mon, 23 Nov 2026 11:28:05 +0800 (CST)
+X-RM-TRANSID:2ee96b03b2c33ef-84efa
 From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: Takashi Iwai <tiwai@suse.de>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	linux-sound@vger.kernel.org,
+To: Mikulas Patocka <mpatocka@redhat.com>
+Cc: Alasdair Kergon <agk@redhat.com>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	dm-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ALSA: hdsp: enlarge the MIDI name buffer
-Date: Mon, 23 Nov 2026 11:28:01 +0800
-Message-ID: <20261123032801.1410-1-chenaibing@cmss.chinamobile.com>
+Subject: Re: [PATCH] dm-integrity: initialize free_sectors when the superblock changes on resume
+Date: Mon, 23 Nov 2026 11:28:03 +0800
+Message-ID: <20261123032803.1817-1-chenaibing@cmss.chinamobile.com>
 X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <87o6boyhj5.wl-tiwai@suse.de>
-References: <87o6boyhj5.wl-tiwai@suse.de>
+In-Reply-To: <a0d2a86b-a001-9f82-1d08-fd8348688218@redhat.com>
+References: <a0d2a86b-a001-9f82-1d08-fd8348688218@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,21 +74,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Takashi,
+Hi Mikulas,
 
-Verified that there is no overflow with this driver.  card->shortname is
-only ever assigned a fixed string:
-
-  sound/pci/rme9652/hdsp.c:5053    strscpy(card->shortname, "Hammerfall DSP");
-  sound/pci/rme9652/hdsp.c:5354    strscpy(card->shortname, "Hammerfall DSP");
-
-so it is always 14 characters.  " MIDI " plus id + 1 (a single digit for
-every card this driver supports) brings the formatted name to at most 21
-characters plus the terminator, well below the 40 byte buffer.  The W=1
-warning is a false positive because the compiler cannot bound
-card->shortname.
-
-I will drop the patch.
+Thanks, I missed that.  e5e03918fbec ("dm-integrity: don't attempt to
+commit journal on disabled device") covers this case, so the patch is not
+needed.  I will drop it.
 
 Thanks,
 Aibing Chen
