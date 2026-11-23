@@ -1,67 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433115;
-	b=oONVM5KqRNQsq+06V8T535V1ZMSc2iep2WUQRTC0kyjVD/282sFAegvHQZOHRYFB4/Hq
-	 u10osKAsFBjBsCRv9aoFLg/kkAT+50sh3p9hEuaNEAahvr1PpNFvrLS6hqCmxczENRD9j
-	 NbyYPPxg91BwWJnTib24jW1srLj58pO8x2KgoMeWXKf869F3beEv93QN5xjkBWwbM0o1C
-	 W785dXElbyfMyiI7ETE38ed25dNTMNrxjt0x5PHCH/lm6IcfrZNQnVvWca1RSBvseYb9R
-	 wxP2SoivLggMXCKmJKvSKCHy3kImcL51+c/PaUmJPCuU7+P6ssVVymAYQK/x7vVXBlA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433115;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Originating-IP:Date:
-	 X-CM-HeaderCharset:From:To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:
-	 References:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
-	 X-Coremail-Antispam;
-	bh=pd7yZOfR/6/VdDILFb0nLqoZvgJwsuh6QMQF6pgZpBQ=;
-	b=mK8H2+uMB3gWElkQpxbRvIoS1C0aqGFaQk8TXg3MtSNa8OdpAcLfhht0J0IsyzidXGHi
-	 0nioTaArRSBo+ifqBehvosZzaVNmEyE3h3aDmtzGnrj6JndgUGJ8vGyPS0+dzN9jxpP7J
-	 /8ipg5/4MeQK+Ce0pATsrBXx0faW3k/MJgoTMvfRh75WlAZJKSSvs9eT9UIka2GPBUYtn
-	 2G6IluSiThD6L+szkf02T6ur+IceeaIvGjGG/aTvxfr1ezAhXbs5/BvOYNHdaABWmp7QI
-	 +Xgrxmnv2qE0b2DmZuVlxziZjU1KlNfDd5AOXq+dQ702DJqljV/S/zXrWr0AD9vXy/A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.zgclab.edu.cn;
-	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=fail reason="signature verification failed" header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=nkwPE3gD;
-	arc=none smtp.remote-ip=162.243.161.220
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 74C83606A31A;
-	Mon, 23 Nov 2026 11:25:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74C83606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795433145;
+	b=kPYwFQqqA9q5iXC2YSKpKl5SLZFR9W/+GN/4qflPE4LCn+9MX9L3QUED2MTn+DPHqdc1
+	 gc3xeu2mOh5aIerymdx4JMB6gGUyL9Rv4vbhxgZeI+uMGGwSL0UmOkNU0+TXx5gHs/PUi
+	 1HmZOLIuYUvGU+37PgkqT7angjLPxHhdV8SAPKBKb1C+kt3QXBA3eId/bOiVuEzCor/Ol
+	 tHOhe8p5XssPAbfqrypkfWVfAZWuPPG6jlbSZ0BN7vcFUh+ryG7gVfVdbxbh9F0JhGSE4
+	 QF1Dvk9b8sYmksqDlFCXlxIEuAb2bqGT9ImruEzYWUoJn8rw76ybz6Au+pwGehcIIjw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433145;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer;
+	bh=pOKaXS0qbD0x2/EeGlN4GmzV2jn1hcGOq+oOXXUw1Nk=;
+	b=iGcGAYo8EdS399/hI+Ccg7nyx9WarVvBVKWHNxcY+37ujWNPtw6e/UuCjpB9j7siLLpp
+	 Qz82eLeOPdIMGlyp/QLoEC3IIf41TJ4GdWAt0rF3qrVXKVOmUCOtXWxK3Mz09FUd4tMm/
+	 k+cN23pizNxkhn/k3BVy0QZkyeizSUGoyRXsfIIlUZjj2YglYGTRTlp7ZmpqRGjyXfFjP
+	 E30u1iZsynOdsrr1m76Qk2HjsfmXZp3Gsgm/n5K/o0Tii9duLYW29Yrg227pENu42QV1u
+	 QwsD1x6qyXFqrXWl/Wuufp3dTUfezQ0sYtaY+bed/jV1vKVgvsTg42wOYrXQ2XpnKaQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Yc6dCfrT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50712606A327;
+	Mon, 23 Nov 2026 11:25:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50712606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=nkwPE3gD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.zgclab.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
-	In-Reply-To:References:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Message-ID; bh=/Ggu3rj0ThvKcNpBPXLiuiRBY02aVQgcwxpp
-	10zH9iI=; b=nkwPE3gDvJGKrSHgbKpWIGcydqeX56abOG+5Qe9CkWFoxWH4IguJ
-	9H84WETfFpEFGA/uEnnqL8HzGz5BJKHtby8AtWKnoGWUarBKdhQQ2/zKodlZus/C
-	YBcc9YS8dcPYOTBYgGdY0/UWJ/aaYrVNQWudojT11gzkb25sC6hIE+c=
-Received: from wanghr2026$mail.zgclab.edu.cn ( [58.206.202.88] ) by
- ajax-webmail-web2 (Coremail) ; Mon, 23 Nov 2026 19:24:40 +0800 (GMT+08:00)
-Date: Mon, 23 Nov 2026 19:24:40 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?546L5rWp54S2?= <wanghr2026@mail.zgclab.edu.cn>
-To: netdev-bot+sinfo@kernel.org
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
-	olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: Re: [PATCH v2] net: dsa: mt7530: disable the power rails on
- setup failure
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT5 build
- 20261010(691d8f62) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-4df55a87-4b50-4a66-85a0-70f79cb6c8b5-tsinghua.edu.cn
-In-Reply-To: <179543235894.3294.8827397951204336522@kernel.org>
-References: <179543215348.11880.18316180385674365789@mail.zgclab.edu.cn>
- <179543235894.3294.8827397951204336522@kernel.org>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Yc6dCfrT
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 6A7802007BB;
+	Mon, 23 Nov 2026 12:25:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795433142;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pOKaXS0qbD0x2/EeGlN4GmzV2jn1hcGOq+oOXXUw1Nk=;
+	b=Yc6dCfrTK0bDAynaw5DasLaCruMwWMep52YvHXOSb8rdSd9Y7Dy6oRB2fXJ8tFBOwuK5QY
+	BeSOdGX+3EhA93poLKMDrlJI2u6Ly5GJP5QdNTSZ+BQBYpnz4sICMNBAKKDbdsNRTvWv8s
+	gcL4R+9qDN2PUz7SMq05Sd5OVmSHSQD8pUwOl9TAQx4nOHyTnRnCc60dnxIpJWfuR1unC9
+	c4YzIURMPo74ZbCr8YYk3vDwUXeV0ywotZrsm9c8yi6866Z7NU0WDjMoFxN50GyGfZ3p3/
+	1gQrtQY+wJ3oUNGEnW2CqC1g0bl3YhmGSiKH7eGz+P5guBV2kgqTKSj6LLoQpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795433142;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pOKaXS0qbD0x2/EeGlN4GmzV2jn1hcGOq+oOXXUw1Nk=;
+	b=Pz8TWViJ2WDmuPCAiX+m81fDtwn68LxbtUgNs8D8qYGvalF5l/0oRlOgTKU8gcYZFb/GLx
+	9Qs8gWtgYHTngjpc7kgNxleznliCyiOCHDs2G6BY4K9sP/+8YjixxIHZdvScmGnuNJYWGZ
+	+eIiwFfJ4wkQNUSxG6xErFPjlQa0kI2AGnmf6RGgs5ydTh/3OouqiLkl/NmzdLMC/w7GCB
+	p4nDcQCt6epZh7zVHra/5kDc+fbczORVYVyI5EviNDTzCLwZecLu/uWNyrAxm1wg5v1X9O
+	G3dcz9xxZGDUZVRn0eFnnYFR8CP+Azp/eWGKvWjak4lLw2oniS08OPGVFcyvoQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=f.diener@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795433142; a=rsa-sha256;
+	cv=none;
+	b=Vk1oo19Qs4zaSzjxCWqLcACwN2olbfH4WCnYxbW/qvDKIXZWjDVGLq9uCLGMB0OpSj+BSW
+	cjUaYhgNQU46WSrB4VQ+aAm0XQUKeUOYWwXu7giSQFpejeygNNgiLQfMQY+Zfyu7EButPO
+	Fr3WLMjFXohBb6QiSRpidibMqu5b4yshqkDbNeqGJ7V7xvpxHE7iy+4Eqgh4KSaSYvJdcj
+	e1iKL+Dv2NmEvxyUN/XdYW0KNW/g+Q0IT62DGBHpyxhiT/aZvoWg+XCg3mAwCNSXkvY7+0
+	U5Jzsz19zfrSgpC2PUlVgqCueU3x9VRg/eWa1xm1oKMhkE3yD1dM2ZTMYV5FGw==
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.2])
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <f.diener@pengutronix.de>)
+	id 1xVSB3-0016XI-2h;
+	Mon, 23 Nov 2026 12:25:42 +0100
+From: Freimut Diener <f.diener@pengutronix.de>
+Date: Mon, 23 Nov 2026 12:25:15 +0100
+Subject: [PATCH v2 1/5] arm64: dts: freescale: imx93-11x11-frdm-common:
+ Enable I2C level shifter
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,47 +89,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <2a2bfab1.269a1.1a20826a7dd.Coremail.wanghr2026@mail.zgclab.edu.cn>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:yQQGZQCHtmp4IgRrBoVgAQ--.19466W
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYAD2sD8X5PDgABsv
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-imx93-frdm-fixes-v2-1-dd97c7fca4b1@pengutronix.de>
+References: <20261123-imx93-frdm-fixes-v2-0-dd97c7fca4b1@pengutronix.de>
+In-Reply-To: <20261123-imx93-frdm-fixes-v2-0-dd97c7fca4b1@pengutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@pengutronix.de, Freimut Diener <f.diener@pengutronix.de>, 
+ Marco Felsch <m.felsch@pengutronix.de>
+X-Mailer: b4 0.15.2
 
-LSBIb3cgaXQgd2FzIGRpc2NvdmVyZWQuIFN0YXRpYyBzY2FubmluZywgbm90IGEgcnVudGltZSBy
-ZXBvcnQuIEkKc2Nhbm5lZCBmb3IgcmVndWxhdG9yX2VuYWJsZSgpIGNhbGxzIGFuZCBjaGVja2Vk
-IHRoYXQgZWFjaCBvbmUgaGFzIGEKbWF0Y2hpbmcgcmVndWxhdG9yX2Rpc2FibGUoKSBvbiB0aGUg
-ZXJyb3IgcGF0aHMuIG10NzUzMF9zZXR1cCgpCmVuYWJsZXMgdGhlIGNvcmUgYW5kIGlvIHJhaWxz
-LCBidXQgb25seSBtdDc1MzBfcmVtb3ZlKCkgZGlzYWJsZXMgdGhlbSwKc28gYSBwcm9iZSB0aGF0
-IGZhaWxzIGFmdGVyIHRoZSBlbmFibGUgaGFzIG5vIG1hdGNoaW5nIGRpc2FibGUuCi0gV2hldGhl
-ciBpdCB3YXMgdHJpZ2dlcmVkLiBJdCB3YXMgbm90IHRyaWdnZXJlZCwgYW5kIEkgZGlkIG5vdApy
-ZXByb2R1Y2UgaXQgb24gaGFyZHdhcmUuIAoKClRoYW5rcywKSGFvcmFuCgoKPiAtLS0tLeWOn+Wn
-i+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiBuZXRkZXYtYm90K3NpbmZvQGtlcm5lbC5vcmcKPiDl
-j5HpgIHml7bpl7Q6MjAyNi0xMS0yMyAxOToxMjozOCAo5pif5pyf5LiAKQo+IOaUtuS7tuS6ujog
-Ikhhb3JhbiBXYW5nIiA8d2FuZ2hyMjAyNkBtYWlsLnpnY2xhYi5lZHUuY24+Cj4g5oqE6YCBOiBj
-aGVzdGVyLmEudW5hbEBhcmluYzkuY29tLCBkYW5pZWxAbWFrcm90b3BpYS5vcmcsIGFuZHJld0Bs
-dW5uLmNoLCBvbHRlYW52QGdtYWlsLmNvbSwgZGF2ZW1AZGF2ZW1sb2Z0Lm5ldCwgZWR1bWF6ZXRA
-a2VybmVsLm9yZywga3ViYUBrZXJuZWwub3JnLCBwYWJlbmlAcmVkaGF0LmNvbSwgbWF0dGhpYXMu
-YmdnQGdtYWlsLmNvbSwgYW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29tLCBu
-ZXRkZXZAdmdlci5rZXJuZWwub3JnLCBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5v
-cmcsIGxpbnV4LW1lZGlhdGVrQGxpc3RzLmluZnJhZGVhZC5vcmcsIGxpbnV4LWtlcm5lbEB2Z2Vy
-Lmtlcm5lbC5vcmcKPiDkuLvpopg6IFJlOiBbUEFUQ0ggdjJdIG5ldDogZHNhOiBtdDc1MzA6IGRp
-c2FibGUgdGhlIHBvd2VyIHJhaWxzIG9uIHNldHVwIGZhaWx1cmUKPiAKPiBIaSEKPiAKPiBUaGlz
-IGlzIGFuIGF1dG9tYXRlZCBtZXNzYWdlLiBUaGlzIHNlcmllcyBsb29rcyBsaWtlIGEgZml4LCBi
-dXQgaXRzCj4gY29tbWl0IG1lc3NhZ2VzIHNlZW0gdG8gYmUgbWlzc2luZyBzb21lIGluZm9ybWF0
-aW9uOgo+IAo+ICAtIEhvdyB0aGUgaXNzdWUgd2FzIGRpc2NvdmVyZWQsIGUuZy4gaGl0IGluIHBy
-b2R1Y3Rpb24sIGhpdCBkdXJpbmcKPiAgICBkZXZlbG9wbWVudCwgc3l6Ym90IHJlcG9ydCwgbWFu
-dWFsIGNvZGUgaW5zcGVjdGlvbiwgTExNIG9yIHN0YXRpYwo+ICAgIGFuYWx5c2lzIHRvb2wgc2Nh
-bi4KPiAKPiAgLSBXaGV0aGVyIHRoZSBpc3N1ZSB3YXMgYWN0dWFsbHkgdHJpZ2dlcmVkLCBvciBp
-cyBvbmx5IHRoZW9yZXRpY2FsCj4gICAgKGUuZy4gZm91bmQgYnkgTExNIGFuZCBub3QgcHJvdmVu
-IGF0IHJ1bnRpbWUpLiBJZiBpdCB3YXMgdHJpZ2dlcmVkCj4gICAgcGxlYXNlIGluY2x1ZGUgdGhl
-IHN5bXB0b21zLCBsaWtlIHRoZSBzdGFjayB0cmFjZSBvciBrZXJuZWwgbWVzc2FnZXMuCj4gCj4g
-UGxlYXNlIGRvIG5vdCByZXBvc3QgdGhlIHNlcmllcyBqdXN0IHRvIGFkZHJlc3MgdGhlIGFib3Zl
-LiBJbnN0ZWFkLAo+IHJlcGx5IHRvIHRoaXMgZW1haWwgd2l0aCB0aGUgbWlzc2luZyBpbmZvcm1h
-dGlvbiwgc28gdGhhdCByZXZpZXdlcnMKPiBjYW4gdGFrZSBpdCBpbnRvIGFjY291bnQuCj4gCj4g
-KklNUE9SVEFOVCo6IElmIHlvdSBkbyByZXBvc3QgKGZvciBvdGhlciByZWFzb25zKSAtIHBsZWFz
-ZSBpbmNsdWRlCj4gdGhlIHJlbGV2YW50IGluZm8gaW4gdGhlIGNvdmVyIGxldHRlciBvciBjb21t
-aXQgbWVzc2FnZXMuCj4gLS0gCj4gVGhlIGV2YWx1YXRpb24gaXMgZG9uZSBieSBhbiBMTE0gc28g
-aXQgbWF5IGJlIHdyb25nLCBpZiB5b3UgdGhpbmsKPiB0aGF0IGlzIHRoZSBjYXNlIHBsZWFzZSBy
-ZXBseSBhbmQgZXhwbGFpbi4K
+Without the PMIC's I2C level translator enabled, probing the GPIO
+expander fails with input/output error:
+
+       pca953x 0-0020: failed writing register: -5
+       pca953x 0-0020: probe with driver pca953x failed with error -5
+
+So enable it.
+
+The GPIO expander is connected to the level shifted I2C output of the PMIC.
+
+Suggested-by: Marco Felsch <m.felsch@pengutronix.de>
+Signed-off-by: Freimut Diener <f.diener@pengutronix.de>
+---
+ arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi
+index 33ed26aafde88..b3dfe516b1d55 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi
+@@ -216,6 +216,7 @@ pmic@25 {
+ 		reg = <0x25>;
+ 		interrupt-parent = <&pcal6524>;
+ 		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
++		nxp,i2c-lt-enable;
+ 
+ 		regulators {
+ 
+
+-- 
+2.56.0
+
