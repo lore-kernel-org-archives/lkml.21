@@ -1,78 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.176
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795467918;
-	b=u1xFGsWh+stkGEad3kmgSByhGtAcGck37tPCZT18QnT37CdbQgytHpOdsYgNC85buzoR
-	 o6PBv0EL8V+Cy7aLmdgmCcpvPOV0B2O0iBNWdKtGS0E7oyBG7h0dbXP415Uqg8po2cXzT
-	 zFuLqg+VkQnQsJxbNgoGwHIGfgw1OvmfHyRBA/bpOHJAm6Tuczn3ar3Xdfggh7HlYR7rm
-	 hn/EFPp2Kg1SXF/1nCvVj1UwD4iBhZOmKw09FtEnl8YXt5b0RgiVp8ivfOQkYXQLU5mgk
-	 ewGopLNTMssXTYZd8hNUMX7GKxPkcKVAr48HCvfzGdkmcTObIfI/1Knla4WH/w8vZfw==
+	t=1795467931;
+	b=AEfgYDJUaaudl5ghEDvg68wxh74Uwz1RW8H1eMk3cE+kOLkhMe+150/2ZDHb3ld3M2mP
+	 hQKiJD4it6cqGmE+x1tJFCPB+eEg7bgFjyvzPOOCS/u2NB5ZIfiCeoq13ds1dRniZ08Aw
+	 raLE/Uh86xjmjzYVjqHTCaDYtJEQgxXLkISrNnJ4LavxyZN2BvT1lPBeTpmoj3i6Ubems
+	 qMTZq9EWvU7F0kXno3dVxgUx1t7GwOcKj3TWa6tUFbNtE086UbULhMlqZAnnvGULWe12q
+	 h+HCO9VRxEewsq9JB2sVmep516RfUPICU5BObN7IlsOnSs3WOZA6eWiqOAszJlmo2QQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467918;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=RV4Mc9YCuuMAl03wMSi/U06IKR6bjQoik0XuwOphOYw=;
-	b=tIdtIkEbV8f3b8p7rkDr0EuMnRnNO2aYNx9gs6JV8GxopIfZjTRQ1ddTOM60xJQAtrLt
-	 kdjGS8tsARbgnPbIp1vI7SdUY2ZSmoJTcKHe3Wgzs0nSiyRO+0DfhfzT+ioxxGWCfzPGQ
-	 y3BwF4J6i60iln6ViBb33otVlxHkQf15c44NLF2jPDgFCtjH3+YRsuLmKHMWakxArNmNj
-	 Q1BmLxLjGZnjl0wXarGPMvBbMlaC/gmgbzf+5sEN6FzMq/S0wZ9KsIn/mv7V+yeyBvq+J
-	 J0RwmFbtOUyFaPPC0Fnj9SBcc7ikDs/fsA8dfcQK29ok45eWdSibVSxiuVH2GYuURlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795467931;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=VtSta76K0DhmEm+a+Fx+3wCOoe6ARhPuKaUdQkwi8Y8=;
+	b=4b2iT27tfVDKa/puG3EVG1YUUlvN0ddJdLiG/txAIQJOuWK1KJOvDk+RpE/jGIDwVkka
+	 eSg4aiOvqi8B7U1TkRIs2dqcObYopXNVx69jAO4L+AGxVRwOHohCvJMA56iPzEh/757Si
+	 G907rMQZZHZ/yMTeaFEPDlPX0GSjMXhXBUfH9jcyPJOk+37LMdMUSODE454571i2LI+6Y
+	 YaqgwRMzOn66Cgn9t6nRVvpoEZdUvjaLktOphpjI6mkuRtpLIRIZQiGS5I3jZc0Mb85pX
+	 RYwNhWlgKO7rfOofa6DfXuAzK/yjoBt1ShWypy4RUvXtC5BxhPP1MewxGmXp36GKU5g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B3zvRi9P;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0720606A33E;
-	Mon, 23 Nov 2026 21:05:18 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B3zvRi9P
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795467918;
-	b=uSq/kXMh8h9/HeeHXJLdGbsoCdwATFQFCqlPKmFzp+3lOLI8Dt+SSzf9BhDIaRIgSgQe
-	 +yLF9zZ4LaStQdsZ0V34/fnFpcyq1CO/7ljfvj/HEDRcGSN1gB3p11r34U0K99bSVC7XB
-	 4afNgg5S9uuu5XogiSjelNSt+1QvXsCXbmmOfBa0Iwe8shEjejfTRlxnQTwNS3yl5tF8q
-	 UFxkuJG+grZhdmn0GWN19x2UqXek24OFix/lWkb3QdysNH4+6mVPyewS20an+cKQYXcef
-	 zC5PXL/KpQ0xSnuuPDDb5rLCtTi4UVxakxUc+G35cmPgcjE6u4LR9TLyvxqUF6PKwAw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795467918;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=RV4Mc9YCuuMAl03wMSi/U06IKR6bjQoik0XuwOphOYw=;
-	b=cF2XhI9+sS/jqJnR0/UXUa3e2NAw1IjtC259exojTbR0HLBDx/B2Uuq2Qsk90H+jFL5l
-	 XmZAVE9sC95Id5GV6OiEC60EK+lf9MAKupSeyBs2mhdbQBI/g2lejaLkY1XogmXmmNCIA
-	 fR7fsayBal5hkHD6zHFGux2jiCzFS3Dkoaq2fRSmHv8MiXYE/kgtOkcVDSPqQd/nyFrAr
-	 Xo4FL5aMf/eJU5WLqj9HaK5HmrMaRywvupltMS3wXBMSbtTcGQTbB28pGEhJG7xXWJJYg
-	 uZoHgIm/RzQfjGFM715A0m9HFkbHt46BkaUJ50YSYUTsNe5h1zOLJYNiLA5SD2p/phQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zGGalddF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.176
+Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A5A161F000D0;
-	Mon, 23 Nov 2026 21:05:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795467918;
-	bh=RV4Mc9YCuuMAl03wMSi/U06IKR6bjQoik0XuwOphOYw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=B3zvRi9PZftrqX0IwUBwLkaUIjnwBFx6Rj9UTgq5nYy9kCjghSTRzgQIwsa05WRDK
-	 9XiUeSFt2dnUXZg6iQJ35e1RlOCc+g8Nd71w7ovxD4r7Ew0GGW7ow8MVhNWShH43tm
-	 nmSYIVed8hm3JfpMUp3/dFqLOT7Lrle7sQuUt/kJ9q6K8kqZEWp+4PFU6iKQ7MF31p
-	 TSNhK4m8pb1362Rx0XuCkl8s6SiYefTBcK/pF3A2lhQTSwMf1s7H83ywnpPDPkKMly
-	 +/y8CD/AbyI1Lch5mDG4yklc7AtiBxczkOo/IjFQ3Ny25zbO7Ml2qN5ja14bhPYknk
-	 4sjj/Nc9RSEXw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 32CD34C75E;
-	Mon, 23 Nov 2026 21:05:07 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Mon, 23 Nov 2026 23:02:33 +0200
-Subject: [PATCH v6 3/4] nvmem: mtk-efuse: add CPU speedbin post-processing
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D92F606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:05:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D92F606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zGGalddF
+Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cde5a7d7849so1601966a12.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:05:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795467931; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rmlhxoX5aIkM7QveRAGfslo62/Xpp1oA9iPqC25zVem9dyYrXpSydgWUXnp7NAP+Ji
+         LRnHqYjKGxKDvkmnlF0XsKUVmf3K0ei+97heMN8/Vjb7UFZmpZl+TlqeuJ+VyjUAByic
+         iF0GltbBPHEH+F4kGOr1RaPOqu3Q26H1b20/bMTDA0HW0aZrZmuiNbqkAeBJlcsAOpkf
+         XiAlxQ3wF22UxMUYyOkWsX9AADTu+q1+i4ZEzTVmG8szITHinGTuH1tnwfrmEJhRBH+5
+         X2Fx28kYwy8fYz44/LJ3bR/h5skWfMw5AqdC5Tw5/7xnDwPXca36hvrJEAkYKj4cix10
+         BO5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VtSta76K0DhmEm+a+Fx+3wCOoe6ARhPuKaUdQkwi8Y8=;
+        fh=tRV018Pt8xM0KG2h7Z6Zzk0bH5cM1PAg3NZLZdfW8CI=;
+        b=juGx5lqF1cQ5YohQ+Kn7leDlR7y/miwQ5jq5qK1Ul2BFZIKZZydlAc3/sCBtNZJMuV
+         7IQ7w/QaI1dSccK+7UCEqvfu0zayU5ox7hOqOuaHsDkL0Kvc8Kz4fe5kK2FCBipCytrV
+         bbN0XT+GHRdqSjoTKLMxur1IElkNDXrSDDGMT3XcxMiwtmDKzI7DCbxti9Hkxc8MWkEa
+         ud45Dwr3enNtJeYTDF0uf29aNP2Py3KKGkzMn7LUl/8NHqd/n8hnRzodrXT56Boy5mOk
+         8fvzfU1pypsq/WwlA25Bo9++SdmP7Zwk1Pi1Emwe3lNC2QYL0IrMdV876/vNaDphtQns
+         Hf+Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795467931; x=1796072731; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VtSta76K0DhmEm+a+Fx+3wCOoe6ARhPuKaUdQkwi8Y8=;
+        b=zGGalddFvYP7BCevKmOSQIJR0BADVJZWfKfoCqHYdUCKUn7eO7sv/DcYTsqsAHNFt9
+         oIM7jtIFQ4TutDk8AvY87WO5fMbo8nsnkNJZmnrxJrVPulsxru1XJ4h11yLAS4V1/SI7
+         93YYrOiYE1uENsPTMYacIYdTeCQjy8hM5ntNhFjroGihGWvSDLoeVnJTaPligx8LxQam
+         tkBL6PMk3tpnh9pRnIrAN78diJDZybSsCdlyCLoqcz9cukcJm3c4S8A5uBrceMe3nO6S
+         RGZI4kvCf+ZHMxzE0azXEQOPZ1Ys7uri6rAtPHlM4GQb0+P8BhhK6cNLwYS5qvwlvqEi
+         k2Cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795467931; x=1796072731;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VtSta76K0DhmEm+a+Fx+3wCOoe6ARhPuKaUdQkwi8Y8=;
+        b=uIqaH+XYD8L6vHGLl0UMaV4JhxV7O16agEjTcoqaktt+A+hY8s+36ySRSi1XAbSnKa
+         pRWq8PwoHlTSEpqteRavn66hFiaUAAe9v9yui8/TS9kaYvjsfZsqX5PUxnDPHu1UVOJw
+         1faalQ04ShjbxmxYOBmFZqs6iF3R2qOJdLL6rV/wUd14jC2Bw5YYe6BDQzlbHxpO3FT5
+         7AY7c1lAxJSzprwE1YTn40kR5maH4F1Y2tlU8ZX7I/pYiH48GVdMYnjHBKnRsyFViKeR
+         xK3nZ9VDzcwUXtl0TP1JA2Vchb63ZgfRSWEi5+0l+60CPPEkf9rTshLkW1fbYiqzl8eg
+         rGDA==
+X-Forwarded-Encrypted: i=1; AL+hErFoQYVbnlaFY5gz9x3CHcl/5ZIuruX3QN14P42QvLf8ZcJj1PZLAvwZSiDRXhSVxVClIBH09Jafbn2Cdzg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8v1xCCKm3kN0URsZGczKQn/+bOvOj8bWofkMB4MwUcyVG6Gokx
+	b266ErZbQNIfTmQeCcQWgHobWWDqPoCYo4eKMwDfj3G+KHM1D22BLT2OcDCjl1mW8aThTNIvag5
+	OuUidma5b1XOBfmKybrklmPXCPEZtlmokOKMAt5I4gw==
+X-Gm-Gg: AZFdTZd+eh5cODgHGwCoU8Ljbuso1OmJsrW5cflOwVPaNK+3kmd7tInnC6kIQoOG4yC
+	+HCFx3eK7VfrghpbncW2eBU4aE3VPSShshBUjGNGlMyy7MxaS1XlfxSfAL4a1+uHv1Zt43zbRH4
+	M5XuyPsynRb2jd2a3aezoXJJRTI0+PZK/joOX3FTQUoDzkSufR5PJ6CX3cUv0HZ2VswG3sM+Pqr
+	xQPiD377zLwwPfknxD0W2UnGFz+BAuaSjMV4M4EsldcSO+7ta19QwFNRltbx5IB3olg8YIuccsx
+	xiwVLa/OJBvc4qKD0YEAcHi8gFtuR2+n3fN4FIashdo6cBkjzXzwStJk3zewLmDS/smjJaSUSQp
+	v415im9i9RWckYDIiCjUi+AmCSOFvtVuiw/h5lNQpz1sogUSeJh09
+X-Received: by 2002:a17:90b:2b50:b0:3b0:9a1b:b708 with SMTP id
+ 98e67ed59e1d1-3b41c98245cmr11402649a91.62.1795467930592; Mon, 23 Nov 2026
+ 13:05:30 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,85 +104,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-6572-nvmem-v6-3-7ba710b15657@protonmail.com>
-References: <20261123-6572-nvmem-v6-0-7ba710b15657@protonmail.com>
-In-Reply-To: <20261123-6572-nvmem-v6-0-7ba710b15657@protonmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Lala Lin <lala.lin@mediatek.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795467904; l=1989;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=wvU1NPRqy3lUR7AfJOi5v05HYuK5G0Upeyo71cnpGfs=;
- b=dINnKayKiufmwMGlbu1UkXsdVD7HlPGdUOWY7gX2+5TMwc/36W3OembB361yATvx2DZ7/2qIY
- wXGadnGV/0oCo5ZakANtiWWTWJprfZK6OVFVShLLOkY0inSc8B4dlHO
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
-Reply-To: rva333@protonmail.com
-Content-Transfer-Encoding: 7bit
+References: <20261112205228.42630-1-pmazzini@gmail.com> <20261112205228.42630-2-pmazzini@gmail.com>
+ <9bd10826-7684-462a-808b-91b72c9d5689@roeck-us.net> <awSmYnfbVnjnSwNB@lizhi-Precision-Tower-5810>
+In-Reply-To: <awSmYnfbVnjnSwNB@lizhi-Precision-Tower-5810>
+From: Pablo Mazzini <pmazzini@gmail.com>
+Date: Mon, 23 Nov 2026 21:04:47 +0000
+X-Gm-Features: Aa3M54rQKL8p1RMTDp94rq8cRMTWaP5id1ZTML445APcrBI-bARIJu24uS0qbcg
+Message-ID: <CAAxh=juHWgAnDTBiu0oM7TEpGxMV7LoK9wnHqbfXPGPpJx0VKg@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] hwmon: sy7636a: read the temperature only while
+ the rails are on
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Guenter Roeck <linux@roeck-us.net>, Alistair Francis <alistair@alistair23.me>, 
+	Andreas Kemnade <andreas@kemnade.info>, Mark Brown <broonie@kernel.org>, linux-hwmon@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Roman Vivchar <rva333@protonmail.com>
+On Mon, Nov 23, 2026 at 03:47:30PM -0500, Frank Li wrote:
+> Do you meand depend on CONFIG_MFD_SY7636A=3Dy
 
-MediaTek SoCs are often released under the same marketing name, but with
-different suffix for the speedbin. For example, mt6572m has 1 GHz limit,
-mt6572a - 1.2 GHz, mt6572w - 1.4 GHz.
+Hi Frank,
 
-Since CPU speedbin is stored as a number in the efuse, similar to GPU,
-rename mtk_efuse_gpu_speedbin_pp() to mtk_efuse_speedbin_pp() and add
-check for cpu-speedbin node to fixup the value for supported-hw usage in
-OPP tables.
+2/2 depends on 5f828ac25ef9 ("regulator: sy7636a: bind to the I2C
+device directly") in Mark's regulator for-7.5, which removes
+MFD_SY7636A.
 
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
- drivers/nvmem/mtk-efuse.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+Thanks,
+Pablo
 
-diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
-index 980c29d01337..2c09649ce7f9 100644
---- a/drivers/nvmem/mtk-efuse.c
-+++ b/drivers/nvmem/mtk-efuse.c
-@@ -59,8 +59,8 @@ static int mtk_reg_read(void *context,
- 	return 0;
- }
- 
--static int mtk_efuse_gpu_speedbin_pp(void *context, const char *id, int index,
--				     unsigned int offset, void *data, size_t bytes)
-+static int mtk_efuse_speedbin_pp(void *context, const char *id, int index,
-+				 unsigned int offset, void *data, size_t bytes)
- {
- 	u8 *val = data;
- 
-@@ -76,13 +76,14 @@ static void mtk_efuse_fixup_dt_cell_info(struct nvmem_device *nvmem,
- 	size_t sz = strlen(cell->name);
- 
- 	/*
--	 * On some SoCs, the GPU speedbin is not read as bitmask but as
-+	 * On some SoCs, the CPU/GPU speedbin is not read as bitmask but as
- 	 * a number with range [0-7] (max 3 bits): post process to use
- 	 * it in OPP tables to describe supported-hw.
- 	 */
- 	if (cell->nbits <= 3 &&
--	    strncmp(cell->name, "gpu-speedbin", min(sz, strlen("gpu-speedbin"))) == 0)
--		cell->read_post_process = mtk_efuse_gpu_speedbin_pp;
-+	    (strncmp(cell->name, "gpu-speedbin", min(sz, strlen("gpu-speedbin"))) == 0 ||
-+	     strncmp(cell->name, "cpu-speedbin", min(sz, strlen("cpu-speedbin"))) == 0))
-+		cell->read_post_process = mtk_efuse_speedbin_pp;
- }
- 
- static int mtk_efuse_probe(struct platform_device *pdev)
-
--- 
-2.56.1
-
-
+On Mon, Nov 23, 2026 at 8:47=E2=80=AFPM Frank Li <Frank.li@oss.nxp.com> wro=
+te:
+>
+> On Sat, Nov 14, 2026 at 08:33:47AM -0800, Guenter Roeck wrote:
+> > On Thu, Nov 12, 2026 at 08:52:27PM +0000, Pablo Mazzini wrote:
+> > > The driver enables VCOM at probe, which keeps the panel's high voltag=
+e
+> > > rails on for good. Read the temperature only while the rails are on, =
+when
+> > > the chip samples it, and return -ENODATA otherwise. Read power good w=
+ith
+> > > it in one transfer, so the value can not be from before the first sam=
+ple
+> > > or after the rails went off.
+> > >
+> > > Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> >
+> > This patch depends on the rest of the patch series, so I can not apply =
+it
+> > to a hwmon branch. Assuming it will be applied to some other branch,
+>
+> Guenter:
+>
+> Do you meand depend on CONFIG_MFD_SY7636A=3Dy
+> https://lore.kernel.org/all/20261112205228.42630-3-pmazzini@gmail.com/
+>
+> Frank
+>
+> >
+> > Acked-by: Guenter Roeck <linux@roeck-us.net>
+> >
+> > Thanks,
+> > Guenter
+> >
+> > > ---
+> > >  drivers/hwmon/sy7636a-hwmon.c | 35 ++++++++++++++++++++++++---------=
+--
+> > >  1 file changed, 24 insertions(+), 11 deletions(-)
+> > >
+> > > diff --git a/drivers/hwmon/sy7636a-hwmon.c b/drivers/hwmon/sy7636a-hw=
+mon.c
+> > > index a0d0b4119bb3..a8bfbf1716a1 100644
+> > > --- a/drivers/hwmon/sy7636a-hwmon.c
+> > > +++ b/drivers/hwmon/sy7636a-hwmon.c
+> > > @@ -9,26 +9,43 @@
+> > >   */
+> > >
+> > >  #include <linux/auxiliary_bus.h>
+> > > +#include <linux/bits.h>
+> > >  #include <linux/err.h>
+> > >  #include <linux/hwmon.h>
+> > >  #include <linux/module.h>
+> > >  #include <linux/regmap.h>
+> > > -#include <linux/regulator/machine.h>
+> > >
+> > > -#define SY7636A_REG_TERMISTOR_READOUT      0x08
+> > > +#define SY7636A_REG_FAULT_FLAG             0x07
+> > > +#define SY7636A_FAULT_FLAG_PG              BIT(0)
+> > >
+> > >  static int sy7636a_read(struct device *dev, enum hwmon_sensor_types =
+type,
+> > >                     u32 attr, int channel, long *temp)
+> > >  {
+> > >     struct regmap *regmap =3D dev_get_drvdata(dev);
+> > > -   int ret, reg_val;
+> > > -
+> > > -   ret =3D regmap_read(regmap,
+> > > -                     SY7636A_REG_TERMISTOR_READOUT, &reg_val);
+> > > +   u8 buf[2];
+> > > +   int ret;
+> > > +
+> > > +   /*
+> > > +    * The thermistor is sampled while ON_OFF is set, but the first s=
+ample
+> > > +    * is only ready after the ADC sampling and conversion time (ADC_=
+SPL +
+> > > +    * ADC_DEL in the datasheet); until then it holds its reset value=
+, 0.
+> > > +    * PG is only set once all rails are up, after the first sample, =
+so
+> > > +    * read it in the same transfer and report the temperature only w=
+hile
+> > > +    * it is set.
+> > > +    *
+> > > +    * With ON_OFF set but PG low (rails still ramping up, or a fault=
+), no
+> > > +    * temperature is reported even if one may be available. That is
+> > > +    * accepted: the display driver reads the temperature only while =
+it
+> > > +    * holds the rails on, after power good.
+> > > +    */
+> > > +   ret =3D regmap_bulk_read(regmap, SY7636A_REG_FAULT_FLAG, buf, siz=
+eof(buf));
+> > >     if (ret)
+> > >             return ret;
+> > >
+> > > -   *temp =3D reg_val * 1000;
+> > > +   if (!(buf[0] & SY7636A_FAULT_FLAG_PG))
+> > > +           return -ENODATA;
+> > > +
+> > > +   *temp =3D (s8)buf[1] * 1000;
+> > >
+> > >     return 0;
+> > >  }
+> > > @@ -72,10 +89,6 @@ static int sy7636a_sensor_probe(struct auxiliary_d=
+evice *adev,
+> > >     if (!regmap)
+> > >             return -ENODEV;
+> > >
+> > > -   err =3D devm_regulator_get_enable(&adev->dev, "vcom");
+> > > -   if (err)
+> > > -           return err;
+> > > -
+> > >     hwmon_dev =3D devm_hwmon_device_register_with_info(&adev->dev,
+> > >                                                      "sy7636a_tempera=
+ture", regmap,
+> > >                                                      &sy7636a_chip_in=
+fo, NULL);
