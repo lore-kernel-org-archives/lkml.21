@@ -1,109 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.152.102
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443947;
-	b=kPPY5S2dYerEjktk19YZnWYn/+Yj5OALGGHnxjhpbmOq/QsnNqdDX/P23YTY1aQ3k5gx
-	 WVgHFzjvlpeFFUU1r2i/9HJNbIwt61ZaaxYYS9Gzb4z358VPhNFJ2tVjSALouK5Ck+YtP
-	 33DcWGOm2e0s/oI8zHUQKH0hNSGfmQWCy6PaeDJNWB81fi5MTii4jPD3jeliB0Z8WNoHI
-	 +K8ZDUyXcM5l7cGtWTcyEzHmGcwc+MtF8P7CdS7OMwsvftcGr9gq8lFhM36WCnpAZ9QFW
-	 fpSDJwV1NO6vtfdYJXXJCHX7li1OR/cUbIaI16BnCjnaiWH3OMZGOGnc6SRNDm2NZiA==
+	t=1795443969;
+	b=dA+sxjfJF4GD33alyn2a2z38NgC48Zcb8kEUdLsayNRVauqJL4IZrxfwjLie2ieAT2Qw
+	 33mz2EH3nfr4ENoWgztuyPVG1RaZwopNWBRxNfoaR9QJXZXG1V0TZuIhJLDnrNnrFrdW8
+	 RNTFM8pX0ap7TWIgSKiIz5OnPe+9V1iwP8Frz52U3BTpddApXws/NEvzsiNOO4VzLrY7R
+	 GCoXZelzJFo3VT5HOJ2Wuyb40dvmbqHbFCwtW8E4/be339WZDUjJVZhhdQCJmqLTioKgx
+	 Ygq/KuaRXY9NTV02R0wzf6Pkw/GNjfx5H6A2lWSKkvZm15V9P5styTl8+Rc4YoMH4Nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443947;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443969;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Message-Instance:
+	 DKIM2-Signature:Message-ID:Date:MIME-Version:User-Agent:Subject:From:
+	 To:Cc:References:Content-Language:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-	b=2FL7afJVYEq1zJE8Z+aV02wGJdYlcCjpJIboRp2J+O5UC+aMyUydUiGSaSUDh/LbW6TK
-	 XlIyxS6OCNOWxb5S4mbmJmcK87EwMZzFduJllvRyzte01n2dJ2ekKTw0jJz6YCSgPsCUk
-	 0Qll5nGpc5CQNV3/rIYi0z+hJBTL+6EZhcv/ostAGFLgJf65hiXwZTwm93HQBsQJKreJh
-	 Xfu/b5Co20XaCPN36/3ZtV9QI32AV+mmUhvU0lR500DHip/ysu/RlOL/W+4sZ4OTipX+l
-	 ad7UiBUGCFl2NG1b1IeTQqbAEr5m2QwUOg7Wo+4JNc7NcwPM+0kYtEIBom8oURnAqCg==
+	bh=m6ZL85qDqROHfBDfZHmJj5m2T7lX+dzbBLT7Mr6s8d8=;
+	b=t5R9K6VMMfYlPehqyCZevs3ls1NdLW4Wx1dgahcubZjQiOv+sWXEl+CqvCnM7SwPQQwR
+	 3+k+elIjF/9qvOuK8DNK2C+MUqm52hvQT4sICeOiyB/xjx8CBDHQ4ogyP/q6Aq1LAk4cp
+	 4zBYbDipfp7BXwUefo5uwSB8CsG9S2Crxw5neWD53IsuQDHdFfNCxwtLsDpxacvgtoKOy
+	 +baktFeOKAiignCigIBjavAHZNgmm1oxEBHkUJpEO4PqORrcHzIozaXrd1jLmJSbCZaUT
+	 IOSfnYwJtoddAqOo1yoXsDlJkxD7+2/iFfFkfET6KX7ChCaSQHgfbigfX7MAItC7cGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LgXvSsKl;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EyCeo9KV;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=damsy.net;
+	spf=pass smtp.mailfrom=damsy.net;
+	dkim=pass header.d=damsy.net header.i=@damsy.net header.a=ed25519-sha256 header.s=v1-ed25519-20261120 header.b=GrvnzDMV;
+	dkim=pass header.d=damsy.net header.i=@damsy.net header.a=rsa-sha256 header.s=v1-rsa-20261120 header.b=mSModElg;
+	arc=none smtp.remote-ip=51.159.152.102
+Received: from jeth.damsy.net (jeth.damsy.net [51.159.152.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9312A606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:25:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9312A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EB64606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:26:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EB64606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=damsy.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=damsy.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LgXvSsKl;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EyCeo9KV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795443945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-	b=LgXvSsKlPakd7uYc27D7BnIE4UDFrHy1apvyc59uqVg2ei8HQ/bHLMtaf1GJOK48oltgO+
-	inL/abcbVyXSJc4u1bwTDqVDpeTbqVxfzFH9PqLxzkKdbGFc/atEsMBSL/D/AwMWwrEIT9
-	oatRVxCE8DNkt2uZ3f9bbbCXYCSXhq8=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-664-Afx_ZUezMfuK555Dh4mKfQ-1; Mon, 23 Nov 2026 14:25:43 +0000
-X-MC-Unique: Afx_ZUezMfuK555Dh4mKfQ-1
-X-Mimecast-MFC-AGG-ID: Afx_ZUezMfuK555Dh4mKfQ_1795443942
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4901562b819so2446894f8f.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:25:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795443942; x=1796048742; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-        b=EyCeo9KVSS1jJ8bnW9XNbLBiaXRazjmE+WmLAfyf0V+72j/WeGV9VkgW/NFdEoYDAv
-         ORskZH889xizBAzTBpBE0oeXHTi7WK/HVKKAzqVLkMNS4SFAIjpkH5lQp2WUhOwcj6w2
-         U+68g6SlVLmQQSVG1B/GNX3jmbrdCil4BWXCROKK7fpzfYPy7uMgdJe9GjrTbhzeeK/P
-         p4RcEqUPgFtGzS/7Ria+0136rvsd06Bid2RFCswDyUcBQNRS4GWqMJ+lVxcipKuZwFzs
-         jAUWWrXeqQysb19AeRl5dq1+VbBViLB6bZiEpAEq1sKBR+LFvPoI0QvRVzvOc23WlG0g
-         8sDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443942; x=1796048742;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
-        b=R4+czqy2FnUGBPhT9gWkJd3wZjB4xjaHPoxcAaJvOyD43KHyVFMf8aYil2Ybjmt89v
-         4mSC64uuCqhk1hKARiRwblyDRHQAqqCSSmNthnuurlaaJrY8i2utmdG2JX4WpTwhILLx
-         lXXxn5ygiJlfaJvY7jk3DnaGzgExtE4d0sPiZog5tq9/svfxXullZLp7jRPGOSj9oKvl
-         St02iLzwET53IJTdN7cAcG78MaTluqNmJPoaNucV/OHzFKhKB4iFfFcV5Xz6N8OWKIKH
-         56qIC8aa64k9efI2jzc4Ppsk+VQMriVAvV/8qI5okYpm4tgShozhszP4aHTl31rb8ucf
-         Smcw==
-X-Forwarded-Encrypted: i=1; AL+hErHiY2FZsr5t7cTn8ESHc0B5v0hW2nJE7Mti//Qw6eh/pnPbQKr6B9JEgKDJ4PALWoBhhGhm2qMEQ0O2CT0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96d/B+uExEEe/1THsCNcvUmLC5crMQ4jcYJR5lZFXqn0Le84lp
-	PW+6F7kSFLW4mNyOHP904ADrFV5qcx6GJQzam8/zQxsF7kBsi08JjoNr8kzjWikCD8vaXsgGcRU
-	GxarPaf4a64H299RicRCIoU3xtZDf58qRr/PIZlQXwmA5mIxsPmGLzcTGJudJD3/0PZAC3oQSOg
-	==
-X-Gm-Gg: AZFdTZe31gefl8YmxOhvbgZxa6L1d3Mqj0kuB7tz7kfzdKUB+lB2wHC0jfioVCDSaRp
-	ZgxwC2t/a7Jd/rrvvdj7q7yvvI8cOF74TzM2u3jrT81CmydwEskR+vgpWAVnVkVVCkcY5sqNRWw
-	1I3zBAiwTtA2B7x1+1DLE0KKZRvJ9rE3iqiT7b3fEr7+R9o4xq5Y6Bb3L3Eyvt4fGizCUfD7VVN
-	nNrp2TWofZJSuRLlmjHixbnZPk9jA3aBtI2RIjw8+Pud1i1WiJABPcp0/yomleIX4pxvyccGvly
-	u605va37fZeuLyowiGV6TI2sky90I2fErd8hEnfzh4IZgAGkPNPAgld615t7eZBjNWEwd7H8rdT
-	04h3aCJxVhQm6612xs+mNrsWayla16b0GFGVnKJqTzzmBxzEKoviWACo5bwkplA0k00F7kSqdD2
-	nf/w6wWkEx2KJYfrsMknlw3Rg3sn243IsJxqGbfoRiYK5C
-X-Received: by 2002:a05:6000:1a86:b0:4ad:d65:aaf9 with SMTP id ffacd0b85a97d-4ad0d65afa1mr22673182f8f.56.1795443941783;
-        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
-X-Received: by 2002:a05:6000:1a86:b0:4ad:d65:aaf9 with SMTP id ffacd0b85a97d-4ad0d65afa1mr22673141f8f.56.1795443941433;
-        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989b3sm22660754f8f.51.2026.11.23.06.25.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
-Message-ID: <e6811e96-20df-49fd-a5b9-d343047dbd7b@redhat.com>
-Date: Mon, 23 Nov 2026 15:25:40 +0100
+	dkim=pass header.d=damsy.net header.i=@damsy.net header.a=ed25519-sha256 header.s=v1-ed25519-20261120 header.b=GrvnzDMV;
+	dkim=pass (2048-bit key) header.d=damsy.net header.i=@damsy.net header.a=rsa-sha256 header.s=v1-rsa-20261120 header.b=mSModElg
+DKIM-Signature: v=1; a=ed25519-sha256; s=v1-ed25519-20261120; d=damsy.net; c=relaxed/relaxed; r=y;
+	h=To:From:Subject:Date:Message-ID; t=1795443954; bh=m6ZL85qDqROHfBDfZHmJj5m
+	2T7lX+dzbBLT7Mr6s8d8=; b=GrvnzDMVzHwTJENHhl9YF4IuojoumiLhMNufzSbu8zAlydwVYe
+	GloICIIT5seY5WDl6u7td5nduFvJS0K3HVAg==;
+DKIM-Signature: v=1; a=rsa-sha256; s=v1-rsa-20261120; d=damsy.net; c=relaxed/relaxed; r=y;
+	h=To:From:Subject:Date:Message-ID; t=1795443954; bh=m6ZL85qDqROHfBDfZHmJj5m
+	2T7lX+dzbBLT7Mr6s8d8=; b=mSModElgg2F1e8cl1Rh+mTh2gc6lLfTbNYI1II+1jTN1NidMRG
+	iIy2cGPuEFdezL2fhpQD9cSjRDBNnWCLzevEMp+GEOQGCM1wGaWwLjnSM9FYOkS0bWHLhJa0SX6
+	bgTzK6xqggPhjSbigyj2RMFs1nnR9MMjeovkUzN7d3SV0cYPukGunzWhzMepy/FA/Cr2QEbhmv2
+	Tw80LT4ZlPktD6qrk42hbOwz1GkB8PzOR7+PLxyXwLvhQkOMi+s6xcuo2DJ6VjrKbSqXxThh2pD
+	0F3iF7/sjweCtIMKJsnqhDZwGCcMekFJIIj5VwONCFK1nBEQqH+v8OKMFuoO5kxIwqA==;
+Message-Instance: m=1; h=sha256:oqxWSmzAOv6kdpoKFPJBXAgVUsge4LBZ4FtcBMJk
+	11M=:NhUOUUa9jR1dBGRdmqoEk5p0nGV2nkUxGi33JXGM9qk=;
+DKIM2-Signature: i=1; m=1; t=1795443954; d=damsy.net; mf=PHBpZXJyZS1lcmlj
+	QGRhbXN5Lm5ldD4=; rt=PGFsZXhhbmRlci5kZXVjaGVyQGFtZC5jb20+,PGNocmlzdGlhbi5r
+	b2VuaWdAYW1kLmNvbT4=,PEZlbGl4Lkt1ZWhsaW5nQGFtZC5jb20+,PHBpZXJyZS1lcmljLnBl
+	bGxvdXgtcHJheWVyQGFtZC5jb20+,PHNpbW9uYUBmZndsbC5jaD4=,PGFpcmxpZWRAZ21haWwu
+	Y29tPg==,PGFtZC1nZnhAbGlzdHMuZnJlZWRlc2t0b3Aub3JnPg==,PGRyaS1kZXZlbEBsaXN0
+	cy5mcmVlZGVza3RvcC5vcmc+,PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+; s=
+	v2-mldsa44-20261103:mldsa44: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
+	AAAAAAAAABAoNkc=|v2-ed25519-20261120:ed25519-sha256:8bH7LoI7NgAb/qa7rP+z
+	y7/zGxtsxC6PF7bfoMb2nuZ+lJ3dgm2/yoI8THjO3+JH8GTBNZcZ2LbC3IOSESNxCA==|
+	v2-rsa-20261120:rsa-sha256:e17Fh/Dmr99Em+ueQt5Ljxpj3O8K+qQcb9jLvET4yWRY/E42
+	4qXsq/mmy7mUDsR3wUOmlAREGxm3HcoPj225lmKE4jvKy/epX5nrXbY95rbwy5/8Jh5tVBTf
+	aDyjDBJdqLmgTCE8H/fr2r2d1LpyWOyVaimG4RbMORsxGavNqB51m0LgJwXjvVMou/cKpkSE
+	wKhZym4AzxiXWJ+rn1jVqsQHuaXzR6+o6S7lR3WBkBWONTCwjQX9SPfw+oz+lrKbGuqlIgth
+	DgN2kS3x3f92OU2oc1eTbCO519qo3TOpF4AyljVuDhhQQWVuUzC782ckkAmFt7epImcbpRUL
+	vozqSA==;
+Message-ID: <60f901b7-018c-485d-9e9a-42e73adcd4f7@damsy.net>
+Date: Mon, 23 Nov 2026 15:25:53 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,36 +120,459 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] mctp: i3c: Fix potential thread leak on registration
- failure
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>,
- Jeremy Kerr <jk@codeconstruct.com.au>,
- Matt Johnston <matt@codeconstruct.com.au>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
+Subject: Re: [PATCH v4 4/6] drm/amdgpu: handle gpu_recovery per device
+From: Pierre-Eric Pelloux-Prayer <pierre-eric@damsy.net>
+To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>,
+ Alex Deucher <alexander.deucher@amd.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Felix Kuehling <Felix.Kuehling@amd.com>
+Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20261109171333.4329-1-pierre-eric.pelloux-prayer@amd.com>
+ <20261109171333.4329-4-pierre-eric.pelloux-prayer@amd.com>
+ <21061e43-992f-42e4-a030-a2bf243ee70e@amd.com>
+ <41db4e73-7b1f-434c-b6f7-ccf51596ecb4@damsy.net>
+Content-Language: fr
+In-Reply-To: <41db4e73-7b1f-434c-b6f7-ccf51596ecb4@damsy.net>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/17/26 15:48, Guangshuo Li wrote:
-> mctp_register_netdev() can fail before netdev registration begins,
-> leaving the TX thread and bus list entry allocated. The error path
-> assumes ndo_uninit has already cleaned them up.
-> 
-> Always clean up on registration failure. Make bus cleanup idempotent
-> because later registration failures can already have called ndo_uninit.
-> 
-> This issue was found by our static analysis tool under development.
-> 
-> Fixes: c8755b29b58e ("mctp i3c: MCTP I3C driver")
-> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-Issues in error paths in device init/shutdown existing since the
-beginning don't qualify for 'net' target. Applying to net-next.
 
-/P
+
+Le 10/11/2026 à 14:02, Pierre-Eric Pelloux-Prayer a écrit :
+> 
+> 
+> Le 10/11/2026 à 10:07, Christian König a écrit :
+>> On 11/9/26 18:13, Pierre-Eric Pelloux-Prayer wrote:
+>>> Instead of having a module wide parameter, store gpu_recovery
+>>> in amdgpu_device. Its initial value is based on the boot param
+>>> and it can be overridden by writing to the existing
+>>> amdgpu_gpu_recover debugfs file, so a single device can have
+>>> auto-recovery disabled without affecting every other GPU in the
+>>> system.
+>>>
+>>> amdgpu_device_should_recover_gpu() now only consider this param.
+>>>
+>>> Assisted-by: LLM
+>>> Signed-off-by: Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux- 
+>>> prayer@amd.com>
+>>> ---
+>>>   drivers/gpu/drm/amd/amdgpu/amdgpu.h           | 11 ++-
+>>>   drivers/gpu/drm/amd/amdgpu/amdgpu_device.c    | 92 +++++++++----------
+>>>   drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c     | 21 ++++-
+>>>   drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c       |  4 +-
+>>>   drivers/gpu/drm/amd/amdgpu/amdgpu_job.c       |  6 +-
+>>>   drivers/gpu/drm/amd/amdgpu/amdgpu_sdma.c      |  4 +-
+>>>   drivers/gpu/drm/amd/amdgpu/amdgpu_userq.c     |  4 +-
+>>>   drivers/gpu/drm/amd/amdgpu/mxgpu_vi.c         |  2 +-
+>>>   drivers/gpu/drm/amd/amdgpu/soc15.c            |  2 +-
+>>>   .../drm/amd/amdkfd/kfd_device_queue_manager.c |  6 +-
+>>>   10 files changed, 81 insertions(+), 71 deletions(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu.h b/drivers/gpu/drm/ 
+>>> amd/amdgpu/amdgpu.h
+>>> index 5a32b54b1e9b..a486ac746a5b 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu.h
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu.h
+>>> @@ -982,6 +982,9 @@ struct amdgpu_device {
+>>>       struct amdgpu_uma_carveout_info uma_info;
+>>> +    /* Per device gpu_recovery setting. 0 means disabled. */
+>>> +    unsigned int gpu_recovery;
+>>> +
+>>>       /* KFD
+>>>        * Must be last --ends in a flexible-array member.
+>>>        */
+>>> @@ -1195,7 +1198,6 @@ int emu_soc_asic_init(struct amdgpu_device *adev);
+>>>   /* Common functions */
+>>>   bool amdgpu_device_has_job_running(struct amdgpu_device *adev);
+>>> -bool amdgpu_device_should_recover_gpu(struct amdgpu_device *adev);
+>>>   int amdgpu_device_gpu_recover(struct amdgpu_device *adev,
+>>>                     struct amdgpu_job *job,
+>>>                     struct amdgpu_reset_context *reset_context);
+>>> @@ -1323,9 +1325,14 @@ int amdgpu_device_set_cg_state(struct 
+>>> amdgpu_device *adev,
+>>>   int amdgpu_device_set_pg_state(struct amdgpu_device *adev,
+>>>                      enum amd_powergating_state state);
+>>> +static inline bool amdgpu_device_should_recover_gpu(struct 
+>>> amdgpu_device *adev)
+>>> +{
+>>> +    return adev->gpu_recovery != 0;
+>>> +}
+>>> +
+>>>   static inline bool amdgpu_device_has_timeouts_enabled(struct 
+>>> amdgpu_device *adev)
+>>>   {
+>>> -    return amdgpu_gpu_recovery != 0 &&
+>>> +    return amdgpu_device_should_recover_gpu(adev) &&
+>>>           adev->gfx_timeout != MAX_SCHEDULE_TIMEOUT &&
+>>>           adev->compute_timeout != MAX_SCHEDULE_TIMEOUT &&
+>>>           adev->sdma_timeout != MAX_SCHEDULE_TIMEOUT &&
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c b/drivers/ 
+>>> gpu/drm/amd/amdgpu/amdgpu_device.c
+>>> index 730e9e93d078..a812551b353f 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+>>> @@ -3762,6 +3762,45 @@ 
+>>> amdgpu_device_should_register_switcheroo(struct amdgpu_device *adev, 
+>>> bool px)
+>>>                  apple_gmux_detect(NULL, NULL)));
+>>>   }
+>>> +static void amdgpu_device_init_gpu_recovery(struct amdgpu_device *adev)
+>>> +{
+>>> +    adev->gpu_recovery = 0;
+>>> +
+>>> +    if (amdgpu_gpu_recovery == 0)
+>>> +        return;
+>>> +
+>>> +    /* Skip soft reset check in fatal error mode */
+>>> +    if (!amdgpu_ras_is_poison_mode_supported(adev) ||
+>>> +        amdgpu_sriov_vf(adev)) {
+>>> +        adev->gpu_recovery = adev->gpu_recovery > 0 ?
+>>> +            adev->gpu_recovery :-1;
+>>> +    } else if (amdgpu_gpu_recovery == -1) {
+>>> +        switch (adev->asic_type) {
+>>> +#ifdef CONFIG_DRM_AMDGPU_SI
+>>> +        case CHIP_VERDE:
+>>> +        case CHIP_TAHITI:
+>>> +        case CHIP_PITCAIRN:
+>>> +        case CHIP_OLAND:
+>>> +        case CHIP_HAINAN:
+>>> +#endif
+>>> +#ifdef CONFIG_DRM_AMDGPU_CIK
+>>> +        case CHIP_KAVERI:
+>>> +        case CHIP_KABINI:
+>>> +        case CHIP_MULLINS:
+>>> +#endif
+>>> +        case CHIP_CARRIZO:
+>>> +        case CHIP_STONEY:
+>>> +        case CHIP_CYAN_SKILLFISH:
+>>> +            return;
+>>
+>>
+>> Hui? We have recovery disabled by default for those devices?
+> 
+> Yes, this commit doesn't change the existing logic.
+
+Christian: are there any further changes I should implement?
+
+
+> 
+>>
+>>> +        default:
+>>> +            adev->gpu_recovery = 1;
+>>> +            break;
+>>> +        }
+>>> +    } else {
+>>> +        adev->gpu_recovery = amdgpu_gpu_recovery;
+>>> +    }
+>>> +}
+>>> +
+>>>   /**
+>>>    * amdgpu_device_init - initialize the driver
+>>>    *
+>>> @@ -4109,6 +4148,8 @@ int amdgpu_device_init(struct amdgpu_device *adev,
+>>>           }
+>>>       }
+>>> +    amdgpu_device_init_gpu_recovery(adev);
+>>> +
+>>>   fence_driver_init:
+>>>       /* Fence driver */
+>>>       r = amdgpu_fence_driver_sw_init(adev);
+>>> @@ -4894,57 +4935,6 @@ bool amdgpu_device_has_job_running(struct 
+>>> amdgpu_device *adev)
+>>>       return false;
+>>>   }
+>>> -/**
+>>> - * amdgpu_device_should_recover_gpu - check if we should try GPU 
+>>> recovery
+>>> - *
+>>> - * @adev: amdgpu_device pointer
+>>> - *
+>>> - * Check amdgpu_gpu_recovery and SRIOV status to see if we should 
+>>> try to recover
+>>> - * a hung GPU.
+>>> - */
+>>> -bool amdgpu_device_should_recover_gpu(struct amdgpu_device *adev)
+>>> -{
+>>> -
+>>> -    if (amdgpu_gpu_recovery == 0)
+>>> -        goto disabled;
+>>> -
+>>> -    /* Skip soft reset check in fatal error mode */
+>>> -    if (!amdgpu_ras_is_poison_mode_supported(adev))
+>>> -        return true;
+>>> -
+>>> -    if (amdgpu_sriov_vf(adev))
+>>> -        return true;
+>>> -
+>>> -    if (amdgpu_gpu_recovery == -1) {
+>>> -        switch (adev->asic_type) {
+>>> -#ifdef CONFIG_DRM_AMDGPU_SI
+>>> -        case CHIP_VERDE:
+>>> -        case CHIP_TAHITI:
+>>> -        case CHIP_PITCAIRN:
+>>> -        case CHIP_OLAND:
+>>> -        case CHIP_HAINAN:
+>>> -#endif
+>>> -#ifdef CONFIG_DRM_AMDGPU_CIK
+>>> -        case CHIP_KAVERI:
+>>> -        case CHIP_KABINI:
+>>> -        case CHIP_MULLINS:
+>>> -#endif
+>>> -        case CHIP_CARRIZO:
+>>> -        case CHIP_STONEY:
+>>> -        case CHIP_CYAN_SKILLFISH:
+>>> -            goto disabled;
+>>> -        default:
+>>> -            break;
+>>> -        }
+>>> -    }
+>>> -
+>>> -    return true;
+>>> -
+>>> -disabled:
+>>> -        dev_info(adev->dev, "GPU recovery disabled.\n");
+>>> -        return false;
+>>> -}
+>>> -
+>>>   int amdgpu_device_mode1_reset(struct amdgpu_device *adev)
+>>>   {
+>>>       u32 i;
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c b/drivers/gpu/ 
+>>> drm/amd/amdgpu/amdgpu_fence.c
+>>> index bff2d38f3571..a8e23f4e8113 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c
+>>> @@ -980,9 +980,13 @@ static int amdgpu_debugfs_fence_info_show(struct 
+>>> seq_file *m, void *unused)
+>>>   }
+>>>   /*
+>>> - * amdgpu_debugfs_gpu_recover - manually trigger a gpu reset & recover
+>>> + * amdgpu_debugfs_gpu_recover - manually trigger a gpu reset & recover,
+>>> + * and control whether this device is allowed to auto-recover from a 
+>>> hang.
+>>>    *
+>>> - * Manually trigger a gpu reset at the next fence wait.
+>>> + * Read triggers a gpu reset at the next fence wait.
+>>> + *
+>>> + * Write 0/1 to disable/enable auto GPU recovery for this device
+>>> + * (equivalent to amdgpu.gpu_recovery=0, but scoped to this device 
+>>> only).
+>>>    */
+>>>   static int gpu_recover_get(void *data, u64 *val)
+>>>   {
+>>> @@ -1006,8 +1010,17 @@ static int gpu_recover_get(void *data, u64 *val)
+>>>       return 0;
+>>>   }
+>>> +static int gpu_recover_set(void *data, u64 val)
+>>> +{
+>>> +    struct amdgpu_device *adev = (struct amdgpu_device *)data;
+>>> +
+>>> +    adev->gpu_recovery = !!val;
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +
+>>>   DEFINE_SHOW_ATTRIBUTE(amdgpu_debugfs_fence_info);
+>>> -DEFINE_DEBUGFS_ATTRIBUTE(amdgpu_debugfs_gpu_recover_fops, 
+>>> gpu_recover_get, NULL,
+>>> +DEFINE_DEBUGFS_ATTRIBUTE(amdgpu_debugfs_gpu_recover_fops, 
+>>> gpu_recover_get, gpu_recover_set,
+>>>                "%lld\n");
+>>>   static void amdgpu_debugfs_reset_work(struct work_struct *work)
+>>> @@ -1042,7 +1055,7 @@ void amdgpu_debugfs_fence_init(struct 
+>>> amdgpu_device *adev)
+>>>       if (!amdgpu_sriov_vf(adev)) {
+>>>           INIT_WORK(&adev->reset_work, amdgpu_debugfs_reset_work);
+>>> -        debugfs_create_file("amdgpu_gpu_recover", 0444, root, adev,
+>>> +        debugfs_create_file("amdgpu_gpu_recover", 0644, root, adev,
+>>>                       &amdgpu_debugfs_gpu_recover_fops);
+>>
+>> You can also use debugfs_create_bool() here and drop the extra recover 
+>> fops.
+> 
+> We need a custom getter because it triggers the GPU recovery so 
+> debugfs_create_bool won't work.
+> 
+
+Christian: same question?
+
+Thanks,
+Pierre-Eric
+
+> 
+> Pierre-Erioc
+> 
+>>
+>> Apart from that looks good to me,
+>> Christian.
+>>
+>>>       }
+>>>   #endif
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c b/drivers/gpu/ 
+>>> drm/amd/amdgpu/amdgpu_gfx.c
+>>> index 0ae6e990c310..28f9048f806c 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c
+>>> @@ -2299,7 +2299,7 @@ static int 
+>>> amdgpu_gfx_sysfs_reset_mask_init(struct amdgpu_device *adev)
+>>>   {
+>>>       int r = 0;
+>>> -    if (!amdgpu_gpu_recovery)
+>>> +    if (!amdgpu_device_should_recover_gpu(adev))
+>>>           return r;
+>>>       if (adev->gfx.num_gfx_rings) {
+>>> @@ -2319,7 +2319,7 @@ static int 
+>>> amdgpu_gfx_sysfs_reset_mask_init(struct amdgpu_device *adev)
+>>>   static void amdgpu_gfx_sysfs_reset_mask_fini(struct amdgpu_device 
+>>> *adev)
+>>>   {
+>>> -    if (!amdgpu_gpu_recovery)
+>>> +    if (!amdgpu_device_should_recover_gpu(adev))
+>>>           return;
+>>>       if (adev->gfx.num_gfx_rings)
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_job.c b/drivers/gpu/ 
+>>> drm/amd/amdgpu/amdgpu_job.c
+>>> index 4d363bcfb6a5..16391cc2b9a5 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_job.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_job.c
+>>> @@ -111,7 +111,7 @@ static enum drm_gpu_sched_stat 
+>>> amdgpu_job_timedout(struct drm_sched_job *s_job)
+>>>       if (!amdgpu_sriov_vf(adev))
+>>>           amdgpu_job_core_dump(adev, job);
+>>> -    if (amdgpu_gpu_recovery &&
+>>> +    if (amdgpu_device_should_recover_gpu(adev) &&
+>>>           amdgpu_ring_is_reset_type_supported(ring, 
+>>> AMDGPU_RESET_TYPE_SOFT_RECOVERY) &&
+>>>           amdgpu_ring_soft_recovery(ring, job->vmid, s_job->s_fence- 
+>>> >parent)) {
+>>>           dev_err(adev->dev, "ring %s timeout, but soft recovered\n",
+>>> @@ -130,7 +130,7 @@ static enum drm_gpu_sched_stat 
+>>> amdgpu_job_timedout(struct drm_sched_job *s_job)
+>>>       }
+>>>       /* attempt a per ring reset */
+>>> -    if (amdgpu_gpu_recovery &&
+>>> +    if (amdgpu_device_should_recover_gpu(adev) &&
+>>>           amdgpu_ring_is_reset_type_supported(ring, 
+>>> AMDGPU_RESET_TYPE_PER_QUEUE) &&
+>>>           ring->funcs->reset) {
+>>>           dev_err(adev->dev, "Starting %s ring reset\n",
+>>> @@ -152,7 +152,7 @@ static enum drm_gpu_sched_stat 
+>>> amdgpu_job_timedout(struct drm_sched_job *s_job)
+>>>       }
+>>>       /* Attempt an IP block soft reset, if supported. */
+>>> -    if (amdgpu_gpu_recovery &&
+>>> +    if (amdgpu_device_should_recover_gpu(adev) &&
+>>>           amdgpu_ring_is_reset_type_supported(ring, 
+>>> AMDGPU_RESET_TYPE_IP_BLOCK_SOFT_RESET)) {
+>>>           r = amdgpu_device_ip_soft_reset(ring, job->hw_fence);
+>>>           if (!r) {
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_sdma.c b/drivers/gpu/ 
+>>> drm/amd/amdgpu/amdgpu_sdma.c
+>>> index 87ecbd429f95..8da7c8e91e25 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_sdma.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_sdma.c
+>>> @@ -454,7 +454,7 @@ int amdgpu_sdma_sysfs_reset_mask_init(struct 
+>>> amdgpu_device *adev)
+>>>   {
+>>>       int r = 0;
+>>> -    if (!amdgpu_gpu_recovery)
+>>> +    if (!amdgpu_device_should_recover_gpu(adev))
+>>>           return r;
+>>>       if (adev->sdma.num_instances) {
+>>> @@ -468,7 +468,7 @@ int amdgpu_sdma_sysfs_reset_mask_init(struct 
+>>> amdgpu_device *adev)
+>>>   void amdgpu_sdma_sysfs_reset_mask_fini(struct amdgpu_device *adev)
+>>>   {
+>>> -    if (!amdgpu_gpu_recovery)
+>>> +    if (!amdgpu_device_should_recover_gpu(adev))
+>>>           return;
+>>>       if (adev->dev->kobj.sd) {
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_userq.c b/drivers/gpu/ 
+>>> drm/amd/amdgpu/amdgpu_userq.c
+>>> index 1a2aa85c504e..64fb04ff2098 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_userq.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_userq.c
+>>> @@ -101,7 +101,7 @@ static void amdgpu_userq_mgr_reset_work(struct 
+>>> work_struct *work)
+>>>        * If GPU recovery feature is disabled system-wide,
+>>>        * skip all reset detection logic
+>>>        */
+>>> -    if (!amdgpu_gpu_recovery)
+>>> +    if (!amdgpu_device_should_recover_gpu(adev))
+>>>           return;
+>>>       memset(&reset_context, 0, sizeof(reset_context));
+>>> @@ -137,7 +137,7 @@ static void amdgpu_userq_hang_detect_work(struct 
+>>> work_struct *work)
+>>>        * If GPU recovery feature is disabled system-wide,
+>>>        * skip all reset detection logic
+>>>        */
+>>> -    if (!amdgpu_gpu_recovery)
+>>> +    if (!amdgpu_device_should_recover_gpu(adev))
+>>>           return;
+>>>       if (queue->vm && queue->vm->pasid) {
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/mxgpu_vi.c b/drivers/gpu/drm/ 
+>>> amd/amdgpu/mxgpu_vi.c
+>>> index c3293e5a658c..907f18b195ba 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/mxgpu_vi.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/mxgpu_vi.c
+>>> @@ -550,7 +550,7 @@ static int xgpu_vi_mailbox_rcv_irq(struct 
+>>> amdgpu_device *adev,
+>>>       int r;
+>>>       /* trigger gpu-reset by hypervisor only if TDR disabled */
+>>> -    if (!amdgpu_gpu_recovery) {
+>>> +    if (!amdgpu_device_should_recover_gpu(adev)) {
+>>>           /* see what event we get */
+>>>           r = xgpu_vi_mailbox_rcv_msg(adev, IDH_FLR_NOTIFICATION);
+>>> diff --git a/drivers/gpu/drm/amd/amdgpu/soc15.c b/drivers/gpu/drm/ 
+>>> amd/amdgpu/soc15.c
+>>> index b2024d05aa5f..b35622e65981 100644
+>>> --- a/drivers/gpu/drm/amd/amdgpu/soc15.c
+>>> +++ b/drivers/gpu/drm/amd/amdgpu/soc15.c
+>>> @@ -570,7 +570,7 @@ soc15_asic_reset_method(struct amdgpu_device *adev)
+>>>            */
+>>>           if (adev->pcie_reset_ctx.in_link_reset)
+>>>               return AMD_RESET_METHOD_LINK;
+>>> -        if (amdgpu_gpu_recovery == 4 || amdgpu_gpu_recovery == 5)
+>>> +        if (adev->gpu_recovery == 4 || adev->gpu_recovery == 5)
+>>>               return AMD_RESET_METHOD_MODE2;
+>>>           else if (!(adev->flags & AMD_IS_APU))
+>>>               return AMD_RESET_METHOD_MODE1;
+>>> diff --git a/drivers/gpu/drm/amd/amdkfd/kfd_device_queue_manager.c b/ 
+>>> drivers/gpu/drm/amd/amdkfd/kfd_device_queue_manager.c
+>>> index ce67e56efa8c..18fa7c8cc210 100644
+>>> --- a/drivers/gpu/drm/amd/amdkfd/kfd_device_queue_manager.c
+>>> +++ b/drivers/gpu/drm/amd/amdkfd/kfd_device_queue_manager.c
+>>> @@ -336,7 +336,7 @@ static int 
+>>> remove_queue_mes_on_reset_option(struct device_queue_manager *dqm, st
+>>>       /* remove_hw_queue failure indicates a queue hang. reset the 
+>>> queue */
+>>>       r = reset_queues_mes(dqm, q);
+>>> -    if (r && amdgpu_gpu_recovery) {
+>>> +    if (r && amdgpu_device_should_recover_gpu(adev)) {
+>>>           dev_err(adev->dev, "failed to remove queue from MES, 
+>>> doorbell=0x%x\n",
+>>>               q->properties.doorbell_off);
+>>>           dev_err(adev->dev, "MES might be in unrecoverable state, 
+>>> issue a GPU reset\n");
+>>> @@ -494,7 +494,7 @@ static int reset_queues_mes(struct 
+>>> device_queue_manager *dqm, struct queue *q)
+>>>       if (WARN_ON(dqm->detect_hang_count > 0))
+>>>           return 0;
+>>> -    if (!amdgpu_gpu_recovery) {
+>>> +    if (!amdgpu_device_should_recover_gpu(adev)) {
+>>>           r = -ENOTRECOVERABLE;
+>>>           goto fail;
+>>>       }
+>>> @@ -2806,7 +2806,7 @@ static int reset_queues_on_hws_hang(struct 
+>>> device_queue_manager *dqm, bool is_sd
+>>>           return -EPERM;
+>>>       }
+>>> -    if (!amdgpu_gpu_recovery)
+>>> +    if (!amdgpu_device_should_recover_gpu(adev))
+>>>           return -ENOTRECOVERABLE;
+>>>       return is_sdma ? reset_hung_queues_sdma(dqm) : 
+>>> reset_hung_queues(dqm);
+>>
+> 
 
