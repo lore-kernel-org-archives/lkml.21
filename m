@@ -1,109 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447731;
-	b=J0x0kwzmqkjJYXRbY97u85AmRwMfjDrCCUWgoWVPQzosn9oRbPWgI2U7p0/yXWFfciWY
-	 /uA6E7h3DEfvXxZ7N8N9kPTg+pE3/7x6kAn0Om/iDi+4vLykQXSMkJHKzMcoyIt0CAyZZ
-	 5UsOGCfDpc5pGqcdeUtfjLmSiFSxGIfwACOCp0WQk3fMjpHxKwuk3cZ/mgYdCCH5y6iQK
-	 5SZshbRpOnDrX+UThMjaEe95s7JYAo2xIIIwaaaf+Gz8JIqPQ7tt2sLDTWIq/IhW0wNY+
-	 jhHLNUF05YbjcSmITCa6e44phu4uDGpoRL7ugWH0+S47awO+Ckrddt1/3JVO9jJQwxQ==
+	t=1795447748;
+	b=eoYYcB7+8j4T6q2pCa1bwHJIBpdhwCZrRO240LckV9yQPEhXXcUf0eOlt1bjOAWXyR2f
+	 H86w2U5lepRIis8xwyztSb/AF4D/1cfiCQm/vdZ3G4OYjspwDP7GFDWriSFhR4yU8gFhl
+	 6p6CBdxuRmijXEWwpfNR2QH/36KOMeM2A03EuLVr82L+rHJfsZHnPFUl5Ye+eZobko+z6
+	 bmWcbOJT45XPQdHYyGvS/nh911vrUP7bgwD6Zyw0SWaM+qnCs7rRl9/9/2MtRME4G23wA
+	 qawFq/7AvTngGFM63VuG//Svy0E7ikN/N+rw4umK228YvqyigtNpPOBJvU+P1c73YmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447731;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=xjPkJu8X2nBBkbwoz/3Q9ZztknethPFV/hq8GuXmGeg=;
-	b=mIk9vhYPReJN2TZvzjBH/U0zO1cBEsH4xbHlJLJWq9xwHYd8Y6WjOAYGYY7afCeGPJVW
-	 V2C3TMRUAdz1FqaDDzE8rdV2V2g/sEQDECZX4dyx1CRvhEviDkLU/H2lrFTg/t65TWjLw
-	 5C4G+Z11BqfgViykmkpuLUcpXcoIIg1yfaE4Bpqpm2cpDFidE6i3WK1SjQB+tUvQ7a9p1
-	 jt8G0bvOfSY4aW5CTWzC6Ho8Ko0wNnBheOor/L49BdERb54NIn3cLCRdbDh4irEdCi7rQ
-	 vj9T/X+vikMo2H4J5fpgQ1rZPLJ0W/x8C/gQO5T9BEqvxq8RILTUuc/piJiNFt2t1Dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447748;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=512KT+dszHg+efwS3BYuJV7mtcBzhHtr0Z9hlCoHSL0=;
+	b=bTfLD9t/SGQz7sCC6ycYV9c7iF2Xh64XppVieHnyPncntXmFB+dHNGYAm6d1xe1QENlZ
+	 oTVmWP4l5y+Ca7rvma2/dSzvS/GLNc4+h8nPObOy7qtEJ+pjNtXwM5Djw7Vn1I91WJBvL
+	 9oy32RMXY3tgXwDgQ5kUA4Ez2u4ZT+N3vHOgAE31ImRr0OXqKB49Fe3/6lCvMrFhbDxED
+	 NJ3B9/86oDqkPI0kaUXMc9MbzANZL/nURXkDSBEFsPLe958acDELllg1lATlM402QCCOn
+	 TEyCsYSls9phoIAihdIspZyLD8i0q4pUZFwyInsaRKYhHiKtj2mgW0UDb/d0ozCXhwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qaN8tz2s;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QMwKXs1q;
+	arc=none smtp.remote-ip=91.218.175.219
+Received: from mta0.migadu.com (out-219.mta0.migadu.com [91.218.175.219])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 978B9606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 978B9606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD1C7606A33B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:29:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD1C7606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qaN8tz2s
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-38587f3de36so4140373eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:28:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795447730; x=1796052530; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xjPkJu8X2nBBkbwoz/3Q9ZztknethPFV/hq8GuXmGeg=;
-        b=qaN8tz2s6QjWaNTQiTog+fsjkYaL/oPgbb/v7AnoTrd8bU0uoUSwKkNT8dzhR+i73u
-         icf9jPTeOWH8XY+3QBmRu9W2BLgFcMzVH0jzRUTmx+5K480YeSVMjIMh6HMIEMLsuKjX
-         luCitgg41QLf0IW5yF5mKQ2rtXhnDhkUtd1hM1xT84fobvegCRgTXbKlMwK0Ai5GlV9g
-         9YRYCVwNlrXlDd8JsjOTLcLBpPZVBuznpXMjgSwx3qrxmUHZln8iwn54DRgbmz6Tt+jF
-         IkErDcjC2ELpglQszvZhQ9f/WhdcIcZ0fw3024FJMxh3bATjPaEMfhnF7WPeDWxuJXz2
-         tWKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447730; x=1796052530;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xjPkJu8X2nBBkbwoz/3Q9ZztknethPFV/hq8GuXmGeg=;
-        b=V5cKNFI9sRQ4kUOgu8zp55+WP7fnoRivc4VdjxKcooSkzBEpwgLyVnZSGWPb7+OMFg
-         t1JPn2ZTZqrrsHwrIQ4ilV3/LJgF2XuBXIULAdEXZmRffg4JHeOgpMeXmWp2pL5hyGBT
-         d68kU5lRQffF5UA5uxKkt9LhpZmmhQ0WWgksFJQ6F3BL3zjn4g4akCtx98CTz9x+z+lE
-         xdrnkMRopa7nDb/S/GlL5/t0hTOb8FROLKl9h7RjXLpooVAqTKnXHz/HCwhtp8xqZnPR
-         6H76ty8LzBTjl3bDJskopYaXGPFC7M/RpRMS14n2VKpY7JDjC+ZKxI6hRJ7gOXldkDS2
-         ONZQ==
-X-Forwarded-Encrypted: i=1; AL+hErHHHfgVJTQ36ffyttW2pq9+pmdsgR6GRsHoEhX2pJFhVXgHd2TsxqX2XtRUdriGvtooyIglfcE+6IOt62w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89rEO+vPJu30OABlds6BBnFpmSz47O1I8OhsTk26NWjmy+gFri
-	NBVahTsTuczPz4wxlMJjNoeRvkM8h0eUsdcOf6XpmcQhP5atHjSBItzB
-X-Gm-Gg: AZFdTZeiUHSgyG5LJgBQ1P3SeNOE4lNzxXCxP3jn+kh9KnKFTvWF1I77jB76nw+DFB2
-	eRtA7EHOjXV5flJvWhJHSWdIATh2XFU94K+UxpiI+xktOwiwZi6atgWUt/MfsFjSI/uLUHLt0O2
-	9tRMS13QfE0b6SMhJ1YydAQnwt+pCXgOiC+27/HZbB8MtoQeN2vSP6lXs1FiTxPeytWKJZ/guDm
-	3DPu1XU61RptJbqxb5S01hs9HDHfItkJpJGCXFWSUND33+ZxqEzBN9v2r5gt13Iql9kdW03AZY0
-	6ewgI6ahSQPcvIj8hyF3svCtCrt9qX6i2lAjIBqGC3Bq0XGb3ZEWZ3AkJK5UbivY+cmYkDSzTLt
-	BXIpzM7xBIxFteHzTSevHUZXSqQlxT0Nx33BR9V56wS05DAWMRDyC3LdriX4iFFFA1cLxWJLyee
-	GD5AQu17+1DsMSrQZdmJBuYG1GJgOZKQyVymqMNftNPNmzinxfrsJfJwNi2bq1QoL/dp19eFz9/
-	3zYSvIB8qqIEHNix3YCXqCFpLH3XzZvA/DTIeZuFFw2Jfo9V01dYJNogoMRL6Gf6EBh3FbUVyVo
-	fsF/JtIKkKhKcKq8nvHVu6NDXgxWdZUvaw/l7jUMv8J7Sg==
-X-Received: by 2002:a05:693c:42d9:b0:386:bc40:1508 with SMTP id 5a478bee46e88-386bc40185bmr455177eec.14.1795447729747;
-        Mon, 23 Nov 2026 07:28:49 -0800 (PST)
-Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm46569087eec.5.2026.11.23.07.28.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:28:49 -0800 (PST)
-From: Hikmah Gumelar <hikmahgumelar@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QMwKXs1q
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=z4IB+Ki3a8PjnrMq6MarlatYObpvI30K+1qs+OUo6t0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795447745; v=1; x=1796052545;
+ b=QMwKXs1qA2kOZaHo1/ugPA/kdtZIwB4TiPnro4Mq8xDS1hEq7m/0j1RvC2jPF8ukuNOGB7Jh
+ AiPoA+JbIzmmK4DZunO6vibAnbqDoZDZEA1Y3vLCtsvL3RvMZA7zsMnNxACrgUuD2zQygqSgCJ9
+ ijBGYO8BV+rrYnpLE73BEP/4=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 56450bac7452779c;
+	Mon, 23 Nov 2026 15:29:04 +0000
+X-Mizu-Trace-ID: 56450bac7452779c
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
 	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Subject: [PATCH v3 7/7] arm64: dts: qcom: msm8953-xiaomi-tissot: enable front and rear cameras
-Date: Mon, 23 Nov 2026 22:27:22 +0700
-Message-ID: <20261123152722.168879-8-hikmahgumelar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261123152722.168879-1-hikmahgumelar@gmail.com>
-References: <20261123123546.152162-1-hikmahgumelar@gmail.com>
- <20261123152722.168879-1-hikmahgumelar@gmail.com>
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v3 5/9] libbpf: Add log_opts support for BPF_TRACE_ITER
+Date: Mon, 23 Nov 2026 23:27:39 +0800
+Message-ID: <20261123152743.19629-6-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
+References: <20261123152743.19629-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,150 +89,127 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Enable CAMSS, CCI, CSIPHY0/CSIPHY2 ports, and the OmniVision OV12A10 rear and Samsung S5K5E8 front image sensors on the Xiaomi Mi A1.
+Add iter.info and iter.len to pass iterator information separately from
+log_opts. Keep the existing iter_info and iter_info_len fields working
+for callers that do not request logs.
 
-Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+Thereafter, log_opts can work for iter link_create.
+
+Meanwhile, add log_opts support for bpf_program__attach_iter() API.
+
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 ---
- .../boot/dts/qcom/msm8953-xiaomi-tissot.dts   | 119 ++++++++++++++++++
- 1 file changed, 119 insertions(+)
+ tools/lib/bpf/bpf.c    | 23 +++++++++++++++++------
+ tools/lib/bpf/bpf.h    |  8 ++++++++
+ tools/lib/bpf/libbpf.c |  5 +++--
+ tools/lib/bpf/libbpf.h |  3 ++-
+ 4 files changed, 30 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
-index fccb9c4360ca..e41cbd4d01b2 100644
---- a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
-+++ b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
-@@ -74,6 +74,104 @@ vph_pwr: vph-pwr-regulator {
- 		regulator-always-on;
- 		regulator-boot-on;
+diff --git a/tools/lib/bpf/bpf.c b/tools/lib/bpf/bpf.c
+index 38dcb31e8c0e..ad6b356cc48c 100644
+--- a/tools/lib/bpf/bpf.c
++++ b/tools/lib/bpf/bpf.c
+@@ -808,11 +808,6 @@ int bpf_link_create(int prog_fd, int target_fd,
+ 	if (iter_info_len && attach_type != BPF_TRACE_ITER)
+ 		return libbpf_err(-EINVAL);
+ 
+-	if (iter_info_len)
+-		iter_info = OPTS_GET(opts, iter_info, (void *)0);
+-	else
+-		log_opts = OPTS_GET(opts, log_opts, (void *)0);
+-
+ 	/* validate we don't have unexpected combinations of non-zero fields */
+ 	if (iter_info_len || target_btf_id) {
+ 		if (iter_info_len && target_btf_id)
+@@ -821,6 +816,22 @@ int bpf_link_create(int prog_fd, int target_fd,
+ 			return libbpf_err(-EINVAL);
+ 	}
+ 
++	if (attach_type == BPF_TRACE_ITER) {
++		if (iter_info_len) {
++			iter_info = OPTS_GET(opts, iter_info, (void *)0);
++		} else {
++			log_opts = OPTS_GET(opts, log_opts, (void *)0);
++			iter_info = OPTS_GET(opts, iter.info, (void *)0);
++			iter_info_len = OPTS_GET(opts, iter.len, 0);
++			if (iter_info_len && target_btf_id)
++				return libbpf_err(-EINVAL);
++			if (!OPTS_ZEROED(opts, iter))
++				return libbpf_err(-EINVAL);
++		}
++	} else {
++		log_opts = OPTS_GET(opts, log_opts, (void *)0);
++	}
++
+ 	memset(&attr, 0, attr_sz);
+ 	attr.link_create.prog_fd = prog_fd;
+ 	attr.link_create.target_fd = target_fd;
+@@ -970,7 +981,7 @@ int bpf_link_create(int prog_fd, int target_fd,
+ 			return libbpf_err(-EINVAL);
+ 		break;
+ 	default:
+-		if (!OPTS_ZEROED(opts, iter_info_len))
++		if (!OPTS_ZEROED(opts, log_opts))
+ 			return libbpf_err(-EINVAL);
+ 		break;
+ 	}
+diff --git a/tools/lib/bpf/bpf.h b/tools/lib/bpf/bpf.h
+index fe3b7fd8512b..2ac143fd1102 100644
+--- a/tools/lib/bpf/bpf.h
++++ b/tools/lib/bpf/bpf.h
+@@ -422,6 +422,10 @@ union bpf_iter_link_info; /* defined in up-to-date linux/bpf.h */
+ struct bpf_link_create_opts {
+ 	size_t sz; /* size of this struct for forward/backward compatibility */
+ 	__u32 flags;
++	/*
++	 * iter_info and iter_info_len are deprecated, use iter.info and
++	 * iter.len instead.
++	 */
+ 	union {
+ 		union bpf_iter_link_info *iter_info;
+ 		struct bpf_log_opts *log_opts;
+@@ -478,6 +482,10 @@ struct bpf_link_create_opts {
+ 			const __u64 *cookies;
+ 			__u32 cnt;
+ 		} tracing_multi;
++		struct {
++			union bpf_iter_link_info *info;
++			__u32 len;
++		} iter;
  	};
-+	vreg_cam_avdd: regulator-cam-avdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vreg_cam_avdd";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		gpio = <&tlmm 62 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		pinctrl-0 = <&cam_vreg_avdd_default>;
-+		pinctrl-names = "default";
-+	};
-+};
-+
-+&camss {
-+	vdda-supply = <&pm8953_s3>;
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			reg = <0>;
-+
-+			csiphy0_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <1 2 3 4>;
-+				remote-endpoint = <&rear_cam_ep>;
-+			};
-+		};
-+
-+		port@2 {
-+			reg = <2>;
-+
-+			csiphy2_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&front_cam_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci {
-+	status = "okay";
-+};
-+
-+&cci_i2c0 {
-+	camera@10 {
-+		compatible = "ovti,ov12a10";
-+		reg = <0x10>;
-+
-+		clocks = <&gcc GCC_CAMSS_MCLK0_CLK>;
-+		pinctrl-0 = <&cam_sensor_rear_default &camss_mclk0_default>;
-+		pinctrl-names = "default";
-+
-+		reset-gpios = <&tlmm 33 GPIO_ACTIVE_LOW>;
-+		powerdown-gpios = <&tlmm 39 GPIO_ACTIVE_LOW>;
-+
-+		avdd-supply = <&vreg_cam_avdd>;
-+		dvdd-supply = <&pm8953_l2>;
-+		dovdd-supply = <&pm8953_l6>;
-+
-+		rotation = <270>;
-+		orientation = <1>;
-+
-+		port {
-+			rear_cam_ep: endpoint {
-+				data-lanes = <1 2 3 4>;
-+				link-frequencies = /bits/ 64 <216000000>;
-+				remote-endpoint = <&csiphy0_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci_i2c1 {
-+	camera@2d {
-+		compatible = "samsung,s5k5e8";
-+		reg = <0x2d>;
-+
-+		clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
-+		pinctrl-0 = <&cam_sensor_front_default &camss_mclk1_default>;
-+		pinctrl-names = "default";
-+
-+		reset-gpios = <&tlmm 129 GPIO_ACTIVE_LOW>;
-+
-+		avdd-supply = <&pm8953_l22>;
-+		dvdd-supply = <&pm8953_l23>;
-+		dovdd-supply = <&pm8953_l6>;
-+
-+		rotation = <90>;
-+		orientation = <0>;
-+
-+		port {
-+			front_cam_ep: endpoint {
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <418000000>;
-+				remote-endpoint = <&csiphy2_ep>;
-+			};
-+		};
-+	};
+ 	size_t :0;
  };
+diff --git a/tools/lib/bpf/libbpf.c b/tools/lib/bpf/libbpf.c
+index 1efc0dd37b2e..612eba0ff4f0 100644
+--- a/tools/lib/bpf/libbpf.c
++++ b/tools/lib/bpf/libbpf.c
+@@ -14813,8 +14813,9 @@ bpf_program__attach_iter(const struct bpf_program *prog,
+ 	if (!OPTS_VALID(opts, bpf_iter_attach_opts))
+ 		return libbpf_err_ptr(-EINVAL);
  
- &hsusb_phy {
-@@ -302,6 +400,27 @@ gpio_hall_sensor_default: gpio-hall-sensor-state {
- 		bias-pull-up;
- 	};
+-	link_create_opts.iter_info = OPTS_GET(opts, link_info, (void *)0);
+-	link_create_opts.iter_info_len = OPTS_GET(opts, link_info_len, 0);
++	link_create_opts.log_opts = OPTS_GET(opts, log_opts, (void *)0);
++	link_create_opts.iter.info = OPTS_GET(opts, link_info, (void *)0);
++	link_create_opts.iter.len = OPTS_GET(opts, link_info_len, 0);
  
-+	cam_sensor_front_default: cam-sensor-front-default-state {
-+		pins = "gpio129";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-disable;
-+	};
-+
-+	cam_sensor_rear_default: cam-sensor-rear-default-state {
-+		pins = "gpio33", "gpio39";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-disable;
-+	};
-+
-+	cam_vreg_avdd_default: cam-vreg-avdd-default-state {
-+		pins = "gpio62";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-disable;
-+	};
-+
- 	ts_int_default: ts-int-default-state {
- 		pins = "gpio65";
- 		function = "gpio";
+ 	prog_fd = bpf_program__fd(prog);
+ 	if (prog_fd < 0) {
+diff --git a/tools/lib/bpf/libbpf.h b/tools/lib/bpf/libbpf.h
+index 49f1120f4021..56300be81016 100644
+--- a/tools/lib/bpf/libbpf.h
++++ b/tools/lib/bpf/libbpf.h
+@@ -1000,8 +1000,9 @@ struct bpf_iter_attach_opts {
+ 	size_t sz; /* size of this struct for forward/backward compatibility */
+ 	union bpf_iter_link_info *link_info;
+ 	__u32 link_info_len;
++	struct bpf_log_opts *log_opts;
+ };
+-#define bpf_iter_attach_opts__last_field link_info_len
++#define bpf_iter_attach_opts__last_field log_opts
+ 
+ LIBBPF_API struct bpf_link *
+ bpf_program__attach_iter(const struct bpf_program *prog,
 -- 
-2.47.3
+2.55.0
 
