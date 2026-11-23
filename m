@@ -1,63 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.93
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440349;
-	b=l/iw/wpCFNBi8D5OCH45LwbV5QrGgtxikO3UgnDLyK6BNJv2tbsCZMZk62OeADfX6a5J
-	 CF9o20VXt3TXvIYcBWvHkBCqLjMa/SwfD5EFepuUzpIdxgps4JKcbxjFQ7N1LGDB3tt+u
-	 mBXtkKQ5/NfbNThsFCVRt10ULfYGYZCKX2xpOridRaxgnaFF3mpgb4z68m3yI1x6yO9Q0
-	 JgDxKIMFD8x3Qk4dcdQeNGq+hMVRVUZEsAOc49JSrzW5RADpHXOCG4C+02Z31PI0aeMCS
-	 JBCe8kCsx95BoQPnAw6QUzRFyV3tVvHRQWkKnJY8otzPojgU8trr4taQqE5uI82dKXg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440349;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=T8O+IMwq73DKWaCETyOUwPWWKedm3WPb1gOuS1Bq/z8=;
-	b=IkCxrAJOZSf+yKo7iwPW1SuUByZS75Q9wYNKe/PUxtQKhgkQVfqsWLk1nUoMZaIAvPEs
-	 AAOOrXSInx8qQ91d/orkRGOxDoCJjB86NgdPoAwcS0iKYXZL5AYp2TMmLAjgQA8gSMfJE
-	 0LqE10SdTVD2vBtdGXS21rH1Qg+HB55VB4xZKhHkTIVw4+qotj0NHb3r3taIwGO3L44Kj
-	 Cw+Twg/qgjxdS9kn8usQLydsD2+SU5vdoAjNffracF7FnY4pGPa2OaBZ1nnP4DXVcQRdH
-	 0xR5F6y3V1ijeAV3+YxNYN44TBN68DGXm4/bmE3tdl3XuZlfvofDfXfvBWyu2D/uxog==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FGTtzTx3;
-	arc=none smtp.remote-ip=95.215.58.93
-Received: from mta1.migadu.com (out-93.mta1.migadu.com [95.215.58.93])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795440351;
+	b=AtDrHWUl6SXyEvxqp1C+HU5bu/Vj4T1R5UQ3BuW9DN7osctYhcI6Nkz035y4J1TNt5pt
+	 vz6/hJzZRf/hhbB2PhcSjvMnqwGFy/oaCe3Z9KrzjqYdKWhLKNG22jsqWws3/huFHUwDw
+	 EGF/fDZx1xzNa7nVFpOVegHlEOPyttbv59VHRyY7IRtBhEr2InDyxTYN+Eqk9sMYj0JDH
+	 9a7HWEMLrpjhWW/kT91naYNokZdN8tmRbzjMHB9isJmFKMvUxK4wAYxFgDgd/UbyaFvOE
+	 bxtLN1F5WplFHdoQ56izTK+3NOj25au7h/g87MrXWm3alxi0dwvBsdi8i5VsRsZN/bA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440351;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=8i868gVBYL2QSZu3qyxut7pzy7DbyOL2CdSmfH17eOQ=;
+	b=3PY6O7oZDAfXQM6qQVGzvdLf+41Wq264jsGLR/LPymRZSLdJ1Vt6tok/nqO8vqiTia0h
+	 cbysqpT5y4WJdl9WoPsaoF84QIREAYW1u0BpY6AVZl61QNce2EgLBfY/DqZqfFH0ikwql
+	 7jWDfz/Ze56pvulHCEPbPmgzcSBfpwEfm58wV2PRC47v/gBjsn/9quJm51t2YSk+Y/tBN
+	 fyUpqFvsL1KOcJNZpfkuN2ac9t3L8eZV5nLvR7C6HOGv4zEbu4LOIbvcDnOSL4oIDfOnC
+	 WPZUqkh/ZZZx9sMBuZ5uDD0/waJRXx4CBZB6xhfs2UlVgghRVdY8V9hKMgQ1QYIJAog==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XF5e7Ztk;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BBC860A382E;
+	Mon, 23 Nov 2026 13:25:51 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XF5e7Ztk
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795440350;
+	b=PcpGEkchZwBB6U5RL2KYVuiOeaf64jBSxZBtUJz6XwhXwuU/QP4WXzo1SgiIlHNfjpTc
+	 66Mv/5k8tuUomVgZEzzNDp5EsyfvfOc+FmKj9k4ZpzQZjrJ3QeLdCEd3igxRblBruwKZf
+	 ucwHmf2FQMS6wiX9TzwcCaUILRAHSGyNfXcy0oAA5wzqkXsuggviLK1zFvc36x+RYSp7N
+	 NyOR6eUcC/iO7lj3aa63C0W2F/qULoMlwK7Gw32wHMsMtafAvDEa3lDLsOvuYkupynR4V
+	 qWPCSOKEKoa5bJw9ppgiBSP6gKcaxq7cXywUdGjQHrSbY6ppq50RmlXsR6vWnWdWJpA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795440350;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=8i868gVBYL2QSZu3qyxut7pzy7DbyOL2CdSmfH17eOQ=;
+	b=EAjLjdlpFSdODPZWYMET5rUvxTObDhd55F9Q0UL1cWqXQjxcYRjbWIgZHjqnm5w3wgvY
+	 +dQfoAgnnGZ5FH/dxlwqh7CX+FpR2g0EW6paxiSLq8PB4q7Pj3nycFLV/fu2pcQEmxiVa
+	 2B9Ta3hy18u5krleKKTSeO5C2ij65773tisrkNpl2jLDDdzStNhyKFwdp5ztIzcl+2oBy
+	 GSHrxzncLhUSy2g58Oky24O1BS236FPaZTrtR+VUKwUt5MuVS9RPvn2HHRn/wxFOH3b+4
+	 hmJdiz4diCtobWl2jXMm5YVt5bXxh/5N3EG5H47UQElS/O29r5iaCWlhOQwF2cZuYIQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AFD6606A6AF
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:25:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AFD6606A6AF
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FGTtzTx3
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=tbk+drw3u/7c7rBBUEyK6aW4QMPAthoqFlpaZ0IfUX0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795440346; v=1; x=1796045146;
- b=FGTtzTx3q4OFAVR/gAWAxcgk3jOxgvIE+1fQNhh9qU7QPRmJSAXE6TLBk7Dv/fcxuz0DT5tk
- Dsm/CheLo0lLn6204WzAQ6axIZ7takzksnZjCEYD6/oUkB8ZDzM9kF2ulyKCbZ+DLCdfjvni9Qv
- rQ2HqxJTcxyPkh/nv5G21iSY=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 30c0ddf016deec71;
-	Mon, 23 Nov 2026 13:25:39 +0000
-X-Mizu-Trace-ID: 30c0ddf016deec71
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 14:25:35 +0100
-From: "Pankaj Raghav (Samsung)" <pankaj.raghav@linux.dev>
-To: Breno Leitao <leitao@debian.org>
-Cc: Christian Brauner <brauner@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
-	Hannes Reinecke <hare@suse.de>, Pankaj Raghav <p.raghav@samsung.com>, 
-	Johannes Thumshirn <johannes.thumshirn@wdc.com>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Christoph Hellwig <hch@infradead.org>, linux-xfs@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH v2] iomap: don't update i_size of block devices on
- buffered write
-Message-ID: <awQ-uwPzYYEVJxjz@quentin>
-References: <20261120-iomap-bdev-isize-v2-1-f25cc668fbc1@debian.org>
+	by smtp.kernel.org (Postfix) with ESMTPS id 70DBE1F000C6;
+	Mon, 23 Nov 2026 13:25:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795440350;
+	bh=8i868gVBYL2QSZu3qyxut7pzy7DbyOL2CdSmfH17eOQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=XF5e7Ztk1wsI2F4y/USEpgJwW9w5DJ1R0ENMh+L+/5A6ObA7JRWDpJLt6GxB4fqjA
+	 qYJOskG2VlKhvjAw1XAURya3ChV4Rwgm4004/mewDb4wKRJWo5SU25BJCevjxvXW9o
+	 7UOmy2UXIpbqxVGPSVfMa2s6zLxlPuV7zxTUvaUsBd9OcaYj146i6FlRUavKOLPzYh
+	 M2FFxNLfIM54CcWoIw7FlG0Ch0AsvmQSlWK9MnXRFz4AS27Al8tER6smG8hJrzYMBA
+	 iubvNwW1Zia3zfuHG/xTfnZvAe134A4eGnBXHt3Cm0HYQQzK+Z0f4YPwFhskCek/5o
+	 dES90kwDu85Bg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1EBC04C4A9;
+	Mon, 23 Nov 2026 13:25:29 +0000 (UTC)
+From: Radu Sabau via B4 Relay <devnull+radu.sabau.analog.com@kernel.org>
+Date: Mon, 23 Nov 2026 15:25:31 +0200
+Subject: [PATCH 7/7] iio: imu: adis16607: Report loss of external sync
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,47 +82,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120-iomap-bdev-isize-v2-1-f25cc668fbc1@debian.org>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-adis-fifo-v1-7-f6ad9e493e19@analog.com>
+References: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
+In-Reply-To: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
+To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Ramona Gradinariu <ramona.bolboaca13@gmail.com>, 
+ Radu Sabau <radu.sabau@analog.com>
+Cc: linux-iio@vger.kernel.org, linux@analog.com, 
+ linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795440327; l=1798;
+ i=radu.sabau@analog.com; s=20261001; h=from:subject:message-id;
+ bh=Cp1Fu3Up9G3W8L90aBKjL0TvrVLAhTasEOIocguqkbg=;
+ b=M4ct0O7E+ID8rn8AVHwZd2n77cUbhjyYPlkWuVA4RUjG+s5vsLCBsQgz0NLgB8/cpLjPdRsny
+ aG97jOW3yyPBxvzot11SWkG/K5oz0IykH+OJ4b0wz9WLUZgt/Vng3sl
+X-Developer-Key: i=radu.sabau@analog.com; a=ed25519;
+ pk=XOZSO/Ut8qfYw7khL8lUF65Pgl+VLihISyS+Iy9jY8c=
+X-Endpoint-Received: by B4 Relay for radu.sabau@analog.com/20261001 with
+ auth_id=1094
+X-Original-From: Radu Sabau <radu.sabau@analog.com>
+Reply-To: radu.sabau@analog.com
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 12:24:39PM -0800, Breno Leitao wrote:
-> We are seeing this warning on an arm64 linux-next host while the ublk
-> selftests run (stress_01 deletes the ublk disks under fio buffered
-> writes):
-> 
->   WARNING: mm/truncate.c:902 at pagecache_isize_extended+0x37c/0x490, CPU#40: iou-wrk-3496756/3497370
->   Call trace:
->    pagecache_isize_extended+0x37c/0x490 (P)
->    iomap_file_buffered_write+0x38c/0x5d0
->    blkdev_buffered_write+0xcc/0x138
->    blkdev_write_iter+0x32c/0x4e0
->    io_write+0x77c/0xff8
-> 
-> The theory is that the disk shrank under the write. del_gendisk() sets
-> the capacity to 0, which writes the bdev inode's i_size under
-> bd_size_lock only. A writer whose mapping predates that reads
-> old_size == 0 in iomap_write_iter(), sets i_size to pos + written and
-> calls pagecache_isize_extended(inode, 0, pos). blkdev_buffered_write()
-> holds i_rwsem shared, so a writer at a lower offset can store a smaller
-> i_size in between, and WARN_ON(to > inode->i_size) fires. Even without
-> the warning, the write path regrows the size of a dead disk. The block
-> layer owns that size (bdev_set_nr_sectors()), and blkdev_write_end()
-> never touched it before the switch to iomap.
-> 
-> A reproducer on linux-next supports the theory: 128 threads doing 64K
-> buffered writes to a loop device, while another thread flips its
-> capacity between 1M and 1G with LOOP_SET_STATUS64, hit the warning 6
-> to 18 times per 30 second run (4 runs). With this patch it never fires,
-> and data written through the page cache still reads back intact.
-> 
-> Skip the size update and pagecache_isize_extended() for block devices.
-> 
-> Fixes: 487c607df790 ("block: use iomap for writes to block devices")
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+From: Radu Sabau <radu.sabau@analog.com>
 
-Looks good,
-Reviewed-by: Pankaj Raghav (Samsung) <pankaj.raghav@linux.dev>
+Loss of the external clock or of the sync PLL lock raises DEV_NOK like any
+other DIAG_STAT flag, and the interrupt handler already reads DIAG_STAT.
+Warn about SYNC_LOST and DPLL_UNLOCKED there, rate limited, without
+stopping the capture, since a short loss of the clock can recover. An
+interrupt raised by one of these flags is handled even when the FIFO
+threshold is not met.
 
---
-Pankaj
+Signed-off-by: Radu Sabau <radu.sabau@analog.com>
+---
+ drivers/iio/imu/adis16607.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/iio/imu/adis16607.c b/drivers/iio/imu/adis16607.c
+index 60433c97a855..dddbe3c7fb52 100644
+--- a/drivers/iio/imu/adis16607.c
++++ b/drivers/iio/imu/adis16607.c
+@@ -83,6 +83,10 @@
+ #define ADIS16607_FIFO_THR_MET_MASK	BIT(0)
+ #define ADIS16607_FIFO_DATA_CMD		0xA9
+ 
++/* DIAG_STAT sync flags */
++#define ADIS16607_DIAG_DPLL_UNLOCKED	BIT(1)
++#define ADIS16607_DIAG_SYNC_LOST	BIT(2)
++
+ /* FIFO limits */
+ #define ADIS16607_MAX_FIFO_WM		38
+ #define ADIS16607_FIFO_WORDS_PER_SAMPLE	26
+@@ -396,8 +400,17 @@ static irqreturn_t adis16607_irq_thread(int irq, void *p)
+ 	if (ret)
+ 		return IRQ_HANDLED;
+ 
++	/* Only warn: a short loss of the clock should not stop the capture */
++	if (diag_stat & ADIS16607_DIAG_SYNC_LOST)
++		dev_warn_ratelimited(&st->adis.spi->dev, "external sync lost\n");
++
++	if (diag_stat & ADIS16607_DIAG_DPLL_UNLOCKED)
++		dev_warn_ratelimited(&st->adis.spi->dev, "sync PLL unlocked\n");
++
+ 	if (!(diag_stat & ADIS16607_FIFO_THR_MET_MASK))
+-		return IRQ_NONE;
++		return diag_stat & (ADIS16607_DIAG_SYNC_LOST |
++				    ADIS16607_DIAG_DPLL_UNLOCKED) ?
++		       IRQ_HANDLED : IRQ_NONE;
+ 
+ 	ret = __adis_read_reg_16(&st->adis, ADIS16607_REG_FIFO_WORD_CNT, &word_cnt);
+ 	if (ret)
+
+-- 
+2.43.0
+
+
