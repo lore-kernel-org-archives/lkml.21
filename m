@@ -1,85 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.179
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795421220;
-	b=IuxXf9Ck9QvmnzaaJ30CGpNxadC/rNBS5CLidgbfQpSqnyWbFmiJH59Yqv5zyXys+8vR
-	 yViUur+RogLFaAikY+sk0zT6joikqjgJd/tZZizdM3kcSqjJgYmTgmftw55FAEpo4DrR4
-	 C7rmcrqSa78GVbdMwMh8D+gEEL2xihxnJCnc1qwvLhQhuPrAcEr/bUICssS02aRHqG9Hi
-	 zkaivJpq0G7PxvHyGqGMbkkuwA4NudRA79xYCXKZSMV2I/2Eynfzmct0ynsF/JDzyQZxr
-	 w2vLcmjC7w/qWFuboh9ezLaSSY0ZHtBJLhoVPsRk4PM6Oewvq3yW01ZIh/gEHSaX8VA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=UoOlo4EL8XDHKPbNJDeM81r4yGIb2zak0RK5oePccGNWEK72SvT9/WGM3rUj4Fe1lrE8
+	 8rFZF2Hnhkgj9H8S66FSNbB1W0utNHr+WlX+afVELklO4rMfagTvWwIMf1Rcbq1o5cNc9
+	 bGra0pLCR9r2PBi54XVwaATGTIwnvG/rqTz8YpUYVLRpqMu7XWU4CXCJRpEGrVZoB4sjH
+	 bHe+h1zi2LwtbqffM0zFWgBk4biO4Uh5vivOA6CDUaBdZWAV5ppnBeHAMFcbsIWAmUDc2
+	 0TDtRYVDvtz5wpKML5jwnFGMDr3KCzzPHq6rFEwzpulG5/E1RHtbGjKqH5pPmwcRzMQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795421220;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=GdWbto/GYuZDXyTvm+7T3nEGrjgUlN0uIoNMYNUd3jo=;
-	b=5Di0Pewb6+DYv3aZVcFO4hWPVN6AJ0xH55jxmyFdgfninCQv9Ve9oNOGde82HVEjUZNh
-	 hCYchdaJBGpUm+eXWhVfSo/Xegpa7QTlle08LGrHA/iGdwYYxXdURdflSJxz7CsJpS61l
-	 oZ0xYMbBsmGfJSR5BP3QCP/xLwgoT3srTeI9P3Ts8naoX4nod9hGg7ANTNJ51U6cKBaUR
-	 UFfxa5WYh8AwCa9J2T4qHZvpQTH09kTFr/dvi6duN7oKeoMtsnaPS3hyEoZLqLtvfe8Be
-	 d7ReFEU1tXXJ7IFI+KirTeSDzIIeWRl2qAKxL8n6mh7rn/HGCMIaMo+Rg2Xt3F/Iz1A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=gourry.net;
-	spf=pass smtp.mailfrom=gourry.net;
-	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=UbEDloij;
-	arc=none smtp.remote-ip=209.85.222.179
-Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=LnMwKgmAAei+QHZJ+dpKHB77aUMWMRVBpWv/xm01JTw=;
+	b=pYcklQbrkgZqj0eCE9Yt5TiiRzkxgYgXEj6SY0GY7+kvg+SuAjAlQTX8DuGXJB0JPKX7
+	 sf8p3h71a3bq68y7cPzmcODzJh8z58lmx0U4OXguJBI3SRtax36VUnQPCIrS6/mzYNAFp
+	 Qb8IhgcdpA0X/v1UDRYQ50NxHdOKJrfmxImnrDCjYpCE0CKH+YdIaa4UsqeUr7Y+pEO4X
+	 fOiabRn746xoptDDp0aTeR0G9h1HEGn/DsHGyIpJT9oLvAJUS82eTMg8oI11x+naOJYvg
+	 jdtXppjWJi8geF0lxdGFyoqYVnJHk4nAZLhG5FtTf4EWaMlz7586nCAlTtxTBSxMDPQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bdgcig+N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.43
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010043.outbound.protection.outlook.com [40.93.198.43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EC6B6071512
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 903CC607151A
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:06:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EC6B6071512
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 903CC607151A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=UbEDloij
-Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-93a40a9a01aso502447085a.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:06:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gourry.net; s=google; t=1795421218; x=1796026018; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=GdWbto/GYuZDXyTvm+7T3nEGrjgUlN0uIoNMYNUd3jo=;
-        b=UbEDloij11O9wu6jNn+7P7+RZvZz4DV6AR9vzS0fBzrCehXkVi8FOnGNXNLIlq3OFN
-         rCOsnG3X3QGQiYNFwNBZQvVWlmIntqs5/WJfYWYXfHntN863rJIHHZTTX2sLk9DadYAh
-         X7mwrYku1mJRpu7QCeTz76l1LWFiNv9wX+8lJ+dyFLhh7T7coDHq+YmCQpQmF0KSfLAE
-         9axnyb0s2etYFlHigdYQlixa19gpIFF4IlLkDUP/DJBpH2LsHFTuoxzst9SFQAkBwo3W
-         CxDF/n/80StXZi/eyfYksm+TAH6RyPX3cmBYA54kpqV7TFm36nQo/8FDZjHvtxTROyuE
-         REoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795421218; x=1796026018;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GdWbto/GYuZDXyTvm+7T3nEGrjgUlN0uIoNMYNUd3jo=;
-        b=VaGh9l0o5kLyAec0BlL2DHQRgQ+qOjnPFAQ6X6x37X3MH3KYZHwTHNPWoBOw2z+g9R
-         +U8TRMyAOnAC7nJdZYjkp1AGCjhHv0UnFoGOFLAmwKinaDQGaZlklGbOP4EYJHSsO9t+
-         Uz8zJGfMOKMdb4MFYa6UpaTiHFRewC35WRIH8y6ZyUnYbxVl/1hQM4SgJ+TYOkEc/7LH
-         N21I4FdRy+THD4mvBoPjJCfFudyMbj6pqpG3liuM/UkkM50zRIgbIoFv4uB2By6euQm2
-         W3qTt4x4QJuz4M/pPxdgJekuBu9qaAJ9udubmp74CwvR/I0dDMncwkOD3GJTU6SJ/VVR
-         EV/g==
-X-Forwarded-Encrypted: i=1; AL+hErESSntO1pPVVLCuyG7HtVEZV3FRWThQrVAnYY6a8g4sDGN+zO4VbPwBIbmT7PjSUl+Yjry3DBuZ7LiF+D4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9atdPMi8LkYdLKDzo2lAl79sllp0ADnr4qrm6zUq2FMeY/tPMS
-	rg2RUdq2lYgOzGdr6xj9MUrplj7qA5SVyqMqGgR9VyFs7mx3+06n0lAwq5Gcs2EQ830=
-X-Gm-Gg: AZFdTZeePJr9nfPJFHKLT8FLCarTOYBjpYqv3wLVxrsYl4usF6laeTS0NCeUYWux7B/
-	Kab5qNaNSzcQnmjvjFEQZUaqJ6SFjLV68yrxLdJr6ATiMbYBWDliee0HKQ25EUUWvxmVTRw0SPV
-	4AQbu7bjRum3caHigQTO5QeAVWf/W0rruxQhwgVuA4cJa8A+7n8OvrFfImz6jNK6artOXFsqLtH
-	CMNeaRNxRRiG2YQ89ejwI66QWahvy+9gktsNAbO8BiPklp577205jXjtsMtwtadZ8S4G103tf0B
-	3HqhrP/Yj8l2PLWYAx882zeBqUY6AfdJGY5pkfmV86kHfU3Xm0XkEY4kUy/rn8cICx7aCFBrdck
-	7gEPoqsgL48vZUu7YRjEWBGB9hJp8Bo1nEh2Bdq/0LFUrbVfWG+PxJjI6d49fg3Aj2g70T4VAKk
-	CBKxqYiJqb64A4nJq7xc9SCsq0g0KtQc29gBWuvKnnemDUjkWYq0u6bV1Ash2rTUYCVLZyqQ6sR
-	2oh50ETaFKFdDtqHbb5xADEFzJq5qG2pDD9KxEFzIUXEGvGvm65K8nPSuKYpDaOWVeniZxulkgH
-	Uaat1h/4/3C5aPbJxTdqivi1yB+c1dxRbicvg5KWwcWjkvpjHKLsnRpE5ptSKmneY4jViwks3cQ
-	r2uNdHr1HeE37UjkhRO+VqKA8brL+
-X-Received: by 2002:a05:620a:4481:b0:93f:2571:bb6d with SMTP id af79cd13be357-949bab32ff9mr1727268685a.39.1795421218145;
-        Mon, 23 Nov 2026 00:06:58 -0800 (PST)
-Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb349db3sm745619285a.7.2026.11.23.00.06.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 00:06:57 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bdgcig+N
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XVjzp05Rks5ZcuPpcCbaqAKcC4G6yB8jYd5QMy+mUpxUG54pPEhRldJlUjRN7Zq9upJ70w0AMoQcE5ywANe9kffHf+YpCIh3a7F55smyWb2kvE0sBGLOqnJD2+pmYNp6kC/8Kh1ecyMR68oiKGY8GP4rpcSNrv9ymN6Q381zOPfFdpNZclImj7sya6LZjzXfDK9MIIoKaI+x9pMKHm12K2NNML5BSGM8FD/XpDrLl+LG/1qVjFEAGafmqj591VnSGaTImA0stWw/vW3P2N440lBenon79Yid0/rkau7Xjj2gz+Vx1Sv7XJN4xc6jHiCu4V9ru4OFUtzoidn7ToleYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LnMwKgmAAei+QHZJ+dpKHB77aUMWMRVBpWv/xm01JTw=;
+ b=dXcRYzTzUsBT9RCHELflPhpN0wv3R24MuLNj5ApiTG/81EC4gsEwb7DNsTYH7GksmP0uX76fbIO+2px+Ea0RROzf6FakITfHEmuKv6u0iDYC9UJ9wv8Vql0bHT6OMZ8tuBxMJtSiVAf7bWqNXZ8jFq6G5k39czSjUT6iBev0KumPXk5DZFfWtQVyBIZGdT06S0lOUFFaZn9aBro7fCwQHemA2nsugF/Vv7PXNfMCPDpwkDv7z14aN6LjDNH3yfCwFwlOUxzpLEUzvnEy9p9X0tsryfC77mwCskJYGyehSXmyXe7KYRLrUsh6zYcG3Ofxk0JniOl0xvnWX2M777ZrVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LnMwKgmAAei+QHZJ+dpKHB77aUMWMRVBpWv/xm01JTw=;
+ b=bdgcig+Nal16pobnwoyJHLPeUBtBRbNY6NBfDE3JiFpiSl6sBfZe/yg3nIBkscN/16urpeli7r2ipGDUR2hkEKxL3lcqJIM8N9ZMvGvTKu7HXdq9TB9LJCeSir86lvMHCINaiGb7frKOaqgN1RCz72N+JHTJqN9rv0YOOPwoFyY=
+Received: from DS1P223CA0022.NAMP223.PROD.OUTLOOK.COM (2603:10b6:8:44e::8) by
+ LY0PR12MB114387.namprd12.prod.outlook.com (2603:10b6:404:231::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 08:06:55 +0000
+Received: from DS8PEPF000000E3.namprd05.prod.outlook.com
+ (2603:10b6:8:44e:cafe::78) by DS1P223CA0022.outlook.office365.com
+ (2603:10b6:8:44e::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 08:06:55 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ DS8PEPF000000E3.mail.protection.outlook.com (10.167.23.200) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 08:06:55 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 02:06:53 -0600
+Received: from [10.136.45.121] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Mon, 23 Nov 2026 02:06:49 -0600
+Message-ID: <b363ed8d-7caa-4de5-9ebe-15049bf72d06@amd.com>
+Date: Mon, 23 Nov 2026 13:36:48 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,164 +101,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] sched/fair: Fix h_nr_runnable leak in dequeue_hierarchy()
+To: Prabhakar <prabhakar.csengg@gmail.com>, Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
+	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall
+	<bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
+	<vschneid@redhat.com>
+CC: <linux-kernel@vger.kernel.org>, Prabhakar
+	<prabhakar.csengg+renesas@gmail.com>, Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20261123001213.7609-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20261123001213.7609-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 00/60] Private NUMA nodes
-From: "Gregory Price (Meta)" <gourry@gourry.net>
-To: Yury Norov <ynorov@nvidia.com>
-Cc: "Gregory Price (Meta)" <gourry@gourry.net>, 
- Yury Norov <yury.norov@gmail.com>, 
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
- David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Oscar Salvador <osalvador@suse.de>, Johannes Weiner <hannes@cmpxchg.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Johan Hovold <johan@kernel.org>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
- Rakie Kim <rakie.kim@sk.com>, Ying Huang <ying.huang@linux.alibaba.com>, 
- Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
- Alistair Popple <apopple@nvidia.com>, SJ Park <sj@kernel.org>, 
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Juri Lelli <juri.lelli@redhat.com>, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Dietmar Eggemann <dietmar.eggemann@arm.com>, 
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
- K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, 
- Kairui Song <kasong@tencent.com>, Barry Song <baohua@kernel.org>, 
- Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
- Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Michal Hocko <mhocko@kernel.org>, David Rientjes <rientjes@google.com>, 
- Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
- Lorenzo Stoakes <ljs@kernel.org>, Pedro Falcato <pfalcato@suse.de>, 
- Jann Horn <jannh@google.com>, Chris Li <chrisl@kernel.org>, 
- Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, 
- Youngjun Park <youngjun.park@lge.com>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
- Waiman Long <longman@redhat.com>, Ridong Chen <ridong.chen@linux.dev>, 
- Tejun Heo <tj@kernel.org>, 
- =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
- Dan Williams <djbw@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>, 
- Dave Jiang <dave.jiang@intel.com>, 
- Alison Schofield <alison.schofield@intel.com>, 
- Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, 
- driver-core@lists.linux.dev, damon@lists.linux.dev, 
- linux-pm@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- cgroups@vger.kernel.org, nvdimm@lists.linux.dev, 
- linux-kselftest@vger.kernel.org
-In-Reply-To: <awNavE8dAGr-amfQ@yury>
-References: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
- <awMdeK8O-5mffg2m@yury>
- <179537469194.412063.13456998694958645706.b4-reply@b4>
- <awNavE8dAGr-amfQ@yury>
-Date: Mon, 23 Nov 2026 03:06:55 -0500
-Message-Id: <179542121527.412063.3452837736734095837.b4-reply@b4>
-X-Mailer: b4 0.17-dev
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS8PEPF000000E3:EE_|LY0PR12MB114387:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90ddc010-a941-4121-732e-08df4938bd44
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|7416014|261026121527099003|261026140227099003|261022105027099003|261028144727099003|261021123027099003|261021121427099003|921020|261102123227099003|11063799006|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	jlRLQvw6Zz7se8ziFdqeLKT/kSixBQ7pMPMqf33Vk+sMU2hCJOUkKmxR8VcpzfQuNofmJNHhmS6SGZUj+PRYmxbH+8SACGPJY2selBeSQKnjWC4mCa55RJGVhXK0TOF1dj2VDnxtI0NmQiAKRavjz+p6BkLgKbcx3hf+6KNWLwoMSPsMgeCrTrUk9QpnSt+bOdYSDLqDj9Uwzj57yQFFqFu3qYfnYxsFCA7e6fF34iuu7cwqCnuh08V8OdiLMTp91nmFfX0y/Mtx6rdzEnM2+W0sKYF1+QPgO9MnKhcCPauUQUjC0otOhq44+V3e5OFiUncfFT1uSKNO7LZ389lzA5LSRKIFrnnztjqTF3iXGEsiRGa4GDLniuDaVL5e/OTZ/90PQNd3mXD/JlIKMNcq2H/7H814unT1Mj7m/g7xJZRLzye+iPUqhgCrL+ul9F3HG59y8BHNkQT9XKqCMf33D4BsYoCmMPT65xHaCHTOm+M4geVU1vXCRjaQkW9TAS206WF+mNoHNuLNfz9j6Ys2cXbtemqDgN80E73kt+8uF2/uZPzF+P76KcC+yCdeL2KIfvSlgNali8HbeP5i3sz6MtrHDajCJSUTApleDxXIbvI+CYuyxlKXG++y52RJlnmsz9zqZg07HkvaxxZV4oCOgXje6pOD70ch7tsC16/AW/8su9UHl4Z2fiGCe65g6G7+FaxY73Rs/OWAoOe/uVRTHEyBJve7x9MU5DkJe06pTYBcf/ErRm+KQXzXDm/XfHqv
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(7416014)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(261021123027099003)(261021121427099003)(921020)(261102123227099003)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	KYKdsD5B5JetunwME3b3mb4y4p+LWMxMNWZkYRU9HjEVk2NWcRvhBCGNOc/uzPgM7xXt3iqCYoELCJVWwDGz6NQ3ETTDx7b/l6ew/3/ytEu9TjFHj5Ryae9kilNFRvVDG3rK88FgKH9QsV2DuEzSH7jtKGOCzCy/okA78MOnEaFEIwy5NeB/xMwoVmnK58RXqKDtn08ccXLOxTyEQhvq3kwVjRh50+NmGJDvYETxNUtnvuvO9sYZCUqqnY6uzWvUp+BT8qbjsBY8UkwQzsHEDxpVVT7FVk+7WJ+fkCfCWeDAqZW4ZffdK/h7qRftQHdMjNLnrdhWGCfxzN0uYLoCjMkRRITuFECaWS6va8Sq+qW5AAHa5SacclidYvNa3X/avnOpxNCG27k8HVcZuF0C2AcjxwkomD7+Qs3SZd/f4pRT7mbUJXpy+WNTbySSTGe+
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:06:55.0199
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90ddc010-a941-4121-732e-08df4938bd44
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DS8PEPF000000E3.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR12MB114387
 
-On 2026-11-22 16:12 -0500, Yury Norov wrote:
-> On Sun, Nov 22, 2026 at 02:11:31PM -0500, Gregory Price (Meta) wrote:
-> > On 2026-11-22 11:51 -0500, Yury Norov wrote:
-> > > On Fri, Nov 20, 2026 at 01:08:51PM -0500, Gregory Price via B4 Relay wrote:
-> > > > This is v6 of the Private NUMA node series. The series falls into four
-> > > > parts, each building on the one before:
-> > > > 
-> > > >    1-18  mm: introduce N_MEMORY_COMMON
-> > > 
-> > > I walked through this part, mostly. It looks like you can substantially
-> > > decrease the patch count if you keep N_MEMORY meaning unchanged, and
-> > > add another type, like N_MEMORY_NOALLOC.
-> > > 
-> > 
-> > I don't see how this would reduce the patch count substatially, you
-> > still need to convert existing N_MEMORY users and need to differentiate
-> > between general purpose memory nodes and private memory nodes.
+Hello Prabhakar,
+
+On 11/23/2026 5:42 AM, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > 
-> Please check this quick attempt with my codex. The patch count is reduced
-> to 52:
+> Commit 486c3d06b902 ("sched/fair: Avoid transient double accounting
+> for delayed tasks") changed the h_nr_runnable logic in
+> dequeue_hierarchy() from "set to 1 unless delayed" to "set to 0 if
+> delayed", but left the initialiser at 0:
 > 
-> https://github.com/norov/linux/tree/private-nodes-v6-n-memory-folded
+> 	int h_nr_runnable = 0;
+> 	...
+> 	if (se->sched_delayed)
+> 		h_nr_runnable = 0;
 > 
-... snip ...
-
-Patch count is not what we want to be optimizing for here.
-
-Your branch carries the same code (+3 lines net actually).
-
-The patch reduction comes from squashing the per-subsystem conversions
-into one 16-file commit.
-
-It also broke get_mempolicy(MPOL_F_MEMS_ALLOWED) - it now returns
-memoryless nodes even if the system doesn't have a private node.
-
-> The more important thing is that N_MEMORY and the proposed N_MEMORY_NOALLOC
-> is a disjoint, contrary to N_MEMORY and N_MEMORY_COMMON.
-
-The proposal here is not novel - version 5 was also disjoint:
-https://lore.kernel.org/linux-mm/20260720193431.3841992-5-gourry@gourry.net/
-
-   N_MEMORY and N_MEMORY_PRIVATE are mutually exclusive states.
-
-I moved away from that because it changes the definition of N_MEMORY.
-
-The subset model is easy to understand
-
-N_MEMORY               - a node has memory
- -> N_HIGH_MEMORY      - subset of N_MEMORY
- -> N_NORMAL_MEMORY    - subset of N_MEMORY
- -> N_MEMORY_COMMON    - subset of N_MEMORY
- -> N_MEMORY_PRIVATE   - subset of N_MEMORY
-                         (COMMON and PRIVATE partition N_MEMORY)
- -> N_MEMORY_<FEATURE> - subset of N_MEMORY
-                         all N_MEMORY_COMMON
-			 some N_MEMORY_PRIVATE
-
-It's additive. Users pick the set of nodes they want for their purpose
-and don't have to cobble sets together or remember special helpers.
-Users don't even need to know about private nodes most of the time
-(mempolicy being the one major exception here).
-
-In the disjoint model, N_MEMORY no longer means "has memory". Recovering
-that set requires new helpers, and the meaning changes silently for
-every in-tree and out-of-tree user. Anything that wanted "has memory"
-quietly misses private nodes.
-
-Either way you have to audit each N_MEMORY reference and decide whether
-it wants that state or a feature variant (N_MEMORY_RECLAIM, COMPACTION).
-
-The difference is how a missed site fails. In the joint model the
-zonelist and the common-memory folio checks backstop allocation and
-access, so a missed placement site costs some additional work.
-
-In the disjoint model a missed site silently drops a node from stats
-and accounting - or worse fails to allocate per-node meta data.
-
-So no, I do not think we should go back to the disjoint model.
-
-> > And N_MEMORY_NOALLOC is not a good name.
+> h_nr_runnable is therefore always 0, so dequeuing a task that is not
+> delayed no longer decrements cfs_rq->h_nr_runnable. The count only
+> grows, which inflates se->runnable_weight and skews PELT runnable_avg
+> and load balancing.
 > 
-> Sure, I'm not attached to any particular name. Although,
-> N_MEMORY_COMMON nothing better to me. It answers the question
-> 'what for this thing' even worse.
+> Initialise h_nr_runnable to 1 so that only delayed tasks, which
+> set_delayed() has already accounted for, skip the decrement.
 > 
+> Fixes: 486c3d06b902 ("sched/fair: Avoid transient double accounting for delayed tasks")
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-happy to wordsmith the names here.
+Good catch! Feel free to include:
 
-N_MEMORY_GENERAL? _DEFAULT?  _COMMON felt intuitive but I am happy
-to rename it whatever.
+Reviewed-by: K Prateek Nayak <kprateek.nayak@amd.com>
+
+> ---
+>  kernel/sched/fair.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index 731d78155e65..2d9d3d686261 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -8294,7 +8294,7 @@ static void dequeue_hierarchy(struct task_struct *p, int flags)
+>  	struct sched_entity *se = &p->se;
+>  	bool task_throttled = flags & DEQUEUE_THROTTLE;
+>  	int h_nr_idle = task_has_idle_policy(p);
+> -	int h_nr_runnable = 0;
+> +	int h_nr_runnable = 1;
+>  	struct cfs_rq *cfs_rq;
+>  	bool dequeue = true;
+>  
 
 -- 
-~Gregory
+Thanks and Regards,
+Prateek
 
