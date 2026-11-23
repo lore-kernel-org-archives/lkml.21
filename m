@@ -1,60 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432925;
-	b=1o9Ga/RiFpCDnkugqA4r8Tptx7NEmpi6feQeEmh31wIdHITSKx/Hto57qOVk9myXn7zt
-	 wNxAeyC7eLT8pmeUNsCRY9v0B9FGTIsj7G7z2jNZ9hIiZ9V25ylksX4cWY5RB7EWGTBVG
-	 4lqQ5i3EL2kPd+BhhFm4bwE2W88zPjtpeJOrP13MlakKjj7EIk55WUk0dTgDm6Fr70/gL
-	 SES2Zk6zGmS0+HIIjPpMI34PNqldpbJibmCdPr/LRtVo+NOavpx8tDMgKOtIkNN8ufO3x
-	 5Fb6sRLW7vXa1agfdtvSHW+uSmZswClrqiOrsDeP3LH5z/e94QPJxJ5nLH3n8MBgliw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432925;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=vGo5Rr0biOUzRbqTgcdqL0cPEhygXKXc6hTCMqPuRJs=;
-	b=gJX4ZVSTPYtnNe7MjsDCwUAZ4FpXVBPIir7IjJvD86HZjot+YEFpJRk2HIULs+zYYSmq
-	 I4IVGWKXN8xlC5AKNocCwBoRytRHe4xAMCTTFzyi0Ad8ANg39ubkbkkNs70WUiDKkQ34z
-	 +AXwRz6FlxW72Z5dYBvZ9nRnhvDU8dW6xSHtjMwHsS2QjTQBj2jX8HRqT+CybNYICzNk3
-	 cqn/Pes0SWQQ5Gok29di3FZu7FUsCUEUo/J7piilrFNDXLZntLk6n6+BYM015bw32aPUQ
-	 g5MMla77PpkQuRpIqaG+Wo7sT3XKstm3g0jdMC0ThryLoa95MT4v0xdfcKfn4ZSiWlA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TaEAGtfb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795432959;
+	b=TxWLPv2AFcnA3tzP5pBrVb5Tw//jl9V5Jlmfalvr19kC1JnZO1pRkLVENnKSnpWm8bS7
+	 BPwQgx0bdGKh8WgBLJVFLF2n+gznLANcKZKahvfFj3xS56m8q7ev1+8dA08+Wp6tIfq7M
+	 IBNgt9ovllvyUTWSMzRU2P71ZDv/ZFYwP67bdiKsxzz1YG2B9YNZwLBwhTzDB26Knyx21
+	 T7Zo0fD5pDfdb54y5LZbm9Dz2G5O1cj3gAaeyjF6hqeebpUBx7moo9GJf9PEZ1Q7yCSkx
+	 WodbNC1DrMfVbBkU7eyx/pW2i3p0lFHXl0HZLDUeV8JUxU4FA6/soq9CktEmmTKGNxQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432959;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+	b=GJFU0yJ9mQFana5HqeSVX7Z59NiW8fHoIhbpwFZZjfY70nHg8y96b9UOc96d/RLsYf8p
+	 lVzysk9rB+IkmKR9a5WIoBYFWSJiZ+FyX/2QD3MN+C0Gyrkn255jNIQtf/CpT0lvG2coY
+	 hHqAhLXM39KzS9gn/9lolnZgVxZohVhmiI5d8lrfgExJNl8xNPY++EklZZ6V8IoJ+saDy
+	 HjRNH1nHI8N+KOzPnLOWvpvyS7XZJtPWASy3yDQF2cUUOpv5uOoHRlW4G5u+gxumqeIrz
+	 EzRuBGEOVFm03c3QXdp2qqxPMI1WECQ3z9J3Q2MUXW0GxtlFcUw0H0XCpS9jxKWz1XQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eGiRVnww;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
+Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BCC0606A31A;
-	Mon, 23 Nov 2026 11:22:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FE8D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:22:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FE8D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TaEAGtfb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E6E71F000C0;
-	Mon, 23 Nov 2026 11:22:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795432925;
-	bh=vGo5Rr0biOUzRbqTgcdqL0cPEhygXKXc6hTCMqPuRJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TaEAGtfb1D0eMiLppFjMfL2pfXlRlJ3/3z+jlWljMxV/TbpZTKRwWyknjQLNr/AO3
-	 OaUwdmfBmImt98xPKAoI4t0TNxr521PoFDPjzDSWD2tJ70wUgLfaHPqKTalEIFn8oj
-	 Ij9uvOUdN8jRITkjCClWXYyAN0qJvIJoIB08KH2pDKDtxrfNcOcpfG7BPwUyESRWng
-	 uaK4lGcnsta2D3EWdAFhFsldfHRPT3yMWJ+vNbHFblZcw05AC/c4AyOG50REHz1SOw
-	 74nmuw1vWsmy0YL9cl5M7XQmjTPHR4WgsSZfnC28cCEZgl+QvML5PHa6OAaSSXIAdp
-	 IjeIy4qCkDygw==
-Date: Mon, 23 Nov 2026 12:22:01 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/8] dt-bindings: net: Add Synaptics SL2610 DWMAC
-Message-ID: <20261123-aromatic-feathered-whale-bfc874@quoll>
-References: <20261116135442.4827-1-jszhang@kernel.org>
- <20261116135442.4827-4-jszhang@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eGiRVnww
+Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67da3d03263so3075253d50.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:22:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795432958; cv=none;
+        d=google.com; s=arc-20260327;
+        b=X4oiTWJ1J56SvMFCdtg+f+ABAGgoEc3JsjIGS8hHrB9S9WYUsm3pFHiqp05OXeJ8G6
+         Y75F+i6EAxcN1fpoCCL0Ao7twMVGORVLX0e3vnFycaNvVEsln4861Iq6Utg3J67ckl8M
+         /f7S2Um19nXvuAEjTnpLcQSyHf2WfW5em8mMoeMY9iwbEPwnpM1Om8a5Hkabj6HlRh/f
+         qDydSDIA27m9NyQGGX4ZjV9rzVMEkQF14njJzuD4C2wqZxz8tRks2KNwu9Wo9TUH7s/h
+         5boWEwpmnXoMPQylLDsiI3LxtWkvt3NV3z8W6YMaxqTi2mj63N4P/5MCciGg5iFb4iJI
+         OqMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+        fh=OYArSpy78wqrV6KYbeDr/jMLxNulWw/+aaQ0kBRIOSY=;
+        b=E+e8fGWdaIGLCoXLMMPKZs2EdJR0I/L8vW4mzrERo07FVCHTi9YSuiZ3hbii90eKWp
+         gQhfZkLTtEjgnFxmDAztqOdVQy9S9bYZPbxiy6ySuQc8sNtDzBNeiYyr5obj1+NgSFKx
+         lc1e68E66EfUqgkNhEYawRNG2pTpB56PgSpFEtN230GwB8Qc9Ee6kw5IkYFOuQCkoXzN
+         aLsqhISDhSAGkt3I0EVDBGWaTEANMT0hZDfRmjt0ckeVHfSchQqsWUAdQfetze8U+Ty1
+         g7NukwxyeqT8EgXPUIZw2zgXwtqQCdSfugRbye3ovm561TPV7ZIYrwjK7HjJVNPTDJ4t
+         oRXQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795432958; x=1796037758; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+        b=eGiRVnwwUI4V/OQrZ89MDRT/W1O0mp8RPrNpmSFT9FQYCCnLxBi7DrSCum3JyyFnZg
+         oCgXknBrSr2p8iOizF/yG649SFYLXqlW10M/B9IDEvUntaCi9R9CLnyEkasCUYaEXEXt
+         Ebt1g6RxM5LyzxJ4MbFXlrilHshPYWNmjEuuLJwU+LYQA9MrcGKJt5qmjUvFYKLkD6t8
+         18VvM+Q53pukU8B2lgrfQUbuvr3878bzl9A6idCkeQKzOy5BG8SZsd74YKrMkBlA0tiw
+         igzIiIYOEj8oMT9n7bM5zr8L/aeuwOQzP+qxXUMDmrgZuDAcjI2UmoZYiBDVwa+im6As
+         NBig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795432958; x=1796037758;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=B57sPxPIPVjsjDHQj6Icpe8hDfL+4AlWPDMZGCnEF9M=;
+        b=f3G9Q6/o3FbQ2TTc2Reslx/jt/RC2gHBoN1ECf9JPQXSWrXGW7DGHmjFkHnahOfqez
+         Xy134jZgEDifaqX9QZpbFb2cZzj4eKnsnnh0B8CB8EzlUpW9re3GzLI9RJhCv7d/Inw5
+         8sfUrn2ndMe3hjVFBZr8MgGr545pWTUndsR6cGlppC1lFkRfbAei7sLXh0BkKrf8ca0R
+         db+MUL9Oq45iVaZrV02uzFJ85mKnwtY9uC7Nbdx5sYu6mxlBGzs4RBIsDMoLYbGwWHlr
+         DI6XgCv3Sh69+sdpY/UTo84eZTi0WXk19D8iXvPuq5+bpm5uUdWJ8bmxXi5RPchBy3UP
+         qHAg==
+X-Gm-Message-State: APuU4Z9bxWuN6WPkDgcMcllD665hcBPZgEkuRVTdHlN7AGgRoDV6A3yb
+	D3sLmjNSux+8FvDmLVezRQ939i/Qf/Hw7LXscl7hGTyeBUJAsrJhXA6nYO8MJrVkTVQih1ljR6P
+	/3EHwxSghmGuZ1qH2X1kTxE6J36+7FZIA1hLDqSA=
+X-Gm-Gg: AZFdTZd/i/pufncr1fMLjjpX4Fj28u/+w4FvAcy9mbPFehVjY9Y48t9bZp2gGh6wGK8
+	zXka+OtPJGSMEIVfLpCuA4+TLEsGFXKeGFWk5sjgAyRjtHnT5dLMy2404wcqWA6AL7JtGBKixUs
+	NyDdaxVgymiywEOpyJo9SGXld/AQx1SMtDYVhxxBfIxP+hXhWOo5rQgNe6QI4JTu87yk8erbTZ4
+	yALhy/XE1bVhttr9RQZ9dDRqrmFLZx90p3C94tsZMdg/+3gIcUvpdtmzwWb0StNumztMfWnaVB/
+	LejDmXx392qkqY+yotttyn388f8okh8+P6cRRJAtpuXUjOgwcI0uGnfE/OYgAoRNgW8Bxzsay1F
+	qXU8pckZiTscuAhwjOnIVDKIpidPgMEB2atFNVLxXQclsZFbvCJDM+9x5fw==
+X-Received: by 2002:a05:690e:4394:b0:679:a8f4:afb8 with SMTP id
+ 956f58d0204a3-67df448279emr1711455d50.114.1795432958436; Mon, 23 Nov 2026
+ 03:22:38 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,45 +99,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261116135442.4827-4-jszhang@kernel.org>
+From: Topaz Tatiana <topaz.tatiana@gmail.com>
+Date: Mon, 23 Nov 2026 14:22:27 +0300
+X-Gm-Features: Aa3M54o8w0tlGEuwzbq5r6qDt_9jsqgzSy6I_faHZy8D8nkb5JpDzjojE0LeCjA
+Message-ID: <CAOhmvYXVox0HKyvf4ypMXnojfSbMmiD43meSvVrhTpDqRjzfGg@mail.gmail.com>
+Subject: [REGRESSION] 6.12.117: soft lockup in sched_balance_softirq /
+ _nohz_idle_balance on KVM guest without NUMA
+To: linux-kernel@vger.kernel.org
+Cc: linux-sched@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
+	vincent.guittot@linaro.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 16, 2026 at 09:54:37PM +0800, Jisheng Zhang wrote:
-> +  phy-mode:
-> +    enum:
-> +      - rmii
-> +      - rgmii
-> +      - rgmii-id
-> +      - rgmii-rxid
-> +      - rgmii-txid
+Hi all, after upgrading to kernel 6.12.117+deb12-amd64 (Debian), we
+are observing
+massive soft lockups in the scheduler on a KVM guest. The previous kernel
+version worked without any issues.
 
-Missing constraints for interrupts, clocks, resets, domains and so on.
+Environment:
+- Virtualization: kvm (QEMU Standard PC)
+- NUMA: No NUMA configuration found (Faking a node)
+- CPU: 200 vCPUs, 4 sockets, 1 thread per core (see lscpu below)
+- uname: Linux dev-kulet2 6.12.117+deb12-amd64 #1 SMP PREEMPT_DYNAMIC
+Debian 6.12.117-1~deb12u1 (2026-11-14) x86_64 GNU/Linux
+- Cmdline: BOOT_IMAGE=/vmlinuz-6.12.117+deb12-amd64
+root=/dev/mapper/vg1-lv--root ro ipv6.disable=1 quiet
+- watchdog_thresh: 10
+- nohz_full: (null) (NOHZ_FULL is not used)
 
-> +
-> +required:
-> +  - compatible
-> +  - syna,syscon
-> +  - phy-mode
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    chip: syscon@f7e10000 {
-> +        compatible = "syna,sl2610-soc-syscon", "syscon";
-> +        reg = <0xf7e10000 0x10000>;
-> +        clocks = <&osc>;
-> +        #clock-cells = <1>;
-> +        #reset-cells = <1>;
-> +    };
+Symptoms:
+CPUs are 99% idle, memory is free (419 GiB free), and load average is low.
+However, the kernel watchdog triggers on swapper/N and kworker/N with delays
+of 60-97 seconds. The stack traces point directly to the scheduler functions:
+sched_balance_softirq, sched_balance_update_blocked_averages, and
+_nohz_idle_balance.
 
-Not relevant, drop entire node.
+Trace 1 (_nohz_idle_balance):
+[Mon Nov 23 11:48:17 2026]  _nohz_idle_balance.isra.0+0x31a/0x3c0
+[Mon Nov 23 11:48:17 2026]  do_idle+0x31/0x2a0
+[Mon Nov 23 11:48:17 2026]  cpu_startup_entry+0x29/0x30
+[Mon Nov 23 11:48:17 2026]  start_secondary+0x11e/0x140
+[Mon Nov 23 11:48:17 2026]  common_startup_64+0x13e/0x141
+[Mon Nov 23 11:48:17 2026]  </TASK>
+[Mon Nov 23 11:48:17 2026] watchdog: BUG: soft lockup - CPU#6 stuck
+for 50s! [swapper/6:0]
+[Mon Nov 23 11:48:17 2026] CPU: 6 UID: 0 PID: 0 Comm: swapper/6
+Tainted: G             L     6.12.117+deb12-amd64 #1  Debian
+6.12.117-1~deb12u1
+[Mon Nov 23 11:48:17 2026] Tainted: [L]=SOFTLOCKUP
+[Mon Nov 23 11:48:17 2026] Hardware name: QEMU Standard PC (i440FX +
+PIIX, 1996), BIOS rel-1.16.2-0-gea1b7a073390-prebuilt.qemu.org
+04/01/2014
+[Mon Nov 23 11:48:17 2026] RIP:
+0010:sched_balance_update_blocked_averages+0x62b/0x7b0
+[Mon Nov 23 11:48:17 2026] Code: 74 07 c7 41 20 00 00 00 00 45 84 f6
+0f 85 b9 00 00 00 48 89 cf e8 65 3b ff ff 48 f7 04 24 00 02 00 00 74
+06 fb 0f 1f 44 00 00 <48> 83 c4 48 5b 41 5c 41 5d 41 5e 41 5f 5d e9 7d
+28 de 00 80 3d 6d
+[Mon Nov 23 11:48:17 2026] RSP: 0018:ff7601b9c00f3df8 EFLAGS: 00000206
+[Mon Nov 23 11:48:17 2026] RAX: 0000000000000001 RBX: 0000000000000000
+RCX: ff26d7d979bb6040
+[Mon Nov 23 11:48:17 2026] RDX: 0000000000000007 RSI: 0000000000000000
+RDI: ff26d7d979bb6040
+[Mon Nov 23 11:48:17 2026] RBP: ff7601b9c00f3e68 R08: 0000000000000434
+R09: 0000000000000003
+[Mon Nov 23 11:48:17 2026] R10: 000000000000000a R11: 0000000000000000
+R12: 0000000000000000
+[Mon Nov 23 11:48:17 2026] R13: ff26d7d979bb6950 R14: 0000000000000001
+R15: ff26d7d979bb6a98
+[Mon Nov 23 11:48:17 2026] FS:  0000000000000000(0000)
+GS:ff26d7d979b00000(0000) knlGS:0000000000000000
+[Mon Nov 23 11:48:17 2026] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[Mon Nov 23 11:48:17 2026] CR2: 00007f32c305ce00 CR3: 0000000106884004
+CR4: 0000000000771ef0
+[Mon Nov 23 11:48:17 2026] PKRU: 55555554
+[Mon Nov 23 11:48:17 2026] Call Trace:
+[Mon Nov 23 11:48:17 2026]  <TASK>
 
+Trace 2 (sched_balance_update_blocked_averages):
+[Mon Nov 23 11:48:17 2026] RIP:
+0010:sched_balance_update_blocked_averages+0x62b/0x7b0
+[Mon Nov 23 11:48:17 2026] Code: 74 07 c7 41 20 00 00 00 00 45 84 f6
+0f 85 b9 00 00 00 48 89 cf e8 65 3b ff ff 48 f7 04 24 00 02 00 00 74
+06 fb 0f 1f 44 00 00 <48> 83 c4 48 5b 41 5c 41 5d 41 5e 41 5f 5d e9 7d
+28 de 00 80 3d 6d
+[Mon Nov 23 11:48:17 2026] RSP: 0018:ff7601b9c0663df8 EFLAGS: 00000206
+[Mon Nov 23 11:48:17 2026] RAX: 0000000000000001 RBX: 0000000000000000
+RCX: ff26d7d97f2b6040
+[Mon Nov 23 11:48:17 2026] RDX: 00000000000000b5 RSI: 0000000000000000
+RDI: ff26d7d97f2b6040
+[Mon Nov 23 11:48:17 2026] RBP: ff7601b9c0663e68 R08: 0000000000000015
+R09: 0000000000000001
+[Mon Nov 23 11:48:17 2026] R10: 000000000000b944 R11: 000000000000cef5
+R12: 0000000000000000
+[Mon Nov 23 11:48:17 2026] R13: ff26d7d97f2b6950 R14: 0000000000000001
+R15: ff26d7d97f2b6a98
+[Mon Nov 23 11:48:17 2026] FS:  0000000000000000(0000)
+GS:ff26d7d97f200000(0000) knlGS:0000000000000000
+[Mon Nov 23 11:48:17 2026] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[Mon Nov 23 11:48:17 2026] CR2: 00007f2fca0ccccc CR3: 00000001a8058002
+CR4: 0000000000771ef0
+[Mon Nov 23 11:48:17 2026] PKRU: 55555554
+[Mon Nov 23 11:48:17 2026] Call Trace:
+[Mon Nov 23 11:48:17 2026]  <TASK>
+[Mon Nov 23 11:48:17 2026]  ? srso_alias_return_thunk+0x5/0xfbef5
+[Mon Nov 23 11:48:17 2026]  ? srso_alias_return_thunk+0x5/0xfbef5
+[Mon Nov 23 11:48:17 2026]  ? finish_task_switch.isra.0+0x97/0x2f0
+[Mon Nov 23 11:48:17 2026]  _nohz_idle_balance.isra.0+0x31a/0x3c0
+[Mon Nov 23 11:48:17 2026]  do_idle+0x31/0x2a0
+[Mon Nov 23 11:48:17 2026]  cpu_startup_entry+0x29/0x30
+[Mon Nov 23 11:48:17 2026]  start_secondary+0x11e/0x140
+[Mon Nov 23 11:48:17 2026]  common_startup_64+0x13e/0x141
+[Mon Nov 23 11:48:17 2026]  </TASK>
+[Mon Nov 23 11:48:17 2026] watchdog: BUG: soft lockup - CPU#6 stuck
+for 50s! [swapper/6:0]
 
-Best regards,
-Krzysztof
+CPU Topology (lscpu -e, first 30 lines out of 200):
+CPU NODE SOCKET CORE L1d:L1i:L2:L3   ONLINE
+  0    0      0    0 0:0:0:0            yes
+  1    0      0    1 1:1:1:0            yes
+  2    0      0    2 2:2:2:0            yes
+  3    0      0    3 3:3:3:0            yes
+  4    0      0    4 4:4:4:0            yes
+  5    0      0    5 5:5:5:0            yes
+  6    0      0    6 6:6:6:0            yes
+  7    0      0    7 7:7:7:0            yes
+  8    0      0    8 8:8:8:0            yes
+  9    0      0    9 9:9:9:0            yes
+ 10    0      0   10 10:10:10:0         yes
+...
+149    0      2  149 177:177:177:128    yes
+150    0      3  150 192:192:192:192    yes
+...
+199    0      3  199 241:241:241:192    yes
 
+This looks like a regression in NOHZ idle balancing for large KVM systems
+without NUMA. Are there any known fixes for this in the 6.12 stable branch
+or mainline?
+
+Best regards, Tatiana Topaz
