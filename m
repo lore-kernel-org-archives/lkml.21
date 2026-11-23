@@ -1,69 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795472691;
-	b=W2oD6LcsQzhvVLEyVIChhKhzm+v1VZGJfDk7/wuMD74TO4tcAh13aRTXZEva0Q9STT6q
-	 z+dOHFu7KzmS0K9P252rzdEp/w0NdfsFakVpLfxcgmvXhMCeFi2w9hBpmnshWUaT5DomF
-	 EG9UWRseVtYVjtvmUJjwMp25vMEyd8H6+xa9mt9hbi8nXp/+r2Te6HMjIc+DaHBWQx5Wf
-	 TYgwhSX7BSpO0Lg0Yd0DaeC1fT1FmsR/n+4u7W2iNRMcbVPREUcjrzIJOAXaPQDaBYNJz
-	 IJfeul5yS9jfduAx6G0xZFNJF9gV4tQkAGw7BsBPeli3rrZlV/iU47zV07f1FxEEz+w==
+	t=1795472739;
+	b=lMZyunnjphToClUdw34i75wVbfV+rQqAlUkZbmJyuAtrjcInyDBMqJkpJyRqYXk7ThQ0
+	 5T5Xh1P6OsXTnfORYoakHdhaOFKu3PKIGOTWiz1Uh9Y1ejy201O5JfO5Xpx7sv+T9RQXX
+	 uzfTbIU1zj71BUvHDArfI1xffoKmS+THZyb+/bwpfOgdAEB0zIBM0Dw5MQ1YkbmX+yWrS
+	 o6OYiRTgkK14adjdDnRk2O9ceMX82A0iOzGpkY6IOZAK3+DzsD1GwFIiFux8FYZbxg2qM
+	 SFDVl5WRP0iYr+hl7k3qWbZgpPHmFWE3T46ClF7Y2SfOvlBQGz2+i1paQpRfZ+GYB2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795472691;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=uG+Qr7dBqxde6e6CrYVj5rbF/dxo3B1Cf2kSUU+32ss=;
-	b=VQK4/gBll0W553fgUYaRVog30bxIGpba8m4UxoOLSmlIb27fF9OJPFOZNAaJ2+esvQFE
-	 q6ZqnI5xabTAlKLvQ7RIKGc6yRTVzWZsh/6AaMwSWQL+hs4mWIJ7OuKOLtDCrrOoVKBgY
-	 kn3nVp2cC9jyppU5cvnyFghEQD0QkhCmw4ELDj/B3Z2TgWVVQ+IKpssLua2e4jYrlrGsM
-	 L4BpFLpLoNMGFJysBWckVG7+Fk3IEbsoouZKTmwSPTUN9jvM4YWwQshbAA+qzp0PKmQe5
-	 HF163vccIe5daBx3gRMb+jJmRY/1WaUMuEE2L7XKrSW2MMGNS8IXiZ+FWJ/ITKpUIEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472739;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=O1a7RAdIgYYpZ0y9e91WZapXgmnwOdHR9E+EflWRRo4=;
+	b=3avA6fvHsaW0pxYtWtZZolVXrDqNMwOlZCg8yToXnTAP1z+xgagpXkRl3MDGy5uEGtRx
+	 z1AZG0wiy5/72FAGVJza19mo5jXx+GRND6w/+fvyVEXgJ/T7oRpHo3WsN/SstIVugSHW5
+	 7xFJwEXR90iTkZVFJZYt02PZoNIn59fXIgN7CA+PtN1n6P41ihJ0fILiV/zBO/USK8WKD
+	 Cfa5MlputRe5PdgOTvm51xIhCkow7Fkp2uAmR+q1ANB9LraLQxn+ttvrGM5iQcsyF3cGM
+	 u28NCV/rmlo0ASJ9HgxHrKe51euwK5EWgQzecT48VvC/kdsNMi8UU/xkp88Vgh64zJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=pl3VJraO;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=riscstar.com;
+	spf=pass smtp.mailfrom=riscstar.com;
+	dkim=pass header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=6LEkh1Wz;
+	arc=none smtp.remote-ip=209.85.161.45
+Received: from mail-oo1-f45.google.com (mail-oo1-f45.google.com [209.85.161.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F005606A31E;
-	Mon, 23 Nov 2026 22:24:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F005606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA14C606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:25:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA14C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=riscstar.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=riscstar.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=pl3VJraO
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=uG+Qr7dBqxde6e6CrYVj5rbF/dxo3B1Cf2kSUU+32ss=; b=pl3VJraOztDbR20nPZg4I0YChI
-	59cIrO/hcjjwl/r7vM+XBpMfBQvC+iF0oWjT4NFe+R1lQwDWbkQT7snBzSagcicijS6GKYu96p55p
-	ss9tkZ6jEJMaxYGupCefwlYHmLPpz8OTtimgCZJxEoDSckgaP/VfT3VWCp+p6D7B8V5w=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVcSh-000udF-WB; Mon, 23 Nov 2026 23:24:36 +0100
-Date: Mon, 23 Nov 2026 23:24:35 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: filipp.dunsky@gmail.com
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 4/5] net: cortina: Add CS7542 CPU network
- datapath
-Message-ID: <560efd8b-44a6-4b3f-9f88-d1a891b4f253@lunn.ch>
-References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
- <20261123-b4-cs7542-ethernet-v1-4-fdb5e8c2d508@gmail.com>
+	dkim=pass (2048-bit key) header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=6LEkh1Wz
+Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-71ac798b8bbso2504040eaf.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:25:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar.com; s=google; t=1795472737; x=1796077537; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=O1a7RAdIgYYpZ0y9e91WZapXgmnwOdHR9E+EflWRRo4=;
+        b=6LEkh1WzWlOSIoIIHWHHvGGe8ls6F5uMHZ1h/oA0Mfj/yUszyLlz328XQa9sRllh0p
+         tVUeWXGJcqXx9ToqGSMoiqIXv1E7puZXYIJTrpse7wiOimDRxg1VWeA9864K5z7DuTPa
+         iDKLedXwVP1geqUl+GNOhRu11khMsxrj3SrIfw0k2lxgSTTsR5qEBPlQsbzZzVqnOoyp
+         64/NqX3sCgdpxbp7WX7Cx1QzlVVorxFLiiLf2bE72H+3UlP6o4AQCaJn0Ru4kBM/y6Iz
+         /V/6jfXFmv49jLvEo9diYhTSYIrK3tnOyQodcRn6CIPXedblij46nG12w6shkcsVS0g1
+         UZAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795472737; x=1796077537;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=O1a7RAdIgYYpZ0y9e91WZapXgmnwOdHR9E+EflWRRo4=;
+        b=wf3xRCY+2oDCGQqtun2of1nIG7gfD342u3UMWqmMqQ95A1I0ZLltwvbS0mNQZvbOtD
+         NZOdpX/sSu8oZIueKEMlWHPVZEqgfWNBse+rD5AFnJnN75f6rtPXeDWTxzgNVYha6ZQO
+         WGLV1Shr1fng0Aic/4c9mSIkXcGpauqbwryEc6ZAV79xBp7ydbL9PshTTjUO1hu/Hscb
+         sU1Sih8p1BYWqzzhV3Iaj1IJdYgdgPMCpC9wQ6q4+esxXzLlorCzId8Ki+PoeYKJr8vz
+         ILrv9ZrBRx26RqrLyXy9ipJBsLDz0frS6+6eOUI5nVbSUdhNtPteYOgOfB+OtRe7WBQR
+         9rKA==
+X-Forwarded-Encrypted: i=1; AL+hErG826cAD020AYqhR/KKAKl9oZXMc9XA/+95vHswirQAjTip8rcSqHZPKv6TEioBFJvYg2MMtr8XBxFgTtA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/16LFosQglNXcpwrjMmZK8xhHEjbQwoMJUCjgohfE6v067I6+t
+	IxRxi9Hx3V4iptNn6AWp19w0LFUlON+qEzv2B0pCN3CDez0XtKfXawrqRArVRVk5wQg=
+X-Gm-Gg: AZFdTZdrMzxZG/zhi5Fyuvfy0g1ob1ZEhdD8XClIfgL99/n3XFVApn8shsZJ65epnlh
+	gIT9THxmgOiCVzPGoZXlIltmnGBs802uGgGyi8opHy5iKuggZTnGkSHUxJSE35yfyN2Y2WRUX90
+	LF4K1qkn2Ar6rjb9W9bbUKFiCkVaWGIPPWejgA12e3aD7gfGBF8Swr+kWTb/5Wxh63lxHYPTVxc
+	5ccFwFGU0q4tiEVaVzib9AeysLGqEQER0YOgBt9sYxic7QoFdfg2FmRRY+PpcHrkcmoEbxASoNX
+	AL0zhkNlYpgpIoX/xJFUpGInLq+aVREWjuDnaTiGIX4wBH9cllivNUemxSEhboBpRlZyu3ltJcI
+	bWHrVDvstOhfj87aHWDiSnDKa5KAkT3mzAze4XI5TrFlg7c4oMxFfty98wp8R+VolRaYCDQMPGn
+	rrajk/YSX6QxulEni5+d//bHYcsMoGGn/zqlh2w5TGGN2TxPy0ektvpMmBknTFPlc8mFPkLppW9
+	isFzTMdo4EUHtXJxDBEdHDeTm2X9EUdA2shNfMvpIC28thoNS9TXzjLk8fzcvx9v3H+cC7V1VaF
+	LTwG6jddTlJo3SsvbBhBfkbj7LxQ4a8j
+X-Received: by 2002:a05:6820:1391:b0:71a:dd93:2974 with SMTP id 006d021491bc7-71b39039602mr10599042eaf.0.1795472737591;
+        Mon, 23 Nov 2026 14:25:37 -0800 (PST)
+Received: from [172.22.22.28] ([76.156.233.211])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm8511306eaf.13.2026.11.23.14.25.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 14:25:37 -0800 (PST)
+Message-ID: <ca6115bb-1c45-408a-be55-68b74977a380@riscstar.com>
+Date: Mon, 23 Nov 2026 16:25:36 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,72 +92,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-b4-cs7542-ethernet-v1-4-fdb5e8c2d508@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/10] remoteproc: qcom: Skip unregistering uninitialised
+ SSR subdevice
+To: Lee Jones <lee@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Rishabh Bhatnagar <rishabhb@codeaurora.org>,
+ Siddharth Gupta <sidgup@codeaurora.org>, Alex Elder <elder@kernel.org>,
+ linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20261123172140.3547896-1-lee@kernel.org>
+ <20261123172140.3547896-9-lee@kernel.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20261123172140.3547896-9-lee@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-> +static bool internal_buf;
-> +module_param(internal_buf, bool, 0444);
-> +static int napi_budget = 16;
-> +module_param(napi_budget, int, 0444);
+On 11/23/26 11:20 AM, Lee Jones wrote:
+> If qcom_ssr_get_subsys() fails in qcom_add_ssr_subdev(), the function
+> logs an error and returns early without calling rproc_add_subdev(),
+> leaving ssr->info NULL and ssr->subdev.node uninitialised.  When driver
+> probe unwinds or the device is later removed, qcom_remove_ssr_subdev()
+> unconditionally calls rproc_remove_subdev(), dereferencing a NULL list
+> pointer in list_del().
 
-No module parameters.
+At first I thought a failure seen in qcom_add_ssr_subdev() should
+mean that qcom_remove_ssr_subdev() never gets called.  But now
+I see that doesn't return any error, hence the check for a null
+ssr->info pointer is necessary here.
 
-Also, this napi budget is lower than typical. Why?
+So... this looks good to me.
 
+Reviewed-by: Alex Elder <elder@riscstar.com>
+
+> Guard qcom_remove_ssr_subdev() on ssr->info being non-NULL, matching the
+> GLINK and SMD subdevice teardown helpers.
+> 
+> Fixes: 5abfe5cf0b83 ("remoteproc: qcom: Add per subsystem SSR notification")
+> Closes: https://sashiko.dev/#/bug/linux-5594c348-0c41-4482-b001-481878256d30
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
+>   drivers/remoteproc/qcom_common.c | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/remoteproc/qcom_common.c b/drivers/remoteproc/qcom_common.c
+> index c53190f0c537..6fd92c33392b 100644
+> --- a/drivers/remoteproc/qcom_common.c
+> +++ b/drivers/remoteproc/qcom_common.c
+> @@ -537,6 +537,9 @@ EXPORT_SYMBOL_GPL(qcom_add_ssr_subdev);
+>    */
+>   void qcom_remove_ssr_subdev(struct rproc *rproc, struct qcom_rproc_ssr *ssr)
+>   {
+> +	if (!ssr->info)
+> +		return;
 > +
-> +static inline u32 ni_rd(struct cs_ne *ne, u32 off)
-> +{
-> +	return readl(ne->ni + off);
-> +}
+>   	rproc_remove_subdev(rproc, &ssr->subdev);
+>   	ssr->info = NULL;
+>   }
 
-No inline functions in a .c file. Let the compiler decide.
-
-> +static int cs_ne_open(struct net_device *ndev)
-> +{
-> +	struct cs_ne_port *port = netdev_priv(ndev);
-> +	struct cs_ne *ne = port->ne;
-> +	unsigned long flags;
-> +	int ret;
-> +
-> +	/* RTNL also protects the final probe activation. */
-> +	if (ne->rx_stopping)
-> +		return -ENODEV;
-> +	if (READ_ONCE(ne->txq.fault))
-> +		return -EIO;
-> +
-> +	ret = phylink_of_phy_connect(port->phylink, port->np, 0);
-> +	if (ret) {
-> +		netdev_err(ndev, "phylink connect failed: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	port->rd = ni_rd(ne, NI_CPUXRAM_CPU_CFG_RX(port->id)) & NI_XRAM_PTR_MASK;
-> +	napi_enable(&port->napi);
-> +	ret = request_irq(port->irq, cs_ne_rx_irq, 0, ndev->name, port);
-> +	if (ret) {
-> +		napi_disable(&port->napi);
-> +		phylink_disconnect_phy(port->phylink);
-> +		return ret;
-> +	}
-> +	spin_lock_bh(&ne->txq.lock);
-> +	if (ne->txq.fault) {
-> +		spin_unlock_bh(&ne->txq.lock);
-> +		free_irq(port->irq, port);
-> +		napi_disable(&port->napi);
-> +		phylink_disconnect_phy(port->phylink);
-> +		return -EIO;
-
-Please put cleanup at the end and use goto statements. That is the
-general pattern in the kernel when there is more than one thing to
-cleanup.
-
-> +	}
-> +	WRITE_ONCE(port->opened, true);
-> +	ne->txq.stopping = false;
-
-I've not looked at the details, but such flags are often not
-needed. They generally indicate there is not a full understanding of
-the driver API. Please review them, and see if they are really needed.
-
-    Andrew
