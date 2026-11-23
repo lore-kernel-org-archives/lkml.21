@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=96.67.55.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795463787;
-	b=2G2PK3T8E59v604OTP+xD9u9B337VyN0Altp56GSTS24I+X/VeRxMOthJP94I/vn8EsH
-	 OUqqUQilc0u9s2Osmv6tAX6go+EoQdaj9z/+D+o6klhvrs7i2WXYeryLXqb5ZuuxOqQd2
-	 ydW+KEIlwtq/eQmfGzWpZsqdXCQ6XecdxjV8IxjV2+ex/M4LN671/c0n2vV8EpXfzvOJ4
-	 gwS/rPEQkT7AszPX25y+pXZQ/0DEpyU1Xu0Q2LKj99Q/32mysDVs5aoZSI46aX5u0JWhp
-	 HUgiBQe5Mlbx90zu/ITqGC84pvnT26P+Tp1h/PDeWD95tv+m3vgdrsb7WwSJdan0iRw==
+	b=NzweJAK3ynuGa7BSZ0AhP0ET0B9bZiSIEVora+nNarESpcibuBMJZr7nZDaMycfdMp5r
+	 8Vti5COnCpEKjHiVcOQjXy5uGkWFFdoP8apO68DxJYneUH/jOJ162lG64QPV6FOJT4lA1
+	 3KG0bVBcarTuNlXwxr56to+hZj3+2GbEiRVq63Ct5lkmYgCODvisMPPm6DbUA3yLQAj3v
+	 Zg3A6kZxFS//CxYvsmPxJHQ0LomGl3Epp7x2P+B4q0+R541+obLhH1jQalmktfXoDUG06
+	 Zb/njjTOtH2MDaMkaPobiqznISv7GZegIEWiHvb4vsAt01MjoqJBIVr9NXFI1Fgaq3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795463787;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=09Qoe43PT4Iegq/2tV6EDeu/7nFFELs7zlPH6GSP538=;
-	b=xnXpBWtxsEj/ruKV8BUUb52NyH2PnZQEMbJgbiWL2GWRWJRlUcHvMCVcjC3vXo2g4fCR
-	 7DPW15gLtN1hv8X93lrOKKPfJVZOUflB9/owGO9PW/rV1RcJRsD7zyJWVTqXEZ5wGzUTM
-	 8M5Dls0ZGRnSZkLY7HwtZkbG/xmAtJKY2/l4RuJe+CmGjj19amErn4ZbW52BoknXFqnOn
-	 khtoBkdYyPKX3LVpcI4yqylup0OFbUWFwEHeqnnHfu/ZB6MGa5LJA13J0vxL1zPfm7ESn
-	 5cZadNyTJeTO8OuSmIfzFU0xYdvW5Imq7gdmrDV0dX5lZ4+ZZls9AELdaedi/D4noEw==
+	bh=IiLEpxFdp/GdWWLhE2SRceq2aNaPLrmH4fAKh/8siQw=;
+	b=E4tbEGo07ToqgLagrhPOmauA3hvnksfz2GIcrvZQ7NrAhtdWSPphkCbdymxuj3xtfzlf
+	 Ar6Q2f0p5PxEo/xXWagfSieCfUyDiumkPx2epN/FPNBcMYBxbpEpC9nEYmHQO0PTGk1Fp
+	 Fy92J13M5/n4p8oCEzjA2Og3MKGBj4WzVfpn9MLpSvsUlLcI7trTWmc4NBfdx+0JsWX9X
+	 zTQwNe1Ke8MQ9TYM8SMBsobshGC/g2Ay1hGzRATFyS4A4CWN/HqkomJ4sL+PvxQTrKMj9
+	 NbDM08PM1GoDbS2vnlZzBMo8ZMKXakTIGRIdkpEmPojMh2ASzRPUpBmo+OB9rz92RRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=surriel.com;
 	spf=pass smtp.mailfrom=surriel.com;
-	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=QkrF3T6H;
+	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=dW5Cdkk4;
 	arc=none smtp.remote-ip=96.67.55.147
 Received: from shelob.surriel.com (shelob.surriel.com [96.67.55.147])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E78C606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:56:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E78C606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2C72606A338
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:56:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2C72606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=surriel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=surriel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=QkrF3T6H
+	dkim=pass (2048-bit key) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=dW5Cdkk4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
 	; s=mail; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID; bh=09Qoe43PT4Iegq/2tV6EDeu/7nFFELs7zlPH6GSP538=; b=QkrF3T
-	6HtDiNETIOIWuNnNM+k2VV+lrscYx8EBpB8UbzgK2LkJMNLscxpwc8shZjJGh6FqgwRd3e4UggVET
-	L/ferf0OlEwqveWg/SHG6gHVp3nSbUSn85IEr4m7B2uITaWwVCGbpUIXOEb/NnOQY7/g94VTz8WDZ
-	ARCr6/+FPy7P6eh44Nj3swzrIEJH6Z88KV+wnxq4fnQFYrbVIBSZ6C/qmtia34ZAkH/rRlKEmZ7hV
-	83oF7bV1jyR/6HhTZFNKVCBnkGKeE6Vo2y0nul6jx+mNwMc03p9YoYPzj1FqDPGUXJY7+dlgENgsy
-	JPgtnHM3PVw5kvFWwbACoFuJrV4A==;
+	:Resent-Message-ID; bh=IiLEpxFdp/GdWWLhE2SRceq2aNaPLrmH4fAKh/8siQw=; b=dW5Cdk
+	k4L9Y2JmljporTezPw+aHpEUtoacoF7UfrA6w4xnXXKKfOKtaqurjnUfV4qUaSCulnTbfxhVMT7Qc
+	Yz59Ao45rw+bHu+b0IS/Q70xoZBfxsgBxNQKGamwYNt9nlYYNRv0F/Ak/Lromoa3CugZN7tQHo7MA
+	bdebbrRHXNiBALSwLRI7b7ctpAeMI9ylA3ycftgdtpObfVG4dPSla7HUEvAXIPce7UL4oMTi6EGni
+	q1RJODhMyPqFPmZAOeLQfuJRjGsd0rDkgy6WGWBzfuQjB6XYztkstieGzn7mtc6LkIkGYax20nnGz
+	AXHMdJZ50tEcn7qVZSaX5p6UIRrA==;
 Received: from [2601:18c:8100:a0e0:5a47:caff:fe78:8708] (helo=fangorn.surriel.com)
 	by shelob.surriel.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.5)
 	(envelope-from <riel@surriel.com>)
-	id 1xVa99-00000006IU7-1zAH;
+	id 1xVa99-00000006IU7-1aVr;
 	Mon, 23 Nov 2026 19:56:15 +0000
 From: Rik van Riel <riel@surriel.com>
 To: linux-kernel@vger.kernel.org
@@ -62,9 +62,9 @@ Cc: linux-mm@kvack.org,
 	Jason Gunthorpe <jgg@ziepe.ca>,
 	Peter Xu <peterx@redhat.com>,
 	Rik van Riel <riel@surriel.com>
-Subject: [PATCH 7/9] mm/gup: walk multiple PTEs per follow_page_pte() call
-Date: Mon, 23 Nov 2026 14:56:07 -0500
-Message-ID: <20261123195609.4115244-8-riel@surriel.com>
+Subject: [PATCH 4/9] mm/gup: split out folio grab-and-store helper
+Date: Mon, 23 Nov 2026 14:56:04 -0500
+Message-ID: <20261123195609.4115244-5-riel@surriel.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261123195609.4115244-1-riel@surriel.com>
 References: <20261123195609.4115244-1-riel@surriel.com>
@@ -79,189 +79,120 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Slow GUP resolves and commits one PTE per follow_page_pte() call, so
-__get_user_pages() restarts the pgd/p4d/pud/pmd descent and retakes
-the PTE lock for every page.
+follow_page_pte() does two things once it has resolved a present PTE
+to a page: run the per-PTE safety checks (write-fault, unshare), then
+grab a folio reference and hand the page back: fault it in if pinning,
+mark it dirty/accessed, and store the caller's array slot.
 
-Walk the PTEs from the start address to the end of this page table or
-VMA, whichever comes first, and commit every page found. The walk end
-is computed from the inclusive end like folio_pte_range() does, not
-via pmd_addr_end(), which does not clamp on 2-level page tables and
-can wrap on unsigned-long overflow. A none PTE in a hugetlbfs VMA can
-only be resolved to the page cache outside the PTE lock, so it is
-deferred until after unlock.
+Split the second part into gup_grab_fill_folio_pages(), which stores the
+pages with gup_fill_pages(). The cache flushes stay with the caller in
+__get_user_pages(), which runs gup_flush_pages() without any page
+table lock held. Storing one slot under the lock is cheap; flushing is
+not, and needs no lock once the folio reference is held.
 
-A failure on the first PTE is returned to the caller. A failure after
-that is a short read; __get_user_pages() retrying the read gets the
-error.
+No functional changes intended.
 
 Suggested-by: David Hildenbrand <david@kernel.org>
 Signed-off-by: Rik van Riel <riel@surriel.com>
 ---
- mm/gup.c | 95 ++++++++++++++++++++++++++++++++++++--------------------
- 1 file changed, 61 insertions(+), 34 deletions(-)
+ mm/gup.c | 76 +++++++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 47 insertions(+), 29 deletions(-)
 
 diff --git a/mm/gup.c b/mm/gup.c
-index 57faf0165385..b5747f2c2ca3 100644
+index 963c09b955d9..d2097ecd1576 100644
 --- a/mm/gup.c
 +++ b/mm/gup.c
-@@ -792,7 +792,7 @@ static long follow_huge_pud(struct vm_area_struct *vma,
- 	if (ret)
- 		return ret;
- 
--	gup_fill_pages(pages, page, 1);
-+	gup_fill_pages(pages, page, nr);
- 	return nr;
- }
- 
-@@ -861,7 +861,7 @@ static long follow_huge_pmd(struct vm_area_struct *vma,
- 
- 	page += off;
- 
--	gup_fill_pages(pages, page, 1);
-+	gup_fill_pages(pages, page, nr);
- 
- 	return nr;
- }
-@@ -1011,41 +1011,69 @@ static long gup_lookup_pte(struct vm_area_struct *vma, unsigned long address,
- 	return 0;
+@@ -921,6 +921,50 @@ static inline bool can_follow_write_pte(pte_t pte, struct page *page,
+ 	return !userfaultfd_pte_wp(vma, pte);
  }
  
 +/*
-+ * Walk the PTEs from the start address to the end of this page table or VMA,
-+ * whichever comes first, and commit every page found.
-+ *
-+ * A failure on the first PTE is returned to the caller. A failure after that
-+ * is a short read; __get_user_pages() retrying the read will get the error.
-+ *
-+ * Return: the number of pages stored in @pages, 0 when no mapping exists at
-+ * the start address, or a negative errno for a failure on the first PTE.
++ * Grab a folio reference for @nr pages starting at @page, mark the folio
++ * accessed (and dirty for FOLL_WRITE), and store the pages for the caller.
++ * The caller (__get_user_pages()) flushes the caches with gup_flush_pages().
 + */
- static long follow_page_pte(struct vm_area_struct *vma,
--		unsigned long address, pmd_t *pmd, unsigned int flags,
--		struct page **pages)
-+		unsigned long address, unsigned long end, pmd_t *pmd,
++static long gup_grab_fill_folio_pages(struct folio *folio,
++		struct page *page, unsigned long nr, bool dirty,
 +		unsigned int flags, struct page **pages)
- {
- 	struct mm_struct *mm = vma->vm_mm;
--	struct page *page;
-+	bool pte_is_none = false;
-+	pte_t *ptep, *orig_ptep;
-+	unsigned long walk_end;
-+	unsigned long nr = 0;
- 	spinlock_t *ptl;
--	pte_t *ptep, pte;
--	long ret;
-+	long ret = 0;
- 
--	ptep = pte_offset_map_lock(mm, pmd, address, &ptl);
-+	orig_ptep = ptep = pte_offset_map_lock(mm, pmd, address, &ptl);
- 	/* The PMD entry is empty. */
- 	if (!ptep)
- 		return no_page_table(vma, flags, address);
--	pte = ptep_get(ptep);
- 
--	/*
--	 * no_page_table() may access the page cache for a hugetlb VMA,
--	 * which cannot be done under the PTL, so defer it until the
--	 * lock is dropped.
--	 */
--	if (pte_none(pte)) {
--		pte_unmap_unlock(ptep, ptl);
--		return no_page_table(vma, flags, address);
--	}
-+	/* Clamp the walk to the VMA end or PMD boundary. */
-+	walk_end = min((address & PMD_MASK) + PTRS_PER_PTE * PAGE_SIZE,
-+		       vma->vm_end);
-+	if (end > address && walk_end > end)
-+		walk_end = end;
++{
++	long ret;
 +
-+	for (; address < walk_end; address += PAGE_SIZE, ptep++) {
-+		pte_t pte = ptep_get(ptep);
-+		struct page *page;
- 
--	ret = gup_lookup_pte(vma, address, ptep, pte, flags, &page);
--	if (!ret && page) {
--		ret = gup_grab_fill_folio_pages(page_folio(page), page,
--						     1, pte_dirty(pte), flags, pages);
--		if (!ret)
--			ret = 1;
-+		/*
-+		 * no_page_table() may access the page cache for a
-+		 * hugetlb VMA, which cannot be done under the PTL,
-+		 * so defer it until the lock is dropped.
-+		 */
-+		if (pte_none(pte)) {
-+			pte_is_none = true;
-+			break;
++	/* try_grab_folio() does nothing unless FOLL_GET or FOLL_PIN is set. */
++	ret = try_grab_folio(folio, nr, flags);
++	if (unlikely(ret))
++		return ret;
++
++	/*
++	 * We need to make the page accessible if and only if we are going
++	 * to access its content (the FOLL_PIN case).  Please see
++	 * Documentation/core-api/pin_user_pages.rst for details.
++	 */
++	if (flags & FOLL_PIN) {
++		ret = arch_make_folio_accessible(folio);
++		if (ret) {
++			gup_put_folio(folio, nr, flags);
++			return ret;
 +		}
++	}
++	if (flags & FOLL_TOUCH) {
++		if ((flags & FOLL_WRITE) && !dirty && !folio_test_dirty(folio))
++			folio_mark_dirty(folio);
++		/*
++		 * pte_mkyoung() would be more correct here, but atomic care
++		 * is needed to avoid losing the dirty bit: it is easier to use
++		 * folio_mark_accessed().
++		 */
++		folio_mark_accessed(folio);
++	}
 +
-+		ret = gup_lookup_pte(vma, address, ptep, pte, flags, &page);
-+		if (ret || !page)
-+			break;
-+		ret = gup_grab_fill_folio_pages(page_folio(page), page, 1,
-+					     pte_dirty(pte), flags,
-+					     pages ? pages + nr : NULL);
-+		if (ret)
-+			break;
-+		nr++;
- 	}
-+	pte_unmap_unlock(orig_ptep, ptl);
++	gup_fill_pages(pages, page, nr);
++
++	return 0;
++}
++
+ static long follow_page_pte(struct vm_area_struct *vma,
+ 		unsigned long address, pmd_t *pmd, unsigned int flags,
+ 		struct page **pages)
+@@ -976,36 +1020,10 @@ static long follow_page_pte(struct vm_area_struct *vma,
+ 	VM_WARN_ON_ONCE_PAGE((flags & FOLL_PIN) && PageAnon(page) &&
+ 			     !PageAnonExclusive(page), page);
  
--	pte_unmap_unlock(ptep, ptl);
-+	if (nr)
-+		return nr;
-+	if (pte_is_none)
-+		return no_page_table(vma, flags, address);
- 	return ret;
- }
- 
-@@ -1068,7 +1096,7 @@ static long follow_pmd_mask(struct vm_area_struct *vma,
- 	if (!pmd_present(pmdval))
- 		return no_page_table(vma, flags, address);
- 	if (likely(!pmd_leaf(pmdval)))
--		return follow_page_pte(vma, address, pmd, flags, pages);
-+		return follow_page_pte(vma, address, end, pmd, flags, pages);
- 
- 	if (pmd_protnone(pmdval) && !gup_can_follow_protnone(vma, flags))
- 		return no_page_table(vma, flags, address);
-@@ -1081,14 +1109,14 @@ static long follow_pmd_mask(struct vm_area_struct *vma,
- 	}
- 	if (unlikely(!pmd_leaf(pmdval))) {
- 		spin_unlock(ptl);
--		return follow_page_pte(vma, address, pmd, flags, pages);
-+		return follow_page_pte(vma, address, end, pmd, flags, pages);
- 	}
- 	if (pmd_trans_huge(pmdval) && (flags & FOLL_SPLIT_PMD)) {
- 		spin_unlock(ptl);
- 		split_huge_pmd(vma, pmd, address);
- 		/* If pmd was left empty, stuff a page table in there quickly */
- 		return pte_alloc(mm, pmd) ? -ENOMEM :
--			follow_page_pte(vma, address, pmd, flags, pages);
-+			follow_page_pte(vma, address, end, pmd, flags, pages);
- 	}
- 	ret = follow_huge_pmd(vma, address, end, pmd, flags, pages);
- 	spin_unlock(ptl);
-@@ -1625,14 +1653,13 @@ static long __get_user_pages(struct mm_struct *mm,
- 
- 	fill_flush:
- 		/*
--		 * The first page is already stored and references on the
--		 * whole run are held; fill the rest of the array and flush
--		 * the caches without any page table lock held.
-+		 * The run is already stored and references on all of it are
-+		 * held; the array may span several folios, so it cannot be
-+		 * re-derived from the first page here. Only flush the caches
-+		 * without any page table lock held.
- 		 */
--		if (pages) {
--			gup_fill_pages(pages + i, pages[i], nr);
-+		if (pages)
- 			gup_flush_pages(vma, start, pages + i, nr);
+-	/* try_grab_folio() does nothing unless FOLL_GET or FOLL_PIN is set. */
+-	ret = try_grab_folio(folio, 1, flags);
+-	if (unlikely(ret))
++	ret = gup_grab_fill_folio_pages(folio, page, 1,
++			pte_dirty(pte), flags, pages);
++	if (ret)
+ 		goto out;
+-
+-	/*
+-	 * We need to make the page accessible if and only if we are going
+-	 * to access its content (the FOLL_PIN case).  Please see
+-	 * Documentation/core-api/pin_user_pages.rst for details.
+-	 */
+-	if (flags & FOLL_PIN) {
+-		ret = arch_make_folio_accessible(folio);
+-		if (ret) {
+-			gup_put_folio(folio, 1, flags);
+-			goto out;
 -		}
- 
- 		i += nr;
- 		start += nr * PAGE_SIZE;
+-	}
+-	if (flags & FOLL_TOUCH) {
+-		if ((flags & FOLL_WRITE) &&
+-		    !pte_dirty(pte) && !folio_test_dirty(folio))
+-			folio_mark_dirty(folio);
+-		/*
+-		 * pte_mkyoung() would be more correct here, but atomic care
+-		 * is needed to avoid losing the dirty bit: it is easier to use
+-		 * folio_mark_accessed().
+-		 */
+-		folio_mark_accessed(folio);
+-	}
+-
+-	gup_fill_pages(pages, page, 1);
+ 	ret = 1;
+ out:
+ 	pte_unmap_unlock(ptep, ptl);
 -- 
 2.56.0
 
