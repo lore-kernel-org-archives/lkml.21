@@ -1,82 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795463914;
-	b=QbGmBdYRYBMsA3FFiHWlM1zkjULl0KIO21bTvKwCE84saWmqJtUw6Dh553Y6xd3cxkyK
-	 oCoeIP4yYSKny5LLj+Y36kh/dCeOenu325pGxsgbFFERJCHDgilS1Fh5WbgEB2L0jp7dy
-	 SWdmvkLlGYqWjjDm2n6s9CzaWcOWbRBy7GI7EcLsUnLq0bSWwXwjO7FLRjuyUa62DRRd8
-	 AlNhQTdzJ3T1Xvsnlt+JtFphtRGNUxKtogSNAe1JEphFxyCzWg4xHVlUz4eLId80uhQtL
-	 DdhKk2DgvOyUhMayFXeVCEryy4QejQLwz2HXeu0H64x69cRpy3C6kK7CURTjkMI5Bcg==
+	t=1795463976;
+	b=GRGhUe19GV1CwB5vzO8BraPGoeOT7bN+bBivzoGXATpg7SsKUkn84nT9R7xLpChliuQi
+	 VKZh4Kj9lbgUZbXwo4Vfn4t8OEHPjhtxuxYFS/gDNM8cFYLFCoV6igsyvGvoPuCknJBuA
+	 0Fw3PUVaeP/YWGvDXQ0COH97gnIja3Ab/h5Zncd3BFqhao0ZNFBdMYiEAnkDyySEfzSjL
+	 8vsqiZ5gn24u2FyNeeTPuCQodvt1uyLf1xCbOyNUkkJEFGqVntjAY3u817Uu3mUwDAOqq
+	 IQK7pWwa5jZ6aQgkls5UePCHau8ADA6rzs54iXNwM9HczTujtWmQM8VOEWMNv44qu7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795463914;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=Jbgjqw32VLBRaeFrxNCfaOtdz5dT39ANdUeCJfLoCZE=;
-	b=WeT4JOwBy9EhmY4QMfRl+3MAZx3CH3iexKDiKLZlsY62A2j+eD4SDNedn683kIRxzk/S
-	 y5VUvadQXFwLUTpQd2Lw6DSDsM/w6XZ3J9+7rzPrkT6uZQwg/rcvxGAFn++yCvy5Nbxem
-	 hCnymlA37wTCfjCJuPFWrzYhUOYFvY6CKaTKHSx57j/e04VIfzOaGRw2dyhEYFB7FUYCe
-	 u2J7IUYvBDxuO5TAtsJoB32KTn3vflsDzl9H4M/Fc30QoN39tk3wvREkK42H39P/dw5md
-	 RK4CTad2xNsFa5Uiyq96tepuCFrCZtdbtCW62xmYJNv2/sD9Ob/QN89XLqCHm+NiMCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795463976;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id:X-Stat-Signature:X-Spam-Status:X-Rspamd-Server:
+	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=ZNbXBfNTO0fkyqJpgqenKi8rMrZeuWlZGWMB2B9tSTE=;
+	b=KoUVH0NaXhNqEVgZA1dp+xkZ51gSS6faYppl2e2pTPKQkUVbA3vhMAIaey03elzSGh0i
+	 5a5DApjHfnKOaXT+iqdHq9kdJ/YYeqQKe/UG/TJivqevFGes3HsJcpUMWjMjbHzpiXKAF
+	 QQr6ra5BL1IBJNus7NcPglJ72F0z3HVUC/Z7ccU66Og38uH2CbeZ8nyBasiTndgMKb3Kz
+	 oBQpjD06eeqMLRJEbljBAwX/ccgm7WBJoAsiyVBclF0+wjLwsu25zv1cQSzAdB8kynqjy
+	 Ah5m9hNingbEx8MJEjFAxbbTpo8mzjpS+qMYY7KtT07gY5naYpkcAtRh2+pq9aKBC4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKpDCKPa;
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=tmEBZJIm;
+	arc=none smtp.remote-ip=216.40.44.15
+Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1599E606A31E;
-	Mon, 23 Nov 2026 19:58:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1599E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 209A4606A31E;
+	Mon, 23 Nov 2026 19:59:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 209A4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKpDCKPa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795463914; x=1826999914;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=97YcdWLc2+JkIa8bZoIY0I1lj7BEeb8HYpmUcAy1Gro=;
-  b=mKpDCKPaY4IawuaDnVJkHzZCJE/UUmUCAK+U+KQooNeo5SdZ4VUR2nto
-   7h3XwBiX92q0gn4S2IKJyZNRZYEpCsU7AAQXSCOiKYBpisg5h1yXinHBA
-   wxQQrT3SLKl4fgvAVPDgacBzrwgApbtZb9NyuAAMBGHjnW40mHcZaPq6V
-   kMS9NnputU8a+ZOtNhgS8e2740J9u8yNml+tXr1jX2A712wo7ueMdo1Yk
-   6EtRd/TFd4VsX65EHxN21RHV2bmsa/+V/Kniq6F2L8xN2m7OISI+yyyLx
-   4KpDP+RyyLLPDjFjgicysLHtp3O5iUGBIg3zDsMmztlJbdB4tzRowI0/V
-   Q==;
-X-CSE-ConnectionGUID: jnka5orvSMW0mGSE8TCMDQ==
-X-CSE-MsgGUID: mqEHItI+TVSm1pO2y2f64Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4262808"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4262808"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:58:33 -0800
-X-CSE-ConnectionGUID: CcaAgwlcT8exNpy91VNXrw==
-X-CSE-MsgGUID: ZC2uiqIYQL6TB4N6dqdSgw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11756296"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:58:30 -0800
-Date: Mon, 23 Nov 2026 21:58:27 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Gary Wang <is0124@gmail.com>
-Cc: Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Thomas Richard <thomas.richard@bootlin.com>,
-	Daniele Cleri <danielecleri@aaeon.eu>,
-	JunYingLai <junyinglai@aaeon.com.tw>,
-	Louis Chen <louischen@aaeon.com.tw>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, BillyChou <BillyChou@aaeon.com.tw>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 0/5] upboard pinctrl support for device id INTC1055 &
- INTC1057 & INTC105E
-Message-ID: <awSa447uHSd9IAXt@ashevche-desk.local>
-References: <20261123-upboard-pinctrl-add-intc1057-intc105e-support-v1-0-f2322a91686d@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=tmEBZJIm
+Received: from omf10.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id DFFC680971;
+	Mon, 23 Nov 2026 19:59:27 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id 28CA13D;
+	Mon, 23 Nov 2026 19:59:26 +0000 (UTC)
+Date: Mon, 23 Nov 2026 14:59:18 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
+ <linux-trace-kernel@vger.kernel.org>, linux-kselftest
+ <linux-kselftest@vger.kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Shuah Khan <skhan@linuxfoundation.org>
+Subject: [PATCH] tracing/selftests: Make sure trace_printk is set to top
+ instance
+Message-ID: <20261123145918.0d7f3728@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,33 +59,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-upboard-pinctrl-add-intc1057-intc105e-support-v1-0-f2322a91686d@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 28CA13D
+X-Stat-Signature: hgrz3uyr311sg5h7isysrg7czimairt3
+X-Rspamd-Server: rspamout07
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+sdHlsPREMg0Mr5WaqVHQMrbDKAwQwaTE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=ZNbXBfNTO0fkyqJpgqenKi8rMrZeuWlZGWMB2B9tSTE=; b=tmEBZJImdXo0GlRBLGG9UucuYerRP7qQXPM/VqlM3JI5h/BKGl0HacyXXbB6Cp5fNvwy4QizO6syEULY5+Hn0aDM9Kwmr/o5HrQDt7CNGMFsFmXbjEJjXn6dFOTQ9ONCQoYIEsm0pEPwRGfEsmeV16zOpz6Dq8XiGv6AdZR/p5E=
+X-HE-Tag: 1795463966-961497
+X-HE-Meta: U2FsdGVkX19diIAY0Lc1gKibLW6OutddK+lv8YadxSDrdEKf8H01kTg48u7G3f4YYSJCufAKYGelbTq3s8C1IebOzb3GOXFzcZo8HANhbomsTAQ7Sh+4MNoVpkdE47AjhhfzGNXFVfMG7g1I3/+1Td6FoDDCw+sU9lg3AJNHjZe/g2vFWKta8eXjuWTUB8wB0E87klMORXprRaoDYPyJ2iGTCFO3Y/yIZpz2X0gHzyrQ7f2MsRUhK46pldMDyrb1KcA3bQ3XQIjZbW1IzpWbRqbDQB0WdcLsuyO4YWeNhXbsq/p+EYiaNxFNFu8gB/xLG086SEwckL44CZrG/XX5eWIbw/iJJkRFEkvonr4KfH+ny0Aey6V+lZnvTMuhD8mg8wXNDZ08b4g43lc5sl3ZZpVJyuScBQ84
 
-On Mon, Nov 23, 2026 at 11:16:13PM +0800, Gary Wang wrote:
-> Add missing groups and functions in Tigerlake & Alderlake & Meteorlake
-> for INTC1055 & INTC1057 & INTC105E.
-> Add support "UP Xtreme ARL","UP Xtreme i14","UP Squared Pro 7000",
-> "UP Squared i12","UP 7000".
-> Fix pinmux-select set CPLD GPIO OUT not function mode for I2C pins
-> on the AANT0F04.
+From: Steven Rostedt <rostedt@goodmis.org>
 
-Can we actually see some activity to eventually implement a missing part to
-support PinGroup() and PinFunction() ACPI resources? With that being done
-this information should be provided by BIOS.
+In order to debug a kernel crash, the boot command line added
+the traceprintk flag to have trace_printk() go to the persistent ring
+buffer. When the fix was found, the command line wasn't updated.
 
-> The pinctrl-upboard is provide additional driving power & pin mux function
-> through native SOC pins->FPGA/CPLD->hat pins for flexable board level
-> applications. it's probe from ACPI device id AANT0F01 & AANT0F04.
+Later, when running the ftrace selftests, the direct function tests were
+failing. The reason for this was because these tests would load the
+ftrace-direct.ko module which would add a trampoline that did a
+trace_printk. The test would then search the top level instance buffer for
+the trace_printk output. The issue is that the kernel command line had
+moved the destination to the persistent ring buffer causing the writes of
+trace_printk to go there and not the top level instance and because the
+tests did not find the output it was looking for, they failed.
 
-It's cross-driver series, is there any compile-time dependencies?
-Or how do you consider them to go?
+Update the tests to set the trace_printk destination to the top level
+instance at the start of the tests to force the output to go there so that
+the tests will not fail in such a case again.
 
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+---
+ .../testing/selftests/ftrace/test.d/direct/ftrace-direct.tc  | 5 +++++
+ .../testing/selftests/ftrace/test.d/direct/kprobe-direct.tc  | 5 +++++
+ 2 files changed, 10 insertions(+)
+
+diff --git a/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc b/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc
+index d75a8695bc21..359257123e6d 100644
+--- a/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc
++++ b/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc
+@@ -2,6 +2,11 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # description: Test ftrace direct functions against tracers
+ 
++# Make sure trace_printk goes to the main buffer
++if [ -f options/trace_printk_dest ]; then
++	echo 1 > options/trace_printk_dest
++fi
++
+ rmmod ftrace-direct ||:
+ if ! modprobe ftrace-direct ; then
+   echo "No ftrace-direct sample module - please make CONFIG_SAMPLE_FTRACE_DIRECT=m"
+diff --git a/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc b/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc
+index e52e470a1f8f..b22e3fb1c468 100644
+--- a/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc
++++ b/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc
+@@ -3,6 +3,11 @@
+ # description: Test ftrace direct functions against kprobes
+ # requires: kprobe_events
+ 
++# Make sure trace_printk goes to the main buffer
++if [ -f options/trace_printk_dest ]; then
++	echo 1 > options/trace_printk_dest
++fi
++
+ rmmod ftrace-direct ||:
+ if ! modprobe ftrace-direct ; then
+   echo "No ftrace-direct sample module - please build with CONFIG_SAMPLE_FTRACE_DIRECT=m"
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.53.0
 
