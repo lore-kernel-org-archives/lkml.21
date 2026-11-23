@@ -1,110 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795470568;
-	b=VdM7hTYG0EUUdIseORX5iJ+qRxLPqq/cZ0E/+aC2DED23hUsgzd10x/vqrhC1wkSWdwR
-	 WCCW767Kz9WbF0psXjDxXDFVssJ3Y7S9U1IU5srILQ9MPoaDiBVjKqUfiyN4UZbMrExlL
-	 FiDmivBSHlNwotuhUQlHtn0HdMdr8XfBAnuS6kvURM2k6cGZpIkEmPk67VewCEmbLTVPo
-	 2b0XXDFYNE32oKSA5tVRHbnz/j+XXETTMdXWJkAhlezc/THvrIUaR9FQKMaJPUyeVGiqo
-	 N1uxY1wPZbTML9EaUYTbd0yOV43DfEiuLYveMaGRxv0SJNVjlonHq6ammeb6iYjF0lA==
+	t=1795470572;
+	b=Oa1iWzvz85xflWp4/6GvX91Vhz+wxqTFdtPUUplt4MyYNsq1uQmW5Os9fSAbhI3KSZT5
+	 Bo0N327xREbGwRElz+KblqIEOOBSN7EemFxriKLCsl9Tl37B2OJnbwwaadMMLIpGTPc1g
+	 UftE/dV/By/NFwfeEaHiInDocNLJWpXZO2E0ztU4N6J+aVYfZg0pMGqK+Na+6jfmb3/5l
+	 3L7A9oBLVJ+82rv0Dpqs+lYJ6x0E3NZjfNc8UKDoylpnrtQF4760cSvtAFFlVE4vBJpZi
+	 56xLjw29crvun0VBBf/Jb9RVan02duhkI/Xq3sJQdSIOUHFA/6sgWYqQ4Obqzt3biYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470568;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=imT3cZmm1No1iiPH5Dg6eys3wWLgCTx1cHGRKiZuXwY=;
-	b=kQTpCuXZquITlH1+JOwz3/dMaaP7h/ssfnETMABhe0Jum90BeU8P3yWFKnhuF/iGrPyg
-	 JudqOUhoiKts7+GztmWHu5opqhdfBFEUnCaXU47N3ab9drI1oFTJVuWtIiXZ59GvVdY0M
-	 dpDe+FK7QuDtva1GCy1GedLzRtdB3s8k8Tt/onXDq8LS/TNX4VV50QRPR5ZxcDIfAGRey
-	 2mgiNhVRSOefTcOcIGH0H3DLPdYS9SWv6ufCS7+nkFijM13OW7oFWnVna1Zq4YfCbrE6G
-	 hN08uwouRJ+CfNaypQMAxxvMJ69uHCS3G3yhuu6YL+PL+00/k2HUZBIE2vGk/0JSlzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470572;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version;
+	bh=EXrg3FsOffaVIw+j1I0rphKMSxfBIiuUxoQNWeelH+I=;
+	b=Y9IzwWHg5b8UeV212LveUvpTubypkmNqre3qmGAVpKA/j06aNl/LDUjyzG8WTkGQq7D3
+	 ksqZjHSWZigaxdGkdTfC9JRz/8/pbxvcCvUiGPkeGG9UgX75HLEiRpjwyVfR5VxFH8yuz
+	 EwpdJZEFdyaKmfDPiZXus69xKDcAGoXm8Wzu0t8/mlT8qtqCYCZocueH+b0noi34mkebA
+	 a18wNHNSTr6TzNmzoGonSrbcLGUOnGeghrBPyka3uygcnMLvChfFAIgKAPVFFYq0m6IF0
+	 D376OfGJOtJuuRN0xgJQh7k1TClhNOVgbE55K6KEolsTcN1+QxbtuH9p2pClFKDE/Dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XFEMPgBv;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RhxkyPxj;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FpiXgiwh;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=bCXDnQ2R;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58706606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:49:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58706606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3DB1606A336
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:49:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3DB1606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XFEMPgBv;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RhxkyPxj
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJuS1i1332575
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:49:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	imT3cZmm1No1iiPH5Dg6eys3wWLgCTx1cHGRKiZuXwY=; b=XFEMPgBvu/e+tlYn
-	FrvE+Y9TcI69AQc1mMsSOuh2ZZ4cl/kUqgt6M8NCaPw/sb0mcpLNSMLoHL1Rc+I7
-	ohsLzKhGbewo1AFr/ZaLrx+r7p9BDr1kFwAc0atsbellGtAR509/HG7o8N2UWrGS
-	HwJT0HpeYy8kMCex4ceZ6/Zuo8N44A8I0rJvQbvBvTvIEuFi7Ru5X6MBvLzmsqIQ
-	Qk8AOMVUWC8918kebY9SXfe004UImtqicDrDPCEeJ5h40+6L+1e6qoX+4TctuMhZ
-	u723KOEXej1DYH1JtLV7eqC64K9ac+DQUjEoab/ffR3W1m+XrZJ7XSm7f37lb1ao
-	SAd7EQ==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g743mk1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:49:27 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-94961511b61so643081485a.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:49:27 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FpiXgiwh;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=bCXDnQ2R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795470571;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EXrg3FsOffaVIw+j1I0rphKMSxfBIiuUxoQNWeelH+I=;
+	b=FpiXgiwhVU95PB3rMj1jjvmruy8+RgOUJ7QbzLEozHcFu2KXeTGVDZcPFNTZITVPS9IkR0
+	jrbtSLJFJPqDK9IYonDdQKMeGt5WBjzsDW0jS0IWpwl/zQ1/0WjKJCJF+bik7C4Dr9Lq8R
+	qWB6xJDn35dg1MaPil92cyaYWi/HOUU=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-616-_oKFCPULMh6OMzfjU_cZiw-1; Mon, 23 Nov 2026 21:49:28 +0000
+X-MC-Unique: _oKFCPULMh6OMzfjU_cZiw-1
+X-Mimecast-MFC-AGG-ID: _oKFCPULMh6OMzfjU_cZiw_1795470568
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-920f97bcad4so70811656d6.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:49:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795470566; x=1796075366; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=imT3cZmm1No1iiPH5Dg6eys3wWLgCTx1cHGRKiZuXwY=;
-        b=RhxkyPxjvCUnDvFVe+ILFPksa0yJN9MeRh96aKl0kiOADU8qQv3DalUezF12wodf7H
-         C18u/0Jf6ulfxQMceltUEJm2Us8lU/PnJErNM1nwwlpJpvGTNF/+ogDPJKEB8cMkv8KA
-         1JZYfROLr84aFL2xlTdOTuMhEI7y5KeFg3LGzzwd1OeawP4SEvJZgbdNWI1D/25iTHpq
-         bEiF9+5jTYrFG3Z0f4uyILIxrrGlpw8spx+QspD9FHmDBzVycBwPMRq0yuFFYQb5+cF/
-         wJOdPmdOW0ROWahW3Rt2yJ1HxOfMuaZFz/B6W0UQ8mTYiwAsZN6XqeKk97hDZPg1+pE2
-         w7/Q==
+        d=redhat.com; s=google; t=1795470568; x=1796075368; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=EXrg3FsOffaVIw+j1I0rphKMSxfBIiuUxoQNWeelH+I=;
+        b=bCXDnQ2Ryer5m326RspAln23rGoCEwQJTNaCAWCsv96rqxf6eaYey6KX0q789iTMCg
+         Cg92nKnghbXo3L3AyI5aII6FtvN/X0pEU0jc48Fx0Ye+WTDrMCEBldLuTPmZ/51YhVfj
+         VvmJkehxJ89hBkv4ZJt1bNMCaVo61f6c+86YXpf3dfNFkzzpteASf9fWCWlmuKIjM6o/
+         vYTkRqeNxo/MC2KsGR6Xkj6nbwNgZs5M1+PoNjZZmW+nAHNGVytGAtdgxs5RoJLQeLDP
+         o+Ag3N2s1oPGc+mQy8O6t06sfFL9LF/uoYYAzQIfprGwnH7FHh8IkRe1mFdtw9Zjrm0s
+         PjGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795470566; x=1796075366;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=imT3cZmm1No1iiPH5Dg6eys3wWLgCTx1cHGRKiZuXwY=;
-        b=A2QFT0HjHB8aaZtvF+yVeD7TMKM4e6GBWxCyMKkSO0Z+ahQYchqjIFa12cLs5dof9a
-         QztgpPUqZdL8/0SifW9Q65ikh7BlUr/DVQO/Lk2TqsSw8Ppz5DlEDXWmyCrJsmpmwweZ
-         tzZZAXlLyJA2RK7nFX6lBXzZN9s0tx0VRpgAGXO4zfJY7a60+qXq/3CE7JHr5/+UWvh6
-         n8DfEQhOu6C2maAEqi3YbJwcHlZa6pl3bpOgMxaSZTtajypR83Hzt97EfI4Zh7NB9umT
-         I/OV72wFtvnXmkXsGqp/9C0v+eJTLcy8vu8fz2rwunUE7+lmOIszmjE9SLtEm3Qjh8os
-         lw6A==
-X-Gm-Message-State: APuU4Z/5R8Lt247kdaVo8JD4mM/iW6ngdfNLSZLWhWpNKcIJjnGP4MOL
-	aY8MzcYQXz5n7mLkH0rh87zU1PzvYLHeX4gSlTS4XxoD5RaNh4lhUxEua+wMUugOFl+gL1dk9ME
-	/q70ahoagnq+tDaIK73NU5TEQ46sGr+vwmz1RA4aIeA8egEjWoPj/ubcYWJg+ooJr504=
-X-Gm-Gg: AZFdTZebNnOQifS0HH0nbwJQQcMNmoGB6zIFlrdUFL7TrRqfYLKIrcrsJrd2CEeYVFg
-	Df3gOJk6mM9BwlvxU8RsgU3xrcTvMUeHlsLMjPROu6VZLMl3tF8mjete3//FWqNMo7hWoajKRmC
-	2Hy9s0hE4dowDtGKYL+L3YX+qpZJ+s7k389esKeWZAr54poRqycMKcmYhgdNfbydDlGKGOTvsdH
-	NJqZXieYwX8iskQFusplZujF+9MtyFZ7+CjkaMaw9elMfI7CJ0tHVs2TYrY59/vTGVC/3Qr1b3G
-	aoXIv7XDs1vPuiMMwxusONeQHeyfnTKBuXVxIfzfUlGU7NrW+cKptznPX52HC88mKUFLlkYR1It
-	M/n2oYrQIHV5bTI9W1M8FtBRX9GZQ5QnT1vXKMLp16YPI4tmYGWLLce6zQZQygtyjT5BhtIOVRf
-	7z+wYYGqj7X+wc/QNolTmpPMHMCYpusFeL7F8=
-X-Received: by 2002:a05:620a:44d4:b0:944:a46:5c1f with SMTP id af79cd13be357-949ba9a3cddmr2079008985a.40.1795470566544;
-        Mon, 23 Nov 2026 13:49:26 -0800 (PST)
-X-Received: by 2002:a05:620a:44d4:b0:944:a46:5c1f with SMTP id af79cd13be357-949ba9a3cddmr2079007285a.40.1795470565991;
-        Mon, 23 Nov 2026 13:49:25 -0800 (PST)
-Received: from ?IPV6:2a05:6e02:1041:c10:2904:b6b3:45df:9155? ([2a05:6e02:1041:c10:2904:b6b3:45df:9155])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8533579csm340015395e9.2.2026.11.23.13.49.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 13:49:25 -0800 (PST)
-Message-ID: <04471857-7d48-418b-bd9f-5c3ff3010e41@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 22:49:24 +0100
+        d=1e100.net; s=20260707; t=1795470568; x=1796075368;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EXrg3FsOffaVIw+j1I0rphKMSxfBIiuUxoQNWeelH+I=;
+        b=bnzIMW7xXPUNiBOSwm0hSNpEE0SWs4vNGGEb8kNWBqxhl4H8YLEuH5mboRF5haXo7z
+         047C2BsBjy512WjQUsx4IAzAdAmebvxcZm6GGi0Q63XO8DuZQbmm+Kgnn51JIq57Ytj8
+         Eur4Z2/RQIxTeerKp+3AiWT0UvzW+Yk3FXkO5fEATBgDOjkZ0w6Ku/dkOA4wk0Ho6kR7
+         sAJyOageXY/fI6s0BhqYjHR1U5hYuIGavnBTscZnHVhrnf7smOv9mKOqjUo8Un44wQW+
+         8aq7FAu351QklQtF1eLsLBjOEGNW3SufWdO4WnVGkMDh6VdWFOXIbkSmS28+oDszG0Te
+         lEVw==
+X-Forwarded-Encrypted: i=1; AL+hErFdpkm1I4D6Mb5VlK+DGSQzWHAOaemSqZD1bMPO8CBuIyD0c780mmbFohzpKXK3/8Hh7dc1VYngZQkb9jA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z88EpfzVwoFDGi9eW9NG+f14xg/m9DqfzW6KpMzfsnLBEBlndOY
+	ounCqU4b2zJ3TaHlh10UDa5RSfaYEpVlHnmoxG3yOqwwGWtd/tVMroAtgNNJj4+/8CdY4Q9kZ2W
+	JyHJjaNW3Aw8KrUc3u6Rw8YNTccBkLKUGA2ctYp0FjvnUT2RLItnIaQ+H+iEvi1xKyQ==
+X-Gm-Gg: AZFdTZedAvOSncURHH6MqcoIAXqTrk8qH+hLXAWgZDQ/gyw1/7B27hSL0h/rQw31TLe
+	HNkau2LmMz0/l9vbmUFqCn1v0FQNnuastRvv36M0bIS/zTEDtCnGe/AAAkODLiJrQJQH0zyFC7b
+	9QCYf/IWvBOcjNzIzVCY0zcN/6EEZRd5sLMXK8abXIDQ2wdgd0argx3zVk0jEFDKZfvH0IL0HKN
+	ieJpDNhG1jZc1aawk3Xf65dvUnhTfrfN4HJcgfM+ieIz6wSHN3tOLcgdhWLrcLUPBKZCe5gBBey
+	ttZXG1RswOK2EYXgHfxs8JEWsV9AZaRV3j8DmrA4S2Z6HTTr2BFsnCftBahBqn6urctZTk2RLdj
+	iDGBqPTw0Z1Zdpx9nDhuw4FkeNUY41G4h108666syl9OCDLxPMdWCHVOgbnTw21EYZcc7IrdRnF
+	zqgdsRyuRhvhcOJuoTnZ4TpWgzXNyXX0tJdj9W3+L6BIBF2eP9lmb4zgakTq4aAEv0djVWlmY=
+X-Received: by 2002:a05:6214:252d:b0:91e:a73b:f9cb with SMTP id 6a1803df08f44-921349d1a8fmr238824476d6.4.1795470568029;
+        Mon, 23 Nov 2026 13:49:28 -0800 (PST)
+X-Received: by 2002:a05:6214:252d:b0:91e:a73b:f9cb with SMTP id 6a1803df08f44-921349d1a8fmr238823796d6.4.1795470567440;
+        Mon, 23 Nov 2026 13:49:27 -0800 (PST)
+Received: from loberman-thinkpadp16gen3.rmtusma.csb ([2600:6c65:2440:d8c:aa2b:ddff:fe88:da74])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0f6bsm117366396d6.21.2026.11.23.13.49.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 13:49:23 -0800 (PST)
+Message-ID: <7eb28c6334a655eb5bfbf3035cf1f1ff1041bb3e.camel@redhat.com>
+Subject: Re: [REGRESSION] DMAR fault by Intel H97 SATA controller since
+ "block: Increase BLK_DEF_MAX_SECTORS_CAP" (6.17-rc1)
+From: Laurence Oberman <loberman@redhat.com>
+To: Niklas Cassel <cassel@kernel.org>, Tobias Laas <tobias.laas@posteo.de>
+Cc: Damien Le Moal <dlemoal@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+	regressions@lists.linux.dev, linux-block@vger.kernel.org, 
+	linux-ide@vger.kernel.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org,  David Woodhouse <dwmw2@infradead.org>, Lu
+ Baolu <baolu.lu@linux.intel.com>, Joerg Roedel <joro@8bytes.org>, Will
+ Deacon <will@kernel.org>
+Date: Mon, 23 Nov 2026 16:49:07 -0500
+In-Reply-To: <awSs5Cw3hFkf4O4T@ryzen>
+References: <5ad27a97aafbc08a8702d5b90d09cd59@posteo.de>
+	 <awSs5Cw3hFkf4O4T@ryzen>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,66 +127,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Missing signoff in the thermal tree
-To: Mark Brown <broonie@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-next@vger.kernel.org
-References: <au4SKRePRjYBItxx@sirena.co.uk>
- <56328964-8d06-452a-adf5-ea37fede069e@sirena.org.uk>
- <782a33af-566d-406e-9f4d-52d80cd3c756@sirena.org.uk>
- <70a066cf-533e-45c8-9db7-e79727dc6c44@sirena.org.uk>
- <03320894-97d4-46bc-b11e-5fec18146963@sirena.org.uk>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <03320894-97d4-46bc-b11e-5fec18146963@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: nEJCBcJ952GKwFixt2dw0d7mv_aUXV7A
-X-Proofpoint-ORIG-GUID: nEJCBcJ952GKwFixt2dw0d7mv_aUXV7A
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfXzdaCWqU4FefX
- IckJkkh7lGDJ9xjBBq0fkq314KETdcQHWW4L2EihnhourhZxTcEFL3SX1fQoLTVBYUGd30eFg23
- iaIeoRhS7u/YLVWgdSGh9a2uNDQ8XPg=
-X-Authority-Analysis: v=2.4 cv=T/cZ3PKQ c=1 sm=1 tr=0 ts=6b04b4e7 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=1LtqeKAUxZIeCVZ3D7kA:9
- a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfX6fqbM2+vslQJ
- 1YwR5/A9NVN0RDB9xdJqnF9vcZryyHZP/r12o3UAcgZgKvWhZG0ehcbszHXC34lHrlvwNs1v67P
- Zw/+/oTsrVbF9bSDSy9vw6Ga+K6QzIMzTf0hNJNz/ZLNo6XoJHPoBQ1dw+QAp8fSsks7YbT3mX6
- Ep7ZS0A5EbycLjR7MjAM4UUdBBcqcgrTJS6fU6PPoesA96olvIRfhW8iaQiRrtRNYC5PLx2NXh4
- vv/8yCBfH/yGQZdDoaIud9P+Sg4Ux3MWVTWqj3fQ6CJkjekgDDDSyj5u5l2/hs6ZKrkML8B8NBX
- fvkLGU4xhFOpAK7a4oPX9PPAnObece7yTTmUIbRan15Ok5BZ1CyrsTn6XlSG9i8bLL9Fv3pmqEd
- ksEryBphYWDHOmWrMmjPGDyieOH+smhQ+PyeCQ5fcq0ZfigBRCfr0VNs+u2ZLosPWRzeIqKasZ2
- hZo51Ewhf/8HTh8T7mw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 bulkscore=0 suspectscore=0 lowpriorityscore=0
- impostorscore=0 priorityscore=1501 adultscore=0 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230086
 
-On 11/23/26 19:22, Mark Brown wrote:
-> On Mon, Nov 16, 2026 at 10:18:31PM +0000, Mark Brown wrote:
->> On Mon, Nov 16, 2026 at 10:17:14PM +0000, Mark Brown wrote:
->>> On Mon, Nov 16, 2026 at 09:51:27PM +0000, Mark Brown wrote:
->>>> On Fri, Nov 06, 2026 at 05:45:13PM +0000, Mark Brown wrote:
->>>>> Commit
->>>>>
->>>>>    115b4ff52cd35 ("dt-bindings: timer: renesas,tmu: Add SH7305 support")
->>>>>
->>>>> is missing a Signed-off-by from its committer
->>>>
->>>> This issue is still present today.
->>>
->>> ...and you've not told me about your new email address so you've
->>> probably been missing some of these mails :(
->>
->> Found another address to try.
-> 
-> This issue is still present today.
+On Mon, 2026-11-23 at 22:15 +0100, Niklas Cassel wrote:
+> Hello Tobias,
+>=20
+> On Mon, Nov 23, 2026 at 06:51:03PM +0000, Tobias Laas wrote:
+> > One way forward could be to a new entry to __ata_dev_max_sec_quirks
+> > similarly to the recent commit
+> > a12cc63129380a5364e787d92b30a3257f66c250
+> > ("ata: libata-core: Add max sector quirk to INTEL SSDSCKKB240G8").
+> > However,
+> > I wonder, whether that would fix the underlying issue or rather be
+> > a
+> > workaround, because 4088 does not fit the pattern of all other
+> > entries,
+> > which specify either a power of 2 or a power of 2 minus 1.
+>=20
+> Your attached kernel log shows that you have a
+> Samsung SSD 860 PRO 1TB, FW: RVM02B6Q
+>=20
+> This SSD is probably quite common, so I somewhat doubt that it is the
+> SSD that is at fault here.
+>=20
+>=20
+> >=20
+> > Furthermore, the first error messages are DMAR faults, and a SATA
+> > SSD that
+> > isn't functioning properly shouldn't cause any DMAR faults, because
+> > the SATA
+> > controller should never read from or write to areas outside its
+> > memory
+> > region.
+> > Since the issue with mounting the rootfs disappears with
+> > intel_iommu=3Doff, I
+> > wonder, whether there is a limitation on the maxmium block size
+> > either by
+> > the hardware or from the configuration of the IOMMU and SATA
+> > controller by
+> > the kernel.
+>=20
+> Considering how common your SSD is, my guess is that it is somehow an
+> IOMMU or a BIOS/ACPI bug (since the BIOS generates specific ACPI
+> tables -
+> DMAR on Intel).
+>=20
+>=20
+> We have seen similar reports here:
+> https://bugzilla.kernel.org/show_bug.cgi?id=3D220693
+> https://bugzilla.kernel.org/show_bug.cgi?id=3D221713
+>=20
+> Does it work if you revert:
+> d373449d8e97 ("iommu/vt-d: Use the generic iommu page table") ?
+>=20
+>=20
+> It would be nice if we could involve some Intel IOMMU experts.
+>=20
+> If the ACPI DMAR is at fault, perhaps it is possible for the kernel
+> to
+> patch the ACPI DMAR for your platform.
+>=20
+>=20
+> Kind regards,
+> Niklas
+Hi Niklas, Tobias,
 
-Noted, thanks
+I tried to help here but (full transparency) I had some LLM help for
+further ideas after I coul dnot repriduce this on my platform.
+
+I tried to reproduce this on a Coffee Lake desktop (i7-8700, Cannon
+Lake PCH AHCI 00:17.0) whose INCLUDE_ALL DRHD reports the same
+relevant capabilities as Tobias's dmar1:
+
+  dmar1: cap d2008c40660462 ecap f050da
+  (SLLPS =3D 2M|1G, ecap.C =3D 0, MGAW 39, SAGAW 4-level only)
+
+with intel_iommu=3Don, DMA-FQ default domain, max_sectors_kb =3D 4096.
+
+- 6.12-based kernel (pre d373449d8e97, i.e. the old VT-d page table
+  code, with the larger BLK_DEF_MAX_SECTORS_CAP): 2M O_DIRECT reads,
+  clean.
+- 7.4.0-rc1 (generic iommu page table): 2M and 4M O_DIRECT reads and
+  2M writes from hugepage-backed buffers against a SATA SSD, ~15k
+  I/Os, no DMAR or ATA errors. The iommu:map tracepoint shows
+  2 MiB-aligned iova/paddr mappings, and domain_translation_struct
+  shows 2 MiB leaf PDEs (e.g. 0x000000039c200082, PS set), so the
+  superpage path was exercised.
+
+The 4088 vs 4089 threshold matches exactly the point where a request
+first needs a full 512-page (2 MiB) IOVA, which is where superpage
+mappings become possible. All three of Tobias's fault addresses fall
+in the same 2 MiB window at 0xff400000.
+
+So on this hardware neither the old nor the generic page table code
+shows the problem, which supports Niklas's suspicion of something
+platform specific. One difference: on Tobias's system dmar0 reports
+no superpage support (cap c0000020660462) while dmar1 does; on mine
+both do.
+
+Tobias, a few things that would maybe help narrow it down:
+
+  1. Boot with intel_iommu=3Don,sp_off and an unmodified cap. If the
+     faults go away, superpages are involved.
+=20
+  2. The full dmesg from a failing boot, including the DMAR/DRHD
+     lines. The faults are reported as DMA Write while the outstanding
+     commands were WRITE FPDMA QUEUED, and I'd like to see what else
+     was in flight.
+
+Regards,
+Laurence
+
