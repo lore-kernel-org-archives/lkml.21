@@ -1,58 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445942;
-	b=HWQIY5GsMAWLAYu7dUypEf0vwmUs7IZNjkpURb4jziReTcofRL6s56jfdidE+AAY1tk+
-	 fjPNa4XSl+JZOzw60jfPTBlqMsETcYyOziKhbru+puC+tdBGXWsGJPR7Xykwf/CArUaWW
-	 HrN6krTvKzfe+GumgzXqQafyPP1BQS8QQaD9gnWBcFXte6dk3yqiD3yu54e6czkFCF+8Q
-	 DCqnbGjLmqg7JifwV9iVy6+f7SA465BiZMPrms49ej+votmAWQhLNZXECcj/IfgGhwJN2
-	 aHqPTgk4Udq6v+/hGYwPvDY2XyGhXCiKESTfAieqtaIrEFPhxEwSLoHnWeVVtmC4b2w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445942;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=v2gaihGg/GuepeIkKvB0k4619VTW2FHQPDjlRxDaYUM=;
-	b=MiXGBhMsk/Ku3Y6NdYUdkkgsSfrPIFatBt0clwixMGOuRudsCGQt7bh6zobBptzMreiF
-	 4CZ/NQqE208QycYXnPZw6Q29D5YvhtqFEzx0wNd818YCf4nfN7tKzJdQrohF70YzbDTYy
-	 eqzvyEJcWObVkgN+3syMB6+mVGnHphcUIg1E079Y/5tLOM2ZcOr/WrdHWbn4egOa7XSNZ
-	 xbexCwoFlbidEC8swBXe3vaY9y0R2qrxzdCZrm8IbJ3C7+Jv3X4nMatPcMe7w/P8i1Piv
-	 AUL0Qi8OUTTWxkpnAJxJ8wh/A8nmj6VR4GJhiozyC+r/dNjtk9QErv+F6QLv2kDxPEA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=L266WdpK;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795445957;
+	b=z0UgJye6/KQMgLia8XsLHqc2gPg8h3X/UxX2g2/QFbiLWZqR2Nu1yHVINA/M7Nz6JrEC
+	 7Q5scADTnqqhembPBHZMyUCs5ztpKpmVBM81bQU/ydjFl9jsU/WaoLzxcBEJVdxP3YTsA
+	 Y+cuMmvjxdSaoEv3fhhiIECdRQAVwC8xCN6Hnt8OumsuPTYQG6wBPzuVzxCj/vX15v2D1
+	 yafFRy+odDfOTyk4lXPxsmgyjeW+ey/lTYAXf1v051Dz0f1UERslNuBo2M8f2Drv36dPh
+	 Nf/3UpEwIy1fgn14/hZaSln07pZwWsgDIGNP3eWof+oCpqqETf79Sxss/r0UlFQPZnw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445957;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=5WG01q9x7fNydHzOUJiz8YwOwYvkUE1Kpri/g/6ilc8=;
+	b=X7ZAaKSlaOvosw5Vys8buNpl4jGd6+2jD1llxz82BsC+jXzmycjYQd1xCgw2eiAzFPhD
+	 dhOYuJ6/lgjHS7wj0aqlc8Yt/iJm7aoA+Wm6pQY8SQaYzB8cVeAP8zt90ZYdybl6L504/
+	 ChkxikFM1q3i4TuIzh54ZREiezksSqXAxrpe6U1N3xrVeo+RDjUogi2UMvUKrokobN/01
+	 9+8jgWbWZ5cMGs5gBVI1cezbKc+0+Qf8j/e9+AV7KDkpyHZY4XYnMuvbuZDqxWWDQiYR3
+	 fSF0OM43zb4X4EuwmrRezo8JOnv9Fb8w0g60utKlv7TQj8pwOl9sdloOCAaq9Mut66A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hGTS1Ruz;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=d3+3+bM7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 896B6606A33C;
-	Mon, 23 Nov 2026 14:59:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 896B6606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83978606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:59:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83978606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=L266WdpK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795445940;
-	bh=ErJWV87Cis974R85V9yS/LlwellKyELN7c0KTWYyeTI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=L266WdpKmbJN8EtRC1YXHS0QT0n/AsS3G7uRo3irJvuHc8UR69cypoKod7ckfGASw
-	 1F/fBBPESTsV02j4s0uzI/awX4GwTepzD+Vn4D+vftqJ087zcTQTRFF3cw1Ax1+Jq6
-	 Cj5bXcjRE8DOYhKU6GLEIxlza69xK58fdbKgaaEmoijwMrH+n4cEFYtGVbvLbn/L7d
-	 Z66uBYupwFd43UJRTWecYtsIIPW8Zt3QdwQOtQ8p2YdsATCmeBwSbAS8c+SPyHI+iR
-	 TkxMkHmmfVyc9gqmg93118wx4Hrle/1wJTWUPs9+sLMrNTwX2kb8cdv5kJoL+ZnX4T
-	 ZM/IQIV00rcww==
-Received: from laura.lan (unknown [100.64.0.215])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4B40C17E0DB6;
-	Mon, 23 Nov 2026 15:58:59 +0100 (CET)
-From: Laura Nao <laura.nao@collabora.com>
-Date: Mon, 23 Nov 2026 15:58:45 +0100
-Subject: [PATCH v7 1/3] drm/tyr: add HwGate::try_access_atomic()
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hGTS1Ruz;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=d3+3+bM7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795445955;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5WG01q9x7fNydHzOUJiz8YwOwYvkUE1Kpri/g/6ilc8=;
+	b=hGTS1RuzDrVRKrxSKbcJvTerLAvfJ0lf4JVxiYpPSytA//4WXF7uUxAcq25iujSIYKdS26
+	yQ/o1oFBaZVzAu3gEVDppXV01qIZbBmpW1hN0uJgQEaAfk8KQRO5L62GfpGBDqWkJBrWHq
+	mvUZ82cl8P/+z3lqyKtOB2izve1ulwk=
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
+ [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-449-hIjIp-lCP_qCi4UEACJ5Zw-1; Mon, 23 Nov 2026 14:59:12 +0000
+X-MC-Unique: hIjIp-lCP_qCi4UEACJ5Zw-1
+X-Mimecast-MFC-AGG-ID: hIjIp-lCP_qCi4UEACJ5Zw_1795445951
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-89fb6a45c48so2579775b3a.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:59:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795445951; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YqsfbxTmHQEk7xQNgNQcR0QmrUiVJ4KoMUjY/3fkBjwI+v8xqlWhdIkK6k2Dy02ZvU
+         INcZyE2ZzahbyQ+BrzW7VRTth/iXc/AR5xxEgF1oz8Su4hTUVVhJ75vEAUO1dUKeAv9B
+         RiW8YLHRwHC8B18gCaRL9UN1T+z65PADvZsKzJqexqdkiiIri35apo9Epj0t8o813tF+
+         CGBK2ZwWLEOV21k/eEEBxeJf4ySIn3xeJO4Gp8sq+PgJTwMK0UR7iUS7jlN5R94lePUZ
+         7yC1YPBYFXrSQCdtZoIBWi/p7PUBGLYA0rPBvsvWbku0hptnDWtZUGaiIc0OBwo7v0RJ
+         +0ew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5WG01q9x7fNydHzOUJiz8YwOwYvkUE1Kpri/g/6ilc8=;
+        fh=mrGSCofAz5RIfsVXEPBHZEad/v7HuDIFw4l7tm47oKI=;
+        b=FbHmvcM6q0HotTTrmFKJgbt3JivxbhLLE0MEzlrpSlJmH3/IT4zQtl2rHIxwAIT+Wq
+         N1uPmSIji23Hat4Rf5uq+WmC0cmYgEtv/sRuvRdmxjhWuX2Aa1jBVYLWAgpYU8ptNZgg
+         4b0LpOkeaGXHYut4fv1TByTiSHn+t/+zl9WKc8BUjxJoSp1v9l1UuB4lLtsK8leXiFdS
+         Lfc8X0w/zUo45BHCr2GdL6dPRDvZ6UM0iGLT9rBKDB/sPmybw4b24S/nTp6tJooitKsT
+         KNBiSmuRGW5HAkUSbsboFudChlkBpOXnlQCKWxW47w2SivTKH39ntxjifetvI7syXKoP
+         k57w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795445951; x=1796050751; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5WG01q9x7fNydHzOUJiz8YwOwYvkUE1Kpri/g/6ilc8=;
+        b=d3+3+bM7he5Y2G+2euqbKTlxaMtghIWg5re0Ovvm3BCX061B5/OY16yV06g0POVd+S
+         CkbQE8LLLs9PIEaJHRFHgxscVFczG3vq1EFYRJTm9/QLGKk2IV3Tg5ufmT62Lgx9YkFm
+         EsPhhjPDJOrEJ9pW534WXhdVrIa+HpofQqmIPBevOuez4yUpCivdruXVKMfurXS7JaCk
+         PnTBdstjl2SqWdTkXiRuyrvStOgFykB+BIZV7cv0kBk8x34UaLzxy5dwC4p309TRgfy8
+         M3CG8ozev7wS2keHNDJPL1jIlh24kI7YMdoX00pc8zWPpbNGNsRUaEeQSMqbNPHtVujC
+         fjmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795445951; x=1796050751;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5WG01q9x7fNydHzOUJiz8YwOwYvkUE1Kpri/g/6ilc8=;
+        b=G8FkgLKMpP4qsSE9bOq4Q9dYa7zQfArKyzcpU1dEBWmrL7UWn9NM0/ZygSrHPxFnV7
+         mpeSsC85/tvBim+LpcmonetOLET9D1C2McXX1sTvPTQWcUNrt9wP9a6LUnbn6k8/Rrbk
+         j27Q01kisHpDnpIUVGibN2plRKdOYZLcWJEsO4C8TqbDbywjlsQp3UR8YW29lyoiZYnK
+         bB+WcgAfhD3Nqk9U6Y6S6NU2gW5PBBK22hbx+64EX13Mcp8ePe26d/XY9GufXRr/WzKq
+         cHGGf4KQbazJJQ+Aq8VMT0XdJnRELTw6+C1lYb1juZNDsheMzSZF8TO0b8TFdTtIV+pw
+         WrXg==
+X-Forwarded-Encrypted: i=1; AL+hErE5HgLf/3ZK/SFos9qFIwmY/OaOi7ivLwCWYgkGOu/roLYy/6PS5G4IHNtcpnrK+Mw63wZq9J5hpL280wM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eJnedWFmtmsh2QnOUkXhzZvDrQGuJfeNFqkMChrq799M8NQOn
+	0H16zVzljpJTy0fv1dp18C+ZExNbjGcGJQ+AHkYVi1TL7733d6+Ga8v3lMeIs+Hk9nzt0WXjudO
+	SMJsNMn8qR6A7dydA967KvL1vuBj+nfmsV+h33bc9ajI9kET84amHE85r6sW3GsSrWQ9WMJD+Dd
+	n3h6veR+j3YRD5qNFALHza38xPw0jZXc7gQWO65W1k
+X-Gm-Gg: AZFdTZf7i2cMKZNOlXc6QFScZy/IfJpPhOikWKHE3lzPTDwjb3XsedzHigPaSU8Pt79
+	LSoxUayYoIBgEW8UKwAkEOsaqcbYpeKL/Tjl38x8DqNGbGm5I14Z3EcWmEuIa37C20n/SAYwP2c
+	+Jyry4aMEcqnld4TJHL2XGZA0qf5whXPAcIrz8HQPqyNlaaRfUAXF1WhIcPeSGmHtqBUmUAXEUK
+	KD+cPltjYEp3hs=
+X-Received: by 2002:a05:6a00:4b03:b0:89e:3ff1:920d with SMTP id d2e1a72fcca58-8c87d01fba2mr9824122b3a.45.1795445951325;
+        Mon, 23 Nov 2026 06:59:11 -0800 (PST)
+X-Received: by 2002:a05:6a00:4b03:b0:89e:3ff1:920d with SMTP id
+ d2e1a72fcca58-8c87d01fba2mr9824105b3a.45.1795445950862; Mon, 23 Nov 2026
+ 06:59:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,153 +125,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260728-tyr-irq-v2-v7-1-4e172e58e28c@collabora.com>
-References: <20260728-tyr-irq-v2-v7-0-4e172e58e28c@collabora.com>
-In-Reply-To: <20260728-tyr-irq-v2-v7-0-4e172e58e28c@collabora.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>, 
- Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- rust-for-linux@vger.kernel.org, kernel@collabora.com, 
- Laura Nao <laura.nao@collabora.com>
-X-Mailer: b4 0.12.0
+References: <179360289114.124676.5863600854966859222@163.com>
+In-Reply-To: <179360289114.124676.5863600854966859222@163.com>
+From: Tomas Glozar <tglozar@redhat.com>
+Date: Mon, 23 Nov 2026 15:58:57 +0100
+X-Gm-Features: Aa3M54p2FJodcylC0BM21pe9oXJlWt7vaXOK68xEMFI6ra6ca-U3i9Z5NfTFnEA
+Message-ID: <CAP4=nvS-iHK1aFiwvdLtSf4sCYcfFvqj6cKjkSb0eJs-O=qfmw@mail.gmail.com>
+Subject: Re: [PATCH] rtla: reject -e, --filter and --trigger without --trace
+To: Chaosheng Qu <quchaosheng000406@163.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, linux-trace-kernel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Daniel Almeida <daniel.almeida@collabora.com>
+On Mon, Nov 2, 2026 at 8:03=E2=80=AFAM Chaosheng Qu <quchaosheng000406@163.=
+com> wrote:
+>
+> From: Chaosheng Qu <quchaosheng000406@163.com>
+> Subject: [PATCH] rtla: reject -e, --filter and --trigger without --trace
+> To: Steven Rostedt <rostedt@goodmis.org>
+> Cc: Tomas Glozar <tglozar@redhat.com>,
+>     linux-trace-kernel@vger.kernel.org,
+>     linux-kernel@vger.kernel.org
+>
+> -e, --filter and --trigger configure events of the trace instance that
+> --trace creates, and trace_events_enable() is only called from inside the
+> block that --trace or --on-end trace enters.  Without either of them the
+> options are parsed, stored in params->events and then never looked at
+> again: rtla runs to completion and exits 0, so the user is left believing
+> the events were enabled.
+>
 
-HwGate::access() takes gate_lock, which is a mutex, so it cannot be
-called from atomic context. IRQ handlers need to access the GPU
-registers, and those are only reachable through the gate.
+This behavior is already documented, see
+Documentation/tools/rtla/common_options.txt:
 
-Add HwGate::try_access_atomic(). It enters SRCU without taking gate_lock
-and returns None if the reset worker has closed the gate. close() now
-sets a closed flag before waiting for SRCU readers, and HwClosedGuard
-clears it when dropped. SRCU guarantees that a reader either sees the
-flag set or is waited for.
+    **-e**, **--event** *sys:event*
 
-An IRQ handler that gets None cannot acknowledge its interrupt, so its
-interrupt has to stay masked while the gate is closed. Document this on
-close(). No caller needs to do this yet: the only reset runs at probe,
-before any IRQ handler is registered.
+            Enable an event in the trace (**-t**) session. The argument can
+            be a specific event, e.g., **-e** *sched:sched_switch*, or
+all events
+            of a system group, e.g., **-e** *sched*. Multiple **-e**
+are allowed.
+            It is only active when **-t** or **-a** are set.
 
-There are no users yet. The Job IRQ handler will be the first one.
+            This option cannot be unset.
 
-Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
----
- drivers/gpu/drm/tyr/reset/hw_gate.rs | 55 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 53 insertions(+), 2 deletions(-)
+Currently, the trace is the only consumer of the events, so nothing
+really breaks when the user requests the events without -t/--trace or
+equivalent.
 
-diff --git a/drivers/gpu/drm/tyr/reset/hw_gate.rs b/drivers/gpu/drm/tyr/reset/hw_gate.rs
-index 201f8c953078..40b38f07c472 100644
---- a/drivers/gpu/drm/tyr/reset/hw_gate.rs
-+++ b/drivers/gpu/drm/tyr/reset/hw_gate.rs
-@@ -6,10 +6,18 @@
- //! access with reset. Readers hold the mutex while entering SRCU, then release
- //! it before accessing hardware. The reset worker holds the mutex while waiting
- //! for admitted readers and resetting hardware.
-+//!
-+//! Readers that cannot sleep use [`HwGate::try_access_atomic`] instead. It
-+//! enters SRCU without taking the mutex and fails if the reset worker has set
-+//! `closed`, which it does before waiting for readers.
- 
- use kernel::{
-     prelude::*,
-     sync::{
-+        atomic::{
-+            Atomic,
-+            Relaxed, //
-+        },
-         new_mutex,
-         srcu,
-         Mutex,
-@@ -32,6 +40,9 @@ pub(crate) struct HwGate<'hw> {
-     /// Drains readers that entered before the reset worker acquired `gate_lock`.
-     #[pin]
-     srcu: Srcu,
-+    /// Set while the reset worker owns the hardware. Checked by readers that
-+    /// cannot take `gate_lock`.
-+    closed: Atomic<bool>,
- }
- 
- impl<'hw> HwGate<'hw> {
-@@ -41,6 +52,7 @@ pub(crate) fn new(iomem: IoMem<'hw>) -> impl PinInit<Self, Error> {
-             iomem,
-             gate_lock <- new_mutex!(()),
-             srcu <- kernel::new_srcu!(),
-+            closed: Atomic::new(false),
-         })
-     }
- 
-@@ -60,15 +72,45 @@ pub(crate) fn access(&self) -> HwAccessGuard<'_, 'hw> {
-         }
-     }
- 
-+    /// Enters a reset-sensitive hardware-access section without sleeping.
-+    ///
-+    /// Returns `None` while the reset worker owns the hardware, in which case
-+    /// the caller must skip its hardware access.
-+    #[expect(dead_code)]
-+    pub(crate) fn try_access_atomic(&self) -> Option<HwAccessGuard<'_, 'hw>> {
-+        let srcu = self.srcu.read_lock();
-+
-+        // `close()` sets `closed` before waiting for readers, so SRCU guarantees
-+        // that this reader either sees it set or is waited for.
-+        if self.closed.load(Relaxed) {
-+            return None;
-+        }
-+
-+        Some(HwAccessGuard {
-+            gate: self,
-+            _srcu: srcu,
-+        })
-+    }
-+
-     /// Stops new readers and drains admitted readers for the reset worker.
-     ///
-     /// Callers must serialize write-side access. The reset controller's state
-     /// machine provides that serialization.
-+    ///
-+    /// An IRQ handler that uses [`HwGate::try_access_atomic`] cannot acknowledge
-+    /// its interrupt while the gate is closed. Callers must mask such an
-+    /// interrupt before closing the gate and keep it masked until the gate
-+    /// reopens.
-     pub(super) fn close(&self) -> HwClosedGuard<'_, 'hw> {
-         let gate_lock = self.gate_lock.lock();
- 
--        // Holding `gate_lock` prevents new readers from entering SRCU. Readers
--        // admitted before us are enrolled, so wait for their read-side work.
-+        // Stop `try_access_atomic()` readers. This must happen before waiting
-+        // for readers below.
-+        self.closed.store(true, Relaxed);
-+
-+        // Holding `gate_lock` prevents new readers from entering SRCU through
-+        // `access()`. Readers admitted before us are enrolled, so wait for their
-+        // read-side work.
-         self.srcu.synchronize();
- 
-         HwClosedGuard {
-@@ -104,3 +146,12 @@ pub(super) fn iomem(&self) -> &IoMem<'hw> {
-         &self.gate.iomem
-     }
- }
-+
-+impl Drop for HwClosedGuard<'_, '_> {
-+    fn drop(&mut self) {
-+        // Reopen for `try_access_atomic()`. A reader that races with this and
-+        // still sees `closed` set returns `None`, as it would have before the
-+        // store.
-+        self.gate.closed.store(false, Relaxed);
-+    }
-+}
+>   # rtla osnoise top -e sched:sched_switch -d 1s
+>   ... runs for a second, exit 0, no trace file, event never enabled
+>
+>   # rtla osnoise top -e nosuchsys:nosuchevent -d 1s
+>   ... exit 0, the typo goes unnoticed
+>
+> Reject the combination instead.  This does not change what happens when
+> --trace is given: an invalid event still fails with "Error enabling
+> event", and a valid one still works.
+>
+> Signed-off-by: Chaosheng Qu <quchaosheng000406@163.com>
+> ---
 
--- 
-2.39.5
+Any reason for not just keeping the current behavior? It has been
+there ever since rtla implemented events. Changing it will break
+existing uses that might always pass -e but only pass -t when needed.
+I get that the behavior might be a bit counter-intuitive, but that
+should be covered by the manpage.
+
+(If anyone else has a different opinion, feel free to chime in.)
+
+> [cut]
+
+Tomas
 
