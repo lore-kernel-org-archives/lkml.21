@@ -1,84 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.177.127.194
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461311;
-	b=bBE2laFNUUbINBGzTLsHu7WGQdiUagGkKDVxNDsNF3pBLHLcUW56MN/8DkctfyBPG61y
-	 vR68qNHqKSfOnX7++PV2zbUPJw7QDJyxV5Q3TkXjDvOFnYcANksrRdU0QzFxZjayvcuWb
-	 PazL6YYbXtRcB9tIQoDpLK5FBsz9GUbuthHoW5AM1Uftw+8IgXYlAXDv58d/f+UzYdBpW
-	 fKaAV81xhjvWHc2DTjNXhKSU6CEZfZ0FHG0TfQJzHB/wc8NZmJSX10a8SAxqhClO2RO0e
-	 Kb4RVe4zlg52nAJurYzMkwx2mTjULLyOTwaGZ4+XgqKpA/QFyTB8tL7rVy+pyBkoxog==
+	t=1795461332;
+	b=ePJ1ltxPJRR//y4PJaM9a9O7tdj6RzAOlJlzgZ5Pc+zbsQsFiLUgTXhRri8FM6mqwgWX
+	 ceoIlDcXw0TQiHppcXmoU0j1gxSejSlO+THm+82DefwDbMGOjSsbz4KrNaRo9lPT2gVh9
+	 6blPkI3WMhh46x0addgra/wgc49UOBo/3hhl3ZuGKr6onFBLUGwUKIzQydWR6ldqncbud
+	 /fgJb7qQKShz0n7oWzRfPxYUBSCvSSjLxpVmonSDBwvGsaBJI7qgBUXSeWWVexFLsDwoX
+	 PcjLQIA+F8AHmD/AzW8883Zh+sT689bB9cS+xSAIfnsWm2FGU2U8rdEXpxbKmPulXjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461311;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=TtwF9m0dsYM7DXA5kCIoVhSRU8hz4R/5DTLztjK7Brs=;
-	b=WGYATPMerKzzqGylGZr37T2ytLUsqWy+pQWAgJ1+g7omOouVkjtRloB9n78bN+jNlumB
-	 LehdAk1hV7Tp0SWmYZoTBC/T/BnvqVUEx0FdZfMFkH6kZsIjVw3+2iCDdHfkQG5C2Wj/9
-	 sNBA5VDPQDb868rWAkj/0z+a/CLNsl8r1uRenVqHhsCtIU+KJz2GHyhFohyPs6GePHM/i
-	 vTmizTibtdMwlFowS7OB02as0votCzu2RqiB1QYbjgPhyRZNHJXcvkR+deaAYfUdyjKSb
-	 JjYsjp/LnsQ0BHoPWanj+jcYK+gDirGeN9j1pIPcpTENGDt3cFYQ/g7ryVgZPjo9EKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461332;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Envelope-From;
+	bh=ZGoQIJfWER74Lse2hNucFJ7/DwQhKg86bX5l6vAf1lY=;
+	b=HheCq25+sYuLM6fBjkFDJ5DhuvsLAgwGXpyDLrOv/SW3xyNxv+IGF1f/6Fb7OVfGm1TB
+	 QGamUDnRMvTaeKQfRhHMcHq07HslJUhACvGrbYrnYI42200dxZe2L5xkGF9y64bUkdTY6
+	 hVhYFZDcplmbKtCn/1YVAp901R+E/fOR6KwNAKmCwon+3CHmnpy57lsGhy8Uyh/jlGJZi
+	 6HdpkD2KIEIc42gmGaTYfLd37/ruVQJxtgvN/pQbinF7NcKAY24Gj0LBbMenERYbw7PQC
+	 cvDGkLbww9aCDnPbAHajc1tjbP8j11hUAF/1WHj6SjcoMfipf21cY04M9QJHX+g8abA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=RZnu+8vT;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=chrispinetinega.com;
+	spf=pass smtp.mailfrom=chrispinetinega.com;
+	dkim=pass header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=CMlWzdIG;
+	arc=none smtp.remote-ip=198.177.127.194
+Received: from out-utut-a194.jellyfish.systems (out-utut-a194.jellyfish.systems [198.177.127.194])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 432AB606A31A;
-	Mon, 23 Nov 2026 19:15:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 432AB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53C1E606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:15:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53C1E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chrispinetinega.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrispinetinega.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=RZnu+8vT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795461309;
-	bh=1UTK7C2L/leKYOV1vpyJUfwzZPkqImLHSYWPJ0HxDWA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=RZnu+8vT52sXp8u5MzM7OVRlx+tCuz5kp2Q710LRjID98hbmD6aG+rcG+vtjbjChJ
-	 vIb8qB554gew2pq2FKrpk/f5HmivAHinpFmzMKaTsXa6CVDeZxqlvV7WSw8Eveea4B
-	 DKVVfizmpDtQJFGs1gVTEncZMI7oqMODQlN9Ubf27C5ZsfZ/yYMRcg6DMw5WfgfPdk
-	 lMkQKWxr7DszHYqomtMGa11CJM951Bp/9WzIh6zBOL+4H9SfH7VUa8ScM1XAShOmVk
-	 VcVe47GHSLFV8CQPyqxB304vTOhWC9dZ8sOd++u+sRghyiR5BGKU3ML5rMbmCbkuU6
-	 pueGA33+BUMAQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
+	dkim=pass (2048-bit key) header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=CMlWzdIG
+Received: from mail.privateemail.com (unknown [62.8.90.37])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 71DAE17E00B2;
-	Mon, 23 Nov 2026 20:15:08 +0100 (CET)
-Message-ID: <5b5b87d40c3a3ac5c9b04ea77e9310c92f9f4e49.camel@collabora.com>
-Subject: Re: [PATCH v3 7/7] media: verisilicon: mpeg4: Use alloc/free
- helpers for auxiliary buffers
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	p.zabel@pengutronix.de, mchehab@kernel.org
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 14:15:06 -0500
-In-Reply-To: <20261123095905.60622-8-benjamin.gaignard@collabora.com>
-References: <20261123095905.60622-1-benjamin.gaignard@collabora.com>
-	 <20261123095905.60622-8-benjamin.gaignard@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-6OhJFZ1YC2eqKEd3+Wjr"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	by mail.privateemail.com (Postfix) with ESMTPSA id 4jYFy44Qqxz2x9V;
+	Mon, 23 Nov 2026 19:15:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chrispinetinega.com;
+	s=default; t=1795461311;
+	bh=ZGoQIJfWER74Lse2hNucFJ7/DwQhKg86bX5l6vAf1lY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=CMlWzdIGl7oKUumU5vBvLW8Tu2NprrIBUvXKfkPfBf4UGrHN4nUYkx7pbhtkaSQKY
+	 mzd3yFx7WTu5D7ZzDyuJo1yu3EFi51zyh4u3RLazbJlIvZP++hJbzehudj5n1ly8lc
+	 U7nokRS+6ND0t/C4p5VL0hBbwllc6zFKz2EauPV6BiWCNVvweiU2Zbv4yr2wbLzs3t
+	 zYmW3tcjbEWJP8Nv5eP/Q5jZZ6quY60l0z7MSyvyc78PxJMlX83iTT0VjzWeTaIDgL
+	 yiiQqyyamLLOHSaBq2fbRW+UgyD1PW8/t0gRn4Ln6QVOqr6gviZ0fMlyzuCHgPjYd3
+	 yPKwaq9OI8xzw==
+From: Chrispine Tinega <dev@chrispinetinega.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: linux-remoteproc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chrispine Tinega <dev@chrispinetinega.com>
+Subject: [PATCH v2] rpmsg: char: Drop messages that arrive while the device is closed
+Date: Mon, 23 Nov 2026 22:14:53 +0300
+Message-ID: <20261123191453.1172967-1-dev@chrispinetinega.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,78 +68,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Envelope-From: dev@chrispinetinega.com
 
---=-6OhJFZ1YC2eqKEd3+Wjr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+A char device bound to an rpmsg channel reuses the channel's default
+endpoint, and that endpoint stays bound when the last file is closed.
+rpmsg_ept_cb() keeps running and appends an skb to eptdev->queue for
+every message, with no limit. The queue is purged only on release, so
+nothing frees it while the device stays closed.
 
-Le lundi 23 novembre 2026 =C3=A0 10:59 +0100, Benjamin Gaignard a =C3=A9cri=
-t=C2=A0:
-> Simplify and clean up the code by using the helpers.
+An endpoint created through RPMSG_CREATE_EPT_IOCTL does not have this
+problem: it is destroyed on release, and messages sent to it while the
+device is closed are dropped by the bus.
 
-I'll pick the series, just wanted to mention that I will edit your subject =
-line
-from mpeg4 to mpeg2.
+On a TI AM62x whose M4F core sends about four 64-byte messages a
+second, kernel memory that cannot be reclaimed grew by 2.2 MB in the
+10 minutes the reading process was stopped, about 850 bytes a message.
+At that rate a reader that is down for a day holds about 320 MB.
 
-Nicolas
+Drop messages for a default endpoint while eptdev->ept is NULL, as the
+bus already does for an endpoint that does not exist. Non-default
+endpoints are not checked here because a transport may invoke
+rpmsg_ept_cb() from rpmsg_create_ept() before rpmsg_eptdev_open() sets
+eptdev->ept.
 
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> ---
-> changes in v3:
-> - As suggested by Philipp do not mask hantro_allocate_aux_buf() returned
->   value.
->=20
->  .../media/platform/verisilicon/hantro_mpeg2.c | 19 ++-----------------
->  1 file changed, 2 insertions(+), 17 deletions(-)
->=20
-> diff --git a/drivers/media/platform/verisilicon/hantro_mpeg2.c b/drivers/=
-media/platform/verisilicon/hantro_mpeg2.c
-> index 04e545eb0a83..7386cc50b11b 100644
-> --- a/drivers/media/platform/verisilicon/hantro_mpeg2.c
-> +++ b/drivers/media/platform/verisilicon/hantro_mpeg2.c
-> @@ -37,25 +37,10 @@ void hantro_mpeg2_dec_copy_qtable(u8 *qtable,
-> =20
->  int hantro_mpeg2_dec_init(struct hantro_ctx *ctx)
->  {
-> -=09struct hantro_dev *vpu =3D ctx->dev;
-> -
-> -=09ctx->mpeg2_dec.qtable.size =3D ARRAY_SIZE(zigzag) * 4;
-> -=09ctx->mpeg2_dec.qtable.cpu =3D
-> -=09=09dma_alloc_coherent(vpu->dev,
-> -=09=09=09=09   ctx->mpeg2_dec.qtable.size,
-> -=09=09=09=09   &ctx->mpeg2_dec.qtable.dma,
-> -=09=09=09=09   GFP_KERNEL);
-> -=09if (!ctx->mpeg2_dec.qtable.cpu)
-> -=09=09return -ENOMEM;
-> -=09return 0;
-> +=09return hantro_allocate_aux_buf(ctx, &ctx->mpeg2_dec.qtable, ARRAY_SIZ=
-E(zigzag) * 4);
->  }
-> =20
->  void hantro_mpeg2_dec_exit(struct hantro_ctx *ctx)
->  {
-> -=09struct hantro_dev *vpu =3D ctx->dev;
-> -
-> -=09dma_free_coherent(vpu->dev,
-> -=09=09=09  ctx->mpeg2_dec.qtable.size,
-> -=09=09=09  ctx->mpeg2_dec.qtable.cpu,
-> -=09=09=09  ctx->mpeg2_dec.qtable.dma);
-> +=09hantro_free_aux_buf(ctx, &ctx->mpeg2_dec.qtable);
->  }
+Hold eptdev->queue_lock (irqsave) around the check and enqueue in
+rpmsg_ept_cb() and around updates to eptdev->ept, and purge the queue
+in rpmsg_eptdev_release() before releasing eptdev->ept_lock. This
+prevents an in-flight callback from enqueuing an skb after release has
+purged the queue, and prevents a concurrent open from racing with the
+purge. Release already discards whatever the last reader left unread,
+so delivery across a close is not something a reader can depend on
+today.
 
---=-6OhJFZ1YC2eqKEd3+Wjr
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Fixes: bc69d1066569 ("rpmsg: char: Introduce the "rpmsg-raw" channel")
+Signed-off-by: Chrispine Tinega <dev@chrispinetinega.com>
+---
+Changes in v2:
+- Scope the drop check to default endpoints (eptdev->default_ept),
+  so initial messages arriving during rpmsg_create_ept() for a
+  non-default endpoint are not dropped before eptdev->ept is set.
+- Synchronize eptdev->ept updates and the rpmsg_ept_cb() check/enqueue
+  under eptdev->queue_lock (irqsave), and purge eptdev->queue in
+  rpmsg_eptdev_release() while still holding eptdev->ept_lock, so an
+  in-flight callback cannot queue a stale or leaked skb after purge.
+- Rebased onto rpmsg-next (965089d20).
 
------BEGIN PGP SIGNATURE-----
+v1: https://lore.kernel.org/all/20261115110040.363306-1-dev@chrispinetinega.com/
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawSQugAKCRDZQZRRKWBy
-9DGRAQCUAeCDyxVQ+dajb9KwTStV2mLTHQA7lvvU5/davwOQJwD/e9YUVaBM3LkJ
-BAk47rc4UTDzFemhor+2FOHt4ASpjAE=
-=IhE2
------END PGP SIGNATURE-----
+ drivers/rpmsg/rpmsg_char.c | 31 ++++++++++++++++++++++++++-----
+ 1 file changed, 26 insertions(+), 5 deletions(-)
 
---=-6OhJFZ1YC2eqKEd3+Wjr--
+diff --git a/drivers/rpmsg/rpmsg_char.c b/drivers/rpmsg/rpmsg_char.c
+index d8868faac..c03b7a424 100644
+--- a/drivers/rpmsg/rpmsg_char.c
++++ b/drivers/rpmsg/rpmsg_char.c
+@@ -77,6 +77,7 @@ struct rpmsg_eptdev {
+ int rpmsg_chrdev_eptdev_destroy(struct device *dev, void *data)
+ {
+ 	struct rpmsg_eptdev *eptdev = dev_to_eptdev(dev);
++	unsigned long flags;
+ 
+ 	mutex_lock(&eptdev->ept_lock);
+ 	if (!eptdev->rpdev) {
+@@ -89,7 +90,9 @@ int rpmsg_chrdev_eptdev_destroy(struct device *dev, void *data)
+ 		/* The default endpoint is released by the rpmsg core */
+ 		if (!eptdev->default_ept)
+ 			rpmsg_destroy_ept(eptdev->ept);
++		spin_lock_irqsave(&eptdev->queue_lock, flags);
+ 		eptdev->ept = NULL;
++		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
+ 	}
+ 	mutex_unlock(&eptdev->ept_lock);
+ 
+@@ -108,19 +111,31 @@ static int rpmsg_ept_cb(struct rpmsg_device *rpdev, void *buf, int len,
+ {
+ 	struct rpmsg_eptdev *eptdev = priv;
+ 	struct sk_buff *skb;
++	unsigned long flags;
+ 
+ 	if (!eptdev)
+ 		return 0;
+ 
++	spin_lock_irqsave(&eptdev->queue_lock, flags);
++	/*
++	 * A channel's default endpoint stays bound while the device is closed,
++	 * so this callback keeps running. Queuing now would grow the queue
++	 * without limit until the device is opened again. Drop the message.
++	 */
++	if (eptdev->default_ept && !eptdev->ept) {
++		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
++		return 0;
++	}
++
+ 	skb = alloc_skb(len, GFP_ATOMIC);
+-	if (!skb)
++	if (!skb) {
++		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
+ 		return -ENOMEM;
++	}
+ 
+ 	skb_put_data(skb, buf, len);
+-
+-	spin_lock(&eptdev->queue_lock);
+ 	skb_queue_tail(&eptdev->queue, skb);
+-	spin_unlock(&eptdev->queue_lock);
++	spin_unlock_irqrestore(&eptdev->queue_lock, flags);
+ 
+ 	/* wake up any blocking processes, waiting for new data */
+ 	wake_up_interruptible(&eptdev->readq);
+@@ -149,6 +164,7 @@ static int rpmsg_eptdev_open(struct inode *inode, struct file *filp)
+ 	struct rpmsg_endpoint *ept;
+ 	struct rpmsg_device *rpdev = eptdev->rpdev;
+ 	struct device *dev = &eptdev->dev;
++	unsigned long flags;
+ 
+ 	mutex_lock(&eptdev->ept_lock);
+ 	if (eptdev->ept) {
+@@ -180,7 +196,9 @@ static int rpmsg_eptdev_open(struct inode *inode, struct file *filp)
+ 	}
+ 
+ 	ept->flow_cb = rpmsg_ept_flow_cb;
++	spin_lock_irqsave(&eptdev->queue_lock, flags);
+ 	eptdev->ept = ept;
++	spin_unlock_irqrestore(&eptdev->queue_lock, flags);
+ 	filp->private_data = eptdev;
+ 	mutex_unlock(&eptdev->ept_lock);
+ 
+@@ -191,19 +209,22 @@ static int rpmsg_eptdev_release(struct inode *inode, struct file *filp)
+ {
+ 	struct rpmsg_eptdev *eptdev = cdev_to_eptdev(inode->i_cdev);
+ 	struct device *dev = &eptdev->dev;
++	unsigned long flags;
+ 
+ 	/* Close the endpoint, if it's not already destroyed by the parent */
+ 	mutex_lock(&eptdev->ept_lock);
+ 	if (eptdev->ept) {
+ 		if (!eptdev->default_ept)
+ 			rpmsg_destroy_ept(eptdev->ept);
++		spin_lock_irqsave(&eptdev->queue_lock, flags);
+ 		eptdev->ept = NULL;
++		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
+ 	}
+-	mutex_unlock(&eptdev->ept_lock);
+ 	eptdev->remote_flow_updated = false;
+ 
+ 	/* Discard all SKBs */
+ 	skb_queue_purge(&eptdev->queue);
++	mutex_unlock(&eptdev->ept_lock);
+ 
+ 	put_device(dev);
+ 
+-- 
+2.53.0
+
