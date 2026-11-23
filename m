@@ -1,112 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404085;
-	b=MJE0HiSUnElBBvq5Srdw5S85d4OGCPEkEiDlCPSv095uRaPVJz3ZbQ6nZLU98zw/ezd1
-	 8LwjbOpjMkll3Vd+Tmnp5RCcx2ETBm33/YSZjWq6qRFjUYO8b/C1Leb/mogVsozM7Wqug
-	 9w1ht8nu7GoJginbhyiwoq0ZPIqubwtxrOv84GIFQnhlqH2NwaMl4LmbsLNFe7UNLo1xx
-	 KqQvGRwl8zR3LQV22SZezXmENSv6EqOeF1NCAJRyMZn5G4GJlPlw9AXRy2HBBYSH04MOu
-	 nB0W8xnP2oPTLO2YARP/SU6fhVx3XuYNSW7OWatmmPtkpTp5jqp6GMTERoIl+V1eQyQ==
+	t=1795404167;
+	b=m42mggUzU3LDjqf+1DPgjrFKqy8LPJe9Nsnut333xErnm21tlSqPYDELV8Wjw1sP60wn
+	 c0G8yfGhM7hWTc5blWlyoAvbhSPfhRCRzzdDUypZRjK9W36zrMZqlQ0quft7LMIbcwT4R
+	 AYNp1ZDIze1iYXBiFC2b+RApag0cY42BA3zJsQjJxKA/lcs+pQjkpCU1LcXX3aSIewlxM
+	 yM9vjZEDuDZIU9Xs0CKpMmX0sB5fLIt5dOKlXWHUvyzPV4he5MXYV4be8ZhuIQevP2sH5
+	 ZaE0WeXZwrrx8KVBQ1W7UJ7xgvKXSHJ9hNKUvnVGT8whN97c8+PkhpVxk/3jAJ5JOow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404085;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=VXedBlLbPwD6MOhiJ1M+V/ws5Iohq5O/bPIG7VrD/2Y=;
-	b=iVGgxZe15JrwK7yti2iGEas37mKSBUaIurPUbmpLs8zOLdJOQuvmU0S2UcHRQG4UzbBl
-	 dCvrw2PzFcHjeOYuDnp858hfkjwM7rtm9A7NpX3z01kkpY5UjvZvQKhBv2lEDY9odC/Us
-	 PKyQsvlQTuGL47fRzGg+7pn0EuIzmGKAxKKIzRQIJGTpmLwGHvUbeaA2+hkazrKoh8BDm
-	 l4YwrPiElpM18GS1DQPKpslsxwZLmVLo+KdSxTisYMiPyCrwwhG2EgCSos+AkQ681pk1Z
-	 fKkNnD+Ey7nTq9eKtBCp52CyGsIJZS1yfOtBVRgr+YthF99Bg/8qiQziq30fXlyLXuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404167;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=mmVRvdK02N6AgoL3Fkb1Slsd4s0/SBaF5vDPeDu6iRw=;
+	b=C2bwXJBc/nen1rQz+nvPkjzpN881x87w2ABaL4dnk/t6o6yoR/q9Y57RD6/OeaCaoXvw
+	 77oTB6JmDAk7mC1PVWUPhjv2OA1BMK2GPxhAnRbgCuNFb7KvSI6Gty3sicrpuOwKnEJUG
+	 y1eXxp16U9xYay9DPYr5JnG7QSeDR48VsrT+mYWqSTVf6mtMU6dxnaOQRfGqQ5nWxDorG
+	 +Gll3VbAbJHK186zAaPSdXqaAnLcITHiDcPVnygkYYxlwRPtaauBBN9ubhbDoG9BzrtRj
+	 RJSCAr2wSz4/bsOXXeF+Uk6K1CiikQc4hDrl3YGoRBJ09WFXig5RDCVT1c8tx2esuew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QoraXHFR;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="Zo3/uIj1";
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MbmIxTcQ;
+	arc=none smtp.remote-ip=95.215.58.3
+Received: from mta1.migadu.com (out-3.mta1.migadu.com [95.215.58.3])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC937606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:21:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC937606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A40D7606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:22:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A40D7606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QoraXHFR;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Zo3/uIj1
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AMNrJIN1310231
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:21:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VXedBlLbPwD6MOhiJ1M+V/ws5Iohq5O/bPIG7VrD/2Y=; b=QoraXHFRbb9UnELq
-	GPO9l0JpOcU6VcmdtSJDDANpnm/s8tsML/fOenKlPD0WCAVWVv/LTJ+jtaD919Ft
-	8e6C4XensAVOHJZo4vqvy4/LXxnTkHpXH5fVHruBWo6oOx+AI5c2oD9cNQt0mPRB
-	J3J+7AgmHgcPY+iY9T+wSyigCKKvbwMwvHWYC0OqZJSZa/mtK5/WBOtOfNQp7dga
-	egnjjrhuj5AvhXHQ5aB6lNCgj6tkRUhuVFFyDljY+NCkfKOIQgfk+37WqbagzLF2
-	D4au9eJ6BI7d1cCX/zL7K7rdvCMtJ9KpSI22d/ARSobgQOtTvWMGX2QPdAeWsWDQ
-	wGnoKg==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j32a6n24r-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:21:23 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b427e5a37dso2193358a91.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:21:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795404083; x=1796008883; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VXedBlLbPwD6MOhiJ1M+V/ws5Iohq5O/bPIG7VrD/2Y=;
-        b=Zo3/uIj1Ox691nFw7TymmsPrWz1wnLyJehzkhMZvYfkeE/ZkeQVP9DnKpzd9ld0rQl
-         L9nHrhzxfZLOyXhoKY7fmk9uENDf0pxnWYhNGaxh3zlK0tTOC/kwvAKK1h9WkJxMZljr
-         rtkoBdReEulAAgfcqAjouqubGcGSCjJwprnqhq23+A5egg85Luw9jTpFH3r9p+YvOhaR
-         AWpiGuPZd9GnMZo7HNKu/Vul383AnJ25CdpKPhJ64wDOf23hB/7uR6u1VRubv7bsazrT
-         te0MbvKLxSgEhW87DPzqi3tBNFI5TNF+adB7klKqx2i/3PavyvYcJ15sPCPoJ5cRlnBz
-         5u6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795404083; x=1796008883;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VXedBlLbPwD6MOhiJ1M+V/ws5Iohq5O/bPIG7VrD/2Y=;
-        b=2tgNQ8QGiMq+PrY4ABv1BWNWzGDOHS/g15l8oZJDj4F28wWko03BQs55n7Jh/D4FWW
-         kkOAtNOGwcKgOtE3X5G2ksP89oI6IwDiGKkAHCeLfrw/e1n3njtMyGVpNsdv0apKTUui
-         jKd7AmUl+iRnbbYFzv9uOyLVQg7VIA6pz1RM8BYlNLIoIvINAYLNs4bTB3ABGtCi60cN
-         XqPBD2FRclEfuPJycPthdMy5lAVYhL4iNvtXTubeiCBkRZTiNKwo4lg51+RxPHB5DHSp
-         fZ8hTxktMPYOydG5aVikEujBQMb8+eQcfr6YDlNVxqjaVtVg20SxSMCFYOBKUaiTInwr
-         aTMg==
-X-Forwarded-Encrypted: i=1; AL+hErFEPqMERMFxPbeHEjaOnRGbcODMvGnv79lSQRulBXIZUE6qOkowqifq/DAG9GQQE/4Ylheuh+gZ6xTK5GU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YCro1f8dyEkA8GDunfHMnzIvquBNKZLVOEG8ZtwYGEM0u1rTE
-	AO79MpdGPfCEs7IWjoEjkwzrT2BfFc1nUs1PNEKxlZ/3ptn3fRwEI3p1QzkJsyogInZ8No61YGd
-	FKYyHdCPqBTt260tOtXXRG1b1UfhIBexWgucYZmzDvfITFAw5G3DbtlRRcrNIwNY+gcA=
-X-Gm-Gg: AZFdTZeKfQoE4EHDlSA59HWj9ot+RNL2RXjVHXaTnePbQleqvVN66pICh3sc9HaCpQW
-	4vf3dHqZWPvDaeSVf/uwA7EXNEqnY+xNteW20aBibmIXY4h1vSE7TTkdLCAHV0Ubsa2OfnFTD1C
-	avsSaVzIxakDy6MSBoaC5PWZSZzPGcF9Jb2svf+XebKbk0Ponohuryh/Pok7jySl/Mi6Ah6hKa2
-	mPIULp8685cH6LZGwSBZom/9tJKYRJ0OFWfLdtlBw2A/kC9nQyoyxfI8yKlXZQf1MhL9oDzFrOY
-	qQBrN/jdJQHgqxYNOSmr3f6l7ePeB1goJC64dbJPbiVup4fc24zhdhTZe+nR/MImXc/9aoHuP9H
-	EbDdILWMA7STtwo+hJsd3nmfNANfLzwqEAWexEA9/XxduojhnhYKEHO+K342KEEAiClwXPowPRZ
-	iyPZ0jSM95Vfj0ULaLW9sRD9gpEg0TPGK+lj2eCmeTselyRA==
-X-Received: by 2002:a17:90b:48d1:b0:3b1:832b:bb3d with SMTP id 98e67ed59e1d1-3b41c9817dfmr9091502a91.57.1795404082638;
-        Sun, 22 Nov 2026 19:21:22 -0800 (PST)
-X-Received: by 2002:a17:90b:48d1:b0:3b1:832b:bb3d with SMTP id 98e67ed59e1d1-3b41c9817dfmr9091488a91.57.1795404082223;
-        Sun, 22 Nov 2026 19:21:22 -0800 (PST)
-Received: from [10.133.33.103] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b828ab9sm5057963a91.2.2026.11.22.19.21.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 19:21:21 -0800 (PST)
-Message-ID: <681285cf-b668-46c6-b6b1-793782925602@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 11:21:17 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MbmIxTcQ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=/mnPk6TbiEx963fDemDdeJymjABb+Fn9UESDkxFlWro=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795404164; v=1; x=1796008964;
+ b=MbmIxTcQ3G8tt5wpa6I92LbDuMVfs1806E7cCC5PBI2vMou21aB8rNHj0nuJts8H03VVD2PI
+ 9TAupc99w0fWffVFDQy168Kz8ejfAY9iYpPuItzqQ6Uyb/Izcz9NyUgvR3SABuMbZKKvSgRXEae
+ vJQh1W78cvOAENKbObhR4Edc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a40b5ee157b951a8;
+	Mon, 23 Nov 2026 03:22:43 +0000
+X-Mizu-Trace-ID: a40b5ee157b951a8
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,89 +57,129 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] cpufreq: highbank: Put cpu clock if clk notifier
- registration fails
-To: shyckless@gmail.com, rafael@kernel.org, viresh.kumar@linaro.org,
-        krzk@kernel.org, peter.griffin@linaro.org
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-pm@vger.kernel.org, alim.akhtar@samsung.com,
-        linux-kernel@vger.kernel.org,
-        Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
-References: <20261122-cpufreq-leaks-v1-0-96fc17ff7339@gmail.com>
- <20261122-cpufreq-leaks-v1-1-96fc17ff7339@gmail.com>
-Content-Language: en-US
-From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
-In-Reply-To: <20261122-cpufreq-leaks-v1-1-96fc17ff7339@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: uMPIUQ-tUwaiZOlwszq8sy0yA6cWq1eB
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAxMyBTYWx0ZWRfX2Z2FRCByxB/m
- d3hCDsm6HAUtYyZP2lCg5MKLMlzxsjt5wv7JvqUZecL4bcP92yPygqNz4L6C+adJ3Mfry8Ffdcw
- tuEgSd8TmrXBRJb6pvq6MWRTpCJJ3BQ=
-X-Proofpoint-ORIG-GUID: uMPIUQ-tUwaiZOlwszq8sy0yA6cWq1eB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAxMyBTYWx0ZWRfX79oFC2xinPt7
- bIfTtS1Kfqe0yYjfX24yGOYjL+XN2W0akScu28vnnkVGaLvKOuaCYIoW6gTt0F4sEhJxvXuPCqf
- DYrzWjWHA2VB5rwAsNXKkGg3VDMBpL5a5gqnLALmKcJMykZ16d9fz8gSKAkuzlytFYQCDQPnq8O
- yTstty5PauiwqU+g9G+dTZxhALzge/3sqttJLnQlB8MLeUlMrw68WElY2lXbSX3ut+bRTleDuiM
- jaAboJaS+XtDlKzR/vlUUWW+PGINP6sQMozM5H2eJeLVa+n75GAwQezT+bY93dRngSd7QW25S/9
- DocpxgZO4yOUYDuvwwVN70SzpS7zDnVAbpSQX0ghsE0voqpktGdQh3KQo/Jq11RHB0MOi6U2FoA
- qm67e+n8fL5KZlbEmkZ8DokbVRQsziB+w6harPxQDN1Saz8NDIeCsbmFJapPHYfnJkq/TrS+h+N
- NkQZAmXsSBOpCmIIwAA==
-X-Authority-Analysis: v=2.4 cv=UbHE26SN c=1 sm=1 tr=0 ts=6b03b133 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=gElGNr783DhJT2Mv8Y0A:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-22_06,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 phishscore=0 malwarescore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230013
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH v3 11/19] arm64/mm: Align vmemmap to maximal folio size
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261122184453.2668189-12-jthoughton@google.com>
+Date: Mon, 23 Nov 2026 11:22:18 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Nikos Nikoleris <nikos.nikoleris@arm.com>,
+ Linu Cherian <linu.cherian@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ David Hildenbrand <david@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Nanyong Sun <sunnanyong@huawei.com>,
+ Yu Zhao <yuzhao@google.com>,
+ Frank van der Linden <fvdl@google.com>,
+ David Rientjes <rientjes@google.com>,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <ED44F18E-E7FF-4B53-9B5B-3201F1100154@linux.dev>
+References: <20261122184453.2668189-1-jthoughton@google.com>
+ <20261122184453.2668189-12-jthoughton@google.com>
+To: James Houghton <jthoughton@google.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-On 11/22/2026 7:55 PM, Suyuan Wang via B4 Relay wrote:
-> From: Suyuan Wang <stevewong@hust.edu.cn>
-> 
-> hb_cpufreq_driver_init() gets the cpu0 clock with clk_get() and then
-> registers a clk notifier on it. If clk_notifier_register() fails, the
-> function jumps to out_put_node and returns the error, but the clock
-> reference is never dropped.
-> 
-> Call clk_put() on that error path.
-> 
-> Found with a static analysis tool and checked by hand.
-> 
-> Fixes: 6754f556103b ("cpufreq / highbank: add support for highbank cpufreq")
-> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 
-Reviewed-by: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
 
+> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
+wrote:
+>=20
+> With CONFIG_VMEMMAP_OPTIMIZATION, compound_head() derives a tail =
+page's
+> head by masking its address. This requires the head struct page of =
+every
+> folio to be naturally aligned to the folio's vmemmap size, up to
+> MAX_FOLIO_VMEMMAP_ALIGN.
+>=20
+> On arm64, the vmemmap is offset by memstart_addr, which is only =
+aligned
+> to ARM64_MEMSTART_ALIGN: as little as 512M with 64K pages, where 16G
+> CONT_PMD hugetlb folios exist. VMEMMAP_START itself is sufficiently
+> aligned for all supported page sizes and VA sizes.
+>=20
+> Raise ARM64_MEMSTART_ALIGN to cover MAX_FOLIO_VMEMMAP_ALIGN, and =
+assert
+> at build time that VMEMMAP_START is suitably aligned. This is a no-op
+> until arm64 enables HVO, which selects CONFIG_VMEMMAP_OPTIMIZATION.
+>=20
+> Signed-off-by: James Houghton <jthoughton@google.com>
 > ---
->   drivers/cpufreq/highbank-cpufreq.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/cpufreq/highbank-cpufreq.c b/drivers/cpufreq/highbank-cpufreq.c
-> index a45864701143..ccdaff4384d2 100644
-> --- a/drivers/cpufreq/highbank-cpufreq.c
-> +++ b/drivers/cpufreq/highbank-cpufreq.c
-> @@ -89,6 +89,7 @@ static int __init hb_cpufreq_driver_init(void)
->   	ret = clk_notifier_register(cpu_clk, &hb_cpufreq_clk_nb);
->   	if (ret) {
->   		pr_err("failed to register clk notifier: %d\n", ret);
-> +		clk_put(cpu_clk);
->   		goto out_put_node;
->   	}
->   
-> 
+> arch/arm64/mm/init.c | 18 ++++++++++++++++--
+> 1 file changed, 16 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 4e7682dfe366..7186d86afc41 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -35,6 +35,7 @@
+> #include <linux/kmemleak.h>
+> #include <linux/execmem.h>
+> #include <linux/arm-rsi-cmds.h>
+> +#include <linux/vmemmap-optimization.h>
+>=20
+>=20
+> #include <asm/boot.h>
+> @@ -92,11 +93,22 @@ phys_addr_t __ro_after_init arm64_dma_phys_limit;
+>  * in the virtual address space.
+>  */
+> #if ARM64_MEMSTART_SHIFT < SECTION_SIZE_BITS
+> -#define ARM64_MEMSTART_ALIGN	(1UL << SECTION_SIZE_BITS)
+> +#define ARM64_MEMSTART_BASE_ALIGN	(1UL << SECTION_SIZE_BITS)
+> #else
+> -#define ARM64_MEMSTART_ALIGN	(1UL << ARM64_MEMSTART_SHIFT)
+> +#define ARM64_MEMSTART_BASE_ALIGN	(1UL << ARM64_MEMSTART_SHIFT)
+> #endif
+>=20
+> +/*
+> + * With CONFIG_VMEMMAP_OPTIMIZATION, compound_head() masks the =
+address of a
+> + * tail page to find its head, so the head struct page of every folio =
+must be
+> + * naturally aligned to the folio's vmemmap size. The vmemmap is =
+offset by
+> + * memstart_addr, so memstart_addr must be aligned to the largest =
+folio size.
+> + */
+> +#define ARM64_VMEMMAP_OPT_ALIGN						=
+\
+> +	PFN_PHYS(MAX_FOLIO_VMEMMAP_ALIGN / sizeof(struct page))
+> +#define ARM64_MEMSTART_ALIGN						=
+\
+> +	max_t(phys_addr_t, ARM64_MEMSTART_BASE_ALIGN, =
+ARM64_VMEMMAP_OPT_ALIGN)
+> +
+> static void __init arch_reserve_crashkernel(void)
+> {
+> 	unsigned long long crash_base, crash_size, cma_size =3D 0;
+> @@ -218,6 +230,8 @@ void __init arm64_memblock_init(void)
+> 	/*
+> 	 * Select a suitable value for the base of physical memory.
+> 	 */
+> +	BUILD_BUG_ON(MAX_FOLIO_VMEMMAP_ALIGN &&
+> +		     !IS_ALIGNED(VMEMMAP_START, =
+MAX_FOLIO_VMEMMAP_ALIGN));
 
+We already have a sanity check in spares_init(). Doesn't it work? If we =
+really
+need a check here, I think we should use compound_info_has_mask() for =
+the guard
+instead of MAX_FOLIO_VMEMMAP_ALIGN.
 
--- 
-Thx and BRs,
-Zhongqiu Han
+Thanks,
+Muchun
+
+> 	memstart_addr =3D round_down(memblock_start_of_DRAM(),
+> 				   ARM64_MEMSTART_ALIGN);
+>=20
+> --=20
+> 2.56.1.809.ga0b61035b5-goog
+>=20
+
