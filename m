@@ -1,62 +1,73 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795469030;
-	b=zW19lb50PNzZbVtAh8v4EpuoBP2hRI5uIDKn2P87xToiJ5meXQBwxw39eIcKmoDuHMcl
-	 r9IMukpG15fZPOQjwS28Y2RSLi/gDuSMh0DYt31AmeoCQtJoeU+1tt8Y9I0fY3gzoJ6i7
-	 BHady+JrVUbB70VlU8Z/ddFRZUSYSGEqFsEhOA/Ob164yPezrmEPS+8rs0fTrY1Lzv9n6
-	 h6vksJndrVnKE2JYea8RQwccXRvsVwNV9ZNWQ8JB+HCK3AScO+Ck3J1cLT9M+BYMur4nP
-	 wc9J18A5i5EOYAwx0f1Ff/drbr0M2cA09E3PUj4P/3yrFTbix0WEtXb21ThzBtO5GHg==
+	t=1795469064;
+	b=WYIrv8+C250P2ofHxyQDFfM6wiJokcCqJZ7YHqLG9lu6G7AV7m8+ZVg3a5dJSan8/4yi
+	 iu1Pa3o7hFh7Q+NbuOYSKFehkGBL/4++Fc8TPwRrryi/O1YpammTOKrqmOUFXoHsxQhBJ
+	 aCG/zaur3cXi+cGVJlrbId6O8L4AtSCiw7OPw4iCoyGRUKOCWF4cKOBVP0vq9JcqPshBn
+	 rppBYVSEoCfZUdftM/MWJipzlbipMwMJD3GERoxsRvQfgrPY2xKSMMZDqRG2JOms03t8r
+	 ISjBKcW2O8fW810Y7b367snY8s2+1qJl99bJlsU0+T692kO+UUVjT88k36zOVByurSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795469030;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795469064;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:
 	 Content-Transfer-Encoding:In-Reply-To;
-	bh=L9arw8uulMcbtVNjgAjlGcVokaNfxf2DL2AlS+yu3DM=;
-	b=zS5UfndM90MRTfwsCsLelEnE9sRb8T+8y0/x2TLxBrNhQFuoihbQSYZG5y8xXq3OM7Ot
-	 w/k8wOa3/auyUMdUsyl6Ko7cU1H7gOzxLTLNXfhdP8W0e8aJ1KzuM+H+xk7jPjXt+McT7
-	 ySFSiYwTGeAkosWWQHK7D5ZaOjWSZyvYNhQh3vHkOJhg0wzfyHtExgikZMQXZpawfgi7o
-	 iHomEaarO8WZBcX898O4jNZ73KZkVo2D4nfG7/42tPih74z3ZbKs9texqE8dZYETTxt0Y
-	 wfVqceuWk0RTXCbDYhex6ErmmAhbvxcfV5lL++jMaxr1GOVDyR/HMVu9bL6E1sLIKng==
+	bh=44fSmcNa7JbwX6ZPeuwc8lCXz45vkMPf7mYLc2yb+q4=;
+	b=N3r7WDrtNWzFxicTwbx7//Bh08LsqkltLRwYwkFo8QCL92eFu8jdifGP4km2/CdaClrZ
+	 UL5w+wDE7qM5GBoiFJXYeclBgbKxH2OW5O40IXiuHTEN5aZESI2ZUCTD20K4iaUiaYjpv
+	 Su7wv0ROLJqd4hJ21c5pKDc+g9mottDl1cjRwbxtnANGk+nrgM1MVzaztNVujP18SfMvQ
+	 ADi9yc4AYzJCNlviMBZT7pV52aPk6lrGXkFOR8ulxtigDZiTSn1VqkOJv2u0NWPCUQ352
+	 vJQ6JA68NJzd8I6F8Mq7VMrRvt1UxppBMChtzEQwTNlwc7krGmANiwqvAL+x0mzHLOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BAlpIgim;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="IV/sh11Z";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDB75606A327;
-	Mon, 23 Nov 2026 21:23:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5141606A31E;
+	Mon, 23 Nov 2026 21:24:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BAlpIgim
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D58471F000D4;
-	Mon, 23 Nov 2026 21:23:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IV/sh11Z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FC001F000D3;
+	Mon, 23 Nov 2026 21:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795469030;
-	bh=L9arw8uulMcbtVNjgAjlGcVokaNfxf2DL2AlS+yu3DM=;
+	s=k20260515; t=1795469063;
+	bh=44fSmcNa7JbwX6ZPeuwc8lCXz45vkMPf7mYLc2yb+q4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BAlpIgimnKAqTRN0Dbi3sG+Eje7AFZjJiR4oRmHxMIR9ZcFzp6p9iIIS6i+mNU0KK
-	 C2wRJVmU/OPqHfXP5JsRlOHDlfshDnVc444hg/nmoMfpFPNMmum7hyQqwJYbaPweRF
-	 z0AN5f1NoAau18yqQ9IVUuTzTaBhEP2SXUumzXF3hguHSo5eUxarklyaGUVOG0D9JY
-	 ZAnyC+YiPhbzovGUVmYrA7mGHInUwchQJ4D/cApIZrO+O7hqpolVY0MBcT+XcMEzui
-	 ifJihLblUVEGliVUkR9/HFoZk5rQynRwCJ2afjr+7NxEznNuhb9lkwtBcUaVLcjzrp
-	 MURQnpKQuARGA==
-Date: Mon, 23 Nov 2026 13:23:47 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Arnaldo Melo <arnaldo.melo@gmail.com>
-Cc: linux-perf-users@vger.kernel.org, Ian Rogers <irogers@google.com>,
-	James Clark <james.clark@linaro.org>,
+	b=IV/sh11Z+5layzpcOTt9YRANdFcih3mQBeVEOmCc1dQqBl0sinmeZw+dX+g1zm4Or
+	 tz8xZ40YQzhpVOLKEJX9R7d1mz7hz7yPYsIjZVH4Kc4eA45wTYpcK3Vzp0dk+SoMw8
+	 l4WodwFvrYrD8bNO7Gunx2u897gPcAuRH3xccYAfibDsiN6d2ayxpTbgmHCvpNKcSZ
+	 X7R9iSEmQg89rXyT3IaJE4q/bqBFRwXrv2bbLj9FQ7H+xENx429DlwuXvBKI4oqukU
+	 QJao6X+FsTCWPiYa1JpoibOmFX35g+o+OaaD1jvelL/FTs9isWBRNtjXNo3KDmPD9s
+	 vRFOCYGCr2R4Q==
+Date: Mon, 23 Nov 2026 22:24:20 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Waiman Long <longman@redhat.com>
+Cc: Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ridong Chen <ridong.chen@linux.dev>, Ingo Molnar <mingo@redhat.com>,
 	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf build: Only enable context analysis with Clang 23
- or later
-Message-ID: <awSu48pUIh942Zm4@google.com>
-References: <20261123-james-perf-late-parse-attr-v1-1-cfebcd81a962@linaro.org>
- <CAP-5=fXuQWTt1F6BvKSXqgSkEtBQPKvKg6gmAe-ngyr4VGyGig@mail.gmail.com>
- <EC27692D-9692-4976-B7EA-4C3A91173CE3@gmail.com>
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Thomas Gleixner <tglx@kernel.org>, cgroups@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Guopeng Zhang <guopeng.zhang@linux.dev>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Subject: Re: [PATCH-next v2 1/3] tick/sched: Make tick_nohz_full_mask and
+ HK_TYPE_KERNEL_NOISE cpumask consistent
+Message-ID: <awSvBOgM9WSj-1hH@pavilion.home>
+References: <20261123041209.382726-1-longman@redhat.com>
+ <20261123041209.382726-2-longman@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,42 +77,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <EC27692D-9692-4976-B7EA-4C3A91173CE3@gmail.com>
+In-Reply-To: <20261123041209.382726-2-longman@redhat.com>
 
-Hello,
-
-On Mon, Nov 23, 2026 at 04:55:16PM -0300, Arnaldo Melo wrote:
+Le Sun, Nov 22, 2026 at 11:12:07PM -0500, Waiman Long a écrit :
+> When the nohz_full boot parameter is first set, the cpu list parameter is
+> passed directly to tick_nohz_full_setup() to set up tick_nohz_full_mask
+> cpumask. Then the HK_TYPE_KERNEL_NOISE cpumask will be set up as the
+> inverse of given cpu list parameter. Some of the timer code and RCU
+> uses tick_nohz_full_mask directly while other timer code, scheduler
+> and other subsystems use the HK_TYPE_KERNEL_NOISE cpumask.
 > 
+> With CONFIG_PM_SLEEP_SMP && !CONFIG_PM_SLEEP_SMP_NONZERO_CPU config
+> options, the boot CPU will be cleared from tick_nohz_full_mask if set
+> while the corresponding HK_TYPE_KERNEL_NOISE cpumask isn't touched.
+> The nohz_full entry in kernel-parameters.txt does state that the boot
+> CPU will be forced outside the range to maintain the timekeeping. So it
+> makes sense that the HK_TYPE_KERNEL_NOISE should be modified accordingly.
 > 
-> On November 23, 2026 3:44:12 PM GMT-03:00, Ian Rogers <irogers@google.com> wrote:
-> >On Mon, Nov 23, 2026 at 8:46â€¯AM James Clark <james.clark@linaro.org> wrote:
-> >>
-> >> Context analysis requires Clang 23 or later (see
-> >> Documentation/dev-tools/context-analysis.rst), otherwise the build fails
-> >> on older versions, e.g. Clang 18:
-> >>
-> >>   util/env.h:142:39: error: use of undeclared identifier 'lock'
-> >>     142 |    struct rb_root          infos __guarded_by(&lock);
-> >>
-> >> Only enable it when the Clang version is supported. Leave the other
-> >> thread safety options enabled if they exist because they don't cause
-> >> build failures at the moment, and might provide benefits even without
-> >> -DWARN_CONTEXT_ANALYSIS.
-> >
-> >So we've had -Wthread-safety for a long time in the perf tree, I'm
-> >guessing __guarded_by is missing on older clang versions. Can we just
-> >stub out the __guarded_by for these old clang versions and keep the
-> >lock checking?
+> Fix this inconsistency problem by adding a new cpumask_set_cpu() init
+> function to be called by tick_nohz_init() when the boot CPU is cleared
+> from tick_nohz_full_mask.
 > 
-> Looks way more reasonable, and no need for a feature test since we know
-> the compiler version when __guarded_by was introduced, right? 
+> PM_SLEEP_SMP_NONZERO_CPU depends on ARCH_SUSPEND_NONZERO_CPU which can
+> only be set for the PowerPC architecture. Moreover CONFIG_PM_SLEEP_SMP is
+> on by default, it means most kernels will not allow CPU 0 to be set in
+> the tick_nohz_full_mask and hence should be set in HK_TYPE_KERNEL_NOISE
+> cpumask.
+> 
+> Fixes: 6f1982fedd59 ("sched/isolation: Handle the nohz_full= parameter")
+> Signed-off-by: Waiman Long <longman@redhat.com>
 
-Sorry for the trouble.  I checked with clang 21 and it didn't have a
-problem.
+Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
 
-Thanks,
-Namhyung
+If you like, it would be nice to remove tick_nohz_full_mask and rely on
+the housekeeping mask instead.
 
+Thanks.
+
+-- 
+Frederic Weisbecker
+SUSE Labs
