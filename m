@@ -1,89 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795470716;
-	b=Z65VAVa5kWAcDCWy6tIJdM0MmI9FtRgexLfOT3C07SGu566//4b3PwshS4oQlT/wwW2/
-	 l0ZBZ+pZRCK16vd8OH3EePClPpOftWiZ+y4SCxhFsOndeh6wZDG87DY7pUf3OBBl/dlQp
-	 bTO3xJy2s4mP5qnoy7Jc0wBcir14MISN75nV20ga12LUCvlfYcDagP1ldynp/s58cqGlW
-	 YmL6R2S2Cw7xedwko6g9DhOeAwYLkcmTKGDghDppafyTAKhAzt5cUvyOrkb5UokcBjfLU
-	 acPQ98stpeMipXqCeoteFA3SagzWSMV9XKXV5ZDf9mxO9+4Pxq/GfSc09UZMGi2x4IQ==
+	t=1795470744;
+	b=g/F/fLOHfat+QnRvv2QQtSZ4Kv9VnCDgf8WTXW2BlFcaHnA71rSq2Nez4x+dAQrPTXD3
+	 p01UTTSedL5Iaa5/WcrM4Jjz6YOm0HwLNVKkc12Xek0ZLCr5fgq1rUHHCmEUzz3/ajE6E
+	 Yzcs3HWNX0Ca7UzVBn+Kjqr5mZrd1aiO84h5950f71/bJBmCbEGvA5N58enTW4yg+3DlU
+	 Pwd/t19o5ZbSW3eJxrWCNFHmM/WNSpaI/MJLTCH8iA/u3Op14rHs2aHWlwexx6xMWzAZN
+	 W2saUnUUQE1kKVh0hG0bVA5vyFgJn7IiiAnFb6UQsvIsdLXk4in+m6b5E6Z++qd75Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470716;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470744;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=2UGY/oTHLWmVAYjT8YaGDfb9jGbAf2o4kEDKWYab9wc=;
-	b=cdRxyp3PePRXKm9NwoCvRz4nBR4RYc/6oFV22jwI9X/c6HIV6TU0GfTwkLhi9Vke1c4l
-	 94TZiCvCMSwP4fcFY0qbOiyOQol9DLDj/0nNVq1Ym0KQG6qvBVWRnXelAgLSRQoBFpQG4
-	 pvazsVWqNNi2YJ/f000HRp93rlqq4y3zAxCrUVWGBeNtze05Crn9+OL3T6UrbFPRxE5F9
-	 Ib2IqD3PYsyrfDx2tUKYN4a2U5zG7Jbid10xL/5wkbygPWzGT1ktezIf6OTtHjWLvlJ9F
-	 0kAUpfHOjBnO4555I9ssTHcCOEcBkhOfTTlyX/AoQvXxejttFGxSspY9LVPq3GBLWWw==
+	bh=R00N5Rl96tLUFia82SU7asIQZDL8ve/YKXoPuTl1KWI=;
+	b=u7t4QHnBaZi5009gCIUw8eUk6d6phpR4lIyAZvWZhkSD8FIVQnWcPxnVZBBUYRD0JbGq
+	 KoZPFWs2xgHWQXcizrrXF7qQCfCsmxCmTz+1YtTWtYt4C0pDx4vlr7Cz9Ea0rjzrSgaU6
+	 ro+xTzsSGoCZEu1NGx0QwEPTeUnQLN6cK09TZwNkInUIFG7RZ1DrHyS104+6YcAwe2P5Y
+	 c3FCQ5p94IM5DAF6vvO4faHNaqKNEWQgfFz+Fyy27uYaok1tIwNwgDgHys+x0oI2pxIWO
+	 km2GPxnq6awQUSVMUnivnRTLIRzxzoZL51bmrGZGONWIXyFch6G71siVrfFVLyjp1fw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cFcsjKfv;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=Rzt3SAwW;
+	arc=none smtp.remote-ip=185.70.43.22
+Received: from mail-4322.protonmail.ch (mail-4322.protonmail.ch [185.70.43.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59F55606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:51:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59F55606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58FC4606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:52:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58FC4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cFcsjKfv
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb609d9bf4so8623465e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:51:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795470715; x=1796075515; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2UGY/oTHLWmVAYjT8YaGDfb9jGbAf2o4kEDKWYab9wc=;
-        b=cFcsjKfv6H9NbIuMZZX7vTjnybJSP55lQ/PxodsxbdsBN7EPPVCukPjsOdQG1y5Swm
-         vAt3OTEuzeSgbrg+4u27MnR93ucW+/AsaF7XAUJ0T8kgemKdrcLcuuY5cvAo+1YDCNMq
-         Ho1TaYJg+Mue/Ykk64koPLvfAbnj1cR34lR0Da3uT6qj+mhmN0w74T4kGfo8TKGzZhaS
-         wxTVUnkDXAPBQVc1MT9D/fe2LNwWGNJIOlVeWwKhYTu4CHNOTRGuM/FJJ3nFEA7Ml/Hg
-         Mdm/efETk1APSp/NObZwp8Vqw09UFOiB5SUcMAQ6JJo5sapV+Q4cR/Ojg7DrgwUJxqkL
-         D7/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795470715; x=1796075515;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2UGY/oTHLWmVAYjT8YaGDfb9jGbAf2o4kEDKWYab9wc=;
-        b=1s0eDPagBYpd1b29kFLhWB4m0xkQG7QLGjgGOz5jAjBv9czuzTTalV25ZAd8nw2yya
-         vj159QNavM5TBWT3manMpT6xDJJyePEImUpL3yd/YwpQ5WPiSpJ/3s0TP+tpzoetP0n/
-         +49dzH1mP3hhPD1ELMHIZbdBqO+5YxyNnEL+FrScHgbq2BGuAb9J08AbOUJ4n+EOGExy
-         IYAnqmRH/cAkWIchMoq3qDSGfEz1FLagVyedRqoEg3ephMq9tz+ve9n19nZaWxIPOmm8
-         aPDAHBNDXfVMQqOymLxgZQb9BAO/W8B9yklbwhe+zOoAqHgxzcoCBXTOEj/gYgXKZpgI
-         cZig==
-X-Forwarded-Encrypted: i=1; AL+hErG31MmXiFhwEcyZySI+ipeQNgbphThTcA2iKebvher8WHDyxM3DsRZ4jLlfwWP/l0+jCwK62AluQqOotR0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+fzKApwcd7NhZlOUHoOClkVDz/l4frCM16lZWdYevfNJeb7opZ
-	zSMlVBS3VASULOFSm0xefNoPiGWbDC9Mi++yn+clPLsPdTFO1w7Y4UCwpqH+EkRONrukFA==
-X-Gm-Gg: AZFdTZej/TiRkVsnooPY/HocKdoVWuvITR9NzMBIEtE2e3JazGTYsf1QFUZZk8YSJl4
-	/3iqCNilh0A0qsk2bBo2Ce9QK2d3nOj6ftDdrLGoCDpoQ4EIfGNxPa7RFJCB07LuH+tcSLk+mup
-	fVyGPZP+P84PsGBw2BPbjXB85jFEKCrPf+PKXJJucg2qyeO6LfR1vVYaaq15CL6Q3Vdf9T3yy0S
-	6dlhv2BwfGyRWYb9idGpqAZmkKuX6XbdK845nLSERX8UFjvyialHBgO0WOofNh8QIsASnVwmF/m
-	qggT9uNs7D9aXRAcZlBfXN+czeWR+WdXRlAElx4nc4mCk8q1ikwVQh8pC2mlzIlTf1Nr+XFOfa4
-	k7GVCdbKHnLIeowI/cnGLqAIwF4lRAd3nun74auLS613EcedlylpTiPEqeUC8pQClaKR3CpBPbU
-	6HPTRRL7OWGBmvT/WKO4wbTsevHER9jbbXt4dFX9rcS5cSHG/VQloKQf+j5RuLVqBShdBBxBxcl
-	3orRBN2Rvs9q4xRKrUypcW9lFX3U5gdSuilZQ5ZWQC18k9XRRxAE2L3Z6qyBIij0RyM/pTf9izS
-	w9XehoYtKrsSXwwdXVKbER5/8F++/lGu000uvebDNPFphezMWaSkBp91KbYw4Tr66nvPK0jPx4g
-	hPhIiiADJ80tc4jJFUh4yuJZgyO5Uv+bU1GqoqgTTWqeMrHNbFGP6p7rjjXJgemKTbVkZ
-X-Received: by 2002:a05:600c:8a18:b0:4bb:7ad9:301f with SMTP id 5b1f17b1804b1-4bb88806505mr189200245e9.2.1795470714642;
-        Mon, 23 Nov 2026 13:51:54 -0800 (PST)
-Received: from [172.172.2.5] (host-188-174-207-233.customer.m-online.net. [188.174.207.233])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88f643adsm170594995e9.1.2026.11.23.13.51.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 13:51:54 -0800 (PST)
-Message-ID: <f5984b2d-6886-458b-baca-43c76669d2fa@gmail.com>
-Date: Mon, 23 Nov 2026 22:51:52 +0100
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=Rzt3SAwW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795470739; x=1795729939;
+	bh=R00N5Rl96tLUFia82SU7asIQZDL8ve/YKXoPuTl1KWI=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=Rzt3SAwW+/Bz/ZaxW1ccBwoBT0jp+wqixFXqWfDSrlCg7ddehvE5Mv3dqTrrxCIfX
+	 nNQTYk2b9ppPwkkQjoqDQPOzfGYjmUqkGz3Mu3Kg3w58Atr0OggkEdyawgOCoMD7N0
+	 J0k48NTPqmscGFQTk6aWkAgemLdNYXIAmz8Y757+FyRtXx9xwsWbsiKUBzGrVEOQ1N
+	 M0Rh9VCftxZ4p6xvnzgpLKbvKTCuZyX5wju6FNvcdIw9fM0+7ioU8Lr1LenlTZxsJS
+	 hV28kdhJLkuphf3ym6psR9VkM0qg6kkoArSaYuzI+dX7gFYJrNLQJKwOQKXHIHGs6d
+	 hUeAw4iHgg3vg==
+Date: Mon, 23 Nov 2026 21:52:11 +0000
+To: Zhiqi Song <songzhiqi1@huawei.com>, Longfang Liu <liulongfang@huawei.com>
+From: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH] crypto: hisilicon/hpre - fix missing DH/ECDH public key validation
+Message-ID: <20261123215144.1677044-1-rc4d5a@protonmail.com>
+Feedback-ID: 190731814:user:proton
+X-Pm-Message-ID: c1a8e26e07e97a13984323b63dc2d9af4d81adda
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,81 +61,253 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v10 2/4] net: hsr: refuse forwarding devices as
- HSR/PRP ports
-To: Paolo Abeni <pabeni@redhat.com>, netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, horms@kernel.org, andrew+netdev@lunn.ch, shuah@kernel.org,
- kees@kernel.org, petr.wozniak@gmail.com, qingfang.deng@linux.dev,
- fmaurer@redhat.com, luka.gejak@linux.dev, bigeasy@linutronix.de,
- xiaoliang.yang_1@nxp.com, skhawaja@google.com, liuhangbin@gmail.com,
- stable@vger.kernel.org, sdf.kernel@gmail.com, lukma@denx.de,
- fmancera@suse.de, danishanwar@ti.com
-References: <20261117141922.20-3-xiexinet@gmail.com>
- <179514132185.3136.17085396682149520983@kernel.org>
- <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
- <923664db-2b04-4440-8b07-2965c1e97aa0@redhat.com>
-Content-Language: en-GB
-From: Xin Xie <xiexinet@gmail.com>
-Autocrypt: addr=xiexinet@gmail.com; keydata=
- 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
- sNySbH3veZ/55EtlXA==
-In-Reply-To: <923664db-2b04-4440-8b07-2965c1e97aa0@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On 23/11/2026 14:47, Paolo Abeni wrote:
-> What about explicitly detecting the AA deadlock maintaining a per cpu
-> status?
+hpre_dh_compute_value() and hpre_ecdh_compute_value() pass the peer's
+DH/ECDH public value into the hardware queue without checking it
+first. Neither hpre_hw_data_init() nor hpre_ecdh_src_data_init() do
+any validation; they only format and DMA-map the buffer.
 
-Thank you for the suggestion. I will add this check in v11. It catches
-a frame that comes back to the same HSR master, and the locking can
-stay as it is.
+The generic software implementations this driver falls back to do
+check it: crypto/dh.c's dh_is_pubkey_valid() rejects a DH public value
+outside [2, p-2], and crypto/ecc.c's ecc_is_pubkey_valid_partial()
+rejects an ECDH public point that is zero, out of range, or not on the
+curve. HPRE's hardware-accelerated path is the default/primary path,
+not the fallback, so the DH/ECDH value check is normally skipped
+rather than normally run.
 
-Interlink input and the supervision frames also send to the ports
-while seqnr_lock is held, so I will put the check there as well, not
-only in hsr_dev_xmit().
+Both algorithms are registered under their generic crypto_kpp names
+("dh", "ecdh-nist-p192/256/384"), so any caller requesting those names
+gets this unvalidated path whenever the hardware is present.
+Two in-tree callers are affected:
 
-A tc redirect back to the HSR device is enough to hit this, so it can
-be triggered from user space. For that reason I plan to use a
-rate-limited message instead of WARN_ON_ONCE(), like __dev_queue_xmit()
-does for "Dead loop on virtual device". Please let me know if you see
-it differently.
+- drivers/nvme/common/auth.c requests "ffdheNNNN(dh)" for NVMe-oF's
+  in-band DH-HMAC-CHAP authentication, used by both
+  drivers/nvme/host/auth.c and drivers/nvme/target/auth.c. Forcing the
+  derived session key Ks to a known value lets an attacker who holds
+  a handshake transcript perform an offline brute-force attack against
+  the pre-shared key, which is what the DH exchange is documented to
+  protect against on top of plain CHAP. With bidirectional
+  authentication enabled, an attacker can obtain a transcript by
+  connecting to the target directly and requesting it without valid
+  credentials of their own, exposing the target's own authentication
+  key (dhchap_ctrl_secret). Cryptographic soundness then relies
+  solely on the strength of the target's key.
 
-I also plan to keep the port type check from this patch.
+- net/bluetooth/smp.c allocates "ecdh-nist-p256" for LE Secure
+  Connections pairing and performs no validation of its own on the
+  remote device's public key before calling compute_shared_secret();
+  it relies on the crypto_kpp backend. A peer can send an invalid
+  public key (for example, the point at infinity) and force the
+  resulting DHKey to one of a small number of predictable values in a
+  single pairing attempt.
 
--- 
-Xin
+Fixed by validating the peer-supplied value before it reaches the
+hardware queue, in both compute_value() functions: for DH, rejecting
+any value outside [2, p-2]; for ECDH, reusing ecc_is_pubkey_valid_partial()
+after converting the raw big-endian coordinates HPRE already works
+with into the digit form that function expects.
+
+Fixes: c8b4b477079d ("crypto: hisilicon - add HiSilicon HPRE accelerator")
+Fixes: 05e7b906aa7c ("crypto: hisilicon/hpre - add 'ECDH' algorithm")
+Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
+---
+No HiSilicon HPRE hardware was available to reproduce this. Verified
+by building the modified driver
+(along with crypto/dh.c, crypto/ecc.c, crypto/ecdh.c and crypto/kpp.c)
+against an unmodified kernel tree, confirming the module compiles and
+links cleanly with no new warnings; and separately verifying the new
+DH range check's byte-buffer arithmetic in a standalone test exercising
+the boundary values 0, 1, 2, p-2, p-1 and p, including across a
+multi-byte borrow when computing p-1, which all produced the expected
+accept/reject result. The ECDH fix reuses ecc_is_pubkey_valid_partial()
+unmodified; a separate standalone test confirmed its zero-padding of a
+shorter-than-full-length coordinate produces the same byte layout as
+hpre_ecdh_src_data_init()'s existing shift-based padding, so this
+patch does not narrow what was previously accepted.
+
+AI Disclosure: An AI assistant was used to assist with the
+analysis and testing. I have verified the vulnerability, the fix, and
+the test results myself and take responsibility for this contribution,
+per Documentation/process/coding-assistants.rst.
+
+ drivers/crypto/hisilicon/hpre/hpre_crypto.c | 127 ++++++++++++++++++++++++=
+++++
+ 1 file changed, 127 insertions(+)
+
+diff --git a/drivers/crypto/hisilicon/hpre/hpre_crypto.c b/drivers/crypto/h=
+isilicon/hpre/hpre_crypto.c
+index 66a276786a7d..a5702d2d73b3 100644
+--- a/drivers/crypto/hisilicon/hpre/hpre_crypto.c
++++ b/drivers/crypto/hisilicon/hpre/hpre_crypto.c
+@@ -4,6 +4,7 @@
+ #include <crypto/dh.h>
+ #include <crypto/ecc_curve.h>
+ #include <crypto/ecdh.h>
++#include <crypto/internal/ecc.h>
+ #include <crypto/rng.h>
+ #include <crypto/internal/akcipher.h>
+ #include <crypto/internal/kpp.h>
+@@ -471,6 +472,69 @@ static int hpre_send(struct hpre_ctx *ctx, struct hpre=
+_sqe *msg)
+ =09return ret;
+ }
+=20
++/* Returns true iff 2 <=3D y <=3D p - 2, given big-endian buffers of key_s=
+z bytes. */
++static bool hpre_dh_pubkey_in_range(const u8 *y, const u8 *p_minus_1,
++=09=09=09=09    unsigned int key_sz)
++{
++=09bool is_zero_or_one =3D true;
++=09unsigned int i;
++
++=09for (i =3D 0; i < key_sz - 1; i++) {
++=09=09if (y[i]) {
++=09=09=09is_zero_or_one =3D false;
++=09=09=09break;
++=09=09}
++=09}
++
++=09if (is_zero_or_one && y[key_sz - 1] <=3D 1)
++=09=09return false;
++
++=09return memcmp(y, p_minus_1, key_sz) < 0;
++}
++
++static int hpre_dh_peer_pubkey_valid(struct hpre_ctx *ctx,
++=09=09=09=09     struct scatterlist *src,
++=09=09=09=09     unsigned int src_len, gfp_t gfp)
++{
++=09unsigned int key_sz =3D ctx->key_sz;
++=09u8 *p_minus_1, *y;
++=09size_t copied;
++=09int i, ret =3D 0;
++
++=09if (!src_len || src_len > key_sz)
++=09=09return -EINVAL;
++
++=09y =3D kzalloc(key_sz, gfp);
++=09if (!y)
++=09=09return -ENOMEM;
++
++=09copied =3D sg_copy_to_buffer(src, sg_nents_for_len(src, src_len),
++=09=09=09=09   y + (key_sz - src_len), src_len);
++=09if (copied !=3D src_len) {
++=09=09ret =3D -EINVAL;
++=09=09goto free_y;
++=09}
++
++=09p_minus_1 =3D kmemdup(ctx->dh.xa_p + key_sz, key_sz, gfp);
++=09if (!p_minus_1) {
++=09=09ret =3D -ENOMEM;
++=09=09goto free_y;
++=09}
++
++=09for (i =3D key_sz - 1; i >=3D 0; i--) {
++=09=09if (p_minus_1[i]-- !=3D 0)
++=09=09=09break;
++=09}
++
++=09if (!hpre_dh_pubkey_in_range(y, p_minus_1, key_sz))
++=09=09ret =3D -EINVAL;
++
++=09kfree(p_minus_1);
++free_y:
++=09kfree(y);
++=09return ret;
++}
++
+ static int hpre_dh_compute_value(struct kpp_request *req)
+ {
+ =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
+@@ -485,6 +549,15 @@ static int hpre_dh_compute_value(struct kpp_request *r=
+eq)
+ =09=09return ret;
+=20
+ =09if (req->src) {
++=09=09gfp_t gfp =3D hpre_req->flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
++=09=09=09    GFP_KERNEL : GFP_ATOMIC;
++
++=09=09ret =3D hpre_dh_peer_pubkey_valid(ctx, req->src, req->src_len, gfp);
++=09=09if (unlikely(ret)) {
++=09=09=09dev_err(ctx->dev, "invalid peer public key, ret =3D %d!\n", ret);
++=09=09=09return ret;
++=09=09}
++
+ =09=09ret =3D hpre_hw_data_init(hpre_req, req->src, req->src_len, 1, 1);
+ =09=09if (unlikely(ret))
+ =09=09=09goto clear_all;
+@@ -1526,6 +1599,54 @@ static int hpre_ecdh_dst_data_init(struct hpre_asym_=
+request *hpre_req,
+ =09return 0;
+ }
+=20
++static int hpre_ecdh_peer_pubkey_valid(struct hpre_ctx *ctx,
++=09=09=09=09       struct scatterlist *src,
++=09=09=09=09       unsigned int src_len)
++{
++=09const struct ecc_curve *curve =3D ecc_get_curve(ctx->curve_id);
++=09unsigned int nbytes =3D ctx->key_sz;
++=09unsigned int half =3D src_len >> 1;
++=09u8 coord_buf[2 * ECC_MAX_BYTES] =3D { };
++=09struct ecc_point *pk;
++=09size_t copied;
++=09int ret;
++
++=09if (!curve)
++=09=09return -EINVAL;
++
++=09/*
++=09 * Src_data is gx and gy concatenated, each zero-padded up to
++=09 * nbytes, matching the convention hpre_ecdh_src_data_init() uses
++=09 * for the hardware submission path.
++=09 */
++=09if (!half || half > nbytes || 2 * nbytes > sizeof(coord_buf))
++=09=09return -EINVAL;
++
++=09copied =3D sg_pcopy_to_buffer(src, sg_nents_for_len(src, src_len),
++=09=09=09=09    coord_buf + (nbytes - half), half, 0);
++=09if (copied !=3D half)
++=09=09return -EINVAL;
++
++=09copied =3D sg_pcopy_to_buffer(src, sg_nents_for_len(src, src_len),
++=09=09=09=09    coord_buf + nbytes + (nbytes - half),
++=09=09=09=09    half, half);
++=09if (copied !=3D half)
++=09=09return -EINVAL;
++
++=09pk =3D ecc_alloc_point(curve->g.ndigits);
++=09if (!pk)
++=09=09return -ENOMEM;
++
++=09ecc_swap_digits(coord_buf, pk->x, curve->g.ndigits);
++=09ecc_swap_digits(coord_buf + nbytes, pk->y, curve->g.ndigits);
++
++=09ret =3D ecc_is_pubkey_valid_partial(curve, pk);
++
++=09ecc_free_point(pk);
++
++=09return ret;
++}
++
+ static int hpre_ecdh_compute_value(struct kpp_request *req)
+ {
+ =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
+@@ -1543,6 +1664,12 @@ static int hpre_ecdh_compute_value(struct kpp_reques=
+t *req)
+ =09}
+=20
+ =09if (req->src) {
++=09=09ret =3D hpre_ecdh_peer_pubkey_valid(ctx, req->src, req->src_len);
++=09=09if (unlikely(ret)) {
++=09=09=09dev_err(dev, "invalid peer public key, ret =3D %d!\n", ret);
++=09=09=09return ret;
++=09=09}
++
+ =09=09ret =3D hpre_ecdh_src_data_init(hpre_req, req->src, req->src_len);
+ =09=09if (unlikely(ret)) {
+ =09=09=09dev_err(dev, "failed to init src data, ret =3D %d!\n", ret);
+--=20
+2.51.2
+
