@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.191
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420352;
-	b=BXFLJmILBkqukOMWb3k7wduJsQp82FfjQ5t9HqL9zLc2YAyNxeRBmffp1EuwqiWKNQ+S
-	 e43bnfoLYea4qoYWp728d8r7k7S9xmBNQRHbOQK41BZ7OdzkaasOpMlwbotpBJyfOPp9L
-	 xutyd80vGwoaC4ENepXlNwi2sPD9x6JKwMOI2N4SFgOv7wFiFfvY/wbLBPZ6FdHJyujA7
-	 xwzgA8Ziu0DTA5SZJqjXtYGhyb1z0PaTAjvkq2U0W7oAxpcaees9yGMuEh8UWMTdUQJP0
-	 Y9zilwMfAKwHXDBNoRXed2/6HZXm02nX4i12m5N9BbiPPaXF0rXIwCGs12fTQ7S7B3g==
+	t=1795420356;
+	b=Qk1BFUWUdT1+jL0B2zaT0phBObjwUPzEQaT9OeUO8ioQbRpeBq0n2or7B7mlRbw5QaIv
+	 0PZZ6ysA93TvRAX/rCMoDUAwjmAiiayxdXYXrBnNd2ACN/Mo83Do0388GeY1x+lv2T2St
+	 gJwGq1LARfbZiqmWrUCmZKGrzHzfmM5p/cMbvyiZkqPb4AUoX1GoRHxKU03aykE9nuRRS
+	 PQOaFfHrom3g/E/eHxStx0zp8u6XNzEk9H+qDCt92HK5X5j0bUehHco1eTiIXK7OyMzEh
+	 x05CP1DwiJ+NxkHO9yQPaa2FbtISQSI2MSSWmymuIAhB0NVCrL6qL+Dx4yVsvjUyI+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420352;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420356;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=T7Gl0BHsaIw0ZQTFVbcTmIDA3k5DivfNbi4SDKTIWxk=;
-	b=fM94mA5m1ROzjn0Z7dPNwSm4kxW2xZQZSZ56AyuIksDU8GZg/kmUyQNmGhuiXi2/NmfY
-	 RBHJa/uKoQwCxhy5Pn6SNz9HokU3KRklm7Ca3/mzZQFsh6YgqrDXS22yj8eRnw7r43ESa
-	 jRsbLhI3u10AzpZD/U/23BDx64h7SPrjLP6rCnYudnikotQbxGgrO+djGNmxMlTQl1+tw
-	 ZI0ji4dN7t6bYJTjutFzmXGpI9Zcqskoq2B7Rmnv7/Z+lcu4Oms6pHOMZsvcuWvoJ/aXV
-	 j4TRbfkI1hsdF3/BFtJrImR8FVTbtiV/RetvZas6mTXpTy7GpPCLjBEPlJlp11KTvTA==
+	bh=3nDpLZt0Hs5OH5kFHB3f7/OYmF7wFFbjKAlxawdFe74=;
+	b=P5uZlcGqQAr+L87H/LdG9MpzwiHaMWqWe4IJd9tovznYtowyP7662IIEGKMgXEgtEhxS
+	 u4AsNuO29o5wFbYdik9klk0kp1z2zRKhpKil25yz5CgZEdfsk4ret8moD1Gt4SS1nxdDY
+	 ZGUnjWVl9AXICte7VjUEsrSsRSFuB/wwU+jGDRLKg8DTrLZbr8WJDPxUWvRH6DzutQ/VD
+	 dK28X34dAp9rHm4XnY2HoQigNMStWiC/G77IbZ+pwJLo5MNvLN8zvEipXlhIavr/3PoZ6
+	 BhZP2NeH46TXRKS1TsJU2Dj1VJG2KCiFq1rehKFIt0ZZShBP/oJfxDSjP/t57MCb7gg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UdViQ2OB;
-	arc=none smtp.remote-ip=91.218.175.191
-Received: from mta0.migadu.com (out-191.mta0.migadu.com [91.218.175.191])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ubb1k2qp;
+	arc=none smtp.remote-ip=95.215.58.146
+Received: from mta1.migadu.com (out-146.mta1.migadu.com [95.215.58.146])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B2AF606A69D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:52:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B2AF606A69D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BC25606A331
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:52:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BC25606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UdViQ2OB
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ubb1k2qp
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=M2gAmx56TmZSrMtnBNalKAcRoPlTSuspteY76LphWew=;
+DKIM-Signature: a=rsa-sha256; bh=rQou9DwptRL140fMbBjIWfFbsdtKmSPSbIJAMhXyGSo=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795420349; v=1; x=1796025149;
- b=UdViQ2OBQQruruXbO/CGixvrdHyBL6nujWxwdi/hHaSlaz1Awhwr3R1ShOvCTWf4b/4BpFZm
- 7zeY5GDQeqFParMOI6sJENdnlVDtPb5tRPXlZmtvr7Z51tBeZMuOemwzeZBiknv1kwSebwc3CI9
- Kn/zwRp0O/dQfbxm+JhvFDIg=
+ t=1795420354; v=1; x=1796025154;
+ b=Ubb1k2qph+HARyWmnvn3g/4oNX3dMnxcfjsw1lJcKDlp2vHROce4o1NHAM3K0wGfYMz9EpN4
+ YIFVP2HnUiGQgtIwNHWeYqyyehK8ttePG6e0MIlnzy6v7a1xeT2JEG+Bm3G1Xe8CO0oAqrq0cEj
+ INhYwNnAJ54Pr0p4ZZ0s6BBk=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 292ad1cbb883b4d7;
-	Mon, 23 Nov 2026 07:52:29 +0000
-X-Mizu-Trace-ID: 292ad1cbb883b4d7
+Received: by smtp.migadu.com with ESMTPS id 487a0c2e7dd4d38f;
+	Mon, 23 Nov 2026 07:52:33 +0000
+X-Mizu-Trace-ID: 487a0c2e7dd4d38f
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Catalin Marinas <catalin.marinas@arm.com>,
@@ -59,9 +59,9 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 3/9] arm64: sysreg: Reject a Sysreg and a SysregFields with the same name
-Date: Mon, 23 Nov 2026 07:52:13 +0000
-Message-ID: <20261123075219.369042-4-fuad.tabba@linux.dev>
+Subject: [PATCH 4/9] arm64: sysreg: Don't run the end-of-file checks after an error
+Date: Mon, 23 Nov 2026 07:52:14 +0000
+Message-ID: <20261123075219.369042-5-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261123075219.369042-1-fuad.tabba@linux.dev>
 References: <20261123075219.369042-1-fuad.tabba@linux.dev>
@@ -76,48 +76,41 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The generator rejects two Sysreg blocks, or two SysregFields blocks,
-with the same name, but tracks the two kinds separately. Both kinds name
-their macros for the block, so a Sysreg FOO and a SysregFields FOO that
-each have a field A both define FOO_A, as well as FOO_RES0 and the other
-masks, and the compiler warns only where the definitions differ.
+fatal() ends the run with exit, but awk still runs the END rule after
+it, and END checks the file as though it had been read to the end. An
+error inside a block leaves that block open, so the error is followed by
+a second, bogus one about a missing terminator.
 
-Track both kinds of name in defined_regs, so that a block is rejected
-when either kind already has its name, and leave the kind out of the
-error.
+Skip the END checks once fatal() has run.
 
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/tools/gen-sysreg.awk | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/tools/gen-sysreg.awk | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-index b299342463631..8ce4981273dd3 100755
+index 8ce4981273dd3..c4fa27cd9beff 100755
 --- a/arch/arm64/tools/gen-sysreg.awk
 +++ b/arch/arm64/tools/gen-sysreg.awk
-@@ -137,9 +137,9 @@ $1 == "SysregFields" && block_current() == "Root" {
- 	res1 = "UL(0)"
- 	unkn = "UL(0)"
+@@ -19,6 +19,7 @@ function fatal(msg) {
+ 	}
+ 	printf "\n"
  
--	if (reg in defined_fields)
--		fatal("Duplicate SysregFields definition for " reg)
--	defined_fields[reg] = 1
-+	if (reg in defined_regs)
-+		fatal("Duplicate definition for " reg)
-+	defined_regs[reg] = 1
++	__fatal = 1
+ 	exit 1
+ }
  
- 	next_bit = 63
+@@ -116,6 +117,10 @@ BEGIN {
+ }
  
-@@ -181,7 +181,7 @@ $1 == "Sysreg" && block_current() == "Root" {
- 	unkn = "UL(0)"
+ END {
++	# fatal() exits before the whole file is read, and exit still runs END.
++	if (__fatal)
++		exit 1
++
+ 	if (__current_block_depth != 0)
+ 		fatal("Missing terminator for " block_current() " block")
  
- 	if (reg in defined_regs)
--		fatal("Duplicate Sysreg definition for " reg)
-+		fatal("Duplicate definition for " reg)
- 	defined_regs[reg] = 1
- 
- 	define_reg("REG_" reg, "S" op0 "_" op1 "_C" crn "_C" crm "_" op2)
 -- 
 2.47.3
 
