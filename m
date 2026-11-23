@@ -1,146 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.9
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795406409;
-	b=rJuUBDpRGtPaXJOzKHGTuU4lXQP9Vk5PqCd5+jA5/oOqs4/iGTuRAnxfODrMjT5qbSbj
-	 nTNwG+oD1qwh5lVF8RbajlJFAzSC9+B2WeeY3GtopcTLm8KkIpmq3wGK5yma0JehBkjp6
-	 L0aLe2TK7gspidgiZwT0ELf8u1RdvzH83hq4Ra0hNF1+A56mRYRKyuv4D9Q/tK18hUCs3
-	 eCDtcnzAUh74CHTRREBIARiqcMI4BxP6UZxq31Bp9TlQK0QmHnBdG2RJL7XMMl47yOCKB
-	 HlmQYPHT27hIUfj8H9mGF2Bm4K0NtmJxKavr/2By35PmgokbZHvrgd0A3es81pC0afg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795406409;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=Avw8zqjFIIdPu25KeO6U/ae/z6H5PXtKCaAkwRn4Jys=;
-	b=L9in0wqGdgU3Q0xyBTvsE+qTBCY6U8Uc4wN00fU4tkSGuBNXUJnfgpH5zWeTux2xTEKc
-	 JF8txd7o2MbHMzjtkAEfO12PdYiEnLAd4i5AhmIrW9d33AF0wQWhdgbaUBc5ML9fnAg9V
-	 JDPuDRcetwFbixQUgZtGRPZgPBFvMpe+UHjCAxUy0zpqMWtTf0brJugX5I+P67Y70ndGI
-	 iYYFyjDw6yJos3Tv6CfBQkvVjavycOvbLFuHwE90H6lHAJVSk6NEsPogyTKdI9s9PAfxu
-	 azB3Udm1S2pS8n117Cd8JqnlzKtMSHTNQATaAYhkDxSn9T3/zSk2CPan0RQwJlSHsvw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Qz9VTzhc;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=NMJVvxAE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795406516;
+	b=IYk6MkCcaVwbYmam50VPN3v0wCPIBxYGMuwmDlvm+CIx+yeObpwG6Ekf21dHENZewb6Y
+	 NRTk2e3OwAa1DqM7s/gXo113xHr+JwHcVRUXs0BhIQWSHChE6igLrzouTPX2Gt6fclmsG
+	 2ulctSlg1BaXpxjrWFSwCriH0ZGG0Mw69b7xqKom/L/Wv/7UoWwKs0/BgLx5V3Mory3Ub
+	 l2RtvMPIbWyqvdghYd508nA1YDszFP6g7f9Qw71pIIhl6j25oduETOEO3mMirE7ejAfun
+	 vE62gMHXDhYtb0jmTAXEXQda49osoPk1h9EgnBQmFZfWv+T2oSfgJLuWzSEJqzGCasw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795406516;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=GtDhvKBJc8x7dyEVR/EcwLML19EeT65DnVYzDRX84WM=;
+	b=xW04GjBsBg31K4ANYW/dPCBZfYW5BAa6QJbEbfdYTM0zCCT5/fCDvsw/qR9Wwe+3YdF8
+	 2syFEzdxR+Oyyw9hn55qoggnL/RNNgSLMFqqDhJlpsNuW2Ra861jIJYsphWCoVGFOm33O
+	 gBK8RMBqHxaAK3wZZkMSiqQNuv+HNN8TmCxNFefIhtWyJqOmaTnRyK/5uU8itEWCX0ikj
+	 xx8qhyzr2BPyqYPy1evTDELfJZP2Iwwyyiek/B04/a6cPiOgwuglhfMnSGOuikPLQa/nN
+	 B/FObCFzSMeCgfWa+UcDiwWHCTrXO0wUXFRrap5m5MOSDTv+Po+4k3mLukvp+A9Qbcw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jLJ8I0JN;
+	arc=none smtp.remote-ip=74.125.82.72
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03742606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:00:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03742606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87DC7606A320
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:01:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87DC7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Qz9VTzhc;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=NMJVvxAE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795406409; x=1826942409;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=FhO2MJ71j9SsBWoi6AV7L4BXzxzjsC+sDelwQXHzjBQ=;
-  b=Qz9VTzhcsThtmqk8EshPuoBJCHaluj5ZUrfIjrraf3jPMrfjr+PpuRnp
-   oN94qkQyVVhfWiKPTmPM+B3VzYzMdtxkVf5Ukr7j2mTcgIjR5x/GOdTh4
-   EJGgBF5jMaeizinFT46yzhazBGau3KL0rf+3p064x5llwpdAQ154XQnB7
-   UrGBNUWwD4+g3Um9VpoDQPXemvSUM6phVtswawA05qlwy2eVFyJh1gMpU
-   yNqmBluEYSCVc7hpDENcPqM4LIxtPBdt/mNNBSgyF5sKpAqQZO1x372IN
-   m1SeEeDmTudX+CFYnhUhXpnLwmrHAYjeGopunNirMkI1sUcGIZ+4emGIl
-   w==;
-X-CSE-ConnectionGUID: J27vLlWNRUy+8GDTMn+G1Q==
-X-CSE-MsgGUID: 7hW2YLZWTriLKSfJIq8Wkw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4050720"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4050720"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 20:00:07 -0800
-X-CSE-ConnectionGUID: LaE9MCySSX2IF9Ar0+m1YA==
-X-CSE-MsgGUID: usSp2XPfRCOF59ZCHnKZZQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="13181446"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by fmviesa013.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 20:00:08 -0800
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sun, 22 Nov 2026 20:00:06 -0800
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Sun, 22 Nov 2026 20:00:06 -0800
-Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.68) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sun, 22 Nov 2026 20:00:06 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GcVX84U65ldWhkGHYFghVZkUwQPm54l86eledyXeYoqbsBqAXJzuzn7iEzXHTSS//OsAHHfzKnV8NCNa5NCSZGo4hNsTeWxyxtJ2+Co32y4wh+NKAV5f9ersab5uTGyVYXdUisAwEuIaVbo3G5jHWbYH+/UC5qm6qg6APAce4Ke1thFaChly0V7Dq1fPW5WpVcW6DzmfLvgQlvZK/KM6wZeapJoYSrs360pQuzYvOnkusqXhtgqJprUllU5yrh7G1ro+2Cw8RVIiCgJ4zC7YzjryAALrSrzXO/6Un9ZCgPcdgEO7ZhuXryMwkC7dUBBjA0Gz20niYlCzxnN440mE3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Avw8zqjFIIdPu25KeO6U/ae/z6H5PXtKCaAkwRn4Jys=;
- b=YYvRK4Pc70tvNYOaWzc2hSvKwQyFyLN4CgHChnjPoUOCsZoTKFMvww2fOy1rCBMcjZhhcrheeG0JdnG+/a2v2kT/sjK2k3b2w0w3Rbsn9/hIHMjruaMl7B6HYE+995yAVJ4T1YeIU7WyWpUGCbjhVuoZxtSvNvFmjKqhQF0Z/b9ARa5tj9O9nBqAUYt3NoKFRATADk+MAec85M9g0kF0gtwK3KvyQT5LQEpEvjBPPQOoI45j1Fsl53X7SD38/x0KCWR2c4x1qtCG/ZyU7HlxcSSV0Qd/3rGPrU/oZHtqKVrGspXKowTmGSfdakUmqwvR1d/RbGwixK48C+xnnph0kw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Avw8zqjFIIdPu25KeO6U/ae/z6H5PXtKCaAkwRn4Jys=;
- b=NMJVvxAENdwSoccps9Gf0Bl+fcTZYGVr6CAU+tsuc+hhGi0bnfMtLfdNs417S+JUPKM0LMw+UiEv/bxurSxc5eMgxwJzD0ZjCMfPIu5K0cKl4dbARX8xLFtwslX23riDCtNt5o+SE4gjX97EadSW27s5IbJd5hGGO+bYceGpY5k=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DM4PR11MB6020.namprd11.prod.outlook.com (2603:10b6:8:61::19) by
- PH0PR11MB4901.namprd11.prod.outlook.com (2603:10b6:510:3a::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.14; Mon, 23 Nov 2026 03:59:55 +0000
-Received: from DM4PR11MB6020.namprd11.prod.outlook.com
- ([fe80::3058:1480:e4ac:5765]) by DM4PR11MB6020.namprd11.prod.outlook.com
- ([fe80::3058:1480:e4ac:5765%3]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 03:59:55 +0000
-Date: Mon, 23 Nov 2026 11:48:45 +0800
-From: Chen Yu <yu.c.chen@intel.com>
-To: Reinette Chatre <reinette.chatre@intel.com>
-CC: <kees@kernel.org>, <mingo@redhat.com>, <peterz@infradead.org>,
-	<juri.lelli@redhat.com>, <vincent.guittot@linaro.org>,
-	<dietmar.eggemann@arm.com>, <rostedt@goodmis.org>, <bsegall@google.com>,
-	<mgorman@suse.de>, <vschneid@redhat.com>, <kprateek.nayak@amd.com>,
-	<david@kernel.org>, <ljs@kernel.org>, <liam@infradead.org>,
-	<vbabka@kernel.org>, <rppt@kernel.org>, <surenb@google.com>,
-	<mhocko@suse.com>, <bp@alien8.de>, <tglx@linutronix.de>,
-	<dave.hansen@linux.intel.com>, <tony.luck@intel.com>, <ben.horgan@arm.com>,
-	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <jedrzej.wasiukiewicz@intel.com>,
-	<fenghuay@nvidia.com>, <peternewman@google.com>, <x86@kernel.org>,
-	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
-	<patches@lists.linux.dev>
-Subject: Re: [RFC PATCH 1/3] fork,arm,x86,fs/resctrl: Fix stale resource
- group assignment vs copy_process()
-Message-ID: <awO3nYazk97csbpO@chenyu-dev>
-References: <cover.1795197419.git.reinette.chatre@intel.com>
- <b2e13da64ca3e41207b5d46fb060bccefaf9fecd.1795197419.git.reinette.chatre@intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b2e13da64ca3e41207b5d46fb060bccefaf9fecd.1795197419.git.reinette.chatre@intel.com>
-X-ClientProxiedBy: SI2P153CA0015.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::21) To DM4PR11MB6020.namprd11.prod.outlook.com
- (2603:10b6:8:61::19)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jLJ8I0JN
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b53bfc9534so603339c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:01:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795406515; x=1796011315; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GtDhvKBJc8x7dyEVR/EcwLML19EeT65DnVYzDRX84WM=;
+        b=jLJ8I0JNOwmROtGMtVh7x9LRZfva+TcnU80NxWPHwSFyO6Nbvbnlm9AnxvhBiCoS2L
+         bFVkT4P+0YGGVyn9vtowwF9+BkXWYStkdls5tUuTB53Ez+tZrzLy1TeCgKSsSC+m9mhF
+         vlS27/BwHlzUGvBjhAUorNpW9pcdVneUwZey0/9a9+ENfwsq8Hw3CzZj+TwSfmCxyA8h
+         E7u+DRl3wQixlwM3r+UF8/hqOOt9UFm+ezGxZTqTi0n/NPCwV7WulZwTYU3X2pdQ96/c
+         gghJOy8HUrmJpboohd976TxWYaO7V4vr3Vrq1kShR+/8qm+mv5NYkQBKtD247Qnv2l+h
+         gDzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795406515; x=1796011315;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GtDhvKBJc8x7dyEVR/EcwLML19EeT65DnVYzDRX84WM=;
+        b=ZuYOuuM1OP8Ep+iN9ezSMcUxvuDetNGWpDdNlJ/QhsvyNsunI8gQmyjkCtzpk3GZsD
+         88f8taQ4j+b4VI41JuerlPAaIU/KQcDpsUBZUDD7hDb9J1i6Xl72gXlECbmYn7U2DlR3
+         hokXuEV7GnUsEtpp6TLup1jDxdiG4uomAOWVgFv8cO4yk8R5CabWCMEAblhvQvnOSsL8
+         P6aeZSA9+oW0EEnRRlCBl8VqQwKBbPeH70V75RBtBI2GBAoG1ll4rq5Aee3U2fQJJgXu
+         MuEVCXdZOaakyKs2i27dpuMO4gBfjQVDPbVeSpCWqx1juqg1PXiK9MilEwREsVF9favt
+         kB5A==
+X-Forwarded-Encrypted: i=1; AL+hErGZUzzzLb5HCpz+dLADuOYaCJ52oWjHEKkeLVCCsjEzv4P1l7clf2ZK8BlQDoOwSqem8Ys3hdo8WlvSooU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4nNBRbRRKuIfI2LnxvY6DRdmXbNtHfLTyGsqh9ziKXjaHNior
+	qeu/W/cXQQFxbTWu+lo3jXtmVINpD05ZNjXXLwwXMDIVR43WY6ODrMQoU1uXLVKdGFNYt8HQ/IB
+	L9oaOCMW8vg==
+X-Received: from dlbur8-n2.prod.google.com ([2002:a05:7022:ea48:20b0:1ab:a092:67c3])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:1583:b0:16e:c820:b20d
+ with SMTP id a92af1059eb24-1b5567b2204mr10771796c88.5.1795406514022; Sun, 22
+ Nov 2026 20:01:54 -0800 (PST)
+Date: Sun, 22 Nov 2026 20:01:51 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -149,385 +75,244 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR11MB6020:EE_|PH0PR11MB4901:EE_
-X-MS-Office365-Filtering-Correlation-Id: ba257448-ee21-4422-1887-08df49163b7b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|18002099003|22082099003|261009223027099003|3023799007|260925021311599003|260925021911599003|4143699003|10067099003|5023799004|11063799006|56012099006|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261021121427099003|261022075727099003|261022105027099003|260925022911599003;
-X-Microsoft-Antispam-Message-Info: wYrLxelc0R66KPCwxljSMzbZqsiAYjYaS7WaubDN4XExmHrVftypYXjSRQFU2XyJyT6FF4jKIYlOe6gWk1+8fHMp4jIxm2wZki0EpqWpMlOz+Y1yicczigISSDQbGrrXsxi5OwhxhkZCP4vzfNKLgd1QYAlJknqU7H4jYxat5+1CDbRTDox4HZ4LXQ+hRFWmql7FyXV5iRseH2XWe/EE0kht7EdGxATDy65K9GQjahCTqTSpeYAXZ2WN1pe9lJqlat5blfzewE0E6+k0URYHWCWlhNBejJMGUTO7LFGo5axNq8QwybvuGozEGsnXuEcIeYf50jpXzRsx1yDcSj0xweZvlwabS7GDuhXW3tRWoEv7SQUhBf5BDaNG7sMYKxGKjz18T7dm1SOxxxA6l/KmIlJTEvFLHKebwQb4TeAkREEje32MtcF89GnhuCHkQEvmAIcBO3WW1vt9z9P6TOR8Rr2iOL0aCipQkt1u5ftQRfsFjj4IVHRbU5pWQXFS6B8c9bLQLHftf11tf5lKpU3UKwHdXxgx5yX3e/yaivIQaigmuQwJuLlZLUTEXb5GnAlc/BLsElungqhywx5YoYOpCL3gzemLmPhoe6EQE1A27IoRI/nyyEXC170tJfr1HjbwxatZBTtFeU8JIkea94RC0yMxyJKxVGFJrLwzLTeX7N4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6020.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(18002099003)(22082099003)(261009223027099003)(3023799007)(260925021311599003)(260925021911599003)(4143699003)(10067099003)(5023799004)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261022075727099003)(261022105027099003)(260925022911599003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CdO+/ajaLnRvozCMbjedGjTVCCuo/5nRGkOaDt1uzV9jA6NHqDq/abU3kJfL?=
- =?us-ascii?Q?kvY125ltifdfGQxkeQdIkaAk5TvciYCIE23NHDaR8zCFvMLlNL8AUq3Ka9PN?=
- =?us-ascii?Q?jOqHSzKLh/N2DOpLSv5wX+MfE41m3G6XHwvmC7s5Bgd4Dq79izvekrn5CezP?=
- =?us-ascii?Q?CzM7fzRUo77pD72oLSOT+ipQsJhRc+U+l5YNGaUSjGQDETP0brUUMAFF6RZb?=
- =?us-ascii?Q?FLK2dDkMAcwc1mG+i81cIVO860CHSa0o7I3+H3G+gYj3s8iXtg4PPUhZ4zd3?=
- =?us-ascii?Q?js40OSKtkYx202+ucF8I5rd36ICQj1hS7j1wL26qeag3EiZmRpfh4rcvoHra?=
- =?us-ascii?Q?HVsoBsg5R4cQ9V37IypmxB1plr66Nc7LEyoebvqvfFlqK4X1yNTif1eqS5DG?=
- =?us-ascii?Q?TZ3RwX713cnGltCi/lrDcwQfR+Bj+Jppqubqz+nfZ7tMy8Mn/pBrfY6+6PsT?=
- =?us-ascii?Q?3f+z7wlfpMcwhkUIF07iG/whLjod/AX2SZ3xWg3FeTOUwwfy3UGi5kVYX2OL?=
- =?us-ascii?Q?ttVERBeLz5hhT9Iqp8xxADb6gltrg+X6SodFaqRQuGHXYe+K0D+IfsxiYDn5?=
- =?us-ascii?Q?b5GzmhQN/5hGpHvtMxnsGFkaCjvHL1fpe+n2bdTM72MyhY7XLpX12bv13p0p?=
- =?us-ascii?Q?suu3a3m65zVDWmJaa6SxoEQMtL5SXIBAohSkuZwvqrIuTmqoKsYN7lJLrHlO?=
- =?us-ascii?Q?wi7n/23Mm0VrJuFsbNtH7cjxx+KlL2wBcazWjGg/zPrbOzG/9qx6hGKgfyic?=
- =?us-ascii?Q?bwKSRaW5/hbbJsZdbcHGkCnhSkMQYBLTWubRLqEd0RkwjYqK0Xh6aJ5j8SKI?=
- =?us-ascii?Q?HMciYOb5O1uZifYmMIgfvbNQ4UubNhEeD3a4iC7aFo6CSLcdDH3LIcH2NHEq?=
- =?us-ascii?Q?WpRJi6lqrAF4pkXcYlrsEUqPCZnAWzxS2/CH7veJZ0DtbDsYQTboqmHkSiba?=
- =?us-ascii?Q?6CV51EdF3o0Omn3zeIVpA1jRuzWDT4Gl03xHf3Ss3otBJans7+mVKWRRbrev?=
- =?us-ascii?Q?N2erV/zlR9JzmCVaseWIlXTdUIcddPhw1vQVyf+iLE2XVRPX840r6SXQD49k?=
- =?us-ascii?Q?bx+c6a8VRPWHKizE+RbsyeEkUNfm2Z9ggiYQ0L1SRO7N1ImScgp7OhDurGhd?=
- =?us-ascii?Q?ylDiobgNgcpcGhZm0Q3DucjT2EyfsKZHDDNEztNefp9ZpI3pz4XFD7A89coS?=
- =?us-ascii?Q?qcz3pVaC/koXrvgWMsALfkiGgvb/jVnusevl8MN9gVPpCqa6C9loyHqjarj0?=
- =?us-ascii?Q?+HZ6Y/c+lfeWY3CNnyX3TO0ajrNgY8ar7iKXE+/cfGpJVi+Aj/Vs1wfDeu1u?=
- =?us-ascii?Q?Wy1ooF8LfFJXMENjgMt/4z05FuXrAscm2xwwmdZdOHZMKjJBPsUgQL7H7tLL?=
- =?us-ascii?Q?kSXy5B0ZhHnAsizEi+2XAozmkFKN12db7e5PpfI0PIaYSrltLj6rbD0S6a34?=
- =?us-ascii?Q?bO2OQy36Z3/clQWBVDGFaNlDgzlgu6JZ94x5EThGP/gatRh7B4mDtxIb0Nc3?=
- =?us-ascii?Q?1WZSJyW2NpIg1Qs7u4uzCRyaTra6BHbhYvTEbVtZ8kPD16Z/Vc4kqE9DxgSp?=
- =?us-ascii?Q?iVeJywrzdmUxpx3YfP8mD7kKFwiqZUXNymvt9Ixjp5cJosUdReCoOH6Rn8bG?=
- =?us-ascii?Q?sBwKYzv4zpVIubOW/2ISRTw/i3WE1GDmR3/LV2lu+t1jebjsn5eZVR+Ei/vr?=
- =?us-ascii?Q?wA4BgoNObhRMGZnIx2Q1ALy5iHNWJc1EtnxjXpf6HKoAdb+blZ7TweFKijIY?=
- =?us-ascii?Q?4d00sjYTxg=3D=3D?=
-X-Exchange-RoutingPolicyChecked: dI0kc2Mp4rLl+OqKQddvQqkqMcf6HDnvg/f+N8BffhtMMXfJ9qi+NdRg3mgFK81Ev+Mhnx52HW0fdmUqb2d4/JmUutxW0q5XjHiOvjfWkg6JVrtUlLMWcte6qeIKJ5hPL6mioVE85LBeeWJgFYIGib1SQAjj2IrSZvHSFsf7rPIAmnM7dwzmljZWiGMM/Z9bS652TlBTQkAzZ7AqdvxJLIlbDplWX4/lVgf7UO0eiLrt54YfapvvbLJ9CzyYeAgY33Acc4kNDrobZlbd4TPrLLI8GpRtFXc0ka268DB0LlB7/jkMBJSSOyvCgdZsJEaTNuaOnAKdRimPDH9BqpMK+Q==
-X-MS-Exchange-CrossTenant-Network-Message-Id: ba257448-ee21-4422-1887-08df49163b7b
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6020.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 03:59:54.9716
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PG+zc8iN/n+MHn1jd5TD+ofgKzi0X1G9yJJvPSy3qrfrLf79sPbWCH3ypD0QPtG8Ao0+uuueGBCHKRMKXpyrgw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB4901
-X-OriginatorOrg: intel.com
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261123040151.4094997-1-irogers@google.com>
+Subject: [PATCH v1] perf build: Fix bpf-gcc skeleton codegen and CO-RE relocations
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	linux-perf-users@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Reinette,
+When building perf with CC=gcc and bpf-gcc installed, commit
+63bdd143c589 ("perf build: Support building BPF skeletons with bpf-gcc")
+selects bpf-gcc -O2 by default for tools/perf BPF skeletons. Several
+BPF skeletons compile with bpf-gcc -O2 yet fail at runtime during
+libbpf relocation or kernel BPF verification:
 
-On Fri, Nov 20, 2026 at 10:39:30AM -0800, Reinette Chatre wrote:
-> During fork a task's CLOSID and RMID are copied into the new task by
-> dup_task_struct(), early in copy_process() without holding tasklist_lock
-> or any lock that resctrl takes. The new task becomes visible to a walk of
-> the task list later in copy_process(), after it is linked onto the task
-> list while the tasklist_lock is held for write.
-> 
-> Removing a resource group moves all of its tasks to another group by
-> walking the task list while holding the tasklist_lock for read, and then
-> frees the CLOSID and RMID of the removed group. A task that copies its
-> parent's CLOSID and RMID before the walk reaches the parent is missed by
-> the walk: it is not on the task list yet, and it cannot get there while
-> the walk holds the tasklist_lock. By the time it is added to the task list
-> the CLOSID and RMID it was initialized with have been freed.
-> 
->     CPU0                                CPU1
->     ====                                ====
-> 
->   fork()
->     copy_process()
->       dup_task_struct()
->         /*
->          * New task inherits the
->          * parent's CLOSID and RMID.
->          */
->                                     rdtgroup_rmdir_{ctrl,mon}()
->                                       rdt_move_group_tasks()
->                                         read_lock(&tasklist_lock)
->                                         for_each_process_thread()
->                                           /*
->                                            * Parent is moved out of
->                                            * the group. New task is
->                                            * not on the task list
->                                            * and is not moved.
->                                            */
->       write_lock_irq(&tasklist_lock)
->         /* Waits for the walk. */
->                                         read_unlock(&tasklist_lock)
->       /* Lock acquired. */
->       list_add_tail_rcu(&p->tasks, ...)
->       write_unlock_irq(&tasklist_lock)
->                                       free_rmid()
->                                       closid_free() /* ctrl only */
-> 
->     New task and every task it creates use the freed CLOSID and RMID.
->     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 
-> The new task and every task it goes on to create keep using a CLOSID
-> and RMID that resctrl believes are unused. Once those identifiers are
-> handed to a resource group created later, the strays appear in that
-> group's tasks file, their memory accesses are counted in its monitoring
-> data, and they are subject to its allocation policy, while the group
-> intended for them does not control or monitor them.
-> 
-> Introduce resctrl_copy_process() to copy the parent's CLOSID and RMID
-> into the new task from copy_process(), while the tasklist_lock is held
-> for write. The walk holds the same lock for read for its full duration,
-> so the new task is either already on the task list and assigned by the
-> walk, or the copy happens after the walk completed and observes the
-> parent's new resource group.
-> 
-> resctrl_copy_process() reads two values that some architectures store
-> separately. __rdtgroup_move_task() assigns them with two stores while
-> holding only rdtgroup_mutex, which resctrl_copy_process() cannot take,
-> so those reads can fall between the two stores and leave the new task
-> with the CLOSID of one resource group and the RMID of another. Assign
-> them from __rdtgroup_move_task() while holding tasklist_lock for read
-> as well, so that resctrl_copy_process() observes both as intended.
-> 
-> Add an architecture call to perform the copy because CLOSID and RMID are
-> stored per architecture and cannot be read and written as independent
-> values on all of them.
-> 
-> Fixes: f3cbeacaa06e ("x86/intel_rdt/cqm: Add rmdir support")
-> Reported-by: Jedrzej Wasiukiewicz <jedrzej.wasiukiewicz@intel.com>
-> Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
-> ---
-> Note to MPAM maintainers:
-> 
-> resctrl_copy_process() runs on every fork(), so
-> resctrl_arch_copy_closid_rmid() is a static inline on x86. Doing so is
-> perhaps not required as fork() is already expensive.
-> 
-> Even so, I attempted doing same for MPAM but ended up with solutions
-> that do not seem ideal:
-> 
-> - A static inline in arch/arm64/include/asm/mpam.h, next to the other
->   accessors of thread_info::mpam_partid_pmg. Nothing on the path from
->   include/linux/resctrl.h reaches that header, so the definition is not
->   visible to resctrl_copy_process(). Making it visible means
->   arch/arm64/include/asm/resctrl.h has to include asm/mpam.h, which
->   does not seem to match MPAM's intended design?
-> 
-> - A static inline in include/linux/arm_mpam.h, beside the
->   resctrl_arch_*() inlines already there. asm/mpam.h includes
->   linux/arm_mpam.h, so the reverse include would be circular and
->   mpam_get_regval() cannot be called. The copy would have to read and
->   write thread_info::mpam_partid_pmg directly, which no code outside
->   asm/mpam.h does today, and would need a CONFIG_ARM64_MPAM guard
->   because the field is only present when it is set.
-> 
-> The out-of-line definition this ended up with matches
-> resctrl_arch_sched_in(). Please let me know (if this is a change you
-> agree with) what kind of shape it needs to take for MPAM. We could also
-> just make x86 and MPAM both be out-of-line - doing so may not be felt by
-> the heavy copy_process().
-> ---
->  arch/arm64/include/asm/mpam.h  |  6 ++++++
->  arch/x86/include/asm/resctrl.h |  7 +++++++
->  drivers/resctrl/mpam_resctrl.c |  6 ++++++
->  fs/resctrl/rdtgroup.c          | 21 +++++++++++++++++++++
->  include/linux/arm_mpam.h       |  1 +
->  include/linux/resctrl.h        | 28 ++++++++++++++++++++++++++++
->  kernel/fork.c                  |  3 +++
->  7 files changed, 72 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-> index 70d396e7b6da..0746e5d7cc2d 100644
-> --- a/arch/arm64/include/asm/mpam.h
-> +++ b/arch/arm64/include/asm/mpam.h
-> @@ -63,6 +63,12 @@ static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
->  	WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
->  }
->  
-> +static inline void mpam_copy_task_partid_pmg(struct task_struct *dst,
-> +					     struct task_struct *src)
-> +{
-> +	WRITE_ONCE(task_thread_info(dst)->mpam_partid_pmg, mpam_get_regval(src));
-> +}
-> +
->  static inline void mpam_thread_switch(struct task_struct *tsk)
->  {
->  	u64 oldregval;
-> diff --git a/arch/x86/include/asm/resctrl.h b/arch/x86/include/asm/resctrl.h
-> index 8f6edcdcfd87..199ca9af0089 100644
-> --- a/arch/x86/include/asm/resctrl.h
-> +++ b/arch/x86/include/asm/resctrl.h
-> @@ -153,6 +153,13 @@ static inline void resctrl_arch_set_closid_rmid(struct task_struct *tsk,
->  	WRITE_ONCE(tsk->rmid, rmid);
->  }
->  
-> +static inline void resctrl_arch_copy_closid_rmid(struct task_struct *dst,
-> +						 struct task_struct *src)
-> +{
-> +	WRITE_ONCE(dst->closid, READ_ONCE(src->closid));
-> +	WRITE_ONCE(dst->rmid, READ_ONCE(src->rmid));
-> +}
-> +
->  static inline bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid)
->  {
->  	return READ_ONCE(tsk->closid) == closid;
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 5468367776e2..7aea58fca85b 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -345,6 +345,12 @@ void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
->  	}
->  }
->  
-> +void resctrl_arch_copy_closid_rmid(struct task_struct *dst,
-> +				   struct task_struct *src)
-> +{
-> +	mpam_copy_task_partid_pmg(dst, src);
-> +}
-> +
->  bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid)
->  {
->  	u64 regval = mpam_get_regval(tsk);
-> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-> index 57ab090072c2..ebf780fc5fe9 100644
-> --- a/fs/resctrl/rdtgroup.c
-> +++ b/fs/resctrl/rdtgroup.c
-> @@ -657,12 +657,28 @@ static int __rdtgroup_move_task(struct task_struct *tsk,
->  		return -EINVAL;
->  	}
->  
-> +	/*
-> +	 * Hold tasklist_lock for read so that resctrl_copy_process(), which
-> +	 * holds it for write, cannot read the CLOSID and the RMID of @tsk
-> +	 * while only one of the two has been updated.
-> +	 *
-> +	 * Hold tasklist_lock just for the @tsk update. A CPU running @tsk
-> +	 * keeps using the CLOSID and RMID that resctrl_arch_sched_in()
-> +	 * applied when @tsk was last scheduled in, so
-> +	 * update_task_closid_rmid() below has to interrupt that CPU for the
-> +	 * new resource group to take effect. Leave that until after
-> +	 * tasklist_lock has been dropped: a CPU waiting for tasklist_lock
-> +	 * for write waits with interrupts disabled, and @tsk's CPU is the
-> +	 * one that may be waiting, because @tsk may be forking.
-> +	 */
-> +	read_lock(&tasklist_lock);
->  	if (rdtgrp->type == RDTMON_GROUP)
->  		resctrl_arch_set_closid_rmid(tsk, rdtgrp->mon.parent->closid,
->  					     rdtgrp->mon.rmid);
->  	else
->  		resctrl_arch_set_closid_rmid(tsk, rdtgrp->closid,
->  					     rdtgrp->mon.rmid);
-> +	read_unlock(&tasklist_lock);
-> 
+1. -fivopts strength-reduces bounded array loops over BPF map values
+   (such as bperf_cgroup.bpf.c) into PTR_TO_MAP_VALUE != PTR_TO_MAP_VALUE
+   end-pointer comparisons. In kernel/bpf/verifier.c, is_branch_taken()
+   returns unknown for non-packet pointer comparisons, causing the
+   verifier to explore one iteration past the map value end and reject
+   the program with -EACCES. Pass -fno-ivopts so bpf-gcc preserves
+   scalar loop induction variables.
 
-Is it possible to combine u32 closid and u32 rmid into u64 closid_rmid?
-RDT will no longer support 32-bit kernels, so u64 is always atomic. Then
-we don't need the above tasklist_lock in __rdtgroup_move_task(), and there
-is no race with resctrl_arch_sched_in() - but we do need it during fork()
-though.
+2. -fipa-sra and -fpartial-inlining outline cold tails of static BPF
+   functions into .isra/.part subprogram clones (such as
+   task_traced.part.0 in augmented_raw_syscalls.bpf.c and do_exit.part.0
+   in syscall_summary.bpf.c) without .BTF.ext func_info entries, causing
+   libbpf call relocation to fail with -ENOENT. Pass -fno-ipa-sra and
+   -fno-partial-inlining.
 
-I was thinking something like below:
+3. -ftree-loop-im and -fmove-loop-invariants treat CO-RE LDIMM64
+   relocation builtins as pure loop-invariant constants and hoist them
+   out of bpf_core_field_exists() conditional blocks into enclosing loop
+   preheaders (such as cgrp_old->ancestor_ids in bperf_cgroup.bpf.c).
+   When the guarded field is absent on the running kernel, libbpf
+   poisons the hoisted LDIMM64 with call 195896080 on an unconditionally
+   reachable path. Pass -fno-tree-loop-im and -fno-move-loop-invariants.
 
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -1362,8 +1362,7 @@ struct task_struct {
- #endif /* CONFIG_PREEMPT_RT */
- #endif /* CONFIG_CGROUPS */
- #ifdef CONFIG_X86_CPU_RESCTRL
--       u32                             closid;
--       u32                             rmid;
-+       u64                             closid_rmid;
- #endif
+4. In sample_filter.bpf.c, accessing members inside the anonymous inner
+   structs of union perf_sample_weight and union perf_mem_data_src
+   through preserve_access_index kctx->data causes bpf-gcc to emit CO-RE
+   relocations rooted at anonymous struct types, which libbpf rejects
+   with -EINVAL. Read the named union words (.full and .val) into local
+   union variables before extracting the subfields.
+
+5. In lock_contention.bpf.c, collect_zone_lock() and collect_lock_syms()
+   use C offsetof() on preserve_access_index structs (pglist_data, zone,
+   rq___new, and rq___old), which bpf-gcc evaluates to compile-time
+   offsets without emitting CO-RE field offset relocations (computing
+   offset 0 for struct rq___new.__lock). Use the 1-argument
+   bpf_core_field_offset(ptr->field) and bpf_core_field_exists(ptr->field)
+   forms via typed NULL pointers so bpf-gcc emits BTF CO-RE relocations.
+
+6. -fif-conversion, -fif-conversion2, -fssa-phiopt, -fschedule-insns,
+   and -fschedule-insns2 convert pointer NULL checks into branchless
+   (-ptr | ptr) >> 63 pointer ALU (rejected with "pointer |= pointer
+   prohibited") or schedule non-trapping pointer offsets (such as
+   rq + lock_off in collect_lock_syms) ahead of their NULL or bounds
+   checks (rejected with "pointer arithmetic on ptr_or_null_
+   prohibited"). Disable those passes for bpf-gcc builds.
+
+Fixes: 63bdd143c589 ("perf build: Support building BPF skeletons with bpf-gcc")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/bpf_skel.mak                       | 19 ++++++-
+ .../perf/util/bpf_skel/lock_contention.bpf.c  | 15 ++++--
+ tools/perf/util/bpf_skel/sample_filter.bpf.c  | 52 ++++++++++++-------
+ 3 files changed, 61 insertions(+), 25 deletions(-)
+
+diff --git a/tools/perf/bpf_skel.mak b/tools/perf/bpf_skel.mak
+index 7b7edf506509..400e84c4fd34 100644
+--- a/tools/perf/bpf_skel.mak
++++ b/tools/perf/bpf_skel.mak
+@@ -32,7 +32,24 @@ ifeq ($(CONFIG_PERF_BPF_SKEL_BPF_GCC),y)
+   QUIET_BPF_CC = $(QUIET_BPF_GCC)
+   IS_LITTLE_ENDIAN := $(shell $(CC) -dM -E - </dev/null | \
+ 			grep 'define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__')
+-  BPF_OPTIONS = -Wall -mcpu=v3 -fno-ident -DBPF_NO_PRESERVE_ACCESS_INDEX -Wno-attributes \
++  # Disable GCC passes that emit BPF code rejected by libbpf or the verifier:
++  # - -fno-ivopts: keep scalar loop counters instead of PTR_TO_MAP_VALUE
++  #   pointer-equality latches that is_branch_taken() cannot bound.
++  # - -fno-ipa-sra -fno-partial-inlining: avoid .isra/.part subprogram clones
++  #   that omit .BTF.ext func_info records.
++  # - -fno-tree-loop-im -fno-move-loop-invariants: keep CO-RE relocations
++  #   inside bpf_core_field_exists() guards instead of hoisting them into loop
++  #   preheaders where libbpf poisons missing-field relocations.
++  # - -fno-if-conversion -fno-if-conversion2 -fno-ssa-phiopt
++  #   -fno-schedule-insns -fno-schedule-insns2: prevent converting pointer
++  #   NULL checks into branchless (-ptr | ptr) >> 63 pointer ALU or hoisting
++  #   pointer arithmetic above NULL / bounds checks.
++  BPF_OPTIONS = -Wall -mcpu=v3 -fno-ident \
++		-fno-ivopts -fno-ipa-sra -fno-partial-inlining \
++		-fno-tree-loop-im -fno-move-loop-invariants \
++		-fno-if-conversion -fno-if-conversion2 -fno-ssa-phiopt \
++		-fno-schedule-insns -fno-schedule-insns2 \
++		-DBPF_NO_PRESERVE_ACCESS_INDEX -Wno-attributes \
+ 		-D__TARGET_ARCH_$(SRCARCH) $(if $(IS_LITTLE_ENDIAN),-mlittle-endian,-mbig-endian)
+   BPF_SYS_INCLUDES = $(call get_sys_includes,$(CC),)
+ else
+diff --git a/tools/perf/util/bpf_skel/lock_contention.bpf.c b/tools/perf/util/bpf_skel/lock_contention.bpf.c
+index 0d9c6f55050e..d4c4ddf0f979 100644
+--- a/tools/perf/util/bpf_skel/lock_contention.bpf.c
++++ b/tools/perf/util/bpf_skel/lock_contention.bpf.c
+@@ -925,12 +925,14 @@ struct rq___new {
  
-        struct futex_sched_data         futex;
+ static void collect_zone_lock(void)
+ {
++	struct pglist_data *pgd_null = NULL;
++	struct zone *zone_null = NULL;
+ 	__u64 nr_zones, zone_off;
+ 	__u64 lock_addr, lock_off;
+ 	__u32 lock_flag = LOCK_CLASS_ZONE_LOCK;
+ 
+-	zone_off = offsetof(struct pglist_data, node_zones);
+-	lock_off = offsetof(struct zone, lock);
++	zone_off = bpf_core_field_offset(pgd_null->node_zones);
++	lock_off = bpf_core_field_offset(zone_null->lock);
+ 
+ 	if (contig_page_data_addr) {
+ 		struct pglist_data *contig_page_data;
+@@ -979,19 +981,22 @@ static void collect_zone_lock(void)
+ SEC("raw_tp/bpf_test_finish")
+ int BPF_PROG(collect_lock_syms)
+ {
++	struct rq___new *rq_new = NULL;
++	struct rq___old *rq_old = NULL;
+ 	__u64 lock_addr, lock_off;
+ 	__u32 lock_flag;
+ 
+-	if (bpf_core_field_exists(struct rq___new, __lock))
+-		lock_off = offsetof(struct rq___new, __lock);
++	if (bpf_core_field_exists(rq_new->__lock))
++		lock_off = bpf_core_field_offset(rq_new->__lock);
+ 	else
+-		lock_off = offsetof(struct rq___old, lock);
++		lock_off = bpf_core_field_offset(rq_old->lock);
+ 
+ 	for (int i = 0; i < MAX_CPUS; i++) {
+ 		struct rq *rq = bpf_per_cpu_ptr(&runqueues, i);
+ 
+ 		if (rq == NULL)
+ 			break;
++		barrier_var(rq);
+ 
+ 		lock_addr = (__u64)(void *)rq + lock_off;
+ 		lock_flag = LOCK_CLASS_RQLOCK;
+diff --git a/tools/perf/util/bpf_skel/sample_filter.bpf.c b/tools/perf/util/bpf_skel/sample_filter.bpf.c
+index e5666d4c1722..9ddac8e5cd78 100644
+--- a/tools/perf/util/bpf_skel/sample_filter.bpf.c
++++ b/tools/perf/util/bpf_skel/sample_filter.bpf.c
+@@ -124,14 +124,19 @@ static inline __u64 perf_get_sample(struct bpf_perf_event_data_kern *kctx,
+ 		return kctx->data->period;
+ 	case PBF_TERM_TRANSACTION:
+ 		return kctx->data->txn;
+-	case PBF_TERM_WEIGHT_STRUCT:
++	case PBF_TERM_WEIGHT_STRUCT: {
++		union perf_sample_weight weight = {
++			.full = kctx->data->weight.full,
++		};
++
+ 		if (entry->part == 1)
+-			return kctx->data->weight.var1_dw;
++			return weight.var1_dw;
+ 		if (entry->part == 2)
+-			return kctx->data->weight.var2_w;
++			return weight.var2_w;
+ 		if (entry->part == 3)
+-			return kctx->data->weight.var3_w;
+-		/* fall through */
++			return weight.var3_w;
++		return weight.full;
++	}
+ 	case PBF_TERM_WEIGHT:
+ 		return kctx->data->weight.full;
+ 	case PBF_TERM_PHYS_ADDR:
+@@ -142,35 +147,44 @@ static inline __u64 perf_get_sample(struct bpf_perf_event_data_kern *kctx,
+ 		return kctx->data->code_page_size;
+ 	case PBF_TERM_DATA_PAGE_SIZE:
+ 		return kctx->data->data_page_size;
+-	case PBF_TERM_DATA_SRC:
++	case PBF_TERM_DATA_SRC: {
++		union perf_mem_data_src src = {
++			.val = kctx->data->data_src.val,
++		};
++
+ 		if (entry->part == 1)
+-			return kctx->data->data_src.mem_op;
++			return src.mem_op;
+ 		if (entry->part == 2)
+-			return kctx->data->data_src.mem_lvl_num;
++			return src.mem_lvl_num;
+ 		if (entry->part == 3) {
+-			__u32 snoop = kctx->data->data_src.mem_snoop;
+-			__u32 snoopx = kctx->data->data_src.mem_snoopx;
++			__u32 snoop = src.mem_snoop;
++			__u32 snoopx = src.mem_snoopx;
+ 
+ 			return (snoopx << 5) | snoop;
+ 		}
+ 		if (entry->part == 4)
+-			return kctx->data->data_src.mem_remote;
++			return src.mem_remote;
+ 		if (entry->part == 5)
+-			return kctx->data->data_src.mem_lock;
++			return src.mem_lock;
+ 		if (entry->part == 6)
+-			return kctx->data->data_src.mem_dtlb;
++			return src.mem_dtlb;
+ 		if (entry->part == 7)
+-			return kctx->data->data_src.mem_blk;
++			return src.mem_blk;
+ 		if (entry->part == 8) {
++			union perf_mem_data_src___new src_new = {
++				.val = src.val,
++			};
++#ifdef __clang__
+ 			union perf_mem_data_src___new *data = (void *)&kctx->data->data_src;
+ 
+-			if (__builtin_preserve_field_info(data->mem_hops, BPF_FIELD_EXISTS))
+-				return data->mem_hops;
+-
+-			return 0;
++			if (!__builtin_preserve_field_info(data->mem_hops, BPF_FIELD_EXISTS))
++				return 0;
++#endif
++			return src_new.mem_hops;
+ 		}
+ 		/* return the whole word */
+-		return kctx->data->data_src.val;
++		return src.val;
++	}
+ 	case PBF_TERM_UID:
+ 		return bpf_get_current_uid_gid() & 0xFFFFFFFF;
+ 	case PBF_TERM_GID:
+-- 
+2.56.1.750.gf70dc682cf-goog
 
-static inline u64 resctrl_clos_rmid_val(u32 closid, u32 rmid)
-{
-	return (u64)closid << 32 | rmid;
-}
-
-And we use resctrl_clos_rmid_val(), upper_32_bits(task->closid_rmid)
-lower_32_bits(task->clisid_rmid) in the code.
-
-thanks,
-Chenyu
->  	/*
->  	 * Ensure the task's closid and rmid are written before determining if
-> @@ -2959,6 +2975,11 @@ static void schemata_list_destroy(void)
->   * If @mask is not NULL the cpus on which moved tasks are running are set
->   * in that mask so the update smp function call is restricted to affected
->   * cpus.
-> + *
-> + * Tasks created while this walks the task list are handled by
-> + * resctrl_copy_process(), which tasklist_lock serializes against this walk.
-> + * A new task is either visible to the walk and moved with the others, or
-> + * resctrl_copy_process() assigns it after the walk completes.
->   */
->  static void rdt_move_group_tasks(struct rdtgroup *from, struct rdtgroup *to,
->  				 struct cpumask *mask)
-> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-> index 002f56e15362..b605e9771c32 100644
-> --- a/include/linux/arm_mpam.h
-> +++ b/include/linux/arm_mpam.h
-> @@ -56,6 +56,7 @@ bool resctrl_arch_mon_capable(void);
->  void resctrl_arch_set_cpu_default_closid(int cpu, u32 closid);
->  void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
->  void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
-> +void resctrl_arch_copy_closid_rmid(struct task_struct *dst, struct task_struct *src);
->  void resctrl_arch_sched_in(struct task_struct *tsk);
->  bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
->  bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
-> diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-> index 10dfdca7f4bf..32d8bf9ca9ba 100644
-> --- a/include/linux/resctrl.h
-> +++ b/include/linux/resctrl.h
-> @@ -7,6 +7,8 @@
->  #include <linux/list.h>
->  #include <linux/pid.h>
->  #include <linux/resctrl_types.h>
-> +#include <linux/sched.h>
-> +#include <linux/sched/task.h>
->  
->  #ifdef CONFIG_ARCH_HAS_CPU_RESCTRL
->  #include <asm/resctrl.h>
-> @@ -729,6 +731,32 @@ extern unsigned int resctrl_rmid_realloc_limit;
->  int resctrl_init(void);
->  void resctrl_exit(void);
->  
-> +#ifdef CONFIG_RESCTRL_FS
-> +/**
-> + * resctrl_copy_process() - Give a new task the resource group of its parent.
-> + * @child:	The new task, which is not yet on the task list.
-> + *
-> + * Call from copy_process() while tasklist_lock is held for write. Serialized
-> + * against rdt_move_group_tasks() and __rdtgroup_move_task() that hold
-> + * tasklist_lock for read.
-> + *
-> + * dup_task_struct() copies the parent's CLOSID and RMID into @child before
-> + * @child is linked onto the task list. If the parent is moved out of a
-> + * resource group that is being removed, that group's CLOSID and RMID are
-> + * freed once the walk completes, leaving @child with stale assignments.
-> + *
-> + * Bring @child up to date with the parent.
-> + */
-> +static inline void resctrl_copy_process(struct task_struct *child)
-> +{
-> +	lockdep_assert_held_write(&tasklist_lock);
-> +
-> +	resctrl_arch_copy_closid_rmid(child, current);
-> +}
-> +#else
-> +static inline void resctrl_copy_process(struct task_struct *child) { }
-> +#endif
-> +
->  #ifdef CONFIG_RESCTRL_FS_PSEUDO_LOCK
->  u64 resctrl_arch_get_prefetch_disable_bits(void);
->  int resctrl_arch_pseudo_lock_fn(void *_plr);
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index 5efceb8d58a7..8344e0d27b78 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -105,6 +105,7 @@
->  #include <linux/stackprotector.h>
->  #include <linux/user_events.h>
->  #include <linux/iommu.h>
-> +#include <linux/resctrl.h>
->  #include <linux/rseq.h>
->  #include <uapi/linux/pidfd.h>
->  #include <linux/pidfs.h>
-> @@ -2491,6 +2492,8 @@ __latent_entropy struct task_struct *copy_process(
->  
->  	klp_copy_process(p);
->  
-> +	resctrl_copy_process(p);
-> +
->  	sched_core_fork(p);
->  
->  	spin_lock(&current->sighand->siglock);
-> -- 
-> 2.56.0
-> 
