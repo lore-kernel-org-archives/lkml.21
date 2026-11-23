@@ -1,54 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445506;
-	b=WyxtdUqfnCPc1nsSnQ9owAhoQEoyPDTY895LR5yodiofQwqmkz2Ldb/gmNx6bwFeMdFH
-	 nDBfbM6KtgOH74SEzf9dpVO1u0rqOucGKDfXWMelO+gFiCX9yPCHGiN2zWYs4sNFg+Cd+
-	 buknCI4mpWzJU2mGTF6CQKa0VmKrtH1hG54TqsS2AGDNtuM8JkeRQtUgb0qoTPQTO0Vs4
-	 4ttJtBEaZiaj1Ugr3Ousw0efeaDUatBrfthU4PNuw/Un5x8dZNaqtvfaKg09KTHhMon13
-	 gDpdOVMsrIEgcq+ETph2amCUJ2rp6IuUdlfK9w0wFkpne6POKTZ+IJTtyVIaE75jEdA==
+	t=1795445503;
+	b=rhDkqBPSpLLXunpo5r9Y7Zx/ZkolVxUBpNSr6tPpaI1+2YLqJTE8FDz/X4Rn31zktQRM
+	 ltAZBmWzaBst1J9o6Ga/fnzBPNOwIGCPvp0QoJr8m6f6kjHcVkyfBjNBXyminFQCOe5KE
+	 iq7Kw12tnxYBFAWPhyRmQOD6aeoDvpIvXk9uqxLjiTJ2G1vzFr2beK4/moKrUoKql6L8j
+	 mHg2Wjt4/VHD3hxWj3gJ0YJh8Cd2Ty7Ihi5yFy6TqVjfOZB9IsQ4L2Lk7GAUi+g19U3Bi
+	 mSB414kMhztGjiYEA6Jq6JWxhxS4xnEyYaunM4UD1W0O3ohDmxRcYc8q/G1zg8n/sRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445506;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=3gGSatM3MTNVUKTEsO6FRXJnlXC2DHI8VEJ4qjL3BCc=;
-	b=CKzMNZ308UcZym5NV7EDrCbkNY8gv49M84nS8kD2UpZNZGV5M1+aQxZg784Btbr+Ao3X
-	 SQGSjA458+INrQB9Mjd+E9D5v+MW2O8KeUh6/z5oZVhIy4zYG/ydZybWrB/fawgdZrBFK
-	 ddmJLTVgAFgTWxehVzOkHvyxdb6h0fDzbGTEoINbJWOqhqZ3yeUjFRSzYeCOVRY/cfMlo
-	 HZsLHJaM/QtNqoIxNxrL/FeygfU9cWzi7cy1cIwKnjEiOn6/ebtii2Ivnw8TE4Xe4DUnq
-	 HfjBtYK012NpRDGep/yp1nLBwFYxgFkIbcHfxhVs73Nq4f21Wgj+nW4PBCxdf8mjaKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445503;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=6B2EKbM2HES/6NZzRUgVUrZ2C5WUdfjd3d3Yerz5WfE=;
+	b=dFTgGKWyBFcCDwI5oeW2BuRUeKL537aMWjsZQPYjtiUjN8n6uphMvG1DB7XEIKseHDSR
+	 qu5hZGvrCI+07w7J32Hwf0HmoxtXiSuBeYGVbJCi9OnErOH4Y6V9q9Oea1Y9ojRe90Ahi
+	 ZbTEPazrBQQVDTnJdfpGAivdsIFofDWYXt5DtHgn+w/FwntmjgxNVBJSOzxhCSFpksmaU
+	 TvEGzi3yAi/l4/n6daVAkx1vKt0xOhlrEAn9nYK/bE1oDJYRIKafXq/D0DGu8091SVNef
+	 mFFhFBa2sUtJYNFs92+sC7GXJMMe5zqNQsbWG1wnlMb2H+KLDMBubLKPvMc0c0U80AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CjsIJcKy;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56516606A335
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:51:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56516606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-5735cd94235so3292568b6e.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:51:46 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445505; x=1796050305;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3gGSatM3MTNVUKTEsO6FRXJnlXC2DHI8VEJ4qjL3BCc=;
-        b=quN9Tfcn9oJtdXLsZv2Clu4AafDqJpyin5L+AWTTz/IBBMAD6z/ZImfokYLGvvfeq8
-         jh8HkFVQIrWId78ypwbRMVqTM7+z/ne4kE2Bk7p8d4BpDk9TkIru1i4vky8groXY1WYZ
-         cjfMPzx3NJ+B32V9wKzbDL9wRigmjLAFAdGRkG6+x1p9AROj80l3zj83r8mrDTv6i0QD
-         5SUyWmP7KtghjJPRL//avnFjb4HWHnMNIIYWx6PC9IK+Q6KXMrNvN13ghWs3b5BYhJEM
-         QgiIRB1bqRk7dJDUsudzV11vdjaiWFanJHojTuyENG2uqti6oX5C7dC0WaeEKpRdO/D9
-         vXJQ==
-X-Forwarded-Encrypted: i=1; AL+hErH27qxKvcGSbG7V4MGfLjmeAYhwpA3oIkzpKdDFxRZQ+YNUhoCR9z2bOJ13jOTTJpIqpHdz+gRHaXb0y7Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+kXi773wanrjLbujptQsYjYGIJa4/esdW2vUbIey4UKGQQ93tS
-	UtCO7FZXWQYVIeHm3M/NMhjucRDvFbbUVCCBBpN3yVHMBW1mrbLgg7eHnk4pkkEDZBdfEuIQ0na
-	Cktk1hZp49i/h/cbD3GsoGZDVfqyNzWHJ7+foU7Db0mopwDU+zC1NLOcbP8Y=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 102F2606A31A;
+	Mon, 23 Nov 2026 14:51:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 102F2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CjsIJcKy
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDYwRx2482946;
+	Mon, 23 Nov 2026 14:51:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=6B2EKb
+	M2HES/6NZzRUgVUrZ2C5WUdfjd3d3Yerz5WfE=; b=CjsIJcKyEqqG3lBzX3l0hj
+	oznurocL7+U788CSYFspYRYeAsDT5YMcTAyBFkcLzElkxQJe1LKjPW7KWXQG7Pi0
+	pF7LqBU12zSnOfHmJmEcz2NtzwsBQyPAQ4hyz8Bsi7wQeCmfAyF8AnaUI/Mw5Bbr
+	BOpaFop5wnu6aQ5+hWsZldngt4mBHHr9DPJt2/rmM4In35Uhgil+/sFecWpIOoYX
+	59Rrok8GdQrdOUlpkeavNVMNtHo4h6ukkCP31B0zQWYfE42xX/TY2m4QSEyIsAdI
+	6eJ8/v6l7ZrlWK3a8x+AWRQGyTR/64+e+Zpuu2uiEGMXsN20UyLVGfoRIJTx3XcQ
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4b7d7-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 14:51:19 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDJYBE1222896;
+	Mon, 23 Nov 2026 14:51:19 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0vf9ps-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 14:51:19 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANEpEAx43385124
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 14:51:14 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4AA2920043;
+	Mon, 23 Nov 2026 14:51:14 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CAB0820040;
+	Mon, 23 Nov 2026 14:51:10 +0000 (GMT)
+Received: from [9.124.210.23] (unknown [9.124.210.23])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 23 Nov 2026 14:51:10 +0000 (GMT)
+Message-ID: <4e5ade62-dc94-4410-a1f7-65dd44f6cb7f@linux.ibm.com>
+Date: Mon, 23 Nov 2026 20:21:09 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,149 +86,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4f12:b0:573:52b1:baf4 with SMTP id
- 5614622812f47-57a06d1900dmr12581926b6e.4.1795445505356; Mon, 23 Nov 2026
- 06:51:45 -0800 (PST)
-Date: Mon, 23 Nov 2026 06:51:45 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b045301.58b41460.7037.058a.GAE@google.com>
-Subject: [syzbot] [dm?] kernel BUG in lookup
-From: syzbot <syzbot+dbad68398c8646e5a382@syzkaller.appspotmail.com>
-To: agk@redhat.com, bmarzins@redhat.com, dm-devel@lists.linux.dev, 
-	ejt@redhat.com, linux-kernel@vger.kernel.org, mpatocka@redhat.com, 
-	snitzer@kernel.org, snitzer@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 5/5] powerpc/powernv/eeh: Map generic EEH error types
+ to OPAL
+To: Sourabh Jain <sourabhjain@linux.ibm.com>,
+        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        "Oliver O'Halloran" <oohall@gmail.com>,
+        Timothy Pearson <tpearson@raptorengineering.com>,
+        Alex Williamson <alex@shazbot.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin
+ <npiggin@gmail.com>,
+        Christophe Leroy <chleroy@kernel.org>,
+        Ritesh Harjani <ritesh.list@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
+        harshpb@linux.ibm.com
+References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
+ <20261023073642.59657-6-nnmlinux@linux.ibm.com>
+ <2ed69cf8-eca2-41ed-a100-844f9d84c2ad@linux.ibm.com>
+ <9efa20ba-d79b-47b8-9677-474c19aa9168@linux.ibm.com>
+ <b5383e66-c777-4e96-9ee8-5548d84f6e89@linux.ibm.com>
+Content-Language: en-US
+From: Narayana Murty N <nnmlinux@linux.ibm.com>
+In-Reply-To: <b5383e66-c777-4e96-9ee8-5548d84f6e89@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1OCBTYWx0ZWRfX2+NsgcLlLYou
+ kt7jW+LCgl9JUMM7+lWEE3GHZVjIqfdokuzJbVrWlUtvOLO6aHyqUrWnPnZUT1t9eqD6HRO137o
+ FeH5qKlTpOkI8Pk2zocj/PyhwmLppAc=
+X-Proofpoint-GUID: PeVVcCuW4sMGv4b90fqD9mHxx9pWfbuM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1OCBTYWx0ZWRfX7WebfoAvwwGe
+ 4U22Sucjm6L1swHfFUMlCXzGgt1pQBzEDCHokJ+9iE1ZmW/JkgHeiUhjTda1DnH01DV6rlV8kEe
+ 3Ar3izbVHWSJ8GUCvB/2xcl8k7+fynj4C9uc0s4T1kWYwupz9Np59Y1muomLy+iD06BGGrRxd6d
+ SQf75M66zzyo4vj3KgzWn5GXa+kqULSkoMKkWQGULumxlCAu/+r/vEjXJmXmKPmOy3rpf1Xlv5c
+ Jl3T1kASflK8POwiBiqKDXHjEEt4sAbG4PEnSAQlyXP6sVkdg6x6FvthVxQTL2J8H4DNyDLqwkB
+ WkBSj0NUEeE9V1JaCDwQ35GYSd9RydFSs8JOmQEiZQ+RVkuKxwS3Qz0pHm9+R6zAKLRNnjYl87h
+ k236qy9xq6XquNai8xNkk6GmvnlYHLxN37XDAbIjSRQvfQCHHwJsrprLht6SayTJdw0a+UYRLLr
+ OMobGaBYaDPNV7C/B0w==
+X-Proofpoint-ORIG-GUID: UokNdsw91_9SACW79Io2_dvZuf2GYhdI
+X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b0452e8 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=4fP7XDlWrgE3Nxb3Mn0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230058
 
-Hello,
+HI,
 
-syzbot found the following issue on:
+On 23/11/26 12:22 PM, Sourabh Jain wrote:
+> 
+> 
+> On 20/11/26 13:09, Narayana Murty N wrote:
+>> Hi Sourabh,
+>>
+>> On 19/11/26 1:11 AM, Sourabh Jain wrote:
+>>> Hello Narayana,
+>>>
+>>> For my understanding, could you clarify why this change is needed as 
+>>> part of this series?
+>>> The series is about enabling RTAS-based error injection, and PowerNV 
+>>> doesn't support RTAS.
+>>> How does this change fit with the earlier patches in the series?
+>>>
+>> The intention was to decouple the generic EEH error types from the
+>> platform-specific OPAL encodings, similar to the explicit mapping
+>> introduced for pSeries.
+>>
+>> However, the generic EEH error-type values remain unchanged, and
+>> the PowerNV mapping is not a prerequisite for RTAS-based error
+>> injection.
+>>
+>> I'll drop this patch from the next revision and will post it as 
+>> seperate patch.
+> 
+> I don't mind keeping this patch as part of the series. The only thing 
+> missing is an
+> explanation in the commit message of why and how this patch is needed 
+> for the
+> RTAS-based error injection support for pSeries introduced by the 
+> previous patches.
+> 
+> It would be helpful to include a scenario explaining why these changes 
+> are needed
+> for RTAS-based error injection support on pSeries.
+> 
+> - Sourabh Jain
+> 
+Thanks for your feed back, I will continued this patch in V7.
 
-HEAD commit:    4405c18c95d2 Merge tag 'mm-nonmm-hotfixes-stable-2026-11-1..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=167d394e580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=1cf189394a856f11
-dashboard link: https://syzkaller.appspot.com/bug?extid=dbad68398c8646e5a382
-compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
+Regards,
+Narayana
+>>
+>> Thanks,
+>> Narayana Murty.
+>>> On 23/10/26 13:06, Narayana Murty N wrote:
+>>>> eeh_pe_inject_err() is called with generic EEH error types defined in
+>>>> the VFIO/EEH userspace ABI (EEH_ERR_TYPE_32, EEH_ERR_TYPE_64).  The
+>>>> PowerNV backend previously compared these generic values directly 
+>>>> against
+>>>> OPAL firmware constants (OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR and
+>>>> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64).
+>>>>
+>>>> This is fragile: it relies on the generic EEH ABI values being
+>>>> numerically identical to OPAL-specific values, and would silently
+>>>> misbehave if they ever diverged.
+>>>>
+>>>> Add an explicit mapping in pnv_eeh_err_inject() that translates:
+>>>>    EEH_ERR_TYPE_32 -> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR
+>>>>    EEH_ERR_TYPE_64 -> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64
+>>>>
+>>>> Return -ERANGE for unsupported error types, preserving the behavior
+>>>> of the original code.  Decouples the VFIO/EEH interface from OPAL
+>>>> implementation details.
+>>>>
+>>>> No change to existing userspace ABI or PowerNV behavior.
+>>>>
+>>>> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
+>>>> ---
+>>>>   arch/powerpc/platforms/powernv/eeh-powernv.c | 22 ++++++++++++++ 
+>>>> +-----
+>>>>   1 file changed, 17 insertions(+), 5 deletions(-)
+>>>>
+>>>> diff --git a/arch/powerpc/platforms/powernv/eeh-powernv.c b/arch/ 
+>>>> powerpc/platforms/powernv/eeh-powernv.c
+>>>> index db3370d1673c..01dae760cecb 100644
+>>>> --- a/arch/powerpc/platforms/powernv/eeh-powernv.c
+>>>> +++ b/arch/powerpc/platforms/powernv/eeh-powernv.c
+>>>> @@ -1167,12 +1167,24 @@ static int pnv_eeh_err_inject(struct eeh_pe 
+>>>> *pe, int type, int func,
+>>>>   {
+>>>>       struct pci_controller *hose = pe->phb;
+>>>>       struct pnv_phb *phb = hose->private_data;
+>>>> +    int opal_err_type;
+>>>>       s64 rc;
+>>>> -    if (type != OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR &&
+>>>> -        type != OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64) {
+>>>> -        pr_warn("%s: Invalid error type %d\n",
+>>>> -            __func__, type);
+>>>> +    /*
+>>>> +     * eeh_pe_inject_err() receives generic EEH error types from the
+>>>> +     * VFIO/EEH userspace ABI.  The PowerNV backend must not rely on
+>>>> +     * these generic values being numerically identical to OPAL 
+>>>> firmware
+>>>> +     * values.  Translate to OPAL-specific types before calling 
+>>>> firmware.
+>>>> +     */
+>>>> +    switch (type) {
+>>>> +    case EEH_ERR_TYPE_32:
+>>>> +        opal_err_type = OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR;
+>>>> +        break;
+>>>> +    case EEH_ERR_TYPE_64:
+>>>> +        opal_err_type = OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64;
+>>>> +        break;
+>>>> +    default:
+>>>> +        pr_warn("%s: Invalid error type %d\n", __func__, type);
+>>>>           return -ERANGE;
+>>>>       }
+>>>> @@ -1192,7 +1204,7 @@ static int pnv_eeh_err_inject(struct eeh_pe 
+>>>> *pe, int type, int func,
+>>>>       /* Do error injection */
+>>>>       rc = opal_pci_err_inject(phb->opal_id, pe->addr,
+>>>> -                 type, func, addr, mask);
+>>>> +                 opal_err_type, func, addr, mask);
+>>>>       if (rc != OPAL_SUCCESS) {
+>>>>           pr_warn("%s: Failure %lld injecting error "
+>>>>               "%d-%d to PHB#%x-PE#%x\n",
+>>>
+>>
+> 
 
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/98fce4d0b21b/non_bootable_disk-4405c18c.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/e57ff6d83567/vmlinux-4405c18c.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/e1e0c78e0187/bzImage-4405c18c.xz
-
-The issue was bisected by AI to:
-
-commit 9b1cc9f251affdd27f29fe46d0989ba76c33faf6
-Author: Joe Thornber <ejt@redhat.com>
-Date:   Fri Jan 23 10:00:07 2015 +0000
-
-    dm cache: share cache-metadata object across inactive and active DM tables
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=62801fe8-a5e6-46c1-82e8-ca23918ed904
-
-AI-generated root cause summary:
-In drivers/md/dm-cache-metadata.c, dm_cache_metadata_close() checks if the
-reference count drops to zero using refcount_dec_and_test() outside table_lock
-before acquiring table_lock to unlink the entry from the global table list. When
-a concurrent thread invokes dm_cache_metadata_open() -> lookup_or_open() for the
-same block device, it acquires table_lock while the entry remains on the list
-with a refcount of 0, causing lookup() to invoke refcount_inc() on a zero
-reference count and triggering a refcount saturation BUG/warning. When the
-closing thread subsequently frees the object, the lookup caller is left holding
-a pointer to freed memory, causing a use-after-free.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=dbad68398c8646e5a382
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+dbad68398c8646e5a382@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: 9b1cc9f251af ("dm cache: share cache-metadata object across inactive and active DM tables")
-
-refcount_t: addition on 0; use-after-free.
-------------[ cut here ]------------
-kernel BUG at lib/refcount.c:34!
-Oops: invalid opcode: 0000 [#1] SMP KASAN NOPTI
-CPU: 0 UID: 0 PID: 6177 Comm: syz.3.65 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-RIP: 0010:refcount_warn_saturate.cold+0x12/0x14 lib/refcount.c:34
-Code: 89 ea be 01 00 00 00 48 c7 c7 60 f8 c3 90 e8 0b 5a 01 00 e9 13 fc 04 04 e8 01 b7 d7 00 48 c7 c7 60 4b 81 8c e8 65 9c eb ff 90 <0f> 0b e8 ed b6 d7 00 48 c7 c7 00 4c 81 8c e8 51 9c eb ff 90 0f 0b
-RSP: 0018:ffffc900030377e0 EFLAGS: 00010286
-RAX: 000000000000002a RBX: ffff888028614000 RCX: 0000000000000000
-RDX: 000000000000002a RSI: ffffffff81ec3719 RDI: fffff52000606eed
-RBP: 0000000000000002 R08: 0000000000000000 R09: 0000000000000000
-R10: ffffc900030375a7 R11: 0000000000000001 R12: ffff888021894500
-R13: ffff888021894500 R14: 0000000000000001 R15: dffffc0000000000
-FS:  00007fe6b9bf66c0(0000) GS:ffff8880d4468000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007fe6b9bd4ff8 CR3: 0000000060d1a000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- __refcount_add include/linux/refcount.h:289 [inline]
- __refcount_inc include/linux/refcount.h:366 [inline]
- refcount_inc include/linux/refcount.h:383 [inline]
- lookup+0x105/0x120 drivers/md/dm-cache-metadata.c:809
- lookup_or_open drivers/md/dm-cache-metadata.c:825 [inline]
- dm_cache_metadata_open+0x99/0x900 drivers/md/dm-cache-metadata.c:867
- cache_create drivers/md/dm-cache-target.c:2491 [inline]
- cache_ctr+0x180e/0x3ab0 drivers/md/dm-cache-target.c:2656
- dm_table_add_target+0x58b/0xee0 drivers/md/dm-table.c:765
- populate_table drivers/md/dm-ioctl.c:1602 [inline]
- table_load+0x3b9/0x7b0 drivers/md/dm-ioctl.c:1645
- ctl_ioctl+0x4d2/0xcc0 drivers/md/dm-ioctl.c:2221
- dm_ctl_ioctl+0x22/0x30 drivers/md/dm-ioctl.c:2243
- vfs_ioctl fs/ioctl.c:52 [inline]
- __do_sys_ioctl fs/ioctl.c:598 [inline]
- __se_sys_ioctl fs/ioctl.c:584 [inline]
- __x64_sys_ioctl+0x18e/0x210 fs/ioctl.c:584
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x123/0x7b0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7fe6bb9a9559
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007fe6b9bf6028 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
-RAX: ffffffffffffffda RBX: 00007fe6bbc26180 RCX: 00007fe6bb9a9559
-RDX: 0000200000000740 RSI: 00000000c138fd09 RDI: 0000000000000004
-RBP: 00007fe6bba38136 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007fe6bbc26218 R14: 00007fe6bbc26180 R15: 00007ffd9c449728
- </TASK>
-Modules linked in:
----[ end trace 0000000000000000 ]---
-RIP: 0010:refcount_warn_saturate.cold+0x12/0x14 lib/refcount.c:34
-Code: 89 ea be 01 00 00 00 48 c7 c7 60 f8 c3 90 e8 0b 5a 01 00 e9 13 fc 04 04 e8 01 b7 d7 00 48 c7 c7 60 4b 81 8c e8 65 9c eb ff 90 <0f> 0b e8 ed b6 d7 00 48 c7 c7 00 4c 81 8c e8 51 9c eb ff 90 0f 0b
-RSP: 0018:ffffc900030377e0 EFLAGS: 00010286
-RAX: 000000000000002a RBX: ffff888028614000 RCX: 0000000000000000
-RDX: 000000000000002a RSI: ffffffff81ec3719 RDI: fffff52000606eed
-RBP: 0000000000000002 R08: 0000000000000000 R09: 0000000000000000
-R10: ffffc900030375a7 R11: 0000000000000001 R12: ffff888021894500
-R13: ffff888021894500 R14: 0000000000000001 R15: dffffc0000000000
-FS:  00007fe6b9bf66c0(0000) GS:ffff8880d4468000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007fe6b9bd4ff8 CR3: 0000000060d1a000 CR4: 0000000000352ef0
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
