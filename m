@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477268;
-	b=ju9h//cL4DeZn+cslfCg7mAbm2uROYyrDQL3o2TOhrDolrzTOvudjnlDLKp2sMklN7Ij
-	 RI/oInCTcHsC/2E/uht5IR8KRal6zL3a9JNbD5F6KXnx32Zqjw0wORozHEEyrvf9/1qr1
-	 dSdurzB3MoW8RZjbh67UzES06bVbj29XMqSt9F9ljp7RSyHrIHUC5vwEqZKfrp2KE3pb6
-	 Qtk/pYKmI6wfUNOZevDWuWXpvDOIY5pWeWmdXjCSTNej0VsznpWWgz63QUxEaFSrdZfV5
-	 cA7BIQ8yIFuGVilYpNPfWvIUeWyHusWzFzjpM2jVZbPcpZzcT4j/cIw1OiWZY9kxtaQ==
+	t=1795477270;
+	b=u6ztQnSdHMULpmQgkx360khikooT3jZ8DAwgxKL1uenozh+w/jtN9EmOeH1GwBoxMKwr
+	 1WDfuYPD7u9BIm6qTQ61aagOecyFhaa5FJ72F1ba2dJw3ad8p6HxSUg/FMv1x7H/lQKaR
+	 nD1D8Hz77GgXvhIE1NhLbF2hQm36tpwQxoIFXKSYnPqYcX/Rx5nIOpfcN4cs7Fky8qv/n
+	 /1plDxS4Jo1Oj4YJXxaYz1x+jY/Gb8TYBtLO+bRHyOgyMn3KV75k30TPPlbFyKy/HVd3w
+	 UiHSfJtlH7+VxENEGT+HqpHB00udKC/L5Ijj+g+IYaPfV67UPxVI8qf76nskmiq8XjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477268;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477270;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=zZAqCzjJUfkUCcYg5LkQHLRNQkTovP/fVdErxmvlRYI=;
-	b=v3hBGdgJ8/StdNnGOf9lxkRj090iQxc26V2rTgP3xkgpJMXy1opRtj+TkTQYAQAUjQ6t
-	 9Jowafcz+1GVbfTJ+/MvGR97fHvzVaToEgEli6T3lGvud8KgbgVaQ19S/w3dN5XcDQ3TR
-	 by+Ho5ijm4AjZLY+RnzsdePPxMGgitj2Q9pD6N4fqU0x95CWwwR/5kx00SldPCPe/iMfi
-	 hk73/8103bnq1c9jG1P0g1Onm1UG/p6/MqFWDVEwe3OiL6ghjjUxvmeVj8QOyhsyTdMc1
-	 PnmpKCRLb0b+db/aFPKULAREqF3Fy+2YQqUpfWLlCmHzBAqqg5XCM+B0gVe3zIXeqMQ==
+	bh=2vKrN6bgTHQAPUSAXLB2sa6FXef6bZRnfsxB2+/0yI0=;
+	b=1AVuNbr9rgqKBJdPGLfe5DZX9iEasDywoy9u+PEtEdlPMjjLY0q6s5VFBwCEx8Fd5Lmg
+	 nrLCExodNWSPhnuyYLTRIEOv1JF5JUHwJ3Nxk9h0MNKf2/cT3YI65215vC4uDCeNeddHb
+	 JMLmt+J4nhY+uOOdujVJeCYqlLXNNlFb7vr4UE4BlDS8ZMTPDzq0lX4OoRUV16T3k6M6c
+	 j3FG3OLl4F1KF5GTTA4QB26DoB5J2GVIt//IWzr4SqQsWFu0BC4IdtmruAVKHemwUUanh
+	 nxZ1k6Fxqk+PpBQ8lTY/8lMW03CoLYNpNz9epufITs6fLKnT9mCLC/hTXzCrmhfKCEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hSx8ODW8;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vFe8Bkoc;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77484606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:41:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77484606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25FD0606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:41:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25FD0606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hSx8ODW8
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so34047245e9.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vFe8Bkoc
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so39331685e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795477267; x=1796082067; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795477268; x=1796082068; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zZAqCzjJUfkUCcYg5LkQHLRNQkTovP/fVdErxmvlRYI=;
-        b=hSx8ODW8SPFVFuq/xjZSgYXBKkWXj5tE4oAqMXC86A3sXWUm5S0gwThQh90Kzw88zK
-         Dlj96EN1VLcbd2uG7Q4cWp0XjHUcye3msgDxRtfclq2+Eg9dLXEc0yQ9ORlncYqXXq7e
-         3QbuMtGiH9M2stTSrZJet94Q0Vncb5MOYf4iVKRMoxDy+C9c4M5BjhxyYmPxqqEztGT1
-         NREmjyOin5Im5EaosSzY9rv286GYVubqmZb0tAdYDDR7hhEtMZLZM8hNnXSmQ+CZI4SD
-         KMfZ0WxD7h4DXkASWfT3bYf/Cw19+YBSyjpZKav+Ln5q2alEwTYpW7qU6skQyjkY5Sii
-         OL+Q==
+        bh=2vKrN6bgTHQAPUSAXLB2sa6FXef6bZRnfsxB2+/0yI0=;
+        b=vFe8BkocctGKfGnTj7d4CBl1sVvenYczE6VUmL8x2qVRoOUO8/Qtc8snFeCrvwWZKd
+         Au0SH0ZRw67J6IoV+e0dDDzMkSZ5hF82jRGXOqYJqYdd0VqUWPKFx8T6S8mB3lkhd6ob
+         DgRCVW602aWGLGom1Qvxc8GWIMi+urGC/qVgFoK9GddS0yoftRVk4Dqr6/NfLx8aI1il
+         EhRCKGWNVGFenqp0XoTtJwVxVMpiT6uIz0VSHcbNtHY+N9895EGOT6yKHfS264cFy9N8
+         +i1g450fJL/rul1GZELt1bDXAD7TyCGXnlzOB//2YSdPa70Umx5lawuzDL+CKGHEEmpp
+         /CAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795477267; x=1796082067;
+        d=1e100.net; s=20260707; t=1795477268; x=1796082068;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zZAqCzjJUfkUCcYg5LkQHLRNQkTovP/fVdErxmvlRYI=;
-        b=fUZd5GKt0HdizYmoSYE3rjHsqTneYCnHhLiwriRMkYHVMukxFZcZSxOxcz9ZaWDaSg
-         mDgK1tSy/Py2Z64oUk2z2/zeNkc9ShnmBS1p7z2UUGNYGDUE6QaDkXCdaG+2wXWSsb1d
-         ech4uSAm5zkZeFFXcnYugnVKtaT2taHSVy9omvuxk480imMbHSMzTQhmuniRBq2yd168
-         hRxGmu823BthzwqRFzxhDu3vzF7gYvGlqtr82HB1muvsmY4nfG3LGy8e4+/PGwrb+h80
-         0UUQtPlI6umI+lQ5FY9hlgHfHvxopu+dsQNsO3DavyZuQUIky5ElE2wNlhYTmiSGLypZ
-         hncA==
-X-Forwarded-Encrypted: i=1; AL+hErGRiNclR8eFF+tLtXC9L///FVfCpFGP1MW481iHtQVBai/N0Cb/EMKlK8Tfd41lrt3LwRHdplK7w1BG3Bg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/RlRXjJn1KMETt8Zf6erJpuCnQ83AylBRnTiGImCGnMw1p+ng+
-	nfBBCbzQ+9DVl+q4FA1wT3fNePdsP8IU7YzlvTxaOr3AqODNY259VtM=
-X-Gm-Gg: AZFdTZeFSqQoY0VKh2SW0ZREUppEHn0NvcB3r5/QkICWHSJjveKsBVcIxESDITmWx15
-	KJOpATcETWz1LgaQ7HRuaCGgaUKnl30KF42pNhNS0EFLP321p19646kRF04Er8blCamno0m6+D6
-	cMjHETzzF7A3ptIXEh20hyXwYeUIU7BITx74Yjbh+CB0C0znkox05RtHJJwTIYHIYedCY5KHzV+
-	m1mryYdgGTdBt8TIvCFGx0QzZ7nq6D9dgyAifUttW44foDusx/lox0jAL3lKN78A8PMhqX24EDe
-	z0opSwBIyWzIj7/D+ZbucSCYmPwvuT2NFQORYFZRjgcVhV9RmePIdq6MEq+MpXWS++dwqI45Xod
-	SMiRndoTPeaIw3F7FvR/tCoC9h3nlwzgDzePSvTpnEx7/iPCAuOp9cdO91FlTnQ8s0aNWiiZgvP
-	ObY9t6wL3wRAbRZKU/ba1LKHSWHGr8KPLDYT/qIWQX6IS0iz/1D3Y3cKBtliumzeD/Z3RQsXf+B
-	qBAU0Y5R3T4wZ1AbWHNsY8tnpSZQpZ2aKrZEYzfQzslCzjdHzdwpPeS26+cQaRz/zCZ8cOJt0O6
-	X6F1H7HEd7z2ZSyh3n6YL7XJe0sB10gC/VGMJK5q8g1MVjHSBKp+1A==
-X-Received: by 2002:a05:600c:1d0a:b0:4a2:59:f568 with SMTP id 5b1f17b1804b1-4bb8880ef6amr286927725e9.14.1795477266822;
-        Mon, 23 Nov 2026 15:41:06 -0800 (PST)
+        bh=2vKrN6bgTHQAPUSAXLB2sa6FXef6bZRnfsxB2+/0yI0=;
+        b=rT3kGpk2szccuDRodQAjlYzyeuNV1yptcG3/K/hUjm6m0fbF2cZ1ej3O1Aiu5z8oil
+         EF9Rea2TNoXXyz1DeAksrnkwy4swtF2kOzzAOhlalbgoPDS0b9juMkzwtSnrs8LYvJXE
+         AYVN0aEQrecAZqAlaRhaT1i1Yh9H8+MAvAL5fGJFcsVPJq5qWTE1WNq5bsC2IZPVjF3X
+         xp4tkL/gymYdpaoPI0Ptu2Qz27geU8zg0IsXBSGf2p9YOlZk3tcZFvQnmHS86tMwIxr3
+         /5VkJk5/TgIsG1AZCHNlsHQ5P1vD5nb5IHooWFkKHmdBOLRlqj0+yhp9zr8LA6f+5UHe
+         3aug==
+X-Forwarded-Encrypted: i=1; AL+hErFCvNLZSxbgSMcwT6X0i8wtOW0dwmcmveVHwqPqLgCohMW2OoW77iIJefRVJ91Tb5Rp47qK2BlyUGQ0W+k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+haqYBCjfbDt8RqLjBVpUZl52kduCas/+jZmj2yALi+oEr58Gm
+	r9ZcOcbuzb0xj1JTo6AesFHBwbprCmYZV4MaJKmUX75lH8mTj6QVXz0=
+X-Gm-Gg: AZFdTZd6uuFAMuOIKCggX/CvMNbzniv5U2XZTcYTKMdn5PvX1y2EwbIlE0x7ioKwJdD
+	2mlYDi/bZnK/Rr337iL73+WmQj1gxm9KK1bVG6aLvnWyI+uF0AWWWVmND3hby8hNRaDiLcAe4Jk
+	IO88/FmkAbDBse9Nt+xZHplcR3ODAgPt9kP/BpNrYmzUioO/CK/oOwJ9m6gXJMNt4ypqT2HxBOR
+	9EWRdQmJxHfWE2bXmxT0GxgdpThITWPkHArxu+vV4Tws7+U/oBXvSZTSG0WSyOoxxq9iGnnxu6m
+	D6PZzJvOgjbcvX5GjYicpr2AdimLtYUTFwWrsNz11Qx2muQal1xSSoK84FAQ0pNpd/GXEAPsHbn
+	BGjb93wcpbRilvwPm1gLlcyUU8D4F8PFrU3dvuEcZulb1D7+2o8ID/3D3HPGOSKWkZKI06KTlCu
+	ruZXwaC6/0N5Vs3S6m1vBTs/0JKWx0sIRZf6W6ZJgStwqI42e21Up/bAtJTi4h3Mn604KX4ePe/
+	JZdYiG966JS60qPxdx+dbzQf6fX5X99rZvmFXQGWWTlm324Ei6PuNgpnmouPIwVjpMCJz3+XO8e
+	B/XeSqXDg+zYOccKjvCmpnQXvRFhx/8x2pqVIlfwrte2JnjEMHVwl7M6k+PkfndsT7b8ju6UIO8
+	=
+X-Received: by 2002:a05:600c:4514:b0:4bb:6823:3d3c with SMTP id 5b1f17b1804b1-4bb888169d0mr281666185e9.20.1795477268346;
+        Mon, 23 Nov 2026 15:41:08 -0800 (PST)
 Received: from localhost.localdomain ([193.207.76.55])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm568321645e9.13.2026.11.23.15.41.04
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm568321645e9.13.2026.11.23.15.41.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:41:05 -0800 (PST)
+        Mon, 23 Nov 2026 15:41:08 -0800 (PST)
 From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
 To: Mark Brown <broonie@kernel.org>,
 	Liam Girdwood <lgirdwood@gmail.com>,
@@ -90,9 +91,9 @@ Cc: Jaroslav Kysela <perex@perex.cz>,
 	linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Subject: [PATCH 3/4] ASoC: tlv320aic32x4: Add IN1 and Mixer Amp analog bypass volume controls
-Date: Tue, 24 Nov 2026 00:40:49 +0100
-Message-Id: <20261123234050.150364-4-gianfranco.mariotti94@gmail.com>
+Subject: [PATCH 4/4] ASoC: tlv320aic32x4: Add CM2_L and CM2_R negative MicPGA input routing
+Date: Tue, 24 Nov 2026 00:40:50 +0100
+Message-Id: <20261123234050.150364-5-gianfranco.mariotti94@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261123234050.150364-1-gianfranco.mariotti94@gmail.com>
 References: <20261123234050.150364-1-gianfranco.mariotti94@gmail.com>
@@ -107,102 +108,104 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The TLV320AIC32x4 provides analog bypass attenuators for both the direct
-IN1L/IN1R-to-HPL/HPR bypass path (Page 1, Registers 22 and 23) and the
-Left/Right Mixer Amplifier (MAL/MAR) path (Page 1, Registers 24 and 25):
-- AIC32X4_IN1L2HPLVOL / AIC32X4_IN1R2HPRVOL: 0.0 dB (0x00) down to
-  -72.3 dB (0x74) and MUTE (0x75)
-- AIC32X4_MALVOL / AIC32X4_MARVOL: 0.0 dB (0x00) down to -30.1 dB (0x27)
-  and MUTE (0x28)
+The Left and Right MicPGA negative terminal input routing configuration
+registers (AIC32X4_LMICPGANIN and AIC32X4_RMICPGANIN, Page 1, Registers
+54 and 57) expose a second common-mode resistor selection (CM2L / CM2R)
+in bits 1:0 alongside CM1L / CM1R in bits 7:6.
 
-Add the register definitions, piecewise DECLARE_TLV_DB_RANGE tables
-approximating the non-linear TI SLAA557 curve within 0.1 dB while
-staying under alsa-lib's 256-byte MAX_TLV_RANGE_SIZE limit, and the
-corresponding Bypass Playback Volume controls.
+Add the CM2_L and CM2_R DAPM mux controls, widgets, and routes while
+keeping the existing CM_L and CM_R names unchanged to preserve ABI
+compatibility with existing userspace configurations.
 
 Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
 ---
-Note: Of the two TLV320AIC3204 boards used for testing, one wires IN1
-with Line-Out (LOL/LOR) and the other wires IN3 with Headphone
-(HPL/HPR). Since neither board wires both IN1 and HPL/HPR on the same
-codec, 'IN1 Bypass Playback Volume' was verified via alsa-lib TLV dB
-conversion and live I2C register readback (Page 1, Registers 22-23)
-rather than end-to-end analog audio.
-
- sound/soc/codecs/tlv320aic32x4.c | 37 ++++++++++++++++++++++++++++++++
- sound/soc/codecs/tlv320aic32x4.h |  4 ++++
- 2 files changed, 41 insertions(+)
+ sound/soc/codecs/tlv320aic32x4.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
 diff --git a/sound/soc/codecs/tlv320aic32x4.c b/sound/soc/codecs/tlv320aic32x4.c
-index 9f90e41076992..80ff52c6bbbe1 100644
+index 80ff52c6bbbe1..4fdac637ea472 100644
 --- a/sound/soc/codecs/tlv320aic32x4.c
 +++ b/sound/soc/codecs/tlv320aic32x4.c
-@@ -264,6 +264,39 @@ static DECLARE_TLV_DB_SCALE(tlv_adc_vol, -1200, 50, 0);
- static DECLARE_TLV_DB_SCALE(tlv_tas_driver_gain, -5850, 50, 0);
- static DECLARE_TLV_DB_SCALE(tlv_amp_vol, 0, 600, 1);
+@@ -394,6 +394,7 @@ static SOC_ENUM_SINGLE_DECL(in1r_lpga_p_enum, AIC32X4_LMICPGAPIN, 0, resistor_te
+ static SOC_ENUM_SINGLE_DECL(cml_lpga_n_enum, AIC32X4_LMICPGANIN, 6, resistor_text);
+ static SOC_ENUM_SINGLE_DECL(in2r_lpga_n_enum, AIC32X4_LMICPGANIN, 4, resistor_text);
+ static SOC_ENUM_SINGLE_DECL(in3r_lpga_n_enum, AIC32X4_LMICPGANIN, 2, resistor_text);
++static SOC_ENUM_SINGLE_DECL(cm2l_lpga_n_enum, AIC32X4_LMICPGANIN, 0, resistor_text);
  
-+/*
-+ * IN1L/IN1R to HPL/HPR bypass attenuation (Page 1, Reg 22-23, inverted).
-+ * Kept within alsa-lib MAX_TLV_RANGE_SIZE (256 bytes, max 10 items).
-+ */
-+static const DECLARE_TLV_DB_RANGE(tlv_in1_hp_vol,
-+	0, 0, TLV_DB_SCALE_ITEM(TLV_DB_GAIN_MUTE, 0, 1),
-+	1, 2, TLV_DB_SCALE_ITEM(-7230, 360, 0),
-+	3, 5, TLV_DB_SCALE_ITEM(-6612, 174, 0),
-+	6, 7, TLV_DB_SCALE_ITEM(-6020, 190, 0),
-+	8, 10, TLV_DB_SCALE_ITEM(-5667, 124, 0),
-+	11, 12, TLV_DB_SCALE_ITEM(-5370, 100, 0),
-+	13, 18, TLV_DB_SCALE_ITEM(-5240, 50, 0),
-+	19, 23, TLV_DB_SCALE_ITEM(-4921, 46, 0),
-+	24, 47, TLV_DB_SCALE_ITEM(-4670, 50, 0),
-+	48, 117, TLV_DB_SCALE_ITEM(-3450, 50, 0)
-+);
-+
-+/*
-+ * MAL/MAR Mixer Amplifier attenuation (Page 1, Reg 24-25, inverted).
-+ * Kept within alsa-lib MAX_TLV_RANGE_SIZE (256 bytes, max 10 items).
-+ */
-+static const DECLARE_TLV_DB_RANGE(tlv_ma_vol,
-+	0, 0, TLV_DB_SCALE_ITEM(TLV_DB_GAIN_MUTE, 0, 1),
-+	1, 2, TLV_DB_SCALE_ITEM(-3010, 350, 0),
-+	3, 4, TLV_DB_SCALE_ITEM(-2410, 200, 0),
-+	5, 8, TLV_DB_SCALE_ITEM(-2050, 120, 0),
-+	9, 13, TLV_DB_SCALE_ITEM(-1602, 72, 0),
-+	14, 21, TLV_DB_SCALE_ITEM(-1251, 47, 0),
-+	22, 24, TLV_DB_SCALE_ITEM(-851, 34, 0),
-+	25, 34, TLV_DB_SCALE_ITEM(-715, 47, 0),
-+	35, 40, TLV_DB_SCALE_ITEM(-225, 45, 0)
-+);
-+
- static const char * const lo_cm_text[] = {
- 	"Full Chip", "1.65V",
+ static const struct snd_kcontrol_new in1l_to_lmixer_controls[] = {
+ 	SOC_DAPM_ENUM("IN1_L L+ Switch", in1l_lpga_p_enum),
+@@ -423,6 +424,10 @@ static const struct snd_kcontrol_new in3r_to_lmixer_controls[] = {
+ 	SOC_DAPM_ENUM("IN3_R L- Switch", in3r_lpga_n_enum),
  };
-@@ -291,6 +324,10 @@ static const struct snd_kcontrol_new aic32x4_snd_controls[] = {
- 	SOC_DOUBLE_R("LO DAC Playback Switch", AIC32X4_LOLGAIN,
- 		     AIC32X4_LORGAIN, 6, 0x01, 1),
- 	SOC_ENUM("LO Playback Common Mode Switch", lo_cm_enum),
-+	SOC_DOUBLE_R_TLV("IN1 Bypass Playback Volume", AIC32X4_IN1L2HPLVOL,
-+			 AIC32X4_IN1R2HPRVOL, 0, 0x75, 1, tlv_in1_hp_vol),
-+	SOC_DOUBLE_R_TLV("Mixer Amp Bypass Playback Volume", AIC32X4_MALVOL,
-+			 AIC32X4_MARVOL, 0, 0x28, 1, tlv_ma_vol),
- 	SOC_DOUBLE_R("Mic PGA Switch", AIC32X4_LMICPGAVOL,
- 		     AIC32X4_RMICPGAVOL, 7, 0x01, 1),
  
-diff --git a/sound/soc/codecs/tlv320aic32x4.h b/sound/soc/codecs/tlv320aic32x4.h
-index d0c2e1002e99e..70ea13198002d 100644
---- a/sound/soc/codecs/tlv320aic32x4.h
-+++ b/sound/soc/codecs/tlv320aic32x4.h
-@@ -95,6 +95,10 @@ int aic32x4_register_clocks(struct device *dev, const char *mclk_name);
- #define	AIC32X4_LORGAIN		AIC32X4_REG(1, 19)
- #define AIC32X4_HEADSTART	AIC32X4_REG(1, 20)
- #define TAS2505_HPVOL		AIC32X4_REG(1, 22)
-+#define AIC32X4_IN1L2HPLVOL	AIC32X4_REG(1, 22)
-+#define AIC32X4_IN1R2HPRVOL	AIC32X4_REG(1, 23)
-+#define AIC32X4_MALVOL		AIC32X4_REG(1, 24)
-+#define AIC32X4_MARVOL		AIC32X4_REG(1, 25)
- #define TAS2505_SPK		AIC32X4_REG(1, 45)
- #define TAS2505_SPKVOL1		AIC32X4_REG(1, 46)
- #define TAS2505_SPKVOL2		AIC32X4_REG(1, 48)
++static const struct snd_kcontrol_new cm2l_to_lmixer_controls[] = {
++	SOC_DAPM_ENUM("CM2_L L- Switch", cm2l_lpga_n_enum),
++};
++
+ /*	Right mixer pins */
+ static SOC_ENUM_SINGLE_DECL(in1r_rpga_p_enum, AIC32X4_RMICPGAPIN, 6, resistor_text);
+ static SOC_ENUM_SINGLE_DECL(in2r_rpga_p_enum, AIC32X4_RMICPGAPIN, 4, resistor_text);
+@@ -431,6 +436,7 @@ static SOC_ENUM_SINGLE_DECL(in2l_rpga_p_enum, AIC32X4_RMICPGAPIN, 0, resistor_te
+ static SOC_ENUM_SINGLE_DECL(cmr_rpga_n_enum, AIC32X4_RMICPGANIN, 6, resistor_text);
+ static SOC_ENUM_SINGLE_DECL(in1l_rpga_n_enum, AIC32X4_RMICPGANIN, 4, resistor_text);
+ static SOC_ENUM_SINGLE_DECL(in3l_rpga_n_enum, AIC32X4_RMICPGANIN, 2, resistor_text);
++static SOC_ENUM_SINGLE_DECL(cm2r_rpga_n_enum, AIC32X4_RMICPGANIN, 0, resistor_text);
+ 
+ static const struct snd_kcontrol_new in1r_to_rmixer_controls[] = {
+ 	SOC_DAPM_ENUM("IN1_R R+ Switch", in1r_rpga_p_enum),
+@@ -460,6 +466,10 @@ static const struct snd_kcontrol_new in3l_to_rmixer_controls[] = {
+ 	SOC_DAPM_ENUM("IN3_L R- Switch", in3l_rpga_n_enum),
+ };
+ 
++static const struct snd_kcontrol_new cm2r_to_rmixer_controls[] = {
++	SOC_DAPM_ENUM("CM2_R R- Switch", cm2r_rpga_n_enum),
++};
++
+ static const struct snd_soc_dapm_widget aic32x4_dapm_widgets[] = {
+ 	SND_SOC_DAPM_DAC("Left DAC", "Left Playback", AIC32X4_DACSETUP, 7, 0),
+ 	SND_SOC_DAPM_MIXER("HPL Output Mixer", SND_SOC_NOPM, 0, 0,
+@@ -500,6 +510,8 @@ static const struct snd_soc_dapm_widget aic32x4_dapm_widgets[] = {
+ 			 in1l_to_rmixer_controls),
+ 	SND_SOC_DAPM_MUX("IN3_L to Right Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
+ 			 in3l_to_rmixer_controls),
++	SND_SOC_DAPM_MUX("CM2_R to Right Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
++			 cm2r_to_rmixer_controls),
+ 
+ 	SND_SOC_DAPM_ADC("Left ADC", "Left Capture", AIC32X4_ADCSETUP, 7, 0),
+ 	SND_SOC_DAPM_PGA("Left MicPGA", SND_SOC_NOPM, 0, 0, NULL, 0),
+@@ -517,6 +529,8 @@ static const struct snd_soc_dapm_widget aic32x4_dapm_widgets[] = {
+ 			 in2r_to_lmixer_controls),
+ 	SND_SOC_DAPM_MUX("IN3_R to Left Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
+ 			 in3r_to_lmixer_controls),
++	SND_SOC_DAPM_MUX("CM2_L to Left Mixer Negative Resistor", SND_SOC_NOPM, 0, 0,
++			 cm2l_to_lmixer_controls),
+ 
+ 	SND_SOC_DAPM_SUPPLY("Mic Bias", AIC32X4_MICBIAS, 6, 0, mic_bias_event,
+ 			    SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD),
+@@ -610,6 +624,11 @@ static const struct snd_soc_dapm_route aic32x4_dapm_routes[] = {
+ 	{"IN3_L to Right Mixer Negative Resistor", "20 kOhm", "IN3_L"},
+ 	{"IN3_L to Right Mixer Negative Resistor", "40 kOhm", "IN3_L"},
+ 
++	{"Right MicPGA", NULL, "CM2_R to Right Mixer Negative Resistor"},
++	{"CM2_R to Right Mixer Negative Resistor", "10 kOhm", "CM_R"},
++	{"CM2_R to Right Mixer Negative Resistor", "20 kOhm", "CM_R"},
++	{"CM2_R to Right Mixer Negative Resistor", "40 kOhm", "CM_R"},
++
+ 	/* Left Input */
+ 	{"Left ADC", NULL, "Left MicPGA"},
+ 	{"MAL Power", NULL, "Left MicPGA"},
+@@ -648,6 +667,11 @@ static const struct snd_soc_dapm_route aic32x4_dapm_routes[] = {
+ 	{"IN3_R to Left Mixer Negative Resistor", "10 kOhm", "IN3_R"},
+ 	{"IN3_R to Left Mixer Negative Resistor", "20 kOhm", "IN3_R"},
+ 	{"IN3_R to Left Mixer Negative Resistor", "40 kOhm", "IN3_R"},
++
++	{"Left MicPGA", NULL, "CM2_L to Left Mixer Negative Resistor"},
++	{"CM2_L to Left Mixer Negative Resistor", "10 kOhm", "CM_L"},
++	{"CM2_L to Left Mixer Negative Resistor", "20 kOhm", "CM_L"},
++	{"CM2_L to Left Mixer Negative Resistor", "40 kOhm", "CM_L"},
+ };
+ 
+ const struct regmap_range_cfg aic32x4_regmap_pages[] = {
 -- 
 2.25.1
 
