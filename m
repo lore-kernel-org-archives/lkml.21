@@ -1,65 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446738;
-	b=5LqQZlLl1omy/J3l2hMt5i+AzPUH69pBaXkvIt00w4sFJgkfcMlsQ/fzpO2HN5yrBwOK
-	 G2KYrGkJvBrRqJQiX+YRsMrJppTx7I3sezf1MR48DcIhlCf/dy/DaJisKKxynpIqottJY
-	 jHq1CbA4V6jDoUSZnV88nMal0eZRcli5SEOX9BOhMBPJawviccF61RuzPBE0q11vYnC3R
-	 sJi5g7jG6yRq5xmY9t86yabKXD+Jpeo5b8uSyRq7QxiQDfapKcBNVRGCdPXGZ657ome/o
-	 MTYDHvdXmjbgZJddn+OPd6CZWRl5mdODJi/VGLpkF3ysPcfhByFohjJ4XyUQdlpKnAg==
+	t=1795446751;
+	b=dhFukleEGZUb4iF63iVFvuyYqWGO6I0zHdtbI6aUvtpzSTy84fnXmkUnhCibGqGkfItP
+	 YHHRcYtKe7TMgvr+1mP2T9tLcyJQpBz/nnr8Yj73RPtztsQPJtmyiaSG6ubfQkXz2csVd
+	 GO4dlJ26wZTa4xs972foEd54XX8E8TdiXV73r933v4MmjOMTiW2lPvp6gVDNStd8bzm1a
+	 9nzf03zbiCprr9XkiGxbZ8KUmU8mQ+QfnaSsz0a+/5whVs0Pza2H/80JN821BQTBag3qG
+	 i8df6gCQNEXDZdPB8qSQzz9zHMluDZp53g5EpMXUDIzFAjjcQL0yzWLibxEJoCsgH0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446738;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Y3crQHbdpOlgtQVKmilOb/+IWL0/tt7WDZKDspXm67A=;
-	b=0vnMTicYNh/28o6QS44HbFJa9IYbHDD83rTQe1KU5rbk1fCgUCBzApjPHBhTOhFK+8Az
-	 sEdyEwG5zDrvC3KMGkO9g+EAA90cCeeOOjhmzOwXqe6oi2O1ruXPmiDH2StwUTK8IuEwm
-	 0M2obxKt4mSKBOQXTQtsWLzxOQ/oQfc6mnQLNnYQfVy1R60O87dZwwXdM0pKJ8h1Z/jjE
-	 PbpUB3rP0uK51Dj87iAqWhkvtW9PWS+zhS8EVb4cNv4q3h65/wL62A+GH8j9/qU1YEr8C
-	 cKbjIlUJj7V07LZzNH8afZ1XApNMmVbXDC7mSc/Yet0oXtj3qGqNFIsziGVZbjdtO8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446751;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=Wxk7B7PFuan5joq/yVQKmCCEtznZSJrtGIEWSRbzgrc=;
+	b=37rl2YGueAcZVqZEc7JqF6FggVD4HlSkUSigQPMjUIcQ6u/lVVaf03C+n9KXFVxlxdhV
+	 +PfT8st7keDZqwz51YM/Wx5DmuXol8ZiOwT4Zrhh+jsOkqNyscRvWd0HMF9c/HBl2s6NW
+	 sUwcAHl5RlKZw2BgAMxOLUBiq6CHCUxRibclxM5D9MWUAlC5oQgwRTZcmJJKWvehPut3P
+	 vHzScikwIrXDOMvc9DOHW23hQm84m/PxhYCRQbvRtwUtStygKq3m2K3GJ5+MNnBxZBJ8n
+	 w8DkMVUcD8xVITl5HMSqfJrw4Ki3pUSWiLl8C9xZOntY/4VS8AwoXN7DV5t7JxYFlbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TKofGITs;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kslaK79l;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 235D4606A31E;
-	Mon, 23 Nov 2026 15:12:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDBEC606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:12:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TKofGITs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4AD91F000CA;
-	Mon, 23 Nov 2026 15:12:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kslaK79l
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEA871F000E0;
+	Mon, 23 Nov 2026 15:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446737;
-	bh=Y3crQHbdpOlgtQVKmilOb/+IWL0/tt7WDZKDspXm67A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TKofGITszN1ewiDEtpVWMrbMfRwWCjDaHNbBen0MkvuNON/yK2SDQB6oS7h0PE5i7
-	 tgeeEjk9sV/5XJ7z3G9kAxf6//s44qhgty+pZrzzDo61M+YdiXd76Le86YxIU2EAX/
-	 HwSbyC1UA0W3Z4zrcXmIfMCafL1OGdpa/rgUknqiYoezjf1Y31SOQxHXpxa6hMZaQ6
-	 UaVkSoFo7/YsqOymnRN90B9ffJ2A/R2G2juLmFoN7GZrDtN6Xkm8Ivv/YTgkknsdGa
-	 jCfUfTf3VAzx6cPLRpi6voTlz17ryusbj9pR39GybniE9OqmDoPYwbl83F/U0wWxyD
-	 2u7Vmxw9WVb1A==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Thorsten Blum <blum@kernel.org>,
-	Nicolas Royer <nicolas@eukrea.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 10/10] crypto: atmel-tdes - Update output IV before clearing busy flag
-Date: Mon, 23 Nov 2026 15:10:01 +0000
-Message-ID: <20261123151055.2533735-11-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123151055.2533735-1-lee@kernel.org>
-References: <20261123151055.2533735-1-lee@kernel.org>
+	s=k20260515; t=1795446751;
+	bh=Wxk7B7PFuan5joq/yVQKmCCEtznZSJrtGIEWSRbzgrc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kslaK79l57T0qR5vGV7ELtGq37tF20pxUagzw41djQ0Ns4Doukv9rpls7mqt8RkOF
+	 AAOIuDnrCCcxMLZn7lvfYNuKrN89O9Ezpz2BKjmq2TfMFQ+Lh374tpQkA8ibwKw/+z
+	 rcufgsz3av5cTyJZAuLhqPrnN9sVIp/ixb/57Bsc4rdUFl/B5MIOzBCQjTpl7L/MPh
+	 o6aekkUgQoL8UMiXKHb7kW36d200Hg+oDPyTViKe9jk4n/fjq4Jk7mv+QiT81s7Iff
+	 rVK8w2e+cWQsaDP1bAzD4Gp08Q2bRv44fkRxYcqOT0gYCAkdus4gQEji1b4MNlj18B
+	 rE8qNgRssmHuw==
+Date: Mon, 23 Nov 2026 15:12:26 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 3/9] arm64: sysreg: Reject a Sysreg and a SysregFields
+ with the same name
+Message-ID: <9738c9a6-8e40-4fd1-900d-f348f84aa33c@sirena.org.uk>
+References: <20261123075219.369042-1-fuad.tabba@linux.dev>
+ <20261123075219.369042-4-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,56 +64,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mZltvRBnIGYBvbfX"
+Content-Disposition: inline
+In-Reply-To: <20261123075219.369042-4-fuad.tabba@linux.dev>
+X-Cookie: Truth is free, but information costs.
 
-In atmel_tdes_finish_req(), dd->flags clears TDES_FLAGS_BUSY without
-holding dd->lock and before calling
-atmel_tdes_set_iv_as_last_ciphertext_block().
 
-As soon as TDES_FLAGS_BUSY is cleared, a concurrent
-atmel_tdes_handle_queue() caller on another CPU can dequeue the next
-request and overwrite dd->req (as well as modify dd->flags).  When
-atmel_tdes_set_iv_as_last_ciphertext_block() then reads dd->req, it
-overwrites the newly dequeued request's IV with the previous request's
-ciphertext and leaves the completed request's output IV un-updated.
+--mZltvRBnIGYBvbfX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Update the output IV before clearing TDES_FLAGS_BUSY, and clear
-TDES_FLAGS_BUSY under dd->lock to serialise flag updates with
-atmel_tdes_handle_queue().
+On Mon, Nov 23, 2026 at 07:52:13AM +0000, Fuad Tabba wrote:
+> The generator rejects two Sysreg blocks, or two SysregFields blocks,
+> with the same name, but tracks the two kinds separately. Both kinds name
+> their macros for the block, so a Sysreg FOO and a SysregFields FOO that
+> each have a field A both define FOO_A, as well as FOO_RES0 and the other
+> masks, and the compiler warns only where the definitions differ.
+>=20
+> Track both kinds of name in defined_regs, so that a block is rejected
+> when either kind already has its name, and leave the kind out of the
+> error.
 
-Fixes: 61b0dd664fa1 ("crypto: atmel-tdes - Set the IV after {en,de}crypt")
-Closes: https://sashiko.dev/#/bug/linux-d6fd6f42-d6fc-47d0-86d5-f428e2203a64
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
- drivers/crypto/atmel-tdes.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
-index c86d06169ab9..392a2a3a8b85 100644
---- a/drivers/crypto/atmel-tdes.c
-+++ b/drivers/crypto/atmel-tdes.c
-@@ -504,14 +504,17 @@ static void atmel_tdes_finish_req(struct atmel_tdes_dev *dd, int err)
- {
- 	struct skcipher_request *req = dd->req;
- 	struct atmel_tdes_reqctx *rctx = skcipher_request_ctx(req);
-+	unsigned long flags;
- 
- 	clk_disable_unprepare(dd->iclk);
- 
--	dd->flags &= ~TDES_FLAGS_BUSY;
--
- 	if (!err && (rctx->mode & TDES_FLAGS_OPMODE_MASK) != TDES_FLAGS_ECB)
- 		atmel_tdes_set_iv_as_last_ciphertext_block(dd);
- 
-+	spin_lock_irqsave(&dd->lock, flags);
-+	dd->flags &= ~TDES_FLAGS_BUSY;
-+	spin_unlock_irqrestore(&dd->lock, flags);
-+
- 	skcipher_request_complete(req, err);
- }
- 
--- 
-2.56.1.750.gf70dc682cf-goog
+--mZltvRBnIGYBvbfX
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEV9kACgkQJNaLcl1U
+h9BFjwf/a+uTWOL2w2fGAih4ZFxCdRmDPI0lORk1uRY/EwUS4pTT6T95X55ZZsiq
+DrfywqDojL9Rvq4UdT68snDIJYWp8atheiuYld4aYw9JSg473hbnG8Jpe2D+zgwG
+FVWA1rZaYLwM7esW8BAYA99oTQOtyHsfNVWldygU1xWXMo6b2We++DTVshtSVab8
+VeSzxcR8dTVVENeE6fA2lCfkYJLQmv67fkD/MRVP4qfbkMi2p2hTOnKsERENSWfa
+UOG504rltECx6G1/OD2r6zEcoFG2OrhrR90nlXwmCYHmSQZ8Z0/zIv86aWHvqyE9
+mluJtY5ZmxOBmBJZgBsa7ipz5uIYhw==
+=m9OD
+-----END PGP SIGNATURE-----
+
+--mZltvRBnIGYBvbfX--
