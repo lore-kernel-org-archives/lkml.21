@@ -1,100 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795472114;
-	b=13NnG+m1O/oe3s5J83ubVr6nww4lR23TNkgcJLn6PnjwxIX6B9Iydxu9hj8Xiwz2jjg2
-	 wS2NcbU/NM+gf/uZBDTh0q/I8cUwvcfNSVAycsIYhtMTOMXC0WgLtomOVxAdyp6nqISlW
-	 2CJlCg7YQwlXuOjcfZoUNM1fJ3FD/3YtaeOqYst5oEax6V7olV7zlX11RQnxDlkWPuO58
-	 MZzhYOwI5AzqIR+Dlx0q/nkvZ9zTlh2dplyYY+IBb9K7OmOV/7BSBnSLBKML6BzfrFvMq
-	 UJvAzUnRRsrb796IGQuoWU6nIRjnR9N/vliwszUypG69iOQ4A5+Y09e7qneubMPG4oA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795472114;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=F2nxXw1xsNQYaaD8ZR5Wp773q2x9Fzid0kC42p4+1HM=;
-	b=A8ssdcjzpTJEG1++Ui9eCcyjRVLXnhEkvtYbcVDeSQb7/MMMF7gJyKwUZulctNRSZGIW
-	 lLLPq8jabTR/w3nRivt06htoSvDUANgiDfbiPPP0y4jbybCrBU0F96J4k9HGKtGLEuvBk
-	 084bdeobnJmgRtDJAA8kkQ9ye/7EALNHKFob1rfgyKrIBT5AQEx+XFjH0B8d6GoInnoyL
-	 PC5yHTlEVkEcXBrG55sLPYr+2T8GjQuYWIzHEo2JB4FlaGYb9oTlHcVkRAXQKDZMMw+Mf
-	 ZKmiWWJ4wWCcd3pmna1zLb7xzP4QiCZp2CUNBiF2JHeJ5LccPgeWXy38csNCP1V9N1w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rAys84+E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.41
-Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com [209.85.210.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795472138;
+	b=o0eAZbvAHbl/FsT/iKK8I1W1xzwsCNyXF+BP0w1wHsI5pA/mGQxD9iizZMSOJK2G+h3r
+	 0ASTuUBZluU4OocUO+4ZQUH5fwyA2yd91SB3ftn5MIHFD6yYjlP1enqlGSC+1Btuz2R19
+	 ZSyVgtN5zGWxUz6h+AHWV9drzCPtuENQcXxeNDhUBqVlleENmDjL5xE8umOYZOWj58jBF
+	 qaYIeKKJztMVbCd+qMEEXR2a4qD2xa4RWFrckLqINs23Ew8LhDE6VMJrDKYa+lFlKqdma
+	 jHfJqEcTUzEuG0kvuUuzWeC+fFc0jxkwTw8CZGz0hFyw7B40SAIxXqtKbM51ZVeyJxg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472138;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=zZOr86x6Nbcrswj0/CdPx/id2jV0MiHrJmrhX/el+Dk=;
+	b=0jTyjyfP9O1mXrCri60oej//HSMu0XvGP2CNIx9VRlghqZIeRLBfhm3AJKIDqTLoRQFq
+	 doxeIVudMzuiyLGuiBezLVl9sAzGoYPObIWME61ZcWtw4XY9GS+wFUCtx2ZbgSgbC0CC0
+	 zf8EzvBEW4bax+j2CBJpVlzv5aNV75Z6tdXevrSLqkOJkRsbZ96SeHJXVl3tAmwFRTsEo
+	 x5fBw1f9vtUYWKSzdcC4PaRT8z6ViMw38MhEaLy+DyXE86kwILy2ToiHP71Ud7aItBmEd
+	 ovJamY5BE64gFC9tCBGKT4GoJhZrx1KIyg9QPKZ0yXMBYte+kuzUsp/PRyMobUH415w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IUfnCFTe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88598606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:15:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88598606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A33D6606A322;
+	Mon, 23 Nov 2026 22:15:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rAys84+E
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-86156081432so722447a34.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:15:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795472113; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SBiQHf9OtkpcFD9l5aY1N/HwuvOm7jaTR/xLG7C+tkO1n5MxlQ4UtsMYP6rsby/6tj
-         BdcYh7C7zh6kTb4NoDgNAPwj/VW6XRbNvZ4mXurmN0Et75QeF/kereV99VJrpZgtm1RP
-         IMWQHy0qGD0qeXOqdrQ7QURkv5iL6SjgAxiC4gOm/0X1wkqBplquNbHG2zN+uMrrRN/l
-         k0bSOdQkMgtStm8ce2jGgmeigxEMJGVDCHL+PkLl7nSJIt7MXkmE3SfaLbFBg3XYdqL1
-         cVrYDiWUR8K180btIbCxmIuM7PSnc503jLybHbLVo1O/oCvv+pOSJAD1D09NHAuUhY14
-         fIoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=F2nxXw1xsNQYaaD8ZR5Wp773q2x9Fzid0kC42p4+1HM=;
-        fh=8rQsEq7P3NobsL1fPRSN2xB2UQDDN8RqmFtd12t9kls=;
-        b=fDC1yvfQhpnavR0VngetbBz0tvughDaNlHJ2ePLJ+Kgqzc7jNl4I1p44V5UkbUkfPG
-         G6G/qpEg2ZTwUEp+f8Pwcqs8KOlwL1Nyc0W3MjL4+qm/qzS8TTr66VhlEuCn31Wq8bS3
-         +Qopg8AfxNwiFPqGJtsJ78ElYYm0ezl27zwbr6v3ahyL0tYwI1ANZIEgJBD6xb/zB9UE
-         lwfXntJSG9JwndloGgXyWbwU3iCx+q1TucPDI/VrCtQrtK07VFtlyTmoPZ0D6f+GNK++
-         dtRdsGzfWSCnjVdUY3LYyyRG924sssM8n8h9MvKAA5/jq3qK2V/K6bYgN5i06ftmUxWx
-         pNkQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795472113; x=1796076913; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=F2nxXw1xsNQYaaD8ZR5Wp773q2x9Fzid0kC42p4+1HM=;
-        b=rAys84+EB0GX35CiHTLGHRvFl2TY5PywP+H8poN1n58IEwptwTqp/gZd1aNO+/jddx
-         YT3RrArgIOclypdPq37rkF23TXh9he6PMtTjDhsYr/zCukCU2JFSmKqqBr+GtTe48sbB
-         I53wrIsXWqH4wQfgWKOQL5Yvn9859IoS1PCIxx/I4nccvB42iOmHdCwVZSR/ab/crWeX
-         ijA3qDwpTWGbRqX075nIFY2i1t+FFSnXyhJStwLPIrd5KQQL9g8reC29rOdoEzNENfsd
-         O8uEhDJ8T1oEbQaACjSoUUqNfbJHo0G5cW6G9DCPuV81WP2qi4uWwelMHZk/4J4Xuh3r
-         0MHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795472113; x=1796076913;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=F2nxXw1xsNQYaaD8ZR5Wp773q2x9Fzid0kC42p4+1HM=;
-        b=jxO/+OvjcgqRjW7FK3r26ZJNaDZa1US1kavlvCCRYaPhbgekKIvyPh4xHblYDskTkx
-         GHO8hAcmXZqg+IMPm0wHLi3f2p1ERpEJ47/a3R+UYw3kQ4ErSJO9SW5v9Wt2DzhnWk76
-         TP6C8nf7ciGMYBXAAH3KccHe7VznzyzlEoi1gK7Zfdh7HmMCGf6+uk9FQaS1ZNxojREi
-         lNVkNt4W5z1F/N2soyYYmpYKy3k65VMa/4rlT+AdK4WIcq2foefOBWBKuFvlOPLIonjh
-         wggkfRQYh1lqjxRD6QKE4PPUq5axSYVkMc553NjNb2tUy2y1ZqqhksIuP4M+YdikHTUu
-         tfAQ==
-X-Forwarded-Encrypted: i=1; AL+hErFCODdxclqczsBkiUtGPQrl+PLlJdKhvHcEzWPGQxrR3YGFVHNkfbo0Nf20Zg8E0iFKm96UqVPYqSQLS8Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9K9uGY5+WvxrM0PZ1AlK6VNzIoJN1UYhh/F09jX1HWFPsMHMsR
-	kilSh0TTdiYyA+U1UexhwnmSa+u9xIQUrtIFaizr5Zb6vXcF0xk9BypcFPSluhnearu8liRwYy8
-	O6+uSVcxWXt9X7rTi8+uAFnBiMncdkZg=
-X-Gm-Gg: AZFdTZcqouOG6ETzGI4sHIDb6DrHLM82Xi6TDJrc4w8SvAAqP4lNGYrsOXoFK+YAE98
-	o4Hz1argKEUq/5YqzUH3AConyIitFEIMGbl0BjAmsR3P612PtuRrcPm/2TAcTjpbePaACAxJPnJ
-	o6jmipLZ5DGkm347lF+V8Rwjn0XBXDcjOg8BG9iXs6dAgShmhsbJKT2HPf67HH+mNxDp53wJC2g
-	Mj8LUEdNQVzDJ36Uc90ug5oxOShEN71cUvQs95WafoJmm4V2AV+vTe085IaP+bMpQuGZ2kWPOYA
-	eqp7G5HCXkvejE36CWvFSwTTp26S1358hpgJO8n8OiErMhAVxkUL2eRyDFsaZRk92kA3t/8pPsf
-	wzScZvEL/4ij0Y3qJs4R4ORJaWJd1RoD53aNoQUc8rN1QCftWESMeWw==
-X-Received: by 2002:a05:6808:3199:b0:4e8:b729:3ebe with SMTP id
- 5614622812f47-57a0b953d28mr19799401b6e.4.1795472113383; Mon, 23 Nov 2026
- 14:15:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IUfnCFTe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71A6B1F000C0;
+	Mon, 23 Nov 2026 22:15:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795472138;
+	bh=zZOr86x6Nbcrswj0/CdPx/id2jV0MiHrJmrhX/el+Dk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=IUfnCFTe+dBvsPU7O06E2fZSVhth+KzFXsodtvncGuI0ZJrIUURRRNuTzOpaaXs8w
+	 Yx9tfQxFf0bhkud/FZpgu8M5GraijG/vUGk9+qgLWv+yC4PuuWis9FcdtnPM2p8/tG
+	 NklJrEq+wTwwduRL6DBLbHPZLz+aXeAy3qLhhsEFf9ixKzUsda7LHBGm13m+YJOsTj
+	 +gWPX2J9lF6u1D3o3sYOKIey0FJQdYR9Jjzcr3TUQ/YuUOZy6BswMLeTvEZxX29xaW
+	 Gu+Kppy1E9Sp1P5RVB5zVWQpcZkzx78goOMCIq4LogvU6xwyAC4c4KQGNxt064WKP0
+	 npRyr50ofJOxw==
+Message-ID: <356dfc79-1918-4024-b40a-57a8cb05418d@kernel.org>
+Date: Mon, 23 Nov 2026 23:15:19 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,84 +51,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121163557.963029-1-john.ogness@linutronix.de>
-In-Reply-To: <20261121163557.963029-1-john.ogness@linutronix.de>
-From: Gustavo Luiz Duarte <gustavold@gmail.com>
-Date: Mon, 23 Nov 2026 22:15:02 +0000
-X-Gm-Features: Aa3M54r8PgRgIYfuYsniaBnSQY5MIggTDgAoabLc7fQl-pQOC2s44IKG_HVebgI
-Message-ID: <CAGSyskX=DHDJiUxWOqG5_rYhA=OGoHbe_=GtGbOPsGPfgZAonQ@mail.gmail.com>
-Subject: Re: [PATCH printk v4 0/8] Introduce policies for unsafe flushing
-To: John Ogness <john.ogness@linutronix.de>
-Cc: Petr Mladek <pmladek@suse.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, Rio <rioo.tsukatsukii@gmail.com>, 
-	Danilo Krummrich <dakr@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Bradley Morgan <brads@mainlining.org>, Pnina Feder <pnina.feder@mobileye.com>, 
-	Alessandro Carminati <acarmina@redhat.com>, Gal Pressman <gal@nvidia.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Mike Rapoport <rppt@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	Pratyush Yadav <pratyush@kernel.org>, Dave Young <ruirui.yang@linux.dev>, 
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>, Oleg Nesterov <oleg@redhat.com>, 
-	Bradley Morgan <include@grrlz.net>, Alex Elder <elder@riscstar.com>, 
-	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>, Petr Pavlu <petr.pavlu@suse.com>, kexec@lists.infradead.org, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/16] dt-bindings: arm: qcom,ids: Add SoC ID for
+ SXR2250P
+To: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Robert Marko <robimarko@gmail.com>,
+ Guru Das Srinagesh <linux@gurudas.dev>, Thomas Gleixner <tglx@kernel.org>,
+ Radu Rendec <radu@rendec.net>, Lee Jones <lee@kernel.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Wesley Cheng <wesley.cheng@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>,
+ Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Amit Kucheria <amitk@kernel.org>,
+ Thara Gopinath <thara.gopinath@gmail.com>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Georgi Djakov <djakov@kernel.org>,
+ Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Ulf Hansson <ulfh@kernel.org>,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mfd@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-usb@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-scsi@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-pm@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20261116-halliday-dts-v2-0-2c92438c6c46@gmail.com>
+ <20261116-halliday-dts-v2-13-2c92438c6c46@gmail.com>
+ <20261123-pastel-barracuda-of-rain-bce8ac@quoll>
+ <20261123211723.1065310-1-lightofmysoul@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261123211723.1065310-1-lightofmysoul@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 4:36=E2=80=AFPM John Ogness <john.ogness@linutronix=
-.de> wrote:
->
-> v3 is here [0].
->
-> Until now unsafe flushing is only performed at the very end of
-> panic(), before entering the infinite loop. For other situations
-> (such as panic-kexec or panic-reboot or emergency-reboot) no
-> unsafe flushing is performed. The reasoning for this is because
-> an unsafe flush could lead to fireworks, which could prevent the
-> kexec or reboot from occurring.
->
-> However, some users may be willing to take on such risks in order
-> to see panic output. Indeed, for the netconsole (which does not
-> support safe atomic printing) it is a regression that such unsafe
-> printing does not occur. [1]
->
-> This series adds unsafe flushing policy flags per-console to
-> allow individual consoles to perform unsafe flushing for such
-> scenarios. The unsafe flushing is hard-code-enabled for the
-> netconsole in patch 8/8. The justification is that this is not
-> less safe than the legacy netconsole.
->
-> Later these policy flags could be easily exposed to userspace
-> via /sys/class/consoles/, once the sysfs per-console interface
-> is available.
->
-> The first 5 patches have no functional changes.
->
-> Changes since v3:
->
-> - Restore WARN for non-panic hostile takeover attempts and
->   expand the comment so I don't attempt this again.
->
-> - Rename nbcon_allow_unsafe_takeover() to nbcon_allow_unsafe()
->   because it now allows general unsafe usage and not
->   specifically hostile takeovers.
->
-> - In __nbcon_atomic_flush_pending(), additionally use
->   panic_on_this_cpu() to determine if a hostile takeover is
->   allowed.
+On 23/11/2026 22:17, Stanislav Aleksandrov wrote:
+> On Mon, Nov 23, 2026 at 01:09:26PM +0100, Krzysztof Kozlowski wrote:
+>> This should be rebased on my patch removing the IDs.
+> 
+> Thanks for review. I will rebase it, but I am not sure about
+> the order, could you please clarify?
+> 
+> 1. Should I wait for sending v3 until your patch is applied?
+> or
+> 2. Should I apply your patch locally and then send v3 based on it?
+> (but if something changes in your patch a v4 might be needed)
 
-Thanks for following up on this, John!
-This version looks good to me. Netconsole needs more work before we
-can have a completely safe write_atomic(), but this will allow users
-to make a choice between reboot safety and observability.
+I suggest rebasing on top of my set, so the (2).
 
-I tested it triggering a crash with and without kdump enabled, from
-normal context and from NMI context (simulating panic on hardlockup).
-In all cases it fixed the regression: messages were sent correctly via
-netconsole with no unexpected errors or warnings.
-
-For the series:
-Reviewed-by: Gustavo Luiz Duarte <gustavold@gmail.com>
-Tested-by: Gustavo Luiz Duarte <gustavold@gmail.com>
+Best regards,
+Krzysztof
