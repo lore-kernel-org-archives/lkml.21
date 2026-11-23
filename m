@@ -1,99 +1,136 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795438145;
-	b=TzEjff7onz9z0pDv6RghiPhOnzV8k0fe+rUDYik2tirX7Eo+UtnSsViZRbjnWM+5g50K
-	 EQn7q/N+ssWTnhOnGm6CbCpkqvLwzh7t2RV5l/MH7TH98akhKAClyl7676DJDhcBuqhAc
-	 /o5OyY4KhkVwuB9ng7wRvOvTLzOfj6sPL3dmtAwh3f33DcCZEyoXsU+1NdUqO+piSq1ZN
-	 cUM1c8eEi62yEClq1ouFT37GDqPwYi7BGBl9Ws/jrH1z8SGo4mQ3NtTY9Av45+6i5QmFa
-	 qbRcf+Anc+kjmWfEMzaCQzfjjDrdf8B1QL8+09uGw21GspWXEd1Xz9DkqR2AAanoaWg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438145;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=kFSS5Lpx23772o0jxHiqpcMGc1EZfFQoRb+B8VLiMXk=;
-	b=KZYvqXnkSQZTZadnF/aPtM5YpKrR3sGV8KnfFY4YrPG20qK2b1CBWBD7a/viNwtDvVIO
-	 qep1C7DXwCqz2KIrGiAEvQskFatbQHa76JrD7lRTTdMgYD7SDZH1eI9QsjyEI0rcjfRKS
-	 UVveaM3/E9Svo6RL0f1iMabS2Hoez3dYMhqP3TPe+xeplOyyOOmOQniGSp/JZnGuNP5Xv
-	 rUVEwd1xXmaCprKCY+Nijw91pkrT6H8VhgL4rC5+aJx32Q2adLAdORRHssA7BDv03ZCpU
-	 yJkcSd7Sa3qSWEw8OxrtgNVwOOV50bKP1+xXU+7gVvKM9i0AzSo7q71CJy68aj6vNjg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sentinelone.com;
-	spf=pass smtp.mailfrom=sentinelone.com;
-	dkim=pass header.d=sentinelone.com header.i=@sentinelone.com header.a=rsa-sha256 header.s=google header.b=IrLGZGTM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795438189;
+	b=M2DeEtGcT/1VY+QLnWMhcAwDQW30/R9Eog5TFRTShgZ+ehOohJf3Vku/Zt9RXpGAuFKf
+	 dUaPr6yEwKAm581JOlQk3VCrLqB3Lj5xwUFvTEbN7RnMakQIRpgKp1kozZI7pc6OUdQdJ
+	 kUp7gUieG6qSGCb1vyefIPxhW9yjTtoSabxFBO+RY3EtSabAQnDtSO2eiEeh46l8IqUk7
+	 yzOuP1xE+sdb43iDQvU1sEQ2i0YAtVh1kjEq8ZSVS0OwCCIuXOjWklndlTqmvzNbu2QKv
+	 1GG6m5llXMr0e70bTfmHMHgA7vipK3OCYN7Y3Cq83TDwGWK66VVO29CKt4m23iKRrNw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438189;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=9S+zYbf1+35Bjw2Mrwh8qKAGonx8naAVwCL/M52lAos=;
+	b=xekW5UXjAQI8xey0S4SyOJuCcNeysKvz+43LG3Lzn7+VBZeNG7rRqqWfWYEtdXHnCyxf
+	 MckWwJ974kuuOP95ooWoxqxNRQB46NxO3xbyiiCzuix4PD623wvEEKSS/kvR77cy27C+i
+	 BFLfq964Qxoh5lydkLPUC7dCEQxxQr6TBQ6FXJrUwDSUHTzL2yh/pUCUifNgbMYhQbSgY
+	 OyIE3KvXOuWyB6KOv1OGkd4+TGS+ePDuIr31NVedpWMtpbCKpyC19rghMMhSrTVUsq5vw
+	 sbvIkTZ5F/FzKLUU069hOfryl1/TRG75xJ+v8SeoRWA7HIqHECvAl1+vPNA8GbD+3jA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2eVrJ5W7;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D147606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:49:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D147606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sentinelone.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sentinelone.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69A4C606A321;
+	Mon, 23 Nov 2026 12:49:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69A4C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sentinelone.com header.i=@sentinelone.com header.a=rsa-sha256 header.s=google header.b=IrLGZGTM
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b3f9cbafecso434081a91.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:49:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795438145; cv=none;
-        d=google.com; s=arc-20260327;
-        b=FjqJ2nBauujo26f3/UDKlioDtpwrwC4bBud0A83q0q2KgBi5Hr/gqp0ODHsYMZ63l9
-         CxwqZfy0Lno2bEN3HqtC4IZlk6SphQp34iwn+AL90zi5+csBAwjtxCpv757G8AYACxKU
-         fJlWX4oxEHB58V8iih8OB5EEdvndjred5iqe0gz4nvbqPQ1lf7UtfpRV3DZ84p1L+hv8
-         B3WbpeopeofCZwTt/Yhr1apykIfCr8WPgNoWoln+yeE/aDAkyvI3ZGR5maH/jMBr3vhP
-         cV3+aqCxSqQk70R3Yvy7wCkOF+ocmPj+QaPi0M136McsbQC18cxc3iwMP1twFid107v+
-         +i+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=kFSS5Lpx23772o0jxHiqpcMGc1EZfFQoRb+B8VLiMXk=;
-        fh=6mxyMYlI2m7Gh6zwRGeRcKCjCb6LlRV3W/HX14iDIgQ=;
-        b=YW39RtLcdokdcK9KV/4klQpMLzM0j0aeo3py+YeDXcOqWI/ybghGehWbfvDV7TJlVi
-         0GphyNphjXCjd/5EuzEyoU4unM6PgFy2CKisj1IWxFkXoajGsFzkASVO5iX5fU+MZVkU
-         OzsI5eRBs+Lj3U7ZF+6AYFDbj9V4Uc+TmpWaqcQnfNKgiKJsdcxxrPTHygVfF2pmBf0K
-         nVeWK0+uQa8FvT5MKBAFiUZgwDPd0Qs2zTVLub2KeiyoL25ncABTBSskeK5JN+ad/gA3
-         kq9p3Bm2Qh/2zcJtx2p4+p7MurrHRybYIJm0d0EvsLN1yn9lqXfVggDoWB1h456dQMLA
-         DD2Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sentinelone.com; s=google; t=1795438145; x=1796042945; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kFSS5Lpx23772o0jxHiqpcMGc1EZfFQoRb+B8VLiMXk=;
-        b=IrLGZGTMUyOCRbyjw5X/ob4WE1mDOIB8tymNE6Fl18vATMykCZjkR9ZOpfSbs0dFQr
-         DyDTvbD882R78Z+CNFsfT3cgEj2tf7HmIi1cUQp+JXi+dKVp+EPEPWBEVQtbs9rbR6q5
-         KwVAi+pO1JsD/bNB+RLjwZ6nZEB9ZPk398zuTPP2sgxg8c63z4onxYkd8M0UXJ7iplab
-         j1fLdy0neYv3JyMlkvMYoaM/WHLacvrs5edGEY+ATzeWJGtQ/eUTyWbmpQWUCsWOf37N
-         J3S1IRXLnTIo2bKeEQMtL1FrA67bQg2iAO0vj8y8yq6U/ElTdWHYFKQLyaSuBqjZ9rCi
-         t3cA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795438145; x=1796042945;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kFSS5Lpx23772o0jxHiqpcMGc1EZfFQoRb+B8VLiMXk=;
-        b=rpHDW8wUf2aoNJMnVXb0AJEXkqiZb0AB8vkRHW+OljWOM1vrOuOaVfbsvAOV+hS/Fz
-         Aa6S7788f39CWbrHMQdWgVNE6g/EO7nTc98j/Yn2jX1pclOdCJEfFNArxM4Duy/ldb6+
-         bQi762EJkPnwLSWCSzgrlDO4pcgjgwpSQ3uULhTmMjJahejrrlkcGVfSdnG7YTpUlr61
-         ioNi9nmMQAQ+19dsJgMmj87TzhJI3awRaSdh3eHaM32mvotnN6CgiuYuRwQMJWWxRP0H
-         9CNFsx7m9gTX8vEEWHADdACKZkHHFhzCqj0x425MnN0g223I8GyFP1lBG6Qei+8GNAw0
-         BLjQ==
-X-Forwarded-Encrypted: i=1; AL+hErG8MS9zNn94l8ONENfZButYrasY4OVru30Ta0u8t0poA2ZTJxL1RZaDLurtPzLkp+FE9whL10cGqraXKu4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+qxoWARhIRyY/7Eha5lx3yrOSpGort+D6eSyc4ef+lxMVsJm0t
-	l4TkH/L2ce49eEU7/IEhzcHLOcZQYNF7tUuAH5Dv3pyWmK/NNzrx44wWAw/NixGauTsPoZ4xaTX
-	/4MIFboqWJ0yhjB7d9uckpLk17wBoNsLpSKh9nn9Wlw==
-X-Gm-Gg: AZFdTZd+D6jBypl5XsqDCpcONefjgLhswJT6lyRFWia5BiG1wWNNgLC4wtAOhT/5Opk
-	fVtzM3bYuifPBWuwSDMQCyzdvbcmsW8w7REeeLbB3Gdna1Zey5xtKhnvpOYOvi73XPM76n8/6gG
-	fvITeOofiQGwLGwHvWQQMyhWewUlxfhE78A4mPypypkXeJ2/HB8Gu9Yrw34Z2nEapFqbNcCJoSN
-	6Bq79SkWJDAeH5442r87wrywi2gq9J3urZkYp74dGs87lFg9nGPNFo8sFQRW+iR7uCNG6jaaUrH
-	51QUiCO1SkkAI7ChshMjDmyTV580PtEBZxzldglUP9CP9XbEfo+/Z92Cv4wXsScbQAOthfdCtlK
-	yUErchUTTHMu8hPstvCYOZbyw2eWL1Ho8pjA=
-X-Received: by 2002:a17:90a:c10e:b0:3b3:c92e:f523 with SMTP id
- 98e67ed59e1d1-3b41c917320mr17695252a91.3.1795438144716; Mon, 23 Nov 2026
- 04:49:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2eVrJ5W7
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A2CAE4E41634;
+	Mon, 23 Nov 2026 12:49:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6C4BF601E1;
+	Mon, 23 Nov 2026 12:49:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 58F5211E6A338;
+	Mon, 23 Nov 2026 13:49:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795438180; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=9S+zYbf1+35Bjw2Mrwh8qKAGonx8naAVwCL/M52lAos=;
+	b=2eVrJ5W7Q2n7kIAXCLAfrUUYblKTfODmq1QVOkzJvI7oWSJXMqLWa2QzpazEjogSDqKzLh
+	s8sAxDfXwnzYNVSFG3dkGdEGmdUXt3V6GstTnIqHqBxkh8XBlm+2KLChquHHZoUNIkU7IX
+	UQyATbEVJjrbrnmNMUfIVKumyb7j01Fkv0K91l3BkJ1SUMdQM9PgFOlheX31bjRmCLMnxw
+	cNWH2JioMQhckzm1o8iOFOfY5k1Uwqf3FjbPF3P5HeZId+1XNnPRN22o00uI7iYRkuBNtR
+	Ug/iv3lmeQrfv8sRhqI1i1om5BfRunNZelsRIHCwZoJKMWlALzPwJIKLHejLUg==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Douglas Anderson <dianders@chromium.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Paul Cercueil <paul@crapouillou.net>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
+ Linus Walleij <linusw@kernel.org>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Inki Dae <inki.dae@samsung.com>, 
+ Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Alison Wang <alison.wang@nxp.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Yannick Fertre <yannick.fertre@foss.st.com>, 
+ Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+ Philippe Cornu <philippe.cornu@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Mikko Perttunen <mperttunen@nvidia.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, Ondrej Jirman <megi@xff.cz>, 
+ Javier Martinez Canillas <javierm@redhat.com>, 
+ Igor Reznichenko <igor@reznichenko.net>, Michael Walle <mwalle@kernel.org>, 
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
+ Jagan Teki <jagan@edgeble.ai>, Jianhua Lu <lujianhua000@gmail.com>, 
+ =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>, 
+ Purism Kernel Team <kernel@puri.sm>, 
+ Jerry Han <hanxu5@huaqin.corp-partner.google.com>, 
+ Joel Selvaraj <jo@jsfamily.in>, Icenowy Zheng <icenowy@aosc.io>, 
+ Michael Trimarchi <michael@amarulasolutions.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ Casey Connolly <casey.connolly@linaro.org>, 
+ Michael Tretter <m.tretter@pengutronix.de>, 
+ Cristian Cozzolino <cristian_ci@protonmail.com>, 
+ Junjie Cao <junjie.cao@linux.dev>, Ryan Brue <ryanbrue.dev@gmail.com>, 
+ Nickolay Goppen <setotau@mainlining.org>, 
+ Stefan Mavrodiev <stefan@olimex.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Robert Chiras <robert.chiras@nxp.com>, 
+ Alexander Koskovich <akoskovich@pm.me>, 
+ Markuss Broks <markuss.broks@gmail.com>, 
+ Artur Weber <aweber.kernel@gmail.com>, David Heidelberg <david@ixit.cz>, 
+ Dzmitry Sankouski <dsankouski@gmail.com>, 
+ Yedaya Katsman <yedaya.ka@gmail.com>, Andy Yan <andyshrk@163.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-mips@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-doc@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org
+In-Reply-To: <20261026-drm-panel-funcs-v1-0-5e3070a3478f@oss.qualcomm.com>
+References: <20261026-drm-panel-funcs-v1-0-5e3070a3478f@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH 00/35] drm/panel: let the panels use the
+ atomic state
+Message-Id: <179543814467.190741.17345151948628824699.b4-ty@b4>
+Date: Mon, 23 Nov 2026 13:49:04 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,90 +140,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
- <20261117-bpf-preempt-v2-r2-v3-3-586376ec3672@sentinelone.com> <8fa7eb35-950f-49c4-b60a-c00b52cc6e4d@linux.dev>
-In-Reply-To: <8fa7eb35-950f-49c4-b60a-c00b52cc6e4d@linux.dev>
-From: Mike Bazov <mikeba@sentinelone.com>
-Date: Mon, 23 Nov 2026 14:49:07 +0200
-X-Gm-Features: Aa3M54oTl11TCFGAigV7UhZBuv7UvpVpxQ6riby4wl4QTdBGKnWaIn2NNnXrHOQ
-Message-ID: <CAPnbwjqUgxYmiviUVRP0PzPPcYdOHkESrhBepkQuPqA-tdyyMQ@mail.gmail.com>
-Subject: Re: [EXT.MSG] Re: [PATCH bpf-next v3 3/4] bpf: Check program
- recursion per task via bpf_ctx
-To: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
-Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Martin Kelly <martin.kelly@crowdstrike.com>, 
-	Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>, tyler.wilson@crowdstrike.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-Done. The array is not faster than walking the chain
 
-bench -w2 -d12, M/s, median of 10 runs [min-max], lazy preemption,
-x86-64 VM with 4 vCPUs, bpf-next 32b66b94c86f, in boot order.
+On Mon, 26 Oct 2026 13:09:49 +0200, Dmitry Baryshkov wrote:
+> The panel is the only element of the display pipeline which never sees
+> the atomic commit. Its prepare() and enable() callbacks get nothing but
+> the panel, so a panel which has to be programmed differently depending
+> on the mode can only guess it. The NT35950 driver, for example, saves
+> the connector in get_modes() and reads connector->state->crtc->state
+> while being prepared: without the locks, from the current state rather
+> than from the one being committed, and with no way to reject a mode it
+> doesn't know.
+> 
+> [...]
 
-The existing benchmarks:
+Applied, thanks!
 
-               trig-fentry          trig-rawtp
-  bpf-next     39.36 [33.73-39.72]  40.02 [37.00-40.78]
-  series       40.10 [39.43-41.41]  39.63 [38.99-40.06]
-  array        38.97 [38.19-39.17]  39.19 [38.58-39.90]
-  bpf-next #2  39.74 [39.17-40.12]  41.12 [40.14-41.68]
-  series #2    40.68 [39.68-41.58]  39.81 [39.33-40.49]
-  array #2     39.89 [39.48-40.29]  39.49 [38.85-40.34]
+[01/35] drm/panel: remove the get_timings() callback
+        commit: 874b9d3ad6e0087ea21aafcb2ada3f6a6a8c5a1c
+[02/35] drm/panel: remove the unused struct panel_bridge
+        commit: 83fa60df1302667ce139457208aee277067732db
+[03/35] drm/tidss: get the panel type from the embedded bridge
+        commit: eb5352d63fee9733f798f53e0418c17a5184d258
+[04/35] drm/bridge: lvds-codec: use devm_drm_panel_bridge_add()
+        commit: 4afe0e580a135dd4917486ccf7cff3442b6596ff
+[05/35] drm/ingenic: use devm_drm_panel_bridge_add()
+        commit: cfac2956bdaabec099fdc471ebd9ae9ac0defd65
+[06/35] drm: mxsfb: use devm_drm_panel_bridge_add()
+        commit: f88a377f94b03796ea5c7d62fb3b061f6a0bb040
+[07/35] drm: rcar-du: use devm_drm_panel_bridge_add()
+        commit: a57b24576b38dafdcd859aff8f129c0c0a29fd04
+[08/35] drm: rz-du: use devm_drm_panel_bridge_add()
+        commit: 666e1e77703cbcff43d48e77a24f72e4147510d8
+[09/35] drm/mcde: use drm_panel_bridge_add()
+        commit: 0f7bcd3b5439845acfa6a381a7cc314262b2d4fe
+[10/35] drm/pl111: use drm_panel_bridge_add()
+        commit: 3f603bf783886f681721218aae4c8c709ee961bf
+[11/35] drm/rockchip: lvds: use drm_panel_bridge_add()
+        commit: 8165f8e83c3a660b7311337aae0469d760ff5f26
+[12/35] drm/rockchip: rgb: use drm_panel_bridge_add()
+        commit: 66acc28d44cd41d9ad63be5840556450f84f6b50
+[13/35] drm/panel: remove the _typed() panel bridge functions
+        commit: bbdf706498e19c35c56e3d69178c3e833f014e06
+[14/35] drm/panel: remove drm_panel.connector_type
+        commit: 5888187709034391aaf7f1ab8d4910285f0b404f
 
-I added two benchmarks to bench, with three programs nested: the
-measured program starts inside the third one.
+Best regards,
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-  driver (raw_tp)          calls bpf_ktime_get_boot_ns()
-    fentry on that helper  calls bpf_ktime_get_tai_ns()
-      fentry on that one   runs the loop that fires the measured program
 
-               trig-fentry-nest3    trig-rawtp-nest3
-  bpf-next     39.88 [39.42-40.52]  41.44 [40.93-42.68]
-  series       41.25 [39.95-41.95]  39.62 [38.62-40.50]
-  array        39.59 [38.15-41.53]  38.22 [36.37-39.02]
-  bpf-next #2  40.62 [39.79-41.13]  42.84 [41.96-43.50]
-  series #2    41.48 [40.09-41.94]  41.10 [39.70-41.63]
-  array #2     41.06 [39.73-41.80]  39.67 [39.07-40.08]
-
-The array is patches 1 and 2 plus this in place of patch 3, with two
-fields in task_struct
-
-const struct bpf_prog *bpf_recur_progs[4];
-unsigned int bpf_recur_depth;
-
- static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
- {
-+ struct task_struct *tsk = current;
-+ unsigned int depth, i;
-+ bool ok;
-+
-+ if (prog->recur_per_cpu)
-+ return bpf_prog_get_recursion_percpu(prog); /* the old body */
-+
-+ depth = READ_ONCE(tsk->bpf_recur_depth);
-+ ok = depth < ARRAY_SIZE(tsk->bpf_recur_progs);
-+ for (i = 0; ok && i < depth; i++)
-+ ok = READ_ONCE(tsk->bpf_recur_progs[i]) != prog;
-+ WRITE_ONCE(tsk->bpf_recur_depth, depth + 1);
-+ if (ok)
-+ WRITE_ONCE(tsk->bpf_recur_progs[depth], prog);
-+ return ok;
- }
-
- static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
- {
-+ if (prog->recur_per_cpu) {
-+ bpf_prog_put_recursion_percpu(prog); /* the old body */
-+ return;
-+ }
-+ WRITE_ONCE(current->bpf_recur_depth,
-+   READ_ONCE(current->bpf_recur_depth) - 1);
- }
