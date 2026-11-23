@@ -1,61 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795407770;
-	b=mdGRVrfeLjJI2LcJ39wVgL1nJVW8JTwkkumFBzn6FuTnMqGULY06eOWFzS/oXOVwnwWP
-	 0Z1ufc3KDzSjiGvuwJHUhEb0n72/UkD8RiBQDqb0STly5vyTAFD2aXc1surE5q0Ml1vpP
-	 M1TfoEJJeBriobkDs8t5IGsx4Bonqui3D1a39f8kYcvJzM8ui4Oe9DrdQOe8luNZWCmlO
-	 OSaqtQ4GemTmLSy1aUzjeV7vS3B5kA+2sCwTkXHNFbg20VMs1rs1lC71vMhA2FyxVCiTe
-	 cec6MGSjBuPe+KVcV19AYvcK+KwMQQzFfOfu5lRoQOgg6kh7lMkcRMEmOKhewji7U0g==
+	t=1795407785;
+	b=Y+sRXcHFCyS9FYyttb0v3L/QXIJHKMmJd+GnMZ11RzHSCuJUQOfzFcEoELB0ylw8EYlv
+	 a8mMUPJNndRSujxxGH4hZ8Ewss3s4bz08kwTvq5uU/b7jkMSULY9zCco0yoP0EdpIrfTl
+	 5GfyPsoFwZEsWlb/FvXONbUct7bDonLNTayjh/k0J5KjbLx+Pncwqr8U7FCHwxeiP9DkJ
+	 5KTvQxh/Tkn1HYaJ1V7YK5pt6W3Md1yxirJC/hE6VwGyu/1IgRR39J/PmeK8fM/ktfX2e
+	 eF0rFJJkJ8MY7nRdyzsAnA/gYhNkhWCaATGICyUBa4MxCz1IFy5i8zVDFy4ekpiqZeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795407770;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=iUaYkVElwHXmOSgYzkznsrZDmTk+0hZ8WoKAJqfKpZw=;
-	b=s6cv0IevklkhKL2dEC7RZgRyUB7xjxz2npVh/mzK6gfk08HVepsl11C1kQ085wluI+/g
-	 Drrqn4HwJlxfiLIgUq8AQtQePkXwIt8cTBYHfnirOdYozCq7gHKaLHma4JCi/4pxxBmTj
-	 ekoH+VZnXpZHF2pq2cSwg46du78JBcHR+nl8PpQtMoKH2p6RlbWfObtOJzsL20stWLpZS
-	 NS4Z0o2X4pU03q6/SDPHN9+5Jr091k1U2LKSQqawqakne/rY+7snu1O8zKTXR7TY9BRKI
-	 ZwKMClJmNp0doAKM/DZM+aYswGLsJDyVOShZLNQ3SdAkAYuojaiowYoTvXotU3EzlCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795407785;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Z7nPTI5arwtfLvJ1u0SNc3tfHxfngmeM3rWmqkRPFe0=;
+	b=jARieKFadjO+HSbFSHv9pe0ZG7Dkgl8ZpFBNhVkSU7B5R8UYN5Qspch/6Upg/6sALm6V
+	 X0fMwL+q3kaC2P1yo/REQ8CjG0AnnsQFgrTg/3CLm8yTq3kmbQ/0qjX4Q3rJifhHUAQ39
+	 C5kKF6DEV0WJ0FJFxXlMAkuNpjZAUCGA37xhQ3tpBlvuExZJCpgvQcec5vH3uBNgbNFMq
+	 I1p1/vuabVzMeGk18Z8S4PrJRXBfW847H7JBhKVwa/n37j4/MpEihUbld+rf7fJ+9fzhq
+	 KHGL1YhprGRsFfiiDAa6OdjuxjcNnpDSB2GMldxZRvEqU2fT257Eb3TjmJ6Kr5h/0gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oY7e1YEi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=cs.unc.edu;
+	spf=pass smtp.mailfrom=cs.unc.edu;
+	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Akvb2KTo;
+	arc=none smtp.remote-ip=209.85.222.177
+Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 271B1606A31A;
-	Mon, 23 Nov 2026 04:22:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 786A4606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:23:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 786A4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oY7e1YEi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CD371F000C6;
-	Mon, 23 Nov 2026 04:22:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795407769;
-	bh=iUaYkVElwHXmOSgYzkznsrZDmTk+0hZ8WoKAJqfKpZw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oY7e1YEihc8egQNKXPT3/Igp5Siys9HKKhLv2PGAi5SdqdkkhJ/XM59sfO5ETNoBB
-	 UjrntvtSorg+k6TzuKWkuk3a9IPfdR88EcJ8tVWsyK6O86xaKmbtmxeZry/u8tD39R
-	 mrR+OsKgdrNG2aBiCP0ABZhlV17pX2JPMZfp8LEyDBj8QshaFv0JilCAlMxppj6RAl
-	 10rYQLKKbzDYxr4Gyn0bzTf2f2G/HTcdXMx/5fYHeuTlPfnLstyLPLw/EeCSRAQNgb
-	 RG6IMoky67K/qWCX/v9CQMlDQA2/OgVedooifPRTNa5OSwEbeCneriSRE2XIOnnCqw
-	 412xiWrB/cmmw==
-Subject: Re: [PATCH net v2] net/smc: validate the peer's CDC cursors against
- our own buffers
-From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com,
- sidraya@linux.ibm.com, mjambigi@linux.ibm.com, netdev@vger.kernel.org,
- tonylu@linux.alibaba.com, guwen@linux.alibaba.com, linux-rdma@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
- kapil@presceralabs.ai, kuba@kernel.org
-Date: Mon, 23 Nov 2026 04:22:48 +0000
-Message-ID: <179540776852.3135.18298742575411764997@kernel.org>
-In-Reply-To: <20261122042120.2430434-1-piyus@iiitd.ac.in>
-References: <20261122042120.2430434-1-piyus@iiitd.ac.in>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Akvb2KTo
+Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-9495f083657so345651285a.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:23:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cs.unc.edu; s=google; t=1795407783; x=1796012583; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Z7nPTI5arwtfLvJ1u0SNc3tfHxfngmeM3rWmqkRPFe0=;
+        b=Akvb2KToJ3Ak1XsuDnYKBtbnhh9DBx5jCOEwkXgnAWKJ1gOMmH78uj2GxxBO9gCO6t
+         GMt8G8Mqg3loK9qNScCW+6j/7XOvuTeqYCQZlHM1+earUWSLsh/SpnyfnGV70d64iCPn
+         6hvDtDHLV1GNruB06Gsukzt+tYEQ3lamByTnCv3vBIwLPmRqUNcdQl1qzCVH9tnVjpXu
+         3zp+Ixy2fD4tL6Nyl3HL9sKrUcyufJGYp/c7X/CwpDeNtlSJSGClfjEqPDCnzSGwdrCt
+         Q4LD2xw+qGpGsL1TrBKx1iV2YizypbOUYUfiSsq6Shnz3VoWUz9cg7SEZzBRjnTSABfn
+         9BDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795407783; x=1796012583;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Z7nPTI5arwtfLvJ1u0SNc3tfHxfngmeM3rWmqkRPFe0=;
+        b=EKcSnkJ05/tFBdnbInPTCP82xqQ/ghVzT1aBLvMwpdUUVsuLr1zngoRO2iZhbyLowz
+         AXHbl6L9ZA1GlNwvGxpygB3Dp4rowTp9BqaOnaQIxEuNOtx3K6sJCRy+g3RrskFf+fWy
+         5ZKTI+7TSu3xlxHEtlYUvIkUHrxNtWqlyMU4wPxelkmJlUfTQ18/KyTXqsqWLLoBB/81
+         nrJhumAWFNCKnGm4yqA76+/5YdTyKBDuH4MfoyQ0ca8glz7u5w5bDGZXO08ZYDfQ8/6T
+         P8XlrhkyF38zasTihs8ub+3BdsFW0sik0K6TOs7sh6UN/xZ+Nazp45qkTY+ItWshwo4l
+         fXTA==
+X-Forwarded-Encrypted: i=1; AL+hErE3F0dEZbn4L/Wjsv66LtOQesCUC4sB3/HEAPPw46Ud8ViuedOzS8rsTy2JNQSqOk41PUHE7gxQzXAjwRA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PpgAzzhksIypgw0VCNo8n46tOMIPT/kmsTcHlzMD49WpQXqNM
+	2o6BjOvXgDKrJTtQ7IbafDgAU5kE4m2WuZffLsa4BC26a6n3oZxw/Sm5cet/8w8jeiE/sWrkcs6
+	eINjQMQ==
+X-Gm-Gg: AZFdTZfcjLxmRH+i73YjbcXvNlf2vCf6Vz9pyaQWA89jv60+nFoSOYkdUapWKoTJu9Q
+	gfUZdpVMzFBa7bQ9rRwp6WSpsEweDNoElpAAfztpaT88IF2lpV5E+dr2xw9eDIl9GhNmEWJi/2Q
+	vSjPSJbtRpzZu5NnTkPNZS66P9HxOUaHs8GjwVtd54OnFq2M7nYdbyI6m0e/kDwVvuAWMqn4MR0
+	rbvI1UpgcgI7g1VumKRj3lt/qbC92dWlzDZV1JNoxkwtYLTU9dpqKpgzQnc8tXydqcceohhF0hC
+	a3GOmJHDcau0C0X9BY3k3Ub67H5ntAa3jh+HuP5Ov461InKhG4N1+5oWGhHMtevH1y+txJmimsn
+	r9d8Hyv9t5T4F+sIBYjYXR/AY06Y5UuYScuA/zTj4jQiOB30x+kuExiqA0Rcgx2kTSPBYoJmJ0E
+	5RGL+r0BOl7GZlNrv14lHvx+PrgHhZZLbH5s8E2aWsPY4+D+q0HF7LdVDb/JepJsKgTtm1aMnSZ
+	8jDl0vfhovlm4sLC2faSWv2cqk25z52fj0OIeQIzZqi+kzgo3ooYJKRqH2Fc0gdeCKkPO5MCZuN
+	jgjVEmD9nifitpF6XPkv/ZyJcaUeLWxN7zvgbcyV987F19GZWYob
+X-Received: by 2002:a05:620a:4397:b0:93c:8e3f:3036 with SMTP id af79cd13be357-949ba827abemr1807820185a.4.1795407783349;
+        Sun, 22 Nov 2026 20:23:03 -0800 (PST)
+Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34a38bsm717421185a.13.2026.11.22.20.23.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 20:23:03 -0800 (PST)
+From: Hengyu Liang <hengyul@cs.unc.edu>
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: Jason Wang <jasowangio@gmail.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	kvm@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] vhost/net: ignore extra words in VHOST_SET_FEATURES_ARRAY
+Date: Sun, 22 Nov 2026 23:22:59 -0500
+Message-ID: <20261123042259.3484334-1-hengyul@cs.unc.edu>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,259 +101,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
+Commit 333c515d1896 ("vhost-net: allow configuring extended features")
+added VHOST_SET_FEATURES_ARRAY. The ioctl reads the number of feature
+words from user space, copies the words it supports, and then reads
+every remaining word, one at a time, to check that it is zero.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 5
+That loop has no upper bound and no scheduling point. A caller can pass
+a count of U64_MAX and a pointer into a large zero-filled mapping. The
+ioctl then stays in the kernel for as long as the mapping is readable,
+and a fatal signal is not handled until it ends. On a v6.18 debug kernel
+booted with preempt=none, two such calls from a non-root user, each on a
+4 GiB mapping, froze a 2-CPU VM for 56 s with soft lockup reports.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The check is not needed: the extra words can only hold features that
+this kernel does not know about, and they are never stored. Drop the
+loop and ignore them. A nonzero extra word is now ignored instead of
+failing with EOPNOTSUPP. Unsupported bits in the words the kernel knows
+still fail with EOPNOTSUPP.
 
-- [High] The fix is incomplete.
-- [Low] The new validators use `>` and accept count == buffer length.
-- [Low] The commit fixes remotely triggerable KASAN-confirmed faults: an
-  out-of-bounds RMB read whose bytes reach userspace via recvmsg(), plus…
-- [Low] The From: author is Piyus Kedia, but the first Signed-off-by is
-  Kapil Vaswani, with no matching Co-developed-by: tag.
-- [Low] smcd_cdc_cursors_invalid() starts with `if (!conn->rmb_desc)
-  return true;`.
-- [Low] The new comment in smcd_cdc_rx_tsklet() says the check guards the
-  consumer-cursor credit to sndbuf_space under DMB-nocopy.
+Fixes: 333c515d1896 ("vhost-net: allow configuring extended features")
+Cc: stable@vger.kernel.org # v6.17+
+Suggested-by: Michael S. Tsirkin <mst@redhat.com>
+Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
+---
+Changes in v2:
+- Drop the loop instead of rejecting counts above one page (Michael).
+- v1: https://lore.kernel.org/r/20261122120919.1718445-1-hengyul@cs.unc.edu
 
---
+I found this while comparing the behavior of different kernel versions.
+I used an LLM to analyze the problem and to draft the patch and this
+message, and I analyzed the result myself.
 
-net/smc: validate the peer's CDC cursors against our own buffers
+Tested on the vhost tree at 44293796526f with KASAN and lockdep. With a
+count of U64_MAX on a 1 GiB zero-filled mapping, the ioctl now returns
+at once (before: EFAULT after 27.4 s), and a SIGKILL sent during the
+call no longer waits for the walk. Counts of 0, 2, 3, 512 and 514 with
+zero words succeed as before. Unsupported bits in the first two words
+still give EOPNOTSUPP. A nonzero third word now succeeds instead of
+giving EOPNOTSUPP. VHOST_GET_FEATURES_ARRAY is unchanged.
+ drivers/vhost/net.c | 12 ------------
+ 1 file changed, 12 deletions(-)
 
-This commit checks the producer and consumer cursors in incoming CDC
-messages, in smc_cdc_rx_handler() for SMC-R and smcd_cdc_rx_tsklet() for
-SMC-D. A message is dropped if a cursor count is larger than
-rmb_desc->len (producer) or peer_rmbe_size (consumer). The goal is to
-stop out-of-bounds reads in the urgent data, recvmsg() and splice()
-paths.
+diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
+index 631855064b3d..f6b59def4a21 100644
+--- a/drivers/vhost/net.c
++++ b/drivers/vhost/net.c
+@@ -1802,18 +1802,6 @@ static long vhost_net_ioctl(struct file *f, unsigned int ioctl,
+ 		if (copy_from_user(all_features, argp, copied * sizeof(u64)))
+ 			return -EFAULT;
+ 
+-		/*
+-		 * Any feature specified by user-space above
+-		 * VIRTIO_FEATURES_BITS is not supported by definition.
+-		 */
+-		for (i = copied; i < count; ++i) {
+-			if (copy_from_user(&features, featurep + 1 + i,
+-					   sizeof(features)))
+-				return -EFAULT;
+-			if (features)
+-				return -EOPNOTSUPP;
+-		}
+-
+ 		for (i = 0; i < VIRTIO_FEATURES_U64S; i++)
+ 			if (all_features[i] & ~vhost_net_features[i])
+ 				return -EOPNOTSUPP;
 
-> Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-> Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
-
-[Severity: Low]
-This patch fixes out-of-bounds reads that a remote peer can trigger on
-both SMC-R and SMC-D. There is no Fixes: tag and no Cc: stable.
-
-Could Fixes: tags be added? The SMC-R path probably goes back to the
-original CDC receive code. The SMC-D path probably goes back to the
-commit that added SMC-D CDC receive. So two tags may be needed.
-
-[Severity: Low]
-The author is Piyus Kedia, but the first Signed-off-by is Kapil Vaswani,
-and there is no Co-developed-by: tag.
-
-Documentation/process/submitting-patches.rst lists a co-author with
-Co-developed-by: immediately followed by their Signed-off-by. Otherwise
-the Signed-off-by order should follow how the patch was handled.
-
-Should this be Co-developed-by: plus Signed-off-by? If Kapil reported or
-analysed the issue, Reported-by: or Suggested-by: may fit better.
-
-> diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
-> index 32d6d03df3214..8d24e0c839260 100644
-> --- a/net/smc/smc_cdc.c
-> +++ b/net/smc/smc_cdc.c
-> @@ -433,6 +433,18 @@ static void smc_cdc_msg_recv(struct smc_sock *smc, struct smc_cdc_msg *cdc)
->  	sock_put(&smc->sk); /* no free sk in softirq-context */
->  }
->  
-> +static bool smcd_cdc_cursors_invalid(struct smc_connection *conn,
-> +				     struct smcd_cdc_msg *cdc)
-> +{
-> +	if (!conn->rmb_desc)
-> +		return true;
-> +	if (cdc->prod.count > (u32)conn->rmb_desc->len)
-> +		return true;
-
-[Severity: High]
-Is checking only the count field enough to keep bytes_to_rcv within
-rmb_desc->len? Neither this check nor the one in
-smcr_cdc_cursors_invalid() looks at wrap. Neither looks at how far the
-cursor moved since the previous message.
-
-When the wraps differ, smc_curs_diff() can return up to twice the
-buffer size:
-
-net/smc/smc_cdc.h:smc_curs_diff() {
-	if (old->wrap != new->wrap)
-		return max_t(int, 0,
-			     ((size - old->count) + new->count));
-	...
-}
-
-On SMC-R, smc_cdc_cursor_to_host() rejects only backward wrap moves, and
-the peer controls seqno. On SMC-D, smcd_cdc_msg_to_host() has no
-ordering check at all.
-
-Take an RMB of length L, with prod starting at {wrap 0, count 0}. A peer
-could send:
-
-  prod {wrap 1, count L}  -> passes, diff_prod = 2L
-  prod {wrap 2, count L}  -> passes, diff_prod = L
-
-smc_cdc_msg_recv_action() then adds both with no cap:
-
-	atomic_add(diff_prod, &conn->bytes_to_rcv);
-	/* guarantee 0 <= bytes_to_rcv <= rmb_desc->len */
-
-That leaves bytes_to_rcv at 3L. In smc_rx_recvmsg(), only the first
-chunk is clamped to rmb_desc->len - cons.count. The remainder is used
-as-is:
-
-	chunk_len = copylen - chunk_len; /* remainder */
-	chunk_len_sum += chunk_len;
-	chunk_off = 0; /* modulo offset in recv ring buffer */
-
-The second chunk would then be 2L bytes from offset 0. memcpy_to_msg()
-would copy L bytes past the RMB to userspace.
-
-splice() gets the same oversized chunk in smc_rx_splice(). Past the end
-of the RMB, vmalloc_to_page() can return NULL, and get_page()
-dereferences it.
-
-Using >= instead of > does not change this. {1, L-1} followed by
-{2, L-1} still gives 3L-1.
-
-The consumer side looks similar. diff_cons is added to peer_rmbe_space
-with no cap. Under DMB-nocopy, diff_tx is added to sndbuf_space with no
-cap either.
-
-smc_tx_sendmsg() uses the same unclamped second-chunk pattern. An
-inflated sndbuf_space could therefore become a write past
-sndbuf_desc->len. smc_tx_rdma_writes() can also size dst_len from an
-inflated peer_rmbe_space. DMB-nocopy is only used by loopback-ism today,
-which narrows this part.
-
-Given this, does this statement in the commit message hold?
-
-  "Validate both cursors where each transport accepts the message, so
-  that one test per transport covers every consumer."
-
-Would a relational bound work better? For example, reject a prod that is
-more than rmb_desc->len ahead of local_tx_ctrl.cons (via
-smc_curs_comp()). Or reject when bytes_to_rcv + diff_prod would exceed
-rmb_desc->len.
-
-For cons, the new value could be required to lie between the previous
-cons and our sent producer cursor. Wrap jumps greater than 1 could also
-be rejected. Together these would bound the credit side.
-
-> +	if (cdc->cons.count > (u32)conn->peer_rmbe_size)
-> +		return true;
-> +	return false;
-> +}
-> +
-
-[ ... ]
-
-> @@ -452,6 +464,15 @@ static void smcd_cdc_rx_tsklet(struct tasklet_struct *t)
->  	data_cdc = (struct smcd_cdc_msg *)conn->rmb_desc->cpu_addr;
->  	smcd_curs_copy(&cdc.prod, &data_cdc->prod, conn);
->  	smcd_curs_copy(&cdc.cons, &data_cdc->cons, conn);
-> +	/* This CDC was written by the peer into the DMB we published to it, so
-> +	 * both cursors are peer-supplied and index buffers described on this
-> +	 * side.  Nothing else checks them, and smc_cdc_msg_recv_action() uses
-> +	 * the producer cursor as a receive length and the consumer cursor to
-> +	 * credit sndbuf_space - which under DMB-nocopy is the memory the peer
-> +	 * itself owns.  Unlike the SMC-R path these values are host order.
-> +	 */
-
-[Severity: Low]
-This comment says the check protects the consumer cursor's credit to
-sndbuf_space under DMB-nocopy. smc_cdc_msg_recv_action() computes that
-credit against sndbuf_desc->len:
-
-	diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
-				&conn->tx_curs_fin,
-				&conn->local_rx_ctrl.cons);
-
-smcd_cdc_cursors_invalid() bounds cons.count by peer_rmbe_size instead.
-
-The two lengths come from different places. peer_rmbe_size comes from
-the DMBE size advertised in CLC. sndbuf_desc->len is set in
-smcd_buf_attach() from the dmb_len that attach_dmb returns.
-
-If those two ever differ, could a cons.count that passes this check
-exceed sndbuf_desc->len and reach tx_curs_fin and the sndbuf_space
-arithmetic?
-
-Conforming in-kernel peers produce equal values, so this is mostly about
-the comment. Even when the lengths match, the check does not bound the
-accumulated sndbuf_space credit. The comment seems to promise more than
-the check does.
-
-> +	if (smcd_cdc_cursors_invalid(conn, &cdc))
-> +		return;
-
-[Severity: Low]
-This isn't a functional problem, but the NULL test at the start of
-smcd_cdc_cursors_invalid() can never fire on this path:
-
-	if (!conn->rmb_desc)
-		return true;
-
-smcd_cdc_rx_tsklet() has already dereferenced conn->rmb_desc->cpu_addr
-and read both cursors from it before it calls the helper.
-
-Should the test be dropped? If rmb_desc really can be NULL here, should
-the test move ahead of the dereference?
-
->  	smc = container_of(conn, struct smc_sock, conn);
->  	smc_cdc_msg_recv(smc, (struct smc_cdc_msg *)&cdc);
->  }
-
-[ ... ]
-
-> +static bool smcr_cdc_cursors_invalid(struct smc_connection *conn,
-> +				     struct smc_cdc_msg *cdc)
-> +{
-> +	if (!conn->rmb_desc)
-> +		return true;
-> +	if (ntohl(cdc->prod.count) > (u32)conn->rmb_desc->len)
-> +		return true;
-
-[Severity: Low]
-The commit message says:
-
-  "A cursor equal to the buffer length is legitimate (a full ring), so
-  only a larger one is rejected."
-
-Is that how cursors are actually encoded? smc_curs_add() normalises
-every cursor so that count stays below size:
-
-net/smc/smc_cdc.h:smc_curs_add() {
-	curs->count += value;
-	if (curs->count >= size) {
-		curs->wrap++;
-		curs->count -= size;
-	}
-}
-
-The senders put that host cursor on the wire unchanged. A conforming
-peer therefore always sends a count in [0, size). A full ring shows up
-as a wrap difference, not as count == size.
-
-Should this check, the cons check below it, and the two checks in
-smcd_cdc_cursors_invalid() use >= instead?
-
-Accepting count == len lets in a value that only a non-conforming peer
-can send. It then lands in local_rx_ctrl.prod/cons, urg_curs and, under
-DMB-nocopy, tx_curs_fin. It also allows the single-message credit of
-2 * size from smc_curs_diff() described above. Changing this alone would
-not fix the accumulation problem, though.
-
-> +	if (ntohl(cdc->cons.count) > conn->peer_rmbe_size)
-> +		return true;
-> +	return false;
-> +}
-
+base-commit: 44293796526f4343639f87b2acc53811c78b5d54
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122042120.2430434-1-piyus%40iiitd.ac.in
+2.53.0
+
