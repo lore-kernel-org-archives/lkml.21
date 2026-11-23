@@ -1,98 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.132
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795397182;
-	b=Jl2OaVBCj/qVW/8cSvudXf6FoUCLeSjAO6wbqbh32dyiSe9WRuOvuj/0z8FBXh1OQqDC
-	 I8g+1QRuHT3JHTB70UnqTBXIuHzNn3JSJWaB/ggP0otsBPvhr67JU42BjzmIpLGV8+Yi4
-	 RuCaFfrpwwasUhQLiYCd1IqIB6RbwByTargkDHMknD9UFSQyNt9zxn/Pz5QCIxsortQFR
-	 uis0ToBe3M0IgZdW8Q39L3y9z4B1/BLkGqPFZokqhAflaZqrT7dW4i8ghY0R5Ps8G58qq
-	 UKY68N7PmRuOD23NgrUknLqSkp71p5Pv3LZOBihinyQpbr6FkKZUrm7Dcb4EdHoKh+g==
+	t=1795397309;
+	b=vTOQ+WnERckmb2evh2IQWU1SnoGXVPL6lMJ2vQ9qua39RD2XyeNDCWY0jwL6rOtLnyu7
+	 EsULV1crI0n4knB+QYd6BxlFU+9/8EWQWaSApMzGv0vZV2GtVEvYFxkQxexvJc8rAvteO
+	 NMOaw8U3qrXz+75d2LOAywBrQV6lK9vQYGX3YrgnYlqCEpL7URYkEoR6mrfioFBjSzHrx
+	 rcpY3JNAwTf6YcRajyP75uI2t1WERWIaF+d+ry5YbEpun2+jUgytX3Z4sdfKu0rwAjUmO
+	 2jR1wzEKfb7d8tHNgUpqFR7eTDgoNx4K0IKBRa7eoRMqjT2t6eL7iAtYoXdzlYk7jdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795397182;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Content-Disposition;
-	bh=xbce5/VFlKnYd3/rEVwtGbBP5JyQRMDjlXIwX2G3An8=;
-	b=FwmzqiLlAP7QT3GjGOrLVMmfQMVDLr6dgqpm2RulACv7n8WPmQXtCDI/+yNBMG+eOmnf
-	 mjhltzCnZGEGh0RKpdHtRj2KIJZVL9+qEIoUP4ksveytDkWy7av/RAsnWIOMwfoC/ZFXW
-	 YRiJw+iiOzaZkjA3tpxquxJtoiC0Um+UzHmsXnN2dzU7OAG42qgQ085q5XzYRR3OEF+d5
-	 80cCLaMRGuVBj/fZHvRgJ9aQKiFmwTK3lC+OpLCq5jKDAiOikA7uJpz82g3BTobmSgZ8Y
-	 Eyd67Nfg2W4OnIQ26fvSAiuoUsKyu3UwZKCxnFOpwv7h1oV51Xm3aHTld10sktGandw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795397309;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=3nVlInPmwKkJl4MGaIbIDMUH25e+EWVO33tmlKLpUuQ=;
+	b=FbBZh167XJwjcLBrAMr/M/IU79LsYt4mLbq3P51ZraL0yBUMpvZnCq0xGcq930972HuL
+	 JxDgpVjv9dizw76cbKyYVtr15ioIn5TnlFG8UmBwQJDp+TZsn81VcWnjqUxwl723zcCrY
+	 L6P0vDm6YsBz7GdDAPSFQoqVn4U4usOvfd5VhI18j6WS69VClhrWFIGlTe127TZ12Kie3
+	 5fW6xLMXWuuIWSuSLS0LTyX4n1PotsCgZq+3EaR3XGvuwKYK0sny5rYD2xooVKh8ru2FC
+	 XeRXIPSs6BOcl+ymMKd4+zDpFV6qvBKPcDe7brd5zUTONbokZD3azbz2fhdJHi5mfMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a8noqMnf;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HFXJi+iV;
+	arc=none smtp.remote-ip=91.218.175.132
+Received: from mta0.migadu.com (out-132.mta0.migadu.com [91.218.175.132])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 407EB606A31D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:26:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 407EB606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6834606A31D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:28:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6834606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a8noqMnf
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-38692f62b22so987057eec.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:26:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795397181; x=1796001981; darn=vger.kernel.org;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xbce5/VFlKnYd3/rEVwtGbBP5JyQRMDjlXIwX2G3An8=;
-        b=a8noqMnfuVuk5b4VdnHc1QI+6OCN3p01COsjTKYAuVm0EDY+Dz27h4ECoBKyOuft5H
-         GnOSrUUlSQ0kplkbs54sijeXU+MC3Dl9FBUIDBMxprK/ae1AV8Rw1HFJc3z6NI2SliQ1
-         0K4mp6zMA11LG0aS4vLVNeC0HnItkT2WQQGaCoLARzfCJ0cjuIqf4O6HLRaxSMRALROA
-         xs0BVo9/ltS27RYFs/Pk2aq/APnRNSry1msz2/RIMQ0OXqb9BJNOB7o0TzuK65gPiOBv
-         KYmcWveQuRZ/fbFuS4mzPjXsQ0YOuSORjox57iAA7hMQYowrI0rZpQJXRACGwXvRYm2a
-         PAbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795397181; x=1796001981;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=xbce5/VFlKnYd3/rEVwtGbBP5JyQRMDjlXIwX2G3An8=;
-        b=nHeGpcDP8rhJpjSsILF6GsXwZnfvLT5ZDB2tZY0w6tbQm+4F0ZEGoPIAFmuPBNLNhW
-         RDBcjbpVGoEqGjfruJSDHGH6kbwQ0ZvmaUAsBa8CuqtDWNiEzgzTz+M0g30LdRoyEdLa
-         svyzc4108lnWXSgGDyPUmrRrsupGMnrCkkT+eTZtfSRCnVPMMXBQo81V8cyxqo1xGqAC
-         /bRVJfTDUh0nhoiw6qD8yeuxGKJMwxadB5TD3PSbqoe4WrhA2+Z909DOrrbQ1+MdFsH+
-         xkNjoGhhB5L2Eyjkj0lizN3SjK4lcBRPXkqplygKEazNVwI9mTqUkkwJEBdKKuE3MS9/
-         hahw==
-X-Forwarded-Encrypted: i=1; AL+hErEIt1FLmG7l2QWP0h3tsMnG7OdfxccatExFuOSRgM6vHjf7QGlL4GIuWtzJl1/3AQBqDHOsS1rPMwSgv9o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8sOxJax21oGW9oAFFtuOzGQbaFKC46lgnRbW6zV+hhGD2GOQ+X
-	hR3/+1UY2xsoEEvMccpfcewvkZ6slKe9DIxM6WmYNDmXpMzparssdkMJ
-X-Gm-Gg: AZFdTZd1/MHiZI8Hksn8gS/kghD8CUWL10uAbxgbJ9OmkDAj83C1YdDBoCsM7zFfH/8
-	rbH/TXuq4mCSc6nVLjjh0SLr2Pei9u0EGy9U9Y52+xFc5yCfzn6JC9Xdt8tnYwLxbypZrdM7ukZ
-	n1Y8L48pgz6TvQuyvopM1Tyfxhd3ZHMOLwQDAhSTJ7jxkN7EoiVov5FE396yWQ14qXPpWhwgGC/
-	DLeEIOaG9VF5QmXdIRxs+f1Kn82Ew7FTYm6I8oa3Wdqa25UcQ0Ibwsl6G+xtKMW0QXyNMyXoaJD
-	2w3IcOE76wOz8IrzuzYQPK6LBDQuMK87giJ5BubAXFySTP8JVZYQzHXJYDjwK+IrAwBBm0fqPc6
-	HgeBqC1KNvHhBUjgEYRNeGEyf0Iv7GLMsfzfPWnU4vIl4IhId1nnyR2+NmnkyorkoUNQvHxEuOg
-	hH2BG74FX56nFqx/wauuAkT4QItXsYiZjLuydtjyaRhtVcU/6L2GwPWobBRPWwImzlQNuaWFMC5
-	2F63Bqf8NM9W87q+DtigI/0s/F+zasJf3kGzI+M4c/pH969dWWZPlTm71PDRTag0W71i9AGFKez
-	YIQwsffXNdX5Ok0439oyXPLPcDDL1cLewuKBw0pS92W9qtSk4aEwWm7SpJOvaYeztO4tKNlqX6M
-	U/UzTIzYKU9h4zsY=
-X-Received: by 2002:a05:7300:26a2:b0:386:b0ea:3263 with SMTP id 5a478bee46e88-386b0ea340cmr1516118eec.40.1795397181291;
-        Sun, 22 Nov 2026 17:26:21 -0800 (PST)
-Received: from localhost ([2a00:79e0:2ebe:8:f002:4621:aeeb:e0e7])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm32297247eec.6.2026.11.22.17.26.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 17:26:20 -0800 (PST)
-Date: Sun, 22 Nov 2026 17:26:19 -0800
-Message-ID: <56aba0ed09b774b822028d773c03c4c6@gmail.com>
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] driver core: fix race between bus_remove_driver() and dev_driver_uevent()
-In-Reply-To: <DMMWDTG48CAN.LHRVFXXDY5YV@kernel.org>
-References: <as71DkwHeLGNDsPv@google.com> <2026101444-unnoticed-caliber-21d5@gregkh> <as8dAu4R99pP1GHD@google.com> <2026101409-unkind-ablaze-08a3@gregkh> <21f4cbf39c7872893f8f2d3bfde7d829@gmail.com> <DMMWDTG48CAN.LHRVFXXDY5YV@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HFXJi+iV
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=yfkDOFNangaKsew0JIB+tHmbNmAGU3mvMCj7TinFEwA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795397305; v=1; x=1796002105;
+ b=HFXJi+iVfgmqTCIRPIxX4n5w2KGjTayE6KuyYt42eqaZJ03ZOaxoubQ3tpkB/1aabwoJrRu1
+ l7vhJdqbDNb2WnBAJoEjY6D3PYH78e2KJ8WzrsY/mpOTbtVe5LeGG7MyJwPFRF9TQb0e7S7Ig/f
+ N8y/Hi81NRbbH4uD4jenQA5g=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 20b39d6dbaa3b65f;
+	Mon, 23 Nov 2026 01:28:25 +0000
+X-Mizu-Trace-ID: 20b39d6dbaa3b65f
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <e9860ead-c5f3-4dd0-beaa-d92396c266d9@linux.dev>
+Date: Mon, 23 Nov 2026 09:28:07 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,25 +58,181 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 6/8] fs: add FMODE_CAN_DMABUF_IO and require it for
+ dma-buf I/O contexts
+To: Christian Brauner <brauner@kernel.org>, Christoph Hellwig <hch@lst.de>
+Cc: Anuj Gupta <anuj1072538@gmail.com>, Nitesh Shetty
+ <nj.shetty@samsung.com>, Jens Axboe <axboe@kernel.dk>,
+ Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
+ Philipp Stanner <phasta@kernel.org>, Dan Williams <djbw@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, tytso@mit.edu,
+ Andreas Dilger <adilger.kernel@dilger.ca>,
+ Baokun Li <libaokun@linux.alibaba.com>, Ojaswin Mujoo
+ <ojaswin@linux.ibm.com>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Zhang Yi <yi.zhang@huawei.com>, asml.silence@gmail.com,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ nvdimm@lists.linux.dev, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org, Li Wang <liwang@kylinos.cn>,
+ Mengmeng Zhao <zhaomengmeng@kylinos.cn>
+References: <20261113070621.273953-1-mengmeng.zhao@linux.dev>
+ <20261113070621.273953-7-mengmeng.zhao@linux.dev>
+ <20261120-faust-bohnenkraut-reduzieren-a30811186a15@brauner>
+From: Mengmeng Zhao <mengmeng.zhao@linux.dev>
+In-Reply-To: <20261120-faust-bohnenkraut-reduzieren-a30811186a15@brauner>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
-Hi Danilo,
+On 11/20/26 17:55, Christian Brauner wrote:
+> On Fri, Nov 13, 2026 at 03:06:19PM +0800, Mengmeng Zhao wrote:
+>> From: Mengmeng Zhao <zhaomengmeng@kylinos.cn>
+>>
+>> Add a file mode bit for files that can be the target of dma-buf I/O and
+>> require it when a buffer is registered.  Block device files set it when
+>> the backing disk supports dma-buf I/O, and filesystems can set it for
+>> inodes whose data can be reached without the page cache.  The bit is
+>> coarse: a driver that installs ->init_dma_buf_io_ctx for every
+>> namespace, like nvme, still decides per device at registration.
+>>
+>> dma_buf_io_ctx_create() is the only caller of ->init_dma_buf_io_ctx, so
+>> the capability and the O_DIRECT requirement are checked there for every
+>> file type rather than in each helper; O_DIRECT belongs at registration
+>> because F_SETFL can change it afterwards.  Add bdev_can_dmabuf_io() so
+>> the open-time and registration checks share one predicate.
+>>
+>> Signed-off-by: Mengmeng Zhao <zhaomengmeng@kylinos.cn>
+>> Signed-off-by: Li Wang <liwang@kylinos.cn>
+>> ---
+>>  block/bdev.c                 |  8 ++++----
+>>  block/fops.c                 |  2 +-
+>>  drivers/dma-buf/dma-buf-io.c | 13 +++++++++----
+>>  include/linux/blkdev.h       |  7 ++++++-
+>>  include/linux/fs.h           |  8 +++++++-
+>>  5 files changed, 27 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/block/bdev.c b/block/bdev.c
+>> index 88e3f552f5d4..4e7a7f7e1e8b 100644
+>> --- a/block/bdev.c
+>> +++ b/block/bdev.c
+>> @@ -61,14 +61,12 @@ struct block_device *file_bdev(struct file *bdev_file)
+>>  }
+>>  EXPORT_SYMBOL(file_bdev);
+>>  
+>> -int bdev_init_dma_buf_io_ctx(struct file *file, struct block_device *bdev,
+>> +int bdev_init_dma_buf_io_ctx(struct block_device *bdev,
+>>  			     struct dma_buf_io_ctx *ctx)
+>>  {
+>> -	if (!(file->f_flags & O_DIRECT))
+>> -		return -EINVAL;
+>>  	if (ctx->dmabuf->size > UINT_MAX)
+>>  		return -EINVAL;
+>> -	if (!bdev->bd_disk->fops->init_dma_buf_io_ctx)
+>> +	if (!bdev_can_dmabuf_io(bdev))
+>>  		return -EOPNOTSUPP;
+>>  	return bdev->bd_disk->fops->init_dma_buf_io_ctx(bdev, ctx);
+>>  }
+>> @@ -1041,6 +1039,8 @@ int bdev_open(struct block_device *bdev, blk_mode_t mode, void *holder,
+>>  
+>>  	bdev_file->f_flags |= O_LARGEFILE;
+>>  	bdev_file->f_mode |= FMODE_CAN_ODIRECT;
+>> +	if (bdev_can_dmabuf_io(bdev))
+>> +		bdev_file->f_mode |= FMODE_CAN_DMABUF_IO;
+>>  	if (bdev_nowait(bdev))
+>>  		bdev_file->f_mode |= FMODE_NOWAIT;
+>>  	if (mode & BLK_OPEN_RESTRICT_WRITES)
+>> diff --git a/block/fops.c b/block/fops.c
+>> index 86bf1f298b79..7e5702e047a2 100644
+>> --- a/block/fops.c
+>> +++ b/block/fops.c
+>> @@ -1008,7 +1008,7 @@ static int blkdev_mmap_prepare(struct vm_area_desc *desc)
+>>  static int blkdev_init_dma_buf_io_ctx(struct file *file,
+>>  				      struct dma_buf_io_ctx *ctx)
+>>  {
+>> -	return bdev_init_dma_buf_io_ctx(file, file_bdev(file), ctx);
+>> +	return bdev_init_dma_buf_io_ctx(file_bdev(file), ctx);
+>>  }
+>>  
+>>  const struct file_operations def_blk_fops = {
+>> diff --git a/drivers/dma-buf/dma-buf-io.c b/drivers/dma-buf/dma-buf-io.c
+>> index 8440151de860..9575b7d65ec5 100644
+>> --- a/drivers/dma-buf/dma-buf-io.c
+>> +++ b/drivers/dma-buf/dma-buf-io.c
+>> @@ -152,9 +152,11 @@ static void dma_buf_io_ctx_shutdown(struct dma_buf_io_ctx *ctx)
+>>   * @out_ctx:	[out]	resulting ctx
+>>   *
+>>   * Create a new I/O context from the given DMA buffer for the given file.
+>> - * It only works with files implementing ->init_dma_buf_io_ctx and fails
+>> - * with -EOPNOTSUPP otherwise. Once created, the user can create a map
+>> - * and use it to issue I/O, such as read/write requests, to @file.
+>> + * It only works with files implementing ->init_dma_buf_io_ctx,
+>> + * advertising FMODE_CAN_DMABUF_IO and currently opened for direct I/O,
+>> + * and fails with -EOPNOTSUPP or -EINVAL otherwise. Once created, the
+>> + * user can create a map and use it to issue I/O, such as read/write
+>> + * requests, to @file.
+>>   */
+>>  int dma_buf_io_ctx_create(struct file *file,
+>>  			   struct dma_buf *dmabuf,
+>> @@ -164,8 +166,11 @@ int dma_buf_io_ctx_create(struct file *file,
+>>  	struct dma_buf_io_ctx *ctx;
+>>  	int ret;
+>>  
+>> -	if (!file->f_op->init_dma_buf_io_ctx)
+>> +	if (!file->f_op->init_dma_buf_io_ctx ||
+>> +	    !(file->f_mode & FMODE_CAN_DMABUF_IO))
+>>  		return -EOPNOTSUPP;
+>> +	if (!(file->f_flags & O_DIRECT))
+>> +		return -EINVAL;
+>>  
+>>  	ctx = kzalloc_obj(*ctx);
+>>  	if (!ctx)
+>> diff --git a/include/linux/blkdev.h b/include/linux/blkdev.h
+>> index b98f43478cc0..0cfb6fb6b4e2 100644
+>> --- a/include/linux/blkdev.h
+>> +++ b/include/linux/blkdev.h
+>> @@ -1610,9 +1610,14 @@ struct block_device_operations {
+>>  	int (*alternative_gpt_sector)(struct gendisk *disk, sector_t *sector);
+>>  };
+>>  
+>> -int bdev_init_dma_buf_io_ctx(struct file *file, struct block_device *bdev,
+>> +int bdev_init_dma_buf_io_ctx(struct block_device *bdev,
+>>  			     struct dma_buf_io_ctx *ctx);
+>>  
+>> +static inline bool bdev_can_dmabuf_io(struct block_device *bdev)
+>> +{
+>> +	return !!bdev->bd_disk->fops->init_dma_buf_io_ctx;
+>> +}
+>> +
+>>  #ifdef CONFIG_COMPAT
+>>  extern int blkdev_compat_ptr_ioctl(struct block_device *, blk_mode_t,
+>>  				      unsigned int, unsigned long);
+>> diff --git a/include/linux/fs.h b/include/linux/fs.h
+>> index 99caef43ff3c..f5524fc770d4 100644
+>> --- a/include/linux/fs.h
+>> +++ b/include/linux/fs.h
+>> @@ -121,7 +121,13 @@ typedef int (dio_iodone_t)(struct kiocb *iocb, loff_t offset,
+>>  /* File supports atomic writes */
+>>  #define FMODE_CAN_ATOMIC_WRITE	((__force fmode_t)(1 << 7))
+>>  
+>> -/* FMODE_* bit 8 */
+>> +/*
+>> + * File can be the target of dma-buf I/O.  Set it for files whose data can be
+>> + * reached with direct I/O without the page cache: a dma-buf iterator has no
+>> + * pages to copy, so a buffered path cannot serve it.  The bit is coarse; both
+>> + * the device behind it and O_DIRECT are checked when a buffer is registered.
+>> + */
+>> +#define FMODE_CAN_DMABUF_IO	((__force fmode_t)(1 << 8))
+> 
+> This is stealing yet another FMODE_* bit for special-purpose stuff.
+> We're really really short of them. Did Christoph suggest this?
+Hi Christian, thanks for pointing out this. If I understand correctly, 
+Christoph suggests a new file->f_mode to allow dma-buf check in RFC v1[1]. 
 
-On Thu, Nov 05, 2026 at 02:48:33AM +0100, Danilo Krummrich wrote:
-> On Thu Nov 5, 2026 at 2:21 AM CET, Dmitry Torokhov wrote:
-> > Just a gentle ping on this patch. Could it be picked up, or would you
-> > prefer a plain spin_lock()/spin_unlock() pair instead of the empty
-> > scoped_guard() block?
->
-> Personally I like the scoped_guard(), but to me either is fine.
->
-> But I'd consider updating the comment above dev_driver_uevent() accordingly,
+Hi Christoph, do you have any comments or suggestions? I'am happy to adjust
+this in the next version if there is a better approach.
 
-Sounds good, I sent out v2 with the updated comment.
-
-Thanks.
-
--- 
-Dmitry
+[1] https://lore.kernel.org/all/20261106104403.GC5668@lst.de/
