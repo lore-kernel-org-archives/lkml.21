@@ -1,88 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442280;
-	b=ufVCnH3F7kzxxK5E34VmePBRXYTpBY8En58+9mdQEX//7rBuQMHJvBIzbOm9loLGdqSO
-	 YgJvCJNTkjxFn5ak+aAhY5/zM9qbTJZK2a7lYP3cAMdC2Xve0uR8HnOf2ZSmSHmsaIJgT
-	 Q5gSStATcr92e0WnOwzs1Z2CyWYbp9IbLKAxtq87Vi2dgSgCvNngkOq24EieXi4/7dXeL
-	 ddEHg83iync6E4cLdk0tl8oo56LFTyfw77nY8Vve762LISSpum+WmDLv5yZD09SJRkGXe
-	 fH3onf45eYEzDDOYQMwlJpjk4NVKJKv7hXo58EPY01bACks6SdG3I4OoDiJGGxEpDag==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442280;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=NyaSsWAPZgC5lXTBhJenr8CDoN3h5umUpUBYZLSGCnQ=;
-	b=gWjibETXDq2JFwuyvvLOc6xNmyvkqOxrc/YHba6QhT8ZduVzctyBU0M5BSgUt1Blto6w
-	 aabhK/owkcETKqGQCKAhdVuoX8x9osOqqHiIuwIqes4ud2OWMNixxniZ5P8qquIt11NQv
-	 lTKuIVbI35wnO/E5JadGXQD6b+BI2WGYpnCn9VhuEnAYhFlFKWbasnbdxnTXPoMBYEw8M
-	 rP3ZuNN7SIKdv/RNSkTal/bjDZL0R3mVB4tLbMLdgBHCi+Avw1wXw3CWa3EdUmCb38gXW
-	 PtIEZu/iO2p4cxdgUnOzUprpgFWPbgfl2GmpCx8lnUiHo7NOnGO0PMgU0XxdcYNmMTw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wzN7U8sT;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.117
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795442285;
+	b=otMAnkCE75Y3eW/U/+35NcJp7+Z7fGPVUeJR3IYOrA5HBtH9OIK+gaZQxKzHUKklU9Kt
+	 JalZ8jWR+1MXEkfybv/vcu1b8JRhtY1/jAkfqapIXd89L86DW4J653IGdKc9AWS5J3POk
+	 HUcOZgnmjKKVSVgTjjPDQyLD980HjuVvtRekZFtvj/WumZQsX6cL1UVeNM+gs0pGokCEF
+	 3yBbRblt9TES05N/WbH1ZiNOaBaDwICUhsxZubGYd/WOpc6Oi6JnwOXFDRtlcx/7youzb
+	 46e3FOAaDP/HQp8UUiyxwp06HxiOdptUiKUpHi7MhHG6zAft4cMlUrr5JEZTUVYH1bA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442285;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=3jzAUgec3ClgegYoaub9TyB2Cfq9fT3dcUaVriqoh+I=;
+	b=t8G835tZPZOxe9auEeOwwt2LLWjEBkJ5mD7n9nK7DrmHeNs2ProJVkwU7nvItNL2MGSe
+	 HRy5TB72p3uS2g1Msc8xlqob2CfzHWpftt0YtKyjhkJhN9PvufGnfKXHj09jMcQoPAnrv
+	 9QAS9zdWKh/eIQoInWZlFu2LvTyE5FEmU/41wqZgPQ8Bu2p6vt9w0YU630KsCcEVRoJYP
+	 KUB0wYMpgdiPtcurhuQbRTY0ZFWW3M9b8hco1HhQClSZG+X8PpcrghDCP5lSJmdJ7pW2h
+	 Ir3T4sLSVi0ePNCgK0gTTeKVvZ9vG7svpBV5gy895Np3GWOdYsk/mZ6sMSUqTosruJQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b="A6t/OFXI";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.117
+Received: from YQZPR01CU011.outbound.protection.outlook.com (mail-canadaeastazon11020117.outbound.protection.outlook.com [52.101.191.117])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7AD4606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:57:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7AD4606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2748B60A261B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:58:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2748B60A261B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wzN7U8sT
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-4a68190a2a7so2768806f8f.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:57:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795442278; x=1796047078; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=NyaSsWAPZgC5lXTBhJenr8CDoN3h5umUpUBYZLSGCnQ=;
-        b=wzN7U8sTKBWE0hnIdo4hSl5mB94unptq0osmgd7FUp1WlhAnKCMGAXL3l86ygWmb7V
-         s/rQje57Vpi+05Ehs0Hc4IGwxho5PZ/5DOv16r/NCYuszsLV2pLx62EXeArjLORct3YL
-         o63K5hYqGANmph5kBH99+P1hCQ+WsV0QnIUdc/fbLZptPdgXuiF+VSK6iP7qpIBHLYt1
-         N8oXIv9CrsKz1vAPo0o5KU2KLytiauPMqliW8QMtnFR9RXo3oL5cEWPZuknt38kAUWNP
-         /Z2zfQZi7y9XRtAJcICkVggmfN+A/Iqfv8LdLOQ0Dkl5qZMvxz7uIo2/ILhZdR13rigj
-         zQoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795442278; x=1796047078;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=NyaSsWAPZgC5lXTBhJenr8CDoN3h5umUpUBYZLSGCnQ=;
-        b=nmZW5BlgPGW9ZbUB24KETo7ckGTwkmdpWm3jExduQ2BO6o5oHMtY1IaVK/z3+sWiMN
-         gVtc60WP4DyC9CRz28BqQt/V7IdwtebNlRkTudPbX+ySYuu1jf44SroP/kmbISksPs2f
-         FX+XJCkYpAZEttn+RF02Flp4mtNNw+3ID8lgVRqedSxaOhVHb0BTUM7xwmQH0ZHVfHVg
-         Z4ar9q3tk56yU7GgXpfRM6QKinpIUzoez/UyASVgr9UHP3Q5OxbzH+PkCRSGU7FseaNG
-         V978ZiXvx2nXSzh2btvFXglh86pQwUNPXnEO1m87qzNSidTe0+WHyAz3JT+KaVA7r01Y
-         Ekiw==
-X-Forwarded-Encrypted: i=1; AL+hErGX928gOQZB9SjYjzjdNnFyFg89/gBZY/1yy8MmxkMjb9M8c8v8hXl6xSXniNc4oNFEjr4rHRg3PCVL8MI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9pYiW9azeL4zszmAnOholH4da5e5pu3MlA8rhDdrZJ5mX3hA6G
-	4obynaolsduWTN/mCBdwop4cH9lTmGXDU5FMIdSf7wyB0caEmLjGOk/8
-X-Gm-Gg: AZFdTZcje/ww9szh7CPr1v29S2MreLdTqOzlNmD6sE3v/gAoFKJrqV5lCFfUIlFTxfz
-	dmAwze8H7kQayXoKNQysKIeUkxgQ2NWxro5Y1tZEwuqydbVjTjVf9815xKE0c5la9vEWfdz5xAu
-	n5ou57nUKwTw1kZqDyu2LfZ47Za0LqRnDhOMDtbYh+pVwMQHiBY2teZxLa+d1ltwVX576aEO3c1
-	K9RkrzbMnvE/s0eAaVZjeff1GapcTy+QV0CpxF1V11L6pQdFL8+pA9Ueuy2KsUCAGXx2hsA9FvR
-	m9X6/pOgmIqa1aNeV7/U/2HI5WVk9WuAZlgm/NztoXYF2asmzrqjpJS4uZn6Sq7Mz5Hr1f8KxCY
-	2EzRzmGaLh/WKTV2tL6ufGit+omrHqRd1BZqGI2urP8eY/4pUu0JSFgCS7y37Qf9JKz/v+iW3px
-	RJUMk+UXhSmxxBUm6+Mv+SNamvWUVA7dj0CxBJzgcuxVWTNym55G/7RnK5Lk+B4PrxC+IQLVCZH
-	06wnwb1MZxalIZKD9bOmcLnIBHgccplzqIZmcu35Y/duf0Zvd7XVo5SAKCdfFLdL5StlEIwnIOU
-	XlGNIwSnuTp4KL6enSwHGGuOdYZRA1aWuCVsir274/jhKfnR73UYRyEVO+0fC0qCGQ==
-X-Received: by 2002:a5d:5d10:0:b0:4a7:f82a:7f6d with SMTP id ffacd0b85a97d-4abaa9769demr24794089f8f.6.1795442278093;
-        Mon, 23 Nov 2026 05:57:58 -0800 (PST)
-Received: from [127.0.1.1] ([2a00:23c4:a702:d301:d6f4:1401:6558:1dff])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c3csm22109308f8f.36.2026.11.23.05.57.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:57:57 -0800 (PST)
-From: Biju Das <biju.das.au@gmail.com>
-Subject: [PATCH v2 0/3] Enable RZ/G3L SDHI
-Date: Mon, 23 Nov 2026 13:57:52 +0000
-Message-Id: <20261123-sdhi_rzg3l-v2-0-bad3a6358849@bp.renesas.com>
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=A6t/OFXI
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U8rXvr/QWGVnxBmxCxoVFTN5cwoDIY5aRB5AOIXa2pqeislOriPiqqWDK5f96djr/TS6fvNiVxDO1OsGRwnNIN3FuQwSirLKPBfgoqfCkgw11pQTyVbXad1cJzoTqZtB3cvUg/ZayVISYc8wH0H0iyyGKXyPRlJNmY0fgVZmgFJ7qAGs3v4VMmAQTY+ESxA2JjMQddl2YKcOzVnjSqgWNVx/dDKK+YsrWp+t4M0TbdEF66p4Y3PaQpBFQGl5hBEcotvmwEgtRdu6cXkxIUCiyDNKndtgd7B+HiTxFSzQRcDTMc9r5POTJ1hlpR6+Cg6mGPEjDy8hQ0uJU2RaSXEAKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3jzAUgec3ClgegYoaub9TyB2Cfq9fT3dcUaVriqoh+I=;
+ b=aX4mreW2Dqw2WJ0LjllGYGPcwSn9Z6RXq7BbZhWuN4nmNh6Y/qSZt4Eg2hanoHWaDwBst/FktdKubkUMVWlETsRBRmIfIDe+znCCkDpa9SUhHPfHHZDmwrChUpygrdkSlxbuNZ5N5KLB1jIxndzJISz4/RWUFDBFwGxZGc4W7KvVvWOf27AOPGUiJRmeZ/OQd7Ti7Ba9ayvtcEbD/M398LpUb996kceM/kp9Icwm9NMFMc+ammBW05PR6mD6ATZrRHkVS5uk2dJxxIZEuK7qC03ShIoNSzbju5U5EAy5Stb5WfmfkDNO8CAWcioZWW1taIBgbiVzuhIP/Yl3vdpLZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3jzAUgec3ClgegYoaub9TyB2Cfq9fT3dcUaVriqoh+I=;
+ b=A6t/OFXIFJx2s4PEdnG6ZRive43dIQ1vGpQajzsUQSJaZ2g+XKSbEEtVF7ZVssF+Kqa6vL+kMOXdWJfqq+uKIB5IuJ6+y+sqdoMfTOogjR2HKFzNswpD5fIwXt4BDsf2/fpNtZ+MJqu0bqfQoVt8KqlDiXcrKuCst1wBan3U2L37d7ESmu4RA+RbYfx3QRCqTnMdqb12UuwoHDFINjZSwHon4vApiW/F3FyVNHKxowlNXGv0qP7+BINc/I9jFutHt0BbGIigMwBSQwLXboEUNfYLR13XmeZua7MhVpeezLFT3/ZnqmdpdtxU4P/7A1ASL45MzWbC7eo9i992UkZe5A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YQXPR01MB5199.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:2f::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 13:58:03 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 13:58:03 +0000
+Message-ID: <20fa7629-357d-424a-b054-9206fd486315@efficios.com>
+Date: Mon, 23 Nov 2026 08:58:02 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 16/40] sched/deadline: Keep the last CPU a task has in
+ its root domain
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+ <efba6f58f1e0ef5cea319448374083b8149f26da.1795207232.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-226157@kernel.org>
+Content-Language: en-US
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <sashiko-outbox-226157@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQBPR0101CA0111.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:5::14) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,58 +100,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGBGBGsC/23MywrCMBCF4VcpszYlSbFFV76HFMll0gxoWzIS1
- JJ3N3bt8j9wvg0YEyHDudkgYSamZa6hDw24aOYJBfnaoKXulVJasI90S5+puwuUbvA2DC54D/W
- wJgz02rHrWDsSP5f03u2sfutfJishhTOdtFqeenX0F7u2CWdkw61bHjCWUr6C+u8sqQAAAA==
-To: Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
- Geert Uytterhoeven <geert@linux-m68k.org>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795442277; l=1266;
- i=biju.das.jz@bp.renesas.com; s=20261020; h=from:subject:message-id;
- bh=nfHK27eamabda+l4/yT+G4It55FfV4xdF374TgHVIUY=;
- b=jF4MLo3rk6NOxho8MwZU8an6T6CD2cpRrIil80n/V1/95q9+MXJEWUH3U9O375bYUx7mDdjCa
- onZ4gKACfplDkOhk+Q1Hx7o57ZOt1V2HaE+d3yv/6W7VRWvHy08GO0p
-X-Developer-Key: i=biju.das.jz@bp.renesas.com; a=ed25519;
- pk=yzD2T1OLS3lEYflbk64xhLlxhk75lZ+NoOtkTOqrlVw=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQXPR01MB5199:EE_
+X-MS-Office365-Filtering-Correlation-Id: 122b8d57-7988-47b7-4c5c-08df4969cabd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261009223027099003|261021123027099003|261021121427099003|261022105027099003|261026121527099003|261026140227099003|261102123227099003|261022075727099003|261028144727099003|56012099006|4143699003|10067099003|5023799004;
+X-Microsoft-Antispam-Message-Info:
+	kxA7ovhIdZRSVJgI+OQrEHDTYeF390NKLgiU8YdDOZr2T4Xh/BO89I34WtKrZ+cTAd7UBFoKwYcK4FyuPnQmYug/ctQ1lEhEYQE34zuP8dWR2LJeH3SqGhDLXNa1kAQTGqDxtdjkouu3TA5WrLaQjykbPRqX0XzvqwqfpqaR74w67n6SOz3I0t7ieUBiVcwRX1S9BV9gYepM4W1/Gdf4xQpVCfDJuj+53LvwWRIs3O1O6n5uP4UdCMJI0oHYExA1yhyAQs8Sbpd9q5tSGobHnD6cTs7RURdBSRpQfdyrMi7ouixGzNbgaG7vAfxxvni++K1PWfklCdMoyL2NOu+xKd2akJzGXirLj2Ega8IebluTZ037sETijmEYWLxjJi30NQ0DQ+a/fZrMNIgNeXsX885JVfGBLdUgwoTyapvW0tP/0ku+AknWJ6UXclUREPqja/E5W5ThWdOzFZr3jJqu6YLGe8XQnUmrtu6msxUkSKqCCiETMoyW95MaM+lTIblluWfRL0UknYo+ZTC5KKlvXJd36lbEL+Xbe3NvfBe3NvcT8t+ZJMIvF8BSTkE1EeetxrCoe8GeOrBVvwiaOv9PmVZ2ZoflSG3ZOtYgWDTkRsY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261021123027099003)(261021121427099003)(261022105027099003)(261026121527099003)(261026140227099003)(261102123227099003)(261022075727099003)(261028144727099003)(56012099006)(4143699003)(10067099003)(5023799004);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?RUE4QWNndk84eHBYcFlOQk51L3JUZFVRTms3MGpLN3YvUTJmZDdxM3FmNmF5?=
+ =?utf-8?B?a08xbGVJcHZTU1V3OTNObms1R2U4SlBpL2ZQUHVlWWV5d1lJVXB0Z2d1V1Vp?=
+ =?utf-8?B?QUpSSlJtOUFYQ3ZUR2J1WTBWVGFXOXovcytNMHZWUDVsSXhmSHZWZUs1cU5N?=
+ =?utf-8?B?UTdtajhjbDNqeGppbUh6dkhwa1V3ZUxzUkVJMU90ZHlJTy92cHI3djdPN3VP?=
+ =?utf-8?B?ZERQd1JjUW9pNW82dkJuSjk2bm1XNGVBcElOTmh5ejZiK3dEZ2pUZmpHLzJw?=
+ =?utf-8?B?RTh6UEFpSkQzV1JHdmpKSmhWMnBtKy9pM2tVWnB6RjVKSS9xWHd3NElNN3BT?=
+ =?utf-8?B?SGpZWWxhZ0pNMnVuRldKZVJxYXdnaHdiQVFjYWFXNUtLa3J2L3hRblNITWR5?=
+ =?utf-8?B?N3lLWFpKdHl0SnNnVFA3QWc2VHdGaTJJaG54NjRQemszZTIvS1F5b1JMZk5l?=
+ =?utf-8?B?TkZkQndXNTFocDd2ZDFETnB1QTRYM1BmOFRPdTJTY1lCdlR0RFRTcnU5MS9v?=
+ =?utf-8?B?ajhWUzhCVTVYSXhyQktSaTZRWFlQSUp0OXZLdTBRM2VjdU9FZU9qa2FDU1A3?=
+ =?utf-8?B?VHpvVmxuczdNTWhOVVlMczF3ZXJGQzUxYlk5VllTOG9Ob2FUTDV2OTNod2U1?=
+ =?utf-8?B?cTU1K0NxblBBcGpUQ3pQTWlLRjBSUjk3d1RJU0dsN2NyS3NjckQvSlRvcGIr?=
+ =?utf-8?B?TjF1end5WVowcm9YRzlyM1ovSUlIRG1ieFJFV3h0QzVFekpjdHdabWZwaVBW?=
+ =?utf-8?B?VmNyWGE5bURicUkraTliTWVEWWdMV09RSHpocktSbW52TzVvYnZab1hiQlpx?=
+ =?utf-8?B?cjFvOG1QanhiWHdaRnJ0b1ErVzRQZWlkRnpOb25TVEV2TWwyVkFmWEpuQnZl?=
+ =?utf-8?B?alUrMjJmOUpyLzlFQS9Zb1R4WGVBQ3g3ZllDdVEwNFZ6eHQvL2kvOXVqWUJ1?=
+ =?utf-8?B?b3h3WWQ5VXd3c1Y0RU4xbTFvRHJXdE1NeUE1OGJJM0RZWDRwd2EydElLbENV?=
+ =?utf-8?B?MSt6YTF6RE1mVlNkYzZPbzhOb3BqQkxtWlZxeGxOSkFXWlhKdmJDelY4a3By?=
+ =?utf-8?B?aEZMS1RqZDZTVEgrZEk4WEc1cG9LbEV0UGl4SnZ4VnROeEVtSklwdXlGRHY4?=
+ =?utf-8?B?eVFwbTR3U3J0YkxUVkYzVGFuOWowRFRuL3pyOG5tTFJuMTFCQS9kTitvVUFF?=
+ =?utf-8?B?UWRkWG55QVFXUFB4Z3crbGtpWE1iUWZ3TnMrRGpHQWkwWTBFNzJFSXd0RG5s?=
+ =?utf-8?B?YXRUS09aL1RBR1NiSG9YbXNPVVl0WkQreWYxODBUT0Z2SHlWUGRkbHBrTjdo?=
+ =?utf-8?B?R2MyMzJ4M3VBMyt6dDIvWk8vNFVDRE1oVGJNV2xuVEpBUnBNb004Q2JqamIv?=
+ =?utf-8?B?elVaVVVKeTZTWVhlRHljU1NWaXUybThEa1JGVzdXamk2Z2NISGFWQ3lhS0Yw?=
+ =?utf-8?B?NFRWNVA2UHpackxlMjJiUXJJZXBVMlI1WTF1NUdXYWo4bHdpRjM1L3VpNTZl?=
+ =?utf-8?B?MTRxY29LWENUeldNeHN1NDFsWDFtWUJBeStpbWJwRWwvS2ZFS2tWTU1sdEpY?=
+ =?utf-8?B?b2NJOGdGUDYwMlhiSlF0UytiVEpWWnBhUloxcHZ5VHdRQWFTRzNDajMxcklX?=
+ =?utf-8?B?Z2htMGlHUFFrQlpjd0NORU9QQnFaWnB0NE5PdFYwbVA2VVVNcXJEV0JrSXFO?=
+ =?utf-8?B?bmprRnpGNHF5NE0wTWhqczU3ODRwS3dGbTllaVRQNHlmK2dTRm1HaytqaVRN?=
+ =?utf-8?B?T1FBaHJEazFOL1M4Z0R3TmFVdDZtWkNiMXJZNzdNQXdJUHVVYUNDQ3FwN3Jv?=
+ =?utf-8?B?YjI4Qll4Ti9ocnVYeWFHR0J5THRpRGNwRGhnTm1tRUw5YlBzYnpHRkMrcHJr?=
+ =?utf-8?B?Q0FHR1UzeGtpVGpkdHpKRlgvTkh2QkQzeDQzUGFjcmJ2ZGo3YW9LRTdEb3Ni?=
+ =?utf-8?B?VWtnOFh3Nk1YMjZPaW5xSER2V01PMUR3dnErdEhGZGxDSFoyWnkxdkRiOU1l?=
+ =?utf-8?B?Y1NVVzhuNGVYTzdKNW90S3Q5NmpZRkQ0c1NORnlVSUxoczVzOXMzV1RDUm1K?=
+ =?utf-8?B?ZW1pUEx1WmVtam9PMjY2dVd5RzBDd1N4MGtOK2cwR2hEY0l5MnhueHVlekNo?=
+ =?utf-8?B?MWV4Z1VRT1FoVE1uMWxpQ0tUakdOL3VZanV1bTRVK3c2Y01sZVRQOHdMZWpJ?=
+ =?utf-8?B?TTJRVDEwTFhjcW92MjNjK3lKZnE4WG1yVGxaNFlVaTEzYmlEMlY5emZ0aGsr?=
+ =?utf-8?B?TU9oUzBpZSt0RklHVUpSK1JKU0ZLRG1PbG9HZFZZT0RCSzQ0ZnZuL0pmYXBS?=
+ =?utf-8?B?cTl5OTFDWXkwZ1JQdmtJMXVKV3gxTysvTHZpMXc0WWNjOWFXRUVmdHZoZzFo?=
+ =?utf-8?Q?XiG3WpfQTrQrACeA=3D?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 122b8d57-7988-47b7-4c5c-08df4969cabd
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 13:58:03.2492
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bWWUsVHoAPQGIg27huQdmZsx/cobZmoKr+KCfNHkngTvTBZotb2KDEXv8np7uzUnZeRmf4EBgEIHI3IGcxQqwznG793Ja5cmN/PtX5uAi9k=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQXPR01MB5199
 
-This patch series enable eMMC on SDHI0 and SDHI1 on SDHI2
+> When gone is set and p was initially unpopulated with no active CPUs of
+> its own, does partition_child_lost() pick the last valid sibling
+> partition after gone instead of the first?
 
-This patch series is depend upon [1]
-[1] https://lore.kernel.org/all/20261104-usb_rzg3l-v8-0-ab109c4bd108@bp.renesas.com/
+Yes. cpuset invalidates the siblings after gone in the order of its
+hotplug walk, until one gives p an active CPU. The model picked the last
+sibling that covers the CPUs left. With mixed partition types, a
+deadline task could then change root domain unadmitted.
 
-Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
----
-Changes in v2:
-- Disabled sdhi1 when RZ_BOOT_MODE3 is 0, so its pinctrl and regulators
-  are not left enabled.
-- Fixed the typo RZG2L_PORT_PINMUX -> RZG3L_PORT_PINMUX.
-- Added a comment about the SD power signal.
-- Collected tags.
-- Link to v1: https://lore.kernel.org/r/20261112-sdhi_rzg3l-v1-0-ca30b209615d@bp.renesas.com
+Your second, fourth and fifth points come from the same model. So v11
+will stop modelling the order of the walk. Take a partition left with
+tasks and no CPU, under a parent with no CPU of its own. The parent can
+also stay valid with tasks and no CPU. A later hotplug event can then
+make it invalid. So v11 will take the topmost partition above that
+child that has no CPU of its own. The offline will be refused if a
+deadline task is in one of its cpusets. That can refuse an offline that
+would be harmless. Three new cases will test it:
+hotplug_first_sibling_refused (your first point),
+hotplug_nested_partition_refused (your second) and
+hotplug_isolated_child_refused (your fourth).
 
----
-Biju Das (3):
-      arm64: dts: renesas: r9a08g046: Add SDHI nodes for RZ/G3L SoC and SDHI1 pincontrol on SMARC EVK
-      arm64: dts: renesas: rzg3l-smarc-som: Enable SD/eMMC on SDHI0
-      arm64: dts: renesas: rzg3l-smarc-som: Enable SDHI2
+One hole stays. The check sees the deadline tasks present at the
+offline. A deadline task can enter such a partition after an accepted
+offline. A later hotplug event can then move it to another root domain
+with no check for room. v11 will list it as a known limit.
 
- arch/arm64/boot/dts/renesas/r9a08g046.dtsi         |  73 ++++++-
- arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts | 102 +++++++++
- arch/arm64/boot/dts/renesas/rzg3l-smarc-som.dtsi   | 231 +++++++++++++++++++++
- 3 files changed, 405 insertions(+), 1 deletion(-)
----
-base-commit: f5494a6f6d818ca30f70063a573eec8c982ad747
-change-id: 20261112-sdhi_rzg3l-e0c7dbf7cfdd
+> Can gone cascade upward across an unpopulated parent partition here and
+> in cpuset_offline_moves_dl()?
 
-Best regards,
+Yes. But that climb refused a real move, by luck. A later hotplug
+event can make cpuset invalidate the parent left valid with no CPU. In
+v11, cpuset_offline_moves_dl() will climb on purpose, as above.
+cpuset_cpus_allowed_without() will climb one level at most.
+
+> Does dl_task_in_cpuset() match sugov kthreads in top_cpuset that do not
+> hold root-domain deadline bandwidth?
+
+Yes. In v11, it will skip a task whose bandwidth no root domain counts,
+with a new dl_task_holds_bw(). It needs schedutil, so no case will test
+it.
+
+> Can deadline tasks in gone change root domain undetected when gone is an
+> isolated partition and its parent p is a non-isolated partition?
+
+Yes. The rule above refuses it. hotplug_isolated_child_refused will
+test it.
+
+> Does skipping a == lost when neither lost nor p is PRS_ISOLATED hold when
+> lost has a valid child partition of its own?
+
+The root domain of p does span lost's exclusive CPUs, not only its
+effective ones. But the bandwidth that moves was all admitted on fewer
+CPUs, so nothing is overcommitted. The child partitions of lost are
+checked on their own. v11 will correct the comment and the message,
+which said "the same CPUs".
+
+Thanks,
+
+Mathieu
+
 -- 
-Biju Das <biju.das.jz@bp.renesas.com>
-
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
