@@ -1,81 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795457891;
-	b=174pTZR9tR9UFCvXtuTFMsikAOhgwUI3wIlifwUmZm4Muy5fET8+x7sRLxcAFzfuz2Wt
-	 TXkrc0jkFd03Z19YZw78gw9mbVmoAtCeA+CYt8tsbMbdUQTnFvdzTqDC7LSKFI96WWjos
-	 IojsjJQSL6hEwGwD3r9YK0nGnmhA39fziplVKXE7TV3un84w6O2s/mDMTqi/X1O19iOXu
-	 UYF0tFcSvlniw+Ahp4d4VbNL5L9ZMD59pzW+fb/ExSGn/4pMU9Fs5PzqzRAaYH+8Uzp7I
-	 osWP/t6vMmPnJJ3VhdKP+Rybe9mPJ6mkiRvgc4Vz7MPg3aBmFkGyTw51IoRsM/jO6DQ==
+	t=1795457912;
+	b=a8OnZeMr6ukpocGcJKE7QBE6IGeGnwGSCuf244+icEJFbBotjs5Io/7Dhm21cPF0YASq
+	 tFBsOkb1kOdkzxCPgyyIxJeyCjmYz7CRg8+0mC9MeGDzRqIPlosQxbi3Y7RkhwKoSAT72
+	 UTvxe0fAAOoLUhknTJ5uQF5kMa5hWZXv+Pr7q6nXDrEw9hp8WRN5InKZZDN+5vBw1Ywzr
+	 k5qc4ILSnoMKbc6qH8QfUtMkN8MVX4XqU57EnCbu5GXfebvWPrLgTX2hhwboEU530rxR0
+	 Nh/lIm0rSVSL1JqxXpe2icggQ8G14BqlU9cQRAuBMz95sFvDmZQe2FgLS0yLb9+H4CA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457891;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457912;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=7AHMhl5x8WOuLtu9FsH21uADnHuh0FQgIBWGDmLTDZQ=;
-	b=g+LC3CSuz2TEnuGTKoWrc4WKA6fwh/28HeCESxaqtOuPMlo389k7zdPKGpNbBeLHprFK
-	 NsWwkW/qdfsgWuyMvcrYSZpqTtKzIxush12+Mh7oXhoOBk2dBfpT4383x7GT4lk4I2PWm
-	 WaxcN9/dmACs++Hlu1+HmDHdjCGsBDfshoqu2Txl+7srWvz8+Mfn3WLac6X1IH31X6I2K
-	 gB96HO8XJko03VmupRHYywaB8YnpbEJasUE9++gSLtZ/9RQ95IeE2n3daJQc71WlYFuiA
-	 k2by13fU4sG5njaRcuC8f0YQqoP3aUkAALaQkrGbyvKZSjhiF0rypVVvAY+rVNgWTCw==
+	bh=StHkoBAdAlawOIXQLWKads0UJny1AZdhexBmHXAPI9Y=;
+	b=QhQm1zWm19CxWICKhjO03ycIBMKo1ArxmqUjVqH0bye8gqIX0aKS4ZnDcVVAiAqsitzk
+	 7YIUr4t2Aj7D+xXbXCen/TTryIh/K8TQ1Ss0Zf5GAkx4oYqagoYMtydPSlfp4zkFOMnxZ
+	 W/isOkaaPwAI39IdAjrZfA/optM43H7gt5QXc6xH2aFSFKL54NK4NUhbEHZ4NTEiD5VEI
+	 W7nFBLT3IQYaTxxb25YZu/AebRqxJKx+LqZcDWPEPB+YGfqOwYCADifWmvFt3nul2CI0r
+	 HbPQqacGAPUEEHcl7Y47yfHS2Egx0+UQhKrm4KNzIjDtesC44SyxJMdeRGNSevWOSxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GhPFhyE9;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EjjJTgnP;
+	arc=none smtp.remote-ip=209.85.210.46
+Received: from mail-ot1-f46.google.com (mail-ot1-f46.google.com [209.85.210.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D0EA606AE12;
-	Mon, 23 Nov 2026 18:18:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D0EA606AE12
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FE9F606A332
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:18:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FE9F606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GhPFhyE9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795457891; x=1826993891;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=IFfmmVN/bLp4SS1l3G++XeRB114qgSyhY8clCuM1Caw=;
-  b=GhPFhyE9kTfrJ6SGPSA0kIu8Q6tnYcO5eHw9J1Q1+XshcDOttsy1ueiD
-   beqr60pOKydK1tQY4EyD82dgENt3M4IAYvtV9EuLUxrkkHUHXO53nRLIY
-   yFLnbZTtnggQRVGF52GC1mMxNQIOkMzJZjDPY/rBCy+sXVazzbd/F1cfb
-   iiKfeimXRCKOfo0wWN2z5PC2LFbI+gVC6yMhuQj0kuOJaNLDemNwJBoq3
-   tpdmi+EWOOUZCenN92MDx3xTX0DzyF8mbeunNd5+wStzUIEf+r1iUFCZs
-   oly57X+YE1SRq2MYjLTirx2SpL4WTWw4XZbOxWLD2p/cWyncweoi1Se3K
-   Q==;
-X-CSE-ConnectionGUID: I/jQRVwyRi+GrN10QgY3zA==
-X-CSE-MsgGUID: 10Dy8kGyQSOLV+EjzdVRFw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4288893"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4288893"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:05:34 -0800
-X-CSE-ConnectionGUID: xODkiDvvS7eGYOCp6wTtUA==
-X-CSE-MsgGUID: dFiv/z7dTrCDMBCII1k//w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11241172"
-Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa004.jf.intel.com with ESMTP; 23 Nov 2026 10:05:35 -0800
-From: "Chang S. Bae" <chang.seok.bae@intel.com>
-To: seanjc@google.com,
-	jmattson@google.com
-Cc: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	x86@kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EjjJTgnP
+Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-844a8bf7e25so2005453a34.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:18:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795457911; x=1796062711; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=StHkoBAdAlawOIXQLWKads0UJny1AZdhexBmHXAPI9Y=;
+        b=EjjJTgnPdygpRhTewVlt5HdcK4nrxyrLHfRkGMk/vkEXGFQlllea3BbuzjCmqH+Ion
+         PA6JaSoyZFhdPJ6cYZi2ZTQGAEwjJZVB+/kcL3k20CITn6vC/fKJHtaBQpqq0I8RLSCt
+         ngpm0134NKU/uqtDAY2PNyTYSfqlPv3Gc6+P6Zcj6WpOYakMIznWZ1DV3FDtbXWu65FA
+         3Zy6GBolg6x0IhJWFaYaTYxx8Zl5mzuwtnk9PyrVkVRqiNyKkOakGnFoOiXVvMmwMnXz
+         dIOUZoCrph0XXaTAKy3LqmXkwkbWhM9WlDFIM41xnGz6eERrJ/qygz7CdHiE5rT8Mp81
+         uzRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795457911; x=1796062711;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=StHkoBAdAlawOIXQLWKads0UJny1AZdhexBmHXAPI9Y=;
+        b=2uyluyjx1yf4+DAiXbFB5++7X4wzI9GXkChZ3T3p+7VKl0bgs09/gyDAdMQdMLjZ1C
+         bst1cWiUFYteQYqaaIg0kJSaoSbxzasrdFzX+cVBVTr6kffJuz534NWI+JJthdFWL7bm
+         NyY07gdx3IF3tK3QUF2zGsR3ivmXa6oU0r/+H29ioBnmxM/YbFjJTH7FsJKilOzkhQj1
+         cmFkJjq2Eci/zyoAkMOWxQoELG6a+SKwgMmtfi6yJV+Q8aEEFzhwa7GP8WQyCiFNWsVF
+         vAHS+B/qXE+HuevQcc48bBwjvOQAtafj2plfXrqXTzZVbD/c1b/L/R8e94ecVEkQc1un
+         idkA==
+X-Forwarded-Encrypted: i=1; AL+hErEbM1aWThipC07wIEmUpCt9FNkJLFf6aiB/gsX4KjpaNXz7HR3cmZpZiFiYb5E4zWlMsm9ovKhoVd4j2VA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+YWKwM3T33n3r7FfdOTzcwQEMwxohlIGesk42t/cfTENm+wloP
+	ijk9Vy105xN8LYyBeIxZUYUQeGtwpiFjLg+3MFHZv16x4GzOyYGVIlKS
+X-Gm-Gg: AZFdTZchTtfajPsj2kwKm9AL/0+KYa+yNul1nLwNmLLqg/yDVZopPNLKjE+TGEc4zo8
+	BXjAqtEMvSEKznnzSgcTPTZ18dhexrSLkfMPxh6z1my9+z/dKSqeN2JiJyGMA5LYHEa5XNqdPEa
+	DR5RktrSQWXJbQXpxM/Rb9K7za/tRH6XdLYAr1XclMvY5G6ecgKgvdyUah2MQCiPCLVPSb65mZz
+	eB4YO4GmoPonRmh1XzafxgAutj+wYOC7YbMbEoappSlVKZG0hvKlOMbFUkaCXRAIohzhhhjsL7v
+	C4pRZb/q9C3pvWAoivdv8RoFUlZ67hp0M0i3vqyOUKKF27vxPka7e53V2P2ATcqcpDHo82kVhgi
+	8qkyCewtqP7Ya3w/JoOIzOCG65COuceA8zNr3Ern8Zfg95ydj+tNOKnm5Jnq65yGDwJ7npBCY/B
+	j5WVpSm1I5RbD/MD/EvRdJQddlIMvqYzTq8xexAbPgmHHPS3YdG84rr777f4ISCvxCaAMsiFVhT
+	7H8uHUdaBhObi7Rtb97rKMEXXibBssHfZVbuYvWmyJZfI9eeFtrSosAArnPYv1ZoTL2bJmxaH/w
+	m4kjwEkfg3SlEkC+kcVJwFPUMa8du8cCqnArR+pDaAPLKtAGjUvFFO05cagg
+X-Received: by 2002:a05:6808:660e:b0:573:1dfa:f0c2 with SMTP id 5614622812f47-57a0ae27327mr12433757b6e.29.1795457911381;
+        Mon, 23 Nov 2026 10:18:31 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:5a::])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a34250ef2sm10116253b6e.3.2026.11.23.10.18.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 10:18:30 -0800 (PST)
+From: Joshua Hahn <joshua.hahnjy@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	David Hildenbrand <david@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Zi Yan <ziy@nvidia.com>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Dev Jain <dev.jain@arm.com>,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	zhao1.liu@intel.com,
-	chang.seok.bae@intel.com
-Subject: [PATCH v10 17/20] KVM: x86: Add APX to supported XCR0
-Date: Mon, 23 Nov 2026 17:37:29 +0000
-Message-ID: <20261123173732.1072124-18-chang.seok.bae@intel.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123173732.1072124-1-chang.seok.bae@intel.com>
-References: <20261123173732.1072124-1-chang.seok.bae@intel.com>
+	kernel-team@meta.com
+Subject: [PATCH v4 0/2] mm/page_alloc: get_page_from_freelist cleanups
+Date: Mon, 23 Nov 2026 10:18:26 -0800
+Message-ID: <20261123181829.4065581-1-joshua.hahnjy@gmail.com>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,46 +110,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Set kvm_caps.supported_xcr0[APX] when the host has enabled the APX state
-along with CONFIG_KVM_APX=y, and eVMCS is not in use as eVMCS does not
-support APX yet.
+v3 --> v4:
+==========
+- Make kswapd_wmark_pages() static inline, as suggested by Vlastimil.
 
-Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
-Tested-by: Zhao Liu <zhao1.liu@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
----
- arch/x86/kvm/vmx/vmx.c | 4 ++++
- arch/x86/kvm/x86.c     | 2 ++
- 2 files changed, 6 insertions(+)
+2 cleanups for vmscan and page_alloc code. The primary goal is to make
+get_page_from_freelist a bit easier to read, especially after the new
+kswapd zone skip conditions [1].
 
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 87a84157a51a..3c1d4629a00c 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -8571,6 +8571,10 @@ __init int vmx_hardware_setup(void)
- 		kvm_caps.supported_xcr0 &= ~(XFEATURE_MASK_BNDREGS |
- 					     XFEATURE_MASK_BNDCSR);
- 
-+	/* eVMCS isn't prepared yet for APX */
-+	if (kvm_is_using_evmcs())
-+		kvm_caps.supported_xcr0 &= ~XFEATURE_MASK_APX;
-+
- 	if (!cpu_has_vmx_vpid() || !cpu_has_vmx_invvpid() ||
- 	    !(cpu_has_vmx_invvpid_single() || cpu_has_vmx_invvpid_global()))
- 		enable_vpid = 0;
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index b1d11d07f69c..5d48f4212431 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -7194,6 +7194,8 @@ int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
- 	if (boot_cpu_has(X86_FEATURE_XSAVE)) {
- 		kvm_host.xcr0 = xgetbv(XCR_XFEATURE_ENABLED_MASK);
- 		kvm_caps.supported_xcr0 = kvm_host.xcr0 & KVM_SUPPORTED_XCR0;
-+		if (IS_ENABLED(CONFIG_KVM_APX))
-+			kvm_caps.supported_xcr0 |= kvm_host.xcr0 & XFEATURE_MASK_APX;
- 	}
- 
- 	if (boot_cpu_has(X86_FEATURE_XSAVES)) {
+Based on the latest page_alloc/for-next branch as of 11/18/2026.
+Notably, there is a dependency on the aforementioned kswapd zone skip,
+677dfdfad244a "mm/page_alloc: only skip kswapd nodes below their kswapd
+watermark".
+
+No functional changes intended.
+
+[1] https://lore.kernel.org/all/CAN+CAwNsqWpPoag_XE6bxbrfi6m71xw1NS_wc3h_ShZjNspSjg@mail.gmail.com/
+
+Joshua Hahn (2):
+  mm/page_alloc: move the kswapd node skip check into a helper
+  mm/vmscan: consolidate promo vs. high watermark checks
+
+ mm/page_alloc.c | 47 ++++++++++++++++++++++++++++-------------------
+ mm/page_alloc.h | 12 ++++++++++++
+ mm/vmscan.c     | 11 ++---------
+ 3 files changed, 42 insertions(+), 28 deletions(-)
+
+
+base-commit: 3a99594e62fce8c646e8aac01d38af16d6833a40
 -- 
-2.53.0
+2.53.1-Meta
 
