@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795441305;
-	b=dxERpVC0ZxFXzEldi1STi3LRPoA4muUxdN+9VAoicsdWXaFVG7IGTh76S9Hqv6k03VS8
-	 vIxZyXwap4ow7SY8WB9pU6fXdHY85EvBKdMQEFp4EyVGmqj9+iNcPdKw3PS7ntZUzt8n5
-	 +oU/9bd05Hkgs2SX9jCRXjHNJf0b2NpBrajNgRjXYGJdTwD0Dg0ssH3QnbVfrfJe8ymFm
-	 /PINHaE6gamq7Xl2DfTolyXR+oGffUMRkgb+rlB7ERGwCxgIrviKCJGRwXI1H67lJ3P50
-	 kw/m0BabdKPhnTkFivs+kt2vmUdltStmS7K9uAKL/riihG5eD6H3I0Z8UzEMyWWvGeQ==
+	b=jDrZMisy6LIvj66OP7TOgeOxPN2jq4n1zKdIn0bopmrOth8NmFmbXd9gkeqkpAtHPNPW
+	 EQ68/ySPg8z7tv0k7Ae8j0WtEQYiAreG1tW8a5V0+V6a67K+JKc48WPcI6m7idIycTZgo
+	 ddd+0aRsaTtRLnOT1nwkieuU+l3M1hOvfD+Ai/RGvTUGvSDfHT7OYhcu5hTTN1SrmG4fR
+	 ToVyWigwj0NkK471lV/Dkivk8YOYc4QbaSWEuzXlNogvW+KcTJ4eDZQaYcFbkVHrq9/eE
+	 zgc4LjbAVa+TOGIUzD7SZEiZZHo0oH1U78q323pDLjK8HsPJ095Iz+x+uzmXcKdd4vQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795441305;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=yu7J9cI4J6eMRXfImtI0cKipkxIOsOHsH3WCb0gS3hM=;
-	b=sgp32oWx7x2aL5L2R1wMtueDm39qi8OiI3f9OdCzfvtkGd6KG1e1iB5249Z5ct4917eY
-	 kMWnm8C056ZHnj1opsc63kbvPaKjylv5hg277K6HN5sozd3RG75Aw7xZNFocu1uXxh/z3
-	 JyJRNij2/4XK6SFtinlf/JuHUdg/m/Vv4zcI02cCP5xA0Z2Fg0waMTCeg1Pn7i8lAYwK5
-	 n7sMJ4po8gcLD8+nzlqWIzt0JwAMTOuFpPd5CuQrVNqQw5xV4r/t3xkga1gS6OLZK3KLn
-	 LqJm5tS8mDG+jQ8e1nBFlvhr9qA8SMYvVh46c+zIehbZClhv5IAYK8XzfmpTBbG2Jww==
+	bh=P7hMrzIPAgJ6f2Qbdofo1UA4pTvmxZ23Wwx+U1tZCc4=;
+	b=x7+wjaEHm8iozkW0LmKjJGjIbyl2R06Q403QQdgEpyzvmOU7l2H01fiHVd4CB8A4YL/h
+	 menklUh34G3/1q30F2tJr6oy/h0ezis5sMY5WCWTY3eJNeq29d2oeiERSRDIMcQ/DvvTo
+	 TWVaP78aLU6t1kMLaOi4liVlbjj3Pzamq1MbscfmyTyuTiowNZOFVRhaDmDHbj/uZnHiG
+	 59rsS4ucCpgj/7dopRalyCyaklUifQdKtfJZY8pc00Eunkkaf7+Gy0ZeJAxiGiI8NcpjW
+	 gcKBykfWd4EtNkdjT2Re1JClPaQ/m2xAJwaUwBEBqDIirxXDI1dLpT+Zk2R9IkJEoJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b="kH/m7MGX";
-	arc=none smtp.remote-ip=209.85.208.51
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=vedlZEJD;
+	arc=none smtp.remote-ip=209.85.208.47
+Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 690F660A6F7C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 690F660A6F7C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8559460724DA
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8559460724DA
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=kH/m7MGX
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b87408c797so4185954a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=vedlZEJD
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6b887ca9f5cso4541016a12.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795441303; x=1796046103; darn=vger.kernel.org;
+        d=bairaktaris.de; s=google; t=1795441304; x=1796046104; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yu7J9cI4J6eMRXfImtI0cKipkxIOsOHsH3WCb0gS3hM=;
-        b=kH/m7MGXhr3gRUnew3v7bGg5U/zXeENcjhopfGx1/JgCCQVEArVqeg44cyQUW7/Nqb
-         3kYLVDzAYvte+d7At+J1Ma0l+iRZdkt88HmBzencoCnM7HzVwgDixBRw1CaVjr4IAb+g
-         Ei4KIHj1noHRBdnkA/XqMUkzIcSKeZLCpQgyF7ieXmTgpnKfLBRV73aOa+14OKtuwlpm
-         dDn1lTWWKSfZfQWNQosqealkQHNT2eGxs+7g37GbeggOvRWRhQ2En6EWPEl8jrBc08Fx
-         EALm+k1Hv39V8Kw4QcFWK0jBjc0nOEV13bgSW+UvDQbKglzPRACGdfoMVbwNUhrxPBog
-         Mlqw==
+        bh=P7hMrzIPAgJ6f2Qbdofo1UA4pTvmxZ23Wwx+U1tZCc4=;
+        b=vedlZEJDJBodtWxUeg/jWiRTgRm5uc8ljdJG4T+8c3z3AuDjIj1EVrJi4dqU6vyXlb
+         x2As1JpqaXhCvRfMdKZQfKo6e09pyysJbqjkhVY4yOkHq0LSP3PTWg01+bQkIFHNSQtI
+         Au8fcBbYRxIqBMk7LYVi2ZO0+lmjQ5ImBCDfnCzL4mIDkJD2ATyn6OrJELU+dKo8qtrh
+         7mQI2ODKpEw+TGbkCDknBSUjyrxtuqkbJzpo6qbYeeZ1dwiQSIQud36R3f/1rq7wSk/M
+         bTHHSB88T0HS8/v/+izv7klWCIrPsLRUh0lBiQee90YMOXUvplhAKQtQ3JzdeXAWazjt
+         y6JA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441303; x=1796046103;
+        d=1e100.net; s=20260707; t=1795441304; x=1796046104;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yu7J9cI4J6eMRXfImtI0cKipkxIOsOHsH3WCb0gS3hM=;
-        b=2SjE6oe1jLTrQhQvphdb1/gKg62eYfWL6Dz52QQYsKzqOcFjjNTtHkBO/iM/ybmkQs
-         cGL9/+yU1Yn29Ny9Vb896QowOSlpq5HBMXaW9Qi7Qj/SQ5aBYGMzGzvbljApcpWdsVtR
-         trma1oISDTd+VtySgY2B2SUha7RzdruT/82sD8Y3Ie5yvr3bc7QWp7d6/0UK8vDdiarq
-         kW0VOuFbvmFAap8gx2C2jhJF9Zq8L2C+Y6eWvj7Er29yD9NDfT3k/8wuL79FQ9hqhOtJ
-         AFbRN8ogGU1PKN471+SHB1teCAycmsYqV0sm3rHcpDgDO9qs4zvBES/mSqlsKc6O+uIb
-         xh/Q==
-X-Forwarded-Encrypted: i=1; AL+hErFN+5UuzCam1rQRp+su9jYkTOOV8UfSxHo/DFwoO49kqiDz9UZy6b64JsX9SrDs3CdF1JpRLSW1PzqHgU4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9m0tamgeAZ1YfG1xBvLgiL//6rJYeqHh4EDxTINXqbwqZO3/a+
-	f4I/twWinCWbVtHWuIcJz7J5YkvrWkPl2lNOIVtHQZTzJcxkscDldzgQ/yThpih8vA==
-X-Gm-Gg: AZFdTZe2K/tRuKW2oUgdhJ1LOD7oHv6uwyWOoKXbVvf28p5nbwzbkJdQnh20P/ZW5Ej
-	tNP7e4sQLVxHL+WRfzK62nIfFs8ZtHVgLWesEefUP/Xm9j6v1FxiW5iCvYzXme6kRq1GRF0CI0v
-	Tgbn1rOj0yCqv7epPf1TeL2vVsOjBmMr4elFNpxHy09H++emip9u6ex2FxSHaH0Df+dx+ypIU1P
-	AUlrswcJOT7hAiBhr7ECFoZOyAnjf7T1k/jTEo7YDrZXmDrpQ1U1IMPzCF1I0Ci78WH0RyJWH50
-	Uv1xdZErD26OemY4+Y/z0jZ1bl7qTS3N++AWD06Kdx2ItSagQDCtmhIE5RSXM5GKhFfqSHBtw15
-	tGSlAiCz7DxJPfN14EVF5J+OMBW9QSYVcIShjnb892YokQ290xL1mfxJrHhg7yEoXYekG6mcOEL
-	xj33CPEM0L87RxXxn/Lu14nFyPOW8CBSnLvSb8Q6itP0UPWRCl+dgDyjFR6ivJeMs20TeYWfgVG
-	D0Ng+qjV9ab5VPFfO9bDPxYTKeNm0SWl22ecPGH6q5R5sffhfNYlZWMVaJshmzkNsEjx2nrcQjG
-	4Ph+z3LooLnv2tPOhqZwd9K64kstIy9HjPeOlQlb0CY7sYtjrdyb7mbuQl+KXNb8/qWs5nAQB+2
-	Vuc+FNHSc0J+2dmAK6z4G7NJI8WG6pZgVOi2/QoVx2XGaEc+NQbfj3Xugws2hqRBFNLBx+wEK7D
-	9vzlX5bXhULzj8PcvOYlFG5Vv+R1zJsdwbB3CvikZ0se/HuwDO6Y0iQe1n8ZM/N/vMFslYH1sNO
-	4OssedRX5McHHuBBwEXsnALbGy/EHqPOYUHK1IIwmUiP++uFB0vKsftb4Lmj/+QEyfnTlQGZsAy
-	JFQftbhan6lMMlsq2NyhPU8KaIuTCYsEQAgp0g3pr93skUsYntbGAnW7vaJKIFy2on/ihdykFA=
+        bh=P7hMrzIPAgJ6f2Qbdofo1UA4pTvmxZ23Wwx+U1tZCc4=;
+        b=kOQAkat+kpQleVewzxG+bPEDOuiR3WLHoNHYoWqXH7ktTG0g6a+yz1kZizhRu2J0T/
+         D+LsM2guoc++xiQZGhsbxaw2N6cCcAyokt7EPbvWIs8+0bUperV7LdxXINzIWtq9ez1H
+         EM/Np9Ugs/KVm/Kfw++0ZmAIBUHD1+lPEvzpsQ2IDodg+25Rx3VUfO3x9/F2gaqWqrTq
+         2QL76NwdKcz9AhYZ7B7/obqmfUXC4IJ9GTh6oOkxbRKsQX8Mk+STsVNJ8xcLbgtZdlBs
+         cpH/i0jr+HnfQlEsjJ5yqO4UrKe7bdcqHK3vsU3QOWQ/UzRZOdtV6FB9HRQpVfb+Zy+5
+         xBBQ==
+X-Forwarded-Encrypted: i=1; AL+hErGAfgtuaMbqD8ab06FBTuz4N9amqHZoTe5l7JJ10ZUy0m3mxt4OZDKVw165/sHT+DGcgqL10DeKfmFff8c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/53rLVrfhBB1WRohUEr/EV24cGydQWYnlN9YP1tozlVl8AlAA
+	d/jm+I8juMNDjGCYbWbaMK5ORehEZq8pGlYBsgN4zJIuIrBdEkvAbpqmeNrAM6TRhw==
+X-Gm-Gg: AZFdTZc5lYMm3TwBNyHWS5bTh9DW1JuXR230ItMpUkZFSjN4/daNocDHzLY/wLUWVjY
+	5N5E/UG6Gu+EzHygnFCb2ZaROajakgyz0pO+Md7SNd4qHQU/P94x0zEQ2Xf5/ujM1148j8iFEvg
+	AqdX7DUcavBxsIFec8PM/8RgCTZ44wJ7aw4gUZ4YsPWPJ/4/uFj/cmUi8+lgoCQD9kEXMmqKo0H
+	BWBdmA5zqVN2qkiJmgcUIpxXv4dPpPKmbdpTh27oumPuvxU3ej7KwqEpfzBzqayyExyF/woiXCA
+	vfNJedSsseU/x89RqIWc52aY9xlYjfgm7Ru4w2kxUQan7TeajASP/3gfbWglQNE6yHhE47xrTKX
+	lFksTtQLp4mhWP/5LbW1NHlj43yqF9DLGzaIxiKOrY0ou/44N4gqzw8MM6cUKdz3pig0juoYHHb
+	H47GXb7QdNteR1bpBcTeoOBX0LNLHUaYoVXH9PGJGS1B3j9yGrl7qaqQHMtkyHGUGGvZ5CIPLbc
+	DC6nNhrYBdKQAg+8QHhoGbVRkOWtWs2fph3E0hTw+XRoCqweDDfCsv9OysM77KKE8ncHI11nX3k
+	1OQbPahjah266ipZ0OrgWvKKe1bMUWuAl1mwxhyyh5OhSzvlJ9RvPWqdABhGpw6T66puZCmLx4A
+	PfM5I8DxNLyA2fJ8FVwbLv9SqL2oHmjRrUQsfo7T6DRX9LGYJT43eZYCQXzvPdRCDPqlZNUdqfi
+	uqt6mWzxADU4E/2vnCrk5foKQS+dh9O3JQw5hvUfMm5/8MVSolaNma9TR5a32J7D8d/0/abGgt0
+	NRuSFkxxyTVD4pASmjGuZ6B28BPpDzVxrYtEY1lqOkLcuUyMU9W/9joG8wWYDcn32PAYcDEOHp6
+	/P3K+v+QIFB4w6IsqFZDspqw0/8Y9dnWEPVj4M4UY6DaPBGp4bpRiRcPtxFn+2MGlafdTqQYfA=
 	=
-X-Received: by 2002:a05:6402:1f4d:b0:6ba:3f4e:79d8 with SMTP id 4fb4d7f45d1cf-6ba3f4e7a62mr7747627a12.36.1795441302373;
-        Mon, 23 Nov 2026 05:41:42 -0800 (PST)
+X-Received: by 2002:a05:6402:540a:b0:6ba:90f9:16ef with SMTP id 4fb4d7f45d1cf-6ba90f94aa4mr3423695a12.10.1795441303837;
+        Mon, 23 Nov 2026 05:41:43 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f247012000e9a6b19fb24a0d13.dip0.t-ipconnect.de. [2003:f2:4701:2000:e9a6:b19f:b24a:d13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.41
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:41:41 -0800 (PST)
+        Mon, 23 Nov 2026 05:41:43 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Jeff Johnson <jjohnson@kernel.org>
 Cc: ath11k@lists.infradead.org,
@@ -95,9 +95,9 @@ Cc: ath11k@lists.infradead.org,
 	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
 	Mark Ruvald Pedersen <wabsie@gmail.com>,
 	Rosen Penev <rosenp@gmail.com>
-Subject: [PATCH ath-next v1 04/10] wifi: ath11k: set the skb hash of a received frame from the hardware
-Date: Mon, 23 Nov 2026 14:41:31 +0100
-Message-ID: <20261123134137.718575-5-julius@bairaktaris.de>
+Subject: [PATCH ath-next v1 05/10] wifi: ath11k: sync a cached ring's new entries once per head read
+Date: Mon, 23 Nov 2026 14:41:32 +0100
+Message-ID: <20261123134137.718575-6-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261123134137.718575-1-julius@bairaktaris.de>
 References: <20261123134137.718575-1-julius@bairaktaris.de>
@@ -112,200 +112,170 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-mac80211 picks the TXQ flow of a frame by skb_get_hash() in
-fq_flow_idx(), and RPS and the queueing disciplines on the output device
-do the same. ath11k never sets the hash, so every received frame that is
-forwarded or steered is dissected again, though the receive engine has
-already hashed its 5-tuple (flow_id_toeplitz in the MSDU start TLV, with
-the seed ath11k_wmi_pdev_lro_cfg() sets at random).
+The REO destination and TX completion rings are cacheable on the chips
+with alloc_cacheable_memory (IPQ8074, IPQ6018, QCN9074, IPQ5018). The CPU
+takes each entry from the device with a dma_sync_single_for_cpu() of its
+32 bytes when the entry before it is handed out, and prefetches it then.
+That is a call into the DMA layer and a cache invalidation with its
+barrier for every frame received and every frame completed, and a
+prefetch issued a few dozen instructions before the load: in a profile
+of bridged downlink at 900 Mbit/s (IPQ8074, one run) the instruction
+after the first load of a completion entry in
+ath11k_dp_tx_completion_handler() takes 0.70 % of all samples.
 
-Use that hash as an L4 hash for a frame whose descriptor says it is TCP
-or UDP, not an IP fragment, and with the fixed IP header and the TCP/UDP
-header parsed. A zero hash is not used. A boot random value is mixed into
-it, so that it is not a function of the packet alone and a station
-cannot choose the flow queue that a flow of another station shares.
+Invalidate the entries where they become the CPU's, when a read of the
+head pointer moves cached_hp: the whole range from the old head to the
+new one, in one call or two where it wraps, in access_begin and in
+ath11k_hal_srng_dst_num_free(), the two places that move it. An entry is
+read only below cached_hp, so each is invalidated once after the device
+wrote it, and a line the CPU loaded earlier, by a prefetch or
+speculatively, is discarded before its entries are read: the guarantee
+the per-entry sync gave. The range is clamped to the ring. Prefetch the
+entries two cache lines ahead, which may run past the head: such a line
+is discarded again when the head exposes it.
 
-The field is at the same place in the MSDU start TLV of every chip
-family; read it, and the word with the flags, through two new hw_ops.
+ath11k_hal_srng_dst_num_free() now reads the head with READ_ONCE() and
+orders the entry reads after it with dma_rmb(), as access_begin does.
+Rings in coherent memory are not touched.
 
 Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- drivers/net/wireless/ath/ath11k/dp_rx.c | 36 +++++++++++++++++++++++++
- drivers/net/wireless/ath/ath11k/hw.c    | 22 +++++++++++++++
- drivers/net/wireless/ath/ath11k/hw.h    |  1 +
- 3 files changed, 59 insertions(+)
+ drivers/net/wireless/ath/ath11k/hal.c | 86 ++++++++++++++++++---------
+ 1 file changed, 57 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
-index b3b8afb82a78..b027b76ea3f3 100644
---- a/drivers/net/wireless/ath/ath11k/dp_rx.c
-+++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
-@@ -6,7 +6,9 @@
- 
- #include <linux/fips.h>
- #include <linux/ieee80211.h>
-+#include <linux/jhash.h>
- #include <linux/kernel.h>
-+#include <linux/net.h>
- #include <linux/skbuff.h>
- #include <net/page_pool/helpers.h>
- #include "core.h"
-@@ -2057,6 +2059,39 @@ static void ath11k_dp_rx_h_csum_offload(struct ath11k *ar, struct sk_buff *msdu)
- 	msdu->ip_summed = CHECKSUM_UNNECESSARY;
+diff --git a/drivers/net/wireless/ath/ath11k/hal.c b/drivers/net/wireless/ath/ath11k/hal.c
+index 98bd9e3f0aae..e5c35647a136 100644
+--- a/drivers/net/wireless/ath/ath11k/hal.c
++++ b/drivers/net/wireless/ath/ath11k/hal.c
+@@ -627,34 +627,54 @@ u32 *ath11k_hal_srng_dst_peek(struct ath11k_base *ab, struct hal_srng *srng)
+ 	return NULL;
  }
  
-+static u32 ath11k_rx_hash_seed __read_mostly;
-+
+-static u32 *ath11k_hal_srng_dst_peek_with_dma(struct ath11k_base *ab,
+-					      struct hal_srng *srng, dma_addr_t *paddr)
 +/*
-+ * The receive engine hashes the 5-tuple of a TCP or UDP frame whose IP and L4
-+ * headers it parsed. mac80211's queue selection and the queueing disciplines
-+ * would otherwise dissect the frame again for the same hash.
++ * Hands the CPU the entries of a cached destination ring from word @from up
++ * to word @to, which the head pointer the caller just read shows the device
++ * has written. Every entry the ring hands out passes through here once, after
++ * the head pointer that exposed it was read, so a line of the ring that the
++ * CPU loaded before, by a prefetch or speculatively, is discarded before it is
++ * read. The range is clamped to the ring, whatever the head pointer holds.
 + */
-+static void ath11k_dp_rx_h_hash(struct ath11k *ar, struct sk_buff *msdu)
-+{
-+	const struct ath11k_hw_ops *ops = ar->ab->hw_params.hw_ops;
-+	struct ath11k_skb_rxcb *rxcb = ATH11K_SKB_RXCB(msdu);
-+	u32 info2, hash;
-+
-+	info2 = ops->rx_desc_get_msdu_start_info2(rxcb->rx_desc);
-+	if (!(info2 & (RX_MSDU_START_INFO2_TCP | RX_MSDU_START_INFO2_UDP)) ||
-+	    (info2 & RX_MSDU_START_INFO2_IP_FRAG) ||
-+	    !(info2 & RX_MSDU_START_INFO2_IP_FIXED_HDR_VALID) ||
-+	    !(info2 & RX_MSDU_START_INFO2_IP_TCP_UDP_HDR_VALID))
-+		return;
-+
-+	hash = ops->rx_desc_get_flow_id_toeplitz(rxcb->rx_desc);
-+	if (!hash)
-+		return;
-+
-+	/*
-+	 * Make the hash differ per boot, so that a station cannot aim
-+	 * collisions at the queues of the others.
-+	 */
-+	net_get_random_once(&ath11k_rx_hash_seed, sizeof(ath11k_rx_hash_seed));
-+	skb_set_hash(msdu, jhash_1word(hash, ath11k_rx_hash_seed),
-+		     PKT_HASH_TYPE_L4);
-+}
-+
- int ath11k_dp_rx_crypto_mic_len(struct ath11k *ar, enum hal_encrypt_type enctype)
++static void ath11k_hal_srng_dst_sync(struct ath11k_base *ab,
++				     struct hal_srng *srng, u32 from, u32 to)
  {
- 	switch (enctype) {
-@@ -2524,6 +2559,7 @@ static int ath11k_dp_rx_h_mpdu(struct ath11k *ar,
+-	lockdep_assert_held(&srng->lock);
++	u32 size = srng->ring_size;
+ 
+-	if (srng->u.dst_ring.tp != srng->u.dst_ring.cached_hp) {
+-		*paddr = srng->ring_base_paddr +
+-			  sizeof(*srng->ring_base_vaddr) * srng->u.dst_ring.tp;
+-		return srng->ring_base_vaddr + srng->u.dst_ring.tp;
+-	}
++	if (!(srng->flags & HAL_SRNG_FLAGS_CACHED) || from >= size)
++		return;
+ 
+-	return NULL;
++	to = min(to, size);
++	if (to < from) {
++		dma_sync_single_for_cpu(ab->dev, srng->ring_base_paddr +
++					from * sizeof(u32),
++					(size - from) * sizeof(u32),
++					DMA_FROM_DEVICE);
++		from = 0;
++	}
++	if (to > from)
++		dma_sync_single_for_cpu(ab->dev, srng->ring_base_paddr +
++					from * sizeof(u32),
++					(to - from) * sizeof(u32),
++					DMA_FROM_DEVICE);
+ }
+ 
+-static void ath11k_hal_srng_prefetch_desc(struct ath11k_base *ab,
+-					  struct hal_srng *srng)
++/*
++ * Starts the load of the entries @lines cache lines past word @tp of a cached
++ * ring. A line past the head pointer is discarded again by
++ * ath11k_hal_srng_dst_sync() before its entries are read.
++ */
++static void ath11k_hal_srng_dst_prefetch(struct hal_srng *srng, u32 tp,
++					 u32 lines)
+ {
+-	dma_addr_t desc_paddr;
+-	u32 *desc;
++	u32 ahead = tp + lines * L1_CACHE_BYTES / sizeof(u32);
+ 
+-	/* prefetch only if desc is available */
+-	desc = ath11k_hal_srng_dst_peek_with_dma(ab, srng, &desc_paddr);
+-	if (likely(desc)) {
+-		dma_sync_single_for_cpu(ab->dev, desc_paddr,
+-					(srng->entry_size * sizeof(u32)),
+-					DMA_FROM_DEVICE);
+-		prefetch(desc);
+-	}
++	if (!(srng->flags & HAL_SRNG_FLAGS_CACHED))
++		return;
++
++	if (ahead >= srng->ring_size)
++		ahead -= srng->ring_size;
++	if (ahead < srng->ring_size)
++		prefetch(srng->ring_base_vaddr + ahead);
+ }
+ 
+ u32 *ath11k_hal_srng_dst_get_next_entry(struct ath11k_base *ab,
+@@ -675,9 +695,7 @@ u32 *ath11k_hal_srng_dst_get_next_entry(struct ath11k_base *ab,
+ 	if (srng->u.dst_ring.tp == srng->ring_size)
+ 		srng->u.dst_ring.tp = 0;
+ 
+-	/* Try to prefetch the next descriptor in the ring */
+-	if (srng->flags & HAL_SRNG_FLAGS_CACHED)
+-		ath11k_hal_srng_prefetch_desc(ab, srng);
++	ath11k_hal_srng_dst_prefetch(srng, srng->u.dst_ring.tp, 2);
+ 
+ 	return desc;
+ }
+@@ -692,8 +710,15 @@ int ath11k_hal_srng_dst_num_free(struct ath11k_base *ab, struct hal_srng *srng,
+ 	tp = srng->u.dst_ring.tp;
+ 
+ 	if (sync_hw_ptr) {
+-		hp = *srng->u.dst_ring.hp_addr;
+-		srng->u.dst_ring.cached_hp = hp;
++		hp = READ_ONCE(*srng->u.dst_ring.hp_addr);
++		if (hp != srng->u.dst_ring.cached_hp) {
++			u32 old = srng->u.dst_ring.cached_hp;
++
++			srng->u.dst_ring.cached_hp = hp;
++			/* the entries are read after the head pointer */
++			dma_rmb();
++			ath11k_hal_srng_dst_sync(ab, srng, old, hp);
++		}
+ 	} else {
+ 		hp = srng->u.dst_ring.cached_hp;
  	}
+@@ -835,16 +860,19 @@ void ath11k_hal_srng_access_begin(struct ath11k_base *ab, struct hal_srng *srng)
+ 		hp = READ_ONCE(*srng->u.dst_ring.hp_addr);
  
- 	ath11k_dp_rx_h_csum_offload(ar, msdu);
-+	ath11k_dp_rx_h_hash(ar, msdu);
- 	ath11k_dp_rx_h_undecap(ar, msdu, rx_desc,
- 			       enctype, rx_status, is_decrypted);
+ 		if (hp != srng->u.dst_ring.cached_hp) {
++			u32 old = srng->u.dst_ring.cached_hp;
++
+ 			srng->u.dst_ring.cached_hp = hp;
+ 			/* Make sure descriptor is read after the head
+ 			 * pointer.
+ 			 */
+ 			dma_rmb();
++			ath11k_hal_srng_dst_sync(ab, srng, old, hp);
+ 		}
  
-diff --git a/drivers/net/wireless/ath/ath11k/hw.c b/drivers/net/wireless/ath/ath11k/hw.c
-index 096366b85849..40a9fae52e84 100644
---- a/drivers/net/wireless/ath/ath11k/hw.c
-+++ b/drivers/net/wireless/ath/ath11k/hw.c
-@@ -283,6 +283,11 @@ static u8 ath11k_hw_ipq8074_rx_desc_get_mesh_ctl(struct hal_rx_desc *desc)
- 			 __le32_to_cpu(desc->u.ipq8074.msdu_start.info2));
+-		/* Try to prefetch the next descriptor in the ring */
+-		if (srng->flags & HAL_SRNG_FLAGS_CACHED)
+-			ath11k_hal_srng_prefetch_desc(ab, srng);
++		ath11k_hal_srng_dst_prefetch(srng, srng->u.dst_ring.tp, 0);
++		ath11k_hal_srng_dst_prefetch(srng, srng->u.dst_ring.tp, 1);
++		ath11k_hal_srng_dst_prefetch(srng, srng->u.dst_ring.tp, 2);
+ 	}
  }
  
-+static u32 ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz(struct hal_rx_desc *desc)
-+{
-+	return __le32_to_cpu(desc->u.ipq8074.msdu_start.flow_id_toeplitz);
-+}
-+
- static bool ath11k_hw_ipq8074_rx_desc_get_ldpc_support(struct hal_rx_desc *desc)
- {
- 	return FIELD_GET(RX_MSDU_START_INFO2_LDPC,
-@@ -465,6 +470,11 @@ static u8 ath11k_hw_qcn9074_rx_desc_get_mesh_ctl(struct hal_rx_desc *desc)
- 			 __le32_to_cpu(desc->u.qcn9074.msdu_start.info2));
- }
- 
-+static u32 ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz(struct hal_rx_desc *desc)
-+{
-+	return __le32_to_cpu(desc->u.qcn9074.msdu_start.flow_id_toeplitz);
-+}
-+
- static bool ath11k_hw_qcn9074_rx_desc_get_ldpc_support(struct hal_rx_desc *desc)
- {
- 	return FIELD_GET(RX_MSDU_START_INFO2_LDPC,
-@@ -647,6 +657,11 @@ static u8 ath11k_hw_wcn6855_rx_desc_get_mesh_ctl(struct hal_rx_desc *desc)
- 			 __le32_to_cpu(desc->u.wcn6855.msdu_start.info2));
- }
- 
-+static u32 ath11k_hw_wcn6855_rx_desc_get_flow_id_toeplitz(struct hal_rx_desc *desc)
-+{
-+	return __le32_to_cpu(desc->u.wcn6855.msdu_start.flow_id_toeplitz);
-+}
-+
- static bool ath11k_hw_wcn6855_rx_desc_get_mpdu_seq_ctl_vld(struct hal_rx_desc *desc)
- {
- 	return !!FIELD_GET(RX_MPDU_START_INFO1_MPDU_SEQ_CTRL_VALID,
-@@ -930,6 +945,7 @@ const struct ath11k_hw_ops ipq8074_ops = {
- 	.rx_desc_get_decap_type = ath11k_hw_ipq8074_rx_desc_get_decap_type,
- 	.rx_desc_get_mesh_ctl = ath11k_hw_ipq8074_rx_desc_get_mesh_ctl,
- 	.rx_desc_get_msdu_start_info2 = ath11k_hw_ipq8074_rx_desc_get_msdu_start_info2,
-+	.rx_desc_get_flow_id_toeplitz = ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz,
- 	.rx_desc_get_ldpc_support = ath11k_hw_ipq8074_rx_desc_get_ldpc_support,
- 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_ipq8074_rx_desc_get_mpdu_seq_ctl_vld,
- 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_ipq8074_rx_desc_get_mpdu_fc_valid,
-@@ -971,6 +987,7 @@ const struct ath11k_hw_ops ipq6018_ops = {
- 	.rx_desc_get_decap_type = ath11k_hw_ipq8074_rx_desc_get_decap_type,
- 	.rx_desc_get_mesh_ctl = ath11k_hw_ipq8074_rx_desc_get_mesh_ctl,
- 	.rx_desc_get_msdu_start_info2 = ath11k_hw_ipq8074_rx_desc_get_msdu_start_info2,
-+	.rx_desc_get_flow_id_toeplitz = ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz,
- 	.rx_desc_get_ldpc_support = ath11k_hw_ipq8074_rx_desc_get_ldpc_support,
- 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_ipq8074_rx_desc_get_mpdu_seq_ctl_vld,
- 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_ipq8074_rx_desc_get_mpdu_fc_valid,
-@@ -1012,6 +1029,7 @@ const struct ath11k_hw_ops qca6390_ops = {
- 	.rx_desc_get_decap_type = ath11k_hw_ipq8074_rx_desc_get_decap_type,
- 	.rx_desc_get_mesh_ctl = ath11k_hw_ipq8074_rx_desc_get_mesh_ctl,
- 	.rx_desc_get_msdu_start_info2 = ath11k_hw_ipq8074_rx_desc_get_msdu_start_info2,
-+	.rx_desc_get_flow_id_toeplitz = ath11k_hw_ipq8074_rx_desc_get_flow_id_toeplitz,
- 	.rx_desc_get_ldpc_support = ath11k_hw_ipq8074_rx_desc_get_ldpc_support,
- 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_ipq8074_rx_desc_get_mpdu_seq_ctl_vld,
- 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_ipq8074_rx_desc_get_mpdu_fc_valid,
-@@ -1053,6 +1071,7 @@ const struct ath11k_hw_ops qcn9074_ops = {
- 	.rx_desc_get_decap_type = ath11k_hw_qcn9074_rx_desc_get_decap_type,
- 	.rx_desc_get_mesh_ctl = ath11k_hw_qcn9074_rx_desc_get_mesh_ctl,
- 	.rx_desc_get_msdu_start_info2 = ath11k_hw_qcn9074_rx_desc_get_msdu_start_info2,
-+	.rx_desc_get_flow_id_toeplitz = ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz,
- 	.rx_desc_get_ldpc_support = ath11k_hw_qcn9074_rx_desc_get_ldpc_support,
- 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_qcn9074_rx_desc_get_mpdu_seq_ctl_vld,
- 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_qcn9074_rx_desc_get_mpdu_fc_valid,
-@@ -1094,6 +1113,7 @@ const struct ath11k_hw_ops wcn6855_ops = {
- 	.rx_desc_get_decap_type = ath11k_hw_wcn6855_rx_desc_get_decap_type,
- 	.rx_desc_get_mesh_ctl = ath11k_hw_wcn6855_rx_desc_get_mesh_ctl,
- 	.rx_desc_get_msdu_start_info2 = ath11k_hw_wcn6855_rx_desc_get_msdu_start_info2,
-+	.rx_desc_get_flow_id_toeplitz = ath11k_hw_wcn6855_rx_desc_get_flow_id_toeplitz,
- 	.rx_desc_get_ldpc_support = ath11k_hw_wcn6855_rx_desc_get_ldpc_support,
- 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_wcn6855_rx_desc_get_mpdu_seq_ctl_vld,
- 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_wcn6855_rx_desc_get_mpdu_fc_valid,
-@@ -1135,6 +1155,7 @@ const struct ath11k_hw_ops wcn6750_ops = {
- 	.rx_desc_get_decap_type = ath11k_hw_qcn9074_rx_desc_get_decap_type,
- 	.rx_desc_get_mesh_ctl = ath11k_hw_qcn9074_rx_desc_get_mesh_ctl,
- 	.rx_desc_get_msdu_start_info2 = ath11k_hw_qcn9074_rx_desc_get_msdu_start_info2,
-+	.rx_desc_get_flow_id_toeplitz = ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz,
- 	.rx_desc_get_ldpc_support = ath11k_hw_qcn9074_rx_desc_get_ldpc_support,
- 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_qcn9074_rx_desc_get_mpdu_seq_ctl_vld,
- 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_qcn9074_rx_desc_get_mpdu_fc_valid,
-@@ -1177,6 +1198,7 @@ const struct ath11k_hw_ops ipq5018_ops = {
- 	.rx_desc_get_decap_type = ath11k_hw_qcn9074_rx_desc_get_decap_type,
- 	.rx_desc_get_mesh_ctl = ath11k_hw_qcn9074_rx_desc_get_mesh_ctl,
- 	.rx_desc_get_msdu_start_info2 = ath11k_hw_qcn9074_rx_desc_get_msdu_start_info2,
-+	.rx_desc_get_flow_id_toeplitz = ath11k_hw_qcn9074_rx_desc_get_flow_id_toeplitz,
- 	.rx_desc_get_ldpc_support = ath11k_hw_qcn9074_rx_desc_get_ldpc_support,
- 	.rx_desc_get_mpdu_seq_ctl_vld = ath11k_hw_qcn9074_rx_desc_get_mpdu_seq_ctl_vld,
- 	.rx_desc_get_mpdu_fc_valid = ath11k_hw_qcn9074_rx_desc_get_mpdu_fc_valid,
-diff --git a/drivers/net/wireless/ath/ath11k/hw.h b/drivers/net/wireless/ath/ath11k/hw.h
-index 8725e119707b..925785c9f688 100644
---- a/drivers/net/wireless/ath/ath11k/hw.h
-+++ b/drivers/net/wireless/ath/ath11k/hw.h
-@@ -250,6 +250,7 @@ struct ath11k_hw_ops {
- 	u8 (*rx_desc_get_decap_type)(struct hal_rx_desc *desc);
- 	u8 (*rx_desc_get_mesh_ctl)(struct hal_rx_desc *desc);
- 	u32 (*rx_desc_get_msdu_start_info2)(struct hal_rx_desc *desc);
-+	u32 (*rx_desc_get_flow_id_toeplitz)(struct hal_rx_desc *desc);
- 	bool (*rx_desc_get_ldpc_support)(struct hal_rx_desc *desc);
- 	bool (*rx_desc_get_mpdu_seq_ctl_vld)(struct hal_rx_desc *desc);
- 	bool (*rx_desc_get_mpdu_fc_valid)(struct hal_rx_desc *desc);
 -- 
 2.53.0
 
