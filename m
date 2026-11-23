@@ -1,59 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448129;
-	b=NjXoJX2HrVc3IsGsHS/SJ56pBM5Jx472Gy56Pa39R75ZCyMoSPTnjIRRLIepOhOA2yb9
-	 fZLIMgBWu+N4C25PT8hFHEwHZ5J/XrozaHj4a8o+UCPLz5+e8R07eGMpq+vpHluO4/Mdc
-	 S2DAQYOdj6l66RHJwcm8an1xCLEa4Pu6nR2G1YzS1rBdPP9m+KbTI/UngMK37hQks1SKP
-	 b8BkueFMeVB056MKm/crl7whTAwBXKx7Ve9kLrb+MLQukNR+RXE1RWq03+V/IeRU/ZAB8
-	 gzP2QbVvCSWy43/esvACeuf9gUuzsEY6mvLJLPVzbc9qOg2JCs7CU0D7cw8i31AbOBQ==
+	t=1795448143;
+	b=UQ+y7zN/S4yThfC27hrN9Z708rEbiGZ2sV/Lo5+55glF2dYIVR4+IkQJ3wuRos3bwmqO
+	 YRgdSE6oooGfnpDGmmzx+E0FhQYUfbL/IW9bHg+P4Jwt6Hxrv4r8M8GtrrszEJwk08DP2
+	 bDbD/SGuK3xkBikc6m8mykzFCvny3k3aRp6DHmZBOUrXqwIk4O0Psb850KQhG5nlXuiv2
+	 2TVvzUbEhfmjVAhr2LSxzmJnb7uCNC6VcbGbvR2LMVb3ltN8oetF+jTzojJCusfoWkcd4
+	 fnK2BGn6sb8tI4YEYwpSVizCHD+j2s3L9OYPM+mQ29rHiFoHjj+/e5favMb9jA47YRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448129;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=nNx2wMYFn1fQ1MN7GWGKuoLGT6ZcJIV1J46wSVAHg6A=;
-	b=UtAbmShBkOCnQH/A7P25DnNDmMTWx2P3EXQeTazyQl3tacjpmirc5YYJKlYEfdMoSZQ5
-	 xtdZCzMyuRUURmkAydgjg3Z9YuPPvmvJmExwBFxjn/vyY16amQPztaQO2j/hzq+cWB2T1
-	 KJ6LDHOh0/wqLhcd9WbLv1VnhRFBj3et4zpwYy6YIh9H1NFbfAnnwHDVxne0aXOg13Ij9
-	 yYS0f6rsDKYWf/CaWKkRJRsuTRQE/AK0gkQV47oWktSZ8KUT4f6hGl7C33i2kUcEtvkPk
-	 5MkkLUKV1ePEXrFbKyhjwIO8ciVib4Og8KARLrDBhyCA9oESWovw6/nY9+OmWtz9F3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448143;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=WJ9u915aobNPmfIneqbGjqdZiarGAKLNjxdAyEJTY/k=;
+	b=elySCKaWD9PMeRr2E6D/a/oa1g4chMB9hIBQsFdMFRimUDW6XTs3AuGNEVt/dPIozC/A
+	 AxQqqA7ADMxq5QR9ek1XSFBT54Ku1f7LDG+g3fr+rwnRpAaAe3ZDMRji62R5cnvp5fjZy
+	 hN/c5q3Tn7IwR+H5H5/Ek1Az6y7s25K+KA/fL9KZ4avZF27Foi2lhJEyYN6+Gbr6F3LuT
+	 ZUHSsxmuiDXO+d5p3JaFIaiQN4GJJbR1ZtzMp86RU5iYkjjvRiyAMohp1fDcQrdA9t8KB
+	 jJVlJ9gxEV1fVeI+vLXmoaPIeuFqnD4JtUcql3oeFadV1w8gNC8KQUWJMhNIcaYBEPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oh3LENTk;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=flipper.net;
+	spf=pass smtp.mailfrom=flipper.net;
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=xr2qKVwU;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7737E606A327;
-	Mon, 23 Nov 2026 15:35:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A871606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:35:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A871606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oh3LENTk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB52B1F000CA;
-	Mon, 23 Nov 2026 15:35:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448129;
-	bh=nNx2wMYFn1fQ1MN7GWGKuoLGT6ZcJIV1J46wSVAHg6A=;
-	h=Date:From:To:Cc:Subject;
-	b=Oh3LENTkkw4QTUgN6ICbXaviTOYjkjS4rZzoh/v88KO2LunrjSQ0WBOFrF6zraopa
-	 F6Pu03exztce1Np6YKLL8OiEZFH51BUcq0ZbHr5YfrJtRUC1Dk3W0lsSiqbjJ/d7h6
-	 4sW8V6L9OwO/KhNyn+422PKgc2UdUzQBinMhBAuECGMkvQ+Onm5MGCfdZ3u30Hrcn1
-	 B8dinZqx6MLCAOc8hGQYebCPtSGUGSyYwFbS3DUYrrGEkXzGlV7HhuShrHZNaDmDAM
-	 e2WMqOt+kF4jouY6/E77eN0JODb7UTNszLY7QfivKv+5Oabva5Oid5W7oXEWXgFr4k
-	 8Amnvz/3T296g==
-Date: Mon, 23 Nov 2026 15:35:24 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Dave Airlie <airlied@redhat.com>, DRI <dri-devel@lists.freedesktop.org>
-Cc: Badal Nilawar <badal.nilawar@intel.com>,
-	Daniel Charles <daniel.charles@intel.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Matthew Auld <matthew.auld@intel.com>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Matt Roper <matthew.d.roper@intel.com>,
-	Raag Jadav <raag.jadav@intel.com>,
-	Riana Tauro <riana.tauro@intel.com>,
-	Vinay Belgaumkar <vinay.belgaumkar@intel.com>
-Subject: linux-next: manual merge of the drm tree with the origin tree
-Message-ID: <awRdPKox0-8OAIG4@sirena.org.uk>
+	dkim=pass (2048-bit key, unprotected) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=xr2qKVwU
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so34336695e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:35:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1795448141; x=1796052941; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=WJ9u915aobNPmfIneqbGjqdZiarGAKLNjxdAyEJTY/k=;
+        b=xr2qKVwU0/VJoAzxcYaCAJ0cL80/KXlTB06yiBA2T1mrcDVUOYjguccTVbzRlUhLyD
+         hHuqZ+L3Q/VWF6hx7I9bIJ5hU1SG23vbM08gsO9R6/+rmdnmUF2reWLH5coysKG4Ixb5
+         nPGGh9T6icAqpzd0CUiaJtBXiE6BHltv6cxMwm2q8X1cafVzqW0VI0wdtb4vNVgJg1xX
+         aBD009McTodKDvV3nkAZF2ptwihvVXivjFYBYjGNhqW9WD2OQb4M1d1uhzi5JUowbd/y
+         hRlV0q5wg370ShhZJtJ6A2dHii5rFTD+GZ1dJz8NkR/1CYWUShcqS75yoQHkhG9Sy69I
+         CJ3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795448141; x=1796052941;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=WJ9u915aobNPmfIneqbGjqdZiarGAKLNjxdAyEJTY/k=;
+        b=gTpH+Cuck/kOMRkf+wvPL839rcZCCMLNixkdNxV5i8cx3u7Fqjnbqa8BZRpaEIYJPO
+         ZXYB2+RiYxUyZNBVvjlDDESGBR4urpSeR4evw88b9DsHW2pajQn8l2Z0GsmO9Onpi7A9
+         fH1kKa7/dCgmyzPptpgdatCNAwD/81ThSygc8AkMkLCXMsI/IOe+23zuV2ZuqB9Jw8oa
+         nTQ5LV+bulukXvm7qoKxuxN2OWhTNbeU4vXPMOhEecQauU3c0HgPsCLRx2qqEw1w/eWo
+         1sNlZd+r501fyEaSNlFzSs/MAU4XuDjBmPBc+MAa03Ky+f/cNpz1nMxnZPjzIvD+8xWW
+         W7Bw==
+X-Forwarded-Encrypted: i=1; AL+hErFETyINpV7nnDmPoPR9WHEft0W40e/dU3PKBwMGriPW3hMznVV8arNTwVMe8mKiq2TRm+PJ6SEE2j0a2PQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7nC9f2SOToxQJ3/p3KDU8nCylmYED6OuOKk3bOVNGwRcTE0RU
+	JWeb6+mR+PgCQtBSvXCiOCKdy5qdDlD3AfEC2il/xkqpPbuHu4xYuftcJp2PaaNKt4PY+Z9mzV+
+	8aC8d5NE=
+X-Gm-Gg: AZFdTZcyyzx66MN8YCYymYWF3gvXzu6oUj7OVdpShfaWGe2OznISgcK62GJ4WA4i46K
+	oJqXpRCOZG5D5QHhCinhNTYgEjr4acgJnQbbvp574b8wuRrzHmSQGFCS47MVVjtQcuEWlvuINHX
+	YMPuDMarieoOcA3Axb1ukHCVj9VY4B3FbGVqB2s9peJs+M7M3UopuP9YbjQY7veL+Uxl27v5E4T
+	9zWC606Vp4ls8fROVHNTkSoHK1h+GzlGwLM6GNVOzi1ZIHYgYE8m0i6maU8VgwyJA4KtQwIiIrV
+	jKb6D0WHRXmK7zzO6Qc25r0LJbtiY78fgQStq8OmdN/O+cjKLa9qSPzC2BbRxl/ldFkp21iX0JU
+	7oOBtBQfRsGIfY8jrrORn7tZab2zCq3APp+8f+sszqFsPNbFZ3ikJmgZub/Y/G7pNicAYA4Ht/V
+	G2tUZRwHaWAQ+yvN+CQnwLjA3uo9PBkw75m1YcXVCayUJyRGy2lIR98oOjODlMLB8R1WJ0cjnSi
+	7JoTe1YTOWrYZSinIKmofKnFub7ArPq2gQ70sXchbXZui7weymKAtkms6aw7Xq6mDmNWAtzYtAq
+	toeZKkUVYCuonDzTd0qSh4H5keQDrUMmX//P1BZaT4jJuu/v+oD2VHnLop2DvVbjrgbhzOhCGzo
+	pPEub0j94bgy5a08ERHgw+Hqtz6AUxyvP
+X-Received: by 2002:a05:600c:3555:b0:4a1:9663:7639 with SMTP id 5b1f17b1804b1-4bb8882907fmr248126085e9.34.1795448141435;
+        Mon, 23 Nov 2026 07:35:41 -0800 (PST)
+Received: from alchark-surface.localdomain (bba-86-98-194-229.alshamil.net.ae. [86.98.194.229])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm305917455e9.9.2026.11.23.07.35.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:35:41 -0800 (PST)
+From: Alexey Charkov <alchark@flipper.net>
+Subject: [PATCH v3 0/5] nvmem: Derive Rockchip MAC addresses from the OTP
+ CPU ID
+Date: Mon, 23 Nov 2026 19:35:34 +0400
+Message-Id: <20261123-rk3576-otp-cpuid-mac-v3-0-40c756dcf36f@flipper.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,442 +95,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LPbiKUmi7y/CYtNZ"
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNyw7CIBQFf8WwFgOXPl35H8YFpReLj5YAJZqm/
+ 26pG10Yl5OcMzMRj86gJ/vNRBxG483QLyC2G6I62Z+RmnZhAgwKVjNO3VXkZUGHYKmyo2npXSo
+ qVM0gEy2rqowsV+tQm8eqPZ7e7MfmgiokV1p0xofBPddu5Gn3JxE5ZRRlzUUOJdMKDvpmrEW36
+ zGQFInwqYEfGkiarCk1gmy40N+aeZ5fWqpr6xMBAAA=
+X-Change-ID: 20260901-rk3576-otp-cpuid-mac-3c90243d0884
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Michael Walle <michael@walle.cc>, Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Finley Xiao <finley.xiao@rock-chips.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Ryan Leung <untilscour@protonmail.com>, 
+ Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@flipper.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4623; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=IWttZoeJgqIMmrtNEkRl3I83UNMkrzhGlF9ZFlBL9Mc=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWSzxHpu39yaVaHQnM63ueTGPo35mtytz5lN/x14+ICth
+ a9056fHHRNZGMS4GCzFFFnmfltiO9WIb9YuD4+vMHNYmUCGSIs0MAABCwNfbmJeqZGOkZ6ptqGe
+ oZGOsY4RAxenAEy1GSMjw+OF980D55QurfkRuId7t6/AQWWha0H7312u62YIv10absXwP+ryn6e
+ xFw5JBXQ8PsedE31J4W3LTIZtX74+03wrc9d+FiMA
+X-Developer-Key: i=alchark@flipper.net; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 
+Rockchip SoCs are shipped with a unique CPU ID in their internal OTP
+memory, and Rockchip bootloaders use it to give boards which have no
+dedicated storage for a MAC address a stable one anyway: they hash the CPU
+ID and patch the resulting addresses into the device tree they hand over.
 
---LPbiKUmi7y/CYtNZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Kernels started without that fixup, e.g. straight from the SPL in Falcon
+mode or by any other loader which does not implement Rockchip's derivation,
+fall back to random MAC addresses which change on every boot.
 
-Hi all,
+Formalize the derivation in the DT binding and implement it in the
+Rockchip OTP driver, so that a Linux image can use the same stable
+addresses regardless of the boot flow.
 
-Today's linux-next merge of the drm tree got conflicts in:
+v3 is a redesign following the v2 discussion. Instead of a separate
+SoC-specific NVMEM layout, which could not coexist with the fixed layouts
+already used by RK3528, RK3562 and RK356x, the existing CPU ID cell gets
+a "rockchip,cpuid" compatible. Referencing it as a "mac-address" cell
+selects the derived address, while any other reference keeps getting the
+raw CPU ID. The CPU ID location comes from the cell's reg property, so
+no per-SoC data is needed, and other SoCs only need the compatible on
+their CPU ID cell plus the GMAC references. This is similar to the
+behavior already present upstream in drivers/nvmem/imx-ocotp.c
 
-  drivers/gpu/drm/xe/xe_hw_error.c
-  drivers/gpu/drm/xe/xe_pm.c
+Plain "mac-base" does not fit here: its argument is an offset added to
+the base address, whereas the existing Rockchip derivation used by the
+bootloaders XORs the index into the last octet.
 
-between commits:
+Patch 2 lets an NVMEM read post-processor report a shorter output than
+the raw cell, which the OTP driver needs to hand out six bytes of MAC
+address from the 16-byte CPU ID cell without truncating it for anyone
+else.
 
-  a890a885b982f ("drm/xe/hw_error: Guard csc_hw_error_work() with runtime P=
-M")
-  fc0ba46fd8278 ("drm/xe: Access GT MMIO after pcode init")
-  a17c5ed0dc715 ("drm/xe/pm: Apply tile workarounds after PCODE initializat=
-ion")
+Patch 4 moves the RK3576 OTP cells from the deprecated direct-child
+syntax into a fixed layout, as the former does not allow a compatible on
+a cell.
 
-=66rom the origin tree and commits:
+Only RK3576 is wired up here, that being the SoC I can test on.
 
-  323047eeee980 ("drm/xe: Separate drm-ras netlink data from device and fir=
-mware RAS state")
-  fc8d229d76102 ("drm/xe/hw_error: Guard csc_hw_error_work() with runtime P=
-M")
-  638d116d755ed ("drm/xe: Access GT MMIO after pcode init")
-  1f6ac7c86aa52 ("drm/xe: Memset g2g buffer on resume")
-  6569aa6628799 ("drm/xe/xe_late_bind_fw: Refactor pm flow")
-  641ffb2132839 ("drm/xe/pm: Apply tile workarounds after PCODE initializat=
-ion")
-  be082ef8157b7 ("drm/xe/pm: skip BO eviction on iGPU for non-hibernation s=
-leep")
-  3541c71284fa8 ("drm/xe/hw_error: Reuse CSC worker for generic error handl=
-ing")
-  14bbd417a6e0f ("drm/xe/hw_error: Initialize hw_error_work per tile")
-  b6bd6c613fd5e ("drm/xe: Add support for wa_14028434957")
-  ff03d9510426e ("drm/xe/pm: Introduce xe_device_suspend/resume()")
+Cross-checked on an RK3576 board: the addresses fixed up into the FDT by
+U-Boot match the ones derived by the driver, and the driver correctly
+assigns them to the network interfaces when the kernel is booted without
+U-Boot proper at all (via Falcon mode). The raw CPU ID cell remains
+readable alongside (e.g. via sysfs).
 
-=66rom the drm tree.
+Signed-off-by: Alexey Charkov <alchark@flipper.net>
+---
+Changes in v3:
+- Dropped the OTP read serialization patch, applied separately
+- Replaced the SoC-specific NVMEM layout with a "rockchip,cpuid"
+  compatible on the existing CPU ID fixed cell, so that it works
+  alongside other fixed cells (Ricardo) and needs no per-SoC table (Ryan)
+- Moved the derivation into the rockchip-otp driver's cell fixup hook,
+  which also makes the layout module unload issue moot (Sashiko)
+- Made #nvmem-cell-cells required for the new compatible (Sashiko)
+- Dropped the dead match data and address validity checks (Srinivas)
+- Allowed MAC address indices up to 255 rather than just 0 and 1
+- Added an NVMEM core change letting post-processing shorten the output
+- Moved the RK3576 OTP cells into a fixed layout
+- Dropped Miquel's Reviewed-by from the driver patch, as the code moved
+- Link to v2: https://patch.msgid.link/20260902-rk3576-otp-cpuid-mac-v2-0-e4b7fe2ab13f@flipper.net
 
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
+Changes in v2:
+- Switched from a scope-based guard to explicit lock/unlock calls in the
+  OTP driver to avoid mixing styles in a function using goto error
+  handling (Sashiko)
+- Link to v1: https://patch.msgid.link/20260901-rk3576-otp-cpuid-mac-v1-0-ea9135270fc2@flipper.net
 
-diff --combined drivers/gpu/drm/xe/xe_hw_error.c
-index f726179c22e38,86b29f2828374..0000000000000
---- a/drivers/gpu/drm/xe/xe_hw_error.c
-+++ b/drivers/gpu/drm/xe/xe_hw_error.c
-@@@ -5,6 -5,8 +5,8 @@@
- =20
-  #include <linux/bitmap.h>
- =20
-+ #include <generated/xe_device_wa_oob.h>
-+=20
-  #include "regs/xe_gsc_regs.h"
-  #include "regs/xe_hw_error_regs.h"
-  #include "regs/xe_irq_regs.h"
-@@@ -15,7 -17,11 +17,11 @@@
-  #include "xe_hw_error.h"
-  #include "xe_mmio.h"
-  #include "xe_pm.h"
-+ #include "xe_ras.h"
-  #include "xe_survivability_mode.h"
-+ #include "xe_wa.h"
-+ #include "xe_wedge.h"
-+=20
- =20
-  #define GT_HW_ERROR_MAX_ERR_BITS		16
-  #define HEC_UNCORR_FW_ERR_BITS			4
-@@@ -166,12 -172,29 +172,29 @@@ static_assert(ARRAY_SIZE(pvc_master_loc
-  						 pvc_master_local_fatal_err_reg : \
-  						 pvc_master_local_nonfatal_err_reg)
- =20
-- static void csc_hw_error_work(struct work_struct *work)
-+ static void hw_error_work(struct work_struct *work)
-  {
-- 	struct xe_tile *tile =3D container_of(work, typeof(*tile), csc_hw_error_=
-work);
-+ 	struct xe_tile *tile =3D container_of(work, typeof(*tile), hw_error_work=
-);
-  	struct xe_device *xe =3D tile_to_xe(tile);
- =20
-+ 	/* Skip hw error processing if device is already wedged */
-+ 	if (xe_wedged(xe))
-+ 		return;
-+=20
-  	guard(xe_pm_runtime)(xe);
-+=20
-+ 	if (xe->info.has_sysctrl && XE_DEVICE_WA(xe, 14028434957)) {
-+ 		/*
-+ 		 * Skip handling if an uncorrectable internal error is reported as
-+ 		 * reset is imminent
-+ 		 */
-+ 		if (xe_ras_is_aer_internal_error(xe))
-+ 			return;
-+=20
-+ 		xe_ras_process_errors(xe);
-+ 		return;
-+ 	}
-+=20
-  	xe_survivability_mode_runtime_enable(xe);
-  }
- =20
-@@@ -204,7 -227,7 +227,7 @@@ static void csc_hw_error_handler(struc
-  					     hec_uncorrected_fw_errors[err_bit], severity_str,
-  					     err_bit);
- =20
-- 			schedule_work(&tile->csc_hw_error_work);
-+ 			schedule_work(&tile->hw_error_work);
-  		}
-  	}
- =20
-@@@ -242,7 -265,7 +265,7 @@@ static void log_soc_error(struct xe_til
-  {
-  	const char *severity_str =3D error_severity[severity];
-  	struct xe_device *xe =3D tile_to_xe(tile);
-- 	struct xe_drm_ras *ras =3D &xe->ras;
-+ 	struct xe_drm_ras *ras =3D &xe->ras.nl_data;
-  	struct xe_drm_ras_counter *info =3D ras->info[severity];
-  	const char *name;
- =20
-@@@ -262,7 -285,7 +285,7 @@@ static void gt_hw_error_handler(struct=20
-  {
-  	const enum drm_xe_ras_error_severity severity =3D hw_err_to_severity(hw_=
-err);
-  	struct xe_device *xe =3D tile_to_xe(tile);
-- 	struct xe_drm_ras *ras =3D &xe->ras;
-+ 	struct xe_drm_ras *ras =3D &xe->ras.nl_data;
-  	struct xe_drm_ras_counter *info =3D ras->info[severity];
-  	struct xe_mmio *mmio =3D &tile->mmio;
-  	unsigned long err_stat =3D 0;
-@@@ -424,7 -447,7 +447,7 @@@ static void hw_error_source_handler(str
-  	const enum drm_xe_ras_error_severity severity =3D hw_err_to_severity(hw_=
-err);
-  	const char *severity_str =3D error_severity[severity];
-  	struct xe_device *xe =3D tile_to_xe(tile);
-- 	struct xe_drm_ras *ras =3D &xe->ras;
-+ 	struct xe_drm_ras *ras =3D &xe->ras.nl_data;
-  	struct xe_drm_ras_counter *info =3D ras->info[severity];
-  	unsigned long flags, err_src;
-  	u32 err_bit;
-@@@ -433,12 -456,12 +456,12 @@@
-  		return;
- =20
-  	/*
-- 	 * Hardware errors are reported through System Controller on the platfor=
-ms that
-- 	 * support it, and never routed as direct IRQ to SGUnit. So we should ne=
-ver be
-- 	 * here for those platforms.
-+ 	 * Non-fatal errors are routed as a direct IRQ on platforms that support
-+ 	 * system controller.
-  	 */
-  	if (xe->info.has_sysctrl) {
-- 		drm_err_ratelimited(&xe->drm, HW_ERR "Invalid error routing\n");
-+ 		drm_err_ratelimited(&xe->drm, HW_ERR "Non-fatal %s reported\n", severit=
-y_str);
-+ 		schedule_work(&tile->hw_error_work);
-  		return;
-  	}
- =20
-@@@ -513,7 -536,7 +536,7 @@@ void xe_hw_error_irq_handler(struct xe_
-  	enum hardware_error hw_err;
- =20
-  	if (xe_fault_csc_hw_error())
-- 		schedule_work(&tile->csc_hw_error_work);
-+ 		schedule_work(&tile->hw_error_work);
- =20
-  	for (hw_err =3D 0; hw_err < HARDWARE_ERROR_MAX; hw_err++) {
-  		if (master_ctl & ERROR_IRQ(hw_err))
-@@@ -537,6 -560,25 +560,25 @@@ static void process_hw_errors(struct xe
-  	}
-  }
- =20
-+ /**
-+  * xe_hw_error_work_disable - Disable hw error work
-+  * @arg: xe device instance
-+  *
-+  * This function disables work for hardware error handling for all tiles.
-+  */
-+ void xe_hw_error_work_disable(void *arg)
-+ {
-+ 	struct xe_device *xe =3D arg;
-+ 	struct xe_tile *tile;
-+ 	u8 id;
-+=20
-+ 	if (!IS_DGFX(xe) || IS_SRIOV_VF(xe))
-+ 		return;
-+=20
-+ 	for_each_tile(tile, xe, id)
-+ 		disable_work_sync(&tile->hw_error_work);
-+ }
-+=20
-  /**
-   * xe_hw_error_init - Initialize hw errors
-   * @xe: xe device instance
-@@@ -546,12 -588,15 +588,15 @@@
-   */
-  void xe_hw_error_init(struct xe_device *xe)
-  {
-- 	struct xe_tile *tile =3D xe_device_get_root_tile(xe);
-+ 	struct xe_tile *tile;
-+ 	u8 id;
- =20
-  	if (!IS_DGFX(xe) || IS_SRIOV_VF(xe))
-  		return;
- =20
-- 	INIT_WORK(&tile->csc_hw_error_work, csc_hw_error_work);
-+ 	for_each_tile(tile, xe, id)
-+ 		INIT_WORK(&tile->hw_error_work, hw_error_work);
- =20
-  	process_hw_errors(xe);
-+ 	devm_add_action_or_reset(xe->drm.dev, xe_hw_error_work_disable, xe);
-  }
-diff --combined drivers/gpu/drm/xe/xe_pm.c
-index d95f0d128ed49,f73f68bd449b8..0000000000000
---- a/drivers/gpu/drm/xe/xe_pm.c
-+++ b/drivers/gpu/drm/xe/xe_pm.c
-@@@ -167,59 -167,38 +167,38 @@@ static void xe_rpm_lockmap_release(cons
-  }
- =20
-  /**
--  * xe_pm_suspend - Helper for System suspend, i.e. S0->S3 / S0->S2idle
-+  * xe_pm_needs_bo_evict() - Check if bo eviction is needed
-+  * @xe: The xe device.
-+  * @hibernate: Hibernation event
-+  *
-+  * Return: %true if bo eviction is needed, %false otherwise.
-+  */
-+ bool xe_pm_needs_bo_evict(struct xe_device *xe, bool hibernate)
-+ {
-+ 	return IS_DGFX(xe) || hibernate;
-+ }
-+=20
-+ /**
-+  * xe_pm_suspend - Helper for System suspend, i.e. S0->S3 / S0->S2idle / =
-S0->S4
-   * @xe: xe device instance
-+  * @hibernate: true if preparing for S4 hibernation, false for < S4 suspe=
-nd
-   *
-   * Return: 0 on success
-   */
-- int xe_pm_suspend(struct xe_device *xe)
-+ int xe_pm_suspend(struct xe_device *xe, bool hibernate)
-  {
-- 	struct xe_gt *gt;
-- 	u8 id;
-  	int err;
- =20
-  	drm_dbg(&xe->drm, "Suspending device\n");
-  	xe_pm_block_begin_signalling();
-  	trace_xe_pm_suspend(xe, __builtin_return_address(0));
- =20
-- 	err =3D xe_pxp_pm_suspend(xe->pxp);
-+ 	err =3D xe_device_suspend(xe, hibernate, false);
-  	if (err)
-- 		goto err;
-+ 		drm_dbg(&xe->drm, "Device suspend failed %d\n", err);
-+ 	else
-+ 		drm_dbg(&xe->drm, "Device suspended\n");
- =20
-- 	xe_late_bind_wait_for_worker_completion(&xe->late_bind);
--=20
-- 	for_each_gt(gt, xe, id)
-- 		xe_gt_suspend_prepare(gt);
--=20
-- 	xe_display_pm_suspend(xe);
--=20
-- 	/* FIXME: Super racey... */
-- 	err =3D xe_bo_evict_all(xe);
-- 	if (err)
-- 		goto err_display;
--=20
-- 	for_each_gt(gt, xe, id) {
-- 		err =3D xe_gt_suspend(gt);
-- 		if (err)
-- 			goto err_display;
-- 	}
--=20
-- 	xe_irq_suspend(xe);
--=20
-- 	xe_display_pm_suspend_late(xe);
--=20
-- 	xe_i2c_pm_suspend(xe);
--=20
-- 	drm_dbg(&xe->drm, "Device suspended\n");
-- 	xe_pm_block_end_signalling();
--=20
-- 	return 0;
--=20
-- err_display:
-- 	xe_display_pm_resume(xe);
-- 	xe_pxp_pm_resume(xe->pxp);
-- err:
-- 	drm_dbg(&xe->drm, "Device suspend failed %d\n", err);
-  	xe_pm_block_end_signalling();
-  	return err;
-  }
-@@@ -232,71 -211,18 +211,18 @@@
-   */
-  int xe_pm_resume(struct xe_device *xe)
-  {
-- 	struct xe_tile *tile;
-- 	struct xe_gt *gt;
-- 	u8 id;
-  	int err;
- =20
-  	xe_pm_block_begin_signalling();
-  	drm_dbg(&xe->drm, "Resuming device\n");
-  	trace_xe_pm_resume(xe, __builtin_return_address(0));
- =20
-- 	err =3D xe_pcode_ready(xe, true);
-+ 	err =3D xe_device_resume(xe, false);
-  	if (err)
-- 		return err;
-+ 		drm_dbg(&xe->drm, "Device resume failed %d\n", err);
-+ 	else
-+ 		drm_dbg(&xe->drm, "Device resumed\n");
- =20
-- 	for_each_tile(tile, xe, id)
-- 		xe_wa_apply_tile_workarounds(tile);
--=20
-- 	for_each_gt(gt, xe, id)
-- 		xe_gt_idle_disable_c6(gt);
--=20
-- 	xe_display_pm_resume_early(xe);
--=20
-- 	/*
-- 	 * This only restores pinned memory which is the memory required for the
-- 	 * GT(s) to resume.
-- 	 */
-- 	err =3D xe_bo_restore_early(xe);
-- 	if (err)
-- 		goto err;
--=20
-- 	xe_i2c_pm_resume(xe, true);
--=20
-- 	xe_sysctrl_pm_resume(xe);
--=20
-- 	xe_irq_resume(xe);
--=20
-- 	for_each_gt(gt, xe, id) {
-- 		err =3D xe_gt_resume(gt);
-- 		if (err)
-- 			break;
-- 	}
--=20
-- 	/*
-- 	 * Try to bring up display before bailing from GT resume failure,
-- 	 * so we don't leave the user clueless with a blank screen.
-- 	 */
-- 	xe_display_pm_resume(xe);
-- 	if (err)
-- 		goto err;
--=20
-- 	err =3D xe_bo_restore_late(xe);
-- 	if (err)
-- 		goto err;
--=20
-- 	xe_pxp_pm_resume(xe->pxp);
--=20
-- 	if (IS_VF_CCS_READY(xe))
-- 		xe_sriov_vf_ccs_register_context(xe);
--=20
-- 	xe_late_bind_fw_load(&xe->late_bind);
--=20
-- 	drm_dbg(&xe->drm, "Device resumed\n");
-- 	xe_pm_block_end_signalling();
-- 	return 0;
-- err:
-- 	drm_dbg(&xe->drm, "Device resume failed %d\n", err);
-  	xe_pm_block_end_signalling();
-  	return err;
-  }
-@@@ -461,6 -387,9 +387,9 @@@ static int xe_pm_notifier_callback(stru
-  		struct xe_validation_ctx ctx;
- =20
-  		reinit_completion(&xe->pm_block);
-+ 		if (!xe_pm_needs_bo_evict(xe, action =3D=3D PM_HIBERNATION_PREPARE))
-+ 			break;
-+=20
-  		xe_pm_block_begin_signalling();
-  		xe_pm_runtime_get(xe);
-  		(void)xe_validation_ctx_init(&ctx, &xe->val, NULL,
-@@@ -485,6 -414,9 +414,9 @@@
-  	case PM_POST_SUSPEND:
-  		complete_all(&xe->pm_block);
-  		xe_pm_wake_rebind_workers(xe);
-+ 		if (!xe_pm_needs_bo_evict(xe, action =3D=3D PM_POST_HIBERNATION))
-+ 			break;
-+=20
-  		xe_bo_notifier_unprepare_all_pinned(xe);
-  		xe_pm_runtime_put(xe);
-  		break;
-@@@ -707,7 -639,7 +639,7 @@@ int xe_pm_runtime_resume(struct xe_devi
-  			xe_wa_apply_tile_workarounds(tile);
- =20
-  		for_each_gt(gt, xe, id)
-- 			xe_gt_idle_disable_c6(gt);
-+ 			xe_gt_resume_early(gt);
- =20
-  		xe_display_pm_resume_early(xe);
- =20
-@@@ -755,7 -687,7 +687,7 @@@
-  		xe_sriov_vf_ccs_register_context(xe);
- =20
-  	if (xe->d3cold.allowed)
-- 		xe_late_bind_fw_load(&xe->late_bind);
-+ 		xe_late_bind_pm_resume(&xe->late_bind);
- =20
-  out:
-  	xe_rpm_lockmap_release(xe);
+---
+Alexey Charkov (5):
+      dt-bindings: nvmem: fixed-cell: Add Rockchip CPU ID
+      nvmem: core: Let read post-processing return a shorter length
+      nvmem: rockchip-otp: Derive MAC addresses from the CPU ID
+      arm64: dts: rockchip: Move RK3576 OTP cells into a fixed layout
+      arm64: dts: rockchip: Derive GMAC MAC addresses from OTP on RK3576
 
---LPbiKUmi7y/CYtNZ
-Content-Type: application/pgp-signature; name="signature.asc"
+ .../bindings/nvmem/layouts/fixed-cell.yaml         |  33 ++++++
+ .../bindings/nvmem/layouts/fixed-layout.yaml       |   6 ++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 111 +++++++++++----------
+ drivers/nvmem/Kconfig                              |   4 +-
+ drivers/nvmem/core.c                               |  17 +++-
+ drivers/nvmem/rockchip-otp.c                       |  45 +++++++++
+ include/linux/nvmem-provider.h                     |   8 +-
+ 7 files changed, 168 insertions(+), 56 deletions(-)
+---
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+change-id: 20260901-rk3576-otp-cpuid-mac-3c90243d0884
 
------BEGIN PGP SIGNATURE-----
+Best regards,
+--  
+Alexey Charkov <alchark@flipper.net>
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEXTsACgkQJNaLcl1U
-h9CBVgf/fGKEWnH97cLs3Y0l4Say61s/rgzUvyPYulSEv8EbCxA5oRsj/CuDGGm/
-78uUzWYhrfYtCuUEoFtjtmFJPJ5SCWJDCW+LwfaH69FUu0wPaA0ZHd9Q1+hCB5Eg
-+i8JGhJ6OBVPl9D/t16gB3RtQVKmYetB2kp5meZrpxg3pEHESmb/ty2ykfx4jFj0
-b8eFMF5wUeRSf3rD8fg3D/eOpuIPyhpklBSOjvK+BjiBWG1VB+0fYRwip6UK+yQ1
-S4W9uQRbWU+Is4kyz3hpRKJyN0ejLL5o5iiLBIy9Bx5m19d26syAveZhrZeY1Ywn
-bNlxRS5UeiP/u+NJukYEkkNGt9LKkw==
-=s60T
------END PGP SIGNATURE-----
-
---LPbiKUmi7y/CYtNZ--
