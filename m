@@ -1,94 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795400127;
-	b=F606OaeqjYZ0EhVmJNDe1HbpbS3G2EiB2twWZ7psqKeZiL2Pi8oEOjDsmeOc25v+cXAe
-	 UOO5G9oRkZIpqbAyqhRWQyKilwDxBEpRu6i+VCtjOBWVMeU5tYpcgmSWrFyhs/bI9qW79
-	 k+1OjFX8ICJsBtHFHqWSJEqvET0r7qzBHe4fLI5+P9HgkSfluxCxghYGdJqfZAO7H4fMu
-	 n4I0CC3iat2U48mV/LCBqhp74+r32znBds03ww8bHJELYBS2pY7XEdPxR0IaoiCSeFkOQ
-	 cRfmPHMnzP/cP5XOfTThHHft44KqpjLu1XQwOlBZpo12XeVRQq9G5cSOGa5MBIVXoSA==
+	t=1795400183;
+	b=NKIqh+6DFUxIVvb0Vdl5bwxZMg86yTyxkpFejot8Gp5x0u961OeJ/5TnVea9rCyk7NIp
+	 VcTDmLHQdFhEGRmy4yDCJ8clqvZ/3BlAG5PI8Wt7iEbHAYhFSZjL7kg0obbpgy9W/ELDY
+	 wATIqnji226+uV3l8tm8bMrp6t8JDB1o75ZCBKf11Lwvx809FUYnf5ES0DVweSOBc+dZj
+	 dfYf7Q5+ngGmIvcKNpGkIMm4eVdiNAmcTDaHFE4/E6MYSiQyxD26KO0PFIizcjdfdSV3F
+	 DxsohUKTnG6SPLJ7P/SnwaVa5+ZbliipPTEWgZdi1bYX2AgEgv8/cKul5hnWJ35Vxfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400127;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795400183;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Subject:From:To:Cc:Date:Message-Id:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Rkyx+AAwBDqEzfOhBV88iO5QEcgZ4mRADs3tiKBytS8=;
-	b=Lvg/6T6SzbTXmBJhUq4ntt2ycwt/03ytcnFo3I+1LaDWuAz2RO71fjM3B2GYIWNCaDa9
-	 wTUxq18V4ps90XNJolbHPQITMoe+56pkXwrUuaavkZt+5lA1f89rFbGVbAyrrUU5bU1Kb
-	 GDzDoWzSQf4P43AKP5a/pt4WpriVamJ0Mg/DJsmCkJxh0VaNloHDy0+PGiFQ2cCximU7p
-	 RxXyQt+2tmVxbj0RiIjsHNceXbcRCvDQ0g5EhAiWBsevcDcGdsh8UzfeQJGQUrpior/Zi
-	 EXiaurUbtzJPbLOlJBnDqsjWmSLadUQ+iAgQve76pyLgpjludTbRq0jV9rm61y/LgIQ==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=6lRbJCOVU+DRb+wBjrdaaxkOGEdqJxji7R1nJ/0GyKk=;
+	b=3FWpaKWkwo31Xbi8PDmued0nBnytPZw0aqNunxPUNDLWZGDbKwgicYcHQzz7NNCie+FU
+	 NrVd/SCUVSsgMTYQVgER75T9NqcR2ShCashRjDnqkUNMY3pGgPChNSWOzAoLFd4khYeYv
+	 BG1YUkFXErAOCZxMBr18q93IVUbNCQwXQfp2ujHNlAIS1mQ4+yd7UGdPdRp9CgBhBJEZD
+	 0aRWWg/hN537dqYFt+PCAfMuA0eOO9RBo30IeDMLNhebiBuQuzMTQ0DcooXDspbpGWQW2
+	 +AShB4MOjjiYcf8BrvZVexVBs/pa+f2GTRBtyudNjxhFUI27arxe8jYh4718AzHmOYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=abCqdR9U;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0ktjBulC;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E38D606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:15:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E38D606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 252A6606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:16:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 252A6606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=abCqdR9U
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-3863db981d4so3636963eec.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:15:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0ktjBulC
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38699cf08dfso2362888eec.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:16:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795400125; x=1796004925; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :cc:to:from:subject:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Rkyx+AAwBDqEzfOhBV88iO5QEcgZ4mRADs3tiKBytS8=;
-        b=abCqdR9UPPu9WY9DzxZFcTfTk8cu5u7Kk2hp9TCsZBerGhLkZeHdZVlv7dJUuMK8on
-         1TKSeBD9FTQAQTGaRoTXMYnmJSSAGLMmPzaFtzdGveMXnvZmVG4mtlODk/35Q1bTWiJl
-         kpv3GH7HwCaOcfugh05QI3Cb44uesQRBU6lbiy70C+pq6RNJWMczXScBuksEmc8Yaq2F
-         a1PFp0Peee77Ytw6NJ2bo4gEJVwUvCE1sjDJlP5ply5aoafrzuAkgWPeehdfh8d6dCr+
-         GDv7NgEjQr2Uqqn11ilp/dzG0Qq22UTk0LX/JvkSCTj2LfN3lbC/tT4dLVZ4VPYvUZhp
-         2TpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795400125; x=1796004925;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :cc:to:from:subject:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795400182; x=1796004982; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Rkyx+AAwBDqEzfOhBV88iO5QEcgZ4mRADs3tiKBytS8=;
-        b=KS6PeAh1qR2h0Kz6OmnTPF0ZBu7unxR6FQ4jKiBHbJRtQlPalEkktq6/LC8ymeQMRY
-         hU24ZO6dj8rnalaP7VgklMr3OMHtQY1MAUaKLimVwkksBLQqbY7Ok3A2X+6tJrYfL1zS
-         PDyvS2tmHsspr0jKyDT3ZBZAfRxLUwF/73718vRlVCiXGT/Hp4/zdMAT3Sq+jBmyyzrt
-         1GeDPLu3IqJ9Cvdy5Gy3pplSc7ZgGzhC6NQn8QoHhjtzSI8a1f94/tIFtcZuXnBF+Bxa
-         o4oGwP/sNQfmJXKiqBBDE9A7MZtCEo1nZWris38oAzHylsogpRPa9Cp8YZX7njvXMSLq
-         7MbA==
-X-Forwarded-Encrypted: i=1; AL+hErFgfIyHgmiRRuJZHDhhHnVo0OfE3P768xK9BmTAmOuy/o3pXVEae2Neo2FW+NNMb1J+7XWybm+McW92JDM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83ZCU2Cn5LTp6S9av+fUcks04hxir7joQ5e6dMfydE0fIzDPVr
-	jmLrUnmS12pgk3GYNgHcfBALYdn9xmO5Rr5VIFdccgsU1QcKeMQfzpnz
-X-Gm-Gg: AZFdTZdPiFeh1z4eCHx0MHt85LtYaDIIdo9IWUYzHJyyoDPufgkpRHkCIMAbpsDAjYe
-	gt+v5WSUuGwSyB1UMlotxaC+29R0Kg/RsqRPWJK6MZLq8u9BYrj78qaXhG1llmI8ybWI/F08fPe
-	mZbLg3NYF65tnVsu4eXSb22vlHGrBghR6WecIwP1M7SBhacSXZ4M/0wRzTrgdstv+MhnMtPYWe1
-	YBvftFLRbbDVE60gU7GCqBe1g6kXXctCVJkNrgqrxmumjEV2x0ppkEbGcVmIlFfS1Pa3feISTFG
-	pqFMeikKHuDQym5ZufjTIS5wOT3zspx8Vr9pp1Q2rwvnSdQqZK/gVyCoBoCAO2tCJuephYIXnLm
-	wfKHP/djr7ILGspFEo/WlqLHGD3aFCQgglOLbmQn9AlT7H0QHAlYMgCbyieAvlcdxZx3+6tz67j
-	BnDBR+ptFWCfaxI+aEIe60JWqN8JItQARMmzHy8N02PwNOe+vxNMHouh7zD8mQ2sk0m9pCb9MIv
-	90GwTMu5dLou4C0be+ksmapxFKVV2qS4ONp/UhEXKMFJ3M/Qeiole8eQFTPgemvnqCVjzUl+WOQ
-	kKgiKOiyFwWD/mqzI52L1k2jolMZQj701MO6DOi1K8KCbojnpAOfSow/61+rY8QtGlQxn4iod1O
-	NFKhMl7ejwPN4l9hPUKf/62M8vmg=
-X-Received: by 2002:a05:7300:f68e:b0:386:240c:19d6 with SMTP id 5a478bee46e88-386241b6d72mr8613390eec.6.1795400125325;
-        Sun, 22 Nov 2026 18:15:25 -0800 (PST)
-Received: from runnervm0hi8g.vld3mfsqhe1uncfgcs4bzya0gb.phxx.internal.cloudapp.net ([172.182.243.48])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm3021818eec.27.2026.11.22.18.15.24
+        bh=6lRbJCOVU+DRb+wBjrdaaxkOGEdqJxji7R1nJ/0GyKk=;
+        b=0ktjBulCl7rwg6RKSCMutJ7O+ONUA5OUC4qyKwO3YoAaht/K9kCfPs/0Hxu7/vI2lW
+         OSUFJHHDG0kZmNqxBklThvymoKfxKDYSM4MHL6IU+2B98dXO7gui2yzVUh9HWVcHE5b3
+         ld6WiFXCvy4rTB+TySJO3YSeNAL4fVn5SzaFeaXx5mEcJ9sYm9BL4vRJVrwjnLLwlVXD
+         YCyVOH5mwTysW179hutkZHT47Rneq+nV6eI77LA+OcithSNiKsAqNJqWN1tsW+CQgTf8
+         t0bDYFEwhmLmbwFs/Y1KUcL3CbR1XoLuyroMuXbqiYgpBv75OimGZSrK6boIofzLfMtk
+         Sr6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795400182; x=1796004982;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6lRbJCOVU+DRb+wBjrdaaxkOGEdqJxji7R1nJ/0GyKk=;
+        b=PM980XAzk+QhXMWNhEHVBYWu89ap+JjbyjgONw9CIyuuaMTEi4xrK71IAONTpgYKsQ
+         d8jPDNyOVdGRIMV6sekyEtG99TrF7EH2XLRmt6ELovFe6bR6IxgxHxSlLlkpVBB3j+sb
+         s18h7b6tzZf5c1vw/4Cj7PK3kmmKTgpUbvWUc1hNxI29lNtQqHRTRQGwEawGQXZOIlCQ
+         gQY2fv4/OoKfxhHm/4kyLj6jhZCtNLaaZiSyjduQuiIVcbRrr9B92RCXVF3Fg6UNS6nT
+         6AiweZTsIJliu4GZdp7Pmk2V4OoUbwjlqbu79NHRqMEjiCQhkuZsdJeD9fN451KIMlGg
+         KJEg==
+X-Forwarded-Encrypted: i=1; AL+hErEda6UonI9NDArd56qglHw/V0UfB35aaBFGK1ht6F3leF6a5S9BlMx7vhSEqQXZ7JG0smJMp8QpmYE82a4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Le+SqLtZl5apLRNzHc/clm17joh4Fca2/mz1U9IGhcaty7+KP
+	60nv6IjRknuxIQCejYe6Y4E/r9gOy/y6bfe9XRdlw7ArJbFc+LK97Ij8
+X-Gm-Gg: AZFdTZesDLFYnkK9yD/OS/6cY9hTCyjYCFJfsnuj5ORLfqaS8n7AJLPlzeWZraiyq/g
+	cR/d5igRy7X21fiG3Ws1Kq15v2VihztqVluClQdQ/MjhxcHGNDxePDQ2Xa2/BFMPT/Z5PeUuUTY
+	GMEAwzKmOAAQ9BsNVZ5y9xnqHyfTzKhP1S9Z6FUAhi8ZUR34M15zE9W6jQ6uvZr2fFqJ20NViPC
+	Ml2lm2QuSzCM9sWV5y7P6qgLnSNK2zLJpYWlQm2DO0DjsKl1l0xXjQJiD9kVwTqytctOV2WsWth
+	uOW9uJ31g9AzPB5H0Z0PC1LVdrMIWaM2B0iVkeqdEekzoaRW5hDbRnPOdtJCIzmObOHS7P0779r
+	PJfHYa762fvSa0KoNfiyldn3uvQZoknnWBDjwTwhjxDzJ5SGo6tQ0x5v2sUZbnVfMe0AT6fm9W1
+	xy/mQqNZyvDn/dCziRdweEkMh4uIF+NIGxhNI7f/cy0mvIlGBSjfRRGnPBVWV7Dqku1L+rZ+EmR
+	sGRNo6unN5shFgvJxAi1y4xg+mF91hW6JE1NQ2FdVRdmE+xMkjvfINdkLPAi1pBKSyW3TVnKzRS
+	w35awT/qadJ1lv53yFs=
+X-Received: by 2002:a05:7300:7c08:b0:384:3123:a0cb with SMTP id 5a478bee46e88-3856ff5b880mr16658728eec.27.1795400182000;
+        Sun, 22 Nov 2026 18:16:22 -0800 (PST)
+Received: from localhost ([27.122.242.71])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm25726347eec.25.2026.11.22.18.16.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 18:15:24 -0800 (PST)
-Subject: [PATCH v2] dm-integrity: reject recalculation when recalc_wq was
- never allocated
-From: Yang Luohan <ylh440104@gmail.com>
-To: Mikulas Patocka <mpatocka@redhat.com>
-Cc: dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
- Mike Snitzer <snitzer@kernel.org>, Benjamin Marzinski <bmarzins@redhat.com>
-Date: Mon, 23 Nov 2026 02:15:24 +0000
-Message-Id: <179540012414.2174.4959926607245086522@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+        Sun, 22 Nov 2026 18:16:20 -0800 (PST)
+Date: Mon, 23 Nov 2026 11:16:17 +0900
+From: Hyunchul Lee <hyc.lee@gmail.com>
+To: ernest.borowski.git@proton.me
+Cc: Namjae Jeon <linkinjeon@kernel.org>,
+	Baolin Liu <liubaolin12138@163.com>, ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Zhan Xusheng <zhanxusheng1024@gmail.com>, stable@vger.kernel.org
+Subject: Re: [PATCH 1/7] ntfs: release delalloc reservations cut off by
+ truncate
+Message-ID: <awOh8Zxdmg_-wKPg@hyunchul-PC02>
+References: <20261122-b4-ntfs-delalloc-fixes-v1-0-0726f0dce403@proton.me>
+ <20261122-b4-ntfs-delalloc-fixes-v1-1-0726f0dce403@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,131 +100,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261122-b4-ntfs-delalloc-fixes-v1-1-0726f0dce403@proton.me>
 
-dm_integrity_resume() re-reads the superblock from the underlying device
-so that it picks up the flags and the recalculation position.  The
-constructor refuses a superblock that carries SB_FLAG_RECALCULATING when
-no internal hash is configured, because recalculation needs
-ic->recalc_work and ic->recalc_wq is only allocated when
-ic->internal_hash is set:
+Hi Ernest,
 
-	} else {
-		if (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)) {
-			ti->error =3D "Recalculate can only be specified with internal_hash";
-			r =3D -EINVAL;
-			goto bad;
-		}
-	}
+On Sun, Nov 22, 2026 at 07:19:37PM +0100, Ernest Borowski via B4 Relay wrote:
+> From: Ernest Borowski <ernest.borowski.git@proton.me>
+> 
+> A buffered write into a hole turns the hole into an LCN_DELALLOC run and
+> reserves its clusters in vol->dirty_clusters
+> (ntfs_write_simple_iomap_begin_non_resident()).  Writeback hands the
+> reservation back when ntfs_cluster_alloc() allocates the run.
+> 
+> A truncate that cuts off delalloc runs before writeback drops their
+> dirty folios, frees the clusters of the attribute with
+> ntfs_cluster_free(), which skips everything that is not a real cluster,
+> and removes the runs with ntfs_rl_truncate_nolock().  Nothing gives the
+> reservation back, so the free space reported by statfs() and used by
+> ntfs_available_clusters_count() shrinks by that many clusters until the
+> volume is unmounted.  $Bitmap is not affected.
+> 
+> Workloads that rewrite files (open(O_TRUNC) + write) or truncate freshly
+> written data lose free space quickly: a test that writes, truncates and
+> punches holes in six 400 KiB files on a 128 MiB volume sees statfs()
+> free space drop from 79 MB to zero in 80 seconds, after which writes
+> fail with ENOSPC or come back short.  A 1 MiB buffered write followed by
+> ftruncate(fd, 0) and sync leaves 256 (4 KiB) clusters reserved.
+> 
+> Release the reservation of the delalloc runs that the shrink cuts off,
+> before the runlist is truncated.
+> 
+> Fixes: 495e90fa3348 ("ntfs: update attrib operations")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ernest Borowski <ernest.borowski.git@proton.me>
+> ---
+>  fs/ntfs/attrib.c | 33 +++++++++++++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
+> 
+> diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
+> index 6ee6b6bcac..4028c310fc 100644
+> --- a/fs/ntfs/attrib.c
+> +++ b/fs/ntfs/attrib.c
+> @@ -4383,6 +4383,37 @@ static int ntfs_attr_make_resident(struct ntfs_inode *ni, struct ntfs_attr_searc
+>  	return 0;
+>  }
+>  
+> +/*
+> + * ntfs_release_delalloc_from - give back the reservation of delalloc runs
+> + * @ni:		non-resident ntfs attribute whose runlist is about to be truncated
+> + * @start_vcn:	first vcn that is cut off
+> + *
+> + * Delayed allocation reserves vol->dirty_clusters for every LCN_DELALLOC
+> + * cluster when the buffered write is done and only gives it back when
+> + * writeback allocates the clusters.  Runs cut off by a truncate never reach
+> + * writeback (their dirty folios are dropped from the page cache), so their
+> + * reservation has to be released here or it is lost until unmount.
+> + *
+> + * The runlist must be mapped completely and locked for writing.
+> + */
+> +static void ntfs_release_delalloc_from(struct ntfs_inode *ni, s64 start_vcn)
+> +{
+> +	struct runlist_element *rl = ni->runlist.rl;
+> +	s64 nr = 0;
+> +
+> +	lockdep_assert_held_write(&ni->runlist.lock);
+> +
+> +	for (; rl && rl->length; rl++) {
+> +		if (rl->lcn != LCN_DELALLOC || rl->vcn + rl->length <= start_vcn)
+> +			continue;
+> +		nr += rl->vcn + rl->length - max(rl->vcn, start_vcn);
+> +	}
+> +	if (!nr)
+> +		return;
+> +	ntfs_release_dirty_clusters(ni->vol, nr);
+> +	ni->i_dealloc_clusters -= min_t(s64, nr, ni->i_dealloc_clusters);
+> +}
 
-The superblock that is read back on resume is not subject to that check.
-superblock_changed() only compares magic, log2_interleave_sectors,
-integrity_tag_size, journal_sections, log2_sectors_per_block, the salt
-and the SB_FLAG_HAVE_JOURNAL_MAC, SB_FLAG_FIXED_PADDING,
-SB_FLAG_FIXED_HMAC and SB_FLAG_INLINE flags, so SB_FLAG_RECALCULATING
-can be added to the on-disk superblock while the device is suspended.
-Resume then reaches
+If ntfs_cluster_alloc() succeeds for a LCN_DEALLOC run but the
+subsequent kmemdup() in ntfs_attr_map_cluster() fails, the reservation
+has already been substracted from dirty_clusters but LCN_DELLOC run
+remains.
 
-	if (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)) {
-		__u64 recalc_pos =3D le64_to_cpu(ic->sb->recalc_sector);
+Is this planned to be addressed in part 2?
 
-		if (recalc_pos < ic->provided_data_sectors) {
-			queue_work(ic->recalc_wq, &ic->recalc_work);
+> +
+>  /*
+>   * ntfs_non_resident_attr_shrink - shrink a non-resident, open ntfs attribute
+>   * @ni:		non-resident ntfs attribute to shrink
+> @@ -4479,6 +4510,8 @@ static int ntfs_non_resident_attr_shrink(struct ntfs_inode *ni,
+>  		}
+>  		ntfs_attr_put_search_ctx(ctx);
+>  
+> +		ntfs_release_delalloc_from(ni, first_free_vcn);
+> +
+>  		/* Truncate the runlist itself. */
+>  		if (ntfs_rl_truncate_nolock(vol, &ni->runlist, first_free_vcn)) {
+>  			/*
+> 
+> -- 
+> 2.56.1
+> 
+> 
 
-with ic->recalc_wq =3D=3D NULL and dereferences a null pointer.
-
-When the recalculation support was introduced, the call was guarded:
-
-	if (ic->recalc_wq && ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING))
-
-commit 468dfca38b1a ("dm integrity: add a bitmap mode") dropped the
-ic->recalc_wq part of the condition while restructuring the surrounding
-code, so the null dereference has been reachable since that commit.
-
-commit 875a7161fe15 ("dm-integrity: don't recalculate with HMAC because
-of a dirty bitmap") re-applied the constructor's policy inside the
-SB_FLAG_DIRTY_BITMAP branch, which avoids the null dereference for a
-superblock that gets SB_FLAG_RECALCULATING set by resume itself, but the
-standalone SB_FLAG_RECALCULATING branch further down in the same function
-still queues the work unconditionally.
-
-Reject the superblock next to superblock_changed() instead, before the
-journal is replayed and before any superblock write, and restore the copy
-that the constructor validated.  Checking it at the point where the work
-is queued would leave SB_FLAG_RECALCULATING in the in-memory superblock,
-so dm_integrity_status() would report recalculation as enabled on a
-device that has no internal hash, and a later resume would take the
-stale flag from ic->sb and write it back to the device.
-
-No path inside dm_integrity_resume() sets SB_FLAG_RECALCULATING without
-an internal hash: the bitmap mode branch requires internal_hash in the
-constructor, dm_integrity_may_recalc_dirty_bitmap() rejects it, and
-reset_recalculate is rejected by the constructor as well.  The flag can
-therefore only arrive from the device, and rejecting it after the read
-is enough to keep the work queue call safe.
-
-Reproduced on 7.3.0 by loading a dm-integrity target in J mode without
-internal_hash, suspending it, writing SB_FLAG_RECALCULATING with
-recalc_sector =3D 0 into the on-disk superblock of the backing device, and
-resuming:
-
-	Oops: general protection fault, probably for non-canonical address 0xdffffc0=
-000000020
-	KASAN: null-ptr-deref in range [0x0000000000000100-0x0000000000000107]
-	RIP: 0010:__queue_work+0x95/0x1030
-	Call Trace:
-	 queue_work_on
-	 dm_integrity_resume
-	 dm_table_resume_targets
-	 __dm_resume
-	 dm_resume
-	 dev_suspend
-	 ctl_ioctl
-	Kernel panic - not syncing: Fatal exception
-
-Fixes: 468dfca38b1a ("dm integrity: add a bitmap mode")
-Cc: stable@vger.kernel.org
-Reported-by: Yang Luohan <ylh440104@gmail.com>
-Signed-off-by: Yang Luohan <ylh440104@gmail.com>
----
-Changed in v2:
-- reject the superblock right after it is read, next to
-  superblock_changed(), and restore ic->sb from ic->sb_copy, instead of
-  only checking ic->recalc_wq where the work is queued
-
-drivers/md/dm-integrity.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
---- a/drivers/md/dm-integrity.c
-+++ b/drivers/md/dm-integrity.c
-@@ -3941,6 +3941,14 @@ static void dm_integrity_resume(struct dm_target *ti)
- 		goto skip_writes;
- 	}
-=20
-+	if (unlikely(!ic->recalc_wq &&
-+		     (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)))) {
-+		memcpy(ic->sb, ic->sb_copy, sizeof(struct superblock));
-+		DMERR("Recalculate requested, but internal_hash is not used");
-+		dm_integrity_io_error(ic, "inconsistent superblock", -EINVAL);
-+		goto skip_writes;
-+	}
-+
- 	if (ic->mode =3D=3D 'R')
- 		goto skip_writes;
-
---- a/drivers/md/dm-integrity.c
-+++ b/drivers/md/dm-integrity.c
-@@ -3941,6 +3941,14 @@ static void dm_integrity_resume(struct dm_target *ti)
- 		goto skip_writes;
- 	}
-=20
-+	if (unlikely(!ic->recalc_wq &&
-+		     (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)))) {
-+		memcpy(ic->sb, ic->sb_copy, sizeof(struct superblock));
-+		DMERR("Recalculate requested, but internal_hash is not used");
-+		dm_integrity_io_error(ic, "inconsistent superblock", -EINVAL);
-+		goto skip_writes;
-+	}
-+
- 	if (ic->mode =3D=3D 'R')
- 		goto skip_writes;
-=20
+-- 
+Thanks,
+Hyunchul
