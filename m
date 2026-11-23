@@ -1,61 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795412887;
-	b=ir1c3qB/6j8L+d+KIJTu0bIwwzXwtZba84zHYGwVn9NC8+AkSJNOc5sjBni/J/znPsI6
-	 7zb0AGf5uVYnvknfk87gWZeoiLmOy1053WScQpc7CxbHajRae3fzHjR1MpsMCee8s+B+h
-	 gdU2So7hAA64sATz9TOVpo4lVh6IYdYYKd1cZiZL7IlSIFx+EMEdspyfPmlCh6/h+w3w1
-	 Crtx9b+ueO/0nEYg7b8jLnQguULutU61BSn4uYuwYfXEFFdcCc3M0sFihN+FJH9DKlcYK
-	 O5L6bXVbmiveSt9xgJzqJMEipuGwm8AHxWUs1SnKFhbKtNajndelBmPYI6XRb2i7VIw==
+	t=1795412927;
+	b=Z0+9WOYaVLWqvVxJG/hejyaKylEOXwoZwoZ8p20En61K1XsisD+5hXZ8yF6acmHrtYYH
+	 RIQi2S7hrZ7bJBlm3dm6JiPphLVgUQAgUcibN6eLp/yt7t8BB8hF7M4IBIp4nYIExip3M
+	 DMcKQuL4zD0dvLJGW92Ele5FrCXdWQR+a99wDgKZ0vgX5wLNq9HoUhJxl4smXLcx74hJq
+	 gbdREqwQT5lKoRpfTTTWfvvUAx92xZD6HnYG0cJpHnbncnofSHtsWklzx3fYSa9B567ip
+	 K40sHz+9x78kLxYfuBzTMfbwDGBViWPaTY7M9hUza4t1WqN/VUNk2EgiN7fEnabpd/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795412887;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=//NJH9cDc4+QbK55lhh6lAvE1Jzbk1sEQRnauS9w+sU=;
-	b=yk9ZAeu3wumFCGUgie0o5gPXaQqOEd71uLPgkPKKEKZMRT1vZpkJV4dAQfTzSU7Umj/W
-	 7W5WRn+nFKaLOmGnIP/Ppx3qTo0gzR/rOzUzZabqbP0QN9DqvBd8PD2qcnZZlDI5qktvX
-	 5bGEq1p5+4ee6/BYqMAOWxZzafN5FrRt/drLa9LVb13PA/6seM0tANwqjz/cEyxw9aEaE
-	 KaB9M65BwrhYhNtRUWPCpZCBLdRe6E2H9Zun7BhZHzhyQ3LQZyRcoRGClZaHSsQfMxi5g
-	 k0OF2rBZ7xNODgCvRwq2vt6vM3id/iz9aJ4JmtHDLi7cH59XtTUlWIKYFzl6LLC0qPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795412927;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=zlhuEsnEqWYtLQ39obGQbINHh9BrJT/OwpgUaV/SUKo=;
+	b=sKZtTrH9MxYlb8SZlIki96Q9JM5ZMygdZsG0RvV21g8GRyLYC3hn5CpagxBD2067706j
+	 kf9sOnlIFuJi5LWlHqror8Bj6Vwf01JR77+ypDP6XSrOXA1gk9mN/BXvi7I0f8Ft5Fc2K
+	 5/6DSv3VkroEmwqQpjszb+A9uSRsGmrGNJajiJIyaBqaykotAOru0ZLbKLJDQQR8K3tFI
+	 e7pkKmIS6TR1sbKylaX3QraR7H6PPiG+uAr835vXXyuYXXBIMgjndegGb24eBD6jsA1g7
+	 liA4PmWl0Daonv+vaR9FEQJqYMkN6RDWo74zwTESBxMVRRNPJJw3e6FxWOZ53zLKeAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h9n93YHg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jrouaAOQ;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R8BaWBFQ;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34663606A327;
-	Mon, 23 Nov 2026 05:48:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C620F606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:48:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C620F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h9n93YHg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3703E1F00ACF;
-	Mon, 23 Nov 2026 05:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795412885;
-	bh=//NJH9cDc4+QbK55lhh6lAvE1Jzbk1sEQRnauS9w+sU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=h9n93YHgTR5WnzqFhlvTNgT/mTMfO2VKfLo9lVq+Q1RV4eI1bRwIWZ2F2xqXszTG3
-	 x1PW7stmss8IViMUejTleeeZnPM0T4msSi9YA6S0YcXY1zd7AR2VUOT+rjbM6ajrau
-	 rDEWNwEGbhmNWzC56HmsahXbfbf3Vr/4oyL8O/qzZHOtzQW81Offwheyg1V5TePwRo
-	 t1oTNHbctShpJz9UyaL1zhqGAPN6L4pX1Yc287YnAx3fYIQG8xSOFiV6GzDh3sxFxM
-	 tk2QK18zIs008kPAB3fHdsoNUim74QCTZG1Fn1wawajlWFJ5z4PBbynP2fVQPE/Psi
-	 OKyEdqphnMXMg==
-Subject: Re: [PATCH net] net: wwan: iosm: always send the host sleep message
- on suspend
-From: netdev-bot+sashiko@kernel.org
-To: davidlwesten@gmail.com
-Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- m.chetan.kumar@linux.intel.com, mail@maciej.szmigiero.name,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Mon, 23 Nov 2026 05:48:04 +0000
-Message-ID: <179541288475.3135.162337854159176054@kernel.org>
-In-Reply-To: <20261122050039.861287-1-davidlwesten@gmail.com>
-References: <20261122050039.861287-1-davidlwesten@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jrouaAOQ;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R8BaWBFQ
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN51cUt2226183
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:48:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zlhuEsnEqWYtLQ39obGQbINHh9BrJT/OwpgUaV/SUKo=; b=jrouaAOQBkpXIBv0
+	p0KNvCgW1f7jEnIrr0Cy+Nnxx1dSw/Ay7K9cKDB6jBS47qatRVXeio/i+ZnrSdce
+	gBvTeLdlV9/MQQCSmS7LdOrlE7vDZX4bFFRCfyDuM7ZqzSoSn71dQ0hXnVj0wk+1
+	s+y7B8I9sJuwCvbI23laLvKIxRMGLO0iAMLdCB6h5N7c1eb/xD4m9VJLw3RxPJQA
+	Qi+HvSIp6t2+9bx0FSBoeNzjEhhIGqydVasOOXI22En4OTjNS7QihXk88Sy84ZG8
+	NXFa+AmgEzOrD50vCeO5kJlqHeOnun7pal3HL55qadLF2DfhM8mUHXNjdjAWD2ba
+	loRXjg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j310fdmpm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:48:45 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ed05b3eaecso26250445ad.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:48:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795412925; x=1796017725; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zlhuEsnEqWYtLQ39obGQbINHh9BrJT/OwpgUaV/SUKo=;
+        b=R8BaWBFQ3icyby0bVQZ+wDH4STMcAiTr9We+ZD4LfTFtdS7ujvgsJszYKbA3dzXP2O
+         rgWxpmQopwjF6af5BilwlMT7gp79swnLPQ6PGEzMwjVdMfr8oLKwWNQKf3vt9nzYNCY3
+         o2y9IUtxstsvK6Z8sT1zEcxifuBJuhRyj2Jz0GAFnri4v5q4jK8xKyHqmPQz0kLFS5dI
+         t1c9qjZwDIz9B7sMuoz3Zcv8k+I/IuFK+WEFO1j9gqxflsL52uhry7CT1lx5QqFD70uS
+         bs6MSSV/VP/io6w7y1izfPChjwjaElZxiP3UOzLw7cTLjMdiihwDIbjXvZxXl8h9mQvc
+         lddQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795412925; x=1796017725;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zlhuEsnEqWYtLQ39obGQbINHh9BrJT/OwpgUaV/SUKo=;
+        b=vRESo8nnl3i6LKJ9kr2pC9XibW0I8fJc/8541/aQ0XBj4thGtnAgawJD449sqcyTwJ
+         Iw4pLhy0YlZbe9pjXhcegH/3ZtlN4Xjj9PkCgpNnWyAgF4trvp4KqDjJEdr80SsaWE4U
+         O5FeTAh+sxnY8pSp2ktAqxi23ZhpudnocXDhue1jJm1X/a+uFoIinbDNKqhCDUxIPL/k
+         9HjWmUmtVoPW4GRP4iOVwTmPC/SwKJMC+KM59ddsh2dHxoj9DJLg0eGp1lySvC8pQibV
+         vlBNCLfwg6YPXzX9ulu/e/aemd4BdENu2Mrb7+UUb3w4jYXBaWOLL6gdqbE8CL7nndYt
+         X8Tw==
+X-Gm-Message-State: APuU4Z8YSBGfIfN2UOTIW3iKfMQOxHHS2OfwSykAKDSwgWRTILD1njvz
+	TBkpZMKTaxHLzsb+IDvEx5GsI2TI2cvrZHIo3aebyKCLd3WVDnXkygg1BWTXnGlfrlQMDpaCDWI
+	4EaQtd+H1G6aOUB2rif2Coy9i057f95AW6Vru62UJE+kF0717kZl3A20QSKvEMxYwahk=
+X-Gm-Gg: AZFdTZcgcPjKN+IZMuxDB/HUtIfiTBYhrOjJyQZzbmNYx6wjyyLavei33lERXglB9We
+	mstUOvo5bWek06Q4ZxPcG8Ma4Hz5mrg8tf1MXrqaCLqg77ERZrA7lgnRbOaKA5RCdm+Z6xF9zT0
+	n0QtOh2P4t+MXOSjo39Tqb88bT6FMwX4ioo27jWM3OL0TWgyTU0CM+QPxVAikXmjz/vkwrQ1nuG
+	TG5Nj1Ofr9xdtQZ+Yw/TXLZwEl3GVKgfAd46f/6g7inhmL9MniZWqC81vEoyQknFfsOxAYcrt2i
+	2qpKCXRnDFldM+z0nHmaLFEMQZNFEklyP1zxwcRd1j3KL+7IzPQNTwzNiogazok1lf/zTle/qzK
+	2RQdkrsGS7UGVgY5tD1Szu1LfkY09kAYbAlWE2G4HVGxmYy4VBN31oJUuCC2ScZDJR/OOCB5Nod
+	32HmdFtY1LaeHfDCUhA8FaMXxhShTYatg63KxTKzi9dWzt
+X-Received: by 2002:a17:902:f551:b0:2f0:2ba0:3b9a with SMTP id d9443c01a7336-2f03f1bfc54mr100526455ad.38.1795412925267;
+        Sun, 22 Nov 2026 21:48:45 -0800 (PST)
+X-Received: by 2002:a17:902:f551:b0:2f0:2ba0:3b9a with SMTP id d9443c01a7336-2f03f1bfc54mr100526295ad.38.1795412924773;
+        Sun, 22 Nov 2026 21:48:44 -0800 (PST)
+Received: from [10.133.33.103] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1207f1sm46143615ad.64.2026.11.22.21.48.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 21:48:44 -0800 (PST)
+Message-ID: <bee69c86-2433-46bf-b842-0277b8f2b76e@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 13:48:40 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,303 +114,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] cpufreq: s5pv210: Fix resource leaks on probe
+ error paths
+To: shyckless@gmail.com, viresh.kumar@linaro.org, krzk@kernel.org,
+        peter.griffin@linaro.org, rafael@kernel.org
+Cc: linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
+        linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+References: <20261123-cpufreq-leaks-v3-0-1f1e3f4f5a7b@gmail.com>
+ <20261123-cpufreq-leaks-v3-3-1f1e3f4f5a7b@gmail.com>
+Content-Language: en-US
+From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+In-Reply-To: <20261123-cpufreq-leaks-v3-3-1f1e3f4f5a7b@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAyMiBTYWx0ZWRfX7p9/AFUA3FE7
+ tXEWYRIMyrGng5xn6rGOoy4ZOwAS2OFseL8/HhADRs80DSCTcOCDMm5JvePxXF4QojZRSovuTuh
+ iVOxAinzJeU72cxed0ohfjG+dKQ/avIUZAx/2wWEjJOMwITMKovVr5fKdFwxVKQ2hbDIOuY1K7A
+ aBKbWMuZSugo+JUxId2RhtETroUISS9YFc/ZIUq/BsrcU6xlaXHQprYp36TmA1vybUauosCFIy2
+ Qsb28ELviRKnh5ZV5KMMs3l+OoYmd/0K29gdPItZoe7xag3ld6of4invcL4iRP4dtiYeyj5F8oC
+ KxlwcyO4dnXXANmJR19hQkKJiW3HF8EPt7s7BIYAAbYtNNDGb5XccjcISi5pmu/XMSbi/vFBmmJ
+ qZWAn/ke/zxeav2evGuElcMqamgdmCms4wUltTbIYNGUupbRriR72p9jJLczPHod5uJlIAk1Svx
+ ChoNUQsxnTC4eGCO5jw==
+X-Proofpoint-ORIG-GUID: ao5aHnomO1CeQtV8Odql9zP7Umm4Scx0
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAyMiBTYWx0ZWRfX5JoqAoEVYmFv
+ afm9z/qokduqYWUDAu4kU2UGWh1ryhzlkDfSSQ6hn+ZmwcRi0hOPY9uYQF0gxCvB18VN+/QUcBa
+ 8xl17Rs7/0B7CvjNzpQmegKV8VF9RDk=
+X-Proofpoint-GUID: ao5aHnomO1CeQtV8Odql9zP7Umm4Scx0
+X-Authority-Analysis: v=2.4 cv=UN1Ijyfy c=1 sm=1 tr=0 ts=6b03d3bd cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=EUspDBNiAAAA:8 a=M1YlFrUzwzMSSZYL3_kA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 clxscore=1015 priorityscore=1501 malwarescore=0
+ lowpriorityscore=0 adultscore=0 suspectscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230022
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
+On 11/23/2026 1:40 PM, Suyuan Wang via B4 Relay wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
+> 
+> s5pv210_cpufreq_probe() returns the result of cpufreq_register_driver()
+> directly:
+> 
+> 	register_reboot_notifier(&s5pv210_cpufreq_reboot_notifier);
+> 
+> 	return cpufreq_register_driver(&s5pv210_driver);
+> 
+> If the registration fails, for example because s5pv210_cpu_init()
+> fails, the resources taken by the probe itself are leaked: the two
+> regulators and the clock and DMC register mappings. The reboot notifier
+> also stays registered. (s5pv210_cpu_init() releases its own clocks on
+> its error paths, and the cpufreq core tears down its own state.)
+> 
+> Also, when a DMC node has a bad alias, the code jumps to err_clk_base
+> and skips unmapping DMC registers that were already mapped for an
+> earlier node.
+> 
+> Unregister the reboot notifier and go through the existing unwind code
+> when cpufreq_register_driver() fails, and jump to err_dmc on the alias
+> error. The err_clk_base label has no users after this, so drop it.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: e8b4c1986efb ("[CPUFREQ] S5PV210: Add arm/int voltage control support")
+> Fixes: fe7f1bcbff91 ("[CPUFREQ] S5PV210: Add reboot notifier to prevent system hang")
+> Fixes: 6d4ed0f46af6 ("cpufreq: s5pv210: Make the driver multiplatform aware")
+> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 4
+Reviewed-by: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> ---
+>   drivers/cpufreq/s5pv210-cpufreq.c | 12 +++++++++---
+>   1 file changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/cpufreq/s5pv210-cpufreq.c b/drivers/cpufreq/s5pv210-cpufreq.c
+> index e64e84e1ee79..29b1c5d71a8b 100644
+> --- a/drivers/cpufreq/s5pv210-cpufreq.c
+> +++ b/drivers/cpufreq/s5pv210-cpufreq.c
+> @@ -634,7 +634,7 @@ static int s5pv210_cpufreq_probe(struct platform_device *pdev)
+>   		if (id < 0 || id >= ARRAY_SIZE(dmc_base)) {
+>   			dev_err(dev, "failed to get alias of dmc node '%pOFn'\n", dmc);
+>   			result = id;
+> -			goto err_clk_base;
+> +			goto err_dmc;
+>   		}
+>   
+>   		dmc_base[id] = of_iomap(dmc, 0);
+> @@ -655,7 +655,14 @@ static int s5pv210_cpufreq_probe(struct platform_device *pdev)
+>   
+>   	register_reboot_notifier(&s5pv210_cpufreq_reboot_notifier);
+>   
+> -	return cpufreq_register_driver(&s5pv210_driver);
+> +	result = cpufreq_register_driver(&s5pv210_driver);
+> +	if (result)
+> +		goto err_reboot_notifier;
+> +
+> +	return 0;
+> +
+> +err_reboot_notifier:
+> +	unregister_reboot_notifier(&s5pv210_cpufreq_reboot_notifier);
+>   
+>   err_dmc:
+>   	for (id = 0; id < ARRAY_SIZE(dmc_base); ++id)
+> @@ -664,7 +671,6 @@ static int s5pv210_cpufreq_probe(struct platform_device *pdev)
+>   			dmc_base[id] = NULL;
+>   		}
+>   
+> -err_clk_base:
+>   	iounmap(clk_base);
+>   
+>   err_clock:
+> 
 
-- [Medium] This patch sends every platform through ipc_pcie_suspend() ->
-  ipc_imem_pm_suspend() -> ipc_protocol_suspend().
-- [Medium] With this patch, every system suspend on D0L12 platforms
-  relies on ipc_pm_wait_for_device_active().
-- [Low] SIMPLE_DEV_PM_OPS(iosm_ipc_pm, ipc_pcie_suspend_cb,
-  ipc_pcie_resume_cb) expands to SYSTEM_SLEEP_PM_OPS.
-- [Low] The patch removes the only callers of the s2idle path but leaves
-  its pieces behind, and one of them changes behaviour.
-- [Low] The new comment in ipc_pcie_suspend_cb() says "The PCI core puts
-  the device into D3 whatever the BIOS RTD3 setting says".
-- [Low] net: wwan: iosm: wrong commit cited in Fixes: trailer
-
---
-
-net: wwan: iosm: always send the host sleep message on suspend
-
-This patch makes the iosm suspend and resume callbacks always use the
-ENTER_SLEEP/EXIT_SLEEP host sleep message path (ipc_pcie_suspend() and
-ipc_pcie_resume()). Before, the D0L12 doorbell-only s2idle path was chosen
-from the BIOS RTD3 _DSM setting. The goal is to keep an XMM7360 usable
-after suspend-to-idle when the PCI core puts it into D3hot.
-
-> diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> index 49052eb511baa..dd7cfe3747efc 100644
-> --- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> +++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> @@ -406,14 +406,10 @@ static int __maybe_unused ipc_pcie_suspend_cb(struct device *dev)
->  
->  	ipc_pcie = pci_get_drvdata(pdev);
->  
-> -	switch (ipc_pcie->d3l2_support) {
-> -	case IPC_PCIE_D0L12:
-> -		ipc_pcie_suspend_s2idle(ipc_pcie);
-> -		break;
-> -	case IPC_PCIE_D3L2:
-> -		ipc_pcie_suspend(ipc_pcie);
-> -		break;
-> -	}
-
-[Severity: Low]
-
-This removes the only callers of ipc_pcie_suspend_s2idle() and
-ipc_pcie_resume_s2idle(). They are __maybe_unused, so a W=1 build won't
-warn. ipc_imem_pm_s2idle_sleep(), ipc_protocol_s2idle_sleep() and
-ipc_pm_set_s2idle_sleep() become dead code along with them.
-
-ipc_pcie->d3l2_support is also still filled from the ACPI _DSM in
-ipc_pcie_probe(), but nothing reads it any more. Should these be removed
-too?
-
-There is also a behaviour change. ipc_pcie_suspend_s2idle() was the only
-code that set bit 0 of ipc_pcie->suspend, and that bit gates IRQ
-processing:
-
-drivers/net/wwan/iosm/iosm_ipc_irq.c:ipc_msi_interrupt() {
-    ...
-	if (!test_bit(0, &ipc_pcie->suspend))
-		ipc_imem_irq_process(ipc_pcie->imem, instance);
-    ...
-}
-
-On D0L12 platforms, MSIs that arrived between the suspend and resume
-callbacks used to be dropped. Now they go to ipc_imem_irq_process() and
-the tasklet. Was this intended?
-
-The commit message doesn't mention it. The referenced commit f4dd5174e273
-dealt with spurious XMM7560 wakeups on this same s2idle path.
-
-> +	/* The PCI core puts the device into D3 whatever the BIOS RTD3 setting
-> +	 * says, so the modem has to be told with the host sleep message.
-> +	 */
-
-[Severity: Low]
-
-Is this comment true in general? For platform-manageable devices,
-pci_target_state() returns whatever the firmware chooses:
-
-drivers/pci/pci.c:pci_target_state() {
-	if (platform_pci_power_manageable(dev)) {
-		pci_power_t state = platform_pci_choose_state(dev);
-
-		switch (state) {
-		case PCI_POWER_ERROR:
-		case PCI_UNKNOWN:
-			return PCI_D3hot;
-
-		case PCI_D1:
-		case PCI_D2:
-			if (pci_no_d1d2(dev))
-				return PCI_D3hot;
-		}
-
-		return state;
-	}
-    ...
-}
-
-So firmware can choose PCI_D0. The commit message describes this as
-platform-specific ("here chooses D3hot"). The comment turns it into a
-general rule and uses it to justify ignoring d3l2_support.
-
-Where firmware keeps the WWAN function in D0 for s2idle, the modem would
-now get the ENTER_SLEEP/EXIT_SLEEP handshake while it stays in D0/L1.2.
-The notes say that case was not tested, and neither were the XMM7560 or
-platforms where the doorbells work.
-
-> +	ipc_pcie_suspend(ipc_pcie);
-
-[Severity: Low]
-The Fixes: tag points at be8c936e540f ("net: iosm: power management").
-That commit only added iosm_ipc_pm.c and iosm_ipc_pm.h.
-
-The code this patch changes lives in iosm_ipc_pcie.c. That covers
-ipc_pcie_suspend_cb() and ipc_pcie_resume_cb(), including the switch
-on ipc_pcie->d3l2_support that picked between the s2idle doorbell path
-and the host sleep message path. As far as I can tell, all of it came
-in with 7e98d785ae61 ("net: iosm: entry point").
-
-Should the tag be this instead?
-
-  Fixes: 7e98d785ae61 ("net: iosm: entry point")
-
-There is no runtime effect. But the stable tooling and anyone bisecting
-later rely on the tag to find the commit that introduced the behaviour
-being changed, so it is worth pointing at the right one.
-
-[Severity: Medium]
-
-Every platform now goes through
-ipc_pcie_suspend()->ipc_imem_pm_suspend()->ipc_protocol_suspend(). That
-includes D0L12 platforms and platforms without the _DSM. What happens when
-the handshake fails?
-
-ipc_pm_prepare_host_sleep() sets host_pm_state to
-IPC_MEM_HOST_PM_SLEEP_WAIT_D3. If the wake ack times out, nothing sets it
-back:
-
-drivers/net/wwan/iosm/iosm_ipc_protocol.c:ipc_protocol_suspend() {
-	if (!ipc_pm_prepare_host_sleep(&ipc_protocol->pm))
-		goto err;
-    ...
-	if (!ipc_pm_wait_for_device_active(&ipc_protocol->pm)) {
-		ipc_uevent_send(ipc_protocol->pcie->dev, UEVENT_MDM_TIMEOUT);
-		goto err;
-	}
-    ...
-err:
-	return false;
-}
-
-Only the branch where sending ENTER_SLEEP fails resets host_pm_state to
-ACTIVE.
-
-On resume, ipc_pm_prepare_host_active() rejects any state other than
-IPC_MEM_HOST_PM_SLEEP. EXIT_SLEEP is then never sent and
-ipc_imem_phase_update_check() is skipped. Every later suspend also fails in
-ipc_pm_prepare_host_sleep(), which requires ACTIVE.
-
-Meanwhile ipc_pm_signal_hpda_doorbell() holds doorbells back:
-
-	if (host_slp_check && ipc_pm->host_pm_state != IPC_MEM_HOST_PM_ACTIVE &&
-	    ipc_pm->host_pm_state != IPC_MEM_HOST_PM_ACTIVE_WAIT) {
-		ipc_pm->pending_hpda_update = true;
-		...
-		return;
-	}
-
-ipc_pm_on_link_wake() only flushes pending_hpda_update in ACTIVE, and only
-ipc_pm_init() resets host_pm_state. Would the DL_PROCESS, UL_WRITE_TD and
-TD_UPD_TMR doorbells then stay held back until the driver is rebound?
-
-A message timeout has a similar effect. When wait_for_completion_timeout()
-returns 0, ipc_protocol_msg_send() logs "msg timeout" and still returns 0.
-An ENTER_SLEEP the modem never acknowledged still moves host_pm_state to
-SLEEP.
-
-The failure result is also dropped. ipc_protocol_suspend() returns false
-when the suspend must be aborted, but ipc_imem_pm_suspend() returns void.
-ipc_pcie_suspend() and ipc_pcie_suspend_cb() always return 0.
-
-When the handshake fails, the PCI core then puts the modem into D3hot with
-no notice at all, not even the FORCE_SLEEP doorbell the old D0L12 path
-rang. Isn't that the condition the commit message says leaves the modem
-unusable?
-
-Could host_pm_state be rolled back on failure, and then either fall back
-to the doorbells or fail the suspend?
-
-[Severity: Medium]
-
-Every system suspend now depends on ipc_pm_wait_for_device_active(). Can
-it lose the wake ack?
-
-drivers/net/wwan/iosm/iosm_ipc_pm.c:ipc_pm_wait_for_device_active() {
-	if (ipc_pm->ap_state != IPC_MEM_DEV_PM_ACTIVE) {
-		smp_mb__before_atomic();
-		set_bit(0, &ipc_pm->host_sleep_pend);
-		smp_mb__after_atomic();
-
-		if (!wait_for_completion_interruptible_timeout
-		   (&ipc_pm->host_sleep_complete,
-		    msecs_to_jiffies(IPC_PM_ACTIVE_TIMEOUT_MS))) {
-    ...
-}
-
-ap_state is checked before set_bit() and not checked again. The modem
-answers the WAKEUP doorbell from ipc_protocol_tq_wakeup_dev_slp()
-asynchronously:
-
-MSI -> tasklet
-  ipc_protocol_pm_dev_sleep_handle()
-    ipc_pm_dev_slp_notification()
-      ipc_pm_trigger(IPC_PM_UNIT_LINK, true)
-        ipc_pm_on_link_wake(ack=true)
-          ipc_pm->ap_state = IPC_MEM_DEV_PM_ACTIVE;
-          if (test_bit(CONSUME_STATE, &ipc_pm->host_sleep_pend))
-              complete(&ipc_pm->host_sleep_complete);
-
-The tasklet can run between the waiter's ap_state check and its
-set_bit(), on another CPU or on the same CPU. In that case complete() is
-skipped and the waiter times out after 500 ms. ipc_protocol_suspend() then
-leaves host_pm_state at IPC_MEM_HOST_PM_SLEEP_WAIT_D3, as described above.
-
-There is also a signal case. With a signal pending,
-wait_for_completion_interruptible_timeout() returns -ERESTARTSYS, and the
-!ret test treats that as success. ENTER_SLEEP is then sent while the link
-is still waking:
-
-- its doorbell is held back as pending_hpda_update
-- ipc_pm_on_link_wake() won't flush it in SLEEP_WAIT_D3
-- the message times out and ipc_protocol_msg_send() returns 0
-- host_pm_state becomes SLEEP without the modem being told
-
-This needs the callback to run in a task with a signal pending, for
-example with pm_async=0.
-
-host_sleep_complete is also never reset with reinit_completion(). A stale
-complete() after a timeout mostly can't reach a later wait, though,
-because ipc_pm_prepare_host_sleep() fails first.
-
->  
->  	return 0;
->  }
-> @@ -427,14 +423,7 @@ static int __maybe_unused ipc_pcie_resume_cb(struct device *dev)
->  
->  	ipc_pcie = pci_get_drvdata(pdev);
->  
-> -	switch (ipc_pcie->d3l2_support) {
-> -	case IPC_PCIE_D0L12:
-> -		ipc_pcie_resume_s2idle(ipc_pcie);
-> -		break;
-> -	case IPC_PCIE_D3L2:
-> -		ipc_pcie_resume(ipc_pcie);
-> -		break;
-> -	}
-> +	ipc_pcie_resume(ipc_pcie);
-
-[Severity: Low]
-
-SIMPLE_DEV_PM_OPS(iosm_ipc_pm, ipc_pcie_suspend_cb, ipc_pcie_resume_cb)
-binds these callbacks to .freeze/.thaw/.poweroff/.restore as well as
-.suspend/.resume. On D0L12 platforms, hibernation therefore also moves from
-the doorbells to the ENTER_SLEEP/EXIT_SLEEP handshake. Is that intended?
-
-The commit message only covers system suspend and suspend-to-idle testing.
-The new D3 comment in ipc_pcie_suspend_cb() doesn't hold for freeze/thaw,
-where the PCI core leaves the device in D0.
-
-On restore, the restored driver has host_pm_state ==
-IPC_MEM_HOST_PM_SLEEP from the snapshot. It sends EXIT_SLEEP to a modem
-that the boot kernel re-initialized. If that message fails,
-ipc_protocol_resume() sets host_pm_state back to SLEEP and the HPDA
-doorbells are held back.
-
-S3 on D0L12 platforms changes too. According to the notes, S3 was tested
-only on top of the separate S3 series, which a stable backport will
-usually lack.
-
-The coverage caveats (not tested on XMM7560 or on platforms where the
-doorbells work) are below the --- line, so they won't reach the git log.
-Could the commit message mention hibernation, S3 and these caveats?
-
->  
->  	return 0;
->  }
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122050039.861287-1-davidlwesten%40gmail.com
+Thx and BRs,
+Zhongqiu Han
