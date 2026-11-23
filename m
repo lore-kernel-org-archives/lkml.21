@@ -1,106 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795435976;
-	b=putoBJEQZdXMP7w5+HHlA/ot8A0njW1rvfvXXw98VJhJLHQzpdkR8wPXdIvfNatEf2/s
-	 0wDeVNI4Eo/Jup/NcPYRoSA4T6waUovtT5yE44H+SPI2IKjbDf7V3TMhehdd7hzbW6ivd
-	 YpgEXhOYeMo20WgaJuMkGXJR1DkUe6LRB1P3AlWF0otVZiyCIWcpS1kgeRfiCSzFgZSAG
-	 mR2xRKfFWoQ9l6RRUtosi1dHj4Dd2qDa6HQuN4D8rYwmwa+7na3GMMUlF8w5WuGoGFaMr
-	 Ai465LQRdg+ounkfa+7mfRtpvVGpveZPiREP7xREtKUXS7yDRVwFeqipqK/ertZuCHw==
+	t=1795436020;
+	b=02daKacscV/67vOM3KIeGfC9SrsSQGGQeWBApimVtlmveX1I44loVKeVl1lwVPB7eckF
+	 NAZh14Ee/4nC/rSFw3In3Cflmgg90U/yhkVQGyGS9V45ZNEfhFvscwFylNdjaWD7e9Ztq
+	 mMfsVf0bsCwqBpDQiik/3SQJRB2pknW1xSuEkdhvgD7c/tbl7BtM0UrN+Oq5K+OpuiSj8
+	 BRqAJvsR9KOhPwYUI+usK2mhyWOZt2gT+FVO+xmESAgCwoUuuXbVBJqIShFN1p/skT3Jl
+	 flDUAjts6C4Q60AcCOo4Vg/8DMrISfQcY3t/xcadzi3Y+vm5pnfIRQOOongpKIIeHoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795435976;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436020;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=YXiKSe1b4sqmwhSslNYFvKYiTOVoSzJmWVzJ8m+MYNw=;
-	b=KKr3YhbrbO37ax9YU4rs9/eW8qYYPf0vFdjbTj9ZlnczXSB1ZGxaqBNuutghdMfeiimM
-	 ingJthQGUssFqpneR9N+jdtbg2go/7Rv7+U469iasvKRGIpBScN14RncM8N3hRAZwh6Cu
-	 s2k6Oe7jG4OjwORdfJD++Mx1a7lR9SVn2N4IBXSpMbkUsZyK447ChCcT1X8RkMb9Y9Xio
-	 ujrkJn0t3v9+YlWTSudsA11CVkRX0nMO6v6L39h+bG3sxl13BeXUfJtXLWQ5Jb8PyA2cu
-	 73sGoejcvLo1QDFqUA74swkdEygqOPMEq6YxzqvKF5CIXHBXOOQUab+n68p04NW9+/g==
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=vsGgiE2lye4hbouBWbMldcxgaC/s2n/Qfy8fpJXTtCc=;
+	b=mwvqWW9ApaDmvBo+69o9x43U9zfyy9nYrebzdeG6BfJgW26puYibyT1Nli+wmReMHOJe
+	 OwGcBLb86bhXyqbg+ddi09TKZlAx+LxRv0SHUmpgrGRc+vN/4OwEOMKZhcyvCxVlem+Pb
+	 LmTKoimiKuYyuulmJCr9RYcY8IWPMfg1SG9PZtmmxCayfnnrqT6HT10aRQr9aqvVuSu1O
+	 61UAt0KOhy2ff9slAFUj3qmrsk4HdpPIUz+xt/uOjrJwkrYZbE6hkGTA7/CNlRgozL1tW
+	 mg+0E3J3AHI3TsV1ejVXoFp/O2W7UDLGxsP35IeFnWcK99Q5JJ1lJScQsTInsrgquvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jclark.com;
-	spf=pass smtp.mailfrom=jclark.com;
-	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=WTRBxD68;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bHGR44PV;
+	arc=none smtp.remote-ip=209.85.208.50
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 735CE606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:12:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 735CE606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AD86606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:13:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AD86606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=WTRBxD68
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f04fab527eso22543825ad.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:12:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bHGR44PV
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b8784a3284so4594432a12.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:13:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795435975; x=1796040775; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YXiKSe1b4sqmwhSslNYFvKYiTOVoSzJmWVzJ8m+MYNw=;
-        b=WTRBxD68mxmBMUDeAcOF2tKZEqSYLCNUPKR85w6u7MFXIi2cEY8cj7JgvwVfUVamf3
-         P3Pzqoy8IB5bJg5Jvw1kPnvb0djMTIY/9w0jM5vY8oNuUqKdI3XLEYS4gpwgxNBfynhg
-         s6mqbd87klkVJZHdWFt+1ocI8nSEQWDirNwAIo63O0wD6JTmO06YpbWx5miMMvVj0ZtG
-         9O7l4vC0eza5ltf6pB7NAQUiisSQ/gpbfSqbv5jhENm7GSI2lP7+ZygOgxOdLIzN8evb
-         GQAzNieO5N6KyvouZSRIDKMLvt//iHVrhPhfu2Szrgk4pGaHElaecKWP9dD0HMS40oKB
-         Vd/Q==
+        d=gmail.com; s=20260707; t=1795436018; x=1796040818; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=vsGgiE2lye4hbouBWbMldcxgaC/s2n/Qfy8fpJXTtCc=;
+        b=bHGR44PVxLG3t2B14cgDrCo2Ck5i4EHcesQaHIz5JBjtcP4OZc8U6jPhFWjT255fPF
+         M/vxlBLGjHpAPsUYF3SFhZRN+CCcCiihtxgsQRCSUy8X0aV0Ar9JuF1BOLXQ/71JGRYA
+         F4oagLvjNqr0ieuo8CzMea/RE9OIf2BjLN36ltLUGVOkjasfGSd5CMlWaje3MSbBQpXu
+         iqAXurSOGSmmFrQqgsOohgmvEGEHrD5MDSVfvDCIbe3+kHp65puY8xMEyoN9wuSWN0+p
+         BdYKvquP78cHpuW7MK47qI1IlVOPkVP/7YgnnglfHQLmjU4jcikc1utMqT8zJaHLVTro
+         DB+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795435975; x=1796040775;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YXiKSe1b4sqmwhSslNYFvKYiTOVoSzJmWVzJ8m+MYNw=;
-        b=h60lPeskxZsuGhFCHE6MlQNWDuFgYpJkyDUvrqFBINRZdj6ddyc0WZ1Erf//AIMCDw
-         vlWyuOGU39VUvqo5YFMzxSDoav2GX9b42LB9q/WHtvD1LLC/i8qo0sLVrnZUsP4r/ABZ
-         ZD5d//RzVL2+xvdftuNtnTaoKRWTuNrVdk6ul9lEEhP+kjWKe4osGHXl/E2tqmfo5TUq
-         shmbTP85Oen0xwMTwmz8YKyieWGfM3DE1tPHufK4y92Y+kG2HXby65b46Wt0oaFkGE0U
-         asofFKtIXST9lpqPZ6Us6LPJihML+YvMLQNsmz2Dqqw50LDTlZwDIusiMcINRnCSi+Oy
-         0dlw==
-X-Forwarded-Encrypted: i=1; AL+hErFRvNHta2HViDxk2k3IotXduzCrMqqJG4DYKnoFtibN7qDtA9zts5K0RShXG6fH6Zjb5jo2x1x36eLOnTo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z94FSYVYvQzIpR48dx1c5R3nnGR+anQ/uf/KL4Ax0Hi9Ifm8foO
-	+H3+sjHwx9IE26pz0s8vJAhK3p8m5sOCQK1pUBVCR1ei8Js0BUtsZKzAVGa76BAKyyZSXmX2QwJ
-	kQF2w+btsYE4=
-X-Gm-Gg: AZFdTZfxCHW/gH9sRTVPFoBmr+oN3se42obtk50/pny/dZree2RMHA0d8vekHBgAKBU
-	XPeo/+WXAcSdr6GbOuQ7NHQLA7A4pIiND6TsHZ6Kht6yKLK94ccMSk4f0i9JebIJt7z79c6O77i
-	x3cfX/jL/pP8Fq9k4a/zABV7r3wRgvD6JVJaoYHu3LR6jue5vOfq5YwJf6D0/Oa6GLwXLWCMAdJ
-	je4fUzJt8cTAZZVP3qLZE160Lz4M9ufSuNqgiWBoygii65McwiZGVqnLS/0eFDQR+H1Tto+6iOV
-	jhYPza3ryL0NNvDuNyZ56D/FTQBvtb5S0hXgAcaJqdv10iboKdWby8saz1g5ZIUh/X1MoSFGkT1
-	1QQoGeAG1e/SUekOXQGq223kMeKEfPz+6Zzgvq8FrVaiSmSnGpJUeqKCf2PrlYSjkueNvrFSqAx
-	NM3L6tf0VDFi0RX7GoJKrwmDKdtunWH+FRezW1B2jZ7WiRAb5B25mHYJkwEOPPgkhnM5vwNvBUh
-	Vq4FxwOBFHvtrgYhoCiV3lSklb4MteuaITbImLQ4Jc2cVgHv4pCyzE5bTqPHaJYfi6A4w8LaKTz
-	Lr/yBEADurK4B2q5bgK7wgI4TMDhwMSTKnZAvSMUa9xRiI8ALg2UujyUaQEDE1UsePR/TSbkJLc
-	E1ntdeesWqZSoAzMPxQ==
-X-Received: by 2002:a17:903:1ce:b0:2ed:3ca1:848d with SMTP id d9443c01a7336-2f03f1ea636mr110975425ad.25.1795435974723;
-        Mon, 23 Nov 2026 04:12:54 -0800 (PST)
-Received: from cantal.lan ([58.136.72.57])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f099a4d875sm12731675ad.37.2026.11.23.04.12.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:12:54 -0800 (PST)
-From: James Clark <jjc@jclark.com>
-To: Thorsten Leemhuis <regressions@leemhuis.info>,
-	Alan Stern <stern@rowland.harvard.edu>
-Cc: Johan Hovold <johan@kernel.org>,
-	Bastien Nocera <hadess@hadess.net>,
-	Matthias Kaehlcke <mka@chromium.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Robert Nelson <robertcnelson@gmail.com>,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: Re: [PATCH v3 0/2] usb: core: fix failed device driver probes, add pre_probe
-Date: Mon, 23 Nov 2026 19:12:49 +0700
-Message-ID: <20261123121249.43867-1-jjc@jclark.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <329cd215-d824-44be-a1dd-3ebbf5c0803a@leemhuis.info>
-References: <cover.1793669297.git.jjc@jclark.com> <329cd215-d824-44be-a1dd-3ebbf5c0803a@leemhuis.info>
+        d=1e100.net; s=20260707; t=1795436018; x=1796040818;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vsGgiE2lye4hbouBWbMldcxgaC/s2n/Qfy8fpJXTtCc=;
+        b=rLSTwVTLIcBBXWpk51R00x0MrZCTglMf+OuV9Af9eJJbSKU3YQqOYRzKm8ootDCRSO
+         QVDWngngeP0M3Zb8q+5kH2NHlpz4Peokckc5Bm1abGjX63CYM7vPXaupGvWLGN80zp52
+         Y2jOUy6/bsVB/HMqF1nU1y/zM4Mjkc20uhIOXS3QY13qgUgrUPAGKKPDUr+BOvFYMWx7
+         Xunz33mUf2IaqXQhcUxzpi6LS7kVga8S215TLBb3tEpwDCRR4pYdAaGfBqk3NJGoC7rY
+         mLHpLf+K2VZO3tEI3Ldjhkjf1k/myknqkuGa5Hnu1bBgxXhf8pvrdngry/U4oQ1ebtnZ
+         nVXw==
+X-Forwarded-Encrypted: i=1; AL+hErFYHxoaFFITrV66ldm5N5t8+o9DvDPjPKpPvd1zhxtCSkOex6hyRvBy/CA/8u0h/1itl/Eh0fiAHDnIJpc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9VbK9u+qKJSL3X7KtFhVDHAsvsyGby1GJ7XRcqxfT4QrFvRUEh
+	79kUxxKyQ9S85iXWyC71k3+SFsRMwk/Rm8D61VvJkE/8WTXunX/ko5dIFcoYmtoU+NZLZBnQ/T8
+	=
+X-Gm-Gg: AZFdTZf4yaDAhCvDPQu0H9A68UZBSLr9LBTFTsnaPOUrcBzbsdoYPBPM5kHcMX4fAW4
+	jqL9j14+nMyn39+3iu9iGDsq68BazoulQ9nI+zFPr9DcF+w0uNEEKEw9BxeSvIip0DqzruAoZBC
+	H93Qd7saUE69SkK35sJEbex6Tf/Zvh3WQpLESjCieceAFrn5Q3sUtaHxeb6YgGF1kgBWQW86OAc
+	K0ZAWaskZk1/ZDqA9vbxnilyAqAk/HSljLodUcRW2Z+ix+tbnr7bAHRkJSy+zfxMYTkQO24dkbD
+	nsssnBKeHc5/liwCzgPu/zHt8/ZIkcX+rxF70uS/MiFS89n1PhUSjYGJNeGranZajP5eKMeZ4QU
+	XTWiYEdepc8NUiEVIoUrSWNEEvQ71QpV5cHxxBh+zrtvQ1eUn/TUytPNdjYs/odcwKU+A4lNlL+
+	u47VV552tQ3f4b+/ymXIyqefBbj6lXVoXfjhty+TkHfh2n064DKGfmB6V9NoIzrLEEfwlVYBT6g
+	GX4Em9UI1/z4PBTN6ttkAq1UOqcs1VNuGPcY+Y8iua0jH2pBHxTd+P6Kt0L7CZbHS/6Wh+nNK5z
+	zc9OVFcr08rp6FqFcJdfVZGJ3zemWXUJiizcumSdXhdjPOrfksR0SN+M
+X-Received: by 2002:a05:6402:3207:b0:6ba:9cea:5bdf with SMTP id 4fb4d7f45d1cf-6ba9cea5dbfmr2715988a12.8.1795436017691;
+        Mon, 23 Nov 2026 04:13:37 -0800 (PST)
+Received: from localhost ([50.7.123.82])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fe162sm5443990a12.26.2026.11.23.04.13.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 04:13:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,36 +88,156 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 15:13:32 +0300
+Message-Id: <DN2KY5MGERWB.3DN1SFL7JZDLO@gmail.com>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>, "Sean Wang"
+ <sean.wang@mediatek.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Jiri Slaby" <jirislaby@kernel.org>, "Daniel
+ Lezcano" <daniel.lezcano@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Mattijs Korpershoek" <mkorpershoek@kernel.org>, "Dmitry Torokhov"
+ <dmitry.torokhov@gmail.com>, "Kees Cook" <kees@kernel.org>, "Tony Luck"
+ <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, <linux-serial@vger.kernel.org>,
+ <linux-input@vger.kernel.org>, <phone-devel@vger.kernel.org>
+Subject: Re: [PATCH v3 7/7] arm64: dts: mediatek: Add Xiaomi Poco X4 GT
+From: "Alexander Letuchiy" <asalde.le1@gmail.com>
+To: "Roman Vivchar" <rva333@protonmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+ <20261123-initial-mt6895-v3-7-95c46597e63d@gmail.com>
+ <cYX8v2leizSJfWjS_2dbkU2i6ApgjEKmgar6xjZopFQipSXW6YZNgjexWomHucqKghaTzW7oO5GN_jeNBM1MBy0u7aEDR2ygQ1s7x_L2jpA=@protonmail.com>
+In-Reply-To: <cYX8v2leizSJfWjS_2dbkU2i6ApgjEKmgar6xjZopFQipSXW6YZNgjexWomHucqKghaTzW7oO5GN_jeNBM1MBy0u7aEDR2ygQ1s7x_L2jpA=@protonmail.com>
 
-On Mon, Nov 23, 2026 at 12:37:43PM +0100, Thorsten Leemhuis wrote:
-> James, Alan, what happened to this? Looks like it feel through the
-> cracks after Alan's "This is all starting to sound very complicated and
-> fragile.  Isn't there any way to simplify it?" later in the thread,
-> which was more than two weeks ago. Or was this regression fixed and I
-> just missed it?
-
-It's not fixed yet. After Alan's comment I dropped the pre_probe
-approach. v4 instead had onboard_usb_dev call the generic driver's
-operations itself, so that it can defer before the hub is configured
-(Johan's first suggestion). Alan acked the USB core patch. v5 is the
-current version, sent on 2026-11-07:
-
-https://lore.kernel.org/all/cover.1794018128.git.jjc@jclark.com/
-
-My understanding is that patch 2 is waiting for a review from Matthias,
-as onboard_usb_dev maintainer.
-
-> Side note: another regression bisected to the above mentioned culprit
-> was reported recently:
+On Mon Nov 23, 2026 at 3:00 PM MSK, Roman Vivchar wrote:
+> On Monday, November 23rd, 2026 at 1:20 PM, Alexander Letuchiy <asalde.le1=
+@gmail.com> wrote:
 >
-> gpio: shared-proxy: open-drain regulators on ODROID-HC4 fail with -EPERM
-> https://lore.kernel.org/all/20261115-hc4-gpio-shared-od-1@iav.lv/
+>> Add a device tree for the Xiaomi xaga board, which is sold as Xiaomi
+>> Poco X4 GT, Redmi Note 11T Pro/Pro+ and Redmi K50i. It enables a serial
+>> console on UART0 and the volume down key on the SoC keypad. The power
+>> and volume up keys are connected to the MT6363 PMIC, which isn't
+>> supported yet.
+>>=20
+>> The DT only describes the memory that Linux itself uses, which is the
+>> ramoops region. The bootloader updates the /memory node and adds the
+>> firmware carveouts to /reserved-memory, so their addresses are not
+>> hardcoded here. This DT must not be booted with a bootloader that does
+>> not do this, as Linux would then use memory owned by the firmware.
+>>=20
+>> The ramoops zone sizes place the console zone at the offset where the
+>> bootloader expects to find it.
+>>=20
+>> Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
+>> ---
+>>  arch/arm64/boot/dts/mediatek/Makefile              |  1 +
+>>  .../arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts | 87 +++++++++++++++=
++++++++
+>>  2 files changed, 88 insertions(+)
+>>=20
+>> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts=
+/mediatek/Makefile
+>> index a86fb313b1a9..d73489149ab5 100644
+>> --- a/arch/arm64/boot/dts/mediatek/Makefile
+>> +++ b/arch/arm64/boot/dts/mediatek/Makefile
+>> @@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6795-evb.dtb
+>>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6795-sony-xperia-m5.dtb
+>>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6797-evb.dtb
+>>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6797-x20-dev.dtb
+>> +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt6895-xiaomi-xaga.dtb
+>>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7622-rfb1.dtb
+>>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7622-bananapi-bpi-r64.dtb
+>>  dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7981b-cudy-wr3000-v1.dtb
+>> diff --git a/arch/arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts b/arch/=
+arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts
+>> new file mode 100644
+>> index 000000000000..7bfe0d438803
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/mediatek/mt6895-xiaomi-xaga.dts
+>> @@ -0,0 +1,87 @@
+>> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+>> +/*
+>> + * Copyright (C) 2026 Alexander Letuchiy <asalde.le1@gmail.com>
+>> + */
+>> +
+>> +/dts-v1/;
+>> +#include <dt-bindings/input/input.h>
+>> +
+>> +#include "mt6895.dtsi"
+>> +
+>> +/ {
+>> +	model =3D "Xiaomi Poco X4 GT";
+>> +	compatible =3D "xiaomi,xaga", "mediatek,mt6895";
+>> +	chassis-type =3D "handset";
+>> +
+>> +	aliases {
+>> +		serial0 =3D &uart0;
+>> +	};
+>> +
+>> +	chosen {
+>> +		stdout-path =3D "serial0:921600n8";
+>> +	};
+>> +
+>> +	memory@40000000 {
+>> +		device_type =3D "memory";
+>> +		/* The size will be filled in by the bootloader */
+>> +		reg =3D <0x0 0x40000000 0 0>;
+>> +	};
+>> +
+>> +	reserved-memory {
+>> +		ranges;
+>> +		#address-cells =3D <2>;
+>> +		#size-cells =3D <2>;
+>> +
+>> +		/* The firmware carveouts are added by the bootloader. */
+>> +
+>> +		ramoops@48090000 {
+>> +			compatible =3D "ramoops";
+>> +			reg =3D <0 0x48090000 0 0xe0000>;
+>> +			no-map;
+>> +			console-size =3D <0x40000>;
+>> +			ftrace-size =3D <0x10000>;
+>> +			pmsg-size =3D <0x10000>;
+>> +			record-size =3D <0x10000>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&keypad {
+>> +	debounce-delay-ms =3D <32>;
+>> +	keypad,num-columns =3D <1>;
+>> +	keypad,num-rows =3D <1>;
+>> +	linux,keymap =3D <MATRIX_KEY(0, 0, KEY_VOLUMEDOWN)>;
+>> +	pinctrl-0 =3D <&keypad_pins>;
+>> +	pinctrl-names =3D "default";
+>> +
+>> +	status =3D "okay";
+>> +};
 >
-> Doesn't look related from a quick look, but well, at the same time I
-> wonder if there is some subtle connection.
+> Nit: vendor,property should go after pinctrl.
+>
+> debounce-delay-ms
+> pinctrl-0
+> pinctrl-names
+> keypad,*
+> linux,keymap
+>
+> status
+>
+> P.S. scripts/dtc/dt-check-style --mode stricter can be handy.
+>
+> Best regards,
+> Roman
 
-I don't think they're related.
+Thanks, I followed the ordering Angelo suggested in v2, so I missed
+this.
 
-James
+Best regards,
+Alexander
