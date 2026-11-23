@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795466050;
-	b=dkaitQXvVgDbaH/cohZJeqmks7LkE9aFg76oHaoaOUqV+7gt/59ZAO4JL1dv3Ax07yGz
-	 MhvBSXwAwaS1gBBCph1kw0VMaZ41u9fspXvLv220hNrv5kFbamAnxRMEBqF5bipDFjurx
-	 jC/l28rYfbyIVAAU5a5XctoKF14BmG3Lk+dHTGXDiInVg/uKMthuyFW8J1k7P3bdydiL+
-	 Hd2Hn1SmQGPHxGdSAKppgvg0slUZBMhseAciNLowjtMPOuT777ZOcI9UokzuSdJ3QOSo0
-	 cCJYeXNb1rlptXn2vT77/OoiORRbntqOmgC+r+j9dv0eEa+agBdrSfJJ1YCUTWtXK9A==
+	t=1795466051;
+	b=Q6NkY/ROFqB27ySZA4ID7m7qSh0nNbgP8htRLDALTt0GtaCr9I3T2BZsgwRKhhiDGFfV
+	 mePFlUfkzO8v0ZAf83qUCfN3wr1BeqWbDnlC5pegJoxv5ZbjkXSNdYbkLzRyXRs22jgws
+	 tT/P+pnZvA4cG/LKHRWeMuKCKRKtHYfld41EkKs8X/2gB0KdROCvnbdVj+wkY1T+0sY82
+	 RDhrODsCldMj7L8nYPeCAYXkBy8vKPnCUUlItAfs20F+O9DbSgOOa9UUcKMbjJo8R1yNl
+	 TabTSW3LTfrAfH0ZFSmCN+9glOcxLyjaMj3tZVpzSzLkgzOi/8c/Py/S7XV6p+kAWaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795466050;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795466051;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=e2HIsCv1tN4Vi7S2Bt6sM0bBboMl+JYL9mFDX5CB8EU=;
-	b=IpfKfKH/daTbAsjOFJJqe7lg77VYPZ7NR9yr5/ktHgRYJneSsA6Qo7RAPH9n8Km9jYtB
-	 JHUgZ7hUUuoQRMQ8PE7bagKbJlng2UQFxuQuH+MFeyvzVv7X2WuGqB8b2AzZf65vvWs6j
-	 4YQpFypCAu/MEbzqIDQs6MiQwqjgfIlhow6me6nuFzE6p5mZqmwV1ikRTucXdMzKiwkTs
-	 PuYVXarJD8enLNo5WVmyV8KjFv+r3w/2MFCoQn3vb2egHuJw7EJNDl/OC7z2W8hRDBzUn
-	 SwkLKaIgrLLmiswzYSM3ERwyh8TuX9rmO8vOThLMQJyClgddkKy7XiQQTBdAXtqeumw==
+	bh=aIw52i3FBNaM3JlX95PdSZS9UEeuj75BOGnG58YJQCs=;
+	b=L/HnotMhostWuMNQYFEGODENP/vYeGB3nc869l0MgyMH+TJUcmVBFDBdbonyhGaZbyLE
+	 hdGwvLp2o0kxkqp2BNfFy6y3YJi2FbqyScnQwyOBAashe11E/JHC0GtAzXDKOWJh80kGa
+	 bsYxLkfVacARuKnYqDtEpzyoboRBY4lssSfsI4NSa31xLbI5CegQwg7PnHcY2P1InzeEW
+	 ilnpqwcqYpk36vtCaKchhCni9iE6VwuokslT/J1qrHGXK4rw5TTY+bBjYJzYIsXAqKkmP
+	 ZyvA3qqMhHSctg6IkeGCGQV1eOR8ngu0IIyWaH46Uq3lk0TcfQeilJFZ1U0O5zVPIuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z0dkIdz1;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aIdd2c40;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16426606A326
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:34:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16426606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A89E606A33A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:34:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A89E606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z0dkIdz1
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso37058075e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:34:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aIdd2c40
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so35171395e9.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:34:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795466048; x=1796070848; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=e2HIsCv1tN4Vi7S2Bt6sM0bBboMl+JYL9mFDX5CB8EU=;
-        b=Z0dkIdz1roQI0bhGJaA9+OHdDJUb11pyWR1I0jClrb25KvbgqdbiUJpTQ/2I5gSBa1
-         ox35HBBCOO/04aN+1/A2xtOItH+b2YFK3uEiKdSjLNqcUXt7OWClMQuHYnWIlhzNABdT
-         8JGr7lszt+hrHB3P1lnIuYM3IuSJLMBfr4IQKPq8lfbOhRi5Z5Bqc+XiAZlqJLcfqu6F
-         Tex4oD/W46mqnR5WWtm149Ey8O/ke4KvGBV89JhJiqn7Z5DGI3EvTQeTBtsgnr6oNDYH
-         CBKE3gbHgR6HixF4//gzTiEUrZxUyfLt/Bi5nmrzEfR3RtbNbrsgZkb0JjKoZTjb6IMA
-         s4aA==
+        d=gmail.com; s=20260707; t=1795466050; x=1796070850; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aIw52i3FBNaM3JlX95PdSZS9UEeuj75BOGnG58YJQCs=;
+        b=aIdd2c40s7v7UqrYtMn/jdUeRjG7uf8VxYLfXRlPixAm9l4+qo6Zry/e6kW5iGuQXM
+         4/4QjacbUa4z6jrFzYieNIM7FCZYdR5wA0z1BdcOXepZG+ucsqAktjaO4/HLL4LowQHL
+         pWwSA/9NXB6tx3Muc4nGbSrho2WWMRPvv7tGDpOO86m6ixO7BgKtDgcdPGcK1iTp33OF
+         P2RLNpMUhxb9Gyng/a2C6ur7+sxnjgVZvD1s0pvNxm7fBq/XCKdduImgG0m6BNW34Rxa
+         7i7bTPnLoc0cuzhpnbEz4wD1Wmm6q3whg+F1cgcb2EbpIzVh16l8mf4QVQOpu306DGtM
+         9mWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795466048; x=1796070848;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=e2HIsCv1tN4Vi7S2Bt6sM0bBboMl+JYL9mFDX5CB8EU=;
-        b=ZrqkbvhWvCdHg1SYt8YY2yuVSerLYEpo/maBbwKWFRMs21t0b5fV3IfES1zLlwA9pV
-         ZVXTEaIQ1298F6xBt/EAVlY3tDk4hNCfc7P5hw5nco82PZgAYGFUegTBwt5MCAXkT+Sd
-         kV4+DHH2LyZe6/F+L9fn+heEKoBAYO7055440sCESWeX9ulox/2asnl890WZITVWWT1/
-         HKmlJSDzDluGsP+fdtLTMjy+YKEPqBJKsk803s6T5L/B1pVCS2z43hiz1hP35PftEXaf
-         Zvu6WFs5BUEdbzb4LiBwBtkxjCm+l1UgV4NoEPWyl4Bo2FGrNnxbAHY16XzVNjmdxz8J
-         UFxA==
-X-Forwarded-Encrypted: i=1; AL+hErFCme0N6T7VToQws73OPk4wgnaCMMqgEoOMTwEyROBXpTed08u7EeXj2XKNxdQJmv2xn6thUl33H/saZfk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/KQe5Y+w+5V4zg3t1AGnRoj469aoOWTxLFrqoOGl17i6trd4ib
-	WQI5XiIeXtZkFOYm70AWbPDVPkwF/gOrYK347nFzr2t7xrJ9LIM1+yOL
-X-Gm-Gg: AZFdTZd/tq+JYyPDoqLFScyDVfI6KTSZUgG51Om51KlF48HMosy//F9t7+tvejLWwz6
-	DMDmiA0XABcGOqEKQVdwGaBpZGhg8+/qUM/9bcbMDZd48/hpLMW6OD3flLxqriO+X2jDcOyMhi/
-	N5gaS8nmJr539/B4cTpspV33edWN8Mm7au/JMtJpy/PonoEnnYpK2rKLD7COikiHJLP/fhU8AOv
-	48UDnbU5jHZK/F8qOsliPtTfhvHB1HFASsLPeS7/sSozjLIctZdXjDrxqVpbOp4UuniNQPM5/Vu
-	7ojVHAzHqWv0Z2yIPKctmzOQ/CXcqc+EM4qhg1fA8gUHHFkzbdw2KO9a4kbtxYGBcuIwpudE1mr
-	w85/HJ7qPVsr3OkMm/CntanMq4SNR9TjKcRI1fH8qCufpMBaE+Hqrh0kgEiC6MZqqT9InKQfdZN
-	ajvLCKpcJ/m/N7bIp+p/Uw4hEVSEC6GDmGVIbjTr4QOEgso4zmppzpD2AfOiv+KLG6n5/ZtuQys
-	0noHlowDWHvWcZWHsDcVsuJXrVMft/oX6naX8elJvHHePoD8AvqM7h9Lwv6Qi5FUbUyyUMBS4hi
-	8WvqDsXjw8LL6DWHR0BZNFe1bJ/3XA==
-X-Received: by 2002:a05:600c:64c8:b0:4bb:6848:d433 with SMTP id 5b1f17b1804b1-4bb8881d141mr251247305e9.26.1795466048254;
-        Mon, 23 Nov 2026 12:34:08 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795466050; x=1796070850;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aIw52i3FBNaM3JlX95PdSZS9UEeuj75BOGnG58YJQCs=;
+        b=HxT+PET8XRV1B8GwnJvGRQvulzUUDjId9dSlOxjLpuLDVBzbCgStzHlpfYqyb35Vb2
+         7PZ8g4QN+xRL5OA2vj1fpMfcdxvuw7TwLxDex6EjcK50yn1x6ySwmNkJ2C/OFDe6jsqE
+         AAvon933XnLHYPQJ3E0Ji45zt6jHpVg8I+Df3euDTjap7x6cMB0+E2YL5MIwwSZOtDSy
+         H4A5mtGmp/dKtyHAu9eaJNa8IVhs1TmUoloz33OagRLoTrp/4DshJmj70JTKKqVystHy
+         EdgdljWKlRNk7uPaU8WUxTU+xXqLqXOFIw86PDpSDkv6EPQ+aYx5egIsSqnhJCXrpa8d
+         E6kQ==
+X-Forwarded-Encrypted: i=1; AL+hErEvzfDicbCxz4RCOTqfdwVwfs+8qIL0kAPFKEsMXTqXu9nuOGr4TZokcKH6f9F+P8afb3P3deV1kWlz5w8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EHhmcTMLez8H3yT/NUAFU7/y/RozRuABj+mZ0sqaTf5zUBfOS
+	6BO8EK6S03cHIp4Ir36IM3Es9N28ly3HPlyyPyMX+KDZkG7d77GR/dvS
+X-Gm-Gg: AZFdTZfhqjv9RWPoNf3Lb89lQvDbTAkTIE/OTJo4r5RsTeKpFzDsqakljkfiyPu+dPp
+	HCU+/cHTHufToqvUB6Y+3AUFs+5xaCdb36z9uDd1B5YWRfRjqd0vFWwgssoU7DRzU26woPmckzz
+	c8vjNc0FWKsZBuceZIvszK+jpq6S7Mxf3YZnkcyJtFoRo7iIlN0XHapYz1neCyqLvpxtItFmS98
+	s81HgxVVB24yEv9iv4/2XvWQIEvL6h7wG0YlipXpyds+vqoce+Jwo+LBS8A+KreDoJHtdn5BvWH
+	G/vLRp2Jfaj/91nYlpEhiJsTxJccfwXOs+0v3G/2UOYDWlznuoLhy78+o3+fbNoA/1SCdhxKb/G
+	wBYyWyo4gUIVkZu8EoIY0Blqxm3OlvSwrhMyDh7OGDWd34jKX97mtmmFMD6Y5ubVROq6gI/ciVf
+	JI3sTENalyde77rFFCQIZlVKBGjmGAHKj/VEEagsP6Qvaa5TtpDhZkfy4fYSEqpCwI1Aqv/8nXO
+	zQej8kU4ow9TtTpr3ZtX1aEjWo1sFfb5YVKPoqEADJ8rT+JbZVJMU69g5WtNKWn3FxsoU4Yv4lv
+	mevJbFzUQWTFIxkGDnZCDEvMIx7dfEWPrfRbGfY3u1TeUw6rtws=
+X-Received: by 2002:a05:600c:37c9:b0:4a6:eca1:7d5c with SMTP id 5b1f17b1804b1-4bb888251b4mr232152425e9.32.1795466049774;
+        Mon, 23 Nov 2026 12:34:09 -0800 (PST)
 Received: from unknown.local ([151.34.53.154])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm515946805e9.13.2026.11.23.12.34.06
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm515946805e9.13.2026.11.23.12.34.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 12:34:07 -0800 (PST)
+        Mon, 23 Nov 2026 12:34:09 -0800 (PST)
 From: Gianluca Boiano <morf3089@gmail.com>
-Subject: [PATCH 0/5] media: qcom: camss, ccs: Sony IMX376 on SDM660 using
- the MIPI CCS driver
-Date: Mon, 23 Nov 2026 21:33:52 +0100
-Message-Id: <20261123-b4-ccs-imx376-v1-0-2b26850a6f11@gmail.com>
+Date: Mon, 23 Nov 2026 21:33:53 +0100
+Subject: [PATCH 1/5] media: qcom: camss: Don't stream sub-devices upstream
+ of the sensor
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,10 +95,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ5EQBBA4atIrVWiy99kriIWuhVKwky6EIm4u
- 8byW7x3gLIXVvhGB3jeROU3B5g4Ajc0c88obTBQQoUxRGgzdE5Rpj0tC0zStqGcyk+XWwjN33M
- n+/Or6te62pHdck/gPC+R5DbtcQAAAA==
-X-Change-ID: 20261122-b4-ccs-imx376-03da25278f5b
+Message-Id: <20261123-b4-ccs-imx376-v1-1-2b26850a6f11@gmail.com>
+References: <20261123-b4-ccs-imx376-v1-0-2b26850a6f11@gmail.com>
+In-Reply-To: <20261123-b4-ccs-imx376-v1-0-2b26850a6f11@gmail.com>
 To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
  Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
  Loic Poulain <loic.poulain@oss.qualcomm.com>, 
@@ -107,91 +106,100 @@ To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
  Hans Verkuil <hverkuil@kernel.org>
 Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  linux-kernel@vger.kernel.org, phone-devel@vger.kernel.org, 
- David Heidelberg <david@ixit.cz>, Gianluca Boiano <morf3089@gmail.com>, 
- stable@vger.kernel.org
+ David Heidelberg <david@ixit.cz>, Gianluca Boiano <morf3089@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795466045; l=3605;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795466045; l=3624;
  i=morf3089@gmail.com; s=20240402; h=from:subject:message-id;
- bh=Ux1jAIk65UvpQG9eUkT9o3z3KHkRuAwplFQDfWVP5dU=;
- b=Vskrd5wcS4R1Anr5d6Nyalh7iBdzMn/H73Qb2lS95hRFgbE9FGaCuvQ9ikd9Hacqt/V2wzhXR
- 6U9YRMIlS/oAOkvr6vMQ5bzaJ2s+MkhuOnvS0jFNeEWgPI1e7GDTjVa
+ bh=0Cz0qn0VW15LMMWXLllItkJYlosLYSu3ppAkBWYN+0E=;
+ b=TYQR3uZ0JKNjjuCaIe/VTJRQvP3xRFLWYplEX4zBGUU1wNIBU22W0RXaFbVTKX689Platxtbd
+ SSsPUfocmrCDCd0Et1KHBXKfdNGLdxFoh+XhRydbOr2NydckOtFuRjh
 X-Developer-Key: i=morf3089@gmail.com; a=ed25519;
  pk=HsGrEQ3ia8BGGGO8/nUM2K2UX9JKvRPV+nbrVDGrYhA=
 
-Hi,
+video_start_streaming() and video_stop_streaming() walk the media
+pipeline from the video node upstream and call s_stream on every
+sub-device they find, including every sub-device behind the one that is
+linked to the CSIPHY. That is fine for a sensor that is a single
+sub-device, but a sensor that consists of several sub-devices gets
+s_stream called on each of them, not just on the one that is linked to
+the CSIPHY.
 
-These make the Sony IMX376 work with the mainline MIPI CCS driver behind
-the Qualcomm CAMSS on SDM660. Nothing specific to the sensor is added to
-the driver: the DT node uses "mipi-ccs-1.1", and the manufacturer specific
-register settings come from CCS static data (sensors/sony,imx376.yaml,
-https://github.com/M0Rf30/ccs-static-data/pull/1, to be submitted to
-ccs-static-data).
+The MIPI CCS driver is such a sensor: it exposes a pixel array, a binner
+and a scaler sub-device, and the scaler (or the binner when there is no
+scaler) is the one linked to the CSIPHY. Streaming is started by that
+sub-device and covers the whole sensor. Calling s_stream also on the
+binner and on the pixel array is at best redundant and, as the CCS
+enable_streams operation only accepts the sensor's source pad, makes the
+pixel array fail with -EINVAL, so streaming cannot be started.
 
-Tested on a Xiaomi Mi A2 (SDM660, rear IMX376, 4 lanes, link frequencies
-500 and 864 MHz):
+This is not specific to CCS. Other drivers that have a sensor on one end
+of a pipeline, e.g. ipu3-cio2, rkisp1, ti-cal, ipu6 and rcar-vin, start
+only the sub-device that is directly connected to them and leave
+propagating the start request upstream to that sub-device.
 
-  - 2592x1940 (2x2 binned), 36 fps at 500 MHz
-  - 5184x3880, 29 fps at 864 MHz
-  - switching between the two repeatedly
-  - cropping the pixel array (4096x3000 binned to 2048x1500)
-  - the front IMX376 and the IMX486, which use dedicated drivers, still
-    stream
+Do the same in CAMSS: after the first sub-device that is not part of CAMSS
+(i.e. the one that was bound by the async notifier, which is the one whose
+host private data points to the CSIPHY), stop walking the pipeline.
 
-Patches:
-
-1: CAMSS calls s_stream on every sub-device from the video node up to the
-   sensor. For a sensor with several sub-devices (CCS has a pixel array, a
-   binner and a scaler) that includes the pixel array, whose s_stream
-   fails with -EINVAL as only the CSI-2 source pad can be enabled. Stop at
-   the sub-device that is bound to CAMSS, as the other CSI-2 receiver
-   drivers do (ipu3-cio2, rkisp1, ti-cal, ipu6, rcar-vin): that
-   sub-device is responsible for starting what is upstream of it. This
-   touches the loops that Qianhui Xu's "media: camss: video: factor
-   pipeline stream on/off into a helper" also changes; I'm happy to
-   rebase on top of it.
-
-2: The link frequency and the pixel clock were looked up from the pixel
-   array of a CCS sensor, whose pixel rate is not the one on the CSI-2
-   bus. Use the sub-device bound to CAMSS instead.
-
-3, 4: Two CCS bugs found while doing the above, both regressions from the
-   switch to sub-device active state: the format set on a sink pad is not
-   stored, and the format of a source pad does not follow the crop
-   rectangle. Link validation fails with -EPIPE for anything but the
-   native size.
-
-5: CCS static data can carry manufacturer register blocks conditional on
-   sensor register values (rules); the driver parses them but never
-   writes them. Apply the matching blocks at stream start. The IMX376
-   needs this for its full resolution mode, which uses different
-   readout registers than the binned one.
-
-The pipeline is configured the usual way, from the pixel array to the
-source of the CSI-2 bus (here the scaler), setting the binning with the
-compose rectangle of the binner and then the size of the sink pad of the
-scaler:
-
-  media-ctl -V '"ccs binner 2-001a":0[fmt:SRGGB12_1X12/5184x3880 compose:(0,0)/2592x1940]'
-  media-ctl -V '"ccs scaler 2-001a":0[fmt:SRGGB12_1X12/2592x1940 crop:(0,0)/2592x1940 compose:(0,0)/2592x1940]'
-  media-ctl -V '"ccs scaler 2-001a":1[fmt:SRGGB10_1X10/2592x1940]'
-
+Signed-off-by: Gianluca Boiano <morf3089@gmail.com>
 ---
-Gianluca Boiano (5):
-      media: qcom: camss: Don't stream sub-devices upstream of the sensor
-      media: qcom: camss: Look up link frequency from the sub-device on the CSI-2 link
-      media: ccs: Store the format set on a sink pad
-      media: ccs: Make the source pad format follow the crop rectangle
-      media: ccs: Apply rule-based manufacturer register blocks at stream start
+ drivers/media/platform/qcom/camss/camss-video.c | 28 +++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
- drivers/media/i2c/ccs/ccs-core.c                | 106 +++++++++++++++++++++---
- drivers/media/platform/qcom/camss/camss-video.c |  28 +++++++
- drivers/media/platform/qcom/camss/camss.c       |   6 +-
- 3 files changed, 129 insertions(+), 11 deletions(-)
----
-base-commit: aa0f4c41d4870a18e65772a1817af16427200371
-change-id: 20261122-b4-ccs-imx376-03da25278f5b
+diff --git a/drivers/media/platform/qcom/camss/camss-video.c b/drivers/media/platform/qcom/camss/camss-video.c
+index 0852eb6f1315..71ca16f15dab 100644
+--- a/drivers/media/platform/qcom/camss/camss-video.c
++++ b/drivers/media/platform/qcom/camss/camss-video.c
+@@ -249,6 +249,28 @@ static int video_prepare_streaming(struct vb2_queue *q)
+ 	return ret;
+ }
+ 
++/*
++ * video_subdev_is_external - Check if a pipeline sub-device is not part of CAMSS
++ * @subdev: Sub-device in the pipeline
++ *
++ * camss_subdev_notifier_bound() sets the host private data of every external
++ * sub-device it binds, i.e. the one that is linked to a CSIPHY, to the CSIPHY.
++ * CAMSS sub-devices never have it set.
++ *
++ * Streaming is controlled from the video node, one CAMSS sub-device at a time.
++ * The external sub-device is the end of that chain: the pipeline upstream of it
++ * is not CAMSS' business, and the sub-device is responsible for starting and
++ * stopping whatever else it is made of. Sensors that consist of several
++ * sub-devices, such as MIPI CCS ones, are not expected to be controlled
++ * separately for each of them.
++ *
++ * Return true if @subdev is not a CAMSS sub-device.
++ */
++static bool video_subdev_is_external(struct v4l2_subdev *subdev)
++{
++	return v4l2_get_subdev_hostdata(subdev);
++}
++
+ static int video_start_streaming(struct vb2_queue *q, unsigned int count)
+ {
+ 	struct camss_video *video = vb2_get_drv_priv(q);
+@@ -284,6 +306,9 @@ static int video_start_streaming(struct vb2_queue *q, unsigned int count)
+ 		ret = v4l2_subdev_call(subdev, video, s_stream, 1);
+ 		if (ret < 0 && ret != -ENOIOCTLCMD)
+ 			goto error;
++
++		if (video_subdev_is_external(subdev))
++			break;
+ 	}
+ 
+ 	return 0;
+@@ -325,6 +350,9 @@ static void video_stop_streaming(struct vb2_queue *q)
+ 			dev_err(video->camss->dev, "Video pipeline stop failed: %d\n", ret);
+ 			return;
+ 		}
++
++		if (video_subdev_is_external(subdev))
++			break;
+ 	}
+ 
+ 	video_device_pipeline_stop(vdev);
 
-Best regards,
---  
-Gianluca Boiano <morf3089@gmail.com>
+-- 
+2.56.1
 
