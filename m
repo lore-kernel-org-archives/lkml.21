@@ -1,98 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795403493;
-	b=1OfEFPBBIJ7bJWN3QIBNJ05I/YltS2+1uS7COZ59DdSCAvkZOtf1sjQOYgE0XyhRJfWq
-	 +XD5SoMw0czc/aaDJTk3WEBrZyh/n/ilmO5sXlBFyNbpJVNjG53IYiOgPM3zNWKgX+ctM
-	 UxhiJ5kuTsKU+aCQxNneZoNz61ZHEaiBRnOWfBNoWkAF4WD0pGm3M6f9AuOSXfSHa0JU1
-	 fhNmue18/ZPu2oE1fgXoiuoqchb2ZS/GBRNLsCpWv7yMUlm7Te22wZopLupke16Jx02yq
-	 esj88j/51y1hu6Bgb92reUT8r8Q8qgdXv94y/7d05/JIxkbadUT78ooeleFGQsFdpbw==
+	t=1795403512;
+	b=imGAVm/gPlvkC9k44v0Sblt5uMCiQi74EPGCfreciyD+TOdMMT7QxOI8NNwxTKFzeie8
+	 Db9/9vAbJyFC9WxvN5aswpyx0jxWjBzl8H1LFphH8ZzgZHJLEfA8ONr9uhbyAPD4cx6Vi
+	 S0xWEKLANz8eVvgZMPMBlJcVvB7M3tXpl4RCtPJ1TkK1kOXTej4fS5tY5w+bZLaPznoIe
+	 zYkTouWm4KdNLDW55QBZs2wQZ7Q4vi5pa1TCGEHMCQkQYxXgkt6zCYSqCCDNqY24KKZPb
+	 IUtfwfvmhLviXVZkaCT51kpsUffYpbvgVM67ZUB3JMAWcBuEmHSyYyETS/BFjNa2pMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795403493;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=gvtnSnE5peADa21KmqwR0vubKial5w3ayVcoJT5lazk=;
-	b=Z8IT9Le3fOWE0pChFx1wrVX9nh4oZMcsv7Kmgg8UlCTVLWNa4UMwQ7N9q9TxICmMuyJj
-	 UqZZsUBy3NYN3uuVeaJ6H6bl2HCMu+KefdoIirOe4egrMYc75rY7Rddu56XcQX3kpGElN
-	 Ru40djVtusYX/uafOXJMPCzXgbAkfg0FkbeDDHta6sAGNHBvW8leLR4Iby0rE3IuRdbAN
-	 yadhiO4LUNFHnXbNg7U/xAHLATZmcwPuWyYrD6qwtmB7f6v77mHHGiJ4stml9St5lvwTc
-	 yHGawCIqYWBJV2M04P3KRmK4vLd65tXyWxcoAPMKnyYFe4wTxp1tq0LvlAvB1/7KvvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795403512;
+	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=TWaKkN5KqIc9iT2eIz1MqM1KYeNvSrvlFhxO9KhB+Go=;
+	b=hgbnzx3amDVqM0CDLdck2rt3zUWBRdPXg8d0gFEzUA+rxAhVCB+Pddhq/L+COl4ayNo4
+	 wde2cmVlqQ5YLBMrkR0PBeCjy51rzZ0KV/RD264tE/bU2eAVQGb2BfnRJmxW0v8Z4n7AG
+	 2K3JDxrMcT1ErggHPDYAdKshlv0xP9TBhj2rDVBwUzXZw68vcEu87ngrT5353djKqnm0r
+	 5Y0X+cGxtTw+pTMzjP76mdCV6kGZnm0gcgf+fCNF4ksaJlijRb3HBKxQbovuRoA4g8hh4
+	 IimBwam63EqPB/dt4HVypPZBTxBf9JujhRWAhYgo0NW4QRjjQR9XfkqlDL8PmUtn6fg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=XSXbkFa+;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=huaweicloud.com;
+	spf=pass smtp.mailfrom=huaweicloud.com;
+	arc=none smtp.remote-ip=124.71.93.99
+Received: from dggmsgout11.his.huawei.com (dggmsgout11.his.huawei.com [124.71.93.99])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 866DC606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:11:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 866DC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=XSXbkFa+
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f0a0d1a1e5so1034655ad.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:11:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795403492; x=1796008292; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gvtnSnE5peADa21KmqwR0vubKial5w3ayVcoJT5lazk=;
-        b=XSXbkFa+e9q/jPVQkx7U65EtPW5EILu4mdJYQBvELoTZujtPR1gq2P0C/nmDd9POVM
-         pvcdod27WJAFVH/9NhGF9kfUdlyiyBOiMX/UhrT7RcmKWoi6zJyJn9ESIgFHyt+cXiJY
-         7aIse8sKj4s4TDcsjOlHHmXIlENbzoLEcxosw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795403492; x=1796008292;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gvtnSnE5peADa21KmqwR0vubKial5w3ayVcoJT5lazk=;
-        b=SQN5IwGVkma1vKyh4/No0rPZ4dc0EywpE92GdCV67SC29B93HIKEBithzWZ/ODJjPu
-         h3J83iAuEhhIqQxSJWhpvs+9JBuls7bKWJ0Np22WsB6YH2VVM9LeG9GswAfzAzs9zaxO
-         zxztaIPpRDlboQKZfrbOX3A2CyjCzWdeJ1ep1uAOZ2DtWn4WbTHwBMDdxBzrTTVl+p2l
-         mblmLoWFXM5EneCR3A08dyiJ8QbtqRd37jXzHjNwoueEXMMCwK0TYBB5NFgD0pc4+HwJ
-         a7K9NOYPyx9AqtzkG6q2tIfxS8p5AD0RA60YpkDdlDkIOpZ0ZsG2g8Ec+92wmONV4agS
-         FXPA==
-X-Forwarded-Encrypted: i=1; AL+hErHsdHVwlpXn46YfXXMtrS+pbFowSKaSKc69gwiJA2SNfOM0IcdlrjykZaVQTLBFOjf66BqyxFpwGLvH6iE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+BIdZbq7pKBxFFpkR29h9ObNbAQPctrA1qI5PiYTeORK5eIYfb
-	litmWbg3iIXhMhBxuJMP2mim+gWBcs367F6NRERkxEilYFwgz6f9bG8D3ulyeDmkLg==
-X-Gm-Gg: AZFdTZfsEYNcYtA4k8/3LsXLxoFjYsGc4rorNPdgQYqAaM0LZUXpwL9OQyVqx7ayF7G
-	zQP8wKEpRcY2WPH09jH4g2bY0vVq/r5Yy7ejTxq7OaAwG+TYBn9+sL1FpsXeeWIv1BlahDMSIrd
-	xdsFedC0q6BMviQuVJrvDrYudAB3K18cNCGgCm8TtJvgakddjgz3rEz7U4JB5QqnF5HRs1oo6/Y
-	JU028Ms+5AeSaVAvxuP2IaRGk77YXyDkyrrF0XAqzD3GIhkRrBo85++/q43kYMuyisqtmvybc9W
-	sEvQVrl8DC6IgAcsJbYckc7/zUMcEIXwaV0vmWlWRLR81J/5Sa3hujTzMz8tFUQmdY7YVP9Ng+g
-	MWp9d8w2pku2pIqh6c6PaeuDFdCqYbgr/SEzkasL8tzvxRLTbdu66quo6cLh4mQqyFfc1tycvv2
-	+PY7CYmbsGCYwu3UB0BW+3GKAy6yyXevtct+z/F8nDHncoI0WcytODDAW4UHGQeC6jbYqTn32ih
-	LItfrIg+JV7fXGBSdheAQZ1HQuyU6I4+U8ArSrV6i1UnZDQ46B6O5IQq+kVTqZDsJpIyoWZLvds
-	KKkIK3RR/hKvP0cOoZ1t0we7qw1EG93XKA1gkl1uirTTVY7N8rZrjx3zrhDEVWZUU/a8dw2tJ4j
-	bf2Stm0RkL/OApVmN9JzOOScb19jmYtl2fIlcIx8=
-X-Received: by 2002:a17:90b:2cce:b0:3b0:9a1b:b709 with SMTP id 98e67ed59e1d1-3b41c95f64dmr9997359a91.54.1795403491842;
-        Sun, 22 Nov 2026 19:11:31 -0800 (PST)
-Received: from tigeriii.tok.corp.google.com ([2a00:79e0:2031:6:d8fa:c511:e415:e0d0])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c13sm15330240a91.14.2026.11.22.19.11.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 19:11:31 -0800 (PST)
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Nhat Pham <nphamcs@gmail.com>,
-	Yosry Ahmed <yosry@kernel.org>,
-	Hongfeng Chen <hongfengchen@xiaomi.com>,
-	Brian Geffon <bgeffon@google.com>,
-	Minchan Kim <minchan@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-block@vger.kernel.org,
-	linux-mm@kvack.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>
-Subject: [PATCH 2/2] zram: keep the hot statistics per CPU
-Date: Mon, 23 Nov 2026 12:10:59 +0900
-Message-ID: <8f0ec29c0e4230d10db088d29f79bba17c3ee6f0.1795403342.git.senozhatsky@chromium.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <5666c1c8c04998784c81fc8fe751e35aa40af578.1795403342.git.senozhatsky@chromium.org>
-References: <5666c1c8c04998784c81fc8fe751e35aa40af578.1795403342.git.senozhatsky@chromium.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C17F606A31A;
+	Mon, 23 Nov 2026 03:11:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C17F606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggmsgout11.his.huawei.com (SkyGuard) with ESMTP id 4jXrZV1YLVz1c0pY;
+	Mon, 23 Nov 2026 11:11:46 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 002414056B;
+	Mon, 23 Nov 2026 11:11:46 +0800 (CST)
+Received: from [10.67.110.36] (unknown [10.67.110.36])
+	by APP4 (Coremail) with UTF8SMTPA id gCh0CgCXyunxrgNrAFDCFQ--.55588S2;
+	Mon, 23 Nov 2026 11:11:46 +0800 (CST)
+Message-ID: <5507e48c-4e98-4e76-8d3f-4630a2655085@huaweicloud.com>
+Date: Mon, 23 Nov 2026 11:11:45 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,331 +51,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
+ events
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, James Clark
+ <james.clark@linaro.org>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+ <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
+ <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
+Content-Language: en-US
+From: Tengda Wu <wutengda@huaweicloud.com>
+In-Reply-To: <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:gCh0CgCXyunxrgNrAFDCFQ--.55588S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxKryUJr48Kr13ZFWUAw45GFg_yoW7KrWDpF
+	W7AF1vkr40qr1jvw17tr1UAw1Utr4fAF4kXw18KrySy3W5Wrn8XF1UJr4j9Fn5JrnxAa47
+	tw4qqw4SkryUtaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
+	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
+	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
+	v3UUUUU
+X-CM-SenderInfo: pzxwv0hjgdqx5xdzvxpfor3voofrz/
 
-When several processes free swapped out memory at the same time, e.g.
-on munmap() or exit, all CPUs update tpages_stored, compr_data_size,
-same_pages, huge_pages, huge_pages_since and notify_free stats, so
-the cachelines bounce a lot.  Keep the six counters per CPU instead,
-as local64_t updated with preemption disabled.
 
-munmap() test:
-                  before     after
-  4 x 256 MiB     18.69 ms   14.12 ms   (-24%)
-  8 x 128 MiB     14.82 ms   10.09 ms   (-32%)
 
-Link: https://lore.kernel.org/20261017031542.3504947-1-hongfengchen@xiaomi.com
-Signed-off-by: Hongfeng Chen <hongfengchen@xiaomi.com>
-Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
----
- drivers/block/zram/zram_drv.c | 108 ++++++++++++++++++++++++++--------
- drivers/block/zram/zram_drv.h |  26 ++++++--
- 2 files changed, 102 insertions(+), 32 deletions(-)
+On 2026/11/21 1:46, Peter Zijlstra wrote:
+> On Fri, Nov 20, 2026 at 06:37:06PM +0100, Peter Zijlstra wrote:
+>> On Thu, Nov 19, 2026 at 09:51:01AM +0000, Tengda Wu wrote:
+>>> perf_sigtrap() contains:
+>>>
+>>> 	WARN_ON_ONCE(event->ctx->task != current)
+>>>
+>>> The warning assumes that an event's ctx->task always matches the task
+>>> that ends up running the pending task_work. That assumption can be
+>>> broken by the context fast-swap path.
+>>>
+>>> The failure sequence is:
+>>>
+>>>   1. A -> B switch, perf_event_context_sched_out() takes the fast path
+>>>      and does WRITE_ONCE(ctx->task, next) / WRITE_ONCE(next_ctx->task, task).
+>>>      An NMI then hits while the context is swapped, and
+>>>      __perf_event_overflow() queues pending task_work on the *current*
+>>>      task (A), even though the event now belongs to B's swapped-in
+>>>      context view.
+>>>
+>>>   2. B -> A switch. Because A now has pending task_work,
+>>>      nr_no_switch_fast is non-zero, so the slow path is taken and
+>>>      ctx->task is *not* swapped back.
+>>>
+>>>   3. A returns to user mode, task_work runs perf_pending_task() ->
+>>>      perf_sigtrap(), and event->ctx->task no longer equals current,
+>>>      tripping the WARN_ON_ONCE().
+>>>
+>>> The context fast-swap path was already excluded for events that need
+>>> stable task association (inherit + sample read). sigtrap events have
+>>> the same requirement: the SIGTRAP is targeted at ctx->task and must not
+>>> be delivered after ctx->task has been swapped to another task.
+>>
+>> Oh gawd, let me guess, another one of those tracepoint events, right?
+>>
+>> Must be someone that doesn't respect perf_ctx_disable(). Fixing that
+>> will close this hole.
+> 
+> Here, does this work?
+> 
+> The clue is right in perf_event_context_sched_out():
+> 
+>                           perf_ctx_disable(ctx, 0);
+> 
+>                           /* PMIs are disabled; ctx->nr_no_switch_fast is stable. */
+>                           if (local_read(&ctx->nr_no_switch_fast) ||
+>                               local_read(&next_ctx->nr_no_switch_fast)) {
+> 
+> There must be no overflow after perf_ctx_disable().
+> 
+> 
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -1236,6 +1236,7 @@ extern const struct perf_event_attr *per
+>  extern void perf_event_print_debug(void);
+>  extern void perf_pmu_disable(struct pmu *pmu);
+>  extern void perf_pmu_enable(struct pmu *pmu);
+> +extern bool perf_pmu_enabled(struct pmu *pmu);
+>  extern void perf_sched_cb_dec(struct pmu *pmu);
+>  extern void perf_sched_cb_inc(struct pmu *pmu);
+>  extern int perf_event_task_disable(void);
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -1366,6 +1366,12 @@ void perf_pmu_enable(struct pmu *pmu)
+>  		pmu->pmu_enable(pmu);
+>  }
+>  
+> +bool perf_pmu_enabled(struct pmu *pmu)
+> +{
+> +	int *count = &this_cpc(pmu)->pmu_disable_count;
+> +	return *count == 0;
+> +}
+> +
+>  static void perf_assert_pmu_disabled(struct pmu *pmu)
+>  {
+>  	int *count = &this_cpc(pmu)->pmu_disable_count;
+> @@ -11151,6 +11157,9 @@ static int perf_swevent_match(struct per
+>  				struct perf_sample_data *data,
+>  				struct pt_regs *regs)
+>  {
+> +	if (!perf_pmu_enabled(event->pmu))
+> +		return 0;
+> +
+>  	if (event->attr.type != type)
+>  		return 0;
+>  
+> @@ -11531,6 +11540,9 @@ static int perf_tp_event_match(struct pe
+>  				struct perf_raw_record *raw,
+>  				struct pt_regs *regs)
+>  {
+> +	if (!perf_pmu_enabled(event->pmu))
+> +		return 0;
+> +
+>  	if (event->hw.state & PERF_HES_STOPPED)
+>  		return 0;
+>  	/*
 
-diff --git a/drivers/block/zram/zram_drv.c b/drivers/block/zram/zram_drv.c
-index 54eb691f1409..951a38caeb93 100644
---- a/drivers/block/zram/zram_drv.c
-+++ b/drivers/block/zram/zram_drv.c
-@@ -95,6 +95,47 @@ static void slot_unlock(struct zram *zram, unsigned long index)
- 	clear_and_wake_up_bit(ZRAM_ENTRY_LOCK_BIT, lock);
- }
- 
-+static void zram_stat_add(struct zram *zram, enum zram_pcpu_stat item,
-+			  s64 amount)
-+{
-+	struct zram_pcpu_stats *stats = get_cpu_ptr(zram->pcpu_stats);
-+
-+	local64_add(amount, &stats->stat[item]);
-+	put_cpu_ptr(zram->pcpu_stats);
-+}
-+
-+static void zram_stat_sub(struct zram *zram, enum zram_pcpu_stat item,
-+			  s64 amount)
-+{
-+	struct zram_pcpu_stats *stats = get_cpu_ptr(zram->pcpu_stats);
-+
-+	local64_sub(amount, &stats->stat[item]);
-+	put_cpu_ptr(zram->pcpu_stats);
-+}
-+
-+static u64 zram_stat_read(struct zram *zram, enum zram_pcpu_stat item)
-+{
-+	struct zram_pcpu_stats *stats;
-+	s64 sum;
-+	int cpu;
-+
-+	/*
-+	 * Other CPUs keep updating while the values are added up: a page
-+	 * stored on a CPU already summed and freed on one not yet summed
-+	 * can make the sum negative.  Sum them up again then.
-+	 */
-+	for (;;) {
-+		sum = 0;
-+		for_each_possible_cpu(cpu) {
-+			stats = per_cpu_ptr(zram->pcpu_stats, cpu);
-+			sum += local64_read(&stats->stat[item]);
-+		}
-+		if (sum >= 0)
-+			return sum;
-+		cond_resched();
-+	}
-+}
-+
- static inline bool init_done(struct zram *zram)
- {
- 	return zram->disksize;
-@@ -944,8 +985,9 @@ static int zram_writeback_complete(struct zram *zram, struct zram_wb_req *req)
- 
- 	clear_slot_flag(zram, index, ZRAM_IDLE);
- 	if (test_slot_flag(zram, index, ZRAM_HUGE))
--		atomic64_dec(&zram->stats.huge_pages);
--	atomic64_sub(get_slot_size(zram, index), &zram->stats.compr_data_size);
-+		zram_stat_sub(zram, ZRAM_STAT_HUGE_PAGES, 1);
-+	zram_stat_sub(zram, ZRAM_STAT_COMPR_DATA_SIZE,
-+		      get_slot_size(zram, index));
- 	zs_free(zram->mem_pool, &zram->table[index].handle);
- 	zram->table[index].blk_idx = req->blk_idx;
- 	set_slot_flag(zram, index, ZRAM_WB);
-@@ -1927,7 +1969,7 @@ static ssize_t io_stat_show(struct device *dev, struct device_attribute *attr,
- 			"%8llu %8llu 0 %8llu\n",
- 			(u64)atomic64_read(&zram->stats.failed_reads),
- 			(u64)atomic64_read(&zram->stats.failed_writes),
--			(u64)atomic64_read(&zram->stats.notify_free));
-+			zram_stat_read(zram, ZRAM_STAT_NOTIFY_FREE));
- 
- 	return ret;
- }
-@@ -1949,20 +1991,20 @@ static ssize_t mm_stat_show(struct device *dev, struct device_attribute *attr,
- 		zs_pool_stats(zram->mem_pool, &pool_stats);
- 	}
- 
--	orig_size = atomic64_read(&zram->stats.pages_stored);
-+	orig_size = zram_stat_read(zram, ZRAM_STAT_PAGES_STORED);
- 	max_used = atomic_long_read(&zram->stats.max_used_pages);
- 
- 	ret = sysfs_emit(buf,
- 			"%8llu %8llu %8llu %8lu %8ld %8llu %8lu %8llu %8llu\n",
- 			orig_size << PAGE_SHIFT,
--			(u64)atomic64_read(&zram->stats.compr_data_size),
-+			zram_stat_read(zram, ZRAM_STAT_COMPR_DATA_SIZE),
- 			mem_used << PAGE_SHIFT,
- 			zram->limit_pages << PAGE_SHIFT,
- 			max_used << PAGE_SHIFT,
--			(u64)atomic64_read(&zram->stats.same_pages),
-+			zram_stat_read(zram, ZRAM_STAT_SAME_PAGES),
- 			atomic_long_read(&pool_stats.pages_compacted),
--			(u64)atomic64_read(&zram->stats.huge_pages),
--			(u64)atomic64_read(&zram->stats.huge_pages_since));
-+			zram_stat_read(zram, ZRAM_STAT_HUGE_PAGES),
-+			zram_stat_read(zram, ZRAM_STAT_HUGE_PAGES_SINCE));
- 
- 	return ret;
- }
-@@ -2045,7 +2087,7 @@ static void slot_free(struct zram *zram, unsigned long index)
- 		 * ZRAM_HUGE flag for deferred decompression path.
- 		 */
- 		if (!test_slot_flag(zram, index, ZRAM_WB))
--			atomic64_dec(&zram->stats.huge_pages);
-+			zram_stat_sub(zram, ZRAM_STAT_HUGE_PAGES, 1);
- 		clear_slot_flag(zram, index, ZRAM_HUGE);
- 	}
- 
-@@ -2061,7 +2103,7 @@ static void slot_free(struct zram *zram, unsigned long index)
- 	 */
- 	if (test_slot_flag(zram, index, ZRAM_SAME)) {
- 		clear_slot_flag(zram, index, ZRAM_SAME);
--		atomic64_dec(&zram->stats.same_pages);
-+		zram_stat_sub(zram, ZRAM_STAT_SAME_PAGES, 1);
- 		goto out;
- 	}
- 
-@@ -2071,10 +2113,10 @@ static void slot_free(struct zram *zram, unsigned long index)
- 
- 	zs_free(zram->mem_pool, handle);
- 
--	atomic64_sub(get_slot_size(zram, index),
--		     &zram->stats.compr_data_size);
-+	zram_stat_sub(zram, ZRAM_STAT_COMPR_DATA_SIZE,
-+		      get_slot_size(zram, index));
- out:
--	atomic64_dec(&zram->stats.pages_stored);
-+	zram_stat_sub(zram, ZRAM_STAT_PAGES_STORED, 1);
- 	zram->table[index].element = 0;
- 	set_slot_size(zram, index, 0);
- }
-@@ -2246,8 +2288,8 @@ static int write_same_filled_page(struct zram *zram, unsigned long fill,
- 	mark_slot_accessed(zram, index);
- 	slot_unlock(zram, index);
- 
--	atomic64_inc(&zram->stats.same_pages);
--	atomic64_inc(&zram->stats.pages_stored);
-+	zram_stat_add(zram, ZRAM_STAT_SAME_PAGES, 1);
-+	zram_stat_add(zram, ZRAM_STAT_PAGES_STORED, 1);
- 
- 	return 0;
- }
-@@ -2277,10 +2319,10 @@ static int write_incompressible_page(struct zram *zram, struct page *page,
- 	mark_slot_accessed(zram, index);
- 	slot_unlock(zram, index);
- 
--	atomic64_add(PAGE_SIZE, &zram->stats.compr_data_size);
--	atomic64_inc(&zram->stats.huge_pages);
--	atomic64_inc(&zram->stats.huge_pages_since);
--	atomic64_inc(&zram->stats.pages_stored);
-+	zram_stat_add(zram, ZRAM_STAT_COMPR_DATA_SIZE, PAGE_SIZE);
-+	zram_stat_add(zram, ZRAM_STAT_HUGE_PAGES, 1);
-+	zram_stat_add(zram, ZRAM_STAT_HUGE_PAGES_SINCE, 1);
-+	zram_stat_add(zram, ZRAM_STAT_PAGES_STORED, 1);
- 
- 	return 0;
- }
-@@ -2340,8 +2382,8 @@ static int zram_write_page(struct zram *zram, struct page *page,
- 	slot_unlock(zram, index);
- 
- 	/* Update stats */
--	atomic64_inc(&zram->stats.pages_stored);
--	atomic64_add(comp_len, &zram->stats.compr_data_size);
-+	zram_stat_add(zram, ZRAM_STAT_PAGES_STORED, 1);
-+	zram_stat_add(zram, ZRAM_STAT_COMPR_DATA_SIZE, comp_len);
- 
- 	return ret;
- }
-@@ -2532,8 +2574,8 @@ static int recompress_slot(struct zram *zram, unsigned long index,
- 	set_slot_size(zram, index, comp_len_new);
- 	set_slot_comp_priority(zram, index, prio);
- 
--	atomic64_add(comp_len_new, &zram->stats.compr_data_size);
--	atomic64_inc(&zram->stats.pages_stored);
-+	zram_stat_add(zram, ZRAM_STAT_COMPR_DATA_SIZE, comp_len_new);
-+	zram_stat_add(zram, ZRAM_STAT_PAGES_STORED, 1);
- 
- 	return 0;
- }
-@@ -2711,7 +2753,7 @@ static void zram_bio_discard(struct zram *zram, struct bio *bio)
- 		slot_lock(zram, index);
- 		slot_free(zram, index);
- 		slot_unlock(zram, index);
--		atomic64_inc(&zram->stats.notify_free);
-+		zram_stat_add(zram, ZRAM_STAT_NOTIFY_FREE, 1);
- 		index++;
- 		n -= PAGE_SIZE;
- 	}
-@@ -2804,7 +2846,7 @@ static void zram_slot_free_notify(struct block_device *bdev,
- 
- 	zram = bdev->bd_disk->private_data;
- 
--	atomic64_inc(&zram->stats.notify_free);
-+	zram_stat_add(zram, ZRAM_STAT_NOTIFY_FREE, 1);
- 	if (!slot_trylock(zram, index)) {
- 		atomic64_inc(&zram->stats.miss_free);
- 		return;
-@@ -2845,6 +2887,8 @@ static void zram_destroy_comps(struct zram *zram)
- 
- static void zram_reset_device(struct zram *zram)
- {
-+	int cpu;
-+
- 	guard(rwsem_write)(&zram->dev_lock);
- 
- 	zram->limit_pages = 0;
-@@ -2857,6 +2901,9 @@ static void zram_reset_device(struct zram *zram)
- 	zram->disksize = 0;
- 	zram_destroy_comps(zram);
- 	memset(&zram->stats, 0, sizeof(zram->stats));
-+	for_each_possible_cpu(cpu)
-+		memset(per_cpu_ptr(zram->pcpu_stats, cpu), 0,
-+		       sizeof(struct zram_pcpu_stats));
- 	reset_bdev(zram);
- #ifdef CONFIG_ZRAM_WRITEBACK
- 	zram->wb_limit_enable = false;
-@@ -3075,9 +3122,15 @@ static int zram_add(void)
- 	if (!zram)
- 		return -ENOMEM;
- 
-+	zram->pcpu_stats = alloc_percpu(struct zram_pcpu_stats);
-+	if (!zram->pcpu_stats) {
-+		ret = -ENOMEM;
-+		goto out_free_dev;
-+	}
-+
- 	ret = idr_alloc(&zram_index_idr, zram, 0, 0, GFP_KERNEL);
- 	if (ret < 0)
--		goto out_free_dev;
-+		goto out_free_stats;
- 	device_id = ret;
- 
- 	init_rwsem(&zram->dev_lock);
-@@ -3119,6 +3172,8 @@ static int zram_add(void)
- 	put_disk(zram->disk);
- out_free_idr:
- 	idr_remove(&zram_index_idr, device_id);
-+out_free_stats:
-+	free_percpu(zram->pcpu_stats);
- out_free_dev:
- 	kfree(zram);
- 	return ret;
-@@ -3168,6 +3223,7 @@ static int zram_remove(struct zram *zram)
- 	zram_reset_device(zram);
- 
- 	put_disk(zram->disk);
-+	free_percpu(zram->pcpu_stats);
- 	kfree(zram);
- 	return 0;
- }
-diff --git a/drivers/block/zram/zram_drv.h b/drivers/block/zram/zram_drv.h
-index 724f8ce6709b..a3fa6e3d007f 100644
---- a/drivers/block/zram/zram_drv.h
-+++ b/drivers/block/zram/zram_drv.h
-@@ -10,6 +10,7 @@
- #define _ZRAM_DRV_H_
- 
- #include <asm/byteorder.h>
-+#include <asm/local64.h>
- #include <linux/rwsem.h>
- #include <linux/zsmalloc.h>
- 
-@@ -88,15 +89,27 @@ struct zram_table_entry {
- 	};
- };
- 
-+/*
-+ * Updated for every page that is stored or freed, so kept per CPU: with
-+ * shared counters, concurrent swap frees bounce their cacheline.
-+ */
-+enum zram_pcpu_stat {
-+	ZRAM_STAT_PAGES_STORED,		/* no. of pages currently stored */
-+	ZRAM_STAT_COMPR_DATA_SIZE,	/* compressed size of pages stored */
-+	ZRAM_STAT_SAME_PAGES,		/* no. of same element filled pages */
-+	ZRAM_STAT_HUGE_PAGES,		/* no. of huge pages */
-+	ZRAM_STAT_HUGE_PAGES_SINCE,	/* no. of huge pages since set up */
-+	ZRAM_STAT_NOTIFY_FREE,		/* no. of slot free notifications */
-+	NR_ZRAM_PCPU_STATS,
-+};
-+
-+struct zram_pcpu_stats {
-+	local64_t stat[NR_ZRAM_PCPU_STATS];
-+};
-+
- struct zram_stats {
--	atomic64_t compr_data_size;	/* compressed size of pages stored */
- 	atomic64_t failed_reads;	/* can happen when memory is too low */
- 	atomic64_t failed_writes;	/* can happen when memory is too low */
--	atomic64_t notify_free;	/* no. of swap slot free notifications */
--	atomic64_t same_pages;		/* no. of same element filled pages */
--	atomic64_t huge_pages;		/* no. of huge pages */
--	atomic64_t huge_pages_since;	/* no. of huge pages since zram set up */
--	atomic64_t pages_stored;	/* no. of pages currently stored */
- 	atomic_long_t max_used_pages;	/* no. of maximum pages stored */
- 	atomic64_t miss_free;		/* no. of missed free */
- #ifdef	CONFIG_ZRAM_WRITEBACK
-@@ -132,6 +145,7 @@ struct zram {
- 	unsigned long limit_pages;
- 
- 	struct zram_stats stats;
-+	struct zram_pcpu_stats __percpu *pcpu_stats;
- 	/*
- 	 * This is the limit on amount of *uncompressed* worth of data
- 	 * we can store in a disk.
--- 
-2.56.1.750.gf70dc682cf-goog
+This patch does not fix the issue; it can still be reproduced after testing.
+The PoC is still the one mentioned in the cover letter:
+
+  https://lore.kernel.org/all/d1b24bbf-9111-4766-87c8-ff97adcac727@huaweicloud.com/
+
+[  191.663702] ------------[ cut here ]------------
+[  191.663827] WARNING: kernel/events/core.c:7679 at perf_pending_task+0x2e4/0x370, CPU#1: fastswap/1419
+[  191.667014] Modules linked in:
+[  191.667731] CPU: 1 UID: 0 PID: 1419 Comm: fastswap Not tainted 7.4.0-rc2-next-20261113+ #10 PREEMPT(lazy) 
+[  191.669103] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.15.0-0-g2dd4b9b3f840-prebuilt.qemu.org 04/4
+[  191.670736] RIP: 0010:perf_pending_task+0x2e4/0x370
+[  191.671441] Code: 4c 8b ab c8 fe ff ff 49 ff 8d e8 00 00 00 e9 02 fe ff ff 4c 89 ef e8 6b f9 24 00 e9 b1 fd ff ff e8 c1 9
+[  191.674022] RSP: 0000:ffff88810ff9fe08 EFLAGS: 00010202
+[  191.674782] RAX: ffff88811844ed80 RBX: ffff888107575f98 RCX: 0000000000000000
+[  191.675791] RDX: 1ffff11020eaeb95 RSI: 0000000000000004 RDI: ffff888107575ca8
+[  191.676792] RBP: ffff888107575c00 R08: 0000000000000001 R09: ffffed1021ff3fbf
+[  191.677800] R10: 0000000000000003 R11: ffffe8ffffc832a0 R12: 0000000000000000
+[  191.678803] R13: ffff888105b19200 R14: ffff888107575e60 R15: ffff888118928000
+[  191.679809] FS:  00007f39079c6600(0000) GS:ffff88826fd58000(0000) knlGS:0000000000000000
+[  191.680939] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  191.681768] CR2: 00007f3907145000 CR3: 000000010fe7a006 CR4: 0000000000170ef0
+[  191.682774] Call Trace:
+[  191.683139]  <TASK>
+[  191.683525]  task_work_run+0x13d/0x200
+[  191.684111]  ? __pfx_task_work_run+0x10/0x10
+[  191.684750]  irqentry_exit+0x3a8/0x700
+[  191.685291]  asm_exc_page_fault+0x26/0x30
+[  191.685884] RIP: 0033:0x00000000d25df49d
+[  191.686560] Code: c6 bf 2a 01 00 00 b8 00 00 00 00 e8 14 fe ff ff c9 c3 55 48 89 e5 89 7d fc 48 89 75 f0 48 89 55 e8 8b d
+[  191.689089] RSP: 002b:00007ffd422628b0 EFLAGS: 00010202
+[  191.689842] RAX: 000000000000002c RBX: 0000000000000001 RCX: 00007f390789cd13
+[  191.690847] RDX: 00007ffd422628c0 RSI: 00007ffd422629f0 RDI: 0000000000000005
+[  191.691849] RBP: 00007ffd422628b0 R08: 0000000000000000 R09: 00007ffd42262c27
+[  191.692857] R10: 00007f39079c68d0 R11: 0000000000000246 R12: 00007ffd422631b8
+[  191.693857] R13: 0000000000401a8a R14: 00007f39079ffaa0 R15: 0000000000403e08
+[  191.694866]  </TASK>
+[  191.695196] ---[ end trace 0000000000000000 ]---
+
+Thanks,
+Tengda
 
