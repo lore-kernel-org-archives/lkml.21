@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443372;
-	b=uRgLkwfFKyVedaKqiBl4QLD32ApoQlKg2lyElCNRJTajz5VZ6YeqDoTyYeSrKUPJ1i/h
-	 DkCAERGmamgtG3B3xsMHeL4D1k8BUw7Vtfqfwj2blB3Vgjc3DdpMF3t/TLHTg/NB4aCot
-	 BZ83go+XG9fIO3tqnqvR0KNTs0RL9jVSmRc2xllmlMx0kKDI3TH0SOKyPKZaox9VxYCUX
-	 EcsO1dWU9EKVvtDQKSNz8UDkjKyL5mfojoPDNco5ZgG9pIOV434RJYgOTUtNGlrWp/5X+
-	 hRZf8ZgGNeboF1965E7HJ07haKU59Z+diZJbcixE/ggYzKnfdbgXC2GtT501yg6khLw==
+	t=1795443383;
+	b=AOHKwWia/dBSq+Ss5sPS79RZUCc9IsyXTR8Mr6DfIynRjnkswPoD1Md9Rd92HGzcKSLL
+	 qOJ7CoGANUK7Zpr1c/WRLg3dKkxHYdC104QpYYe70a1z25IQHjzz0tywRDm69P2p8qtaN
+	 jYZ8k4N9LefmbcGD2q0kVHNuAKZ2+2CFCiewHA7BL6m780qVmnmOJXz7mEwkHk/MP4Zc8
+	 6c4+AvroSPGVqNOyl78dS3WklMamv/upWAlYzSZnDoh8hSD0LBsNSsG6w9erZfjqXupWw
+	 Sbx8mgiizMM7acLuUiN5Bj+jQvjEEBFlx+F+wXlACuqaeiW7DIYXt37pFwR4WxHDyng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443372;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443383;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=q0kaLBG9armAqyKqZcboCnoBFONiD+mZBC8cBIH32JQ=;
-	b=gt/jgQHQ3Qce+nurOTxhlgq5QE+az82sbskh6KScl7pZd5EFucGGS55YMmZPjihmBkaU
-	 BhW3PwV8U/lJfCpfKO1gnSYXZ+lQnAbSw4ZpiaPGLXII7p/JyzlyfNcmzGCzzR6YzjEYY
-	 Y9G8r+WEqGPUIWmNG/ixl7p7Q0c1CbSDB7xPN3Ui2pOLmS2P/hWb8oqRfWcnRQ5wM3tQA
-	 AWERY7zm4xhe+2iViD9ETvzTymMCqa0CF19lowiTl9vUebXfoEkI/X+Vlh6iknl0KB3Xy
-	 i4I0zMjbhyuZRQN0Fa+OTjOJy6Dt07j4UGb6CaU02vmxupeTVRfiQbLyL/Gmvc3AV5g==
+	bh=6ieYUzrkSoXKds2DyD8v4HVQRsA87EwueP4G/any/Mw=;
+	b=iIrH8ai/F/N7yUhI2YSTHjmO26RBfuhZR8ES1APh0idt+Pz+t1x3/pawRHdfps34POZV
+	 CxUUqS6M82ra/vYPBTaQCtsAm7b8zBauq6Ufn3g590+1QNV30fflKcmWgC3XvLP490mFG
+	 W60sQDqV1G/u7iQGlZkxnzN+nzWDaxdvUxK1ClNa6HamHpE7Tv+4UOArslmfkgAL5Nv3w
+	 sgE26iHh5Rj2EgCN4xoS6Rlu2vffovelGgQjvPpG2m/2hdEvjjbDVLD0qi1xyyDhkTT1/
+	 SMT4VEW6TPv6Wlpar8F/29DZA9hQMW214qdyfrKpXnu4G9Fx6GprXpBsU+dKt6I0Lew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tc5r9Zpu;
-	arc=none smtp.remote-ip=74.125.82.47
-Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sLD3hqjd;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 230EE606A33C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:16:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 230EE606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 698A6606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:16:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 698A6606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tc5r9Zpu
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-15dd124bbe7so2083208c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:16:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sLD3hqjd
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38644aedba1so4948413eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:16:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443371; x=1796048171; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795443381; x=1796048181; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=q0kaLBG9armAqyKqZcboCnoBFONiD+mZBC8cBIH32JQ=;
-        b=Tc5r9ZpuLoNZ1opGkx+WuPZYVISFpfhmuOmXh1fdY4qwY/bU0+dJxJl0OBFK6EJVLd
-         4rxirb/4eLe6U4ldYzhnc74jNh8kXeh8UVTRffQzO/2SuDgO4Uoo39xmT7I/1RS5/b6Y
-         kWc2ub/cL5QFYDNZZlNNDz1aDE/uU0XBdQzuAitfZEgKEy2jNkli27P9t/k+BZtrvWIJ
-         uJ10GffCWAmoGq7zrOn146R73b1TJsxQYm71WeLuvXvS93qgxjDxwhK3aKWE0ALe1ods
-         t616uj28B+sKZVa8XQWCN/dNNWky1tbT7yhOJeEsZ/SHSjpOO5+FlY3HD0guehyl9dC+
-         G6hw==
+        bh=6ieYUzrkSoXKds2DyD8v4HVQRsA87EwueP4G/any/Mw=;
+        b=sLD3hqjdh/M6/4CCDwHIErqc62yPh4AQ+IWjEASoSX59trn3LMf0OHqbf9v2mF22gC
+         vwJLk3k33RD4TI/jBIuok1+RqPoWXnS+wQQLfNOwvgMH1ALc6Yvpa9GUMVviW81BosOf
+         EiWgcy3uMMD2yEeNR4lcT3Oh9T71OltXpp+PxeWXyjfZubz22a5zkc6Gqm/bZUj9Klsl
+         8YSEGjF+P/cVOm1gxW2h+/r4rjqj3e8B2+TpDQ4zicRY8zE0RV+zege0PpzF9ym8OOdW
+         0RFdi3v5eczg62x8McWgQLa8nx0m7ZYD04cZETpoPaOPDYySHMYdNyagUkqaJEVtoKA0
+         vdBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443371; x=1796048171;
+        d=1e100.net; s=20260707; t=1795443381; x=1796048181;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q0kaLBG9armAqyKqZcboCnoBFONiD+mZBC8cBIH32JQ=;
-        b=XZt3+mieX0xLcXReLVvvww59cyZzjuxPEg6vFKYHArt/lvSrGYo9FaYXL0juWB6nQS
-         v6SLZSXcznifEPoF3F/zswsDUGX64yFj+d9pQvGAoOgpFw7DQINIwq9prWHYOUXAHk3E
-         +xuBoUGsyBn4hBfI8lFJIC97MBLqRfIXSJZg5+qD3eAC5zrqz4OfqDmXnSFpIJ+UWKVM
-         u5xV5Sl2VAmoxFO7ph4hhiaRrdOtIhV0SBmGh5TlAj8NLigeWVqejm3Z4Nm1PhiDZuL6
-         pDcyRNXrdkxiuOLE0Bdln20/yjYQY3A6Ersl/qzL+yG0ap0c7igqEBKhO3DyE6LZAAh3
-         Qq/A==
-X-Gm-Message-State: APuU4Z/yaPDK2zUVYm+wPkfgzRsvvU8lI0UKZBdNN8kNbU8mVKFdnUs+
-	7DovltbYR83ehXx8lAO5HmbXhZYvIZxsaGPRR8O3kZNB9dMPAvdBIUcP
-X-Gm-Gg: AZFdTZda2uSlXIcrRbE0OZ4lQ5wpXzEizh9tR3rRtuvGsJTPxKCFRal82X92JH4zMBO
-	DeQIVsqzke2G616EGhLbOGZan2h2d6yEWVZ3P4tXyFXqAA4q5q6wI5OEUUCjIMpbx70Be8HPfnB
-	SgZOT9QZAz61iL+huc8CtSuXLS56hkeLlp9vdJv0LPr/e379Wae7+RGMGWDHCyKAmxhhiOlb4Gf
-	nms+8kPkNvRbsYOhV8oYpSuCzlHXoBg9balPcqmIC0422S6RhIrGFY0AEtS2ornRgbBjdErsfbK
-	lTyLAs8tiNRX0AInx6z0QtCbVp/q7ngK/s8+Pwy3drxTFVe7n6CK85w2EXtioSjyQ58zKx8DlVM
-	gvbtASObw46Re2MBhgXUg6DiIG0ar11VW4S+dkoj1MIYbX0l67ybf09MJe/L3dUmtg2JYNA8Spl
-	iPf6LMc4DKvyJMT71Nlx1gILNY3+wAtXWeXi/0tIomY3WE5YKyYQK7Duxspb2GI9isDGKXwkY+N
-	MVrNdk5GqunoJahaw+QhN1LL4Wwmgumu/AkVJQReEAAf3GNS91c/WxHAumpyn8hIHOULFvzjRmL
-	NfOfc1MiAdRf3vxi8xpeWE2205Cdh2R3J44JJ2JfISkfBQDZN8RWZQz6hHrUmCxspv21aw==
-X-Received: by 2002:a05:701b:4558:10b0:1b3:b4cf:8f18 with SMTP id a92af1059eb24-1b556926cfbmr12460036c88.41.1795443371191;
-        Mon, 23 Nov 2026 06:16:11 -0800 (PST)
+        bh=6ieYUzrkSoXKds2DyD8v4HVQRsA87EwueP4G/any/Mw=;
+        b=lNI/zmYpLmojlbbej5P1QefPhyshOaFGMXWkT4/FoHdJdx5oV0QwOnQxXLXpxIx0bP
+         4qWCcAiEZ8d+Gnw2s5XPgWWmf7Y0DReHwsu0n9RBLBNRzA0C53tAUruJyMHkQjPerV6y
+         WawBp4XsratAG2BVBfbQckBXkSiiRD7SYdyOIZmxoC60sy510JHp3F1qy6eRwd0bn2Pu
+         /zUNA8Rt5dN/l4NoNx79GZDOJ5bq4m3pV7uq68/iBmVxHSRDbQZ644gkxlEiTZXv3CN1
+         k6dgL/sHWjxtfQcryGs0wpa3zzcW8X9cyvMR1Imhq3Iy1UMypIHSM+odN7ytIJjfvIfI
+         1rnA==
+X-Gm-Message-State: APuU4Z+REGYhVx6O6fvWov1FfjLfvmYqn8GLPazCyOId3k0Xq3Xnehj4
+	yQH6t/9Ov8tGRrmQ6dZYyxY49RoQjGYNKtVgnMVaztQzBvIF5w1vcIZt
+X-Gm-Gg: AZFdTZfkyHZfE/MSdoQ1DhOS8RBclAEI0EbUZLX7LfdsXsno7VQS/xrGH1RlfjLiiJN
+	iZ97CfdphrXSozswoEy5woijvMG1xpMMomstTUMkIkQcJ0D26L4Wxlnuukd/P/Ys+IOG74eXS9t
+	GhOwp2n9ZINl0EVVFYqrX0wX/QEwpNq4X6n+garlgFEWwzeB9QTskdaIj/vYYShwgY5XWta9NVX
+	Ohi3Hbw5r3/PGfcm5wrMkNC76bGVw7JZySOBde2Cj3Li2JIIjOzhz0gvgr8JwamkjmXJHQktivo
+	nGc0+9Y1jq80wEADyFujE6/7iC4DfNSGMWROZ8ZfErb8jfqCRBddTZgFs6sV7jGE1znPiotUAfH
+	/rHeDLSV627dwZstlwh4gb+AvjIGwXlJNZ+4Dm1rDKec18kVZQ3NmCOXbbpEeIfP+Zm+RsEZ6uI
+	ppQe1k3JOmRWdecStmetSelcik4xlCpwFSz96G0ch4Bs6haRMJZWwqgmB5aQY4vZk1nmzaKnuF9
+	sytkIKqS2ucwjNQ+iprSjAMPtnKE1qrT4diMoOyfZ7vcj5mULb1B2GTFKLOaoRTWAXJ8MkNVyLe
+	HKxlE2UvBGAgKoeJqWPveK9CkbzrzrsBmmIpBY1xKDxGyPySHjAJeQppTIYiBma0iIpw
+X-Received: by 2002:a05:7300:8282:b0:385:af7b:d788 with SMTP id 5a478bee46e88-385af7bda3emr10635445eec.2.1795443381369;
+        Mon, 23 Nov 2026 06:16:21 -0800 (PST)
 Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm38348685eec.28.2026.11.23.06.16.04
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm38349861eec.28.2026.11.23.06.16.16
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 06:16:10 -0800 (PST)
+        Mon, 23 Nov 2026 06:16:21 -0800 (PST)
 From: Lian Wang <lianux.mm@gmail.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -94,9 +94,9 @@ Cc: linux-kernel@vger.kernel.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v5 01/19] mm/swap: remove unused parameter for reading swap header
-Date: Mon, 23 Nov 2026 22:16:00 +0800
-Message-ID: <9f3715ab29bc9ee4aaa1bb92bff47c7584b73ee7.1795439990.git.lianux.mm@gmail.com>
+Subject: [PATCH v5 02/19] mm/swap: clean up hibernation error handling
+Date: Mon, 23 Nov 2026 22:16:12 +0800
+Message-ID: <3e8d55101602d5ec982ae636eaf5eb4dcaad3ba8.1795439990.git.lianux.mm@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
 References: <cover.1795439990.git.lianux.mm@gmail.com>
@@ -113,40 +113,106 @@ Content-Transfer-Encoding: 8bit
 
 From: Kairui Song <kasong@tencent.com>
 
-The swap_info_struct argument to read_swap_header() is unused. Remove it
-and update the swapon() call site.
-
-No functional change.
+Restructure the error paths in pin_hibernation_swap_type() using a
+goto out pattern to avoid repeated spin_unlock() calls and simplify
+the return flow.  Also simplify unpin_hibernation_swap_type() by
+making the si NULL check inline, and clean up find_first_swap() to
+avoid an early return inside the loop.
 
 Signed-off-by: Kairui Song <kasong@tencent.com>
 Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 Signed-off-by: Lian Wang <lianux.mm@gmail.com>
 ---
- mm/swapfile.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ mm/swapfile.c | 39 +++++++++++++++++----------------------
+ 1 file changed, 17 insertions(+), 22 deletions(-)
 
 diff --git a/mm/swapfile.c b/mm/swapfile.c
-index d59fa8220862..c06f9f532e74 100644
+index c06f9f532e74..0ae901296731 100644
 --- a/mm/swapfile.c
 +++ b/mm/swapfile.c
-@@ -3630,9 +3630,8 @@ __weak unsigned long arch_max_swapfile_size(void)
- 	return generic_max_swapfile_size();
+@@ -2331,21 +2331,18 @@ static int __find_hibernation_swap_type(dev_t device, sector_t offset)
+  */
+ int pin_hibernation_swap_type(dev_t device, sector_t offset)
+ {
+-	int type;
++	int ret;
+ 	struct swap_info_struct *si;
+ 
+ 	spin_lock(&swap_lock);
++	ret = __find_hibernation_swap_type(device, offset);
++	if (ret < 0)
++		goto out;
+ 
+-	type = __find_hibernation_swap_type(device, offset);
+-	if (type < 0) {
+-		spin_unlock(&swap_lock);
+-		return type;
+-	}
+-
+-	si = swap_type_to_info(type);
++	si = swap_type_to_info(ret);
+ 	if (WARN_ON_ONCE(!si)) {
+-		spin_unlock(&swap_lock);
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto out;
+ 	}
+ 
+ 	/*
+@@ -2354,14 +2351,15 @@ int pin_hibernation_swap_type(dev_t device, sector_t offset)
+ 	 * the same session.
+ 	 */
+ 	if (WARN_ON_ONCE(si->flags & SWP_HIBERNATION)) {
+-		spin_unlock(&swap_lock);
+-		return -EBUSY;
++		ret = -EBUSY;
++		goto out;
+ 	}
+ 
+ 	si->flags |= SWP_HIBERNATION;
+ 
++out:
+ 	spin_unlock(&swap_lock);
+-	return type;
++	return ret;
  }
  
--static unsigned long read_swap_header(struct swap_info_struct *si,
--					union swap_header *swap_header,
--					struct inode *inode)
-+static unsigned long read_swap_header(union swap_header *swap_header,
-+				      struct inode *inode)
- {
- 	int i;
- 	unsigned long maxpages;
-@@ -3863,7 +3862,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
- 	}
- 	swap_header = kmap_local_folio(folio, 0);
+ /**
+@@ -2441,11 +2439,8 @@ void unpin_hibernation_swap_type(int type)
  
--	maxpages = read_swap_header(si, swap_header, inode);
-+	maxpages = read_swap_header(swap_header, inode);
- 	if (unlikely(!maxpages)) {
- 		error = -EINVAL;
- 		goto bad_swap_unlock_inode;
+ 	spin_lock(&swap_lock);
+ 	si = swap_type_to_info(type);
+-	if (!si) {
+-		spin_unlock(&swap_lock);
+-		return;
+-	}
+-	si->flags &= ~SWP_HIBERNATION;
++	if (si)
++		si->flags &= ~SWP_HIBERNATION;
+ 	spin_unlock(&swap_lock);
+ }
+ 
+@@ -2480,7 +2475,7 @@ int find_hibernation_swap_type(dev_t device, sector_t offset)
+ 
+ int find_first_swap(dev_t *device)
+ {
+-	int type;
++	int type, ret = -ENODEV;
+ 
+ 	spin_lock(&swap_lock);
+ 	for (type = 0; type < nr_swapfiles; type++) {
+@@ -2489,11 +2484,11 @@ int find_first_swap(dev_t *device)
+ 		if (!(sis->flags & SWP_WRITEOK))
+ 			continue;
+ 		*device = sis->bdev->bd_dev;
+-		spin_unlock(&swap_lock);
+-		return type;
++		ret = type;
++		break;
+ 	}
+ 	spin_unlock(&swap_lock);
+-	return -ENODEV;
++	return ret;
+ }
+ 
+ /*
