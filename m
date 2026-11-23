@@ -1,60 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428804;
-	b=wCTZ83uSpHBDi4Njyh3HyQfgMrVqWuWNEutzdzk424o33UzzmftutKVWkrZwUHmTQnQp
-	 U4GsoQ+pJz3TjPsdNvEL52QCezXNZSj/EVUgGoe7sH53joZdWiZW1/yEf5yNdXeXrQYyY
-	 smJgoHNB/tkKO3LOeuVcz3iD1dC7j+RDyIyilsYHJiXC8GygYYByOx05uXt5L+opoMZms
-	 2kTujRKVFWPjyjuGkCl2YbtalnoZxqQKBxHqaEYedJi1dH1yxlttKeuzNI55yMXXvNVkD
-	 n4QiU9Ch30/OdxkMvkXKywJiNeZb4fkFSsV2+KFCZ/234h7ngxP8eFX8W3wRznq/d4A==
+	t=1795428924;
+	b=bEMK45sFGdi7cHOSLfdJQ+rFbTuu2/NYaa64TZbNirZ1v3CdAQPtErBOqR/L1hoFRDTA
+	 ckbp2vHEDin6J1KyHdJTBZ8EsZxgkLdq5R9s+H9UkDSC69w8ezTtPC7Z1hF2x2tKhbvOs
+	 5oXb1JiMS6FJ7ZtVeBqWLdZVFd6/FcsFCedfTCJj16y3j8lcuH1CQTyjtxU9qHs4lNX76
+	 Q8g+KfLXlrYeCJI7RrBcdxj46GLwRDFvpdZZE2+q1QhbHb7dXnhmHEyLzjlbLXJuliBdq
+	 PK0ycroB8n6B6k3LINQhHk1Fu4F+8F5H3y6ezSjqvK0ykDCXIioKpTYfb2nbZ4GreeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428804;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=I5esF62Nz8TTogsjEuHpbzKKyeh5/z5wlmQTUXgW3qM=;
-	b=ymf+eksn5yT++r4dVo+tyFSxujiTrzcw4TxSqKBS7+mHLvHT3OOFqPfVtuottmpZHDQm
-	 qYf/8+OAYGSkm+CttoQ+wvk9HHqLTcCWS/EkqhwyqbDbVO39JPnibqZGNqzD6IMxp2UIJ
-	 0IYH79g9SsLm7/pQHEENZ18xJARtXRtM1c2PPJaPt3cjd3cdunrh3mkIoTDKBQjQIUBRY
-	 nixxGL1dy8bBIeKAtsCP2HH430r7TZvZAbMW4Acur3m+jI7CJq3QdYy452bz0Hp2gDdFf
-	 ZslKyBvbzPlArfX/uSKp4GB/3jm7RTP+zqDQCdaVTwg/VR2buWx1kWaBQ5D/WUMie5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428924;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=YEmk1VDoJHLEYSmDRdBwUZmDsqu1t/NGQfUH3rocZOw=;
+	b=gQD/tlkQ9BqSQf49Sj1gD9A+bA80hQROTEJRs9qPkA2ZqpmmuOdavwu/+jBfeBuUQCfT
+	 I+C68//AbFQgBiE94qVp+vnNhSKhEuinVWW23+wDd9VmIykXKjQcsvajyEFs4g8kTxGqA
+	 zg9jvBOi+IVLsgFLX/LShp9LbtN4KHfdlkhq55lDE1wtKaZfR794POFT54adq77FFr3BW
+	 wpc2HSymlkqBlzv7GvcNtRrWqJj7IPwHaPlFV7kXJlujToTxPEJX9+N1BCBudzZPFL6yS
+	 A+/9RJ4cJiMLE9sHbOsPdEJ8/zG2Hse1klJO0BnzoXo8vxy5DvDn6G8QHA0sT8UEqQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=guzBRXk6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Tj1tka9c;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D642606A685;
-	Mon, 23 Nov 2026 10:13:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB5C5606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:15:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB5C5606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=guzBRXk6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCE651F0093C;
-	Mon, 23 Nov 2026 10:13:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795428803;
-	bh=I5esF62Nz8TTogsjEuHpbzKKyeh5/z5wlmQTUXgW3qM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=guzBRXk6OIZeQxvabaI0poa/i7R7aIVKP7azlVKghJ/8Q1T/9MPmdzC+HNyYaBVQw
-	 qsaAAmJvpriArycef4t94+TxfzZCwoQNKSif8nmz3P5w3uTyMvfoitLWPDROcIQM3F
-	 eZsmtRZ2SCL/6uWT42VKeAW5v3IgjnY/pDYKSptSu66R4hJWht/XwIs110KcVR0MM7
-	 eIJCBTBJ/Kp0dr/+EAo0/oO7AuAiALy73j8aSYpgcw03fOc3ZvyJheWNNudwQaC7wJ
-	 8dGuFaLlBXOyADibkkhvWkC+CTvp5U6m/GBWvz1+A5vtzZnvH3vt66fi3YxP4roT52
-	 D2liqc5iiryGw==
-Subject: Re: [PATCH net-next v7 7/7] net: ftgmac100: Allow building on ARM64
-From: netdev-bot+sashiko@kernel.org
-To: jacky_chou@aspeedtech.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- ratbert@faraday-tech.com, edumazet@kernel.org, hkallweit1@gmail.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, andrew@lunn.ch
-Date: Mon, 23 Nov 2026 10:13:22 +0000
-Message-ID: <179542880231.3135.3272879516767831505@kernel.org>
-In-Reply-To: <20261119-support_ast2700-v7-7-33c8ca2d0dd7@aspeedtech.com>
-References: <20261119-support_ast2700-v7-7-33c8ca2d0dd7@aspeedtech.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Tj1tka9c
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso21691475e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:15:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795428922; x=1796033722; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YEmk1VDoJHLEYSmDRdBwUZmDsqu1t/NGQfUH3rocZOw=;
+        b=Tj1tka9cwCfSWVyOhNY4eRE05/jjgj461r/WnGC437Cg+uv520KTUAtreYXE4Uq4SQ
+         VQPr4yG2Y0WusL/sss7VMDxH1FpnVaj07Df/tNh17yAjcNGkwUdYLutIBsU9wv5Br/Fp
+         /3EHSls/7CqlnJcqVnP6DNcbP/cZtabyzOy7yIPtVQ0HUdS0h2pLtqRSxH33sUWzR4Bl
+         VeFDHbK2pSt1RXv0nj4zGr0S5c43fOYQ5w6zOWGj4gda05ZvKucxdkX5pEkLO1PMgYGZ
+         73Ko2Dj5NxRb64zkKdjz+wIrcy2vFOpvHLmQ+456M/dgvqKUIaFLpDle24Wwoad8e0pO
+         MsKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795428922; x=1796033722;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YEmk1VDoJHLEYSmDRdBwUZmDsqu1t/NGQfUH3rocZOw=;
+        b=1eD22ntTfB5yzoRIUd0m6V/XLqKQkYbaHtUwsDmhRiXu03Y2OLaO5HPEc2RNtmXNUN
+         Ht+cgZ+1i/TiJv0Ce/2OoSrqPkqBuxidhSTU+XXh/nbZ6niHKDEISDIDfVrI0aCilM5J
+         vVEexUi84zQgSb/GSOI0VobVdb6iVs+mAowX3dkzmNxOqZBWHWbCK25m3Vr2CW1Oj4Lz
+         0au75eCIK46JUIF8nJbQ2dr5F7aDm/MOhTXlLxjCbSkBo5n1hYFBc1FfusOuqblHWq5F
+         LYEZ0+i34qVUWJ5ECeejJL/cpczInAigr1EIGGpCkT1DLOr+RDIIqCUDSGJRHafbiXY7
+         6kJA==
+X-Forwarded-Encrypted: i=1; AL+hErFJhvx+NtcZY7fjKZ019MgRM1MUVakh+08B/3j83M415m1WooZw65LqZr8HKKVzucanLtoU6hCxtyrmz7A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ltcPVzir6qVtEKPMS6tmhsT0uS0GhPKAFt18ohY5Cbv7uj1eo
+	BjKZJabIuAN+KjRfRsiYRGg7aZ6xAizCPRMrapKirnAqfc0Bbnx0J26dxFKbBQ5vRKI=
+X-Gm-Gg: AZFdTZeIHhY2GAxIZqWe6TnOA57lJxltvY7HXOEa5CvQgwEx1T3HumsK/7P2/PU8zDq
+	Z5I4BrXIpNl+eYIx+bkJe1ajOlbdDwg4j1kVKfL5q3cYn3Yb1kJ5oBm3htrhjtZAHUrKR2eYvLD
+	/v5TzR/903UC6GuRG9BBwLLRDR07dtjDUAHqq76ye8mk0VQBLdKT7P3UE0AU8iD394CNSdL4CFX
+	CxDqSIyfV4xzDcpaB++jqjEPqU/Clhiei5a/4m7AzRZt/rETQx0kzNSfziRDqLZrOiUoXTGBoy+
+	llOBsK5Hn7AddU2wMMcJslBtSZeYsdWb+Pa7uZDb6vfK2hCFaqLs0YTK9wNaS0z7iXMwVS/yDWn
+	ZPA7kEgaK7GwLRInCtdc2V5CJb7RlQqf/SpcCVNKofCbERm2L7zJoBCQvD+wEekbf27jdoC81wu
+	gsOy3aGvvGGfOgT5U1uNVsuqbmbtM3bFDU9eDSd+mdmqh1ZXYoHSCVHAUKF6Ghpr8VSP6MBnpO/
+	EtIWrHnqM2HRS7gRD9AgcW7od31gKeOhq5iGFpLP2a2igVSPxfRjXLwRjW/1Rvguf/w6OKmO0yL
+	UBoboUIO6VNDaTus/8NBv2XeKj1MtI1HwDpglfQLdG2b5AbdrMx4
+X-Received: by 2002:a05:600c:45d4:b0:4a2:84c:52f3 with SMTP id 5b1f17b1804b1-4bb8880988cmr238927785e9.6.1795428922043;
+        Mon, 23 Nov 2026 02:15:22 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b216esm381534625e9.12.2026.11.23.02.15.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 02:15:21 -0800 (PST)
+Date: Mon, 23 Nov 2026 11:15:18 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+	Marcos Paulo de Souza <mpdesouza@suse.com>,
+	Eva Kurchatova <eva.kurchatova@virtuozzo.com>,
+	Yafang Shao <laoar.shao@gmail.com>, Shuah Khan <shuah@kernel.org>,
+	live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] selftests/livepatch: skip the tests on kernels
+ without livepatch
+Message-ID: <awQSNi8Ex6eOcFOw@pathway.suse.cz>
+References: <20261110161050.2451750-1-sashal@kernel.org>
+ <20261110161050.2451750-2-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,130 +103,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261110161050.2451750-2-sashal@kernel.org>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Tue 2026-11-10 11:10:47, Sasha Levin wrote:
+> The test modules can only be built against a kernel configured with
+> CONFIG_LIVEPATCH, but the selftests try to build them for any kernel.
+> 
+> KernelCI builds the selftests for many kernel configurations, most of
+> which do not enable livepatch. On mainline from November 8, 36 of its
+> 69 kselftest builds fail to compile the test modules, for example:
+> 
+>   test_klp_callbacks_demo2.c:23:16: error: invalid use of undefined type 'struct klp_object'
+> 
+> These are arm and riscv kernels, which do not support livepatch, and
+> x86, arm64, powerpc and loongarch configurations that do not enable it.
+> 
+> Do not build the test modules when the kernel in KDIR was configured
+> without CONFIG_LIVEPATCH, and skip the tests when the running kernel has
+> no /sys/kernel/livepatch.
+> 
+> Fixes: c4bbe83d27c2 ("livepatch: Move tests from lib/livepatch to selftests/livepatch")
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Looks reasonable and seems to work:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Tested-by: Petr Mladek <pmladek@suse.com>
 
-- [Medium] This commit removes `depends on !64BIT || BROKEN` from
-  FTGMAC100.
-- [Low] The new MDIO_ASPEED help text in drivers/net/mdio/Kconfig reads
-  like a changelog and is imprecise.
-
---
-
-net: ftgmac100: Allow building on ARM64
-
-This commit lets the Faraday vendor menu and the FTGMAC100 driver be
-selected on ARM64 for AST2700, and drops the !64BIT || BROKEN dependency.
-It also changes the MDIO_ASPEED select condition from MACH_ASPEED_G6 to
-ARCH_ASPEED and updates the MDIO_ASPEED help text.
-
-> diff --git a/drivers/net/ethernet/faraday/Kconfig b/drivers/net/ethernet/faraday/Kconfig
-> index 474073c7f94d7..9acc2d260c1f9 100644
-> --- a/drivers/net/ethernet/faraday/Kconfig
-> +++ b/drivers/net/ethernet/faraday/Kconfig
-
-[ ... ]
-
-> @@ -28,11 +28,10 @@ config FTMAC100
->  
->  config FTGMAC100
->  	tristate "Faraday FTGMAC100 Gigabit Ethernet support"
-> -	depends on ARM || COMPILE_TEST
-> -	depends on !64BIT || BROKEN
-> +	depends on ARM || ARM64 || COMPILE_TEST
-
-[Severity: Medium]
-Without the BROKEN gate, RX buffers on AST2700 (FTGMAC100_QUIRK_DMA_35BIT,
-35-bit DMA mask) can be mapped above 4 GiB. Has it been confirmed that the
-MAC never writes RXDES2[18:16] when it completes an RX descriptor?
-
-The driver header says that RXDES2 is written by hardware on an earlier
-Aspeed MAC:
-
-drivers/net/ethernet/faraday/ftgmac100.h:
-struct ftgmac100_rxdes {
-	...
-	__le32	rxdes2; /* length/type on AST2500 */
-	...
-};
-
-After the MAC hands the descriptor back, ftgmac100_rx_packet() rebuilds the
-unmap address from RXDES2:
-
-	map = le32_to_cpu(rxdes->rxdes3);
-	if (priv->quirks & FTGMAC100_QUIRK_DMA_35BIT)
-		map |= (u64)FIELD_GET(FTGMAC100_RXDES2_RXBUF_BADR_HI,
-				     le32_to_cpu(rxdes->rxdes2)) << 32;
-
-ftgmac100_free_buffers() does the same thing at teardown.
-
-Fragmented (FRS/LRS) or errored frames take the drop path in
-ftgmac100_rx_packet(). That path gives the descriptor back to hardware but
-only rewrites RXDES0:
-
-drop:
-	/* Clean rxdes0 (which resets own bit) */
-	rxdes->rxdes0 = cpu_to_le32(status & priv->rxdes0_edorr_mask);
-
-The upper address bits are only programmed in ftgmac100_alloc_rx_buf() and
-during ring init.
-
-Suppose the AST2700 MAC writes length/type, or anything else, into RXDES2
-bits 18:16 on completion. Could dma_unmap_single() then be called with the
-wrong address? And after a dropped frame, could the MAC DMA the next frame
-on that recycled descriptor into the wrong physical memory?
-
-If the hardware can change those bits, would it be safer to keep each
-entry's full dma_addr_t in software? RXDES2/RXDES3 could then be rewritten
-every time a descriptor goes back to hardware, including on the drop path.
-
->  	select PHYLIB
->  	select FIXED_PHY
-> -	select MDIO_ASPEED if MACH_ASPEED_G6
-> +	select MDIO_ASPEED if ARCH_ASPEED
->  	select CRC32
->  	help
->  	  This driver supports the FTGMAC100 Gigabit Ethernet controller
-> diff --git a/drivers/net/mdio/Kconfig b/drivers/net/mdio/Kconfig
-> index 6f272fae4bb55..ec1794cc64b09 100644
-> --- a/drivers/net/mdio/Kconfig
-> +++ b/drivers/net/mdio/Kconfig
-> @@ -50,12 +50,16 @@ config MDIO_ASPEED
-
-[ ... ]
-
-> +	  FTGMAC100 driver continues to drive the embedded MDIO controller for
-> +	  the AST2400 and AST2500 SoCs. AST2700 has no dedicated MACH_ASPEED_G7
-> +	  symbol and is only gated by ARCH_ASPEED, so FTGMAC100 now
-> +	  unconditionally selects this driver on every ARCH_ASPEED platform,
-> +	  including the older AST2400/AST2500 SoCs where it has no MDIO node to
-> +	  bind to.
-
-[Severity: Low]
-This isn't a bug, but is "unconditionally selects this driver on every
-ARCH_ASPEED platform" accurate? The select in FTGMAC100 is:
-
-	select MDIO_ASPEED if ARCH_ASPEED
-
-That only forces MDIO_ASPEED when FTGMAC100 itself is enabled, and only to
-m when FTGMAC100=m. With ARCH_ASPEED=y and FTGMAC100=n, MDIO_ASPEED can
-still be N.
-
-The new text also reads like changelog history ("now", "no dedicated
-MACH_ASPEED_G7 symbol") rather than guidance for the user. It also drops
-the old "say N if AST2600 support is not required" advice.
-
-Could the help text say when to enable the option instead? That would keep
-it from going stale if a MACH_ASPEED_G7 symbol is added later.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119-support_ast2700-v7-0-33c8ca2d0dd7%40aspeedtech.com
+Best Regards,
+Petr
