@@ -1,107 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.183
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795413875;
-	b=dWtczZ1AQX8Bu8Uj19KPIww+2TtumN5iwx+U22N2e6nIzx1npqJg9e6n4wt0+Og+SRRn
-	 OzerZ8TewyEOk4e8w3ha+sUPIn+3X7DbBPlnjqXHAR2x9OjGOp4K4k/WS3blsXwicKSKC
-	 2eLe/DnA+UXFJRFmi0tFJFUOjbSIeAhwyuzekyc6SBdOTdL9Zefpu8nQ0CD45DOm5jLZQ
-	 4MvUGRni71q/q6Zbb2yG1GX5tQXv5IqPhO87q7nximFZqTWjN4+vS8Tup6rHl7SiZ4+yB
-	 FfFvCCC6rLhDVMT8QPALcYB74KCsdlXL4HudPx+0uzIWAVSw1cUGfrksEvT/1jaPTuA==
+	t=1795413962;
+	b=2D51qXVx87ibdqQ+SQvlyP90itkTAZl5tU1tmpQzrLtlGXaM7pOM3yXt9T+dxcfGqh2q
+	 CWpRpHAPUyUh8Cev0LwpvnGbCYdTdOCWmG7swAd4ZbVfaOrjWRF+3XLI8n0UxRx/JhWg8
+	 3StFb75Shkdrv+GWbvvkbDXdr2KLe1nmryU85Qm2mAFzk35K5GEPPrs9HB5NcgPqCEx0j
+	 YGRH5kf7fFc4mVLi3WyLvOuVBRQfU8feDsRuiBbg89pAQf727yMiCQL8GlwrVbVwnck4R
+	 pOd9lJL3aKc4B5P9QoW5Zk6LjqEuzteEleXzY2Mt1fiR7u7e0avvIJw4Pj4clD5Hv5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413875;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Nsu4N0Rdllro8+TXtkYDOGeW85lDNvmYXwkzBCpjLp0=;
-	b=nHKnV3V0uBHyp+Rc/OEuQqqYlI0/Pg/UAqMUi6Iwg8z3mWU97L4z9smXbfi8LmprHvn4
-	 doMzOmfpPq/oA39K4nCfwnABv88egZARxtY5BGWJO4fU0VDlMBcIJmNEgX8BXaq4EBua4
-	 wlh2NxujxwWVtLJQcZxdwpCDze9ZKKLn8vzdObnuI82lXxlXGKnRUqWMYxusIxJ/yYT2s
-	 k6j4hGOt7dFV/MaJzUPMZ3QxRsQs6nF/8WHdrL6KEnN44vafdcY5y2ix35LDTDr2Lx101
-	 RwhCJUzz4LQESBvEdSBdZUb8IfHGUGS9u6kY2SjFY/mkkXVmZXYyQLISAqiihi98//w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795413962;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/PuORYyIRteJHQ11GLpV7a3611w1hxaJP4SNy0f1jBM=;
+	b=wbxeQm0WwuL3z2IU+8WMF/4kT/Bm+bboTsxaujhGDpz8pgojStbCJYOk4ZNm7Kj1IERr
+	 J5tEHcybmsx+q2BXnbVv5SAIqqnzp8vEGJbq/0migLXOblVipTG1ZgeGAepZj6vdphYqJ
+	 9zerPv3uabk5Jy1gM5EfvP0IcNWKxr5WE+4mjNlTqDsy2v6dyEXoaoAV55BN2ojVsD9+B
+	 GVhCS/zLuVQDKG+Qqf7q5OspAeUQy8hknl9DR08nlBIOXROc7In4Q8O/VJ3sMVr6Rb+pr
+	 S9nvBzGDzedCXhpCNdYNwCYXlS++fr5W5PVxVca4LZ6zdj2etss8L3GS8FUmSioTYVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kKqiIDcX;
-	arc=none smtp.remote-ip=209.85.210.53
-Received: from mail-ot1-f53.google.com (mail-ot1-f53.google.com [209.85.210.53])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="fOY3WO/a";
+	arc=none smtp.remote-ip=91.218.175.183
+Received: from mta0.migadu.com (out-183.mta0.migadu.com [91.218.175.183])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40934606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:04:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40934606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3649606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:06:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3649606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kKqiIDcX
-Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-8629c7cc36eso1697531a34.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:04:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795413874; x=1796018674; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Nsu4N0Rdllro8+TXtkYDOGeW85lDNvmYXwkzBCpjLp0=;
-        b=kKqiIDcXBwQLluyzFnQsxWGULUPyPv9ILfAf9LaNyBqfcY9jYgPiybd+9rAZIA52Qv
-         BJbNNJ42TnKmUnBMfItZRZccofjSdzVeXpVYNcqgaAsc82hIf3CJBjiyIApNj6AARID1
-         1Av43TbYkdhwHpKvYBEI8vGXPAxfo1H+KP7cdHAehiSlDOWGpi370kGnCRW/9dTQDLQ3
-         xxrVhBTqXqb8M51m2V1jIEYyQot4rhbQuI4+6PMUdeMgkWxJZD1oLTRV37egF9gDlcYe
-         EkPxLSVwiI0A19WAZaghT/MFReEU3JkL42hh6slUOwcl+hINawmyby3JdpoDb0Nvi1ow
-         G21A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795413874; x=1796018674;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Nsu4N0Rdllro8+TXtkYDOGeW85lDNvmYXwkzBCpjLp0=;
-        b=x1MiZO4eUMxIejnlQmQjRB/gE0+R2sRZAzhfIE6VXqS4uYLW4gmxKWDhbAhpoGkdJI
-         voYoinIaZVuRf8I/xTuZuHfQyPfWemfKQyZ863hjNJqytgV1yEHXWkbSlzflIE9+YhfG
-         77mndGdUD0Cz5uq6NeRxC3vv3teh6ZMcifeuiXXOtN0esMolRliSRuFv3sIrTnPJrRyD
-         B+WcN+jNvH7IQg+v+qJ83vq8OG7vrHTkMo4JO84DL8geWPiQ+rhmSLy0/rtSh/yN0suq
-         1xp87knl1H2TjlAvmJS1sujQH8akIa22wUg4zyI+WVlgo8ybiWvKPrhTSlokQ9WtX/45
-         qbjw==
-X-Forwarded-Encrypted: i=1; AL+hErFUtOod4MGSBI0aCuoJdJcopYr+ixD5Kd8IJU0tLTcPvDmXrUqLJs8yOR+FSeoXLfftw2rqNYtpzo0RMiM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/PjbT9GczNP0JB8zU0FiEtOJxd8dzBbtLUkDEMpv7QaC7m2urI
-	aN1FPpWdG5lu45MTDyhqM3vDcs+tZPif8OwA1NcUipRcq+ab0U65nhDm
-X-Gm-Gg: AZFdTZfZiuHKC36sxj+85ZntDWGY8ohGwsilGxv7Youwd8g76HjvGz3C3fD0mnaRB8f
-	huid75PQlCmShw4liwGNLvVkbZbuvJ/dyfCc369RIcCuQm+6bKwHlBaw6RMzwQhjFIG9KpFrs9L
-	Ytei+L863/MHjqHBlw1LGHNW112nrI7wG4OC8JHaT+lSPBwONEpHy87isIzCP2KGsruJ45rkH0m
-	Ml594BwMJoqaoOm1dMgzKXW6mmrVqV7ySXgNx5mZeABAsLsAqYkdVx1XUpTcKTb1j5CXBKvpCkl
-	L0DgM+/bH8nxI95RQ4TGzzYgsbl6iXYB+VmQljLoYcBZnVA37ZbDEzLGEXg20rdLkreTGHJ28+p
-	RXyiKEbFmEq9OtuTC4El+F2pxVyNKJSFdvP3fWRY9fjrQvtheUJ8kq36GORQ18J1mn5g+l4/0Gv
-	cx7udFtGDocqOz3waho3g1ijW2tEKQ+Lz/1A0vJcMnpmqy/vGRea+rIAOXAmeGNHd21kMMecx/E
-	5fjmbU6KyCs+Xu9GNDvfkLAdHJuF9e+9x9g4d2xwVE12FxuDKMAepUD9TcMYxRKV6oYu4gNwEb9
-	rxNiwXKzlbefYq6E1ILKJVo80JlRJNzpw796dbUC7r66xXuPj1GKYn1VpDxhBfHoDGIVSBVzHwp
-	IxSvZtax9yUimhH0rny2Agj7ZjEi5BqBoKfCd57Y7R57HgX/AlqFGpVvipImlfjhJ6WY=
-X-Received: by 2002:a05:6830:4c18:b0:862:ca2e:918e with SMTP id 46e09a7af769-863152d09cdmr12157738a34.1.1795413874172;
-        Sun, 22 Nov 2026 22:04:34 -0800 (PST)
-Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631681f30asm7644864a34.1.2026.11.22.22.04.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:04:33 -0800 (PST)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Wei Liu <wei.liu@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Dexuan Cui <decui@microsoft.com>,
-	Yu Zhang <zhangyu1@linux.microsoft.com>,
-	Easwar Hariharan <easwar.hariharan@linux.microsoft.com>,
-	Jacob Pan <jacob.pan@linux.microsoft.com>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	iommu@lists.linux.dev,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>,
-	Jason Gunthorpe <jgg@nvidia.com>
-Subject: [PATCH v3 2/2] iommu/hyperv: Keep a new domain's page tables if it cannot be deleted
-Date: Mon, 23 Nov 2026 06:01:56 +0000
-Message-ID: <20261123060419.119078-6-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261123060419.119078-4-oss.patchbox@gmail.com>
-References: <20261123060419.119078-4-oss.patchbox@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fOY3WO/a
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=6VgZ8APOVsZATxmkMTLKbiBq2l/jRInYDz1+DuyOQ5g=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795413959; v=1; x=1796018759;
+ b=fOY3WO/a0soK8p+g8L6ox7ROdjzFom203CK50EmztSfjCy8r0eDGM4n2v4CioGRsEip99aUl
+ 0dP8zXe2iLIZN4C4qAUrhxSQEpoVQ+mPXcGZndI5e2v9Und3bLoczm/G6tQBPq/HDwByWjhd820
+ 3W1YJEmBU03UiJZMrTyEQEfE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a6b9e6724bc2b9ab;
+	Mon, 23 Nov 2026 06:05:59 +0000
+X-Mizu-Trace-ID: a6b9e6724bc2b9ab
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <75bc217d-585c-40bb-954e-cf6df80e24f2@linux.dev>
+Date: Mon, 23 Nov 2026 14:05:51 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,61 +58,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm: shrinker: stop counting when the seq buffer overflows
+To: Xuewen Wang <wangxuewen_ky@163.com>, akpm@linux-foundation.org,
+ david@fromorbit.com, roman.gushchin@linux.dev, muchun.song@linux.dev
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Xuewen Wang <wangxuewen@kylinos.cn>
+References: <20261120110538.3256962-1-wangxuewen_ky@163.com>
+ <57ef6b0f-e9eb-4484-b07f-63c848ffde4e@linux.dev>
+ <56dc7b93-604c-49bd-9e86-f519c7a90b97@163.com>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <56dc7b93-604c-49bd-9e86-f519c7a90b97@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-When hv_iommu_domain_alloc_paging() fails to configure a new device
-domain, hv_create_configure_device_domain() deletes the domain again,
-and the caller then frees the page tables with pt_iommu_deinit(). The
-page tables are freed even if the delete fails and the hypervisor
-still has the domain.
 
-The current Hyper-V implementation does not adopt the page table root
-when HVCALL_CONFIGURE_DEVICE_DOMAIN fails, so the page tables are not
-referenced in this case today. This change is defensive: it avoids
-relying on that while the hypervisor still has the domain.
 
-Create and configure the domain in hv_iommu_domain_alloc_paging()
-itself, and leak the page tables and the domain when the delete fails,
-as hv_iommu_paging_domain_free() does.
+On 11/23/26 1:45 PM, Xuewen Wang wrote:
+> 
+> 
+> 在 2026/11/21 19:10, Qi Zheng 写道:
+>>
+>>
+>> On 11/20/26 7:05 PM, Xuewen Wang wrote:
+>>> From: Xuewen Wang <wangxuewen@kylinos.cn>
+>>>
+>>> The shrinker debugfs count file uses single_open(), so all memcg rows
+>>> belong to one seq_file record. When the buffer overflows, seq_file grows
+>>> it and retries the entire record. Queries for subsequent memcgs in
+>>> an overflowing pass cannot contribute to the final output.
+>>>
+>>> Stop the traversal once seq_has_overflowed() is true, using the existing
+>>> mem_cgroup_iter_break() path to release the current memcg reference.
+>>> Leave the overflow state intact and return zero so seq_file can retry.
+>>>
+>>> Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
+>>> ---
+>>> In a single-node KVM guest with 1024 cgroups each caching 16 ordinary
+>>> files on ext4, the 8865-byte output required three show attempts. Count
+>>> callbacks fell from 3075 to 2472 (19.6%). With probes disabled, six 
+>>> fresh
+>>> guests per variant each performed 101 full reads. The median of guest
+>>> medians fell from 128.2 us to 112.2 us (12.4%, about 16 us per read).
+>>> Small and sparse outputs had unchanged callback counts. Complete output,
+>>> small reads and seek-to-zero rereads matched; concurrent memcg deletion
+>>> and signal interruption checks also passed.
+>>>
+>>> The successful pass still traverses the full list. Early exit skips
+>>> count queries for subsequent memcgs in overflowing passes.
+>>>
+>>> When overflow coincides with a pending signal, the original code can
+>>> return -EINTR in the current pass. With early exit, seq_file attempts to
+>>> grow the buffer first. The retry can return -EINTR, or buffer allocation
+>>> can fail first with -ENOMEM.
+>>
+>> Would something like the following work instead?
+>>
+>>           if (!memcg_aware) {
+>>               mem_cgroup_iter_break(NULL, memcg);
+>>               break;
+>>           }
+>>
+>>           if (signal_pending(current)) {
+>>               mem_cgroup_iter_break(NULL, memcg);
+>>               ret = -EINTR;
+>>               break;
+>>           }
+>>
+>> +        if (seq_has_overflowed(m)) {
+>> +            mem_cgroup_iter_break(NULL, memcg);
+>> +            break;
+>> +        }
+>>       } while ((memcg = mem_cgroup_iter(NULL, memcg, NULL)) != NULL);
+>>
+>> Thanks,
+>> Qi
+>>
+> Hi Qi,
+> Thanks for your review. I've modified and tested the patch following 
+> your suggestions, and will send out v2 shortly.
+> 
+> Thanks,
+> Xuewen
+>>>
+>>>   mm/shrinker_debug.c | 2 +-
+>>>   1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reported-by: Jacob Pan <jacob.pan@linux.microsoft.com>
-Closes: https://lore.kernel.org/all/20261105141427.00005946@linux.microsoft.com/
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Easwar Hariharan <easwar.hariharan@linux.microsoft.com>
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
- drivers/iommu/hyperv/hv-iommu-guest.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+LGTM, so:
 
-diff --git a/drivers/iommu/hyperv/hv-iommu-guest.c b/drivers/iommu/hyperv/hv-iommu-guest.c
-index aa1db9db1e97..0110a1529a23 100644
---- a/drivers/iommu/hyperv/hv-iommu-guest.c
-+++ b/drivers/iommu/hyperv/hv-iommu-guest.c
-@@ -540,10 +540,23 @@ static struct iommu_domain *hv_iommu_domain_alloc_paging(struct device *dev)
- 	settings.page_table_root = pt_info.gcr3_pt;
- 	settings.flags.first_stage_paging_mode = pt_info.levels == 5;
- 
--	ret = hv_create_configure_device_domain(hv_domain, &settings);
-+	ret = hv_create_device_domain(hv_domain);
- 	if (ret)
- 		goto err_pt_deinit;
- 
-+	ret = hv_configure_device_domain(hv_domain, &settings);
-+	if (ret) {
-+		/*
-+		 * The current hypervisor does not adopt the page table root
-+		 * when the configure call fails. Still, keep the page tables
-+		 * while it has the domain, as hv_iommu_paging_domain_free()
-+		 * does.
-+		 */
-+		if (hv_delete_device_domain(hv_domain))
-+			return ERR_PTR(ret);
-+		goto err_pt_deinit;
-+	}
-+
- 	return &hv_domain->domain;
- 
- err_pt_deinit:
--- 
-2.56.1
+Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+
+Thanks,
+Qi
+
+>>>
+>>> diff --git a/mm/shrinker_debug.c b/mm/shrinker_debug.c
+>>> index cafb566301326..3022d103b0b1e 100644
+>>> --- a/mm/shrinker_debug.c
+>>> +++ b/mm/shrinker_debug.c
+>>> @@ -74,7 +74,7 @@ static int shrinker_debugfs_count_show(struct 
+>>> seq_file *m, void *v)
+>>>               seq_putc(m, '\n');
+>>>           }
+>>> -        if (!memcg_aware) {
+>>> +        if (!memcg_aware || seq_has_overflowed(m)) {
+>>>               mem_cgroup_iter_break(NULL, memcg);
+>>>               break;
+>>>           }
+> 
 
