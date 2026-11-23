@@ -1,107 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455743;
-	b=AZpl1wQIglPtLFEtHVf5gs4he4PfB+rK8jIUidcccsvjNQhgcHAM0J//iHmRQTMoVpCq
-	 oc6gjejDyADAaVuWdN+wUYYLLSdLYhh6Nro8A7TvT0QnGHqnIeu/1PmfWz6n2tz2eplVI
-	 dYwQ7ySjoLb9pDc/jYLtZygbqd0K4BALqrFq8smr6r1F59uP6is4PVbW/X1Th47nps67j
-	 KgDS9rK2MDMPJq5y5J3kmcLncIW+bgtgseNj9qJXXRvmgj27r+B98DpwUt9KsQ6Ch2iGh
-	 TwUsOvaVwbb4krCpa/sAJzDAHgQ5+BSR758BBfLoeU4e6BaonWiXDB1q+bXgphDOQgg==
+	t=1795455748;
+	b=uxtK1wfv2YzZ/r7jAzwwc5bRTxvU4cXRMJg9ZW4sT+Yd2HOBlxMQWAYMmQqrgGR6zJKL
+	 EGPSC96pwC3mwMkBZamfELiGHu0rG8HstK3UJPnKcBXiwMJJ6JxgOtnSeYAiI8Ljfo3D+
+	 N/7WHXUskE9Ndo3ly1U/T4t+cvaUspxL1bitJoXCSf7v7eDghD6CBn5jdDXgk4ptg7NNK
+	 racaqye9Tpz/FFkgN9XoqVu+iK/29K6s5dcn+NGd2JaNcNwiY18yCjOj9CM3S00LPfNaE
+	 Am0WsMgZpxUHwlU1CBDqgJc6sZO5WYqtfm9WpR1z4hodtvasbAVYDJc3oDcWdv6DvTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455743;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455748;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=SIbteC45At9e/phHEDZccWeZUiRHWTYBk94KBVq+cmo=;
-	b=almH0SFaJl2+LwzAuDKPMoXgXv/UEP0fu5N2OpFkqm/XIjv2415rF+4jQJTDrOOX3hgL
-	 Dnz7zsMhIf7uiggY6bIpYPvXLMaWXpnBsBej2JuLcK+UayT6K1qSDppjSoXQSgFnrHyqq
-	 8bXdQ2MfqiWND4XzhoHtaRyzlqrpmiAwqCU3NoKRJYbpmI0FS3MnHIqra8N4BwSRdSUCl
-	 MtavxnNxgyeqYhCPsyKwAgEzcK7LS85nZQD1W5qH/iTCVe6h81yu2WfIZyx13Zkmk/+C3
-	 56fVxdrJMjpI6dwnFRBXWPz3DohNmR1ITNEn2hzZAz1pw3tLqQ19HhGhPlTTSXbnKPg==
+	bh=sjfp7sZFhOK52knRIHEyZ66Px2rvM9c24Jj9S6rf+y4=;
+	b=5MyiLviFWdRoAiHHHjmGT19FPXGB17lCBG1ziurlOejhGR+B9QBObCxLjesACmHnQlVW
+	 U/SPTMSOBLdwLdiLmR3oJ+F+BQs6H+uohzmzSiiPDoKpccYbSWB3R88M3T7k9gMUa871b
+	 0OInhb90r20V8rz0tl3Vfei6SnQhWqgK38paMwVunhaZBcnEHc8YS6pB0HlDFiIBvWAOS
+	 e+4wCIzCbafp/P2hucSbXiYHxgLUpYekHEvbJbRhLdrbq53U7BV08Sqroe3YHh3YvEiex
+	 FOEb6Id49wYMrDS02Y8rmwUOJkA8ev0KvKHVb3yKZssuy5vUpZhixAt38dfNoPAi8VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tKpIFAt9;
-	arc=none smtp.remote-ip=209.85.167.179
-Received: from mail-oi1-f179.google.com (mail-oi1-f179.google.com [209.85.167.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sh45LhTQ;
+	arc=none smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C134E606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:42:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C134E606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5456606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:42:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5456606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tKpIFAt9
-Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-56431524c22so1447680b6e.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:42:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sh45LhTQ
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b3acec6677so5075841c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:42:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795455742; x=1796060542; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795455747; x=1796060547; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SIbteC45At9e/phHEDZccWeZUiRHWTYBk94KBVq+cmo=;
-        b=tKpIFAt9r/n/Lm3zRG2Fua+r9rf03oSaVg2DYFl8RoxfbeETi+nlZ08m2+z+8x0NPR
-         PXPfezQizR0aMqw2hk812sf81/ImWF5pZ+cN4LTOyIM0eueCXq5lRREwzXChcpLP/m2M
-         bVdLbivyukZRb1n3z6yckW3Lm3cye/vASAHPJBzBiMjfi2slDyrZQ1o2kTpMvA2GMgik
-         b3kbLXTDngePv3Rb2C0h5Oydb+v9iR/lj3ntWKX6hxY35967N0w3pYkf9jXP3qwj0FlS
-         7enY/8iq/EhI+2BoVi0z04PvbSw6CSnPsWXVycSPJMohoVqRAmGB/WEutcwgVStBpe4r
-         S49Q==
+        bh=sjfp7sZFhOK52knRIHEyZ66Px2rvM9c24Jj9S6rf+y4=;
+        b=Sh45LhTQn15DZAS5X7oZivPkdPBVyFdRTaSbK4uSRSZCsF8joxtnrE/bZBDj73+mSn
+         hEQ++9/6jp0fwkZ9A9L/Wg7lhQlbFd+aPlOvwwRYIIFtlaW0zix2f8oKVfbBQuTvk8z7
+         0ASYKVHyW94I7ahgoQ9V2dRS44NIw4Y3a+g9dNDwDV4G4EPN7PH5s+A0Op16kHEFPKeu
+         Clxbx7eC6U8JUb+HqnbZLTDI0mLTK7/MSUE2oxmYRr6gqb5bXOR++tRjRjoInb8Z9hmz
+         KHV/KdIFSlOMhdAnIy8DTS8ds/hoeBvEbIT+axII0fEe7I/hhBqnGH1JL2QV8dKsi6DD
+         1GuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795455742; x=1796060542;
+        d=1e100.net; s=20260707; t=1795455747; x=1796060547;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SIbteC45At9e/phHEDZccWeZUiRHWTYBk94KBVq+cmo=;
-        b=Mu99UfPiYX11IG6iQwTw7DcQa2pk26Z8lIZ/i0U+7IxF8cRyqfezH79korTX0GVrkb
-         Fj/Ai5P4Uu3dmCGMlrwl/AeymIJOuEKNAMCElk3BtsWzZM+G5YzHvbTv4/q0dcNLSWCf
-         J26XKtDH8ngftmT61yZtEE+6KBr38MlzvGV1JnTwKu5Q3uAV0jERGBAbJm/+qoo9Slnn
-         /PsMxIE6nXGv7TnlEMf1ca40ulVjY9jkHE0tNPx2Plg8Ov9varoWsFC9un7JMopADWlw
-         Wepuf+IBbnNz39upqPC/MBsEhyjZDOuzF9ru5Jw8XMJbI8177Mg8TvuN4F5rCLYu3oqK
-         FnTw==
-X-Forwarded-Encrypted: i=1; AL+hErGe5ytZMybKwBmGk4lnpOUHSzcswwMIvd/5+HUe0vxVeWeqkdgu5KTTJRRs2DBntkqnAux3bNkJSz7LeWY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+hmZm+S7wbkihUBHupfSpfShqHbT8NZ8Z5GqaQ7TAFo7/aUBrv
-	uXQuvEuG9pKc8jahYPmyNQi8Ld4CbKycgwAm7/k+uUhZo9Zv5efV+nUx
-X-Gm-Gg: AZFdTZcXAczkHTZIksqLZjp0kauyITy16uicUJY3E50auFn0D90u/JCyzDsA/h1d8Mh
-	Hwj8dgVMkQJtCclfYSyKtPDbOKCCpAfBzDJDctBgwVSpz7UjSOzqf7JkAQhjccjhXgbwjvZcQxh
-	f084sg8PJBXeJjUDzBMbpVChG1alVUciCLq/L7LQ7Bz+mtUPv6NZQ68Fs5nCNHCetk5Td+nTHeh
-	T/ubYkUQm9Sw31d6dcvpzYuDZRZgij+EhVtCDUpHqLAf5qGYsUGdrRhmaUSNlZil/r47dILYJQV
-	l8wCkzew1cIDNnEB/Y0NIQVFcg3LY/GRr0zbXDrxgonWsMPFATdK6n/8hPGEniOQAadGJjKJpKh
-	lLIc29kFKeWxpn0aZgtBLJX6RyprI7UNCDNEzeDSDIIOluGaREhcMTWTbKabhinaXOTxg5lhk5U
-	yAbCFNfd85Yqv8JefHJ+5L6ejXWQP81eaBsp0c9e327KRR2buJKbqctljoljrpNnTirSAm/J1YA
-	fuWs3C6cuC84cjqloF6xts1kzw3LPPvj3qB0CGRcZihCFurhppbPEm8bIi2QXJ8LeCynsnT6Tc7
-	JOJDTTK1B1QjstPQva2lyHy6uZA4F/eYx4q7v97okNyvwPh/VfRRwFLFj3rbTG/tSEVNn1ooUbM
-	N/sN6FQ==
-X-Received: by 2002:a05:6808:1908:b0:571:b166:3d76 with SMTP id 5614622812f47-57a0ab2460amr14209938b6e.29.1795455741608;
-        Mon, 23 Nov 2026 09:42:21 -0800 (PST)
-Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5b07d57csm11240123fac.1.2026.11.23.09.42.19
+        bh=sjfp7sZFhOK52knRIHEyZ66Px2rvM9c24Jj9S6rf+y4=;
+        b=JF8qV+L2ZQ8IEMcGjz3KTS25JgdwKmCTb8+1whgrSZUB4H6njawY/x4w7pXyg3UObZ
+         DkFFs8uDEQLoA8bheumr3pDa5mk+OBQkUWmUshS+ZQoNRv+eILZtj78Nx3DcUm7SJib0
+         jmzUgi9OCVEYSCO6BJKR2SLRiZiKdaQE6iVMFnwIPqz54XVUYCwrglzKgoSC9qegFojw
+         PnNYU7h0HMDXEUZ313+/DSW0qmFlY1bN68VrzYH7QlV/zVBdwE3ykJevBUJfboWw+GU0
+         UOnmYLVNrrg/PHax9JdaviIyvPqEzeotcLYK7PDLd2bHaXfvgNaED7Q6jt6Oa58Vl0Ja
+         9SyQ==
+X-Forwarded-Encrypted: i=1; AL+hErHA1+Pd2dPpBeKnUGXVePXf/AzqHlHXZ3n6VVzypFl/pOFJNaQuqUK1JFaD+wrhJ1ML3vgowazecyUG6CE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9MZHqn/aXfben7n6sUPt3l1BrxZ4eYqjqnb3UmFhgxEpzYPIhJ
+	RzubMVbInRhlzgUU9CqBeYBfEb5iRa5UTOhL0fJRgZk8g5Rl4DQ0Dxlt
+X-Gm-Gg: AZFdTZeA6wm2y3nnRnczyUxBFRivAN/o0pufkowg8gPm15rZIsOX2gw3VtR4CsdzXfa
+	uZv0gCV2CG1ZwG2kOitYVG83MNsZwMUjNhxr0sX3AmabM0BLX/zBncVCXQIvfBVuxbAQxIJRsca
+	5zigoTWeKc/qeyIMVbH/Yc+yBdHWNYzo7TYIcT2h21QJipvDBmcZfdliddA7SSTtRD4Dxzlwbf+
+	P8Uad/PEvMVXgXUdrsjSpoksA10qlaE2md5J23JubC33Pc4Pw7p/RbcSvqQjh4J7qDS7uKsgnEi
+	JUW2Fxe8mF4I3+ygoDQgDB5vXwEvGp/0J6ktOM0WMzgUQJ2EKV/XuoQH+lTQbZZPmt3657bzf/W
+	Rex6QQgOTqlxsieGsBLRbZvNeDIfxzHzrQjuLI8O7mGIgQUB37LW0PRsWA9jEjqnsVtLNhLXsIY
+	6uynt1f1brgfAO3LOUfuNHkjK5ONmlLclQI7u82dDctgdQ1FX0K5JYHRVQIX4scAGCk70SbjyHZ
+	sJCM6vIWjPBmnR9JCIT6FBm3HH9wt1+3xoYhQSAfy/U+zMtTVMDC1sYOpljw/a0o7Mj9zFi8WPF
+	LdSsfKuOy8ZWx2SG79nPZbnLUi7Lc43yVw==
+X-Received: by 2002:a05:7022:f106:b0:1b3:afa2:2d7e with SMTP id a92af1059eb24-1b5567dab3cmr10210370c88.1.1795455746895;
+        Mon, 23 Nov 2026 09:42:26 -0800 (PST)
+Received: from ubuntu24.lan ([2a10:8744:ed6d:42a7:c0c5:ca32:d121:31bc])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm16613911c88.4.2026.11.23.09.42.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:42:20 -0800 (PST)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: andre.przywara@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org
-Cc: Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+        Mon, 23 Nov 2026 09:42:26 -0800 (PST)
+From: Yiyang Chen <cyyzero16@gmail.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Xin Zhao <jackzxcui1989@163.com>,
+	linux-rt-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Pablo Mazzini <pmazzini@gmail.com>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
-	Alexander Sverdlin <alex@sverdlin.org>,
-	Jun Yan <jerrysteve1101@gmail.com>,
-	Lukas Schmid <lukas.schmid@netcube.li>
-Subject: [PATCH v5 0/3] arm64: dts: allwinner: add A733/Cubie A7S support
-Date: Mon, 23 Nov 2026 12:42:18 -0500
-Message-ID: <20261121-a733-cubie-a7s-dt-v5-0@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Yiyang Chen <cyyzero16@gmail.com>
+Subject: [PATCH v2] softirq: Limit the BH count warning to RT BH lock users
+Date: Tue, 24 Nov 2026 01:42:11 +0800
+Message-ID: <4103eb7e6caea1afad16e5523ded3f2a30c40ee8.1795455101.git.cyyzero16@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,76 +101,73 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add initial Allwinner A733 and Radxa Cubie A7S device trees for the
-console, PMIC, microSD, LEDs and EEPROM. The Cubie A7A compatible is
-for Andre Przywara's forthcoming DTS:
-https://lore.kernel.org/r/20261122004008.0ee8e16d@ryzen.lan
+__local_bh_disable_ip() warns if a non-preemptible task first disables
+BHs while the per-CPU BH count is nonzero. Without the RT BH lock,
+this check can turn off lock debugging on a valid call sequence.
 
-Base: sunxi/for-next (2ba07dfcd45bb6ec414e68213620490548fd5aec).
-Previous version:
-https://lore.kernel.org/r/cover.1795034153.git.enzo.adriano.code@gmail.com
+With CONFIG_PREEMPT_RT_NEEDS_BH_LOCK=n, task A calls local_bh_disable()
+from preemptible context. Task B preempts A on the same CPU, disables
+preemption, and then calls local_bh_disable(). B therefore reaches the
+warning while the per-CPU count still includes A's BH-disabled section.
 
-Changes in v5:
-- 1/3: Add the Cubie A7A compatible.
-- 2/3: Keep one DynamIQ cluster, rename osc to hosc and add I2C0 pins.
-- 3/3: Add LEDs and EEPROM, simplify MMC0, describe the 3.3 V PF path,
-  and revise the PMIC rail descriptions, bounds and always-on flags.
+  Task A          Task B
+  ------          ------
+  local_bh_disable()
+    softirq_ctrl.cnt += SOFTIRQ_DISABLE_OFFSET
+    current->softirq_disable_cnt += SOFTIRQ_DISABLE_OFFSET
+  <preempted by B>
+                  preempt_disable()
+                  local_bh_disable()
+                    B's softirq_disable_cnt is zero
+                    preemptible() is false
+                    WARN on nonzero softirq_ctrl.cnt
+                    softirq_ctrl.cnt += SOFTIRQ_DISABLE_OFFSET
+                    current->softirq_disable_cnt += SOFTIRQ_DISABLE_OFFSET
+                  local_bh_enable()
+                  preempt_enable()
+  <resumes>
+  local_bh_enable()
 
-The hosc label also affects Vinicius's A7Z and Alastair's U-Boot import:
-https://lore.kernel.org/r/20261111134919.90264-3-vinicius.eduardo.pedrosa@gmail.com
-https://lore.kernel.org/r/20261113023236.569054-26-alastair@d-silva.org
+The warning relies on the per-CPU BH lock serializing BH-disabled
+sections on the same CPU. With CONFIG_PREEMPT_RT_NEEDS_BH_LOCK=y, A
+still holds that lock when B runs. Since B is non-preemptible, it skips
+the lock acquisition. The nonzero count then exposes B entering the
+section while A holds the lock.
 
-Runtime dependencies in application order:
-[1] AXP318W PMIC v8
-https://lore.kernel.org/r/20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com
-[2] Pinctrl IRQ-bank v3
-https://lore.kernel.org/r/20261025142412.112216-1-pmazzini@gmail.com
-[3] A733 8250_dw v2, patches 1-4
-https://lore.kernel.org/r/cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
-[4] Firmware-clock v2 for vendor-firmware warm reboot
-https://lore.kernel.org/r/20261112-a733-fwclk-v2@gmail.com
-[5] Pinctrl voltage-mode v3
-https://lore.kernel.org/r/20261109-a733-pinctrl-v3@gmail.com
+With CONFIG_PREEMPT_RT_NEEDS_BH_LOCK=n, there is no BH lock for B to
+bypass. The same nonzero count simply records A's active BH-disabled
+section, which may legitimately overlap B's.
 
-The A7S DTB and schema checks use [1] 3/5, [2] 2/3 and [3] 3/4.
-The runtime build uses context adjustments for [1] 5/5 and [5]
-after the regulator allocation and IRQ-bank changes.
+Guard the warning with CONFIG_PREEMPT_RT_NEEDS_BH_LOCK for as long as
+the lock is optional. If the lock is removed, as discussed earlier,
+the check can go away with it.
 
-Validation: clean application of the mail patches, arm64 defconfig
-Image, arm/sunxi.yaml binding check and warning-free A7S
-W=2 CHECK_DTBS=y.
-
-On a Cubie A7S, a RAM boot with vendor firmware, this DTB and the runtime
-dependencies above reached a responsive console and probed the PMIC.
-Pre-boot U-Boot selector reads put every bounded rail within its bounds;
-none changed at registration (sysfs at about 1 and 91 seconds, and no
-regulator "Bringing" messages). At about 32 seconds unused-regulator
-cleanup disabled DCDC4, BLDO1, BLDO2 and CLDO2; DCDC9, SWOUT1 and
-CLDO5 stayed enabled through their users, and the console remained
-responsive. MMC0 enumerated the card in High Speed, with a 50 MHz clock
-tree reading, and completed a 4 MiB read; its data was not verified.
-Both LEDs registered: green:power was on with trigger none, blue:status
-was off at sampling with heartbeat selected. AT24 registered the 2 KiB
-EEPROM with its WP GPIO; topology sysfs showed one cluster. A warm
-reboot returned to vendor firmware. Not tested: early and repeatable MMC
-reads, MMC ios, SD writes, hotplug and 1.8 V switching; EEPROM contents,
-writes and write protection; visible LED operation; physical rail voltages
-and CPU/cache topology; PMU counting, EL2 interrupts, ITS/MSI, stimulated
-PMIC/NMI interrupts, suspend, power-off and other boards.
-
+Fixes: 3253cb49cbad ("softirq: Allow to drop the softirq-BKL lock on PREEMPT_RT")
+Link: https://lore.kernel.org/lkml/20260310115534.3477871-1-jackzxcui1989@163.com
+Signed-off-by: Yiyang Chen <cyyzero16@gmail.com>
 ---
-Enzo Adriano (3):
-  dt-bindings: arm: sunxi: document Radxa Cubie A7A and A7S
-  arm64: dts: allwinner: add A733 SoC description
-  arm64: dts: allwinner: add Radxa Cubie A7S board
+Changes in v2:
+- Clarify the description of the timing diagram.
+- Add the Fixes tag.
 
- Documentation/devicetree/bindings/arm/sunxi.yaml  |  10 +
- arch/arm64/boot/dts/allwinner/Makefile            |   1 +
- .../boot/dts/allwinner/sun60i-a733-cubie-a7s.dts  | 331 ++++++++++
- arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi    | 663 ++++++++++++++++++++
- 4 files changed, 1005 insertions(+)
+v1: https://lore.kernel.org/r/d9554bee441d2c763ef8d61e966a7a471915bbee.1795372382.git.cyyzero16@gmail.com
 
-base-commit: 2ba07dfcd45bb6ec414e68213620490548fd5aec
+ kernel/softirq.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/softirq.c b/kernel/softirq.c
+index 7fc2200392cd..f64f6b594951 100644
+--- a/kernel/softirq.c
++++ b/kernel/softirq.c
+@@ -195,7 +195,7 @@ void __local_bh_disable_ip(unsigned long ip, unsigned int cnt)
+ 
+ 			/* Required to meet the RCU bottomhalf requirements. */
+ 			rcu_read_lock();
+-		} else {
++		} else if (IS_ENABLED(CONFIG_PREEMPT_RT_NEEDS_BH_LOCK)) {
+ 			DEBUG_LOCKS_WARN_ON(this_cpu_read(softirq_ctrl.cnt));
+ 		}
+ 	}
 -- 
-2.53.0
+2.43.0
 
