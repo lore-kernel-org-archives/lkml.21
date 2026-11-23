@@ -1,64 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.177.127.194
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461332;
-	b=ePJ1ltxPJRR//y4PJaM9a9O7tdj6RzAOlJlzgZ5Pc+zbsQsFiLUgTXhRri8FM6mqwgWX
-	 ceoIlDcXw0TQiHppcXmoU0j1gxSejSlO+THm+82DefwDbMGOjSsbz4KrNaRo9lPT2gVh9
-	 6blPkI3WMhh46x0addgra/wgc49UOBo/3hhl3ZuGKr6onFBLUGwUKIzQydWR6ldqncbud
-	 /fgJb7qQKShz0n7oWzRfPxYUBSCvSSjLxpVmonSDBwvGsaBJI7qgBUXSeWWVexFLsDwoX
-	 PcjLQIA+F8AHmD/AzW8883Zh+sT689bB9cS+xSAIfnsWm2FGU2U8rdEXpxbKmPulXjg==
+	t=1795461337;
+	b=Zrz9tcxOXCQ3+8DeTK3cMZQX/Roxf3T6zuGS0a7smXgETJ0UXpxhJTjyZIiuMMWlGOdX
+	 hfjFaIgB1VAI2mHZABdzdI1eBakamOCPrF4v3/BhNAQZVC20N0pDMAT2JXpPhW6BQLFls
+	 HKFF5sEfrCi3yrRZt5Di46Y3bzXySzE8bRqFWma/NjrOHUvIjjyTmtrFFTKVs7Ex083QO
+	 IAP/K7cKBhkWnHxjf0Busj9KF9JAomU9asekeMGJI2wakgqLgBF0ePFYzTMf+TyilhDBc
+	 uQ6mBls0VI6ddV93vAiSjq7TFS3CBRfb/DkbjY1iN8HwYRGIrVbSw4FTcthXIhl2fxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461332;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Envelope-From;
-	bh=ZGoQIJfWER74Lse2hNucFJ7/DwQhKg86bX5l6vAf1lY=;
-	b=HheCq25+sYuLM6fBjkFDJ5DhuvsLAgwGXpyDLrOv/SW3xyNxv+IGF1f/6Fb7OVfGm1TB
-	 QGamUDnRMvTaeKQfRhHMcHq07HslJUhACvGrbYrnYI42200dxZe2L5xkGF9y64bUkdTY6
-	 hVhYFZDcplmbKtCn/1YVAp901R+E/fOR6KwNAKmCwon+3CHmnpy57lsGhy8Uyh/jlGJZi
-	 6HdpkD2KIEIc42gmGaTYfLd37/ruVQJxtgvN/pQbinF7NcKAY24Gj0LBbMenERYbw7PQC
-	 cvDGkLbww9aCDnPbAHajc1tjbP8j11hUAF/1WHj6SjcoMfipf21cY04M9QJHX+g8abA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461337;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=xIfLP4TvL3JwjjTh8/f5cPWGdzjswtvoPPK4nfCYMWc=;
+	b=TDpvMdXo3g3sVFxLfUSZ9GKQoMmHb1pEPkDm75MMFUP+Qtdzuhz5Zu9K7bEM5qCZImAi
+	 iZxaqjDphZi5yeV2iyjO3eL6oE1w78oT3XmFqTVbxA1NoorXsKPnvSh33RdIKwzsrqEGt
+	 XfKbeLtb0N5b+A2EKfWG9kJoJuBPUaBe5YA8eLtEn94mobIvaynACP43yqkWR9qGlobIa
+	 d3+5LDfTan3BPzKwJrrTy6OGibanX8db/4f7VdlroBhn2mu6QXxxi1WFZY0tFzqGf11zp
+	 QDIZ2FQtv8TWSoauDm+/ZWqsc/mWoPPTUR1o9Zr8RqiJjoTdZ4KWBBpFgkMz5l5Cvzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrispinetinega.com;
-	spf=pass smtp.mailfrom=chrispinetinega.com;
-	dkim=pass header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=CMlWzdIG;
-	arc=none smtp.remote-ip=198.177.127.194
-Received: from out-utut-a194.jellyfish.systems (out-utut-a194.jellyfish.systems [198.177.127.194])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b="Yw9w/oFP";
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53C1E606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:15:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53C1E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chrispinetinega.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrispinetinega.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA1E2606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:15:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA1E2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=CMlWzdIG
-Received: from mail.privateemail.com (unknown [62.8.90.37])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.privateemail.com (Postfix) with ESMTPSA id 4jYFy44Qqxz2x9V;
-	Mon, 23 Nov 2026 19:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chrispinetinega.com;
-	s=default; t=1795461311;
-	bh=ZGoQIJfWER74Lse2hNucFJ7/DwQhKg86bX5l6vAf1lY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=CMlWzdIGl7oKUumU5vBvLW8Tu2NprrIBUvXKfkPfBf4UGrHN4nUYkx7pbhtkaSQKY
-	 mzd3yFx7WTu5D7ZzDyuJo1yu3EFi51zyh4u3RLazbJlIvZP++hJbzehudj5n1ly8lc
-	 U7nokRS+6ND0t/C4p5VL0hBbwllc6zFKz2EauPV6BiWCNVvweiU2Zbv4yr2wbLzs3t
-	 zYmW3tcjbEWJP8Nv5eP/Q5jZZ6quY60l0z7MSyvyc78PxJMlX83iTT0VjzWeTaIDgL
-	 yiiQqyyamLLOHSaBq2fbRW+UgyD1PW8/t0gRn4Ln6QVOqr6gviZ0fMlyzuCHgPjYd3
-	 yPKwaq9OI8xzw==
-From: Chrispine Tinega <dev@chrispinetinega.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Chrispine Tinega <dev@chrispinetinega.com>
-Subject: [PATCH v2] rpmsg: char: Drop messages that arrive while the device is closed
-Date: Mon, 23 Nov 2026 22:14:53 +0300
-Message-ID: <20261123191453.1172967-1-dev@chrispinetinega.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Yw9w/oFP
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c513a854320so608923466b.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:15:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795461335; x=1796066135; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xIfLP4TvL3JwjjTh8/f5cPWGdzjswtvoPPK4nfCYMWc=;
+        b=Yw9w/oFPvu1PiV1BgkmCGryn2el2h9iRZiwF2ZZQabr6uvBx3tSqIO2BIQHm4bMbMm
+         0NQz0A7VWEQbud0xnpdQwkTNaht6/T9qdjLs92+dt4AL2/Lje3glJZcAnXzImjgjqZ1u
+         dH22HOfxIz01XPg4T+wG6v26vqwQ+tzDd1mNY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795461335; x=1796066135;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xIfLP4TvL3JwjjTh8/f5cPWGdzjswtvoPPK4nfCYMWc=;
+        b=upsNOYUq/1db1EdK7nSwIxlw6qIqeRJo3Sr/x7Bu0zeICqIBPF8ibcEB1muIG3bnS3
+         KnlAreruNpfCwsaIUpOrxgVwXY/3EorJ4nv+71Fn8EYOkgsvY5VkAFiZW40HVSBzvolk
+         mEj0NdPh/aYpDssumXN7zwWOwNTNxjPc8PPfIsftflhzb3fdQ75650EJp4BF8w2sxx4L
+         7rit1dgJY1cFLdPdZez6rwvum+JBEKZllUsOpjrhH93lP36rAjieFk0gRwbg9FJXD7oI
+         Llf0bcYKdlVGPkvCzHmuNa93vxbCtHXTUuMaylNuSxMe5mIiNg7Ll0Jc/p9vYbtvtnk/
+         v2Hg==
+X-Forwarded-Encrypted: i=1; AL+hErHpSXnmkLAx7+jvPr0j//IYSnK51mry3QsU8CnSvvc9KFvrVY0yNprPT/F5cMPVi/p1X3q/pw0hJ865xQo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/A3RjJnwfe7awQp8RrelIjG1a3IzU60xli5lI3+H3vXvLfMBEk
+	HcggoqZTqDd/Ct1zJZVXFzuEEIg8jiVzl/S3v0Dc2RuvfB7j9F5N9RXHNeDiNG3q0KTJFchbJMd
+	PYf1WCcfE
+X-Gm-Gg: AZFdTZcmqS/4yT7Qd6uoTQ6HLL/arV4WJL/WfwcXjSCqhbsdOUuoTkVxDzT9tSxrz03
+	MaJL4fOYPQxLMuLhfTePMX5iMek5F6RkROhatIT+sxXLP7KszGcO+02Gk5J5HswZoWspRf3oUjc
+	Hc2RjzO3sU5y8O19P3sOL15QkwxSh8QfgQmb4IwI9eqqxmR9LY/boFZPDaBsHeyU/2NWcEPVv2V
+	5QkpN99m2l/lqg1+TCRiK0PJwlrEpUqvILepIHzsUGgtjYj4VCWoDZy9ROwuQb114dC8Ygzp9nL
+	IMqxf77l3MufGrDX/lwzppROuXxPtnE4PQDZnHcl79DRGN1wuIGauXT34UuIzDKQCyyzITNjKwx
+	2xgZOX/Kzta+LvgYgkbG6VmojGlMQjG9WYmfKfMxDbXVxqH4YIn5CW+5Fhz2um1/X4wDAGN24NI
+	2+HKXqijQIZd1KqsCoaZsrs7wWrpIFnf+ZeTrpC1OGyE5dGC3c/OQNlnMHU6qzzTPuiQ1uCECJ+
+	MbDMNlwq6/DgUMWIC8RYRUWvndFtJn/1IB5dHowxKEA/U5dIqrTnG4d3+AVfcibMuu1U25aHqV9
+	JxE6ZdPxjeP+8HaNJ/2BmBK/2Sr7PXhJLc02BKeAnZTveCGOns7rOPEQy+uT1tc/gmsU
+X-Received: by 2002:a17:906:1b15:b0:c40:6ed9:b962 with SMTP id a640c23a62f3a-c513a9ab46cmr811631966b.26.1795461335022;
+        Mon, 23 Nov 2026 11:15:35 -0800 (PST)
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com. [209.85.218.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afed607sm432819266b.77.2026.11.23.11.15.34
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 11:15:34 -0800 (PST)
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c51373ae637so563490466b.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:15:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHb7XrmSxijj164CrfC7ijcnZHvqH78GIJnzE2HsDJcK2sqp1bAQ5wSZCGnepGNZM9/L9Z90547UjL5oqk=@vger.kernel.org
+X-Received: by 2002:a5d:5847:0:b0:49d:1ce3:1849 with SMTP id
+ ffacd0b85a97d-4abb47b2449mr22428102f8f.21.1795460833131; Mon, 23 Nov 2026
+ 11:07:13 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,157 +94,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Envelope-From: dev@chrispinetinega.com
+References: <20261116205320.1621386-1-dianders@chromium.org>
+ <20261116205320.1621386-9-dianders@chromium.org> <20261118095418.51d30ee8@pumpkin>
+ <CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com> <av6J47fOAYxejSgr@gractus.seuss>
+In-Reply-To: <av6J47fOAYxejSgr@gractus.seuss>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 23 Nov 2026 11:07:01 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=UQ-LSqJ0m4h3nvatYOV6Jc_gezOb+SHTzUcx2twytEaA@mail.gmail.com>
+X-Gm-Features: Aa3M54rVuIOpXpREPYHEaLP2UUxHM1aMZ8x1gcb9luvKIP99K21qY4Li68E5VW0
+Message-ID: <CAD=FV=UQ-LSqJ0m4h3nvatYOV6Jc_gezOb+SHTzUcx2twytEaA@mail.gmail.com>
+Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with memchr()
+To: David Gibson <david@gibson.dropbear.id.au>
+Cc: David Laight <david.laight.linux@gmail.com>, Devicetree-compiler@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Saravana Kannan <saravanak@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org, 
+	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Julius Werner <jwerner@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-A char device bound to an rpmsg channel reuses the channel's default
-endpoint, and that endpoint stays bound when the last file is closed.
-rpmsg_ept_cb() keeps running and appends an skb to eptdev->queue for
-every message, with no limit. The queue is purged only on release, so
-nothing frees it while the device stays closed.
+Hi,
 
-An endpoint created through RPMSG_CREATE_EPT_IOCTL does not have this
-problem: it is destroyed on release, and messages sent to it while the
-device is closed are dropped by the bus.
+On Wed, Nov 18, 2026 at 9:38=E2=80=AFPM David Gibson
+<david@gibson.dropbear.id.au> wrote:
+>
+> > Agreed. Since `p <=3D last` (`strtab + tabsize - (slen + 1)`), `p[slen]=
+`
+> > is always in bounds, and checking `!p[slen]` (i.e. `p[slen] =3D=3D '\0'=
+`)
+> > before `memcmp(p, s, slen) =3D=3D 0` cuts the `memcmp()` call count acr=
+oss
+> > that 855-string replay from 187k down to 14.3k (the exact same 14.3k
+> > `memcmp()` calls you'd get from scanning for `'\0'` with a `*p =3D=3D *=
+s`
+> > pre-check, just with half as many `memchr()` stops).
+> >
+> > Timing 200 replays of that 855-string (11,259-byte) Qualcomm
+> > `dt_strings` block with `gcc 15.2 -O2` on x86_64:
+> > * Original (per-byte `memcmp`): 3.45 s
+> > * Scan for `'\0'`, `memcmp(nul - slen, s, slen)`: 0.45 s
+> > * Scan for `'\0'`, `*p =3D=3D *s` then `memcmp`: 0.36 s
+> > * Scan for `s[0]`, `memcmp` then `!p[slen]` (merged `c954f9dd8357`):
+> >   0.27 s
+> > * Scan for `s[0]`, `!p[slen]` then `memcmp`: 0.21 s (~20% faster)
+> >
+> > Since you already applied this patch to `main` (`c954f9dd8357`), so
+> > I'll include a 1-line follow-up patch swapping the check order (with
+> > `Suggested-by:` you) in v5.
+>
+> Uh.. "you" seems to be referring to two different people here.  I
+> applied the patch, David Laight suggested the optimization.
 
-On a TI AM62x whose M4F core sends about four 64-byte messages a
-second, kernel memory that cannot be reclaimed grew by 2.2 MB in the
-10 minutes the reading process was stopped, about 850 bytes a message.
-At that rate a reader that is down for a day holds about 320 MB.
+Whoops, that's embarassing. I definitely glazed over the last names.
+Who could have expected two people named David?!? I will read more
+carefully.
 
-Drop messages for a default endpoint while eptdev->ept is NULL, as the
-bus already does for an endpoint that does not exist. Non-default
-endpoints are not checked here because a transport may invoke
-rpmsg_ept_cb() from rpmsg_create_ept() before rpmsg_eptdev_open() sets
-eptdev->ept.
 
-Hold eptdev->queue_lock (irqsave) around the check and enqueue in
-rpmsg_ept_cb() and around updates to eptdev->ept, and purge the queue
-in rpmsg_eptdev_release() before releasing eptdev->ept_lock. This
-prevents an in-flight callback from enqueuing an skb after release has
-purged the queue, and prevents a concurrent open from racing with the
-purge. Release already discards whatever the last reader left unread,
-so delivery across a close is not something a reader can depend on
-today.
+> Fwiw, since this further optimization is essentially free in terms of
+> code complexity, I'm certainly happy to apply it.  I am absolutely not
+> keen on further micro-optimization of this.
 
-Fixes: bc69d1066569 ("rpmsg: char: Introduce the "rpmsg-raw" channel")
-Signed-off-by: Chrispine Tinega <dev@chrispinetinega.com>
----
-Changes in v2:
-- Scope the drop check to default endpoints (eptdev->default_ept),
-  so initial messages arriving during rpmsg_create_ept() for a
-  non-default endpoint are not dropped before eptdev->ept is set.
-- Synchronize eptdev->ept updates and the rpmsg_ept_cb() check/enqueue
-  under eptdev->queue_lock (irqsave), and purge eptdev->queue in
-  rpmsg_eptdev_release() while still holding eptdev->ept_lock, so an
-  in-flight callback cannot queue a stale or leaked skb after purge.
-- Rebased onto rpmsg-next (965089d20).
+OK, fair. Do you want me to drop the 1-line patch from my v5 draft
+then? It's basically this:
 
-v1: https://lore.kernel.org/all/20261115110040.363306-1-dev@chrispinetinega.com/
+-               if (memcmp(p, s, slen) =3D=3D 0 && p[slen] =3D=3D '\0')
++               if (p[slen] =3D=3D '\0' && memcmp(p, s, slen) =3D=3D 0)
 
- drivers/rpmsg/rpmsg_char.c | 31 ++++++++++++++++++++++++++-----
- 1 file changed, 26 insertions(+), 5 deletions(-)
+While it is a micro-optimization, the code is no harder to read so it
+feels like a nice free speedup. ...but fine to drop it, too. ;-)
 
-diff --git a/drivers/rpmsg/rpmsg_char.c b/drivers/rpmsg/rpmsg_char.c
-index d8868faac..c03b7a424 100644
---- a/drivers/rpmsg/rpmsg_char.c
-+++ b/drivers/rpmsg/rpmsg_char.c
-@@ -77,6 +77,7 @@ struct rpmsg_eptdev {
- int rpmsg_chrdev_eptdev_destroy(struct device *dev, void *data)
- {
- 	struct rpmsg_eptdev *eptdev = dev_to_eptdev(dev);
-+	unsigned long flags;
- 
- 	mutex_lock(&eptdev->ept_lock);
- 	if (!eptdev->rpdev) {
-@@ -89,7 +90,9 @@ int rpmsg_chrdev_eptdev_destroy(struct device *dev, void *data)
- 		/* The default endpoint is released by the rpmsg core */
- 		if (!eptdev->default_ept)
- 			rpmsg_destroy_ept(eptdev->ept);
-+		spin_lock_irqsave(&eptdev->queue_lock, flags);
- 		eptdev->ept = NULL;
-+		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
- 	}
- 	mutex_unlock(&eptdev->ept_lock);
- 
-@@ -108,19 +111,31 @@ static int rpmsg_ept_cb(struct rpmsg_device *rpdev, void *buf, int len,
- {
- 	struct rpmsg_eptdev *eptdev = priv;
- 	struct sk_buff *skb;
-+	unsigned long flags;
- 
- 	if (!eptdev)
- 		return 0;
- 
-+	spin_lock_irqsave(&eptdev->queue_lock, flags);
-+	/*
-+	 * A channel's default endpoint stays bound while the device is closed,
-+	 * so this callback keeps running. Queuing now would grow the queue
-+	 * without limit until the device is opened again. Drop the message.
-+	 */
-+	if (eptdev->default_ept && !eptdev->ept) {
-+		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
-+		return 0;
-+	}
-+
- 	skb = alloc_skb(len, GFP_ATOMIC);
--	if (!skb)
-+	if (!skb) {
-+		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
- 		return -ENOMEM;
-+	}
- 
- 	skb_put_data(skb, buf, len);
--
--	spin_lock(&eptdev->queue_lock);
- 	skb_queue_tail(&eptdev->queue, skb);
--	spin_unlock(&eptdev->queue_lock);
-+	spin_unlock_irqrestore(&eptdev->queue_lock, flags);
- 
- 	/* wake up any blocking processes, waiting for new data */
- 	wake_up_interruptible(&eptdev->readq);
-@@ -149,6 +164,7 @@ static int rpmsg_eptdev_open(struct inode *inode, struct file *filp)
- 	struct rpmsg_endpoint *ept;
- 	struct rpmsg_device *rpdev = eptdev->rpdev;
- 	struct device *dev = &eptdev->dev;
-+	unsigned long flags;
- 
- 	mutex_lock(&eptdev->ept_lock);
- 	if (eptdev->ept) {
-@@ -180,7 +196,9 @@ static int rpmsg_eptdev_open(struct inode *inode, struct file *filp)
- 	}
- 
- 	ept->flow_cb = rpmsg_ept_flow_cb;
-+	spin_lock_irqsave(&eptdev->queue_lock, flags);
- 	eptdev->ept = ept;
-+	spin_unlock_irqrestore(&eptdev->queue_lock, flags);
- 	filp->private_data = eptdev;
- 	mutex_unlock(&eptdev->ept_lock);
- 
-@@ -191,19 +209,22 @@ static int rpmsg_eptdev_release(struct inode *inode, struct file *filp)
- {
- 	struct rpmsg_eptdev *eptdev = cdev_to_eptdev(inode->i_cdev);
- 	struct device *dev = &eptdev->dev;
-+	unsigned long flags;
- 
- 	/* Close the endpoint, if it's not already destroyed by the parent */
- 	mutex_lock(&eptdev->ept_lock);
- 	if (eptdev->ept) {
- 		if (!eptdev->default_ept)
- 			rpmsg_destroy_ept(eptdev->ept);
-+		spin_lock_irqsave(&eptdev->queue_lock, flags);
- 		eptdev->ept = NULL;
-+		spin_unlock_irqrestore(&eptdev->queue_lock, flags);
- 	}
--	mutex_unlock(&eptdev->ept_lock);
- 	eptdev->remote_flow_updated = false;
- 
- 	/* Discard all SKBs */
- 	skb_queue_purge(&eptdev->queue);
-+	mutex_unlock(&eptdev->ept_lock);
- 
- 	put_device(dev);
- 
--- 
-2.53.0
-
+-Doug
