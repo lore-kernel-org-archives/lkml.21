@@ -1,81 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430620;
-	b=V2DdGBYx4T590UUjWonUtupVfItdZRhfxnGO82bylsIyHVx2BhfyV08HpEeIxd8or1Pm
-	 iLU7PPpybbNujFADDO5eAannxa0u1yL59AVL7lrzeMDZ11Pi1QLYErLyIC8Ocf28eyQ3X
-	 +qXZyN60jENiCuCubrcQVbQs4YOvUiutxOrH/7mJz3m2xs8a31lWojOr7MAqYwzjzC1U5
-	 BhJRDvYqa/hyV1X1TxrVML52iCHFSu8zlYfkotsGY5tQdjaOWalSWHaKZylMWFDE7j5Se
-	 3uuPtCezVeJzyif0kxcN7y4vyMHC0tf2fYEpA7C51pkLjC8cpKV0IkvKxgoYjO3MStg==
+	t=1795430711;
+	b=vUjSfQUXc1oXATIab1qkPyzCcbrUodka0nHz3iNig/1S4VghhfnMO+PhdsgnjI7VwdJ9
+	 g2o4zFFbG8+jwADOjTfG8K8LRTPNgyKATeqwNcevS/LN2QN+vM8B0z3/JfHY3QWIeDrsW
+	 4K6sizByR4C5cVfFbq8Yu0qmmEY6IoboV1VBuX10DJvIQ7MWuQLr876ABrfCS63ihHMz/
+	 7bP3qwZMp9R+abQ2gw14QqCFUQKjL30zbZARDQIDEbjF5MHToX3Y1LP3l3NU1mYWiyI3n
+	 OIb0Hhwsx8S1kpjtBK5SQR2fPWeP4r71KRDXrjSm+thE5o2DpEVECZRmAvJysfkaEmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430620;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=u75N2UHCo0Q1IQlaoRk+wtzVKvHVQ52rjy0wDjruBvY=;
-	b=dcj+b1l68Ri2L9F0OiEt0TSvFKOBtOzLyMnaoJ7JYIRO1TF2blvR9s+N2h3Qex2Y7070
-	 Xtv4QEYCICywDkGJt8YqapsU7gckLBzCEAOwwoYoeKBccAMj0nY4ScBEbjyaDq1wVwNaX
-	 t7D/Nth954kxBiUh8lbM2VCrEf8TSwWEIblQvQbhprRcl9xrpJoGzEH+m47sM2dCQ2aqa
-	 see3tjhDyw+cg3RLK9Vdkheh9GepLj3sYTT93Bg+JFHAMJZyqqaY0S/5i+NzlnH6hKZH3
-	 BV9V6MFxsBPTx4t9IVjdG3VY4rsbdPw3yca1wsQhn8q/AOTwZ2+NRoS4jHvbfJZXGJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430711;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=WE6ErQRgC8wJSMhBoOsm1vUlEXt3CzOEmJvfGzWVO2U=;
+	b=1TpbsschuhYFFWey6FVeGPOP9K/p3kGGRkOTQhVsu2bCxlDxLE9ZqzgrSsywgJ4g+Dkf
+	 zaDN6Z5SyAM4QZKmN4I/W/IhrPdoI0TxFZ51ggdV+5jnhu6bk4rMzoQJeNeHYEt4c9F1+
+	 s+8rZ6P7nCI/mlBD1gRuaG36NvyRcsJorBY2weBZW3+PgfzmvyWzgQWy9EWRbgV4WsSLC
+	 BPuPSC5rcEdb1mxf+mQ4xg8Zuak2q+2231lVkwcNyQVbGg7ehmx8GIGWCTooY2UJ/hVss
+	 a3OBFEXUrwTv3YUSIxViyCosX6c7uDFLent/OtDWyoNbi1kHKU6fHkloSjtZiuUT/3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=GMFzn4c6;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E28B4606A68F;
-	Mon, 23 Nov 2026 10:43:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E28B4606A68F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q9O01lhF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBFB4606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:45:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=GMFzn4c6
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8AF711476;
-	Mon, 23 Nov 2026 02:43:36 -0800 (PST)
-Received: from e122027.arm.com (unknown [10.57.63.212])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CBC023F632;
-	Mon, 23 Nov 2026 02:43:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795430619; bh=XPK8ICnszazWaOOfoo2WmCdjdXKFyVejf/EIua6bpzE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GMFzn4c6f/tEnXI1562O6v0JYndteS9LFOgaoMftuMVWOj6JNgVH3OPtiNvEwHJ34
-	 iQ6rrjFbYCPDhl/2rSmibPVl+pIoEf684sZIxj80ChFR3ul7nWFZ7ZgVsdT9sr5zgR
-	 OUsd/lukwjTYuppHOw5URnMz9O4SQjsV7+cX9v4U=
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Kohei Enju <enju.kohei@fujitsu.com>,
-	Steven Price <steven.price@arm.com>
-Subject: [PATCH v4 11/11] KVM: arm64: CCA: Add Realm stage-2 MMU operations
-Date: Mon, 23 Nov 2026 10:42:31 +0000
-Message-ID: <20261123104233.95710-12-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123104233.95710-1-steven.price@arm.com>
-References: <20261123104233.95710-1-steven.price@arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q9O01lhF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553C41F000C0;
+	Mon, 23 Nov 2026 10:45:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795430710;
+	bh=WE6ErQRgC8wJSMhBoOsm1vUlEXt3CzOEmJvfGzWVO2U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Q9O01lhFujjJBzBnuEnYazam8NAPmXlSLSSX03JtBPh6GqA3cPeDKAm8z6wPKpqB3
+	 fjC5Txx4MYsYS2Knk9pIU+9WODPuyfMi+1N7WMo3rUJv6R/2Qye1j/tJX9iG32SAXf
+	 2E190GHwZW/jQdLxQXjvDQjOIlJol5BHZEYsbOy1vESrQuYhg9T9Wm2yY+ifjiqF/w
+	 nom7G1BIg0QJHu9GZZ8UUbvnJTV1HUuAKorJip5Ak45giyVzAnqLcnYe9BhgLAH3Q8
+	 TJGJnXQfFvo3YEjri1KFoyXUDEUXZdZ/WiouMhTHHEYV98Qs1Tm8trdIlGnhcs+Jh8
+	 7YTl0GImMCC2Q==
+Date: Mon, 23 Nov 2026 11:45:08 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: michael@amarulasolutions.com, linux-amarula@amarulasolutions.com, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 1/8] drm/bridge: Add atomic_sro_install_state hook
+Message-ID: <awQZEEqMK7bZ8dEq@houat>
+References: <20261122153032.2782768-1-dario.binacchi@amarulasolutions.com>
+ <20261122153032.2782768-2-dario.binacchi@amarulasolutions.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,135 +62,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="sqipkz2e5yi745k7"
+Content-Disposition: inline
+In-Reply-To: <20261122153032.2782768-2-dario.binacchi@amarulasolutions.com>
 
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Register the Realm stage-2 MMU operations now that the RMM mapping
-and unmapping helpers are available. Route unmapping through the
-RMM, and use the Realm-specific fault handler for Realm memory faults.
+--sqipkz2e5yi745k7
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RFC PATCH 1/8] drm/bridge: Add atomic_sro_install_state hook
+MIME-Version: 1.0
 
-The RMM handles TLB invalidation when stage-2 mappings change, so
-the host has no separate TLB flush to perform. Realm stage-2 does
-not support access flags, including for shared IPAs.
+Hi,
 
-Realm teardown destroys non-root RTTs through RMI, so the Realm
-stage-2 destruction callback frees only the root RTT pages.
+Thanks a lot for looking into it :)
 
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Steven Price <steven.price@arm.com>
+On Sun, Nov 22, 2026 at 04:30:01PM +0100, Dario Binacchi wrote:
+> The CRTCs, planes, connectors and private objects can acquire the
+> resources needed to keep the hardware state active when a state read
+> out from the hardware is installed. Bridges can't, even though they
+> usually hold a runtime PM reference and track their enable state
+> while the pipeline is active.
+>=20
+> Add the atomic_sro_install_state hook to the bridge funcs. It is
+> called only for the bridges of a pipeline that was read out as active.
+>=20
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
----
-Changes since v3:
-- Register realm_mem_abort() as the Realm stage-2 fault handler.
+This is now part of the v9, so you won't need it
 
-Changes since v2:
-- Move common stage-2 destruction dispatch to a separate patch;
-  retain the Realm-specific destruction callback here.
----
- arch/arm64/kvm/mmu.c | 47 ++++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 45 insertions(+), 2 deletions(-)
+Maxime
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 870dc7e2699b..274dfe8ea364 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -191,6 +191,12 @@ static int kvm_vm_flush_remote_tlbs(struct kvm *kvm)
- 	return 0;
- }
- 
-+static int realm_flush_remote_tlbs(struct kvm *kvm)
-+{
-+	/* Nothing to do here, RMM does the job */
-+	return 0;
-+}
-+
- /**
-  * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
-  * @kvm:	pointer to kvm structure.
-@@ -218,6 +224,13 @@ static int kvm_vm_flush_remote_tlbs_range(struct kvm *kvm,
- 	return 0;
- }
- 
-+static int realm_flush_remote_tlbs_range(struct kvm *kvm,
-+					 gfn_t gfn, u64 nr_pages)
-+{
-+	/* Nothing to do here, RMM does the job */
-+	return 0;
-+}
-+
- int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
- 				     gfn_t gfn, u64 nr_pages)
- {
-@@ -353,6 +366,15 @@ static void no_stage2_unmap_range(struct kvm_s2_mmu *mmu,
- {
- }
- 
-+static void realm_stage2_unmap_range(struct kvm_s2_mmu *mmu,
-+				     phys_addr_t start, u64 size, bool may_block,
-+				     enum kvm_gfn_range_filter filter)
-+{
-+	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-+
-+	kvm_realm_unmap_range_filter(kvm, start, size, may_block, filter);
-+}
-+
- /*
-  * Unmapping vs dcache management:
-  *
-@@ -1054,6 +1076,17 @@ static void pkvm_stage2_destroy(struct kvm_pgtable *pgt)
- 	pkvm_pgtable_stage2_destroy_pgd(pgt);
- }
- 
-+static void realm_stage2_destroy(struct kvm_pgtable *pgt)
-+{
-+	/*
-+	 * Realm RTTs are inaccessible to the host and may contain stale data
-+	 * after the RMM has released them. The non-root RTTs are explicitly
-+	 * destroyed through RMI before the RD is destroyed; only the root PGD
-+	 * pages remain to be freed here.
-+	 */
-+	kvm_pgtable_stage2_destroy_pgd(pgt);
-+}
-+
- static void kvm_stage2_destroy(struct kvm_pgtable *pgt)
- {
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-@@ -2486,7 +2519,7 @@ static int kvm_vm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 		return user_mem_abort(s2fd, NULL, kvm_s2_fault_map, false);
- }
- 
--static int __maybe_unused realm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
-+static int realm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- {
- 	struct kvm *kvm = s2fd->vcpu->kvm;
- 
-@@ -3389,6 +3422,16 @@ static const struct kvm_vm_s2_ops kvm_default_vm_s2_ops = {
- 	.vm_mem_abort			= kvm_vm_mem_abort,
- };
- 
-+static const struct kvm_vm_s2_ops realm_vm_s2_ops = {
-+	.vm_stage2_destroy		= realm_stage2_destroy,
-+	.vm_flush_remote_tlbs		= realm_flush_remote_tlbs,
-+	.vm_flush_remote_tlbs_range	= realm_flush_remote_tlbs_range,
-+	.vm_age_gfn			= no_age_gfn,
-+	.vm_test_age_gfn		= no_age_gfn,
-+	.vm_stage2_unmap_range		= realm_stage2_unmap_range,
-+	.vm_mem_abort			= realm_mem_abort,
-+};
-+
- #define KVM_VM_S2_OPS(flavor, ops)		\
- 		[(flavor)] = &(ops)
- 
-@@ -3397,7 +3440,7 @@ static const struct kvm_vm_s2_ops *arm64_vm_s2_ops[] = {
- 	KVM_VM_S2_OPS(VM_NVHE, kvm_default_vm_s2_ops),
- 	KVM_VM_S2_OPS(VM_PKVM, pkvm_vm_s2_ops),
- 	KVM_VM_S2_OPS(VM_PROTECTED_PKVM, protected_pkvm_vm_s2_ops),
--	[VM_REALM] = NULL,
-+	KVM_VM_S2_OPS(VM_REALM, realm_vm_s2_ops),
- };
- 
- static int kvm_vm_init_vm_s2_ops(struct kvm *kvm)
--- 
-2.43.0
+--sqipkz2e5yi745k7
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawQZMwAKCRAnX84Zoj2+
+dnHvAYCET/dmHAvACi46xA5DrorXuIavkm1jIpnP0lKH4hlN98aoe+l62suseq/4
+vJlgdoYBgLQ/tmWmV/ikNfs9bgmJ7kbYUKfll2wI0MItqSXErN2HdbWnHwCJT1UR
+e3Dap0J+Cw==
+=e6Qm
+-----END PGP SIGNATURE-----
+
+--sqipkz2e5yi745k7--
