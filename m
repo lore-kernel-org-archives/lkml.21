@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795469198;
-	b=0zVel/zIznqdEtJhh2lqY08S4pUoE1rwcPGwFLe93rPHt1J7A6U/iav7w+NhFbxDeXay
-	 G2H6z89E4+IkaIdBPNfHA5Kh2iFnn/1WYIazHe6c7jHwvRybKZ/JSImdYIx48Q6TpAJfg
-	 +KfPODsPUwzfNj+3SSNfX2bu9YKnlkPqGT5kf6UycByfgWjXQsPgc45fRZ4vFi+z2Wlsr
-	 hIEV4S4vQRgbRZ5jSzIbMBSwci029egupk+nudYKgRnEgD3UAmuDJ1hDGScSILEVIPtPq
-	 BGVdEzKjcw+MxTaqMxDObW+yi8ofgj7n2JdGTnZOx9Z8hCeF38N9YKrrBEmGGuONojg==
+	t=1795469201;
+	b=23ROtTY5C8y5VjvAdYLcdMRPjonCM2/6J5THSjZkMzjCXRltCdYVlAHLmvPsa/YPrSnk
+	 x8rDSl8ZGwBOf2/VEXVxbQrviSVYAJ0v7ywPN5np+lybWLOsE7ENaruKFvsT6usc44K1l
+	 NzL8ieCYOxvY7IH5mp+WbJKjUl0Cktcmmxq++VyOGuREjz2ug7ORGvIInzRxbJmC1VnQn
+	 Wm/SaOnjQyBA8Pf79Xl7Wmwt2IuPAba1AzmnHG2RYj5FOtQzVHp7Lh1AGg9tMEoThrnXF
+	 zUzhF7uiqnnS3VlUARFi8R7nhs0F2v+VXgSjTpUTqPHcT2Q9YQep20mlOtzAjZyqP+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795469198;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=E62dkVlr6WaF/Khh+HyCkITN6+/dTf7oxStHhWssKHU=;
-	b=luYLONFJsBtZDG8atGUvCWwOXwPKNbjjJksjiJI0DJXKbv3Ni5dL37j8qay3ifmvOPwQ
-	 mS1h51WdPVbLLXltrgAUqLN9fTv6Tpnk8TDyB9OI12BJbhuS0E2gtaJjqoGY0baEOG39Z
-	 U+JmwmD1tHRbHBulHpmpx+GIwm6ybx18sr3CXvvrabo8T0HNJ+o69elmNZpq5Xv08aZwk
-	 jk4fMker3hcYKMakqeSaWNY7SVWbzVGJPp3kGZTmrTwcsjxB0zwLyW+34Q98qsXbm47sC
-	 /8FNMezzTsbrsLM4qjtrlSNHi9v/1uoWY8ikgG4U5we+WLjZSoEGMtg+2jRRHhFqRVA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795469201;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2f4zLT/mLbzpdxNkBcyOmTZl9xYwYOy/bawS8EITYeo=;
+	b=owMrsPZFmfIyMQQaJvQ/Mw21rQfM7ZoxQ55X6BW7AQPR7xffaKvsPq90bg875zF2tURe
+	 K05Y8sk6xcwmoyZwkq+a0kLrXk4EZe+eymeSSmE7c0BipCYwoWeFrwGFK1YiwZn9X4ojn
+	 Fw1GsSCSAqc/bs0JjCrJ3XHyJWIXDk7zH8zU4rvbtWkbuXDTm4oIcmVR8kuBoD3kUVqU+
+	 60ojErUTHav4Z2k7uiaxMEVhs6aRngfry02zMRxsDy6ic5LxRrQpXpxFISRAWioKyVSay
+	 FKkK+MspUKSkLCQuEpX2PWEqAeRWlNtCDSatmUPa0CcFW18qb0VzCXoNS7MlQADMh4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ZijXyvK/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YC7xMOx3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5A43606A333;
-	Mon, 23 Nov 2026 21:26:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 16B66606A6AF;
+	Mon, 23 Nov 2026 21:26:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZijXyvK/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83E161F000C0;
-	Mon, 23 Nov 2026 21:26:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YC7xMOx3
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 500D31F000C6;
+	Mon, 23 Nov 2026 21:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795469198;
-	bh=E62dkVlr6WaF/Khh+HyCkITN6+/dTf7oxStHhWssKHU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZijXyvK/M+aN7jKs9h1iStmhmYPsfN/SQT70bzVaiLhtIhG+DQlkbteXWnUO1tnfb
-	 Davg8o4lNznkyidxqofgEeTskhwPakRtcSIXkahAK3lR5Wr6NvhYN7iaFtG2Mo9hMC
-	 ZO4Qbx//+ZUROr0dgsmIIwo6LSR/jLR/WKnbySTYoooGVJZ29cOPawJLTTO84t4mSV
-	 SYVFC80eLGynleTBeooOx0M3wUdmfnDju5cM2YVzY/lZEh1jAdENPUtQxPi68/ylV2
-	 AAX2KjTlyv/l4W3aIIDfH+Zh/q0N2QRiWcQtmSsttG8HeWK48bLxw8gNbq85m7mhF5
-	 z/c30tFCtJpCQ==
-From: Sasha Levin <sashal@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: Re: linux-next: manual merge of the fs-next tree with the mm-nonmm-unstable tree
-Date: Mon, 23 Nov 2026 16:26:36 -0500
-Message-ID: <20261123212636.1204307-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117091650.fc2f9558e84f76a5cdbfe7b4@linux-foundation.org>
-References: <avx9_c_HWPAl9i1Q@sirena.org.uk> <20261117091650.fc2f9558e84f76a5cdbfe7b4@linux-foundation.org>
+	s=k20260515; t=1795469200;
+	bh=2f4zLT/mLbzpdxNkBcyOmTZl9xYwYOy/bawS8EITYeo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YC7xMOx37+OSsIvr60lVA5uVBO5GMxpGAmnQF8DNxlQOQDHQ/cdcqFrVEpdqU9c4f
+	 2QpUFUB2HTeASpSIBOyeyyIEOiqER7KCVF8PWs4tc7d1RBXswuUixSRq7CiNj75PJ7
+	 Do2E9gipcwMIgu7udhcafLcckdaOAuTNMfeehmltaPmU0EGkvy8awZb5Y/vlS4aByv
+	 7zj0+GuaTc1bhiE9m+9fzO3cU9e7DK+SGTEfY2v0o5wcxyedhYkjdZx5NbphMEmjFa
+	 f/Cobhx2nOpfjown0F3xl5g5h7+g5ypTspI3HkkVtRCLEineRbpJn/mLOHkn+Hj7ij
+	 ZOSIONwMzTsfw==
+Date: Mon, 23 Nov 2026 23:26:37 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: keyrings@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
+	David Howells <dhowells@redhat.com>,
+	Guicai Ma <maguicai@kylinos.cn>, James Morris <jmorris@namei.org>,
+	Paul Moore <paul@paul-moore.com>,
+	"Serge E. Hallyn" <serge@hallyn.com>, stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] KEYS: Fix asym key overflow in keyctl_pkey_verify()
+Message-ID: <awSvjU7khM8kqWUP@kernel.org>
+References: <20261123211959.4102708-1-jarkko@kernel.org>
+ <20261123211959.4102708-3-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,23 +60,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123211959.4102708-3-jarkko@kernel.org>
 
-On Tue, Nov 17, 2026 at 09:16:50AM -0800, Andrew Morton wrote:
-> OK, thanks, I'll make those two go away for now, will take another
-> look in the next -rc cycle.
+On Mon, Nov 23, 2026 at 11:19:59PM +0200, Jarkko Sakkinen wrote:
+> While verifying a variable-length signature shorter than info.max_sig_size,
+> memdup_user() reads past the end of the caller's _in2 and passes trailing
+> bytes to ->asym_verify_signature().
+> 
+> Set params->in2_len to uparams.in2_len in the KEYCTL_PKEY_VERIFY case.
+> 
+> Cc: stable@vger.kernel.org # v7.2+
+> Closes: https://sashiko.dev/#/bug/linux-dd9ad2ca-a846-4d0d-89d6-aa262ffd40f1
+> Fixes: cb481e59ea6c ("KEYS: fix overflow in keyctl_pkey_params_get_2()")
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> ---
+>  security/keys/keyctl_pkey.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/security/keys/keyctl_pkey.c b/security/keys/keyctl_pkey.c
+> index b5f82804b5ad..662226576954 100644
+> --- a/security/keys/keyctl_pkey.c
+> +++ b/security/keys/keyctl_pkey.c
+> @@ -176,7 +176,7 @@ static int keyctl_pkey_params_get_2(const struct keyctl_pkey_params __user *_par
+>  			goto out_up_key_sem;
+>  		}
+>  
+> -		params->out_len = info.max_sig_size;
+> +		params->in2_len = uparams.in2_len;
+>  		break;
+>  	default:
+>  		ret = -EOPNOTSUPP;
+> -- 
+> 2.47.3
+> 
 
-Hi Mark,
+I'll apply this with or without r-by's and/or t-by's but they will be appreciated.
 
-Andrew's two patches are gone from mm-nonmm-unstable, but every next
-tag since next-20261118 still has their read_profile(). The fs-next
-merge applies "profile: Fix up merge" and "profile: More merge fixup",
-and those put it back on top of the iov_iter conversion.
-
-Without the two fixups, the merge leaves read_profile() as it is in
-79011a80f064 ("proc: give kcore, kmsg, the kpage files and profile their
-own file_operations").
-
--- 
-Thanks,
-Sasha
+Br, Jarkko
