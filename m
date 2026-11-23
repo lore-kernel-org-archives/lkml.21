@@ -1,144 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795461165;
-	b=B/eXkwEUX4G2Mrp2PvBJHabdQ2De/+Qo4gDNe0WF7sB960098rQT+QV9/SrNae8JZEqf
-	 EFKL3zODR064ht20R1d1UHZfV44vC5D0gIP2RzsbYw9MnqWksI8DxEobmCtedvKI7scDM
-	 44nm4Uz8/hrTyR0tfQdLjGL/2AK6P4ISjB1x+a/8yvikMdS4g2RuT88FvjW0MWFq3drdX
-	 RFWsjGT8b6uekAJ/bLV9vR4k+T4ItFFfWY1vv6ni5uilx8toXcd/fNguI6inOA5m/UVHD
-	 KHcYoZ2ddxRNwW+/2uNMWeWPv6/yigMNLGezd5LShZ1CJWg585qTd7wH5a7MwaZMJcQ==
+	t=1795461186;
+	b=ir1mH7dzYqgJHqv4HilztuAe+tBJRAuz0MS3lu+KxwJKWPt8M6t8OolFCbuMA8VIhUH+
+	 0jQF0MtYN1nLSoNREv+M01Wx4QRULar2hLSUvO4/Ix4H/aWoOVqY4lP0CTdYh3SPpzQl8
+	 MomsU0rQtzjZbpCWZ+MS15MviCs1E0pahyCIMNap125P/6dpXwhkAah730WXmihKgOdyv
+	 DQ+WSgsTcdbdsls/ZAePjBQMmG4RSFu68yMFjFc6NxfT8OaRNB2KL7oCzaHtd9wyOdFhC
+	 WT9q54vA/EnuIxj8Co8D6Mt/wzsro4sTOPVxptgYOstwf69ZQDih0WDs/a4I3qh+1Ww==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461165;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=xvXbgKg/bytxqOMppRBWFNSzatZssVm5wM+pwkBAhxc=;
-	b=0V8/VP6du1bK8lMFJDbNCLgZS/rnnh59E9G53EMfcWMy16fIBJYWUn7M+lutwpIu+isM
-	 y9feMRu8i37gacUFGpJTxEdW5b/EjIGZYYV3hAgfodwMW4ySL5Ui/jEs+K9wyNw2YbHfz
-	 esd5G4vHl1jEF8z4SQQUZuijyIdjHvER0VEfNLhRkLfiSiblAF7j2J4zbrRIJIy4sOiYL
-	 55tJcznu7hK3X75lYU31Z0gYlpTUvx0oq7qK6bM5UegA9GN4rnBuTgPlScR3XbCpxEumw
-	 2ZAaJoCGAb/hBo84AHtqK2XTrG7dRWERa+VrUQro7qlD6RcfozsPKYGpXg2ZBhHTWwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461186;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=SFo6AVw97R2wCBIFYeT75YVKRSh5N0fKfYv/Pz+bvSk=;
+	b=mII2XLqEM54N+Eq6SfLBuUOcMUJ0qokKLuAih+NI1epKJLf+yCyEk2Fwf77i1mRRNFzh
+	 V+KSj9Mu+YI56gSwwhqBx3hP3Z4t6rVk+0+Q5DSvElyA2x/vG3nbc0C2rO24VNuq5RkKL
+	 ktKSh+UDVaxjPQ40RXg22imYaHNp4ai4b7mOby2xQwGa7fCbL+1pGoosvYYqr5YOJzIJC
+	 WWSvSJwsK20x76j1AeKCYbR/IHWiX3Z9i7+hNQhmarMbpozmqNexbh69EYkp+MwkSI0VH
+	 Gyu5MIuNj0disJNepLPRdN1wN0CGA+ZWF5maR8uZ9DRQSndxMEyPhVisuIbUvtUxG0w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=d19q41BR;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=d4hqBZmj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DVYU9vn1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D978606A31A;
-	Mon, 23 Nov 2026 19:12:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D978606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DD07606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:13:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DD07606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=d19q41BR;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=d4hqBZmj
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795461165; x=1826997165;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=42wSJXtawkM+yAA6AVNn6dye9IcZdOJCyrHre2XFs74=;
-  b=d19q41BRjyMwgX1Umt/7YDMuVKQxT8W+IaDArADVP7UNMme0WX/QE1xI
-   57j9BD6sbtd8nLrIWBIfuBy/c1arw/HvaZfVbbXQ1AJ/s2B6VoohR43tU
-   kXFIia+147NTSm9BOTNIdzbM6de4WAx2JnCHUB4YKGH043mR9d1S1xlkC
-   uRkdEaWagyJXIBh5Lm8132V/Cu5M2z/T3+e0ZZiwMw03aTYFAgD1DoGBu
-   2xzky1ZGmTphvsZNeAtaTsEZ93HdnMA7tJWmgoMVQPwJjMcKdjMjFJ849
-   k72uREUigg1deuE0/MSGa4ArELkDNDLt8uAg4RL6PxIDRraQUUDxXPrhK
-   A==;
-X-CSE-ConnectionGUID: v+kmjao5S22w6zF1lN4GQg==
-X-CSE-MsgGUID: FfdvbrhjQcKXGA3YmCwONA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4179169"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4179169"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:12:44 -0800
-X-CSE-ConnectionGUID: XO4aPeQZQJyyRhxMqv8uXg==
-X-CSE-MsgGUID: qc29BDJhTwyhdbFVb6SBCw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11328806"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:12:43 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Mon, 23 Nov 2026 11:12:43 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Mon, 23 Nov 2026 11:12:43 -0800
-Received: from CH1PR05CU001.outbound.protection.outlook.com (52.101.193.46) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 11:12:43 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=icEo7OpA68DeFZYJVQv5xwytd8gkkVLMSLE/Nydx+7A5MeGkd7pA3/urTd9sCEKt6+95U9Z9a5jTZVZ+5OUxUcCS4HUQ72GKbZlwhvvDH8M+9wUGnCS0UbJhxjOfob8Gcgb9sUNCtBZ7UX5ilPz0KMpT7lsAfWi9ckHM6eRf8HT/Ls9dvGgVFEizHgB08rvEAY5brGDLRQ1Nmm4ck5wPUwo3hSzqZCoJAXUQUurMIMwrw2PpQCGowtq/RGnB2ewYiQVh2DuF5MDHNA1fOy9eRFCV6XlgqxJb4ARX1yvLVCU+5Vh8jC9yumqpaoSj7iWu8eIkFfRNp+Bcj73msyuLTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xvXbgKg/bytxqOMppRBWFNSzatZssVm5wM+pwkBAhxc=;
- b=fQRMqeLkC1Af09QW5W6n8QwAjWZRHZJ9n2RSBbTbkn9PTFZpff+9w7D1fsJ5WGggLvs3LU9nvMdN+C/Mrt3dYGDL3OWpLpjaZ6bBHTe7g/8OqQBG8PXsiDNcayXtSe75QN5C05GtOWYbAUmK5aopwz81jxSiq35v1OOzpJKUNAvkXcpshpvDOPAgnkwXHWmNLsDSA/JP6eYZSfUdI+hX48Z4Gaqn+znKQothiYn1XtlR8WKRkKpS2guDh6S7B88mb36Oj5YzUbjYeyghipE3CoVxfXGPdfGU/7UE8eGHcshjr0waSQICqNlgwShRGnSGGm6vAEEgiDBNls13M55N9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xvXbgKg/bytxqOMppRBWFNSzatZssVm5wM+pwkBAhxc=;
- b=d4hqBZmjqmIdColoa58SVtNK5VeRMQcnvtZ0l+QJv0ByMnkJboCxDVOep0cLOcpVBtaRPAohVdWof/jt5pV4U9pNZEmX+yQ/z9X1MGhhQieCAimDE1/ofVfdPmrOT/Ilz1UPB3nUjYwchrM65bFWzPM9B3ZZ+SfGF84AErsStxw=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8451.namprd11.prod.outlook.com (2603:10b6:a03:56e::20)
- by DM3PPF7468F7991.namprd11.prod.outlook.com (2603:10b6:f:fc00::f2d) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 19:12:05 +0000
-Received: from SJ2PR11MB8451.namprd11.prod.outlook.com
- ([fe80::7d5f:b2ba:92d4:5f3c]) by SJ2PR11MB8451.namprd11.prod.outlook.com
- ([fe80::7d5f:b2ba:92d4:5f3c%4]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
- 19:12:05 +0000
-Message-ID: <2f8cb15d-0aa9-4eea-b2fd-0561aaec7531@intel.com>
-Date: Mon, 23 Nov 2026 11:12:03 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-net] ice: release IRQs and rings in ice_dis_vsi() when
- the VSI is already down
-To: Przemek Kitszel <przemyslaw.kitszel@intel.com>, "Ionut Nechita (Wind
- River)" <ionut.nechita@windriver.com>, <intel-wired-lan@lists.osuosl.org>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Larysa Zaremba
-	<larysa.zaremba@intel.com>, Maciej Fijalkowski
-	<maciej.fijalkowski@intel.com>, Wojciech Drewek <wojciech.drewek@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-References: <20261106171657.583713-1-ionut.nechita@windriver.com>
- <cec955ac-54e1-41eb-8a1c-3c4d65cd9a07@intel.com>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-In-Reply-To: <cec955ac-54e1-41eb-8a1c-3c4d65cd9a07@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4P221CA0023.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:303:8b::28) To SJ2PR11MB8451.namprd11.prod.outlook.com
- (2603:10b6:a03:56e::20)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DVYU9vn1
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so3026165f8f.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:13:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795461184; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BL/OshVd15r2zxnfOuc8AFBg7Y4V7SBRWLGYWt2YZeRbwbXBZWglYAYAxcW1FHpnxa
+         QNV3qZtHsmp/xqgEwr8YcVG0dy+1+/HgTyR/NqtG1B4UAF6XBTIK2x7C822MIqNc5mCl
+         1yR1+u/siwfiQq/YQQ0l3ECiPnjQrdt3rChwLI74+JlbCapAFQjZHU0Xv3i5ZjFRE8g1
+         KEMh69a9h1WzDY6ZMCBhUMFEF1N+7X3PPgsK7twavhPj9h/BQRKpWqO6SoyXSVTGfDJA
+         Fvkcvhw+5+s7XlcpYkvnQd8mDO/tuxgRRPKbbN7d8OZ+asDojW9+2zrOCQ0FltXEvE3B
+         /Etw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SFo6AVw97R2wCBIFYeT75YVKRSh5N0fKfYv/Pz+bvSk=;
+        fh=hdFRlbnxxkjS9tDxbo6Fpszunuktg8QIBrSh2pK7cJ0=;
+        b=nqPivQu3t9quBEJnS6xd6eg/+S88rr+VzZFECxbVYd73iglUj0dySjDAKFHmnSl5VH
+         Pxvn1S/A7/WsMrJm0pEQPEgXVQfQvIRyAQbFjoN1AS1UYZ0M6tvaW/6aO+U9oA5k2RdY
+         pr8A50JNCg7fMwdA9IEYkUqPfsQqwKsHQtweSOoUO5e7OT4yjh/QvqtGJBQTpRvwaYpy
+         ZHVenisSrIeYSWIgcyaMov3Gn7ChezEcd5OljDJvTo1jiTXQ/632zkHIICCpnJaFDD0m
+         6333AfniHq+X4MpTuC3PGLh3vOQdQOpaXQ7zgwMkelpEyie7cT5Q44QjEX72EvmznNrq
+         gDnQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795461184; x=1796065984; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SFo6AVw97R2wCBIFYeT75YVKRSh5N0fKfYv/Pz+bvSk=;
+        b=DVYU9vn1DqAWQYOlUxFkfhUi66cAjkHIsqcu10r+duux7csRxPJv73b+mZwuZH4wTd
+         Ymz4wKI7Jl7pM6Z8kIst2hSNA7IbRCtKU87fVUdTJElzvbbYICRl35ukOjsGw0ZpDvc2
+         0cr0i+K7JfNVmwFRaSjl+Ll4R7i5kYC7MfQUNj0mcQftf3672NiZ0ZgB10x1dJ0RjVvy
+         W+FuGku/sDvfvBmhGNNuEeK3QvmiL6suOXLzuJjNzLAeQ6k3WXFRCA5jdU9UHrE54D1O
+         WLTeppnjzn/ChZNiZgCEDZ47QZtNVtT5nL/20IGFvHXDSRaLDph4OfmFNxUKuWaep9SC
+         17hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795461184; x=1796065984;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SFo6AVw97R2wCBIFYeT75YVKRSh5N0fKfYv/Pz+bvSk=;
+        b=foTr/2ISsk2DlOPeNKleojRsBrOSWG5wzzL6D9gH46k5KyegxkAsLvCaamKGfAYz18
+         NT57nY9IvxruNVZuEHat2GL0Hq3ebppr/JPwqSZ5hda6I0QZcWsQ+njClhVftnuDCmQw
+         EtoznVAImOtRXaJCGZ0i7GAr03cS+c/0VwTsfnW1o+kIILBUd/bMLvdsraPiRxK0b1Le
+         YlDV/GKZeO7d4twifwGett2XuhlhuQBW42bzjyNfHYBkEYTEYn6/lyMIxCwc52okAnx7
+         uOgX8dR2c2ya3tG3Tk5A2hBimeeAkrEpVCF9BHpIaZ1vMNBg5QVetUaYZMSrRLPaZBrL
+         KZjQ==
+X-Gm-Message-State: APuU4Z9mjHRTcgyy/cHGCgfSlPSnTibFJQF8EKJfDc5CdxUSR/xAFE9C
+	f37SP2nz6hOibtoUOwC1NCZ/M8v82dkeOCAqTH4dsHyjyluUWWDcQuLmyouxilOjI9DkBqQYmc8
+	8DODKB7iiS3CAlVpawyc7RV0ArHInun2sdy45HzYW
+X-Gm-Gg: AZFdTZfLGamWSYqXNXO5A+TU+5J+gg+b9+jfxKCCAxNUWSNdAOangZWLDfz1OqQBa0D
+	FLh0cRni3E09aKSdfmmI0My3iYbSSX1NW5gwIjrhewrPWhw7X4QGnd3Fr3Q5QE27eLyx7le+hg8
+	PV4AaktAu/4Q+fFX/OR9zDnPVLrr3ELEOsMT/k9WqPlenfaEiWayxO8CdPvYfxH+Of656fLxYJ7
+	0eIAqq8S0tamupGj9dac9AjDk1XEre3NvorqnMlWCyi+5fBP+la6/qpUas7CiT4Ws5/7kPGf3E7
+	rG80nPmcC4ydFrO40W/Uz1lTYgim3MqlRepLRfVhjcmPgSqNXIzNgPW9Stpoki/b3UDibk/Wk3I
+	qTmHwxaodAjba9xH7WsojgR/WYj6VHLbzy48Qc5Q+fjNq3zyEH8uS+fPQq5vUEaATIsdwORxSZz
+	jRBZyT3345eACexGS7qVg/1Cm6sYANhKMTtm6bqOBE6Z9k+mmgsmB0WEaGi4oSFQGbSvHvUVgPv
+	julxeD4AH59sEeZSOLaX4SkH+3zsz7hnwuPog==
+X-Received: by 2002:a05:6000:2082:b0:4aa:ba0f:c24 with SMTP id
+ ffacd0b85a97d-4abb3956754mr24614079f8f.40.1795461183189; Mon, 23 Nov 2026
+ 11:13:03 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -148,76 +105,255 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8451:EE_|DM3PPF7468F7991:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0be0a4e7-d20c-481f-7edd-08df4995a98c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|10067099003|11063799006|56012099006|261022105027099003|261028144727099003|261026121527099003|261026140227099003|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 8UMewrMTiRkOhe1Tv0Rq9VqL5pUEwA3aB+dNsI7CrJEpfiEKhOAi/SntLGSstWBDwQrMg0uZBlGh8vX5ukeaBKsY+sW2izOlU5K9z1rmmYGBsuKYi+iwhAGcUOZ2zrDq7uf6F3qyrcNaSJuJoekByTkBvIfNgoCO1CudrsJZ3csgy+Qn9kc6dU1DCo03buQCo7aVVOCpAid0oDCPuIDA0a74JEZExhtdPfTWC28ZhEB0/z6SgfSlRhyrffksCDWT29Q/Iouk5Eo8mPIZ0HL1Bin9iNQ7IfHWXNTlrT0W966xDl1Sy3On+hLwiqT+FCpnmz54iitr+CGh/CygxqhtNDYv6aMl14JRVHARjYzGMeIowOlrRY+2IdXN5n1+z5PnMSw90BDdeCNVx5bPWsKl6V7R9Le3WtvB4h2+N58oQhHM9lDcLpwnJg7+GNk2Kugpz9PEr2JdPpmoiAB79Fs/h6jsc0PMcZAFhQBgz6T9PnKUd48BsGCcg9i/F3REsS/Gm2VNiEObEZnJEmni8qOaFCjWk0VcZpReq1Nj5tfTrO6pqaxSibsfQB+XhBJS3AguFpiP53Qk2BMR7tLvUASp2D/xgekvfVNW/D6MdifVYJXPj/dSP9xQ6aWrRzutpdo+didKDwz85G5bdqSZ0O0+AIbbjwd/4Cml0AOQNZMbRpQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8451.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(10067099003)(11063799006)(56012099006)(261022105027099003)(261028144727099003)(261026121527099003)(261026140227099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cDZsWm5Wc2pucEsxVmJIVEZuRURJejNubmxjcS9QMXYrVyt1L0hrY1ovUjRK?=
- =?utf-8?B?dmt4QkxuOWVJaWFyT2hqdVlSLzVNZ3QzVTNCZjFFMGZzQm5DSHYzRXFSb2Fr?=
- =?utf-8?B?T1Bjc3hFdXg0d1M3aVBUSlBnQjFXeEd0ejdYOXBtZ3dKN2FSVHBlL1lyRVh1?=
- =?utf-8?B?QTYyY3d4L2lQcUYzZmNWMGNNbUNmMWNmWUFOUmZzUHpXOUlveEZLTzBYRDVa?=
- =?utf-8?B?VEFOOTB5U0xIZlZwWUpoTSthN25FaThBRWNXbEduMnJFME5RTTdZcG56U3Bm?=
- =?utf-8?B?czdQYWk2M1pRbFpRVjVPRHdpcjl6WkcvOVpBQ3FKL1A2Uk5CeDQwR2oraHBi?=
- =?utf-8?B?ZjVldW85STlvejBBMUdJZ1JqQmpsSTJPVTk2bVQrRlowcmRYbzNmTU5ERlhE?=
- =?utf-8?B?S2lndmdOYXp5c0dDck1PVmRpMWM0d2tLYVlGUmNHYWY1dll6bHlGbnRBRGhv?=
- =?utf-8?B?UlhxaWs4akoySkRMNTBLRXBNTnBNcENOcEUyMkxyVlpic0NPOUo1NGF5V0hO?=
- =?utf-8?B?ZGs3ejVXRlFEQzhHSHpPSXhwMnZJVWhKOXRpVTBqUHdSVTNJbUJBYVUrQnhs?=
- =?utf-8?B?NXJ1MFZmTXZRUUZPV1ZoSmR4b3VaRGpFUzBKeVEyWjBIM3JMa0dSQW1FRURV?=
- =?utf-8?B?Q3ZUaG50N1kzN24vYWozbjRhc0hBeXVqWlA4bS8vU3NPVFBYRWdDMDlaY3E5?=
- =?utf-8?B?Uzl6YjNBZkZpMkJpVUtCRGFiV1IvQUJRTnZ2WnVXUVllbEk3VmdOam4vS2lt?=
- =?utf-8?B?ZjdRT2JSNkZiWktEUm8xRGZwSmthME8rdzNkNUdiSGVySXhOeUMzbjErZEZC?=
- =?utf-8?B?elJzUHJrS3VudUxPalNoQXhtNVdIQitJOElSRkY4WFk0YXdVOXRjOWVkR3Vv?=
- =?utf-8?B?VFFnc2NkYUdtdk1nWFpySVJ6bzVZOTlNRDBqOTM1VFRaZ0w3dXBRTTAvT3Zp?=
- =?utf-8?B?SkZnaUtPeXVHZkZJa1JJMjhGdDkwNkpLcU5DUUp1dUp2WjNuUEttRXdwdEdi?=
- =?utf-8?B?R3ZNaklNSVhVeWJQUXMxY1pDcFRrcDViL3ZRdSttWTVGQnlVM201QXIweXd0?=
- =?utf-8?B?WWhTVk9Db2J2aU5zYkd0WkxOcTZDdDg4ZlFHLzl5aXRsS3pjSXBmKzZIdGwv?=
- =?utf-8?B?NEtPRW5COUY4dnFTeE1zWDJKdm91M2ZISk9DenpISUY1RzMwRzNtd1VHdHVS?=
- =?utf-8?B?OXQ2dDFTZmEwU3M2RkVGQWdDZFBOUkRiZFlWVUpRQ3FlQWUxYURsekhtemhL?=
- =?utf-8?B?dUwyOExvdlU3QStOMkJMWVFKa0dCc1kya1NyaDBDckFiZVFSeVZjM1RsU3pX?=
- =?utf-8?B?anhaQjJWVWJhSFpmbFZabDlMcFBEWUxya2lDQWk1V2JFcElrdi94NU1lWWdo?=
- =?utf-8?B?WlJNOTZMSCtOS3V4elZBOGdFdUQ0RDJaQkZxd29TQXg2Q3hWQkdzVzF6dVlJ?=
- =?utf-8?B?ZXJrQjR4Y0RUbktWWDlXT0JiMlNOVFdjemtXUk1NUkxnR3lLN1BXZEw2bnFC?=
- =?utf-8?B?TVJOMjR1S1NpenE2dkFZZ2dRMktTY2d2d2xZenE3dkJnaGRqcWVjYWozZ3Yy?=
- =?utf-8?B?RkZpMFNObW9wK3A3Qzd6RXVGaU4xeUplUkZvbk9jYWMyVER3MEt2aTFNalFp?=
- =?utf-8?B?aVZCdS9OOEVzRWw3bng3Zm9uZHpnYlVjMnBZd1VqYU5pMEtsbmx0aTlIMmhz?=
- =?utf-8?B?QVFPZVp1WTYwdW9kQlVMaFJVREQvVzlLaGlzMnFUck1jK1RnOGNlK1NBUXZ2?=
- =?utf-8?B?OTJmcXlyd3MyalB0R0EvTUhtUFNGV3owQ2ozUUo5T1BpaGQvYWMvQzQzWmpU?=
- =?utf-8?B?bVNHa2ZIV0F5K09mQnpkc2lUcGtDZUp5NEJRc0tJRzB5OTh2S3RacFZ4Nmxm?=
- =?utf-8?B?NU9jaGFWSFF6ZGtCTmVPcTY5YnZRZHV6YXRFbEQ3dzlGQUxscnI5Zlp6K0FK?=
- =?utf-8?B?RUJRdTQ1Wm0xSE1nVGpTeDI0MGE0a0ZNaHpaYXhnNlZvQU1vYlNSZG5lS3NC?=
- =?utf-8?B?cHVjb3luYnY1YW1TTXRhRUFwc1JFSFhSM1hlQ1BUSGkwOElvQ1Fad2hQc1V6?=
- =?utf-8?B?QnVpb1RWUWxicC9tbDNSV255NXlSSEVVZWZpV0x0YlpVTFNLcVpxU2tFblR6?=
- =?utf-8?B?NHQ4b3FrQjMraTYyUGtRMFdTdHIvRHdCVDJaVFhYcTUzcUtnYWlLOHVzZnJv?=
- =?utf-8?B?eTh1UW9SbGxEOGZMSGZKMk9RMXE1c2hEcVNpTWVHQ1B1TTY4aEF1MHB4dkox?=
- =?utf-8?B?b3l1aFlJMk1RV3hFcG9mSWV5ay9sd0dSSmdJMDNQWVYySWNpTW1Mbnh4M2xG?=
- =?utf-8?B?LzNtR0Zma21UNEFqUHNQWnFkOUxoL2xEREp1RzRWU3E2akE2SDlUNFdlWXNa?=
- =?utf-8?Q?HuMCvj0k+FMgFVv4=3D?=
-X-Exchange-RoutingPolicyChecked: DKkmCxeKMOWNtEBYFH/RAsfn67NjTFaTG4svYJ2esnhudeQ11LWHRK7z5jzTI63vlUDsgwZPeWoVdliwbUrUp56hCqQJ10jOt/eQhvD1CMsaM+pj6o+gyOt0EbPpYDe8gysOvkq8/uvc8NFrJVQF5lgO1Y2MSlTnfkNcjZet7QkWMwpbK8b008NhiTh3Qe1F0iv+26Y550XDF2S0JnBnvApgALwdCkv4Rwa9I//8stqwCbu0fTAxA8ZeDfMDl4cvD/gFyxByNXyYLnkcZtx7B40M8jgSpnWookgcWo5/+b2mRYGY4Okr2kTnSpjt/U1NpTS/grP/dNddbpFv9mOylA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0be0a4e7-d20c-481f-7edd-08df4995a98c
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8451.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 19:12:05.6045
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eTDTM9wIKC1dCRzYPH1J8eyAA/sIbaBKGkywu92O4QtpL3Lt9g2dTzieTv7Atx6lski+P/IzFXmFHlhhDmUkT2WplLCTr7AWXPxtQ3i3odA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF7468F7991
-X-OriginatorOrg: intel.com
+References: <20261122105646.2223131-2-ardb+git@google.com>
+In-Reply-To: <20261122105646.2223131-2-ardb+git@google.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Mon, 23 Nov 2026 11:12:52 -0800
+X-Gm-Features: Aa3M54r6JmUuoccFpePkZck7gBy4-XWk5fve6pPNHXm6KMQa4IK8PAKHdQcHNY8
+Message-ID: <CAKwvOdkOjGkGajGMKtqcHpRSrpXC9UZrH9XPsiv5Rpcdte5tJQ@mail.gmail.com>
+Subject: Re: [PATCH] locking/local_lock: Don't evaluate the per-CPU lock
+ pointer if unused
+To: Ard Biesheuvel <ardb+git@google.com>, Bill Wendling <morbo@google.com>
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+	Waiman Long <longman@redhat.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/23/2026 6:15 AM, Przemek Kitszel wrote:
-> On 11/6/26 6:16 PM, Ionut Nechita (Wind River) wrote:
->> Fixes: d8c40b9d3a6c ("ice: check ICE_VSI_DOWN under rtnl_lock when
->> preparing for reset")
->> Assisted-by: Claude:claude-opus-5.5
-> 
-> this tag is overly specific, please just use "Assisted-by: LLM"
-> 
+On Sun, Nov 22, 2026 at 2:56=E2=80=AFAM Ard Biesheuvel <ardb+git@google.com=
+> wrote:
+>
+> From: Ard Biesheuvel <ardb@kernel.org>
+>
+> When lock debugging is disabled, local_lock_acquire() and friends are
+> empty, and so the per-CPU lock pointer that is passed to them, which is
+> usually computed using this_cpu_ptr(), is not used at all.
+>
+> However, on x86, when the compiler does not support named address spaces
+> (i.e., Clang), this_cpu_ptr() is based on inline asm with a memory
 
-Didn't the policy change to not even bother including Assisted-by: LLM?
-Checkpatch complains about an unknown tag anyways.
+I had to look this one up ("named address spaces").
+
+https://gcc.gnu.org/onlinedocs/gcc/Named-Address-Spaces.html#x86-Named-Addr=
+ess-Spaces
+
+So __seg_fs / __seg_gs ?
+
+CC_HAS_NAMED_AS : arch/x86/Kconfig#2331
+
+Weird, clang _does_ seem to support these, since clang-11 (clang-17 is
+the current minimum supported default).
+https://godbolt.org/z/cfhj8r69E
+
+commit 47ff30cc1be7 ("x86/percpu: Enable named address spaces for all
+capable GCC versions")
+added a
+
+depends on CC_IS_GCC
+
+What happens if you turn that off?
+
+Ah, a week after that commit was authored, the same author filed
+https://github.com/llvm/llvm-project/issues/93449
+
+(currently assigned to Bill; Bill, can you PTAL?)
+
+They also filed
+https://github.com/llvm/llvm-project/issues/93449
+
+https://github.com/llvm/llvm-project/issues/187893 looks like possible
+a dup of one of the above.  Bill, can you please take a look at those
+3?
+
+> operand, and Clang does not discard such inline asm even if its result
+> is unused. So the computation of the per-CPU address of the lock is
+> emitted regardless, e.g., on every local_lock_nested_bh() in
+> process_backlog() and on every local_lock() in the folio batching code.
+
+I'm more so curious how you even noticed this problem? Was there a
+thread? Were you looking at some assembler and wondering what was
+going on here? Or was there another thread about this?
+
+Very detailed commit message, but you kind of bury the lede here on
+what the actual problem this patch is fixing *is*.
+
+>
+> This was addressed before by commit
+>
+>   9983a9d577db ("locking/local_lock: Make the empty local_lock_*() functi=
+on a macro.")
+>
+> but that change was reverted by commit
+>
+>   2d2f8f083ef2 ("Revert "locking/local_lock: Make the empty local_lock_*(=
+) function a macro."")
+>
+> once commit
+>
+>   1c1e7e3c23dd ("x86/percpu: Remove volatile from arch_raw_cpu_ptr().")
+>
+> had dropped the volatile qualifier from the inline asm, on the basis that
+> the compiler no longer emits the unused per-CPU reference in that case.
+> This is true for GCC, but not for Clang.
+>
+> So implement the !CONFIG_DEBUG_LOCK_ALLOC versions of these helpers as
+> macros that only reference their argument in dead code, so that it is
+> type checked but never evaluated. Referencing it only in an unevaluated
+> context instead, as the typecheck() in the original macros did, makes
+> Clang complain about per-CPU locks that are only used via these helpers
+> (-Wunneeded-internal-declaration), which is what commit
+>
+>   a4812d47deff ("mm/page_alloc: mark pagesets as __maybe_unused")
+>
+> had to work around at the time.
+>
+> Also, only evaluate the lock pointer in __local_lock_acquire() and
+> __local_lock_release() when it is actually needed, i.e., for
+> local_trylock_t.
+>
+> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Boqun Feng <boqun@kernel.org>
+> Cc: Waiman Long <longman@redhat.com>
+> Cc: Nathan Chancellor <nathan@kernel.org>
+> Cc: Nick Desaulniers <ndesaulniers@google.com>
+> Cc: Bill Wendling <morbo@google.com>
+> Cc: Justin Stitt <justinstitt@google.com>
+> Cc: llvm@lists.linux.dev
+> Fixes: 2d2f8f083ef2 ("Revert "locking/local_lock: Make the empty local_lo=
+ck_*() function a macro."")
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  include/linux/local_lock_internal.h | 47 +++++++++++++-------
+>  1 file changed, 30 insertions(+), 17 deletions(-)
+>
+> diff --git a/include/linux/local_lock_internal.h b/include/linux/local_lo=
+ck_internal.h
+> index 234be7f12c15..7c3191438c90 100644
+> --- a/include/linux/local_lock_internal.h
+> +++ b/include/linux/local_lock_internal.h
+> @@ -69,10 +69,21 @@ static inline void local_lock_debug_init(local_lock_t=
+ *l)
+>  #else /* CONFIG_DEBUG_LOCK_ALLOC */
+>  # define LOCAL_LOCK_DEBUG_INIT(lockname)
+>  # define LOCAL_TRYLOCK_DEBUG_INIT(lockname)
+> -static inline void local_lock_acquire(local_lock_t *l) { }
+> -static inline void local_trylock_acquire(local_lock_t *l) { }
+> -static inline void local_lock_release(local_lock_t *l) { }
+>  static inline void local_lock_debug_init(local_lock_t *l) { }
+> +
+> +/*
+> + * The argument passed to these is usually a this_cpu_ptr() expression, =
+which
+> + * is implemented using inline asm when the compiler lacks support for n=
+amed
+> + * address spaces (e.g., Clang). Clang may fail to discard such inline a=
+sm
+> + * even if its result is never used, so only reference the argument in d=
+ead
+> + * code, which type checks it without evaluating it. (Referencing it onl=
+y in an
+> + * unevaluated context such as sizeof() would make Clang complain about =
+per-CPU
+> + * locks that are only used via these helpers being unneeded.)
+> + */
+> +static inline void __local_lock_typecheck(local_lock_t *l) { }
+> +# define local_lock_acquire(l)         ({ if (0) __local_lock_typecheck(=
+l); })
+> +# define local_trylock_acquire(l)      ({ if (0) __local_lock_typecheck(=
+l); })
+> +# define local_lock_release(l)         ({ if (0) __local_lock_typecheck(=
+l); })
+>  #endif /* !CONFIG_DEBUG_LOCK_ALLOC */
+>
+>  #define INIT_LOCAL_LOCK(lockname)      { LOCAL_LOCK_DEBUG_INIT(lockname)=
+ }
+> @@ -105,20 +116,23 @@ do {                                               =
+               \
+>         local_lock_debug_init(lock);                            \
+>  } while (0)
+>
+> +/*
+> + * Only evaluate @lock if it is actually used, i.e., for local_trylock_t=
+, or
+> + * when lock debugging is enabled (see local_lock_acquire() above).
+> + */
+>  #define __local_lock_acquire(lock)                                     \
+>         do {                                                            \
+> -               local_trylock_t *__tl;                                  \
+> -               local_lock_t *__l;                                      \
+> -                                                                       \
+> -               __l =3D (local_lock_t *)(lock);                          =
+ \
+> -               __tl =3D (local_trylock_t *)__l;                         =
+ \
+>                 _Generic((lock),                                        \
+>                         local_trylock_t *: ({                           \
+> +                               local_trylock_t *__tl =3D (local_trylock_=
+t *)(lock); \
+> +                                                                       \
+
+Why do we need the temporary?
+
+>                                 lockdep_assert(__tl->acquired =3D=3D 0); =
+   \
+>                                 WRITE_ONCE(__tl->acquired, 1);          \
+> +                               local_lock_acquire((local_lock_t *)__tl);=
+ \
+>                         }),                                             \
+> -                       local_lock_t *: (void)0);                       \
+> -               local_lock_acquire(__l);                                \
+> +                       local_lock_t *: ({                              \
+> +                               local_lock_acquire((local_lock_t *)(lock)=
+); \
+
+Is this cast necessary?
+
+> +                       }));                                            \
+>         } while (0)
+>
+>  #define __local_lock(lock)                                     \
+> @@ -181,18 +195,17 @@ do {                                               =
+               \
+>
+>  #define __local_lock_release(lock)                                     \
+>         do {                                                            \
+> -               local_trylock_t *__tl;                                  \
+> -               local_lock_t *__l;                                      \
+> -                                                                       \
+> -               __l =3D (local_lock_t *)(lock);                          =
+ \
+> -               __tl =3D (local_trylock_t *)__l;                         =
+ \
+> -               local_lock_release(__l);                                \
+>                 _Generic((lock),                                        \
+>                         local_trylock_t *: ({                           \
+> +                               local_trylock_t *__tl =3D (local_trylock_=
+t *)(lock); \
+> +                                                                       \
+> +                               local_lock_release((local_lock_t *)__tl);=
+ \
+>                                 lockdep_assert(__tl->acquired =3D=3D 1); =
+   \
+>                                 WRITE_ONCE(__tl->acquired, 0);          \
+>                         }),                                             \
+> -                       local_lock_t *: (void)0);                       \
+> +                       local_lock_t *: ({                              \
+> +                               local_lock_release((local_lock_t *)(lock)=
+); \
+> +                       }));                                            \
+>         } while (0)
+>
+>  #define __local_unlock(lock)                                   \
+> --
+> 2.56.1.750.gf70dc682cf-goog
+>
+
+
+--=20
+Thanks,
+~Nick Desaulniers
