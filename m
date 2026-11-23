@@ -1,107 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468695;
-	b=5jYqy2sMf51UYusRonrl4zA4a67WApA28erbStLXj0jmzb1D0iYTDqZSG+aht3b2All1
-	 yqd/lq4lIUibqFfvisn0PUVOTmCACokO8ORzkg5GQpoBShWWfveuA49VPYYd/UvFLnJJW
-	 NvpDe4vg9QBQmD8x+udrmjSapZkBjbd1+WoZ2i6UihY/y/qgVT1Rsnx+UL6dmZPLvNIrt
-	 4NFxjmPnFkisQ/5cbANRIu5PFi1K+AwANNhOjUAjiFPNQiZwRalPDfQnKuIHsSEtMDlOe
-	 Lf2c2v1pDeml7uZRthnYbJ5B1XoaWiEa8366WcGgldqBy41sMdpTexYBn4kcDwPjoqw==
+	t=1795468717;
+	b=Fjtcm1waWEKRSd27WJSWWi2vDQ/yRS6qtyrTpQBwa69vwFLZoy7vXWzyG9OfB+xotIgk
+	 VcrJ0CWH3IsVsoMVEHhm3I9la3bRr6FFyTlJscjLAZt73RgbU6Eka0JQAOtNrRZwx/ZY6
+	 on/PLssCnKkByTTKG4JokDr6X2LpX0RmJ9YltsaMlgXo0OfQLCKiKzc4aiH1RPuhsfcOD
+	 +DF6DBfl3I50F5UOBe6euZVLR9m7u45+3qQXhexwXXzePTn3U3xHrEdgjYOTKZvgZGhKO
+	 0fFFE5JFGyYpoa7jxAzHf/tfO5rk1Zm39LMKYx/uPY6ZYSc1icZQKGRISjuwhIVPfKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468695;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
-	b=y9XGeQtEY/qMJSQyv5FpzFw/tmKybqTSXN/7fTQfR7gKUPqVyuNEdp2E34QLt5Z0r1WA
-	 uwToLrkSIxfVsY3dFL6Q3GLeDrTp96YF6CF7qdRVG+1mvJVEYHWY6JpNiryNSmuAH0FRG
-	 g1Wl7Pp7Dvz58BJZ7EFRZ9FSoTBRquehD49aDX38Nvx9sgbdRY6+J0K1ZOcdGtDyjt4xH
-	 JYEcEpNJgy2iCQnaSZ7QysMiIdmmx80tX3+I5flNEpX11qa3OtS0DG+1n7jUGgYIt7h/K
-	 Vmsw96oEXxXfRLzSAHCOm6GYbk5Flqt22jHWED1lebBjpneajijIWQFZ1HihRCTlcjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468717;
+	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=8G4GZjGmMFiG3zP5v2+6POGraE5Twcn3L3/M6fwbB4A=;
+	b=EUNI4B/j/TOifIDbwP7ff+vn90sdWMeE2vz5alNtXAVgJ6tpDAxKmP1sYxO+t+mqqD4K
+	 o37xx7j/D07Cp6d76yZq8QwOlVzufC08UEZzmmMgX7vlXq6r4fj3uB2aYq2c0IaUN4QtR
+	 f1hmTF0TevDrVr6s/M619HyHXLRZBCw1dAeOdWw899fatzRjB8N4xM3ffDMnErVraovgO
+	 Mas0hlCJHUJtv5qm0CLeFBvPOg5ivN10/HfGtfdO+YDJeNCZWzVYX6+d7GSF9An1RLuGZ
+	 iC1TV/hXzlPNTjdGpG/MJix3lMc+BjjPubKzQCvjQheBvNzxIBvTjdfL9g1Z9j2bHKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZymQIMKI;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mqOeeJPw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F002D606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:18:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F002D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82062606A31E;
+	Mon, 23 Nov 2026 21:18:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZymQIMKI
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cde84cb8803so690254a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:18:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795468694; x=1796073494; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
-        b=ZymQIMKIHgtOZ3h9wmhuFq5N5VzASSfaGAbDi259xOEgfIO4rOR02KPHNqW4Nc3fXo
-         t7wnSaqOjx3x5bhq46oC8jr6gQ72wGLgXgWsV+yXRBZUDyFtHmSo3ZtYjPYnZJ6b2GGk
-         S/U36mI1ZS/r1tPJgHQzfRKtiBLXo5euSzmS2mSKhKg3asE9d6UX/0wD0+sTSe3tCzXn
-         baTAcHgaar3Y5Owzj97f7PZ+Le3hdxzHRVMadUOlzHfjm8hCshzX+qM5q2zVbvQ6T5mc
-         ZXwnBfIwhLyJRyANMre16nA3/fL9yPD9WmNTwYz7fxP7IpYkItPLcvxbebRRtOHoZJDr
-         pA8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795468694; x=1796073494;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
-        b=yAbdRwSW4vLeHYNhkEibSsnQGQDfSg1RFAwZeT4qg4swyjEJhtJuhloc4Vx5QaCRoT
-         8YxKK7eosOGdwGh5s7yXjHyvAYLtTidHEYv3S3/WXd4c52/ZT+WZCPOd3jdAv9cHTy+S
-         g93aYtYCbubJnWt3cA/Qo5rEeipDHkqZtCKOlaA5EgDEBMqezMv/ZWlz7deq0ceWJu3g
-         r57+8l3/Kboa74unTMwkp46KQRa77gp2Vc31jugBth//9EqkEfPz0UrDmSpNtk9c0XAp
-         Ept4/jt9xr7kzCAqGdZpivODzw3vYjeeDc2xlCrjYYYXCLbZn59I7WUNCLOrlFpl/PRc
-         9NJA==
-X-Forwarded-Encrypted: i=1; AL+hErHrI9e3+fUtunDU9U22B072IkgEASoGj98muvIRawoHfXjKwPfRl+eFthCKh9zVOx1QuOT4cHBZQYsw/5Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+qhKYZ86/8SZFwdMSKdf6unfpxt01FQonHc5C8Do6e8dWsRKV7
-	FBvQMOy3QT4eUFNNDI1QijxNdqRY+/yJ929Ad4ZN1+A0pCUHxY6Hat6omu7c24suNTo=
-X-Gm-Gg: AZFdTZdCBjA9fzH4wc2hUbPUofLRbE41Q8spYzm3989/AVgIo1vDv5C04MxVZxyogaY
-	XrWUUht2xUcv1SEqwWRZM5rn7zpDJsFaxSPgA20KlllNau8/qEUt0YwIN3j63q9m5dZu/k2+oXl
-	x0QPnTIUFCeL8e32Q6sBjZT6fyb+lQdrIwyDISnzzEFMiIiCBgfMIzAmU4xqhgqyVH4b7XsHJAf
-	pvQj7cp3tOweTVzLOV4ZuRNYgxAEXoQXUEz3Bwu15dLTVwYGykcpdnu7hMRFhhxdvGPIlILDaQR
-	xAPX+pyvVVMk6KZb7fHnjlSMeWTg4sUL5kou02CFgGARue0gquWvySFFZgppclUNU39xVpmLpZi
-	XIbMN5I3ag3bP+ALyVNrWyB8UJpv6S/5zG6nCiMsT3P2oUfMReYgIMYghEoxgMu9HB2Z3+ExgJG
-	usqGCkWY+K9Bp8vqhJXJcZ7ajTv4Lxt78AYJG/24FQ7xbEXS0tq29rbcpH5rfbJMnV2Z+i1Gc3G
-	gLPbFsVbqdlT555mhEPajm11SQLcU4CVhGT/5nvaUAuubUrmUzDdfH/XE/vT4l5Rr/bK3kgVVIz
-	J7xFeJl9XT7DAPkohel9ey+FWdV4rLZnte7gKYOlVA==
-X-Received: by 2002:a17:90b:5109:b0:3ac:9176:e837 with SMTP id 98e67ed59e1d1-3b41c956568mr11182393a91.50.1795468694116;
-        Mon, 23 Nov 2026 13:18:14 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:1::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b0f482bdsm3916508a91.14.2026.11.23.13.18.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 13:18:12 -0800 (PST)
-Date: Mon, 23 Nov 2026 13:18:11 -0800
-From: Joe Damato <joe@dama.to>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
-	horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v6 1/5] bnxt_en: return the RING_FREE status to
- callers
-Message-ID: <awStk4gPo+BvDDuQ@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org,
-	netdev@vger.kernel.org, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
-	horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-References: <20261120152830.699712-2-joe@dama.to>
- <179545865792.3135.13782875077253506018@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mqOeeJPw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BDBF1F000C6;
+	Mon, 23 Nov 2026 21:18:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795468716;
+	bh=8G4GZjGmMFiG3zP5v2+6POGraE5Twcn3L3/M6fwbB4A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=mqOeeJPwLBqMKm98JMnVr8DWbn/OgaBO4efRVnZZ7bLvU31pktVHPrNooLSuEFaKE
+	 lCEjAz+cTFu4aaMNsTo5NGugSG2fYDUOFZjliqFkKGl1tbHamknQF/5dcYGlCv0Uuz
+	 yoVsmgxEdgdnfFRdzrpAzpMB9T4BcALW4VFydKA8vTd0Qh/5RSjeZ5xYnOpSdhYlf/
+	 Eu62+iXChQm289y8C28nndk6im5FW0Xvpwogn3LpZCcNQ6Yf4IXCHyhKAlLG8pI4HE
+	 ZzcGN6cKQHvkPSrtvn1Y9fe/QcET6cuwu7mm7KuuOuj3LMxyMLyXfngyOti/Jjudyn
+	 Uu9+/swrUpCoA==
+Message-ID: <185ae981c8250143bc519151d3d4f937a76b9a92.camel@kernel.org>
+Subject: Re: [PATCH RFC] NFS: don't wait for writeback on close() with a
+ write delegation
+From: Trond Myklebust <trondmy@kernel.org>
+To: Jeff Layton <jlayton@kernel.org>, Anna Schumaker <anna@kernel.org>
+Cc: Chuck Lever <cel@kernel.org>, linux-nfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 16:18:35 -0500
+In-Reply-To: <7c31f905f202512fb0ef1cb63f0714fffa24640f.camel@kernel.org>
+References: <20261116-nfs-space-limit-v1-1-fcc1335169a7@kernel.org>
+		 <c9d7a4bf79247d7cfcd23460d351412c343d546c.camel@kernel.org>
+	 <7c31f905f202512fb0ef1cb63f0714fffa24640f.camel@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,228 +64,200 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179545865792.3135.13782875077253506018@kernel.org>
 
-On Mon, Nov 23, 2026 at 06:30:57PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The commit message describes an errno contract that
->   hwrm_ring_free_send_msg() (drivers/net/ethernet/broadcom/bnxt/bnxt.c)…
-> - [Low] The commit message says 'No caller acts on it yet, so there is no
->   functional change' but still carries `Fixes: 74608fc98d28`.
-> - [Low] In hwrm_ring_free_send_msg()
->   (drivers/net/ethernet/broadcom/bnxt/bnxt.c), the `return -EIO;` left…
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but it is still
->   present at the end of the series.
-> 
-> --
-> 
-> bnxt_en: return the RING_FREE status to callers
-> 
-> This patch makes hwrm_ring_free_send_msg() pass up the errno from the HWRM
-> layer on failure. Before, it always returned -EIO. It also changes
-> bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
-> bnxt_hwrm_rx_agg_ring_free() to return that status, though no caller uses
-> it yet.
-> 
-> > No caller acts on it yet, so there is no functional change.
-> >
-> > Fixes: 74608fc98d28 ("bnxt_en: Ring free response from close path should use completion ring")
-> 
-> [Severity: Low]
-> This isn't a bug, but is the Fixes tag meant to be here? The commit message
-> says there is no functional change. At this commit, every caller of the TX,
-> RX and AGG helpers still ignores the return value.
-> 
-> Later patches in the series carry the same Fixes tag and depend on these
-> return values, for example "bnxt_en: stop DMA before releasing rings the
-> firmware did not free". If the tag is there so stable takes this patch
-> together with them, could the commit message say so?
+On Mon, 2026-11-23 at 14:43 -0500, Jeff Layton wrote:
+> On Fri, 2026-11-20 at 10:04 -0800, Trond Myklebust wrote:
+> > On Mon, 2026-11-16 at 15:55 -0500, Jeff Layton wrote:
+> > > Commit 5445b1fbd123 ("NFSv4: Respect the server imposed limit on
+> > > how
+> > > many changes we may cache") made close() write back, COMMIT and
+> > > wait
+> > > whenever outstanding requests exceed the write delegation's
+> > > space_limit. Servers that send a limit of 0, knfsd included,
+> > > therefore
+> > > get no close() benefit from write delegations, which knfsd now
+> > > grants
+> > > even on write-only opens.
+> > >=20
+> > > That flush buys nothing:
+> > >=20
+> > > - CTO: no other client can open the file until the delegation is
+> > > =C2=A0 recalled, and the recall writes back our dirty data first.
+> > > - Error reporting is all that's left, and it's pointless. close()
+> > > is
+> > > =C2=A0 not required to flush, and most filesystems don't, so checking
+> > > for
+> > > =C2=A0 writeback errors there is unreliable at best: the failing
+> > > writeback
+> > > =C2=A0 may not have happened yet. Applications that care must fsync()=
+,
+> > > =C2=A0 which this doesn't change; errors are still recorded in the
+> > > mapping
+> > > =C2=A0 and reported there.
+> > > - RFC 8881 says only that the client "should" abide by
+> > > space_limit;
+> > > =C2=A0 exceeding it leaves the server's behavior undefined, and knfsd
+> > > just
+> > > =C2=A0 returns NFS4ERR_NOSPC/NFS4ERR_DQUOT on WRITE or COMMIT.
+> > >=20
+> > > Go back to just starting writeback on close() whenever we hold a
+> > > write
+> > > delegation. In testing against a knfsd patched to send a nonzero
+> > > space_limit, single-threaded create/write/close went from ~92 to
+> > > ~1,500 files/s.
+> > >=20
+> > > User-visible change: ENOSPC/EDQUOT for data written just before
+> > > close()
+> > > now shows up only via fsync(), not close().
+> > >=20
+> > > For now, the pagemod_limit is still decoded but unused.
+> > >=20
+> > > Signed-off-by: Jeff Layton <jlayton@kernel.org>
+> > > ---
+> > > I started looking at wiring up space_limit for nfsd's write
+> > > delegations,
+> > > but afrer looking at how the client uses it, I think we're best
+> > > off
+> > > just
+> > > not bothering to respect it at all. Thoughts?
+> > > ---
+> > > =C2=A0fs/nfs/delegation.c | 25 -------------------------
+> > > =C2=A0fs/nfs/delegation.h |=C2=A0 1 -
+> > > =C2=A0fs/nfs/nfs4file.c=C2=A0=C2=A0 |=C2=A0 7 ++++---
+> > > =C2=A03 files changed, 4 insertions(+), 29 deletions(-)
+> > >=20
+> > > diff --git a/fs/nfs/delegation.c b/fs/nfs/delegation.c
+> > > index ad774316f716..3a141d5ee0bd 100644
+> > > --- a/fs/nfs/delegation.c
+> > > +++ b/fs/nfs/delegation.c
+> > > @@ -1587,31 +1587,6 @@ bool nfs4_copy_delegation_stateid(struct
+> > > inode
+> > > *inode, fmode_t flags,
+> > > =C2=A0=09return ret;
+> > > =C2=A0}
+> > > =C2=A0
+> > > -/**
+> > > - * nfs4_delegation_flush_on_close - Check if we must flush file
+> > > on
+> > > close
+> > > - * @inode: inode to check
+> > > - *
+> > > - * This function checks the number of outstanding writes to the
+> > > file
+> > > - * against the delegation 'space_limit' field to see if
+> > > - * the spec requires us to flush the file on close.
+> > > - */
+> > > -bool nfs4_delegation_flush_on_close(const struct inode *inode)
+> > > -{
+> > > -=09struct nfs_inode *nfsi =3D NFS_I(inode);
+> > > -=09struct nfs_delegation *delegation;
+> > > -=09bool ret =3D true;
+> > > -
+> > > -=09rcu_read_lock();
+> > > -=09delegation =3D rcu_dereference(nfsi->delegation);
+> > > -=09if (delegation =3D=3D NULL || !(delegation->type &
+> > > FMODE_WRITE))
+> > > -=09=09goto out;
+> > > -=09if (atomic_long_read(&nfsi->nrequests) < delegation-
+> > > > pagemod_limit)
+> > > -=09=09ret =3D false;
+> > > -out:
+> > > -=09rcu_read_unlock();
+> > > -=09return ret;
+> > > -}
+> > > -
+> > > =C2=A0int nfs4_delegation_hash_alloc(struct nfs_server *server)
+> > > =C2=A0{
+> > > =C2=A0=09int delegation_buckets, i;
+> > > diff --git a/fs/nfs/delegation.h b/fs/nfs/delegation.h
+> > > index fba4699952b8..75f0edde65ea 100644
+> > > --- a/fs/nfs/delegation.h
+> > > +++ b/fs/nfs/delegation.h
+> > > @@ -83,7 +83,6 @@ void nfs_put_delegation(struct nfs_delegation
+> > > *delegation);
+> > > =C2=A0void nfs_mark_delegation_referenced(struct nfs_delegation
+> > > *delegation);
+> > > =C2=A0int nfs4_have_delegation(struct inode *inode, fmode_t type, int
+> > > flags);
+> > > =C2=A0int nfs4_check_delegation(struct inode *inode, fmode_t type);
+> > > -bool nfs4_delegation_flush_on_close(const struct inode *inode);
+> > > =C2=A0void nfs_inode_find_delegation_state_and_recover(struct inode
+> > > *inode,
+> > > =C2=A0=09=09const nfs4_stateid *stateid);
+> > > =C2=A0void nfs4_inode_make_writeable(struct inode *inode);
+> > > diff --git a/fs/nfs/nfs4file.c b/fs/nfs/nfs4file.c
+> > > index 9a434f5dda8d..04f4d8967e5b 100644
+> > > --- a/fs/nfs/nfs4file.c
+> > > +++ b/fs/nfs/nfs4file.c
+> > > @@ -122,10 +122,11 @@ nfs4_file_flush(struct file *file,
+> > > fl_owner_t
+> > > id)
+> > > =C2=A0=09=09return 0;
+> > > =C2=A0
+> > > =C2=A0=09/*
+> > > -=09 * If we're holding a write delegation, then check if
+> > > we're
+> > > required
+> > > -=09 * to flush the i/o on close. If not, then just start
+> > > the
+> > > i/o now.
+> > > +=09 * A write delegation already provides close-to-open
+> > > consistency:
+> > > +=09 * no other client can open the file until it is
+> > > recalled,
+> > > and the
+> > > +=09 * recall writes back our dirty data. Just start the
+> > > i/o.
+> > > =C2=A0=09 */
+> > > -=09if (!nfs4_delegation_flush_on_close(inode))
+> > > +=09if (nfs_have_write_delegation(inode))
+> > > =C2=A0=09=09return filemap_fdatawrite(file->f_mapping);
+> > > =C2=A0
+> > > =C2=A0=09/* Flush writes to the server and return any errors */
+> > >=20
+> > > ---
+> > > base-commit: 9d66f26fefacebfeed15de31c1123451a17ff119
+> > > change-id: 20261113-nfs-space-limit-025199334e52
+> > >=20
+> > > Best regards,
+> >=20
+> > Maybe we can call filemap_flush() in order to kick off non-blocking
+> > writes in this situation?
+>=20
+> This sounds like a good idea, but agentic review came up with this,
+> and
+> it seems to be valid, AFAICT:
+>=20
+> ------------8<-------------
+> - filemap_flush() =E2=86=92 WB_SYNC_NONE: it skips folios already in flig=
+ht,
+> but it can block on server-wide congestion caused by other files.
+>=20
+> - filemap_fdatawrite() =E2=86=92 WB_SYNC_ALL: it may wait on this file's =
+own
+> rewritten in-flight folios, which a create/write/close workload
+> rarely
+> hits. It never waits on congestion, and a small file gets a FILE_SYNC
+> WRITE with no COMMIT.
+> ------------8<-------------
+>=20
+> I think we may want to switch this code back to using
+> filemap_fdatawrite()
+> like it did before. Thoughts?
 
-The fixed tag belongs there, yea, and I think it being there already explains
-to stable what the situation is. So, I'm going to pass on this feedback.
+Urgh...
 
-> > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > index e78cf7ad3cbc8..c3413354e7582 100644
-> > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > @@ -7673,55 +7673,62 @@ static int hwrm_ring_free_send_msg(struct bnxt *bp,
-> >  	if (rc || error_code) {
-> >  		netdev_err(bp->dev, "hwrm_ring_free type %d failed. rc:%x err:%x\n",
-> >  			   ring_type, rc, error_code);
-> > +		if (rc)
-> > +			return rc;
-> 
-> [Severity: Medium]
-> Does the errno returned here match what the commit message describes? The
-> message says:
-> 
->     Return the errno from hwrm_req_send() instead. -EBUSY means no response
->     arrived: the wait timed out, was abandoned, or the firmware channel is
->     down.
-> 
-> If the channel is already down, the request never reaches __hwrm_send(),
-> because hwrm_ring_free_send_msg() returns success first:
+OK, I've got to stop and ask why commit 2f1f31042ef0 ("nfs: Block on
+write congestion") only applies congestion control to the WB_SYNC_NONE
+case?
 
-Yes, you are correct that the commit message could be adjusted. If there is a
-v7, I will fix the commit message but I am not sure it is worth respinning
-this if only the commit message is slightly imprecise.
- 
-> 	if (BNXT_NO_FW_ACCESS(bp))
-> 		return 0;
-> 
-> So the only channel-down case that comes back as -EBUSY is a FW_FATAL_COND
-> that gets set during the wait.
-> 
-> Some cases where RING_FREE never reaches firmware return -ENOMEM, not
-> -EBUSY. The first is hwrm_req_init() failing in __hwrm_req_init():
-> 
-> 	req_addr = dma_pool_alloc(bp->hwrm_dma_pool, GFP_KERNEL | __GFP_ZERO,
-> 				  &dma_handle);
-> 	if (!req_addr)
-> 		return -ENOMEM;
-> 
-> The second is __hwrm_send() failing before it sends anything:
-> 
-> 	token = __hwrm_acquire_token(bp, dst);
-> 	if (!token) {
-> 		rc = -ENOMEM;
-> 		goto exit;
-> 	}
-> 
-> __hwrm_to_stderr() also maps a firmware HWRM_ERR_CODE_NO_BUFFER reply to
-> -ENOMEM. A caller therefore can't tell "never sent" from "firmware
-> rejected" for that errno. Also, the hwrm_req_init() error is returned here
-> as well, not only the errno from hwrm_req_send().
-> 
-> Later in the series, bnxt_hwrm_ring_free() counts a ring as stuck only
-> when the helper returns -EBUSY:
-> 
-> 	if (bnxt_hwrm_tx_ring_free(bp, &bp->tx_ring[i], close_path) == -EBUSY)
-> 		stuck++;
-> 
-> On the -ENOMEM path, would the ring then be released through
-> bnxt_free_mem() without bnxt_stop_dma()? Firmware never got the RING_FREE
-> and still owns the ring. The path would be:
-> 
-> __bnxt_close_nic()->bnxt_shutdown_nic()->bnxt_hwrm_resource_free()->
->   bnxt_hwrm_ring_free()->bnxt_hwrm_tx_ring_free()->
->     hwrm_ring_free_send_msg()->hwrm_req_init() returns -ENOMEM
+Also, why does it not re-check for congestion in the loops further down
+in nfs_writepages where it's adding fuel to the congestion fire?
 
-Yea, I don't buy this one.
+Put differently: If we're going to apply congestion control, then why
+are we not doing so consistently here?
 
-This would need a small allocation to fail on the close path. The driver
-already released the ring in that case before this series, so nothing gets
-worse with this change.
-
-Every RING_FREE failure in the production logs from the cover letter was a
-no-response (rc:fffffff0, -EBUSY).
-
-That is the case this series handles.
-
-> >  		return -EIO;
-> 
-> [Severity: Low]
-> Can this return -EIO still be reached?
-
-Probably not, but leaving it is harmless.
-
-> This isn't a bug, but rc is now the errno handed to callers, and the
-> netdev_err() above prints it as rc:%x (for example rc:fffffff0). Would %d
-> be clearer? The %x format predates this patch. After a timeout or abandon,
-> the err:%x value also comes from a response buffer that firmware never
-> wrote.
-
-The response buffer is zeroed before the request is sent, so err reads 0 in
-that case. That matches the logs (err:0).
-
-> >  	}
-> >  	return 0;
-> >  }
-> 
-> [ ... ]
-> 
-> > -static void bnxt_hwrm_rx_ring_free(struct bnxt *bp,
-> > -				   struct bnxt_rx_ring_info *rxr,
-> > -				   bool close_path)
-> > +static int bnxt_hwrm_rx_ring_free(struct bnxt *bp,
-> > +				  struct bnxt_rx_ring_info *rxr,
-> > +				  bool close_path)
-> >  {
-> 
-> [ ... ]
-> 
-> > -	hwrm_ring_free_send_msg(bp, ring,
-> > -				RING_FREE_REQ_RING_TYPE_RX,
-> > -				close_path ? cmpl_ring_id :
-> > -				INVALID_HW_RING_ID);
-> > +	rc = hwrm_ring_free_send_msg(bp, ring,
-> > +				     RING_FREE_REQ_RING_TYPE_RX,
-> > +				     close_path ? cmpl_ring_id :
-> > +				     INVALID_HW_RING_ID);
-> >  	ring->fw_ring_id = INVALID_HW_RING_ID;
-> >  	bp->grp_info[grp_idx].rx_fw_ring_id = INVALID_HW_RING_ID;
-> > +	return rc;
-> >  }
-> 
-> [Severity: High]
-> This is a pre-existing issue that this patch did not introduce, but it is
-> still there at the end of the series.
-> 
-> bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
-> bnxt_hwrm_rx_agg_ring_free() clear fw_ring_id on every path. The RX and AGG
-> helpers also clear the grp_info rx_fw_ring_id and agg_fw_ring_id. The queue
-> management callers ignore the status these helpers now return.
-> 
-> bnxt_queue_stop() does:
-> 
-> 	bnxt_hwrm_rx_ring_free(bp, rxr, false);
-> 	bnxt_hwrm_rx_agg_ring_free(bp, rxr, false);
-> 	page_pool_disable_direct_recycling(rxr->page_pool);
-> 
-> It then hands the old ring and page pool to qmem, and ndo_queue_mem_free
-> frees them later.
-> 
-> bnxt_tx_queue_stop() does:
-> 
-> 	bnxt_hwrm_tx_ring_free(bp, txr, true);
-> 	bnxt_hwrm_cp_ring_free(bp, txr->tx_cpr);
-> 	bnxt_free_one_tx_ring_skbs(bp, txr, txr->txq_index);
-> 
-> This unmaps and frees the TX buffers right after an -EBUSY that nobody
-> checks.
-> 
-> If firmware doesn't answer RING_FREE here, can the device keep writing into
-> freed RX pages, or keep reading from unmapped TX buffers?
-> 
-> The close path log in this series shows firmware can keep doing DMA after
-> an unanswered RING_FREE (AMD-Vi IO_PAGE_FAULT). However, only the close,
-> half-close and init-error paths through bnxt_hwrm_ring_free() were changed
-> to stop DMA.
-> 
-> The RX side is reachable through netdev_rx_queue_restart()->
-> bnxt_queue_stop(), for example from the TPH IRQ affinity notifier or from
-> binding a devmem or io_uring zcrx queue. The TX side is reachable through
-> bnxt_tx_queue_stop() when BNXT_FLAG_SHARED_RINGS or tph_mode is set.
-> 
-
-The above is the first item in the "leaving out" section of the cover letter.
-It is a real proble, but I haven't seen it in production. Every failure I've
-seen was on the close path.
-
-I think fixing the paths mentioned above are a separate series from this one
-which addresses an issue I observed.
+--=20
+Trond Myklebust
+Linux NFS client maintainer, Hammerspace
+trondmy@kernel.org, trond.myklebust@hammerspace.com
