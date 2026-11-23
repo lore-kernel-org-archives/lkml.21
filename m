@@ -1,101 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795452692;
-	b=wnSSNCljlLyhiv3rtnhYEGqsXHC2qqy04GZWPs6WLO3ewdM/EK9Ic6+qMtVseHNnwXCy
-	 lgedSrOyfNkBzYKlwxnYlwD/hTGJ7JCyCRRCTNwNiIQIjzqn7vbIprQRZnSt6uenjrxx/
-	 Pf2f98obf771UH5xBouzmWem7EHMhnISHNPQbkMtq1gz3Bz0md+0eazXTp2fQAts7m8r3
-	 yS0JZftp7sVgCPMH2MhH9zjAJB+FkGqbHI5lW384qkoiU5x5fzk1AVGuHXUGvoYS+/Lad
-	 /WIPd0Lu446ghZvvDx0Wngt12kML1qfbcBRxP0LGsNUQ+5ICmyIvbKbZA/HNiz8KSPA==
+	t=1795452751;
+	b=kGBYq+lbXgvF4CI1MTsnFmwR3Lz8uoHUGQAj9NHsf49W4U2bqMaQgegrGH2KtrB+4o2f
+	 Zm6ATj1KllLXkEuigAtXIvBXBF3EM68UnTUqwDaTAo2NXv59QS3Uspv/R0xryNErpkNzg
+	 2JMlpHPo2xyBHE5C84tcGFxRmf4O5Q1rqkRLAlb3fqjcLZH98ofcbhyVze+Tm+UuK/UMo
+	 1xpbm5qMCAQ1gi/s//7SG4pQPDiO4iR4G4Ge40sXcXBygoBCnkUOtkFJ44oX7wMTNtE7J
+	 h+BqqAM/aWp4CLihCpHb39KibTvtL2ckitzc4bmb1wtZ/UNAFWkEMgCyypThZgJqBxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452692;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452751;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=i8m3St/33fP2QE3sVDWlAViGW9u6eVfEV+msFg0eCIU=;
-	b=gbe+TGwLWX1z0hoGl0pQpwwx1gV3VlMTu3CKxwLouo7Khfeuh8e2Qo+GplsYnq4MsMvy
-	 Rj4rqpqVtFxstSlMaEJj246BRd1DW3kh0D0DN+vgAOmAXbFqhbYJzNpqxbZMz5BPkJlnS
-	 mu7mRJASyD0/U4ArwdFvy01j4Er4SOPgX11/1R7ASP1jcpf9QMIcRpfT6+C0k/bJko9q/
-	 RgXl+9cc1fUdooY/N/tQuUcXe1KS6TZ1wpXQhkPcynnQk34ywRl1D2yMb/KPw2WUYOQCL
-	 SEJY4wiTjqsajfJT9QULJZTQgpw2EghPkiIt0OtUgx3w+geFosZyWZaSA7vC4JZWUyg==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=qCCO3SHR08M4R905gwt4IjFBKdk6exd3kEeKNWeigAk=;
+	b=vz/xbICsc1S9vYtxLGmaFj6IW1uSFzKcUW9/WLBpum8ICGsSQuyHyi13jjl6ViWBaGcm
+	 4JWzuMPxsTwXoQAI3BD5kqbMmE2MGN4MupZpzelEZ4wwpr+h7xcWvnKKQDTlTliAbe28Z
+	 krlX0dK9HGSgWS3zQD9Azp3PFb3ueMBAjSbkAWFUHAmF+CwdrQ/EAF5ygSa29Rm4OWO2v
+	 dfwY4cPaqG3vzmRMVJtg2gB2Fjdpm8/j6CzEETyVVe0WCxCv53J+G6uKk4uhucHvHEwrW
+	 yYPFwHetNfbeqf6hiIcR0eEfHTQYSB56JQbFQL2GOZCplyuHK7+y3LfLud2V5kmqncw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AuBd6OMz;
-	arc=none smtp.remote-ip=209.85.222.178
-Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JVek8zEL;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B9A7606A338
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:51:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B9A7606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A354B606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:52:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A354B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AuBd6OMz
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-93f3c616c84so288139585a.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:51:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JVek8zEL
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-490f38e9688so2477564f8f.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:52:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795452690; x=1796057490; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=i8m3St/33fP2QE3sVDWlAViGW9u6eVfEV+msFg0eCIU=;
-        b=AuBd6OMzXlSQGhqGzEU8BKBmVBfAeOXmvQBVAqY4L2BWD09YjoBzzOgJ4ybDaUAd3Z
-         bv50ZDj5WX+DG7K0g1CxlJGfhVhfRxsRRWV1uYkqltMcTzDw5nYynaqPmMDGIe9XEmT0
-         WEsJ2dpJm3OZbtWHWK0uJ0Uy1Asapxd2k/+ZXQeP6FEIyZk7iuwt3mxruhznElKyskXb
-         J+sP6uOLuWZ8bwVmpfKy6JfUdpMUPj4sztd7Zpc9yp+OfklIchnz2VfloxHzX8Mkx5w4
-         UpWfnTGFPk/7yqPEz55gFNALVJLhbWr6aABLhlRnc7ZQ4lg7ESq8dEzhOKtsyWHZ5X4Z
-         AIcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795452690; x=1796057490;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795452749; x=1796057549; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=i8m3St/33fP2QE3sVDWlAViGW9u6eVfEV+msFg0eCIU=;
-        b=tjmo9zJMhiEcEDdfTQG/Ln+mgvjtiWW1EG/KmDlzZXUZiYoHDTiuY+RsB75suNDHoX
-         tv0fqhcy62S8GJWkArHN2JX95vrtfwAkz5zBwWau7gPDk6s8lIMpPDMQumOYaFekUTwS
-         yjylbwAktlTqVkmBzVkxBNGezDc3Zl3rvGnW7Kei5mRWuljihXXFyL0txv/5QMs89aXD
-         ZIh95T9lQNMHoy23w2ZDUU9UU7xYlvjnSMrCVO2WdB+iJO6cCkkX/7Qtz6F9SMOc3MZf
-         IwVF2Ap/c9jgfbv1mi/ePGyDVkCCjRevmTnyUujhbGIw1RRu4etskrDHa7ys5qAWY38U
-         XwUQ==
-X-Forwarded-Encrypted: i=1; AL+hErHI6PafT2c83WP6rbibABCKvYc3BPUxn7v9XVABnuqhnLpwxNVEM0G9d1FS9K7UesRch+zZrK9imdHtz3I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8H0TMdvEeftLsjk/s3lfIkWjJ5j2IEfHt4GCMGGHocU3LEVEdf
-	Avdj5HG7WOS59zWZ0GNPWsqw8BN08C12LyQLY850qMqMiU76P6OqUpAifoKkRnCZFGwPm5ilOI1
-	YUsKr
-X-Gm-Gg: AZFdTZckjvQHeQBwT0YUGGZ3dQ6LoQp13hYfb599lwZHX+bdgUo3MU+ArhGva1WmupK
-	4hk3iUmVcfWSJoonFewR3V/vaxTaBxS0OKUKjqUVDJEjB7vef76tcdBCSic5JuCW83RXjy1+Gwp
-	KHDeiuNfHAyEQwCDQqmPHXYVU9ijJkLNrWNhKRcefZF00Mv1X8GO997e/qi+cvUKMDIH7/71WVt
-	Uxix0stHu0HzjEI0FewXcK9wr0m12AvcrSJesyB07y/MdKLLtSN4j1M5WaTTaTLT/SAtKqJys/o
-	M3diB2pqrLTN4k//Dekoh958IhbUrPhFzrX/S2EGHpHn4Z6UFrj9w0+4+1WOMqmR8dcndc8gMQ2
-	5nuiXysRf2ryxO0+sw3LpGq92xR5CtebKIXP5qh9M0MJWi/wqMYzqRdgZ02JMa+I8ZP/kLUrRbd
-	RA0CG73FubpMqagYfyJshjvhFTndetXEeWf0jrdO5+gp3cUJ4St18cuI6LDM8xVp2X6aXqqCkzu
-	Xrydj21ahk/AxDq2LVFBeGYg7j9DeKV8RFbis77ICxK76bCuHtI3sFQu1zsE9ZMnUWQM+zHXRxn
-	SEnCMpqAyweRt+C5KF4ZGYe4reYkccXyTpJxcompmNZn6wtLFNUl3p5JgY+K8WQ2KExvHSRBs2A
-	40n8=
-X-Received: by 2002:a05:620a:2949:b0:949:7de2:fe29 with SMTP id af79cd13be357-949bab0fbb9mr1904435185a.62.1795452690006;
-        Mon, 23 Nov 2026 08:51:30 -0800 (PST)
-Received: from ziepe.ca (stjhnbsu6iw-159-2-142-59.dhcp-dynamic.fibreop.nb.bellaliant.net. [159.2.142.59])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34a38bsm835809185a.13.2026.11.23.08.51.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 08:51:29 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xVXGK-00000000wbY-3KaM;
-	Mon, 23 Nov 2026 12:51:28 -0400
-Date: Mon, 23 Nov 2026 12:51:28 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Serhat Kumral <serhatkumral1@gmail.com>
-Cc: linux-rdma@vger.kernel.org, Potnuri Bharat Teja <bharat@chelsio.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Roland Dreier <rolanddreier@rivian.com>,
-	Steve Wise <larrystevenwise@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RDMA/cxgb4: Unmap BAR2 when c4iw_rdev_open() fails
-Message-ID: <20261123165128.GL179082@ziepe.ca>
-References: <20261122135413.93813-1-serhatkumral1@gmail.com>
+        bh=qCCO3SHR08M4R905gwt4IjFBKdk6exd3kEeKNWeigAk=;
+        b=JVek8zEL09QPtoo7101zT7728A1X6ot7dGDNcM/BFYFf9K3XpzUA7cuv3KZDJ50NC5
+         dKBBCoCaLTekPOrqLN4tSHZqwfjVtq+Ih4mMBTPdt9JzlFtCO0jEEXwBi0cbYQvfBfYY
+         nfbdiWALYaLJN6LrKJ4b821N6WRwWyaBavivC9gsak9C7hHsntT41Ft7z4v0vUOK4o4D
+         e6eNfaund23X9bKHBaWL24jOU0qbGxeCwxpDs943RgCkVF1kNxDCuKnhiIi119wmMZ0n
+         LxenXZw2N00qrN0SELjxLsXRZDyrbEqADi3YBqEwUWKhYioOteYZZqHHQM+26xULDdvj
+         rfrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795452749; x=1796057549;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qCCO3SHR08M4R905gwt4IjFBKdk6exd3kEeKNWeigAk=;
+        b=Cj8cKFjZbIPFve3maeLZlrzEfLLXydtra5ZuKChypqQFCMtHRmoNjRh1TrG/afDnI+
+         TM4R4SVOUD70J3rvwEp7CpVZ8JIJmW/1XCD/z0F3ubv8xc2xdZp721d2zOsm4wYPPC3A
+         J5ToycnyTcLngsX00TwlT4vADcFEmlpCvLDARR8Ze5EkUWvGZ4Y6rQXNbj4GIHMA91Ju
+         Cb8WSNXuCQlXV+Hj4vl1o0WLDiSFSGNUc2t/NY/lDeOtj2QNgGpN4phHJUuzsXKS3+1e
+         OZclGj6TRFsDiGb3sLyZdHooxAdRkmqQRiIlNBZfy2EL6fm9bjAZrBRd7LzjtBXkx8NJ
+         vRow==
+X-Forwarded-Encrypted: i=1; AL+hErEYVsZ9joqdfYtbXI7QP2YIxRgqo/U4nuOAaClJRWUrP628iKEvZhCVBDvYqkYEL0GWKfGZdgbye/qVPWU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/oc5nvijqf182F5ym9P8k7NZujATKKLewolzTmiBk8AfYjs9q5
+	t72ui8yXCDi45mYjlMx4nHBoHTPSWPOEiFDzv/BqwzHGKeLZIIosMq4I775MCLGDBuM=
+X-Gm-Gg: AZFdTZfra4ha7sJRYELrE4F/E10M5iZ6xVIKzFhXfAXD2XGrOrAhkfBzInLudXnRqAK
+	ZzgASBrLiRk+wDWVEexF0rC0WIWZDDtPdZntP7Tv83xdOc32QokjEcgkRrHAs7OqFSTaO1HqSQD
+	bdVA25yErhbKgv0kBOyCPt/2DBVsaQnUziP1e/QC+kQ9ASMUJ/IlP3vvGLzux7nsqmkC3fJ3nYY
+	yh9pWszxDxtSEnyu8/5jHLG/MMXNiQHF4aQ+6f36bnHbhB3MKWIkRq7mvGbMAH1i9AUtzt7qON5
+	mNX2U769TmMydevoNZKY3lK694/5N50IemEMt9hrLvXaeUy5yk+bGt/Vg/xgb1+HJbbRDDHU6Lu
+	DL92rEHnHeyKxQBDaADFDZnZhyoI0yWnPjycRU5LBYA9VxkxS+/QEOU2RnOFlXzzb1Yov59eGZ0
+	SAR6f9yXG0z9Gr1YghT+pg3QkK22KcQoDwJDUOD3qWNGbWfUSDAnJrDiZyZQVP/DxEH4D2SfNAb
+	AF+ylLVh2g8L4hFXv6iGgO5ZuMDq4ZiY9EmoD5ZAx92tt5tDTix6DmbnVy54RtAmK9mUonGuJsu
+	eHOfJeXY+MwVwHr+lFWspemxGO1K0+bVV+SdJTh0KEJFTZghMwUWyKpyXlI=
+X-Received: by 2002:a05:6000:230e:b0:491:eb12:e151 with SMTP id ffacd0b85a97d-4aa4e01e2dbmr34950680f8f.4.1795452748754;
+        Mon, 23 Nov 2026 08:52:28 -0800 (PST)
+Received: from [192.168.18.21] ([46.197.185.3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe48sm21271722f8f.23.2026.11.23.08.52.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 08:52:28 -0800 (PST)
+Message-ID: <76f47b38-9c12-4f39-b169-7f75575b61a1@gmail.com>
+Date: Mon, 23 Nov 2026 19:52:26 +0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,44 +92,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122135413.93813-1-serhatkumral1@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] x86/fpu: hold fpregs_lock() across fpstate_reset() in
+ fpu_flush_thread()
+To: Dave Hansen <dave.hansen@intel.com>, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com
+Cc: x86@kernel.org, hpa@zytor.com, chang.seok.bae@intel.com,
+ linux-kernel@vger.kernel.org
+References: <20261123131836.220685-1-omermetekaya0@gmail.com>
+ <57ca9082-af96-43ad-9f7e-f3969ea4a5ae@intel.com>
+Content-Language: en-US
+From: =?UTF-8?Q?=C3=96mer_Mete_Kaya?= <omermetekaya0@gmail.com>
+In-Reply-To: <57ca9082-af96-43ad-9f7e-f3969ea4a5ae@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 22, 2026 at 04:54:13PM +0300, Serhat Kumral wrote:
-> c4iw_alloc() maps BAR2 on T5/T6 devices or its on-chip queue region
-> on T4 devices. If c4iw_rdev_open() fails, c4iw_alloc() releases the
-> IB device but leaves the mapping in place.
+
+
+On 11/23/26 18:59, Dave Hansen wrote:
+
+> Hi Omer,
 > 
-> Unmap the mapped region before releasing the IB device.
+> I'm genuinely curious how you came across this issue and decided to send
+> a patch for it.
 > 
-> Fixes: c6d7b26791a2 ("RDMA/cxgb4: Support on-chip SQs")
-> Fixes: fa658a98a2d0 ("RDMA/cxgb4: Use the BAR2/WC path for kernel QPs and T5 devices")
-> Signed-off-by: Serhat Kumral <serhatkumral1@gmail.com>
-> ---
->  drivers/infiniband/hw/cxgb4/device.c | 4 ++++
->  1 file changed, 4 insertions(+)
+> Did you happen to read the other (brief) conversation on it?
 > 
-> diff --git a/drivers/infiniband/hw/cxgb4/device.c b/drivers/infiniband/hw/cxgb4/device.c
-> index 24ac9871ce67..35dacf379294 100644
-> --- a/drivers/infiniband/hw/cxgb4/device.c
-> +++ b/drivers/infiniband/hw/cxgb4/device.c
-> @@ -1046,6 +1046,10 @@ static struct c4iw_dev *c4iw_alloc(const struct cxgb4_lld_info *infop)
->  	ret = c4iw_rdev_open(&devp->rdev);
->  	if (ret) {
->  		pr_err("Unable to open CXIO rdev err %d\n", ret);
-> +		if (devp->rdev.bar2_kva)
-> +			iounmap(devp->rdev.bar2_kva);
-> +		if (devp->rdev.oc_mw_kva)
-> +			iounmap(devp->rdev.oc_mw_kva);
->  		ib_dealloc_device(&devp->ibdev);
->  		return ERR_PTR(ret);
+> https://lore.kernel.org/lkml/6aff5b8e.4ea6388a.d0c9.0001.GAE@google.com/
 
-You should refactor things so c4iw uses the 
-		device->ops.dealloc_driver(device);
+Hi Dave,
 
-Call and puts stuff like this in there
+I saw that on
+https://syzkaller.appspot.com/bug?extid=58cbd7974a103b8b8916 and in the
+"discussions" section there, the discussion you had with Chang wasn't
+visible, so I hadn't read it. Looks like you were already working on it.
 
-Existing c4iw_dealloc() is possibly close to what should be in the op.
-
-Jason
+Thanks,
+Ömer
