@@ -1,53 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432407;
-	b=z19Qa4cK+O6Kh2oIOSOMUUde+jPV5rraHgeRsLgD6BkOrrUdTB6oV56898yh1fQob3Eb
-	 1k5JnjqVQ56whjmfrOEM0hqybTcAI3p4WasGKdjOT24k5w8t73ChtLplKG8MRQWNx68g1
-	 ZvKipuc4MXlJ0uzA90+C14FxJx9NQ6qckzi4H4xh/Ruu8gIK0vUb5wfcUxz27zncvykLh
-	 H1Pdjk2Bn0CUXhKJXBoFlrgDTMXFBRur+/Mal538+64Ng1z5IQXKarthrSPrYEYUz5i9v
-	 C979GOxbnX78YJlghUU5MWAnasBu3sXrpGdcY3ZDq+90DXmXDeX7CPaHt6YxWm2txKw==
+	t=1795432408;
+	b=5dbHZegsT4/8br9iGyJ9+tlhXnwC322TApH9SlRMvdfocHJl+s7TJsV+1u6TqncYQqxE
+	 Sp6RRIyUC+jWM/3/z4JuKobMujk1eLHE4pMf6KPE/8uW74TGB71zBkG5Zc/vjpK7SG3fR
+	 t6Fyt4EITigSIkkjQJuywbtNyZvf0Ntt1JEOvFZGODh89c32TdMZcp2Udd93/xZOxO4bO
+	 T+9HK0wwjj1LVXr1YVedJG5woMAVGQ9nls4hhdNj7lfZMEyB+ddjLZpmqwnGUGsv2zJQH
+	 ryonwaDX5RlLcTi/qrOdTnkkraC446x1EERcvI89qUgn3p5F4O9U9TbDMsZ8sQSEg7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432407;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=FSNPqJ2wns2AgHtQuJTveAPlZdwvlJJAYiPAVLO7n6w=;
-	b=HxmG3SS1gRTLGw89Ydyq9y6rTEz6DMXgtYI2yPeNtnXfCsRY6HtH0bB2CcdW/0s1RQNU
-	 rOIynWQAYGQfNtJyuJHp+NjMzngqwuYIzB92bJb1SQdtwOXu4T4CkgHS7sz08YSjyPXxA
-	 vB7LBbWixCW5aXCJCze6zYJ5KALuP/6iAjjVGAZkd25iMZc7jM4LinWtLhE016N06RY7/
-	 9JVrRFTqxu5HwC7v6n2CXWf+wekGeayQXB/VSjOZdzt3aCnGAB2+T0z8nK34LaqO6ok+o
-	 7LPmw3HjJ5evTOMVU27usTOAKHkqc7u9+5OGDQ/it94z7WsWKdwsI06VwAwzR2NNdWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432408;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=pdNtJPN+YZ4rri0c8RqM9UiYr5D4vUVV+Oim0b+KOQQ=;
+	b=xPXnDjidvB0Dj7nBLru9RzAGTNwsjrINUHcyNdXrTnRXs455+NFP/i7zj8XUh0Lu5izp
+	 I5C92BBMc3gIGKRCdsnUMb2K4nm9c2Z0rtCKXDcbS9fMztsG9is21zsASuEL58L4yhi/5
+	 1IkXWd8SkT83mKOWhFBKDNwMSBgEXL7EJqC2TOUMYblXwd7WhaFLsw7+KNWDOBGj8NMBr
+	 Cv3c3dYnVf2p0ATvG6lmH/wTGcG7JOaBYM3E3u6j+i4Y6ukV1vywYNy6Ony/Q/q9RQH2m
+	 k6Eezv1M8wTBhix63/K5jS5JsYzaYoSGQJ0CexPkFoZ1uQgDm4PLMC1mKfbVxfGYmDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpMah2Ts;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A8E7606A31A;
-	Mon, 23 Nov 2026 11:13:26 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=m9Q7jtT3;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id EE55B606A333;
+	Mon, 23 Nov 2026 11:13:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE55B606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpMah2Ts
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AAFD1F000CA;
-	Mon, 23 Nov 2026 11:13:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795432406;
-	bh=FSNPqJ2wns2AgHtQuJTveAPlZdwvlJJAYiPAVLO7n6w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IpMah2TsMZXWQGbxBbVtoMVRvzKKgY5TUI+7S5hzuVspiJkOSMgC6069CBNRxbWlf
-	 +FwwxKYKTg+K9NB0e/SLP0XvcwUjk6RhzDdnDxBKwG97bQacxHsYibYeu7aI8AvyA3
-	 ytxRK01EN5fypqN/gzAPM7AnqFH0+ssbzHQlPZ41qmNfNQqV43iFqkzgpycCwNFB21
-	 0+4C0p5w0OTTl3RwCFzL+4sh0DFZs/QI77MMWjvDkZWtigi9ptTNQVIrqw3N2lmbqE
-	 F/nihpuJXymI3GgwxdWoaqv1eiuozJ0J10Tq4RTiXC4aCQLcBL9EoAjrU0btyHc/rD
-	 KVcVR9YIvldEw==
-Date: Mon, 23 Nov 2026 01:13:25 -1000
-Message-ID: <305c5803b904a57c188b505d6ed9e1e4@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Michal Hocko <mhocko@suse.com>
-Cc: Zhan Xusheng <zhanxusheng1024@gmail.com>, akpm@linux-foundation.org, hannes@cmpxchg.org, roman.gushchin@linux.dev, shakeel.butt@linux.dev, muchun.song@linux.dev, penguin-kernel@i-love.sakura.ne.jp, mkoutny@suse.com, chris@chrisdown.name, cui.tao@linux.dev, cgroups@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, zhanxusheng@xiaomi.com
-Subject: Re: [PATCH v3] mm: memcontrol: don't miss processes whose leader has exited in OOM scans
-In-Reply-To: <awQRT7InNqEF-K8-@tiehlicka>
-References: <20261121073222.834282-1-zhanxusheng1024@gmail.com> <awQRT7InNqEF-K8-@tiehlicka>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=m9Q7jtT3
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06927143D;
+	Mon, 23 Nov 2026 03:13:24 -0800 (PST)
+Received: from [10.0.129.12] (Suzukis-MBP.cambridge.arm.com [10.0.129.12])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DCA73F882;
+	Mon, 23 Nov 2026 03:13:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795432406; bh=oNhrJvzngQdGUdvtf3HwuE2CWgPaaoD7obsB30AVFiY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=m9Q7jtT3qHQi3dYcCrefTbgfBfUUxdNLEeSayLg5rbIkTXoB/x4VvOFF+eg0uhNh2
+	 T/4lQSmqKOLk+XDumy7kWWFZul9JkoADuqxsEvtsVmmda8EtepGJuohYsvZf+bq7uV
+	 Nl/sd5PnvA+c6orhoSiVc+M4ML8dN8BWTlgNNhto=
+Message-ID: <3a3c5681-ff1e-47b6-b942-2d5ce64a8d6d@arm.com>
+Date: Mon, 23 Nov 2026 11:13:22 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,42 +53,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
+ preparing memslot
+Content-Language: en-GB
+To: Sean Christopherson <seanjc@google.com>
+Cc: Steven Price <steven.price@arm.com>, Fuad Tabba <tabba@google.com>,
+ Ackerley Tng <ackerleytng@google.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261116164358.142785-1-steven.price@arm.com>
+ <20261116164358.142785-2-steven.price@arm.com>
+ <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
+ <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
+ <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
+ <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
+ <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
+ <120ad525-efa5-4129-9d97-fa6fa5db747f@arm.com>
+ <av8No1rvJLXwciId@seanjc-mac.roam.internal>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <av8No1rvJLXwciId@seanjc-mac.roam.internal>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Hello, Michal.
+On 19/11/2026 14:54, Sean Christopherson wrote:
+> On Thu, Nov 19, 2026, Suzuki K Poulose wrote:
+>> I see, thanks Steven. For context:
+>>
+>> Arm64 currently (without inplace conversion support) only allows GMEM
+>> with MMAP flags only and relies on kvm_slot_gmem_only() to detect that
+>> the GMEM has MMAP flag. But, when we enable inplace conversion,
+>> we can't reliably reject the slots by kvm_slot_gmem_only(), because
+>> all GMEM slots are marked GMEM only with inplace conversion.
+>>
+>> Also, from the API Documentation,
+>>
+>> "When the KVM MMU performs a PFN lookup to service a guest fault, the fault
+>> will always be consumed from guest_memfd, regardless of whether it is a shared
+>> or a private fault (unless in-place conversion is disabled and the backing
+>> guest_memfd does not have the GUEST_MEMFD_FLAG_MMAP flag set)."
+>>
 
-On Mon, Nov 23, 2026 at 11:11:27AM +0100, Michal Hocko wrote:
-> Tejun, is there any strong reason to keep the exiting thread group
-> leader in the original cgroup? This makes CSS_TASK_ITER_PROCS iteration
-> really tricky and error prone as above examples show.
 
-No, and I agree that the leader should follow the rest of the process on
-cgroup.procs migrations. It's this way because controllers primarily care
-about resources and exiting and zombie tasks don't matter much in that
-regard, so migration skips them and controllers don't have to deal with
-them. I don't want to change that. It doesn't make much sense to teach
-all controllers about them.
+>> So, in effect, with in-place conversion enabled a KVM_CREATE_GUEST_MEMFD
+>> without GUEST_MEMFD_FLAG_MMAP is an error
+> 
+> It's only an error if (a) the userspace address in the memslot points at the
+> gmem fd and 
 
-That rules out the full migration path for the leader, and moving it
-without one looks fragile. If cgroup core switches its css_set without
-involving the controllers, ->release() sees a different css from the one
-the task exited in, which breaks e.g. pids uncharging, and that still
-doesn't work for a leader which is exiting but not dead yet as it's still
-running.
+I don't understand this part. With inplace conversion, we mark the slot
+as GMEM_ONLY and always resolve shared faults from the gmem (on arm64
+as described by the API). So, isn't it a usage error from the VMM if it
+plans to use GUEST_MEMFD_FLAG_MMAP=false with inplace conversion ?
 
-Maybe the leader can pretend to be in the new cgroup instead. On
-cgroup.procs migrations, record the destination css_set in an exiting or
-dead leader without touching the css_set it's actually on. When a
-CSS_TASK_ITER_PROCS iteration finds the first live thread of a process
-whose leader is exiting or dead, it looks at the leader and visits it
-there if the recorded css_set agrees.
+In other words, do you mean to say, passing a non-gmem fd userspace
+address is fine with GUEST_MEMFD_FLAG_MMAP=false ? But the API
+documentation and the GMEM_ONLY flags contradict the usage.
 
-That leaves the leader's actual css_set and everything that the
-controllers see as they are now. Only the iteration changes, and exiting
-and dead leaders are handled the same way.
+Now, should we reject that in KVM or not is the secondary question.
 
-Thanks.
 
---
-tejun
+(b) something in KVM tries to actually GUP the memslot using the
+> userspace virtual address.
+
+Agreed
+
+
+Suzuki
+
+
+> 
+>> and thats what this patch is trying to fix in arm64 KVM. The question is:
+>>
+>> 1) Should this be fixed ? How does TDX/SNP support older VMMs with
+>> inplace conversion ? What was the conclusion on this breakage ?
+> 
+> There is no "breakage".  If userspace doesn't point the userspace address at a
+> valid VMA, that userspace's problem.  The only thing the early check would do is
+> prevent weird use cases that may or may not be valid (and for which KVM doesn't
+> care), and error out earlier if KVM guesses right and userspace really did goof.
+> 
+>> 2) If it should be, then shouldn't it be done in kvm_gmem_create() ?
+> 
+> No.  As above, I don't see any reason to have the check at all.
+
