@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.205
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.212
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420376;
-	b=KT3isMB8c4BRJEowYO0DjHNFpxZaag1akGzf/PGPCEsDoiYDdAk4nuGiqLmjv0MQbgOz
-	 L8PL0HmdV76PCrrO7jRqdRDJ0+Oh7OhFWesWn7JMy2p6brpvrrXZvTiMFPdB6nfzJmJsW
-	 Lnn6swjoUdRnNDOS+6k5fBQ4VpHAhYTRfjfJDNDmVUtDRT+FdV6zlD/AQLxiUTTbV+2Yn
-	 fNnPSGy5MWM/Mh8syVHYRf7lBi/SAz1cJAWTI6+RSR/7WsKUwo87nkD8EhjamqyEr2Gcv
-	 Ojd1VVOX+qHL3Ojef+9ILlsQ292qvqFi0EkdOKAni9nBXPF8d+8qDmiYjxf4i54as6g==
+	t=1795420377;
+	b=S7QP/MTif/Y7zVJEwPI0I5KXmWpOmVhq5UE56jUVdZSNRQ0uOiOChLLw8sIP79TmcPL7
+	 ppmqcDTbeGaYfeBv5f/ASpVSh1Gu4+f/2sQkKIo+L/roMwYt247dNMiaTEAJY/WKI+Jk0
+	 hKpzPexfEto0iOIQJJ3InizgyKqqVO4bNWFn+wmiDUmE8a83chLQtUVvS1bM0T03n1SPe
+	 pV3xk2nStyk88lCWMFzS3lFaNs8ow2nIolL3Rt+G39m4PrYQBmu6+IoGwqA98XCEPCEWy
+	 cestcNvdMG3XLbAwqFPw2E96YvDz9KYo+Q4fcSHcrSnhDYNOefFOsaRaM5zyxsAtA0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420376;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420377;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=p4WNrnTmjL11PBLlIs9x7E6Ygb6cyG3MjAKmtC16Sv4=;
-	b=iserfzmxjbn7gQ+Ei7L8IVGbBcdcqfLanKQtadFRbBdGXyy9DwhDDw+q8zKYQ66rQYbv
-	 HuWtt4QQ1hByGMfWuWltuh+gOIVgtW1ObAMVmwp8GTIgODQQHpsjKvQYdon1dXOsCOfKq
-	 6jviqIX8lK4Ik8fy86wov3DgGffxKPFw5iJNwKOV0czQjhbGhdnpcCAJ41EEawXCkuNcs
-	 xTCAa1uiCd0KAVjtGuWWxPpq39XvK2tFxPy/ih8pgwfCfaNMmScFfIsB24maRWMxZqLsD
-	 y/6/EIoTEz91+VJVcyIEEydIgbCfSfK4bDyriv1s0zvVzzuxqGVXPCJlxy9ScFjABdw==
+	bh=xbuI8Rj5UWy8F2IEq/Z3SjrIy8y7V/ucb42T1EaghAI=;
+	b=2zYqY0j0PqtoLClD/8IkB68T/QAOGLb/SgoJqZW4IdHfuaXCYB1jhYIYHrPiwiUBrOKk
+	 YOZyiGLZlKMYh+jp10I78i+xefag3izodvOemisU3DSx6GgXYqQBUqsSERN582oEaE0v8
+	 wuy7nLrgkQIdWrawHGbE7c1ANBknQ4dISdIhGx0hq77Co0maDcKshQynUPpOBbL1icpRQ
+	 I+5AS0y3QxZ3LpTh+DLmSDHRbDtS10P6guG3uUcj4h5YZTJSy6QdXBa1dqDdw0nzGHEcT
+	 M7H006ujDTv/B5y5s8i/nhn1pcBj6NRsubWap+CCpXhY9D+LoYRGcuCuIwG3rdPM/Bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VY716lNV;
-	arc=none smtp.remote-ip=91.218.175.205
-Received: from mta0.migadu.com (out-205.mta0.migadu.com [91.218.175.205])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="NqsE/slf";
+	arc=none smtp.remote-ip=91.218.175.212
+Received: from mta0.migadu.com (out-212.mta0.migadu.com [91.218.175.212])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A13F1606A680
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:52:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A13F1606A680
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19B1060A2611
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:52:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19B1060A2611
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VY716lNV
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NqsE/slf
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=W5MVlLabdoLJygsTruEB+0zDUQy4ednpuAK/pgs3G7I=;
+DKIM-Signature: a=rsa-sha256; bh=bXcoAIIOWQFxtLfzMXJj6hOUSFVtDBpNdGJsvYPQPNc=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795420373; v=1; x=1796025173;
- b=VY716lNVIxIbgQa2xjy1B3kXj8KVdp0PaNMCrNqxSeGX2H3rgx3ZlMHFzdPetNupB7Cy5JS4
- OYvA6wF4NMq4mqP9aQa8Q6RnEcS588R950n9tRm8b4h6JsT2qU9XkESj3l/GbNG497JQE90nDPz
- HN8H6+deX0eoBaTg+SwLopbU=
+ t=1795420375; v=1; x=1796025175;
+ b=NqsE/slfyqw/SS38y/Uj4L565p2TN2+Azjb6vZ6jjbnKPa5mPpFGF6fz9JbDTGKDutjWIyAJ
+ 4gMlrR3qkAjEG4R61BwF41t21qo8UbNuqN0d+JhAzwus6S1PWuLxvuneg2ZNSQapFBqmqpv9yeP
+ zES/snbrA0HQH4fOH3amxAWs=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 17f89cfd84a43798;
-	Mon, 23 Nov 2026 07:52:53 +0000
-X-Mizu-Trace-ID: 17f89cfd84a43798
+Received: by smtp.migadu.com with ESMTPS id 62371c90a19412f0;
+	Mon, 23 Nov 2026 07:52:55 +0000
+X-Mizu-Trace-ID: 62371c90a19412f0
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Catalin Marinas <catalin.marinas@arm.com>,
@@ -59,9 +59,9 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 7/9] arm64: sysreg: Reject a macro name defined twice
-Date: Mon, 23 Nov 2026 07:52:17 +0000
-Message-ID: <20261123075219.369042-8-fuad.tabba@linux.dev>
+Subject: [PATCH 9/9] arm64: sysreg: Reject a bit position written with a leading zero
+Date: Mon, 23 Nov 2026 07:52:19 +0000
+Message-ID: <20261123075219.369042-10-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261123075219.369042-1-fuad.tabba@linux.dev>
 References: <20261123075219.369042-1-fuad.tabba@linux.dev>
@@ -76,40 +76,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The generator rejects a duplicate register, SysregFields block, prefix
-or enum value, but not two definitions of the same macro. Two fields
-called F in REG make it emit REG_F twice with different masks, which the
-compiler reports only as a redefinition warning against the generated
-header, in every file that includes it. Two values of one enum sharing a
-name do the same, and so do names that collide only once the generator
-joins them: a field A_B beside value B of field A, a field F_MASK beside
-F, or a field B_C in FOO beside a field C in FOO_B.
+parse_bitdef() reads a field's msb and lsb as decimal and checks the
+layout with them, but the generator copies the digits into GENMASK()
+unchanged, and C reads a leading zero as octal. "Field 63:010 A" is
+accepted as bits 63 to 10, with the next field starting at bit 9, while
+its mask is GENMASK(63, 010), bits 63 to 8, which overlaps that field.
 
-Record every macro name the generator defines, and fail on the second
-definition. This covers a duplicate block or prefix too, but their own
-checks stay, since they report the duplicate at the block's own line, by
-block name.
+Require both ends of a bit range to be decimal numbers without a leading
+zero.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/tools/gen-sysreg.awk | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/tools/gen-sysreg.awk | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-index cde526896ed96..0bd6aab8aae0f 100755
+index 057dc98082b5e..01b463e271cef 100755
 --- a/arch/arm64/tools/gen-sysreg.awk
 +++ b/arch/arm64/tools/gen-sysreg.awk
-@@ -46,6 +46,10 @@ function expect_fields(nf) {
- # Print a CPP macro definition, padded with spaces so that the macro bodies
- # line up in a column
- function define(prefix, name, val) {
-+	if ((prefix name) in defined_macros)
-+		fatal("Duplicate macro " prefix name)
-+	defined_macros[prefix name] = 1
-+
- 	printf "%-56s%s\n", "#define " prefix name, val
- }
+@@ -102,7 +102,8 @@ function parse_bitdef(reg, field, bitdef, _bits)
+ 		fatal("invalid bit-range definition '" bitdef "'")
+ 	}
  
+-
++	if (msb !~ /^(0|[1-9][0-9]*)$/ || lsb !~ /^(0|[1-9][0-9]*)$/)
++		fatal(reg "." field " invalid bit-range '" bitdef "'")
+ 	if (msb != next_bit)
+ 		fatal(reg "." field " starts at " msb " not " next_bit)
+ 	if (63 < msb || msb < 0)
 -- 
 2.47.3
 
