@@ -1,95 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795464783;
-	b=yrBIEGfehwzjwupBTlOKuhGkLup0O03aiL+3S4jIsSvAYqln1L9pOHFm7R8edR2Hz8lV
-	 SYke+EGvySXSGam5/JauiWfPOVGVnP7k4xtXkhp6c5ztT9sysj6zn98wCUI2wlMr2upKz
-	 +oLho+E3NY6fpz1HvPBSEIKtedGki2BhvaJRtdYH1GXmTDxcgVg1p0zbO14q4haMwxAcs
-	 wenuwKtciVGfNk5TiJuzHgKpjKfEFjRFIgOA+efv5km9oSU3xEB6jpPeNJXBygXA90Olk
-	 t9p1YleYRFfaeRCwNv6a+8P579lgGIRr+JhOQpDAftfmMMWQXwtyGfwiY1U51YTHBEw==
+	t=1795464833;
+	b=oUfT3u6jx6to5R5sHiEPjeYTL4uJjA1GsoWB4j3KtyhYnapjzLY0T4/3n243qTLUMw1C
+	 5OwkneY2iyY41n6L4Zf7eZN4I/xMzr1fEamsaNMhH385aELYnUs5jVMcx0wZ21gF9WTBI
+	 X1ElKkSnt0kZkkixjQ67qqHArpG6/gH5zRh+aVSb6i6MpMC+JmAMx/o0BL9ZItYrR/r7u
+	 HQZo0x1/shwjTDSxdkvgFUGSN3dbKfInDhjs3+DxGU4cnUCWz8yfqLVkRuGObMeA/zE5e
+	 jgNZfTTiafBfG+YpCgvafidKqRg9Evo4eFzC2LHP7LKDHieU9XdX44qHxhg9zahHjqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464783;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464833;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=Vl+Jr3N/YEqz9NFVbM7G/TwPrthGUN0HgQHZE/6GVYs=;
-	b=2AkQE60f+4BbhgAVI5y4TuV0tnDmOUokZ8IyFWuk07+pjAwC+OehhcrFZjZXRFbTkkv6
-	 EW8LR+gZ5Kl39yMQRA0KWgV+KNZk4Dt/fmKZzq5emG6J/bqDxk8xRuurIGbH68KdgvtjH
-	 dpFwXIWEUp02r2xLYS3NK2Z6TiMqdlRjNZVoS34lSMv3nd3DgxWFmxLM7BlBxM2rJ+3xF
-	 xETAln+JDn9TMHfaJfF3wH8PHzcMfuG/R0wnDiUEoFrDdYcUVr9fnQ43PjZqItbKkJrby
-	 7HDbaGAHdzaiZ1HYtCMbHU4G7BQiNOLYTfcvZDhtechNCn6iTHyplrDfR8UHexmCFyA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=bVeUwz94rgbPYTqCCXqv45bL9TNBppX/JDLXrhnAnoM=;
+	b=xhjDp3QPF4U6rTKBU1i9AEp5Ocz4I/8Yrz7m+i0O8TYHAjli4HmiZnZr050C8cfaxSnA
+	 TJLPkYpXa+SpDq2r98B5K2J46iBpeMrWhHv9SBsMGdrJK2clunPRKsEcZob19it7Gycea
+	 iXW1yqwGkJ+MroQLkS5im4udYUMLztLyx0w0sS71ujJiVrcyGGDXWVLq0d5U4/CHiNV3y
+	 PdXcJYhqSWOq5VRXHCyZF9r6RGF/qGLpdAyYidO3YIAIMXWZeMZNbbxmx0Bx+J9nZ9PE+
+	 tgLYnS5C55krb7mAgtgD64laQ7SQ+gXVwkZbQbDlJUzBV2+75sRX0WJLABP26KX6EnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XBwGTjYq;
-	arc=none smtp.remote-ip=74.125.82.47
-Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ExdR84Sg;
+	arc=none smtp.remote-ip=74.125.82.69
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34418606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:13:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34418606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 458FD606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:13:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 458FD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XBwGTjYq
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-15dd124bbe7so2889227c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:13:02 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ExdR84Sg
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1b3b63b9665so2868953c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:13:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795464782; x=1796069582; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Vl+Jr3N/YEqz9NFVbM7G/TwPrthGUN0HgQHZE/6GVYs=;
-        b=XBwGTjYqQTUhH8gOOPo7XYWKULuUQj/EpvbNDliWDwCiUoZljy6hipnGBLvu6Cnf5I
-         QB4eBs8VRrzDPEFIyfvnEECbj62cghj/ipTuo/74QHstzb5WBVfWu4m02MzsNJkRGKvI
-         SL8fcrbPP0dhsR+7166QGff/5/sQV76QwiPZ7j97puU4qusj2tHix5UXAB3PKH0FfvdF
-         VB7kwwzfXflu7ZjkINak8Hp7mvsdVxjbRWKOPxeP6S6R2nC5D+bm4l+C8kc5KUkVw6fN
-         cK8+myDOVOK7fbti9aE2nqTQHnvbOopkfcQ73z56fwYLjpAI07pa3Vv+0MfVvQC4YUsN
-         YlFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795464782; x=1796069582;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795464832; x=1796069632; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Vl+Jr3N/YEqz9NFVbM7G/TwPrthGUN0HgQHZE/6GVYs=;
-        b=vGwmbsaBXLGFJ9VvMmOwIUFZSqKmkWg8uqyZYEa8+c3lxUUhwTSZmDQM9AfbrWP+TN
-         s6qjwC1mo4yzC8JNP/tJyLcYG0kOS2UE8iUpm+Z7MlBWjSlDEIPuvKLluCZKJPCKKT+i
-         3wqysHwLtksAXQSNIcVM1WM2nALOSM5DzDLjdlB7FYGe0Jhpw1EUkXG03jrMaXB8VSNV
-         nAC1sUhJNhHgHHXIGN92tpJJWI+goGZcxtNJuj7jsyU2h9YN1IMdvMxR2TwclbnlXhhf
-         pXDgDKLziNIpb4djJV4yDxz6pTDNvRJzFc9SPlroFL1hItpfePtyM8DwOAVMpP7os2h8
-         XPeg==
-X-Forwarded-Encrypted: i=1; AL+hErGpuBm5JtrgsVYgJDXMRzQ62PjMJ00qpapxDiiw01uLDj2LR5xkckYBhqoSdCMaoeYSmQ4XeDz5LNsuGmo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WAwmQmOm8AEOEYlkpJrTi1zpODV/1fH9nD0p+UEyf1RbW57c7
-	j17qt5A3ICy8mR8nJzHQXp/WpxDARNbQ8lTYssMVorJayMa6XxXaSIVS
-X-Gm-Gg: AZFdTZedP0NsApvTqrg9GyMxGO9IBdvpMTL5gh2VkhDcJKJtaOuATT9frjcHy4Hyyet
-	hNnG6uSdZSwAU94q5dhJBS78wjVhHqgqp73Nh1IRXO4Gu8oDdatgpg7kpKwHbUbn14G12zUHioc
-	dgmYrKn+6FK4DZ84vKON/cLYb/jOR0DE5fmG/amkmfFd2FIBYLh9na7btumZHgWwxKX7TpfLYnu
-	AAajDQIl1hYze4YEoMYl8v3cn37HTTBt6ca2jENOzCzBOeehHKmFsTgRtKFF+mrGu0wJSD3kkE7
-	Wi4tokilFTl08qV9GlzSDu9NqcLNWgd6m6AEaz35cPsQwinD1WRVDvd/mawqnJLzb/Q4hquiR2r
-	5gY36HY8pDjtvtdNtWbB3A5y8PjnbsdIUt3HWANXpQQboJ1hX2sQtkk7CbkXCI5jsZT7O9lxN0B
-	9uSHmXPjSH/Dij92dvvME3svdqbuJNGxNA/sCNU4eoRbZ8yhPJ17M4ke/lAsq0zBrXZHdeU0RSM
-	STovHlx3ESKN+Hc/L/S12+XtdUadql8Fs925RMk1GshrVC6vvJtVUPTrzZPOYX4GfVwUEdp8+CQ
-	ZAPtRaT20+ztOlMA++lsA6vo2cVqsMeIQNXoQZv3mV8n4IFqNF/+6aI9zVzLPlMlFc/RdVU=
-X-Received: by 2002:a05:7022:e80e:b0:1ab:de8b:5f0f with SMTP id a92af1059eb24-1b556924b07mr13875087c88.40.1795464782093;
-        Mon, 23 Nov 2026 12:13:02 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm34059654c88.13.2026.11.23.12.13.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 12:13:01 -0800 (PST)
-Date: Mon, 23 Nov 2026 12:12:58 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Marek Vasut <marek.vasut@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Linus Walleij <linusw@kernel.org>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH 01/10] Input: matrix_keypad - validate GPIO counts
- against matrix limits
-Message-ID: <awSdwBnT5bk_BS-G@google.com>
-References: <20261123183200.3900004-1-lee@kernel.org>
- <20261123183200.3900004-2-lee@kernel.org>
+        bh=bVeUwz94rgbPYTqCCXqv45bL9TNBppX/JDLXrhnAnoM=;
+        b=ExdR84Sg4qGyK1Z3xbQi9qCNA6tsQU7qMmNYWQNGJjIHAVEHnXnhaPig4NAUglJvvd
+         JI9CPksQy0MAS/HDv7J4Lhu0/xKlIcdjQqXsfY9JP032c1GPBiKs6+IS0Po+kz3rGnmc
+         NVLrMbJmUzx9KamqBxzGBo4lh8qQZZSrw2dkgXmmeMgNuIdhzw1PIUFOrfsWHUpj67tq
+         QNwzaImt0DY4xWdgEbi20XsmxT8dLOPoak3DMcDbV2595sg8BFbsAWO2Tcx5egALHL2j
+         LxU9rJ29paztZhwoClp9XOgKbd5dH4UOHHhjAZymAbARMM04o6S86o2vcwTs+UTVycPv
+         PYQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795464832; x=1796069632;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bVeUwz94rgbPYTqCCXqv45bL9TNBppX/JDLXrhnAnoM=;
+        b=MynndnsGGjCT5L/kZjOvumQOs7acPRdP8mGWVTEtNWOuH+QBhnvblcP7FgzQMYWSLQ
+         A80pLs1RTntkvVQhXebUMG6jWzFVcYGzm5iball+iFOUYPR2ZCw5Zsh7be87TIToSaVJ
+         4nnuSuaf7HcpxKbVG8D5VkM+JgEUnPyA7z315LUEjQyob2KkbUsnIO3PT5zCZ4/luHS8
+         CrnEKPfJ+o/eIkWsTAWz+FdyQgq03eWqzSicjhJ4U4MtUUEBdMjcDJt2BHvYSusr1BsY
+         ITI4dx4vfnSHdehOvt2PdTF+23GgykKwt1rP0XUWSiYPryshQ5x6r8x1bmb6eSS4Z4IW
+         P/1A==
+X-Forwarded-Encrypted: i=1; AL+hErEoFBFCeGRsDKdP9tZ/IUpGoKX7MIqpVKTU2VkgIErQBwbGb01WJ3TCQbUU2ZLB87jY0kyXShgKNNteErY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9CRGMlHHSIdcoEqFX8XaeKYQ50xZxje0RyAtn3xasE0C0vKJBK
+	5qDPVn2HZwiHgK4MiObokVvMSzQ8a/fCifrEManNjSetZyxu/FDFeQJY6QulxEGJa7QYB+I/5fP
+	0G69/D/oocu4URUdFPA==
+X-Received: from dlaj23.prod.google.com ([2002:a05:701b:2817:b0:1b2:4c55:e320])
+ (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:701a:ccca:20b0:1b5:71bb:6800 with SMTP id a92af1059eb24-1b571bb698bmr4130548c88.3.1795464831930;
+ Mon, 23 Nov 2026 12:13:51 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:13:49 -0800
+In-Reply-To: <20261122015729.2512645-1-penghuang@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,77 +78,68 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123183200.3900004-2-lee@kernel.org>
+Mime-Version: 1.0
+References: <20261122015729.2512645-1-penghuang@google.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <cover.1795462673.git.penghuang@google.com>
+Subject: [PATCH v2 0/2] sched_ext, sched/fair: Drain blocked fair load on scx_switched_all
+From: Peng Huang <penghuang@google.com>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
+	Changwoo Min <changwoo@igalia.com>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev, 
+	stable@vger.kernel.org, Peng Huang <penghuang@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026 at 06:31:07PM +0000, Lee Jones wrote:
-> matrix_keypad_init_gpio() obtains the row and column GPIO counts via
-> gpiod_count() and only checks for negative error codes before storing
-> them in keypad->num_row_gpios and keypad->num_col_gpios.
-> 
-> If firmware supplies more than MATRIX_MAX_ROWS (32) row GPIOs or
-> MATRIX_MAX_COLS (32) column GPIOs, the setup loops write past the fixed
-> row_gpios, col_gpios, and row_irqs arrays inside struct matrix_keypad,
-> and matrix_keypad_scan() overflows the stack-allocated new_state array.
-> Conversely, a zero count causes get_count_order() to return -1, leading
-> to an undefined shift when computing row_shift.
-> 
-> Reject non-positive GPIO counts as well as counts exceeding
-> MATRIX_MAX_ROWS or MATRIX_MAX_COLS, and size col_gpios with
-> MATRIX_MAX_COLS for consistency.
-> 
-> Fixes: 584bf366f8fa ("Input: matrix_keypad - switch to gpiod API and generic device properties")
-> Closes: https://sashiko.dev/#/bug/linux-ed4b89af-6c76-4e5f-b140-fb2b107b12d0
-> Cc: stable@vger.kernel.org
+v1 [1] skipped rq->cfs.avg.util_sum in update_idle_rq_clock_pelt() when
+scx_switched_all() was active. As Vincent Guittot pointed out, that hid
+the underlying issue: once all fair tasks switch to sched_ext, fair
+blocked load should be properly drained and propagated rather than left
+stale in rq->cfs.avg.
 
-We trust DT somewhat so I do not think this needs to be in stable.
+Investigating why rq->cfs.avg.util_sum remained non-zero showed two
+causes:
 
-> Signed-off-by: Lee Jones <lee@kernel.org>
-> ---
->  drivers/input/keyboard/matrix_keypad.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/input/keyboard/matrix_keypad.c b/drivers/input/keyboard/matrix_keypad.c
-> index 11018382e84e..c2f839a3de90 100644
-> --- a/drivers/input/keyboard/matrix_keypad.c
-> +++ b/drivers/input/keyboard/matrix_keypad.c
-> @@ -33,7 +33,7 @@ struct matrix_keypad {
->  	struct gpio_desc *row_gpios[MATRIX_MAX_ROWS];
->  	unsigned int num_row_gpios;
->  
-> -	struct gpio_desc *col_gpios[MATRIX_MAX_ROWS];
-> +	struct gpio_desc *col_gpios[MATRIX_MAX_COLS];
+1. In update_tg_cfs_{util,runnable,load}(), if the group entity @se's
+   _avg had already decayed to 0 while its _sum still held a sub-divider
+   residual when the child gcfs_rq's _avg also reached 0, delta_avg == 0
+   caused an early return without clearing @se's residual _sum from the
+   parent cfs_rq.
+2. Tasks that exited or migrated while sleeping before scx_enable()
+   leave deferred removals in cfs_rq->removed, and switched_from_fair()
+   only visits cfs_rq chains with live fair tasks. Once
+   __scx_switched_all is enabled, periodic blocked-load updates stop,
+   stranding unvisited leaf cfs_rqs in rq->cfs.avg.
 
-Luckily they are the same...
+Patch 1 clears residual task-group _sum values on zero-avg propagation
+while keeping parent period_contrib divider scaling for non-zero
+averages. Patch 2 reuses __sched_balance_update_blocked_averages() in
+scx_enable()'s per-CPU scx_switched_all() loop to drain cfs_rq->removed
+and propagate blocked averages across all leaf cfs_rqs.
 
->  	unsigned int num_col_gpios;
->  
->  	unsigned int row_irqs[MATRIX_MAX_ROWS];
-> @@ -302,11 +302,16 @@ static int matrix_keypad_init_gpio(struct platform_device *pdev,
->  
->  	nrow = gpiod_count(&pdev->dev, "row");
->  	ncol = gpiod_count(&pdev->dev, "col");
-> -	if (nrow < 0 || ncol < 0) {
-> +	if (nrow <= 0 || ncol <= 0) {
+Changes in v2:
+- Drop the pelt.h workaround from v1 (Vincent Guittot).
+- Clear residual sums in update_tg_cfs_{util,runnable,load}() when
+  propagating a zero average (Vincent Guittot).
+- Reuse __sched_balance_update_blocked_averages() in scx_enable() under
+  scx_switched_all() to drain remaining blocked fair load (Vincent
+  Guittot).
 
-gpiod_count() never returns 0. It's either positive, or -ENOENT.
+[1] https://lore.kernel.org/r/20261122015729.2512645-1-penghuang@google.com
 
->  		dev_err(&pdev->dev, "missing row or column GPIOs\n");
->  		return -EINVAL;
->  	}
->  
-> +	if (nrow > MATRIX_MAX_ROWS || ncol > MATRIX_MAX_COLS) {
-> +		dev_err(&pdev->dev, "too many row or column GPIOs\n");
-> +		return -EINVAL;
-> +	}
-> +
->  	keypad->num_row_gpios = nrow;
->  	keypad->num_col_gpios = ncol;
->  
+Peng Huang (2):
+  sched/fair: Clear residual sums on zero task-group avg propagation
+  sched_ext, sched/fair: Drain blocked load on scx_switched_all
 
-Thanks.
+ kernel/sched/ext/ext.c |  9 ++++-----
+ kernel/sched/fair.c    | 42 +++++++++++++++++++++++++++++++++---------
+ kernel/sched/sched.h   |  1 +
+ 3 files changed, 38 insertions(+), 14 deletions(-)
 
 -- 
-Dmitry
+2.56.1.831.g720f3f5937-goog
+
