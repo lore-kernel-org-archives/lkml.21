@@ -1,103 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.71
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795454738;
-	b=F+v0kLE6blLsKO1DVq7dx9ctcoBENua5y/PoPCSz7XVGBSjALv1R4QbRnMqLgZloT5dS
-	 HyrxEZXUo79v3m6WBYbOSgLsWeFVMysmDaxo3cOAnyAHosOwl2d7TmGyc47UlYk6WIQlW
-	 8PTyNnzizk8YeoOXdbnETD5ahOBWcP3CZhnRML4eXjntcCqNgyMyBigdSI/V7fBcTzahS
-	 1U4cHG2RcAc4CwiwHR9qkGs81YFxboJssYpn081ChcaUVI+eLrbZfGfBqmPGHFodECakb
-	 rzwlivc06o3Tb0NOR603991LjyVwg/uGZ4gkLh1MyZeJsrOm15ARbTdd9Pbc7+JW9EQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454738;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=dc8Tb6mFhauNpQHY88UtN1IKiLsK9UgRx4rIm5SsnzE=;
-	b=4WyUW37dQH1nnKMyiygq27Gds3B+p+Csd3ItPZ/oXGMZMVlBD+i1FosfxtgW5Kmhzc4O
-	 F45QpQ1gmOVylaUa9AhSN4k+CuBpXtOuLfVwRrNcx/thzjgfKqZRRT+g3g6Tvo1bf+90j
-	 NAYuwwwOwg7LPrXM8ZfTexji4e6G3LUTMZZgraVyPNMykNvw3IkEbiMISkYGFpQe9GS08
-	 I1bnFo5sEWD2t2ArY/GhyOWXA36IirbjybQOKIbEqxbpVzCs6BQ9FA5Egy68OlhX2mi5T
-	 wKIpXKv+YgPnazrbiOGbwhWt6xrQLHQpMAZw8hkoMrpeHTWuCiCyDF/JNGsD4Y8IqhA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=GqE0kMXn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.71
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012071.outbound.protection.outlook.com [52.101.66.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D299606A32E;
-	Mon, 23 Nov 2026 17:25:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D299606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795454779;
+	b=jIAYfeVBpp7RB4tGT368hqFQKqJtQx0jaQbUL5LUJO+M16IWGYnrvjgGG7BIfTL9VMDe
+	 aPWC+UWOCcDjs38SOCMIWYEnjBWtVluOXTzC+o48YJvylvZbLNVhv1NPBSCJPwsJKCFL6
+	 GHL4rNS1DtX+Uhi2C1AwRUw7OgZvM1S8SWpmMyABuapVW8RwcH+Rw8sFgGzfnt4EpMgWi
+	 ZNvsq5eoWt4R1Y1juRvTiqJ9JQb5lrrVtSF+qEuc9aBCPHfFntLrSSEssGFLwN27PkpvM
+	 PCXY/Ui0ryHHk16j/H9j8zDj1h+GmJzyZyxUSEmrqS9UzESSr7ejkOJpjZxWIFYV+ZA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454779;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=tEZSjcMo5tFr0lKonrNZvE7Hg9BctyWphBzFRSdQf6A=;
+	b=Pzc6lo0qymIzcdzU3pdxyjATurkWlHHYjiyhqSlgPw1fuD5Yr8P7yh8o0mOJrLiCyVZ6
+	 yY9To87qOyYAyp+cKrtZWi7xrWRqBmoJsaXOOJ/Uv2zxqi1KWLTz2g3VgJBQMh35NWMs1
+	 G7n5AVBFWNG/pNFNg2HIzzU1BB7MY6T+IsnXfxiv+iO46PsNClAEPVVLzNn18pe0/fbxo
+	 KiK53aZx/wnEV+sKqeNCcYLRumAqNZzMLeYIhnWeWGnc31580lc2iigeYbyglQUB5zNKo
+	 2TcLmhqvEeaiWN3UgvjyDW9nU/K/PciPCmq27lJrVFhrigS4C1YNTm1lDQYISmbnNoA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QE3Jkr6Y;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 523B2606A31A;
+	Mon, 23 Nov 2026 17:26:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 523B2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=GqE0kMXn
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ywrxEFPv0tdSYWxwFri2aPRoVqkb6bZu53ZXru2GM0BLzL6OEpVkcO1c7cqx6mUkuafGl02SDfKTM6X5c1t6SUSVPwsRW4a/yDKKH5VQ3dhfB6RNc69um4j3pG6gADpN4a5/ZNQn6TR/bVsvwjam484vLKzgI2AxQ8xppfQ10mYHltZ8kv9fv4CCIWynNOLXxFejMqheWVpttBGmw2xJDOaHbYhRYWHOCRoN9m//s59hWTFqDWcrwOBryjAa543qBBtDI70AvxJUjscM8zm/m3hnCb8/j/pcYTBpEIa0QwKfL9iNf0g7MMsPA/ZULC3YE/xwyB3QXcy47IGrbEg5sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dc8Tb6mFhauNpQHY88UtN1IKiLsK9UgRx4rIm5SsnzE=;
- b=Rggy0mkykH9n+vAghx5HuUwtqcOkt0VZWTft2SzupB7SCPZg4MaVR68DXPtdybq5Kwzf+wv4WXDF5k+8VawAGohaesV7Ql99+fuqzMWVtNpWChklFX6gUdWD4Wb9Yd0NUfYhaBVKfaVppLRNzzc7BTeaa7ZSIzf8arKv5hzbRaZzG2F1UKV15KiDJ3w7FyuXn3C0Wpng6IYWNBYbUAC109DLq8N+7IhqLtqN2tY84hInO2tSVam9OMikdnGND1Z1OjK6VYtXMsHPKQA6abL2PeS++MV/tOvtjXl5/C0C1O1HQ31+Nes+0fzQJqNAX2F9V3sJ3RGChsSs813hNiHqXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dc8Tb6mFhauNpQHY88UtN1IKiLsK9UgRx4rIm5SsnzE=;
- b=GqE0kMXnXXQ8HTxIVZfI9v+aFborkTOZ6R5oSkuFjVqXG5O3H+39QZjWkFaukEExH/XYYFwr+If54Mz3JDWysDbXPIDc9gEC/7VhIzmlEFl025FX1R/xMIDNISbWv83tJvA97vho7Ej9RprUJJ0C5vFO5+bUGwe33VPrMWOmG75NSgcnXeU+HyOXnuty4BDD9i0oNsJ45JOnViwj4Yk57ZzIUjlwHU0It7wdJFyzBhS6EWHBPMJblxLNlKa9AsQbiYOX15zBrq2KTLTMK5r1h+ooX1/+tWCpPspfGxIgB1TAsr8TXgoBJgylaHzS4CZ6a2yYfc3x5EJJ6rjYOM+Niw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AMBPR04MB226274.eurprd04.prod.outlook.com (2603:10a6:20b:75c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 17:25:35 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 17:25:34 +0000
-Date: Mon, 23 Nov 2026 11:25:24 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 01/10] clk: imx: imx8qxp-lpcg: Prevent stack overflow
- when parsing clocks
-Message-ID: <awR3BI1c7j7y9bKf@SMW015318>
-References: <20261123164834.3330320-1-lee@kernel.org>
- <20261123164834.3330320-2-lee@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123164834.3330320-2-lee@kernel.org>
-X-ClientProxiedBy: PH3PEPF000040AC.namprd05.prod.outlook.com
- (2603:10b6:518:1::5b) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QE3Jkr6Y
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A518E143D;
+	Mon, 23 Nov 2026 09:26:15 -0800 (PST)
+Received: from [10.2.201.43] (e140322.arm.com [10.2.201.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A081E3F763;
+	Mon, 23 Nov 2026 09:26:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795454778; bh=3o9SAOACMinUblxdO6CqMzislYW/cZpQbgYWlEMnX4M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QE3Jkr6Y6PwKatYN4j7gDNS1cy5qhU0Xt7GLqA3tnZCgEPoUS1KNlIyD1rgh0NxZi
+	 9JkBlKtTYf0si6ANoDPflMw4n5u/coK1CnpwJC/+wDnHK0zNw40pt2gPoFu3rHnH+T
+	 XR0X3NxO7N5A7Odex5umeqA8X75iRn3SQ3lbAYa0=
+Message-ID: <162bf4ec-c23a-49c6-ad7d-7485a5cce2b7@arm.com>
+Date: Mon, 23 Nov 2026 17:26:14 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,100 +53,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AMBPR04MB226274:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0a4855a-7667-43ee-f143-08df4986c869
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|19092799006|10067099003|4143699003|5023799004|11063799006|56012099006|261021121427099003|261022105027099003|261009223027099003|261026140227099003|261028144727099003|261102123227099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	EvUAaxw5NSWoh4Lcn0laHnbBuKVLcXYi599ND4NlaTe/KafuSulqPsmHVjC+/Nh7YKNLGIChfs0kRwPpI+cC3xWz+FwHxmT1midJfJlvBUaTIw4dEl2RZJ74gc1RxhkY4YVxycKmSjsGEpIDgEv+jF0NdxljGA8YgD8H+i37ICDv4iPEt1vRA5udMTUZ1x8T/28dlpns7O8xLWZdVpQ65PgLy4xMrm4J43dD48jgMSIa0swhJAIPvAeX/AUUPjivWdcvB7AvhxZeKsKkY0CDAfD/KiilGM/5a9OA6BbhmwjNiDwVkCD+TFB75sgxu9TG7hG4Q5xTn94ZOCmeUS1jjO15dW7p+3yy8UClxJJZid5xfKjdonHQZ+2QNezjfj/2KemBiXZyWUt1h0cUIUXg7bBQ/pbukl/83VJX7HOCD9p5ZxV0mT+8dtG0KoWrf6qMs5IUQFjDc8RupaoIoR96VUhASySD2lvDGBMjttu2kqXCTiyjovbbhCJVnj/12xuuHRTsSg1ZiUxKaErqvkj6JQBOtJf+D94e/G6jfEViH0U5omw3456LcPJO3no1a3LrrX8mJMlQ9besiqjJaOmnqrM4MWPSQmPVkLKit2K6t3Q=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(19092799006)(10067099003)(4143699003)(5023799004)(11063799006)(56012099006)(261021121427099003)(261022105027099003)(261009223027099003)(261026140227099003)(261028144727099003)(261102123227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?wEHl1VmyexJxEa8Y4HjEBGzSE0eyLyq6xzEw7GTD/cXphkLOMFxgmSbhrJvm?=
- =?us-ascii?Q?lbo7GE6Vpk6oLBcyc44EXlRPVCutFdp/OBNz06w/r8iQfuY/15BEGpSSq508?=
- =?us-ascii?Q?QNAK+sLf2euqsJBp7adm1h9TqF639qQUrCQLvSSfjlGZ/6fkkLUxLIO+Uziu?=
- =?us-ascii?Q?hOHU4xSYkhJS4H/1ojhVexPDtUS2qS2gVr5DlX0lKZZ1UPV8raxm9v5W1fxz?=
- =?us-ascii?Q?L27c1l4lUejcQ/2BUMR9/jsWFWcNNeij2KZxVMch74daNUnSL2SlsnaMrnkL?=
- =?us-ascii?Q?Tw3bsy51ce9uO7BBndZ/jfYvh7QwCM1UPHClpSFvz0k1MLUonbD9ZbSqckVR?=
- =?us-ascii?Q?GgQp9N1Ca0MRHNfKklyF9KA76qrDaAmU4KQOcL5lEucnTnqO9zAQGLeyRTie?=
- =?us-ascii?Q?X+IpQFhDdcE30346haZefw2Alw5tXk7iA2IejnnSJAWeonFMrwptJFI5vlY5?=
- =?us-ascii?Q?IE4/ub3tEwW5QZFfAUqW97TTTRU8oeZZ3acFGmugWPPsBAQeh4uNwOYDCrrr?=
- =?us-ascii?Q?LpLCWWX53oK1Jz3coWIKaL1Z4VvItNiKjJoY7j8l8v9jBqPy0Gr03V2IwMim?=
- =?us-ascii?Q?AJWCGzDhTqa8u0xvDKMFkOrzHz3tcaIH7iQAwS81cEQS5TyGhiK1CHB+Xp3F?=
- =?us-ascii?Q?ZG4zFUu3EPSFCPIEVfwzemwDQCeiv9eR2Xgzmf5Yh1rdoPbBeERTYL1WfY3U?=
- =?us-ascii?Q?5WmZ+S4GFuhC9ChR/pCBveXmT4T8Lj/UbjM1CEGv5kD4uQQKMXW1nz7QwIMy?=
- =?us-ascii?Q?CsYwZuAyv2+uauIIn/VNVr04cLs/5uzNtXFK9mPbo38jAGGYw0BZZfM109pg?=
- =?us-ascii?Q?jmAV64ZWOUPRpc3ai0PkbrZYyv2TzQ8UrbvNMS4pR2r4HD/vSRCAFirANGZo?=
- =?us-ascii?Q?g78TPZ7AU2yuWadDDiIDNDiDPpM5mIjlnAVzfFnIjl5dbYSsJCB0ckx12EaV?=
- =?us-ascii?Q?n15+Fg1SzYrqh1SHzbVKT7piEtQSHtlSDx2WWAHKV0WQqs2KfLQOUIbw2SoH?=
- =?us-ascii?Q?u5FNk8DyT3GRYTe+/IcVEbsmh+lwb421Bv+jTb4AkanOlHIZlkvnU4pzM+HX?=
- =?us-ascii?Q?h235AD01Gagu3dEf9vgsn25B3yH1+1cjnnIC1r9fCTWnuxFBkEMXKj7UkeFN?=
- =?us-ascii?Q?eIswICJgn+s24jugT5ZkHMPwFQxGginis17cKvSHU6zPpVSPiBUHCcT9Cgw6?=
- =?us-ascii?Q?m2eomyXo3UDQiKUK9lV5WzS7kakDdcf7DubBpN5oFxFPVGxanivGNqEYybRd?=
- =?us-ascii?Q?bf+ZuLh8g0yb1bGFI25mq+RlQ2WqheFYbsSmT8iJY60RFJhw/qgELcUJZZt9?=
- =?us-ascii?Q?qoR+zqltrGwvQafRuiiWozr0v3JSWlIR+KcHZuAmJ0pOkXwVF8+46cstnv9f?=
- =?us-ascii?Q?J2qb2B0txFyrDjaBIFv3b3w9zb3PD5nSo+kmNQzYJn3dowRXXzR0EMyzr8HN?=
- =?us-ascii?Q?r9TsSB1lB8Pxq/KzP7uHYg7dVWNhrTd/LYh7i/9I5i0dIgrPrGKROMsx6xgx?=
- =?us-ascii?Q?1hB5vgtjMzE+rEcqBeT2k0HlnPFko7Ned68TYbmUXLFJi+M5g/S72XwkorcX?=
- =?us-ascii?Q?y3PskFMfDZL7v2qBoBLixRwTEIMg2rBT5XMPYIT3DPE0/1tah3KrKMI4L5Be?=
- =?us-ascii?Q?wmpILvncI9f0XzH1RQmeimRsBm2W8ahwpdUGk4AWndfvTpdMmchTLSDJUGj0?=
- =?us-ascii?Q?L21RYjNGOeK6dmO3Wptw8goZEgisFVihET1tvspP6QFR9Am+WeOI/mKlTLyI?=
- =?us-ascii?Q?JXtYl+dWIi7tuDdZ+/og4OpTm4cEo6uyhS89hKocPiNdk5DdC794?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0a4855a-7667-43ee-f143-08df4986c869
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 17:25:34.8881
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gQ9UG5XoE9WECGM6ZUpGd7qvW7fZ76CyIINy5d/Tv7a6kOlGuT7+sbWhHhXGk1QQegweZIZYcHgZuY+o1+eKjtZFMG29TyvGmq71rjb1KcEZIYvEsM/Ze0/76u/SJM6a
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB226274
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 07/28] media: mali-vpu: implement TRY_FMT and S_FMT
+ ioctls
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
+ Shobhit Pandey <shobhit.pandey@arm.com>
+References: <20261119153758.1426673-1-charvi.mehta@arm.com>
+ <20261119153758.1426673-8-charvi.mehta@arm.com>
+ <3415e7b52c3d05214ec125b2b4f8612129c53ae0.camel@ndufresne.ca>
+Content-Language: en-US
+From: Charvi Mehta <charvi.mehta@arm.com>
+In-Reply-To: <3415e7b52c3d05214ec125b2b4f8612129c53ae0.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 04:47:34PM +0000, Lee Jones wrote:
-> imx_lpcg_parse_clks_from_dt() allocates output_names, parent_names, and
-> bit_offset on the stack with IMX_LPCG_MAX_CLKS (8) entries each to match
-> the hardware limit of eight clock outputs per LPCG block.  However, it
-> only checks whether of_property_count_u32_elems() returns a negative
-> error code and enforces no upper bound on count.
->
-> If a Device Tree node specifies more than IMX_LPCG_MAX_CLKS entries in
-> clock-indices, subsequent calls to of_property_read_u32_array(),
-> of_clk_parent_fill(), and of_property_read_string_array() write past the
-> end of these stack buffers.  Reject counts exceeding IMX_LPCG_MAX_CLKS.
->
-> Fixes: d5f1e6a2bb61 ("clk: imx: imx8qxp-lpcg: add parsing clocks from device tree")
-> Closes: https://sashiko.dev/#/bug/linux-22dfac78-f44b-42f8-985a-995308723fc4
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
-> ---
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On 11/19/26 20:44, Nicolas Dufresne wrote:
+>> +int mali_vpu_fill_pixmp_fmt(const struct mali_vpu_format_desc *fmt,
+>> +			    u32 width, u32 height,
+>> +			    struct v4l2_pix_format_mplane *pix_mp)
+>> +{
+>> +	u32 sizeimage;
+>> +	int ret;
+>> +
+>> +	memset(pix_mp->reserved, 0, sizeof(pix_mp->reserved));
+>> +	memset(pix_mp->plane_fmt, 0, sizeof(pix_mp->plane_fmt));
+>> +	pix_mp->flags = 0;
+>> +
+>> +	if (fmt->flags & V4L2_FMT_FLAG_COMPRESSED) {
+>> +		pix_mp->width = width;
+>> +		pix_mp->height = height;
+>> +		pix_mp->pixelformat = fmt->fourcc;
+>> +		pix_mp->num_planes = 1;
+>> +		pix_mp->plane_fmt[0].bytesperline = 0;
+>> +
+>> +		/*
+>> +		 * Use one byte per pixel as the default compressed sizeimage,
+>> +		 * with a minimum of one page, aligned to a page boundary.
+>> +		 */
+>> +		if (check_mul_overflow(width, height, &sizeimage))
+>> +			return -EOVERFLOW;
+>> +
+>> +		sizeimage = max_t(u32, PAGE_SIZE, sizeimage);
+>> +
+>> +		if (sizeimage > U32_MAX - (PAGE_SIZE - 1))
+>> +			return -EOVERFLOW;
+> The "moved" code is not exactly identical, and this is not said in the commit
+> message. Depending on you max_width/height, this might all be exaggerated.
+The checks were intended as defensive handling in a common helper for future
+variants. However, given the frame-size constraints applied before this
+calculation, they are overly defensive. I’ll remove them and preserve the
+original calculation.
 
->  drivers/clk/imx/clk-imx8qxp-lpcg.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-> index 9ad016106b1e..5eb4bdbaf7d8 100644
-> --- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
-> +++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-> @@ -199,6 +199,10 @@ static int imx_lpcg_parse_clks_from_dt(struct platform_device *pdev,
->  		dev_err(&pdev->dev, "failed to count clocks\n");
->  		return -EINVAL;
->  	}
-> +	if (count > IMX_LPCG_MAX_CLKS) {
-> +		dev_err(&pdev->dev, "too many clocks: %d\n", count);
-> +		return -EINVAL;
-> +	}
->
->  	/*
->  	 * A trick here is that we set the num of clks to the MAX instead
-> --
-> 2.56.1.750.gf70dc682cf-goog
->
->
+>>   
+>> -	switch (type) {
+>> -	case V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE:
+>> -		fmt_list = sess->port_src.supported_fmts.fmts;
+>> -		num_fmts = sess->port_src.supported_fmts.num_fmts;
+>> -		break;
+>> -	case V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE:
+>> -		fmt_list = sess->port_dst.supported_fmts.fmts;
+>> -		num_fmts = sess->port_dst.supported_fmts.num_fmts;
+>> -		break;
+>> -	default:
+>> -		return NULL;
+>> +	vpu_fmt = mali_vpu_find_format(sess, pix_mp->pixelformat, fmt->type);
+>> +	if (!vpu_fmt) {
+>> +		port_fmt = mali_vpu_get_port_fmt(sess, fmt->type);
+> Maybe it would be better called get_default_port_fmt() ?
+This helper actually returns the current port format, and it is also used by
+`G_FMT`. On a fresh session that contains the defaults, but it subsequently
+contains the negotiated format. I’ll rename it to
+`mali_vpu_get_current_port_fmt()` to make that clear.
+
+>> +		if (!port_fmt)
+>> +			return -EINVAL;
+>> +
+>> +		*pix_mp = port_fmt->fmt.pix_mp;
+>> +		return 0;
+>> +	}
+>> +
+>> +	/* Requested format found, validate other fields */
+>> +	w = pix_mp->width ? pix_mp->width : fmsz->width_default;
+>> +	h = pix_mp->height ? pix_mp->height : fmsz->height_default;
+> No, width = 0 should return min_width, same for height, just drop, and let the
+> below function do that. The default width/height are what you set on a fresh
+> session.
+Agreed. In v2, I’ll pass the requested width and height directly to
+`v4l2_apply_frmsize_constraints()`, and let it adjust zero to the supported
+minimum.
+
+>> +
+>> +	v4l2_apply_frmsize_constraints(&w, &h, &fmsz->stepwise);
+>> +
+>> +	/* Decode CAPTURE queue: lock geometry to input if streaming */
+>> +	if (sess->role == MALI_VPU_DECODER && fmt->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
+>> +		src_q = v4l2_m2m_get_src_vq(sess->m2m_ctx);
+>> +		if (vb2_is_streaming(src_q)) {
+>> +			port_fmt_dec = &sess->port_src.curr_fmt;
+>> +			w = port_fmt_dec->fmt.pix_mp.width;
+>> +			h = port_fmt_dec->fmt.pix_mp.height;
+>> +		}
+> This is try_fmt, it should not care if you are streaming or not.
+The intention was to use the parsed CAPTURE dimensions once available, but
+OUTPUT streaming does not guarantee that parsing has completed. I’ll track
+whether firmware has supplied the parameters instead I'll keep the 
+adjustment
+logic shared with `S_FMT`, so both return the same format for the same
+request and known stream parameters.
+
+>> +	}
+>> +
+>> +	ret = mali_vpu_fill_pixmp_fmt(vpu_fmt, w, h, pix_mp);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	if (pix_mp->field == V4L2_FIELD_ANY)
+>> +		pix_mp->field = V4L2_FIELD_NONE;
+> Well, only if you support interlaced.
+Since I’m adding interlaced decoding support in v2, I’ll normalize 
+`field` to
+`V4L2_FIELD_NONE` on the compressed OUTPUT queue and derive the CAPTURE 
+field
+layout from the stream information reported by firmware.
+
+>> +static int mali_vpu_try_fmt(struct file *filp, void *fh, struct v4l2_format *fmt)
+>> +{
+>> +	struct mali_vpu_session *sess = mali_vpu_get_session(filp);
+>> +	int ret;
+>> +
+>> +	mutex_lock(&sess->vq_lock);
+> This is suspicious, the vb queue already do some locking in most of the vidioc
+> call.
+Both queues assign `&sess->vq_lock` to `vb2_queue::lock`, but 
+`video_device::lock`
+is unset. The V4L2 core acquires it for queue-management ioctls marked
+INFO_FL_QUEUE, but not for G_FMT, TRY_FMT or S_FMT.
+
+video_device::lock is unset, as this driver uses per-session locking and
+format ioctls are not required to be serialized among different sessions.
+The explicit locks therefore protect format access against queue operations
+and asynchronous firmware updates, which use the same mutex. They do not
+reacquire a lock already held by the ioctl core.
+
+
+Regards,
+Charvi
