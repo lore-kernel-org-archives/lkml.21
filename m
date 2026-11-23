@@ -1,100 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402628;
-	b=jH6GIiMepiKt5tkiv4pGPYV9FI3KO586M1LiJwOFySEqAZEXZrllHrnm/iEUO3/A+xG7
-	 Q8H8vG0HXa+oCJ40qmiQlALvLa2HOsVz/shjGs9RxtTLsvA+aVytI5qY4NPQiK2jvIWKZ
-	 wg77w5eS3AcEJ03evxIjrQou2qfcjl08RRJ4CPNTtWvxQkN2HNZFzoZru1XrxJoSDWzbG
-	 qkFYq8ATFpogtFTNZbKz/bGJqxvO4G28evNOQZydfxclJyOpNpe6BLSyPWhQepPW6AK6b
-	 KQqAMXUSFPLyFo+uooFzAEdo3W4EkBYNTkiqfJVYwDR95lZNU/N1ccKALmmBHIbrWZA==
+	t=1795402669;
+	b=jRw5C6FvqBTYrk2fBcvVmhUddhfaYRfxnuop4YVty8rNJtGUq/3Ur79ohnUAyHjksbVR
+	 gmhru4S2qtO9uZZAB+qmJxSaERiMCO8TU04md0t+n61YZvRO7qNQRx1/QVxEwBqm8yXq+
+	 GYya1YszUjxfxOVIAtKDf97YnBT0sbElvvLTh+IHfMI1/OF23kE5GjT8Z/KUm8oK/oxOx
+	 RLtGF/wJ6mdPmsDMIAyjoc/TmKD9QEoYupn1BA66x6Q65SumF9yBOUlBoL+DNrjAjVKAA
+	 t7ZBT74uNtXGE0m1ImCWQ188Zp44B+3YxACQvQFtW5/lkGjIBCLtIEb+lqxNG+0hdtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402628;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402669;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=GDNT0b/bhyDzKt86MPLi6HOpcuh4V0yz8R1khihljtE=;
-	b=ZhaTgiOxaV5KinwTDe7Q/WcevwdB6T3LMUKHUsZOxbnfbPP0YdVEBus/+H8O/QtbhgAf
-	 YgXKJiUiPLbTJsjWEkywj/WKc3V6hhVTHZdM4H+1/Q88C966feBMn6+309o2drizElKqU
-	 KWrECjt/VWvRvQb6a7aun1t8DlNaxgSAaW/sriCHbCugzlBh9ZdS1i22BRzvkF4rEcoIi
-	 5uw5Z9Gv6izt7Xgb3YcFnfy3vQAtMpWWPROYmHij4c3MUnweH+2WPtxYAx7S6lngM0KEP
-	 r/EB8UDZHifXtgMjoxYaOXpn2qnK2zd2dl7UC7ALb/3cBH3j60H1w66veVS45+vnLBg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=bLm68QDPa2RhRjjYUtOaDtc063dohvVN41bdUVpg0TE=;
+	b=p1xan77YZvhPlcR9IMH1Bl79CWjWSEmRq9z0m/C1tZdl6kZkmjGNAFN6XhW3C+JrJEma
+	 pRfVaSLK9e2hWWNxQ0bC984UMYr7t/2iojFVYvM5yuSNnTW1ZGwNR/aZTVs4NkUrKRQld
+	 qR1EMVFSLTOGhbacEn4qKTl30UhIC2PtEZsZuu+DtKen51KY95P3UrDTj1/CU1jOIeY88
+	 5beXtNjJBzVwyDOqkO962UhjGED1JYa7Yr8yJMc2flcVUHAoG90msVpvvjC3WXoP1pIkd
+	 yekPDlXIhx4hZqD0y1UL+1NO/H7V/oy6c74UDlvE6brda4jOR88pwS6FaELK04N4Y3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FgYVjWGm;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MqYCGATe;
+	arc=none smtp.remote-ip=209.85.216.70
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E20FC606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:57:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E20FC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCF9A606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:57:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCF9A606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FgYVjWGm
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b3e85baf7cso1544717a91.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:57:07 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MqYCGATe
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b41aa2b9a8so2063529a91.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:57:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795402627; x=1796007427; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GDNT0b/bhyDzKt86MPLi6HOpcuh4V0yz8R1khihljtE=;
-        b=FgYVjWGmL1QtXCI2mQBKnfn2O8L/QNW0xtlxCmFqhqKTJ9rKCS0VeYFIfrZNHPkng5
-         JSy0mkS4C7m5RIPnRV3MRpbI/OosOXlQXt8oEcHflv7O/vSNQaN5+1pSBP0B1O6TREue
-         mQjNHGxbGkNLM+DS9nT5kz6YTaBbLxIL1EGw0fDLi4dWTDnsjWGS2VK1epjWKizRksWw
-         tk69j75W+Y34KvN5F7AfeNmrrEQrOBeyv85iQtX7RUSe7nLJLc4YFI+YnK+/K1oEhgPM
-         b7k97jCWm1nDKnQ7gyYT12iSMEHODazFXmbOAJ2znT5eTYuOxdiwVgxA7J0JWfQGlDcv
-         vqdA==
+        d=google.com; s=20260707; t=1795402668; x=1796007468; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bLm68QDPa2RhRjjYUtOaDtc063dohvVN41bdUVpg0TE=;
+        b=MqYCGATepzYEtafcvmIyQQjkjXJeHWb2xod+telncm+SzE7zr+mYVnIkx5UqUaeFfx
+         RS0jM8TaVCnm0oVah8bSJn8zATDAmARiLgP53pCrx00Gbm92YyEPZA38uFL1UmJ75iEB
+         4Zvy7npMhf6uV+rR7Y+zKzK/kD1t0MqjRQVlVuot+Tg3jKRu5ow4MlrJdQthV4kIN5+X
+         mVUTxYYebZsZS0/fvpY1Qyr5czGLC1xVSPhHkNGm1CmjcYr3sRc04vg1j8VcVhXNeQbf
+         r8IYcacEPhy3WCkJ6s3wq6u+5AoxxQBVaY0R6uIHyL8vvnUO4VsiqAoelhk6aD3G8QzF
+         CY9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795402627; x=1796007427;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GDNT0b/bhyDzKt86MPLi6HOpcuh4V0yz8R1khihljtE=;
-        b=xOAMT1lNr5jLAnLvUzixTqEA6nkdbg7+H1Csd8XFRt+998tlLvsnfcvULQrNMDH1lF
-         bujoJFsH9FbTlA5niDpRL35tTiQFUSF09ca/ntH9qwh5UIRKVgnSycfGrvhsrWpyiia5
-         Q4R+taaaR3E/cB5M0tZ4C9f60odAOrjEIm42SHgPwRM4htn5iGWaPI3BCI3VVhjrn89c
-         uAly96p+5d6WpR6wyXysMXawgAmaaH4sp30YwhmiqMCD++244f8j/Z5FaxRxGi5Ybk6v
-         9MktwWFJY3ROXvmZWYwbqhPREk32QRDuoaa1PwWEGYh0FzCPnb4H7lkQdhCen9ZgLBqQ
-         DE5A==
-X-Forwarded-Encrypted: i=1; AL+hErEUjrbffzbm+jhsLbj+poXQxCprjqd0mQmisamzu2YuAmKKf9Dx6Bs9R10NmJ4IMO+gGE0CTFLB9byt39Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8cj1xluzkIfGtT5HnAuimj/eFWudaZnN+gtJqYef2mv9+K/X4L
-	Yq+I09uzb+fWxcx/Xq7zXjynj94i1QVZueUcWQz0lSR1jOwAp5do4sKs
-X-Gm-Gg: AZFdTZfApJxDeQqmg4FG5MgzY8zN4JeV7iRloWnMLV32nc49wpXrs9zUaXivyImFlNN
-	rlWOYEMEZNhIyVbIq+dzckntaamXwGhnqyeYCA0yHmEiQ4jU6SLO7eFJ0ZqLoPVfzvE+zqz2JZ8
-	l9FSfVaQSYGQbenRWfqzSWWILG4SuNWpQVtAoliPWT3C3V/RjTflldOAIt0wjR6tEE0uvVpwvhx
-	+J74krZdUV8gqD/SnT5Vq+gwhvgJka6g26+0K3Z+P62CYD13x+/AL6VwZ+UvTPA5nxTxDiUKd8+
-	q+vcvqMsU5PUYJmBYqP7YZ9TLTJdODKvVh755PHz9nrzWqmW2LJx+Q/nhWuslHQinpY3KjB1dTj
-	wq1vaDlL1rUnxKerc5Q7GbHraghwXzPzCHRYGYpvGJ3xITuQHZC0j51a4V0S+ALXTqXedUQD6la
-	jiZZnq5mqGTIb1XB4eyS3TvvCCUzD7eAKzhx4uHwLBxWef22aH/PSTYKtLhrcp0m88jCPDmA6Jh
-	JvKzjL/3w7GwX8C7m402x1gNcIUPCHUiJk/kfdy4sA07d/cegF23PrwPv2Zukkg9YDMEi2o8DDP
-	+Ikq3ZVg4aiPbdLvMnevdUHvFp5LO939Xw==
-X-Received: by 2002:a17:90b:1a90:b0:3b0:e388:d9da with SMTP id 98e67ed59e1d1-3b41c92ce29mr8507796a91.29.1795402627197;
-        Sun, 22 Nov 2026 18:57:07 -0800 (PST)
-Received: from arm-a100.. ([140.112.28.118])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c13sm15279137a91.14.2026.11.22.18.57.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 18:57:06 -0800 (PST)
-From: Tzu-Ching Yang <shingekinocore@gmail.com>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-mips@vger.kernel.org,
-	llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] MIPS: Fix genex.S build with LLVM before 21
-Date: Mon, 23 Nov 2026 10:56:45 +0800
-Message-Id: <20261123025645.2385330-1-shingekinocore@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20260707; t=1795402668; x=1796007468;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bLm68QDPa2RhRjjYUtOaDtc063dohvVN41bdUVpg0TE=;
+        b=HI3r72I/Dnt2a3O7q3SrOPGKFDC7siW/ecHWc73PEokokWEW2kY/8g5zgeMC8UuD3R
+         zui+cNr8nBoW3zWpopsQqineI62eDgyTdzEhSD66XMSUIhg33HUO31hEzrLhbSryu8LY
+         PS0prfXJ9Ii295yA5IDIGMCSdNDX0QxdH2bo2mbjTcIb0+RINFWO66Uqhd//IDPa7pQt
+         bDH+xyeHqo4R5cp3KT/JahcyKUZG+6sutnadztOV6t3AqZ1AaMA0bS5iRoFPhbOlVWvC
+         +mdQh6pkSglUY5wjdgxA+yX6S+lqOk/xUgvK8560tsCY8C+/zXVA9tqSW3j4kCl1YH7V
+         TKSA==
+X-Forwarded-Encrypted: i=1; AL+hErEZjYfNyf8vDPbKXrkGG96kTXpV1Tn9eVrNp5nrhUXaFxTu1hR3DAT5PLFeCR6+T6fNudFjdSPhK/pomUc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4nwRlUG+J3B7+6TYAfOcToUq9f7Vwv7aF5FmiqBdpfvZxtAij
+	xpAUKdjp5YKaG3apgpxTz8S3gNwEqkN6ANVwRR0C4eLg3O0V7cprzYtdjKRFWbdOX35wv95tflZ
+	A1EyWlWqoHDiBHA==
+X-Received: from pjyl12.prod.google.com ([2002:a17:90a:ec0c:b0:3b4:1ffc:7a20])
+ (user=powenkao job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:498c:b0:3b3:8b61:c44a with SMTP id 98e67ed59e1d1-3b41c7d5c1cmr7900978a91.4.1795402667813;
+ Sun, 22 Nov 2026 18:57:47 -0800 (PST)
+Date: Mon, 23 Nov 2026 10:57:33 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,142 +75,315 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261123025745.1743640-1-powenkao@google.com>
+Subject: [PATCH] scsi: ufs: core: Add debugfs for PA TFS/FEC error counters
+From: Po-Wen Kao <powenkao@google.com>
+To: linux-scsi@vger.kernel.org
+Cc: Konstantin Vyshetsky <vkon@google.com>, Brian Kao <powenkao@google.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+	Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+	"Martin K. Petersen" <mkp@kernel.org>, Peter Wang <peter.wang@mediatek.com>, 
+	Can Guo <can.guo@oss.qualcomm.com>, John Garry <john.garry@linux.dev>, 
+	Li Qiang <liqiang01@kylinos.cn>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-Since commit 56651128e2fb ("MIPS: Fix idle VS timer enqueue"),
-BUILD_SKIPOVER_PROLOGUE uses label differences as the immediates of ORI
-and PTR_ADDIU. The LLVM integrated assembler accepts such an immediate
-only from LLVM 21 on, so LLVM=1 builds of every MIPS configuration fail
-with LLVM 17 to 20 unless LLVM_IAS=0 is set:
+From: Brian Kao <powenkao@google.com>
 
-  <instantiation>:7:11: error: expected an immediate
-   ori $26, r4k_wait_idle_size - 2
-            ^
-  <instantiation>:10:14: error: expected an immediate
-    addiu $26, r4k_wait_exit - r4k_wait_insn + 2
-               ^
+MIPI UniPro v3.0 introduces the Transport Framing Structure (TFS) with
+Reed-Solomon Forward Error Correction (FEC) in the Physical Adapter
+(PA) layer, along with five PA MIB attributes (0x15C3-0x15C7) that
+count TFS frames with uncorrectable FEC errors, TFS CRC errors, TFS
+format errors, and 64-bit corrected FEC symbols. Exposing these
+counters allows observing pre-FEC symbol correction and framing errors
+for HS-G6 (1b1b) link-margin diagnostics without dropping the link.
 
-Wrap both expressions in %lo(). For that operator, LLVM 17 to 20
-emit a LO16 fixup instead of rejecting the operand, and resolve it when
-writing the object, since both expressions are constants by then; no
-relocation is left. Both values are between 2 and 30, so %lo() does
-not change them. GNU as and LLVM 21 to 23 emit the same code as
-before, except on microMIPS, where GNU as now uses the 32-bit ADDIU in
-the delay slot instead of the 16-bit one. With GCC, the 2 extra bytes
-replace the 16-bit NOP that padded the end of the prologue, so all
-symbols keep their addresses; with Clang and LLVM_IAS=0, except_vec_vi
-and the code after it, up to nmi_handler, move by 4 bytes.
+Define the PA_TFS_* attributes in include/ufs/unipro.h and expose them
+under debugfs:
 
-Fixes: 56651128e2fb ("MIPS: Fix idle VS timer enqueue")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202505071331.Z0N2eSkr-lkp@intel.com/
-Link: https://github.com/llvm/llvm-project/commit/b65e0947cade9bd39036a7700b54c1df4ec00756
-Cc: stable@vger.kernel.org # 6.6.x: 56651128e2fb: MIPS: Fix idle VS timer enqueue
-Cc: stable@vger.kernel.org # 6.6.x: b713f27e32d8: MIPS: Move r4k_wait() to .cpuidle.text section
-Cc: stable@vger.kernel.org # 6.6.x: 2b6d718c8dbe: MIPS: Fix whitespace damage in r4k_wait from VS timer fix
-Cc: stable@vger.kernel.org # 6.6.x
-Signed-off-by: Tzu-Ching Yang <shingekinocore@gmail.com>
+  /sys/kernel/debug/ufshcd/<dev>/pa_err_stats/{host,device}/
+    - fec_err_cnt
+    - crc_err_cnt
+    - format_err_cnt
+    - recovered_fec_symbols
+
+Each file reads the corresponding local (host) or peer (device) PA
+attribute and resets it to 0 when '0' is written. Per MIPI UniPro v3.0
+Section 5.6.7, writing PA_TFS_RecErrorCountL clears the full 64-bit
+PA_TFS_RecErrorCount counter, while reads sample the high/low words
+using a bounded hi-lo-hi retry loop to avoid 32-bit rollover tearing.
+These hardware counters increment only while the TFS/FEC path (1b1b
+line coding) is active and may be reset across link startup, link-off
+suspend, or host reset.
+
+Because ufs_debugfs_hba_init() runs before hba->ufs_version and the
+device descriptor are probed, support is checked at access time
+(attached device W-LUN, UFSHCI >= 5.0, UFS device >= 5.0 for peer
+entries, and UFSHCD_STATE_OPERATIONAL under host_sem). Positive UniPro
+UIC command result codes from DME helpers are translated to standard
+negative errno values before returning to userspace because seq_file
+treats a positive ->show() return as SEQ_SKIP and a positive ->write()
+return is interpreted as bytes written.
+
+Signed-off-by: Brian Kao <powenkao@google.com>
 ---
-v2: only the stable tags change; the code and the rest of the changelog
-are those of v1 [v1]. The tags now start at 6.6.x and name the two
-prerequisites Maciej suggested [review] plus b713f27e32d8.
+ drivers/ufs/core/ufs-debugfs.c | 215 +++++++++++++++++++++++++++++++++
+ include/ufs/unipro.h           |   5 +
+ 2 files changed, 220 insertions(+)
 
-What each stable series has today, and what it will get with the tags:
+diff --git a/drivers/ufs/core/ufs-debugfs.c b/drivers/ufs/core/ufs-debugfs.c
+index 9f83628f3e2c..004d3c2ae11f 100644
+--- a/drivers/ufs/core/ufs-debugfs.c
++++ b/drivers/ufs/core/ufs-debugfs.c
+@@ -206,6 +206,219 @@ static const struct file_operations ufs_saved_err_fops = {
+ 	.release	= single_release,
+ };
+ 
++#define UFS_PA_ERR_REC_READ_RETRIES	3
++
++struct ufs_pa_err_attr {
++	const char *name;
++	u32 mib_attr;
++	u8 peer;
++};
++
++static int ufs_dme_err_to_errno(int err)
++{
++	if (err <= 0)
++		return err;
++
++	switch (err) {
++	case UIC_CMD_RESULT_INVALID_ATTR:
++		return -EOPNOTSUPP;
++	case UIC_CMD_RESULT_INVALID_ATTR_VALUE:
++		return -EINVAL;
++	case UIC_CMD_RESULT_READ_ONLY_ATTR:
++		return -EPERM;
++	case UIC_CMD_RESULT_BUSY:
++		return -EBUSY;
++	default:
++		return -EIO;
++	}
++}
++
++static int ufs_pa_err_check_supported(struct ufs_hba *hba, u8 peer)
++{
++	if (!hba->ufs_device_wlun)
++		return -ENODEV;
++
++	if (hba->ufs_version < ufshci_version(5, 0) ||
++	    (peer == DME_PEER && hba->dev_info.wspecversion < 0x500))
++		return -EOPNOTSUPP;
++
++	return 0;
++}
++
++static int ufs_pa_err_read_rec_cnt(struct ufs_hba *hba, u8 peer, u64 *val)
++{
++	u32 hi_before, lo, hi_after;
++	int err, retry;
++
++	for (retry = 0; retry < UFS_PA_ERR_REC_READ_RETRIES; retry++) {
++		err = ufshcd_dme_get_attr(hba,
++					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTH),
++					  &hi_before, peer);
++		if (err)
++			return ufs_dme_err_to_errno(err);
++
++		err = ufshcd_dme_get_attr(hba,
++					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTL),
++					  &lo, peer);
++		if (err)
++			return ufs_dme_err_to_errno(err);
++
++		err = ufshcd_dme_get_attr(hba,
++					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTH),
++					  &hi_after, peer);
++		if (err)
++			return ufs_dme_err_to_errno(err);
++
++		if (hi_before == hi_after) {
++			*val = ((u64)hi_after << 32) | lo;
++			return 0;
++		}
++	}
++
++	return -EAGAIN;
++}
++
++static int ufs_pa_err_cnt_show(struct seq_file *s, void *data)
++{
++	const struct ufs_pa_err_attr *attr = s->private;
++	struct ufs_hba *hba = hba_from_file(s->file);
++	int err;
++
++	err = ufs_pa_err_check_supported(hba, attr->peer);
++	if (err)
++		return err;
++
++	err = ufs_debugfs_get_user_access(hba);
++	if (err)
++		return err;
++
++	if (hba->ufshcd_state != UFSHCD_STATE_OPERATIONAL) {
++		err = -EBUSY;
++		goto out;
++	}
++
++	if (attr->mib_attr == PA_TFS_RECERRORCOUNTL) {
++		u64 val;
++
++		err = ufs_pa_err_read_rec_cnt(hba, attr->peer, &val);
++		if (!err)
++			seq_printf(s, "%llu\n", val);
++	} else {
++		u32 val;
++
++		err = ufshcd_dme_get_attr(hba, UIC_ARG_MIB(attr->mib_attr),
++					  &val, attr->peer);
++		err = ufs_dme_err_to_errno(err);
++		if (!err)
++			seq_printf(s, "%u\n", val);
++	}
++
++out:
++	ufs_debugfs_put_user_access(hba);
++	return err;
++}
++
++static ssize_t ufs_pa_err_cnt_write(struct file *file, const char __user *buf,
++				    size_t count, loff_t *ppos)
++{
++	const struct ufs_pa_err_attr *attr = file->f_inode->i_private;
++	struct ufs_hba *hba = hba_from_file(file);
++	unsigned int val;
++	int err;
++
++	err = ufs_pa_err_check_supported(hba, attr->peer);
++	if (err)
++		return err;
++
++	err = kstrtouint_from_user(buf, count, 0, &val);
++	if (err)
++		return err;
++
++	if (val != 0)
++		return -EINVAL;
++
++	err = ufs_debugfs_get_user_access(hba);
++	if (err)
++		return err;
++
++	if (hba->ufshcd_state != UFSHCD_STATE_OPERATIONAL) {
++		err = -EBUSY;
++		goto out;
++	}
++
++	/*
++	 * Per MIPI UniPro v3.0 Section 5.6.7, setting PA_TFS_RecErrorCountL
++	 * clears the entire 64-bit PA_TFS_RecErrorCount counter to 0.
++	 */
++	err = ufshcd_dme_set_attr(hba, UIC_ARG_MIB(attr->mib_attr),
++				  ATTR_SET_NOR, 0, attr->peer);
++	err = ufs_dme_err_to_errno(err);
++
++out:
++	ufs_debugfs_put_user_access(hba);
++	return err ? err : count;
++}
++
++static int ufs_pa_err_cnt_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, ufs_pa_err_cnt_show, inode->i_private);
++}
++
++static const struct file_operations ufs_pa_err_cnt_fops = {
++	.owner		= THIS_MODULE,
++	.open		= ufs_pa_err_cnt_open,
++	.read		= seq_read,
++	.write		= ufs_pa_err_cnt_write,
++	.llseek		= seq_lseek,
++	.release	= single_release,
++};
++
++static const struct ufs_pa_err_attr ufs_host_pa_err_attrs[] = {
++	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_LOCAL },
++	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_LOCAL },
++	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_LOCAL },
++	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_LOCAL },
++	{ }
++};
++
++static const struct ufs_pa_err_attr ufs_dev_pa_err_attrs[] = {
++	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT, DME_PEER },
++	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT, DME_PEER },
++	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT, DME_PEER },
++	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL, DME_PEER },
++	{ }
++};
++
++static void ufs_debugfs_pa_err_init(struct ufs_hba *hba)
++{
++	static const struct {
++		const char *name;
++		const struct ufs_pa_err_attr *attrs;
++	} dirs[] = {
++		{ "host", ufs_host_pa_err_attrs },
++		{ "device", ufs_dev_pa_err_attrs },
++	};
++	const struct ufs_pa_err_attr *pa_attr;
++	struct dentry *pa_dir, *sub_dir;
++	unsigned int i;
++
++	pa_dir = debugfs_create_dir("pa_err_stats", hba->debugfs_root);
++	if (IS_ERR_OR_NULL(pa_dir))
++		return;
++
++	for (i = 0; i < ARRAY_SIZE(dirs); i++) {
++		sub_dir = debugfs_create_dir(dirs[i].name, pa_dir);
++		if (IS_ERR_OR_NULL(sub_dir))
++			continue;
++
++		d_inode(sub_dir)->i_private = hba;
++		for (pa_attr = dirs[i].attrs; pa_attr->name; pa_attr++)
++			debugfs_create_file(pa_attr->name, 0600, sub_dir,
++					    (void *)pa_attr,
++					    &ufs_pa_err_cnt_fops);
++	}
++}
++
+ static const struct ufs_debugfs_attr ufs_attrs[] = {
+ 	{ "stats", 0400, &ufs_debugfs_stats_fops },
+ 	{ "saved_err", 0600, &ufs_saved_err_fops },
+@@ -494,6 +707,8 @@ void ufs_debugfs_hba_init(struct ufs_hba *hba)
+ 	debugfs_create_u32("exception_event_rate_limit_ms", 0600, hba->debugfs_root,
+ 			   &hba->debugfs_ee_rate_limit_ms);
+ 
++	ufs_debugfs_pa_err_init(hba);
++
+ 	if (!(hba->caps & UFSHCD_CAP_TX_EQUALIZATION))
+ 		return;
+ 
+diff --git a/include/ufs/unipro.h b/include/ufs/unipro.h
+index 9c168703b104..b82f9a9e838f 100644
+--- a/include/ufs/unipro.h
++++ b/include/ufs/unipro.h
+@@ -200,6 +200,11 @@
+ #define PA_PACPFRAMECOUNT	0x15C0
+ #define PA_PACPERRORCOUNT	0x15C1
+ #define PA_PHYTESTCONTROL	0x15C2
++#define PA_TFS_FECERRORCOUNT	0x15C3
++#define PA_TFS_CRCERRORCOUNT	0x15C4
++#define PA_TFS_FORMATERRORCOUNT	0x15C5
++#define PA_TFS_RECERRORCOUNTL	0x15C6
++#define PA_TFS_RECERRORCOUNTH	0x15C7
+ #define PA_TXHSG4SYNCLENGTH	0x15D0
+ #define PA_PEERRXHSG4ADAPTINITIAL		0x15D3
+ #define PA_TXHSADAPTTYPE	0x15D4
 
-  series  56651128e2fb  b713f27e32d8  2b6d718c8dbe  will get
-  ------  ------------  ------------  ------------  --------------------
-  7.3.y   yes           yes           yes           this patch
-  6.18.y  yes           yes           no            2b6d718c8dbe + this
-  6.12.y  no            no            no            all three + this (a)
-  6.6.y   no            no            no            all three + this (a)
-  6.1.y   no            no            no            nothing (b)
-
-(a) On 6.12.118 and 6.6.162 the three cherry-picks and this patch apply
-    cleanly. For malta_defconfig, genex.o builds with GCC 8.1 and 16.2
-    and with LLVM 13.0.1, 17.0.1 and 21.1.8 (6.6.162: also 11.1.0),
-    and kernels built with GCC 16.2 and LLVM 17.0.1 boot under QEMU.
-    56651128e2fb needs b713f27e32d8: without it, all the code after
-    r4k_wait in genex.S is placed in .init.text. Both were queued for
-    6.12 and 6.6 in 2025 and dropped because of the build failure
-    fixed here ([1] below).
-(b) 56651128e2fb conflicts in idle.c on 6.1.y and older.
-
-[v1] https://lore.kernel.org/r/20261104030147.3117325-1-shingekinocore@gmail.com/
-[review] https://lore.kernel.org/r/alpine.DEB.2.21.2611040746160.6502@angie.orcam.me.uk/
-
-The notes of v1, unchanged:
-
-> No MIPS hardware here. Against mips-fixes (v7.4-rc1). All builds use
-> W=1 and kernel.org toolchains.
->
-> - genex.o, before and after, with GCC 8.1 to 16.2 and with LLVM 17 to
->   23, both with the integrated assembler and with LLVM_IAS=0. Configs:
->   64r6el, 32r6el, 64r2el, 32r2el, eyeq5, eyeq6, malta (little and big
->   endian, MIPS32r1, microMIPS little and big endian), ip22, ip27,
->   loongson3 and cavium_octeon.
->   - The objects are byte-identical before and after with GCC, with
->     LLVM_IAS=0 and with LLVM 21 to 23. The only exception is the
->     microMIPS ADDIU above. The 4-byte move with LLVM_IAS=0 is harmless:
->     set_vi_handler() computes the offsets and the length of the vectored
->     handler from symbols before copying it, and ejtag_debug_handler and
->     nmi_handler are only referenced through their symbols.
->   - LLVM 17 to 20 now assemble genex.o for all of these configs except
->     microMIPS and Octeon, which the integrated assembler rejects for
->     other reasons. For malta (little and big endian, MIPS32r1), ip22
->     and ip27, these objects are byte-identical to the LLVM 21 genex.o.
-> - vmlinux of 64r2el, 32r2el and malta, built with GCC 8.1 and 16.2,
->   LLVM 17, 20, 21 and 23, and LLVM 17 with LLVM_IAS=0. Where both sides
->   build, vmlinux is byte-identical before and after. With LLVM 17 and
->   20, genex.o was the only object that failed before, and vmlinux links
->   after. No new warnings.
-> - The malta kernels built with GCC 8.1 and 16.2, LLVM 17, 20 and 23, and
->   LLVM 17 with LLVM_IAS=0 boot under QEMU 6.2 -cpu 24Kf. That CPU uses
->   r4k_wait(), so interrupts go through skipover_handle_int. Each kernel
->   boots to an init that keeps the CPU going in and out of idle and then
->   reboots; a QEMU trace shows every interrupt that lands in the idle
->   region resuming at r4k_wait_exit. A microMIPS kernel does not boot
->   under QEMU -cpu M14Kc with or without this patch, so the microMIPS
->   change was not run.
->
-> In the 2025 thread [2], Nathan suggested requiring LLVM 21 for MIPS in
-> min-tool-version.sh, and Maciej an #error for older Clang. Both would
-> also stop LLVM 17 to 20 builds with LLVM_IAS=0, which work today, and
-> the stable trees would need the same change before 56651128e2fb could
-> go back to them.
->
-> On 6.18.y, which also allows LLVM 15 and 16, the patch applies after
-> 2b6d718c8dbe, and LLVM 15 and 16 fail and are fixed the same way.
->
-> The 56651128e2fb backport was dropped from the 6.14, 6.12 and 6.6
-> stable queues because of this build failure [1], so 6.12.y and 6.6.y
-> still lack that fix.
->
-> [1] https://lore.kernel.org/r/2025051415-unloader-likely-b0e6@gregkh/
-> [2] https://lore.kernel.org/r/20250521224450.GA2412476@ax162/
-
- arch/mips/kernel/genex.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/mips/kernel/genex.S b/arch/mips/kernel/genex.S
-index be1b049d856f..ef27965f6ad9 100644
---- a/arch/mips/kernel/genex.S
-+++ b/arch/mips/kernel/genex.S
-@@ -146,10 +146,10 @@ r4k_wait_exit:
- 	MFC0	k0, CP0_EPC
- 	/* Subtract/add 2 to let the ISA bit propagate through the mask.  */
- 	PTR_LA	k1, r4k_wait_insn - 2
--	ori	k0, r4k_wait_idle_size - 2
-+	ori	k0, %lo(r4k_wait_idle_size - 2)	/* %lo() for LLVM < 21 */
- 	.set	noreorder
- 	bne	k0, k1, \handler
--	 PTR_ADDIU	k0, r4k_wait_exit - r4k_wait_insn + 2
-+	 PTR_ADDIU	k0, %lo(r4k_wait_exit - r4k_wait_insn + 2) /* ditto */
- 	.set	reorder
- 	MTC0	k0, CP0_EPC
- 	.set pop
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+base-commit: 08fec21faae44fe002467976befd68e6e62969b5
 -- 
-2.34.1
+2.56.1.750.gf70dc682cf-goog
 
