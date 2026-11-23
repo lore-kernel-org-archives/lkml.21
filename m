@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795464834;
-	b=Y6o3kvd5lfeEL/ucQ4G4u+H5iFE57tXlEV+ZzWhrVohlxVA1D91PGBlXubwMs4eqLdUA
-	 Q1V8aY0Nu/7vrJZpdJwbLqnaA3yF6Gr8RI+sMDoN2arp0vAmdkHDf7dUJWFCoOwMRSmPR
-	 gvdarEFpT6AIXZsEgSUHxp8RGymGSgeUc4qJJMavUYSrDY4Q0ehEADlpNUunK2pWFV7Hi
-	 Sa2n6SvqHJW+eGVBBaVIljD34iz+QqkRhZCR8GUv8fjh77Lh/NZbYcRgHeU/ZWvHJiamR
-	 WZTq5rFCINn+HTHe6CKbdWg4VacdKmPMhzBz9I1pIMcUwkhF5siHwFUMx4OQugaW9HA==
+	t=1795464835;
+	b=tN59HnUOIQL6sJy0jImSZGzdy7r0lKmQ2iuHK2SPZ0IYqLkScs6SygpTMDZqnXXCg/IK
+	 nOEa9/+NtZx2DrviX2EXV4brTXP6Zdsi9nOIuLcV4Mzy1dLW4T7835NxKtp/v1o9OC9jS
+	 11RUOcPBpAXOTi7fw4PMiE3bMyTy5nOse5sJdBNSYtT8DhDnC6TvbBQHeERCTa3acPm87
+	 BUEV3SN9I91ph/m0xgpdwVRUXF4yiCoeGcEO1rfXVxM07Vc/33ycM7N2mcnlz4NDxFKqX
+	 P4w3/uQ0OxdtgSqhqpp9cKQt1/kOKKkLZ8t6OMc1tQM+/JwiyL6kM4PQkEwd7oIuf4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464834;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464835;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=07eBemD258TjOvIXnaCAqD1xKEe3Z3jPTS5xgfZLphA=;
-	b=fdGv7erDN6+lHn3wA9PgqfwBgxeuex/uH+SsSYrkbjG+NcIapZ7xp0WN1qlqG9NCNGgo
-	 7FJKtIdrfTcKd9H9TUu4GEYAEZ9QM+Zi7zMzjqGMFO2Z/Wi25umpNWnzwnM3eltTvM21K
-	 aPsA/ATiYaCkvK9cASl+10RRlnc9kQkVVycRp56WQ8aU2+E7D2OWBBEttq10SoAOayEl9
-	 YVnWBuhSZDmewbS+v1UnvdrCZMi5SkTqyl8pGEfxZJxmN8kLpgEUhTtOONXmKMbiFKzmb
-	 D3Jzz81FcfEOpGzMQpI6GmVmjnpmyPWvuYKlTufv3CRofjVEHZR2hxfiVpPiuheRCDw==
+	bh=OvpPMptrHzBE3IreIziZcS9fob5PN9ySIM3VZNI+Dzw=;
+	b=GXfpn2l6QknXzoQqEM5QOXLK2WeoT7ra+tot3y6ppBkopEMjI5Qi1ct/E9K7fXyMgE+t
+	 kSux46DE0EIZipEA2oOzVkXaCT3k1i7LoK0q96Kfgz5Hk154YtvkniQSCUHOmpnlZA/Tb
+	 3/dEiFFDBM4LOVPpY4sE8c9Tb0BbAAYfQL2rATh/w/+bQB9xI9IuATy9Oy78uWy+HgS1p
+	 ftV3knoEsa+kFbqDlkr3osLoyj6GVh4Vz4f9/O0faqS3Us6+uES3ksWqb4JqUq5jhKjwm
+	 9TFzzjb/5O98UUlzGamwH/i+K0tL0TMtm+AZKRKpfBjl7pFyhaw4nEzrJ4nPKoUqCaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M8BBCR94;
-	arc=none smtp.remote-ip=74.125.82.198
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DDqnOq5x;
+	arc=none smtp.remote-ip=74.125.82.70
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01941606A32D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:13:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01941606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 177F7606A680
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:13:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 177F7606A680
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M8BBCR94
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386b8624cf7so2017285eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:13:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DDqnOq5x
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b25d977b91so3915250c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:13:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795464833; x=1796069633; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795464834; x=1796069634; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=07eBemD258TjOvIXnaCAqD1xKEe3Z3jPTS5xgfZLphA=;
-        b=M8BBCR94zUt79VyIkrqlSXJkrYGQg87WTnED9fNR2feH+PwXwZ+mklCRCG3+wUZVY+
-         /sfhqNyygkBKEUmbqAdtBT4StrZN6cLdMqz/2bMcijO/y3nLPMmWG8zSvF+2MSqni45Z
-         76AmSEe7Uw0LHiMrOKzAceMQ8XRMoWe5rfYlPbt9xpAOEpITJMsLJCs/1m8Jrs13IWIz
-         zuoeCv7xYuQNBdBzwj1luqUZ1ZuUxrdK7OXk8UhqCcWOkYyxTYaCm4O+aeQL/nT/KaII
-         99kqyuX5wroEvx/uixvKI4LDsU8tigI5QATZ7DHkq+3msTwVYggSGTy9bkd3itty9N9e
-         oefg==
+        bh=OvpPMptrHzBE3IreIziZcS9fob5PN9ySIM3VZNI+Dzw=;
+        b=DDqnOq5xq6RaKiZmEG89Cm0Xgoq+vkkGqfz04Cx0/yNmgwsDn2fa8m6rNnMxKKBcvh
+         Ebf68WwmVpiPA+oVpjp7/fAyBAdOD3v1PJw6r4zAAy1BkYZoxdHBQ9KM3292s21J28+E
+         z4SYiBvNLWBPwy9s50UIlz4WV+dwPBu0D7QFCZ74zSWsTkOAQ2fkZ/ttjfePEBEr+Juo
+         sKu591ZVGdNLIovcFl9zPlkbgDKxx3DNs9Ga+ASKhrZaQbgGrCEVbiWKyTOgCdLUOvgE
+         jB/Q8g1qJ2Gx1bp3Jw/FNHMs167PuXg7CGSCX5VcbQPcuI7psBTo2D2XOgLBpxDpUpD1
+         ou1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795464833; x=1796069633;
+        d=1e100.net; s=20260707; t=1795464834; x=1796069634;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=07eBemD258TjOvIXnaCAqD1xKEe3Z3jPTS5xgfZLphA=;
-        b=toSl3NFDf2BdIWMhYrQMBIkwpHzCqFHGqK+FqTC5T+xG2HGM9+4R86ls9NM0EeTYuI
-         LURlmVB6FwN/O8+KlMzJztNdvKICSGcbR3NaGaW/+7tnVlg50Am52h3rVOA3fZsumQq4
-         qxnYjfT9VI/KbimUGsemBn2a/h6S/NBWL0ibeblv2+boFNm9Y//nwwxyFYVvmFgRRBiK
-         TvpGWfj4IGtTf1W3YjTLk0sbIeg5BNjYQ9uIyouIxDfQ35w/7ecC0PX2BHLPVEJ3+5OP
-         PTNl34A3MOUe625D3THi6INc97IwWW/9FnLxeE20NFi2UXBOBn49n7KdI0l16T6XG4rF
-         Me2Q==
-X-Forwarded-Encrypted: i=1; AL+hErFd4izfNQJ6PYEHFbGOkhNSY8LqKF/e9CeegkWEQ2x/f8Ul7PTgLNgm+wWebByBMMhqa5MQRRtQg+gRLMg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/k5oCRSCiT5AEObI9Bh1uBJdd6X5d6vbjDdCzMAYbGKksjuphB
-	N45ygG/GWF2+blj5+X+crDOL8LMuv79e/d11f+3KGMvg5PGYpEICaU+4TtFu9pa1b9tgoZP/Ygf
-	Z0Of32cc5dG1m9CuMog==
-X-Received: from dybmb7.prod.google.com ([2002:a05:7301:1907:b0:385:6c3c:3ea1])
+        bh=OvpPMptrHzBE3IreIziZcS9fob5PN9ySIM3VZNI+Dzw=;
+        b=lHuWlKC8+vCk5cAmezwrTGWZo3mBdrTZxEfWuESyWfsiB8bjHg+guPbBu1j+Dr0uyo
+         vwZrXw6qp4vVS6VIg71/x4wvqRSJL3k29qLBs5WSdz4MES+SZJf6dmd+SD1Rva+pYJ1c
+         0nGyhWRpKzpUdGipnZ/yyyrn9JLVxfTudB5yagc+hmKZCbEOkRbxvJSG7UmCC3nuw0j5
+         vHuFwRGjauvVam31MbhPvd2EaIUfeoRi+ewx8vTQjDz7FELbOVQUTx7HP0NNapuot0Ki
+         RkiyelTEhUM6HqMz5Nvajp2QLj9RZPbRflF+4DseQw4jkeQgUzARDVbcITUpQC+t0RH3
+         Tl1Q==
+X-Forwarded-Encrypted: i=1; AL+hErGxlpBVdHgJmODtPEHdb1CO0KXUVJU2JRxeaGTo9g96Hf6HpaN94Xv5WjzaWKozw8vgbNJ+JUDZFTCvoZQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ySrgDl+lybcLc/zDXmISv80C0V0Y9nNCHwTW624j3PPE9hbNo
+	XHZPyAYHNmdJB7aqKuZivLjNyIq55b9yRL39wBCmvKFYwOylSzcJwkzeV8xUkANWOapwfK/pPLw
+	IOax+bq08Ldqb9n2qZg==
+X-Received: from dlbts3-n1.prod.google.com ([2002:a05:7022:b043:10b0:1b2:5271:f03b])
  (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7300:f498:b0:386:a716:916b with SMTP id 5a478bee46e88-386a7169544mr6533417eec.31.1795464832877;
- Mon, 23 Nov 2026 12:13:52 -0800 (PST)
-Date: Mon, 23 Nov 2026 12:13:50 -0800
+ 2002:a05:701b:2810:b0:192:74cf:1db2 with SMTP id a92af1059eb24-1b5568650b5mr11311923c88.11.1795464833720;
+ Mon, 23 Nov 2026 12:13:53 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:13:51 -0800
 In-Reply-To: <cover.1795462673.git.penghuang@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261122015729.2512645-1-penghuang@google.com> <cover.1795462673.git.penghuang@google.com>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <9b14aecb0ad560a3ce5f7925aaaee6e4f4a1a760.1795462673.git.penghuang@google.com>
-Subject: [PATCH v2 1/2] sched/fair: Clear residual sums on zero task-group avg propagation
+Message-ID: <2b1ef28e12d12a1f894827b951910c1979d54d45.1795462673.git.penghuang@google.com>
+Subject: [PATCH v2 2/2] sched_ext, sched/fair: Drain blocked load on scx_switched_all
 From: Peng Huang <penghuang@google.com>
 To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
@@ -95,86 +95,92 @@ Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis
 	stable@vger.kernel.org, Peng Huang <penghuang@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In update_load_avg(), __update_load_avg_se() ages the group entity @se
-before propagate_entity_load_avg() runs. If @se's _avg has already
-decayed to 0 while its _sum still holds a sub-divider residual, and the
-child gcfs_rq's _avg also reaches 0 (e.g. when its last task detaches),
-update_tg_cfs_{util,runnable,load}() see delta_avg == 0 and return early
-without subtracting @se's remaining _sum from the parent cfs_rq.
+Tasks that exit or migrate while sleeping queue their PELT load and
+utilization in cfs_rq->removed rather than deducting and propagating
+immediately. When scx_enable() switches all fair tasks to sched_ext,
+switched_from_fair() only visits cfs_rq chains that still hold live
+fair tasks, leaving unvisited leaf cfs_rqs undrained in rq->cfs.avg.
 
-Keep scaling non-zero averages by the parent cfs_rq's divider to
-preserve period_contrib alignment, while letting zero-avg propagations
-proceed whenever @se still holds a non-zero _sum so the residual is
-cleared from both @se and its parent cfs_rq.
+Once __scx_switched_all is enabled, scheduler_tick() skips
+sched_balance_trigger() and fair_sched_class is bypassed, freezing
+blocked-load updates. Stale rq->cfs.avg.util_sum can then combine with
+active RT/DL util_sum in update_idle_rq_clock_pelt() to exceed divider,
+inflating rq->lost_idle_time and stalling rq_clock_pelt().
 
-Fixes: 7ceb77103001 ("sched/pelt: Continue to relax the sync of util_sum with util_avg")
+Export __sched_balance_update_blocked_averages() and call it on each
+CPU in scx_enable()'s per-CPU scx_switched_all() loop so pending
+cfs_rq->removed entries and task-group propagations are drained cleanly.
+
+Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
 Suggested-by: Vincent Guittot <vincent.guittot@linaro.org>
 Cc: stable@vger.kernel.org
 Signed-off-by: Peng Huang <penghuang@google.com>
 ---
- kernel/sched/fair.c | 35 +++++++++++++++++++++++++++--------
- 1 file changed, 27 insertions(+), 8 deletions(-)
+ kernel/sched/ext/ext.c | 9 ++++-----
+ kernel/sched/fair.c    | 7 ++++++-
+ kernel/sched/sched.h   | 1 +
+ 3 files changed, 11 insertions(+), 6 deletions(-)
 
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index 10de6bd865e8..f7c573092e17 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -9013,11 +9013,9 @@ static void scx_root_enable_workfn(struct kthread_work *work)
+ 		static_branch_enable(&__scx_switched_all);
+ 
+ 	/*
+-	 * Detach the fair_server bandwidth reservation now that the switch
+-	 * is fully committed. In full mode (!SCX_OPS_SWITCH_PARTIAL) no
+-	 * task will ever run in the fair class, so give that bandwidth
+-	 * back to the RT class. The matching ext_server attach already
+-	 * happened earlier; this only releases bandwidth and cannot fail.
++	 * Detach the fair_server bandwidth reservation and drain any
++	 * remaining blocked or removed fair load now that the switch is
++	 * fully committed and periodic fair blocked-load updates stop.
+ 	 *
+ 	 * In partial mode keep fair_server attached.
+ 	 */
+@@ -9028,6 +9026,7 @@ static void scx_root_enable_workfn(struct kthread_work *work)
+ 			guard(rq_lock_irqsave)(rq);
+ 			update_rq_clock(rq);
+ 			dl_server_detach_bw(&rq->fair_server);
++			__sched_balance_update_blocked_averages(rq);
+ 		}
+ 	}
+ 
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 0c8af1cac2d5..f6c3bbb19557 100644
+index f6c3bbb19557..f19f498e01a4 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
-@@ -5516,9 +5516,15 @@ update_tg_cfs_util(struct cfs_rq *cfs_rq, struct sched_entity *se, struct cfs_rq
- 	long delta_sum, delta_avg = gcfs_rq->avg.util_avg - se->avg.util_avg;
- 	u32 new_sum, divider;
+@@ -11655,10 +11655,15 @@ static unsigned long task_h_load(struct task_struct *p)
+ }
+ #endif /* !CONFIG_FAIR_GROUP_SCHED */
  
--	/* Nothing to update */
--	if (!delta_avg)
--		return;
-+	if (delta_avg == 0) {
-+		/* Keep util_sum as-is for unchanged non-zero avg */
-+		if (gcfs_rq->avg.util_avg != 0)
-+			return;
-+
-+		/* Nothing to clear once se->avg.util_sum is also 0 */
-+		if (se->avg.util_sum == 0)
-+			return;
-+	}
+-static void __sched_balance_update_blocked_averages(struct rq *rq)
++/*
++ * Update blocked PELT averages for RT/DL/IRQ and fair cfs_rqs on @rq.
++ * Caller must hold @rq's lock and have updated @rq's clock.
++ */
++void __sched_balance_update_blocked_averages(struct rq *rq)
+ {
+ 	bool decayed = false, done = true;
  
- 	/*
- 	 * cfs_rq->avg.period_contrib can be used for both cfs_rq and se.
-@@ -5543,9 +5549,15 @@ update_tg_cfs_runnable(struct cfs_rq *cfs_rq, struct sched_entity *se, struct cf
- 	u64 new_sum;
- 	u32 divider;
++	lockdep_assert_rq_held(rq);
+ 	update_blocked_load_tick(rq);
  
--	/* Nothing to update */
--	if (!delta_avg)
--		return;
-+	if (delta_avg == 0) {
-+		/* Keep runnable_sum as-is for unchanged non-zero avg */
-+		if (gcfs_rq->avg.runnable_avg != 0)
-+			return;
-+
-+		/* Nothing to clear once se->avg.runnable_sum is 0 */
-+		if (se->avg.runnable_sum == 0)
-+			return;
-+	}
+ 	decayed |= __update_blocked_others(rq, &done);
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 220927453a88..71a69f90e5df 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -2977,6 +2977,7 @@ extern struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf);
+ extern void update_group_capacity(struct sched_domain *sd, int cpu);
  
- 	/*
- 	 * cfs_rq->avg.period_contrib can be used for both cfs_rq and se.
-@@ -5617,8 +5629,15 @@ update_tg_cfs_load(struct cfs_rq *cfs_rq, struct sched_entity *se, struct cfs_rq
- 	load_avg = div_u64(load_sum, divider);
+ extern void sched_balance_trigger(struct rq *rq);
++void __sched_balance_update_blocked_averages(struct rq *rq);
  
- 	delta_avg = load_avg - se->avg.load_avg;
--	if (!delta_avg)
--		return;
-+	if (delta_avg == 0) {
-+		/* Keep load_sum as-is while child load is non-zero */
-+		if (load_sum != 0)
-+			return;
-+
-+		/* Nothing to clear once se->avg.load_sum is also 0 */
-+		if (se->avg.load_sum == 0)
-+			return;
-+	}
- 
- 	delta_sum = load_sum - (s64)se_weight(se) * se->avg.load_sum;
- 
+ extern int __set_cpus_allowed_ptr(struct task_struct *p, struct affinity_context *ctx);
+ extern void set_cpus_allowed_common(struct task_struct *p, struct affinity_context *ctx);
 -- 
 2.56.1.831.g720f3f5937-goog
 
