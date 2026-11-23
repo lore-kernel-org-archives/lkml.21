@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451004;
-	b=ad6PfZ1Yd58e9+Qo1uc7vKo3/nW6DOizahbt2A8/5tZMXP8soTurvLLkSf4NkRC3ca9M
-	 kOb6eD/VfeS3f8InZhpyy9odjlJICv7PT+Iz5L+f3Lef+ayPN0kJNNIzqGLRAKFkdXL1S
-	 wURLLbuOfITpNW0X+B7E+DEYJiniwotFkZCIWUSncvNG8TePpuYzRTS3AsLpINl/misLV
-	 0azNkXrug4+7rlUzNNoQ97DG17j4D0HzUMIhlrUKP20NR5WUH30TOkSSH25e1W1fu+QTe
-	 iSGTMr2f84rdKZ+lorzvrjaxMZ4eKTdt/KfngGJlvFmY5iGGuumo9DIu9AfbZpYqv0w==
+	t=1795451011;
+	b=lZhzLnUAxVRcM8wU9JyWj1looauPsxRZxNZ9Ek/gp9KKlI6wnCEi6KzGAUODt67SE8Qw
+	 7Gv81EKgeznWeLzqlDtHDYN/rI/NPi++zr+ZkR63Lj3jbwT2QotrCmrBfmtlggYDZeh3t
+	 bebMU2VtYUbD3UqGwC4SAEQ4MQ00b47oKyTXG1YXUFUFw6qAnQFZsgMMq97TSpvHgYP5q
+	 MDpa3va8IK9ZKP8pGRifk2HYhG/YTXIY3rv3eH1zdyS01B/0FQE8wBy0MCepUIYbcyrrA
+	 R8/p64GZyMEal85BW5S5dm0BKJZBZfnoBEJOBcaWMf/S6E25069uReDPE02bSVECHZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451004;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=PBEKIwmlm68JPqk1+IxhEIhP5SR+X9JRgzwbdVtxN7w=;
-	b=zYAhr2SYR0ahwPet+0ATvgxBuEAqqGS6DAKP0AyDsHaIFZR/QwydubEE/r9UgGiUHIEK
-	 aJRr5vj4Ey1HnUQpduSMvmcR5J/o7ba1vYwshIOjfI/fNr1a2JlSzs3Acf5xcGVBEHtbt
-	 x4IT2ZOrVdkUb0rlYgb2fKRN4Hgz6WlW5KWJZZshc78nSqhgFOXScuprNXHpF2KkssJ6s
-	 fz6Mo4jPkPcyzyVarlZWKjHF3qYfxU1evvJ24rp5GPelUcf0MYKzhp/qqkx5ML4rXiuiq
-	 18b+kchQCZ/bCclVpjJ5Q9vFzMhyHOGd9SPCkyy1IAiDC6hJ5NtrSt4zmWtLMRc0dhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451011;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=k7QgSOss2Kakj9bN8uJ6EnWTBBqZf7qQjOyQIsKr5EU=;
+	b=gyPSmGjWSYKwtZPZYj4MkONZ95qzI8a75WIXevbhaPvvW/XGjtTAIhpHnld8s1t0YP6+
+	 93xbfGobnMNrB0z7QRMA27wPOFw08nJOllqZ7IsZq1vHexWKQ0qDDAGwkSPI8ZFT8ewTp
+	 7eERuJq8rn3nsYayFK8+gMltUoqkWuY/ODyTgLEOk+o+Q18O0yWQnAIBcFR6PnZW4QmMi
+	 0qeSFdkAmh/Fn3stgBbFoRG6/6xBVM9x1CQCXW6YMeQ6LjgFfrZ7ZRzEAaPcXI9NaxRhS
+	 z2gy5u39snEphbposRhLnoiq+rGyTjIcuOkoeGvJLgNYG1ZlJ5u3UxhC02Hs4ngkldg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LbWIkkpf;
-	arc=none smtp.remote-ip=91.218.175.199
-Received: from mta0.migadu.com (out-199.mta0.migadu.com [91.218.175.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NYPTgkQg;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9A71606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:23:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9A71606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB9FF606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:23:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB9FF606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LbWIkkpf
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=+aQKw6tPun4pr79Wyiw3tJn5bqKp4DiqK3iVZE+odMA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795451000; v=1; x=1796055800;
- b=LbWIkkpf+NVTs0ijO/2ma8CmT/dwWWWx6wabCenJvD4P5kW1VUHDWUiZaVTVsmSjPBniS/QP
- pZwKK5oXXSrf8rU9uvWtckgYJ+bFXcLAYejps5iTYkr/8XuBaobHTwC18OhDCOV0SfbUNPFXiiG
- xK8NpkkLWX9jwvw+kCen9eHY=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 6ecce4449613c13f;
-	Mon, 23 Nov 2026 16:23:20 +0000
-X-Mizu-Trace-ID: 6ecce4449613c13f
-X-Migadu-Flow: FLOW_OUT
-From: Usama Arif <usama.arif@linux.dev>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	tglx@kernel.org,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	ravi.bangoria@amd.com,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com
-Cc: Usama Arif <usama.arif@linux.dev>,
-	stable@vger.kernel.org
-Subject: [PATCH] perf/x86/amd/ibs: Don't leak stack contents through PERF_SAMPLE_WEIGHT_STRUCT
-Date: Mon, 23 Nov 2026 08:23:15 -0800
-Message-ID: <20261123162315.1142701-1-usama.arif@linux.dev>
-X-Mailer: git-send-email 2.53.1
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NYPTgkQg
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795451009;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k7QgSOss2Kakj9bN8uJ6EnWTBBqZf7qQjOyQIsKr5EU=;
+	b=NYPTgkQgtoWBTkG/K8TUwtFHDwxzLGBIvc7ni8A0jiGU1RmBKxDNIv+TTfJrj6JFX1YGL+
+	sNqPee4ZzgAWcGzp12PJHKlC4FVMBq24NwcTuBYBaHXgHqXFUGpi0U4+1Ia8Omvxgy9r4w
+	8y1FwiSeZ+GWkoWku2ctX7hMgwKy2gc=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-62-r3Fo4sd0Nx2MEdtBw5uQwg-1; Mon,
+ 23 Nov 2026 16:23:22 +0000
+X-MC-Unique: r3Fo4sd0Nx2MEdtBw5uQwg-1
+X-Mimecast-MFC-AGG-ID: r3Fo4sd0Nx2MEdtBw5uQwg_1795450999
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C87721800552;
+	Mon, 23 Nov 2026 16:23:18 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 2DC62195B3C9;
+	Mon, 23 Nov 2026 16:23:14 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Mon, 23 Nov 2026 17:23:18 +0100 (CET)
+Date: Mon, 23 Nov 2026 17:23:14 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Ziran Zhang <zhangcoder@yeah.net>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] sched: clarify ptrace's effect on task_struct->parent
+Message-ID: <awRocuwV_7lJHSl4@redhat.com>
+References: <20260910133027.8453-1-zhangcoder@yeah.net>
+ <20261123111256.18671-1-zhangcoder@yeah.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,43 +86,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123111256.18671-1-zhangcoder@yeah.net>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-For a load that missed the data cache, perf_ibs_parse_ld_st_data()
-reports the miss latency as the sample weight and marks
-PERF_SAMPLE_WEIGHT_TYPE as done, so perf_prepare_sample() leaves the
-field alone. With PERF_SAMPLE_WEIGHT_STRUCT it writes only var1_dw and
-var2_w, but perf_output_sample() copies all 8 bytes of the union into
-the ring buffer. var3_w therefore carries whatever was left in the
-on-stack struct perf_sample_data in perf_ibs_handle_irq().
+On 11/23, Ziran Zhang wrote:
+>
+> > The current comment for the parent field does not explain that it can be
+> > temporarily replaced by the tracer when the task is being ptraced.
+> >
+> > This can lead to confusion, so clarify the comment to document this
+> > important behavior.
+> >
+> > No functional change.
+> >
+> > Suggested-by: Oleg Nesterov <oleg@redhat.com>
+> > Signed-off-by: Ziran Zhang <zhangcoder@yeah.net>
+> > ---
+> > Changes in v2:
+> > - Use Oleg's minimal wording suggestion to adjust comment.
+> >
+> >  include/linux/sched.h | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/include/linux/sched.h b/include/linux/sched.h
+> > index 705970d07..8aad8a8ef 100644
+> > --- a/include/linux/sched.h
+> > +++ b/include/linux/sched.h
+> > @@ -1093,7 +1093,7 @@ struct task_struct {
+> >  	/* Real parent process: */
+> >  	struct task_struct __rcu	*real_parent;
+> >
+> > -	/* Recipient of SIGCHLD, wait4() reports: */
+> > +	/* Recipient of SIGCHLD, wait4() reports: ->real_parent or ptracer */
+> >  	struct task_struct __rcu	*parent;
+> >
+> >  	/*
+> > --
+> > 2.51.0
+>
+> Ping on this v2 patch. Suggested-by ptrace maintainer since September.
 
-CONFIG_INIT_STACK_ALL_ZERO hides this by clearing the struct on entry.
-Without it, every such sample hands 2 bytes of kernel stack to user
-space. "perf mem record" asks for PERF_SAMPLE_WEIGHT_STRUCT on x86, and
-since v6.14 swfilt lets an unprivileged user sample their own tasks with
-IBS.
+Well, I only suggested to simplify the comment you proposed in V1 ;)
+So please remove the Suggested-by tag, feel free to add
 
-Write var3_w as well.
-
-Fixes: 6b2ae4952ef8 ("perf/x86/amd: Support PERF_SAMPLE_{WEIGHT|WEIGHT_STRUCT}")
-Cc: stable@vger.kernel.org
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
----
- arch/x86/events/amd/ibs.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
-index 66e67e27224f18..9aa47751b37f6c 100644
---- a/arch/x86/events/amd/ibs.c
-+++ b/arch/x86/events/amd/ibs.c
-@@ -1376,6 +1376,7 @@ static void perf_ibs_parse_ld_st_data(__u64 sample_type,
- 		if (sample_type & PERF_SAMPLE_WEIGHT_STRUCT) {
- 			data->weight.var1_dw = op_data3.dc_miss_lat;
- 			data->weight.var2_w = op_data.tag_to_ret_ctr;
-+			data->weight.var3_w = 0;
- 		} else if (sample_type & PERF_SAMPLE_WEIGHT) {
- 			data->weight.full = op_data3.dc_miss_lat;
- 		}
--- 
-2.53.1-Meta
+Acked-by: Oleg Nesterov <oleg@redhat.com>
 
