@@ -1,73 +1,134 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795472167;
-	b=wY+Of+/iaWoqD19DKnAszHyb9ITucQCo0SgUnQE50+DVjApXr98UZ9DzxEuXh9gtJoyN
-	 s9k5lIIdgSlw2IdnOCXmRu09vo3QSMIbYhcN4fxyAmXaRcUUTNvvbp4ee33Y/1BO5VLQg
-	 YwpiULhZE6lyPRPuhy8r+lu+YGQTEWWFo6V3McTOlTiSWHnq0dcdDR8zsqGeTorlFmtzD
-	 Zx9pqt25xJ6ovoTP0UR6U+rhCJgratT80EbHmiPQ3mS/KjqD3VkFmUIstywI621JCJEki
-	 zObO5wb/LFHumrx4Z9v3wKktABMFHsuFuvUNEPC4dUvDSeGqkU8G4N8YXss73pQdSRg==
+	t=1795472288;
+	b=C0wZfCvLhYPxS/qHMMV0uAOTZ4CvDxxc6Mk3iQ+VX3gDNzrQpWK3kBfqlm9DjBUX7stt
+	 WZ3BGoTjdl6HVZ8tSka3ikHhuYezlC7Pv/29u5NQoAmRMBLq71EuFDcy+XsSfsZ0iaurS
+	 lgdvy0OUyd9+5gqaPbajNkM8tZRPjWBdpORCHza8Jt6RFTMaVuHoiMOHn91SrLpPQM1zB
+	 ty4aqe1oNMLf4GC6q74qFUA/7Nh8JRnSzsX+bdjUcLGEZSAclmnk5vHuXBnzVFDVc5/SC
+	 9fyMTL73424afzcodFdCA7HUTZH5zyWp06mlyr0yx6IIaHo7UBHR45DoDIcJnWn2+zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795472167;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=Y+us8bDvYzrELNB2EmszKrRoOfYz0IPLr/AEaWpCZcc=;
-	b=ACP0IJ8lbqPEIAyfGvA1akdYY1Ppzk8v1fxWfBBdhOsl4qjpbTpHp3sHKreSGHpiTwX3
-	 Fjh9kduwE8IMxhRxjouFwAXtWNZA3pDFTYHfPxtCxN6qf48B0zyWfnA9WNVdY2ToabQm0
-	 uEWs7h1fL8GVsIqWYjYICHdmj3eQTnrWKtLM5ncts8jEKEuixnlGrfQjsT56pjuAid7l/
-	 VCCJRcHKqBVtHlvXq01U0L2ShDD6eAkcEg+jC3B+NTaWCAYkTGEhl1q1WxDMuJHWm/ZRf
-	 yqDr1Z318+4+18Nr76VsbwdFVWgmn0TugVRaWeDkfVheeXqNxN75FS+rb94Zwxj9xTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472288;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=+JzEw1NTjpwpKhUYsPVL4QgZ9Yqxc8qT5kiHgIxpGy4=;
+	b=EXHJVQ2Vovi5GqzpR4MrLDo6NwnN6LbygwI9QjoQlfv9GKl2kIix96mldpGPBgVqysC+
+	 NnFpKDTGwukPPeGW0xCO1L7f6oI+Vj/zW19RGphR0brufbYN32PHdjIVyfD1I9BqymODI
+	 ZkRet4pljsyORjWJnWrPHBCKu7ZIaCxE+Kf5FviX/EIXjfmOLWTqUwa2LNPvbazl0m4Tm
+	 ummZ0AVfbWWr8T5AuWEOWfL1q/tWWnERusNTjvd9m07LpZGX+mJyRxV8kdKV8JAmy0REu
+	 U8DcSoGWubo0vmmUz5CAKcP6Crl4WVW5TsW34CQHJ1f87N/I0PuNQ/ocLlSr/FIXQYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WWCjE+Yl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=dubeyko.com;
+	spf=pass smtp.mailfrom=dubeyko.com;
+	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Bxyijer1;
+	arc=none smtp.remote-ip=74.125.224.43
+Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77430606A31E;
-	Mon, 23 Nov 2026 22:16:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D5B0606A322
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:18:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D5B0606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WWCjE+Yl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ADE61F000CA;
-	Mon, 23 Nov 2026 22:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795472167;
-	bh=Y+us8bDvYzrELNB2EmszKrRoOfYz0IPLr/AEaWpCZcc=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=WWCjE+YlrqN7b90/hGO2sVl11Cr18YUJcvwyO3i9GeI+bRqWmlBtpjqp0OFJcNdVT
-	 H6cTmheE/TJRGpT6Nd9zvJKv+UonCFjBKp8UB+/E/SKrJgBmZlVo9mC/wY+Fi4YSwi
-	 DDgKAAul9Gopl/aCGGUUgvPZwKX5Ytj43+wMBxwecLgJ5Zmdj7XaDCyhFzDKkWeOGx
-	 l742vWA/A8irvG1/3XXyaG7iHbiRRISA4f6uhCd2wFJ+wFhUApc0sMFV153E8m7fXh
-	 D8D7hpWuShvXto/+mZmfKNFLkw/6h7Rg8rfWnnUoPz47g07ZDRib1TwWYt/Y7lZERg
-	 57KVY+1JTEqNw==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 9F2E9198003A;
-	Mon, 23 Nov 2026 17:16:04 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 17:16:04 -0500
-X-ME-Sender: <xms:IrsEa1EIN0A2-yRAGEUfkQudu24m-cMJ9pwJk1WsjX3QZ4ZFlcfKLQ>
-    <xme:IrsEa1IkIo2YvVit0dD7-gBdhXFdfIsZNqqqxezefVQ3BGMX6In22XOs1ZrVtDThe
-    clH6y2UDtaklbrB8vJ3sLfq3_nzSvFZ4XkkoQ-Ul9hvlLbuDuWKpOeQ>
-X-ME-Proxy-Cause: dmFkZTGqW0OWpKbdMalrHhevj6rAz4tiCiG3kxK+BUuRG5tBW4U/gofM3BJohdno3TNWPn
-    spYDa3MoKslPvwIBQziz9w06QxM0np0B2g6emIa8amZcnDdU6eOxtkmo6MB9jwmZ1XKje3
-    2pGQB9WJZNsz+ULo2BKVs5rzk04SbiQrnFZZLjIN43SiZrfpxGEDe/9KYqvtllLTZw0WQR
-    nsctd53BRHelMvy/jeyeDbcZVr/jteSpC9BVVCxp2EPds3zvYXumuUDxowL7SoxQ+JPBYV
-    Ocsnw9BYxviGEsVOwPog9mVxmPoGDX0NPp8+3cscKFi6lolWH5S6tg/pON6ZZHrg6chVJm
-    PIYgk/Uz9OPfT5V+4WuMplcixrDb0ZzGw951ptBv3X0EQTlHenxUogwPXMFo5Mx1vufyem
-    b43KzrKYD8bBRAGSESSyQ4HKRvLx7U2de1a9AJDHtFlBaPLHNvpRLN/jpIo7bJDlBJwBRB
-    HB2UtGcbyOhjl2FKBEVifdz9jEEo+df9EFEsEbZ9jQR9egFvTtUtuOAr09pLopAZa8uLg1
-    E9TWPm6mJQwLSgkegqtX2q2SMLbzf1PWaTag8PnzYZp7gm7UMtk5Ets3uUvX97dezc57MU
-    3qMAZnZsop9p9V5VyB1tvE3gy7jC3hAvq71vCWJsBT3NJruBjuf4YQjQ3szg
-X-ME-Proxy: <xmx:JLsEa6550OBI4a4JzqKo9xWUEAscssHMrZce7qD7yx4L1yrpBabxvQ>
-    <xmx:JLsEawlvKCQ9mi3Rx0R9eM08i3xjDZJQIcWG7eJeMdTs10x2QOlvMA>
-    <xmx:JLsEa9U_M11YtZ-itt9LgXC9Ez5koyzF7_gI6EZk3_Jfgd0qZGxOTQ>
-    <xmx:JLsEaxR_TebYxTMAa8om3xsn42NT1Up6jQreil9sQwR9es6PRiirag>
-    <xmx:JLsEayBhEvU4nrC5VHlDtlLU-i6h1HUpCMqOSOJpv49MGTxGwJJIEQ6R>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 0F97AF8009D; Mon, 23 Nov 2026 17:16:02 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Bxyijer1
+Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-67df3b1ca06so4282777d50.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:18:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795472287; x=1796077087; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+JzEw1NTjpwpKhUYsPVL4QgZ9Yqxc8qT5kiHgIxpGy4=;
+        b=Bxyijer1uz8P/JT8UYnL/ameNM4PCr4UUHLmQD1yaTO26Vrn8HZkqvS7H740bbYd9B
+         eZ1sVejr3Ge3bRLwHafdZ41JqaXVvZlWy+x3171KDkN5x9KiH9lSbUGc1W5H4t+M+Gsu
+         TTeSaZ+VRjML9qBnyboSNpMpWo9jAp/D8deSXVkBadszV7Z35kv65L4hPGaqQxBK9bWF
+         f9ztY6HpdvgHAPm7e0Aaj4p0ekmvxBHxChezsPM7Z7k0NH6LIMvizSkq4PV0+MB4bcNC
+         I2OLCgxNjCEusw6JU8KLfe1r6Q2Zk16QISNfGEv6dE6OVRyK8boR3aCj9ROfM852uUDT
+         beNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795472287; x=1796077087;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=+JzEw1NTjpwpKhUYsPVL4QgZ9Yqxc8qT5kiHgIxpGy4=;
+        b=A6LXo1LXXKFKlaUZmZGSYbBMHKTFazgcOWzP6h8miY6rJkh0S4PUO7Ni652jxFSwaT
+         qYM2CI87S3zsFGvypymeUIwodXIbWZagu8ynbCTVRpjlaz+qXgqHwXQPTWp/QV5WSSn2
+         VCOC0usYq7nx84UwRtpJ1olDke96m8M9gdy3EdE7YvrF2BrCRvUX3Ir2uyfxO43nPPlj
+         W4clqGbkLlryjLImBBCBLfU+nG8cooj8nZVFuY1NI5UEa79FbKe3r5lPcbDBqrRozIeR
+         /aHZvRYQdfrMQZaFSa9oUTw/NyMHLbdke2OZ2i0glXGqSy+wBc2a2/aO6OkiyFcVclKv
+         QnTQ==
+X-Forwarded-Encrypted: i=1; AL+hErHh4CBT6+MXcluschaQNqh2h9d308PvZ1GOoYp0feN5vpFVqFgvCDO2N1Scci1NK02N2/XJ+1PBtnFH1bQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8A5sDTCIMqYDYQM1E3/ulrv/0UFA/4lKIVEQgix+32CGK4eyXM
+	g++SK6ffG+ErVAE7XXF6pN5Ya8S2WBYfrS0nnnd4wqcsQUYyYsi3ZUtkO2uPuaXnzF0=
+X-Gm-Gg: AZFdTZfKapyRLCho8gljo0bOo+f0AAEf/6WeVxF7N7fGTh8SGq0A1QTH/GNFnoae9Wa
+	x7p2GBRbpFbqCdUmkiUlWJXxXZJVQ1bRU78ErlGyCOdpbBKEfXumQlVnqjdQD+g/2YbQxasP+EU
+	FWuehqoaZdGgidauasx8UxDuJIndAzygQQvtyj4jNIp+T+rerzbMVMFnDKnCxegy51MffSROq0t
+	SnO/0XF0bXQ4Q1EqqfU+bmR3fmbeIJ6W94LkIgGYTOnzJa6TTpv2z7rf6wDi8RHozXX1aBXhSCZ
+	1MyxJsHOssPVg61L8BMPPSBg9QclncDWgpjtgc4RKtyN+G+mD/5pa4iO4pj/0QAgA1C6nmyhxJt
+	w1NTM+AlEFtgi/V2QV832dQUkrXoUq3VR8ywJX4z9Tqy6QQvMPvFykfB2P5gwpX/EnfpVvGfi6/
+	vbnm8wFklK0MImezYCAWTdizMMlVe4S3Ia+zLR2JhGEZEDtc2fBBpPjKCmnXKiApmIa33djp0Lb
+	wsskfoe8TjYSSCbDUnA2ofEimHuL05s3e8NGjZLmE8E9FILdrViN8NUkLVYglRyRoDxEZvSQ64S
+	01lvkw15OAiktKQ70Icc9Foo4acVnYcvUnReVfRhCncY1803BnE1S24TG819+evbHeoSyUr81/Y
+	f8p5/IRzoNXeHkmDkek+Xc2bpgNiI33gcZg3v43NbkD/0XogFYpBeZBjyUANjU1nJiQYRQXw=
+X-Received: by 2002:a05:690c:3386:b0:8b4:f757:6ff1 with SMTP id 00721157ae682-8b5204bc0c5mr50521777b3.40.1795472286875;
+        Mon, 23 Nov 2026 14:18:06 -0800 (PST)
+Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:83a2:1030:d4d1:10b8])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52033c2d4sm50567147b3.36.2026.11.23.14.18.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 14:18:06 -0800 (PST)
+Message-ID: <f9f16109d00dd0caef1bdda38b71ad63e44e78d5.camel@dubeyko.com>
+Subject: Re: [PATCH v2] hfs: avoid reusing occupied CNIDs after deletion
+From: Viacheslav Dubeyko <slava@dubeyko.com>
+To: Hengyu Liang <hengyul@cs.unc.edu>
+Cc: glaubitz@physik.fu-berlin.de, frank.li@vivo.com, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Date: Mon, 23 Nov 2026 14:18:05 -0800
+In-Reply-To: <20261121101929.3395994-1-hengyul@cs.unc.edu>
+References: <20261112110128.4082071-1-hengyul@cs.unc.edu>
+	 <138ca05e57377469c0e44126314c98d008629229.camel@dubeyko.com>
+	 <aad484f0a78493723cfe379df5916e9f7f2a2bb4.camel@dubeyko.com>
+	 <20261121101929.3395994-1-hengyul@cs.unc.edu>
+Autocrypt: addr=slava@dubeyko.com; prefer-encrypt=mutual;
+ keydata=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
+ NFdvziOa4FgUBC4X71upsZIoZJeii2V/Jtc3B4g==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-9 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,49 +138,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Mon, 23 Nov 2026 23:15:15 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Nick Desaulniers" <ndesaulniers@google.com>
-Cc: "Ard Biesheuvel" <ardb+git@google.com>,
- "Bill Wendling" <morbo@google.com>, linux-kernel@vger.kernel.org,
- "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
- "Peter Zijlstra" <peterz@infradead.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Will Deacon" <will@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
- "Waiman Long" <longman@redhat.com>, "Nathan Chancellor" <nathan@kernel.org>,
- "Justin Stitt" <justinstitt@google.com>, llvm@lists.linux.dev
-Message-Id: <41269072-a460-4a2f-ad15-e8eaeb411339@app.fastmail.com>
-In-Reply-To: 
- <CAKwvOdnh-0nOBdU=J+R-yDE7wrP_K2BZ7mY1icrL-nOQ3Bk=og@mail.gmail.com>
-References: <20261122105646.2223131-2-ardb+git@google.com>
- <CAKwvOdkOjGkGajGMKtqcHpRSrpXC9UZrH9XPsiv5Rpcdte5tJQ@mail.gmail.com>
- <73d50ff0-36db-4dcc-ad1e-c34bf3ebbce6@app.fastmail.com>
- <CAKwvOdnh-0nOBdU=J+R-yDE7wrP_K2BZ7mY1icrL-nOQ3Bk=og@mail.gmail.com>
-Subject: Re: [PATCH] locking/local_lock: Don't evaluate the per-CPU lock pointer if
- unused
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, 23 Nov 2026, at 22:52, Nick Desaulniers wrote:
-> On Mon, Nov 23, 2026 at 1:23=E2=80=AFPM Ard Biesheuvel <ardb@kernel.or=
-g> wrote:
->>
->>
->> On Mon, 23 Nov 2026, at 20:12, Nick Desaulniers wrote:
->> > Very detailed commit message, but you kind of bury the lede here on
->> > what the actual problem this patch is fixing *is*.
->> >
->>
->> Apologies. I'll trim it down,
->>
->> The TL;DR is that non-volatile asm() statements with memory input
->> operands are not elided by Clang if their output is never used.
->
-> That's not a bug; both Clang and GCC behave that way.
-> https://godbolt.org/z/sEhec4oae
->
+On Sat, 2026-11-21 at 05:19 -0500, Hengyu Liang wrote:
+> Hi Slava,
+>=20
+> Thanks for the review. OK to all remarks about empty lines. The other
+> points are below; there is one I would like to check with you before
+> v3 (the flag).
+>=20
+> On Mon, 2026-11-16 at 17:02 -0800, Viacheslav Dubeyko wrote:
+> > > +static u32 hfs_brec_cnid(struct hfs_bnode *node, u32 off)
+> [...]
+> > This function is completely not clear. You try to read the
+> > hfs_cat_rec. Simply read it and analyze the record. Now it looks
+> > like a
+> > dark magic.
+>=20
+> OK.
+>=20
+> > Is this insert argument used anywhere?
+>=20
+> Yes, in the loop below: an added CNID can only raise the maximum, a
+> removed one can only lower it.
+>=20
+> > > +	if (tree->cnid !=3D HFS_CAT_CNID || node->type !=3D
+> > > HFS_NODE_LEAF)
+> >=20
+> > I would like to see some inline function with good name for this
+> > check.
+>=20
+> OK.
+>=20
+> > > +	if (!cnid)
+> >=20
+> > The #0 is reserved CNID. It's not good choice for such check.
+>=20
+> OK.
+>=20
+> > I assume that we limited by tree's height here. Could we used it
+> > instead of infinite loop?
+>=20
+> OK.
+>=20
+> > I dislike insert like a boolean value. Why do we need to inform
+> > this
+> > function about insert? Why this function cannot make this decision
+> > alone?
+>=20
+> OK. In v3 it will run after the record is added or removed, recompute
+> the leaf's maximum, and compare it with the old value, so it no
+> longer
+> needs to know whether a record was added or removed.
+>=20
+> > You don't need in done if you are limited by b-tree height.
+>=20
+> OK. The loop will still stop early when a node does not change,
+> because
+> then the nodes above it do not change either.
+>=20
+> On Tue, 2026-11-17 at 16:20 -0800, Viacheslav Dubeyko wrote:
+> > > + * of an index node. If a child has no max_cnid yet, return the
+> > > number of
+> > > + * that child in @child instead.
+> >=20
+> > Do you mean that we return CNID? I don't quite follow. We always
+> > have
+> > any CNID in the node that will be maximum one for node. How is it
+> > possible "If a child has no max_cnid yet, return the number of that
+> > child in @child instead."?
+>=20
+> No, @child is a node number, not a CNID, and this only happens for
+> index nodes. An index record holds a key and the child's node number,
+> but no file or folder CNID, so an index node's max_cnid is the
+> largest
+> max_cnid among its children. If a child has no cached max_cnid yet
+> (for example, it has just been read from disk), the function returns
+> that
+> child's node number; hfs_btree_max_cnid() computes the child first
+> and
+> then comes back to the parent. I will make the name and the comment
+> clearer.
+>=20
+> > If it is the index node, then we don't need to traverse the items.
+> > No?
+>=20
+> We do need to: each record in an index node points to a child node,
+> so the loop goes over those records to find the largest max_cnid
+> among
+> the children.
+>=20
+> > It looks like internal error but not I/O error.
+>=20
+> OK, I will return -EFSCORRUPTED.
+>=20
+> > The max CNID cannot be lower that HFS_FIRSTUSER_CNID.
+> [...]
+> > I still don't see a necessity in HFS_BNODE_MAX_CNID flag.
+>=20
+> These two are related, so let me answer them together.
+>=20
+> max_cnid is not stored on disk, so a node that hfs_bnode_find() has
+> just read has no max_cnid yet. For a leaf it could be computed right
+> away, but
+> an index node needs all nodes below it, so computing it at read time
+> would read the whole catalog. That is why the code needs a "not
+> computed yet" state.
+>=20
+> I can drop the flag and use max_cnid =3D=3D 0 to mean "not computed yet",
+> by starting the computation of each maximum from HFS_FIRSTUSER_CNID -
+> 1
+> (15) instead of 0, so a computed value is never 0. It has to be 15,
+> not
+> HFS_FIRSTUSER_CNID: a node without user files or folders (only the
+> root
+> folder, CNID 2, or only thread records) then gets 15, and on a volume
+> without user files the root gets 15, so next_id stays 16 (15 + 1).
+> Starting from 16 would give 17 there. Would this work for you?
 
-Try changing that to
+Yes, I think that "max_cnid =3D=3D 0" looks better. And we can introduce a
+constant HFS_INVALID_CNID =3D=3D 0 (or something like this).
 
-asm("# hello world %0": "=3Dr"(x) :"m"(x));
+>=20
+> > We need to have comments at one place for the whole structure. Here
+> > it
+> > looks not good at all.
+>=20
+> OK.
+>=20
+> > I still don't see the point why should we change anything here?
+>=20
+> Changing `<` to `!=3D` does not change the result:
+> hfs_set_next_unused_CNID() updates next_id with cmpxchg only if
+> next_id is still cnid + 1. The `!=3D` check only skips computing the
+> maximum when cnid + 1 > next_id, where nothing would be updated
+> anyway. I will drop this change.
+>=20
+> > The max_cnid or max_cnid + 1?
+>=20
+> max_cnid. hfs_set_next_unused_CNID() adds 1 itself (and uses
+> HFS_FIRSTUSER_CNID for anything lower), as the old code expected.
+>=20
+>=20
 
-(and don't touch x afterwards)
+OK. Let me take another look and double check it when you'll send the
+v3 of the patch.
+
+Thanks,
+Slava.
