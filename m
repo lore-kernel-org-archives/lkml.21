@@ -1,110 +1,32 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394761;
-	b=1glR7g33O+tlG7/zPC/PAjxT4BQ1onIh0/bhUtz6dzuqntgH+0Z7Dz02kSHOkpQuRhMh
-	 zX8jR5VPzYxCz4YswNtpA/3ZA1AC0aLJiWgeCLkOUgjdUwyxgkkZ8h09hvEhTVfYR+GIQ
-	 WdF1IyJlTHnQAqtYi7MdrQQMQSwGz5A8BqaU8UnO15O9h9+Qazu5DutSf5LveOBhkngto
-	 BIHvrrkhyJQ5h0XkJSNQt2sjd3d36G52OC+y9QeBtUofkUkA9jVfAjg9I74G4Zs7oy7Bf
-	 3owvII6oKwPuwtbB62ITKAwN2EZE2jfQLT53YrfbRvySjEOkV+QHhrx810vFBdsx7ow==
+	t=1795394769;
+	b=qdxyq50CVFlsPgyJzaOzoO5By4lH6clvwuOzHyBsxNXYI1ozjh6wxlg+WjW9cXe6tyVc
+	 L3uihB6CtE3g07ZiQ2W2WPFFhVi1i6woyuHcinS3vBxGpt1k81znQ8RAaCemRS6r/40ui
+	 7KWWseRGNireURiCjaieF7cm86Bw76zV6DY5mfq1lVBdGEn2zG4LTNh+HCrolstN5AJcS
+	 1QMDvqrigsUwzJWDhMri+NoNTQ1IeSp4pALr8sUrMXa82yekoimfBM8JxyX0MTtTJs7Ik
+	 NyvZA8ngLs3PGo9eIOtvav+SiJADBjbWCxn9hTkH4G7asJ+QNah25z+UnTOGcqHt1JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394761;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
-	b=4XuMY9TADg7vn89fgR2cMoCZMk2vBbvuhyKDVUaIVkAHRQjOhFqklGPmj4wGVYbL8qyw
-	 tHvBjCCYB2pE8RizKje/DuvWoBrTurDdjUyo/cJn/GFNHS56L+Qch1B8v7yEhN3Tiu9kV
-	 OkbyT3NQMy+zne6Th20TD8bkM3mS4owctgYGjfdMbES+5LGi7+3kGtK43AM6e6t3g6Nxf
-	 jA+IJVm4AGyFDReqG0BH1JwoATtNK+1fF7+fNfQuPf6l7YS+cRfdsKJhIdK93/wzeXwfQ
-	 HXnzI3ozwBLo+z/b8Q2UdQSX9bTpOGpMyxqP9pXpUtWS5q1F3Dajo6OPMeyTYg8RWzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394769;
+	h=Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:
+	 From:To:Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=tpcTWT12QaKXXVWE6xyenQXiX9YvMws8DucROyKoXMs=;
+	b=lYCDTsMqyHto0f4tdp9YSP4wmrESkAQ6LFzjo5TB8cYvQWnpEmkV9HQf46mZpYL4c5Ui
+	 1yF1YYbdDJK1oKBA126xxzUALtD840nNWgl8MDbhvxLCYE4CXVPNscA/qzP4GwT2335VC
+	 jgYNRTiIvL6ESCFpaUSEWsobrqVjmDDY0vcY9hHYh5K96Hk3ioMvKRKbEFOjx46CdD9Q2
+	 ecbVvX8SKvtYq+X6sMALfejQ+Rx0VNHnkMY2V7NKNzXrSw5d/q+WHz8ZSHZgMVkS4MFoU
+	 IplqaYDoi1knfrv3vNsYNdKAPl9xYNYye/Zmx9GkNGZDysQIVztx97zqBJ7Y5jeY0gA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xjQNwyU6;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5398E606A320
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:46:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5398E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xjQNwyU6
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f05bc71e01so9117705ad.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:46:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795394761; x=1795999561; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:from
-         :subject:cc:to:message-id:date:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
-        b=xjQNwyU6MYR+Sv9DqBxkCsB1ojg0HIKyMipAx4s6KRT5IYdJvl+GnVSxTRanDwlO4b
-         OjsHRhZlksxkgGyYo9uQR4xnsH9smwEzvZB0U0xWIc7WLxA20JEVyHvBNfOB3Q6RKyJl
-         W3Omp6JWwiCVAkQ9a9ECTstSvDMsiW2opPGebxfCTT5SlPd+dIB1fYQxZJhDwkFAzhym
-         zUVWh9jYqyhJ1lPaR/5BHmGuhw1iLZ2Ep7uY5F2lH9rP296aefHI8qNbvrd9S8rKbf0P
-         oiX4dY0ljie0g+etEjHvsK3G0VGKqx3XN4ZOcK3unI0mprBibWrDrY0Vx0uR0JHB3rXt
-         eoGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795394761; x=1795999561;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:from
-         :subject:cc:to:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
-        b=j3NP8NfQNNYEMufQDb5V4NisbF8zIG483jVjcJ7f3LxDkXVK0koPpM3UGoaN6/DWuu
-         MmbxMebOjs/8ipvJ7XrJfd9VnhJrh2c7Ay4TYHlYxhvVTNDeWch5fWnYFQ3qYCVzRB3k
-         Gvyj/VFdcwtI59jrt9lMv1xU7GfQhcy06uXH/v3Oz4xkm2TwHglR+kllubjiB/MwjmDd
-         vmphvqXUwIGG0D2WFj0InsuXUtf37dGZHr8Dc2dmjk/0o656DZI1hupUvu+YGzqF2Npf
-         u12uVOk96fkdYG/noIqpCSDyquNIn+n5A6AO2lCJ3tDlgudVuZnJLuv8dX3zfulv6r6N
-         nMSA==
-X-Forwarded-Encrypted: i=1; AL+hErHxCB/xeAXGEzZC8Hrg1iSR8lac3FekrD3sCiJDAyVu+7ireLmQuHzoyJqDBhdjUixlmN8YAXqSDGpSl9E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8RLmmlbJ8jlATaOkAO/YC/n0xj14WjqLMWaHEdzaA2RLryLWX7
-	oBely8HCqfI6x5/yKJ+ybElVBDmP0bbQGd5pCMu7VMfYNuQjI3vdLkz4
-X-Gm-Gg: AZFdTZcALZwf8P/eICSsR84PCOSsD/182CGhH9MCZEaO8KibouCQzxp6KSysykhxF2K
-	YWtIpZNkGiJLe0gnJZ4PWszSwd0f1aCMe2Bq2Q58OoJGCW+amjWaYU39Pi0KdXQNO6IWzSJiXze
-	JLQWTurvMsWtIinPMSk6RwyuRXk9ooLfrZ5yaficq0SYCajDAsekg69Vr21EFPhc2hX8V5ZuB8E
-	KlJEFOz5PuU6eVPYkeIiXNMFqQDtqt4NRNPNm0s+nICjMFHJVFMOuJxat3WllG9Lhro7kTdEmq8
-	CbMLoraqWvLsomNkFcAfaeNiP1iXurfZ9oX2kLqHSKMT9atQdDzrvfZ/y8xct50QSf4InHPEtnQ
-	/aqjSHGJxr/JC051anzWh23iFMJsrDKYaMccT2wGO+4aHpOls60Cr2nNR/erPvo72eV1/GCxpUB
-	+iLC0M0xbgalEMtkgJeuZpMWDj2GyMBUOSWYVLm1ITYC1zmoy7J0OpRqz3Z3rihTiJq71BcgY2h
-	ddomSvti0kNBkTcu6sMM69cu9edbne/P0fw4NK0hWhwWohuL9mCZarC8XA8IkDGqNY3ySF2rWcy
-	lR3kca/bwZFiRPLfsB2u53K7pOA16ShymMJTWKRKoyUVmvwyOInh5kESspW7R2F7393RHeix8BD
-	UZ5lChhO3dwu3xTzoeVDBUhAXnRVbpOeszsE=
-X-Received: by 2002:a17:90b:1802:b0:3b1:64d3:f308 with SMTP id 98e67ed59e1d1-3b41c955a0bmr8991155a91.43.1795394760621;
-        Sun, 22 Nov 2026 16:46:00 -0800 (PST)
-Received: from localhost ([153.61.198.250])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm15174661a91.9.2026.11.22.16.45.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 16:46:00 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 00:45:59 +0000
-Message-Id: <DN26BQ6CGT3J.2WZ83RCCF7HDD@gmail.com>
-To: "Jiayuan Chen" <jiayuan.chen@linux.dev>, <bpf@vger.kernel.org>
-Cc: "John Fastabend" <john.fastabend@gmail.com>, "Jakub Sitnicki"
- <jakub@cloudflare.com>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Kuniyuki
- Iwashima" <kuniyu@google.com>, "Willem de Bruijn" <willemb@google.com>,
- "Neal Cardwell" <ncardwell@google.com>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Ihor
- Solodrai" <ihor.solodrai@linux.dev>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
- "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
- "Emil Tsalapatis" <emil@etsalapatis.com>, "Shuah Khan" <shuah@kernel.org>,
- "Sechang Lim" <rhkrqnwk98@gmail.com>, "Mattia Meleleo"
- <mattia.meleleo@coralogix.com>, "Michal Luczaj" <mhal@rbox.co>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH bpf 00/11] fix misc sockmap issues
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC5A8606A320;
+	Mon, 23 Nov 2026 00:46:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1CE81F000EB;
+	Mon, 23 Nov 2026 00:46:04 +0000 (UTC)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,15 +36,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] PCI: iproc: Fix MSI shutdown operations
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+To: Eugen Hristev <ehristev@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>, 
+ Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Marc Zyngier <maz@kernel.org>, Vikram Prakash <vikramp@broadcom.com>, 
+ Anup Patel <anup.patel@broadcom.com>, linux-pci@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261029-iproc-shutdown-v1-1-05f828561116@kernel.org>
+References: <20261029-iproc-shutdown-v1-1-05f828561116@kernel.org>
+Date: Mon, 23 Nov 2026 01:45:57 +0100
+Message-Id: <179539475780.13869.11962329009845614434.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2163;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=rk4nHtNJuQKpfhuulQzD/bItQ8HbmcUiDhVzjTF6j4g=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrA4zIkeT7py+2BT07S2Ivwjb1eYLTTQyC7cLFK
+ PdvAczTUIWJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawOMyAAKCRBVnxHm/pHO
+ 9UTAB/sHuBFC6pxVdZWQpn4k5VXEWSCN5z+WbzVzRCzVL6ffEJoo+H9O6/B5Dz4l796hCvBuak5
+ svXe04eRyDSdRFEA7Qn3Fj8bMjgXaWT5hk46I5CRhZTI90kcoFKLYPkvPf5l4EEFOdnbQgeurtV
+ oxMXTu4bQeq9kYR4uqqwPx7YVxGpSbhKEeMPe4gsZEi7n6OFsWHtqB6F6S6/h1+XT6D6XD4wBmo
+ v5f/kJ49ipszBaDl3xk4RP8AEYIKvE4JP8mbXmVZPwHj2e6WZ+LluHtMZvuDCEPFiMxZzA8Z3fG
+ yWjcFMO+y/l+qyA/RCZF47o6m73A9MbRGyiyszLjxHjGZl6X
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-On Sat, Nov 21, 2026 at 02:30 AM Jiayuan Chen <jiayuan.chen@linux.dev> wrote:
-> This series fixes misc issues in sockmap. Most of them are old.
+On 2026-10-29 09:25 +0200, Eugen Hristev wrote:
+> On reboot, shutting down iPROC leaves MSI irqs enabled and not
+> cleaned up. This can lead to IRQs being served after the iPROC
+> was shutdown.
+> Fix it by implementing an MSI shutdown procedure, and call it
+> before the iPROC shutdown.
+> 
+> Assisted-by: Github Copilot
 
-Jiayuan,
-thanks for the follow up,
-but the fixes are way too heavy. bots are correct.
-The patches introduce more bugs than the fix.
-Pls ask your bot to think of absolultely minimal fixes that do not
-introduce new states.
+Not needed anymore.
 
-pw-bot: cr
+> Fixes: 3bc2b2348835 ("PCI: iproc: Add iProc PCIe MSI support")
+> Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+> ---
+>  drivers/pci/controller/pcie-iproc-msi.c | 16 ++++++++++++++++
+>  drivers/pci/controller/pcie-iproc.c     |  3 +++
+>  drivers/pci/controller/pcie-iproc.h     |  4 ++++
+>  3 files changed, 23 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pcie-iproc-msi.c b/drivers/pci/controller/pcie-iproc-msi.c
+> index 9ba242ab9596..1d19db67f314 100644
+> --- a/drivers/pci/controller/pcie-iproc-msi.c
+> +++ b/drivers/pci/controller/pcie-iproc-msi.c
+> @@ -651,6 +651,22 @@ int iproc_msi_init(struct iproc_pcie *pcie, struct device_node *node)
+>  }
+>  EXPORT_SYMBOL(iproc_msi_init);
+>  
+> +void iproc_msi_shutdown(struct iproc_pcie *pcie)
+> +{
+> +	struct iproc_msi *msi = pcie->msi;
+> +	unsigned int index;
+> +
+> +	if (!msi)
+> +		return;
+> +
+> +	iproc_msi_disable(msi);
+> +	iproc_msi_read_reg(msi, IPROC_MSI_CTRL, msi->nr_irqs - 1);
+
+What is the purpose of this read?
+
+> +
+> +	for (index = 0; index < msi->nr_irqs; index++)
+> +		disable_irq(msi->grps[index].gic_irq);
+
+Sashiko raised a concern on this. Please check.
+
+> +}
+> +EXPORT_SYMBOL(iproc_msi_shutdown);
+> +
+>  void iproc_msi_exit(struct iproc_pcie *pcie)
+>  {
+>  	struct iproc_msi *msi = pcie->msi;
+> diff --git a/drivers/pci/controller/pcie-iproc.c b/drivers/pci/controller/pcie-iproc.c
+> index afb3aa38ac6b..6f3dc2f81a1c 100644
+> --- a/drivers/pci/controller/pcie-iproc.c
+> +++ b/drivers/pci/controller/pcie-iproc.c
+> @@ -756,8 +756,11 @@ static void iproc_pcie_perst_ctrl(struct iproc_pcie *pcie, bool assert)
+>  
+>  int iproc_pcie_shutdown(struct iproc_pcie *pcie)
+>  {
+> +	dev_dbg(pcie->dev, "quiescing MSI before PCIe reset\n");
+
+Please remove these debug messages.
+
+- Mani
+
