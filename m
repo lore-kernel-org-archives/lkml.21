@@ -1,61 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447773;
-	b=QGZ+vGXCv9vrX4+vj1hTFpa/FkeEUxHorKTXSW1ww9gUUGn8lpns/XeTAG3EaIuLg5qm
-	 b6ldK6LeYuKvkwRB5zmGcO6ro/JuQ2LNL47hLus3xAim/Y16qJ18dcAC7Bz4Wb40EKOnK
-	 oBMO1iHUGrhzQJj+VE3V40cI79m5KGQGPs+i9zrWJeCFpC8F+rHKlOV0VVlzLClIsLrU1
-	 uZ9dCCDFMON0wmwU7oc+Uo/gfzmFe85jDkZpdtPaLFrB0IfMsYpuV//Uk+ZuZ+qsDrdO8
-	 +mK5j/HTyTl0o1eqPuzzGgpTALRy61xyI1F+TYWcJwu+uFPVnl560cMYs6J52Ps6azA==
+	t=1795447778;
+	b=tSONDBIly5ZHl+az0jlj8HWrkSOteHBXfJAjRxteWgSVVadrm7we4HfeBEzdXDt6uG49
+	 zn9CnNEkcBCrxbdL/GWtH7fSd3V2I5Ozc0CIP8Cvl6vzyK1y3a50Zl4qQW5LkVLAkCjaj
+	 fhH13DQJO0V4ZZgDrfC4AEubvU76/jXZvNauaP5JfnYUqLLSVfY5h1NCHZm1EYBL5lX66
+	 jEQb2lC/T3CgwAmmBlFICFY2OhEGKvV+cVmlj3dsHsQYAbpaSDFA53V0DXMVw+UhCoEJD
+	 iQkQNhON/79eKiH5yjEuIAQzVDMNEnK9fR9PPqjqMRfHaGlK+6Yx7LlDBXvUNWfqfHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447773;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=R020g54OZZm83YeqwM84l5L4106wrL7JprwR9fNpr1w=;
-	b=bYF79yacx7KM84JGzauYDNAhzSrsltrgVaBlcJuBkqlIGcHlRD2IrBgEC6ezxArb3rrX
-	 YQRG1ESg4wOt1BHA2tKQPVKithJzOWIil/SC48MHzB4VszcsGq9lzPdaCEduPSJo7Va47
-	 LfCEYmUynFrDusIEEZJfdlSAr+Fan83N55g9xpfuwqfmGbUCwpqzczgDDEG9sOdB61cXs
-	 +JZ/iIVCXF605aM2ROdTeG6tTujq7uYUIrZ8PJd+cYaOg1PFadMD6sthvsCWQK6T0tIao
-	 ckwckjPtYiVJFSrdgTMExmMt1q+/+WeT8xvD/N3pEk4VU06kDRRs8M5UqvoTBG9ioJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447778;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=GBLI+R1uDnhUjW6e3Tzczl7XXWJIYHNNkGpN3ZnUi3M=;
+	b=HcDDMMMeK//07F3p8veM9GPRQQfAP0ZMAjgbuA6TdavJucGGudxJnoMKRb0SZeHTOTBt
+	 NYFWPynYLKgtkgCeCBZlJSZ96SxUmIUgqgaWd18DukmBWdJfoXzSdm+o6GMsMDmMnyUhw
+	 BJ9D/ps7dWRB6fTiCaK9BDdyhMlkmqbHGEe282iedEWkxnU6vj9HUkoNdxrc5ctVv1Xyi
+	 Vf98bvFENtwoiS/E6HmHGqs/2eHG13Y1xi/tQ7w+eTgqNSn6lEazFLhLD3DOnCgGhSjcu
+	 qGPYxmZ0lUx9vFEJwPA1jBH2xtdg61R/TNv5a2R7zj9LfGmmLUrhVn5QyXoHcSRvg1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kmRWDqC5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Muq2opjy;
+	arc=none smtp.remote-ip=95.215.58.170
+Received: from mta1.migadu.com (out-170.mta1.migadu.com [95.215.58.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 61BE4606A330;
-	Mon, 23 Nov 2026 15:29:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 135CB606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:29:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 135CB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kmRWDqC5
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id F262F1F00A00;
-	Mon, 23 Nov 2026 15:29:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795447772;
-	bh=R020g54OZZm83YeqwM84l5L4106wrL7JprwR9fNpr1w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kmRWDqC5dXQeZvZlh8qlBEYVX2C4qge3Vx5LcqUOzLbGhOXUzSCBBvmBQ3/FYP4QI
-	 9fH4LRaObVabwwJsjL54XiIoxXVtOhguSEki4tToCARmQaLQfLLD1vcvo7v2ptTcAx
-	 W2fwJqLRWgQjOJ+cNomsUK4IZRtamaNcqp63tOvpSgDJKtAUCPqoSUO2A7vCf/TboV
-	 sgGAQC9YQxJ/2pyJ1bBY6CNN9um1SVzoe/jnXHqY5mn37KuwBIU/Dm66uI7NvwCL7a
-	 /DMLgdTEw70bOxRpEWMuDt4RufIOFgiaIuGI+A2LOr+jAbMRMcwhR6LRRaZUKDRl+C
-	 BsbVpXEi+F00Q==
-Date: Mon, 23 Nov 2026 16:29:28 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Stanimir Varbanov <svarbanov@mm-sol.com>, 
-	Eneas U de Queiroz <cotequeiroz@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
-	Eric Biggers <ebiggers@kernel.org>, Demi Marie Obenour <demiobenour@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>, linux-crypto@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-Subject: Re: [PATCH v12 1/4] crypto: qce - convert to auxiliary bus
-Message-ID: <sfsgrwaj6ichkuafqvrpmql67664x6vyxgz7lwjxhywbf5zc3l@edz4qooziklt>
-References: <20261120-qce-fix-self-tests-v12-0-b5a2a44bc5ae@oss.qualcomm.com>
- <20261120-qce-fix-self-tests-v12-1-b5a2a44bc5ae@oss.qualcomm.com>
- <c26b8002-c246-45cb-bca0-8f596a2a425b@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Muq2opjy
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=yVH6VIk/GIY1eXQszmoyvIh/ReI/CBeTpiQx68qB9VU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795447776; v=1; x=1796052576;
+ b=Muq2opjyEhWFeevlutuUSLYkt7qgcbMy1UgM2a6e3KaWInmJcy8niasp+jCupAyGn8I+Kq88
+ /X4M9uHV2i/prJgCPJOAAEMabjfAEZ/q7f8xZUiRsV6Mlz47w/nz2wWm62TRVHUeGB2NPtb1Mid
+ FmDaRezajvBD+9L90ymifiZs=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 43af558baac71401;
+	Mon, 23 Nov 2026 15:29:36 +0000
+X-Mizu-Trace-ID: 43af558baac71401
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v3 8/9] selftests/bpf: Verify iter link_create logs
+Date: Mon, 23 Nov 2026 23:27:42 +0800
+Message-ID: <20261123152743.19629-9-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
+References: <20261123152743.19629-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,23 +87,180 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c26b8002-c246-45cb-bca0-8f596a2a425b@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 02:05:57PM +0100, Krzysztof Kozlowski wrote:
-> On 20/11/2026 20:34, Bartosz Golaszewski wrote:
-> > This driver is disabled in arm64 defconfig but one of its
-> 
-> That's true for next, but your patch #3 seems to disagree. That's
-> confusing. Maybe you meant disabled for arm64 platforms or marked as
-> broken? Because anyway defconfig does not matter here - even if drivers
-> are not enabled in defconfig (so stay disabled), they should not be
-> affected with unbisectable changes.
->
+Check the error code, log message, and reported log size for invalid target
+FDs, flags, and iterator information. Also cover attaching a sleepable
+program to an iterator that does not support it.
 
-Keeping this fully bisectable (it is build-time bisectable actually)
-would mean squashing all 4 patches together. If nobody objects, I can do
-this of course.
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ .../selftests/bpf/prog_tests/iter_link.c      | 156 ++++++++++++++++++
+ 1 file changed, 156 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/iter_link.c
 
-Bart
+diff --git a/tools/testing/selftests/bpf/prog_tests/iter_link.c b/tools/testing/selftests/bpf/prog_tests/iter_link.c
+new file mode 100644
+index 000000000000..d7904b4aa2b1
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/iter_link.c
+@@ -0,0 +1,156 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <test_progs.h>
++#include "bpf_iter_bpf_map.skel.h"
++
++static void test_iter_link_create_log(int target_fd, struct bpf_link_create_opts *opts,
++				      __u64 flags, int err_exp, const char *msg)
++{
++	struct bpf_iter_bpf_map *skel;
++	char log_buf[128] = {};
++	int err, fd, prog_fd;
++	LIBBPF_OPTS(bpf_log_opts, log_opts,
++		    .buf = log_buf,
++		    .size = sizeof(log_buf),
++		    .level = 1,
++	);
++
++	skel = bpf_iter_bpf_map__open();
++	if (!ASSERT_OK_PTR(skel, "bpf_iter_bpf_map__open"))
++		return;
++
++	err = bpf_program__set_flags(skel->progs.dump_bpf_map, flags);
++	if (!ASSERT_OK(err, "bpf_program__set_flags"))
++		goto out;
++
++	err = bpf_iter_bpf_map__load(skel);
++	if (!ASSERT_OK(err, "bpf_iter_bpf_map__load"))
++		goto out;
++
++	opts->log_opts = &log_opts;
++	prog_fd = bpf_program__fd(skel->progs.dump_bpf_map);
++	fd = bpf_link_create(prog_fd, target_fd, BPF_TRACE_ITER, opts);
++	if (!ASSERT_LT(fd, 0, "bpf_link_create")) {
++		close(fd);
++		goto out;
++	}
++
++	ASSERT_EQ(fd, err_exp, "err");
++	ASSERT_STREQ(log_buf, msg, "log_buf");
++	ASSERT_EQ(log_opts.true_size, strlen(msg) + 1, "log_size");
++
++out:
++	bpf_iter_bpf_map__destroy(skel);
++}
++
++static void test_log_invalid_target_fd(void)
++{
++	const char *msg = "Invalid target_fd.\n";
++	LIBBPF_OPTS(bpf_link_create_opts, opts);
++
++	test_iter_link_create_log(-1, &opts, 0, -EINVAL, msg);
++}
++
++static void test_log_invalid_flags(void)
++{
++	const char *msg = "Invalid flags.\n";
++	LIBBPF_OPTS(bpf_link_create_opts, opts,
++		    .flags = 1,
++	);
++
++	test_iter_link_create_log(0, &opts, 0, -EINVAL, msg);
++}
++
++static void test_log_iter_info_only(void)
++{
++	const char *msg = "iter_info and iter_info_len must be both set or both unset.\n";
++	union bpf_iter_link_info info = {};
++	LIBBPF_OPTS(bpf_link_create_opts, opts,
++		    .iter.info = &info,
++	);
++
++	test_iter_link_create_log(0, &opts, 0, -EINVAL, msg);
++}
++
++static void test_log_iter_info_len_only(void)
++{
++	const char *msg = "iter_info and iter_info_len must be both set or both unset.\n";
++	LIBBPF_OPTS(bpf_link_create_opts, opts,
++		    .iter.len = sizeof(union bpf_iter_link_info),
++	);
++
++	test_iter_link_create_log(0, &opts, 0, -EINVAL, msg);
++}
++
++static void test_log_invalid_iter_info_len(void)
++{
++	unsigned char info[sizeof(union bpf_iter_link_info) + 1] = {};
++	const char *msg = "Invalid iter_info_len.\n";
++	struct bpf_iter_bpf_map *skel;
++	struct bpf_link *link;
++	char log_buf[128] = {};
++	LIBBPF_OPTS(bpf_log_opts, log_opts,
++		    .buf = log_buf,
++		    .size = sizeof(log_buf),
++		    .level = 1,
++	);
++	LIBBPF_OPTS(bpf_iter_attach_opts, opts,
++		    .link_info = (union bpf_iter_link_info *)info,
++		    .link_info_len = sizeof(info),
++		    .log_opts = &log_opts,
++	);
++
++	skel = bpf_iter_bpf_map__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "bpf_iter_bpf_map__open_and_load"))
++		return;
++
++	info[sizeof(info) - 1] = 1;
++	link = bpf_program__attach_iter(skel->progs.dump_bpf_map, &opts);
++	if (!ASSERT_ERR_PTR(link, "bpf_program__attach_iter")) {
++		bpf_link__destroy(link);
++		goto out;
++	}
++
++	ASSERT_EQ(libbpf_get_error(link), -E2BIG, "err");
++	ASSERT_STREQ(log_buf, msg, "log_buf");
++	ASSERT_EQ(log_opts.true_size, strlen(msg) + 1, "log_size");
++
++out:
++	bpf_iter_bpf_map__destroy(skel);
++}
++
++static void test_log_invalid_iter_info(void)
++{
++	const char *msg = "Invalid iter_info.\n";
++	LIBBPF_OPTS(bpf_link_create_opts, opts,
++		    .iter.info = (union bpf_iter_link_info *)1,
++		    .iter.len = sizeof(union bpf_iter_link_info),
++	);
++
++	test_iter_link_create_log(0, &opts, 0, -EFAULT, msg);
++}
++
++static void test_log_invalid_prog(void)
++{
++	const char *msg = "The iter target does not support the bpf prog.\n";
++	LIBBPF_OPTS(bpf_link_create_opts, opts);
++
++	test_iter_link_create_log(0, &opts, BPF_F_SLEEPABLE, -EINVAL, msg);
++}
++
++void test_iter_link_log(void)
++{
++	if (test__start_subtest("invalid_target_fd"))
++		test_log_invalid_target_fd();
++	if (test__start_subtest("invalid_flags"))
++		test_log_invalid_flags();
++	if (test__start_subtest("iter_info_only"))
++		test_log_iter_info_only();
++	if (test__start_subtest("iter_info_len_only"))
++		test_log_iter_info_len_only();
++	if (test__start_subtest("invalid_iter_info"))
++		test_log_invalid_iter_info();
++	if (test__start_subtest("invalid_iter_info_len"))
++		test_log_invalid_iter_info_len();
++	if (test__start_subtest("invalid_prog"))
++		test_log_invalid_prog();
++}
+-- 
+2.55.0
+
