@@ -1,99 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477121;
-	b=d2rkOunX8WLKOiZEK8F3MRR38wzynH5h84MVjtcWqAJ60lTT9GYv5ki22GepX4ahIz1O
-	 xKXjGzzbh4YirvlMIQiyxek2V0zoqiKzO/Aoq5Fh2b20yD8FzMWNjBLL9KPb9DCO5A3Py
-	 tgn/fwZSQgMYLuIr7Ep0SW9DBEGNyXuvJkqaRSh458CP7nTQJpYssNLB+uw5Uy6w9uUDo
-	 8DAO6klCCqykdS32vGNTxUy9pFsT8jpsL7PDKdBbfzU+tFifrMVtVuOrD0JbXu4UWd0HJ
-	 GvZT0HE5e4gu3SoV6/s47sUf9i1VxIlp+APRYhsZjqvmleLHzEMdeb3PYIo4A8Pc7Ew==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477121;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Einr74sQAkzSbj9sKOtqtREzhhtG9m3Nk6hF0w3+ejI=;
-	b=h01ma0LPkMY9OJfTohi9cvWQwqQontE4BhK70nXNpquhPutXpxviSVIM42YldMpQOUX0
-	 i8rotfg7YtoVvfHFEfczd4Z8C62p/gFy3rPKWPIe6ZvgOffzfMHVgZtKGgwV3gJSqEUnf
-	 Thzt8k1vwlgLsXNYxmX1zBg05bbqu6YX2C0fB2duZstBIn/9SHM/wUxWB3NJasLW81z89
-	 fQQuQEa3lzC6kuoE0A3aGn2Cy26sTU3hfRQ4m7vwYp+EQMqS9Gpvo/KDQ0M9Dt2bkF+Mb
-	 a1oJtIYBSWZJBu4JDWZmD1OERXRf7Zh729Q+hS4XC0hFI0ddQ6dQoC7TEAiUzFopkgA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K2kDb4oF;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795477128;
+	b=Dj8tDbuFvmRxy2V+IzC+tpanoM0Xlq0salW2mtI3aHdHtf1k2B8h13m2hF4jbRuKp8e7
+	 T1asZKKdsvcxevzV+6/G5ZUeZK8ji2OAT0puv1U37qhaKvR1Fqe6qlId3/6gUSJDMX270
+	 UIw1DmjJuo7tE35hPQ4rMcUJ8mWIdMJhZPGbBSslvhlFcY+z+t7fQHO2MGK05vZZ0+h3U
+	 gI43mxtjMjgep1SF5tZWDSktUyp5P3ckCpvHRSo+EpHpXjUU1HOhUluF8qZkDMW6of5Io
+	 OaOqrogo15xTLMKWIB0pr3EDqqp05tlupDk/6mWa0YwDwDIZo4dL8S7ETb5tXdWNnmA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477128;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ViCuzC29eFKJ8ML9lwnxCCTUFjkhP+S+d0AfhX4Jfo4=;
+	b=G/NGd6tCmvkg7PLK/vPfHAXUBx+w4+OGfXhlf3JR60PQhTCIH45VaBFVoihyFzmKQmPB
+	 FGdIEdfBoLsYjX2gU045IhlG07x1WKrvg7ftYMAMmiHnJdUOxNjRj8RA/DIuwGxt3LNq6
+	 u8/zzoYtbJaCqW6DuBQIj6A0wxVg8IQ5RDecfXadp+Mvr6evzjUdrYJWrmRoMJqQr6wgA
+	 ep5GGowbg9rkWXY0sEVSv+leyIO+fc6S+lB+dolNcbNTNbXFD1nyuIl5clBWwWX0dH4Rz
+	 ztY6tlTb/pUHbAq27f6VVmLNEiPQRntwnQDb4bP3OwiRsW0MEZjhy3ETGd5/QhVusuQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wxf4IhsA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8474606A321;
+	Mon, 23 Nov 2026 23:38:48 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wxf4IhsA
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795477128;
+	b=MTiKCHBYdDnerQR7KVaOcegIOxVRy/FDgYSn5qGO5wj4HyHQz47cQHc1GYnd5AAJ0W92
+	 6dVson2rt659QmtlXeTj+TLVAw1ZU6znu8FUMEr0xdW5zEUK0uUQ9XLIkm66eMhtP6cAm
+	 V83DYJ76vtdhWRiabqNac1FNsFNZIUCb1YcICSRTuCDcEGhJyfpItK/8e8qYL39KTCb64
+	 M0rTWQfFIek+zg2WPgUxqw1hne8Vu62WmtL7rq3aYNaLvRUQ49rSWGiYgeRHbQLXcCKQt
+	 Q9ryfUxy/EvhxIZyH26cyglu+WBzM7Asn4HXNdzlUgz2ipYxrhB2bOYoQDkM1f9L6Bw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795477128;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ViCuzC29eFKJ8ML9lwnxCCTUFjkhP+S+d0AfhX4Jfo4=;
+	b=f28d5EQNOGBvJJCQqifzwgVHqnvjgB0pp8b3cNp+1N09XIUrkXJSfwOmolymr9acHOHr
+	 JAO36qa27sWQ6is0WkjLxUng50njG1tVoHejWVyZJuE3RAHeIIOBpIQJeVUFKtjRVC7mC
+	 +gaw2G3T3+uIf7yVYlrgPyMSckMJwFIu2qCsCRvoP2wbo3CgNX1c80fOjLgAf0f32gfW1
+	 S3cnf5HmMscBZj+aDbBSTtVuYb9HlBltRRuFS6mP9SHwL3NB1W2DVgfEjaI3SKqeE26FP
+	 3ZjvX6bo4bzvq06CKhxuupTTmg8I4aE0PGfhhWw7WFApRgtlB7m3+9k+KMdzN7eNTkw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F14D606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:38:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F14D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K2kDb4oF
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso1815127f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:38:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795477120; x=1796081920; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Einr74sQAkzSbj9sKOtqtREzhhtG9m3Nk6hF0w3+ejI=;
-        b=K2kDb4oFcl8uIzhkHqPyyooFU/ORVtCA8gIAQaZ0+/ogLwMZqenSGdt13Q/0FBxG40
-         meG9gVtdg+T2gIVESWdJjgBQ5MccPS0J6oFCkR1KHI2xuQiAUeeMy97WrkzlPFIEqh6T
-         il0U4uJZiRFADtxUja2zf8M9w08HB9JKaCunP8NEwA/xJ1MQBNcmZXyahieC0Wy2zO7e
-         SkbBSdM25sm1TltETJvwMOoYeUi8MFqdJtfHjo9uQSubhZjjnuHC/29gL8mv8Cjx+x0Z
-         Hzp+u6geGHGaTZpcyi2nXG1wd9R/59aavLsI+61hxoecXcHCsN776K3m6ZDJZ0si1gJG
-         a8Vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795477120; x=1796081920;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Einr74sQAkzSbj9sKOtqtREzhhtG9m3Nk6hF0w3+ejI=;
-        b=b620/toaK2omacM5Df7TwgHcZrH3qV6YLlJNUUgftZrLQb8h0gUKpsy1MfBqhiZB4j
-         4WsKmOCvximsRB0F8iLiefIJLsanI62zqumTo0p/Pz8tMotAnpHyn011a30IaK5UWn3O
-         Jjxp/ledvJdeTWNLKyesMXHltZSq/+pdCFbJpmLBHiuzrxI6zytIIJMwb6sUByEb6Tit
-         J20ydewahSp6Wx5t/PvcyLR/cvY3NCEkXfwcKFfEmqgWsYNlasYK9I0eHk4UCyiaqTKI
-         ocInrJjhxsRJxhUm+YHg4VO1VFO+hPyV1+YqdFR0RQcltW7Tymm4EC2rZQNyu1o41euF
-         ySuQ==
-X-Forwarded-Encrypted: i=1; AL+hErEa9hbTxAsHaDZ1VxaRXnDUI2Ac2oqXDIjeujtbPk8INZfGgtUy3JlVEVqqv3s2NjU0vrtdCVlDIGKdO3k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Ho598Y6Rb5mJiQ5f1UmT4USAxtiDT5ga3GXa2cIIyAHcJpS7Z
-	YYC0pT6I5npQNzJYzCW2vFIeEtum5fd9LSN+s7pd3UU+AcmBaMcf4vgGiGQvKiH58Uc=
-X-Gm-Gg: AZFdTZfTUdRqN80xrxk6YUre1Lyf8QVByb83vqSEF5zldCwi1loBbotjg8fL3ezDgaE
-	xU3Ugzf4SaGmgr/xneS7H3zj64oCBfZRXYHbexUvar1VnTcSCI8Z5egknnvTCV7NJV+J0Z8okDe
-	WMIcWiWxsinsZcIt1PdMiepf9xekKkihFb0fF3TpxP+e5bBxP3WHW+Wk4beUtYvOdZtgHcLFTyo
-	Y6Cjnzx2kHaBa9pMD7OT4L2q9Ls8z0/jXd8aUp8/SkdVb8eCMksqG3PWDg8QBZWChHsjEMR3gpk
-	Bwxv+KT9EDv1zHJ8jNSsDgzeIBl6ddDukSjwb1ZVRWTWoNxoUactUi2chBgLW2Ptb9y1a/wzq/8
-	OYBVqMkfvJ+CqqsMtj/9qz1BIKS0HFl1uaerC9ygRrwuJVtFn3ZGNkHihAtYw+F02Ryn4nEMzdH
-	+OtMk8eUaLHmh6rlrTv7Ul9pPAbEckDNnsi7a2UuDlwDeKWQB2QDqOvyzD5W5fdLvyxAvebx377
-	1hGZf0yqd3mV+UvhfLt3m4bjn3pd/M2rI+6Q/tT0yLYSjum4YrVCIl5PrnHCDynqjAiY405GhtW
-	HogApemXidzLrtzRPxzQxp3+37qrYfs9B0pj0NVRHkBEB5jBJ/cFATBCZ7NL2oLr5kF5xNBJrg=
-	=
-X-Received: by 2002:a05:6000:2902:b0:4a4:f208:6a46 with SMTP id ffacd0b85a97d-4b58a524c2fmr5339919f8f.13.1795477119458;
-        Mon, 23 Nov 2026 15:38:39 -0800 (PST)
-Received: from localhost-live.home.vlan10 (053da883.dynamic.tele-ag.de. [5.61.168.131])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe48sm22701252f8f.23.2026.11.23.15.38.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:38:38 -0800 (PST)
-From: Joshua Covington <joshuacov@gmail.com>
-To: masneyb@kernel.org
-Cc: sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	andrea.porta@suse.com,
-	linux-clk@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] clk: rp1: allow the clock provider to be probed again
-Date: Mon, 23 Nov 2026 23:38:27 +0000
-Message-ID: <20261123233827.61587-1-joshuacov@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <179545567027.246915.947299820828330388.b4-review@b4>
-References: <179545567027.246915.947299820828330388.b4-review@b4>
+	by smtp.kernel.org (Postfix) with ESMTPS id 41A471F000C0;
+	Mon, 23 Nov 2026 23:38:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795477128;
+	bh=ViCuzC29eFKJ8ML9lwnxCCTUFjkhP+S+d0AfhX4Jfo4=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Wxf4IhsA9YVrVfJVyWFVjDLKsFFQrHxqmUYfW/hjK6AgpSCeo4QdAJmWQWsZ5Xa6W
+	 Eh1E8zyuSoYy1RSXUjHDjN5s8dNM+rFbejaxmLKWr5nQAWxROl9UGE6Lx5mXJWeT4F
+	 gH9NfW8BxGS5qC8xqM8JP+s9NN3cLPPHuViIGeEmc3ihZx6MxY4LwRAfA3mplZ+L1F
+	 52fok10VVEhU4XsonC/87BVDGHupClvyLiERWteM9rzgK1a5D63tnoSyBbE7sHEX8w
+	 oUVo1HFpgmCB/gPM5ovXHbeOGzBG6McAj+Ik8n/QP9Vvd0LFcyHRX/+ivUIM64VcQe
+	 wZZX91U8cwDTg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 94FC24C7CC;
+	Mon, 23 Nov 2026 23:38:39 +0000 (UTC)
+From: Arina Kharlamova via B4 Relay <devnull+arina.kharlamova.mbzuai.ac.ae@kernel.org>
+Date: Tue, 24 Nov 2026 03:37:45 +0400
+Subject: [PATCH] selinux: reject a 65535-byte xfrm context that ctx_len
+ cannot hold
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,54 +83,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-dev-v1-1-00b99ee684ec@mbzuai.ac.ae>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyMT3ZTUMl1jIzNz4+RkC2MzUzMloMqCotS0zAqwKdGxEH5xaVJWanI
+ JSKtSbS0AjuyniWcAAAA=
+X-Change-ID: 20261124-dev-32673cc83656
+To: Paul Moore <paul@paul-moore.com>, 
+ Stephen Smalley <stephen.smalley.work@gmail.com>, 
+ =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: selinux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, stable@vger.kernel.org, 
+ Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795477118; l=2642;
+ i=arina.kharlamova@mbzuai.ac.ae; s=20261123; h=from:subject:message-id;
+ bh=Z7AJMpvi6SLYbFT+owIrY8vSwJq5AGT0uGxXNqbrlAE=;
+ b=Ar6QmklyIzqD+a5uCiu5IjDZKs7GTVmt6UryLLGPxeHsXub11JIu7vvJo8WDXBtpbHA9LBn3B
+ 5m9am+0ZMXsDbMhnvdQPkyZt+lMZLvvHY//Z1rLqhVLarbTzka0VtzK
+X-Developer-Key: i=arina.kharlamova@mbzuai.ac.ae; a=ed25519;
+ pk=DzQWwMpUtJvSDuzprqvRdbrC72n4Sq8dW6cq3NRt2Mk=
+X-Endpoint-Received: by B4 Relay for arina.kharlamova@mbzuai.ac.ae/20261123
+ with auth_id=1625
+X-Original-From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+Reply-To: arina.kharlamova@mbzuai.ac.ae
+Content-Transfer-Encoding: 7bit
 
-Hi Brian,
+From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
 
-On Mon, Nov 23, 2026 at 12:41:10PM -0500, Brian Masney wrote:
-> There's presumably other drivers that will have the same issue as well.
-> Rather than having drivers all try to fix this themselves, let's see if
-> we can fix this in the core for everyone. Can you try this completely
-> untested patch? If that works, then you can take it over. It will need a
-> kunit test.
+Commit 86c8db86af43 ("selinux: fix selinux_xfrm_alloc_user() to set
+correct ctx_len") made ctx_len count the terminating NUL. ctx_len is a
+__u16 and selinux_xfrm_alloc_user() only rejects str_len >= PAGE_SIZE.
+With 64K pages, str_len = 65535 passes, and ctx_len = str_len + 1 wraps
+to 0 (kmalloc_flex() stores the same truncated value first).
 
-Thanks a lot, it works. I tested it on my Raspberry Pi CM5 (currently
-6.18.64 with the Raspberry Pi downstream patches) with your patch
-instead of the clk-rp1 change. Unbinding and binding the RP1 PCI device
-again, which oopsed in __clk_register() before, now brings all RP1
-peripherals back without any warning.
+ctx_str[] is __counted_by(ctx_len), so the following memcpy() of
+str_len bytes is checked against a buffer of size 0. With
+CONFIG_FORTIFY_SOURCE this ends in __fortify_panic():
 
-I also wrote three KUnit tests for the following:
+  memcpy: detected buffer overflow: 65535 byte write of buffer size 0
+  kernel BUG at lib/string_helpers.c:1044!
+  ...
+   selinux_xfrm_state_alloc+0x18/0x24
+   security_xfrm_state_alloc+0x3c/0x6c
 
-- registering, unregistering and registering the same clk_hw again;
-- hw->init being restored when registration fails (-EEXIST on a
-  duplicate name);
-- a parent referenced through clk_parent_data.hw being an orphan after
-  it has been unregistered, and reparented once it is registered again.
+The memory written stays inside the allocation (65536 bytes for the
+string); without FORTIFY_SOURCE the context is stored with ctx_len 0.
 
-They pass on the CM5 and on QEMU x86_64 with KASAN. Without your patch,
-the first two oops on the NULL init data, and the third reports a
-slab-use-after-free in __clk_register().
+A user context of 65535 bytes can reach this hook through PF_KEY
+(af_key.c only limits sadb_x_ctx_len to PAGE_SIZE); the xfrm netlink
+path cannot, because there uctx->len (a __u16) includes the header.
 
-I noticed two things while reading it:
+Reject a str_len that does not leave room for the NUL in ctx_len.
 
-- clk_unregister() now writes to the clk_hw. So far it only touched it
-  through ops->terminate, so a driver that frees its clk_hw before
-  unregistering it may now write to freed memory.
+Found while surveying callers of kmalloc_flex() whose __counted_by()
+counter is narrower than the count, with the help of an AI coding
+assistant (Claude); I reviewed the analysis and the fix. Tested on
+v7.4-rc2, arm64 with ARM64_64K_PAGES, FORTIFY_SOURCE and SELinux, under
+QEMU (GCC 15.2.0), with a KUnit case that passes a 65535-byte context to
+security_xfrm_state_alloc(): the unpatched kernel hits the BUG above,
+the patched one returns -ENOMEM. The PF_KEY path itself was not
+exercised.
 
-- hw->init is also restored when the clk_init_data was on the stack of
-  the registering function, so after unregistering it can point to a
-  dead stack frame. That only matters for a driver that registers the
-  clk_hw again without setting hw->init first, as the updated comment
-  in clk-provider.h says.
+Fixes: 86c8db86af43 ("selinux: fix selinux_xfrm_alloc_user() to set correct ctx_len")
+Cc: stable@vger.kernel.org
+Signed-off-by: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+---
+ security/selinux/xfrm.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-On the CM5, clk-rp1 also keeps a cached rate per clock that survives a
-rebind, so I added a small clk-rp1 patch that resets it on probe.
+diff --git a/security/selinux/xfrm.c b/security/selinux/xfrm.c
+index 8e00b3306574..181748bb5eb3 100644
+--- a/security/selinux/xfrm.c
++++ b/security/selinux/xfrm.c
+@@ -85,7 +85,8 @@ static int selinux_xfrm_alloc_user(struct xfrm_sec_ctx **ctxp,
+ 		return -EINVAL;
+ 
+ 	str_len = uctx->ctx_len;
+-	if (str_len >= PAGE_SIZE)
++	/* ctx->ctx_len below includes the NUL and has to fit its type. */
++	if (str_len >= PAGE_SIZE || str_len >= type_max(ctx->ctx_len))
+ 		return -ENOMEM;
+ 
+ 	ctx = kmalloc_flex(*ctx, ctx_str, str_len + 1, gfp);
 
-I'll rebase on clk-next and send a series with your change, the tests
-and the clk-rp1 patch. How would you like to be credited for the core
-change? If you add your Signed-off-by, I'll keep you as the author;
-otherwise I'll use Suggested-by.
+---
+base-commit: 347b0c5bacbe94bc99f7683e3c9269c77a0b9c92
+change-id: 20261124-dev-32673cc83656
 
-Thanks,
-Joshua
+Best regards,
+--  
+Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+
+
