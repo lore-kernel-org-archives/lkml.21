@@ -1,58 +1,160 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.132
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436804;
-	b=wweMEEDgDpeA259Mv/1tNcLBAfAL2SsUrzCyQQZlJKzBjGJrPH70m84IXTgsO1nfOemc
-	 V+fH9K9cBRjr12A26Hn2JD6dxdV/f8Er8sCOUA46sJDLfRdU1O/CWqs11O7t4XCCUDWR+
-	 O0/oZgfLekvyv1qQ96xHAhEFZ7M1067M0Cslo8IMt2LuUm598qLSgh0b2yGAhdyttlqT5
-	 lEjOGMbpgVA4aPOtJaEgjWGXdqlU0FXHT5wtcoQeAk4zeHnCyc+3IMxntWMAAl4mcYh1w
-	 djTseheubQkNGCyIg9/sDqqQ32FIpOtWvQoC89fLI6HWHl4rl7AMt/1PWI4HQnqwknA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436804;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DVv1xl61LugGV6/fm0FWU535xu6+vNgLbh/GySgNLxA=;
-	b=LfKi/j2WZwQXOkqkjmCrNU4KujZpAE2pXNYXqIwi/AxR3p+1e2ZNODsBtI4fnEANcTx4
-	 r3QZhUqAVMy5NXWM6tu+WyV3QgFnWW1lJF84rOola6Y9nGLJkHt2x/SLfeYpZskcIVrfJ
-	 bO4po7Q1xwFzfm7qQ+2RqVhJcLeZojdV/pkNhPrFqvvNbDPsS13fcMulCPg/OFW5kZas5
-	 G1pQZsx6booBS0KJtVrpuImy7DX1TwgTuhBmzi/5j0NAbbUXNwjYA08LpDfINSNs8SBTt
-	 HAohuyHUGav3Mzw5bDkw1DqfEPOECZS1D/YI2tzpVqzvQRtq+2RtO3JJlWZdyOiVC7Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=IFoDESgI;
-	arc=none smtp.remote-ip=115.124.30.132
-Received: from out30-132.freemail.mail.aliyun.com (out30-132.freemail.mail.aliyun.com [115.124.30.132])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.100
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795436807;
+	b=xQ70i08Vq69O1teGNZFX7/TJ65188/26lm94GWpFuMOyAFE0RPG3PKaetAzIfWQVkblK
+	 58oM1tJgOMvq+d0QPFn72KLQI8xiOa06vUxcML8gMkW5+P9VO7+ai1QwH/44aKPTi7v3z
+	 N9RJPQgGNu4sbsAIsz+9RXz7npTog+PJNaIbbBiUC4eA7QMRtrw1PTCbLGemg58fhQKPS
+	 eq7XjgZeV9poyPOjR/cUzOQpSKXespA50cbZr7cXzdxQG2bn3mAqPU3PXRfT9RRfjeaJS
+	 EARxO1VCOP4kgagS8Du244siLwmrWUgP/GpFSRccmzlGH9/ex+nl9cbO+d9o2iWGg7g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436807;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=qeQp1wisiQ5PIuUYsIhyV3xmd5MuP/0N0dRhOhb/F8k=;
+	b=JtubKnz5upgDWygLxgQNd24gHCgFuMFOkLzaqADjnkvOEM+LGEop6iN+vDDCw1LrjZaq
+	 J9RANlrq3kj5mE4hhUDwztuWUv5p4p/krXzw2n/ozlOZ2nG+qW+V+OKJy7ffERQHOH8B9
+	 aZqa61f0Q2Vf2xyjoa/fLPaYis9fl+1TEqG5PnPUPd56saIgSmu+lz6ZcQ1CD2vvl4fVg
+	 HZxH8Ihg+4Ql230w+iNBarzC3/HQWirnQMcYNiOl7CTy4HpAZyEvSmmtyELdLxonnwux7
+	 28bifqtDW10cCnznDwHKnkZx4Mpd0nWr/auBqIQSQKo8cIWyFetwPrcNkQmbGwXXH7A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=phytec.de;
+	spf=pass smtp.mailfrom=phytec.de;
+	dkim=pass header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=IrIp5JEl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.100
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11021100.outbound.protection.outlook.com [40.107.130.100])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 449CA606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:26:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 449CA606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9C93606A331;
+	Mon, 23 Nov 2026 12:26:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9C93606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=phytec.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytec.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=IFoDESgI
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795436795; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=DVv1xl61LugGV6/fm0FWU535xu6+vNgLbh/GySgNLxA=;
-	b=IFoDESgIhPSq1bmAIwRSI/0rsgboGOgymNhC2dX+jjPL8GYKHawmuHaak2yG55YZSiy9ATIV0g+hyiTBsK6TXViI9VH2nHv6mX7mxpLY7lQ582DyffFDOwQZDSt67oY54oFnzJdYW5lU0aaWuMprOhKnW8P0/6xrZgfHZGXqWc4=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=6;SR=0;TI=SMTPD_---0XFIMpIN_1795436793;
-Received: from localhost.localdomain(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XFIMpIN_1795436793 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 23 Nov 2026 20:26:34 +0800
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-To: akpm@linux-foundation.org,
-	david@kernel.org,
-	hughd@google.com
-Cc: baolin.wang@linux.alibaba.com,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] mm: shmem: fix discarded data left intact after truncation or hole punching
-Date: Mon, 23 Nov 2026 20:26:20 +0800
-Message-ID: <6fcc15c466667f6943c34e130212b891b7471c83.1795436423.git.baolin.wang@linux.alibaba.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key, unprotected) header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=IrIp5JEl
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bIljABagW/ihX8GavO5eGVx2cFPbGWi7169Q4bXcRN/QGnmiO+/Yn0Lr+tQRhcKklMULdpR1zeIUzAtjVirJa1ODifD3eqoGOxe9v8Wwt/t8ByzuRLLuh0kdJ1UK90VSKlwIfoUIRePJ7AbB6Houey5QV6k8hHoWVcdm7suDKqYcr/31aE05t0ftGQk5XkTStI2QIkYZGABF9bkw92Ah1YQGUyqEGWRM0m5/nLcW6cZl+yOFCVKUl3wiozkpqReNaWgiI5gpx/dKiR/Y8zLm5sfxEl+XcJQwPEAWOgS7ak7HlrqNjLAbYMRgk+6PwkuCu0gD7kCZWUuJJs5MIPm6nA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qeQp1wisiQ5PIuUYsIhyV3xmd5MuP/0N0dRhOhb/F8k=;
+ b=cKpN1GIfqpJNFMNen+0VWAtWRyxbDwyH8YBY39IdSeqf340WkcrEk27oMdaCqS9Xs/lal+qwUAVRQvnhcb6IbopCEnNmqKILBaG8Tw1rkt8wkSi/EY6piVQkeIb/JKF+DK1efgxZAWJCYGoOKeZVgW55nXlfaAtt41yUokjQHtFbeMnBUzMzAXT1tT/QJm7hTdT0k6l8xHnRcaKmYOU+Q3opNw5yFtAs2J8AvS6u/6pqg1uTdEhsYuyNelHK6i7NWIBYofcCn+weNAvXFm6y3Mx2P2Hja0tf2kXHheDM6HBeP0/E4xAtxieNEeJfsSSwEnNHQeCvj3FYfKYRvUYD5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qeQp1wisiQ5PIuUYsIhyV3xmd5MuP/0N0dRhOhb/F8k=;
+ b=IrIp5JElD1mo89WiCt/rhULN8bPVPfdhZvRFj8dDn7/dsn9vV6hx/NPMOdWu0XBV3r/Rr09lZxrpP3PQLac902A1o8CKfeZy8RAc6wb6G66OgzK7ij1ZkNiNxOFVZMQddVBtd/6C5XDTP2991U/Q4sbBye40xqs3VkrDQdZcI5L2e6q0Mb1cgjsYgOhwNsntDExQbKLRpL99WCJCQXXc3weTV69GebltZR5VCG2S5fmx9RVSWzsSZHQFn8Ll1w6tAk8Xmv4TJFfI7LufHQ3NTsgkxtW6oj+mGanyPMs2FrGxhoYhMZwIw3CmX818YUs5OesWLq0hF2IvHPb9rMmO9w==
+Received: from BESP195MB976599.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:b10:105::21) by DB8P195MB0710.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:10:155::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 12:26:42 +0000
+Received: from BESP195MB976599.EURP195.PROD.OUTLOOK.COM
+ ([fe80::5d6e:6efe:9bc2:6893]) by BESP195MB976599.EURP195.PROD.OUTLOOK.COM
+ ([fe80::5d6e:6efe:9bc2:6893%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 12:26:42 +0000
+From: Yannic Moog <Y.Moog@phytec.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li
+	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
+ Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Benjamin
+ Hahn <B.Hahn@phytec.de>, Christian Hemp <C.Hemp@phytec.de>, Jan Remmet
+	<J.Remmet@phytec.de>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "upstream@lists.phytec.de"
+	<upstream@lists.phytec.de>
+Subject: Re: [PATCH 1/5] dt-bindings: fsl: add phyFLEX-Libra i.MX 8M Plus FPSC
+Thread-Topic: [PATCH 1/5] dt-bindings: fsl: add phyFLEX-Libra i.MX 8M Plus
+ FPSC
+Thread-Index: AQHddbkBN6rr+J+coEe4H0CDnunHyrc3DkAAgASSF4A=
+Date: Mon, 23 Nov 2026 12:26:41 +0000
+Message-ID: <ecec2b828550453f08e3b4900ad6149cecf5dae3.camel@phytec.de>
+References: <20261116-imx8mp-phyflex-v1-0-4adcf8b4d373@phytec.de>
+	 <20261116-imx8mp-phyflex-v1-1-4adcf8b4d373@phytec.de>
+	 <20261120-successful-amiable-porcupine-cef7ae@quoll>
+In-Reply-To: <20261120-successful-amiable-porcupine-cef7ae@quoll>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BESP195MB976599:EE_|DB8P195MB0710:EE_
+x-ms-office365-filtering-correlation-id: 70e3af5f-945a-4305-27c4-08df495d07ad
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|38070700021|10067099003|56012099006|11063799006|4143699003|261026121527099003|261022075727099003|261021123027099003|261021135927099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003;
+x-microsoft-antispam-message-info:
+ rSQTAUoyOz5vmzaMyV2sDRCg0cbqL5e/vJoRAG+53lP54Qd1jREW4EA+KlKG4aWOZ5oZgr/en+lerE7YhYhS6QFFNKRY3DIbQK7POCpyQ80yBrjsSD3I/OfecWZBGddsXHcGStoCy34GTuP/mazSPRoUQMokt7RpGEJBoLdg2u2NYVoL8UbCCmYaD5nPEHeJl+M1jNTULbwbBEjtwz2jrPYU6avD8kfWPd4lQ/3hMMohfySrydyxnzCJe5j+yIKxvM9Qg8tY7MIM7YIv/wEPbeG06nxUFxHeu90ald8mXNPDdn2AH9IqDOboKtC+vqo88VKL+t+3ZQHUmBnN9ADaYSsDxJgNF1ZbFEDKfGbooL66XQXJ/jyxSTKTLY/g463KphPLvCeHEXM88c7T8weaC2Ev4FCXW46FLs996I1fFZUz28ZN4NmiMiy2a444LbNcAB+Vv+BxN5tNEc54X1ls8B2mh6k+dFz/mAtAT7WY99XC95JRmPLVsUu7ril0gyhbgsh9cojDNYSG+h6Wj1WbCgMxFxdBnjvANm/Wddu87mZOMA9qbO4IYu7FOD4sllUoNP2ZFLVVptTFYKS8IrIaos5baEnF1CFDe2h0HlVSmy89aCj/+qgsR/XcCbtaMUTrevlxKSH6q2BNq+CR8JoLs+tcD7CmlGgysYQtK0JFZG8=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BESP195MB976599.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(38070700021)(10067099003)(56012099006)(11063799006)(4143699003)(261026121527099003)(261022075727099003)(261021123027099003)(261021135927099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?Y1ZEV040T1NQSUVLeDJ2TkEzejdVYk5aZWdwU24rU2hRNHJkaFlINnNkR2pN?=
+ =?utf-8?B?cmdheWtISDFCVDA2YzVGRG95UG01b3hQb1FwWmd3T0J1cTE2aUtReUhDeUww?=
+ =?utf-8?B?dlhRTjBUczBYTXZaOWJvRURuNHZXc29QL0JBQ2xmcjE0TTBqNENRdkpLN0R3?=
+ =?utf-8?B?UmRtcmdxK3lsYWh5ZGZrbGIveXZWWmw0MXdRRnJqbi9yUHEyY1AzZ1Rmbi9m?=
+ =?utf-8?B?a3Mzd29GRFpsQ1lCdTgwdG5DNW01VnlSdk9oODFkaVI3aGpTNWk1anI0bWxx?=
+ =?utf-8?B?d3dESGd2UmM4azgzYTFyQjFKRy9OakdPbHkzZ05XekRDd3Q1RUw4WGFiUFN6?=
+ =?utf-8?B?Y2lxcUZFeXFTSXhCMzB4bTJQUnZzSlN2d1V3S1NCTndVdjkvaW9WanJ2T0M4?=
+ =?utf-8?B?L0xUcm1RMEJoQUtSaWpXQXIxdmt1NktiZ3FIOWdqVG5nbHZZNUR0U3lrcnRI?=
+ =?utf-8?B?emVYK2FpT24rMUI5KzE4V2I3bmUyRU1lKzlyNHlwSHd2bEVFZjJlVWx3Ym55?=
+ =?utf-8?B?U0xRb1BuSjR5UGFUNEJHWmNYWjZIb3NWVVcvMU1STGFMdGxERDJ3dG41UXRx?=
+ =?utf-8?B?b1NBaGpNdnozdG5nUUtqZFVyb1RsZVFQS09LblVKOFVpVm1EL1RiRlJvMll3?=
+ =?utf-8?B?Q0JnNXpSb2pjMzJuTnRIUTF5Rmpzblo5aklqS08rNUtPbTBJRlFNN2prODVO?=
+ =?utf-8?B?eVQ1R2V1S2Q2ZEthZG9vbHdNQVNSQXlhRkNMZXEzeC8yYXVIY0pVeGx0S3Jn?=
+ =?utf-8?B?TGpNSmEyNnlXUXVxYkMvUnBaQnVXUldCUGx1RDlCTHUreCtoVDFJbGRBMEgy?=
+ =?utf-8?B?MlhMaDVPeCtCSmlFR0V3TURLK2tPT3UvbFo3NUltTjMyTThTNjcwenFoZmFD?=
+ =?utf-8?B?aUtqY2NsNWh0cHhiK1AvRk5EQUZWWmJMUTFaSUIxVEVnbTFPd2lUTEoxT1Bt?=
+ =?utf-8?B?ajFkMnZPODUzR0RPWWRtK2JmRkNLc3hNQm41bHVJU0kvZVNPdm5xN0NXYjgy?=
+ =?utf-8?B?MjBOWGFQM1U0TXluNVdiN3lGSHFWYWovS3hEMXMrcm9jUlhEdnVWV0crOElQ?=
+ =?utf-8?B?VDRqL2Jhdm54QmMyOGFOcmdHVXlCWldSMzQyY1FoOXYxUmVDWVk1dCtMb1N0?=
+ =?utf-8?B?RmZmYTBUWUltOUVrM29SbG5senVqOWcvemRpZlZEMWphd296NmlGZnlRSFBR?=
+ =?utf-8?B?amZLYmxDek5QaW4veWRPNE12dmtZbFJmazdqb2dCajRDQlFZZU9SZTNSRU9G?=
+ =?utf-8?B?Q1JNSjVzdk0xdGNCU0pEODhQOHBUMExkRmdkNHBrS0lKWFVodW8xTVJ0Qm1u?=
+ =?utf-8?B?QTJXdXdFOXhYZ1VhaGphVDdkc08ydzdSQnVwcXMvZldxdnQ0Z2F1SC95VHRP?=
+ =?utf-8?B?SVJBcmNqdWlHemZreFJMTVE3U1pENlZCZWQ2R3RBZ1Z4bU96RGM2VzZLQlR1?=
+ =?utf-8?B?U0FnREQwVEx0NnhXV3ZFMVArdVRIS1h0UUV5TkcyMUlQUG9YRHNmem9CM0xQ?=
+ =?utf-8?B?aDVPbStpZCthTWsvWWVSNmIwcUMzZ3I4OFJzUnVJWkJjb3NWWEgyd2xYVzN4?=
+ =?utf-8?B?OWNpZHJyWndseDNqdmlpdkV6K1M0U3hpY0prS2tzYTY3NDZJM1F2S1BaLzc1?=
+ =?utf-8?B?ODhaaDNYZDIwSDRDSXZFRkV0cm1WOGo3M2NIK0ZUTU9PR281RHJ3VmlHQ0J4?=
+ =?utf-8?B?TlVaVlRnYmJ4VVdWRnRJR0FTT3h6ZlZTTmpQYXh3WnhaZk5mTTZUR3l4Rmdo?=
+ =?utf-8?B?SFhqWEdCamJVY0FqK3dYSnE3YzVGbGI1UWxCb1pRVUZNajNUMkU5QnVjSHM4?=
+ =?utf-8?B?WmZwWERWY1VqRXFETEc3Q3lMZnc5Rlp6eTV6aCtGU1I1Q1dzdHk3NmRUZU4w?=
+ =?utf-8?B?T2NsWFpoYlF6MU5UTGtoVlFiV2pzRlliRTN6L3FiODd3N2lVeVBHckFWTnR0?=
+ =?utf-8?B?cHp0ZG9tNG42ODhUZ0FKQTQ1TnZWSzJhUThDaXpYT2VwNDJMQWErbk93eUFt?=
+ =?utf-8?B?THNCdDdldlZEUW1ycWRpanlXaEptaTl5ZkRleUpmN0pNT2c3RmJISFI4S1lu?=
+ =?utf-8?B?cGxSSGcvNjdqZjY5OW5qcnhzUnJlb0hrTDgyd005VDNHZktMd0hQZi9tS3hI?=
+ =?utf-8?B?U2pSOTlidTJpMmJNbDVXUUZveWlYSGR1aTYwWjJpRk5mNFRhYklmSVU0QVVB?=
+ =?utf-8?B?WXc1Y2dlYUxtaVNMTDZod0ZvaDVqOEVmL3k4OWJ4Qk5xcEtiWmFnK1NqSnpD?=
+ =?utf-8?B?Y2doTUU4UTFOdER3dkkzL3YwQzJSUFBSa1B4aU95Z3dRYjQzRlZmRlRYNHpJ?=
+ =?utf-8?Q?6BAzh4i2SjkHZr757R?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <988C7A47A4E42044B57D28FF134810A7@EURP195.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,270 +164,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BESP195MB976599.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 70e3af5f-945a-4305-27c4-08df495d07ad
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 12:26:41.8872
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 0Aw0sQRwRSJbVzsmCfwnqw2go/FDPneYOeG02mN6gr8LgTqYd4t6m9SsgeHH7J8FKvUXtx3CgPObN9QcqrN2/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8P195MB0710
 
-Truncation and hole punching can leave discarded data intact when boundary
-swapin fails.
-
-Specifically, when truncating or hole punching part of an order-0 swap entry,
-the boundary swap entry may fail to swap in (e.g. due to a memcg limit), and
-shmem_undo_range() then skips zeroing that boundary, so old data can become
-visible after a file extension or when reading the punched hole. This is
-dangerous, because the truncation and hole punch syscalls do not return an
-error, yet the user may still read stale data, which is a data leak.
-
-The same problem exists for a boundary backed by a large swap entry, where
-swapin may fail or the large swap entry may fail to split, leaving the truncated
-range unzeroed and leaking old data without informing the user.
-
-To fix this issue, since we cannot guarantee that a boundary swap entry can
-always be swapped in successfully during truncation or hole punching, propagate
-the error to the syscall instead of handling it silently and let the user deal
-with it.
-
-That means the truncation and hole punch syscalls will try to get and lock the
-boundary folios before changing i_size or unmapping the range. If swapin returns
-an error, retry -EEXIST and propagate other swapin errors to the syscall callers
-instead of silently skipping boundary handling. This also prevents concurrent
-swapin and swapout from recreating crossing large swap entries before zeroing.
-
-Then pass the locked boundary folios to shmem_undo_range() for removal or partial
-zeroing. Keep large-folio splitting there, after zeroing, so split failures do
-not leave stale data or fail the syscall.
-
-Reported-by: David Hildenbrand (Arm) <david@kernel.org>
-Closes: https://lore.kernel.org/all/20261026-fixes_shmem-v1-0-703206d5fa0c@kernel.org/
-Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
----
-This fix tries to address the issue 2 and issue 3 David raised earlier[1], where
-boundary swap entries can leave discarded data intact after a successful truncation
-or hole punch.
-
-The stale data issue can be reproduced with a reproducer. With this patch, the
-truncation and hole punch syscalls will receive an error instead of silently
-skipping the boundary handling.
-
-Sending this as an RFC first to discuss the fix approach.
-
-[1] https://lore.kernel.org/all/20261026-fixes_shmem-v1-0-703206d5fa0c@kernel.org/
----
- mm/shmem.c | 114 ++++++++++++++++++++++++++++++++++++++++-------------
- 1 file changed, 86 insertions(+), 28 deletions(-)
-
-diff --git a/mm/shmem.c b/mm/shmem.c
-index c769d0bc7df9..8f973e622dc8 100644
---- a/mm/shmem.c
-+++ b/mm/shmem.c
-@@ -1306,6 +1306,7 @@ static struct folio *shmem_get_partial_folio(struct inode *inode, pgoff_t index)
- {
- 	const gfp_t gfp = mapping_gfp_mask(inode->i_mapping);
- 	struct folio *folio;
-+	int error;
- 
- retry:
- 	folio = filemap_get_entry(inode->i_mapping, index);
-@@ -1324,17 +1325,22 @@ static struct folio *shmem_get_partial_folio(struct inode *inode, pgoff_t index)
- 	 * Truncation can look up a large swap entry at or beyond i_size.
- 	 * Swap it in directly to bypass the size check in shmem_get_folio().
- 	 */
--	if (shmem_swapin_folio(inode, index, &folio, SGP_READ, gfp, NULL, NULL) == -EEXIST)
-+	error = shmem_swapin_folio(inode, index, &folio, SGP_READ, gfp, NULL, NULL);
-+	if (error == -EEXIST)
- 		goto retry;
-+	if (error)
-+		return ERR_PTR(error);
- 	return folio;
- }
- 
- /*
-  * Remove range of pages and swap entries from page cache, and free them.
-  * If !unfalloc, truncate or punch hole; if unfalloc, undo failed fallocate.
-+ * Boundary folios are locked and referenced. Zero them, split large ones,
-+ * then unlock and put them. NULL means there is no boundary folio.
-  */
- static void shmem_undo_range(struct inode *inode, loff_t lstart, uoff_t lend,
--								 bool unfalloc)
-+		struct folio *start_folio, struct folio *end_folio, bool unfalloc)
- {
- 	struct address_space *mapping = inode->i_mapping;
- 	struct shmem_inode_info *info = SHMEM_I(inode);
-@@ -1392,25 +1398,19 @@ static void shmem_undo_range(struct inode *inode, loff_t lstart, uoff_t lend,
- 	if (unfalloc)
- 		goto whole_folios;
- 
--	same_folio = (lstart >> PAGE_SHIFT) == (lend >> PAGE_SHIFT);
--	folio = shmem_get_partial_folio(inode, lstart >> PAGE_SHIFT);
--	if (folio) {
--		same_folio = lend < folio_next_pos(folio);
--		folio_mark_dirty(folio);
--		truncate_inode_partial_folio(folio, lstart, lend, &start,
-+	if (start_folio) {
-+		same_folio = lend < folio_next_pos(start_folio);
-+		folio_mark_dirty(start_folio);
-+		truncate_inode_partial_folio(start_folio, lstart, lend, &start,
- 					     same_folio ? &end : NULL);
--		folio_unlock(folio);
--		folio_put(folio);
--		folio = NULL;
-+		folio_unlock(start_folio);
-+		folio_put(start_folio);
- 	}
--
--	if (!same_folio)
--		folio = shmem_get_partial_folio(inode, lend >> PAGE_SHIFT);
--	if (folio) {
--		folio_mark_dirty(folio);
--		truncate_inode_partial_folio(folio, lstart, lend, NULL, &end);
--		folio_unlock(folio);
--		folio_put(folio);
-+	if (end_folio && end_folio != start_folio) {
-+		folio_mark_dirty(end_folio);
-+		truncate_inode_partial_folio(end_folio, lstart, lend, NULL, &end);
-+		folio_unlock(end_folio);
-+		folio_put(end_folio);
- 	}
- 
- whole_folios:
-@@ -1513,12 +1513,39 @@ static void shmem_undo_range(struct inode *inode, loff_t lstart, uoff_t lend,
- 	shmem_recalc_inode(inode, 0, -nr_swaps_freed);
- }
- 
--void shmem_truncate_range(struct inode *inode, loff_t lstart, uoff_t lend)
-+/* Check whether the end page of [lstart, lend] lies in the start folio. */
-+static bool is_same_boundary_folio(struct folio *start_folio,
-+		loff_t lstart, uoff_t lend)
- {
--	shmem_undo_range(inode, lstart, lend, false);
-+	if (start_folio)
-+		return folio_next_index(start_folio) > lend >> PAGE_SHIFT;
-+	return (lstart >> PAGE_SHIFT) == (lend >> PAGE_SHIFT);
-+}
-+
-+static void shmem_truncate_range_partial(struct inode *inode, loff_t lstart, loff_t lend,
-+		struct folio *start_folio, struct folio *end_folio)
-+{
-+	shmem_undo_range(inode, lstart, lend, start_folio, end_folio, false);
- 	inode_set_mtime_to_ts(inode, inode_set_ctime_current(inode));
- 	inode_inc_iversion(inode);
- }
-+
-+void shmem_truncate_range(struct inode *inode, loff_t lstart, uoff_t lend)
-+{
-+	struct folio *start_folio = NULL, *end_folio = NULL;
-+
-+	/* This void interface retains best-effort handling of boundary errors. */
-+	start_folio = shmem_get_partial_folio(inode, lstart >> PAGE_SHIFT);
-+	if (IS_ERR(start_folio))
-+		start_folio = NULL;
-+
-+	if (lend != -1 && !is_same_boundary_folio(start_folio, lstart, lend)) {
-+		end_folio = shmem_get_partial_folio(inode, lend >> PAGE_SHIFT);
-+		if (IS_ERR(end_folio))
-+			end_folio = NULL;
-+	}
-+	shmem_truncate_range_partial(inode, lstart, lend, start_folio, end_folio);
-+}
- EXPORT_SYMBOL_GPL(shmem_truncate_range);
- 
- static int shmem_getattr(const struct mnt_idmap *idmap,
-@@ -1578,19 +1605,30 @@ static int shmem_setattr(const struct mnt_idmap *idmap,
- 	if (S_ISREG(inode->i_mode) && (attr->ia_valid & ATTR_SIZE)) {
- 		loff_t oldsize = inode->i_size;
- 		loff_t newsize = attr->ia_size;
-+		struct folio *folio = NULL;
- 
- 		/* protected by i_rwsem */
- 		if ((newsize < oldsize && (info->seals & F_SEAL_SHRINK)) ||
- 		    (newsize > oldsize && (info->seals & F_SEAL_GROW)))
- 			return -EPERM;
- 
-+		if (newsize != oldsize && (info->flags & SHMEM_F_MAPPING_FROZEN))
-+			return -EPERM;
-+		if (newsize <= oldsize) {
-+			folio = shmem_get_partial_folio(inode, newsize >> PAGE_SHIFT);
-+			if (IS_ERR(folio))
-+				return PTR_ERR(folio);
-+		}
- 		if (newsize != oldsize) {
--			if (info->flags & SHMEM_F_MAPPING_FROZEN)
--				return -EPERM;
- 			error = shmem_reacct_size(SHMEM_I(inode)->flags,
- 					oldsize, newsize);
--			if (error)
-+			if (error) {
-+				if (folio) {
-+					folio_unlock(folio);
-+					folio_put(folio);
-+				}
- 				return error;
-+			}
- 			i_size_write(inode, newsize);
- 			update_mtime = true;
- 		} else {
-@@ -1603,8 +1641,8 @@ static int shmem_setattr(const struct mnt_idmap *idmap,
- 							holebegin, 0, 1);
- 			/* Swapin-error markers are not counted in alloced. */
- 			if (info->alloced || !mapping_empty(inode->i_mapping))
--				shmem_truncate_range(inode,
--							newsize, (loff_t)-1);
-+				shmem_truncate_range_partial(inode, newsize, (loff_t)-1,
-+							     folio, NULL);
- 			/* unmap again to remove racily COWed private pages */
- 			if (oldsize > holebegin)
- 				unmap_mapping_range(inode->i_mapping,
-@@ -3895,7 +3933,9 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
- 		struct address_space *mapping = file->f_mapping;
- 		loff_t unmap_start = round_up(offset, PAGE_SIZE);
- 		loff_t unmap_end = round_down(offset + len, PAGE_SIZE);
-+		loff_t lend = offset + len - 1;
- 		DECLARE_WAIT_QUEUE_HEAD_ONSTACK(shmem_falloc_waitq);
-+		struct folio *start_folio = NULL, *end_folio = NULL;
- 
- 		/* protected by i_rwsem */
- 		if (info->seals & (F_SEAL_WRITE | F_SEAL_FUTURE_WRITE)) {
-@@ -3903,6 +3943,23 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
- 			goto out;
- 		}
- 
-+		start_folio = shmem_get_partial_folio(inode, offset >> PAGE_SHIFT);
-+		if (IS_ERR(start_folio)) {
-+			error = PTR_ERR(start_folio);
-+			goto out;
-+		}
-+		if (!is_same_boundary_folio(start_folio, offset, lend)) {
-+			end_folio = shmem_get_partial_folio(inode, lend >> PAGE_SHIFT);
-+			if (IS_ERR(end_folio)) {
-+				error = PTR_ERR(end_folio);
-+				if (start_folio) {
-+					folio_unlock(start_folio);
-+					folio_put(start_folio);
-+				}
-+				goto out;
-+			}
-+		}
-+
- 		shmem_falloc.waitq = &shmem_falloc_waitq;
- 		shmem_falloc.start = (u64)unmap_start >> PAGE_SHIFT;
- 		shmem_falloc.next = unmap_end >> PAGE_SHIFT;
-@@ -3913,7 +3970,8 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
- 		if ((u64)unmap_end > (u64)unmap_start)
- 			unmap_mapping_range(mapping, unmap_start,
- 					    unmap_end - unmap_start, 0);
--		shmem_truncate_range(inode, offset, offset + len - 1);
-+		shmem_truncate_range_partial(inode, offset, lend,
-+					     start_folio, end_folio);
- 		/* No need to unmap again: hole-punching leaves COWed pages */
- 
- 		spin_lock(&inode->i_lock);
-@@ -3991,7 +4049,7 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
- 			if (index > start) {
- 				shmem_undo_range(inode,
- 				    (loff_t)start << PAGE_SHIFT,
--				    ((loff_t)index << PAGE_SHIFT) - 1, true);
-+				    ((loff_t)index << PAGE_SHIFT) - 1, NULL, NULL, true);
- 			}
- 			goto undone;
- 		}
--- 
-2.47.3
-
+T24gRnJpLCAyMDI2LTExLTIwIGF0IDE1OjM4ICswMTAwLCBLcnp5c3p0b2YgS296bG93c2tpIHdy
+b3RlOgo+IE9uIE1vbiwgTm92IDE2LCAyMDI2IGF0IDExOjU0OjQwQU0gKzAxMDAsIFlhbm5pYyBN
+b29nIHdyb3RlOgo+ID4gQWRkIGJpbmRpbmdzIGZvciBwaHlGTEVYLWkuTVggOE0gUGx1cyBTeXN0
+ZW0tb24tTW9kdWxlIFsxXSBhbG9uZyB3aXRoIGEKPiA+IGNhcnJpZXIgYm9hcmQgKExpYnJhKSB0
+aGF0IGpvaW4gdG8gYW4gU0JDLgo+ID4gCj4gPiBbMV0gaHR0cHM6Ly93d3cucGh5dGVjLmV1L2Vu
+L3Byb2R1a3RlL3N5c3RlbS1vbi1tb2R1bGVzL3BoeWZsZXgtaW14LThtLXBsdXMtZnBzYy8KPiA+
+IAo+ID4gU2lnbmVkLW9mZi1ieTogWWFubmljIE1vb2cgPHkubW9vZ0BwaHl0ZWMuZGU+Cj4gPiAt
+LS0KPiA+IMKgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2FybS9mc2wueWFtbCB8
+IDE4ICsrKysrKysrKysrKy0tLS0tLQo+ID4gwqAxIGZpbGUgY2hhbmdlZCwgMTIgaW5zZXJ0aW9u
+cygrKSwgNiBkZWxldGlvbnMoLSkKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9hcm0vZnNsLnlhbWwKPiA+IGIvRG9jdW1lbnRhdGlvbi9kZXZp
+Y2V0cmVlL2JpbmRpbmdzL2FybS9mc2wueWFtbAo+ID4gaW5kZXggNjU2ZjI1OTZlMWQ1My4uMmQy
+MWExOTQ5ZDk0OSAxMDA2NDQKPiA+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
+aW5ncy9hcm0vZnNsLnlhbWwKPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
+aW5ncy9hcm0vZnNsLnlhbWwKPiA+IEBAIC0xMjI1LDEyICsxMjI1LDE4IEBAIHByb3BlcnRpZXM6
+Cj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBrb250cm9uLGlteDhtcC1vc20tc8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIyBLb250cm9uIGkuTVg4TVAgT1NNLVMgU29NCj4g
+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBmc2wsaW14OG1wCj4gPiDCoAo+ID4gLcKg
+wqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogUEhZVEVDIHBoeUNPUkUtaS5NWDhNUCBGUFNDIGJhc2Vk
+IGJvYXJkcwo+ID4gLcKgwqDCoMKgwqDCoMKgIGl0ZW1zOgo+ID4gLcKgwqDCoMKgwqDCoMKgwqDC
+oCAtIGVudW06Cj4gPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBwaHl0ZWMsaW14OG1w
+LWxpYnJhLXJkay1mcHNjwqAgIyBpLk1YIDhNIFBsdXMgTGlicmEgUkRLCj4gPiAtwqDCoMKgwqDC
+oMKgwqDCoMKgIC0gY29uc3Q6IHBoeXRlYyxpbXg4bXAtcGh5Y29yZS1mcHNjICMgcGh5Q09SRS1p
+Lk1YIDhNIFBsdXMgRlBTQwo+ID4gLcKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBmc2wsaW14
+OG1wCj4gPiArwqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBQSFlURUMgaS5NWDhNUCBGUFNDIGJh
+c2VkIGJvYXJkcwo+ID4gK8KgwqDCoMKgwqDCoMKgIG9uZU9mOgo+ID4gK8KgwqDCoMKgwqDCoMKg
+wqDCoCAtIGl0ZW1zOgo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBlbnVtOgo+ID4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHBoeXRlYyxpbXg4bXAtbGlicmEtcmRrLWZw
+c2PCoCAjIGkuTVggOE0gUGx1cyBMaWJyYSBSREsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IC0gY29uc3Q6IHBoeXRlYyxpbXg4bXAtcGh5Y29yZS1mcHNjICMgcGh5Q09SRS1pLk1YIDhNIFBs
+dXMgRlBTQwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBjb25zdDogZnNsLGlteDhtcAo+
+IAo+IEV4Y2VwdCBsYWNrIG9mIHRlc3RpbmcsIGRvbid0IG5lc3Qgb25lT2YuCgpCb3RoIGVudHJp
+ZXMgcmVmZXIgdG8gdGhlIHNhbWUgYm9hcmQsIHRoYXQgaXMgd2h5IEkgdXNlZCBvbmVPZi4gSXMg
+dGhpcyBpbmNvcnJlY3QgdXNhZ2Ugb2YgdGhlCidvbmVPZicgcHJvcGVydHk/IEkgY2FuIHJlbW92
+ZSBpdCwgc2luY2UgbGF0ZXIgcGF0Y2ggcmVtb3ZlcyBvbmUgb2YgdGhlIG9wdGlvbnMgYW55d2F5
+LiBGb3Jnb3QgdG8KcmVtb3ZlIGl0IGluIHRoZSA1dGggcGF0Y2guCgpZYW5uaWMKCj4gCj4gQmVz
+dCByZWdhcmRzLAo+IEtyenlzenRvZgo=
