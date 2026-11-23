@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.166.238
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795420967;
-	b=Its9LyeA0dZUnxvXfuayqXGZI/d4af6Ue+AVJVXOoOgginL07todEPcsdKU9zSw9x6x6
-	 F9BmzSmDVjI+fgXVRKXe+OwZ0O9jFJyk9vpneNmdpL6l2/yV2qF+GMSmksBXNnMT0fdiy
-	 hzQU/r3P9pjXgoz2nHbRunjtzWQ+s6qv9XR+L9YWHJCtfDgQGldPbW3ByFHSJghrx8O6z
-	 74jxYlrcOuwiA456m602UHOAtiOuBcWRdsh6cKGTYPy8sGZJL1uEWJSCrhm6Mjx6vcSPz
-	 O1iRnedU8Q/62BgT8Ou+fRlPwp+P4WIA7yC1q1q9afT20v8Y+rRaf1SrwautuRhhMSg==
+	t=1795420969;
+	b=gZM6CMASW1s3+cuugPqyL9teVfhCg/oH0F9esTZcDV3Amco7GhYCceDsO3Dqq0qVlMM3
+	 SreM+W5Ad2vZy2QVUN5j1fTaCcNL8bFfxnGM98TFmoj6FhLxoha6cgcjsxjgDeSF9dwSi
+	 dO9gHVzyX1+5wWwa8glKjeCFjjliZf74XaDGLVRHLjk9mqe4KiA32i4XfYxvmkinKdBSe
+	 tYYhYewvLtOg9ZzqTTqp4hQAcKU94p16bcRCMaBZlDxR/zepFevVHiqD/6mVdNG/mP9TN
+	 yc7S2xdb3jzejcQMliLlodAPdxkEpoP8FP7WMWfzRw5213rVsvky4Zaz+N4/F2LHZ6Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420967;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420969;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:From:
 	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
@@ -28,52 +28,52 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-Authority-Analysis:
 	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
 	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=/JjTlzR8I557LEQ8CbJUA7yfqjZ9iet28lWE1UWNG40=;
-	b=Gd8tO6DKCarGvaz7wbfX9HecIDZT5lV/VH3Vc3qUrCNldpMYAt2ug6YEI7qiVyaUZXKk
-	 L40tnOZf6ybTzyoW/AoB9y1gT1zgjhwGOIRqYy51gZNoAi8yGDVbqpnclMucajKyC1ItE
-	 XvKmhn2Y7mEG4wmqSTQ/nSF+Y/siLcnGwWnL/Dpz8LnPspH6WAgEIMSgSVHCc0mxTJi8J
-	 OO5YXczPJNRYya1ezRdgU6jOm1L6AwqkI64SdqqMRTcZBd2Pdtl7Qg5eW7h4j5hiZ8B4p
-	 ngBTs+weK9ssKmsJG8URwQSVZlYBLeDmLDNHEgf/Eotrvrtb6zDA+SDqfvFG7idJT6g==
+	bh=CUdNWVugs6i6GW4y/MWPiQTCaoDyc8ouI7x/Je6XfVY=;
+	b=ypQ+UKPDpbpLXnTxY0vSKh+nXw9GhKwnYJmOdmtjB07AVpmIZEL+4LNGqCVJT8nQMk40
+	 abZimSqukTVLpAXi2cVfZTZ+37cNoNkGmZL2YZrwGsZK6e4DriTYyBroeLlYYlVFiwdRc
+	 foB63Bb4+wvYiPPWuXR6lRmReADoksI2iCz5KCUdvx9aFo8G7Je+uTchlqscH6Xb3gqDe
+	 lBFe8+5YfhlpzpaYbaZpqSWLnQ/IYYtOedodhiB6e2dt2KptDXSRRmVABbpkNkT3HJ6Ml
+	 KyEEaFUKEkDQpApz/crxW6aExjXa/rJ0GeBFgx85oKWZhKbyWvWat076AIelFoHNSaQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=windriver.com;
 	spf=pass smtp.mailfrom=windriver.com;
-	dkim=pass header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=gAwaZQxt;
+	dkim=pass header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=B3N8m+Sx;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.166.238
 Received: from mx0a-0064b401.pphosted.com (mx0a-0064b401.pphosted.com [205.220.166.238])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C87F606A681;
-	Mon, 23 Nov 2026 08:02:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C87F606A681
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69FBA606B185;
+	Mon, 23 Nov 2026 08:02:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69FBA606B185
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=windriver.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=windriver.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=gAwaZQxt
+	dkim=pass (2048-bit key) header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=B3N8m+Sx
 Received: from pps.filterd (m0250809.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN6kQad3025693;
-	Mon, 23 Nov 2026 00:02:26 -0800
+	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN51msJ2840662;
+	Mon, 23 Nov 2026 00:02:19 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
 	 h=cc:content-transfer-encoding:content-type:date:from
 	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	PPS06212021; bh=/JjTlzR8I557LEQ8CbJUA7yfqjZ9iet28lWE1UWNG40=; b=
-	gAwaZQxt7EcqRzvITDg7gHKrlUcFSnUKuMc0pASkxKHIwPm+SG/kQNY4XawlaBbH
-	Y21iT1fX7ig74J4WDz4LdT8Van65+szXvj4D/B4rseAeozOQPMz9gKdlA+E2x1GM
-	3ri31Bcc6cyPl7ds+Qy0toQE8jp1lj31QCrxDcJ9BsCUoxjkwGQIQl0WF88UHdR7
-	l1g9sVXObM29fvUSxYrFwt6ZoJQL6WzNpBDpvY+FR56H2iS1Fu3KocIcxoe/cujJ
-	mDgUNm2EGuNNt8LtNcDbGEJ2AV+/FZd2+S5eJERuSzrFnZWyPqV5H0MKNaY6JFUa
-	cP3+6NiZMCqTUO9LS3hKFg==
-Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11020099.outbound.protection.outlook.com [52.101.56.99])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4j3bpjsr51-1
+	PPS06212021; bh=CUdNWVugs6i6GW4y/MWPiQTCaoDyc8ouI7x/Je6XfVY=; b=
+	B3N8m+SxzRRRbhOFUVQNqSPnhUt0fvwmFaNt1iR2HQjd7POLet+m8B3W27/T/Ebc
+	61d+laUidkfKFjhQV5eaWWXQF061tddffsjyUXHTtqKb7wbV7LTAvD2KjSmU6QYM
+	apHJE1S4RdIo0Ft6hODPzGSJSKaIBKr+KaojriCiGx0p//WYJr1GgStJzPjAB/o0
+	v7RWlUP9jUgUkKdUTjeLCXFixuSsgqFLd8rPofonZAXYlgkAmaCzjtIcnclLkuwz
+	WMj4MzAgGCdt8j/mJAV0A2FIBFgex2IO5/7a5DJc0kpjoVqOGjX3aGYnke8JXnFO
+	VkzEcjsFD9yv5UEYgx9M1A==
+Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11020118.outbound.protection.outlook.com [52.101.56.118])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4j3bpjsr4w-3
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 00:02:25 -0800 (PST)
+	Mon, 23 Nov 2026 00:02:19 -0800 (PST)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c8f4YRPbA2vvI34dyNcSiD8ZtmH/DS6d6F3BQLgZf7S53B+5zqkN89MsdgcuzdGltZ9MajW2znlPpgItrB292NBQ/ebYoqjOA2DQNVKns2pLu7+A9R7jPpcbqwNCLeM/GUPiKT1HSQZUxlQUVzTUqUC+TAiCBabMZJYjPkTT/YkWcwe3Zlmxo+sbBdxkYAmGMd0xqBicye/6hAGuFZBscI0qYKkXsE3z7NSjxZh676rdeNs3Gs3KFzUNbK+TppZFZQCrvfGjKd2bIXcXhloqcuLL/z5HcdBNzFLweTfB/nndeeGKReYlPAydK5e8oSRgCQ7emqpvPOw4JTJtSLMjzA==
+ b=FJ90oQtdkmaG+AhP5++On4ZxyrZZgHorWJQLmy/FakCucrCIdFiJQ/59Q1/L1zlBVtBzMkpC0Px4+Cro7BWi96n5SYDnypIKaq4A7vX8Y+4Hh8aQVCcQpbupPToFn8mqV8czD6uKA3TGG00CWx/0NeODVvKvZcQ0bwWwKHNUN/md3E5tc2W/FDClv2dqAMmqMlgLG779QBSftaKT37H18IbzJXZ/jdfZ4cN9oIDzsAyqElFHtmX17Sy1zLDWJA/kMmkHR6+gk/9R355HoTNmdEwMtVytSme34+E4YLtrm9dPmQILIkBO0BGN7XSynBQLb9AzhmDz4fAad1uP4VnT7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/JjTlzR8I557LEQ8CbJUA7yfqjZ9iet28lWE1UWNG40=;
- b=pJDFvy9kHS8cjMWGopbwcA/xUKCA6v/QnwOJ6yiC0gCkCnxspKYDaGBtuli8CXkUb1A2i7SWOdPHrwVPhvHKJtqW4vfu63YTAfWwdXDoITnsl1MFMQ3dOfQwZHAfOzMqkLmmSKxnjLDAVV5v1txUAEkSqtUCQEAVjQoaHuHxNymRV6UbJs7m+DRJ7UAPRG8cAiSPz8eUcCOAYdBqzchT1iHSMnw77gstaXJ+WVAGd5PEZY5UyNYpJt/YdlqIUfODCLnxBPHnjttF2AJXnsr+57/Xiy8Uygxmo+TndyxPHgVKl5h1Dwk61BteDOeJ91lyMezI0TXXuT1DvOoW9C3qAQ==
+ bh=CUdNWVugs6i6GW4y/MWPiQTCaoDyc8ouI7x/Je6XfVY=;
+ b=RzGIotUcdAn+19jQMdnjn/l27Dz7wazaUxSGtwjhO+p8Nwccj3pB/Cth+nPr39NJEFdwiJEZF3H+Hg37XDc2UYi3LgGw2AgGyup8V2PPN4lv6VfVSkbEY2zj3JGY0Twy3hTdpMu1sRQtjMEiNiu6px7okcutuzEr641BSiGTnoKM44+onthSR655T44EErecJil7gJkgvOy0aJfA9fEBK8tR5PR8X/Nur6EU1UObmreCtrOeTU/+i+5RTW8hit8igQU4pXD7okTPdyD7+tpP2QLukf+p20qCBrzN+luBeRjIZTLWBcthR5n/guGw005yxWQPAFJTtIE+sycPdWMbqg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=windriver.com; dmarc=pass action=none
  header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
@@ -83,11 +83,11 @@ Received: from SJ2PR11MB7546.namprd11.prod.outlook.com (2603:10b6:a03:4cc::8)
  by DS0PR11MB7802.namprd11.prod.outlook.com (2603:10b6:8:de::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 08:02:21 +0000
+ 2026 08:02:14 +0000
 Received: from SJ2PR11MB7546.namprd11.prod.outlook.com
  ([fe80::ca9b:dcf:8881:bced]) by SJ2PR11MB7546.namprd11.prod.outlook.com
  ([fe80::ca9b:dcf:8881:bced%4]) with mapi id 15.21.0639.010; Mon, 23 Nov 2026
- 08:02:21 +0000
+ 08:02:14 +0000
 From: Ionut Nechita <ionut.nechita@windriver.com>
 To: ceph-devel@vger.kernel.org
 Cc: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>,
@@ -96,9 +96,9 @@ Cc: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>,
         Xiubo Li <xiubo.li@clyso.com>,
         Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
         linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/5] ceph: request a full mdsmap when an MDS stays unreachable
-Date: Mon, 23 Nov 2026 10:01:49 +0200
-Message-ID: <20261123080152.163172-5-ionut.nechita@windriver.com>
+Subject: [PATCH v3 1/5] libceph: don't back off exponentially on EADDRNOTAVAIL
+Date: Mon, 23 Nov 2026 10:01:46 +0200
+Message-ID: <20261123080152.163172-2-ionut.nechita@windriver.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261123080152.163172-1-ionut.nechita@windriver.com>
 References: <20261123080152.163172-1-ionut.nechita@windriver.com>
@@ -118,80 +118,80 @@ Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SJ2PR11MB7546:EE_|DS0PR11MB7802:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2677e46e-d290-4bd7-4573-08df49381a13
+X-MS-Office365-Filtering-Correlation-Id: a64dd384-8543-4ad7-e744-08df49381586
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|52116014|366016|1800799024|10070799003|23010399003|22082099003|18002099003|5023799004|11063799006|56012099006|261026121527099003|261026140227099003|261102123227099003|261022075727099003|261021123027099003|261022105027099003|261028144727099003|261021121427099003|261009223027099003|10067099003;
+	BCL:0;ARA:13230040|376014|52116014|366016|1800799024|10070799003|23010399003|22082099003|18002099003|3023799007|5023799004|11063799006|56012099006|261026121527099003|261026140227099003|261026130827099003|261026135527099003|261102123227099003|261022115727099003|261022075727099003|261021123027099003|261022105027099003|261021130227099003|261028144727099003|261021121427099003|261021133027099003|261021135927099003|261022113327099003|261009223027099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	3hS1HhQeNXB13RwE19LsOHsbJaM9pUprmmLBzMjancaLO8ud4FItIT/Fk906XCoWfFF4GIbhPGzmYamHj/B/JRF/OOwXJtITh+X0ItyHQdq0zOKdnIikotkATVTvYxVrhA5gKjDoTlOWsBq7nfkqD1156GqnIGSpTohaIvMHnUsChJqA6qlzA9zFoM+vuU992AENfcZTqun9uBIPh/NH6/IPCvgxxsPWbZTt8zrLuMxGfl6Q3EOy/vSDc6RxUVm0bVDO3ayrwR7zKvcGAU+hOHXIYSZyrgXVywRBmsTFGMyskgNjfhDf+pSjwHDtHG22Ozh3wecjZaGRyzO0hS2Wpmh1ePPmhPFL4esXP0izHx74QqocR8F5QPDzcA0jVc0o6e9xYpLQx1kflSzt15FNXBxavhnw7qrT1TC/LasSCObaa7o+jLcnZULa4xuqiHMRsi5/j9ZedDl463+XO/dtAPd0U07bk7xIFIKzBS3W63piOOXM5JY6FSGV0lGBt1DXGge2Et2c1uqWNPg1/pl/ifbn/Q7ftSfOHjZTgtuq8UmT7iGMADAVygJi7BFwVK1XxXPRN9218mnQa9OGsVYDC30U0QhkVSndLdIYxfAfW+DWpCwrS4HTuMA6qQlxnvcW7E4QIJRAwRbt349gvzkZjmauj3a7Mk6BU8pSVusiapA=
+	fu6PjzGp+5V11RLqJnMKYL8zqg5UN1wgelDMDQg5exj8uIPjAKQfLowriGOl4/DGypmULqgj9D+6RqbpvUuhxjmZEHba6q36EsKwDB7FLYiwkGxnuJkaKxa/nF0PpvzIMKwToEMg5av9BIVm9/4lkWiflayp8vCLhNzncHy8lTo1SRydo9193hIesv9JmfKGG5uXkJKgOeTm958BQkgGKzRNe+uIP86DhystF94UArw16IRE1yxFtDH7uLE8Uf6OcKv+W60wpv3SzwQ7a1BhfH3PZ4bb4jlZ+0MyDdrw9K6VVozruajzY8bGrieAXpzn48h4q3djBTjIW2ph4tP3BlUtfaQVHBRncBgECiXdb8g8aeQT5e+mz67n8HdUV5VDS3ZHuSi1OwpsGwXPzykgAkgxICie4CiweNjM4+zi07XzmSS1Q9rNwY0WUKmjeT9sEOC0HhIDWnR2g2CPMV6cOtcpRlsEwFTm4kmsbV052UgUI0sjo2xFS0SJI2kJUJ6xWHeeLKSSs1zraN4vBsiFn+nvnT0y4neBmIPyN5zeaLOGspgqH4vp/Q0nMB+fXnB0n0BgLQvcCzFTKZLRNNIQIHXnwo1P5Bkrit5CALVIJlZ9C8UvSsjrfo3SX4WWdwe579PaCefnDjuCusJg9ZM4wunqD5nTcs7eXNqRggIN0kE=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7546.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(10070799003)(23010399003)(22082099003)(18002099003)(5023799004)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261102123227099003)(261022075727099003)(261021123027099003)(261022105027099003)(261028144727099003)(261021121427099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1102;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7546.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(10070799003)(23010399003)(22082099003)(18002099003)(3023799007)(5023799004)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261026130827099003)(261026135527099003)(261102123227099003)(261022115727099003)(261022075727099003)(261021123027099003)(261022105027099003)(261021130227099003)(261028144727099003)(261021121427099003)(261021133027099003)(261021135927099003)(261022113327099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?oyMl/g+FxRVpPqAMIyaFCvSrNeKjGnK1bKTV+nFxIDxaFUVWbqPqI8Qbp7fY?=
- =?us-ascii?Q?51CFQF9xeTiA4Zvkkd6F4Zh8Ic9Z3nrkrKlpM+fRufkz69fzfeATMYv+w0S4?=
- =?us-ascii?Q?h6UxHNbVwi4ctK7l9sUGw7tuz/qZeZuLeHg96FIojIhza4qSHXWhOx3m2jgz?=
- =?us-ascii?Q?aIKWwbwUuBabQ9vNKW6mvNMtaC8tqTB0cECZ8rWoBMEAofsI0aZaTDcNb65Q?=
- =?us-ascii?Q?gskI89O39zlsJ6m0nae/x6XzR+yfBGliF1GsEFilTAUh9UxCTSi2u2OiVH98?=
- =?us-ascii?Q?oxursjdVU9RxAPflmtkn5bQTp93B5MTOyZNrtWRgqWQMzEiBrUeo2Rw+FnGa?=
- =?us-ascii?Q?yJ7KtI49PhF0cxo92e4VdyiXtjaTLJPEu6fn/mM/Dm3MGTGbrersPgkti0Jf?=
- =?us-ascii?Q?mVV7fUzRMmK8aoqbg1jRtiIGK5ZGxC0nMfq3AOir6DnDYIy1m0k9z2sfVIEt?=
- =?us-ascii?Q?xms4+4/rUWAtQH3sHg8/bINORibbi72nG4GpD1dlD6tVPlP6cIplgAjP61fO?=
- =?us-ascii?Q?ZvztiaEh0U3lewGcHJUHrDfFEFRoRHPV0AcUXPaj2zwVZS21G4XmI0ztot5n?=
- =?us-ascii?Q?TlXFzEzFI+r13c+2i861J/RooxcRI3PnW7JvvDMMd5HdO9ut+GhNT0ztxSBq?=
- =?us-ascii?Q?c8thCCmjISz28RASSgHiiBv0eLbI+j91yo541A/4oJn9iLbn1MuAMoNalZql?=
- =?us-ascii?Q?r24xZJx8NWKB41jKHauHvTvL3UPmwf13+Gst1lhvunl8INjvyRCD7lwh2zZB?=
- =?us-ascii?Q?yh6i4S8vNo5mqV5SR8c7CDx0oHy5SAx57RjAJSpD1gq0PQ+630vG67kVmdEI?=
- =?us-ascii?Q?QtLmKhjKHA8k3alGw6Qpm/cDhLzRVyDTHfNZvf/n35fYtQ9pB9RJn1PGQDfx?=
- =?us-ascii?Q?wviiPsTfTyWF+ktyheg8baIDtEYdgTf3zL8tngxO1gECrlO3F0SsE+cm/O3j?=
- =?us-ascii?Q?sBuimtWVQIVS/N9ijbOJW9OCpU/odXRBTfKSNzLME77UcS2mIRATW/zGJOx6?=
- =?us-ascii?Q?x40JzMCPnTSWK06KdKKnSLpH8/SJoNvF8Wmm68PIIrvf7Ln8P5v32IxQFOD1?=
- =?us-ascii?Q?zkgnlWMcTYWPLXlUCkYrqcFvA8SixshpmvMc33rpZ+H3Ire/DtiQUefgRtnV?=
- =?us-ascii?Q?fmxlF9FxPhXlwwpUE639QjA28M7t0iuP7QYtYNQtTnF1jzdoNfJcNmGDheC3?=
- =?us-ascii?Q?IFG0CEIAJeanBoJMYeUy5qju759Q9Os42YstCGFxrL+k8ieyDgypL14T4rg/?=
- =?us-ascii?Q?DfhtMphiTVJZJeW3NM5l+2+gIplZEuadhTl2Vlo17oUws/zbnyRtGcy93bM/?=
- =?us-ascii?Q?mU4lhByJTgk8KGNIB/tjhdudfJxEWlXTojJJUE+AQMlg+lNPdx7rx0/wg8Lw?=
- =?us-ascii?Q?h85HnLtGfTuR2LsgS2mwPSCvlpX+eiz4/1PsifcsV10iE+syKL0Al9Nz1Pu1?=
- =?us-ascii?Q?FaawjXzGUdE0WF1f2nLVLDSUJaGZA5QWS30gkdez73LS67Vae1Hjp718+8Jv?=
- =?us-ascii?Q?QOZf6FFPZ4v0Cf5rNgr9vdF/Es3Y1/y6w9D5i9j+57ei3hyA4sV0cbAoI3nA?=
- =?us-ascii?Q?NYomDnEDBU2PYFQND68czoRNlLmrR5GVdO8QcnwvI+nnWEaWpoLMnJRtqPgd?=
- =?us-ascii?Q?hOkNc8mSTscHlDoMRdf6Z/UIcXstotBJUengc0d/zqlFH2lHODJVejQk3Oqa?=
- =?us-ascii?Q?Tx+e1i3yDBXm76QPM0Ff09SE4z8y/eX9NtFzb3rkhtuW3eXGCpld9tWS3QjN?=
- =?us-ascii?Q?6pN4wKsRjyJyYU7fgNZ4B+XKfjVw9cHARlSyW+KcctjikDUACmaVWlpvkEr3?=
-X-MS-Exchange-AntiSpam-MessageData-1: FG9YBP8hz0cWvbO8wXjRV3KISD9p1/Vzge8=
+	=?us-ascii?Q?lHSazaX7dzZSc88zPb3jCITWb5ffQyEUewu7GUxXNinD0GYFm+WmIibktHip?=
+ =?us-ascii?Q?tUxkLJ5xBjxgXU1peVw1P3rotX5YzyzpsP+whfWUdxTzxQbUcta7zjlkBzqm?=
+ =?us-ascii?Q?2WLFz6Pxb04SAJskVr4t4SoS1lKXfy5bUA8fg3bMksW+md2Si5MtYIrOWVfF?=
+ =?us-ascii?Q?Oiuejn3vVvmwrtAfOUQkpIt5FU+qpBHPyE/Dkymxlaq4MmREfQH//9CeUN65?=
+ =?us-ascii?Q?z5e4X/s51sKHfTbU5J9ZvyNMJ+aOVdD1+psgb4muYw9w1BCnSm4TCJZfn4fj?=
+ =?us-ascii?Q?Qo7rCY3Pk3WCUiw7+/gbjyqJk4JvTPb0iTkYA1UNRdh+glgPDyVmE20DPSAY?=
+ =?us-ascii?Q?wFgy4YO4B+WlZ9rg6cIwJTKJn6rm97ttb101cWLphP40og3or6j4xq9ivX2r?=
+ =?us-ascii?Q?3xQcCWMr0NBN61re3JxBXN4jL68xDACE1d/uLfYYv7Svp50ctj9Usg2OEwMV?=
+ =?us-ascii?Q?vIYmaIFFEi1AemW7ptDMwsqzdmMRzo5JPEgnc9k43F6h796lkFJelgmIJF8T?=
+ =?us-ascii?Q?rQwObjeQdikEM3hlFssdi3oDvu1jVS4HO9EvoDd+olbs/8XOp8tmCZE3Ny5T?=
+ =?us-ascii?Q?M6Tf87ljBYlaEWyGJ+mjapbeSH+pIF9bdkA5OZelXzGA7zwdHgMprsVTatJ4?=
+ =?us-ascii?Q?O/TeZkPpkcMxNleTh5TFOBagFNDgb0JHft5PenhV7+e93eC2Ftf6p8AMIMhr?=
+ =?us-ascii?Q?pOYztWKqMPn7jdCQIzj+j7/GlHwibX/ZjaAFmTlqrcbHT0euUYtXOjP6kPvf?=
+ =?us-ascii?Q?0mhh7zJs+N4XkR2mZ2w7ILO1XGK20d0Cps1UCUdEicR4H5fJce9ZA0Q0wryy?=
+ =?us-ascii?Q?5wAMiJ9TFs6w3/yuB6PtW7qbhgsPV5NJd+lMpBGDJLRluC4tPxh28MwYq9Ba?=
+ =?us-ascii?Q?fq45eGEDXMetcRZ4WaRDbJUHQisLlo5A67ouBwOoWfhFdn+o3OAjQx3CRSOV?=
+ =?us-ascii?Q?m471lO2PINAhQ+vb62VNknaLFKowE8gRvK9Manndvb0xI0DL+uy3RerpRvm0?=
+ =?us-ascii?Q?83tYVEY+6C9Thhg+W4ie2xLefAQ+4JO/tEMiPfOdgDKEoAujo3MZ+auLlns3?=
+ =?us-ascii?Q?TZbH6L1F1DStfDIyCqjV1N4ysKsGCvXQgDnBDmyAnL3cZlxB8QzkRC1NYqpJ?=
+ =?us-ascii?Q?X5xzyRFDlzUItj7DMaCd002bso3r40DU58iArok594iGo3MPPuukX894Uq2R?=
+ =?us-ascii?Q?jEu+0rIfA4CUQuVXxLGPfkHIY6tKHmN3Jqd7B0ysCKInosm24f+u4LuqZEv4?=
+ =?us-ascii?Q?JFLPMd0JSlRtGUYMkIuBtjvc26lAQgHGjuH2nQ2Iuwhpkru60lC3gkeZaTqG?=
+ =?us-ascii?Q?JStCD1rCEbyjb+LsRA0om9nzFaLfB7MxYNDUPg1z82W1utIdiT/jWV1GOFxl?=
+ =?us-ascii?Q?eb8pPS98myxjR5ll4asZyJvfoOI8JO5fbiGjddS4Tpgqly3cm5RwxMXevwlI?=
+ =?us-ascii?Q?yyBzCV+TQzeT2RLP1BPRpKP+1sTNPfgV8kRJ7TkV0nG3mNew5PoAbpF6uIdQ?=
+ =?us-ascii?Q?5Rk65Uuq0O7OEkiGHZhYakWgBon/SfY6Y7b7hzeg36un4aBl+zptePv7OIt4?=
+ =?us-ascii?Q?U4m3/1ehfwjBleVpBFwCxbrha32U280ZDjcWL0Zy1WyUr36ipCRe+9qMt5uf?=
+ =?us-ascii?Q?nNtoYcMjJNR7nmQMP9pRawlz8MwKK225cJTU5YjxiRDJaPYmw+410Af01oOH?=
+ =?us-ascii?Q?K59SO6/Tr8xTT8Ltp5L6Af5DmLH5CBS8Ht7AAdyVvMEuP+RT7Rnc7qsfdU5o?=
+ =?us-ascii?Q?eXYxBsdT3Osas7jAH0Ktsyv9WNyDuGnuVG80ntc7Hh/ujKkt4kbM3nZQ+W3d?=
+X-MS-Exchange-AntiSpam-MessageData-1: lGUPav/r/SiMrzNue3n0lcOn14RrnXqZp6w=
 X-Exchange-RoutingPolicyChecked:
-	FZxCrtfDe0UGpJmlh6v6UA/kZ6tSplqAw3t5jJwTcx84I8xWcSIh0pKDsteYiOyGOILkcfbqZW0doMA6EAqpwJC1yFwj+Dv9Rv+XpJ4GAG1/p3SGtv+xSxN+NcqmZmLUaJdycOG1KflpzCd/Um++UPZsCTJtqOI2kkXoS6cd5StqU6cVqkDzoC+i6+3rCIYg72KtDzJgtIzi8HBiinv54hyYrh5YLBEfgrU2VeqFU4H4285MLfE5uIdseKhBV0ApbG1xTxCbWGIwDb3sCEFpp4bnJWXn9CIILSnr8vdUBa7eNecMGSEqu8/+w6qFssjBOQVMUZTpzigTjlivTek7wQ==
+	IJiQ+f6bXVLCLxMDlIoDGfH8KqvrAu8tHnc9aZN5TtPHsCmrTfoBdbdIEUt2lHVqgcKHXSmzwrc1MF6GfLICHi+D6PHJhtiRMv0hh33oyOyRoI6xqMMXzDb+SOMoQWtig67HV5/zAszg+P8DwRpP/LE2CWePXZ4agduUFBIAujpyIC5M8Dxu4fvi/y41TObE3r8FrDIsknWMV/heGPUIpsmAh4UvcmdFKX+EKVhvpzHcOdaQGAh4KKDwP6L6fZ2QO7UWzywr+H+SMaLtcXtTJyiKig0lN6YbPXRotCrXJpivlxVUFtCeGf1bz+nWb9cMTMW2/7J10py+DEb2miCJvQ==
 X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2677e46e-d290-4bd7-4573-08df49381a13
+X-MS-Exchange-CrossTenant-Network-Message-Id: a64dd384-8543-4ad7-e744-08df49381586
 X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7546.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:02:21.5964
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:02:14.0355
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HN3roR2oh2SV8xpzlOxB2GxvAePuGzv2cXuEsSzVdaREoyeIG82xVmLCG3/u+4ft8h7H2ORogo4eydRhn5RQq9604EOBIFbrnbMlyg+TQzE=
+X-MS-Exchange-CrossTenant-UserPrincipalName: BWOepGROylI61xlNK/c1zajm+wEenzvKAd+zW3HHOQjwF7gVkeIMnmE5LPMdBW6T3rjjJJPa1RASyFA2vYYqrlhhjvhPXY+mpGr/7OBCgLU=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7802
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfXxtGyFCNuVvju
- UYzQsJ1J17+6093G8pXGXkadbc8Ij2uJvw/jpC+l+7rfGB+4gCp5sR9O4vjIDpd3cr5x38y9QLO
- KdfxG/AHagy45Q8Y9huZKqMjwP3UDCk6n8zaBf2HspYV6+0QxpWCzyC/nvM5xhKBBDXl37gvwIn
- Rkj95qvsWbz+UBve3xqoMSPkUXQbHerqpdB9093DmhPkc6xNepmncQhmtIvXrnDp4NL+H7HrMjO
- /AYjylJK9b0y395qxHMbuYiAK00JV+YgGEvjwL+MHroM9EJVBdp+F610f7Dc33YCgx/6CP6hpO1
- azb9ESsG4/waqmIdltnP1cAc4HR6yt6oDIZybrDS/LrreqtMb7eHOka1Q9Kv3+qYcPCvsOT1jbZ
- UIlipXC2oMn8FTC3h7lcLl7Md8qewMDeHFoRtbtTnzZ//Ckhcxlc1E3CFBoMpMTDjYMlkbSRv36
- DQQU4AOaiKU7z1wmN+Q==
-X-Proofpoint-GUID: 5D3HPHb37lrCaweexKUewLD8qCd5YouT
-X-Authority-Analysis: v=2.4 cv=I8Hw19gg c=1 sm=1 tr=0 ts=6b03f311 cx=c_pps
- a=gw0jr/XWmcdhwQv4PjOuaQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfX5w+fsCH/5EgR
+ 71aZjA5Wb3vA1S4nqiyUnM1vi7Sm4fJ3/tZap5zI6pwjWqceNjJE3+4/xbZeJw28K5buEYMjHJ7
+ jl4mCxOd5z8gPoNwasJd2BQrh+F1T4f9Eq8LF6tk404ecdQbpohxPTIPKo39snicyppkVGviTxO
+ LFhQRICt0Wz740Vn7m/4zkSQRkWrGdbubYK0IPMAAdX+Q4gChs/+8K6JgWNkzgNiQbsYkMuQmlW
+ Wh8hEAhoOodbNrwxquBfEtaWYoTNfbRlKYOv8dwNAeFjTR6obLa9VvZwpBUSGrtLZB6gWm2xx2u
+ LXrmfgVKZyna1TlCTPjHtS09L42YRhm9vWVVzYln0xGEEJobvUjZ+W8ldiwSPbBEfIbSDNKMUEf
+ C6pT3rzgW65MlyFSk1TIVYudbtQx/gybMda60vvAOqRkunvIHyhZitdmbY33jQtZ93y0i/C00N+
+ 8VO+dzZp2zIvF7YphAA==
+X-Proofpoint-GUID: VI5AMPFGHhQ_D4b8X9NIAiU7yzoPNpuR
+X-Authority-Analysis: v=2.4 cv=I8Hw19gg c=1 sm=1 tr=0 ts=6b03f30b cx=c_pps
+ a=WTYiPbwPEgbs67/cDcbz6g==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
  a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
  a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=bi6dqmuHe4P4UrxVR6um:22 a=iKiJcTA2PjBS6x5JeXcw:22 a=t7CeM3EgAAAA:8
- a=sEnkRl3NJ9bUhnf8avIA:9 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfX1lgnFvnkmHAs
- 0NMst0YiB5/UEZY0367Gvye7quLCCiVhHRjsgrpoIQK3CnbxtzKYrTQF6Of1PWWceT621mWiVY2
- 76HR7hGzHwVfU1xETaDu2Qmu2ZFwNxbnhdw9EthTVyMAdEH02kOk
-X-Proofpoint-ORIG-GUID: 5D3HPHb37lrCaweexKUewLD8qCd5YouT
+ a=06xcUqQ1aE7JeyoqIIgA:9 a=FdTzh2GWekK77mhwV6Dw:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfX5V/IduIZho9M
+ f5Tbic2uGRQh6xFfHIb63o8D3sMFy5poanJ1UDNHAVFSzXppSqWoSz0muHC+CTUoFs3hKMH+cN4
+ /EF3UQRp+FRROcATxKfEJ6cBtxzEayHhxnHTnq+aysdGUIXuWHDm
+X-Proofpoint-ORIG-GUID: VI5AMPFGHhQ_D4b8X9NIAiU7yzoPNpuR
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
@@ -201,135 +201,96 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230031
 
-The client subscribes to incremental mdsmap updates starting at
-current_epoch + 1.  If an MDS restarts at a different address while
-the monitor session is also down (e.g. during a rolling upgrade in a
-containerized deployment), the client can miss that update and keep
-reconnecting to the stale address indefinitely.  This was observed
-with the mdsmap stuck at epoch 53 while the cluster was at epoch 68,
-the session HUNG and monc reporting "have mdsmap 53 want 54+".
+When kernel_connect() fails with EADDRNOTAVAIL, the error is local:
+no route or no usable source address for the peer, and nothing was
+sent on the wire.  con_fault() nevertheless treats it like any other
+failure and doubles con->delay up to MAX_DELAY_INTERVAL (15s), so once
+the local condition clears the client may sit idle for up to 15s
+before trying again.
 
-Nothing currently reacts to this: mds_con_ops has no .fault callback,
-and a session going HUNG doesn't touch the subscription either.
-
-Add a .fault callback that asks for a full mdsmap (start epoch 0) on
-every MDS_CON_FAIL_REFRESH_MDSMAP consecutive faults, resetting the
-count on any session message, and do the same when a session is
-marked HUNG, which covers a connection that went to STANDBY and thus
-never faults.
+Since a failed attempt costs nothing and never reaches the peer,
+retry at a fixed 100ms instead.  Track the condition in struct
+ceph_connection so that it doesn't depend on which protocol (msgr1 or
+msgr2) is in use, and rate-limit the message.
 
 Signed-off-by: Ionut Nechita <ionut.nechita@windriver.com>
 ---
- fs/ceph/mds_client.c | 48 ++++++++++++++++++++++++++++++++++++++++++++
- fs/ceph/mds_client.h |  2 ++
- 2 files changed, 50 insertions(+)
+ include/linux/ceph/messenger.h |  7 +++++++
+ net/ceph/messenger.c           | 15 ++++++++++++---
+ 2 files changed, 19 insertions(+), 3 deletions(-)
 
-diff --git a/fs/ceph/mds_client.c b/fs/ceph/mds_client.c
-index f64a9c97cb882..0338c7feec108 100644
---- a/fs/ceph/mds_client.c
-+++ b/fs/ceph/mds_client.c
-@@ -72,6 +72,13 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work);
- 
- static const struct ceph_connection_operations mds_con_ops;
- 
+diff --git a/include/linux/ceph/messenger.h b/include/linux/ceph/messenger.h
+index 6aa4c6478c9f6..344496967b5c5 100644
+--- a/include/linux/ceph/messenger.h
++++ b/include/linux/ceph/messenger.h
+@@ -321,6 +321,12 @@ struct ceph_msg {
+ /* ceph connection fault delay defaults, for exponential backoff */
+ #define BASE_DELAY_INTERVAL	(HZ / 4)
+ #define MAX_DELAY_INTERVAL	(15 * HZ)
 +/*
-+ * Consecutive MDS connection faults after which we ask the monitor for
-+ * a full mdsmap.  With the messenger backoff (250ms doubling up to 15s)
-+ * ten faults take about a minute, comparable to mount_timeout.
++ * Fixed retry delay used instead of exponential backoff when connect()
++ * fails locally with EADDRNOTAVAIL.  Such an attempt never reaches the
++ * peer, so backing off protects nobody and only delays recovery.
 + */
-+#define MDS_CON_FAIL_REFRESH_MDSMAP	10
-+
- static void ceph_metric_bind_session(struct ceph_mds_client *mdsc,
- 				     struct ceph_mds_session *session)
- {
-@@ -4632,6 +4639,9 @@ static void handle_session(struct ceph_mds_session *session,
- 	      ceph_session_op_name(op), session,
- 	      ceph_session_state_name(session->s_state), seq);
++#define ADDRNOTAVAIL_DELAY	msecs_to_jiffies(100)
  
-+	/* the connection works, see mds_fault() */
-+	session->s_con_failures = 0;
-+
- 	if (session->s_state == CEPH_MDS_SESSION_HUNG) {
- 		session->s_state = CEPH_MDS_SESSION_OPEN;
- 		pr_info_client(cl, "mds%d came back\n", session->s_mds);
-@@ -6266,6 +6276,18 @@ static void maybe_recover_session(struct ceph_mds_client *mdsc)
- 	ceph_force_reconnect(fsc->sb);
+ struct ceph_connection_v1_info {
+ 	struct kvec out_kvec[8],         /* sending header/footer data */
+@@ -507,6 +513,7 @@ struct ceph_connection {
+ 
+ 	struct delayed_work work;	    /* send|recv work */
+ 	unsigned long       delay;          /* current delay interval */
++	bool addr_notavail;  /* last connect() failed with EADDRNOTAVAIL */
+ 
+ 	union {
+ 		struct ceph_connection_v1_info v1;
+diff --git a/net/ceph/messenger.c b/net/ceph/messenger.c
+index cc7db8c61db37..3c893bc0f7d8b 100644
+--- a/net/ceph/messenger.c
++++ b/net/ceph/messenger.c
+@@ -467,8 +467,13 @@ int ceph_tcp_connect(struct ceph_connection *con)
+ 		     ceph_pr_addr(&con->peer_addr),
+ 		     sock->sk->sk_state);
+ 	} else if (ret < 0) {
+-		pr_err("connect %s error %d\n",
+-		       ceph_pr_addr(&con->peer_addr), ret);
++		if (ret == -EADDRNOTAVAIL)
++			pr_warn_ratelimited("connect %s: address not available, will retry\n",
++					    ceph_pr_addr(&con->peer_addr));
++		else
++			pr_err("connect %s error %d\n",
++			       ceph_pr_addr(&con->peer_addr), ret);
++		con->addr_notavail = ret == -EADDRNOTAVAIL;
+ 		sock_release(sock);
+ 		return ret;
+ 	}
+@@ -477,6 +482,7 @@ int ceph_tcp_connect(struct ceph_connection *con)
+ 		tcp_sock_set_nodelay(sock->sk);
+ 
+ 	con->sock = sock;
++	con->addr_notavail = false;
+ 	return 0;
  }
  
-+/*
-+ * Subscribe to the mdsmap from epoch 0 so that the monitor sends the
-+ * current full map rather than waiting for an incremental update.
-+ */
-+static void request_full_mdsmap(struct ceph_mds_client *mdsc)
-+{
-+	struct ceph_mon_client *monc = &mdsc->fsc->client->monc;
-+
-+	if (ceph_monc_want_map(monc, CEPH_SUB_MDSMAP, 0, true))
-+		ceph_monc_renew_subs(monc);
-+}
-+
- bool check_session_state(struct ceph_mds_session *s)
- {
- 	struct ceph_client *cl = s->s_mdsc->fsc->client;
-@@ -6275,6 +6297,12 @@ bool check_session_state(struct ceph_mds_session *s)
- 		if (s->s_ttl && time_after(jiffies, s->s_ttl)) {
- 			s->s_state = CEPH_MDS_SESSION_HUNG;
- 			pr_info_client(cl, "mds%d hung\n", s->s_mds);
-+			/*
-+			 * The MDS may have come back at a different
-+			 * address while the connection sat in STANDBY,
-+			 * which doesn't fault.
-+			 */
-+			request_full_mdsmap(s->s_mdsc);
- 		}
- 		break;
- 	case CEPH_MDS_SESSION_CLOSING:
-@@ -7499,12 +7527,32 @@ static int mds_check_message_signature(struct ceph_msg *msg)
-        return ceph_auth_check_message_signature(auth, msg);
+@@ -610,6 +616,7 @@ void ceph_con_open(struct ceph_connection *con,
+ 
+ 	memcpy(&con->peer_addr, addr, sizeof(*addr));
+ 	con->delay = 0;      /* reset backoff memory */
++	con->addr_notavail = false;
+ 	mutex_unlock(&con->mutex);
+ 	queue_con(con);
  }
- 
-+/*
-+ * If the MDS keeps failing to connect, our mdsmap may be stale (e.g. the
-+ * MDS restarted at a different address and the incremental update was
-+ * missed while the monitor session was down).  Periodically ask for a
-+ * full map.
-+ */
-+static void mds_fault(struct ceph_connection *con)
-+{
-+	struct ceph_mds_session *s = con->private;
-+
-+	if (++s->s_con_failures < MDS_CON_FAIL_REFRESH_MDSMAP)
-+		return;
-+
-+	s->s_con_failures = 0;
-+	doutc(s->s_mdsc->fsc->client,
-+	      "mds%d keeps faulting, requesting full mdsmap\n", s->s_mds);
-+	request_full_mdsmap(s->s_mdsc);
-+}
-+
- static const struct ceph_connection_operations mds_con_ops = {
- 	.get = mds_get_con,
- 	.put = mds_put_con,
- 	.alloc_msg = mds_alloc_msg,
- 	.dispatch = mds_dispatch,
- 	.peer_reset = mds_peer_reset,
-+	.fault = mds_fault,
- 	.get_authorizer = mds_get_authorizer,
- 	.add_authorizer_challenge = mds_add_authorizer_challenge,
- 	.verify_authorizer_reply = mds_verify_authorizer_reply,
-diff --git a/fs/ceph/mds_client.h b/fs/ceph/mds_client.h
-index 31abbb3b3bdb3..46e13446afcc7 100644
---- a/fs/ceph/mds_client.h
-+++ b/fs/ceph/mds_client.h
-@@ -301,6 +301,8 @@ struct ceph_mds_session {
- 	struct list_head  s_unsafe;   /* unsafe requests */
- 	struct xarray	  s_delegated_inos;
- 	atomic_t	  s_num_deleg_inos;
-+
-+	u8		  s_con_failures; /* consecutive connection faults */
- };
- 
- /*
+@@ -1644,7 +1651,9 @@ static void con_fault(struct ceph_connection *con)
+ 	} else {
+ 		/* retry after a delay. */
+ 		con->state = CEPH_CON_S_PREOPEN;
+-		if (!con->delay) {
++		if (con->addr_notavail) {
++			con->delay = ADDRNOTAVAIL_DELAY;
++		} else if (!con->delay) {
+ 			con->delay = BASE_DELAY_INTERVAL;
+ 		} else if (con->delay < MAX_DELAY_INTERVAL) {
+ 			con->delay *= 2;
 -- 
 2.56.0
 
