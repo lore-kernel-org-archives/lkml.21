@@ -1,56 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=157.90.84.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443155;
-	b=a5OUGrqcxftlzzlyV2tjLrvBOZa38ag0D4j8j3Ck8ME5wW3BXT+wzTCI41bazE9/UDq6
-	 qSA1BHXVvB9ppOLah7OdAbqfNc2SnLwwbvJLTCfwG79y1RnQQu+1g4n9gca+hnpqTOJgT
-	 uuxvFxeNaHxynIQebHo/U7E0qpe5ytNpEnan7OJodZ1LvNULrfNVDKxw866F8f7UKJh2m
-	 qO7KESkKB0UoElx2TI0s5/IbfBVIo1Z9sEhjj7kf1FX0QWBPYTT5wmHxetrCBXAD1m5lM
-	 XV35zKwRpiDaZ0vOrELZ3CtEkG5+w7CDhmiMxRRhYhtTB/bQ8SJpfw+vNzhKRMK2y0A==
+	t=1795443156;
+	b=DJDRxrEoNohr0Lv6gZHOoB6japxZOi8H+uBKw22boWbpHlAllm22YQdMo7Gc7QNN41QQ
+	 CbTe6xWltqI/btHGn3Ys6XJAmydJXZku3YDezN9u9Y3FQ+GGgfa0hMPQJCJeg2067+jVX
+	 fjt6i6ewwEjHQcenoALM7CkeCJnNAWjoZHntaNsnwT0UwGO9hycEvDUQSYN7EzPv1mrk3
+	 1r7qCFxJNaXWDcUd371PYdVlJXCRwJ4/be4Ds/hsD3wtypSkc3COBoTiETQe2XRUoThTX
+	 +j+INUdsSOobnt7Hk2QKM65/fzJzimb0f7zTuGT7NhfyMCmK27qiEkFiQpq050ip9WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443155;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=5zJGdb0taAzL83pUSPdPIFK41PcMxbxbayAH1/2w8bw=;
-	b=FXNN01jdLvrEDY5ImDFJzOmMDpNmeywb8KZ/mnDST0axZVYEXg/IC48FtS1NQBybV0om
-	 KCN6n8iSKOJYVDaX5lVv71tZw+gyLEZaFT5yBUq10kzWS8wc+B8xLSS1B7xxdffVW7IUD
-	 6LWmZT5ZqteLHHph/1BhuyB9szrVIJ6zoTkKI7llycp0reFAZ9iLgeZRY3RMX0LeTiBY8
-	 be/Dd1gz5V1uXvTu60crzGxSVTPe0+73baG35TEAnnplPAcKic4Oa2Vmck0K29S0kt1z0
-	 OCghxAm00l2naVzgjVC7z4hbYQUJTYBkp2Q6vkuaGcHvZ2xxk/IFCyO1Xp+kc+sQ0iQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443156;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=;
+	b=xkc04sZKtTi2hEmJgU8mcBPaEVspVmF/eApmxZeScmELMYICAkvKSYLTaoGWToUpO64s
+	 D0nww/hagcD+GcsSUemSBSYblIVZh2oVR+oEpfY7XBHM1nirJ1X9uXweyvsq0TGS5OD1m
+	 fmi6zYtuODhqRh0fLVi09t5A0HYCR2Uj9CVgnvDO/jqU4VCSEa6CUaDQdimPKMwonMCQc
+	 0NJTDlQiWY0bNHjlGgzxdgNfbtelYEVVVJ1uGk3BIBrYL5KZRVWQri6RNweJ6Pw6ypj4R
+	 EwDSict3UCkQ0U/UI3cj09oCdXTf/VcSsUnSOdGpqcNfIabh4kPI+N+yMnC4Sq4yDUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tuxedocomputers.com;
-	spf=pass smtp.mailfrom=tuxedocomputers.com;
-	dkim=pass header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=NoVMhOMv;
-	arc=none smtp.remote-ip=157.90.84.7
-Received: from mail.tuxedocomputers.com (mail.tuxedocomputers.com [157.90.84.7])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZKocMOYx;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SHMSnGwT;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83789606A31E;
-	Mon, 23 Nov 2026 14:12:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83789606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tuxedocomputers.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tuxedocomputers.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4075606A332
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4075606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=NoVMhOMv
-Received: from [10.10.12.8] (business-024-134-105-141.24.134.pools.vodafone-ip.de [24.134.105.141])
-	(Authenticated sender: wse@tuxedocomputers.com)
-	by mail.tuxedocomputers.com (Postfix) with ESMTPSA id 01E562FC0049;
-	Mon, 23 Nov 2026 15:12:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tuxedocomputers.com;
-	s=default; t=1795443152;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5zJGdb0taAzL83pUSPdPIFK41PcMxbxbayAH1/2w8bw=;
-	b=NoVMhOMvEZzJDP8kbZWNq53uQKVF3ZvJQdSFMC9wPonzxeDdIeUJ0u+Tv116lQbUK6nOsd
-	5NOwBUb/9L4loq6RpVy+D+p+j3xhVkwd/OhaVwbu+GWRMu5xSgUcfJlpfEQq4VgJ/YTumN
-	g2lGMKRixbl3xWbkhCxOcl2ybp1M62Q=
-Authentication-Results: mail.tuxedocomputers.com;
-	auth=pass smtp.auth=wse@tuxedocomputers.com smtp.mailfrom=wse@tuxedocomputers.com
-Message-ID: <b5f96ec9-ee4c-44c8-8451-9f40bed43290@tuxedocomputers.com>
-Date: Mon, 23 Nov 2026 15:12:30 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZKocMOYx;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SHMSnGwT
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDL2dF2442981
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=; b=ZKocMOYxmja2LYus
+	uJysaQFVhq0gXn7bdilgo+wb7nKzGltb5swiYoYEic8DI71pOM33oYFP+/wwYi6E
+	xQjcf8zNZ/cm5Y1Ncfnb0GnnsHdHoQ9m9vZwJTpO4RM/z7NLrquIjRREQf0G/c48
+	AKV8Frjrale8Z1dHRie5em5v+Cyb4aZTMarxhNG7sd+pUoGuG5eSGCLDqkhbPcAX
+	4legnvQlpS/6/IPix8KBRzNPjWLSLZE5faBMbKsyYrzQhq24hWa8WSaRNd1EpQlt
+	b3hIL5Umt9GsLT1tx4Q2PIgeVLj17rgEqAPvbSWIY92FoAZZ4lT+WnxzZkTwLBYt
+	OE+YQg==
+Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g1k1r1u-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:34 +0000 (GMT)
+Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5ee4ca14454so83747e0c.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:12:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795443154; x=1796047954; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=;
+        b=SHMSnGwTOnxggiRKitcgnBYeAevLrf8cxCOiDJdVwq02PZDCKZr1VUW6BynTpvosNi
+         eSiuhBHAPF22cTQgeD13FsONftVknHPz0sWH8o8tYAx2m+HWWf0nczPvGZDURpc+F1VO
+         ggkVgMPuQYKM04e+bmNSr7O2WLZXzjmziqwF7kGRqsklxU18rN9bv1tPRl5tll0NdyGj
+         AuxMtNyoyjHJmBybiIZ833YQXaYPQySxe4kSHhXKOcM4fiM5cDS9R0Q6o5+In7h07BVF
+         1DU7ldH6FdQrwTfjjIPvL5PisnfI/APB0EgTb1ChtXEayrntmv5THyCVR/puKqN/DWXt
+         cSFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795443154; x=1796047954;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=;
+        b=kEAZieK5VUxJZmALIhon0cKlU4KpJ44lXdLg+a88C2CeRuaGc+xSHhAhiTsNxpDx8N
+         QpCEpEwix/hK3zHWUZVksVoRufeW1GVX9CWBxvbMW7NGv4iz3Dq13MH2pfgA5Jj+foiT
+         Tl7YYG8O1kf/Xb0U8Lb3tvKp6DeLut4TwRhM+dB3V9WpaM5OhCArn5QgZY1RK5zElzJg
+         coJNxG2HWLKI1rA/DePHiaInIczR7eGJCPgjtiOXATD/Q+nbsPULd6ER4pUGcto/jUFB
+         tmT8luZKh8U0q+XUhUjmSzYzfasm6VzZu0UZoWRAq9euEqvOXiS//+AWYdc4yIs1hR5f
+         NNAg==
+X-Forwarded-Encrypted: i=1; AL+hErGt1Pn6iTHMQm0DZzuHhBSv7/Y5I1eGbu+U2CkaJvqq2ZZsRqY2xQBKkBO9Nr6fYShJi1uYfYcxJO5vOjc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9C/yQ+ajlC6XsibKI6gS4RpI6LT4enp42RzzEBBvVH9+EzPucL
+	CX+j3vk50979g/fWgA7M7i+F8+rP4yicYbNbQr4ETtIGqfbI2SV4NtpfMNguUMPehF3VJz8cyPz
+	sKFZCMxeZitfJS6/vOnI6FFh6mSv1WUueMycvELwygsaCSuvgWMCqo90z9zencXBkb+o=
+X-Gm-Gg: AZFdTZfVFjxe9XJXBHo/TxxSQ1SyhCo4EP5mUZWXHZUANzT786+IT1Q/NCq5+S+EQsN
+	npFgTa3auOdtNkgPx7Ec2gs2jwPQJGtvuhytKiYxXqtBHYeQMOejYPsC/hzfYMoAoFwetSAJ34W
+	+lMUxeHJ4gye9w/HioHnNeIfQY1VeWmhu11s3ITNcK/9xKx0r9pOThW1vnAFstvlTalmgMdV+Kz
+	9SL76rEKmWH+ChDonKnBEFbxE25Ga7eebxUVzcEfw5A5/V0o1mrKgRFgC93kNtvAveNHffy/ks1
+	7j6obp8ZLvW/Er+CjrZGKGbzr4AMvINwtvs/DcMTlXy05pMGcqTsEQMXrIO9EPIV67kYINz5I4c
+	z2kZP/MOYTwPBgi9bxcK86EdEnnEYpV6+U0DFPcjPpH0zb1LYD1czu6Wb+/NH+jTyZNju3MY=
+X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr6901113e0c.4.1795443154228;
+        Mon, 23 Nov 2026 06:12:34 -0800 (PST)
+X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr6901052e0c.4.1795443153673;
+        Mon, 23 Nov 2026 06:12:33 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc73d3sm409929066b.64.2026.11.23.06.12.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 06:12:32 -0800 (PST)
+Message-ID: <f151aad4-4642-4e71-aa25-3811d29052cb@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 15:12:31 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,192 +116,54 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] platform/x86: clevo-laptop: add minimal WMI driver
- skeleton and Kbuild plumbing
-To: nick42d@gmail.com, Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-Cc: Armin Wolf <W_Armin@gmx.de>, linux-kernel@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, rust-for-linux@vger.kernel.org
-References: <20261122-clevo-laptop-v1-0-881debf4d4b0@gmail.com>
- <20261122-clevo-laptop-v1-1-881debf4d4b0@gmail.com>
+Subject: Re: [PATCH] MAINTAINERS: Drop David as Qualcomm SPMI PMIC Arbiter
+ co-maintainer
+To: Abel Vesa <abel.vesa@oss.qualcomm.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: David Collins <david.collins@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261123-spmi-pmic-arb-drop-david-v1-1-c6be14d9d22d@oss.qualcomm.com>
 Content-Language: en-US
-From: Werner Sembach <wse@tuxedocomputers.com>
-In-Reply-To: <20261122-clevo-laptop-v1-1-881debf4d4b0@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261123-spmi-pmic-arb-drop-david-v1-1-c6be14d9d22d@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1NiBTYWx0ZWRfX5vEAXS5MLn+b
+ Ris0HVjd3/LMGrTiIOumgASar46VDc6S+2zw0R/NtermJWH8daS55vfSc+nAgQkPFQyzYeEhI0X
+ T5aCxRRY/YbsbyfZQtbWj0A+fIeu0rU=
+X-Proofpoint-GUID: Fy2p7bTZryXOfoQyM5qGZPtghb1NYQrg
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1NiBTYWx0ZWRfX946kkec6BsPM
+ 0AeoWpRpOct1eIn4bckI0vv4drsE5iwBVt3OTREEy9kReU8AFWv6jjPPxaoWShoyf7dIHY4Ee0K
+ HdySxgtkFUn35s8lQKaHts+YyRHeUsR0o0EXDnxvaIivRpwCl0Cn4Nxra+cPqXJZZqnmYvebo0y
+ B3BX0/H2XnL8l0Y/q0oUdcN3TIHPcvaQ3EJE0nKQ+wyX1umn3+hngHSykUquz7HGCRIRCCIXK9O
+ o561StJkyCyzBoUdb/zfZbLapj6dBLBW85cF8P/4iRH+GWNVxDrFZ03BcN+KHJ4kr/NsjVOrWJF
+ ehcgsBxLoIjyt3AzqQkuEurkBugFBDdU4Fw7VYfvy42VrhCQsVyxUBgqj7eVJ85VpUj4gwakaoP
+ ELFxCkZ/pZWYCgw5QsRUt6MeMOm3wji5vTRW2m0BiNuObMYTLZGC/FpjzPdLrjjnwQ0nLPvi2LO
+ N5aGGGHz+0exJQ6X9FA==
+X-Proofpoint-ORIG-GUID: Fy2p7bTZryXOfoQyM5qGZPtghb1NYQrg
+X-Authority-Analysis: v=2.4 cv=cpIOAF4i c=1 sm=1 tr=0 ts=6b0449d2 cx=c_pps
+ a=wuOIiItHwq1biOnFUQQHKA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=EUspDBNiAAAA:8 a=q1OLuhYBDE6bPA1skz0A:9 a=QEXdDO2ut3YA:10
+ a=XD7yVLdPMpWraOa8Un9W:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 adultscore=0 impostorscore=0 suspectscore=0
+ bulkscore=0 spamscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230056
 
-
-Am 22.11.26 um 05:35 schrieb Nick Dowsett via B4 Relay:
-> From: Nick Dowsett <nick42d@gmail.com>
->
-> - Add `drivers/platform/x86/clevo-laptop.rs` with module implementation,
->    DMI board check, and Driver registration.
-> - Add Kconfig and MAINTAINERS entries and Makefile wiring.
->
-> Signed-off-by: Nick Dowsett <nick42d@gmail.com>
+On 11/23/26 9:37 AM, Abel Vesa wrote:
+> David has expressed his intention of stepping down as co-maintainer of
+> the Qualcomm SPMI PMIC Arbiter driver.
+> 
+> Remove his email from the entry.
+> 
+> Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
 > ---
->   MAINTAINERS                          |  6 +++
->   drivers/platform/x86/Kconfig         | 17 +++++++++
->   drivers/platform/x86/Makefile        |  3 ++
->   drivers/platform/x86/clevo-laptop.rs | 72 ++++++++++++++++++++++++++++++++++++
->   4 files changed, 98 insertions(+)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 44540a1eb2b8..1130c293e84d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -6566,6 +6566,12 @@ F:	scripts/Makefile.clang
->   F:	scripts/clang-tools/
->   K:	\b(?i:clang|llvm)\b
->   
-> +CLEVO LAPTOP DRIVER
-> +M:	Nick Dowsett <nick42d@gmail.com>
-> +L:	platform-driver-x86@vger.kernel.org
-> +S:	Maintained
-> +F:	drivers/platform/x86/clevo-laptop.rs
-> +
->   CLK API
->   M:	Russell King <linux@armlinux.org.uk>
->   L:	linux-clk@vger.kernel.org
-> diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-> index 9ce384e0475e..18aa4550c9f4 100644
-> --- a/drivers/platform/x86/Kconfig
-> +++ b/drivers/platform/x86/Kconfig
-> @@ -1059,6 +1059,23 @@ config OXP_EC
->   
->   source "drivers/platform/x86/tuxedo/Kconfig"
->   
-> +config CLEVO_LAPTOP
-> +	tristate "Clevo Laptop Platform Driver"
-> +	depends on RUST
-> +	depends on ACPI_WMI=y
-> +	depends on DMI
-> +	depends on LEDS_CLASS
-> +	help
-> +	  This driver provides platform support for Clevo barebones and
-> +	  rebranded laptops (Tuxedo, Metabox, Sager, XMG, etc.).
-> +	  Currently only Clevo NLx0AU boards (e.g. Metabox Edge NL57AU)
-> +	  with a 5-step white keyboard backlight are supported over WMI.
-> +	  It is intended to be extended with additional Clevo models and
-> +	  EC features over time.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called clevo-laptop.
-> +
 
-TUXEDO is officially all caps.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Technically all clevo barebones are rebranded and it is sometimes more then just 
-rebranding.
-
-Maybe just drop everything behind the "and".
-
->   endif # X86_PLATFORM_DEVICES
->   
->   config P2SB
-> diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
-> index 229057234d00..070af05a2064 100644
-> --- a/drivers/platform/x86/Makefile
-> +++ b/drivers/platform/x86/Makefile
-> @@ -158,6 +158,9 @@ obj-$(CONFIG_SILICOM_PLATFORM)		+= silicom-platform.o
->   # TUXEDO
->   obj-y					+= tuxedo/
->   
-> +# Clevo
-> +obj-$(CONFIG_CLEVO_LAPTOP)		+= clevo-laptop.o
-> +
->   # Winmate
->   obj-$(CONFIG_WINMATE_FM07_KEYS)		+= winmate-fm07-keys.o
->   
-> diff --git a/drivers/platform/x86/clevo-laptop.rs b/drivers/platform/x86/clevo-laptop.rs
-> new file mode 100644
-> index 000000000000..1d862c57b3fe
-> --- /dev/null
-> +++ b/drivers/platform/x86/clevo-laptop.rs
-> @@ -0,0 +1,72 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +//! Clevo Laptop Driver.
-> +//!
-> +//! Currently supports only the 5-step white keyboard backlight on Clevo
-> +//! NLx0AU boards (e.g., Metabox Edge NL57AU).
-> +//!
-> +//! Copyright (C) 2026 Nick Dowsett <nick42d@gmail.com>.
-> +//!
-> +//! Inspired by Tuxedo Computers' drivers.
-> +
-> +use kernel::{
-> +    device,
-> +    dmi,
-> +    prelude::*,
-> +    wmi, //
-> +};
-> +
-> +/// # Note
-> +///
-> +/// This GUID is non-unique (shared by Uniwill for example) and cannot be trusted
-> +/// to uniquely identify a Clevo device.
-> +const CLEVO_WMI_METHOD_GUID: &CStr = c"ABBC0F6D-8EA1-11D1-00A0-C90629100000";
-> +/// DMI board name allowlist, restricted to tested boards since the WMI GUID is not
-> +/// unique.
-> +const SUPPORTED_BOARDS: &[&CStr] = &[c"NLx0AU"];
-> +
-> +module! {
-> +    type: ClevoLaptopModule,
-> +    name: "clevo-laptop",
-> +    authors: ["Nick Dowsett <nick42d@gmail.com>"],
-> +    description: "Clevo Laptop Driver (Keyboard Backlight)",
-> +    license: "GPL",
-> +}
-> +
-> +/// RAII guard for Clevo Laptop Module holding all subsystem drivers e.g WMI.
-> +#[pin_data]
-> +struct ClevoLaptopModule {
-> +    #[pin]
-> +    _wmi_driver: wmi::Registration<WmiDriver>,
-> +}
-> +
-> +impl kernel::InPlaceModule for ClevoLaptopModule {
-> +    fn init(module: &'static ThisModule) -> impl PinInit<Self, Error> {
-> +        pin_init::pin_init_scope(move || {
-> +            if dmi::get_system_info(dmi::Field::BoardName)
-> +                .is_none_or(|board| !SUPPORTED_BOARDS.contains(&board))
-
-We most likely need more complex matching here in the future.
-
-Is dmi_system_id table matching available in rust for the linux kernel?
-
-> +            {
-> +                return Err(ENODEV);
-> +            }
-> +            Ok(try_pin_init!(Self {
-> +                _wmi_driver <- wmi::Registration::new(c"clevo-laptop", module),
-> +            }))
-> +        })
-> +    }
-> +}
-> +
-> +/// RAII guard for Clevo WMI driver holding all subsystem devices e.g LED device.
-> +#[pin_data]
-> +struct WmiDriver {}
-> +
-> +kernel::wmi_device_table!(WMI_TABLE, [wmi::DeviceId::new(CLEVO_WMI_METHOD_GUID)]);
-> +
-> +impl wmi::Driver for WmiDriver {
-> +    type Data<'bound> = WmiDriver;
-> +    const ID_TABLE: wmi::IdTable = &WMI_TABLE;
-> +    fn probe<'bound>(
-> +        _dev: &'bound wmi::Device<device::Core<'_>>,
-> +    ) -> impl PinInit<Self::Data<'bound>, Error> + 'bound {
-> +        try_pin_init!(WmiDriver {})
-> +    }
-> +}
->
+Konrad
