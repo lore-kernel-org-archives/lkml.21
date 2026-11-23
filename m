@@ -1,54 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423831;
-	b=3Zgo9pCvmDxncauCwUNWNqb7ZI9dT8uGxaskyaaT8XVPwtqPTSTIbW75/Pn3EawokQhV
-	 x1o0qX2lzjHdACFZ8+xQs0gsL72sWiVKI85CmND0roUP/yMzCpaj+jjLaa0OUGnFXfPMF
-	 unNseistscPhCIitnZOG+X6A8ChP3TemaYB+90qQi8ChPIAxJKyMVmLnJnxE+Pi8/l4CZ
-	 IqRMKkEcGBfn549OTW+ls+C9D+qruwasDDs12OGnIKh0ViCh4UsHJXDzC1ZjVrqLbLxKR
-	 r0OZu9Pm+51NB87ftu3S2FPIyzxtMOnkDe/8QaxfJGGLLUlQNhgLuAnYjLCAVnKejKA==
+	t=1795423838;
+	b=xwWVeioVDBBE6iT7XQQ+afU8un7a51p6CqW9obhmmEttiGx/+rHOyzyKZU/7reKOJK4q
+	 fmCnhgnFBumTIjmY1C1drqNhib0hThRLV0GhBJ6ZES5nAoDhM8XWIt6YCN2Xg7sMDwdVU
+	 743b+M3gs8OTgGdkJy5GIMMoJRRgYZgmXjHe2SAtHqRTi2L+VXteNjSp7ur2XAna0VbbA
+	 wz0rC9EPb0+TOAAUwbA6WJwR3/kPjLwr71xVJQjC5qBmlpFCLs41SEs0bRBXc/iBSJBQe
+	 gEjggOsKadCsDPdnxJ8q8hnDkHNugu/gVB+D3YOxkHi0IUqCknp8LG5Hf0h0WOZ/95g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423831;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=DhKo/mTgQNmy1TND9VoDhX7AEkKALreB7zrtq8JXWBs=;
-	b=f8MIiXP4LKPVq8R7V1tM3fGoONYIzweYXPHxipwLq6RPg1TMYAki312pL8v8+RNKRD2O
-	 KIVDHmMbulR40sx3MWpt1by4QQAmxIVYSQmWB84wFr085zxzjBpfAOVVT/2PdXPSLLd35
-	 L+yYX3be2SBjFVmQA9GUIowD7/pE2+B2LGfjdkolULG7rrpbTsZXPf3Vz8OJpbdStTZwU
-	 8TTVfvW9zFBa01sSJCIM5aAFbaGp35rUkw433lOw/ZH+bscdSgzZVeQzDFinWyu7DNa+W
-	 RzHRILQ74vss9UO0dIni9ebUKDn0jVoMxSbUGdFTBFY5vrBa8/TD1j+Olj8bsVM4wNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423838;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
+	b=TI+yo6cKcxuTHbCqygwe1ULiEBOS6ojXDfqiYUnE+hocV4xD+cw0UdxZUHoNrJPAs/Lj
+	 bkP2fqA4dO/E+NYOuarVwbmr8z1FPCQtX3+h0KQzyvaftpxzBWJsehqkkrMYoMw+B4NS5
+	 JLtap+OfDxUjMPkbaxKNefQIC/847H7ZjViEyKAH5CsRnB6xFQYZR6t6b0SCDZneKwPd6
+	 1ZbVudtiYCxDPNpWNO42NW1sM4MjAE5GOGoamQd/gJbM0XkscpK7i4Q0hUG6PASpfAhbG
+	 GGxtTUfuoI4IRKe0xEvMw5f21TKNQYmPuSnz2T3sp7pAWzGDD9mJHYxEJHfHkTfLPkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iF+Q3JbD;
-	arc=none smtp.remote-ip=91.218.175.246
-Received: from mta0.migadu.com (out-246.mta0.migadu.com [91.218.175.246])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="FeDdu/CP";
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EQAxJECC;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="KAgxtTa/";
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Q09KDOS8;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2625606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:50:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2625606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55555606A31A;
+	Mon, 23 Nov 2026 08:50:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55555606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iF+Q3JbD
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=m1gC05qoAzSqrKBZhxUCZhwdUcmJIoFGJPSk6HfoVlg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795423828; v=1; x=1796028628;
- b=iF+Q3JbDboEuMrexYvOPdaGoWPh2mCTq/LUfgJeODfNfLYhS6rX+a7/pHCV+jCc86cKZLmpK
- RvYGsTjzh/Ue4ryGQZhK7poWn9ErH5uavqtbvmJhKinR27oYVn2q5mgB2BIDddWogC2GMR2+rYx
- Fytq9Dzh4y5M8IZjj5Lw4Vt4=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4f7084d3f2b6a81c;
-	Mon, 23 Nov 2026 08:50:26 +0000
-X-Mizu-Trace-ID: 4f7084d3f2b6a81c
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (1024-bit key, unprotected) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=FeDdu/CP;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EQAxJECC;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=KAgxtTa/;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Q09KDOS8
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id DF17D1F7E2;
+	Mon, 23 Nov 2026 08:50:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795423830; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
+	b=FeDdu/CPq7vOyW6qWgZM8/zsi1XBiSOQl4sf6fj6p0WfRHjoTSaHANbNW5+Cgzhf/GPkIX
+	Z5rZw18hM4WRbT4cBxa1ROBgrOKzIatsMm69lvaI8u5kK3LWKQ85y0jTKGgXw34M1o7HIl
+	d1JVQcVAFAg5g/5OA5GTLysDU0xSWpY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795423830;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
+	b=EQAxJECCaU7sEPTQB5brc02NkR3UjP39dYiZ6sKegG5DMy607TRZwhDG3H1QqHO+duI0e+
+	VrPZt/CbiWYhZMCQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="KAgxtTa/";
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=Q09KDOS8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795423829; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
+	b=KAgxtTa/z9YofspAYPeqm6zW4tse8POl8i8uNwmQ9sdyqhGGWP+gwYYwnzct/fgR667e/N
+	30eGfCRroPUn3/l8+wLPBFnc2MkSDaaijZ8EE+KRmUuXQAdaHwtfxd+wZ0zZveoMXr+lZz
+	YFrJ6A53FlkWetPsGNtYCSjPXBHRUpI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795423829;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
+	b=Q09KDOS84c9GfH2HDr66k9U8tCIyytWJlD8B6UX6F4gYekzDZ5k6kDRbSlVBfzGy4H0Eau
+	bwWDFSu6Wi0uWuBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B4E081352B;
+	Mon, 23 Nov 2026 08:50:29 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id UmZ5JVX+A2uOegAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 23 Nov 2026 08:50:29 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 221E8275F1; Mon, 23 Nov 2026 09:50:21 +0100 (CET)
+Date: Mon, 23 Nov 2026 09:50:21 +0100
+From: Jan Kara <jack@suse.cz>
+To: Dave Chinner <dgc@kernel.org>
+Cc: Christoph Hellwig <hch@infradead.org>, 
+	Christian Brauner <brauner@kernel.org>, Qing Zhang <diasyzhangqing@gmail.com>, viro@zeniv.linux.org.uk, 
+	jack@suse.cz, raven@themaw.net, djwong@kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] namei: revalidate the symlink dentry before invoking
+ get_link in RCU-walk
+Message-ID: <d2w6jvflihqiyfbht3qv3mgjg3muuuvmhnss5j5dp4zh6axhn2@nsegavvnkpie>
+References: <20261118083945.1449264-1-diasyzhang@tencent.com>
+ <20261120-desillusionieren-holzhammer-mieten-8ec8551ef2b0@brauner>
+ <awB0RE6WN_v4YBbn@infradead.org>
+ <awNlrO5A-kdDOYvO@dread>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,171 +116,138 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v3 08/19] hugetlb_vmemmap: Expose whether HVO is enabled
- to architecture code
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261122184453.2668189-9-jthoughton@google.com>
-Date: Mon, 23 Nov 2026 16:50:09 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Oscar Salvador <osalvador@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Nikos Nikoleris <nikos.nikoleris@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- David Hildenbrand <david@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Nanyong Sun <sunnanyong@huawei.com>,
- Yu Zhao <yuzhao@google.com>,
- Frank van der Linden <fvdl@google.com>,
- David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <9487E341-5F59-4245-BE0E-EFDD413E45D2@linux.dev>
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-9-jthoughton@google.com>
-To: James Houghton <jthoughton@google.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awNlrO5A-kdDOYvO@dread>
+X-Rspamd-Queue-Id: DF17D1F7E2
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_COUNT_THREE(0.00)[3];
+	MIME_TRACE(0.00)[0:+];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_DN_SOME(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_SEVEN(0.00)[11];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_CC(0.00)[infradead.org,kernel.org,gmail.com,zeniv.linux.org.uk,suse.cz,themaw.net,vger.kernel.org];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -13.01
 
+On Mon 23-11-26 08:59:08, Dave Chinner wrote:
+> On Fri, Nov 20, 2026 at 08:24:36AM -0800, Christoph Hellwig wrote:
+> > On Fri, Nov 20, 2026 at 02:59:42PM +0100, Christian Brauner wrote:
+> > > This only makes the window smaller.
+> > > 
+> > > XFS can still reinitialize the inode right after this check and while
+> > > get() is running. Then ->get_link() operates on an inode that is being
+> > > reset underneath it. And the !get check only catches the case where the
+> > > that re-init already finished before we loaded ->get_link.
+> > > 
+> > > RCU pathwalk relies on inode memory not being reused before a grace
+> > > period has passed. XFS itself frees inodes via call_rcu() but the
+> > > recycle path hands the same struct inode out again without waiting for
+> > > existing RCU walkers.
+> > > 
+> > > So that should be fixed in XFS, either by not recycling an inode in
+> > > place while RCU walkers can still see it or by keeping i_op and the link
+> > > state valid across a recycle.
+> > 
+> > Not recycling the inode really isn't an option, as that means there
+> > would cause duplicate inodes in the xfs inode cache.  Keeping i_op and
+> > state in place sounds a bit more feasibly, but could be iffy as well.
+> > 
+> > The best thing would be to find a way to keep the inode alive at the VFS
+> > level when XFS marks it reclaimable.  That would be a huge an invasive
+> > change, but it would solve this and many other problems as well.
+> 
+> I don't think that's feasible without a massive rework of the VFS
+> inode life cycle management and/or the way XFS tracks inode metadata
+> dirtiness for writeback purposes.
+> 
+> Background:
+> 
+> The xfs_iget_recycle() code exists because dirty XFS_IRECLAIMABLE
+> inodes are tied into the journal machinery and need writeback before
+> they can be reclaimed. This is all invisible to the VFS, and it is
+> done via lockless lookups and atomic state checks without the need
+> for reference counts within XFS itself.
+> 
+> The issue is that reclaiming such an inode generally requires a log
+> force to stabilise it in the journal before it can be written back,
+> and the act of writing it back requires access to the inode state.
+> Hence the journal requires the XFS inode to live in XFS_IRECLAIMABLE
+> state until metadata writeback is complete, regardless of any other
+> inode state changes.
+> 
+> xfs_ireclaim() can expedite the writeback portion of reclaim (by
+> running an inode flush) but it does not expedite the required
+> journal flush if the inode is still dirty in memory. On lookup
+> of an XFS_IRECLAIMABLE inode in RCU mode, we cannot directly reclaim
+> a dirty XFS_IRECLAIMABLE inode because it requires blocking on both
+> a log force and metadata writeback. That's why the inode is sitting
+> in the XFS_IRECLAIMABLE limbo in the first place...
+> 
+> That's where the xfs_iget_recycle() code stepped in - it
+> reinitialises the VFS portion of the inode without affecting the
+> internal journal state of the inode. This allows new modifications to
+> be added to the inode and the attached log item without any
+> discontinuities in journal state.
+> 
+> The reason it does a full initialisation of the VFS inode is that
+> the inode can change identity whilst in XFS_IRECLAIMABLE. i.e. it
+> could be unlinked and then reallocated as a different inode (same
+> number, different generation), and so the type can change (e.g. REG
+> -> DIR) and hence a full VFS init is required to recycle it.
+> 
+> And the reason that we've always done this recycle is for
+> performance reasons - the inode allocation algorithms can prefer to
+> allocate recently freed inodes (for locality reasons), and hence
+> recently unlinked inodes in the IRECLAIMABLE state can be
+> reallocated and need recycling because the final unlink state hasn't
+> reached stable media before they are recycled.
+> 
+> Doing things like forcing logs, instant reclaim, RCU
+> synchronisation, etc have all had significant performance impacts
+> due to the additional latency these operations add to common
+> workload patterns. Hence the rarity of this recycle issue hasn't
+> outweighed the cost of the "simple" fixes to everyday operation.
 
+I'd just mention one possible solution which you didn't mention below (I
+don't know how complex it would get for XFS but we effectively do this in
+ext4) - make the VFS part of the inode and the journalled portion of the
+inode separate entities in memory (independently allocated & freed). Then
+you can free the VFS portion of the inode while still keeping the
+journalled portion allocated. If the inode location on disk gets
+reallocated, you allocate fresh VFS part and recycle the journalled part.
+In ext4 we have this natural separation between the buffer carrying the
+inode structure on disk which is part of the journalling process and the
+inode itself so this separation is easy there. For XFS I presume this is
+complex or you wouldn't bother with all the separate inode lifetime logic
+but I just wanted to toss this idea out.
 
-> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
-wrote:
->=20
-> Architectures that select
-> CONFIG_ARCH_HUGETLB_VMEMMAP_OPTIMIZATION_SYSCTL_RO may configure the
-> system at boot depending on whether HVO is enabled, e.g. arm64 may
-> require all CPUs to support hardware access flag updates only if HVO =
-is
-> enabled.
->=20
-> Add hugetlb_vmemmap_optimize_enabled() so that they can check. It is
-> declared before <asm/hugetlb.h> is included, so that it can also be =
-used
-> from inline helpers there.
->=20
-> It only reflects the hugetlb_free_vmemmap=3D kernel command line =
-parameter
-> (and the sysctl, when writable), not whether the architecture supports
-> HVO.
->=20
-> Signed-off-by: James Houghton <jthoughton@google.com>
-> ---
-> include/linux/hugetlb.h |  9 +++++++++
-> mm/hugetlb_vmemmap.c    | 18 ++++++++++++++++++
-> 2 files changed, 27 insertions(+)
->=20
-> diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-> index 0d5414392d87..b2a6441bcd84 100644
-> --- a/include/linux/hugetlb.h
-> +++ b/include/linux/hugetlb.h
-> @@ -22,6 +22,15 @@ struct node;
->=20
-> void free_huge_folio(struct folio *folio);
->=20
-> +#ifdef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
-> +bool hugetlb_vmemmap_optimize_enabled(void);
-> +#else
-> +static inline bool hugetlb_vmemmap_optimize_enabled(void)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
-> #ifdef CONFIG_HUGETLB_PAGE
->=20
-> #include <linux/pagemap.h>
-> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-> index 142f2975846b..fb6da64bd80d 100644
-> --- a/mm/hugetlb_vmemmap.c
-> +++ b/mm/hugetlb_vmemmap.c
-> @@ -452,6 +452,24 @@ static int __init =
-hugetlb_vmemmap_optimize_param(char *buf)
-> }
-> early_param("hugetlb_free_vmemmap", hugetlb_vmemmap_optimize_param);
->=20
-> +/**
-> + * hugetlb_vmemmap_optimize_enabled - whether HVO is enabled
-> + *
-> + * This only reflects the hugetlb_free_vmemmap=3D kernel command line =
-parameter
-> + * and the vm.hugetlb_optimize_vmemmap sysctl, not whether the =
-architecture
-> + * supports HVO (see arch_support_vmemmap_remap()).
-> + *
-> + * The value is final once early parameters have been parsed only if =
-the
-> + * architecture selects =
-CONFIG_ARCH_HUGETLB_VMEMMAP_OPTIMIZATION_SYSCTL_RO;
-> + * otherwise it may change at any time through the sysctl.
-> + *
-> + * Return: true if HVO is enabled.
-> + */
-
-I don't think hugetlb_vmemmap_optimize_enabled() has clear semantics.
-
-Its name suggests that it reports whether HVO is actually enabled and
-usable, but it only returns the policy bit set by Kconfig, the command
-line, or the sysctl. It may return true even when
-arch_support_vmemmap_remap() is false. This is particularly confusing
-because arm64 calls it while determining the capability on which
-arch_support_vmemmap_remap() itself depends. Therefore, the helper
-really reports whether HVO was requested, rather than whether it is
-enabled.
-
-Could we keep vmemmap_optimize_enabled private and let arm64 retain
-the boot-time setting locally instead? For example, arm64 can use a
-private hvo_enabled_at_boot variable with a
-core_param(hugetlb_free_vmemmap, ...) registration. The system
-capability is evaluated after core parameters have been parsed, and
-arm64 makes the HVO sysctl read-only, so the value remains stable for
-system capability and late CPU verification.
-
-What do you think?
-
-+static bool hvo_enabled_at_boot __ro_after_init =3D
-+       IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON);
-+core_param(hugetlb_free_vmemmap, hvo_enabled_at_boot, bool, 0);
-+
- static bool has_bbm_through_af(const struct arm64_cpu_capabilities =
-*caps, int scope)
- {
-        /* The kernel only enables HW AF updates with =
-CONFIG_ARM64_HW_AFDBM. */
-@@ -2055,7 +2059,8 @@ static bool has_bbm_through_af(const struct =
-arm64_cpu_capabilities *caps, int sc
-         * BBM-through-AF is only needed for HVO. If HVO is not in use, =
-don't
-         * penalize systems with mismatched support.
-         */
--       if (!hugetlb_vmemmap_optimize_enabled()) {
-+       if (!IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP) ||
-+           !hvo_enabled_at_boot) {
-                /* Only valid if HVO cannot be enabled later via the =
-sysctl. */
-                =
-BUILD_BUG_ON(!IS_ENABLED(CONFIG_ARCH_HUGETLB_VMEMMAP_OPTIMIZATION_SYSCTL_R=
-O));
-                return false;
-
-Thanks,
-Muchun
-
-> +bool hugetlb_vmemmap_optimize_enabled(void)
-> +{
-> +	return READ_ONCE(vmemmap_optimize_enabled);
-> +}
-> +
-> static int __hugetlb_vmemmap_restore_folio(const struct hstate *h,
-> 					   struct folio *folio, unsigned =
-long flags)
-> {
-> --=20
-> 2.56.1.809.ga0b61035b5-goog
->=20
-
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
