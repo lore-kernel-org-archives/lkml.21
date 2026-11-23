@@ -1,93 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.4
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795452664;
-	b=lKTG/uBTkayT4l8HbJNtSTDE9wLZ2jQNeVI9ElmSYvLMOA9tSDQWWIGwqcr5AdJZLm+K
-	 9fPMwT2d3t5oSUESXHhxj2V1XXy+4E91uTiKcNNXdxJT7p5VjaAXHKAIsq02A3GvzJnYx
-	 1e7aw2PJz4DVmK+XgnBBezJt64cetOeu3LXosETgWSk6JCF1WLwoGLmI8yIQPOL3uf4Hc
-	 WLh+Y8ku4D/zUPq1AayV2UBuhxJK726ffi31dfaovxQe5MQWWt3OR9UsRc6lTgwGcEKRG
-	 qwXfjUAgLjQMFUlDeIhmw+p/CFEdYQWIdwPbMI9Pn8mOG6An2ngdV87g+5xnoQB625Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452664;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=sqG2/gkA7mF/6TiwFahNOdc9QcX8sTghQn1ydA4FHZA=;
-	b=0jh1wCnASKvf+v0w8XsDwXISeYH1g+8tcW8NHdiYbZ/IcF6iTRWeeLHKTSZ6p6yS41U6
-	 8A/7KBVEaGILcLW56pXI7sPRqw70zIr2sJVrv+CQwfYJRUnkWA2E7AxNlBpjVQ159Mb3l
-	 7RqVweFDCweP8aFYLIO9B97xTL+a7aLvqn/OJ0OXz1HcpAN9R7C+4KItrKX1BZBhhmoDA
-	 rD+7M5plVoWcZL77pBTCjK21qVsk8IHyfafDzGG55gS7/Jja9h8h+iJv9nigzsN4C6jYD
-	 hczBviksH3eVZ+mPcrVI4QPlYHr8duA3IU0rjf6o6yTkZ7HlWSrQlx6B5UrsHMgHUFg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=0fzHMYtA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.4
-Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11013004.outbound.protection.outlook.com [40.93.196.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795452692;
+	b=wnSSNCljlLyhiv3rtnhYEGqsXHC2qqy04GZWPs6WLO3ewdM/EK9Ic6+qMtVseHNnwXCy
+	 lgedSrOyfNkBzYKlwxnYlwD/hTGJ7JCyCRRCTNwNiIQIjzqn7vbIprQRZnSt6uenjrxx/
+	 Pf2f98obf771UH5xBouzmWem7EHMhnISHNPQbkMtq1gz3Bz0md+0eazXTp2fQAts7m8r3
+	 yS0JZftp7sVgCPMH2MhH9zjAJB+FkGqbHI5lW384qkoiU5x5fzk1AVGuHXUGvoYS+/Lad
+	 /WIPd0Lu446ghZvvDx0Wngt12kML1qfbcBRxP0LGsNUQ+5ICmyIvbKbZA/HNiz8KSPA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452692;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=i8m3St/33fP2QE3sVDWlAViGW9u6eVfEV+msFg0eCIU=;
+	b=gbe+TGwLWX1z0hoGl0pQpwwx1gV3VlMTu3CKxwLouo7Khfeuh8e2Qo+GplsYnq4MsMvy
+	 Rj4rqpqVtFxstSlMaEJj246BRd1DW3kh0D0DN+vgAOmAXbFqhbYJzNpqxbZMz5BPkJlnS
+	 mu7mRJASyD0/U4ArwdFvy01j4Er4SOPgX11/1R7ASP1jcpf9QMIcRpfT6+C0k/bJko9q/
+	 RgXl+9cc1fUdooY/N/tQuUcXe1KS6TZ1wpXQhkPcynnQk34ywRl1D2yMb/KPw2WUYOQCL
+	 SEJY4wiTjqsajfJT9QULJZTQgpw2EghPkiIt0OtUgx3w+geFosZyWZaSA7vC4JZWUyg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AuBd6OMz;
+	arc=none smtp.remote-ip=209.85.222.178
+Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A127606A692;
-	Mon, 23 Nov 2026 16:51:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A127606A692
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B9A7606A338
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:51:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B9A7606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=0fzHMYtA
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F6Ds8yg5FTRWnGE4h0aNLEZpj9cJXspVVZVZMN98m82oTPgWm5Xn8Ate+PfdnXoNOom5ZrmITnv+ZE/gfKzWiC4NDMFXT5rZdJ/W9kcLqo73JcE1xJSulbMjtIWwfQd+2Vi/WOPPmjuJMGTkee7h0i5rPtdueuwOZzt+HxxjtI0d7SDIPw9tUkH3ZA+NXvewohOO3CbkyM+eOtaoX3VVmmy2niTEL1o5nt3oJnk+j1vdgeAuDcqFkk9Bfo8uMcT6KCmDcYJkmym6rr0oe4QV5p8nOcM6zznSTZe060aM/SIDY1Cp9xclIQv+izwdfF56y63TprTCo+UY3/a/BWPVNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sqG2/gkA7mF/6TiwFahNOdc9QcX8sTghQn1ydA4FHZA=;
- b=pLuXJLg5L20IdRidz/BpJp+qwmivRQRDuV6PGA9Jbwhlzc7/n/9NZUkuc+0rhpJyQckcweh6z7WrFYk36hBlX75GLekHrEIGgrkpHEPXZqSWaDIohOgRcfLwtlzoQQiViusA0CB1RefFWtRwPHXpr5dXqsaTsIaguVKSOvafaVWBK9RvAT6E9Yz1uT2TFRBw8WwP2oFlUQs7pyukD6A1wqV/v+tgXjJkRTYKUAkZvwE28n9LjQ/DI87Shsf5b2wPZ8ndKgE8u/NyGJKBgsNIX6VMrY1EHUUFv09DzEtjbhtxJRonFPC1At0k478cdRHW3aHA8Vz38mxK0kNXGAUPqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sqG2/gkA7mF/6TiwFahNOdc9QcX8sTghQn1ydA4FHZA=;
- b=0fzHMYtAV/BAylmGNG631XmHyhgyXFuj83aHO2I4aQrbXXDGvhDRfQecR3liXqmVncq3gYL5/SDa+WpfTifUpu2X6TDL1hDtHEYa4rIb6c/RP/4Frij7kRG7F+oGt0Jjw3tzghwrgnTkKwNr73Az9gDR+u+4F19LVTHkCfZpZMg=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from EAYPR12MB923140.namprd12.prod.outlook.com
- (2603:10b6:303:2fd::15) by BL4PR12MB9481.namprd12.prod.outlook.com
- (2603:10b6:208:591::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 23 Nov
- 2026 16:50:59 +0000
-Received: from EAYPR12MB923140.namprd12.prod.outlook.com
- ([fe80::b986:8b81:beda:c167]) by EAYPR12MB923140.namprd12.prod.outlook.com
- ([fe80::b986:8b81:beda:c167%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 16:50:59 +0000
-Date: Mon, 23 Nov 2026 11:50:50 -0500
-From: Yazen Ghannam <yazen.ghannam@amd.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	bhelgaas@google.com, Lukas Wunner <lukas@wunner.de>,
-	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
-	Jon Pan-Doh <pandoh@google.com>
-Subject: Re: [PATCH 2/4] PCI/AER: Clamp negative ratelimit burst to zero
-Message-ID: <20261123165050.GA1741477@yaz-khff2.amd.com>
-References: <20261120211307.GA1524494@yaz-khff2.amd.com>
- <20261121001202.GA917755@bhelgaas>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121001202.GA917755@bhelgaas>
-X-ClientProxiedBy: BL1P223CA0017.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:208:2c4::22) To EAYPR12MB923140.namprd12.prod.outlook.com
- (2603:10b6:303:2fd::15)
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AuBd6OMz
+Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-93f3c616c84so288139585a.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:51:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795452690; x=1796057490; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=i8m3St/33fP2QE3sVDWlAViGW9u6eVfEV+msFg0eCIU=;
+        b=AuBd6OMzXlSQGhqGzEU8BKBmVBfAeOXmvQBVAqY4L2BWD09YjoBzzOgJ4ybDaUAd3Z
+         bv50ZDj5WX+DG7K0g1CxlJGfhVhfRxsRRWV1uYkqltMcTzDw5nYynaqPmMDGIe9XEmT0
+         WEsJ2dpJm3OZbtWHWK0uJ0Uy1Asapxd2k/+ZXQeP6FEIyZk7iuwt3mxruhznElKyskXb
+         J+sP6uOLuWZ8bwVmpfKy6JfUdpMUPj4sztd7Zpc9yp+OfklIchnz2VfloxHzX8Mkx5w4
+         UpWfnTGFPk/7yqPEz55gFNALVJLhbWr6aABLhlRnc7ZQ4lg7ESq8dEzhOKtsyWHZ5X4Z
+         AIcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795452690; x=1796057490;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i8m3St/33fP2QE3sVDWlAViGW9u6eVfEV+msFg0eCIU=;
+        b=tjmo9zJMhiEcEDdfTQG/Ln+mgvjtiWW1EG/KmDlzZXUZiYoHDTiuY+RsB75suNDHoX
+         tv0fqhcy62S8GJWkArHN2JX95vrtfwAkz5zBwWau7gPDk6s8lIMpPDMQumOYaFekUTwS
+         yjylbwAktlTqVkmBzVkxBNGezDc3Zl3rvGnW7Kei5mRWuljihXXFyL0txv/5QMs89aXD
+         ZIh95T9lQNMHoy23w2ZDUU9UU7xYlvjnSMrCVO2WdB+iJO6cCkkX/7Qtz6F9SMOc3MZf
+         IwVF2Ap/c9jgfbv1mi/ePGyDVkCCjRevmTnyUujhbGIw1RRu4etskrDHa7ys5qAWY38U
+         XwUQ==
+X-Forwarded-Encrypted: i=1; AL+hErHI6PafT2c83WP6rbibABCKvYc3BPUxn7v9XVABnuqhnLpwxNVEM0G9d1FS9K7UesRch+zZrK9imdHtz3I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8H0TMdvEeftLsjk/s3lfIkWjJ5j2IEfHt4GCMGGHocU3LEVEdf
+	Avdj5HG7WOS59zWZ0GNPWsqw8BN08C12LyQLY850qMqMiU76P6OqUpAifoKkRnCZFGwPm5ilOI1
+	YUsKr
+X-Gm-Gg: AZFdTZckjvQHeQBwT0YUGGZ3dQ6LoQp13hYfb599lwZHX+bdgUo3MU+ArhGva1WmupK
+	4hk3iUmVcfWSJoonFewR3V/vaxTaBxS0OKUKjqUVDJEjB7vef76tcdBCSic5JuCW83RXjy1+Gwp
+	KHDeiuNfHAyEQwCDQqmPHXYVU9ijJkLNrWNhKRcefZF00Mv1X8GO997e/qi+cvUKMDIH7/71WVt
+	Uxix0stHu0HzjEI0FewXcK9wr0m12AvcrSJesyB07y/MdKLLtSN4j1M5WaTTaTLT/SAtKqJys/o
+	M3diB2pqrLTN4k//Dekoh958IhbUrPhFzrX/S2EGHpHn4Z6UFrj9w0+4+1WOMqmR8dcndc8gMQ2
+	5nuiXysRf2ryxO0+sw3LpGq92xR5CtebKIXP5qh9M0MJWi/wqMYzqRdgZ02JMa+I8ZP/kLUrRbd
+	RA0CG73FubpMqagYfyJshjvhFTndetXEeWf0jrdO5+gp3cUJ4St18cuI6LDM8xVp2X6aXqqCkzu
+	Xrydj21ahk/AxDq2LVFBeGYg7j9DeKV8RFbis77ICxK76bCuHtI3sFQu1zsE9ZMnUWQM+zHXRxn
+	SEnCMpqAyweRt+C5KF4ZGYe4reYkccXyTpJxcompmNZn6wtLFNUl3p5JgY+K8WQ2KExvHSRBs2A
+	40n8=
+X-Received: by 2002:a05:620a:2949:b0:949:7de2:fe29 with SMTP id af79cd13be357-949bab0fbb9mr1904435185a.62.1795452690006;
+        Mon, 23 Nov 2026 08:51:30 -0800 (PST)
+Received: from ziepe.ca (stjhnbsu6iw-159-2-142-59.dhcp-dynamic.fibreop.nb.bellaliant.net. [159.2.142.59])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34a38bsm835809185a.13.2026.11.23.08.51.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 08:51:29 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xVXGK-00000000wbY-3KaM;
+	Mon, 23 Nov 2026 12:51:28 -0400
+Date: Mon, 23 Nov 2026 12:51:28 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Serhat Kumral <serhatkumral1@gmail.com>
+Cc: linux-rdma@vger.kernel.org, Potnuri Bharat Teja <bharat@chelsio.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Roland Dreier <rolanddreier@rivian.com>,
+	Steve Wise <larrystevenwise@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] RDMA/cxgb4: Unmap BAR2 when c4iw_rdev_open() fails
+Message-ID: <20261123165128.GL179082@ziepe.ca>
+References: <20261122135413.93813-1-serhatkumral1@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,331 +105,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: EAYPR12MB923140:EE_|BL4PR12MB9481:EE_
-X-MS-Office365-Filtering-Correlation-Id: 089fe895-9ef0-4f0c-030f-08df4981f357
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|22082099003|18002099003|261009223027099003|13003099007|5023799004|4143699003|260925022911599003|11063799006|261102123227099003|260925021911599003|56012099006|261026121527099003|260925021311599003|261028144727099003|261026140227099003|261021121427099003|10067099003|261022105027099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info:
-	8EvY4Z9rdNHMuVo/J7zpKn6K/JOFkq7H4/rMcrIm53J6l+ySW0ABC1dlIABg8nacrzNP9bCzSw9sYhjEXuhLbw/L8MMCiRdF+149AyDcZ0syqURpcQJWf/vGw/pF1Nt/lFsw/Vqorf1Ydis956NhhmLtg8gKxdQCa+E8M95gX7OXeh57gcnB9+xo/TmH9/3VmWnqDZKtDVu1VFSr3MvKEJgXR3eaFrNbrfAIbbkshtI5Ipp7YIVyIAy/SwMbF5sXeFuPZ0IUxYpCw3cLexHRTDuPb7KXnNXREypoDvZl5wip8WWkK5S4yQfvDH4gzZ+TE2z23SY9d5J2FqDEptjOgz0O6/uqlfgxFZA2MVhI7ouoZn+9nMGwqYPPdOn3nqr8maJx8eRNxdCahnizacfKa1XMdnb40kDnQFBdpiPj/5mZIB1ll8I6+q96Z962wuzarqrCB0249DJbZQpxMUG9iEA8xJ/9eq6BmZtRggWXfht4eWfOaFDk3P7D2B+2RIk9lt+z4z0AknX+xjFoUhdFn+B2+zGR+8bGzNhUKfpHFCzDoiOIxw6VWVXB7fPs0Xzw4He951feGOGz0+RpqSiLZixNLrO1nBbgMSKc/4IUQhN3/dJ37XS5VIW/p8FntA+/
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:EAYPR12MB923140.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(13003099007)(5023799004)(4143699003)(260925022911599003)(11063799006)(261102123227099003)(260925021911599003)(56012099006)(261026121527099003)(260925021311599003)(261028144727099003)(261026140227099003)(261021121427099003)(10067099003)(261022105027099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?qqgG9KRYnFICSyRkrMcl62kFrVTaR9Frni75obj31EyV5EHRRLMukVANv9I+?=
- =?us-ascii?Q?OrNnBYZvGBmpVKZJ5IgTSrHn8wcJA9hwaBYn25LZNJeDwHwqntJpau06xeJA?=
- =?us-ascii?Q?5C+gOZ5mfDcaVq74aRcwe60FyLRi+Gr9gMwKZmPG36ZsHbau9QzimaJsK9E3?=
- =?us-ascii?Q?YS+NahhNEZbxAiCTZRasu3wJAbqSh6AC0yd3m89+YscdWLmrP10c7SjQS0br?=
- =?us-ascii?Q?NNgKOtL9PEpQHgMteKcDJLPngN3bPSX8NR5U0gSwEt0MkdrKOuLKF6GcOG6q?=
- =?us-ascii?Q?rbngn+1Tp0PjNSoj1hAIUKR297EJAwmMtCGNgIoimXINyH+JJ8IxcHQT3AJi?=
- =?us-ascii?Q?AveiJJMBzH2oxWAiaBjGps1DIFaGTdbA7ypz9e4p7iWnHHZ6pFHDLiLpZ1Yy?=
- =?us-ascii?Q?AztLxopmmh30lE5XoEdjNZP6fezpIb1PQUwazANrcojCjSPVmmtzKDe7r2oN?=
- =?us-ascii?Q?WmqUwcoW0exrwddwQOHv00azZ0YzIHYWLe2t+R6ZnHgQ5MKpfvg5lIx1QD5i?=
- =?us-ascii?Q?vGGhtE3T0KZqBzJircIGbVh2SPUrETrxpJzgzGyT+PVXS8vgyrn6KacteoQ2?=
- =?us-ascii?Q?58i98IOpdpg9i9/hvmwCwHCU1MV69GqiTvpoR4rUDBUm82Q6en2tB22xPF2t?=
- =?us-ascii?Q?Tj8Bp+hamGFoGvQcJF49LcQEYyxDImzzD82oIbWX1uPJGC52/o+bDO/p2Klf?=
- =?us-ascii?Q?2O7Rq71YFTlUC6HQo+Vo5EItOjXXY3IQx/dTfpHSbkZyfC1eWTAGqfcc8q1g?=
- =?us-ascii?Q?5wZLjaa0QWwyCNta48xc8SIpW/ERIKpFGMfxEzKvTYRocuL4ptUh+8qkz9Mp?=
- =?us-ascii?Q?caDe326TP5xanonjDPbuAXGtqMu20O6e4DSAvJoLl8/FqELxrQlf433eyfIT?=
- =?us-ascii?Q?lpNTdfO0/KAs8LwimbKUIsUvtrLVN7tqktNNRhFGLuDWygNLf/vEhIsvZdSK?=
- =?us-ascii?Q?kXKQiV7K6X0O7xhFLCoi73UDwxysaQnqzGfxVy6ZCD5cNgX3g7kdHXp9xLZa?=
- =?us-ascii?Q?/2TNYm6nB0184nOy7t07usbQGuwWMojFT5+yYrYRR9CKhxkm/hoG2bVCSh9V?=
- =?us-ascii?Q?iRPVtu+h4VkTycLANe28QDI3tuym2sR2tDKfcxHQao4xvGFFA86JP1JADV4t?=
- =?us-ascii?Q?rdhzU/AdEhjEOFgH/EzcRNOebMF8FNnfOuUnx+vQTR8DCayzDqHsjRI6f9qc?=
- =?us-ascii?Q?G6kdfs6prQ92oMW8L4aMhpBYWH7puAM9J/n15NcJUR1kKWIJfs/lxTUaZBlb?=
- =?us-ascii?Q?cG1KEBENx/3vLh/hJ78Qdw8rF20FQxpyGYl6aosbrJom+ZfB0EtvMT4WsO3Q?=
- =?us-ascii?Q?qWZbgSwY3ys2J5hV2RHUH6UPuI1YZUO2m7FyjR3dZkYWkWjSU5ib3qzTCsIs?=
- =?us-ascii?Q?4dCxCXuzCV6kX1JTgMRCoejk38KgxteLsan0schmW1mi2AHPADuIGS6A5CEQ?=
- =?us-ascii?Q?mMsrkEW1Vb3jm402HRfIG+lM1feCmEs3rW3wND5cysnoqO4PFHeEdT3+lVqQ?=
- =?us-ascii?Q?2y7fl3bAv7L8JL7vArtHWMAiWaP/q7z8mC+SFFXuFuEW30ZNes3OrrzZNZn0?=
- =?us-ascii?Q?MBlLd+rmhUo6G7Ay1tgURUoOwmFXzNNUvkOyvY+9/tt6nnog7EfMDfgu9Pk6?=
- =?us-ascii?Q?l1lZjcl4Apzts+SIN+wVD16kva2Gjsk2D21y1+n7RkUeFOXehOuEYBdwW4WQ?=
- =?us-ascii?Q?oLeD+YBa917HMH4PxbV74qH0Agi+ufddXGOGMFjClAfkoAvC?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 089fe895-9ef0-4f0c-030f-08df4981f357
-X-MS-Exchange-CrossTenant-AuthSource: EAYPR12MB923140.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 16:50:59.3630
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ex5i45+kaYlAwsMfgU4dSdZY6/3B8e1zRlZaMGEduf/la9CEU5ZgkicCRg+O/UETHmMUpMPvwYYNrg2W7awCPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR12MB9481
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122135413.93813-1-serhatkumral1@gmail.com>
 
-On Fri, Nov 20, 2026 at 06:12:02PM -0600, Bjorn Helgaas wrote:
-> On Fri, Nov 20, 2026 at 04:13:07PM -0500, Yazen Ghannam wrote:
-> > On Fri, Nov 20, 2026 at 12:10:43PM -0600, Bjorn Helgaas wrote:
-> > > On Tue, Nov 10, 2026 at 03:56:12PM -0600, Yazen Ghannam wrote:
-> > > > The correctable and nonfatal "_ratelimit_burst" attributes store
-> > > > whatever kstrtoint() parses, so a negative value lands directly in
-> > > > ratelimit_state.burst.
-> > > > 
-> > > > ___ratelimit() reads a negative burst as an uninitialized
-> > > > ratelimit_state and gives a WARNing.
-> > > > 
-> > > > Clamp negative values to zero and document the clamping behavior.
-> > > > ...
-> > > 
-> > > > Fixes: b4fe7398def6 ("PCI/AER: Add sysfs attributes for log ratelimits")
-> > > > Reported-by: Sashiko <sashiko-bot@kernel.org>
-> > > > Closes: https://lore.kernel.org/linux-pci/20260714191826.BA81E1F000E9@smtp.kernel.org/
-> > > > Signed-off-by: Yazen Ghannam <yazen.ghannam@amd.com>
-> > > > ---
-> > > >  .../ABI/testing/sysfs-bus-pci-devices-aer     | 21 ++++++++++++-------
-> > > >  drivers/pci/pcie/aer.c                        |  3 +++
-> > > >  2 files changed, 17 insertions(+), 7 deletions(-)
-> > > > 
-> > > > diff --git a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
-> > > > index 5ed284523956..215cf8bd4c30 100644
-> > > > --- a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
-> > > > +++ b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
-> > > > @@ -130,9 +130,10 @@ What:		/sys/bus/pci/devices/<dev>/aer/correctable_ratelimit_interval_ms
-> > > >  Date:		May 2025
-> > > >  KernelVersion:	6.16.0
-> > > >  Contact:	linux-pci@vger.kernel.org
-> > > > -Description:	Writing 0 disables AER correctable error log ratelimiting.
-> > > > -		Writing a positive value sets the ratelimit interval in ms.
-> > > > -		Default is DEFAULT_RATELIMIT_INTERVAL (5000 ms).
-> > > > +Description:	Writing 0, or any negative value, disables AER correctable
-> > > > +		error log ratelimiting. Writing a positive value sets the
-> > > > +		ratelimit interval in ms. Default is
-> > > > +		DEFAULT_RATELIMIT_INTERVAL (5000 ms).
-> > > >  
-> > > >  What:		/sys/bus/pci/devices/<dev>/aer/correctable_ratelimit_burst
-> > > >  Date:		May 2025
-> > > > @@ -143,14 +144,17 @@ Description:	Ratelimit burst for correctable error logs. Writing a value
-> > > >  		before ratelimiting. Reading gets the current ratelimit
-> > > >  		burst. Default is DEFAULT_RATELIMIT_BURST (10).
-> > > >  
-> > > > +		Writing 0, or any negative value, suppresses all logs
-> > > > +		unless the interval attribute is also 0.
-> > > > +
-> > > >  What:		/sys/bus/pci/devices/<dev>/aer/nonfatal_ratelimit_interval_ms
-> > > >  Date:		May 2025
-> > > >  KernelVersion:	6.16.0
-> > > >  Contact:	linux-pci@vger.kernel.org
-> > > > -Description:	Writing 0 disables AER non-fatal uncorrectable error log
-> > > > -		ratelimiting. Writing a positive value sets the ratelimit
-> > > > -		interval in ms. Default is DEFAULT_RATELIMIT_INTERVAL
-> > > > -		(5000 ms).
-> > > > +Description:	Writing 0, or any negative value, disables AER non-fatal
-> > > > +		uncorrectable error log ratelimiting. Writing a positive
-> > > > +		value sets the ratelimit interval in ms. Default is
-> > > > +		DEFAULT_RATELIMIT_INTERVAL (5000 ms).
-> > > >  
-> > > >  What:		/sys/bus/pci/devices/<dev>/aer/nonfatal_ratelimit_burst
-> > > >  Date:		May 2025
-> > > > @@ -161,3 +165,6 @@ Description:	Ratelimit burst for non-fatal uncorrectable error logs.
-> > > >  		allowed per interval before ratelimiting. Reading gets the
-> > > >  		current ratelimit burst. Default is DEFAULT_RATELIMIT_BURST
-> > > >  		(10).
-> > > > +
-> > > > +		Writing 0, or any negative value, suppresses all logs
-> > > > +		unless the interval attribute is also 0.
-> > > > diff --git a/drivers/pci/pcie/aer.c b/drivers/pci/pcie/aer.c
-> > > > index 6f2460231422..401cd3a1b3d0 100644
-> > > > --- a/drivers/pci/pcie/aer.c
-> > > > +++ b/drivers/pci/pcie/aer.c
-> > > > @@ -752,6 +752,9 @@ const struct attribute_group aer_stats_attr_group = {
-> > > >  		if (kstrtoint(buf, 0, &burst) < 0)			\
-> > > >  			return -EINVAL;					\
-> > > >  									\
-> > > > +		if (burst < 0)						\
-> > > > +			burst = 0;					\
-> > > 
-> > > Why don't we just return -EINVAL if the user writes a negative value
-> > > to either *_ratelimit_interval_ms or *_ratelimit_burst?
-> > > 
-> > > I don't think there's any reasonable interpretation of negative
-> > > values in either case.
-> > 
-> > Right, that's fair. I think the reason to clamp was to be consistent
-> > with the current code.
-> > 
-> > Would you like a follow up patch?
-> > 
-> > > Any non-negative value for the interval makes sense (0 disables).
-> > > 
-> > > Any positive value makes sense for burst; I don't know what a 0 burst
-> > > value could mean, so maybe that should be an error too?
-> > 
-> > "burst == 0" came from here:
-> > 084a990ded63 ("ratelimit: Allow zero ->burst to disable ratelimiting")
-> > 
-> > IIUC, the goal is to **always** hide/disable the messages. IOW, keep
-> > logging the errors internally based on the interval, but don't print any
-> > kernel messages for them. The user can still get the error logs from the
-> > trace event and leave the kernel buffer alone.
+On Sun, Nov 22, 2026 at 04:54:13PM +0300, Serhat Kumral wrote:
+> c4iw_alloc() maps BAR2 on T5/T6 devices or its on-chip queue region
+> on T4 devices. If c4iw_rdev_open() fails, c4iw_alloc() releases the
+> IB device but leaves the mapping in place.
 > 
-> OK, so burst==0 should have the "usual" semantics (disable
-> ratelimiting IIUC).
+> Unmap the mapped region before releasing the IB device.
 > 
-> Can we make a replacement for this patch?
+> Fixes: c6d7b26791a2 ("RDMA/cxgb4: Support on-chip SQs")
+> Fixes: fa658a98a2d0 ("RDMA/cxgb4: Use the BAR2/WC path for kernel QPs and T5 devices")
+> Signed-off-by: Serhat Kumral <serhatkumral1@gmail.com>
+> ---
+>  drivers/infiniband/hw/cxgb4/device.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
->   - Return -EINVAL for negative values written to either
->     *_ratelimit_interval_ms or *_ratelimit_burst 
-> 
->   - I think the existing *_ratelimit_interval_ms documentation would
->     be fine, no change required
-> 
->   - *_ratelimit_burst documentation needs something, but I don't know
->     what.  084a990ded63 ("ratelimit: Allow zero ->burst to disable
->     ratelimiting") suggests that burst==0 disables ratelimiting, but 
->     you wrote "suppresses all logs", which sounds like the opposite of
->     disabling ratelimiting.
-> 
->     Also, I don't know what "unless the interval attribute is also 0"
->     means.  What *does* happen when interval==0 and burst==0?
-> 
-> The pci/aer branch is mutable, so we can just replace the existing
-> patch.
+> diff --git a/drivers/infiniband/hw/cxgb4/device.c b/drivers/infiniband/hw/cxgb4/device.c
+> index 24ac9871ce67..35dacf379294 100644
+> --- a/drivers/infiniband/hw/cxgb4/device.c
+> +++ b/drivers/infiniband/hw/cxgb4/device.c
+> @@ -1046,6 +1046,10 @@ static struct c4iw_dev *c4iw_alloc(const struct cxgb4_lld_info *infop)
+>  	ret = c4iw_rdev_open(&devp->rdev);
+>  	if (ret) {
+>  		pr_err("Unable to open CXIO rdev err %d\n", ret);
+> +		if (devp->rdev.bar2_kva)
+> +			iounmap(devp->rdev.bar2_kva);
+> +		if (devp->rdev.oc_mw_kva)
+> +			iounmap(devp->rdev.oc_mw_kva);
+>  		ib_dealloc_device(&devp->ibdev);
+>  		return ERR_PTR(ret);
 
-No, burst==0 is the extreme opposite of disable ratelimiting. It's
-basically a mute button.
+You should refactor things so c4iw uses the 
+		device->ops.dealloc_driver(device);
 
-"Interval" takes precedences, so interval==0 means burst is "don't
-care".
+Call and puts stuff like this in there
 
-The three scenarios:
-No ratelimiting (interval==0, burst==X) => show every message.
-Ratelimiting (interval>0, burst>0) => show messages based on settings.
-"Total" limiting (interval>0, burst==0) => *never* show messages.
+Existing c4iw_dealloc() is possibly close to what should be in the op.
 
-I guess a user could tune the settings to get to certain level of
-"quiet". But there isn't a way to 100% filter/hide the messages. The
-burst==0 setting gives that option.
-
-What do you think?
-
-Also, updated patch is below.
-
-Thanks,
-Yazen
-
-================================
-
-From 88cfa8ba46d3f212cb94679c3a8211ff15bdf678 Mon Sep 17 00:00:00 2001
-In-Reply-To: <20261121001202.GA917755@bhelgaas>
-References: <20261121001202.GA917755@bhelgaas>
-From: Yazen Ghannam <yazen.ghannam@amd.com>
-Date: Mon, 23 Nov 2026 08:59:07 -0600
-Subject: [PATCH v2 2/4] PCI/AER: Reject negative ratelimit interval and burst
- values
-
-The AER "*_ratelimit_interval_ms" and "*_ratelimit_burst" sysfs
-attributes accept negative values. A negative interval is treated as
-0, which disables ratelimiting. A negative burst is stored as is, and
-___ratelimit() then warns about an uninitialized ratelimit_state.
-
-However, a negative value has no meaningful interpretation for either
-attribute.
-
-Return -EINVAL for negative input.
-
-Also, document 'burst=0' behavior.
-
-Fixes: b4fe7398def6 ("PCI/AER: Add sysfs attributes for log ratelimits")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/linux-pci/20260714191826.BA81E1F000E9@smtp.kernel.org/
-Signed-off-by: Yazen Ghannam <yazen.ghannam@amd.com>
----
-Replaces "PCI/AER: Clamp negative ratelimit burst to zero" on pci/aer.
-
-v1->v2:
-- Return -EINVAL for negative interval and burst values instead of
-  clamping. (Bjorn)
-- Keep the original interval descriptions.
-- Describe what a burst of 0 does.
-
-The rest of pci/aer applies on top. The only conflict is in "PCI/AER:
-Enable baseline capability error reporting", in the two interval
-descriptions. The resolution keeps Lukas's capitalization without
-"or any negative value":
-
-  Writing 0 disables Correctable Error log ratelimiting.
-  Writing 0 disables Non-Fatal Uncorrectable Error log ratelimiting.
-
-Tested in a QEMU guest with injected correctable and non-fatal errors,
-for every combination of interval {-1, 0, positive} and burst {-1, 0,
-positive}. Negative writes fail with -EINVAL. Every error is counted
-and traced. Interval 0 logs every error, whatever the burst. A positive
-interval with burst 0 logs none.
-
-An LLM coding assistant helped check the ___ratelimit() semantics,
-draft the change, resolve the conflict and write the QEMU test.
-
-v1: https://lore.kernel.org/r/20261110215614.3931232-3-yazen.ghannam@amd.com
-
- .../ABI/testing/sysfs-bus-pci-devices-aer          |  9 +++++++++
- drivers/pci/pcie/aer.c                             | 14 +++++++++-----
- 2 files changed, 18 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
-index 5ed284523956..e4c39839cc6a 100644
---- a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
-+++ b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
-@@ -143,6 +143,10 @@ Description:	Ratelimit burst for correctable error logs. Writing a value
- 		before ratelimiting. Reading gets the current ratelimit
- 		burst. Default is DEFAULT_RATELIMIT_BURST (10).
- 
-+		Writing 0 suppresses all correctable error log messages.
-+
-+		Burst value is only used when interval is greater than zero.
-+
- What:		/sys/bus/pci/devices/<dev>/aer/nonfatal_ratelimit_interval_ms
- Date:		May 2025
- KernelVersion:	6.16.0
-@@ -161,3 +165,8 @@ Description:	Ratelimit burst for non-fatal uncorrectable error logs.
- 		allowed per interval before ratelimiting. Reading gets the
- 		current ratelimit burst. Default is DEFAULT_RATELIMIT_BURST
- 		(10).
-+
-+		Writing 0 suppresses all non-fatal uncorrectable error log
-+		messages.
-+
-+		Burst value is only used when interval is greater than zero.
-diff --git a/drivers/pci/pcie/aer.c b/drivers/pci/pcie/aer.c
-index 6f2460231422..2c42d6e8bd9a 100644
---- a/drivers/pci/pcie/aer.c
-+++ b/drivers/pci/pcie/aer.c
-@@ -690,7 +690,8 @@ const struct attribute_group aer_stats_attr_group = {
- 
- /*
-  * Ratelimit interval
-- * <=0: disabled with ratelimit.interval = 0
-+ * <0: rejected
-+ * 0: disabled with ratelimit.interval = 0
-  * >0: enabled with ratelimit.interval in ms
-  */
- #define aer_ratelimit_interval_attr(name, ratelimit)			\
-@@ -717,10 +718,10 @@ const struct attribute_group aer_stats_attr_group = {
- 		if (kstrtoint(buf, 0, &interval) < 0)			\
- 			return -EINVAL;					\
- 									\
--		if (interval <= 0)					\
--			interval = 0;					\
--		else							\
--			interval = msecs_to_jiffies(interval); 		\
-+		if (interval < 0)					\
-+			return -EINVAL;					\
-+									\
-+		interval = msecs_to_jiffies(interval);			\
- 									\
- 		pdev->aer_info->ratelimit.interval = interval;		\
- 									\
-@@ -752,6 +753,9 @@ const struct attribute_group aer_stats_attr_group = {
- 		if (kstrtoint(buf, 0, &burst) < 0)			\
- 			return -EINVAL;					\
- 									\
-+		if (burst < 0)						\
-+			return -EINVAL;					\
-+									\
- 		pdev->aer_info->ratelimit.burst = burst;		\
- 									\
- 		return count;						\
--- 
-2.55.0
-
+Jason
