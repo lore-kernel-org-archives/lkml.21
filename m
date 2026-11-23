@@ -1,63 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451463;
-	b=4KSNTa/VRvkBHWYKnDMDTrsTgcvwhBihC2ZyE/vPc/nnbdwoz75PgFppWGXbpTJzOHuo
-	 JigaraY/+SSOgdNWPhIyD3UUbmkzOHVnSfFNpNRT7DCz5+2dBoD7Qzz4+w4jvEhJ7Zqna
-	 C3XWXnkByc8KCvtmbPCuyuoJ2S0tbcoNgnbXlO1JXHXhdTsI3mCRHXUN0YoL3vNJxdek7
-	 Tq0R1mDtLyHAalIcznSm43eL2Hc1T/vWiNmzZ5O5wpOvbLpq5mGgreA3MhT76nTwrgr51
-	 ArpzBKNcZqs9onAxo4PqlgDbChXKoRwHv9Ia/Z/Pm0Z2wfNdoqgCrwC0RMgIEd2UBXw==
+	t=1795451473;
+	b=SxlNhuLL1r9otQbBalj/AY7KybuWpDIqf+dxOYi6vzdFw7jq8oOShfLcEVdYUexxrAGO
+	 6RGX7meUhnL5pk0yONtbENtA/AoKQOaIe5JCXPUk7PLfZQ0RiryzFf7DJPrw5knY9329K
+	 v0ig5cbYkjlDcBXTft/tywGD7caL3b7d+MPxrOBBpCpnzThwYWLQTaOK+G2+tSoLehJNU
+	 GfUaMsujFZPUNmtJkxKPyeusPptp864w5dLJJ8gjtAgwWbhN5ZK6tQDkaKK92jPvxxA98
+	 ekwRBBISHvFnHHShGwNDmVi7Y6R53TDRA0DJEhHScjCKNQGBVACGR/4cHqdHrFyp1gA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451463;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jMtoEqXohvqbclVtS9Z+5YKaFu68bPrDQCuZaxatwVg=;
-	b=LZcl+mmKmvleHjqs7jyNsGoppgB62143xyCW+tyGt5e0zGx1Ehj7f10ILfl8i1VA+Hfq
-	 +Ukf/2uCDadicddkKyx1+F5FA79pEKQ/iGfSV+LuGOoosmMUWyv9clxcVEAVmFhBEVDr6
-	 uF7rYO0GVcVODuzD1l7BvdbMtlfLmd5Vb8LKvjsD9qHWvMTvZ9taKALKsusg7Z9E4NZA+
-	 rTDRXd5d+d+FN9xxw6Im5Tmm3OseQ2wW74EkaownwIoTrd56pzLOjYy0RKdavsdyBqCln
-	 pm2HUEKhwUhAScwA5bjXzO2MSdmmC4YWN9435taALFrMcqWmWv6lwHjFrwXjIwpHHNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451473;
+	h=Received:DKIM-Signature:Message-ID:Date:From:To:Subject:In-Reply-To:
+	 References:Cc:Content-Transfer-Encoding;
+	bh=EeG8CcdNnFyu3Wu0cn0cp3neJz6lxVqBGhcCpy1RbRs=;
+	b=AaHAYU0p47kYECNlV9zSPZg2u4q5ZbDLCJwB/qGqfaxV0FfAskv8W54Ep3mfHrqOBZOy
+	 V+uxQh+uLtMGNZclGkxbTdWQzivJDFVXyZBISWGL65XPLgpkOxvkkGB6w01CMxTje/Sg/
+	 G45nJrPbGfxbk9LPgpApOWXExhJlcnvELYDBSHI6WFVqL/4IUpsZCKWjWGjCZYs7na81D
+	 MYptRx/oaJW/c0mqYrCBV77O4Lr1ImoYYOdG5lriY7JM2ym0pQfrsr23dzusmuiiKjTqt
+	 F6y5j4ocKu1tXAf8kwqvXqijABQ0HgEJ1ajq11J9xt/wQVBnQ9NrwO3EZ1jE51lxkjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LcojK46x;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ipx3O2ub;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87A40606A31A;
-	Mon, 23 Nov 2026 16:31:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AE7A606A31A;
+	Mon, 23 Nov 2026 16:31:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LcojK46x
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 899C91F000C0;
-	Mon, 23 Nov 2026 16:31:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ipx3O2ub
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F09DE1F000CA;
+	Mon, 23 Nov 2026 16:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795451463;
-	bh=jMtoEqXohvqbclVtS9Z+5YKaFu68bPrDQCuZaxatwVg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LcojK46x3wYV53qVzLH5hJDKmV2TAvMH7bVELtrYyr0zL68uIMU/dx8DQLFhpPmbw
-	 GFZ1/oB6yTH7t6lOUTaBn4mxsqpRjt+Qni3iNgsw3YJer5jZIXnEc2s+7VcgGJCAEE
-	 KY1AO9vM2uf0fwtvebGqLjQlOCHCC8xDLT7OTVzc36HYEVcLNRfGDIkbWM3kD/8blN
-	 7cFdV9ao45SOmJnViwYRJOZv5Q+1XMzsFAJ4+3OwxxjEUgfT3XApZEDeITTK1fdNOs
-	 jz55NsEp6RJCihCcgmwI3OETWc05nnH1MGRDEo7T+KKWn4w2CUoRLhc5EdrwAkaIJr
-	 WnBNENAPWSbUQ==
-Date: Mon, 23 Nov 2026 16:30:58 +0000
-From: Simon Horman <horms@kernel.org>
-To: Changyul Lee <lcy8047@gmail.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Joshua Hay <joshua.a.hay@intel.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH iwl-net] idpf: free the RDMA auxiliary device ID after
- deleting the device
-Message-ID: <20261123163058.GG31322@horms.kernel.org>
-References: <20261118051611.3892489-1-lcy8047@gmail.com>
+	s=k20260515; t=1795451472;
+	bh=EeG8CcdNnFyu3Wu0cn0cp3neJz6lxVqBGhcCpy1RbRs=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=Ipx3O2ubMFBnyq3U4udDS09fhZwEf20oMZi7XmCLTFnDSLh3qbxBx+K2g1gUvxtDs
+	 /BYn8A7+eKdeQ6xxF81YIs/buZtWu7aBwo6NgkipkLLsAOm18e7vKyeSapWGXFiXxQ
+	 COUzWOYok9qLLnc3rS7EOFVSZ2AoFsLXUGNCYVWy2ICdXvVu2rkTzQBmeCKIJ3XCw+
+	 uvw8Zn9iADYLinFFHpvXqiFjWs7SnQdWaraOpXuk9v85ynOBrZe9zDOyZvM4FalSrG
+	 zGeA6qMjY9k42huPn3KaiCq0X7Sl0BOkWi6R7oEcMk2LY/AWg+lOKWqHrqdxK17g+C
+	 crsE6dNAL6hpw==
+Message-ID: <7d849ed180032b1fadef0d400534b44a@kernel.org>
+Date: Mon, 23 Nov 2026 16:31:09 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH 18/25] drm/tests: hdmi: Cover mode validation against
+ connector max_tmds_char_rate
+In-Reply-To: <20261114-drm-conn-hdmi-cleanup-v1-18-20e8a33a2286@collabora.com>
+References: <20261114-drm-conn-hdmi-cleanup-v1-18-20e8a33a2286@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, "David
+ Airlie" <airlied@gmail.com>, "Hans Verkuil" <hverkuil@kernel.org>, "Helge
+ Deller" <deller@gmx.de>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Martin
+ Bugge" <marbugge@cisco.com>, "Mauro Carvalho Chehab" <mchehab@kernel.org>, "Maxime
+ Ripard" <mripard@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thierry
+ Reding" <treding@nvidia.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,28 +62,17 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118051611.3892489-1-lcy8047@gmail.com>
 
-On Wed, Nov 18, 2026 at 12:16:11AM -0500, Changyul Lee wrote:
-> idpf_unplug_aux_dev() returns the ID to idpf_idc_ida before
-> auxiliary_device_delete() removes the device. If another idpf device
-> plugs an RDMA auxiliary device in between, it can get the same ID, and
-> its auxiliary_device_add() fails with -EEXIST because the old
-> "idpf.<vendor>.rdma.core.<id>" or "idpf.<vendor>.rdma.vdev.<id>" device
-> is still registered. RDMA is then not set up on that device.
+On Sat, 14 Nov 2026 20:03:42 +0200, Cristian Ciocaltea wrote:
+> Test the hdmi_clock_valid() logic that rejects modes whose TMDS
+> character rate exceeds connector->hdmi.max_tmds_char_rate.
 > 
-> Free the ID after auxiliary_device_delete(). It still has to be freed
-> before auxiliary_device_uninit(), whose release callback frees adev.
+> Exercise both an explicit limit set through drm_connector_hdmi_funcs'
+> supported_tmds_char_rate and the limit inferred from supported_hdmi_ver.
 > 
-> Fixes: 65637c3a1811 ("idpf: fix UAF in RDMA core aux dev deinitialization")
-> Signed-off-by: Changyul Lee <lcy8047@gmail.com>
-> ---
-> Found with a static analysis tool we are developing.
-> 
-> Compile-tested only, with x86_64_defconfig plus IDPF and W=1.
+> [ ... ]
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
+Thanks!
+Maxime
