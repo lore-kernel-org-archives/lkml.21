@@ -1,81 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447302;
-	b=WPTYYgmP788ARrsHH1HOMExltSvy8u0aaxbSDLK40G8fZLA2flf+kNGfafdqXqjD3W5M
-	 v0SNZX+Z1H8XnismF7bKIiQexZuW1Ip8+tWBrmE+G3L4GGZN/Ti2waFf6sNfxf4pMd/uw
-	 whqx6elLewZLvDmudRiz+WMmhOuJRHx86suzJsL10D/PhrzH0bDw2dcCl7ER5NKjxFaKI
-	 zpMnSctGUquFM13MKSt7eRxtE3moJ6MiqiJTttciP0804XU1ELSjsQ6LlluCiQShPFoIE
-	 HAyDrwbpdUj8gX3CvgT2tf2OzETMkBKBZ59PiMqBmnqz6KQ8RpaQz4u1c/NVmaLZ5MQ==
+	t=1795447298;
+	b=2hLOrJPiDTlESuQPpTSOFWr6CEVSkOCIGK6L8Imqz+ZL3k8gLJyZhSYaLLYvtiqp0ryM
+	 QFy2DOYJKsK7LCdYe6SIL9Bp64ZUeUfUCeJ0vCbThvw+C1qCks+bACN4uU+LbyB3G0nxU
+	 FlcCJef9GD2G2qxTWlTixL1N69SYRn2nk+4fgaortjfAxomZG6yAmgHzzUn/TN5PT1xG8
+	 XAcgTjHBQYGZGUSYw8ODWbE9zMXtvNYmo9i1KfYDi1NIvg6ZfAwGG6VjmXpWnfCyTdYVj
+	 m8b4NDVkAqWCNvDgv0sDkYZQwme/OkVjtqbS+Qc2H0mfL1dUI6ELoN6m3pEFSytnElg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447302;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=9R9+S3mSuWLZBPvNUC6+4d4WMHKTLlAs7ugZ9p09fy4=;
-	b=0mEmkZ7HxgIpbHGQfkpdxxrP/D8YNWcN6sY8g0S34BBHMp0mUnDU9JGSU1FlTgS+NmsD
-	 xUH2AGpgYJ3EtbZOsxFcFmHHfVZ97dPQwOFFSOK/GojuchEObLDtaDGRcBnQYvQVHF1Xt
-	 UVj2MF0lU+MXTectNaYuDtognUo02gimJLSf5aONgIArF2NtMhPzb33LLMcH06QM19wUq
-	 A6lzCojFfXRz+j6X+MIgBu78mUEcEFUpPHLB9a22rQDDDwM1RhBf7IWEmua4/EDvtziP+
-	 KW2IPkdJeIx7FHy6vjS23QMdMzaWrDbiS/Hxb7KKFmiZiaedhqPfjDasw6bnhWAeusg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447298;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=M/NBo049vkahD6DDx4SDzPe/iIjbhwkc74fZEa7Rvok=;
+	b=XEIgANgmQGPi4uPZDPJ++oI6ADzafiKOheap/KYJlfVD7y187KhWC5/X1StZ/XUybzzH
+	 P7t+e6trkImRLgASEJBkZUDcMWxkIP7AHgiEdqS8unZLjmjO2Z0FqvRJCWhrJvFL5SuXq
+	 UOV9Zfc5bO0VEGz8PWU4YlIeFZAo5g+dI+dxXHxKRaT4bg6Zj0nPf14t0DVqiOyy4Fbw+
+	 XuQc2/pNuC4Yr9nSg5O7OIyl8uZqGhPsJsDFmLduKndzTYonOAp2iKjAsQeiiuhE+v9v3
+	 ybliRxrsiKXe2ddnyfKWRCMh6sFqPT94v0/b8ipUOHRKZt6qcILxKuCljP0WvWnlP1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oRhiKpFz;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8D6EE60A2621;
-	Mon, 23 Nov 2026 15:21:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D6EE60A2621
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=TzjlnWQg;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F008A606A6B9
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:21:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F008A606A6B9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oRhiKpFz
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADCF7143D;
-	Mon, 23 Nov 2026 07:21:37 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2972B3F632;
-	Mon, 23 Nov 2026 07:21:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795447300; bh=fpRq0XHe3KXaJk7U24ztuGm8cRIyiBoN98OpPRJxQVI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oRhiKpFzp3maAFyufuRgNdMWX7MnGYvG95nb2qZeu1KKbv2Prt2yC4yCyizqHQoi3
-	 HdX3NOcnZ2OX45WSw7uiWaFpjrc7HY+ficNi3i15HO33UbOgM5wODU9AcywxKDLiV9
-	 lrzUr+R5+0fMp9hTq17+Hld1pS6GcDbBDGiTSDdY=
-Date: Mon, 23 Nov 2026 15:21:38 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Yabin Cui <yabinc@google.com>
-Cc: Dev Jain <dev.jain@arm.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Michiel van Tol <michiel.vantol@arm.com>,
-	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Revert "perf/aux: Allocate non-contiguous AUX pages by
- default"
-Message-ID: <20261123152138.GD9176@e132581.arm.com>
-References: <20261025-perf_revert_prefer_large_alloc-v1-1-5fb431bbd624@arm.com>
- <57c34e26-3048-474d-8e74-f65799e32ff4@arm.com>
- <CALJ9ZPNWcDtajO+Luhxe1K3af64mPRFQSjvfvNornyFFkam-+g@mail.gmail.com>
- <CALJ9ZPO9XxF-kz5K67Jg8RtpiEmK7XFU3e+xDak6LyV_We7yBQ@mail.gmail.com>
- <307b4d48-00f2-40dc-bf3f-ffa0f2f58d33@arm.com>
- <20261118165702.GX9176@e132581.arm.com>
- <5909a504-0534-4f6a-8925-bb18f24eca0e@arm.com>
- <CALJ9ZPObeFj0mm8ahwCa-ePYHXU2nE=hvPW97bStH2mX7RvqnA@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=TzjlnWQg
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso18738475e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:21:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795447295; x=1796052095; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=M/NBo049vkahD6DDx4SDzPe/iIjbhwkc74fZEa7Rvok=;
+        b=TzjlnWQg/9m4i46gpOgroSxKPT3OPfsYuFv2HIWxH//jRQgC1d+4f3sVv6eRk1yCJi
+         oK8tKqe9nt9Z/wCbJ/OAszCXrmudQ7XEHujtCiY0PwxbrMzB/TO28QWzjFN74iLVUZqp
+         wOBZcVC8VR4G2dm9zrNfl6Lre74ublHG/IBbfCSt36l6B6FTQbndFhb0TI1sUWgu8PmC
+         pn197lgwk+NWzYF6XfLfCBqn0Pj9U09qsCRtH1J0PN4XfojKBYkXO7+S7Wl2jgsu+Gzz
+         Y2NzUJbvdlaE2Jvz0EiuJm3WMIIlYv6hx4BDIiFEnXFLFRakt6r/QczBG+5eLnmq+UHT
+         sTrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795447295; x=1796052095;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M/NBo049vkahD6DDx4SDzPe/iIjbhwkc74fZEa7Rvok=;
+        b=SFknSICjliQpqpeKSlpqRbLssqPn3xxLO1T+h++QgUiRIwKwCNgQheIInvpY7qf/Vn
+         G/TrHv/dGGip/8JzWhc6YjFEzsGijdZyWAP2+3AJW+cWqwSfyiVEFGVsOe8gMLZSc4Vz
+         m6cYxwHMFaArhGATGY6yNhnxtR5Py74RJ5S2Ferpixkff0kjMMg3uDpPAXk66SmDguWU
+         wIjDUxujAHGurSOoxfGAV0sNLix4kQZuVZpUftscfCsV2S6NIrW9nZtK007FzxcidW5A
+         AgsgORk//LJlWBNeFwYf/7tfZ01O2XCDW4K1ow89a08YXJ/gzyYcADG8neuNhqrZ/Yeg
+         PXpQ==
+X-Forwarded-Encrypted: i=1; AL+hErHwHZMvUwnK1nxxTylzCwslz5JkhgMdem2hkEWZXOd78hn/FRFRBG1rO+9xffO2xG4ezfgFyRlt5PGRs4M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hwzJy5JIkCbXY7od7l43WlZO6sEPrFJ35oDNOZCdtv3HF/IWl
+	4iQ0weHGYMfEXwiHd+2W5lZlzLLlac8OXCYWPaYWBGuqtjE4BEYCm25NkukW80PM0Pc=
+X-Gm-Gg: AZFdTZcnCPNjPWJvUDzhU1hCXJURiup8XNT5XUzICzXOWrrEpaa/qqaQ/QqCFNyNJnj
+	sj/vDKoepiIIVxle/BMKLlxfMXTYY1bKvx//N5s/eJQVMtxFl9cbGaxXD9Z14lIQ/iYd3r0X3Uj
+	Wef2HYMUDSkHdG5npXllMGnIcTE4yuax8x40zpjEPl5+neXfRdYuelxUsBXXAUR8LChQ6DI4b6S
+	mPMpjwx+m9PzaOZsK8QMbSZQhw0D9zHkwrlT75TQxUz19nTqYADT7QUoavD/mYb2MoqA6ckKCyZ
+	BtkXkTTADUzbkPwJnwvGW8Y2lAkw+YeLnxH2A/CJq/NybedB5Km0CfNSsHxNPi/YAz4LDfFplOP
+	HtON5476IdmbvqeZxXTOcDTZBqIfN2w8JdwNkw/mzTuQeIWMPtd/R/LhcVQiTuBv7ezQTXf8G5C
+	umaVjGXNWsFacMHu+zI3Yt3ksWy5rHBYonY/HO/eKhDpqQ9xJ4El4a318u1LLslE6JgFK4uF7Lm
+	UexvdB3UCSWft0Zg0hp/veMdSuY1ct4N/GE+p1O7QTi7iJaPKKHnhna6o74JbjEWVoScm4Avd1K
+	g8UzLBtceZDHL4Gui7PpY/JTX5awbm6tQx9Mm/7VVXeh4OMsjFw=
+X-Received: by 2002:a05:600c:848d:b0:4bb:6687:5386 with SMTP id 5b1f17b1804b1-4bb8880c7f1mr260733355e9.19.1795447295376;
+        Mon, 23 Nov 2026 07:21:35 -0800 (PST)
+Received: from localhost (140.30.66.37.rev.sfr.net. [37.66.30.140])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm22128006f8f.56.2026.11.23.07.21.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:21:35 -0800 (PST)
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
+Date: Mon, 23 Nov 2026 16:21:27 +0100
+Subject: [PATCH v3 05/10] pinctrl: scmi: give no groups to pin-only
+ functions
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,72 +92,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALJ9ZPObeFj0mm8ahwCa-ePYHXU2nE=hvPW97bStH2mX7RvqnA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261123-clegoffic-pinctrl-scmi-gpio-v3-5-d61f039be008@baylibre.com>
+References: <20261123-clegoffic-pinctrl-scmi-gpio-v3-0-d61f039be008@baylibre.com>
+In-Reply-To: <20261123-clegoffic-pinctrl-scmi-gpio-v3-0-d61f039be008@baylibre.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Linus Walleij <linusw@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Oleksii Moisieiev <oleksii_moisieiev@epam.com>, 
+ Andy Shevchenko <andy@kernel.org>, Dhruva Gole <d-gole@ti.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.17-dev
 
-On Thu, Nov 19, 2026 at 01:00:03PM -0800, Yabin Cui wrote:
+For a pin-only function PINCTRL_LIST_ASSOCIATIONS returns pins, but the
+driver registered them as groups. Register pin-only functions without
+groups.
 
-[...]
+Fixes: eb524cb651b7 ("pinctrl: Implementation of the generic scmi-pinctrl driver")
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+Signed-off-by: Clément Le Goffic <clegoffic@baylibre.com>
+---
+ drivers/pinctrl/pinctrl-scmi.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-> Hi Leo, Dev,
-> 
-> I tested on an arm64 Android Pixel device (4 KiB pages, 12 GiB RAM +
-> 6 GiB zram, TRBE & SPE) using an Android kernel patched locally to match
-> v7.4-rc3's rb_alloc_aux() / __alloc_pages_slowpath() behavior
-> (526d945ad9c0, 669872181549, 53a9b4646f67, 0e05a469c294).
-> 
-> v7.4-rc3 alone still causes heavy PSI and compaction/reclaim stalls on
-> Android, while patch [1] keeping __GFP_NORETRY fixes it completely.
-> 
-> compact-bench (90/95/99%, 10 runs each = 30 runs, 4 MiB/CPU TRBE AUX,
-> 0 allocation failures; system-wide PSI since Android sets
-> cgroup_disable=pressure):
-> 
->   Config             PSI some(ms)  cmp_stall  allocstall  daemon_wake  sp_kswapd_wk
->   order-0                  297.76          0           0            0             0
->   revert                 2,578.00      3,957       1,984           17            28
->   v7.4-rc3-sim           1,840.29        522         161           14            21
->   rc3 + [1]                270.77          0           0            0             0
->   rc3 + [1]-noretry         41.78          0           0            0             1
+diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
+index 23287c3add35..80c6e83a3a2a 100644
+--- a/drivers/pinctrl/pinctrl-scmi.c
++++ b/drivers/pinctrl/pinctrl-scmi.c
+@@ -444,6 +444,7 @@ static int pinctrl_scmi_get_functions(struct scmi_pinctrl *pmx)
+ {
+ 	unsigned int nr_funcs, nr_groups, i, j;
+ 	const unsigned int *group_ids;
++	bool pin_only, gpio;
+ 	const char *fname;
+ 	const char **gnames;
+ 	int ret;
+@@ -456,13 +457,19 @@ static int pinctrl_scmi_get_functions(struct scmi_pinctrl *pmx)
+ 		if (ret)
+ 			return ret;
+ 
++		ret = pinctrl_ops->function_flags_get(pmx->ph, i, &pin_only, &gpio);
++		if (ret)
++			return ret;
++
+ 		ret = pinctrl_ops->function_groups_get(pmx->ph, i,
+ 						       &nr_groups,
+ 						       &group_ids);
+ 		if (ret)
+ 			return ret;
+ 
+-		if (!nr_groups)
++		if (pin_only)
++			nr_groups = 0;
++		else if (!nr_groups)
+ 			dev_warn(pmx->dev,
+ 				 "Function %s contains no groups\n",
+ 				 fname);
 
-It's good to see no allocation failures and much lower PSI with
-rc3 + [1]-noretry.
+-- 
+2.56.1
 
-> Even when order-3 pages are still plentiful (e.g. 95%, where order-3
-> never failed and cmp_stall/allocstall were 0), v7.4-rc3-sim still
-> woke kswapd/kcompactd for failed orders 4..9 on 10/10 runs (7
-> kcompactd wakes), producing 895.48 ms PSI vs. 2.87 ms with
-> [1]-noretry.
-> 
-> When order-3 does run out (99% Run 1), v7.4-rc3-sim bypasses
-> 0e05a469c294 and hits 521 direct compactions / 161 direct reclaims
-> (Runs 2..10 dropped to 1/0 by reusing freed AUX pages; that only
-> helps when traces run back-to-back in a short window, which doesn't
-> match our use case on Android).
-
-I see that v7.4-rc3-sim (or with equivalent mainline kernel) can still
-show increased PSI.
-
-> Under a realistic Android fragmentation test (incompressible zram
-> pages, unmovable pages, re-fragmented between runs), v7.4-rc3-sim also
-> triggered an lmkd kill (TRBE) and direct compaction/reclaim stalls
-> (SPE), all 0 with [1]-noretry.
-> 
-> When unfragmented, [1]-noretry still allocates 100% order-9 (2 MiB)
-> chunks for both TRBE and SPE.
-> 
-> So I agree with Dev to drop __GFP_RETRY_MAYFAIL and keep __GFP_NORETRY
->   (0 allocation failures and lower PSI). Please proceed with v2 of [1]
-> keeping __GFP_NORETRY (and avoid backporting 526d945ad9c0 to
-> stable without it).
-
-I don't expect 526d945ad9c0 to be backported to stable kernels, as it
-has no Fixes tag. We just need to ensure that mainline and future LTS
-kernels (and ACK) avoid PSI regressions..
-
-I'll send v2 with keeping __GFP_NORETRY as you and Dev suggested.
-
-Thanks a lot, Yabin and Dev!
-
-Leo
