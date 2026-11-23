@@ -1,119 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795452266;
-	b=QGAqdHZ7wrOjEk/JQ6RrkkPxcqYkJ272ElGMP0cWJOfqBzpP+IbewZjNpmaBtX1tJ6Ba
-	 4fblaEejCYRaiKVxUMG1WYIrOjQvt0jzZdWyTMxHeb+p+IATZN9PDOYYGMZ3LZ0yKPzn3
-	 l/PWbw/P/20chqM02C+BeEHuE8k0mx0PIi1OPUU3kmceozSW3P32JjSs9pXsYatpnyavV
-	 4ktn9VeOQjG/nO0B2zbDgF+lD7LNxkRWVVeChbAZo9EfGuF+9RAvD9XBxNcDdtV8DC9uJ
-	 ixXDGggmoSbuATs3lSLS4weviC7zCc1QOR0UG/os4xwY6slKaw/fEzx8XXoRG62DBAQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452266;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=E9s0asUcF3mX53rYsxFbgE7bi8OLnIG92yhRD104En8=;
-	b=cntLSh5SScLHRfF8SsJLZad8vUB4St57BeX2UVaGyl5kWI0j6t4/JcwQ72oJ6oNZkMSd
-	 Yvn7UZUAz9ceIybEOvZ5jSV3a7YHWR0wUnc5da8A7lD7xYx64iZXGuC36yU6GS4qbV34z
-	 1ZFXr+yiaI98x790g7MeDlRnHtm4X7tSuDl4mXW/hr84OkENqbV+ocB4vE7xW6xEDieM6
-	 oeXeXD1XEk+o99vulFGxmjKFbQi0Q1WVU1J3iuKbVX3Y0jqG8x9RjOxGLlgKWO+X+s9en
-	 0+pJfp8BEmyKlE1hgIxyY0Wm21XPPM66hciQkZHrHeZb8eYOkaTA8gZlWcfA0a6tlQg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.com;
-	spf=pass smtp.mailfrom=fastmail.com;
-	dkim=pass header.d=fastmail.com header.i=@fastmail.com header.a=rsa-sha256 header.s=fm3 header.b=KHowNZEl;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T47wJBu+;
-	arc=none smtp.remote-ip=202.12.124.149
-Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.22
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795452254;
+	b=IEXhc/4SOG/p0W5JJMcD2vCCP570o6OQ2eNxtei8EUBU6OjZpPXoYHIOGeLFlstpnTQS
+	 zaCkmm0wIHC6rrf62+lAkscRTKOPOS23BVVT/XHL5wceZ/i2j0eVtEGqTraQ91jVk0+l2
+	 +ghZxMBMPuxCarii+ECAeWKKroGWHvx01Sy0cawqELOmuvD8UuHFHJNOrH/ZKcR9JGx0I
+	 s5QkN+cDTkNunHDfB8WkGx7pjTDdSIJA+2QUPnGZ3OQzusH6/Vokbdynk0qFeRYFZwB6D
+	 MR4Yg7Vlu9tvG/aL25qa5cGkkOvqC9PBHXN58XVi21OiZdz3zqji/jBnOnRwZl1mDFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452254;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
+	b=jbUHq+dbouLvmHqn6gx2xjeX3+nd04rshO+VD5HrcioFI/Q+WWAZ3Kn4A1xfv4LpZadJ
+	 umYMYv/OWSA7jjMxq094t/BYFTH2khiDYZ3VhJcEym6Tur7+TFvgMeUloJKCXQ4ddOdVz
+	 04EXojlVf4om51aiwGs7zjuKeFuf8zFBEboMBo3B669XVQWrG9CEBokZeOSpv/ExcRdsW
+	 A9aO6ovGv8ifvr785sNDdIidT9gMKLHAQEvR0U2KkhDuEZUN7QJPVgklNBSYSgvqJogMg
+	 GfAXTrJyCHiGZyniPUPc5A/J+4RZI98pttaNSegKQm6pDrNdqpAELjpmTlCUa1FaDsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2mU5GQlq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.22
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013022.outbound.protection.outlook.com [40.93.201.22])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2038606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:44:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2038606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC7C606A31E;
+	Mon, 23 Nov 2026 16:44:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDC7C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.com header.i=@fastmail.com header.a=rsa-sha256 header.s=fm3 header.b=KHowNZEl;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T47wJBu+
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.stl.internal (Postfix) with ESMTP id 21D191D0061A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:44:25 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Mon, 23 Nov 2026 11:44:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795452264; x=1795538664; bh=E9s0asUcF3mX53rYsxFbg
-	E7bi8OLnIG92yhRD104En8=; b=KHowNZElMKYXTUS6Vn+Jgg4rJdNRkurLDOe47
-	YduFJv0uhlrKMdtF3pL7LFZg7TZci0dOU9ymhNkM0g+b6XpV8RzaRAKYdEFcTzbS
-	ukZ7IReKJjiVEzgQwhcVh6n/XJYpbWQ1bmGUyWmjACDVEEjBfxfzFduDEtszF4ax
-	0w2w708ipFG50TYmEEsa1eVlTdxq+zh8k9AIDEOiHTUQGykfahvv5Nrzwi6fJPkE
-	R454Ccm0Jl13o8eLfxLcC+MvlqUk0xEidcTlR5u05aQ1JlREinppMPKtWJGNSdGT
-	k9HNdmsshJKSYfNma8EhbF3CHBeN568nKUSGJJcUdzy/IFsFw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795452264; x=1795538664; bh=E9s0asUcF3mX53rYsxFbgE7bi8OLnIG92yh
-	RD104En8=; b=T47wJBu+TTJRLZUnvWjk/jVTP1vYkP1oVtrR+ywUK6ACDShYCH1
-	tSCO70DHwgK1AYGBN8AkmAoXaAhAjufYCCDplwsk6B/rNwjiMW2nDKzxWv28MITK
-	WxIqbjQcvK7p1CeP1jCwo5QWaXu54GX+3uCThI69SZQJOnvtQHzfdy4zYO7E4m1K
-	0mFbHonpx8t4e+kQ3EN+2Lyz5Kfr4xSB1j2ZL3nOLO9rIDekfaNrgpg1InN0jxgX
-	rF+Iiwtheq8IWsM0uVWgWTqEGzJ276kMkEiobY0f0qBlV4BToP1Vs97gZTZ0qPvP
-	t0JUxK9ICUTSblzZKE1JnBrWYYvXONriUSA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795452264; d=fastmail.com;
-	mf=PGJhcmFudEBmYXN0bWFpbC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:c6aVHGpYWxC771DaSg8OxUqsgObzEs5plPxzRg/ZfNXUsF+
-	6WnyPD9Qd9yqiEAfSvRHMBhsWLybT7Mvjd/7IjepU+aQ0WQmjDQ+3ZCTNjdacd4d
-	280CYRNRlZaVIsDsy0hCyckf+PQI5lUrr6/Cq+Ru9AHuF4HXyLz1uaa+X5Yo9zez
-	1sRVv64L+ywMrkkOklffgZa2qRRgFeXxKvytXUTaYUvqKATqbLdgVBxrGbv+lqvK
-	Hm1IX8siKXznbE2hJiiCmQjJx4hgjsAEnpUzNQfnDrbVDA1CHy+KFkaUMcB/gkm4
-	b4Pgv2NkvYsnQZEt1Kx9cG0rDTK+a8PYDanWgOw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:lTbYK0gL1N+3GbljB+7bNYMiLGdD7zqRrpy0RZO4Ktw=:kkanJV4u9+DmEnqJSoQ5Wug8OzPsDrSriRYq8gx6MxM=;
-X-ME-Sender: <xms:aG0Ea9LNtKmn_ScZQhgSLpuOlFCQnQkVm18PVrdnL5UwHXd3856D2Q>
-    <xme:aG0Ea6p4HxL55pvPHLP4MhbtVhSdb05HLsWCOsRD0clO6UAELx_Zd9bJoI6mNkk6f
-    wQ646HkyWT8zNr9Rv6DZtsQBltpB4MysF3qdEVuwthYDi2ma8jtkoggqw>
-X-ME-Received: <xmr:aG0Ea1zZnNssZZ6Eec9Xu9wZiP0Wgb0ZYs216B2b7Tpq80oyQqV6G5_z>
-X-ME-Proxy-Cause: dmFkZTFgBE5ApSHOfW5fH134JqdDRU2Lxuyh7eVpFb8qGd36aMKloYaWp2K26oChWmfuL+
-    TTUxmFo25S56u2aGJhCxsbNmx1c2ByEFWY3t68M2s/s9NOHd7nrZKBhJieNQsw+b+n+CJw
-    Gsdfky5DnnRhjOBlCgPD1hkTW1FPY2tuKXLW4+jQcZZCV0OuJSXuD+nanZ8zhH0PrDgW5k
-    gBK8rqhhSC45ex4w7sVDBgfMDZ1QyPFeeMDU7u9U55U66vCvnwKOyqcSjRuKzJp6TEXZUa
-    9aSQGh4xWXwpPNhgaxVKlFZAYhvhxPH4ECOYDmzd3wP/HA3ehMSpcXUqB3NHkFBNVsacbd
-    zD3G5EUwvNJK9pilu/+U2Gh2Bf1WtpmpH2HegraElTBpOMbetOZDhfqu3kPcAbpvUzkA5m
-    vP9F8frgrLcQF/+ReMzWkvY0fUL2WJIvtupJpK7jfn7H6lgqj+Pm5hFPJ8ZpvXj3ZraHMK
-    WIK0PTEeEBTYT5dWZHnoT7EJ5FpaQO78kr236/DXMawSqGsaNpXhztAtrKsV6D+NYI9/MR
-    LwO5LurYcLtWP3mSX/misiwWtKUwveYsziwGUkrxKcxAX6M5zHgi6XUcjOq62zK0Fz1uHC
-    bTfC09KFFeMFpM2xPfjXjaddqB4gwVEmL819xAZ73PttbaSighKyLZat92EQ
-X-ME-Proxy: <xmx:aG0Ea-ON3Zl_aB-4scK3-bhEfpn7uPgpQ8Jihsog7_46qSqpvDCLLg>
-    <xmx:aG0Ea66jTI7-gsvs7rTcb4htCAbUChwcn0XAHZHpBtFRCSb3anr6wg>
-    <xmx:aG0Ea3lGiTEr3PU_Nr31TgLjsOuE3JM_R3vf113v2ck4wfz6u_GCLw>
-    <xmx:aG0EazQSE5sx59_v4jpLL8yLa4c4Pi8hU641tPCo52FaKGAS0slRSA>
-    <xmx:aG0Ea7zV0Y2KtWDwdt-oSKtcSbBzp1Ng03x7lvms3IUzsmUZUREbwRkA>
-Feedback-ID: i9dce4b48:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 23 Nov 2026 11:44:22 -0500 (EST)
-From: Baran Tuna <barant@fastmail.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] docs: digsig: fix siglen parameter name in digsig_verify()
-Date: Mon, 23 Nov 2026 19:44:10 +0300
-Message-ID: <d548d5aed35fb8b664fcc31dc21773a251205399.1795452233.git.barant@fastmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2mU5GQlq
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QWolYgO26gWeFlLGX44Jen1GudTtdhod9/KAC8cQhJxQOyuQmLUXZl2qroBQzgNHH1ly6+BAY532p3FN58P5TElDKda2iuie9A01FMhwcUSKYSk9JIjQKRyGfNxTn1MX5z6br6qXp1HRnKLAuIlp0WAu2O695pHluKLEXQITqkISjr5ARqTkZDzExS+JltnDRmNfOOQJtP5lnppjp/1woF2x/XYPf8IKRMS3iihT0dTVmRI4uVHg4+HVd4MAMRcsLhicAItiPRCRg+IvBXLgdBIvkI0L4nCjtp8v3Cnz+CSBJs5sHWDcPkaoJ7Sm1Lw4ZGQiiQxVlqxUKgPYRDCbDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
+ b=OX5q4WYc2dLRK5EDZSDcCU9ykm2WgzuILcLEbfoYlaU45nGqNwfCp2gBEgKHnF19AaqDHHEblMldVEKHfpmRw8ho/bIJtZtVhoCGI+PwJ3PKEcVqmeetyl8FaUP/FihIBHSBCqP8G93tSQ0Rpg+GBKY9YSc9C7dTADS5+krrt810pu6lrlQchm2+0wB+OAJZ5W8hQmfY5GswdbUVcittwWNkeqZv7XeHWTT1vfBAsBVhHwUmAsVc8HIQ8q99ZxaqfVcBKz0MF3fXny6GUJXXEjxccAjn3J7uw4radsVEei3Mz8f5YdWiYeT5awk6jFeG1bNChmeAlQKQWKJyFJR2vQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
+ b=2mU5GQlqWVedpPiX8SfZGqFxRr4IVfJ5ehQKlF4KGC3t+9pbGVongLYdnp1q9h2SPtp0RLoDOobkZHlxdLvYKjjwlzN/ltam15grhVY5LFdNPwC80S5tmUXeZRF/waf1CDJawG3ePWOzS5xlEKlqF7KGDoQYLnc65GcrxM9POVA=
+Received: from PH8PR22CA0014.namprd22.prod.outlook.com (2603:10b6:510:2d1::29)
+ by SJ2PR12MB8883.namprd12.prod.outlook.com (2603:10b6:a03:538::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 16:42:59 +0000
+Received: from BY1PEPF0001AE17.namprd04.prod.outlook.com
+ (2603:10b6:510:2d1:cafe::93) by PH8PR22CA0014.outlook.office365.com
+ (2603:10b6:510:2d1::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 16:42:59 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BY1PEPF0001AE17.mail.protection.outlook.com (10.167.242.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 16:42:58 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 10:42:55 -0600
+Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Mon, 23 Nov 2026 10:42:52 -0600
+From: Srinivas Neeli <srinivas.neeli@amd.com>
+To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <michal.simek@amd.com>, <horms@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>
+Subject: [PATCH net-next v2] net: xilinx: axienet: Derive RX frame length from residue in dmaengine path
+Date: Mon, 23 Nov 2026 22:12:51 +0530
+Message-ID: <20261123164251.48234-1-srinivas.neeli@amd.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,31 +109,120 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE17:EE_|SJ2PR12MB8883:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd8a27e0-31a8-4c78-6f62-08df4980d503
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|261102123227099003|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|6133799003|13003099007|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	mOG0yGFkax9pzAIkolMhn4iVmpZKbVxM3xT9VBqYhIqPG7gTYv9Dqfb9yYLifEf0ltNSB58b07t7ofiQw3mBVCumMsz2Vdh6VpeGNBJA2hsFV4QKDdvaPxsUuVbmLutknOyI088q7F2b7zYa1mdrzO92yLaUAK0cUXsFjt8rK2L4ub/wIEpbcZiXnyHnhKU41eoJx2moamKAJBDbkQ12U/+P0UprcoQL8WXsAmXkTUTuUwKknnrbfM2/V0Y62HyXNU+b+S2XSZhan+4Bnvzy1t+TY1o8Je9qDVWX4/itYwdfmqvv8rVNJMx4PoCnEuEGINF/a1OX2mnvl5rDjXms41PlZ2RnRby0JUxW8XMN2FNxn4f6i5JQtHQIrtaBYsTaAkcUNADGeys4RnkyNorfa+c5kLjTs0P3fLNwDBwNAVxgdB/uO46uYmySYvP6+u8DkTldL1QAyTI0aPl2PAkKtMaG8LmXi2sw0EXziS4dhoMjiMMzuDo+8eiGH9jv0dhL8Gpg8GzZ/BRriUdQaeSUhvZ05e7Qz78g3zSIi+BwhYFBKtAznK4rgBw0JMrtkuPvLgXUil8u1LT/e3Bwoot6qXLj0CAQbTyRRc46zWaPy11to0PJjk0G1Ay3aZ/fdxaiKJqDbxRdkyEw3Aea1gnV7XEgWxzdpT9w10KUHu/awP8=
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(261102123227099003)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	NPGtpyWmRI6l5G7fZcJZ0G9eYTyeG3j3+bZlUhdXRlyreR7jhL55XUCJWZyenx+JQ8UzPeX1Y/ftKxf63AdNVe4chvRmJx7ZUbN75hb5k3OKuP4rIucjxPNRwhDD7UhGfCCV0oor/0fHvudIQXslwn+y0RRTLhSYKSm6XtDSJNC1z8mXLAWl+Ph0ir1PgqMDT9PkmbTnbRWbnI4RMcnIIMdAt+4AcHg037AaXktFubbNpoyAUTE+K9u4tLDdY730c67bIdWx5En1dhaDaXgkZtlioQPthJ7bYWlSF4ZSwkhj67gL+eGdGzKbxYhC9Nz0SZsXRRcaC94ywPFp5c+pljbnqZI48/QxAoptGaYu6yzRZg5Sd+MjBE6Ft/kv1yzxYDjZNlOd9AmlNkPmH/h54MKxDmHuB+XMCqmWTBLSPjMGvKCs99ULkPGkKiTO+pOh
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 16:42:58.7065
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd8a27e0-31a8-4c78-6f62-08df4980d503
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BY1PEPF0001AE17.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8883
 
-The kernel-doc excerpt for digsig_verify() names the signature length
-parameter @sigen, but the parameter is called siglen in both
-include/linux/digsig.h and lib/digsig.c. Use the correct name.
+The dmaengine RX path derived the received frame length from the descriptor
+APP metadata. That only works when the optional AXI4-Stream status/control
+interface is present, because the hardware populates the APP fields solely
+when that interface is enabled. On designs without it the length read back
+is invalid.
 
-Signed-off-by: Baran Tuna <barant@fastmail.com>
+The AXI DMA engine already reports how many bytes it wrote into the buffer
+through the standard dmaengine residue mechanism. Compute the RX frame
+length as the posted buffer length minus result->residue, which is
+independent of the status/control interface and correct across all designs,
+including multi-descriptor frames where the residue is summed over the
+chain.
+
+Drop the descriptor metadata lookup, which was only used for this purpose.
+Detect a failed transfer from dmaengine_result.result instead of the
+metadata pointer return value, and remove the now unused LEN_APP macro.
+
+The transmit path is unaffected. It still passes APP metadata for checksum
+offload and derives its length from the skb.
+
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 ---
- Documentation/security/digsig.rst | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+- Refresh the patch against next-20261120 to address the reported
+  git am failure. No intended change to the RX logic.
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
 
-diff --git a/Documentation/security/digsig.rst b/Documentation/security/digsig.rst
-index de035f282196..25a0d7969668 100644
---- a/Documentation/security/digsig.rst
-+++ b/Documentation/security/digsig.rst
-@@ -62,7 +62,7 @@ API currently includes only 1 function::
- 	* digsig_verify() - digital signature verification with public key
- 	* @keyring:	keyring to search key in
- 	* @sig:	digital signature
--	* @sigen:	length of the signature
-+	* @siglen:	length of the signature
- 	* @data:	data
- 	* @datalen:	length of the data
- 	* @return:	0 on success, -EINVAL otherwise
+Apply failure reported in:
+https://lore.kernel.org/lkml/20261123140311.GB31322@horms.kernel.org/
 
-base-commit: 2138148bf44fd84d3e0a863f0e8cb3627cdcc606
+This patch was originally posted as part of the MCDMA series and can
+be applied independently of the other patches in that series.
+https://lore.kernel.org/lkml/20260818174151.1608971-4-srinivas.neeli@amd.com/
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 7e83c4b5f193..5b4998e2ca14 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -55,7 +55,6 @@
+ #define TX_BD_NUM_MAX			4096
+ #define RX_BD_NUM_MAX			4096
+ #define DMA_NUM_APP_WORDS		5
+-#define LEN_APP				4
+ #define RX_BUF_NUM_DEFAULT		128
+ 
+ /* Must be shorter than length of ethtool_drvinfo.driver field to fit */
+@@ -1219,30 +1218,27 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ {
+ 	struct skbuf_dma_descriptor *skbuf_dma;
+-	size_t meta_len, meta_max_len, rx_len;
+ 	struct axienet_local *lp = data;
+ 	struct sk_buff *skb;
+-	u32 *app_metadata;
++	size_t rx_len;
+ 	int i;
+ 
+ 	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
+ 	skb = skbuf_dma->skb;
+-	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
+-						       &meta_max_len);
+ 	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
+ 			 DMA_FROM_DEVICE);
+ 	skbuf_dma->skb = NULL;
+ 
+-	if (IS_ERR(app_metadata)) {
++	if (result->result != DMA_TRANS_NOERROR) {
+ 		if (net_ratelimit())
+-			netdev_err(lp->ndev, "Failed to get RX metadata pointer\n");
++			netdev_err(lp->ndev, "RX DMA transfer failed\n");
+ 		dev_kfree_skb_any(skb);
+ 		lp->ndev->stats.rx_dropped++;
+ 		goto rx_submit;
+ 	}
+ 
+-	/* TODO: Derive app word index programmatically */
+-	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
++	/* Actual length = posted buffer length - residue. */
++	rx_len = lp->max_frm_size - result->residue;
+ 	skb_put(skb, rx_len);
+ 	skb->protocol = eth_type_trans(skb, lp->ndev);
+ 	skb->ip_summed = CHECKSUM_NONE;
 -- 
-2.53.0
+2.43.0
 
