@@ -1,54 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.77
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795398721;
-	b=Am5MsBfaDdnEV2QB7qUaDs51pF90AJNX9a95bJVJEXhTfGh54G0T0k0woNAM1uk2Jox+
-	 11GtJ7mDMkWjoGT53xfkcvJc6rB3FNkXZSasMcHO17FfTceixuplu+6rheCjeZqNsm8iD
-	 Zd8grAHN8Np+3G1r2EhpGt5eORLg3rcMIv9+bk0GEvLZsu4PQp38lQU+NMC+zmUi410jw
-	 XMIWcs/JKPUd2nWk7P3cRpCBgp0Dz6vM6vo02G8VnBlo6bA085S20Z1DeqXGzcaP0aYBn
-	 qemrnZ0pQ02U2ZURd72nwVNApXIFqcbozXA51S2oZkhxHksk26Rar7dhKfXEAjpICxA==
+	t=1795398814;
+	b=JfC/GImV8zXnPdss1hH49DTNnq+9Mvmej7jVe4wlmROfIEPaEzgBb6XnJ4glCOtzy+9u
+	 t1SyaX9uYdwb0Un6QG9fM92ucL0Dlb6JEZYqQCeMH23GGQboISHjcDxtCux7cn759/1/z
+	 dmNihsfYVhMmZVb5WHxBRM6FPzz+queOLlr+9eAgjCVWAFWU/nGqpe1j2bMScMBv9Rb4f
+	 lCfnODZkTJZwRlWxHlP4t0AGwklukEK4WwXoG4uUqUxuAEL/ktowL8wHdUXCNi3TGZKnv
+	 a0HuWzLUazCC5CKabQN/WGmtAtcZFwZFkSH6+7OPe8cIXsMkBlKvAWvcQurZRJDdRog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795398721;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=YVtyufYB92pslMYc1cNPbAx48nCwMK6/elZbLI4VZ4c=;
-	b=P/m+EtjRBo908afJIA8rTnAUV0xEXi4ILTS21SEdH+jb4XnZv5L2JebmjaCalF3soVCs
-	 HENoTB7H7ErFpvSDzY4/NrI8Z64yM20I69TezdBgBy9h2badaqSEDop6f2Ogt8rC2Wtvk
-	 CvibkXmV+1ObYxEkFoEW0HH5xbPZwDpK9kzZH1VmpBrTpiLeczMsRtkgcPdC5PqT+rKHT
-	 pAS4atc9W9NASZwOubkr0131hAEy77g95rfMPl2hag6++Eo/Y+BJU4OSmJkQ6mJEZ4vn0
-	 +rT3gmy7QThWkN5KG7JIsyl4jmngKbMHy2dOzhf+dwyaujAt/+VWxeEWnfzo8Fnq8Jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795398814;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sPv41HsofzT9QRCIlHB+B+IXmly/SiBKVbRaSebsetU=;
+	b=wzjunpSLlBv4h4T45sx+zmoc7vX2sJw1vZSt9ZooONSDssev8P0QreePDz8SajPNGuf7
+	 ez0oFncQCpN9Y2ryxvC9YCI6vDCs7vUIXLmbvospNE2JGPCecZJoDMJ6nf/l4r/v4dSbI
+	 3b7Cs/gAMuWRgsa0HDTDW97Dt1OqxpsK0qipHflyvdW6gdU9sIRXL+neXQur7rfJEYZoi
+	 iLioQH14lhgOwwD1WjVN7o8+VjQ4jVlFf2roAr/Lg15Z1cA5hLHH4bwIcnvt1iZ/tHfG3
+	 JTrWWa4Zpcqe1Fb4ZxKcsX6Ip+zGHRwjd5G/37TdG53To5nJu+uOg+zBfMR161ADcCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XJO+XIkm;
-	arc=none smtp.remote-ip=95.215.58.77
-Received: from mta1.migadu.com (out-77.mta1.migadu.com [95.215.58.77])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FoPYA2G+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C94606A320
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:52:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59C94606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8B67606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:53:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XJO+XIkm
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=e+QHWbBPMWAeiyatS48Y4WE7Tii5hCDimKpeiM65Zg8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795398718; v=1; x=1796003518;
- b=XJO+XIkm3rkM9nMrQaJ88DBU/SbDNDS8sX/2dIaj3cwmRrKirwqyb+I0+uhLyek6+NMpIzpi
- feptrx/ngiR7GStYVclrJX2X302KeSUwM1np0LDwreiaO4CnEGlTK2BETzp5dn6xGe4YcTGokd9
- xsy7UnLpMsmmUcjbVs0s4weY=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1054823f21723493;
-	Mon, 23 Nov 2026 01:51:57 +0000
-X-Mizu-Trace-ID: 1054823f21723493
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <361c4312-f77b-495f-9ee4-e0b9612b4463@linux.dev>
-Date: Mon, 23 Nov 2026 09:51:41 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FoPYA2G+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 381261F000D3
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:53:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795398814;
+	bh=sPv41HsofzT9QRCIlHB+B+IXmly/SiBKVbRaSebsetU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=FoPYA2G+J+zjXF9qLqIyuvD8xy0Su3rqhmySBnSdTR8Ne3tlX8n+AFiI44Qih0rbp
+	 enBI41GL9ezrXnzGOiOWSjFgm1XUwjzlqgi12Z8Z+Ae1st55Qr++vdnyh01TaE4jAW
+	 Cx1h0mie6siLYbJTaJPya6Kss7+XJZQUXVEBgEh04GQBpjXWgjBdZRssK5nYL0J4zh
+	 ZKIRBcyj2iShj8v9STSc4nrzWJZSKQlQhFIg4wNmHGxDl+jNe/F3+u4DhopnlVgXNj
+	 4Kxjy+drvdEis87Bn8WaGmlVpe6Tkdk6XJuHgPPjRDawC2mHOjRt+UJoS1Zauyui6j
+	 1SuONatwyRUgg==
+Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-9495d543c42so296646785a.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:53:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEcYz2Ul91AeGkBPdbwfBBlNG2l2XsbCAFkqPqz59pLZ3Yu3TVgZMvy1KflsS7+jp1znd86Okn5jndpBSc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/iOEyCMHvm53cmy2mhQHxA1bvW9nX5QL79iVUm0fDSWunWZa7o
+	jwg5/bXf/aceO9H3dyCAN/wqintoLCkz+g0b/qy1tYKk3ClVSL968jbGE9SaBuPOURJ98h3iqZh
+	tFAIrje7Um2S19vKfesGbAwvGPk9ATYs=
+X-Received: by 2002:a05:620a:130f:b0:949:7b40:5678 with SMTP id
+ af79cd13be357-949ba9e19a8mr1736245285a.53.1795398813620; Sun, 22 Nov 2026
+ 17:53:33 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,55 +59,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 0/8] ext4: Add dma-buf read/write support
-To: Christoph Hellwig <hch@lst.de>, Anuj Gupta <anuj1072538@gmail.com>,
- Nitesh Shetty <nj.shetty@samsung.com>, asml.silence@gmail.com
-Cc: Jens Axboe <axboe@kernel.dk>, Sumit Semwal <sumit.semwal@linaro.org>,
- christian.koenig@amd.com, Philipp Stanner <phasta@kernel.org>,
- Dan Williams <djbw@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Jan Kara <jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, tytso@mit.edu,
- Andreas Dilger <adilger.kernel@dilger.ca>,
- Baokun Li <libaokun@linux.alibaba.com>, Ojaswin Mujoo
- <ojaswin@linux.ibm.com>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Zhang Yi <yi.zhang@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, linux-block@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- nvdimm@lists.linux.dev, linux-ext4@vger.kernel.org,
- linux-xfs@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linaro-mm-sig@lists.linaro.org, Li Wang <liwang@kylinos.cn>,
- Mengmeng Zhao <zhaomengmeng@kylinos.cn>
-References: <20261113070621.273953-1-mengmeng.zhao@linux.dev>
- <20261120154153.GC28611@lst.de>
-From: Mengmeng Zhao <mengmeng.zhao@linux.dev>
-In-Reply-To: <20261120154153.GC28611@lst.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261116081403.216452-1-max.kellermann@ionos.com> <20261116081403.216452-4-max.kellermann@ionos.com>
+In-Reply-To: <20261116081403.216452-4-max.kellermann@ionos.com>
+From: Barry Song <baohua@kernel.org>
+Date: Mon, 23 Nov 2026 09:53:21 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4yZznwxOZmfeB2SpgT1enRbQMyKnN4QjEFdoN-PJi7mkg@mail.gmail.com>
+X-Gm-Features: Aa3M54qK4wPWc_XdvESaK_X96UC5ef31iB9G90RGWdgsH-87Oq5vyoTtWFtdPXs
+Message-ID: <CAGsJ_4yZznwxOZmfeB2SpgT1enRbQMyKnN4QjEFdoN-PJi7mkg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] mm/mglru: cache the last memcg node, make tail
+ insertion constant time
+To: Max Kellermann <max.kellermann@ionos.com>
+Cc: akpm@linux-foundation.org, kasong@tencent.com, qi.zheng@linux.dev, 
+	shakeel.butt@linux.dev, axelrasmussen@google.com, yuanchu@google.com, 
+	weixugc@google.com, baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, hannes@cmpxchg.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, rcu@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/20/26 23:41, Christoph Hellwig wrote:
-> On Fri, Nov 13, 2026 at 03:06:13PM +0800, Mengmeng Zhao wrote:
->> From: Mengmeng Zhao <zhaomengmeng@kylinos.cn>
->>
->> This series adds dma-buf read/write support for ext4. The dma-buf direct
->> I/O infrastructure allows dma-buf to be handed to file I/O as an iov_iter,
->> but currently it only supports raw block devices. To better serve the
->> GPU-NVMe direct access through normal filesystems, prior work for XFS has
->> been discussed at [1]. We are also interested in this field and working on
->> it [2].
-> 
-> Can you an Anuj please work together and merge this into a single
-> series covering both XFS and ext4?
-> 
+On Mon, Nov 16, 2026 at 4:14=E2=80=AFPM Max Kellermann <max.kellermann@iono=
+s.com> wrote:
+>
+> Rotating or onlining a memcg currently uses hlist_nulls_add_tail_rcu()
+> which walks the destination bin to find its tail while holding
+> `memcg_lru.lock` with interrupts disabled.  With thousands of cgroups,
+> this takes a long time and causes severe lock contention.
+>
+> Cache a pointer to each bin's last node, making tail insertion O(1).
+> This requires remembering the bin number (but the new struct field
+> occupies a hole, so it does not grow).
+>
+> In a micro benchmark that creates 1500 cgroups and repeatedly writes
+> `1024M swappiness=3D0` to `memory.reclaim` in 8 threads, the request
+> rate increases by a factor of 9.5 and the average duration of each
+> write request is reduced by 89%.
+>
+> All writes return EAGAIN in both runs; the benchmark measures the cost
+> of reclaim attempts that cannot meet their requested target, not
+> reclaimed throughput.
+>
+> Fixes: e4dde56cd208 ("mm: multi-gen LRU: per-node lru_gen_folio lists")
+> Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
+> ---
+>  include/linux/mmzone.h |  4 ++++
+>  mm/vmscan.c            | 24 ++++++++++++++++++++++--
+>  2 files changed, 26 insertions(+), 2 deletions(-)
+>
+> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+> index c161d563ce8f..8382fc86cf0d 100644
+> --- a/include/linux/mmzone.h
+> +++ b/include/linux/mmzone.h
+> @@ -570,6 +570,8 @@ struct lru_gen_folio {
+>         u8 gen;
+>         /* the list segment this lru_gen_folio belongs to */
+>         u8 seg;
+> +       /* the memcg bin, protected by memcg_lru.lock */
+> +       u8 bin;
+>         /* per-node lru_gen_folio list for global reclaim */
+>         struct hlist_nulls_node list;
+>  };
+> @@ -661,6 +663,8 @@ struct lru_gen_memcg {
+>         unsigned long nr_memcgs[MEMCG_NR_GENS];
+>         /* per-node lru_gen_folio list for global reclaim */
+>         struct hlist_nulls_head fifo[MEMCG_NR_GENS][MEMCG_NR_BINS];
+> +       /* last entry in each bin, or NULL if empty */
+> +       struct hlist_nulls_node *tail[MEMCG_NR_GENS][MEMCG_NR_BINS];
+>         /* protects the above */
+>         spinlock_t lock;
+>  };
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index 49ef29a86553..7cfaeca9a605 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -4434,18 +4434,36 @@ static void lru_gen_add_memcg(struct lru_gen_memc=
+g *memcg_lru,
+>                               int gen, int bin)
+>  {
+>         struct hlist_nulls_head *head =3D &memcg_lru->fifo[gen][bin];
+> +       struct hlist_nulls_node *last =3D memcg_lru->tail[gen][bin];
+>
+>         lockdep_assert_held(&memcg_lru->lock);
+>
+> -       hlist_nulls_add_tail_rcu(&lrugen->list, head);
+> +       lrugen->bin =3D bin;
+> +
+> +       if (!last)
+> +               hlist_nulls_add_head_rcu(&lrugen->list, head);
 
-Hi Christoph, sure, I'm glad to work with Anuj on this.
+So this is the case where the list is empty, right? Maybe add a
+WARN_ON_ONCE() check before this code to make the assumption explicit
+and catch potential violations in the future.
 
-Hi Anuj, I'd be happy to help pull our patches together into a single
-unified series and send it out for review, if you're okay with that—and
-would appreciate your review once it's posted as well. Please let me know how
-you'd like to coordinate, or if you have any updates in progress on your
-side before I put the series together.
+VM_WARN_ON_ONCE(!last !=3D hlist_nulls_empty(head));
 
 
+The patch itself looks correct to me.
+
+Reviewed-by: Barry Song <baohua@kernel.org>
+
+> +       else
+> +               hlist_nulls_add_behind_last_rcu(&lrugen->list, last);
+> +
+> +       memcg_lru->tail[gen][bin] =3D &lrugen->list;
+>  }
+
+Thanks,
+Barry
