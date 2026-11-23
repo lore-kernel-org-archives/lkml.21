@@ -1,75 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795409404;
-	b=pt6lOLb02TxRAZJy5ACz93XvnYY/9HV9z5fwvKcaG60rsMe9nVgHraF5mihIaE12ShRU
-	 cmT+W+rGVJ3rVk1bl1MDJFjPyRRMrfcQDAKNgGs5oKR/f/soTg2NTpSHpoDiyrHA7CIQo
-	 ZhAPqrt1z6xNBZLRN5Iqm2FjAbvALw1lJEOtNTOyLtMhKrowWJQlI6dcIN/gmPy6t+7nv
-	 EmnhS9MOec2u6nF/MPIbTqGqaXEu01i6o/fkDiGpvYTce9F8VWVjAPmT19Si8HvT8pc+w
-	 /Xvj1WcJpo9ijCnBohDSEPsTeBNp8FKf6ynjwpBaEgSI1PwHehZfuyrouHLlHGD6vnQ==
+	t=1795409413;
+	b=B+58/QEIoaQDgWnUefsBReoJnW5vf3sSxqKfbZlv7dKMEg0wjmozsEg+GhOd2FUMsRRg
+	 Urmi/VrErhebobmiFYtFFi7RkjY6j8m6YVPmv/g0dC6L1DOrLyQEPlawSZkLJ9PwoWeka
+	 rp/zBZpaYhcDyyfY1RlF+fi0tIFf/rLMyr/iitGXKdMzFUp53zYZVFGpskhz3Ne/yH/No
+	 iA8a7JVVzwsUZY3f1w4yMA2xxhnO4XUY2GuoAruUmEUZrOHQoQzSbzEOTOKfhgzj97J8f
+	 Azqdxe1R+SEcdqwXtmlVVBRIUoevhoS/WoEHYmGJ2momp/ekv1MfwdtcZKxIiAIh9DQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795409404;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=yg/KRlw/V2MQ/sD342ulB7AO28VSZsdYlNxvULrEbAA=;
-	b=dbxTRS6wIvVUXNjbenGD0jx7xTEoappVAHPjvIP88xYF86JJnjslqAH6dJ0CJ28r8tPY
-	 vp870o6wAt/48UJPg5m4Ib95YTJdsbnGRUU0iYl6StGF+PnC2tLbmvMC7if51PLU2iB82
-	 kQG7Y2Au5j2P+eV6Nz9ws8UXB5U8LCc65uGd9B3fmIG6f5rxypkuidRrQNsWYEL5ubMWf
-	 0yrctQQKWv6sUgiFOhrMAn7qOx9ol0GdqEYvirFZBTxSdVQp87+zoNlWxfN10rxJJ7UOf
-	 WEZtjFoBwHAXTaB2Peg8YQ5SLQMn0BFMWrphAjGaPyvTaPWZMZvHeI7XDohSwVSi3UQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795409413;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=r/+cSEXj3IwI++X6dcNtFJlJAe4ePfWeqb2U+jEzRlE=;
+	b=MfbMvHSOfnpW0hwj3vuid4/sr71xub22gZyhRQuvbAVprYwYW1b774oUvT6E9lx9Dk4v
+	 vx7ZsovFjWUyfUwngkNjFuUQsm65CKDZtaHyYYB9r5l8TkJdCsSImsAAFQTr/+rcu8zyf
+	 eHEuZdauK+QX5cChq17Aw92dMMX4v2euw3GfCKW1vYJAOuoLjkQGi3QgXXvHDAeqnx/gm
+	 pAkRbqSeuPf8VI9iUE2RgLK5ZqThR89HYm2izUefSptu0YO67x2+t7OacAXHSo9RucLVf
+	 qv7GIY0X6mtapxhlnVR0kPc2+wTzHaAhKsIQH8p1WJ0u5lEvSaIF/Zt9ox4U6uJbEcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--skhawaja.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=g4w7F7hZ;
-	arc=none smtp.remote-ip=209.85.216.72
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F11F660A6F55
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:50:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F11F660A6F55
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--skhawaja.bounces.google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=g4w7F7hZ
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3ae7faf4ff7so3582443a91.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:50:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795409403; x=1796014203; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yg/KRlw/V2MQ/sD342ulB7AO28VSZsdYlNxvULrEbAA=;
-        b=g4w7F7hZU262sDcfP0OfVQsUgKsu8yHDZQbTmDBS+yT/phrBYi3JoQs9EotdswIjg8
-         jp8im7SL9ysOmnXu2TZBXgYEDqaiqFZqGBeEwY8aLp9qoX0Qa41u26+4RkIzBQI2FZpY
-         vWaVvfBwp1wcGHVkk4FAf0SxVsxe+8Yvx1tqF3UpV9lCI9rmp8FUiqVcp2rWrAjLEGVa
-         rAa2I5RDaEunxZSnvdDAjlMkcvsClEYG+Vv/M/0W7WcDYzU8lqzWWW+oT5Ot7Laif3sc
-         RdrkTVrlphzsVXjCpZQZz5SRrP7A6HkCQhU0gVCAkM0vIzOdSaB5Ijkp9HrwF5gh3dcv
-         bQEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795409403; x=1796014203;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yg/KRlw/V2MQ/sD342ulB7AO28VSZsdYlNxvULrEbAA=;
-        b=YHpsM1QCZAxOuvEUtA3nDt93MDhsBnFVWY9iBMqlAuF6esmv5+3APXcxRUl2GN7kXM
-         2yOcKrahhC2HsaKeypKBLCP8AAVGH/N66M1YmtiSsqwmLAprNdAyQMMIgVD0uhskoqvH
-         xa/D6XPDYbL7NdCBpgu7t+tgKXqz9mMgdWAzsA/UUL/XiPHICpmyvvi4mpzlooktCzhh
-         GXKCu1nJim82eIIqeIa9guPADXBHWXTEIapTGVZqqlcsh621DSRf5ZMgnm6p/apI5ASn
-         pWt+cmplLRyTml7n6B3C3Ixw+E0x8soXPXGLqi+IbIDeTH568XJxqPbSeqW6oTydLxvj
-         xREQ==
-X-Forwarded-Encrypted: i=1; AL+hErFAbSO00XTAIyFMR5sQIRKbrfMDlcCxpYTrSWqckVhhCqTJi96ClamnxGKnfrFZeHrdzl7jcpQ8hqRjW54=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9EEknmaWf8z2vmlnDC63j6R4BVQKQzLki5oM5CBysyKp1Ac4IN
-	QKOTR572ag/N2Ll9o6zfEXfuWvyD7X4t0PKAkVhZwE+Lwz0v94HxAPKeSM0a8uyEd4W8rpBO1vm
-	wuDHHPRn6xx/2+A==
-X-Received: from pjzv20.prod.google.com ([2002:a17:90b:414:b0:3b4:2a5f:97bc])
- (user=skhawaja job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:560f:b0:3b4:60aa:9b74 with SMTP id 98e67ed59e1d1-3b460aaa7efmr4371271a91.65.1795409403328;
- Sun, 22 Nov 2026 20:50:03 -0800 (PST)
-Date: Mon, 23 Nov 2026 04:49:45 +0000
-In-Reply-To: <20261123044949.3610702-1-skhawaja@google.com>
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A37F1606AE38;
+	Mon, 23 Nov 2026 04:50:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A37F1606AE38
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8BxhvADxgNr8R0iAA--.31560S3;
+	Mon, 23 Nov 2026 12:50:11 +0800 (CST)
+Received: from linux.localdomain (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJAxX88AxgNrIsw2AA--.43924S4;
+	Mon, 23 Nov 2026 12:50:10 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v1 2/3] selftests/bpf: Allow unaligned access in callx_rodata_misaligned_read
+Date: Mon, 23 Nov 2026 12:50:07 +0800
+Message-ID: <20261123045008.23691-3-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20261123045008.23691-1-yangtiezhu@loongson.cn>
+References: <20261123045008.23691-1-yangtiezhu@loongson.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,334 +57,70 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261123044949.3610702-1-skhawaja@google.com>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261123044949.3610702-15-skhawaja@google.com>
-Subject: [PATCH v8 14/18] iommu/vt-d: Handle reattach of the restored domain
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Lu Baolu <baolu.lu@linux.intel.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	David Woodhouse <dwmw2@infradead.org>
-Cc: Samiullah Khawaja <skhawaja@google.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Kevin Tian <kevin.tian@intel.com>, Alex Williamson <alex@shazbot.org>, Shuah Khan <shuah@kernel.org>, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	Pratyush Yadav <pratyush@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	David Matlack <dmatlack@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Pranjal Shrivastava <praan@google.com>, Vipin Sharma <vipinsh@google.com>, Ankit Soni <Ankit.Soni@amd.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, John Starks <dev@jstarks.net>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJAxX88AxgNrIsw2AA--.43924S4
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7KrWxCF47AF45Aw4rWFy3trc_yoW8Cr18pr
+	Z7ZasI9ryFyr1fuF4xAay7GFyrWrWqvay5Cw4xtr1YkFsrJFn7Xry8KF1kKryFgr4kXw1S
+	va4Iqry8uw1kZabCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUU9Fb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1a6r1DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
+	xVW8Jr0_Cr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07
+	AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWr
+	XVW3AwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7V
+	AKI48JMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v2
+	6r1Y6r17MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
+	CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26ryj6F1UMIIF
+	0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
+	AIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2
+	KfnxnUUI43ZEXa7IU8QB_UUUUUU==
 
-Reattach the restored domain to the preserved device using restored
-domain ID. While reattaching do not setup the context and PASID entries
-as those are preserved during liveupdate.
+On architectures that may lack CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+(such as RISC-V and LoongArch), the verifier rejects unaligned 8-byte
+loads at offset +4 in callx_rodata_misaligned_read with a "misaligned
+value access" error before reaching the intended function pointer
+overlap check.
 
-Note that in this phase nothing clears IOMMU_SER_FLAG_INCOMING of the
-restored domain or the restored state of the device, so the restored
-domain cannot be replaced yet. Replacing it is left to a later phase.
+As this test focuses on verifying function pointer overlap rejection
+rather than alignment enforcement, add `__flag(BPF_F_ANY_ALIGNMENT)`
+to the test case to bypass strict alignment checks on architectures
+lacking efficient unaligned access.
 
-Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
+Before:
+  $ sudo ./test_progs -t verifier_callx_rodata/callx_rodata_misaligned_read
+  ...
+  5: (79) r0 = *(u64 *)(r6 +4)
+  misaligned value access off 352+4 size 8
+  ...
+  Summary: 0/0 PASSED, 0 SKIPPED, 1/1 FAILED
+
+After:
+  $ sudo ./test_progs -t verifier_callx_rodata/callx_rodata_misaligned_read
+  ...
+  Summary: 1/1 PASSED, 0 SKIPPED, 0/0 FAILED
+
+Fixes: b018e998e645 ("selftests/bpf: Add tests for callx through pointers in read-only data")
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
 ---
- drivers/iommu/intel/iommu.c      |  36 ++++++-
- drivers/iommu/intel/iommu.h      |  20 ++++
- drivers/iommu/intel/liveupdate.c | 170 +++++++++++++++++++++++++++++++
- 3 files changed, 224 insertions(+), 2 deletions(-)
+ tools/testing/selftests/bpf/progs/verifier_callx_rodata.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-index a487b6ca0415..3b31d0962e33 100644
---- a/drivers/iommu/intel/iommu.c
-+++ b/drivers/iommu/intel/iommu.c
-@@ -3174,6 +3174,25 @@ intel_iommu_domain_alloc_second_stage(struct device *dev,
- 	return &dmar_domain->domain;
+diff --git a/tools/testing/selftests/bpf/progs/verifier_callx_rodata.c b/tools/testing/selftests/bpf/progs/verifier_callx_rodata.c
+index 0389df720db2..8034e736d03a 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_callx_rodata.c
++++ b/tools/testing/selftests/bpf/progs/verifier_callx_rodata.c
+@@ -770,6 +770,7 @@ __naked void callx_rodata_partial_read(void)
  }
  
-+/*
-+ * A restored device translates through the preserved page table, so use the
-+ * stage of its preserved RID_PASID entry. The stage allocators reject flags
-+ * that the stage doesn't support.
-+ */
-+static struct iommu_domain *
-+intel_iommu_domain_alloc_restored(struct device *dev, struct intel_iommu *iommu,
-+				  u32 flags)
-+{
-+	switch (intel_iommu_restored_pgtt(dev)) {
-+	case PASID_ENTRY_PGTT_FL_ONLY:
-+		return intel_iommu_domain_alloc_first_stage(dev, iommu, flags);
-+	case PASID_ENTRY_PGTT_SL_ONLY:
-+		return intel_iommu_domain_alloc_second_stage(dev, iommu, flags);
-+	default:
-+		return ERR_PTR(-EINVAL);
-+	}
-+}
-+
- static struct iommu_domain *
- intel_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
- 				      const struct iommu_user_data *user_data)
-@@ -3185,6 +3204,9 @@ intel_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
- 	if (user_data)
- 		return ERR_PTR(-EOPNOTSUPP);
- 
-+	if (dev_iommu_restored_state(dev))
-+		return intel_iommu_domain_alloc_restored(dev, iommu, flags);
-+
- 	/* Prefer first stage if possible by default. */
- 	domain = intel_iommu_domain_alloc_first_stage(dev, iommu, flags);
- 	if (domain != ERR_PTR(-EOPNOTSUPP))
-@@ -3325,6 +3347,9 @@ static int intel_iommu_attach_device(struct iommu_domain *domain,
- {
- 	int ret;
- 
-+	if (dev_iommu_restored_state(dev))
-+		return intel_iommu_attach_restored_device(domain, dev);
-+
- 	device_block_translation(dev);
- 
- 	ret = paging_domain_compatible(domain, dev);
-@@ -3568,16 +3593,23 @@ static void intel_iommu_release_device(struct device *dev)
- 		info->pasid_enabled = 0;
- 	}
- 
-+	if (dev_iommu_restored_state(dev))
-+		intel_iommu_detach_restored_device(dev);
-+
- 	mutex_lock(&iommu->iopf_lock);
- 	if (dev_is_pci(dev) && pci_ats_supported(to_pci_dev(dev)))
- 		device_rbtree_remove(info);
- 	mutex_unlock(&iommu->iopf_lock);
- 
--	if (sm_supported(iommu) && !dev_is_real_dma_subdevice(dev) &&
-+	if (!dev_iommu_restored_state(dev) && sm_supported(iommu) &&
-+	    !dev_is_real_dma_subdevice(dev) &&
- 	    !context_copied(iommu, info->bus, info->devfn))
- 		intel_pasid_teardown_sm_context(dev);
- 
--	intel_pasid_free_table(dev);
-+	if (!dev_iommu_restored_state(dev))
-+		intel_pasid_free_table(dev);
-+	else
-+		kfree(info->pasid_table);
- 	intel_iommu_debugfs_remove_dev(info);
- 	kfree(info);
- }
-diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
-index 633747672c22..7e397eed391a 100644
---- a/drivers/iommu/intel/iommu.h
-+++ b/drivers/iommu/intel/iommu.h
-@@ -1322,6 +1322,10 @@ void intel_iommu_shutdown_preserved(struct dmar_drhd_unit *drhd);
- void intel_iommu_liveupdate_restore_root_table(struct intel_iommu *iommu,
- 					       struct iommu_hw_ser *iommu_ser);
- void intel_iommu_handle_drhd_restore_failure(struct intel_iommu *iommu);
-+int intel_iommu_attach_restored_device(struct iommu_domain *domain,
-+				       struct device *dev);
-+int intel_iommu_detach_restored_device(struct device *dev);
-+u16 intel_iommu_restored_pgtt(struct device *dev);
- #else
- static inline void intel_iommu_shutdown_preserved(struct dmar_drhd_unit *drhd)
- {
-@@ -1335,6 +1339,22 @@ static inline void intel_iommu_liveupdate_restore_root_table(struct intel_iommu
- static inline void intel_iommu_handle_drhd_restore_failure(struct intel_iommu *iommu)
- {
- }
-+
-+static inline int intel_iommu_attach_restored_device(struct iommu_domain *domain,
-+						     struct device *dev)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int intel_iommu_detach_restored_device(struct device *dev)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline u16 intel_iommu_restored_pgtt(struct device *dev)
-+{
-+	return 0;
-+}
- #endif
- 
- #ifdef CONFIG_INTEL_IOMMU_SVM
-diff --git a/drivers/iommu/intel/liveupdate.c b/drivers/iommu/intel/liveupdate.c
-index 34651698b8e9..f907e52576e5 100644
---- a/drivers/iommu/intel/liveupdate.c
-+++ b/drivers/iommu/intel/liveupdate.c
-@@ -444,6 +444,176 @@ void intel_iommu_handle_drhd_restore_failure(struct intel_iommu *iommu)
- 		      iommu->name);
- }
- 
-+static void domain_detach_restored_iommu(struct dmar_domain *domain,
-+					 struct intel_iommu *iommu)
-+{
-+	struct iommu_domain_info *info;
-+
-+	/*
-+	 * Unlike domain_detach_iommu(), the restored domain ID is not freed
-+	 * here. A restored device can be removed and probed again while its
-+	 * preserved context and PASID entries still use this domain ID, so it
-+	 * stays reserved. Once iommufd reclaims the restored domain, the
-+	 * normal detach path frees it.
-+	 */
-+	guard(mutex)(&iommu->did_lock);
-+	info = xa_load(&domain->iommu_array, iommu->seq_id);
-+	if (--info->refcnt == 0) {
-+		xa_erase(&domain->iommu_array, iommu->seq_id);
-+		kfree(info);
-+	}
-+}
-+
-+static int domain_attach_restored_iommu(struct dmar_domain *domain,
-+					struct intel_iommu *iommu,
-+					struct iommu_device_ser *device_ser)
-+{
-+	struct iommu_domain_info *info, *curr;
-+	struct iommu_domain_ser *domain_ser;
-+	struct iommu_hw_ser *iommu_hw_ser;
-+	int restored_did;
-+	int ret;
-+
-+	if (!iommu_domain_restored_state(&domain->domain))
-+		return -EINVAL;
-+
-+	if (!device_ser->attachment.domain_phys ||
-+	    !device_ser->iommu_phys)
-+		return -EINVAL;
-+
-+	domain_ser = phys_to_virt(device_ser->attachment.domain_phys);
-+	if (domain_ser->restored_domain != &domain->domain)
-+		return -EINVAL;
-+
-+	iommu_hw_ser = phys_to_virt(device_ser->iommu_phys);
-+	if (iommu_hw_ser->type != IOMMU_SER_TYPE_INTEL ||
-+	    iommu_hw_ser->intel.phys_addr != iommu->reg_phys)
-+		return -EINVAL;
-+
-+	restored_did = device_ser->attachment.attachment_id;
-+	if (!ida_exists(&iommu->domain_ida, restored_did))
-+		return -EINVAL;
-+
-+	info = kzalloc_obj(*info);
-+	if (!info)
-+		return -ENOMEM;
-+
-+	guard(mutex)(&iommu->did_lock);
-+	curr = xa_load(&domain->iommu_array, iommu->seq_id);
-+	if (curr) {
-+		kfree(info);
-+		if (WARN_ON(curr->did != restored_did))
-+			return -EINVAL;
-+
-+		curr->refcnt++;
-+		return 0;
-+	}
-+
-+	info->refcnt	= 1;
-+	info->did	= restored_did;
-+	info->iommu	= iommu;
-+	curr = xa_cmpxchg(&domain->iommu_array, iommu->seq_id,
-+			  NULL, info, GFP_KERNEL);
-+	if (curr) {
-+		ret = xa_err(curr) ? : -EBUSY;
-+		goto err_unlock;
-+	}
-+
-+	return 0;
-+
-+err_unlock:
-+	kfree(info);
-+	return ret;
-+}
-+
-+/**
-+ * intel_iommu_attach_restored_device() - Restore device domain attachment after live update
-+ * @domain: Restored domain
-+ * @dev: Restored device
-+ *
-+ * Return: 0 on success, or negative error code.
-+ */
-+int intel_iommu_attach_restored_device(struct iommu_domain *domain,
-+				       struct device *dev)
-+{
-+	struct iommu_device_ser *device_ser = dev_iommu_restored_state(dev);
-+	struct device_domain_info *info = dev_iommu_priv_get(dev);
-+	struct dmar_domain *dmar_domain = to_dmar_domain(domain);
-+	struct intel_iommu *iommu = info->iommu;
-+	unsigned long flags;
-+	int ret;
-+
-+	if (!device_ser)
-+		return -EINVAL;
-+
-+	ret = domain_attach_restored_iommu(dmar_domain, iommu, device_ser);
-+	if (ret)
-+		return ret;
-+
-+	info->domain = dmar_domain;
-+	info->domain_attached = true;
-+	spin_lock_irqsave(&dmar_domain->lock, flags);
-+	list_add(&info->link, &dmar_domain->devices);
-+	spin_unlock_irqrestore(&dmar_domain->lock, flags);
-+
-+	return 0;
-+}
-+
-+int intel_iommu_detach_restored_device(struct device *dev)
-+{
-+	struct device_domain_info *info = dev_iommu_priv_get(dev);
-+	struct intel_iommu *iommu = info->iommu;
-+	struct iommu_domain *domain;
-+	unsigned long flags;
-+
-+	if (!info->domain_attached || !info->domain)
-+		return -EINVAL;
-+
-+	domain = &info->domain->domain;
-+	if (!iommu_domain_restored_state(domain))
-+		return -EINVAL;
-+
-+	info->domain_attached = false;
-+
-+	spin_lock_irqsave(&info->domain->lock, flags);
-+	list_del(&info->link);
-+	spin_unlock_irqrestore(&info->domain->lock, flags);
-+
-+	domain_detach_restored_iommu(info->domain, iommu);
-+	info->domain = NULL;
-+
-+	return 0;
-+}
-+
-+/**
-+ * intel_iommu_restored_pgtt() - Get the translation type of a restored device
-+ * @dev: Restored device
-+ *
-+ * Return: PGTT of the preserved RID_PASID entry of @dev, or 0 if the entry is
-+ * not present. Without a preserved PASID table the IOMMU is in legacy mode,
-+ * which only supports second stage, so PASID_ENTRY_PGTT_SL_ONLY is returned.
-+ */
-+u16 intel_iommu_restored_pgtt(struct device *dev)
-+{
-+	struct iommu_device_ser *ser = dev_iommu_restored_state(dev);
-+	struct pasid_entry *table, *pte;
-+	struct pasid_dir_entry *dir;
-+
-+	if (!ser->intel.pasid_table)
-+		return PASID_ENTRY_PGTT_SL_ONLY;
-+
-+	dir = phys_to_virt(ser->intel.pasid_table);
-+	table = get_pasid_table_from_pde(&dir[IOMMU_NO_PASID >> PASID_PDE_SHIFT]);
-+	if (!table)
-+		return 0;
-+
-+	pte = &table[IOMMU_NO_PASID & PASID_PTE_MASK];
-+	if (!pasid_pte_is_present(pte))
-+		return 0;
-+
-+	return pasid_pte_get_pgtt(pte);
-+}
-+
- enum pasid_lu_op {
- 	PASID_LU_OP_PRESERVE = 1,
- 	PASID_LU_OP_UNPRESERVE,
+ SEC("socket")
++__flag(BPF_F_ANY_ALIGNMENT)
+ __failure __msg("read of 8 bytes at offset")
+ __msg("overlaps with a pointer to a function")
+ __naked void callx_rodata_misaligned_read(void)
 -- 
-2.56.1.809.ga0b61035b5-goog
+2.42.0
 
