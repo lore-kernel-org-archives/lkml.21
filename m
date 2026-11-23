@@ -1,65 +1,52 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438470;
-	b=ybg8y5rsijohJSl0QxTqSkeefaezn4hemAAwdDxn/bXJ3sR1jeMwSvRxC7qbVTAaSA3S
-	 GX9+C6oUx9omocPDW9MRNmJeJGF1uKR0a3+Vjp4A8hDPtEQlbLF0WKA7vVXslAt5Ciojt
-	 xR1BgvnMkuseMu1Z4/iNyyxG63M70se6i30ni9RSxCc8G/0V95ESHBCVymJ+P9YcNvjic
-	 8MPj+fJBHuSHABquMYm7jOphkTUWrqVOss0O5GngiNE8byihz0aD5bi8essyahXGPs8+N
-	 crAKZUWbgjCu01c22rXPjwPTbraEQfnVJlFDfEj1U+sFz6lvleZHFOe4V6hNTL2pVJg==
+	t=1795438564;
+	b=ci3GfIolKqIDNBd1EVvnxaaE122a1QHNN7aPty0d6NIcIfXQCH5o9BooiNZ5zTkFLoY9
+	 iO/EJEaePcRQtBBEt/Qs+epNQ+PBkGl1UREqpfdAlSaDcY9vjmfVEaAsh95o13efipdh5
+	 zmbhdHdmiKd7yMGS6RlhzxUcadO9aPOlCAh/8AO5aQxWqVFnb7wDHC/rqg66tf6LHPpDU
+	 k/7w3ZKuPNVTtP6rZK3g/caMTSC3k5qESUyy8Okbp5SlsAXAbTIjzrF9FakU3MWpRJy4s
+	 8qcCxiXI5bTsJxZNKP3L+veo9IzhiK3JwCwj+0sz2lfqoYkSmM9D1kfdhcHuk8fpFqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438470;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438564;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ikrkT4unPcBTp2tgWugemt3WecqbaPqo/nqUTFKC3Es=;
-	b=M4oydKLICFiijmDDHPfdgGLi3ZuCM6l/g12St6zfOL753VAtDootJPOABjAxcU7Y9Ng5
-	 zsVy/YV6gM4c7dIjhSSA09M1wuCeGF5pBGFKHHwZcOe4Hv7saZwxx7GX21bZ5/9sDcNCu
-	 9sNo7LbkHYLAmxxLoM+tktJiykCABQqVTRBNNIO82wXMTjkunfaJQdPq6RUdx/Zd7KfYL
-	 7N8qnE7xHUx2L8a5EpVd+tHAALxd8TLAkVbew2aWg5TTCNywdGJwpSy5UX/VHQv5l+VfB
-	 4vDoq5AYYFnnyGZLz0O0ER9DT2Y4CF40ZG/JXKzgiKAVytcraGMaLZdgHjxsH+5LyiA==
+	bh=SHzOyMLQ5WWuHRDRsZVSeMiTegWjsyCZr+4MBA/k9ac=;
+	b=d11zNzVpUK6E46WeBM9VaMhalXSnoMVE00qafE+87wbQDG6nMmZMQ3tCQHlfkdsU/Zpx
+	 YMFyzJr0+38tz+N+YBk3voI1/jnUX/V//hpx5xUhrcRrEW9FevvrD1o2NLwdfHCvdRB4f
+	 jnmO8AciemWs3A8HtlC5+v6yEl5Pr0uI2qr/hvMiSqYO+sXPTm+MZih+0DO6L21Uwxf5/
+	 dRJUXtcaCF/ax0j91j0XwJ+CgRvGhZezuCNvfKtz8jrbkxlBg2p7m+AkbTwd4PXh3Lk9k
+	 jIM5zReEozi8mik93IhNTn8CgM7f38MjvXiH+N9idw5LI6oy1X/BkTdD+fuvDHqBcpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=frqtt9rs;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=VLkrR6Am;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29CFA606A31A;
-	Mon, 23 Nov 2026 12:54:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EBFC606A31A;
+	Mon, 23 Nov 2026 12:56:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=frqtt9rs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FF331F000C4;
-	Mon, 23 Nov 2026 12:54:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795438469;
-	bh=ikrkT4unPcBTp2tgWugemt3WecqbaPqo/nqUTFKC3Es=;
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=VLkrR6Am
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 032F91F000C0;
+	Mon, 23 Nov 2026 12:56:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795438563;
+	bh=SHzOyMLQ5WWuHRDRsZVSeMiTegWjsyCZr+4MBA/k9ac=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=frqtt9rsqngqM53eCgPeF+xKKrhBTfsfd2UB6R8Et1Xxpkjp3jY90OguMFWibf4FS
-	 8Pk2ck/WOrzk59vkCuAh/rY66LUBpYUr0wimeYtXjWYv6PUtSeu4FHyyUu5ZVghgLD
-	 sQ2uuezGNrbvvR4zTet2A10LdJDjYJVcRi8RsulqSt4hbSAckIPp4amT/hC5LFFCvg
-	 M/Lj+krM1Ja21tNrnftbGNNuKivIAAqDrkQVUeh0V9cl9tmD6wTHaKFLzR4QLNSIcT
-	 Ccl82+XTNVuczqwcUXdE5ZElKe2s09C7b9bN+rSyM/URyXiwrJ5RWlrxYj6i/zOTkL
-	 +DtW42d5Bu3yQ==
-Date: Mon, 23 Nov 2026 20:34:11 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 06/13] soc: synaptics: add SL2610 system controller
- support
-Message-ID: <awQyw9fp8qTj3kbU@xhacker>
-References: <20261115102401.3520-1-jszhang@kernel.org>
- <20261115102401.3520-7-jszhang@kernel.org>
- <20261123-knowing-eggplant-buffalo-fddfc3@quoll>
+	b=VLkrR6AmuOdZ/O6gttp7K7b1zhVXcmZ2Z8zXZCdWLDI4KqzdkuG/d6/9+hSXufxbv
+	 rsBjkMBkndtZRxlseReQJbCZ9C0RCVk8FdXzXttPMY9Im8Hdn3nFy2V1TL2yuYD1d7
+	 IjyCwQybgtQbyRL8hbyhdfsF4A7qzHLXrSgL6ofM=
+Date: Mon, 23 Nov 2026 13:56:24 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Ren Wei <weir@nebusec.ai>
+Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	rafael@kernel.org, dakr@kernel.org, johan@kernel.org,
+	akpm@linux-foundation.org, kay.sievers@vrfy.org, vega@nebusec.ai,
+	caoruide123@gmail.com
+Subject: Re: [PATCH driver-core 0/1] kobject: reserve an envp slot for the
+ terminator
+Message-ID: <2026112353-mummy-knoll-cfa5@gregkh>
+References: <cover.1795426787.git.caoruide123@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,46 +56,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261123-knowing-eggplant-buffalo-fddfc3@quoll>
+In-Reply-To: <cover.1795426787.git.caoruide123@gmail.com>
 
-On Mon, Nov 23, 2026 at 11:31:42AM +0100, Krzysztof Kozlowski wrote:
-> On Sun, Nov 15, 2026 at 06:23:45PM +0800, Jisheng Zhang wrote:
+On Mon, Nov 23, 2026 at 08:16:36PM +0800, Ren Wei wrote:
+> From: Ruide Cao <caoruide123@gmail.com>
 > 
-> > +static const struct sl2610_syscon_data sl2610_mcu_data = {
-> > +	.cells = sl2610_mcu_cells,
-> > +	.num_cells = ARRAY_SIZE(sl2610_mcu_cells),
-> > +};
-> > +
-> > +static const struct sl2610_syscon_data sl2610_avio_data = {
-> > +	.cells = sl2610_avio_cells,
-> > +	.num_cells = ARRAY_SIZE(sl2610_avio_cells),
-> > +};
-> > +
-> > +static const struct sl2610_syscon_data sl2610_cpu_data = {
-> > +	.cells = sl2610_cpu_cells,
-> > +	.num_cells = ARRAY_SIZE(sl2610_cpu_cells),
+> Hi Linux kernel maintainers,
 > 
-> That's just MFD driver, so should be in MFD, no? Why placing standard
-> MFD code - nothing soc specific - in the soc directory?
+> We found an issue in lib/kobject_uevent.c.
+> 
+> This bug is tracked at: https://bugtracker.nebusec.ai/f/16082
+> 
+> add_uevent_var() permits envp_idx to reach ARRAY_SIZE(env->envp), filling
+> the final pointer slot without reserving a trailing NULL. With
+> CONFIG_UEVENT_HELPER and a nonempty helper path, an event containing
+> exactly 61 variables before SEQNUM causes SEQNUM, HOME, and PATH to fill
+> all 64 slots. call_usermodehelper then asynchronously passes this
+> unterminated array to kernel_execve(). count_strings_kernel() reads beyond
+> envp into envp_idx and env->buf, interprets those bytes as pointers, and
+> later dereferences invalid addresses while copying the environment.
+> Synthetic arguments allow the environment count to be tuned, resulting in
+> an out-of-bounds scan and kernel crash.
+> 
+> Privilege model: writing a synthetic uevent to /sys/module/kernel/uevent
+> and setting /proc/sys/kernel/hotplug require CAP_SYS_ADMIN; the
+> reproducer runs as root. The crash also depends on CONFIG_UEVENT_HELPER
+> and a nonempty helper path.
 
-I'm not sure which is better. But FWICT, sophgo, samsung, microchip put
-mfd drivers in soc directory. So I guess the reason behind this is these
-drivers are soc specific?
+This has come up many times in the past, nice to see your LLM has read
+the mailing list archives :)
 
-> 
-> 
-> > +};
-> > +
-> > +static int sl2610_syscon_probe(struct platform_device *pdev)
-> > +{
-> > +	const struct sl2610_syscon_data *data = device_get_match_data(&pdev->dev);
-> > +
-> > +	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO,
-> > +				    data->cells, data->num_cells, NULL, 0, NULL);
-> > +}
-> 
-> Best regards,
-> Krzysztof
-> 
+thanks,
+
+greg k-h
