@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445646;
-	b=C69NrLA71aMMOPaVdxC/mNUzmFSq9VoDVUsQQNJhgfPT18I04QONCwXEQfYy23l4T+Ge
-	 MDhPFblA+uDiQ4JeXsi9+4EvA76hPTrZjM2xm9htfjwRQSwX5RmnzqAdMBY2EZBSsca+W
-	 YTltqB8uzgyeOME/+HB1sg9EBn4rcpn6ZDlSCl95KeSx5P/ZBruVEOT43JkAvHuAL0cj1
-	 PdG62DyWh2xIcOEtf2v7LskWGnNQkIup4SIwSXSjQ6irj9jYiZOkcA51/O7q4ptfbL6mF
-	 T8gB28MrP0qQEQZBE4Z+imew0ljTEcW8BtfMcOxReuYZp9aS6d4HkELjrnm/T+s/FRA==
+	t=1795445648;
+	b=fkT2Mgl7iI3CddRB/WnyEIvRkNSR/NrohL8nY2mjc9r9tNUspAOiGMqqw5Fb0f2vTmR0
+	 Y24XaM+iEo/caSpcvWfDbe9pkgcwqpjZs5bbblt6hT4nHiQVoA97BoZimkzyHQnABzwp3
+	 Rr3ZlgE7MlI9wONv4pLnEbcc1kwo8L0coMopYEHJ8YcxjDT/sZuMJguMEOjNlLNX/6mkE
+	 5ptQTQAPXHmF0w4W58Pcmo4S/hTFExtZI8gUDpaq3K2szH22aEJuervJycOstACDgDEMr
+	 3kZUThg3V2haDq46QjUqLPQRzs7wCmBflccDSZhI5aM2kIJrksCsZzommw2GBHEWIGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445646;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445648;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=sknB6aQ4PlQDo8HZucV1PufjxI6KnBGvn1RhZrHtfHM=;
-	b=5mzrxhw7rhBR/aRnMNTD4wTtI1D5IZYOZnS7lGBPsGpMZBSU37miIomipbGw2sg8ZZnd
-	 IMF08go1KA557ZLpe1pfdrnV+NTtXtb+u2juBdQ48spY+DHLTGpl5LN7RtVtBe9/5/xWV
-	 UDhMthuXb6RzgRwlvrb0o9VNHkPL2oCM8arPpyGUwVWDyVUx8gRW1IbWXRoczTmppD7AC
-	 E97WAQuNG9ZyQ4HxMBR/w7BebgGciL3wI6p8VzlQLKYkTrMgVrxiZOjhikXx5NPGRYhcf
-	 U3byVPn2Xna9Azm7qe6F58dgl8gHIOmMDyw36bIGkxOfV/NECZzlNu/Q2KyFHOfuChA==
+	bh=1ORwnkX7J2hOX5n3O1ta3audEQJV0+CKETTB/1+Lf3w=;
+	b=rQPQMUmRHNGFLakbkbUsTiiVdNkPj+qrEtFf8FXKZqo234XGqbq0XV06nyQXdCir3jKt
+	 VYElQ3fyV+FjxIouUsDawFCxP2hx4g5J2si/Ffdv9dBI4zGXANMaF9+QR5znV+Slcj0z7
+	 vv4a2JOQlF9lYZiA6OYiU0ZJprL0tEg5uyRseQ/OJutemrZYVbqX1YwR2PVNjC0+0jors
+	 iyd74B+T9Gxx9e+iMeqAXTz+abUp2sBDy+SPIKBXaQzvo9h61rYznqdge42WiMJlOvPCV
+	 8g19K/a9XNEJoP2A7tapx6i4qOuJLIrKxTLN6WTK4+kjkr+xDmLBFf1/iyqLzVBc7jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="IRC/4nqI";
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=AdpIuPTA;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CF47606B08F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:54:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CF47606B08F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EC4D606B09A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:54:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EC4D606B09A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=IRC/4nqI
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso33093975e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:54:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=AdpIuPTA
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a357b1c649so2009535f8f.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:54:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795445644; x=1796050444; darn=vger.kernel.org;
+        d=suse.com; s=google; t=1795445645; x=1796050445; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=sknB6aQ4PlQDo8HZucV1PufjxI6KnBGvn1RhZrHtfHM=;
-        b=IRC/4nqIN/TukIVJjlr+quumteedHeJUY624RxL8kTaq93bj/VPPgv6w4dJGH0g9Dx
-         EkJeP0YBVbnQwK4lwqwcqmCsFgwDhuc0qy4w3hG+8cmJeJoR38vN8VQF6OhNc04cAjcn
-         NkSAX+yhzAh6YYQYvnrS58Wcdk0l1AXYshXjrpvj5siDdDfZqNDKYGThka4tTbYTocVh
-         nsqCntJnmfJ/qDhbXMDXshZk1CshSH3yJT31rgjgFF8iCaknQ1KkpyFy1dKYUXI1X697
-         Uama9nukcemmJlB1QZffQ/szG20xkvRilbDSRpfNivGJQZOh0PBanvLc3Ym4SqyhYvas
-         Z1mw==
+        bh=1ORwnkX7J2hOX5n3O1ta3audEQJV0+CKETTB/1+Lf3w=;
+        b=AdpIuPTAFtxQYe9e3oALunPMgkqq0WHN1wt9+08FmpsjDYbHHpHxDFFVZwKeqUSpHD
+         e/I+U4W9fQQHvYUN+JQNJB+TTjjDdKIhytaLLI1AWvxFsJEW/JBrKoXnrLKKT5LtvCcs
+         y6VW0kEllA9NWqHJ8Zp0u0LYHEXKQnel2rSLe7Q0X7JIL9SwB9O4HWjIarn6OXpPXZwq
+         DBlLLMXg/pkkHqdBzcwPpNgNojFnkhD3ZwRn0K2N+dLT+xWM0lm1b2ADoOq1dOeAiQ/d
+         ayYymBoeLQlJmXNJak6YAbfv/y6eV+Bh8VT7+E/Y4wBMbRV2MX07VIXuNbOz98vmIgqu
+         0a1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445644; x=1796050444;
+        d=1e100.net; s=20260707; t=1795445645; x=1796050445;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sknB6aQ4PlQDo8HZucV1PufjxI6KnBGvn1RhZrHtfHM=;
-        b=i1Xz+9yo52DjzEWo6pbfbI92UemUU6QIfi67Ij1tmQ+rtZLu9Rwuymj+pi+s6Vexih
-         77R7Rpb71ELEiaw/Qgzqvjaa0Q7Kl+5ClLSp3qcB65zsyQMC5qlY3AVj6FdPyKJy1doX
-         6pLji6f4d9B3c3n8tAY7jn10bYTyRjNTKBbqnw3awjtzjmUVUZDavOoiRGM9ATfNAVPF
-         GuDXAyp+d7uGTnGuLL9cHltilsdKCVP+VxDWaTnH7X+trMpOn75KrmgL/162sV/XmXuH
-         9Qtx+X217i3VZGcu/7H1FH1UaVDqd6oR749zBn68aMF4rK+hrTENJbKxryDEhu45zMv+
-         zlhQ==
-X-Forwarded-Encrypted: i=1; AL+hErFPR9NIoBWvZsEhHFB3iRDtzZK3BvpONlZrjTU2eWu5tWkrq22zpCJaipJcY1rrKsnkkHkp0ZmDghRHBGw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Q9IHlpVMMZ+CNh7Km+bJEWW/eNslukVObkFjMB+SRcmw5gBDB
-	LK3CVom2SLkNplYN1RvpU6nfySqHtHQKAub1AiDS2a6IG1mHNumZ21ODcn2xXxVQmhA=
-X-Gm-Gg: AZFdTZfvPFxpFNt6myUbp7yCQuwCLaOm90uer+l7hHAQk9IrbENZj0fTARCrecvdE+y
-	b2L0VGfIJPg7o/DNbahN8bFPm6Yrr4lFeax8hRt7vnqfXBUFSPHP26jis5QpTfRImtbcu29+sCE
-	OKPLyjxENlGKUgvoPiKImLRJ9P/8lHKbU6vYtu2RbdnnZh2yKSBiVvcDPZOW05XTCOJHLEajj1P
-	yPetYOHsgizPx9hSDiccbirPuxYSXT1ig39ddb5h0ujZo/K6c9jj/GEZqyFW1TNQb7qTqgqNZSV
-	y8fpimg7EgTIpHwe95LH+b6tCxit60r/XFMy6t6N9sgBcA7SdU+LAhT1CSwQL59sx8ZU926/KQF
-	oZX8cbKxo8w1x14C+ITlJDxU03fSHX9Sqe9wdGTG27Y3o2IVjL2vjQoqmRkqB+mq4Ua3jr6zIA6
-	njoio5La9St1DhH3/qzKn2/0QdYvtsQ3oegZvJW2rY5H+lZhaC6y6bs8/DTcfsAbeqBsS4RtA3c
-	BHkTXWHzmV1aGgT/TkWoS5J3kat2DoOMzUCi9tMvEVJjF88iWXhO+d7nIYQJsPbbpf7nMBG8Ni5
-	DyQM+DjSC4uegyPnTqEQCbsxezc=
-X-Received: by 2002:a05:600c:46d3:b0:4a3:12fb:1ee7 with SMTP id 5b1f17b1804b1-4bb88812c9dmr247790145e9.25.1795445644387;
-        Mon, 23 Nov 2026 06:54:04 -0800 (PST)
+        bh=1ORwnkX7J2hOX5n3O1ta3audEQJV0+CKETTB/1+Lf3w=;
+        b=x6jGBD5bflnwla7hFp8jTTQ4D/ovUT8Z2ZlcZT3Cd2Mq8TsHk4lq/UWgLLDTkuRGx3
+         MwV9TYzXKxOUP5yRVIYRJ7oSj9OnsTRkvzsFj52+cs46Pes3UlEhrNaT6X1tVP7Ngx+8
+         sijV/nJj69nl7Nw5yWV5PJVfAKnT5YcE5odunuEmwTgHsLy/D751swTEYHOF1OPJVg1+
+         nkXa4n2DjvqxeAg3GpvtOlnlHbFNgceqvkpJyd+PODw30MgmTZM+q9sythr/rCRLDLz5
+         Sia7M4ykkifMTApQDy18TtxoVgQgyG7Xu1wG3hARvijksYmuErxLyBj05xUFR4mlZDbP
+         Q/+w==
+X-Forwarded-Encrypted: i=1; AL+hErG9zCn1RB/lWaWQu+ouqq3ddDkRnZDB/nWU1yrtWMUz8L5wmt68fJRcTLY7ni2OZeYUrxAoF0mtb+S7WjI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z93sAAsVWEE+vO4Zo7bfB2/5bYa91n1a/604LTIC6WAGoX5vho2
+	YZ0SDrs8OiEzBECD7uWEXORxMYbaemGIIdQZ58foUilS6xsdLhOmlMu0v0J5TF7sNOc=
+X-Gm-Gg: AZFdTZeNzPbf7eYWDMioYR+OTMxAthuuRE7hou9d7wjY2zJYxj+8Ae7g3IzpWcmQ66H
+	XMb4p+s/nKRE2nYhm6F4VcCUQHBvcD8hKfu+aOFLMVVlQdVuPDqFGbdTM+X6qjKn/jz1o6arJ4K
+	85yQbXrB+jMb8CavyYDI6DSMkXIZgEbWSN+3tt0KsyC6oDvPHAhccXMehgOAu3ItxcmwO4l9762
+	ExaqzSPrR04TnF923RlSDphfH5fiECm6dpTJQ279IL0wB4mdVA0dWZGTUiSsVu+SVv1cZDat3k3
+	gqQMTznnN+qEOH8H2XoHIQxCxF00PPqhUankBx2VhcPtGduihLgrbxkTGlB5DU+ivoB+wBQZB3v
+	OTO3E3mFSBAlCSdCdi2Xk3+RcCEvC2D96gR7cNhqKddr7mRdwV9eq8Fyco1wR2FH35qkC/rMBzc
+	JnaWULse+nPI909EbQNzPzML6upyl+uCEWytIdJnSrQuaRC8e5s5gjMpo0k+cRVy/HWIn2OF890
+	9G/xUMk9/21Y4TugoBq6/NFrGhPjD5qwWg+vysErrG+esATE9IqBfXilf3rOC+RHMJd/kYcFxvP
+	TERWQIpMsN3T3QMyImiyWA2WxIuiT7UN7m1b5n1YnLpt5c8S
+X-Received: by 2002:a5d:5d87:0:b0:499:9f62:d64c with SMTP id ffacd0b85a97d-4abaf64be07mr25689240f8f.10.1795445645615;
+        Mon, 23 Nov 2026 06:54:05 -0800 (PST)
 Received: from localhost ([82.192.120.76])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm663264955e9.4.2026.11.23.06.54.03
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm22057256f8f.20.2026.11.23.06.54.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:54:04 -0800 (PST)
+        Mon, 23 Nov 2026 06:54:05 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Vinod Koul <vkoul@kernel.org>
 Cc: Frank Li <Frank.Li@kernel.org>,
@@ -101,9 +101,9 @@ Cc: Frank Li <Frank.Li@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v3 23/28] ARM: dts: bcm2711: Add the 40-bit DMA controller
-Date: Mon, 23 Nov 2026 15:57:01 +0100
-Message-ID: <20261123145728.29082-24-andrea.porta@suse.com>
+Subject: [PATCH v3 24/28] dt-bindings: dma: brcm,bcm2835-dma: Add BCM2712 40-bit DMA
+Date: Mon, 23 Nov 2026 15:57:02 +0100
+Message-ID: <20261123145728.29082-25-andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20261123145728.29082-1-andrea.porta@suse.com>
 References: <20261123145728.29082-1-andrea.porta@suse.com>
@@ -118,65 +118,55 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-BCM2711 has 4 DMA channels with a 40-bit address range, allowing them
-to access the whole memory of a Pi 4. Add a node describing them.
+BCM2712 has six DMA channels (6 to 11) with the same 40-bit programming
+model as the BCM2711 ones, each with a dedicated interrupt. Add a
+compatible for them.
 
-The 40-bit channels see the RAM at its CPU physical address and the
-peripherals at 0x4_7c000000. Describe this through the dma-ranges of a
-dedicated bus, rather than adding them to the scb bus, as the latter
-would change the DMA configuration of the PCIe and Ethernet controllers
-too. The RAM window skips the peripheral window of the CPU address map,
-so that the peripheral FIFOs are not translated 1:1.
-
-Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- arch/arm/boot/dts/broadcom/bcm2711.dtsi | 32 +++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ .../bindings/dma/brcm,bcm2835-dma.yaml          | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711.dtsi b/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-index f475422796d8..d152edc069bc 100644
---- a/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-@@ -436,6 +436,38 @@ emmc2: mmc@7e340000 {
- 		};
- 	};
+diff --git a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+index b53652d5146b..0c74cc1d223e 100644
+--- a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+@@ -17,7 +17,8 @@ description: |
  
-+	/*
-+	 * The 40-bit DMA channels see the RAM at its CPU physical address,
-+	 * and the peripherals in the upper part of their address space. Give
-+	 * them their own bus, so as to not affect the other devices.
-+	 */
-+	dma40-bus@fe007b00 {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		ranges = <0x0 0x7e007b00  0x0 0xfe007b00  0x0 0x00000400>;
-+		dma-ranges = <0x0 0x00000000  0x0 0x00000000  0x0 0xfc000000>,
-+			     <0x1 0x00000000  0x1 0x00000000  0x3 0x00000000>,
-+			     <0x4 0x7c000000  0x0 0xfc000000  0x0 0x03800000>;
-+
-+		dma40: dma-controller@7e007b00 {
-+			compatible = "brcm,bcm2711-dma";
-+			reg = <0x0 0x7e007b00  0x0 0x400>;
-+			interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>, /* dma4 11 */
-+				     <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>, /* dma4 12 */
-+				     <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>, /* dma4 13 */
-+				     <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>; /* dma4 14 */
-+			interrupt-names = "dma11",
-+					  "dma12",
-+					  "dma13",
-+					  "dma14";
-+			#dma-cells = <1>;
-+			/* The VPU firmware uses DMA channel 11 for VCHIQ */
-+			dma-channel-mask = <0x7000>;
-+		};
-+	};
-+
- 	pmu {
- 		compatible = "arm,cortex-a72-pmu";
- 		interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
+   On BCM2711 the channels 11 to 14 of the same DMA block have a different
+   programming model, which allows them to address 40 bits, and are described
+-  by a separate node.
++  by a separate node. BCM2712 has six channels with the same programming
++  model, numbered from 6 to 11.
+ 
+   The channel numbers used in the channel mask and in the interrupt names
+   always refer to the whole DMA block, also when a node only describes some
+@@ -38,11 +39,25 @@ allOf:
+           maxItems: 4
+       required:
+         - interrupt-names
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: brcm,bcm2712-dma
++    then:
++      properties:
++        interrupts:
++          maxItems: 6
++        interrupt-names:
++          maxItems: 6
++      required:
++        - interrupt-names
+ 
+ properties:
+   compatible:
+     enum:
+       - brcm,bcm2711-dma
++      - brcm,bcm2712-dma
+       - brcm,bcm2835-dma
+ 
+   reg:
 -- 
 2.51.0
 
