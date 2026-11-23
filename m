@@ -1,62 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451048;
-	b=3HIEPmZ08aFoBNAQpA+N2TpU3D3cmAaK3mQKlR84C6XN4aeZ8otQByUIIquLYVw7ECFB
-	 +3jcAODQvy/ti/HPUd6S4/L5Uk/qt9qOUVOKXZOvHlP3mFhaUfwKx94Rwb6pqrV5hFlZN
-	 AmZOmABJfkx/ObDoedfw3sCllMIE7fr0pu/wkyA1ObM5xxtRxSivpr4VGcKqZ1OZNL9+K
-	 wMg8ttTXXluPfr91BC+yh/zuZ5vkHotweJnHC4uD3qcH0Vms86H8D3KcIqOqr3hl2Bcy9
-	 HoBUNSDtqeOWxdGTJ+3ct3WhSo0b4tzFQcOTo/pJWs0pvf8iJg0kOM53Vx9tNYB3nMg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451048;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=QZXIFYILtCNn6BOcPijM59Qx4+riXxSWUomOV63QZGA=;
-	b=dUT50/IhdrpV61+mfp6tQn9M/0qkVPsb5j7FfJ1ZHA6J5XztIqsXWwk94+OrpjZQB8/f
-	 S4rW9/5i9J/gEtdjddO5J2l0FgOmb9jPOzZ1Fkai35Ba33T1tWC2Fqt2qVMNr8irKxbhl
-	 olaeV5FjVFkwMN6f0IBM12kNsOfBBwQNBeY1YjVrojwIITKUk+A5oo+sRIJrEQBBqO4X8
-	 S0PWP6hLN1QmkOzgljAJJV1CQNtyU4Ki8WPqhhGR40ht4p7r/n4ELWNDn9BnU0vLM13l4
-	 LoqRaxanKoPl/cRG01vWgxlRmlcLLtnhHS96oq52D7tEP/yhqHV4Pa0hwfnvKC0OVWQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XGRrDED2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795451065;
+	b=5hkA5CwIKVu6avkBut1rxYD94JMLvM7g/qGwFWMkjJGXiepRN6aXhwJyzeKdKRASaWla
+	 w/G90D7UVk395YoLPQs5rcDp9dHQBT1U4UJa+oUJaJAgyHOn9KOto2ZwassvpyjyQ/cQg
+	 BD/blfZ/++UrFX9VSN+l9Ou8QKKHFlTzrQPuBjjgXoUhXcQpF4LxzNu7TZiMofQrJcGmt
+	 u0V6apsCa2MWjxG8YE5GZbcyRXb7kf6TPqWUozuprP/VNlh+jzeN0+0GXoz1nHRdn+vQ6
+	 AoE90MnCcrKpEcRQ13HmfqrNmFgKdzgCpQO288/izWNwyaBrGYenTIvat6ERMRbs3Jg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451065;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=CNJ5tMPn49GAcvDTSuAR0rimcoVMJYlaC808t8jK4Ww=;
+	b=FEi6G9LEm3PhSSHB0NvmLyIpUc0MwIu+sdTuVixHKsGj37O1p4M1wHHnGPIxFSYpiNr8
+	 sT1iJPD7qN6C/XszgA8d41uSdJaEU18O/CkAglbSPr2VeLYYpqoq5M8jQ//syDVnyadKY
+	 BFILaelF2+cGHXPkGCX1xIb5M/K9bnZI95lS1ifsf28g44H5rIO8/T8iGk/y8Q5jkQ88x
+	 ThKMMshu9e7ZENupTMaRAVa2YIiCcfcfvVei5EdiuXonHMT/O7m84WKcSsALbHOLenbN2
+	 AuORg/K8cP4i/UV/kZUIrQHMCKXCB23MALIvMir+9wQ9jWKYckGcgthuj25VZnCJGgw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kGG61wye;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8897C606A332;
-	Mon, 23 Nov 2026 16:24:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77951606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:24:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77951606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XGRrDED2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05C8E1F0089E;
-	Mon, 23 Nov 2026 16:24:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795451048;
-	bh=QZXIFYILtCNn6BOcPijM59Qx4+riXxSWUomOV63QZGA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XGRrDED2jEpYvgE50oiY8fPCgtnMvmLiEjkzS9FnyjwWlK9puHJ6oI7nelee/TFeD
-	 lS1P04iIZVUe4XuZ6aRXAsvEiMnq4K4BOVyDge/J9mFHykpnlc6oIgtBnDp/j/fiZh
-	 quzGh29ASYGTa7s1f3UQwns13EGVLZ4dveF31N4N07R3HzQjlxL2KuI+vVfxJ9VJ/+
-	 1dPbAxOVEL9ztnZEgWbcj5zeFbf7zg5vZVytEaiT4OAqAu5/YHjMMhuHwykzZb+22g
-	 H6OMZuUYsYWivzO6wTf7DtreT/FA6O83v58iowhWEzhtkThRU8EzfIcAF7d9G01N67
-	 rySgow1eEa+KQ==
-Subject: Re: [PATCH net 3/3] net: multicast: account group and source
- allocations to memcg
-From: netdev-bot+sashiko@kernel.org
-To: x-professor@outlook.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, hannes@cmpxchg.org, mhocko@kernel.org,
- roman.gushchin@linux.dev, shakeel.butt@linux.dev, muchun.song@linux.dev,
- akpm@linux-foundation.org, vdavydov.dev@gmail.com, cgroups@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 16:24:06 +0000
-Message-ID: <179545104659.3135.11573235607470978138@kernel.org>
-In-Reply-To: <eabf67fe94dc239f6cc59720e8468f2bf9b4cd62.1795102467.git.x-professor@outlook.com>
-References: <eabf67fe94dc239f6cc59720e8468f2bf9b4cd62.1795102467.git.x-professor@outlook.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kGG61wye
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c4cac7a7d3cso501690966b.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:24:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795451064; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nkSVdxmXfMwpsvudOmvhyb4ilpPjDCIf3ibFPuFtqyaMZhp1TKPpOuVlnoZ0HxTrwV
+         quji4+8Kxv4ebaM4vt8cXjvA073ztoRylQTPkLicX0Nh4tkBQPU7bKYOq7ZLyDtKofSY
+         7nEbqdR9bbilqD/bWz6m5ffHUeQEWBOxga28zj9/iZLbxrVJKIJkochYGhaSmbHJUMzV
+         CJhGXBF1hwfDLwAct0vFSj/ibM3Gvtwr5Ajc3OYMujalpJCvWp9rlAZLEhHa9mOPpqN1
+         NNixyJzXrNU0MbSspsy9jJmDTA8zwxsY4z/eVg3Vyj2ZC3KTml3xE6fAC+h1PAamcvWS
+         AG/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CNJ5tMPn49GAcvDTSuAR0rimcoVMJYlaC808t8jK4Ww=;
+        fh=d83K41p4P3U8B8KrDvm1KJkBY9ODTCiiVNU6xJbH50E=;
+        b=CrQJDQSL45xZYYK6fPYnAIva79ha1ZXaUdb5FdRI6QM6wV7xAmM2pbxZwrwtC72x+s
+         BJkxruZrWkT0ncZaSJhdBA9yqEezunQ0+8uxupA+ZZ/uc6d4RFxrQBgvAKQRqVdfo+hS
+         NkM9YG3lz601qpA+sykaazyV9WF0dRTYbTfHp32GB8xfUTiAQaGL7pb0ofxOp/qVPPel
+         yDt1t5jz1EfzZC6MAOcEJ9GaYWiZQXY9+WR9koWcl8br/9hED32aL4TKef4yBc7mlKdG
+         HluddGBdNQGzqimrkFYUnKhczW//2t8JhlmZl72C4/FE3h6UUXUtKWSNba7d8OdV6QB+
+         fxOQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795451064; x=1796055864; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CNJ5tMPn49GAcvDTSuAR0rimcoVMJYlaC808t8jK4Ww=;
+        b=kGG61wye3HV3NP7BQ17KP5dlch87le463+NAUdJ0Azg5wUYimKiAXVX7T+vAKgW4n4
+         USmVJ6ccq1JiCOBFkF238YbF4N9Al3OehytGod9mVZIrZDCu8bHXwPxRDjfQgB/x1z4S
+         dG37hmDbqD1JMdGkG1LnHRi44iWi199K6o3DAbckMhYBQRRZb2X7RzPY1yIFuQ2nrFL+
+         xwLWYkuR8i2t4oLid/D0xml/jOJL9hY+et8bBtzEkPqj9JXq1XxiW3yn4r+SFuAmmJfe
+         thBHf/UcvioFJlCVfIwSXNxW6mzt9E7sOVMxo03V5lZZZh/KAq2Dfgx06TI7XBA0z2Zw
+         G++g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795451064; x=1796055864;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CNJ5tMPn49GAcvDTSuAR0rimcoVMJYlaC808t8jK4Ww=;
+        b=V/IPq9LPQZqnmQNXslfcMYkw2EDlhWNZqax2LYuScZWcIGwFtIs+kxp8pYPl7l1lrn
+         1zvLaYjueYK5W/Y1rgwm0zW9o3i3Yd7gHLtEq2IhT3T/GDGnX4sRkVTCN6efAWV9eUOL
+         aIfUih8A+KPHJt7ruJOPaf2J36LTuRsEjp2vKkvLIyXlKxf8Tm93/qJ0kA5KZRsZ8Y4H
+         9zdsCd9ljXoOXsEb6SOEDREjLUo/T4zJQU6M6HxNZds3L9Y+AK3DLF6s4ciWWpAVaqyx
+         fO/F/K6LNu6KdljoHQC81dY7N74sm6VVzRPPHmuF7LFKzeBjs9dcD4itEeyhQ9stRKSY
+         RjrA==
+X-Forwarded-Encrypted: i=1; AL+hErHzK0ZsVjB5opJSsduAMoJ8O7p4rAe40+u86jBNNNBqnEIY0kuPyhyYUJn/pt5jJY2qucPUAjQBAL4LJk0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8gu4EixCVsnfyHUlF0WN26q/td8/odP5EAfuXQYoxHDOzgJ/T5
+	bJqC/RNcQX4gwkKB08bompseCBBPUsP/zH0a5PYZgVw1Hl/a0cbQElgjc9hgLTFufemYowXfIEo
+	NqAnZHFLCJBav0RxpmoZWswW7Uif6l8k=
+X-Gm-Gg: AZFdTZckChhldtDfizIzT5PoBS1xPOpXlkBhUJAgsgP9H6ukAIySDVsAi+41nBARQ3o
+	HDjEiylKGHp+52KsPLAN7SldDKHknnmw+Cx9br/DkZ1Bgp199gsr+DhskdPREWzCLkTYCRCSbAa
+	wDLhTD02qUach59ecbNRussCT1x9O5aM77TTGq6PT6hF4d8+qCUV9LbIWrW70ijQTd4UtqLx2e0
+	DU4OfGYXWh9CaElDi9veVsnd2UW11eCJmxMS4lobD60d1Ntvx+XydBSNJJGWX8YlaOBI8XLjDqv
+	/TH4s/v0slkxTSwm7CvFeDTFvQdwmR8IwKwES5WPYRMdpcZFJp5yb1miz4vruSKSqdvNbjPqh4R
+	/JsP65FxLOtdmmwWfoK/xhxRN4VlkPBxufIth/Q==
+X-Received: by 2002:a17:906:231a:b0:c42:4750:8d49 with SMTP id
+ a640c23a62f3a-c513aad2400mr684425566b.25.1795451063824; Mon, 23 Nov 2026
+ 08:24:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,184 +104,147 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261122131900.2951586-4-a.shimko.dev@gmail.com> <179543998366.3135.8537500779592480863@kernel.org>
+In-Reply-To: <179543998366.3135.8537500779592480863@kernel.org>
+From: Artem Shimko <a.shimko.dev@gmail.com>
+Date: Mon, 23 Nov 2026 19:24:12 +0300
+X-Gm-Features: Aa3M54pFMGCEqfrknuxTm9QQEvcIIV5arWsj3tZLkp59n888HFnWQSHbf7MxHro
+Message-ID: <CAOPX747Whtrpa-aP=AhtaFfqMpqHHYVMJ7jNZWCdgmMc1_GYag@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 3/3] net: phy: dap8211r: add PHY LED control support
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	maxime.chevallier@bootlin.com, pavel@ucw.cz, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-leds@vger.kernel.org, 
+	netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Mon, Nov 23, 2026 at 4:19=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] In drivers/net/phy/dap8211r.c, dap8211r_led_hw_control_get()
+>   (lines 312-351) does not undo what dap8211r_led_hw_control_set()=E2=80=
+=A6
+> - [Low] dap8211r_led_hw_control_set() in drivers/net/phy/dap8211r.c first
+>   clears FORCE_EN(index) in LED_COMCON (0xA00B) with=E2=80=A6
+>
+> --
+>
+> net: phy: dap8211r: add PHY LED control support
+>
+> This adds PHY LED support for the three LEDs on the DAP8211R. It adds a
+> dap8211r_write_ext() helper for indirect extended register writes. It als=
+o
+> implements the led_brightness_set, led_hw_is_supported, led_hw_control_se=
+t
+> and led_hw_control_get callbacks, using force mode for brightness and the
+> LED_x_CON registers for hardware triggers.
+>
+> > diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
+> > index 1fe20efd394d7..b0fb3cf89b55a 100644
+> > --- a/drivers/net/phy/dap8211r.c
+> > +++ b/drivers/net/phy/dap8211r.c
+>
+> [ ... ]
+>
+> > +static int dap8211r_led_hw_control_set(struct phy_device *phydev, u8 i=
+ndex, unsigned long rules)
+> > +{
+> > +     u16 led_mode =3D 0, led_reg;
+> > +     int ret;
+> > +
+> > +     switch (index) {
+> > +     case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
+> > +             led_reg =3D DAP8211R_LED_0_CON + index;
+> > +             break;
+> > +     default:
+> > +             return -EINVAL;
+> > +     }
+> > +
+> > +     ret =3D dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON, DAP8211R=
+_LED_FORCE_EN(index), 0);
+> > +     if (ret)
+> > +             return ret;
+>
+> [Severity: Low]
+>
+> Force mode is cleared in LED_COMCON here, but the new rules are only
+> written to LED_x_CON later by a separate dap8211r_write_ext() call. Each
+> helper takes and drops the MDIO bus lock on its own. In between, won't th=
+e
+> LED follow whatever LED_x_CON held before (power-on, bootloader, or
+> previous trigger rules)?
+>
+> If the final dap8211r_write_ext() fails, the function returns an error bu=
+t
+> leaves force mode off and the stale rules active. set_baseline_state() in
+> drivers/leds/trigger/ledtrig-netdev.c ignores the return value:
+>
+>     led_cdev->hw_control_set(led_cdev, trigger_data->mode);
+>
+> so the trigger would assume the new mode is in effect.
+>
+> Would it work to write LED_x_CON first and clear FORCE_EN afterwards? The
+> rule register has no visible effect while force mode is on.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Agreed. mxl86110_led_hw_control_set() does exactly this. I'll reorder the c=
+alls
+in dap8211r_led_hw_control_set() the same way in v5,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> [Severity: Medium]
+>
+> Does dap8211r_led_hw_control_get() return the same rules that
+> dap8211r_led_hw_control_set() writes? I see three mismatches.
+>
+> First, hw_control_set() turns TRIGGER_NETDEV_LINK into LINK_10 | LINK_100=
+ |
+> LINK_1000. This function only reports the three speed bits and never
+> reports TRIGGER_NETDEV_LINK.
 
-- [High] The fix leaves the IPv4 device group records uncharged, even
-  though their IPv6 counterparts are now charged.
-- [Medium] Several IPv6 allocations whose failure is always silently
-  ignored now use GFP_KERNEL_ACCOUNT, so they can fail on memcg charge…
+i'll add it, thanks
+
+> Second, hw_control_set() always sets DAP8211R_LED_ACT_BLINK along with
+> TX/RX, but bit 13 is never checked here. The kernel-doc on hw_control_set=
+()
+> says the LED does not blink on traffic without ACT_BLINK unless another
+> rule is active. A register with TX/RX set, ACT_BLINK clear and no
+> link/duplex bit would still be reported as tx/rx offload.
+
+i.e., if ACT_BLINK =3D=3D 0 but txrx are active (by some reason), then
+-EOPNOTSUPP should be
+returned, because the register state does not correspond to an
+operational state. Oh, that's
+important i think. Yes, it should be fixed.
+
+> Third, any other LED_x_CON bits are silently ignored, and 0 is returned
+> anyway.
+>
+
+ok
+
+> rtl8211f_led_hw_control_get() in the realtek driver reports
+> TRIGGER_NETDEV_LINK when all three speed bits are set. Could the same
+> approach be used here?
+
+Yes, i think so
 
 --
+Best regards,
+artem
 
-net: multicast: account group and source allocations to memcg
-
-This commit adds memcg accounting to the IPv4 and IPv6 multicast source
-filter entries and their tomb records. It also accounts the IPv6 live and
-deleted device group records. IPv4 keeps GFP_ATOMIC and adds __GFP_ACCOUNT,
-IPv6 switches to GFP_KERNEL_ACCOUNT, and a gfp parameter is passed through
-__ipv6_dev_mc_inc() and mca_alloc() so that only socket joins charge the
-live IPv6 group.
-
-> diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
-> index ede1f0825bad5..e7afe61871132 100644
-> --- a/net/ipv6/mcast.c
-> +++ b/net/ipv6/mcast.c
-
-[ ... ]
-
-> @@ -232,7 +233,7 @@ static int __ipv6_sock_mc_join(struct sock *sk, int ifindex,
->  	RCU_INIT_POINTER(mc_lst->sflist, NULL);
->  
->  	/* now add/increase the group membership on the device */
-> -	err = __ipv6_dev_mc_inc(dev, addr, mode);
-> +	err = __ipv6_dev_mc_inc(dev, addr, mode, GFP_KERNEL_ACCOUNT);
->  
->  	dev_put(dev);
->  
-
-[Severity: High]
-The IPv6 socket join now charges the live ifmcaddr6 group record. What
-about the IPv4 equivalents?
-
-__ip_mc_join_group() in net/ipv4/igmp.c still creates the live ip_mc_list
-without accounting:
-
-net/ipv4/igmp.c:__ip_mc_join_group() {
-    ...
-	rcu_assign_pointer(inet->mc_list, iml);
-	____ip_mc_inc_group(in_dev, addr, mode, GFP_KERNEL);
-    ...
-}
-
-____ip_mc_inc_group() then allocates the record with
-kzalloc_obj(*im, gfp).
-
-The IPv4 deleted group record is also left uncharged. On leave or close
-the chain is:
-
-ip_mc_leave_group() / ip_mc_drop_socket()
-  ip_mc_dec_group()
-    igmp_group_dropped()
-      __igmp_group_dropped(im, GFP_KERNEL)
-        igmpv3_add_delrec(in_dev, im, gfp)
-          pmc = kzalloc_obj(*pmc, gfp);
-
-Its IPv6 counterpart, mld_add_delrec(), is switched to GFP_KERNEL_ACCOUNT
-by this patch.
-
-These tomb records stay on in_dev->mc_tomb until crcount counts down
-through IGMPv3 interface-change reports. crcount comes from in_dev->mr_qrv
-or the per-netns igmp_qrv sysctl. igmp_max_memberships does not limit
-these records.
-
-Could a user namespace root in its own netns raise igmp_qrv and the report
-interval, and then join and leave distinct groups in a loop? That would
-pile up uncharged ip_mc_list records in the same way as the delayed MLD
-join/leave reproducer in the commit message, which this patch fixes only
-for IPv6.
-
-The commit message gives this reason for charging the IPv6 join:
-
-  "socket joins already propagate allocation failure to the caller"
-
-That is not true for IPv4, since ____ip_mc_inc_group() returns void. It
-might explain leaving out the IPv4 live group. It does not explain leaving
-out the deleted record, because igmpv3_add_delrec() already ignores
-allocation failure the same way mld_add_delrec() does.
-
-Should the IPv4 group records be charged too? For example, an accounted
-gfp could be passed to igmpv3_add_delrec() on socket paths, and the IPv4
-join could either propagate the failure or force the charge. If they are
-left out on purpose, could the commit message say why?
-
-> @@ -770,7 +771,7 @@ static void mld_add_delrec(struct inet6_dev *idev, struct ifmcaddr6 *im)
->  	 * for deleted items allows change reports to use common code with
->  	 * non-deleted or query-response MCA's.
->  	 */
-> -	pmc = kzalloc_obj(*pmc);
-> +	pmc = kzalloc_obj(*pmc, GFP_KERNEL_ACCOUNT);
->  	if (!pmc)
->  		return;
->  
-
-[Severity: Medium]
-With GFP_KERNEL_ACCOUNT, can this allocation now fail when the memcg
-charge fails?
-
-For requests without __GFP_HIGH or __GFP_NOFAIL, try_charge_memcg()
-returns -ENOMEM in several cases:
-
-  - the current task is an OOM victim with MMF_OOM_SKIP
-  - passed_oom && task_is_dying()
-  - mem_cgroup_oom() makes no progress
-
-The relevant check is:
-
-mm/memcontrol.c:try_charge_memcg() {
-    ...
-	if (!(gfp_mask & (__GFP_NOFAIL | __GFP_HIGH))) {
-		ret = -ENOMEM;
-		goto out;
-	}
-    ...
-}
-
-mld_add_delrec() returns void and just returns when the allocation fails.
-In that case no deleted group record is created, and the MLDv2 leave
-state-change report is never sent.
-
-A typical case is an OOM-killed task in a memcg that exits and closes its
-multicast sockets:
-
-ipv6_sock_mc_close() / __ipv6_sock_mc_drop()
-  __ipv6_dev_mc_dec()
-    igmp6_group_dropped()
-      igmp6_leave_group()
-        mld_add_delrec()
-          kzalloc_obj(*pmc, GFP_KERNEL_ACCOUNT) returns NULL
-
-The tomb allocations this patch changes in ip6_mc_del1_src() and
-sf_setstate() look similar.
-
-In ip6_mc_del1_src(), when dpsf is NULL, psf is still unlinked and freed
-with rv = 0, so the source removal is never announced.
-
-In sf_setstate(), this check drops the record:
-
-	if (!dpsf)
-		continue;
-
-The IPv4 tomb conversions avoid this, because GFP_ATOMIC includes
-__GFP_HIGH and the charge is forced.
-
-mld_add_delrec() also hardcodes GFP_KERNEL_ACCOUNT, but non-socket callers
-reach it through igmp6_group_dropped(). Examples are __ipv6_dev_mc_dec()
-called from addrconf, ndisc and the bridge, as well as ipv6_mc_down() and
-ipv6_mc_unmap(). On those paths, isn't the deleted record charged to
-whichever task happens to trigger the operation?
-
-That seems to conflict with the commit message, which keeps GFP_KERNEL
-for:
-
-  "ipv6_dev_mc_inc() callers such as address configuration, which may
-  ignore allocation failure"
-
-It also says:
-
-  "A group created by address configuration stays uncharged"
-
-Would it make sense for callers to pass a gfp into mld_add_delrec(), as
-igmpv3_add_delrec() already takes one on the IPv4 side?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795102467.git.x-professor%40outlook.com
+pw-bot: cr
