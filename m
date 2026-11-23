@@ -1,109 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.93
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447683;
-	b=g92DtcroqgGsiox7rx0qfI/jH2ri4+TxQeAjGTaY/X4v/aZHqncqnwfrZikqEitfvzgr
-	 y21Ybm/Odq5JqC3ZHUEuuOd3T+WvY2e3+Hr6EhKYjcMcdiNwzqrD0+BJkj/noAJxuO22Y
-	 xFcldjcnDjGkkCTs60qaPM098dUHY1Ppz6LzGaX3ppQwkBmlLyyEkhLn+hHzsxcAoouS6
-	 BTSbMEQ3g49zszGPG/vgtShMBhBbKr7LC9j0TUG/Cam9afHGYWgKsY2X4lS06OGhVyCuF
-	 72poTryX8XRJtEVm7wIjKb4X8Pxv5ljP1ayfdEEPn+rqpFmk9KT6iMm568YE8lJ6nVQ==
+	t=1795447690;
+	b=TPn+nIYJuzbKP5sTNul9nOzON6SP3TR0F2g3Um5FLw8t005a4TDR/SceK4tSHcvTKfoF
+	 iYKGx8JKsADtDGQ0kEkGYilO8zfdpaheoLz581z+Sm0r116A66DsPJfSHXvtCbBcZFDkf
+	 AMk9GAJRxPRYj6ATpBPmXjIsY8DjgFnOhNY4tT8ZbXp6T8rWZ/KGIJ+OBzu+vpVG6rpHm
+	 3KSod+1mQaobOe1AeNF58/GxZofntW0PU7ecvRAIEewwKvjTs54HQZXxo4vPYvl73u3A2
+	 IVA/wr6bZ9P+WRDvUEMcwqJaZdow9KVAjUuNWuTRRn/Q4ysOB5k2z2wxWHKbCXkYAGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447683;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=c1EzffyQMBPdxbIZVJGcUzqBXPK2cayxcVlx4GrPO7w=;
-	b=n95N5veVtOrjMdOZcuLWhEau1rBpu1hJy7Bv1hVoxLdYOwL3t4+qPRXh+w2TX3qTVqvI
-	 HgTCYBaBat8v+9y3OfvtxMpZqdXZH/oiwqB8rKjQEPhQ9yNAAdu0Pj/B/NDhn+A8svfik
-	 o/JeaFuItWXMPyGEewxxMyledfWG7pBNo+j/rH+pg4kfBZ0e5TH1cj13Hir+ftNkXZuot
-	 4WRY0c9S71gbQORHEEb0aB5qzrvABHDGCrZFQey9W5nvtQCrOKKIuOt/nJLNoH2SqAigp
-	 /5MlPDodRuO1E0PLHIK3bHquOOWjBb24UYspMsayDWkzZ2vLqidJNhPE9m04Fvsbbtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447690;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=d7/M+v/43NPI43ZKQtCCYrkBuY9v8LpkrE5U7OdayQU=;
+	b=i9mS/XJ5gUClTsrxjEtf2D1Zp/SNvQS+E4ecGSd33P7VkRZE5OlmK4z/oEd1nLcm8yMf
+	 4ZW0wR6CsevKZKg1c7lmcg7o6Ecz1Tn5cXNRZXNyUTT2XaIbI7HZEpm/QQin9Cr3PHduZ
+	 djTFsmhXl3nGHRgnE0yDQbpIoWwGhDv1NXsu1Bu957Fu7UjOB4CaR7BGxlX3qH/vo0jHL
+	 /STjg9iFPdh1X20gVZ7E4rTQg2UgZKhVhIQpXKPA/qOD5jDrp2WY/6AYJFqhGatuqQDZF
+	 +yQG8UU9aE9ssS1x91y4F5Q2lEI4UEmp7wDzl4JOgW3W52Y1VLxU167W1MH1MAsd24Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="tM7/Lb4o";
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hp9K9qE9;
+	arc=none smtp.remote-ip=95.215.58.93
+Received: from mta1.migadu.com (out-93.mta1.migadu.com [95.215.58.93])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E144B606A33A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E144B606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D247B606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D247B606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tM7/Lb4o
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-33fb4680717so9393272eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:28:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795447682; x=1796052482; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=c1EzffyQMBPdxbIZVJGcUzqBXPK2cayxcVlx4GrPO7w=;
-        b=tM7/Lb4ohN1rjBmrP/p4jsqauMxS8DlnR9uOt5WOXDONuj9gtBL24ThKjhYyUJ1osr
-         DzqANDmyaqyQRIj9/WtIAT/2YNLsDbukMTF8CsLrlVLEEj1u79LxziKXkIVO0kuI3yvd
-         ilvhELHyvShgLq2T3GfJ2xb3ebiLdSzv8fG/1WUouEulxQ2bjODdAQn++ALn6A5oRrdP
-         gp7+Nu5zsnypVzDnLckDqxN6joBc14yqFTXBNPePxokmg2P15CstxQ+L4Hii3L+lJDFp
-         UW9V1QtAegU0c2Ex964UbGyqVPZzoLvvZqPc/2zQWmZhYNNwMxGusYtW/O0GQnjuA8yN
-         3YsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447682; x=1796052482;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=c1EzffyQMBPdxbIZVJGcUzqBXPK2cayxcVlx4GrPO7w=;
-        b=SWxQNhsbhvIA0+QuLIJVEncIMmewLaWhqYbO2XlCGUgu9QHddbj4d/iRvXhpRXWQDW
-         q3hkS6R2TY0UeKYS+iofcHw1l7u/8n3tAP3zyRnHyQrPSgc1YesR1A1aNXuhPTkfnnMZ
-         bN7nhoT8xuh2iYobXXOlykhZE7OQHLYSuA/8uE6QrvZQ+II9MxChslEbgGhm/eVZEvzZ
-         +1V14adSLZdeX80/5+oxE79Qpl6grLUBMLf9kWfC/xhrPB/dN1fMAHpzXzLOp1+kr7Et
-         2qdOMsAaCZkP3DU2tTEoay55Iv45yR5rfmErCNFwf1dd9eIwxpWObuoXBvP2P0XDocho
-         OZkA==
-X-Forwarded-Encrypted: i=1; AL+hErEXGR6np4Y+k3wUAWEHzTq14lUie0nmLuKlDMSLkFb1bnZ8bilavbb6wvK2ftUisCGm0iz3ILgLAzJTPZ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cnuigKoOTZBklbztFPiL4Pp4lPBlwWoto9vheShav7bgnTI3e
-	ROrnqRCsaugjMg+tGmLtid5YECS9Fv0QBFcv1C8UohawsdumHYLLVhIT
-X-Gm-Gg: AZFdTZf0IYTmLVZP8Qs2YJTnGJf9GXKxZ5+vH1J3ELq4QoDqJuVVGIoKkv8zFabs3gT
-	tFJ9jT2AKfBY25YsL6sUmAbA2EeJebb3idtkTcvMQyFFkWYU5df8Zxcj0v5fFV5WBhASwXhs6Il
-	g/+zKZ7sfuJSiUAQGNI2qKYvru7Dl4VZTR4bU4jtGXPEbHT4xZ4evjI+Y2xYM2wlCNZ36NYiDiq
-	5mSZQwlq3/+SJfH/pg7JY5D6yD25aadbYeVLITDGDIuOvvhCSyBrrGM6HxHwN4BzNxwfNlARKNO
-	QiMn6DxQikUl6FwJmQNqDrvDuVDlevZ+qvrMibmhG2vIyLu1S7MvWDUeGhbtvcQI6Gg79rhFb1t
-	L9loGq6pSOqVy5S6x4TxJEdjsGHIyyiB7Owgv6222+02B6MmJFW5Rh7QKa6IPIN3yNNrmyCTBLj
-	jihZpqt3ah7sRT1TYeIK5ABuSoJF8pCJGITRTuU7zAmNU2qXMyVq9nriDNY00TFbnivNxHo6P+/
-	a/71Gh2BfFqYaZfD/EFOCD8YqgzB2YtowqIgSBS4uazztAKi18XaXbBxBbSEu/HXnJX3dbkng0Q
-	NNrxh9LjmOYuKn/WnURXm88GhS49FVAYCYwfacrxi5G21Q==
-X-Received: by 2002:a05:693c:8801:10b0:386:b070:6f2b with SMTP id 5a478bee46e88-386b0707075mr3467857eec.36.1795447681882;
-        Mon, 23 Nov 2026 07:28:01 -0800 (PST)
-Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm46569087eec.5.2026.11.23.07.27.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:28:00 -0800 (PST)
-From: Hikmah Gumelar <hikmahgumelar@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hp9K9qE9
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=KLnIZve27TacRpIsHu1MegafKzF18Ee+BKLeaSkTvv4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795447687; v=1; x=1796052487;
+ b=hp9K9qE95AEmJktdBgr6nEtXQs+iPK5dnFdfVPdd+ORgJaK/CZ5KVYB3BNrrG2vqXBEGAviN
+ aOEnXucwR+WWGrpk6Bot5cDtENpAJ0LJBvt68OIr63ZrLKFRTLngoZ0M6q+n2LqbmVC2vYepW8B
+ Ck1I2/mioOM7bvy9mWwUzXpo=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 41213eef0cfc78fe;
+	Mon, 23 Nov 2026 15:28:06 +0000
+X-Mizu-Trace-ID: 41213eef0cfc78fe
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
 	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Subject: [PATCH v3 1/7] clk: qcom: gcc-msm8953: fix csi_phytimer_clk_src 100MHz parent
-Date: Mon, 23 Nov 2026 22:27:16 +0700
-Message-ID: <20261123152722.168879-2-hikmahgumelar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261123152722.168879-1-hikmahgumelar@gmail.com>
-References: <20261123123546.152162-1-hikmahgumelar@gmail.com>
- <20261123152722.168879-1-hikmahgumelar@gmail.com>
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v3 1/9] bpf: Add log support for tracing link_create
+Date: Mon, 23 Nov 2026 23:27:35 +0800
+Message-ID: <20261123152743.19629-2-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
+References: <20261123152743.19629-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,27 +89,155 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The 100 MHz entry in ftbl_csi_phytimer_clk_src selects P_GPLL0_DIV2 with a divider of 4, which leaves gcc_camss_csi0phytimer_clk stuck off on MSM8953 platforms such as Xiaomi Mi A1 (tissot).
+Tracing BPF_LINK_CREATE returns errors for invalid attach parameters
+without explaining which check failed.
 
-Fixes: 9bb6cfc3c77e ("clk: qcom: Add Global Clock Controller driver for MSM8953")
-Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+Report parameter and reattachment errors through the link creation log.
+Pass the log to bpf_check_attach_target() so freplace attachment to a new
+target also reports target-check failures.
+
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 ---
- drivers/clk/qcom/gcc-msm8953.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ kernel/bpf/syscall.c  | 22 +++++++++++++++++-----
+ kernel/bpf/verifier.c |  6 ++++--
+ 2 files changed, 21 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/clk/qcom/gcc-msm8953.c b/drivers/clk/qcom/gcc-msm8953.c
-index 8fe1d3e42144..8aec5600e837 100644
---- a/drivers/clk/qcom/gcc-msm8953.c
-+++ b/drivers/clk/qcom/gcc-msm8953.c
-@@ -964,7 +964,7 @@ static struct clk_rcg2 csi2p_clk_src = {
- };
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index ec8e78792911..80504011403f 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -3677,7 +3677,8 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 				   int tgt_prog_fd,
+ 				   u32 btf_id,
+ 				   u64 bpf_cookie,
+-				   enum bpf_attach_type attach_type)
++				   enum bpf_attach_type attach_type,
++				   struct bpf_verifier_log *log)
+ {
+ 	struct bpf_link_primer link_primer;
+ 	struct bpf_prog *tgt_prog = NULL;
+@@ -3714,6 +3715,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	}
  
- static const struct freq_tbl ftbl_csi_phytimer_clk_src[] = {
--	F(100000000, P_GPLL0_DIV2, 4, 0, 0),
-+	F(100000000, P_GPLL0, 8, 0, 0),
- 	F(200000000, P_GPLL0, 4, 0, 0),
- 	F(266670000, P_GPLL0, 3, 0, 0),
- 	{ }
+ 	if (!!tgt_prog_fd != !!btf_id) {
++		bpf_log(log, "target_fd and target_btf_id must be both set or both unset.\n");
+ 		err = -EINVAL;
+ 		goto out_put_prog;
+ 	}
+@@ -3726,12 +3728,14 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 * attach_tracing_prog flag is set.
+ 		 */
+ 		if (prog->type != BPF_PROG_TYPE_EXT) {
++			bpf_log(log, "target_fd is only allowed for freplace prog.\n");
+ 			err = -EINVAL;
+ 			goto out_put_prog;
+ 		}
+ 
+ 		tgt_prog = bpf_prog_get(tgt_prog_fd);
+ 		if (IS_ERR(tgt_prog)) {
++			bpf_log(log, "Invalid tgt_fd.\n");
+ 			err = PTR_ERR(tgt_prog);
+ 			tgt_prog = NULL;
+ 			goto out_put_prog;
+@@ -3786,11 +3790,14 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 */
+ 		if (prog->type != BPF_PROG_TYPE_TRACING &&
+ 		    prog->type != BPF_PROG_TYPE_LSM) {
++			bpf_log(log,
++				"Re-attach of freplace prog needs target_fd and target_btf_id.\n");
+ 			err = -EINVAL;
+ 			goto out_unlock;
+ 		}
+ 		/* We can allow re-attach only if we have valid attach_btf. */
+ 		if (!prog->aux->attach_btf) {
++			bpf_log(log, "Cannot re-attach a prog that was attached to a bpf prog.\n");
+ 			err = -EINVAL;
+ 			goto out_unlock;
+ 		}
+@@ -3806,7 +3813,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 */
+ 		struct bpf_attach_target_info tgt_info = {};
+ 
+-		err = bpf_check_attach_target(NULL, prog, tgt_prog, btf_id,
++		err = bpf_check_attach_target(log, prog, tgt_prog, btf_id,
+ 					      &tgt_info);
+ 		if (err)
+ 			goto out_unlock;
+@@ -3846,6 +3853,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	 */
+ 	if (prog->type == BPF_PROG_TYPE_EXT &&
+ 	    prog->aux->kprobe_write_ctx != tgt_prog->aux->kprobe_write_ctx) {
++		bpf_log(log, "Only one of freplace prog and its target writes to pt_regs.\n");
+ 		err = -EINVAL;
+ 		goto out_unlock;
+ 	}
+@@ -3859,6 +3867,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	     tgt_prog->type == BPF_PROG_TYPE_TRACEPOINT ||
+ 	     tgt_prog->type == BPF_PROG_TYPE_SYSCALL) &&
+ 	    prog->aux->max_ctx_offset > tgt_prog->aux->max_ctx_offset) {
++		bpf_log(log, "Freplace prog accesses more ctx than its target.\n");
+ 		err = -EINVAL;
+ 		goto out_unlock;
+ 	}
+@@ -4383,7 +4392,7 @@ static int bpf_raw_tp_link_attach(struct bpf_prog *prog,
+ 			tp_name = prog->aux->attach_func_name;
+ 			break;
+ 		}
+-		return bpf_tracing_prog_attach(prog, 0, 0, 0, attach_type);
++		return bpf_tracing_prog_attach(prog, 0, 0, 0, attach_type, NULL);
+ 	case BPF_PROG_TYPE_RAW_TRACEPOINT:
+ 	case BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE:
+ 		if (strncpy_from_user(buf, user_tp_name, sizeof(buf) - 1) < 0)
+@@ -5927,11 +5936,13 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 					      attr->link_create.target_fd,
+ 					      attr->link_create.target_btf_id,
+ 					      attr->link_create.tracing.cookie,
+-					      attr->link_create.attach_type);
++					      attr->link_create.attach_type,
++					      log);
+ 		break;
+ 	case BPF_PROG_TYPE_LSM:
+ 	case BPF_PROG_TYPE_TRACING:
+ 		if (attr->link_create.attach_type != prog->expected_attach_type) {
++			bpf_log(log, "attach_type is not expected_attach_type of the prog.\n");
+ 			ret = -EINVAL;
+ 			goto out;
+ 		}
+@@ -5949,7 +5960,8 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 						      attr->link_create.target_fd,
+ 						      attr->link_create.target_btf_id,
+ 						      attr->link_create.tracing.cookie,
+-						      attr->link_create.attach_type);
++						      attr->link_create.attach_type,
++						      log);
+ 		break;
+ 	case BPF_PROG_TYPE_FLOW_DISSECTOR:
+ 	case BPF_PROG_TYPE_SK_LOOKUP:
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index dea18409f480..58d3588ffc84 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -24345,7 +24345,7 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
+ 
+ 		if (bpf_prog_is_dev_bound(prog->aux) &&
+ 		    !bpf_prog_dev_bound_match(prog, tgt_prog)) {
+-			bpf_log(log, "Target program bound device mismatch");
++			bpf_log(log, "Target program bound device mismatch\n");
+ 			return -EINVAL;
+ 		}
+ 
+@@ -24605,8 +24605,10 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
+ 
+ 		if ((prog->aux->saved_dst_prog_type || prog->aux->saved_dst_attach_type) &&
+ 		    (!tgt_prog || prog->aux->saved_dst_prog_type != tgt_prog->type ||
+-		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type))
++		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type)) {
++			bpf_log(log, "Target differs in type from the target at load time\n");
+ 			return -EINVAL;
++		}
+ 
+ 		if (tgt_prog && conservative) {
+ 			/*
 -- 
-2.47.3
+2.55.0
 
