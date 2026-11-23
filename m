@@ -1,32 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395034;
-	b=xJmqj3MZKEowg1qKsDqOSNSwDEsHtDFDqpn1CoBcdEvWeivj4mdGaYaUgOXhTHAD9RoW
-	 XkiSvUR6MLXyWagUeJclKqaXNRKQRusOYBSDTNwaFZncAVM7Fl+lMoLodwv/ftREBSEv7
-	 39bOJ3ftnF1tNYm0/Zn1/F6PSklSflJf66+KU8Gbx8D+ft98eruvxbkv59PhXajYKQ8Vu
-	 p009yT4cbD8LKdhFNHa9LXp2MNN1RtiouLiZHwK9ZtsavuVW9t8gkau2KIhKMQJiT3P34
-	 jRMIKDrNQ5Wwq78vDPT9cgNtwApPAVNdC+kFmKERs/LEOzT+yZn6pOGdjH0gB/wRH1g==
+	t=1795395036;
+	b=zZ7jW4BHuv9IXnSxtVg1p981+q1irvF/FzK+mEXcuobBHBSMzoC1M9f0pxfyQWu/KcrI
+	 HBu2SctbPPv0WPEi+A/YpfGs2nCu5+f63OGtz5JNFtrjW5U3OA+pxSiU/Y4OrhzhghFPP
+	 a2i4Zan7Hp7lBVx0G9xj8vKrgFbgY07jPWllknqOi8tOlQjXgYsg6O+4yGpxqat86plNK
+	 lpVhTfiZ6ykt8nBxx8nQ0jgKwO5iixRClDsH9fEIQjH+Oa0KRMMKD9lwU+W0zzFNCa9J+
+	 0CRCFuRH5KroEPMdsuqVa/N2EPzuNqzV/ZsXHXGKa+AvdAPrWMGGGCdEQ3AZERfP7fQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395034;
-	h=Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:
-	 From:To:Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=xLiURntbB8itC3uur3jIvo2tuZtCt2Zw/8T/g6JuAqk=;
-	b=E5NRNuCDgQkc/MtmQE7Wtjvr0vvFT6KJvW6EVg1K0PYr1iVB2tvSH8cBwH/rj1xVPfQ8
-	 S3q61/k2lra0BGNWkjr/9pXduzi8B/hq9TufLZgfrnXe2PiUhDkQYSjUpEZi6xLXSUIp0
-	 oczCHizTZc+2VbX9JYS3DyCDen0wZmJb/hrovTDJTT07iqnARVpzX88z8e04UPwh6LxoL
-	 6xVtBDtDooRVOir2wOIShrCkV1F7bPVpIWJWEEL2lCLmSJjXpriF6fCBokArZsQAZ88z7
-	 9RaewcVVKbjFJnwD3KU0a4TieaZH3ZwCX7geyBv3q06Wuw2gO8XIfRlvD93+UpK+Jew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395036;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=OWqgaZdLyMmqN5zAvTioGCkpDneimhgpWuVD7xUPWRE=;
+	b=0jITS4JVi0mLgW7VWB5ofo//ImAjAnvhVpK0WRT9AfhKRewq5LtmREz6M4OfhAZChiTi
+	 jOn460ibrnRJOmFzPNFf02Wa9SZnKRiKQF6RyruQhqsEKsVJirp6S6eizA0xEMuLlcBwo
+	 QXRJ279/53W6/Hv3txVUqHm1pJ91VRrqusL77h1iB3GRt8CldIdo0pyhiJ1np2Fu5M0sT
+	 lePYyWQmWV0Lv8WEoQxUJ2/4js1zXTbPQ9MTaF7aohmNFxz698xcjy3NfQ18McqCjdddy
+	 UmTxGsuz2Oks65yabcTnwJ7Ecjjk89rHCbLq09wKuZMnQ+HhDoeaSBlVESMs3d9D9KA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=tgIXOFbc;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 453B5606A32E;
-	Mon, 23 Nov 2026 00:50:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83BEC1F000C6;
-	Mon, 23 Nov 2026 00:50:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A641E606A69B;
+	Mon, 23 Nov 2026 00:50:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A641E606A69B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=tgIXOFbc
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AN0oSYW11173209, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795395028; bh=OWqgaZdLyMmqN5zAvTioGCkpDneimhgpWuVD7xUPWRE=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=tgIXOFbcnELJKUJ5jBRRIfEGa38PHJQ8Xb+0AYAZGQoyGJ9IGTEN2RENiMIbE5Gcr
+	 KC5GPCqluYVykvOftm+pL+9cgKL8nmJZPho3Huj+n/wvtweKzQ5uN5YeTO9+mwi6PZ
+	 mpXZ6IYCrXSSsQ4En+K8gJ9y5e7lQXkyLaNXmXuiFQ/DdhvaY7o8UCUD/Eh9o0VxS5
+	 L4sVxVeqWuii3/qCDY0Szn9k0vlrUZV4J/g0GV2beSeS5lXoprpd9QD7JsEiH7s51v
+	 DoR8+/tuYEimc9GDICenDcpMYHBCYs6H9OcrgNAdK4Vc1IcTDunWsef/ZizR+MVQZ1
+	 zApfBMHjtenVQ==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AN0oSYW11173209
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 23 Nov 2026 08:50:28 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 08:50:29 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 08:50:28 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Mon, 23 Nov 2026 08:50:28 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Falconet3 <Falconet3@proton.me>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3 2/2] wifi: rtw89: fix u32 overflow in board element
+ offset check
+Thread-Topic: [PATCH v3 2/2] wifi: rtw89: fix u32 overflow in board element
+ offset check
+Thread-Index: AQHdenG4pL+zOtiBfkOGxNoGH3Doirc5bFsAgAFniOA=
+Date: Mon, 23 Nov 2026 00:50:28 +0000
+Message-ID: <1b36d3a3ccf840088ded5991d35cc077@realtek.com>
+References: <p7rw-XuXkRXg0R2mJ5S-HUUy3IwDD0iXcY11AzTDIvfIj3ofQsJ5exatm_1V-mlBCzsd_s0xhJSBvZz4zWCYaso5-ylUw9JMV3AoiPUZZ3o=@proton.me>
+ <wQyrWhpyvBNzuZwnQTESLUjeEbdLHi5t3xdQUf2qlOjublpo9nBpuikHh7cpfpTRjtuXRza3-Q2ZAgcwr7O98Xqs6lFOaNsc3T-D7E4B1S8=@proton.me>
+In-Reply-To: <wQyrWhpyvBNzuZwnQTESLUjeEbdLHi5t3xdQUf2qlOjublpo9nBpuikHh7cpfpTRjtuXRza3-Q2ZAgcwr7O98Xqs6lFOaNsc3T-D7E4B1S8=@proton.me>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -36,61 +87,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] PCI: aspeed: Drop PROBE_PREFER_ASYNCHRONOUS to fix
- enumeration race
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Ryan Chen <ryan_chen@aspeedtech.com>, 
- Billy Tsai <billy_tsai@aspeedtech.com>, linux-aspeed@lists.ozlabs.org, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261109-aspeed-pcie-sync-probe-v1-1-71cc9e718623@aspeedtech.com>
-References: <20261109-aspeed-pcie-sync-probe-v1-1-71cc9e718623@aspeedtech.com>
-Date: Mon, 23 Nov 2026 01:50:25 +0100
-Message-Id: <179539502571.13869.8848645925220262755.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1131;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=TUk7JwOeN0q99/GxC4Xg0mmPj1Aqg/FZ9HNmXrA4qOI=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrA43Us9oJ7ZXIyO+S+kymUsQwcKiqhJZfXHGKd
- 8M8PwVTvwCJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawON1AAKCRBVnxHm/pHO
- 9SfLB/9nn19XlJtmFtdKt3Vu7v/k9x9HL694oHFSO5sj5JJZvXuf4+QftYrPbGYdsoMmJa5cvpi
- gPRQ/NT+dAdYwWOKaZIsFNu3xu6hfI3wCCXMQIrHtsB/xhFF0kBvt9qmt3Xi+O0jPFqD74cstHq
- oYM1LQe7ZSemE7lvLDS+1ATDY6on8ABshw5qOO6iKJsSHImE6E22d2agTgfrOkGeeS+Gewm3ghT
- GNUriDPaWDHz+98MK4yiok9qWLavrRQYGgV8g8V/B6gv9C1sNRJoedhpUGFI2YhPISBU5jf+0XZ
- jiLlY/FCRJVgQdwJeRVrQNixqNvybgNxzEvq2voAEok6h9jo
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-On 2026-11-09 19:57 +0800, Jacky Chou wrote:
-> The ASPEED PCIe RC driver opts in to asynchronous probing via
-> PROBE_PREFER_ASYNCHRONOUS. This allows the driver core to probe it
-> on a kthread in parallel with other drivers instead of waiting for
-> it to finish during the synchronous probe pass.
-> 
-> On boards where a PCIe endpoint driver is bound early (e.g. built
-> into the kernel or probed from an initcall that runs before late_
-> initcall), this races against the RC driver: the EP driver can start
-> probing before the RC driver has finished enumerating the bus, so the
-> EP device is not yet present and the EP driver fails to bind.
-> 
-> Remove PROBE_PREFER_ASYNCHRONOUS so the RC driver probes
-> synchronously again, guaranteeing that bus enumeration completes
-> before any downstream EP driver's probe() runs.
-> 
-
-I don't understand the problem here. EP drivers will get enumerated only during
-bus scan, which depends on the RC driver's pci_host_probe() call.
-
-Are you saying that the PCI devices are created before RC driver probe and
-gettting enumerated? Not sure how that can happen.
-
-- Mani
-
+RmFsY29uZXQzIDxGYWxjb25ldDNAcHJvdG9uLm1lPiB3cm90ZToNCj4gTm90ZTogMi8yIHdhcyBw
+b3N0ZWQgYXMgYSBzdGFuZGFsb25lIG1lc3NhZ2UgKCJbUEFUQ0ggdjMgMi8yXSB3aWZpOiBydHc4
+OToNCj4gZml4IHUzMiBvdmVyZmxvdyBpbiBib2FyZCBlbGVtZW50IG9mZnNldCBjaGVjayIpIGJl
+Y2F1c2UgbXkgd2VibWFpbCBjbGllbnQNCj4gZG9lcyBub3QgcHJlc2VydmUgdGhlIEluLVJlcGx5
+LVRvIGhlYWRlciB3aGVuIHRoZSBzdWJqZWN0IGlzIGVkaXRlZC4gQm90aA0KPiBwYXRjaGVzIGFy
+ZSBpbmRlcGVuZGVudCBhbmQgYXBwbHkgb24gdG9wIG9mIHY3LjQtcmMzLg0KDQpQbGVhc2UgcmVz
+ZW5kIHY0LCBidXQgbm90IGluLXJlcGx5LXRvIHYxLiBUaGUgdjIgYW5kIHYzIGFyZSBhZGRlZCBp
+bnRvIHYxDQppbiBwYXRjaHdvcmsgWzFdIHRoYXQgSSBjYW4ndCBtYW5hZ2UgdGhlIHBhdGNoZXMu
+IA0KDQpbMV0gaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xpbnV4LXdpcmVs
+ZXNzL3BhdGNoL09OQmhraF9CN2h5S29ITlJwallneHk3ZGE2OFFPYThjV1VxenRULUkxblctS3Vr
+T0tFMzBGSVlGTGtYMVRtX1RyWGxCanNlNWQtQUZSd3N5emZ4QmRNR0t2eUlFb1ZzanlaUXF4elVr
+UlFrPUBwcm90b24ubWUvDQoNCnB3LWJvdDogY3INCg0K
