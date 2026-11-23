@@ -1,61 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.132
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436742;
-	b=cEEqtTTAmajlVjp0YC0oz2zN6pFuScGGMYJoyzkJbYV+H7trfxTSVH/xrBVqBjjoQknM
-	 Io/uOJPEtCZJMl0nM71fn3xn99hgkKRUIz0SO3Pxa6Q3CTl3xuGDy4ZNDvm232HlPPGoM
-	 O6lbCU+5RpmQE1AREAicpKUm1toi8mLeh46B4GblrTFcKwlC3bvDkAWviroLgcfxNIjnj
-	 Dz8xePXJ+J0/3sQL9NW32hAZ6L1DbdhJZLgET48Pozs82kDhxDdFlEe8/sFnacJADgdSR
-	 YW02qGxrqJKFeiXzETCqZobg0sISm1/p00ywb7X6UxEIxlkioPtDR3oG6FVTQZZFJ0A==
+	t=1795436804;
+	b=wweMEEDgDpeA259Mv/1tNcLBAfAL2SsUrzCyQQZlJKzBjGJrPH70m84IXTgsO1nfOemc
+	 V+fH9K9cBRjr12A26Hn2JD6dxdV/f8Er8sCOUA46sJDLfRdU1O/CWqs11O7t4XCCUDWR+
+	 O0/oZgfLekvyv1qQ96xHAhEFZ7M1067M0Cslo8IMt2LuUm598qLSgh0b2yGAhdyttlqT5
+	 lEjOGMbpgVA4aPOtJaEgjWGXdqlU0FXHT5wtcoQeAk4zeHnCyc+3IMxntWMAAl4mcYh1w
+	 djTseheubQkNGCyIg9/sDqqQ32FIpOtWvQoC89fLI6HWHl4rl7AMt/1PWI4HQnqwknA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436742;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=bqbUZFybYwrKL6TCArPSsR3vEqPnEk4U4p4dC8FCLAE=;
-	b=YRsbGhQb8u/2FJLZvC9z55yAaFUIRmNEPIJZoJfQYJ8jdWtQr6ynkCYCyflFSgbU7po2
-	 /tXsUSFS6ZlMxwRSj6kAut1hQxReQI4gJcZ8JjVAwtuDlpeoYXyDi/Kc5ArMzhiGTPyTO
-	 HlQZs9VqqDsKAgellj3vzmzzQpRUN7s8tcgpibr3OP6jGzuS7jjOZjOqsKBX2MA5KxV7c
-	 XmiZ8X/uCBMlEro9AMak77qWTr6yC+eKMHwG9H7XUJBiSzlkQNlBsvHoxCOWe57TCYVLY
-	 6kq+Wx8r1bykmOr8bgwYsA2qqIG18YdEfDE2bwIxgIzJWlE1yrSZ+MmYDM8qproVIwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436804;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=DVv1xl61LugGV6/fm0FWU535xu6+vNgLbh/GySgNLxA=;
+	b=LfKi/j2WZwQXOkqkjmCrNU4KujZpAE2pXNYXqIwi/AxR3p+1e2ZNODsBtI4fnEANcTx4
+	 r3QZhUqAVMy5NXWM6tu+WyV3QgFnWW1lJF84rOola6Y9nGLJkHt2x/SLfeYpZskcIVrfJ
+	 bO4po7Q1xwFzfm7qQ+2RqVhJcLeZojdV/pkNhPrFqvvNbDPsS13fcMulCPg/OFW5kZas5
+	 G1pQZsx6booBS0KJtVrpuImy7DX1TwgTuhBmzi/5j0NAbbUXNwjYA08LpDfINSNs8SBTt
+	 HAohuyHUGav3Mzw5bDkw1DqfEPOECZS1D/YI2tzpVqzvQRtq+2RtO3JJlWZdyOiVC7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OyV2PCBJ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=IFoDESgI;
+	arc=none smtp.remote-ip=115.124.30.132
+Received: from out30-132.freemail.mail.aliyun.com (out30-132.freemail.mail.aliyun.com [115.124.30.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2425D606A31A;
-	Mon, 23 Nov 2026 12:25:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 449CA606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:26:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 449CA606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OyV2PCBJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DABDE1F000CA;
-	Mon, 23 Nov 2026 12:25:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795436741;
-	bh=bqbUZFybYwrKL6TCArPSsR3vEqPnEk4U4p4dC8FCLAE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OyV2PCBJJ+im5vPd3xyuANOjncvF8C1bCv0h2kafDuHWsWqdc/RrtvsCYCVBNf2sZ
-	 hE8C8j9By19o58nXKo0bTBiZ0GAz2TZNmv4aqVbpHjweT2AK85Zg+d16vRzfO7CZ+C
-	 AFvtpIPT225W1kPUPuknuXCiO7sFli/BTDxuca7TfKmKf4j1uu/jfFxKI9ZqMuaiHJ
-	 B3o+6+rPu/2M3n7j88L69i0B6a4B1eI9A4yY0smhPoAWmze7f8VgV6psvWfExo31w3
-	 Qd3CKUTnqX52ta8UzCFXREkp+AvTCMznaLYdScQ7nhxgDQX6UDLZax39fa9ZdfkO5t
-	 4on4/LFaOVg5g==
-Date: Mon, 23 Nov 2026 13:25:37 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rui Cao <i@udp0.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, linux-serial@vger.kernel.org, 
-	phone-devel@vger.kernel.org, Roman Vivchar <rva333@protonmail.com>
-Subject: Re: [PATCH v2 2/5] dt-bindings: watchdog: mediatek,mtk-wdt: Add
- MT6833
-Message-ID: <20261123-puffin-of-splendid-fertility-fb7ba0@quoll>
-References: <20261117-mt6833-base-v2-0-058a0685c40c@udp0.com>
- <20261117-mt6833-base-v2-2-058a0685c40c@udp0.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=IFoDESgI
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795436795; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=DVv1xl61LugGV6/fm0FWU535xu6+vNgLbh/GySgNLxA=;
+	b=IFoDESgIhPSq1bmAIwRSI/0rsgboGOgymNhC2dX+jjPL8GYKHawmuHaak2yG55YZSiy9ATIV0g+hyiTBsK6TXViI9VH2nHv6mX7mxpLY7lQ582DyffFDOwQZDSt67oY54oFnzJdYW5lU0aaWuMprOhKnW8P0/6xrZgfHZGXqWc4=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=6;SR=0;TI=SMTPD_---0XFIMpIN_1795436793;
+Received: from localhost.localdomain(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XFIMpIN_1795436793 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 20:26:34 +0800
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+To: akpm@linux-foundation.org,
+	david@kernel.org,
+	hughd@google.com
+Cc: baolin.wang@linux.alibaba.com,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH] mm: shmem: fix discarded data left intact after truncation or hole punching
+Date: Mon, 23 Nov 2026 20:26:20 +0800
+Message-ID: <6fcc15c466667f6943c34e130212b891b7471c83.1795436423.git.baolin.wang@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,25 +62,270 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261117-mt6833-base-v2-2-058a0685c40c@udp0.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 05:11:32PM +0800, Rui Cao wrote:
-> Add MediaTek's MT6833 (Dimensity 700) as a compatible of its own.
-> 
-> It can't fall back to mediatek,mt6589-wdt, which also describes
-> MT6589's twelve TOPRGU reset lines: MediaTek's kernel for MT6833 resets
-> the connectivity CPU through bit 12 of WDT_SWSYSRST, past them, and has
-> no full reset table for the SoC to take one from.
-> 
-> Signed-off-by: Rui Cao <i@udp0.com>
-> ---
->  Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml | 1 +
->  1 file changed, 1 insertion(+)
+Truncation and hole punching can leave discarded data intact when boundary
+swapin fails.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Specifically, when truncating or hole punching part of an order-0 swap entry,
+the boundary swap entry may fail to swap in (e.g. due to a memcg limit), and
+shmem_undo_range() then skips zeroing that boundary, so old data can become
+visible after a file extension or when reading the punched hole. This is
+dangerous, because the truncation and hole punch syscalls do not return an
+error, yet the user may still read stale data, which is a data leak.
 
-Best regards,
-Krzysztof
+The same problem exists for a boundary backed by a large swap entry, where
+swapin may fail or the large swap entry may fail to split, leaving the truncated
+range unzeroed and leaking old data without informing the user.
+
+To fix this issue, since we cannot guarantee that a boundary swap entry can
+always be swapped in successfully during truncation or hole punching, propagate
+the error to the syscall instead of handling it silently and let the user deal
+with it.
+
+That means the truncation and hole punch syscalls will try to get and lock the
+boundary folios before changing i_size or unmapping the range. If swapin returns
+an error, retry -EEXIST and propagate other swapin errors to the syscall callers
+instead of silently skipping boundary handling. This also prevents concurrent
+swapin and swapout from recreating crossing large swap entries before zeroing.
+
+Then pass the locked boundary folios to shmem_undo_range() for removal or partial
+zeroing. Keep large-folio splitting there, after zeroing, so split failures do
+not leave stale data or fail the syscall.
+
+Reported-by: David Hildenbrand (Arm) <david@kernel.org>
+Closes: https://lore.kernel.org/all/20261026-fixes_shmem-v1-0-703206d5fa0c@kernel.org/
+Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+---
+This fix tries to address the issue 2 and issue 3 David raised earlier[1], where
+boundary swap entries can leave discarded data intact after a successful truncation
+or hole punch.
+
+The stale data issue can be reproduced with a reproducer. With this patch, the
+truncation and hole punch syscalls will receive an error instead of silently
+skipping the boundary handling.
+
+Sending this as an RFC first to discuss the fix approach.
+
+[1] https://lore.kernel.org/all/20261026-fixes_shmem-v1-0-703206d5fa0c@kernel.org/
+---
+ mm/shmem.c | 114 ++++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 86 insertions(+), 28 deletions(-)
+
+diff --git a/mm/shmem.c b/mm/shmem.c
+index c769d0bc7df9..8f973e622dc8 100644
+--- a/mm/shmem.c
++++ b/mm/shmem.c
+@@ -1306,6 +1306,7 @@ static struct folio *shmem_get_partial_folio(struct inode *inode, pgoff_t index)
+ {
+ 	const gfp_t gfp = mapping_gfp_mask(inode->i_mapping);
+ 	struct folio *folio;
++	int error;
+ 
+ retry:
+ 	folio = filemap_get_entry(inode->i_mapping, index);
+@@ -1324,17 +1325,22 @@ static struct folio *shmem_get_partial_folio(struct inode *inode, pgoff_t index)
+ 	 * Truncation can look up a large swap entry at or beyond i_size.
+ 	 * Swap it in directly to bypass the size check in shmem_get_folio().
+ 	 */
+-	if (shmem_swapin_folio(inode, index, &folio, SGP_READ, gfp, NULL, NULL) == -EEXIST)
++	error = shmem_swapin_folio(inode, index, &folio, SGP_READ, gfp, NULL, NULL);
++	if (error == -EEXIST)
+ 		goto retry;
++	if (error)
++		return ERR_PTR(error);
+ 	return folio;
+ }
+ 
+ /*
+  * Remove range of pages and swap entries from page cache, and free them.
+  * If !unfalloc, truncate or punch hole; if unfalloc, undo failed fallocate.
++ * Boundary folios are locked and referenced. Zero them, split large ones,
++ * then unlock and put them. NULL means there is no boundary folio.
+  */
+ static void shmem_undo_range(struct inode *inode, loff_t lstart, uoff_t lend,
+-								 bool unfalloc)
++		struct folio *start_folio, struct folio *end_folio, bool unfalloc)
+ {
+ 	struct address_space *mapping = inode->i_mapping;
+ 	struct shmem_inode_info *info = SHMEM_I(inode);
+@@ -1392,25 +1398,19 @@ static void shmem_undo_range(struct inode *inode, loff_t lstart, uoff_t lend,
+ 	if (unfalloc)
+ 		goto whole_folios;
+ 
+-	same_folio = (lstart >> PAGE_SHIFT) == (lend >> PAGE_SHIFT);
+-	folio = shmem_get_partial_folio(inode, lstart >> PAGE_SHIFT);
+-	if (folio) {
+-		same_folio = lend < folio_next_pos(folio);
+-		folio_mark_dirty(folio);
+-		truncate_inode_partial_folio(folio, lstart, lend, &start,
++	if (start_folio) {
++		same_folio = lend < folio_next_pos(start_folio);
++		folio_mark_dirty(start_folio);
++		truncate_inode_partial_folio(start_folio, lstart, lend, &start,
+ 					     same_folio ? &end : NULL);
+-		folio_unlock(folio);
+-		folio_put(folio);
+-		folio = NULL;
++		folio_unlock(start_folio);
++		folio_put(start_folio);
+ 	}
+-
+-	if (!same_folio)
+-		folio = shmem_get_partial_folio(inode, lend >> PAGE_SHIFT);
+-	if (folio) {
+-		folio_mark_dirty(folio);
+-		truncate_inode_partial_folio(folio, lstart, lend, NULL, &end);
+-		folio_unlock(folio);
+-		folio_put(folio);
++	if (end_folio && end_folio != start_folio) {
++		folio_mark_dirty(end_folio);
++		truncate_inode_partial_folio(end_folio, lstart, lend, NULL, &end);
++		folio_unlock(end_folio);
++		folio_put(end_folio);
+ 	}
+ 
+ whole_folios:
+@@ -1513,12 +1513,39 @@ static void shmem_undo_range(struct inode *inode, loff_t lstart, uoff_t lend,
+ 	shmem_recalc_inode(inode, 0, -nr_swaps_freed);
+ }
+ 
+-void shmem_truncate_range(struct inode *inode, loff_t lstart, uoff_t lend)
++/* Check whether the end page of [lstart, lend] lies in the start folio. */
++static bool is_same_boundary_folio(struct folio *start_folio,
++		loff_t lstart, uoff_t lend)
+ {
+-	shmem_undo_range(inode, lstart, lend, false);
++	if (start_folio)
++		return folio_next_index(start_folio) > lend >> PAGE_SHIFT;
++	return (lstart >> PAGE_SHIFT) == (lend >> PAGE_SHIFT);
++}
++
++static void shmem_truncate_range_partial(struct inode *inode, loff_t lstart, loff_t lend,
++		struct folio *start_folio, struct folio *end_folio)
++{
++	shmem_undo_range(inode, lstart, lend, start_folio, end_folio, false);
+ 	inode_set_mtime_to_ts(inode, inode_set_ctime_current(inode));
+ 	inode_inc_iversion(inode);
+ }
++
++void shmem_truncate_range(struct inode *inode, loff_t lstart, uoff_t lend)
++{
++	struct folio *start_folio = NULL, *end_folio = NULL;
++
++	/* This void interface retains best-effort handling of boundary errors. */
++	start_folio = shmem_get_partial_folio(inode, lstart >> PAGE_SHIFT);
++	if (IS_ERR(start_folio))
++		start_folio = NULL;
++
++	if (lend != -1 && !is_same_boundary_folio(start_folio, lstart, lend)) {
++		end_folio = shmem_get_partial_folio(inode, lend >> PAGE_SHIFT);
++		if (IS_ERR(end_folio))
++			end_folio = NULL;
++	}
++	shmem_truncate_range_partial(inode, lstart, lend, start_folio, end_folio);
++}
+ EXPORT_SYMBOL_GPL(shmem_truncate_range);
+ 
+ static int shmem_getattr(const struct mnt_idmap *idmap,
+@@ -1578,19 +1605,30 @@ static int shmem_setattr(const struct mnt_idmap *idmap,
+ 	if (S_ISREG(inode->i_mode) && (attr->ia_valid & ATTR_SIZE)) {
+ 		loff_t oldsize = inode->i_size;
+ 		loff_t newsize = attr->ia_size;
++		struct folio *folio = NULL;
+ 
+ 		/* protected by i_rwsem */
+ 		if ((newsize < oldsize && (info->seals & F_SEAL_SHRINK)) ||
+ 		    (newsize > oldsize && (info->seals & F_SEAL_GROW)))
+ 			return -EPERM;
+ 
++		if (newsize != oldsize && (info->flags & SHMEM_F_MAPPING_FROZEN))
++			return -EPERM;
++		if (newsize <= oldsize) {
++			folio = shmem_get_partial_folio(inode, newsize >> PAGE_SHIFT);
++			if (IS_ERR(folio))
++				return PTR_ERR(folio);
++		}
+ 		if (newsize != oldsize) {
+-			if (info->flags & SHMEM_F_MAPPING_FROZEN)
+-				return -EPERM;
+ 			error = shmem_reacct_size(SHMEM_I(inode)->flags,
+ 					oldsize, newsize);
+-			if (error)
++			if (error) {
++				if (folio) {
++					folio_unlock(folio);
++					folio_put(folio);
++				}
+ 				return error;
++			}
+ 			i_size_write(inode, newsize);
+ 			update_mtime = true;
+ 		} else {
+@@ -1603,8 +1641,8 @@ static int shmem_setattr(const struct mnt_idmap *idmap,
+ 							holebegin, 0, 1);
+ 			/* Swapin-error markers are not counted in alloced. */
+ 			if (info->alloced || !mapping_empty(inode->i_mapping))
+-				shmem_truncate_range(inode,
+-							newsize, (loff_t)-1);
++				shmem_truncate_range_partial(inode, newsize, (loff_t)-1,
++							     folio, NULL);
+ 			/* unmap again to remove racily COWed private pages */
+ 			if (oldsize > holebegin)
+ 				unmap_mapping_range(inode->i_mapping,
+@@ -3895,7 +3933,9 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
+ 		struct address_space *mapping = file->f_mapping;
+ 		loff_t unmap_start = round_up(offset, PAGE_SIZE);
+ 		loff_t unmap_end = round_down(offset + len, PAGE_SIZE);
++		loff_t lend = offset + len - 1;
+ 		DECLARE_WAIT_QUEUE_HEAD_ONSTACK(shmem_falloc_waitq);
++		struct folio *start_folio = NULL, *end_folio = NULL;
+ 
+ 		/* protected by i_rwsem */
+ 		if (info->seals & (F_SEAL_WRITE | F_SEAL_FUTURE_WRITE)) {
+@@ -3903,6 +3943,23 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
+ 			goto out;
+ 		}
+ 
++		start_folio = shmem_get_partial_folio(inode, offset >> PAGE_SHIFT);
++		if (IS_ERR(start_folio)) {
++			error = PTR_ERR(start_folio);
++			goto out;
++		}
++		if (!is_same_boundary_folio(start_folio, offset, lend)) {
++			end_folio = shmem_get_partial_folio(inode, lend >> PAGE_SHIFT);
++			if (IS_ERR(end_folio)) {
++				error = PTR_ERR(end_folio);
++				if (start_folio) {
++					folio_unlock(start_folio);
++					folio_put(start_folio);
++				}
++				goto out;
++			}
++		}
++
+ 		shmem_falloc.waitq = &shmem_falloc_waitq;
+ 		shmem_falloc.start = (u64)unmap_start >> PAGE_SHIFT;
+ 		shmem_falloc.next = unmap_end >> PAGE_SHIFT;
+@@ -3913,7 +3970,8 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
+ 		if ((u64)unmap_end > (u64)unmap_start)
+ 			unmap_mapping_range(mapping, unmap_start,
+ 					    unmap_end - unmap_start, 0);
+-		shmem_truncate_range(inode, offset, offset + len - 1);
++		shmem_truncate_range_partial(inode, offset, lend,
++					     start_folio, end_folio);
+ 		/* No need to unmap again: hole-punching leaves COWed pages */
+ 
+ 		spin_lock(&inode->i_lock);
+@@ -3991,7 +4049,7 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
+ 			if (index > start) {
+ 				shmem_undo_range(inode,
+ 				    (loff_t)start << PAGE_SHIFT,
+-				    ((loff_t)index << PAGE_SHIFT) - 1, true);
++				    ((loff_t)index << PAGE_SHIFT) - 1, NULL, NULL, true);
+ 			}
+ 			goto undone;
+ 		}
+-- 
+2.47.3
 
