@@ -1,88 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.136
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795400892;
-	b=WI2FX0G08CN/Ccy+sNNRYpqgaoJikABzyE5gabpg3neT7M1whUWR/4PSV7rvRvfxHCKx
-	 DaEUsbeTbtY/z6rIvPn2zxGfTUPVgJZD5q6rBadZMM9+vryh4TvMf5vFr0QnBllIf2oFL
-	 qJHiO521xjh075X28Z8TxCAghHUbY8a9RHA2UuN/jHDo0rCm4HeKzQXVGTp5QvpEDFl9m
-	 8i+wkAn0LpBBf+OH7BVXAw+uLe0UAFMFzwfn6scFPIzMy+rMsKfcDdGdlhv6+Km3t0X3D
-	 ZvRX95ktztnNNpP+y4VjI7NMbwTb4mS34m7TFy0BogS36SyBYjGRR8wozqcmErKGC3A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400892;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795400978;
+	b=jRDJW+Sb3PHb3+rjDx096MOsH6lj8XUaw3pTAWf9FnpCDUpdPVsJJvqPS9A4wbVuUok1
+	 Jei/UWptKgipyRoRdJpMNJnZaizDx6nomB/CV9AKL7bo+j15qhTKzXLXHjE/UL1q1t9Yy
+	 5ESEh/KOsAkm2A4728j2XMT65KQ0Zhpde92LIAz19hfEiXf/eJj9N+l4gXvDuyg8u1yIJ
+	 zHHE+twmW6U0dA0dtH+WsNMpKyanRQ30OXOhVrRzCK5T3wl+KsoKN2puqUc8E/4Rwu/e0
+	 N9Quxd4iueMcO5X2Ulwxw/vIzmB14pT62m+ik9/Euj4SOMxMM8KcmelYelQj9BZKBvQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795400978;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=FuesKcfc1Js7WUTyCvTWz4Cz4pgickMp1cfQzWbE2CY=;
-	b=R+bneW/Vaad38sh/uFk3V+UExrBviZKIn1d02Lbh4FX/rOkpLlsdvkXXxljRKwX4S70t
-	 ZOGnQsdYSk94sX/7QIMv6i/KDqBR1m09tSdMC/JVPEfHOVnZt1dn4J5C2qDXpPeF565sv
-	 h5UDFPOF7J0YAlX7jNPW1m9+G3TU3cBkRTnjhtGZEOLKFlLH2FQx9pC8B+h5Uc3cgLGtD
-	 Hv28OM+MpmpPG2lmENmt/dRh+0r8r+qzBNoOsm+Tc78ema1NJ0JATYSK9jEq8E4OKfgMg
-	 n7SrVVKrR6rvNPS81Bbn8RkdlC2QriK0XiFzLCKdvW6ESLaII2qfLcyQva0ChJTs9iQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+	b=JxbzFdUcNZbMH9EgQ52aTgpLZfGd8S/kElKa01FqC2oK2Bs8vmdZNWT3xpfYC2+aGDbk
+	 bBP900e05uNDWBZDzZOeUCnKMSLerc6qWxhsb3W7KtQ38ORivC62zQMLS+FKLBttMKzRx
+	 b4T0FH5LbtbgQmW6j1lk0c33xyWzWqdtjIceYqdTg9/z2L+CEOjpkCjMLpC3A2JJZatnL
+	 bD2lrXcTblddjPhX3jzgnmaswiJmG0ACY3o9eo15HgJz/9vMO+REzJoG/FQKpkjTj9sRt
+	 hNpds0SYXk4CFUKbq9IyloOQya6oaWsWqiAHHrvADn+xCGl6fYHZLkrj6fWX5Z/Btiw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h7DDd108;
-	arc=none smtp.remote-ip=74.125.231.136
-Received: from mail-oo2-f8.google.com (mail-oo2-f8.google.com [74.125.231.136])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJdfSgny;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
+Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFEA8606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:28:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFEA8606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44E3D606A320
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:29:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44E3D606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h7DDd108
-Received: by mail-oo2-f8.google.com with SMTP id 006d021491bc7-71733a926edso307917eaf.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:28:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJdfSgny
+Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-55c4e670fc6so24560491cf.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:29:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795400977; cv=none;
+        d=google.com; s=arc-20260327;
+        b=aW4G5DgDtYoUkEPsyw7rb/qHtCCephZdA2IFlJFUi+Ws+jJWANbQJH4kf9XKrGhG+6
+         sEfpFu4lasFgRU+/8ZbWEOHYngxSrECsusmXQre7BiyaaH8l/8b7Tz6U/Bfxbb5odlA1
+         PHo6LmMoa+tt+g/yTQEmHpUWdaEtJdkMpNy6S4q7utfQxd3JHV+PQ3FhG5BC6MuJK0dO
+         DUmTBT/TJ6MAWAUs1YxPGmY7F1swwuIjD1dHQYz+njwhp8vMThOlxtGmJ/g0x69sri85
+         LcGDKkC9mx1Cq2MAJMpEmVLTz5dTaA7gqQhSKHMrdemMlVXU9AGacJEbxnEeg5jm3Big
+         o1Tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+        fh=lvZJRVFbuQJNDFCMlZgyUzFzpZzlDeQQM/KQoTHs93Q=;
+        b=BwtUZkw0MKv9P6NLz8+6HUlQW78VqEdlfiSKkZEUE3XDE4ltJHg5doUzoVnHh77CnZ
+         JVLUhcMyfSvu/ZRS9bzO1IJI5kATmrz1306nSmE0NgH5C8+ODFg8bijvDk8X3ay41msr
+         oxQfQLUN8QOiGPul99QKKgQGDdS9jCGPC//tx1qggqmsJIcmzYuKMYY7VWHnl70Ou62Y
+         WwZITWoSuqpIR/X1NACcsyPf2F4yX67+cEsDMsgrxgNzkTZHcXCrIdqPJb/Bc1nKUU4s
+         BQUhbUfKG0h9QkGakmuBQbd8HqjhmvmsNAX8Q2yAqIB3UKlIV/APvOZixW7gFyEjgNGx
+         Hdeg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795400891; x=1796005691; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=FuesKcfc1Js7WUTyCvTWz4Cz4pgickMp1cfQzWbE2CY=;
-        b=h7DDd108o5GP2IznqcAo5q1OAqf8piaqHCH6mnYZ2mfyRuOOgLUJrTscgFfD/KkHFO
-         hrlTQk1XPPpzXy9rt517TvXbNnSf4nLESVhZYrFhEjAnl81SiuG3ZfENJ7tSGeYZyOwY
-         9HqOkHF4tU53Sf5s2g3OcF1PkFwaA3IFnTaVeI6Cc6oPc8Y5E2rCUJEzlQ4E4nvfhkiX
-         aBnwCQj1EZwXRl393Y0mdfr/s0GeM3anITT4jFy3oRbpI6nA1RtV1cgXEIpcDHuONOW/
-         ceDiIn6GWHQb4faEWtZBoRdMHS8+OagMGcdSLBHaofxOMvOS4JA0nNbXqldjustAyYed
-         YHAA==
+        d=gmail.com; s=20260707; t=1795400977; x=1796005777; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+        b=eJdfSgnyeud0ugF7+oZKixOJncRtXAKpA5ceSl21fP/iB+EJhxkPf/lWhNcNnqiD4a
+         dvtHNIhPxlRp6RSdH5nbRdzw1yWS97bR+hHbJM/n85KdA/8G5U5UxpC2XLWJi2J5xncf
+         WgDFiPjLcqWrO12HBzfKWgJ0ghjfZ4SPosUty9HXBzokq6KYSeBnNuEh9pPTnTiSd9oW
+         0MdZB+wiFVZNn3cqp3bIa0ROkl74bKPTvj6iIXriLfI9mLUisPB+Gjq94gM0Irez5evo
+         Th1tJ0Q8wPqy+KIxbCl8j8N+5IR4J9j7d/K3dDz9VubL39Ll+xVAPEvidlkHbH7rtl3a
+         Q5lQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795400891; x=1796005691;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=FuesKcfc1Js7WUTyCvTWz4Cz4pgickMp1cfQzWbE2CY=;
-        b=Qfl6Q7U4hVTn+ZrRPJPYsU1Mc69ctB0YvwvgkT2hjAcjhRPWhfdrFj6fsPjfhWp0hK
-         zxY0+5QLu0izi8tmmr/4ugu5A5k91xZXMQPibwGunDr9uUB0bDe+idxDK+NhvXIAdxpF
-         YuokTpiYa2qebbZ4aM3ulpEkndvztIFz3QetAyvve1q7fTZYwHsJPBkqBmuffTBLjlQZ
-         RKSfdJ7SQ+3CBIMy8e2IazpNfoP4vnEn3rtC8DgiwbdHh0abbb6gaFgLe/lXtafLoC5v
-         kvhn+tJHFuqRg2OIMNosMlKWPt8XayoVuoXAu3yUNCT9JjZ3PajiNbCCZYJufu68IEfD
-         woHg==
-X-Forwarded-Encrypted: i=1; AL+hErFNPLpryxwt5YfavR9+d4/7N6bWXdfuc8LaHtx+TkF8N2vYbVE642V7+DuWTZLQcm00F2P04x21VxVoNRk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9D1jpJoSY1pW7dT42TJOZ1hG9IK2UqHTEpYPhuHXGIU7akB0iq
-	hEpZ+HFMOFEYhuuvZWFr8uH1JK9LxJUlrY2AW+br53IiPEx0fO3kcGxpNB06Pr8eXv3TBw==
-X-Gm-Gg: AZFdTZdqMsHTOShjx42wxA0mFAyPn++F9LTmyNQKOFJu+Jp0SrobKAJ43T62EtwVBs7
-	+7xnH5v9lpC8NN7dRaYm1HPwmlgCzZI5uiWT6lqf9nXhCi1W5VGltfgNASu/CHvywbK8lVVAKeg
-	W9W0NN0bNu0WlFp1bKlo1/09ZQJ12fxxLxLEz6JacO0snSmNeYtzLSyrFZN9anBAvGHuIpiy8Jh
-	XGbgNAKQqZuT9NFWsxggAWCLkMQO1xOjIu4BX0ie67Kf/oAfcFUJpwOdRUuWf2KJUjuENrP5r+M
-	c5hqTX7e8nMBJD01HWL0ZPNJwAosGJbKY+l08Jx6bIpJ8l7uyZKhZRbAHPFKyKu8DHpjiIgL5av
-	9sPqooP3EcJIco3gg6dFsoNelqnm96PdeBAjNAybzZNECZlffDv5kd0lIJ+fSut3ckcWH9pcF9p
-	4yGNOJPh5SyX9cDWPOL1JsE/r3SZidtwheU2LZrkDLTcdDLEkGPJDaxgRjnPrefjilVzbir9dTI
-	TAKFmOYPdkUvv3gnHsNLG3IlvmOfU35llGwyZltQdUdR6V0AwA2LP5TQETVGVSEFHasrpdzJSbz
-	uH8wpmNLMBJZ+pyJRF/f/PoR
-X-Received: by 2002:a05:6808:10d0:b0:579:7ac6:3a80 with SMTP id 5614622812f47-57a06b2355amr11438197b6e.1.1795400890686;
-        Sun, 22 Nov 2026 18:28:10 -0800 (PST)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::d500])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a3575f5bfsm7953975b6e.14.2026.11.22.18.28.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 18:28:09 -0800 (PST)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Sun, 22 Nov 2026 20:28:06 -0600
-Subject: [PATCH] usb: mtu3: keep interrupts disabled in gadget completion
- callbacks
+        d=1e100.net; s=20260707; t=1795400977; x=1796005777;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+        b=HN8/IeCC7uF3fZ5+KkXm7DXe4jr88sWA5zuajZ7CJ0VqISm1sWzX1AwcXAGgUdzDFt
+         bEpHCR6LvjOuZM0cI19ngNLr/9qEe1Fw3DqOGz3WhuDDwbpLTPaIGCOqLYH/TYMINz9r
+         JT/T4St/cZopMrNRvPeKQYCZRmHb0AXaocdZyPmZ3aXttCCN86c7rYs5b9xiITbJXTcO
+         G+Y8yxnmMOBqxlNRJ58CNg2aJ/uKEaD92qArGLLH+s+g52PAxwg/HAEEy4ZSEBy5yHhz
+         GdTFNfEDpbkkXPnDEsveHv4L8SjVDB2l6ErLmvw8xQ8Usn7Hi2+OrN8o/p1RiODNtmdR
+         jD5Q==
+X-Forwarded-Encrypted: i=1; AL+hErHgxP2wdtL2PW6hKJyVgpKtzduXG9mM8Z2Fybi96wS6WCtUgShftTXzr4af7Nsb4M7+MECxyLoj/b3OrhI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+9kozowKXPpUr5eDCUo5Hiy4b6NwcV4nq+/cdZByWjGl36MXBV
+	UwJKrIBu50iYrOtcTUgMVEYKO1H9lHPS30z8fCsSQ0Wk0RlYKqCRxDxcCNZ1UEa9DCqEo21WGRO
+	ltCGPDEQw7k3VevZ9brlkEr/bOsbPS5vgoL82bB0=
+X-Gm-Gg: AZFdTZfD3GhF8d98y1SwDOx3Dw2IawUcGA9GAXm3Zqd7cEige+e4mmexVfOiAXaFeSA
+	Rh9FyYBDE9EMx8gTZeXkbyCv0su2sGWCiUSpHTwYIaR1Ate6+OTRNULMq/ektGS7wJbQsjGLGn4
+	aJvLB96UcdKOUbgbrtug9avr7WGXpiM/tkVfDiRD4DPdAWj6zbKQDLdbqskc5VuSGpwcgh6w+Eo
+	ta2N7RoTyR8MmMk48G2mHmlhQnRcUAID/xVniIpgmGL2HQa4/J13pB0Bw49G8GieCMOmsmri4o2
+	7z4k7KM+oKdjlDFc+5yuivVH3Mr1QIB/8ybcAY0xci823APfdbTaFd7smNBr9H0WxMPXCTXIxCO
+	dpwnKnuPykRsATtrLZ1sfdzwBSNHsR94JeMvA2PGjIIfOR83R6suZhvlsfmPiG8yIauK4zzj0cg
+	llrD4P4uqq9XXi6St5E6dZijKFToukMwxe/XhD8/F78QeIiyB0s7eRpVMsahak/sfLxqYBuRGBc
+	JnhV/gqi+w4cuUcbIOlcWwx+uE7c10dm8Hdbrbge7kkE92rororiegduteym80lKw0iCMSVDh+0
+	o+6wd/9b1wU=
+X-Received: by 2002:ac8:5f0c:0:b0:55b:fb2e:a754 with SMTP id
+ d75a77b69052e-55d768a2509mr200104651cf.8.1795400976999; Sun, 22 Nov 2026
+ 18:29:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,103 +107,211 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261122-usb-mtu3-callbacks-irqs-off-v1-1-27733bb678c4@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MUQrCMAwA0KuEfC9g41DoVcSPpks0ODdtnAhjd
- x/4DvBWDG2ugRlWbPr18HnCDKkDrPcy3ZR8wAzIBz6lxExLCD0/y5FqGUcp9RHk7R00m9E5iYm
- wDr1V7ABfTc1///1y3bYdQaxVlG0AAAA=
-X-Change-ID: 20261122-usb-mtu3-callbacks-irqs-off-71bfbb2ed4fc
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795400888; l=3240;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=Aex+y+91dtK8aIQ4sNmRyr8JQGY1Dd909+lkCK2MTzs=;
- b=M4YvQXt6noE/enwV80nd/23sRWZ6NXQcoF6/XGBBX6Drd8EoP1lXTTqbtd4nE9h11U0CS9Zz7
- YYjFJu75V3fBozGGwwgkXnSJ6bvpw58SqaekR/st0+fYeKjcOwSuAW5
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+References: <20261122013848.14287-1-jain.sm@gmail.com> <179539800944.3135.14978978337031412574@kernel.org>
+In-Reply-To: <179539800944.3135.14978978337031412574@kernel.org>
+From: shashank Jain <jain.sm@gmail.com>
+Date: Mon, 23 Nov 2026 07:59:25 +0530
+X-Gm-Features: Aa3M54pzQTEDW_gplLwb_hWSpvJYcv-CRsWKNxPf8T-ayTtusUL9-helZqYNMhs
+Message-ID: <CA+FWx=kTXUJanSicS0dUeeuratAj4wTmjwbjjqT7RmDepH1zrA@mail.gmail.com>
+Subject: Re: [PATCH net v2] ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
+To: netdev-bot+sashiko@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
+	pabeni@redhat.com, justin.iurman@gmail.com, horms@kernel.org, 
+	joel.granados@kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Commit 625dd9076e35 ("usb: mtu3: don't run gadget completion callbacks
-with interrupts disabled") made the threaded mtu3_irq() take mtu->lock
-with spin_lock_bh(). mtu3_req_complete() drops the lock with a plain
-spin_unlock() around usb_gadget_giveback_request(), so the gadget
-function's completion callback now runs with interrupts enabled.
+Thanks for the review. Both points are fair.
 
-That breaks the gadget API, struct usb_request's @complete "will always
-be called with interrupts disabled". u_serial's console relies on it:
-gs_console_complete_out() takes cons->lock with spin_lock(), and
-gs_console_write() takes the same lock with spin_lock_irqsave() from
-printk, which can then interrupt the callback on the same CPU while it
-holds the lock.
+Low (procname): yes, the temporary table should carry .procname. v3
+sets it.
 
-Keep spin_lock_irqsave() in mtu3_irq() and disable bottom halves around
-it instead, as dwc3 does in commit 84918a89d6ef ("usb: dwc3: gadget: Let
-the interrupt handler disable bottom halves."). netif_rx() then finds
-softirqs disabled and leaves them alone, the completion callbacks run
-with interrupts disabled again, and the softirq netif_rx() raises runs
-at local_bh_enable(), once the lock is dropped and interrupts are on.
+Medium (64-bit parsing changes): v2 changed more of the 64-bit parsing
+than its changelog said. Rather than list every difference, v3 keeps
+proc_doulongvec_minmax() on 64-bit, so nothing changes there, and uses
+the string based parser on 32-bit only, where the sysctl does not work
+today. The remaining differences of the 32-bit parser go in the commit
+message.
 
-Tested on an MT8173 tablet with PROVE_LOCKING, copying a 21 MB file over
-USB ethernet three times per arm: with spin_lock_bh(), all 8,333 completion
-callbacks ran with interrupts enabled; with this change, none of about
-16,000 did, with no lockdep report and every copy intact.
+pw-bot: cr
 
-Fixes: 625dd9076e35 ("usb: mtu3: don't run gadget completion callbacks with interrupts disabled")
-Cc: stable@kernel.org
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-Greg, commit 625dd9076e35 in usb-linus is v1 of my mtu3 callbacks fix,
-the one I asked you on 2026-11-03 not to apply. With spin_lock_bh() the
-gadget completion callbacks run with interrupts enabled, which the
-gadget API rules out. v2 [1] got no reply, so here is v2's change as a
-fix on top of 625dd9076e35; the resulting mtu3_irq() is the same as v2's.
-
-My bad for the original error in v1.
-
-[1] https://lore.kernel.org/all/20261104-usb-mtu3-gadget-completion-callback-fix-v2-1-2769533a39cb@gmail.com/
----
- drivers/usb/mtu3/mtu3_core.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/usb/mtu3/mtu3_core.c b/drivers/usb/mtu3/mtu3_core.c
-index fc274646fcde..f6677f58dd1f 100644
---- a/drivers/usb/mtu3/mtu3_core.c
-+++ b/drivers/usb/mtu3/mtu3_core.c
-@@ -790,9 +790,11 @@ static irqreturn_t mtu3_u2_common_isr(struct mtu3 *mtu)
- static irqreturn_t mtu3_irq(int irq, void *data)
- {
- 	struct mtu3 *mtu = (struct mtu3 *)data;
-+	unsigned long flags;
- 	u32 level1;
- 
--	spin_lock_bh(&mtu->lock);
-+	local_bh_disable();
-+	spin_lock_irqsave(&mtu->lock, flags);
- 
- 	/* U3D_LV1ISR is RU */
- 	level1 = mtu3_readl(mtu->mac_base, U3D_LV1ISR);
-@@ -813,7 +815,8 @@ static irqreturn_t mtu3_irq(int irq, void *data)
- 	if (level1 & QMU_INTR)
- 		mtu3_qmu_isr(mtu);
- 
--	spin_unlock_bh(&mtu->lock);
-+	spin_unlock_irqrestore(&mtu->lock, flags);
-+	local_bh_enable();
- 
- 	return IRQ_HANDLED;
- }
-
----
-base-commit: b0baaf6cbb16bc773d0c76916aac17c44a6cd557
-change-id: 20261122-usb-mtu3-callbacks-irqs-off-71bfbb2ed4fc
-
-Best regards,
--- 
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+On Mon, Nov 23, 2026 at 7:10=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] proc_ioam6_id_wide() (net/ipv6/sysctl_net_ipv6.c) changes how
+>   writes are parsed on 64-bit in several ways the commit body does not=E2=
+=80=A6
+> - [Low] proc_ioam6_id_wide() passes a temporary ctl_table `tmp` with only
+>   .data and .maxlen set to proc_dostring().
+>
+> --
+>
+> ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
+>
+> net.ipv6.ioam6_id_wide was handled by proc_doulongvec_minmax(). This
+> commit replaces that with a local handler, proc_ioam6_id_wide(), which
+> formats and parses the u64 through proc_dostring() and kstrtou64(). This
+> fixes 32-bit architectures, where unsigned long is 4 bytes and the old
+> handler treated the u64 as a vector of two 32-bit values.
+>
+> > diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
+> > index 1a0a36dcdabc1..61c28df64d582 100644
+> > --- a/net/ipv6/sysctl_net_ipv6.c
+> > +++ b/net/ipv6/sysctl_net_ipv6.c
+> > @@ -30,6 +30,48 @@ static u32 rt6_multipath_hash_fields_all_mask =3D
+> >  static u32 ioam6_id_max =3D IOAM6_DEFAULT_ID;
+> >  static u64 ioam6_id_wide_max =3D IOAM6_DEFAULT_ID_WIDE;
+> >
+> > +/* unsigned long is 32-bit on some arches, so handle the u64 here */
+> > +static int proc_ioam6_id_wide(const struct ctl_table *table, int write=
+,
+> > +                           void *buffer, size_t *lenp, loff_t *ppos)
+> > +{
+> > +     u64 *valp =3D table->data;
+> > +     char buf[24] =3D "";
+> > +     const struct ctl_table tmp =3D {
+> > +             .data   =3D buf,
+> > +             .maxlen =3D sizeof(buf),
+> > +     };
+>
+> [Severity: Low]
+>
+> The temporary table passed to proc_dostring() has no procname. Will the
+> sysctl write warning then print "(null)" instead of ioam6_id_wide?
+>
+> On every write, proc_dostring() calls:
+>
+> kernel/sysctl.c:proc_dostring() {
+>         if (SYSCTL_USER_TO_KERN(dir))
+>                 proc_first_pos_non_zero_ignore(ppos, table);
+>     ...
+> }
+>
+> Take kernel.sysctl_writes_strict=3D0 and a write shorter than 24 bytes at
+> a non-zero offset. That write reaches warn_sysctl_write(&tmp):
+>
+>         pr_warn_once("%s wrote to %s when file position was not 0!\n"
+>                 [ ... ]
+>                 current->comm, table->procname);
+>
+> This is pr_warn_once(), so a message that doesn't name the file would
+> use up the only warning for the whole system. The old
+> proc_doulongvec_minmax() path passed the real table here.
+>
+> Would adding .procname =3D table->procname to tmp be enough?
+>
+> > +     loff_t pos =3D *ppos;
+> > +     u64 val;
+> > +     int ret;
+> > +
+> > +     if (!write) {
+> > +             snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
+> > +             return proc_dostring(&tmp, write, buffer, lenp, ppos);
+> > +     }
+> > +
+> > +     /* an empty write changes nothing, as with proc_doulongvec_minmax=
+() */
+> > +     if (!*lenp)
+> > +             return 0;
+> > +
+> > +     /* proc_dostring() would silently truncate a longer input */
+> > +     if (*lenp >=3D sizeof(buf))
+> > +             return -EINVAL;
+> > +
+> > +     ret =3D proc_dostring(&tmp, write, buffer, lenp, ppos);
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     /* a lone "\n" is invalid, a continued write in strict mode is ig=
+nored */
+> > +     if (!buf[0])
+> > +             return pos ? 0 : -EINVAL;
+> > +
+> > +     if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
+> > +             return -EINVAL;
+>
+> [Severity: Medium]
+>
+> The commit message says:
+>
+>   One change on 64-bit: a write of two numbers such as "5 6" is now
+>   rejected with -EINVAL, instead of being a partial write that sets the
+>   value to 5.
+>
+> Does proc_ioam6_id_wide() change 64-bit behaviour in other ways that
+> should be listed too?
+>
+> The length guard checks the total write size. But _proc_do_string()
+> copies at most maxlen - 1 bytes and stops at the first '\n' or NUL:
+>
+> kernel/sysctl.c:_proc_do_string() {
+>     ...
+>                 while ((p - buffer) < *lenp && len < maxlen - 1) {
+>                         c =3D *(p++);
+>                         if (c =3D=3D 0 || c =3D=3D '\n')
+>                                 break;
+>                         data[len++] =3D c;
+>                 }
+>     ...
+> }
+>
+> So a 24-byte write of 23 characters plus "\n" fits in buf without being
+> truncated, yet the guard rejects it. The guard also rejects "5\n"
+> followed by 22 or more bytes, and a value padded with 24 or more bytes
+> of whitespace. The old path accepted all of these, fully or as a partial
+> write.
+>
+> Is the comment "proc_dostring() would silently truncate a longer input"
+> accurate for these cases?
+>
+> In strict mode, a continued write at a non-zero offset now returns
+> -EINVAL if it is 24 bytes or longer, and is ignored if it is shorter.
+> The old proc_first_pos_non_zero_ignore() path ignored it at any length.
+>
+> Because _proc_do_string() stops at the first '\n', "\n5" or " \n 5"
+> leaves buf empty and returns -EINVAL. The old path skipped the newline
+> in proc_skip_spaces() and set 5.
+>
+> In the other direction, "5\n6" now succeeds, sets 5 and reports all
+> bytes consumed. Meanwhile "5 6" and "5\t6" return -EINVAL.
+>
+> kstrtou64() also skips a leading '+', so "+5" is now accepted. The old
+> path rejected it in proc_get_long():
+>
+>         if (!isdigit(*p))
+>                 return -EINVAL;
+>
+> Two other changes are only described below the --- line, so they won't
+> reach git history: 21 to 23 digit input is now accepted, and a lone "\n"
+> at a non-zero offset in non-strict mode is now ignored.
+>
+> Could the up-front total length check be dropped? After proc_dostring(),
+> the handler could check whether a terminator was found within
+> maxlen - 1 bytes, and decide explicitly whether data after '\n' is
+> rejected. Any 64-bit changes that remain could then go in the commit
+> body.
+>
+> > +
+> > +     WRITE_ONCE(*valp, val);
+> > +     return 0;
+> > +}
+>
+> [ ... ]
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261122013848.14287-1-jain.sm%40gmail.com
