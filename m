@@ -1,82 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.155.198.111
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450811;
-	b=kWwsYFBronbtaUFs5p8RMmj8Pl21lX+Sqck0wrmnE7pYtSVSgNHcj2l+pORbGhKFi9OM
-	 Hw4Y5C8sNoxonSxnDl6bv2q/DrrrQDbpwHgPmsoXJwCpPgqtSr9/TWkW2AtVLpot1PFMG
-	 7biqhxVeShUF1KzFnf1IteOIA4Wjsp0yO/bPq0RU+5L5bWzY8ScODC0ffCwXJ2MESP97i
-	 ieoGnMSJe4SS+hu99tmNd1TyIlLAXlW+CHfffWdrmPPSw25l68TGoVRZ5mwK7Bl1YDuV7
-	 MQ4Z+caK4kBPS6PlemOMW61Ul55DIwTzwVc3e3E28BMYD7/C/KtR/tXyK13rhVd9MQg==
+	t=1795450817;
+	b=xcvHXmGM1kmBa3DiRV6k2LnpWRi7sQWBuQZPQi4eCMFMt55RWkVS+DB0eQYG35PcvvwY
+	 7N/zg1xtrNC0JyxGaO7a3IItYtHhplAg7wwOeliWoTaL6lxRPr4q6krurx8SHeKL804X4
+	 gPHAqA2shH6ck9+bXOXYFkSwnkcGVUwijXFjoXgu19FZtyLBAomAicbcawkRXPmnyoFlY
+	 YjuuziJJtVHPuB1UU9dAL/lBayfmMLtpNmWMqAmN7tBq8oPaG13Jd1AS9O68jRfbLHOwT
+	 lR1hZzCqcwfkVqtA4S7aREufdBIOv4Y+X4F1NKcaBXYWzbQxRJaSi7ZpZTByGx/ABeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450811;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=WacPhnHWjpSW9oV2WJtNqRk4Z2GjJVGHsagrSw8p4i0=;
-	b=VvKnBd1/yClOW+r1CJeZiBgzXt9Dizk2ZYUe0Q2fddmFYE8cAFHJpVOJ4zzs9o4Q2sax
-	 GuXHaJHIEbGV0+5RXpBIfqz1DdP9fqyGto3bIXHg7IkWGdVVT9Hw/2zcaljLEIYKEdRI8
-	 MxQEOMPM8gJ2SgWnpPjP5uBMZKCydiKiGqHiSyPFiTh0uTc81gfBKtYqHd3Fd5OGxAc0V
-	 NHUn7eIR/K6N0et9K5mrg0373c+l3zQpDFhjcZAK/D9nJA4gtpLbMSJpFAmP8T9EgrHk2
-	 bKW8tqJt9LGDqzdQK23cPnsHtGAwLMjeltNZ6ZjcbSw10Ce/qCpL82UiYU5gdNnJD+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450817;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GMGSS5PYQROX99GbX8HvEIwUcXDerAKEsLEch7k8S3Q=;
+	b=bxU9QSzp0d4ThrMbCoT6VuYaHRbUWpQXROZnHyfLQKnEdldbrwDNtl54WiXrSAkSREAW
+	 9O49yJb0FNjgxsKbh2Q6B4xOOjVAosh75l7aQjsk6FFAAUfPJxKYct7INt0TyhJUEyBaB
+	 m/hjn8vW6PGRt/thJEsan1OPnGzVZG6/DZtcnoWCilBgTWg031sl270KXmhOK0pWbE8yn
+	 jVE1srjcYBzH4+PyQ5yZmZjt7LWE3IfHOelBAcEzGIQBofPVZMTVO+011Oi+nBwNuvzHf
+	 q7l82bAav4QtCScPJsaXAa2VpL7/4hTweJo0eNkXo+LoGoCfDqpubcbz9ippJnb6vAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.de;
-	spf=pass smtp.mailfrom=amazon.de;
-	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=ZPb1quOq;
-	arc=none smtp.remote-ip=35.155.198.111
-Received: from pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com [35.155.198.111])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E+DW4KoP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F699606A336;
-	Mon, 23 Nov 2026 16:20:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F699606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 43B63606A31F;
+	Mon, 23 Nov 2026 16:20:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=ZPb1quOq
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1795450811; x=1826986811;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=WacPhnHWjpSW9oV2WJtNqRk4Z2GjJVGHsagrSw8p4i0=;
-  b=ZPb1quOq+zka4SuA2N3b2rHzvIbTC/QoqFBfvA0tZtRgR7s0nhoS6AGa
-   R52GiToz6CLPk/mKlaT+SPxt7FVE78Nr27zCn+4Pl06Hx6ghrlL/113er
-   2NVlPHQamzaLSzLER3qXVFDSKIWMX4o5uq1H8qn4nq/0cEQZ+rqalitoK
-   XoR5IhchaOd7A5QoKGezqZAyBiYeNBmbfuN9hMbA0zRfxtIME55qppZCf
-   B3J0eJuIjnT2AbsJnzDmJC+6nGT3/cWhSzvO4qCTCmVpVTxif+zjnGoTJ
-   YD+K8ajLYJNnLTq0idJ+Lzw97n+2iJzFo98f+Tas0wz88TdTbXVeqbrf+
-   Q==;
-X-CSE-ConnectionGUID: 20j9gBo5Tg+T6iXmFB3Bjg==
-X-CSE-MsgGUID: x0SdqDL7R06yG470JpSEbQ==
-X-IronPort-AV: E=Sophos;i="6.27,229,1787011200"; 
-   d="scan'208";a="34833635"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 16:20:09 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:5629]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.36.222:2525] with esmtp (Farcaster)
- id 7e935b20-9c49-48b8-8da7-fda9e8922f09; Mon, 23 Nov 2026 16:20:08 +0000 (UTC)
-X-Farcaster-Flow-ID: 7e935b20-9c49-48b8-8da7-fda9e8922f09
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Mon, 23 Nov 2026 16:20:08 +0000
-Received: from dev-dsk-machaujo-1c-d6b511e2.eu-west-1.amazon.com
- (10.253.100.8) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Mon, 23 Nov 2026
- 16:20:07 +0000
-From: Joshua Machauer <machaujo@amazon.de>
-To: Richard Cheng <icheng@nvidia.com>
-CC: Bjorn Helgaas <bhelgaas@google.com>, Dave Jiang <dave.jiang@intel.com>,
-	<linux-pci@vger.kernel.org>, <linux-cxl@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>
-Subject: Re: [PATCH] PCI: Skip the CXL state update for a VF
-Date: Mon, 23 Nov 2026 16:19:56 +0000
-Message-ID: <20261123161956.72689-1-machaujo@amazon.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <awOxn3BcKl8Ru-QS@MWDK4CY14F>
-References: <20261119164219.51540-1-machaujo@amazon.de> <awOxn3BcKl8Ru-QS@MWDK4CY14F>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E+DW4KoP
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D6B941F000E0;
+	Mon, 23 Nov 2026 16:20:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795450816;
+	bh=GMGSS5PYQROX99GbX8HvEIwUcXDerAKEsLEch7k8S3Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E+DW4KoPCdkP0AQy8Eb0/14XBngcdtMwfMbHwhhIHUm50tW7cOaw/xqxK7jHRXVvA
+	 h6xW4/VFgnzqKgIaQzItf4e5tWtRkfeo5rxwfdP5kmIRq52BJG+Cfxbn8F26657Vbv
+	 bXLwCI4mAw8CMP7UnG2kbaWYiTDo/AEU9mEpPkzvjoFO203JPq8ZSSlccM16/paxWa
+	 e4WbfLjHRcHYUHgcj3QyL/+wmyhqHwMCzQ1olCaopaSvnOe5wGmYmz3Ab8BIDg76Uw
+	 Z8PS45zGNNQRJqS9ctOuLCzPVW0OH6XgNAGxzR4QiA4WTETKNhkM1EDbYY1MaTvT3i
+	 mCam8UCZ/+adQ==
+Date: Mon, 23 Nov 2026 18:20:12 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: linux-fsdevel@vger.kernel.org, bpf@vger.kernel.org,
+	containers@lists.linux.dev, linux-api@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Aleksa Sarai <aleksa@amutable.com>,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Giuseppe Scrivano <giuseppe@scrivano.org>,
+	Hugh Dickins <hughd@google.com>, Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	KP Singh <kpsingh@kernel.org>,
+	Lennart Poettering <lennart@poettering.net>,
+	Neal Gompa <neal@gompa.dev>, Oleg Nesterov <oleg@redhat.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
+Message-ID: <awRnvFNoyAS8XRwQ@kernel.org>
+References: <20261122193539.3334213-1-jarkko@kernel.org>
+ <DN25ST0D5K1J.1NI5236BF2BPY@gmail.com>
+ <awOQDOel_72Xwjm7@kernel.org>
+ <awOUJCbB_j0BuHvo@kernel.org>
+ <awQ-2UtDRtrv9fNu@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,37 +83,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWC004.ant.amazon.com (10.13.139.246) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awQ-2UtDRtrv9fNu@kernel.org>
 
-On Mon, Nov 23, 2026 at 11:29:10AM +0800, Richard Cheng wrote:
-> One nit on the sentence above, before this patch, each VF add also re-read
-> the Flex Bus Port Status of every bridge above the PF.
-> That refresh is now gone. I don't think anything depends on it, but
-> it is a behavior change, might be worth to mention it.
+On Mon, Nov 23, 2026 at 03:25:45PM +0200, Jarkko Sakkinen wrote:
+> 1. It is possible to use file a instead of syscall for container
+>    creation. This allows to split the framework in two pieces:
+>    the core piece and the driver piece.
+> 2. It would be possible to create Linux Container Module framework i.e.
+>    LCMs. I'm underlining the technical side here, not sure if this makes
+>    sense or not.
 
-[...]
+One more viable option:
 
-> I would like the spec section to be cited here, CXL r4.0, sec 8.1.8
-> "PCIe DVSEC for Flex Bus Port"
+3. /dev/container i.e., replace userland_open() with a device and
+   appropriate wiring in file_operations. It right now has only couple of
+   flags as an argument.
 
-Thanks. v2 states the dropped refresh and cites the spec section in
-the comment.
+Has advantages and disadvantages over a syscall.
 
-> Is the walk to the RP needed, or would refreshing only the immediate parent
-> would be enough ?
-> If it's the former case, we can cut more cost for non-VF devices too.
-
-Refreshing the immediate parent looks enough to me. A device is only
-visible once the link to its parent's downstream port has trained, and
-the links further up were already read when the device directly below
-each of them was added. The link speed in pci_bus is handled that way
-too: it is read when the bus is added and updated on link events
-(retrain, bandwidth notification, hotplug), not on every child add.
-
-I don't have a system with a CXL switch to test that change on, so I
-have kept v2 to the VF case.
-
-Joshua
+Br, Jarkko
