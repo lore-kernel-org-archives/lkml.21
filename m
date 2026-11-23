@@ -1,127 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425561;
-	b=EMVZt2AhC+52sSTq+dyVq55azKGTF6vuHBOdR9FAE8fWrT6jr4BCO3LMbHwbul30wBvo
-	 mimYJ24+qx9M06t6dPCQcg2VBG+aAM0EsovKgHJxrkIk0Y74HNhSUA6dFoHjRTUsvH3ao
-	 KCwHqbgWS3iGQY3Lh24FphK4kJvTjo6/sbPfGnVHsqS/QCzdyTot2L4IRXWm5eXS5E2ki
-	 EvjOZ95SMyZTPKbifO4hpWQd353tVewxA1AbOSqFlXHCT2VRwY+9e9G51C3B8uNjJtI5I
-	 /HV24OiLLShTlpsy4LTlqt5FdQSRFZXQCKHig2FRNfy3Mz+m2Hf+C51iTuSTCsmJrdw==
+	t=1795425580;
+	b=TMMy6c15HiW5aAbUtl7btFC5Rdx87BhJ5Z9L5Qic6lqNtgwFYOwy4gb7JRjpTpEtvQAs
+	 eoIJsDvbTF6PM3oirravKCglmTMtyZ7VokQ40ppKA2Ot+0nYp+osYoRwx57hKyN0e8pfX
+	 vhHVjoD0zQuSizIW4wbxxaRwxmBRngNgNOWev8Lq/XyZP+rtk7Bj6B5pCpLC7sb1Av4+h
+	 w7cxME+QH+z/FyXxgHjl0ZoOLLJ/PhIGNNEn2dRojeZjZugRLM+L8hFz7qVU78p8hd+Fv
+	 b38KONq70OSM19xcjlsVo32TBtK+NudJ4P2s1himBAM2zNCSIBG4xqr8s9LZERPppXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425561;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=LYIir9UbeEi2CT2gDPhDzZBEiArUOUKkyz2EAXQH95Q=;
-	b=BSJcJbj+LYpLT5ctCUEwnt53hzEomcNjT9Lm0n1SDnpAjPMkNkO7WREPs2UriLWZ8GvA
-	 H5XWMRKSLx84m/QWAWpyVKiw1B+RO13B6UfH4SiGujkLGFLJRqpV5TZGJoqdIYzhHesYT
-	 WsyBG/6flib7uZ+GDV6y1ccIoa3YWJXPsA/xjQI83p4KPHIx1G5f2DJuvtK+bPXuuXL0a
-	 CkP0FbHycfD6rDFEBaK2WIxK63L5o/54G1nFDOYQTA03rLZFE9u76nW0IpWqz2IjxIyMm
-	 P/kd9qpqsmdLWu588ZASC2lR1ENw3x414nptuirJ71QsmePehV9tubP2X2JgHFnJGcA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425580;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=w4eBVmv0cgiAo+f4muzjsPkDg46ilkFNyKsWRMKGZus=;
+	b=SyW46a2w4UNmX0g6UJHBkn7ri7RbulsGDJYyVuzOOEyS/epwvaaXhC7JSilyX1RdFxGt
+	 h/kcOPfadlz/FJkrFXYjMrl44hDNoSWRNjtHie7IEnWQNZNcc09ZJkylBNHCHfETt33it
+	 4qnWafl4ScAQI+XcnJPc622HDHP6BWrpLF7r6t4lZWsOsobzwxu4Mk+C2Qnxjogw8gzYz
+	 vOZFwteaXjPk5BQQ2kE7U3qePT/838CdXM4pFrdUcP2QnkDQ5+mKJF4HdTbU/5iwP4HoU
+	 Tb5Q0sRniPAQxoy6fDUUVcxCooI8jYWcSopsicu6Q9+lIHkfJis/wgjjJtGhWcPi//A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="MT6Kc3/K";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=fITYLaDa;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MrSzzmfu;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC6C9606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:19:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC6C9606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51308606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:19:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51308606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MT6Kc3/K;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=fITYLaDa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795425559;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=LYIir9UbeEi2CT2gDPhDzZBEiArUOUKkyz2EAXQH95Q=;
-	b=MT6Kc3/K4+jZUKko057P+AVb+j8CAn/NIYowTP01ipWKBedAWKSZIvWJMvmV5FO1nDG00T
-	S5nhgypU8RSeTH2T9ERFVevP0J98iZsfNrk/Q9Lt8oCM9LjP2xoWcLDWHCGeP+WI3zwPOu
-	qI+nbBYoekR6AnX7dNkRgebRVSYhTgw=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-80-0wViIH3uPR6JcA7agG3TZQ-1; Mon, 23 Nov 2026 09:19:17 +0000
-X-MC-Unique: 0wViIH3uPR6JcA7agG3TZQ-1
-X-Mimecast-MFC-AGG-ID: 0wViIH3uPR6JcA7agG3TZQ_1795425556
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-49febef74e3so28064055e9.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:19:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MrSzzmfu
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cde5a7d7849so1266738a12.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:19:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795425556; x=1796030356; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LYIir9UbeEi2CT2gDPhDzZBEiArUOUKkyz2EAXQH95Q=;
-        b=fITYLaDaEqtEzqoPJVRRd7q7xbrapajFWLXWyEf8UNAcjYTO8MmCDyckLPAhWQjLAB
-         hgBN3HNGVukDgGwRgvaLb7TVztK7eYte3n/ZJ2DDKmn5Ee48sjJzRHJSAP1IupR6YOQF
-         EB3NFqCFZTpB2/+s/fc6Z8ag6o8HcfBjqA3FNrvkYOU9hsFlb2R0XE9ixeLh0kKQUAm2
-         mbmC0jFaT6wiwYzzK1bWxCYfSEDG8PjBoxGFZJIQZwTLZziFDccfxBGDz9UOrGlchlEf
-         PZyD5zqRGmkhgY+KF/ZsgMij9aMx3tlzREFiNJSaYfdyYjZeJ+JtuD7jc1m57nX7Nkj0
-         Ao2w==
+        d=gmail.com; s=20260707; t=1795425578; x=1796030378; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=w4eBVmv0cgiAo+f4muzjsPkDg46ilkFNyKsWRMKGZus=;
+        b=MrSzzmfuIIAnsBltN4sOsDzyb95+wF/QCijmT0skqP3TwyofmheUocZKPy1o+SWh05
+         zG0HaEulySzNasstx9C43pUJxHcoDLkPvVSLfEbLKHRI9xJiw4nRz0Re542Mzlo3sl43
+         vrhbSHTX6huVSqTJ94qVaqTZ0pISEbDDxhSQpkpmY9nJcUOiRXfkjrByLjRnK+KOD/JR
+         QpFYZ8us2gK8xp0NCHVPoQksZa8EuFCedRlqwuq94xSXCRiBKI+d+WYARg7U/P2cvOCD
+         mPB2OW044v5X1yQFWQKdSL4IawqXx/3GJLF5t4Q+FKMaX0XVrR0eNYrX8pPbfl+CW3mC
+         z46w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795425556; x=1796030356;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=LYIir9UbeEi2CT2gDPhDzZBEiArUOUKkyz2EAXQH95Q=;
-        b=Wox5aG4LQY0w4DYJWaJU0htULXCv4uCqdLbpD5Bn4Q7CTeZ5eKgTEt3fsQqzRsIwYp
-         OPWpz/ph49wMoLOnLAEGtLr8R9YdWkIa/fLytyQKRnAN6VCFj9mjGoDW4qz3XGqCcvD5
-         IpyJdvPqrhYDdD+2U1LRc1UDmHDHDI2wgb6nsKlgBe1/Mkar0mqjsISVsinIR7LWnh1i
-         c6+WxE7loP4cyd4As1BszOteuOgywNZ7pNiFHY609lVr9j8rrsafumyHcNm3r1jyLD2u
-         ndVpspzv5LUdaSZkpJHse8CsjU1Cd7IItiu4pmfdoXwxcIkhoABdff2yHaCzTlTA8TKY
-         xwiA==
-X-Forwarded-Encrypted: i=1; AL+hErF36xeSE8M1jhpaIF4aPRjFAb69HyVD1CtNWuu19cnF60aFwFu1kQBx97CWpLTw8j9sIP/y6fG0F3R209Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86Jzm/O0UUeRrDpzCEyXfNPLhNy05eStIrRQfuDHbQ5/FALZjM
-	iDXaOvgFu7sR1MkrMIGtCXovtaaBzE83HFdby++BcHU1a6UHnust78/6LWKCzHlCiMwHG60TsHx
-	DpGguK2L2NHtR0NpRtnySidRVXtUTUyvt3qr6unTPa02+NeBN9krQYyrSohSB+fzPeA==
-X-Gm-Gg: AZFdTZdjQfE6nMQ1oiNZEVR8rCcQcrubiWDKEoJJohXJhQARcQPRmxM+QfW4A/oqWpH
-	676KlL7IKwGzsqVot88cDoO9MfDHNA4McM+vnoDpnK5n6XMjgGEQIkGIyXx1mIzaGj6LdmWvYVl
-	NQ9op/AqmpnmCP35qkXY/n0Nikk6rZ5JyH4jn/tu7OayFbRcjHaSgBeRE8aQ6kd2l4n7sSb7lGr
-	K2UD5SvZkaqt6rRLo4L1YDpQUvq9j8DKsNU08rNuBdUODZKhHHTVmdQA8sYuV9zBSxZJIkGUBCq
-	3koB1+lMZfBiGPKP48iRRK4J+FTWJpZ8Jl/YBcURtIuKr9NZJJakhoAAvlkfYeSrRZeG/ZTge5Y
-	nS2YF/sfd2usZTP58v2UVcJdai70Om4osCOqBVPr8JaR6o/sztNOEsUxdNG2iWI0i1bJUe/d0yL
-	5H
-X-Received: by 2002:a05:600c:828e:b0:4a2:526b:d40f with SMTP id 5b1f17b1804b1-4bb88785898mr234333175e9.0.1795425556197;
-        Mon, 23 Nov 2026 01:19:16 -0800 (PST)
-X-Received: by 2002:a05:600c:828e:b0:4a2:526b:d40f with SMTP id 5b1f17b1804b1-4bb88785898mr234332685e9.0.1795425555832;
-        Mon, 23 Nov 2026 01:19:15 -0800 (PST)
-Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906635c7sm166276135e9.2.2026.11.23.01.19.15
+        d=1e100.net; s=20260707; t=1795425578; x=1796030378;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=w4eBVmv0cgiAo+f4muzjsPkDg46ilkFNyKsWRMKGZus=;
+        b=VWHjnsRyTmx/joQ6JIhujfkX73XhltkSyYEUiY0eEfVC20Sws61/PwudrqoJFTctTj
+         wtKp9keBts53818mIHwI292clvfCZM7yr4bTrJPY7AWtXiZP87e1m0YSrTpe6yz3D1Kr
+         xp6Tjky+KLgUvWMvKDEV6kTPskkFFxaI4kPkKAD8mmqNGqWSTT6UL9gtYv2TVn1R4fPI
+         8dWfZGaLSm44gNPR/EqLA3Kgk+0sRv/Arv/DABM5qdTxAijTDGld9zH4FtGhdRex0IBB
+         KlFEkyGUJWr/+K2QwbN0XU3+qSmiq7jeY0hUfI5Sfq7QdmigCYw0qMDO7z3RtvXMofpR
+         /+Ew==
+X-Forwarded-Encrypted: i=1; AL+hErG1I/4Kv4LMCOlUhPrUgtnH+sxPR6b9eODD9yNSImT2NMVoYgyLUSMLxsgcRQDv/8HakXk+oNwi4N7txT8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/kf/wrLs22hdfmunhLf5kGVTVTseTJQZx39Nx87D3/7a6BAjGd
+	QgTQS9c/Te7W2KcvbLvP61/MZ66CyqkBbDEN6xMpCPm7aN3Al0BM7+0Ufbai3Q==
+X-Gm-Gg: AZFdTZc0VQiudAOZeDlDh2/eGMJwxRQncwDXm0NzC5TixG/h4fDmvXOvYuoheBbGayZ
+	3WqKLWIWOHeAErXkg2JhtzArfu4h+Hv3zZgc5I9Hh2sr9K+L9joTapBVOT06R36lA9k23Owbr1g
+	C+R0fipV3C4uekMiFQUx+UW2eE/dgyrhLPcBRiNtFSS382g6QBtBR5NvLXnaHI5iL3hU18ZHHTI
+	GwQy8zSWlKAigaKxziD7iZoWtuEoFyxbKXByHYp7Wq5onaQKdeZNMe12zuilRLP/MvdGsOvq7Z6
+	FlO00Tb17yF+7QNSoTa9SD0Sdhwmbos9eU9AyHqbwflExav7nP3UaE9N+X3JP4IxwT++U6DX4iD
+	rdMYTVXz9Vkg2O30r6P9gYXqDlPB5Zh6tDvTUXIeQps/djSRQ4913Z0NyAjjTdb2qGO56agSznn
+	MWREz7bYJTNNZWOThtRQS4Hnu528aCaD2YN2iPI5ehBUE80Aa9lZ5b4IA6bYJBf2QO7s88xWH0s
+	wq0L4VhEYh+ThZSqfJVgcuPWaisKwLknBPLvO/bXqM5+V30Sn0k3XPEX0pYbvtHOlrEIu9phe9H
+	jjakeYiUw+Nx++C0BjeEzZHazfB+2Q==
+X-Received: by 2002:a17:90b:1f91:b0:3b4:1cb1:e7ae with SMTP id 98e67ed59e1d1-3b41cb1e88bmr11170233a91.45.1795425578378;
+        Mon, 23 Nov 2026 01:19:38 -0800 (PST)
+Received: from thangnn-ASUS.. ([2a09:bac5:d452:16c8::245:e])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d97356sm19617738a91.13.2026.11.23.01.19.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 01:19:15 -0800 (PST)
-Message-ID: <58930dc60d410ae8dac5a5bbe5e9048501b5b1db.camel@redhat.com>
-Subject: Re: [PATCH v2 1/2] verification/rvgen: Validate the monitor type
-From: Gabriele Monaco <gmonaco@redhat.com>
-To: Chaosheng Qu <chaosheng.qu.linux@gmail.com>, Steven Rostedt
-	 <rostedt@goodmis.org>
-Cc: linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 10:19:14 +0100
-In-Reply-To: <cf05914335850f6835ae79b34d6b4ad891128948.1795252297.git.chaosheng.qu.linux@gmail.com>
-References: <cover.1795252297.git.chaosheng.qu.linux@gmail.com>
-	 <cf05914335850f6835ae79b34d6b4ad891128948.1795252297.git.chaosheng.qu.linux@gmail.com>
-Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
- keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
- 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
- Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
- cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
- T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
- eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
- 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        Mon, 23 Nov 2026 01:19:38 -0800 (PST)
+From: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+To: Joseph Qi <joseph.qi@linux.alibaba.com>,
+	Mark Fasheh <mark@fasheh.com>,
+	Joel Becker <jlbec@evilplan.org>
+Cc: Heming Zhao <heming.zhao@suse.com>,
+	Cen Zhang <zzzccc427@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	ocfs2-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com
+Subject: [PATCH] ocfs2: don't destroy the jbd2 journal under journal_shutdown_sem
+Date: Mon, 23 Nov 2026 16:19:33 +0700
+Message-ID: <20261123091933.42057-1-ngocthang2710.1999@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,59 +100,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Sat, 2026-11-21 at 19:31 +0800, Chaosheng Qu wrote:
-> The monitor type is pasted into the generated monitor as RV_MON_<TYPE>.
-> Nothing checks it, so a typo yields a monitor that cannot build and the
-> tool still exits 0:
->=20
-> =C2=A0=C2=A0=C2=A0 $ rvgen monitor -c da -s test_da.dot -t bogus_type -n =
-bm
-> =C2=A0=C2=A0=C2=A0 $ grep RV_MON_TYPE bm/bm.c
-> =C2=A0=C2=A0=C2=A0 #define RV_MON_TYPE RV_MON_BOGUS_TYPE
->=20
-> include/linux/rv.h defines only RV_MON_GLOBAL, RV_MON_PER_CPU,
-> RV_MON_PER_TASK and RV_MON_PER_OBJ, so that macro never resolves.
->=20
-> The accepted set is already in Monitor.monitor_types, which the help text
-> prints.=C2=A0 Pass it to argparse as choices.
->=20
-> Signed-off-by: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
-> ---
+ocfs2_journal_shutdown() holds journal_shutdown_sem for write across
+jbd2_journal_destroy(), which frees the journal's shrinker and takes
+shrinker_mutex. ocfs2_clear_inode() takes the same rwsem for read and
+can run from reclaim via super_cache_scan(). Lockdep reports the cycle:
 
-Looks good now, thanks. I'm taking both.
+  journal_shutdown_sem -> shrinker_mutex -> fs_reclaim
+    -> journal_shutdown_sem
 
-Reviewed-by: Gabriele Monaco <gmonaco@redhat.com>
+The write side only has to keep the journal alive while
+ocfs2_clear_inode() calls jbd2_journal_release_jbd_inode(). The journal
+has been flushed by then, so inodes cleaned up afterwards have nothing to
+release. Detach j_journal under the rwsem and destroy it outside, and
+make ocfs2_clear_inode() skip the release once j_journal is gone. The
+lock now only covers pointer updates and the final kfree().
 
-> =C2=A0tools/verification/rvgen/__main__.py | 1 +
-> =C2=A01 file changed, 1 insertion(+)
->=20
-> diff --git a/tools/verification/rvgen/__main__.py
-> b/tools/verification/rvgen/__main__.py
-> index 246b43fa2..6053db5e5 100644
-> --- a/tools/verification/rvgen/__main__.py
-> +++ b/tools/verification/rvgen/__main__.py
-> @@ -38,6 +38,7 @@ if __name__ =3D=3D '__main__':
-> =C2=A0=C2=A0=C2=A0=C2=A0 monitor_parser.add_argument('-s', "--spec", dest=
-=3D"spec", required=3DTrue,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 help=3D"Monitor specification=
- file")
-> =C2=A0=C2=A0=C2=A0=C2=A0 monitor_parser.add_argument('-t', "--monitor_typ=
-e", dest=3D"monitor_type",
-> required=3DTrue,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 choices=3Dlist(Monitor.monitor_type=
-s.keys()),
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 help=3Df"Available options: {=
-',
-> '.join(Monitor.monitor_types.keys())}")
-> =C2=A0
-> =C2=A0=C2=A0=C2=A0=C2=A0 container_parser =3D subparsers.add_parser("cont=
-ainer",
-> parents=3D[parent_parser])
+Reported-by: syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=38fdbb551940270021f1
+Fixes: f277230d002d ("ocfs2: serialize inode journal access with shutdown")
+Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+---
+Tested in QEMU (x86_64, syzbot config) with the syzbot C reproducer:
+without this patch lockdep reports the circular dependency on the first
+run; with it, 9 runs (3 boots x 3) are clean, debug_locks stays 1 and
+journal_shutdown_sem no longer has shrinker_mutex or fs_reclaim among
+its forward dependencies in /proc/lockdep.
+
+ fs/ocfs2/inode.c   |  7 ++++---
+ fs/ocfs2/journal.c | 17 ++++++++++-------
+ 2 files changed, 14 insertions(+), 10 deletions(-)
+
+diff --git a/fs/ocfs2/inode.c b/fs/ocfs2/inode.c
+index e225a96d37535..8a26964472521 100644
+--- a/fs/ocfs2/inode.c
++++ b/fs/ocfs2/inode.c
+@@ -1320,11 +1320,12 @@ static void ocfs2_clear_inode(struct inode *inode)
+ 	/*
+ 	 * ip_jinode is used to track txns against this inode. The journal is
+ 	 * flushed before it is shut down, so an inode cleaned up after that
+-	 * has nothing left to release. Hold the shutdown lock so a journal
+-	 * found here stays allocated until the release has finished.
++	 * has nothing left to release; shutdown detaches j_journal first.
++	 * Hold the shutdown lock so a journal found here stays allocated
++	 * until the release has finished.
+ 	 */
+ 	down_read(&osb->journal_shutdown_sem);
+-	if (osb->journal)
++	if (osb->journal && osb->journal->j_journal)
+ 		jbd2_journal_release_jbd_inode(osb->journal->j_journal,
+ 					       &oi->ip_jinode);
+ 	up_read(&osb->journal_shutdown_sem);
+diff --git a/fs/ocfs2/journal.c b/fs/ocfs2/journal.c
+index 9c4a48887c9a3..2529138918bc1 100644
+--- a/fs/ocfs2/journal.c
++++ b/fs/ocfs2/journal.c
+@@ -1064,6 +1064,7 @@ static int ocfs2_journal_toggle_dirty(struct ocfs2_super *osb,
+ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+ {
+ 	struct ocfs2_journal *journal = NULL;
++	journal_t *j_journal;
+ 	int status = 0;
+ 	struct inode *inode = NULL;
+ 	int num_running_trans = 0;
+@@ -1076,10 +1077,8 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+ 
+ 	inode = journal->j_inode;
+ 
+-	if (journal->j_state != OCFS2_JOURNAL_LOADED) {
+-		down_write(&osb->journal_shutdown_sem);
++	if (journal->j_state != OCFS2_JOURNAL_LOADED)
+ 		goto free;
+-	}
+ 
+ 	/* need to inc inode use count - jbd2_journal_destroy will iput. */
+ 	if (!igrab(inode))
+@@ -1116,13 +1115,17 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+ 	}
+ 
+ 	/*
+-	 * Exclude the final JBD2 inode cleanup in ocfs2_clear_inode() while
+-	 * the journal is destroyed and freed.
++	 * The journal is flushed, so ocfs2_clear_inode() has nothing left to
++	 * release. Detach it under the lock but destroy it outside: freeing
++	 * its shrinker must not nest in a lock that reclaim takes.
+ 	 */
+ 	down_write(&osb->journal_shutdown_sem);
++	j_journal = journal->j_journal;
++	journal->j_journal = NULL;
++	up_write(&osb->journal_shutdown_sem);
+ 
+ 	/* Shutdown the kernel journal system */
+-	if (!jbd2_journal_destroy(journal->j_journal) && !status) {
++	if (!jbd2_journal_destroy(j_journal) && !status) {
+ 		/*
+ 		 * Do not toggle if flush was unsuccessful otherwise
+ 		 * will leave dirty metadata in a "clean" journal
+@@ -1131,7 +1134,6 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+ 		if (status < 0)
+ 			mlog_errno(status);
+ 	}
+-	journal->j_journal = NULL;
+ 
+ 	OCFS2_I(inode)->ip_open_count--;
+ 
+@@ -1144,6 +1146,7 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+ 	journal->j_state = OCFS2_JOURNAL_FREE;
+ 
+ free:
++	down_write(&osb->journal_shutdown_sem);
+ 	/* Serialize the removal with ocfs2_ci_fully_checkpointed(). */
+ 	spin_lock(&trans_inc_lock);
+ 	osb->journal = NULL;
+-- 
+2.43.0
 
