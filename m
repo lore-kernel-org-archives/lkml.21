@@ -1,57 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795435501;
-	b=lZhXGOL9FoUBtj6zmsNIBzJnaL+iH6DVV/LtmmETRrldCRarTr4EqupShNMazRu5Jmhv
-	 8n0bbZELiKktnlCDWi32zdYjiw+IWpn3VMiXDPS3B64dkm+sFMSN6OqypMQ2tLRn9dl8w
-	 uD6NjNEFwr47FMuX8UGSdhkWxCyv1O6FQS+EV++G3xYFBUMArRwgrOUQLoCKEqbH4BEzJ
-	 uaRV2iHwkKjiaIe6B6J2Su2PXo1eHiSp3rOV/J7nNbBKkhvPcjycRw/RaTywnDO/jdfm9
-	 CBSMWkUtw8LSSEwF0qL89Aps20Ggx+FAPfa7cxQPQDzkgaCPKRG8hrl/j12xnwrmnJQ==
+	t=1795435530;
+	b=yiBqXmnBGrBG87kiT6yn9Y8R4duiOXRAuwsN/7qUFzV2gPkOfiKyJR5D28vBizcdW+uf
+	 7mCKzolVOBporos7vmWMt4OFXVd6WJiW/jPnS48aCRIFSgCjahoKl6pa6VI7Dv82S2Z+K
+	 2PAlVXGQolMhrpHOc/CS+e8DeMJSObRI7m9drE+lAuDvLElDCpsjA7FUYRUnNV5YJwRfQ
+	 r21KR2R2U3D4m7aFCWrv3d6oHYkGgtK8e1VtG/+X8UnwXrFd3pk2kMybJEyrfijyrSlQo
+	 KLGMRIDdzg4pKewsucv5+VAVLPBBTjDrt+um7mGBUnaR/A2XhBJfGOm2Bw2bwLH9x6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795435501;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Message-ID:In-Reply-To:
-	 References:Subject;
-	bh=mqH7OKXaciQeHdxtYyYAmoEalgZtOU0hzW0YdVrk+I8=;
-	b=J74pypXFpa45LMRgiRx5LLcwhvdne6nL9nfLjeEPcUTxpahSZPsJevWSkSYUolMkvMhP
-	 1NM9i6ERFMiPr2/Gf5Tjt52tGJIMi8c2dbMn3ag2pEONji6oeYQtalDy2UkZ6/RT2ER/7
-	 yoER4GktOGXRk4gJH8aGC+p/2c2ruoJFPWANI6xbsrt5NFLRrH2YEwaCM/PZJUe1HiEIN
-	 NUVzTydtlpxwJZx6vgXaP6lLBgQ2j/S2DCakh7HX1FQBma00vl5IDuF7FB9ianXZvVVAx
-	 uxJF/wWLnA1kifoIJA0MMfVz6Ao9wzCxsAwbvq3FYIXCM99mQvZhWWcVT5NQcT3A0FQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795435530;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TFDMSFpnPErRbunntFxo9TmJj7HbgxkIMchgGyOpqDo=;
+	b=d02r9ghTphRqrZToybD7Sj+u28iABMi6Wkb3pHvo8QZziF3JORi+y7ve7CWK2bc5VpgW
+	 lVmSHMb2Hh6IZa6Vn9oh39B8+SKOEnGf02yq5olhP5lcxT+DETEbUvEjCCY10hNW0UWjo
+	 tLA/h/HvyhcdoyvmCokRUzG6LOQxWdxSv9rYv/u3eykmGC3n2EvEQEqzgA7NWITC8jate
+	 NpB3wgigz+rPDH19qVTZ3tsNw0sZxiKp2ExEFldmvJmp2kTlTTX+DiOe0KD/2LfX/5ka7
+	 UAv/kljmqayGGwXok4nxAP1tJ8Yrt+FHGc5oEZqf2pOHM4Wygppt97bd+bGsfqDTwKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DKSt6R77;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eFkIqGEs;
+	arc=none smtp.remote-ip=95.215.58.6
+Received: from mta1.migadu.com (out-6.mta1.migadu.com [95.215.58.6])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4EEE606A31A;
-	Mon, 23 Nov 2026 12:05:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FEE2606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:05:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FEE2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DKSt6R77
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E7291F000CF;
-	Mon, 23 Nov 2026 12:05:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795435501;
-	bh=mqH7OKXaciQeHdxtYyYAmoEalgZtOU0hzW0YdVrk+I8=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=DKSt6R7790trB8iEkt3k3lJ2rVfcLGImK5nLRUDr/t7mxgnOtA7TP32/IO5xilqdC
-	 eERcz8Vx10xrw2Bi/iZnPr2r6uPm0LiKOFx3kDZi2x6tcAk6zTBiEV7A+5Lv6Fg/iC
-	 fi2wVXcQHosjqQ21caknU3eFij5ENBIufc4s4AQk7PIUXzbg4KafMha+hPl9qvbsrx
-	 sqWysJhCFCOxlabrq+l8GcLtHbxvyyTvOxMzLKMOvG5slKihbBHVCZcF4ij2GXqhAJ
-	 Su9aikgvlEbW5RyRsBzBR0wt6d6ZV2KaAND+4PhJ1SqgyQ5kXGnrszw40Us9nx7nMd
-	 wWHJS2JGnwaeA==
-Date: Mon, 23 Nov 2026 02:05:00 -1000
-From: Tejun Heo <tj@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>, Breno Leitao <leitao@debian.org>,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Message-ID: <20261123120125.375076-1-tj@kernel.org>
-In-Reply-To: <CAHk-=wjm3vbiNYsR+aHxmM3KCEgsSWb379ZQbCuZEsN1dhvbKg@mail.gmail.com>
-References: <fb224bad9baf5f44cf17e1d664776a4e@kernel.org>
- <CAHk-=wg4jAWZvxWo0OZ+fFTU=SBtQ7dnsUCV7hx+UAifkwPUwQ@mail.gmail.com>
- <avs4uWg9ch-Bqobj@slm.duckdns.org>
- <CAHk-=wg+MO19H7KVgA+SaZvvt5O+3Tp8AxHVhpN23JtaSq=G4g@mail.gmail.com>
- <CAHk-=wjm3vbiNYsR+aHxmM3KCEgsSWb379ZQbCuZEsN1dhvbKg@mail.gmail.com>
-Subject: [PATCH wq/for-7.4-fixes] workqueue: Fix drain_workqueue() missing work items chained across pwqs
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eFkIqGEs
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=TFDMSFpnPErRbunntFxo9TmJj7HbgxkIMchgGyOpqDo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795435527; v=1; x=1796040327;
+ b=eFkIqGEsxjhzphH79hnrfhdUUbUVw96EA1/H3OfRimz6YmNFeW8E9UHTywVtecWVt8nhZk7s
+ zksiW88VjvIm+lSLqu3zij6hZr7Yt9z6bxIrebc5HqHOKmIdaVXSyFAiWYxOw/KX9ihT4MZ3yPT
+ gGK/dBLuRAjr+EHRToLz1bMk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 159dbe6bb404d09e;
+	Mon, 23 Nov 2026 12:05:25 +0000
+X-Mizu-Trace-ID: 159dbe6bb404d09e
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
+	David Hildenbrand <david@kernel.org>,
+	Rik van Riel <riel@surriel.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Harry Yoo <harry@kernel.org>,
+	Jann Horn <jannh@google.com>,
+	Lance Yang <lance.yang@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mm/rmap: flush the TLB once per mapping in page_vma_mkclean_one()
+Date: Mon, 23 Nov 2026 07:05:14 -0500
+Message-ID: <20261123120514.4141292-1-qiliang.yuan@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <awQo2tg9rzMJYCQe@gremlin>
+References: <20261123-feat-mm-mkclean-batch-flush-v1-1-7e998ad13251@linux.dev> <awQo2tg9rzMJYCQe@gremlin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,138 +76,46 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-From: Linus Torvalds <torvalds@linux-foundation.org>
+On Mon, Nov 23, 2026 at 11:53:50AM +0000, Lorenzo Stoakes wrote:
+> You are flooding the kernel with patches, 6 series across 4
+> subsystems over 19 hrs:
+[...]
+> Given the volume both recently and in the past I assume you are using an LLM to
+> do this, so could you confirm your understanding of the problem (as well as
+> those of patches sent to other subsystems) and what real-world task you were
+> doing to identify this issue?
 
-drain_workqueue() flushes the workqueue, then checks each pwq under its
-pool's lock and returns once a pass finds every pwq empty. Only chained
-queueing is allowed meanwhile, and a chained work item can land on a pwq
-other than the one the queueing work item is executing on. The pass misses
-it when:
+Yes, I use an AI assistant. What it changed for me is mostly breadth: I
+used to work in depth on one area of the kernel, and with the assistant
+I can bring the same kind of algorithmic work to other paths and measure
+it there. The patches stay small, a few to a few dozen lines each. I
+test every change myself, with before/after measurements and the
+relevant selftests, and debug kernels where it touches locking or
+memory ordering, and I review the code line by line before sending it.
+I don't send anything I don't understand, and I can explain every one
+of them.
 
-1. The pass finds pwq A empty.
-2. A work item executing on pwq B queues a work item on pwq A.
-3. The work item on pwq B finishes.
-4. The pass finds pwq B empty.
+For this one, I was looking at how AI training jobs save checkpoints.
+Writing a checkpoint through a shared mapping was 3-4x slower than
+write(), and perf showed the writer spending about half of its time in
+IPIs. Counting the callers of flush_tlb_mm_range() showed writeback's
+folio_mkclean() flushing once per PTE in page_vma_mkclean_one(), so a
+large folio mapped by PTEs costs one flush per page. The patch
+write-protects the PTEs the way change_protection() does and flushes
+the range once, before folio_mkclean() returns: stores through a stale
+TLB entry land before writeback reads the folio, and later stores fault
+and redirty it. Besides the timings in the changelog, I checked this
+with writers storing through the mapping while another thread loops
+fsync(), then compared the file with memory, on xfs and ext4 with 1 to
+16 writers and on a KASAN/lockdep/DEBUG_VM kernel: no mismatch and no
+warning.
 
-drain_workqueue() returns with the work item on pwq A pending, and
-destroy_workqueue() can then trip WARN_ON(pwq_busy()) and leak the
-workqueue.
+I'd like to understand the concern better: is it the review load from
+the number of postings, or something in these patches you think I may
+have missed? If it is the former, I can space them out.
 
-Add pwq->nr_started, which counts the work items a pwq has started
-executing, and check the pwqs twice after each flush. The drain is complete
-only if both passes find every pwq empty and no work item started in
-between. The counter is updated and read under pool->lock, and the queueing
-path is not touched.
-
-Verified with reproducers of both shapes: self-requeueing work items on an
-unbound workqueue and chained queue_work_on() of another work item on a
-per-cpu workqueue.
-
-Fixes: c8efcc258946 ("workqueue: allow chained queueing during destruction")
-Cc: stable@vger.kernel.org # v2.6.38+
-Link: https://lore.kernel.org/all/CAHk-=wjm3vbiNYsR+aHxmM3KCEgsSWb379ZQbCuZEsN1dhvbKg@mail.gmail.com/
-[ tj: Wrote the description and updated the pwqs_nr_started() comment. ]
-Signed-off-by: Tejun Heo <tj@kernel.org>
----
-Applied to wq/for-7.4-fixes, replacing c7d64f52bffa ("workqueue: Fix
-drain_workqueue() missing work items chained across pwqs") from the pull
-request.
-
- kernel/workqueue.c | 51 ++++++++++++++++++++++++++++++++++++----------
- 1 file changed, 40 insertions(+), 11 deletions(-)
-
-diff --git a/kernel/workqueue.c b/kernel/workqueue.c
-index f2e8071a6f4e..08046ff0d697 100644
---- a/kernel/workqueue.c
-+++ b/kernel/workqueue.c
-@@ -281,6 +281,7 @@ struct pool_workqueue {
- 	int			total_in_flight; /* L: sum of nr_in_flight[] */
- 	int			nr_in_flight[WORK_NR_COLORS];
- 						/* L: nr of in_flight works */
-+	unsigned long		nr_started;	/* L: see drain_workqueue() */
- 	struct list_head	flush_node;	/* FN: node on wq_flush_pnode->pwqs */
- 	bool			plugged;	/* L: execution suspended */
- 
-@@ -3455,6 +3456,7 @@ __acquires(&pool->lock)
- 	 */
- 	set_work_pool_and_clear_pending(work, pool->id, pool_offq_flags(pool));
- 
-+	pwq->nr_started++;
- 	pwq->stats[PWQ_STAT_STARTED]++;
- 
- 	rcu_read_lock();
-@@ -4449,6 +4451,33 @@ void __flush_workqueue(struct workqueue_struct *wq)
- }
- EXPORT_SYMBOL(__flush_workqueue);
- 
-+/*
-+ * Return 0 if any pwq of @wq is busy. Otherwise, return the sum of nr_started
-+ * of all pwqs encoded as 2 * sum + 1, which is always odd, so that 0 can only
-+ * mean busy.
-+ */
-+static unsigned long pwqs_nr_started(struct workqueue_struct *wq)
-+{
-+	struct pool_workqueue *pwq;
-+	unsigned long sum = 0;
-+
-+	lockdep_assert_held(&wq->mutex);
-+
-+	for_each_pwq(pwq, wq) {
-+		bool empty;
-+
-+		raw_spin_lock_irq(&pwq->pool->lock);
-+		empty = pwq_is_empty(pwq);
-+		sum += pwq->nr_started;
-+		raw_spin_unlock_irq(&pwq->pool->lock);
-+
-+		if (!empty)
-+			return 0;
-+	}
-+
-+	return 2 * sum + 1;
-+}
-+
- /**
-  * drain_workqueue - drain a workqueue
-  * @wq: workqueue to drain
-@@ -4462,8 +4491,8 @@ EXPORT_SYMBOL(__flush_workqueue);
-  */
- void drain_workqueue(struct workqueue_struct *wq)
- {
-+	unsigned long started;
- 	unsigned int flush_cnt = 0;
--	struct pool_workqueue *pwq;
- 
- 	/*
- 	 * __queue_work() needs to test whether there are drainers, is much
-@@ -4479,16 +4508,16 @@ void drain_workqueue(struct workqueue_struct *wq)
- 
- 	mutex_lock(&wq->mutex);
- 
--	for_each_pwq(pwq, wq) {
--		bool drained;
--
--		raw_spin_lock_irq(&pwq->pool->lock);
--		drained = pwq_is_empty(pwq);
--		raw_spin_unlock_irq(&pwq->pool->lock);
--
--		if (drained)
--			continue;
--
-+	/*
-+	 * A pass isn't atomic across pwqs, so a chained work item can land on
-+	 * a pwq it already found empty. Anything slipping past the second pass
-+	 * needs a work item that was in flight at its pwq's first check, or
-+	 * that started between its pwq's two checks. The first makes the first
-+	 * pass fail, the second changes nr_started. wq->mutex keeps the set of
-+	 * pwqs stable across both passes.
-+	 */
-+	started = pwqs_nr_started(wq);
-+	if (!started || pwqs_nr_started(wq) != started) {
- 		if (++flush_cnt == 10 ||
- 		    (flush_cnt % 100 == 0 && flush_cnt <= 1000))
- 			pr_warn("workqueue %s: %s() isn't complete after %u tries\n",
--- 
-2.56.1
-
+Thanks,
+Qiliang
