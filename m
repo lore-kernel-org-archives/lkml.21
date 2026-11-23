@@ -1,75 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450177;
-	b=zb6tldEERVn/oQF+o70c187MBVMqzqiJoNHOuSGcvHmVYyDAtGblMZSk9OlGDEdynTqp
-	 7z+a+78rAi9Mvf2/Gl//qQZGLDQdNEWF4Zd/sVRFPT94jjcJEhBG5N3Yh6VVM1Cm8uDEz
-	 i0X8QwadZT7pwSVk/2C0jx4yLO1NjtbujvhL1SzGIZn4fQ1mxx2Kzq5WtzDMvGjkxGaVa
-	 rz6tB4odDeLhkluEzCPTX94odNeS0XoKJKjrcpgkmmEK/sIEwVSLt8d3Rc1WMv3OaAfD9
-	 XBcvdQtwwDqxVPq242w3GuIRgLNHxt7uj92i8Vk18f4HiSt+BUilY/23LZjskAmgyKQ==
+	t=1795450225;
+	b=gIEXr7T1/8BtC37ocgpmDA8cl6OHE1N+MGiA0hvRDSlRYDC1V6F5piatbwoKyAynwDLn
+	 U/ZqUEjSGq8XRNRlKxWTDlzjH5zt+WfOmT5NVfAx3mdhu9QfC2iRzc+mOdd29TjIhOcNO
+	 HX1+sdQuC7HBrIzDfGQYPDE6fDZrCsOVfK+U/L36pOUp1Uo6zG8aXFlI27/wZz8mmz0UV
+	 zbSMb+BZVVWXCnPRn155B2yqVTNZhsN/mP3UGlELLkIFphByrvWCj0aWkZY5T6t6kINZI
+	 AMUJ32n4aCUQXujjomLWYRBA6l1TAbvQux5nMJXa+Xwr2zrh08hulJQtAYVAhJJmUjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450177;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=JhcfpBwHSU7MgwxhgP4Qq1k5bLuK7ieaSxmvk+gyAcc=;
-	b=YqcJqSxylIihD/4+mItnxQfOEEU4ApbcHqijJa5I7fSWipD5UgqCH3TfytIhgKU5TB9Z
-	 YfYeB1eahc3PjDcKrnsujV2OnVie+OxJEHhhymGVJW3S2Ci12InFKbZ34yncxIdyNcl+J
-	 Upm4C2BZLJdBxZr22dzxa+fGQVwk2McX5McuJUDc3mmot4JMn5LxTmFtSwnb6JRZDZvNi
-	 YGFfz3wf8S1xCbiLLB5gFq2Fa4KE2RWmz8WxbiNLFRwqNLeZsl5b+FtUsJzIcE5F94YjM
-	 wPSmSopuhL9I7qo0+reVG0yUMaBbQd8WysJFryvIQvmVuFt6YqJPb0Qi/onJ0tyNRRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450225;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=ypOSzkfJxIBRiqRs4/JLRl10BT/rd5hCCDRvucj2Z1Q=;
+	b=Oy+HQWeJLLjpq/yaw/nu1vgSXOiKdC/FPA7y1P50Ce314Y8himZmMJQg8v3aDpPokkym
+	 Hep/BH9E1LlHTb0P+RfCnLZCcnoAp2O5gdU/KkC9TY13tc3CeXINoynlQTMdxVNER/uP9
+	 YifDLuwsLeQA7txV4EaPQfKIW+AB+0Ca3Q/xFAvEYXMNrTpyzkCaPb3q0CG6162yPUiiS
+	 qCXB64WiUyA1qJZy5VbLMGvL5L31wAXT1005quSNUv+2EmTMuXvlBbYq28w/NfCXSvoL2
+	 vVDxJBA4csv0I/79cBJhKM3DczLQ1ThTgxYkN7lKiYincHQ4+z3AZaZpoTmv3LX7JYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ewKOjoXP;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=gM81qaTc;
+	arc=none smtp.remote-ip=209.85.214.226
+Received: from mail-pl1-f226.google.com (mail-pl1-f226.google.com [209.85.214.226])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E041D606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:09:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E041D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2DFB606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:10:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2DFB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ewKOjoXP
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-38531c1a566so1609988eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:09:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795450176; x=1796054976; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JhcfpBwHSU7MgwxhgP4Qq1k5bLuK7ieaSxmvk+gyAcc=;
-        b=ewKOjoXPN39yp0jVeaMqx6C2OwF0rXLLiqjYLeRo3WkCV1R48gogHGci439v1gMnsa
-         BmbLTPcjth/T6hJBuzIgCHOkUnYmt/HjQYaU0A/R9Dcw2nkveWRI2fvNP1tdESzac5+b
-         gtX4cEuex2rGRf90bGPd/0ovDW6gAYokWYdb0D9bbYL8N8BOH/Tpd30U6qK3p3uU0QaA
-         94FHbBLRK7YUWFDFOLEQX49n7R/5rzhJizbn5nKL3wVBV7vQ5bK0694LnQ+aUIcd6dFE
-         Qu1KVM0Yct4VZgRlfK4/fYxSfCJSxseXUh+G7gMdcJFDaTL/+Nhvf2IoaP13D51+f5U/
-         DIhg==
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=gM81qaTc
+Received: by mail-pl1-f226.google.com with SMTP id d9443c01a7336-2f0458cc9easo25740015ad.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:10:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795450176; x=1796054976;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JhcfpBwHSU7MgwxhgP4Qq1k5bLuK7ieaSxmvk+gyAcc=;
-        b=hf+z+Ma/Bk6jmSP746ocnOPsCyEeMcK+C+e7pmrR1Nw2dZw2JoKmny8mk8gRwV5/zv
-         E0lUW5VhCS2Eg1ptJxVqfO4y6Sub7Jce9CEjnKXmhhhQMbmUWyoYM/sHwxJtHxUHpySo
-         CM3nO9bsjY/Nztzdcj1y3RXJBjJXZ5++S3Pr01jwFfZVA/JQwAWwABCSNxlXTCFIOZVc
-         abhXf6Tp1otWI4J+jXwMKN/v3dRg5ULafHwmdepoPVRwX62IF5gWLifh2fQrDYb8vr77
-         V/aMOtJH/4VhzSu0IDll95DH5TgFuIGBshZJ2/WCjbgkQgvxq+0SrHp6znVJrkjMw0gf
-         Qn7g==
-X-Forwarded-Encrypted: i=1; AL+hErGSQ268HXo9D0s9xjsO8rt2FQT14RNsHcSTtUR06tb36e9PT7xuOb5soQ0cN9yfL8+N2ERb6LtO/c+GAWk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+qNx7XEb5XyqZ+XascnEi6xo7mqv8M+stJ/I1L01fKybck0CUS
-	luGz3d9yryacnpAuPvJtvJEf5oG1Vou/kRR774BEwM86hGdP/UzcwFqUF7MA5ZjPg6Vh59160ie
-	rGFwlLp6ppJ3/jFVObg==
-X-Received: from dybmf40.prod.google.com ([2002:a05:7301:928:b0:36c:9b55:8436])
- (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7301:4284:b0:382:1aea:c21d with SMTP id 5a478bee46e88-3857191bcf7mr12981179eec.41.1795450175386;
- Mon, 23 Nov 2026 08:09:35 -0800 (PST)
-Date: Mon, 23 Nov 2026 08:09:34 -0800
-In-Reply-To: <CAKfTPtCQpVhtVT7Mhqe1=Ukcmc1pX8Jgn9ypb64--8cJ-7G4BQ@mail.gmail.com>
+        d=1e100.net; s=20260707; t=1795450224; x=1796055024;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ypOSzkfJxIBRiqRs4/JLRl10BT/rd5hCCDRvucj2Z1Q=;
+        b=StIAWxSGWc/JhPzp+SxScLEA2LpCh5kNGfPHdFN5MIyYKiEZALRpjxqdL9v3cujwjT
+         66m/AWb6plCbADmvOGpmvuJvD4giUTIeb+P+uXCLHZTVSd+zGRncvhsz3eyk4WLgClPn
+         X9DeIc/R8B69hflaaMhfODKqUR1tnV1cwuEKgydGGqRYipJiKFXs0TSy4WQiJtpZ/kY8
+         m8CuLOyt52eWndqHlWIm0IDBVI2Kbi+ZQZ0Iymzy5CQ8hxWIv97zPBJObrLSXmMC9v7R
+         VQoNxraVF2kkXc5ePH9s42i4kkMb1PluxDMTf5vxFJ2pT76oRefuXnl0hqWKGSAvdu+Z
+         7YPg==
+X-Forwarded-Encrypted: i=1; AL+hErHn5GcIBFpYPjvG7QD3C9DlDFai6aG7MXhr6HcprMADt5xkdhyTuqdSgfHKLahisw++h8LHxqxhkpsl6dg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5rMIuhPDG11B1pqSh9/OlypyEOpZt6gJg8yp0umqItLHdfleK
+	0yQRnAVmpVe6v67NGPLQyH3pXmh51r+ohuoGvjsfutE8PH9h0BLdMgnt1B5djFQzAlcat9vFri4
+	3lht2MQUdytfZ5WsOOkGPW4zEPl5ObKrkJf7j19WNHxYRotYyPIYjZfB3LqV5echkm72tzVzI0G
+	lknibAx4vIhgyacHs+Xo8futR7NcVCJNJOlJdJcbnot9F04b2qdmGH25sQEKSykhq/nJDsIMarI
+	wox3iamN87efvL5dxpBLtc+
+X-Gm-Gg: AZFdTZfK3M9nSCXmsNP/hoOz3OxNN+mjnVGKCtTKA/yvYJlnELTokrFYE6Fjps4Nsm0
+	0mSbogTaeWTCXA3QSYe8mZSd1rkM/rDyuReNjcSVJCHf+echAfoR8vbQMjLgIRkqb1j2lajzeK3
+	+h4PTYwduXXfy5WsiuzTne6VnP6sBBNEWUSHGBi+J0wdZ2/qZBoVRv3MLizPN6/tocCE28jNHl4
+	Q91trTbRUSDUrfD2bY0kMBwVdz3ZjoYOldbTateximwkfOzBBgix7suhO/ZnrNeRPNTXc5XZDBg
+	WvdIJ2Z+oBAyJF8WXTLt2VmuctU2USxcKHz1WLBUB+NPRu7pQ+JaChPPWfrTL8HjAGsiacxC5v5
+	RrbdESFxAUfQfAAjchaQg3CXBATYtothFMlB8ccXdLOnmoCC3qOApxYvYOvcxM4z5lQy1g3rqLj
+	/INgZJtOWlrOkMgkM9361blI0BMchrwuuoyiGLNl6evsM=
+X-Received: by 2002:a17:903:b0e:b0:2eb:1bba:abbd with SMTP id d9443c01a7336-2f03f2069c2mr107966175ad.60.1795450223917;
+        Mon, 23 Nov 2026 08:10:23 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2f03f10d2afsm1862515ad.40.2026.11.23.08.10.23
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Nov 2026 08:10:23 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1383723dfddso3597119c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:10:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795450222; x=1796055022; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ypOSzkfJxIBRiqRs4/JLRl10BT/rd5hCCDRvucj2Z1Q=;
+        b=gM81qaTcVbNLppi4ERhQA+iFdyvhxyA786MlSXuu3iNrSvd4cnB56s3iPQjEE7BQM8
+         0y/lgC9jhTwcgipShOESHGZbMmHHhnRRNiKna5v7KEfhutwTlaq0K8by6QaPfnxuoHgq
+         gA1Q2PRZOkAygqHKS+wSuND+r/V3zOC37D5/U=
+X-Forwarded-Encrypted: i=1; AL+hErEPRto3PIsuieihPV249sYmlf/n1GP0LVAkhOljPzr/MyZPR+hjlreufvwPmoDIyODmFcyXKFKc1knYfLI=@vger.kernel.org
+X-Received: by 2002:a05:701a:ccda:10b0:144:fb42:52 with SMTP id a92af1059eb24-1b5568fd903mr12257232c88.28.1795450221839;
+        Mon, 23 Nov 2026 08:10:21 -0800 (PST)
+X-Received: by 2002:a05:701a:ccda:10b0:144:fb42:52 with SMTP id a92af1059eb24-1b5568fd903mr12257183c88.28.1795450221034;
+        Mon, 23 Nov 2026 08:10:21 -0800 (PST)
+Received: from [192.168.10.3] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55ff0e4e6sm22003793c88.11.2026.11.23.08.10.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 08:10:20 -0800 (PST)
+Message-ID: <b5a899c1-c1b8-409e-8b50-ca722c229f5b@broadcom.com>
+Date: Mon, 23 Nov 2026 08:10:16 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,77 +105,120 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261122015729.2512645-1-penghuang@google.com> <CAKfTPtCQpVhtVT7Mhqe1=Ukcmc1pX8Jgn9ypb64--8cJ-7G4BQ@mail.gmail.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261123160934.2289260-1-penghuang@google.com>
-Subject: Re: [PATCH] sched/pelt: Skip dormant cfs util_sum under scx_switched_all
-From: Peng Huang <penghuang@google.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Peng Huang <penghuang@google.com>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Tejun Heo <tj@kernel.org>, 
-	David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
-	Changwoo Min <changwoo@igalia.com>, linux-kernel@vger.kernel.org, 
-	sched-ext@lists.linux.dev, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 6/9] net: flow_offload: allow drivers to validate
+ and invalidate cached paths
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: netdev@vger.kernel.org, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+ <rafal@milecki.pl>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Jonas Gorski <jonas.gorski@gmail.com>,
+ Vladimir Oltean <olteanv@gmail.com>, Florian Westphal <fw@strlen.de>,
+ Phil Sutter <phil@nwl.cc>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+ "open list:NETFILTER" <netfilter-devel@vger.kernel.org>,
+ "open list:NETFILTER" <coreteam@netfilter.org>
+References: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
+ <20261116222519.1416501-7-florian.fainelli@broadcom.com>
+ <awI-mtwn3ohPw-fF@chamomile>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <awI-mtwn3ohPw-fF@chamomile>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Mon, 23 Nov 2026 at 11:34, Vincent Guittot <vincent.guittot@linaro.org> wrote:
->
-> When all tasks are moved to sched_ext, fair utilization should be 0
->
-> ...
->
-> This is not the right solution but a bandaid to hide the issue. When
-> there is not fair task,  rq->cfs.avg.util_sum shoudl become null.
-> Please look at why it is not null.
-> It could be that the update stops before everything has been
-> propagated correctly in the task group tree
 
-Thanks for pointing this out -- you are right, and looking into the
-code confirms your suspicion about stopped updates and incomplete task
-group propagation:
 
-1. Deferred cfs_rq->removed and unvisited sibling task groups:
-   Tasks that exited (task_dead_fair()) or migrated while sleeping
-   (migrate_task_rq_fair()) before scx_enable() queue their load/util
-   in cfs_rq->removed via remove_entity_load_avg() rather than
-   deducting and propagating immediately.
+On 11/21/2026 5:00 PM, Pablo Neira Ayuso wrote:
+> On Mon, Nov 16, 2026 at 02:25:16PM -0800, Florian Fainelli wrote:
+> [...]
+>> +static int nf_flow_offload_validate(unsigned long cookie)
+>> +{
+>> +	struct flow_offload *flow = nf_flow_offload_cookie_flow(cookie);
+>> +	unsigned int dir;
+>> +
+>> +	for (dir = 0; dir < FLOW_OFFLOAD_DIR_MAX; dir++) {
+>> +		struct flow_offload_tuple *tuple = &flow->tuplehash[dir].tuple;
+>> +		struct flow_offload_tuple *other = &flow->tuplehash[!dir].tuple;
+>> +		struct dst_entry *dst = tuple->dst_cache;
+>> +		struct neighbour *neigh;
+>> +		u8 mac[ETH_ALEN];
+>> +		bool valid;
+>> +
+>> +		if (!dst)
+>> +			return -EOPNOTSUPP;
+>> +		/* This is the actual route selected with the packet's policy
+>> +		 * context, including mark, DSCP and the reverse lookup's oif.
+>> +		 */
+>> +		if (!dst_check(dst, tuple->dst_cookie))
+>> +			return -ESTALE;
+>> +		if (tuple->xmit_type != FLOW_OFFLOAD_XMIT_DIRECT)
+>> +			continue;
+>> +		/* A stacked path may have a different final Ethernet neighbour.
+>> +		 * Do not mistake that unsupported context for a stale owner.
+>> +		 */
+>> +		if (dst->dev->ifindex != tuple->out.ifidx)
+>> +			return -EOPNOTSUPP;
+>> +		neigh = dst_neigh_lookup(dst, &other->src_v4);
+>> +		if (!neigh)
+>> +			return -ESTALE;
+>> +		neigh_ha_snapshot(mac, neigh, dst->dev);
+>> +		valid = (READ_ONCE(neigh->nud_state) & NUD_VALID) &&
+>> +			ether_addr_equal(mac, tuple->out.h_dest);
+>> +		neigh_release(neigh);
+>> +		if (!valid)
+>> +			return -ESTALE;
+>> +	}
+>> +	return 0;
+> 
+> This validation to catch for stale entries looks very similar to what
+> I'm working on. I guess there is a chance to consolidate all this in
+> common infrastructure for both software and hardware modes.
 
-   During scx_enable(), switched_from_fair() -> detach_task_cfs_rq()
-   only visits and propagates along cfs_rq chains that still have at
-   least one live attached fair task. Any CPU or sibling cgroup cfs_rq
-   with no remaining live fair task is never visited, so its
-   cfs_rq->removed stays undrained and its tg_se contribution remains
-   in rq->cfs.avg. Once __scx_switched_all is enabled,
-   scheduler_tick() skips sched_balance_trigger() and fair_sched_class
-   is bypassed, so __update_blocked_fair() never runs to drain and
-   propagate those remaining leaf cfs_rqs.
+Excellent, happy to point you to an off the shelf device where you could 
+be testing this on, if you would like to?
+-- 
+Florian
 
-2. Sub-divider util_sum residuals:
-   Even on visited chains, if tg_se->avg.util_avg has already decayed
-   to 0 (with 0 < tg_se->avg.util_sum < divider) when the child
-   gcfs_rq's last task detaches, update_tg_cfs_util() sees
-   delta_avg == 0 and returns early without subtracting
-   tg_se->avg.util_sum from the parent cfs_rq. Independent PELT decay
-   truncation and integer removed.util_avg accounting can also leave a
-   < divider remainder in cfs_rq->avg.util_sum after util_avg hits 0.
-
-For v2, rather than touching update_idle_rq_clock_pelt(), how about
-adding a fair helper (similar in spirit to rq_offline_fair() ->
-clear_tg_offline_cfs_rqs()) and calling it from scx_enable() in the
-existing per-CPU scx_switched_all() loop (where rq->lock is held,
-rq->clock is updated, and rq->cfs.h_nr_queued == 0)? Specifically, it
-would walk leaf_cfs_rq_list bottom-up (plus &rq->cfs) to:
-- flush cfs_rq->removed,
-- clear load/runnable/util _sum and _avg on the empty cfs_rqs and
-  their tg_ses while preserving last_update_time and period_contrib,
-- clear tg contributions via clear_tg_load_avg(), remove the empty
-  cfs_rqs from leaf_cfs_rq_list, and update rq->has_blocked_load.
-
-Does this direction look reasonable to you?
-
-Thanks,
-Peng
