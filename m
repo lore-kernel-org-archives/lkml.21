@@ -1,117 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461874;
-	b=vfuWGLsZTv1DwypzucG0DO4nLysjsT0sTn8wDvLk4TbZ8XIugoqk2zQKxWvo+zttgxvg
-	 Ubc4EInLjyI5FD2xt4qN+04OfisMt2bV/M5CnJoM1oUiaM9c4+j63w9xzUXuI4b20UKCt
-	 f0Tz3JVXhqBssvNqgwz7QCqSNPWrsDgd2XniZcEBW8t/6ARnGr5jMADS3V5dyiEkbCUjV
-	 FqO4gw2UADuigwiV5k9o0pyEkr98nDtVdeSt6qSRssvsgY1zTEuG6VvAiFI+Ja6gYkAyf
-	 e0FDIlV/HeYkVaAUosteWSvPlWa825PvYdohHrNZ/wRrAb2hv/wdXp0nXgwtKZCLzOg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461874;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=vA8R0uS/49ozRCw0mif7wQDKIClLA2ZTyz78JVx+Ing=;
-	b=Q3AhSvfvJHdWfmnuUAB7Z2TV7G1XSYcsrHxAxom5dTsDhxZ397NcLBLNs5lB+dBFoPbC
-	 xbzo4h4tMuWe3p9gG+ZQtBBtM7UZWrzT5LtQx7rG5WT2537HeRG8swqWSNESwq1RPOb3I
-	 qk+yO6swKaCEW364B67I0ibjC5+B8PXqa3CNPr3rzK5d6YKSvgUoKDYH/GHdmTY5GhMzU
-	 UbXhLMkrVVDiP36RPGzHHdncHnrf/lw6u/p+clt+G6UleHqssXUlI6hyxjBY1lqlR8qPe
-	 0TuDi8BG/QluejHISgu/53hBP/5JeME3zvrYe1vBbCiTZ7G5zVgTu04BdCerpHCWkpA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kSrvkqXl;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HZcfz55o;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.181
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795461883;
+	b=FZ4HqfCDhjtr04upSQywiO3JDODzwP+wY1zXg+P0mxqUSkF6jtWJyrHSf7TfPfmvqzXX
+	 EHfMxo0rxbJqlq6w25RAdWWZ4ruWCh29ilCb7CSCnPRZEvMfKoZaJRZD1nobURgD8fwAD
+	 9wJg//W9oxyAWcflgqkEVuKg20DFMMnCOmi+uUobqTAD1DzY1U25Efr4ADdbIsuotoJeU
+	 AjwsVE0hp13xpdTtHrJfhpOX300GYh5PTxP4ckzSjWic96WVLf5JcfkJpM6glUjx64k3f
+	 FmngKkVghOM12GldCjEqPArdF/h4W3V9jRfHVNvQcdfQ414PwDR6r666Bb+u8a65/jA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461883;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=mu3NpxL0VDL/oCB28gOtk5lf+/OEsMsSKxF2nMbAOns=;
+	b=Va5pmJb48wFZbpabCnKt7uZr/qwKh93fg7WRGZyIVzWdhj1di+szF5U+vpCdS8A1Vk1z
+	 KIrzQuZOVe3eJrkagflzhKCjM+9uvxByNotCuwIohTFk6qxjrlFOCGBJY1O7Gim4ylghf
+	 qxKceVSA4LVs+D+YyZANsXt7eD7oQY8v/oc3GEIcgQo/KSVI4LrBdbPx5nGBnzAUelNNI
+	 cbSeNqs9jvL4YyC/l+03h3PJe6Llww8t3fJhJvXcs+MFe64eiBFFiBRNLFDbWK6+ZnyM2
+	 JHzyZp21odwQk3YvyaA5C0V/l9NY+9Ymo9jtWUqiEe40AjJB+Bzsrl7RzA8/mOzeI1A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h7jDIIKH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.181
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C07F606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:24:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C07F606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBACB606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:24:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBACB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kSrvkqXl;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HZcfz55o
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGGpDN2769001
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:24:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=vA8R0uS/49ozRCw0mif7wQDK
-	IClLA2ZTyz78JVx+Ing=; b=kSrvkqXlPp5CBohHvqzEelQ/3MfkOygZ4Jkjxezz
-	uzm6tev/oCuNoRwX6oNtqk66o4pXSm0TYGpjQPf0AyttWcyRt3H7SO3nDzBkh7TV
-	04kuSBjR/NJnJylsuyUBt9aP8LH4/h0fznbnUTa3uNy5XxuMB0bq6eAPFtVl3SRP
-	86N4MAx954k8rRnTcmKvgtQQessPEIKtcOL9eV0QEPKaQq7xtWKfEHXLXSjlcQ+M
-	QIthPMajToZM4cXltEWvk5tpZO0oHHwGXA8Bpk9nHKy4u2DMdRTp83xllZmfhGe4
-	sfPGAUwNXL9lcIm6CFHxvFVpgmVkS67DI2Nha+P0ksBOUQ==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g1pb26h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:24:32 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-9211604468aso57437526d6.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:24:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h7jDIIKH
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-38644aedba1so5566307eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:24:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795461882; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CqJzVlk2ctsihGev/uAvCrRdmnqp05yswOKsSa3rIlTjVKVGBa4TD9L0/GZcQSyoP1
+         F2gumvcqkd4qJmMXn7oEJ+q+HXkuVNh6wFGQd162Yoz75L4PZlEXnSI7DwoCHgMcUymZ
+         c/kPumYqgx3X07HloGOe42KRPXBI7neHenzcIPmcdq+6WPGtZG7HgbO10RdAiQ1q1RXt
+         Nge31aW8KuH71Y7sxpG0yHVO08K4AmWEU8hKVQ+sdnR+xhHsX/nK8rxRYe0pwi0E0FMO
+         Iw7GcO156zdcSI1InXCHY/9FK0jaXAyHtJC1ug3/T7nGN9KJCpoaF38xlIGphn8Q7FNP
+         eVYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mu3NpxL0VDL/oCB28gOtk5lf+/OEsMsSKxF2nMbAOns=;
+        fh=DaaEXz7Vi41GhBfYTgI/n9WxFs6ZgkdTozHojvr2JhI=;
+        b=Vp7Z+BNHXgjOz2aw+jej6cdSSPrPhzhUF3j35wle1J4slIopMhlVHiQKh3bcDb36TT
+         TsLqzH/E3IT5mtKpV/wgLoNY2FcyojbaCdDYBHazreg3z9LPI0VLHmSUYmAfhiU1bWYm
+         F++bbwkedWBKMgaiACC80VvW9LYxrVxWI9zzr+/n3U+Xn1PG1JtihTuGY1mViYON5EnY
+         an8a1UDPe7hpP2uDeFOG0E20JiN57QtVMVNUFjuaCrofERX/FU1FRIl0uscYJyon0rhc
+         eMNyQ5QQdtyeT420E/1uAVuQTG6mBS2E8iPQyGnMOgtwfUPBgCiZdyqDeO5bHp632hv5
+         0Igg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795461871; x=1796066671; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795461882; x=1796066682; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=vA8R0uS/49ozRCw0mif7wQDKIClLA2ZTyz78JVx+Ing=;
-        b=HZcfz55oClnbMXOm6DjvV2O7lObVft45mbPzG1OKoeo/f9+GKVlXOlB54VwsCE2QdH
-         PEbdxSY7H6+JQL+y6y1xOJt9G/mE4LKCRwiS/cpRDEFrAA07b1FmhIAXvqTW0MHkpZq7
-         li+X2D7muglnHOAjU4Fdr97hLETUJAjSZljqANdKgBlOBzbRPscov2ycNljrxgl3w5f6
-         0A93tVzEtiNtPnEv5FAGDNqNrI68OxpmdDQ9/NNTx3PTAezb6hdnaNWWsm4oafljSY/U
-         x91texGMFb33De1osvmcvL5BQsd84QwcaMQntnf7dzGSvieKjZrI6ZHNsqIXVB+OsoE7
-         Lixg==
+        bh=mu3NpxL0VDL/oCB28gOtk5lf+/OEsMsSKxF2nMbAOns=;
+        b=h7jDIIKHDbwAJU/+rLgBlKd7MZbSjgSI1Al9rnYKD7Yk1+Eo/U/PcalKvg0hiCo55L
+         P919qWgeYHhUTFV7zKjK3i6tOoZ8PIQ9VnO1VbPPzSM0qUr+4lPoQmpM3OvBKEuj1qSX
+         wl+kYIZ4Q+rDehFY0h4XMPUxGhB6McliNkn6T/hcwrbwPXrJ5reTHx68UpF9NheNB5tB
+         haVNO1NKTLML/nh8jnfoURMF0PQB1kcIZ3j5aMP562Lm9UCCOXBz3UNcM/3i2HDCffQB
+         7Qiq5zBBxmYq7LdrBX4r/aLNaQRclterA05Q6Kmal1JoUOMKFL7bLnApornbOIQG7KpG
+         WS6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795461871; x=1796066671;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795461882; x=1796066682;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vA8R0uS/49ozRCw0mif7wQDKIClLA2ZTyz78JVx+Ing=;
-        b=SwBNLXV9NvijszB6972qI38Mb9nizkhQALfHAGgaBTMzQBBRBgakP3z1/1k/bkXA0D
-         U/is9i2CiHsgQCQGCYd4P+YuVn9SI7ZxFYX4vybTodZbmjCJdvdAOCWcTqqRgSdOQFWE
-         ajzAccPlNDBmQG45qMyTJHQRwn07JAWhcLcdB1m7OerfxKUKlwoaFSur4L9qMvac988V
-         qHzH5NFDH07sciLY8d6Ax1KnJWpw5ZSF/y2LQ/pJ/lAYKORsl934Hxc16F4Lynja2PUm
-         DZnlV5qzwB4rv562TeZkVlNIXtMU8AJeukdgE63NA5Ez9CunhBajTDW2yLTSUCDV4GLN
-         XNdg==
-X-Forwarded-Encrypted: i=1; AL+hErHNYUTs1ca/f38JJDg2npdmLIlnipYIhPpp/iQORooqEo4FzRKWLiAr9eIscCwj+NjmYodyKmgTXyJEB0g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8D/TzR9RwvAwSH6tm4Jq2Bkp81nlwS/0orxXE8Eq5Aw7Gphko+
-	t/kQmxsxVPQ9K797MuvzyOAFUuXhJlYwqslEcBLBjuB8b3rHpyCpOSq0aJCILWFo9eu6/xV8/Xq
-	p4g4cY8X3VCpMZR+VKpyqJngdvL4Xx90rjRt6GkTt3yF9e33Dx3IDEYLZfTShSfAfiQs=
-X-Gm-Gg: AZFdTZeIoGJ9fcakvX6/oW3bg1qqjHGgNqJgpSaUr7lQgOJLUaU9u4/YxFluFN77Lob
-	JvfIL2s8P1hHE/VWOCRMC0vAd8ntTKq8FNgmbEArMn00wmxLxrRHX2AQP7Af8zKbpWGrbJOJ7eM
-	gWsBpMbCeb0RYSgtb0ozF7z789eCRWvpK2Xc/j052lz6BYnmuSgrVPZVzMay+rwfZD4vWzT81X+
-	gWZSZFUunAaNwVyVFbuQAsB0O7Hi7OgmAUotQ8tZzs7L2wDnJrk6oXR+G5MDE32TArV8il2Lx6/
-	ZjB8v62aRt7mDECTVM3VGMSOGVqdPaEJvDrFaA5xJIZ3cvmoD+cj495/AdyEBo7rP3X05oleJdF
-	+FonVs+eyrk7meWsbbBqSWAUo6XTlqte0OmiZYaZYCvkkNlF3qPTriXWwJWF5Pvz4
-X-Received: by 2002:a05:620a:4446:b0:949:70f1:de2f with SMTP id af79cd13be357-949ba8260f2mr2024793985a.8.1795461871359;
-        Mon, 23 Nov 2026 11:24:31 -0800 (PST)
-X-Received: by 2002:a05:620a:4446:b0:949:70f1:de2f with SMTP id af79cd13be357-949ba8260f2mr2024787885a.8.1795461870742;
-        Mon, 23 Nov 2026 11:24:30 -0800 (PST)
-Received: from oss.qualcomm.com ([188.27.161.77])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm436327465e9.14.2026.11.23.11.24.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 11:24:30 -0800 (PST)
-Date: Mon, 23 Nov 2026 21:24:29 +0200
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-        Manivannan Sadhasivam <mani@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH] phy: qualcomm: Allow compile testing a few SATA and
- UNIPHY 28LP drivers
-Message-ID: <uxutqaemdcgfatu5n6ckqhhwp33fzotz3pv2volcgywbzifrfx@zfo67vkasbkz>
-References: <20261123190541.262138-2-krzysztof.kozlowski@oss.qualcomm.com>
+        bh=mu3NpxL0VDL/oCB28gOtk5lf+/OEsMsSKxF2nMbAOns=;
+        b=cPOQ74sZM6dxtK0pmm0ZFuPNkHm7OuyuXRO541ycu19NILtbiR5c9ZUEXuPe4cUxZs
+         JJneCmVpUBm2GGAnNYc/E3a6DmPGsWdORGU9HBS4RYcqg5sbRvemdajIzHm7OQvT3vJv
+         bZ/h8ZzHtEVZ37t+KwAVTfMeHTucjEl7ufkqOFAYjnQG3pbQk0Mg236k54ZYTMstffOL
+         tzp+mTygmbNxItPWwwkghbsQlDjVlg+eqSMziXCVvJLmJZIvgfkfUkriafzPnvKdwg+2
+         EEjqVe2eEOL8wQzYA+ghwOsecJATxh5MoWN4Q0WVZ9okQzQnFiP1QmmGcSmI1z/S9fvd
+         lotw==
+X-Forwarded-Encrypted: i=1; AL+hErGgzwYMwYWu0o1EbcDRsGPAVxzmHSnc1MIS9WYMgIVMaXA5Qc+y0E8q2WtcJOqoGIdzbK6Tvwvu0QCc+C4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8A2BryENoKIY2MM5L+APG2qW36OtPbr3VlqZs45I7BpjLYW83j
+	tL3mycI122xn25Ly3B+JfSqTbtUgNU2NGCfxcZDE0/7G3sRRXOb0yeSFw6ws9fAu2BaosURzoCN
+	Adp+8VAkFzb5nSA9Ynnsvch1KIa98hcQ=
+X-Gm-Gg: AZFdTZe9z3Fk51BUNSM3XkQEHHaNLwcnRHC/mVHWI3SORWVZ0L0gV6xUok1GHWRCkHr
+	ca8HvnJHqHDBbsyGKuvUSQ72x5nbEICYr8cwGb+zUTC1lbM4rdRmwnS5KTXI+32eGue2n5BLPs/
+	2cOaT7uxm2u3hNaNjwWX1LBKO2v9NtZ0aaWJHEYHnBX+J3rMEZUrq/hw0RUve2iWbUmKJcsG03+
+	8QdU0ya5Klrkt7Gz40cqaQ+97C8RJlB/6saO4yL+HLgA/jocGt6EquAmPPnoCeOxNGpSOtJD4DF
+	qEWeKX9RwAanJZ4c+OszULWFfBgSx+DPwYXhy5HN0PRxoaiLmg12p5p/a80Fut/5lSoMkyxE+AU
+	rgJqzayVYaDHpiMSS9oYe5KhQzFJOmMkNuq1OJtzT432491DBw3dZegyGsLny4E/67rx0y4K+Kg
+	OMs4QxzsA/WteECcTKPYEM3ZcWLledkQ==
+X-Received: by 2002:a05:693c:8641:20b0:383:50b7:1d78 with SMTP id
+ 5a478bee46e88-38571223ee7mr14067601eec.40.1795461881820; Mon, 23 Nov 2026
+ 11:24:41 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,45 +105,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123190541.262138-2-krzysztof.kozlowski@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA3NyBTYWx0ZWRfX0/35kDq8DrVf
- FPvbciF3G8445lK4ysh4SUwI79zdVRfofytv2YTy88L/Qka54IjUC0U2jgEbvmKFh8Xsi9j9JYG
- 1D5JNF7jAfpTIO/xHSmBlYGZtBmpjXnwxrz7ie6S17aazIFqz6z8jOWlni/CdUw0V5Jh1ijF+8G
- jYF2ZH/MQVWnvNwkneXIoKDKI74QZNp9wWf3PGKXv/fACd7fwA0lO+AUa4DSwJ+5WF96mvvZ/b0
- pVrjXGneD7+3cwsbGYV2RgDSPvsFnZdxqnv+LwxrAp2cuNJkB1go7OXz2D5vLgVSWEebC2OAOYe
- WY/BTAvkO8PWQmpJiXUpVqPbw68TnmiwSgn+9nHlfDiTTvHWAn+BXVyYqPY50Mp2kWhka8xBdgI
- QEcI3uif3FTc3MTackqXwUNgEREMAdlNWBThE18VE19vjfWf0eHzF0Vm8RjNO9Ai/L0DIITW6Vl
- rMYIeXzKyepXSIkO4rQ==
-X-Authority-Analysis: v=2.4 cv=AeIkjHXG c=1 sm=1 tr=0 ts=6b0492f0 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=asF+/XNaGoxFafzDDLC1GQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bASQEeq-Kk1eUeroIz8A:9 a=CjuIK1q_8ugA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-GUID: TUfu1rdGh0fTJavo9yZ88PEcBZVBJ8q5
-X-Proofpoint-ORIG-GUID: TUfu1rdGh0fTJavo9yZ88PEcBZVBJ8q5
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA3NyBTYWx0ZWRfX/+zdXcpW0OOS
- ETFCgQT95Ut56quf6tg96GPriobvkNnAfOvrObfaePuRZ8BfeIeS4JcvaJ505UWaKU/brrMFyXe
- KGpb0ro1gUb6e2U8NSYA5RvKDDzx58c=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 adultscore=0 clxscore=1015
- suspectscore=0 phishscore=0 impostorscore=0 malwarescore=0 bulkscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230077
+References: <20261123150725.212836-1-clamor95@gmail.com> <20261123150725.212836-4-clamor95@gmail.com>
+ <awSNc2piI26LgyAU@ashevche-desk.local>
+In-Reply-To: <awSNc2piI26LgyAU@ashevche-desk.local>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Mon, 23 Nov 2026 21:24:30 +0200
+X-Gm-Features: Aa3M54p9p3fpa_qpWITuz1CQVJO7lvIEsLxGf_QiAXXT24x-6L6prR2LGWA5Z2I
+Message-ID: <CAPVz0n2yBtFh-TJ13cH8WXtiyzR3tOrbhACyq8MThi_6+7DOYg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/4] iio: adc: Add support for MAX8907 ADC cell
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Lee Jones <lee@kernel.org>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-iio@vger.kernel.org, mfd@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 26-11-23 20:05:42, Krzysztof Kozlowski wrote:
-> There is nothing architecture specific relevant to building of
-> PHY_QCOM_APQ8064_SATA, PHY_QCOM_IPQ806X_SATA and
-> PHY_QCOM_UNIPHY_PCIE_28LP, so allow compile testing for increased build
-> coverage.
-> 
-> Cc: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+=D0=BF=D0=BD, 23 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 21:0=
+1 Andy Shevchenko <andriy.shevchenko@intel.com> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> On Mon, Nov 23, 2026 at 05:07:24PM +0200, Svyatoslav Ryhel wrote:
+> > The MAX8907 PMIC has a dedicated ADC cell, which provides 8 ADC channel=
+s
+> > with information about different parts of the power system, including t=
+he
+> > battery, charger/plug, jack and thermal readings.
+>
+> ...
+>
+> > +#define MAX8907_CHAN(_type, _idname, _datasheet_name) {              \
+> > +     .type =3D (_type),                                        \
+> > +     .address =3D MAX8907_REG_##_idname##_MSB |                \
+> > +                MAX8907_REG_##_idname##_MEASURE << 8,        \
+> > +     .indexed =3D 1,                                           \
+> > +     .channel =3D (_idname),                                   \
+> > +     .info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW) |          \
+> > +                           BIT(IIO_CHAN_INFO_SCALE),         \
+> > +     .scan_index =3D (_idname),                                \
+>
+> Using () means that you expect an expression as a possible input. In such
+> a case the macro is buggy as it will evaluate it twice for _idname. The
+> simple solution is to drop these parentheses and expect that this macro
+> won't ever be used with the expressions in the parameters.
+>
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+You have a point but current state should not cause issues as well.
+
+> > +     .scan_type =3D {                                          \
+> > +             .format =3D IIO_SCAN_FORMAT_UNSIGNED_INT,         \
+> > +             .realbits =3D 12,                                 \
+> > +             .storagebits =3D 16,                              \
+> > +             .endianness =3D IIO_CPU,                          \
+> > +     },                                                      \
+> > +     .datasheet_name =3D (_datasheet_name),                    \
+> > +}
+>
+> ...
+>
+> > +static int max8907_adc_read(struct iio_dev *indio_dev,
+> > +                         struct iio_chan_spec const *chan,
+> > +                         int *val, int *val2, long mask)
+> > +{
+> > +     struct regmap **regmap =3D iio_priv(indio_dev);
+>
+> Then logically better to go further and have
+>
+>         struct regmap *map =3D *regmap;
+>
+
+This is matter of taste, I was inspired by MAX77541 ADC which uses
+exactly this approach.
+
+> > +     __be16 data;
+> > +     int ret;
+> > +
+> > +     switch (mask) {
+> > +     case IIO_CHAN_INFO_RAW:
+> > +             ret =3D regmap_write(*regmap, MAX8907_TO_MEASURE(chan->ad=
+dress), 0);
+> > +             if (ret)
+> > +                     return ret;
+> > +
+> > +             ret =3D regmap_bulk_read(*regmap, MAX8907_TO_REG(chan->ad=
+dress), &data, sizeof(data));
+>
+> This is a bit too long.
+>
+
+101 char, yeah 1 char too long, though maybe it is not wort resending
+for a single char too long?
+
+>                 ret =3D regmap_bulk_read(map, MAX8907_TO_REG(chan->addres=
+s),
+>                                        &data, sizeof(data));
+>
+> > +             if (ret)
+> > +                     return ret;
+> > +
+> > +             *val =3D be16_to_cpu(data) >> 4;
+> > +
+> > +             return IIO_VAL_INT;
+> > +
+> > +     case IIO_CHAN_INFO_SCALE:
+> > +             *val =3D max8907_default_ref[chan->channel];
+> > +             *val2 =3D chan->scan_type.realbits;
+> > +
+> > +             return IIO_VAL_FRACTIONAL_LOG2;
+> > +
+> > +     default:
+> > +             return -EINVAL;
+> > +     }
+> > +}
+>
+> ...
+>
+> > +static int max8907_adc_init(struct regmap *regmap)
+>
+> Why not name it 'map'?
+>
+
+Because regmap is more explicit and is used consistently across the driver.
+
+> > +{
+> > +     u32 value;
+> > +     int ret;
+> > +
+> > +     /* Enable internal voltage reference. Exact purpose of bits is no=
+t known. */
+> > +     ret =3D regmap_update_bits(regmap, MAX8907_REG_TSC_CNFG1, GENMASK=
+(1, 0), BIT(1));
+>
+>         ret =3D regmap_update_bits(map, MAX8907_REG_TSC_CNFG1, GENMASK(1,=
+ 0), BIT(1));
+>
+
+which map? bitmap? statemap? or maybe geographical map?
+
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     /* Check for internal reference IRQ */
+>
+> Please, make style of one-line comments consistent ("all or none" are wit=
+h or
+> without period, same for the first letter =E2=80=94 capital or small).
+>
+
+First comment has 2 sentences, that is why it has periods. Second only
+one, so it does not need period.  "same for the first letter =E2=80=94 capi=
+tal
+or small" - have you even checked the patch?
+
+
+> > +     ret =3D regmap_read_poll_timeout(regmap, MAX8907_REG_TSC_STA_INT,=
+ value,
+> > +                                    !(value & MAX8907_MASK_NREF_OK), 1=
+0, 1000);
+>
+>         ret =3D regmap_read_poll_timeout(map, MAX8907_REG_TSC_STA_INT, va=
+lue,
+>                                        !(value & MAX8907_MASK_NREF_OK),
+>                                        10, 1 * USEC_PER_MSEC);
+>
+
+hmm, replace 1000 (4 chars, pretty readable) with USEC_PER_MSEC (12
+chars and twice wrapped line and needs tinkering or looking into
+units.h), I don't think so.
+
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     return regmap_update_bits(regmap, MAX8907_REG_ADC_SCHED,
+> > +                               MAX8907_ADC_SCHED_AUTOSCH_ENABLE |
+> > +                               MAX8907_ADC_SCHED_AUTOSCH_TIME,
+> > +                               MAX8907_ADC_SCHED_AUTOSCH_ENABLE);
+> > +}
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+
+I would like to hear what Jonathan has to say.
