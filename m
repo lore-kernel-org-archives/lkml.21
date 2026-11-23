@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436553;
-	b=JM/xzL5d4qkf0aKiI6Wi759Kewg7Kg3SdtlNJzNYPLUS4CVYUogEZT8xjdBL++2rGjD7
-	 HrfV0mXC+F/G7ROaQujnpGT1s6+NxqF06EFhjpECru80gkN3nHMKloRR2aeXAEmcfYhcT
-	 e/Wja04FaHFv88+tyYl3AMFg9XaGKEj6fBCm1Cf28d06VbxlSRx63cTCzQp7HII5Yfo8l
-	 iO4h3Vaz57vl7709oE/SFuThtMDOFw1zggwCCRyWvACbGRMf3DccywjR4d4fy2twzg3aq
-	 r7XOXXkzi2bg2kLZ+S2sSTETb2z/RsST/j5rRDafuSeaNX6F5MhQjOCU4+Fk3KW4zPQ==
+	t=1795436555;
+	b=mkQ+KLReQP148/kkJOxAL7aHEmWCxAE8TZdkNWNjR1L3CZVjrTjC5zCSrBdApibMZPl5
+	 togGSVJUJRszMSfEPMhElXjKwsfnnUzfEpI1ImwQ9Wqb8mD1nS7RRKZAz6Z9ZHdYrkwZA
+	 lcijBIixFgejudtSJwfe27kitjclcMFZez6HXQir44ZRWJMXTOdblvV2TXa8ADmitnW1p
+	 yZMYy4ayizqob2UEiba4ZDAWLRde4deRl/yRxAFc7wVktNXpa5IjI9+ogPEnsz1RcMIMB
+	 CfOlHv2uQ7TqNFRIwwQLv2rIDvvZWYTxBxZAibcmAQXWYvNEUxRqXSOTXgBnrhcVmag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436553;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436555;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=VkpezA87wsH4BygJMCDh1GwoGufvYHw4wQvZr1AYzhM=;
-	b=NM1LOQuXNTcoMpmInBN0ELdVlm5+s9HzU8Iu8icAM/HQcS9+qSwndjym0rgmhr8IozWD
-	 +wRGJnNsjhWhYq39o0XnxAlsl10dacWBV2HWfgDHfRNWyRYLnj9IgGUM1JJUlVrkLSovA
-	 cKK+uu6MmMdum4bUIdx07xBvYEarSX3xvUy9+yccv1gDVFphL/X0x0wdGWB//wI+RC1QZ
-	 WXShaBwQBcbFqyOPUrjqW7MukgWBmYlo3uOuv4oWz5dlhGasqvF4rM7oCG9N6u/ZLVcK2
-	 KvBXBfPv2sqcZlB8C1SvSuNo74JyY5Y0yFvRUlXDXwgFb6THwgAQQgW8J1NOYOn0T+A==
+	bh=AX461gI0Jcb9WgcGuMUkXzkqs9S5oOCBlxxBvQFHCBk=;
+	b=NXumEj1KVCf6Mi0a/6rdJCtchCwvu9UKKN/MhL5XJeZlTSJ6lgQcR0vSDPC7pGln7seU
+	 WYeKHeN064Y1TVVfnovaZyYiQkzQLSeBh2l3+BeD32v3UQJi4EADJBRD1WnoBv4RCJ2dn
+	 2NGvZbBK1wv9s7Er6AZC5YGMe5waIGi/ZkUanFnkcNxhQNVdatlppjaYv9Gbsw1V/hXyM
+	 tJO2OO2FBHvQPsjPOYLjv+wLmQIIkPxhZB5rjLafXqdHPpK0DU/I0d0FehfIJ9z1cnlwF
+	 gIwDn2a38lrhl7+IGx3KppW8HtDbJcLIYU8ykrNQ62zT+E2UgdMPzurXp2dX0OLCYlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="MDn/0Tl+";
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yyXxVDly;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B8A1606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:22:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B8A1606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B035606A330
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:22:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B035606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MDn/0Tl+
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-3282db206d3so9651053eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:22:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yyXxVDly
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38190551625so6695423eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:22:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795436552; x=1796041352; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795436555; x=1796041355; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VkpezA87wsH4BygJMCDh1GwoGufvYHw4wQvZr1AYzhM=;
-        b=MDn/0Tl+QhrKPmfA6s+IURtqGqSKqIqksYxNETc7n9ZBQXeGtUBDvFkW3Cao3J06NU
-         xLQLAzMpy7jBIx1FEKoaDJG9Rx+qU5HPW9Mb+rS/tv5h9DVYet0SO2Xdb6ZHMgOouVFr
-         DkFHxkBBu4ChAzoQ9A0j4E+76ajsRLe/ZA2ETqlGPqHKZQazKbuW61qaenEx+fAGY2Gu
-         l1kcLQTPq+0ZX/fo/RNapJJ45cd6XUmFE/vfFNvA5X3i0eEMntXfglgy+qpce7FkhD3T
-         HnKW8LbfFYUosN8YuIgTP9v7sD5ITMyKruSB4ZT5+HBQlzUJDrrFTypWHJBwkui+VXcv
-         Xjcg==
+        bh=AX461gI0Jcb9WgcGuMUkXzkqs9S5oOCBlxxBvQFHCBk=;
+        b=yyXxVDlyor0QS8GBfOVuci1BpsSMChtQ4oItTFM7iGWSHCcSxq5CrNHyX00vZ/2izP
+         WjkGu+vpvvLunL8ZWN4yy1ebZ61QQ/RZ2ADs6rngikagVBnnIKwuWx6iGcBly3rz7exw
+         dX4yUnPyiJUOaL4rP/8sBFMQfL5TFfGXTG9YyvuDekfk/wtfLjYO1fFKTp72RyeR3lzs
+         GAISo/8MJprymwhtMb14tJHFRjHdeF8ohdShjhuFRyY1fK94oWgtNWenbszV9azLtb8g
+         B43x/Y5CicuU7gRq3F/2qEJnZ56HGzZ32HGKG3Xm/srplkzV2E4+f3SjaPXR490zKGAD
+         cBiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436552; x=1796041352;
+        d=1e100.net; s=20260707; t=1795436555; x=1796041355;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VkpezA87wsH4BygJMCDh1GwoGufvYHw4wQvZr1AYzhM=;
-        b=H3vKSn1DEYXcJ4JTsDbjWVDg6CvSuXMieeZmAvfIb4/WrTMlItZjzCHyYjgERuTNqS
-         UTUh+4RPMDtGr4GHK3kB3PgQDAY5fKNi1K2SHYJkTvF7HP+nrHLeooqJiUqmFGOAl+fS
-         XW3urtPzPdaS1H4lVz2Vz/kV/PML9Zbt6EesDbmuhv0yLk3yyiVRlmiMeLLz1O+7Mr+n
-         kDp2EgyraaDLPxy0iWBifCtMhkdGROxAtCZPOvpITxp8JybTE2fJ8cWT/GzqhZNYWX7+
-         UFfigc4Fn8Y58ttZv/0fFBM5e1z72mK+Lnjdk6T6D282v2xQxAEf8v3H3tVR5aH/rsb0
-         rDvg==
-X-Forwarded-Encrypted: i=1; AL+hErHNfHyE4U8hDyh2woI7vGvULRed/8UHzLAfiDF2xBEoPXh0ralA1H5mUXNERpH2fbyRKKHw9TFWNaH8m2s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8NoA/xytXj5T2srTbW2mpuWEU4nIapd+zh4BsRZ5vUrBUKHgXF
-	DfGpIa2UzSrVE9ybWM752YQ1k2oNlecZ3abgqOtAFfeqAjvWE3Fw+p2Q
-X-Gm-Gg: AZFdTZeUMqrf2tbKn8ULkv/pJZL5mAQrKfpcYuk+OhEwGzTHdBiocmPRulai+fbKltH
-	StaqvkR4fkb2+PGdlxlvTevWd8oogdjUkTrJ4Rvjeq/thJuITkOGGnQ1EDIIYEcMPRV5CIp6EW9
-	FSF2UjPClk5x92ZSiHEJuURpzPP8wlihBq70xlEwkIRp8pUufb78axLWPY0oS6GKfD5y6Xd7y8J
-	tzMsQdBrbN9dxTHJswSZ+gn14q8XQjkXb6CXb4zv+1KR0U3sfSF+ug+tpGKnQRY5ONnB0HjMjSW
-	Jg+JwkgmgwB6Zq3x49ib5Lf0zEwXJixMH1GaNLHdZ055pdaKrG7pg2SsVF0hvoTrgqXLUepLMpe
-	Up79Yirepth3DCDcObF0cyrTcJNfngDWG+BkZytRgnGukzi/tZYK8AfWQa7Cm/wlleC/wyGbzit
-	bSI+Mv3S0nkxm4dRgWRLlWPwPNyQo5tdmAJB0T1aa+p/tc037NXGf1KhRaw/7FVkmfBSRsKgZa2
-	YfIskED7tcrw3Y2qZqTuQ1gXo/jV+pRjHo0whMUOKXPhiAiojvixmfw2BEteuxVXKiPeS/rrcUB
-	DKklwiEisGVCZ/BC2kwO
-X-Received: by 2002:a05:693c:8083:b0:377:678:2309 with SMTP id 5a478bee46e88-3856ef47a98mr12431705eec.15.1795436552292;
-        Mon, 23 Nov 2026 04:22:32 -0800 (PST)
+        bh=AX461gI0Jcb9WgcGuMUkXzkqs9S5oOCBlxxBvQFHCBk=;
+        b=T9tt2s89X1384vnhC/hVPfO1yo7YzpiHB7vo2F1jg9pnZtMG6+vjHTwdBgS3rNCLZ/
+         Y0vLTHJm/QFc/jUzwGWRy2hTMNhhq5C/64OodJ2cIyjMWzCByc2pK12AvjbSdmNufPNM
+         8B6bKhpYf4IHhowrjXpSbP3IijllLF2fDVUMey6g1I2nDLCfhkyHpx6EJ/V8bJLexPJF
+         SXh0gTLtHbC/Pef5fzpuzzzVXt+FRasgzlNGN3f3cEjRgVqPdGsafUXHm4BXd2orwA76
+         +gVVv8/HIveDiFDQqpUaPJV6cHbUis5GmG4Tf6ogZxhfDxmz3ZVWRtfHI1Qa5RVyZq/V
+         NFuQ==
+X-Forwarded-Encrypted: i=1; AL+hErHfMyKc++T0aKm3T+S8P5o+S3x62f4B5+Z2Tmr2cQ1/uzpYFk1hBj/4zaPQad6T0VoC6tC17HXCtwQLOuM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9U6Xs+CANeM6knUmHLEpecr2nDUWyoES+cesJRBfu1Am4yM7B1
+	ge4OYPJ1/UrbG/7Lj52HUqcbbYCRFIf3hOHL/o8STCuQ2UzquKF4ESub
+X-Gm-Gg: AZFdTZfRY7e5pp5dFyL6hbEF98Rz39HlDKMv4sAJcImfGBoUczlVFBnmVQmmjByohYf
+	AgKyEXXm3VS9/zcLxm5Tlqte/CauXTDctu2eky/ARzYJrltzulnFOLzUUmVV3v88mTG27v9ozgO
+	YfgJqtSQPUzSkge4tFsyEiV4Kir/BY+OmG+FDrTlF+ybl98xmSssdmH0uGRg9m9UJJhx55ucqnH
+	xOFfVncR4eoPYXzQ29zhTi563HI2PHkCYh753OwjOnNrZMVDQsN719q+N/SMCFanId5sxEHLiri
+	VpUiV5bVPJiOry1I4hjdjkVu5I+5Z4PulY2eEbXywa/1HXDlLCcIMuv1/EitnmWpriz5a2WZewX
+	Jya3Pig3ljMwTTBRyPqdAUXh7YbG5Duj/ipdQ0PmkXfLjdLzlLkHhEr3WsTPaWMHQd81n7TPCJ5
+	lQE2TQqanaMI7s8WW828PuVH3YPxRC9Tcx1pJRtfW8jJmUMaoAFVhOAdSs4hNQGqZrOElLDMASk
+	McpM7vEZXpiB7CGT4kuAC1WW+dQc4QxHU/3IFabOW1ht3JqcUxvPDiivHwR9gF7VXRUdyOFtsIS
+	RCrbjGRGWCoOKiPBTiGk
+X-Received: by 2002:a05:693c:42cb:b0:386:b621:d8ec with SMTP id 5a478bee46e88-386b621dc16mr1579202eec.19.1795436554617;
+        Mon, 23 Nov 2026 04:22:34 -0800 (PST)
 Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm25173398eec.1.2026.11.23.04.22.30
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm25173398eec.1.2026.11.23.04.22.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:22:31 -0800 (PST)
+        Mon, 23 Nov 2026 04:22:34 -0800 (PST)
 From: TAKANO Mitsuhiro <takano32@gmail.com>
 To: amd-gfx@lists.freedesktop.org,
 	Harry Wentland <harry.wentland@amd.com>,
@@ -92,9 +92,9 @@ Cc: Rodrigo Siqueira <siqueira@igalia.com>,
 	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH v2 1/2] drm/amd/display: Document the union in dc_probe_status
-Date: Mon, 23 Nov 2026 12:22:25 +0000
-Message-ID: <20261123122226.4101191-2-takano32@gmail.com>
+Subject: [PATCH v2 2/2] drm/amd/display: Document max_gamut_remap_coeff
+Date: Mon, 23 Nov 2026 12:22:26 +0000
+Message-ID: <20261123122226.4101191-3-takano32@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261123122226.4101191-1-takano32@gmail.com>
 References: <20261123122226.4101191-1-takano32@gmail.com>
@@ -109,17 +109,18 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The members of the union in dc_probe_status are described one by one as
-@u.bandwidth_mbps and so on, but the union itself has no description, so
 kernel-doc reports:
 
-  dc.h:2225 struct member 'u' not described in
-  'dc_probe_status'
+  dc.h:329 struct member 'max_gamut_remap_coeff' not described in
+  'mpc_color_caps'
 
-Describe it, saying that the member holding the result depends on the
-probe type.
+The 17 resource files that set dc->caps.color.mpc.gamut_remap to 1 also
+set the member to dc_fixpt_from_fraction(S3D12_MAX, DIVIDER); the other
+ten leave it at zero, and the comment of mpc_color_caps does not mention
+it.  Describe it.
 
-Fixes: 52771a3254ea ("drm/amd/display: Wire probe commit path into dc_update_state")
+Fixes: 1c5e6cd8291f ("drm/amd/display: adjust floating point format for gamut remap when needed")
+Link: https://lore.kernel.org/all/ec4d7cff-d23a-46d1-b245-921f442b9a7b@redhat.com/
 Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
 ---
 v2: the AI disclosure moved out of the commit message, as Weijie Yuan
@@ -132,17 +133,17 @@ on the file before and after the change.
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/gpu/drm/amd/display/dc/dc.h b/drivers/gpu/drm/amd/display/dc/dc.h
-index d3c484f45333..debdd69bbe4e 100644
+index debdd69bbe4e..32bf87fed40d 100644
 --- a/drivers/gpu/drm/amd/display/dc/dc.h
 +++ b/drivers/gpu/drm/amd/display/dc/dc.h
-@@ -2207,6 +2207,7 @@ struct dc_probe_latencies {
-  * @valid: true if a measurement was latched.
-  * @measuring: true if the hardware counter is currently running.
-  * @type: type of the probe that produced this result.
-+ * @u: probe result; the member holding it depends on @type.
-  * @u.bandwidth_mbps:         peak BW in Mbps (DC_PROBE_PEAK_MEM_BW).
-  * @u.latency:                min/max/avg memory latency in ns (DC_PROBE_MEM_LATENCY),
-  *                            stored as struct dc_probe_latencies.
+@@ -314,6 +314,7 @@ struct lut3d_caps {
+  * @mcm_3d_lut_caps: HW support cap for MCM LUT memory
+  * @rmcm_3d_lut_caps: HW support cap for RMCM LUT memory
+  * @preblend: whether color manager supports preblend with MPC
++ * @max_gamut_remap_coeff: largest gamut remap coefficient the MPC supports
+  */
+ struct mpc_color_caps {
+ 	uint16_t gamut_remap : 1;
 -- 
 2.53.0
 
