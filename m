@@ -1,75 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454175;
-	b=J1VugTiPYMhBeQ/N69+EdBbefd8gFGuKCK3qMNsAYeQL6YBaUD7CmGnbIa/nPJS2AsOm
-	 LgoUdMpRn354oo1XBAW0NWp1WfbqEY4RDzDw5goFz49wthR3IIphn6mOkJjHq8YbEkZZ7
-	 jdwnVNyTDyu5CM4+281mzj5a+IWZ0gwtHP+xIj4fymi9BeyNiDys5g9M+OOXfQIya4xpP
-	 HQ3pDT3EW+V4QChSvZ+eoyqAcGA3SC27Ek8WPYro2G5qn99udr6d0kgeKAP38lo8PBXdq
-	 QE7XQJSNIBX2UEQtMlAC3gbyoR8pGdMBtNRZGrafQcnn2jhR0/aadrehFcNVjD+ymJg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454175;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dnt2GtHzfP5h866vP0cRtDl18L844ZAZum/+U48ESm4=;
-	b=5mf2R64b034Kc24Egdkxwtd4fbuAiyehUWuB4YhPCCtCCTGnRXduJVvP1BXbJW5TQV/N
-	 dVRbytXpuVQP9Oy5BMRW3+DrALeM3Tl70AQxV5gjXCOyAC2AvGnm+9eVZJmPiavSDxpOP
-	 10bR4KXgRoLfXfC/X60OLu6ZOWkW3I1qBrQiwvVm3BLYg6+cibGA1v9ROraW/IakX35kW
-	 F0V9IoCnC8U+2mTBNOE+o86smoULr/AG+LkX/I0UvIPd8HQBDiXh0gnn9CjC6utczISHt
-	 /CI2y7sTJOny5YTEZDKXVAj7dCLsBX+n4C+l9/jXe0kf9UpFGENO62cQGMgzjOPlPKw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vcQIYCkg;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CE30F606A33B;
-	Mon, 23 Nov 2026 17:16:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE30F606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795454187;
+	b=EncPgVVVO5OxTRCLrE76lHZbS6aZ9aLJn092cW3/R4KJ+fknIa1zUYWRco3iBpVOls3V
+	 Nvs5E+8hR1rz71ecvMzx3i1OZO8wE8tolezE/6X+OwtIr468e13SvoftS88a+TdQ26vKh
+	 Wjo+Rzp1mtP++0q7fT6SPAoqzF4Bu7hQZzwpgY3y1lVMx7XdFghii61aEZD09t5JG8l+O
+	 +GgdIDLbo71N8GZuNKkiT93zniOiUAdJJcbww6KOQEL8lAPBE4zoF6SlqlV3nW6iKbwEI
+	 hBmK1t6Iyz23XKPBfKYu+wjKhvzIoHmf9eh99mj5GowJeZGROyjjXEkUtfTxq71Yu8A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454187;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=hTikqUPwqyc50FMehutzNCz2ncKuDk3/OGCI7AzQ28A=;
+	b=j8gNCGgKzV3rYONuqVjbX0dHkFSXheXO2S77h1UVA6pwVCjwaKU38YtNUxmmGrleFTNC
+	 +ADriYAWGtJverF0kyHPTRC/R3DhKoWjM00DPTsS04c4tCT7xOcFGTnMenUqdD00+SEME
+	 YGqo5MYpqrhyPfC9OlHT7UWffTkZlpATX9Iz7z8Wrv84F8NUBf5400uj6eN5TXxcSLUND
+	 ICiPqykCTeSgTJDEJ0O+lRYc7Cz16oIN2MYs0B2jE9tvyP97h7QzOAtQYyGjneR3mWQqE
+	 BI61QcBH5qDix/UMM74RhFFV7JMt65RYDeaBq2WHxfBPjD/mp70QKzltDG24LrB+8nA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ii0wnV2d;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4F7A606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4F7A606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vcQIYCkg
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4743819F6;
-	Mon, 23 Nov 2026 09:16:11 -0800 (PST)
-Received: from e137867.cambridge.arm.com (unknown [10.2.213.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7BABE3F86F;
-	Mon, 23 Nov 2026 09:16:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795454174; bh=OKpA5BGzsnvMNkmETrY5EVQga+MEy2xQO6CCLFEttso=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vcQIYCkgDxusqCN8hgHN6yqNXMxn0KtyUYXFr9Ob2sXYdpscTr0HybhfuF9sLu8Ud
-	 xboVdIOA0RmuwR2vaBmLJhWHvAKapg8h2SebzWv5T9hlr3b6kBl5e1huSjIlk5J2cB
-	 PZTKbUaPV9G2rs6z1CqSFFbJ70652hCWDw8+JYOQ=
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	Marc Zyngier <maz@kernel.org>,
-	Kiryl Shutsemau <kas@kernel.org>,
-	Breno Leitao <leitao@debian.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Doug Anderson <dianders@chromium.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Huth <thuth@redhat.com>,
-	Dawei Li <dawei.li@linux.dev>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	kernel-team@meta.com,
-	linux-kernel@vger.kernel.org,
-	Ada Couprie Diaz <ada.coupriediaz@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 3/3] arm64: head: set __entry_task along with task setup
-Date: Mon, 23 Nov 2026 17:15:57 +0000
-Message-ID: <20261123171557.140944-4-ada.coupriediaz@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123171557.140944-1-ada.coupriediaz@arm.com>
-References: <20261123171557.140944-1-ada.coupriediaz@arm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ii0wnV2d
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso32967405e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:16:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795454185; cv=none;
+        d=google.com; s=arc-20260327;
+        b=l53AH+RgsRdURvhyEAXU20OXxtuOJ1JZE6ZRV9SzTRIWoRLEbI9MFMpMG38RWVB5Nw
+         F1ddx0mcROnJKt5U2QUPmAsnuLzkCjUSo31T46vNSn/Nq3MoGhKoQHC5vwO7+2vxq0dV
+         98Xss2CwGtPpxvawVOBG0Qh/Y1VbzCTrei+lQNXVBckOgnKV+Z89ebDw8EEr6MB2aAVv
+         GJ+pqbZIClwnDbsN0phlK14k+U9O3yurmaj2e3Tw45imwHWH4HBd75autJ9SI965hqhJ
+         x0rvwgduVeE/WQeF/2O0WjbD0Drn1jKXKFTspTcddcD1l3vqvV3pz9zMFuIaEfqe0JKe
+         pAcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hTikqUPwqyc50FMehutzNCz2ncKuDk3/OGCI7AzQ28A=;
+        fh=mhSaH7Zezx+tc4mnOoYcmcNRHUpllyqOuYPPb25AaFg=;
+        b=lORnTRukYY7mIm5bH27uRRlLDN6K2R8KFsuzeXVK/mn/qG7YzSg3pq3dwHNqBF5Ekm
+         L4SKAC2MMiTz+GbOwB4zCFFfStpKm2Be2wwkbKcAyR2SZAnikSVQjdc5B+AXH+AAAWL0
+         hp2quHsxxftnKo7cWjhIPESsKFUmhtl4us/o6gBEYInO2NNTxy6DWirrwqItJZoBU/g8
+         Nyt6MeMzcFh3DNB4IPfyvfxBceSZexr82C1bA1tESSsx7KPZD9otNl9FxtMA0na/oVyK
+         TJ5bftnl0I01anEESohMM3QXZQgui6OJJNZELLwp3JSnnnVGCdDK08pFVika60v3fj6s
+         TCMw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795454185; x=1796058985; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hTikqUPwqyc50FMehutzNCz2ncKuDk3/OGCI7AzQ28A=;
+        b=ii0wnV2dqmf2mZYhQWL0lBHxXFaQUuH/rOZilo2bfBmEc8HsiUuRh/ruTHN3jOqPLL
+         1024hy96AGRZRcDPEv7+3FkI5W7POUZ/C8zXWXT1hlM6NclfNPwXcTPVY3sVJ0PHUTel
+         wQ89f+R4XhW12CbegBEZJtT7K7UHfJAtThid0/qa1JegAxFfbH0Cris29kg2dE8Rt2dr
+         tm3Izm/i9OtjPDzFIcOIdJ0ticgUy1mzQ8bYGywGS26nyTp9Wtvg8Br49goXRLkzianC
+         QgK2M8s4PYRZZM15bcttf1oIG/6SaOYRiU/6nWRdgdD6+2Dt85BxDkOCttQVyiZ/7dNm
+         JJIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795454185; x=1796058985;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hTikqUPwqyc50FMehutzNCz2ncKuDk3/OGCI7AzQ28A=;
+        b=KQp/qvFXk6UzZsURZGAYThK4c6ooZu3vE7hgWQB89/+NMPZ29HJSSxTzkcW6+b5Pp0
+         u6YjmqoZbpGkm8D2/8okO20/exERN/DTXytX/AKkgZGv4drd5bLuDXn6PUWaggjk4sDI
+         fI839/P4JZWKqa8dGj13wbByOFPYYyFgq6b8aCdZIbaTu7UWrxxZkXNn1tp6pE3dnWBS
+         VMZLEYB1UYWAvk6OCEegqz/HcrsFFOVdPmjfzqLOt1UU4p5UJ+8KqcUtXUErYkAvoTdr
+         9YdkVgmy8KsNYS77YarANM322gVXuAU7g7/X5FdvUME1cGGUy6Sn/ip/JZdg43mGxRJC
+         yHeg==
+X-Forwarded-Encrypted: i=1; AL+hErF++/ll2QbJs0V6KZ105oslBKK9LgbDThqdDkggHdRFpB9qnSYTPJPcBCwGKII6cR6xHIAubLB29levukE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/XiGJLSA1Cf9WafPYE9UYpS0KI5Tftt0AKg2LXa8vHvMX2fFfD
+	+33kjAQCa2TzchC0nOnye+a4IXbn1maHIqfPiuUJU/nhMMkARX/3ckUTtWw1PnuundqNu92ftia
+	Ari3LkqHNBSHNirP8vMPCrlqKUTZ55kw=
+X-Gm-Gg: AZFdTZcIxrcO+51YQN8OLgkjve+kTXbuC+RBBEcTWEoRGhPSjiV3lKSzZvMJ5mE8ooC
+	DEGZIndbIL0kQFVDFgow/A1s/7eM+4QIDwvNhefIzLYz5OIH0u83hrMsLagjwcR9ows9WWX+zhx
+	2KdvrqL0D0K8vXN/feZRU3t1sxNcjb1euWly6CaWowb/5kCYS+NrLWvbN96PDY2aJJoVefQ5o0U
+	p1wFBYGtEJn99TDFLV7XLj2tjiQOYk714P5zJBxgVaixY72gBo1Ei2fMY0njKNFUAnp9rleYYlW
+	5M1yZCuKFl6IGzvNklAmbobz0TK45Y84T1TSX/IbYmq7uEFCUO9htQwnBzxmnGZV9/iuDHpSRUO
+	nbardnYR9g5qj1sl7tQ8hdsPJURw3GOBT1Er+eCIkWVIArYrTkmH8G0+ifIambw7o4FFq1gq3Mk
+	eonn1ro7KZC+gYbCzd365cyHNLmZEb5OO4wUtV0QDxwcvMwTXNDTkq
+X-Received: by 2002:a05:600c:a085:b0:4a2:a9:ed87 with SMTP id
+ 5b1f17b1804b1-4bb88811c75mr272447135e9.19.1795454184841; Mon, 23 Nov 2026
+ 09:16:24 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,66 +105,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261123032512.6119-1-raizudeen.kerneldev@gmail.com>
+In-Reply-To: <20261123032512.6119-1-raizudeen.kerneldev@gmail.com>
+From: Nhat Pham <nphamcs@gmail.com>
+Date: Mon, 23 Nov 2026 10:16:13 -0700
+X-Gm-Features: Aa3M54rfVgjOdHlfCA_u99G7OPTAv0jJRAR-jRxCmNX7C5t-zjR2LD1E9wZP3bU
+Message-ID: <CAKEwX=M8m6iKXApiCLqQR3s6_dNvZG7MW-bUWGSvbqGkcQkzRQ@mail.gmail.com>
+Subject: Re: [PATCH] mm: zswap: remove dead length check in zswap_store_page()
+To: Mohamad Raizudeen <raizudeen.kerneldev@gmail.com>
+Cc: chengming.zhou@linux.dev, yosry@kernel.org, hannes@cmpxchg.org, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-`__entry_task` is only set after the first `switch_to()`, despite
-a proper task being set up in SP_EL0 as soon as CPUs go through
-`__{primary,secondary}_switched()`.
+On Sun, Nov 22, 2026 at 8:25=E2=80=AFPM Mohamad Raizudeen
+<raizudeen.kerneldev@gmail.com> wrote:
+>
+> zswap_compress() never succeeds with entry->length =3D=3D 0, so the
+> condition is always true. Remove it.
+>
+> Signed-off-by: Mohamad Raizudeen <raizudeen.kerneldev@gmail.com>
+> ---
+>  mm/zswap.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+>
+> diff --git a/mm/zswap.c b/mm/zswap.c
+> index ae19e301fced..9590f333d83f 100644
+> --- a/mm/zswap.c
+> +++ b/mm/zswap.c
+> @@ -1509,10 +1509,8 @@ static bool zswap_store_page(struct folio *folio, =
+long index,
+>         entry->swpentry =3D page_swpentry;
+>         entry->objcg =3D objcg;
+>         entry->referenced =3D true;
+> -       if (entry->length) {
+> -               INIT_LIST_HEAD(&entry->lru);
+> -               zswap_lru_add(entry);
+> -       }
+> +       INIT_LIST_HEAD(&entry->lru);
+> +       zswap_lru_add(entry);
 
-As SDEI can interrupt execution at any time, it can interrupt before
-the first `switch_to()`[0] and use a NULL `__entry_task`
-to set its current task.
-
-Set `__entry_task` as soon as we have a proper task set up in
-`init_cpu_task()` in case we get interrupted before switching threads.
-
-Remove the second paragraph of the comment on `__entry_task`, as it has
-been incorrect since the introduction of SDEI, and even more so
-with this change.
-
-[0]: This can only happen on secondary CPUs first brought online after
-     initial boot :
-     - all CPUs onlined at boot-time switch at least once
-       before drivers are probed ;
-     - hotplugged CPUs that booted once still have their `__entry_task`
-       in memory, so it would not be NULL.
-
-Fixes: f5df26961853 ("arm64: kernel: Add arch-specific SDEI entry code and CPU masking")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
----
- arch/arm64/kernel/head.S    | 3 +++
- arch/arm64/kernel/process.c | 3 ---
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index d6ba3c0af811..e53a9c6fec83 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -209,6 +209,9 @@ SYM_CODE_END(preserve_boot_args)
- 	ldr	w\tmp2, [\tsk, #TSK_TI_CPU]
- 	ldr	\tmp1, [\tmp1, \tmp2, lsl #3]
- 	set_this_cpu_offset \tmp1
-+
-+	adr_l	\tmp2, __entry_task
-+	str	\tsk, [\tmp2, \tmp1]
- 	.endm
- 
- /*
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 42b15b0c069f..c3d194676efc 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -584,9 +584,6 @@ static void ssbs_thread_switch(struct task_struct *next)
- /*
-  * We store our current task in sp_el0, which is clobbered by userspace. Keep a
-  * shadow copy so that we can restore this upon entry from userspace.
-- *
-- * This is *only* for exception entry from EL0, and is not valid until we
-- * __switch_to() a user task.
-  */
- DEFINE_PER_CPU(struct task_struct *, __entry_task);
- 
--- 
-2.43.0
-
+Acked-by: Nhat Pham <nphamcs@gmail.com>
