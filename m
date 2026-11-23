@@ -1,61 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420445;
-	b=ibgZElarEfGF2BRWCxRrxOx1fSnS6RKzNj/VCYt7kDzXkIBTQzEqPaJnYtIYmuQbcGzs
-	 z+iV+DLdD7HgudB8D2M2MmfFfgk3pv5SnaFyhzRgrg1GGN2GkS5Kcl3afihMcBvecp29y
-	 hhmH+g/yIx5Y2CMmMJJF3u84iSURdUgmJAwyAE14LsQ85nMlHDnTL8FtyBbHq703Bs/E3
-	 4YNoBzN00aS1uulRgsyGtreRTlBXu3o7xfuBGFfxc5Dgh6N5U71jGu8gZQwDzkunt1Agn
-	 LSY1YmKjmVxW+xiGBQ/yfHhbZ6HFFBG0Nz0RCP2T7klHtQZyH4L4WUtocCvLIu9796g==
+	t=1795420475;
+	b=AZ1YtX4MOs3xX2BKGaySB/DPNlILmADmaDUmBikBi1oIeYQ6O2/6gtRy1fs5Ezv26645
+	 B+2MOOrTYnAkr8qs5pl2NyFB5GDMFDonESZtNd8TsvSXoGW6kexHCRQOdhn9/3ujD9TkF
+	 NjG0sb3xpVwju4nf2iNFyFhlRU0rebBh7HyrZugUXGeShW6CEcnm20Wq4RvjCAyFSsesp
+	 gBSfO/FLzDHFYWaGphYYCQ2QjozOEcp2LxPSG4Gwhv8ZBQppmDPDZ1JPU9DnY2CitzQZZ
+	 UBajbNU0BNQuQntmXlHdhl9+YlEr/wwj7fH1SbZZLvsRnq0pelcDDa+rVY719iIYwDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420445;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=GIMtN/V4X8FovWXLH2Jxatj9BkNalymkGlz/XfQQXtg=;
-	b=i+8f+3pQ9IMC1mi/1/G+mc1B3iIV8RDmwigldSqMzfiz0EQ+kXOZC7aJCiu4cDuMMiRZ
-	 462rIQnwRpTMnnZRyHvqU3IdpeBvK5SW1lZRLYTIC8udy+ObYmkPmCdaZl5dFtyzgjbsI
-	 Kbl5qRIQHGtzaEu+5Y/PYlcHLN1L78OjDHfXhtVFxu4+lxauOj5x0y3cZTgDnZwrkKkXe
-	 nzxXZbg5cWt9qgGL0262Ueu0SABaVSUNlqiS9XSgc80dIojR2f0EJOzXeqtuuwozCHXZB
-	 imQB10/knWHgy0IIwKtDx4BK9NOv9a9gsxpPG1L+K5H6a+bmVr9umWusE4bvw0fauWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420475;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=+/KiLr1wIKGKGYDSudAYugppGPr4EtiHZsMpl0wxwyE=;
+	b=K5QIV2d3cTET5myu0cqqml+CkOFBJhFw7hNosOeS0YSoqSRqxVzhaq6s1aR6whznSFpu
+	 LInSS2cYj3dXHU9KgqM2vyPABeFnpv14bwEqOIj20G6RGo0HEWrKQjcsfYhcLOkFODZE8
+	 PPY2f7UjxckKg65jmaJed9ADnpcXVTSnqXXmQijzi8OjtDuVgYXyEot3rTEveUo6pVrAt
+	 gMTD2mpDL6IMxf68awFtTtMKdfyWhlWOt7+3akL7FX8T+DRiuxqTvAOuA0Z5cFNhAT+Jn
+	 q+ZBIrhOb6eQZZ9Gq0aImivj4a5Yacq2l9zGUOP/1Kxp5bz/abR7GgFv+KYj9HFC76Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b0pn8mk0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=l+eOP98p;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=DHJX2ElB;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 123CD606A31F;
-	Mon, 23 Nov 2026 07:54:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EA2B606A31A;
+	Mon, 23 Nov 2026 07:54:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EA2B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b0pn8mk0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B19841F000C0;
-	Mon, 23 Nov 2026 07:54:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795420444;
-	bh=GIMtN/V4X8FovWXLH2Jxatj9BkNalymkGlz/XfQQXtg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=b0pn8mk0uFIc/q3Id1+UdA2qRScX3yDUd+unk7T9M6P/joLxqIJQksIWEXPbg/3Br
-	 nmh8xdAh3XtFvK1iHkuK9FtguCaNu6yQf4O6JT3YYEon4w4TtMlOZwBxJ5YJPoQex0
-	 6qq63jC/iI8ztjwM57hmcPN9yTKgECuqvetmq/RI1sf7gKUDzjBExLjy40jfvlPsZN
-	 2niTifrxti9NielTUpRX95wh6pl2sWbMnPCUPJ/pSYyIiDQf+2ENk9PX/iyWB7b9OA
-	 LRwgFcSZ55Tk2qubRpQQwO3xBbBunEn0fBnF7QKFAYG6UYi7gKHwOR2C8/pqoWkc1o
-	 y2Gve1LaRDQNg==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Sai Masarapu <Sai.Masarapu@imgtec.com>,
-	Vladimir Zapolskiy <vladimir_zapolskiy@mentor.com>,
-	Naidu Tellapati <naidu.tellapati@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Andrew Bresticker <abrestic@chromium.org>,
-	linux-pwm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2 5/5] pwm: img: Unregister PWM chip before disabling runtime PM and clocks
-Date: Mon, 23 Nov 2026 07:52:55 +0000
-Message-ID: <20261123075320.379664-6-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123075320.379664-1-lee@kernel.org>
-References: <20261123075320.379664-1-lee@kernel.org>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=l+eOP98p;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=DHJX2ElB
+Date: Mon, 23 Nov 2026 08:54:30 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795420472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+/KiLr1wIKGKGYDSudAYugppGPr4EtiHZsMpl0wxwyE=;
+	b=l+eOP98p6gGBiHldkCRAXI0H3Eim96W3QLnk1HVA3s3egYgeV4XrK3bdEEMCI+eF+NJ8Nv
+	ktAwAthvJpvU2yV9BU+A26pTfDk1SIvkk54fF2jYwtudhTjsW3TXnvR8G4EypEzKavCKkJ
+	uiSjdR1Ir7ZmjNqaFtfNS/8MIX/huzAS3e2R7Ba64U1Zd+ANvG73sI0Of680qWwyqeNdOM
+	17Fo+DEusNb2/m34wcQrkEiPyqVHqWOkO6X/fnBHGYS0c6OT0wNYeFpGBtqpX6PNN0FzXN
+	CrzuSglTHEqm+1lcxj9WJ37NHZhzg+h6UbTmtdWTqpp9QA6hzeIO8RqIZCRCfg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795420472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+/KiLr1wIKGKGYDSudAYugppGPr4EtiHZsMpl0wxwyE=;
+	b=DHJX2ElBa6q6Vjhsw3hJLiGgXr/vsuQtGR/mXxuC/arSw1FCxE+Hz0TylbdQwjQFIs0ah+
+	cKNqG+fKy7w+g/BA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261123075430.z5pZwrvc@linutronix.de>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+ <20261120154457.GZ2668564@noisy.programming.kicks-ass.net>
+ <20261120154959.zw08JC0V@linutronix.de>
+ <20261120160140.GR2668804@noisy.programming.kicks-ass.net>
+ <20261120162604.GL2669272@noisy.programming.kicks-ass.net>
+ <20261120172831.5XwELZY5@linutronix.de>
+ <90ab8953-a2e8-432f-a338-ce216136e22d@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,56 +86,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <90ab8953-a2e8-432f-a338-ce216136e22d@huaweicloud.com>
 
-img_pwm_remove() disables runtime PM and gates the peripheral clocks via
-img_pwm_runtime_suspend() before calling pwmchip_remove().  While the
-PWM chip is still registered, a consumer can call img_pwm_apply(), where
-pm_runtime_resume_and_get() fails with -EACCES or img_pwm_disable()
-writes to unclocked registers after img_pwm_runtime_suspend() has gated
-the clocks.
+On 2026-11-23 09:17:28 [+0800], Tengda Wu wrote:
+> 
+> Sorry for the late reply. No AI involved, this was produced by running
+> syzkaller. I've turned it into C code.
 
-Call pwmchip_remove() before disabling runtime PM, clearing autosuspend,
-and suspending the device.  Because chip and its private data are
-allocated with devm_pwmchip_alloc(), driver data remains valid for any
-pending runtime PM callbacks invoked during pm_runtime_disable() and
-img_pwm_runtime_suspend() until devres teardown runs after
-img_pwm_remove() returns.
+Thank you for clarifying.
 
-Fixes: 277bb6a29e00 ("pwm: Imagination Technologies PWM DAC driver")
-Closes: https://sashiko.dev/#/bug/linux-b06bab8d-dbf2-4ba2-9f5d-c5e141076abd
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
+> Tengda
 
-v1 => v2:
- - Clear autosuspend in img_pwm_remove() and document why driver data
-   remains valid for runtime PM callbacks after pwmchip_remove() (Uwe)
-
- drivers/pwm/pwm-img.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/pwm/pwm-img.c b/drivers/pwm/pwm-img.c
-index 91e0b19f0c08..7bf086b127c2 100644
---- a/drivers/pwm/pwm-img.c
-+++ b/drivers/pwm/pwm-img.c
-@@ -338,11 +338,12 @@ static void img_pwm_remove(struct platform_device *pdev)
- {
- 	struct pwm_chip *chip = platform_get_drvdata(pdev);
- 
--	pm_runtime_disable(&pdev->dev);
--	if (!pm_runtime_status_suspended(&pdev->dev))
--		img_pwm_runtime_suspend(&pdev->dev);
--
- 	pwmchip_remove(chip);
-+
-+	pm_runtime_disable(&pdev->dev);
-+	pm_runtime_dont_use_autosuspend(&pdev->dev);
-+	if (!pm_runtime_status_suspended(&pdev->dev))
-+		img_pwm_runtime_suspend(&pdev->dev);
- }
- 
- #ifdef CONFIG_PM_SLEEP
--- 
-2.56.1.750.gf70dc682cf-goog
-
+Sebastian
