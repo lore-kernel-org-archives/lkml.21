@@ -1,113 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441932;
-	b=llpKLugNOve73gUsgGQdWEILPmXme3fMTG/CsvhBGMugciuMs/mdBaHWvw0pF1vBxVxb
-	 igrDeP+ARbLrib6KabBz+d0MbWfNojuiE86wKag7onHMtmzKNgW9hS1uYZp4niX5sa6EW
-	 EEI8MpjTqWZhBzV4gd3aK5wtqMiLCeT1NRLfMtx7C0aDtqUDK53iEF1gANWe+jouMxM7A
-	 8M5bZd0hI086gAbBsM//gU9nKZzjIJU6AMSKgnCb9dvORs3dELhTG+Z6iGpIolmeqji26
-	 ZtgLJfAfNukT+a8f32I7Qe2q2uecMzMdsLINLZ45IPFqkez3Og0Zhz3lciQYsJ6TyuA==
+	t=1795441933;
+	b=3CDeOBUIDlVOX7+PcT65GHqSmDDFiH6s880GD3c2W0iwqKw4XWR3xwZefMCM4xrua7W+
+	 lk4E75sTeFLBzKIJ2jtpDUCMzQ5bAqvVS7c951X9vqDAt97Z+nrHFHhFnCdokfzkL1iKk
+	 3L5e+8q0LAeU5muyUrJJ9+Aj5+YuPWtKDdr6x+yc0/7ZlIeIMFfNehbZMqw+8FvnmxBMm
+	 fHorojeLMR7mriDA7qaWgc7qaE2+i9j/8DeAb+q4TgQVvpko597BdF8wQh/m18qPJHEy1
+	 H7JPcnfvhhSXwZzXyZ4T5qgmCMnGtT3SHMSuFYBvhOhoO1SVDBZF0Xzp+ddD5lKg3Ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441932;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441933;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=t3XbpV7aE8lPEF3WjasnioB+LmUiUo8YbJQhUQP3FUk=;
-	b=QlGpp9M0mwdtSvjBpLRupVdzgXwUNpsmoCejI6sSba1RZlg/oPDufEFk0eoDTznFO7+n
-	 qGvlfpyVi2XrAk1tYR2+LWSHKLcdqkV8DSQgiAKGSOpNmMurFE4b6ZCHjsJjt6sEakpqA
-	 8uyFP+1DYKvDzkzGtKgqTyI6htvxX/nVl7u8ELtwQMqWGcjVGEOWnTY9v5LJQMFxWLLUI
-	 XYr3AmmynBOKTq5CUbvXSiTMVbtwBnZrltbRE8cr7ObDKa30MDaALemSWBD+WvXKfCxtI
-	 JI+n7F2sYN1y9zhZnhgxEmrp2Qu3qj3lZFIh4dfMyba5HWqTPYwtg6x6vg1fcb7kh9A==
+	bh=oof5GyuBDmv010ouXiTTCY9eig+vBXwDQWGLktoTn48=;
+	b=g4QWf2Lj1eVfDTVUIly1Xs9pW/VwtskUcXvBNMAuvNiYNSu1r8QK0vCLH3y5d+LWIRER
+	 qFKA4FSGvUB8jWDr7VRmSBMSg+jljxexarJuv37asl319hKfYLJl9YoEaOppdhQEbGc+k
+	 RFRSwGEQJgF2Ds29yq9Sa6lu4OPNCAkCJCGXdjd3BFlRhNzSjKuzo19QRC8X/W8qLRKrh
+	 HI/iT6TnGmu7YQRFWDjZWbRUjygeW663PolW1/TRFtb5soBqoUqRKT1pKIebanb9a+PMR
+	 CHIvpcOn2tjkmrMfZ8G+wwxF2JZfckQ+7NUTnPbGalKy6Q++QHO/zdmslEl67gf8wzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ionos.com;
-	spf=pass smtp.mailfrom=ionos.com;
-	dkim=pass header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b="RbfSu/x0";
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="YUGb/ntC";
+	arc=none smtp.remote-ip=209.85.216.51
+Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A36C606A687
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:52:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A36C606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ionos.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ionos.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86456606A6B2
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:52:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86456606A6B2
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b=RbfSu/x0
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso40560125e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:52:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YUGb/ntC
+Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b405d8f1cfso1572399a91.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:52:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ionos.com; s=google; t=1795441930; x=1796046730; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795441932; x=1796046732; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=t3XbpV7aE8lPEF3WjasnioB+LmUiUo8YbJQhUQP3FUk=;
-        b=RbfSu/x0bDwJHK4flElPnk1iqilrNXrIFmDpp8JSLeS0nOuRHwXBkrEGvEsHiyIjRT
-         N5hTJC5fNWPiCGSQpzNXqDsJa2II6qUe8scq0sApwJm71mSZaaTmYe5IDh9JexBg5ITm
-         /Ub5Ixyc1yGS9Q2VA0OZX4nVRTpExuGwOoAaQt6G+WGKh37/8XCxfKpzuevzTiNZKXCw
-         clWXXxtiTYnGfgPafZ4vX1bkHqewPW/LhO05hMUGQkiyWv6X0e7G4WHIzMORyNfLZ3x7
-         RuOz3Y4Vv0/02LPT9GRCshSaCMAQFQ3RFEHEGGkdx5zQ0yuhB/UpdekyELB5Z3TNsdb3
-         qldA==
+        bh=oof5GyuBDmv010ouXiTTCY9eig+vBXwDQWGLktoTn48=;
+        b=YUGb/ntC9+GMQEiaT2XdU9Z0SaeEFUkuUv7wtKOVp+KfOA/IwT0DSZIJDQsSrFwq7O
+         Abd1KK0YPgp4qXIQn1YD9Z1jz34yYkl2S/fKxyI6AnyUR65uC4fByalD7JXupeGV7gkS
+         TvlnN1VfKj/12MD9IxSiYBlYrtY4/Kmon7m9/gt+tDoDcv6qDPzqAcsCYQ1K5KuP4CIV
+         j9f9JkY6Us7HW7ZQnF4aOo4do+ogsoWAjK1Le3aCx6jzFdVQi/yp5ziECWACVxDxnM4J
+         K/bcudYyrI+dWoRjKe8vLOaUxNMf/2yVOZLsWKGLkBpSg2Tk9OpHWkUDUT1d88xEdzux
+         O28w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441930; x=1796046730;
+        d=1e100.net; s=20260707; t=1795441932; x=1796046732;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=t3XbpV7aE8lPEF3WjasnioB+LmUiUo8YbJQhUQP3FUk=;
-        b=09M1ZvhDEDTPI4gWYdMRKr2TXkFMcD+GKLlaSnNHo3i9SQBEpDi25B3PEWBDWlsn7l
-         yC/OJ+EOYSFXU4sjN6aSfa5HtvDOSeOAZvxXbzBU0R7FAUi263EUPV5gKaUxL1KEzoFR
-         4o94HPFs81h0A8Md6qx8ebwbUwV0FiMw8s/lkplF4NOhpnvc+7BrCowDFGtMs1gNUR1S
-         WmmJDTPzFeHQEbno4L1U4J0y0ZIx+N8Y9WuL8WqUNxQO3hPN74VVSKbiy2Icay4TZjBv
-         icQ8a8o6KBVJ4MmYP6GIDekuSpDHPVNxkDJDmgiop0XYlLgSPCaQxw1H1Z21trx60ZMy
-         9Abw==
-X-Forwarded-Encrypted: i=1; AL+hErG2+yaaPSisYvkkllvTKpZSy29wVfZTPb/xVDy5/S3AxqMXFJM0y0XS+7wz3MHfOE1ye683FzMsj+gal34=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6u1uk4hPqA4a8jdfer6GHVjknAOggAMm9BMQmzyX1Ti9StnUn
-	Yh/rWMnzXcDx0il+8JAxKsuq6xRHUoQZWa3t6k/YwhU2q002g5WaS7aCYv8LjZcggwU=
-X-Gm-Gg: AZFdTZcg7GDXHRaGu6tpno9Cd7/rXYrZMnqYDpvpfZy2E1sHR1h4KqwP7F+AsUZAcm/
-	OdN6k0WYvtRaPiwHPNTIDIYBHM5BepE5WAJeYFespRVjiKEMeZq9FXvBvbYaI7IG8mYNhG20ElX
-	bj3ZkgsygkSXrykzF18JLzqOX5KqiEm+HrCMMpH9Z+4pz3lhYHeqn30ILQ9oEmjN9/P5gbDAz3k
-	GdCv8AlnZLDfTqstNrU1u1N+fyAbtlMZWM00xlnDP+6ww6+2EP3cjXhvNrZQtbir4wPOexnV78f
-	I+gZwzqucp/g9vOnvb8o6AlYhT3/qBjgoEmLCGOkHnOW0aKJGdQUkg8nKK49UkfqLyEP86I08ag
-	6BPrWK13d/D5s50Ea4/Jvem/5oPYUJ106uR5ULXFMUE3ZzIJe5uXzfr7TctRw6dScen4eLGnSFo
-	tXut+zD1gq2ZKHPHRH+dQcrp/LSYTW4ImzSoeAMzXU4zPA0e6Lvgx3oM0SWpqEojqg2p+NZRzbo
-	uJQqRg1QnG2CRXVIQ6itrQIyGWa78CH4F6JyZroA09d2xJSf+iw+yT3kuebUIvksShogG2J1yYt
-	HSk0g77ylgOJAhyqm3/VsLMzaa5r1gjAvDMp/qDlQyK5Qn6VGjnIr83b/5PTp0daV6387XXRt8a
-	Y+cNfjEqM6dZjDg009rVTPBXUnNKmMcW+d53vSxW3/TEowsS/lmQ=
-X-Received: by 2002:a05:600c:64c7:b0:4bb:68c4:2044 with SMTP id 5b1f17b1804b1-4bb887fe725mr225665445e9.11.1795441929971;
-        Mon, 23 Nov 2026 05:52:09 -0800 (PST)
-Received: from raven.intern.cm-ag (p200300dc6f1b7800023064fffe740809.dip0.t-ipconnect.de. [2003:dc:6f1b:7800:230:64ff:fe74:809])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906817ccsm169279215e9.5.2026.11.23.05.52.08
+        bh=oof5GyuBDmv010ouXiTTCY9eig+vBXwDQWGLktoTn48=;
+        b=qKTSWOjUyR7baABuL4pf8tS9NUFU66yJujNwRGOYL1dNF5WaQAtn1UggSJPQkfBj6I
+         Vw55SPr43aCjfep30LA7M82BrrIou4T8G7/DkY2WlsQGQPHLjvsobDfu6o3v+pIwcv7v
+         RkjS9fcVtZPja0sHZ/J7lAOOf6hTYdIBuex2rdnq6AmozoaDpsnEffXeNN9FcYuT71Yv
+         8M1JTQuZjC9YpXgR6JIRSR4oS7NPMrzx8QQdjfb8fYskaZ9gEVt9cUJKqL6cJTOk24Sp
+         UyXB9U0Wsh5tT+nUHmTZnqOBv/JXgGhHuUoyO8cXDMRGfkvsnpZzDXK+ujEjR/cBbfPU
+         wCow==
+X-Forwarded-Encrypted: i=1; AL+hErGP88qh2Wti9BzLSIuyOlgamG/B3O00jcUK7fsXFfUV201kCiVQbN0GN8U9K1yY6k1uvOqOPqRftmxWnRE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qjHcCunakqMJS7/QoQXcPbpOCWH8jRG48qqj0gSDYt/7KHefj
+	xTY9o7liH+TkeXE0sMT0E3JHtsjv2McjMGH+6/+SIT7sUsw9MScD100+
+X-Gm-Gg: AZFdTZf1zeJ6+Ba30BuVg79wtVFIauu9GTuPlRyQN1R6xD6LV2QjPnFqEzQRUx+/KrM
+	p7c7xjoZEmyhuOLt96UtahHVSOD/Rtli+m6RedxzVj4bgtyDPYT4jxQhwnFLy4AdXRhGGYqDsQS
+	0OHxWJbZxeNklskpcVchmr+tf5Dwq0oxUPJfOsWJjWt8BRZ9cjYOuWgmXnhlFIV8krxHOSMa4xh
+	MM5op0bMVeElCRKTARpqx1Il4QVw/P1rj8MxFdaapValPLCdjaFEnEmJMk+O9LPKX94OgfJkBAf
+	vNWYaR4F+er6QfDNzVxPP6o1g4sLR/rYCFfuMnz4Om7z41bvMs5Tpo8rnPktJKKL4MIlDvuNnun
+	k8E4DXpN7Ik9L0rez76HopCd8jnBuNWnbu3x4oJYMPTUoPl3V2c7dv1UcWkGs1vGGy3iGATs4GU
+	CtUvMdpldhxglgwW2V6WFNlD7/0AXErZc28QGrgUXR70xhD8dyJ3b/KxgGILn/l3S0XUGDhA3yt
+	RAYLcXtbbzcjumBT511o9SpxpFUdUWhTRc+lHFY9d23QMV6lDEoku9kkpztubUj5BPi1wyefeQh
+	iS8RnIfx9y9F5aAFs8iMbn0gon85OjQziAc=
+X-Received: by 2002:a17:90b:4a47:b0:3b3:fc1f:a5c4 with SMTP id 98e67ed59e1d1-3b41c8dc821mr10570164a91.20.1795441931768;
+        Mon, 23 Nov 2026 05:52:11 -0800 (PST)
+Received: from pve-server.rlab ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ec698dsm20842512a91.14.2026.11.23.05.52.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:52:09 -0800 (PST)
-From: Max Kellermann <max.kellermann@ionos.com>
-To: akpm@linux-foundation.org,
-	kasong@tencent.com,
-	qi.zheng@linux.dev,
-	shakeel.butt@linux.dev,
-	baohua@kernel.org,
-	axelrasmussen@google.com,
-	yuanchu@google.com,
-	weixugc@google.com,
-	baoquan.he@linux.dev,
-	baolin.wang@linux.alibaba.com,
-	david@kernel.org,
-	ljs@kernel.org,
-	liam@infradead.org,
-	vbabka@kernel.org,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	hannes@cmpxchg.org,
-	linux-mm@kvack.org,
+        Mon, 23 Nov 2026 05:52:11 -0800 (PST)
+From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
 	linux-kernel@vger.kernel.org,
-	rcu@vger.kernel.org
-Cc: Max Kellermann <max.kellermann@ionos.com>
-Subject: [PATCH v4 5/5] mm/mglru: reschedule between memcg reclaim attempts
-Date: Mon, 23 Nov 2026 14:52:00 +0100
-Message-ID: <20261123135200.4086519-6-max.kellermann@ionos.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123135200.4086519-1-max.kellermann@ionos.com>
-References: <20261123135200.4086519-1-max.kellermann@ionos.com>
+	chleroy@kernel.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Mukesh Kumar Chaurasiya <mkchauras@gmail.com>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCHv3 1/4] powerpc/64: Leave lockdep hardirq context around replayed interrupts
+Date: Mon, 23 Nov 2026 19:21:50 +0530
+Message-Id: <57a5455331a768ffe7d66409ea228d31e9ec1edd.1795441238.git.ritesh.list@gmail.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <cover.1795441238.git.ritesh.list@gmail.com>
+References: <cover.1795441238.git.ritesh.list@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,52 +107,107 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-shrink_one() can return immediately for empty or protected memcgs, and
-try_to_shrink_lruvec() can break out before reaching its
-cond_resched().  A scan through many memcgs can repeatedly rotate
-entries without giving other runnable tasks a scheduling opportunity.
+With PROVE_LOCKING, boot warns once and lockdep turns itself off:
+  DEBUG_LOCKS_WARN_ON(lockdep_hardirq_context())
+  WARNING: kernel/locking/lockdep.c:4448 at lockdep_hardirqs_on_prepare+0x22c/0x2d4, CPU#0: swapper/0/0
+  CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.4.0-rc2-00027-g074831f06e18-dirty #123 PREEMPT
+  NIP:  c0000000002b2f2c LR: c0000000002b2f28 CTR: c000000002426f90
+  REGS: c000000004f075c0 TRAP: 0700   Not tainted  (7.4.0-rc2-00027-g074831f06e18-dirty)
+  MSR:  8000000002021033 <SF,VEC,ME,IR,DR,RI,LE>  CR: 48022221  XER: 20040000
+  NIP [c0000000002b2f2c] lockdep_hardirqs_on_prepare+0x22c/0x2d4
+  LR [c0000000002b2f28] lockdep_hardirqs_on_prepare+0x228/0x2d4
+  Call Trace:
+    lockdep_hardirqs_on_prepare+0x228/0x2d4 (unreliable)
+    trace_hardirqs_on+0x98/0x11c
+    irqentry_exit+0x64c/0x1064
+    timer_interrupt+0x274/0x6bc
+    __replay_soft_interrupts+0x158/0x380
+    arch_local_irq_restore+0x1cc/0x244
+    console_flush_one_record+0x438/0x654
+    console_unlock+0xb8/0x1e0
+    vprintk_emit+0x300/0x56c
+    vprintk+0x20/0x34
+    _printk+0x40/0x54
+    lockdep_init+0xdc/0x104
 
-Call cond_resched_tasks_rcu_qs() (as the existing shrink_lruvec() loop
-does) after shrink_one(), while the memcg reference still pins the
-cursor and before reacquiring the RCU read lock.  Also call it between
-bins and nulls-marker retries, covering scans that skip every entry.
+The warning is triggered because trace_hardirqs_on() gets called while
+lockdep's hardirq_context still says we are handling an interrupt. To
+fix that, we need to ensure lockdep's hardirq_context and
+hardirqs_enabled state stays consistent with powerpc's soft-masked
+interrupt replay code and the generic entry/exit code.
 
-Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
-Reviewed-by: Barry Song <baohua@kernel.org>
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+With the current change, this is how the new state machine looks like:
+                                       hardirq_context  hardirqs_enabled
+  arch_local_irq_restore()
+    trace_hardirqs_off()                     0             1 -> 0
+    irq_enter()                           0 -> 1           0          (softirqs held off)
+    __replay_soft_interrupts()
+      lockdep_hardirq_exit()              1 -> 0           0          patch: the loop is not a handler
+      timer_interrupt(&regs)
+        irq_enter_rcu()                   0 -> 1           0          handler starts
+        irq_exit_rcu()                    1 -> 0           0          handler done
+        irqentry_exit()
+          trace_hardirqs_on()                0             0 -> 1     legal: context is 0
+      next_interrupt()
+        trace_hardirqs_off()                 0             1 -> 0     still replaying: back to off
+      ...                                 same for each pending interrupt
+      lockdep_hardirq_enter()             0 -> 1           0          patch: restore for the caller
+    irq_exit()                            1 -> 0           0          softirqs may run now
+    trace_hardirqs_on()                      0             0 -> 1     IRQs really enabled
+
+Fixes: bee25f97ad24 ("powerpc: Enable GENERIC_ENTRY feature")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- mm/vmscan.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/powerpc/kernel/irq_64.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
 
-diff --git a/mm/vmscan.c b/mm/vmscan.c
-index b9715acf2f22..f8259de7f592 100644
---- a/mm/vmscan.c
-+++ b/mm/vmscan.c
-@@ -5403,6 +5403,9 @@ static void shrink_many(struct pglist_data *pgdat, struct scan_control *sc)
- 	gen = get_memcg_gen(READ_ONCE(pgdat->memcg_lru.seq));
- 	bin = first_bin = get_random_u32_below(MEMCG_NR_BINS);
- restart:
-+	/* Yield between bins/retries that contain only skipped entries. */
-+	cond_resched_tasks_rcu_qs();
+diff --git a/arch/powerpc/kernel/irq_64.c b/arch/powerpc/kernel/irq_64.c
+index d5c48d1b0a31..e2f1e5b7a3a7 100644
+--- a/arch/powerpc/kernel/irq_64.c
++++ b/arch/powerpc/kernel/irq_64.c
+@@ -76,13 +76,11 @@ static inline void next_interrupt(struct pt_regs *regs)
+ 	}
+
+ 	/*
+-	 * We are responding to the next interrupt, so interrupt-off
+-	 * latencies should be reset here.
++	 * We are responding to the next interrupt. The irqentry_exit() of the
++	 * replayed handler has traced hardirqs on, which also reset the
++	 * interrupt-off latencies. Trace them off again.
+ 	 */
+-	lockdep_hardirq_exit();
+-	trace_hardirqs_on();
+ 	trace_hardirqs_off();
+-	lockdep_hardirq_enter();
+ }
+
+ static inline bool irq_happened_test_and_clear(u8 irq)
+@@ -116,6 +114,15 @@ static __no_kcsan void __replay_soft_interrupts(void)
+ 	 */
+ 	local_paca->irq_happened |= PACA_IRQ_REPLAYING;
+
++	/*
++	 * The irq_enter() of our callers is there to hold off softirqs. Each
++	 * replayed handler enters and leaves the hardirq context itself and
++	 * returns through irqentry_exit(), which again traces hardirqs on.
++	 * Since lockdep only allows that outside of hardirq context, so leave
++	 * it for the duration of the replay.
++	 */
++	lockdep_hardirq_exit();
 +
- 	op = 0;
- 	memcg = NULL;
- 
-@@ -5433,6 +5436,14 @@ static void shrink_many(struct pglist_data *pgdat, struct scan_control *sc)
- 
- 		op = shrink_one(lruvec, sc);
- 
-+		/*
-+		 * Empty or protected memcgs can bypass the
-+		 * rescheduling points in page reclaim.  The memcg
-+		 * reference pins our cursor while we yield outside
-+		 * the RCU read-side critical section.
-+		 */
-+		cond_resched_tasks_rcu_qs();
+ 	ppc_save_regs(&regs);
+ 	regs.softe = IRQS_ENABLED;
+ 	regs.msr |= MSR_EE;
+@@ -168,6 +175,8 @@ static __no_kcsan void __replay_soft_interrupts(void)
+ 		next_interrupt(&regs);
+ 	}
+
++	lockdep_hardirq_enter();
 +
- 		rcu_read_lock();
- 
- 		if (should_abort_scan(lruvec, sc))
--- 
-2.53.0
+ 	local_paca->irq_happened &= ~PACA_IRQ_REPLAYING;
+ }
+
+--
+2.39.5
 
