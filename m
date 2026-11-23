@@ -1,89 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795469010;
-	b=Y7wN1AHU4b4G7SiRQ0Dn8FZvkDSK4UBwS/xgKy/Ya+Jg/32tJucmzuBPL0S9SVC8fK9+
-	 boxk98NShVvSWSZOUOSAHzOm5Wt2eqztZc8E7ltt31wiQ+eCS1X4bsH+jzTw1Y9oLuWID
-	 53N5fQlO6x/G9FirUitDq97HsEqmyhE5ZrTJHoUfoIdP2PGK4bnpUyBD9wZs+cRopd0Qj
-	 rULOG21pIv+YbKbwdpeFAqDvsQxBzGFE7fTb2tkzW21n3oA/SqknCQkguO5TWjGZ53n0R
-	 eg4+LzJLidF/GUWjcSSpCyDZTnARJHUCnYjHFB+mvUicKRbZu2tyvqWYOdgVTwt1HHA==
+	t=1795469022;
+	b=PN9uBj+Y59r95K7qMjuLxbtyLqoKzSzZ5c7aKbm0Wz7RCy+sH0gqo+VGIpM+sww9VVSa
+	 g9JUYBmh60rAoT9FGe9PkBQHqt/4ywmcmziU6lvc31F7wbaTn1vNvMhzg5hNZeTwNz19P
+	 AqUXZucKhtGjkrVTEuUp7mGnROiyouh0ismMZ9e0bzVYCIimV3bNXNWcGIZNdZiDJCzZx
+	 Y7dBu3rU5nk+hDkoO1QZqw0h3Qsj8RQaQPOFxnPKvXVrtGtPnL6Kq+/ym1oNpDRXRPis/
+	 qNtgq4NF74rVKq99TithC6n685mEd1gbO9OKhgXmYgP2VfX+Mx235b6f3PjV+UGC9Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795469010;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=QVIPG461oIfrGlgT39BuSMqYwlesz2HjWtAEDH4eZM8=;
-	b=O7e9alBqja+2XaAuFJT7i4T7JQrUOP7686cUx727o7LHeJhsvOWOj4aImXuI6woOP47r
-	 mvN6Oq5F82CEjqrUtYpGKAoKSh+xHPbA/mIDEwdTImnLuAFp/3TJ0lirEWyg2OMFlJumT
-	 D3ypD5gF4yEVrdM6koAn/3uZS3xTsg7EeTPjRIByk9wcq8gRBdLn5YqizTdup1eeK/f/o
-	 D0yAxc5npjKTVmdEzC8tNv4nAxmH14QYK2XOdHrytOGRIYdeuMEdYYmy7ld3VduOOfm7I
-	 ceC40li9j9Iu5kPq/pzRtVbe8tivbGA16CspKqVPSoos3/kdTgSoCC9ibet5P3aKcyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795469022;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=GFKS1M/ugygSth0KV1QCCg4c4RPGB7yY7RUQAx8Pqdc=;
+	b=r+pT4I+VNw4beo3vQqYlJF5BOBmZQzUkg6lCFW0vZ9b0e484xQp/N/NAYS96juoHui05
+	 r084AgP02xcX53kqHQs14lWpd/LfUrnljgWORQvqHnNIXyy9wZdwnHs9Cx1XWTwcZOHLe
+	 QmHSTQ63r0f1KofErEpU0n6cLjFStRD4BqhrFfQYX1BWOAYykqHm4pI6vHNzxSbTwU2gf
+	 iM9+IuvnYWMrxKKHA306LLY3ACT6zP6pT59KQqV9DQjIZg+zP/a0D44Cp6UmIP01bmblu
+	 RMkxN1PSFBGzVVJgxVVNpy4d/PLGDeTvVuiScBk9HipGGlCO6cPfwIBeeCKwouEKJsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=AvzgeGpS;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b89gdi9D;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2157606A31E;
-	Mon, 23 Nov 2026 21:23:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2157606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31A46606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:23:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=AvzgeGpS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795469008;
-	bh=qXsWzwhK9zcOB2dUhIS8bc94DISbCNVtGQbuPkQF+Nk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=AvzgeGpSfG57TZIkqGQiAm3tNLJj5Mf1vSRfrWQYE6gfwXCEPy8CDEnY2FZceYvtk
-	 WNcYewCiwo+MFT422mNBjHwEv4sH1HeCoPruVNbBgLAoAnzNXX/pmzQ8rmFPeY9dkj
-	 j/iG5sLeQ3TNYhnZ8Mtvz2FJUIjbPuhQYCsiJLv85bVMBAH4DDt+4pKChtsGdGB30h
-	 lYA35h1a+ePcA5l8rpHSB4InCNXK7QyFwPK03oS3aaWm6ofQSdEGtP0bHT8ngIXEon
-	 q/+MyFlsoxCAy2wOQiXJKz1On+ggrKJJfj5PCqveTxR8B7ZzwYvA+mbGYtnZixjA6e
-	 aSDhhesUr2qUQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5E17F17E02F2;
-	Mon, 23 Nov 2026 22:23:26 +0100 (CET)
-Message-ID: <4fc740ba49bcd5880d13b627fc16a7b8f119e0a0.camel@collabora.com>
-Subject: Re: [PATCH v2 3/3] media: verisilicon: leave room for the JPEG
- header and one stream burst
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: shomenkow@gmail.com, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil
-	 <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Ezequiel Garcia
-	 <ezequiel@vanguardiasur.com.ar>, Chen-Yu Tsai <wenst@chromium.org>, Hugues
- Fruchet <hugues.fruchet@foss.st.com>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Date: Mon, 23 Nov 2026 16:23:24 -0500
-In-Reply-To: <20261110-hantro-buflimit-v2-3-ff7790def9fc@gmail.com>
-References: <20261110-hantro-buflimit-v2-0-ff7790def9fc@gmail.com>
-	 <20261110-hantro-buflimit-v2-3-ff7790def9fc@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-GXXpYju9zHAOXYjKgWjd"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b89gdi9D
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A6481F000C4;
+	Mon, 23 Nov 2026 21:23:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795469021;
+	bh=GFKS1M/ugygSth0KV1QCCg4c4RPGB7yY7RUQAx8Pqdc=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=b89gdi9DouznMBe+ShzlOtiKgXgqNoFjhpKo5jKI7IEw6wTwCHIBXtebxKLh7blmT
+	 PCFxTw5HKujQOYfAIE6F+i38Jc/rHZZe+2+pWCRv1gCa+r+SfcfjJdevoRgZQ0v5IM
+	 c9FJTIphJFLJBT6HTYHLBsGN3X0pX0N6qSkPXCYL99zxAyVJlgn4VWnNgmZLhAmLA5
+	 Mc3st0l6/LiKvGhtTg1oLYgwV2QcaSiSZqDykWCZvSN+zqEpyA6zIR19qrpWvVaZVT
+	 fltciZtCP8kv9BPWLaxl7M842vgshfXpCll6XvOMPa2Im94bGnSkNbQUKWB7T9PleA
+	 5befu3CpkWeJQ==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id C4887198003A;
+	Mon, 23 Nov 2026 16:23:38 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 16:23:38 -0500
+X-ME-Sender: <xms:2K4Ea0SSde7BXSoM6ODRwD9RArJol7NOgv00R7Bt1jYYukxjRxRNRA>
+    <xme:2K4Ea8kyt9Mw3rSPUEcvE0uSz4u_nb9m7TBU26wyujiWQXVeWbYZ4YtEjr-h_IQ27
+    5fdGvAop2QeEsegZFOVeQ04alZQWZRsX6ZoGD0qHmMsgaIWNUznFquf>
+X-ME-Proxy-Cause: dmFkZTFInon+c5sIa6I1naIOJZlzN6rFeuvwKb3zVD+CP6sukxXXVdc4xoOYAJTOf3U4ZX
+    HitTXuaAwYPC3JUsPNSBwWNHDVNKNH2hfrnWxyTOALciBMUl/v24zohAjAtB6AvB/KcPe4
+    wtFwEZdbYYRn+nar04E46w6/ycWBsApcKhJRAGzOOripbpWwDM6dfxvXAJQjXp7Qc5WJDB
+    U1W0RbDoRP//cg7tpuvlcMgileqv9EG6rDxoKRm+6+9bL7kR61TJIt4rSgmYHFUXEtkEjP
+    1gBlsEE/QA09CI1ISO5TKIcL9RGMqQq6Zw6vugr0vuxZyhICjY3Npj0vlCWVwemZ1wQ4ml
+    U5/zdjlUrdvsDKWnIdEkcwSVwA1yuGz7UM3PFEYdUM0BCC0fztjVz2vWMr+XY0SDeU/DCm
+    9ZvSU/2fLyruVDr/5KcEKiPkTOqha3xHZAWT3n/OVoV1o6wdU+DoFEkjQJu5e+Hk8sH8lX
+    BVnE4CFxf+A1L2tAtx8UvsmZ1/5zqlEwvLyLygMicgdbp/aufndnA03xOIjvIL72SRKueu
+    uJFSl5SdORSFh0q20NWC8+fjo4Zl2Yvm6Iyu8pYZPgyffJ7EtQoBxfT5x3e1hCk6xQegfT
+    qD4j+d2nYHzTHwGsoqL6Ks+7IwNE3Dc8DrK1w2dSKbqaVNmBOidFJxEiukOQ
+X-ME-Proxy: <xmx:2q4Ea5G5Zd9fky5VJDa77IBnVw0oFgW3HpwUyfJnzKrQRQ5FREO5rw>
+    <xmx:2q4Ea7CUXmDw307bZ5kAtoMIwCladoHbXBdW4mP9DAtwRSVxGmHp-A>
+    <xmx:2q4Ea_BRCS4nptObegFBoFTZdzgZwJk0rc82DoY7RMB11IpSc8LkPA>
+    <xmx:2q4Ea5N2m0AHrQeTIkagCLA8eZ-o0MPxNh7lvVyjiiYafSSztAbBvQ>
+    <xmx:2q4EazPctL83sAJklw-MIz9I__KeAaLT92pjBAEvfAlNSZtHjNURbyUV>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 43F71F8008E; Mon, 23 Nov 2026 16:23:36 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,77 +77,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-GXXpYju9zHAOXYjKgWjd
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: AiuDo6z7Qkcc
+Date: Mon, 23 Nov 2026 22:23:16 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Nick Desaulniers" <ndesaulniers@google.com>,
+ "Ard Biesheuvel" <ardb+git@google.com>, "Bill Wendling" <morbo@google.com>
+Cc: linux-kernel@vger.kernel.org,
+ "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
+ "Peter Zijlstra" <peterz@infradead.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Will Deacon" <will@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
+ "Waiman Long" <longman@redhat.com>, "Nathan Chancellor" <nathan@kernel.org>,
+ "Justin Stitt" <justinstitt@google.com>, llvm@lists.linux.dev
+Message-Id: <73d50ff0-36db-4dcc-ad1e-c34bf3ebbce6@app.fastmail.com>
+In-Reply-To: 
+ <CAKwvOdkOjGkGajGMKtqcHpRSrpXC9UZrH9XPsiv5Rpcdte5tJQ@mail.gmail.com>
+References: <20261122105646.2223131-2-ardb+git@google.com>
+ <CAKwvOdkOjGkGajGMKtqcHpRSrpXC9UZrH9XPsiv5Rpcdte5tJQ@mail.gmail.com>
+Subject: Re: [PATCH] locking/local_lock: Don't evaluate the per-CPU lock pointer if
+ unused
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-Le mardi 10 novembre 2026 =C3=A0 15:41 +0300, Sergei Khomenkov via B4 Relay=
- a =C3=A9crit=C2=A0:
-> From: Sergei Khomenkov <shomenkow@gmail.com>
->=20
-> hantro_try_fmt() keeps any non-zero CAPTURE sizeimage of the JPEG
-> encoder, however small. The CPU writes the 624-byte header into the
-> plane, and on the RK3026 VEPU1 the encoder then writes at least one
-> 64-byte burst even with a stream limit of 0, so a smaller plane is
-> written past its end. A plane smaller than the header also makes the
-> WARN_ON() in hantro_h1_jpeg_enc_set_buffers() fire on every job.
->=20
-> Raise a smaller request to header_size + 64.
->=20
-> Found with an LLM coding assistant while porting mainline Linux to a
-> Rockchip RK3026 board; the assistant also drafted this change. Tested
-> on that board: a sizeimage of 1 or 600 now reads back 688, and frames
-> that do not fit a 688-byte plane stop exactly at its end. Not tested on
-> other SoCs.
 
-Move after --, and add Assisted-by: tag.
+On Mon, 23 Nov 2026, at 20:12, Nick Desaulniers wrote:
+> On Sun, Nov 22, 2026 at 2:56=E2=80=AFAM Ard Biesheuvel <ardb+git@googl=
+e.com> wrote:
+>>
+>> From: Ard Biesheuvel <ardb@kernel.org>
+>>
+>> When lock debugging is disabled, local_lock_acquire() and friends are
+>> empty, and so the per-CPU lock pointer that is passed to them, which =
+is
+>> usually computed using this_cpu_ptr(), is not used at all.
+>>
+>> However, on x86, when the compiler does not support named address spa=
+ces
+>> (i.e., Clang), this_cpu_ptr() is based on inline asm with a memory
+>
+> I had to look this one up ("named address spaces").
+>
+> https://gcc.gnu.org/onlinedocs/gcc/Named-Address-Spaces.html#x86-Named=
+-Address-Spaces
+>
+> So __seg_fs / __seg_gs ?
+>
+> CC_HAS_NAMED_AS : arch/x86/Kconfig#2331
+>
+> Weird, clang _does_ seem to support these, since clang-11 (clang-17 is
+> the current minimum supported default).
+> https://godbolt.org/z/cfhj8r69E
+>
+> commit 47ff30cc1be7 ("x86/percpu: Enable named address spaces for all
+> capable GCC versions")
+> added a
+>
+> depends on CC_IS_GCC
+>
+> What happens if you turn that off?
+>
+> Ah, a week after that commit was authored, the same author filed
+> https://github.com/llvm/llvm-project/issues/93449
+>
+> (currently assigned to Bill; Bill, can you PTAL?)
+>
+> They also filed
+> https://github.com/llvm/llvm-project/issues/93449
+>
+> https://github.com/llvm/llvm-project/issues/187893 looks like possible
+> a dup of one of the above.  Bill, can you please take a look at those
+> 3?
+>
+>> operand, and Clang does not discard such inline asm even if its result
+>> is unused. So the computation of the per-CPU address of the lock is
+>> emitted regardless, e.g., on every local_lock_nested_bh() in
+>> process_backlog() and on every local_lock() in the folio batching cod=
+e.
+>
+> I'm more so curious how you even noticed this problem? Was there a
+> thread? Were you looking at some assembler and wondering what was
+> going on here? Or was there another thread about this?
+>
 
->=20
-> Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
-> ---
->  drivers/media/platform/verisilicon/hantro_v4l2.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
->=20
-> diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/m=
-edia/platform/verisilicon/hantro_v4l2.c
-> index 83af9fa1ce94..6a6d27443a5e 100644
-> --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-> +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> @@ -394,6 +394,15 @@ static int hantro_try_fmt(const struct hantro_ctx *c=
-tx,
->  =09=09 */
->  =09=09pix_mp->plane_fmt[0].sizeimage =3D fmt->header_size +
->  =09=09=09pix_mp->width * pix_mp->height * fmt->max_depth;
-> +=09} else if (fmt->codec_mode =3D=3D HANTRO_MODE_JPEG_ENC) {
-> +=09=09/*
-> +=09=09 * Room for the header and one stream burst (64 bytes on the
-> +=09=09 * RK3026 VEPU1), which the encoder writes even with a stream
-> +=09=09 * limit of 0.
-> +=09=09 */
-> +=09=09pix_mp->plane_fmt[0].sizeimage =3D
-> +=09=09=09max_t(u32, pix_mp->plane_fmt[0].sizeimage,
-> +=09=09=09      fmt->header_size + 64);
+No it manifested in local testing of my fgkaslr implementation.
 
-hantro_v4l2 is generic, place the magic numbers in the variants.
+I'm doing some very detailed profiling to ensure it does not regress
+performance.
 
->  =09}
-> =20
->  =09return 0;
+> Very detailed commit message, but you kind of bury the lede here on
+> what the actual problem this patch is fixing *is*.
+>
 
---=-GXXpYju9zHAOXYjKgWjd
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Apologies. I'll trim it down,
 
------BEGIN PGP SIGNATURE-----
+The TL;DR is that non-volatile asm() statements with memory input
+operands are not elided by Clang if their output is never used.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawSuzAAKCRDZQZRRKWBy
-9DYBAQDCgXE5fTFdXAXHZOSEBSHB/laGe9BGvnk6D9+hz4Bi5AEA8+/dAfYesZCV
-A/5MqFlc0hlRBS1kr1RJQjUjauLTjAw=
-=IDgL
------END PGP SIGNATURE-----
-
---=-GXXpYju9zHAOXYjKgWjd--
