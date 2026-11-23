@@ -1,94 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795453332;
-	b=G1dtLhYrVUj1+ak/T6SVmWZJ1bqbeX1u2MreMAXrafKbsvFFNP0SVnc/P/BfI0nVi/Bl
-	 GnId0FsvRezNNFG8glm+TuTP/AYNTtoMDQhRtt901jhSCB6zOpCRrgBGVWDuRd4JXysxd
-	 vnqmr53ZcVfxfppUY5hN6N0hYiDUOG4oajwUucKzSv5iuTdWyGVuO1G0JbyaMftjHqR3Y
-	 5TcG1viAjSQxU4q0pyHJ0e8vQeOLxLzUeEh8z+SLMEGdGfhP4vUBzI+OlkXeKD0a0Kw4Q
-	 11RWDWtqg2+Jo3Qj4xqHwQzC7xYGtSnS1/F7w+O0afvqGhiY84HKC6DjN60527oDTug==
+	t=1795453360;
+	b=J4PwtJ3svkcnM8f1952Vu19lerSKjcDOmFHu8OkPA3WFJsHvrlaFvmGJYaYch6+Abt+y
+	 ZymjFij9IdKkXICF+EiPEvVMlyy8k2wV8v7EgqyMGb0+NYvLZrhPfJSTjZO6brzBApyoi
+	 WAVsJNzMZObZ2HG8CWTldJMlaBJJYu+S/kcre3qBrowdyuFw+LLkt+3If5qoBp7DiQZrU
+	 SegweXhJY1ezlZJlYyqenP2AlfyRhZp56ctj1UX46JsB+XOglXJy3aVLwK41gj/gMR3fT
+	 M55JWQ1jr+XgG0v1HI9dmwcqJnPZdTrASunwvo/s7oyLtVFmmThsuq58pGNuuyLO9eA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795453332;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=sajfz+VOzkFiN6Z4YSSWje5thArCDnqKYNZzEWbPt78=;
-	b=I+ytCfi0g+Nhl3nLQ68GJsRON7MlUVJSu0tpy3kJYJDLrLFexJbbQ3T4tORdrgDHJ7US
-	 wdyJV2Q/oft/EXVUO36y+D2XKdytv8sDfPhYrO3o/epOos0SV2UZuqPZDATfn3cuLAVql
-	 reKP/0h6C1BUMR7bvZVHsrdNTQtaJQ+vFvnhic4rDp1VjR+cPsBt7O8Z3HZMF7jsOUUaK
-	 NwdF7vpwLqK0LWDz1OGcBES27lufnsTi4GqIe+b8Fsyvf534wiPPPsuf8QboMaYuM7swE
-	 fkUCPy/NGcKOsqkGmNFmgo2cSKC6eZU4MfoU3qL2g/BWQcj4RzoWRDV1/pf3BldI+NA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795453360;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Zs6ODemD0A60MW9aPf1NQdG6KomEoEDS4UdX3N3dA0Y=;
+	b=CCxlcI6+ISJdE+VnHgMy6Xk91rs+ukP0qrDrfkxdh0d35j5ooWzHzBa62Oc9fzqb5we6
+	 V++jGHFSOIP22Y2Xzc+u6UrDD1i+6liKYnxzqPgZesocO2d80u70LPyXLtO+wOGkUjyEs
+	 lUKGqdEh2Ez9vvsEWc3ZxB12omKJh6UxaoBQLfvMbvG1IEKWRBAebgtDEYRdiPyoCoogC
+	 uXMmXr3jioI7EFp5y66KmkGTbOPTn+gP/oPJCvrFKvKt4HEw3li7mQj3xWYbqsCMYg5DF
+	 ejIxVI2XsNzXUmwNBMwEqLme1bJtLJrLV3kUeIHhzcLSMPsnVVdmUaj9ndH7qAKOOjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="fhKNW/tQ";
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AD91606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:02:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AD91606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hstLZrCp;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 255AC606A31E;
+	Mon, 23 Nov 2026 17:02:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 255AC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fhKNW/tQ
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b50a4bd2f3so5198739c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:02:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795453331; x=1796058131; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sajfz+VOzkFiN6Z4YSSWje5thArCDnqKYNZzEWbPt78=;
-        b=fhKNW/tQqtlD+agu91CE51WLKBw09Istmps93yqU4/EEuatbwkm/FfNqORb8WMoZZj
-         tSbAabc2t3LO5Z1RWXIG/wkOMJKhNMMm/LK9/1AXB0U/now30ZQuoAooNb5JnjGPTL+Y
-         8dCBBKUBwf3M1yCbQH+h5GRh1AO9I95rGyPSq0QcuBVTbYPIMX3TGOHY2ObnSoTgMmjQ
-         X7KxR/LGpNkSxwA0VKAw9UCQ+TshlfLRQ/EcdLkSem8jqK5G92b4m0qC3OJ2QfYiCvHK
-         F2pkvlXSbk38o0EGA5NmDOwSqlccCZ2onOAQaY+CPTQSkqZbFvu1YZCtRpMpC9OMNRbl
-         tkZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795453331; x=1796058131;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sajfz+VOzkFiN6Z4YSSWje5thArCDnqKYNZzEWbPt78=;
-        b=KW4wVKWX0NQJWugZGkI/1zoUZBqGJsyYX/mwAWEh2sACFIq5z99bBx5EtPzZHjXe16
-         mS0xSbbnXw3tWsDkLD8TlB2zXo3hvEQn+zbmcXRvMJfSHidRuQJE/fYeEd/5To6sldRo
-         JuFX8yGGqJ7CslQ/y5k4TTUx99Ij8DEkhzDhbrBBqJ6GjjXDVXPfsex2AzFqJqU5ZYLh
-         19St5VrwG9G/y7zLtgATUbzps6VlBS976NSqx38E+2BdKyot6Pe9g8WVV1cFh6Z9Xmwq
-         AP+yN/uvWfklYjX7e75EJE4fw9+XFfsGrdm8Y63c6OlWhvZlQVB7KS6a53ISQFw49sMV
-         DgSw==
-X-Forwarded-Encrypted: i=1; AL+hErEzLmUzu2h3B50SMagXISyK966vJ7Roc9VvxD7EpLdm5UryWaGDLdcDuvvGnMEqMCrmuieiesZhUPed5jU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+NqEXbbD+ctA4IUwLdt4QhRQLFMtEINr6t0M37dt+Ta5JAe0oY
-	obSKzwbRIdk2wxCDn+09Y+qIhWUBfJzSea/CVHuDTMFkVkT36VZY/sL4
-X-Gm-Gg: AZFdTZeob+yjvEMFsjiGQF8JcWMC/o0xlA5Ucd9a0EXpEPz2lZ9ctn4N/mjtrN9UNby
-	2k8OoliSiwpvtvnkkLdqSAcUZX/sTuC0fUZMbSUHl0rFYZVkDflbFj50Ycc7XvYgbKS7b0Z1Iol
-	/9psjjAGw42Ib7YcxDINCXsK6bTvZ60qIQtmHDbb7mfBMrrcPgZ+lhe/2TShqLZza+SCgzdQ3wt
-	35TuXRH2VkzkkzS9UWgJkxNu3XC9RSnSdH+g0ZxfdCFHXXzO9qnMH0thfJ/afmgEuqzM3hDm4LJ
-	dPD5vJU4fKRB4DGSaHprAq40m8mqSEkl2qSKk+phuMkNaOe1hIpwl3n9EfSbu0giQDScg9x6wZ/
-	dqMo3gfnd2llkSBhI5/jZKEFVSuusLI8/2jsmGXu603aXXnk7wUwUloo/V305QjUiHkkt831Yk8
-	5ynv5sFCUH+Zm5ziluaDqkOxZGYeLwXcVVjYyTbFTYCtBXCjF3w9PFkHDmkDSsVto4DSRMM2mjY
-	sNj8oUUUvWUIfq4pxofNy4k5sIyPraBvIOGUHY2Rw/cLDUmOhSyJyVQHwXugk/4lWN0THtSqMpJ
-	MAMff7nBnjDPJlbPmHEie2lnD+sAAVsf0qSdUvtfdGmv8hn+i4L4Q5APhHZInEuhQZ4tXqzqHBI
-	XEBE5wPXScS8acdFRy9UySJpZnXAhvsBY/uKQWoLXsPMO2IZs2HJ3y7iROlAC6u7MQXE5/liC8l
-	YMgmVsQk54KudvMlkkfdTcacFSQyyYTVdKMQ3Urw8+nlg=
-X-Received: by 2002:a05:7022:b902:b0:1a5:9abb:fdd7 with SMTP id a92af1059eb24-1b556877a2bmr11038677c88.9.1795453331420;
-        Mon, 23 Nov 2026 09:02:11 -0800 (PST)
-Received: from kapoor.iiserb.ac.in ([203.18.51.239])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm30163645c88.12.2026.11.23.09.02.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:02:10 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Takashi Iwai <tiwai@suse.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH] ALSA: hda: reject invalid values in the IEC958 switch put callbacks
-Date: Mon, 23 Nov 2026 22:32:01 +0530
-Message-ID: <20261123170203.243633-1-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hstLZrCp
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65127143D;
+	Mon, 23 Nov 2026 09:02:35 -0800 (PST)
+Received: from [10.57.69.138] (unknown [10.57.69.138])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2038A3F632;
+	Mon, 23 Nov 2026 09:02:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795453358; bh=6og8JjoteR1OR9XmbXU7Qe5NkDb+Li/Uj9lHNxClAAk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hstLZrCpD0pFFB1FhcOgXTeMLO88zumcdAk2AtDxhmt4G9BIsX/AugvmgM7JTBdwj
+	 UU+e9lurTsWqUjV8TgO6oI9iNXKHdZpFmN+rzwsn30XHnP2ghNpi79qECvJ9aMvKFx
+	 r5C6rN9lcGXUipJgTQU5pSA2BtoDcjPk+oLhKllA=
+Message-ID: <e06ebd54-d41d-4cec-8f1d-cce8339297a4@arm.com>
+Date: Mon, 23 Nov 2026 18:02:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,73 +53,493 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: dts: allwinner: add Radxa Cubie A7Z board
+To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org
+Cc: enzo.adriano.code@gmail.com, mripard@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261111134919.90264-1-vinicius.eduardo.pedrosa@gmail.com>
+ <20261111134919.90264-3-vinicius.eduardo.pedrosa@gmail.com>
+ <8f9f9752-4c23-48de-9483-63268627ff3c@arm.com>
+ <nh-1384c024-38de-4962-9d4f-a0bfb55471a6@google.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <nh-1384c024-38de-4962-9d4f-a0bfb55471a6@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-snd_hda_spdif_out_switch_put(), snd_hda_spdif_in_switch_put() and
-spdif_share_sw_put() treat any non-zero value as "on", so writes of
-values outside 0..1, such as 2, -1 or INT_MAX, to these boolean
-controls succeed instead of being rejected. snd_hda_mixer_amp_switch_put()
-in the same file already returns -EINVAL for them.
+Hi,
 
-Check the value in the same way before taking spdif_mutex.
+On 11/23/26 17:57, Vinicius Pedrosa wrote:
+> On Mon, Nov 23, 2026 at 1:35 PM Andre Przywara <andre.przywara@arm.com> wrote:
+>> sorry, I missed your post earlier, so made my own version of the DT
+>> yesterday. So this is more like comparing this to yours ;-)
+> 
+> No worries. I'll fold your comments into a v2 once Enzo's v5 is out. Do
+> you plan to post yours? I'd rather end up with one A7Z DT than two.
 
-Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
----
-Tested on a Lenovo V14 G2 ITL (Tiger Lake, SOF, 3 Intel HDMI
-converters, 7.0.14-based kernel) with raw SNDRV_CTL_IOCTL_ELEM_WRITE calls
-on the three "IEC958 Playback Switch" controls. Stock: 2, -1 and INT_MAX
-are all accepted and read back as 1. With this patch applied to the 7.0.14
-snd-hda-codec module, all nine invalid writes fail with -EINVAL and leave
-the value unchanged, 0 and 1 still work, and the card comes up as before
-(no new messages in dmesg).
-The SPDIF in and shared switches don't exist on this machine, so those
-two hunks are build-tested only (W=1).
+No, yours was first, and you got my review on it, so we go with that.
+I have an A7A .dts almost ready as well, will post that later.
 
- sound/hda/common/codec.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+>>> + reg_dcdc9: dcdc9 {
+>>> + regulator-name = "eldo-input";
+>>
+>> The schematic says 1.1V/1.25V. Can you check what it is on your board,
+>> at runtime? If in doubt, go with 1.1V, this should be enough headroom
+>> for the ELDO6 this supplies, with outputs 0.8V.
+> 
+> It reads 1240 mV at runtime on my v1.11, what the firmware leaves. I also
+> ran it at a fixed 1.1 V and it was fine for a few minutes, but the
+> AXP318W datasheet draft lists 1.2 V as the minimum ELDOIN as an LDO. I'd
+> use a 1.2 to 1.25 V range, which keeps 1.24 V.
 
-diff --git a/sound/hda/common/codec.c b/sound/hda/common/codec.c
-index 51189e305ece..0470f4e085f7 100644
---- a/sound/hda/common/codec.c
-+++ b/sound/hda/common/codec.c
-@@ -2353,6 +2353,9 @@ static int snd_hda_spdif_out_switch_put(struct snd_kcontrol *kcontrol,
- 
- 	if (WARN_ON(codec->spdif_out.used <= idx))
- 		return -EINVAL;
-+	if (ucontrol->value.integer.value[0] < 0 ||
-+	    ucontrol->value.integer.value[0] > 1)
-+		return -EINVAL;
- 	guard(mutex)(&codec->spdif_mutex);
- 	spdif = snd_array_elem(&codec->spdif_out, idx);
- 	nid = spdif->nid;
-@@ -2557,9 +2560,11 @@ static int spdif_share_sw_put(struct snd_kcontrol *kcontrol,
- {
- 	struct hda_codec *codec = snd_kcontrol_chip(kcontrol);
- 	struct hda_multi_out *mout = (void *)kcontrol->private_value;
--	bool val = !!ucontrol->value.integer.value[0];
-+	long val = ucontrol->value.integer.value[0];
- 	int change;
- 
-+	if (val < 0 || val > 1)
-+		return -EINVAL;
- 	guard(mutex)(&codec->spdif_mutex);
- 	change = mout->share_spdif != val;
- 	mout->share_spdif = val;
-@@ -2632,9 +2637,11 @@ static int snd_hda_spdif_in_switch_put(struct snd_kcontrol *kcontrol,
- {
- 	struct hda_codec *codec = snd_kcontrol_chip(kcontrol);
- 	hda_nid_t nid = kcontrol->private_value;
--	unsigned int val = !!ucontrol->value.integer.value[0];
-+	long val = ucontrol->value.integer.value[0];
- 	int change;
- 
-+	if (val < 0 || val > 1)
-+		return -EINVAL;
- 	guard(mutex)(&codec->spdif_mutex);
- 	change = codec->spdif_in_enable != val;
- 	if (change) {
+Ah, I missed that requirement in the AXP datasheet, 1.24V it is, then.
 
-base-commit: 11ef0d515100259c7979f5b4c61b6ea97c6cdc27
--- 
-2.53.0
+Thanks,
+Andre
+
+> Thanks,
+> Vinicius
+> 
+> On Mon, 23 Nov 2026 13:35:44 +0100, Andre Przywara
+> <andre.przywara@arm.com> wrote:
+>> Hi Vinicius,
+>>
+>> sorry, I missed your post earlier, so made my own version of the DT
+>> yesterday. So this is more like comparing this to yours ;-)
+>> As you saw my reply to Enzo's .dtsi and A7S .dts, I will keep the same
+>> issues I mentioned there brief.
+>>
+>> On 11/11/26 14:49, Vinicius Pedrosa wrote:
+>>> Add the device tree for the Radxa Cubie A7Z. Describe UART0, the AXP318W
+>>> PMIC over R-I2C0, MMC0, RTC and the bank supplies. It is based on the
+>>> Cubie A7S DT.
+>>>
+>>> Unlike the A7S, this board uses BLDO5 for PG and a SY8089 regulator for
+>>> the PMIC's BLDO and CLDO inputs, and the microSD card-detect line has an
+>>> external pull-up, so no internal pull-down is used. ELDO1 only supplies
+>>> VDD2L for LPDDR5 and this board uses LPDDR4, so it is not described.
+>>> SWOUT1 only feeds ports D and J on the 40-pin header, so it is not kept
+>>> always-on.
+>>
+>> I think this stanza does not belong into the commit message, as
+>> comparing to some different board is not relevant here.
+>> Instead you should briefly list the features/connectors of this board,
+>> look at other commit messages for board .dts files.
+>>
+>>>
+>>> Signed-off-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+>>> ---
+>>> arch/arm64/boot/dts/allwinner/Makefile | 1 +
+>>> .../dts/allwinner/sun60i-a733-cubie-a7z.dts | 286 ++++++++++++++++++
+>>> 2 files changed, 287 insertions(+)
+>>> create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts
+>>>
+>>> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
+>>> index 792152525b43..2eee91dcbd77 100644
+>>> --- a/arch/arm64/boot/dts/allwinner/Makefile
+>>> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+>>> @@ -69,3 +69,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
+>>> dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
+>>> dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
+>>> dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7s.dtb
+>>> +dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7z.dtb
+>>> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts
+>>> new file mode 100644
+>>> index 000000000000..ab3d3d70f9ff
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7z.dts
+>>> @@ -0,0 +1,286 @@
+>>> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+>>
+>> I think you need a copyright line here.
+>>
+>> Also please explain the situation with the v1.10 and v1.11 versions here.
+>>
+>>> +/dts-v1/;
+>>> +
+>>> +#include "sun60i-a733.dtsi"
+>>> +
+>>> +#include <dt-bindings/gpio/gpio.h>
+>>> +
+>>> +/ {
+>>> + model = "Radxa Cubie A7Z";
+>>> + compatible = "radxa,cubie-a7z", "allwinner,sun60i-a733";
+>>> +
+>>> + aliases {
+>>> + mmc0 = &mmc0;
+>>
+>> Please remove.
+>>
+>>> + serial0 = &uart0;
+>>> + };
+>>> +
+>>> + chosen {
+>>> + stdout-path = "serial0:115200n8";
+>>> + };
+>>> +
+>>> + reg_ps: regulator-system-power {
+>>
+>> Please add a short comment where this power comes from (USB-C connector).
+>>
+>>> + compatible = "regulator-fixed";
+>>> + regulator-name = "ps";
+>>> + regulator-min-microvolt = <5000000>;
+>>> + regulator-max-microvolt = <5000000>;
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>
+>> As mentioned in the other mail, please add a comment that this has been
+>> added in v1.11, and v1.10 doesn't have it.
+>>
+>>> + reg_ldo_input: regulator-ldo-input {
+>>> + compatible = "regulator-fixed";
+>>> + regulator-name = "ldo2v5-input";
+>>> + /* SY8089: 0.6 V * (1 + RP11 / RP6), 30k / 10k. */
+>>> + regulator-min-microvolt = <2400000>;
+>>> + regulator-max-microvolt = <2400000>;
+>>> + regulator-always-on;
+>>> + vin-supply = <&reg_ps>;
+>>> + };
+>>> +
+>>> + osc32k: osc32k-clk {
+>>> + compatible = "fixed-clock";
+>>> + #clock-cells = <0>;
+>>> + clock-frequency = <32768>;
+>>> + };
+>>> +};
+>>> +
+>>> +&cpu0 {
+>>> + cpu-supply = <&reg_dcdc5>;
+>>> +};
+>>> +
+>>> +&cpu1 {
+>>> + cpu-supply = <&reg_dcdc5>;
+>>> +};
+>>> +
+>>> +&cpu2 {
+>>> + cpu-supply = <&reg_dcdc5>;
+>>> +};
+>>> +
+>>> +&cpu3 {
+>>> + cpu-supply = <&reg_dcdc5>;
+>>> +};
+>>> +
+>>> +&cpu4 {
+>>> + cpu-supply = <&reg_dcdc5>;
+>>> +};
+>>> +
+>>> +&cpu5 {
+>>> + cpu-supply = <&reg_dcdc5>;
+>>> +};
+>>> +
+>>> +&cpu6 {
+>>> + cpu-supply = <&reg_dcdc3>;
+>>> +};
+>>> +
+>>> +&cpu7 {
+>>> + cpu-supply = <&reg_dcdc3>;
+>>> +};
+>>> +
+>>> +&mmc0 {
+>>> + bus-width = <4>;
+>>> + cap-sd-highspeed;
+>>
+>> Same as the A7S, please add the others.
+>>
+>>> + /* PF6 has an external 10k pull-up and reads high with a card. */
+>>
+>> "reads high with a card" is a redundant comment, since this is what
+>> GPIO_ACTIVE_HIGH already says.
+>> Please explain the situation with the v1.10 vs. v1.11 versions here.
+>> And my v1.10 board needs GPIO_PULL_DOWN
+>>
+>>> + cd-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>;
+>>> + disable-wp;
+>>> + max-frequency = <50000000>;
+>>> + no-1-8-v;
+>>
+>> Please remove both.
+>>
+>>> + vmmc-supply = <&reg_swout2>;
+>>> + /* The 3.3 V path uses VCC-IO; no Port F voltage switching yet. */
+>>> + vqmmc-supply = <&reg_swout2>;
+>>
+>> Please remove those two lines, we will add vqmmc later.
+>>
+>>> + status = "okay";
+>>> +};
+>>> +
+>>> +&osc {
+>>> + clock-frequency = <26000000>;
+>>> +};
+>>> +
+>>> +&pio {
+>>> + vcc-pb-supply = <&reg_swout2>;
+>>
+>> Please add a comment that this comes from VCC-IO. See the Cubie A5E DT.
+>>
+>>> + vcc-pc-supply = <&reg_cldo5>;
+>>> + vcc-pd-supply = <&reg_swout1>;
+>>> + vcc-pe-supply = <&reg_bldo1>;
+>>> + /* CLDO5 feeds VCC18-PF; the 3.3 V path uses VCC-IO. */
+>>> + vcc-pf-supply = <&reg_cldo5>;
+>>
+>> As it stands this is VCC-IO, so swout2, please change that, plus the
+>> VCC-IO comment.
+>>
+>>> + vcc-pg-supply = <&reg_bldo5>;
+>>> + vcc-ph-supply = <&reg_swout2>;
+>>
+>> VCC-IO comment, please.
+>>
+>>> + vcc-pj-supply = <&reg_swout1>;
+>>> + vcc-pk-supply = <&reg_bldo1>;
+>>> +};
+>>> +
+>>> +&r_i2c0 {
+>>> + status = "okay";
+>>> + pinctrl-names = "default";
+>>> + pinctrl-0 = <&r_i2c0_pl_pins>;
+>>> +
+>>> + axp318w: pmic@36 {
+>>> + compatible = "x-powers,axp318w";
+>>> + reg = <0x36>;
+>>> + interrupt-parent = <&nmi_intc>;
+>>> + interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+>>> + interrupt-controller;
+>>> + #interrupt-cells = <1>;
+>>> +
+>>> + aldo156in-supply = <&reg_ps>;
+>>> + aldo234in-supply = <&reg_aldo1>;
+>>> + bldoin-supply = <&reg_ldo_input>;
+>>> + cldoin-supply = <&reg_ldo_input>;
+>>
+>> Please add a comment about v1.10 differing.
+>>
+>>> + dldoin-supply = <&reg_ps>;
+>>> + eldoin-supply = <&reg_dcdc9>;
+>>> + ips-supply = <&reg_ps>;
+>>> + vin19-supply = <&reg_ps>;
+>>> + vin23-supply = <&reg_ps>;
+>>> + vin45-supply = <&reg_ps>;
+>>> + vin678-supply = <&reg_ps>;
+>>> +
+>>> + regulators {
+>>> + reg_dcdc1: dcdc1 {
+>>> + regulator-name = "vcc-3v3";
+>>> + regulator-min-microvolt = <3300000>;
+>>> + regulator-max-microvolt = <3300000>;
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dcdc2: dcdc2 {
+>>> + regulator-name = "vdd-sys";
+>>
+>> Please add the voltage: 0.8V.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dcdc3: dcdc3 {
+>>> + regulator-name = "vdd-cpub";
+>>
+>>  From the OPP tables I could find in the Radxa repo on github, the range
+>> should be 0.8V - 1.05V. We can adjust this later when we add proper DVFS
+>> support, if needed.
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dcdc4: dcdc4 {
+>>> + regulator-name = "vdd-gpu";
+>>> + regulator-always-on;
+>>
+>> Voltage range should be 0.8V - 0.96V, and drop the always-on.
+>>
+>>> + };
+>>> +
+>>> + reg_dcdc5: dcdc5 {
+>>> + regulator-name = "vdd-cpul";
+>>
+>> Voltage range 0.8V - 1.05V.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dcdc6: dcdc6 {
+>>> + regulator-name = "vcc-draml";
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dcdc7: dcdc7 {
+>>> + regulator-name = "vcc-dram";
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dcdc8: dcdc8 {
+>>> + regulator-name = "vcc-ufs-io";
+>>
+>> The voltage is 1.2V, and please drop the always-on.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dcdc9: dcdc9 {
+>>> + regulator-name = "eldo-input";
+>>
+>> The schematic says 1.1V/1.25V. Can you check what it is on your board,
+>> at runtime? If in doubt, go with 1.1V, this should be enough headroom
+>> for the ELDO6 this supplies, with outputs 0.8V.
+>>
+>>> + regulator-always-on;
+>>
+>> Please remove.
+>>
+>>> + };
+>>> +
+>>> + reg_swout1: swout1 {
+>>> + regulator-name = "vcc33-lcd";
+>>
+>> Please use "vcc-pd-pj" as the name.
+>>
+>>> + };
+>>> +
+>>> + reg_swout2: swout2 {
+>>> + regulator-name = "vcc-io-card";
+>>
+>> I used "vcc-io-ph-usb", "card" does not seem to be used.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_aldo1: aldo1 {
+>>> + regulator-name = "vcc-pl";
+>>
+>> Also USB it seems, so I used "vcc-pl-usb".
+>>
+>>> + regulator-min-microvolt = <3300000>;
+>>> + regulator-max-microvolt = <3300000>;
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_bldo1: bldo1 {
+>>> + regulator-name = "vcc-pe-pk-mcsi";
+>>
+>> Voltage is 1.8V.
+>>
+>>> + };
+>>> +
+>>> + reg_bldo2: bldo2 {
+>>> + regulator-name = "vcc-lvds0";
+>>
+>> 1.8V as well.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_bldo4: bldo4 {
+>>> + regulator-name = "vcc18-codec";
+>>> + regulator-min-microvolt = <1800000>;
+>>> + regulator-max-microvolt = <1800000>;
+>>> + };
+>>> +
+>>> + reg_bldo5: bldo5 {
+>>> + regulator-name = "vcc-pg";
+>>> + regulator-min-microvolt = <1800000>;
+>>> + regulator-max-microvolt = <1800000>;
+>>> + };
+>>> +
+>>> + reg_cldo1: cldo1 {
+>>> + regulator-name = "vcc33-18-usb";
+>>
+>> That is a confusing name ;-) "vcc-pm-lpddr" should explain the always-on.
+>>
+>>> + regulator-min-microvolt = <1800000>;
+>>> + regulator-max-microvolt = <1800000>;
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_cldo2: cldo2 {
+>>> + regulator-name = "vcc18-hdmi";
+>>> + regulator-min-microvolt = <1800000>;
+>>> + regulator-max-microvolt = <1800000>;
+>>> + };
+>>> +
+>>> + reg_cldo3: cldo3 {
+>>> + regulator-name = "vcc-pll-dram";
+>>> + regulator-min-microvolt = <1800000>;
+>>> + regulator-max-microvolt = <1800000>;
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_cldo5: cldo5 {
+>>> + regulator-name = "vcc18-pf-pc";
+>>
+>> "pf" is somewhat misleading. I had "vcc-pc-combo".
+>>> + regulator-min-microvolt = <1800000>;
+>>> + regulator-max-microvolt = <1800000>;
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dldo1: dldo1 {
+>>> + regulator-name = "vcc-efuse";
+>>
+>> Voltage is 1.8V.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_dldo6: dldo6 {
+>>> + regulator-name = "vcc-ufs";
+>>
+>> Voltage is 2.5V, and no always-on should be needed.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_eldo6: eldo6 {
+>>> + regulator-name = "vdd-cpus";
+>>
+>> Voltage is 0.8V.
+>>
+>>> + regulator-always-on;
+>>> + };
+>>> +
+>>> + reg_rtc_ldo: rtc-ldo {
+>>> + regulator-name = "vcc-rtc";
+>>> + regulator-min-microvolt = <1800000>;
+>>> + regulator-max-microvolt = <1800000>;
+>>> + regulator-always-on;
+>>> + };
+>>> + };
+>>> + };
+>>> +};
+>>> +
+>>> +&r_pio {
+>>> + /* PL powers the PMIC bus itself; firmware must keep ALDO1 enabled. */
+>>
+>> Probably better to copy the comment from the other DTs, and have the
+>> "would-be" line inside the comment (vcc-pl-supply = <&reg_aldo1>;)
+>>
+>> Cheers,
+>> Andre
+>>
+>>> + vcc-pm-supply = <&reg_aldo1>;
+>>> +};
+>>> +
+>>> +&rtc {
+>>> + clocks = <&r_ccu CLK_BUS_R_RTC>, <&osc>, <&r_ccu CLK_R_AHB>,
+>>> + <&osc32k>;
+>>> + clock-names = "bus", "hosc", "ahb", "ext-osc32k";
+>>> +};
+>>> +
+>>> +&uart0 {
+>>> + pinctrl-names = "default";
+>>> + pinctrl-0 = <&uart0_pb_pins>;
+>>> + status = "okay";
+>>> +};
 
