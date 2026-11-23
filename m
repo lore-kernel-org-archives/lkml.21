@@ -1,80 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461279;
-	b=AOcIoA3x/yfKL6C+qgcmhI2ZfSukkMX8XtkGX1S4rTBWB+tLiN7ClPaydMLL65k1gBRY
-	 nnjEns9fImc3C7jWDDOaYGVr+55b2M+DCRDzaZQ0474mBQ3mQPFKYeZOo4nrEsI6Vi4/J
-	 9Cfi9j7Bzl+xkPnNxU0SNP/GH5Y0jnHfKB+O/JimLbRNjW0m24LQLhw3iH2tIbfFdzVBo
-	 dHey88O8u2/ruJnbHUvKYuKsf8PC6rbIBtzM2vzPhNTQLNYIBeEhC8xwmBQko7hsROl/C
-	 Ls6OngOmKRdTuotpeYZOmM5C8S2kQyv652yAvbZ28vhR6iusemOvwyFL7Oy7z+BP6ug==
+	t=1795461311;
+	b=bBE2laFNUUbINBGzTLsHu7WGQdiUagGkKDVxNDsNF3pBLHLcUW56MN/8DkctfyBPG61y
+	 vR68qNHqKSfOnX7++PV2zbUPJw7QDJyxV5Q3TkXjDvOFnYcANksrRdU0QzFxZjayvcuWb
+	 PazL6YYbXtRcB9tIQoDpLK5FBsz9GUbuthHoW5AM1Uftw+8IgXYlAXDv58d/f+UzYdBpW
+	 fKaAV81xhjvWHc2DTjNXhKSU6CEZfZ0FHG0TfQJzHB/wc8NZmJSX10a8SAxqhClO2RO0e
+	 Kb4RVe4zlg52nAJurYzMkwx2mTjULLyOTwaGZ4+XgqKpA/QFyTB8tL7rVy+pyBkoxog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461279;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=s978hanZLVpv0RWXocH12aEKpIm1bxVlYeeOLTZgo3s=;
-	b=P/YA9VKyRBST/gVQzGR4f7KDVMI47xFicpDLhFFnXwfWfLEl+i9OcabZkQGO21j+yYEs
-	 vvsNxRnXxSiE1TXg6CIgXkRnSbxQVLl11mB5vU8chizxOHCLNxohzm27VhyO/hZ/g+cjf
-	 7pu39ikHEefCYb17/FSQaK5Z+DQ2PZoE/KJp7e5D6BEPSIrMdvSm7Dti4VNHk++N2TKIm
-	 N6WYkpmryssJXUZGFtVbrzDvqa8W/A5DASZjNNQ5CPppbgHdZHzFm9emFkBTjoNiwR/jK
-	 MrDtfDrZ5EqmQKJ4oGZ7OWrJRMAN+3Nyh4xN1TsuLRjih1eGT+wmBl/6xUiNNDJ0sOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461311;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=TtwF9m0dsYM7DXA5kCIoVhSRU8hz4R/5DTLztjK7Brs=;
+	b=WGYATPMerKzzqGylGZr37T2ytLUsqWy+pQWAgJ1+g7omOouVkjtRloB9n78bN+jNlumB
+	 LehdAk1hV7Tp0SWmYZoTBC/T/BnvqVUEx0FdZfMFkH6kZsIjVw3+2iCDdHfkQG5C2Wj/9
+	 sNBA5VDPQDb868rWAkj/0z+a/CLNsl8r1uRenVqHhsCtIU+KJz2GHyhFohyPs6GePHM/i
+	 vTmizTibtdMwlFowS7OB02as0votCzu2RqiB1QYbjgPhyRZNHJXcvkR+deaAYfUdyjKSb
+	 JjYsjp/LnsQ0BHoPWanj+jcYK+gDirGeN9j1pIPcpTENGDt3cFYQ/g7ryVgZPjo9EKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j4C1EzC4;
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=RZnu+8vT;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 227FD606A31A;
-	Mon, 23 Nov 2026 19:14:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 227FD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 432AB606A31A;
+	Mon, 23 Nov 2026 19:15:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 432AB606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j4C1EzC4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795461279; x=1826997279;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=e+/1NxiLLSGddz3PUhRX/hgFu4BM5p/TKa5GvarfqgA=;
-  b=j4C1EzC4M1YWxeV8/Cst97LrXgjhx5+11hl6Lln1UBVQtaing252cYoQ
-   Q1kZB/bo2HRkg4UZz3QxvuTZkRnkF2496IfUkzTUFEc6Jad7nK/BFtB+/
-   ++s1h6PfQFTZX/Imygkgl16ykauSHEGYKjqTPc6EvrprDFHhVaVsItDyK
-   d480nKuggTVaovvh1F077ALsncYOp+Uq4TDjnzlURWuo1TzbDWSBt40d0
-   4dCCPHrsHK7Kzb92/0mVMQ3xHHxPhTsvLB+PtG75zw6FHjFYuZz/iwH0O
-   OV8LWil6px096qQLzSnkeqyOXusPwubU2t7sub8FvLQDJLvDKDFDwu+Xt
-   w==;
-X-CSE-ConnectionGUID: 3UOSt32pRmSmDjeik93CHw==
-X-CSE-MsgGUID: yIGAf5GMRmOwxNaVg0vobQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4123606"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4123606"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:14:38 -0800
-X-CSE-ConnectionGUID: r7iGBVpiTDKe4NiPBnxscw==
-X-CSE-MsgGUID: Mq9WxcT0S0CS1hrxEd8tKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="13160534"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:14:36 -0800
-Date: Mon, 23 Nov 2026 21:14:34 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Yasin Lee <yasin.lee.x@gmail.com>, linux-iio@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=RZnu+8vT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795461309;
+	bh=1UTK7C2L/leKYOV1vpyJUfwzZPkqImLHSYWPJ0HxDWA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=RZnu+8vT52sXp8u5MzM7OVRlx+tCuz5kp2Q710LRjID98hbmD6aG+rcG+vtjbjChJ
+	 vIb8qB554gew2pq2FKrpk/f5HmivAHinpFmzMKaTsXa6CVDeZxqlvV7WSw8Eveea4B
+	 DKVVfizmpDtQJFGs1gVTEncZMI7oqMODQlN9Ubf27C5ZsfZ/yYMRcg6DMw5WfgfPdk
+	 lMkQKWxr7DszHYqomtMGa11CJM951Bp/9WzIh6zBOL+4H9SfH7VUa8ScM1XAShOmVk
+	 VcVe47GHSLFV8CQPyqxB304vTOhWC9dZ8sOd++u+sRghyiR5BGKU3ML5rMbmCbkuU6
+	 pueGA33+BUMAQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 71DAE17E00B2;
+	Mon, 23 Nov 2026 20:15:08 +0100 (CET)
+Message-ID: <5b5b87d40c3a3ac5c9b04ea77e9310c92f9f4e49.camel@collabora.com>
+Subject: Re: [PATCH v3 7/7] media: verisilicon: mpeg4: Use alloc/free
+ helpers for auxiliary buffers
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	p.zabel@pengutronix.de, mchehab@kernel.org
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] iio: proximity: hx9023s: fix division by zero in
- set_samp_freq
-Message-ID: <awSQmteht_FDRXpp@ashevche-desk.local>
-References: <20261123165255.239490-1-kapoorarnav43@gmail.com>
- <20261123165255.239490-2-kapoorarnav43@gmail.com>
+Date: Mon, 23 Nov 2026 14:15:06 -0500
+In-Reply-To: <20261123095905.60622-8-benjamin.gaignard@collabora.com>
+References: <20261123095905.60622-1-benjamin.gaignard@collabora.com>
+	 <20261123095905.60622-8-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-6OhJFZ1YC2eqKEd3+Wjr"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,53 +88,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123165255.239490-2-kapoorarnav43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Mon, Nov 23, 2026 at 10:22:47PM +0530, Arnav Kapoor wrote:
-> hx9023s_set_samp_freq() passes val * MEGA + val2 to div_u64(), whose
-> divisor is a u32, so the sum is truncated to 32 bits. MEGA is an
-> unsigned long, so on 64-bit the product itself does not overflow, but
-> the truncation does, and on 32-bit the product already wraps. Either
-> way, any value for which val * MEGA + val2 is a multiple of 2^32 gives a
-> zero divisor, e.g.
-> 
->   echo 67108864 > sampling_frequency
-> 
-> (67108864 * 10^6 = 15625 * 2^32) triggers a divide error, on both 32-bit
-> and 64-bit architectures. Negative values wrap the same way (-67108864
-> also gives 0), which the check added by commit a318cfc08537 ("iio:
-> proximity: hx9023s: Protect against division by zero in set_samp_freq")
-> does not catch, as it only rejects val == 0 && val2 == 0.
-> 
-> Reject negative values and do the division in 64 bits with div64_u64().
+--=-6OhJFZ1YC2eqKEd3+Wjr
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-...
+Le lundi 23 novembre 2026 =C3=A0 10:59 +0100, Benjamin Gaignard a =C3=A9cri=
+t=C2=A0:
+> Simplify and clean up the code by using the helpers.
 
-> -	if (!val && !val2)
-> +	if (val < 0 || val2 < 0 || (!val && !val2))
+I'll pick the series, just wanted to mention that I will edit your subject =
+line
+from mpeg4 to mpeg2.
 
-I think in this case the
+Nicolas
 
-	if (val < 0 || val2 < 0 || (val == 0 && val2 == 0))
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> ---
+> changes in v3:
+> - As suggested by Philipp do not mask hantro_allocate_aux_buf() returned
+>   value.
+>=20
+>  .../media/platform/verisilicon/hantro_mpeg2.c | 19 ++-----------------
+>  1 file changed, 2 insertions(+), 17 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/hantro_mpeg2.c b/drivers/=
+media/platform/verisilicon/hantro_mpeg2.c
+> index 04e545eb0a83..7386cc50b11b 100644
+> --- a/drivers/media/platform/verisilicon/hantro_mpeg2.c
+> +++ b/drivers/media/platform/verisilicon/hantro_mpeg2.c
+> @@ -37,25 +37,10 @@ void hantro_mpeg2_dec_copy_qtable(u8 *qtable,
+> =20
+>  int hantro_mpeg2_dec_init(struct hantro_ctx *ctx)
+>  {
+> -=09struct hantro_dev *vpu =3D ctx->dev;
+> -
+> -=09ctx->mpeg2_dec.qtable.size =3D ARRAY_SIZE(zigzag) * 4;
+> -=09ctx->mpeg2_dec.qtable.cpu =3D
+> -=09=09dma_alloc_coherent(vpu->dev,
+> -=09=09=09=09   ctx->mpeg2_dec.qtable.size,
+> -=09=09=09=09   &ctx->mpeg2_dec.qtable.dma,
+> -=09=09=09=09   GFP_KERNEL);
+> -=09if (!ctx->mpeg2_dec.qtable.cpu)
+> -=09=09return -ENOMEM;
+> -=09return 0;
+> +=09return hantro_allocate_aux_buf(ctx, &ctx->mpeg2_dec.qtable, ARRAY_SIZ=
+E(zigzag) * 4);
+>  }
+> =20
+>  void hantro_mpeg2_dec_exit(struct hantro_ctx *ctx)
+>  {
+> -=09struct hantro_dev *vpu =3D ctx->dev;
+> -
+> -=09dma_free_coherent(vpu->dev,
+> -=09=09=09  ctx->mpeg2_dec.qtable.size,
+> -=09=09=09  ctx->mpeg2_dec.qtable.cpu,
+> -=09=09=09  ctx->mpeg2_dec.qtable.dma);
+> +=09hantro_free_aux_buf(ctx, &ctx->mpeg2_dec.qtable);
+>  }
 
-is slightly better as the consistent style in the same expression is used.
+--=-6OhJFZ1YC2eqKEd3+Wjr
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
->  		return -EINVAL;
+-----BEGIN PGP SIGNATURE-----
 
-...
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawSQugAKCRDZQZRRKWBy
+9DGRAQCUAeCDyxVQ+dajb9KwTStV2mLTHQA7lvvU5/davwOQJwD/e9YUVaBM3LkJ
+BAk47rc4UTDzFemhor+2FOHt4ASpjAE=
+=IhE2
+-----END PGP SIGNATURE-----
 
-> -	period_ms = div_u64(NANO, (val * MEGA + val2));
-> +	period_ms = div64_u64(NANO, (u64)val * MEGA + val2);
-
-LOL! Why is this 64-bit division?! Anything more than NANO will give 0, no?
-And NANO is 32-bit value.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+--=-6OhJFZ1YC2eqKEd3+Wjr--
