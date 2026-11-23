@@ -1,91 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.30
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795456736;
-	b=GjMf8LInRcBwK++Juc2jpFV47MesWXgBar1jJrPcxSwheZp9w83u3v+ki4CKkEjdJhYz
-	 w2YLD76JFa6P7MZVSXOmeORUoGRWQq/BzM+Br25CgjzdwSqRpAp8Cf6uy2IYl3W/J9Mv4
-	 +OPgqvkB6P+kBVO1m8C+Jzmv36TyQ82x/sRyvzFeaoXfDMyk2D29w+jaRh/HX5S/n4ve+
-	 gaR/5vrpZst1F78FZch33Ndv6pipinWN+RjhJX97p8erUFQPWTevUkupSKF83kI68kONa
-	 kDCgvLzRxGepbBS6nfqskwsEowly8vBB0mAL0VCxa/mpJ0Ltj7V5Xaf+piB8EL7qiiA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456736;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=uCZfPoGa1Wr7pZR94mOQcyNu/ANPNQj2Dc2Swk2OnQs=;
-	b=XaV6oF9GzFEKqaptACVcNIqwPIYGGbu0YMXbiMGr4Cj2GisuHxT9MsbBatc7vH9zCyxz
-	 +eauWjSgc0xNOa0HGuKKxYreNRzdxIUvgBgd1U/zGI7XZl3Kb9cZb7/Du9ENnPqz+i/5R
-	 lHC7EjTy56ui3ljGOgAcW29oMmQI1dzE0RS57L6yjKhxzczX2Psyd91ZBkH/yt0uoHfzQ
-	 B6WhN0vqymTdlEDxSk8DY229uEMp/sq/jdLmFtztS+ZPXy378YQ9aDdGWi+bnZXY6dyp6
-	 jOhOJTmLIi/lw4WZ8umnhbtLrT8gy3bT/5rEzLRBOD/+TBdSuB3ziKeaQI5UghUMFMQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=FtGicGf7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.30
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012030.outbound.protection.outlook.com [52.101.66.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795456741;
+	b=frkyukKbTmJWPdRtZlHhgGFeJjCun5jT8vdzQFC8XkEHVvjGD7mY5uRtrIUo3arOWrqy
+	 xZ125XLEbD/AeDdr5jmJcua1StHnjJ+JI47KxLRaMakG4DUKCRHI9auqokngLWM77/qmp
+	 GvFzUj1Ia+hgolH4OSGO7ZORBX0lFuSg/dkU34w4Ct1/OJXaJ/BxTOGzcIuGX/K6nQFDF
+	 V4A03OsJy+vIlfGyKSxspMkn3XEbAiYtH73xOsiUyVvCcxleJ76ribDX5T6RrxI3WHOVC
+	 uBHgE+k27jx+aDWXGF6lCyfXWXeNHbDGXaetgqtBcYyMz15ftob3St+zf6/6hfTSGsQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456741;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:From:To:Cc:Subject:X-Mailer:
+	 References:In-Reply-To;
+	bh=MluqPmwvuVO/ECMu3QHES2ezbhuwl2JDe9bOaf165Uo=;
+	b=uLKSngyUvMQJE6Xt9wKGLcStNRVBzji1z7V3ekRKUeIC29WPwlhrhroTYy/NbVevIpAf
+	 zIiMGhpBjtvPiBZEGxhfFZmunUaIusQ3D/WKJc9GXJnLmjtewPsqhFUlg5l54ZOnqHi/p
+	 8qPRaGQBS98KDb0vQnrZwiDW2nbD/1xSyZqE6vQwixJgL9gAdAqKYjvmbXZ2GzxOi5WUg
+	 ueiZTQ9keJ/+b6XZ5/KrXf/x9lKMmN8Y6PH+Iacih/+DYOTHWI9V2xi4vpxC5ngiyRU2j
+	 JObi8e5y9gVdUM1wZ31lNOUC65elgBoxUEvvpEsj3kUdwc/4f2iIlEf4rf6ZtBEleFg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LaUWsf80;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28EE0606A31A;
-	Mon, 23 Nov 2026 17:58:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28EE0606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB84D606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:59:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB84D606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=FtGicGf7
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Uz/uU+1EKy9/j6pjGxoSPWGXwUr124fJ2GDj0aBO+B1d8PQvFcIYQlcEyxWxG6su0IPPg2jlQyw6jNBw/avlm63s4FvshXnU2ogObUlw/wOH0uI/ZV21h7G6B5Qxf061CYVvkZNrHnZT8qcZpiniSpcjfgMtBzGtWDBnJvE+gzgFDyZj22floAgJ15EqYTxOw0E3yka8zertiycHPnOA8BNZQZOad7LzpS16eXDazvxxHPZzlA8brbo5O0XuK163cUeEAMYL9p27RC8W/nWjKmi4Hdk4pxzoKPQmppm9CBnDnOcn+URFY7BAk9JAj5EKIuzxNIMOYJ9Isw4nYhCcJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uCZfPoGa1Wr7pZR94mOQcyNu/ANPNQj2Dc2Swk2OnQs=;
- b=sgozyxWubz3PpmJkV0wqfWT4nBHwo55o5FGOMphVQnOi+R1H9rtfh3gC7JIKsAbfXlktGve5Ns+BfXbW+jeq8bwbREQMegASjk8g34p8lN/DYkMMz7yO2LtqmXRSTn1J1rIt0+VfCd5qsrarW0qj1hIJ1e5kA9vLAOEmQn5QwiXI5IjTUeQPLNsEUcGEI5vY8BKalBlD6VM82MO9idxXyvyZVjNONj+dWsN8JjClCbfTyH0xPGneDVvv4ZviNcW3DCuj21u5aaUfLsIzGIi8iVEME1572GW8oq0CJV/YXrQGJ/sN/juB1XxqJPBmkzMeWKy/ljNe51LAdZgDzh7avQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uCZfPoGa1Wr7pZR94mOQcyNu/ANPNQj2Dc2Swk2OnQs=;
- b=FtGicGf73L0VNCvEmVw9+5aPXqP//i2A3zAUoKzch4LGWuZSk3uusiSqzQMSvBpG6u5fJ0n27fiQMU+E8uycIrOjZAsdbYhWNgKkhEvPH1VLCWx4e2C0XcR8oaHwzuoBzfAMC6wTePFPHhnTlWSLjzbpY+928jFWYQfvl+09vOS40AWNStDA7+LLXXY5RRlrEJujppgjC1tct+edVfeEJAyzW3kLMmwofbjm2fKR6SEovGy3TlHxEr7XXKVG5vt9d8GQ4N5yiFRI+pnfPesCb5DSGtZG0mjYmjb5qiOFRog47S/XOuEHU+YG0DUARikqpHhMGqHRFkxUyqaX1uEqvw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by GV2PR04MB12192.eurprd04.prod.outlook.com (2603:10a6:150:338::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 17:58:53 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 17:58:53 +0000
-Date: Mon, 23 Nov 2026 11:58:45 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: mpc512x_dma: add missing MODULE_DESCRIPTION()
-Message-ID: <awR-1Z-2l2CDZLYk@SMW015318>
-References: <20261121192306.928291-1-rdunlap@infradead.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121192306.928291-1-rdunlap@infradead.org>
-X-ClientProxiedBy: PH8P223CA0010.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:2db::20) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LaUWsf80
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso35213235e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:59:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795456739; x=1796061539; darn=vger.kernel.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=MluqPmwvuVO/ECMu3QHES2ezbhuwl2JDe9bOaf165Uo=;
+        b=LaUWsf80jU5NPHzr1T3OKDObLFeFS+0XFBRQvkot+h4cuG/Xi/qPHEDAPWEbJdMP18
+         4Ey1dly9U/TamziZGQLSDLTBcCJWD66P6Dxa2LRv5D5KKkyV+Blv/vsXZi8wJZPEcYPk
+         pgDFiYoJ6I7RskRWTWyD4xBd8Q8GgG7opveoSilfGjGRtkpdUTDl5K6wCMKusgHqbiMz
+         SXG/8cPp4uw4N+xb4gPleov+yOCYshiGRkgHHjxU73Zr4xDv0DBDjDaM/10jjrOTBUaf
+         QJfC/jyHrhmUXk+KOusHpxr3gifL49WAAlixY2u6llhPTrqRx2XQnJKxzMBQ2uLOLjLE
+         qkMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795456739; x=1796061539;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MluqPmwvuVO/ECMu3QHES2ezbhuwl2JDe9bOaf165Uo=;
+        b=aK+j3u77fHztGHJ7+0WfcPxNqC855OTawCQM0efugrivh9OXasAKP89gGgmyRdUbSV
+         j4YkW9FLHlGT5JJX82wxH1RthEzsFSnQWllTpc14ivNpCm79LMa46S1MiHbf5tJY42Eq
+         L2jWGnSLDsWcl066FobUgx36nAUWAwdX5IIbv69D6v7nE17X3cwOLVzaPeREHRt2lM2B
+         zBPPt2JroYcX3KSRsxSwes00Z2B8OTR5I/CxZSitW9rolSONIk1OoFAcxxUkU77cPtlJ
+         EVRKyLR5dq//zXqcNH5I+08/O+BSbxHz7H3DSoXNBFAPtoiFJhcTG4ldsDVfEXJTPV6H
+         Mykg==
+X-Forwarded-Encrypted: i=1; AL+hErH60MCuAVJTUrWx6j7LHBoyV6d6ORPieUp8+YmYzJAjDbdc+MZBu+KQM3aPeW1zP8WozDfn9Nyl+7bPQSE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sfSwn+2SYKkNZNfut8PD9BizUPv4LhMgHpc6ZzOSPMtQJBw0D
+	9pO3wnBjMA+NLMv/CN9A7ME6FF91F3wHgxRZbiuo3eDoqqKHJpn3lsQ+
+X-Gm-Gg: AZFdTZfL7ROda/hWYeouFns22nRuW3aT16Qa/Eq8HnggPmHBUOS81+ZE4/fXqKHe/Rh
+	56y0N8zssHOx1sjMx+07mZf6CbPV/L0UJb6+iSZE4wm0/FQr0EIDJROoyqqWO+lUaTXme9NuCSu
+	KBkdRhx0grzSrnUHd9yigCmTWWyLvwruQJ1bDV8TjVoRUKuaQJG6CUYOhBj7H6ZlBoQFiEo5K+D
+	0N7I/WS6KzSDsQ6XQlceyQ+Oel1eQGP/L9ukVvbCNGQPJWM/qICR+tUDjgiVTEvmcgYceFiLcIT
+	chjyMqnrjyWfEjjQPxGC1WywFbCp6TjTGqgQ9hg7fYLNP3nsan+tku0by68x3n8pBtQkPVs9zdJ
+	crM5jnxGsqd6a8jHI+T6xMqDb4JI+KIeD/MMblTlLF4DeGXCXMr3IUoMw1yxlyUJT+4UnEE/Uk4
+	cvyMwo3HCL6w8Vp2b0K9fhUCOFL4UPynJmn1tyC9QTAQ5UQs+jGCNdpJdnhbTo6DOgOQmmshUL3
+	o5YU77W05T3yTRhgbykWEaeV/Ebe+xApVrzjeJaq4eDDDcdvygLfHIuELpjDhkZIi961ivEqsQ7
+	tDlB6hanMjvscnaBBS/ZQgv/Jg==
+X-Received: by 2002:a05:600c:4f4a:b0:4bb:6752:8413 with SMTP id 5b1f17b1804b1-4bb8880015bmr286272305e9.8.1795456738947;
+        Mon, 23 Nov 2026 09:58:58 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90655f5asm200592505e9.1.2026.11.23.09.58.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 09:58:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,85 +86,207 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV2PR04MB12192:EE_
-X-MS-Office365-Filtering-Correlation-Id: 263a8ce5-391e-47a2-844b-08df498b6fa7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|19092799006|10067099003|11063799006|56012099006|261021121427099003|261022075727099003|261009223027099003|261102123227099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	d++jhR2zRqrcSD4ruJs+vraDpcRHjfdJ7q1I13wVyynaa5R4/uxGEktvehxO55XNnBzIkFNOaHoL26rb8OMtgRBpiMTeKGNvc+CHW6eyZT4vvySwoCIQBcR20mJdpyZqFV59dtvkjOZnlP/ufadDpbmichmuejI9GJYxBKeHD/sefSUN1kMLCZJAYM/gTLmQXRCTADhe32Phr8c0hHgRiFaoyB9LaMB+f+CJYJED/qyjlhipaxhNllBK4bzUIVqWIsxomU7o+ViztqIpbjQSoU/dk6+/WJvd+UvpldsdIuV9oNjyzjZbcmJ4IRNc6kaJbPM/+okSzGwChkeoVVVy/2j6UeSpknS92JgLSvS1Y0C7Hk9VgEhp6ajUhLXePLo6aZ6YFJiyanDXcRHRH0ogeK10trABgTUFXLiUC1Xx18FOxG8ZYD2+bejN0bk3/b3lDb6cdcCZ3mjDGKQZWtICJz27SuhDYVKfOzwfXQSMtNj/tZGzF6kHFQC6VtjloFYHeHigVzphWhcxcXqAjnijr/NOhCZ7sUsrMe+JRuRqDwopTPprc/aDUkvlC60biR0x+Q+i/hVpD2SFaulqpamfSPCuOrz9/tWo4s+5IL7QKblvPNX0gEcgxVUWhRlLbVhf
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(19092799006)(10067099003)(11063799006)(56012099006)(261021121427099003)(261022075727099003)(261009223027099003)(261102123227099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?UDLjxPdvIzGDo9OtoZRO3HEDkehjCmV6AV2DhHWwuuV8wEjbDx/0hJuSY2QQ?=
- =?us-ascii?Q?V8d0USu65+P1KEHWdsNZ6Bd8KTcRnvQgekyE5lMFBNIRQM1N5As5SFQlEoMP?=
- =?us-ascii?Q?Xl4Cnu/YL1/t1eAAoAxe7LmNR506MEPMYGE8o6fW/aoGU0/04eQCuwtpHbZq?=
- =?us-ascii?Q?DS07SgHp+v5byU2ENsPtoBzToHUAlySivDhc/4w8Pgo99fr1ZdhP7L/65ZA1?=
- =?us-ascii?Q?AIJHAmAHgr1DHB/u92/hxqPd0WMkxkhjDEQfSx5YauBvSZclgL0UWKqB7MBe?=
- =?us-ascii?Q?Uf6ObdDXwkfVAgG3fMnJLpoVCvPL9InleNIju6mPqsy2v0HDzTkvr6v4gQro?=
- =?us-ascii?Q?SK1m5Z9pgDMA1na4VZd0JxLAFIrXFgc+XcC9HIrg1KX4nxk2JQhUgCSQ1Nek?=
- =?us-ascii?Q?pq1lSxqC0ZbsHBI/po68lACyYkLt4GJwW4x426aoz6h6Bp8nWZd5iAfT+JHV?=
- =?us-ascii?Q?+LPhkJmXClImxICTl6RZTEUfryhJjZQfObHXiNpbSCTHMEZyzkbZJnX6U7Ty?=
- =?us-ascii?Q?4FYagdHaYlP4i+3ucpNPl4ebHoRDq/A3ezlG/d2vFor7bA26eXKyK6xVop0P?=
- =?us-ascii?Q?a+uUJAPkqCJn4bsgaA5MRggwQZ0WDDBwgwMUugluOo/e/vorUjnihoVxoR6U?=
- =?us-ascii?Q?GLN0YPDgTCAoBvaY5aygrMv9eFLV+oKNuL+oMANcHgcFjluEx+lEQSsGzVSw?=
- =?us-ascii?Q?3MzgCiPXM3bM3pkkHOVVO9jQlyDOHCzc8f1qT7Tu+UF63XCWF2GunVFujyGG?=
- =?us-ascii?Q?mi0UBW7nSWbHuLoz1CpWfWcoge4C6G8Ayvf815YhMMv8ScdqA4RWGnDELtrm?=
- =?us-ascii?Q?0gZvB3yEnhbrEi48vnin9l7EZu0dNORg0UpnIr3z1kTmC4GsbcpSuHHp6PPK?=
- =?us-ascii?Q?nRSsSD/BRQXWWSqbCm6VQ5gMoYlJbxHz17+AMRFXFdF1UhWswjUy2NeqgfpZ?=
- =?us-ascii?Q?QciB0yI/BY199sdFtHb1sN4crqe8PbkeVhrAM+ud12DtAsGAVxISBna1WYQb?=
- =?us-ascii?Q?X/TFqTNvw+gGie4mkA+WcCpb061GE5SjmOjVTNapZXYW7kcMyBfJ/XJ4/0If?=
- =?us-ascii?Q?SV379bjVdmvAikuWWw1Q7Zy1SReh+cXdaoeFl3tSi2wJozEyyUcJ1vBEzJSx?=
- =?us-ascii?Q?M+VSDdJcNN2dFRtX9FKlOaPIIIkhEvh0JsN+CL7HYfU2Y3uBpkjpykGY84Xb?=
- =?us-ascii?Q?f3pcc+Ik9lfRikPw6unMvYdV5W8978FVkSXJ++i+0ct1UaGSGT5gls56njpg?=
- =?us-ascii?Q?fYlkzbXD1H28tDRS/l9wvCA37vLeg5ZoVIQrbfuXI4PASR6jDhh5LafVqPnq?=
- =?us-ascii?Q?jgMkxazGEVx/Zs7Vk3xoDIbHv/2+eydKfTxl7svU2qe9UTEZCR6UazUefM5K?=
- =?us-ascii?Q?kdBzJ/pPfDiKI9qyNMuEPGpHGrxh0oez22YXii0b9yDaB2/CsewvlZ0FSbTg?=
- =?us-ascii?Q?Dat9UNO24A/NWhbbGkuO101y1STU3DR3Wl5K4oX5iMaPl2FFTZWuVA05t7QV?=
- =?us-ascii?Q?mRXE0h/SsuZDkOVn9aEjYa6zLtfvfIMg0M8S6oS1h2xNelX6PBRNnXCE0Zyn?=
- =?us-ascii?Q?FInUyAbsBsGJk3bfru5/ZI3QYzjDmEV5hxIR9yxM4PKgOoqGPm4nwkRPGQyU?=
- =?us-ascii?Q?OZBgk/YSkm2o0d7XyNQg8l4pnkX44NjxXCt7U3RZ0YXWYipQJSAlE+Ftc4Yq?=
- =?us-ascii?Q?DbCZlQj+a3jiaz6GZAPM7L2BSrPGFxzP0nOVa1emI6Dq4rN1z6DlQvIAK7ly?=
- =?us-ascii?Q?BUEWFljis1sZ3ox9mDxRZQj/ULoszLomKIbuBbDTeCBiL67+Z7jC?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 263a8ce5-391e-47a2-844b-08df498b6fa7
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 17:58:53.4874
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rIaKKyAjO7DJjbV7A2hKmmA65wmg+FtpKwp7CDh8tp650D1erO5eTcybDuPD+SQ3T3/tH9eC+kXVrH7PfAq5s++EmjbPhULSdjQ3Kzn3PYFEbJQV5vriq2JjDf76w+Z1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12192
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=3dcf8e0a5e9edc0fcf06426a56395e3537d991acfb90470930d0b8ec71c6;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 23 Nov 2026 18:58:54 +0100
+Message-Id: <DN2SAKX1A29W.R1HHAXESXKS1@gmail.com>
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
+ <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian
+ Brauner" <brauner@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff
+ Layton" <jlayton@kernel.org>, "Jan Kara" <jack@suse.cz>, "Darrick J . Wong"
+ <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
+ <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
+ Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+Subject: Re: [PATCH 0/3] Add f*_xflags_{rw,ro}_mask flags to the fileattr
+ API
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261122000856.536902-1-koray.fra@gmail.com>
+ <CAOQ4uxgf2KE=Ag13EPAu5=KnrFwt7zRH=im-qmLc8+i10Tjd+Q@mail.gmail.com>
+ <DN2NFOEO4XGN.1PEF1SWOF7YCQ@gmail.com>
+ <CAOQ4uxirKKi=uwyiFWev_5h-LBTLjHgw-FHJ9T2X+JUNSEpf=w@mail.gmail.com>
+In-Reply-To: <CAOQ4uxirKKi=uwyiFWev_5h-LBTLjHgw-FHJ9T2X+JUNSEpf=w@mail.gmail.com>
 
-On Sat, Nov 21, 2026 at 11:23:06AM -0800, Randy Dunlap wrote:
-> Add missing MODULE_DESCRIPTION() that is now required.
->
-> WARNING: modpost: drivers/dma/mpc512x_dma.ko: missing MODULE_DESCRIPTION()
->
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> ---
+--3dcf8e0a5e9edc0fcf06426a56395e3537d991acfb90470930d0b8ec71c6
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Mon Nov 23, 2026 at 4:42 PM CET, Amir Goldstein wrote:
+> On Mon, Nov 23, 2026 at 3:10=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
+wrote:
+>>
+>> On Mon Nov 23, 2026 at 2:35 PM CET, Amir Goldstein wrote:
+>> > On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail.co=
+m> wrote:
+>> >>
+>> >> This is a follow up patch series stemmed from [1] and [2], splitting =
+the
+>> >> _mask change for the fileattr API into its own separate patch.
+>> >>
+>> >> The first patch is a preparatory patch so that the code in the patch
+>> >> after can be formatted better.
+>> >>
+>> >> The second patch is the actual implementation, which introduces:
+>> >> - fa_xflags_{rw,ro}_mask fields to struct file_attr
+>> >> - fsx_xflags_{rw,ro}_mask fields and has_masks selector to struct fil=
+e_kattr
+>> >>
+>> >> These masks have the following semantics:
+>> >> - rw_mask:
+>> >>   * for filesystems: advertise which xflags they support changing
+>> >>   * for userspace: specify which xflags it wants to modify
+>> >> - ro_mask:
+>> >>   * for filesystems: advertise which xflags they support only reading
+>> >>   * for userspace: ignored
+>> >
+>> > Nice!
+>> > I think this API description is very clear and coherent
+>>
+>> Nice.
+>>
+>> >
+>> >>
+>> >> (ro_mask for userspace was also proposed as a "verification mask"[3] =
+but
+>> >> I left out that semantic to keep this patch series more contained, an=
+d
+>> >> can be added later if needed.)
+>> >
+>> > Not so easily added later.
+>> > We cannot change the meaning from ignore to verify without any opt-in
+>> > later, but we could use the combination of
+>> > rw_mask |=3D X
+>> > ro_mask |=3D X
+>> >
+>> > to "verify" (set it as long as it is already set)
+>>
+>> Isn't this just "preserving"?
+>>
+>
+> I donno I am confused let's keep this side discussion for another time.
 
-> Cc: Vinod Koul <vkoul@kernel.org>
-> Cc: Frank Li <Frank.Li@kernel.org>
-> Cc: dmaengine@vger.kernel.org
+I agree lmao.
+
+>> > all we need to do now is make sure that the API returns -EINVAL
+>> > for rw_mask & ro_mask on set.
+>>
+>> Yes, the current (v2) code does
+>>
+>> if (fa->has_masks && (rw_user_mask & ~old_ma->fsx_xflags_rw_mask))
+>>         return -EOPNOTSUPP;
+>>
 >
->  drivers/dma/mpc512x_dma.c |    1 +
->  1 file changed, 1 insertion(+)
+> This is not the check I was talking about
+> Use should not pass via the new API a flag on both ro_mask and rw_mask
+> This one is definitely EINVAL and not EOPNOTSUPP.
+> It is a basic contradiction of the API definition
+
+Hmm, IMO ro_mask on set should just be ignored, so userspace can do a
+get, change rw_mask and then do a set without having to zero out
+ro_mask.
+
+> it is not a specific flag that can be supported on this fs and not on the=
+ other.
 >
-> --- linux-next-20261118.orig/drivers/dma/mpc512x_dma.c
-> +++ linux-next-20261118/drivers/dma/mpc512x_dma.c
-> @@ -1119,5 +1119,6 @@ static struct platform_driver mpc_dma_dr
+>> at the start of set_prepare(), I think that is enough, since we assume
+>> the filesystems return the masks such that rw_mask & ro_mask =3D=3D 0.
+>>
 >
->  module_platform_driver(mpc_dma_driver);
+> It needs to be in the vfs before calling the filesystem at all.
+> It is a UAPI definition.
 >
-> +MODULE_DESCRIPTION("MPC512x and MPC8308 DMA driver");
->  MODULE_LICENSE("GPL");
->  MODULE_AUTHOR("Piotr Ziecik <kosmo@semihalf.com>");
+>> >>
+>> >> This allows userspace to not have to do a RMW cycle when using the
+>> >> file_[gs]etattr() syscalls, avoiding possible race conditions and
+>> >> simplifying their usage.
+>> >>
+>> >> Patch 2/3 also introduces the missing FS_XFLAG_PROJID flag so that
+>> >> programs like chattr can leverage the new mask API.
+>> >> FS_XFLAG_PROJID is kept out of the legacy FS_XFLAG_MASK and so it's
+>> >> defined as part of a new FS_FILE_ATTR_XFLAGS_MASK group of xflags tha=
+t
+>> >> will be used moving forward for any new xflag (like the one proposed =
+in [2]).
+>> >>
+>> >> Patch 3/3 converts fs/ntfs to this new API, to show how it can benefi=
+t
+>> >> filesystem drivers too.
+>> >>
+>> >> The series has been tested across NTFS, ext4 (with project quotas), X=
+FS
+>> >> (project quotas and extent size hints), and Btrfs.
+>> >>
+>> >
+>> > Judging from the number of bugs reported by Sashiko and by my agent
+>> > on the COMMON flags change,
+>> > I think this needs test coverage for the old APIs, especially with old=
+ binaries
+>> > chattt/xfs_io that do the get/set cycle and re-built binaries with new=
+ headers
+>> > both tested against old and new kernel.
+>> > Sorry, but the UAPI issues are fragile...
+>>
+>> Yeah, I thought about adding some tests to xfstests yesteday after I
+>> made my agent test the sashiko issues in my test vm, but I don't want to
+>> make it generate them and submit them with minimal oversight.
+>>
+>> It could still be worth to make it generate them to just test locally,
+>> then clean them up and submit them after the vfs design/code is
+>> finalized.
+>>
+>
+> I think that selftest will be easier to check these backward compact
+> issues with a C program that can use its own re-definitions of the struct=
+.
+> Then you can post it as part of the series which is much preferred for
+> visibility of the test coverage in the context of review.
+
+Ah right, I could copy src/file_attr.c from xfstests and modify that,
+since it defines the structs and XFLAGS in the .c itself.
+
+>> > This is one of the changes that would have been very hard to audit wit=
+hout
+>> > the LLM agents. Hopefully with the agents it is doable, but need to gu=
+ide
+>> > them how to review/test for regressions.
+>>
+>> Yeah, the amount of edge cases it catches in my code is very high, I
+>> manually wrote the main vfs code in this patch series, but I took at
+>> least the same amount of time to fix *some* (considering the amount
+>> sashiko still reported anyway) of the bugs the robot pointed out.
+>>
+>
+> My 2c: prompt the robot how can I make this easier for human reviewers
+> to verify - keeps it away from being too creative.
+
+I usually just ask it why it changed "all that code" and it's usually
+enough, if I can't review it manually it's probably not that correct.
+
+Thanks,
+koraynilay
+
+> Thanks,
+> Amir.
+
+
+
+--3dcf8e0a5e9edc0fcf06426a56395e3537d991acfb90470930d0b8ec71c6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCawR+3gAKCRDmj22qf5IG
+XP+1AP43BRF64QEMtEZ533xQB/KRczImKn5mbaKWll5fbt6qZAD+OrjJY0OBmpMe
+mmkvC62iSdxE0n0dXcWsl70+M0KBlw4=
+=xoVq
+-----END PGP SIGNATURE-----
+
+--3dcf8e0a5e9edc0fcf06426a56395e3537d991acfb90470930d0b8ec71c6--
