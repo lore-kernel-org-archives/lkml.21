@@ -1,81 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795426898;
-	b=bf/wQH94ksBqfGf0vU6f7ubng7dcPO6vO3R99WNU3Y+7a1j7xftuOzjU4NvonoAill+W
-	 9iTh3WPkImoO/SHd34MgHJUX9F8Fc3eAmGphjIKnNKuN4eJ8MGTpox8O+aAEStL2x4sNg
-	 W+9TnLT0gCWG1tkKplUUrKVWI21dGNSsOCZ9KPs+3l0AvMJh+1vcK0Nx6pQ6i+M3HggML
-	 lJFp2Auvg3bV5Cz7sizMtW0hTyazvgN8lYqGZWzoFJFDJlYNuYjWTNG+z57QZ4aUFq+K0
-	 QBjF/hB196lGwAMO9hTvc3aWtswkiaKEU5wpMqNr6Plo/pVsqihzLC+2qX5njnzyD9Q==
+	t=1795426931;
+	b=KSBURK/PEWDim6Di9VlEz/Aje1dnxIQ16jGxJcXznFCeYHTCwShsRdsiaiRdfl4QmlhO
+	 cIYrs2FI45AMcp0v6SFMA9mbPU744VcXKQ+vwvBh53y6JpHrSmAFora7vDpPZly/YunRr
+	 9Kwskjqf+gbTbMDJwNLXVfPc4SCaeb7iHM63rwXqVzdNZVbOg5gxRZp4FwpYxOdlgN33S
+	 /XjkdyRboCTTuL7+YW51oMl5r/KNKP1vlBQzsDXYNQFjtUPn9xNHvlEu4wp/nOgArjNNu
+	 kPOYoLKO7ZG/op5ulwL3PDlIqhsqP1FF5IuE7AcIwVe6X4iXCU+itbHC/CpIWyWIToA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426898;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=pRExidkVkZnEqiYK5Gjfqu4IDZXTVVeb+I6QW5ZL6uQ=;
-	b=XPUSU2DndkfN/ueLk9Ue3zca7dTgr64ACexXiCu7+xdLclm6NjgwzZvPAlFYobmtITYU
-	 Z+RzT0O+JR+pv9u74xwrEDCLzRmbl1NQFjjCGB0VC8zcffhFmujh/mMKHNmrZmvJWkMIb
-	 +2p/qtDaxmKakamTUuZziEbtGMczUS/8ve6my8SKJqrMqK1fuxsS5E0jK+/bD2PZhqAqN
-	 q6GzdPba4kAthD6LQRPiXLd3yxZz6FYY6Ne04wtuwUI3zZfoPAJWjZxQeOkibGm23wI97
-	 zlq3L/bGQcbKXtlQaK/ql3zk0VH3rG3zbE5MK7sTiMxWsxF5tu9Xm7zodZKpNgGcYZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426931;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=Uwclkd70WMb7Wc7NZ9jA+4hNfpuCqx21LkN7LDxWsVQ=;
+	b=Ed9AvuCd7uPw1dZTyFYwcqklQ9DhuZVJM6Ot3/V6Axw14d5EUyLGgV68cW4OfUmnUd6/
+	 U82aKpQFp6DJjCTB0xSeYjQyyINJJyhDMc4plN8O/iXB86xP5eZh8pogu4QG9/rH/DVjk
+	 2n3wjhsrPawpbF32TG9tlB5m2/J22JAfnpH1bv1VrI+eLRGxXf2TNOaMODhhPAXamFcZS
+	 HjBc4UFPpMTEgHKN5hdtO96+R81vs6AvHKh5OkpnM5CHuuJR0MPIId6W+8D77W03fVGZN
+	 3UX7L5/zRiEmejLKMXaK8+Y5jt4WdXMHxCRVGZbnm8JFwHd8ODFBj++T/oS480nOMbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=BEyIQART;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AuIktz7s;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D22B9606A31A;
-	Mon, 23 Nov 2026 09:41:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D22B9606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC8E606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:42:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC8E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=BEyIQART
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9YTw51601550;
-	Mon, 23 Nov 2026 09:41:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=pRExid
-	kVkZnEqiYK5Gjfqu4IDZXTVVeb+I6QW5ZL6uQ=; b=BEyIQART8dkCV+0FOmy/mw
-	9BGrYKeTbYmTBeiovyzYzRAmWM10NVYGGyEmakVzrUjmuzzgxAPd3JDD4CwxU5io
-	1UkcTo829UXW5Dopm1s6r1kD1DFXlEUKLUwz3JAusC2sC46PzAy5M/Cmn2NAv2X3
-	xBpy56eJw824KyE4GmcU6j/9W58rS84N5pST3fLCSAumvu7TVLsNLISGtqGuwA2g
-	UxZosxbb5uItrQhSPBzhm0m7nKHrlOOWTif0xi8lLawrUPKG8ghXKQ+tAD0dYogb
-	PlsAbAYHId82KmtNRcASoJqoFUDt7kNXLkp+4T7A6V2IRBfd0Keapym+wotx7R3g
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g32f3g-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 09:41:19 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9JNLf956277;
-	Mon, 23 Nov 2026 09:41:18 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0ve9fv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 09:41:18 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN9fElV48693632
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 09:41:14 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 228302004E;
-	Mon, 23 Nov 2026 09:41:14 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DB82120040;
-	Mon, 23 Nov 2026 09:41:13 +0000 (GMT)
-Received: from [9.68.16.159] (unknown [9.68.16.159])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Nov 2026 09:41:13 +0000 (GMT)
-Message-ID: <d2e2ffaa-70ad-460f-bd85-0834a354f232@linux.ibm.com>
-Date: Mon, 23 Nov 2026 10:41:13 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AuIktz7s
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso16260005e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:42:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795426929; x=1796031729; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Uwclkd70WMb7Wc7NZ9jA+4hNfpuCqx21LkN7LDxWsVQ=;
+        b=AuIktz7syzWPH8OqGO16+pChAtFpQRDoo2mpuAl8u9DlWKEE1sUfsFHoShkvM9Xu5/
+         /EgCzn0IzHxG0v0ShzWMyJ01cLLfUpp9T82HK1JL57Kzx7JmkVZ/yhwnNYB/JXw0g91+
+         p7XzdwZmdZ3wAJBBPHzC82JB96Dol6T7MUyH6cdkx3/iaMEa0m1GqEz5WyRMnut8vVGf
+         gJpeTQQlkUrFTktXNgjfm82CqfmmjV2wOhRKL/cSncWKn8xoMeRxHk3e8y25AzFCu/06
+         aHoiAaFCitU3Xqj7a2cD0ARHGjQaMdlcOLmVd0Ni98GC8tF9jZICJbUUSUAkJoTk9KQ9
+         KlYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795426929; x=1796031729;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=Uwclkd70WMb7Wc7NZ9jA+4hNfpuCqx21LkN7LDxWsVQ=;
+        b=ur70hZI10yWUzpqgkK6Xifx2hyRbmajmDBnnmgILPygPXixccb9mpZtNtQI/QeLUC1
+         FdR1IK6nwMd6B5ihk87QKgmQtyt1ttnuc1x8p/hnm7uo4m/EsRSzXPOnZNqo9W4lno4l
+         RxqRmz+XEyPcMsRfdnobxSpxNZ0l2ocxmHTib20U4pnWZ1lqS0lyFh6Ht3Vp+zODEQz5
+         TlwncS4RgQueIhU/A09/WZ0ZsNBzMqLWm6IjvYmLD+V+Rs1WSoKjOjDWfmjptOb6yJaR
+         +XVmBr91IFeqCNIhPYZP/rUra/YjGpUkp0WqSOIiujln6sY1UORXhdoFuOtaSRn6KVss
+         nMYg==
+X-Forwarded-Encrypted: i=1; AL+hErE9TO4gVfdTYDbH9OHiUCQqEtQTqV754TY0Okd8y0evXpPckgCFGM4VxROPRZHdwkLTEklaWP2k7k6mCgk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/6qIdUdiRn948Kl7zL03AqswFxNgKA2m6SNukubzWUkTYhwsLT
+	3/+K5KxKaKTVQ31MQUQ+XQzLfrjlyaFuN/ZgxMzpRNAdD2N9F0JLqH3b
+X-Gm-Gg: AZFdTZc9c2f1H+QtS6iUCqZZWjGsPECNLhZZSx/S+V42G00wm+t6WRaXEHlF78rvg2v
+	ailfZKkRt8L5yatewuuZKQDsS2AKuux2km+xBtCwm7vKBmb13+jXG1GUNHInheRIlAl37uFKh6F
+	w7shRlKYocCLTygDs7Q1aKR3KbzO+5rJF/3xu9BqIcaHoyk7mcBU+snCeujtb9pzWwdIqXA/oIa
+	64+FUaA9L00kR2v672EwixMKy5K0UOm+ZZQUmqrYg1NdC5lrs8Lnod1W4nTfU044whwxQ6kQSh3
+	qGhZB0BvetyZ/MHZgKAdBQUzHulZ49C9kO+NYjwqmJuNZ10Ccw158sc7aprTJjK1ZohFb/dMs7z
+	C7OstplJ6Dge+u7ANRvX3lO11wafvKIlfWOJi/bhjvIHftLm3h0gDhbp0XcqHWD7XwIA0nKkrNo
+	UwZYphgxUY+OLbQK3wsAuY3CtPf2IpHQPHAligGYxX2c7JJ+o22FnnKdbjbTgstQrIvaWaHhgkg
+	9cwlgTo8N8IvmjN2/soiKFNbyq2Nny17bku4NcN09w+vtDYjhF1xYny93L+JfZ8+qz3ho02/bq9
+	blX9Pw2JuS3vZA8iQNIA9ebXcXVXPw9J1Iwx/BpgC/14mYZsBGW4yEUty01Kbio62dpPvk6ll+l
+	iHWCnZgH6EFKLTjkTb3MUTYenkJ53OdJCo/Pns1UGWFPn+YU=
+X-Received: by 2002:a05:600c:3f0a:b0:4a5:75d2:c104 with SMTP id 5b1f17b1804b1-4bb8880cde7mr213486475e9.22.1795426929109;
+        Mon, 23 Nov 2026 01:42:09 -0800 (PST)
+Received: from [127.0.1.1] ([85.97.71.213])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm334955785e9.7.2026.11.23.01.42.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 01:42:08 -0800 (PST)
+From: Sercan GOKMEN <gokmensercan@gmail.com>
+Date: Mon, 23 Nov 2026 12:42:07 +0300
+Subject: [PATCH v3] platform/asus: asus-wmi: Skip keyboard backlight
+ read-back on B9406CAA
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,178 +93,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] KVM: s390: Don't use %pK through debug printing
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@redhat.com>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev
- <agordeev@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>
-Cc: kvm@vger.kernel.org, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20250217-restricted-pointers-s390-v1-0-0e4ace75d8aa@linutronix.de>
- <20250217-restricted-pointers-s390-v1-2-0e4ace75d8aa@linutronix.de>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20250217-restricted-pointers-s390-v1-2-0e4ace75d8aa@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b040a3f cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8
- a=kX4y4rNH7BZqjoY-yxsA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzOCBTYWx0ZWRfX6bGa+ZVkh0Ei
- 470XWYDJhPtzwFN5NmrBol8BJ6OeZVMRPWCwGo5O0zG7tszY54eZTVNqR16AAHLj4JDvws5ZiMq
- IM+OVYCBdmYJZ/jboEOvO6hOtCiRg2g=
-X-Proofpoint-ORIG-GUID: PB7IEGtik7gGSTVF3yaJ0dpPAaRAuUc1
-X-Proofpoint-GUID: PB7IEGtik7gGSTVF3yaJ0dpPAaRAuUc1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzOCBTYWx0ZWRfX4vDogcpnTR1V
- 26hAj/jzWj1MGZuUl/717QEwkYwJIZlzVH6QXxvL1/+hZaJnLAPvp1ztyY6HQHIdgPcwowxdxNO
- 8lIpFwERmE0Xj5VXfYL38UdFn1FrLmfmckkxnUDJioGkvRE9V+gOF2MB0osIl4gWiXC4XiyLByc
- BqUMZWppyxF6MiIHG2lN5Nj18rwf+NBZCSJv9a46Y4v7aKzjPUAjeRohQqsZFrZm7SB83iOAalM
- zMWi8YNIZ8RiQ0QbdyiF+0q11g/R4k0U7Q0Fe+mcQ2ts9/oiUd51zHqPc5rFrT6mUgLVrkPq9Rq
- xq5iVCicNkkk8xY6QxR3OsyGvLQERhyA23UGgJ1HJYYE6V96N9R19smg/QyIFpDhsC4oUofd1L9
- B+0hU4vP5ZvbdOBhzDp4TpeAfQsUnivi9LkNeRqPkL9ESkrQbQrftlvKXgtahc/3hJ3mQse1DDf
- s8Ts4waL7qUNgRypAXg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1011 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230038
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-b4-asus-wmi-b9406caa-kbd-readback-v3-1-1e6875af3703@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOyw6CMBBFf8V07Zg+kFBX/odxMW0HqAiYFlBD+
+ HcBN7rT5UluzrkjixQ8RXbYjCzQ4KNvmxnUdsNsiU1B4N3MTHKZCi4lmAQw9hHutQejE55aRKi
+ Mg0DoDNoKkFwm9V65TGk2e26Bcv9YG6fzm2NvLmS7RbwsSh+7NjzXE4NYdv/0BgECcqMUOZ05J
+ 9JjUaO/7mxbs6U3yA+j4r8Y5Wy0qJUxmiudfxmnaXoBUeK9lDYBAAA=
+X-Change-ID: 20261022-b4-asus-wmi-b9406caa-kbd-readback-aed82953d839
+To: Corentin Chary <corentin.chary@gmail.com>, 
+ "Luke D. Jones" <luke@ljones.dev>, Denis Benato <denis.benato@linux.dev>, 
+ Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: Moad Tarrih <tarrihmoad@proton.me>, Burak Goncu <burakgon12@gmail.com>, 
+ platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Sercan GOKMEN <gokmensercan@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795426927; l=4769;
+ i=gokmensercan@gmail.com; s=20261022; h=from:subject:message-id;
+ bh=V/Am6+fbXbJkDo7e2qx/4cM5ZZeA3AaF52oI6Qyyu4I=;
+ b=hmm8VSWeyUoWR4KByn1xNXfl0UiZ+b8uLlR2Wn68E3ZDfBIp/X6Iv3RHGNigB11rn5TtMUMgE
+ oT2Wn5Q176IBSL/oj4FXCWMQCo3crvT47YZ9un1BnWH+I6HbgEMbvXB
+X-Developer-Key: i=gokmensercan@gmail.com; a=ed25519;
+ pk=nFIlLCcGouUfBov8xxW0K4qUtEjdhJniMOO8WCSqghU=
 
-Am 17.02.25 um 14:13 schrieb Thomas Weißschuh:
-> Restricted pointers ("%pK") are only meant to be used when directly
-> printing to a file from task context.
-> Otherwise it can unintentionally expose security sensitive,
-> raw pointer values.
-> 
-> Use regular pointer formatting instead.
-> 
-> Link: https://lore.kernel.org/lkml/20250113171731-dc10e3c1-da64-4af0-b767-7c7070468023@linutronix.de/
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+On the ASUS ExpertBook Ultra B9406CAA (BIOS 312), DSTS(0x00050021)
+always returns 0x550000: the presence bit is set and the level is 0,
+whatever level the EC is driving. The DSDT builds this reply from
+constants and never reads the EC. Writes work.
 
-Just realized that will debugging something, but this change was wrong.
-The VM_EVENT, KVM_EVENT are not printks, it will rather populate output
-in debugfs files and this output is populated at read time as the debug
-feature stores the format string and the value. So %pK was actually the
-right thing - I think.
+kbd_led_get() stores every read in asus->kbd_led_wk, so each sysfs read
+resets the cached level to 0. sysfs, UPower and brightnessctl then
+report 0, systemd-backlight restores a dark keyboard at boot, and the
+next Fn backlight key press always gives level 1.
 
+Add a kbd_led_no_readback quirk that makes kbd_led_get() return the
+cached level, as the !kbd_led_avail path already does, and set it for
+this board. Every path that changes the level keeps kbd_led_wk current.
+Until the first write after probe, the driver still reports the 0 it
+read at probe time.
 
-> ---
->   arch/s390/kvm/intercept.c |  2 +-
->   arch/s390/kvm/interrupt.c |  8 ++++----
->   arch/s390/kvm/kvm-s390.c  | 10 +++++-----
->   3 files changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/s390/kvm/intercept.c b/arch/s390/kvm/intercept.c
-> index 610dd44a948b22945b0a35b760ded64bd44ef7cb..a06a000f196ce0066bfd21b0d914492a1796819a 100644
-> --- a/arch/s390/kvm/intercept.c
-> +++ b/arch/s390/kvm/intercept.c
-> @@ -95,7 +95,7 @@ static int handle_validity(struct kvm_vcpu *vcpu)
->   
->   	vcpu->stat.exit_validity++;
->   	trace_kvm_s390_intercept_validity(vcpu, viwhy);
-> -	KVM_EVENT(3, "validity intercept 0x%x for pid %u (kvm 0x%pK)", viwhy,
-> +	KVM_EVENT(3, "validity intercept 0x%x for pid %u (kvm 0x%p)", viwhy,
->   		  current->pid, vcpu->kvm);
->   
->   	/* do not warn on invalid runtime instrumentation mode */
-> diff --git a/arch/s390/kvm/interrupt.c b/arch/s390/kvm/interrupt.c
-> index 07ff0e10cb7f5c0294bf85f1d65d1eb124698705..c0558f05400732b2fe6911c1ef58f86b62364770 100644
-> --- a/arch/s390/kvm/interrupt.c
-> +++ b/arch/s390/kvm/interrupt.c
-> @@ -3161,7 +3161,7 @@ void kvm_s390_gisa_clear(struct kvm *kvm)
->   	if (!gi->origin)
->   		return;
->   	gisa_clear_ipm(gi->origin);
-> -	VM_EVENT(kvm, 3, "gisa 0x%pK cleared", gi->origin);
-> +	VM_EVENT(kvm, 3, "gisa 0x%p cleared", gi->origin);
->   }
->   
->   void kvm_s390_gisa_init(struct kvm *kvm)
-> @@ -3178,7 +3178,7 @@ void kvm_s390_gisa_init(struct kvm *kvm)
->   	gi->timer.function = gisa_vcpu_kicker;
->   	memset(gi->origin, 0, sizeof(struct kvm_s390_gisa));
->   	gi->origin->next_alert = (u32)virt_to_phys(gi->origin);
-> -	VM_EVENT(kvm, 3, "gisa 0x%pK initialized", gi->origin);
-> +	VM_EVENT(kvm, 3, "gisa 0x%p initialized", gi->origin);
->   }
->   
->   void kvm_s390_gisa_enable(struct kvm *kvm)
-> @@ -3219,7 +3219,7 @@ void kvm_s390_gisa_destroy(struct kvm *kvm)
->   		process_gib_alert_list();
->   	hrtimer_cancel(&gi->timer);
->   	gi->origin = NULL;
-> -	VM_EVENT(kvm, 3, "gisa 0x%pK destroyed", gisa);
-> +	VM_EVENT(kvm, 3, "gisa 0x%p destroyed", gisa);
->   }
->   
->   void kvm_s390_gisa_disable(struct kvm *kvm)
-> @@ -3468,7 +3468,7 @@ int __init kvm_s390_gib_init(u8 nisc)
->   		}
->   	}
->   
-> -	KVM_EVENT(3, "gib 0x%pK (nisc=%d) initialized", gib, gib->nisc);
-> +	KVM_EVENT(3, "gib 0x%p (nisc=%d) initialized", gib, gib->nisc);
->   	goto out;
->   
->   out_unreg_gal:
-> diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-> index ebecb96bacce7d75563bd3a130a7cc31869dc254..9e427ba3aed42edf617d6625b5bcaba8f43dc464 100644
-> --- a/arch/s390/kvm/kvm-s390.c
-> +++ b/arch/s390/kvm/kvm-s390.c
-> @@ -1020,7 +1020,7 @@ static int kvm_s390_set_mem_control(struct kvm *kvm, struct kvm_device_attr *att
->   		}
->   		mutex_unlock(&kvm->lock);
->   		VM_EVENT(kvm, 3, "SET: max guest address: %lu", new_limit);
-> -		VM_EVENT(kvm, 3, "New guest asce: 0x%pK",
-> +		VM_EVENT(kvm, 3, "New guest asce: 0x%p",
->   			 (void *) kvm->arch.gmap->asce);
->   		break;
->   	}
-> @@ -3464,7 +3464,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   		kvm_s390_gisa_init(kvm);
->   	INIT_LIST_HEAD(&kvm->arch.pv.need_cleanup);
->   	kvm->arch.pv.set_aside = NULL;
-> -	KVM_EVENT(3, "vm 0x%pK created by pid %u", kvm, current->pid);
-> +	KVM_EVENT(3, "vm 0x%p created by pid %u", kvm, current->pid);
->   
->   	return 0;
->   out_err:
-> @@ -3527,7 +3527,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->   	kvm_s390_destroy_adapters(kvm);
->   	kvm_s390_clear_float_irqs(kvm);
->   	kvm_s390_vsie_destroy(kvm);
-> -	KVM_EVENT(3, "vm 0x%pK destroyed", kvm);
-> +	KVM_EVENT(3, "vm 0x%p destroyed", kvm);
->   }
->   
->   /* Section: vcpu related */
-> @@ -3648,7 +3648,7 @@ static int sca_switch_to_extended(struct kvm *kvm)
->   
->   	free_page((unsigned long)old_sca);
->   
-> -	VM_EVENT(kvm, 2, "Switched to ESCA (0x%pK -> 0x%pK)",
-> +	VM_EVENT(kvm, 2, "Switched to ESCA (0x%p -> 0x%p)",
->   		 old_sca, kvm->arch.sca);
->   	return 0;
->   }
-> @@ -4025,7 +4025,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->   			goto out_free_sie_block;
->   	}
->   
-> -	VM_EVENT(vcpu->kvm, 3, "create cpu %d at 0x%pK, sie block at 0x%pK",
-> +	VM_EVENT(vcpu->kvm, 3, "create cpu %d at 0x%p, sie block at 0x%p",
->   		 vcpu->vcpu_id, vcpu, vcpu->arch.sie_block);
->   	trace_kvm_s390_create_vcpu(vcpu->vcpu_id, vcpu, vcpu->arch.sie_block);
->   
-> 
+Signed-off-by: Sercan GOKMEN <gokmensercan@gmail.com>
+---
+Tested on the B9406CAA (BIOS 312) on Linux 7.2.3: brightness reads back
+the level written to it, UPower reports the same value, and the Fn
+backlight key steps 2 -> 3 -> 0 -> 1 from level 2. On 7.3.0 and 7.3.5,
+with the same change built as a DKMS module, writes of 3/1/0/2 read back
+unchanged.
+Build-tested on review-ilpo-next (2268d837dea1) with W=1 (clang).
+
+This conflicts trivially with Moad Tarrih's G814FP patch, which adds a
+quirk_entry field and a DMI entry at the same places:
+https://lore.kernel.org/r/20261116-asus-wmi-kbd-readback-v5-1-f2f170836bf4@proton.me
+Applied after it, only asus-nb-wmi.c needs the two entries merged.
+
+The patch was prepared with the help of an AI coding assistant (Claude
+Code). I reviewed it and tested it on the hardware.
+---
+Changes in v3:
+- Rebase onto review-ilpo-next, after the move to drivers/platform/asus/,
+  and use the platform/asus prefix.
+- Trim the commit message.
+- Drop the comment on the quirk_entry field and shorten the one on the
+  quirk.
+- Link to v2: https://patch.msgid.link/20261030-b4-asus-wmi-b9406caa-kbd-readback-v2-1-ca93bb9039f6@gmail.com
+
+Changes in v2:
+- Shorten the subject (Burak Goncu).
+- Say that kbd_led_wk keeps the 0 read at probe until the first write
+  (Burak Goncu).
+- Move the test details below the cut (Burak Goncu).
+- Rebase on current for-next.
+- Link to v1: https://patch.msgid.link/20261022-b4-asus-wmi-b9406caa-kbd-readback-v1-1-fb33ed98dd16@gmail.com
+---
+ drivers/platform/asus/asus-nb-wmi.c | 15 +++++++++++++++
+ drivers/platform/asus/asus-wmi.c    |  3 ++-
+ drivers/platform/asus/asus-wmi.h    |  1 +
+ 3 files changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/platform/asus/asus-nb-wmi.c b/drivers/platform/asus/asus-nb-wmi.c
+index 3b0f3346dc..420fdced34 100644
+--- a/drivers/platform/asus/asus-nb-wmi.c
++++ b/drivers/platform/asus/asus-nb-wmi.c
+@@ -93,6 +93,12 @@ static struct quirk_entry quirk_asus_unknown = {
+ 	.wmi_backlight_set_devstate = true,
+ };
+ 
++/* B9406CAA: DSTS(0x00050021) always reports level 0 */
++static struct quirk_entry quirk_asus_b9406caa = {
++	.wmi_backlight_set_devstate = true,
++	.kbd_led_no_readback = true,
++};
++
+ static struct quirk_entry quirk_asus_q500a = {
+ 	.filter_i8042_e1_extended_codes = true,
+ 	.wmi_backlight_set_devstate = true,
+@@ -167,6 +173,15 @@ static int dmi_matched(const struct dmi_system_id *dmi)
+ }
+ 
+ static const struct dmi_system_id asus_quirks[] = {
++	{
++		.callback = dmi_matched,
++		.ident = "ASUS ExpertBook Ultra B9406CAA",
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "ASUS"),
++			DMI_MATCH(DMI_BOARD_NAME, "B9406CAA"),
++		},
++		.driver_data = &quirk_asus_b9406caa,
++	},
+ 	{
+ 		.callback = dmi_matched,
+ 		.ident = "ASUSTeK COMPUTER INC. Q500A",
+diff --git a/drivers/platform/asus/asus-wmi.c b/drivers/platform/asus/asus-wmi.c
+index b33ebdb21a..725f827a17 100644
+--- a/drivers/platform/asus/asus-wmi.c
++++ b/drivers/platform/asus/asus-wmi.c
+@@ -1975,7 +1975,8 @@ static enum led_brightness kbd_led_get(struct led_classdev *led_cdev)
+ 	asus = container_of(led_cdev, struct asus_wmi, kbd_led);
+ 
+ 	scoped_guard(spinlock_irqsave, &asus_ref.lock) {
+-		if (!asus->kbd_led_avail)
++		if (!asus->kbd_led_avail ||
++		    asus->driver->quirks->kbd_led_no_readback)
+ 			return asus->kbd_led_wk;
+ 	}
+ 
+diff --git a/drivers/platform/asus/asus-wmi.h b/drivers/platform/asus/asus-wmi.h
+index b45f81b38a..72a43586ff 100644
+--- a/drivers/platform/asus/asus-wmi.h
++++ b/drivers/platform/asus/asus-wmi.h
+@@ -52,6 +52,7 @@ struct quirk_entry {
+ 	 */
+ 	int no_display_toggle;
+ 	u32 xusb2pr;
++	bool kbd_led_no_readback;
+ };
+ 
+ struct asus_wmi_driver {
+
+---
+base-commit: 2268d837dea13a78639fa3dad60472bb67478709
+change-id: 20261022-b4-asus-wmi-b9406caa-kbd-readback-aed82953d839
+
+Best regards,
+--  
+Sercan GOKMEN <gokmensercan@gmail.com>
 
