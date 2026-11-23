@@ -1,108 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394838;
-	b=Itz2A94EWVxrbyHWakxyi0yLPwbR54cQdaz7l+7Ih1GyLs80zh4ufZiibQ4s95/TQwGZ
-	 8mmCAuUYGZdv6FXmjg78f6vNtvnI012RQMG1JuGs0nnz3Nna84208ra9D40mi1PWjmrPh
-	 utyT2QFnw2/MlZaywxeHiXF7wZe4cT0O3wwusmWuoBYCk7mzugarAHDlPXanYTOIrwtqB
-	 i5RQnE1C1eS1ufEq1tXDfXvfYE4/0+KbO+BHs5N6CZdfoZ7+4znC7vN3z3G6hVw0EcWwL
-	 viYFrYG/y/kC2l9rtmLzK4OUwKnixWK0tOM6erl2EuXYtBw0G721DG1p+FTgmySuvYQ==
+	t=1795394880;
+	b=FzP+aDIs9/3KBo3r0knfkrfmeuVPylMt9/tM3WBraHCD8Wvbq2rin0vAsi8prcqgwq4k
+	 TY5Oy9yEW2CwOi4rOFaEdDoT4GzLLdAPzy93UeyIkAbgWgyzlp9m4qE3hoTCR3/x0BBFs
+	 rG6YqlFxFKvASY8U9v2YW3s/TJa9sZTzKRp8onYoFt8mz5AZu10rxMWbwMvV9LzRbY/rr
+	 N9/MH+FF6I2GecDNFDlGdVSdGG1sQMgMfJ1taQaN6E0vS/4kicOO0DahTBvRgOrdtQhvK
+	 N9Q8roq4lbXOzqvER0qhKexhaSdr4lqskDcrxpB4xc2nljYRNDTEAGJhkMuHzKK6peQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394838;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:From:To:Cc:Subject:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=p7B3c6D/X11fLUAKKmi13BRTcfCArxOmxqQgFnPzAxg=;
-	b=OcJwVBoOf0HoKNBlRoeqRAnJrYyedsrSki1XcHNrlJeQkqHQ1A6LfOmiH3KDTnHRZOX0
-	 R9GKWixqiZrXwx1jjIAXZeeRJvI0j66/DK7GYJjw9vpJBcGZB/9RPnIurNg67O5tuRSoZ
-	 4eJhfkmIufitNwe7+zwJxu7ZiRy4Muu+EeLzsaHj4kVRXgftNRzw2y+ZVJ1UDPsGzj8S1
-	 VGdwwZ0z7YqzyltuezKtGH3H/P7MCdjQ6MhYx3/o79zubMxABzRtbVwbZXKL1lMUcutn1
-	 lf/j42y7jrU32YNKZV8wwCIqwlmhYSzC2Q0LWLYZ97bwPQBQE5k7mdXZ1xYNxNFpODw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394880;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=Y4JNk4pyGWX3Uo4YVET7QG0RhmS/mzdDPtPPHLN7jk8=;
+	b=aoPXll6J9bxRwWBmfI/hxoK5bl+w9pb2rl+9NZgvyZ+b+7HMPEEwMkX/08c/E1xxbU3W
+	 YxosXRoCyHhNTHA0EPbkoiX0AKUipjxC720fMQljbnUhjhi76NbaShPHYBHC2Zmn+NrEZ
+	 QnNSGglyWzFGjHDb8bJm+zs3IuSGXuBRzMb8Zy410/FUHP4f9qtvnNpdGEersTpeEoC5o
+	 OK+3HvGu+a+t8RUVDwSgLAOk2uQHH+WDh0wDpVn9tnPevdDTUVj64eS12FJkB527TXDRN
+	 UwvaQ51RKocQkyjLoN0lBmY13wPhNuS7/2mpLUIpElWou/JI4kY9z6c56O84X/c1Nmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wfmQXoun;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Je4oWkDI;
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E3D8606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:47:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E3D8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30618606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:48:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30618606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wfmQXoun
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f03920c477so23921215ad.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:47:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795394837; x=1795999637; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=p7B3c6D/X11fLUAKKmi13BRTcfCArxOmxqQgFnPzAxg=;
-        b=wfmQXounwgi2H0Qxd61oGE737FXdx3pXDGCOw5wqSvHmhLwHbMYTvLOPgZ1H4nzjgD
-         9xZkG+9qJCwNtxDlgINthLE2KrlkMUMLdkTfkRrxDnHg2/rRF6WcXNrtFZn/qVjya7pj
-         GmPnzJlTLY18Bw6jiB9/PWzaufJ/EuY1zR/bDY4BNg5qVHJ4zAEf5u4OYbZwir3oJJ5z
-         bWrI5gRmMuSG8UZAQ3EXEX981myLRid+1mc7xa3vIvUo30DDFi2XIQe6l+1+d/QDmIr1
-         g8buEHoa1fy3Al0T/O3pbPGiy5AkuwlrIPoraLH1Sm1u/V9h97CJmibvWCcdVsbF+KQD
-         Rxiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795394837; x=1795999637;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p7B3c6D/X11fLUAKKmi13BRTcfCArxOmxqQgFnPzAxg=;
-        b=jnLRV+9F54QpGFQhcjZPXje1rl95QTfa753UvdXLldJzI6T72VU4nZLv3GIfuhYuwO
-         oS7gKKPr6TWlR5kWbJ5vv+Z2OaV10lagABC08bBimHodHOAKgADB1ihPlHiSzcTYkttz
-         hDJDwdC3TkGrVbCFxrE5SSSANmvir67qouZRA6rWFpzpTnc0gGsjLDfHyOVtDTuP6T8v
-         QatvXB/NyI+DpBXfCUuw9kdJY1U7Dq7fMXVGdobDjBgHFutO2akk/KK255VITg6vGdWE
-         pHGdYPykLaxGttvWSuTiQcAB121k3SQ6StRwO6eZgmyVXlEZYtjWn2pWm1PpSbxaQT3M
-         ZCWg==
-X-Forwarded-Encrypted: i=1; AL+hErFk/D7VdMHozzntVGFXcNQMwSx4UASGKn53WbWRUq2eW6VZwr8zAhJPbeeMUGuPbbMYnGaUAKLHUlALX6E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8QBn9EaBJe6xQ4mlN6Vjt2oY46yNGseNOC6i245tIzCQGI0Bq0
-	1d9H7EAxNDiD3ZOTKEtLROSPXAoxWNahZLoYwwQP0XMCE/htMUPNRFHL
-X-Gm-Gg: AZFdTZcWk4m1zTrTm0YxBmtkkyOuVv/7jaZK76bie0pUlCOwD8uyweyxOFi7Pah63xp
-	wteB5aML9aKg4L8N7ndc2wRyXNCPPIx9MGaCY+ZIgRJqe6/nNrrQ9nHVgKN6piD3kfH+YNPRPS0
-	jZIvOUpeHOg0ZyQhjy3mp4HrjrhYX5YRPTgCQl4AEkEokjkBwLbzRY/QgEf2OdH7MPqBdhlTbFu
-	g4q7vxCe81WBy1FZSfzreXYpwgRxbYlu5nC3s7Zc9uj6YuLgu1oTgeErRYydlzXH801tvZCDY7Q
-	Znyjys7FmhuISvLAKglbP0n4lY5T8fVa4ZYh2/t4Dk6J5APp41StqCgmwljF62v07U3rOgnxqRv
-	wr20rdb1rccJNQpxuwMrswYZ+x8Tij16RVaWsHaa1CTydUTYD4eiiKeXVaIyipVV+X4mBFIxL7i
-	vHRYDWhyUHlPkhbN/Xmszr31aWxh/gLcp2Fo0DFvBJYFT9xq9nB9lTecxQkZbdFAjNKCZlbGtXx
-	tfZt5el2143uLM5aZ+sAlBsozDCxBbjvXCwZ6x3iVGiuL7lvRSNXhm0u9FRApwRU/2sXQXj2J+J
-	kz23rcYuxZYViH4DboYv7GtBuCosdeSfE6lk9+80Wp1bUamweIX6gUpmnc2v0Md//84ZldBr4C+
-	O1ptk8qu59UBVHm7I5KQWeUlMxDAJkAMAaA==
-X-Received: by 2002:a17:90b:288e:b0:3b3:ec88:72a6 with SMTP id 98e67ed59e1d1-3b41c85284amr8792429a91.3.1795394836739;
-        Sun, 22 Nov 2026 16:47:16 -0800 (PST)
-Received: from localhost ([153.61.198.253])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm15471631a91.1.2026.11.22.16.47.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 16:47:16 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 00:47:15 +0000
-Message-Id: <DN26CP5BB6O7.23ALW6CZUBYSD@gmail.com>
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>, <bpf@vger.kernel.org>
-Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>, "Shuah Khan" <shuah@kernel.org>, "Tejun Heo"
- <tj@kernel.org>, "Johannes Weiner" <hannes@cmpxchg.org>,
- =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, "Shakeel Butt"
- <shakeel.butt@linux.dev>, "Waiman Long" <longman@redhat.com>, "Jiayuan
- Chen" <jiayuan.chen@linux.dev>, "Puranjay Mohan" <puranjay@kernel.org>,
- <cgroups@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-kselftest@vger.kernel.org>, <linux-rt-devel@lists.linux.dev>
-Subject: Re: [PATCH bpf-next] selftests/bpf: Disable preemption around
- css_rstat_updated()
-In-Reply-To: <20261121082843.44614-1-kmehltretter@gmail.com>
-References: <20261121082843.44614-1-kmehltretter@gmail.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Je4oWkDI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795394881; x=1826930881;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=/g9XQgD9XDbUImkIdSXx2Kdcg/aWZwqLCbyJbNrk2TI=;
+  b=Je4oWkDIPB5aRbDnrxEgrGvhWsA6wJnRQitUPfT6HZwJxAUpYOKJ4XO+
+   CQXOD2doa854zNdXwMZsn1kr819zCbFofE9oPgJoBi1WAG3wCZ3Krf6Eq
+   cDLAIuLPxixfIERiil0S3nbYr8iU/kqa2CiBOl2vILPY0xOfdzNgovgP2
+   Y/CB1wst9q+4rdFwg8gqrOhjrh+LL9xTr3SxTkDsd2ktqNL86gq7fJyxO
+   daQGp9pSIIsgftgFvZ0LsnhIghxPs8kW39bn0DoUO9rF7W9Y4EeuOX0hq
+   TrxHy8zNWjGKOcn0zdPjhTgZXi1IvwACina3pwLoutUMycDjQ4hUkH7u4
+   w==;
+X-CSE-ConnectionGUID: hxhoZr4SRaelNenn6igyug==
+X-CSE-MsgGUID: vrZDdAa8QnexjGrskOiCMA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4226444"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4226444"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 16:48:00 -0800
+X-CSE-ConnectionGUID: /q4kNaRZSwidLgrsg1wxRA==
+X-CSE-MsgGUID: 1jq7hFN2TSi9btq6VEVf9Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11503356"
+Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 16:47:58 -0800
+Date: Mon, 23 Nov 2026 08:47:54 +0800
+From: kernel test robot <yi1.lai@intel.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	aubrey.li@linux.intel.com, yu.c.chen@intel.com, yi1.lai@intel.com
+Subject: [linus:master] [sched/fair]  486c3d06b9:
+ stress-ng.switch.ops_per_sec 33.3% regression
+Message-ID: <202611230853.e2e6401-lkp@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,25 +80,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 12:28 AM Karl Mehltretter <kmehltretter@gmail.com> wrote:
-> trace_cgroup_path_lock. On PREEMPT_RT this leaves preemption and
-> interrupts enabled. On non-RT it masks interrupts, satisfying the
-> assertion.
 
-let's fix the kfunc instead
+Hello,
 
-diff --git a/kernel/cgroup/rstat.c b/kernel/cgroup/rstat.c
-index de816a4..d72fe72 100644
---- a/kernel/cgroup/rstat.c
-+++ b/kernel/cgroup/rstat.c
-@@ -131,6 +131,7 @@ __bpf_kfunc void css_rstat_updated(struct cgroup_subsys_state *css, int cpu)
- 	if (unlikely(cpu < 0 || cpu >= nr_cpu_ids || !cpu_possible(cpu)))
- 		return;
- 
-+	guard(preempt)();
- 	__css_rstat_updated(css, cpu);
- }
- 
+kernel test robot noticed a 33.3% regression of stress-ng.switch.ops_per_sec on:
 
-pw-bot: cr
+
+commit: 486c3d06b90240860e99686d29ed9f15637dc314 ("sched/fair: Avoid transient double accounting for delayed tasks") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
+
+testcase: stress-ng
+config: x86_64-rhel-9.4
+compiler: gcc-14
+test machine: 224 threads 2 sockets Intel(R) Xeon(R) Platinum 8480CTDX (Sapphire Rapids) with 256G memory
+parameters:
+
+  nr_threads: 100%
+  testtime: 60s
+  test: switch
+  method: pipe
+  cpufreq_governor: performance
+
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <yi1.lai@intel.com>
+| Closes: https://lore.kernel.org/oe-lkp/202611230853.e2e6401-lkp@intel.com
+
+
+Details are as below:
+-------------------------------------------------------------------------------------------------->
+
+
+The kernel config and materials to reproduce are available at:
+https://download.01.org/0day-ci/archive/20261123/202611230853.e2e6401-lkp@intel.com
+
+=========================================================================================
+compiler/cpufreq_governor/kconfig/method/nr_threads/rootfs/tbox_group/test/testcase/testtime:
+  gcc-14/performance/x86_64-rhel-9.4/pipe/100%/debian-13-x86_64-20250902.cgz/lkp-spr-r02/switch/stress-ng/60s
+
+commit: 
+  75545668ae ("sched/fair: Make cfs_rq::idle the sum of ancestor tg::idle")
+  486c3d06b9 ("sched/fair: Avoid transient double accounting for delayed tasks")
+
+75545668ae0fd80c 486c3d06b90240860e99686d29e
+---------------- --------------------------- 
+         %stddev     %change         %stddev
+             \          |                \  
+      4113           +49.9%       6165        stress-ng.switch.nanosecs_per_context_switch_pipe_method
+ 3.265e+09           -33.3%  2.178e+09        stress-ng.switch.ops
+  54451715           -33.3%   36327730        stress-ng.switch.ops_per_sec
+  77740057 ±  6%     +63.2%  1.269e+08 ±  6%  stress-ng.time.involuntary_context_switches
+     37428            -4.5%      35727 ±  2%  stress-ng.time.minor_page_faults
+     21920           -16.1%      18382        stress-ng.time.percent_of_cpu_this_job_got
+     12118           -16.1%      10162        stress-ng.time.system_time
+      1052           -16.2%     881.56        stress-ng.time.user_time
+ 6.431e+09           -40.8%   3.81e+09        stress-ng.time.voluntary_context_switches
+
+
+Disclaimer:
+Results have been estimated based on internal Intel analysis and are provided
+for informational purposes only. Any difference in system hardware or software
+design or configuration may affect actual performance.
+
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+
