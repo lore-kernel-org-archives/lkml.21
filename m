@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795460003;
-	b=DoXnCWZ+fDTLw7dd21piln8GdMqJsSxFDRZRQgdGWcvKkIlbs5fZD18+5Y3GzvEjccNc
-	 We+ZFv6uD40TFc8sMxZKAX4kkI8D6mNlTVM8cM/UhwHdbMtUf8USmwThwhn3vqSSe9/Td
-	 /5n4lfHPaxqZPqNL2c9sqPNgVKnLPqAXN7KQnWIeCq9mQNTQegxmdrs9suSjszs9aKYMf
-	 Ms9slqkav8hzy+b8stVku5GCNggY4Tai/eXoE6hJ0dW9mp8+UeIAHALfM+ay5PAJSZggJ
-	 /m+2tZvRFw+3e7ewcjhcOkWetAMytMiGoqI4EcvGbiclaO0ftHMfJoFFzU9hFMj7nYw==
+	t=1795460018;
+	b=5eAHLFbdELB8SzU6a9corYidEu6dIh3sidczEkSTqFIcNXm/e8NKR20Pr+C25MRAAYYD
+	 EKU5RrOAHGRwUDGfTSsNpMqUWjWkCUKn+Ua6gRckbeRPJ277fQwLlOBpzazIZdhI2IlXs
+	 CWVI/dZKpO+btPiqfHH6Bi/FkIWsJQnAQBuLO8LoBlfbjzTWBEYd8au8k1K+SLDhETdmu
+	 JZHAe1Q8UZf2/5bb0gcih+fL2oaWnEWHnHCedVSGcFDTZENKgPNtJqPSZWuxmgctEvMLI
+	 2Dh8JrxOvt9hKXOurpMuwFamFBqzhC4qJlnT/BIFwxsJGec/GYF2e9vcqkXBo6Yenfg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795460003;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795460018;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=asmN6q2HefJieUr+/zgw0602de6l9KxgRm2+Pk/d8bI=;
-	b=0u9xaINXj7BMmDOxZaojon907Z9/O63gnZt12dYozB/GkDsNyZ4jof5kcZvRPkEtvv/3
-	 Oj3t/qiSF4xA2KNRg0clzjjF/gSYQyzEkUK3IdpGk7yvaKFseHtYwV4Mt7/KSv2EWYIOA
-	 k5cjefQA/l5HWCg1GPAqHmDZ/kLjIBLYrCbnO5jTBefrHpiWR+bghGoK+X33nDoL9rXnV
-	 zs7iJgj9fQ6OSHv7/NogHihPfyix3xXPd3OZBuSWudAutgp4RRAZM4/D1HWFBPoVhaZ2L
-	 +adKCjm51azV4brUH4wX6Knne7MHN64Al1QxLH6S2G9SQDp1CB3vzqJgA8H4ocRTh2w==
+	bh=G/flV6tJgyZ+NqYZar1xR5I4MimyYfehG8yCe8+zdxk=;
+	b=IjYnj+HvwGeaHGucc4/LUbgtejzOStCTsKpDrOMYQs5BVUpeW8cxM8v8AUUyjyT28zA4
+	 N0e1yQTpYA0mS8UAP9lNZr+3jRX/2gqYyQcJ3PcNi6seIpWzHpgDaHEVRKlmzv8VLROpQ
+	 TsCrEZBSVZXeciNgYlICUaFZPWJSYadoAgxIpgEPbpmxMKAu/km3dCbVM6sr4k7U7sTF4
+	 PPWzFAhlR0DcLuxHjY2l/rHkLqDr9Cl3434bXcxvVy70fQRp+f45wy9sz6HcCJDpsk9W0
+	 FPrDGEJsUzgumi8xRcDjkT6u2zXLzXczFAjK3G7HCqTyzUqx/sVd/1KuWKPzqCUJfXw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JgmGfS2+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddSdKZmu;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1323E606A31F;
-	Mon, 23 Nov 2026 18:53:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EC6A606A336;
+	Mon, 23 Nov 2026 18:53:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JgmGfS2+
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddSdKZmu
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795460002;
-	b=wvamGluqC1VJF+/tu+O4Fim+yO1VBV6qnb2hooPY3Xrvy/Nm8O3UkGaoxoAxRlffcx0n
-	 r5I6hen65bkL/vHenqFzcfH1Y3kMaWAy1IvxM3iBexXlEFbh2MsKwzoaHzXLKspRsH+6K
-	 +3MZjf6Qc08T+RPNQisv8kNo2IHaNWFekGrrtBFmGky5PEpdsSkPABBsQ+OrX5wEdLFVM
-	 vdegYK6TMZcqv7QaXJvkNC4ScPjSmszKigKDaAitPjHkenEIIMNLpqh2FiWvGT9J7s0i7
-	 Jv7XOvzv/CMive01GJ6bS7HS3Mq6Ml7fUgwuITrAKrQEXZZAVuvt1d3GNEecLNmRKaA==
+	t=1795460017;
+	b=yZ+Ly6+MaGx/dBI1wtxMomHBd8NzvHNfrNhRtSCKGyu+lMh463GNFZ9m6TkEWkWBDcID
+	 OHSPlATOB8lxHB5mEE7rEe9vuMR6WOpamgSib+UiInYUohmyjh9/bnBGVai9hreMk8bEx
+	 YaOGHvWD05h3lIhvYIXunemPH+gIsvTLfpt7cL6ZnyOoCNiztpyxE3f0H9dBNJlKTvrB0
+	 7GMDbzB/PY86hUTKwo5iiktSF/f9ZaslU2wX1M8oaV+h2sXKXkFBP8xfZTKLAIvtFraXd
+	 rfyw/qYK1iRTujho6dXHFzfXVjW6m6R8z3GMWVBH0k71yWE4oweCg5D/TL1V9bfCBwQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795460002;
+	c=relaxed/relaxed; t=1795460017;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=asmN6q2HefJieUr+/zgw0602de6l9KxgRm2+Pk/d8bI=;
-	b=SklfuEek9Me7pHIuqNTj0K6oHXNa1l65gwXiZK3Q86z9Mv0WVwnrUmBiUjh1Nfqm2FW6
-	 UXO3HRIwbTPbZbRqom68VEr4mXCYGbCTZabmjyCefdcX2s3KGhwFQ73NXr1Of8VLi/RSd
-	 XUDqBWYjWEDySO2HXrPw9Wm7CThQ3hkRmf0WKbeoQR/PCjTzGtPmu4s3D8NL1RIdFOXL7
-	 yKZXx1wshnGxk8aiUWHk4ug0Xry5akq4l2gQTiTzEjoXW/7/jgQ50FMpL7hopHbvJ3jJU
-	 3XZUKWZXLvdDIPFOJy54TzLrFY8ZMyGgn6cmnx+w6r5KT3hcvQxLMfQpDDJUCSaLRGg==
+	bh=G/flV6tJgyZ+NqYZar1xR5I4MimyYfehG8yCe8+zdxk=;
+	b=Ld0E6zlHgi8gCyjdwbt6n31HDScSy//eC7xm9us5NGdIiDq9/ucXLOwnn1cJ5PeBrahw
+	 MV6EGFzgoCMzB32qQW9r1FR8JbXRjI+UumcWdB+MiF0gZmx0kkCPiNdEiNar3Hq0l06Or
+	 KKn8alORszXeZaZ0BGk+cRWcGXJZH3Krp7gsATUH6n6onkHN661GgL7PgXdoAxpHt77Cs
+	 LTFAkAT4vw/BD19fl4Fp1F5W5lHZaRomvm+6IX1uQqti7PO4dsdDvfTyKVTcxgriKJw0Y
+	 XlHp5PflY1D1aFuQsI99IO2eZEW+Er6vhdSDy/zmtwaO4K93Thwoymlxhav6H1iTGpw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C1F671F000E6;
-	Mon, 23 Nov 2026 18:53:12 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id AB38B1F000ED;
+	Mon, 23 Nov 2026 18:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795460002;
-	bh=asmN6q2HefJieUr+/zgw0602de6l9KxgRm2+Pk/d8bI=;
+	s=k20260515; t=1795460017;
+	bh=G/flV6tJgyZ+NqYZar1xR5I4MimyYfehG8yCe8+zdxk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=JgmGfS2+TQqDRmOj5Q1iss+69zogpQKe+CWz6A5MRLf3GGpR4kKKvRRVFuLkE8OpK
-	 q6Odfqwail8d5V10tsAX51wKxSkZMlJTF4KLv6qRlk+BqfMAUM0CNmzAIlHt68AbrH
-	 agC4mJOp5dnqK81TjdCwJM4Cz6LRATChy6tdU0nlhhCxnahxWGeIlwR+ZiYK02RqOY
-	 MQjxQjUcTLFiBhXWbYa2pCB7UOalqVEzSCGOp7xJLDDbZ8e+vm3LKLgy+jrTCZzt23
-	 SOytOR0m2zlF3DsQxL754ECoh/QjUMMYC39fMgIsE89OCI+uOXpFAT465Ss94sgMCx
-	 5TEzwggcG+mgQ==
+	b=ddSdKZmuXc/Z48Iyq8+CPCokefKnnSVIZJRPuaHFnJp8PPcGlMfuAv/KIGrrdYii/
+	 8Ixh/n/SNQCnCCLhuFrsN95vE4B+oOhZNq7J5wS8QsesTDEIdJVfENl5KhMY3BTFFA
+	 jRM5lLXAO8rEXfpmBQqku696hnwzwmKgNf5m22R4eQAW5v3yeYeiyfdWLekcKbtYTp
+	 pIIjGUQgjTWN+bFOHqCryKGc8nUMlkCr+eLF+m9zmnO551r8tq9rxjCJWRmPjYpcJk
+	 ljP063qM65/xqskbCCjATImhDmqNmakQuevxwyBUTqyg8TSwnEipCk2wBchXEkM4Vd
+	 Wcdj5t2ezg8lw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3A66A4C631;
-	Mon, 23 Nov 2026 18:53:00 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 080574C649;
+	Mon, 23 Nov 2026 18:53:01 +0000 (UTC)
 From: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
-Date: Tue, 24 Nov 2026 02:52:54 +0800
-Subject: [PATCH v6 02/18] mm/memcontrol: allow update of LRU statistic
- without holding LRU lock
+Date: Tue, 24 Nov 2026 02:53:00 +0800
+Subject: [PATCH v6 08/18] mm/mglru: make folio lru referenced times count a
+ generic API
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-mglru-fg-v6-2-8ffea39934a6@tencent.com>
+Message-Id: <20261124-mglru-fg-v6-8-8ffea39934a6@tencent.com>
 References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
 In-Reply-To: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
 To: linux-mm@kvack.org
@@ -118,11 +118,11 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  Tianyi Chen <hi@tychen.cc>, Kairui Song <kasong@tencent.com>, 
  Ridong Chen <ridong.chen@linux.dev>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459977; l=1434;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459977; l=4795;
  i=kasong@tencent.com; s=kasong-sign-tencent; h=from:subject:message-id;
- bh=uwS4fBCD5iPVACjO21QQfl2NP0AqWyZwBPx9Plu/+9U=;
- b=2pyXTqy8HzStaaOCjTzObU1npNvY6ZTpilr+RXfXelh2BoV3pXDzkQDh7YtNKuBinOgbf7HIr
- Mou6SAdaUjTCLlAY7r+pWaP7/QlkLcjr09/iTRLHgrkUcRHYDfXKH4T
+ bh=PBYnbcUr9dUAP8lVbFcm0yrXQShhXuM2Q3GvdJcxzZ4=;
+ b=4IBQ/rfrcPb4A6znz9CjQVL0ric1Ec41qoBxJYerdLkN9zyX5+X8c7XbuMh+IFCahStZfmZzL
+ V6ntTsPl53LDvoF9eCtZGnxiDKfw/BcvCiB+68Ie6SrKJ6RXj4uonwS
 X-Developer-Key: i=kasong@tencent.com; a=ed25519;
  pk=kCdoBuwrYph+KrkJnrr7Sm1pwwhGDdZKcKrqiK8Y1mI=
 X-Endpoint-Received: by B4 Relay for kasong@tencent.com/kasong-sign-tencent
@@ -133,40 +133,142 @@ Content-Transfer-Encoding: 7bit
 
 From: Kairui Song <kasong@tencent.com>
 
-To enable moving file pages in folio_mark_accessed directly and lazily
-for MGLRU, allow updating the LRU statistic atomically without holding a
-lock. It may cause temporary counter underflow, which should be fine as
-the counter is eventually consistent and only serves as an estimate.
+Pure code shuffle, no behavior change.
 
-Reviewed-by: Barry Song <baohua@kernel.org>
+Make the folio LRU refs helpers available regardless of CONFIG_LRU_GEN.
+Without MGLRU the extra bits are never set, so they are inert. Move the
+lru_gen_* helpers into the CONFIG_LRU_GEN section.  This prepares for
+unifying the API for checking folio referenced and workingset status.
+
+folio_migrate_lru_refs() now migrates the complete refs count,
+including PG_workingset (bit 1 of the encoding), bitwise identical to
+the direct copy dropped from folio_migrate_flags().
+
+lru_set_refs_flags() skips the nonexistent mask bits when
+LRU_REFS_WIDTH collapses to 0, preserving the two independent flags for
+!CONFIG_LRU_GEN builds.
+
+Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
 Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 Tested-by: Andrew Morton <akpm@linux-foundation.org>
-Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
-Reviewed-by: Lian Wang <lianux.mm@gmail.com>
 Signed-off-by: Kairui Song <kasong@tencent.com>
 ---
- include/linux/mm_inline.h | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ include/linux/mm_inline.h | 55 ++++++++++++++++++++++++-----------------------
+ mm/migrate.c              |  2 --
+ 2 files changed, 28 insertions(+), 29 deletions(-)
 
 diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-index 2395ca8ee305..2edb9beef6d3 100644
+index f38dad1198fc..180db43c3a85 100644
 --- a/include/linux/mm_inline.h
 +++ b/include/linux/mm_inline.h
-@@ -47,12 +47,11 @@ static __always_inline void __update_lru_size(struct lruvec *lruvec,
- {
- 	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
- 
--	lockdep_assert_held(&lruvec->lru_lock);
- 	WARN_ON_ONCE(nr_pages != (int)nr_pages);
- 
- 	mod_lruvec_state(lruvec, NR_LRU_BASE + lru, nr_pages);
--	__mod_zone_page_state(&pgdat->node_zones[zid],
--				NR_ZONE_LRU_BASE + lru, nr_pages);
-+	mod_zone_page_state(&pgdat->node_zones[zid],
-+			    NR_ZONE_LRU_BASE + lru, nr_pages);
+@@ -184,6 +184,12 @@ static inline int lru_get_gen_flags(unsigned long flags)
+ 	return gen;
  }
  
- static __always_inline void update_lru_size(struct lruvec *lruvec,
++static inline int folio_lru_gen(const struct folio *folio)
++{
++	return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, 0)));
++}
++#endif
++
+ /**
+  * lru_set_refs_flags - Set the LRU referenced count to folio flags.
+  * @flags: pointer to the folio flags
+@@ -206,7 +212,8 @@ static inline void lru_set_refs_flags(unsigned long *flags, unsigned int refs)
+ 		*flags |= BIT(PG_referenced);
+ 	if (refs & BIT(1))
+ 		*flags |= BIT(PG_workingset);
+-	*flags |= ((unsigned long)refs >> 2) << LRU_REFS_PGOFF;
++	if (LRU_REFS_WIDTH)
++		*flags |= ((unsigned long)refs >> 2) << LRU_REFS_PGOFF;
+ }
+ 
+ /**
+@@ -252,13 +259,31 @@ static inline void folio_set_lru_refs(struct folio *folio, unsigned int refs)
+ 	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+ }
+ 
++#ifdef CONFIG_LRU_GEN
+ void folio_inc_lru_refs(struct folio *folio, unsigned int flags);
++#else
++static inline void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
++{
++	/* Should not be called with !CONFIG_LRU_GEN */
++	WARN_ON_ONCE(1);
++}
++#endif
+ 
+-static inline int folio_lru_gen(const struct folio *folio)
++/**
++ * folio_migrate_lru_refs - copy the reference state to a new folio
++ * @new: the destination folio
++ * @old: the source folio
++ *
++ * Transfer the reference state to @new during migration: the MGLRU
++ * refs count, or PG_referenced and PG_workingset (bits 0-1 of the
++ * encoding) for the active/inactive LRU.
++ */
++static inline void folio_migrate_lru_refs(struct folio *new, const struct folio *old)
+ {
+-	return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, 0)));
++	folio_set_lru_refs(new, folio_lru_refs(old));
+ }
+ 
++#ifdef CONFIG_LRU_GEN
+ static inline bool lru_gen_is_old(struct lruvec *lruvec, int type, int gen)
+ {
+ 	unsigned long min_seq = READ_ONCE(lruvec->lrugen.min_seq[type]);
+@@ -424,20 +449,6 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
+ 
+ 	return true;
+ }
+-
+-/**
+- * folio_migrate_lru_refs - copy the reference state to a new folio
+- * @new: the destination folio
+- * @old: the source folio
+- *
+- * Transfer the reference state to @new during migration: the MGLRU
+- * refs count, including PG_referenced, or just PG_referenced for the
+- * active/inactive LRU.
+- */
+-static inline void folio_migrate_lru_refs(struct folio *new, const struct folio *old)
+-{
+-	folio_set_lru_refs(new, folio_lru_refs(old));
+-}
+ #else /* !CONFIG_LRU_GEN */
+ 
+ static inline bool lru_gen_enabled(void)
+@@ -470,16 +481,6 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
+ {
+ 	return false;
+ }
+-
+-static inline void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
+-{
+-}
+-
+-static inline void folio_migrate_lru_refs(struct folio *new, const struct folio *old)
+-{
+-	if (folio_test_referenced(old))
+-		folio_set_referenced(new);
+-}
+ #endif /* CONFIG_LRU_GEN */
+ 
+ static __always_inline
+diff --git a/mm/migrate.c b/mm/migrate.c
+index 65869b8acec5..0430197fdc04 100644
+--- a/mm/migrate.c
++++ b/mm/migrate.c
+@@ -807,8 +807,6 @@ void folio_migrate_flags(struct folio *newfolio, struct folio *folio)
+ 		folio_set_active(newfolio);
+ 	} else if (folio_test_clear_unevictable(folio))
+ 		folio_set_unevictable(newfolio);
+-	if (folio_test_workingset(folio))
+-		folio_set_workingset(newfolio);
+ 	if (folio_test_checked(folio))
+ 		folio_set_checked(newfolio);
+ 	/*
 
 -- 
 2.56.1
