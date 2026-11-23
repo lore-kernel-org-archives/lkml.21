@@ -1,123 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445788;
-	b=UjOK8RLDviu85CzYW8TJlIoW0VM9KqsTOeS95FKrEiu/7a829sShkjKbg34Ks1mJS8A6
-	 olPx6t+4xvTIuCo883bc8H0Ap+tVj27R+mHVNyvRaYyag9lt03jA13azp2NCOK2UxYmMc
-	 gkHx8JRGX76bvEzGYE4fNo2RxrmV0cGs+M2Nb2DxqLKfX5UTuUOpJ+eHbfH+7vuJzGzWr
-	 t9Yknx/5PI8kZiRcx5sdetN0SyDQBTqOymjuE1KV0KfQx+uSLNIbcoDXRgVS03btU4KHU
-	 ZF92njJSzz+AnFoRo+8Czx5EW3M2VBHIOaUo6d94KaXsekEoX3NK10UAhf9hbWS1EXg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445788;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795445795;
+	b=VZ0moAeFl3nqHruO8M0c1OdEKh1uWsPFid8jJP/PMMJXy21iv8GGDUReThYpRn5F9Ao3
+	 fYnCXp8gTunwJDZ/hR1EbJPCmD5EY1FayMX8DTy9F3TMzDYnnG+4N5+q4DYvnpsg3zVhA
+	 ZSaook1jQcX5g1M8btQu6sudo9TccSBBXh4KC/5JpYP+hDDeXrfUCntt20w4TzxlMZvTB
+	 yMamN40kDRWKLqJOja5M6zetDhflnznfwTPFyg/LevknHwC0M0p5usCn2Li1+QyrPHl94
+	 D5nUb69C7T5RSNS7NhHo/arLMjy4tuNdi+vuOBSGjj68yzePQ2klOYP5GihepgZa2xg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445795;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=Q/tJR8V7RQfLEvY5F5nK+jr/e2gzyMXUOQNnz1DPicU=;
-	b=COwJrajS7uVAg/+nl9AF9scyqw+6aK7lRjDrwQxXSJkYEP+BbqEBir5F9KRlCNoQ4KPy
-	 PTddvTLRW60bMnK0Gex1f9zEV4RKKyOBO6Sfb8s3+1N4nuZu6MG83l3RkiR5jHWidrTBu
-	 9accJXn3Kz6CRqcT7v7+i4OWL5pVc+tDIiFfzEgA/gXmSdBYQPmXLDqEDFO4ucwYFETqG
-	 WYK9PdTBDpNswILHfhhXECc4/P+8Lpp8SlDamdVGXVZNS9aRdRvcIdaxTdl0Ajmp5afyt
-	 cnlKIs9OIJYVQgO/ZIP0QIPyDNT1Or2oiYCLHbsntSh/1ks3EyFEiO4mSq++CRWvLfg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bofu6dUO;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=D5Ad0NfWCRATUqS3JgVRTvoahCrGOaWVr/OFuW/f5EI=;
+	b=e7/L7pNLrX8NSpzhkoUyV4iFDOptp7lez5rQfYtY3MEhKwj/Zt1anhCHy/rqinaIwhUm
+	 daIsy3zBKa+nXZKz/dLgUaO2A73ijwj++g57Mgpjo9S9qtxggiBFltJ0wjHaPYISuGIZj
+	 KXGCNIwq9+BUjcbzqy6PcOwZYOIQxq1mMkJhaWhHB+/1i1lob3Spaf5oMYnVD+r5rc6kX
+	 kZKdUQQEP9mCldXn5FIegVIVxKyP2r0U+tRF8MVUqHMaRqYaURGwBr7el/I5kpFWEV/i6
+	 jxI7vvkTea+Ek0pPodUMtZ+LIfVb3Fn4/5TnkTcAoY/ZQg+Tuw/bTN57LZq/QED9Euw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=wA3RqpQO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 386BF606B090
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:56:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 386BF606B090
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C798B606B090
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:56:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C798B606B090
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bofu6dUO
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4aa5833c263so3232263f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:56:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=wA3RqpQO
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b8c60e0d39so4341827a12.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:56:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795445793; cv=none;
+        d=google.com; s=arc-20260327;
+        b=oD4feWKp3hGIH5yAm3etRmv79qyroWIuES8b7/V7W8xhIBzbz2y43a/hjNx0+9aeWV
+         GvPys75pvB9qcjIkWzRA5N/ZF7gX4AbbmbpRiCOtZxrPywQ82LCvvwlaqNkdgT7l6hMH
+         4IW8xdOPrvMbhKF8iLr2BeSvkSW5t7Cuz5yujC8VXVwvKFfgue70gAY3mdRaXgb/GCvU
+         8eNOVksPgsHU64Q8rhwxrjJahEb+JT0z44s+R15fezm9U2fpDWrfjts6JfCtLk7hg23m
+         gAdikY2xuYRRiydsX1Lliu9y7bDJq8QgjwSsD5en3Fthlar/VDhaR2xittFZdQyGeBhx
+         kj8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=D5Ad0NfWCRATUqS3JgVRTvoahCrGOaWVr/OFuW/f5EI=;
+        fh=ps3yutrS4TCiuizPJh4uYHC9YrAQxvbVIPvmhVWLcxg=;
+        b=OQ6Sg5TiYTySxTmwRQcNQbJK1ubf3omptdfgaKPeDdxd43NWVmdVwZ3XST55g/5YUz
+         qneT2ddhsYu6cMbH2Ff34fUXDaokfpvB4c6DGPGYTzftkdHRnrpr7B7+fdjkOPWDIxk8
+         AirRq+TjwDPlWSy6RC4/hms3ajss7lf2wwAsSSvrxUEa722DGgSE0pJU5CGjFAWUy6uP
+         t9ViN63HjWKT5qHhjQHoticsFv2Owm4yL62Tj/V+/7t5qOvAZsMREKdvmgwRjjhEYxKS
+         Olf38uvUDaFmMGDfR7TMmcneG66STou1uBOYJXWHEH29Zdabw/ic2JqZAP58wtFrxDc+
+         lvFg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795445787; x=1796050587; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Q/tJR8V7RQfLEvY5F5nK+jr/e2gzyMXUOQNnz1DPicU=;
-        b=Bofu6dUOLeJhpudTlg6fGStNYoci8efs9cl6wNGmEKJDGeGPhpmvPaFqnwzb5qrhKO
-         gePlSwURdD/0CVh3tshh/MITnnFM+tIKSAHqxynv68UtbnbE2HmcqIZVRj6504n72Lpq
-         Q+X9Obl/0dbc7/evV7O+ParrfeaxZddPrncgZajAazuEqUdvZhIdFFnQQ1hHX3u8O5Vp
-         IahXxjyQpNmLWOzCGOjyPJWGcStkhrg5P9j70XtN4U9jtAO5H+mdupSU5sD7iKdt0Vsr
-         1R8CBwEz6sUaqcGBMP2Bs53kyQGibDR3hwLZPyAGci7u3lLdifNsB51JM4RgQBx8cMzA
-         59ug==
+        d=linaro.org; s=google; t=1795445793; x=1796050593; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=D5Ad0NfWCRATUqS3JgVRTvoahCrGOaWVr/OFuW/f5EI=;
+        b=wA3RqpQOqlwhtOT/IkOXonjtr6AdeeQ+yvGuJc7EUNPJtvHzW+uyCY7KwQjTcDY6cg
+         IrkBPD1OvTYnJQaR3TxEjjlkSFf/mGPHHx78HTrlTrhvEc4+Cr3F1lnytby4iBINTrkR
+         +6TGzTLBi82LbwyB1ms60g16fdDScxfps/ERr7HqK4iUOZKpE7tiF8moQ3/oOXGdobyI
+         mfIPYc5XR1YFUJA6EockH9wfBlAvGeCBFLhAVl6roCltJgGx3TqxU87NyOEuXOODBQaF
+         YbfjTQUWLY888vsudvS0F1ZIcDQ76B921ajXkF7eNGWKcQorecqQ+nmFxc4npA1U1Q5z
+         UKGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445787; x=1796050587;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Q/tJR8V7RQfLEvY5F5nK+jr/e2gzyMXUOQNnz1DPicU=;
-        b=2mKFsQ7JBqb5TBezNWtqkjC8YdDdAipqKGppMlZvicUs1V7XDZH2oZG4z/rK4OfRWt
-         w8tGOj6tOWNiGt0fX/MdooQ/Op95kGQ/rH3QFKzqL69VRdpAYGzn1nrVECErFBV1urY4
-         gFngW9n1oYYypwc2bY/I4C5jFFfaMCjGAZpe9WH39vU6xrj4sxPNZBg6V2LHo7Xdf9cP
-         mLHZ0u2OuBsgyWpTHNHeZkg1ks+TMj2S3iD5iWzSCSK7j4hwJ4OgRpLtB3ZvR3WRLaxT
-         JNXM9C2y5eHbR668J+LKMJ96Oc+cUUuXUJkoByrfiZcD8Xy6Mdw0frLpILts8QYkkdM7
-         0IiQ==
-X-Forwarded-Encrypted: i=1; AL+hErHNwIc4zRfYspzDBkwwGuf7yWug0o3wqA1bXTeOQJLvx/9LNvF4pPvCUKeww8og6bM9pPs9Tar/X12UKs8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sEB4mYH/ElIRrVU4n0/ToiX+Ce07E38PTaYbur2OgsAUsrD2l
-	7MHJsyQLu/uzpFKKdqD0eKF/nQceGj5D+goualQE7sWiRIE8Zf3gygcO
-X-Gm-Gg: AZFdTZcikZHFSB301s6yEsvRrfGfY9+WJCUaiBRvcOuAy7IfeRCD62sO6qTel4zboqc
-	AU+am254/O2LKGdXLxeG0psM4cXAjCcRDUHdIS4GXJnCAZK6hIjoggaavQodf5+MHddwygesxLr
-	iXgaBjcNkbnuQx0aVk0FxMpSQQL9hinbgSrrgPGIuaxhfqQ7ZaRn7O7lpRyEsIfADQ5s9SltIPM
-	8/4VY9tNnOQ0J3EViwV2r52KvbprcwaZbR9ExlirrwQt39oT5+ABwIj1oQrU/jzT/d5StqdtooD
-	Wtw6lEhdbew6TYgszMlQdVbN175a9sokJFlc75UVaW4ziGA0UApQOW3xTMw8Bdv2h3OmMiDYIE7
-	Ny69AJ0UaUfBDrqNX60G6mEX6FhrMLynfFVteWAvH68iHNrZeUmUHhy4Lb4KKYzyJIDw/cJtmAA
-	We90nXi3vX8ZVPldewvtwXnN4T9iQGO4ludyYuq0RVA6GHHYYFHxNi8+ob24sn96RSu4Q4TjKVh
-	C1kzN999D6CKuT3rwjtt1BH2EDOAxjeN1JNoIcR6IPjH6s5HcBbr9mjfuDLMtYBFVqtNVuLpPfT
-	J7jtvc5VZIl8d6x/Ve2EaMmI0k8LkEsHN1jW/pyERlpYHaE0Nx6F2ao=
-X-Received: by 2002:adf:e744:0:b0:4aa:2afc:e63c with SMTP id ffacd0b85a97d-4abb400a6bbmr18514149f8f.38.1795445786516;
-        Mon, 23 Nov 2026 06:56:26 -0800 (PST)
-Received: from ArchOarora ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm22988840f8f.58.2026.11.23.06.56.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:56:25 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v6 18/43] drm/vkms: Introduce config for plane name
-Date: Mon, 23 Nov 2026 15:56:06 +0100
-Message-ID: <awRQxKxzVyw10pFr@ArchOarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120-vkms-all-config-v6-18-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-18-78ace90f4fc1@bootlin.com>
+        d=1e100.net; s=20260707; t=1795445793; x=1796050593;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=D5Ad0NfWCRATUqS3JgVRTvoahCrGOaWVr/OFuW/f5EI=;
+        b=DWTWsvOn+U/mV5Zmxq4DgN8hoqLpG8Bjt/bhtSS0t79UbSEPw2CCSPL7Ga0Jur5WnG
+         K3ZX2tg+248bAXtV1LKXSrYZYym+LRqtFYD7mBL2AHCW7NAI6KSvd0/aSFU0OsXemLkr
+         pKpxBC3RvDxUJ7yK5z6ePI0mHH4BQvPyjnb2tWIpvYLOcBZ40Ov/RW9ArHL629q2/jQ5
+         dZj8kTXmNIC6zZONaPwFoQPCkDpRkPswXoeIui3nec9VOb+3W1e4LjLKwfFZvqznvOxG
+         awUjH7SaLfWlq52A/h64MJwk9zwL8V50bElRI2QADBDrzGw54bm0zO4r8cLjtIPUOIfE
+         FZUg==
+X-Forwarded-Encrypted: i=1; AL+hErE6btfCiBh8SmQR+sFUuaabWb1rzZE8k5k4SC0iKoiUoMoif8AHOiXWlbJmBK/2ZI5tpkhZgrC3h6pWAaA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wnUcrRqUE6c5kJpPH5mAzznVPAkkBRVZPKXA54cUc13ilfz5h
+	lW49mUuzN3bQPpx+nAOlic3pN0pRGnkLLjqgsgvgGNtjibJYctxGoYHb/hyjx4IQ9C0JLpkZW3E
+	5V9xDhst+fytUGfkn6hzkXdO95cVJfLXcXpx/aLxz/g==
+X-Gm-Gg: AZFdTZcTn4y5HF1Id71RFo52RezokvPaZVdhFPJor+KWfc8cNqM3RIRDdlHQHmklVKK
+	TT8FZy7eMBrTvG4FPKmN0KSYIzgx63qK/lNQ5bV4tzWwNJL8g0n2gdb2LHUmaQdDiMuX0StjZLD
+	I5QTtlVXZW2vVjNkMPAqJ57pWN+3pt2fM0F9tDcug8xBhARN7ge8RENF6jDUtpVcBoWz0MVW7eG
+	RZhdpKcKGgtDlj/L3A5IYp0I1VT2eWXQdkAZh8XavYitiSiHerbdHXD7ud0v7JmdXCynFEKEo8m
+	sUF7umFOfhMeEDzSa9cwaS5lCDfVz1pPjuw1hx8aCjhxKaZOoLgO6v+bB4tyk9Ks8YZNQXQEOCG
+	HvTKtMVmC0bTOoHv/69XEPMk7x2qvgT0wlW2vhx8V8Ns2yy60nzbP/qYo3lp/ZDJPLmJljG1JJP
+	aJp3k3dq+eDxUcQK4=
+X-Received: by 2002:a05:6402:320f:b0:6b4:59d0:7294 with SMTP id
+ 4fb4d7f45d1cf-6ba37e9ec85mr8938829a12.31.1795445793053; Mon, 23 Nov 2026
+ 06:56:33 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,27 +104,240 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+References: <avdIycF_mZV8CHKb@gpd4> <20261113182601.569981-1-usama.arif@linux.dev>
+ <aveB5xbos9hRa3Nn@gpd4> <CAKfTPtCgzJakXU1o7C2EMEVTnD_mVS_xrdOJkQ9d_70U4_yCPg@mail.gmail.com>
+ <avsfYA0fM5eaPPY1@three-body>
+In-Reply-To: <avsfYA0fM5eaPPY1@three-body>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Mon, 23 Nov 2026 15:56:21 +0100
+X-Gm-Features: Aa3M54plnUF-Dm24aB48Wk25INkDuFq30uzvvKERztT3rEDWdq8ioX8d0ZqDWZg
+Message-ID: <CAKfTPtDVqKyQ491MdUr2RbGmJ9ivofiiX7D7Xd-Sh2F0NLFmRw@mail.gmail.com>
+Subject: Re: [PATCH] Revert "sched/fair: Add SIS_UTIL support to select_idle_capacity()"
+To: Chen Yu <chen.yu@linux.dev>
+Cc: Andrea Righi <arighi@nvidia.com>, Usama Arif <usama.arif@linux.dev>, peterz@infradead.org, 
+	mingo@redhat.com, kprateek.nayak@amd.com, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, vschneid@redhat.com, samuelcrossley@gmail.com, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, kas@kernel.org, 
+	riel@surriel.com, Arnav Aghav <aghav@meta.com>, tim.c.chen@linux.intel.com
+Content-Type: text/plain; charset="UTF-8"
 
-> @@ -265,7 +266,7 @@ struct vkms_plane *vkms_plane_init(struct vkms_device *vkmsdev,
->  					   &vkms_plane_funcs,
->  					   vkms_formats, ARRAY_SIZE(vkms_formats),
->  					   NULL, vkms_config_plane_get_type(plane_cfg),
-> -					   NULL);
-> +					   "%s", vkms_config_plane_get_name(plane_cfg));
->  	if (IS_ERR(plane))
->  		return plane;
+On Mon, 16 Nov 2026 at 16:36, Chen Yu <chen.yu@linux.dev> wrote:
 >
+> On Sat, Nov 14, 2026 at 10:06:25AM +0100, Vincent Guittot wrote:
+> >
+> > On Fri, 13 Nov 2026 at 22:32, Andrea Righi <arighi@nvidia.com> wrote:
+> > >
+> > > On Fri, Nov 13, 2026 at 10:26:00AM -0800, Usama Arif wrote:
+> > > > On Fri, 13 Nov 2026 18:28:41 +0100 Andrea Righi <arighi@nvidia.com> wrote:
+> > > >
+> > > > > Hi Usama,
+> > > > >
+> > > >
+> > > > Hello Andrea!
+> > > >
+> > > > > On Fri, Nov 13, 2026 at 07:31:57AM -0800, Usama Arif wrote:
+> > > > > > This reverts commit 61ea17a63719 ("sched/fair: Add SIS_UTIL support to
+> > > > > > select_idle_capacity()").
+> > > > > >
+> > > > > > That commit applied the SIS_UTIL scan budget to select_idle_capacity().
+> > > > > > The early checks in select_idle_sibling() consider a few specific
+> > > > > > candidates: the target, previous and recently used CPUs. If none is
+> > > > > > selected, the asymmetric path calls select_idle_capacity() to search
+> > > > > > the allowed domain. With SIS_UTIL enabled, a zero scan budget makes it
+> > > > > > return -1 before that search. The caller then returns the selected
+> > > > > > target, even if an unexamined CPU in the domain is idle and fits the
+> > > > > > task.
+> > > > >
+> > > > > Isn't this consistent with select_idle_cpu(), which also skips the scan
+> > > > > when the SIS_UTIL budget is zero? Missing an idle CPU is an intentional
+> > > > > tradeoff of that heuristic. Could you clarify why we should remove the
+> > > > > budget specifically from the asymmetric path?
+> > > > >
+> > > >
+> > > > It is consistent.
+> > > >
+> > > > Symmetric path also has this (I didnt check this before sending the patch).
+> > > > The service is running on Grace servers which report capacity differences
+> > > > and updating the kernel from 6.16 resulted in the problem I outlined below.
+> > > >
+> > > > Maybe the symmetric path needs to be audited as well?
+> > > >
+> > > > Or maybe this service should not have ever run with SIS_UTIL at all..
+> > > > (The only thing is that kernel upgrade caused a serious regression)
+> > > >
+> > > > (Should have made this patch RFC :))
+> > > >
+> > > > > >
+> > > > > > The budget is derived from aggregate CFS utilization. High aggregate
+> > > > > > utilization can coexist with idle CPUs when a task wakes.
+> > > > > >
+> > > > > > On a 72-CPU NVIDIA grace arm64 server, small reported capacity differences
+> > > > > > (1013-1024) within the single LLC activate asymmetric selection. Both
+> > > > > > the reference and affected kernels were observed with a zero scan
+> > > > > > hint. The reference kernel ignored it and still searched the domain.
+> > > > > > A latency-sensitive, wakeup-heavy production workload saw its reported
+> > > > > > minute p50 latencies average 129 ms on the reference kernel and 223 ms
+> > > > > > on the affected kernel.
+> > > > >
+> > > > > Have you tried forcing the symmetric idle-selection path through
+> > > > > select_idle_cpu(), with SIS_UTIL both enabled and disabled?
+> > > > >
+> > > >
+> > > > This cant be done from a running kernel, right? My understanding is
+> > > > that the cpu capacities come from firmware, so cant be changed at
+> > > > runtime to be constant across all CPUs in kernel?
+> > > >
+> > > > Changing kernel on a production service can be a bit of a process.
+> > >
+> > > Yeah, this would require a patch and a reboot. Unfortunately there isn't
+> > > an existing runtime switch to force symmetric/asym idle selection.
+> > >
+> > > >
+> > > > > It'd be useful to see whether disabling SIS_UTIL produces the same
+> > > > > improvement there and whether symmetric idle selection performs better
+> > > > > overall on this system.
+> > > > >
+> > > > > >
+> > > > > > Disabling SIS_UTIL reduced the aggregate involuntary context switch
+> > > > > > rate of worker main threads from 71.6k/s to 13.3k/s; re-enabling it
+> > > > > > raised the rate to 73.7k/s. A five-minute disabled run also reduced
+> > > > > > kernel CPU time per request by 10.9%. The available minute p50 samples
+> > > > > > averaged 149 ms, compared with 241 ms before the trial.
+> > > > > >
+> > > > > > These measurements come from disabling SIS_UTIL on the installed
+> > > > > > kernel. The feature toggle also disables the symmetric scan limit and
+> > > > > > shared scan-hint updates.
+> > > > > >
+> > > > > > Restore the search of the allowed domain, retaining the capacity,
+> > > > > > uclamp and SMT selection rules and their early returns. Domains with
+> > > > > > no suitable idle CPU can again require a full scan, potentially increasing
+> > > > > > scan CPU cost.
+> > > > >
+> > > > > Yeah, this is my main concern, full scans can become quite expensive on
+> > > > > large systems with lots of CPUs in the same LLC.
+> > > > >
+> > > >
+> > > > Yeah I imagine this was the reason for the initial patch.
+> > > >
+> > > > The same workload on 6.16 kernel placed 69% of wakeups on an idle CPU,
+> > > > the affected kernel with the patch that this is reverting only placed 7%.
+> > >
+> > > That's a substantial difference, I agree the regression should be
+> > > addressed. Perhaps this points to a limitation of the SIS_UTIL
+> > > heuristic?
+> > >
+> > > We could investigate incorporating observed idle CPU availability into
+> > > the SIS_UTIL budget calculation, rather than relying solely on aggregate
+> > > utilization. Periodic load balancing already collects idle CPU
+> > > statistics, which might help distinguish actual saturation from high
+> > > utilization with CPUs still available.
+> >
+> > We want to keep same behavior for select_idle_cpu and
+> > select_idle_capacity with both using the same SIS_UTIL algorithm.
+> >
+> > That being said, the current algorithm is probably a bit too cautious,
+> > particularly for systems with a small number of CPUs
+> >
+>
+> OK, maybe we can scale the minimal scan number according to the number of CPUs in an LLC,
+> the smaller the LLC, the more CPUs should be scanned, and vice versa. This "minimal scan guarantee"
+> was once in SIS_PROP, which is 4 IIUC. Now we can make it triggered when there are idle CPUs in
+> the domain, per Andrea:
+> "We could investigate incorporating observed idle CPU availability into
+> the SIS_UTIL budget calculation, rather than relying solely on aggregate
+> utilization."
 
-Small one: with no name configured,every plane ends up as "null",so they all look the same in the debugfs listing. Before this patch, the core named: "plane-d", which was pretty handy.
+Sorry for the late reply, your email was lost in my inbox.
 
-Could we keep that fallback when the name is missing, as it can improve readability? :)
+>
+> scale by 256 / llc_weight, Grace would have to scan at least 3 CPUs, not sure if
+> it works for Usama
+>
+> LLC CPUs   nr_min
+>     8        8
+>    16       16
+>    32        8
+>    64        4
+>    72        3   Grace
+>   128        2
+>   256        1
+>   512        0
 
+Or maybe just having a floor value of 4 or 3 which gives a fixed
+overhead when util_avg says that the system is overloaded. On a 4
+CPUs, if you have 3 CPUs fully busy and 1 fully idle cpu, you will try
+to find a CPU. The same on 8 CPUs. On 72 CPUS, you will try even one
+loop if you have 62 CPUs fully busy.
 
+An on top of that, util_est exacerbs the effect because it sums the
+max of all tasks which is always higher than CPU's utilization. (For
+this one I have a patch to keep util_est for sched_util governor but
+remove it when evaluating system utilization
 
-Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
-
-Thanks,
-Oarora Etimis
+>
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index d1f3b179013e..fdde96564030 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -12890,7 +12890,8 @@ sched_balance_find_dst_group(struct sched_domain *sd, struct task_struct *p, int
+>  }
+>
+>  static void update_idle_cpu_scan(struct lb_env *env,
+> -                                unsigned long sum_util)
+> +                                unsigned long sum_util,
+> +                                bool has_idle_cpus)
+>  {
+>         struct sched_domain_shared *sd_share;
+>         struct sched_domain *sd = env->sd;
+> @@ -12954,6 +12955,11 @@ static void update_idle_cpu_scan(struct lb_env *env,
+>         /* equation [2] */
+>         y *= llc_weight;
+>         do_div(y, SCHED_CAPACITY_SCALE);
+> +
+> +       /* scale the minimal scan number for small LLC */
+> +       if (has_idle_cpus)
+> +               y = max_t(u64, y, min(llc_weight, 256 / llc_weight));
+> +
+>         if ((int)y != sd_share->nr_idle_scan)
+>                 WRITE_ONCE(sd_share->nr_idle_scan, (int)y);
+>  }
+> @@ -12970,6 +12976,7 @@ static inline void update_sd_lb_stats(struct lb_env *env, struct sd_lb_stats *sd
+>         struct sg_lb_stats *local = &sds->local_stat;
+>         struct sg_lb_stats tmp_sgs;
+>         unsigned long sum_util = 0;
+> +       unsigned int nr_idle_cpus = 0;
+>         bool sg_overloaded = 0, sg_overutilized = 0;
+>
+>         env->dst_core_idle = !sched_smt_active() || is_core_idle(env->dst_cpu);
+> @@ -13002,6 +13009,7 @@ static inline void update_sd_lb_stats(struct lb_env *env, struct sd_lb_stats *sd
+>                 sds->total_capacity += sgs->group_capacity;
+>
+>                 sum_util += sgs->group_util;
+> +               nr_idle_cpus += sgs->idle_cpus;
+>                 sg = sg->next;
+>         } while (sg != env->sd->groups);
+>
+> @@ -13027,7 +13035,7 @@ static inline void update_sd_lb_stats(struct lb_env *env, struct sd_lb_stats *sd
+>                 set_rd_overutilized(env->dst_rq->rd, sg_overutilized);
+>         }
+>
+> -       update_idle_cpu_scan(env, sum_util);
+> +       update_idle_cpu_scan(env, sum_util, nr_idle_cpus > 0);
+>  }
+>
+>  /**
+> --
+> 2.43.0
+>
+>
+> > And for a latency-sensitive workload, it would be good to consider
+> > setting a shorter slice to the latency sensistive task would run 1st
+> > even on a busy CPU
+> >
+>
+> Yes, and a short slice task will be pushed to another CPU if it is waiting on the runqueue.
+>
+>
+> thanks,
+> Chenyu
