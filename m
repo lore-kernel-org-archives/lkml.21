@@ -1,73 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.206
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795456001;
-	b=YcjMddfT4XPN0JuxHYDEXmkqL5TVm1Q5EHTTrbi2U/R99pYCNnclgvwRyC8nqNGqYXKw
-	 MgaQcHbSLlLn/DAVN6d91j/F6qEfvZklu7VqFrvYmmI+COo/PH4vQmAN4HtHMFdjViAxP
-	 jdBsPr8o1OcF5djViwXFBSUO5SrpJlonIPfEwpkYXq2uJ6qtEiFYC5kSEJ/mwy/HZtkWf
-	 y8LvzwRom3yCiRbm95b33byDoVKLNorMlfAI9//2nb3bWokVsRcnTcdDFoAArRXfkIaDo
-	 Ox238UiPqA3Q3mjV0T9MULkWwrv543QekG9Gwtc0hD1K7Qqjp30SpiQpXq4MK6gmD+A==
+	t=1795456029;
+	b=B3xTEd9LnjzUf18S1rS2Jh56Kx3pVotN2R/37XUBwQ+4metQwiUYderIfwX+YSdBQco3
+	 UyIR9t9ZFPJ7j+DmfPthzS3ma2+dAYyfCpDhEc6cGEkMcTNt3T1AsKeA3Xwo2Zl0M//Pz
+	 WMKCgT1HslJJ4WOOnbuAUM6Forb1H/avlYwtvPnDYMJA+ndbk0j6nSumiQiW1DsjNfiif
+	 wgz4TuBN3S3X7Ve9KDbYg4MXPMsDiLdZxCPd/0PIRjAMioUtLvPju6Rm/bKPKIiPA4EER
+	 tG4vICieiO6mRuSHP6xDuTYbGNU3o6oOLPhJKbW2BE+VlNrW4JM2h2iMuqTQVb5rgcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456001;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=4nLP39eq4bHx3bOXA1PI54TRX3Ud7vwzTs+mgeRzazU=;
-	b=P9m/4tWFqn9ICJx4jPiUfHvcL8czNgNMQggEBFZIt1mBvc3/gLs8unlaqOdGeXsw9Oam
-	 wHankZXkffcbpVymwCQ1edA2NIenYsF/5SpVVddj7yNfgJzdjm9mhAkwqzcgUX/BojMkT
-	 brOf3Ju4vEgY20SM3vHsfa6WD/ZOiJffJUWu74PplJCQ2MGBEFakTIfWwk1yk7aEdXpFG
-	 83fQrOQrEtV0A3TihRdFD2LgGFATNvFkYBqf8jGr4pfUw5Gi4BSIwm4Mbk+qOsPunhgS0
-	 NHF5zRPAqqmA2HX1Y+3hvqFaduaq9kXP84F7dt8Tw3FMdZjUmMIbqYeN8U/j4wursoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456029;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=+EIsW0Fyp4FUISuPz5cViVS//4FP11RjU+ucX4qbvl4=;
+	b=3KOU7W+bNiRcQeBSUq8UCr650xL1P1N1DI2eccFX5LMqrnQPuLxyY7LmRiHoCYu4C6u3
+	 su2U8O7K/CR66ixNQsH2Oy9GHYeslwyHbFFCwBoLDl4xotTu/NMdsDIwq1AHnT3/D8ID9
+	 k60ggO63nJZys1eE7cwPO1OCgjn3CCbsZKLeHKkAaf3N2mvfkI4U14VWtyjj/BzHkM+87
+	 df/VXNx/1hOcRyFHDZZwHkKPBFWAATD+F1ePEpB2KNJaWxXOsdwlbcUWKgV/briyiBVMq
+	 VRPjTKk4UwR/Iv7jTDARxkiy27SmrqhbOx79jTjcHTUakU6VXOgkRfEee+NkPwJaiEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KkM0EjlE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GhOVZ6hq;
+	arc=none smtp.remote-ip=95.215.58.206
+Received: from mta1.migadu.com (out-206.mta1.migadu.com [95.215.58.206])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0048D606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:46:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DD68606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:47:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DD68606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KkM0EjlE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 085151F000E6;
-	Mon, 23 Nov 2026 17:46:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795456000;
-	bh=4nLP39eq4bHx3bOXA1PI54TRX3Ud7vwzTs+mgeRzazU=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=KkM0EjlESvm+Edyzj7LJoeMpi9b6WHYmhMjbtTbfsQI3dlZFyer49WsMtFyxgEUsV
-	 TNuZUSkGEmrF/wjd4thR4wBgPs8oVzM/2CkIisynYDm8wkYzE4DRnH62V3f4C2YagY
-	 8SpfyIL1BjQ3/hUEsfZivxqwdQNsNLLhrs8KVWGwnsIKboBAtV2yDikrPVVLh9K0nB
-	 hml9pvdNa/hmtCesWtYtJxPc74l1mdoILo2WLq98MfHPe4BoS8vsXEuB0W8zoJtffE
-	 wQpkx3nzEldnhiDZ2vpNkvSexFYvJZiJZDX7xGMLAIumtcaBJhChSbSudp14rsq50U
-	 HPU5J9NoA1uiA==
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 292C5F40066;
-	Mon, 23 Nov 2026 12:46:39 -0500 (EST)
-Received: from phl-imap-15 ([10.202.2.104])
-  by phl-compute-10.internal (MEProxy); Mon, 23 Nov 2026 12:46:39 -0500
-X-ME-Sender: <xms:_3sEa26y3Zom9JuTHz2MTxX8x5SlwRb62v0snfdckuWZgvUbU2fSJQ>
-    <xme:_3sEa6ugqtvQ3r6ngz2D00xoRTxQToXlkXOC3bu8o_jIfSpul_UFIYfQJI-htm8Fc
-    aLwPLkFRrYuf0WXfmVyfqBvUCfy-G5hWDs250wdZPsspJ8WVwZfbPM>
-X-ME-Proxy-Cause: dmFkZTGhIDTy2XP9c312iEESSIo05vch7kJHk91EQe1UDP4iT00cyg4D7Cj4y5mWJswrwB
-    vRlQ0BteOaimzucih9X7eTQuu43Z86w/hIyHk5Vg5tSGJlbRYdkcMLoO5OeYqDjdHRyl5s
-    VpRu3QQXtE/nscjIwz/+09uQsbWr8H/JWMENtPeOGzDW2KrILfHoOIupFm9O8XQ78qVViD
-    N0F+Dzl5VZQk4u+KYuKFJDNo9HbX2Ute50EF5fgDrWTMQqKw/4geE/YqA26oyWXSct3AfR
-    K8srqs/j9pRo8f1L3Cfjf9Q3ikjdSsJgiTDemy1bjfV3y5L0gUBRgGXorP5izrEj9LefpB
-    AObQkgY7331g/HqTP3d9kbJfQnaFRWOCiUrPBKdQO16g3CYbhNMNzFGb0lJbN22uytcyTk
-    1nFbb6Ny87IVVB9P0/bJvp+yMJV9f027uwgxBMEnCEUC8q7CO+IIiM+KKdC1CaGO6DMUDI
-    8bXAK9kc6ELAVEyiMjZNRJQ0G5ahQXQjkfUuWmQnCZFYC7lzfMr99JmkF/QarKaENjwtJb
-    T0JvVGPGSng9cmgDPdxa720D3yMakadNEPWw2pOSF7aqNcXJRJ4AOmBVIuaKSmzwgtmrlG
-    frPIzPedQjk1fcVeqGKxgA6Qg3HH/iJIPfml/ZZUHvgj9cocPewW4Y0eUZQA
-X-ME-Proxy: <xmx:_3sEa6IsjHi9_VkssvT_bCzO7Opc3LeZgioEboW1Y_VHY3z5RK1olg>
-    <xmx:_3sEaylDwvaxZEWY9x7-3py-qZSY1gRFrK7MWLochbMlbMA6zUITAA>
-    <xmx:_3sEa7Zq4NlneI502smGvFhvWFw7lUGJw4ihv-Gm0hy6lVscxVcNgA>
-    <xmx:_3sEa2_aABBRZOY4Ccs_gSvbKiZhEwj4rzDSeVBfXmmv0v3Vbqzhfg>
-    <xmx:_3sEayb0lqgTQHlwdu5Isv8MINPnCRkplzD8WiHO37RFVX_33YtGTmVM>
-Feedback-ID: ifa6e4810:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 0B43B780070; Mon, 23 Nov 2026 12:46:39 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GhOVZ6hq
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=vTq/47LX7EXP25/eUB2xcyGE3kvFvEXFYsqeUA9EgO0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795456026; v=1; x=1796060826;
+ b=GhOVZ6hqFxmUdbdfRzl3aRnSTvvLMHqMb/l6oDMNBEgWG3aZUBD2EPsgbr9sDTmGF2+QAxek
+ IyiZ+nI6RCoJTgPj9Rwj5sKYCfvSvuljTEnG18S5lSDXevIm6Ay25DI/cH6FR/ohhQXxECTIxCW
+ GzGjUf9IVg+ZEi4ZFN4JSCmw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 91c2c5e67698e3d9;
+	Mon, 23 Nov 2026 17:47:06 +0000
+X-Mizu-Trace-ID: 91c2c5e67698e3d9
+X-Migadu-Flow: FLOW_OUT
+From: Usama Arif <usama.arif@linux.dev>
+To: tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	kees@kernel.org,
+	peterz@infradead.org
+Cc: hpa@zytor.com,
+	gustavoars@kernel.org,
+	ardb@kernel.org,
+	hca@linux.ibm.com,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	linux-hardening@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	riel@surriel.com,
+	shakeel.butt@linux.dev,
+	kernel-team@meta.com,
+	rkeilty@meta.com,
+	atish.patra@linux.dev,
+	dgreid@meta.com,
+	Usama Arif <usama.arif@linux.dev>
+Subject: [PATCH v2 0/2] Subject: [PATCH v2 0/2] x86/kstack_erase: Faster stack poisoning, plus a startup build fix
+Date: Mon, 23 Nov 2026 09:46:37 -0800
+Message-ID: <20261123174703.133167-1-usama.arif@linux.dev>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,47 +85,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AkB0n0PsGghc
-Date: Mon, 23 Nov 2026 12:46:17 -0500
-From: "Chuck Lever" <cel@kernel.org>
-To: "Jeff Layton" <jlayton@kernel.org>
-Cc: NeilBrown <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>,
- "Dai Ngo" <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>,
- "Christian Brauner" <brauner@kernel.org>,
- =?UTF-8?Q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>,
- linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <73ca8e61-2943-4780-9e6e-dc8c70c8401a@slotpi15m67>
-In-Reply-To: <20261123-delegts-fixes-v2-2-960ce0fb2fed@kernel.org>
-References: <20261123-delegts-fixes-v2-0-960ce0fb2fed@kernel.org>
- <20261123-delegts-fixes-v2-2-960ce0fb2fed@kernel.org>
-Subject: Re: [PATCH v2 02/11] nfsd: take freeze protection before updating delegation
- timestamps
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026, Jeff Layton wrote:
-> +	/*
-> +	 * This function also runs from the laundromat and from NFSD
-> +	 * shutdown. Neither path may wait for a frozen filesystem to
-> +	 * thaw, so leave the times alone while the filesystem is frozen.
-> +	 */
-> +	if (!file_start_write_trylock(f)) {
-> +		nfsd_cmtime_notice(file_inode(f), -EBUSY);
-> +		return;
-> +	}
+With KSTACK_ERASE, every return to user space poisons the part of the
+task stack used since the previous return, one 8-byte store at a time.
+On Meta hosts running many small VMs, that loop costs about 1.5% of
+non-idle host kernel cycles. Most of it is on the way out of futex,
+epoll, procfs and socket syscalls that go 1-2 KiB deep.
 
-DELEGRETURN reaches this trylock too, through destroy_delegation().
-FMODE_NOCMTIME is already clear by then, so nothing sets mtime and
-ctime afterward. A client that writes under a WRITE_ATTRS_DELEG and
-returns it without a SETATTR of the delegated times, while the
-filesystem is frozen, leaves the file with its pre-delegation times
-after the thaw.
+Patch 2 makes x86-64 use memset64() for spans above 512 bytes, through
+the arch hook that s390 already uses. Shorter spans keep the loop, and
+the range and value written do not change.
 
-The laundromat and shutdown can't wait, but DELEGRETURN runs in an
-nfsd thread, and the WRITEs that dirtied the file already block in
-file_start_write(). Can DELEGRETURN wait for the thaw as well, or
-might it be OK to return NFS4ERR_DELAY in this case?
+Patch 1 is an independent build fix I found while testing patch 2 with a
+small KSTACK_ERASE_TRACK_MIN_SIZE. The startup code still uses the
+pre-rename DISABLE_STACKLEAK_PLUGIN, so with Clang, AMD memory
+encryption and a tracking minimum below about 90 bytes, vmlinux fails
+to link. It can be applied on its own.
 
+Zen 5c KVM guest, one vCPU, before -> after:
 
---
-Chuck Lever
+  stackleak_erase() per return to user       68 ns -> 47 ns
+  futex wake/wait ping-pong                  6% faster
+  Unix socket sendmsg()/recvmsg() ping-pong  6% faster
+  open+read+close of /proc/self/stat         8% faster
+  getppid() (spans below 512 bytes)          within 1%
+
+v1 -> v2: https://lore.kernel.org/r/20261119213147.1094488-1-usama.arif@linux.dev
+- Patch 1: add Nick's Reviewed-by.
+- Patch 2: use memset64() instead of inline asm and make it
+  __always_inline (Nick, Peter). KMSAN kernels keep the generic loop,
+  as memset64() is out of line there.
+- Patch 2: keep the word loop up to 512 bytes; this is the v2.1
+  variant from the v1 thread. Unrolled loops, Duff's device, a 64-byte
+  aligned REP STOSQ and REP STOSQ for all lengths (Peter, David) all
+  came within 1 ns per erase of it. Most of the time left is the
+  search for the poison, not the fill. This current version is the cleanest
+  one IMO.
+
+Usama Arif (2):
+  x86/boot/startup: Disable kernel stack depth tracking
+  x86/kstack_erase: Use memset64() for large stack fills
+
+ arch/x86/boot/startup/Makefile   |  2 +-
+ arch/x86/include/asm/processor.h | 21 +++++++++++++++++++++
+ arch/x86/include/asm/string_64.h |  2 +-
+ 3 files changed, 23 insertions(+), 2 deletions(-)
+
+-- 
+2.53.1-Meta
+
