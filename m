@@ -1,76 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422078;
-	b=weMJR9dSqluElkTvlD5zvRxYQ+pfpFzyvN3MiKrp6u7MeQWzZRLD7nrQoAIRBcbhWIai
-	 SkpPIxSPOZGud5ddJ6jYe3v1BX58PY4Ypde8FK+BHjyoOI7xKhLVWTQfCGFZOi/IbN9wl
-	 H+wGxMRvLc5qCtmk5r0B4/hFeYayfRiaIB7ntHo/2gZQ2xwgyCNHJ5vqFJX4EI+dB1rlS
-	 8xDEe/pudGaldJVuODL69o04zVpyARAOwmcxEvbYNAEhLdwZRDR2I69VMYOUTOWpKNXVs
-	 GxzORbSpVV41VTSfStdIpc7tLxKAgDFGYjHUwaqFBjrhKP9dPuZ1usL7W0MBT9QkilQ==
+	t=1795422087;
+	b=31e2Z+T21YSkr+WG1nQ7QQfO1u5OZJWUKg+0bCvsxi+fiuxJbEeyetvnR88IEx4MWZci
+	 oZUkpcN/GtWelr+SsQ1qRSVvOLKkmLbSg81stkRy9pLLz/I+qhWsTr2MoHTbAyP/3DeS/
+	 4zr8dRp8iHrWBHnMbgg1kuSPpXzrx4kL8GDjaNwFxTmCMThvI7k5PtG84/my4oOxUgQG2
+	 JjLXIZBJ66TCOfvznIOFbarPhNIn4r/XrD+HzCk6JGVSgKvgj8bMt5ThIHXPynIvCkcYo
+	 UWwn809wxeZCXFc/AUKDBg71LmABw2pmCjnFc5UjME3U3CstrPZMwVGf+/ghLkhMIGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422078;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=urV9PEPwEvrHK4qayGYwaVV8yhJ/QEoLReqAK4fiRYQ=;
-	b=z2wk9gCcX52MGMcJjTLq7VwStijeR0KEicgcZ8CpuXFqUhgbO91T3UwOlcOdjQJKsBrx
-	 +xRhmd7N/M+MnndpeqBFUJobmy6rsJ9wHiaojN74hzy59MbFaYjd8ftSulO03gk5vxZ1F
-	 UlfPhW/hxy7AWoCLQuVFrr7RoVZLzdrK6bupKjKmIOZ44pv3aVju/fnJWLziVTbeBEZol
-	 XhvR/ZLwk165LWZQfAAADh0Wrv46GsKaE4JLGz9noE/7RVKfLU+S8/kV2w+2Ax+3kWe5Z
-	 /ZEVYvTee5oCXYS1KKaXey7SASJV5k8oKUYuP/hU+A1X5C3YOq02Z2/gsiKDEtrEBNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422087;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=NsGN37ONxhWiQHsuGTHmCPtePmFZQ90N8jgbH9R3tjs=;
+	b=PT2hpqHn2kRwsntKwvA7iSHP6e20HEPI+Yv8hvIuMJhQj3Vqwi7hsh4UXbJ2Kx9lGAw6
+	 p77G3ISiQ9Tm7AaJ0Oqfwyvl9yyJyAJp9F1zabfWo3CstdJC1392TR4AR8aXY9yFfsf09
+	 gnj+rs8QcZeH2SOBsd14Ap6XcY+idjQZWQNA5y/ruNk8sREBYCqakcexdNhnuJKUJLi0B
+	 tpQ4y55ZYK7W1jz9q0Ye1VWj5XtjquEao1eIzdXr7d8dQvF2BkyHq4op79bpXtwwQamIa
+	 8duxqQ9AEtohXB9Tl3pZQ2FYhl1uAJWjhUECjp9P/Th6h8tx1Dj7e8n18eReoTQJlDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.221.180
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com [209.85.221.180])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vkAEmZUc;
+	arc=none smtp.remote-ip=91.218.175.149
+Received: from mta0.migadu.com (out-149.mta0.migadu.com [91.218.175.149])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7219606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:21:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7219606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5ee36376a0dso1754543e0c.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:21:17 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795422076; x=1796026876;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=urV9PEPwEvrHK4qayGYwaVV8yhJ/QEoLReqAK4fiRYQ=;
-        b=UIMR6eu/FI4HPzVxREH4oeZWTzvEjMHfgw+IILzlmZh5jHn6zDY0LIMqwyQF35iB9A
-         6avAX4JColhkvXV2bBALKSfE+gr/O/OMTT7g6SEi+ILDUgnOyePBTzzQGKJ258d2UU4E
-         rVLbfW7ak4WHJy1oNxJ1DSm+36GAyUuatkSCAnvfMpGiJjERoVQHjG9mCqHpjVxMSF9R
-         PdVahn3YqDxV1o6YQiP6SZW2QFO9G1Ntz0Qs/nNqMjjvYTbxjSvZ70PNVEy8kxLVzZx1
-         0RJsjvlYM8jBpiI5hojq6EfglkjZGWcI2qa2xNVPSnbKXESRfNQ8F7UVbc3Oou9KGB3O
-         86rA==
-X-Forwarded-Encrypted: i=1; AL+hErGqO2ZtE7AKzuVMmOAaNiZt3xj3ktUFGL4XH25XFMwavEIRCtH2z9vM33K53Jx6urnoUldaGkdvLbyXiRM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/B+Nzg+k0gMhWguo/gfvmmJtbhwjRMjP+l97orTRA6VSWZg6aZ
-	h5qSIe51YEgne2qd1a66yQEoYdgOTAF1pLGeLgVVZ4F62SlIAmDc2SviVuYgIOj1
-X-Gm-Gg: AZFdTZf2ALA1gBxZT9sXhM8jzh7EGr+yTqsIaFN5OjRJIJ9aLipGWq+ckqHng0dj5+4
-	4fCraZA8pALL+rDRcXlQlne8tRiFhJmXapKLICEVg5MpsgZyeqvFNeR0BleSaus19L6uKM8OVI5
-	r7RXObP25uo9dQj3ZplQePfrnKTDocxTxSxLt3mF5rxM+fSz/6/+PfpyFv2BjW0BFKPMpZluo2f
-	q47H9bFHmidYTfNwcsqz2AJwTg1q1cmc8TdB4a3CAWFkRUU8/M965WmmgVqJ3IKWwixPhNOMnLs
-	dChlte9bLCjGeLOAwDzt6gIjIThHO1Ea2Zz68XXDSTp8AKGMxMS7ducH4tWD9jSf9AB3bskJ+/q
-	JTpp4dS9bxcyJaedQNMr2hQPobGoCwKWis9tOHYYW1hb3iipWSNGQJlWLHFvQkQ2M4GZ2v2YDIN
-	aU+hIPpqXPWS6/2bAiPHLr/byM4cFEkMYQWIBfeXWC5P7wpgTO7+Zh6IHd44SbQGmzIWUXHRbx1
-	Xopyi4zBFlX0nJ0Snl5qscGs5n8Xq9eXDZbL1yVAL5wyNdPS1ajzLYXqnRcq8+HSdD1iQ/VXrr9
-	pmhVJVzUrJc3Gq37mabHw558oEq9Mio4wE8Dxl3a7GI9o6jLbWOaCflDxvK4Le4JPtU=
-X-Received: by 2002:a05:6122:3d10:b0:5c9:c60e:5cf5 with SMTP id 71dfb90a1353d-5ee8af2e0dcmr5862586e0c.19.1795422076493;
-        Mon, 23 Nov 2026 00:21:16 -0800 (PST)
-Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b556db7sm9891756e0c.4.2026.11.23.00.21.15
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 00:21:16 -0800 (PST)
-Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-7a6e560f580so1947920137.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:21:15 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErH5NHOlSsJO0L8S8IqcN87HQiDUDmFL4tucwJa+Um/1X951xh9auUt9TP9yOHXRvPeTgb4jXrbXPYyFEiY=@vger.kernel.org
-X-Received: by 2002:a05:6102:84cc:20b0:7d8:869e:8e54 with SMTP id
- ada2fe7eead31-7d8869e8ec4mr1539357137.7.1795422075752; Mon, 23 Nov 2026
- 00:21:15 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C4C8606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:21:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C4C8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vkAEmZUc
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jFAjxaLybVulQPxCbHrlgyE2DA1FJX+f642lA9A44iM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795422083; v=1; x=1796026883;
+ b=vkAEmZUcXYkIQJ9hICBvhjRzH+Sb5JvwVL9/6oE4EhLf0nUusrSTAnWPC8XkzVAeSZ1XMSTk
+ 7hM+eGZn70MF4lVAhU4AlbdxGCZBuv5VJc3NacMS2PSnGJLvb7GP34UQPuNlmNd/QRcUo+vxGB9
+ 5vf22GmvaSkGPK8cLrq1OXTw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 09738cf93fe26e03;
+	Mon, 23 Nov 2026 08:21:23 +0000
+X-Mizu-Trace-ID: 09738cf93fe26e03
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <4570f62a-b85b-442d-93a4-075cf7c59717@linux.dev>
+Date: Mon, 23 Nov 2026 16:21:17 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,51 +58,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122160447.519889-1-zihengw03@163.com>
-In-Reply-To: <20261122160447.519889-1-zihengw03@163.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 23 Nov 2026 09:21:04 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWxC7LNy3MTNYE62AoWBB6sHm9jKAsYKRjrZ+LfHjArtQ@mail.gmail.com>
-X-Gm-Features: Aa3M54oDJAacN4ZgRznlESFwii2fz_UdwV-FQBJ6wD20kL1ynEn2pjnzqtgO3U0
-Message-ID: <CAMuHMdWxC7LNy3MTNYE62AoWBB6sHm9jKAsYKRjrZ+LfHjArtQ@mail.gmail.com>
-Subject: Re: [PATCH] scsi: 53c700: fix invalid frees in m68k driver remove paths
-To: Ziheng Wei <zihengw03@163.com>
-Cc: "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K . Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org, Kars de Jong <jongk@linux-m68k.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/11] mm/mm_init: verify zones for
+ template-initialized pages
+To: Muchun Song <muchun.song@linux.dev>
+Cc: "Liam R . Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Li Zhe <lizhe.67@bytedance.com>, Andrew Popple <apopple@nvidia.com>,
+ Balbir Singh <balbirs@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>,
+ James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Muchun Song <songmuchun@bytedance.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
+ Mike Rapoport <rppt@kernel.org>
+References: <20261120100856.16929-1-songmuchun@bytedance.com>
+ <20261120100856.16929-2-songmuchun@bytedance.com>
+ <240018e0-02c1-401a-a979-3f867526191d@linux.dev>
+ <10263c9e-2d58-4149-a3c4-df9cac11b041@linux.dev>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <10263c9e-2d58-4149-a3c4-df9cac11b041@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-CC Kars
 
-On Sun, 22 Nov 2026 at 17:05, Ziheng Wei <zihengw03@163.com> wrote:
-> NCR_700_detect() stores the allocated host parameters in
-> host->hostdata[0]. The m68k remove paths instead use shost_priv(host),
-> which returns the address of the pointer slot and causes an interior free.
->
-> Free the pointer stored in host->hostdata[0], as the other 53c700 drivers
-> do.
->
-> Found by LLM-assisted static analysis. Cross-compiled for m68k; no
-> runtime test on the affected hardware.
->
-> Fixes: a16efc1cbf0a ("[SCSI] 53c700: Amiga 4000T NCR53c710 SCSI")
-> Fixes: 8276b58af4dd ("[SCSI] 53c700: m68k BVME6000 NCR53C710 SCSI")
-> Fixes: 506c7bbcd9bc ("[SCSI] 53c700: m68k MVME16x NCR53C710 SCSI")
-> Fixes: 45804fbb00ee ("[SCSI] 53c700: Amiga Zorro NCR53c710 SCSI")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ziheng Wei <zihengw03@163.com>
 
-LGTM, so
-Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+On 11/23/26 4:15 PM, Muchun Song wrote:
+> 
+> 
+> On 2026/11/23 14:39, Qi Zheng wrote:
+>> Hi Muchun,
+>>
+>> On 11/20/26 6:08 PM, Muchun Song wrote:
+>>> Template-based ZONE_DEVICE initialization bypasses
+>>> __init_single_page(), which means copied struct pages do not run the
+>>> vmemmap zone consistency check.
+>>>
+>>> Verify each destination after copying the template so the fast path gets
+>>> the same validation as regular page initialization.
+>>>
+>>> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+>>> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>>> Reviewed-by: Lance Yang <lance.yang@linux.dev>
+>>> ---
+>>> v3:
+>>> - Retarget zone verification to
+>>>    zone_device_page_init_from_template() after integrating the helper
+>>>    series (suggested by Mike Rapoport)
+>>> - Collect Reviewed-by from Lance Yang
+>>>
+>>> v2:
+>>> - Apply the zone verification in memmap_init_page_from_template().
+>>> - Collect Reviewed-by from Mike Rapoport.
+>>> ---
+>>>   mm/mm_init.c | 1 +
+>>>   1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/mm/mm_init.c b/mm/mm_init.c
+>>> index a9d848c92678..0129152b74d8 100644
+>>> --- a/mm/mm_init.c
+>>> +++ b/mm/mm_init.c
+>>> @@ -1082,6 +1082,7 @@ static void 
+>>> zone_device_page_init_from_template(struct page *page,
+>>>           set_page_address(template, __va(pfn << PAGE_SHIFT));
+>>>   #endif
+>>>       memcpy_nontemporal(page, template, sizeof(*page));
+>>> +    vmemmap_optimization_verify_zone(page);
+>>
+>> For PAGE_SIZE-aligned devdax, dev_dax_probe() leaves
+>> pgmap->vmemmap_shift at zero. When section_activate() populates a full
+>> section for this pgmap, it records compound_page_order = 0.
+>>
+>>   memmap_init_zone_device() (pfns_per_compound == 1)
+>>     -> zone_device_page_init_from_template() (each template copy)
+>>       -> vmemmap_optimization_verify_zone()
+>>         -> pfn_to_section_compound_order(page_to_pfn(page)) returns 0
+>>         -> vmemmap_optimizable_order(0) returns false
+>>
+>> With CONFIG_DEBUG_VM and CONFIG_VMEMMAP_OPTIMIZATION enabled, the
+>> section-order lookup runs for each copy. The zero order makes the
+>> condition short-circuit before either page_zone_id() call.
+> 
+> You are right, but we really don't care about the performance of a
+> debug kernel.
 
-Gr{oetje,eeting}s,
+Yeah, it doesn't really matter much in practice.
 
-                        Geert
+> 
+> memmap_init_page_from_template is used to init a single page, just
+> like __init_single_page does. Therefore, in a sense, the template
+> version should be handled the same way.
+> 
+> So, what do you think?
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Acked-by: Qi Zheng <qi.zheng@linux.dev>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks,
+Qi
+
+
