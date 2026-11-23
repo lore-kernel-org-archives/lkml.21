@@ -1,55 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432587;
-	b=5DO3ISv6lJR7y3bjdjn/79FvUWx0TEV///D8ij1CXmlnIy/N/51/yAgRof1VogvEDZfE
-	 WGdwlU65JXeWlniEWrdScK++89Lq0pZhrwJpSQhAv5GQyAZmpVajzeLJ0gTkhsS2Fdl3H
-	 MJz6kbgZiJO7B+gqKPj4MntTf3MEEGncxsN+lh6qwKOTBnZfmpZ50xzzH/1PME/oPuI2l
-	 ADPew5zYcz1A2qXvGCYsxYJLszm4aQEnE9dqNOg6LTGgZnnqkGPstOcg2oRhh1EQk8Npc
-	 VIDhvT93NFF9y53MsFjxmfcr4D0o9aVuO8UW2v/6CxyFtbdHckMn82A90f0OA9OE9HQ==
+	t=1795432651;
+	b=zOsHx9IKtQfhdYpvRjbI9pf0ALgnEY4xnsYhduhLTq4bPjVSZ0UDUQIXuVoATGDjzSmr
+	 1Pwrt4VPOfEkjurg82ls65uaVMc4JigW0idU7g8GvILHsgv0ThZ7ymlQSCmTRWDk4bV1F
+	 aM7s/aG2AmxL3tuwm5js7xUHglpm+DZb/drLYB8UW6Iw7f+6kD2qTtZyyaOZPr9iEELIj
+	 k9gC/6ohhN8ah99xcKyMsv8tVm+lCFpLSNTf9vAmAQuvEVazO16ZmELU8UNCug7T5h96w
+	 2fpt9HoQ802jgNBDR8254R74kPOLnnMuEKrDWtNWnsOEsZo3K3Bt72MRPEKZ28KHHag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432587;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=VqgpEXu0QCmPpvbNu3p2fiG7kDspfbJ1mHbeSkV3Q80=;
-	b=hdEdR/HY5Nr/mVRNgGAAT7+C0jFK65xW/IcAcwaiiyOF7KVxmal+slVA417uT/l9V39b
-	 T6OWOtxpXMp//0EM1THPkpaXf2qi6KcMTvt6WhLroeX1Me4NdkJfbUInIcok0q5SSDobr
-	 J2+O0xfw2xc0CpH7QuXrAgzD8bVRCNt6iyjDTpB3ZFvs+CqbHcP/9Ba4kMusaJqwsb9be
-	 NVnNzLaVUaBr0nMlh6y3FPZ8166ztVJvMjdcS/P7Q4foLenakYIWcN8hRLReGVdKGCnOw
-	 wHXR8+7XGpIgAs2LjPrPbMiTHSxXBI32lN9MX73A5DU3xeA5GHD7ajXWkQHWvDwQgWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432651;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=5hBSW7tM8uyDnbZRgtXZPyH+5d7CmFdSd0KO5SSsLz4=;
+	b=TOUCimtzuligHVtC/EHxJkUqgOtAGr93djYGfWAYOMg+4J3Kj127D4gd6D8O0h7ER8QC
+	 +mciNSHfkoTJXMzbvmAibYDT1b0WFQvsvG9BVeaDa4Patd7+64BUXfrvpy6iUZsDaHsUI
+	 SufQm56RwnvJUUNCeT9vt4X1rt/TdEv58F3zgoBqaBUr2rNhGrRNmX/CibaZe15nA0nsG
+	 Ik4ru1NCTtcr1Hb5C/IxApBH9RXvQNtg++PAWH+WZrtP6xPc5Bqe0g8wuKdysDhA4zhHS
+	 5owJOqikub40KrxCKXQzrqx5u2Lt0BWayDCJ2jweaLCnms3+ZCuE+ymsj//bL8417vQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HqT9QxNa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XstxLq7e;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E96F9606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:16:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C020606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:17:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C020606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HqT9QxNa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97771F000D1
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:16:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795432586;
-	bh=VqgpEXu0QCmPpvbNu3p2fiG7kDspfbJ1mHbeSkV3Q80=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=HqT9QxNaG+h01GQo4rWUOXvXYt4gvEdPRHoE5KE/fcdQS0tqSrcFLVt89ZXa48C88
-	 hKutX78/mxjSTL8ek6Y+j+WyoGFjFb53OpOETTscUp0wrtaYxzlot2lID0lHU4by5Z
-	 e1zBak8AQ1MXj9CJYeTT6Omk8m92L3cC1zu7ZQKXk2wTP5J2H0x0kK5kpEckqnXy59
-	 Z7wyyR0r0iRo6mjK98yxVjII1R2d3FTdFITJZDdmZj4HvR7K5rVOpcbQvsi0H/RZ0k
-	 0qYI1FugSbzPVcAkZdqeanYaR5wlnjeJOhwurDi2ClUG3t280gnhNbCXfMPrs8NQTF
-	 ZvLeCyJno0WGA==
-Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-9908c849564so726259241.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:16:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGwQA9HAnKZtcrgw13LEwgGrKeFPwBM1OH6Md6qUFzFZOXwfZUJxZgYGP4B289eoXHFWNrHGCUhfiIqzHw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99Je/yTUk9DRqokxl0JlpWd+ZW7wmmBNUtk5LWFUcqwUeOIIZZ
-	zcIsaetEbY5JONYAriXkKZGz/vUrj5aYrU8eyKFZV3wiEKm+LHw19P/SyK33zHZHt0JjykCaXeN
-	XeiFcHwURr5X4K3OOVvNEy1eTeczqsf4=
-X-Received: by 2002:a05:6102:6c4:b0:7b3:8f0a:f76c with SMTP id
- ada2fe7eead31-7d7393caab1mr3796876137.13.1795432585865; Mon, 23 Nov 2026
- 03:16:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XstxLq7e
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-49465892f7bso2302134f8f.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:17:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795432650; x=1796037450; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5hBSW7tM8uyDnbZRgtXZPyH+5d7CmFdSd0KO5SSsLz4=;
+        b=XstxLq7eu1Rbei1OT9pJxcvd6tc4qLGY1y6S6ZbMCYJ8/bW1KyzYAOUzyV4H3uusjm
+         ZAuz9eRkphKPKmzXlGz5nGrieGDwO6DfZTXH18TqYgk7QOcpIgQJThxmHumP27lH6ee1
+         pKVTamY6i5IvKVmXUQbEOcnLcJ41ERsas2MGd+McHoEOtAGAKPZETOht59jski2t+ft4
+         jwqUnUl6WdPoHnBvwW1irBEc9FO++rxgBq9wG2wedAnAvU5ExGGmbfGF48XyIVWx2eAZ
+         to8FVlZNhoFz2mLKuUiS66JsxW/QP5hCj9MxTZ70sYRbrdSXs4TNtGe4BWSXs+n7prk+
+         CCaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795432650; x=1796037450;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5hBSW7tM8uyDnbZRgtXZPyH+5d7CmFdSd0KO5SSsLz4=;
+        b=u5TtziFPwYrjr8F/a9kg/ehwyZuglR9AkpHe8/fcaVzjCxaGMjnrzlqp83PsQE9+3/
+         gYVbDraoZOpTMTAw2Cnx1XQJ8oUBOBTveZCep5a/NhtLSF/1i3XNrBhtK3n9tXb4d2JC
+         cGczUbuWK1u13YGv22Jq1VXSnFX3/E/tOZw0wpNrR0J/cMSSDyaJJNWwHdnNEvaYaWvK
+         oGFdoLu2xWeXPYQOTg9u9aCFgOaW5iaqhpOnDad99K+G0wz1vfvvsZFWxYppsA1YoiX0
+         1aYPqOV4MPQFc7BKS8pz12+r/Vhyva+QOMNjCXLBR9QLHVE4Hu4in18VMVPxpDNIv5s+
+         4Cqg==
+X-Forwarded-Encrypted: i=1; AL+hErFBjRo4A8GSUy1HtJHFr70IHUi60bp/y3WxRG6IrncVBJpMxJaeOGPR59Bgf9BX0A5edCbHezEtPTnvHcg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WN7HSjhktYlQ4+xs5zWKDmTFFuygYk1gMMDTbo61+IzrTg03U
+	wF1cEtXhyAhkQFpfYMDfJE8fL2Ub/BR/iYW064lgfp6qvgG+IcpWWJc9AbjZYYqm
+X-Gm-Gg: AZFdTZdxfFkFejsnLj0VqtPwLFgTJPTAb48sZWHU8fX7zZ0vcDqE9wX3sK4Bt9q29jo
+	E/OyRT66u8RObE/p2eW5AAOXJlJh5nPAoDUBC8ej+VtKf8m0c65x+uf/D5LMR1nk4PvHiLKIG3w
+	xkPZ1eiIg9bPOqxun0Ks5NFNQOwNqReTiBXwHSGbZzFTEDaU3HwkZImDBCB3uiAiQ7K4aikHxpX
+	KhNP7EeeeakkuvttB6iAfsT0wf8etZwXN4vUv4cIEDn/kv3WkSBuASPBS/B88G0dvRYyqquQY8R
+	zwUS6X0XcNEKxZSav91K1VNGceZmWckT2Hv/5YE0eQBGgexhRpuxc0/irtSvT9ypnWKhHLQi0GH
+	MN0mLt+uaYWrfo7oUj7Q6YxStYFM0cXNGEcI/wv9oZgsFOWKCRwO+qUPl22OwxtsEcqRrc0Tyom
+	iAdoldZVt2+mQ/Z7YNKdkXjm5fe7odS1pZZOc0k/gE30MewrvtkDu/pzBTgktzSjx9PE4vjgk+p
+	Hp5O7zr+46QC+koL5EVALvbks0fqusXzgRsoLv7zeYopA3mcMziXRzoNXVtVdsVAmCx5dPBA/ri
+	KhkoyK3ZK4qUeRj9ltY+txC6WxDE6vBqofUb/icoEFGHytY+92OZwKDf3QcWvvAWMg==
+X-Received: by 2002:a05:6000:4558:b0:4a6:4ac6:d952 with SMTP id ffacd0b85a97d-4abb3a4d510mr14122517f8f.31.1795432649716;
+        Mon, 23 Nov 2026 03:17:29 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm20388760f8f.22.2026.11.23.03.17.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 03:17:29 -0800 (PST)
+Date: Mon, 23 Nov 2026 11:17:28 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Phillip Lougher <phillip@squashfs.org.uk>
+Cc: akpm@linux-foundation.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 00/23] Squashfs: fix a lot of AI issues and AI style
+ issues
+Message-ID: <20261123111728.6e84b0d5@pumpkin>
+In-Reply-To: <20261123100858.0d852be6d74342ed0f176cf6@squashfs.org.uk>
+References: <20261123034304.261742-1-phillip@squashfs.org.uk>
+	<20261123092331.0139648e@pumpkin>
+	<20261123100858.0d852be6d74342ed0f176cf6@squashfs.org.uk>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,306 +100,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120-my-btrfs-patch-v2-1-5807593231d4@shangen.org>
-In-Reply-To: <20261120-my-btrfs-patch-v2-1-5807593231d4@shangen.org>
-From: Filipe Manana <fdmanana@kernel.org>
-Date: Mon, 23 Nov 2026 11:15:49 +0000
-X-Gmail-Original-Message-ID: <CAL3q7H5EhAi8Bc9FQQCGfKpR06ScK5UwJU=rn1A75jD0wc-DKg@mail.gmail.com>
-X-Gm-Features: Aa3M54of1LMvN_03wwcVLgHgBZNx_K_thm58yundR029woX1L0Md89VbQlotCSQ
-Message-ID: <CAL3q7H5EhAi8Bc9FQQCGfKpR06ScK5UwJU=rn1A75jD0wc-DKg@mail.gmail.com>
-Subject: Re: [PATCH v2] btrfs: pin folios before dropping the last extent
- buffer reference
-To: Shang En Sim <sim@shangen.org>
-Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, Boris Burkov <boris@bur.io>, 
-	Daniel Vacek <neelx@suse.com>, Filipe Manana <fdmanana@suse.com>, linux-btrfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 10:06=E2=80=AFPM Shang En Sim <sim@shangen.org> wro=
-te:
->
-> release_extent_buffer() drops the last reference to an extent buffer (eb)
-> before detaching its folios. For a mapped eb, alloc_extent_buffer() has
-> dropped its references to the folios since commit 3649833a58b6 ("btrfs: f=
-ix
-> broken drop_caches on extent buffer folios"). The page cache and the
-> folio's private attachment hold the remaining references.
->
-> Consider the following sequence, starting with an order-0 folio F in
-> btree_inode->i_mapping with F->private =3D=3D existing_eb, F refcount =3D=
-=3D 2
-> (1 for the page cache, 1 for F->private), and existing_eb->refs =3D=3D 1:
->
-> 1) Task A drops the last reference to existing_eb:
->
->      release_extent_buffer(existing_eb)
->       refcount_dec_and_test()        # existing_eb->refs: 1 -> 0
->       spin_unlock(&existing_eb->refs_lock)
->       xa_cmpxchg_irq()               # removes existing_eb from buffer_tr=
-ee
->       <window before btrfs_release_extent_buffer_folios(existing_eb)>
->
-> 2) Task B allocates new_eb for the same bytenr, takes over folio F, and
->    drops its caller reference:
->
->      alloc_extent_buffer()
->       find_extent_buffer()           # NULL (existing_eb removed from tre=
-e)
->       btrfs_init_eb_prealloc()       # allocates new_eb and new folios
->       init_extent_buffer()           # new_eb->refs =3D 1
->       attach_eb_folio_to_filemap()
->        filemap_add_folio() -> -EEXIST
->        filemap_lock_folio() -> F     # locks F; F refcnt: 2 -> 3
->        grab_extent_buffer(F)
->         folio_get_private(F) -> existing_eb
->         refcount_inc_not_zero(&existing_eb->refs) -> false
->                                      # existing_eb->refs =3D=3D 0
->         folio_detach_private(F)      # F->private =3D NULL; refcnt: 3->2
->        folio_put(new_eb->folios[i])  # drops new_eb's unused new folio
->        new_eb->folios[i] =3D F         # reuses existing folio F
->        attach_extent_buffer_folio(new_eb, F)
->         folio_attach_private(F, new_eb) # F->private =3D new_eb; refcnt: =
-2->3
->       __xa_cmpxchg()                 # inserts new_eb into buffer_tree
->       check_buffer_tree_ref(new_eb)  # sets TREE_REF; new_eb->refs: 1 -> =
-2
->       folio_unlock(F)
->       folio_put(F)                   # drops lock ref; F refcnt: 3 -> 2
->      free_extent_buffer(new_eb)
->       free_extent_buffer_clear_reading(new_eb, false)
->        release_extent_buffer(new_eb)
->         refcount_dec_and_test()      # new_eb->refs: 2 -> 1 (TREE_REF)
->
-> 3) Task C runs drop_caches, releases new_eb, and evicts folio F:
->
->      drop_caches_sysctl_handler()
->       iterate_supers()
->        __iterate_supers()
->         drop_pagecache_sb()
->          invalidate_mapping_pages()
->           mapping_try_invalidate()
->            find_lock_entries()        # locks F, fbatch ref: F refcnt 2->=
-3
->            mapping_evict_folio(mapping, F)
->             folio_ref_count check     # 3 <=3D 1 + 1 + 1 (passes)
->             filemap_release_folio(F, 0)
->              btree_release_folio(F, 0)
->               try_release_extent_buffer(F)
->                folio_get_private(F) -> new_eb
->                new_eb->refs =3D=3D 1      # check passes
->                test_and_clear_bit(EXTENT_BUFFER_TREE_REF) -> true
->                release_extent_buffer(new_eb)
->                 refcount_dec_and_test() # new_eb->refs: 1 -> 0
->                 spin_unlock(&new_eb->refs_lock)
->                 xa_cmpxchg_irq()      # removes new_eb from buffer_tree
->                 btrfs_release_extent_buffer_folios(new_eb)
->                  detach_extent_buffer_folio(new_eb, F)
->                   folio_detach_private(F) # F->private=3DNULL; refcnt 3->=
-2
->                 returns 1
->             remove_mapping(mapping, F)
->              __remove_mapping_unfreeze()
->               __remove_mapping()
->                folio_ref_freeze(F, 2) # F refcnt: 2 -> 0
->                                       # (existing_eb holds no ref)
->                __filemap_remove_folio(F, NULL)
->                 page_cache_delete()
->                  xas_store(NULL)      # removes F from i_pages
->                  F->mapping =3D NULL
->                returns 1
->               folio_ref_unfreeze(F, 1) # drops page cache ref; refcnt 0->=
-1
->            folio_unlock(F)
->            folio_batch_release()      # drops fbatch ref; refcnt 1->0, fr=
-ee
->
-> 4) Task A resumes and detaches existing_eb's folios:
->
->      btrfs_release_extent_buffer_folios(existing_eb)
->       detach_extent_buffer_folio(existing_eb, F)
->        mapping =3D F->mapping           # NULL (F refcnt is 0, freed/reus=
-ed)
->        spin_lock(&mapping->i_private_lock) # NULL dereference
->
-> If new_eb was already fully freed and detached before task C runs, e.g.
-> via free_extent_buffer_stale(), F has no private attachment and
-> filemap_release_folio() returns true immediately, with the same result.
->
-> With a delay added in the window, this reproduces as:
->
->   BUG: kernel NULL pointer dereference, address: 0000000000000074
->   RIP: 0010:_raw_spin_lock+0x18/0x30
->   Call Trace:
->    detach_extent_buffer_folio+0x68/0x140
->    release_extent_buffer+0xac/0x120
->    btrfs_release_path+0x17/0x80
->    btrfs_free_path+0x17/0x30
->    btrfs_getxattr+0xe2/0x110
->    ...
->
-> Compaction can also hit this window, since it calls
-> release_extent_buffer() through btree_migrate_folio() ->
-> filemap_release_folio() -> btree_release_folio().
->
-> Even without the NULL mapping, the folio can already be freed and
-> reused when detach_extent_buffer_folio() looks at it.
->
-> This race requires nodesize >=3D PAGE_SIZE. With subpage metadata,
-> grab_extent_buffer() never takes over folios, and a shared folio keeps
-> folio->private set until every eb on it is detached, so
-> try_release_subpage_extent_buffer() does not release it while an eb is
-> in this window.
->
-> Fix this in two parts:
->
-> - In release_extent_buffer(), when refs is 1 and the eb is mapped, take
->   a reference on each folio before dropping the eb reference, and drop
->   those references after the folios are detached. This keeps the folios
->   alive across the window, as the eb's own folio reference did before
->   the commit above.
->   Checking refs =3D=3D 1 under refs_lock is enough: free_extent_buffer()
->   only decrements a mapped eb's refs without refs_lock while refs is
->   above 3, so no one else can drop it to 0 under us.
->
-> - In detach_extent_buffer_folio(), take i_private_lock from the btree
->   inode instead of from folio->mapping. A pinned folio can still be
->   removed from the page cache. All folios of a mapped eb belong to the
->   btree inode, so this is the same lock in every other case.
->
-> Fixes: 3649833a58b6 ("btrfs: fix broken drop_caches on extent buffer foli=
-os")
-> Cc: stable@vger.kernel.org # 6.16+
-> Signed-off-by: Shang En Sim <sim@shangen.org>
-> ---
-> I reproduced the oops with a test-only delay.
->
-> v1 testing on btrfs for-next 6f4bbde7e036, 8 vCPUs, 2 NUMA nodes, 120 s
-> per run of the reproducer:
->
-> - delay only: oops in 3 of 4 runs (at 61 s, 83 s, 46 s), trace as in
->   the commit message
-> - delay + this patch: no oops in 3 runs
->
-> Subpage, arm64 with 64K pages, nodesize 16K, emulated in QEMU:
->
-> - delay only: no oops in 3 runs (expected: grab_extent_buffer() does
->   not take over folios for subpage)
-> - delay + this patch: no oops in 3 runs
->
-> v1 built with W=3D1 with no new warnings in fs/btrfs/.
-> On the v2 base, fs/btrfs/extent_io.o built with W=3D1 on x86-64.
-> ---
-> Changes in v2:
-> - Drop "mapped" from the first sentence, release_extent_buffer() handles
->   both mapped and unmapped buffers (Filipe).
-> - Replace the race diagram with the full step-by-step sequence from the
->   v1 discussion, using existing_eb and new_eb (Filipe).
+On Mon, 23 Nov 2026 10:08:58 +0000
+Phillip Lougher <phillip@squashfs.org.uk> wrote:
 
-Reviewed-by: Filipe Manana <fdmanana@suse.com>
+> On Mon, 23 Nov 2026 09:23:31 +0000
+> David Laight <david.laight.linux@gmail.com> wrote:
+> 
+> > On Mon, 23 Nov 2026 03:42:41 +0000
+> > Phillip Lougher <phillip@squashfs.org.uk> wrote:
+> >   
+> > > This large patch-set is inspired by the recent spate of AI generated
+> > > code reports.  Four of the patches directly fix AI reported issues, and
+> > > the rest have been found manually by a read-through and testing of the
+> > > code.
+> > > 
+> > > In all cases (except patches 1 - 8, 18 - 20) the patches deal with
+> > > over-sights relating to variable overflow, arithmetic overflow, variable
+> > > signedness or just lack of sanity checking of data read from disk.
+> > > These can cause the code to fail, and which could be used as a potential
+> > > exploit.  
+> > > 
+> > > Patches 18, 19, and 20 fix potential excessive memory use exploits.  The
+> > > code in question was written in the early days when Squashfs filesystems
+> > > were small, but with very large filesystems it could try to allocate
+> > > memory in excess of 4 MiB, and up to 64 MiB.   
+> > > 
+> > > The patches can be broken down as follows:
+> > > 
+> > > Patches 1 - 6 are preparatory patches.  They convert old fashioned
+> > > #define macros into inline functions.  These being typed make widths and
+> > > signedness explicit, and allow additional checking to be added in later
+> > > patches.  
+> > 
+> > Nope....
+> > Using 16bit sizes is a recipe for disaster.
+> > Remember every time the variable is accessed it is extended to 32 'int',
+> > the arithmetic done as 'int' (unless the other operand is 'unsigned int')
+> > and then truncated back to 16 bits.  
+> 
+> This is getting beyond stupid.
+> 
+> This patch-set is to shut up woefully stupid AI that been inflicted
+> on everyone over the last couple of months.
+> 
+> If I use a u32 then stupid AI will *believe* the value can be up to
+> u32 and then complain about arthmetic overflow.
 
-Perfect, thanks!
-Pushing it to github for-next soon.
+Then just ignore the stup AI.
 
-> - Rebase onto btrfs for-next.
-> - Link to v1: https://patch.msgid.link/20261117-my-btrfs-patch-v1-1-4b934=
-a7ff69a@shangen.org
-> ---
->  fs/btrfs/extent_io.c | 33 ++++++++++++++++++++++++++++++---
->  1 file changed, 30 insertions(+), 3 deletions(-)
->
-> diff --git a/fs/btrfs/extent_io.c b/fs/btrfs/extent_io.c
-> index b2739838c646..ce6880b1d64e 100644
-> --- a/fs/btrfs/extent_io.c
-> +++ b/fs/btrfs/extent_io.c
-> @@ -3155,15 +3155,18 @@ static bool folio_range_has_eb(struct folio *foli=
-o)
->  static void detach_extent_buffer_folio(const struct extent_buffer *eb, s=
-truct folio *folio)
->  {
->         struct btrfs_fs_info *fs_info =3D eb->fs_info;
-> -       struct address_space *mapping =3D folio->mapping;
-> +       struct address_space *mapping =3D NULL;
->         const bool mapped =3D !test_bit(EXTENT_BUFFER_UNMAPPED, &eb->bfla=
-gs);
->
->         /*
->          * For mapped eb, we're going to change the folio private, which =
-should
-> -        * be done under the i_private_lock.
-> +        * be done under the i_private_lock. Do not use folio->mapping, t=
-he
-> +        * folio may have left the page cache, see release_extent_buffer(=
-).
->          */
-> -       if (mapped)
-> +       if (mapped) {
-> +               mapping =3D fs_info->btree_inode->i_mapping;
->                 spin_lock(&mapping->i_private_lock);
-> +       }
->
->         if (!folio_test_private(folio)) {
->                 if (mapped)
-> @@ -4011,8 +4014,27 @@ static inline void btrfs_release_extent_buffer_rcu=
-(struct rcu_head *head)
->  static int release_extent_buffer(struct extent_buffer *eb)
->         __releases(&eb->refs_lock)
->  {
-> +       struct folio *pinned[INLINE_EXTENT_BUFFER_PAGES];
-> +       int nr_pinned =3D 0;
-> +
->         lockdep_assert_held(&eb->refs_lock);
->
-> +       /*
-> +        * Once refs drops to 0 our folios can be taken over and freed, s=
-o pin
-> +        * them until they are detached. refs only drops below 3 under
-> +        * refs_lock, so checking for 1 is enough. Keep the folios in a l=
-ocal
-> +        * array: if refs does not hit 0, another holder may free the eb.
-> +        */
-> +       if (refcount_read(&eb->refs) =3D=3D 1 &&
-> +           !test_bit(EXTENT_BUFFER_UNMAPPED, &eb->bflags)) {
-> +               for (int i =3D 0; i < INLINE_EXTENT_BUFFER_PAGES; i++) {
-> +                       if (!eb->folios[i])
-> +                               continue;
-> +                       folio_get(eb->folios[i]);
-> +                       pinned[nr_pinned++] =3D eb->folios[i];
-> +               }
-> +       }
-> +
->         if (refcount_dec_and_test(&eb->refs)) {
->                 struct btrfs_fs_info *fs_info =3D eb->fs_info;
->
-> @@ -4039,6 +4061,8 @@ static int release_extent_buffer(struct extent_buff=
-er *eb)
->                 btrfs_leak_debug_del_eb(eb);
->                 /* Should be safe to release folios at this point. */
->                 btrfs_release_extent_buffer_folios(eb);
-> +               for (int i =3D 0; i < nr_pinned; i++)
-> +                       folio_put(pinned[i]);
->  #ifdef CONFIG_BTRFS_FS_RUN_SANITY_TESTS
->                 if (unlikely(test_bit(EXTENT_BUFFER_UNMAPPED, &eb->bflags=
-))) {
->                         kmem_cache_free(extent_buffer_cache, eb);
-> @@ -4050,6 +4074,9 @@ static int release_extent_buffer(struct extent_buff=
-er *eb)
->         }
->         spin_unlock(&eb->refs_lock);
->
-> +       for (int i =3D 0; i < nr_pinned; i++)
-> +               folio_put(pinned[i]);
-> +
->         return 0;
->  }
->
->
-> ---
-> base-commit: 184fa2c40f5c50afb1d8bf900eafadf450db392e
-> change-id: 20261117-my-btrfs-patch-984742ed64b0
->
-> Best regards,
-> --
-> Shang En Sim <sim@shangen.org>
->
->
+> 
+> If I deliberately use a u16/s16 I'm telling AI the value can't be
+> more than that, and it can't overflow.
+> 
+> At the moment, submitting patches to the kernel has become impossible,
+> necessary workarounds to fix the AI inflicting the submission trigger
+> complaints from humans.
+> 
+> Result: an endless cycle of changes which get nowhere.
+> 
+> > 
+> > I looked at a few, they are horrid beyond belief.
+> > 
+> > I can't believe some of those values can be negative - so don't use
+> > signed types.
+> > Use 'unsigned int' (or u32 if fixed size) so that the values don't
+> > get promoted to 'signed int' all time - which is what happens here.
+> > 
+> > David
+> >   
+> > > 
+> > > Patch 7 fixes an incorrect offset value in TRACE statements in
+> > > squashfs_read_inode().  This was new to the v2 patch-set.
+> > > 
+> > > Patch 8 is new to this v3 patch-set.  The patch is an attempt to stop
+> > > Sashiko from getting stuck in logical contradictions when some
+> > > sanity checks are introduced later.
+> > > 
+> > > Patches 9 - 17 fix various issues relating to variable overflow,
+> > > arithmetic overflow and add additional sanity checking to prevent these
+> > > issues from occurring.
+> > > 
+> > > Patches 18 - 20 remove the excessive allocation of memory by introducing
+> > > caches, which limit the maximum usage to 4 pages.
+> > > 
+> > > Patches 21 - 22 were new to the v2 patch-set.  They deal with some
+> > > issues Sashiko reported in the original patch-set.
+> > > 
+> > > Patch 23 was also new to the v2 patch-set.  It adds an additional belts
+> > > and braces sanity check.
+> > > 
+> > > Patches 9 - 21 have reproducers which show how the existing code faults
+> > > can be exploited, in some cases which can allow a Squashfs filesystem
+> > > to be tampered with to make files readable by unprivileged users.
+> > > 
+> > > BTW checkpatch.pl complains about the '#' lines in the BASH script
+> > > reproducers. Let me know if that will cause problems.
+> > > 
+> > >  fs/squashfs/block.c            |  20 ++-
+> > >  fs/squashfs/cache.c            |   8 +-
+> > >  fs/squashfs/dir.c              | 114 +++++++++----
+> > >  fs/squashfs/export.c           | 146 ++++++++++++-----
+> > >  fs/squashfs/file.c             |  93 +++++++----
+> > >  fs/squashfs/fragment.c         | 113 ++++++++++---
+> > >  fs/squashfs/id.c               |   9 +-
+> > >  fs/squashfs/inode.c            |  77 +++++----
+> > >  fs/squashfs/namei.c            | 137 +++++++++++-----
+> > >  fs/squashfs/squashfs.h         |   9 +-
+> > >  fs/squashfs/squashfs_fs.h      | 101 ------------
+> > >  fs/squashfs/squashfs_fs_i.h    |   2 +-
+> > >  fs/squashfs/squashfs_fs_sb.h   |  25 ++-
+> > >  fs/squashfs/squashfs_helpers.h | 362 +++++++++++++++++++++++++++++++++++++++++
+> > >  fs/squashfs/super.c            |  96 +++++++----
+> > >  fs/squashfs/xattr.c            |  49 ++++--
+> > >  fs/squashfs/xattr.h            |  21 ++-
+> > >  fs/squashfs/xattr_id.c         | 173 ++++++++++++++------
+> > >  18 files changed, 1133 insertions(+), 422 deletions(-)
+> > > 
+> > > Phillip
+> > > ---
+> > > Squashfs maintainer and author
+> > >   
+> >   
+> 
+> 
+
