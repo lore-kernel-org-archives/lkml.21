@@ -1,97 +1,142 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436206;
-	b=cjV6r1E+/CnPZdvtn1Isn5iggXLg5FdAYhUVYIYnp792poI3fIHjFXnwOxRtXmZSt2I1
-	 sJKXfR07CyJ+312qQadk2ORN34FtIjIMVxBuJ2Leube/w3hyxXKwjTyJ7n/uQezWR9qAA
-	 msM/+EMWsQJwEPryAheVv0irBbKsVQ/DgOybuICW8d/xyszD+LN4bGTLxcDYJ/ONeWLSk
-	 8Hq8EIIB9SQcC6gKq/HOOsD4GQfGOHcRxAyQECD1o3IgaQvv/h3gDIrL1WevGZe7dC5uv
-	 ssvKXZBLLiHQs5UKILSgGFwooqvZAIV6wA5/gu1/gfTCsnug7V+36iZ+mkfJEhGnwOQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436206;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=VkE7Vjq+Mj2kI9OgXXiloalWcp8Wq6iPLh1LkUcmpFg=;
-	b=PPrF1sRg/PqI5kvda/KsN0qyXEP2SX8xi1Cduw1O+7HH6UaiWgi9RyM0hL+uRwk7nfG5
-	 3v3dMrI+pE40OgiGNcjtrc+wV/6ywvh4Imif5PcXgzXPCi3rTkrj3TnkRp+UFfXqctN35
-	 W7RNLWA2S8bcR4SWjLxDHHThxlI8sqmm/8/sHO2bzkpnwBFCstMFii/IL+3/TYcheu68h
-	 00oO91ZrOxayGF/rM5TOEKUp0Rghh/z/B80emGCv0620fDkCtCIR+tHisPkbRVddGGBQV
-	 6BYx4Cw8k54MXkPo4xWIlWU6V8VGXxOEgKb2uOsIUXIQ33QwyVBiEd//lBYLHll16ug==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nebusec.ai;
-	spf=pass smtp.mailfrom=nebusec.ai;
-	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=qDexWR8i;
-	arc=none smtp.remote-ip=209.85.215.174
-Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795436211;
+	b=m0MfMANgB46fue9HrTykcNXe23DVo71CRBZRWRRqzjf6/OdnG6ZQwZkMMZgpPX1SqTRS
+	 0ifm8lScaQISkpGp52fz+T0bCND5PhTQWfuaLVylRLxyY0bv2DStZzKFTMSa7pfxdXH0l
+	 JRk/YYEeU1tuFftK9Exr0Lk3O4m0IhSuXhmDlJukrr5ITeE8KTlcV0JSa8mt6Js0yKsix
+	 3XlFj++9S8NiOfoK9+vlBFCjui4CtRfDnmGfo/eF/qnwTGUafCdlGsLHC3IZmzEW3VRNB
+	 C12ts5gz/1jl5yofdk2De4lpYTpmjZiUC8XyQApe9j9W7Dh/rp2vxf5cj02RbMfMBkw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436211;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=kguowlk5wAspe4EZTMrWGEV1S398so2n2fI46ly+OEg=;
+	b=GfLBNeZ0W/J+vW00F0R+tFWj/wPlOzTpQ7GV8elDVsIs2AyWYIRRlpCmYx6JwW2eKLL5
+	 XtjABll7+iIhHJQQkqvueUq2L+iOYODdHCbboUZIVAYdmRMbr7IhfitnFwCh6aLH6MkYU
+	 1A41+jJWfNHGZHVGWDjhvmefhuwZf841mSbWfxW5v2ntg9qLy9rfr+yvEWTOkdfIo/zbq
+	 48W/4e9ZonhizpvbuSOGfkLxZ8b4tl5EHiU+ELe7sq78WeE5Vkf5Ir5gOM+0bJf177apS
+	 Z/tiSmukaijg+1DBEbK/SxNYjG/SdXWcDyvmZGJ4Df4NDXzt30RCGuO/cGIuwNWnNnw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=K0Xj124C;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.34
+Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013034.outbound.protection.outlook.com [40.107.201.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F2D0606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:16:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F2D0606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0A3B606A333;
+	Mon, 23 Nov 2026 12:16:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0A3B606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=qDexWR8i
-Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cdb2dfcca94so1279988a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:16:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nebusec.ai; s=google; t=1795436204; x=1796041004; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VkE7Vjq+Mj2kI9OgXXiloalWcp8Wq6iPLh1LkUcmpFg=;
-        b=qDexWR8i4BBgKJR8omxCHIuNCInbmwfSZZahUl78yOMkGRdIWSk1mpLpljcQ8kuegj
-         E1rfGT9S9r5C9J/NnaJfrcsFHqM19U5Jmvm1AXqqf0iE4Vpbx5IB0d3YoFB7Gf/Ft1K3
-         8tgvRwMCNfeqQJVhkoKV+t00zKDGn6aXh7sdZEXY0Ep/WsyA4SMw3PEsY1EJor6W6Qvk
-         hJj3Qfvf0h5GjAjurLVOmz9SamecKeIkVofGqyJny7wYRWafQQrYK8ztPIlls5w8eyS8
-         0Nw7NjCAGr3kKQlioJ5nrqcKeLhYVh30ZvTDfasVFUOO/sgKVXbQYSzbbFq8FyqQiA+d
-         Xw1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436204; x=1796041004;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VkE7Vjq+Mj2kI9OgXXiloalWcp8Wq6iPLh1LkUcmpFg=;
-        b=JwnrLQB3BEfHHetvaKQbU1fqpVkwtDTYrvpsA4TMtRKpMMH+vNti/c22UH0BbS4L+5
-         qB2YQ/Dh5iYytvVvnauqqUXyvcgLr/3QB8T0vH/6xU/OHqvny6dOIgtHTZbq78N69C0w
-         bQLSW5ykOAwB/NoYHgBpeIubezqfet90N0QT/WLtK78J6IVI9mKh03wUJBqLQl4NAY9b
-         a0R2P4ZnfsblEJjDlBTSyzzxqK9hPOMrZOCrDRD/f8jQYicXo1V7kJm36G953YynmHMA
-         1IR1B6e+D0o0WaCrREDstres245F63CiUhQV4eIvz1uHGdIEKk7YMJxnP+7LGY9KqPFA
-         1eDw==
-X-Gm-Message-State: APuU4Z/UNiGE+f4RlTascyx09V58AUWVpEwwwCON8LfH1+hL7tiJMsjl
-	c+7kQL5vnfpqDRtbwN13cG8AM2QQpI414pkfSz7kFTGaEX0GJpn1n+1aUtPvMkHcnP4YZFfMD5d
-	NF2W81A==
-X-Gm-Gg: AZFdTZcHYxQMf7BUpn/c7tWBp5NAR4ZNK3oLqFjrj6p7mvCcz3ZLpNUIgTRf5zB8cIV
-	O+N0xTbw4l5osAEVTc9BW+9a4UZcvqJcFnCguBTTxPSTukO1OQdVF5LC6WXS04Pbh6LvLNrNcpW
-	OuiqsoeeSGUs0smtlEPmpI9efYb097vu/SAQL+iCn2MQSUUm1qQ+JStWzpmtZ7+py8odi/kAV5H
-	khhiznm/E/3eaTqOaefTKKNILbPS/OH/VtuAluYQTutPRQMVq4RfY54AvDLTw858g5ejdTwGICQ
-	SNSQBoKI/v5eIdcnmJlGg9eTVBeC3/XXZuhcDRWYniJ+8PvCzPqr4CNRyzI6mPY4qb+vDynUMwL
-	wj5LLZLFzmORtdRE8c03YcCZSxJ8iBNa83LN6CoIF2/5tHlS8tqBc9NNdjgthbX8F+0QmelJqxS
-	olr7kLlG0d4SsOgLI/W3Yb7vohzALonYUqwdpdemsu605Nz+uj1i6KUhnbYe7Rd51iZlqhjbqP4
-	a8lkinC1BCnwStVosFLlR2mwZxiIoqvqk9lkWwMnB5lqSuK7Z1Ptkxag4IdH8Uz7S1852Ltk7/d
-	2emOQT69TivZUBKc5dFpB2PuODJ64nu84o+hq3AR
-X-Received: by 2002:a17:90b:2fcd:b0:3ad:b8c8:4a84 with SMTP id 98e67ed59e1d1-3b41c925e29mr10077702a91.26.1795436204098;
-        Mon, 23 Nov 2026 04:16:44 -0800 (PST)
-Received: from enjou-Legion-Y7000P-2019 ([191.223.218.36])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm21112338a91.2.2026.11.23.04.16.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:16:43 -0800 (PST)
-From: Ren Wei <weir@nebusec.ai>
-To: linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev
-Cc: gregkh@linuxfoundation.org,
-	rafael@kernel.org,
-	dakr@kernel.org,
-	johan@kernel.org,
-	akpm@linux-foundation.org,
-	kay.sievers@vrfy.org,
-	vega@nebusec.ai,
-	caoruide123@gmail.com,
-	weir@nebusec.ai
-Subject: [PATCH driver-core 0/1] kobject: reserve an envp slot for the terminator
-Date: Mon, 23 Nov 2026 20:16:36 +0800
-Message-ID: <cover.1795426787.git.caoruide123@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=K0Xj124C
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U+aVTLH3piY6SI9pivBreZ4uNImC1WuDF0CguxblFRZq8eYNHX9VL/kCS1sAAgSDR816JPdGgLAdl30J+dC8QSrdgvqNNSmxImntzYfntL2W00FitU40WCh+XeZYScB27SRWYG1erVR1AB9k6Ug6BayeD0WKBgRUy9/upQdUmkmYcYc07daCWPoTQXbjFIF55NKSaVJ6bDvBglGJ3nqFCydsB5OT7zU00QhjjZYcTtMhtNzM9MKbjFXkw9RPUdwD+omhSS/hT5kBq0MQBJy5zrIzGtA7u1/tPC4UUKZETWzdZOw3Iur9d6Nn37YKR3/FF40CGQVLq9OFwovAeS4kHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kguowlk5wAspe4EZTMrWGEV1S398so2n2fI46ly+OEg=;
+ b=tDjliG/L1nkddTxKn7MusPvr471cUGzGlEqVaCqLK7j1tRuYwtXltoO9mprevHu3keSLzW8qRAUzRMRmJWNuGeheNmIlU2Y/uNx+pZZm67w4did246K7K6wfi8+hlnMDiuMOJSgW4ec/hNSQGB9cIpQ65TOq8QxcY+pB/zGWcISdubS+2mNUdOII6fnGNH+xQkry736BfGV0HA/SVLRoyPTIB1iHiiluOn6n8OtVS6JUEV1tCFQWlzWKPDNm2l1mj1ljbDQ8CTjuVonYXyxOaDljUzwpymPuOtliFGOkcrOnT7G6VCuiyR1DvTWfySikazAGJNXajgLvDVDcs9v6Ew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kguowlk5wAspe4EZTMrWGEV1S398so2n2fI46ly+OEg=;
+ b=K0Xj124CP3L/zlyM8xVVQ/CAQ3jeJ3hba6Sp2FhPiVoyv2H/ua/OUTSLOGLWYQUY8F24IO21JD+iKAifyqARllBPy+sopswFIv2gLwpqILZEHUBD6aCOx8veWo+R9xQyxUihxUsXaGVU9FpEP7dKtBIoCTR+OGfdT2pAATmrbHg=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by IA0PPFF4B476A86.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bea) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Mon, 23 Nov
+ 2026 12:16:46 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 12:16:46 +0000
+Message-ID: <e25b0ca6-7a35-4f20-81cc-99c225f6e401@amd.com>
+Date: Mon, 23 Nov 2026 13:16:36 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/15] dt-bindings: firmware: xilinx: Add Versal Gen 2
+ compatible string
+To: Gregory Williams <gregory.williams@amd.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ kishore Manne <nava.kishore.manne@amd.com>
+Cc: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261118233211.4121361-1-gregory.williams@amd.com>
+ <20261118233211.4121361-7-gregory.williams@amd.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20261118233211.4121361-7-gregory.williams@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR06CA0213.eurprd06.prod.outlook.com
+ (2603:10a6:802:2c::34) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,147 +146,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-
-From: Ruide Cao <caoruide123@gmail.com>
-
-Hi Linux kernel maintainers,
-
-We found an issue in lib/kobject_uevent.c.
-
-This bug is tracked at: https://bugtracker.nebusec.ai/f/16082
-
-add_uevent_var() permits envp_idx to reach ARRAY_SIZE(env->envp), filling
-the final pointer slot without reserving a trailing NULL. With
-CONFIG_UEVENT_HELPER and a nonempty helper path, an event containing
-exactly 61 variables before SEQNUM causes SEQNUM, HOME, and PATH to fill
-all 64 slots. call_usermodehelper then asynchronously passes this
-unterminated array to kernel_execve(). count_strings_kernel() reads beyond
-envp into envp_idx and env->buf, interprets those bytes as pointers, and
-later dereferences invalid addresses while copying the environment.
-Synthetic arguments allow the environment count to be tuned, resulting in
-an out-of-bounds scan and kernel crash.
-
-Privilege model: writing a synthetic uevent to /sys/module/kernel/uevent
-and setting /proc/sys/kernel/hotplug require CAP_SYS_ADMIN; the
-reproducer runs as root. The crash also depends on CONFIG_UEVENT_HELPER
-and a nonempty helper path.
-
-Compatibility: no uAPI change.
-
-Reproducer:
-
-#!/bin/sh
-set -eu
-
-# This PoC must run as root inside the guest.
-printf '%s' /bin/true > /proc/sys/kernel/hotplug
-echo 0 > /proc/sys/kernel/panic_on_warn
-
-msg='add 11111111-1111-1111-1111-111111111111'
-i=1
-while [ "$i" -le 57 ]; do
-	msg="$msg K$i=V$i"
-	i=$((i + 1))
-done
-
-printf '%s\n' "$msg" > /sys/module/kernel/uevent
-sleep 2
-
-
-
-We run the PoC in a 2 GB RAM x86 QEMU environment.
-
-------BEGIN PoC------
-
-#!/bin/sh
-set -eu
-
-# This PoC must run as root inside the guest.
-printf '%s' /bin/true > /proc/sys/kernel/hotplug
-echo 0 > /proc/sys/kernel/panic_on_warn
-
-msg='add 11111111-1111-1111-1111-111111111111'
-i=1
-while [ "$i" -le 57 ]; do
-	msg="$msg K$i=V$i"
-	i=$((i + 1))
-done
-
-printf '%s\n' "$msg" > /sys/module/kernel/uevent
-sleep 2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|IA0PPFF4B476A86:EE_
+X-MS-Office365-Filtering-Correlation-Id: f807ab46-d95f-4d95-51af-08df495ba470
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|261102123227099003|10067099003|56012099006|11063799006|4143699003|261026121527099003|261022105027099003|261026140227099003|261021121427099003|261028144727099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	Dj/oMvO60o10+LrhI+VhJ2T5tjNtwc3FsPhPCLiTIzR7oTlcY9gTxRmxfAw8yCAVpYuqfdUzlNTrEO5Zq/MevVk+RY5dgVrmz66Q8GQGPlMAiXzAUZTRs1xL6Y895qe/XEt/ytAzB+REBCsiEgZV+GzyhKxM5qM4RD/0amIM8vhxAMHilsejU0GQO6jwkcMeYsskdiYB2sRuBb5EJofnjoYXzCwjwIYg6q05QoSSWTgglVCpE2o7aQ0PDxTfhJIDr5g+qY848yXhjb0QB6kwdzoQTJMMhrk6O2wRQsglN4AhtJhEcCf8kiFtE+asyOQCN6Osd0wM38WqjaPv4CKvl9uawQZCh8UZbaKSvah094Q/Le2s6NmCZ79uK1uPJSm6XQWurf0JMGxWOda6ODKSGco36atT2DgRsoK0eexC5lxoE7Bu2nOhwEZ/ELf5LQTXtASx/kLDXy6nLVfKUN5+/xUdt2Dn5O/d/DmwQ+dxyiCZTju/EBPYTtzlmZCR+8WGwetBu4MqCIGeCp9agv6OXjEGe7zXVVx0dFncxLvo5V9r+g3DAXz+6JNrWy/wxQ8pE7/vIaOtF3XuvCpbSWxp2k7lmrfZS2CulpDThziFOzE5ayydzCKLx5ZitvnxI0SZfbrwXj9VA0uhdzQQViqqDcENF5PjlxLgy6YIP+xhKXQ=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(261102123227099003)(10067099003)(56012099006)(11063799006)(4143699003)(261026121527099003)(261022105027099003)(261026140227099003)(261021121427099003)(261028144727099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?MWwyU2JVNFRkODlPWDJOZmpYbnZKNlh4ck9RUWIzN2Q5a0VOTVZtalRsRU82?=
+ =?utf-8?B?cHZZdzlUUnV5K282YmNEdWNkR0hCMVNUVVVxeFk3TFkzUE9sUFJnSzhjMXln?=
+ =?utf-8?B?NG5UQlZHVjBPQnA4S3diZjRnSHNNMHZ1aFkyVmhHdDh6d3dzeTdvV1N6dXgv?=
+ =?utf-8?B?TjA2ajRYSGFNMDgyWWxLRWluWlg2ZmpTcmNWV0hINmM2N0ZXK3pKOGNMWUhP?=
+ =?utf-8?B?VWVDc0RpU01VTjVJYzdkTlZMY3ByZGI5d2VUdmFKazZibk4xdDBQYy9MME5a?=
+ =?utf-8?B?UlFiTDFZVlBlOFlub284cURzeVRMYVJ2a1RUZDEvMTBoTnVpeEh0MFVEQVNK?=
+ =?utf-8?B?bElQdVdPY3JyckU0VHZhOW82aTc0c3RoTHdRV09LSFQwc2F6b3FvRHpydmYy?=
+ =?utf-8?B?eW9KQ2t5cjVuanA3R3o3b3VEVHkxbWI4eEYvQzdRcVhVZ2pIRnRjRDhBVDFS?=
+ =?utf-8?B?TkdQZHo2SUhnTjNCSm5zeXg4aTRzSVo3STBXcjZNZHB4OEZVdlRLUWVIMXFi?=
+ =?utf-8?B?NmlNdml3d2l0WldLSmpwZnR3MXZiZEpLSXVDMk1CTzlJaTl6SERreUdHSnZu?=
+ =?utf-8?B?UW1qZlhmVGFPUU9TZ3Z3dDdUZktIaEllam1wMmZxRFhHcS91NmJpSmIyTkhs?=
+ =?utf-8?B?OFJZT0JoNHk3NGc5VkkxYmY1aXB3MTRHd3JiMTZLKzFrQUJ2a1dkMm1iNjR0?=
+ =?utf-8?B?Y015QnJaSVRzNzFWN2psaTNvbXRKZDNrMk9oU25QSFZaaVgyalFZRTN3bG12?=
+ =?utf-8?B?dit2WVR2T1VqTDZpMkpZdGUyUmhteU1rWXVvZnQ3MUpIWG9hemFaK1NkNXFE?=
+ =?utf-8?B?ZEduQUFVTjFITm5FTWRrYmgyWXBBbTRwNURpbjdIdTljUnQrQVJuMjdrZU15?=
+ =?utf-8?B?cFBYalQ3VmZrK1hVbzNha2R3c3dkSjIwY1dkRjQ4SEtpMW05SlBhUXdOd0Uz?=
+ =?utf-8?B?UHF4ekZ4TkJFUVFpSmgwL0ZYTWc3WCs2d3MzSVpVU3U5NU5aT08xNVRwZVNi?=
+ =?utf-8?B?RDV6UDFyd3ZuRmxGTWZTYzdhRmdlNWV4bWw4T25kUnVEdXFRRGN3UU5ZajZv?=
+ =?utf-8?B?OTRoR25nY21MRjNUQUdtUC91TEp0MlZrS3NuYjk5c2x0NkRhS0hsWi9PUGNR?=
+ =?utf-8?B?OFlVT21mUm9XamE5NXdsZWNpTjhrUkYweTk0aytXSDEvTVV0NUpqZ05qQlBN?=
+ =?utf-8?B?L3laSkxJVE9vZ0tYM2tEaUgvdVg1ZWJWbnZZSGVobFJEVGI2U3ZhSkdpa2Fh?=
+ =?utf-8?B?S2EyOGxERi9BM0lxR0xpUVMxUXlsVUVvYm8wK3lEb2NNMlRrUERCS0tBN21z?=
+ =?utf-8?B?MUJTMkhucWFlZDJBdlRMM1JGWEtzMGRTenJvTThuMGNyNUlhQkFpdFdFNHdI?=
+ =?utf-8?B?cy9KQkxGVGNET3ppbGw0b0I0NUwvRjR1QzFnRzQwVlVBblhRUGVPVDlZTnB5?=
+ =?utf-8?B?ZjRwTGtQRFlNbExadVRMZlI5VDdqUm5VMzdlais2UEVqQUdnSW5reXFPYnhx?=
+ =?utf-8?B?czlUSG1JUjAxd0toR0VnZmo1UjJOZXRxbjB5bTVuMUVvcEIycktIOWhnK0hU?=
+ =?utf-8?B?bDBwa09JQU12ZHI2cU9Jbmh2a0tGcTN6RFNnMGZSTElKUGhBa29HQ3pHUXZ1?=
+ =?utf-8?B?RlZaNTdveVpESVdsa3NnQ0dHNmxtMHNQbzU0ZnJXZHo4UEFZazVlbEwvSk1Q?=
+ =?utf-8?B?VS9tb2xMSEJoMVBZY0tlYnRkb0RmQmdUdDlYQXpxVTU4ODE5Z3g4bHpmOXdL?=
+ =?utf-8?B?UE44alBjUGo3ZC9nZGxaSHJiT295OWF1a2o4RDZBbEFFemFhZzVTSWJ1bzBV?=
+ =?utf-8?B?M0pjS2xzb3JRR3NoL1ZWN0JvRUdWVGFRdmJIaWR4SWc4bFhjSHk5eXVOOUdt?=
+ =?utf-8?B?NDM0K3JCRWRMS1BnejQzWTJkQlEzS0dzS29TRDZmWTRFeGpESno5RlIxL1hT?=
+ =?utf-8?B?MTVaMmN5MWduajdEUkk3bHpXWVhKNngyS0kyd3FWWjFTbmVDbVNlcXM0a2N0?=
+ =?utf-8?B?QVd0Z09mVkRxcjZSUkgvcFo5NjZOV0xXNmdDSUdUdFVPU0tUeG10OUNNNC9a?=
+ =?utf-8?B?WFFYYUlMVFQ2V0ZDSGZWZ0tLWlh2dFQ1NzFzdEVLdldWU2c3c2Y0NnZ1c05u?=
+ =?utf-8?B?WkVDb01iSHVWNm1qQ0hqL3BMeEtwZHpMQmsyUFd4alFtR1Q5T2t6Nk5FT0tp?=
+ =?utf-8?B?YUF4Z2R4cEpCei9WRWREeUQvN3RGUmtsSFJrbW8xb2pFUnVVRmVIZVRneVFP?=
+ =?utf-8?B?VHd2Q1ZJWmtlVUtBVFVHNXpHQnpDQjFlSWM3clgzK3IreWlJQWNNS24wbGha?=
+ =?utf-8?B?SmFkUDcwMW1aallTbThMekpnclFLVWgyMG1scldUWXZsZDdiQStHZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f807ab46-d95f-4d95-51af-08df495ba470
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 12:16:46.1357
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: muBrKcnO0dl5JYBbGs2G0aDj12dR/mOltpK8TBtVXPlHYMedyAvNF4zPwyGm62g3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFF4B476A86
 
 
-------END PoC--------
 
-----BEGIN crash log----
+On 11/19/26 00:32, Gregory Williams wrote:
+> From: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
+> 
+> Add compatible string for Versal Gen 2 firmware driver.
+> 
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
+> Signed-off-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
+> ---
+>   .../bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml         | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> index 72af37cdb103..60d1bd329d0e 100644
+> --- a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> +++ b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> @@ -32,6 +32,9 @@ properties:
+>                 - xlnx,versal-net-firmware
+>             - const: xlnx,versal-firmware
+>   
+> +      - description: For implementations complying for Versal Gen 2.
+> +        const: xlnx,versal2-firmware
+> +
+>     method:
+>       description: |
+>                    The method of calling the PM-API firmware layer.
 
-[  161.975900][ T1043] BUG: unable to handle page fault for address: 0000000000656c75
-[  161.977567][ T1043] #PF: supervisor read access in kernel mode
-[  161.978836][ T1043] #PF: error_code(0x0000) - not-present page
-[  161.979824][ T1043] PGD 0 P4D 0
-[  161.980319][ T1043] Oops: Oops: 0000 [#1] SMP KASAN NOPTI
-[  161.981257][ T1043] CPU: 0 UID: 0 PID: 1043 Comm: kworker/u16:0 Not tainted 6.12.95 #4 53deed68f5e8c87eac9412ec2ca16e6c37d9fe62
-[  161.983040][ T1043] Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-[  161.985205][ T1043] RIP: 0010:strnlen+0x1b/0x40
-[  161.986083][ T1043] Code: 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 48 8d 14 37 48 89 f8 48 85 f6 75 0b eb 21 48 83 c0 01 48 39 c2 74 0d <80> 38 00 75 f2 48 29 f8 e9 c3 bd 36 00 48 89 d0 48 29 f8 e9 b8 bd
-[  161.989083][ T1043] RSP: 0018:ffffc90003127e30 EFLAGS: 00010206
-[  161.990058][ T1043] RAX: 0000000000656c75 RBX: ffff88810df296a8 RCX: ffffffff81f0516d
-[  161.991261][ T1043] RDX: 0000000000676c75 RSI: 0000000000020000 RDI: 0000000000656c75
-[  161.992481][ T1043] RBP: ffff888110090040 R08: 0000000000000001 R09: fffff9400006ea00
-[  161.993709][ T1043] R10: ffffea00003751f7 R11: 0000000000000001 R12: 0000000000656c75
-[  161.994995][ T1043] R13: ffff888117b20200 R14: ffff88810df29010 R15: dffffc0000000000
-[  161.996234][ T1043] FS:  0000000000000000(0000) GS:ffff888119a00000(0000) knlGS:0000000000000000
-[  161.997606][ T1043] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[  161.998664][ T1043] CR2: 0000000000656c75 CR3: 0000000008534002 CR4: 0000000000770ef0
-[  161.999992][ T1043] PKRU: 55555554
-[  162.000517][ T1043] Call Trace:
-[  162.001100][ T1043]  <TASK>
-[  162.001523][ T1043]  copy_string_kernel+0x27/0x440
-[  162.002422][ T1043]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  162.003347][ T1043]  ? __asan_memcpy+0x3c/0x60
-[  162.004120][ T1043]  copy_strings_kernel+0x92/0x130
-[  162.004951][ T1043]  kernel_execve+0x201/0x2e0
-[  162.005615][ T1043]  call_usermodehelper_exec_async+0x21f/0x440
-[  162.006658][ T1043]  ? trace_hardirqs_on+0x5b/0x110
-[  162.007530][ T1043]  ? __pfx_call_usermodehelper_exec_async+0x10/0x10
-[  162.008499][ T1043]  ret_from_fork+0x31/0x70
-[  162.009271][ T1043]  ? __pfx_call_usermodehelper_exec_async+0x10/0x10
-[  162.010331][ T1043]  ret_from_fork_asm+0x1a/0x30
-[  162.011099][ T1043]  </TASK>
-[  162.011639][ T1043] Modules linked in:
-[  162.012264][ T1043] CR2: 0000000000656c75
-[  162.012984][ T1043] ---[ end trace 0000000000000000 ]---
-[  162.013800][ T1043] RIP: 0010:strnlen+0x1b/0x40
-[  162.014558][ T1043] Code: 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 48 8d 14 37 48 89 f8 48 85 f6 75 0b eb 21 48 83 c0 01 48 39 c2 74 0d <80> 38 00 75 f2 48 29 f8 e9 c3 bd 36 00 48 89 d0 48 29 f8 e9 b8 bd
-[  162.017573][ T1043] RSP: 0018:ffffc90003127e30 EFLAGS: 00010206
-[  162.018548][ T1043] RAX: 0000000000656c75 RBX: ffff88810df296a8 RCX: ffffffff81f0516d
-[  162.019831][ T1043] RDX: 0000000000676c75 RSI: 0000000000020000 RDI: 0000000000656c75
-[  162.021036][ T1043] RBP: ffff888110090040 R08: 0000000000000001 R09: fffff9400006ea00
-[  162.022264][ T1043] R10: ffffea00003751f7 R11: 0000000000000001 R12: 0000000000656c75
-[  162.023449][ T1043] R13: ffff888117b20200 R14: ffff88810df29010 R15: dffffc0000000000
-[  162.024845][ T1043] FS:  0000000000000000(0000) GS:ffff888119a00000(0000) knlGS:0000000000000000
-[  162.026300][ T1043] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[  162.027378][ T1043] CR2: 0000000000656c75 CR3: 0000000008534002 CR4: 0000000000770ef0
-[  162.028229][ T1043] PKRU: 55555554
-[  162.028615][ T1043] Kernel panic - not syncing: Fatal exception
-[  162.029525][ T1043] Kernel Offset: disabled
-[  162.030001][ T1043] Rebooting in 10 seconds..
+Versal Gen 2 is going to use SCMI instead of Xilinx firmware interface that's 
+why this change is not needed. It is just about that current accel driver is 
+using it but it should never reach upstream.
 
+Patches 1-5 should be sent separately and IIRC Jay has any series about it.
 
------END crash log-----
-
-Best regards,
-Ruide Cao
-
-Ruide Cao (1):
-  kobject: reserve an envp slot for the terminator
-
- lib/kobject_uevent.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
--- 
-2.47.3
-
+Thanks,
+Michal
