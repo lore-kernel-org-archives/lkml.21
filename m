@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454954;
-	b=gngTjOILxdfLjKzWWw1cK/srj3rer0YNbUueQ3BeWwgya1Un14HhVeW/ZfIXg4dtf03F
-	 Ori/bQXkeyF2bdrPDLqLk05s+LDggSQ4T4TtMvOH6Q6CyPSuESA8UslmjU+QuC6ggtsco
-	 kbwzrz+O25T55CJP7+Sa3noPR6KHGGnDTekhh55eCN0c1iaLqkmSs25xkhk0uBptu/Ail
-	 3+GBvhu6ybtIb14vymRKSA0XJJSqFV6finru/5nTmSMNnqMUyMF86yTLGWuj5E+6yCh6S
-	 j9T/l1P2w9TcWOjUb3DzosCSBqQrOcV9ZjH0rKgHiEt8CT0rvMVRm6muqX4PhutfdNg==
+	t=1795454958;
+	b=5CejwomBaCkiHIKAO2JpByOG9UN3ATuEJ2mO95MePwYlhOcX7+3tNFQvB4Jv3utlgKns
+	 qZv6pKLeDsXJZmGQryJ866V5ryL5A8ucTBDL4a/xY3zkecRah5n3RNdDG7u/tMxWeO3RA
+	 EuYE9JE8bhRx3mH/xKPxOGeZ0co+r3+9HpEMtaMfY+IGrUvv5PFoVljsbEgxhWQOvO4VT
+	 L7A+8xQxH5r/u8x3RATttb6Lxh9LZCnz4RfwFl4745tB8ru3GE+Tl1D1hhgL2Z2i3OyB5
+	 DiareZ1qwg5Bj0AQesfAAnCOEkOJe924GT27I7+IEf+kmrNo842YyUmDvISaUr9TnVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454954;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454958;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=zTaK7A55kx+ukUmMEBIL6G70BFxqB0UyNj3T47ltUJw=;
-	b=p8fZ1An//p/7sJElJGQpsqo/IDoJ2Z648wEjluqzNb4EPDEbT3ZM+nVSFaCU0FrW7CMV
-	 mWSASHKUsoPHpMQdRO2Gk6nUu1s9C6uVSZnTVIoVvkqrsQFTIBv3/7QylSez0UsWmAHhx
-	 v+B4x0w34OyQ+E8q6Hr7Z2n1ukzOisNzhCDY/SOH022+PHoFb88SbkXEwl+UpRpE5Hb7Z
-	 S5DmETp/KvvRbC4iOSGgCmVk80CWd7Z0PR+osmUGHHk6bctFn3LRYRT9XQ6J1/4g6deWu
-	 soG//xNbKMqfs8ISmq95M31gdO/rAdcWRML3Eh35HgkmpMLkgQIXHeX4wK08Gxm/UqA==
+	bh=7LTwfbafZgGIQPY1hJ1oWnepZBxy+zN8S1xyEXfSU2w=;
+	b=YsUk/LUk/+GWLAghSg4KycjYBy8mf9ITYNJEIlT6J6+WmtOSOYJ8gjosFMvKszVO1tVO
+	 nLWc/tvBhlHmGkRxnizicVoeUf0qGHUOEHGXRbvLxikc3Hzj8n7muKjUxW9lFF9PtxrZN
+	 PsbWoV/m4xXPZIQ881wW4xkKGpjuvwk9QjbqNQJY/TBmn2Sjr9uSLvSyo18hfOO8Hsnzn
+	 fM5UiuJjCosgmZRDD1g0FKQ4kO2d+MmujFPkHMfe7ZNlwpLin0TREW7gvUO8ifC8umGYq
+	 HWlUVetpaDgJxz7/Ih2glYa7KrmDyDGs9hCrq6QJCEqRR1dP+uhKJT40az5VgwaOZBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WZEtamsy;
-	arc=none smtp.remote-ip=209.85.215.176
-Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LWSnHekp;
+	arc=none smtp.remote-ip=209.85.210.175
+Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B1A6606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:29:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B1A6606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C9BD606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:29:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C9BD606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WZEtamsy
-Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cde1479f76fso2159101a12.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:29:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LWSnHekp
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8b5a6f2f27fso1443284b3a.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:29:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795454954; x=1796059754; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795454958; x=1796059758; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zTaK7A55kx+ukUmMEBIL6G70BFxqB0UyNj3T47ltUJw=;
-        b=WZEtamsyrjUVkOKTH978cBAq1W5QGHQna/rxp8GAgzBrk8Qzf85YsR2YsHvKqjRgV5
-         86OyaF2kpR/FFe6EQkIldNjtvt1UXdM2uvModBxhaziI1ZxZxE8/eYz/Dr2LflJUt9yu
-         YimBBdnM1akKIG3nk6AUmwfrWKgs3SSAM/VA7qJnRULW0I44TFUCjM8ylN4JBxU18Xpa
-         R1G8TeCe0PWmiRqJHBujTYJk333KUjnC43Py2hlgg5Zo7AkBx33iX1rVHaerPjT0Qj3H
-         2VJC8PSHtUotRRAC35Pi9y78o72JLw81Cxzv1A5pyXVkmL+e8CBi6c17N/guIjgIM2Qi
-         USrg==
+        bh=7LTwfbafZgGIQPY1hJ1oWnepZBxy+zN8S1xyEXfSU2w=;
+        b=LWSnHekpmFN8i/+LL5R4/kj+6GCY2H2qwNIFckvSuw1Kxh9XgRWL8PMr8GpCIWki7i
+         PGL0at7FzPG3fDewTTvdD3u6NeBydZ3bvjlCZAaWMF9fK2vEp6LtSAMy5mS6K+g7u37c
+         DF9gNbJNFwt3ChPkbWMPgk707VhzL3cHngToVEOsaPgGyhK7HrxUwlpjRdE5HcbRoE7J
+         XwamrQ1pLH3WpTxFVlX9Bi5huz+RrGOWV291PO2MyysWVs9j5cWEbClHJYNc/bmJnZ+G
+         FW1+JfQIIy3MBoWYh6yrhIirQYSm0TC6nDYTqzy6Q9I/GfGdd4Qqw2AVoZLervY8ghAR
+         +L4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795454954; x=1796059754;
+        d=1e100.net; s=20260707; t=1795454958; x=1796059758;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zTaK7A55kx+ukUmMEBIL6G70BFxqB0UyNj3T47ltUJw=;
-        b=Q9YkrCKQHY9Lc2DhOUwuAXThO6XI+b2ZZ35HKi6HcPPbrMYhj66zZSS6KQ1uVtIs4r
-         tC7tAGhS5fOX8Iw8nOLZi9VLkpwjqMa12AdXT7tHnyj0PjnL7PdoU25Sg2Ak+Nx0agey
-         m4hIrJhgPJDV3IKOxJq9mmIChnNGRjRe56gGcJGXXSU9556GpRgAT5yNyPUNu50/gNCE
-         KIr2nQdnjGncCkadS8Zw9l5tw3Ygb7RDP8eZLyqzHu4GsUG8yIA8GT01Qjx+OeRwsPzf
-         vGhKB0Mb2URc423vP3vONIHh++3Q3rUAzCDrSM53iSfKasTijTw8U4v+ienIOeaYl0XH
-         agsw==
-X-Forwarded-Encrypted: i=1; AL+hErGWYu+dgMfpr87g859Niu250Gvl6XXg+hiLgROxyfu1KbFZsPexuL5Q7Q2JBhqdooR+BkeKWX7/zQMpmr4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8dzIahpS+pGhKDUQDOMhdbSsx2dmK70Tafbi/c7UGieQCZ1aJk
-	6KKLzaHXal7hV9g0QJ/x6Sb/X0ZLnpKTa1hnfnHkwVQTe73Yj310O9op
-X-Gm-Gg: AZFdTZdSjL7u9OWelowiDQVLKGREKlz/F534Af7pfMPqRbhs2ha9gXB9AEmLGDSjuuQ
-	TCcg7+xw/dNJlj+OvV3BO5t+mI5M5HcsH5BZRXSXiU//uKBhf05Z2aeYPTT2nHxDDcpLiPbSAbV
-	e/KSB5bL49oIEdLajyg8J1P1AY2wK2U3njtxtlDbRQN8teYSjC2ywELozA3nYnW/TZg8tSz+U7h
-	CTVnf3sJcXFj4jM7LN+eCZHbFUZONwsS9ss7JskPYReShJNFIPOELvcKiNoqAwDcKT/TzqEpOI4
-	Im1ZH06sMnYrQpp2AUrCOx7jL/HqMy2bHg9cOR2RB9k4UEi+FhNDFpyPgKFojJzo6BZKiQAp/91
-	kG4nku/eq24K6su3rR17A31fG+pK0ufyzUefi/GXsuet6r+bGX5GR3PBs/bgjIOLYznwGt/oGaa
-	/jdggCc5Hs/fLgcFD5IcQSJ0SN6apqTy36feqzJntBGP4Rrs6SHoXf9yPWC4JvPKeVcw2//64Tt
-	Dze18DBP8wcKbvunLp3FCXsUJ1rKN4571dSecSFFt9/eGQoUXvYHyIKzxU+lzVzvH9j0VIny2ip
-	+4CXGFfkOd6h26OfCPyVUHKm+TpHaOPA
-X-Received: by 2002:a05:6a20:5493:b0:3eb:8529:6347 with SMTP id adf61e73a8af0-40148dca769mr14083557637.7.1795454953582;
-        Mon, 23 Nov 2026 09:29:13 -0800 (PST)
+        bh=7LTwfbafZgGIQPY1hJ1oWnepZBxy+zN8S1xyEXfSU2w=;
+        b=jKJt+6Bzzo9ytbISxJISdUHOEIxniLWZ9Lr5iZ3HKhFre2NYhfEL4zjj37npt27g7z
+         TjKdFuEvtvXs47w8MqQXsSYd93kq2v4iKUtwPbhNv3gQXCKOls7qDj4Njk+rKSHHKRxI
+         9sV/rOhphqfnCv3WECJRLwoONkS40gfKF5GyquDj4VWROVtbfTNcp5EpM2HFKpdNOKV1
+         riAZ9KwSmabnUj7DjSN3Xh164JFX4TVCEvLnIqLvoF3mmtqV3LEnqd6mYgySHrN6DSdl
+         CrJTAnLxc3yfUrrZksCAqnm7SO7c3MYFw5C0rSPW1ZbP4yxyTtrnqBCM8jBUkKEGiOkf
+         EmIA==
+X-Forwarded-Encrypted: i=1; AL+hErHaYHFs2KjN9yYLljWte/ZYt1U109myn65wLuXRPJVQ2R+HxfKvvZ8jOIuMsExxH1ZW7K4pd94iiZuFJJc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/J7pkfM6BiVjd9Ze/Vf0YCLxDfKrKfzUGririY9/RBiSbET8is
+	7rFeLf3fRaSJXXceSvDvY+b1JjjNt56JaLgwstSLzMr2DurJVpS20wRM
+X-Gm-Gg: AZFdTZdgHzvx7OxArp3Xgk/VV82rgWw9rL+L4PQhnay4NtSKQNxvgJFqz4buEwr946W
+	wqT1Oz0S+1aH14uW23qd/ySKkuFCwwhPHs5bLudaOrWkGm53XFtjeil4faRgVf7VmD8zaM7yP+w
+	hgl0Xb239vqBn6xPbMaTMgSYRPFXLD2uTQqR0Req8VrU2FEEPUPvaiQX3LJDOlhvxRS13MYNiXm
+	5773BPzQ13QpNoxNBSBbxOwo+6vSgu9kcLqCz1a8nrZOBLvG569bDMcxpwShbBan13I12/D4mcR
+	0qSVEOU32DttBkqom4ESNTdkbqB4CYJAbHXjX+YZNn3/c5VDFIObymU6cMkc627BrV939fvy8K+
+	P33VoTzhggfAYbUwyCbpcejTY4nyU0anjHniMiCSeNY8FFJeb5ukGzdyX6057lrnSMwoVaQVlam
+	FkbZqjD8/lE/UHDL1d8XTOppxduJxBeywsy3s+YtxX39LLV+/2teFlO5XcXzQaBOEsZLX2k+PaC
+	qfqLdwLfFWPHLL5EL0fR6Qba8uTXZnZDlt/swI86EBH1ns/9IyS4hTE2aCTu8SJsxE70SOS8nOO
+	eB4nsSXsWzkbX5BfIEWu68PCDTsFY2OU
+X-Received: by 2002:a05:6300:614a:b0:3e9:27a0:e9bf with SMTP id adf61e73a8af0-4014cb3952bmr10918154637.23.1795454957588;
+        Mon, 23 Nov 2026 09:29:17 -0800 (PST)
 Received: from omarchy ([122.186.156.30])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfebdbasm5552489a12.13.2026.11.23.09.29.09
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfebdbasm5552489a12.13.2026.11.23.09.29.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:29:13 -0800 (PST)
+        Mon, 23 Nov 2026 09:29:17 -0800 (PST)
 From: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
 To: jic23@kernel.org,
 	marius.cristea@microchip.com
@@ -88,9 +88,9 @@ Cc: crofts@kernel.org,
 	linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Vaibhav Chahar <vaibhav.chahar26@gmail.com>
-Subject: [PATCH v2 1/2] iio: adc: mcp3564: Use guard() and scoped_guard() to manage mutex
-Date: Mon, 23 Nov 2026 22:58:35 +0530
-Message-ID: <20261123172836.130440-2-vaibhav.chahar26@gmail.com>
+Subject: [PATCH v2 2/2] iio: adc: palmas_gpadc: Use guard(mutex) to manage locks
+Date: Mon, 23 Nov 2026 22:58:36 +0530
+Message-ID: <20261123172836.130440-3-vaibhav.chahar26@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261123172836.130440-1-vaibhav.chahar26@gmail.com>
 References: <20261123070802.14487-1-vaibhav.chahar26@gmail.com>
@@ -106,219 +106,167 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Use guard(mutex) and scoped_guard() instead of manual mutex_lock() and
-mutex_unlock() calls to modernize the driver and improve mutex handling.
+Use guard(mutex) instead of manual mutex_lock() and mutex_unlock()
+calls to modernize the driver and simplify error handling paths.
+
+In palmas_gpadc_read_raw(), moved palmas_gpadc_read_done() into the exit
+paths inside the switch block so the out: label can be removed while
+preserving hardware teardown before unlocking. In
+palmas_gpadc_write_event_value(), use direct returns instead of jumping
+to out_unlock: label.
 
 Signed-off-by: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
 ---
-Changes in v2:
-- Wrap switch cases containing guard() in braces in mcp3564_write_raw().
-- Add blank lines around guard() calls.
-- Change commit message and drop compile-test notes from commit log.
+New patch in v2.
 
- drivers/iio/adc/mcp3564.c | 63 ++++++++++++++++++++++-----------------
- 1 file changed, 36 insertions(+), 27 deletions(-)
+ drivers/iio/adc/palmas_gpadc.c | 46 +++++++++++++---------------------
+ 1 file changed, 17 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/iio/adc/mcp3564.c b/drivers/iio/adc/mcp3564.c
-index 259ac4ebd..04bb4da4b 100644
---- a/drivers/iio/adc/mcp3564.c
-+++ b/drivers/iio/adc/mcp3564.c
+diff --git a/drivers/iio/adc/palmas_gpadc.c b/drivers/iio/adc/palmas_gpadc.c
+index f777986a6..fc528fc0b 100644
+--- a/drivers/iio/adc/palmas_gpadc.c
++++ b/drivers/iio/adc/palmas_gpadc.c
 @@ -17,6 +17,7 @@
-  */
- 
- #include <linux/bitfield.h>
+ #include <linux/pm.h>
+ #include <linux/mfd/palmas.h>
+ #include <linux/completion.h>
 +#include <linux/cleanup.h>
- #include <linux/iopoll.h>
- #include <linux/regulator/consumer.h>
- #include <linux/spi/spi.h>
-@@ -498,7 +499,8 @@ static int mcp3564_set_current_boost_mode(struct iio_dev *indio_dev,
- 
- 	dev_dbg(&indio_dev->dev, "%s: %d\n", __func__, mode);
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
-+
- 	ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG, MCP3564_CONFIG2_BOOST_CURRENT_MASK,
- 				   FIELD_PREP(MCP3564_CONFIG2_BOOST_CURRENT_MASK, mode));
- 
-@@ -507,7 +509,6 @@ static int mcp3564_set_current_boost_mode(struct iio_dev *indio_dev,
- 	else
- 		adc->current_boost_mode = mode;
- 
--	mutex_unlock(&adc->lock);
- 
- 	return ret;
- }
-@@ -561,7 +562,8 @@ static ssize_t mcp3564_auto_zeroing_mux_store(struct device *dev,
- 	if (ret)
- 		return ret;
+ #include <linux/of.h>
+ #include <linux/iio/events.h>
+ #include <linux/iio/iio.h>
+@@ -548,20 +549,23 @@ static int palmas_gpadc_read_raw(struct iio_dev *indio_dev,
+ 	if (adc_chan >= PALMAS_ADC_CH_MAX)
+ 		return -EINVAL;
  
 -	mutex_lock(&adc->lock);
 +	guard(mutex)(&adc->lock);
-+
- 	ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG, MCP3564_CONFIG2_AZ_MUX_MASK,
- 				   FIELD_PREP(MCP3564_CONFIG2_AZ_MUX_MASK, auto_zero));
  
-@@ -570,7 +572,6 @@ static ssize_t mcp3564_auto_zeroing_mux_store(struct device *dev,
- 	else
- 		adc->auto_zeroing_mux = auto_zero;
- 
--	mutex_unlock(&adc->lock);
- 
- 	return ret ? ret : len;
- }
-@@ -598,7 +599,8 @@ static ssize_t mcp3564_auto_zeroing_ref_store(struct device *dev,
- 	if (ret)
- 		return ret;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
-+
- 	ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG, MCP3564_CONFIG2_AZ_REF_MASK,
- 				   FIELD_PREP(MCP3564_CONFIG2_AZ_REF_MASK, auto_zero));
- 
-@@ -607,7 +609,6 @@ static ssize_t mcp3564_auto_zeroing_ref_store(struct device *dev,
- 	else
- 		adc->auto_zeroing_ref = auto_zero;
- 
--	mutex_unlock(&adc->lock);
- 
- 	return ret ? ret : len;
- }
-@@ -828,11 +829,12 @@ static int mcp3564_read_raw(struct iio_dev *indio_dev,
  	switch (mask) {
  	case IIO_CHAN_INFO_RAW:
- 		if (channel->output) {
--			mutex_lock(&adc->lock);
-+			guard(mutex)(&adc->lock);
-+
- 			*val = mcp3564_burnout_avail[adc->burnout_mode][0];
- 			*val2 = mcp3564_burnout_avail[adc->burnout_mode][1];
--			mutex_unlock(&adc->lock);
- 			return IIO_VAL_INT_PLUS_MICRO;
-+
+ 	case IIO_CHAN_INFO_PROCESSED:
+ 		ret = palmas_gpadc_read_prepare(adc, adc_chan);
+-		if (ret < 0)
+-			goto out;
++		if (ret < 0) {
++			palmas_gpadc_read_done(adc, adc_chan);
++			return ret;
++		}
+ 
+ 		ret = palmas_gpadc_start_conversion(adc, adc_chan);
+ 		if (ret < 0) {
+ 			dev_err(adc->dev,
+ 			"ADC start conversion failed\n");
+-			goto out;
++			palmas_gpadc_read_done(adc, adc_chan);
++			return ret;
  		}
  
- 		ret = mcp3564_read_single_value(indio_dev, channel, val);
-@@ -840,10 +842,10 @@ static int mcp3564_read_raw(struct iio_dev *indio_dev,
- 			return -EINVAL;
- 		return IIO_VAL_INT;
- 	case IIO_CHAN_INFO_SCALE:
--		mutex_lock(&adc->lock);
--		*val = adc->scale_tbls[adc->hwgain][0];
--		*val2 = adc->scale_tbls[adc->hwgain][1];
--		mutex_unlock(&adc->lock);
-+			scoped_guard(mutex, &adc->lock) {
-+				*val = adc->scale_tbls[adc->hwgain][0];
-+				*val2 = adc->scale_tbls[adc->hwgain][1];
-+			}
- 		return IIO_VAL_INT_PLUS_NANO;
- 	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
- 		*val = mcp3564_oversampling_avail[adc->oversampling];
-@@ -888,7 +890,7 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 	int ret = 0;
+ 		if (mask == IIO_CHAN_INFO_PROCESSED)
+@@ -571,19 +575,12 @@ static int palmas_gpadc_read_raw(struct iio_dev *indio_dev,
+ 		*val = ret;
  
- 	switch (mask) {
--	case IIO_CHAN_INFO_RAW:
-+	case IIO_CHAN_INFO_RAW: {
- 		if (!channel->output)
- 			return -EINVAL;
- 
-@@ -903,7 +905,8 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 		if (burnout == adc->burnout_mode)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
-+
- 		ret = mcp3564_update_8bits(adc, MCP3564_CONFIG0_REG,
- 					   MCP3564_CONFIG0_CS_SEL_MASK,
- 					   FIELD_PREP(MCP3564_CONFIG0_CS_SEL_MASK, burnout));
-@@ -912,32 +915,36 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 			dev_err(&indio_dev->dev, "Failed to configure burnout current\n");
- 		else
- 			adc->burnout_mode = burnout;
--		mutex_unlock(&adc->lock);
-+
- 		return ret;
--	case IIO_CHAN_INFO_CALIBBIAS:
-+		}
-+	case IIO_CHAN_INFO_CALIBBIAS: {
- 		if (val < mcp3564_calib_bias[0] || val > mcp3564_calib_bias[2])
- 			return -EINVAL;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
-+
- 		ret = mcp3564_write_24bits(adc, MCP3564_OFFSETCAL_REG, val);
- 		if (!ret)
- 			adc->calib_bias = val;
--		mutex_unlock(&adc->lock);
-+
- 		return ret;
--	case IIO_CHAN_INFO_CALIBSCALE:
-+		}
-+	case IIO_CHAN_INFO_CALIBSCALE: {
- 		if (val < mcp3564_calib_scale[0] || val > mcp3564_calib_scale[2])
- 			return -EINVAL;
- 
- 		if (adc->calib_scale == val)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
-+
- 		ret = mcp3564_write_24bits(adc, MCP3564_GAINCAL_REG, val);
- 		if (!ret)
- 			adc->calib_scale = val;
--		mutex_unlock(&adc->lock);
- 		return ret;
--	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-+		}
-+	case IIO_CHAN_INFO_OVERSAMPLING_RATIO: {
- 		if (val < 0)
- 			return -EINVAL;
- 
-@@ -947,16 +954,17 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 		if (adc->oversampling == tmp)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
-+
- 		ret = mcp3564_update_8bits(adc, MCP3564_CONFIG1_REG,
- 					   MCP3564_CONFIG1_OVERSPL_RATIO_MASK,
- 					   FIELD_PREP(MCP3564_CONFIG1_OVERSPL_RATIO_MASK,
- 						      adc->oversampling));
- 		if (!ret)
- 			adc->oversampling = tmp;
--		mutex_unlock(&adc->lock);
- 		return ret;
--	case IIO_CHAN_INFO_SCALE:
-+		}
-+	case IIO_CHAN_INFO_SCALE: {
- 		for (hwgain = 0; hwgain < MCP3564_MAX_PGA; hwgain++)
- 			if (val == adc->scale_tbls[hwgain][0] &&
- 			    val2 == adc->scale_tbls[hwgain][1])
-@@ -968,15 +976,16 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 		if (hwgain == adc->hwgain)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
-+
- 		ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG,
- 					   MCP3564_CONFIG2_HARDWARE_GAIN_MASK,
- 					   FIELD_PREP(MCP3564_CONFIG2_HARDWARE_GAIN_MASK, hwgain));
- 		if (!ret)
- 			adc->hwgain = hwgain;
- 
--		mutex_unlock(&adc->lock);
- 		return ret;
-+		}
- 	default:
- 		return -EINVAL;
+ 		ret = IIO_VAL_INT;
+-		goto out;
++		palmas_gpadc_read_done(adc, adc_chan);
++		return ret;
  	}
+ 
+-	mutex_unlock(&adc->lock);
+-	return ret;
+-
+-out:
+-	palmas_gpadc_read_done(adc, adc_chan);
+-	mutex_unlock(&adc->lock);
+-
+ 	return ret;
+ }
+-
+ static int palmas_gpadc_read_event_config(struct iio_dev *indio_dev,
+ 					  const struct iio_chan_spec *chan,
+ 					  enum iio_event_type type,
+@@ -596,13 +593,11 @@ static int palmas_gpadc_read_event_config(struct iio_dev *indio_dev,
+ 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
+ 		return -EINVAL;
+ 
+-	mutex_lock(&adc->lock);
++	guard(mutex)(&adc->lock);
+ 
+ 	if (palmas_gpadc_get_event(adc, adc_chan, dir))
+ 		ret = 1;
+ 
+-	mutex_unlock(&adc->lock);
+-
+ 	return ret;
+ }
+ 
+@@ -685,15 +680,13 @@ static int palmas_gpadc_write_event_config(struct iio_dev *indio_dev,
+ 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
+ 		return -EINVAL;
+ 
+-	mutex_lock(&adc->lock);
++	guard(mutex)(&adc->lock);
+ 
+ 	if (state)
+ 		ret = palmas_gpadc_enable_event_config(adc, chan, dir);
+ 	else
+ 		ret = palmas_gpadc_disable_event_config(adc, chan, dir);
+ 
+-	mutex_unlock(&adc->lock);
+-
+ 	return ret;
+ }
+ 
+@@ -711,7 +704,7 @@ static int palmas_gpadc_read_event_value(struct iio_dev *indio_dev,
+ 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
+ 		return -EINVAL;
+ 
+-	mutex_lock(&adc->lock);
++	guard(mutex)(&adc->lock);
+ 
+ 	switch (info) {
+ 	case IIO_EV_INFO_VALUE:
+@@ -725,8 +718,6 @@ static int palmas_gpadc_read_event_value(struct iio_dev *indio_dev,
+ 		break;
+ 	}
+ 
+-	mutex_unlock(&adc->lock);
+-
+ 	return ret;
+ }
+ 
+@@ -745,12 +736,13 @@ static int palmas_gpadc_write_event_value(struct iio_dev *indio_dev,
+ 	if (adc_chan >= PALMAS_ADC_CH_MAX || type != IIO_EV_TYPE_THRESH)
+ 		return -EINVAL;
+ 
+-	mutex_lock(&adc->lock);
++	guard(mutex)(&adc->lock);
++
+ 	switch (info) {
+ 	case IIO_EV_INFO_VALUE:
+ 		if (val < 0 || val > 0xFFF) {
+ 			ret = -EINVAL;
+-			goto out_unlock;
++			return ret;
+ 		}
+ 		if (dir == IIO_EV_DIR_RISING) {
+ 			old = adc->thresholds[adc_chan].high;
+@@ -763,15 +755,11 @@ static int palmas_gpadc_write_event_value(struct iio_dev *indio_dev,
+ 		break;
+ 	default:
+ 		ret = -EINVAL;
+-		goto out_unlock;
++		return ret;
+ 	}
+ 
+ 	if (val != old && palmas_gpadc_get_event(adc, adc_chan, dir))
+ 		ret = palmas_gpadc_reconfigure_event_channels(adc);
+-
+-out_unlock:
+-	mutex_unlock(&adc->lock);
+-
+ 	return ret;
+ }
+ 
 -- 
 2.56.0
 
