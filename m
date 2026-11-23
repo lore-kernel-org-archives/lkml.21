@@ -1,80 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450652;
-	b=uUM+CoyQWWOn1LHfWrJjV7WcI5D2szmaaVKSrt+YlFO6pedHBh+/4QyVopGPQHzGOiae
-	 s73HmR/jbM/bC3AMf22fbwKcUhMtnjooddb/hrV88hPMcmXP29YZTQERg1hea+mYILaji
-	 /Yh1uHcVme3UzFXL9TLNiaVX6RBNOQs477GRHwZNY4G1auwxI6XirHxbZztxYUys+A2Sl
-	 nNDTOm7KEsbeqiiN6CIQOvi6ssc7sxHSCRiR0dw8ESf3qM5xE6eGK/JvRJgpn4X/B/kFs
-	 8QG+6sqahwQqXQMbI5OxBsElaJybcDVAzc++cosjTxyrrbrPv/ZEXCRO7fffykb4mdg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450652;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=BctZxZhIdIRTeiVtsV2WTzSCZ0j/fyCHZmPwKEC+K5M=;
-	b=cpEl7V41D7uea0hW1ulny6yrfJPf/9Jzzgpil3ht4zRdf407Ejxhyex2Vkz3qCd8T0EY
-	 0U9Y+GXivdIXcqhKbIjsDKfJnxheeUow93SBPwSr+Ec4tRY3+SJ4+3AOS0nlLCO1KnzGj
-	 AZnLbfsEc4hZNO9UfOjGcPEh3SfjuYvQ7+OaT1pgBJGcBzlrQNjHFA+MhQhxXR0ybJD1A
-	 DAWj3FkcOI1aGU060s4y4VoqjGE+s5Eu8WgqTSNG3OFcaK+GNCD6dRMivgO90SpNbgQTi
-	 WWRULEd1jM9txBTiVB1lXDrebotODF7DBEoAZ7ERJH6nXiN4TmHW/XPFyAbqHGotwnQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kxMz9x8D;
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.39
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795450698;
+	b=yBv/t6NaZSeqZdZ6V/oipczmyX9kPC1esH6z4gdWVGWDizgmPIsfMbr+91z8WV2lhwkO
+	 /SZIv5uDqLyb2EavKh6Tfgz3dL7POl5vwcvihYDhbN+nL6gl4Ga7u1VTeEKmKH1fmgLxu
+	 G/hiX9JWeWx5at490/cIQp9fRegPv4vvP2JijLX2Elgv1sl77jGz0ntlD1RxEpp2cGFbF
+	 Kx6qb2l4hhXAWe+lmqqB1b4neIMeg7d5LEIWZgcteohLn/HYkpHqzpe61O+D4KPC/CR2h
+	 yv1fUfxGoRNPvOS1wsgEnWl9PWb0BR0GgL4ULKRdyFb8i9DDGAgzcYyhDmrWKVwV71A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450698;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Uwe7ZF3/4/s0VbkSVjCgNCJubx8E+uCwRJvfm324haU=;
+	b=Mr0Q+I/Amz39/Y5+q+NBp2ZemKe7po3xPo9XWML135/W/h+Lo0pRa1NagdE7vtl8fK2C
+	 6DG/C9T8sNJXoEm+NxHCO4qfiG5wK8MKoyo/m5+dOlVFPewtKfnxPQ2XvtO7UC5QtSRgK
+	 2BqA7dGCKAwfqxLd1dGrCH1m8NEdV+13JocyX9IXbTLiJAgeq4uurfrYH46nf2WXCGpv4
+	 xoqCh22vj+YDDKYspMFRkD4qcQu8bcuNVtU+7Rs6fkowl49xDBKhCKx3w02lW0ET2ynfj
+	 QL1LgMkldsm1O2YSR/yFV9fSSDmAobWG5Qo10gsUyq7Z+CtWGVxEEWbhX2w5c1f4xbA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=cIuLXkLH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.39
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010039.outbound.protection.outlook.com [52.101.84.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA871606A31A;
-	Mon, 23 Nov 2026 16:17:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA871606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 861E0606A31E;
+	Mon, 23 Nov 2026 16:18:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 861E0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kxMz9x8D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795450651; x=1826986651;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GOsvAtow4CHEx/fp/L9dAzHYy4b9WgH2aM55XWA3h1A=;
-  b=kxMz9x8DS+4Skr8AGloG2oMrfbhR7wQF0qV4LpbHA2uQuKdzfnHfrBHP
-   ljuPZW9N4ZqfDtJD9dWP1XYyzZitdmVwySnavI678mEDPzF54rHw24obx
-   hHCuOQDJ4Rw4fuQsKCBqzkMLESw8XeyNfQtTMgaPwGyH2+jwwcq2SXfHc
-   x11LQtaV2232jBoVoVklhzsuEqEF4OqW0B2TDbShBUcFhfhaZPRtrr+JE
-   TivPOKC3v2fyYk96mNeC2zr6wR//CAWYmO5YmcFcSKhoV6ARQ48JE4aE6
-   kyiNAnU+PNroHv3wTq5hkMsubxobkBikWHVL+ROCIDsg8MDeodOW55cfx
-   Q==;
-X-CSE-ConnectionGUID: gun2EC/vRgiZTNhDmxWYNQ==
-X-CSE-MsgGUID: 7BvLn0PhRlOqFN4vBwU7iw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4240243"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4240243"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 08:16:24 -0800
-X-CSE-ConnectionGUID: ZOXQYvZCTa+z5mYAHslYCQ==
-X-CSE-MsgGUID: +r6vlMnWSUueIc4LN0kq5w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="13125051"
-Received: from tassilo.jf.intel.com (HELO tassilo) ([10.54.38.190])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 08:16:23 -0800
-Date: Mon, 23 Nov 2026 08:16:18 -0800
-From: Andi Kleen <ak@linux.intel.com>
-To: me@ahmedabdelfattah.dev
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shuai Xue <xueshuai@linux.alibaba.com>, Len Brown <lenb@kernel.org>,
-	Ying Huang <huang.ying.caritas@gmail.com>,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ACPI: APEI: GHES: Poll error sources at their poll
- interval
-Message-ID: <awRm0j8bBPrgMhw2@tassilo>
-References: <20261119-acpi-ghes-poll-interval-v1-1-6f45cc65fd62@ahmedabdelfattah.dev>
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=cIuLXkLH
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=stIyFBbTVpAHQmM1mA19H05dAjbVM/48Lxcy6bCM/5tGqfSWQTd1wZRBm/veHWMkdCuWem3ZLjXjsFAA/wub9i4u2OHpEeYsvnQ5V4tRC8od1pPtBeqRANiQ2L+zH6oOqKLZI+rKPiWN4+/AH9/eSuLYA7yXbmCl1ak1FmAWl0Y1rr02gXMt3se/9p1gSZxaJ2AEs7TsrdCatvwUSmSSKwaQefBXdFOE1ijXvMdjFbKzWvR/c3wf0ESeGk7OKGPbBFcuI/Nl2gSx0KGDmKd+AtEBFwvKuDp8XaRJTLty3ciuNCkGqSauaK7CSAb7E3PMACAd4nXeDZRqzzyrD6vSVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Uwe7ZF3/4/s0VbkSVjCgNCJubx8E+uCwRJvfm324haU=;
+ b=faN6L2j5BU52gvS5CIWBDRvQfYAnGt0XLCTgbrq5TTkEQTjildP3zAjuxTRW2U4BHopBYjjVJiJcHmlgsKJbmNUGzwzWI7jV2dAz09XzX4T8jKGRtBq4Mw1WgPk7z4C7nE0166HfHoBG1mDmZsqsFsTrTQdbk3HNs2q+h17RPf6Lfu2qHOovUPj9XWJyHkoj1JYTOi0POxOH84pQm5Pz/HRUbFd+NpAKEgaWyz3s6Gl3Kw/yRiGiw3nn+vIP9fxfE01h54VvbmAWjFD8hhPNYkEhLZOz9pmAeWoUSgGVOKnjTRzGNGaw37Me4craoHeruYhcmx9qKio6Su/RrDeIBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Uwe7ZF3/4/s0VbkSVjCgNCJubx8E+uCwRJvfm324haU=;
+ b=cIuLXkLHSUkRhe8iT6MQLmF32ZZkRzqLAcU7JCyyslisCF4JHpPJr29kUml+a2Zf7V1ly89bih6Ln7fPxbj+C5igR9z1NRotnO4Cj7TKKT3QSOgedhDfJaGKMHJmFGYUEKnz3vX77XzrDgj6qPzipadrILfjSlihL9XaupPw2sVTcReH4hbqPMSMSjZL98nrouDjxHRyXJR18/zRo/5qQUzqrCNvAHSKOMllKiR9L3xyF72lzbqkAedSR4ocXjrKaUq/wT8wEOwVyScSnj6umAJh9lhG2HEjVH1Jk0FTH37mKc5eXWcLgbWbKAaL9B6k5N63T8GxifiLeUeoDuTZjQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PAXPR04MB8686.eurprd04.prod.outlook.com (2603:10a6:102:21d::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 16:18:13 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 16:18:13 +0000
+Date: Mon, 23 Nov 2026 10:18:04 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Freimut Diener <f.diener@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Marco Felsch <m.felsch@pengutronix.de>
+Subject: Re: [PATCH v2 1/5] arm64: dts: freescale: imx93-11x11-frdm-common:
+ Enable I2C level shifter
+Message-ID: <awRnPBbqQL-Lt-v2@SMW015318>
+References: <20261123-imx93-frdm-fixes-v2-0-dd97c7fca4b1@pengutronix.de>
+ <20261123-imx93-frdm-fixes-v2-1-dd97c7fca4b1@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123-imx93-frdm-fixes-v2-1-dd97c7fca4b1@pengutronix.de>
+X-ClientProxiedBy: PH7PR02CA0021.namprd02.prod.outlook.com
+ (2603:10b6:510:33d::26) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,26 +103,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-acpi-ghes-poll-interval-v1-1-6f45cc65fd62@ahmedabdelfattah.dev>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8686:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa646acc-3f19-4586-6315-08df497d5f7f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|23010399003|1800799024|376014|7416014|366016|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261102123227099003|11063799006|4143699003|56012099006|10067099003|22082099003|18002099003|261009223027099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	rUynIEYz9lS4+RZbkVZDrBBYdR0ghgcDhOzIAzcFPMfaPA3KQAGNsJ2mz3VdgJmQWFcGS5DOO5lRuWZNVlVrng6klJVg6e+0QdbBmMhVmAaUU37Uqd79+4HT+ep6TDH0B03RDVDv86aZ9UCniJhCNzGCT+J76i4YfCrh9hT/gFfzFSxsf8O1cVqu8pkdrE9l2PYtuYxcW2ONk+Qmx1ZloXs9lkDZwwWsqYW/5Bwoi9ybMf6oDemIrfZZ4onI5KZLmF+Lm0XZddO+khCwsCcqcod8peRnv4WD1v2JPbVS/8JGxxoILpxqlBZpjxRBXZh4Fn5/WCGj2L7QqQl6gwqMRVab4criqrYWZvnYOYEhXTgyq9OQhqDmJQio19V37ln9yv0mDOcCGwiK0/2LVIh/t+e2IAYMfyMPh6xiwuQZmrfP7LxnEVWX8Le8BDUCABGlq3PYStc8mQEtdrdIqMO/jJPHICi1CwjN2v8yQjO7dblvIRYX3EI6iWdW/1ieP/riG1C0JuRqO6zS2NPMsDkzY31+6nzyk50qDnpnuaym69lLfPPmubYweSDV0o4Y1e7LIddPUpdvan+reFC+vuL75/dkIAW0VhzewmE0Ho9/xWo0zFvm/9XsoClA7RnbhQaOXanpmUF8DCDXNiS3bJEW7qbbpYqqR3P/n5oBJ845Wjo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(376014)(7416014)(366016)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261102123227099003)(11063799006)(4143699003)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?QZh65rqYLRm2O0v8VqL5xTlW67oiWWso0rMifQl+fm5D+nK19KUPlJBqsFgw?=
+ =?us-ascii?Q?EzsLvU3AaT9VdEvo2RsFF3ub0aN5wLncl9kCmOTBCdYkJh/TwyHFFm2RwJlx?=
+ =?us-ascii?Q?BEzIQI5CTc0Au6jIH+JaN0mdbwIF3HuFSaSw+9pOEHlgEoYn/FqMueRWIdSP?=
+ =?us-ascii?Q?LTv7xl3WpCPedw+aB3uawv+FrLQ+lCTg3e3jiBmFPUtjnRbCQ8YUAakrhhS1?=
+ =?us-ascii?Q?XwWd4xo41ur/iDDm1ulutESYmV90/XWSX5M7ZBdSCiyWyBQhL21JHRyhLKUx?=
+ =?us-ascii?Q?ZmAsxT1SmuQvPkJpsX7FMDLR7KFn4P8MmYOSi3KGYJWM0vjFToFHfmRakUVa?=
+ =?us-ascii?Q?7eQNQoyYCxlLjiCP4U4D1Lbuzz/+SNxFOs6U9BacxjAm73xJbQfw124l1Eef?=
+ =?us-ascii?Q?5VBeIS8AnK5IQcZOZG9V63hgliuSDpeDfVw1qKTDzz/dSATFHMlfpfbIBO9R?=
+ =?us-ascii?Q?9kOyeI5Shp6XLCn3pMK+b4+DLvpkUrBEiG/CpmkY4BWG+k6zJqf6Zuj+Y4sX?=
+ =?us-ascii?Q?3aCiIFSqpMhw3u1UpaWHFiJbRD6H7/Enwmh7X3CwZiIChAzocKpODoBPX87Q?=
+ =?us-ascii?Q?PLfu1WAQPA3ugva/jpZ97MeSB5PSPQg5kpJKTE7FFadKHQH8sqdy8ej5ijwn?=
+ =?us-ascii?Q?Jje2vvyYU6LHVrgoOBmsLmWsbFUMxpYQor8A8Qdi6nCzuOtD0os7pcNKcCux?=
+ =?us-ascii?Q?BTTyqk+IMl5hmNv2qkZfzqVwE03dJsN5yDm98Wk/LZLw9SUQ+G63Bfm0WhnS?=
+ =?us-ascii?Q?7qyK2Mxqk5fH7VFESfwI9IwlyWwY3wver6x+6m1b/Lumk4jtSowr8grju85X?=
+ =?us-ascii?Q?TLeoB7kdsnWWlUm1h4gedTz+KTnoDf0xRpdDxagZKO3UdwkyDnQv/IjJU/Ds?=
+ =?us-ascii?Q?IV35re/yB7azvd43uQPL2eM8CgPbQXr8UFsJxfGuvSN6NldSi3NimWxFXz6w?=
+ =?us-ascii?Q?XlS4H7IEqbR39yF+OjCZlU2hj76/RQPdVhWHbUEj132jqM9dW6FH3H1Pm3Q+?=
+ =?us-ascii?Q?2Wo44fVBVNx3zG26YPrCic8JG5oKqtb1MtoA4NFVUaruHE/jPq6cc68wzDVt?=
+ =?us-ascii?Q?8aJOQBGUAQr/9E9yT++qWYRdYFdkGWhnWiCG1hDYcv+VzAZQWPZtADXd59VE?=
+ =?us-ascii?Q?7yPm+LSyLSnuKDIrd3CDgnoggoOfHrynlqmfT1e5VENQ+42gLelBB/fMvR+5?=
+ =?us-ascii?Q?eMFB4vDW95UVPJUXp4f4u+V1az2Qo1Mbfoq6XDCAtjVhfKruGog1naMXcozH?=
+ =?us-ascii?Q?ilajLhEJrBnqVHb8GsQrb/XMZhxW86rvv+wnhxQvJIlshFtE7rm89BIsOiO/?=
+ =?us-ascii?Q?28/5NeoUYcPQ1kQODGJcwmAsmCBDCLQt+RG/91yuk2OHfZoMHs7QW1Dv/AV+?=
+ =?us-ascii?Q?8+jaiYEbnLeeZHKcC/S9JZRqWebOkQpgCUg7Af4fZe5vx1tMS9u+EJHo3sIQ?=
+ =?us-ascii?Q?vAYKL8gC4HIhajeQtLuoa74gKnCpb6JCbQtDOWG9YA0jRsanOOWDm5hoq6p4?=
+ =?us-ascii?Q?J4rrKN4Syri6Cz/+gqsbxTpjpEEARh7W8wzTytJMpS4bFv2sERTOevslEU0t?=
+ =?us-ascii?Q?CiqiPSRvNbFD/v6vpV96WyH87TCpfcpqif/PMOTgK8s0hy2rqo8zoyjNhJAd?=
+ =?us-ascii?Q?mERX6LTpaJLa/hLqbhg6eMXeEFgn60lq/hgO9gwXlbPIYRG59oQ1jgX0WUnr?=
+ =?us-ascii?Q?J9oW9wWdyAQysaMlHvdftERTzdHFQ1+JJUuXGkAqrYFQhSeBHvY2Ynz4JUuB?=
+ =?us-ascii?Q?sAMFSKOyg6+crSbn3RgH+60CaAShbVeOFbitXXevPZ75G9wczw/P?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa646acc-3f19-4586-6315-08df497d5f7f
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 16:18:13.2656
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lKozzN1Fk9nf2DgDR7S2kAyfiDOdOtwuWzGJQ1ARA/Pnwt8VMcMBpDRhrFwj6Eh1p+hnZuTFN9knMVghXwWuTSOjMBcIwkJc03Ny86ovtKuVZrdg1bVwuQtekMPwfnEV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8686
 
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 5d888c82efea..92d54c6b209a 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-> @@ -1276,7 +1276,7 @@ static void ghes_add_timer(struct ghes *ghes)
->  		return;
->  	}
->  	expire = jiffies + msecs_to_jiffies(g->notify.poll_interval);
-> -	ghes->timer.expires = round_jiffies_relative(expire);
-> +	ghes->timer.expires = expire;
->  	add_timer(&ghes->timer);
+On Mon, Nov 23, 2026 at 12:25:15PM +0100, Freimut Diener wrote:
+> Without the PMIC's I2C level translator enabled, probing the GPIO
+> expander fails with input/output error:
+>
+>        pca953x 0-0020: failed writing register: -5
+>        pca953x 0-0020: probe with driver pca953x failed with error -5
+>
+> So enable it.
+>
+> The GPIO expander is connected to the level shifted I2C output of the PMIC.
+>
+> Suggested-by: Marco Felsch <m.felsch@pengutronix.de>
+> Signed-off-by: Freimut Diener <f.diener@pengutronix.de>
+> ---
 
-Makes sense. I guess at these long intervals rounding isn't very
-useful anyways because the power impact is already low. It's more
-for stuff that runs every few seconds.
+Need fix tags.
 
-Reviewed-by: Andi Kleen <ak@linux.intel.com>
+Frank
 
--Andi
+>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi
+> index 33ed26aafde88..b3dfe516b1d55 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi
+> @@ -216,6 +216,7 @@ pmic@25 {
+>  		reg = <0x25>;
+>  		interrupt-parent = <&pcal6524>;
+>  		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
+> +		nxp,i2c-lt-enable;
+>
+>  		regulators {
+>
+>
+> --
+> 2.56.0
+>
+>
