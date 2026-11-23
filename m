@@ -1,85 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394352;
-	b=fnehTOzWB0Yo1pysjtYkCkrHETPxq3Rms7OK+lniRy4zamfD/TPse6LQbGoom9oRPwp6
-	 Fnq18k/vhD19XS592DwR6Z/Q1+0pSXnn7mp4JF+26FITYx0//kSvFR17bnOCZ1CX5cab4
-	 gGzjl8s01MRl3RwvIqCdF3+TpY8QCJHKLMrjjnY0N2xp0IrvOVoQptLqdZkeTsZNMV/qp
-	 XqzCTpxE5J6jOBLLBaTeL99o2C8uvsRmCXwMDM81z7+opvB7hWSorh1agYIwFp8MmuKZX
-	 FGXlJdVDV8WxvtceH3+WuvVKh4C0kpjfWVdTnbaxDzRzrcV70H5ARvNtkIjLrl2L1jQ==
+	t=1795394390;
+	b=wkR17IfvotiDZVaJ1nwcvGSQcpOKIC86iqa+iXWa9cxlfkMg6FVEJtk5kbj+1wQbSdZY
+	 5dCXJvLZ2eEgRAJS93yiGGMALdsBkNoeZGdROG/WZOqFTQQ07rsHfu6HBPTJzjEArN7+Y
+	 Z+JiIbvg6Hyx9rBBAL+5+OT6g2n5Nqc6Dh9CN8G9HJ30HL8nFtk6Gh/VznjQOWTGd+eWU
+	 7gFcpNdM+MxjbqTJ1q6GvRYseQG8wLEhEztaIFqMbt5+beEfQ0yFgSVrmXFwku4NYhkWb
+	 /o/CZihtXzFNfw+hXeBJ5jeSD0lR3SAGh5wG+rMNmwikSpw6yoHe8CrmFt/kC8OpZVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394352;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=MPHGMKGLL0OSZ80y6M4OLHQpLzHyeIj4vIBfwx7QpDE=;
-	b=p8iw5lfl7hCgM8nwcRoDrb9OVXj7z8o5nsv/UzzA9V8qSZFCU/sP8yGYiyk9Edsxtdw1
-	 0Of4gmSoaDvGp32HqF/eSzdwkeEjan0w5Qkkuefqw7yCJLbkKnWxT5nR1E2pvvgVZCMjF
-	 3E8Yh/zxdYvC4XONXlv9ZEEz/OYTTYkXltybIF3uXDTXyqVWyx4zekcgSI4bGM/C7De4f
-	 EiTHxSW22H02V75msU5+2B7g5cwCdfyqOW9kd2lTsSldMvBNt5rtqWUJQqvbWM3kw61qx
-	 z3ZSgBMTYAfN1TzLrhVH2FOW0kq6BO5k3sk72T/CZGnj3QXjvkJ4mxCDtnvSEebRfCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394390;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=PoQAgAi4SsG/ALVfUnoUkJyn+DyGMuCfLxAQhCZvy1U=;
+	b=GJHzsyXOo0H6H1aQ6RlR8veU31WCbBKk2I78A6BqBKpux2U9yQL9nd/jE9uIErv2FguM
+	 DT7ceDugUbQa1BziJVbn5L5TKFC77D96RBGZWvjNSWmWCYuH+uFXVWeOH9nzFgIo1ePPh
+	 eFHQV3f4oE6rs7MX73N68mlU2GRyXnO1/B1IVXDc1qL3A4ryPdQiyU/ZHAxm2hxW+cdB8
+	 Ts5rta9JEO0PRpVZ1A3ntOnzx5uamovgDlyTxG3bjKgEINmMUCRTV9qDqNO7Pvb9ATSEE
+	 7CnVPSbSZzWkf34z2dB18t8WqjuLlJzzF9AJCxIJWfIJWLv2lxBh9iq39+qAryMH3KA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=QH5c9UDx;
-	arc=none smtp.remote-ip=203.205.221.233
-Received: from out203-205-221-233.mail.qq.com (out203-205-221-233.mail.qq.com [203.205.221.233])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=fail reason="signature verification failed" header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQyg0+hy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D282F606A31D;
-	Mon, 23 Nov 2026 00:39:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D282F606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A44EE606A31A;
+	Mon, 23 Nov 2026 00:39:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=QH5c9UDx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795394322; bh=MPHGMKGLL0OSZ80y6M4OLHQpLzHyeIj4vIBfwx7QpDE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QH5c9UDxLuIGDbj7QKUigYVqiRMBvIikUOl0D6Z3KtTUDLj6oc1XDm6wYx/yWyIPz
-	 NtBdRIV3CECrtN3COd//5WKAKTPlqBi7K2n1wHlgf3Vn3y7WY5e1mY1zI0aawMFiCy
-	 iIJESl021ybK8oxKikRxVbmAo76//uvuGkhIr4y4=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
-	id 9A63524B; Mon, 23 Nov 2026 08:38:38 +0800
-X-QQ-mid: xmsmtpt1795394320tadcorimq
-Message-ID: <tencent_452BA245FE6A7C7308A5121F5281E9E6A807@qq.com>
-X-QQ-XMAILINFO: ODQfruXGvXmaHGSflDLohQ+6OBZ5C7KLyZZc0k68wD8z/EV4BhvQ4ZJ1Q3zrFa
-	 AV8ezUNgi2XjsU73Iwekk1iuRIHUyUeRrFVUrpv14Y9BrZj6m95fZPMd4JHCIAh8nxSitiVgFqEO
-	 sbc7w3XMxcB4O0P774wE1IxSgexo6y6wWIkomPnX/xSrCJR+1nbdVfX4lGCkIBr0RkF1zOgU4/Nb
-	 GTLbtz2g+ih+i9Q02wioMzE0d3KkOE+fhT1yJHl0KN86K7fmI4l4AAm4g6eQjtKWnhDTws5Q1wl+
-	 qmmLjgxQu0pZYLeTHtXYlKICt7qIbIAq+LsGBNFq8HCmB2BzpzQBxMCqlX08vZQOkZOIJUk0oPCR
-	 w15sBzrehReaLjQMP070Sd31IWf3FAtWS0BnJzvNVb6R/6Jml2GC1J97wUKXcokLPDmfMDMojcFx
-	 RUreQWCi0/7iK6yEupiqKymKC8Eh02FFUqDtjK1wvm7iCrIKGh61qlb7JZWQVdZ9yA6vzD+M3Atl
-	 8JxDHYvJtS8mzf4X5kIqJ3JB/xEla1WiOY1+qPnA6XdmKB+0qiUtmh1iB+nMxF+nFwLNF86/2GVg
-	 QKwyzOYfcc+8gg0FNm8TkcR/uoMQ88YB5yhM2YlX+h4JjAQZyoSX1iZI5iCAYGbTSKayP1XI3mhe
-	 4amZYcYsTyKtUJaJ0xQs9Q8Ext0s9c3pnwuzb7yiEJ6K3ZHaQYqVGb7UDYZwS3FYA8TXKd2pWejQ
-	 f7WObn0MWcCkvp9VOliJ2eKp/mtPBM4hMa6yKSepBrA8yx2bZEMfBrg4kWgGiAUM5GanfasCOvmR
-	 EP3nGkh6580kQqfw9d2xz5wXWILUiBq6PVcDWQNNsHpM8zvOSAME+AVmc4hsAfV5nAxG2SfExSFW
-	 5fi9bPbuWHbY5yEY2OkWqFTmQzLJn57Z4eUBphdfcFvbPjAX/Wy80sfAEzBpeK3UGZ8/15JB1mPp
-	 LPaN3o4i5YzZjnCHpUkGFOKfpa8oQkdu5sDoLJrmfnMDe06Fg1I17zQKNez9TZhrur+9fuJVaUWv
-	 A3RxeNS/igwuijzN4dc3F0WsTXW4uctB1ecYUo3PjWEkF7XdA3yDQhrE11ebDtfT7GXZ1NjHi7Vz
-	 tNHxwMCKuy7Q6PF/69XmUH3cs/6aRdDjirw1AFtcJ1CkATpRxr+xHeEXaNLyYl5efUPSKwc/QF5n
-	 5ehfCsKHpBGud4x5FJRjfKBC5ikpiKlOsGvBWBupe1Fs7R4Q==
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-From: Xiangyu Zhu <1194781887@qq.com>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Xiangyu Zhu <1194781887@qq.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-clk@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 1/3] dt-bindings: soc: rockchip: Add RK3506 GRF compatibles
-Date: Mon, 23 Nov 2026 08:38:34 +0800
-X-OQ-MSGID: <3264c450b28efcb6ced51719182315728c15bae8.1795394137.git.1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795394137.git.1194781887@qq.com>
-References: <cover.1795394137.git.1194781887@qq.com>
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQyg0+hy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879B01F000CA;
+	Mon, 23 Nov 2026 00:39:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795394389;
+	bh=PoQAgAi4SsG/ALVfUnoUkJyn+DyGMuCfLxAQhCZvy1U=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=jQyg0+hyIOUk5ZUyV35FWjse5XowVORSf874N4s6kc8mr2FsoTNaawGmqqpQCkjS9
+	 ZwDRYmI0saY6rlsrczcP/rB3PIa+akAwyvKzcK6reziBxFWamgV8edcWzxXSOCdAcY
+	 Np1I9BaTgKWLXBX6ABscXy97xhTu9tsuTO9Me0ecZeUgnJdsAjxTXyn1dCCxzZTSii
+	 zA1vphX2daI3J96L1I3YIK+1wqe0d7mHE6Al2pPzx2EiI/qR6tbwLTDXTVj+nkoYfM
+	 C7UMQ/NlJxXLnP6PHPmAga4Em6YJjVb2Q7UYely1UtvU/ZjJlCrzjLca4VHj4ei9ZR
+	 ZTn3txTyJls3Q==
+Content-Type: multipart/mixed; boundary="===============8029890971532200664=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,49 +49,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-Id: <1a25d1706794155410612608bd28a535e5f6796b96cd294439b19f55ac467c82@mail.kernel.org>
+In-Reply-To: <20261122235757.3456048-9-irogers@google.com>
+References: <20261122235757.3456048-9-irogers@google.com>
+Subject: Re: [RFC PATCH v1 08/11] riscv: unwind_user: Support Minimal DWARF CFI and FP user unwinding
+From: bot+bpf-ci@kernel.org
+To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mas
+ on@kernel.org,ihor.solodrai@linux.dev
+Date: Mon, 23 Nov 2026 00:39:45 +0000 (UTC)
 
-Document the RK3506 system, IOC and PMU GRF compatibles.
+--===============8029890971532200664==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-The PMU GRF is named rockchip,rk3506-pmu-grf to follow the
-rockchip,<soc>-pmu-grf convention used by other Rockchip SoCs instead of
-the vendor's rockchip,rk3506-grf-pmu ordering.  It also has a
-syscon-reboot-mode child, so allow the reboot-mode node for it.
+> riscv: unwind_user: Support Minimal DWARF CFI and FP user unwinding
 
-Signed-off-by: Xiangyu Zhu <1194781887@qq.com>
+TL;DR:
+- Nits only: a comment names a nonexistent __compat_vdso_rt_sigreturn symbol
+- The !CONFIG_MMU branch in the sigreturn unwinder looks like dead code, since
+  Kconfig requires MMU
+
+> diff --git a/arch/riscv/kernel/compat_signal.c b/arch/riscv/kernel/compat_signal.c
+> --- a/arch/riscv/kernel/compat_signal.c
+> +++ b/arch/riscv/kernel/compat_signal.c
+
+[ ... ]
+
+> +#ifdef CONFIG_UNWIND_USER
+> +/**
+> + * compat_unwind_user_sigreturn() - Unwind an RV32 compat vDSO rt_sigreturn frame
+> + * @state: Current user unwind state.
+> + *
+> + * Return: true if @state was at __compat_vdso_rt_sigreturn and advanced to the
+> + * interrupted 32-bit user context, false otherwise.
+> + */
+
+This isn't a bug, but __compat_vdso_rt_sigreturn does not appear to exist
+anywhere in the tree.
+
+arch/riscv/kernel/compat_vdso/rt_sigreturn.S just includes
+../vdso/rt_sigreturn.S, so the compat vDSO symbol is also
+__vdso_rt_sigreturn, which COMPAT_VDSO_SYMBOL(mm->context.vdso,
+rt_sigreturn) resolves through compat__vdso_rt_sigreturn_offset.
+
+Could the comment say "the compat vDSO __vdso_rt_sigreturn" instead?
+
+> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+> --- a/arch/riscv/kernel/signal.c
+> +++ b/arch/riscv/kernel/signal.c
+
+[ ... ]
+
+> +#ifdef CONFIG_UNWIND_USER
+
+[ ... ]
+
+> +	frame = (struct rt_sigframe __user *)state->sp;
+> +#ifdef CONFIG_MMU
+> +	if (!mm->context.vdso)
+> +		return false;
+> +	sigret = (unsigned long)VDSO_SYMBOL(mm->context.vdso, rt_sigreturn);
+> +#else
+> +	sigret = (unsigned long)&frame->sigreturn_code;
+> +#endif
+
+Can the !CONFIG_MMU branch here ever be built?
+
+This function is inside #ifdef CONFIG_UNWIND_USER, and UNWIND_USER is only
+selected by HAVE_UNWIND_USER_FP and HAVE_UNWIND_USER_CFI.  The Kconfig
+change in this patch selects both only when MMU is set:
+
+	select HAVE_UNWIND_USER_CFI if MMU
+	select HAVE_UNWIND_USER_FP if MMU
+
+So CONFIG_UNWIND_USER=y on riscv implies CONFIG_MMU=y, and the
+&frame->sigreturn_code path can never be compiled or tested.  Should the
+#ifdef CONFIG_MMU / #else be dropped, leaving only the vDSO lookup?  A
+nommu variant could come together with the Kconfig change that enables it.
+
+
 ---
- Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-index e94c83d7..1fb1bf87 100644
---- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-+++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-@@ -15,6 +15,7 @@ properties:
-       - items:
-           - enum:
-               - rockchip,rk3288-sgrf
-+              - rockchip,rk3506-ioc-grf
-               - rockchip,rk3528-ioc-grf
-               - rockchip,rk3528-pipe-phy-grf
-               - rockchip,rk3528-vo-grf
-@@ -93,6 +94,8 @@ properties:
-               - rockchip,rk3368-pmugrf
-               - rockchip,rk3399-grf
-               - rockchip,rk3399-pmugrf
-+              - rockchip,rk3506-grf
-+              - rockchip,rk3506-pmu-grf
-               - rockchip,rk3562-pmu-grf
-               - rockchip,rk3568-grf
-               - rockchip,rk3568-pmugrf
-@@ -234,6 +237,7 @@ allOf:
-               - rockchip,rk3036-grf
-               - rockchip,rk3308-grf
-               - rockchip,rk3368-pmugrf
-+              - rockchip,rk3506-pmu-grf
-               - rockchip,rv1103b-pmu-grf
- 
-     then:
--- 
-2.47.3
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45087188604
+--===============8029890971532200664==--
