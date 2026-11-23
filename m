@@ -1,81 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428158;
-	b=5IBjRD/FPqgqw/84aXnSDTtBElrsfIJ8U5A3T7jL/N8idKLNgKxSvTy9MaLCRdSo7i+k
-	 ZtZRX6bX2mtvRiz461DD2TOJWsJsLYbknSePxxknABjOLL61lWZgsrGBL0rff81ND5ugF
-	 /5Bl2wR67zrthPmRP/8Fx9tMBV6WlWWxwnKACWBG9o6IFlLb1Mj8Ppq8K/rHYFWxMKjxV
-	 7OXt3O0S8iriBvOBjzc0/JGf3ptFKmBk1+hwA3oo55wX/6o0zWAqFhrq2DyrHtRh51v3N
-	 msndJuzCwhhu29ZlGUBVbeCWxWaRv5/Ak2f0srZbDsbhTU+Yqm+oS0YndUth/jbRaXQ==
+	t=1795428170;
+	b=S0fNhKfnsVho/j+3g7sThBB1Biq2o5LaTpdQSsGvT9zlrU7Uu8f7oE8LnZDzfJoVLqlv
+	 qlcoaJBLzCY58w2kxRgN3QJNSmaVhikIRtGAUjxOuWqFGa82Pk8FTUKktN3B1Qye13oDN
+	 fdFAE2Bvap0ie7eOkdHABpkLJomq7iZC+ARzA5eu81vL3D+09coHc2S37uwOeQyLiiGUJ
+	 z5MUfig7QkzzKJPjSCZWxT+YlKmCRQWaI0qhrYK2ztZG+tMCZh8G41Cm8FwqkPDIZoWKn
+	 vXpg+8nORhX5ymMqGjWjxxr7kWSiv+/WpzXbom6H2qZfT6fnuSlkhC647gzGimLf6Fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428158;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=J/cXEYX01AONgmSurv+omWY8dTLGH3bj9ApNRUcbnpI=;
-	b=HWNhErpXk6hVT/z3y0rmtGszuH+Ba62sDTrtHnRx3edOcQ3wKTIdUxuxljAuKxUZ9ceV
-	 egMGrJbUBGyqC/p596ym8NKVKgXbTGcmdR0oAzd7qCpamO5ZaDwR016XGKdWaa5rdf1LZ
-	 ICJlPIg5GFi0MBH5/PJDr1WTRavvVJyD4oIAPLOA7oRYCbGj14T6hHaSiDKQ1JQDYt3vr
-	 IXhgriZm3oeK5ac2jjHprNE3j+E/tvIpEd5a3B8dkIi1CYWv6ZNPoqECLiCb0F6WivcpL
-	 pBhNlSvQaiL5MlSeg68dT8zHTUVsdgEiEx2Cvp8EarcjLTR6ye+Ktid3xOvr8ZwZ/Lw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428170;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=U5fmRl7VLOuEYCBD7EtGXC6AhEnchrAVlkeohL5NfGk=;
+	b=qRxlHw5h+REqrwmIpWW5k8bfiegdUlHHYuxphQb/4qWqsSuLqlf+848feh4KOH6UOtHb
+	 ae/aNUCT8iL+OhQrqqkC46apPgi9GOMw6v3Grk9toel2WwXjMUNa4ycEvHoCWRKdOnMZH
+	 aWqTdM6YwBFMw7Z73DnG15Ze+syG0Abpe/R0wVVlqA1+uMfcDWBUyzikiEkynLEL0j16c
+	 EzQ4PbmTyIlbK55zf7JwyWOe4M0x/NM+XI6+C6nFxGV1TqYBZrSqh883Z5xy8czsMK53Q
+	 aDZ2PPHakA63C864/9PBG+8InmGY4/gMpEf/ypjNw2mScrKM6AfyjTs+aa638VZ4H5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nj6bSp1X;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=li0sHq2m;
+	arc=none smtp.remote-ip=209.85.208.47
+Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD937606A31A;
-	Mon, 23 Nov 2026 10:02:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD937606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA193606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:02:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA193606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nj6bSp1X
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795428157; x=1826964157;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZPqdy+dRE3PgCFAspbnDDU9RURqyA1USLeDDe/7BAh4=;
-  b=nj6bSp1Xy+caoziS38G9b+FCVsEek9thgrUm/5xMs+zMm84oWhiK5s/G
-   XnnumUbuqCK2ChH3bZ143tf37RBIABk2/QTArW6YfJS2D+3FUNlzGjbZ8
-   nDgN7STbNLmldyqx1K3F/z2d1mPNrxzJ2i04aDQP5gyF1LyjWgwbNT79c
-   C3DzqFNnbjJfDpB7fL8yP5e/vT4jfjtKcpsvi9mTEPRvQ7oBybPstrskJ
-   nIjRyus66Ia6hOpMH/55KlfMsGp1ziNxnNlAfS9OUxSvBII1kiegaP0hu
-   jaeOPriyZT2FEvgy41Zyroj2l9tnskFF55nE+niG8aPEHk2bfjgKXhhMY
-   g==;
-X-CSE-ConnectionGUID: Zid5EMF3TfCoHSi2sgA+eg==
-X-CSE-MsgGUID: zK3mNKHVSFO8OZV+ou/zAw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4280625"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4280625"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:02:36 -0800
-X-CSE-ConnectionGUID: qOmC6S3jRZeE5XGOmuygyQ==
-X-CSE-MsgGUID: gsenE3cgReeVze5YzA1Umw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11410041"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:02:32 -0800
-Date: Mon, 23 Nov 2026 12:02:30 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>
-Cc: jic23@kernel.org, linux-iio@vger.kernel.org, dlechner@baylibre.com,
-	nuno.sa@analog.com, andy@kernel.org, nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
-	giorgitchankvetadze1997@gmail.com, amin.gattout@gmail.com,
-	antoniu.miclaus@analog.com, gregkh@linuxfoundation.org,
-	mripard@kernel.org, linux-arm-kernel@lists.infradead.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=li0sHq2m
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6ae305e3bd9so5166928a12.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:02:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795428168; x=1796032968; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=U5fmRl7VLOuEYCBD7EtGXC6AhEnchrAVlkeohL5NfGk=;
+        b=li0sHq2mCmwwRFH+LLFzvwWgCT9ZJMjiSXz8Q8lvN8eXtk1T7jXaLFbWt1kW4dE5GL
+         4cIDkGnzjMOWhPDb7+65owWaa47Xxmn9XL+HE8Yh7CvJxOWKsicn1ViWpxFBRAmM6afn
+         C4A6P8BtCvTV2qKms4AZztZ1ruFalyZ0JpSrQqKOX3G6gCo0j5izFoDbDV2gcl4igG9J
+         qoHyPm/nRwaelbzuiW61pIus+rjpJcBku4wOi8ORO0pKx1pK3JS3pRywjB6Ca8crHVxH
+         FqY3CMwE4gaEf6r5+PekFhkfyNQqlUOfo9ziml38HdJetVMAf1uvPh4dfCq65UThWQ9r
+         iCuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795428168; x=1796032968;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=U5fmRl7VLOuEYCBD7EtGXC6AhEnchrAVlkeohL5NfGk=;
+        b=g1Mc8okvDiPG9nokpUx/Wu6LIZtZrghXmZu2si0qNEqs1fwxbN/+KSn27qgV56q5Wy
+         kypikzWF1zlPi+l8rjfexAbt70kW6SOTDTFp202FytmdVJqWbftK0yJFM8cuOrv5fG/A
+         OO4wgKm3h6DZIC49jzNVWi0TVTLz8wynpkyzdbxvA62v8rnO3+vFaCw5/+KulS2TUofK
+         IswpUanlNmynpUi1Rh1l9SjCy4ZLQ6aAfVkfdMbN03SXRd7YxWlEwmGN6y/YUTniAs6l
+         SjO4QEwYG+dTp47fwkFsmdNbY5wY1Rq/ea16/BRCa0yT4HdN4XAp9H/sE1Kv0eIuxsOC
+         LEjw==
+X-Forwarded-Encrypted: i=1; AL+hErFqe3vDPfvufuZKKXPUZ1Z9m4PN/c4xsSQqrH3mZJGM9JArMr5pzC9EMC+DqGesese85oPbj6Dm8HYZtbs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8YY5CBrdVsAXO1NYwiny1gybVWeEqVwropFHk6ZIjtB58jfx27
+	1+lQWNbJRCFO7adKo/mfd13CnvU5nHyvcAjGn4CrhKVQdh9Io/TAPxFB
+X-Gm-Gg: AZFdTZe4SXSJGAVyhSgeJbCOw8FNkghH50PdaSjue7uzuZC1f/v2bGhUB7hiTRy6rmq
+	0pPtfe3zhWVtSAOAg4BHAeC0CS/4eN/ZJTdo3KPS/a76+mUt6rUjebVAve1YkqcJevId4vgOEQf
+	7XCiCqFgg2VwpXvmE3vXQp23oiUxcnXUSQHRif/JgnnkkQAnH4liLXycHtCZxckXV347upoEu1w
+	fzGt3bsVfSvhEzmXw0+QT/qytN8f4cee/AIvCZrMP4+ysl4jUB5/kJNgA/ICRQuMkP5n5PK81T+
+	7qeLxrcYuIw3fWoKEBjez6BCW6TJpb8/7lwd2naV1/IYn5DuNYSXJDWB2a/IfiZpwcCEzNiFHza
+	GsnTiGkPsCYvsG8uNh4re6lNEu/ozrlwYXoym3HWOCTJY8AC4X7YqX+ItMyTz9DK4gMMgqSCb9q
+	RDofKsdyu07mspKD8nzXVZXU7PI/rgVmNq/iEa49YC4IIHV825fmrnUW8nQf2qcVJvhs4w9OwRj
+	AAh9jbpQyWBnCoqOp5O0yHuxWvjh3rFULUf7K0azilIim8JgTh71vhMXbTBUIWLOWBsjm6SFTC2
+	5OejiGt4P3P841Ke1VMRII5OJahox4+WHErNiDopln9fHfMbi4kSJnOE2quFAkvncyNVfITYtPH
+	HJZPhwo4hcg==
+X-Received: by 2002:a17:906:397:b0:c41:26b8:c49d with SMTP id a640c23a62f3a-c513aab9965mr692564366b.38.1795428168018;
+        Mon, 23 Nov 2026 02:02:48 -0800 (PST)
+Received: from xeon ([188.163.112.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8dc60sm379265766b.34.2026.11.23.02.02.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 02:02:47 -0800 (PST)
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: linux-sound@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 4/8] iio: adc: at91_adc: convert to
- device_property_*() APIs
-Message-ID: <awQPNvotVh7cODYR@ashevche-desk.local>
-References: <20261123070101.53868-1-abdelnasserhussein11@gmail.com>
- <20261123070101.53868-5-abdelnasserhussein11@gmail.com>
+Subject: [PATCH v1] ASoC: tegra: Add support for mono channel to Tegra20/Tegra30 I2S DAIs
+Date: Mon, 23 Nov 2026 12:02:28 +0200
+Message-ID: <20261123100228.77797-1-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,98 +102,166 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123070101.53868-5-abdelnasserhussein11@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 09:00:57AM +0200, Abdelnasser Hussein wrote:
-> Use the firmware-agnostic device_property_*() helpers instead of the
-> OF-specific property readers, so the driver does not depend on a device
-> node being available in probe.
-> 
-> Update at91_adc_probe_dt_ts() to take a struct device and read its
-> properties through device_property_read_u32() as well.  Since the helper
-> no longer uses DT-specific APIs, rename it from at91_adc_probe_dt_ts() to
-> at91_adc_probe_ts().  This removes the need for a struct device_node
-> pointer in at91_adc_probe(); as a result, at91_adc_probe_ts() now logs
-> against dev (&pdev->dev) instead of &idev->dev.
-> 
-> Drop the " in the DT" suffix from the missing property messages to match
-> the firmware-agnostic property APIs.
-> 
-> With no OF APIs or struct device_node left in the file, drop the
-> <linux/of.h> include and add <linux/mod_devicetable.h> for struct
-> of_device_id.
+According to the TRM, both Tegra20 and Tegra30 I2S should be able to
+support a mono channel for non-DSP formats, while the number of channels
+for the DSP (FSYNC) format should remain restricted to a minimum of two
+for Tegra30+.
 
-...
+Implement support for mono audio by adjusting the I2S clock and divider
+calculation logic for both Tegra20 and Tegra30+.
 
->  static int at91_adc_probe(struct platform_device *pdev)
->  {
->  	unsigned int prsc, mstrclk, ticks, adc_clk, adc_clk_khz, shtim;
-> -	struct device_node *node = pdev->dev.of_node;
+Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+---
+I2S clock calculations were adjusted to match those found in downstream
+sources for Tegra20 up to Tegra124. This change was tested on the LG
+Optimus Vu (P895), and sound was consistent with both mono and dual
+channels, with no distortion.
+---
+ sound/soc/tegra/tegra20_i2s.c | 21 ++++++++++++++++-----
+ sound/soc/tegra/tegra30_i2s.c | 31 +++++++++++++++++++++----------
+ 2 files changed, 37 insertions(+), 15 deletions(-)
 
-	struct device *dev = &pdev->dev;
-	const char *propname;
-
->  	int ret;
->  	struct iio_dev *idev;
->  	struct at91_adc_state *st;
-
-...
-
-> -	st->use_external = of_property_read_bool(node, "atmel,adc-use-external-triggers");
-> +	st->use_external = device_property_read_bool(&pdev->dev,
-> +						     "atmel,adc-use-external-triggers");
-
-	propname = "atmel,adc-use-external-triggers";
-	st->use_external = device_property_read_bool(dev, propname);
-
-> -	if (of_property_read_u32(node, "atmel,adc-channels-used", &prop))
-> +	if (device_property_read_u32(&pdev->dev, "atmel,adc-channels-used", &prop))
->  		return dev_err_probe(&idev->dev, -EINVAL,
-> -				     "Missing adc-channels-used property in the DT.\n");
-> +				     "Missing adc-channels-used property.\n");
-
-	propname = "atmel,adc-channels-used";
-	if (device_property_read_u32(dev, propname, &prop))
-		return dev_err_probe(&idev->dev, -EINVAL, "Missing %s property.\n", propname);
-
-BUT... this needs to be fixed first to unshadow error code
-
-	propname = "atmel,adc-channels-used";
-	ret = device_property_read_u32(dev, propname, &prop);
-	if (ret)
-		return dev_err_probe(&idev->dev, ret, "Missing %s property.\n", propname);
-
-AND... what the heck is idev->dev now? Please, fix that before even this patch,
-use same device pointer in the call and in the message. In the end it should be
-
-	propname = "atmel,adc-channels-used";
-	ret = device_property_read_u32(dev, propname, &prop);
-	if (ret)
-		return dev_err_probe(dev, ret, "Missing %s property.\n", propname);
-
->  	st->channels_mask = prop;
-
-All the same for other properties.
-
-...
-
->  	st->res = st->caps->high_res_bits;
->  	if (st->caps->low_res_bits &&
-> -	    !of_property_read_string(node, "atmel,adc-use-res", &s)
-
-> +	    !device_property_read_string(&pdev->dev, "atmel,adc-use-res", &s)
->  	    && !strcmp(s, "lowres"))
-
-This is device_property_match_string() I believe.
-
->  		st->res = st->caps->low_res_bits;
-
+diff --git a/sound/soc/tegra/tegra20_i2s.c b/sound/soc/tegra/tegra20_i2s.c
+index 2978c9d6f4839..285923e6aeffa 100644
+--- a/sound/soc/tegra/tegra20_i2s.c
++++ b/sound/soc/tegra/tegra20_i2s.c
+@@ -144,7 +144,12 @@ static int tegra20_i2s_hw_params(struct snd_pcm_substream *substream,
+ 	struct device *dev = dai->dev;
+ 	struct tegra20_i2s *i2s = snd_soc_dai_get_drvdata(dai);
+ 	unsigned int mask, val;
+-	int ret, sample_size, srate, i2sclock, bitcnt;
++	int ret, sample_size, srate, i2sclock, bitcnt, i2sclk_div, is_dsp;
++
++	is_dsp = regmap_test_bits(i2s->regmap, TEGRA20_I2S_CTRL,
++				  TEGRA20_I2S_CTRL_BIT_FORMAT_DSP);
++	if (is_dsp < 0)
++		return is_dsp;
+ 
+ 	mask = TEGRA20_I2S_CTRL_BIT_SIZE_MASK;
+ 	switch (params_format(params)) {
+@@ -174,18 +179,24 @@ static int tegra20_i2s_hw_params(struct snd_pcm_substream *substream,
+ 	/* Final "* 2" required by Tegra hardware */
+ 	i2sclock = srate * params_channels(params) * sample_size * 2;
+ 
++	/* Additional "* 2" is needed for DSP mode */
++	if (is_dsp)
++		i2sclock *= 2;
++
+ 	ret = clk_set_rate(i2s->clk_i2s, i2sclock);
+ 	if (ret) {
+ 		dev_err(dev, "Can't set I2S clock rate: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+-	bitcnt = (i2sclock / (2 * srate)) - 1;
++	i2sclk_div = is_dsp ? srate : params_channels(params) * srate;
++
++	bitcnt = (i2sclock / i2sclk_div) - 1;
+ 	if (bitcnt < 0 || bitcnt > TEGRA20_I2S_TIMING_CHANNEL_BIT_COUNT_MASK_US)
+ 		return -EINVAL;
+ 	val = bitcnt << TEGRA20_I2S_TIMING_CHANNEL_BIT_COUNT_SHIFT;
+ 
+-	if (i2sclock % (2 * srate))
++	if (i2sclock % i2sclk_div)
+ 		val |= TEGRA20_I2S_TIMING_NON_SYM_ENABLE;
+ 
+ 	regmap_write(i2s->regmap, TEGRA20_I2S_TIMING, val);
+@@ -330,14 +341,14 @@ static const struct snd_soc_dai_ops tegra20_i2s_dai_ops = {
+ static const struct snd_soc_dai_driver tegra20_i2s_dai_template = {
+ 	.playback = {
+ 		.stream_name = "Playback",
+-		.channels_min = 2,
++		.channels_min = 1,
+ 		.channels_max = 2,
+ 		.rates = SNDRV_PCM_RATE_8000_96000,
+ 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
+ 	},
+ 	.capture = {
+ 		.stream_name = "Capture",
+-		.channels_min = 2,
++		.channels_min = 1,
+ 		.channels_max = 2,
+ 		.rates = SNDRV_PCM_RATE_8000_96000,
+ 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
+diff --git a/sound/soc/tegra/tegra30_i2s.c b/sound/soc/tegra/tegra30_i2s.c
+index e5e648d00621b..433a7eb873b43 100644
+--- a/sound/soc/tegra/tegra30_i2s.c
++++ b/sound/soc/tegra/tegra30_i2s.c
+@@ -137,10 +137,16 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
+ 	struct device *dev = dai->dev;
+ 	struct tegra30_i2s *i2s = snd_soc_dai_get_drvdata(dai);
+ 	unsigned int mask, val, reg;
+-	int ret, sample_size, srate, i2sclock, bitcnt;
++	int ret, sample_size, srate, i2sclock, bitcnt, i2sclk_div, is_dsp;
+ 	struct tegra30_ahub_cif_conf cif_conf;
+ 
+-	if (params_channels(params) != 2)
++	is_dsp = regmap_test_bits(i2s->regmap, TEGRA30_I2S_CTRL,
++				  TEGRA30_I2S_CTRL_FRAME_FORMAT_FSYNC);
++	if (is_dsp < 0)
++		return is_dsp;
++
++	/* For DSP format min amount of channels is still two */
++	if (params_channels(params) != 2 && is_dsp)
+ 		return -EINVAL;
+ 
+ 	mask = TEGRA30_I2S_CTRL_BIT_SIZE_MASK;
+@@ -157,10 +163,15 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
+ 
+ 	srate = params_rate(params);
+ 
+-	/* Final "* 2" required by Tegra hardware */
+-	i2sclock = srate * params_channels(params) * sample_size * 2;
++	i2sclock = srate * params_channels(params) * sample_size;
++
++	/* Additional "* 4" is needed for DSP mode */
++	if (is_dsp)
++		i2sclock *= 4;
++
++	i2sclk_div = is_dsp ? srate : params_channels(params) * srate;
+ 
+-	bitcnt = (i2sclock / (2 * srate)) - 1;
++	bitcnt = (i2sclock / i2sclk_div) - 1;
+ 	if (bitcnt < 0 || bitcnt > TEGRA30_I2S_TIMING_CHANNEL_BIT_COUNT_MASK_US)
+ 		return -EINVAL;
+ 
+@@ -172,14 +183,14 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
+ 
+ 	val = bitcnt << TEGRA30_I2S_TIMING_CHANNEL_BIT_COUNT_SHIFT;
+ 
+-	if (i2sclock % (2 * srate))
++	if (i2sclock % i2sclk_div)
+ 		val |= TEGRA30_I2S_TIMING_NON_SYM_ENABLE;
+ 
+ 	regmap_write(i2s->regmap, TEGRA30_I2S_TIMING, val);
+ 
+ 	cif_conf.threshold = 0;
+-	cif_conf.audio_channels = 2;
+-	cif_conf.client_channels = 2;
++	cif_conf.audio_channels = params_channels(params);
++	cif_conf.client_channels = params_channels(params);
+ 	cif_conf.audio_bits = TEGRA30_AUDIOCIF_BITS_16;
+ 	cif_conf.client_bits = TEGRA30_AUDIOCIF_BITS_16;
+ 	cif_conf.expand = 0;
+@@ -323,14 +334,14 @@ static const struct snd_soc_dai_ops tegra30_i2s_dai_ops = {
+ static const struct snd_soc_dai_driver tegra30_i2s_dai_template = {
+ 	.playback = {
+ 		.stream_name = "Playback",
+-		.channels_min = 2,
++		.channels_min = 1,
+ 		.channels_max = 2,
+ 		.rates = SNDRV_PCM_RATE_8000_96000,
+ 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
+ 	},
+ 	.capture = {
+ 		.stream_name = "Capture",
+-		.channels_min = 2,
++		.channels_min = 1,
+ 		.channels_max = 2,
+ 		.rates = SNDRV_PCM_RATE_8000_96000,
+ 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.53.0
 
