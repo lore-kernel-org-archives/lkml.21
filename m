@@ -1,92 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430439;
-	b=AaRUMHCNaTXxaybPAiJQhKjiIVDjGIqCrCjK9/zKBRATa+8RMKADJ6hCiFrGyyphZGyb
-	 whyCLB1fZFd8sygEuk1Cgvu410reZkaW55VUlH8R4s4rYNO5IL6776Rood2p0+dRFc439
-	 ZFufaeknROEaRt7PmaKatgi1U+GD+G4FU1+HoWEa5657gSfz/42zTrJAPEfcbJJLlgoAK
-	 Q1bmflDgRSIH1aRDtXc4x2Z3Y9bS5RDCh47Wp2kXIkoB8X5dq7vIysRY5WGc66eyaazXo
-	 dgmlwtAbGTeO1mmmFAivVqv3XCYDfHWIGaG9dvRcqmO+PwmkogQ/OeM4dDjaXCLz3Tg==
+	t=1795430444;
+	b=S6LMmtKePsTChLMF6s0LVv4b0sP6cWT2GVcHuV+FCTCQWJb5q9ofihjD5H2rSjvniAnd
+	 55RNnhgGc7PpssJCxOe4HoZbpgxWNBs6N8pWk9LZTdHweAZcYe/GcVP4KY2aUpq805G05
+	 VWdWIbeip4JFERqSdsc5qjGACtvU2Y2Uf4AMg6S4rx8akotbYh4TrPCcX6HrnRsS7YXWB
+	 a5SOExGDgfdr5rwYiHumUFbzdWL3fo9H2XTaMTXM2H5ECZIHpVz3IWBSpP/uA07RJIUBW
+	 xLuYUQyT5BwS+H95Lys2PbaTZC07TVcJ4GLnr3PazUZ8IFXQ3+B1WKA8vaKA0Fchhpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430439;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=AoHPrlw7cHKhLG/2C7Mmh2Ph3LLuU0qyTHH6DFLMjMo=;
-	b=eiunuAPWQwguWVSCIlUKyGQo4m4yDAveaQNSC0TmrPawfMFd1i+fFMtl/czj2tqZ/qe1
-	 djOUNFb/42kTKfdEHzRKFQFzTdOHyYSAEac+tsD6Jct9tfFYxdI4yaQJaRKbHa4rKujld
-	 p7CbpKA1plBbRaMQAvbB1xvr7zqIoW6edI/SzZq4TynHykGW1UE/kRxUs9l9m/Qt2yair
-	 KayFNtQFXYlH/IghNyMfvDnHBBxVhxbMZfp+Y5k+iX+LOcwqY0u1GwocaMzRq0xlXSUjt
-	 aJrtMliqZNObDKgrVVVakx9/pjcBHbdDgR1wVh9D2UOC4H8z62rYRiLHwM8NHcp8UwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430444;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=KsWvzghFdTV16CF1Pw1mL8KQoPiLa7EOjJgMQlOAJK0=;
+	b=Q/Ra+bFEkUwGirI/KfjNZnCRYvVqS51v3iwBCxHHgUglIztQMXPOj8fntj7PZ4PIe2/W
+	 mRcb1vTfYMfmlJtLxXAPLPpIF+0CVfuOzFI1JvsSdyt+/2QOtFwQl/CWPN1p25d3ldd/0
+	 5fbXXYTSu85NYaTdOnCbZwI8+ZctlTTgyTW/1s3ciZUfBdixNxk7RJv/+M5G4rpBV9JMp
+	 FYacz2et4zE0xSXhDQBYcxwLN6q/OhFI7SmAy3qWicvx9aeSUiSRL5fMOBvYn02gPw8h5
+	 ZNfaO9Xgi5leSYBg+DBJ8kaOBY/TqcyHZFWOPFInWi4YcdVeayewTXZ2KU8S4t8xmWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NU2bShVh;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWLurAA2;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7093E606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:40:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7093E606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DBA0606A31E;
+	Mon, 23 Nov 2026 10:40:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DBA0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NU2bShVh
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-386b8f2f671so171652eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:40:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795430438; x=1796035238; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AoHPrlw7cHKhLG/2C7Mmh2Ph3LLuU0qyTHH6DFLMjMo=;
-        b=NU2bShVh8f3IRVK7GpGP4qsoxe22YPQwXZ+v4H0IRPaSgkaZOgGQJUXyJHLqCZ35G4
-         l+IqmDevDc5dPwt8wNEi42LmqwP0qHx4lI35uza0O82UgzpHYF7cBMIT5r27eaU9LaHE
-         2OtU332J8V5USXOsLDK0qBJnY8ey6XonX4tf2QwSlGw4o2gKZaXojrUXGnlbaa+IOrS/
-         ea+OqRDFX94Zb+nVXysPRSKS9rUXY6euIlQTyzhDSy2c1wJtec6k5ZRiG8t21qJZjKFQ
-         FY3uCxmi80rw6H26Jib2w3LHA6R3OYW8OPoH4ZW3iHJNMlYpajb08PyFpXk7+49tXb6u
-         wyZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795430438; x=1796035238;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AoHPrlw7cHKhLG/2C7Mmh2Ph3LLuU0qyTHH6DFLMjMo=;
-        b=BYBcdPpRE1vfMTfekWg8i+orzkTpGXYPXqpeIgmd2AtklY/lWz3h+QmvP4coI321FK
-         nypwkwIs+G4svgVhn07RhvI49q8qmU3Zyyiry3diibnF+7rG9bk+uQ80zNSccTxu8hcr
-         ZBUqXarm4ZbWzHY/jO9roGAJwm4uFIGIVsF10hJRcsZjTlbN77Fhh3vKdKsYtZimGG37
-         JXXS+CJlVU3ZxyPwyXwNlwHpSOb1nI3igSpPyI74xn0G49RmvoPaZ5jSQGK88J0dUt1A
-         zWM3v63TQO8/M3Oo1h6cH34WiqAjTrFNeHOhkfns5KKLkryb450ANE8gQp4ue9UdbGP6
-         IQLw==
-X-Forwarded-Encrypted: i=1; AL+hErE2pa/OUneOcwMHKm7/sO4OCNdY2tj96o/aLsqDHecegD0+zpLcFRUngc/EJf+3RiXYIl9IDuOIaA/LjG4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8LTXF7j8sSjAo68EvMeaGHnHK6MuNd5BmdpVx8Xb8SpxNDnFxi
-	tZLLbd0mtmoL9JjFlf+R6HcLP49PIprcdK8gyg1S+dpnynM0JNpL/y+3vGwhUvHqUIA=
-X-Gm-Gg: AZFdTZdY3J7NTM4tbXthXRkC+4ser/WOKkI6NY4/mVztFpBfm1O8cMNtD2t6HlXJVV8
-	dCD5iB702DNSvao0Pw4lDPfgxzZg73M1SGn5FGy877a/lKSDKD/gVdtJhD426xsc0vDk2Sa6S0q
-	yNoLUUkABn6aFHyM+cUKMkjtVyjgfWa7QkDw978OKDTYQEfB2ckkgJ6K6gnveeg/WpMcmsFtVD4
-	gryf6A+1jYrBEJjV4a9ZnXekLph0C4axOL1LyHQQRn/eRwEXc1AmRL4br0mBvZtrN12m/vEt5pw
-	M63GuELlaLOfZybhmI8TL+ZAKt2cPLk2ley8gJUBXxnSlsLdulX4Grmq6JD78+O+pyIRTG5IgDz
-	1qucljAAXk1urWNyG9m5oH1UJI877r55b0VcPhtyNRnBAB0nm5WB9fBBiKLRc9HdxomF0Fo/chw
-	/hv9BJY2DffP7RuSf8tLyaX3lkTfpykHmOYh5y9nnh7fIn4WXuo9qTJIuHc94FJ8LOtZxS58pmA
-	KFL9dQ3JVee05rlvA3Bvccpdi73A5oqjjG5/mVUUw48/ZnaZoYjy0cIdJIfCxICfITh339NF6AI
-	1AiWiIlJDZFFbJ5EF4YNvuIjnvT6Jcz04ZJPcP4ygWHQng==
-X-Received: by 2002:a05:7300:ff49:b0:36e:b05e:9a74 with SMTP id 5a478bee46e88-38570c30013mr9891055eec.30.1795430438356;
-        Mon, 23 Nov 2026 02:40:38 -0800 (PST)
-Received: from kernel ([45.251.35.85])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm43882172eec.4.2026.11.23.02.40.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:40:37 -0800 (PST)
-From: Mohamad Raizudeen <raizudeen.kerneldev@gmail.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net
-Cc: linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Mohamad Raizudeen <raizudeen.kerneldev@gmail.com>
-Subject: [PATCH] crypto: xcbc - use init_tfm & exit_tfm instead of cra_int & cra_exit
-Date: Mon, 23 Nov 2026 16:10:30 +0530
-Message-ID: <20261123104030.5378-1-raizudeen.kerneldev@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWLurAA2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795430443; x=1826966443;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TXCH4QjpVUhZWcPK+9Sf7cfpjX9RBJworCcemuU5itY=;
+  b=lWLurAA2LK33xL/bCql614I+YaHuRgtYQqlrFOANgXK9k5UMrdnQdzI3
+   /VvJBO9PbkQewEXY/J3I36IJ039IUoLeURpWlN9DhGWBt4yWQENyRKXYW
+   MEvKSkotf+F3ve7SCkS5hWNRFO7sHKbfKgP3HrmsR0W6JE0hD+qob/xva
+   Av2rrxkGFJv76BBvcEptQ83TCUY7KcheHDLFJqTGbqqeVfoDLzD4vTOq7
+   jMuluvWXqqG2a/nyM+2UhwZc6BbyFyP97Pe/AMT9RRBfILqWOnN/s+lj3
+   OBCuWlCZqHUTRXHsmyJInRxHZ7CbdDRrvf6nipcfgj8FJbvoUzESjEDqS
+   Q==;
+X-CSE-ConnectionGUID: 4JzzgvQ4QDGxnqGQNSKfZw==
+X-CSE-MsgGUID: 0jw3/3UbQhq3JnlMPIv9Kw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4117751"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4117751"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:40:43 -0800
+X-CSE-ConnectionGUID: L2E53vBQTXul6IsWACMEFw==
+X-CSE-MsgGUID: MFxnjMNATRekU4FDFhYUow==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11820219"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:40:39 -0800
+Date: Mon, 23 Nov 2026 12:40:37 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Maurizio Casciano <mauriziocasciano7@gmail.com>
+Cc: linux-media@vger.kernel.org,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Nicholas Roth <nicholas@rothemail.net>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Bingbu Cao <bingbu.cao@amd.com>,
+	Dan Scally <dan.scally@ideasonboard.com>,
+	Hans de Goede <hansg@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH v11 13/14] media: i2c: Add WV517S lens actuator driver
+Message-ID: <awQYJXHwHZn-x93g@ashevche-desk.local>
+References: <cover.1795267528.git.mauriziocasciano7@gmail.com>
+ <2de582af71f93147e034bea2dddd0718b4f3a308.1795267528.git.mauriziocasciano7@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,72 +88,309 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2de582af71f93147e034bea2dddd0718b4f3a308.1795267528.git.mauriziocasciano7@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-The cra_init and cra_exit fields of struct crypto_alg are deprecated.
-Switch to the shash-speicific init_tfm & exit_tfm callbacks, which take
-a struct crypto_shash directly.
+On Sat, Nov 21, 2026 at 02:31:43PM +0100, Maurizio Casciano wrote:
+> The Lenovo Yoga Book YB1-X91 rear camera has a WV517S voice-coil
+> actuator. Add a V4L2 lens subdevice with a standard 10-bit
+> FOCUS_ABSOLUTE control. Set the ringing-control mode internally.
+> 
+> Defer register I/O until open or a focus request so runtime PM can
+> use the IPU bridge sensor link to power the actuator. Use regmap
+> and restore the last successfully written focus position on resume.
+> With PM disabled, initialize the device on first use.
+> 
+> Hold a reference for each V4L2 registration until final subdevice
+> release. Remove access to the hardware and balance the open runtime
+> PM reference before unregistering the device. This depends on
+> David Heidelberg's V4L2 core fix, which clears the devnode pointer
+> before invoking the subdevice release callback.
 
-This also removes (void *) cast of tfm->__crt_alg and the manual
-crypto_instance_ctx() conversion and drops a stray semicolon after
-xcbc_init_tfm().
+> Retain the Intel copyright notice for the register addresses and
+> drive-mode value from the vendor WV517 driver.
 
-No functional change.
+> Sashiko identified the runtime PM and lifetime issues. Codex drafted the follow-up.
 
-Signed-off-by: Mohamad Raizudeen <raizudeen.kerneldev@gmail.com>
----
- crypto/xcbc.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
+This line should be in the cover letter, no need to poison the commit message.
 
-diff --git a/crypto/xcbc.c b/crypto/xcbc.c
-index 6c5f6766fdd6..6bb3cddb391b 100644
---- a/crypto/xcbc.c
-+++ b/crypto/xcbc.c
-@@ -102,13 +102,14 @@ static int crypto_xcbc_digest_finup(struct shash_desc *pdesc, const u8 *src,
- 	return 0;
- }
- 
--static int xcbc_init_tfm(struct crypto_tfm *tfm)
-+static int xcbc_init_tfm(struct crypto_shash *tfm)
- {
-+	struct shash_instance *inst = shash_alg_instance(tfm);
-+	struct xcbc_tfm_ctx *ctx = crypto_shash_ctx(tfm);
-+	struct crypto_cipher_spawn *spawn;
- 	struct crypto_cipher *cipher;
--	struct crypto_instance *inst = (void *)tfm->__crt_alg;
--	struct crypto_cipher_spawn *spawn = crypto_instance_ctx(inst);
--	struct xcbc_tfm_ctx *ctx = crypto_tfm_ctx(tfm);
- 
-+	spawn = shash_instance_ctx(inst);
- 	cipher = crypto_spawn_cipher(spawn);
- 	if (IS_ERR(cipher))
- 		return PTR_ERR(cipher);
-@@ -116,11 +117,11 @@ static int xcbc_init_tfm(struct crypto_tfm *tfm)
- 	ctx->child = cipher;
- 
- 	return 0;
--};
-+}
- 
--static void xcbc_exit_tfm(struct crypto_tfm *tfm)
-+static void xcbc_exit_tfm(struct crypto_shash *tfm)
- {
--	struct xcbc_tfm_ctx *ctx = crypto_tfm_ctx(tfm);
-+	struct xcbc_tfm_ctx *ctx = crypto_shash_ctx(tfm);
- 	crypto_free_cipher(ctx->child);
- }
- 
-@@ -165,8 +166,8 @@ static int xcbc_create(struct crypto_template *tmpl, struct rtattr **tb)
- 	inst->alg.digestsize = alg->cra_blocksize;
- 	inst->alg.descsize = alg->cra_blocksize;
- 
--	inst->alg.base.cra_init = xcbc_init_tfm;
--	inst->alg.base.cra_exit = xcbc_exit_tfm;
-+	inst->alg.init_tfm = xcbc_init_tfm;
-+	inst->alg.exit_tfm = xcbc_exit_tfm;
- 
- 	inst->alg.init = crypto_xcbc_digest_init;
- 	inst->alg.update = crypto_xcbc_digest_update;
+> Link: https://github.com/jekhor/yogabook-linux-android-kernel/blob/574bae692716f1b14093497bfab8a007fe8e460b/drivers/external_drivers/camera/drivers/media/i2c/wv517.c
+> Link: https://lore.kernel.org/r/20260917-v4l2-release-fix-v1-1-acbac7f9b78e@ixit.cz/
+> Link: https://linuxtv.org/mailman3/hyperkitty/list/media-ci@linuxtv.org/message/2PUHZIDBEIGQKGXTJJOUXXJS2EOEMJGD/
+
+Do not add unreferred Link tags.
+
+If you need a one, add it in a form of Link: $URL [1] and refer via [1] in
+the commit message.
+
+...
+
+> +config VIDEO_WV517S
+> +	tristate "WV517S lens voice coil support"
+
+Make this...
+
+> +	select REGMAP_I2C
+> +	help
+> +	  This is a driver for the WV517S camera lens voice coil. The driver
+> +	  supports 10-bit focus control and exposes the actuator through the
+> +	  standard V4L2 lens sub-device interface.
+> +
+> +	  To compile this driver as a module, choose M here: the module will be
+> +	  called wv517s.
+
+> +/*
+> + * WV517S voice-coil motor driver
+
+...this...
+
+
+> + * Copyright (c) 2014 Intel Corporation.
+> + * Copyright (C) 2026 Maurizio Casciano <mauriziocasciano7@gmail.com>
+> + */
+
+...and this one
+
+> +MODULE_DESCRIPTION("WV517S VCM driver");
+
+to share the same or quite similar text.
+
+
+> +#include <linux/container_of.h>
+> +#include <linux/device.h>
+> +#include <linux/i2c.h>
+> +#include <linux/kref.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
+> +#include <linux/slab.h>
+> +#include <linux/types.h>
+
+...
+
+> +struct wv517s_device {
+> +	struct v4l2_ctrl_handler ctrl_handler;
+> +	struct v4l2_subdev sd;
+> +	struct regmap *regmap;
+> +	struct kref ref;
+> +	/* Serialize hardware access and open/close against driver removal. */
+> +	struct mutex lock;
+> +	enum wv517s_registration registration;
+> +	unsigned int users;
+> +	u16 focus;
+
+> +	bool initialized;
+> +	bool removed;
+
+If they are protected by the same lock, you can make them bitfields
+
+	bool XXX:1;
+
+> +};
+
+...
+
+> +static const struct regmap_config wv517s_regmap_config = {
+> +	.reg_bits = 8,
+> +	.val_bits = 16,
+> +	.max_register = WV517S_REG_DRIVE_MODE,
+> +	.val_format_endian = REGMAP_ENDIAN_BIG,
+
+No cache? Why?
+
+> +};
+
+...
+
+> +static int wv517s_resume(struct device *dev)
+> +{
+> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
+> +	struct wv517s_device *wv517s = to_wv517s(sd);
+
+	struct regmap *map = wv517s->regmap;
+
+> +	int ret;
+> +
+> +	ret = regmap_write(wv517s->regmap, WV517S_REG_DRIVE_MODE,
+> +			   WV517S_DRIVE_MODE_12_6_MS);
+
+	ret = regmap_write(map, WV517S_REG_DRIVE_MODE, WV517S_DRIVE_MODE_12_6_MS);
+
+(I believe it's fine to have 83 characters in this case.)
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * Every update of focus holds a runtime PM reference. Do not acquire
+> +	 * the driver's mutex here: the caller may hold it while resuming.
+> +	 */
+> +	return regmap_write(wv517s->regmap, WV517S_REG_FOCUS,
+> +			    READ_ONCE(wv517s->focus));
+
+	return regmap_write(map, WV517S_REG_FOCUS, READ_ONCE(wv517s->focus));
+
+> +}
+
+You may use the same trick (temporary variable for regmap) elsewhere.
+
+...
+
+> +static int wv517s_power_get(struct wv517s_device *wv517s)
+> +{
+> +	struct device *dev = wv517s->sd.dev;
+> +	int ret;
+> +
+> +	if (IS_ENABLED(CONFIG_PM))
+> +		return pm_runtime_resume_and_get(dev);
+> +
+> +	if (wv517s->initialized)
+> +		return 0;
+
+> +	ret = wv517s_resume(dev);
+> +	if (!ret)
+> +		wv517s->initialized = true;
+> +
+> +	return ret;
+
+Standard pattern is
+
+	if (ret)
+		return ret;
+
+	wv517s->initialized = true;
+	return 0;
+
+> +}
+
+...
+
+> +static int wv517s_set_ctrl(struct v4l2_ctrl *ctrl)
+> +{
+> +	struct wv517s_device *wv517s =
+> +		container_of(ctrl->handler, struct wv517s_device, ctrl_handler);
+> +	int ret;
+> +
+> +	if (ctrl->id != V4L2_CID_FOCUS_ABSOLUTE)
+> +		return -EINVAL;
+> +
+> +	guard(mutex)(&wv517s->lock);
+
+Add a blank line here, so it will be visible that guard()() is used.
+Do the same elsewhere.
+
+> +	if (wv517s->removed)
+> +		return -ENODEV;
+> +
+> +	ret = wv517s_power_get(wv517s);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_write(wv517s->regmap, WV517S_REG_FOCUS, ctrl->val);
+> +	if (!ret)
+> +		WRITE_ONCE(wv517s->focus, ctrl->val);
+> +
+> +	pm_runtime_put(wv517s->sd.dev);
+> +	return ret;
+> +}
+
+...
+
+> +static int wv517s_probe(struct i2c_client *client)
+> +{
+> +	struct device *dev = &client->dev;
+> +	struct wv517s_device *wv517s;
+> +	int ret;
+> +
+> +	wv517s = kzalloc_obj(*wv517s);
+> +	if (!wv517s)
+> +		return -ENOMEM;
+> +
+> +	wv517s->regmap = devm_regmap_init_i2c(client, &wv517s_regmap_config);
+> +	if (IS_ERR(wv517s->regmap)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(wv517s->regmap),
+> +				    "failed to initialize regmap\n");
+> +		kfree(wv517s);
+
+Huh?! This  a mess with devm. Use devm_kzalloc_obj() instead.
+
+> +		return ret;
+> +	}
+> +
+> +	kref_init(&wv517s->ref);
+
+Move it after mutex, because it's not managed.
+
+> +	mutex_init(&wv517s->lock);
+
+devm_mutex_init()
+
+> +	wv517s->focus = WV517S_DEFAULT_FOCUS_POSITION;
+> +	v4l2_i2c_subdev_init(&wv517s->sd, client, &wv517s_subdev_ops);
+> +	wv517s->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
+> +	wv517s->sd.internal_ops = &wv517s_internal_ops;
+> +	wv517s->sd.entity.function = MEDIA_ENT_F_LENS;
+> +
+> +	v4l2_ctrl_handler_init(&wv517s->ctrl_handler, 1);
+> +	v4l2_ctrl_new_std(&wv517s->ctrl_handler, &wv517s_ctrl_ops,
+> +			  V4L2_CID_FOCUS_ABSOLUTE, 0,
+> +			  WV517S_MAX_FOCUS_POSITION, 1,
+> +			  WV517S_DEFAULT_FOCUS_POSITION);
+> +	if (wv517s->ctrl_handler.error) {
+> +		ret = wv517s->ctrl_handler.error;
+
+> +		goto err_free_ctrl_handler;
+
+No goto should come after devm_*() call (there are some rare exceptions
+possible, but they should be understood and commented).
+
+> +	}
+> +	wv517s->sd.ctrl_handler = &wv517s->ctrl_handler;
+> +
+> +	ret = media_entity_pads_init(&wv517s->sd.entity, 0, NULL);
+> +	if (ret)
+> +		goto err_free_ctrl_handler;
+> +
+> +	/* Leave the actuator suspended until a consumer requests focus. */
+> +	pm_runtime_enable(dev);
+> +
+> +	ret = v4l2_async_register_subdev(&wv517s->sd);
+> +	if (ret) {
+> +		wv517s_stop(wv517s);
+> +		kref_put(&wv517s->ref, wv517s_free);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_free_ctrl_handler:
+> +	v4l2_ctrl_handler_free(&wv517s->ctrl_handler);
+
+> +	mutex_destroy(&wv517s->lock);
+> +	kfree(wv517s);
+> +	return ret;
+> +}
+> +
+> +static void wv517s_remove(struct i2c_client *client)
+> +{
+> +	struct v4l2_subdev *sd = i2c_get_clientdata(client);
+> +	struct wv517s_device *wv517s = to_wv517s(sd);
+> +
+> +	wv517s_stop(wv517s);
+> +	v4l2_async_unregister_subdev(sd);
+> +	kref_put(&wv517s->ref, wv517s_free);
+> +}
+
+I don't know where you got the idea with kref, but not so many media drivers use it.
+And actually none of the existing voice-coil ones. I believe all this mess comes from
+AI and misunderstanding of how it should be done.
+
 -- 
-2.53.0
+With Best Regards,
+Andy Shevchenko
+
 
