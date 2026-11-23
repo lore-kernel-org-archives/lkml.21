@@ -1,81 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795475984;
-	b=IabMP6PVk3CdJkvyX9y+KRQJvgk+DG3Iga0WjvrDupZTvd0Dq1fogwicMaWUHEhEk1+2
-	 o3R0i5KNRh+i0Qkw2fgAiKE5RtZ5pKoI/pN272+jw8p6FagzOXEsqACAVgEohM1zbh00d
-	 JQxET14icmozTkcztdvdQJH0ajNkkAY415nLOHjCBWjby4+NHUj83uz2p799stKwPgDih
-	 o68bGaQYL3/eypyacIDQhWiHGUXoSAVxobzplXEGbRO/Mznx6s0cHWo6qXRm6LAOS2aWf
-	 +NnrT7k6XkNvv+ZPqsetJVGQLps5hMnDeM28rp9B51dHE/kFI6FJ4X7QU0sJcJNoixw==
+	t=1795476026;
+	b=LTP5UgBpIriU5lV/1JWDus/+UwNZmBNa6/QJis//fmRJU9WdTep14TAoc8IhMjE5u7wI
+	 zc+9hevlGY+64gwUXDfV2N7N/CQ5thL6Wzne72a2SvUnVytZ2HFba8HcsmZQyBoMtDdE2
+	 5Esqxok5i+g2qtBFPzrX26WEp+PDVwTE6CU+Lq5BjPlba4Vs+1rZxmd1VXuWMA5UP4Q4q
+	 fwOtClcYt78ofWC5eA/B8a6zptmWiYlaTWUe0IxxkuBWTNfN83fuqCTbhsWqOmylnHDz5
+	 tygZY1gt3SrZNCBO7t+XZXO5P4ZcnQNSCr5zlnHRGlot1FMsfjP05HRdqsO/4nZyrpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795475984;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version;
-	bh=8vJ4rc7Ztjrf5+f9gvb+rymWWVA3mVc8hXo5yAPcMrM=;
-	b=mza094oMcSe7rEwl0XHLnp/kSrzyimkvQAzAVbHeafBmyepM6cy7uAl/k6Rfy+mlqgxZ
-	 mztTrMIhgZHwHm9mmWlEmnHnQykH/8/+8r4ivQHCaredP60yxjxSFBzmT/fuR8GkfUAPT
-	 ihPuzWKdurQpDCZ0r26Oto2qHNX5qUfjil1h9iFhhog2qCd/1ivjywyHN47ESDBln0XwN
-	 6kvOSMcaoxiZFk4Ybm/cpKCsxl7ImkQv3oaaX6wi1ivgArfzrkTvaLWIwh3LHguYoqAXQ
-	 Rp5AmUgpC+bHT22rkKusGyh66CQT6k1G2zn1LzRlUQXP7D7dWKZRZdVRMgBML2mIECQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476026;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=yzKFAZM1cX/FruAxUljUZdnA6zwMjYlHTey0nTPHka4=;
+	b=J5fCI7HxQiRC27bQZkvTSIF4QyKsHSryL+us4nJJRJJgcB7FvLb/hDrQ6MgeW8BKKTiT
+	 87udeZ/nrb+waUzz9ferxGef6TzLw+cnk2gEzP4zIgAh1iSwjfsIDwZGq9sLh2pBYfeVI
+	 z0zEBDAuosSf7uJyjwObPNfssNq7vh+j/sbal+kH+3FytazmMxikGiSPVoB9ckovI1bHa
+	 B9Pg7tAov8gcUnhXsbjdD1NevRMa+pecrNs+bwRWmqwrfkaferUHFnDignBfenKkTEwVB
+	 f2uKSjJ4AGU26RnuLgCqrR9CLaOoIzXwPLzuGEiedQZ86VXdiinpI3dUhGNP5EyH4bQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="mWwaV/ek";
-	arc=none smtp.remote-ip=67.231.145.42
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="k/RmTvjE";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 525B5606A322;
-	Mon, 23 Nov 2026 23:19:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 525B5606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A80F6606A321;
+	Mon, 23 Nov 2026 23:20:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=mWwaV/ek
-Received: from pps.filterd (m0148461.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJwF872641869;
-	Mon, 23 Nov 2026 15:19:17 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=8vJ4rc7Ztjr
-	f5+f9gvb+rymWWVA3mVc8hXo5yAPcMrM=; b=mWwaV/ek2boEeWNrZrvj/xchpig
-	wQr9+OgG/dqJQ2Mb1J32KazB2HNwF8ZksRq1if7ElRCJI5vAyZCnl/AVo5IGD4Cp
-	Fm65PLOk4ulFUm65V0g4a5FLR0t998i87IJaSyvSaE9WfLZjf6x1vzgPGU0ilSaY
-	xyso3d+Pvlbc+lbvTftMuUpS5axc8NU2ghzaZ00GF7Wsul85RD6OPEBQv/13b/et
-	fOZAgDRuMjsaTAMM29XyDp/B6Jstcw7OFNiBp7Fk6C3nriJ3XZabBo+7r7zPDHxz
-	pZqXvfhRUg7DIuOzk7qsNyeDl1FGuGOCWvIZZGMlXpfTd07FIeUwby3G0kg==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j399b5cnu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 23 Nov 2026 15:19:17 -0800 (PST)
-Received: from localhost (2620:10d:c085:108::150d) by mail.thefacebook.com
- (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Mon, 23 Nov
- 2026 23:19:16 +0000
-Date: Mon, 23 Nov 2026 15:19:12 -0800
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-To: Michal Luczaj <mhal@rbox.co>
-CC: Stefano Garzarella <sgarzare@redhat.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>,
-        George Zhang <georgezhang@vmware.com>, Andy King
-	<acking@vmware.com>,
-        Dmitry Torokhov <dtor@vmware.com>, <virtualization@lists.linux.dev>,
-        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Kyle Zeng <kylebot@openai.com>
-Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
- fails
-Message-ID: <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
-References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
- <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k/RmTvjE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D79A81F000C6;
+	Mon, 23 Nov 2026 23:20:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795476026;
+	bh=yzKFAZM1cX/FruAxUljUZdnA6zwMjYlHTey0nTPHka4=;
+	h=From:To:Cc:Subject:Date;
+	b=k/RmTvjEh5neVX+fnQAkJYRaRbVhx+0pbFTJqNYcFDfkwCi9hVp9HFaDggia/aEXp
+	 wiP3WEUJdA/wLjXn66bmesut1/118JBe5gkDvZZLm4LWJy0C5+oSxPEU3T+k5P19Wt
+	 WxwxlDM11J/2Ch4lsHMB0eFGXi9C0cMItpSkd0aCNWZmHr2iq5bc6DQXNgP7T0FTDF
+	 xeTC6215tGNYiN4aTNzg0wDJXOWSq8DAaPZCwZLs7ebPbTtYAWSB77HgwiYtGp9LpL
+	 8PD+fmWzIcgME6OsClZKZmRJsNTb2rQpZzyHXxkzAp1sA+zY0ZzJy7iYaVG95VOVfN
+	 kyJTJJudIv2Jw==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Ian Rogers <irogers@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH v3 00/11] perf tools: Enhance namespace and chroot handling
+Date: Mon, 23 Nov 2026 15:20:14 -0800
+Message-ID: <20261123232025.1406560-1-namhyung@kernel.org>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,164 +62,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfX4XTKjePjSP8g
- h8Sao59kxufLzLTTB1S2kIFpuwAk6QOWkWnOsPAbaouuEL1m0ZEt5Gy8LDhDJUT0FZvSpgcPF+f
- irs17XsT6qE36MTMNrnHzhOjRfQQ212Xtn/lWRkhrfDJma8N2pgLN+GVsJqdCMFpUxt5p6EtS9Q
- Wd17kwernWQnzF9YE+iENkyqRYyVCxQRaVXiVQX9IwO1pfcc+RP8jj2D8TaF7IwgK9v2k5GgbxM
- SUe0BC6rKcMSL8t5Wpxw8v/xb7hK6vkQhkYpuyAhszd2NoEvznP6WcslN3pd8wmhexeEx+zt2Fx
- 0wBNbyof0CYc8JTnadCPJOJ5uWl3AJ07zpaZMCFDGQfgatJaXpbeIwQXS1yLbFymjyQwXT3nFoE
- ztbDgbspqfWzLqxw7yF+AbKs62conDoeghDy0Ajorh1X2alO+/8DnmR/8L1O8md2KoSOymfbHfS
- 76xvYBCVlCk2qQ2W4qQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5MiBTYWx0ZWRfXwGcnWV3sunVa
- p5qgBIgxs9Ecwz9ltujQjywpFxW+FBW5poEMCSNpCN6U/m+OA6XPCDxW1jgxEGc//vgQq1+E6Bq
- gDJnQigTIa/1WA7ZVUE7wg832FmU/lQ=
-X-Proofpoint-GUID: I-znb6DrbVu6-RbYbz0pYYoIi718ZdX8
-X-Authority-Analysis: v=2.4 cv=YJMKWhGx c=1 sm=1 tr=0 ts=6b04c9f5 cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=03ozwUkBphtHgyqjj1sw:22 a=wjE4qe255kbLy1X9BfwA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: I-znb6DrbVu6-RbYbz0pYYoIi718ZdX8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
-> On 11/18/26 02:34, Bobby Eshleman wrote:
-> > vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
-> > can complete the handshake, setting sock->state to SS_CONNECTED, and then
-> > reset the connection, e.g. in vhost_vsock_reset_orphans(),
-> > virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
-> > connect() gets the lock back, it finds sk_err set and moves the socket
-> > back to SS_UNCONNECTED. Userspace can then connect() the socket again,
-> > and a connect() to a CID on another transport makes
-> > vsock_assign_transport() release the transport the socket was connected
-> > on.
-> > 
-> > Only move the socket back to SS_UNCONNECTED if it is still
-> > SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
-> > another connect() fails with -EISCONN.
-> > 
-> > Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
-> > Otherwise a second thread blocked in connect() on the same socket can
-> > time out after the first one failed and called listen(), and overwrite
-> > TCP_LISTEN.
-> 
-> Ohh, this took me a while.
-> 
-> > +/* Avoid breaking the socket when another thread has changed its state while
-> > + * we were asleep.
-> > + */
-> > +static void vsock_connect_close(struct socket *sock)
-> > +{
-> > +	struct sock *sk = sock->sk;
-> > +
-> > +	if (sk->sk_state == TCP_SYN_SENT)
-> > +		sk->sk_state = TCP_CLOSE;
-> > +	if (sock->state == SS_CONNECTING)
-> > +		sock->state = SS_UNCONNECTED;
-> > +}
-> 
-> I was wondering why not
-> 
-> 	if (sk->sk_state == TCP_SYN_SENT) {
-> 		sk->sk_state = TCP_CLOSE;
-> 		sock->state = SS_UNCONNECTED;
-> 	}
-> 
-> and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
-> because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
-> On connect's failure, the blocking path kinda-ignores such shutdown() and
-> resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
-> vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
-> 
-> So how about being consistent:
-> 
-> static void vsock_connect_close(struct socket *sock)
-> {
-> 	struct sock *sk = sock->sk;
-> 
-> 	// we follow vsock_connect_timeout():
-> 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
-> 	// and we do check sk_shutdown
-> 	//
-> 	// or am I missing something?
-> 
-> 	if (sk->sk_state == TCP_SYN_SENT &&
-> 	    sk->sk_shutdown != SHUTDOWN_MASK) {
-> 		sk->sk_state = TCP_CLOSE;
-> 		sock->state = SS_UNCONNECTED;
-> 	}
-> }
-> 
-> What do you think?
+Hello,
 
-I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
-probably not the reverse... without a peer on the other end our connect
-request gets an RST reply, switching to TCP_CLOSE but leaving untouched
-SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
-SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
--EALREADY forever.
+This series improves namespace and chroot handling when perf accesses
+files from /proc.  It defers reading /proc until namespace info is
+actually needed, verifies thread liveness, matching boot IDs, and
+mount namespace inodes against PID/TID recycling, and avoids entering
+target mount namespaces for host-side files such as the build-id cache.
 
-It seems to work for vsock_connect_timeout() because that function only
-needs to test if the attempt to connect is still pending (if yes, then
-close everything up), but vsock_connect_close() needs to know more
-precisely if the socket still holds the state that this current connect
-attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
-so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
-SS_UNCONNECTED."
+It's assisted by LLM.
 
-I think it might even make more sense to consolidate in the other
-direction and make vsock_connect_timeout() a caller of the new
-vsock_connect_close(), since it appears there is a similar edge case
-there...
+v3 changes:
 
-connect(), O_NONBLOCK
-  transport->connect()  /* OP_REQUEST */
-  mod_delayed_work(connect_work)
+ * Guard evlist before calling evlist__session() in write_boot_id().
+ * Repipe PERF_RECORD_HEADER_FEATURE events in perf-inject pipe mode
+   and add a boot ID pipe-injection shell test and unit test.
+ * Pin a reference-counted host /proc descriptor across
+   nsinfo__mountns_enter()/exit(), access relative /proc paths via
+   stack-buffered nsinfo__proc_{open,stat,readlink}() helpers instead of
+   heap-allocating mntns_path, and handle ENOENT/ESRCH on ns/mnt stat.
+ * Skip filename_with_chroot() chroot resolution when
+   nsinfo__need_setns() is set.
+ * Add compiler context-analysis lock annotations (__guarded_by,
+   __must_hold, __returns_ctx_lock) for struct nsinfo, host_proc_lock,
+   thread->nsinfo, and __thread__reset_nsinfo(), plus locked accessors.
+ * Expand mount namespace tests to verify overmounted /proc during
+   nsinfo__mountns_enter() and own a private mount namespace in
+   enter_private_userns() for clean nsinfo__mountns_exit() restoration.
 
-shutdown(SHUT_RDWR)
-  sock->state = SS_DISCONNECTING
-  sk_shutdown = SHUTDOWN_MASK
+v2: https://lore.kernel.org/r/20261116055731.707164-1-namhyung@kernel.org
 
-vsock_connect_timeout()
-  skips the socket because of SHUTDOWN_MASK
-  /* still TCP_SYN_SENT / SS_DISCONNECTING */
+ * Keep dso__filename_with_chroot() (guarded by nsinfo__check_proc())
+   instead of calling chroot() inside nsinfo__mountns_enter().
+ * Add a mutex lock to struct nsinfo and replace thread->nsinfo safely on
+   exec/namespace events rather than mutating shared instances in place.
+ * Mark offline sessions explicitly, propagate exit on fork replacement
+   and perf_event__exit_del_thread(), and guard sub-thread fallback in
+   thread__e_machine_endian().
+ * Gate mount namespace entry for debuginfo/binary probing callers,
+   include distro debuginfo types, and handle build-id lookups in
+   symbol-minimal's dso__load_sym().
+ * Add unit and shell tests for namespace, nsinfo, chroot, and boot ID
+   handling.
 
-late OP_RESPONSE, virtio_transport_recv_connecting()
-  sk_state = TCP_ESTABLISHED
-  sock->state = SS_CONNECTED
-  vsock_insert_connected()
-
-So the attempt never times out, and a late OP_RESPONSE connects a
-socket the user already shut down, overwriting SS_DISCONNECTING with
-SS_CONNECTED. I think that's a separate bug for a separate patch,
-though.
-
-Or am I off track / missing something?
-
-> 
-> I guess this approach also addresses "[Severity: Low] What happens if
-> another thread calls shutdown() while a blocking connect() is asleep?". As
-> for "[Severity: Medium] Can a connect() waiter that times out late still
-> abort a newer connect attempt on the same socket?", isn't this the current
-> situation?
-> 
-> thanks,
-> Michal
-
-Yeah, Sashiko is worried that a racing shutdown() breaks reusing the
-socket, but AFAIK vsock doesn't support reuse after shutdown anyway.
-Before this patch a second connect() could succeed, but the shutdown
-flags are never cleared, so sendmsg() still returns -EPIPE and recvmsg()
-returns 0. With this patch the socket stays SS_DISCONNECTING, so
-connect() fails with -EINVAL instead.
-
-And agreed about the medium issue, the late connect() waiter race is no
-different than before this patch.
+v1: https://lore.kernel.org/r/20261023071141.134149-1-namhyung@kernel.org
 
 Thanks,
-Bobby
+Namhyung
+
+
+Namhyung Kim (11):
+  perf tools: Add HEADER_BOOT_ID feature
+  perf tools: Add perf_env__is_same_boot()
+  perf tools: Add nsinfo__new_thread() to track tid
+  perf tools: Add lock to struct nsinfo
+  perf tools: Defer /proc lookup until nsinfo is used
+  perf tools: Verify thread status and mount namespace inode
+  perf tools: Check thread liveness when accessing /proc
+  perf tools: Export filename__read_build_id_ns()
+  perf tools: Only enter mount namespace if necessary
+  perf tools: Scope mount namespace entry in dso__load()
+  perf tests: Add namespace, nsinfo, and boot ID tests
+
+ .../Documentation/perf.data-file-format.txt   |    5 +
+ tools/perf/builtin-inject.c                   |   29 +-
+ tools/perf/builtin-trace.c                    |    2 +-
+ tools/perf/tests/Build                        |    1 +
+ tools/perf/tests/builtin-test.c               |    1 +
+ tools/perf/tests/namespaces.c                 | 1188 +++++++++++++++++
+ tools/perf/tests/shell/header.sh              |    9 +
+ tools/perf/tests/shell/pipe_test.sh           |   21 +
+ tools/perf/tests/tests.h                      |    1 +
+ tools/perf/util/build-id.c                    |   15 +-
+ tools/perf/util/capstone.c                    |    8 +-
+ tools/perf/util/debuginfo.c                   |   19 +-
+ tools/perf/util/disasm.c                      |    8 +-
+ tools/perf/util/dso.c                         |   58 +-
+ tools/perf/util/dso.h                         |   34 +
+ tools/perf/util/dsos.c                        |   17 +-
+ tools/perf/util/env.c                         |   69 +
+ tools/perf/util/env.h                         |    4 +
+ tools/perf/util/event.c                       |    1 +
+ tools/perf/util/header.c                      |   28 +
+ tools/perf/util/header.h                      |    1 +
+ tools/perf/util/jitdump.c                     |    2 +-
+ tools/perf/util/machine.c                     |   16 +-
+ tools/perf/util/map.c                         |    2 +-
+ tools/perf/util/namespaces.c                  |  439 +++++-
+ tools/perf/util/namespaces.h                  |   23 +-
+ tools/perf/util/session.c                     |    1 +
+ tools/perf/util/symbol-minimal.c              |    4 +-
+ tools/perf/util/symbol.c                      |   45 +-
+ tools/perf/util/symbol.h                      |    3 +
+ tools/perf/util/thread.c                      |   97 +-
+ tools/perf/util/thread.h                      |   15 +-
+ tools/perf/util/util.c                        |    7 +-
+ 33 files changed, 1998 insertions(+), 175 deletions(-)
+ create mode 100644 tools/perf/tests/namespaces.c
+
+-- 
+2.56.1.809.ga0b61035b5-goog
+
