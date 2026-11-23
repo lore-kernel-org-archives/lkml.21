@@ -1,97 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795439940;
-	b=1c8PCqIpdCYDha+Z6EXhfWEa+0zdMgsjt0IBExs+eyMj2B1RkvshFhDFAM++QrTl8zoL
-	 asLogpkfTcrFPsnwJoBhV7c8jqB7Cou0uDOB8D650t4I36pmpYF86wGV1tQhZYQXZakhh
-	 EpOauSQN53nLquhYB1gGl3Vv7afPNdZWm2j3BgtIrQUBCjOEh3o5xw/Q0F1emESaZM7b4
-	 GWtNoQ+3EFPjjlBP9xUgl0RkVndDUHFnis9q91M8blnZhnXkcSPDlYNMTA/OS05qrlslx
-	 oUSs2Q8iIadEDo7wu5Nr3LhjAX+UkJc2VCrU7urs65SUxt82ZjQ4GjUf8UU6mWO2opQ==
+	t=1795439983;
+	b=P0clN17SAzZwB/WawE3qW5NU8xXFLWayfyqvVDEQHBHyGYvZYYlU6E/vvhqCdT6cHbC0
+	 01zh5Mmjw3E/Dm7D/Utm1SNVln4Iv/tTco6FBCzqrufhP5062njNclNh5QmK07O+VbaKj
+	 Rk+YlOzu4xGiLl9/UJvO7NsbuKD3OuahPBtcAw24XRy3YZiZ7E0dRqHPTaDns3Fjtcubx
+	 e7LYyz25tBcf8e9V6957NxBiOVkJv3tVI0k4dH9mWU9r+QamxbEnglg/Qcgw4nWA8EyyR
+	 zhrXdG2e7MPAZdXB2rOKMNqVYNh2oEAk5OnBHMZ6CyQ84Dxi2mxWkGN+0YhtgFZ0k5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795439940;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=D66cqDWQFzq72guLJs/T46gqCGetTmFwVdcYSyqrn4U=;
-	b=IqbQHC7OWqa2T0w1PChncbIdLA7F4qZ+uT5BtMeOdNihAAJsFWVLcMU19waTuqgMAuIs
-	 48ahdo5p6zPqYjyQ6G3ceDZyhVwYct30JC+WybslAol+H9jrQcxkZCxyynmZPv/L+5cpS
-	 RF21EOdSmL2/HE8kLwYOgukma1EbprEd5iGpJ6SRBdCCpNtncLG2Q1V1fJQaLBr8U1p4K
-	 ctqEIv8fzbtcnLnIClX5lgn4lROAhaIdd9ZfhwR/Py+y5cfAghc2uU/L1orkQf8wnN+Yp
-	 l/79Dy0FEAuXcpRQ1O/QiufhKgtLUa+giesGWY67A6MlP1JybY6HQffrQHGeEOGcXJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795439983;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=iYol7kGJlUO6lLn9bESn6OVQpRDCyh7pQI9vssz5C9A=;
+	b=Cd7Qrr6Hq80VoCZLEUEuiyhCBiXrcxXiMQ8wOwBoF7ybL6H6VNnczYdwHBww0ZdqF3uE
+	 b8Wh22lCJGtQyAcDGhwlL/y9FR2tqeG6TgkBs7VqrnOJR+ZyRJyM0KcgIN01v4BZjCt9M
+	 UUAQ/IFPdcEW3X0ByHPpTgwSQqHE2vXw/UcjM6Z1v1/1F94mmz4+IK9+lc6jJSSxVr5Gf
+	 5MFhfN9qKv9Sqbs8+RfOsswty5+JPm+xNoziev+ARc0Sx3pNw129FO+CjnxStf51tpUHG
+	 T4OBmYrKEDopyt2a6xmRM8bwJQyByrPIcJxl2R3xD6UnQ+s/eiyUUapWK0htWo17YBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OggmVO3O;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLaoyFtf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2576606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:18:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2576606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55614606A31A;
+	Mon, 23 Nov 2026 13:19:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OggmVO3O
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso38024105e9.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:18:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795439938; x=1796044738; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=D66cqDWQFzq72guLJs/T46gqCGetTmFwVdcYSyqrn4U=;
-        b=OggmVO3OHG5vwXsX2xjm6qyj23of0DdkdRwKumy+CxnzyvrM2hT2s+mg/zGERa9t1D
-         8BNC6zSvAFPAy/TaZGOaE56gm2PVsHd4vKzrm9sHb2x+uUxolBsVCouETgQkl/0/IsPg
-         +2YVPSzbSVLoSb15WW518geXsUO12T8arKs0EKB96knH44Z+tuvq6mLpM+GgJFRcmofq
-         6OCGi+ut3+83Bb776ie2Ot2Tk44LjvUVX7vf17I7oMfYXDwIXwCnhE0qh+3Pq+IY6r7y
-         2iVpXcndODz5SV0PvSbcCIJRW+YjadSwNCu2itA9j6eaQn+VCg6tf+5QkfzOJORbG+P2
-         32Qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795439938; x=1796044738;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=D66cqDWQFzq72guLJs/T46gqCGetTmFwVdcYSyqrn4U=;
-        b=xRR/xYrw+8jq8iZ8XDD+ygIMLrbN7UMn8hJWsX/k2UKBxW8oUho9sSB5f6YneL+mHN
-         7xVftqnBdjE0jllM6qlBQGbKvkb1TTVFLwlNivdNrOydiw1vHqlu5gsdi62kyJqoUi5A
-         z8G+05n7TxkP8wKsiBYC5grb8LZX7FtcOJWnbVUn/7EosnOLMTClmXUWRtMr/GNvV61F
-         jRR6JzPbpyRTU3EGFEYoNCH/coGEjVuGsHnnztxhQoFzWfeEbfHvTu2mS8BVp8CMR75+
-         7M1Aacwguvg0TxI3JI4/UrKN2gFfFWC4FRyDvJiuM9+2Wz0rzNkF1pIlBn77A3iCg+Db
-         nZ0Q==
-X-Forwarded-Encrypted: i=1; AL+hErGmYYEIJpTUJDUDNGQcEw14egljjVgkOjaYdafZcPmdS7d18XEr1JC1aPAy1tf9+SQLnAEXlFilmE/CJR8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Oqf0uEfx4IDgSXMCe3CcJnkqwZZ62vG3AOclPufHhs/BX8mM5
-	GOnuWX6NxvZdNX8GDHCAmR5gm3wLNuLQ7F9NXLQ10HJzq1baUVUAxxro
-X-Gm-Gg: AZFdTZexivVOnLpmX0xLT7BzvU8LQXTeeT9MGZ7C72PkLEVWr6uf3Z31DBjY3yhJifQ
-	OQa96OWJ1Mu5nXFnozdu2DruJ7SfD0C+ndQvQmR/CX0PK6LKdY1B3cpdgAGpe/EHuNEhAPSn+tC
-	buzD3zGCwNkDsmS0zxmUmYB7oWqpnELuRFv31/T3fadiAOShavL9jszgJYrBNISLWGRqfFM61oo
-	YqN8177PoSdvj67/gWcETrHonNtuBotwBxWfVX069JhtGgKJbBO170pWVeg7wLne/fYeEQAM0xY
-	5V2nbT+Rp3JeTxGkvj/9fGg/DHRCeFby0T78yMFk9Na1B/q9Ep+v4cF05JlIJ6U8BTQy25rFHC6
-	IumvYzRbFO1zDMU04fCq7BNpfxONVDk750uHg//NALADao56j3WQFcrMDImUKPYYrDw6bI9z4QO
-	x7XIluCrSVopaoXL/g3quUD+U9vtFVJarkJ+6AIfopMhAp7sVy8342cA9qZaDi2s+7V3+HbOmUQ
-	QneOmxzhdg5EDWi6fJ2A5h8uqrZQJ4i/dtUj0Fw5RUBbgHRf/br6COmf+VkxVRYxKxUGd/Ugu/l
-	HEqwbjgp46IziMtFksELnxtsSQ==
-X-Received: by 2002:a05:600c:154c:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb887c3428mr244307385e9.1.1795439938049;
-        Mon, 23 Nov 2026 05:18:58 -0800 (PST)
-Received: from metepc ([46.197.185.3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90655f5asm184923665e9.1.2026.11.23.05.18.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:18:57 -0800 (PST)
-From: =?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
-To: tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com
-Cc: x86@kernel.org,
-	hpa@zytor.com,
-	chang.seok.bae@intel.com,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
-Subject: [PATCH] x86/fpu: hold fpregs_lock() across fpstate_reset() in fpu_flush_thread()
-Date: Mon, 23 Nov 2026 16:17:59 +0300
-Message-ID: <20261123131836.220685-1-omermetekaya0@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLaoyFtf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084381F000C4;
+	Mon, 23 Nov 2026 13:19:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795439982;
+	bh=iYol7kGJlUO6lLn9bESn6OVQpRDCyh7pQI9vssz5C9A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=iLaoyFtfoyh/456qrViWqYmHM3K8JVMSIU7ppDp6t/1LPf1Dt++eLcVWM+4L9HSna
+	 ApkEasYZJ9vx3wpAcYxzSuGPiDnI85omKzTtfXgG4zR40HTsNAca+eDNiW0VqNFWLV
+	 0sd86e4eorF4r5QeNZfkBzcMOTRet0cTvIi3CCkMEMFAqLtcWCUC8O10VsRMAFtzpH
+	 NcS0y5vrXw9m2Wy8WMvKNePeS9c+RHJr0RtVWiBBFQu+RB9mIYk81j+vPtO/kk2IAF
+	 A57wdSSYSopLD2W/Zol/gwKuBS9ll7QbmQBdYUu35S/Dcs/wRihv0y4RYnMnhiEDbU
+	 LTK6Gcp3RQiWw==
+Subject:
+ Re: [PATCH net-next v4 2/3] dt-bindings: net: dptel,dap8211r: add LED nodes
+From: netdev-bot+sashiko@kernel.org
+To: a.shimko.dev@gmail.com
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ maxime.chevallier@bootlin.com, pavel@ucw.cz, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-leds@vger.kernel.org,
+ netdev@vger.kernel.org
+Date: Mon, 23 Nov 2026 13:19:41 +0000
+Message-ID: <179543998153.3135.2533998901272176773@kernel.org>
+In-Reply-To: <20261122131900.2951586-3-a.shimko.dev@gmail.com>
+References: <20261122131900.2951586-3-a.shimko.dev@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,40 +66,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-fpstate_reset() updates the fpstate pointer before resetting its size
-and feature metadata without holding fpregs_lock(). If the task is
-preempted during this transition, switch_fpu_prepare() can save the FPU
-registers using the stale feature configuration into the newly selected,
-smaller buffer, potentially causing an out-of-bounds write into the
-embedded fpstate buffer.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Hold fpregs_lock() across fpstate_reset() to prevent a context switch
-or softirq from accessing the partially updated FPU state.
+Low priority / nit picks for your consideration:
 
-Closes: https://syzkaller.appspot.com/bug?extid=58cbd7974a103b8b8916
-Fixes: e61d6310a0f8 ("x86/fpu: Reset permission and fpstate on exec()")
-Signed-off-by: Ömer Mete Kaya <omermetekaya0@gmail.com>
----
- arch/x86/kernel/fpu/core.c | 2 ++
- 1 file changed, 2 insertions(+)
+- [Low] The new `leds` block in
+  Documentation/devicetree/bindings/net/dptel,dap8211r.yaml mostly…
 
-diff --git a/arch/x86/kernel/fpu/core.c b/arch/x86/kernel/fpu/core.c
-index d1aeecd57f5e..939f800373a9 100644
---- a/arch/x86/kernel/fpu/core.c
-+++ b/arch/x86/kernel/fpu/core.c
-@@ -866,7 +866,9 @@ void fpu__clear_user_states(struct fpu *fpu)
- 
- void fpu_flush_thread(void)
- {
-+	fpregs_lock();
- 	fpstate_reset(x86_task_fpu(current));
-+	fpregs_unlock();
- 	fpu_reset_fpstate_regs();
- }
- /*
+--
+
+dt-bindings: net: dptel,dap8211r: add LED nodes
+
+This commit documents an optional leds node in the DAP8211R PHY binding.
+The PHY has three LED outputs, and each can be given a color, a function
+and a default trigger. The commit also adds an example with two LED nodes.
+
+> diff --git a/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml b/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
+> index 4cd0f9730d954..772329feda059 100644
+> --- a/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
+> +++ b/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
+
+[ ... ]
+
+> @@ -45,10 +46,40 @@ properties:
+>      maximum: 2250
+>      default: 1950
+>  
+> +  leds:
+> +    type: object
+> +
+> +    description:
+> +      Optional node describing the three configurable LEDs of the PHY.
+> +      Each LED can be assigned a color, function and default trigger
+> +      (e.g. "netdev" for link/activity indication).
+> +
+> +    properties:
+> +      '#address-cells':
+> +        const: 1
+> +      '#size-cells':
+> +        const: 0
+> +
+> +    patternProperties:
+> +      '^led@[0-2]$':
+> +        type: object
+> +
+> +        $ref: /schemas/leds/common.yaml#
+> +        unevaluatedProperties: false
+> +
+> +        properties:
+> +          reg:
+> +            items:
+> +              maximum: 2
+> +
+> +    additionalProperties: false
+> +
+
+[Severity: Low]
+This isn't a bug, but does most of this block need to be here? The binding
+already gets a leds definition from allOf: - $ref: ethernet-phy.yaml#:
+
+Documentation/devicetree/bindings/net/ethernet-phy.yaml:
+  leds:
+    type: object
+
+    properties:
+      '#address-cells':
+        const: 1
+
+      '#size-cells':
+        const: 0
+
+    patternProperties:
+      '^led@[a-f0-9]+$':
+        $ref: /schemas/leds/common.yaml#
+        ...
+        required:
+          - reg
+
+        unevaluatedProperties: false
+
+    additionalProperties: false
+
+Most of the new block repeats ethernet-phy.yaml: the type: object keys, the
+cell constraints, the common.yaml $ref and unevaluatedProperties: false.
+
+Only two constraints are new. The '^led@[0-2]$' node name pattern, combined
+with the local additionalProperties: false, rejects led@3 and above. The
+reg items maximum of 2 limits the LED index.
+
+Could the block be cut down to just the constraints that limit the PHY to
+three LEDs?
+
+The commit message also says:
+
+  Document the optional "leds" node supported by the DAP8211R PHY.
+
+Before this patch, a leds node with LED children already passed validation
+for this PHY through ethernet-phy.yaml. Would it be clearer for the message
+to say that the change limits the LED nodes to indices 0-2?
+
 -- 
-2.56.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122131900.2951586-1-a.shimko.dev%40gmail.com
