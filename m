@@ -1,75 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795464835;
-	b=tN59HnUOIQL6sJy0jImSZGzdy7r0lKmQ2iuHK2SPZ0IYqLkScs6SygpTMDZqnXXCg/IK
-	 nOEa9/+NtZx2DrviX2EXV4brTXP6Zdsi9nOIuLcV4Mzy1dLW4T7835NxKtp/v1o9OC9jS
-	 11RUOcPBpAXOTi7fw4PMiE3bMyTy5nOse5sJdBNSYtT8DhDnC6TvbBQHeERCTa3acPm87
-	 BUEV3SN9I91ph/m0xgpdwVRUXF4yiCoeGcEO1rfXVxM07Vc/33ycM7N2mcnlz4NDxFKqX
-	 P4w3/uQ0OxdtgSqhqpp9cKQt1/kOKKkLZ8t6OMc1tQM+/JwiyL6kM4PQkEwd7oIuf4A==
+	t=1795464844;
+	b=z3NDwq4LVYY1cQQjO6DjH2HlsfcQqwPTAFYPg2jMwbYGkgupcYCDNJFfRGpuNqKo0s71
+	 ubhmyCBK4no3R3QHMC4OYlh3rPmoXnaqGfwXeACZtfm+wkF2Sg0r0uhRJGXEukcgkSBfq
+	 DcFIqMZgE4V+i7tJFfHxThH5jmB8AXnVem1phOCsS80b4uShaQpPqi8b/kqjK8VWINaBa
+	 Wj7PSskZKaQQv4QF06cM3u9lcrnInpIQQboY3SRPCzoomr1c+ee/bBc2pNhhczR2q6p+v
+	 gqCwWMIYBQAReSQekHS+ZC2v+bFIt4tSxpo/uVRpeyaiM9ezDXKxR9r2R3uOZB21DKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464835;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464844;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=OvpPMptrHzBE3IreIziZcS9fob5PN9ySIM3VZNI+Dzw=;
-	b=GXfpn2l6QknXzoQqEM5QOXLK2WeoT7ra+tot3y6ppBkopEMjI5Qi1ct/E9K7fXyMgE+t
-	 kSux46DE0EIZipEA2oOzVkXaCT3k1i7LoK0q96Kfgz5Hk154YtvkniQSCUHOmpnlZA/Tb
-	 3/dEiFFDBM4LOVPpY4sE8c9Tb0BbAAYfQL2rATh/w/+bQB9xI9IuATy9Oy78uWy+HgS1p
-	 ftV3knoEsa+kFbqDlkr3osLoyj6GVh4Vz4f9/O0faqS3Us6+uES3ksWqb4JqUq5jhKjwm
-	 9TFzzjb/5O98UUlzGamwH/i+K0tL0TMtm+AZKRKpfBjl7pFyhaw4nEzrJ4nPKoUqCaQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=dgeT5HSySDkjBdmipJm4ZLy1GjB1CH3yde0pguoA2Lg=;
+	b=WYIvbR7YfFz6AE436KwZhOp4Q3oYFDvmA3NRw4DIs+NDn+xzDi5oY1bhVNfou50FSIAW
+	 wNcj9j+PP8qLZrJd9ebhU6jCaMC8WD3GxrgLS2k42x80ndJ6xSQz32qTHbjqJXOS5jMIn
+	 5/spYGHAM5E6pwF7gTtvrB0nStTws4TArRtl3zaw76IterHj8CRXWl8Gq9iZWAGkzonA8
+	 45Q5gSCjrPfu/z2clTISzpEcghEPpMkJCWeiH/BKjuk+vmomzxfzy8sFO9syKW4G4MB/d
+	 C9tJHos0K/PYECtpCKVXIWSv7vJraJBVVn0JwzvlkZx+DyiXHcXVTkDZvupkcBcPQ1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DDqnOq5x;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="O/QYgvZm";
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 177F7606A680
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:13:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 177F7606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FCC0606A326
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:14:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FCC0606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DDqnOq5x
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b25d977b91so3915250c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:13:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O/QYgvZm
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38587f3de36so4491769eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:14:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795464834; x=1796069634; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OvpPMptrHzBE3IreIziZcS9fob5PN9ySIM3VZNI+Dzw=;
-        b=DDqnOq5xq6RaKiZmEG89Cm0Xgoq+vkkGqfz04Cx0/yNmgwsDn2fa8m6rNnMxKKBcvh
-         Ebf68WwmVpiPA+oVpjp7/fAyBAdOD3v1PJw6r4zAAy1BkYZoxdHBQ9KM3292s21J28+E
-         z4SYiBvNLWBPwy9s50UIlz4WV+dwPBu0D7QFCZ74zSWsTkOAQ2fkZ/ttjfePEBEr+Juo
-         sKu591ZVGdNLIovcFl9zPlkbgDKxx3DNs9Ga+ASKhrZaQbgGrCEVbiWKyTOgCdLUOvgE
-         jB/Q8g1qJ2Gx1bp3Jw/FNHMs167PuXg7CGSCX5VcbQPcuI7psBTo2D2XOgLBpxDpUpD1
-         ou1Q==
+        d=gmail.com; s=20260707; t=1795464843; x=1796069643; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dgeT5HSySDkjBdmipJm4ZLy1GjB1CH3yde0pguoA2Lg=;
+        b=O/QYgvZmhabx3+D1Ox0nAqUklAwki5ts/e5ICD3coNuTFdwkbOEZN1+A7RpaXEaQwL
+         Mp4iBvaRVCxjPQ7fVMeTNRD8T8FoxT7n7oxKfV3t3J8vEdjJqUCAKqgmMab+Ay57xxB+
+         bcVpILohdXpSCjVMN7aXBpUyixQATBOkrAY8wSTNkf2jhPRN+Q1N5+TQTREXzogel4si
+         QW5sgjsw7YTrPRx/77ku31KCZRv/wLnBT0F18Vn/OdNghH4QCpBIP9G2+idR7IOZuGCS
+         itNt8FdcM5sVUtZT2ZP7qYHmDSK2KV8KeJFQXljcQIviEb/kursmQKvy6ypAemXGiOae
+         +Q2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795464834; x=1796069634;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OvpPMptrHzBE3IreIziZcS9fob5PN9ySIM3VZNI+Dzw=;
-        b=lHuWlKC8+vCk5cAmezwrTGWZo3mBdrTZxEfWuESyWfsiB8bjHg+guPbBu1j+Dr0uyo
-         vwZrXw6qp4vVS6VIg71/x4wvqRSJL3k29qLBs5WSdz4MES+SZJf6dmd+SD1Rva+pYJ1c
-         0nGyhWRpKzpUdGipnZ/yyyrn9JLVxfTudB5yagc+hmKZCbEOkRbxvJSG7UmCC3nuw0j5
-         vHuFwRGjauvVam31MbhPvd2EaIUfeoRi+ewx8vTQjDz7FELbOVQUTx7HP0NNapuot0Ki
-         RkiyelTEhUM6HqMz5Nvajp2QLj9RZPbRflF+4DseQw4jkeQgUzARDVbcITUpQC+t0RH3
-         Tl1Q==
-X-Forwarded-Encrypted: i=1; AL+hErGxlpBVdHgJmODtPEHdb1CO0KXUVJU2JRxeaGTo9g96Hf6HpaN94Xv5WjzaWKozw8vgbNJ+JUDZFTCvoZQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ySrgDl+lybcLc/zDXmISv80C0V0Y9nNCHwTW624j3PPE9hbNo
-	XHZPyAYHNmdJB7aqKuZivLjNyIq55b9yRL39wBCmvKFYwOylSzcJwkzeV8xUkANWOapwfK/pPLw
-	IOax+bq08Ldqb9n2qZg==
-X-Received: from dlbts3-n1.prod.google.com ([2002:a05:7022:b043:10b0:1b2:5271:f03b])
- (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:701b:2810:b0:192:74cf:1db2 with SMTP id a92af1059eb24-1b5568650b5mr11311923c88.11.1795464833720;
- Mon, 23 Nov 2026 12:13:53 -0800 (PST)
-Date: Mon, 23 Nov 2026 12:13:51 -0800
-In-Reply-To: <cover.1795462673.git.penghuang@google.com>
+        d=1e100.net; s=20260707; t=1795464843; x=1796069643;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dgeT5HSySDkjBdmipJm4ZLy1GjB1CH3yde0pguoA2Lg=;
+        b=fhADiqfXtp511rKOcH57g9FLCfANVfe8yqH12WCAuVbpZ0nvB6+P4Vfxov4eoaeReg
+         /xZiEPm6CzB6QMyGQrDqUqMGPAQj5M+ofwSi/zOWQnc3vDwCrO40mh6wGa2HjZ2kaL4h
+         zllpzDvsuleCxRZuakQxWsm4bUSTlrBq/EvfZPcdYnhkSIkDYC7XHOqnDV/ia4VE+eH8
+         UgFNa/MC8KM4O9MIa1XAV7xybHgEeyTY2C0ZRa9s1pnBBYXIK5hp6Be3SgZUXpIamVVG
+         mftvrga5aPFb+gkkpY1EaMIuwBD00rJ4sMUB/YG+TuaT34ZVIFlBB6/JTsB4axrbIDcQ
+         yy2g==
+X-Forwarded-Encrypted: i=1; AL+hErElw5TfhK9k2CgndcKHu9UaaSLN3XT08f57lF6KUILXHSRlDtuExtjURUrjgMFyzzHmcrSCoSJ42ecjGkM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87xcfhtyg9m+tvqSoZKVeWPSC/10g/a7vEn1rev18qwhakDbGj
+	Pup0MJtO8fdHU+Ktxv7KgJBKHCjL0USz0ArVYqIZxltNYcG03J0iBahj
+X-Gm-Gg: AZFdTZePCOzV5lUU651g+6TprmxHaiprD4oGt2l1UwnQv93Nrj5crPgT5yXpRU6sqI0
+	924FqOffURzR9MHmZW8G6VbAFKoKLJlwHysu2zKYpMYJgyq84a8UI2S53hCCQeT32DS1nvAGVIX
+	fNU0qBLjb9FETH97W+NyekKVWmJVQ7F7L/6IpoT+L3j1XcAHOR375cSEHVh2ndwdWnsn5UQYW0O
+	KhXTt7xjFfmNOGKF/2SWSvbdG8Nj0q/8sNMlmNtcezUkjoKEHrQNQvpYu+A27kQHVdFv6NCv5LF
+	oH6IE4H17wlLpUFTxXWDexNZAkMH7qracABUTUKTpPQacfc45L2/5swsSCdpzF5rIzSU7e54m8q
+	zsYPVmMQWiuVHzTaU/QRUDPeVSrX2F3t994VlshtCN4kNW1dOf7c58iCp2edRzx360AdPGjIfAr
+	2mFiE2i6jdBkr6/wjxx6z2pBETE0cXYJTNvpJG1yZCCwVuWy9aCJPaZIa4Amg0SLz9Nk+RJNwAC
+	9TRJu5lf6xMlD0Uoch6e0pLxBDVLoSMPW2JBsiixwXx1iO7C2WyF40Jr5bvY0YjjGdJOtIGEwWS
+	KbFdg18EPcsGG6sKUb8dtmABLPd7WtPmrdZr0CybFEJV4gAyGF0Q3ge1YQqa5fpTzXxud58=
+X-Received: by 2002:a05:7301:259a:b0:36e:800a:71fe with SMTP id 5a478bee46e88-3856c4b844cmr12383687eec.1.1795464843155;
+        Mon, 23 Nov 2026 12:14:03 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm4836352eec.9.2026.11.23.12.14.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 12:14:02 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:13:59 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>, 
+	Ronald =?utf-8?B?VHNjaGFsw6Ry?= <ronald@innovation.ch>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 03/10] Input: applespi - cancel touchpad registration
+ work on removal
+Message-ID: <awSebEs9zEV7GDF8@google.com>
+References: <20261123183200.3900004-1-lee@kernel.org>
+ <20261123183200.3900004-4-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,109 +98,48 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261122015729.2512645-1-penghuang@google.com> <cover.1795462673.git.penghuang@google.com>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <2b1ef28e12d12a1f894827b951910c1979d54d45.1795462673.git.penghuang@google.com>
-Subject: [PATCH v2 2/2] sched_ext, sched/fair: Drain blocked load on scx_switched_all
-From: Peng Huang <penghuang@google.com>
-To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
-	Changwoo Min <changwoo@igalia.com>
-Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev, 
-	stable@vger.kernel.org, Peng Huang <penghuang@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123183200.3900004-4-lee@kernel.org>
 
-Tasks that exit or migrate while sleeping queue their PELT load and
-utilization in cfs_rq->removed rather than deducting and propagating
-immediately. When scx_enable() switches all fair tasks to sched_ext,
-switched_from_fair() only visits cfs_rq chains that still hold live
-fair tasks, leaving unvisited leaf cfs_rqs undrained in rq->cfs.avg.
+On Mon, Nov 23, 2026 at 06:31:09PM +0000, Lee Jones wrote:
+> applespi_probe() allocates its driver state with devm_kzalloc_obj() and
+> initiates an asynchronous touchpad information query whose completion
+> schedules applespi->work to allocate and register the managed touchpad
+> input device in applespi_worker().
+> 
+> applespi_remove() disables the ACPI GPE and drains in-flight SPI writes
+> and reads, but never cancels applespi->work.  If a touchpad info
+> response scheduled applespi->work just before applespi_drain_reads()
+> completed, applespi_worker() can run during or after devres teardown,
+> corrupting the device resource list via devm_input_allocate_device() and
+> dereferencing freed driver data.
+> 
+> Cancel applespi->work synchronously after applespi_drain_reads(), once
+> no further SPI responses can schedule it.
+> 
+> Fixes: 038b1a05eae6 ("Input: add Apple SPI keyboard and trackpad driver")
+> Closes: https://sashiko.dev/#/bug/linux-bb2fd773-6c20-468c-a092-6814f008077f
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
+>  drivers/input/keyboard/applespi.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/input/keyboard/applespi.c b/drivers/input/keyboard/applespi.c
+> index 96c504f28495..d964cd3ee5af 100644
+> --- a/drivers/input/keyboard/applespi.c
+> +++ b/drivers/input/keyboard/applespi.c
+> @@ -1819,6 +1819,7 @@ static void applespi_remove(struct spi_device *spi)
+>  	device_wakeup_disable(&spi->dev);
+>  
+>  	applespi_drain_reads(applespi);
+> +	cancel_work_sync(&applespi->work);
 
-Once __scx_switched_all is enabled, scheduler_tick() skips
-sched_balance_trigger() and fair_sched_class is bypassed, freezing
-blocked-load updates. Stale rq->cfs.avg.util_sum can then combine with
-active RT/DL util_sum in update_idle_rq_clock_pelt() to exceed divider,
-inflating rq->lost_idle_time and stalling rq_clock_pelt().
+Likely should be disable_work_sync() instead.
 
-Export __sched_balance_update_blocked_averages() and call it on each
-CPU in scx_enable()'s per-CPU scx_switched_all() loop so pending
-cfs_rq->removed entries and task-group propagations are drained cleanly.
+Thanks.
 
-Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
-Suggested-by: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: stable@vger.kernel.org
-Signed-off-by: Peng Huang <penghuang@google.com>
----
- kernel/sched/ext/ext.c | 9 ++++-----
- kernel/sched/fair.c    | 7 ++++++-
- kernel/sched/sched.h   | 1 +
- 3 files changed, 11 insertions(+), 6 deletions(-)
-
-diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
-index 10de6bd865e8..f7c573092e17 100644
---- a/kernel/sched/ext/ext.c
-+++ b/kernel/sched/ext/ext.c
-@@ -9013,11 +9013,9 @@ static void scx_root_enable_workfn(struct kthread_work *work)
- 		static_branch_enable(&__scx_switched_all);
- 
- 	/*
--	 * Detach the fair_server bandwidth reservation now that the switch
--	 * is fully committed. In full mode (!SCX_OPS_SWITCH_PARTIAL) no
--	 * task will ever run in the fair class, so give that bandwidth
--	 * back to the RT class. The matching ext_server attach already
--	 * happened earlier; this only releases bandwidth and cannot fail.
-+	 * Detach the fair_server bandwidth reservation and drain any
-+	 * remaining blocked or removed fair load now that the switch is
-+	 * fully committed and periodic fair blocked-load updates stop.
- 	 *
- 	 * In partial mode keep fair_server attached.
- 	 */
-@@ -9028,6 +9026,7 @@ static void scx_root_enable_workfn(struct kthread_work *work)
- 			guard(rq_lock_irqsave)(rq);
- 			update_rq_clock(rq);
- 			dl_server_detach_bw(&rq->fair_server);
-+			__sched_balance_update_blocked_averages(rq);
- 		}
- 	}
- 
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index f6c3bbb19557..f19f498e01a4 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -11655,10 +11655,15 @@ static unsigned long task_h_load(struct task_struct *p)
- }
- #endif /* !CONFIG_FAIR_GROUP_SCHED */
- 
--static void __sched_balance_update_blocked_averages(struct rq *rq)
-+/*
-+ * Update blocked PELT averages for RT/DL/IRQ and fair cfs_rqs on @rq.
-+ * Caller must hold @rq's lock and have updated @rq's clock.
-+ */
-+void __sched_balance_update_blocked_averages(struct rq *rq)
- {
- 	bool decayed = false, done = true;
- 
-+	lockdep_assert_rq_held(rq);
- 	update_blocked_load_tick(rq);
- 
- 	decayed |= __update_blocked_others(rq, &done);
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 220927453a88..71a69f90e5df 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -2977,6 +2977,7 @@ extern struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf);
- extern void update_group_capacity(struct sched_domain *sd, int cpu);
- 
- extern void sched_balance_trigger(struct rq *rq);
-+void __sched_balance_update_blocked_averages(struct rq *rq);
- 
- extern int __set_cpus_allowed_ptr(struct task_struct *p, struct affinity_context *ctx);
- extern void set_cpus_allowed_common(struct task_struct *p, struct affinity_context *ctx);
 -- 
-2.56.1.831.g720f3f5937-goog
-
+Dmitry
