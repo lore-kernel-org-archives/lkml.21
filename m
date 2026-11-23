@@ -1,47 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421323;
-	b=Jzg2rrIiTDeVGw97kqSHjvQqkV8YUoZOlsK5QyXjbtDcAnOpahR0+frXcT16HytpU5O2
-	 tnFMSDeV54G2hPLy11VLn7PJnaWGIAUj4QU1wANRxTYrOKZyhYkrhRGju2Vi5nb5t20g1
-	 UCrrUz8yG6AQvmXsoyHJTLG7ZFeU+/5lalCLnYdytFlnE1/j0MAtnnclCuGKYr4fEJJKV
-	 XrqVttTxCd54G/cNUB6i/Yx++DcyefiE1zRADJ6dCTZ03sCWJwrVclTRn/R7lForLxe7w
-	 17RsYa3HxBLNJ7WXB3qqzeXpQwHMOeVajJdA50Guq0ymv2dTG9LU3+sVILq/PaJesCA==
+	t=1795421358;
+	b=CbGkpuas8yFeAaEcps9JNVNFUZHLfBCrRdPvu+730nsAt34r8mvy7RAmyEAuqzrxkKUI
+	 8zh/Nx2XQZgNb4i46mqgJewVBAy/AhNcuygYSns6Ypg0fBw2suMJhC3HFYGW4zuHGUGRw
+	 1pZrUPv6kT9Pi+z+WFf0Cs+gWxh0JCgQPO8UbKRSjsiaXdydg8nsZcQIqpHuDiJdEN9gt
+	 n+o2q0MFTyoMnDG3F2TIYaSIr7K1cnDjTDd6msjGAvQjEkgq7yyJWtgWQdK+4Zs+9vnqI
+	 43OZYRZN4LD4E0PewuykS/063dCyQ8cCoSwlSScHfbIc8we3pqOHZ1B5nrO8faZKw+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421323;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:Cc:References:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ITymmN/R+DfUsDN5XqJtLLfHcHySz5UNsIGn9THn99E=;
-	b=sLAkjNqB6Vlj1PHWisKk+RSPwZYQXkNn8C2aqfmFT0MdhmEwWJBf+3SB6vf9Ou3Im52f
-	 r2ehDzlivwOmSjrXl/cfdmGK0UqJLr+Vu6bTYbgyKy4sv3ZNKYn8bo7e3ybfFbaIu32gr
-	 H/z6V8DpITjeWuc9Ua6OU15omAe1gS6QtMB/TO93zBrjIQShkBUn9dx/6nzLCAym4+ySs
-	 2Bggy+AFjYwdeYYGgzMLTurNyINSBqA7mqiaC7qIVACpoWnpW+qaq/4ooOPUYIOF8X6TS
-	 RzY+MrMNrsIQjI1FoTWCVfMjh+6FDoKEgM4KMIsyS+7M+Zc/aBCVEkL5agU1T+fgKtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421358;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 From:Subject:To:Cc:References:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=rkqgWRc27otdpALibzeS4RLFb3XtiaNFEPnkvU5rUjI=;
+	b=Oy4OKfdDneVsEAGEo18CWYybW1lBzjRyTv4j02+AT+7qPFzA/20PHhqcBQTPxsHNhpKL
+	 3gh9mvvsa6ym0z0BGBOC9slw4d4khYpstoRHskvZ+wSNBUEbuOASUSjsVQ6c/ztEkPJt5
+	 39V9TizWyHU9IxrJ3Qt3Pi8I8iNqh1vNBg2qd68nx63dnEYqDZQw3QcrCUFNPrmN0bZM/
+	 qBfRK6O7cyH+EFDuUTIhQDJvk1hr66FqWxxhVNwgBSFXUV1U5bqf9uEgQOMxzdeUPl93z
+	 eVHrD6JOyS/SurkJIip8/5lYX1pBxqLEumis9QCVrSo2ikKvTLncbWLvKl4ihWjI7CA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YS0MH+GL;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JauWTYqS;
+	arc=none smtp.remote-ip=95.215.58.47
+Received: from mta1.migadu.com (out-47.mta1.migadu.com [95.215.58.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DC97606A31A;
-	Mon, 23 Nov 2026 08:08:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34625606A33D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:09:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34625606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YS0MH+GL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22C221F000F2;
-	Mon, 23 Nov 2026 08:08:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795421323;
-	bh=ITymmN/R+DfUsDN5XqJtLLfHcHySz5UNsIGn9THn99E=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=YS0MH+GLq4hxvp9/l+PfiEDwmHC7IXwIxg5x6BMxZ/a5h0Wy3r2s1C+pNt7tsVhk7
-	 KzKxv7uMvEhPdFq9Y8x3sLVpR3s7sD3RGdX0YO2MUJHK1pBQPNcVcciYZEFS2CP2th
-	 HddkESbP9V6AEUE/oxCZ7Qh1TYkAMXwQ9Kg5ZXaZ4LYOLaTeDZX9+2dW1888wkRQNb
-	 2SprSkBRt9jTAo9XKdJqNDuxfj97KRSRbbPazAU2B8PZWkFtmVgThESeZKbrW1fAHo
-	 pPi6+KICk+RYLD92M+PIDA1KTfd82LQ8oLfaVOeoDVr6yTY3MY+99QlLosxrWY9RqN
-	 aNLzLbVtPuyqA==
-Message-ID: <9a659dc6-2ba0-4f97-86b4-ded8a48ac7e0@kernel.org>
-Date: Mon, 23 Nov 2026 09:08:34 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JauWTYqS
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=zWleqOppfklU2qNEH6k+5t2FcbXOtb2beCUwX3nqER4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795421356; v=1; x=1796026156;
+ b=JauWTYqScQYdIL9n4iWIfYXBR+0eGfLWwPLLUUS7kFHE4A8B+Z7E4xCbrZG4CUV7hsRUKJp9
+ Iypsz7Fovu1jcOFvRCkIyKfDBg+dbyF5fd9nmyVMrb9+natPdIOkRYnWLL5CIyx2GyZoob0/urO
+ KvS4NQt0h3i1T2RY84BQE9uQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 0cf66a178946746f;
+	Mon, 23 Nov 2026 08:09:15 +0000
+X-Mizu-Trace-ID: 0cf66a178946746f
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <037c23b7-7b9e-4a9a-b608-552e419fcec5@linux.dev>
+Date: Mon, 23 Nov 2026 17:09:06 +0900
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,87 +59,76 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] dt-bindings: serial: Add the line transceiver enable
- GPIO
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tapio Reijonen <tapio.reijonen@vaisala.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Markus Probst <markus.probst@posteo.de>,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Lukas Wunner <lukas@wunner.de>,
- Christoph Niedermaier <cniedermaier@dh-electronics.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Lino Sanfilippo <l.sanfilippo@kunbus.com>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>
-References: <20261111-serial-transceiver-supply-v1-0-40bad0f912f2@vaisala.com>
- <20261111-serial-transceiver-supply-v1-2-40bad0f912f2@vaisala.com>
- <20261123-transparent-coucal-of-persistence-8cfbdd@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261123-transparent-coucal-of-persistence-8cfbdd@quoll>
-Content-Type: text/plain; charset=UTF-8
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+Subject: Re: [PATCH net v2] netdevsim: fix rate node leak during reload and
+ removal
+To: xietangxin <xietangxin@h-partners.com>
+Cc: Dmytro Linkin <dlinkin@nvidia.com>, Vlad Buslov <vladbu@nvidia.com>,
+ Jiri Pirko <jiri@resnulli.us>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com,
+ gaoxingwang1@huawei.com, huyizhen2@huawei.com,
+ Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+References: <20261121110858.1337003-1-xietangxin@h-partners.com>
+In-Reply-To: <20261121110858.1337003-1-xietangxin@h-partners.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On 23/11/2026 09:03, Krzysztof Kozlowski wrote:
-> On Wed, Nov 11, 2026 at 12:28:01PM +0000, Tapio Reijonen wrote:
->> A UART's line transceiver (RS-232, RS-485, an isolated or a
->> multiprotocol part) is a dumb device with no node of its own, yet on
->> many boards it is the largest consumer behind the port and can be
->> switched off, through a shutdown input of the part or a switch in its
->> supply. Device trees have no way to say so, and the transceiver stays
->> powered for as long as the system is up, whether or not the port is
->> open.
+On 2026/11/21 at 20:08 xietangxin wrote:
+> netdevsim allows switching the eswitch mode to switchdev with zero VFs
+> and creating rate nodes on such a device. However during device teardown
+> nsim_dev_reload_destroy() only drops the eswitch back to legacy when VFs
+> were configured, so the rate nodes are never destroyed and trigger the
+> WARN_ON(devlink_rates_check()) in devlink_free():
 > 
-> To me transceiver is part of the UART device node, so this should be
-> handled by device schema. Commit msg lacks actual hardware names
-> justifying the change.
+>    WARNING: net/devlink/core.c:544 at devlink_free+0x18c/0x26c, CPU#2: bash/5032
+>    Modules linked in: netdevsim ...
+>    CPU: 2 UID: 0 PID: 5032 Comm: bash Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
+>    Call trace:
+>     devlink_free+0x18c/0x26c (P)
+>     nsim_drv_remove+0x9c/0xb4 [netdevsim]
+>     nsim_bus_remove+0x10/0x1c [netdevsim]
+>     del_device_store+0x110/0x190 [netdevsim]
+>     ...
+> 
+> The rate nodes are also left behind on the devlink reload path, where
+> they trigger the WARN in devlink_reload_reinit_sanity_check() instead:
+> 
+>    WARNING: net/devlink/dev.c:437 at devlink_reload_reinit_sanity_check+0x110/0x148, CPU#3: devlink/5205
+>    Modules linked in: netdevsim ...
+>    CPU: 3 UID: 0 PID: 5205 Comm: devlink Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
+>    Call trace:
+>     devlink_reload_reinit_sanity_check+0x110/0x148 (P)
+>     devlink_reload+0x218/0x228
+>     devlink_nl_reload_doit+0x3dc/0x5b4
+>     ...
+> 
+> Evaluate the eswitch mode check unconditionally, so rate nodes are
+> destroyed whether or not any VF was ever configured. Note this also
+> resets a zero-VF switchdev device back to legacy mode on reload, like
+> the existing VF case.
+> 
+> Reproduce by:
+>    $ echo "10 1" > /sys/bus/netdevsim/new_device
+>    $ devlink dev eswitch set netdevsim/netdevsim10 mode switchdev
+>    $ devlink port function rate add netdevsim/netdevsim10/n1
+>    $ echo 10 > /sys/bus/netdevsim/del_device
+> 
+> Replacing the last step with "devlink dev reload netdevsim/netdevsim10"
+> hits the devlink_reload_reinit_sanity_check() WARN instead.
+> 
+> Fixes: 885226f5680e ("netdevsim: Implement support for devlink rate nodes")
+> Cc: stable@vger.kernel.org
+> Reported-by: syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com
+> Closes: https://lore.kernel.org/netdev/6af9824c.920b2b3a.148c65.0009.GAE@google.com/
+> Reported-by: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+> Link: https://lore.kernel.org/all/17cc4251-04ae-41a7-a872-fc5cf525b58f@linux.dev/
+> Signed-off-by: xietangxin <xietangxin@h-partners.com>
+> ---
 
-Feel free to reference at least two devices/schematics etc showing they
-have separate transceiver pin for that...
+Reviewed-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-Best regards,
-Krzysztof
+Thanks,
+Xuanqiang
