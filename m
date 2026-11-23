@@ -1,85 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.66
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468733;
-	b=oSt29Y7cQj0yuX+HcQL4BZs+bV5POvsCAlP2pi03V99h8Qbd++Ft+0qYoNM/BIuOwSod
-	 +y2vD0wlrsQOEqLs0F10lDf71EmnClFnLzrLP4aL7lAR56M23RF3crEqL0nj3k/YJ14Bn
-	 Lz7engoSUPSpXOxhw8dR1sXTtRKxDG7CCdSZZ0TBtXjo0IYaeTpijzWmfGWBjAZQc/Ds8
-	 wKNiio5N75sVEGSEmyfxQ7R5XCO8OnlTaLHsSmFGIWw8wAj+gnab6DpRz0Tp9nTa44eDd
-	 IUA4ATOXO4OSFLihCLmt9wCsaKWWTGbCYG4v1aWKQv02RQFIc3k+KjqnBcGlhGcuXFg==
+	t=1795468814;
+	b=q4GD1MjyqYE7BwvkopQT1zrbP8UoKrSu4ssWZuYr4czzkz3uy/6QUNqWouZji9WBrjy0
+	 s122OV30981VB2IWqN9jNG5d2cA2LnZxVPSQraNBDcUN679pt5XxTZBJarw81hbPUmzaM
+	 XdAoKc4gc/hyWDCL9pr22Xj2c64/lIXx13qcdMYLQc1aSsDMBhtmBm41m/XUcx6Zs4R1b
+	 +x0xRwZ5ktJRgOIPMgBArdTltw+WAsEpLSDd9GFgAPXlN4aQLOImxjiPoBTfAnNGVg0KH
+	 IPJJizlmo8h9nsiY4XikJJ/raM0bKnMA8zBxKEgk4JUs/bvPf1dJPLCGz70Dmo8l2Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468733;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 To:Cc:Subject:From:X-Mailer:References:In-Reply-To;
-	bh=UdbWtdWbnHAnBe9m59yDmsAfmbDCGbDO/F2rxx+Kr/w=;
-	b=LYjbZM6FvlWnhaGQkrmuk4JU1/ZfeAxV5DiamwUjg/OerWDrnNpS5v17yU9E1/KXzqpK
-	 ewIsYheCBA1jAEecWN2MLVrbSpuBA/d6t2TOIv+66tK8ZR23HYKzvYsFH+0Uc5XvNld4V
-	 YH+YWda4TrtdhcfWqyRY9S0kfNYzor+vTUVG+B3TaIHrPBtIQWU5prIEexRQJtYu+8BdD
-	 5KHBe10H4zxT6IJjtbC4LM8ZK6O6dGSF5p3aRk26JQocGliAfJe5t44SJxRSG8U+Zo3jC
-	 TgOR67QLGsGKnQvZUXXBE8dvwDTdxuoAtiTXqsUEY5W0y0vQp20RHGQN5J0ijTCWR4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468814;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Zn3tIAp1+uppY8sNhIJSnBaYVUecqPqv6i7tNq/cCs8=;
+	b=DgieOeuP4e7NOVYHvMNkRWvyNnJtJWwEJtoRm7I+8RuMEolFMTLYC3RzLW9I0FjztPwG
+	 sl6B2lRTPYvmiqcokOLwXGCqQHcBF+vlE3/os3pT11HKQN9j6r3GZ3+wqU+ClgRMIO9TY
+	 6wLBfuJL2nrzvNLvdm51ZKdK2mXhOyOg2LdZbIPZldJ0StcpgR7Q0HuCOzkyYFFF2YDAk
+	 HQVn4P8444Ks9mID8rXUnPv7MEB31j/R1iI2SixOt4c0bTHHl/EZtgGoVzn6cgKQ6G7DI
+	 9HrIh6ingWtZvcAw3Ic3CK6vx/preJs5Ex6MqUATctdj5htVmTcPKlaFahv9T+C+EvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MQBhbA9a;
-	arc=none smtp.remote-ip=209.85.210.66
-Received: from mail-ot1-f66.google.com (mail-ot1-f66.google.com [209.85.210.66])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0eQnAZh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 476D6606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:18:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 476D6606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B3FE4606A31E;
+	Mon, 23 Nov 2026 21:20:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MQBhbA9a
-Received: by mail-ot1-f66.google.com with SMTP id 46e09a7af769-862df509d48so3043685a34.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:18:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795468732; x=1796073532; darn=vger.kernel.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=UdbWtdWbnHAnBe9m59yDmsAfmbDCGbDO/F2rxx+Kr/w=;
-        b=MQBhbA9abCEm2W4n2Sav0twyTWtHL9dlzCuGMe+dGXr+Bmgsqse/NRFIyOVfR6kdc4
-         UX5Vlwam3jCbCoRj3cJmsGOZzo9BU8ufbFW+1KzByk1lTtB6Lu8kgr6C2z6452t4fG18
-         SnRWJUAMIpb8EuBZxehw6staapYIft8RHTa50htw8vH/dTmOhZDUlI7Hc2e7BQjEM6Fb
-         Q8IhVefAvcdWnpYWzYomK1MWevYD6eIHXQnODB39jOrXmnT77+/SyIMNi/1qHwME2J5Z
-         HkR4ho/r/3wjX6fZPuCOxcVdG25oAMq8Iiuvw2lACgNuqpxPZ+SEjg/LiAMsUMVs/7UY
-         tZMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795468732; x=1796073532;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UdbWtdWbnHAnBe9m59yDmsAfmbDCGbDO/F2rxx+Kr/w=;
-        b=gNgSDn5hU6iXXPnrKpROfboUyolATKKk1lqRipiRYZG3lvBDsKWYbNtIauYhMK8oOk
-         Z4kosJJn40i71cKXt1gK0T8V6MTVODJ0Tx1+dIKqjQ+VUQdgdyY0eRmlhCKM4OM/ikZ5
-         TCTbjdyaVkiXCuGFGaTxzaRNsNX34XqR+L7/elwjtPq0kyPgp5U6i5YKV8GiBGzqW5T8
-         aSeGiKqsgaIX9odyBeiejOPrQOYm4VDJCdweorodMJa+HkEWcezcqKn8oHYdIWemOEf1
-         joNCJ5Yo29FoN/q0msIxJ1mgPxfOg0dboFaPpbxzt7H3/HadmRMDm03SiIEzLzC7bWff
-         Whdg==
-X-Forwarded-Encrypted: i=1; AL+hErHhudwaa0wjDd50+Uokwxug+gQ92oM3Ynz6hfGRMiC6J+LDKbMgjbt49a7NRu1xrouWB9UtIZJz8E9n4zI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qvI0dKrNs9cvylIXkDZx/LOORFLqLcryjCU4wD/n79wOB2aWf
-	MCYQGPHTJdx9xGiojHHPFOVYttRl5Xtnvs9MQRW8LWiCO+D57Q8KEtTc
-X-Gm-Gg: AZFdTZfJgeNJd9QfbeiSZ7eNkFnxoNTJHOvmRexcbWDKlyBIfp4esGTy7dcK9Qtu2tT
-	0yjTiNs6jfpo9tDqm/bRgrM6lEjb8RM2EsKn2m3pBhfEH3tOd+iumpT2OmxTJkQIYXofHQYomU1
-	E5yHhg0j9g7r9h7TTprUDcO5Tpxmcz4TXXW/kVe1TuRMwBh6dKJBWbnTYskeEDaAtSCUfwyWDWS
-	wDLb2GGxkkdDjWb/gAbGcZ08jjsXfBoS3jLowXPz2PFQEgHMssqzUZDDwv5Q9+7KpiGn4VSQg8S
-	up6CjsHz40fwmH43PEqkTTYrd0V7qWjR1Y1/ToRgU3WCTE9ZB5GBguVvNFWsthuxfV5c/wyNoH9
-	kzv0FHA7kyBVLQsRYBYXQCtRY/704Ik4vDiZcDVSsjG1wFB0AKREuIIQCRkYM+YPC8mEtKQVzuW
-	YIlU07+pwJIbi4i++9gCBmt7SGkaJiXYJLcwQGwCut/4FULs0m3YZb86j8mrqUo5yvZXPk7UiFZ
-	ch1+6iFxWfHQO6p+ARPc57ndKOmZe2seK1klj7gCPUnSMsdzRs/9wCNB96nCUQzgNgcD2Uho6Xs
-	6qG75xdWYgy+hm3FVNZmslDMZpTujlWmBncw1r/4hFfVsafCGkj4lL6VnVOZAsPUziTJTm5epWP
-	njhFgTBgmRkOYUqHSxoLPG25PY0k//htBMr8=
-X-Received: by 2002:a05:6830:82ee:b0:85b:895:a015 with SMTP id 46e09a7af769-86309065b5amr10471283a34.4.1795468732137;
-        Mon, 23 Nov 2026 13:18:52 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:5::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692d9f7sm9734033a34.24.2026.11.23.13.18.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 13:18:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0eQnAZh
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9AA0B1F000C6;
+	Mon, 23 Nov 2026 21:20:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795468814;
+	bh=Zn3tIAp1+uppY8sNhIJSnBaYVUecqPqv6i7tNq/cCs8=;
+	h=From:To:Cc:Subject:Date;
+	b=j0eQnAZhNz0DypmcXj63CP8BaSTvUEDaEonNLo+6TWzNykoyxloYsF4/0xLCRzW77
+	 yA7V/b47bv3jSIIKxURVY8tMH5vO6ZtCmzMrrIH8FRyjfNkYqaMSd/uJJXLb73S762
+	 I5u7Pc71FQnvhdzbup7OG10KgDR4yziuLYyp55RiY20CcVl4w1sBWatNVlKnXiuAaF
+	 f4gCZFg52+u+KDFYAU4Dqo5FzWbjZKL66/NsyNoByjoao7+Phpe6OuHi7GwCi2z+KO
+	 BRLiXHLQkz/zsi7IcycalgZjKgSQUdU8d0xJzEGsimmaBt55RYGShIkNEyzlubIrI1
+	 w4m0h3IclScCw==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: keyrings@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	David Howells <dhowells@redhat.com>,
+	Guicai Ma <maguicai@kylinos.cn>,
+	James Morris <jmorris@namei.org>,
+	Paul Moore <paul@paul-moore.com>,
+	"Serge E. Hallyn" <serge@hallyn.com>
+Subject: [PATCH 0/2] KEYS: keyctl overflow fixes
+Date: Mon, 23 Nov 2026 23:19:57 +0200
+Message-ID: <20261123211959.4102708-1-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,66 +61,28 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 22:18:48 +0100
-Message-Id: <DN2WJMWD5G0R.27OOI2IBOXA6M@gmail.com>
-To: "Tamir Duberstein" <tamird@kernel.org>, "Alexei Starovoitov"
- <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
- Nakryiko" <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>,
- "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
- "Emil Tsalapatis" <emil@etsalapatis.com>, "Shuah Khan" <shuah@kernel.org>,
- "Andrea Righi" <arighi@nvidia.com>, "Xu Kuohai" <xukuohai@huawei.com>,
- "Andrea Righi" <andrea.righi@canonical.com>, "Bing-Jhong Billy Jheng"
- <billy@starlabs.sg>, "David Vernet" <void@manifault.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>
-Cc: <bpf@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Andrew Werner" <awerner32@gmail.com>, "Zvi
- Effron" <zeffron@riotgames.com>, "Andrii Nakryiko" <andriin@fb.com>
-Subject: Re: [PATCH bpf-next v3 4/8] libbpf: ringbuf: Add a caller-owned
- iterator
-From: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>
-X-Mailer: aerc 0.22.0
-References: <20261120-bpf-ringbuf-fixes-v3-0-ff7ca15d6c37@kernel.org>
- <20261120-bpf-ringbuf-fixes-v3-4-ff7ca15d6c37@kernel.org>
-In-Reply-To: <20261120-bpf-ringbuf-fixes-v3-4-ff7ca15d6c37@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Fri Nov 20, 2026 at 9:33 PM CET, Tamir Duberstein wrote:
-> Ring buffer records are exposed only through callbacks. Callers that
-> need to stop at an operation-specific condition have no non-error way to
-> end consumption early.
->
-> Add a caller-owned iterator that returns borrowed records one at a time.
-> Each next call ends the borrow and can publish consumed records before
-> inspecting another one, allowing callers to batch consumer updates.
-> Implement callback consumption on the same internal iterator core so
-> both paths share the record traversal and publication protocol. Allow
-> iterator-only rings to omit the setup callback.
->
-> Preserve callback validation, so callback-based consumption of an
-> iterator-only ring still returns -EINVAL. Keep the consumer-publication
-> barrier on early destruction, including bounded and callback-error
-> returns.
->
-> Keep overwrite maps out of the public iterator; handling a stale
-> consumer position requires a separate resynchronization protocol.
-> Require iterator users to observe exhaustion before waiting for another
-> readiness notification.
->
-> Signed-off-by: Tamir Duberstein <tamird@kernel.org>
-> ---
+Cc: keyrings@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-security-module@vger.kernel.org
+Cc: David Howells <dhowells@redhat.com>
+Cc: Guicai Ma <maguicai@kylinos.cn>
+Cc: James Morris <jmorris@namei.org>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Paul Moore <paul@paul-moore.com>
+Cc: "Serge E. Hallyn" <serge@hallyn.com>
 
-Hi Tamir,
-I had a similar patch set in flight, to ressurect your older changes (which
-explains why I sent out some your fixes which were landable).
+Guicai Ma (1):
+  KEYS: Fix userspace buffer overflow in keyctl_pkey_e_d_s()
 
-We can compare notes on the API design and decide on the path forward here.
-Feel free to provide feedback on [0], I have put you in the Cc list.
+Jarkko Sakkinen (1):
+  KEYS: Fix asym key overflow in keyctl_pkey_verify()
 
-Thanks.
+ security/keys/keyctl_pkey.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
 
-  [0]: https://lore.kernel.org/bpf/cover.1795467315.git.memxor@gmail.com
+--
+2.47.3
 
-> [...]
