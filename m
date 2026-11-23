@@ -1,96 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396694;
-	b=gFy7jL0MD9OaDcFZYhORZmsCvyBWuTFFJ/NBjR6Fy/rEAVjsD5q678plHfiZAu7mc5Fk
-	 HywNccHhD3SURl55zf7J7cjLw2u7i+016bwk09u6mjvXMB4mL0R7856lt3eTruRO8sb7K
-	 1LUGj6+sr3YD/h+QPJhdLylfGin1y0KVJf9esM7CJN3bJZnxjMBXINeu8vRzlGx4H4Z4j
-	 ZlhcRvwpPeqymUkczo3rfibLVl/NEEOTb1dB0UUnqOyfgg/rSahx1IKHDWjnA45ZEkaUh
-	 UEBJ0yboUcBNaqCmA7vzsP9jdg6E3S0XKDN38zlEVuXycbLJS08Zkk7+bJ5nqsYL5gA==
+	t=1795397024;
+	b=PcmqE6rd331s4g5K9hBWv9n47hHmGK1UJyuSriynWUidHYGqNVBWauNKCmA2VFcqyvse
+	 lW2YvExbHZjnWksHi6yRKW4Ui3LGyS+vgPbNTRGdjQ78rhD/O2g30LBuaCrhVgY25aRCg
+	 51F/B72XFFRrStIRBwzfZ2JxRtkx1SpGUZUMAWJLDVdRhWWNi4KPDeWVT6Bj4zjix+SL2
+	 VfrRaGjw38qgMwHIVbRInH1JK4hl/XxOvVScjCdd0sAH3mM1Oy+1QICDBHq8lWDqirul8
+	 CUzuPyWdC4mYVovWH87F9ytGnfb/qlkXPzqS/3xyy0COwLjPi+jNKgFV3JZk8LpDbJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396694;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=xtW2k1ILTZk6SZgInS9ZTOwHcWM7IUrJ3JhIcEADImc=;
-	b=O0MaDhMk99PAr5VmJkNaR/lw3EwDsCY/lZ3mn7TOc1MtOgvsMG9CM402Ng/iMlf6OZz9
-	 QdB8Hbc3KZRAR+pf5I14v4YggMopYrIyqngTbPdTI2EoY+T+ceFpI/g65TcS/RG24B+0H
-	 an8sdi4cmWm/Df62h6359LoHQDWEaL5MUPUdKC4SFg//Ghe8ITf1skWH4l3WZnvjrpKLh
-	 DdRI07+EZetoGB2IZW7uoQ2l7UmXw6htr9mxoF2bcJMYjMbhC4iHACcZ8lDfcjXZhCKA2
-	 zsjuID9+G/Vy19FtygAVa6oO4N2GFIptkb3i3p0xsX6wXOlxoRWbXMu8Rl7haMufcGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795397024;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=QSMho1NjVP5XGqEqimgjpY4GbPekT5vt0w3BGd5duAI=;
+	b=tVpj2vAcmjP5l8ATjE5nB5U8kbu5dT9OX0Uw6vHd3Lt1vh5E5Kv3GlOsxy5TmqpvQXcD
+	 RLVA3WTOhc023ApHkqJujQyLgeMApI71YRwh+VynlEgbTjrAP2UTGfbuQFfYw2qrUVvxw
+	 ASelBIjtVSfLVsRus1qw3SXrcVXgPSeQrh1JQsHp1DVbYFbDtNRH8sGIkeqo59o3EXP7U
+	 kMnqZbvBsr2dB8lZIJ4pa9QeAINuHz0rm2Cna8kvwV/mKmC+qNdAfw32er6DRbyzajA7T
+	 DJB1u62yUstXRbLTBCgYpEw3UNLXCNQPbRuMZEf7Ys1QJs58SCiL0gj1nlkRIGP8sdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mFuLSLXt;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	dmarc=pass header.from=wyuan.org;
+	spf=pass smtp.mailfrom=wyuan.org;
+	dkim=pass header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=TLCLPRKt;
+	arc=none smtp.remote-ip=91.218.175.101
+Received: from mta0.migadu.com (out-101.mta0.migadu.com [91.218.175.101])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A81A606A31D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:18:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A81A606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C845606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:23:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C845606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wyuan.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wyuan.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mFuLSLXt
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b49a6e8212so179140a91.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:18:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795396694; x=1796001494; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xtW2k1ILTZk6SZgInS9ZTOwHcWM7IUrJ3JhIcEADImc=;
-        b=mFuLSLXtsbG1j5GBjZAp2dz00pCISwAyPBLpBJZxuDDCE+673i7dcVkcarADldh5q0
-         r6juszeA7rUoVaRPm88wToW9tXkRk8vyMM00ZQTO3t8z7KT/R12IZ0rMxOH4DXcE1RR8
-         AgQ00DY6J3+VecuyeQ5TNBVJJZhuqib7k1zjK+MrI6KxyNdUTLgYTy9S4F48ds6H/wds
-         c6NRzAhKmuN1fLXIvgUuYV2Dm3u/xz9JPfYloc/y8BuCSzTrAbPZEW57Ajaml1rK8T9/
-         qB70xVK1krW1l3+paiT+pgZ7UO6czZc6XFSaNlNMAW5fIwLG8mR9f/+anMsS+ShhPFJZ
-         DjJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795396694; x=1796001494;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xtW2k1ILTZk6SZgInS9ZTOwHcWM7IUrJ3JhIcEADImc=;
-        b=n/BzLscnX6QFCMCa/2m69EgXSCCiRBELIAvsM/rPtooAo+ADIzprvR6UdXoOGfa2IC
-         uPjVJ7M3cx85zHDtyb3IPFiy5pGqTV+xeDFx4Dd1itcU3YIqo23t4qcwnGZaScJm6RgK
-         Ib6GZaUrhjRWOQwUmGBafoHScMBW+PGGOwlIo2ibfdWly/tXQ5gM6dsHqcka7Vvcz0/a
-         YR0UtVPb+mfi35jVDiRcUXciBUzrHpK7N+BkNkutKU9eTrwNCJLRGpC9PNgRQ5tkeZ0b
-         H1+G+rVW+g9KR5BqR9aivJ9qCEJ/0q/pGqvcry3hsh3eXwl+4wBTeISdK3BsD27xYv7N
-         W98g==
-X-Forwarded-Encrypted: i=1; AL+hErEJnkYMKe2NHgBrD7y7qtKjjddmDUY19ul+FSxJybjqe6rSJsILKCIBa3a3+JeEW/Rsnu3Ffnolca8ya6U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+YNt8TYhZvSfzhlb+KnpHWzAV8Uy0y/bGUNwUxhMPSv2/ymFyK
-	1RbiT2OjyEwlXIQHTUKZnkI/BTMpKwVDL2GWD9J/agdFuUqKmk0EgjV1
-X-Gm-Gg: AZFdTZdFCPOYu6tLuPlhZSOo47b7Uy4nYKrkOigYxt6UFRVJ2a2HsEDvvmVfgTIoP2f
-	565AVWCodWjOXEtsZuTaORUJMGgXi7kHvNZCL+Ub1t2GPWgPIWakUSPlnuvJlLCFXQh39o5/HgL
-	GfRw4q6iJftRjcuqOpV18d7vbG2omuXt0Q+pgVbXrSrZLqou7QDqFFX1rPfePHQ1oSloU3wEc3a
-	SIQb4jVCsTuSmcOkRGcKEr+2XFqTbWwFtk1GtW9SWJf0LnQU7dkH/uISiVft/8hwTSCAoX9eOuo
-	k5kPoAmwElPUxzzS00bhQvyQ4xW7x2oG2UNZBQCIJcCDca6cmGrJGemVLjigGIZN5frOz1zcGvp
-	A+LZbnU0gOu8Uj0dcgouuQNVmKFqDmxk6MEcnZ8WNhSPcgRG5o2EEETbcYuFOz7Q2zpsSCaGqer
-	/Z/nbWIesWmSJC1NSkOSpT6udZOzQvUTGpxBnJauR75c+wIE0+7EePJzGt3caqknJQelqQ9IUVd
-	tRSwu5c35POnD/itBWVpgdGACcXs/c3vQNtS/k03Oy785tTFPuD3x8EnZca/HijrTB5ZZswfq94
-	fCazuKqUkUZBnaEQf+qk3RYumJ7kgoBappbo
-X-Received: by 2002:a17:90a:e7d0:b0:3ac:b2e6:317d with SMTP id 98e67ed59e1d1-3b41c9e52f6mr9596827a91.35.1795396693715;
-        Sun, 22 Nov 2026 17:18:13 -0800 (PST)
-Received: from hanzj-mi.. ([157.185.136.247])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm15587206a91.1.2026.11.22.17.18.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 17:18:13 -0800 (PST)
-From: Zhijian Han <hanzhijian1991@gmail.com>
-To: gregkh@linuxfoundation.org
-Cc: andreyknvl@gmail.com,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com,
-	Zhijian Han <hanzhijian1991@gmail.com>
-Subject: Re: [PATCH 2/2] usb: gadget: raw_gadget: fix memory leak on connect event failure
-Date: Mon, 23 Nov 2026 09:18:09 +0800
-Message-ID: <20261123011809.1033045-1-hanzhijian1991@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <2026112020-sesame-uncut-fc8b@gregkh>
-References: <2026112020-sesame-uncut-fc8b@gregkh>
+	dkim=pass (2048-bit key, unprotected) header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=TLCLPRKt
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=SyzFxx8j0goNtlq88x6jpGh70AV+UkBtEoBlAWhDzcY=;
+ c=simple/simple; d=wyuan.org;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795397021; v=1; x=1796001821;
+ b=TLCLPRKtJ+XUIOxiMYbm3LeZcd/UebZ0Btq8DrOwbK6DFZH107uau9hfwumboTSFs+2/3xWZ
+ dXIt8IIAiH06/edkE871N/haqxIR2Lktd3Ssxg2oiU4g3w6+epN09QM1ZY3mwemBddPwLxgXoET
+ 2LaXnQ3QlI4jIgofKSd63z4XbebAFZEO9cRh1NFCYVbpLubenaKvXdDLqzsvku+4KxZpNCa+eow
+ Lbw2kGB+RyRNicVY27NDOSpvN9j9eF1j8OTEDpoN7faeU/PQiPFRPU0pH/vphoSwe8Wf5J1YPii
+ lJ3xlQ8rikR/QUPrYqbgiua1rEk8fPEAu9YiEw0VuenWg==
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 384d2ed1f0f21d74;
+	Mon, 23 Nov 2026 01:23:41 +0000
+X-Mizu-Trace-ID: 384d2ed1f0f21d74
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 09:23:37 +0800
+From: Weijie Yuan <wy@wyuan.org>
+To: =?utf-8?B?6JGJ5a645L2R?= <chenyou910331@gmail.com>
+Cc: Alex Shi <alexs@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Dongliang Mu <dzm91@hust.edu.cn>, Yanteng Si <si.yanteng@linux.dev>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 03/25] docs/zh_TW: process: sync 4.Coding.rst with the
+ English original
+Message-ID: <awOVmVPNOCNTzLcD@wyuan.org>
+References: <20261106113142.706783-1-chenyou910331@gmail.com>
+ <20261106113142.706783-4-chenyou910331@gmail.com>
+ <avVQdrfqVqRfY5ex@wyuan.org>
+ <CAKspUhLvHoWW9unBOFfFrykdxpBswBraaBJnbxpC9rg7yvTFUQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,25 +71,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAKspUhLvHoWW9unBOFfFrykdxpBswBraaBJnbxpC9rg7yvTFUQ@mail.gmail.com>
 
-On Fri, Nov 20, 2026 at 09:17:32PM +0800, Greg Kroah-Hartman wrote:
-> On Sat, Aug 22, 2026 at 10:48:50AM +0800, hanzhijian wrote:
-> > gadget_bind() allocates an ep0 request and stores it in dev->req. If
-> > raw_queue_event() fails to queue the connect event, the function
-> > returns without releasing the request, leaking it.
-> >
-> > Release the request before returning in that case.
-> >
-> > Reported-by: syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com
-> > Link: https://syzkaller.appspot.com/bug?extid=d83b3c49738aea97c0e5
-> > Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
->
-> Full name please.
+On Thu, Nov 19, 2026 at 07:50:57PM +0800, 葉宸佑 wrote:
+> On Thu, Nov 12, 2026 at 01:36:54PM +0800, Weijie Yuan wrote:
+> > You used <tw_codingstyle> label here, but after rendering, the html
+> > output is still "Documentation/process/coding-style.rst", which is
+> > pointing to the zh-tw translation, not the original one. So it is
+> > inconsistent, right?
+> 
+> You're not misunderstanding, you're right. With :ref:`text <label>`, the
+> text is displayed as is and only the label decides where the link goes.
+> Since the label exists, Sphinx has nothing to warn about.
+> 
+> > I suggest that in this series, either use the full path to refer to a
+> > file directly, or stick to the discouraged writing style and wait until
+> > once these two series are completed, we can then carry out a thorough
+> > cleanup. What do you think?
+> 
+> I'll go with the second option for v2: keep the :ref:s and labels, but
+> display the zh_TW path, e.g.
+> 
+>   :ref:`Documentation/translations/zh_TW/process/coding-style.rst
+> <tw_codingstyle>`
+> 
+> so the text matches where the link goes. Turning them into plain paths
+> can then go into the cleanup together with the label work.
+> 
+> To make sure nothing is missed, I checked every :ref: in both series
+> with a script. Besides the ones displaying an English path, it found
+> one in embargoed-hardware-issues.rst copied from the English text as
+> "Documentation/admin-guide/ <securitybugs>", where both the text and the
+> target are English. The zh_TW security-bugs.rst has no label, so I'll
+> use its full path there instead.
 
-Apologies. Please use:
+Thanks!
 
-Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
+> > Regarding the "ref" of one specific section, I remember that it could be
+> > referred to using a relative path, and with a label?
+> 
+> A :ref: only takes a label, so a section needs one, like
+> <tw_interleaved_replies> in 2.Process.rst, which points at a section of
+> submitting-patches.rst. A relative path works with :doc:, but that
+> links a whole document, and for that a plain path is simpler since
+> automarkup turns it into a link.
 
-Best regards,
-Zhijian Han
+Okay, got it.
+
+> I'll leave your Reviewed-by off this patch in v2.
+
+Aha, that was completely my carelessness ;-)
+
+Sorry that my schedule has been a bit tight recently, but I'll try to
+take a look at the rest soon. But of course you can start brewing your
+v2 if you have time now. ;-)
+
+Thanks.
