@@ -1,53 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.13
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795469437;
-	b=CMSFFZBqRzc1lCBcv13m5dTTsR75jmjTBay0IhCv7Hq2ZLZxZemYnwK4O2qoAb1c8ucW
-	 wINFs12vi8/jhn0D1V3DAGrhBjbaN6axpXsNZoQWPAkx0SSuTZHeyd/oFu76JrWqbQBBM
-	 NVxAVVNGFMez54sm9RL/KF8xvJTl/PQcPM10lS69BHjUwv8J129WMxOgdbpb94yvGGKbN
-	 Hh9ZkYHiXMPMrbksHWUC+XhAbBDV2dp7u2ycEatKH1PvRt7+pRI59NYtN4BkQHIRvlhcl
-	 tf6DdCksaClMCl/HvisXeUmnw0WXorfKYFd8dgY9lSofcZlNydYviEWvHsVf+kGTyLQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=nksau8Ih7SxGvX/Hdj2nqtXeT+ZSCnFLDAeH9L+hYhfOFr0UEOCKZRIEH17VGCg0rnYl
+	 2J/EJf3CZUhoPgfNDLT1wCEomdxdCZNO+Ag02/9KfHvxqOd+5T1E9WeiZzsOUKfla+vpE
+	 e+UaupyT5ttX268jnQc+rJi/xELHpZytNemc8jkXpU5i4xnp2tCC4BhbI3Vf+g7Mp9r/1
+	 TISE2pbzfFSlgh/hOW8Lpuxmd+rJE8tHwPITOEBHgfyLtSzkaRlgn8DaOGwjkHRuvhi8d
+	 eS3f2KinHBmHuLbHlBCaZH70yDJ5I8+FMuUB6Kj683w+TlUKVUhJ6bfAq9H8Q8sJR+A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795469437;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Stat-Signature:X-Spam-Status:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=GIrhH1OZ9MJiCq6ByD8kCbZD75ZiEpxNCzwWoUWugNY=;
-	b=up18NUbi37jg4Dl4Bg2WeGYd5fQ6PQ79PUgEHNkCA+4rbh9zN1/mC2bjUdT3neVtYZt4
-	 EuXQHOAZPvTGjYbgNbxUCwMMBf6y3q0fHCryOCaDmPHeg8s64tIo+yU3H1EJnofFNDgcG
-	 cTELFbKiByupkAGTTQn14ejplWa81jwRFJF+EQv/a+ouwagX6jpLCjsy0D3xrQJtMVRpK
-	 ildf94ZW429SFsMD+cnNlqCHNpdOiLUNxU8Xun1LdjXFH2jX1YYCzz79zCom91WU3oVUO
-	 B5EmqOZPE7n0flbND8ZW7B0IGXtos12dEncGepoAB40AIBv1ULxVJhDJLhn6QHQsrOA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=QUyENsVG;
-	arc=none smtp.remote-ip=216.40.44.13
-Received: from relay.hostedemail.com (smtprelay0013.hostedemail.com [216.40.44.13])
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=UknjKM/2e+00MUhQQt0NXDwdL3NEyetFuZAF+JKC/GE=;
+	b=2t1PcC9gYOxnwKlzrsfq6oFDsob7GRDpmfojKG2QpcDFcCg8XLg4DDWOPh8rNcOO+zCF
+	 J5yUtADRodvSN4BLtU3VRgttjjAvqXr94cMO7s0J3QH5a7Sgg5GkfeMmPhNkuq/8K5TA2
+	 rDpZrrdouRAq4Ta0iCt/+pQZbB0piWeWrm1NjJPug7CeNoINrHAKmRZXYDEAuAtTU8M/p
+	 7F1Vp+twYR26mL5atxLnZHEJSS6181FNcepAGAZXrw0JKutKi9d7FiFDLosJv18of19Dx
+	 7AASIdlmN7fLDVp1Te33T9h2LG/tnkGWDNdOSVncGRHsLkMkWP6ciXjIWHQeJEaXSwA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=og5B9sP6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.44
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011044.outbound.protection.outlook.com [52.101.70.44])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D01D4606A321;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18038606A326;
 	Mon, 23 Nov 2026 21:30:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D01D4606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18038606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=QUyENsVG
-Received: from omf16.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay05.hostedemail.com (Postfix) with ESMTP id 0BCC340A22;
-	Mon, 23 Nov 2026 21:30:30 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf16.hostedemail.com (Postfix) with ESMTPA id 3C36E2000F;
-	Mon, 23 Nov 2026 21:30:28 +0000 (UTC)
-Date: Mon, 23 Nov 2026 16:30:27 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
- <linux-trace-kernel@vger.kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>
-Subject: [PATCH v6] tracing/probes: Zero out faulted dereferenced fields
-Message-ID: <20261123163027.4d101385@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=og5B9sP6
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VlZFc2XUK9ye0WulJbmfbs3iM2VFXqFiIxXHQJdMBeq+4UligywbacLMEgeCrHOLcFvkRVsPzPYK3HtpsEKcbxYMxgerGDdz5fvH1Fr7Eeeq9XmTniFvmdSBsJ2lvje0Q536h5Qu52VnHe97Qq7BIRJ/c/6dhrxeRpcL6tIjjH2P2qNYUE8ht+MDwGTZPfs3AuEvITNxyH+vpC9dyD80pyfTYKMc5GHA8JQm5a/igyt7PGNsv6OaEVb2MU7yVV3Nwx6Z+hzHNnqIF6DTquWqJmRnZqbHJOj5ja7Z93vtGT022SvXDJyZQuOEgcHTX9J29z+lLdcexxVkKol8Z2riYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UknjKM/2e+00MUhQQt0NXDwdL3NEyetFuZAF+JKC/GE=;
+ b=XvlAMBcnOJj9v297xra4dO+w2KCSI8Ebhvt4F0tEeNkIXHZkt8sxQ0Bkk3jXOCn0pZ/NkGbRPvWNAx+sEzTkUi9EgL8LT+9YwLzzAWcO3gaMHlfA5cbRuQRABrgcBbyLG8ZjDwFdNKz5EGqwkxl2nuTHHTNFyBYX/m5Rg95bU8GkDYVp4JY3hsCZyY2LuPuqwHT/XqXP6P/F3YSsrtKHr8lV5vePSM1a86S+vvt3BZPXxWceWOGT80VXGPcOJciHXtMbQPiZLfru5koxEXCPE3rSjA2A2ytjnUjFNC+3dslUciFMGQKVc35g/XjvSjyD1gT3xm5VgM03JGOE07Pmug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UknjKM/2e+00MUhQQt0NXDwdL3NEyetFuZAF+JKC/GE=;
+ b=og5B9sP6UYh9a7bFW1O/q0RzJIFzDUtPO+NYv0KxzPjAjZgk2M3ndrs4vaHhLqzk8mtei3GDjV7ARuk2rSpq+FZynglypr+JAQ3WLBqLbaaNZUan6SoB25WAU4QgztQUhpikN8yqpnxOvNjgM5GffSjDZ/OnTumWLcf5myUGUH0MYK49VF9axrXzbtQcn6P3cp3wdFsawSwZzzqXjtUmjNh5Z6PO6jMN8oJvFVvv5N6m3daelsABLFTS7aVzp+HNrAW0SBzCPvBwtLCSPIxQf+hhgnajGFJALeUy4vJeQldY9Nov0wzUkUTxj861p7MovhjJbEYPw8nz5zCAfI3gSA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AM0PR04MB6963.eurprd04.prod.outlook.com (2603:10a6:208:18b::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 21:30:33 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 21:30:32 +0000
+Date: Mon, 23 Nov 2026 16:30:24 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Arun Iyengar <aiyengar1990@gmail.com>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Adam Ford <aford173@gmail.com>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: verisilicon: Limit the i.MX8MM G1 decoder to 1920
+ pixel wide pictures
+Message-ID: <awSwcDzT60vVypXE@lizhi-Precision-Tower-5810>
+References: <20261119-hantro-imx8mm-vp8-v1-1-835dd9b5382c@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-hantro-imx8mm-vp8-v1-1-835dd9b5382c@gmail.com>
+X-ClientProxiedBy: PH8P220CA0053.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d9::26) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,255 +106,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: dpjicisamknfqy88fz1d7ek5ac7c6cwf
-X-Rspamd-Server: rspamout03
-X-Rspamd-Queue-Id: 3C36E2000F
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18aOsfcsIgPdIZ/mYmd2JTTvygceHr63+Y=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=GIrhH1OZ9MJiCq6ByD8kCbZD75ZiEpxNCzwWoUWugNY=; b=QUyENsVGcRJLBcCPNhHB3wvJMNxP4jvuWwjJlPXYC1s0b0g/NkSOAnLSASbEbLvj5dabUVt8FRuU2nr1v2SL21ogHygmHH3BsdYImtgGhW1ley6aq7NznKONzm8EK6nCv8eqhU0SXN15dXfLFn7ttXTZg6pRsyPcnjuYrW8U0Qw=
-X-HE-Tag: 1795469428-180139
-X-HE-Meta: U2FsdGVkX1+seYfBGGbHGjY3D5c3lFnj2PZJ0vmKhJHCtEjgmdkk5EI3lDV7ON/kTvgGR09Fuh34BTNOsa+TlLBVu/cH6yVeKVJ2LfdwkeVTOWThk7i+SN3Lrod0/c3rNDU6tG5Wyxcl/EaE50TRGZVW6dXBk8XSDN7iiY3TNwnXn3gJR+wwYpj26WS+vTWOQ3uxUh8ZhvbzgzVFZv68v/JBPy3UWJACR9JKdRmWmZVgcwir4nvSkD/0nr90qGEwpU4acZtyYgxybYNqhrNI9e0IUbCk1A0AnAPLpuyRWfc/jAgIbWodf6C3NT2aFMANeHqi/SvNEyE9pFuPwrNEqz7q1SDB6jPhal6cA6W3QT2bvFu+rQc7We3Do7NVhF4/wrvzGHQKkdJBgqodfU1WlQGNykoJs+cF62AIdqs4VgSDr4ge71iT6y+qF64VAUmO0ugPqpDqUGXxlwFC1pTB6EOt69CJl1rVDzlkNZFrqyA=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AM0PR04MB6963:EE_
+X-MS-Office365-Filtering-Correlation-Id: 076297b5-6fec-4a4d-0413-08df49a90122
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|19092799006|261009223027099003|6133799003|260925021311599003|260925021911599003|260925022911599003|18002099003|22082099003|261022105027099003|261022075727099003|261022113327099003|261102123227099003|261026121527099003|261021123027099003|261021135927099003|261021121427099003|261028144727099003|261026140227099003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	uPlHfqZEAJ7xu/Y6OlBfkIrPsFZPHXeTQg88mW1bv8tNvzmjjvUZCGwfgIwMFK8GfcGHtKFZV2xjRugZuAcJPVYWPxgbxR+/b7S2t3SjJ80dg4vwJjuoI77Cnsrs1WTuNxUDdbS0IVfelmrD3HAWJffhNa8jAuOFyak57OlXpbREqofARvIk6s7wlb5a69XRQSrap1Jx5mcJiWR18w02iqkdmMKPe99T5rmxqyjH+MWHCvpFs5AqRHFh/GAxAncjDCGajHiTy37hCQirsH8ia6tv/0PrwN2CpR4fq2H1WgDadBnah1maHJuAIDd9DL2zatQ8/KK9WjXSLABmIZjLhbGAb2bb3nlUr0shvqz7r3cBEoVdZjaN62oQ9tGx264ZMgXP51OpcC87S8PhNIGhD+OLOa65G0/yrwnyaiP/6faKmpZdnFUGy7boIJOrcWeGhmESVZdKl1+QdPxTVFROLJPHVgCv0rBUmab2mHRNhy/BczLMJLFl9tszm3P5e82f5ntlIx7b/y04Fq8BGrEmyjgQ50HBsvUg593sSgyFkkgmE3p6uLg/bw8Nq9EQQVKFQ91v/44O4X2GCMH6ZhjEF4cgeIq4e/0VXLPSj3DEK+p7Qnjye08HnajU0278iB2j
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(19092799006)(261009223027099003)(6133799003)(260925021311599003)(260925021911599003)(260925022911599003)(18002099003)(22082099003)(261022105027099003)(261022075727099003)(261022113327099003)(261102123227099003)(261026121527099003)(261021123027099003)(261021135927099003)(261021121427099003)(261028144727099003)(261026140227099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?IIMJ/JUYB+AsxWHBsgWMc5j9DT8dF3skmB9wPVFSHaxzlzNnDiSxU/+NzLf7?=
+ =?us-ascii?Q?adrC5W8ypl4IfCd3fGX/mZzR945KhRY87DI1dZuGOLBwzeA2WgS+45OoTAH2?=
+ =?us-ascii?Q?hfHlGRV60OXpOmpsfZf+GOXWb8NGMhOAW81df4H6KOMaJn2+V0Gy7HOEI3o8?=
+ =?us-ascii?Q?4+58l4rUdaPj8aWrjn7UbUhipFZBrd+n+N93jngZ6AHfu6PiUbRNioAPHPAj?=
+ =?us-ascii?Q?lO6eEWL00oOomQAh5yozQeIKp03yYop9uuvvYxARC+WsOsqelfKXWdlIg7yu?=
+ =?us-ascii?Q?wBfCtfD2GsetMfFby/q8f573EcBfGwe10P6vds+etU/01hyS7GOe2o11SYV3?=
+ =?us-ascii?Q?sL84CiZg8PgYe+UehKvpZRWaP2uBS8V3tI1C60r9FJ5gaXAJNeGVRTo9LEnH?=
+ =?us-ascii?Q?/A2XnhVLjK/HT8B+hU9v0uBiWEyH51qAfxmXZlaCWOzgBlpJJHAHRIAhaKdI?=
+ =?us-ascii?Q?yvJQNMWBY1p6reIbigJDhnT0j+G+uPwnPQixl568ECglQLgUp0rPabU2GyXu?=
+ =?us-ascii?Q?9q1mQyayLlHAPFj6UnQHO8Cf9vB7JG1thklOgDqD5WbquazCrUPBE7jd0hld?=
+ =?us-ascii?Q?/iAYQzFXJkK4Z6XfjkTL4lVCeTOKTKdflVw6EENWqHcsBhzyEyfryx/HmPXE?=
+ =?us-ascii?Q?j5iDMeDSOko6OiKzvQ7ikOtT4Q8y0SnuOmd3Xw0sxi8X+o4ryCJG3IfY162n?=
+ =?us-ascii?Q?x3RPlfzrGnTmQKPIPxw+3MaevebZYY4TvkWint9v4H33jT9h/I3DqmxoiF4Y?=
+ =?us-ascii?Q?TrBtMJpU6QzBS9ddblFhGK0GiWdnb+7GHVH6+wRVFeb4WL3uHfLAvgQroKXS?=
+ =?us-ascii?Q?4wIUlZH26r8CyCI5dJD2FivvGIWlxuT/yjgThVURR4ajJSzkJAvQ5FZ2iHlO?=
+ =?us-ascii?Q?mzeW8vtUrqtHifg26AP1WK2BZiuqg3QX/INpWAx2BpIeFRcq/ab0qtjAKpOR?=
+ =?us-ascii?Q?MOZhBt8qfA55EudIlkFuZ2e6cWyR1pFwr64SOAa879cf61q1xNViY25i12xj?=
+ =?us-ascii?Q?mZcJA8+fWpuaR+deR+Fn4LMKxldgYn1nMvnN/R9mdRTs+fr+DpwFy7Pho7ss?=
+ =?us-ascii?Q?tK3TwBdrtgSaZLS37puyxEBu9fIJckx0/O4DdJJJdcXIB0ry6ofmxyzSmJkK?=
+ =?us-ascii?Q?5ehvcmS0O2QTU3GFPROxcbg21WUHj40YJyWQbDaI1cwY+V1AA6Pb2NksJnCD?=
+ =?us-ascii?Q?/s3+Yp/vlJBeMFQB7f7xhd8faO7XMygNeWQxqHj51iBS97E7Jg1mrFBEkdhZ?=
+ =?us-ascii?Q?5UAPZaruJfNDuuWmDJd3YH/8qHi1QkAC8Cv6gRLIosj7Zzv5qMrZSzuBSVfp?=
+ =?us-ascii?Q?cZbo5Jyat6b7++cTAl6YM6wRuxVDrhLAjGcMyhvSyQa3J7mPSOqokW0K2FL8?=
+ =?us-ascii?Q?kWokM3hTWEeYrmBgxNQuMROu7HA0p/M+OR6m8ZRrnXLm6zWxQrnhWTkKWF6o?=
+ =?us-ascii?Q?rIbh7HQt+iOmJ0F0i0+7digoSjcnnVcfiz4FGijqg4nLvKxhtikZuay48Hff?=
+ =?us-ascii?Q?uBFr4hpai2PXDGWIJD9GKGAWA7gBRCiAGDI3DjFtuMvvJgj25s0p5Zh5jx5M?=
+ =?us-ascii?Q?XOAM+7wA2fFokV9MtkQfV34U5Wl4QL6pURpogRDf1LQ7ovW3TN2Ktuq+cbjq?=
+ =?us-ascii?Q?GOZX2zFLOUJY00hwBjg9ooN3+bjNQCa365iQWxl7zBZOdy750KLC/O34RwGR?=
+ =?us-ascii?Q?GtrBFcQ84gGgQrigMp86yfWO7N5q46K7dTqIDJlrfWSNEJ9BNsS012CPRPYc?=
+ =?us-ascii?Q?wG8a5XF7vEqaAwSdtdCWwJUid08dDAJJGaFoYvAduGbPzJTtCcJu?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 076297b5-6fec-4a4d-0413-08df49a90122
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 21:30:32.7940
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UStuit0A06eBRMVWWP7T06x+6+tPyy08O7tpbZqvD/uLDEzwLsNgq6Xo8mPtrsdqyUP5aQtqnkhBFG+NHz0hAjkJOvrFTpkW4haV8U4QKZVWiAIjsQQlq70ej1mWyZi9
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6963
 
-From: Steven Rostedt <rostedt@goodmis.org>
+On Thu, Nov 19, 2026 at 10:07:58AM +0000, Arun Iyengar wrote:
+> The i.MX8MM G1 uses the i.MX8MQ format table, which allows H.264, VP8
+> and NV12 up to 3840x2160. The i.MX 8M Mini data sheet rates the decoder
+> at 1080p60, and NXP's hantro_v4l2 driver offers a decoder of that size
+> 1920 pixels wide and up to 4096 high.
+>
+> Give it its own table with these formats limited to 1920 pixels wide.
+> Heights are kept so that portrait pictures such as 1080x1920 are still
+> accepted, as in NXP's driver.
+>
+> Fixes: cf1abc501a5c ("media: hantro: Add support for i.MX8MM Hantro-G1")
+> Reported-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Closes: https://lore.kernel.org/r/f041c5d87698ab3be8283ecc71ead0679327238e.camel@collabora.com
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
 
-While looking at tasks global descriptor tables, I discovered the
-following anomaly:
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-~# echo 't:sched sched_switch prev=prev mm=(task_struct)prev->mm ppgd=(task_struct)prev->mm->pgd' > /sys/kernel/tracing/dynamic_events
-
-The above creates a tprobe on the sched_switch tracepoint and records the
-previous task_struct pointer, it's mm_struct and the pgd the mm_struct
-points to.
-
-~# trace-cmd start -e tracepoints:sched
-
-            bash-1050    [000] d..3.    90.829478: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d30b623600 mm=0xffff88d30108c600 ppgd=0xffff88d33352b000
-          <idle>-0       [002] d..3.    90.836024: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d301870000 mm=0x0 ppgd=0x0
-     rcu_preempt-15      [002] d..3.    90.836031: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d3013ad100 mm=0x0 ppgd=0xffff88d33352b000
-
-The first event has is a user task that has both a valid mm_struct and a pgd.
-The second event is a kernel task where the mm_struct is NULL and so is the
-dereferenced pgd pointer.
-
-The third event is where things looked strange. The mm_struct is NULL but
-the dereferenced pgd has a value! That is: NULL->pgd produced something
-other than zero.
-
-The reason for this is that the probe_mem_read() and probe_mem_read_user()
-do not write to the destination on failure. The process_fetch_insn_bottom()
-loop does not check the return value of the dereference (as it is the last
-one), and does not update the event. That leaves the value for that failed
-field to be whatever was in the ring buffer at that time.
-
-Have both probe_mem_read() and probe_mem_read_user() set the destination to
-zero on failure to read the address.
-
-Now all pgd are zero when mm is zero.
-
-Also update the stage 2 of process_fetch_insn_bottom() to not return on
-fault but to just set the value to zero and also do not even bother
-dereferencing the address if the value is already zero. This allows the
-code to continue and fill in the zero into the memory location on the
-ring buffer.
-
-Cc: stable@vger.kernel.org
-Fixes: 533059281ee59 ("tracing: probeevent: Introduce new argument fetching code")
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
----
-Changes since v5: https://patch.msgid.link/20261120152432.0dc2bdf0@gandalf.local.home
-
-- Handle fetch_store_string*() when val is NULL (Sashiko)
-
- kernel/trace/trace_probe_tmpl.h | 100 ++++++++++++++++++++++++++------
- 1 file changed, 81 insertions(+), 19 deletions(-)
-
-diff --git a/kernel/trace/trace_probe_tmpl.h b/kernel/trace/trace_probe_tmpl.h
-index 8acc0f0ebd7a..53fd7f654377 100644
---- a/kernel/trace/trace_probe_tmpl.h
-+++ b/kernel/trace/trace_probe_tmpl.h
-@@ -133,13 +133,59 @@ process_common_fetch_insn(struct fetch_insn *code, unsigned long *val)
- 	return 0;
- }
- 
-+/* On failure, zero out the destination */
-+static nokprobe_inline int
-+do_probe_mem_read_user(void *dest, void *src, size_t size)
-+{
-+	int ret;
-+
-+	ret = probe_mem_read_user(dest, src, size);
-+	if (ret < 0)
-+		memset(dest, 0, size);
-+	return ret;
-+}
-+
-+/* On failure, zero out the destination */
-+static nokprobe_inline int
-+do_probe_mem_read(void *dest, void *src, size_t size)
-+{
-+	int ret;
-+
-+	ret = probe_mem_read(dest, src, size);
-+	if (ret < 0)
-+		memset(dest, 0, size);
-+	return ret;
-+}
-+
-+static nokprobe_inline int
-+do_fetch_store_string(unsigned long addr, void *dest, void *base)
-+{
-+	/* NULL addr gets zero size string */
-+	if (!addr) {
-+		*(u32 *)dest = make_data_loc(0, __dest - base);
-+		return 0;
-+	}
-+	return fetch_store_string(addr, dest, base);
-+}
-+
-+static nokprobe_inline int
-+do_fetch_store_string_user(unsigned long addr, void *dest, void *base)
-+{
-+	/* NULL addr gets zero size string */
-+	if (!addr) {
-+		*(u32 *)dest = make_data_loc(0, __dest - base);
-+		return 0;
-+	}
-+	return fetch_store_string_user(addr, dest, base);
-+}
-+
- /* From the 2nd stage, routine is same */
- static nokprobe_inline int
- process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 			   void *dest, void *base)
- {
- 	struct fetch_insn *s3 = NULL;
--	int total = 0, ret = 0, i = 0;
-+	int total = 0, ret = 0, i = 0, offset;
- 	u32 loc = 0;
- 	unsigned long lval, llval = val;
- 
-@@ -147,25 +193,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 	/* 2nd stage: dereference memory if needed */
- 	do {
- 		lval = val;
-+		/* Prevent dereferencing NULL val pointer */
-+		offset = val ? code->offset : 0;
- 		switch (code->op) {
- 		case FETCH_OP_DEREF:
--			ret = probe_mem_read(&val, (void *)val + code->offset,
--					     sizeof(val));
-+			/* Do not dereference NULL pointers */
-+			if (val)
-+				do_probe_mem_read(&val, (void *)val + offset,
-+						  sizeof(val));
- 			break;
- 		case FETCH_OP_UDEREF:
--			ret = probe_mem_read_user(&val,
--				 (void *)val + code->offset, sizeof(val));
-+			/* Do not dereference NULL pointers */
-+			if (val)
-+				do_probe_mem_read_user(&val, (void *)val + offset,
-+						       sizeof(val));
- 			break;
- 		case FETCH_OP_CPU_PTR:
--			val = (unsigned long)this_cpu_ptr((void __percpu *)val);
--			ret = 0;
-+			/* Do not dereference NULL pointers */
-+			if (val)
-+				val = (unsigned long)this_cpu_ptr((void __percpu *)val);
- 			break;
- 		default:
- 			lval = llval;
- 			goto out;
- 		}
--		if (ret)
--			return ret;
- 		llval = lval;
- 		code++;
- 	} while (1);
-@@ -173,19 +224,25 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 
- 	s3 = code;
- stage3:
-+	/*
-+	 * Once val is zero, it is pointing to NULL. Any new dereference is
-+	 * also treated as a NULL pointer.
-+	 */
-+	offset = val ? code->offset : 0;
-+
- 	/* 3rd stage: store value to buffer */
- 	if (unlikely(!dest)) {
- 		switch (code->op) {
- 		case FETCH_OP_ST_STRING:
--			ret = fetch_store_strlen(val + code->offset);
-+			ret = val ? fetch_store_strlen(val + offset) : 0;
- 			code++;
- 			goto array;
- 		case FETCH_OP_ST_USTRING:
--			ret = fetch_store_strlen_user(val + code->offset);
-+			ret = val ? fetch_store_strlen_user(val + offset) : 0;
- 			code++;
- 			goto array;
- 		case FETCH_OP_ST_SYMSTR:
--			ret = fetch_store_symstrlen(val + code->offset);
-+			ret = val ? fetch_store_symstrlen(val + offset) : 0;
- 			code++;
- 			goto array;
- 		default:
-@@ -193,27 +250,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 		}
- 	}
- 
-+	/* When val is NULL, so should the val + offset */
-+	offset = val ? code->offset : 0;
-+
- 	switch (code->op) {
- 	case FETCH_OP_ST_RAW:
- 		fetch_store_raw(val, code, dest);
- 		break;
- 	case FETCH_OP_ST_MEM:
--		probe_mem_read(dest, (void *)val + code->offset, code->size);
-+		do_probe_mem_read(dest, (void *)val + offset, code->size);
- 		break;
- 	case FETCH_OP_ST_UMEM:
--		probe_mem_read_user(dest, (void *)val + code->offset, code->size);
-+		do_probe_mem_read_user(dest, (void *)val + offset, code->size);
- 		break;
- 	case FETCH_OP_ST_STRING:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_string(val + code->offset, dest, base);
-+		ret = do_fetch_store_string(val + offset, dest, base);
- 		break;
- 	case FETCH_OP_ST_USTRING:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_string_user(val + code->offset, dest, base);
-+		ret = do_fetch_store_string_user(val + offset, dest, base);
- 		break;
- 	case FETCH_OP_ST_SYMSTR:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_symstring(val + code->offset, dest, base);
-+		ret = fetch_store_symstring(val + offset, dest, base);
- 		break;
- 	default:
- 		return -EILSEQ;
-@@ -237,11 +297,13 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 			if (s3->op != FETCH_OP_ST_STRING &&
- 			    s3->op != FETCH_OP_ST_USTRING) {
- 				dest += s3->size;
--				val += s3->size;
-+				/* Only update a non NULL val */
-+				if (val)
-+					val += s3->size;
- 				goto stage3;
- 			}
- 			code--;
--			val = lval + sizeof(char *);
-+			val = lval ? lval + sizeof(char *) : 0;
- 			if (dest) {
- 				dest += sizeof(u32);
- 				*(u32 *)dest = update_data_loc(loc, ret);
--- 
-2.53.0
-
+> Not tested on hardware: I have no i.MX8MM board, so the limit is from the
+> data sheet and NXP's driver, not from the decoder's configuration
+> register. Build-tested only (W=1 arm64). The i.MX8MQ table is unchanged:
+> NXP's driver gives VP8 the same 4096x4096 as H.264 there.
+>
+> Developed with Claude (Anthropic), which wrote the code and the commit
+> messages. I reviewed every change.
+> ---
+>  drivers/media/platform/verisilicon/imx8m_vpu_hw.c | 58 ++++++++++++++++++++++-
+>  1 file changed, 56 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> index fa4224de4b99..805c57a4adcb 100644
+> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> @@ -148,6 +148,60 @@ static const struct hantro_fmt imx8m_vpu_dec_fmts[] = {
+>  	},
+>  };
+>
+> +static const struct hantro_fmt imx8mm_vpu_g1_dec_fmts[] = {
+> +	{
+> +		.fourcc = V4L2_PIX_FMT_NV12,
+> +		.codec_mode = HANTRO_MODE_NONE,
+> +		.frmsize = {
+> +			.min_width = FMT_MIN_WIDTH,
+> +			.max_width = FMT_FHD_WIDTH,
+> +			.step_width = MB_DIM,
+> +			.min_height = FMT_MIN_HEIGHT,
+> +			.max_height = FMT_UHD_HEIGHT,
+> +			.step_height = MB_DIM,
+> +		},
+> +	},
+> +	{
+> +		.fourcc = V4L2_PIX_FMT_MPEG2_SLICE,
+> +		.codec_mode = HANTRO_MODE_MPEG2_DEC,
+> +		.max_depth = 2,
+> +		.frmsize = {
+> +			.min_width = FMT_MIN_WIDTH,
+> +			.max_width = FMT_FHD_WIDTH,
+> +			.step_width = MB_DIM,
+> +			.min_height = FMT_MIN_HEIGHT,
+> +			.max_height = FMT_FHD_HEIGHT,
+> +			.step_height = MB_DIM,
+> +		},
+> +	},
+> +	{
+> +		.fourcc = V4L2_PIX_FMT_VP8_FRAME,
+> +		.codec_mode = HANTRO_MODE_VP8_DEC,
+> +		.max_depth = 2,
+> +		.frmsize = {
+> +			.min_width = FMT_MIN_WIDTH,
+> +			.max_width = FMT_FHD_WIDTH,
+> +			.step_width = MB_DIM,
+> +			.min_height = FMT_MIN_HEIGHT,
+> +			.max_height = FMT_UHD_HEIGHT,
+> +			.step_height = MB_DIM,
+> +		},
+> +	},
+> +	{
+> +		.fourcc = V4L2_PIX_FMT_H264_SLICE,
+> +		.codec_mode = HANTRO_MODE_H264_DEC,
+> +		.max_depth = 2,
+> +		.frmsize = {
+> +			.min_width = FMT_MIN_WIDTH,
+> +			.max_width = FMT_FHD_WIDTH,
+> +			.step_width = MB_DIM,
+> +			.min_height = FMT_MIN_HEIGHT,
+> +			.max_height = FMT_UHD_HEIGHT,
+> +			.step_height = MB_DIM,
+> +		},
+> +	},
+> +};
+> +
+>  static const struct hantro_fmt imx8m_vpu_g2_postproc_fmts[] = {
+>  	{
+>  		.fourcc = V4L2_PIX_FMT_NV12,
+> @@ -382,8 +436,8 @@ const struct hantro_variant imx8mq_vpu_g2_variant = {
+>  };
+>
+>  const struct hantro_variant imx8mm_vpu_g1_variant = {
+> -	.dec_fmts = imx8m_vpu_dec_fmts,
+> -	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
+> +	.dec_fmts = imx8mm_vpu_g1_dec_fmts,
+> +	.num_dec_fmts = ARRAY_SIZE(imx8mm_vpu_g1_dec_fmts),
+>  	.codec = HANTRO_MPEG2_DECODER | HANTRO_VP8_DECODER |
+>  		 HANTRO_H264_DECODER,
+>  	.codec_ops = imx8mq_vpu_g1_codec_ops,
+>
+> ---
+> base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+> change-id: 20261119-hantro-imx8mm-vp8-23fe87f19d49
+>
+> Best regards,
+> --
+> Arun Iyengar <aiyengar1990@gmail.com>
+>
