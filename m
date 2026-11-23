@@ -1,60 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.17
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471003;
-	b=Y5MkeXoPDFt8g8rTF6QTIUqW1zA8Dx1ZEEjoOQk87pyQ1q7+b6dNmSZ9480JoAgEfUJH
-	 dNehxFBT83AXVBLklFwANMI4A519h7iFr4493vUWNVJbr+vMfDq0SjQfWkPmp1vhGdZPw
-	 rw3FiKMKOLN8oQuHUMirQfDJNYn906BbAqMSgJt9UWRFIuGlAloC/6kY6ITx5Ny/C58Z+
-	 u7DjhcgH6zQnpioyOXvecOh9ufUiPpifFQWN3CuMwKrXcy1ylZtbY60mH/OmoJJ12O35w
-	 0reBAcxcPZWX/Ov6cvfhykNjMRzd33MORXiXJKACXBgswApjjX2e7ugD+dFYswacRbg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471003;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Stat-Signature:
-	 X-Spam-Status:X-Rspamd-Server:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=se2Dv26Z/48b9YJDecdodAx/gKOEn8umjmUKLpeNdcE=;
-	b=Dro1AoBulFQxoWKCHTXbCe5QQ9ZXlLjBSSaz0K0ADKtfkPebH6nf+O1aTOxnhizW9pxr
-	 KULftUjXwZ5HV9NqRAU5qN/uwzY9b6suzwwETNawWTI+QOhkpCeunf94Ceeeo6zrFvExV
-	 VB8t4cULeFhkIXwESBejHiZIjqU/Vs+RnvBYWrhKlvYJRd0+7nUgmyEOE0fPg90MxUMQL
-	 UWJLkiKKbsCJ/64zvQRqZjdXTmbNNsukaBTHjZ6vUKfnEBH9hBgAAYXNJV0wiL9T4ZBnr
-	 1HLToG9dH+bqvJR0EJPWwWE5MuCxMbAzLcTEKmavyyAJKQv5Cay1hJvWSPWLgSGxm5Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=W+34totZ;
-	arc=none smtp.remote-ip=216.40.44.17
-Received: from relay.hostedemail.com (smtprelay0017.hostedemail.com [216.40.44.17])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795471031;
+	b=kuKU5c/WrugeY+BND54yEqM4VFexZleW+GjRkGX6hmXvl2Vd6jGB8mRR2SSKAP7LuyM/
+	 AkHfE3mozGLgxWF+LoZ6ClJ5bsWkD58jJmeFKHln7zEvoKyzHPtC7rDOtMCjVt8hlNJl6
+	 /lLom8sB3bG+GJsWphTVbw6kDm/NNCSBbcD0WBw9azIm9fY7FfAOZ2LJoAZpyuudyzcgT
+	 B/o8tChZXDJ2dQtjW3kc9fraNxTWd1bREhtymbXzxpjH1TMMC/Jsmhydwe3WvtvevxtE0
+	 inszUN0PTpo5o2leIAzlTyCXcb5lA4ouSUjSySHnbQ2ReTrgtFU/YIaeoYcNBro0Qpg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795471031;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=PBOx50dU5MAESsqZCyDmajeGF32kegFfpiXvkGjOtO4=;
+	b=u/N4CtylS5/tnRj0miQBoXdeENGavT8CHHQ5ljYcIODMO7KgwD7C1GhnyPZI3xhsBvQP
+	 naSyZ/qBXVJDFFp0ehXOeqftOHNKhBtFQVUtc2E8i9DEQd/oJITEjEmZkLyrfQHGm9qR7
+	 VK25DHDyxJ1XF1Cac6WagS0CnI54KeV8LO1OUYttW3VX9f48OyhUTbTS5Bct3AdoMbO0B
+	 h/v8Xvas6CpXPDQKa5vILRQ3yWO7HpKAf0/iL0a4/fp1IWideDeD0JLxKkZl0Zk5BESJf
+	 YelX0b/XVM0iK1zJs0k89qJUuMCWHO7j5qJgtYiouYbWt/kU1o9gH2dNsOW33nLe4Fg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbwMZFzh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0104606A321;
+	Mon, 23 Nov 2026 21:57:11 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbwMZFzh
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795471031;
+	b=VqLYZOT/P2RVtU6ZIvHjxXWmOdMibel7MmtUFZXKR8InuKdKmkBJ7UGtU4wdeC2a9z4G
+	 tA93Rg/b6z4Oj8kjANCcV2H+vAUmIipX1C8d32iqCziLM8aAOB4gR450lJIiRJdk/9ooH
+	 wlLhuWt26k3Sn+DOl9h/fNIw+SKF8jpPhe96YlIUcY1pSInlKSWVtjKdfQUEKt5Fo6o8q
+	 IjP1sKyUo40iL1spwRhcq3l0d5VpZjGtdx0EGDML2JPh9MrFlSlSqyeQeoZtZZyiJ9NQi
+	 9OzwK5KqPdD/yChGaNAev1lqRNiUDPQ7FGlHo+Yzp4aUg4zs1XhzsG4bg8TaGKl0yxQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795471031;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=PBOx50dU5MAESsqZCyDmajeGF32kegFfpiXvkGjOtO4=;
+	b=tip3Sg5IZ7NkIWJj2JuB+SVs89jn8jqKKLP36F854xNPjXAkUcTrnZFaLS5skvBvKRIW
+	 YYMa2X7QNo7OmTTsCSCVAAKx+k594W60lNY4f5LAk9EuN5pbymMIA3g1i0SYhbDZzEf6H
+	 r96I38X9KFZRzdP3Rm/H6EOTPqCR0HMGcIepq0o80+7EW+lljfiV+oSTORtCC9NQHIbIQ
+	 XtJWQWvcaaLCUTesWQQJ4IIKbEkPjd6EiXIQBeR7A++YAM3JT5Feyo1bZJeMyfq7KZNCN
+	 FLZ+uxlZ99LcULLUSuhnMRltfiXuV/UcXSauhV0u5lk8yGIb81lSqeUny9nGhXLeJ4Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81BC2606A31E;
-	Mon, 23 Nov 2026 21:56:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81BC2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=W+34totZ
-Received: from omf06.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay06.hostedemail.com (Postfix) with ESMTP id B0CC1A8676;
-	Mon, 23 Nov 2026 21:56:40 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf06.hostedemail.com (Postfix) with ESMTPA id 7C94520010;
-	Mon, 23 Nov 2026 21:56:38 +0000 (UTC)
-Date: Mon, 23 Nov 2026 16:56:32 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Jeff Barnes <jeffbarnes@linux.microsoft.com>
-Cc: mhiramat@kernel.org, shuah@kernel.org, mathieu.desnoyers@efficios.com,
- reddybalavignesh9979@gmail.com, richard.weiyang@gmail.com,
- michael.bommarito@gmail.com, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] tracing/user_events: Share event state with
- existing threads
-Message-ID: <20261123165632.2c8ee68c@gandalf.local.home>
-In-Reply-To: <20261006164720.3940272-3-jeffbarnes@linux.microsoft.com>
-References: <20261002153934.798176-1-jeffbarnes@linux.microsoft.com>
-	<20261006164720.3940272-1-jeffbarnes@linux.microsoft.com>
-	<20261006164720.3940272-3-jeffbarnes@linux.microsoft.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by smtp.kernel.org (Postfix) with ESMTPS id 853891F000C6;
+	Mon, 23 Nov 2026 21:57:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795471031;
+	bh=PBOx50dU5MAESsqZCyDmajeGF32kegFfpiXvkGjOtO4=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=nbwMZFzhkkG9kZzRzoJ7eoyWYlGzsHnivm6IAR4vS3GjzMOfETkpeJpDqzlQLTbDQ
+	 BpevoGG9Um+RNOlL1PmUmilN3EfMURROd44Ba8ihpi9pTI/LXjd8Yv92LAswOizOTi
+	 IZeohZKR6eDvYBxp8qZzm+0j3f0+d2nOyFDcTXO5z8F1Urok/+BIC2TLgpS0c+jgvo
+	 G45W5aF26vS6VLcH8XsdLYZMtK1LzcLIi6uu35as5SqvDOVJvHVDxteJK2O3ZdsFZj
+	 M1IsXscXEddRnVpKkHt35VEZeoH8B9t3kxjGBLTHOUbScHJ4o9oFIG3GK0AScRteB5
+	 0dsP/KCmrzmug==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 050C44C77B;
+	Mon, 23 Nov 2026 21:57:10 +0000 (UTC)
+From: =?utf-8?q?Fr=C3=A9d=C3=A9ric_Aime_via_B4_Relay?= <devnull+frederic.aime.gmail.com@kernel.org>
+Date: Mon, 23 Nov 2026 22:57:10 +0100
+Subject: [PATCH] platform/asus: asus-wmi: Detect Vivobook thermal policy
+ without presence bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,148 +83,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 7C94520010
-X-Stat-Signature: 6sa3ug34qu5mdm8ksdka44npyc15x34t
-X-Rspamd-Server: rspamout06
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/uBX6/3tbn76JHR3U5aQYtJrpJS9Koy88=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=se2Dv26Z/48b9YJDecdodAx/gKOEn8umjmUKLpeNdcE=; b=W+34totZkPIIsNWWYcmmOVB17FzfxSGPV1pqe/pEVdZWKOWqsaOFSQ/dBRKzfmu972RTG01JhMYUHqaUiOfeoW+I61nooD5LmoynGjsx0cEIXOQq2B9MFOEyBqvvixWXabTav8lk2O8+ckxk/KUAuSCEit70OysErm5NvJwmD08=
-X-HE-Tag: 1795470998-466939
-X-HE-Meta: U2FsdGVkX1+RoU68q4rtQsUxPbFc20Cs6LH5N7dhfrhJtss/kxET501XK/uyQwS5wCFTShkk5qjJpPgY8n+Hvc0W6bilHo7m2c4lcYgzInhZ4P+rcRlrOXrZJJCMAAj74QXduUtAgJ3ieny6Rklvefr5Koqv8Xrm6b68XeW9GoJJE5UCaZzWdTkUSicbbBRihEjCmU6DhkPfmUWH+qBTs7n6gnEZQgs+aphWfE1a0y6KQ9+4Yd+J0X68NWldCEUXZ/42JSioTm8n7cqR/JmH1NM6/X7hR7nRW4MpDt94HzzWPO3qMkVYlDJ7xWfk7sk5msyBKTGzjQJudB065Xv2AEBiSash9WNa
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-proart-thermal-policy-v1-1-396374f9e1d8@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDtgRiLSq5Qu0jjqiDVhEkuLe
+ HfTdvkW/++QWIUTXKsdlF+SJKwF5lKBn9w6MkpfDFRTaww1GDU4zZgn1qdbMIZF/Aeps7b1bBs
+ aCEoblQd5/763+99pe8zs83cGx3ECY0vy6nkAAAA=
+X-Change-ID: 20261123-proart-thermal-policy-28556ce532f2
+To: Corentin Chary <corentin.chary@gmail.com>, 
+ "Luke D. Jones" <luke@ljones.dev>, Denis Benato <denis.benato@linux.dev>
+Cc: Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Fr=C3=A9d=C3=A9ric_Aime?= <frederic.aime@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795471029; l=3936;
+ i=frederic.aime@gmail.com; s=20261123; h=from:subject:message-id;
+ bh=Wf3A0r7uX2ZUoDRLKINwzfnBD6nYGfliM3J1iNQZ+80=;
+ b=je2sq2pyurw1z4J9SAwuhxejIsQmEHl9jcHi5ltd6GWMmYXi7s+v2fPBnsmB/20hDtkxB4jYT
+ KhXsoEpQDGJCE1BDcBkGvkaQrWUBgHnOlGUKaXX/gQ3rvJk0Rprh9Go
+X-Developer-Key: i=frederic.aime@gmail.com; a=ed25519;
+ pk=xkFcmpr+qwkxDu8LFMuiki1YjzZT/JWGb/oXAMSMFOE=
+X-Endpoint-Received: by B4 Relay for frederic.aime@gmail.com/20261123 with
+ auth_id=1624
+X-Original-From: =?utf-8?q?Fr=C3=A9d=C3=A9ric_Aime?= <frederic.aime@gmail.com>
+Reply-To: frederic.aime@gmail.com
+Content-Transfer-Encoding: 8bit
 
-On Tue,  6 Oct 2026 12:47:19 -0400
-Jeff Barnes <jeffbarnes@linux.microsoft.com> wrote:
+From: Frédéric Aime <frederic.aime@gmail.com>
 
->  static void user_event_mm_attach(struct user_event_mm *user_mm, struct task_struct *t)
->  {
->  	unsigned long flags;
-> @@ -817,14 +831,18 @@ void user_event_mm_remove(struct task_struct *t)
->  	might_sleep();
->  
->  	mm = t->user_event_mm;
-> +
-> +	spin_lock_irqsave(&user_event_mms_lock, flags);
-> +
->  	t->user_event_mm = NULL;
->  
-> -	/* Clone will increment the tasks, only remove if last clone */
-> -	if (!refcount_dec_and_test(&mm->tasks))
-> +	/* Clones and attached tasks increment this count. */
-> +	if (!refcount_dec_and_test(&mm->tasks)) {
-> +		spin_unlock_irqrestore(&user_event_mms_lock, flags);
->  		return;
-> +	}
->  
-> -	/* Remove the mm from the list, so it can no longer be enabled */
-> -	spin_lock_irqsave(&user_event_mms_lock, flags);
-> +	/* Prevent new tasks from attaching after the last-task transition. */
->  	list_del_rcu(&mm->mms_link);
->  	spin_unlock_irqrestore(&user_event_mms_lock, flags);
+The ProArt Studiobook 16 (H7604JV, BIOS H7604JV.305) implements the
+Vivobook-style thermal policy device 0x00110019: its WMNB DEVS handler
+calls ATKD.FANL(), which switches the EC fan curve, updates the DPTF OEM
+variable ODV0 (notifying IETM with 0x88) and selects the matching NVIDIA
+power table. This is what MyASUS uses on Windows to switch between
+Standard (0), Whisper (1), Performance (2) and Full Speed (3).
 
+However, its DSTS reply for this device does not set
+ASUS_WMI_DSTS_PRESENCE_BIT. It returns the current mode with the USER and
+BIOS bits set instead, e.g. 0x02060002 in Performance mode. As
+asus_wmi_dev_is_present() requires the presence bit, the device is never
+detected and no platform_profile is registered. power-profiles-daemon
+then falls back to its placeholder driver, the machine stays in
+Standard mode, and Intel DPTF (thermald --adaptive) keeps applying the
+Standard policy, which caps the CPU at PL1 30 W / PL2 55 W as soon as
+one of the board sensors reaches 65 °C.
 
-Actually the above can be written better as:
+Device IDs this BIOS does not implement still fail with -ENODEV, so a
+successful DSTS reply with both the USER and BIOS bits set reliably
+indicates that the device exists. Accept that pattern for the Vivobook
+thermal policy device in addition to the presence bit.
 
-@@ -832,26 +832,22 @@ static void delayed_user_event_mm_put(struct work_struct *work)
- void user_event_mm_remove(struct task_struct *t)
- {
- 	struct user_event_mm *mm;
--	unsigned long flags;
- 
- 	might_sleep();
- 
- 	mm = t->user_event_mm;
- 
--	spin_lock_irqsave(&user_event_mms_lock, flags);
-+	scoped_guard(spinlock_irqsave, &user_event_mms_lock) {
-+		t->user_event_mm = NULL;
- 
--	t->user_event_mm = NULL;
-+		/* Clones and attached tasks increment this count. */
-+		if (!refcount_dec_and_test(&mm->tasks))
-+			return;
- 
--	/* Clones and attached tasks increment this count. */
--	if (!refcount_dec_and_test(&mm->tasks)) {
--		spin_unlock_irqrestore(&user_event_mms_lock, flags);
--		return;
-+		/* Prevent new tasks from attaching after the last-task transition. */
-+		list_del_rcu(&mm->mms_link);
- 	}
- 
--	/* Prevent new tasks from attaching after the last-task transition. */
--	list_del_rcu(&mm->mms_link);
--	spin_unlock_irqrestore(&user_event_mms_lock, flags);
--
- 	/*
- 	 * We need to wait for currently occurring writes to stop within
- 	 * the mm. This is required since exit_mm() snaps the current rss
->  
-> @@ -894,11 +912,25 @@ static bool
->  current_user_event_enabler_exists(struct user_event_group *group,
->  				  unsigned long uaddr, unsigned char bit)
->  {
-> -	struct user_event_mm *user_mm = current_user_event_mm();
-> +	struct user_event_mm *user_mm = current->user_event_mm;
-> +	unsigned long flags;
->  	bool exists;
->  
->  	lockdep_assert_held(&group->reg_mutex);
->  
-> +	if (!user_mm) {
-> +		spin_lock_irqsave(&user_event_mms_lock, flags);
-> +
-> +		user_mm = user_event_mm_find_locked(current->mm);
-> +
-> +		if (user_mm) {
-> +			refcount_inc(&user_mm->tasks);
-> +			current->user_event_mm = user_mm;
-> +		}
-> +
-> +		spin_unlock_irqrestore(&user_event_mms_lock, flags);
-> +	}
+The existing Vivobook mapping matches this firmware: quiet -> 1
+(Whisper), balanced -> 0 (Standard), performance -> 2 (Performance).
+Tested on the H7604JV: power-profiles-daemon now uses the
+platform_profile driver, each profile switches the firmware mode (DSTS
+0x02060001 / 0x02060000 / 0x02060002) and ODV0 accordingly, and
+thermald --adaptive applies the matching OEM policy (e.g. PL1 130 W /
+PL2 157 W in performance instead of 30 W / 55 W).
 
-and this with:
+Signed-off-by: Frédéric Aime <frederic.aime@gmail.com>
+---
+ drivers/platform/asus/asus-wmi.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
 
-@@ -919,22 +915,17 @@ current_user_event_enabler_exists(struct user_event_group *group,
- 				  unsigned long uaddr, unsigned char bit)
- {
- 	struct user_event_mm *user_mm = current->user_event_mm;
--	unsigned long flags;
- 	bool exists;
+diff --git a/drivers/platform/asus/asus-wmi.c b/drivers/platform/asus/asus-wmi.c
+index b33ebdb21..66a68944d 100644
+--- a/drivers/platform/asus/asus-wmi.c
++++ b/drivers/platform/asus/asus-wmi.c
+@@ -660,6 +660,24 @@ static bool asus_wmi_dev_is_present(struct asus_wmi *asus, u32 dev_id)
+ 	return status == 0 && (retval & ASUS_WMI_DSTS_PRESENCE_BIT);
+ }
  
- 	lockdep_assert_held(&group->reg_mutex);
++/*
++ * Some BIOSes implement the Vivobook-style thermal policy device but leave
++ * ASUS_WMI_DSTS_PRESENCE_BIT clear in its DSTS reply. The ProArt Studiobook 16
++ * (H7604JV) for instance returns the current mode with the USER and BIOS bits
++ * set (e.g. 0x02060002), while unsupported device IDs still fail with -ENODEV.
++ * Accept that pattern as well so platform_profile works on these machines.
++ */
++static bool asus_wmi_throttle_thermal_policy_vivo_is_present(struct asus_wmi *asus)
++{
++	const u32 mask = ASUS_WMI_DSTS_USER_BIT | ASUS_WMI_DSTS_BIOS_BIT;
++	u32 retval;
++
++	if (asus_wmi_get_devstate(asus, ASUS_WMI_DEVID_THROTTLE_THERMAL_POLICY_VIVO, &retval))
++		return false;
++
++	return (retval & ASUS_WMI_DSTS_PRESENCE_BIT) || (retval & mask) == mask;
++}
++
+ /* Keystone *******************************************************************/
  
- 	if (!user_mm) {
--		spin_lock_irqsave(&user_event_mms_lock, flags);
--
-+		guard(spinlock_irqsave)(&user_event_mms_lock);
- 		user_mm = user_event_mm_find_locked(current->mm);
--
- 		if (user_mm) {
- 			refcount_inc(&user_mm->tasks);
- 			current->user_event_mm = user_mm;
- 		}
--
--		spin_unlock_irqrestore(&user_event_mms_lock, flags);
- 	}
+ static int keystone_check_present(struct asus_wmi *asus)
+@@ -5222,7 +5240,7 @@ static int asus_wmi_add(struct platform_device *pdev)
  
- 	if (!user_mm)
+ 	if (asus_wmi_dev_is_present(asus, ASUS_WMI_DEVID_THROTTLE_THERMAL_POLICY))
+ 		asus->throttle_thermal_policy_dev = ASUS_WMI_DEVID_THROTTLE_THERMAL_POLICY;
+-	else if (asus_wmi_dev_is_present(asus, ASUS_WMI_DEVID_THROTTLE_THERMAL_POLICY_VIVO))
++	else if (asus_wmi_throttle_thermal_policy_vivo_is_present(asus))
+ 		asus->throttle_thermal_policy_dev = ASUS_WMI_DEVID_THROTTLE_THERMAL_POLICY_VIVO;
+ 
+ 	if (asus_wmi_dev_is_present(asus, ASUS_WMI_DEVID_TUF_RGB_MODE))
 
--- Steve
+---
+base-commit: 2268d837dea13a78639fa3dad60472bb67478709
+change-id: 20261123-proart-thermal-policy-28556ce532f2
 
-> +
->  	if (!user_mm)
->  		return false;
->  
-> @@ -906,8 +938,6 @@ current_user_event_enabler_exists(struct user_event_group *group,
->  	exists = user_event_enabler_exists(user_mm, uaddr, bit);
->  	mutex_unlock(&event_mutex);
->  
-> -	user_event_mm_put(user_mm);
-> -
->  	return exists;
->  }
->  
+Best regards,
+--  
+Frédéric Aime <frederic.aime@gmail.com>
+
 
