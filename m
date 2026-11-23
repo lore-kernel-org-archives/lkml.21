@@ -1,99 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795443165;
-	b=KUTQHAkTNNZaUXt79Ht36WH18thIuyFl7eCJiIpaz7nu7OmT7Zx6eLYS7KkH3Ht2K8FH
-	 N3o77LnWGgQCS7q43fvr376HXTdXS9sP0ZvB/6q8BEnMhJ7JWk9ZCkA3Q4Am7rcUCPabV
-	 gC0iTiG0yAYizL77ozuUANuCvIVZp6OtCLICl0EbO8KKZEmr0+KNRuV8wYCa+BP9EmpaQ
-	 ZMWJQmdiyokxoWbFZQ0i3vtgG3vRag1LURdMogWwFdeoWY/POpvVPqRa7DPSbefeQzFkO
-	 uHednGe8J1vV62e426LPV7xAmZNAHPJe4kdtuN6AmU1oPEFyixy5s7d0I16vlE6YmdA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443165;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795443230;
+	b=PZDEpR5IaCA8kvg/OySvuS/3Sce9WcixxdLad8C1pv+znUruthv8DLGrXENRgX7PsVQg
+	 EYiN4cCXaIwiOxfE6dS+mKDVZ9IxXbaNISpi4+LkQ5+6QFriMYKEn0PPx8qV4Us1WgBDW
+	 hfqHYRd1EP03DBF+Kr3MMt+9yKu/WtfBmKSYofgE99NDbP9w9T82fyDpoRY2nKehk7VdI
+	 B+AGsyswV7qmzomIouF3o8rDJgbnJuy4YzVJr254iOVR8rJDXH+Oz+PHkSNjMn6yetYCJ
+	 nlCj/9J9XC74B1TVi/KKSkOSylHY5G5WIf432oVCf6zphX5IgNmTxdHFku40io7Rptg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443230;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
-	b=dqMy82G8ZoyJUklcHiwJx/lM+N8GwnfsjdcBMq0gMTG7k7hmAgqhC+EhoVOVfMKXTJbH
-	 aeJrXihzg9DUjzX4BTUe03aDtp8QiLvqY1CCu3vdUO45Q+84OLzJvPqHPsnkd1dTxMjxp
-	 V7/MZGOMTZtJDp/2ZP0LwoHkkPC6HfbdsqLo2o7ePJY0adydHu1sUfiVkA3oVNRw+Ao53
-	 0aM0XKFY1+zlqwM74MGxVEpRk0BgmdFghYaOujfQrwYC7RI1xgxN6L7Id6paiJctqPOE6
-	 OdtUOMGXBPTZZjaZw4bcez6dqIjhhrhI8k+8t7dYaXUv0bHYMBH1xNJYDlCsps3YMdQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=NCpzLTAq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:To:Cc:Subject:From:X-Mailer:
+	 References:In-Reply-To;
+	bh=AdNUiZw6fAyIiVF2nciH0mXPq/Qr5P0Rz9tmmIcTAgM=;
+	b=fCOd2bw89F0LMbVbmqFi/NYZ3FMxhPK6367sgQcGY2iu0XvY0DhLsmUf0LwYrscMDobP
+	 48j0kzq0FmHs1h1lLb5I94k+UOFhAbTLOfJF/KRZqbgwm9m/MwxKoFkB9tgq+OZjvHKne
+	 fNIjuoEPnuHtON3tDi6smjUgXe6sVaHZ7oXsU4zL0K6Ske8O6Be9CYdtNdmSW+l32hzml
+	 BrwijJM/ulow0zeQWZXqdbzvK4nVX+MZwSMD0JkRwV17vPdr3a2Cfet+cAe0hVB9wPWZJ
+	 Fv0DiEQzBVtDkqAw0KAZ7FX4Du2LMPEwaIVwZqaUCYVnMGv28k9WYTX3wRPUuPAJfUA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ebffeTco;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA5D5606A337
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA5D5606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC504606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:13:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC504606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=NCpzLTAq
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b335eeb340so27619757b3.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:12:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795443163; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rJABD5Noy9Hy8+89BxjLZvdHMNWprsXucxUTjuCbo3J12yVc5oVItmFC/VGE1+TcAm
-         wVJXYuKz199rh2QGwL9jxtjcOVnkmawNioDHCZ2mlXy81kMhQdxE/iIgrmpVEAZ/Hz91
-         4hL+ufj1eMBCRu4Jk8zU+D0bVrsiqYnM88Z8K+Qn2ZTMMPCP6VY/zD4Zna/UGatUX9dj
-         2+RAIaiuOwcJ0GwxW0M2UMmRhU3J+KvTh0Osw7P30H+nJKLWWbOGobvgk5qzxOWHthGi
-         IBus4G2yZYShhQ5FPzz+tJuIJPTA/PUahWM3j7NKeCTzIU9Vo4lNpo5IF3wacju1MKDq
-         YE1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
-        fh=ARFnSfg4ihVp6x6wCqvtBMXYV12mfUaKR9zjWdKoSSo=;
-        b=LurQJAIAkzQvmP39i8QeEx5DSrEKR9V7HXjaJrRxcc04PO2m0JTKwZ2aKLon7dkAi3
-         BfPXKx+zik19+wrt/KCw6vW5xXU7Eu/8CbcQPVq0LmoH9t3iiciqg23nHkhL/pId0kMt
-         C3vTXO8V1RzjgSksr8ZYeCXqFT7tyCb+wBS97Nhj6BwEOiozXmowc1OK4q16PSUXT7a6
-         MRB1HG4p8tDHOt6d9sD9IjqdMKkd+9XLDoqjKSu4YrBWL7Q0XAsYsHvFdPSImyLmsSz8
-         fvj5fFFv4eRHhEVJe8SMQLfB5wrsMnlFr5vl/zFco9UKQYDSgKLJFJEBTr5qS2xZpJRL
-         rD8g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ebffeTco
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso26205805e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:13:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795443163; x=1796047963; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
-        b=NCpzLTAqoKBaQ3KVbQj6YwKJp3A1WBpm5bfvC+0PBFFfZAALv3kQhBF+Fst0LotYdE
-         HAvRy9agb63TvB+f6ZNIjNN+m8yQVGiv5qD+OjvUT26OXXWKOjFRdwDBEI5FSgTtqqE/
-         +ZcVV33xN2ewf/Kwvf/XVspehaernWJ0ncrLm3DdkLsl3mJAypnuImVt0ixLX6kj81K0
-         F85t99ITJr1LR7JS1tk8PH9JFF2Cim2TPqfTZb+OF+45kjxL2CIih4JDa4+XZ1qidbjf
-         xnfesk3osKHqa9azZXKG5Y3/48C4F3APkJGRhAazQhVlA5kqWhCPoXMHnDQpR2SVLMbS
-         4NCw==
+        d=gmail.com; s=20260707; t=1795443228; x=1796048028; darn=vger.kernel.org;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=AdNUiZw6fAyIiVF2nciH0mXPq/Qr5P0Rz9tmmIcTAgM=;
+        b=ebffeTcoM2kGd9tyJYwdkn0BAhKP3teX0NXVi/OtrrM9NfH6b7J/w0Q4IUirzPqgIX
+         Vvu7exd430ieby8Ta08hExTCJAN8zp9SjmimaV45LlnMUx+NoYdslogXx2QgwOiYpnXy
+         f0B5KYuDkYvgeCRA+uTerXqmCPXicY7jQWHZk3TttfS2u3aZrSCGvaSLtaKyEJ/pz4n7
+         8BwcNYaX8ZpWPBApW/Eljbv9l9lsDXZk/KF6+vp4q9M4p3a0p4+/kc+5tL6F8lR9uTdW
+         ygXtU6TBlMdsTfuseBs71kC+rNVYRElnzC0ZnA6zDhUg4LtydOk0mgEcsXkBy/fhNQ8X
+         2vBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443163; x=1796047963;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20260707; t=1795443228; x=1796048028;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=YgMDGcWrMjPej+9nilhSPh1m6I/qFRVA+VWwn5/R8Ds=;
-        b=YjktrZlg3TLawHwkQlYJVP6d+l5V6HviqcS14sVb8CFqAJjpCkHSKK5zVDgq5Zx06a
-         NidyhIfS2tqpXg/qFk7n3MnWg5YOV0eCRClzjaKGC08MTsNsGZV09aYf8pWR4FG+jZPe
-         WD201Te5y7P56m0vfdnylptyWonBpqDiWnT8iJGdwGHhw7FPAjJNcK7ONCgBuxrEPRii
-         G1g6fYfz1IdqkBsvlq1/zYtfWbejl7P9LcljI3WHuPx4Q/2kBfEgsMQmefP1NNsn3nwu
-         zbJRChf/hLCGwA3ymenlTfXBiQ6pRtcHz3H0CFC3jGvcWs5aquTqEsUlb/a19kW845Dm
-         W39w==
-X-Forwarded-Encrypted: i=1; AL+hErFscYhzCUCsz2kL5iDlHTH4VKkmJOUqp0Tw/bu8q3D5cg0h01+HfAWvPzeG2Ztx3SMcsC+ZbT6LY+p7Ujg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+qfgkDp+aRqkaNpwi0LPLU1yVgm+5ERERC/EgyWevNU/2EjoSF
-	qkx/cAT/tb7N6/uo7qHxZNecY92LujhbT+Rub/N8LMraJGkHh54SPMqJh2Q9dm5Xljb3kSobEFp
-	+Kg1VQYNBjMx/+tBS60EwLFln9PdGVOWdspD4iPWLmQ==
-X-Gm-Gg: AZFdTZexdBkXD7ZCAdWkdiTYavAWksuBveEzSsbc2BuP8FADgEHS08AMQsqQrvMNltv
-	NSgIXUMjDU4WLMYr2uDB2Qzl1YeVW438mg5yQ35uDcFqC4LPjc44bSYg4kkCgzvdazdCnpfUqmk
-	sHQEyrCqbWOaJaBwCT9AHqxHhfsC6h5ymXTiTW1ZBAK8JrWi2bshPiGfxha/CmTVW++xRFee1g8
-	+SU1Z17hNLOr3vttPryAUjsjwCfDPLKx4sIYRuRqwkibKpsyRMYBtusEMD/G9ScopxNQYQkDVXl
-	LqUO4JczF95mOnaCZ6+8zrJLF9uUXBfoAxzzsUzWKpNPTGeFeX9MV7SeeGG8T6Bnsfkq7YiXJFC
-	hGIBwZQEzIBKXifdEORXSAwPISXvaL5/5uM/p9MMOnJqq7ezVDbjEbMlkrYhPg8MfiQEFsWQ=
-X-Received: by 2002:a05:690c:4b8f:b0:8b0:e10d:1975 with SMTP id
- 00721157ae682-8b520435695mr34860627b3.29.1795443162921; Mon, 23 Nov 2026
- 06:12:42 -0800 (PST)
+        bh=AdNUiZw6fAyIiVF2nciH0mXPq/Qr5P0Rz9tmmIcTAgM=;
+        b=tKJWXkwwfff2hvBVHP+2NwF8Ln46w+HARFM1yRNkYo6o8B4kvxx8Vad6nC6RPC609x
+         BnyX1JaYa66IoZf9BpqqaCw4/oaswlnFYZ+np7L/oC4xJ0/pgD0l98nDbSTj+KDmbVL5
+         KqQbZ71xXwi75/BjWChS564UBINiwzWg2lDghWjlntw8Hst9d5CGgisl6v2vqsUAvDLC
+         lThpxnQ7cyQnW2ugodHKdzsCx8Pb4D8S5GmAXdkGnbVrElsK8iJflrbfLk2XncochZ0Y
+         lTpAJxUKLJpqO3X4NJvoH3xk8Dwl77hTFc5YGTYRyvO06xnsJsMk98E/EGE7z4sTZ/pZ
+         k+aw==
+X-Forwarded-Encrypted: i=1; AL+hErEbUs/u4RNvV4+/l1CqGd27g7rMevCEfpTnhUnwhpBEX5ldhFnZcHhmmmqFMcd4W1GT0MFpJn9NPLOOoMM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VjvvZvnU42t2CPnfETvGKz1P1/z8ZspGECG8ZRkaR4bipf1/w
+	fr7cDGopDLsHfuFnQUQbwIX+dfv3DMpvOiMu9EIgUpld2trvFVUFl3Kr
+X-Gm-Gg: AZFdTZfwelPp301AAo5mPAzkLYOBasr2gpK04YMSwb82aMrBke3XDWRgXQNz/CsacQl
+	XkutsIqAz6vWA72z+czBfHAZppde/ogEkNFjoVbu3jsNMbMwCxkGyy0PFDDuj9LUsomLYJkzU2p
+	Sxp7w27j7DqYQwkB0f81EfKt25zC2WXniyAgdVr2bzZzdJHBcRl3eOYazEHiht9D3EqKNTBgTfg
+	8KeEk/AjuO280f7E1LaTPkwcMe4rbUCPR4OIQpOPjcNROj/7Vs6Lfiw6KVDnM8iYvBZYSaPklMr
+	DHJmqK7qcWBbiqr0h/huXsOljLQLunUcVGA9srnstzbKIrW3rwALMy2FsJf+DVJ8jV3D4J+Rbu0
+	qTSUZeIXuBjz2nfURXljaeZehSNlsphA3s3JdmJ691hKp3P09hiKV+iVNmHqaXtuRsDized154c
+	N+gFvn2sZU3GWCqFJiRrplnTNn4X45hk3yqwCq4eJXtRcKGwIcU6ObkM1fjcded/SVqTZhewO4a
+	aKjl5WuAFj9c1p4c2yPO9gMoTiH6Yf/qp8XYhFiPTkvoL+2CHSaKaJup6/Pf1I7cQ+d92a3TTzz
+	1zRK7Ps5cb1sK/Su6/c9D3jnig==
+X-Received: by 2002:a05:600c:848a:b0:4a1:fbd2:f689 with SMTP id 5b1f17b1804b1-4bb8880993amr234005065e9.7.1795443228027;
+        Mon, 23 Nov 2026 06:13:48 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884ab091sm508419575e9.11.2026.11.23.06.13.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 06:13:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,93 +86,283 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261121-rpmsg-config-size-v2-1-d2fd698b6f76@valla.it> <26795897-ccdb-42db-9433-2ecc341fb311@foss.st.com>
-In-Reply-To: <26795897-ccdb-42db-9433-2ecc341fb311@foss.st.com>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Mon, 23 Nov 2026 08:12:31 -0600
-X-Gm-Features: Aa3M54rloAqf4WAjz_5cyU4l0UPfO3oYekEeRTEWNkBzcSFDmJDGM5H-lLlDof4
-Message-ID: <CANLsYkwG-C_CRDr401zZB912U07tQHJHNa+LWd2mgPM9YRgcNQ@mail.gmail.com>
-Subject: Re: [PATCH v2] virtio_rpmsg: Fix config space alignment
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Cc: Francesco Valla <francesco@valla.it>, Bjorn Andersson <andersson@kernel.org>, 
-	Tanmay Shah <tanmay.shah@amd.com>, openamp-rp@lists.openampproject.org, 
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=c485377c3c583edb24864dcca5dc2a3b0d7251ed0f88e601a300289ca66a;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 23 Nov 2026 15:13:45 +0100
+Message-Id: <DN2NI744M9OC.CYZFL8XSU7UP@gmail.com>
+To: "liubaolin" <liubaolin12138@163.com>, "koraynilay"
+ <koray.fra@gmail.com>, "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul
+ Lee" <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Christian Brauner" <brauner@kernel.org>
+Cc: "Chuck Lever" <cel@kernel.org>, "Jeff Layton" <jlayton@kernel.org>, "Jan
+ Kara" <jack@suse.cz>, "Darrick J . Wong" <djwong@kernel.org>, "Andrey
+ Albershteyn" <aalbersh@kernel.org>, "Amir Goldstein" <amir73il@gmail.com>,
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
+ <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
+ Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+Subject: Re: [PATCH 3/3] ntfs: switch to the new xflags fileattr API
+From: "koraynilay" <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261122000856.536902-1-koray.fra@gmail.com>
+ <20261122000856.536902-4-koray.fra@gmail.com>
+ <1ebbb85f-3515-4c45-a850-8039aad93800@163.com>
+ <DN265Y2EAGQV.1ZD49JSIDMME5@gmail.com>
+ <6d054adc-5b6d-4a1c-b9e5-b32916e06abe@163.com>
+In-Reply-To: <6d054adc-5b6d-4a1c-b9e5-b32916e06abe@163.com>
 
-On Mon, 23 Nov 2026 at 02:12, Arnaud POULIQUEN
-<arnaud.pouliquen@foss.st.com> wrote:
->
->
->
-> On 11/21/26 00:01, Francesco Valla wrote:
-> > The comment for virtio_rpmsg_config says that this structure is
-> > naturally aligned to 32 bits, and this is desirable by some
-> > architectures that don't get along with unaligned accesses.
-> > The content of the structure itself however isn't aligned, and the
-> > __packed attribute prevent the compiler to add this alignment.
-> >
-> > Fix this by extending the version field to 16 bits.
-> >
-> > Fixes: ca96ea25e51a ("rpmsg: virtio_rpmsg_bus: Get buffer size from config space")
-> > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > ---
-> > Changes in v2:
-> > - version field extended to 16 bits instead of adding a reserved byte.
-> > - Rebased on current master.
-> > - Link to v1: https://patch.msgid.link/20261101-rpmsg-config-size-v1-1-65686b445b22@valla.it
-> > ---
-> >   drivers/rpmsg/virtio_rpmsg_bus.c   | 2 +-
-> >   include/linux/rpmsg/virtio_rpmsg.h | 2 +-
-> >   2 files changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
-> > index 23ff6c8b7a20..27282475a732 100644
-> > --- a/drivers/rpmsg/virtio_rpmsg_bus.c
-> > +++ b/drivers/rpmsg/virtio_rpmsg_bus.c
-> > @@ -815,7 +815,7 @@ static void rpmsg_virtio_del_ctrl_dev(struct rpmsg_device *rpdev_ctrl)
-> >   static int rpmsg_virtio_get_buf_size(struct virtproc_info *vrp)
-> >   {
-> >       struct virtio_device *vdev;
-> > -     u8 version;
-> > +     u16 version;
-> >       u16 size;
-> >
-> >       vdev = vrp->vdev;
-> > diff --git a/include/linux/rpmsg/virtio_rpmsg.h b/include/linux/rpmsg/virtio_rpmsg.h
-> > index 0872cbca4593..57f48d537de9 100644
-> > --- a/include/linux/rpmsg/virtio_rpmsg.h
-> > +++ b/include/linux/rpmsg/virtio_rpmsg.h
-> > @@ -31,7 +31,7 @@
-> >    * the structure is naturally 32-bit aligned.
-> >    */
-> >   struct virtio_rpmsg_config {
-> > -     u8 version;
-> > +     __virtio16 version;
-> >       __virtio16 size;
-> >       /* The tx/rx individual buffer size (if VIRTIO_RPMSG_F_BUFSZ) */
-> >       __virtio32 txbuf_size;
->
->
-> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
->
+--c485377c3c583edb24864dcca5dc2a3b0d7251ed0f88e601a300289ca66a
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Applied.
+On Mon Nov 23, 2026 at 4:06 AM CET, liubaolin wrote:
+>
+>
+> =E5=9C=A8 2026/11/23 08:38, koraynilay =E5=86=99=E9=81=93:
+>> On Sun Nov 22, 2026 at 1:49 PM CET, liubaolin wrote:
+>>>
+>>>
+>>> =E5=9C=A8 2026/11/22 08:08, koraynilay =E5=86=99=E9=81=93:
+>>>> Switch ntfs_fileattr_[gs]et() from the legacy FS_*_FL flags to the
+>>>> modern xflags (FS_XFLAG_*) fileattr API with masks.
+>>>>
+>>>> Introduce FS_XFLAG_COMPR and FS_XFLAG_ENCRYPT and add them to
+>>>> FS_XFLAG_COMMON (and add FS_COMPR_FL and FS_ENCRYPT_FL to FS_COMMON_FL=
+)
+>>>> to be used in this API switch.
+>>>>
+>>>> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
+>>>> Signed-off-by: koraynilay <koray.fra@gmail.com>
+>>>> ---
+>>>>    fs/file_attr.c           |  8 +++++
+>>>>    fs/ntfs/file.c           | 63 +++++++++++++++++++------------------=
+---
+>>>>    include/linux/fileattr.h |  6 ++--
+>>>>    include/uapi/linux/fs.h  |  2 ++
+>>>
+>>> Hi koraynilay,
+>>>      One suggestion on the patch split: would it make sense to put the
+>>> new COMPR/ENCRYPT xflags and their VFS handling in a separate patch
+>>> before the NTFS conversion?
+>>>      The changes to include/uapi/linux/fs.h, include/linux/fileattr.h
+>>> and fs/file_attr.c introduce generic fileattr support, and the
+>>> COMMON mask changes also affect other filesystems.
+>>>      Keeping those changes together in a VFS patch would make the API
+>>> and compatibility aspects easier to review.
+>>>      The following NTFS patch could then focus on using the new flags
+>>> while preserving the existing NTFS behaviour.
+>>=20
+>> Hi Baolin and thanks for the feedback,
+>> for now I put them in the same patch since they're not many lines of
+>> code changes, but I now also had to add NOCOMP, maybe I'll split it in
+>> the next version.
+>>=20
+>>> Thanks,
+>>> Baolin.
+>>>
+>>>>    4 files changed, 44 insertions(+), 35 deletions(-)
+>>>> [...]
+>>>>    	if (err)
+>>>>    		return err;
+>>>>   =20
+>>>> -	if (fileattr_has_fsx(fa))
+>>>> -		return -EOPNOTSUPP;
+>>>> -
+>>>> -	/* chattr passes the unchanged read-only flags back to us too. */
+>>>> -	if (NInoCompressed(ni) || NInoWofCompressed(ni))
+>>>> -		readonly |=3D FS_COMPR_FL;
+>>>> -	if (NInoEncrypted(ni))
+>>>> -		readonly |=3D FS_ENCRYPT_FL;
+>>>> -	if ((fa->flags ^ readonly) & (FS_COMPR_FL | FS_ENCRYPT_FL))
+>>>> -		return -EOPNOTSUPP;
+>>>> -	allowed |=3D readonly;
+>>>> -
+>>>> -	/* Case folding is a read-only, mount-wide property. */
+>>>> -	if (!NVolCaseSensitive(ni->vol))
+>>>> -		allowed |=3D FS_CASEFOLD_FL;
+>>>> -	if (fa->flags & ~allowed)
+>>> Hi koraynilay,
+>>>      There is another case worth keeping in mind when replacing this ch=
+eck:
+>>>      fileattr_fill_flags() only translates a subset of FS_*_FL bits,
+>>> so some unsupported flags will not appear in fsx_xflags.
+>>>     For example, a direct SETFLAGS request containing only FS_NOCOW_FL
+>>> produces fsx_xflags =3D=3D 0. On a normal file on a case-sensitive moun=
+t,
+>>> the new check would accept that request.
+>>>     If the file already has persistent NODUMP set, the request would al=
+so
+>>> clear it, since the setter rebuilds linuxflags without NODUMP and write=
+s
+>>> it back to the EA. The current code rejects the request and leaves the
+>>> existing attributes unchanged.
+>>>
+>>>     Would it be possible to keep validating fa->flags when flags_valid =
+is
+>>> set, in addition to the xflags check?
+>>=20
+>> We could, but the objective is to have filesystems that implement the
+>> new _masks API use only xflags.
+>
+> Hi koraynilay,
+>     That makes sense, and I'm fine with NTFS using only xflags.
+> Could we still make sure that legacy SETFLAGS requests with flags=20
+> unsupported by NTFS are rejected rather than silently accepted after=20
+> conversion?
+
+Hi,
+yes, my current (v2) code, in the new fileattr_legacy_to_mask() helper,
+does this:
+
+if (fa->flags_valid) {
+	/*
+	 * Assume that if the filesystem supports masks it also added
+	 * its supported FS_*_FL flags to FS_XFLAG_* and to the COMMON
+	 * masks.
+	 */
+	changed =3D fa->flags ^ old_ma->flags;
+	if (changed & ~FS_COMMON_FL)
+		return -EOPNOTSUPP;
+
+	changed =3D flags_to_xflags(changed);
+}
+
+so they should be correctly rejected.
 
 Thanks,
-Mathieu
+koraynilay
 
 > Thanks,
+> Baolin.
 >
-> Arnaud
->
-> >
-> > ---
-> > base-commit: 5f22fb20497f4983094131f00a734362300d22d2
-> > change-id: 20261101-rpmsg-config-size-0dbe9ea63c6d
-> >
-> > Best regards,
-> > --
-> > Francesco Valla <francesco@valla.it>
-> >
->
+>>=20
+>>> Thanks,
+>>> Baolin.
+>>>
+>>>
+>>>> +	/*
+>>>> +	 * When userspace uses file_[gs]etattr(), VFS already checks and fai=
+ls
+>>>> +	 * with -EOPNOTSUPP if rw_mask & ro_mask !=3D 0 and rw_mask & ~allow=
+ed,
+>>>> +	 * but for FS_IOC_SETFLAGS and FS_IOC_FSSETXATTR VFS can't check for
+>>>> +	 * allowed flags as these ioctls don't support fsx_xflags_{rw,ro}_ma=
+sk,
+>>>> +	 * so we need to check for unsupported flags anyway.
+>>>> +	 */
+>>>> +	if (!fa->has_masks &&
+>>>> +	    ((fa->fsx_xflags & ~NTFS_RW_XFLAGS) ||
+>>>> +	     fa->fsx_extsize || fa->fsx_projid || fa->fsx_cowextsize))
+>>>>    		return -EOPNOTSUPP;
+>>>
+>>> Hi koraynilay,
+>>>      Could we keep the existing handling of read-only attributes
+>>> for legacy SETFLAGS callers here?
+>>>      On a case-insensitive NTFS mount, the VFS carries over
+>>> FS_XFLAG_CASEFOLD from the current attributes, since it is not in
+>>> FS_XFLAG_COMMON.
+>>> This check would then reject it because CASEFOLD is not in
+>>> NTFS_RW_XFLAGS, so even chattr +d would fail with EOPNOTSUPP.
+>>>      The unchanged COMPR/ENCRYPT bits that chattr reads with GETFLAGS a=
+nd
+>>> passes back with SETFLAGS would also be rejected on compressed/encrypte=
+d
+>>> files.
+>>>      Allowing those existing read-only attributes to be passed back
+>>> unchanged  would let users continue setting and clearing the persistent
+>>> flags through chattr,as they can today.
+>>>
+>>> Thanks,
+>>> Baolin.
+>>=20
+>> Since I wasn't quite satisfied with this version, I'm working on a
+>> revisited v2, that is hopefully cleaner and fixes these bugs and the
+>> ones reported by sashiko.
+>>=20
+>> Thanks,
+>> koraynilay
+>>=20
+>>=20
+>>>>   =20
+>>>>    	forced_immutable =3D ntfs_is_forced_immutable(vi);
+>>>> -	if (!(fa->flags & FS_IMMUTABLE_FL) && forced_immutable)
+>>>> +	if (!(fa->fsx_xflags & FS_XFLAG_IMMUTABLE) && forced_immutable)
+>>>>    		return -EPERM;
+>>>>   =20
+>>>> -	if (fa->flags & FS_IMMUTABLE_FL) {
+>>>> +	if (fa->fsx_xflags & FS_XFLAG_IMMUTABLE) {
+>>>>    		new_fl |=3D S_IMMUTABLE;
+>>>>    		/* Do not persist an immutable bit derived from the mount. */
+>>>>    		if (!forced_immutable ||
+>>>>    		    (ni->linuxflags & NTFS_LINUXFLAGS_IMMUTABLE))
+>>>>    			linuxflags |=3D NTFS_LINUXFLAGS_IMMUTABLE;
+>>>>    	}
+>>>> -	if (fa->flags & FS_APPEND_FL) {
+>>>> +	if (fa->fsx_xflags & FS_XFLAG_APPEND) {
+>>>>    		new_fl |=3D S_APPEND;
+>>>>    		linuxflags |=3D NTFS_LINUXFLAGS_APPEND;
+>>>>    	}
+>>>> -	if (fa->flags & FS_NODUMP_FL)
+>>>> +	if (fa->fsx_xflags & FS_XFLAG_NODUMP)
+>>>>    		linuxflags |=3D NTFS_LINUXFLAGS_NODUMP;
+>>>> -	if (fa->flags & FS_NOATIME_FL) {
+>>>> +	if (fa->fsx_xflags & FS_XFLAG_NOATIME) {
+>>>>    		new_fl |=3D S_NOATIME;
+>>>>    		linuxflags |=3D NTFS_LINUXFLAGS_NOATIME;
+>>>>    	}
+>>>> diff --git a/include/linux/fileattr.h b/include/linux/fileattr.h
+>>>> index 4faa40febf11..219e7c8eb601 100644
+>>>> --- a/include/linux/fileattr.h
+>>>> +++ b/include/linux/fileattr.h
+>>>> @@ -7,12 +7,14 @@
+>>>>    #define FS_COMMON_FL \
+>>>>    	(FS_SYNC_FL | FS_IMMUTABLE_FL | FS_APPEND_FL | \
+>>>>    	 FS_NODUMP_FL |	FS_NOATIME_FL | FS_DAX_FL | \
+>>>> -	 FS_PROJINHERIT_FL | FS_VERITY_FL)
+>>>> +	 FS_PROJINHERIT_FL | FS_VERITY_FL | FS_COMPR_FL | \
+>>>> +	 FS_ENCRYPT_FL)
+>>>>   =20
+>>>>    #define FS_XFLAG_COMMON \
+>>>>    	(FS_XFLAG_SYNC | FS_XFLAG_IMMUTABLE | FS_XFLAG_APPEND | \
+>>>>    	 FS_XFLAG_NODUMP | FS_XFLAG_NOATIME | FS_XFLAG_DAX | \
+>>>> -	 FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY)
+>>>> +	 FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY | FS_XFLAG_COMPR | \
+>>>> +	 FS_XFLAG_ENCRYPT)
+>>>>   =20
+>>>>    /* Read-only inode flags */
+>>>>    #define FS_XFLAG_RDONLY_MASK \
+>>>> diff --git a/include/uapi/linux/fs.h b/include/uapi/linux/fs.h
+>>>> index e40806b3a69c..09fc7e066485 100644
+>>>> --- a/include/uapi/linux/fs.h
+>>>> +++ b/include/uapi/linux/fs.h
+>>>> @@ -275,6 +275,8 @@ struct file_attr {
+>>>>    #define FS_XFLAG_CASENONPRESERVING 0x00080000	/* case not preserved=
+ */
+>>>>   =20
+>>>>    #define FS_XFLAG_PROJID		0x00100000	/* project ID */
+>>>> +#define FS_XFLAG_COMPR		0x00200000	/* Compress file */
+>>>> +#define FS_XFLAG_ENCRYPT	0x00400000	/* Encrypted file */
+>>>>    #define FS_XFLAG_HASATTR	0x80000000	/* no DIFLAG for this	*/
+>>>>   =20
+>>>>    /* the read-only stuff doesn't really belong here, but any other pl=
+ace is
+>>=20
+
+
+
+--c485377c3c583edb24864dcca5dc2a3b0d7251ed0f88e601a300289ca66a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCawRKGQAKCRDmj22qf5IG
+XPWcAP49AViSerRvoyJ97sqTIiiJSLMsgNe7vK+zEVAAQFM2oAEA1KcvCk741zB+
+V7RldREforG/ieOp41N4vF9RjqR5gAo=
+=IGHV
+-----END PGP SIGNATURE-----
+
+--c485377c3c583edb24864dcca5dc2a3b0d7251ed0f88e601a300289ca66a--
