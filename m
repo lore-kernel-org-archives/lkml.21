@@ -1,56 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431956;
-	b=jM9aE2psAuQ8ZYueBDcRiJXCsBUrh36idRriipUNkD/eMA7LADdstf43hz+RMO5zVu8l
-	 GwANxx6ZchlQhcA184BHa35kzxk206ttTHTYexc0E0F2gVA0PWTaiqZoyZMuP7Deeq372
-	 eZp+CQoPklnvfIEj3LJg+tHvPbDtaH0YhZxwjw9y6k/5IYhE8Q2CliTgQ/B3V88+tH9PP
-	 rBVbg9q1g1XPNSoTwSDkOhJMuOIIUTDAjid2SNqvt23y1sEj48NXixLJ3gAZrrB+d6Gu9
-	 VgCJIz9R6ESoRkN3gQk8LmwlorL6rix9rQqFbodaiIxAQ+WpoJktHKIzFfh+JVCCZPA==
+	t=1795432008;
+	b=KYlcEwxJkwB9EJFCCJF430hFOpp/ng4tArk79oe+sfD5MbhFxJ4sNuqDnxrFbI+aWG1p
+	 7I+SO+mY276uR9SJVBpXZN0I2QfbtrLEopmb5KEEZUcAaFnhLOEcujKwv/ynkT7OSlBr3
+	 huJDPs2HJ2H4HnjUnFePR8ARqYYMsHyrECKUE6PnXF9fhF31ttuT1hCpR42t5c521lSJO
+	 vg6vghbJhDpMKDb0K+Cm3Dv6lUkhNEaUrE9S14nMjiqoFVsuRpGVJpHuuS4VEBWUmi3W+
+	 S1/KLDRGSDGxsrh3MkchP1sJLM2HyukEGR2NzcH4hJl5oWXVwRHGdVnuF+LBnaQj/Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431956;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=cuMhs9MxlBL0fy/9YlMvcsamK52UjZ9Dphft59nHtEs=;
-	b=zeTQOHxFVdzBJBz51G7yjaJpi8ZHV8u922QtxUFouPHVqg0YxWc9jyU5Qc2fH/3CxGKk
-	 2YRxiTkPYCOSeG64v1zPhVDXNWfnP0Np0VEV/2degY/Isn2mOEaZTWdgUvuuC52n4U83q
-	 XKu4mL/X68FjPGhsd9jZOjTwDeCDbPVAdSK2RvgxVgQEL2xpxQx8/GpCC7XX3nKqfjmXz
-	 6qcVSHD3lvd0OM0ow6GNSOWiGl3x1QFskhvWcRJXQLXZBRKceqMqFxXQ1KUS5rIx2W4Rn
-	 AclMazHiZ34KUlZpJww7aS/Hze7zaQn5a1sv/BZakhh0yhqw7m2OWJDZ8qsogwkwCEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432008;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=x8YQa1D4D7Z8Lu5JGDQU9m0aos2cqq5iQXG2x9p7/pM=;
+	b=uUWCymhfkTpcF5cfcT5UCuTZgTgxP6dcUdD6rmyWM/Zgq8AljTV2ukXARO5l5D0vT4Lc
+	 Bx/KVnDaD6YL4IkImblt7p5PQTz0oAEAD2AcMqA6+D0UxsZZniI5JuuFmIEYsaFd59Kqt
+	 LQLFnSivWJSEZceK57QkFbGbig17de2+TDSJI5OSu2G1c1CK2vQZkAEfEr9IMz7YggN2v
+	 hBG6kbCGcngXSLrvofonvXyGjHF22oli4Jroo9ZomI9Zs8NdTOFFqKhWJK5pkjsjwsDeG
+	 mvKkA0hd3s2UmFyeA6L+/8DD+TLhdeV2RWPkDAW209HMOclw/S9lQErLFbtljacwMXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DHNtcvsw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=na1coZTh;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 606DD606A31A;
-	Mon, 23 Nov 2026 11:05:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C371A606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:06:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C371A606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DHNtcvsw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD22D1F000D4;
-	Mon, 23 Nov 2026 11:05:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795431955;
-	bh=cuMhs9MxlBL0fy/9YlMvcsamK52UjZ9Dphft59nHtEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DHNtcvswe64wykBGCeW18mWpGkl5J31TaQlJDSYsljjsQSlAlqW4S1kJd/QUBMQ49
-	 aiAOrYJPmKynqnBJllf8+kYBvp9pvVJ/eSkNDASO1PSRMr8lMkcCi5kvJyWBuZAgTB
-	 wA0NxtWGTm/ouxLscqW655BM+hHYNkEDMACxGTDvGBrPc/KMIAZ1KQ9j5TZNto+ClG
-	 DyjpOOjFVEGD56gpCGnk83vrrTxowHEJiAOTEbG8RqcH3PH6SMroHMmcRZSaEGpMay
-	 NB1gWkMYa/ILJklSlZ930outO6MNL49mTQvHMEm4VzFEpeecafoShWZxNhyVoFPzes
-	 GJFPX6jiLyJIg==
-Date: Mon, 23 Nov 2026 12:05:52 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: CL Wang <cl634@andestech.com>
-Cc: Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, tim609@andestech.com
-Subject: Re: [PATCH 1/3] dt-bindings: gpio: Add support for ATCGPIO100 GPIO
- controller
-Message-ID: <20261123-precise-funny-wildcat-5bbbf8@quoll>
-References: <20261116040914.368298-1-cl634@andestech.com>
- <20261116040914.368298-2-cl634@andestech.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=na1coZTh
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-386a2dc17adso142976eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:06:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795432007; x=1796036807; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=x8YQa1D4D7Z8Lu5JGDQU9m0aos2cqq5iQXG2x9p7/pM=;
+        b=na1coZThoYNwYhIV1igqGSdS+NMMFhY8aSV7YS62w3rHRuE98v+/g3gIQCf7QaX/cH
+         K9Ne2nc6A2oYH9ImNSlr5JMrCb4A5945NLHCEyoaNHIohgx2R33uaDmsekY+3zUB+KIG
+         WwlmZ4YYp0mGxzlhi0MXaj1TKIp5tdB0lA5I3byJhW9BqdSsSdqko7eOAGZvVjDG4e2z
+         VQcXTOyAif3dQ5WNku/21NGOvkxChbKr84usGStafIMkz+ainhPijwR+lRiCa6oNgi/V
+         A1O2YGWhSmx6aGhSfFSp5eCUp2ZLluS/lMFulOjUdyvdKex+ez2i7K2QMsWctBHDjQXC
+         /kZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795432007; x=1796036807;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=x8YQa1D4D7Z8Lu5JGDQU9m0aos2cqq5iQXG2x9p7/pM=;
+        b=CTfj/tNH752hu7o5cZhqNNvmQKp43G49MelzrSn6EC3ObM+Rhi+tM9U61JYCzC7RWf
+         GH+Jb0JSHaqVPp4DEdFQBV9IuCi3d6tAMnmXLxmSwSDBui+AQoGst3o2KHTbP5px4MtL
+         2jS+sUd7jfdyLLJWNM6FJpyu2f3WD0mlffEBZNr8/B4pRmjhwjeqTC1LhTW2qmS3FwVX
+         Kst1yMMwGUrmwKkINIwHsoQz88o4lRqJAT+fnk3OcLv57edS99TxZ9a5pLraBh0AYnuW
+         AeAvsd9lYo8tL8wL2sse60aCXzcyTASdG3uSIul03I8qrcafdlCiTl6r845M7+Ru6zTP
+         Quxw==
+X-Forwarded-Encrypted: i=1; AL+hErFXU+piTE5kX2JQ9bS39hlPpnsrXk+9ZWdjeLLrHJtpXJIYs082PWFIqNtX0rUMFXXYF2K6HvjSwVY57vA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+AH7Qs+RgIESnvemGEk+8+BNVkxETBx5xnHGUkz2rBzsdkr0LA
+	qRuiw8V8yOIIE13s/Q2ZfNRMZZtl7vqeqJUpQkJrGu4Icq7C7dAydvS3
+X-Gm-Gg: AZFdTZeFyxb09eFwMHZAg7d/+D89k4Ad1U+yfkYdKxsOxN7NRzFsWMopU6Nl5whT3s4
+	iv8ADMvIOc9zr1hwVWORRDXKiETAgklYEURvDaOhPuj3c02/WdMaZ2rURL5lVkh87QIO8wI8DGH
+	ekOqutu/y6fsvTUf/hFWcvc4K5mbqzRPK+Fge/pdhQ48XG/zwSJhYcFWmiNwrxtmt4l/EP6xpVy
+	vHsKXnQ8/E37rsEGw5Gb/0Mxg8Awoi3V4Hb2t3QTSgaj5Vs4GywuSEwCvypHNHPwl7r57zsOoFk
+	kOIHV2p9XMZwh8ED5nWflJxq5N927fBtS7jf90OqbSetS4MNBMkHgGj+h/f5eCzgWB4I5nhHVuK
+	XySjfhFMm/JjhPloii/5mwR4Pn051AN/iZ5XATw0G30BdX6UGSYoku0DhetK9aMUq3u1x4YpRPQ
+	xMSbcSGA/wWM2IWwShYvnPqPSPugRUqw0F9icKjhBHi5FQnWYZlDDfopxhpyHF3OvUPSKNqfex3
+	QGUMdl5oQ86rNIrGj7rvsAqbW2EHzJdbtZCdNWmuwVBcap3oTym7iVPr3hDGp0RQ4EBkyC93Asq
+	778xrdG+rrkLG36qgWSTPI5pIH0Oi0Gyst1rsgZmLq7+vIMg2p4EWt/hKlMy6RwGkA7gAl555iy
+	p+BddnUBlJfYeVA9N186Z0BAuTfujaQEEc0VyvJgKwYGYaQ==
+X-Received: by 2002:a05:701b:450b:20b0:1b5:5a76:dfea with SMTP id a92af1059eb24-1b55a76e18emr14850858c88.0.1795432006886;
+        Mon, 23 Nov 2026 03:06:46 -0800 (PST)
+Received: from chenyou.ncku.edu.tw ([140.116.19.16])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm30054074c88.6.2026.11.23.03.06.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 03:06:46 -0800 (PST)
+From: Chen-Yu Yeh <chenyou910331@gmail.com>
+To: alexs@kernel.org,
+	corbet@lwn.net
+Cc: wy@wyuan.org,
+	dzm91@hust.edu.cn,
+	si.yanteng@linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chen-Yu Yeh <chenyou910331@gmail.com>
+Subject: [PATCH v2 00/13] docs/zh_TW: process: add translations of 13 documents
+Date: Mon, 23 Nov 2026 19:06:23 +0800
+Message-ID: <20261123110637.172045-1-chenyou910331@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,104 +100,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261116040914.368298-2-cl634@andestech.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 12:09:12PM +0800, CL Wang wrote:
-> Document devicetree bindings for the Andes ATCGPIO100 GPIO controller.
-> 
-> ATCGPIO100 is the name of the IP, which is integrated in the Andes AE350
-> platform and in SoCs such as Qilai. As in the ATCSPI200 SPI controller
-> binding, the compatibles follow the platform and SoC rather than the IP
-> name: andestech,ae350-gpio is the fallback, and an SoC that integrates
-> the IP adds its own compatible, such as andestech,qilai-gpio, in front
-> of it. Drivers can then match on the fallback and still add SoC-specific
-> handling later.
+I previously promised Jon that if no contributors stepped forward
+within two months, the maintainers would have to produce some results
+ourselves.
 
-Do not paste here LLM. LLM should not be used for writing commit msgs,
-because this is a test if you understood what you did here. You explain
-heer basics of DT and driver, which is exactly what LLM would do.
+This series adds zh_TW translations for 13 process/ documents that had
+no Traditional Chinese version, and moves each one from the TODOList
+into the toctree of process/index.rst.
 
-> 
-> The controller has up to 32 lines, and ngpios gives the number of lines
-> implemented. The debounce logic can run from either of two clocks: pclk,
+It is independent of the "resync translations with the English
+originals" series sent alongside it, and applies on its own.
 
-Are you saying that SoC has multiple controllers with different number
-of GPIOs? Where is the DTS, can you link it?
+Terminology follows the decisions in that series; whole-file
+terminology unification and the glossary.rst update will follow
+separately.
 
-> the APB bus clock, which is required, or extclk, an optional external
-> clock that allows longer debounce periods. The interrupt is optional, as
-> the controller also works as a plain GPIO controller without it.
+The series is based on the docs-next branch of
+https://github.com/kernel-zh/linux-zh_TW.
 
-SoC routing is fixed, no?
+Changes in v2:
+ - Drop the seven labels that nothing refers to (Dongliang)
+ - handling-regressions.rst: display the zh_TW path in the :ref:s that
+   point at zh_TW labels, so the text matches where the link goes
+   (Weijie)
+ - maintainer-handbooks.rst: link to the zh_TW development-process.rst
+   instead of the English one
+ - Collect Weijie's Reviewed-by on 01, 03, 04 and 13
 
-> 
-> Signed-off-by: CL Wang <cl634@andestech.com>
-> ---
->  .../bindings/gpio/andestech,ae350-gpio.yaml   | 92 +++++++++++++++++++
->  1 file changed, 92 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml b/Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml
-> new file mode 100644
-> index 000000000000..01badd2a1342
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/andestech,ae350-gpio.yaml
-> @@ -0,0 +1,92 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpio/andestech,ae350-gpio.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Andes ATCGPIO100 GPIO controller on AE350 platform
-> +
-> +maintainers:
-> +  - CL Wang <cl634@andestech.com>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - andestech,qilai-gpio
-> +          - const: andestech,ae350-gpio
-> +      - const: andestech,ae350-gpio
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  gpio-controller: true
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +
-> +  ngpios:
-> +    minimum: 1
-> +    maximum: 32
-> +
-> +  gpio-line-names:
-> +    minItems: 1
-> +    maxItems: 32
-> +
-> +  clocks:
-> +    minItems: 1
+v1: https://lore.kernel.org/all/20261106113545.708896-1-chenyou910331@gmail.com/
 
-Why is this flexible?
+Chen-Yu Yeh (13):
+  docs/zh_TW: process: add researcher-guidelines.rst translation
+  docs/zh_TW: process: add cve.rst translation
+  docs/zh_TW: process: add applying-patches.rst translation
+  docs/zh_TW: process: add maintainer-pgp-guide.rst translation
+  docs/zh_TW: process: add changes.rst translation
+  docs/zh_TW: process: add handling-regressions.rst translation
+  docs/zh_TW: process: add deprecated.rst translation
+  docs/zh_TW: process: add kernel-docs.rst translation
+  docs/zh_TW: process: add maintainer-handbooks.rst translation
+  docs/zh_TW: process: add contribution-maturity-model.rst translation
+  docs/zh_TW: process: add conclave.rst translation
+  docs/zh_TW: process: add threat-model.rst translation
+  docs/zh_TW: process: add maintainers.rst translation
 
-> +    items:
-> +      - description: APB bus clock
-> +      - description: External clock for debounce
+ .../zh_TW/process/applying-patches.rst        | 390 +++++++
+ .../translations/zh_TW/process/changes.rst    | 530 ++++++++++
+ .../translations/zh_TW/process/conclave.rst   |  35 +
+ .../process/contribution-maturity-model.rst   |  83 ++
+ .../translations/zh_TW/process/cve.rst        |  90 ++
+ .../translations/zh_TW/process/deprecated.rst | 361 +++++++
+ .../zh_TW/process/handling-regressions.rst    | 969 ++++++++++++++++++
+ .../translations/zh_TW/process/index.rst      |  35 +-
+ .../zh_TW/process/kernel-docs.rst             | 353 +++++++
+ .../zh_TW/process/maintainer-handbooks.rst    |  20 +
+ .../zh_TW/process/maintainer-pgp-guide.rst    | 793 ++++++++++++++
+ .../zh_TW/process/maintainers.rst             | 125 +++
+ .../zh_TW/process/researcher-guidelines.rst   | 134 +++
+ .../zh_TW/process/threat-model.rst            | 187 ++++
+ 14 files changed, 4087 insertions(+), 18 deletions(-)
+ create mode 100644 Documentation/translations/zh_TW/process/applying-patches.rst
+ create mode 100644 Documentation/translations/zh_TW/process/changes.rst
+ create mode 100644 Documentation/translations/zh_TW/process/conclave.rst
+ create mode 100644 Documentation/translations/zh_TW/process/contribution-maturity-model.rst
+ create mode 100644 Documentation/translations/zh_TW/process/cve.rst
+ create mode 100644 Documentation/translations/zh_TW/process/deprecated.rst
+ create mode 100644 Documentation/translations/zh_TW/process/handling-regressions.rst
+ create mode 100644 Documentation/translations/zh_TW/process/kernel-docs.rst
+ create mode 100644 Documentation/translations/zh_TW/process/maintainer-handbooks.rst
+ create mode 100644 Documentation/translations/zh_TW/process/maintainer-pgp-guide.rst
+ create mode 100644 Documentation/translations/zh_TW/process/maintainers.rst
+ create mode 100644 Documentation/translations/zh_TW/process/researcher-guidelines.rst
+ create mode 100644 Documentation/translations/zh_TW/process/threat-model.rst
 
-Best regards,
-Krzysztof
+-- 
+2.43.0
 
