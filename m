@@ -1,83 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395036;
-	b=zZ7jW4BHuv9IXnSxtVg1p981+q1irvF/FzK+mEXcuobBHBSMzoC1M9f0pxfyQWu/KcrI
-	 HBu2SctbPPv0WPEi+A/YpfGs2nCu5+f63OGtz5JNFtrjW5U3OA+pxSiU/Y4OrhzhghFPP
-	 a2i4Zan7Hp7lBVx0G9xj8vKrgFbgY07jPWllknqOi8tOlQjXgYsg6O+4yGpxqat86plNK
-	 lpVhTfiZ6ykt8nBxx8nQ0jgKwO5iixRClDsH9fEIQjH+Oa0KRMMKD9lwU+W0zzFNCa9J+
-	 0CRCFuRH5KroEPMdsuqVa/N2EPzuNqzV/ZsXHXGKa+AvdAPrWMGGGCdEQ3AZERfP7fQ==
+	t=1795395052;
+	b=AnuNszQz65bAq21U9d6ot3mzloTg9DGM5M9+pfv5z7A5LDxVjalGJ0FKvDhsljAFHQ8U
+	 qD0vLl5llDWfn/hF/j4H57DjslpO6zpFKWtseDEtZwNImz1wtot358nPeXdimfpn+JwmI
+	 ABNFxSHcKxBGupWJ98eY7mH7v9nbOVoZPNjliRp+w6JwJ2X5ud8GkeAysxZCkQqUoFvKJ
+	 mYMvOAMpQUFVp6sohk0STBEBKzxkvAQhjIMu1GZdPTA6wyYjQLjiuJ+8GweFQkCpqu3Q8
+	 DWJKibUFpK8rwlacLSPqCOraJ6Mi5AS+ynqO8nJ6N/xYl0f1bGxLTp6XkdZ5Hh375Jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395036;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=OWqgaZdLyMmqN5zAvTioGCkpDneimhgpWuVD7xUPWRE=;
-	b=0jITS4JVi0mLgW7VWB5ofo//ImAjAnvhVpK0WRT9AfhKRewq5LtmREz6M4OfhAZChiTi
-	 jOn460ibrnRJOmFzPNFf02Wa9SZnKRiKQF6RyruQhqsEKsVJirp6S6eizA0xEMuLlcBwo
-	 QXRJ279/53W6/Hv3txVUqHm1pJ91VRrqusL77h1iB3GRt8CldIdo0pyhiJ1np2Fu5M0sT
-	 lePYyWQmWV0Lv8WEoQxUJ2/4js1zXTbPQ9MTaF7aohmNFxz698xcjy3NfQ18McqCjdddy
-	 UmTxGsuz2Oks65yabcTnwJ7Ecjjk89rHCbLq09wKuZMnQ+HhDoeaSBlVESMs3d9D9KA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395052;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=mbF3zfNeq0U94Hyf7yHm1UWZ1t/nApD3AR6YPhHk6Kw=;
+	b=IIsnjSnQX1djbVvU4w8BjPwkgb34m4s31x2YAaqWFmyxBOnEd+mN4iEEt3VxSNkKHb5h
+	 0LvAMKivzZJ33ShJ7u9x7RdHBNQlNeLOY6ceWHdmYjR4IH8Vag+/RfSGmEuL1JuinnfTb
+	 ogdMHV/3cGsrQhMD1gpLGY+QXRObfqYcNYsFXrFipU+IBOTF4qELEqSJJNaIfKwGlZktr
+	 ZCEh3VqzBtDRwefJx4A9mkrK5DHWqRP0shiYbaB8YlMIZaYlvvSO6apJSpzxw0gieRLeP
+	 R2TR9iSg55mijD/3Si++k0BxunGogq/xuDPCHApJQyDQU9T71TXEjQ3Qs7Fmbw3n2iA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=tgIXOFbc;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c7X66CPS;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A641E606A69B;
-	Mon, 23 Nov 2026 00:50:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A641E606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65A1A606A687
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:50:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65A1A606A687
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=tgIXOFbc
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AN0oSYW11173209, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795395028; bh=OWqgaZdLyMmqN5zAvTioGCkpDneimhgpWuVD7xUPWRE=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=tgIXOFbcnELJKUJ5jBRRIfEGa38PHJQ8Xb+0AYAZGQoyGJ9IGTEN2RENiMIbE5Gcr
-	 KC5GPCqluYVykvOftm+pL+9cgKL8nmJZPho3Huj+n/wvtweKzQ5uN5YeTO9+mwi6PZ
-	 mpXZ6IYCrXSSsQ4En+K8gJ9y5e7lQXkyLaNXmXuiFQ/DdhvaY7o8UCUD/Eh9o0VxS5
-	 L4sVxVeqWuii3/qCDY0Szn9k0vlrUZV4J/g0GV2beSeS5lXoprpd9QD7JsEiH7s51v
-	 DoR8+/tuYEimc9GDICenDcpMYHBCYs6H9OcrgNAdK4Vc1IcTDunWsef/ZizR+MVQZ1
-	 zApfBMHjtenVQ==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AN0oSYW11173209
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 23 Nov 2026 08:50:28 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 08:50:29 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 08:50:28 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Mon, 23 Nov 2026 08:50:28 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Falconet3 <Falconet3@proton.me>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 2/2] wifi: rtw89: fix u32 overflow in board element
- offset check
-Thread-Topic: [PATCH v3 2/2] wifi: rtw89: fix u32 overflow in board element
- offset check
-Thread-Index: AQHdenG4pL+zOtiBfkOGxNoGH3Doirc5bFsAgAFniOA=
-Date: Mon, 23 Nov 2026 00:50:28 +0000
-Message-ID: <1b36d3a3ccf840088ded5991d35cc077@realtek.com>
-References: <p7rw-XuXkRXg0R2mJ5S-HUUy3IwDD0iXcY11AzTDIvfIj3ofQsJ5exatm_1V-mlBCzsd_s0xhJSBvZz4zWCYaso5-ylUw9JMV3AoiPUZZ3o=@proton.me>
- <wQyrWhpyvBNzuZwnQTESLUjeEbdLHi5t3xdQUf2qlOjublpo9nBpuikHh7cpfpTRjtuXRza3-Q2ZAgcwr7O98Xqs6lFOaNsc3T-D7E4B1S8=@proton.me>
-In-Reply-To: <wQyrWhpyvBNzuZwnQTESLUjeEbdLHi5t3xdQUf2qlOjublpo9nBpuikHh7cpfpTRjtuXRza3-Q2ZAgcwr7O98Xqs6lFOaNsc3T-D7E4B1S8=@proton.me>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c7X66CPS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795395052; x=1826931052;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=zVbf9rXNrD3o7xYlB/OQdzTeLHIptExXW40MEAxmofY=;
+  b=c7X66CPSfUnkLD8e8Tj38nejL6H0H9s35Vycl9R1M6rjZClrDc2Yr9VU
+   YkFy+3yRuX8If64qCMmTWFsi0TiXamwMW1DrFFOFKrSdEtM+EThtLNDjq
+   qaa/+CH3dzrUlMhZFt1QVgeMLw2985/BfQFNz5HBcZRdjkkESYQj+sijC
+   8IM7Rhi8O6wL7v9kjF93fprj/+5MVDVioU/rq0WaeUNdcozg2eUmtMnCX
+   z0FBsVKIT0XWkeeeEQXWKzSNIDHDcCJAGlEFtTx0kglS/nKwvf/7r1tOH
+   B6XqEZew7LLhenmrE9NBNkHyzeNtzumB7+5IYmtsCm/+OZhplFrDTKHLp
+   g==;
+X-CSE-ConnectionGUID: qeS6ioh6R1OQ+e8vX7PGkA==
+X-CSE-MsgGUID: S+16A1UIQGmUWxRYkEb7Zw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4203730"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4203730"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 16:50:51 -0800
+X-CSE-ConnectionGUID: jJoeSYGRQFC0nYPj88vd5A==
+X-CSE-MsgGUID: Qd5VORSJTseYObhVAlXQNw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="13153315"
+Received: from allen-box.sh.intel.com ([10.239.48.101])
+  by fmviesa013.fm.intel.com with ESMTP; 22 Nov 2026 16:50:50 -0800
+From: Lu Baolu <baolu.lu@linux.intel.com>
+To: iommu@lists.linux.dev
+Cc: Kevin Tian <kevin.tian@intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-kernel@vger.kernel.org,
+	Lu Baolu <baolu.lu@linux.intel.com>
+Subject: [PATCH 1/1] iommu/vt-d: Avoid relying on pci_ats_supported() for rbtree removal
+Date: Mon, 23 Nov 2026 08:38:05 +0800
+Message-ID: <20261123003805.2828580-1-baolu.lu@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,16 +79,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-RmFsY29uZXQzIDxGYWxjb25ldDNAcHJvdG9uLm1lPiB3cm90ZToNCj4gTm90ZTogMi8yIHdhcyBw
-b3N0ZWQgYXMgYSBzdGFuZGFsb25lIG1lc3NhZ2UgKCJbUEFUQ0ggdjMgMi8yXSB3aWZpOiBydHc4
-OToNCj4gZml4IHUzMiBvdmVyZmxvdyBpbiBib2FyZCBlbGVtZW50IG9mZnNldCBjaGVjayIpIGJl
-Y2F1c2UgbXkgd2VibWFpbCBjbGllbnQNCj4gZG9lcyBub3QgcHJlc2VydmUgdGhlIEluLVJlcGx5
-LVRvIGhlYWRlciB3aGVuIHRoZSBzdWJqZWN0IGlzIGVkaXRlZC4gQm90aA0KPiBwYXRjaGVzIGFy
-ZSBpbmRlcGVuZGVudCBhbmQgYXBwbHkgb24gdG9wIG9mIHY3LjQtcmMzLg0KDQpQbGVhc2UgcmVz
-ZW5kIHY0LCBidXQgbm90IGluLXJlcGx5LXRvIHYxLiBUaGUgdjIgYW5kIHYzIGFyZSBhZGRlZCBp
-bnRvIHYxDQppbiBwYXRjaHdvcmsgWzFdIHRoYXQgSSBjYW4ndCBtYW5hZ2UgdGhlIHBhdGNoZXMu
-IA0KDQpbMV0gaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xpbnV4LXdpcmVs
-ZXNzL3BhdGNoL09OQmhraF9CN2h5S29ITlJwallneHk3ZGE2OFFPYThjV1VxenRULUkxblctS3Vr
-T0tFMzBGSVlGTGtYMVRtX1RyWGxCanNlNWQtQUZSd3N5emZ4QmRNR0t2eUlFb1ZzanlaUXF4elVr
-UlFrPUBwcm90b24ubWUvDQoNCnB3LWJvdDogY3INCg0K
+Commit 89436f4f5412 ("iommu/vt-d: Fix WARN_ON in iommu probe path") made
+the device rbtree insertion in intel_iommu_probe_device() conditional on
+pci_ats_supported(). To match, intel_iommu_release_device() only removes
+the device from the rbtree if pci_ats_supported() is still true.
+
+That relies on pci_ats_supported() returning the same result at release
+as it did at probe. If it changes in between, the rbtree can retain an
+entry after its device_domain_info has been freed, resulting in a
+use-after-free during a later lookup.
+
+Checking RB_EMPTY_NODE() to track rbtree membership is common in the
+iommu subsystem. Since device_rbtree_remove() safely handles an empty
+node, call it unconditionally in the release path. This makes removal
+depend on the device's actual rbtree membership.
+
+Fixes: 89436f4f5412 ("iommu/vt-d: Fix WARN_ON in iommu probe path")
+Signed-off-by: Lu Baolu <baolu.lu@linux.intel.com>
+---
+ drivers/iommu/intel/iommu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
+index 5a2e705a2f2e..82f7bd8ecadf 100644
+--- a/drivers/iommu/intel/iommu.c
++++ b/drivers/iommu/intel/iommu.c
+@@ -3393,6 +3393,7 @@ static struct iommu_device *intel_iommu_probe_device(struct device *dev)
+ 
+ 	info->dev = dev;
+ 	info->iommu = iommu;
++	/* An empty node marks the device as not in the rbtree. */
+ 	RB_CLEAR_NODE(&info->node);
+ 	if (dev_is_pci(dev)) {
+ 		if (ecap_dev_iotlb_support(iommu->ecap) &&
+@@ -3508,8 +3509,7 @@ static void intel_iommu_release_device(struct device *dev)
+ 	}
+ 
+ 	mutex_lock(&iommu->iopf_lock);
+-	if (dev_is_pci(dev) && pci_ats_supported(to_pci_dev(dev)))
+-		device_rbtree_remove(info);
++	device_rbtree_remove(info);
+ 	mutex_unlock(&iommu->iopf_lock);
+ 
+ 	if (sm_supported(iommu) && !dev_is_real_dma_subdevice(dev) &&
+-- 
+2.43.0
+
