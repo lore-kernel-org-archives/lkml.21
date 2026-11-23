@@ -1,56 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.33.251.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431488;
-	b=GrmUthtNaPvbqS3FvqUN6BBoa3MXs6FHEN8cyuJZUxOKoEMX7OSF+NWUihzUf5el1If6
-	 IJUcLg6Hhjb6AOT2xcicYpX/dbZdjhcfW55exyj+NzQvl2oxvJJJBGsDpgxdJATk1XTTQ
-	 L0J4mStldC1gneIvVGZ5TCRFzIKEptdOSfGh9rTgU6ISM/V6WvYjSvHC91ggC805LGJjW
-	 dRjLx4jQZF0gjDgPS8AEkEGWbA71XBfBmpRr8SZHZtgs7fvwVc9vNTfPgrHzuOwt/7nFK
-	 gAmk9ujXq2pSc3WHnwtrwJPgZ6hPPpOsdCfC/aLedgGnX4Gqn2gzlFcNUjFCoZEEAbg==
+	t=1795431529;
+	b=RSvlrw1jLjEkyCYhBhz0oDNYp1E7E4hh2voG5hTiW1PlaoHQ9k3J46AOITmAzLLgSrZi
+	 ewEd9poib17piuVxdRJNcQPhqjXwTy8ZgziC+eN6ukc8RGnGnbdX8du/IUaFPy3ybXHZu
+	 z/lylzvKYwy3uO14Xo8JiQXcsOyz8JSho1oIvcFXbT2Be3edye8cDdfu+GqHoiqXgMOR0
+	 5Mt1QD5uACxxn0yq4haKtdJXObBzC4U4wbNtaXUCe0iDbULppq304F0cEzsL1Nj2Qgz55
+	 FIRYuwypKGjcMrtYje+/m07zpM4RGPR8xA+eN+rx2QR7doOT6yAUji+KjKHS4BmLQCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431488;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=55vp1rgyy0L+BcAK3ve3ZlJ1e2OePWPl2FZy/TQWsXw=;
-	b=MRXO2Q4SWZzhI/vVeEyF9GYb0BQt2T2oflNHlgMRTD0plh08aHq7VCNTpTtDDnwuXKag
-	 zQYQCk4R1ZW0K9kfYBggpzzk9Q0WreEfHPwDLo6jAhwVLJEd/rZXEWUrJv8CG75OMxgvy
-	 yfVCjP4020tdOnONDf/fv2C7OpgzoFqSAqD6JNPP4TnSLez3B+W5xOJUwTmyTK3f1UtDL
-	 UrYwV4xkdikHcmy2bYa8EZOiEl5X2FfYNA8eaIuc+PeOH55WukeQWcMCi0uWKIORlDA+j
-	 JYEkielGq93QS+inSnzfo/cQ1ZnICImybFMZh+dxjSCcl9femZ/i8QMYJsXGQ0QVClw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431529;
+	h=DMARC-Filter:Received:Received:Received:X-OVh-ClientIp:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:x-ovh-tracer-id:X-VR-SPAMSTATE:
+	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
+	bh=c6p/9i0/pTNGI8Ghc8syLnd31opEh3nJ9uPva6UXtIg=;
+	b=gMW4PaOIXgTxZI0dnet3UuJY+9PFfXCZNOuy1N90pFLwlvvrdAtf4gS/QDkh+2aEpaf0
+	 4L51hdxMw9yVqoZ/W7YqQ2psRELlPg2SDqWTB5nKW28S+GUGQuaq46TnXset2U7+J7k1O
+	 jMw5nyA4nP6wAsSbmpmUsMqzF2TowHGf7tIQ5kiQxbRBcXgb+twmISB6pYiSw1sri34sK
+	 iR83DuiEmYMckFrYVEfuTAwHFs4n4zzZG/U6luju2lfBb0zTMcIHgGRBPHQQHHjK8Nx9l
+	 GkPJhucAmabBgK7n/wyn597X0FU08OF0YM1tpGoyTSKjaiSqcrqSmc3EiKktvnurXLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMCqUx1r;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=3mdeb.com;
+	spf=pass smtp.mailfrom=3mdeb.com;
+	dkim=pass header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=jelPMnnK;
+	arc=none smtp.remote-ip=178.33.251.8
+Received: from 13.mo584.mail-out.ovh.net (13.mo584.mail-out.ovh.net [178.33.251.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C847606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9401606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9401606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=3mdeb.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=3mdeb.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMCqUx1r
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15C4B1F000C0;
-	Mon, 23 Nov 2026 10:58:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795431487;
-	bh=55vp1rgyy0L+BcAK3ve3ZlJ1e2OePWPl2FZy/TQWsXw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fMCqUx1rfzUSVGsb2g0v260dZoKckJsNK6pNC67P0cpDtalX7T7xXKtnQ/MLFd4vf
-	 xSiYl3UhLsnFAeJrPoa/UIjXiAv+jZtjdgr1ePFEzaS1IPb4nJigdsx0q7QSthD3dn
-	 LmSMuBSDjgL9FZn12KGwEhm4lm05VY0L0cWmljwrqfIn6p4lB4eU2JsSkkVDZYgARS
-	 2ByMtEXj6klidW0eWPtax8Q53EA3FSqnRVRK3qk5m1bcJtfBBj/Rqx5BBC4UpopBbK
-	 pcbUrNkETezyGAWE1C2xAkTn1lBZd+03j9gKeQNwgvRogqYWRtnRbqzJnomX5aUV+C
-	 RDVnZS5UIAOIw==
-Date: Mon, 23 Nov 2026 11:58:04 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: michael@amarulasolutions.com, linux-amarula@amarulasolutions.com, 
-	David Airlie <airlied@gmail.com>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 2/8] drm/panel: Add sro_install hook
-Message-ID: <awQb7eQd6P7NatX4@houat>
-References: <20261122153032.2782768-1-dario.binacchi@amarulasolutions.com>
- <20261122153032.2782768-3-dario.binacchi@amarulasolutions.com>
+	dkim=pass (2048-bit key, unprotected) header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=jelPMnnK
+Received: from director3.ghost.mail-out.ovh.net (unknown [10.109.231.103])
+	by mo584.mail-out.ovh.net (Postfix) with ESMTP id 4jY2xC3882z8LMm
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:39 +0000 (UTC)
+Received: from ghost-submission-7ccd8bbbb6-n2gw4 (unknown [10.110.168.167])
+	by director3.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 7532AC0050;
+	Mon, 23 Nov 2026 10:58:38 +0000 (UTC)
+Received: from 3mdeb.com ([37.59.142.97])
+	by ghost-submission-7ccd8bbbb6-n2gw4 with ESMTPSA
+	id ObWlFF4cBGvNugsAptLdCg
+	(envelope-from <filip.golas@3mdeb.com>); Mon, 23 Nov 2026 10:58:38 +0000
+Authentication-Results:garm.ovh; auth=pass (GARM-97G002161d21f4-80ae-4eb5-981b-86ab5c99e349,
+                    0A512C1CF0928FB71961449F2A077E304137B0E5) smtp.auth=filip.golas@3mdeb.com
+X-OVh-ClientIp:213.192.77.249
+From: =?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
+To: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal.kopec@3mdeb.com>,
+	Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Guenter Roeck <linux@roeck-us.net>,
+	=?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
+Subject: [PATCH v2 0/3] platform/x86: dasharo-acpi: Add fan control
+Date: Mon, 23 Nov 2026 11:58:18 +0100
+Message-ID: <20261123105821.305527-1-filip.golas@3mdeb.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,111 +69,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="ha574b4xdcjtwxnj"
-Content-Disposition: inline
-In-Reply-To: <20261122153032.2782768-3-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+x-ovh-tracer-id: 2044352756430925807
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: -100
+X-VR-SPAMCAUSE: dmFkZTEcXCD0WMGekwarlPUTxJbaLiCgiu6ZcqiTtYXXhenNRs9ubbmOwMWLdtllEtPw40n8gRlmODHr1CXEpJIKYCa9rieL6o3r0qfdsQgP7yGL4RdPBeFEWs8DYAeXGds0xEy1e3e6nrFQXdT0uN8RJhtzbMlTwz8MRvZ+lMhabmhRpUnqveqEEsijUgxcNucrf4hL40POH72FZ9Kn1XK23M6/J9o0XypacseJFbgv/mDEKsMitURfzeGyh0/ztU8pJz4ejfsHYONoZbTlqYFK0/IVRuN/Zhpd76eadLaWZZB/yRKKTLwPRQk+HCGvT5FgNUfs3idsAazTjLlq4FDgoxrUXvOCfpHF1nRVVjEKRvusajfWaCMDWW/7VvSAUtEtMLL8MIxle42j2HY/1d9GzPdDE++jQuU64SBF7W6u6DSDpLiowVt/DWFnGBlOkIA525yoUQvBZI8zZ0BCQXh98hooDVhr7WFlFDGF4VB3Jd6iCdsnyZGHnXXnRTrTjTZ+5kMbqrGpBe9+6E6xnBZzBByRzbQUsCEMHdJqvvlM4YdkO9VNFXCjnUb4ZX+r/ykWg8Y/dOHqY8XALsz3R4wcL+8uMnNWwdmJT/x44IozbPs6FCcr9HplczfROjFYPQgedqljEmq9IY5V8FfLwo6NNr5N8Feh+tIoclurVqes5yDYlA
+DKIM-Signature: a=rsa-sha256; bh=c6p/9i0/pTNGI8Ghc8syLnd31opEh3nJ9uPva6UXtIg=;
+ c=relaxed/relaxed; d=3mdeb.com; h=From; s=ovhmo3617313-selector1;
+ t=1795431519; v=1;
+ b=jelPMnnKEX2OAxdmuGp5ruHBsCXeAkskAdaWjkDzZxnkfwjuUqjCApYV555KZ2fibtwbLjmp
+ ri6tmY3oVGVx+DyN/gp87MxHQZ/duMCEMK5v5WhIbAVvggDNA/u3KXB8Dq88Jg61oEQU+F3hVZf
+ jCP8cwED+IAVxOj7nMjOOKmT8QgSSyr2Ou/sgmtQ2gR9rv2RzIj9DxmYv25+bWZAxDrsbtS9esz
+ Appzkq0pLdOPGpTi398PqbdcyTl2Fdg+mIeAFYRteF6VxXEG7Y6ZFsuOMT3pI0MSXRHYCQH9zZ1
+ x0yIsnmJNESed5XCRAmS8Pc0pa4W2IFbuL1WgWuJb6FAA==
 
+Add the capability to directly control fan PWM and configure the fan
+curves. The initial version of the driver only supported monitoring
+the fans.
 
---ha574b4xdcjtwxnj
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [RFC PATCH 2/8] drm/panel: Add sro_install hook
-MIME-Version: 1.0
+Tested on a NovaCustom V560TU laptop with a pre-release
+Dasharo firmware implementing the relevant methods.
 
-Hi,
+Link to v1: https://lore.kernel.org/platform-driver-x86/20261113074347.2301465-1-filip.golas@3mdeb.com/
 
-On Sun, Nov 22, 2026 at 04:30:02PM +0100, Dario Binacchi wrote:
-> The panel bridge assumes the panel is enabled whenever its pipeline
-> is read out as active, but the panel is left marked as unprepared and
-> disabled. The following disable is then skipped, and the panel driver
-> never gets the chance to acquire the resources it will release when
-> unprepared.
->=20
-> Add the sro_install hook, called when the state read out from the
-> hardware is installed. On success the panel is marked as prepared and
-> enabled.
->=20
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> ---
->=20
->  drivers/gpu/drm/drm_panel.c | 16 ++++++++++++++++
->  include/drm/drm_panel.h     | 10 ++++++++++
->  2 files changed, 26 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/drm_panel.c b/drivers/gpu/drm/drm_panel.c
-> index bef0e6af73ba..daccf98e5513 100644
-> --- a/drivers/gpu/drm/drm_panel.c
-> +++ b/drivers/gpu/drm/drm_panel.c
-> @@ -346,6 +346,21 @@ panel_bridge_connector_readout(struct drm_bridge *br=
-idge,
->  	return 0;
->  }
-> =20
-> +static void panel_bridge_install_state(struct drm_bridge *bridge,
-> +				       struct drm_bridge_state *bridge_state)
-> +{
-> +	struct drm_panel *panel =3D drm_bridge_to_panel(bridge);
-> +
-> +	if (!panel->funcs || !panel->funcs->sro_install)
-> +		return;
-> +
-> +	if (panel->funcs->sro_install(panel))
-> +		return;
-> +
-> +	panel->prepared =3D true;
-> +	panel->enabled =3D true;
-> +}
-> +
->  static const struct drm_bridge_funcs panel_bridge_bridge_funcs =3D {
->  	.attach =3D panel_bridge_attach,
->  	.detach =3D panel_bridge_detach,
-> @@ -360,6 +375,7 @@ static const struct drm_bridge_funcs panel_bridge_bri=
-dge_funcs =3D {
->  	.atomic_get_input_bus_fmts =3D drm_atomic_helper_bridge_propagate_bus_f=
-mt,
->  	.debugfs_init =3D panel_bridge_debugfs_init,
->  	.atomic_sro_readout_state =3D panel_bridge_readout_state,
-> +	.atomic_sro_install_state =3D panel_bridge_install_state,
->  	.atomic_sro_compare_state =3D drm_atomic_helper_bridge_compare_state,
->  	.atomic_sro_connector_readout =3D panel_bridge_connector_readout,
->  };
-> diff --git a/include/drm/drm_panel.h b/include/drm/drm_panel.h
-> index 58113ea7d63a..66f9fc0828f1 100644
-> --- a/include/drm/drm_panel.h
-> +++ b/include/drm/drm_panel.h
-> @@ -148,6 +148,16 @@ struct drm_panel_funcs {
->  	 * Allows panels to create panels-specific debugfs files.
->  	 */
->  	void (*debugfs_init)(struct drm_panel *panel, struct dentry *root);
-> +
-> +	/**
-> +	 * @sro_install:
-> +	 *
-> +	 * Acquire the resources of a panel found enabled when the hardware
-> +	 * state was read out, without touching the hardware.
-> +	 *
-> +	 * This function is optional.
-> +	 */
-> +	int (*sro_install)(struct drm_panel *panel);
+Filip Gołaś (3):
+  platform/x86: dasharo-acpi: Extract dasharo_call() from
+    dasharo_read_channel()
+  platform/x86: dasharo-acpi: Add fan mode and PWM write support
+  platform/x86: dasharo-acpi: Add EC fan curve support
 
-In the panel context, I'm not sure "install" is the better word here
-since we don't have any state to install in the first place.
-"sro_enable_resources" maybe?
+ drivers/platform/x86/dasharo-acpi.c | 372 +++++++++++++++++++++++++---
+ 1 file changed, 334 insertions(+), 38 deletions(-)
 
-Maxime
+-- 
+2.56.0
 
---ha574b4xdcjtwxnj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawQcPAAKCRAnX84Zoj2+
-dvBkAYCiIabbXhEPWOXGEzLDWnXhRX31FO3NJrLjEZgy0AX+Ptd3X5P9XLNjRF5b
-eMxjDcYBegOfUhSrwp8IqSnJA4SnFZqhcZrXkZHXfCwqO1x8/7P3c4D0ivrNpsLW
-bUmdSbMXFQ==
-=C5UR
------END PGP SIGNATURE-----
-
---ha574b4xdcjtwxnj--
