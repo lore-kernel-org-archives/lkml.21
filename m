@@ -1,67 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.105.52.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.102
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431528;
-	b=zLL5Tug9boM0dPmj/mBRDWJkodSAscFmAPzQHnNwxEJFKilQDGghCcY08dEk1lAl+TRN
-	 mshqgy1XTGv2BaYylxSBekvTwtrYg9QiIZ1STrKK/YcMAGK3SPpZGYLCQmoEfOzhe2njl
-	 sH5O6Lhkjxuei2oDpwr/3HngL2f2FtjRdtyCRPIWlvEBRyotLRCxIUtxWIopCJ0uX5pp7
-	 X288j5qd8eR+PF1KJGRa57RJTttVxzXoaNg7DGo3P6pMrl59uIeT8iDaqRP3ALnaA2mPQ
-	 ezg4L12z0x5JA2JZDkVBb9RXxHVj4uYTyOmRIgAZeKvivQVoVuloolufl/RCzFs04FQ==
+	t=1795431658;
+	b=j+7dAwY84Vgbs9VpjKepRqofdApcIjPdatLbemcMZv1fbEjhe6HOBMzdL5VxvrjL6BX+
+	 lebLJidMPSm4c/IspeJG4aaPS6j29itZKXK2dSFMQMPopVqZL/tGdRZqzLWueqGw6TEtA
+	 jLLDxPYHhxH2YENSlQ3s2VZueSl+/dgG/kvg94gEJ499N+QFpsuYw/LoGK7qm2DDSaaIa
+	 fdl+xturj7XJJBY5ORP6cFXvz9nIG5CbaxZR2XO2yckwprmp2lAr41u59yq1SFbQowDf4
+	 ygCqncpVKvmV0SCT7jZN+kGbbdudw9cL660eXP8F8ngFlK2qVmc06eOo/K9E4lF32sQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431528;
-	h=DMARC-Filter:Received:Received:Received:X-OVh-ClientIp:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:x-ovh-tracer-id:X-VR-SPAMSTATE:
-	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
-	bh=KaTTHc3w8R6rF7gqqWlw2mFxpaUpNPS0l+rvQI9X3UA=;
-	b=dHilqbN/a8rT7aOvsCKplqDuHxJHoiCpz+NnZdIyzhHQAs6/7w1I5lwlw7kdp1Bsd47U
-	 qHSPP677ZfSM2/08/qGA36DhjfERr1/aLBwBTievjF7QALWfP8b9l1jG/gPj1rVM0hsfJ
-	 tGbdUpkC/YLHhqVvY5aPebTJwetaUy4GC3GWx7Q2LWcrK5FvBrxvQIMOhO8TWAxEFOnFP
-	 J65E3+0oKvInsRwPXJa+N8fLC8HNLfAt8q58vkHmirzJe9f3+t/LEHnFJewbSW5ZE35/J
-	 fL8mqCMhDe09ln5Nvp8Q3fRllnaio2z2MLiNOay7MxH9X1RNgf80eTudkWbNwcyJKmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431658;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:X-Virus-Scanned:
+	 X-Spam-Flag:X-Spam-Score:X-Spam-Level:X-Spam-Status:Received:Received:
+	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:From:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-PPP-Message-ID:X-NC-CID;
+	bh=PRbNFj6uC49q81x4liIcV+Y8PHwVuImpvNjavvauADo=;
+	b=Rvz0p3qKJUq0cWRIZRqBZFBrRMT2YeVEGVYVK5flj9ocEwdEmSpTcbktKST5vjObIZLD
+	 2uajNhjvRSABTpY+hMQb453Exhjycz83C3GOkU5RhoeDQjlVAMY2c0lHC7/2p9aFCt8p5
+	 sVqc9AAvxyv33G1Ql8QBCY5eqi5+tvDrIwD/6K0Ymji4k9KYcsZu+43bZty1DDHkLfK+C
+	 65X5E2aOk0KkCmoFWZz9RLPdPMVr2n9F8hHymTZlK5Sn6qAved7x8C1o8Md7W1uGHjmSL
+	 wQlbeyjkpvoqJBDVmQiiZAhmR93Gb6Q34KnyRyZOjqJBH0iRA5GDBzWJp6rjoHJVVyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=3mdeb.com;
-	spf=pass smtp.mailfrom=3mdeb.com;
-	dkim=pass header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b="O/H1LJ0j";
-	arc=none smtp.remote-ip=46.105.52.148
-Received: from 10.mo583.mail-out.ovh.net (10.mo583.mail-out.ovh.net [46.105.52.148])
+	dmarc=pass header.from=leemhuis.info;
+	spf=pass smtp.mailfrom=leemhuis.info;
+	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=dSPa8vZL;
+	arc=none smtp.remote-ip=188.68.63.102
+Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFBAD606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFBAD606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=3mdeb.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=3mdeb.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C858606A31E;
+	Mon, 23 Nov 2026 11:00:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C858606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=O/H1LJ0j
-Received: from director3.ghost.mail-out.ovh.net (unknown [10.109.254.91])
-	by mo583.mail-out.ovh.net (Postfix) with ESMTP id 4jY2xD0QJhz5x0M
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:40 +0000 (UTC)
-Received: from ghost-submission-7ccd8bbbb6-n2gw4 (unknown [10.110.168.167])
-	by director3.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 88CE7C0144;
-	Mon, 23 Nov 2026 10:58:39 +0000 (UTC)
-Received: from 3mdeb.com ([37.59.142.97])
-	by ghost-submission-7ccd8bbbb6-n2gw4 with ESMTPSA
-	id ObWlFF4cBGvNugsAptLdCg:T2
-	(envelope-from <filip.golas@3mdeb.com>); Mon, 23 Nov 2026 10:58:39 +0000
-Authentication-Results:garm.ovh; auth=pass (GARM-97G002f90511b7-fe43-4655-9d7e-26a1e09181b2,
-                    0A512C1CF0928FB71961449F2A077E304137B0E5) smtp.auth=filip.golas@3mdeb.com
-X-OVh-ClientIp:213.192.77.249
-From: =?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
-To: =?UTF-8?q?Micha=C5=82=20Kope=C4=87?= <michal.kopec@3mdeb.com>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Guenter Roeck <linux@roeck-us.net>,
-	=?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
-Subject: [PATCH v2 1/3] platform/x86: dasharo-acpi: Extract dasharo_call() from dasharo_read_channel()
-Date: Mon, 23 Nov 2026 11:58:19 +0100
-Message-ID: <20261123105821.305527-2-filip.golas@3mdeb.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261123105821.305527-1-filip.golas@3mdeb.com>
-References: <20261123105821.305527-1-filip.golas@3mdeb.com>
+	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=dSPa8vZL
+Received: from mors-relay-2502.netcup.net (localhost [127.0.0.1])
+	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jY2zk3RPcz6Lt7;
+	Mon, 23 Nov 2026 12:00:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1795431650;
+	bh=78xWy2HIE+Iru6tO28E4xyJ6Psh1If63NW9ZeTScmpI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dSPa8vZLhnNc7Imu8KpDGV2PwAHxcgCqoziPsQ1TVRfg9hcpKPVS8B7C4d8+DMltO
+	 57+pbId4lW8J8ePkjRyjQLd9k7++E2mWepeJ3s4dzdBbG23UqpLykF0WfXmpD0ZD8J
+	 ptNb76MRmogdkJKweaxTPLl+z9EEUdSxQNK6ePaCeoom209UK5G0uH379s17Y/sySL
+	 Sy1bKSK8j4QxNOvW09klD5sLeVok34o/WrVPbc36vhQKxNKRpuNRLrO6WXQfhiezSM
+	 YJwDCSdp+oZ4Auw6FU+AQ/jdcvNd4EHSwejvmw5R9iKPOZoVEWLPL18VrL3cWI00UI
+	 a4zqvsT7r9OlQ==
+Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jY2zk2dFlz4xfD;
+	Mon, 23 Nov 2026 12:00:50 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
+X-Spam-Flag: NO
+X-Spam-Score: -2.901
+X-Spam-Level: 
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4jY2zh25VJz8vKV;
+	Mon, 23 Nov 2026 12:00:48 +0100 (CET)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 06CC25FD31;
+	Mon, 23 Nov 2026 12:00:34 +0100 (CET)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <0212b0be-857c-475c-98a3-165df9de34c7@leemhuis.info>
+Date: Mon, 23 Nov 2026 12:00:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,102 +78,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/msm/dp: skip the link teardown after a failed enable
+To: Burke Cates <burke.cates@gmail.com>, robin.clark@oss.qualcomm.com,
+ Dmitry Baryshkov <lumag@kernel.org>
+Cc: Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Xilin Wu <sophon@radxa.com>, linux-arm-msm@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+References: <20261104072048.3486286-1-burke.cates@gmail.com>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <20261104072048.3486286-1-burke.cates@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-x-ovh-tracer-id: 2044634231904923631
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTFDblFX0lx0QRW1JKa5GExgvRc8EfAmGpZCa+mczr64uGFbhOUDNDRjGumNpw1ewf38CiuDwcWBe2ksOTz2vgBG/OiQfIRySeImPlGnBaN/NhaVBJcI0R0wiJZ05v/JgVIK6iF8FdDs4paOTnHT0UKtcfyQnnoEHkbJplb8AAmbCQ9anws2PovtC1vetouu4esjSK9/7AKz4dEqFuZzYfu9hDntJhu7xuegqj+tPpuZ1RhtmyCUSIcP8LBva1zYL6sFArph+EvMDv9DjODHblGBXMhTfQmi0aTZNEufLRK0995CYUMgwFWztvqoKHu9U1DZt+zFLszdo6g6L37VIcSPnSAPTMrnT+EjnOY+fMBRMaVMJhscDLCK6dKL9vCUWTrrsB5fM8QcQMARxltzFqrwV26qbzBgezKQEFXqxmBH2v0pfJDyhOm+l9qdTwczupvLFGbDO+LwNJEkkNWlKtMc77WmM9gG3ncojwEFAXZp/nswzsMtQrxEsoL8z3FW6jmosmsJmK5+agErgOqUxFnrq7ARDmYTDhHsdqwWIfwzNkm2tjLJmGQfBHZ1LckTgPbOiTH2SDHc3V2u/cWyZTZxMD1IutwuHQWJtEi29r0bcNTRpueGJcdCVwwn34JqQalpINZ0MR4s92La2S6xem5wUlMZayV47omFSezQUITWjw
-DKIM-Signature: a=rsa-sha256; bh=KaTTHc3w8R6rF7gqqWlw2mFxpaUpNPS0l+rvQI9X3UA=;
- c=relaxed/relaxed; d=3mdeb.com; h=From; s=ovhmo3617313-selector1;
- t=1795431520; v=1;
- b=O/H1LJ0jQ6smI/gQrsm4BZBFXJ3XJN0uCG7KhphGFBW008mGXIYoOHmKFXcQH9/H0Z8VDqm8
- thG++IX3PbCLWyYAnF1sOFMKBGUJ6VIrBa105uw5kxnBfntSHaKCcJswIXYU04kI5nGQzTFtzez
- MSi467cc4I0IJrb8EV5MVSVE/HPCD5fsktRv+i/7k5xTIjmJEwREKHsiCYsOuUbe9HdqaQgpUVe
- sNuUWokfHVwaSq+H0LEe2J/EISh8N3krSi8QQZskM61EEIDTTZ1zXJbSGFExn7R7nyEMMhLbDk5
- 3+APdR7gkt+SZgalAEeLG5/qEqUHo8Og+pvhWWe+JB4lg==
+Content-Transfer-Encoding: 7bit
+X-PPP-Message-ID: <179543163576.1430496.2010400359322779870@mxe9fb.netcup.net>
+X-NC-CID: EyCB0RlSoK0xX/w+A8jKs5dfDCgvxUYQl4CIJiwwMoShIsBC9Ko=
 
-Move the ACPI method evaluation out of dasharo_read_channel() into a new
-dasharo_call() helper, which additionally accepts up to two extra integer
-arguments after the channel's group and index. This allows the upcoming
-write and fan curve support to reuse the same code path.
+On 11/4/26 08:20, Burke Cates wrote:
+> Commit 1bda647ce61b ("drm/msm/dp: move link-level teardown from
+> display_disable to display_unprepare") moved msm_dp_ctrl_off_link() and
+> the PHY exit into msm_dp_display_unprepare(). Unlike
+> msm_dp_display_disable(), that function does not check power_on.
 
-No functional change intended.
+Was this regression ever resolved through the proposed or another
+patch[1]? Looks like it feel through the cracks, but it's easy to miss
+something from the outside.
 
-Signed-off-by: Filip Gołaś <filip.golas@3mdeb.com>
----
- drivers/platform/x86/dasharo-acpi.c | 40 +++++++++++++++++++++--------
- 1 file changed, 30 insertions(+), 10 deletions(-)
+Ciao, Thorsten
 
-diff --git a/drivers/platform/x86/dasharo-acpi.c b/drivers/platform/x86/dasharo-acpi.c
-index dfea00cdde18..13d97eb43511 100644
---- a/drivers/platform/x86/dasharo-acpi.c
-+++ b/drivers/platform/x86/dasharo-acpi.c
-@@ -93,13 +93,18 @@ static int dasharo_get_feature_cap_count(struct dasharo_data *data, enum dasharo
- 	return count;
- }
- 
--static int dasharo_read_channel(struct dasharo_data *data, char *method, enum dasharo_feature feat, int channel, long *value)
-+/*
-+ * Evaluate a DASH method taking the group and index of a channel, followed by
-+ * up to two more integer arguments, and returning an integer.
-+ */
-+static int dasharo_call(struct dasharo_data *data, const char *method, enum dasharo_feature feat,
-+			int channel, const u64 *args, unsigned int n_args, u64 *ret)
- {
- 	struct acpi_object_list obj_list;
--	union acpi_object obj[2];
-+	union acpi_object obj[4];
- 	acpi_handle handle;
- 	acpi_status status;
--	u64 val;
-+	unsigned int i;
- 
- 	if (feat >= ARRAY_SIZE(data->capabilities))
- 		return -EINVAL;
-@@ -107,20 +112,35 @@ static int dasharo_read_channel(struct dasharo_data *data, char *method, enum da
- 	if (channel >= data->caps_found[feat])
- 		return -EINVAL;
- 
-+	if (n_args > ARRAY_SIZE(obj) - 2) // 2 fixed args always at obj[0] and obj[1]
-+		return -EINVAL;
-+
- 	obj[0].type = ACPI_TYPE_INTEGER;
- 	obj[0].integer.value = data->capabilities[feat][channel].group;
- 	obj[1].type = ACPI_TYPE_INTEGER;
- 	obj[1].integer.value = data->capabilities[feat][channel].index;
--	obj_list.count = 2;
--	obj_list.pointer = &obj[0];
-+	for (i = 0; i < n_args; ++i) {
-+		obj[2 + i].type = ACPI_TYPE_INTEGER;
-+		obj[2 + i].integer.value = args[i];
-+	}
-+	obj_list.count = 2 + n_args;
-+	obj_list.pointer = obj;
- 
- 	handle = ACPI_HANDLE(&data->pdev->dev);
--	status = acpi_evaluate_integer(handle, method, &obj_list, &val);
--	if (ACPI_FAILURE(status))
--		return -ENODEV;
-+	status = acpi_evaluate_integer(handle, (acpi_string)method, &obj_list, ret);
-+	return ACPI_FAILURE(status) ? -ENODEV : 0;
-+}
- 
--	*value = val;
--	return 0;
-+static int dasharo_read_channel(struct dasharo_data *data, const char *method,
-+				enum dasharo_feature feat, int channel, long *value)
-+{
-+	u64 val;
-+	int ret;
-+
-+	ret = dasharo_call(data, method, feat, channel, NULL, 0, &val);
-+	if (!ret)
-+		*value = val;
-+	return ret;
- }
- 
- static int dasharo_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
--- 
-2.56.0
+
+
+> When link training fails, msm_dp_ctrl_on_link() has already turned the
+> link clocks and the PHY off, and .atomic_enable() returns with power_on
+> still false. The next disable now runs msm_dp_ctrl_off_link() anyway,
+> which writes REG_DP_MAINLINK_CTRL and pulses DP_SW_RESET with the link
+> clocks off. On an ASUS Zenbook A16 (Glymur, eDP) the SoC then resets.
+> 
+> Skip the link teardown when power_on is false, as before that commit,
+> but still drop the runtime PM reference.
+> 
+> Tested on the A16 by forcing link training to fail and then blanking
+> the display: the SoC reset 2/2 times without this patch and 0/3 with
+> it.
+> 
+> Fixes: 1bda647ce61b ("drm/msm/dp: move link-level teardown from display_disable to display_unprepare")
+> Signed-off-by: Burke Cates <burke.cates@gmail.com>
+> ---
+> 
+> Notes:
+>     Test base: v7.4-rc1 with out-of-tree Glymur platform, board and eDP
+>     PHY patches; drivers/gpu/drm/msm/dp as in v7.4-rc1 plus a local
+>     knob that fails every training attempt. The reset is silent (no
+>     pstore), so which of the two accesses triggers it is not known.
+>     
+>     As before 1bda647ce61b, a failure after successful training still
+>     leaves the link up. Xilin Wu's hdr10 v2 09/20 handles these paths
+>     more generally; this is the minimal fix for -rc. Happy to test his
+>     approach instead.
+>     https://lore.kernel.org/all/20261009-msm-dp-hdr10-v2-9-1835d4966da3@radxa.com/
+>     
+>     The bug was found and this patch drafted with an AI coding
+>     assistant (Claude Code, Claude Opus 5.5); I reviewed it and ran the
+>     tests.
+> 
+>  drivers/gpu/drm/msm/dp/dp_display.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
+> index 9299ce616fdb..76784cc45228 100644
+> --- a/drivers/gpu/drm/msm/dp/dp_display.c
+> +++ b/drivers/gpu/drm/msm/dp/dp_display.c
+> @@ -1528,6 +1528,14 @@ static void msm_dp_display_unprepare(struct msm_dp_display_private *dp)
+>  {
+>  	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+>  
+> +	/*
+> +	 * Failed link training leaves the link clocks off. Avoid accessing
+> +	 * link registers after a failed enable, but still release the
+> +	 * runtime-PM reference below.
+> +	 */
+> +	if (!msm_dp_display->power_on)
+> +		goto out;
+> +
+>  	/* dongle is still connected but sinks are disconnected */
+>  	if (dp->link->sink_count == 0)
+>  		msm_dp_link_psm_config(dp->link, &dp->panel->link_info, true);
+> @@ -1542,6 +1550,7 @@ static void msm_dp_display_unprepare(struct msm_dp_display_private *dp)
+>  
+>  	msm_dp_display->power_on = false;
+>  
+> +out:
+>  	pm_runtime_put_sync(&msm_dp_display->pdev->dev);
+>  
+>  	drm_dbg_dp(dp->drm_dev, "type=%d Done\n", msm_dp_display->connector_type);
+> 
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 
