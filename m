@@ -1,100 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476299;
-	b=L0iMzSHysdyAe/gcJZiUHsK+MFO8ehBiH+11cOWE+LYX06hdizW0+v7H5IxXwA8PHfKr
-	 F0WGlsyc7XymL6cOORCW26InropaCcnb8cx8skbzzd/UHSRhundcFmyj8nsDMU+ZQaKty
-	 0B8nZq3MKbb3NUEykO+HATtET4CcUakEVA9WafhNhNBOFDpS2chv4ERV7feSKRtd7x/49
-	 pdmAAcUfxjFwcUpgMOS5ziNIMVo56mUh7jHkQYcP92MLYlQrnie8BU/o5rifJMDjCcX4J
-	 U7WBtoZSmHO0SryjA0pgQP+BBb70WLXPgDcuH399W0GEPxMT0tVIeDePq8peLo6zIwg==
+	t=1795476411;
+	b=fYmSvaQlUVd5B3xmUUC9BbWZEnZnrUOEU6hoEmR+F53CmFUzSAkcaBtj3BShIKgaCeBS
+	 AcN7JRba5Esig4ex1zRb2AJoEJaOYK3HTzvt4MYJ+UjU/VRT7U3iGgNA3Bvz/duOHFCdH
+	 kInGN5MIxIOCOqaXDJkSHkXo4XpNWz75U8d+ELJntvBLpMgy73wdooi62VyasJzg9j1Qh
+	 tUUKWM7RDfhAEmBfIJ19Ptb7+BhCZUo/4wR3gx0skzjbDcmAcOEeqT7ceUQhfGuo+c0Ey
+	 lzcxGjZh1oxZNcTAH1NaU3J/9o0AahlwdAedVza26G/TxXVrHNim8rB7lF0uXLotA1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476299;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476411;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Content-Disposition;
-	bh=MNWlDqY5Q61g7lNZmof1nMmtIa+WfJ4+kLyYstNyQbg=;
-	b=u2gzUnDCzxC6KudZcZ15Rj67iTfrMLu9/W5cU9SndpaZSas8QW1vxRyAWoUQz2RzTGo0
-	 IBMyoKSotdiJAC8ZNgVtA6C5S4AEp2qpGFy0b92MAjx2kAXOaKNHrcDqlB5s37RPYON1T
-	 iossH31u2TzBSKA5BAI5SXhWkAMAqZgZgialHflo0VWu7u8KA7KksYgdfhbiVEdVmCbPp
-	 w1B25k62SIrs60dZZCvqKsvTTsDVqTSBP2lDMs/BRm8HKKSv0w/Pr3q6mC+upcK5o1Dte
-	 av8JU14vS3pQuw+jG07FnWCSPnOb2tgO2SHw/xNKOd5RerQZtp5EVkn++mqFh+xMS+Q==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=qaxHM38G/+bXzIaF++R5ruI8cfESxy9Hb2JWe3Lf6do=;
+	b=YL7k6wEvOAGAlaRi6IjwraVvseZmW9wutZz2hYN8y3e0T5xIOBI9KH6EEe2Zr0QD00p9
+	 n2tinwvlgVvu51vtno1jVhgUiyoxL/KDSC4vupbtjML9acqXMP/ctFU17NlyUvYWNyAZ0
+	 1yMpJzqYOgCbjt65dB+oD9UMcMhlSv+PMy/JQze7oivfAoN8c1XWedNlLxU47LthsgrBc
+	 QPSus3y91GsFKHdyA+933Osqt91HUG9+UHT43E5rAVk0QQ4aXH+aAz7MW/aYZ/GNHcX8J
+	 dRAgYp3auwAjEI3upDvXSyU0lMtOnoFBaD+wkhdQIXkqI6XQjyL001VinLlPKkKFTjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FCFoUZ1I;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="Z/Ka/bLU";
+	arc=none smtp.remote-ip=209.85.160.71
+Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F1B1606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:24:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F1B1606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 548CE606A334
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:26:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 548CE606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FCFoUZ1I
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1b3ada81853so4469449c88.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:24:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Z/Ka/bLU
+Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-4adc1aca8c2so3666425fac.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795476299; x=1796081099; darn=vger.kernel.org;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MNWlDqY5Q61g7lNZmof1nMmtIa+WfJ4+kLyYstNyQbg=;
-        b=FCFoUZ1ILO8vaha3i2gaLOGnQ0cPCpIpOsy+OhOPaN59AqTbktpis5YAZtoigI1ICd
-         9210SWT0/i8f2fzZLoblQaxyuElg+u2GD6VBXH3ObBN+HPquGvhHgkfkFSIf/fEI38DX
-         0CUySfBT89fOVzzll2Ta2UqDfy+9mXOPfSehdlDKeCE70OhhqkUHNnyvz6liU9fqtvoy
-         Vxt/HExOP3KEr2oXGjKIHnbukt1nogWF/qEAubvlG0oBSfeUPs3TaZ//nASKcAGf93dL
-         JbcgStiqrIKvjrFfOVeyw8VOlLM909KmM9uNiFS/QQPCFcACW/2pcgtmHqIATQiU6JWC
-         tXWg==
+        d=google.com; s=20260707; t=1795476409; x=1796081209; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qaxHM38G/+bXzIaF++R5ruI8cfESxy9Hb2JWe3Lf6do=;
+        b=Z/Ka/bLUJnmvC2rwK/EybC6tbwbd/ydZykWE0edAcCsgZz9p1PHo47GjevY+uiiBTk
+         7Lrhd2lgh4Tq7quqRktsNcj+yJHGtO6OBZna+Nt74IgAvgD2Nk0lTdHI6sFCnbNSGRXP
+         3slALpcX3WFyNciG/maaIoMRUVVOV8O/N9aPZj6h9DPsTcX5epyudz1UGlYVD9DYbqNH
+         JeEQpNdAp1Nyv4PBp3IrGFdm8/U9osTT8CtHg+kehDWr+sXb8YBYIc/urnXZTzfM+Ypm
+         c23bfxcvGEksYdD7+onHt57V4eRcm/DEKfSwhbC8gTeZCz9cQ8Gc5waTAi2k6dApzHAR
+         PPyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795476299; x=1796081099;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=MNWlDqY5Q61g7lNZmof1nMmtIa+WfJ4+kLyYstNyQbg=;
-        b=uhwuEP89tRPCsT3jayfKYIRoTmleLEOwlUGmjH9iQz+atHZUbVlkHn/ooZVbUNkaUn
-         Opg4oavWLCMXsm0ZV/E+n0LpIOhwhhP0D+LvAaHjqQflRlQqSM/rXeXUilSzP5TdXSl1
-         zQ9dEQcA/OsAAx7Vqe0a5aufWudRkxqKkuwpbSr1Cce6wzrmbuuXxowf7TzlvO0LqJQN
-         ibIt4ooDtWByRMDzv0hOxEd4iCJeivV+b8NwbuOSdE52D9pBBejHuZf4PBjnWR03JWvZ
-         Ay5woGZVtYbW7C7VVAOxM2s9bTLOXNG61TnYuz3VCbN5u+85OK1h0LVPHI/bkcUUaYD3
-         7vrg==
-X-Forwarded-Encrypted: i=1; AL+hErFA3vIY8TfieyLwdqs5jyrGH1sKQw8Zd15EjOiPt0AtX46bzCoImd3pt0xPF4sQ/AeEJJ+vsUzU3Wkf1dM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YHED/F1mYGucqvNGknsFFCGBdM6VpzVqUy7AMCMM1XrvMkl5g
-	x5y32aa7PMfA9ixJd2GvpO59lD1EsW77UO3Kp/Uaj7rdNVzjowZFkTWf
-X-Gm-Gg: AZFdTZfMnHDAG6zfcT0/wL5bwAtIFyFoq2mketWp67YnihZczFgLf9ApahOwLL7TU4a
-	Mv5MKNM3iyWLJWepu82g4fpB6rT+5ZqhXKI0JfrQTC98RhgUUFv3boC935h3nehPvC55Cenm5qM
-	rl85wWelwvG9SQ2YTaaWRu/RY5dZG9EA08G0kCAOC4emMfzeW+czm2xd0aqw+pD0AoLsCMdD+cM
-	befMqks1xEHIR+M7/qIuyMJeETbbULyxm+Z7jBUYzvfgunwNwsD6NxcDEYQVjpjn+F2yeXS+rTV
-	C8HThwclrnYhJhB3HHCMnP1mkSo7RHEqu6y47ntzOFjOlrlJcYCm+ekTPg9Fd2Z7v48Vgn/pZmA
-	o57NkFA7eANlZvy4TK5zreRiDbiXM3ZA42amXi5qpVuNPvuumUWI7H+Ey3MTnNtQJ7d1qouAS6Z
-	rzBAhQfX+LD2SwLCew1koy2WXfh2BlAePFx1wZ+EckgraH/+qqac7Tm4luzb5TUPFr/E04wI634
-	Mh4LDNMJSd5gd/K7KbfR3m6H1Dn/JoGGrDgeQ2oa5z1yGz8LADnaCuO+jLt/VsTHd5OL8B/QqrB
-	7eTfGfxeoc6hMhsnWivGrmEqL8ZD6swc7+MamMx7L+yq2HR/sYYxlS7SbrU0cxm6kQonoDI+3i1
-	T/uVxxZKFZP+UFrw=
-X-Received: by 2002:a05:7022:2209:b0:1b2:43ac:d3a3 with SMTP id a92af1059eb24-1b5568b9e59mr16444195c88.24.1795476298544;
-        Mon, 23 Nov 2026 15:24:58 -0800 (PST)
-Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm34835125c88.13.2026.11.23.15.24.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:24:57 -0800 (PST)
-Date: Mon, 23 Nov 2026 15:24:56 -0800
-Message-ID: <a545ef5377ee473829c3780e94d107e5@gmail.com>
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-input@vger.kernel.org,
-	Hans de Goede <hansg@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] Input: goodix - sync the irq controller while starting firmware
-In-Reply-To: <CAORyz2LNRfnvbCLe+49A5kAF4NSi0zuYdpd95+7=Hx=KQh0B1g@mail.gmail.com>
-References: <20261020122712.526797-1-l.scorcia@gmail.com> <avZiZoGO4jXjIP7D@google.com> <CAORyz2LNRfnvbCLe+49A5kAF4NSi0zuYdpd95+7=Hx=KQh0B1g@mail.gmail.com>
+        d=1e100.net; s=20260707; t=1795476409; x=1796081209;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qaxHM38G/+bXzIaF++R5ruI8cfESxy9Hb2JWe3Lf6do=;
+        b=Zq30YuMsedIDnEKg0nU3ieaOJbCAAiFxvmU1rpXHDzZaCsXj6/VDjyokEL3PuopidX
+         XuXXW+6Qewc/Cnoeq0Zk+XUrD/80MmNp32g3sRStKot6hqlXVhEmgyepd/h7nGNBCjRM
+         GF2aJhyTRbsaako5FL9UeEXTpvkEKweO7ZK23MLZcmQtV7TqEQIxhTn+Zs0aMLk+rX08
+         wJk1gzxhFMGcuB3Lr7hDvuzIKNzuHtwNX62LzoyAPBms07BMld7c976ARTHmYeHfmg9I
+         IwHIAbDxTV8rclDWIjxGnaxD/IbWr4bCjkZ3efm0zX7BhyXlsLvlMFIPJ6rxmhwDSEJK
+         6c6g==
+X-Forwarded-Encrypted: i=1; AL+hErEfCLmgy9mZfvppldLfgmCBMoO8zp3DjRHeS9iqn/RLmvCN2bgE3W5Lwi6x3/758uAFYIF4q0KG0h1Dr8Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/9Aj8AkcjwH793OlZNojX2p4dH6L12MSM028XBeUBAp3kWoNx/
+	MFKvBtQtDbD+CYCs+dcodkq2wsBo8kb13geQMX3M16f6pzChi0+DPxcb2hVvSetD4UPrZ3jzlTw
+	3DeiMpbsjwIhaCNIpWYT2KezJPQ==
+X-Received: from iok27-n2.prod.google.com ([2002:a05:6602:c61b:20b0:9e0:ddf2:d76c])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:c211:b0:573:4e8b:1f5c with SMTP id 5614622812f47-57a0b048d59mr14167327b6e.35.1795476409032;
+ Mon, 23 Nov 2026 15:26:49 -0800 (PST)
+Date: Mon, 23 Nov 2026 23:26:46 +0000
+In-Reply-To: <20261123232647.3733149-1-coltonlewis@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,48 +78,160 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Mime-Version: 1.0
+References: <20261123232647.3733149-1-coltonlewis@google.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261123232647.3733149-2-coltonlewis@google.com>
+Subject: [PATCH v2 1/2] KVM: arm64: nv: Discard undersized TTL hints in compute_tlb_inval_range()
+From: Colton Lewis <coltonlewis@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>, Dan Carpenter <dan@pereq.eu>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Luca,
+When an L1 guest issues TLBI IPAS2E1 with a non-zero TTL hint,
+compute_tlb_inval_range() takes it at face value. If the hinted size is
+smaller than the actual mapping (for example, a 4kB L3 hint on a 2MB
+block), kvm_pgtable_stage2_unmap() clears the entire block while
+kvm_remove_guest_s2_mappings() leaves its stale tracking entry behind in
+guest_s2_mappings. On 16kB or 64kB hosts, a 4kB hint also triggers
+WARN_ON(size & ~PAGE_MASK) in kvm_stage2_unmap_range().
 
-On Mon, Nov 16, 2026 at 07:53:58PM +0100, Luca Leonardo Scorcia wrote:
-> > There is call to goodix_int_sync() right after call to
-> > goodix_start_firmware(). Is it still needed if we call it here? I think
-> > the vendor drivers does not do it.
->
-> Hi,
-> unfortunately yes, it's needed right there on the Lenovo Tab E7.
-> Without it, the REG_SW_WDT right after it fails with the error "Error
-> reading 1 bytes from 0x8041: -6".
-> The vendor sources for this device [1] show the call to
-> goodix_int_sync exactly between the two interactions with the WDT
-> register.
->
-> Actually, in the same sources I see no trace of a second
-> goodix_int_sync after firmware has loaded, so the existing call could
-> be moved a little earlier instead of introducing a duplicated new one.
-> I tested moving the existing call on my device and it works just as
-> fine (basically, my patch + commenting out the existing call at the
-> end of goodix_firmware_upload.
->
-> Which vendor sources are you using for your reference?
+A TTL hint smaller than PAGE_SIZE or the mapped entry is wrong. Check
+it against PAGE_SIZE, the shadow stage-2 leaf size, and the guest block
+size encoded in KVM_NV_GUEST_MAP_SZ. If it is too small, ignore the hint
+and fall through to the unhinted invalidation path.
 
-Sorry for not being clear. I was looking at the same vendor driver you
-linked to, and I was asking whether the second goodix_int_sync() at the
-end of goodix_firmware_upload() was still needed once we call it inside
-goodix_start_firmware(), since the vendor driver only does it once.
+When falling back to the maximum mapping extent with stage-2 disabled,
+size it from PAGE_SIZE rather than VTCR_EL2.TG0 so 1:1 shadow blocks are
+still covered.
 
-Since moving the call works on your device, please send a v2 that calls
-goodix_int_sync() inside goodix_start_firmware() and removes the second
-goodix_int_sync() call at the end of goodix_firmware_upload(). Also,
-please change goodix_start_firmware() to take struct goodix_ts_data *ts
-directly and use a local "struct i2c_client *client = ts->client;" temp
-instead of going through i2c_get_clientdata().
+Fixes: d1de1576dc21 ("KVM: arm64: nv: Handle FEAT_TTL hinted TLB operations")
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
+---
+ arch/arm64/kvm/nested.c | 76 +++++++++++++++++++++++++++++------------
+ 1 file changed, 55 insertions(+), 21 deletions(-)
 
-Thanks.
-
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 4d83281a7a28b..d3a19b1db2144 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -610,6 +610,19 @@ static u8 pgshift_level_to_ttl(u16 shift, s8 level)
+ 	return ttl;
+ }
+ 
++static u8 vtcr_tg0_to_ttl_gran(struct kvm_s2_mmu *mmu)
++{
++	switch (vtcr_to_tg0_pgsize(kvm_s2_mmu_to_kvm(mmu), mmu->tlb_vtcr)) {
++	case SZ_4K:
++		return TLBI_TTL_TG_4K << 2;
++	case SZ_16K:
++		return TLBI_TTL_TG_16K << 2;
++	case SZ_64K:
++	default:	/* IMPDEF: treat any other value as 64k */
++		return TLBI_TTL_TG_64K << 2;
++	}
++}
++
+ /*
+  * Compute the equivalent of the TTL field by parsing the shadow PT.  The
+  * granule size is extracted from the cached VTCR_EL2.TG0 while the level is
+@@ -624,18 +637,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+ 
+ 	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+ 
+-	switch (tg0_size) {
+-	case SZ_4K:
+-		ttl = (TLBI_TTL_TG_4K << 2);
+-		break;
+-	case SZ_16K:
+-		ttl = (TLBI_TTL_TG_16K << 2);
+-		break;
+-	case SZ_64K:
+-	default:	    /* IMPDEF: treat any other value as 64k */
+-		ttl = (TLBI_TTL_TG_64K << 2);
+-		break;
+-	}
++	ttl = vtcr_tg0_to_ttl_gran(mmu);
+ 
+ 	tmp = addr;
+ 
+@@ -686,29 +688,61 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+ 	return 0;
+ }
+ 
++static bool tlbi_ttl_too_small(struct kvm_s2_mmu *mmu, u64 addr,
++			       unsigned long max_size)
++{
++	u8 guest_level;
++	kvm_pte_t pte;
++	s8 level;
++
++	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
++
++	if (max_size < PAGE_SIZE)
++		return true;
++
++	if (kvm_pgtable_get_leaf(mmu->pgt, addr, &pte, &level, 0))
++		return false;
++
++	if (!kvm_pte_valid(pte))
++		return false;
++
++	if (kvm_granule_size(level) > max_size)
++		return true;
++
++	guest_level = FIELD_GET(KVM_NV_GUEST_MAP_SZ, pte);
++	if (guest_level &&
++	    __ttl_to_size(vtcr_tg0_to_ttl_gran(mmu) | guest_level) > max_size)
++		return true;
++
++	return false;
++}
++
+ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
+ {
++	u64 addr = (val & GENMASK_ULL(35, 0)) << 12;
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
++	u8 ttl = FIELD_GET(TLBI_TTL_MASK, val);
+ 	unsigned long max_size;
+-	u8 ttl;
+-
+-	ttl = FIELD_GET(TLBI_TTL_MASK, val);
+ 
+-	if (!ttl || !kvm_has_feat(kvm, ID_AA64MMFR2_EL1, TTL, IMP)) {
+-		/* No TTL, check the shadow S2 for a hint */
+-		u64 addr = (val & GENMASK_ULL(35, 0)) << 12;
+-		ttl = get_guest_mapping_ttl(mmu, addr);
++	if (ttl && kvm_has_feat(kvm, ID_AA64MMFR2_EL1, TTL, IMP)) {
++		max_size = __ttl_to_size(ttl);
++		if (max_size && !tlbi_ttl_too_small(mmu, addr, max_size))
++			return max_size;
+ 	}
+ 
++	/* No usable TTL hint, check the shadow S2 for a hint */
++	ttl = get_guest_mapping_ttl(mmu, addr);
++
+ 	/*
+ 	 * Don't use the default 1GB fallback, as we can adapt to the
+ 	 * max mapping size we allow at S2.
+ 	 */
+ 	max_size = __ttl_to_size(ttl);
+ 
+-	if (!max_size) {
++	if (max_size < PAGE_SIZE) {
+ 		/* Compute the maximum extent of the invalidation */
+-		switch (vtcr_to_tg0_pgsize(kvm, mmu->tlb_vtcr)) {
++		switch (mmu->nested_stage2_enabled ?
++			vtcr_to_tg0_pgsize(kvm, mmu->tlb_vtcr) : PAGE_SIZE) {
+ 		case SZ_4K:
+ 			max_size = SZ_1G;
+ 			break;
 -- 
-Dmitry
+2.56.1.839.g22a8290db9-goog
+
