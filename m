@@ -1,96 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795393520;
-	b=hN6T0yrNnOrEUPjCy5fP3bagw0U3+tafk1aHmdkiP3Q9pHNOGAkstKtw/aijix1e9hrf
-	 fe2ZDNPrewiZBhyMU5ZBvsT3ECTPRIacvyfiNs+iY7vVF6HDmKX4F9+u9tkY8yVv6oV82
-	 KPjWJGaAaVzVML3OkL4fenPwcBCnvUam3cSWC+cLMfTlgbuyBj/2oFDttxGCit9Q+syzq
-	 wHuECvdNix+Uao0zZXwqpQTE4yQowBPq1TbGqQ7qNJervz0D+3EpBQYVVUXD3Sn6M5zAr
-	 W9XRxNltII+7nzFFUtZtamcgdVEKafXM94E90Itigbt/UneYg4c8pxI+2/zJSEdQuHA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=Nw/M7qcXx+8CDfvdH+br1vgvTkwbBJ+tp3+hxhy2YKgn/eFCpTsm4l6yKfo+crEQHaR8
+	 37ieDi4gmACUB7l0GSH4y/jePKAtnLPoeC+1fVw9fIJNvoNvlIszD6D+EmQD+ts5ksas+
+	 oXRM2rrlOEP+cfkdjEJaysCT1fBnFllGD9LoaTkFDMr9MfbBpkuKF+AbBaYYIRyFRLhiN
+	 Ne28t4nmyROzBpeEkMCPptkybzy32Lb2Nyg1thEMTX+g/O2zSyBR2ObZO9kEab8lrCXAV
+	 GGIUdR71miVU4h9BAtU/F6d98XqJ00wZ2r/dAxJdq35N4BAFdbUO26nI1WP4BI3BLYA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795393520;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Content-Type:Date:
-	 Message-Id:Cc:Subject:From:To:In-Reply-To:References:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=XTLw64RKSVxV+BjWRGwSN+nuKYoaYqbBJ+SYVqTuiGE=;
-	b=L9/juNXq73gJCiFU4QK+B3YhutZ8cYeIbE1gkPoQP9FSxQR+9cOkbcYyM/tLreDKAX8k
-	 24RVbzw3V1kbt1ucIHwkEUSiFukWAIXfFfJvaJYBZlX1iARx6C0e9aypNj0gfXBlj4yEA
-	 J0s2onkPrIyFB6KuhtncKZ0W16plLNMSTjiDnkOXSM8l3o/DvCVmeQOdqYAjhm5ssKjUH
-	 E92ngKUj6zcPELHu7IGQ2YoMWgGDMDK2rUXgPXfr2ZL9d2yEA3Pfx+td1OskRcDFTheh2
-	 EiikH07AB5P/3jduXZmGgtfwsFUTkTrCI2RSDacrM9oZgHKHEY7nBO1sk4sqpWaNv2Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gjd7c7pK;
-	arc=none smtp.remote-ip=209.85.210.173
-Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=3T5GLWa8dCPbOmNTE2SZI39/qBRH3q4tYwhAWlV4JWw=;
+	b=oH1hyP/ksLxI36yXukrIQlpjaobJ0OMCbIiwpEujPIhuOxLKQD/iiu5enilHXkKkeOs6
+	 +aYV3mOMvmrM2ptHogkyJtSdGwFNkjL/JdB+7CJ3dVfHAk3UIuFs1Esy26MBGtfCRL7vy
+	 vo6VNfwNz/NTd2hYrWsWkTCnlClVanWRipaqvZU7p+VUBwFqiLMC2mzRVEANqh1BQhfG4
+	 Yhj1AzYZziRDVdMbrnmWFnkulZlOYEIiFnJJfgCwFHMkKQ68cvesaLk958Hpei/4sIj56
+	 kSAURCwyRwFw6e3FRGC6X5CK6qjE0WCIRyLNsbXy6lELhxe99eJVSEMMXsDmSjLqwwQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W75Gy2L+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8143606A334;
+	Mon, 23 Nov 2026 00:25:19 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W75Gy2L+
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795393519;
+	b=wZUQP9yvFhQUz+m/jrUpIQ3+1zZB/3LLMkKYYN3qgmtK0ABergt4p8jORDMe8GZ5p6ZA
+	 LBecW34oIV6LoWMnWd2sA4I9fLIRioTpc4feMTLSkAh9KluQuAbHq3ufeiy/oNq7nATfJ
+	 H4j3RLidJMk1JF0117K4Nmkrc8uiBUeyJlPiNIcr7MZgBg9r5VVjsGTVQU3jxovmWwmsT
+	 kcWBqz3ybMcd6WdqoFPWx46tkmk5ftqAYTbcBTY+W0L3tY1zCAj77YqVQyy3u42wXSqx/
+	 wQdUzy51yK1mXw7cr/xwkwfK9oFvaKQ0chIiViwHsG3G8sFOu9pciAQiDZs5GHHDkag==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795393519;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=3T5GLWa8dCPbOmNTE2SZI39/qBRH3q4tYwhAWlV4JWw=;
+	b=lt471bin2BjQzfFCs6oX5lgMRMp6EV2HCrYhqLqPpirG8DMD/UqK9FpNg4wYrZuXyRaA
+	 QhKJIxEgWHvlM6/Grsebq5AfY2lHO2xy2nRsX3p9/gUBoqJZ9eCmJPipX4n+480Eqe49b
+	 m6uSll/8hR3bWIA6XrXXj3x7uNGUgDTxXHMiz4EtVUFfHlvC3UgE2HfiOMXgwq5zBYxq0
+	 J6oDqmoPlAwaaybp6sssbHH2RLmUXHQSYMoei0UsmpByoBy+G9evRCKWokdgcKXcDZX9W
+	 4MoGljjCPnNf08e46gTlbt+E7Bf/OrpnCktOHpmrFw2I46pEfZScdzg0GO7s/KGtzAw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A023606A339
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:25:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A023606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gjd7c7pK
-Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8b2f59de176so2262103b3a.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:25:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795393519; x=1795998319; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=XTLw64RKSVxV+BjWRGwSN+nuKYoaYqbBJ+SYVqTuiGE=;
-        b=gjd7c7pK4i3+nh6JtJY7RitKRtT9u9eef/h67zxj1VLMnHlKg/uCK00l8HlLHEX7Fx
-         E9aPCM1rhFesA2Mmc6m5O/x2oojCVsitL1rE+wlgXrVIfx+os0oei5h/klrzN25WO4Cx
-         9DFu0J7ZEtLPkXWdAiup8SMxO3EXx+nwYOwkEdev3SIIIjwoAoUx71TpDlNvm9L3bB05
-         xrMB8uwk9GsFcUr/Mca9xTjQd6yizLS/VNsN4d6e8f0w7INL/Wt0kigT2W05Gm1vdnmm
-         UpfobRECY/WPDQQLshE8/mi5ZpkfEYfyRzcWqfOWxaw+eeuy0NRPsx+vmdm1wNfnrS4V
-         6kaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795393519; x=1795998319;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XTLw64RKSVxV+BjWRGwSN+nuKYoaYqbBJ+SYVqTuiGE=;
-        b=CtKzJjcwu7tEGSk0Np8RDLKHfqi7zym7bXMWRS2DzUTPJwlfLAFpl9Gje3eqxdXLXI
-         u9JdwUx6jKHzALQ3RUYUaUS51SDG3y3VO1eAtEoVngH/6LdG8seDcdIu1/qcqN0w3Q0w
-         V3DC8j7bNlByn5HQJ98yvU5dewCU4SDUFO5+bhW0u6MEW+SN4gwDG3hyVGkihStxmmPm
-         ic2p3hgsQilEaUGXBpBHKPqR7rvPUH8ucsoJF2nguwDdbcWx98ug9thb8pYc/bWJxfSr
-         JWt5tKLHOmegYPiHKehplsBqGbgrqEVgy34YqHQlQtJ02cUUS3mlNGfc6MY6Hnzv8uaE
-         IvcA==
-X-Gm-Message-State: APuU4Z+sNHcHBPP2PW2pjuy3E3pYr+3KA1A3pqwd3bJebrR5sXrFcVKP
-	Q/dRtnGNpUciWSodx7a9ElHh+d1lX7erM/zFG4x5s6hnez/IijPtYNj4
-X-Gm-Gg: AZFdTZdUtWB6D/OJcMlQf9WF0XJvaUh9d/Tlg2XIBfToEMqAvcXI5e1dYg2bp0xhWRr
-	NK7K8Nd4ffABPGKDhU7QaARFLiNwbZNb0M6f5ln+7XeeafMCsS+68FrgGiEWjklVhUBcCS7CLMV
-	NV0W9LQZbEVpoGiYxFlxj1ugS2qiZqdxtRG9/h/SjpLBl5jvkAXTvZGbrLKsVh9jZFx04KT1ZpE
-	8B9kts/xOZQW5VLPY7MpS96oL85QkoIP8JIOql1NQLVgkSGaakA49ODafEOti3C951wOzKQxWel
-	doM2eGdS4kPz3KZfekORJz13iws5zAvIb6dzmNTQ050rVgSvTIbQGqIpvYeSlFfc3Ewa8BYvhZt
-	iXdI+Kx8dVCDooPkl9MS4bl+fuCPtEC1/6l3Hy4hqU1jVODzGoGumZ7BOD4XS+a9zLr6RGhftFF
-	s2lPh/duPf2ptepOl3rGTlUWYHU+voSf0TSeufWCMtVYWpzyMQWFf/jtyFn1mt9lKWKERO04oRz
-	B9Pil6qycaGD5hWVaZfXmeWGlVk/enBh945OBkLkjQDGiHZH4In5SUM8S/1S9Nv4jXvx4sV6UKj
-	OQLLlLa8yx+bYgOmafn3Q4TuSR2GxtSZQFSbY+U7xleIJGHv6j8iOOa2AX4uSpb6q2RcI6J6T7w
-	JA73JkyqGQsrEd6QiR3DMZkE4jsLP3NdyJg==
-X-Received: by 2002:a05:6a00:94e3:b0:89f:e64f:c34a with SMTP id d2e1a72fcca58-8c87ce33aecmr9086268b3a.46.1795393519113;
-        Sun, 22 Nov 2026 16:25:19 -0800 (PST)
-Received: from localhost ([153.61.198.254])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285b60csm4568106b3a.9.2026.11.22.16.25.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 16:25:18 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 00:25:18 +0000
-Message-Id: <DN25VVZI22A9.1KXUP775JTIJB@gmail.com>
-Cc: <linux-kernel@vger.kernel.org>, <daniel@iogearbox.net>,
- <andrii@kernel.org>
-Subject: Re: [PATCH bpf-next v3 1/2] bpf: Add bpf_memmem and
- bpf_dynptr_memmem kfuncs
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Abhishek Khade" <abhishekkhade69@gmail.com>, <bpf@vger.kernel.org>
-In-Reply-To: <20261122143815.330528-2-abhishekkhade69@gmail.com>
-References: <20261122143815.330528-1-abhishekkhade69@gmail.com> <20261122143815.330528-2-abhishekkhade69@gmail.com>
-Content-Transfer-Encoding: 8bit
+	by smtp.kernel.org (Postfix) with ESMTPS id 4E4F61F000CF;
+	Mon, 23 Nov 2026 00:25:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795393519;
+	bh=3T5GLWa8dCPbOmNTE2SZI39/qBRH3q4tYwhAWlV4JWw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=W75Gy2L+m+CfNIQ/f1olI1YcrS0X+0vui8kTjfLSyAUYxfE5FOKzAHdpp7t244rBR
+	 rPpPcDk6NH63vLEnICBvRQtvOl3/gu3GVmMzqNYn33VisxY57lHhVapbPjkyuVtGCz
+	 kLwOwdgu9TW98n4uHuzlUeTtTGuLGVCH2Ijr1qO/0wzxldRfvQAi+6Uc+b/Z5D8OWa
+	 eq0hNwaPbh7ATZRz4AtlLsPeZI+YIapxLLM60E/EAgFNHq/LX6Mun2aFSjdgvjCvBd
+	 faJPFxBYvAZp+l8pBBQ431PJ0ezEXITA4ZubpTh97MjBfrpb+L3tCBhBJK+7g8WQvg
+	 chUiIsuUirXpg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D03284C255;
+	Mon, 23 Nov 2026 00:25:12 +0000 (UTC)
+From: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>
+Date: Sun, 22 Nov 2026 19:25:13 -0500
+Subject: [PATCH bpf v2 2/4] rhashtable: Don't retry trylock_irqsoff lookups
+ with IRQs disabled
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,106 +83,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-bpf-rhtab-irqs-disabled-v2-2-207aedcc2215@columbia.edu>
+References: <20261122-bpf-rhtab-irqs-disabled-v2-0-207aedcc2215@columbia.edu>
+In-Reply-To: <20261122-bpf-rhtab-irqs-disabled-v2-0-207aedcc2215@columbia.edu>
+To: Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Mykyta Yatsenko <yatsenko@meta.com>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ Andrew Morton <akpm@linux-foundation.org>, Shuah Khan <shuah@kernel.org>
+Cc: Thomas Graf <tgraf@suug.ch>, Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+ Emil Tsalapatis <emil@etsalapatis.com>, 
+ Ihor Solodrai <ihor.solodrai@linux.dev>, bpf@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, tz2294@columbia.edu, 
+ Mani Tofigh <mt4022@columbia.edu>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795393512; l=2660;
+ i=mt4022@columbia.edu; s=20261026; h=from:subject:message-id;
+ bh=kYjGbBhSshdQz8OUIPJYVvaaWEVOrBeao9CRlWi5/+Y=;
+ b=K7vDg+c6ADcr1YLDf5uftT+mGwZRE6ClJ6kJzmqtbZGr8phM5RTNzqKJMhozRN9Bz+E+yMhZv
+ WTl/Ficbw5CBH2yoVhIPFFfMBaZE6dtoxASM7EzA+uTaHwHAsrTddvN
+X-Developer-Key: i=mt4022@columbia.edu; a=ed25519;
+ pk=gljCMQDuxyKPmd5y37CRpEJGSPXDV1MyAnHBhCgXl0I=
+X-Endpoint-Received: by B4 Relay for mt4022@columbia.edu/20261026 with
+ auth_id=1322
+X-Original-From: Mani Tofigh <mt4022@columbia.edu>
+Reply-To: mt4022@columbia.edu
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 06:38 AM Abhishek Khade <abhishekkhade69@gmail.com> wrote:
+From: Mani Tofigh <mt4022@columbia.edu>
 
-TLDR: nack
+The rehash links the last entry of a chain into the future table and
+then unlinks it from the old chain.  A lookup that walks the old chain in
+between ends in the new chain and retries.  A caller with IRQs disabled
+can run inside that window on its own CPU, e.g., in NMI or in a kprobe,
+and then the rehash never moves on and the retry never ends.
 
-> 1. Writing a loop using bpf_loop() or open-coded iterators: Even with
->    verifier inlining, this executes 1 subprogram call per byte and
+Don't retry for trylock_irqsoff callers with IRQs disabled.  The lookup
+moves on to the future table, which has the moved entry and all entries
+moved before it.  The rehash now stores entry->next with
+rcu_assign_pointer(), so a lookup that walks into the new chain also
+sees those earlier moves.
 
-No. That's true only for bpf_loop().
-bpf_for() has no call per byte since
-commit e93347704878 ("bpf: Inline bpf_iter_num_next() kfunc").
-Plain C loops load too. See progs/plain_c_*.c in selftests.
+Suggested-by: Mykyta Yatsenko <yatsenko@meta.com>
+Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
+---
+ include/linux/rhashtable.h | 11 ++++++++++-
+ lib/rhashtable.c           |  6 +++++-
+ 2 files changed, 15 insertions(+), 2 deletions(-)
 
->    cannot leverage 64-bit word-at-a-time SIMD scanning, making it
->    significantly slower than kernel-internal scanning.
-
-It can. Leon measured a bpf prog that scans a word at a time.
-2048 bytes took 4557 ns in that prog and 7389 ns in bpf_strnstr():
-https://lore.kernel.org/bpf/20260728145727.45153-1-leon.hwang@linux.dev/
-Andrii's answer there applies here: such code stays in the prog.
-This series has no numbers and names no user.
-
-> +			while (n_idx < needle_sz && n[n_idx] == h[h_idx + n_idx])
-> +				n_idx++;
-
-This is one byte at a time.
-memchr() runs only for a 1 byte needle. On x86-64 it's a byte loop too.
-
-> +	data = __bpf_dynptr_data(ptr, size);
-> +	if (!data)
-> +		return -EINVAL;
-
-This fails for the use cases from the commit log.
-bpf_dynptr_slice() gets a NULL buffer and the full size:
-
-  dynptr          callee                   fails on
-  --------------  -----------------------  ----------------------
-  non-linear skb  skb_pointer_if_linear()  len > skb_headlen()
-  xdp with frags  bpf_xdp_pointer()        len > data_end - data
-  file            bpf_file_fetch_bytes()   !buf
-
-A filter that drops on ret >= 0 passes all such packets.
-bpf_memmem() doesn't help. The verifier rejects data_end - data
-as haystack__sz. See check_mem_size_reg().
-
-No need for new kfuncs. The prog can do it in linear time, with frags.
-This one takes needles up to 64 bytes.
-dynptr_run() in prog_tests/plain_c.c feeds it an xdp buff with a frag.
-clang builds plain_c_dynptr_success.c with this, I didn't load or run it:
-
-diff --git a/tools/testing/selftests/bpf/progs/plain_c_dynptr_success.c b/tools/testing/selftests/bpf/progs/plain_c_dynptr_success.c
-index 2c1c4f7..1a47cb5 100644
---- a/tools/testing/selftests/bpf/progs/plain_c_dynptr_success.c
-+++ b/tools/testing/selftests/bpf/progs/plain_c_dynptr_success.c
-@@ -173,3 +173,46 @@ int test_dynptr_memset_xdp_chunks(struct xdp_md *xdp)
- out:
- 	return XDP_DROP;
+diff --git a/include/linux/rhashtable.h b/include/linux/rhashtable.h
+index e5f5b9385cc3..746d62978215 100644
+--- a/include/linux/rhashtable.h
++++ b/include/linux/rhashtable.h
+@@ -638,6 +638,15 @@ static __always_inline int rhashtable_compare(struct rhashtable_compare_arg *arg
+ 		      params.key_len ? : ht->p.key_len);
  }
-+
-+static const __u8 needle[] = { 0xde, 0x00, 0xad, 0x00, 0xbe, 0x00, 0xef };
-+static __u64 mask[256]; /* bit i of mask[c] is set if needle[i] == c */
-+
-+/* shift-and: bit i of 'state' is set if the last bytes are needle[0..i] */
-+static long dynptr_memmem(struct bpf_dynptr *ptr, __u32 needle_sz)
+ 
++/*
++ * A caller with irqs disabled may have interrupted the rehash on this cpu, so
++ * its retry would never end. It finds the moved entries in the future table.
++ */
++static __always_inline bool rht_lookup_retry(const struct rhashtable_params params)
 +{
-+	__u64 size = bpf_dynptr_size(ptr), off, len, i, state = 0;
-+	__u8 buf[256];
-+
-+	for (off = 0; off < size; off += len) {
-+		len = min_t(__u64, sizeof(buf), size - off);
-+		if (bpf_dynptr_read(buf, len, ptr, off, 0))
-+			return -EFAULT;
-+		for (i = 0; i < len; i++) {
-+			state = (state << 1 | 1) & mask[buf[i]];
-+			if (state >> (needle_sz - 1))
-+				return off + i + 1 - needle_sz;
-+		}
-+	}
-+	return -ENOENT;
++	return !params.trylock_irqsoff || !irqs_disabled();
 +}
 +
-+SEC("?xdp")
-+__success
-+int test_dynptr_memmem_xdp(struct xdp_md *xdp)
-+{
-+	void *data_end = (void *)(long)xdp->data_end;
-+	void *data = (void *)(long)xdp->data;
-+	__u32 off = data_end - data - 3;
-+	struct bpf_dynptr ptr;
-+	int i;
-+
-+	for (i = 0; i < sizeof(needle); i++)
-+		mask[needle[i]] |= 1ULL << i;
-+
-+	/* the needle starts in the linear part and ends in the frag */
-+	bpf_dynptr_from_xdp(xdp, 0, &ptr);
-+	err = bpf_dynptr_write(&ptr, off, (void *)needle, sizeof(needle), 0);
-+	if (!err && dynptr_memmem(&ptr, sizeof(needle)) != off)
-+		err = 1;
-+	return XDP_DROP;
-+}
+ /* Internal function, do not use. */
+ static __always_inline struct rhash_head *__rhashtable_lookup(
+ 	struct rhashtable *ht, const void *key,
+@@ -670,7 +679,7 @@ static __always_inline struct rhash_head *__rhashtable_lookup(
+ 		/* An object might have been moved to a different hash chain,
+ 		 * while we walk along it - better check and retry.
+ 		 */
+-	} while (he != RHT_NULLS_MARKER(bkt));
++	} while (he != RHT_NULLS_MARKER(bkt) && rht_lookup_retry(params));
+ 
+ 	/* Ensure we see any new tables. */
+ 	smp_rmb();
+diff --git a/lib/rhashtable.c b/lib/rhashtable.c
+index 2dc13f0e2549..619609037051 100644
+--- a/lib/rhashtable.c
++++ b/lib/rhashtable.c
+@@ -274,7 +274,11 @@ static int rhashtable_rehash_one(struct rhashtable *ht,
+ 
+ 	head = rht_ptr(new_tbl->buckets + new_hash, new_tbl, new_hash);
+ 
+-	RCU_INIT_POINTER(entry->next, head);
++	/*
++	 * Pairs with smp_rmb() in __rhashtable_lookup() for lookups that
++	 * don't retry.
++	 */
++	rcu_assign_pointer(entry->next, head);
+ 
+ 	rht_assign_unlock(new_tbl, &new_tbl->buckets[new_hash], entry, flags);
+ 
 
-pw-bot: cr
+-- 
+2.53.0
+
+
