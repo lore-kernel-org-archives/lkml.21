@@ -1,54 +1,75 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444164;
-	b=zdDernD/KdxK//JHZbM7UNpLqqwksG7zFRtk3taZuraAnSvd4GCeXbwUXvT1hW+uJCKg
-	 Mt3rBHA6tFHjdrTTm7eQNuz0n5E994Hu8uEYwAsXFBnTupbHi2IKOG0gtFKV1NK9lDv0K
-	 Yl9hI5V3EILDbwsLsEGG8yja//96Q236DQxRSBn2sr46JU3CME8KD4dwIkJTKLALd7ROl
-	 VG0Mj5/CRFloF+v6OHI2ZabDBd9Ci5zG41T6AkUeD6JF9iBrl7+FsODIWIW/H8El6WC+4
-	 MH/nBzaQoHwlMXukk9DCtKQ+qgzr/w6iKmE/zwSanoUczE0dCwXWMS9Pltcht4/8tjQ==
+	t=1795444185;
+	b=iFeoPxEmeSfnw/P8VUW0S5LlSKyfA6P0ORFJ0vfhVPwmKz6ZKVplKCkV1YUPnxNRoNPZ
+	 6Tz5ykSPrHfAujHorw9x27KKt0bheADzRi9rxgaSJtDdwZURiggfFwy8dUx1fVDifFbXs
+	 WU5uWnnMabrUOlP9zghcv7GgKc1uR4GHPXISh8d+jBpUi21QGDyNrMKJRKIC2LONK+Lp+
+	 Uuo6tI8J+JMzHrYULO07B4N+erIdrOYgFtpauvM8+xFnfWGo+ii7tevZScSaRqBt4gOWa
+	 fAFD4mlZ7fI/tVmdEuOBeBCZOEzO0yhhx/Ji8sOSp9cee7YaxYY7c6NU/FTtuby9bPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444164;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444185;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=2DKeGxOrlXTkh3jfoRdpXWfaHKZBI98WSnTmSPMlwvA=;
-	b=gGzoi5b+9Dw3Y6BzdA6Hu+e8B3ANOr+R/8Wd23GtNR0cH0LF17WfPwP0rxKdJjvg8ODg
-	 5tNkGWkRiGJIVQuuSsgCFbDjgWN+YOo1EAWIlsEGMZB1EBEhP9WaX6CuUmnjN+ZEBKdn4
-	 lPxdBm6xFcGvs+8qz2S4iTiUqfrUXf4RIA96XDThJ1U88hsvmDoTbnXhj+ug1rR7XD88k
-	 AHCIApJODv36GYrBKx0OL1FMsjL8g1DWsWYiGxszeB6Unf87cEcxtlJbSKCRzc9QgNMfa
-	 znnHpfRVFyqUVXwXKK5a3iDFUG++LfTksM2fSKxVPziueC1taoYzI8cRKiqt+1/ublw==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ROrUqZkbzP8LgqCX7NGiVjaQailsYGWxDA+4EOEFZZs=;
+	b=VlKUqRu13IdyGLzn2L6RRaeFyK0VT8PnnyTRT5jbr6y4DladxZhnLhF+nwIt+r77Fykn
+	 6NQRielENW5/Ff28G/++ACoJdB0PvV3ECBx1ZJrtR5+nYsA645/lrADpXKobp4BludnHA
+	 rbDeDOmwhe4O5maTv2m9PPjaSnift+w4z5IWCCeWgmG4ekqZYwIgT3BlaMa57JH75kIzr
+	 llhgxL/sKL+knPpJfdhBa3hgi/JbERY5NoMFe1T25OQB59jARaSYJc5eLCAuRiVPv1SHG
+	 MB8XrT403esNcYxf7tIoN24S5k/UAq4MSdkmFxF475Rw2PeszFEOCO01mw37ktdNkiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EOFxaD8r;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JmXyQoyd;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE417606A31A;
-	Mon, 23 Nov 2026 14:29:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5C90606A31E;
+	Mon, 23 Nov 2026 14:29:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EOFxaD8r
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 736E61F000D3;
-	Mon, 23 Nov 2026 14:29:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JmXyQoyd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 220D61F000C6;
+	Mon, 23 Nov 2026 14:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795444163;
-	bh=2DKeGxOrlXTkh3jfoRdpXWfaHKZBI98WSnTmSPMlwvA=;
-	h=Date:From:To:Cc:Subject;
-	b=EOFxaD8r2nBhfalwTlrTD7gC6uJ9O1rEpTWaSzU1u/d4hUOh6DbCgX3t/9IeVnq3h
-	 W8uCRAptZE0agAHd3tXBuerMqKCh6WXw5kTl0lKjDMZRBEFpFEhGXB1brX05aP/n8w
-	 eAsIK5T8chHdzE2bx/5w7fFjBnvkmkH72e+2/7wvaQLpoG7PIDG6fZYwKy6wHUNKJf
-	 icVP11kroxzveSgeT0sfez6TlSDuxXDdvsn2c+iU3ATLVHZSzolrfN6BxWC26jxkgF
-	 V6mXkzm601bCeDTQTmT4a5+T8yBeBrb6bW/K+/vUldZkK/tokpkJ0HtTNo0W1NRKxc
-	 I4aXQiSrTA+pw==
-Date: Mon, 23 Nov 2026 14:29:19 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Kees Cook <kees@kernel.org>, Kees Cook <kees+treewide@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Subject: linux-next: manual merge of the v4l-dvb tree with the origin tree
-Message-ID: <awRNvzJzGfwCbnm_@sirena.org.uk>
+	s=k20260515; t=1795444185;
+	bh=ROrUqZkbzP8LgqCX7NGiVjaQailsYGWxDA+4EOEFZZs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JmXyQoydVBoWpr4+5R4CZ4z+AoyWLrYpEEMxAQuw/pLunMtb/cKSldBwzfWKKHEnq
+	 v75SVo09OWHsaqhmRDY3uFZq/IfdMc6dsdiC+bdDTF00CYKcVgim6qaDzJadMLwaNh
+	 1lehl36nca+arCMfCsXN2lkml5UsOnihwHzd6jAOdL+3qqrKzixnYLKk5/gGeYxjOY
+	 +MBIJwCyTBa6WJHmwut+DUUgxOZfpvVe0KsGBUK9phgQr/WFmi79q2nPSW1jC3vqOF
+	 bKU08JQzM7PCqE1hWSCVNp37IiCSxHEWJDbtXA2yUY7UI29kNQvib/7SVFtL+R+Zvk
+	 jdKaa6IdT62hA==
+Date: Mon, 23 Nov 2026 08:29:43 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Svyatoslav Ryhel <clamor95@gmail.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mikko Perttunen <mperttunen@nvidia.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Cong Nguyen <congnt264@gmail.com>,
+	Faisal Mukhtar <mukhtarfaisal03@gmail.com>,
+	Dan Carpenter <error27@gmail.com>,
+	Hungyu Lin <dennylin0707@gmail.com>,
+	Hao-Qun Huang <alvinhuang0603@gmail.com>,
+	Yury Norov <ynorov@nvidia.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-media@vger.kernel.org, linux-tegra@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
+Subject: Re: [PATCH v1 09/10] ARM: tegra: Remove fallback compatible from
+ Tegra30 VI node
+Message-ID: <20261123142943.GA2320531-robh@kernel.org>
+References: <20261113161819.36847-1-clamor95@gmail.com>
+ <20261113161819.36847-10-clamor95@gmail.com>
+ <ceb7b479-080f-4210-a1f2-be3e273779e5@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,56 +79,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JyKQGAlvRjt55MIp"
-Content-Disposition: inline
-
-
---JyKQGAlvRjt55MIp
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <ceb7b479-080f-4210-a1f2-be3e273779e5@kernel.org>
 
-Hi all,
+On Sat, Nov 14, 2026 at 10:22:36AM +0100, Krzysztof Kozlowski wrote:
+> On 13/11/2026 17:18, Svyatoslav Ryhel wrote:
+> > Tegra30 now has its own specific compatible string for the VI. Remove the
+> > Tegra20 fallback, as it may interfere with the correct configuration of
+> > the device.
+> > 
+> > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> 
+> 
+> DTS cannot be combined in this patchset and must be split. Don't mix
+> patches from independent subsystems when you send something explicitly
+> targeting only one subsystem (staging, USB).
+> See also: Documentation/devicetree/bindings/submitting-patches.rst
 
-Today's linux-next merge of the v4l-dvb tree got a conflict in:
+Except this is an ABI change and will introduce warnings if merged 
+separately. So this and the binding change should be applied together. 
+Haven't looked at the rest of the series...
 
-  drivers/media/i2c/imx678.c
-
-between commit:
-
-  4dd10fbbeb9c3 ("treewide: Convert devm_kmalloc() family to the devm_kmall=
-oc_obj() family")
-
-=66rom the origin tree and commit:
-
-  371d2cfa91880 ("media: imx678: Rework into a common Starvis 2 sensor driv=
-er.")
-
-=66rom the v4l-dvb tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-(Deleted the file)
-
---JyKQGAlvRjt55MIp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsETb8ACgkQJNaLcl1U
-h9BlSQf/V+JS5qbkDxv4WLvPqDQVgoBGBilCMZnvdR4H1M0/65RUjSQWXw3mCj8w
-+QUA1y8j29NAgV1l06nqSeNqqE24w8oqbe1Jh9ODysNtm/fM+rcfqPcHu9x2ttXO
-rXsNdzI2gtTbvrDq5cltEWak3aEsvW/PLBwWui8BoWhKFVPREK6xixSMFD5ZowI7
-tMk/Uk1QuOIZM2IKI8kR6+UVpbDsxaqbpwiVQlS5Tl+AGYXMKirmPf6Z2N3dDT/g
-whvvy0uI1sPsmGMbt7qoHKrMysa0bw9VYMxH7ymLOvJYD+jN+zt/piq3TXqJrUpG
-ogJuGCwTUru73U2u1XYIEq4oxQC6cQ==
-=yHMF
------END PGP SIGNATURE-----
-
---JyKQGAlvRjt55MIp--
+Rob
