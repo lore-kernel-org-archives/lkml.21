@@ -1,82 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.236
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795392650;
-	b=KX8rR3myI2O4kDxGOWgRZyZO3pRbfBmkNIdblawWgKc0OaYGSm6QxzI1oFDrPAsjgjzG
-	 mA1Y9zwIUIOYE87duPIfjcgPR9tQZIN5wuDxduQsIKexWlAVPSzFW4cDVNubPp7HM/qwv
-	 rTe1B1XuFxiEGQxSJxpA3wkvyHjHwivKjH559NLki5cTlHnArHwlAVv3jLCRNj8dHADGS
-	 QD91RRMMQ//8BA8JrxGi2TH4DxL5Bov+Sdhw4p+Kkp1ByptSCZ9J46L0vJrp1UznuV3ZW
-	 9jbK2ccvR0ZYUbhHluRDSKY8Dp7+RzQ3N32qvQkKHtyj2xQ9RpmDI6FpQIem6HopoaA==
+	t=1795392744;
+	b=GNMEl5d9M5RyVPhYSFMP7Hun6Z/EGEHo3830JamA/AoS47Eko8DDsHTccs9uI6/nNY86
+	 W9jESdTi0A2snJsZTBDeUfWNRnYFR/t+rIdyZaWH/QYgFk05++Z9yNy/awWnZSVYfKPIU
+	 CRU59VvdV6K/INB9HQd6diJPzvR+xdopPEKaHjdfmLOJii8JpT5T0f0JcJZKg1ODrJhq+
+	 ovRiDyhLT0srK6DCPWtlxKeIICGvIDMRojQMOyYzb0tr9aSVwGx4DQTy9xAfomxA7AOT0
+	 XDN2GThCT7qcq+p8kizuPJ8eoG/wE+/sCwTUvXjwRbQPGNNwqxLdOPIYZ7eTg+egfSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795392650;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=zCzXcB/gcPUK0OBE9Ia6L1IFSVcN8lBVdYQJrZSjFyk=;
-	b=B71apZlogNBZrSvAStn8ntejyKe1qT8WeOyWsIJ9oWst0psT62DTzM986+RdhDKva0M8
-	 5rhGMtyvSys4yEmUgKP3OoB+Owo4E1ohJEJSm06hKJ1fA03EGgmEcD0ejD+KlWmeZwY7j
-	 IZfqz2dURxahWTs9r4YAap9ynr8/d7vDbrvnW92PqHoNHGnqlLDzJHuRlcsr17qr0dPqp
-	 YDNcWkUEx5lCwjDv7ffahlCIeh4fxCEKO891cElYknTh4pvvabJuNryd8StDtmYjDS+Jh
-	 kWaimLFI5aK7szP/ECltHose+KGoO5itqpWs1yfWtqZojxvidAkYLU6qpzj4tZrNfrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795392744;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:
+	 X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=PBrEB7f5YYk42gc7Q56J9QHIXXlnB532TvxaLJsXkho=;
+	b=DT0mWgV2KCT0+dKRKUdxPNf3Xh4Gfwf1USV52h6mO3xTtp/7fs+COLaDAV5cKiJPIr0V
+	 WDkiztaa+p38FpXURR5eurs0u5ZcKTXH0FBmlYqbPM32EAT3Ljs+NVnOyg/sxNzMPm/9y
+	 fNxXTTIe0B5deF0D0vCVxD2SmbNTL0wR88IdjJ9wlSd47uFuDgNMVHc0BKtntWwq5ZVrY
+	 Zf+w7jFufHotQsn74JihBtPS0goLgEPoxjQYzGfMWuiNVE1YGp1B0MvdAwzL6T3q598SW
+	 rxrpZw8/wKHkOl/tWkqds/HrzwLhIkWdwjxrxQcWG/85g80KjK1Lid67okg1BhKEy0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=KhabOH+o;
-	arc=none smtp.remote-ip=203.205.221.236
-Received: from out203-205-221-236.mail.qq.com (out203-205-221-236.mail.qq.com [203.205.221.236])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xxn9SaaM;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CE94606A31E;
-	Mon, 23 Nov 2026 00:10:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CE94606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82A8F606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:12:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82A8F606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=KhabOH+o
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795392635; bh=zCzXcB/gcPUK0OBE9Ia6L1IFSVcN8lBVdYQJrZSjFyk=;
-	h=From:To:Cc:Subject:Date;
-	b=KhabOH+oIt37Gj9TpdCsGiDPO71SYpLBp8IU0XEabvp53J8olfS9CUVoXWmZXOFjc
-	 fCNwkZ7mWkilP06CCxUI9ES2vaofBJjloWxf+mvIxYjP1Paph2J50fvPkF6PLFxVua
-	 2SZZfUhDtixP7WdD5MiTNt+WNRolcETicjwl0SUw=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
-	id 2A1184D1; Mon, 23 Nov 2026 08:10:33 +0800
-X-QQ-mid: xmsmtpt1795392633tb9wyo0qg
-Message-ID: <tencent_EB9C4DA9CDC741E0BE99F36A6871B9BADB05@qq.com>
-X-QQ-XMAILINFO: OVgMLYsdica2kuw9YlcxebNwrLkqTlTuscftxkVmfoVanPi7KTjAJRloxnsawE
-	 OkzUHWDIpLLH5hzIOL5HFwLFfJsiI81LqqBgHRmTr1KdMC7gAF8MJZCBz2nde0l/Rqzx22LsNe3S
-	 i/FipitTETSr7VJruxVHUAEk+2bl3YmBtdEnGNEgpMnRsmps0itXCIxydnejv3R0sUIwKfrGVCGV
-	 GJHN85fkoQXW2X+BDtUpQo5lhb5zb3m/2f6F7a6F3TFRkLiKFVanvCT+AE05nrz0G+LJg0dAogaM
-	 oUCLu7gu4OHaI40eZR1u9AoNxWPcqtGSnR6/DqH/pbN3jndhfUjUCJN43v8Qp+T2l+MaM0F6xEPQ
-	 Y25WuPqpY9ZUdxFG3RzAbrWfhR8r98I+HDNS8xiSAVZetoN8K9IGs9hUyN7jqIQJVzFdujZ8iCRy
-	 zDPY8yWM6x/Df0CY9/S+b5/8P78X4cagraxasES7+nd1Wu+A18LQWYCrHj18Ah0WPFUcGkcVF+4g
-	 KuCsax7INbZ8FJJTGQ48SvXGHfOXFGABUr/N+5xQZg7UUFXDNpJBIm+ONRrPyRRj0yQXyQ8EoJNS
-	 3W15RhnSK3mUO0keRSk8+gzm7VtQ+X2WmyRAPQfa6lekwXx8BE9DMllVEIii2qdosQ1S+IvwL/9e
-	 XdoxIKUF4eCpI1DMGSAz9ChFHLv4xtDudqefT+UWhk3TBOAuCQVfKaN3PB/f3A3tvCOLGEJPU66Y
-	 f+xPzFd/LJ88yPDo66dAT+WDFYvFA1bDYYFyoR9THcBc9wneZ0BmaTGuVnwql2npNRJMyDOXQz/W
-	 3R6fCTtSP6dadxdlJwATh59wVtsS+7872/NCE+xnW9IYpzTKI8gOVVXkW4MyOgoK/bBwMMKuzEyT
-	 B/Yo8ok2T8y5Uq0NaKqVpp5ZwCmNHt0c2B34d8CtPy5bCzkUQnGnOobQpOUq4kl3Kk6L/II0uw3j
-	 3S84qoiG5+UvoISoB7W/fdcyWGnHxtdFLLa69HloFwHY0Xl+yNToGrhw9/3FUC51gDGOlfHU/UMz
-	 DnuFwV9RcW3Ss6UCwpd6OG5gx68xK/MdszeGZSc3wyfRmnMNYL3lesMnBeYO9AS6vTIYmL+Z1Xd0
-	 i1Kwaig6bQOfjiM6bb3OuLIEtB+pwq4m/+qcpFIe/dB+o7MW2Q7HOl3P3lcemgBJuK6Bfz5naTwl
-	 VV4cArqaEJA7B88o1ClC3K3gXD
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Xiangyu Zhu <1194781887@qq.com>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Xiangyu Zhu <1194781887@qq.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-clk@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/2] clk: rockchip: rk3506: Add the SAI MCLK output gate clocks
-Date: Mon, 23 Nov 2026 08:10:27 +0800
-X-OQ-MSGID: <cover.1795366993.git.1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xxn9SaaM
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so2053664f8f.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:12:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795392743; x=1795997543; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PBrEB7f5YYk42gc7Q56J9QHIXXlnB532TvxaLJsXkho=;
+        b=xxn9SaaMRiFf0M2G7rAdUJTjKs5OBiCAMSG3kZmEw6D06eZYZBb/8uViffu/tNB+r0
+         MNN5IXCoDljJmSOpGMNerciUpTTXTGusPZL33VEjQyI+YXQf1zWkw/QUhCuoAehKc/xQ
+         fYPW8c7pjVcI10Td5bXwLrJf5HocnoorZ2QA9w7pFAcb8I6PTz1OrXLHFZHg9LHDMnMt
+         9I4b6UYRNhcAPgfMDnr+lQfHtZcQKe/2lXhqW9yTGyga00jwncpA9XoF0Z8lYIFZO4hR
+         06IgQTocsocP70tcIXr19fSzPzFYFTJ1FwugBiejmVjdF9gsLmQvPofWvaJk1hr6mNnN
+         F8LQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795392743; x=1795997543;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PBrEB7f5YYk42gc7Q56J9QHIXXlnB532TvxaLJsXkho=;
+        b=HQn30oIOIx9NO5Gf5tLa5clUJP/byYTCTRNQo24DcgGioDTJyyc7snPt6XszUBM38W
+         CvID4lqOBrnmJtBJnpPCJHGDJASvcd4ClSNXG6cugTR0x0In88Iv0j/duiALwMyKqUIU
+         HwdMBiOdOrXdZwB2w8Pjqb/FMBwrs6TddC9lP+k3a3ak0NN1z8dsgmAvM2aZIkgVvyaS
+         rFpJGey7RewTM7VT1XTQUv0I2xq7EzbudTGHR1EyVDmMF1RdYQdHkxdi7uNtjlWTDunK
+         DcH0jMq1O2REmzKqd6tXG3nyE7w7bojKGvI4eE+e+UdwOT5WqWOBqBcKniCDwGhEKW/c
+         SGjQ==
+X-Gm-Message-State: APuU4Z9+dSGB05aNBn9E/wP6FSEguwnTwsRv7DnNnKIkYwfZB6OIoS2+
+	nN9rCo4/AyS2zqxv32IEzRkOSLI58JjSWs8PoQ1gwy5pfiCra8v1wkH2
+X-Gm-Gg: AZFdTZdYPGlQTFtLe6hpMHlPAVZ/JceHDuErxX9Xrmlb1DOhU57v8/1rVfXJuxqWpE6
+	wGhISKdMTh8y2GJVRYhuW3hZDP8bdAaF7bSoXwWwlikMUu2r9G4KwgL8XUiY45YPkG8psJwgWg1
+	fqvMeDw+jwJ1KMAmVwQgbPcT0xIH52x3SdQhzWv7o3lD4hRaYCE+pTS5GcOYd6AXVb/cbpcAf/h
+	STELWwGDi4VYqNESE+1dqpk2M+LigjWwGPntoNTj/X457knrTZxmqR4KxrGiT/RniLLqoS2Rn/U
+	G8vP5EyWoz4Za65s7WqhQs5979C2fsnYi/Mc1T6g44FDAku23nmyviVa6hcL7yVJ0ySsF95C6JQ
+	4VWBi3G4vS3XyExF+JxieVNjq6H3H2SQon2IKYWVGba8YNHeHn9RUoK0ehkTm93NtoFFmwDfjtC
+	xGu17rfxXRRGLIWivaa9sw2Q9PsOlq6M1UbunrY1XscZkrCCfov2jfnkza4CQSMXmXw77X6OcvE
+	PG50R1KAKujfIr7i+xLlZA8RYxGSH8puP2TlN7DNejbhpPNIcAhW25PA+S8rww1WgboAvj2bkwx
+	DrJlaVxx4gEZqgBZ2pNd79VHl3ROsLjmAC0M7QtvFwdKiMWKJ82vDlIgV/cyjNvyP9vLGf0nbws
+	B3L7zYVE/ccuKdbEopvzeQ+OdhinCZFFbg3/LR61q9DML35lnqWeSRnfeQOmnINZgZcY55HaI
+X-Received: by 2002:a05:6000:4616:b0:4a8:cf12:6f34 with SMTP id ffacd0b85a97d-4abaab6318fmr20026463f8f.4.1795392742692;
+        Sun, 22 Nov 2026 16:12:22 -0800 (PST)
+Received: from iku.lan ([2a00:23c8:254f:fd01:896b:b24:bc5f:da54])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb98b4dsm19586296f8f.53.2026.11.22.16.12.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 16:12:22 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: linux-kernel@vger.kernel.org,
+	Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH] sched/fair: Fix h_nr_runnable leak in dequeue_hierarchy()
+Date: Mon, 23 Nov 2026 00:12:13 +0000
+Message-ID: <20261123001213.7609-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,51 +107,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The RK3506 has four SAI MCLK output gates: SAI0 and SAI1 are controlled
-by bits in the PMU GRF, SAI2 and SAI3 by bits in the system GRF.  Model
-them as GRF gate clocks so the SAI MCLK pin direction can be controlled
-through the clock framework.
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-This is a v3 of the earlier "rockchip,clk-out" binding/driver submission.
-That one introduced a generic "rockchip,clk-out" compatible plus a
-standalone driver, which is not acceptable: upstream already has generic
-GRF gate support (branch_grf_gate together with rockchip_clk_add_grf()),
-and RK3576 and RK3588 register their SAI/I2S MCLK output gates with it.
-No device tree changes are included.
+Commit 486c3d06b902 ("sched/fair: Avoid transient double accounting
+for delayed tasks") changed the h_nr_runnable logic in
+dequeue_hierarchy() from "set to 1 unless delayed" to "set to 0 if
+delayed", but left the initialiser at 0:
 
-v2 registered all four gates from one branch table while only the PMU GRF
-was added as an auxiliary GRF.  The two system GRF gates therefore came
-right after two PMU GRF gates in the same table, and
-rockchip_clk_register_branches() keeps using the regmap it picked for the
-previous branch when it finds no entry for a branch's grf_type, so they
-ended up toggling bits of the PMU GRF.  The SAI0/SAI1 gates are now
-registered from their own table, and only once the PMU GRF was really
-added, so no branch table mixes two GRF types and the PMU GRF gates can
-no longer fall back to the system GRF.
+	int h_nr_runnable = 0;
+	...
+	if (se->sched_delayed)
+		h_nr_runnable = 0;
 
-Tested on a RK3506B board: the SAI0 MCLK output runs at 12.288 MHz and
-drives the ES8388 codec, audio playback works, and the GRF gate bits were
-read back from the registers to confirm that they get set.  Enabling the
-SAI2/SAI3 gates sets bit 2 and bit 3 of the system GRF (0xff288004) and
-leaves the PMU GRF alone.
+h_nr_runnable is therefore always 0, so dequeuing a task that is not
+delayed no longer decrements cfs_rq->h_nr_runnable. The count only
+grows, which inflates se->runnable_weight and skews PELT runnable_avg
+and load balancing.
 
-Changes since v2:
- - register the SAI0/SAI1 gates from a separate table that is only used
-   when the PMU GRF was added successfully
+Initialise h_nr_runnable to 1 so that only delayed tasks, which
+set_delayed() has already accounted for, skip the decrement.
 
-Changes since v1:
- - drop the rockchip,clk-out binding and driver
- - use the existing GATE_GRF support like RK3576 and RK3588 do
- - limit the series to the clock driver and the dt-bindings IDs
+Fixes: 486c3d06b902 ("sched/fair: Avoid transient double accounting for delayed tasks")
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ kernel/sched/fair.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Xiangyu Zhu (2):
-  dt-bindings: clock: rockchip,rk3506-cru: Add SAI MCLK output gate IDs
-  clk: rockchip: rk3506: Register the SAI MCLK output gates
-
- drivers/clk/rockchip/clk-rk3506.c               | 27 +++++++++++++++++++++++++
- include/dt-bindings/clock/rockchip,rk3506-cru.h |  4 ++++
- 2 files changed, 31 insertions(+)
-
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 731d78155e65..2d9d3d686261 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -8294,7 +8294,7 @@ static void dequeue_hierarchy(struct task_struct *p, int flags)
+ 	struct sched_entity *se = &p->se;
+ 	bool task_throttled = flags & DEQUEUE_THROTTLE;
+ 	int h_nr_idle = task_has_idle_policy(p);
+-	int h_nr_runnable = 0;
++	int h_nr_runnable = 1;
+ 	struct cfs_rq *cfs_rq;
+ 	bool dequeue = true;
+ 
 -- 
-2.47.3
+2.43.0
 
