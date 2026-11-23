@@ -1,59 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795464505;
-	b=Vu0HRAGhXKZdTo0qmdrlnUKE5SStr+lwUhtMw0K0hLfIUTLcDyUNPqTBx6XuvU5jgH0B
-	 zKI167u1YC6ObyEFhZVyrDm8UGUjBMSRDr5IxkF81Ee9Rzk0sx6HxIivsF6uy5d6QAm/G
-	 Ccw0xGGAb3OOST/8Yg/idCC97TnkcjTGaRAJ7FBTrGo2xElFJXPh8KvrGMSHdw6UjJuHe
-	 zwcMzdj7iPrDXSu9EsdHoFUtb9SMkk3S4xbVNnpO8YldKUOtngMr0UN0AjvQC9qNENUH9
-	 IAPa1lsZ3Eq6rRlf/Qat3aD2U+arNecbmLTiQTczHTnQE8KBjYehGLl0vNQHiNf50XQ==
+	t=1795464525;
+	b=xbcrNpvDG7ZDNVQD4UHQ2vZYjPObVFL0/iH51LfZs1G1U98TIkYYr5ScGO7RFYC/6whs
+	 j0DjZz65WukPeMsjLQcOVPgiohLaXKjqdgKmU/QzJiFOqOTolXsi+hxX/1pxVhpGmOUbR
+	 ggQblv4tX7WSVzaxOPr7KIUFvYFAEWQ1UgbvoLUD7RJo0kttuuYCnHSOhXWRbnY/X9ltA
+	 OOs0+q5Yewohp5TT4JtS77bHn1/GpiithzRJO3jZdZIrYXIArDzYEH5YBsqEYeieIFvtv
+	 RanQ1qKE1aKP8nuhz4fgTMo09kKP+xEoiB9w3ooTX9B7hFVP7RyvIu28c9WD4RaN8TQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464505;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=GX5aMCRIgJiZuuGkpcknd4x+6v9xITU+D6Sjcmd128Q=;
-	b=BsQS3K1Lg/OIWb91UiOuvDKVcayp5RV9gp383/a9hrAH7TRwZ1L0LUqazfe9Cpx/EknQ
-	 +7NeIl1e6ZNspBuSBd1Qv+NJCEGTUEBtvKTfz2JlfEYlt5nu7+SKbdtkv/cAxvvrxASTu
-	 Zix3SNltbu7BSeWVTr+Z51GnwQhTsjUpt7itQdnMqrzHQRkT0djBStTcLgHV4VSXJOUd3
-	 Rtsa3MTfYxxoREDhTfophKi0j4Xpvdc8P13hu9mKjEA2QrpMnL9lZMBREqngwR/bA6P89
-	 OARrGJgUImpH1A+7W5mgXFwmW+vLm7pY4n/RovUAusPtUKGrUxgf1j3UD0T83AW/VTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464525;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
+	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
+	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
+	 X-Local-Domain:X-CMAE-Envelope;
+	bh=gNGrlpJ5GBGLYgkbdRirPnoTxZGSI1GUcCCkis3/WLY=;
+	b=wob2ayoDasM03z3nDwaLttMqOGpfEoC6uyndUDuG/t5HVHSCsp4c7qse1DEI4PMhWqsF
+	 KirLn4uFApYwmLSYBHdujJ5VRDxHuLalgcfInHdjMuwty1qYGP0yG7rFtFO3jlTtJnHeR
+	 kHT/sTy3Ngx+Os9cFUTg9QGw8XoBcEHs0lp2Gg4ZPn6C4Lv649AatODaBFXqSZT911YoY
+	 hikOQsi5ovwISYQC95oS/m6MOLguD/DX+Se4vYREn28z9BvrbiFCNItIIahs74A/EHF3R
+	 T8ZxiNUD2BDp8mx3r9dPojhrzJ+quL9pA764PPeIcZXk4hhdNK/mGiwo27Iy3MK68SQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=csail.mit.edu;
-	spf=pass smtp.mailfrom=csail.mit.edu;
-	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=qBSQEEAM;
-	arc=none smtp.remote-ip=128.30.2.78
-Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=4EenYoqU;
+	arc=none smtp.remote-ip=44.202.169.37
+Received: from omta038.useast.a.cloudfilter.net (omta038.useast.a.cloudfilter.net [44.202.169.37])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F40F606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:08:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F40F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E13A0606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:08:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E13A0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=qBSQEEAM
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=4EenYoqU
+Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
+	by cmsmtp with ESMTPS
+	id VUaRxtwlcV16IVaL8xsWdu; Mon, 23 Nov 2026 20:08:38 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id VaL7xtKZjGh2BVaL7xQMwD; Mon, 23 Nov 2026 20:08:37 +0000
+X-Authority-Analysis: v=2.4 cv=Aszu3P9P c=1 sm=1 tr=0 ts=6b049d46
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=gAnH3GRIAAAA:8 a=S-ZHDvpaSbKS-1XEJIsA:9 a=CjuIK1q_8ugA:10
+ a=KPbNTLLc3YvdawN95zVk:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GX5aMCRIgJiZuuGkpcknd4x+6v9xITU+D6Sjcmd128Q=; t=1795464504; x=1796328504; 
-	b=qBSQEEAMlxqOsAKu2jEu5/fKNF1hjUU3G9f93AVvBRsSx/jo66f1ML8DQFeq5apUy9jKnZKe2Nj
-	UDATolUlrUMdTuHZVFWeAcFeFx3wjwgzkMuBRGq4hnQs2PL7On/lg2HDZzhUDcR5SvwIK74IaqNMR
-	VjnWhOi+btZ9drk2zz5hLZtrhJDbgjYQdJWpGV3wl9m+Ca0SrrFYZVEEMcDRIBsw+CvpR+QgrXPTZ
-	qeVWPUSkjUfIuUNh1YwFwkGYAhcB1j2jSj/BQh6LUoDJrsiu2j1vXeH4pvpDcevM+/PVPNyQpX4LE
-	3nEupjiJCJzlA90ElktNwPZNMUdMuimjwr7A==;
-Received: from [49.207.211.146] (helo=[127.0.1.1])
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xVaKi-006jgv-4Z;
-	Mon, 23 Nov 2026 15:08:12 -0500
-From: "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>
-Date: Tue, 24 Nov 2026 01:37:54 +0530
-Subject: [PATCH 2/2] MAINTAINERS: Add missing files to KDUMP subsystem
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gNGrlpJ5GBGLYgkbdRirPnoTxZGSI1GUcCCkis3/WLY=; b=4EenYoqUwKLVxFO6ApN1BAtn1h
+	9g9dniMYtL8cDLa5uCobumqajKPCJIJoW/lBuSWPWDYiy+XCmlX6XJv9YeZS4Fr1Ng4+s4MrsNYd/
+	7qkK1f20niFm3try8mq4GfQt+LVIU3bz61JMbygk+E0r1NuhTlGSeLl2I2lrGUkW6rjEyftbGBU9Z
+	goKiId2MfM2etgos7XZSfwrw05LMeMpbCfDGq/I5MI8NHDEtFJqgwRE18BG8uSmHVMlM3syiC6a1x
+	3EcHJ329+YBuXhVro7TCMFn6KK3SnNNG2PDPhH78mcRHMNRjjxEWMLwl+V8GmlZZU8WcpUFkCB1fa
+	jqxbWKYg==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:60550 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xVaL7-00000001cZJ-0V6J;
+	Tue, 24 Nov 2026 01:38:37 +0530
+Date: Mon, 23 Nov 2026 12:08:36 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Christopher de Guzman <christopher.deguzman@analog.com>
+Cc: Cherrence Sarip <cherrence.sarip@analog.com>,
+	Kim Seer Paller <kimseer.paller@analog.com>,
+	linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org,
+	sashiko-reviews@lists.linux.dev,
+	sashiko-bot <sashiko-bot@kernel.org>
+Subject: Re: [PATCH] hwmon: (pmbus/ltc2978) Fix peak comparison for IEEE-754
+ chips
+Message-ID: <88719c0a-24dd-4714-8729-bf7deee35dd1@roeck-us.net>
+References: <20261123-ltc2978-ieee754-peak-fix-v1-1-96cbe686ab67@analog.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,56 +86,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-fix-kexec-kdump-maintainers-v1-2-79c6a6144de4@csail.mit.edu>
-References: <20261124-fix-kexec-kdump-maintainers-v1-0-79c6a6144de4@csail.mit.edu>
-In-Reply-To: <20261124-fix-kexec-kdump-maintainers-v1-0-79c6a6144de4@csail.mit.edu>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>, 
- Pasha Tatashin <pasha.tatashin@soleen.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Alexander Graf <graf@amazon.com>
-Cc: kexec@lists.infradead.org, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org, "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123-ltc2978-ieee754-peak-fix-v1-1-96cbe686ab67@analog.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xVaL7-00000001cZJ-0V6J
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:60550
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 3
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfNDb2xtbjxXOCV1GGHu7P12NV0t5hIMsbaq/PiIjKbz4mF1n5/suh0G2aJp459t7U1aTmnPRJJP/LOylM2a24GSFByIy/DDf/OFRBADzTwIMWSxdvx+r
+ ad2wgUy8Y2D6T+gj6nsO5L/CmYvNdh6tBgfKFG/hzW9w7lRgAh2Z8XPl0+/7sQmYfW4vLgNsP34QkQHc4ahK9BdaFfkynmq7Ej3v985T1PgzzelGx5muF90l
 
-The KDUMP entry covers crash-reservation code and the vmcore interface,
-but omits the crash-reservation header and the vmcoreinfo implementation
-and header. It also omits the dedicated kexec/kdump and vmcoreinfo sysfs
-ABI documentation.
+On Mon, Nov 23, 2026 at 02:52:02PM +0800, Christopher de Guzman wrote:
+> The LT7170, LT7171, LT7175 and LT7176P report their sensor values in
+> IEEE-754 half-precision format, but ltc_get_max() and ltc_get_min()
+> compare peak values with lin11_to_val(), which decodes LINEAR11. Bit 10
+> is the lowest exponent bit in binary16, while LINEAR11 treats it as the
+> mantissa sign bit. Positive values with an odd biased exponent, such as
+> temperatures from 16 to 31 C or input voltages from 4 to 8 V, are
+> therefore decoded as negative, and the reported peak stops following
+> the real one.
+> 
+> The peak start values have the same problem: 0x7c00 is the lowest
+> LINEAR11 value, but it is +infinity in binary16.
+> 
+> Add a FEAT_IEEE754 flag for these chips. Compare binary16 values as
+> sign-magnitude integers, and start peak maximums at -infinity (0xfc00)
+> and peak minimums at +infinity (0x7c00). The min attributes are not
+> exposed for these chips, but the min path is fixed as well for
+> consistency.
+> 
+> Tested on an LT7171-1: after stepping VIN from 3.3 V to 5 V and back,
+> in1_highest now reports 4992 mV instead of staying at 3294 mV.
+> 
+> Fixes: c1d6afdbb8ed ("hwmon: (pmbus/ltc2978) add support for lt717x")
+> Reported-by: sashiko-bot <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/sashiko-outbox-206843@kernel.org/
+> Signed-off-by: Christopher de Guzman <christopher.deguzman@analog.com>
 
-Add these files to KDUMP so that scripts/get_maintainer.pl can recommend
-the subsystem maintainers and kexec mailing list for changes to them.
+Applied.
 
-Signed-off-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
----
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index bb4d9c20db06..bb8e1c414394 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14429,12 +14429,18 @@ M:	Pratyush Yadav <pratyush@kernel.org>
- L:	kexec@lists.infradead.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git
-+F:	Documentation/ABI/obsolete/sysfs-kernel-kexec-kdump
-+F:	Documentation/ABI/testing/sysfs-kernel-kexec-kdump
-+F:	Documentation/ABI/testing/sysfs-kernel-vmcoreinfo
- F:	Documentation/admin-guide/kdump/
- F:	fs/proc/vmcore.c
- F:	include/linux/crash_core.h
- F:	include/linux/crash_dump.h
-+F:	include/linux/crash_reserve.h
-+F:	include/linux/vmcore_info.h
- F:	include/uapi/linux/vmcore.h
- F:	kernel/crash_*.c
-+F:	kernel/vmcore_info.c
- 
- KEENE FM RADIO TRANSMITTER DRIVER
- M:	Hans Verkuil <hverkuil@kernel.org>
-
--- 
-2.43.0
-
+Thanks,
+Guenter
