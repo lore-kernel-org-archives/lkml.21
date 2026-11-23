@@ -1,54 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422087;
-	b=31e2Z+T21YSkr+WG1nQ7QQfO1u5OZJWUKg+0bCvsxi+fiuxJbEeyetvnR88IEx4MWZci
-	 oZUkpcN/GtWelr+SsQ1qRSVvOLKkmLbSg81stkRy9pLLz/I+qhWsTr2MoHTbAyP/3DeS/
-	 4zr8dRp8iHrWBHnMbgg1kuSPpXzrx4kL8GDjaNwFxTmCMThvI7k5PtG84/my4oOxUgQG2
-	 JjLXIZBJ66TCOfvznIOFbarPhNIn4r/XrD+HzCk6JGVSgKvgj8bMt5ThIHXPynIvCkcYo
-	 UWwn809wxeZCXFc/AUKDBg71LmABw2pmCjnFc5UjME3U3CstrPZMwVGf+/ghLkhMIGg==
+	t=1795422139;
+	b=SYScUn8ROGZN5IwI4JRWKAmJacHqjidWHaPR+zXcKrfoISf1eP3yuOg+W79V8B1Keceu
+	 fhfXj5KZzmq9EBM6IcT/1vmFGUU5NEMaplvRxq7j9VbcNRGU9bveeVFk6HcBKC2sn4wyR
+	 7hpSQDzbQBKZgv+KoE+PrI2I6t0rbox3ic/RjEo3E5hqjrRgQSlYEK1iGV8vHemeB4mhl
+	 X/5GUDfDuXlHerSIyquvrpeNeTi2Nd0O6s8A/0zf4phIbEocWZLXcXRitpgsqfBbSAKVK
+	 7WwxrX+7co2zjYXi6nmUNS+4pQbPZezG3djNRqEalzZJ+sBRDvx6DQZ4/e3Nd2R25zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422087;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NsGN37ONxhWiQHsuGTHmCPtePmFZQ90N8jgbH9R3tjs=;
-	b=PT2hpqHn2kRwsntKwvA7iSHP6e20HEPI+Yv8hvIuMJhQj3Vqwi7hsh4UXbJ2Kx9lGAw6
-	 p77G3ISiQ9Tm7AaJ0Oqfwyvl9yyJyAJp9F1zabfWo3CstdJC1392TR4AR8aXY9yFfsf09
-	 gnj+rs8QcZeH2SOBsd14Ap6XcY+idjQZWQNA5y/ruNk8sREBYCqakcexdNhnuJKUJLi0B
-	 tpQ4y55ZYK7W1jz9q0Ye1VWj5XtjquEao1eIzdXr7d8dQvF2BkyHq4op79bpXtwwQamIa
-	 8duxqQ9AEtohXB9Tl3pZQ2FYhl1uAJWjhUECjp9P/Th6h8tx1Dj7e8n18eReoTQJlDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422139;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:Cc:References:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=73m+z5TqVU0MAxErwiYYlUqlp41gWEEPpRofeciV0Wc=;
+	b=EjriNQWBaX7ETpo9UFITjFaN/pxobf5HUAEJNf1wKs1TAPFwm8XaSk0FUeHEpfMCn+xJ
+	 vevWcuMLX/wh2NNsYZJpf/2Vlwqc3PUZ66dm0pEjno1tDVbHuxxHzuR8B23osAR+65lSi
+	 xSpJd9WwLKzhBxiIIu9R19HtjtaPv3JKyZj7pORDYHIMb/rSLC5BO4GEPjEI7mewMgABv
+	 J2o99TT5xxjdw8NaRnZsT3XdF8YwZwJt1W7ny+aH3Nnl7ThrYppO7PN1wwUvHnmxB1VMM
+	 QZrIQK3kbxcPlFEJtAkpnhkZdFBt0nn6SavrZGG9pj6xA/nOUcn0dAjYafYhwtiVoRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vkAEmZUc;
-	arc=none smtp.remote-ip=91.218.175.149
-Received: from mta0.migadu.com (out-149.mta0.migadu.com [91.218.175.149])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZpApYrM5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C4C8606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:21:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C4C8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E03A606A31A;
+	Mon, 23 Nov 2026 08:22:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vkAEmZUc
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=jFAjxaLybVulQPxCbHrlgyE2DA1FJX+f642lA9A44iM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795422083; v=1; x=1796026883;
- b=vkAEmZUcXYkIQJ9hICBvhjRzH+Sb5JvwVL9/6oE4EhLf0nUusrSTAnWPC8XkzVAeSZ1XMSTk
- 7hM+eGZn70MF4lVAhU4AlbdxGCZBuv5VJc3NacMS2PSnGJLvb7GP34UQPuNlmNd/QRcUo+vxGB9
- 5vf22GmvaSkGPK8cLrq1OXTw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 09738cf93fe26e03;
-	Mon, 23 Nov 2026 08:21:23 +0000
-X-Mizu-Trace-ID: 09738cf93fe26e03
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <4570f62a-b85b-442d-93a4-075cf7c59717@linux.dev>
-Date: Mon, 23 Nov 2026 16:21:17 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZpApYrM5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D9921F000C0;
+	Mon, 23 Nov 2026 08:22:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795422138;
+	bh=73m+z5TqVU0MAxErwiYYlUqlp41gWEEPpRofeciV0Wc=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=ZpApYrM5afsD+IbcmB492hA5DOfEhUVon0j3/JBZFxp9j9AX+e02N5MXgvunGP+XV
+	 Hg7phgdkgYNN4+0O41/VM5EXvXng4LOO1WjMEY8JhQmFXj4iV8P6+UA1QIL+MKh3wM
+	 DBxNltoS4ak5tZ8jCLzxn1SOGcM1h277Bg+BgUdh3UOfsLPxL1O5aAwCrquh79/Qn5
+	 36OftNF2F2pXc1/jte7lhUY4RUY+zUQUxVZedg35ilImcgxAN69RBz02NIMs7FPOf0
+	 8NsPrc7rV6+W9tBy4xw35BxFtVef8u0H3L181h7eLE1X0OfRlB7ytWjdfqia8jcSwC
+	 KK2ROQfWnoo0A==
+Message-ID: <6a0f3bf9-d3e0-465c-a12b-482b2b9a7fc3@kernel.org>
+Date: Mon, 23 Nov 2026 09:22:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,102 +52,96 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/11] mm/mm_init: verify zones for
- template-initialized pages
-To: Muchun Song <muchun.song@linux.dev>
-Cc: "Liam R . Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Li Zhe <lizhe.67@bytedance.com>, Andrew Popple <apopple@nvidia.com>,
- Balbir Singh <balbirs@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>,
- James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-2-songmuchun@bytedance.com>
- <240018e0-02c1-401a-a979-3f867526191d@linux.dev>
- <10263c9e-2d58-4149-a3c4-df9cac11b041@linux.dev>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <10263c9e-2d58-4149-a3c4-df9cac11b041@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 1/3] dt-bindings: power: domain-idle-state: Add
+ system-state
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Maulik Shah <maulik.shah@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ Kevin Hilman <khilman@baylibre.com>
+References: <20261113-s2idle_state-v2-0-ad604182e7e7@oss.qualcomm.com>
+ <20261113-s2idle_state-v2-1-ad604182e7e7@oss.qualcomm.com>
+ <20261116-icy-free-lionfish-c3eed8@quoll>
+ <d3060950-04ea-4f9b-b160-0e068946e623@oss.qualcomm.com>
+ <20261123-humble-native-ibex-7d2f72@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261123-humble-native-ibex-7d2f72@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-
-
-On 11/23/26 4:15 PM, Muchun Song wrote:
-> 
-> 
-> On 2026/11/23 14:39, Qi Zheng wrote:
->> Hi Muchun,
+On 23/11/2026 09:20, Krzysztof Kozlowski wrote:
+> On Tue, Nov 17, 2026 at 10:34:52AM +0530, Maulik Shah wrote:
 >>
->> On 11/20/26 6:08 PM, Muchun Song wrote:
->>> Template-based ZONE_DEVICE initialization bypasses
->>> __init_single_page(), which means copied struct pages do not run the
->>> vmemmap zone consistency check.
->>>
->>> Verify each destination after copying the template so the fast path gets
->>> the same validation as regular page initialization.
->>>
->>> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
->>> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->>> Reviewed-by: Lance Yang <lance.yang@linux.dev>
->>> ---
->>> v3:
->>> - Retarget zone verification to
->>>    zone_device_page_init_from_template() after integrating the helper
->>>    series (suggested by Mike Rapoport)
->>> - Collect Reviewed-by from Lance Yang
->>>
->>> v2:
->>> - Apply the zone verification in memmap_init_page_from_template().
->>> - Collect Reviewed-by from Mike Rapoport.
->>> ---
->>>   mm/mm_init.c | 1 +
->>>   1 file changed, 1 insertion(+)
->>>
->>> diff --git a/mm/mm_init.c b/mm/mm_init.c
->>> index a9d848c92678..0129152b74d8 100644
->>> --- a/mm/mm_init.c
->>> +++ b/mm/mm_init.c
->>> @@ -1082,6 +1082,7 @@ static void 
->>> zone_device_page_init_from_template(struct page *page,
->>>           set_page_address(template, __va(pfn << PAGE_SHIFT));
->>>   #endif
->>>       memcpy_nontemporal(page, template, sizeof(*page));
->>> +    vmemmap_optimization_verify_zone(page);
 >>
->> For PAGE_SIZE-aligned devdax, dev_dax_probe() leaves
->> pgmap->vmemmap_shift at zero. When section_activate() populates a full
->> section for this pgmap, it records compound_page_order = 0.
+>> On 16-11-2026 17:28, Krzysztof Kozlowski wrote:
+>>> On Fri, Nov 13, 2026 at 10:25:25AM +0530, Maulik Shah wrote:
+>>>> Some domain idle states require system-wide coordination and are not
+>>>> applicable while the platform is up and running.
+>>> You repeated the property description. Say something more. Why they are
+>>> not applicable when platform is running? So if not running, when are
+>>> they applicable? Why?
 >>
->>   memmap_init_zone_device() (pfns_per_compound == 1)
->>     -> zone_device_page_init_from_template() (each template copy)
->>       -> vmemmap_optimization_verify_zone()
->>         -> pfn_to_section_compound_order(page_to_pfn(page)) returns 0
->>         -> vmemmap_optimizable_order(0) returns false
+>> On certain platforms CPU subsystem deepest idle state requires co-ordination with SAIL subsystem
+>> such that both must be powered down in coordinated sequence. During wakeup SAIL subsystem must
+>> be powered up before CPU can resume. The wakeup can take a second or more.
 >>
->> With CONFIG_DEBUG_VM and CONFIG_VMEMMAP_OPTIMIZATION enabled, the
->> section-order lookup runs for each copy. The zero order makes the
->> condition short-circuit before either page_zone_id() call.
+>> Selecting this state during opportunistic CPU idle can therefore cause substantial wakeup delays and
+>> repeatedly interrupt SAIL operation whenever the CPUs become idle.
 > 
-> You are right, but we really don't care about the performance of a
-> debug kernel.
+> The idle state latency times define that. No need for a new property.
 
-Yeah, it doesn't really matter much in practice.
+And honestly, you already got similar review, which you just ignored.
 
-> 
-> memmap_init_page_from_template is used to init a single page, just
-> like __init_single_page does. Therefore, in a sense, the template
-> version should be handled the same way.
-> 
-> So, what do you think?
+Keep sending the same, while ignoring review, till it gets accepted -> NAK
 
-Acked-by: Qi Zheng <qi.zheng@linux.dev>
-
-Thanks,
-Qi
-
-
+Best regards,
+Krzysztof
