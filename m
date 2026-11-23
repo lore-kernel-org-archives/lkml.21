@@ -1,100 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795457804;
-	b=h3dnyGHXXWXjfYRbw0icvREbHCqT81hQUIgsvylv7MfIM7t3dLHiTjz0Qb1Vqy8NKP5A
-	 gNug37D08CTex9uk7zdJJYQ9blUQOPe/4kLWpDhIbUiC/P/4gCAoSp6jqPiCDze6xicHU
-	 nNBY+mdt2tC3BF2cxgBzSCaVK6lGMD+OHgGhysQV02hCe+5gOxJ+9l4InX6qCq8AEM4wl
-	 dYNFjPnKeiCGabR2n6de+mYVpvo4i8cZNdPaUF4qtWq4yQwEaD8+Hw7/P5+bzJd5YSZHj
-	 EaS3pl38+nY8gSiYRmd/hG9ylWpXlRfwcMxCtAsxJ7t0fxYTWxuDw4fft5d+XmvurmA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457804;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=9uGgK8NzYvXtfeVuJcCGKElIDL6vsqxiFYGxJrLxNqg=;
-	b=3NE9eCTwVMQBQnBxSyTjp3Fb+UNwQjUww7kMzvMO9GMvf46v4RGtZIqSHgQYE+I0YIVG
-	 WC+GXaJHAtbJ9oZStXXs60JhRglyd56KXdDBWrao4+bwhmQGC+piM0eSWdg4PHi3MEpZc
-	 Iv4U99IWIHPNDEqA5WZAxJnCSZLvkHPrNnCg7OMB0pHOS0ynKtp3rvIbvVAvGJKkauz5x
-	 lgiNcJHkiDjJW0SF1iaolVzd5i1gMw/2jg3r+guXtxecCnpOHwZ5U0Xfssj968F4jTDei
-	 ouOF1DaCv1pSuVvkqeQ6N/xhswa4wLxZe6EcEEfGj4ob3oeFc0oXGMLjBnr+fMW67+Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=nVj10bW7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.13
-Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013013.outbound.protection.outlook.com [52.101.83.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795457878;
+	b=uW6wYqjaUHnK1lmUJvRxSamezxlFaMOASPrdHc5lA74JUaUgu9Si8cAb5V8ZNjpnkU0L
+	 gxNk2Y19MzJrKfpFBQ5e5JIIc9dgpsVA4oS3bYiwJ6N+KSCft07Ah6GKp0tgmIQ23quGu
+	 7lP71QaCHLEdT9qTO8b91SnMQS5dhwmm/29AKnQeYCYRJxmRpRKfSr4tn6FQfC71UIAAO
+	 Xa5g2LxfdsBqDJmFaBuYYQIeNGE+gPzVG6vZ4txB8LwV/ahhH49s8OW76Wr+1yFzwmDLN
+	 UzGmHOkWxV9cYK9KvrVzvu9863lsmlmGdEOkAZaFW1xIlltqtNiQQJdTdJVvPH8y70g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457878;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=x46FNggFLyCFADdG3kfk1dU0MCYJX1yYIMy3lHBv//E=;
+	b=aE5T+a2C6H1wXCR2MQ9bEBPGClpZkT/ej1SZzBwGXBZUooRS/Yq3pWsAqBx2okAIqdZs
+	 CUJzdoKaUVN5zymUoRPNbM46+6udTnitAodujECZylDr03xgOm2nZtDkvHGCr4nC2nPTC
+	 GGNPvByaTvZ1DK2oDfF2U9+ICWtc3ERrCSLB76yTmh8/IJCaOuEzVDtMo2kAs6asj5FeT
+	 gcwl833FRGGsfO1YFfZ6lSHxoa6vi/MM0k0Itd2KdIAnZPNK9+DqS8sQO+y5ygsM0YyBr
+	 l3QPzXVitiEX9u5VA3TT7oA4MzZP8VKa+e9uiMvrL5a8di8IjWl6OOUYKoeGYO+TdJw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lwoT8v1V;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BF8B606A31A;
-	Mon, 23 Nov 2026 18:16:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BF8B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93048606A31A;
+	Mon, 23 Nov 2026 18:17:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93048606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=nVj10bW7
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fL3ofrzJCgItYay/9fqRE0vJloInneLa16cDC1PYT5Zm3LMjNTrnD9hpgi1EbRPZye/LKgFmFvuQXSzn9Vw5Ar5py1QxEfFtIee8Ha7jLx+eF+izm5MUgHCcRT1p2cdDY90fiUkzPmLR5+CJXB4vANoTyAG5uKz9fBLT/W+qk0/l5qCXNB6/d3Hd4wkDv1rLBTFGUyDH9Rgu2HjTJoCCKR0012OIHEVwTtTjGglhp2u0kSdjHoqiZ+opFdc336GPj7BdTiHekPibvXQN/xdPsZlalVi2KKLxQ1gsJy6NWKCzOBI3ud+WkjSSptOwkWwJ73DaE+fgUtoNcSTgvZElMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9uGgK8NzYvXtfeVuJcCGKElIDL6vsqxiFYGxJrLxNqg=;
- b=zHA3pZkNW9u1R2NxCjxTPfdFkS3eUlawGhQlodLbkP1osxKDPbXR+QvdHfPhXxtUo8sDoJ5t8r7CmyB8nNxwkMeisGjKha3epAoSo8RR5i8ibCVEjGc1iP5NZXUwPiDFM1sg1T6YnJGpxVtX7tMQE4xIih9fM9w3sbQIe3Cy1qaS5K2C4Yqs94ckTVWEpB6oznUAKNgrtL3snMR7qk3gyXiqQoLp5XBiCAoTDAha52bfhqYoyLJAJl830rIo/yRWm8IV0pMk8Q7H+EXs0nHRJjliHekhph5LQBDq+jcCDx7jzkBUj4khtphqgmK7pnFtB7Rw18nYgK4mCpACIngO+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9uGgK8NzYvXtfeVuJcCGKElIDL6vsqxiFYGxJrLxNqg=;
- b=nVj10bW7RkXRUrNc02krdgZaK+y3OXxJn9WgTDv9dyzcJTsHf4ZddEDPq+WVpu7jHJIqBKLBg16tOcii1fi/zS2XXhhli8YoeVowe5MAhWgt6w4xqL+i+ao4EXApPhgUwJ7rCZA9VYpKyv8fTXALdmhU10hD6oJwcN5Sw+UKsUEB/T49CpviZbsNNLjWfuaQUb6DQpOhyXRFRpq92DPgNB6QSHHrT9iW/LikR8KxqkCYyz/Vb+NboIfmy9TcshdcBGveWVe1zOqC/V3+usJYtUK45f+Cr8Zxs3YrE9f5HOaQHE34zgAi+MeJEmV3zhjcJjT3N9VTT2586NWwutw8vw==
-Received: from DUZPR01CA0157.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bd::21) by DB8PR10MB3705.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:10:132::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Mon, 23 Nov
- 2026 18:16:39 +0000
-Received: from MA3PEPF00000406.eurprd04.prod.outlook.com
- (2603:10a6:10:4bd:cafe::2c) by DUZPR01CA0157.outlook.office365.com
- (2603:10a6:10:4bd::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 18:16:39 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- MA3PEPF00000406.mail.protection.outlook.com (10.167.241.151) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 18:16:38 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 23 Nov
- 2026 19:17:26 +0100
-Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 23 Nov
- 2026 19:16:37 +0100
-Message-ID: <49f11bcc-9a21-4181-929d-2a45448435a0@foss.st.com>
-Date: Mon, 23 Nov 2026 19:16:36 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lwoT8v1V
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795457878; x=1826993878;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=NHx14LIPimSvdtZ2UJKxvy1RVJvWNcrGC49YR81r+iE=;
+  b=lwoT8v1V2ZBLYdW9+zKjx+DJMOKun4jp48BzBJ6TOjCOu6LNmr6vQ5Hv
+   scagpIVi38zEPHMNweWqRSPenWyrxopJuAjChj4SYazZbcSxwXcB5M59/
+   /7h8bWbuZEgDTE+F6RIkKYeyH09uSo2p4a/uusftnLgg3gygrczSOTsC1
+   2WxafEYSx+ZnfrpgB5Z8vt7Gongg5qSvq/3WERQMFnphJIoGCgDmiJtxU
+   JcZbM5OA4Y8+9ayuY0FyP/1DBWa3CekX+rCMHgA0gaZgXKrdIUgbHc3OU
+   VaAa2BRtKr7ELqiFhL1k5wBBgD1QduuyAPLKkT588DpzEIB5I+NQ/rLLG
+   w==;
+X-CSE-ConnectionGUID: D3gc6S3kQMmRjMLDBzLmvw==
+X-CSE-MsgGUID: anKGI0g+R+GhfmBwBz6/Pw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4288756"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4288756"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:05:01 -0800
+X-CSE-ConnectionGUID: 4ZsJ8tUxQX61Eqoe/Gx9CA==
+X-CSE-MsgGUID: R3mMHPqIQUmyEyyBagu15g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11241015"
+Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
+  by orviesa004.jf.intel.com with ESMTP; 23 Nov 2026 10:05:00 -0800
+From: "Chang S. Bae" <chang.seok.bae@intel.com>
+To: seanjc@google.com,
+	jmattson@google.com
+Cc: pbonzini@redhat.com,
+	kvm@vger.kernel.org,
+	x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhao1.liu@intel.com,
+	chang.seok.bae@intel.com
+Subject: [PATCH v10 00/20] KVM: x86: Enable APX for guest
+Date: Mon, 23 Nov 2026 17:37:12 +0000
+Message-ID: <20261123173732.1072124-1-chang.seok.bae@intel.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,138 +82,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] virtio_rpmsg: Fix config space alignment
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-CC: Francesco Valla <francesco@valla.it>, Bjorn Andersson
-	<andersson@kernel.org>, Tanmay Shah <tanmay.shah@amd.com>,
-	<openamp-rp@lists.openampproject.org>, <linux-remoteproc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20261121-rpmsg-config-size-v2-1-d2fd698b6f76@valla.it>
- <26795897-ccdb-42db-9433-2ecc341fb311@foss.st.com>
- <CANLsYkwG-C_CRDr401zZB912U07tQHJHNa+LWd2mgPM9YRgcNQ@mail.gmail.com>
-Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-In-Reply-To: <CANLsYkwG-C_CRDr401zZB912U07tQHJHNa+LWd2mgPM9YRgcNQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA3PEPF00000406:EE_|DB8PR10MB3705:EE_
-X-MS-Office365-Filtering-Correlation-Id: d70bd11d-8803-40a7-e2ab-08df498deaca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|23010399003|22082099003|18002099003|13003099007|260925021911599003|260925021311599003|56012099006|260925022911599003|4143699003|261028144727099003|261026140227099003|261022075727099003|261026121527099003|261021123027099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	jOcktZU+IjpicPP74YGRnABqHoSK6XvLQtTRchAJ6oH7pjDJzG5dieye4nfxk8+rhhGMcfJUnGbnhnZw0N3c28kZyhW5GpP1ElAdO54xaBYMzu3/VP2UMWCyCmHO406IHQGMU0rOVcE+m1E7Q0+KgMVVqK91tCGu9TbRx4pdY6tMw4YnEJ5+6YyQZkCXENy6pbXs+rM0meRR44KQ/S/VQTEOlrmwwqnUs4AvXtzVKV1IfHXx+6F3KwfUIi28Q2j0isWabkhpwWKz6vuDMLOP6R+REsK15BD+l8Vk//k00CTdIdI5jUEdiP+bqAACy+nMb+nijRYucyS994jhY83ZJtXzoloHvO5ryQOFJ7rSJMLGtYJ3D8p7rtmVJZwAh5t2u+/KVS4FVDxSkiJFI/QXQ6wbqXLvl4PEGCMEU6fqfUBxobNJvlvbr+NfWyQByy/kQcM1OwIG8B8Khnj2VLvrRyGDRgISx2Ayy8APQWneG9EYviDn/ILP91Uak1MXwYr2Mn4HVlA9sdTPYuU5wijcVnADcZ549WE4mMNggsz4yLWDtKMJc+VsHV7suiOZdoZz8kk+1+RgMAbKpJkYVQ5hpBEELN3sck7oBZSGrqlXlotwxLets7pvKApmusZEip5sIteva9yhJtuoKP56hmTUww==
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(23010399003)(22082099003)(18002099003)(13003099007)(260925021911599003)(260925021311599003)(56012099006)(260925022911599003)(4143699003)(261028144727099003)(261026140227099003)(261022075727099003)(261026121527099003)(261021123027099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	W/ytHqVipwi6cCtrUbk147GVy9siDROGEsotI9YXW2c50VHfLgQHlScGUMH1hVsh5NsnG7HXN/StFZkT8B0iRN+obNqy+Dkh8gkwxgb17KMm5a+YnfgW+M+ypqA+nmP1HIU37OU8WShELW9Xt3hwKLIo3UyL2ybfrKZU6gl9hm/rn3olGtPBquO9B/yvsk2MtemMAvqyXVYhRF/uishqBAn5fwPzmDLjt7oNTsIbhCWQetu1DOdjBzRrn18cKGb6IUZSoXV6GLp/BOPKEMLxW6gnOvuQDAbfOep72dbO8YyABTfdr9ryTFS5MouREdN/oOAxgN7mx2fKu37c4oY78FFKQMcxu64eUJUA7GLXGexPQLMbXk1ffQcN6/SS8q8PGppAj/oFPoz96eF99arksOJ69z7EFGxt9GPPq81O9y3SLcZHEzM6n2AF9Z9I2+dq
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:16:38.7209
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d70bd11d-8803-40a7-e2ab-08df498deaca
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MA3PEPF00000406.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3705
+Content-Transfer-Encoding: 8bit
 
-Hello Mathieu
+Here it is v10 but I think the series is winding down. Besides Jim Mattson's
+review tags - thanks!, this respin includes a few more changes addressing his
+feedback:
 
-On 11/23/26 15:12, Mathieu Poirier wrote:
-> On Mon, 23 Nov 2026 at 02:12, Arnaud POULIQUEN
-> <arnaud.pouliquen@foss.st.com> wrote:
->>
->>
->>
->> On 11/21/26 00:01, Francesco Valla wrote:
->>> The comment for virtio_rpmsg_config says that this structure is
->>> naturally aligned to 32 bits, and this is desirable by some
->>> architectures that don't get along with unaligned accesses.
->>> The content of the structure itself however isn't aligned, and the
->>> __packed attribute prevent the compiler to add this alignment.
->>>
->>> Fix this by extending the version field to 16 bits.
->>>
->>> Fixes: ca96ea25e51a ("rpmsg: virtio_rpmsg_bus: Get buffer size from config space")
->>> Signed-off-by: Francesco Valla <francesco@valla.it>
->>> ---
->>> Changes in v2:
->>> - version field extended to 16 bits instead of adding a reserved byte.
->>> - Rebased on current master.
->>> - Link to v1: https://patch.msgid.link/20261101-rpmsg-config-size-v1-1-65686b445b22@valla.it
->>> ---
->>>    drivers/rpmsg/virtio_rpmsg_bus.c   | 2 +-
->>>    include/linux/rpmsg/virtio_rpmsg.h | 2 +-
->>>    2 files changed, 2 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
->>> index 23ff6c8b7a20..27282475a732 100644
->>> --- a/drivers/rpmsg/virtio_rpmsg_bus.c
->>> +++ b/drivers/rpmsg/virtio_rpmsg_bus.c
->>> @@ -815,7 +815,7 @@ static void rpmsg_virtio_del_ctrl_dev(struct rpmsg_device *rpdev_ctrl)
->>>    static int rpmsg_virtio_get_buf_size(struct virtproc_info *vrp)
->>>    {
->>>        struct virtio_device *vdev;
->>> -     u8 version;
->>> +     u16 version;
->>>        u16 size;
->>>
->>>        vdev = vrp->vdev;
->>> diff --git a/include/linux/rpmsg/virtio_rpmsg.h b/include/linux/rpmsg/virtio_rpmsg.h
->>> index 0872cbca4593..57f48d537de9 100644
->>> --- a/include/linux/rpmsg/virtio_rpmsg.h
->>> +++ b/include/linux/rpmsg/virtio_rpmsg.h
->>> @@ -31,7 +31,7 @@
->>>     * the structure is naturally 32-bit aligned.
->>>     */
->>>    struct virtio_rpmsg_config {
->>> -     u8 version;
->>> +     __virtio16 version;
->>>        __virtio16 size;
->>>        /* The tx/rx individual buffer size (if VIRTIO_RPMSG_F_BUFSZ) */
->>>        __virtio32 txbuf_size;
->>
->>
->> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
->>
-> 
-> Applied.
+ * Patch 03: Simplify EGPR handling.
+ * Patch 04: Remove a redundant check.
+ * Patch 11: Mask high-order bits for segment registers.
 
-Could you tell me whether this fix will be included in 7.4 or integrated
-into 7.5?
+I also came to other minor touches like VCPU -> vCPU.
 
-Or perhaps both, if 7.4 becomes the LTS release?
+As usual, they can be also found in
+  git://github.com/intel/apx.git apx-kvm_v10 (based on the next branch)
 
-I would need this information to manage the compatibility details
-properly in OpenAMP.
-Regards,
-Arnaud
+V9: https://lore.kernel.org/20261117180310.921701-1-chang.seok.bae@intel.com
 
-> 
-> Thanks,
-> Mathieu
-> 
->> Thanks,
->>
->> Arnaud
->>
->>>
->>> ---
->>> base-commit: 5f22fb20497f4983094131f00a734362300d22d2
->>> change-id: 20261101-rpmsg-config-size-0dbe9ea63c6d
->>>
->>> Best regards,
->>> --
->>> Francesco Valla <francesco@valla.it>
->>>
->>
+Thanks,
+Chang
+
+Chang S. Bae (19):
+  KVM: x86: Extend vCPU registers for EGPRs
+  KVM: VMX: Save guest EGPRs in vCPU cache
+  KVM: x86: Support EGPRs on vCPU RESET/INIT events
+  KVM: x86: Support APX state for XSAVE ABI
+  KVM: VMX: Refactor VMX instruction information access
+  KVM: VMX: Refactor instruction information decoding
+  KVM: VMX: Remove unused control-register access defines
+  KVM: VMX: Refactor register index retrieval from exit qualification
+  KVM: VMX: Support instruction information extension
+  KVM: nVMX: Propagate extended instruction information
+  KVM: x86: Support EGPR accessing and tracking for emulator
+  KVM: x86: Handle EGPR index and REX2-incompatible opcodes
+  KVM: x86: Support REX2-prefixed opcode decode
+  KVM: x86: Document EVEX-prefix not implemented
+  KVM: x86: Guard valid XCR0.APX settings
+  KVM: x86: Add APX to supported XCR0
+  KVM: x86: Expose APX feature to userspace
+  KVM: selftests: Add APX state and ABI test
+  KVM: selftests: Add APX state handling and XCR0 sanity checks
+
+Sean Christopherson (1):
+  KVM: x86: Move KVM_SUPPORTED_{XCR0,XSS} into kvm_x86_vendor_init()
+
+ arch/x86/Kconfig.assembler                    |   5 +
+ arch/x86/include/asm/cpuid/api.h              |   1 +
+ arch/x86/include/asm/kvm_host.h               |  25 +++
+ arch/x86/include/asm/kvm_vcpu_regs.h          |  50 +++++
+ arch/x86/include/asm/vmx.h                    |  22 +-
+ arch/x86/kvm/Kconfig                          |   4 +
+ arch/x86/kvm/cpuid.c                          |  33 ++-
+ arch/x86/kvm/cpuid.h                          |   2 +
+ arch/x86/kvm/emulate.c                        | 138 +++++++++---
+ arch/x86/kvm/kvm_emulate.h                    |  21 +-
+ arch/x86/kvm/reverse_cpuid.h                  |   6 +
+ arch/x86/kvm/svm/svm.c                        |   8 +-
+ arch/x86/kvm/vmenter.h                        |   1 +
+ arch/x86/kvm/vmx/common.h                     |   5 +
+ arch/x86/kvm/vmx/nested.c                     |  72 +++---
+ arch/x86/kvm/vmx/nested.h                     |   2 +-
+ arch/x86/kvm/vmx/vmcs12.c                     |   4 +
+ arch/x86/kvm/vmx/vmcs12.h                     |   3 +-
+ arch/x86/kvm/vmx/vmenter.S                    |  31 ++-
+ arch/x86/kvm/vmx/vmx.c                        |  36 ++-
+ arch/x86/kvm/vmx/vmx.h                        |  63 +++++-
+ arch/x86/kvm/vmx/vmx_ops.h                    |   9 +
+ arch/x86/kvm/x86.c                            | 114 ++++++++--
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../selftests/kvm/include/x86/processor.h     | 120 ++++++++++
+ tools/testing/selftests/kvm/x86/apx_test.c    | 209 ++++++++++++++++++
+ tools/testing/selftests/kvm/x86/state_test.c  |   3 +
+ .../selftests/kvm/x86/xcr0_cpuid_test.c       |  19 ++
+ 28 files changed, 871 insertions(+), 136 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/x86/apx_test.c
+
+
+base-commit: cbe54fc3462b3949ab27b9ae81fb9ddb509040c7
+-- 
+2.53.0
 
