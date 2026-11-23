@@ -1,48 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.250.239
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424248;
-	b=vUfTh0wkfLNxzFcWAHnV4/Cq2oT3ChH4gBw40/6XcEGCVCk05dZum2MrXLf6Kt8AboMd
-	 h5SjfHLXH1tFDRRWTAV+qRJ3bpClqZ5ZinfouAs2c/W0mqa4yXE6FmDWrKNpHou9a9GDZ
-	 taES69aSHPIJPIcTOBhmBeCMKVItqbzrwU9CvUnHbnnSeaOegbsYvRzrD2NylGwhXinLc
-	 CudCuo5etisoaPLqMVLE6iRdFZ7759jhWlK091q9iPW4JEXrn4PVF99V058l3ZGoK9Y+F
-	 fEK0wnsUJNcAdI3hZvwbdRjrUAXcEE1NXKyp9NG+p/OZT7EBHXwaHpFR0eMRt0hlGXw==
+	t=1795424256;
+	b=Y1UEOu1pjaG94tbWtSutkUEgG/7s6q6Cis/tKR+74Qvz2kDZ75tJ+mA5nlnuGiNXIC4s
+	 mMRcX51J0ygys9a00uOBIJBr07gz3q8STcQOpKFzWaddEPbtBYWIY/sjfz5gux1+vJCBo
+	 N4i/BlQi28BRdV6yEbmdaaPcBwwiZ/7SxJGYxhMXY2gTM6nc6uWejGoI/WiPOxx2294bB
+	 QhH30vAevj15u3adrKp0qxyYf5KsTkivoI5KIeKjz1NM9Y39IQvlCDhQwKE6WraBy2Nh+
+	 vhjCTr1xVMgy+De2/XcbwTx8T4vKOaon+H1UEtrpPZjah9oFafTORf3pmtdONhiv2hQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424248;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=EN2Bg5eVxZXsvBNAnQoxpyUS4DRjW1tvWkJO+HXo9CY=;
-	b=mF0KPhkPpPdx3JKS9qnZ5y4uqmeD5oyt37qeiiGuJUmzMZGAhHG15or8JjdB7GVDgrop
-	 bmsufHe3Gkn0M9PUof+ncnjfQeqMkXbLSEci574PU99xOc2Iq9bpdOuqwiruKAMZIN5BK
-	 0tBlqTAof2xPhB5tZ0SlVt0EcaTfFQZ7Bss/xUJ5gLrqQDKODCX8CfirdJ+SN1JrTJz37
-	 /MK7BwzYUWf9HCyYyDuKTHcFNDm+5wJtAyDzFZBZ+qEF/wZjND/VWi5UM5YDkaFTxAAfO
-	 Pt+TGPNZjMhJt5+cAgcqNtgW0S/igTnqwqYgRD+pxxYocXfj1lJMuuWzPOEK7zSFqjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424256;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ICUuc8qfDorosnSyDbFaFChnLx8Yxx4qXbGHRvFiZq0=;
+	b=AdqhI/0bB+ey/OABLu7WmbLfcAf7IadHPijS01ZkAXsp+EM9h8Fwj2Tf1Whxdx2JJ+W4
+	 AsR+gHf65p0lcVyCS7tdiUMjkmQsJPXHiEOs47LrFOjWpTwl04oGoMN6zhn6UxVI1aU3e
+	 frJf0yqdSCKmI+amg0KX3NKE87gmTtcs7paEin4JuqWE24fTJ+PscFbh1kWx8ZnCcH2Xp
+	 wgWDbU0YuPA6ckfTGrYHleTm9RZs7krDv0vVT/tN/PycWRhXt82q3SVpF18bD4yBTuOPJ
+	 jqs+7a0fpo5+L3kz+5UfJRR0MJjC551Tkw6U+Hz+mjGWh7oldrUPhQP8Rzt72Jd+IRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=8bytes.org;
-	spf=pass smtp.mailfrom=8bytes.org;
-	arc=none smtp.remote-ip=85.214.250.239
-Received: from mail.8bytes.org (mail.8bytes.org [85.214.250.239])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E90B8606A336
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:57:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E90B8606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=8bytes.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=8bytes.org
-Received: from 8bytes.org (p549216fa.dip0.t-ipconnect.de [84.146.22.250])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TtoWod7i;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id ECAAE2436B3;
-	Mon, 23 Nov 2026 09:57:26 +0100 (CET)
-Date: Mon, 23 Nov 2026 09:57:25 +0100
-From: "Joerg Roedel (AMD)" <joro@8bytes.org>
-To: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Cc: Tomasz Jeznach <tomasz.jeznach@linux.dev>, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, iommu@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/riscv: Use named initializers for acpi_device_id
-Message-ID: <awP_4yyEoGoMggNL@8bytes.org>
-References: <20261014-acpi-iommu-v1-1-1744523fa658@thegoodpenguin.co.uk>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05C05606A31E;
+	Mon, 23 Nov 2026 08:57:35 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TtoWod7i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4B9C1F000C4;
+	Mon, 23 Nov 2026 08:57:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795424255;
+	bh=ICUuc8qfDorosnSyDbFaFChnLx8Yxx4qXbGHRvFiZq0=;
+	h=From:To:Cc:Subject:Date;
+	b=TtoWod7iPqMqdo7PvKMGoKSUKOd+vxUSv4Kxvj32cQgIV10fY1NkiobvW7Stuj/aq
+	 CPcfJ0QieVx+ce9dpfovyVmbrBganLBje4Mn3CQKmHzIIuqOykem52yGte+YHNFbqo
+	 DacOOMdQU9LyhHH1CFt5TfS75PI2WrEnYKXwwElSH0SdlIyuNomhwJj+CHVr4/eI/X
+	 HHpvC8NXUku4mF+8oPZunClwlxW16u0mHVx6puk6SG/mcZ1oPI4l4tMUsmz9FgDWiO
+	 39ApjGwfUwaY6lAWkXlKJuPuM101pUhSsoKCpNPvpHjCTyGUKhhKqrz6VY5eTnCMmx
+	 EOZ9biCGO+z+A==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Gibson <warthog618@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-wireless@vger.kernel.org
+Subject: [PATCH 0/2 v8] gpiolib: finish the legacy cleanup
+Date: Mon, 23 Nov 2026 09:57:21 +0100
+Message-ID: <20261123085723.156933-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,12 +66,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261014-acpi-iommu-v1-1-1744523fa658@thegoodpenguin.co.uk>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Oct 14, 2026 at 11:26:33AM +0100, Pawel Zalewski wrote:
->  drivers/iommu/riscv/iommu-platform.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+From: Arnd Bergmann <arnd@arndb.de>
 
-Applied, thanks.
+These two patches are left from my cleanup series, finishing off the
+work to turn off CONFIG_GPIOLIB_LEGACY by default, and removing the
+include/linux/gpio.h header.
+
+This was planned for 7.3 originally[1], but kept conflicting with
+ongoing cleanups for the broken rsk7203 board. I've skipped the
+oneline rsk change now, which will be fixed properly by Dmitry's
+patch [2].
+
+     Arnd
+
+[1] https://lore.kernel.org/all/20260907090956.2825703-1-arnd@kernel.org/
+[2] https://lore.kernel.org/all/20260929-rsk7203-properties-v3-0-02f84aeb8e47@gmail.com/
+
+
+Arnd Bergmann (2):
+  [v8] gpiolib: turn off legacy interface by default
+  [v8] gpiolib: remove linux/gpio.h
+
+ MAINTAINERS                                  |  1 -
+ arch/mips/txx9/rbtx4927/setup.c              |  2 +-
+ drivers/gpio/Kconfig                         |  9 +++++++-
+ drivers/gpio/TODO                            |  4 +---
+ drivers/gpio/gpiolib-cdev.c                  |  2 +-
+ drivers/gpio/gpiolib-legacy.c                |  3 +--
+ drivers/gpio/gpiolib.c                       |  2 +-
+ drivers/net/wireless/morsemicro/mm81x/hw.c   |  1 -
+ drivers/net/wireless/morsemicro/mm81x/yaps.c |  1 -
+ include/linux/gpio.h                         | 22 --------------------
+ 10 files changed, 13 insertions(+), 34 deletions(-)
+ delete mode 100644 include/linux/gpio.h
+
+-- 
+2.53.0
+
+Cc: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Johannes Berg <johannes@sipsolutions.net>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Kent Gibson <warthog618@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-sh@vger.kernel.org
+Cc: linux-gpio@vger.kernel.org
+Cc: linux-wireless@vger.kernel.org
