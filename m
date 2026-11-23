@@ -1,86 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.128
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795419635;
-	b=5Aqy0ienfhRmq2hc/IzeSUQywrwjjOx/2oFraUiM9Gw4USYTUARtOsMYn71fznFLHw/2
-	 muM7vnqiakyHrYN887IpvFijSpBvBbkEeWXXxjVPKhaZxkVMpC4cVeeKqUpe1E65+o5WU
-	 VqN6uW1HC4cPlJW7DLitH4SqBJQ20McUhqlo6kjuR69nWLcXwbtbfGIRYda0hTNsMyNLt
-	 M4qrFO/42MUMn7u2tORi/GLWY7PzRWX+MsGY5RnlOtMwbeFAakIJxz2se74/Zn912BgB4
-	 x1VbU3YBN4WlfiIqiyrnG/4eQf8Df8A7tRQGrBG/Dc9y+ftbiy5firfnBCVg59fJt0Q==
+	t=1795419813;
+	b=WEXyqOQSaidgi5+RyFL9vvELglUCmWkNS0RITuUDA6B8jOAqx95FolZoeEIWybYJEMMo
+	 jeyFRTFJOuTHn//mLVgU5YW2WLbfE3Xr2ZbJDgYsKHc02TwMVE+EeqhPzCRnTPfEHL9wW
+	 c4+ghaviOj7MAxGD0SlOYIiiJqmgARRQ0VOZJpf7DqvJuquP8ESm/tBSpRuvXVOSZEbNz
+	 BDVOaCEI5pN4aVkY5g6v4WwOscdstO4EkqwkrC0HlxUHtay+3wxuxSskEsYW8A6iSoH/A
+	 q/IOzhuW37hTIsMel1xG8FI1sS7NSMdEU4ynSh8LM78jGyUof6Upvfo5+Mx9NH3mn+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795419635;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=0OSpOlJ5QU7jjdI5ogSU6KcCruhdHca3yQivXfMqClg=;
-	b=TyVTc2JJX6Tkey4iIy4/ZdK/kX+sJO9Aw1EZGTD2Z8CF2TAwwf+pPKaATzkCrsiviewM
-	 OaHf767V2dmsZjq3kL/cu/uZ/jKfp1ptfNGdeVRNfloky7edlI1pWXNAMi7ILT/6ofak2
-	 ukEe0NcIkgS9Q1gdkhCMYuo7dCQPSu6DD6C2SDoiGuxunycS2f7jfFxzbkk7rXdoWtAZe
-	 qxiil6+o96AZuLf5HpPqjqE22zUImc5aFyanMfS657ZGhKD/9jEOnd8YK2JWy4Iiryx62
-	 5DvlRitVd9xWe6XP5yITLziCJH7P6ier3cAcRxaMUoLI0FsWb2xzjShU7apGb83qwFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795419813;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=3s3oA+u0H6a4lKx+c9GboAwYFSdRKDU2CgYddA0tZCg=;
+	b=uoe3GuABDxR939ruR43rQiwcm/duZ4/TXM3PFLMxq9vpgIfDNVdfBrBgkaOI5E9Lj80D
+	 m9KNKFC6GWIE4jtIrGfx2Z/C5KFxYBvaHzpYPzFZFcLa/mlwiKR/XDSBhgQUYHYyOKlit
+	 jFaTZlS8q4DCM85uobmK9Kvhh8wWSwa12v73a6rPCRyBPAfVTHeAwi5YKxtZwHUsbNBCI
+	 1+JNz9YJCCmmFZ5RC6G6RAtmHUKTiS8nwEI7KHTAeYapsZtQCWiVz9MhMCllCeqzhXGve
+	 qhchcUNAhfNXplE/yNR14pJoMQdxofrRuEj6Wiux9FqsPwd5VYE3zVIGzbmINO1TycQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q49cmi4v;
-	arc=none smtp.remote-ip=74.125.227.128
-Received: from mail-pj2-f0.google.com (mail-pj2-f0.google.com [74.125.227.128])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8525D606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:40:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8525D606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=vuq3J68w;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D2F19606A31A;
+	Mon, 23 Nov 2026 07:43:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2F19606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q49cmi4v
-Received: by mail-pj2-f0.google.com with SMTP id 98e67ed59e1d1-3b094d5f1b4so604082a91.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:40:35 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=vuq3J68w
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795419635; x=1796024435; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0OSpOlJ5QU7jjdI5ogSU6KcCruhdHca3yQivXfMqClg=;
-        b=Q49cmi4vugsVNUTGmPetabr03sslo8eARVBGjoS8x5vCtM62A79skCcIK7pMMgV8Or
-         PK5x7jkYAtco/0fj7DhWFUpmqMBnlSnUAtJoH82f9Gq/hNwdzLp0yJOCP69waTHVXudn
-         o6e4Bh9fKXRRtbRKloY1MzAyxgZYHfCVv0a3wLNqVYuNrPXrNymAKt4mAAJnhDsZQ9DG
-         h5qZ8mxW+K3ST4ADdr7jLqESvA2t4tZHfVFSUOdFgcPaKvmdMm0Tkh2kSALS16/bJdzv
-         2FyUKU6bvghLA8iLdDXQD52NUNu9BWTDWldCZeJ8IjHd6Nul0/rYhcAqBM7au/+l0njL
-         UngA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795419635; x=1796024435;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0OSpOlJ5QU7jjdI5ogSU6KcCruhdHca3yQivXfMqClg=;
-        b=eHUrBjnamSAVT6UlRJEVHxNvT7IghTO0KFCTHk9hiTqzoTpn9qGk2yLkSPAQ57hlb7
-         luJJh8TJ6jg5eKfop+bq313AAPHHUWOsTq323bDc5B2RruErrsQv0ZV1ixhyX+5z0n98
-         GFTH2jxDfnGEXJHpjcmTB1GlPa+FTlrX7PGL9adDQ02YFCjVvlZrcKk7dn9BWUhxD3m4
-         AdC6fJ1D/sJxEUz4YmCXjVdniBmTfPZ5doUG7aaj62r3Rc4RFY07zAeO/x2ygC8rxv7M
-         Y3rBlg2Gkh4krWThZZnBmj9YY9W/gHzPSl7j1fxK3bv2OrytKv8UTpmddUMYhjSFJCjR
-         Podg==
-X-Forwarded-Encrypted: i=1; AL+hErF1DBs/F9V1QexjchzIxFtbCUvqS/k/WsTrG4dUZpdL3CjStR7LU+s0uC3F+KRNboJgv1Kmen8P5yxD7p8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/d84aGyqoKYwtuNdNujOeT8APZs5PADF67s+5aFoy+XPu7WfGs
-	iMl6g1+7Aqp1y9NieQM508xZZqbsMWwS+Uyyia7GqCE81M2dN3ZNQ8so
-X-Gm-Gg: AZFdTZeb9xBiNajBUXNj3nKz1Or8ARHKn5kvNnRXYWPRfEIenayeYJmQUWdjVVW/ccN
-	x7ebb5WuTiXhYZOG4pZxKoi/3CuOPiiLy0+BPmWOVurkb6wy2gDD4gNYrVwi+W2Ud1BossUcGsX
-	v5gmyOsKHd6kwxSL1XXFSSiLvK5aXzC8lL1gO0zo+g/IaAskwgcG3NBbHQ2vIilNn4Y4YsAa5Iz
-	pRP9fs4efVPNHkMhssD6EvY95JdbYZg5koYt2KhEat+VKJ4pBi1DojPYkxgUNfmaY2kZIwoxfdf
-	T13XyU9ax64YXhlSZzfFWUxKe/AggeSEQTA03KNV0on9lEoiggtTh7jXFBKCzx/cTO+Xee+aV/e
-	rU+7A5TuNoblshXXKMb/rwmPOtHJ1wd0X297wsy5KZLOTgTt6f1uql7ci5ynS4s5iBGbNmCqOMr
-	9FCJfc+60Ll5x8woI9Zjy6XKIxcxclkLPD/dLCvSLUfaD3HXIjYIH5vC2Ywj16xE/ILYkrueNi2
-	gN4hXYA7tec/cVIuLlb3tqfCqMP6xqmcySK3jHf3JA8gYsNayBaN7HHzx8KXAm9R9UU7NIqTUg3
-	kuy384Cd/PLFOKA+k98ChH0CLb9ptQyTl2m2
-X-Received: by 2002:a17:90b:2f8c:b0:3b4:1997:3495 with SMTP id 98e67ed59e1d1-3b41c9613bbmr9155015a91.57.1795419634749;
-        Sun, 22 Nov 2026 23:40:34 -0800 (PST)
-Received: from [10.125.112.22] ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8ef99sm17103994a91.12.2026.11.22.23.40.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 23:40:34 -0800 (PST)
-Message-ID: <a3ebfc1c-9c98-44a1-96e2-4d92daed4ba4@gmail.com>
-Date: Mon, 23 Nov 2026 15:40:19 +0800
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=vuq3J68woXJgi7jG8hvgDNB5il+19wwqo0VgZtvjuSYTJZ5EDenuKLbRDYiOhzY7hH260UQT9l83s
+	 Ry07KWuJELHvSywmc7Vza7naoBg7x/HhS5b6tped1bJi8pcBazzjk3YGfHwyWjFMju6n/iNRxw1DHW
+	 5K2BsvFmbXY9By3k=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16b03ee9a65d-173a1;
+	Mon, 23 Nov 2026 15:43:27 +0800 (CST)
+X-RM-TRANSID:2ee16b03ee9a65d-173a1
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from devin-VMware-Virtual-Platform (unknown[10.55.1.71])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b03ee9d78c-f4bec;
+	Mon, 23 Nov 2026 15:43:27 +0800 (CST)
+X-RM-TRANSID:2ee86b03ee9d78c-f4bec
+From: Zhu Jun <zhujun2@cmss.chinamobile.com>
+To: broonie@kernel.org
+Cc: lgirdwood@gmail.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	kaichieh.chuang@mediatek.com,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Zhu Jun <zhujun2@cmss.chinamobile.com>
+Subject: [PATCH v2] ASoC: mediatek: mt6797: Fix runtime PM handling in probe
+Date: Mon, 23 Nov 2026 15:43:25 +0800
+Message-ID: <20261123074326.11494-1-zhujun2@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,133 +74,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/8] riscv: build crash_mem ranges from memblock
- instead of resource tree
-From: Wandun <chenwandun1@gmail.com>
-To: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- chenhuacai@kernel.org, kernel@xen0n.name, alex@ghiti.fr, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- hpa@zytor.com, saravanak@kernel.org, akpm@linux-foundation.org,
- pasha.tatashin@soleen.com, pratyush@kernel.org, ruirui.yang@linux.dev,
- robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- kexec@lists.infradead.org, linux-mm@kvack.org, iommu@lists.linux.dev,
- robh@kernel.org, baoquan.he@linux.dev, rppt@kernel.org,
- m.szyprowski@samsung.com
-References: <20261021083011.2170525-1-chenwandun1@gmail.com>
- <20261021083011.2170525-2-chenwandun1@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20261021083011.2170525-2-chenwandun1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+
+The MT6797 AFE probe registers its components even when the runtime
+resume fails to enable the clocks. If component registration fails
+after a successful resume, the probe disables runtime PM while still
+holding its usage reference. The runtime PM disabled path also
+returns the previous successful result without registering components.
+
+Use pm_runtime_resume_and_get() and stop on a resume error. On a
+component registration failure, drop the probe's reference without
+idling, disable runtime PM and directly suspend the AFE if it is still
+active. This ensures the clocks are disabled even if userspace forces
+power/control to on or a resume races with probe cleanup.
+
+Keep failures before a successful resume on a disable-only path so
+cleanup does not disable clocks that were never enabled. Return an
+error when runtime PM is unavailable.
+
+Fixes: 3901b9fc0f0d ("ASoC: mt6797: add mt6797 platform driver")
+Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
+---
+ sound/soc/mediatek/mt6797/mt6797-afe-pcm.c | 21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
+
+diff --git a/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c b/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
+index 2069c340ca39..cbe7c3a2eedb 100644
+--- a/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
++++ b/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
+@@ -828,16 +828,21 @@ static int mt6797_afe_pcm_dev_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, afe);
+ 
+ 	pm_runtime_enable(dev);
+-	if (!pm_runtime_enabled(dev))
++	if (!pm_runtime_enabled(dev)) {
++		ret = -EOPNOTSUPP;
++		goto err_pm_disable;
++	}
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret)
+ 		goto err_pm_disable;
+-	pm_runtime_get_sync(&pdev->dev);
+ 
+ 	/* register component */
+ 	ret = devm_snd_soc_register_component(dev, &mtk_afe_pcm_platform,
+ 					      NULL, 0);
+ 	if (ret) {
+ 		dev_warn(dev, "err_platform\n");
+-		goto err_pm_disable;
++		goto err_pm_put;
+ 	}
+ 
+ 	ret = devm_snd_soc_register_component(afe->dev,
+@@ -846,11 +851,19 @@ static int mt6797_afe_pcm_dev_probe(struct platform_device *pdev)
+ 				     afe->num_dai_drivers);
+ 	if (ret) {
+ 		dev_warn(dev, "err_dai_component\n");
+-		goto err_pm_disable;
++		goto err_pm_put;
+ 	}
+ 
+ 	return 0;
+ 
++err_pm_put:
++	pm_runtime_put_noidle(dev);
++	pm_runtime_disable(dev);
++	if (!pm_runtime_status_suspended(dev))
++		mt6797_afe_runtime_suspend(dev);
++
++	return ret;
++
+ err_pm_disable:
+ 	pm_runtime_disable(dev);
+ 
+-- 
+2.51.0
 
 
-
-On 10/21/26 16:30, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
-> 
-> Replace walk_system_ram_res() with for_each_mem_range(). A later patch
-> introduces MEMBLOCK_NODUMP in memblock, the reserved-memory regions
-> marked with MEMBLOCK_NODUMP can be excluded from the vmcore by walking
-> memblock.
-> 
-> for_each_mem_range() iterates memblock.memory, which is freed after
-> init unless ARCH_KEEP_MEMBLOCK is selected. riscv needs ARCH_KEEP_MEMBLOCK
-> to filter reserved memory from the vmcore, so extend its condition
-> (ACPI || KEXEC) with CRASH_DUMP. arm64 and loongarch already select
-> ARCH_KEEP_MEMBLOCK unconditionally.
-
-
-Hi Paul, Palmer, Albert,
-
-A gentle ping on this patch.
-
-Mike has requested a RISC-V maintainer Ack before taking the revised
-series through the kexec tree. Could you please take a look when you
-have a chance?
-
-Thanks,
-Wandun
-
-> 
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-> Acked-by: Baoquan He <baoquan.he@linux.dev>
-> ---
->  arch/riscv/Kconfig                     |  2 +-
->  arch/riscv/kernel/machine_kexec_file.c | 31 ++++++++++----------------
->  2 files changed, 13 insertions(+), 20 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e7891a2a89da..e21d0bab77ee 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -58,7 +58,7 @@ config RISCV
->  	select ARCH_HAS_UBSAN
->  	select ARCH_HAS_VDSO_ARCH_DATA
->  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
-> -	select ARCH_KEEP_MEMBLOCK if ACPI || KEXEC
-> +	select ARCH_KEEP_MEMBLOCK if ACPI || KEXEC || CRASH_DUMP
->  	select ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE	if 64BIT && MMU
->  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
->  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
-> diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-> index 26cd2a8bd0cd..808e872f4063 100644
-> --- a/arch/riscv/kernel/machine_kexec_file.c
-> +++ b/arch/riscv/kernel/machine_kexec_file.c
-> @@ -37,39 +37,32 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image)
->  }
->  
->  #ifdef CONFIG_CRASH_DUMP
-> -static int get_nr_ram_ranges_callback(struct resource *res, void *arg)
-> -{
-> -	unsigned int *nr_ranges = arg;
-> -
-> -	(*nr_ranges)++;
-> -	return 0;
-> -}
-> -
->  unsigned int arch_get_system_nr_ranges(void)
->  {
->  	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* For exclusion of crashkernel region */
-> +	u64 i;
-> +	phys_addr_t start, end;
->  
-> -	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
-> +	for_each_mem_range(i, &start, &end)
-> +		nr_ranges++;
->  
->  	return nr_ranges;
->  }
->  
-> -static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
-> +int arch_crash_populate_cmem(struct crash_mem *cmem)
->  {
-> -	struct crash_mem *cmem = arg;
-> +	u64 i;
-> +	phys_addr_t start, end;
->  
-> -	cmem->ranges[cmem->nr_ranges].start = res->start;
-> -	cmem->ranges[cmem->nr_ranges].end = res->end;
-> -	cmem->nr_ranges++;
-> +	for_each_mem_range(i, &start, &end) {
-> +		cmem->ranges[cmem->nr_ranges].start = start;
-> +		cmem->ranges[cmem->nr_ranges].end = end - 1;
-> +		cmem->nr_ranges++;
-> +	}
->  
->  	return 0;
->  }
->  
-> -int arch_crash_populate_cmem(struct crash_mem *cmem)
-> -{
-> -	return walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
-> -}
-> -
->  static char *setup_kdump_cmdline(struct kimage *image, char *cmdline,
->  				 unsigned long cmdline_len)
->  {
 
