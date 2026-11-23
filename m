@@ -1,85 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.154.119.183
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795472509;
-	b=tmqzOAvdaMYW/z+C1XWWdFInnJ/Y1HMGBw6nVAw9yCl1t+u9wfPthl+jqZx4htP3kOWe
-	 qSYLQgBQLmNShSsOdIPJG5AVh1jaYprL9VvXYfUNGUZs8AVZZOgldCvOkurGZImqvXkg2
-	 PL+7mBOPxISVyJ3n2FLv73k8uwnN/cHLHXYKJjkZrOGchpbZwhu4ksC20FZwbntD+oIEq
-	 oxiv2WMpEz7P6IHhHxPOxLe0JCO2jR0wmz6uefltOPR8VgOvnMsRdA6rNfc6BZWWZ6kgo
-	 pdDQFLuePP+zysASA8DCWV9Gf/Il7S7WQl2YeAB12RGpcO+Lxs8EZ8HEU01RpOzuCPg==
+	t=1795472607;
+	b=TIHDw4K2ZFD0IODMyFAXxaJoPRHFm7sgDadtkYYzu3eIcsRdkqQJisVuAAJ9DowfdOWi
+	 qxECezioW9GBAJHvlYtCCPcNdTn9VTe9sUo/wwbXggLaPO1GJDlB3TP1vx6nmScJGr/9q
+	 fh56T7MNVoSicHnT7qYfux8oADBTrHS44CfFuajtitFyx43DEVlYUOvvtoiHycj9oy7Xb
+	 hR+0z/dwGXJi6NXhILWUTTFKonLdWFdPoH2PeWjEzIkpErOyc2JJ54AL3XReqm3Pjjz2v
+	 nl+C7i3uyfye3iD/sJ7evIafOSbzFjJ+erpTqmHOnDk0/7/bp7v0/tDvmkkXElJ9Kgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795472509;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:User-Agent;
-	bh=M/dPNEWQK09q7JbjfKH7MJ1mwiktjZdxAxMD410YALQ=;
-	b=Alfk9rMm/yNWEaB6AaE8XfgPQhh+J5utkdQLX7ZE597RJguYDza3MyZXAFrsmTomzZF9
-	 QYadUCUQkHC1DW1MHep9pvQQoZDA6nZk6P6s8cYguzivINxlzhj+H6rq/ocD2JkXWdfdP
-	 ryr+8qN+YKkvIRoyCi+ncxMDTkZL/LaHpVBE2L5Vs/+YnuTkkVrV1fsrd1gGtzNVABoGw
-	 oncSGvvB8RlpW1HRmjwxTfKXQXyKo8hrlIqRo8xnJAI6acHXc8BJCg5jiHpbmFHrFsZto
-	 uQ75Ci2b2N46csNDzgKiSgiz4NDKOklqpD2qyrLs/oXopyxPbGvCrbBwDH2k/VbWuKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472607;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 User-Agent:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=AoIUSTJnuBE6XbYhAWjqAfNab3wdAhpjjLDrUk4B2Cc=;
+	b=eEFeIkjc07/ff0uRF3j2N7UJSm2hvs5YXZRfbxaX0U/SiytD5nImNO2srsJVAuvj92hM
+	 V48GMEaBM9iEu2vrTL5uZBuNZ5z8z6xO0v9NVYGVC1liCABlH5JccQ2oOvARQXkTnw1U3
+	 OWO1fX+5dGKJiNpOoH7vTDoxjVk7BXCmzulOFT75xX89JO0dFlIvDfu12esxsChArR0Kn
+	 VNUBiuhA7Hdaj3J0uMd/w9lvF9URCLZuQiiEsuqttVxqYrSHC/2OtQVbDiJuj2Kao//EA
+	 dbn9uvgw4dcMMRnLjwjbWF0uycCc6yitSDCs2df+Vzj7M3AebUvEkCOipIEFFnVCu4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=aurel32.net;
-	spf=pass smtp.mailfrom=aurel32.net;
-	dkim=pass header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=y5Qgq2rg;
-	arc=none smtp.remote-ip=195.154.119.183
-Received: from hall.aurel32.net (hall.aurel32.net [195.154.119.183])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l+RyBvnn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8730606A32C;
-	Mon, 23 Nov 2026 22:21:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8730606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=aurel32.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aurel32.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED1C4606A31E;
+	Mon, 23 Nov 2026 22:23:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=y5Qgq2rg
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=M/dPNEWQK09q7JbjfKH7MJ1mwiktjZdxAxMD410YALQ=; b=y5Qgq2rgrcm/D3WJARApnsHXJK
-	RJM0D9qlkJNg2cvotSj9SwbQDeud8fkEHEP89lRYc98kuvvruXkqlV5gDg2g02fkTnHq6lBjWXjEr
-	p6uUh/NBcRdw1yZDa5iCsO2c2p4+BcKyeP31XJbbGL5iVndPP3Wqn4GvWOmp0aTtuuiFWUugxMy4U
-	DJ+wFIyxhkRnvTWBYd2+tg/G3TNixu8qZBlXQ0R+ONLT5E2sv5RzY//5ibbLjonYRSVKs8rg3Sbry
-	oIejOzjkztwW8oY622OO9f/IA7+VjvTjBf3L/vB9/g1MPg+NElI/gjnMEMObCtVSm9kcsKcTfctT/
-	hNMzM6iw==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1xVcPt-00000007bSR-3nqY;
-	Mon, 23 Nov 2026 23:21:41 +0100
-Date: Mon, 23 Nov 2026 23:21:39 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v2 2/3] riscv: sbi: Register SRST handlers with firmware
- priority
-Message-ID: <awS8c3RFkv1D07dc@aurel32.net>
-Mail-Followup-To: Anand Moon <linux.amoon@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>,
-	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-References: <20261118104935.1716-1-linux.amoon@gmail.com>
- <20261118104935.1716-2-linux.amoon@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l+RyBvnn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B9E71F000C6;
+	Mon, 23 Nov 2026 22:23:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795472606;
+	bh=AoIUSTJnuBE6XbYhAWjqAfNab3wdAhpjjLDrUk4B2Cc=;
+	h=From:To:Cc:Subject:Date;
+	b=l+RyBvnndVGTg7nZW3qi688bGarWQdh3/S1uh2Q65MQI9H2zOFNQjAIOlMZ5LcQEd
+	 VkeM0ml3bdMoxMKd0FWk2bqqHP3YPmEhXj3vyjD5MclQRXiCLtfP/u1x3MRgfr7V0/
+	 vApURpLO8G2M05SlJhJ6ezs/jZLmo0Swv+oNELjPj7OTwPn3dQtjzOKPt3xDmxIQdI
+	 zEFsFvfVXgJGE6u2HsQXAUNviYb96jUkV/h5EefMMEqqHUWrkWeljL+7mZA0L9iCZz
+	 uaEbOXNG7v//1jsgHCSaxXF8rcDoeZJWUtNacNWVOY8oWEasAS5v5agefptZLWLSR+
+	 WXihxHtuBWKDQ==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Lukas Zobernig <lukas.zobernig@gmail.com>
+Cc: "H . Peter Anvin" <hpa@zytor.com>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Pablo Fraile Alonso <pablo@pablofraile.net>,
+	Edgecombe Rick P <rick.p.edgecombe@intel.com>
+Subject: [RESEND PATCH 0/5] x86/insn, uprobes: Fix opcode map handling for multi-byte, REX2, and VEX/EVEX/XOP instructions
+Date: Tue, 24 Nov 2026 07:23:20 +0900
+Message-ID: <179547260053.326766.11540305553612301074.stgit@devnote2>
+X-Mailer: git-send-email 2.43.0
+User-Agent: StGit/0.19
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,120 +68,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118104935.1716-2-linux.amoon@gmail.com>
-User-Agent: Mutt/2.4.1 (2026-07-04)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-18 16:19, Anand Moon wrote:
-> The SBI System Reset (SRST) extension currently registers its poweroff
-> handler using register_platform_power_off(), which assigns it a lower
-> priority than the default PMIC poweroff handlers.
-> 
-> On platforms where OpenSBI handles system poweroff, a PMIC handler may
-> run first and perform I2C-backed regmap operations in atomic context,
-> triggering invalid wait context and scheduling-while-atomic warnings.
-> 
-> Register both SBI SRST restart and poweroff handlers using
-> register_sys_off_handler() with SYS_OFF_PRIO_FIRMWARE. This gives firmware
-> handlers precedence over default-priority PMIC handlers and avoids
-> board-specific workarounds in individual PMIC drivers.
-> 
-> Defer handler registration to a device initcall because sbi_init() runs
-> during early architecture initialization, before dynamic memory
-> allocation required by register_sys_off_handler() is available.
-> 
-> Preserve warm and cold reboot selection, retain the existing legacy
-> poweroff fallback, and report handler registration failures.
-> 
-> Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Cc: Aurelien Jarno <aurelien@aurel32.net>
-> Suggested-by: Aurelien Jarno <aurelien@aurel32.net>
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
-> New patch:
->    Link: https://lore.kernel.org/all/20261110061429.2036-2-linux.amoon@gmail.com/
-> ---
->  arch/riscv/kernel/sbi.c | 43 +++++++++++++++++++++++++++++++----------
->  1 file changed, 33 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index af1ccea222f1..ab6e5bf25411 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -512,23 +512,50 @@ static void sbi_srst_reset(unsigned long type, unsigned long reason)
->  		__func__, type, reason);
->  }
->  
-> -static int sbi_srst_reboot(struct notifier_block *this,
-> -			   unsigned long mode, void *cmd)
-> +static int sbi_srst_reboot(struct sys_off_data *data)
->  {
-> -	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
-> +	sbi_srst_reset((reboot_mode == REBOOT_WARM ||
-> +			reboot_mode == REBOOT_SOFT) ?
->  		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
->  		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
->  		       SBI_SRST_RESET_REASON_NONE);
-> +
->  	return NOTIFY_DONE;
->  }
->  
-> -static struct notifier_block sbi_srst_reboot_nb;
-> -
-> -static void sbi_srst_power_off(void)
-> +static int sbi_srst_power_off(struct sys_off_data *data)
->  {
->  	sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
->  		       SBI_SRST_RESET_REASON_NONE);
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static int __init sbi_srst_sys_off_init(void)
-> +{
-> +	struct sys_off_handler *handler;
-> +
-> +	if (sbi_spec_version < sbi_mk_version(0, 3) ||
-> +	    !sbi_probe_extension(SBI_EXT_SRST))
-> +		return 0;
-> +
-> +	handler = register_sys_off_handler(SYS_OFF_MODE_RESTART,
-> +					   SYS_OFF_PRIO_FIRMWARE,
-> +					   sbi_srst_reboot, NULL);
-> +	if (IS_ERR(handler))
-> +		pr_warn("Failed to register SBI SRST restart handler: %ld\n",
-> +			PTR_ERR(handler));
-> +
-> +	handler = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
-> +					   SYS_OFF_PRIO_FIRMWARE,
-> +					   sbi_srst_power_off, NULL);
-> +	if (IS_ERR(handler))
-> +		pr_warn("Failed to register SBI SRST poweroff handler: %ld\n",
-> +			PTR_ERR(handler));
-> +
-> +	return 0;
->  }
-> +device_initcall(sbi_srst_sys_off_init);
->  
->  /**
->   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-> @@ -677,11 +704,7 @@ void __init sbi_init(void)
->  		if (sbi_spec_version >= sbi_mk_version(0, 3) &&
->  		    sbi_probe_extension(SBI_EXT_SRST)) {
->  			pr_info("SBI SRST extension detected\n");
-> -			register_platform_power_off(sbi_srst_power_off);
->  			srst_power_off = true;
-> -			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-> -			sbi_srst_reboot_nb.priority = 192;
-> -			register_restart_handler(&sbi_srst_reboot_nb);
->  		}
->  		if (sbi_spec_version >= sbi_mk_version(2, 0) &&
->  		    sbi_probe_extension(SBI_EXT_DBCN) > 0) {
+[Resend with correct From tag.]
 
-Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+Hi,
 
+Following up on Pablo Fraile Alonso's report and patch [1], as well as the
+additional review points from Sashiko and Rick Edgecombe, this series fixes
+the underlying x86 instruction decoder issues and the related opcode-map
+assumptions in x86 uprobes.
+
+Originally, the x86 instruction decoder was designed primarily for
+instructions typically emitted in the kernel. Since uprobes uses it on
+arbitrary user-space instruction encodings, several issues around multi-byte,
+REX2, and VEX/EVEX/XOP encodings have surfaced:
+
+1. insn_is_nop() in arch/x86/lib/insn-eval.c mutates insn->opcode.value
+   in-place for REX2 M0=1 instructions without updating insn->opcode.nbytes,
+   corrupting struct insn for subsequent callers (e.g. uprobe_init_insn()
+   and branch_setup_xol_ops()).
+2. gen-insn-attr-x86.awk skips emitting INAT_REX2_VARIANT for 0xa1 (JMPABS)
+   because the check is placed after 'if (length(flags) == 0) continue'.
+3. insn_get_opcode() never checks INAT_NO_REX2 / INAT_REX2_VARIANT or
+   invalid REX2 encodings such as REX2 M0=0 + 0x0f or REX2 M0=1 + 0x38/0x3a.
+4. insn->opcode.nbytes represents the physical opcode byte count (needed for
+   field offset calculations such as insn_offset_modrm()), so REX2 M0=1 and
+   VEX/EVEX/XOP instructions all have insn->opcode.nbytes == 1. Callers
+   need a helper to determine the logical opcode map; insn_masking_exception()
+   also lacked this check and could misidentify non-map-0 0x1f/0x8e opcodes.
+5. In arch/x86/kernel/uprobes.c, bit 0x0f in good_insns_{32,64} bypassed
+   good_2byte_insns, and uprobe_init_insn(), branch_setup_xol_ops(),
+   arch_uprobe_analyze_insn(), and riprel_analyze() assumed map-0 or 1-byte
+   REX encodings, causing misidentification of AVX/VEX instructions such as
+   VZEROUPPER (c5 f8 77), VPSHUFD (c5 f9 70), VPOR (c5 f9 eb), and VCMPPS
+   (c5 f8 c2), as well as REX2 prefix corruption in riprel_analyze().
+
+Patch overview:
+- Patch 1: Fix insn_is_nop() not to mutate struct insn.
+- Patch 2: Fix gen-insn-attr-x86.awk to emit INAT_REX2_VARIANT.
+- Patch 3: Reject invalid REX2 encodings in insn_get_opcode().
+- Patch 4: Add insn_opcode_map() / insn_last_opcode() helpers and fix
+           insn_masking_exception().
+- Patch 5: Fix opcode validation, branch/fixup analysis, and REX2 RIP-rel
+           handling in arch/x86/kernel/uprobes.c.
+
+Notes:
+- checkpatch.pl reports warnings on patch 5 for using -ENOTSUPP and -ENOSYS
+  in arch/x86/kernel/uprobes.c. Those match the existing error code
+  conventions of uprobe_init_insn() and branch_setup_xol_ops() across
+  uprobes; cleaning up error codes across uprobes should be done separately
+  and is intentionally left out of scope for this fix series.
+- Auditing whether Group 15 (0f ae: lfence/mfence/sfence, fxsave/fxrstor,
+  CET instructions, etc.) should be enabled in good_2byte_insns (as raised
+  by Rick Edgecombe) is also left for a separate follow-up discussion/patch.
+- Uprobes should audit the three-byte opcodes and provide good_3bytes1_insns
+  and good_3byte2_insns bit table if needed.
+
+Testing:
+- insn_decoder_test on vmlinux .text (7,926,007 instructions): 0 errors
+- insn_sanity (64-bit and 32-bit, 1,000,000 random insns each): 0 errors
+- Host unit tests covering REX2 (valid/invalid), JMPABS, VEX2, POP/MOV SS
+- QEMU (KVM, -cpu host) uprobe runtime test verifying rejection of 8
+  disallowed/invalid encodings (0f 05, 0f 0b, REX2 M0=0+0f/e8/a1,
+  REX2 M0=1+05, 10-byte REX2 M0=1, EVEX map 4) and clean XOL/emulation
+  execution + trace hits for 7 allowed instructions (bswap, nop10,
+  vzeroupper, vcmpps, vpshufd, vpor, crc32).
+
+[1] https://lore.kernel.org/r/20261116-x86-uprobes-two-byte-opcode-v1-1-2b6dbabead52@pablofraile.net
+
+Thank you,
+
+---
+Masami Hiramatsu (5):
+  x86/insn-eval: Do not mutate struct insn in insn_is_nop()
+  x86/insn: Fix gen-insn-attr-x86.awk to emit INAT_REX2_VARIANT
+  x86/insn: Reject invalid REX2 encodings in insn_get_opcode()
+  x86/insn: Add insn_opcode_map() helper and fix insn_masking_exception()
+  uprobes/x86: Fix opcode validation and analysis for multi-byte, REX2, and VEX/EVEX/XOP instructions
+
+ arch/x86/include/asm/inat.h                | 10 +++
+ arch/x86/include/asm/insn.h                | 43 +++++++++++++
+ arch/x86/kernel/uprobes.c                  | 97 +++++++++++++++++++++---------
+ arch/x86/lib/insn-eval.c                   | 17 ++++--
+ arch/x86/lib/insn.c                        | 16 +++++
+ arch/x86/tools/gen-insn-attr-x86.awk       |  6 +-
+ tools/arch/x86/include/asm/inat.h          | 10 +++
+ tools/arch/x86/include/asm/insn.h          | 43 +++++++++++++
+ tools/arch/x86/lib/insn.c                  | 16 +++++
+ tools/arch/x86/tools/gen-insn-attr-x86.awk |  6 +-
+ 10 files changed, 225 insertions(+), 39 deletions(-)
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
