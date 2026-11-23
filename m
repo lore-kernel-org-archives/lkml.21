@@ -1,48 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795406095;
-	b=HjCisO583SkRL20gox6spm2Ropyj52nnJodW0u+UNs+sJ19O9cStzGeDOlkXlRaf7yhu
-	 bxI7l8zZki/p8iLvmQT504Av3c81b9HROzMAwRAOoK12Kb9RrtC7cQw6+l/DcZqKdsJ0s
-	 cdSnvMk4ndvDQa4eOvoeDvhEzTFqNBQjFTSnzcKSCfX8XQXmCzm4c48qao93KwIpsNcNo
-	 ljTlWmPRB+giFLlEOrtMllakF1QbZBd4URMGpbp2nL4/v29n7Fa3ks8u2pydg5/vqbtzr
-	 +75qOqEzgfZA1ci5DjMEHkHFWY9J3XCfsh6jwT6Mp84WJ+ztTN1PlWWqZ2gPzlJ3uZQ==
+	t=1795406092;
+	b=JfKZkabgq4v3iSsRG7DDHK17waEi3MJKrhQcxLMmsU4yJCl7Kec61vxh4EZWqDf31NFa
+	 ora87SzprKy+MCR/NB0P2WEuP4J+W27nTFtikYqg4oJIpV7PPHPp5ARj3FXXoXhyvYBwd
+	 wODKOMYV0uipCVlr3BTZXzKL1WeP6FKKtaSgx2US8vanS1A4oOKLpMFnVzs809O2I+kfV
+	 4kmkWOj2LytzzNuAPFEg9cdvJ9AFaidKC8f/fQKCewgO5w46YWh/kPWTAqZAdTSHW8jSk
+	 EM4ld1pxIixeeJAIL2Vnklv4lW+JWN5NZsvyGhCndgbsQksJRUkOavLlCba88FmLzxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795406095;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795406092;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-Originating-IP:X-CM-SenderInfo;
-	bh=JdlCUYdz6ssS/wsuNR8ZuH4WEG4iO02VeWREs29zpVk=;
-	b=qi0KHJCL/mI9+aAtg+OtqRutjy07jOaWDVvzgNY0645lP6/0FOhAiImizZi0xe1nD2cL
-	 DuAPWllLz986WDjiwNcHWnOSeoDketRVztiTy5I/xxQQxq5xbtw0hqgyBgYgL8sb5JVUE
-	 XgA2bxKbg+kMM5Rp1MCNRcKvn4bIjPkL/dCu7rx0efRoN1dbxaNzYpfN73ZQ/55bMyGbU
-	 ybb5hcSXuqkBl0lDi6zefenvXCXPLFuyFq3KR0ziIJrvujmzwqwvrIoIRTvYivKdR/wlI
-	 mYp406ewfG2Cbbn45gTfDHzwiyhm4Ex4qnFngpoJf9tQnj4D5plQDflwfUIbEUs93bQ==
+	bh=ZCCdezeAyN0rcDEr4JRHky12zUlsRDIWan/Mi8xo6lg=;
+	b=gKwHaTadQI0lDk2jHUdd6ohmiyZhARFVanhkrWhL8lyp7sM6GQ6a/gsqekhFpjhfE1ob
+	 ErnI/5RnOwSDxMDwVeIVndx9M4nVURcfCmVGONYz0s5q9vMyR8QtGZHd6KK1YlUHIXzOk
+	 nYoXVv6JIGLQJ3qsPL1MOSZ6jXSeTaFRVtA8+xMoQ7pc6DCiyL0vfRac+bPIxAcJKdUD6
+	 uNOWqPgV2M0TwThqXfUyJesTu4hWq6UUHSgoPU86WmtLO+dgAjuNd41+jv7reiSQdc3C/
+	 Lqd5DRLS7uqlirdDnw0OhWIkXdsNF2JoJ5XmRISQDU2HQOLH6Wa6uFwiF1HuYoYVI8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=IJ8J7OEY;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XoQAYHFE;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FA26606A332;
-	Mon, 23 Nov 2026 03:54:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FA26606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E64B8606A320;
+	Mon, 23 Nov 2026 03:54:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E64B8606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=IJ8J7OEY
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XoQAYHFE
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Jd
-	lCUYdz6ssS/wsuNR8ZuH4WEG4iO02VeWREs29zpVk=; b=IJ8J7OEYOkftwj920F
-	TdOET2MxJzA3dikGqZ8HgRU1UjGBNR7mZSuS5I8TKm1KjLwH1swKAntqfMrGnieP
-	rH2VijKGEfcNpDoYqQMejBO/MeZklEhAXQMKr3X7yOnbqG/MqD08y2H96MBBXfrt
-	jDIo/pXlbWIumznm42hT77NyY=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ZC
+	CdezeAyN0rcDEr4JRHky12zUlsRDIWan/Mi8xo6lg=; b=XoQAYHFEC6k3h6ioMc
+	9zn+Gaiu7fkMiBiTUvYMmowyB4LNiQkv26kGV+S7awA/5HAMamGfYPuWtofWqb3+
+	isF3uuqZbydO00A1Bn0QNRl6M6Nki96G0AuNRPV7B0KgPcyVo0GNdjcBSza/0Pgx
+	ddRJdwR3U2Bvh2gVDv4SCpEGQ=
 Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgBX3UDhuANrzxO8Hg--.53023S5;
-	Mon, 23 Nov 2026 11:54:18 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgBX3UDhuANrzxO8Hg--.53023S4;
+	Mon, 23 Nov 2026 11:54:17 +0800 (CST)
 From: Wanhui Fu <fuwh1120@163.com>
 To: Jonathan Cameron <jic23@kernel.org>,
 	linux-iio@vger.kernel.org
@@ -52,9 +52,9 @@ Cc: Andreas Kemnade <andreas@kemnade.info>,
 	Andy Shevchenko <andy@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Wanhui Fu <fuwh1120@163.com>
-Subject: [PATCH v2 3/3] iio: adc: twl6030-gpadc: delete redundant dev_err() messages in probe
-Date: Mon, 23 Nov 2026 11:53:31 +0800
-Message-Id: <20261123035331.1871875-4-fuwh1120@163.com>
+Subject: [PATCH v2 2/3] iio: adc: twl6030-gpadc: switch to devm_iio_device_register()
+Date: Mon, 23 Nov 2026 11:53:30 +0800
+Message-Id: <20261123035331.1871875-3-fuwh1120@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261123035331.1871875-1-fuwh1120@163.com>
 References: <20261123035331.1871875-1-fuwh1120@163.com>
@@ -68,61 +68,58 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PigvCgBX3UDhuANrzxO8Hg--.53023S5
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zw13Gw18CF1rXw17GFyxGrg_yoW8GFyUpa
-	9xtF1akrWktw4Skr1DJFnxZF98Gryqk3yIqFW7Gw1Sqay5ZrnxWrn8Jr10vF18GF98J3sx
-	AwsxZFyqkF4UZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j1T5LUUUUU=
-X-CM-SenderInfo: xixzxiqrsqqiywtou0bp/xtbC7QoEo2sDuOrJUAAA3j
+X-CM-TRANSID:PigvCgBX3UDhuANrzxO8Hg--.53023S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7AFyDZr4Dur15GF45WrWxWFg_yoW8Ww1UpF
+	yDXasakrWUKa13t3W8X3WDZFyjkFnakw10qrWxWw1S9as5Ar1Yvr1rtF1IyF1rJFWkCF17
+	X3y3Cr4UuF47ZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UvzutUUUUU=
+X-CM-SenderInfo: xixzxiqrsqqiywtou0bp/xtbC7QkEo2sDuOnJEAAA3j
 
-twl_i2c_write() already logs error messages on I2C transfer
-failures, so remove redundant dev_err() to simplify the probe
-function.
+Convert iio_device_register() to devm_iio_device_register().
+This allows dropping the now-empty twl6030_gpadc_remove() and
+the unused platform_set_drvdata() call.
 
 Signed-off-by: Wanhui Fu <fuwh1120@163.com>
 ---
- drivers/iio/adc/twl6030-gpadc.c | 16 ++++------------
- 1 file changed, 4 insertions(+), 12 deletions(-)
+ drivers/iio/adc/twl6030-gpadc.c | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
 
 diff --git a/drivers/iio/adc/twl6030-gpadc.c b/drivers/iio/adc/twl6030-gpadc.c
-index 591c7b3322c7..6e20e5a31211 100644
+index 786059cf7513..591c7b3322c7 100644
 --- a/drivers/iio/adc/twl6030-gpadc.c
 +++ b/drivers/iio/adc/twl6030-gpadc.c
-@@ -935,30 +935,22 @@ static int twl6030_gpadc_probe(struct platform_device *pdev)
+@@ -904,7 +904,6 @@ static int twl6030_gpadc_probe(struct platform_device *pdev)
+ 	gpadc->dev = dev;
+ 	gpadc->pdata = pdata;
  
- 	ret = twl_i2c_write_u8(TWL6030_MODULE_ID1, TWL6030_GPADCS,
- 					TWL6030_REG_TOGGLE1);
--	if (ret < 0) {
--		dev_err(dev, "failed to enable GPADC module\n");
-+	if (ret < 0)
- 		return ret;
--	}
+-	platform_set_drvdata(pdev, indio_dev);
+ 	mutex_init(&gpadc->lock);
+ 	init_completion(&gpadc->irq_complete);
  
- 	ret = twl_i2c_write_u8(TWL_MODULE_USB, VBUS_MEAS, USB_VBUS_CTRL_SET);
--	if (ret < 0) {
--		dev_err(dev, "failed to wire up inputs\n");
-+	if (ret < 0)
- 		return ret;
--	}
+@@ -967,14 +966,7 @@ static int twl6030_gpadc_probe(struct platform_device *pdev)
+ 	indio_dev->channels = pdata->iio_channels;
+ 	indio_dev->num_channels = pdata->nchannels;
  
- 	ret = twl_i2c_write_u8(TWL_MODULE_USB, ID_MEAS, USB_ID_CTRL_SET);
--	if (ret < 0) {
--		dev_err(dev, "failed to wire up inputs\n");
-+	if (ret < 0)
- 		return ret;
--	}
+-	return iio_device_register(indio_dev);
+-}
+-
+-static void twl6030_gpadc_remove(struct platform_device *pdev)
+-{
+-	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
+-
+-	iio_device_unregister(indio_dev);
++	return devm_iio_device_register(dev, indio_dev);
+ }
  
- 	ret = twl_i2c_write_u8(TWL6030_MODULE_ID0,
- 				VBAT_MEAS | BB_MEAS | VAC_MEAS,
- 				TWL6030_MISC1);
--	if (ret < 0) {
--		dev_err(dev, "failed to wire up inputs\n");
-+	if (ret < 0)
- 		return ret;
--	}
+ static int twl6030_gpadc_suspend(struct device *pdev)
+@@ -1006,7 +998,6 @@ static DEFINE_SIMPLE_DEV_PM_OPS(twl6030_gpadc_pm_ops, twl6030_gpadc_suspend,
  
- 	indio_dev->name = DRIVER_NAME;
- 	indio_dev->info = &twl6030_gpadc_iio_info;
+ static struct platform_driver twl6030_gpadc_driver = {
+ 	.probe		= twl6030_gpadc_probe,
+-	.remove		= twl6030_gpadc_remove,
+ 	.driver		= {
+ 		.name	= DRIVER_NAME,
+ 		.pm	= pm_sleep_ptr(&twl6030_gpadc_pm_ops),
 -- 
 2.25.1
 
