@@ -1,88 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438671;
-	b=UbP+YcRVUSmo6D7WArt4a63cbofJ6Gb87hBd22HhLsQQs5enpQgGZLfST3GtgJgw7sbT
-	 p57NenG3ZVoZgZznPQZ/iortowQ05z0NlbABmt3BIiuvisIljVwxPbNghPkM7j7StwgfL
-	 +p3BbJAEMTKPYq0veEwJTptDj7bCOgfEUwoF1DoyiNzYoUtfhTRWGf+7G9H0/wywCLY2b
-	 rSucpTQaqLWzUNo6jLODrHFgDMobZm1tZ4fz5rAKyvDzMTY2340GwHYx+DAF5Sf9NN7S+
-	 DNi53B4aCz1qOhkBLuEeAowctnXARZXRxu+uTvPQi4l8t00UodeKwGByBE6HiUImAvA==
+	t=1795438670;
+	b=YXJ/OG4bWU2RJdzCVn/jWToBApnhQELAZiIn1ApQAnN5rJvzbYg5M/VWa905dscysoIQ
+	 dG/D/AWSsI0euyc4gLpf2Ck1JHUR91m5BGYlycEJC4KsehPzTB+VveVfwmt005gFZxT35
+	 Q63uUbWJndTlX6rstkqC7LqtyYqizuPX7xZKW0WxX41UjrlbQhZGFTAN393PVIuzGfcdd
+	 1SxGScJzHBefFwdUXxy2UVM7d4XogrKUpZhgi2hUGAhCAb2vr7P8E/LF6JKihhVShoh86
+	 km0KVbyeoq6mxBvZgwRKe7AOUbZ9bNwJ3P5sTNA5SBj+wGPVdM8/DT7XPUCsjDfMjgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438671;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=sndCEp07Frht52v60gUrZGuFNtLHoYQT26fBAkqgHK8=;
-	b=abbni8/MdBUiKit3DxGyTB2IOf8wxzahVoJ5lOXvAZE7T4wDf4rTcFv49T55zm7f2re7
-	 /2RiB76TsBgPBwNDodmwtmhLPyfGL8vDcHwV2XXwSbqXVdTT+cxhZqm/16z4j5Yy1SAGC
-	 jvCwAtVNghNB9tBiIduXWr0jhNwFTZlzn2mgWa0fmTGkUgWbl84FiiQeUiiLns67GjSaU
-	 7ZetWTR3gCv4cCRWWmOR64ZuW3ZZOy+Z9SO6lkSOlOyDiCC5+KWTew3aWZ21eZc1diCnL
-	 x72wSSS/edJHtEJNHK/qX0wvafoBDbxICDr0QfFbuxxz36DrnGMVeDOHwB631oifgqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438670;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Subject:To:CC:
+	 References:From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:
+	 Content-Type:Content-Language:Content-Transfer-Encoding:
+	 X-Originating-IP:X-ClientProxiedBy;
+	bh=PoHSByiLzGdhwKCPkw7GydNSvKREW6xhEq690uMockc=;
+	b=cxv3Jdyghza7rWD1fqfbzUfqH5ULJDUuI1gqPMtbOcfswyTu6TR1G4kFQNivS6d9FLt8
+	 QDl47KyEv4aEvSyOpos//QtWmJlybKQcQJPFSh91NiEGkvJybOCDO4hAA5q3+6wG00JcN
+	 tigv/NsDq9y/bRdVnExd43TXVOZsOmTBNtjBWJt83HVd7u1VJlpHcSg0Phlu+yuBYWSrW
+	 WpgsTWCb0gtYOIgv5ZFedJAiZGjUlg5yUitI6qiXFVr4x7tZ0UI8Fausq8CaixB2jMUA6
+	 EhBFu/D8bZZ5nN7+qQir/USMHWEXh9up+tpYqNpt1RY8DvWaIzcx3K5Ermalm5kLOuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cq5k5OZ6;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=fLJ0giQ0;
+	arc=none smtp.remote-ip=113.46.200.216
+Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21EBD606A32E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:57:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21EBD606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F2F0606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:57:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F2F0606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cq5k5OZ6
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso30148175e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:57:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795438669; x=1796043469; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sndCEp07Frht52v60gUrZGuFNtLHoYQT26fBAkqgHK8=;
-        b=Cq5k5OZ6ebr9kRq0Z/vDSvn8DQeQ0JrmvRSJpVhuzYr1k2sztwwNQkSx+QpW0vEuOK
-         TIYXR7dkbD8q2rEmMzG1fesnw5BqNakqvrEe0Gr9/kN0hv2TK++5n33TCyghqOoT3+BJ
-         MaJXEJHhU//ZKGts3ByOG7xBeTGIFUPfAq9mBs4emurD7F1JOeAM6lo7UdC8NY8iYOz1
-         r4hvKp6X5Kc3BdGBqc1JBxlvde3uJK3aeEMKZxZ9QpLOH7dsggvGgqsFbvMwdQ5/ew8p
-         kAwyi/sbffg+cCwj1kx03jmQpw/yuOKvtLBzLBOz8RrhvNK4bK36AO76kwy+J1qbNgo/
-         nPKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795438669; x=1796043469;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sndCEp07Frht52v60gUrZGuFNtLHoYQT26fBAkqgHK8=;
-        b=anfoLh8Yw6MS6bNTGC8jGxByXdP44yHGubc6KDgCLm9f7AQl6h+bVjp/0n3oJ/+I0p
-         SMjJp0w9tcPaWyYe+2WUxEZyBqT5hH54yTDYYUvnFfyfgREGsrHu6bvntYyr/VsOQzlS
-         WWviSwnBTtloi2tM+rwHOviGjQ0VNL9AwEMtS5Ec1MLLUeghRTX9OPQWT+0/WFjzrnT5
-         KI1BxE8X9oRsTLeJJpiQEHA5wVwiHVDsVVDgsrvXWB7xBq8pJMOD9kDE6KQcc2yvDZkh
-         Q59S+Tw5Y++cR8F51tTs+lUqmhOYUcap6A8gCDGvhnbfxGZqAI0+TxndKlfsAT8eaerb
-         0vEQ==
-X-Forwarded-Encrypted: i=1; AL+hErEUpU/yQ7S4dRh1vjh+NRMCq1DVyKjL4LQxXaURb8CwALLfUR6e0OuBR0stx4ewl9EvYaj9lcNRac/X0xs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dEFjAxQ1IZ0PEEA235PC2FOkE0nOhJ6PTRvWtpbO2dmXHMYVZ
-	MgRPT9qgXEtJGMaDBkfNc4HqG9TEf9X8Gn5BukGb3qjRwRpe+ly55Lda
-X-Gm-Gg: AZFdTZcy3zOsjRUv92K5W2/+3fpZQ13m7MFqlH83pbL/x9P01aIMW66BjhW/QBnRdBu
-	0lHlpNDixuh0ska9jfZZ2ihuA6n9UlNTBZXCCUy3caQMcZx4JC0dRtGMOVNuSEPFNC4dqLssjz0
-	/a0z7xM/VrEaRidjoULXVo1dLHE+XKs7LHMuPqbIP/xnj57TXoEDCpscrFnVduDVRLjhdStivuE
-	d9s6d5g2zG7uNk0qa07+MrSuwV7Sc2e7nED8M1VdoKWXb/PWxLz8hw8qWEuumdaNJLYdFnUc+KP
-	YZCYeZjN9cHwZYJsFWo1BU30T3j0JfzSNvUs4cvI+RqQ7Qwhy2Aotuq08bNkLQ1VlkQjjTYDGpQ
-	jIsXAZANydeRpoDum3SXFj4XabppaMdikS3cnK4F935XobcEO4RdS88cLr65t9MKde6glwq9V1v
-	kUnl5acMTZuHbo1Zlum67FCqfpfUU4pvvUtUi+F2urMKwnsgmTh54ikHjgfPMTuSkl2aJwGLnnQ
-	ERyHi91dlWKADEnOrLFF1L3weK4v+nxQXk+NBpuCk08oeLXXi+STZL44io0HGUhq592d5SJnLcs
-	vnAFGIPomxUVZmJFmYRB4/ZJspCE5php7NO/PhQ=
-X-Received: by 2002:a05:600c:4f4b:b0:49f:fd2d:23c7 with SMTP id 5b1f17b1804b1-4bb888226c0mr278120335e9.27.1795438669332;
-        Mon, 23 Nov 2026 04:57:49 -0800 (PST)
-Received: from [192.168.18.21] ([46.197.185.3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067846esm197171515e9.4.2026.11.23.04.57.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 04:57:48 -0800 (PST)
-Message-ID: <6d2bb264-c1c6-42be-869b-4548fe697f59@gmail.com>
-Date: Mon, 23 Nov 2026 15:57:47 +0300
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=fLJ0giQ0
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=PoHSByiLzGdhwKCPkw7GydNSvKREW6xhEq690uMockc=;
+	b=fLJ0giQ0zHqLiWnay8Nnms5EjCOiVmAb8a2R8Qp+2GS63AA/IpG/31Ba1wKQVTbFs421PaHz9
+	Xn8yrpVRQdVlQ807vP1e4Jb3ILrcaEtH13wJcMlFNJcRiOF2BeApQfuCrijXU2MvHOdeHycuoNQ
+	tKnTlGYpovN2d8ihlo1IpnE=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jY5Yj4rSQz1T4Fs;
+	Mon, 23 Nov 2026 20:56:57 +0800 (CST)
+Received: from whupemo200006.china.huawei.com (unknown [7.152.185.252])
+	by mail.maildlp.com (Postfix) with ESMTPS id B874540537;
+	Mon, 23 Nov 2026 20:57:44 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ whupemo200006.china.huawei.com (7.152.185.252) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 23 Nov 2026 20:57:42 +0800
+Subject: Re: [PATCH v2 1/5] irqchip/gic-v3-its: Order table zeroing before the
+ GIC can see it
+To: Fuad Tabba <fuad.tabba@linux.dev>
+CC: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Radu
+ Rendec <radu@rendec.net>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Steven
+ Price <steven.price@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Will Deacon
+	<will@kernel.org>, Fuad Tabba <tabba@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261116192933.3266502-1-fuad.tabba@linux.dev>
+ <20261116192933.3266502-2-fuad.tabba@linux.dev>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <59e9fad1-1f11-afb9-e1dd-e68da335eca6@huawei.com>
+Date: Mon, 23 Nov 2026 20:57:42 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,33 +76,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] kobject: fix use-after-free in tagged uevent broadcast
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: rafael@kernel.org, dakr@kernel.org, akpm@linux-foundation.org,
- edumazet@google.com, brauner@kernel.org, driver-core@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261122061751.178540-1-omermetekaya0@gmail.com>
- <2026112237-delegate-neon-7b4c@gregkh>
+In-Reply-To: <20261116192933.3266502-2-fuad.tabba@linux.dev>
+Content-Type: text/plain; charset="utf-8"
 Content-Language: en-US
-From: =?UTF-8?Q?=C3=96mer_Mete_Kaya?= <omermetekaya0@gmail.com>
-In-Reply-To: <2026112237-delegate-neon-7b4c@gregkh>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ whupemo200006.china.huawei.com (7.152.185.252)
 
-
-
-On 11/22/26 12:41, Greg KH wrote:
-
->> Discovered by Sashiko, not triggered, not runtime tested.
+On 2026/11/17 3:29, Fuad Tabba wrote:
+> The ITS driver allocates the ITS tables and the vPE tables as zeroed
+> pages. It exposes each table with a single store: a relaxed
+> GICR_VPROPBASER write with Valid set, the relaxed GITS_CTLR write that
+> enables the ITS, or a valid level-1 entry for a level-2 page.
+> However, on a shareable table the zeroing isn't ordered before that
+> store, so the GIC can read the page's previous contents as table
+> entries, which the spec makes UNPREDICTABLE (IHI 0069H.b 5.2.1, and
+> GICR_VPROPBASER.Z in 12.11.39). A level-2 page is exposed at runtime,
+> when the GIC may already be walking the level-1 table for other IDs.
 > 
-> Please test and get a reproducer before attempting such a change.
+> Add a dsb(ishst) at the end of its_alloc_pages_node(), as
+> its_flush_cmd() does for a command. The allocator doesn't take a
+> shareability argument, so the barrier is unconditional. On a
+> non-shareable table it doesn't hurt.
 > 
-> thanks,
-> 
-> greg k-h
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  drivers/irqchip/irq-gic-v3-its.c | 3 +++
+>  1 file changed, 3 insertions(+)
 
-Sorry, this is a syzbot KASAN bug that is already triggered, I confused
-it with another commit I did. here is the link :
-https://syzkaller.appspot.com/bug?extid=7db35adbc02c5b86d4e0 I will
-resend it with properly.
+Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
