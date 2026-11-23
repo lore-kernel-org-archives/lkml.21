@@ -1,62 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.90.104.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433861;
-	b=2Dy/3BwleWy47iQG0OTt4LTNnuhneMenNnTP9HG3/suotoH8rL+X4jk5RFV0dLw3WauM
-	 1oBZ95ztIEOFWVsKWpV0Osc74yQ8L1zEXiFYv5PQgYrdS9s9u3k8ODEwK6hfo2C5+KRUG
-	 MRc3qOdF6dynqHQWJF4Z6C/6WjCH8dRLGnPMI1HmIJhdRh5FVe901ZtcjKQkP+N6q91da
-	 tisWl9vlB9qJ2LefBl+HmUAA7eWmSIW2+O7Sw6QPO2ESMQ/v9D66HW2ria8poBZi8uDog
-	 bvu571+tVqMiQG21u1FYNsximLaQDrRuzbfAIBQLQg+rrN+LjEv56BeiIXlf+Fd/iww==
+	t=1795433862;
+	b=j2p48XkZeQ3bU7iD6mt9NN+xNFU+RCyHafEfk1lhiGETO8msdyGvt4MP5iHk/YCePrEv
+	 WR9W1/S6ONilMexJFPd7enzXeVaTd4QvkPN09R70g262OlMq2ITEy2r+5DUT5H9pNo9jG
+	 hRVd8o3bfO4puxmzLGJhfLl2TLTcbtb/4P/P1NkOQ0Lb9WRv/LF2dRplxJw0qMgZsra59
+	 8yp81FNH9e+MTnoFXxPvpctjx4daNV6ZzMP595kHz0HscP/dFNUx/y7jsN8mFDY/jeTRM
+	 I1crCpDbHEKENL4sGS7BOAsVaacBneDrF7Xn0R8T8JDO1hYcq7XSUjkJS8HJskoDwOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433861;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-Amp-Result:X-Amp-File-Uploaded:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:Received:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=HkwgrMMAxh/Pa+gTNOwIrDS+SnvfT/r5RJMCGUHHVyI=;
-	b=DLlfMSG5JM1H8diUFGRIPoWvvmqSjXxapeI/2VD6SWHlbY4cFkGW7zQSqP5YVy3rk9Ru
-	 w+BUJEAdHDt8AY0fQfHHWLw2A1yD+5WzURoJpCQrYKCe8opoW/M/yYCoQST9bdHrNtNgO
-	 sXU4t9iTKvC2Benh+hjQOKaTnxuidukhkHvGOTH9Yx4bbqUtykP5FsrV1jjC3fo02IQ0V
-	 D4x/82F/MtU34iRqlorE13+E0oOqptjRvh+1ccyRKRCv+bOr5nz6oGlxIJwwyq7ThjrbM
-	 oyaAU+N/BFqo52nX/hghmtvdKh/2Y1XKYplVy+WHQW9uMY6CvaqpOc7BRL5BmaaoSpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433862;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-MTK;
+	bh=sF4vk+grR7V//Z0ZfPvmudwMDno5A4NYEety1KK7Z/4=;
+	b=dlzanzqAx1EDwj5U5fthNe7fYQUiI+j64bGd7kiTE7gRXAnizkDxeSUewUIoRhOF2Abt
+	 khj2SenkGqvoGhQFj+WTFF2DVgYBV6z04b7klBATvSCkp1aHa7o2+ricTIU5e2k2/8h7m
+	 suHrVq6FMtrYNAfKDae+NuTHHe2KC8LQ560IdZYA3QtUPil+fLZaazp8Cr6iePrn9B+vc
+	 Bwm3dTQP4W/eJ3/hTziHuKcr8X1Vg0rjBSgf/4Gy4hN+qn8uc44DATehInghDoOOXyXDH
+	 96VeRXbqOFDeyUM7sLKFEjJ1XUty8hdwWbdrJJUSNfAn2VaJXQWyoymIKGHVMlN2m7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mobileye.com;
-	spf=pass smtp.mailfrom=mobileye.com;
-	arc=none smtp.remote-ip=23.90.104.147
-Received: from esa2.hc555-34.eu.iphmx.com (esa2.hc555-34.eu.iphmx.com [23.90.104.147])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 70349606A682;
-	Mon, 23 Nov 2026 11:37:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70349606A682
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mobileye.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mobileye.com
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1795433861; x=1826969861;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=IPMwiZyW2lp+dYhB4kV60JlONdGVqmGhSYHG6tuUBlI=;
-  b=QTh7Z6OvVxZEkAKxLwzf++DnQuckcYPBe6wcwbcQE7seN82leYQGCDBb
-   TKPrCimmjMQEjzcjCE4iKM33N5fuy6uy32TIXQtU5qZ9C78NnMuTCSiF6
-   7fOQNH21Ko7az5DgAQtiGu5q3IlNF9g+Kruk7xpX2shWcZ5gxPUVzbG1Y
-   UIGBJtXOe5AiApOmFYoGiUh5+nrsOXC+EWThKD0mLW45ikmQ25IdyaFAA
-   gBKP4AP0ahsRr2qL8TeS5vaVqqnq+m5PK4Qkjtg21DT0qE728VvU02qfL
-   S15VlMCAyrqiJ5oZKX7OoKb+wpYtEmg4srpbNH0rcPxaAuSr5lkZrpofz
-   g==;
-X-CSE-ConnectionGUID: zqschISKQgqNy5/VgtTxQw==
-X-CSE-MsgGUID: 8Y7kqSuEQJiOB8nEvaOMwg==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 13:37:32 +0200
-X-CSE-ConnectionGUID: Vhq26FS/TdiUFJJs3EbqDg==
-X-CSE-MsgGUID: NZDwNoOGR5utMAr3dMf9dA==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces01_data.me-corp.lan with SMTP; 23 Nov 2026 13:45:58 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 23 Nov 2026 13:37:30 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Mon, 23 Nov 2026 13:37:13 +0200
-Subject: [PATCH v4 3/6] MIPS: CM: export the symbols needed to access the
- GCRs from a module
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b="Vqa/EUu/";
+	arc=none smtp.remote-ip=60.244.123.138
+Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47204606A698;
+	Mon, 23 Nov 2026 11:37:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47204606A698
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=Vqa/EUu/
+X-UUID: 48d57e7ee73211f1b1788b6acf885367-20261123
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=sF4vk+grR7V//Z0ZfPvmudwMDno5A4NYEety1KK7Z/4=;
+	b=Vqa/EUu/W0WCMXlJyHBBTQh6vRyRh3jnKDFBZGnzr5bXQYcqNfm7aHD8PH74wTGHFfTWaxQo0kTqsN9geD1nlLHHKJ+xPh+RYATu+b/YFsQnGUv/5+ULwsV5zJYIuw/xhFSNgooCBbRXmCPDIHppSHibuMOs9guhsFLDK0O5zZE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:964a1fbd-f81f-4acb-b42a-a83f52f191c0,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:b0318ac,CLOUDID:f774ad66-4b51-4c95-bb1b-80ac6aad9c96,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
+	15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
+	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 48d57e7ee73211f1b1788b6acf885367-20261123
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <chunfeng.yun@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 583709816; Mon, 23 Nov 2026 19:37:38 +0800
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 19:37:36 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.53 via Frontend Transport; Mon, 23 Nov 2026 19:37:36 +0800
+From: Chunfeng Yun <chunfeng.yun@mediatek.com>
+To: Mika Westerberg <westeri@kernel.org>
+CC: Andreas Noever <andreas.noever@gmail.com>, Konrad Dybcio
+	<konrad.dybcio@oss.qualcomm.com>, Sven Peter <sven@kernel.org>, Yehezkel
+ Bernat <YehezkelShB@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <linux-kernel@vger.kernel.org>,
+	<linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Chunfeng Yun
+	<chunfeng.yun@mediatek.com>
+Subject: [PATCH v3 4/8] thunderbolt: Fix error handling and unwind paths in tb_nhi_probe()
+Date: Mon, 23 Nov 2026 19:36:51 +0800
+Message-ID: <20261123113705.2297329-5-chunfeng.yun@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
+References: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,106 +88,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-i6500-cm3-pmu-v4-3-5a9f5351688f@mobileye.com>
-References: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
-In-Reply-To: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- Fu Chao-Ying <chao-ying.fu@globalfoundries.com>
-Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-hardening@vger.kernel.org
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 
-Allow modules to use the GCR and CPC accessors from asm/mips-cm.h and
-asm/mips-cpc.h:
+Currently, tb_nhi_probe() has several issues in its error unwind
+paths:
 
-- mips_gcr_base and mips_cpc_base are the mapped register blocks;
-- the CPS_ACCESSOR macros consult mips_cm_is64 on every 64-bit register
-  access;
-- mips_cm_lock_other() / mips_cm_unlock_other() are the only way to
-  reach the registers of another cluster through the redirect block.
+1. Incomplete cleanup on failure:
+If an error occurs after interrupts are initialized, such as in
+dma_set_mask_and_coherent(), tb_nhi_ops.init(), or nhi_select_cm(),
+tb_nhi_probe() immediately returns without calling tb_nhi_shutdown().
+This leaves resources uncleaned:
+- Hardware interrupt registers remain unmasked.
+- Any scheduled nhi->interrupt_work is not flushed before the driver
+  core frees the tb_nhi structure, risking a use-after-free.
+- For Ice Lake PCIe controllers, icl_nhi_ops.init powers on the
+  controller, but icl_nhi_shutdown() is never called to turn
+  force-power back off, leaking power.
 
-This is a prerequisite for building the CM3 PMU driver as a module.
+2. Fragile initialization order:
+dma_set_mask_and_coherent() and spin_lock_init(&nhi->lock) are called
+after tb_nhi_ops.init_interrupts(). If a hardware interrupt fires
+immediately upon registration, tb_nhi_isr() schedules interrupt_work,
+which acquires &nhi->lock before it is initialized. Furthermore, if
+DMA mask configuration fails, interrupts have already been allocated
+and must be torn down.
 
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Improve the probe sequence and error handling:
+- Move dma_set_mask_and_coherent() and spin_lock_init() before
+  tb_nhi_ops.init_interrupts(). If DMA mask setup fails, exit early
+  without needing any interrupt teardown.
+- Consolidate post-interrupt error paths by tb_nhi_shutdown(nhi).
+
+Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
 ---
- arch/mips/kernel/mips-cm.c  | 5 +++++
- arch/mips/kernel/mips-cpc.c | 2 ++
- 2 files changed, 7 insertions(+)
+new patch
+---
+ drivers/thunderbolt/nhi.c | 34 +++++++++++++++++++++-------------
+ 1 file changed, 21 insertions(+), 13 deletions(-)
 
-diff --git a/arch/mips/kernel/mips-cm.c b/arch/mips/kernel/mips-cm.c
-index 3bfe85e86a9a..ed98021418b5 100644
---- a/arch/mips/kernel/mips-cm.c
-+++ b/arch/mips/kernel/mips-cm.c
-@@ -5,6 +5,7 @@
-  */
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index 69783e81dd3b..f687b37aac91 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -1256,6 +1256,10 @@ int tb_nhi_probe(struct tb_nhi *nhi)
+ 	if (!nhi->ops->init_interrupts)
+ 		return dev_err_probe(dev, -EINVAL, "missing required NHI ops\n");
  
- #include <linux/errno.h>
-+#include <linux/export.h>
- #include <linux/of.h>
- #include <linux/percpu.h>
- #include <linux/spinlock.h>
-@@ -14,8 +15,10 @@
- #include <asm/mipsregs.h>
++	res = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
++	if (res)
++		return dev_err_probe(dev, res, "failed to set DMA mask\n");
++
+ 	nhi->hop_count = ioread32(nhi->iobase + REG_CAPS) & 0x3ff;
+ 	dev_dbg(dev, "total paths: %d\n", nhi->hop_count);
  
- void __iomem *mips_gcr_base;
-+EXPORT_SYMBOL_GPL(mips_gcr_base);
- void __iomem *mips_cm_l2sync_base;
- int mips_cm_is64;
-+EXPORT_SYMBOL_GPL(mips_cm_is64);
- bool mips_cm_is_l2_hci_broken;
+@@ -1269,6 +1273,8 @@ int tb_nhi_probe(struct tb_nhi *nhi)
+ 	if (!nhi->tx_rings || !nhi->rx_rings || !nhi->interrupt_mask)
+ 		return -ENOMEM;
  
- static char *cm2_tr[8] = {
-@@ -373,6 +376,7 @@ void mips_cm_lock_other(unsigned int cluster, unsigned int core,
- 	 */
- 	mb();
++	spin_lock_init(&nhi->lock);
++
+ 	INIT_WORK(&nhi->interrupt_work, nhi_interrupt_work);
+ 
+ 	nhi_reset(nhi);
+@@ -1280,24 +1286,22 @@ int tb_nhi_probe(struct tb_nhi *nhi)
+ 	if (res)
+ 		return dev_err_probe(dev, res, "cannot enable interrupts, aborting\n");
+ 
+-	spin_lock_init(&nhi->lock);
+-
+-	res = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
+-	if (res)
+-		return dev_err_probe(dev, res, "failed to set DMA mask\n");
+-
+ 	if (nhi->ops->init) {
+ 		res = nhi->ops->init(nhi);
+-		if (res)
+-			return dev_err_probe(dev, res, "NHI specific init failed\n");
++		if (res) {
++			dev_err_probe(dev, res, "NHI specific init failed\n");
++			goto err;
++		}
+ 	}
+ 
+ 	init_completion(&nhi->domain_released);
+ 
+ 	tb = nhi_select_cm(nhi);
+-	if (!tb)
+-		return dev_err_probe(dev, -ENODEV,
+-			"failed to determine connection manager, aborting\n");
++	if (!tb) {
++		res = dev_err_probe(dev, -ENODEV,
++				    "failed to determine connection manager, aborting\n");
++		goto err;
++	}
+ 
+ 	dev_dbg(dev, "NHI initialized, starting thunderbolt\n");
+ 
+@@ -1311,8 +1315,8 @@ int tb_nhi_probe(struct tb_nhi *nhi)
+ 		 */
+ 		tb_domain_put(tb);
+ 		wait_for_completion(&nhi->domain_released);
+-		tb_nhi_shutdown(nhi);
+-		return dev_err_probe(dev, res, "failed to add domain\n");
++		dev_err_probe(dev, res, "failed to add domain\n");
++		goto err;
+ 	}
+ 	dev_set_drvdata(dev, tb);
+ 
+@@ -1324,6 +1328,10 @@ int tb_nhi_probe(struct tb_nhi *nhi)
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
++
++err:
++	tb_nhi_shutdown(nhi);
++	return res;
  }
-+EXPORT_SYMBOL_GPL(mips_cm_lock_other);
+ EXPORT_SYMBOL_GPL(tb_nhi_probe);
  
- void mips_cm_unlock_other(void)
- {
-@@ -389,6 +393,7 @@ void mips_cm_unlock_other(void)
- 
- 	preempt_enable();
- }
-+EXPORT_SYMBOL_GPL(mips_cm_unlock_other);
- 
- void mips_cm_error_report(void)
- {
-diff --git a/arch/mips/kernel/mips-cpc.c b/arch/mips/kernel/mips-cpc.c
-index 4b50c58628dc..b948a1c96e1e 100644
---- a/arch/mips/kernel/mips-cpc.c
-+++ b/arch/mips/kernel/mips-cpc.c
-@@ -6,6 +6,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/errno.h>
-+#include <linux/export.h>
- #include <linux/percpu.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -14,6 +15,7 @@
- #include <asm/mips-cps.h>
- 
- void __iomem *mips_cpc_base;
-+EXPORT_SYMBOL_GPL(mips_cpc_base);
- 
- static DEFINE_PER_CPU_ALIGNED(raw_spinlock_t, cpc_core_lock);
- 
-
 -- 
-2.43.0
+2.45.2
 
