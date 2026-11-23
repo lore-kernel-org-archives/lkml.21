@@ -1,89 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434070;
-	b=Bulx6jXuIzltPAEeksXY3D57v2z0EQhQHoRJfDXi8lR2PZJyn1TplSROdEni2JwZTtK9
-	 amNdFv2B6//VmFyMtdaf0XNsSgIm64fnrBi0jVR3jtgfbCGf7+Ou3RiLzMfx+/0DqHF1F
-	 US9usb2twIeI1Ir/PeRBvh+9A1G1dQDrT/a+rIshlCsiCOHf8tR26pHwrxZZW7oZzsTDg
-	 23LMWsiG7SquB9xyYgc9SdG9RO9Ral65HE0InFMmclXTebl05o9zAuMmVmjVHJzzXVC2U
-	 FHOmf2/tI4s2w3pOEoSlvD+3+i/Kj4CST1jBteMzCnHEFOVRNCaEI1vFHMtF7r/s3QQ==
+	t=1795434083;
+	b=HNuouklzNqm+pvDFFFKH7mdCit7hhopupiyaSb6zJhONn12/jD9M6uCwcij9ZLMkEzE3
+	 rA+ruMT28T5vCXAZrhMA4oiuHVmybw0EGKfZlzH2sC61JLbga7LaE39qnewvCiq17Mn1B
+	 Gv7oYK1imUcbMsBuIaPmqzPV0oEvGeDr9BIHmXyqC2kWtYbLKALDFEOgZLGPDQRgTdn5A
+	 /2mTlEDoVkMkRVXXPNxiaxIk+sH9xc2qcB0XL3RGc7CnT7tbKMcWy4asTMFiPiI0uxBh7
+	 K9QnjssJMPE3MdqUN2iYUmVIGGoFhzOAUrDgNePJjjmdzF3Mjua7y6d6j6motw8pn7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434070;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=F8UfxySGOv1BnhxOIHb7TZOrVtDzm4+SYsgNqgsm3UU=;
-	b=FVo9JXIrMoNMA0f8gVo1mfMRKThWkC3WVTqzwlARkE7mkOoWI4y8/95WGonR6nHGmpXT
-	 srjZrtno3Dz88/EvZJIeZ4Q24CjAr7h7jPnHMcy2cKWHMMVDyOmUWUul4gHQQEBZ3v/U/
-	 gxhqQlSAIwPL9/QEfmTOomnNf99+4/qRw2jPMl6t17pF8eSfJILFtZsXnnBtVxdBLMTUc
-	 BcSxKw0W2zUwYiT1nIUry8WAQ+PghG8w7hWwdL6jIuh+oAyE2dobH2+e2IPL7h21KpWqD
-	 FjhASXSC4q7Xaa+/9MleF/aiKAijHmxZ6jZNMgjG3ZChVEBWGB9jbL8MUorDWj6wp3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434083;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ERFaHxCLVQsUUIsvcpXdMSBU19+5T7vopoqdvkj/H7U=;
+	b=bJEfrs34dNg3gtZGvZKPlRhPRUfCUO1boPzhF1bmitKeWN+7SZ1+Mbxtcfrf5XHhrn3A
+	 AhejgBZSRQ1ujQgfxVLHwQhwyGqjRqEwOht4ydP7jAaT0sKrR50qc0fPcfeL1B7PS2uh+
+	 8sa+cWwCTMIureQrulVcGcYYGOlnkl53WUU5PcyZymn11FT4fhiATUNQ1MvXv3lCSvrHi
+	 wFzliHxOpQLh+f0ec8Uguh9OO9qnW5UfrEoCjeC6JQM0+unKdQ+7z34+HMG6n875rQfrN
+	 cspTCdkhqb3QLnN4z02e/yo0LZNpqrxpQoegaz95aCOD0KEIQwSx0bQuMqA2Slz4o8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=J08bLTro;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D6hdlhgi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A0B7606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A0B7606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FB9C606A330
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=J08bLTro
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so40000355e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:41:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795434068; x=1796038868; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=F8UfxySGOv1BnhxOIHb7TZOrVtDzm4+SYsgNqgsm3UU=;
-        b=J08bLTrowdgJPgjhkkBH+cXrotJoMXPemIQ4IlNLhjvUsvEXaRek0D+f3nVkoBcNkh
-         4tYINQfWwWQYjZJIlLQN7nHRU5q0XXX7krCcQyjlax7TWO7IePBcmfPUf+Mr6jhXfDCk
-         H3bhw/sV2MAVi+2jL0qxEeFIoxAWTK29mrR0a67pf0Ds86fuCZPFR+XxshrI8rgaivJB
-         x/xrLo5p9ErhpMb6qjIVcyaFLdwNrebz2W33vCrRZSQqllNBEcP7PTqtwNRxdu4XzMWy
-         b5ahG1Oh+3zy2Vlxntkrt2K0Xb9n5G26GmZlA7sg3+MVUM6Ss/I7lxY1+LPE8HHVQ6sv
-         k6NA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795434068; x=1796038868;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F8UfxySGOv1BnhxOIHb7TZOrVtDzm4+SYsgNqgsm3UU=;
-        b=W3WBRwPUcwdXcGfCkfL3nh6Ewh/7nrsoh3w9KCSZgW19KR6QUMkJW43ssicVH9ihgJ
-         SqK45MI1FQTwklVB6eYJ1cnIdoHsiu6xgdfmWkgs9NwlxdvY8ED2bXlGIy/ryVbAq+4E
-         4+2fwD2jZUxlxYHfX95dYGDfflQYYhorjGTqnAArd8nR1HnobhyQ4WFyZEdE+OdKfBVh
-         WLpffFUVs+er7/qICPsX5zhAzvswdSsIA9YlKjZj6S+R1Fgo9Xt/vZ2bt3CDmLC+bD/+
-         5ddAzdHCI/XSM6UYdX/sjgGoQuBJ6YI3Q6xzaZoldakOJzYNUh44VzeIxFO/K9SIDuH6
-         BdZA==
-X-Forwarded-Encrypted: i=1; AL+hErFMI90a0nJKNGfPmGkv46DHE9xYzqSURIuVZlzcvfgZoodLXBfrcWosUil9wNZmN5rySt8qlqYiPOy+Nqo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/acvK7WrzJeaUkbGxuMXYxhDCEZ6Np9mwEs3670FgYhVFw7pQA
-	MyZMAKorL2H6N4b0cpAxQBoLWGsu9FGl9vvCg8qqob0CxicVtkCGHBp9DbwPhY7Qbxo=
-X-Gm-Gg: AZFdTZdT9mF5abw++yOV+2CFAy9+3eK0ohNPDyLS4v+hym4lW+9NT32SX0JoAtBzhee
-	ruBBKwd975nEKzU8u4KxeyBwpiJ8VbtebeXMKD5awbLLAHgSDXJblCPr+ByYrucQsCjSOKcujKv
-	vYLf75viEzj5xm2J7IJAQ3N/9OgazicOJaUfbL1WcM6xTYtHKrwVU+gtWyYnNIyndzrWQpFrshd
-	BfsZWsnoKybPJF55Rs4rfcn42pnU2k/OBnyvOCpTjzE7tzoCuNQskVljguXSy5C/iTeEwQyGHn2
-	GId8dQ0+28lt5B59pBOwhugpg6gq0Hw1rzLLnaC/cdhP2KaKbuiEXT0hi5p4inAxkybLyl444hG
-	N5RSjAAdcdNtq+MNwAaPVIhm1PAl+N1OPZu2HMh7iXej2ylWS3w5HzAUTjZG1z1uXvr563J+CLb
-	PfVAqE4FHg0cZhuWw5/92lswexcNp1VYQ5buYJuQtcljpLvpovzI/vbdunsHadY26rFTJaOOY6M
-	uKqG6PNqFij+MHLJb9Knej2P87jg6e2BuBNHuEP2BnfWGuC7OTIdY3qxgbnzSA85H0BYmfHh73j
-	lgG9iI4DW0fRfc+tqWCCvMwDQhJ1zhlnahomMRuoowy0Fw8GIKtxZsWP6QSX9RRbeLshS2fFjwL
-	AQRr4Kox4jv1+POX5
-X-Received: by 2002:a05:600c:3547:b0:4a1:c27d:e1a8 with SMTP id 5b1f17b1804b1-4bb8880b88fmr223796715e9.10.1795434068387;
-        Mon, 23 Nov 2026 03:41:08 -0800 (PST)
-Received: from ?IPV6:2001:a61:131e:b901:6da9:459e:7c6c:e85e? ([2001:a61:131e:b901:6da9:459e:7c6c:e85e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b39b6sm305870855e9.12.2026.11.23.03.41.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 03:41:08 -0800 (PST)
-Message-ID: <cef781a8-45db-4540-981d-b38667dcfbb7@suse.com>
-Date: Mon, 23 Nov 2026 12:41:07 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D6hdlhgi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D8811F000D1
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795434082;
+	bh=ERFaHxCLVQsUUIsvcpXdMSBU19+5T7vopoqdvkj/H7U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=D6hdlhgicMz7ZLUAPP3mohf8vx4wW8lsiyTvmuPZQi/mzRrxsis4xbD6R5D57deWM
+	 X/9SLMFd4pwMbx1+NC09TZQgBzIS2SqUstXfmjFTjSO9HKo5+1kplXGrQg+KHjGP2Q
+	 LXvhtkxzsVUM5ku3FaHmSsHvJFWUREVpmJ4leKlkp+gqsIRikViMC8kF+GDhdonhEN
+	 fkdHyiFeVekt3Fhb4wsu2/uuLMdmqs8eEoTxJidrqd67NLRMACtMbE3QyUJMQlxkWF
+	 v569u0NoO80dtDRJSINqTRQY5M6ZNPaPlOhR5y+cTNfAfKY1NCf9A49CYM/MToq8Eq
+	 P2YQPSdaVEhlA==
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-9905d61449cso753416241.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:41:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGSHAD9CbPuKr08R3RqAN9Hy5EsLBMxxLemW4HaF+7gWtqPJRl1/cJkx4HYBtg8OC1KiwcvEL3S8ZGOvjI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8MMpjD0Uk1uC3yjrT11MpR7NclxNFlqb3sD2vAql1wwYFXnSK3
+	Ulu576lPuXNs78DX5HxePS4wGKlro7Ml3ZaWTQCjttopiOvXeBeMkRsq83M3sByAU9S/YZN70Fp
+	I6Mb4NBJ7db8olmgzBVCQ0paX5YtuK50=
+X-Received: by 2002:a05:6102:c49:b0:7d2:d194:3dd7 with SMTP id
+ ada2fe7eead31-7d7396744f4mr3650725137.36.1795434081708; Mon, 23 Nov 2026
+ 03:41:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,43 +59,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] usb: uas: expose US_FL_NO_ATA_1X in sysfs as
- ata_passthrough_disabled
-To: =?UTF-8?Q?Mateusz_Jo=C5=84czyk?= <mat.jonczyk@o2.pl>,
- Oliver Neukum <oneukum@suse.com>, Alan Stern <stern@rowland.harvard.edu>
-Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <mkp@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- linux-scsi@vger.kernel.org, usb-storage@lists.one-eyed-alien.net,
- linux-kernel@vger.kernel.org
-References: <20261121155253.4980-1-mat.jonczyk@o2.pl>
- <68f6376d-a0cf-4f87-9cbb-0afb7b8536d4@suse.com>
- <52a233cb-1671-431c-8c14-7757ca947aa5@o2.pl>
-Content-Language: en-US
-From: Oliver Neukum <oneukum@suse.com>
-In-Reply-To: <52a233cb-1671-431c-8c14-7757ca947aa5@o2.pl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261123-btrfs-link-unlink-fsync-v2-1-ed3f9f63fbd7@columbia.edu>
+In-Reply-To: <20261123-btrfs-link-unlink-fsync-v2-1-ed3f9f63fbd7@columbia.edu>
+From: Filipe Manana <fdmanana@kernel.org>
+Date: Mon, 23 Nov 2026 11:40:45 +0000
+X-Gmail-Original-Message-ID: <CAL3q7H74bjNuNn48FcgexyrN5okZQhhgVneJVfCYzD+McC_PcQ@mail.gmail.com>
+X-Gm-Features: Aa3M54qxAiYf6pcKgdohKmPSKML04U9E8FbR4rrPYFuWsxhBQPiZtywlUYsDs-U
+Message-ID: <CAL3q7H74bjNuNn48FcgexyrN5okZQhhgVneJVfCYzD+McC_PcQ@mail.gmail.com>
+Subject: Re: [PATCH v2] btrfs: fix loss of fsynced file after link into new
+ dir and unlink
+To: mt4022@columbia.edu
+Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, 
+	Filipe Manana <fdmanana@suse.com>, linux-btrfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, tz2294@columbia.edu, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+On Mon, Nov 23, 2026 at 6:08=E2=80=AFAM Mani Tofigh via B4 Relay
+<devnull+mt4022.columbia.edu@kernel.org> wrote:
+>
+> From: Mani Tofigh <mt4022@columbia.edu>
+>
+> If we create a file, add a hard link to it in a new directory, remove
+> its old name and then fsync the file through a file descriptor opened
+> before the unlink, the file is gone after a power failure.  Example:
+>
+>   mkdir /mnt/A
+>   fd =3D open("/mnt/A/foo", O_CREAT | O_WRONLY)
+>   mkdir /mnt/A/B
+>   ln /mnt/A/foo /mnt/A/B/bar
+>   unlink /mnt/A/foo
+>   fsync(fd)
+>   <power fail>
+>
+> After log replay, B and B/bar don't exist and the file is gone.
+>
+> The fsync uses the file's dentry, which is still the unlinked A/foo.
+> The inode is new, so btrfs_log_all_parents() finds no parent in the
+> commit root, and log_all_new_ancestors() then takes the fast path for a
+> single link.  That path walks up from the dentry's parent A and never
+> logs B.  On log replay the inode ref for B/bar is skipped because B
+> doesn't exist, and the inode ends up with no links.
+>
+> Fix this by not taking the fast path when the inode had a link, unlink
+> or rename in the current transaction.  The slow path finds the parents
+> from the inode refs in the subvolume tree and logs B and A.  Also return
+> early for an inode with a link count of 0, which has no parents to log.
+>
+> The problem is old, e.g., v7.1 has it.  It was hidden by a transaction
+> commit fallback between commit 0f24ea456ae1 ("btrfs: tracepoints: add
+> trace event for btrfs_log_all_parents()") and
+> commit 36f9aafa46f5 ("btrfs: fix unnecessary transaction commit fallback
+> from btrfs_log_all_parents()").
+>
+> With the fix, the file survives log replay.
+>
+> CC: stable@vger.kernel.org
+> Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
+> ---
+> Changes in v2:
+> - Return early from log_all_new_ancestors() for an inode with a link
+>   count of 0, to avoid a transaction commit (Filipe)
+> - Drop the fdatasync mention and the reproducer paragraph (Filipe)
+> - Rebase on btrfs for-next
+> - Link to v1: https://lore.kernel.org/r/20261111-btrfs-link-unlink-fsync-=
+v1-1-a817d4a890af@columbia.edu
 
+Reviewed-by: Filipe Manana <fdmanana@suse.com>
 
-On 23.11.26 11:48, Mateusz Jończyk wrote:
-> W dniu 23.11.2026 o 09:27, Oliver Neukum pisze:
+Looks good now, thanks.
 
->  > thank you for handling this. One thing though. This requires putting
->  > the emit code into every driver. Can we centralize that somehow?
-> 
-> Not really, short of moving the handling of the ata_passthrough_disabled
-> attribute into the middle SCSI layer (which would also likely involve
-> moving the whole of US_FL_NO_ATA_1X logic from uas_queuecommand_lck()
-> there). Is this what you mean?
+I'll leave some tests running and push it to the for-next branch on
+github either later today or tomorrow.
 
-Now that you mention it, shouldn't that be where it ought to be anyway?
-Usually the SCSI layer generates or filters commands, while the LLDD
-determine what command sets a device will accept and reports that.
-
-	Regards
-		Oliver
-
-
+> ---
+>  fs/btrfs/tree-log.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+>
+> diff --git a/fs/btrfs/tree-log.c b/fs/btrfs/tree-log.c
+> index 763487114f85..445374b06ee8 100644
+> --- a/fs/btrfs/tree-log.c
+> +++ b/fs/btrfs/tree-log.c
+> @@ -7541,11 +7541,19 @@ static int log_all_new_ancestors(struct btrfs_tra=
+ns_handle *trans,
+>
+>         trace_btrfs_log_all_new_ancestors_enter(trans, inode);
+>
+> +       if (inode->vfs_inode.i_nlink =3D=3D 0) {
+> +               ret =3D 0;
+> +               goto out;
+> +       }
+> +
+>         /*
+>          * For a single hard link case, go through a fast path that does =
+not
+> -        * need to iterate the fs/subvolume tree.
+> +        * need to iterate the fs/subvolume tree. But not if the inode ha=
+d a
+> +        * link, unlink or rename in the current transaction, since the d=
+entry
+> +        * used for the fsync may then be an unlinked one.
+>          */
+> -       if (inode->vfs_inode.i_nlink < 2) {
+> +       if (inode->vfs_inode.i_nlink < 2 &&
+> +           inode->last_unlink_trans < trans->transid) {
+>                 ret =3D log_new_ancestors_fast(trans, inode, parent, ctx)=
+;
+>                 goto out;
+>         }
+>
+> ---
+> base-commit: 845c6105edd82f5d0aa72377ef6eb8592ac4e00a
+> change-id: 20261123-btrfs-link-unlink-fsync-a3a915511369
+>
+> Best regards,
+> --
+> Mani Tofigh <mt4022@columbia.edu>
+>
+>
+>
