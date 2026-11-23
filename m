@@ -1,81 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432277;
-	b=XzY+Bf8W4mTwvHG0QaM2uxSjK3qaCnpPG8tdArG6LgMqRTqevhVASqxamji7Dr2Gv6fw
-	 XPkDzSNp3AgXkWgAzmPLD/fEzbsRLFw/+oL/F2pRSrYoKpnsy7gIcwo6qb4ujvjqmwZCV
-	 kj+pJoyLSQTLyDvkbt0V5uLQuvQ+EO0Zoi7ZRdGyXNOrh0A+cfoEhZcqSo2b+el8mzoDQ
-	 AZzKmpq11eUNDzq0z7xjwI2ysAGwLDEbdJoEOF/hCM4oh7TSC+FXH9uxRnJk5ylC2TyDT
-	 oWoIkmtQcVmlBVfldELuYsJ9gFp684+idIeQhpk3+zCgUfSm9lir3LJ8PmBgIWivkTA==
+	t=1795432310;
+	b=oieNwx5TWEw7ReJWuRoI/AvlNLjzUarNy87O+YFaEPTauLWaqo/M4/5pgl3m8pHCmrua
+	 hfhmXndWQJMQAMa489iJimEEqh+6oJo1qvFstOkHhmUjAwuOsRhtIsSNI09aPqTA0L9CC
+	 V1n3LxxYsAqmcXKiSYAtmGEzdPY3dAHmy34qQ0MubR1xWoUf6YKR1gXnUDED1OaDmjczT
+	 lpKCulnOtIk086KvEUzjv92i11v5OGr2r2lUh4OqVzQvA0paS3jn2xF/w/ym2D+gviJy1
+	 Rq3t1/vCFW9WOcDX8bwK10oYuMahojAI2urAGmaIhCYovz8bJVSpJuJ5LyrxrkzYT4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432277;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=+2mpNKtPeOzO01n8vIXZER6Fe5vylz/N9Hs9Fo1I4l4=;
-	b=E1hEslOomhTErXlyQbZNCoY67jzAAU6tf6hMuSKOGsy+5SzibFQoHAThZOPlkl5mkvql
-	 eOBFHlfJCw2w5BleG6UQo12e5qSB91H4tfPNTJwETkICxE80fpPNOI/+uOYu3rt5o0zk1
-	 BoaRYLPP4R/nbIXAKCnVucjzyHW/tcClIpLM0CV9k5D0dUOpsMVHpZ01L7kGu9vKXhbbz
-	 /GkCVnWGJXL6nUrlCREIMTngsyzHThKyfkeUCpQLqzSkwKVk5/v4c9D3HwAarlKG+72e3
-	 3yN9xgjCB57htZi2ttJhCLtGXHpVApVeBKJHg2UqA5sQu7eCvcaSQpOwhcUhmrZki0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432310;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ICMJa1FXDkLpeqDBKL+J43KXnXXLbTYi1fHx2l/sa/I=;
+	b=qGJRMs+Hw3EswiJ6oIQ73ueVsEjsNQv/sS2zRO8K2FmViMPkngNvi3brdZ4ju+jo6oGi
+	 pzPLC5JPNyIBomBV3IJtmtQknfs+HTynP3EJ4kZeyIZryYNXzYzWHrS25ohP+KdzNdFW9
+	 LQQ3WRscc4Va4mNtw9vwcB4OgfbV5qmzdmNBphLHJlMJ1aJ+6k7SPKRTkBve8VnwggSwi
+	 91lx2cFzOxYMq6Pc06WRUehQfJM7/z8rgkP2IrIdzF0drIoUHoncXi7FZIWJ5nR9B0w3q
+	 YCvlSd7lvCBEXSb/g2Ro67Wotu7XJgeWTY6gW1SORQ/u6P2oQAkA5SkAh7mpRlUZlFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FsIbKMhy;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QFozejRV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 489BE606A33A;
-	Mon, 23 Nov 2026 11:11:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 489BE606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA8E5606A321;
+	Mon, 23 Nov 2026 11:11:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FsIbKMhy
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795432276; x=1826968276;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=obV+BTxi/AUalQQHOgFOoauMrPLv2UnyPj8VmY8Q4xg=;
-  b=FsIbKMhyA5of295K89LHFTC06Tl9nP442qDxvIULDr025gOlPSnSEs6I
-   9rVcJs6Nu/U24xeXk4aVIBi9a4GwG8vL+UcEdbjKJ2WJnMLtCxfRUqX6v
-   jTrS7f333aWzVb0U825sGM98w6Qc8toFqN4wWtEex2Gzejjg/pYP54r8J
-   FIuGkxwTVnXM0TSEMqdc6oL9coE5ITHFH2SyJzmglpXCddTFP3R/afg/W
-   8sSSk8rBDcRgXjVTIJZV71IIqdPAIFYMsr7FGED74Tu0wFPeExvqwz43g
-   GEDA2Shl4NOyaRGyErlm3+Fb4fnvleUmrYSxK01Bf0x2/M207BYs7TL9a
-   g==;
-X-CSE-ConnectionGUID: M71/fxk+RtWgrZAAzYVTUw==
-X-CSE-MsgGUID: ZkavJ0ONS0CRhAb20zIHZA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4128599"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4128599"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:11:16 -0800
-X-CSE-ConnectionGUID: 4iPQpwiFRKmAT5sUwSQgUQ==
-X-CSE-MsgGUID: vjjTVDKJSp6WJEGSBfmhnw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11370798"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:11:13 -0800
-Date: Mon, 23 Nov 2026 13:11:11 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Gwendal Grignou <gwendal@chromium.org>,
-	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/6] iio: proximity: sx9324: fix proximity threshold
- writes
-Message-ID: <awQfT6jSKo9pjxjU@ashevche-desk.local>
-References: <20261122074649.239441-1-kapoorarnav43@gmail.com>
- <20261122074649.239441-3-kapoorarnav43@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QFozejRV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B011F000C4;
+	Mon, 23 Nov 2026 11:11:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795432310;
+	bh=ICMJa1FXDkLpeqDBKL+J43KXnXXLbTYi1fHx2l/sa/I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QFozejRVYJDf+6Ka6Yqgp2wwhdOUwXrgWfgZzy69be+GIldHLaLHE6S2H5HQskd+g
+	 Hd/QGXwNRChubRjVCtMuZt8JUBw7OoRQmjdJzOnATgNeOs5bQ8hIPfMog23QSC4l2c
+	 m4gMMS7hFCbkSCqS2MMpsqY7x8V43UFIzU4umOXC7utNPtWGLVbaRnugVXJpJ4d7zD
+	 DSVGNmEmNIpn+ar/6xQexD1719DC9FXpBO7j+Sp3JF2b4oYnOIMa5uJuMRkYXVWWP/
+	 v2Z+DiLLAM6JWNNtmdPlj6Wdgjx9Z2QTu3EGR6vjActqeJwnzvBgwTDs8/aw9pM0BG
+	 Mv5jOjy4L5IYA==
+Date: Mon, 23 Nov 2026 12:11:46 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Patrick Delaunay <patrick.delaunay@foss.st.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [RESEND PATCH 1/7] dt-bindings: power: st: add STM32MP PM domain
+ binding
+Message-ID: <20261123-pretty-strict-caracara-bfcaac@quoll>
+References: <20261116104054.94115-1-patrick.delaunay@foss.st.com>
+ <20261116114024.RESEND.1.If3d55e03486413ca40ac73f9bf07046e76a00f0a@changeid>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,58 +61,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261122074649.239441-3-kapoorarnav43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261116114024.RESEND.1.If3d55e03486413ca40ac73f9bf07046e76a00f0a@changeid>
 
-On Sun, Nov 22, 2026 at 01:16:42PM +0530, Arnav Kapoor wrote:
-> sx9324_read_thresh() reports a PROX_THRESH register value r as r for
-> r <= 1 and as r * r / 2 otherwise, and the division rounds down for
-> odd r. sx9324_write_thresh() inverts that with int_sqrt(2 * val), which
-> is one register value too low when 2 * val == r * r - 1, so writing
-> back the threshold read from an odd register value lowers it by one:
-> setting the threshold to the value it already has changes it, for 127
-> of the 256 register values (3, 5, 7, ...).
+On Mon, Nov 16, 2026 at 11:40:26AM +0100, Patrick Delaunay wrote:
+> Add binding documentation for the power domains found on
+> STMicroelectronics STM32MP SoCs.
+
+A nit, subject: drop second/last, redundant "binding". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+
 > 
-> Use int_sqrt(2 * val + 1), which gives the largest register value whose
-> threshold does not exceed val: for r > 1, in integer arithmetic,
-> r * r / 2 <= val is the same as r * r <= 2 * val + 1. The result only
-> differs from int_sqrt(2 * val) on those edges. Checked for every val
-> from 0 to 65535.
+> Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+> ---
 > 
-> Also reject negative values. They are converted to unsigned int, and
-> 2 * val wraps at 32 bits on both 32-bit and 64-bit architectures, so
-> e.g. INT_MIN is written as 0 and values just above INT_MIN as small
-> thresholds instead of being rejected.
-
-...
-
->  {
-> -	unsigned int reg, val = _val;
-> +	unsigned int reg, val;
+>  .../bindings/power/st,stm32mp-pm-domain.yaml  | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml b/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
+> new file mode 100644
+> index 000000000000..4ab477fb4499
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/power/st,stm32mp-pm-domain.yaml
+> @@ -0,0 +1,46 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/power/st,stm32mp-pm-domain.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	if (_val < 0)
-> +		return -EINVAL;
->  
->  	reg = SX9324_REG_PROX_CTRL6 + chan->channel / 2;
-> +	val = _val;
+> +title: STM32MP generic power domain
+> +
+> +maintainers:
+> +  - Patrick Delaunay <patrick.delaunay@foss.st.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/power/power-domain.yaml#
+> +
+> +description: |
+> +  The STM32MP SoCs contain a D1 domain which defines the devices assigned to
+> +  Cortex A cluster, the devices in this domain are functional only when this
+> +  cluster is not in low power modes (Stop modes) with clock OFF.
+> +
+> +  This PM domain node represents this dependency, based on PM framework and
+> +  without wake-up path support.
+> +
+> +properties:
+> +  compatible:
+> +    const: st,stm32mp-pm-domain
+> +
+> +  '#power-domain-cells':
+> +    const: 0
+> +
+> +  power-domains:
+> +    maxItems: 1
+
+I don't get the purpose of this binding. There are no resources here, so
+this looks like fake intermediary (meaning: non-controllable). Why the devices cannot reference
+final domain?
+
+> +
+> +additionalProperties: false
+
+this goes after required block.
+
+> +
+> +required:
+> +  - compatible
+> +  - '#power-domain-cells'
+> +  - power-domains
+> +
+> +examples:
+> +  - |
+> +    power-domain-d1 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
 
 
-Why not simply
-
-	val = _val;
-	if (val < 0)
-		return -EINVAL;
-	...
-	reg = SX9324_REG_PROX_CTRL6 + chan->channel / 2;
-
-Note, reg might still be not used, we have more validations and with your
-approach the reg assignment is in the middle, confusing...
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+Best regards,
+Krzysztof
 
