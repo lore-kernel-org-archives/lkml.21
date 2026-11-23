@@ -1,114 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.145
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795466947;
-	b=zMV1AZGYiG4/jT7N9Bwb1FIEPKQRUYF7eFYVH4+tS2AiM1irBpA9MygdYpi/5KvUflkQ
-	 ztzAoUpzk/N+1q1n5+N31h2s0kxjx8zzlAtKlTxOd/rf5Fs3nTwTpVMeXaF4yCRLLNG/X
-	 kyIwc8XRQi5jMhQp0M7yMHFCATEvwGbiCcwJ2CtRQLL5LpWVHiRwSmRlq+i17sko52Hdk
-	 47NhyexuY+Nm8u9jjGCASBM2leSMlPAJg8QXskjCJ3Tvhf6VGwy2wA5p7nsoyl3R2qn0/
-	 fndQkU0nV7D6lZtAkYTPGRxDtwaWfA79V8HN3grLGu+g0dpvD7I1wj5ouMVtAjiS46Q==
+	t=1795466976;
+	b=JNpYQQOzy8U2XfU/ZwhuZQf7Ect2HNCnQm1dNq4xlXmGnHrAwiVkLUsCs6KmVg9p0IcA
+	 bLHPeump3SdF9xCiOfNqmApd+j/U5RsUlcGFxidDP//SkQRMyQdCF/Co9pNvJ7Olf4R/x
+	 GDViWo/bMQtMua7NoWZSqVNzPTst7/wr/BN0uaQDfdOozxzTIwcB1IZsKXYmMPRe97LET
+	 Wb9pfPtzq1XfpLv20PGVOdgyphvbvvaZL2AkxCF5RM9F2pPIEYbsRJBbPuxVPVOogEnne
+	 TQug2QKeck8Fii7YoJwQKD3tgMtyaK6rDMW1CvtwzYfAiuYYSE7u5WI89Sz0r0e/Y/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795466947;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
-	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
-	bh=o9zLSXJuEnjCYOHrQ29UaL5++JY+uZSugjvH7QOgkgM=;
-	b=3sXzMSYCvyKXPWKy7b0yuY8uOkwSLytyPKmvIgRiBjP7Kdid6ToZljMzccgtBwSk3wks
-	 GXU5fbvOjDr6U7zlAIFvmImLhc6CxAo0Yez94UmkUFI2gWrdpo5mS6DlwvTjw17wHXhbl
-	 XEVtf9Nwk1Q+N9eEHfyqK7QmCXi+AdqOjRybdAAXEqcCcemTsEbkTJKViL7k5SZtdpS7W
-	 x6WKLN2pknRO4EigvO8poONEV5hRGmI0DUncG27rI7xVnDgqoum+xRlX07FpjrlgeIu4P
-	 8Cme6ozsj5qv+KtkivbivEDmdG1jCovmLOrBXeTxv6JW2v/JGvyEUcAVyOvZ/A+0dMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795466976;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=rf1cWBs3NuwQOZ32do9Ka6iqVwTFh5JLcgleNWm+Twc=;
+	b=RGj3jj3rVYaozTmgbMx69WTFAsxeYVz2azXKDp3dZE/SB006vq2vUTzYVQuVTWu2uzL5
+	 ZRoLeG9WzMz5ufO1b5JSUGOKCzhcdx43iRUGEEbL39XBUoAXHEpVqPKCj6kzF4P3NZZXH
+	 Qn81Gk5crnIFJ5JJzDJ0plZxJ+RK18gIdkxKEYTqwMDMAs+ZqMlOLGdi1Vp8ZRmZjJT6c
+	 aSzzrUVmxxYzhvU+0hWnQGG5lq8sOafQqTW+i9ZOr6dWGMHpw1k8B8fu9Vd3UUmISRRAA
+	 goiTUsHxVJdIQh96M3Av4t0vMDImit08EO/rB1ezoJYQ7oh/zqA9ZeUzheN+4N9uchA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=temperror header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b="GUqi7D/+";
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=GeCTSuUL;
-	arc=none smtp.remote-ip=103.168.172.145
-Received: from fout-a2-smtp.messagingengine.com (fout-a2-smtp.messagingengine.com [103.168.172.145])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=ID7BSUHZ;
+	arc=none smtp.remote-ip=216.40.44.15
+Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0805606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:49:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0805606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE58C606A335;
+	Mon, 23 Nov 2026 20:49:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE58C606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=GUqi7D/+;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=GeCTSuUL
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id 09980EC1FE9
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:49:01 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Mon, 23 Nov 2026 15:49:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
-	1795466941; x=1795553341; bh=o9zLSXJuEnjCYOHrQ29UaL5++JY+uZSugjv
-	H7QOgkgM=; b=GUqi7D/+zOLrqWSCzm+MYwrgGUjLKLl+XyO3sqEMlbWx7SCD96N
-	xOr7y+zBHvOJU64RURKgirlFowf3Nwr3aEDK51YyBQlTYsXZPHXQBIekNZKCnUv4
-	KsJ7waiQTqtIfKfIciO2t0+seQCxjIoBE/jzWA+bLsUFuvppgIe1oUUDuduARfs0
-	t3JPhbBc3ixP9z2lo3LiqRiZ6svS6iP3JqTZaE4IPjo6wwG/9Hk1S2y/EdvPD7i7
-	VeW9Ha3EU2WYxmJ3DxwIb2mHDAm2WO5nWwgvgUT3UiPRd1agj+ERpo+8YO9P8RIa
-	pHNuAA3m5BdklG2F+1juF+ysaWNVwkdTd2g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795466941; x=
-	1795553341; bh=o9zLSXJuEnjCYOHrQ29UaL5++JY+uZSugjvH7QOgkgM=; b=G
-	eCTSuULw905Aod95KYVphrgcfjTxFP0oxax/QIzCt7Z08DmPbXq87xmjvsq87B1o
-	T7FpSf/jOkxbzNfI9K9UvX8+L+n3jzN0UFd38r6Kqug7Mikbl1O/2EmrG2SO3FI1
-	KHnotRnxKL/i6//1NMYSCNNAQD5Lw8zQIP5We+msQKoeN8HunYpxYa/NgEin0FBL
-	OrwyXhfhr1+ovrOEMzpq4EqB2X4zDBEfT7EuPoC4GZVcDg7QuNgDviNaNXLJmX39
-	10qq1kOBTAvLEMe0kGmTgufHnX1lPRueLiduAXke6LIBKcNxkA/MXcp84nvwDaqA
-	INQFdl5CmGnTdw0oHc84w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795466941; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:0SKc49bzjG5McKbhULYu2LqJ4ms7/IxYksO+HXn5nWkBXO3
-	wTIdy4rPl0oT+6jx/iFx5sLM0o1mmzJlTJVphlulA/9Sn3DXOuWRKYZmpuvnE3IM
-	6bcY8w6WvFzjf3svQReAnflq+drcRkfS2EjDvVdP+ZEBfWbz+OxD7yIKEYVeE3l9
-	M0KtVVfzsI+wdHcu1m274xEx3GxWKGAB6327En6K1z4Huw6+TsOAcUmRWSJQK1t+
-	OHU4S/MSyEny1w5RyzvMNGWjm5cSnoeu6qlL2xVL4kyBvB6nacIme/fgEZmLiMTu
-	ofiOmSgNOKRzH3vrFrDycGVrFF8z/EcI1EBM5Yw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,reply-to,
-	subject,to;
-Message-Instance: m=1; h=sha256:iRsZPrvVIwPX/h3pXgxfTnT/eDywSz9BnLpkefyq+Ow=:TQjb9nmWbWE1VynL6JHeebg3yoN+S4zxdXHZHN+WKgw=;
-X-ME-Sender: <xms:u6YEa7TXivWPuJUmQwTofE3_mOq1Vd-dGbfdKdCpR8XRf4mdVhKkOA>
-    <xme:u6YEa-FAq9luXdWY2R16GtwHX7z9lzSVvh-3xidwqcC_0YdC1p2FjR8MM26AohERW
-    8Y2RTcrRVy8N0Cfpe0u2k3jK-WQI80vUAOYxgi3mQC340Hcf-54>
-X-ME-Received: <xmr:u6YEa1fKzxLr8_1Q8wvmXU9XFcWRl1eA7ksz9FFvxFJ4ilMV2X37c48RFAVhVI5O2MjFjpePCFj_Mpy26V917zelIABh1kc>
-X-ME-Proxy-Cause: dmFkZTECMQJK4fdkHy0fWLPUcFTfrq9t91uSnuEGiUSnuJVoCkINLH+FzKpB2tSIh00Nhk
-    5BK9SRt/YA6/FrvyPQt1zAAzcR5cOsyqFz7nx9uu0f4KSe3wR0kPiRBN+OVBWFQfytz/nn
-    yyGl8KiMZ8B/aculVSmccW/8zngN0Q/vdl6AlkON9HCNZS3RB6++ZKfrcMUpGub8gwOvLm
-    AfxvFEkzIq6zthR7ARiUVw30kV7XdmJ780kxcA9EMVKyogzFKXYyTyYLNb86ZISYUb8d/z
-    rFvorNZzKKTgs8fkSA6/DEx90/h/JJKzOE5MWqhdr2fZujknKzF4prwngvHkH/gzMXhOjI
-    W2qJFidfdQhutil75qA7q28SL5utgHyPCYjGk3jbYPNIWOTW+lgKSOHM9PFUOVE4MR33Yb
-    yQOG+YP7xrsB3fg8W8oObe16vE6p/BlLe0wvL9GnHvZqPldBX7whsOfLYvg8K3vS3y7Ztv
-    vtLFOJ6eyHRKhRwQUJBelmJtRhZB0ya0x0/gCpihCgyIW69Pz9HM2foCdkHyEPxE8i33+l
-    gb6gKLN69B9x5kOtGKlbuEucLQnIluC26ckmgsXzWq+85qJTrQQHreucLfGmT62E6CMJmN
-    wfzX1snjy9o8lEEGvvcxDAvGTgc3an/ek3fbgvvdrM0gP8oQwfzLkuvh788w
-X-ME-Proxy: <xmx:u6YEa9v4MlfSFvBYUW3AaaxOuVN6K8LRsbr3wpg2UnQhGQakfgongQ>
-    <xmx:u6YEa7dUUoaxCTu3vhu-0mhfleuvvFLqCPMmBXEj7KynRAJsHDJseg>
-    <xmx:u6YEaxpDSw_mNUDwFA2fQi7eSu1e-qmUbgp2qhZsZ4P45ocBhlqw1A>
-    <xmx:u6YEa58xC17HGroqH_gvx4Lperpo4blG6Pv2gD5Od9dlgym1vNWEag>
-    <xmx:vaYEa5q6WPtMSV6UnT0CuFMsOg-aNwZnOEi6QNWbCtNynKKtn7P9IXVR>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 23 Nov 2026 15:48:54 -0500 (EST)
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=ID7BSUHZ
+Received: from omf20.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 03577809AA;
+	Mon, 23 Nov 2026 20:49:33 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf20.hostedemail.com (Postfix) with ESMTPA id CA0092002B;
+	Mon, 23 Nov 2026 20:49:31 +0000 (UTC)
+Date: Mon, 23 Nov 2026 15:49:30 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Danish Khateeb <danishkhateeb03@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Beau Belgrave
+ <beaub@linux.microsoft.com>, Shuah Khan <shuah@kernel.org>,
+ linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] tracing/user_events: Handle ioctls from 32-bit
+ tasks
+Message-ID: <20261123154930.1c81e606@gandalf.local.home>
+In-Reply-To: <20260928171424.199202-1-danishkhateeb03@gmail.com>
+References: <20260928171424.199202-1-danishkhateeb03@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,90 +63,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: NeilBrown <neilb@ownmail.net>
-To: "Christian Brauner" <brauner@kernel.org>
-Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Jan Harkes" <jaharkes@cs.cmu.edu>, coda@cs.cmu.edu,
- "Jan Kara" <jack@suse.cz>, "Richard Weinberger" <richard@nod.at>,
- "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
- "Johannes Berg" <johannes@sipsolutions.net>,
- "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee" <hyc.lee@gmail.com>,
- "Carlos Maiolino" <cem@kernel.org>, "Jeff Layton" <jlayton@kernel.org>,
- "Amir Goldstein" <amir73il@gmail.com>, linux-kernel@vger.kernel.org,
- codalist@coda.cs.cmu.edu, linux-fsdevel@vger.kernel.org,
- linux-um@lists.infradead.org, ntfs@lists.linux.dev, linux-xfs@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] VFS/xfs/ntfs: drop parent lock across
- d_alloc_parallel() in d_add_ci()
-In-reply-to: <20261120-veranda-tiger-seemeilen-397d57fb2258@brauner>
-References: <20261117000115.1433875-1-neilb@ownmail.net>
-  <20261117000115.1433875-2-neilb@ownmail.net>
-  <20261120-veranda-tiger-seemeilen-397d57fb2258@brauner>
-Date: Tue, 24 Nov 2026 07:48:49 +1100
-Message-id: <179546692990.1728055.10797595669821351188@noble.neil.brown.name>
-Reply-To: NeilBrown <neil@brown.name>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: CA0092002B
+X-Stat-Signature: 4nmdmbybdr9wkkd97g7rrkap68ckt551
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18/vAFX0gv+vT4NjsiBt3LFD5olN82X8vE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=rf1cWBs3NuwQOZ32do9Ka6iqVwTFh5JLcgleNWm+Twc=; b=ID7BSUHZRFjKEc/W6mPjWEYnHL/77L/MPVSLqJ5J8U2bmRs+vd79+oGIcZ3hUKVkQFCj9m2AzCaZw1ciBiEIdHcsw9TiQkX2j6dnzg8XtMXu/LrGaJqFDNb3cZ/7PDCSprUuRrW1CM95TtfWT4z6/747duzT+5je0CV3SauQhpo=
+X-HE-Tag: 1795466971-233234
+X-HE-Meta: U2FsdGVkX18bBG8rW2vr5gukCrBwstVbNsH+TXxQeu3aCsJjj8JRxyxC4B2YcJ0q0vQYjQYjdrE6CF+Kbrm3L5XzK7SgX2JSvEnP3UDrTJQW91VumbQpsuqVp+5TUcvaNZYoP63Aa3BjewstabByFrgYpPPgCIYkd09jJElPNtO+NoaUl5mnz63KNbgVbncgs2O2RWYQ12gHKy1yfx0R7uJ9NQ/4h5DiBDDnPb2mAipV85BBMcCQvd6gPhRjiPjE0BMoexiqJ3DeoHsvL6Y3A6u49gqD9n6X491zQDLl8mEeuRoTc0h1rvLJc/hZcDU7uhc1qpauKmkj2X4YKzJ534xoDjLMrWXAIzsp7DcxcnoBGeDKPk4FNQ==
 
-On Sat, 21 Nov 2026, Christian Brauner wrote:
-> On Tue, Nov 17, 2026 at 10:54:58AM +1100, NeilBrown wrote:
-> > We don't need to keep the parent lock held when d_add_ci() is run - the
-> > VFS doesn't need it as dentry is exclusively held due to
-> > DCACHE_PAR_LOOKUP and the filesystem has finished its work.
-> 
-> I'm not sure that holds? Only d_alloc_parallel() honours
-> DCACHE_PAR_LOOKUP. lookup_one_qstr_excl() still uses d_alloc() and
-> relies on the exclusive lock to guarantee that there are no in-lookup
-> children at all. That stops being true here:
-> 
-> > +		if (lookup_flags & LOOKUP_SHARED)
-> > +			inode_unlock_shared(d_inode(dentry->d_parent));
-> > +		else
-> > +			inode_unlock(d_inode(dentry->d_parent));
-> > +		must_relock = true;
-> >  		found = d_alloc_parallel(dentry->d_parent, name);
-> 
-> So if "Foo" exists on an ascii-ci xfs:
-> 
-> P1: stat("FOO")                      P2: unlink("Foo")
-> lookup_slow()
-> -> xfs_vn_ci_lookup()
->    -> d_add_ci(dentry, X, "Foo")
->       -> inode_unlock_shared(dir)
->       -> found = d_alloc_parallel()
->                                      start_dirop()
->                                      -> inode_lock_nested(dir)
->                                      -> lookup_one_qstr_excl("Foo")
->                                         -> d2 = d_alloc()
->                                         -> xfs_vn_ci_lookup()
->                                            -> d_splice_alias(X, d2)
->                                      vfs_unlink()
->                                      -> xfs_vn_unlink()
->                                         -> d_invalidate(d2)
->                                      inode_unlock(dir)
->       -> d_splice_alias(X, found)
-> 
-> IOW, "Foo" ends up as a hashed positive dentry for an unlinked inode
-> that nothing revalidates.
-> 
-> open("Foo", O_CREAT) then opens the orphan instead of creating a new
-> file and O_EXCL fails with EEXIST. Do a rename() instead of the unlink()
-> and "Foo" keeps pointing to what is now "Bar". ntfs gets there the same
-> way.
-> 
-> Before this patch lookup_slow() held the lock shared across all of
-> that so start_dirop() couldn't get in between.
-> 
-> So afaict this needs "VFS: use d_alloc_parallel() in
-> lookup_one_qstr_excl()" from your RFC to go in first. Unless I'm
-> missing something obvious.
-> 
+On Mon, 28 Sep 2026 12:14:23 -0500
+Danish Khateeb <danishkhateeb03@gmail.com> wrote:
 
-Yes, I see that now - thanks.
-And that means we don't need LOOKUP_SHARED at all.
+> The DIAG_IOCSREG, DIAG_IOCSDEL and DIAG_IOCSUNREG ioctl numbers are
+> defined with pointer types, so their size field is 4 for 32-bit
+> userspace and 8 for 64-bit userspace. user_events_data has no
+> compat_ioctl handler, so on a 64-bit kernel every one of these ioctls
+> from a 32-bit task fails with -ENOTTY and such a task cannot register
+> any user events.
+> 
+> struct user_reg and struct user_unreg are packed and only use fixed-size
+> fields, so they have the same layout for 32-bit and 64-bit tasks. Add a
+> compat_ioctl handler that maps the 32-bit ioctl numbers to the native
+> ones and passes the argument through compat_ptr().
+> 
+> Fixes: 7f5a08c79df3 ("user_events: Add minimal support for trace_event into ftrace")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Danish Khateeb <danishkhateeb03@gmail.com>
+> ---
 
-The AFS patches also drop and retake the lock, so they need to be after
-d_alloc_parallel() is used in lookup_one_qstr_excl(), and also after the
-d_drop() changes.  So I think I should combine the AFS patch set with
-this one.  I'll try that and check that it still makes sense.
+Note, because this was never supported on 64 bit machines, I'm putting it
+into my queue for the next merge window. It's not a regression, it is
+actually a feature. That is, the new feature is: Support 32 bit tasks on 64
+bit machines.
 
-Thanks,
-NeilBrown
-
+-- Steve
