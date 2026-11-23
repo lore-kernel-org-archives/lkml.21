@@ -1,55 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428692;
-	b=kJNEuLtp2TjSsoSOnn5vhhjBOj3XdNy0x45YD8Tkan7shPsesXVcx43hCO8u4jh8DtwY
-	 +iorxBsj00fy6b9pnOf07oGp9kFlgbn80Kj3+oFBGRZy/X1KjPGsug43Ne1p6VaN8sdgS
-	 Q2zYktvSEL5/3Hn/HCopUUppJQpAghuL/EGU5W3O8OPmWtLuWjZLlA0cfRhDMS2sx47+X
-	 cuQpvxkfMOfIuY2NhanadUx6X0sSP4KhllQulpewhY5If46inefzcXB68i/ng/PDqyquF
-	 GhKKV5OWfzqJhjgK5YMElrRcBpn9Qps8fen9KKBXmhizV+4J44f9tdG5pCxez7zB0xw==
+	t=1795428698;
+	b=B2vvdbLtXc67o90sdxwPKbiPZIpndjKv2wccKUv0GFTRpXYPA2+ekmCMWKo45Ot/OEiw
+	 jjq8BOd70oW0McYB2XKLIZldlls3Xh3m5QXrWBbJGoo8zTo+SdUy3mykg6UvhYdwrx5Gz
+	 GMl6A/x1oNG5+eWocHbgHF0DMXfRD6Z5tShC1uCIE2imhOERr6cVm9xQImRO2Jq0wFkVo
+	 5MbYRXdPYrhmn2y4BOVzjdrdBFxfFGmVvihPSS0TFahcHWiv9ypYgaekZZ+Hm281pv420
+	 wYMg53igvsuWPid4UwB2rE993SkmT20BAOs//ARi0E58txKmfGK/5iogytCP3f2MhsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428692;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1hEHGiO6uEz58tvETvrQT6zis242kXKP0Vd6EXhx9Qw=;
-	b=fUH3i0aE5yyDOjPQ9im96ahRdSCkKQVcyzYlrmRrgglYL/2FUWQNBLFuOK2WznPrckML
-	 Ixvic+Fgpjyd41PNXt0OIPlAc05nmZUh7nRuNFJCsrBkVCt8jJPjViF/Pj4rN5ihJ6pY+
-	 ozPDq3xliDDUrMGjhlVtcucgRKkj0ONtQXArmDlFotWp+aFnXGWPBOPtLSucPG/6BTJ+k
-	 Pp99JNp7gRGNDHv6MfvpdQhm1LRWFLAL28CHgpWVur96BiI47t4xs+hjtKnXbK24aVZmg
-	 hIdzyl5OVliYUgVoj7F6sk7ab5DKswQvl+lxKUMvwOvNidYPJFShuh4ONInsH4cL1HQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428698;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2zhhd1eEjuORztzKR2E0hxoBTlVwdi2f3ssxH8CIdr4=;
+	b=0ydWaKdhqbrAqa5kUoqEDoPBLoiHNW1Qg3RCrpxq+1GScM4MBgbIjURMUCe4CWKl0lHc
+	 za+IE0PIhWAk2rxjKjDeF8tuRGrB1TxFGe63KQoeSsD9h000mjOWFn9WsHLEJ5jnD7dQo
+	 AKcCY0VO2LMTE62hX+YaCBE52ZvHB74tUjL5va5zVJAxevf57M7JFPstLIvTqRqeF3K4G
+	 L9bUVnMst40KfhW4EQ6SoYnkCBiD9mCHYj2bsLSRqOYl1ui1CJ8nBi2dIJ+7Es1KFtjms
+	 izIJsyqj5A3Kd9+R1S/Z15Z5noy10O5OHKB4YpvfIDV0BhsJNjn2vUUGtKe3yDK8Row==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="XCJ/Km2d";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=OrTMXlAl;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C22C1606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:11:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4931606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:11:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4931606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XCJ/Km2d
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112CA1F01568;
-	Mon, 23 Nov 2026 10:11:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795428692;
-	bh=1hEHGiO6uEz58tvETvrQT6zis242kXKP0Vd6EXhx9Qw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XCJ/Km2dP7kS+Xu6vHqHRzPB4/wgCYBJC/QSXn4G3XG0jDpGDd37wsVV+vPI1KMjp
-	 g9XGGVc01oFwXUM2Jm/lSCnM2Yu+zt3zsDgAEJIc9KJ9Rj3xmnUOm/QzN0djeIGCoP
-	 56Jdh0cIp12gOyQxY2ky+9jESIPqc1NQ9tlIhxaCRbYXJ96vTj2Z3vTf4Wbskc6vko
-	 K4w6AaPzF7IVPCHNTf9mgJYm9Wkc8sw8p6Uw1CgLM9J76Zf4KLxjIFw9wpf8hx7d8L
-	 +93G9vbLFNxRqvRQMmqJBrKLVGBNqBX5ZKEacQGFkUcSGl8SmCZCERGTaehOAP3PU4
-	 U6Cb28oa1f0wg==
-Date: Mon, 23 Nov 2026 00:11:31 -1000
-From: Tejun Heo <tj@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>, linux-kernel@vger.kernel.org
-Subject: Re: [GIT PULL] workqueue: Fixes for v7.4-rc2
-Message-ID: <awQRUwvY12hZDmqG@slm.duckdns.org>
-References: <fb224bad9baf5f44cf17e1d664776a4e@kernel.org>
- <CAHk-=wg4jAWZvxWo0OZ+fFTU=SBtQ7dnsUCV7hx+UAifkwPUwQ@mail.gmail.com>
- <avs4uWg9ch-Bqobj@slm.duckdns.org>
- <CAHk-=wg+MO19H7KVgA+SaZvvt5O+3Tp8AxHVhpN23JtaSq=G4g@mail.gmail.com>
- <CAHk-=wjm3vbiNYsR+aHxmM3KCEgsSWb379ZQbCuZEsN1dhvbKg@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=OrTMXlAl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=2zhh
+	d1eEjuORztzKR2E0hxoBTlVwdi2f3ssxH8CIdr4=; b=OrTMXlAlc7y5ZEcxZcR0
+	3gGqbjRCkA1Z31VBk5/N9jy3BrLFHTy09HwVb5u3Au1MTFRzYNVztLF9H1008ajw
+	pqmgnyjtWZUWj4+n8YefbbvCr17h5ypnU2s/UKL6d9DOyAFkE8HFaamVcE2IdDbp
+	FAjLY5AwSlwcwYFdAlv4oGa2YmLKM+OV0g588bpEv58q0D234zFiMOnXPsM6rFAA
+	mCferKHkgue73cNnL0DhnUi/F/+Aueviet8LrQVC69/ERK1RML6E+kCb1BG3YBP1
+	Bwbl6miAmjKqfdQRxyfYhzMLWdjBj/25IQN4gQ/xVzOuXFOsqt5NgJZHMnRyhSEr
+	dQ==
+Received: (qmail 2655639 invoked from network); 23 Nov 2026 11:11:33 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 23 Nov 2026 11:11:33 +0100
+X-UD-Smtp-Session: l3s3148p1@knt+0e5gSrYujnsu
+Date: Mon, 23 Nov 2026 11:11:33 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] clk: renesas: r9a06g032: Add reset controller to
+ clear resets for mii converter
+Message-ID: <awQRVRjdSX9vtw61@ninjato>
+References: <20261120-rzn1-miic-resets-v2-0-f1cfa678615b@reliablecontrols.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,27 +74,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="APV7O7fo23abPKXl"
+Content-Disposition: inline
+In-Reply-To: <20261120-rzn1-miic-resets-v2-0-f1cfa678615b@reliablecontrols.com>
+
+--APV7O7fo23abPKXl
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAHk-=wjm3vbiNYsR+aHxmM3KCEgsSWb379ZQbCuZEsN1dhvbKg@mail.gmail.com>
+Content-Transfer-Encoding: quoted-printable
 
-Hello,
+On Fri, Nov 20, 2026 at 01:16:51PM -0800, Kyle Hendry via B4 Relay wrote:
+> On the rzn1, there are two resets for the mii converter in the system
+> controller. If they are not cleared by the bootloader then the kernel nee=
+ds
+> to do it.=20
+>=20
+> To handle this, I've added a reset controller interface to the clock
+> driver so the miic driver can deassert them.
 
-On Wed, Nov 18, 2026 at 11:27:38AM -0600, Linus Torvalds wrote:
-...
-> And then the drain_workqueue() logic can just be changed a bit: after
-> draining, go back and do kind of what you used to do, except don't look
-> at just whether the pwq is empty, but also at whether new work was
-> started?
+I took patches 4-6 from v1 to actually test this series. Worked fine and
+the resets were deasserted (I added some debug prints):
 
-Yeah, this is a lot simpler. Instead of trying to detect events across
-flush, just make sure that empty test actually can test empty.
+Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
-> A *UNTESTED* patch like this, in other words...
 
-This looks correct to me but lemme do some testing on it.
+--APV7O7fo23abPKXl
+Content-Type: application/pgp-signature; name=signature.asc
 
-Thanks.
+-----BEGIN PGP SIGNATURE-----
 
--- 
-tejun
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsEEVUACgkQFA3kzBSg
+KbbOuw/+NmeRwl80UT8zRscw+nxapGVFTkcpvHxUDvQ/YQlMRmrdq8dtyV+m/7Uv
+/T1LXRVLG4mKP8I6Xlt3PgnyCHZrBa0csn8fxmfuCTelsXU9hamhlBFlQho6cx71
+p86TwcW+d1CyUXLPiccGMpiSccRaMz87RVtSqLsGhOhioC9XAdZ60FGWMT+b62zn
+KZfJzPDpLRA8/dQs1PGWMPkDpEBQbEISOW05O7c9K8v1cD4mdCOp58LQFS02u4N2
+idrsCQ8HH3sxPQUiC7kyYb7EAFOUvNNkPFKICRFTcbWokPfe3FQcbxAe6O483CRi
+5Idm4XH9e+tgVHugSnGhfx0hKP1Hz412ZOjisdd0ouSR5RI/62OW2w/D/CFJTlSJ
+2C4xisd0YaZpR2/uXAOALIBR8i1Lkw3iX4+dmBC161t8AdLFvMG2vdQS/JmDVOvK
+kA74880hg0GzEppZyExgoECbjeUxBKTAAH0a7as0LqzRbUhZerh7lprJrGSfk/Nl
+uCS4y1XNoOcVSX1ZEZ8gkova5KxlFYdlWPu+qNJr4+TAX1mL8jNFxEDkzfuDEuh0
+msp9EPpwrS4JhLfwC3kUzqPkFFNejb+S8fr6xC9rjRBlvv60pbbv/xmxu+ZVKTwF
+6xzuhY5jrV+qGqLhGo9KvaJV18MBUCPqpWV5IEv8iCjOBREtjNI=
+=aUdw
+-----END PGP SIGNATURE-----
+
+--APV7O7fo23abPKXl--
