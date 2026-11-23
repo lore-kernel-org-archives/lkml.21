@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.172
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795443276;
-	b=VUGePWUmyy2SHnhjPeQQAvFrEDiAF5Zx4BFCy9uJXanSFW3KTBiO7e7zuvIcU1uMr6fp
-	 hsw4z4BMGcBYD9jeStK9aA/XSN29RQUOZSz8DbN82SXyTbISmoDXcNr1zHwNk0AfhNpSA
-	 oTp4nyNpPRvbyHe+F0+zCVEh2AhWF1spfwJ42b/1fkkv/FPIll6RBqtisXaw+iAh0LGyE
-	 zBwnJQIaWZUmqWh2vq0Odi8TKrW8hsMFlo3KO92+Czp9xYnpGBjwHG/8gZYZmSoLQ+aZi
-	 Hu5P8bMCwOb9R4z1VS50l7AIwu5sUbk0Ifz/CDFjMpJwZFMG7kspSSEGLGBwxIqSAeA==
+	t=1795443281;
+	b=bqKArs1Nwd9IfrHjx7X2EXM4n9tEgj17hmMTc4KcvIshW1MdAFxkcDA4Um36nx1DJ0zt
+	 +9Kl1C5oGNHsanxQCPhJWoqSGpoBbUO77nxIAPAlVBvsmeUvn/FSwA1yER0jw5QPwUkkd
+	 i6+TTS0Tql6ceAA0nAHNSw+Q4i/QB0tD9edP4bKKZZuVagsK812dYfnSbe25JF2VoVt93
+	 wto5gC35RIcSQ2OEbMUbS0tw/hGjVzps3N8zMkRx9DJvT457JZefx45EyNUCXO0yYTyfX
+	 PPPPL2vVcxSAABExdazycVj00784036t/BHbIwZ5FR11xnxkZkcdnDqHRcvqg4dVLdg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443276;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443281;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
-	b=D+MLY0RKebc8qVCPkpMdrDRDKRk1qB9Ao6ElS8HSfzcbualaB2paqZzTDGy3M63j9hPe
-	 NyVDBTaW6qkkx3v3efDykQ9IolVxvVAWKFZXufQnus1qJJuwEi2hy6AQeD+cTVXSuK/Qt
-	 ErZr91q+YCoNMF4rKweMTplhG4bxH2zw8DmIhIkRmsLOE0Ngvo/gTG3k23F0zJtQPv9dE
-	 yH2Ai3KmzcKGuKxvfUBOJ5fpjcNo+Kr/tUBflN/sQfjEUqcks0tXtyQTgaB08vp9EYSUs
-	 b0jCfFkiyLG/SYMR4ZoeDBOPkLaAd7kqtVr/ni3bOVHZgZEZ/v3D5sExjGJTVBec8+A==
+	bh=AOY0PbbuOL71oawD6vspI9ahlDMqf1h6fTODPqf8U0Q=;
+	b=cyctfn7ffgWU754+DbYFSEMIH3WKipiaqD3jKTG/tBPEhj5Eyrwx7DmUO19m9FunMLhX
+	 RC938Vgc82qcVk7PWRqReHwBPTJsZ7mkWVxKfR1rEBo2YviRs7gPCwLk8H4mCHKkgFAp0
+	 SeRLPhRPxVcxFjawHnZiJw8ce4kmsqeN9AwC4t6G8fuVV7NPQe4AswgtKD+E8B/tMVarh
+	 D+p25g8wO4FV5wXW9ORw3Vt+RrTuCCi3r9p8UDN1OOG93dyebcZ9pwB5UffczChPRjWPK
+	 Uz1lqeDoqiolZ0gXa+SPCtGYFcaGVdm9uWNfMBm0leHtt3GTS4naeWmALWlzbAFvSiw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pVQ7UJlC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.172
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com [209.85.222.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oROifbQ3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FAD606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:14:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1FAD606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1045606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:14:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1045606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pVQ7UJlC
-Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-943e8d35f74so341608485a.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:14:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795443275; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oROifbQ3
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6ba38c41804so3761876a12.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:14:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795443279; cv=none;
         d=google.com; s=arc-20260327;
-        b=UzPgQO5GgrLyvPr2cCNPmYfFcfKdasUydp5vWZp+cm1jbljDH190+9I6Ckr96XRYXg
-         v8wkLAmK/g1Tdy4uUBn1/2vcCocmIDzpH9T/bkhC+xqpIOdRJp1eH/2kCJmYE6TVf7Dr
-         erJDWofQndGyEOkmQeRtwaQp2F43VOoEFXW4f5yGQgHVbECqnudB3WWSK8VMu68QAfPF
-         8ayVndR+BHM54cso154+Kkq+GXQq7cpLwPDSjPV2OdarBvOmQgUVR+F3mjnr4x/SG588
-         4wnLIhbDMEO/twJqeHv9gjWmZ09s9caH+0CPOwnRihSj+YBSW6KLVP0lLXmg6/1gJb4D
-         V+QQ==
+        b=dCwaKIzAPRzBdIrNXOq1QK4/aBy2gCBLoZD+cw3Ti6G3iyWBKzG+fD50d+XpnbHrX2
+         BGLJ6IPLLD2iXslCfUrC5CJMLsEM1Z8YpSpfIo3XKL5lW2IKvaZIXU69wRXxrNYLpHEg
+         svYvC9gmbRG445TzMq1JZrMJAidjb6k3eZRbuuqAkiXwGnLiCcZlE8VFUOei3+z4lQHq
+         no78fSG42OsHBQhxyBxPrVH0FEcRxSMwnQMC+arnyKIsDmUDi8CrKRY8bY5YmOEmv+EL
+         bueTDgaZNjakrdK4GFefyULsMXTnW5KIUbolge66fdKflI9m/jNo4BRLHJFM17fGPoyV
+         Ingg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
-        fh=9TyK4pObYzd2/48GDW4QcB1U0SrQFkc21et9psc63Jk=;
-        b=nDURUcxQw3nVRup/Dq3OVXOUt7CWITTOci2bp3B4blQi6kbKhsfjxnyrD+8o96A9ul
-         /yvNbjsd1tTssrueTJtFg65xhObCdG3dpLEzCeKv0hxDOBmJW70fwpa8Uc+/7ldt/PMI
-         wSeKwY1PdGM9vTHTGExNO8z5ENeQ4wpvwgR6cZ1fdOqq8uTAbWb2kP85RrS9IADhO9FR
-         Jd0BeYeuRGJxEHUY4p32zLuwtnkVaX8uUe6q6c1N0gz74KLCi2o0Vcv+CJJrZam+pSGD
-         y5fiWpY3jWV0BMJ23m/c647wuerZHYQyGQ6z1BCeXAGMqnzaNl7zaeN78fim0GwRNqnR
-         NYcQ==;
+        bh=AOY0PbbuOL71oawD6vspI9ahlDMqf1h6fTODPqf8U0Q=;
+        fh=WqolennCuut52gnNF6dTjaPlAmJNDX6uTIqjOto/wFs=;
+        b=C0qzuUS4DCxhWoJA732cKJ6GiIVH37CibdWDx6ej902F9SsAPyKN3JRhw7HdC1Xbrq
+         7ACi3uUuFGIu0sneljJ1T9yk6CvQ70aTpb2YKMfI3DgVJBqFwzYSwmmg6UU14sFDcX7H
+         /DmGuNtzH2Z7d4BaDyqYmDt0fzwFyGXNYjFBeqZqkw+O0rJMnxAuvFDo67SWLb5WZFYk
+         c0O9TSkafP9xPxCn85dlA+o8gxeCRW5dTzcCdff6Hj3qy8IWbaow71YE2muvZ4A1rLSq
+         ETVhJINRfdFa0T8UvajP69QUzaD5BfNXrFTQo3zjBNaFZp3aWyk8kxIBOY8FvhwbXQw1
+         DUUA==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443275; x=1796048075; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795443279; x=1796048079; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
-        b=pVQ7UJlCgo/i8qIJ5r+TI0bhFO9M/AHBAsMBkclyd5JPDNPNAC1ive6ihMUYtf0gRC
-         CcJfFPetUu3bIvXWV/40l1p0yytvFY30H42Yb03nKB0vGILT3FB/1j3mHuAFV+J0eeWz
-         rNRCsh2lN2uPcOsLWiLnaBH3E1IgfopAAWEJSXAIYCe7POy9dcsSCE1WetJUJKPEiym9
-         ZwJERfMKAxexTWdeRfkv8O6zjjhRzUYWsy2m4kQzXSx7RUqby1pwlA9GziUzQePoRCNv
-         qlAQpICwDt3FK6zq/XcNFg4oOSdqC+R86t/m0s/mCJ5ub+GpvrLuDaQyyQg7BHu3EQ/I
-         nkyg==
+        bh=AOY0PbbuOL71oawD6vspI9ahlDMqf1h6fTODPqf8U0Q=;
+        b=oROifbQ3ZfFHP08nzs0+lu8sfpgDDivFrSADeoz3+9bTXvesuEy2rwbBPYElBwR/Zk
+         p2DFa+x0RSp8ucrwkMJCDfO7Ki0RSaRlkB2G52iH9aWFVWkweQv70nv1VsEHkEQwbRUd
+         2YEdMiXyLmew14pnSjgcXldLLk9a8OCHu7//RaUtbKG6L+X3Xrz7aeYMEWRTgtjNihm2
+         dxhXwncufRKlY5aFIrVzglnY/4jLvuZ4pYgkpxMTb/fER4OXELal/eEVCMUwiO8d/LG5
+         a4F3Tm35MPWkaNr7NVSraYc6Vex2mPYtjvUd1NlbBfa0Tya24bh6j51cEkgB0W4hNz3u
+         afqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443275; x=1796048075;
+        d=1e100.net; s=20260707; t=1795443279; x=1796048079;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
-        b=AKLCOSoPZy9UxP6e98e61JM6/Jr3/kcV0/fFJ+mxYLN7gUjCqcc5O0PXpVUKxtfYhj
-         Q0foQ5oAHDGLLx7FkXvoXf+S03md+4VtVyG1a9lblLiWrN578Y+juPqiTrKHOg/bDyB5
-         12sOpJj4LzqhRPnMfJtQhvAmmKZdZH5C1tJuHlDVHCQ48xuMl/R6ZgH2Gb4Z37FOqH7l
-         N0SdGhERssp2UgLJFyHBVh13kboxAxfSmQZnN0qRp2A1hJz3zGWXOQt/xyUJU4F+YZ6E
-         Lmyfodw9PbHU3B9uRaFnqlVENbM4vGG2IMmwDaMFuX08z2qdkA+p022kHXESLSZmVRNu
-         +uow==
-X-Forwarded-Encrypted: i=1; AL+hErGXAZf8TRKB4V3nYQ6FG6BaFN7JMVpSGQ4szGqkIZs7fiSiNCW4uHs2mV0RrEosMkiWLBN/w01CWUAVKLs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8soM8OZspCIA7asgMzaqiWEx6eBfxgt3KKXOnbULPWqYrmD5CC
-	InJFwLvs6YrB1dKHtVc9a9YgksaAr0FJn2s2HjSazHWQAg9CY0QmfonAfkJxzE8lMMleIsP7Tue
-	XsvRNyc2AI3U/g+a+jVBDVvjImzRivcs=
-X-Gm-Gg: AZFdTZeJXST6p98x+SEhpSgh3r4LQiVyy7PkZ3ZpxjtZtsPxXKBCGB7/4a1PuCOBE1o
-	WHWO6q1nuFEDmUcyYF4Axd/E9sUcv4ic8XUjsEmJXYf6MxPmzah7Nk5VzpQ7CEx8+5L6Fi//mzI
-	BVjZ3k7CzdpRomsfT4W/GRXtokGcZ2fCHfPyBv3NnEgr2rad0kkXQuN3r5J8pIuogwv7KbEBRLw
-	S0jDNHZWQzZqtAfhEs6nCRmWPtGOg2nwZ6qJWB6cJjxWi0/LWdCKZduJmUJJq7QN0/BCujjHN0I
-	loL+F3R22+FCvFDQwxsWMn5HBIPlUSO1LBQ/2ZNP0eZJbxwDY9LpjBvnajBHtjeP2tspUeZy8Kv
-	alDsK8B4GZa4uiUD72EULcuP24g4/sMHHFH5W1p0SQXR4bYYDN/1eSQkI6scSNxxCfD4=
-X-Received: by 2002:a05:620a:4041:b0:949:8307:664d with SMTP id
- af79cd13be357-949ba8239a7mr1762779285a.2.1795443274706; Mon, 23 Nov 2026
- 06:14:34 -0800 (PST)
+        bh=AOY0PbbuOL71oawD6vspI9ahlDMqf1h6fTODPqf8U0Q=;
+        b=e398bcLw+sE0iyrX/N8DQ+ZRUD5BpdoTTYh+MqDzi9stbQOzLmvUlB7Dua2+KxPuQc
+         GC7nB5r7S7/HOALUDlcJM/hItrJxb6SxJB56nWqBQsfx4761Jci4n4Ym2WALO/ePoNqY
+         Gjuvhj9Y+HtyGX7q8wrZVLdwTtKkbAHqtR9MleyO008RyLQutcnLE7azJpJNtmWYjzGu
+         h9ZxuDrgqH/IjoE5Tv84hcXrYgk0TU7gLTB4DJ49o58MB9PcLAYZCglGTh7/AhvtZiMr
+         qdXPn2l39e/OU+brmlz+TQ/z72/pcQGnEryVNpSDlngcgqTeQwH5AKRaDTRcCneoaDBw
+         CIoA==
+X-Forwarded-Encrypted: i=1; AL+hErFc/Dh64KZf/6gFuT4lPurWaq8FGThhPn1xwFzaf6ZX+x9xZ0j+W58G7YdPz8ZvPGn0pUcaO/gvy59Jvu8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+2q+b6G7+YUo6K4ivm+X4N9a5ntcIFqpWHBF+MOYVr5rAqAdgt
+	2KrhL2AbG4GhSPwDMcM8ULHc2tYZRIDhEXTSsgp30KNDyCpLmNbQ82EeYuw4MjugU9niN6W/9tS
+	Ps0SsWo3Bb+YIspZID3GIP6cnVRbMPLM=
+X-Gm-Gg: AZFdTZev+rEBVSs5oAFlesQ0hOwAIQvOxYwGyxaj495cqBCK0NpvTUiiFsjvzXR9jMW
+	YeSa2sCpqLIIQzi8tGAN8olHou+kKO5GPf1v5fH/JQYonTwawA1v760iqGH8hiADDkUXZpZ7jLv
+	g/DpbXAbX6NGo5mFXATqOH3HJCambSEgFA5cotbk6PPDHBYb0QJYYwpyhOjZDDq3IdfYnn81YsI
+	kGgoHt+lnMKXgfGx8i9WvrSXUmdcfr8iHXSxlicKsENcYrdlUuvKvLwSKQXdo4N8R++VIby8SA5
+	0Dd0AWVgxqqwAAYuNL3iKSdSHB+vET1BBl/QaAUiq1PWHp9jGgOjbQyLTcabcpbEUCsCitfZvFu
+	Tuyijs2sAK1SjIqGowAqd/Vudnl3ZjPzjEg6j1qwr77mHtmzXoynS3NmR9HBKqzXnR4z5lQ==
+X-Received: by 2002:a05:6402:1e90:b0:6b6:8ed8:765a with SMTP id
+ 4fb4d7f45d1cf-6ba37eb79cdmr8133267a12.38.1795443278525; Mon, 23 Nov 2026
+ 06:14:38 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,318 +104,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123110805.119610-1-hikmahgumelar@gmail.com>
- <20261123123546.152162-1-hikmahgumelar@gmail.com> <20261123123546.152162-4-hikmahgumelar@gmail.com>
- <awRDMjtMC74v5zQq@monoceros>
-In-Reply-To: <awRDMjtMC74v5zQq@monoceros>
-From: Hikmah Gumelar <hikmahgumelar@gmail.com>
-Date: Mon, 23 Nov 2026 21:14:22 +0700
-X-Gm-Features: Aa3M54qIm1JJMDMAkwJOVERPLiDKCTfKydQ0A71fCUKBRcUDp_3D9SJp6eBsw4g
-Message-ID: <CADA=zOOYzywVAHhSbYQXyfS3m8SRx4x=S4wNi7vSoQBB6GVRUA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/7] media: i2c: add s5k5e8 image sensor driver
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org
+References: <20261122000856.536902-1-koray.fra@gmail.com> <20261122000856.536902-4-koray.fra@gmail.com>
+ <CAOQ4uxgc6pP+_xvJMbqj6wOdGzS75Vn6x6i_vUfCJDD46DAA_Q@mail.gmail.com> <DN2N0BY83OY2.1OV3ZAZFSWCDG@gmail.com>
+In-Reply-To: <DN2N0BY83OY2.1OV3ZAZFSWCDG@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Mon, 23 Nov 2026 15:14:25 +0100
+X-Gm-Features: Aa3M54qAtfdGB0LeRebZKK7K89qIg_MfhE7-Z5I2BzYrqC2uKTrvU0S-v_Coln4
+Message-ID: <CAOQ4uxg9O-R_SUPAZ75ESGB99-4Z4EEUKGMkCF2f-sXkGPq1GA@mail.gmail.com>
+Subject: Re: [PATCH 3/3] ntfs: switch to the new xflags fileattr API
+To: koraynilay <koray.fra@gmail.com>
+Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
+	"Darrick J . Wong" <djwong@kernel.org>, Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi Uwe,
-Thanks for the review! I had just sent out v3 right before seeing your
-feedback; I will drop <linux/mod_devicetable.h> from both s5k5e8.c and
-ov12a10.c in v4 along with any further review comments on v3.
-Best regards,
-Hikmah
+On Mon, Nov 23, 2026 at 2:50=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
+ote:
+>
+> On Mon Nov 23, 2026 at 2:00 PM CET, Amir Goldstein wrote:
+> > On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail.com=
+> wrote:
+> >>
+> >> Switch ntfs_fileattr_[gs]et() from the legacy FS_*_FL flags to the
+> >> modern xflags (FS_XFLAG_*) fileattr API with masks.
+> >>
+> >> Introduce FS_XFLAG_COMPR and FS_XFLAG_ENCRYPT and add them to
+> >> FS_XFLAG_COMMON (and add FS_COMPR_FL and FS_ENCRYPT_FL to FS_COMMON_FL=
+)
+> >> to be used in this API switch.
+> >>
+> >> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
+> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+> >> ---
+> >>  fs/file_attr.c           |  8 +++++
+> >>  fs/ntfs/file.c           | 63 +++++++++++++++++++--------------------=
+-
+> >>  include/linux/fileattr.h |  6 ++--
+> >>  include/uapi/linux/fs.h  |  2 ++
+> >>  4 files changed, 44 insertions(+), 35 deletions(-)
+> >>
+> > ...
+> >
+> >> diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
+> >> index 50be49f4c913..fde6fb2fe39c 100644
+> >> --- a/fs/ntfs/file.c
+> >> +++ b/fs/ntfs/file.c
+> >> @@ -155,31 +155,37 @@ int ntfs_file_release(struct inode *vi, struct f=
+ile *filp)
+> >>   * @dentry: dentry to report the flags of
+> >>   * @fa: filled in with the flags of @dentry
+> >>   */
+> >> +#define NTFS_RO_XFLAGS (FS_XFLAG_COMPR | FS_XFLAG_ENCRYPT | FS_XFLAG_=
+CASEFOLD)
+> >> +#define NTFS_RW_XFLAGS (FS_XFLAG_IMMUTABLE | FS_XFLAG_APPEND | \
+> >> +                       FS_XFLAG_NOATIME | FS_XFLAG_NODUMP)
+> >
+> > Nit: checkpatch may allow 100 chars, but this due formatting is not
+> > easy on the eyes
+> > pls break to RO line
+> It should be 78 and imo it looks fine, but yes, I'll split it in next
+> patch.
+>
+> > and indent the broken lines below (
+>
+> This should be a diff-only problem, in my working tree the file has them
+> correctly indented using 3 tabs (wide 8) and 0 space, probably same
+> problem as the PROJID line being unaligned here:
+
+Sorry, pls ignore.
+
+> >>  #define FS_XFLAG_PROJID                0x00100000      /* project ID =
+*/
+> >> +#define FS_XFLAG_COMPR         0x00200000      /* Compress file */
+>
+> >
+> >> diff --git a/include/linux/fileattr.h b/include/linux/fileattr.h
+> >> index 4faa40febf11..219e7c8eb601 100644
+> >> --- a/include/linux/fileattr.h
+> >> +++ b/include/linux/fileattr.h
+> >> @@ -7,12 +7,14 @@
+> >>  #define FS_COMMON_FL \
+> >>         (FS_SYNC_FL | FS_IMMUTABLE_FL | FS_APPEND_FL | \
+> >>          FS_NODUMP_FL | FS_NOATIME_FL | FS_DAX_FL | \
+> >> -        FS_PROJINHERIT_FL | FS_VERITY_FL)
+> >> +        FS_PROJINHERIT_FL | FS_VERITY_FL | FS_COMPR_FL | \
+> >> +        FS_ENCRYPT_FL)
+> >>
+> >>  #define FS_XFLAG_COMMON \
+> >>         (FS_XFLAG_SYNC | FS_XFLAG_IMMUTABLE | FS_XFLAG_APPEND | \
+> >>          FS_XFLAG_NODUMP | FS_XFLAG_NOATIME | FS_XFLAG_DAX | \
+> >> -        FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY)
+> >> +        FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY | FS_XFLAG_COMPR | \
+> >> +        FS_XFLAG_ENCRYPT)
+> >
+> >
+> > Rule:
+> >
+> > You cannot add a flag to common without carefully auditing all
+> > filesystems that support the legacy flag.
+>
+> Yeah, sashiko pointed out a problem in f2fs, and I could reproduce it in
+> testing, where adding COMPR to COMMON makes f2fs crash, it also needs
+> NOCOMP in COMMON.
+>
+
+I don't think this is correct, or at least not enough.
+My agent said that this breaks or changes things on  f2fs/ext4/ubifs
+I didn't bother to check if all of them are true - I doubt it
+bottom line - need careful audit and good testing.
 
 
-Pada Sen, 23 Nov 2026 pukul 20.56 Uwe Kleine-K=C3=B6nig
-<u.kleine-koenig@baylibre.com> menulis:
+> > FS_XFLAG_ENCRYPT can go into common but must also
+> > go to FS_XFLAG_RDONLY_MASK because it's read-only for
+> > all existing fs.
+> >
+> > COMPR is rw for some fs and ro for others.
+> > As with CASEFOLD, you cannot make it COMMON before
+> > converting all casefold fs to new API so that each can say
+> > whether it wants RO or RW.
 >
-> Hello,
+> How's CASEFOLD currently handled? in the v2 I'm drafting, I added
+> fileattr_mask_to_legacy() and fileattr_legacy_to_mask(), which convert
+> between the old format (filtering by FS_XFLAGS_MASK) and the new mask
+> format.
 >
-> On Mon, Nov 23, 2026 at 07:35:42PM +0700, Hikmah Gumelar wrote:
-> > diff --git a/drivers/media/i2c/s5k5e8.c b/drivers/media/i2c/s5k5e8.c
-> > new file mode 100644
-> > index 000000000000..80931e5a1c6b
-> > --- /dev/null
-> > +++ b/drivers/media/i2c/s5k5e8.c
-> > @@ -0,0 +1,500 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +#include <linux/clk.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/gpio/consumer.h>
-> > +#include <linux/i2c.h>
-> > +#include <linux/mod_devicetable.h>
->
-> <linux/i2c.h> already provides of_device_id, so please drop
-> <linux/mod_devicetable.h> (which adds a lot of unneeded dependencies).
->
-> > +#include <linux/module.h>
-> > +#include <linux/pm_runtime.h>
-> > +#include <linux/regulator/consumer.h>
-> > +#include <linux/unaligned.h>
-> > +#include <media/v4l2-ctrls.h>
-> > +#include <media/v4l2-device.h>
-> > +#include <media/v4l2-fwnode.h>
-> > +
-> > +#define S5K5E8_CHIP_ID_REG           0x0000
-> > +#define S5K5E8_CHIP_ID                       0x5e80
-> > +#define S5K5E8_REG_MODE_SELECT               0x0100
-> > +#define S5K5E8_MODE_STANDBY          0x00
-> > +#define S5K5E8_MODE_STREAMING                0x01
-> > +#define S5K5E8_REG_VTS                       0x0340
-> > +#define S5K5E8_REG_EXPOSURE          0x0202
-> > +#define S5K5E8_REG_ANALOG_GAIN               0x0204
-> > +#define S5K5E8_REG_TEST_PATTERN              0x0600
-> > +#define S5K5E8_XVCLK_FREQ            24000000
-> > +#define S5K5E8_LINK_FREQ_418MHZ              418000000ULL
-> > +#define S5K5E8_PIXEL_RATE            167200000ULL
-> > +
-> > +struct s5k5e8_reg { u16 address;
-> > +u8 val;
-> > +};
-> > +struct s5k5e8_mode {
-> > +     u32 width, height, hts_def, vts_def, vts_min, num_regs;
-> > +     const struct s5k5e8_reg *regs;
-> > +};
-> > +
-> > +static const char * const s5k5e8_supply_names[] =3D { "avdd", "dvdd", =
-"dovdd" };
-> > +#define S5K5E8_NUM_SUPPLIES ARRAY_SIZE(s5k5e8_supply_names)
-> > +
-> > +static const struct s5k5e8_reg s5k5e8_common_regs[] =3D {
-> > +     { 0x0100, 0x00 }, { 0x3906, 0x7e }, { 0x3c01, 0x0f }, { 0x3c14, 0=
-x00 },
-> > +     { 0x3235, 0x08 }, { 0x3063, 0x2e }, { 0x307a, 0x10 }, { 0x307b, 0=
-x0e },
-> > +     { 0x3079, 0x20 }, { 0x3070, 0x05 }, { 0x3067, 0x06 }, { 0x3071, 0=
-x62 },
-> > +     { 0x3072, 0x16 }, { 0x3203, 0x43 }, { 0x3205, 0x43 }, { 0x320b, 0=
-x42 },
-> > +     { 0x3007, 0x00 }, { 0x3008, 0x14 }, { 0x3020, 0x58 }, { 0x300d, 0=
-x34 },
-> > +     { 0x300e, 0x17 }, { 0x3021, 0x02 }, { 0x3010, 0x59 }, { 0x3002, 0=
-x01 },
-> > +     { 0x3005, 0x01 }, { 0x3008, 0x04 }, { 0x300f, 0x70 }, { 0x3010, 0=
-x69 },
-> > +     { 0x3017, 0x10 }, { 0x3019, 0x19 }, { 0x300c, 0x62 }, { 0x3064, 0=
-x10 },
-> > +     { 0x3c08, 0x0e }, { 0x3c09, 0x10 }, { 0x3c31, 0x0d }, { 0x3c32, 0=
-xac },
-> > +};
-> > +
-> > +static const struct s5k5e8_reg s5k5e8_2592x1944_regs[] =3D {
-> > +     { 0x0100, 0x00 }, { 0x0136, 0x18 }, { 0x0137, 0x00 }, { 0x0305, 0=
-x06 },
-> > +     { 0x0306, 0x18 }, { 0x0307, 0xa8 }, { 0x0308, 0x34 }, { 0x0309, 0=
-x42 },
-> > +     { 0x3c1f, 0x00 }, { 0x3c17, 0x00 }, { 0x3c0b, 0x04 }, { 0x3c1c, 0=
-x47 },
-> > +     { 0x3c1d, 0x15 }, { 0x3c14, 0x04 }, { 0x3c16, 0x00 }, { 0x0820, 0=
-x03 },
-> > +     { 0x0821, 0x44 }, { 0x0114, 0x01 }, { 0x0344, 0x00 }, { 0x0345, 0=
-x08 },
-> > +     { 0x0346, 0x00 }, { 0x0347, 0x08 }, { 0x0348, 0x0a }, { 0x0349, 0=
-x27 },
-> > +     { 0x034a, 0x07 }, { 0x034b, 0x9f }, { 0x034c, 0x0a }, { 0x034d, 0=
-x20 },
-> > +     { 0x034e, 0x07 }, { 0x034f, 0x98 }, { 0x0900, 0x00 }, { 0x0901, 0=
-x00 },
-> > +     { 0x0381, 0x01 }, { 0x0383, 0x01 }, { 0x0385, 0x01 }, { 0x0387, 0=
-x01 },
-> > +     { 0x0340, 0x07 }, { 0x0341, 0xb0 }, { 0x0342, 0x0b }, { 0x0343, 0=
-x28 },
-> > +     { 0x0200, 0x00 }, { 0x0201, 0x00 }, { 0x0202, 0x03 }, { 0x0203, 0=
-xde },
-> > +     { 0x3303, 0x02 }, { 0x3400, 0x00 }, { 0x323b, 0x02 }, { 0x3301, 0=
-x00 },
-> > +     { 0x3321, 0x04 }, { 0x3306, 0x00 }, { 0x3307, 0x08 }, { 0x3308, 0=
-x0a },
-> > +     { 0x3309, 0x27 }, { 0x330a, 0x01 }, { 0x330b, 0x01 }, { 0x330e, 0=
-x00 },
-> > +     { 0x330f, 0x08 }, { 0x3310, 0x07 }, { 0x3311, 0x9f }, { 0x3312, 0=
-x01 },
-> > +     { 0x3313, 0x01 },
-> > +};
->
-> Is this a reverse engineered table of initial register values? A comment
-> would be awesome.
->
-> > +static const struct s5k5e8_mode supported_modes[] =3D {
-> > +     {
-> > +             .width =3D 2592, .height =3D 1944, .hts_def =3D 2856,
-> > +             .vts_def =3D 1968, .vts_min =3D 1968,
-> > +             .num_regs =3D ARRAY_SIZE(s5k5e8_2592x1944_regs),
-> > +             .regs =3D s5k5e8_2592x1944_regs,
-> > +     },
-> > +};
-> > +
-> > [...]
-> > +static int s5k5e8_enum_frame_size(struct v4l2_subdev *sd, struct v4l2_=
-subdev_state *sd_state,
-> > +             struct v4l2_subdev_frame_size_enum *fse)
-> > +{
-> > +     if (fse->index >=3D ARRAY_SIZE(supported_modes) ||
-> > +         fse->code !=3D MEDIA_BUS_FMT_SGRBG10_1X10)
-> > +             return -EINVAL;
->
-> ARRAY_SIZE(supported_modes) is one. Does supported_modes really need to
-> be an array?
->
-> > +     fse->min_width =3D fse->max_width =3D supported_modes[fse->index]=
-.width;
-> > +     fse->min_height =3D fse->max_height =3D supported_modes[fse->inde=
-x].height;
-> > +     return 0;
-> > +}
-> > +
-> > [...]
-> > +static int s5k5e8_probe(struct i2c_client *client)
-> > +{
-> > +     struct device *dev =3D &client->dev;
-> > +     struct s5k5e8 *s5k5e8;
-> > +     u32 val =3D 0;
-> > +     unsigned int i;
-> > +     int ret;
-> > +
-> > +     s5k5e8 =3D devm_kzalloc(dev, sizeof(*s5k5e8), GFP_KERNEL);
-> > +     if (!s5k5e8)
-> > +             return -ENOMEM;
-> > +     s5k5e8->dev =3D dev;
-> > +     v4l2_i2c_subdev_init(&s5k5e8->sd, client, &s5k5e8_subdev_ops);
-> > +     s5k5e8->xvclk =3D devm_v4l2_sensor_clk_get(dev, NULL);
-> > +     if (IS_ERR(s5k5e8->xvclk))
-> > +             return dev_err_probe(dev, PTR_ERR(s5k5e8->xvclk), "xvclk\=
-n");
-> > +     clk_set_rate(s5k5e8->xvclk, S5K5E8_XVCLK_FREQ);
-> > +     s5k5e8->reset_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIO=
-D_OUT_HIGH);
-> > +     if (IS_ERR(s5k5e8->reset_gpio))
-> > +             return dev_err_probe(dev, PTR_ERR(s5k5e8->reset_gpio), "r=
-eset\n");
-> > +     for (i =3D 0; i < S5K5E8_NUM_SUPPLIES; i++)
-> > +             s5k5e8->supplies[i].supply =3D s5k5e8_supply_names[i];
-> > +     ret =3D devm_regulator_bulk_get(dev, S5K5E8_NUM_SUPPLIES, s5k5e8-=
->supplies);
-> > +     if (ret)
-> > +             return dev_err_probe(dev, ret, "regulators\n");
-> > +     ret =3D s5k5e8_power_on(dev);
-> > +     if (ret)
-> > +             return ret;
-> > +     ret =3D s5k5e8_read_reg(s5k5e8, S5K5E8_CHIP_ID_REG, 2, &val);
-> > +     if (ret || val !=3D S5K5E8_CHIP_ID) {
-> > +             dev_err(dev, "failed to identify s5k5e8 (ret=3D%d, id=3D0=
-x%x)\n", ret, val);
->
-> Use dev_err_probe() for error messages in the probe function.
->
-> > +             ret =3D ret ? ret : -ENXIO;
-> > +             goto err_power;
-> > +     }
-> > +     dev_info(dev, "identified Samsung S5K5E8 sensor (0x%04x)\n", val)=
-;
->
-> Degrade to dev_dbg() or drop. Once the driver is considered ok, messages
-> of this kind only clutter the kernel log with very little value and add
-> to the boot time.
->
-> > +     mutex_init(&s5k5e8->mutex);
-> > +     s5k5e8->cur_mode =3D &supported_modes[0];
-> > +     ret =3D s5k5e8_init_controls(s5k5e8);
-> > +     if (ret)
-> > +             goto err_mutex;
-> > +     s5k5e8->sd.internal_ops =3D &s5k5e8_internal_ops;
-> > +     s5k5e8->sd.flags |=3D V4L2_SUBDEV_FL_HAS_DEVNODE;
-> > +     s5k5e8->sd.entity.ops =3D &s5k5e8_entity_ops;
-> > +     s5k5e8->sd.entity.function =3D MEDIA_ENT_F_CAM_SENSOR;
-> > +     s5k5e8->pad.flags =3D MEDIA_PAD_FL_SOURCE;
-> > +     ret =3D media_entity_pads_init(&s5k5e8->sd.entity, 1, &s5k5e8->pa=
-d);
-> > +     if (ret)
-> > +             goto err_ctrl;
->
-> Use newlines to separate function call + its error handling from the
-> other code.
->
-> > +     s5k5e8->sd.state_lock =3D &s5k5e8->mutex;
-> > +     ret =3D v4l2_subdev_init_finalize(&s5k5e8->sd);
-> > +     if (ret)
-> > +             goto err_media;
-> > +     ret =3D v4l2_async_register_subdev_sensor(&s5k5e8->sd);
-> > +     if (ret)
-> > +             goto err_media;
-> > +     pm_runtime_set_active(dev);
-> > +     pm_runtime_enable(dev);
-> > +     pm_runtime_idle(dev);
-> > +     return 0;
-> > +err_media: media_entity_cleanup(&s5k5e8->sd.entity);
-> > +err_ctrl: v4l2_ctrl_handler_free(s5k5e8->sd.ctrl_handler);
-> > +err_mutex: mutex_destroy(&s5k5e8->mutex);
-> > +err_power: s5k5e8_power_off(dev);
->
-> A label should be on its own line.
->
-> > +     return ret;
-> > +}
-> > +
-> > +static void s5k5e8_remove(struct i2c_client *client)
-> > +{
-> > +     struct v4l2_subdev *sd =3D i2c_get_clientdata(client);
-> > +     struct s5k5e8 *s5k5e8 =3D to_s5k5e8(sd);
-> > +
-> > +     v4l2_async_unregister_subdev(sd);
-> > +     media_entity_cleanup(&sd->entity);
-> > +     v4l2_ctrl_handler_free(sd->ctrl_handler);
-> > +     mutex_destroy(&s5k5e8->mutex);
-> > +     pm_runtime_disable(&client->dev);
-> > +     if (!pm_runtime_status_suspended(&client->dev))
-> > +             s5k5e8_power_off(&client->dev);
-> > +     pm_runtime_set_suspended(&client->dev);
-> > +}
-> > +
-> > +static const struct dev_pm_ops s5k5e8_pm_ops =3D { SET_RUNTIME_PM_OPS(=
-s5k5e8_power_off,
-> > +             s5k5e8_power_on, NULL) };
->
-> This looks strange. I'd add a \n before SET_RUNTIME_PM_OPS. In general
-> align continuation lines to the previous opening brace or parenthesis.
->
-> > +static const struct of_device_id s5k5e8_of_match[] =3D { { .compatible=
- =3D "samsung,s5k5e8" }, { } };
->
-> Please fix the layout of this struct. It should look like:
->
-> static const struct of_device_id s5k5e8_of_match[] =3D {
->         { .compatible =3D "samsung,s5k5e8" },
->         { }
-> };
->
->
-> > +MODULE_DEVICE_TABLE(of, s5k5e8_of_match);
-> > +static struct i2c_driver s5k5e8_i2c_driver =3D {
-> > +     .driver =3D { .name =3D "s5k5e8", .pm =3D &s5k5e8_pm_ops, .of_mat=
-ch_table =3D s5k5e8_of_match },
-> > +     .probe =3D s5k5e8_probe, .remove =3D s5k5e8_remove,
->
-> This also lacks newlines.
->
-> > +};
-> > +module_i2c_driver(s5k5e8_i2c_driver);
-> > +MODULE_DESCRIPTION("Samsung S5K5E8 5MP sensor driver");
-> > +MODULE_LICENSE("GPL");
->
-> The same critics apply to (at least) patch #5, too.
->
-> Best regards
-> Uwe
 
+Good question.
+Need to check this.
 
+> > I think there may be a way to deal with this easily since
+> > ntfs doesn't need to set either but not sure.
+>
+> We could export the 2 other helpers I added for v2 (xflags_to_flags and
+> flags_to_xflags) and make NTFS use them?
+> Though adding the fileattr_ prefix will make the current (v2) vfs code
+> maybe too verbose.
+>
 
---=20
-Best regards,
-Hikmah Gumelar
+Honestly, I can't say for sure - you can try
+I think you may need a different set of helpers fileattr_prep_ used by the
+filesystsems that are converted to xflags_mask, which may be different from
+the set of helpers used by the user facing ioctls but I'm not sure.
+
+The thing is - this is all hard to wrap our heads around
+
+You and I have parts of the design in our heads w.r.t backward
+compat with legacy API, both UAPI and vfs internal api.
+
+I think you should put it in writing to see that you and I have
+not left anything out because this v1 surely does get it wrong
+in several places both wrt legacy UAPI breakage and internal
+API correctness.
+
+Thanks,
+Amir.
