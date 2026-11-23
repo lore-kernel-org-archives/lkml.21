@@ -1,56 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795462181;
-	b=CA4EkXz3fMp4zGkEIMfJ751DqcBXAkfSOp+P8C8jh2DTHZ9e04vYk7jQpzrRo+8Pc2JD
-	 nataOCQIqHCvvFZYwe2tAoIFaD0uRAfb5UnxsWM2JZcnnOGW46a1P+WDx36yMEJPbxs7n
-	 H1uhScz7ULiX+ZMIJZFU8lQb2ls/Kyyg/WqZz85JPEkuc6MtFCEaYKaBMUAIusujsM3Xz
-	 JL0OHAV8bdmn3BJRLMLQunsdu35GifMpJD2+LQ0k2PKlVuy+AmBPnqymWXWAjYbLruGuc
-	 PZPxevUcVhxj5VUqdJaABWMIQZyRMUCu18AEAW9lA88c9R8FcWkjPDtE0wwz7MkrLtA==
+	t=1795462223;
+	b=V3vqfeXN8enlev+nbdXJk7lSek62nxTKlSFopoXqBiike/nBnefxZIIzwFfmXBkMd6to
+	 RywyWV5cpG67nvFKIFsFFU+reWcvxCjGI7yFEdePo+AcNy/G0QS45PLuuzY7DlIFq4cA3
+	 bMIm1U61BdE2rxBWgKjxzCPaeb72IFR5xJrJ6fTMN/4TWFXRm1hAvHRdrzhBtcB7tMEgT
+	 XPDL8+60Cbp8mroOIKkjnurdXopSd6z6CgbWPiVt81yiHIn50jlEHT7pswSfhMfSSTa84
+	 oXZcnSLM9LxUMUjlIOODgw704OSgWY6Pzvg+QVpN9Kg4X8S9nkJeh84jUVxH/AOEskg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795462181;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=bigjH10zLaNPMlSkTCzCu9h2jiCICQadhZ5I+UJiw58=;
-	b=xkzYKZKox/vQ0GliiS46X5IqJhBwd5EYTCsNZzBje5SaCvGNpa39HS9zOQa7PuYO5HoW
-	 4jb/Ef7lra4LGfBayJkG9Spjt7W7N3b2KGMzelPbciBUu+oIbfl+6XniOxXzyxphNKwHh
-	 obLTTSTV9MTq7nZEbeROUA4claQCJVeqoKAaa9tITZpxlokT4J9V/DlvC9QaFCSs3vble
-	 mV4e9jxHPk4yyHIs4+HcI28mFMa/6T/xbmxIsqCB+Z2oUQBY1NjcDs+DlJWntsLwTg9yf
-	 WPy26QeaWOw7CuL2ojwtJXDXfNCVURzVDjLRgTfRylhsuTCkpGSJyJHbNoM2fXJ8Low==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795462223;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:
+	 X-Scanned-By;
+	bh=WgnRz/bOt+pL6/L7HTI2otxAkXdfRrZjAr91Ov9Xees=;
+	b=g4q3jj5likFmH/KNOXzLJyo0oFjki4Nj+g8XT9o04oAH+zDnTxMDvVuUtXs6/EcMCcZD
+	 bo4cWMlfgDyqmrzeqYyZLaCjuOuPjvJ55BQFaSiBjFCBpsbJYHnKKf+YjCnFiyEDXs7bH
+	 w5BhjpBR+fwY+P26HnQEMRAG4H5udow2sxqYOgLeTcBxenTs1EejkJ2WSX2jbtcq8ol6D
+	 xGlgdt6v0aTRTKmOskXDIC1vzCHqKkR/5M6em1oT2lsS/FzycrJXHG2XjQ30CZH4dgCMP
+	 ofmpXMlUqTqrMHpMi0ASEpXwmLXM7rChZShKwK+BIq6BeqL0fBUxAGhafhdXhcWu4ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k1fA8pem;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jDTUkZKX;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 167E4606A31A;
-	Mon, 23 Nov 2026 19:29:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57521606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:30:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57521606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k1fA8pem
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F2251F000C0;
-	Mon, 23 Nov 2026 19:29:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795462180;
-	bh=bigjH10zLaNPMlSkTCzCu9h2jiCICQadhZ5I+UJiw58=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=k1fA8peme9rsa9SZtPYp2SCdFZWzBRfGLQ7p3XILcRmuBVgtGbFQRNRgh7+5Z4up3
-	 fsPVg+w6mDenQR0UfXcUMSfnNUT2ZygcgzV2VTa8mPQlBXJlt5OE6P70gcN5O4V/K/
-	 mIpLhUvTt67xHTnqpX6aq2pAMtiuulH+GqwoxQhm+0tgDqMa0x6tHrDnBq157W7sZX
-	 CWp2Sk2RtFwcRNixZsDiWUxM1odbGYybPM8s2ri+G41+tCGL4cGbwXRl4THUN+xO2d
-	 ed4Uagqz2MLfUCCQsSXvjqcHWZERXU4tYQuNsrJZ67aYZ+hBRi1WCMO9OmscZlS9xS
-	 WzGEOTBBh8uLg==
-From: Mark Brown <broonie@kernel.org>
-To: Vijendar Mukunda <Vijendar.Mukunda@amd.com>, 
- Mikolaj Kucharski <mikolaj@kucharski.name>
-Cc: stable@vger.kernel.org, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <awNg5lUNAYmZ2tOx@gdkpeagp.my.home.arpa>
-References: <awNg5lUNAYmZ2tOx@gdkpeagp.my.home.arpa>
-Subject: Re: [PATCH] ASoC: amd: yc: Add DMI quirk for Xiaomi REDMI Book 14
- 2025 (AMD)
-Message-Id: <179545628055.25092.17562854443052654825.b4-ty@b4>
-Date: Mon, 23 Nov 2026 17:51:20 +0000
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jDTUkZKX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795462221;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=WgnRz/bOt+pL6/L7HTI2otxAkXdfRrZjAr91Ov9Xees=;
+	b=jDTUkZKXiRb2rFN2IhjQmNDKN6MkrT3WEKpRoPS5IssonImWM3MB4H5uRv4f8+96vmY62T
+	0+co9FT07CQnbSe5olwHD5TbthVQ336rMdbffw0/6TjrtMpPC6nEjF3fV6dpyBD+sybInY
+	ubOZpR0LwlT+6S2Ic05V6BrlhiVkZPU=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-146-DRIsK4-cPVGlnQHBMcqflg-1; Mon,
+ 23 Nov 2026 19:30:17 +0000
+X-MC-Unique: DRIsK4-cPVGlnQHBMcqflg-1
+X-Mimecast-MFC-AGG-ID: DRIsK4-cPVGlnQHBMcqflg_1795462209
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6E5C8180034E;
+	Mon, 23 Nov 2026 19:30:08 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 56162195608B;
+	Mon, 23 Nov 2026 19:30:06 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6ANJU5xw3419490
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 14:30:05 -0500
+Received: (from bmarzins@localhost)
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6ANJU0FN3419460;
+	Mon, 23 Nov 2026 14:30:00 -0500
+From: Benjamin Marzinski <bmarzins@redhat.com>
+To: Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>
+Cc: Hannes Reinecke <hare@suse.de>, Keith Busch <kbusch@kernel.org>,
+        "Martin K . Petersen" <mkp@kernel.org>,
+        Mikulas Patocka <mpatocka@redhat.com>,
+        Mike Snitzer <snitzer@kernel.org>, linux-block@vger.kernel.org,
+        linux-kernel@vger.kernel.org, dm-devel@lists.linux.dev
+Subject: [PATCH v2 RESEND] block: stack max_hw_discard_sectors on bottom max_discard_sectors
+Date: Mon, 23 Nov 2026 14:30:00 -0500
+Message-ID: <20261123193000.3419445-1-bmarzins@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,46 +85,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1151; i=broonie@kernel.org;
- h=from:subject:message-id; bh=0sEofry1lLv1FraWghw/Mzjz5tyHRBiVUBRbGwljwZs=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZpigq2NX5XPuwlUeVR7X2zCfJHb5Kc2YeiXHOn8PlF
- HPe3vZxRykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACbCJ8LIcPnc7t3Tlhc812//
- PcUj6d4a68VxUzP4HFdNP/jg/1G3xEcMf4UPBnkXmFQteaGT/C7ups6GzCImru6i55U9/3Kk8xw
- XcwIA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-On Sun, 22 Nov 2026 21:38:46 +0000, Mikolaj Kucharski wrote:
-> ASoC: amd: yc: Add DMI quirk for Xiaomi REDMI Book 14 2025 (AMD)
+blk_validate_limits() sets a device's max_discard_sectors from the
+minimum of max_hw_discard_sectors and max_user_discard_sectors. For a
+stacked device to correctly limit max_discard_sectors to a value that
+the lower device can handle, max_hw_discard_sectors should be based on
+the lower device's max_discard_sectors. Otherwise the stacked device can
+pass down discards that are over the size limit of a lower device whose
+max_discard_sectors is smaller than its max_hw_discard_sectors.  This is
+a particular problem for request-based dm-multipath devices, where the
+underlying device does not have a chance to split the discard.
 
-Applied to
+Use the upper device's max_hw_discard_sectors to limit this, instead of
+max_user_discard_sectors, to ensure that it respects the lower device's
+limits, including their user settings. A user raising the upper device's
+max_user_discard_sectors should not be able to make it send larger
+discards than the underlying devices can handle.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+Device-mapper does stacking in two passes. Each target calculates its
+limits from its underlying devices, and applies any target io_hints.
+Then the overall device calculates its limits from all its targets. For
+the overall limits to be stacked correctly with this change, each target
+needs to set its max_discard_sectors to its max_hw_discard_sectors
+before being stacked into the overall limit. Otherwise the
+max_hw_discard_sectors io_hints values from the targets will be ignored.
 
-Thanks!
+Fixes: 4f563a64732d ("block: add a max_user_discard_sectors queue limit")
+Signed-off-by: Benjamin Marzinski <bmarzins@redhat.com>
+---
 
-[1/1] ASoC: amd: yc: Add DMI quirk for Xiaomi REDMI Book 14 2025 (AMD)
-      https://git.kernel.org/broonie/sound/c/e35cdd54ef77
+Resent because I forgot to include dm-devel. Sorry for the noise. See:
+https://lore.kernel.org/all/20261109193927.595104-1-bmarzins@redhat.com/
+for the original thread.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Changes from v1 (sent as "block: stack max_user_discard_sectors")
+- switch from stacking max_user_discard_sectors to
+  max_hw_discard_sectors
+- Adapt device-mapper to the change.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+ block/blk-settings.c  | 6 +++++-
+ drivers/md/dm-table.c | 5 ++++-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/block/blk-settings.c b/block/blk-settings.c
+index 1f5ee2453269..52ac00c59a0e 100644
+--- a/block/blk-settings.c
++++ b/block/blk-settings.c
+@@ -919,8 +919,12 @@ int blk_stack_limits(struct queue_limits *t, struct queue_limits *b,
+ 
+ 		t->max_discard_sectors = min_not_zero(t->max_discard_sectors,
+ 						      b->max_discard_sectors);
++		/*
++		 * Use bottom device's max_discard_sectors to limit the top
++		 * device by what the bottom device can actually handle.
++		 */
+ 		t->max_hw_discard_sectors = min_not_zero(t->max_hw_discard_sectors,
+-							 b->max_hw_discard_sectors);
++							 b->max_discard_sectors);
+ 		t->discard_granularity = max(t->discard_granularity,
+ 					     b->discard_granularity);
+ 		t->discard_alignment = lcm_not_zero(t->discard_alignment, alignment) %
+diff --git a/drivers/md/dm-table.c b/drivers/md/dm-table.c
+index 48f25ab6b7fa..4cabe2645094 100644
+--- a/drivers/md/dm-table.c
++++ b/drivers/md/dm-table.c
+@@ -1834,8 +1834,11 @@ int dm_calculate_queue_limits(struct dm_table *t,
+ combine_limits:
+ 		/*
+ 		 * Merge this target's queue limits into the overall limits
+-		 * for the table.
++		 * for the table. In blk_stack_limits() the upper device's
++		 * max_hw_discard_sectors is based on the lower device's
++		 * max_discard_sectors, so copy this value over first.
+ 		 */
++		ti_limits.max_discard_sectors = ti_limits.max_hw_discard_sectors;
+ 		if (blk_stack_limits(limits, &ti_limits, 0) < 0)
+ 			DMWARN("%s: adding target device (start sect %llu len %llu) "
+ 			       "caused an alignment inconsistency",
+-- 
+2.56.0
 
