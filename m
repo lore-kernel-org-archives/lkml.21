@@ -1,86 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795523326;
-	b=INegWSLSPJWNGOrBtqUqUyEIpe5IsnHJeDSmMJoT2cx0JUrdDe1EFXrlVjKbBksswOwq
-	 N23eUWFAdp6gvH84pcwcvXl1MDpM78wR7oaBKeL3/LecwWS/dfMJNwzgHjhv3uQZLfYYC
-	 uAJ3Z+pICvOOy158/pHZlBwlG8FVaHI4/rvjKNhB6W+Rk4I2jph/zl5z4WmqZE/pLxhq3
-	 NpJPCGxgSJga7Do7pOkLEQsM9tFSFGmbAaGpyZ/6qQ3WB+SkvwF1aWPIkwjW4jSln5W97
-	 7oqseoFEWpHl/0JDyL1/rxrkxxXPOjn3eoOlY94vXRJwKfbzbwcApjm5PoxKz/Yf34g==
+	t=1795523322;
+	b=HkFhZxiTSa4WA4BRPLQCA7pNvcNwbAaBk5iy391NkGKsMEgWzg8BIs76Rx+zuTO8r2Hw
+	 LGtFFH8mJvFj8XwQFAq0KSZOnIicovxXTYv4/1MXc3zVMeOZXT5BGKKw24uNckpiq2kjg
+	 1gE56ZvIvhkIYtd+Jdji208yXY7tDJUpbxGU3HSfR94udiuyMB573mw9lOF5pCW98FHO6
+	 pZipARiApRdJaMEW9f035uBZ2S/CwCCTAajRbp7/90DNA8hKnUC8cQZnhcn9A8eB8eJ9l
+	 7Cg1FYq4abHhYHCy97Lfbt3QX9Lyqx9WOkVH1H1wtLTMzNloLFUMoUOEMjUkStDxLwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795523326;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=eZhcQLcos0J5dvNvJuQcdaS5XfBtHybSILA8OS9MUy4=;
-	b=X3AIjRH+vo1vOzoCfjlQNa0IZ5iT9NLBb9RRGyC8IiF7qKjJzTUeJBWgoxEZx4j4Z6pF
-	 miEgV0j6+8SdynaMrEm3vgcFDgmBoVyhrtiGuBMs846HBe6gE7uap09xjNoKSjRzvgj0m
-	 UkUqmGVMS1mBHufBjRGkFutA5nQ0yBuuFcW5b1tvGUQcTvZCdfSHaXu1UxZB2YsyZ3xZW
-	 BWZ5zKY55j31CLe1fslfybWKROzsG9qY+g1v13IJHz6SNCCPG7Xp9RF4LPZWk8t4tieIj
-	 kvdzA+o72tFwWeCb7p37Wtbfs1SC81k1tkZI+Qr2feswiZ5Gq2tW8rdJc1SAJVJVI0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795523322;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=2juA0rqU8pu1DpmHAS526Dnda9RFqW2YMGL8zHBIuM4=;
+	b=FwKuSBbbUok9PDjg97E6PRcwjqNYaMsvYAc8hA8EpMAye0lVzvT2VH3gTVjgJ6h+gRr0
+	 ycglobwdw9cy9uol4aCMnpCo4+1cF8FSj94vmuktTA03T86LjDjkeoUr8OJLoA1miD5H4
+	 c1sjaEckza1c8mYy45uiJMWZDIFkh7/mtuM4hf81na32RB7oJVE19IE91dPJTxqzY3Six
+	 p5kA4pwvkQE6CsrTuffluWGV5YVSfriQy+HGAygqSELQjW+gz3Nl4IBcooQqNlcdmR6rZ
+	 WPWAyA5ftgdYbnFAQF1DEPuLPY3YpEFYpxOjickN8Z4lMLg1dO7XcqV7vrFyPUo3F3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mdeJc0zF;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KNapicCu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DABE606A681
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:28:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DABE606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4673A606A32A;
+	Tue, 24 Nov 2026 12:28:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mdeJc0zF
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb61185057so28978965e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:28:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795523324; x=1796128124; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eZhcQLcos0J5dvNvJuQcdaS5XfBtHybSILA8OS9MUy4=;
-        b=mdeJc0zFgMONR/NIr7+cJFXQYT9CzjbZVK8K5bHdLs5owNebF6BU6Lbm+9OJDMU10Y
-         yt7f+5sLgqYmVZIDmBpJ4ksEtISJb/I97RIHZbwO6MvpHEzvTiAk3fxKdlhe4KnzcOzj
-         ZywLle01PUQKQXASCQztj/WDuBw56a373qOxXHDEI8c2CClJsa5dYMIz6SPbcBJ6fGs6
-         EE8HLW5oohacke5/5JVwZ14wuPmHOaO5S/x37gkYucadKC7fjdMmkrsfH7WTbEm7GF7b
-         +sIlmr+BFFRDH+eHJlg/ADSXxq72+jMtqdO3N/xPxEpd4/V0unSmakepAaTOry33TdW2
-         vypQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795523324; x=1796128124;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eZhcQLcos0J5dvNvJuQcdaS5XfBtHybSILA8OS9MUy4=;
-        b=sn8agp1wlzruU08DFTbXtLK+2aTsDc4hYL5eL1uNGP05+EGFX4AT6bjxJvE8wO4Z+7
-         MuR5yGxQ4LEr4QAeYFHoBogae0DUdJUEm0j+YpqKbjMuz4djn3v6VCOHFW4G9qwveOeL
-         Dj+HMsy3GnX0INL0UyuQpuibn8wtlFuoU71QKLKlNn59eETSHdIevTRjM67ZHjgwnn/6
-         oGlEce+6i98icfOmAFMsX4rr3Jmm4vsS2Ri3x9Wg/6IuIR+oVYfYaQFesayxCuUf9vdv
-         iTNq5ArmLQzJbjNjIlJkO8rjzrIDWWwMfwVZFO1+7/ah5XXybLnW/7JpCUUc3rA72NPE
-         ttgQ==
-X-Forwarded-Encrypted: i=1; AL+hErHFd15NRwAH/NvEkt61vlkSxXYht50O+lhP+Rbxf0cTE/3LfXBHh2jvurMU638XXxg065oUMMDHm3Mbf5E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+taCIH+4Knjbb5UuEW9SaIz5LgxgKmTexmikxEX/xWB+Y+xmKS
-	ZH73M5vCnxmF7lqlNvquzQGJGUrZsYg+cmNsKFIZSaFhFZBDIHV4IRR6Rb6lBAFIcmk=
-X-Gm-Gg: AZFdTZc8Z1VsnO4ES5aRgqMtOdfjBvPLYBe025WXgGiwfABnM8nhqUBs90MbS2MuAJF
-	rlAlPFV1DUGGS3lIE8boUK8jHlMyYE64QKokplk5wrhQVPYKvYqywfjCbKzvoElm2ajmqqA1n+q
-	rMydFbHftvqvGto94QMk7vq9GfupDzK+3qCNADLh0HagrH/hzzUU8YjrZ4h9FF3l3s9cGueht3J
-	62fcghd7SHjX7Ndg0tbnIAbZQReiWkNHLEmB+r7PnphX/ioSgFPUoEDEOwpBqUaJtSEqIYmDadK
-	nxnMspaCUzrepN/txQqnHMStFQGQgjrCdJwA6S5322Qf5wTMSA83C1e2RcWGd8pMuZ5FV6xjjqz
-	bL29Lr2JHF7O0/22Ddv9lHDjt8aLr+mjKj/t/5U4/a4S5SrAW6FDzFG7vvkG+oe9Xl3D0WFZFwC
-	3QV5aTTQDWMUdKaM+CdqhWNRB2jCodp2w9sZDDaR6Z7RQv6t4yUl+aKEZW0yj4yy/Rl9W3tmLyY
-	Q9Plt8tlsorc/Z5IjME/tbBaSrP6H424R9NvKe3CNz1b+BiRuNK5siVo6SzB8SGV9h4qcCFfMFk
-	5qXWkjEcJ82g9H7/s13kKoEL9ux+TP4/H5wtUNAzfgY=
-X-Received: by 2002:a05:600c:1911:b0:4a1:7c56:d4e2 with SMTP id 5b1f17b1804b1-4bb8880cf84mr300507395e9.16.1795523323754;
-        Tue, 24 Nov 2026 04:28:43 -0800 (PST)
-Received: from [192.168.0.167] ([109.76.241.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm432306495e9.5.2026.11.24.04.28.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 04:28:43 -0800 (PST)
-Message-ID: <08b9a714-278b-4e1c-81c8-59a60dba5916@linaro.org>
-Date: Tue, 24 Nov 2026 12:28:42 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KNapicCu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538501F0089E;
+	Tue, 24 Nov 2026 12:28:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795523321;
+	bh=2juA0rqU8pu1DpmHAS526Dnda9RFqW2YMGL8zHBIuM4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=KNapicCuWhX/vW62nc3qkqVu6EVdptRq5g7QrCTBE7iTolKDnGTd+/SoZD2r2skx5
+	 Gl1VhBF2gtrhLXGPeFJrQ7DVI3zg3/IcyAw5RGZMoSV7vbIuM/RPILwGikSX0X64IE
+	 lWf5Bh1DRIzHumptedgqKhyav21cxBdmr2oumhTxQZmGLB+Nt2UhENm3HNg8XfpDg+
+	 +MOPE+oicT1XvPkVsIWOjVEU07jjU3mflUZ8YkxLi0OEe+IcXflO/63d9tKWLxqiFY
+	 Ovieuvz5a7sZAVg0L2OEB6/lgWmRbobe8+pP5UATDj0AVFPWCacr9t3T2E3nWQSeCk
+	 ZPaqgNIRX89vQ==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261116-spi-sun6i-h616-dual-read-v2-0-e0c66eb71e20@gmail.com>
+References: <20261116-spi-sun6i-h616-dual-read-v2-0-e0c66eb71e20@gmail.com>
+Subject: Re: [PATCH v2 0/2] spi: sun6i: Add dual read support for the H616
+Message-Id: <179546093021.25092.9731522702680875589.b4-ty@b4>
+Date: Mon, 23 Nov 2026 19:08:50 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,63 +63,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] media: qcom: camss: csid-340: Report the hardware SOF
- timestamp
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
- <20261123-camss-hw-ts-v1-3-7b62dda6d7a9@oss.qualcomm.com>
- <c7fc67a6-e15f-40df-9c0a-7eae54e99d23@linaro.org>
- <CAFEp6-1otVCjNJgWLTiOMQpdy1t4qJUP6_NK0CuifrN+cOTTcA@mail.gmail.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-GB
-In-Reply-To: <CAFEp6-1otVCjNJgWLTiOMQpdy1t4qJUP6_NK0CuifrN+cOTTcA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1598; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Gl/xhCYINcG9OHOKX7Xhzx/xdThzJjdJ2Z4+WZuW27E=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZm76yZzvv2j7z+uWwWfyFzA9+7Rae+01toovFWvUpU
+ 0pO3dCI6ihlYRDjYpAVU2SJy+J+WV/yeg3fwYVtMHNYmUCGMHBxCsBESjYzMnzdvzjnyO26xjy1
+ c09msOUFZ1p4iaScOiko7iBjv0PgSAQjQ8eu45GFnd88Ofd+PJv4v/CD/BmGOvG1FxIL9qjLLvP
+ byAcA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On 24/11/2026 12:20, Loic Poulain wrote:
->> On 23/11/2026 17:16, Loic Poulain wrote:
->>> +static u64 __csid_sof_timestamp(struct csid_device *csid, enum csid_iface iface)
->>> +{
->>> +     u32 lo, hi;
->>> +
->>> +     /*
->>> +      * The pair is latched on SOF rather than counting, so it can be read
->>> +      * one word at a time without tearing.
->>> +      */
->>> +     lo = readl_relaxed(csid->base + CSID_TIMESTAMP_CURR0_SOF(iface));
->>> +     hi = readl_relaxed(csid->base + CSID_TIMESTAMP_CURR1_SOF(iface));
->>> +
->>> +     return csid_timestamp_to_monotonic(csid, ((u64)hi << 32) | lo);
->>> +}
->>> +
->>>    static irqreturn_t csid_isr(int irq, void *dev)
->>>    {
->>>        struct csid_device *csid = dev;
->>> @@ -207,7 +234,7 @@ static irqreturn_t csid_isr(int irq, void *dev)
->>>                iface_val |= status;
->>>
->>>                if (status & CSID_IFACE_IRQ_INFO_INPUT_SOF)
->>> -                     csid_sof_event(csid, i, 0);
->>> +                     csid_sof_event(csid, i, __csid_sof_timestamp(csid, iface));
->>>        }
->> I think a callback in csid_sof_event() might be cleaner or some other
->> way to not have to replicate all of __csid_sof_timestamp() for each CSI
->> decoder.
-> I added it as a parameter because it is provided in much the same way
-> as the sequence number, given that the timestamp is directly related
-> to and coupled with it. So it is not clearly obvious why the sequence
-> number should be passed as a parameter while the timestamp should not.
+On Mon, 16 Nov 2026 05:55:24 +0000, Arun Iyengar wrote:
+> spi: sun6i: Add dual read support for the H616
+> 
+> The H616 SPI controllers support dual and quad transfers but bind
+> through the H3 fallback. Patch 1 lets the binding allow those bus
+> widths for the H616, patch 2 enables dual reads in the driver.
+> 
+> Developed with Claude (Anthropic), which wrote the code and the commit
+> messages. I reviewed them and tested on an Orange Pi Zero2.
+> 
+> [...]
 
-But pretty much every hardware implementation will have to do the above 
-function. I'm asking for more functional decomposition.
+Applied to
 
-You could pass the hi/lo for example and make the sof_timestamp() 
-function common - called once from inside of csid_sof_event()
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
 
----
-bod
+Thanks!
+
+[1/2] spi: dt-bindings: sun6i: Allow Dual SPI and Quad SPI for the H616
+      https://git.kernel.org/broonie/spi/c/b4d26b2d6b61
+[2/2] spi: sun6i: Add dual read support for the H616
+      https://git.kernel.org/broonie/spi/c/908db9a4ca30
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
