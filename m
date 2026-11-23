@@ -1,99 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424146;
-	b=grJjMxJrMYMW9ZM/cO0Et4Gh50f2JMNG6krbA5u9pRF6kq58j5f98EoVLmjZvhD2dhqj
-	 OKoPiHKR1FJmeEepRxshWFriFXZ0yGPAngdELILP+LPcJui3o1XMKXWomVdyz0Y3U4NkL
-	 CjQln8CeD0Kr/QSUl5l2T/Gy6sLH8aU9sc68Hpp7QQM9YmgXFmXOTbnIOvwaS4q6vdWtH
-	 pmpq/etxXYzkkEQC0MB92a1W48FDqq7MLYoqa22n6I9H4cmpgXM45YC3PhP3CFcLPD+If
-	 VW0I+jf5XLTEEdHDYaIloldoq8KVqVtn45nu07AD3zlInQEoCuLvGPNqRA2Y5pBBGnw==
+	t=1795424147;
+	b=EAc7LSipWM4eyvMs4w2iX2UFmq6KypokJRCCqapHt3xuDaQQaxSmgNLGbMtjmkJWgraC
+	 Rdnrqz5P9AhkDdEIKM8n+faF8PnsHmS/dZZqWJzAzc9iwinI8eB+w96S4/cFkPyGIbWje
+	 YvnMc+1IHmWRjgC9zXZDeI2QgKaCm2YPBPn8LYkS3fFDOIdR/kaQTrEhmnyFJorO3bW+T
+	 IOa1uDr2XYxdN8QV1mNwbQevRRyv4FFiND8Hg/WE9pFN5/INj53VceqiWPWvd+eOECDzO
+	 ZPMNb8624lnXTfLx6Vdme67ByjOkfZkC+mrK5C0/1Ujqp5eiujP0srKfbYbOFK5M0TQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424146;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=f9MB3bWT0jyY4n2Kpgos+T2A2jxKzbR0OabGMZP+mY0=;
-	b=qvrQQ7IAKxRVsrRgmB+huavhL1/jfmBITsK2oYWkHyrDyJQlAAlEBf5k/qap5kYAZy21
-	 sWMSEzyzp7OvOiaYiUQv6nXE6IZanHBA6StZJa4DVOoqtbycKQGvD6tZH5BL8iXoqzE9U
-	 acNYZApI3F1+uoF76qjvDvzD8OmCnl5JZsZrXEqzbP/v+MfxIcHcUGYUZju7E2rqoBU3E
-	 WfrfOxyKdD8A7hBr78e1pvCl8kbwQgZSt/PhLvqmNT8J4/uyyQz3l3pA3oSlMfPqlpbXx
-	 SCZc+P9IfaBxmqq8+9oh3JWcpPi3n8+7+J6Fb7hAxD8YVtaBQXkwDuDUU9ujfaVY+KA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424147;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=blot85h4FTwfSQn0FLKdi/Aa22snUat5BCH5SdoPrNQ=;
+	b=EmPlV3/4I0rDjVhw4XJucDfKzDzXFIDhD+aKIJmMC/+sBQmxXEPNdubBREsnB339QCzr
+	 z2EYRba+jICgb+2AiYcRfVeqcxEl2gb2LM3I+HEZ28jNIUJDvm0jcncEHREqWxM9vIFWW
+	 E1px3gEBEWNj38aeUyew1OTQEgXu2I7wIsLLeozbaARdulJ8yzYyznmSa9qjwanFtc9qh
+	 GVMCtgitJfzCB+hB86h3eN1jgWKX38oFu3zmqxetwP6Dmk9U+xaqymjJRv2EwUyknHHVg
+	 eAeR9A6N3xZNsWbyvuDDLVr5XDa+DYwmU8ZW24dHYBYgsdTBOgKmjErwqcFYKwgnk1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=mP+n1NDd;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=qOcIAU2g;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAC82606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:55:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAC82606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91B3F606A33B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:55:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91B3F606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=mP+n1NDd
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so28713865e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:55:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795424144; x=1796028944; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=f9MB3bWT0jyY4n2Kpgos+T2A2jxKzbR0OabGMZP+mY0=;
-        b=mP+n1NDd/D0s8lxqJL3tG8GRauiJoUDrkAIVwyOJAH2kuHDDZRcWEVWjsqfIiHxoFS
-         z7dO92Ze1yXpoNijQ0QsgC5GZJtZdC6CJCn62UvTBp/rjFGq44e1qd1aF6mvseodzhV2
-         5fTmDW9ugwWXjI8xCrWcISVADVqHTMYMeIz3xPGym6UMdgn3h3TBZ+tdG70SlzHOUBhY
-         l7szPfmrVsHBrE5f3ds1gyd/KfwmawNn9lCpkwqmROk3cxxCJS3l35KejjZOcbMzjfeT
-         aHLndUyCnJEfzZAwk5KT1gFTknUfotNECA7IXGbjAEjRbX+XF5sacR+C5vSWubzsUhVa
-         e9dA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795424144; x=1796028944;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=f9MB3bWT0jyY4n2Kpgos+T2A2jxKzbR0OabGMZP+mY0=;
-        b=NbqjICSg8DV1c7bTuv2bc78PgqSs74VdoontVUi4YEVpeFMPzl7Gv2Vq1g34orui37
-         6uirF0YFUfsnqUDWDkQtfuX3bRzpVzjA2ZaPT7LE3iAMJBsCGKsT1wU1l4tw3Bg9RGhq
-         zk8DIgMDhtO1xcQ9q8lG+ntlKqSCiIuDEiMyf9n9XWR+/u8TTbTshkDPqy8titDVuRFR
-         HIJGBo2Yv27L349VUto9E+tKLZfvVVPCUn/uuKgmuO37FDG8AmAtUrcDZdBIL6sybVS9
-         zw6aIbgaDdipDnw2vSEX05foPNfr6cC44BIyi6M2kX8KZobYW7aGqcj+Wwj3MOK4XD2U
-         AtsA==
-X-Forwarded-Encrypted: i=1; AL+hErFYbsWY/8EPgIKz20bCaJi6QXgl72KFHRDLcDrZCOt/O+pim5gdfL712/YIvfISbou7iuJ0PoMVQuPaR1I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9nl+0W97OtxYqOYLPigvVvxY8Erwmt/pLcHJbMpNKnDzY6m+Wp
-	Wv69Fk9WE/pJddukvQSJ+udMrkODHcsxtBGCU8ZB3LBoZlUiLHEk63IQ2A/ZyPeIbTY=
-X-Gm-Gg: AZFdTZd9ZLNhMEga0SjMtnqUK/npj9Ima+RuRRmpE0bjZ2IjEv9cgEyKxcUfcHrtquU
-	+UfZHS4HzW6JMPpMvpu1N/6jAO4+sPpsmPohei3bQYeZ42hEjZMPtMBTb4X1ODdau1s4+uxZNpK
-	C4aZUTpCgjvJgg85AhQv+5AY8lp2ezDOmebM631TwXEgg52k+czd7+aj3uR4K8NCh1iDbuKuJMd
-	kMC8LnjLwc3ip25Ko4HiJZi19a9VSgwnErBRW6JUZZf3p/wdxjBSg88AZQV47Y+tQwtiSejW70i
-	Rxg5EnXM4WczW9ajCRdj/s2T0iMNISR90U2VOLQVss0FMZDbJ89Rnk0GVB8AoowBbPnT+oDac6P
-	SmK1c98K6DJd0qfcW9MFlGPbpNTM6TEgoNoUhw3qptWOdvATjgeyeONH3dwRdi6ESfnBzwyGNb/
-	hLMocC4V5O/rSDcqiWVp7fT4NcZsOOjXp1nxDDIJm5ZVQSbn0dlYeY4s/9CJSEQWuTuH2eCPLzj
-	3dYwHtdidIP45PLgHMBxe0hng/CYrM/agvpJIANsEvah5tLOLw1u8NDesPBkd0nmHiw1XyjfxIj
-	bwFNJLFKnzuVzfNk13Cim5qr4Ng1LQAf7s6IgTNQyUlTyzZqBUvFsjmyQIPDiisPkcWqNgzwzYd
-	h0XWmaz6jbhYC3FfL
-X-Received: by 2002:a05:600c:4f84:b0:4bb:5f3b:25a9 with SMTP id 5b1f17b1804b1-4bb88820f39mr208644975e9.30.1795424143773;
-        Mon, 23 Nov 2026 00:55:43 -0800 (PST)
-Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6bc8ce06sm20503412f8f.47.2026.11.23.00.55.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 00:55:43 -0800 (PST)
-Date: Mon, 23 Nov 2026 09:55:41 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kernel@pengutronix.de, Bjorn Helgaas <bhelgaas@google.com>, 
-	Danilo Krummrich <dakr@kernel.org>, Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
-	Kees Cook <kees@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, LKML <linux-kernel@vger.kernel.org>, 
-	kernel-janitors@vger.kernel.org, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Christophe Jaillet <christophe.jaillet@wanadoo.fr>, Florian Fainelli <f.fainelli@gmail.com>, 
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH] w1: mxc_w1: Use devm_clk_get_enabled() in mxc_w1_probe()
-Message-ID: <awP9_l7UNqElhewY@monoceros>
-References: <4b99426a-d831-4d55-9b3c-ce83ba9fb081@web.de>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=qOcIAU2g
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54iHO2622583;
+	Mon, 23 Nov 2026 08:55:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=blot85h4FTwfSQn0FLKdi/Aa22snUa
+	t5BCH5SdoPrNQ=; b=qOcIAU2gtepLYgLfbJ98jQ8TcFJrzKSHsQIP9UGtJ+Lx+z
+	C1zFgDbKjkcE4oPYcwpEGEUjs8JE4mTi3u3H/s9SD8NLMJ3UcB4TVbeHU3Gt5gn9
+	74YiQXEWRQHGF1rdZfqliKD5fJG/9rwysZPDiTl3yp7/1uR8XcR78MYAEVNxpTDb
+	x73U/W1Mbp4BPuBjfQgL9nkBC/aP7rQpKACsJqOeYjnzRJg8FNSt8qbFmWsBcJz/
+	jtrbuUxeW++85P9noyLYYrdI/9GDHl4YPEyCiw0ib6tRXRoxbzZLjxRrCgiOio4A
+	CcYlFmZi0PCdaGg+4Pbrp14adjTyQhhIeRlb2Vag==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fkaaf7-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 08:55:09 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54Snb1436617;
+	Mon, 23 Nov 2026 08:55:08 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3raydq66-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 08:55:08 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN8t6Jd54591754
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 08:55:06 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5B3D92004D;
+	Mon, 23 Nov 2026 08:55:06 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EC13F2004B;
+	Mon, 23 Nov 2026 08:55:05 +0000 (GMT)
+Received: from osiris (unknown [9.87.148.25])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 23 Nov 2026 08:55:05 +0000 (GMT)
+Date: Mon, 23 Nov 2026 09:55:04 +0100
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Sascha Bischoff <Sascha.Bischoff@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 2/9] arm64: sysreg: Remove the dead range check from
+ parse_bitdef()
+Message-ID: <20261123085504.20959-B-seiden@linux.ibm.com>
+References: <20261123075219.369042-1-fuad.tabba@linux.dev>
+ <20261123075219.369042-3-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,129 +96,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fwfemldnzzy4vyl7"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4b99426a-d831-4d55-9b3c-ce83ba9fb081@web.de>
+In-Reply-To: <20261123075219.369042-3-fuad.tabba@linux.dev>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzNCBTYWx0ZWRfXz4eoKD+96ZGI
+ +Ft+L+CH5JFWXRxaKmq55nTM9hFGoFOI7xvVSbvbGBjMzaSKgICpPaEsyunKOw9ABbWJuWeD3gq
+ rH+BLwtjI90O0MKSPvMiE1WE4+rAmHJ5Y1/4qJeTDP+2dvxsS5nZ6YyrqjXWPL2TcFVjvzcEe6A
+ fGGMJ65OJheNgaFRgzVZFByN8Hr5aPN1T/XSc1uzNP7Bh20wdRawGOMR/HzS78McBL/b5QEb+86
+ nRgR4WY/Lh4Npim5fAaqLYHcgYKYPCz0s5jrDXZxaw8ffD1imvMmyqezuWCfi4rJIsUWX/1AozZ
+ pZb1A30zfVr2zY4jpGqD36zwWWjGkGoFZVTRgh82Qg8IogqTTHaQaFQpyLMqH3a4A1pzp4yrNbP
+ aroKdED0wHkrU8tmXFT3ENB5u3OHUHLrknwImz4gmTAYTb85662RHXFn9saAf5YbaRupEiftiCA
+ RttovEob/ATOkimP6nA==
+X-Proofpoint-ORIG-GUID: Vsde5VhrwxKgUxdtipmkSSyiCyN8Z4HK
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzNCBTYWx0ZWRfX6ix2YiqYMjT0
+ BSGKk6+LPwZSWHRVkLDufUwB8pcWn9yH+flQeNM96p12SUQ5N7tTaAvl/PRJx9LLCflBQgPY13t
+ VAhPtkYbNHNI0rRQ1UJ5CgY4mcBvruo=
+X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b03ff6d cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
+ a=9VelDpYHchpW-k45WfsA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: 3KYqQyQzyg9QPHMMFgqHI7dC8L1NfRUI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
+ bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230034
 
+On Mon, Nov 23, 2026 at 07:52:12AM +0000, Fuad Tabba wrote:
+> parse_bitdef() ends by testing "low > high", but the script doesn't
+> assign either variable, so the test compares two empty values and never
+> fires. The "msb < lsb" test just above it already rejects an inverted
+> range.
+> 
+> Remove the dead test.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
---fwfemldnzzy4vyl7
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] w1: mxc_w1: Use devm_clk_get_enabled() in mxc_w1_probe()
-MIME-Version: 1.0
-
-Hello,
-
-On Sun, Nov 22, 2026 at 06:03:00PM +0100, Markus Elfring wrote:
-> From: Markus Elfring <elfring@users.sourceforge.net>
-> Date: Sun, 22 Nov 2026 17:52:20 +0100
->=20
-> * Reuse existing functionality from devm_clk_get_enabled() instead of
->   keeping duplicate source code.
->=20
-> * Omit a clk_disable_unprepare() call on an error handling path
->   and in the implementation of the function =E2=80=9Cmxc_w1_remove=E2=80=
-=9D.
->=20
-> * Delete the label =E2=80=9Cout_disable_clk=E2=80=9D.
->=20
-> This issue was detected by using the Coccinelle software.
->=20
-> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-
-Not a big issue, but for me the commit log is too detailed, most of the
-things mentioned here are trivially visible from the patch. So I'd just
-write:
-
-	w1: mxc_w1: Simplify probe routine using devm_clk_get_enabled()
-
-	devm_clk_get_enabled() combines the functionality of
-	devm_clk_get() and clk_prepare_enable() with an automatic
-	cleanup callback registered to disable the clock in the error
-	paths and at unbind time.
-
-	Simplify accordingly.
-
-> ---
->  drivers/w1/masters/mxc_w1.c | 20 ++++----------------
->  1 file changed, 4 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/w1/masters/mxc_w1.c b/drivers/w1/masters/mxc_w1.c
-> index 06be7bf0b715..f40ea120127c 100644
-> --- a/drivers/w1/masters/mxc_w1.c
-> +++ b/drivers/w1/masters/mxc_w1.c
-> @@ -98,14 +98,10 @@ static int mxc_w1_probe(struct platform_device *pdev)
->  	if (!mdev)
->  		return -ENOMEM;
-> =20
-> -	mdev->clk =3D devm_clk_get(&pdev->dev, NULL);
-> +	mdev->clk =3D devm_clk_get_enabled(&pdev->dev, NULL);
->  	if (IS_ERR(mdev->clk))
->  		return PTR_ERR(mdev->clk);
-> =20
-> -	err =3D clk_prepare_enable(mdev->clk);
-> -	if (err)
-> -		return err;
-> -
->  	clkrate =3D clk_get_rate(mdev->clk);
->  	if (clkrate < 10000000)
->  		dev_warn(&pdev->dev,
-> @@ -118,10 +114,8 @@ static int mxc_w1_probe(struct platform_device *pdev)
->  			 "Incorrect time base frequency %lu Hz\n", clkrate);
-> =20
->  	mdev->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> -	if (IS_ERR(mdev->regs)) {
-> -		err =3D PTR_ERR(mdev->regs);
-> -		goto out_disable_clk;
-> -	}
-> +	if (IS_ERR(mdev->regs))
-> +		return PTR_ERR(mdev->regs);
-> =20
->  	/* Software reset 1-Wire module */
->  	writeb(MXC_W1_RESET_RST, mdev->regs + MXC_W1_RESET);
-> @@ -137,13 +131,9 @@ static int mxc_w1_probe(struct platform_device *pdev)
-> =20
->  	err =3D w1_add_master_device(&mdev->bus_master);
->  	if (err)
-> -		goto out_disable_clk;
-> +		return err;
-> =20
->  	return 0;
-
-This can be shortend to
-
-	return w1_add_master_device(....);
-
-=2E Looking at w1_add_master_device() there are error paths that don't
-emit an error message, not sure they are all -ENOMEM. dev_err_probe()
-wouldn't hurt.
-
-> -
-> -out_disable_clk:
-> -	clk_disable_unprepare(mdev->clk);
-> -	return err;
->  }
-> =20
->  /*
-
-Best regards
-Uwe
-
---fwfemldnzzy4vyl7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsD/4sACgkQj4D7WH0S
-/k77kgf9EmPcIEwAzVRo6kECyMEJc45Xjnn9AdThD7oC/Gx6VUMQQbPauzt2UPVq
-EPGTRco9qjVrbKq5TD+9PnMqvp5YpyujTitlI/4Ot30bdC17egDfWuTjZJ3tkh0J
-yXyV1jzLTy2HUKizAclwIdiVYb+ma7idz7GXO4uab/wsXytomYiuffn41vxTC6uN
-EStMlztHN7uFwxmiiies0bPR9k2pMqP8HbFcHI5b+DYJc3AGTwfZ9RUBWNrux7tb
-V3yWHM69SXZzWDVhDEQd/mxBjlxfXztMiI14uz2I1W2cLjNd+7shMWip4SQTGrxi
-gcS1M6jY+9uF29+WuZSxazEv+bsT5A==
-=o1fQ
------END PGP SIGNATURE-----
-
---fwfemldnzzy4vyl7--
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+ 
