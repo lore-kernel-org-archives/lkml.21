@@ -1,72 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795474364;
-	b=wrtFRRJpI/M+e7fwScv1AhowNCGaS52TqGuGNuvtL9fTKZDYbD4QoEziAOvcxPYGBbyK
-	 DaGfoBYqdyyRmxKGCZmtYIj50BL9eyIo8XTCSOpjvxKqn7O+CDneGEnUGPI+dHJiKI17B
-	 tg1/aUDIXCJx5Py+c1gRA7xIQNerdJLtOoqPYeNSf06kb/7TTky+MgBVOQZuiwRAfE+hy
-	 11QAe1tWNm1vDjpASGrsn7XVAYHUSEeAu2SQTbH6QPS2qVy7KvLMnZF/Ah2oiCdmXpE3o
-	 u1S5DlR+ewl9rTBxuPBwn5EM8D07KKV1W8nBSrqcFG6ubw5CtvxihMJ7cB+NW9Anziw==
+	t=1795474470;
+	b=XZwjmNhQF49xJWz5dtI37xPi6xpOThE0Ltde+5Mi0uBqZo7nnEK7kKGaWoTC5K7LtvNi
+	 lmntZzbhTsKfuvyKikn75K9fHPYLIEYBgcXhPimKQwoLz1i3R2VW1ZQVIJWd3H7b9/TTf
+	 0H9vQto474f2vclYnOaOmOB6xYtx5oJPYjqY1PcIvWsxf0kPXsg7TLbYKG271kXoxxO2y
+	 5DAFEdEZCk8jRsuwKER8mdXKS3gnHMQoRMW7V5OW1PnF8z7pFZi6VM/glqvU8VKGE0CRY
+	 m2Jn5YTzfhZSSdJZqU8JwNN8CRJH/bKboDTKWiljpbpbt7oLH4Y/K9YhQt2ke4ZZo5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795474364;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=MfUIqTpsmGf12d0YxNZ6y6o/elGBodL/n6v9C4By9jw=;
-	b=4qGc6ctJtnoeVstGsQ3Q57xxdBVEgPVtWitL5SbHl49xG2b55l97QQw4FkgXyixgrE33
-	 KqNOqjfQsgSGwP1ZE9+4IAF+3ctltR5DdQ+mX10A356BSb5+58sFaYJTleFaK4LCQy9m+
-	 fg7TE481zqTebeZ9HgCVC25ALkgPjuu5/6P/vmWMr6HVUZTpH0GriAgIU+etQGJF7gone
-	 kwEMGlvFTbx5NjrZl8KOjBD0KOtoQKt5OR4bvHf43p10eKgyaYtvhYZ1QB815Gn/xwBvS
-	 Uiug7z3xje8tSYdk3MSRp5mvQ+DTxllaXJKock3k02KlGialr38whPQBo6tnShWNDmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795474470;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=uxm7cLwrZsIM4FY8CLhKRgjetTXm1POR2deWfop5jak=;
+	b=zDhp9BB9rYretkxnvoo+FRA1eneWRfKrhaizzFkPcFkD3g5mq6s2fm4YFv3A7tocg1xN
+	 WUnalVO0ufZ1vxYWijpMuTqdRP7qbGbF3QZMbq+Sj/nXlFKL1Na8IGMsA4czsxWLVJega
+	 2bgZ9yjZ5xqoiKFYekPAQAMCItNKY+g9/6VIAEmhVZos7WlYjrKmBMopH2q12b2xjnS/K
+	 z/d9kw5+1YlCGYys3QpfTWZ5iC6QI5sjnta7L5P25KRKajRgBJsx9Nd1gciEHmddkTk/W
+	 Lts8bgjIq2y9HfKL2PXdEeuSkJp0XRnAo3uqpV0jOlvXMEiIRcraWvRIWBqfXKr4mSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--zhenwenliang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OzrKdyX5;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i1LdxNlp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80653606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:52:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80653606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--zhenwenliang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 931C0606A321;
+	Mon, 23 Nov 2026 22:54:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OzrKdyX5
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-5727b04b81eso2486864b6e.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:52:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795474363; x=1796079163; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MfUIqTpsmGf12d0YxNZ6y6o/elGBodL/n6v9C4By9jw=;
-        b=OzrKdyX5jLGj3cEMTXqrdE0BJDXL6zVUPT1Ik0t45Ymd5NefkuI+tdkKI93fHBgBDM
-         Y/CAHV5zQLJSK8gRGaNqztW9lYNilDfAHiDjMjMm8AFCM75uZOExhgnJQuqiVNYftCI/
-         q6sm/3KIXnCkl/0bS7Gu20Domv5F24S05dBtKJuCgrp/g0YCEmJ5+9BP44GRNMubHrt3
-         7S5eJ5OCcZb+a820Ncs/22icAeiZhllfpoKZQZZNsq2nTePeWKHM9gpBgYPkIr2AMyRm
-         7vZXsDVHY9mJUwneDFrKqlcbW0zQ1IX7KHyKInSV1mpDExrJn2Qqe1opCfdSnt3nYZbo
-         ZBUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795474363; x=1796079163;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MfUIqTpsmGf12d0YxNZ6y6o/elGBodL/n6v9C4By9jw=;
-        b=n7dukmU3EbX6eLyvzHdo4vIne+o9/OxfwINChaxPjkOCp8bs7wC7lzPmcp9qdLK0to
-         lExTM90ZXcQcNpLuVWX3+xVTmEbQfXmWc1RCXCd/Z+NFJpmOL/xZv51spVfqVKO9SCKU
-         Td8KTbiaTsnOT24wbOJtN/amdx2p3DNnkh0Z1GDyOnuRFMrztMs3viRj2EDhJsdugNTO
-         ayPfPHX5qaA25AWmnHjuuJZPpATT9EuDBMjEl2jqqQaLIFWWV8I4K2qqLlFkqGDw4bNB
-         44Jjw5+z658kmttUwGF+dnKK94X9R7v+FLEcKgH2pDdTTW24KD2vuC2J5ahi/7tzKiND
-         Rrfg==
-X-Forwarded-Encrypted: i=1; AL+hErH7vNvBFLF+a7prTquxNPaeFYq4EJ+izZ3kULh/CE9M5+T2SsJyqFJPthcM8Kfpi3qvzGlFRpFrszrv5sc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9EtVB+NZaiqFj20lhxbcZWZqPi7C9E2RFwZw0/Rq8x0dxIAv4y
-	toxe/ho+et0y5Xt80GjqwQav0WZ0cKFvbK0r2yqWOGF9hb0AK/O3Zdgy3lW3Rd8pdXnaHh3iink
-	n/b6QaOOc2K7FQRecs9RVePRGYJCwxw==
-X-Received: from ilef5-n2.prod.google.com ([2002:a05:6e02:6185:20b0:524:d8ac:6887])
- (user=zhenwenliang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6809:22d8:10b0:57b:473d:7d60 with SMTP id 5614622812f47-57b473d7dcdmr7263663b6e.40.1795474363280;
- Mon, 23 Nov 2026 14:52:43 -0800 (PST)
-Date: Mon, 23 Nov 2026 22:52:38 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i1LdxNlp
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id A2A331F000E0;
+	Mon, 23 Nov 2026 22:54:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795474470;
+	bh=uxm7cLwrZsIM4FY8CLhKRgjetTXm1POR2deWfop5jak=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=i1LdxNlp/1zyBaviNuUf/h4QPiP4GfqVT5G2k+cWvyL7/22tImxQR6Z2/bQIXxh64
+	 Io6U8QMXfs81Zdk5ZwyX8et/r6I7bs59qT+Gw3gbWbT9S/+wWJiCGrFzyH1smhIlr5
+	 Ywcm3Hqr0VUr+Qar8O+jVtHMrdE7lSanS5T/pI46OzAXZUSIh3Y7l8AVp0zKyepT4M
+	 yScBuk23/btShriRh1vunn17kUM7At5ojanxd7lCacX6IZwKunMV5M5hrQmpLAQ7FO
+	 Bl3yFVwWC62Yk/r/gR7Mptgth8KTuhNaq8dhZDOPUtQeZY5mKPqsBqxKTwagNy433V
+	 g6ej6r3HtxkzA==
+Date: Tue, 24 Nov 2026 00:54:26 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Casey Schaufler <casey@schaufler-ca.com>
+Cc: Andy Lutomirski <luto@amacapital.net>,
+	Andy Lutomirski <luto@kernel.org>,
+	"Hallgrimur H. Gunnarsson" <halg@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Serge Hallyn <sergeh@kernel.org>, Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	David Howells <dhowells@redhat.com>, Kees Cook <kees@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	Jonathan Calmels <jcalmels@3xx0.net>, Jann Horn <jannh@google.com>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Singh KP <kpsingh@kernel.org>, linux-fsdevel@vger.kernel.org,
+	linux-security-module@vger.kernel.org, linux-api@vger.kernel.org,
+	containers@lists.linux.dev, keyrings@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] userns: introduce capability bounding set for
+ user namespacesg
+Message-ID: <awTEIj-S7ODioVv0@kernel.org>
+References: <20261119104208.782900-1-halg@google.com>
+ <20261119104208.782900-2-halg@google.com>
+ <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
+ <CALCETrV=zSxb6sgA08DLiK2bQovdMEj9ycG=Cc71mLn2C5Pgeg@mail.gmail.com>
+ <4db941ba-3001-4019-8910-63e534b29f89@schaufler-ca.com>
+ <awSVO9Zc-233M7_P@kernel.org>
+ <6a0539de-1a66-4dfd-a21d-aee48ab18f3f@schaufler-ca.com>
+ <awTDm_EpFNwH9uEy@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,115 +80,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261123225239.1653134-1-zhenwenliang@google.com>
-Subject: [PATCH] serial: core: take the port lock when setting DTR in uart_set_options()
-From: Zhenwen Liang <zhenwenliang@google.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>
-Cc: linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <awTDm_EpFNwH9uEy@kernel.org>
 
-uart_set_options() sets DTR with a plain read-modify-write of
-port->mctrl:
+On Tue, Nov 24, 2026 at 12:52:15AM +0200, Jarkko Sakkinen wrote:
+> On Mon, Nov 23, 2026 at 01:58:41PM -0800, Casey Schaufler wrote:
+> > On 11/23/2026 11:35 AM, Jarkko Sakkinen wrote:
+> > > On Mon, Nov 23, 2026 at 09:22:29AM -0800, Casey Schaufler wrote:
+> > >> On 11/20/2026 9:09 AM, Andy Lutomirski wrote:
+> > >>>> On Nov 19, 2026, at 2:52 PM, Andy Lutomirski <luto@kernel.org> wrote:
+> > >>>> ﻿On Thu, Nov 19, 2026 at 2:43 AM Hallgrimur H. Gunnarsson
+> > >>>> <halg@google.com> wrote:
+> > >>>>> When a process creates a new user namespace, it receives a full set of
+> > >>>>> capabilities (CAP_FULL_SET) scoped to that namespace. While namespaced
+> > >>>>> in scope, several of these capabilities (such as CAP_NET_ADMIN and
+> > >>>>> CAP_NET_RAW) expose broad kernel attack surface that many sandboxes and
+> > >>>>> containers never need. However, there is currently no configurable way
+> > >>>>> to withhold such capabilities from user namespaces while still granting
+> > >>>>> them to workloads that require them.
+> > >>>> One thought (from the rootns thread): the other decent sized attack
+> > >>>> surface here is CAP_MOUNT_ADMIN.  Which doesn't exist as a capability
+> > >>>> bit.
+> > >>>>
+> > >>>> A sort of horrible solution (but maybe not so awful) would be to
+> > >>>> declare that the bits in cap_userns aren't actually capability bits,
+> > >>>> and that you need the bit in cap_userns *and* the bit in cap_effective
+> > >>>> to do sensitive things, and that mounting needs cap_userns to have
+> > >>>> NSCAP_MOUNT_ADMIN *and* cap_effective to have CAP_SYS_ADMIN.
+> > >>>>
+> > >>>> I want to sleep on this.  It might actually solve several problems,
+> > >>>> e.g. controlling creation of ipv4 and ipv6 loopback or tunnel devices
+> > >>>> or whatever.
+> > >>> I slept on it. Here’s a counterproposal.  I’m not saying I think this
+> > >>> is better than this patch set, but I think it’s worth weighting the
+> > >>> options.
+> > >>>
+> > >>> Define a whole new set of privilege bits.  As a
+> > >>> poorly-painted-bikeshed option, I’ll call them eprivs (for exposure
+> > >>> privileges - it’s a crappy name but at least it’s pronounceable).
+> > >> I played with a mechanism I called "chits" (all the good terms for security
+> > >> bits have been consumed for a very long time) that looks a lot like
+> > >> what you're proposing. I did it to address the CAP_SYS_ADMIN problem,
+> > >> where any use of the capability opens up a whole barrel of worms.
+> > >> I cannot, unfortunately, find my patches. :( The basic approach is:
+> > >>
+> > >> A process has an optional set of chits. A process without a chit set is
+> > >> unaffected by the mechanism. A process with a chit set is allowed only
+> > >> those operations for which it has a chit. The existing but empty chit set
+> > >> allows no operations. A process may drop a chit, but not the set, which,
+> > >> again, can be empty.
+> > >>
+> > >> Because I was after CAP_SYS_ADMIN, I envisioned a call
+> > >> 	cap_able_chit(capability, chit-list)
+> > >> but there's no reason there couldn't be a
+> > >> 	chit_able(chit-list)
+> > >> as well.
+> > >>
+> > >> I wrote this as an LSM, but the system-wide aspect of it made that
+> > >> a questionable choice.
+> > >>
+> > >> If you have any interest, I could dig more deeply to try to find the
+> > >> patches. Otherwise, I'm happy to look at what you come up with.
+> > > What if eprivs or chits would take each capability and subvidide
+> > > them into pieces? CAP_MAC_ADMIN would be formally a set of chits
+> > > (or eprivs).
+> > >
+> > > And process having e.g., CAP_MAC_ADMIN, would actually have the
+> > > set of chits that are included to CAP_MAC_ADMIN.
+> > 
+> > That would require that chits have the same inheritance rules as
+> > capabilities, and I think that's a really bad idea. I was an active
+> > member of the P1003.1e/2c committee that defined capabilities, and
+> > was a major advocate of their inclusion in Linux. I wish that I
+> > could say they've been successful, but root still rules the roost.
+> > I attribute that to the complexity that arose from trying to address
+> > privilege via setuid and privilege bracketing at the same time.
+> > Chits (or eprivs) as a finer granularity version of capabilities
+> > would make granular privilege even harder to sell than it is now.
+> 
+> Perhaps (or likely'ish). I'm just unpurging what I meant (even if it
+> ought to be wrong):
+> 
+> 1. You can create F(C) -> S where C is set of caps and S is a set
+>    of chits.
 
-	port->mctrl |= TIOCM_DTR;
+s/You can create//
 
-uart_update_mctrl(), which uart_throttle() and the other modem control
-updates on an open port use, holds the port lock. kgdboc calls
-uart_set_options() through uart_poll_init() for a port that can be open
-and in use as a tty, so this update can race with them. If
-uart_throttle() clears RTS between the load and the store, the store
-puts the old RTS bit back, and the following set_termios() call writes
-it to the hardware (8250 does so in serial8250_do_set_termios()). RTS
-then stays asserted while the tty is throttled, and hardware flow
-control no longer stops the other side.
+(left by accident)
 
-Do the update under the port lock, as uart_update_mctrl() does. The
-same function already takes the port lock a few lines further down to
-set UPSTAT_CTS_ENABLE.
-
-This does not cover one more problem in the same function: at its top,
-uart_set_options() re-initialises port->lock for ports that are not a
-registered console, which includes the kgdboc case above. A lock holder
-on another CPU at that moment is not excluded. That is a separate
-issue and is not changed here.
-
-Reproduced on v7.4-rc4 in QEMU with two 8250 ports connected to each
-other and a debug-only patch, not part of this change, that delays
-between the load and the store. ttyS1 was opened with CRTSCTS and not
-read; kgdboc was configured on ttyS1 while data was written from the
-other port. After the tty was throttled, RTS was still set in the MCR
-register in 5 of 5 runs. With this patch RTS was clear in
-5 of 5 runs. Without the delay (one control run) we did not see
-the failure.
-Configuring kgdboc needs root.
-
-The problem was found with a Lean-based formal model of the code and
-AI-assisted analysis. The patch and this description were written with
-AI assistance; a human checked them against the source.
-
-Fixes: f2d937f3bf00 ("consoles: polling support, kgdboc")
-Signed-off-by: Zhenwen Liang <zhenwenliang@google.com>
----
-uart_set_options() sets DTR with an unlocked "port->mctrl |= TIOCM_DTR"
-(drivers/tty/serial/serial_core.c:2294 in v7.4-rc4). kgdboc reaches it
-through uart_poll_init() (2696) on a port that may be open as a tty.
-If uart_throttle() clears RTS under the port lock between the load and
-the store, the old RTS bit is written back and set_termios() programs
-it into the hardware: RTS stays asserted while the tty is throttled.
-Also in next-20261123 and all seven stable branches checked (5.10.y
-to 7.3.y).
-
-Needs root (kgdboc configuration) and a port open with CRTSCTS;
-functional bug, not a security issue.
-
-Reproduced on v7.4-rc4 in QEMU (x86_64 TCG, 4 vCPUs, two linked 8250
-ports) with a debug-only mdelay() between the load and the store.
-kgdboc is configured on ttyS1 (CRTSCTS, unread) while ttyS2 floods it;
-then MCR is read:
-
-  v7.4-rc4 + delay:           RTS set while throttled in 5 of 5 runs
-  + this patch:               RTS clear in 5 of 5 runs
-  no delay (1 control run):   RTS clear
-
-In the fixed runs the throttle came after the locked update: they show
-no stale write-back, not behaviour under contention. Without the delay
-we did not see it; only 8250 was tested; we did not measure data loss.
-
-Limit, also in the changelog: uart_set_options() re-initialises
-port->lock (2265-2266) for ports that are not a registered console,
-including this case; not addressed here, your view is welcome.
-
-Backport: 6.12.y and older lack the guard form; they all (5.10.y to
-6.12.y) have uart_port_lock_irqsave()/uart_port_unlock_irqrestore().
-
-Found by a formal code verification tool under development (Lean-based),
-with AI-assisted analysis; verified by the reproduction above and human
-review. The patch and this text were written with AI assistance and
-reviewed by a human. Point of contact: Zhenwen Liang
-<zhenwenliang@google.com>.
-
-A search of public list archives, git history and syzbot found no
-earlier report.
-
- drivers/tty/serial/serial_core.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/tty/serial/serial_core.c b/drivers/tty/serial/serial_core.c
-index b06d2649be34..836ffa8cb845 100644
---- a/drivers/tty/serial/serial_core.c
-+++ b/drivers/tty/serial/serial_core.c
-@@ -2291,7 +2291,8 @@ uart_set_options(struct uart_port *port, struct console *co,
- 	 * some uarts on other side don't support no flow control.
- 	 * So we set * DTR in host uart to make them happy
- 	 */
--	port->mctrl |= TIOCM_DTR;
-+	scoped_guard(uart_port_lock_irqsave, port)
-+		port->mctrl |= TIOCM_DTR;
- 
- 	port->ops->set_termios(port, &termios, &dummy);
- 
--- 
-2.56.1.809.ga0b61035b5-goog
-
+Br, Jarkko
