@@ -1,60 +1,71 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448501;
-	b=Uv32Yab/YM7ONGcV/HnblBZPCZonQfhEbbXVxZ1WTSxplN8QnseWNCZelB7o0fHrnLf9
-	 G9C4hYCGYDWNgjo9mPKYg5eFeNWZD1lfaLE4kyUd+F+KwvZ5/nNgyoSDwW3t1Iy1ZX46v
-	 OSD/JMqQZ9uDwq2ImmOXK4XYBYl4xlcaLTGvz4iIUDJYe7R8hxto5p/oRJFo2RfmGSQfL
-	 3OA2bVLFwMyjC6pT2yoJu+pkSQxzDf+Oiu0I6uBDDdxb+FhScs+qr1LoMDLkZVbqz0EXt
-	 cDyapeF524yjLarj3zIczkH1lOd12pUpA01FGq1zOlgeAz1puCXuatxKvE2JQFNcdQg==
+	t=1795448572;
+	b=aDnwU+uuCJftvgLt8Bd986nVvkcbAs7lahDUXzqUSjAF9gDVD+jZdjPhdr4/fwrUmJsp
+	 WTLsb/oa6f/kYNAbvvPeelruEd8Qx14uN2Np8f32rg8xKEkpu4a1qXICc2D+Ed7FmeaLi
+	 KaokcyK4XWXLhaVwKhwU68UJxSbagNGabRxbgSThOSGuRbSAsC3aUUAAkIRRr9aDMNMHC
+	 g9oiGnUoZ5/IV8x05yzasP93QeVcymyWWm/GI1gDBaQSyWin6r6FqdlEjKbmEO9sOOq1o
+	 wsB/e0tJPy59yDKAtoKgIqzesuhmdPphja5AqRQUMYH0x14r2uROR61y7baK5XrIMDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448501;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=dFeejFp+b6lfL7BUAUr19CJqBLSUo9uMnCRR5A9zrR4=;
-	b=qxKJ18VdPX/X76RTJ7+QHgmcKs+3G11kjlhpu+5I67QB7WYNQ0cXe1NLdcbnTiASXwgc
-	 AtW/5+wqMVNmoF+r4RXurNyLAwUmP85HBEr+1dIl83mO95ldqesbZ1fUvElf3fukfN9Yu
-	 ljLiOFO0MKp+XRAFI8RdWS/3+nWle69Hf3MmbWCiz+iAn14hX8yxmEwAgFAMMjWTNLnEZ
-	 lkKLSbJ2Ww27iCPwAqknCz7gFRGL1DhMNa9kAQAint2ZrUY7BLfehNZxUPB71AH8yrwC1
-	 +Vrs7TPAyE8h0bpXuHI45uAhP7+X03eKrdforbkgGBYaKubOXKzIzHoFokIn2JColHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448572;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=riuuGEnVtTWNXQVF6HXxqh3SkzuRQHjQI696YuiIOXA=;
+	b=p+UpaRT03RrkF5fuoYzSFaRZsBvZaGTQT/NtYtUFAKDzZeiC7cHNjn6f2dBSCg/f3C5h
+	 kBbvHv4hu5x+ZbxIpJOp5TSfDFoyEWbKciHq6VEgt2KhCahGTvuqFAr45bFYQG4dTGC8J
+	 fHhMMKJukz2RzzuNJa4ISjKrogaVZKHRjnJBwNilxZz5axEo7lc3FyAr+9vvzkTw0A6GB
+	 BqBMU+TdPWMPUHV6apNL+3g955I/b7/ZqNa0+34W0AZ6uSmED4qPM0sLTsif3zavYxAFy
+	 1WO8A24AI75sBNmQNGKD6aaeazXUtJRM/aHowCsblTHcuZcmwgKyjYA61O7eWCZrnig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8d9D+gx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ce7NZaFf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9167A606A333;
-	Mon, 23 Nov 2026 15:41:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C6250606A31A;
+	Mon, 23 Nov 2026 15:42:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8d9D+gx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40DE1F00A19;
-	Mon, 23 Nov 2026 15:41:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ce7NZaFf
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 391B51F000CA;
+	Mon, 23 Nov 2026 15:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448501;
-	bh=dFeejFp+b6lfL7BUAUr19CJqBLSUo9uMnCRR5A9zrR4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=g8d9D+gx2a/3an3ASut3qGr5oEpHsivWwQ+UhHDR0If1A3yyPv/kY7+BfgFR+NqdN
-	 ZilHQFqqtx5WVOsA+ayKiYVOpVN0DJ4xEqjQMQPZHlMIzEV111GVQAL12ViWVllJxE
-	 uqwzndF29p437xSVCDrf7jtrYVdWIwGJvjPA5J4hSbeN46HM9EzluuidNMdzO24s3N
-	 YWtgQBBPfU9Af9QzmP5IZAfKaXsoOnPaPPBVN0kxzbf0UtbpWqyhs9Q1Y7zGFQ1+wA
-	 RdS/K8RPYtdzVeOcb9bMYsMb6vOIrvbe/Tu/BPBRs7gKLN/TLa2I8++UmaQPxRtGiU
-	 YAEvmrqXg/xuA==
-From: Brian Masney <masneyb@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Carlo Caione <ccaione@baylibre.com>
-Cc: Brian Norris <briannorris@chromium.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- David Laight <david.laight.linux@gmail.com>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com>
-References: <20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com>
-Subject: Re: [PATCH v3 0/4] Fix clk-divider rates above 4.29 GHz on 64-bit
-Message-Id: <179544848919.209212.7567602584693765343.b4-ty@b4>
-Date: Mon, 23 Nov 2026 10:41:29 -0500
+	s=k20260515; t=1795448571;
+	bh=riuuGEnVtTWNXQVF6HXxqh3SkzuRQHjQI696YuiIOXA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ce7NZaFfiDrHnlT5izuCzOYODIzuJKTteA9jXeyOFT5LUGlFOYnDR39EjoSwj1YC/
+	 SNWcefv7l/bbO0uX2Nk0ySysJZmE1XD9vs9xCGPNp9v0QeN9q2biKcj+In7T/hlBTN
+	 ufzO2vUUHyJ1qKVqH648Y0nCZjYYt9S2zP5gFajYEj67snKrpidJr8WXzwQUxrvDJV
+	 2dBtO8GxcLSJoLVLzfhnOuBsLqrD8o66R5ACgm6z2q9CE4K/krQ3Ut7RD2Caa0AVFY
+	 iK/j7B0wipcn91RKxoXQm1zvOQI0nW5lfcU2QAAhUV/pY2O88IUdo6lfyYxGxhCGyS
+	 ufu9h5uCHHKug==
+Date: Mon, 23 Nov 2026 17:42:48 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-api@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, david.quigley@intel.com, lukas@wunner.de,
+	ksinyuk@kernel.org, rodrigo.vivi@intel.com, cedric.xing@intel.com,
+	sameo@meta.com, drdeeglaze@gmail.com,
+	James.Bottomley@hansenpartnership.com, aik@amd.com,
+	jpiotrowski@nvidia.com, qinkun@google.com, pgonda@google.com,
+	jic23@kernel.org, alistair.francis@wdc.com, ankita@nvidia.com,
+	suzuki.poulose@arm.com, kas@kernel.org, rick.p.edgecombe@intel.com,
+	elena.reshetova@intel.com, dave.hansen@linux.intel.com,
+	sathyanarayanan.kuppuswamy@linux.intel.com, peter.fang@intel.com,
+	zohar@linux.ibm.com, aneesh.kumar@kernel.org, dave.jiang@intel.com,
+	nik.borisov@suse.com, sergii.dmytruk@3mdeb.com
+Subject: Re: [PATCH RFC v2 9/9] attestation: Add the TDX family implementation
+Message-ID: <awRe-A_KeE_kXyPq@kernel.org>
+References: <20261113160838.2512652-1-jiri@resnulli.us>
+ <20261113160838.2512652-10-jiri@resnulli.us>
+ <awQCrnD5CtEhKRWz@e129823.arm.com>
+ <awQz1P6iXYrL8lv0@kernel.org>
+ <20261123151128.GD179082@ziepe.ca>
+ <awRYr7yB8IWj7S3G@kernel.org>
+ <awRan8ZELzpTwduV@kernel.org>
+ <20261123154042.GI179082@ziepe.ca>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,46 +75,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-8145e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1175; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=KN50npO1UZYjwZAAlLSlkjQVocXNnwkgImXNgPQP4Vc=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJZ4tbkSSRmTry0Y8q+yQfFnz4L3XKXw1LQ4ydPe8JG2
- 3aP34F9HaUsDGJcDLJiiixLco0KIlJX2d67o8kCM4eVCWQIAxenAExkUxfDb1bFVccdeCKWead5
- qVot3mM2YdONgKrL4f8NdGb6VLgEezIybE/Y5XLwgu6fHyd6OZKsp699wX9lI6fmh/lGh/72Bhc
- VcwMA
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123154042.GI179082@ziepe.ca>
 
-
-On Thu, 19 Nov 2026 21:49:30 +0100, Carlo Caione wrote:
-> Fix clk-divider rates above 4.29 GHz on 64-bit
+On Mon, Nov 23, 2026 at 11:40:42AM -0400, Jason Gunthorpe wrote:
+> On Mon, Nov 23, 2026 at 05:24:15PM +0200, Jarkko Sakkinen wrote:
+> > > > > As per the function, perhaps tpm2_calc_event_log_size() should be
+> > > > > relocated to lib and have non-TPM name like firmware_event_log_size()
+> > > > > or something.
+> > > > 
+> > > > Probably under drivers/attestation since that is where all the TCG
+> > > > formatted logs should end up. It should be 'tcg_event_log_size()' or
+> > > > something. Maybe a tiny module for it like we would have done in lib/
+> > > 
+> > > +1 for the name, as it is obviously more accurate prefix.
+> > 
+> > Location, I don't know. I was thinking something like "lib/tcg.c" with
+> > routines that are plain calculations based on TCG/TPM data.
 > 
-> On 64-bit platforms, the clk-divider truncates requested rates above
-> 4.29 GHz when computing a divisor. Fix it and add KUnit tests.
+> I think we should not have new users outside attestation subsystem,
+> but the legacy onces will still exist obviously..
 > 
-> Sebastian Reichel fixed this in 2023 [1], but later versions moved to a
-> new generic macro and were never applied. Patch 1 builds on his v1 and
-> rounds up with (parent_rate - 1) / rate + 1, which does not overflow
-> with clk_round_rate(clk, ULONG_MAX). Patch 2 fixes a division by zero
-> found by the new tests. Patch 3 stops truncating divisors to int.
+> IDK either, but this is my guess..
+
+No strong opinions on this; just unpurging my thoughts.
+
 > 
-> [...]
+> > And perhaps for tpm_buf (both stack/heap allocatable), if Trenchboot
+> > ever moves forward.
+> 
+> DRTM users will route through attestation subsystem to do their
+> extends so the tpm_buf user would be the TPM driver inside
+> attestation. We definitely need this for ROT agility.
+> 
+> We should be able to build the attestation TPM driver without any
+> trenchboot stuff to motivate it.
 
-Applied, thanks!
+OK, this was my guess but did not know it by fact.
 
-[1/4] clk: divider: Fix the divisor for rates above 4.29 GHz
-      https://git.kernel.org/clk/linux/c/485c1514fb97
-[2/4] clk: divider: Fix round-closest for rates above the parent rate
-      https://git.kernel.org/clk/linux/c/9964715d4729
-[3/4] clk: divider: Don't truncate divisors to int
-      https://git.kernel.org/clk/linux/c/e69c78b9782b
-[4/4] clk: divider: test: Add tests for rates above 4.29 GHz
-      https://git.kernel.org/clk/linux/c/7e4d9e345c64
+> 
+> Jason
 
-Best regards,
--- 
-Brian Masney <masneyb@kernel.org>
 
+Br, Jarkko
