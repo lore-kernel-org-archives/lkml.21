@@ -1,95 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.217
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415639;
-	b=z8DMNunklkqZJtosFfgWLqqfKTbI1nm0pnIUsMPKVstfiurnBLUlq1/LM/q3afF8w6+A
-	 YXnl5M7p8zG55SuCBwgZGZr7TzJyGKIeLXaGPGp2I68Erfuk9BtfSMqgBGDSdAbgUJRL8
-	 gUv5KgZM3IVJtFPfCbYADu/+Xc3xhnPWZAjsGkkYYQ6LJkRw347kCZ5tTiWF0BaMLXjHK
-	 TS6rA8LG9ueHBNujuUXWTQV5bZeSUCdkEzzPEQS7qdmwm2umpLvpYYumDfaohwxpXJdEq
-	 bIceCnorcshZGuiUdYkMEz1Tb54jpj25hLxh70rpQbWMBq1HDnSYYzaA38dDIxYMcoA==
+	t=1795415682;
+	b=fsIvR/Cd9AlAeQXcViu0bfLlcEHh9BNE0BxWPB1iywFeBMcLwzkgJmUMlWLT9Ws54k4l
+	 XL+hid8CwdZpvwlAw2bVuCApVFRO4ceqZFZ/6kK+rrF1Hb3sROjsIzAr2XVdT4qu3h5XB
+	 4J/Y2AGu+KonQqo0IYGgyY2YcbDp7smUl9tRB3ZpICiEXegDMTgMKk9qUs1qeqMSui+Fm
+	 6WwcMMPvas6Lul7b02sk5kVPXh2vMfY6ISoIdUDOMALEqlFjOp+iVBpHLGTgx/J3AvpG/
+	 JPUjsuBnjZXEFP90UBzP/7jJbIhX9qRSeeB6yRyYA3R7LdFMCGSaKgh1bwK7ZGdvaPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415639;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=R33dPDMuza4ECLYFcFANy1WXUDU0B8B9euDHWq09YZA=;
-	b=D+1L/+Kc7Fbxb76Ptfk3Wc5XBTCNlE/Hxnj589ANa/qMp7bXif1vXPnf8W27nIqI5G71
-	 zJPsCwUcAyJotZ8u/kmPhmTvdyef+J084es/AkR1gX/+g4aXCr/3f77sxwSdzyhpkFqQp
-	 o4Xyc5b5T4NxQiCwyqLFNvi6Q9RyLeZdPJiKGvJNXxTTG1g72HVDmyNbFbhuxHAfCdVRs
-	 mLQzFLIVL6vlWiY/u3vaOKQfi9yYm+xwCJriLrDN13fR4RG9CfpxhmV8qX842M4MngK7P
-	 eUgRPUr38E38uWm4RuNeAwQHt8e52oOlnc3Coume316Pm+SO6Cc1M6UeHRvpljgC/Rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415682;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=dmlXveCSZnpBPgqF5aW5G0Y7xoxhrlf/pvo5jEKUvxU=;
+	b=GdRSxmtwuq9vlwS8khIj+AV4vzcMHiaQG1rPvN2eTRe04cxGoLGPNvYjmlyNYMpu6S1a
+	 wpesIRmNTpMs5ezF5jyd7+R5WN3R5JA+GfA7bYacjtQqGwOAgcRjLAN/5Ho7/COIyDXCZ
+	 XUGu7SechB5c8KbzqUCfFFSMfGnWALtAWVCjnOXtklfZtDbawss7qIctXr+zFR6GUhz/i
+	 +MLmXRs5hwcQ/3xzaRo3BavOGXgP1gLIi4P+oVYlR/waZYzpiorA5H41yWGi8UAc1pjt7
+	 URK1MdKI52x3VPbkKiTE2LZS9ww4cMajmlvu0Igy4mb8oK4nWdZYQWSci5JlueplCwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uEqiWOsX;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dlBydcnf;
+	arc=none smtp.remote-ip=95.215.58.217
+Received: from mta1.migadu.com (out-217.mta1.migadu.com [95.215.58.217])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D75A606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:33:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D75A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77F46606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:34:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77F46606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uEqiWOsX
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f03f3631b2so15441735ad.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:33:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795415638; x=1796020438; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=R33dPDMuza4ECLYFcFANy1WXUDU0B8B9euDHWq09YZA=;
-        b=uEqiWOsXnHL+ewbkdo7xIx5r1ZiDVhi8BkQXY7iR+QXmWEwfgpRUYFpXHagHVYx9ur
-         AUCMJv3qG+dGBHgtE9VZTNQ9pTI64ButO0XmSq3/yTH4zc5P5PFyPVGxOJVXyLpsVgYo
-         tm+RlvnKVTW7BJOz1jx4YyWKEB+tCZB0gK2QccBZmJHnrzRFNsj/m1Rp+wfRe1fqPYFR
-         wNAQRa8aUmzo5I/RLA7+gTw2vXyhias/qpas18aYv4SbQZF0qCNgV3hW4+5YOISF+B0j
-         LF9qo2qs7+DTSKamehb1dKg5/DD9tCNmqy9q6VJE/O0zDRUmlmdkPLWaMZP0blZI+AFp
-         FN9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795415638; x=1796020438;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=R33dPDMuza4ECLYFcFANy1WXUDU0B8B9euDHWq09YZA=;
-        b=Dz183LQLj+DbI7hETGCDVpt/xXIyA49lyJKUbSWpL95kwfDOZpORREbCzLxdKOmN9k
-         PA8xnF+RROZRzm6iS6TreB9+eW70dG2XfR1E8sA51OAtp+0YeS8iOIQ9Udixf0FAaH6M
-         xYPHXYdwetRWb/J9YFQK4m4w+jTqjX7WLb1dgLWzwinUPH17pzPqh7wBCAWPsG4iJZ9C
-         MsJcSZ55lSL88hW9MHPDbhXy/RBKIoPt/olLesqQVLKilI+lZvU8Wzzhd+N2dxdeGVRL
-         FFsbA2eHs3pQapewRcCZREFIeeu68Kf+n7cQVOfcu6wCsgnSXWXezvbYZF+/YRjIVdNA
-         N6lg==
-X-Forwarded-Encrypted: i=1; AL+hErGV0uDGNwAk3UDzZh67SsjD27mklmLhnSpvAKuxL1My6lo+C1jKqktTU7Ym2scjzB/BEHNOsmwV9ZZjB5I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Jxdc2edH6esKy7q21hDAk7IS5OqFI7W06tspwAdTCNXkmKBD8
-	0RdGeU8wWIaOfmsxmewlA3I0L2o1a3EsKX84RZqjDLsA1KidEsRB78iJ
-X-Gm-Gg: AZFdTZeiERaELDN7422gzgL9vp93g4gknKkf0snn80Mh+xL4T/BsxM1v28gQt1+eGwd
-	xVuJsxa2QUxEy84jLC1Fcm6PXlUgHlbiXZwbc8GLWS9MFAYA9ENs1S3IF7cuFLXzkwcybOZwn6b
-	QqFIc3y4m9DUB56B0b7sDoPGxanU8SptKzpgOPJ9cQ+YWFoVSaUG0MaZWgE4FpC1t6pco60Fl9r
-	hU19gimPWc9BSTEjPn4hHl4mouSNWHtvNqDdkXIMAvehOLIH3R6+OCNOsVqvC78gqx+IM+pXCrl
-	UOXZAxzO9Dgqa1n54T4Hw6cseZimtvmGsbfn39Xl1btVbu/tuo6UElhldFQL6B6UZRpxJFH7d6J
-	Hb1fU+kuIgatw4BWYaKceSOdp2S1BbmtXCv1M312vsfkd5/paXQM5Vma/vHgQ31ycnCCuzheX3T
-	HhrLFHNI8er4HhGxS00zGO0709c5I8D1aO6kclaywfeVx3h1OxgrvGa/nbEboVdioUoo/IK0P7m
-	BrsatEEhhl95ck5WEn7k6ci+8+/hhrgXkZWgyZNWrlT7MGBPznhDC0942qozKOZETJtC+/mXMGT
-	WhSUk9GYwcSezjSYKrZq9ldT3jc9+ldXIrUmX4CnkGsO+NgHxzccwcM9oM5EJI7dYOcLIRc=
-X-Received: by 2002:a17:903:19cb:b0:2e9:821a:5527 with SMTP id d9443c01a7336-2f03f1d85bemr94913765ad.12.1795415638290;
-        Sun, 22 Nov 2026 22:33:58 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f122548sm47173495ad.66.2026.11.22.22.33.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:33:57 -0800 (PST)
-Date: Sun, 22 Nov 2026 22:33:54 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Jaewon Kim <jaewon02.kim@samsung.com>, 
-	Hyunhee Kim <hyunhee.kim@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Pankaj Dubey <pankaj.dubey@samsung.com>, Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] Input: regulator-haptic - drop platform data support
- and style fixes
-Message-ID: <awPeS7mL5KM2swfP@google.com>
-References: <20261112065115.1803973-1-dmitry.torokhov@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dlBydcnf
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=dmlXveCSZnpBPgqF5aW5G0Y7xoxhrlf/pvo5jEKUvxU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795415679; v=1; x=1796020479;
+ b=dlBydcnfQX12oRR8uydjfFNalP6lYwPHDZCy6hmywmxHuo952ryyGAAepLiDfoCEtfpaRzzm
+ wApFdueyiocb2Ktsgqp4hFv8Z/M5BEz+tDi72i1Lhg4EtB8Lc8iqQyvAaQDqYyA8VMdGE8L5Xs6
+ Mm56EnvkWC59K4BDGst5DI58=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 0039204fecbaf92e;
+	Mon, 23 Nov 2026 06:34:39 +0000
+X-Mizu-Trace-ID: 0039204fecbaf92e
+X-Migadu-Flow: FLOW_OUT
+From: Lance Yang <lance.yang@linux.dev>
+To: david@kernel.org
+Cc: akpm@linux-foundation.org,
+	nico.pache@linux.dev,
+	jerrin.shaji-george@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	arnd@arndb.de,
+	gregkh@linuxfoundation.org,
+	ljs@kernel.org,
+	linux-mm@kvack.org,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] vmw_balloon: account 2 MiB pages in NR_BALLOON_PAGES
+Date: Mon, 23 Nov 2026 14:34:34 +0800
+Message-ID: <20261123063434.99254-1-lance.yang@linux.dev>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20261120-b4-balloon_nr_pages-v1-2-d8944b587819@kernel.org>
+References: <20261120-b4-balloon_nr_pages-v1-2-d8944b587819@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,22 +75,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112065115.1803973-1-dmitry.torokhov@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 11, 2026 at 10:51:13PM -0800, Dmitry Torokhov wrote:
-> This short series removes unused legacy platform data support and its
-> header file from the regulator-haptic driver (as all users configure the
-> device via Device Tree) and fixes minor coding style issues.
-> 
-> Thanks.
-> 
-> Dmitry Torokhov (2):
->   Input: regulator-haptic - drop platform data support
->   Input: regulator-haptic - fix coding style issues
 
-Applied the lot.
+On Fri, Nov 20, 2026 at 11:34:43AM +0100, David Hildenbrand (Arm) wrote:
+>vmw_balloon keeps 2 MiB balloon-inflated pages on its own list, not
+>using balloon core that takes otherwise care of updating NR_BALLOON_PAGES
+>for base pages.
+>
+>So far we didn't account 2 MiB pages under the "Balloon" counters, so
+>/proc/meminfo etc. would not reflect them.
+>
+>Fix it by updating NR_BALLOON_PAGES when enqueuing and dequeuing for
+>these pages manually.
+>
+>This has low urgency.
+>
+>Fixes: 4d689474e1b2 ("balloon_compaction: update the NR_BALLOON_PAGES state")
+>Cc: stable@vger.kernel.org
+>Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>---
 
--- 
-Dmitry
+Reviewed-by: Lance Yang <lance.yang@linux.dev>
