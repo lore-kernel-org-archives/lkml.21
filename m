@@ -1,58 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795452826;
-	b=2Fmv1aCT6Dmk/hgPt/GtbEP7T86gGUgURqDA5qUheo2BAh99o2zvaZcaV0sKFYwn+hqG
-	 Wu/v7ZoOIezUgvb4IIRaKlbtvV66r63OZ1YVAQ/Y52BemzbNfecaWSZ9WsyiHAMYYVWne
-	 ZY+spBxu3aYdVpPZxTGK/EjIBQ3N/n/ZJRv2HUpgubrc08DMKkbc5lv/RmCf7ZoQkKOOI
-	 d5rQXngvkko3U/2nTJksAyNFSShwbbwC8o5Xz21klZPcxobqDw1k3/ec+gXanhYdL/RbH
-	 XYvGXH5mi8DOXnLwYdC6RDAn2TvXnQvTP6m3s23WU5ZHji/ueITKT5ZPnVe6XZ5rrkg==
+	t=1795452830;
+	b=M73nEZWBDzDQZXFXxZRDAKQvcJ3zvhV2xDjDP0U0j0IW1icLx2uQpVIX/XheHpvrZ0OT
+	 h2JuO3nr1kUtslrEZ1EaRWrAmxM9fgyRQItPZmhKVlLZDP5uZxUNTnr9jZtv5n5q/0Um2
+	 /VAJyPffK4k645ymfTbjIioqWSMOYPYdDoGnMNU3uC3XHITaAORjT0mLAGiYBDyAbI7n3
+	 zkVAfMoQwN+UxVgh9MgsPJoJt+w3RAQl/iHNpJkPCBtA/PeKOn2ZwhTEg2VnJrc2tv2Ai
+	 66vlaB2cV6bDJXEvnYFQqXka6qBFezGneA7MKU0HxsdCDxDoSUvQQScYbECfw10MSoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452826;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452830;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=drBF3Z3PQ0R8gQvpvkiEd1RU8Xl9TyEqLv9Q1GlRXlw=;
-	b=OEocjBJdDTvN64imUFX5J2BYjopNdNTAZnSaCzro8MvdlA/9tLfRTNsMxUgsU8uUWiET
-	 U9R387f4U7q3/qb8cDqJAqPgmT2Px6DaE3pepV6F69SyFARffm2wOuZT52lakxAF217oM
-	 S5VucyNYnU3TQeiYCSGD6dbosB78qFOFCGmkiv+BTjRJitp0O8ruM5/uMvg6q2fIyPWl/
-	 Oo/e/c5++shqKx0PWNLMbhMAoJ5rKP0G5aOZYT9mLZb2qiPbhyYnrsnjjeKkhQuXbiuaY
-	 6yfWFJFpgrrmQ14xc982WV1OcUMHPpssBC743tFwsUsw/fQ8+KjYlama70BS43piRKQ==
+	 Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ps/iPwcqdC4AQfhiiqXvzlyEE/xk71APo1FSjxzqBeI=;
+	b=41d0aYiLpxvFaCfOWyS3lbic17kVJZ3J+bg/nqK3J8tHZ2M8CJ+DZ9DLLFdk10K/++CV
+	 DOM1fcK0Jn3RuBgpduYVpY5AqtdppnAgEQjIaKo5L+fvlLx7Z8F2FVpE8g2MXi2kPfHt7
+	 /8v23NCUA4+tAviX2XLbL7hcww0doNbpm4gknrW2OucxrseJGcDQ+p8NkhChQXr5v300+
+	 8QP/PxsrcEwWpkfgYjz8ePFi11DOM9yfRc5PkiY/w8UYbf9PDhjCOfK9P3RRtEJ7B2ZqV
+	 KqwCOxzxayfmjOSUCgVzh8wC5jEH2vMjeFqDtmRpj+JvLVw8c83qKG3OM4h/q5X3QKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kWNAo7iT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VlDaRkoW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7574A606A31E;
-	Mon, 23 Nov 2026 16:53:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 71CCD606A31A;
+	Mon, 23 Nov 2026 16:53:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kWNAo7iT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51A001F000CF;
-	Mon, 23 Nov 2026 16:53:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VlDaRkoW
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 94D391F000E1;
+	Mon, 23 Nov 2026 16:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795452825;
-	bh=drBF3Z3PQ0R8gQvpvkiEd1RU8Xl9TyEqLv9Q1GlRXlw=;
+	s=k20260515; t=1795452830;
+	bh=ps/iPwcqdC4AQfhiiqXvzlyEE/xk71APo1FSjxzqBeI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kWNAo7iTk2MizLlzq6bTI6pK9ABv2SQVSrbQBR4A46kcXFppRsGaTwrWWEzSDO5en
-	 YaKFoqoJ6WryyYf6vNmu7OVHhdktiaZio6JNRTHMM0Ha3evBiAKDkNETFs68Qjpfyo
-	 2zK5R1WKOhuAvFG6PlUPNwziGkaugKBYjRjjeONPuVNh1RC5fDu6VfvUqZCOLkd/cf
-	 iihftvajLKupwIW7J4EZDVISpP3f7FGT4n4IwCCeyZvSESMhrnDSio+ue4T4m709M4
-	 uKoo4zFB8kmig0Y5Kdgk5sUSy+va1cFL517sYC9zSWDh82BvuKxiMl2/ZZxeFsXpmg
-	 30nSpusG+Xbdw==
-Date: Mon, 23 Nov 2026 16:53:40 +0000
-From: Simon Horman <horms@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: lcy8047@gmail.com, michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, vikas.gupta@broadcom.com,
-	andrew.gospodarek@broadcom.com, jacob.e.keller@intel.com,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] bnxt_en: Fix auxiliary device leak on early probe
- failures
-Message-ID: <20261123165340.GH31322@horms.kernel.org>
-References: <20261118050716.3873167-1-lcy8047@gmail.com>
- <179515123717.3136.1891710789877841672@kernel.org>
+	b=VlDaRkoWpeo2tXGINpmXJeC9iw+TXRJg2KHvhL4RrMRr3fnFDvMzwl5AgAwsg0Ncd
+	 tAro8Z5mj0IzhvD/TBod/Dg+vvFQ61F9pFW2lIR+rguuWPubYrSYKl5MzhRDdKRdBD
+	 vgrQr4G/NoV+ZYMtjEDraXmJhIf/AC8Xat8FG6pnzZKPKSihscdsWm9+D09cty+7uJ
+	 4kdZ1g4o3hyLjSkhWUb4gSts6EqZGdwFn3XUEdQqepmWmbhClO0pM4BxDuyhbfUdkx
+	 5znl7KDkMPfI4X708Cdnkna13bAyBaM3cG/bbnjhjacu5w2QOCxTHYVgQAf57LlcvI
+	 zTpafxM6e8kkA==
+Date: Mon, 23 Nov 2026 17:53:23 +0100
+From: Nicolas Schier <nsc@kernel.org>
+To: Vincent Mailhol <mailhol@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org
+Subject: Re: [PATCH 0/3] kbuild: reduce single-build dependencies
+Message-ID: <awRvg0ehHuF7aA56@levanger>
+Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org
+References: <20261111-reduce-single-build-dependencies-v1-0-7196ca986a85@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,38 +61,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179515123717.3136.1891710789877841672@kernel.org>
+In-Reply-To: <20261111-reduce-single-build-dependencies-v1-0-7196ca986a85@kernel.org>
 
-On Fri, Nov 20, 2026 at 05:07:17AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
+On Wed, Nov 11, 2026 at 02:41:02PM +0100, Vincent Mailhol wrote:
+> Building a single .o file depends on the prepare target which contains a
+> lot of dependencies. Some of those preparation dependencies are not
+> needed for a single .o build.
 > 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 1
+> This is a small annoyance because a modification of the compilation
+> flags causes several prepare dependencies to rebuild. Consequently,
+> single-build incurs an artificial penalty.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> Move the generic preparation checks and scripts/mod out of the
+> single-build preparation path. The first patch is a preparation change
+> to make rq-offsets-file an explicit prepare dependency. The second
+> addresses missing-syscalls check and atomic-checks. The third and last
+> patch addresses scripts/mod.
 > 
-> - [Medium] In bnxt_init_one()
->   (drivers/net/ethernet/broadcom/bnxt/bnxt.c), a bnxt_pf_wq allocation…
-> - [Medium] bnxt_en: skipped bnxt_clear_int_mode() on bnxt_pf_wq error in
->   bnxt_init_one()
+> == Illustration ==
+> 
+> These are the build steps triggered when changing the compilation
+> flags (here: adding W=1).
+> 
+> Before this series...
+> 
+>   $ time make W=1 init/main.o
+>     CC      scripts/mod/empty.o
+>     MKELF   scripts/mod/elfconfig.h
+>     HOSTCC  scripts/mod/modpost.o
+>     CC      scripts/mod/devicetable-offsets.s
+>     HOSTCC  scripts/mod/file2alias.o
+>     HOSTCC  scripts/mod/sumversion.o
+>     HOSTCC  scripts/mod/symsearch.o
+>     HOSTLD  scripts/mod/modpost
+>     CC      kernel/bounds.s
+>     CC      arch/x86/kernel/asm-offsets.s
+>     CC      kernel/sched/rq-offsets.s
+>     CALL    scripts/checksyscalls.sh 
+>     DESCEND objtool
+>     CC      init/main.o
+>   
+>   real	0m3.603s
+>   user	0m2.839s
+>   sys	0m0.959s
+> 
+> ... and after:
+> 
+>   $ time make W=1 init/main.o
+>     CC      kernel/bounds.s
+>     CC      arch/x86/kernel/asm-offsets.s
+>     CC      kernel/sched/rq-offsets.s
+>     DESCEND objtool
+>     CC      init/main.o
+>   
+>   real	0m2.060s
+>   user	0m1.505s
+>   sys	0m0.732s
+> 
+> (done on an x86_64 cpu).
+> 
+> Signed-off-by: Vincent Mailhol <mailhol@kernel.org>
+> ---
+> Vincent Mailhol (3):
+>       kbuild: make rq-offsets-file an explicit preparation dependency
+>       kbuild: move preparation checks out of single-build
+>       kbuild: move scripts/mod target out of single-build
+> 
+>  Kbuild   |  7 +++++--
+>  Makefile | 11 +++++++----
+>  2 files changed, 12 insertions(+), 6 deletions(-)
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261111-reduce-single-build-dependencies-966646f25a0c
+> 
+> Best regards,
+> --  
+> Vincent Mailhol <mailhol@kernel.org>
 
-The two issues above appear to be the same issue.  It does seem to be a
-real leak, similar to the one addressed by the patch under review. Yet
-strictly speaking different.
+Thanks!
 
-I'm indifferent as to weather it's fixed in a revised version of this patch
-or as a follow-up.
+Reviewed-by: Nicolas Schier <nsc@kernel.org>
 
-> - [Low] The commit message lists the leaking failure points as
->   bnxt_set_dflt_rings(), bnxt_init_int_mode() and the bnxt_pf_wq…
-
-This does seem nice, but I don't think it warrants a respin by itself.
-
-Reviewed-by: Simon Horman <horms@kernel.org>
+-- 
+Nicolas
