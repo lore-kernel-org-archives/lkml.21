@@ -1,98 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422390;
-	b=XrLdIO0yOkN3cdab12ZPQM89SJT6P6fvnlSlSBnyEkDaqyrVoPNdpc27nG6vcObatYZT
-	 k8+vXtfhFxwI543u2GVvuILXwNFea8j6RnSyjq9IWnEIfN1+1jyHl8T92GOBge62l4Lsm
-	 6VsGYaO3su1a8laF5kOWjS6OVXL0k+ZxTmbXZOZ2bWEKapJQj4qTTqSF1e7AEScOICHeA
-	 RDQFyLvjNVYy0wdT01Yx8RpTKYrFfmH4IE6Y+tVZT/w6DCol6WrYRTwFAI/tQbUvS1zL9
-	 PMUSUZSsMiRXmoXsqz0FfbjIDgXkAwJvNQVCGoGMuX0cRRvZ5kbTcS1Rr4UiMNTnDwA==
+	t=1795422431;
+	b=h2weotyJZqijo+2YtRrBVkHfsklVlBEfYYgTdd4bY9bZMK6g32KmyFoqfEgv485gXHxX
+	 2PVGcyRpXokLYfDOlxO6YlNmIRIhC3IS+/SmM1KseVddOJ2rAqtmXF7XpuaMdLkLsBjV0
+	 tV9IP7QQTgeZ1YQOVe6kQ0lsHuZlunzrik5wCE9onykrl6ut0SJ/1BRvAX2euHKgVVFTQ
+	 FHqIic3Y3P9XeqUQ2+fNNIVW9jRTwSkGruY4wIPo15vwk+zvynYwv76RAzmTXEFuKEkt8
+	 UsDIlTC8GmKONtw9o+W5jQdFkK+gDWqFYAwxuLxH0oBYPddHy9nuvGVCAI6s2ANGW1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422390;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=7udVJwhYhiZkorajfCLaajaBwSVEsWpW464G07q84Aw=;
-	b=lfRw4miBqc1yJCoYbKh72Hn/ADfPPwJnbrctAVeqqWBsg8D2HsJeISJi+pR6trdIY+Jm
-	 y5piJgZFB4WISP5SsUeonHSeie44Df4t0vfDwQT112plQCf3iawZdMlDIz5lxQYx9X/wU
-	 ppY5VLGksg70Mme4Jzpn5h7QR+9CThbwm18qLtsZcem/pB0B2b5LIccFOgbEZYxRF49wO
-	 yEfsHU+05XIp83JAMLUI1t6umJjYpsUojrdL3H6EWSpmNtO79bXtOg/H4mMMa5/cFkiNy
-	 QmueLwPvRMGf7AL1UxoBqMUGWVjf21FGdu//Q0NS5FoRmYgLITMs4RcbRymg/VLesyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422431;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=iaKJpebPoWiTy3xYOH8r5uGcGdu++drvzYa6KsXjvYI=;
+	b=p0Bll4wqPoNdpIFupUkP0kU73gdc8jST5yK1UzZrbgNuNN3YJIHb3ScN+jRHjv9Bt9uK
+	 BxTio5HuhE+QLKF9yw8MQVUtupAZN6naQ8iNpUW8CFv9fgVEO1yF6k/I0+n8F/yCET+Ez
+	 5AoVJRgsIGp4uc2w2vL1gxF78jaZANj+rLJX0tFHh7Lr0qZglC76x+94PiWmTkg5rERoX
+	 U/XBtFaFZKLYoHr7tShNhkGAc3HsICaFSPfEFHE7y5MYFuiBRfAJVRzg4Olow0JL4n7Yu
+	 X+9BmZprKdZyi71QWIXdEYSDITDAU+fYxJAsmsGmATGgF1qhMGubhpofF2oagIQL0hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XmXsRc34;
-	arc=none smtp.remote-ip=209.85.210.177
-Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j3HPGSp4;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1230C606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:26:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1230C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9226F606A31A;
+	Mon, 23 Nov 2026 08:27:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9226F606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XmXsRc34
-Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8b29b83fdf1so1440246b3a.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:26:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795422389; x=1796027189; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7udVJwhYhiZkorajfCLaajaBwSVEsWpW464G07q84Aw=;
-        b=XmXsRc34f6Bc9KBidlioBOHmKWsw+Xk2ORPllNKtQKuczraQZvtgcDIOAWsb9rmLeE
-         lu0GGK34HkSZybONTHg9EJhyUbbNRDnz2BZIWVconcEUgmi3+hPUca6r1e+N9wElwhkf
-         k5Kw4YIaJyK/W+JK5NxJBiz0DY8Go0OVsuzeBgXL6zVh5CvNeFN9DG8r05B5BUne+xmf
-         lthZnzKlWaYezCoEFXl0siBMcgaLGk0AZ9TfnirLEsEijy42kfgHC93ip9jp734y3aOE
-         8KwL4AO7vbhaZUF8TZnI0Rp4plIRVnHuIZVWt6U82uki5+Nov9xTDA0tDRxxVK7fS5Mu
-         Thjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795422389; x=1796027189;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7udVJwhYhiZkorajfCLaajaBwSVEsWpW464G07q84Aw=;
-        b=adXMt34AzEqdpoUcQ0ljZVT1Ix1nPvkAd28N8tK4mbROJZud5CSLdiGmzuXhNxm/Zh
-         Ou4TvW7B323fvmCuqDhPEfMPchHS3lvCT6iL4z+3hBrl1eXDM0RxHrxlCwJ0HUf4/F2a
-         oKz29lc5lRcmkHl76MAOJniy4/CzXDYkvEtuWQvAthU/qCZl3RhPsDcUDCWSpOeYNeqi
-         UOjR/5UJes5VhlqIrCT0jS+buKRPNYhC5ECufCCWfg0t6sjpwZRTDz1SrSb54omIJiyM
-         OnIuZ6ai9UpS4StEyQ3H7Z2Bl/WdJ7Ke0ovyoCTjlZ/Y/N9s/2/pL36zAeKYmGQfvUWz
-         Nz7Q==
-X-Forwarded-Encrypted: i=1; AL+hErFhhlKfkHhxhfYdSsaBxXQ3frwfOSnMd+72KYW8+4BqqNr4JO24Qq67IKLlICfUaaQAMl1Jj7ZI6m1FawE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+O5sYgc9tqwhQs7P60b7Kf1lC1oSq3PZhSHRV+l6A2p0NC7Ue2
-	e2vyALuYp1tOyjsnmGrF3gO1LvYKR00rTlUchGKEmWwclELiMKu0Qo76
-X-Gm-Gg: AZFdTZfWL0WjFiECZbZ/zhrRWB7ti2YZHO+TqBTi8Jrc4u45zSPKT6gO+6JR/DLQ6NK
-	MlwXx3nUEG1MBCh6DvbktKfShVnIGZl5xO/tAIJ7toKYB+L/J1ThanMdVXmscvrv/lG3f8hExDa
-	FPTMx9E9gXxOxB19TX4J8GN2ZVpD/dBImCblpd3t9xo9UFYgvL8TBLjp/uVvi0hOKYFPgxSPIxe
-	jQYREFOKDgM0ARr4HUvyJEUUCw6FhixaOfRY7gLmqBLIS49e99Gz8MV2qdC49RGqGLocvnQTHe/
-	XVcD+BX7FKg3JR6jNIWzMMtovH0JQBPTjugZBK71FWfwmCAjE14y86eGDdvt52raOiXrtVRW1Ke
-	OLZa3kkepljedbcD3z3C6ziDGPYrNDCS+68quyKgt7Pc/mglEdxy26DarLc9rUhdLUy5IKhsY4L
-	48ZVY7AveMMQuLOmxgy7Y/7toV3nCWfmigCNmwhOTJdY0tfC/gQ/ontkzSVLO6uGDnr7KFWoIGX
-	BNZQIRRttdNujFOEbmdgS84VP85BDEtlEyVCu+39iPtUwDHcBzuh0iRbAlj0f22pIeqiN0iiT5k
-	cjWz9SxAx5AXbb6OaLm4kX2Mg0D8JPCsPfLohc6xHYDXV98u8i3V7h9Pn8+9iPLvOa8=
-X-Received: by 2002:a05:6a00:2e15:b0:89f:ed3b:df97 with SMTP id d2e1a72fcca58-8c87d5169bdmr8978938b3a.51.1795422389280;
-        Mon, 23 Nov 2026 00:26:29 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f571sm4953714b3a.34.2026.11.23.00.26.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 00:26:28 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Xin Long <lucien.xin@gmail.com>,
-	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Neil Horman <nhorman@tuxdriver.com>,
-	linux-sctp@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] sctp: pick the AUTH key by the data chunk type that is sent
-Date: Mon, 23 Nov 2026 17:26:25 +0900
-Message-ID: <179542222978.3276016.1235014191109840927@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j3HPGSp4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795422430; x=1826958430;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WiUTeEmdKlq/QgGj49FvwDtTeW5BpnQOdZls9z+zFNk=;
+  b=j3HPGSp463MCW9Ai3awYHP/6BoRO38jOB3F6c0iUVRGeO8J9gw58pjOK
+   hSGbb81u2FW+03rIk5PTUt8T48bsaSFqdwUvvdb6yufiGZyWL9zvLmGZ8
+   uEsaiLxjKKklzmJs+13NCy9h4AG6klGHrVSVD0Ak4hIICyz5qSCUEDLWa
+   Ya8ep2YPchHQN4jXAI9zHuHFYdUtp5Q+tK345Evws+BdvCyzHZ4i8GiDN
+   8kqxAQg9JhIwhsBzAn4LXDNhYahDJZRjAnEqrfv+HcHDntuYJIq/xoW6x
+   fZLXKNuUEa07LaMLTkJJxOiTmnwxKRI4F5y2q0Nh3ooNT45ZsS953DyK5
+   g==;
+X-CSE-ConnectionGUID: /HdvkTkRRaK3DM3EHTkylg==
+X-CSE-MsgGUID: D0rb60WBTVaaWl59EFh/gg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4108152"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4108152"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:26:56 -0800
+X-CSE-ConnectionGUID: MB7dB4WDQ7yF7vVZ4K+IhQ==
+X-CSE-MsgGUID: pHpiAhb6REuVofPLzY441Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11448062"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:26:54 -0800
+Date: Mon, 23 Nov 2026 10:26:51 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Paul Menzel <pmenzel@molgen.mpg.de>
+Cc: Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+	Xi Pardee <xi.pardee@linux.intel.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Rajneesh Bhardwaj <rajneesh.bhardwaj@linux.intel.com>,
+	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] platform/x86/intel/pmc: Do not decode the summary
+ rows in ltr_show
+Message-ID: <awP4y1W38Nd-atua@ashevche-desk.local>
+References: <20261121090614.677144-1-pmenzel@molgen.mpg.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,63 +83,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121090614.677144-1-pmenzel@molgen.mpg.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-sctp_datamsg_from_user() takes the chunk key only when the peer asked
-to authenticate DATA, but with stream interleaving the message is sent
-as I-DATA chunks, and _sctp_make_chunk() marks those for AUTH when the
-peer asked for I-DATA. If the peer lists I-DATA but not DATA, the chunk
-has auth set and no key, and bundling the AUTH chunk dereferences it:
+On Sat, Nov 21, 2026 at 10:06:11AM +0100, Paul Menzel wrote:
+> On an Intel Tiger Lake laptop Dell XPS 13 9310, the first read of
+> `/sys/kernel/debug/pmc_core/ltr_show` after loading the driver logs:
+> 
+>     intel_pmc_core: Invalid LTR scale factor 7 (only 0-5 are valid per PCIe spec)
+> 
+> The value comes from the last row, AGGREGATED_SYSTEM (CNP_PMC_LTR_CUR_ASLT,
+> 0x1b54). In 120 reads over 30 seconds, it read 0x7fffdff, 0x7fffc1f or
+> 0x7fffc23 (117 times), and 0x40201ff or 0x402001f (3 times); another read
+> gave 0x7ffffff. Decoded as an LTR message, the snoop half of the first
+> group has the reserved bits 14:13 set and scale 7, and the second group is
+> CURRENT_PLATFORM (0x40201) shifted left by eight with the low byte filled.
+> So these two PMC registers do not seem to hold the PCIe LTR payload the
+> per-IP rows carry, and decoding them only produces the warning (the decoded
+> value is 0 anyway).
+> 
+> All ltr_show maps end with CURRENT_PLATFORM and AGGREGATED_SYSTEM, which
+> pmc_core_send_ltr_ignore() already relies on. Print only the raw value of
+> these two rows, as for rows without a requirement bit set, and keep the
+> warning for the per-IP rows.
 
-  KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
-  RIP: 0010:sctp_packet_append_chunk (net/sctp/output.c:264)
-  Call Trace:
-   <TASK>
-   sctp_packet_transmit_chunk (net/sctp/output.c:189)
-   sctp_outq_flush (net/sctp/outqueue.c:1112 net/sctp/outqueue.c:1218)
-   sctp_do_sm (net/sctp/sm_sideeffect.c:1826)
-   sctp_primitive_SEND (net/sctp/primitive.c:163)
-   sctp_sendmsg_to_asoc (net/sctp/socket.c:1919)
-   sctp_sendmsg (net/sctp/socket.c:2086)
-   __sys_sendto (net/socket.c:2283)
+> With the change, 200 reads with AGGREGATED_SYSTEM bit 15 set in 199 of them
+> log nothing, and the CNV row is still decoded (0x89fe89fe, 522240 ns).
 
-In the opposite case, DATA listed and I-DATA not, the chunks carry a
-key but no AUTH, and room for an AUTH chunk is reserved for nothing.
+This paragraph better to be in the comment block, after '---' line below.
+We will have this information being archived by lore.kernel.org.
 
-Ask about the chunk type that will actually be built.
+> Fixes: 8122e7cd806d ("platform/x86: intel_pmc_core: Decode Snoop / Non Snoop LTR")
+> Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+> ---
+> 
+> Notes:
+>     Claude Code (claude-opus-5-5) helped analyse the register values, write
+>     the patch, and test it on the Dell XPS 13 9310.
 
-Fixes: 0c3f6f655487 ("sctp: implement make_datafrag for sctp_stream_interleave")
-Reported-by: Sashiko AI review <netdev-bot+sashiko@kernel.org>
-Closes: https://lore.kernel.org/netdev/179540440300.3135.8565987128928534228@kernel.org/
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
-The Sashiko review of our earlier SCTP report pointed this out. We
-reproduced it with a test that enables AUTH and interleaving on both
-ends of a loopback association and has the listener ask for AUTH on
-I-DATA only: the first send() oopses. The test also works as an
-unprivileged user in its own user and network namespace, where
-net.sctp.auth_enable and net.sctp.intl_enable can be set.
+>  drivers/platform/x86/intel/pmc/core.c | 17 +++++++++++++++--
+>  1 file changed, 15 insertions(+), 2 deletions(-)
 
-The patch was written with LLM assistance; we reviewed and tested it.
-With it, the test runs clean.
+...
 
- net/sctp/chunk.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> +/*
+> + * Every ltr_show map ends with CURRENT_PLATFORM and AGGREGATED_SYSTEM. Unlike
+> + * the per-IP rows, these PMC registers do not hold an LTR message payload as
+> + * defined by PCIe; on Tiger Lake, for example, AGGREGATED_SYSTEM has the
+> + * reserved bits 14:13 set and reads 0x7fffdff. Do not decode them.
+> + */
+> +static bool pmc_core_ltr_is_summary(const struct pmc_bit_map *map,
+> +				    unsigned int index)
+> +{
+> +	return !map[index + 1].name || !map[index + 2].name;
 
-diff --git a/net/sctp/chunk.c b/net/sctp/chunk.c
-index 5b889e89e9f2..0ed251421cda 100644
---- a/net/sctp/chunk.c
-+++ b/net/sctp/chunk.c
-@@ -183,7 +183,8 @@ struct sctp_datamsg *sctp_datamsg_from_user(struct sctp_association *asoc,
- 	 * we need to account for bundling of the AUTH chunks along with
- 	 * DATA.
- 	 */
--	if (sctp_auth_send_cid(SCTP_CID_DATA, asoc)) {
-+	if (sctp_auth_send_cid(asoc->peer.intl_capable ? SCTP_CID_I_DATA :
-+							 SCTP_CID_DATA, asoc)) {
- 		const struct sctp_hmac *hmac_desc =
- 			sctp_auth_asoc_get_hmac(asoc);
- 
+How do we know that the index is not out-of-boundary?
+
+> +}
+
+...
+
+>  		for (index = 0; map[index].name; index++) {
+>  			bool ltr_ign_data;
+> +			bool summary = pmc_core_ltr_is_summary(map, index);
+
+Same question and keep this to be in reversed xmas tree order.
+
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
