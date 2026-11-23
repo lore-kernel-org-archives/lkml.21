@@ -1,47 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450573;
-	b=Gcdq1Trd2CRXZBjNV8AYBj4rbmhd53AKsHQ4zQBsfbmAhOvqgnNkL84QSJXFv3Sqzkck
-	 K+BOXTThuXISn1TLYMLqYo04u3lp2I7FrK7mxfIuILC8TJ8mnpfx00IxLqTASEGHiW7by
-	 F5jxlxfEUhidnnoxZ72rCpgFUcx2TdEhjboQYx1Zz1Yf58DjFetqXYy4XCKbf2M5IwpzZ
-	 nioMZ/vKda+iHERjAASK7JxhXvJMtrkKJswGB3eoZPDQSWdqKsG4vwgJxF0fHsr41SVsN
-	 KWkVIrZdtn7Yw/jdSNTd3AZsRotIhyNTVm+DpSXF4UO29cESpvwmsHbcqvJfCjk+w/Q==
+	t=1795450598;
+	b=F29PpU+cR85ZTec1IYfr1HWQKuDvCS8Di26VQxa0hbS+UwXqhkZmrwDG56njacMPdLIF
+	 MXiOCTyOiAnQ8hvrGeZdYh9hhbxS47PbZtMUW4HORL+AMtlhZJsu1cb2zhc3v2UQZVC89
+	 D7vZbdFZijc2kqSK/2IEuKMv7vUQ0DAu+fSfYUbiyBuid0TaTBPWZUVFW3A0benr9SLMl
+	 COGeIGxZiwyxuJCvSyh3E3DlnQNToFyuiYZoXV8TdyWBfbZyQHS0T2jIFNyBvx1Uzd1tu
+	 7XkcgidjwixI94FKIStms2ZeJXBYxw2zOeWqJdey7ERAuRtppj3m30MvaOS8BOpoKeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450573;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=YYr57DK+rVapxGe+Fv0tthvj0JGQUKvoMSxaOupn0Ys=;
-	b=0IxbdEauCGAHKkQN7PTwgPLuxoMAhR+JHCdWve6xZn6bIFPbVhB1kA7klN+ilcBSI06Y
-	 8xQvjnVsO1cnLDXs73Gca/aG9jU42Lmxk1D05z0IqFMEv4XAfwczhZJjmugvJSsF+yUG2
-	 v8Ql0I41Eo6p+g/VlTBZqVtsB9hpv/k1Hat2XAMkdAeXcZW7ViT3YOi5hqhEacTLL0AlL
-	 cEVKoW+dTifjklJ/XN50t5wkYzcuFVCyHodPQhsNUW0Q/tLcjGcxfxEl/nOkspR0IKlmM
-	 lt/TPZC4Y4e0pnQmN0AL6HqDZoLPtuNS35bMlqrHi+DPWS0QaWqgZuM3XOm4dPL21NA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450598;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
+	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
+	b=qEX0Nvmw/+FaxU/ii7w76+1E0KCrT0xcW/WyVmnzEQ29hl7ohUv+LB9Yw0nz2eIFOppn
+	 BDft6Ghi1MaDOjT1ad+rw8tOY3LK5vE4kmF2/lhA54PkfQRYNJv6fgG/BAh80aGWuXBnD
+	 LtGcUVSg8Ofwhl1R5uYPOlLosbrXPvNUCVgsZ25DqINgKPuiZrCs/6tPUimzLMWD1blvy
+	 cfNb8ypbo/IgRpRUdWbrd4XVRwj1IHS/U/N3w8yr+6G/VCIBXkQHUa1Wpq0Ob1m6V//7j
+	 VQDhvYODJiEb6ZbSTNZdiZABuDCqPGgPe/WSeY+i9jHroV3JnN4njsF8oOOyW+wqpog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m8imrA8i;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A38D606A31A;
-	Mon, 23 Nov 2026 16:16:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1423606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:16:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1423606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m8imrA8i
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C0751F000C4;
-	Mon, 23 Nov 2026 16:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795450572;
-	bh=YYr57DK+rVapxGe+Fv0tthvj0JGQUKvoMSxaOupn0Ys=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=m8imrA8iWmv9csK4/PiuU/o2o/1fxsqLjFyWYfxBftOqKzHyDkww8gjozFBE/z/zT
-	 rDhglexK8MMa/7/pbqw294rpn/LeE3anoDVtgu29PhZEewZkZ00SYAn5LrTwDtDCgX
-	 W5Vo2j0EC+5gIYTVFpgr38VqmnQ9ujCowRpPIW5k3Ud2DqMm9Tz5tNr0v9PfoAEKo2
-	 K6UiLcQbDr5ry7EuXeFBaB6rUKt59B6mWGlT7fVhH0CMlKl8gWhHKOgAtd03FOf31t
-	 X+mFhqaNLx2Y+QLHSV5E2Sv+UZfwXTcjgtN3fgVx9Fx3svF6xgzaPh2KQEEgb9QuAC
-	 9IjEmx8EXzc+w==
-Message-ID: <c7f6ec19-d536-4006-9298-44199ec294e0@kernel.org>
-Date: Mon, 23 Nov 2026 17:16:04 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 68F681A179E;
+	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 24996601E1;
+	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40D5411E6A6F4;
+	Mon, 23 Nov 2026 17:16:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795450590; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
+	b=eIYvsQdJtYxWZ/9Mp4YVjUbwRpWXdnFJZDKQxAIIKnxVA225RdGHFg2r38CZr1c839J4sE
+	ognTwskLHcLYue5GxHvYt6P3j1glKRAFdJEKuYRhmCdUPXE9GOfwWBFWCCyzjSBm7A23EN
+	lw8W49H1OgRz849nmvj6O4t3ZgAkmFTFxUs3LxW2j6wvB5v29zN1ujaRebiHbMGnLCQyd8
+	5aPtk91XDGO7mSCIOVm0D6Exht214aw0S8Cyzt1lxjaBsPSiTepZ1ro5I0yl3gU4SMqxh8
+	/Appw7k/YtmYhjbo6pF8YplmJDsKvk+q/1Wd5KiTpoLCqURAB4F0I0+vP1nS7w==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -50,86 +58,151 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: display: mediatek: dpi: Add
- compatible for mt8167
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>,
- Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20261123085840.8687-1-l.scorcia@gmail.com>
- <20261123085840.8687-2-l.scorcia@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261123085840.8687-2-l.scorcia@gmail.com>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Mon, 23 Nov 2026 17:16:26 +0100
+Message-Id: <DN2Q44M3PG5M.1Q2PKJ5A3RKNY@bootlin.com>
+Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
+ <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
+ <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
+ <thomas.petazzoni@bootlin.com>
+To: <netdev-bot+sashiko@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next v7 3/3] net: macb: distribute evenly Tx SRAM
+ segments
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261118-macb-set-channels-v7-3-2dbc00f686af@bootlin.com>
+ <179537769513.3135.7979336425983650280@kernel.org>
+In-Reply-To: <179537769513.3135.7979336425983650280@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 23/11/2026 09:57, Luca Leonardo Scorcia wrote:
-> MediaTek mt8167 SoC has two Digital Parallel Interface (DPI) blocks,
-> one can be routed to a DPI display while the other is wired to the HDMI
-> block. They are not compatible with any other device, so add a new
-> compatible to describe them in the device tree.
-> 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
+Hello netdev-bot+sashiko,
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Sun Nov 22, 2026 at 9:01 PM CET,  wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in ca=
+se
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] gem_sram_distribute_segments() in
+>   drivers/net/ethernet/cadence/macb_main.c handles num_queues >=3D=E2=80=
+=A6
+> - [Low] The comment above static_assert(MACB_MAX_QUEUES =3D=3D 8) in
+>   gem_sram_distribute_segments()=E2=80=A6
+>
+> --
+>
+> net: macb: distribute evenly Tx SRAM segments
+>
+> This patch adds gem_sram_distribute_segments(). It programs the GEM
+> TXQSEGALLOC register so that the Tx SRAM segments reported in DCFG6 are
+> spread across the active queues as powers of two. It is called from
+> macb_init_hw() and macb_context_swap_end(), and it is enabled for the
+> zynqmp, versal and eyeq5 configs.
+>
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
+rnet/cadence/macb_main.c
+>> index 180da5d62f09a..5d382f0e4aec3 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>> @@ -3319,6 +3319,69 @@ static u32 macb_dbw(struct macb *bp)
+>>  	}
+>>  }
+>> =20
+>> +/*
+>> + * Distribute evenly available segments across active queues. The compu=
+tation
+>> + * is complex because (1) segments are counted in powers of two and (2)=
+ a queue
+>> + * can only use up to 128 segments. There are four types of cases:
+>
+> [ ... ]
+>
+>> + *  - Sharing all segments is not doable because not enough segments ar=
+e
+>> + *    available. Take num_queues=3D4 and num_segments=3D2.
+>
+> [ ... ]
+>
+>> +static void gem_sram_distribute_segments(struct macb *bp)
+>> +{
+>> +	unsigned int num_segments, pow, remaining_segments, i;
+>> +	unsigned int num_queues =3D bp->ctx->num_queues;
+>> +	unsigned int num_advantaged_queues =3D 0;
+>> +	u32 val =3D 0;
+>> +
+>> +	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
+>> +		return;
+>> +
+>> +	num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG=
+6));
+>> +
+>> +	/* When growing the max # of queues, make sure to return a u64 here an=
+d
+>> +	 * to write into GEM_TXQSEGALLOC_UPPER.
+>> +	 */
+>> +	static_assert(MACB_MAX_QUEUES =3D=3D 8);
+>
+> [Severity: Low]
+> This isn't a bug, but the comment talks about returning a u64.
+> gem_sram_distribute_segments() is a static void function. It builds its
+> result in the local u32 val and writes it with:
+>
+>     gem_writel(bp, TXQSEGALLOC_LOWER, val);
+>
+> To support more than 8 queues, wouldn't the change be to widen (or split)
+> val and add a second write to TXQSEGALLOC_UPPER, rather than to change a
+> return type? Could the comment say that instead?
 
-Best regards,
-Krzysztof
+Yes; we shall replace:
+
+   When growing the max # of queues, make sure to return a u64 here and
+   to write into GEM_TXQSEGALLOC_UPPER.
+
+By:
+
+   When growing the max # of queues, make sure to write into
+   TXQSEGALLOC_UPPER.
+
+For the full story for why this comment went stale:
+gem_sram_distribute_segments() used to return a u64 with the low 32
+bits written into LOWER and the high 32 bits written into UPPER. That
+returned value was then writel() by the caller. But now that it can be
+called from two places, the writel() was moved into the function to
+avoid code duplication.
+
+>> +
+>> +	/* pow=3D0 for all queues. ilog2(0) is dangerous. */
+>> +	if (num_queues >=3D num_segments)
+>> +		goto writel;
+>
+> [Severity: Low]
+> What happens here when num_queues is strictly greater than num_segments?
+
+I don't know, but this is not our worry.
+
+This check has been introduced to deal with the equality case.
+From my understanding, `num_queues > num_segments` is unreachable.
+
+And if `num_queues > num_segments` ever occurs, yes, we give each active
+queue 1 segment by doing a:
+
+   writel(0, TXQSEGALLOC_LOWER)
+
+We will *not* introduce code to lower max_num_queues if num_segments is
+found to be lower than the runtime detected queue count from
+macb_probe_queues(). This would be useless.
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
