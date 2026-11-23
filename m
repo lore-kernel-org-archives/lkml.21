@@ -1,49 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424866;
-	b=dxCocHCYpReaCD4CC07Zb4I7ro6xGj7U05NkXOxRde8UHlsVqi6HMxBFKM11qoyXrkgt
-	 ej0mLqwtKrYiwME+04DsxUKrxJnzX7V3bLgljbCge7wqrogIZ38ZU50Xdz6JU4C+jM2RG
-	 gFR8mZiSI627/wTIofK96ClsGDH875q65BEHDs6RrKbev3xQHou5vNwD2nk33Eg5kROs4
-	 /WTsWPu8oipvP23Co/+OBPZqSVqxLktbiVaWJgZmMT+ZU/JkPzwFNOo+XCXXwXiwWRsws
-	 5s22KndQ+LxdSWq95NJsPbhOUsoB5g6MIFhXbBhRjbfjZ2QZr27bnT3hFegyVF3BZzg==
+	t=1795424915;
+	b=mKzlQ+2+moBAHz8RGwn6jOuGv+jWGoZ6nPGMnWJ32HGacSUF3dUV8ZMX5YuWUDc95flh
+	 9mQH6IX+JIYjTuM6M79tGmH4HtOYsgMjQw+1rDZ6jJkqRzGOgHmKQRLDaNxf6AKi6fOVU
+	 vIs4ZiY4gxjbKpJMMh2rLx2euEsgMZEQ1Qf2pVZ2GP2qn3npWv7fv97lf4m+YC2thVtPT
+	 JhKLLbJ4tWfJUi14PqJ71Hrne1qDnfH6jBAahfQ0slWD6SCZTfDIR37M4B8pAB/An60YQ
+	 O5OkOdE0yq2K0RmEG3NwhQwkDvzhWhNSAjwistouKpXt2xboXGFDVAJwKZpkMjuZV0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424866;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=oNXJQGvVV/3UPi9v0oDuHfYKtoUPiyJRV7OzaEpjHoA=;
-	b=Vmr2txh8+7CfQBr0dhf9W0awFiYBOYCqobxXu9PswLA1rp+A1fG4H1Ey9OQikExCqrPA
-	 hY/yul4CNHMvG1kBrMRCxvfEfUQhRvztmi0xYbShp7s9Mix/emgGsAXyN7DNqSvdegjuq
-	 tH9g/JW4M/CB2EPiLdwdqb04tT0Oex+k3WjsP9IveXtYTxNOSkRFrQcvBeVGsAb3cFutO
-	 K69E3XTLC1aQq5hHGrZGXr2QG6d/lVNhpTc71+Q497AEBUflXnMgN5z5N525vuG9Fm5cK
-	 ZCp1+ObPO4MdEELu1rQWQueGWP/cQkfYC5+kaAwk8I4HvtoxXKe/6wgIR7RffqPLRUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424915;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Patchwork-Hint:Organization;
+	bh=3lkN3iPrctrIPLk5aalzoazU71tbB5LZ0ecbW7DqWgM=;
+	b=r98Phg/Q4KVqtjBtbw9ZuQyM2V5qyH0iASOoNYDzP80v4p7EQmZwzIeaDokLbff61DMu
+	 siMz7DoCzhRvNqAZMgTHICIPjAIS88qDkaOAZxF7Sy7qiAlsToKxgoBNNRbjrRI+mKNmb
+	 8g7j4deFBOs7MZkx88aXP6/zlbrg1DAfJmynAwF5dPYkH7+Ozbn/mmOMojfcACO6oPLTT
+	 YDDEflyJt5shuQrVhdvdYeELALfDQU9JNtmQUSTGRXfmJIUJzEmsauEDPkj9hF8JG5rf6
+	 cqA3CSSk2hiWzmPowwTxlnyaJQunzScT/YAFHsFI918dPVCyef1VS+VaiPhhCr+geCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="i/ChAMHa";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="aK/0J3vZ";
+	arc=none smtp.remote-ip=192.198.163.17
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12C73606A321;
-	Mon, 23 Nov 2026 09:07:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 360AD606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:08:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 360AD606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i/ChAMHa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FED01F000EE;
-	Mon, 23 Nov 2026 09:07:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795424865;
-	bh=oNXJQGvVV/3UPi9v0oDuHfYKtoUPiyJRV7OzaEpjHoA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=i/ChAMHaAVAEX1mCk7y1cARyEnHREMLA0F1tcKlLOXHrjLYbNCF9AD4pNoaMhuHTZ
-	 r968Oh4VRzQnx7X6Tom0qISMgpfRf2JKLGjk5ODKfEKJIh9mflq4ox5lOTNbXpmXtD
-	 +pqwt6vpKaH+l5TiOJK+6vrIjfyiR2sZJlasXU7oNPiPL3lkL4wH64rso30C7ViC2c
-	 MEIjdBeqQGfDAGFZbYI9D47tykZy8bMKlFEP14C6/g8qGQIyceHCq+4HHa9kcWGeq4
-	 AbSS8IgxgAM9jbz9Zx+Irp/jGtyAoTSinX/aR36eQbshdMtEDUsqZ9gc5d0Mo/NIMp
-	 Al5dAfCNvpcJg==
-From: Joshua Crofts <crofts@kernel.org>
-Date: Mon, 23 Nov 2026 10:06:55 +0100
-Subject: [PATCH v3 2/2] PM: runtime: add debugfs entry for
- pm_runtime_summary
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aK/0J3vZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795424915; x=1826960915;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=iadGTTZpgIj0sYqSUfXwnmqzZltFtxbp5DiO51+/m38=;
+  b=aK/0J3vZaUCuN4Eil1jth1Rqits0I+XYtVCUqhXk1ODdpqiZh+oCIRYl
+   Pmw5wT0BTC+FW7QP0izv22DMa7hg04XMov0oHIOElOOV0rg5HrTQ9Z8xw
+   WtxQCB1REvpuiPHde5sVQwPkmU1IGMNz2h9jqDhYEhwhNMTplTKyJWTKG
+   9ae2PyGBCZzNTcOUwh1t6gQ+W5Ida9Azhxf9zH+wxpByNw8oiIWjRLYAZ
+   VNwHDM1DS88nolRzVGunvoLwftHRNPqTkQ/9rNX4vXMaO1hFWnhCASW8e
+   k3MwcWMlivOL9T/OW+LhGWlyTZ6oQvV5uOEFv6ftM1sWk+96RytVaUWQT
+   w==;
+X-CSE-ConnectionGUID: S0nq58INSROcbFLQoiDT1Q==
+X-CSE-MsgGUID: czbejls2SAWgD0EcfPLEZA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4213113"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4213113"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 01:08:34 -0800
+X-CSE-ConnectionGUID: M4L018usSfS0xTfajJhMQg==
+X-CSE-MsgGUID: nuGMrwQAS0CwcWgbWLh5oQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11123681"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.170])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 01:08:29 -0800
+Date: Mon, 23 Nov 2026 11:08:26 +0200
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Javier Martinez Canillas <javierm@redhat.com>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Mario Limonciello <mario.limonciello@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
+	Mario Limonciello <superm1@kernel.org>,
+	Xaver Hugl <xaver.hugl@gmail.com>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	nouveau@lists.freedesktop.org
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+Message-ID: <awQCiqG9rwxY_kAI@intel.com>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+ <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
+ <awB4Qe83u0l0XPKA@intel.com>
+ <8713bae1-9782-41d4-b09c-f14031203e88@amd.com>
+ <awPvoLCDeq1YFLE_@houat>
+ <awPzsMWZ7e0i6i54@intel.com>
+ <awP0nasqAc4pAeMR@houat>
+ <xlv14id8rl10.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,137 +98,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-pm-runtime-summary-v3-2-81a966953a81@kernel.org>
-References: <20261123-pm-runtime-summary-v3-0-81a966953a81@kernel.org>
-In-Reply-To: <20261123-pm-runtime-summary-v3-0-81a966953a81@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Pavel Machek <pavel@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, 
- Samuel Wu <wusamuel@google.com>
-Cc: linux-pm@vger.kernel.org, driver-core@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Joshua Crofts <crofts@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795424856; l=3387;
- i=crofts@kernel.org; s=20260422; h=from:subject:message-id;
- bh=S7OuVKaOgmvGLK4rr9ywmeDW06K1LMn3jHlpz+GhhIY=;
- b=NdpQ3pMxnQa48BeasZARLuJQq9gpY5DlITypl6vGsWSBsEc3IziEJ2GonqIWL3plrcKRPIbi1
- Us861fg2X0EDNhDMOHt4K02n8RkhR3UZXPChX3Awj+rzS7xvZbSokEP
-X-Developer-Key: i=crofts@kernel.org; a=ed25519;
- pk=Xd+UVoRPiiI0K3LHQ2XIcXmO0jvVuFTv9eTx3lgBphI=
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <xlv14id8rl10.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+X-Patchwork-Hint: comment
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 
-Add a debugfs entry for showing the runtime statistics for devices with
-PM runtime enabled.
+On Mon, Nov 23, 2026 at 09:48:11AM +0100, Javier Martinez Canillas wrote:
+> Maxime Ripard <mripard@kernel.org> writes:
+> 
+> > On Mon, Nov 23, 2026 at 10:05:04AM +0200, Ville Syrjälä wrote:
+> >> On Mon, Nov 23, 2026 at 08:50:29AM +0100, Maxime Ripard wrote:
+> >> > On Fri, Nov 20, 2026 at 11:19:13AM -0600, Mario Limonciello wrote:
+> >> > > 
+> >> > > 
+> >> > > On 11/20/26 10:41, Ville Syrjälä wrote:
+> >> > > > On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello wrote:
+> 
+> [...]
+> 
+> >> > > > > +config DRM_LUMINANCE
+> >> > > > > +	bool "DRM connector luminance support"
+> >> > > > > +	help
+> >> > > > > +	  Expose relative luminance as an atomic DRM connector property. Values
+> >> > > > > +	  are driver-defined levels rather than absolute luminance in cd/m^2.
+> >> > > > > +	  Drivers provide connector helper callbacks to program their hardware;
+> >> > > > > +	  the DRM core does not depend on a particular backend.
+> >> > > > > +
+> >> > > > > +	  Drivers migrated to this interface will use it instead of registering
+> >> > > > > +	  a legacy backlight class device. Leave this disabled to preserve the
+> >> > > > > +	  de-facto userspace ABI in /sys/class/backlight.
+> >> > > > 
+> >> > > > I don't think this will fly if it breaks the backlight class interface.
+> >> > > > No one can actually enable this outside of some niche embedded use
+> >> > > > cases where backwards compatibility is not an issue. I think what
+> >> > > > you need is a generic backlight class implementation on top of this.
+> >> > > > 
+> >> > > 
+> >> > > The idea with this was:
+> >> > > 1) to get the series landed
+> >> > > 2) let compositors merge solutions around it.
+> >> > > 3) Then add backwards compatibility to kernel so we can flip the Kconfig
+> >> > > default.
+> >> > 
+> >> > I said this a few times already, but we keep having those discussions
+> >> > while the backlight sysfs handling is far from being the main point. You
+> >> > should *really* consider adding support for the luminance property for
+> >> > something that isn't tied to that interface (like DDC/CI for HDMI), and
+> >> > treat the sysfs API as a sysfs series.
+> >> > 
+> >> > It looks like people just have conflicting opinions on this particular
+> >> > part that isn't going to solve itself easily. You should not treat this
+> >> > sysfs discussion as a blocker for the infrastructure work.
+> >> 
+> >> You want to be sure backwards compatibility with the backlight
+> >> class is a solvable problem before you land *anything*. Otherwise
+> >> you might just paint yourself into a corner with no way out.
+> >
+> > I disagree. The luminance property is more useful than *just* for
+> > backlights but is also useful for HDMI, DP, and MIPI-DSI that would all
+> > use it.
+> >
+> > If that's the corner we paint ourselves into, it's still a pretty nice
+> > corner.
+> >
+> 
+> I agree with Maxime. Drivers can choose to not expose the luminance property
+> until the sysfs backward compatiblity is sorted. But this shouldn't block the
+> core infrastructure to land, given that's useful for other drivers/use cases.
 
-Signed-off-by: Joshua Crofts <crofts@kernel.org>
----
- drivers/base/power/runtime.c | 86 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 86 insertions(+)
+If by infrastructure you mean just essentially defining the property,
+then sure you could add that. But you can only hook it up for external
+displays. For anything internal you actually need a working backlight
+to see anything so the backlight class interface must stay.
 
-diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
-index 17aee68366cf..cf657251633e 100644
---- a/drivers/base/power/runtime.c
-+++ b/drivers/base/power/runtime.c
-@@ -14,6 +14,8 @@
- #include <linux/pm_runtime.h>
- #include <linux/pm_wakeirq.h>
- #include <linux/rculist.h>
-+#include <linux/debugfs.h>
-+#include <linux/seq_file.h>
- #include <trace/events/rpm.h>
- 
- #include "../base.h"
-@@ -2223,3 +2225,87 @@ bool pm_runtime_need_not_resume(struct device *dev)
- }
- 
- #endif /* CONFIG_PM_SLEEP */
-+
-+#if defined(CONFIG_DEBUG_FS) && defined(CONFIG_PM_SLEEP)
-+static void rpm_summary_show_dev(struct device *dev, void *data)
-+{
-+	struct seq_file *s = data;
-+	unsigned long flags;
-+	u64 active_time, suspended_time;
-+	u64 last_sleep, min_sleep, max_sleep;
-+	u64 resumes, suspends;
-+	const char *status_str;
-+	bool enabled;
-+
-+	spin_lock_irqsave(&dev->power.lock, flags);
-+
-+	enabled = pm_runtime_enabled(dev);
-+	if (!enabled && !dev->power.resume_count && !dev->power.suspend_count) {
-+		spin_unlock_irqrestore(&dev->power.lock, flags);
-+		return;
-+	}
-+
-+	update_pm_runtime_accounting(dev);
-+
-+	switch (dev->power.runtime_status) {
-+	case RPM_ACTIVE:
-+		status_str = "active";
-+		break;
-+	case RPM_SUSPENDED:
-+		status_str = "suspended";
-+		break;
-+	case RPM_SUSPENDING:
-+		status_str = "suspending";
-+		break;
-+	case RPM_RESUMING:
-+		status_str = "resuming";
-+		break;
-+	default:
-+		status_str = "unknown";
-+		break;
-+	}
-+
-+	active_time = dev->power.active_time;
-+	suspended_time = dev->power.suspended_time;
-+	resumes = dev->power.resume_count;
-+	suspends = dev->power.suspend_count;
-+	last_sleep = dev->power.last_suspended_time;
-+	min_sleep = dev->power.min_suspended_time;
-+	max_sleep = dev->power.max_suspended_time;
-+
-+	spin_unlock_irqrestore(&dev->power.lock, flags);
-+
-+	do_div(active_time, NSEC_PER_MSEC);
-+	do_div(suspended_time, NSEC_PER_MSEC);
-+	do_div(last_sleep, NSEC_PER_MSEC);
-+	do_div(min_sleep, NSEC_PER_MSEC);
-+	do_div(max_sleep, NSEC_PER_MSEC);
-+
-+	seq_printf(s, "%-32s %-12s %8llu %8llu %12llu %12llu %10llu %10llu %10llu\n",
-+		   dev_name(dev), enabled ? status_str : "disabled",
-+		   resumes, suspends, active_time, suspended_time,
-+		   last_sleep, min_sleep, max_sleep);
-+}
-+
-+static int pm_runtime_summary_show(struct seq_file *s, void *unused)
-+{
-+	seq_printf(s, "%-32s %-12s %8s %8s %12s %12s %10s %10s %10s\n",
-+		   "Device", "Status", "Resumes", "Suspends",
-+		   "Active(ms)", "Suspend(ms)", "Last(ms)", "Min(ms)", "Max(ms)");
-+	seq_puts(s, "--------------------------------------------------------------------------------------------------------------------------\n");
-+
-+	dpm_for_each_dev(s, rpm_summary_show_dev);
-+
-+	return 0;
-+}
-+DEFINE_SHOW_ATTRIBUTE(pm_runtime_summary);
-+
-+static int __init pm_runtime_debugfs_init(void)
-+{
-+	debugfs_create_file("pm_runtime_summary", 0444, NULL, NULL,
-+			    &pm_runtime_summary_fops);
-+
-+	return 0;
-+}
-+late_initcall(pm_runtime_debugfs_init);
-+#endif /* defined(CONFIG_DEBUG_FS) && defined(CONFIG_PM_SLEEP) */
+Oh, and what's the actual plan to make this usable for external
+displays? The property will have to be added onto the connector when
+it's registered, but the display you hook up later may not even
+support DDC/CI. How is userspace to know that the property is a dud?
 
 -- 
-2.47.3
-
+Ville Syrjälä
+Intel
