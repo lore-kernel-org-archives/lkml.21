@@ -1,66 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451093;
-	b=TPN5uqjKISz6xEVosOq1i8TL5gIqaYtPGz2XVNaGWHEW2wUgQmSq8A1f8mAqiHctX78T
-	 LB3v2vLF3URo/aZz3XFtH3quhRF4yFbdRFz1V/mai7aTPYgOb4Gnwj54eNy6tSZZB0KY+
-	 DS9FDSFt3XOVYkWwTZymp0JTlxgeqlpfSavgtuGQzEhhR1lLm59PG3wTXDe1kCVtSJxRr
-	 +xT5LD/ov+kkVAMThnpA9Q0d0TcgWMgnh2xIoXUuPo8iuP0sjoSGu/zOdxfG7T/aiG3e0
-	 CteBI9VpOcUaV0QLgzHp07CHs+W0hv2XJl7Jtk5qKy3SU8Y8EJ6Js+/1mNTYoEDtnFg==
+	t=1795451104;
+	b=is7ydDBR4ephyRZODQmClF9XaKZJUrWNvSDG4n/sJ0/Nnk+l8iGXJF73LpKfqjs50rcZ
+	 k/hmQ3xcVbSPvPIPzNObOMKqnzhghga3xRlWM0gxdjpsn74y8/tUMOnVwFuqAyGFsk3eS
+	 DOBvMujfBSmBLDrF3mIS7pPMtcpYt9Y/bWLE0NR9rrCtMj1v5CO4yJAY69nN1YAKvNzLo
+	 8eAufOL/eZI++iv5/uFTljrum+e62kQthBaNj7wlSTrj0w5z9NB/2oYp9yAp81abvpqx1
+	 wxj/1lwr79dtUCVrigKaHbvHkz/M5Put3I4FYrZLWdoeUVKPhcI+5NquHpfeEQp8ALQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451093;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=nwtxq67M85oh39yiNCH/rtnkxB+wt1qe2bRCV6SZf0Q=;
-	b=03YXzqsUbiUP9voCMkY+VYxEH7ge7B1W/q9O/s4UR96pFuBx2SQFKbD8HzeKMEcrCiQj
-	 bs7jQCui47gOP9AszuKUqmW+pPM7b3VuhB9vI5R5lp+wnt2pfwMmY+uEwBmxUDTEGjanJ
-	 8JbTj0zFMupJc+gD/2XqzfpVQy/kQSARHGR+vuXcxAuqJxI20nA8Nn2pZl8SH+/ojPbzU
-	 LBRvj0i0m+AkkwgOsRvBTtBcKhRUGq6YqOq7IhqFIHacEFbdQXQB/9nQd1lp+W0Wf004l
-	 ACDeu54vbmF8+qauAo9T5QqLzjAEifTWNAEnWYhhJfZvRyI2VCNvLPX1LBIj8tVR5Fw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451104;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=j/3kbrH99PE4PwaLUUHdPahwKMK6ntpa6NPocr60VWY=;
+	b=tjsZmhKPh9BIXQABSLUb7G9b3xn3NvnefcZad8AxogAJmqH1J+rEVYbIiI3NqnztWktk
+	 mUgyLsqdduZAlLyrWdpEqEYOqioqjZ3umCrnewaOROLhyN62o8/cV1NU7RZYls6N/vvrC
+	 qd63u+tVg0IOFDG90jTYJj91Nx2dunYlDAahbFHeCbqK9a7yk7fXZ6QVLzgJwr8BHS33E
+	 +X6v7Kf8x3ZTuG0gu8V9v5h2Z8fi6p9JCd2L1TrNN10ypsv6rwgNJNaKd0aQ++knC+FRE
+	 dNk5nZbKDLFWrvH6KzsoqyP8nVz6zvrjlvXCyNizY70U5FEaEOaH5iAeaxGnB04Sy3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=acm.org;
-	spf=pass smtp.mailfrom=acm.org;
-	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=TxY3z64J;
-	arc=none smtp.remote-ip=199.89.1.16
-Received: from 013.lax.mailroute.net (013.lax.mailroute.net [199.89.1.16])
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=DZX1CFj0;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0584B606A31E;
-	Mon, 23 Nov 2026 16:24:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0584B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7093606A31A;
+	Mon, 23 Nov 2026 16:25:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7093606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=TxY3z64J
-Received: from localhost (localhost [127.0.0.1])
-	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jYB9c400dzlfcdL;
-	Mon, 23 Nov 2026 16:24:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1795451089; x=1798043090; bh=nwtxq67M85oh39yiNCH/rtnk
-	xB+wt1qe2bRCV6SZf0Q=; b=TxY3z64JqFAn7AYulPpdYjPabaXVpLJTfj2LnxZF
-	O3yqoI9XQz1WeX702BOMNUg6M7KuS3u6HMROBBLrh3bwIjFpBy6SWSlI2ye5xFMf
-	BrK0387MnEzLFyw7DT3roFgVDVd0eIaE5jcAdYOBfQaH3//4q6qoaUFIn4JUWf46
-	kWeFwSBLzQcC27UolTtVDK9gVeJ8nqPkQzGktsZP+h0ZUrSlZhvl/Lkm6QbpVDRV
-	giiGUVfqK0B3na/hPXWbURtaYlYlBxPc3/sNws7+VzkVCVDllgVVullJK1F1if7f
-	mMGGMucFtWGfO5Ct35u45N8VbegfLwl72jEGW5IGM/0NOw==
-X-Virus-Scanned: by MailRoute
-Received: from 013.lax.mailroute.net ([127.0.0.1])
- by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id RFKoMy9jod4F; Mon, 23 Nov 2026 16:24:49 +0000 (UTC)
-Received: from [100.80.227.185] (unknown [104.135.182.41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jYB9Y2rJDzlpHws;
-	Mon, 23 Nov 2026 16:24:49 +0000 (UTC)
-Message-ID: <480f2d2f-1d98-46a0-9eb0-379004942826@acm.org>
-Date: Mon, 23 Nov 2026 08:24:47 -0800
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=DZX1CFj0
+Received: from ideasonboard.com (mob-5-92-38-150.net.vodafone.it [5.92.38.150])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DDF07524;
+	Mon, 23 Nov 2026 17:22:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795450950;
+	bh=K4brBUJxbNbf85GJhU0zYprIz6udL+ZFgRDszYCGEaA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DZX1CFj0GsGXPUzc2caybHEPjTzUrewGIXFI0mLeDecAYp7ehpkCKWJ+HnrWYdmc1
+	 AJpXgC0HDsAaQbaVELmMN8L/GAwz4fJDVJFAmtPz7cGRNihYIru/jie8KPRAdrBFm1
+	 G797AKqrrToC6B0tJIgmc15sogy8JNwV9VlwtwUM=
+Date: Mon, 23 Nov 2026 17:24:58 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: David Carlier <devnexen@gmail.com>
+Cc: jacopo.mondi@ideasonboard.com, philippebaetens@gmail.com, 
+	mchehab@kernel.org, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] media: i2c: mira016: Use the 12-bit format as default
+Message-ID: <awRou1TctcbkSnv0@zed>
+References: <20261123053212.212169-1-devnexen@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,40 +60,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] scsi: qla2xxx: Rework BUILD_BUG_ON() assertion
-To: Finn Thain <fthain@linux-m68k.org>, Nilesh Javali <njavali@marvell.com>,
- GR-QLogic-Storage-Upstream@marvell.com,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>
-Cc: Tony Battersby <tonyb@cybernetics.com>,
- Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
- linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <ed3e6d1536bced61166ef408bd3327acc340216e.1773122366.git.fthain@linux-m68k.org>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <ed3e6d1536bced61166ef408bd3327acc340216e.1773122366.git.fthain@linux-m68k.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261123053212.212169-1-devnexen@gmail.com>
 
-On 3/9/26 10:59 PM, Finn Thain wrote:
-> Fixes: e428b013d9df ("atomic: specify alignment for atomic_t and atomic64_t").
+On Mon, Nov 23, 2026 at 05:32:12AM +0000, David Carlier wrote:
+> The analogue gain control is created with a 1..1 range, which is only
+> valid for the 12-bit format, while init_state applies the 8-bit format.
+> The gain cannot be changed until userspace sets the active format.
+>
+> Make the 12-bit format the default, and initialise row_length to the
+> matching value so the blanking, pixel rate and exposure limits are
+> computed for it.
+>
+> The issue was found by code inspection with an LLM, build tested only.
+>
+> Signed-off-by: David Carlier <devnexen@gmail.com>
 
-Please remove the trailing dot from the above line.
+Thanks, I'll make sure it gets in together with the driver in 7.5
 
-> -	/* atio must be the last member of qla_tgt_sess_op for add_cdb_len */
-> -	BUILD_BUG_ON(offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) != sizeof(*u));
-> +	/* atio_u_isp24_fcp_cmnd_add_cdb follows immediately after atio */
-> +	BUILD_BUG_ON(offsetof(struct qla_tgt_sess_op, atio) + sizeof(struct atio_from_isp) !=
-> +		     offsetof(struct qla_tgt_sess_op, atio_u_isp24_fcp_cmnd_add_cdb));
+Acked-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
-Has it been considered to use offsetofend() in the above expression?
-
-> +	uint8_t atio_u_isp24_fcp_cmnd_add_cdb[];
-
-The array name is rather long. How about "add_cdb" or "extra_cdb"?
-
-Thanks,
-
-Bart.
+> ---
+>
+> Notes:
+>     v2: make 12-bit the default format instead of widening the gain range,
+>         drop the Fixes tag (Jacopo)
+>
+>  drivers/media/i2c/mira016.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/media/i2c/mira016.c b/drivers/media/i2c/mira016.c
+> index 082442ffad28..d6db922f01b6 100644
+> --- a/drivers/media/i2c/mira016.c
+> +++ b/drivers/media/i2c/mira016.c
+> @@ -1630,7 +1630,7 @@ static int mira016_init_state(struct v4l2_subdev *sd,
+>  		.which = V4L2_SUBDEV_FORMAT_TRY,
+>  		.pad = 0,
+>  		.format = {
+> -			.code = MEDIA_BUS_FMT_Y8_1X8,
+> +			.code = MEDIA_BUS_FMT_Y12_1X12,
+>  			.width = MIRA016_PIXEL_ARRAY_WIDTH,
+>  			.height = MIRA016_PIXEL_ARRAY_HEIGHT
+>  		},
+> @@ -2254,7 +2254,7 @@ static int mira016_probe(struct i2c_client *client)
+>  	 */
+>  	mira016_pll_calc(mira016);
+>  	mira016_timings_calc(mira016);
+> -	mira016->timings.row_length = 1062;
+> +	mira016->timings.row_length = 1504;
+>
+>  	ret = mira016_power_on(dev);
+>  	if (ret)
+> --
+> 2.55.0
+>
