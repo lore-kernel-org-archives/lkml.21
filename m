@@ -1,79 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.204.81.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795405427;
-	b=tawtuZwsjs1Z1RTs1Yn6GztpvhYkhEF2oUMw6Wb0GM/rSQwgC4lFuNagfaPUdOMv12e6
-	 0EuexMzNvz4x3VxJIg5lG+vABmxMrDGjm4mEPywC6QW/X9etbmjH/1RNvutIWAll28RTu
-	 pES2H6Okku+DHQYQps/+HREExMchzLBB+JNO8aDgfZ8mDmme4Yhk28fWbSsYJVyKkxTEh
-	 Dm9W70yMaaFvJWfNdHH+HUawrLe6egnfC7dwfw8Zao9+bf7Z37EX8HYRO0nnzhi1coCQG
-	 LMDYR4eUDKqCtb5cddss022rmoVF13GZ0Cz5odpleiIvdCH0pxginPO8TLvejp37VKQ==
+	b=ggWmDsCOigynN+v3xrHCwY+5K+hpI6NWH8Wd5DGP3RlsTnTStezvGaFFcMtMe8mD74Ec
+	 jLe+S7S26hTwJUThx7YTKP2uthxKQZAxtEwitpL/4Qgkx90a/o+EydspeU5MiLfE0qFtR
+	 788Tfm6GEAjH8rnSUP7KDFCzTkL7g4ZjnTGgF3jHF3VLMtONTfFGwlEJ9l6Q9VDkt6twI
+	 CDLOBAogA7rJWJCzF/LSEFkAPpaoj1f7k6vraV8erWuhcSQK/mEfsdrNQ/efoLh25E4Q5
+	 kbnAE1d2IPPIICeCrJfkhUm81IHMFhRVpWAhvRba9xT8Wx+FkOzvoD7kw81ovkz3BIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795405427;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:X-CMAE-Analysis:
-	 Feedback-ID:X-SECURESERVER-ACCT:From:To:Cc:Subject:Date:Message-ID:
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CMAE-Envelope;
-	bh=iWtGlCsXyDg+0XDDQp42mfm/iFWlVjXTouLGzx7/hcs=;
-	b=awjoIoxs5VSrWPJmGI6OR+HqRUQym+JwxQfzmXI92XdawBPcaHBLXextNIAJyuf/UTFP
-	 yrT9k5UWqIorz2hgvX+F5CPZD/6+Y50pXDB/6ZYf8Yf4ChNroVe7AGQnHdj+Rb/XNfj1/
-	 lA5DSacasKvwaoq2rWaC8O9l0q42v/GjbuJho1gtGYWCz+OEvYXEhhSY9uu6/XOZwKFAY
-	 GhtDJpa0DE9SzoxlFYsvUWSyHfMqNveMYBBqI5jRspEhHNGhKrjMhuoNnr5m6LCrR0Tu8
-	 ORlzZ7UdBmBkQ+y1FvEzyV7dgYYFCjaKJefIv90mBSCXB/tBlUB1lr3CPyE0f8Mi4Yg==
+	 Content-Transfer-Encoding;
+	bh=u/dSSnvt29VXMuqEAAa81mXAdbrbhqEv++QT9+xRYhg=;
+	b=EKHw8zDzE9yJO34/9GW6FoAQOcduRRrl3RlAzhHUaNR2Wh4+j225ki5mpRcVOR02CjHp
+	 fsTFXlHPo6HbZiWxqhDNfvUDiNpRPKNNQgtZ+Z76DYRcPk8yxv3zixXGNnC0A8Sl5QDs5
+	 NHHjlnnj2ZsVvXTUWLsoy2tcG27W+ucaqZC1qItcMbY7tX8fCOAnId9SaFgvENA/ox8uq
+	 ju4GMptO7mFecEiE9jqaX88qWcAIlM2ZJs8kmqDWo7emdD24lM3Wy+giriLTwEYbbetA5
+	 I33QWPY5WnBiHhCNoqvhkC+GizjPKleDccIaXuy3H7OZykePX55Jz3UiGOGboeA92Pg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squashfs.org.uk;
-	spf=pass smtp.mailfrom=squashfs.org.uk;
-	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=TAT6cuWI;
-	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=ZeE3YkLK;
-	arc=none smtp.remote-ip=92.204.81.43
-Received: from sxplsmtpa04-04.prod.sxb1.secureserver.net (sxplsmtpa04-04.prod.sxb1.secureserver.net [92.204.81.43])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oEIIGS9K;
+	arc=none smtp.remote-ip=91.218.175.216
+Received: from mta0.migadu.com (out-216.mta0.migadu.com [91.218.175.216])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1967606A6B4
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9B35606A332
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:43:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1967606A6B4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=squashfs.org.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squashfs.org.uk
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9B35606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=TAT6cuWI;
-	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=ZeE3YkLK
-Received: from avalon.fritz.box ([82.69.79.175])
-	by :SMTPAUTH: with ESMTPA
-	id VKxRxJoOeZuU3VKxtxiqQq; Mon, 23 Nov 2026 03:43:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secureserver.net;
-	s=secureserver2; t=1795405419;
-	bh=iWtGlCsXyDg+0XDDQp42mfm/iFWlVjXTouLGzx7/hcs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TAT6cuWImdRmpZq2bnbdad+U6+Ttg2R1NYuySvc+ELUO5BazM3TZm9D6uTJOR29qG
-	 6wAt03bOSrAIozRf48Ma8TVNYQNWQ8Ew/BOp7BEOI7pyvrUD6rID1RTo+l8aU3X337
-	 ugbTkpq3r6rH5ONd3uyZzTsepfDS/7JwRb9GRh+b7U2ReNUhk9wmamzlPduoflcxyB
-	 vwpvG9ybL3GbH8SKo64gPrrQRH4ggCrNGb0EWvD41HllWjvRrG1RtVsBn4uhddxxBO
-	 rnuA0E7ph5F3xFQIbJJW5X7a8PYprXLzbUkntwdGvwwUd5QTqsWipbYIjwBK0XDhp6
-	 w1Y7ZEcu7y/3Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squashfs.org.uk;
-	s=secureserver1; t=1795405419;
-	bh=iWtGlCsXyDg+0XDDQp42mfm/iFWlVjXTouLGzx7/hcs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZeE3YkLK7dPf9Z4E/n995nyvWvCgsjM1CJLhSu4BMcQJhtX5UPppc8YqPPwM8uQKG
-	 HHt7AonsOryIz47S5RmzgsjVrEkdlm5XQJ/FCmbu09YHlHUbTIWkr9wUv7QjNWAklu
-	 EmuYbKhTEG/BqzgQmRRmvS1GCSJrZiUTXSZLg0VN9RMeSLL/DjI0qpWE0t91zVkVz7
-	 xQy7AOwxyMFzhJqwZB4kK/o8f5cahOuzHr2DFJXErjFumRUxjo/ZhbhossYVG/T58w
-	 kalTS6ZADqyxEsRkTz4LCvCZR6Oe856okLlZnNEeboxO498dnsijk5J7ZQOVo1qvPP
-	 /clHOzJa9EeqA==
-X-CMAE-Analysis: v=2.4 cv=CvYq4X4D c=1 sm=1 tr=0 ts=6b03b66a
- a=84ok6UeoqCVsigPHarzEiQ==:117 a=84ok6UeoqCVsigPHarzEiQ==:17 a=FXvPX3liAAAA:8
- a=yKgdCBhA7QK4Y9OD5tEA:9 a=UObqyxdv-6Yh2QiB9mM_:22
-Feedback-ID: 31d0cd3480636aaf506d07518366b354:squashfs.org.uk:ssnet
-X-SECURESERVER-ACCT: phillip@squashfs.org.uk
-From: Phillip Lougher <phillip@squashfs.org.uk>
-To: akpm@linux-foundation.org,
-	linux-kernel@vger.kernel.org
-Cc: Phillip Lougher <phillip@squashfs.org.uk>
-Subject: [PATCH v3 09/23] Squashfs: fix fragment bytes overflow on 32-bit architectures
-Date: Mon, 23 Nov 2026 03:42:50 +0000
-Message-ID: <20261123034304.261742-10-phillip@squashfs.org.uk>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261123034304.261742-1-phillip@squashfs.org.uk>
-References: <20261123034304.261742-1-phillip@squashfs.org.uk>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oEIIGS9K
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=u4K0EQqDi4+xhHfJPHjH7LQ7MYMicDcjgwVFleEBNuM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795405424; v=1; x=1796010224;
+ b=oEIIGS9Ka5spYlhYLlfawa+ZXJ12Zna0ZEFeJEE7giXqmS3hI6VfU5abnWm9O5dKcBXdhDr3
+ chFS9abhBmm/TkSVGVES9Fbe9qxxhndJ2h06+g34MMv9B9xjfE5uGLlQjOAPDphORiVdJwtVHXf
+ T8NO827T1NAkp4Q7nbd81vvk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id cec765d6627a4390;
+	Mon, 23 Nov 2026 03:43:44 +0000
+X-Mizu-Trace-ID: cec765d6627a4390
+X-Migadu-Flow: FLOW_OUT
+From: "Xu Xin (vivo)" <xu.xin@linux.dev>
+To: xu.xin@linux.dev
+Cc: akpm@linux-foundation.org,
+	chengming.zhou@linux.dev,
+	david@kernel.org,
+	donettom@linux.ibm.com,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	stable@vger.kernel.org,
+	Karl Mehltretter <kmehltretter@gmail.com>
+Subject: [PATCH v3 1/3] mm/ksm: do not inherit ksm_zero_pages counter or PTE markers on fork
+Date: Mon, 23 Nov 2026 11:43:31 +0800
+Message-Id: <20261123034331.236509-1-xu.xin@linux.dev>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261123034136.209410-1-xu.xin@linux.dev>
+References: <20261123034136.209410-1-xu.xin@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,134 +73,140 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMAE-Envelope: MS4xfMvRkqa7/9hcfMy/+wfilAS0eUFQDqgPMP91GfgoxUGRdVzi2P3Nr3xVXG+ZkBrsIVQ8GIMAlbxJscrE/wzgK5HK9GXewxggjiPWScMwEL4zurMB/sDA
- XHIicsgCt0BUFXGd5UVF08rZDW4FISd+KgwSnxu51Dkzpr2gzZzCu7ZmczAPlDRHRkOvaoI03R28A6nB4ycn/9VOGlJSTm3KGtCbhT1uGR4vP9SW3fF1hwDs
- tm+TpxAkK/eRhFtxBLRKkKMdclhodJS+virLelzvClcabMJjMWpjb5AEhphnFD9o
 
-In helper function squashfs_fragment_bytes() the u32 fragments
-variable is multiplied by sizeof(struct squashfs_fragment_enty).
+As documented in Documentation/admin-guide/mm/ksm.rst, ksm_zero_pages
+accounts only for zero pages actually placed by KSM.  However, the
+current implementation wrongly accounts for forked zero-page PTEs as
+KSM's contribution, inflating both the child's per-mm counter and the
+global ksm_zero_pages counter.
 
-On a 32-bit architecture the type of sizeof() is a 32-bit unsigned
-integer, which means the computation will overflow for fragments
-values above 268435455.
+Originally, commit e2942062e01d ("ksm: count all zero pages placed by
+KSM") marked KSM-placed zero-page PTEs with the dirty bit for unmap
+accounting, but forgot to clear this marker during fork().  Later, to
+prevent ksm_might_unmap_zero_page() from underflowing the counters on
+child exit[1], commit 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter
+handling in mm_struct during fork") kept the child's inherited per-mm
+counter and added it to the global counter.
 
-The knock-on effect is the size of the in memory fragment index
-table will be incorrectly computed, and a much smaller than expected
-index table will be allocated and read into memory.
+Instead of inflating the counters, fix the root cause by resetting the
+child's mm->ksm_zero_pages to 0 in ksm_fork() and clearing the KSM
+zero-page marker via ksm_fork_pte() when copying present PTEs in
+copy_present_ptes().  With the marker cleared,
+ksm_might_unmap_zero_page() will not decrement the counters on child
+exit, MADV_UNMERGEABLE in the child will not unnecessarily unshare
+inherited zero pages, and the global counter remains untouched.
 
-Later when a fragment index beyond this is looked up in this table,
-this will produce an out of bounds access.
+[1] https://lore.kernel.org/all/53a7bf3d-843d-4e19-b0a3-cc6852fe72c1@redhat.com/
 
-The fix is to explicitly widen the fragments variable to a long long
-in the squashfs_fragment_bytes() helper function.
-
-Reproducer
-=========
-
-The following script when run on a 32-bit x86 kernel (which lacks
-KASAN support) will produce an I/O error.  On a 32-bit ARM kernel
-with KASAN enabled, the out of bounds access will also produce a
-KASAN report.
-
-[  193.817260] ==================================================================
-[  193.818057] BUG: KASAN: slab-out-of-bounds in squashfs_frag_lookup+0x23c/0x264
-[  193.820408] Read of size 8 at addr cc126708 by task stat/357
-[  193.820720]
-[  193.821675] CPU: 3 UID: 0 PID: 357 Comm: stat Not tainted 7.2.0-13187-g66498c75b4f8 #113 VOLUNTARY
-
-=================================================================
-#!/bin/bash
-
-ARGS="-no-duplicates -no-sparse -no-hardlinks -quiet -no-progress"
-
-finish() {
-	popd 2>&1 > /dev/null
-	rm -rf $DIR
-	exit 1
-}
-
-# Create a Squashfs filesystem with 1026 files and 513 fragments.
-# This will create a two entry Squashfs fragment index table.
-#
-DIR=$(mktemp -d)
-
-pushd $DIR 2>&1 > /dev/null
-
-# Create a Squashfs pseudo file which is fed to Mksquashfs
-echo Create a Squashfs pseudo file which is fed to Mksquashfs
-
-dd if=/dev/urandom of=urandom bs=1024 count=50 status=none
-for i in $(seq 1 1026); do
-	echo "$i l urandom" >> pseudo
-done
-
-# Create the Squashfs filesystem
-echo Create the Squashfs filesystem
-
-if ! mksquashfs - img.sqsh -pf pseudo -p "/ d 0777 0 0" $ARGS; then
-	echo Failed to create Squashfs filesystem
-	finish
-
-fi
-
-# The fragments field (fragment count) in the superblock is at offset
-# 16 bytes.
-#
-# Over-write the fragments count with 268,435,457 little-endian.  On a
-# 32-bit architecture, this when multiplied by 16 will overflow, giving
-# the value 16.
-#
-# Ultimately this will cause the kernel code to create and read a single
-# entry index table (where in fact the table has two entries).
-#
-# Then stating file 999 which has a fragment id in the second index,
-# will cause an out of bounds access.
-
-# Write 268,435,457 in little-endian format to file
-/usr/bin/echo -en "\x01\x00\x00\x10" > file
-
-# Over-write the fragments count in the superblock
-echo Over-write the fragments count in the superblock
-
-dd bs=1 seek=16 if=file of=img.sqsh count=4 conv=notrunc status=none
-
-# Mount the filesystem to /mnt
-echo Mount the filesystem to /mnt
-
-if ! mount -t squashfs img.sqsh /mnt; then
-	echo Mount of Squashfs filesystem failed
-	finish
-fi
-
-# Stat file 999
-echo Stat file 999
-
-stat /mnt/999
-
-popd 2>&1 > /dev/null
-
-rm -rf $DIR
-=================================================================
-
-Fixes: ffae2cd73a9e ("Squashfs: header files")
-Signed-off-by: Phillip Lougher <phillip@squashfs.org.uk>
+Fixes: 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter handling in mm_struct during fork")
+Cc: stable@vger.kernel.org
+Tested-by: Karl Mehltretter <kmehltretter@gmail.com>
+Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
 ---
- fs/squashfs/squashfs_helpers.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v3:
+- Rename might_clear_ksm_zero_pte() to ksm_fork_pte() and move the
+  is_ksm_zero_pte() check into copy_present_ptes() under the !page
+  branch, as suggested by David Hildenbrand.
+- Expand the comment above ksm_fork_pte() to explain why the marker is
+  cleared on fork.
+- Add Tested-by tag from Karl Mehltretter.
 
-diff --git a/fs/squashfs/squashfs_helpers.h b/fs/squashfs/squashfs_helpers.h
-index 4088e598400f..524d4a77686d 100644
---- a/fs/squashfs/squashfs_helpers.h
-+++ b/fs/squashfs/squashfs_helpers.h
-@@ -55,7 +55,7 @@ static inline s64 squashfs_mkinode(u32 start, u16 offset)
- /* fragment and fragment table defines */
- static inline s64 squashfs_fragment_bytes(u32 fragments)
+ Documentation/admin-guide/mm/ksm.rst |  7 ++++++-
+ include/linux/ksm.h                  | 22 +++++++++++++++++++---
+ mm/memory.c                          |  5 ++++-
+ 3 files changed, 29 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/admin-guide/mm/ksm.rst b/Documentation/admin-guide/mm/ksm.rst
+index c329ca747b8c..8968ae3f55c0 100644
+--- a/Documentation/admin-guide/mm/ksm.rst
++++ b/Documentation/admin-guide/mm/ksm.rst
+@@ -214,7 +214,12 @@ stable_node_dups
+         number of duplicated KSM pages
+ ksm_zero_pages
+         how many zero pages that are still mapped into processes were mapped by
+-        KSM when deduplicating.
++        KSM when deduplicating. Note: on fork(), the child process does not
++        inherit the ``ksm_zero_pages`` counter, and any inherited KSM-placed
++        zero-page mappings are converted into ordinary shared zero-page
++        mappings. Consequently, these mappings are neither accounted for in
++        the child's counter nor unshared when ``MADV_UNMERGEABLE`` is called
++        in the child.
+ 
+ When ``use_zero_pages`` is/was enabled, the sum of ``pages_sharing`` +
+ ``ksm_zero_pages`` represents the actual number of pages saved by KSM.
+diff --git a/include/linux/ksm.h b/include/linux/ksm.h
+index 596c04ca7326..f29aec4496d0 100644
+--- a/include/linux/ksm.h
++++ b/include/linux/ksm.h
+@@ -32,6 +32,17 @@ void __ksm_exit(struct mm_struct *mm);
+  */
+ #define is_ksm_zero_pte(pte)	(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte))
+ 
++/*
++ * Since the inherited mappings on fork are not expected to be accounted for
++ * in the child's ksm_zero_pages counter (reset in ksm_fork()), we must
++ * clear KSM's dirty-bit marker on KSM-placed zero-page PTEs to avoid
++ * underflowing the counters on child exit.
++ */
++static inline pte_t ksm_fork_pte(pte_t pte)
++{
++	return pte_mkclean(pte);
++}
++
+ extern atomic_long_t ksm_zero_pages;
+ 
+ static inline void ksm_map_zero_page(struct mm_struct *mm)
+@@ -57,11 +68,9 @@ static inline void ksm_fork(struct mm_struct *mm, struct mm_struct *oldmm)
  {
--	return fragments * sizeof(struct squashfs_fragment_entry);
-+	return (s64) fragments * sizeof(struct squashfs_fragment_entry);
+ 	/* Adding mm to ksm is best effort on fork. */
+ 	if (mm_flags_test(MMF_VM_MERGEABLE, oldmm)) {
+-		long nr_ksm_zero_pages = atomic_long_read(&mm->ksm_zero_pages);
+-
+ 		mm->ksm_merging_pages = 0;
+ 		mm->ksm_rmap_items = 0;
+-		atomic_long_add(nr_ksm_zero_pages, &ksm_zero_pages);
++		atomic_long_set(&mm->ksm_zero_pages, 0);
+ 		__ksm_enter(mm);
+ 	}
+ }
+@@ -95,6 +104,8 @@ bool ksm_process_mergeable(struct mm_struct *mm);
+ 
+ #else  /* !CONFIG_KSM */
+ 
++#define is_ksm_zero_pte(pte)	false
++
+ static inline vma_flags_t ksm_vma_flags(struct mm_struct *mm,
+ 		const struct file *file, vma_flags_t vma_flags)
+ {
+@@ -114,6 +125,11 @@ static inline void ksm_exit(struct mm_struct *mm)
+ {
  }
  
- static inline s32 squashfs_fragment_index(u32 fragments)
++static inline pte_t ksm_fork_pte(pte_t pte)
++{
++	return pte;
++}
++
+ static inline void ksm_might_unmap_zero_page(struct mm_struct *mm, pte_t pte)
+ {
+ }
+diff --git a/mm/memory.c b/mm/memory.c
+index 6a23198c1c67..f0b5df879e6f 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -1184,8 +1184,11 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
+ 	int err, nr;
+ 
+ 	page = vm_normal_page(src_vma, addr, pte);
+-	if (unlikely(!page))
++	if (unlikely(!page)) {
++		if (unlikely(is_ksm_zero_pte(pte)))
++			pte = ksm_fork_pte(pte);
+ 		goto copy_pte;
++	}
+ 
+ 	folio = page_folio(page);
+ 
 -- 
-2.47.3
+2.34.1
 
