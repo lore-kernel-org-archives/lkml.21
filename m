@@ -1,124 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795470346;
-	b=xLE3zMIARmOPxYR4oLb5Acd3K2YG0eDXEK4EO7PH6iY7vFsXGaOUAf1Fb/jvYlM75+uD
-	 6PJNqnDAC1Euk2tjq6mtIoL/+KnOBS9H3EIZl++ZXQqoaEujn1a0Dl3IzJSvTgKJqzpKZ
-	 j77ftkrKhv2yPtvR2nGAKnnua4dHcdeat9ic8VBkRuvxrhBvtg177SYGr0Ao3KpQqMyK1
-	 j9j42GzLgVcL5PLssgb/B6Wz+L6DFXgeAqNbELsGvuU38HzMlr/IjugkSmFEL2m5Fsy3F
-	 8Wlr80kIz8X4zbqMn0txALGf2ZbBJKeqFjsm7Tbl0l2N54yozKaVaaX/xnGiLxvbQDA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470346;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:Reply-To:From:Date:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
-	b=EoHTdmQr6E4BOn0apRkBKFypX7i3RNW7rZErb+M2YAm2WOasOmmiCChOJ5lr9lIw1J89
-	 48Xy4PsmWtDpbIwWxYsTOluw+WO7lfXJ/tyALldEG9W8AtU7LSLBfIx0YPPitjXSsIG6r
-	 dh8dp1aYailZSRSOl7roETBCe3uoHCmu0V/uao37qc4Nqv3YpJr6Bg37b9a6UDvbMztKx
-	 ujFRe4UWKc1SQad7vhxqKkrK+dD7DKMODvHeytqDB3/cy6Ca2LdXmersoG06hYkp4XdDW
-	 iIKEDtwdcSNBcQkFIsGz4aXze2/RXP+zzoyLk+WjyaoVfSzLxy9a71cH/t8couxcbqA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=grRu29bG;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UKu7qd4W;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795470405;
+	b=smQufsYcIhZOw8IewkKCJTkM9yFhptMP/UVaDe7ASAWnBMfqNfcbChzUHZySpYUZH122
+	 YjfhTE/JLd9ecfyDRNoNb3gttReDcUtmnILQkj8ORc9tQ7Ae95RkPmMbJ1C80XYFz/U1d
+	 26YH610xlJ0U2DbGhbuJpj0ZCCDe7zDQZZ5uQaNKuoUrNJDhRLwz8MC0UQh6RM6rA7pIU
+	 B3vWJn61lSJ+LSJgdcBZn5dStawVBmUlkggvnJzAxIjd7ehb51zKfgAWVGcaDyIhlx4H4
+	 425RD6MVCy6I56Uil7hvJDPr0wfyntH/lrUz+3oRM04xg9+i2eQAK1lEfaRAeaMITnA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470405;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=zTJutYqQiy5+Loxe2fukbllHCQvPBB5kBVDNquew1tk=;
+	b=b9JfcS5MlcB6VY4Edsihm9Pri9wrVrsV26/jYvpTZQLl5fx2mwBy3A/J98rAJML4lfoX
+	 jbdxWknBvZ0fA+u7eRKRaWoD/JcM4poXLvSd6Vl9GhEqO9VYAR+xBefxslHpCmnvPFTVz
+	 N8dVslmWf/lW9oKQKLQVUpK/C+7TCVtq0oBHm9t0r7XCzeFWSntQHKatz551O3g/O4ylR
+	 CJmnenXLu6XA9Z1t0a5kPGJuh13gqs2fhpGYNCnXx8vRoBnYHak8x8a0C/+tqaICOOGjv
+	 wWk1GxK6WTWupZ9XGinhunwAYyuGe+9jNcENKskCOQEmdL+Ytd4Q13Eyq/XtmuQwW4A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ASppbr1T;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C568F606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:45:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C568F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10689606A31E;
+	Mon, 23 Nov 2026 21:46:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=grRu29bG;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UKu7qd4W
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJudhx2827537
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:45:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:to; s=
-	qcppdkim1; bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=; b=gr
-	Ru29bGUeD20KN15hfdTn/v0tDcsuI0iM4aVP34KjIOqVlJ589XfwK0rRJ9PRxYhg
-	j/oQV/f4gL+HRYAx75aI7FJrTvxi3/PrY0LLPXMwFPR8zWzNnySCrt84iVe2Latp
-	slWABwSdOefa0MzvVtR+BIyPkFUlROB2RKAE+5icheqxjRYxJPep/me+ukfClyj7
-	aNh+4VpO1/Ecoco+CGRKaaVIBej+gEZdAQo8ZyIBUpueTJrT3F6nQncdjdDqiPL0
-	VuBFXnVIhvDU3y3iMcjlWw7vgyYYYUErrM7iJQGubIrkwyUsRqj9ewqz5EzCEUCC
-	fCePHonyWP62mxUs4lew==
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4exx3shw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:45:45 +0000 (GMT)
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-45e6091d8a1so2822131fac.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:45:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795470344; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QE7iMLIXWcCoWWGfYTxl+MSYdAF1whNYB512x+XLM3A+4p6FjPIVZcbMQZRi6bM/mX
-         QA/9NaIM4IZWDbartSZ6hOWuDkMRUrr6eSIdLX7EHzQMIQMrf3Qh6wbnEEba7tkLxVf+
-         AnQHhbiOq1WcUa1RWsoshTFjBQKp6sJqNnUtDTDXIlbGqsn234H43b9EM9cRTAc9hgzl
-         MAUEga0tUEiSieNVG0j0zMQNQ8wrITwY+XUAU+0pmfuAwADkqMeXdR+6nKZfVyKxp6uV
-         G3s/yBrfypmxCIC6Vm8fc0uXG1sanpMOD7XObg/0v7mnL/GTC3pb2+9j/tobAnPcq5DY
-         Vb1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:dkim-signature;
-        bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
-        fh=2G1jwR1IZaqdM7GDeT/qJQ+k4ssZRrk24qcjSpKMtKQ=;
-        b=SWBEnC+zBa6gnwsAZ5UuSnYrDqRNUGpW0xjYuznQsr7u/xQeT0zvTPcenZb/lhuf/2
-         FeHyyJK2Uc79RSFRRAvo4HR2QWU649/PJ+9lB3+bYaIm+UBaPxY9T/0q0VwIXP6aDI41
-         luKQdw0Kcioalo00nl5+C/p/iazfMC9broRxrrPVNLpLSQilwC0b1v587BSlD6EmXNCs
-         6ha0KfPW4JBSEp/4A2FGC3oxIJFhzO0lfQ6GPTX3MWNty/7BirfNiul/h+k1zPjq44XZ
-         uPeEZxd8evtZog1brX8QCqV6ukxtx2p4qnBUra6mYOCgsIeZ69QDzJwH0FTwizQPMoUk
-         KosA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795470344; x=1796075144; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
-        b=UKu7qd4WEbSKPsNFfj+pHRYixCa/7b6VDiWTtOWAll2AZw5y//VVdKPNcPX8MmDI5o
-         lGa1PY67uXz3olImtl6TKpojqvebh/rIl5cVj9a8zcCWLH4xzc54oIhjO7T5K1hLGW2n
-         TsINYtVfh04NPCFLUuEgqZbWs3+7ixdXGqLxMHyc+f6LfydTn3jQIJxiaWk6UGgTe3wg
-         wzZAtwBMsoCxzAfU3iuBMh5ydZXWJDPewH0vTmDcnCFGU2XdeP2rMiq8UDt9LD9MWwgk
-         zavh8wgcBSypsZXfxe76IaNKtO1JepoFCZ3gsFdI1udaU9wguas19FykSCaXYh1ls+e9
-         twWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795470344; x=1796075144;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=f8CTs4H0e4+xV/JFm+XfAOVDKNKiSc6f11sR45iH4HU=;
-        b=GYx4uLjumhDevC4HyvuEMX0HQQ4ZekUMcqFWAciYdSn4RI5GIBElOAc7/5x/dK9Vax
-         09qRPikkSxOboMV6zONyiezANq2heacM7sXFExb5aLi2bz1UyAv9mvIUZeBqewHOXs22
-         DGiTEgtTCrLqDhebCfYUlth7yxzdaU3NaPW0Kr11FmVcpxddGcC1JlR9ctC1/k12HPBY
-         hv0/muWPn6zCSKb1qrAXp+tmjdyMNa78mjqqBYve9OxU7+NFugtFq4pLJgqErJpiZ3D9
-         Z3+nRYrNiVhQKVEz4+HkrtNdQSzFKcamj6/sRXZTha9j0BL8QXzvYdjttRodicHwjGK7
-         ok1g==
-X-Forwarded-Encrypted: i=1; AL+hErGIjh2yc4gcolFURkA/RSxAQS+N6lklohdj8pvwhnvZ8Ej+lz4dAF06MNGtI0Enk9ynft5xhNuSAyeXxuM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9TeaactA03Iq8yhnJ4jk2U9yzhfaQ0hGZ+goukwJ0YVREGS5Ck
-	9CTHyNAh/MjixKvL9F0Tj2E4+zbmKnvhKi2kPdokUYS26s14vUF/8rOJ/8aejvCbPi9eMT6Drca
-	HO25ybsOMXfYgYRKjdIyEsKaA+eDTzTSj+LkWq8BSPBM6KRh/hWH536mWsBHCWTgu9mBxHLGkF9
-	VdVsmuesRcfgxQPe7upGq1FhLSOUdiUR1jEbyIynvh0g==
-X-Gm-Gg: AZFdTZeMtMgKRdipQ+mkpbJZT6B7JO7K/akyzK5Lt8vs8q0U8Q1Y3tB286cIQ4ui9PD
-	7KHhak3b3QowcD1PLw9FHh1tUSbZQHzGPQ59OcIVMNohEADpyFEHaD+/Slft7SmTRZ58G7eJo2c
-	KjkrEPxwZpj9n0cnTOndupnfmHPT3xUwKb+krmxnAqlfIsaI20Np9IIWxCqpbFVb1o91LQXvh32
-	8U0CK4YOmjAr/WZ8nYlqw==
-X-Received: by 2002:a05:6870:5b9a:b0:4b4:8c0f:40b6 with SMTP id 586e51a60fabf-4bc821920bcmr11250547fac.20.1795470344138;
-        Mon, 23 Nov 2026 13:45:44 -0800 (PST)
-X-Received: by 2002:a05:6870:5b9a:b0:4b4:8c0f:40b6 with SMTP id
- 586e51a60fabf-4bc821920bcmr11250511fac.20.1795470343685; Mon, 23 Nov 2026
- 13:45:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ASppbr1T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7B91F000C0;
+	Mon, 23 Nov 2026 21:46:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795470404;
+	bh=zTJutYqQiy5+Loxe2fukbllHCQvPBB5kBVDNquew1tk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ASppbr1T00OUJ3AGGxLSGRf2DZWyyQofa+KfFY856PPcYZw6TuhWcVPyHlz0F3E2A
+	 QgbT0yIGE3fQ4mgy5hPPec+VmOXiyvNdM4hUDOlZl7htIZKWHdh26CzyikVXyni68n
+	 1kbP/16TUnZW77imKc2Hk5tDX2BJnRX3zseoxc8t/5BKtGSz8WexC1bt7EU6bL0y1i
+	 6UNcXiM0Kj1kwr3M7wP/rtK0kzf2oAHzHwtVnAqUacFSOsRfvHIMhaMVFnSmU0GC6v
+	 S1ScqfOR63HyDzVz2yY39+Gvfj55LrYiJ7pyvUrZF82dmzP3r8vQKH5bOtE748q3JR
+	 L1V78sWuqrbfw==
+Date: Mon, 23 Nov 2026 13:46:42 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Alireza Haghdoost <haghdoost@uber.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 00/10] perf symbol: Sorted arrays, DSO-owned
+ lifetimes, and memory shrinking
+Message-ID: <awS0QkL6JuMfC7Z0@google.com>
+References: <20261122050405.80335-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,109 +62,204 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123181306.420017-1-robin.clark@oss.qualcomm.com> <e4ecc291-026d-4ae1-a391-5f3856df8ce1@oss.qualcomm.com>
-In-Reply-To: <e4ecc291-026d-4ae1-a391-5f3856df8ce1@oss.qualcomm.com>
-Reply-To: rob.clark@oss.qualcomm.com
-From: Rob Clark <rob.clark@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 13:45:32 -0800
-X-Gm-Features: Aa3M54rCKbnTmosWYAIUHrhm3070EypXS245eQnX6lbW45gG_2uvaZLev6Ye9i8
-Message-ID: <CACSVV021qzsi-s+9GfOqx4syzb0=eAtv5nTV7u3thOqLrRa63g@mail.gmail.com>
-Subject: Re: [PATCH v2] drm/msm/a8xx: Add missing preempt_record_size
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org, Connor Abbott <cwabbott0@gmail.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=FKKOVOos c=1 sm=1 tr=0 ts=6b04b409 cx=c_pps
- a=CWtnpBpaoqyeOyNyJ5EW7Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8 a=pGLkceISAAAA:8
- a=OkJ-WEULEOmYfeJtPDwA:9 a=QEXdDO2ut3YA:10 a=vh23qwtRXIYOdz9xvnmn:22
-X-Proofpoint-ORIG-GUID: 5GIrruSz4mzDpHmFwk4urBQfEujtIZWJ
-X-Proofpoint-GUID: 5GIrruSz4mzDpHmFwk4urBQfEujtIZWJ
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfXy3FJagS3qnHS
- 1U2jowTWqpjY1G7tHQ+PS0XdsL2MxpH9jBAfo1W5P09z5r+HIDgcM7j2PGU8kjQbgxtziwbyFaJ
- WNF9iI9LDgeBaJ4iGh69kMr4slvNgao=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfX5wNX3xulnaGM
- 5pFYG7h/AOV5izbPLk+0ghL/dvZ7SDE88Q/kHPlQDKiGQ8ebr24jr/MiyID2MFQssmei2NXcIep
- JdKmwDBouZQQuQ7s01pl6bfTWrrh5C/ymDK8Y7CzI9gwmkrcKGyQ8sPz4GfVKV7RYcvLaUrI3NQ
- 4xfuN75d2LNHHsz648QCRROcz0LBmmWur/iZKo/1rYtNA8rE2lFMD+nOvToZ29m2WZEt4YbVsIL
- ilFMDBimSZdXgbJ+GpCMqOspiL0uANxZ08B12FyQDf9H9VdgYgatV6a5otFyq/FwetMwfQPiN1K
- eCtC+MAjs6LkE7N4CokT27mHNZSoQ6lz5QDfr5YCG2mNpDDT7fa+YM8QxUYQefSQ+87jg2ruuHE
- U3rL/OGQwcj+U2+4zVA21MtEJxzklYIptuXUKiAMvrGVtSiQc1ZCLgv+Jr5Dc2sZDUE3Ei9/6kX
- ur7ysQDQhJd5rKw/ZgA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- lowpriorityscore=0 impostorscore=0 phishscore=0 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230086
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261122050405.80335-1-irogers@google.com>
 
-On Mon, Nov 23, 2026 at 12:02=E2=80=AFPM Akhil P Oommen
-<akhilpo@oss.qualcomm.com> wrote:
->
->
->
-> On 11/23/2026 11:43 PM, Rob Clark wrote:
-> > Somehow this got overlooked, and Glymur/Mahua were falling back to the
-> > default 4MB.  Which is way too small for the amount of GMEM on these
-> > devices, causing faults in cases where preemption needs to save GMEM
-> > contents.
-> >
-> > Reported-by: Connor Abbott <cwabbott0@gmail.com>
-> > Fixes: 7fad33097e67 ("drm/msm/a6xx: Enable Preemption on X2-85")
-> > Signed-off-by: Rob Clark <robin.clark@oss.qualcomm.com>
-> > Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->
-> Reviewed-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->
-> I think it is a good idea to add a WARN_ONCE when the default size is use=
-d.
+Hi Ian,
 
-More generally, we should probably just warn if the preemption record
-size is less than gmem size.. (we could probably also make the
-preemption record size smaller on ring0, I think?)
+On Sat, Nov 21, 2026 at 09:03:55PM -0800, Ian Rogers wrote:
+> When profiling large binaries or long-running workloads with many DSOs and
+> threads, symbol and DSO tables frequently dominate perf's memory footprint
+> and startup latency. Currently `struct symbol` still has several structural
+> limitations:
+> 
+> 1. Every `struct symbol` embeds a 24-byte `struct rb_node` for the
+>    `dso->symbols` address rbtree, scattering lookups across non-contiguous
+>    heap nodes.
+> 2. `dso__symbols()` has no internal synchronization against concurrent
+>    readers/writers, and unreferenced DSOs and auxiliary symbol/debuginfo
+>    buffers cannot yet be reclaimed under memory pressure.
+> 3. Sorting `dso->symbols` with `qsort()` does not take advantage of
+>    pre-ordered ascending runs in ELF symbol tables, and `first_ending_after()`
+>    in `struct maps` runs a full binary search even for ascending
+>    `/proc/pid/maps` synthesis.
+> 
+> Thirteen preparatory fixes, benchmarks, `dso_symbol` lifetime conversions,
+> `symbol_conf.priv_size` removal, and ELF header caching patches from v4-v6
+> have landed in `perf-tools-next`. The remaining 10 patches convert symbol
+> iteration to callbacks, replace the `dso->symbols` rbtree with a sorted
+> pointer array, stage natural-run merge sort and incremental symbol
+> insertion, and add memory shrinking APIs and unit tests:
 
-BR,
--R
+I've applied the first 6 patches to perf-tools-next.
 
-> -Akhil.
->
-> > ---
-> > v2: Fix typo in commit msg
-> >
-> >  drivers/gpu/drm/msm/adreno/a8xx_catalog.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/drivers/gpu/drm/msm/adreno/a8xx_catalog.c b/drivers/gpu/dr=
-m/msm/adreno/a8xx_catalog.c
-> > index 0c6dde3cbea9..20fe93b83c0b 100644
-> > --- a/drivers/gpu/drm/msm/adreno/a8xx_catalog.c
-> > +++ b/drivers/gpu/drm/msm/adreno/a8xx_catalog.c
-> > @@ -1337,6 +1337,7 @@ static const struct adreno_info a8xx_gpus[] =3D {
-> >                               { /* sentinel */ },
-> >                       },
-> >               },
-> > +             .preempt_record_size =3D 23088 * SZ_1K,
-> >               .speedbins =3D ADRENO_SPEEDBINS(
-> >                       { 0,   0 },
-> >                       { 388, 1 },
-> > @@ -1469,6 +1470,7 @@ static const struct adreno_info a8xx_gpus[] =3D {
-> >                               { /* sentinel */ },
-> >                       },
-> >               },
-> > +             .preempt_record_size =3D 17712 * SZ_1K,
-> >               .speedbins =3D ADRENO_SPEEDBINS(
-> >                       { 0,   0 },
-> >                       { 388, 1 },
->
+The patch 7 was bigger than I expected.  Can you simplify it more?
+
+Also I don't plan to merge the rest patches as of now.  Let's wait for
+the lazy loading and try that for a while.
+
+Thanks,
+Namhyung
+
+> 
+> - **Preparatory fix, `maps` tail fast-path, and symbol iteration (Patches 1-4)**:
+>   - Patch 1 fixes an `alloc_func_regex` leak on error returns in
+>     `builtin-kmem.c`'s `build_alloc_func_list()`.
+>   - Patch 2 adds an O(1) tail fast-path check in `first_ending_after()` for
+>     ascending map insertions.
+>   - Patch 3 converts `symbols__for_each_entry()`, `dso__for_each_symbol()`,
+>     and `map__for_each_symbol()` to callback-based iteration and updates
+>     existing callers.
+>   - Patch 4 converts open-coded `dso__first_symbol()` / `dso__next_symbol()`,
+>     `rb_first_cached()`, and `dso__symbol_names()` loops to callback
+>     helpers and removes `dso__{first,last,next}_symbol()`.
+> - **Sorted symbol arrays and staged sorting optimizations (Patches 5-7)**:
+>   - Patch 5 replaces `dso->symbols` (`rb_root_cached`) and
+>     `dso->symbol_names` with a `rw_semaphore`-protected `struct symbols`
+>     container backed by sorted pointer arrays, removing `struct rb_node`
+>     from `struct symbol` (shrinking `sizeof(struct symbol)` from 48 to 24
+>     bytes, or 16 bytes net per symbol after accounting for the array
+>     pointer).
+>   - Patch 6 replaces `qsort()` on `struct symbols` with a stable
+>     natural-run merge sort.
+>   - Patch 7 optimizes incremental dynamic symbol insertions
+>     (`dso__insert_symbol()`) and small appends using `@sorted_cnt` and a
+>     sorted tail buffer with amortized `sqrt(N)` merge.
+> - **Memory shrinking APIs and unit tests (Patches 8-10)**:
+>   - Patch 8 adds `symbols__shrink()`, `dso__shrink()`, `dsos__shrink()`,
+>     `machine__shrink()`, `machines__shrink()`, and `perf_session__shrink()`
+>     to reclaim `symbols_by_name`, excess array capacity, cached DSO file
+>     descriptors/data/DWARF state, and unreferenced user DSOs (`refcnt == 1`
+>     with no annotated symbols), with transparent on-demand reload via
+>     `dso__load()`.
+>   - Patch 9 adds `dso__session()` and `perf_session__malloc()` /
+>     `zalloc()` / `calloc()` / `realloc()` / `strdup()` wrappers (leaving
+>     production caller wiring for follow-up once lazy symbol loading is
+>     evaluated).
+>   - Patch 10 adds unit tests in `perf test symbols` covering sorted symbol
+>     insertion, equal-start aliases, symbol/DSO shrinking, `dso_symbol`
+>     lifetime pinning, inline frame/srcline cleanup ordering,
+>     `symbols_by_name` on-demand rebuild, transparent DSO reload, and session
+>     allocation wrappers.
+> 
+> Changes in v8:
+> - Rebase onto `tmp.perf-tools-next` (`eb79d2fbc230`), adopting
+>   `<linux/compiler-context-analysis.h>` annotations (`__guarded_by(&lock)`,
+>   `__acquires_shared(&symbols->lock)`, `__must_hold(&symbols->lock)`,
+>   `__context_unsafe()`) on `struct symbols` and `dso` / `tests/symbols.c`
+>   and adapting `dso__shrink()` / `dso__try_evict()` to `dso__data_open_lock`
+>   and `close_dso()`.
+> - Pass `first_unsorted` (`m = symbols->sorted_cnt`) to
+>   `symbols__insertion_sort_range()` in `symbols__sort_locked()` (`Patch 7`)
+>   so the `k <= 8` small-append fast path and allocation-failure fallbacks
+>   skip scanning the already-sorted prefix `[0 .. m)` (Sashiko).
+> 
+> Changes in v7:
+> - Rebase onto `perf-tools-next` (`bb27ddbaee56`), dropping the 3 patches
+>   from v6 that have been applied upstream.
+> - Drop `nr_addr_sorted` and `nr_name_sorted` incremental partial-sort state
+>   from `struct maps`, keeping only the `first_ending_after()` tail
+>   fast-path check (`Patch 2`) (Namhyung Kim).
+> - Split out the `alloc_func_regex` leak fix in `builtin-kmem.c` (`Patch 1`),
+>   the `map__for_each_symbol()` callback conversion (`Patch 3`), and the
+>   conversion of open-coded symbol loops (`Patch 4`) ahead of the `rbtree`
+>   to `struct symbols` array conversion (`Patch 5`) (Namhyung Kim).
+> - Split symbol sorting optimization into a simple natural-run merge sort
+>   patch without galloping (`Patch 6`) followed by incremental dynamic
+>   symbol insertion with a sorted tail (`Patch 7`) (Namhyung Kim).
+> 
+> Changes in v6:
+> - Fix `symbols__find()` when `sorted_cnt < cnt` so that if the slice
+>   (sorted prefix or unmerged sorted tail) with the higher `start <= ip`
+>   group ends before `ip`, `symbols__find()` returns `NULL` rather than
+>   falling back to an earlier outer symbol in the other slice, matching
+>   post-merge behavior, and add unmerged-vs-merged prefix/tail overlap and
+>   equal-start alias unit tests (Sashiko).
+> - Use positive `ENOMEM` rather than `-ENOMEM` on `symbol__annotation()`
+>   failure in `symbol__annotate()`, `symbol__annotate2()`, and
+>   `__hist_entry__tui_annotate()` to match `symbol__strerror_disassemble()`,
+>   check `symbol__annotate() != 0` in `hist_entry__get_data_type()`, and
+>   guard against `NULL` `notes` / `notes->src` in `find_disasm_line()`
+>   (Sashiko).
+> 
+> v7: https://lore.kernel.org/linux-perf-users/20261121071651.67118-1-irogers@google.com/
+> v6: https://lore.kernel.org/linux-perf-users/20261117185305.108003-1-irogers@google.com/
+> v5: https://lore.kernel.org/linux-perf-users/20261116063435.2817923-1-irogers@google.com/
+> v4: https://lore.kernel.org/linux-perf-users/20261113171734.2188066-1-irogers@google.com/
+> v3: https://lore.kernel.org/linux-perf-users/20261110220803.2503416-1-irogers@google.com/
+> v2: https://lore.kernel.org/linux-perf-users/20261027231513.816148-1-irogers@google.com/
+> v1: https://lore.kernel.org/lkml/20260928075237.3055101-1-irogers@google.com/
+> 
+> AI Assistance Disclosure (per Documentation/process/coding-assistants.rst
+> and Documentation/process/generated-content.rst):
+> - Tools used: Google Antigravity / Jetski coding assistant and Sashiko
+>   automated patch review (sashiko.dev and internal Sashiko).
+> - Summary of prompts and assistance: Interactive pair-programming session to
+>   replace per-symbol refcounting with `struct dso_symbol` DSO-borrowed
+>   lifetimes, split symbol callback iteration and staged natural-run merge
+>   sort / incremental insertion patches, rebase onto `tmp.perf-tools-next`
+>   context-analysis annotations, and address LKML reviewer and Sashiko
+>   feedback across `kmem`, `dso`, `map`, `maps`, `symbol`, and
+>   `tests/symbols.c`.
+> - Testing performed: Built each commit (`[1/10]` through `[10/10]`) with
+>   Clang (`-DWARN_CONTEXT_ANALYSIS -Wthread-safety -Wthread-safety-pointer
+>   -Wthread-safety-beta`), AddressSanitizer, LeakSanitizer, and `DEBUG=1`
+>   (`REFCNT_CHECKING=1`); ran `perf test` (including `Symbols`, `Maps`, `DSO
+>   data`, `hists`, `thread`, and `annotate` suites), `perf bench internals`
+>   (`symbols` and `maps`), and `scripts/checkpatch.pl`.
+> 
+> Ian Rogers (10):
+>   perf kmem: Fix alloc_func_regex leak on error in
+>     build_alloc_func_list()
+>   perf maps: Add tail fast-path check in first_ending_after()
+>   perf symbol: Convert map__for_each_symbol() to callback-based
+>     iteration
+>   perf symbol: Use callback iteration instead of open-coded symbol loops
+>   perf symbol: Switch backing storage from rbtree to struct symbols
+>     array
+>   perf symbol: Replace qsort() with natural-run merge sort
+>   perf symbol: Optimize incremental symbol insertion with sorted tail
+>   perf symbol: Add memory shrinking for symbols, DSOs, and machines
+>   perf session: Add dso__session() and session-scoped allocation
+>     wrappers
+>   perf test symbols: Add tests for symbol shrinking and session alloc
+>     wrappers
+> 
+>  tools/perf/arch/powerpc/util/sym-handling.c |   34 +-
+>  tools/perf/builtin-annotate.c               |   11 -
+>  tools/perf/builtin-kmem.c                   |   51 +-
+>  tools/perf/tests/hists_common.c             |    5 +-
+>  tools/perf/tests/maps.c                     |   46 +
+>  tools/perf/tests/symbols.c                  |  851 ++++++++++++++-
+>  tools/perf/tests/vmlinux-kallsyms.c         |  181 ++--
+>  tools/perf/ui/browser.c                     |    3 +
+>  tools/perf/ui/browsers/hists.c              |    3 +-
+>  tools/perf/ui/browsers/map.c                |   62 +-
+>  tools/perf/util/auxtrace.c                  |  109 +-
+>  tools/perf/util/db-export.c                 |    4 +-
+>  tools/perf/util/dso.c                       |  324 +++++-
+>  tools/perf/util/dso.h                       |   90 +-
+>  tools/perf/util/dsos.c                      |   51 +
+>  tools/perf/util/dsos.h                      |    3 +
+>  tools/perf/util/intel-pt.c                  |   74 +-
+>  tools/perf/util/libbfd.c                    |    3 +-
+>  tools/perf/util/machine.c                   |   60 +-
+>  tools/perf/util/machine.h                   |    8 +
+>  tools/perf/util/map.c                       |   36 +-
+>  tools/perf/util/map.h                       |    8 +-
+>  tools/perf/util/maps.c                      |    4 +
+>  tools/perf/util/probe-event.c               |   98 +-
+>  tools/perf/util/session.c                   |   78 ++
+>  tools/perf/util/session.h                   |    8 +
+>  tools/perf/util/symbol-elf.c                |   12 +-
+>  tools/perf/util/symbol.c                    | 1042 +++++++++++++++----
+>  tools/perf/util/symbol.h                    |   84 +-
+>  tools/perf/util/symbol_fprintf.c            |   25 +-
+>  30 files changed, 2706 insertions(+), 662 deletions(-)
+> 
+> 
+> base-commit: eb79d2fbc230d41b009e49f20671303c6efbd946
+> -- 
+> 2.56.1.750.gf70dc682cf-goog
+> 
