@@ -1,54 +1,143 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404641;
-	b=ybLLNYdLRKbGk4SWvSu1zQXxRjD7j7L0GZxXPFuJWq7eJuJt2NLT7ZL2JIRWVuY4wdiq
-	 BkPFjJw6zIJjaxulSFwOtUX8oMf/dESQVsw4XCCHyoGdzhSph/PDe1Eiy+ZOHcWYZehmw
-	 VNCG75X0j2eakmmCcYmO8xSjlLdy/Iqp00SiHJFQGh55L8Lb/jLB4FiRsYrKhJKWg0HXr
-	 tG1C/CcQj4qcIcDVZ+j0SIth9KY5pSwiKipCe4tbeMhmoj66vQVTcZpjB+J5Et4YV36r9
-	 Z2AtdqBSTzH3XshY6q4xe9JwhUccYEV0iaVlb7XuujVSICUTJfWkNFGN9Y7FsOG8BPQ==
+	t=1795404684;
+	b=DMyorP0A8zQYNxLBSdp+9jEiDddfBPRpKNiImiD5ZaXExudm5/aBtH8to95i/YWp6nSV
+	 TxvrTzDWAeH52ObXUB3T4zemVyNkGt2Drp9knZ4pSbVQQITnaKLkE8+ONesst3rgxROIb
+	 xgmuUtfFgNvd+QUO9eQSQ+GCPMYdETd4Rq+oo2m4JaqmubncT6yXEST2P0wMl8OWiFNkw
+	 CPX4YIZeoXrAsdaR6TKKLUOQsue3ocC4opvkRJGbvqvhlvxzCC+9d3L81V0Bq8Jx5HkLz
+	 wKKUwBjYeOEbg6EElgt9XMkGaGh3jvgnDq/AzVKNy8EJVH/l6cHgeIO/2j1SXpWD97Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404641;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=E8mORyd0QfItWSNlAxZGX4Z+8vVzlb1pdZBu2mZMk3A=;
-	b=gh4lknsU/1ExjmzVAsmp2ptYoerOtkFiDvYHib2Ab4r3Ia7yCzUFLWMRqOn+wvWsyEqH
-	 0d74jjqNWHP8EdRmqVI1kEKK15dOI+TPh/WV7AI2b7x9UPv3koj/yCZpX18BNA4rLkQXX
-	 +OP3bQpXbhSpEpjs85hvVfsni1DRSFLP4+r/Gzqnw4CakhyEd8r5xzP0RvSAqDqK2ZBEr
-	 UtpZPicazpR+zsh4oFJoMcQCWq0+HznT6Y7Qf/6Hv3CcBqBEvXVIr84es2Ar1KP+nmHg2
-	 f81kmjaCxxEdxe6oMLlS8mjCO+ktiI2Sh/WdoYMxX3ArqinM81iKNF1w8loq9sHclmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404684;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=u+VJkDmgbhhT238e3Khqv+7tnUuWga3+yY83FP/NeKA=;
+	b=ujU393mO0SymfU5RQbME+I2wW6mU6dwHV3L7Jby+N9jCK/XqmoY4tEHAejiX+qgNt/1I
+	 Q7/6hD2Ka5iqtR+Asb3nO4q1xyq6t8wo65pii7m45VB/F5oKz9v5ts15wreZ5hUZz5Qf3
+	 Pom2wBg7r6wVZLjGk719Sx7IqeLqfaxodRB5LuofSM5texh5NTODVlfZJ3TKihFGTwqAq
+	 b+pK6JW8uzUKmWC6kC3/GIEM7Z+xjRhyemQsC7KiUeCCzIxL/GoJRcDnAF0h7F1OoaY1A
+	 Wjj2nYrTeSF8ArhOt1HU05l7Wr0O4IUcnsFdeD0pt0VEnHx0UBUiKbH+jscjEkazDhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=AxPYQPzz;
+	arc=none smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4122E606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:30:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4122E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4cc89e86e9eso3547694b6e.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:30:40 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DD9D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:31:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DD9D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=AxPYQPzz
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b4ab53a966so9328a91.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:31:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795404683; x=1796009483; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=u+VJkDmgbhhT238e3Khqv+7tnUuWga3+yY83FP/NeKA=;
+        b=AxPYQPzz//LoTvh9Mr24xcYoaLF4FfIftHMSVYvNWkkd2ORREvf97GRTmlchcg5pA/
+         BY7zxNGJ9LLSAtVEdx572axC+dtCMdmu2MGH8ThCGPY3DEEFyqzqLt5DgIuv64ua28yS
+         2YY/pj6BGymwB0NT9sh7rI/OFa3aN3Yg7uhBg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795404640; x=1796009440;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=E8mORyd0QfItWSNlAxZGX4Z+8vVzlb1pdZBu2mZMk3A=;
-        b=ct60TfJP+NhaUA08juMhtrWYTnkAj8KoWLpGnEdgVEMAejtfJ3n7zkB1hLqyOj+0BJ
-         XeO2UDhWWasJWLLHwNqAQzKB2CetOBGUg3v9NmnN/RNuKyXPwyB2Bbo/W6Y1X+W81tNf
-         rMHECaCeDyqvwom0C6h0mJRmdIpqMyEDaIGtLAD0O6C5cZ9wpH04sQfOu3Y1sXmAaBej
-         iTK64V1YQLy1jRY+HkWOomsmsWJiYCNskEoe8gQLDmJq9cxdCbCKruJc/Fqm+nAFFXgw
-         mXvUJhhIne/Cs2IJm0qwL7d/Jl0LsiMBFFKjCK6t7JmbvYTSD9m4VTLMySsqnlHhTtlT
-         qPUw==
-X-Forwarded-Encrypted: i=1; AL+hErEhs9PjCTXNxqsUht6iE0kC8CrORBwVEYS/IXRnOGjHDtspIp4LlLq19duOSE+fCQtCoy+qv5tUzOGHGIM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/0qO489lbXMoPYrqBkG3/WcgkNxeGL+UILpVfxsm+2ta8nqLS4
-	k4LaT0OktquqgX7HSNbKp7+qF2XcXArTexHuXipXy8pz242mRiGRVcVLx3Ufs7l3jFGCwaM20Qo
-	pDHeKadpYE8sokP1HRobwi/CwSLP/JdIF1z7deOE0Bl8ZpPZ4vk0Kg2rk8kA=
+        d=1e100.net; s=20260707; t=1795404683; x=1796009483;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=u+VJkDmgbhhT238e3Khqv+7tnUuWga3+yY83FP/NeKA=;
+        b=nThMA9B2CMH6+C6cnho3bmuhxFPMNwEMzAohs+3OLLBKOrB+85SFUy4kE+i2ta5021
+         GuyeWbIxKHwz3q7LrATvOLTZdREK1vrHgsWpPctkXRPC0AxRLdXQy7ShHLHjnCbmkDcI
+         i4kYgIkrhMo4JWBfF1WJE+zuVtB7uo6X3eEEz5fNqOgWRuK6oisUYpFO/1Z43ZYJOTjL
+         VXl1cH0QlbD87CcoceY9638nkCdE/xkcp2SMmV/NG+6A7PO5jAKW+SnyB76KL6C3yIo4
+         nD4KOdb2ZYYY+bNgtSMsqa2mVmVWzpBX7a5Vm8qlbX/hO0W4TzuOR8p9kGKnqsWdNYTm
+         rZrg==
+X-Forwarded-Encrypted: i=1; AL+hErEmLU1eW6iigqyUohrnIvq/9qSuR6ROEudAwQ/cbJIrMC/j1e3uELS7bgRU0eYui/Q4toHNBZ4m7LE/foc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/xv/PCmtKCJ3hd7WJ8B+mQu8kItqNGDZUGGvwO5Sop9chQ04hq
+	1BLur6WFl1bO+JXn+OScmgi1dHA8HhRDfA4fDsTPXoBfHGje0amfIC2nKwKW8nAqiQ==
+X-Gm-Gg: AZFdTZfxpFNwwHDf7bKkXGJjD3OVYlrR21+0OJmsYd+BPSeO2SCaeuIMSxJBUvdvbvW
+	TBdyQtSAVTLBJ825UbhhPkAfSTls273HgyhHJXtvamD+NTmMcxYx7nlK21/Q+0TplxNEv9fHpDp
+	eGP/EENx8/w9lj4xRptOyP9DMMiX/o+26VryZ4FatfkoMr/KtW4hYcewCUA6T2Q0EfuQ/Af+cCd
+	TGRSK0YJE5XeErZ1q42RkHsyQxzffW4svHqznzDDTKQfM4fvj2scGFzR55uionsok8V6Azlqx51
+	dWqsVlKOBboKAMmZp8sbV/cMGxfz8Fi3PiCtZIJyEFifNZpqNQeizbicb83DXSJb3/OO7PPzxS9
+	jz6nqa9fRMaQlKUeP9a7Yt8OAkqTv9H3FROpugbCXh38nvBaYwNVfbKQUXYMMHI9MQWLS5MjWi1
+	3ZJV3ELbGdo+6sEhICrU19ru8STEAzboU7AWpPfYC7vxDcLg3Wg1w0FPF7lX8vk5Jhh2sCvPScU
+	/gdxmUNza/rZJ3Y4olEU5eNeV7cKcopOP1bk3zhV+e9ugjxjfBAyybJa/HTvQYfqfjK7eiq9xUq
+	x4do1pE1fOpqEnjzxojab5jWUdEW2hin0lPGdGCJVq+ZODQRwhP1xUziIddIVj+aBCBurA==
+X-Received: by 2002:a17:90a:e70c:b0:3a0:c1b1:45fb with SMTP id 98e67ed59e1d1-3b41c58aebdmr15663729a91.0.1795404682704;
+        Sun, 22 Nov 2026 19:31:22 -0800 (PST)
+Received: from localhost (221.247.125.34.bc.googleusercontent.com. [34.125.247.221])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3b41ad48786sm15745736a91.9.2026.11.22.19.31.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 19:31:22 -0800 (PST)
+From: Jeff Xu <jeffxu@chromium.org>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>
+Cc: Jeff Xu <jeffxu@chromium.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Marco Elver <elver@google.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chia-I Wu <olvaffe@gmail.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Ian Rickards <ian.rickards@arm.com>,
+	Jann Horn <jannh@google.com>,
+	Jeff Vander Stoep <jeffv@google.com>,
+	Jeff Xu <jeffxu@google.com>,
+	Kees Cook <kees@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Collingbourne <peter@pcc.me.uk>,
+	=?UTF-8?q?Pierre-Cl=C3=A9ment=20Tosi?= <ptosi@google.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Tomasz Figa <tfiga@chromium.org>,
+	Will Deacon <will@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Miklos Szeredi <miklos@szeredi.hu>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Allison Henderson <achender@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-mm@kvack.org,
+	kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	fuse-devel@lists.linux.dev,
+	kexec@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	rds-devel@oss.oracle.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/2] mm: kasan: skip KASAN for GFP_HIGHUSER
+Date: Sun, 22 Nov 2026 19:31:10 -0800
+Message-ID: <20261123033111.2349160-2-jeffxu@chromium.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+In-Reply-To: <20261123033111.2349160-1-jeffxu@chromium.org>
+References: <20261123033111.2349160-1-jeffxu@chromium.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,83 +147,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4f0e:b0:54e:7cf0:c0b9 with SMTP id
- 5614622812f47-57a0d2f1a5emr11534354b6e.64.1795404640210; Sun, 22 Nov 2026
- 19:30:40 -0800 (PST)
-Date: Sun, 22 Nov 2026 19:30:40 -0800
-In-Reply-To: <6b022f07.44b41460.34b83f.0017.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b03b360.6ccd1e40.868ea.0024.GAE@google.com>
-Subject: Re: [syzbot] [jfs?] WARNING in jfs_rmdir (2)
-From: syzbot <syzbot+9c3df8acb6283d0cf12d@syzkaller.appspotmail.com>
-To: brauner@kernel.org, jack@suse.cz, jfs-discussion@lists.sourceforge.net, 
-	jkoolstra@xs4all.nl, linux-kernel@vger.kernel.org, sforshee@kernel.org, 
-	shaggy@kernel.org, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-syzbot has found a reproducer for the following issue on:
+Move __GFP_SKIP_KASAN from GFP_HIGHUSER_MOVABLE to GFP_HIGHUSER so
+non-movable userspace page allocations also skip KASAN tagging on
+allocation and poisoning on free under CONFIG_KASAN_HW_TAGS.
 
-HEAD commit:    4843f6873f7c Merge tag 'sysctl-7.04-fixes-rc4' of git://gi..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=146547be580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=d16c0eae9c338e3c
-dashboard link: https://syzkaller.appspot.com/bug?extid=9c3df8acb6283d0cf12d
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=167624ff980000
+GFP_HIGHUSER_MOVABLE already skips KASAN because user pages do not hold
+kernel data structures and tagging every 16-byte MTE granule on
+allocation and free is expensive. GFP_HIGHUSER has the same contract and
+differs only in being non-movable, used mainly by DMA-BUF, DRM/GPU
+buffers, and non-movable HugeTLB.
 
-AI-generated root cause summary:
-When JFS loads an inode from disk in `diRead()`/`copy_from_dinode()`, it only
-checks that `di_nlink != 0` and copies `di_nlink` verbatim without verifying
-that a directory inode (`S_ISDIR`) has a valid link count (`>= 2` and consistent
-with child subdirectories). Consequently, on a corrupted JFS image where a
-parent directory `dip` has an insufficient on-disk `di_nlink` (such as `1` while
-containing subdirectories), removing a subdirectory via `jfs_rmdir()` (or moving
-one via `jfs_rename()`) drops `dip->i_nlink` to `0` while `dip` remains live. A
-subsequent `jfs_rmdir()` on another child directory unconditionally calls
-`inode_dec_link_count(dip)` -> `drop_nlink(dip)` without checking
-`dip->i_nlink`, triggering `WARN_ON(inode->i_nlink == 0)` at `fs/inode.c:408`
-and underflowing `dip->__i_nlink`.
+On an Armv9.2-A device (6.12 kernel, kasan.mode=sync), this reduces
+32 MB /dev/dma_heap/system alloc+free latency by ~80% (~59% alloc, ~98%
+close) and improves an app-loading OpenGL benchmark by 15-23%.
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=9c3df8acb6283d0cf12d
+Callers that access GFP_HIGHUSER pages through kmap_local_page() or
+page_address() (such as ramfs, pipe/FUSE buffers, kexec, and RDS) lose
+HW_TAGS checking on those pages. None of them store kernel structs
+there; this matches the trade-off already made for GFP_HIGHUSER_MOVABLE.
+Generic and SW_TAGS KASAN are unaffected.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+9c3df8acb6283d0cf12d@syzkaller.appspotmail.com
+Signed-off-by: Jeff Xu <jeffxu@chromium.org>
+---
+ include/linux/gfp_types.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-------------[ cut here ]------------
-inode->i_nlink == 0
-WARNING: fs/inode.c:408 at drop_nlink+0xc5/0x110 fs/inode.c:408, CPU#0: syz-executor184/6031
-Modules linked in:
-CPU: 0 UID: 0 PID: 6031 Comm: syz-executor184 Not tainted syzkaller #0 PREEMPT_{RT,(full)} 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-RIP: 0010:drop_nlink+0xc5/0x110 fs/inode.c:408
-Code: 68 09 00 00 be 08 00 00 00 e8 97 2a e9 ff f0 48 ff 83 68 09 00 00 5b 41 5c 41 5e 41 5f 5d c3 cc cc cc cc cc e8 5c 69 75 ff 90 <0f> 0b 90 eb 81 44 89 f1 80 e1 07 80 c1 03 38 c1 0f 8c 5b ff ff ff
-RSP: 0018:ffffc900037d7c30 EFLAGS: 00010293
-RAX: ffffffff82529bf4 RBX: ffff88804513d180 RCX: ffff888030ee1f40
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
-R10: dffffc0000000000 R11: fffffbfff21ab9f8 R12: 1ffff11008a27a39
-R13: dffffc0000000000 R14: ffff88804513d1c8 R15: dffffc0000000000
-FS:  0000555591620400(0000) GS:ffff888124701000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000562584310124 CR3: 0000000034aba000 CR4: 00000000003526f0
-Call Trace:
- <TASK>
- inode_dec_link_count include/linux/fs.h:2276 [inline]
- jfs_rmdir+0x416/0x850 fs/jfs/namei.c:395
- vfs_rmdir+0x3e9/0x700 fs/namei.c:5533
- filename_rmdir+0x276/0x510 fs/namei.c:5590
- __do_sys_unlinkat fs/namei.c:5765 [inline]
- __se_sys_unlinkat+0x71/0x1a0 fs/namei.c:5758
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f0f3afa4c47
-Code: 77 01 c3 48 c7 c2 d8 ff ff ff f7 d8 64 89 02 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 b8 07 01 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 d8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007ffd2507eb08 EFLAGS: 00000202 ORIG_RAX: 0000000000000107
-RAX: ffffffffffffffda RBX: 00007ffd2507eb10 RCX: 00007f0f3afa4c47
-RDX: 0000000000000200 RSI: 00007ffd2507ec70 RDI: 00000000ffffff9c
-RBP: 00007ffd2507eb30 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000202 R12: 00007ffd2507eb70
-R13: 00007f0f3b001ece R14: 00007ffd2507ec70 R15: 0000000000000000
- </TASK>
+diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+index c1331bf0b239..bb54c7abfb02 100644
+--- a/include/linux/gfp_types.h
++++ b/include/linux/gfp_types.h
+@@ -376,8 +376,8 @@ enum {
+ #define GFP_USER	(__GFP_RECLAIM | __GFP_IO | __GFP_FS | __GFP_HARDWALL)
+ #define GFP_DMA		__GFP_DMA
+ #define GFP_DMA32	__GFP_DMA32
+-#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM)
+-#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE | __GFP_SKIP_KASAN)
++#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM | __GFP_SKIP_KASAN)
++#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE)
+ #define GFP_TRANSHUGE_LIGHT	((GFP_HIGHUSER_MOVABLE | __GFP_COMP | \
+ 			 __GFP_NOMEMALLOC | __GFP_NOWARN) & ~__GFP_RECLAIM)
+ #define GFP_TRANSHUGE	(GFP_TRANSHUGE_LIGHT | __GFP_DIRECT_RECLAIM)
+
+base-commit: d12eccbcb79a4fa35c3aa588eb79056af62eb859
+-- 
+2.56.1.750.gf70dc682cf-goog
+
