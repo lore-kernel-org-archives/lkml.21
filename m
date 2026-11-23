@@ -1,122 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.47
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795470591;
-	b=vYDx1eB+VSSa3zqXDCs0TiOXZ5WXNeJWhZf8Efko9yaG2d3imKxy5MsmIPbj5IXandeL
-	 oByPjPbKfrUkzGvRONxCZ3TlQDMdET5mkwor3ECUL+9IVC0JaORazHyt2Xpg5c7ijyhrU
-	 1h+xvC6FOR+qlBXpNfF14r2/O715J3Ll0riX6RGdXTDr7Rzrw22JWALeb7MyVzcB02bED
-	 XwfyipcinujGQXfXfLfhoYzl7u9GxhUi+qC5+d48NK5N43UIMbwJhSjIYWZsgjft04Nfg
-	 uFEhthMmfJ/q6d3zjtj7Fw8f2zPEd27iyHAo5hbCLRZoUxxg0Z+Bn1jdPK1kiwn11sw==
+	t=1795470673;
+	b=FqqQCwY+OtXA1tnN1sidaxt4kYyC7nFZ8PtgCKePyLahvQ6MroVeWvPBwiGKN9V+bmwk
+	 t8ksc2Fspmw3/19bCcG1hEkaM3nBozoAOFke0kQVJnCfTDuNjqgH/H3OZh9lfUXU93MLV
+	 03OnLSsCKb6ZQ9Bw7OLfBKOOtFVoh4rTEHW0Wjy4UYyd8rz2hXSySu56o9sou+WwtnM56
+	 EWdabNNkXwh5oTlGy+1Us+egnr1tK8zh24CWgGvAVfMD+cJkYxVMVBc4h43MvSVzpzjTk
+	 +/x1ZLI6Fyln6H4G+oRPvf/ypmLnrBgxbVrZ/5yjzmFbp6bfLJq9znnYcolebxg4jqw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470591;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=+RA1MHgbf9fuw041F/4ZXMg7o0VJdKknmIh3Wp4NPZY=;
-	b=hmzDq6P+wu/2uMXBJRSRvoAcKncTec9sQ/kwuttnw87Osx2XCKISODF38u9gi5t3nAh2
-	 jTe6kM9kFUMaYg7qgz4Rw8NfZDfmM0MGHAmiXvb/kjhIS3xkBosCfUvL2yCBZywZWKFaQ
-	 P4tyasH4QU6Wktzre/VPR/19V76itkhd8p5MHqIUThDc39YVt2jA8mX5y/PNGcBRCH4UB
-	 IreK6Oo/etHTdbEk4Z5CoBcU2/5bahAS5t+9qiFtAQHTgEQwusoIFlfbp0ifu5RZHAhj4
-	 yUcFs24/nB37nVhQYHwlJHJ1DTGXh2sgvtvFK+Dh8GEmTYswHcHxzkkj+B1vYTv6OUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470673;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+x6KKcIZWqJijc1lDK9FLkBIL3z8lbgVA1uDOeUyLxY=;
+	b=YyrPKyvRyb22aGM5YPijX2eJ34nVxWQnsBkIN+DC2hkUWCN4K2PoGF8Z78BfUDFJZ5By
+	 oBDf8UeqgIkTaAZeZJDf11KkYcLxQUc1kBN0HYCrVnPPvEocLoHBfFBWq7kB8Oze39o1s
+	 uw0hwPtHwwnIU6qb4dZt3YndsOKX2N2ctOQOsYSMGsE5YpWOFecpuWCyEKX0M+Bp0rS3V
+	 POWa2PQar/F+IrNtIspd4LnriZ+05DHqNgQf5pUXciiRsPTwOnB+qJcQHfeyrT4Y0I9u4
+	 Ti3GqrdJ1zi/XoiRa7tm3R6nW0BEh+qJ8+Un0EcW9bq5KDtIUt0/gKo6thEruG3Y5xg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=d+5owdFH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.47
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011047.outbound.protection.outlook.com [40.107.130.47])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IN1JNrsr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E801606A321;
-	Mon, 23 Nov 2026 21:49:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E801606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2823E606A327;
+	Mon, 23 Nov 2026 21:51:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=d+5owdFH
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ghdKPEO4nxtc5Uzhp8HOGxAlvs8YHAQjXLOftEul/1UmrgjlSOZsvrJN4oNbiWljtqCmtS7CLJOAtbedqixeL35a9DtsMt/6ZPZwVhcHolp0S22gPB73uoKahuwbknJAYVmiJtkxbDHoSRQ8ZPke2aJnHTcjNf39oSTkbnjDco0JkVUEnL9JkhteUFu5U3evBuLTPNhSbaXKBqK5f6w94sp9rJBvuEvb6KoMZvMUmG52T5Op39U5wGNgTzPR1pFtZGHTc+pYgxNOqBKGEmOQhhOZT+Gky2oJeeWmZiG+gN9s9oUfFY4A8du7Fa9/ElAmzChayw/oeQcyHqwsYRwLRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+RA1MHgbf9fuw041F/4ZXMg7o0VJdKknmIh3Wp4NPZY=;
- b=FZKxuqwQGflsXs7Irb7TyeK7pK3P9GBh9LHa/GsbZGigbBD2dCcmpkrZn0DfigASJ3toJzaNCWLpP2gFqlkk4wx5oNhaPtS6jjdNkO1hvAN2HTJyHJmFDS0itK5xur8hPVIRvG+LSOQUuFpF1qN8NJRue4LrjaLEfbWjgsmGAaH4c7PsKenwYZiPLWIRrN1WheMGXYqqlS5m7b8wBjQhgxwH77XUXM9FgRSunrfFMgepYyYDFUkjauwZEOp39r7sD3eWELhZOiBn0briXVyE4MdqMFLBy34Uw54USyOs1t5ytsv9oEjWeRC+vZETOGztLZJW2Ms8H0/367ZCj1kOyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+RA1MHgbf9fuw041F/4ZXMg7o0VJdKknmIh3Wp4NPZY=;
- b=d+5owdFHzg33SUK+J3Az1gUf0B7NhqN5RcX/NG76YZ47GCRGZaDJgt4DTqhxqeRvKAdyEoiUrbz9Iys6+0Ae2zKpGx4Pt4urWa/W/8u2VrDs7jGBvZuVGppCWA6t8FjJ/S2rAPml2yGuxUjBoqBd9AWFNAIMjXGhH8iTFEey3wU3ViNJIANVQWee/b5uuRryr3ecPfWola7PlrtT/286r0DLJSnwaDEAG8yfalvfwa/O4MjF3Lo5B9fDta+/3BXxmmyyc7TJLsNdQkOb27x5DogA88ggM1YYGonboLpLe5vdKMOvh91AkM3Z1fve8YNM5An1QGtX9Iroic3dJBRizQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by WA4PR04MB080239.eurprd04.prod.outlook.com (2603:10a6:1d0:2a::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 21:49:45 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 21:49:45 +0000
-From: Frank.Li@oss.nxp.com
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Guido=20G=C3=BAnther?= <agx@sigxcpu.org>,
-	Robert Chiras <robert.chiras@nxp.com>,
-	Tim Harvey <tharvey@gateworks.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank.Li@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v2 0/8] arm64: dts: imx: cleanup some warning with W=1
-Date: Mon, 23 Nov 2026 16:49:37 -0500
-Message-ID: <179547048504.2992787.6427013140216184376.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261022-cleanup_dtb_warning-v2-0-e9502fafec59@nxp.com>
-References: <20261022-cleanup_dtb_warning-v2-0-e9502fafec59@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7PR17CA0033.namprd17.prod.outlook.com
- (2603:10b6:510:323::7) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IN1JNrsr
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795470672;
+	b=grfrcjcO1N3PK0t1BlHTCSCREx4DP6nqpjXj3Wr7+PMiKZCCgWUMnnQCxt9mD3PQJMaR
+	 x5rvMR3Ubviu/gx/AkD1oeHtsb6mW+YwuzzggwLVPFMSHQYrfuo6z3PHn3hQcpCt0O872
+	 QWCFayy6kf/FGFaHO5InUZZgqetpt5HqQJ9KtsaBhhL9i65DHgy7hc2HN2ll7Wf2KIrLc
+	 LWd4oe2DYnTN7YoGHjrHeUh7XurOSsCRLCI4k69iX/ySDSUkJeQMjU9zTsmo2/ttIm/TF
+	 XAXz53I1FR69E6MSqWEtPs6sM1s70UXYHTLJxY7m8mLpPUfqrsFUmKhl5JAcjHr82EQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795470672;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+x6KKcIZWqJijc1lDK9FLkBIL3z8lbgVA1uDOeUyLxY=;
+	b=BHYAgjs+t6/ZKhVGBauJF/4Fv0xwY7yQbHkMWxg2T5kut6WX4wYR1yGY93LDoDugB9HT
+	 QqmQu3UULU7Xt+o86OeONLdKYuHtgPo5LsUyrW+LpvXXNxQtjg5Xif7KHD2oq/9rewenZ
+	 2CgGelwtxjMskRylLsfUcHAG/0XFwp2wI9m7bqK++3wAbO8lMb3c3JNVofEp9U3GhNpHr
+	 EJ8nmuOKIWAmu70bsNqXs4OjAJlzNALMKgfJZ6wNWKoU1zBFKSa9zy5Hqx0V06VUfibEl
+	 XC3pQmabbArNhvlZNVvX2UYcvjGNi5EuYBB2r1gCpMMDdB+IEDeUKEadbdRhD71Qycw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 54F4C1F000D8;
+	Mon, 23 Nov 2026 21:50:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795470672;
+	bh=+x6KKcIZWqJijc1lDK9FLkBIL3z8lbgVA1uDOeUyLxY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=IN1JNrsrcJojkIkFXJ1ckJ9UbjfQLVJqwJHZRdj7nXOyXXzWQlc21y+oXDJfrgIhS
+	 80NkRo7eP6zOK8/V5kJhXlphvBNLvkcWBlNmDTOZa+5mPpBT2aWoATY3JrAVP2Yczt
+	 4mig/qWzplSmOnVfGq2qx5I3ZCiYSvgV6v6PMIP1eWXueNih688/JQOqzyQFXueSxm
+	 BRprHQa7UpxOXNE3A9I0CcRaKjOpjvlE3VB5JbYdRCrJq9sTZjQkbnw8cpyhsMLnDa
+	 tUkzgggi8CRUDzLLXEacWvgbx0i0ZQOC5tqShWqTsv46uJBb4qPDWTpb/O3GlY20Ox
+	 mfAeKQN7yct+g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D82DF4C784;
+	Mon, 23 Nov 2026 21:50:58 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Tue, 24 Nov 2026 00:50:59 +0300
+Subject: [PATCH 2/3] clk: cs7542: Add global PCIe controls and network
+ engine reset
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,100 +83,341 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|WA4PR04MB080239:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8424d8a5-003a-443a-c942-08df49abb049
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
- BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|19092799006|921020|10067099003|11063799006|56012099006|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
- Lp3jnYgYdy6fGVtlOoyT0Wbvmt+FT33mzr4NYs2TW2/Jane7EuS/ZVecoheRXmovCwAhk4bWqVNehLWDLygweCNoJ/YQ6fihkO9os8E4S2YL3J2T2r7vrPSNgGrtsY2tvD2QgVbzO/wnmQLFCyXP+UjlAzzPNS5eI0rEDuvW+s12c6gFf38Vu2eqPV9nkaE7bif6fKFoQ+zAwjbpvZaakxqhQ0YtxMye1CaPwn/QKbNAPYwgaq7p8SVTj8Nrenq2Y1S66j1ivAQP+uc27Y09aNKNLEzK3ajDXTvtVDoFbcCxcU/aca6vezP6gLzDJ6/blrsdgzw01Cxu4i8JtqVfn4RwNHpmY6trvcVmD96yr+HIAN8w98EfQKhEcrXJ2RQ3dmoTeCWxji6LW5zA8iCwCk8kB9pqQgynwYoe9HX65VeGTNIhWkJQiXNsUmsRh48kKccYRzAegX8CBVa/ki5TtU2ofLD36hX5F/XbrHgOVwT2jR76PfWMmWZFkaGqpvEyoPC+gsEXYcf3edeLkGg1jIVls3x12L88CMlz9AIF3ijdUTT+S/grM13DwSgDWkwyqt6FQNnf1ybIj2XHRl9l6uKIpemCYLu1116JFhCAiCRSZbYsBJTzLWBwsF40xLUwrtLIBMJg1xTQPlKvK41gRehfkbls915KBUz43AbKSihAx4oEVwv6On/c0psVA2rCtMc/ZSGYeR5WzOJ60/Eczw==
-X-Forefront-Antispam-Report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(19092799006)(921020)(10067099003)(11063799006)(56012099006)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
- =?utf-8?B?TVQ0UlFTSWtsOXlYWXc3Y2FzeWhpSTFWbkQ3L2xNQlBneHA1S2dCMHpMT3lk?=
- =?utf-8?B?Z0hWVDJ2YksvYzFVdmhBRE1COW8xWVdEMUtINWk4dGVsS3hmdTVkZEZLcjNG?=
- =?utf-8?B?cGxyY3ZZOExaTEJ3TzVRSDJpRVZSVUk2YTIveSs0dEJXc3NTTkY1MVNhY0dF?=
- =?utf-8?B?aUNqdERaTWUrd3Z1QktCZlBhUHlRYzkzNmxUVWRadmhTZFVGb0h3Z2JWUk9a?=
- =?utf-8?B?L2VxYlRiRVl2ZWwxMzZCMHI0b3dGR0ZGVll1NW16NmdwdEE0bjFndWdjNGpm?=
- =?utf-8?B?cjdFaXJEWDg1RHhrQTdWL1VCUW15bGZERHYrZVFnb3VQMk5NTFRsMm9SenNM?=
- =?utf-8?B?Q1hESVptVlhYeVBxRzRYcjNkaC92VHFwL1JtVjg4VFRpRndNNDd0WUVNZ0pM?=
- =?utf-8?B?bUVEd2s5ay9ZOE82RnZ1TmV3VzUvMHRJc3pGUk4rTnkvcHNWVDIxMjE3M3Fz?=
- =?utf-8?B?QkM0UGhEUWpoMStJWUZqcXgyTjlhb3RSbHZWQmR5V05ieWdSNml3OG5weW9l?=
- =?utf-8?B?NnI3dFFZTDgzTm5TcEVnSDc0VW43ajRFcGZxUUoyTGRIMWJ3V2tsVGNHdDg0?=
- =?utf-8?B?Wk1NeEpUMytXR1BoMUtJcXhlS2tQQUdUU3ZMS1Rjd3I4anlRNStvWEhrdXZG?=
- =?utf-8?B?Vnhtb0RBNDdBaE9HdXBHZE1rQXRyNlZvNStpcEkzN3FDbWs4L3RncFBaNzdo?=
- =?utf-8?B?WVQ3U1ZVTENXdXlpREFJTFdwc0svTXlNRWVBTVdISjdFUWl4NGMvQ3NDTzQ5?=
- =?utf-8?B?UXhuVVdOc0NqbFVxLzczdWQyVURVNVgwZG1tZ2t0TjJuWmgzTkltd0MxK0Jr?=
- =?utf-8?B?WmFRZ2ZhcUttTzFsK1FTU0Q5RjY5bHFRaXlZcVd1aVljeUNZYk1WOEpzMTRP?=
- =?utf-8?B?cVBaMVBibnM5SkI5d21MSVdCYXRuMmxjMkxyQ0tMYTBkQ3lBWi9FS0JYTWVo?=
- =?utf-8?B?S2x0cDNQanFkZVMzNVpEeXBmUnRGQUhERi91cEpTcnQrS3RJY3hsSTlwWjlO?=
- =?utf-8?B?SlJrTXZBNUk1Ni9YeXpkVDNkYnd5NWNQdlBXMzBLWGZ0WmZta0FuT1l0dEFY?=
- =?utf-8?B?SEdEWjlVU29UMTdoK0l1ZHYwRCsxZTErcWRWQ2R0UTZlU21pR0lsck8yZXNH?=
- =?utf-8?B?eXpodjlDTGtqcE80OS9OaGs4NSsxOUlJZU5iL0dhTHYzRmlxdjhSSjNNU2pT?=
- =?utf-8?B?aFpERGpkOWF0Njl3bXNEQ2pXSkl0ZE1PUUpIWDM5eWplYTlFVlcwMkU5TSsw?=
- =?utf-8?B?cXcyQlF3Z0FpZTUrUGdya2xhRWpoakM1UUNtbGlrMG9IQmZoNmIwbnNRVEJU?=
- =?utf-8?B?N2pUcW03ajdzVGtBT0w5THlSNUdzS1dZNVVxWG9wcGV2RGg3Q05kamdvUnVQ?=
- =?utf-8?B?L1JTc2ViUmtNbG5rQlJDeUhiTXNEamlRdjJDc0I2K0tlNy93QTFkMEU1c21x?=
- =?utf-8?B?WUtzeUpwK1dIblpRd1JMSjI3azVKSWY4dVJYS0lnMW9Lc08xRWQxMWF2Sk4y?=
- =?utf-8?B?Q0ttVHZNNEdoNjM5VzZVVmpPbXBkOTNKdkV5bGxhVSs0Rm9wT1VaSDROeVV3?=
- =?utf-8?B?US9ybTB6S1owQjJPajVlQUFmWk5NeFZMVWZhRFNnRGlicnp3OHE0Y3YzTzEv?=
- =?utf-8?B?MVpmUmZ6WGVqSFdCeW1qT0FERllZTTlrdjFjY1VBS0ZKZmJWdENyNitKTlhJ?=
- =?utf-8?B?dGdvbzh5bzV3MHdabnlzdDM1YkJzT2E1VE9oem5PT0pZS3lLK25YaWZyL0tk?=
- =?utf-8?B?QS9kR0ZCWS95Y3E3TnNGRHpkaFd0bGdya2o2eWFQN1hINWdPckFmdzRkbGxx?=
- =?utf-8?B?Qkh6dmdCWDFUUm5iVllGN0xHcDdQMFNVVVE2d2djZ2tETDVsQVBDLzhVdUdT?=
- =?utf-8?B?QUFzMXNuYzg1MHJyM2xoSm1aL0o3WW9vSExpOXJueG5BZnlVV1p0TjByc1FV?=
- =?utf-8?B?cVgxSUpvMmhlVTJHT3piVDFmL1k5TnovTXZSemZuVGorcmMrQStZcnhLbHRZ?=
- =?utf-8?B?WEY1NjFuaWZ0blg4RU9KMEVmS0tTSmEyVzdVaXNXUXRlakgzSnlrbjlHelhT?=
- =?utf-8?B?T0c4UVBhemlQbjlPZjh4S0hNZEFvSHRnakNhdjM3UkM0RVlyK0daeHM1SjRK?=
- =?utf-8?B?MUpBcTUyUThzSmhrdU9wUU1keE41U0svSjAwazJiMThFNWdMVFVmR3FidlhW?=
- =?utf-8?B?MFRwVWVxczZGZUlMR1c4c2d1Mk91WlBjdlBhc1cxRHJ2TnNIc3BpMmlmUGdD?=
- =?utf-8?B?empoVExLZ2FVQWV3aVdDelpPdXNUMTBvTnQ3djdSTlQxMFNQRFV6WnNUS0hW?=
- =?utf-8?B?TlpCRkZPVUw2bkNLaDZzckVCU09JZVlDRkZIWVlvTTkrdWMrMTdoK3BLeE1j?=
- =?utf-8?Q?3yLpuTSHz6TBJ+2Bk729cXTRGwY2WXGvnud6e?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8424d8a5-003a-443a-c942-08df49abb049
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 21:49:45.6553
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dBR58TiPy5GQ71XHvWuZ0YJUa6/xc9Wd8DQHWmmCkZ/bx6FzWJrXaI1uphYppmjAr78sH95d7hEPQ+NuLC5UX3X6vDMJguWJyntr9xM4Z0RW8XekGYiuHM2Kny/1KQvn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA4PR04MB080239
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-b4-cs7542-global-controls-v1-2-12548785df2c@gmail.com>
+References: <20261124-b4-cs7542-global-controls-v1-0-12548785df2c@gmail.com>
+In-Reply-To: <20261124-b4-cs7542-global-controls-v1-0-12548785df2c@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795470657; l=9786;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=5uj1SPYSszEkqlBpsugt6gfb6um+cas8cSq5I0cVvis=;
+ b=wr2WN78JG0kTL8kCHYUQTMOBp9WI2M3qCTzDiKYgnL/yzcXnT7aNWqm6EXJw/QbSn3oJfy8r/
+ RhU2vSbcq1uC2KPHTtTxkHtIGq7R7nNukauDqyw07t1O9aZr8g7B+8T
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-From: Frank Li <Frank.Li@nxp.com>
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+
+Register PCIe gates and controller resets through the early global
+provider. Add the network engine composite reset using the same syscon
+regmap, with the existing 1 us/1000 us readback polling and partial-domain
+status error from the posted NE reset driver. Keep the PCIe reset pulse
+delays and all provider-registration failure cleanup. NE pulse reset
+remains unsupported; the Ethernet consumer needs assert/deassert/status.
+
+Both independent consumers can use this common provider without a
+PCIe-host dependency or a resource-less network reset child.
+
+AI assistance: Codex prepared this draft from the posted CS7542 series.
+
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ drivers/clk/Kconfig      |   7 +-
+ drivers/clk/clk-cs7542.c | 211 ++++++++++++++++++++++++++++++++++++++++++-----
+ 2 files changed, 195 insertions(+), 23 deletions(-)
+
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index 47b5265fe..cba07bed3 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -59,13 +59,16 @@ config LMK04832
+ 	  Low-Noise JESD204B Compliant Clock Jitter Cleaner With Dual Loop PLLs
+ 
+ config COMMON_CLK_CS7542
+-	bool "Cortina Systems CS7542 strap-selected clocks"
++	bool "Cortina Systems CS7542 global clocks and resets"
+ 	depends on OF && HAS_IOMEM
+ 	select MFD_SYSCON
++	select RESET_CONTROLLER
+ 	help
+ 	  Read the boot straps of the CS7542 global control block to provide
+ 	  its APB, CPU and AXI clocks. This driver does not change PLLs or
+-	  dividers. It is built in because the APB clock is needed by timers.
++	  dividers. It also provides the three PCIe clock gates and resets,
++	  and the exclusive network engine and DMA-LSO/SSP reset domain.
++	  It is built in because the APB clock is needed by timers.
+ 
+ config COMMON_CLK_APPLE_NCO
+ 	tristate "Clock driver for Apple SoC NCOs"
+diff --git a/drivers/clk/clk-cs7542.c b/drivers/clk/clk-cs7542.c
+index 4e6c1e98a..17b7109a9 100644
+--- a/drivers/clk/clk-cs7542.c
++++ b/drivers/clk/clk-cs7542.c
+@@ -1,24 +1,29 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+-/* Cortina Systems CS7542 strap-selected clocks */
++/* Cortina Systems CS7542 global clocks and reset domains. */
+ 
+ #include <linux/bitfield.h>
+ #include <linux/clk-provider.h>
++#include <linux/delay.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+ #include <linux/mfd/syscon.h>
++#include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/printk.h>
+ #include <linux/regmap.h>
++#include <linux/reset-controller.h>
+ #include <linux/slab.h>
+ 
+ #include <dt-bindings/clock/cortina,cs7542-clock.h>
++#include <dt-bindings/reset/cortina,cs7542-reset.h>
+ 
+ #define CS7542_GLOBAL_STRAP	0x0c
+ #define CS7542_STRAP_SPEED	GENMASK(3, 1)
+-#define CS7542_NUM_CLKS		3
++#define CS7542_NUM_FIXED_CLKS	3
++#define CS7542_NUM_CLKS		6
+ 
+ /* Rates from the GPL vendor kernel's get_platform_clk(). */
+-static const unsigned long cs7542_rates[][CS7542_NUM_CLKS] = {
++static const unsigned long cs7542_rates[][CS7542_NUM_FIXED_CLKS] = {
+ 	/* APB, CPU, AXI */
+ 	{ 100000000, 400000000, 133333333 },
+ 	{ 100000000, 600000000, 150000000 },
+@@ -33,14 +38,142 @@ static const char * const cs7542_clock_names[] = {
+ 	[CS7542_CLK_APB] = "cs7542-apb",
+ 	[CS7542_CLK_CPU] = "cs7542-cpu",
+ 	[CS7542_CLK_AXI] = "cs7542-axi",
++	[CS7542_CLK_PCIE0] = "cs7542-pcie0",
++	[CS7542_CLK_PCIE1] = "cs7542-pcie1",
++	[CS7542_CLK_PCIE2] = "cs7542-pcie2",
++};
++
++#define CS7542_PORTS	3
++#define CS7542_NUM_RESETS	4
++/* NI, FE, TM, SCH, QM, DMA-LSO/SSP, NI XRAM; never reset SDRAM (bit 4). */
++#define CS7542_NE_RESET_MASK	(GENMASK(3, 0) | BIT(5) | BIT(16) | BIT(17))
++#define GLOBAL_RESET	0x04
++#define GLOBAL_CONFIG	0x10
++
++struct cs7542_gate {
++	struct clk_hw hw;
++	struct regmap *map;
++	u32 mask;
++};
++
++struct cs7542_control {
++	struct reset_controller_dev rcdev;
++	struct regmap *map;
++	struct cs7542_gate gates[CS7542_PORTS];
++	struct clk_hw_onecell_data *clks;
++};
++
++static int cs7542_gate_prepare(struct clk_hw *hw)
++{
++	struct cs7542_gate *gate = container_of(hw, struct cs7542_gate, hw);
++
++	return regmap_update_bits(gate->map, GLOBAL_CONFIG, gate->mask, gate->mask);
++}
++
++static void cs7542_gate_unprepare(struct clk_hw *hw)
++{
++	struct cs7542_gate *gate = container_of(hw, struct cs7542_gate, hw);
++
++	regmap_update_bits(gate->map, GLOBAL_CONFIG, gate->mask, 0);
++}
++
++static int cs7542_gate_is_prepared(struct clk_hw *hw)
++{
++	struct cs7542_gate *gate = container_of(hw, struct cs7542_gate, hw);
++	unsigned int value;
++	int ret;
++
++	ret = regmap_read(gate->map, GLOBAL_CONFIG, &value);
++	return ret ? ret : !!(value & gate->mask);
++}
++
++static const struct clk_ops cs7542_gate_ops = {
++	.prepare = cs7542_gate_prepare,
++	.unprepare = cs7542_gate_unprepare,
++	.is_prepared = cs7542_gate_is_prepared,
++};
++
++static int cs7542_reset_update(struct reset_controller_dev *rcdev,
++			       unsigned long id, bool assert)
++{
++	struct cs7542_control *ctl = container_of(rcdev, struct cs7542_control, rcdev);
++	unsigned int value;
++	u32 mask, target;
++	int ret;
++
++	if (id >= CS7542_NUM_RESETS)
++		return -EINVAL;
++	mask = id == CS7542_RESET_NE ? CS7542_NE_RESET_MASK : BIT(6 + id);
++	target = assert ? mask : 0;
++	ret = regmap_update_bits(ctl->map, GLOBAL_RESET, mask, target);
++	if (ret || id != CS7542_RESET_NE)
++		return ret;
++	return regmap_read_poll_timeout(ctl->map, GLOBAL_RESET, value,
++				       (value & mask) == target, 1, 1000);
++}
++
++static int cs7542_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	return cs7542_reset_update(rcdev, id, true);
++}
++
++static int cs7542_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	return cs7542_reset_update(rcdev, id, false);
++}
++
++static int cs7542_reset_status(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct cs7542_control *ctl = container_of(rcdev, struct cs7542_control, rcdev);
++	unsigned int value;
++	u32 mask;
++	int ret;
++
++	if (id >= CS7542_NUM_RESETS)
++		return -EINVAL;
++	mask = id == CS7542_RESET_NE ? CS7542_NE_RESET_MASK : BIT(6 + id);
++	ret = regmap_read(ctl->map, GLOBAL_RESET, &value);
++	if (ret)
++		return ret;
++	value &= mask;
++	if (id == CS7542_RESET_NE && value && value != mask)
++		return -EIO;
++	return !!value;
++}
++
++static int cs7542_reset_pulse(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	int ret;
++
++	if (id >= CS7542_NUM_RESETS)
++		return -EINVAL;
++	if (id == CS7542_RESET_NE)
++		return -EOPNOTSUPP;
++
++	ret = cs7542_reset_assert(rcdev, id);
++	if (ret)
++		return ret;
++	usleep_range(10000, 12000);
++	ret = cs7542_reset_deassert(rcdev, id);
++	if (ret)
++		return ret;
++	usleep_range(10000, 12000);
++	return 0;
++}
++
++static const struct reset_control_ops cs7542_reset_ops = {
++	.assert = cs7542_reset_assert,
++	.deassert = cs7542_reset_deassert,
++	.status = cs7542_reset_status,
++	.reset = cs7542_reset_pulse,
+ };
+ 
+ static void __init cs7542_clk_init(struct device_node *np)
+ {
+-	struct clk_hw_onecell_data *data;
++	struct cs7542_control *ctl;
+ 	struct regmap *map;
+ 	unsigned int strap, speed;
+-	int i, ret;
++	int i, j, ret;
+ 
+ 	map = syscon_node_to_regmap(np);
+ 	if (IS_ERR(map)) {
+@@ -60,30 +193,66 @@ static void __init cs7542_clk_init(struct device_node *np)
+ 		return;
+ 	}
+ 
+-	data = kzalloc_flex(*data, hws, CS7542_NUM_CLKS);
+-	if (!data)
++	ctl = kzalloc(sizeof(*ctl), GFP_KERNEL);
++	if (!ctl)
++		return;
++	ctl->map = map;
++	ctl->clks = kzalloc_flex(*ctl->clks, hws, CS7542_NUM_CLKS);
++	if (!ctl->clks) {
++		kfree(ctl);
+ 		return;
+-	data->num = CS7542_NUM_CLKS;
+-
+-	for (i = 0; i < CS7542_NUM_CLKS; i++) {
+-		data->hws[i] = clk_hw_register_fixed_rate(NULL,
+-							  cs7542_clock_names[i], NULL,
+-							  0, cs7542_rates[speed][i]);
+-		if (IS_ERR(data->hws[i])) {
+-			ret = PTR_ERR(data->hws[i]);
+-			goto err_unregister;
++	}
++	ctl->clks->num = CS7542_NUM_CLKS;
++
++	for (i = 0; i < CS7542_NUM_FIXED_CLKS; i++) {
++		ctl->clks->hws[i] = clk_hw_register_fixed_rate(NULL,
++							       cs7542_clock_names[i], NULL,
++							       0, cs7542_rates[speed][i]);
++		if (IS_ERR(ctl->clks->hws[i])) {
++			ret = PTR_ERR(ctl->clks->hws[i]);
++			goto err_unregister_fixed;
+ 		}
+ 	}
+ 
+-	ret = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, data);
++	for (j = 0; j < CS7542_PORTS; j++) {
++		struct cs7542_gate *gate = &ctl->gates[j];
++		struct clk_init_data init = {
++			.name = cs7542_clock_names[CS7542_CLK_PCIE0 + j],
++			.ops = &cs7542_gate_ops,
++		};
++
++		/* Gate-only controls: no source frequency is assumed. */
++		gate->map = map;
++		gate->mask = BIT(10 + 2 * j);
++		gate->hw.init = &init;
++		ret = clk_hw_register(NULL, &gate->hw);
++		if (ret)
++			goto err_unregister_gates;
++		ctl->clks->hws[CS7542_CLK_PCIE0 + j] = &gate->hw;
++	}
++
++	ctl->rcdev.owner = THIS_MODULE;
++	ctl->rcdev.ops = &cs7542_reset_ops;
++	ctl->rcdev.of_node = np;
++	ctl->rcdev.nr_resets = CS7542_NUM_RESETS;
++	ret = reset_controller_register(&ctl->rcdev);
++	if (ret)
++		goto err_unregister_gates;
++
++	ret = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, ctl->clks);
+ 	if (!ret)
+ 		return;
+ 
+-err_unregister:
++	reset_controller_unregister(&ctl->rcdev);
++err_unregister_gates:
++	while (j--)
++		clk_hw_unregister(&ctl->gates[j].hw);
++err_unregister_fixed:
+ 	while (i--)
+-		clk_hw_unregister_fixed_rate(data->hws[i]);
+-	kfree(data);
+-	pr_err("%pOF: cannot register clocks: %d\n", np, ret);
++		clk_hw_unregister_fixed_rate(ctl->clks->hws[i]);
++	kfree(ctl->clks);
++	kfree(ctl);
++	pr_err("%pOF: cannot register global controls: %d\n", np, ret);
+ }
+ 
+ /* Timers need APB before platform devices, but the pinctrl child must probe. */
+
+-- 
+2.53.0
 
 
-On Thu, 22 Oct 2026 15:37:03 -0400, Frank.Li@oss.nxp.com wrote:
-> Cleanup some warning when W=1
-
-Applied, thanks!
-
-[1/8] dt-bindings: display: remove #address-cells and #size-cells off requires
-      commit: 65525397fec4dfa809049dbb49058c33a5da8da8
-[2/8] dt-bindings: embedded-controller: remove #address-cells and #size-cells from required
-      commit: 3b254a764601fcdace42ce8fe439d036c019daac
-
-I picked above two binding patches. If have any concern, let me know.
-
-[3/8] arm64: dts: s32n79: add @addr for *-bus node
-      commit: 47a83e13f5b3695fb061e6e5d37e7d4a0bfe0e11
-[4/8] arm64: dts: imx8mq: remove #address-cells and #size-cells in dsi@30a00000
-      commit: 4c2b1a3ad182c38d68bcfb0c466c1e71d9107d48
-[5/8] arm64: dts: fsl-lx216x: remove #address-cells and #size-cells from pinctrl node
-      commit: dcd62a4f6a2d928b2ddaa107f00276f1f3d772d3
-[6/8] arm64: dts: imx: remove unnecessary #address-cells and #size-cells
-      commit: 1c896b0b996a8a9728a61d0d2e187d988254d8db
-[7/8] arm64: dts: imx95: rename bus@4c100000 to hsio-bus
-      commit: 13d10e419e55d25e4a7d0397b16ba00860f509fd
-[8/8] arm64: dts: imx952: rename soc to soc@0
-      commit: 8df26227cc39f7a9102f3823cfe9f65d6e19d89b
-
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
