@@ -1,49 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446010;
-	b=upq19rbNNt25zAEPYF1xaJ5c45Jg8NQJzZEmtDHq1iQQIBSjcC6VHIvs8nND0ZkoNMym
-	 hmP82RvnNQ1Pq0XUwmpTbizbJ5b9GFq6OCkFk8VJXLXBZnzedjegvx/qoR9D8sGoArTIR
-	 tTckIaYIFyAfOatf5Ygq3VqiXxuXcY72Zm/IgDu9LLj2et5yU942CuH1P+0jhBvx/cfmI
-	 NWdVIO49oxK1PfSSPqNkTAW7/oJEHvPU1ZsI00EhiECr5QAom8/4ntZyjxVwdGQSkAz2E
-	 enRQ+gQ+fb4muAXrwCRrKK5uigGapcy/Q0+adzWkhl333unV4xqsWRpVFfpmDVcbeyA==
+	t=1795446021;
+	b=L9G2B4v9Ui+eHjc4BCedxs/JzOSxJBtWtJgxAcN0yrEEzaCQ0Uq3a1gZ7jISpSNZBUvb
+	 RHZwwWzPhXW+OnkrXXG1r0VjxcC91/u9Hd3QzVK10XTneAtzRVmwJUffqfKqJcBsmjFLO
+	 LLILJnia2CxUjSwEPGbkItralqEF0grSDEvTuGPOW8Vc8bURf/ZLJWzgr0LD2ne3sxvu7
+	 TZTqqqNR4SATlcLG9saVk92w4lc4BeAXGmePw+xfpkwhidLPF5oOUsoGGfmKosl72bvxK
+	 a9mOP+btTbfC75SN9PQv+UR4VPeaVdFrdVQpiMTKO892zUuQpKQliScZU8nt9M43/Uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446010;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=YeKTj8sU3PPVK1jqHNIBn6E0hYZh7ngUgDcVZ2nW3qI=;
-	b=nWQjJMijLPKzk8EbsGmmWlV2zofRcKc/1PnQ8z3t9zG9GkR0peL8X6rKaY0P2e7oQ6HX
-	 eBJ5AKSwbETB5fEbz/8emBs4PV3IWYMoDo1x2SQp5XuyxQwl3lYvwqfZ2tw83SBvhaaIm
-	 WZlzfgQ7No9s2MCGScS3v+5YJw2CNk8VeGvDDoytt8ehEKlD7Cyqo8Ey7LCHIoeeUd3xM
-	 52T8uxturdc0SRM62THBHAUuT0Glvf/pY+MPnxXt083D7MRc5XM3qoun5UtbDY6ybediG
-	 tl9MR+sLZJ4fTCbYZ6oLJdL4j3Eqzm4vjtYBFCYWEwOmxA4FGMofijAcoh5rXOJOQmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446021;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=byP1kMDVZHEXOHaPsdzqxrOuK3QLySv9pjAZMI2VCWQ=;
+	b=YOqqfWtOCu3MJEE/vEZiEXBKXn9KgIPQJxoye80Wx4NJiESjTGFEeAVyMZWVBa0+olp9
+	 mi92+TfenTsJcOy4k4shHzmetPJHXQP9dG6ppW4a60U/WlGe8TMXDmyxW5vhuGJNU4dYG
+	 7y/0W8X/smoJscWTKeGI6k3uFOkVBLO88BKUX2PAdzHMYqJc4r+06PaQ1X49YXmVmEKLI
+	 RYUAITOI0/bN84MNfnCA4X5zBFoRpZqfCDIohdyPfXFtQIVFAfG+A9oWtvaRkjaEXhpte
+	 sg9LtE0OLTNTROJF6EEfSsBm9af9nIr6YPzcrT+cBkx8M004G+OqNc+/3tXHIOk6sXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePQy81q8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Q9RoxlwF;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BCB606A335;
-	Mon, 23 Nov 2026 15:00:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 290A1606A32D;
+	Mon, 23 Nov 2026 15:00:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 290A1606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePQy81q8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0D01F000D3;
-	Mon, 23 Nov 2026 15:00:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446009;
-	bh=YeKTj8sU3PPVK1jqHNIBn6E0hYZh7ngUgDcVZ2nW3qI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=ePQy81q8oFLsSMqmQViHrg3+sOBKvkUC99sl1+PnNaGR6tMcujMT8LkkOUuKAN1QA
-	 vy8d9rcf/VcdP1rrhdI9uaTR+Gh/FTJfB3bInhjOYbJtUhkkU3PAW9nX0Vz0STRlw9
-	 63MvXgLyghChW36pV2kH/HNI2ddnA7syovuMcq6fc98NjMn0vO75oCXIyPaMAIBT6e
-	 yvmBJPk8Xo4k9YvO5TMCuwnaDTAmxzjZSFm2mNxlg9gNHTPKY2vEwEdwlWTKfJfskA
-	 H6WhvJj9B4CYJvCc7p0ZIJMlVR9fS0MU56PoBK32THlh1e9ajmilG2VBlTNlRFXedK
-	 xzZN8gBWB2VPA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4593392EDBC;
-	Mon, 23 Nov 2026 15:00:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Q9RoxlwF
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id ECF484E41631;
+	Mon, 23 Nov 2026 15:00:18 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 952C0601E1;
+	Mon, 23 Nov 2026 15:00:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D950811E68EB8;
+	Mon, 23 Nov 2026 16:00:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795446015; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=byP1kMDVZHEXOHaPsdzqxrOuK3QLySv9pjAZMI2VCWQ=;
+	b=Q9RoxlwFV/d7u3pieMNnWNcAZHglsNUae4Eh1WJnS0nCUIFvoSZB3cmzBOOr0ZH99awg+T
+	islPHguKhHYqVdkKu4dooqt+kDfirixH6wFTZ3FY73v0hvN1c7zO2JeQqVX5SWMP8JsUYg
+	g0lGE5MYSQZMJhLLZsUa36jmO7AnlgjUjQuHDGAalDYCnqga6HG0PdAbMKsL/9vuaWV21R
+	5pc6tph3UobKuaiAjjI2ENhlOri/5EQU3qdyFgcoyGWnmqnfstRRXwRK838byy5hmadLQz
+	fdIB10/niK5sJ8IcgVAKvTt4o65XAJUmJD8yjAb/PShd/XHlOg0S68ltfAFrqA==
+Message-ID: <18c7d8af-1156-4bee-be0d-f78334d1908d@bootlin.com>
+Date: Mon, 23 Nov 2026 16:00:04 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,46 +62,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3] net: sparx5: check DT port reg against chip
- port
- count
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179544600827.2443681.14423703100229910536.git-patchwork-notify@kernel.org>
-Date: Mon, 23 Nov 2026 15:00:08 +0000
-References: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
-In-Reply-To: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
-To: =?utf-8?b?546L5rWp54S2IDx3YW5naHIyMDI2QG1haWwuemdjbGFiLmVkdS5jbj4=?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: daniel.machon@microchip.com, Steen.Hegelund@microchip.com,
- UNGLinuxDriver@microchip.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 18/43] drm/vkms: Introduce config for plane name
+To: Oarora Etimis <oaroraetimis@gmail.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com,
+ Jonathan Corbet <corbet@lwn.net>, Harry Wentland <harry.wentland@amd.com>,
+ Lucas De Marchi <demarchi@kernel.org>,
+ =?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+ Randy Dunlap <rdunlap@infradead.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com,
+ victoria@system76.com, thomas.petazzoni@bootlin.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>,
+ llvm@lists.linux.dev
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+ <20261120-vkms-all-config-v6-18-78ace90f4fc1@bootlin.com>
+ <awRQxKxzVyw10pFr@ArchOarora>
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <awRQxKxzVyw10pFr@ArchOarora>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hello:
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
 
-On Wed, 18 Nov 2026 14:43:07 +0800 you wrote:
-> From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+On 11/23/26 15:56, Oarora Etimis wrote:
+>> @@ -265,7 +266,7 @@ struct vkms_plane *vkms_plane_init(struct vkms_device *vkmsdev,
+>>   					   &vkms_plane_funcs,
+>>   					   vkms_formats, ARRAY_SIZE(vkms_formats),
+>>   					   NULL, vkms_config_plane_get_type(plane_cfg),
+>> -					   NULL);
+>> +					   "%s", vkms_config_plane_get_name(plane_cfg));
+>>   	if (IS_ERR(plane))
+>>   		return plane;
+>>
 > 
-> mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
-> portno, which sparx5_create_port() later uses to index the fixed-size
-> sparx5->ports[] array:
+> Small one: with no name configured,every plane ends up as "null",so they all look the same in the debugfs listing. Before this patch, the core named: "plane-d", which was pretty handy.
 > 
->     sparx5->ports[config->portno] = spx5_port;
+> Could we keep that fallback when the name is missing, as it can improve readability? :)
 > 
-> [...]
 
-Here is the summary with links:
-  - [net-next,v3] net: sparx5: check DT port reg against chip port count
-    https://git.kernel.org/netdev/net-next/c/5a1f67933615
+Make sense, I will do it for the next iteration:
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+if (get_name())
+	init(... %s, get_name())
+else
+	init(..., NULL)
 
+Can I keep your R-by with this change?
+
+> 
+> Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+> 
+> Thanks,
+> Oarora Etimis
 
