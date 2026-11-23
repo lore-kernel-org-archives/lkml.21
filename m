@@ -1,95 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.59
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795417766;
-	b=k/UBMiDh9Y8KQhwugEF0SEp5jeMiWlyY3LpyhK6E4aKRhRJaB7m6fGjYrYSDSIW8iDPe
-	 tnTcVT3iBFkna4Uy2rGAZfy7QuELOXw+ROyjr5RQ1R/YvvsnL62mVL7hUwTS5sG8541+c
-	 US+lCtMaGKDgAMGq5Q/1UpvsUh/foDruAkLoP6fdxwxBC6LDmbD+Y2XGeJa2r0/TFYfJ8
-	 isikraRONidHEQOuvhieLq4aLEdQqmMi5NbdKz99c69efYObLPj1rAaTSV3RXkY49epw0
-	 KqzXU136Mb3DsOeeM3spS/m1dQ0mCqrl9VxF2vx7ikABPtfTzG/Iq2FGt1OOPiyuHTw==
+	t=1795417773;
+	b=Z8IdmZeFw9oCIrSVBq4mQL/BPLgfLC+yH9+4Dfop8SzuE27rEEGwZFmuIjY3ea/dNsLd
+	 BrwqDQnSmLALnVSc921ynm0WmD5XAEgR3rUme/QmcZYJ+/bxIQEIcxUHd5qFx8V4LCnqd
+	 4MedzoQW5oYXRSODtSefGnZGnSeP0WxeBT8jMAycw5bpkrX+KinY+wkWvgxIbaLnTrT6s
+	 JcOcJ0FsHIMEElEhN6cgGwq1FYSNn4GjfUU1QwYOi/i0KXIgV31bKULtVLCKLoaQ+oXfL
+	 UiNXw9Ki3pULZbaabEhj63v/RvKjjR5dqfDRM1k7btU/8l91UsjSay3Y4D980q5Y37g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795417766;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8MAzL+L3Rrw/YnY+ybY9g7R6arsB3n6cfIMTszHVd5s=;
-	b=Pt0Nsc3JA2w6B58TaopaidpV24Jga+7heReBwZ0VxLr3HvZnvtOKTuyYMAEVAGyAwKPE
-	 7raK1nPFzk+7EbOFAqgMxAAAbynke4Sjyq8qUxpgRMDQ9N95dRPMxqjWf0kRIomK7HHxK
-	 0e5yYZsASTFyJv6bxqGvTH7U3FI//Ldy84ouIEckQID96Oi9MuJzdXr+wp+/RzJozK53o
-	 LIWJRw+L+gKpjzXj4O7dUOk7p2zO2PNDjAu2lKE5w61vYILAwdtkIwwsv5G6JDHE2WKrh
-	 +rrqu1k0wr6TiENc+ZZ52JRMNr5wQcjSRCN70HWS5i4s4RQO6qwJYX0dB1rUsX9ydHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795417773;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=iKeZ2tXUAbc+Q1yEFhsgCE9SEarvq7KvC09KIeMlRqg=;
+	b=5ddqoYzu8Dtopn1ZxvakhP1hCKi7yN4L7cQuUUxwt1gSnRYtoRejcFwMUVP+7I6u+XOW
+	 xEjkT/jwTTOET6oPrMJdzcdTgcFPX3P4Og9/KunnJ6Uwb25c8bcB8GZdtEWvZ8THGfIwh
+	 Si2lrdRH0H6fH2k8Q0BM4vNbyFU/TtgTB/aog4sg+E0cuCXWXCePZQbnUKhbdipaFBSF/
+	 MbajSL5cP9hljxOYfD2BQeQ/K+VjEUpLV1LzXs1uCtxwq/9N8xsO57uahsWi2SE3kqeH5
+	 CFAik1BsZRMJYhrOx9WAwZhtJlrSXxkYS9WIoYg2s/UxJBMSn5mrZJHeTS4fNRAWBZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dzWwWfRt;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=slSYe7we;
+	arc=none smtp.remote-ip=91.218.175.59
+Received: from mta0.migadu.com (out-59.mta0.migadu.com [91.218.175.59])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F4F3606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:09:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F4F3606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FB02606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:09:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FB02606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dzWwWfRt
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-380c28f9e35so4031570eec.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:09:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795417765; x=1796022565; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8MAzL+L3Rrw/YnY+ybY9g7R6arsB3n6cfIMTszHVd5s=;
-        b=dzWwWfRtCJCV6K2tsWlErxLqWoyDYqItarkhqjExd2Uojc7eaKjkRnh7w/LDXSR0Ts
-         QxoBK681yTDYfMzYqkvGRBNEiu+ejh6zsPTaeVWiwSOt4qa73WTzHheXUqdzbPiRujzY
-         +YKO+OwrV4cH5DBfGA8BqVYVqTEzZzig2solna+GsW1jrKkdiZ6evcgRLqYEsF2f27Ek
-         WeRWvQtzj1djMX390IoUE6xCwyGBdRRNKCLaHFq8CCMR+sPrXq5ReDVaaxmEPEH7/3oK
-         2LfhxU8VrRbjlonae4/Oc89XvLu2o7RDACS2bgV02BB1SfFUgnfJQi9Rd/CpFjbIXY79
-         Saaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795417765; x=1796022565;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8MAzL+L3Rrw/YnY+ybY9g7R6arsB3n6cfIMTszHVd5s=;
-        b=I/N+pdV4TDPMdpBmnDhz+XhES7v3ne4wbMLQPNvD2VbLMrIsyapSsP1vr5DhSBHZbL
-         lx6f6BAp4zHVFWg0Akg/H+6wxFuqIzE31plZpJe+DFaqwZj/eerNxdQVd6b+HAkhwvNA
-         Ck4EyOoHJppqBDKWqGPuzEDrZQXDJ4zD7Dph1IcJFkCXKyMz7xPSTMV097NYB2yjRpGs
-         7x+nHalyL4P8g3mBUpjHnP/3ZJOp5FULHMqPD8EziIgM5gHqYfJRxeTfEscnDhASKZ/V
-         hg+6NFQeIHtC7u50PhbmaWVAL5kfaUDI0SIN3h2ZBJKaF/5yw6bRzF2t/fRFAfSwDpdT
-         B/JQ==
-X-Forwarded-Encrypted: i=1; AL+hErHwrHgLlUgJ6Yl59LeT9sahMedTR6ON8CZi2UW8hqTf4B5kvWJhfQp/SYvQ3spibdY0jMVp4N9JZOIoLcY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ofnRPl6jysrvSFeYtMGBpCIJ3wxR70e9zfYsCFJWJG0QuKiFe
-	rN7mooCKL/2wAT2SgBtxrV47kRLUSETh91s7FFMtV1vpTOBEyCwgAXIAN6jDehITEbA=
-X-Gm-Gg: AZFdTZc6HMlhTrnCfqY097zQTxSvJy4KOMpHGp/ssILy5SgVTQtAg5C6Bf58T1Q3mcl
-	acqcu48/WT5qBAS1rEoq+KUlIGHA5/CuCdHd9RmU6BAbIQXalxk2Wmb+mIC9bAADXFZsMAQWKcd
-	2pts6IsKXnNu2i2otEo6Lzpo8EB9dnMdtoY10GExW02jgqvmpWNNwoRdgbmwmY1owovroGr6Djk
-	fM2Dt4eNE+XlbTFWSrwCPWJHIocvekTytJj0Swv1pJCayiLsOqiTOGaImXF5v2iVaTO/mvaNtBs
-	WvQEsWSh6N/LFPUAXBrI9BwhV/ltBerpcnURlHYTceRRo88jeYaT1D0MjoP7pl7/CX/qB3Lv8SF
-	0Ej0iFnnPhEhcFsaJ8X0xjc82rX3Xz57BjpJMiMv62PTRQg48nsrdaR0JWxjwxSdIQ1s0Kdrgnt
-	4IIRxwAbIfvk3D1hwZYtwQZsWazHRxo2A8Y9ac1wKdZQosAXoq8h138mSzFqsOb/BtUeTPbX586
-	OSU9daF2mrR2YgSqb4lZc6fLeCrgIm+owgPFsJcQ81p13tZtBd76V8i22WjeobG91OodqDhgM9X
-	KtdHFuWb36LACWFnyVu9J35AeMIfolnt
-X-Received: by 2002:a05:7300:51d4:b0:384:fef7:5876 with SMTP id 5a478bee46e88-384fef75c78mr13119936eec.24.1795417765170;
-        Sun, 22 Nov 2026 23:09:25 -0800 (PST)
-Received: from omarchy ([14.139.177.146])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm5293460eec.27.2026.11.22.23.09.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 23:09:24 -0800 (PST)
-From: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
-To: marius.cristea@microchip.com,
-	jic23@kernel.org
-Cc: dlechner@baylibre.com,
-	nuno.sa@analog.com,
-	andy@kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Vaibhav Chahar <vaibhav.chahar26@gmail.com>
-Subject: [PATCH] iio: adc: mcp3564: Use guard() and scoped_guard() to manage mutex
-Date: Mon, 23 Nov 2026 12:38:02 +0530
-Message-ID: <20261123070802.14487-1-vaibhav.chahar26@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=slSYe7we
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=q3tQG3ndRBja5RIwJmSbJq8oOy/7QF8ip5BzTsP8piU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795417770; v=1; x=1796022570;
+ b=slSYe7weT505Px2/vLvB70Al9S5OgU2HDX15Bp2NVZAJR7Xj7Pska8bqp65nCf+FNHhtXRDN
+ fQFYCKcEL5vhQRBbt91tp5qHTF1+yU9FeKiSfX1v1Aw+HH/jIMb7o73f9lkgOuP7PCsH1O8THAQ
+ opMMcZCWEDBJvVRpczQSiwYU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 34a5fd8e430d72d2;
+	Mon, 23 Nov 2026 07:09:30 +0000
+X-Mizu-Trace-ID: 34a5fd8e430d72d2
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 08:09:24 +0100
+From: Richard Leitner <richard.leitner@linux.dev>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, weinshec@holodeck2.de, stable@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: imx_rproc: revert channel freeing order in
+ imx_rproc_free_mbox
+Message-ID: <awPmc_4VFkcpW0C_@bombadil>
+References: <20261110-imx-rproc-free-mbox-v1-1-3e33ff98570d@linux.dev>
+ <avMgJNyGez2Eyr3a@nxa18884-linux-1.ap.freescale.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,194 +69,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <avMgJNyGez2Eyr3a@nxa18884-linux-1.ap.freescale.net>
 
-Adopting cleanup.h helper: Replaced mutex_lock() and mutex_unlock() calls with guard() and scoped_guard(). Ensures locks are automatically released, simplifying the code.
+On Tue, Nov 10, 2026 at 09:46:12PM +0800, Peng Fan wrote:
+> On Tue, Nov 10, 2026 at 01:29:08PM +0100, Richard Leitner wrote:
+> >The imx_rproc driver is affected by a race condition in the shutdown
+> >ordering in imx_rproc_free_mbox(). A received message might cause a
+> >virtqueue_kick resulting in tx_ch access. When imx_rproc_free_mbox() is
+> >triggered between the if (!priv->tx_ch) check and the mbox_send_message()
+> >call in the imx_rproc_kick() function the mbox_send_message() then tries
+> >to dereference a NULL pointer on the tx_ch (as seen in the call trace
+> >below).
+> >
+> >Therefore fix this behaviour by first freeing the rx channel, so no new
+> >messages are received and therefore no kicking on tx_ch can happen.
+> >Afterwards release the tx channel.
+> >
+> >This problem was encountered on a fleet of i.MX8MP devices on about 1 in
+> >500 system shutdowns, resulting in Oops below. This Oops was recorded
+> >from a v7.3.0 kernel before the work-queue removal.
+> >
+> >    remoteproc remoteproc0: stopped remote processor imx8mp-cm7
+> >    Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
+> >    Internal error: Oops: 0000000096000004 [#1]  SMP
+> >    CPU: 0 UID: 0 PID: 32710 Comm: kworker/0:1 Not tainted 7.3.0-XXX #1 PREEMPT
+> >    Hardware name: XXX (DT)
+> >    Workqueue: imx8mp-cm7 imx_rproc_vq_work [imx_rproc]
+> >    pstate: 40000005 (nZcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> >    pc : mbox_send_message+0x8c/0x178
+> >    lr : mbox_send_message+0x88/0x178
+> >    sp : ffff8000897f3b70
+> >    x29: ffff8000897f3b70 x28: ffff80007a07b248 x27: ffff0000d90e1a20
+> >    x26: ffff80007a07b328 x25: ffff0000c1d31300 x24: ffff0000d90e1a40
+> >    x23: 0000000000000001 x22: 0000000000000005 x21: ffff8000897f3ba4
+> >    x20: 000000000000000b x19: ffff0000c1b24240 x18: 0000000000000000
+> >    x17: ffff80006a453000 x16: ffff800081ac8000 x15: 0000000000000000
+> >    x14: 0000000000000040 x13: 0000000000000228 x12: ffff0000c115a3e8
+> >    x11: 0000000000000000 x10: 0000000000000001 x9 : ffff800080cd6570
+> >    x8 : ffff8000897f3ba0 x7 : 0000000000000002 x6 : 0000000000000000
+> >    x5 : 000000000000000c x4 : 0000000004400000 x3 : 0000000000000000
+> >    x2 : 0000000000000000 x1 : ffff0000cb268000 x0 : 0000000000000000
+> >    Call trace:
+> >     mbox_send_message+0x8c/0x178 (P)
+> >     imx_rproc_kick+0x50/0xc0 [imx_rproc]
+> >     rproc_virtio_notify+0x3c/0xa0
+> >     virtqueue_kick+0x4c/0x68
+> >     rpmsg_recv_done+0x224/0x658 [virtio_rpmsg_bus]
+> >     vring_interrupt+0xbc/0x158
+> >     rproc_vq_interrupt+0x40/0xb0
+> >     imx_rproc_notified_idr_cb+0x20/0x40 [imx_rproc]
+> >     idr_for_each+0x74/0x100
+> >     imx_rproc_vq_work+0x2c/0x40 [imx_rproc]
+> >     process_one_work+0x194/0x520
+> >     worker_thread+0x19c/0x320
+> >     kthread+0x134/0x148
+> >     ret_from_fork+0x10/0x20
+> >    Code: 37f80574 aa1303e0 97ffff39 f9400a60 (39402001)
+> >
+> >Fixes: 99b142cf7191 ("remoteproc: imx_rproc: Request mbox channel later")
+> >Cc: stable@vger.kernel.org
+> >Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
+> 
+> LGTM:
+> 
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> 
+> BTW: would you plan to fix the other issue that sashiko reported
+> regarding imx_rproc_xtr_mbox_init()?
 
-scoped_guard(){} was handled in mcp3564_read_raw switch statement (case: IIO_CHAN_INFO_SCALE)- giving it proper
-scope.
+Thanks for the review and sorry for the late reply.
 
-No goto statements were present inside older mutex blocks - so it was a
-1 to 1 substitution.
+Sure. Should this be a separate patch or added to a v2 of this series?
 
-Tested:
-- compiled with `make W=1` with zero warnings.
-- Verified using Sparse (`make C=1`)
-- Verified styling via 'scripts/checkpatch.pl --strict' (0 errors, 0 warnings)
+regards;rl
 
-Signed-off-by: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
----
-Q: If i have similar cleanups for other drivers/files in this directory. 
- Should I combine them into a single patch or submit a patch series?
-
- drivers/iio/adc/mcp3564.c | 38 ++++++++++++++++----------------------
- 1 file changed, 16 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/iio/adc/mcp3564.c b/drivers/iio/adc/mcp3564.c
-index 259ac4ebd..252c3886e 100644
---- a/drivers/iio/adc/mcp3564.c
-+++ b/drivers/iio/adc/mcp3564.c
-@@ -17,6 +17,7 @@
-  */
- 
- #include <linux/bitfield.h>
-+#include <linux/cleanup.h>
- #include <linux/iopoll.h>
- #include <linux/regulator/consumer.h>
- #include <linux/spi/spi.h>
-@@ -498,7 +499,7 @@ static int mcp3564_set_current_boost_mode(struct iio_dev *indio_dev,
- 
- 	dev_dbg(&indio_dev->dev, "%s: %d\n", __func__, mode);
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
- 	ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG, MCP3564_CONFIG2_BOOST_CURRENT_MASK,
- 				   FIELD_PREP(MCP3564_CONFIG2_BOOST_CURRENT_MASK, mode));
- 
-@@ -507,7 +508,6 @@ static int mcp3564_set_current_boost_mode(struct iio_dev *indio_dev,
- 	else
- 		adc->current_boost_mode = mode;
- 
--	mutex_unlock(&adc->lock);
- 
- 	return ret;
- }
-@@ -561,7 +561,7 @@ static ssize_t mcp3564_auto_zeroing_mux_store(struct device *dev,
- 	if (ret)
- 		return ret;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
- 	ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG, MCP3564_CONFIG2_AZ_MUX_MASK,
- 				   FIELD_PREP(MCP3564_CONFIG2_AZ_MUX_MASK, auto_zero));
- 
-@@ -570,7 +570,6 @@ static ssize_t mcp3564_auto_zeroing_mux_store(struct device *dev,
- 	else
- 		adc->auto_zeroing_mux = auto_zero;
- 
--	mutex_unlock(&adc->lock);
- 
- 	return ret ? ret : len;
- }
-@@ -598,7 +597,7 @@ static ssize_t mcp3564_auto_zeroing_ref_store(struct device *dev,
- 	if (ret)
- 		return ret;
- 
--	mutex_lock(&adc->lock);
-+	guard(mutex)(&adc->lock);
- 	ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG, MCP3564_CONFIG2_AZ_REF_MASK,
- 				   FIELD_PREP(MCP3564_CONFIG2_AZ_REF_MASK, auto_zero));
- 
-@@ -607,7 +606,6 @@ static ssize_t mcp3564_auto_zeroing_ref_store(struct device *dev,
- 	else
- 		adc->auto_zeroing_ref = auto_zero;
- 
--	mutex_unlock(&adc->lock);
- 
- 	return ret ? ret : len;
- }
-@@ -828,10 +826,9 @@ static int mcp3564_read_raw(struct iio_dev *indio_dev,
- 	switch (mask) {
- 	case IIO_CHAN_INFO_RAW:
- 		if (channel->output) {
--			mutex_lock(&adc->lock);
-+			guard(mutex)(&adc->lock);
- 			*val = mcp3564_burnout_avail[adc->burnout_mode][0];
- 			*val2 = mcp3564_burnout_avail[adc->burnout_mode][1];
--			mutex_unlock(&adc->lock);
- 			return IIO_VAL_INT_PLUS_MICRO;
- 		}
- 
-@@ -840,10 +837,10 @@ static int mcp3564_read_raw(struct iio_dev *indio_dev,
- 			return -EINVAL;
- 		return IIO_VAL_INT;
- 	case IIO_CHAN_INFO_SCALE:
--		mutex_lock(&adc->lock);
--		*val = adc->scale_tbls[adc->hwgain][0];
--		*val2 = adc->scale_tbls[adc->hwgain][1];
--		mutex_unlock(&adc->lock);
-+			scoped_guard(mutex, &adc->lock) {
-+				*val = adc->scale_tbls[adc->hwgain][0];
-+				*val2 = adc->scale_tbls[adc->hwgain][1];
-+			}
- 		return IIO_VAL_INT_PLUS_NANO;
- 	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
- 		*val = mcp3564_oversampling_avail[adc->oversampling];
-@@ -903,7 +900,7 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 		if (burnout == adc->burnout_mode)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
- 		ret = mcp3564_update_8bits(adc, MCP3564_CONFIG0_REG,
- 					   MCP3564_CONFIG0_CS_SEL_MASK,
- 					   FIELD_PREP(MCP3564_CONFIG0_CS_SEL_MASK, burnout));
-@@ -912,17 +909,17 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 			dev_err(&indio_dev->dev, "Failed to configure burnout current\n");
- 		else
- 			adc->burnout_mode = burnout;
--		mutex_unlock(&adc->lock);
-+
- 		return ret;
- 	case IIO_CHAN_INFO_CALIBBIAS:
- 		if (val < mcp3564_calib_bias[0] || val > mcp3564_calib_bias[2])
- 			return -EINVAL;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
- 		ret = mcp3564_write_24bits(adc, MCP3564_OFFSETCAL_REG, val);
- 		if (!ret)
- 			adc->calib_bias = val;
--		mutex_unlock(&adc->lock);
-+
- 		return ret;
- 	case IIO_CHAN_INFO_CALIBSCALE:
- 		if (val < mcp3564_calib_scale[0] || val > mcp3564_calib_scale[2])
-@@ -931,11 +928,10 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 		if (adc->calib_scale == val)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
- 		ret = mcp3564_write_24bits(adc, MCP3564_GAINCAL_REG, val);
- 		if (!ret)
- 			adc->calib_scale = val;
--		mutex_unlock(&adc->lock);
- 		return ret;
- 	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
- 		if (val < 0)
-@@ -947,14 +943,13 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 		if (adc->oversampling == tmp)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
- 		ret = mcp3564_update_8bits(adc, MCP3564_CONFIG1_REG,
- 					   MCP3564_CONFIG1_OVERSPL_RATIO_MASK,
- 					   FIELD_PREP(MCP3564_CONFIG1_OVERSPL_RATIO_MASK,
- 						      adc->oversampling));
- 		if (!ret)
- 			adc->oversampling = tmp;
--		mutex_unlock(&adc->lock);
- 		return ret;
- 	case IIO_CHAN_INFO_SCALE:
- 		for (hwgain = 0; hwgain < MCP3564_MAX_PGA; hwgain++)
-@@ -968,14 +963,13 @@ static int mcp3564_write_raw(struct iio_dev *indio_dev,
- 		if (hwgain == adc->hwgain)
- 			return ret;
- 
--		mutex_lock(&adc->lock);
-+		guard(mutex)(&adc->lock);
- 		ret = mcp3564_update_8bits(adc, MCP3564_CONFIG2_REG,
- 					   MCP3564_CONFIG2_HARDWARE_GAIN_MASK,
- 					   FIELD_PREP(MCP3564_CONFIG2_HARDWARE_GAIN_MASK, hwgain));
- 		if (!ret)
- 			adc->hwgain = hwgain;
- 
--		mutex_unlock(&adc->lock);
- 		return ret;
- 	default:
- 		return -EINVAL;
--- 
-2.56.0
-
+> 
+> Regards
+> Peng
