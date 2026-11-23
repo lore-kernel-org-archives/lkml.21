@@ -1,98 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428170;
-	b=S0fNhKfnsVho/j+3g7sThBB1Biq2o5LaTpdQSsGvT9zlrU7Uu8f7oE8LnZDzfJoVLqlv
-	 qlcoaJBLzCY58w2kxRgN3QJNSmaVhikIRtGAUjxOuWqFGa82Pk8FTUKktN3B1Qye13oDN
-	 fdFAE2Bvap0ie7eOkdHABpkLJomq7iZC+ARzA5eu81vL3D+09coHc2S37uwOeQyLiiGUJ
-	 z5MUfig7QkzzKJPjSCZWxT+YlKmCRQWaI0qhrYK2ztZG+tMCZh8G41Cm8FwqkPDIZoWKn
-	 vXpg+8nORhX5ymMqGjWjxxr7kWSiv+/WpzXbom6H2qZfT6fnuSlkhC647gzGimLf6Fg==
+	t=1795428206;
+	b=pCXxs4X75rPSYp2USdPKiLRQuNvzgKrXVpVPcUPPqYVb+sdUsdSp4I9/ra1bIQoeofke
+	 OA/2dJNa60HH0NVeIyl6TxmN6aOTqVmPPYyfvU91KZ/JvOPwDQxPfA0tnKfCGWJeZSq+0
+	 7+My5K8J6FYl8JfrX4Rn7bPXCXWrR5dc3FzXoUq+vv+DfIHPDEsLyUIIatcIcMZ/Tdd+N
+	 JVHToIWG3IBiDK5aImXWPfIHrEZXJwhsEmRGgEQiU/HCuPSTBd2Yx1LJESIqi7xwb17ue
+	 P0KYjilnHut0RXm+JW++0/3JYCBM0wYeY8V910rl0T5YprzdjmA/ZQ9MOjKjhXMqlkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428170;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U5fmRl7VLOuEYCBD7EtGXC6AhEnchrAVlkeohL5NfGk=;
-	b=qRxlHw5h+REqrwmIpWW5k8bfiegdUlHHYuxphQb/4qWqsSuLqlf+848feh4KOH6UOtHb
-	 ae/aNUCT8iL+OhQrqqkC46apPgi9GOMw6v3Grk9toel2WwXjMUNa4ycEvHoCWRKdOnMZH
-	 aWqTdM6YwBFMw7Z73DnG15Ze+syG0Abpe/R0wVVlqA1+uMfcDWBUyzikiEkynLEL0j16c
-	 EzQ4PbmTyIlbK55zf7JwyWOe4M0x/NM+XI6+C6nFxGV1TqYBZrSqh883Z5xy8czsMK53Q
-	 aDZ2PPHakA63C864/9PBG+8InmGY4/gMpEf/ypjNw2mScrKM6AfyjTs+aa638VZ4H5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428206;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=CD4ic9Gltp6sjM8mfIwiECFvv0TUSDYXBdZI3py6+Hs=;
+	b=3smNCiNQcqRy6DF72m3ICcX5kI+gec/WKqLmOrPLoZfT+KvvfIbElVNFzfFMH+Tt1/00
+	 q4OaSS0/fGGXKnBOX9uwAiV7O2HZqsKWeNXUftd8+HSPoe1QMyB0ZrXhJjUS0xavreQmv
+	 AqTJF87cyAh7CVlKdkNrLZAstwxlKPU4mukFz2Yc0GGtcvtgM8dAw9b7J8FLgoTr3eH1/
+	 cV+cc5QTiUorOEfxfEjVkgeqPyTSUIx1PgV11CMQNrdR1wrH6RNnaQL23gW+7dkLPNjZb
+	 xKWSqSvd746j+h3MogSsmruhY6sIdQ9J/MsN0NxV3lfdB2xJSmubGwJYUdo4K6FclVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=li0sHq2m;
-	arc=none smtp.remote-ip=209.85.208.47
-Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=3VkflIru;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=kAAiYpzk;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA193606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:02:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA193606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98CB4606A31F;
+	Mon, 23 Nov 2026 10:03:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98CB4606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=li0sHq2m
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6ae305e3bd9so5166928a12.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:02:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795428168; x=1796032968; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U5fmRl7VLOuEYCBD7EtGXC6AhEnchrAVlkeohL5NfGk=;
-        b=li0sHq2mCmwwRFH+LLFzvwWgCT9ZJMjiSXz8Q8lvN8eXtk1T7jXaLFbWt1kW4dE5GL
-         4cIDkGnzjMOWhPDb7+65owWaa47Xxmn9XL+HE8Yh7CvJxOWKsicn1ViWpxFBRAmM6afn
-         C4A6P8BtCvTV2qKms4AZztZ1ruFalyZ0JpSrQqKOX3G6gCo0j5izFoDbDV2gcl4igG9J
-         qoHyPm/nRwaelbzuiW61pIus+rjpJcBku4wOi8ORO0pKx1pK3JS3pRywjB6Ca8crHVxH
-         FqY3CMwE4gaEf6r5+PekFhkfyNQqlUOfo9ziml38HdJetVMAf1uvPh4dfCq65UThWQ9r
-         iCuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795428168; x=1796032968;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=U5fmRl7VLOuEYCBD7EtGXC6AhEnchrAVlkeohL5NfGk=;
-        b=g1Mc8okvDiPG9nokpUx/Wu6LIZtZrghXmZu2si0qNEqs1fwxbN/+KSn27qgV56q5Wy
-         kypikzWF1zlPi+l8rjfexAbt70kW6SOTDTFp202FytmdVJqWbftK0yJFM8cuOrv5fG/A
-         OO4wgKm3h6DZIC49jzNVWi0TVTLz8wynpkyzdbxvA62v8rnO3+vFaCw5/+KulS2TUofK
-         IswpUanlNmynpUi1Rh1l9SjCy4ZLQ6aAfVkfdMbN03SXRd7YxWlEwmGN6y/YUTniAs6l
-         SjO4QEwYG+dTp47fwkFsmdNbY5wY1Rq/ea16/BRCa0yT4HdN4XAp9H/sE1Kv0eIuxsOC
-         LEjw==
-X-Forwarded-Encrypted: i=1; AL+hErFqe3vDPfvufuZKKXPUZ1Z9m4PN/c4xsSQqrH3mZJGM9JArMr5pzC9EMC+DqGesese85oPbj6Dm8HYZtbs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YY5CBrdVsAXO1NYwiny1gybVWeEqVwropFHk6ZIjtB58jfx27
-	1+lQWNbJRCFO7adKo/mfd13CnvU5nHyvcAjGn4CrhKVQdh9Io/TAPxFB
-X-Gm-Gg: AZFdTZe4SXSJGAVyhSgeJbCOw8FNkghH50PdaSjue7uzuZC1f/v2bGhUB7hiTRy6rmq
-	0pPtfe3zhWVtSAOAg4BHAeC0CS/4eN/ZJTdo3KPS/a76+mUt6rUjebVAve1YkqcJevId4vgOEQf
-	7XCiCqFgg2VwpXvmE3vXQp23oiUxcnXUSQHRif/JgnnkkQAnH4liLXycHtCZxckXV347upoEu1w
-	fzGt3bsVfSvhEzmXw0+QT/qytN8f4cee/AIvCZrMP4+ysl4jUB5/kJNgA/ICRQuMkP5n5PK81T+
-	7qeLxrcYuIw3fWoKEBjez6BCW6TJpb8/7lwd2naV1/IYn5DuNYSXJDWB2a/IfiZpwcCEzNiFHza
-	GsnTiGkPsCYvsG8uNh4re6lNEu/ozrlwYXoym3HWOCTJY8AC4X7YqX+ItMyTz9DK4gMMgqSCb9q
-	RDofKsdyu07mspKD8nzXVZXU7PI/rgVmNq/iEa49YC4IIHV825fmrnUW8nQf2qcVJvhs4w9OwRj
-	AAh9jbpQyWBnCoqOp5O0yHuxWvjh3rFULUf7K0azilIim8JgTh71vhMXbTBUIWLOWBsjm6SFTC2
-	5OejiGt4P3P841Ke1VMRII5OJahox4+WHErNiDopln9fHfMbi4kSJnOE2quFAkvncyNVfITYtPH
-	HJZPhwo4hcg==
-X-Received: by 2002:a17:906:397:b0:c41:26b8:c49d with SMTP id a640c23a62f3a-c513aab9965mr692564366b.38.1795428168018;
-        Mon, 23 Nov 2026 02:02:48 -0800 (PST)
-Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8dc60sm379265766b.34.2026.11.23.02.02.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:02:47 -0800 (PST)
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: linux-sound@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] ASoC: tegra: Add support for mono channel to Tegra20/Tegra30 I2S DAIs
-Date: Mon, 23 Nov 2026 12:02:28 +0200
-Message-ID: <20261123100228.77797-1-clamor95@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=3VkflIru;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=kAAiYpzk
+Date: Mon, 23 Nov 2026 11:03:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795428203;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CD4ic9Gltp6sjM8mfIwiECFvv0TUSDYXBdZI3py6+Hs=;
+	b=3VkflIruKARozyrkLHlX2mQ95+oFUmmPQ9g7O4L3WFJ+V/4YkuEfXhftFZgsdG9N+ReUrC
+	3ECXYSLczZ5sfXJmW/dp9rUJNM/FMjQfywHZgZtQzuHb0kSoe7hHEhJUgFIKC0qG05v5/W
+	deQUhf+pARzVbGBEEIbo6yBX9OA7AK30MKgGM9nFf9PO5zjwkdkfGkZM9cxjaj34VKvOsw
+	myOUpmdrBt4nOPgZIRTrtBBjy4he4UJ8IukvSGDbAO08UnI4M4oCeuCrk04sAimvWyNpHh
+	OeIZxe3E8yO3AcaESf76ss7nR72GuxDw2HX74Yv5N4Yb5IVJ8j/g7DgcR1hCiw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795428203;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CD4ic9Gltp6sjM8mfIwiECFvv0TUSDYXBdZI3py6+Hs=;
+	b=kAAiYpzkfztPq6MYwun6e1Y8Vy2mVk9Secfye9usXniusBTfN7Fozg38iBhnOT33Y8lwOo
+	+hHvYlvL/ixDdMDQ==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Kees Cook <kees@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org, 
+	Paul Walmsley <pjw@kernel.org>, Andy Chiu <andybnac@gmail.com>, 
+	Magnus Lindholm <linmag7@gmail.com>
+Subject: Re: [PATCH v3 00/15] exec: Remove AT_VECTOR_SIZE_ARCH from UAPI
+Message-ID: <20261123110111-6431e85f-39a4-427e-b545-2e7a590a6c19@linutronix.de>
+References: <20261123-at-vector-size-arch-v3-0-d342dae9e843@linutronix.de>
+ <ec5359c1-c16e-4177-8dfa-2ae5ab8a874f@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,166 +79,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <ec5359c1-c16e-4177-8dfa-2ae5ab8a874f@app.fastmail.com>
 
-According to the TRM, both Tegra20 and Tegra30 I2S should be able to
-support a mono channel for non-DSP formats, while the number of channels
-for the DSP (FSYNC) format should remain restricted to a minimum of two
-for Tegra30+.
+On Mon, Nov 23, 2026 at 10:44:40AM +0100, Arnd Bergmann wrote:
+> On Mon, Nov 23, 2026, at 10:37, Thomas Weiﬂschuh wrote:
+> > There is nothing userspace can do with this value. In the kernel is
+> > always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
+> > userspace and also changes from time to time.
+> >
+> > Move the symbol to kernel-internal headers.
+> >
+> > Meant to be applied through the asm-generic or execve tree.
+> > The default recipient list was huge. I trimmed it to only the
+> > architecture lists.
+> >
+> > Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> 
+> Hi Thomas,
+> 
+> I'm happy to take this through the asm-generic tree. I've already
+> made sure it all applies and the patches look good to me. I'd
+> wait a few more days for additional Ack or any other replies,
+> let me know once you think I should apply this version.
 
-Implement support for mono audio by adjusting the I2S clock and divider
-calculation logic for both Tegra20 and Tegra30+.
+This v3 is functionally identical to v1 and v2 which have been on the
+list of a long time. I am not sure how much more feedback will come.
+IMO it can already be applied to gain more exposure in -next.
 
-Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
----
-I2S clock calculations were adjusted to match those found in downstream
-sources for Tegra20 up to Tegra124. This change was tested on the LG
-Optimus Vu (P895), and sound was consistent with both mono and dual
-channels, with no distortion.
----
- sound/soc/tegra/tegra20_i2s.c | 21 ++++++++++++++++-----
- sound/soc/tegra/tegra30_i2s.c | 31 +++++++++++++++++++++----------
- 2 files changed, 37 insertions(+), 15 deletions(-)
 
-diff --git a/sound/soc/tegra/tegra20_i2s.c b/sound/soc/tegra/tegra20_i2s.c
-index 2978c9d6f4839..285923e6aeffa 100644
---- a/sound/soc/tegra/tegra20_i2s.c
-+++ b/sound/soc/tegra/tegra20_i2s.c
-@@ -144,7 +144,12 @@ static int tegra20_i2s_hw_params(struct snd_pcm_substream *substream,
- 	struct device *dev = dai->dev;
- 	struct tegra20_i2s *i2s = snd_soc_dai_get_drvdata(dai);
- 	unsigned int mask, val;
--	int ret, sample_size, srate, i2sclock, bitcnt;
-+	int ret, sample_size, srate, i2sclock, bitcnt, i2sclk_div, is_dsp;
-+
-+	is_dsp = regmap_test_bits(i2s->regmap, TEGRA20_I2S_CTRL,
-+				  TEGRA20_I2S_CTRL_BIT_FORMAT_DSP);
-+	if (is_dsp < 0)
-+		return is_dsp;
- 
- 	mask = TEGRA20_I2S_CTRL_BIT_SIZE_MASK;
- 	switch (params_format(params)) {
-@@ -174,18 +179,24 @@ static int tegra20_i2s_hw_params(struct snd_pcm_substream *substream,
- 	/* Final "* 2" required by Tegra hardware */
- 	i2sclock = srate * params_channels(params) * sample_size * 2;
- 
-+	/* Additional "* 2" is needed for DSP mode */
-+	if (is_dsp)
-+		i2sclock *= 2;
-+
- 	ret = clk_set_rate(i2s->clk_i2s, i2sclock);
- 	if (ret) {
- 		dev_err(dev, "Can't set I2S clock rate: %d\n", ret);
- 		return ret;
- 	}
- 
--	bitcnt = (i2sclock / (2 * srate)) - 1;
-+	i2sclk_div = is_dsp ? srate : params_channels(params) * srate;
-+
-+	bitcnt = (i2sclock / i2sclk_div) - 1;
- 	if (bitcnt < 0 || bitcnt > TEGRA20_I2S_TIMING_CHANNEL_BIT_COUNT_MASK_US)
- 		return -EINVAL;
- 	val = bitcnt << TEGRA20_I2S_TIMING_CHANNEL_BIT_COUNT_SHIFT;
- 
--	if (i2sclock % (2 * srate))
-+	if (i2sclock % i2sclk_div)
- 		val |= TEGRA20_I2S_TIMING_NON_SYM_ENABLE;
- 
- 	regmap_write(i2s->regmap, TEGRA20_I2S_TIMING, val);
-@@ -330,14 +341,14 @@ static const struct snd_soc_dai_ops tegra20_i2s_dai_ops = {
- static const struct snd_soc_dai_driver tegra20_i2s_dai_template = {
- 	.playback = {
- 		.stream_name = "Playback",
--		.channels_min = 2,
-+		.channels_min = 1,
- 		.channels_max = 2,
- 		.rates = SNDRV_PCM_RATE_8000_96000,
- 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
- 	},
- 	.capture = {
- 		.stream_name = "Capture",
--		.channels_min = 2,
-+		.channels_min = 1,
- 		.channels_max = 2,
- 		.rates = SNDRV_PCM_RATE_8000_96000,
- 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
-diff --git a/sound/soc/tegra/tegra30_i2s.c b/sound/soc/tegra/tegra30_i2s.c
-index e5e648d00621b..433a7eb873b43 100644
---- a/sound/soc/tegra/tegra30_i2s.c
-+++ b/sound/soc/tegra/tegra30_i2s.c
-@@ -137,10 +137,16 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
- 	struct device *dev = dai->dev;
- 	struct tegra30_i2s *i2s = snd_soc_dai_get_drvdata(dai);
- 	unsigned int mask, val, reg;
--	int ret, sample_size, srate, i2sclock, bitcnt;
-+	int ret, sample_size, srate, i2sclock, bitcnt, i2sclk_div, is_dsp;
- 	struct tegra30_ahub_cif_conf cif_conf;
- 
--	if (params_channels(params) != 2)
-+	is_dsp = regmap_test_bits(i2s->regmap, TEGRA30_I2S_CTRL,
-+				  TEGRA30_I2S_CTRL_FRAME_FORMAT_FSYNC);
-+	if (is_dsp < 0)
-+		return is_dsp;
-+
-+	/* For DSP format min amount of channels is still two */
-+	if (params_channels(params) != 2 && is_dsp)
- 		return -EINVAL;
- 
- 	mask = TEGRA30_I2S_CTRL_BIT_SIZE_MASK;
-@@ -157,10 +163,15 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
- 
- 	srate = params_rate(params);
- 
--	/* Final "* 2" required by Tegra hardware */
--	i2sclock = srate * params_channels(params) * sample_size * 2;
-+	i2sclock = srate * params_channels(params) * sample_size;
-+
-+	/* Additional "* 4" is needed for DSP mode */
-+	if (is_dsp)
-+		i2sclock *= 4;
-+
-+	i2sclk_div = is_dsp ? srate : params_channels(params) * srate;
- 
--	bitcnt = (i2sclock / (2 * srate)) - 1;
-+	bitcnt = (i2sclock / i2sclk_div) - 1;
- 	if (bitcnt < 0 || bitcnt > TEGRA30_I2S_TIMING_CHANNEL_BIT_COUNT_MASK_US)
- 		return -EINVAL;
- 
-@@ -172,14 +183,14 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
- 
- 	val = bitcnt << TEGRA30_I2S_TIMING_CHANNEL_BIT_COUNT_SHIFT;
- 
--	if (i2sclock % (2 * srate))
-+	if (i2sclock % i2sclk_div)
- 		val |= TEGRA30_I2S_TIMING_NON_SYM_ENABLE;
- 
- 	regmap_write(i2s->regmap, TEGRA30_I2S_TIMING, val);
- 
- 	cif_conf.threshold = 0;
--	cif_conf.audio_channels = 2;
--	cif_conf.client_channels = 2;
-+	cif_conf.audio_channels = params_channels(params);
-+	cif_conf.client_channels = params_channels(params);
- 	cif_conf.audio_bits = TEGRA30_AUDIOCIF_BITS_16;
- 	cif_conf.client_bits = TEGRA30_AUDIOCIF_BITS_16;
- 	cif_conf.expand = 0;
-@@ -323,14 +334,14 @@ static const struct snd_soc_dai_ops tegra30_i2s_dai_ops = {
- static const struct snd_soc_dai_driver tegra30_i2s_dai_template = {
- 	.playback = {
- 		.stream_name = "Playback",
--		.channels_min = 2,
-+		.channels_min = 1,
- 		.channels_max = 2,
- 		.rates = SNDRV_PCM_RATE_8000_96000,
- 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
- 	},
- 	.capture = {
- 		.stream_name = "Capture",
--		.channels_min = 2,
-+		.channels_min = 1,
- 		.channels_max = 2,
- 		.rates = SNDRV_PCM_RATE_8000_96000,
- 		.formats = SNDRV_PCM_FMTBIT_S16_LE,
--- 
-2.53.0
-
+Thomas
