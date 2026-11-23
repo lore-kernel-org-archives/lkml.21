@@ -1,51 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411700;
-	b=YZ9NyAwmGjl2Kr5KsnHKm2ALAHn8oCcSkPcI8LP13t+4wSDMF8hPlfo6KOrZCsHbdLzD
-	 Tqju2iEF+PuWMuOJOfCq9GKFR1yrjdfKl3pxAYNP52RNK7UVUNs9dFzQxMFcvf8P1jMXM
-	 SOhJ8sPIypZ0WlM4MMv3C2LyS/QJbB0V05GIJKg+LMI0B/E7Lcgv7AeM1P5fESPaTH7Ee
-	 O+2EYTEihQuK2jem5UROEZCmML1rpychsRUu97NSsZ2X/waQiDS484TsR17/nbM2bYIqB
-	 a3EcKyHO911tan0Byjf5GvUTCSmVYUCFUkuvFqCBLfkuiy+Sh65+jNyE/Bnn1FzXGwQ==
+	t=1795411938;
+	b=CVT0eJqJ4J2Gb38pIpRN3YtAtRwnMbd9QUI8+mnmY0INJtr+2rndmYHEys5Rz8QEVw9b
+	 emAz17hPOEQt5yBiFHZ3RBhHzaxg665X/wRFa5ZgvPbZ5dE+WYJ+KJCZMpxt6kl+JeAAp
+	 KPVf1dke7HMlUxPiiVCXd+nGOF+c588fE4BoHBR/rMtcmgdoic55Cje3sliVquzsVySBd
+	 ZWywiCo4RWDqn3WTjV4YwAv9JvQ5BKVRsFLkmwhH1u9H6GkjXi809JnZDuEC2WzrB2x5r
+	 n6O1Cp079WoIlbh4DE0QTsBo18z+9+Y/2jpHLYXzA+ugqH9ALOoz4X0NsKbM/CMRYKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411700;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=p8O7x28T/uZEw+uczNpPStDjP/IONqrHmgKaqB1A2Sg=;
-	b=nGosZeZ6ruJrJL1tdHOy3vKvw2RXBHC1BQNFecLuEGKg4kFaXFXbzVxrm9yKuwWSNAHm
-	 TuuV2kv00PizFT2nQxmXAkHHt7GspYEEidXd0AnnEKQ9ahS5nHJpC51G3N/+v6F5ujMdl
-	 Hl/2Da0i6r4CO+F6c1r8rolwRhuKW0U3qRxwY6UYKS5poZo5fz1lWANGZo6ZlbVsSnjlW
-	 g5KCtEZz5a1hJPZEYfFIrO+b7tlyurYexe2gUf5ePrfABZkmbxDxgYcjO09i+F7YrsCoa
-	 rp1gnliUcYzgrM8AbJMHNgmyNHez2GwhVJfTfk42TpXnu7SpyA3fvHIGEw/b86tfTDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411938;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=hNqslqae6xPnbmlVmgUh2ZZ2KL2qdjZyfASnNMv5/5k=;
+	b=f9cCGpASvxanyRAFvQItw4J7dw2S5YvkUH2SFpYaEO84viDpkIwBA60chmBDguD/2HwE
+	 pK0vFkJnz7M0JChVyQMtJDFyvE8m1TPPAderERDtTi6T9lHZWxP4/qXiPuIkNn5rdV0bl
+	 Ve6e6ddYif8uQKz3e/0tuszZXTS+MZU4CUJwzzqy6jPbuqobl0YC7S3Z6fz0z80t7Vffw
+	 DaBL893K9h5Ly/dVn39Jcu1T19wngOujJu+1YvGvglHu1JJzgRvLj4eVutqAgo6tvOzfb
+	 Ox57n3kDMszGDuc1lLG4oiubOpatrN2om2WOvjL8ya/JfDSPDGfBGa3WtBkMew1D6rA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Emxf81ys;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gNwKM2bz;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AF03606A31A;
-	Mon, 23 Nov 2026 05:28:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E560D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:32:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E560D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Emxf81ys
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 466811F000C0;
-	Mon, 23 Nov 2026 05:28:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795411699;
-	bh=p8O7x28T/uZEw+uczNpPStDjP/IONqrHmgKaqB1A2Sg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Emxf81ysLKfTtDsCRKg6SvZtqrsZ0dKBRiPfP34VHUefeGJNQ0t5lI6B7IKDCDNla
-	 3zZZJkVpDrP5Odon2+Uq8hpco1FyKASIQROpNpFzQmbJk/fteSzsSYyq91dw/PbdqW
-	 OMQ14BJwWT139T7b51jb00BpK+AHtnTKl2PTNQII=
-Date: Mon, 23 Nov 2026 06:28:16 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-Cc: Mathias Nyman <mathias.nyman@intel.com>,
-	"open list:USB XHCI DRIVER" <linux-usb@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3] usb: xhci-pci: Add Power handling for Card readers on
- Apple systems
-Message-ID: <2026112342-engorge-polymer-0717@gregkh>
-References: <20261123051459.9581-1-atharvatiwarilinuxdev@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gNwKM2bz
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so35054725e9.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:32:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795411936; x=1796016736; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hNqslqae6xPnbmlVmgUh2ZZ2KL2qdjZyfASnNMv5/5k=;
+        b=gNwKM2bzkcZFrwcl5sDDGTNR3i2ivvUgCudjI/j4SKT8Ncd+VOlBilqILX05M5BZcJ
+         YHBydctbxhV2DzV6/yJ8vAaJp7qof2XJIiE64U8PDxXOYpryIQf3n495lQbUf6YsNlIn
+         3QtKs7ahwq2TspAxv0xKPA/9uHa+ynunip3Fj2KXIwSQi16+AmgRjtcWcIkIQ4UBSpfR
+         ZpEvQ8m6DAoM2xX/OUjn+ykAolEANafxpL4BxkOq/9pn/6Qd+FmMli/YdRX0SZxlI2ra
+         F1Jmmboa9UfLPWoYlHCWZCQ3WS+VpfXYvoXOGrtqlF48MYiR+PPunQa/Sjt3XKSBqC5l
+         r3Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795411936; x=1796016736;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hNqslqae6xPnbmlVmgUh2ZZ2KL2qdjZyfASnNMv5/5k=;
+        b=JkHhwwr3/x9xw3DogFOXP5aKgJEiZmQcGKylsrOL+J9ubjcmSw9TX7TS3tSguM48fj
+         ivioZgaJqjXTD5RRt4Dcds6QAgXoNuOGfTVj+sY90TXPJmT2ZJWh2YmkfmJs6sB8qDns
+         fYQxRy8oGov0eQ9bF/A/ORiso9Wt6dn12xZt5AyBF6tsMZzVDdINRdPqMJb7lSZZCt5M
+         HZhLcz6ZPXskE8rZvwEakbBtI0UqWAXrNSXFFNCJJ988P4fSoH1Cxwl6dzbfRKUsLx0O
+         +R/6acjCqn3fra6Q4w14UYZSnaKQEayEH/YG20D91OPpEUi8pQUK3sGP7ks81yvLxHXf
+         PmWg==
+X-Forwarded-Encrypted: i=1; AL+hErEcRHN554pqviZOt2YN+N7MyNTAWXuCRn93LfUkobx7rsv2FE9p5sPaHGKQem4swBhPOS01NYlLUAimXzg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+c4XR58AZplgoPNTgGjqxsQS4V06aNEJTN35hGn5oCPTg4nA0y
+	HHXmzKM+WcwL322qfBZTbLHLFSazApUa4C5vCQHlu1kz10pQn/fGEHJZ
+X-Gm-Gg: AZFdTZepJltKEwoL2yfFf/9zB3elBfFUn0ES9vh/+nCyvtDwyDAIqfBWJWeGKl9SC8V
+	uFyOaWndiULaZ6fzq+ABTYAIqu5Kw7d7UnjYgZPj5td6pQuyMhpZSqc609dS2a1Q9tZ7cb7xLht
+	oGQfzXJ5LoQZFIARczQogXg6oxHsvh6g+gSC+28FGWAaRA4kj6+2B5tDKg9ASRx+aIj514Bh3Gj
+	IHg6zVxa5HBrWiKKxtPsxiWI/wTSeKmTHo75BuU+EX/uvTKy62VLVjTHsL5imEDdZ+E8coy6/gq
+	GgYTQzcj7PA28o+3PV3plQUGyGfGTQoIyvQM91I6nkBJfDgiozZ2b86r8rrzFY1GAWKsVboZWWv
+	Pixe3PyedWBB61RVgWp9On3s4KJPUt6XoSfI8qj8UMYD6201/3WLxma99IcpDX68Q4wxZlsRHzm
+	tFi6t82kH1MDmgqOwWlKuwm+zMoWd6Y3C2dB0LOEyA/OqWciHsIK06SlYF/KXLH0ZBjFyGl+0uK
+	A8DGx8mLDGo3No8I5rpcS5eYMO/Y3xHAAsrX77WiDPvXkL7ls6n2ZKIJaNObvzz83z5vj2HwonI
+	hoTP09i2YdX9p7JvDKh9LZwY1TKtAdBt/xmKDNecqvKJVj4ObdpFDZBoErV9SMuwIWyBd2Uv01E
+	yKzH/csu1raz5NQ==
+X-Received: by 2002:a05:600c:1d83:b0:4bb:687c:4fbe with SMTP id 5b1f17b1804b1-4bb88805c26mr190030495e9.8.1795411936059;
+        Sun, 22 Nov 2026 21:32:16 -0800 (PST)
+Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399e2esm369423435e9.7.2026.11.22.21.32.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 21:32:15 -0800 (PST)
+From: David Carlier <devnexen@gmail.com>
+To: jacopo.mondi@ideasonboard.com,
+	philippebaetens@gmail.com
+Cc: mchehab@kernel.org,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	David Carlier <devnexen@gmail.com>
+Subject: [PATCH v2] media: i2c: mira016: Use the 12-bit format as default
+Date: Mon, 23 Nov 2026 05:32:12 +0000
+Message-ID: <20261123053212.212169-1-devnexen@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,106 +98,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123051459.9581-1-atharvatiwarilinuxdev@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 12:14:58AM -0500, Atharva Tiwari wrote:
-> Add Power handling for Card readers on Apple systems using SPWR
-> ACPI method, SPWR(1) turns on the card reader, SPWR(0) turns off
-> the card reader, on newer systems SPWR just writes a variable in EC.
-> On previous systems it writes to GPIO pins.
-> 
-> Its also used by the macOS driver with the function
-> AppleUSB30XHCICardReaderPort::setDevicePower in AppleUSBXHCIPCI.kext.
-> 
-> (This should fix https://bugzilla.kernel.org/show_bug.cgi?id=111201
->  But thats not confirmed)
-> 
-> (Tested on iMac20,1)
-> 
-> Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-> ---
-> Changes in v3:
-> - Added changes at correct location
-> - Removed accidental usb-acpi code.
-> 
-> Changes in v2:
-> - Fixed grammatical errors.
-> - Added CONFIG_ACPI check
-> - Checked for xhci_suspend success before turning off power
-> 
-> Link to v2:
-> https://lore.kernel.org/all/20261123044412.8721-1-atharvatiwarilinuxdev@gmail.com/
-> 
-> Link to v1:
-> https://lore.kernel.org/all/20261116231926.5891-1-atharvatiwarilinuxdev@gmail.com/
-> 
->  drivers/usb/host/xhci-pci.c | 25 ++++++++++++++++++++++++-
->  drivers/usb/host/xhci.h     |  1 +
->  2 files changed, 25 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/usb/host/xhci-pci.c b/drivers/usb/host/xhci-pci.c
-> index e278db940..31961de97 100644
-> --- a/drivers/usb/host/xhci-pci.c
-> +++ b/drivers/usb/host/xhci-pci.c
-> @@ -15,6 +15,7 @@
->  #include <linux/reset.h>
->  #include <linux/suspend.h>
->  #include <linux/bitfield.h>
-> +#include <linux/platform_data/x86/apple.h>
+The analogue gain control is created with a 1..1 range, which is only
+valid for the 12-bit format, while init_state applies the 8-bit format.
+The gain cannot be changed until userspace sets the active format.
 
-That feels very wrong for all non-x86 systems to be forced to include.
+Make the 12-bit format the default, and initialise row_length to the
+matching value so the blanking, pixel rate and exposure limits are
+computed for it.
 
->  
->  #include "xhci.h"
->  #include "xhci-trace.h"
-> @@ -517,6 +518,18 @@ static void xhci_pci_quirks(struct device *dev, struct xhci_hcd *xhci)
->  	if (xhci->hci_version >= 0x120)
->  		xhci->quirks |= XHCI_DEFAULT_PM_RUNTIME_ALLOW;
->  
-> +#ifdef CONFIG_ACPI
-> +	/* On Apple Machine with Card readers, we have to use SPWR(0/1) to turn
-> +	 * off/on the card reader, And on boot the card reader is off, so we turn
-> +	 * it on.
-> +	 */
+The issue was found by code inspection with an LLM, build tested only.
 
-Wrong comment style :(
+Signed-off-by: David Carlier <devnexen@gmail.com>
+---
 
-And why an #ifdef in this file?
+Notes:
+    v2: make 12-bit the default format instead of widening the gain range,
+        drop the Fixes tag (Jacopo)
 
-> +	if (x86_apple_machine && ACPI_HANDLE(&pdev->dev) &&
+ drivers/media/i2c/mira016.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-So what happens on arm64 systems with ACPI?  Riscv systems?  Does this
-just break the build?
+diff --git a/drivers/media/i2c/mira016.c b/drivers/media/i2c/mira016.c
+index 082442ffad28..d6db922f01b6 100644
+--- a/drivers/media/i2c/mira016.c
++++ b/drivers/media/i2c/mira016.c
+@@ -1630,7 +1630,7 @@ static int mira016_init_state(struct v4l2_subdev *sd,
+ 		.which = V4L2_SUBDEV_FORMAT_TRY,
+ 		.pad = 0,
+ 		.format = {
+-			.code = MEDIA_BUS_FMT_Y8_1X8,
++			.code = MEDIA_BUS_FMT_Y12_1X12,
+ 			.width = MIRA016_PIXEL_ARRAY_WIDTH,
+ 			.height = MIRA016_PIXEL_ARRAY_HEIGHT
+ 		},
+@@ -2254,7 +2254,7 @@ static int mira016_probe(struct i2c_client *client)
+ 	 */
+ 	mira016_pll_calc(mira016);
+ 	mira016_timings_calc(mira016);
+-	mira016->timings.row_length = 1062;
++	mira016->timings.row_length = 1504;
+ 
+ 	ret = mira016_power_on(dev);
+ 	if (ret)
+-- 
+2.55.0
 
-> +			acpi_has_method(ACPI_HANDLE(&pdev->dev), "SPWR")) {
-> +		acpi_execute_simple_method(ACPI_HANDLE(&pdev->dev), "SPWR", 1);
-> +		xhci->quirks |= XHCI_APPLE_CARD_READER_POWER;
-> +	}
-> +#endif /* CONFIG_ACPI */
-> +
->  	if (xhci->quirks & XHCI_RESET_ON_RESUME)
->  		xhci_dbg_trace(xhci, trace_xhci_dbg_quirks,
->  				"QUIRK: Resetting on resume");
-> @@ -562,10 +575,14 @@ static void xhci_find_lpm_incapable_ports(struct usb_hcd *hcd, struct usb_device
->  		}
->  	}
->  }
-> -
-> +static void xhci_apple_card_reader_power(struct pci_dev *pdev, u64 on)
-> +{
-> +	acpi_execute_simple_method(ACPI_HANDLE(&pdev->dev), "SPWR", on);
-> +}
-
-You removed the blank line?
-
-and this still feels very platform specific, why must it be in generic
-xhci code?
-
-and what about all of the sashiko review comments that were made on
-this?  Are they all wrong?
-
-thanks,
-
-greg k-h
