@@ -1,65 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395620;
-	b=wpJcYi5EakTCyorOppuojC3jyCZ22IA0ouEses2ym2eUG2u++G8WPq3Z8ivXWWDbBc1o
-	 CsiyzYAKgeHNgDxScnuL3NjnYtx6gVKQ3G7QLxZA4r1Yo9Mh3ijOWeQOUxk1jy0EBQqZ8
-	 Lkndwbi54G7bp72kMaADDX7cUs1WuJkOY47yXn92jVmeOo1KzyzqORsyhjghjtfV0Jw+o
-	 O00wlaFPUu51+IyCDLx8I7ibRwcAHBxLDyu9kgY+4PBxcndB4/qFvC7fPRnmzmI38ijp+
-	 Kd8PQazWJ8PxstgrLI0htlayb8HVucQKyKwA0T10TwjbdI/rhlCBu107KWg6K5e/miQ==
+	t=1795395763;
+	b=qlOfj+mafiym7Ru1QyMVk4LcxVEvzFWaIpupneFvK0lobdwISwlzmEkk8vT5EOcbbJLC
+	 473ipm5E3IcXK6f7cjrMPNwg0wYCnxxE/5p9u4XjJojmsR67hX/KItQT3cMFtDAbY0Phk
+	 ueD0/XmXs22czvCzCKNxWpMv4mQ60hIAHikXnxtYokblHh6SlN3FTglWsIVpqx7DvbTGf
+	 EnXi1cZk7c3n/v6hnF2Hasrv9OKCjyCMHJrWSksqgkoMcwwhzSRQkdyuGYfZ9Oams7He2
+	 xIHDqZRhahE6RRfuiXtS1R3XKI0wFwKUOa/ePWydSWJmWTu9xGVo0BTUsnFTYCQljgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395620;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=82UKgW9q7fdHJGNxFuYkS9f9oni4yYQAehGXY4eGJO8=;
-	b=j8YmnhR985D+zMNgQkFc3sAfwfhqxGhImgiIyJuvWjb+t56hRKaGORzNSe8+gDWrCoYv
-	 BCSJm6VL3aZIWq6Hy8CcnTN8BzGTwA0yF2XpaKJGqU5JNFHfQvADKmrOnhRVOCjogts++
-	 VRtkxpW8TIjEJeE4a/mROzASdmUHWjtk1Mq6upZ9MFG4PDBIM7nkaTeBZGdd928hMf46+
-	 nQRNNUI1vKwLLXVz9As1sEReCJJMf35LQosazk+3CbJpfWx04zRfN7jLd/7iy6pX3cRrb
-	 Fq+FTLLVcwcJ25F7BcjFk1GJxZju0Li/LWBYBzVq3CGC8Nylyw6JjCLX3JafPcKbDfA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395763;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=/TtaVSFKvzC2yENzQ36/KvlJVDiN10OL+L/u8Jlvl9k=;
+	b=zlHsJ+ay5cgjl3SfcQ3ybbEgOKlwXL9P+pLLyM+uNdEAmHq3TyhnPVbeTr5QgKaJTkV3
+	 HDhQfLdqQ+vQ12OUAgBFPDwASa5Vc8cT2LLDhVwqxzq771e9ScUyujmECXM52TxtiDqXQ
+	 zuu36t3T//VOkUgceclmZIIbcvzWDBPnn7G3mJC+Q82a678NjTC54kETB7PvVYuu3yFRT
+	 ytDozTPOvxp0LKoyqQM0fghu5bEzImN/WWuiXPfxiu2wBhZGmBQGM4fi+1+ADDEzeZu62
+	 NhSXioJUTZpW/rrz+b6kX/Eqz5bVaGFMCLKcgOQSUPfYiv/xNDUnRUjab18gv1WYrqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=codewreck.org;
-	spf=pass smtp.mailfrom=codewreck.org;
-	dkim=pass header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=SYMO9gUL;
-	arc=none smtp.remote-ip=62.210.214.84
-Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=D2zxLyq1;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B402C606A683;
-	Mon, 23 Nov 2026 01:00:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B402C606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAEEE606A31A;
+	Mon, 23 Nov 2026 01:02:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAEEE606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=SYMO9gUL
-Received: from gaia.codewreck.org (localhost [127.0.0.1])
-	by submarine.notk.org (Postfix) with ESMTPS id D028C14C2D6;
-	Mon, 23 Nov 2026 02:00:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
-	s=2; t=1795395618;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=82UKgW9q7fdHJGNxFuYkS9f9oni4yYQAehGXY4eGJO8=;
-	b=SYMO9gULck/EMtV+eBS3tT+qNeooPRQGxbp7VkxiSqnisKDF6vN9+2rt9/KUhAAaD0twNc
-	8YYJmcZxM8J1ugfC940GIDRoAx/QlMHVKALg7bSaE7xjPjKyaXM6vvNYdlRwEjQqxSxG5f
-	eDxEfdXd4Mn0tHt1+X154PsXaC/S5Xf+QzFVhrQXXEkfC1Wu9HQjnvPgeZt+qmyW3Ffjue
-	6kThehA1dWhIx09dFN3xQ5Zf78TLKnYyZT0w5b7Qr2GXWldWbEg6vtb7xCRV6+ZG0Ba2b3
-	c6ZXKj4fOEY7qLAP+gBgP2vq/ldAwZY1gE16uTDEE0RiFq3VUk3QGENUeIeXPw==
-Received: from localhost (gaia.codewreck.org [local])
-	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id b575b958;
-	Mon, 23 Nov 2026 01:00:14 +0000 (UTC)
-Date: Mon, 23 Nov 2026 09:59:59 +0900
-From: Dominique Martinet <asmadeus@codewreck.org>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: mgr@kernel.org, nkapron@google.com, gregkh@linuxfoundation.org,
-	linux-usb@vger.kernel.org, v9fs@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tools: usb: p9_fwd: Send complete requests to the TCP
- server
-Message-ID: <awOQD-9KMTflKrd4@codewreck.org>
-References: <20261120061937.98224-1-zhujun2@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=D2zxLyq1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795395763; x=1826931763;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=yzUdFlARRD9nuCVT+/V+p2PL+/Zg/cexYbCr0fYyoEQ=;
+  b=D2zxLyq16Mn/BWuazL2/LRdScky2oZlM4JEVgNc+Fa6sop3Gnwdj2w77
+   5MbpIkYD01+bsmidKmB5P8m+jfgDsel2zEkyB91ekeHx0vRMEeVQCN55t
+   2Kqhz31NTWyMUKOlhaTVRWeAMSLokEP6tjcBikO5WRFEscNA+s21H8CEE
+   ZAkYJNGVKCqFdtPjdV8Bb/fQ9GlL8MV64eRQfO3ddeeMV5s7nVQdTlXwj
+   Fk36xLzcfvBEr1iHwDwIRn+pPVTVmC97l0priSDZxcjvIkB6EcjFikp7s
+   lbngyUFgIkQcdbFmYpeQZiJ0VXotMl/6qF+E/uTDMzZlR8soWi6wcvX4y
+   g==;
+X-CSE-ConnectionGUID: CQ1iKdUuTyuVu7CCGSod/Q==
+X-CSE-MsgGUID: zzcaUQL7T4qZgShj0seIfw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4103813"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4103813"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 17:02:43 -0800
+X-CSE-ConnectionGUID: bgeXPCpaQruRABoF7vH5cA==
+X-CSE-MsgGUID: u458ZpNSTBWp7NUmdEk09A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11466865"
+Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.245.162]) ([10.124.245.162])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 17:02:40 -0800
+Message-ID: <3581bb9d-4183-4baf-83e7-2fe3e97acbd4@linux.intel.com>
+Date: Mon, 23 Nov 2026 09:02:37 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,20 +72,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120061937.98224-1-zhujun2@cmss.chinamobile.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] KVM: Disallow prefetching PFNs (for SPTEs) via
+ VMAs for gmem-only memslots
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Sashiko Bot <sashiko-bot@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Naveen N Rao <naveen@kernel.org>,
+ Alexandru Elisei <alexandru.elisei@arm.com>
+References: <20261117011513.39419-1-seanjc@google.com>
+ <20261117011513.39419-2-seanjc@google.com>
+From: Binbin Wu <binbin.wu@linux.intel.com>
+Content-Language: en-US
+In-Reply-To: <20261117011513.39419-2-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Zhu Jun wrote on Fri, Nov 20, 2026 at 02:19:37PM +0800:
-> socket.send() can return after sending only a prefix of a request.
-> The forwarder ignores that result and waits for a response to an
-> incomplete message. Use sendall() so request forwarding completes
-> only once all bytes have been sent or a write error is reported.
+On 11/17/2026 9:15 AM, Sean Christopherson wrote:
+> Disallow prefetching SPTEs via fast GUP, i.e. by VMA lookup, for gmem-only
+> memslots as the whole point of gmem-only memslots is that KVM MMUs should
+> get PFNs *only* via the direct guest_memfd interface.  More importantly,
+> this will allow skipping/ignoring/eliding mmu_notifier invalidations for
+> gmem-only memslots, since it will be impossible for KVM MMUs to have any
+> mappings based on the to-be-invalidated VMA (as is intended).
 > 
-> Fixes: 673f0c3ffc75 ("tools: usb: p9_fwd: add usb gadget packet forwarder script")
-> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
+> Fixes: 576d035e2aef ("KVM: guest_memfd: Track guest_memfd mmap support in memslot")
+> Reported-by: Sashiko Bot <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/sashiko-outbox-213282@kernel.org
+> Reported-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Closes: https://lore.kernel.org/all/avdAIMDfgL_wy1rx@gremlin
+> Suggested-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-Thank you, picked up
+Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
 
--- 
-Dominique Martinet | Asmadeus
+> ---
+>  virt/kvm/kvm_main.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index cf4cb586f140..9938b753948c 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -3172,6 +3172,9 @@ int kvm_prefetch_pages(struct kvm_memory_slot *slot, gfn_t gfn,
+>  	unsigned long addr;
+>  	gfn_t entry = 0;
+>  
+> +	if (kvm_memslot_is_gmem_only(slot))
+> +		return -EINVAL;
+> +
+>  	addr = gfn_to_hva_many(slot, gfn, &entry);
+>  	if (kvm_is_error_hva(addr))
+>  		return -1;
+
