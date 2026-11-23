@@ -1,80 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461972;
-	b=XWlSgqYRz8HlPvV0ZTaeQvR4ZJjysdbo1tYa1mNB7XzwsViBg7D1xiakMAzHDpZS27GX
-	 /Sm1WtVfGVeNlpvChWsWhzQeLo15gvesz5A+io0axzIoXTayb+rK6b3avnTMN1iMABEON
-	 SagBT4e5eXPWhrfeQVCT49f04bBm8yrS1srOywwFkFBxSlAMgIrtS16a2AI8iO60cz4yA
-	 3mu3HKObSRgt39lE9umKOe3Hvw9O90k4Z6rnyLF2hCw5V04NpNaw0XsH+jQEuBChKXWW9
-	 Z50yGui9A2ICZZ0ocHF+xIvG9eugMByELnW4bWFXxPq9+GnRqN4tlaVLKWCGr61/SVQ==
+	t=1795462095;
+	b=z8MVZ63Pa5vp6W1skndoF9g6WB86t42lvE2KbxxTK3ECi0u0m/tWUOaNVznjTQh9smc+
+	 x/oVri4iBU9jgKYQbCx7qYBEOLwQ19vRTqpUTENc2/6nuU0iE0DNNhTJdGWipGpCk3GvL
+	 UKrugBebO9VeEa80WnnhQ84jvY5UpLodg50xFlk+vUG97B9k9XXPNYd6Xf26aW97zm6j8
+	 pQAQzAx3fnJJnFl6NBxRchBk57ZJNjvertTjbkzWVVORLbsXcn5aTxs9ToIs1o2iIyDZz
+	 J0IJDqZfYMRwi1iH1GMAzsVnCQkoBPFXNRGotlBRORXK02l1LwwW5o/nxN9GY5uGsRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461972;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=YjcSZFIvzql0ExOJ3U+u5ipwsVhfiurClfd39n0Nb8M=;
-	b=v/UA+asoXdhuCwCLkEyNEXq251eNm2wA0Eywa+tHLrsbLuTbe0NvgnU/GekJBC9Mr8pd
-	 J5spJzz1pDdnBHRhImpHuBfjE9edqABHy84gx0AFuXGQ2EbbDUbIY8qZDUF2Rrq64APZz
-	 DoAIdEfKYnZszDkhKOQPlIlJwDAnNCsFDuKs+HV0rOmGBECUktRTDCfMv7ajtH3pejl18
-	 sa2fApwWoKUTsNITV6PcCpY7+4OwhQMyYNj7jjXr49VmTdJuvODq/FlUtezVBwBd0/fNl
-	 fR2i09V1VwnUxB+aIXpw9thVnuzgvo6LrOuDwgZUMW2hbUrYt+rHr8ZCS/NoAk+zkNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795462095;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tVpg3m8XkKzY55cEmyE7VyD81pFXe7BeKUYNIVpFSxU=;
+	b=aEDpx9PgF+Yk/L4PJuzOXPPlHoB78f6/OVZzsCM4Q7Uka/C4Up/Gi+IA3NuUNIXSoUQU
+	 DEBQR5MczqEDmrYWNgiWux588pawR5U4kPH6xWLwNhSIyBGLvuZ412i/xYFg17Rjsm4TL
+	 G+4AwN3cDXOwV8Nt5sZOIID8UqPS2fvkjAvAhvc4k3hbpUkm6K/s6B+EplyvjhIePbcOL
+	 hxfaBjVo/Ot1XYO+rygnyVcC8ddB/WkyWHAaoIHhFx7Fgwb4c7JUj9T84nXpZiksCyo7W
+	 jIXv1CUzPOmMj4qK2WZ7MidE6+Yw7rRRcTj1iE9IyDdCbpy1m8xSM8N0BePQaO5SIHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aQPHE4wU;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jPun4PYc;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB6B5606A31A;
-	Mon, 23 Nov 2026 19:26:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB6B5606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D69A8606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:28:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D69A8606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aQPHE4wU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795461972; x=1826997972;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GzVEhTcEXjPwZr+oSMlCoQIK3KEA/n7wbtndAQlshU8=;
-  b=aQPHE4wUk97G70NxMtCYGXnGIQSjHCrKhAznUudP4r82e2GZae+uz1A1
-   qb2OadFXGGnVVHZXVQmivQNcvxUTAd5LWmZeAeHpUUKJ3FYccEtBtwd1t
-   Smma4pumk9CJYL2taZGXGoVszYkfBH4otkHsoOtvhzIvr0SZy+gdy5zu6
-   ciMavNwilzEPif/FkLn0BFRZRpLVg+T30bUVsSEu+jUHhAaztZ0L9Gmrn
-   C1pDgQ3RgckaW3AP+yXKdELA7wDawxfBI7tA56LgiKnVY2jxkT4oY3cLu
-   8EDXxIZ5VqXhwPskYKJymA18LhNYPrzOn0S5opk/Yds2eK9BXtJXbdLpE
-   w==;
-X-CSE-ConnectionGUID: FMkw8fK9Qj+L8S3cF+bvzA==
-X-CSE-MsgGUID: GrfEgsBcSbahRdD6Btpouw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4296860"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4296860"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:26:08 -0800
-X-CSE-ConnectionGUID: AAveIKlVQSu5PcfjKt2Dqw==
-X-CSE-MsgGUID: b/sca7xpS7yZYzpWAOgIFQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11400313"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:26:05 -0800
-Date: Mon, 23 Nov 2026 21:26:03 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Yasin Lee <yasin.lee.x@gmail.com>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/5] iio: proximity: hx9023s: reject out-of-range
- threshold values
-Message-ID: <awSTS5G6isG9jUQN@ashevche-desk.local>
-References: <20261123165255.239490-1-kapoorarnav43@gmail.com>
- <20261123165255.239490-5-kapoorarnav43@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jPun4PYc
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-498f5fa5103so2210476f8f.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:28:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795462093; x=1796066893; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tVpg3m8XkKzY55cEmyE7VyD81pFXe7BeKUYNIVpFSxU=;
+        b=jPun4PYc206kAk+3Uwxp6Ymyh+O4JNvUqJorysOKey6OoUP4/ziwG4Htla4hDohJvY
+         KQNfFR1L0mbxtyZci5Hn6ZClFI+MqLjTvujneLsOHRAUG71i89v5wjnssLr/zPDI04BV
+         +NYjTAD4nZ4TVAfpswdNoqRNOrZFm89XkQak0R/mdAfT/H/pIm8cNKCX+w6Q262JFODT
+         7QIYlwRgvG3e+FEYy1DDe8ORLMoLFFqIQWKVj4Ldgm1caVXrLEe55Nf65UBuBg4RNsac
+         wImABrxwdg2kzf7bE9VdOWkBvw5SHfyCiOWS6ySqIIZJ/3qLt2PbHGa3RnjqyXYXgMO4
+         DhgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795462093; x=1796066893;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tVpg3m8XkKzY55cEmyE7VyD81pFXe7BeKUYNIVpFSxU=;
+        b=aXOEeEpDgVU45w3QjfX3gOEGut81dhbbNnooU8Napzor/k25lXV1RJLOSIUgkwULam
+         vAuhHx2XWFAQapbHvMQC7Ksdom+pckN0TUkf2HPAmELIBBjf0vRmiVVKHBf5Fmp4nAny
+         T+tXztjhS8JGVKvr1T3XUnXGXWB4rkcHnstccsYkb7V7K8NNuwuMl4XziBLEv2vA2pnu
+         GGPIjpz4dNwLbsWQv0D9t8GbdR/m0xBjqIAbm7FEAgTIZ/I5A7k+dBTSW3ihN4uIbi+k
+         uMnBKyFPH9F1UQWN/ikq35K5USrsmTsIXlTW4f4qMQl0q675nhy3V/p+TC+MZZBk6IAw
+         6mTA==
+X-Forwarded-Encrypted: i=1; AL+hErGNUx/dXjiUmvZIbnVSFfkam8qeVFjpk2RgbgBpCR/5jaO2lYd5T9ibyZLXhai6uM4Wu2T/obqhJ62NN+s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/0fcQFjOIdCHae5HIhHsnxSctwIaL8MOEirwbn3A99juMUdgRB
+	l98h24sL3TLqpSaaSXzX1wDWgKP6S333K32Cm9lR01S6MNmPIVKG0y/l
+X-Gm-Gg: AZFdTZew2hMeDtAmzlf+yRAorTO+YPXo7Tv9PH0b/1sK8EodpjsQDjNaKKET4LOTMy7
+	qN7++LCgFWaKx46E0QmVv1AcACf5bBS//zYaT1qfK0Hg0TPS/cELezDzyv0UQmYM521QRBfr5yb
+	fB7xeQ9+TbCoPUYDLMW0rfBL0aedx04zH/R32t34IRd+OwipJ4HS1YJ03QPuUE4xek88dl/QD+4
+	MHwkvsBhDmMFE45Ny5ri8oi/ImXMVe5bfo8ulpHXNY2V7xU1HcoFyyuBLw5DZjMQqnomItdMTgZ
+	4vuc+sRJc8fLHBRDC9h/VYToFg65+dAwJNohrBc1hcHYtnC7XS9h+6nwBSRxTr9CZek3n8BhrIh
+	MjXaTO4gJEEgGXu7Tk4Y74Pqu0c48xVr4HMav3AMDLqeIDI+QQ2482A8WBMtK8Py3Z+aQuCWeYh
+	rAe8EchoaG+5eeEVs0PVbhUZKtdI/hGJZ8QnNxHdKlOxOV0fHuiYreEvjkqlRyzGjDyxdQoT+GN
+	rrnd9V7Fp6bEX9R1tANFKmgZxB9J/BXJNm5J6Cu36zm1ejUaHnPscDpfAMgEz5XiuVZqz4yhkEx
+	pGYRTLaSqM1q2raDRUe9bWZaLzMXTa4eF62UhNAJIgyJ8S5/44YR6tI7BZSMu4NuDlvLJUE=
+X-Received: by 2002:a05:6000:2383:b0:4a8:8004:5261 with SMTP id ffacd0b85a97d-4abb6d04250mr27449503f8f.44.1795462092747;
+        Mon, 23 Nov 2026 11:28:12 -0800 (PST)
+Received: from kidala-computer.. (ip-109-41-51-17.web.vodafone.de. [109.41.51.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm24879522f8f.8.2026.11.23.11.28.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 11:28:12 -0800 (PST)
+From: Oleh Shcherba <scherbaoleg4@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>
+Cc: Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Oleh Shcherba <scherbaoleg4@gmail.com>
+Subject: [PATCH] wifi: mt76: mt7603: remove dead WEP handling code
+Date: Mon, 23 Nov 2026 20:27:34 +0100
+Message-ID: <20261123192734.7149-1-scherbaoleg4@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,54 +103,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123165255.239490-5-kapoorarnav43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 10:22:50PM +0530, Arnav Kapoor wrote:
-> The proximity thresholds are 10-bit register fields in units of 32.
-> hx9023s_set_thres_near() and hx9023s_set_thres_far() mask val / 32 with
-> GENMASK(9, 0) instead of checking it, so a value out of range is
-> silently written as a different threshold: 32768 becomes 0, the most
-> sensitive threshold, and -32 becomes 1023 * 32 = 32736, the least
-> sensitive one.
+mt7603_set_key() only offloads TKIP and CCMP keys to the hardware and
+returns -EOPNOTSUPP for everything else, so WEP is always handled in
+software by mac80211. Hardware WEP was disabled as broken in the
+out-of-tree mt76 repository before the driver was merged upstream (see
+Link below), and in mainline mt7603_set_key() has never accepted WEP
+ciphers.
 
-> Return -EINVAL for negative values and values above 32767, the largest
-> value that still maps to the field.
+The WEP cases in mt7603_mac_get_key_info() and the WEP-specific key
+offset/length handling in mt7603_wtbl_set_key() are therefore
+unreachable. No functional change.
 
-...
+Link: https://github.com/openwrt/mt76/commit/cd456ca87fb0afe4485ce9b091f40cf2faa3991a
+Signed-off-by: Oleh Shcherba <scherbaoleg4@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7603/mac.c | 12 +-----------
+ 1 file changed, 1 insertion(+), 11 deletions(-)
 
->  static int hx9023s_set_thres_near(struct hx9023s_data *data, u8 ch, int val)
->  {
-> -	__le16 val_le16 = cpu_to_le16((val / 32) & GENMASK(9, 0));
-> +	__le16 val_le16;
->  	unsigned int reg;
->  
-> -	data->ch_data[ch].thres.near = ((val / 32) & GENMASK(9, 0)) * 32;
-> +	if (val < 0 || val / 32 > GENMASK(9, 0))
-
-It's too complicated way of saying this
-
-	val >= BIT(15)
-
-> +		return -EINVAL;
-> +
-> +	val_le16 = cpu_to_le16(val / 32);
-> +	data->ch_data[ch].thres.near = val / 32 * 32;
-
-& ~GENMASK(4, 0)
-
-In any case it might need a short comment explaining why these bits are
-dropped.
-
->  	reg = (ch == 4) ? HX9023S_PROX_HIGH_DIFF_CFG_CH4_0 :
->  		HX9023S_PROX_HIGH_DIFF_CFG_CH0_0 + (ch * 2);
-
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+index 196c39f..836ce7d 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
+@@ -894,10 +894,6 @@ mt7603_mac_get_key_info(struct ieee80211_key_conf *key, u8 *key_data)
+ 	memcpy(key_data, key->key, key->keylen);
+ 
+ 	switch (key->cipher) {
+-	case WLAN_CIPHER_SUITE_WEP40:
+-		return MT_CIPHER_WEP40;
+-	case WLAN_CIPHER_SUITE_WEP104:
+-		return MT_CIPHER_WEP104;
+ 	case WLAN_CIPHER_SUITE_TKIP:
+ 		/* Rx/Tx MIC keys are swapped */
+ 		memcpy(key_data + 16, key->key + 24, 8);
+@@ -916,18 +912,12 @@ int mt7603_wtbl_set_key(struct mt7603_dev *dev, int wcid,
+ 	enum mt76_cipher_type cipher;
+ 	u32 addr = mt7603_wtbl3_addr(wcid);
+ 	u8 key_data[32];
+-	int key_len = sizeof(key_data);
+ 
+ 	cipher = mt7603_mac_get_key_info(key, key_data);
+ 	if (cipher == MT_CIPHER_NONE && key)
+ 		return -EOPNOTSUPP;
+ 
+-	if (key && (cipher == MT_CIPHER_WEP40 || cipher == MT_CIPHER_WEP104)) {
+-		addr += key->keyidx * 16;
+-		key_len = 16;
+-	}
+-
+-	mt76_wr_copy(dev, addr, key_data, key_len);
++	mt76_wr_copy(dev, addr, key_data, sizeof(key_data));
+ 
+ 	addr = mt7603_wtbl1_addr(wcid);
+ 	mt76_rmw_field(dev, addr + 2 * 4, MT_WTBL1_W2_KEY_TYPE, cipher);
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
