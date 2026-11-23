@@ -1,109 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.79.60.76
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795398614;
-	b=gOg6m1dnqHmnHmYqHnfP+OTLsC9lggafiUqBlEuLrsAjPbMeMc89OS8YI8WbZEEIrQ32
-	 UtJocYxoRTHCWZg/nqx3UnhgRxO1jKSWOrStnF0du6nF1qeBcjKXIOpxfY5dSfN0HPkln
-	 KtVQmo3VleZYRfz9bRlaGt/+H0wX4errnxAfvrE2PclDX6DBvklxcdr3eS2aAJe4T/kOZ
-	 0YlvEAtHG3uThztJSgg4SBCl92jGA4voDNidQjHBEh2F7GdSAXY3ELThIG92huHeAhSC1
-	 jWKxjzZ/I9Cp6oVzW2U493//tuyG5JQA9iF48Cxq9RwlDMO02CaGUQKLA5jVfzmwqmA==
+	t=1795398707;
+	b=PbSKW/nPXnZgYizTZ9pQGguGXsqomxFSt06i0NpSZjg75wAXOoRJI+0qdBoo3JfL3cJD
+	 a9ZEusc1mA6mwSdErv3U+4zfNkxi+89Gp/Gu0Ng9ZZwD+ubp6pmM2iII6t+y6CKpa2S2b
+	 FRr0SvKc9r3+36sX7O37U9wKgmbASdgL3fg8kEEaQAboM21vTGu2K+Wgkrf7Xhh0XrGja
+	 qqPSsH1uYPum+85KuJfSU64wvl4QXJRieJBdI7TwDR68s1hRC9Pq9R/wr6p+3cw1Kllbm
+	 U19q6a2OJla0SEUZ+ABRD5+Yd/NHo2rgli7jqEyKAOHjyOyeT9mlK3B0nLDjmjpVOeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795398614;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Content-Disposition;
-	bh=HPgiKAKXJD1IfapqnG6OwznXuOp3qOSKSxNr/yY/XDo=;
-	b=SORgbPxSTa17G8tCcE7JUdb2yecJVrjanoMOuVCTrWObNJRY5iIyzKcNh1+FF7wFXVX8
-	 ncFmQR0lIaeHBg1c1aWsfYHBr4ywRLvIBTirPiflbguibtgh5Y6hgVNg2chrhslK/wvxU
-	 vdYGS6rX09bSPIC7cq3vQVUv+uygLjMeg4pZ1kSM1k6VUACwYaHZxltOusdFtK435nUQ5
-	 fTKGq0sVhww7un+hmUAKrnzEvhrEb6AE8XC5E6dSMq2AaFdNvvLjTqq8VWLoxsO3cxO7F
-	 SovHrX0zMqG3ydFX/w2XWA0ZPafOINKHgMmGYvg8mWEiKijCgndPSAF8p3gnh8a2V+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795398707;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=Q9NunyhRXef+uYLUVcBJxPIw1fxbnbcm5osyb8TqXYc=;
+	b=QKsHkxh9PgYaOeSy15I6MtGYzYIdKm+Cmx2k5U70237sEmxSlpNpc8Omra7P+UL3dXrN
+	 OoAA5QqdYxpGseqKEkBfcLcRqE15wI8F1xgSLTx7PJfcHFIlExefUSlINGx9hy+uqyiUT
+	 HqmkcVfviia0ZlpPTRSwAp2w7HdDTGKhhvPiC9UmyMHbLaA91nA8iuVWF3S6JzsO1Smn+
+	 9+0UU1pBHXK4YIBCVteuvn+KLE+ilh/U2oBgGkpfRMlaTmNoMLSf/zISVISqCNAwYChwM
+	 UTYimqZdWBcIxWcv4KXZdw2lICRkEjpA4JlFIeaSPEhRPUALXhYtYOkavOxRQyJ9C/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MNA1EOOg;
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="NJoD1TY/";
+	arc=none smtp.remote-ip=210.79.60.76
+Received: from mail-m6076.netease.com (mail-m6076.netease.com [210.79.60.76])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D312F606A320
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:50:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D312F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3693606A31A;
+	Mon, 23 Nov 2026 01:51:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3693606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MNA1EOOg
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-14394530ec6so4135672c88.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:50:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795398613; x=1796003413; darn=vger.kernel.org;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HPgiKAKXJD1IfapqnG6OwznXuOp3qOSKSxNr/yY/XDo=;
-        b=MNA1EOOgy6ZBUuhdD/ZBI7Krj7F286wnIncjH3RvwMa9Lc6CVzlP3UWssD/jKo8kN7
-         184A5ipSF0KxnBffvHbZUN+7mGJxIAZqrn4T/nS9fYIOIeVXd1Xfe58RDS3ca8MxmdlG
-         f7ip3ojQ3TguSeO2SPj0EX9SjMAZLOpzJI7OppbJeoTT+ksGEU/4zTxb31E2/b+LE1ky
-         XZR4ZxT+5e3Ks+ZDfQnGbk5ix4v6y6AlYras45QHR/82UCqVk5NvRExUoY/e7bjEGuid
-         1axATOXDH4WLjGw3TC4bdTjr6UJy04UtiZyYcHA4T8SfZsYNl3mcJ3kKl9XUgaLCMnRq
-         vKLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795398613; x=1796003413;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=HPgiKAKXJD1IfapqnG6OwznXuOp3qOSKSxNr/yY/XDo=;
-        b=fiVDuFO2igtnCc5aZ2KJGaKFHh4IrYQWoJrH2dhsujF6EXKZLIO5dbGp+lUSVvtP3z
-         iydcfLwjx4r7TMba4adP0sRHQqq0WrsrHP+w7LzOkH8p9mP/xQyGNldLH6S2rE92uz08
-         tHk/+jg1xv1al7UD4EklLp2WiC1YNoqut5iDjZDw8/xft++iheBGntb9zWowI5pZRY0K
-         4/w7E4HKL50SxC0npRnWpucXoQEI4qqzsfzLlbLWOUmKDq9wnwZ7h/v4TrBbENdmZFkv
-         WHN7zT6K/fAVJgBNeKMBwBW0QL6zLZc4+4TMZXfVWN1B9vXLKpZYlppEeRlDQruAjrU/
-         SNUw==
-X-Forwarded-Encrypted: i=1; AL+hErEj0/cQBYTfl4yiY3U55AiCyF0B/c7AEnOfU2Sklu/2q84gnUl/HISqursc6G8PdlVWWeFyQveCOJR41hE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88ugX/+DyzhwEpCM/Y5gzcEuYTr1ztUeATxXfprjbY2poOg3tn
-	md6xuwBfGgIjvhRNJyMr9/sz89eBYfr5ulZcFmzey4lOYOtJJocrV61b
-X-Gm-Gg: AZFdTZdCEsEMnReOLHGM6g8HeGCR7qrSCDgGOY2dCGvYCTBGK8cs3Upm42Ty22EcvC7
-	ilE0oXaD20axFJZS2g0ROgLWr5JF8fC2Vvv+3+FXyWPXbG17bx7fvS+N/bRqsLy3burfK7l4Hel
-	Zpa674eHN765Nfxb7R2pJysiPc7XZy1ZCbYMNNJCWnSuQ5hjnYwVp7O8EokHclcQWIj3W9jyCk9
-	/wYK/DCWvalSHBavvCf7/RkYu8E4PmGi832/rzNNtl1XkGwev4H7KXdRffTsE9ymT0NSlXqGyTq
-	4OnA9TuP+IFfXa5lB/60G0/GQ+ShPreKHFwLJQZlwBUJAiF2WnHqgc5jzBbvoSWOJvZkxj6a0O6
-	ATyp2cYLRXxcOgTHwWT//lqw5RpbPOw12ugeSZc0azPP+OD8rVT287vBPkltHuucuYRTSE70xOm
-	VDKHbHpYsk571EcQmBekJyXi1iC8AqJcJid6gvO9AZYHobkzuXMXhrMNhxs9bgRUHfm8PZNoc9y
-	yhWgeQSH8Y4feX2nWr/n4Q/SA5Enc31hULH/OrSX1ZZfqvqB94zkCPjcJ/xt2kl1Bd/scSjLvA2
-	J5kAlenIc5vTZO379LTUvwreT5eFiu9536PPYsHuNRzUC63Gl2wDbvgiqRFCxwRvF1gkDw==
-X-Received: by 2002:a05:701b:230b:b0:1b2:4da6:bccd with SMTP id a92af1059eb24-1b5568feaadmr8740253c88.34.1795398612828;
-        Sun, 22 Nov 2026 17:50:12 -0800 (PST)
-Received: from localhost ([2a00:79e0:2ebe:8:f002:4621:aeeb:e0e7])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567e2bd1sm23364703c88.3.2026.11.22.17.50.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 17:50:12 -0800 (PST)
-Date: Sun, 22 Nov 2026 17:50:11 -0800
-Message-ID: <8c2d4920319771e3f7edb083b2e831a9@gmail.com>
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
-Cc: Mark Brown <broonie@kernel.org>,
-	Jakob Unterwurzacher <jakobunt@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Joseph Chen <chenjh@rock-chips.com>,
-	Lee Jones <lee@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/4] Input: rk805-pwrkey - enable the wakeup interrupt during system suspend
-In-Reply-To: <7bec766f-14b1-4eac-96c7-d7f1cf38021d@cherry.de>
-References: <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-0-cb12621c1fb4@cherry.de> <20261029-dev-tiger-v7-4-pre-20261028-tiger-suspend-b4-v1-1-cb12621c1fb4@cherry.de> <avUGEQhSKlko0Fm9@google.com> <7bec766f-14b1-4eac-96c7-d7f1cf38021d@cherry.de>
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=NJoD1TY/
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5595de3af;
+	Mon, 23 Nov 2026 09:51:34 +0800 (GMT+08:00)
+Message-ID: <5176e5e2-72f3-4175-8b29-1dbc64c4e418@rock-chips.com>
+Date: Mon, 23 Nov 2026 09:51:32 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,65 +48,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/3] clk: rockchip: rk3506: Add the SAI MCLK output
+ gate clocks
+To: Xiangyu Zhu <1194781887@qq.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <tencent_C2AD19EB4A6C91A75AD3DC4089CB875C4005@qq.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <tencent_C2AD19EB4A6C91A75AD3DC4089CB875C4005@qq.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+X-HM-Tid: 0aa20619f63c03a7kunm9ecc2466b555bb
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCQkwdVkNJH0hDQk9CTEIYGVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=NJoD1TY/x5HC+BNx2DhEsOexcaA3iF2SBwoYNe3h21uciMr+ZKulGD2CmX3tWEuWoWlx+JRbSnUoWMVVqTcm+C10FJTNIwn1lVOklkI9jXhJJ21KejXGgvp9IaaViHs4YFlyGtsfsu7MPnqwVfPKHG58LodKmT8Ysv35BcjRq/k=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=Q9NunyhRXef+uYLUVcBJxPIw1fxbnbcm5osyb8TqXYc=;
+	h=date:mime-version:subject:message-id:from;
 
-Hi Jakob,
+Hi Xiangyu,
 
-On Fri, Nov 20, 2026 at 02:42:57PM +0100, Jakob Unterwurzacher wrote:
-> On 11/12/26 01:25, Dmitry Torokhov wrote:
-...
-> > Sounds like this needs to be solved in PM core rather than hacked around
-> > in individual driver? Let's CC Tony and Rafael.
->
-> How about something like this, copy-pasted below? If no immediate 
-> objections I'll post it as a proper patch.
->
-> With this, rk805-pwrkey can use dev_pm_set_wake_irq with no issues 
-> (tested on RK3588-Tiger).
+On 11/23/2026 8:38 AM, Xiangyu Zhu wrote:
+> The RK3506 has four SAI MCLK output gates: SAI0 and SAI1 are controlled
+> by bits in the PMU GRF, SAI2 and SAI3 by bits in the system GRF.  Model
+> them as GRF gate clocks so the SAI MCLK pin direction can be controlled
+> through the clock framework.
+> 
+> This is v4 of the earlier "rockchip,clk-out" binding/driver submission.
+> That one introduced a generic "rockchip,clk-out" compatible plus a
+> standalone driver, which is not acceptable: upstream already has generic
+> GRF gate support (branch_grf_gate together with rockchip_clk_add_grf()),
+> and RK3576 and RK3588 register their SAI/I2S MCLK output gates with it.
+> No device tree changes are included.
 
-This approach makes sense to me (and matches what several I2C controller
-drivers such as i2c-imx already do), though ultimately it is up to Mark
-Brown to decide for SPI.
+Please slow down the pace at which you send patches so that people have
+time to read them. Don't send your patches within 24 hours.
 
-For rk805-pwrkey, please use devm_pm_set_wake_irq() in v2.
+In addition, your Message-ID seems to have been modified by your email
+provider:
 
-...
-> >     Take a runtime PM reference in the regular suspend phase and drop it on
-> >     resume. This keeps the controller usable until its noirq suspend
-> >     callback, and since it was active then, pm_runtime_force_resume()
-> >     restores it in the noirq resume phase, before interrupts of child
-> >     devices are handled again.
-> >     
-> >     Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+Message-ID: <tencent_C4C715C962613597F98212938F8940633306@qq.com>
 
-Probably worth adding
+Please try the downgrade the git version[0] you use for
+git send-email, or switch to a different email provider.
 
-	Fixes: be721b451aff ("spi: rockchip: Resolve unbalanced runtime PM / system PM handling")
+[0]: https://lore.kernel.org/all/8771714B848C3A9F+9f64a309-ff70-466f-8d29-15950318b728@airkyi.com/
 
-as well.
-
-...
-> > +/*
-> > + * Child devices (e.g. an RK806 PMIC with its interrupt controller and wakeup
-> > + * interrupts) can still need the bus during the late and noirq phases of
-> > + * system suspend and resume, while runtime PM is disabled. Keep the controller
-> > + * runtime-active from the regular suspend phase on, so that such transfers
-> > + * work and pm_runtime_force_resume() restores the controller in the noirq
-> > + * resume phase, before child device interrupts are handled again.
-> > + */
-
-One nit on the comment: rockchip_spi_isr() does not use IRQF_NO_SUSPEND
-(and pl330 DMA suspends in the late phase), so arbitrary transfers in
-child suspend_noirq()/resume_noirq() callbacks still will not work. What
-this actually enables are PIO transfers in the late/early phases, during
-device_wakeup_arm_wake_irqs() before device IRQs are suspended, and once
-resume_device_irqs() re-enables them at the end of the noirq resume
-phase. It might be worth wording the comment more precisely so nobody
-assumes general noirq transfers are supported.
-
-Thanks.
+> 
+> v2 registered all four gates from one branch table while only the PMU GRF
+> was added as an auxiliary GRF.  The two system GRF gates therefore came
+> right after two PMU GRF gates in the same table, and
+> rockchip_clk_register_branches() keeps using the regmap it picked for the
+> previous branch when it finds no entry for a branch's grf_type, so they
+> ended up toggling bits of the PMU GRF.  The SAI0/SAI1 gates are now
+> registered from their own table, and only once the PMU GRF was really
+> added, so no branch table mixes two GRF types and the PMU GRF gates can
+> no longer fall back to the system GRF.
+> 
+> The series now also documents the RK3506 GRF compatibles in the Rockchip
+> GRF binding, including the "rockchip,rk3506-pmu-grf" name used by the
+> clock driver.  The RK3506 DTS uses the same PMU GRF compatible; that
+> rename is part of the RK3506 DTS series.
+> 
+> Tested on a RK3506B board: the SAI0 MCLK output runs at 12.288 MHz and
+> drives the ES8388 codec, audio playback works, and the GRF gate bits were
+> read back from the registers to confirm that they get set.  Enabling the
+> SAI2/SAI3 gates sets bit 2 and bit 3 of the system GRF (0xff288004) and
+> leaves the PMU GRF alone.
+> 
+> Changes since v3:
+>  - add the RK3506 GRF compatibles to the Rockchip GRF binding
+>  - look up the PMU GRF using the documented "rockchip,rk3506-pmu-grf"
+>    compatible instead of the vendor's "rockchip,rk3506-grf-pmu" name
+> 
+> Changes since v2:
+>  - register the SAI0/SAI1 gates from a separate table that is only used
+>    when the PMU GRF was added successfully
+> 
+> Changes since v1:
+>  - drop the rockchip,clk-out binding and driver
+>  - use the existing GATE_GRF support like RK3576 and RK3588 do
+>  - limit the series to the clock driver and the dt-bindings IDs
+> 
+> Xiangyu Zhu (3):
+>   dt-bindings: soc: rockchip: Add RK3506 GRF compatibles
+>   dt-bindings: clock: rockchip,rk3506-cru: Add SAI MCLK output gate IDs
+>   clk: rockchip: rk3506: Register the SAI MCLK output gates
+> 
+>  .../devicetree/bindings/soc/rockchip/grf.yaml |  4 +++
+>  drivers/clk/rockchip/clk-rk3506.c             | 27 +++++++++++++++++++
+>  .../dt-bindings/clock/rockchip,rk3506-cru.h   |  4 +++
+>  3 files changed, 35 insertions(+)
+> 
 
 -- 
-Dmitry
+Best, 
+Chaoyi
