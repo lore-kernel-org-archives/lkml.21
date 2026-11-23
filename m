@@ -1,111 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424338;
-	b=XrTy2eCXLIr+M0j0TfG/gZ3SJk2Ce2SLSvCo5a8b5+zNB1DekrchgqeyIn4E799JKy5h
-	 7Sko1YCjYGUs6ptbT5M/L8vcREGER84P8aD+G/WLdJfnCj7XgZzmaoG9FpWpqZqwfMPBY
-	 GEM4GiS4Px2u+uNhIdVOm0u6WKH1WwhuSFCt4S+Mzx9lvRVgnVsGxy8zSsAGiJHU8JVws
-	 A9fsqJ96lRL2dtQ+vFNilJhqBkQFMqMQcqU4VEZvlBGpog/GCBuox6OXyxkIs8Jwlw3oz
-	 p9jb5TxvwgGbIk61dpnzI/FWvHTKKYhC60Sta9CkE8td11qSdvU3lPT3XJzV15a4lOQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424338;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=tEOyxuEsk0JOC4PDA4fd08/KnLW7AODcfbwN/MrfZis=;
-	b=alAdIZZfR3qbstppztgD8QriUZ76JaUp47qXf1NCHHOucn7uY0yNBusyfMeLg10fN82S
-	 dSyDmF4pLnppFhkvb4BreOKdWsLVApp5EAw9B71AgztkZ8EU+zu21npu589fCsU/5F+0r
-	 3IH8hraa99fwt1UYGxW9y1NZnoiY9vA5zTS5fkGULGVh5fq1W5IVlvnYWui8tZcsJPiPH
-	 FB5A8yqBaDiZ5/uHVGbzM/GYhobok63Bq5cWbrJ856FnxvTL8ZtPLHQBWfMxSjTYCOosv
-	 6+jWA0U01reu2xfMw1rzPy1LqoS4JMl6OmHXrkgwuehEu7O6wOoAyX/t8Wt0RObCNUA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=dyPrjSEF;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=dpe+g8yd;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=dwAbpBhI;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=+KDTEgj0;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795424359;
+	b=BrwCNzLGwYqoYYp3NdhiRHn0qPR4u7lScWRyxdJoiKGcK7RAwEjG7eBTc7YKCTgVq928
+	 pft5trZ+mH/BMJTSNyKUc8PekUTyJAJQIS9Qt/FVABui6TtVLzCA2s/omK2b70igxVOxX
+	 3IGBnuxXKC5/wUhwisnU64LI79yetk8i1LGye+YUZa6HdEa7djGWxRSoVgmwzq9/Lyi6w
+	 4AlOkEsdHGhk02pQOZ4OC3iyB7A1/LAhf2V4DXIN5EXc6zOfy+vsfIEHD2RU/kWhxtWcn
+	 e2PZg7Rkh8UOJxBrpWgLnQlQ3+clOLjOHE8KD5jDemt/T0a4OOU9k8blf6PSlRlX+fg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424359;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=4dsapVxeicJNXFXh7Rqlobi3mGfdBdEB9gkYyYbqMe0=;
+	b=j+tkwHWK7BlO68L/GKyrBh5V2mboji2xMsAQgPqeEh4TxrunqU44AO3hRlnGFTWipHuM
+	 GlUzls19IXtebJvW4VrebM06OTKjvCtj4oAc4MAugs4B1Ac2oWHRftTBKjoF5ZyPT+HBT
+	 qLvwW4++BhBgfa3v28v+i31qVei1AbscmDy0QpDMQxuPHJRYI1dGIXUPkaP3h/xXFoQJ+
+	 RamSbmbhNth1BRTkQw4wNd+8vrdv5er6H5353NjPKPi495VJERYA8u2fsdThG0LNA/mfN
+	 GrRW9PegXAOqiEStNs2dIHifEredhIeMWQLm3CtOWgTf3ok6cWKvwbbeDVKHi9plhpg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hyl5QEOm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5838F606A31A;
+	Mon, 23 Nov 2026 08:59:19 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hyl5QEOm
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795424359;
+	b=KSw61rA1/GD2+SdqWUfoCAz4pfWFqSLl5Lx+Le3O6cpNyLpnWIG5pgDHP2FSuYSWEtXV
+	 dlfMwWRzaGdD/mR5v2itdq5awMLRMsKrAPHF8RvJKKwHbwQylmqASWRH6ZxJotdKsSsG0
+	 /Zfgj/tq8jnCTIzfwAjeojI5V9r5cmKdzLJbt3rUGwH3WrL6sNfN/Fqhs2b4rrD9CRcml
+	 FSCZsg149hAG2zSLnaVgyKlHILCmt+QcwgHI9pOF68e2QdkeqQjg5VOGy8+Sq/K7Ivkij
+	 gFYc0/PCjMaLkKlTY+OzEcAFF7NeWTP6ZON4644ogYSWDHa1hs/JIAgpZE+BLb4yL5w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795424359;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=4dsapVxeicJNXFXh7Rqlobi3mGfdBdEB9gkYyYbqMe0=;
+	b=jzHsaApvgEHqqyrPptxOQJKyi+re9HNT/8Zh0PeDGkcPuASVxOlpVNogmeI7FPd0SH6z
+	 DbutWknHtL8PWTcfJ0+DjnlQD8iDIcv1YOyfZbweEtLDYe64QY1dbjP30Vc2WH57ZZ5KV
+	 1+vt/iAaW64qIjWNuMyycP7C6KhYuSpVP+TbrsO4ureBwg4e04UQ2fUSmYI+kMGj8sdPf
+	 wN2pDcOpUzl/00Wr2uu57XhqXvv1zn87M/tHOs6CWrMM+GjhiyYYakUCx4OosMs9YrX3p
+	 AH6QybU1FOY5DaKrI7HhihUVVwwErarlwUooWKZwgWG5etImt5NL4bW5xOfLpHM8OzQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46907606A32E;
-	Mon, 23 Nov 2026 08:58:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46907606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=dyPrjSEF;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=dpe+g8yd;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=dwAbpBhI;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=+KDTEgj0
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 831D721BD0;
-	Mon, 23 Nov 2026 08:58:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795424336; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tEOyxuEsk0JOC4PDA4fd08/KnLW7AODcfbwN/MrfZis=;
-	b=dyPrjSEFdQ690ptE3kkO5BDGRPw/uCdmya/lTY2yR7XmEcqW0eWLLTfaEKu8TY6ZLzN8Ap
-	Z728unwL1IGaioE+7AFzjmSI9V8z2ZcXSbaKZHxzECzfKxXauWSleiSvJ4LC4sgANCOLCS
-	JEW/a/7c7OIV/HOFyPMbKkbGrA6zmek=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795424336;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tEOyxuEsk0JOC4PDA4fd08/KnLW7AODcfbwN/MrfZis=;
-	b=dpe+g8yds6TOQIp0DDKiM0TMmkUy7NYCBYl7x8n0jws+oPw+HTlwg5uZXH4inokAqbNZ2Q
-	se1anG/j8J331yBA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795424335; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tEOyxuEsk0JOC4PDA4fd08/KnLW7AODcfbwN/MrfZis=;
-	b=dwAbpBhIVqCSGI4GavOf8JJwiSsUeAuVgNrB8SnAUFT7kSZkMb6K3KFHYXrTsAA+NX+vq6
-	g6UnXh2XLHzqK1i5QAtSa49UCR/VMAkSwLlDgduGqouA560bLwmHuuNH5sdoSjUPPyxcUt
-	/RjoOijUHRE/EGjQPYUdnZkElAU8SH0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795424335;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tEOyxuEsk0JOC4PDA4fd08/KnLW7AODcfbwN/MrfZis=;
-	b=+KDTEgj0Qtp4uw0kKIubHexu+9b7TQuRaJ9TAKOde7uEaR27YOT0tci/ppWD4OJiR6SMCj
-	vBDDVciPZfSbV4Bw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0F4F61352B;
-	Mon, 23 Nov 2026 08:58:55 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 3yPhNU4ABGuDBAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Mon, 23 Nov 2026 08:58:55 +0000
-Date: Mon, 23 Nov 2026 09:58:54 +0100
-Message-ID: <874id7exf5.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-Cc: Takashi Iwai <tiwai@suse.de>,
-	Jaroslav Kysela <perex@perex.cz>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: Re: [PATCH v6] ALSA: line6: Stop URBs synchronously via sync_stop callback
-In-Reply-To: <20261122104039.7160-1-25031212351@stu.xidian.edu.cn>
-References: <87a4n1702t.wl-tiwai@suse.de>
-	<20261122104039.7160-1-25031212351@stu.xidian.edu.cn>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	by smtp.kernel.org (Postfix) with ESMTPS id B5BF81F000C0;
+	Mon, 23 Nov 2026 08:59:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795424359;
+	bh=4dsapVxeicJNXFXh7Rqlobi3mGfdBdEB9gkYyYbqMe0=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Hyl5QEOmhLbK4HO09ISj6ypTokj9HOGLEvLVV+f6ZeSHatUHTYuusfT84yvpj/Fet
+	 wMh8mar2iQGyEIM+O7+ETKQLkUb/pmz4FLR6Oy0WcA0II+ptHXE9GWTTkGFg3qq7hT
+	 7/e6sJlBdHgOe5KBTgwRX86ysPDd0HwFRJ5DIlIKxKaBoyoGia/S+UFQcAWdRm4ivV
+	 I4WHK16NRSUhtq0Hs9mVT6NgmrQzazOcDqPJBMBu+MAAem0DvFfva1ytoYOWRzxfUS
+	 PAMHIV1L7a8MdH/ugPe31NIB58fA0I7qcbkXpNdJB7wpJ4aaBYreNJnnnbDKmcFKdo
+	 Y0492vUm9MMwA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 184B24C3DB;
+	Mon, 23 Nov 2026 08:59:01 +0000 (UTC)
+From: Andreas Claesson via B4 Relay <devnull+andreas.aclaesson.com@kernel.org>
+Date: Mon, 23 Nov 2026 08:59:00 +0000
+Subject: [PATCH] wifi: cfg80211: don't warn if the joined IBSS has no IBSS
+ BSS entry
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,92 +82,117 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-12.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[xidian.edu.cn:email,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-wifi-ibss-joined-lookup-v1-1-0d84745eac94@aclaesson.com>
+X-B4-Tracking: v=1; b=H4sIAFMABGsC/yXMPQ7CMAxA4atUnrFUeyg/V0EMpHbALUqqmFKkq
+ ncnwPgN763gWkwdTs0KRV/mllMF7Rro79d0UzSpBm65I2LCxaKhBXccsiUVfOQ8zhPyXgILHUK
+ UI9R6Khrt/TufL3/7HAbtn98dbNsHnSk4FHsAAAA=
+X-Change-ID: 20261121-wifi-ibss-joined-lookup-27db2d18bfd9
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795424340; l=3767;
+ i=andreas@aclaesson.com; s=20261109; h=from:subject:message-id;
+ bh=m7h+52YKRxR9ZLb3Ud63XWtQSFI2V8VSZyV0cDOPuJs=;
+ b=yVvqn1HysF3ujS3h/7QVcvjXvSDAnOKJu/ORYIRi70GOGGQc8x0+5v3oegB3ziKkpriWcRF6R
+ wPduLp0uMb8BoSH4uliiptIKMvtqehfdZq2XpeezPJ1Wv9yuxy5WbTM
+X-Developer-Key: i=andreas@aclaesson.com; a=ed25519;
+ pk=oC+38UX0rqcrEjNMgnKAF1zmrTUMbQ2aH/P5Z4TZOIQ=
+X-Endpoint-Received: by B4 Relay for andreas@aclaesson.com/20261109 with
+ auth_id=1465
+X-Original-From: Andreas Claesson <andreas@aclaesson.com>
+Reply-To: andreas@aclaesson.com
+Content-Transfer-Encoding: 7bit
 
-On Sun, 22 Nov 2026 11:40:39 +0100,
-YuanZhe Liu wrote:
-> 
-> line6_buffer_release() frees the stream buffer after
-> line6_wait_clear_audio_urbs() gave up waiting for the URBs that are still
-> active.  The buffer is still referenced by those URBs, and the completion
-> callback of such an URB resubmits it from submit_audio_out_urb() with
-> line6pcm->out.buffer already set to NULL, which ends up in a NULL pointer
-> dereference in the memset() in submit_audio_out_urb().
-> 
-> While the URBs remain queued, the host controller can also write the
-> received isochronous data into the freed buffer.  Such a write does not go
-> through the KASAN checks, so it silently corrupts the freed slab object;
-> the corruption was observed as a bogus KASAN quarantine entry that later
-> led to a general protection fault in qlist_free_all().
-> 
-> The active_urbs bitmap cannot prove that the URBs are gone:
-> line6_unlink_audio_urbs() is called outside the stream lock and only marks
-> the URBs that are active at that moment, so an URB resubmitted by a
-> completion callback right after the scan is never unlinked and keeps being
-> resubmitted after the stream was stopped.
-> 
-> Stop the URBs synchronously instead of polling for them: mark the URBs
-> that are currently active under the stream lock, so that the completion
-> callbacks cannot resubmit them, and kill them with usb_kill_urb(), which
-> waits for the giveback.  Expose this through the sync_stop PCM op, which
-> ALSA core invokes before hw_free(), hw_params() and prepare() once the
-> stream was stopped, so the buffer is guaranteed to be unused when it is
-> released.
-> 
-> The URBs are marked and killed only while no stream is running on that
-> stream, and only those that are active at that moment, so neither a
-> stream started concurrently nor another stream type still running
-> (software monitoring, impulse or the capture helper) is stopped.
-> Unlink marks left on already completed URBs are dropped afterwards, while
-> those of still active URBs are kept, so that a later stream start can
-> submit the URBs again.
-> 
-> line6_pcm_acquire() and snd_line6_prepare() keep a synchronous stop for
-> an idle stream as well: sync_stop() is invoked only when the substream
-> itself was stopped, while the other stream types sharing the same stream
-> never set that, and their unlinking URBs would make
-> line6_stream_start() skip the submission.  line6_pcm_disconnect() and
-> line6_buffer_release() stop the URBs unconditionally, as the device may
-> be gone already and the buffer is about to be freed.
-> 
-> The helper skips the loop when the URBs were not created, as
-> line6_pcm_disconnect() may run after a failed probe.
-> 
-> Fixes: 63e20df1e5b2 ("ALSA: line6: Reorganize PCM stream handling")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-> Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-> Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-> Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-> Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+From: Andreas Claesson <andreas@aclaesson.com>
 
-Applied to for-next branch now.  If you have further fix, please give
-an incremental fix.
+cfg80211_ibss_joined() looks up the BSS entry of the IBSS that was just
+joined, by BSSID and channel and restricted to entries with the IBSS
+capability, and warns if it does not find one. mac80211 calls
+cfg80211_inform_bss_frame_data() with its own probe response right
+before, which is expected to guarantee that the entry exists.
+
+It does not. Beacons are added to the BSS table from the RX path at
+any time, also when no scan is running, and the wiphy mutex held by the
+IBSS work does not exclude that. A beacon with the BSSID and SSID of
+the IBSS that does not have the IBSS capability bit set updates the
+same entry and overwrites its capability. If it is processed between
+the inform and the lookup, no IBSS entry is found:
+
+  wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+  !bss
+  WARNING: net/wireless/ibss.c:72 at cfg80211_ibss_joined+0x3a7/0x5b0
+  Workqueue: events_unbound cfg80211_wiphy_work
+  Call Trace:
+   __ieee80211_sta_join_ibss+0xdd3/0x1660 net/mac80211/ibss.c:375
+   ieee80211_sta_create_ibss+0x300/0x480 net/mac80211/ibss.c:1287
+   ieee80211_sta_find_ibss net/mac80211/ibss.c:1416 [inline]
+   ieee80211_ibss_work+0xd9b/0x1060 net/mac80211/ibss.c:1637
+   cfg80211_wiphy_work+0x29e/0x420 net/wireless/core.c:610
+
+The beacon comes from the air, so the warning can be triggered by
+anybody in range of a station that is joining an IBSS, and the join
+event is not delivered when it happens.
+
+If there is no IBSS entry, look the entry up without the type
+restriction, and do not warn if there is none at all, since the RX
+path can also unlink entries.
+
+This is not the trigger fixed by commit 2531f6539d2f ("wifi: cfg80211:
+validate WEXT station BSSID"), which is in the tested kernels: the
+BSSID here is a valid unicast address.
+
+Found with syzkaller. Reproduced with mac80211_hwsim on wireless
+(dcf495789037) by joining and leaving an IBSS with fixed BSSID and
+channel in a loop while injecting beacons with the same BSSID and SSID
+and the ESS capability. Without this patch, 124 of 778 joins hit the
+warning and exactly those 124 joins had no NL80211_CMD_JOIN_IBSS
+event. With it, 1456 joins gave 1456 events and no warning. The case
+where no entry is found at all was not reproduced.
+
+Fixes: 04a773ade068 ("cfg80211/nl80211: add IBSS API")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-mythos-5-2
+Signed-off-by: Andreas Claesson <andreas@aclaesson.com>
+---
+Found with syzkaller on 7.4-rc1 and reproduced with mac80211_hwsim;
+the reproducer is a small C program that I can send if it is of use.
+Based on wireless.
+---
+ net/wireless/ibss.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/net/wireless/ibss.c b/net/wireless/ibss.c
+index 81dff0bace286..cb33fb403b786 100644
+--- a/net/wireless/ibss.c
++++ b/net/wireless/ibss.c
+@@ -69,7 +69,17 @@ void cfg80211_ibss_joined(struct net_device *dev, const u8 *bssid,
+ 
+ 	bss = cfg80211_get_bss(wdev->wiphy, channel, bssid, NULL, 0,
+ 			       IEEE80211_BSS_TYPE_IBSS, IEEE80211_PRIVACY_ANY);
+-	if (WARN_ON(!bss))
++	/*
++	 * The driver informed us about this BSS, but a frame received since
++	 * then may have changed the capability of the entry, so that it no
++	 * longer looks like an IBSS, or may even have removed the entry.
++	 * Neither is a driver bug, so do not warn about it.
++	 */
++	if (!bss)
++		bss = cfg80211_get_bss(wdev->wiphy, channel, bssid, NULL, 0,
++				       IEEE80211_BSS_TYPE_ANY,
++				       IEEE80211_PRIVACY_ANY);
++	if (!bss)
+ 		return;
+ 
+ 	ev = kzalloc_obj(*ev, gfp);
+
+---
+base-commit: dcf495789037ab78d8ddf5844239cf85d92ac5f1
+change-id: 20261121-wifi-ibss-joined-lookup-27db2d18bfd9
+
+Best regards,
+--  
+Andreas Claesson <andreas@aclaesson.com>
 
 
-thanks,
-
-Takashi
