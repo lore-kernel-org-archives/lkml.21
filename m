@@ -1,60 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405141;
-	b=JBGtPxhOOChjnWGQwAMMABWKrwLQMFEtz5AIKkA0KrnwpG0EcRIF0FeK470ECFuAfaVW
-	 IwV2qouz1cFVKhgp8fAbM0G3UbNPZqLapUqokmx4L7SaHFThbW63a0b1ScQfDxSZhd7qo
-	 jQg4HQ5EmZGlcKrho7yfjiwB+U3fxpQUWg8t4M207D/sWQLXPOvSOjmQkiPaJSmC9V12/
-	 W9XI/eCCn3RbGJYPM1WlH4X6W3EPw0W87rBvzsRbAsJh3Z9gzc3/HsnFn/rTKS6sCmki1
-	 e+8Tue4kUIxYDVFCtugWX7Oc1WFKd4YFXQSCb79YWYhB44bEWlGAyjZP8NCVznGhtXQ==
+	t=1795405159;
+	b=k5FdzzWGVo8ydQ6d3NwIRHn7TWwDGcNaAgnCeLEF9VibQbADes2U2PioLP4krCg9efTm
+	 TfYMFhzJUnUnbG+6Q3O+lkpjPycdDtixkWv1yExt5NJPp7F2sja93CGw+yEyR80edc9y/
+	 FAHQSxA4woRICzNn2HPz7Z1BPIru3qShYw3HSP1HbLrBOrSrXaJmFNOHFfYPpT5BTpyZL
+	 zdfI3+gl45w8/gXsPIg+y7g5nSnWRbmJahO8FqaQo814OhmVAl1noKLAhfKKWXYemA1og
+	 Lsvhnp1db29TMlMKZWPE2hHyKV/HcADUJ1/HKhqauE6/wvO9MTP9e1IiodGy4RcUTGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405141;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=UhdycD3E4TQHSpgQx1RGrt8ODptzt/z2eEdDTelW+XE=;
-	b=07FCOqYh7M8vOj9IPWLQVtPWPFfzxESiU1dDGZIWjnSbI/Fo15+OQP+bzemO4zfq6nFH
-	 ezE6VJEMLeAF2wVmpPPnNgoClNxSgCvmDYq3yXooMg0MsKBNyu5Lsoc7AxqXAph52XPI8
-	 8Gb+m1oS0UxFCk2Ut2psApUzExastJ/BKDrgNsmq1rHmBtDsNqmySFLIbOuby8B/aZsL7
-	 xSrd6+raSQ2osaKY4i4pUdnYWU4lgg7BtgZ8E2wHzfLnPZLt1i4uN+TDbYvlp+boItinn
-	 Lrg2g9tBFJoWz49waWgnr2lxT+8HTHd1eo+KlY8nvCTN4qKINFW+fUKizNxAgkTZiLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405159;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=W4LfZy3z6M6i+9hH2IjYH+xMWfI5utefQOsrdUG7c0o=;
+	b=YyEEHYI9+VJOnsTFXtYPaOja1tzhekjLv57/7LR0Lf9mvGAC9DBlGPlpWqBoEXhrvAOg
+	 XfkSuiaYwZIykAWRygd4S/EmhhLk3kj3mvPRHuzB/LNpEVPSL1Zz85RE6FmNTegx1C3Po
+	 BrX/chgixK+sXk2tY+8y7b1unakgewz3Fgu88p3qKfuVoNMtjJDkfQdPsGqjoFToGElXq
+	 cljChSLUJ8BYUowu2cX4bTHBsmikF821AL/fBeFdrLiqZun/rSy11MJjEFjQB8uNVs5Z7
+	 6HKMbNxYmpAyqYcFdQI0vyYAxTVi/4htffEANyOZgRADoiXUqaMNZdVqt75pg2jLWGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EgZTIO76;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=MYrwN4Ay;
+	arc=none smtp.remote-ip=113.46.200.227
+Received: from canpmsgout12.his.huawei.com (canpmsgout12.his.huawei.com [113.46.200.227])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C7CE606A31A;
-	Mon, 23 Nov 2026 03:39:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F5E7606A31A;
+	Mon, 23 Nov 2026 03:39:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F5E7606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EgZTIO76
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75CEE1F000C6;
-	Mon, 23 Nov 2026 03:38:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795405140;
-	bh=UhdycD3E4TQHSpgQx1RGrt8ODptzt/z2eEdDTelW+XE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EgZTIO762Khh+MWbss2i4AIu+aiSB8x9Re7+Q5cfwPJUb2xco6B9X3kyu+Zy4jAs6
-	 EAIM0FfF5mCkR+EdI5qiOlSNyHH6AhJaRAScSr+uSKqMLj9H04TLp1Sg6n8NVZPJCw
-	 paY7voFNvHsBZ/YjoR3+uBx3KyKeiw0oBtLmItwJn4qoV7alHbX7XiYqCX9HHkwJqV
-	 y3Vbotm/ThgPMPfze28g9rmeSXzxVu8Y5E6VsDBXDxYiwaKtnUdIx8aV2Wi6XgH8F+
-	 AK4VxSkSc4NrCPEdL99vC7uC9mrQckPafzBdxLkoppIRbigU/CE8tT3A7SBjSPgXhD
-	 HYRXTIHNZE1Xw==
-Subject: Re: [BUG] xfrm: a socket policy cloned for a TCP child leaks when
- cloning the second policy fails
-From: netdev-bot+sashiko@kernel.org
-To: kyuwoncho18@gmail.com
-Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
- edumazet@kernel.org, kuniyu@google.com, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, ast@kernel.org, josef@toxicpanda.com,
- netdev@vger.kernel.org, ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 03:38:58 +0000
-Message-ID: <179540513898.3135.13913410077710347458@kernel.org>
-In-Reply-To: <179505710269.3511679.8893709762919027206@gmail.com>
-References: <179505710269.3511679.8893709762919027206@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=MYrwN4Ay
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=W4LfZy3z6M6i+9hH2IjYH+xMWfI5utefQOsrdUG7c0o=;
+	b=MYrwN4AydIC7GkCsxHsHcp5MBmlfxoKIR39qAxjci4JNoZWJs7H7/FU/uTgQs9uEBbkfnHVEv
+	x7Qhmwh6nVkk15eYfC0jT6y2PnAO19PrwQCZZpAgyNVDQnUJHR/ovSc0epxLAbZS7VLnG8GQNs4
+	ZKe+ijxOuz6J1towdxP8HII=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4jXs9D56klznTwv;
+	Mon, 23 Nov 2026 11:38:24 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0B42040578;
+	Mon, 23 Nov 2026 11:39:15 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 23 Nov
+ 2026 11:39:13 +0800
+Message-ID: <eb5c7773-4c90-420f-bd2e-c930a1ec9fa4@huawei.com>
+Date: Mon, 23 Nov 2026 11:39:13 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,173 +62,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v21 00/15] arm64: entry: Convert to Generic Entry
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<oleg@redhat.com>, <shuah@kernel.org>, <kees@kernel.org>,
+	<luto@amacapital.net>, <wad@chromium.org>, <peterz@infradead.org>,
+	<ada.coupriediaz@arm.com>, <linusw@kernel.org>, <kevin.brodsky@arm.com>,
+	<anshuman.khandual@arm.com>, <thuth@redhat.com>, <james.morse@arm.com>,
+	<yeoreum.yun@arm.com>, <vladimir.murzin@arm.com>, <broonie@kernel.org>,
+	<ryan.roberts@arm.com>, <liqiang01@kylinos.cn>,
+	<mathieu.desnoyers@efficios.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+References: <20261111114225.3977243-1-ruanjinjie@huawei.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20261111114225.3977243-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+在 2026/11/11 19:42, Jinjie Ruan 写道:
+> This series converts arm64 to the generic entry infrastructure.
+> 
+> Currently, architectures such as x86, RISC-V, LoongArch, PowerPC and
+> S390 use generic entry, which significantly reduces maintenance burden
+> and improves code elegance.  arm64 already adopted generic IRQ entry
+> in commit b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"),
+> making it the right time to complete the conversion.
+> 
+> This work brings arm64 in line with other major architectures,
+> reducing duplicated code and enabling future improvements like
+> Syscall User Dispatch and rseq time slice extension optimizations.
+> 
+> What this series does
+> =====================
+> 
+> Patch  1-2: Fix two issues related to rseq and pseudo single-step.
+> Patch 3-12: Do some minor refactoring to gradually align the generic
+>             entry code, without functional changes intended.
+> Patch   13: Officially switch ARM64 to the generic entry, used the
+>             functions provided by the framework, and deleted the
+>             duplicate code corresponding to ARM64.
+> Patch   14: Inline el0_svc_common() function to prevent performance
+>             regression.
+> Patch   15: Add related ptrace test cases and rseq test cases for two
+>             bug fixes.
 
-- [High] The new rollback loop in __xfrm_sk_clone_policy()
-  (net/xfrm/xfrm_policy.c:2463-2469) checks the parent's slot,…
-- [Low] The commit message is the raw MIME bug-report email, not a
-  changelog.
-- [Low] The commit message says a partial clone 'leaves the same mix, a
-  new sk_policy[0] next to the parent's sk_policy[1]'.
+Gentle Ping.
 
---
+> 
+> Testing
+> ========
+> 
+> Observable (non-ABI) changes worth calling out:
+> 
+> - The traceable functions on the syscall path change: syscall_trace_enter,
+>   syscall_trace_exit and el0_svc_common.constprop.0 are replaced by
+>   trace_syscall_enter, trace_syscall_exit and syscall_enter_audit, the
+>   same names x86, RISC-V, LoongArch already expose.
+> 
+> - CONFIG_DEBUG_RSEQ becomes unselectable on arm64 once GENERIC_ENTRY is
+>   set (rseq_syscall() becomes a no-op stub).  The equivalent check is
+>   done by __rseq_debug_syscall_return(), enabled with the "rseq_debug="
+>   boot option.
+> 
+> The new added selftests pass, and the rseq test also passes with
+> "rseq_debug=1" after the conversion.
+> 
+> On a KVM VM (2 vCPU pinned, LOCKDEP off), with the same config, the
+> syscall hot path shows no measurable regression. Each row below is
+> the mean of 10 runs:
+> 
+>     | Benchmark                         | baseline | generic entry |
+>     | --------------------------------- | -------- | ------------- |
+>     | UnixBench System Call Overhead    | 879982   | 877908        |
+>     | perf bench syscall basic 1M (ns)  | 197.29   | 197.37        |
+> 
+> Both differences are within the noise, so there is no measurable impact
+> on syscall overhead.
+> 
+> Stress-ng (syscall and cpu) and the kselftests (breakpoints, arm64/abi,
+> arm64/fp, vDSO) were also run and all pass.
+> 
+> The hackbench, ptrace stress, Pseudo-NMI and rr test suite [1] reported
+> for v20 were not repeated as the code unchanged apart from the rebase.
+> 
+> On gVisor with systrap mode, the Syscall User Dispatch (SUD) feature
+> yields a slightly lower performance gain on arm64 (3% ~ 5%), similar to
+> that on x86 [2].
+> 
+> Result: the average over 1M getpid calls, ns/op
+> 
+>     | KVM VM Configuration | SUD    | no-SUD | Savings % |
+>     | -------------------  | -----  | -------| --------- |
+>     | 2 vCPU, pinned       | 4269.8 | 4509.5 | 5.3%      |
+>     | 4 vCPU, pinned       | 4175.4 | 4369.1 | 4.4%      |
+>     | 8 vCPU, pinned       | 4352.6 | 4485.4 | 3.0%      |
+> 
+> Note that this series does not yet enable SUD or the rseq time slice
+> extension on arm64: SUD additionally needs
+> ARCH_SUPPORTS_SYSCALL_USER_DISPATCH [3] and the rseq slice extension
+> needs HAVE_GENERIC_TIF_BITS [4], neither of which arm64 selects today.
+> The numbers above are the motivation for enabling them in a follow-up.
+> 
+> The new selftests and tests are helped by an agent.
+> 
+> Testing follow-up that still requires real hardware:
+> 
+> - MTE: run the MTE selftests on real hardware; part of them do not run
+>   under QEMU.
+> 
+> [1]: https://github.com/rr-debugger/rr/wiki/Building-And-Installing#tests
+> [2]: https://github.com/google/gvisor/commit/a45d6227b521012109cde9a942d644d778eb773b
+> [3]: https://lore.kernel.org/all/20260721081858.1169276-16-ruanjinjie@huawei.com/
+> [4]: https://lore.kernel.org/all/20260320104222.1381274-1-ruanjinjie@huawei.com/
+> 
+> The series is rebased on v7.4-rc1 and also available at:
+>         https://github.com/ruanjinjie-eng/linux/commits/arm64_generic_entry_v21
+> 
+> Changes in v21:
+> - Rebased on v7.4-rc1.
+> - Pseudo-single-step patch rewritten as a bugfix.
+> - Rseq patch rewritten as a bugfix and moved to the front.
+> - Retitle and update the commit message.
+> - Selftests: replace the 2 SYSEMU tests with 5 tests that reproduce
+>   the problems fixed by the commit ac2081cdc4d99 ("arm64: ptrace:
+>   Consistently use pseudo-singlestep exceptions") series and the rseq
+>   issue.
+> - Solve the sashiko commit message issue.
+> - Link to v20: https://lore.kernel.org/all/20260930101805.1770358-1-ruanjinjie@huawei.com/
+> 
+> Changes in v20:
+> - Add a kselftest covering the syscall-exit pseudo-step
+>   and single-step behaviour.
+> - Reword the first patch: it skips the pseudo-step for the emulated
+>   syscall rather than "fixing a redundant exit stop", and drop the
+>   Fixes: tag and Reviewed-by.
+> - Add Tested-by.
+> - Cover letter: document the observable changes and the testing
+>   follow-ups.
+> - Link to v19: https://lore.kernel.org/all/20260922035510.1090299-1-ruanjinjie@huawei.com/
+> 
+> Changes in v19:
+> - Rebased on v7.3-rc4.
+> - Fix build problem as Karl pointed out.
+> - Remove has_syscall_work() later to make it more clear.
+> - Add gvisor test data.
+> - Link to v18: https://lore.kernel.org/all/20260902095537.602517-2-ruanjinjie@huawei.com/
+> 
+> For changes in v7 to v17, please refer to the individual patch threads:
+> - v17: https://lore.kernel.org/all/20260721081858.1169276-1-ruanjinjie@huawei.com/
+> - v16: https://lore.kernel.org/all/20260629130616.642022-1-ruanjinjie@huawei.com/
+> - v15: https://lore.kernel.org/all/20260511092103.1974980-1-ruanjinjie@huawei.com/
+> - v14: https://lore.kernel.org/all/20260320102620.1336796-1-ruanjinjie@huawei.com/
+> - v13: https://lore.kernel.org/all/20260317082020.737779-1-ruanjinjie@huawei.com/
+> - v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
+> - v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
+> - v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
+> - v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
+> - v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
+> - v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
+> 
+> Jinjie Ruan (15):
+>   arm64: ptrace: Fix spurious pseudo-single-step for
+>     PTRACE_SYSEMU_SINGLESTEP
+>   arm64: ptrace: Check rseq critical section before reporting syscall
+>     exit
+>   arm64: ptrace: Add syscall_enter_audit() helper
+>   arm64: ptrace: Open-code seccomp check in syscall_trace_enter()
+>   arm64: ptrace: Rename and clean up syscall_trace_enter()
+>   arm64: syscall: Invert the exit-path flags check in el0_svc_common()
+>   arm64: ptrace: Pass thread flags to trace enter/exit
+>   arm64: ptrace: Extract arm64_syscall_exit_to_user_mode_work() helper
+>   arm64: ptrace: Only run syscall exit work when exit work flags are set
+>   arm64: syscall: Use exit-specific flags check in el0_svc_common()
+>   arm64: syscall: Simplify el0_svc_common() syscall exit path
+>   arm64: ptrace: Return bool from arm64_syscall_trace_enter()
+>   arm64: entry: Convert to generic entry
+>   arm64: Inline el0_svc_common()
+>   selftests/arm64: Add ptrace single-step and rseq syscall-exit tests
+> 
+>  arch/arm64/Kconfig                            |   2 +-
+>  arch/arm64/include/asm/entry-common.h         |  77 ++++++++
+>  arch/arm64/include/asm/syscall.h              |   5 +-
+>  arch/arm64/include/asm/thread_info.h          |  16 +-
+>  arch/arm64/kernel/debug-monitors.c            |   8 +
+>  arch/arm64/kernel/entry-common.c              |   2 +-
+>  arch/arm64/kernel/ptrace.c                    | 115 ------------
+>  arch/arm64/kernel/signal.c                    |   2 +-
+>  arch/arm64/kernel/syscall.c                   |  34 ++--
+>  tools/testing/selftests/arm64/Makefile        |   2 +-
+>  tools/testing/selftests/arm64/ptrace/Makefile |  12 ++
+>  .../selftests/arm64/ptrace/ptrace_common.h    | 101 ++++++++++
+>  .../selftests/arm64/ptrace/rseq_syscall_pc.c  | 130 +++++++++++++
+>  .../selftests/arm64/ptrace/rseq_syscall_pc.h  |  22 +++
+>  .../arm64/ptrace/rseq_syscall_pc_asm.S        |  45 +++++
+>  .../arm64/ptrace/single_step_signal_handler.c | 121 ++++++++++++
+>  .../arm64/ptrace/single_step_spsr_ss.c        |  79 ++++++++
+>  .../arm64/ptrace/single_step_syscall_stop.c   | 138 ++++++++++++++
+>  .../arm64/ptrace/sysemu_singlestep.c          | 172 ++++++++++++++++++
+>  19 files changed, 923 insertions(+), 160 deletions(-)
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/Makefile
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/ptrace_common.h
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/rseq_syscall_pc.c
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/rseq_syscall_pc.h
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/rseq_syscall_pc_asm.S
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/single_step_signal_handler.c
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/single_step_spsr_ss.c
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/single_step_syscall_stop.c
+>  create mode 100644 tools/testing/selftests/arm64/ptrace/sysemu_singlestep.c
+> 
 
-xfrm: a socket policy cloned for a TCP child leaks when cloning the second policy fails
-
-This patch adds a rollback loop to __xfrm_sk_clone_policy(). When a later
-clone_policy() call fails, the loop deletes the policies already cloned into
-the child socket. The goal is to stop a socket policy leaking on
-net->xfrm.policy_all, which triggers a warning in xfrm_policy_fini() when the
-network namespace is torn down.
-
-> --===============7878978291613295449==
-> Content-Type: text/plain; charset="us-ascii"
-> Content-Transfer-Encoding: 7bit
->
-> Hi Steffen, Herbert,
-
-[Severity: Low]
-This isn't a bug, but the commit message is the raw MIME bug report, not
-a changelog. It contains:
-
-- MIME boundary lines and Content-Type headers
-- the cover letter greeting and sign-off
-- the full repro.c
-- a base64 gzip of the kernel config
-- an mbox-escaped ">>From 84f048c2..." line before the actual patch
-  description
-
-The commit subject is the bug report subject. The patch's own subject,
-"xfrm: free the policies already cloned when a socket clone fails", only
-appears inside the attachment.
-
-Could this be resent as an inline patch with its own subject and
-description? The reproducer and config could go below the --- line, or be
-linked.
-
-[ ... ]
-
-> Socket policies are only freed by xfrm_sk_free_policy() from
-> inet_csk_destroy_sock() and sk_common_release(), so nothing frees the
-> clone of sk_policy[0].
-
-[Severity: Low]
-This list leaves out mptcp (net/mptcp/protocol.c) and tcp_v4_send_reset().
-tcp_v4_send_reset() already frees partial clones itself:
-
-net/ipv4/tcp_ipv4.c:tcp_v4_send_reset() {
-    ...
-		xfrm_sk_clone_policy(ctl_sk, sk);
-    ...
-	xfrm_sk_free_policy(ctl_sk);
-    ...
-}
-
-With this patch, partial clones for that caller are also freed inside the
-callee. Should the changelog mention that?
-
-[ ... ]
-
-> A partial clone leaves
-> the same mix, a new sk_policy[0] next to the parent's sk_policy[1], so
-> it is not covered there.
-
-Is this accurate? xfrm_sk_clone_policy() clears the child's slots before
-it calls __xfrm_sk_clone_policy():
-
-include/net/xfrm.h:xfrm_sk_clone_policy() {
-	if (!sk_fullsock(osk))
-		return 0;
-	sk->sk_policy[0] = NULL;
-	sk->sk_policy[1] = NULL;
-	...
-}
-
-So after a failure at i == 1, the child holds its own clone in slot 0 and
-NULL in slot 1, not the parent's pointer.
-
-The parent's pointers survive in newsk only on the !is_charged path in
-sk_clone(). On that path xfrm_sk_clone_policy() is never called, because of
-short-circuit evaluation:
-
-	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
-
-> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-> index cea6842e6454d..c6d5c7582af73 100644
-> --- a/net/xfrm/xfrm_policy.c
-> +++ b/net/xfrm/xfrm_policy.c
-> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
->  			rcu_assign_pointer(sk->sk_policy[i], np);
->  		}
->  	}
-> +	while (unlikely(ret) && i--) {
-> +		np = rcu_dereference(sk->sk_policy[i]);
-> +		if (rcu_access_pointer(osk->sk_policy[i])) {
-> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-> +		}
-> +	}
-
-[Severity: High]
-Should this test np instead of reading osk->sk_policy[i] a second time?
-
-The parent slot is read once in the clone loop with
-rcu_dereference(osk->sk_policy[i]) and again here. Nothing keeps the two
-reads equal.
-
-The listener is not locked on this path. tcp_v4_rcv()->tcp_check_req()
-runs on the listener without bh_lock_sock(), and tcp_v4_send_reset() clones
-from sk into ctl_sk. Meanwhile, setsockopt(IP_XFRM_POLICY) can change the
-parent slots through do_ip_setsockopt()->xfrm_user_policy()->
-xfrm_sk_policy_insert(), which only holds net->xfrm.xfrm_policy_lock.
-
-Could this pass NULL to xfrm_policy_delete()? Suppose the listener has only
-sk_policy[1] set:
-
-clone loop, i == 0:  osk->sk_policy[0] == NULL, child slot 0 stays NULL
-clone loop, i == 1:  clone_policy() fails, ret = -ENOMEM
-                     concurrent setsockopt installs a dir 0 policy
-cleanup, i == 0:     np == NULL, osk->sk_policy[0] != NULL
-                     xfrm_policy_delete(NULL, XFRM_POLICY_MAX)
-
-xfrm_policy_delete() dereferences pol straight away:
-
-	struct net *net = xp_net(pol);
-
-	spin_lock_bh(&net->xfrm.xfrm_policy_lock);
-
-On the sk_clone() path, this would oops in softirq context.
-
-The opposite ordering seems to leave the original leak in place. Suppose
-both parent slots are set: slot 0 is cloned and linked on
-net->xfrm.policy_all, and the slot 1 clone fails. A concurrent setsockopt
-with a NULL optval and optlen of 0 then clears both parent slots in
-xfrm_user_policy():
-
-	if (sockptr_is_null(optval) && !optlen) {
-		xfrm_sk_policy_insert(sk, XFRM_POLICY_IN, NULL);
-		xfrm_sk_policy_insert(sk, XFRM_POLICY_OUT, NULL);
-
-The cleanup sees osk->sk_policy[0] == NULL and skips the real clone.
-sk_clone() then takes its free path, and the xfrm_policy_fini() warning can
-still fire.
-
-xfrm_sk_clone_policy() already sets the child slots to NULL before cloning.
-Would checking "if (np)" on the child pointer avoid both cases?
-
->  	rcu_read_unlock();
->  	return ret;
->  }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179505710269.3511679.8893709762919027206%40gmail.com
