@@ -1,55 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795519893;
-	b=hCb2e4OuPVsR+178ies51R+LuLoxPJr9UrSMO+5T7aw+l7In6vtWLe9oUpUw/Alg7RLO
-	 dQ0A8g4NvCDvT6+6J4ZjUeU+qoxVwV14iyA4U4RnRGQFz/oyc9cksZ0iy/pm7iZ25wsR6
-	 CUjlx6xHYUMjJYVvRcFc8HDng2yfERH4Aj2XMnDqVLD5AYVJVLEmYTa6w0nS1snbccU7q
-	 OrdtBML3jN/mGeSTtc2m12iKFE2xLIYAQK17O+myshpkv1WoJhDHRg0bgc68rO4r6CD9u
-	 yaXgQ6O16Ved32PsSmukSwaMBNFrPakkmzumBtjwk1ZmaJ0SgvWSVIkpVqrKHm3sXvQ==
+	b=IvHvdYfuxOp69q8owz/T0kP6xFYn59oKeqjO46MYWYSFa0PKyG7pac8OOZSq6mfFAxF7
+	 h8K2ULmAaUnM04FuVTlB4DDm1cx08RLDv2LzVeS9r4XRTV3ig1+60ex/7yflLmIcm2+F8
+	 MKhj2GSkm1XZ/g70WzOEbX6yAXC979BboG4MZrkXHMSc4kgHGsS+8hNsA/V0beArBpqhG
+	 F2eZWYJNlpj9UnfatSr21vPNRYRrQSmC5nBThwICUTR3bKQCgP0wjLD+UsF+vbN/c0QcJ
+	 i59fOA1WmHsMl0PYDO0ppoT7bpkOkYUIMZe4HFdFtPyiLLzG4Qg6MzuNAOmA5Bqm2bA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795519893;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=QRZ2OHv+W/MZtU5x/SLd86H93qWbQcIzkOUoCRAkJG0=;
-	b=R0rzUNhfjnVFXS/Mv18yfxErPyPgzTf7JFbSFyKq2RerRF9OT9sRnRZpgcuWi59TmsCv
-	 M5upOlv59PL7ZgDYVMS5otETnizYx1VUE4lf+HWSBO/Kg3KTD2HBuqb/2m4WLuKcN3ddx
-	 nioaV9wl5WkPcAVpCDpSyfSOD2zeEPGIp0lsmZPZVaDl8mmdHWDJdSQ8NXuLB5AXii1Cj
-	 PQVGha3pyxtUni7MaHwy9D3d9homJwzEyQsZxtg4xN38dGcBfhcdOk/Db3Q2bGWmgYoJT
-	 AmQgymitNfKOx5Om8b13fGvNYYeBDrlWW8lfOu1EvxohIESpOrxDJoY7qDzAPDhARvw==
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=q3qGM9Qy57cVjK1+KGIJlLy1Vw4Q8SXTPS0xOWRA8sQ=;
+	b=gJVKSoAUeyHZeSUcLZuba21W7N+2VolR9t69YEwJDPFpdDbNhLmL6Lvkeko+UUentKjS
+	 GvDYT10ZUWtmcz5Rb7KaziDEB3fHP69DuGZQYX3c+WEUv57UKtQWY3QCpeJAu/CCLp06X
+	 1WihbCKHiaV1kfVf4VGH89h2jbKk3QrNtuZHB8bnbQBus42YZw7me83bJClpdBGjsJuDQ
+	 KYN6Ku63zem77JbwmWSP/C4nRRmIJAVEK9emfy8bSwLP+XvlsQhyfmBrKzMcqbIiz2KLs
+	 eyoEw4JK+eLPrEvQEw7oIOBFF+qfAjsBZmeYvNtsvFv8aDsr313ZLarO8O5EWV3uCiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IiK4nVSp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hP6mj4zp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E874E606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:31:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 164D7606A32E;
+	Tue, 24 Nov 2026 11:31:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IiK4nVSp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 507C61F000C4
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:31:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hP6mj4zp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D821F008B2;
+	Tue, 24 Nov 2026 11:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795519892;
-	bh=QRZ2OHv+W/MZtU5x/SLd86H93qWbQcIzkOUoCRAkJG0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=IiK4nVSpepM8ljJG69Rd4H14xhmxeode27C9O0WPN2TGbFT9Z51V/45CalYe+3T1a
-	 72UsfkaPt3CBbgu66RCIVR8VNstPEa3xH9pt9nPcnaAoE7GSQ9ug0B35/HWOBunLNU
-	 bzEo9tQZpmQG3feJfWaycRosXIirkUj5hQApvTN5mJjiZf95lBR1vt0tU3w8qWeK3J
-	 oFzakZs4rnNTXDRfwaeil6ztGMZvo4v9YrC7Ov5vp7yDSYs136Mu3N6hRXtrGbYJpS
-	 H2IbYIxJAXhy27z1fcV6M0W8vS38Koli8L58q/3N4vjMVQhlc+20gBnGD4c2HgxU4A
-	 baB5wf4ug0dAw==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be47aa555cso5455939e87.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:31:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEwJxiRhTHr7bew/KstDM9kqkutMjoGzdaQx8ujDJllxNqS4fEx0pw8zA0cHUhDigy6CYjSQPloPi8ThJ4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/0Zs7xXzJKB24xmpO1fkog7ey0VF4XRgtL2p1+5RAVkfwpupAG
-	TlucaAehqTL/D8J6rnjhmOkH87Dn8xoHVHxEgRPXsogn2ncDAcluG+jtjoDkruiSGGmVBu9Bb1Z
-	ETQoX92j1oA8R07crRpPpMRBbSVPrB/U=
-X-Received: by 2002:a05:6512:304a:b0:5c1:c4d4:2f53 with SMTP id
- 2adb3069b0e04-5c1c4d430b3mr3666407e87.58.1795519890796; Tue, 24 Nov 2026
- 03:31:30 -0800 (PST)
+	bh=q3qGM9Qy57cVjK1+KGIJlLy1Vw4Q8SXTPS0xOWRA8sQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=hP6mj4zpBvCMnt331ApoLcM/EzFJdkOQ0GKsGIwM6rXUl9fXR9PpeeeCKOVahaf/+
+	 TapgVEyLnfqMcvxpeEJFtizvFXH1G5+yyA0Qmc4qw5lBZKlfakiSt32WPDNuMarveG
+	 AfSi1ycHFWrX5ztj6VycNVo0inJxipzydzfIgIxZlYZU2AqtaPxrEW1ui3/m/k62l1
+	 r01EDYCEkz7UPpvB+th4u5h7Ou1D/TLepSI4nezhObegXj+Rs3ndDDsiqucG1a9eU2
+	 53oHD0bs0k+DZ7pgrjOfaV4AI1rcRnq4gGn2fRW0PsRcf+prP/G2Srb8CiqU2q7fF1
+	 u/RlK23s5higw==
+From: Mark Brown <broonie@kernel.org>
+To: Ryan Wanner <ryan.wanner@microchip.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?= <jensemil.schulzostergaard@microchip.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+In-Reply-To: <20261113-spi-atmel-poll-short-pio-transfers-v2-1-f280762685e2@microchip.com>
+References: <20261113-spi-atmel-poll-short-pio-transfers-v2-1-f280762685e2@microchip.com>
+Subject: Re: [PATCH v2] spi: atmel: poll short PIO transfers
+Message-Id: <179545926826.25092.9908100181391728430.b4-ty@b4>
+Date: Mon, 23 Nov 2026 18:41:08 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,40 +64,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120194507.593601-1-sashal@kernel.org> <20261123212630.1203859-1-sashal@kernel.org>
-In-Reply-To: <20261123212630.1203859-1-sashal@kernel.org>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Tue, 24 Nov 2026 12:31:17 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gAwqHNkLGkoKx=mSxeC4UuHdpY=71O3UDxBK99WshULQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qy4cxI7h6w5kV70lvkD1UYd-Ukiv2kA4FJCRoVK3wUJleTkb0zlDrtIJs
-Message-ID: <CAJZ5v0gAwqHNkLGkoKx=mSxeC4UuHdpY=71O3UDxBK99WshULQ@mail.gmail.com>
-Subject: Re: linux-next: semantic conflict between the hid and pm trees
-To: Sasha Levin <sashal@kernel.org>, Jiri Kosina <jikos@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Joshua Leivenzon <hacker1024@users.sourceforge.net>, 
-	linux-input@vger.kernel.org, linux-pm@vger.kernel.org, 
-	Linux Next Mailing List <linux-next@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1102; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=lS+VtYxRGDrxj2oCgEImHpbzYp61PHJSeMh1QIq9P8c=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZSyesmHslPHWmot8Or+1PS+KSkqV3Hz2sweTxJSA6h
+ TdOQ7elo5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABNJL2L4X8wvLqLlO+Ow+yOB
+ hG1xbafs0n85hxdsNfes3sz9qUdZguEX09VGlYP/FB0WiKuwbSnIvPzoM7v2giJ9k+w3Z3YqSrV
+ zAQA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Mon, Nov 23, 2026 at 10:26=E2=80=AFPM Sasha Levin <sashal@kernel.org> wr=
-ote:
->
-> On Fri, Nov 20, 2026 at 02:45:07PM -0500, Sasha Levin wrote:
-> > d220bf485598 ("HID: asus: Cycle the platform profile from the Zenbook
-> > Duo profile key") in the hid tree checks
-> > IS_REACHABLE(CONFIG_ACPI_PLATFORM_PROFILE), and 699041135f75 ("platform
-> > profile: Extract the core from ACPI") in the pm tree renames that symbo=
-l
-> > to PLATFORM_PROFILE. With both, the check is always false and the
-> > profile key does nothing.
->
-> Ping. next-20261123 has the hid tree again, and hid-asus.c still checks
-> CONFIG_ACPI_PLATFORM_PROFILE in both places. The fix in my first mail
-> still applies.
+On Fri, 13 Nov 2026 16:20:32 +0100, Jens Emil Schulz Østergaard wrote:
+> spi: atmel: poll short PIO transfers
 
-I think I'll create an immutable branch with platform profile changes,
-so that the hid-asus can be rebased on it.
+Applied to
 
-Will that work?
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
+
+Thanks!
+
+[1/1] spi: atmel: poll short PIO transfers
+      https://git.kernel.org/broonie/spi/c/24e635993ca5
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
