@@ -1,52 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425459;
-	b=Z+7AD5DdANjmEiTdYMkIJpm/LbEjBKreg3jbQPyqN+qqhNmt3+CukiKatw6i8sMLa86i
-	 iM1VUWRbvuV44yON/WtAEGmQeNYMCw87dNm/ihfaygx7ueJX9qdXuwgwfhNStEth2sO9d
-	 vv9Q+YcEs31Wlx9kNRd6QjArh4wqUff7im93GIeSUqxQRaw5QGz+wTf89+yn5d9hFIEbr
-	 vENhe5r4WAGB+gSFhQXNmwJBItQy4tBuaBouY6IzwFSVb6n4JnFTkEsoBbQuB5i0I1RKN
-	 ZZg7nmJ6SDb/qabi3h+RQ62JIHxQ7jweF/kIcZ15tEy1fAKOG5aJ1qVHY3bhnWvHVdg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425459;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=scULwfSS6H8D57RpiRf700PDIe2LlM97htd+XHYiKwM=;
-	b=xXLy0RbgtWIF7k/kfBz12bMH/FOtjubYitLzJUR9JDYcfi6GNOmEDyPpdpxAnzR53Aai
-	 KXyAoylwQhFbZ8YxxcwZOAAWMEMXL7fB6NbSf6VEbC4P/Z2hVd011FtBK24PKkYCTI4BR
-	 TlD+AdMiQ8ZYV43AuXpAJ2PP/Uaes0x9QKAFBg2KYKwDX4csIDPGtk9uou474iJYxgPrw
-	 /6mNqCV+0QmPDYXgIOyiUarjLHzkFKMf/CnHaEywQ5TbNqUFF2/JuHoz2FyOvDgpDl7Wm
-	 c/PVbVhhSF7wZiq3GkKNy3RqNSSYEJbJ8Y1VIokrwZkanWvt89dTaYqEjPwMlNQ7jHA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=GKorEHrO;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.14
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795425492;
+	b=rxgx92sXeRcBwvmM381RDXm/7S3uJrtM6yfXTKW8FQM0wt1kNjw27hrO9eBXpvDccXuD
+	 ncItqyt4fWz7yWo5V7PBZwK9EReEX+Bw5ivT87t+kNzthe3KlWElti7w1TNkRhrxrhAgU
+	 tasiPRwIiq8Fpq9PCQ52AAShl+D2n81nnZagag+IrRlq4uhj6P/M1brmKvqCsL40n4C+3
+	 13KUPI0pYGyhwpRUPRBZ2Ei3+bs+hVI3SXX1/lwxmFmlbWE8E/uPuQwDcYdB+nu8rdCnF
+	 HbdVKoqbuOiJDXiq7BIcUDJ/lhyQUnlWSIcd+HO1rT5tpiQhstaviKBHSFwp0B8Rztw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425492;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=RNha+b5ghOYPtQTvrFC0LCdN61qRtCI2WrlmZ2tq10s=;
+	b=zzuoNDNVfY1P0wmOa2Kxu5JSf+OIjvDyrqEdaKprbHMg+8QLh0qTIal12R0Cvi8XDK+d
+	 tJK5JyNwbqrysblqQkSxkrUy67DEvK1qGsp6WcOxhHRBjTYfX7e4bvIak/7NRXdOqDfxu
+	 9w8elvvHIveyt2NpktaCyfczPBWg1IinGSNX2NNeHriOkPRHwPbeMt97WnEB+gDo2RWU1
+	 fz4OXnMB6LzrhDbvIUUE4Dm8qXBrUqPvrnG1CVRuNFBGDsLaHRGd78HVgigHd/N1RaBGf
+	 eMWgSUs1guZDSW/7S9FciuFNLOHVQJp6GyVb5X1+E7tr7eFivfmQA9AXsm5JQGRH0OA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=n9N7wTiV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.14
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012014.outbound.protection.outlook.com [40.107.209.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CA36606A335;
-	Mon, 23 Nov 2026 09:17:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CA36606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E916606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:18:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E916606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=GKorEHrO
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D7CF4A9338;
-	Mon, 23 Nov 2026 10:17:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795425457; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=scULwfSS6H8D57RpiRf700PDIe2LlM97htd+XHYiKwM=;
-	b=GKorEHrOBsyv9YOdDy80ICW4xL/YocmF+cfRvjFYvi6WrXEayw5vANU46Uz7FIsuXNrUo5
-	zHfHbtaaRtokrGIAyVX9iNIcEy0E8I1gB+tTWYnGxX/u1Ml2HfwG2hVrIH71Q6hlkv42JA
-	Odb0Resmxo/igDODOvvxsQdLocKkRTZfIw1mrk7cjC9YUviP/YJDuESlQPK4VC4Bz6ILav
-	5Xq52lAiRLbjkqGgrvbMTcCkGlLohXxFsHKKhzSWw08DKFFpz0lehpdcHS4acCPfVMaCds
-	JaLULFSV0VZytr/0OC3w6XWxQ1TmKobGEQUD0C2wTuW38h6d7VNzPbqXnS4cuw==
-From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Mon, 23 Nov 2026 10:17:15 +0100
-Subject: [PATCH net-next v9 7/8] net: bcmgenet: allow the MTU to be changed
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=n9N7wTiV
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vfG2SFTTmhEVYdNZjvQDxer3gRXjcESb1tzxKxfskiV6A/w1ms2pvko7zKA4gc4qbQTZeW5CQjPWSD4paxY6XwJZg8MBHXeudT3W6y+mihGG5wytnC7v8djvsfqofVb9zCYSE+J01uGwu46mFb2UJvwT7Um1IMee8nVnEVOLafgBLCQaK+c7S34z7ABSCKmyr2hyBoDZJPX5deKcbnhPtg5reJJsVacZiZCk0Enku612948ke5f8s+8m9octl9HVhwLVb7UiRoWx6FIrYI+znJgAO+cfcSc+IYiNJQ8v5tkw+6ET2Xekxl48oxM1zr+ID4dtxqIzO9uxrqMpoT96Fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RNha+b5ghOYPtQTvrFC0LCdN61qRtCI2WrlmZ2tq10s=;
+ b=i9eedC/EFBkA5ASSxFYzER0G2Ac3OW4STDhJBjKL0sawGMI/RQIRTDG6vfJqNLHnivSZiiamPFXQ2JZLaIx6NQkAwcLBWe3JD8pYS/Pmjipypq1siTdV4ifBcPWSTd9E+KWWeuJkuBlJ0MW6ClGmcFSGGlJGXmCTZcnf2ICYrWBjEQG93gqpk8Mwcdeh8zuCgxZe4aumHN7N01OAfqzamHCGlUIley4FSGXmb4sX4+QUidC6aYnvm24BxCNttf5xx3BVe3QmqXmWEsBaUJ3fNenoLH1W0KgU/Gd7MlBpLuQsW4roSSzsc+YeON2t4knhZ4ZJLwnlv/wyNeD28iA9GA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RNha+b5ghOYPtQTvrFC0LCdN61qRtCI2WrlmZ2tq10s=;
+ b=n9N7wTiVk4QnlaDaBxyJwks2I5tPtU3uCCYGaP/aiiRvv4dV0fAlGxvLC3xJ0VJYFwxr74hsaYpvtUZZXq2sa7U8GtHTweFI37i0L7VovhrF0HRg5FHhJsVxMGUB3tu5roRa7li48eaI/v7KZL73etnpwQb6hQfkXQLkWah/rQ8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com (2603:10b6:208:591::16)
+ by IA0PPFA19DE7612.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bdd) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 09:18:09 +0000
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83]) by BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83%5]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
+ 09:18:08 +0000
+Message-ID: <1ad6f235-ac3f-4afd-927f-246948c6b4b6@amd.com>
+Date: Mon, 23 Nov 2026 14:48:01 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] iommu/amd: Skip device lookup when IRT caching is
+ disabled
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>, joro@8bytes.org,
+ suravee.suthikulpanit@amd.com, will@kernel.org, robin.murphy@arm.com
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261113095017.1835921-1-guanghuifeng@linux.alibaba.com>
+ <20261113095017.1835921-2-guanghuifeng@linux.alibaba.com>
+Content-Language: en-US
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <20261113095017.1835921-2-guanghuifeng@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0331.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:222::9) To BL4PR12MB9505.namprd12.prod.outlook.com
+ (2603:10b6:208:591::16)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,189 +98,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-nb-genet-mtu-nn-v2-v9-7-4f93ded19bbb@tipi-net.de>
-References: <20261123-nb-genet-mtu-nn-v2-v9-0-4f93ded19bbb@tipi-net.de>
-In-Reply-To: <20261123-nb-genet-mtu-nn-v2-v9-0-4f93ded19bbb@tipi-net.de>
-To: Doug Berger <opendmb@gmail.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Nicolai Buchwitz <nb@tipi-net.de>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL4PR12MB9505:EE_|IA0PPFA19DE7612:EE_
+X-MS-Office365-Filtering-Correlation-Id: 72890b3e-ae8c-46b3-f674-08df4942b071
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|10067099003|4143699003|11063799006|56012099006|261026121527099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	s1egEQtHkZBqs66axPMJ1aOk1nHbMB6l4m4+bao0uD9Okwc+0J+bI854rWRFt25Rt77+GoQXfsJlUYQGl55hgNafAsLLL0RxGmcgF0xIcGuug/6sQHLFDF0ePxGni0XSj3aqyY1TtMz/UnzCtp/ZS7CXwAQm6CC4/+fHSmm5bhMQyqPWDHV/m3EB1S6hhVIQf25sid4j6jsw7D9eL7XTL7gyNSdkaVis9Fbm7bXcPQUvrTIXPca5eIHvktjDMkVvMccY+VU5FIVMScIIfVxDdR11+DF4J3ihAFpnWCNyapWqCHYVl7BKwsamU1zffGCcoAnDNb50v+4LArTgVbnL/T2hN9bgG2b9PU5YWL6bg1unF6MZwMqN0JnNWmt87YPofEwdGKlyQoRz7WUW6sOTvpP5wGvQxFOk+3zqknRup1pJUxFe+eSbOiOgXLvN8FK+5JBMtNXwaIRbcEpK5suBRpPs7BlzMzqiflUZOnVdOpru606XnVWW/SMhiEhCIjZEMGbac7B10m46tnMQ+KhhYcPAxrWFzy3Nx+tHknNR6m3oUXPqUU1Ln3nZ0PK+anhSpfukIM23UJLZkCQarU882IOF1P2JNz/y9IzvOFNMCMjIG4yY1p8Nv9azdFbIK+TNWdowPeWT3ZbwACIdPc9dfTgOTXxMjrwO6uhaKhfCKrE=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR12MB9505.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(10067099003)(4143699003)(11063799006)(56012099006)(261026121527099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?c0xjSW9kdk1sOUhneVBQN0VLQUhjVDJlbk93a3RvTG5VcHFuNWhsM3ZpYTlo?=
+ =?utf-8?B?YXJ2dHNmVUprMU0xVndqUURDaXRmOGJuZ3IxS3VFeitnc2xkRlN6bWp0WWJm?=
+ =?utf-8?B?dnhkZ00vZ2x6YXQvWit1dmJVV1p2VnhsR1JQMXg3VXhKeXJYSWVWWlNCMTJr?=
+ =?utf-8?B?MHpXV1diSENLN3k1SHhsNm84KzRuWWxqQmlka3R6N0phaHlZREY5OE15ekJx?=
+ =?utf-8?B?bWNvQlhTYlJPdjlKMXIvZEwvLzd2RUVZelBTTE9aZ3pHNm1CZ001RU1yaDZU?=
+ =?utf-8?B?dEZwOGZzd09tcTlUS3RWYTJ0M3h6SVFkTm1GVXRnN3FENGFuQ2tVeUVYV1F0?=
+ =?utf-8?B?WFdGZ0dYbVRobHhRZGI1WlpmYzdhd2ZuRmpQRkRlZHNSVTFjVXN6dXJ5aE41?=
+ =?utf-8?B?Wlo0UXB6TXpObEdkY2M3b3puMUN5c3hJYTRjLzZqQ1MrYlM3MmlWcGorNFM0?=
+ =?utf-8?B?ZDNYVGZzZTRyU2hMR21XVVUzdXVGMDZpTzhKL09WWGdnd3RHN0JMOHhtaDlM?=
+ =?utf-8?B?OHgwc3VOTHlMMEFrMDN6SGJqdHlrVm1HRGpCb3ZGMEdwQS9nMW45YjhqVEo0?=
+ =?utf-8?B?VngySEsybWMxOHdKNjg0WkdSdkVYdUlqM0hMenhld1ZxUFFzaEZzS2gvUmtC?=
+ =?utf-8?B?VmZCYkh4YXlwOW1malBLUTFGNXVMTWV2clEyUlQ5Z0NrLzdrc2o5alZwc3RK?=
+ =?utf-8?B?amk4RW8wL2MvS0MvUHhYVEdBc3poTGROcVJTOWZmUnNMNnQyNCtGTWZPNU96?=
+ =?utf-8?B?Y0pVYVJUZWExRE9iWmM1eHJzM08zMTRiT0EwTndER2x6c29aK3FTSnM0QkUw?=
+ =?utf-8?B?RCt2RStuNVJIdUN4b1F5UkNGU1N1aVdLVW92b3JRS21lVmpuV0tSV0tYdy9p?=
+ =?utf-8?B?SDJJNE1yOE9MR1NjM1FtRXZXOTdpMHdVTFdaeXBHaXBITXlpeCtpWWFpSTFR?=
+ =?utf-8?B?bU9uUFZCUU9LblpjUjFGUUx1R0Y1clF2djZDa1dYcmxUaGhsbzdHdzFCYTVo?=
+ =?utf-8?B?cVQzVDNPM0NCRmdwbXJzSy9wcDRQdFg5NGdRbDlWRmFhZlpCTXhRSWpUczMr?=
+ =?utf-8?B?bEFKLzdsNGlSNVk1WXdRVGZBRnI3R1MxZlBmTmtxcFpjNk1HQWVIdm1mQ1hL?=
+ =?utf-8?B?UWp6REkraVQ1V3pqMGdjZWtPSXpoeVRRYlNKRDFMRjVzUDlDT2RoZzd4NmxS?=
+ =?utf-8?B?UWJ1WEhkZUoxZzZvRWtFTi9pZndCMTVpMGU4VXlJTkJGenV2NzN1NHVVZGFi?=
+ =?utf-8?B?aldSZElHb1BzQ1QrUkRCSmNyeFB6eFB6eEdwOHA2N0JFYjZwNDN2bTkvV1dW?=
+ =?utf-8?B?NlZRbmg3WExwQ0xreVl5YlRyYzdlSHMzL2x2cjh4Nm5zanpRVFFhVEp0V1J5?=
+ =?utf-8?B?R2JaQUNkWlhWZS9FOG5zNGVoeDJuWTRQOVhvQTQ3SEdSUEE4WVB6RE45VnA5?=
+ =?utf-8?B?eERvalFBV3ptNTlNOERqRmZtUjlRUDJmdXl5b2xwMXdZU3lyUFhCeGlmZ3U4?=
+ =?utf-8?B?LytXZlBEUVFHZVp0cE0wcWpNWmozTTFmdHpmbU1vWkQ3RDJNdm5tZ0pJbmJQ?=
+ =?utf-8?B?TTZsMFFUVXpVZGxCVXc2Mno3c2JnNWtWald5QXQ0YWV5Um1GT3RYWjJ0NzY3?=
+ =?utf-8?B?Tmd0aWhheU9jMS96dlJuSGtyTjJXMHRpQTd2alhtVHdNZkJtSGh2ZHNaOUdt?=
+ =?utf-8?B?bWx4ZUhvUy9jQmJ3VnQ4YitJejJGQ0RObUlwamZZR1U1V2piNmNxMHRuN29m?=
+ =?utf-8?B?R0xZMS9PQlE1WW53V1VMOHFlZHZkcDVTV0dIeDNpdUk5cS9OSHg5bjFMODBq?=
+ =?utf-8?B?Unh2aThBbzVVRzUwWFlaRUxydUJCYW5TVVU3ZDhYK2I1QTBEUlpnOU1uRUlk?=
+ =?utf-8?B?WUgxa1lsN01RUm1vT3c3cjNBSjVwWDkycXhXSXliMHdqbnNqTjNuRFIrZ3pw?=
+ =?utf-8?B?SjBQREhpdTBSbUxsK1UvRm5iTC8xeE5KTENjdFBQZVlxcTJzQU9kRVJOaXJG?=
+ =?utf-8?B?cHFnbUNTTHc4VDZTR2Joak1xVlZEM0hLNGo5LzNTbzBNbk1HVldLSlZDOHZa?=
+ =?utf-8?B?OGduYzZEQVR3WitxVGRHQjRveXVwMVNncWdoVFYrVTR0S3dhY1F3LzA5Y3lI?=
+ =?utf-8?B?MzRMYnVmUCtGRm5nYnZYVW1LcHY4ZkxBbUpadG1OSWJYdW04MktxSEVCL0ZX?=
+ =?utf-8?B?WVpGRlBnNUhab3BGWVlUNW5qNHZoUGRnS3FFSEpLRnllUWlSaFF1eG92NHlX?=
+ =?utf-8?B?aEFiSFpCWGRnR3NrSzc4cWVGVEtFcSsvTlc4dGxUdHd0U3R0aXRyVlpybE5P?=
+ =?utf-8?Q?VRU0tF0PzcDaWLzjPG?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72890b3e-ae8c-46b3-f674-08df4942b071
+X-MS-Exchange-CrossTenant-AuthSource: BL4PR12MB9505.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 09:18:08.8483
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N8aZpcUmUd5RkDWhfN/b2MJaWct9wdAIPTpfTVOkLTRkFsLy30VbDH08ioP7NOLsC2NYOvkS1iOYRLeKRe4ABA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFA19DE7612
 
-The driver never sets dev->max_mtu, so the MTU is stuck at ETH_DATA_LEN.
+Hi Guanghui,
 
-One descriptor reaches as far as the packet ready threshold, so derive the
-maximum from it. The threshold registers are 8 bit in units of 16 bytes and
-want a multiple of the 256 byte burst size. A descriptor is one page and
-also holds skb_shared_info behind the frame. On 4K pages the page is the
-tighter limit and leaves 3564 bytes. That includes room for a VLAN tag so a
-VLAN interface can run at the parent MTU. The MAC accepts a little more
-than one descriptor holds, so a double tagged frame at that maximum is
-dropped as fragmented until a later patch reassembles those.
 
-The PHY keeps running across the change so the link stays up, with its
-lock held so that a link event cannot enable the MAC while the registers
-change. Two MTUs at or below ETH_DATA_LEN derive the same values, so a
-change between them needs no restart at all.
+On 11/13/2026 3:20 PM, Guanghui Feng wrote:
+> The DMA alias invalidation path looks up the device before checking
+> irtcachedis_enabled. The lookup walks the PCI segment's device list,
+> but its result is unused when IRT caching is disabled.
+> 
+> Nested VM entry and exit can switch multiple interrupt routes between
+> guest and remapping modes, repeating this lookup for each IRTE update.
+> A reported nested virtualization workload scans 4334 device entries per
+> lookup, with median lookup latencies of 22-33 us despite IRT caching
+> being disabled.
+> 
+> Move the lookup after the early return. This removes the unnecessary
+> list walk without changing alias invalidation or completion handling
+> when IRT caching is enabled.
 
-Only v5 is known to size the TBUF for a long frame and to carry the full
-length in a transmit descriptor, so the older parts keep the default MTU
-until someone confirms them.
+Thanks for the analysis and the patch.
 
-Only a DMA that refuses to halt still takes the interface down, because
-nothing is left to run on.
+Patch 2/2 removes search_dev_data completely as dev_data is passed to this
+function. Do we really need this patch?
 
-Suggested-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Link: https://github.com/raspberrypi/linux/issues/5561
-Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
----
- drivers/net/ethernet/broadcom/genet/bcmgenet.c | 99 ++++++++++++++++++++++++++
- 1 file changed, 99 insertions(+)
-
-diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-index ae20c4b3c570..8dcee6951be3 100644
---- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-+++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-@@ -91,6 +91,12 @@
- 				      ENET_THLD_MAX * ENET_THLD_UNIT, \
- 				      ENET_THLD_PAGE_LEN)
- 
-+/* Largest MTU that fits one descriptor, with room for a VLAN tag so a VLAN
-+ * interface can use the parent MTU.
-+ */
-+#define ENET_MAX_MTU		(ENET_THLD_MAX_LEN - GENET_RBUF_ALIGN - \
-+				 ETH_HLEN - VLAN_HLEN)
-+
- /* Tx/Rx DMA register offset, skip 256 descriptors */
- #define WORDS_PER_BD(p)		(p->hw_params->words_per_bd)
- #define DMA_DESC_SIZE		(WORDS_PER_BD(priv) * sizeof(u32))
-@@ -3988,6 +3994,89 @@ static int bcmgenet_change_carrier(struct net_device *dev, bool new_carrier)
- 	return 0;
- }
- 
-+static int bcmgenet_change_mtu(struct net_device *dev, int new_mtu)
-+{
-+	struct bcmgenet_priv *priv = netdev_priv(dev);
-+	unsigned int old_mtu = dev->mtu;
-+	struct bcmgenet_dma_set set;
-+	int ret;
-+
-+	/* A failed resume left the datapath down, nothing to reprogram */
-+	if (!netif_running(dev) || !priv->tx_cbs) {
-+		WRITE_ONCE(dev->mtu, new_mtu);
-+		priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
-+		return 0;
-+	}
-+
-+	/* Below ETH_DATA_LEN everything is floored, so there is nothing to
-+	 * reprogram and rx_buf_len stays as the receive path reads it.
-+	 */
-+	if (max_t(unsigned int, old_mtu, ETH_DATA_LEN) ==
-+	    max_t(unsigned int, new_mtu, ETH_DATA_LEN)) {
-+		WRITE_ONCE(dev->mtu, new_mtu);
-+		return 0;
-+	}
-+
-+	ret = bcmgenet_alloc_dma(priv, bcmgenet_rx_buf_len(new_mtu), &set);
-+	if (ret)
-+		return ret;
-+
-+	/* The watchdog trips on an idle queue once the rings are gone */
-+	netif_device_detach(dev);
-+
-+	/* The PHY stays up, hold its lock. A link event would otherwise take
-+	 * the MAC out of reset and enable it mid rewrite.
-+	 */
-+	mutex_lock(&dev->phydev->lock);
-+	bcmgenet_netif_stop(dev, false);
-+
-+	WRITE_ONCE(dev->mtu, new_mtu);
-+	priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
-+	bcmgenet_set_mtu_regs(priv, new_mtu);
-+
-+	ret = bcmgenet_init_dma(priv, true, &set);
-+	if (ret) {
-+		/* The datapath is gone, do not leave the interface up */
-+		netdev_err(dev, "failed to initialize DMA, closing\n");
-+		WRITE_ONCE(dev->mtu, old_mtu);
-+		priv->rx_buf_len = bcmgenet_rx_buf_len(old_mtu);
-+		mutex_unlock(&dev->phydev->lock);
-+		/* bcmgenet_close() attaches the device again */
-+		netif_close(dev);
-+		return ret;
-+	}
-+
-+	bcmgenet_hfb_restore(priv);
-+	bcmgenet_netif_start(dev, false);
-+
-+	/* bcmgenet_netif_start() only restores the link interrupt */
-+	if (bcmgenet_has_mdio_intr(priv))
-+		bcmgenet_intrl2_0_writel(priv, UMAC_IRQ_MDIO_EVENT,
-+					 INTRL2_CPU_MASK_CLEAR);
-+
-+	mutex_unlock(&dev->phydev->lock);
-+
-+	/* Interrupts were off, so a latched link event is lost. Internal PHYs
-+	 * on v1-v4 are not polled either.
-+	 */
-+	phy_mac_interrupt(dev->phydev);
-+
-+	/* An energy detect event cancelled with the work is still latched */
-+	if (READ_ONCE(priv->irq0_stat))
-+		schedule_work(&priv->bcmgenet_irq_work);
-+
-+	netif_device_attach(dev);
-+
-+	/* Filter updates that came in while the device was detached got
-+	 * dropped. An IPv6 join does not hold RTNL.
-+	 */
-+	netif_addr_lock_bh(dev);
-+	bcmgenet_set_rx_mode(dev);
-+	netif_addr_unlock_bh(dev);
-+
-+	return 0;
-+}
-+
- static const struct net_device_ops bcmgenet_netdev_ops = {
- 	.ndo_open		= bcmgenet_open,
- 	.ndo_stop		= bcmgenet_close,
-@@ -3999,6 +4088,7 @@ static const struct net_device_ops bcmgenet_netdev_ops = {
- 	.ndo_set_features	= bcmgenet_set_features,
- 	.ndo_get_stats64	= bcmgenet_get_stats64,
- 	.ndo_change_carrier	= bcmgenet_change_carrier,
-+	.ndo_change_mtu		= bcmgenet_change_mtu,
- };
- 
- /* GENET hardware parameters/characteristics */
-@@ -4352,9 +4442,18 @@ static int bcmgenet_probe(struct platform_device *pdev)
- 	/* Mii wait queue */
- 	init_waitqueue_head(&priv->wq);
- 	bcmgenet_hfb_init(priv);
-+
- 	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
- 	priv->tx_thld_len = bcmgenet_tx_pkt_rdy_thld(dev->mtu) * ENET_THLD_UNIT;
- 	priv->tx_thld_window = priv->dma_max_burst_length * ENET_BURST_UNIT;
-+
-+	/* Only v5 is known to size the TBUF for a long frame and to carry the
-+	 * full length in a transmit descriptor, the older parts stay at the
-+	 * default MTU
-+	 */
-+	if (GENET_IS_V5(priv))
-+		dev->max_mtu = ENET_MAX_MTU;
-+
- 	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
- 
- 	priv->clk_wol = devm_clk_get_optional(&priv->pdev->dev, "enet-wol");
-
--- 
-2.53.0
+-Vasant
 
