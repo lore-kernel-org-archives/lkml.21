@@ -1,72 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415773;
-	b=2KLHrlh6syB+QM/mbuMULmhBwq6gTgnCBofcOtiqC/ly3DOt2wH9EVZJVxuUUniqReEj
-	 NgK3wQcxAHDiWjg0qafpn8yLZFSl1fv9pmSi/K1oCUmNzVx++NyQYRzLbeiR2kagq78qZ
-	 YXG9wS31hWa7h4rxe57Sl7BCiD+cXCkHYTyiwyP/RVaFzsju+3DtbWMEhQOxeR+B4wb8l
-	 p5rmNVXBGU6qPVSggu5CEjZJLhtcR7kd3wTINtXFc/VbuPilxFzUVJw/mljmJdsyQi70l
-	 YR0XrtTkbEXPzzIJTd+dW2kbuuZUnoh74sBZwqphYfTypJ8DHVzRGEgbWAEAyy5vQDw==
+	t=1795415779;
+	b=ehqo9stJ9dpFvF+KocdRnX8h5IwcjHgbb9UPLtNgIlGZ8GKdm3hJ0g0LyCYhAsEEAEOG
+	 tA5ltwE7mekggYrtEQgjE45VObI1/dUSsDofTWXq0nF0wYhkPm1kAfkNxUB8o54W3C5Fu
+	 UVZHEu58jPlGS6bZCZrNCkbPhhnm2Mi3phLGEFC+1X2yEpsI3bFBh0s/85ZdBf0gv5sYV
+	 93xuO29qoX+psVkUgarka62ZO70Zoenbt8dp0aLinil9xl7gSMSBdx4KqDR9+dMEICC+F
+	 lQ/YFNngB3juzHTdMzz5GUAWf9zG1awbSRFUTFCWdKK0bMTW3jLEFPE7ivDUTJBsfdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415773;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415779;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
-	b=Ta0+VCFHKTyiQNqNgd1IYdqXIo62nHTahIirw5JR99A1clFM19EYxHcs3PzOBbqm+t6x
-	 vb2hhNAyxYmJYPpqVW8CuViQK0jkScsPKJNhnnShiOA/+GWujm8mdZeEPNNIpq38s8BfU
-	 VT9AJFnuKQCRHOseF0DHarF51Kj5FmsbX14IFlbk7PbcQ2/EAxICtxXfrMYilpTueknSv
-	 b1YqOjfFUpciIJfb9F7ZIjARIHXL1G677zeOLq146k9O8AeHDJq0M6yR6K2NaiKA/dzgN
-	 9iZtmAienSDtrTsrZlu5to9vyDZo3RhSS1mmOePtvBYTYC4N2fMB+Ehu1l5L4gJp7LQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=QhvI4EcrcVWaHsYhZmDudDFBhnWCIbKlWCXMmkXssF4=;
+	b=L8y2lF1N9gFZem1vTX50vfPvR/vMKEULppVXxNJ9vORY1x5CJzhk9j270I/qBzPi1jtG
+	 kPVYmXRCHfNNReOt4S+PmhTzzH48lxQVtlaAUg1mIGgIk/Js1aSbwrEaeEmpLXN+oBgkg
+	 lgYHVfp19toh56hTMgpVkkrBFdAzn5Anr50+5h/rsZS4AMBnEe3LifFAT99xPSzvOEq1v
+	 83DBq0+WnsaX8KXt2G5ynZKAVfUvDmNIVm/sGipkOsgPx9mCRe2CBRARyXdCaARL5PtP9
+	 X+8fOqRMHGX6l42di8kTiDPpSS9gR2gOAzLRXFDygZCqY26hHfj/37xI6irMfAH9Uyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--starchang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ndf82j9A;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hhm0AkSU;
+	arc=none smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 489C1606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:36:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 489C1606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--starchang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8327606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:36:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8327606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ndf82j9A
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-55bf11583d9so3136532b6e.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:36:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hhm0AkSU
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8b5e147f101so257127b3a.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:36:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795415772; x=1796020572; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
-        b=ndf82j9AD419mQdAmC6YLQ7YDAJmogSheYNYRMMJyb1tGQ6Z3uKEVwr02fSesodckD
-         u8a7mmizquPt/l6tI0UGe53paB0APeUL58w12k1NlcV1vT2F3Xr8a+RbUZe5mLoLt9qX
-         wHA1jPpedn12bHqJvNAxCRVbrr9LhcBtczwB+BwN108APCiOWZxPLjYNeCOyoCAwQzpu
-         QigWr6Ba/sT0Ys6laFaKXpsEAjd7RH0815FN8vJtgc9JSK9+h4IKsAJmsrI7rkrsAPYl
-         XJJs+cW++2gS9pBKcc7CGypjxUmSn2c5lF9ucSf7KuYz8NTrfv/Y1HkbiqfzObQpFQ12
-         47Sg==
+        d=gmail.com; s=20260707; t=1795415778; x=1796020578; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QhvI4EcrcVWaHsYhZmDudDFBhnWCIbKlWCXMmkXssF4=;
+        b=Hhm0AkSUUa+Z/fHjxiMfsCHJXzOyXPfkaLLLIfSST7VLKaAWLPm7Hpiq1C1/k7IS4T
+         4DI7WG/V0FJut0sFk0hARo6tSTpwlSXNlRkVbe+3FLm72R/dmivobmzTC5y0W7NjvYh4
+         bkeLcp0b6ucPMFYKAog51kVYCbugTIirC5Vha6tNjsSLpNuABv/3halzbyo7EFqPugUr
+         rJuBvSBOekQKA5Oc495UW17RrC/dBnyuSwlW5NbWfRqieoRw0OwoxEQHpu7gDbERGt2a
+         uf6FvcsjtplNqoaor55/vU2lZWSUwWlgNd84nxKlUDWQWq7gn+uQwuwcfItDMH+kRK1G
+         rdeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795415772; x=1796020572;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
-        b=XLpxEGrN/1DOy6tjqki4vDTM0VSHTFujcp3VdFAVTgWU64aeY9qxU02FECj/ArfiMR
-         cP7O59o1rS/xtC+l+x9FX/LGX04ruf6+PNdLcpQgTOI5myp+6FzitoR5fcuB8oBq3O/Z
-         +SHOwihquqhSc7hY19WvQVIse055NWNqIXE2amDZU0jvC/tb0mVF0fDhNxsPNFr5p653
-         /XR3GsZk9TPhCPnALGH9+emmDYk7Z97WmjCx9O6mwJnANfc9sKTRD2wWMr+Al+6B4ve+
-         DGcLtMdjTAdbW3lQvFlOGepzu8WXFBOmPpr8ZzqnQZrNddFuqtg8TvYzTnpkvXESv20D
-         3mAg==
-X-Forwarded-Encrypted: i=1; AL+hErGacgoFhneBqTLpIFbP+epwmZgwEu6PGzIEfdmAXMTukorG+Eup8+nQuYxlfWZ2U4yMhKDhWGgt8CF3zOo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8akpK6Rw2y4VFUw7DI68JogDPlocPo/Y+yGVvQt2P9eIoHTNTQ
-	+Ja0rb9luXvWZkU2srgl/dZ/tQGZmCUSQgrF4e2xM4JalvO3iFU14JbLRE1qiteakxbeuNy/K/E
-	3YMeVFtfyCMiCW2nEGQ==
-X-Received: from oibdu15.prod.google.com ([2002:a05:6808:628f:b0:56d:b7b4:fabf])
- (user=starchang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:199f:b0:568:2782:d1b4 with SMTP id 5614622812f47-57a0bd95bcemr8831086b6e.32.1795415771832;
- Sun, 22 Nov 2026 22:36:11 -0800 (PST)
-Date: Mon, 23 Nov 2026 06:36:08 +0000
+        d=1e100.net; s=20260707; t=1795415778; x=1796020578;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QhvI4EcrcVWaHsYhZmDudDFBhnWCIbKlWCXMmkXssF4=;
+        b=XBcE/zsX3xPu3IfsimwBzSKG0U7mT5DnqSgHzI13JPEx6gWYGi3Yu8v23hLZFkEWFk
+         DnlrdXbvHeZxfk/01GqGdJyJltxqmxSxYB6RfOGk/yd6ojPupJxpzbVCE/dqPBYQO44s
+         HHyV1mnAk8/zw9h3iEuHKW7KZaFsrTNaxTZSYxsVQOYQZ2G5XLCPXcP30jedFNI+db/b
+         3F0+caDUr9m4qliE2xvb5AN26gGlXwYHN4sPMAVZ8VQkf31HgMb3SfIph0mABuQX/3YC
+         RizeTWDusc5/7YVBizDh27gF1XiUByHsM9r+Nh95IsaXpRm72ea5d2n1KTP6kplDe/4k
+         5FBw==
+X-Forwarded-Encrypted: i=1; AL+hErEXoTqfrRJVrPb1WG+XtvyA25wFojpCqdlx2yhOEKg4eBF7ctZf6mqMl0bnri6MneE1GihdWc+l4tiDp1E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8pQNRgSEtFEvsPSvh8fhok1rWIzIEQSFGqOcKmKZ+yawTWA1hK
+	HRS7PSjLDDapOGJhHzcv19OThKYhNURDXWgyMhiGlP/1cE9IHws2i91V
+X-Gm-Gg: AZFdTZeqJGnVJLa5foCMnILiXNO48jaRw0bySHfEAcLaj2jPHWYj7ME/VKClCdF33Aa
+	gB6HvTEoqinEQkM8ziHnVC8NssB1HulnRGu6NUsgGAYRmRpkjiBR7PpvdPGYi+Hfy6uo0PsbwRs
+	6lFHlbuxHRbFJ9BTOKAFwC8gnbZv6Afyx6aFDnSsagSYzPuPLfwVbeGdGQV9gWGRKReatrnCUlk
+	xX/1QmHTtNnCqpWZeVP6iRHW8Ic7O9iVZmJcFJ+SKRYh6tF51Xuzpn+6sJHwAfD5Po35CeN1FJu
+	KnjYrs7EngYa0SpClNtHVlGmQslXNuT3DGTzIZmLJaS3X8gSJXAQ92U6copKRT5l0CS8dMsgjKo
+	3GKn5qiBvmxG4dOOWLcm10CaggQfBqMnMWuMIMHE1Dxe0BlMxZVHQ5NpZvNH1gCfs04iukexcYW
+	ATnhGNtJKvMpOk+QSoVGdVTs0nKOlSPk3fLgGRY1NB+iOjfIkg1k3J/4zF1IzHrdjDr8urJc81S
+	r7rU50B4GbCunr6dhuAmMugeE6S6vrhSEs28SBzv4nAn0EHWOnywL8JD4U9zK+KTMEi9QGQQGAf
+	06962F+y1e1FzOCPoIPS/FOJqxO1pGTwEAEF0lPSj1F8V5lIMLQ0Kxa/K8ddlMHAlEUJui92rVH
+	HyWp8uCwiVL9pY3aH
+X-Received: by 2002:a17:902:e38b:b0:2f0:7707:227c with SMTP id d9443c01a7336-2f0770728c8mr46065645ad.4.1795415777889;
+        Sun, 22 Nov 2026 22:36:17 -0800 (PST)
+Received: from localhost.localdomain ([139.159.170.71])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f118c88sm47430695ad.56.2026.11.22.22.36.14
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 22:36:17 -0800 (PST)
+From: Qihang <q.h.hack.winter@gmail.com>
+To: Li Wang <liwang@kylinos.cn>
+Cc: German Maglione <gmaglione@redhat.com>,
+	Vivek Goyal <vgoyal@redhat.com>,
+	Stefan Hajnoczi <stefanha@redhat.com>,
+	Miklos Szeredi <miklos@szeredi.hu>,
+	Eugenio Perez <eperezma@redhat.com>,
+	virtualization@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	fuse-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	virtio-fs@lists.linux.dev,
+	Qihang <q.h.hack.winter@gmail.com>
+Subject: [PATCH v5] fuse: virtio-fs: fix lost wakeup on a full virtqueue
+Date: Mon, 23 Nov 2026 14:36:09 +0800
+Message-ID: <20261123063609.82014-1-q.h.hack.winter@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <6c6cea56-1af2-4a37-b081-83244d5e09cd@kylinos.cn>
+References: <6c6cea56-1af2-4a37-b081-83244d5e09cd@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,155 +106,120 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261123063608.3665186-1-starchang@google.com>
-Subject: [PATCH net v6] arp: Do not update neighbours from ARP in L2
- multicast/broadcast frames
-From: Star Chang <starchang@google.com>
-To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>, 
-	Ido Schimmel <idosch@nvidia.com>, Julian Anastasov <ja@ssi.bg>, Johannes Berg <johannes@sipsolutions.net>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, netdev@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, wangroger@google.com, 
-	starchang@google.com
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-The drop_unicast_in_l2_multicast sysctl drops unicast IP packets that
-are received in link-layer multicast or broadcast frames. On Wi-Fi this
-protects against the "Hole-196" attack, where any station that knows
-the group key injects frames as group-addressed traffic.
+virtio_fs_enqueue_req() drops fsvq->lock when virtqueue_add_sgs() fails
+with -ENOSPC, and the caller requeues the request in a second critical
+section.  Completion processing can run in between: it reaps a
+completion, finds queued_reqs empty, and does not schedule dispatch.  If
+the queue then goes idle, the request can remain on queued_reqs and keep
+in_flight above zero.  A subsequent virtio_fs_drain_queue() can wait
+indefinitely.
 
-ARP is not covered. A broadcast ARP request or reply with sip set to
-the gateway address and sha set to the attacker MAC still creates or
-updates the gateway neighbour entry, so the attacker can poison the
-ARP cache of other stations. ARP requests are legitimately broadcast
-and cannot be dropped, and drop_gratuitous_arp only catches sip == tip.
+On -ENOSPC, add the request to queued_reqs before releasing fsvq->lock,
+as send_forget_request() does.  This prevents
+virtio_fs_requests_done_work() from checking queued_reqs between the
+failed submission and the insertion.  Both callers can then return
+immediately on -ENOSPC.
 
-When drop_unicast_in_l2_multicast is set, do not pass ARP packets
-received in L2 multicast/broadcast frames to neigh_event_ns() or
-neigh_update(), so they can neither create nor change neighbour
-entries. Requests for local and proxied addresses are still answered;
-neighbours are learned from unicast replies to our own requests.
+Free req->argbuf before adding the request to queued_reqs.  Once
+fsvq->lock is released, the dispatch worker may already have taken the
+request, so the -ENOSPC return path must skip any further access to req.
 
-Fixes: 12b74dfadb5a ("ipv4: add option to drop unicast encapsulated in L2 multicast")
-Suggested-by: Julian Anastasov <ja@ssi.bg>
-Signed-off-by: Star Chang <starchang@google.com>
+Count the request in in_flight on its first submission.  A retry keeps
+the existing count.
+
+Fixes: 106e4df1206b ("virtio-fs: improved request latencies when Virtio queue is full")
+Cc: stable@vger.kernel.org # 6.11+
+Link: https://lore.kernel.org/all/sashiko-outbox-204365@kernel.org/
+Signed-off-by: Qihang <q.h.hack.winter@gmail.com>
 ---
-v6:
- - Instead of dropping L2 BMC ARP replies, skip neigh_event_ns() and
-   neigh_update() for any ARP received in L2 BMC frames, which also
-   covers broadcast requests with sip = gateway (Julian)
- - Drop the frame and release reply_dst on that path (Julian)
-v5: https://lore.kernel.org/netdev/20261030031136.607720-1-starchang@google.com/
-v4: https://lore.kernel.org/netdev/20261027015619.1745984-1-starchang@google.com/
-v3: https://lore.kernel.org/netdev/20261026150539.1357037-1-starchang@google.com/
 
- Documentation/networking/ip-sysctl.rst |  4 ++-
- net/ipv4/arp.c                         | 38 +++++++++++++++++++-------
- 2 files changed, 31 insertions(+), 11 deletions(-)
+Since v4, queue the request under fsvq->lock on -ENOSPC, as Li Wang
+suggested, and drop completion_seq.
 
-diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-index 208f46967ee5..d603588266b4 100644
---- a/Documentation/networking/ip-sysctl.rst
-+++ b/Documentation/networking/ip-sysctl.rst
-@@ -2298,7 +2298,9 @@ promote_secondaries - BOOLEAN
+ fs/fuse/virtio_fs.c | 37 ++++++++++++++++++++++++-------------
+ 1 file changed, 24 insertions(+), 13 deletions(-)
+
+diff --git a/fs/fuse/virtio_fs.c b/fs/fuse/virtio_fs.c
+index d247a02..4d4f2e3 100644
+--- a/fs/fuse/virtio_fs.c
++++ b/fs/fuse/virtio_fs.c
+@@ -596,12 +596,8 @@ static void virtio_fs_request_dispatch_work(struct work_struct *work)
+ 		ret = virtio_fs_enqueue_req(fsvq, req, true, GFP_KERNEL);
+ 		memalloc_nofs_restore(flags);
+ 		if (ret < 0) {
+-			if (ret == -ENOSPC) {
+-				spin_lock(&fsvq->lock);
+-				list_add_tail(&req->list, &fsvq->queued_reqs);
+-				spin_unlock(&fsvq->lock);
++			if (ret == -ENOSPC)
+ 				return;
+-			}
+ 			req->out.h.error = ret;
+ 			spin_lock(&fsvq->lock);
+ 			dec_in_flight_req(fsvq);
+@@ -1433,7 +1429,11 @@ static unsigned int sg_init_fuse_args(struct scatterlist *sg,
+ 	return total_sgs;
+ }
  
- drop_unicast_in_l2_multicast - BOOLEAN
- 	Drop any unicast IP packets that are received in link-layer
--	multicast (or broadcast) frames.
-+	multicast (or broadcast) frames. ARP packets received in such
-+	frames are not used to create or update neighbour entries,
-+	but ARP requests for local addresses are still answered.
- 
- 	This behavior (for multicast) is actually a SHOULD in RFC
- 	1122, but is disabled by default for compatibility reasons.
-diff --git a/net/ipv4/arp.c b/net/ipv4/arp.c
-index d409f606aec0..17b5f32736aa 100644
---- a/net/ipv4/arp.c
-+++ b/net/ipv4/arp.c
-@@ -714,6 +714,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 	struct neighbour *n;
- 	struct dst_entry *reply_dst = NULL;
- 	bool is_garp = false;
-+	bool bmc_no_learn;
- 
- 	/* arp_rcv below verifies the ARP header and verifies the device
- 	 * is ARP'able.
-@@ -791,6 +792,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
- 		goto out_free_skb;
- 
-+	bmc_no_learn = (skb->pkt_type == PACKET_BROADCAST ||
-+			   skb->pkt_type == PACKET_MULTICAST) &&
-+			  IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
-+
-  /*
-   *	For some 802.11 wireless deployments (and possibly other networks),
-   *	there will be an ARP proxy and gratuitous ARP frames are attacks
-@@ -850,14 +855,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
- 				dont_send = arp_filter(sip, tip, dev);
- 			if (!dont_send) {
--				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
--				if (n) {
--					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
--						     sip, dev, tip, sha,
--						     dev->dev_addr, sha,
--						     reply_dst);
--					neigh_release(n);
-+				n = NULL;
-+				/* Do not learn the sender from a BMC frame */
-+				if (!bmc_no_learn) {
-+					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
-+					if (!n)
-+						goto out_consume_skb;
- 				}
-+				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
-+					     sip, dev, tip, sha,
-+					     dev->dev_addr, sha,
-+					     reply_dst);
-+				if (n)
-+					neigh_release(n);
- 			}
- 			goto out_consume_skb;
- 		} else if (IN_DEV_FORWARD(in_dev)) {
-@@ -866,9 +876,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
- 			     (rt->dst.dev != dev &&
- 			      pneigh_lookup(&arp_tbl, net, &tip, dev)))) {
--				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
--				if (n)
--					neigh_release(n);
-+				if (!bmc_no_learn) {
-+					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
-+					if (n)
-+						neigh_release(n);
-+				}
- 
- 				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
- 				    skb->pkt_type == PACKET_HOST ||
-@@ -887,6 +899,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 		}
+-/* Add a request to a virtqueue and kick the device */
++/*
++ * Add a request to a virtqueue and kick the device.  If the virtqueue is
++ * full, queue the request on fsvq->queued_reqs for the dispatch worker and
++ * return -ENOSPC; the caller must not queue it a second time.
++ */
+ static int virtio_fs_enqueue_req(struct virtio_fs_vq *fsvq,
+ 				 struct fuse_req *req, bool in_flight,
+ 				 gfp_t gfp)
+@@ -1503,6 +1503,20 @@ static int virtio_fs_enqueue_req(struct virtio_fs_vq *fsvq,
+ 	vq = fsvq->vq;
+ 	ret = virtqueue_add_sgs(vq, sgs, out_sgs, in_sgs, req, GFP_ATOMIC);
+ 	if (ret < 0) {
++		if (ret == -ENOSPC) {
++			/*
++			 * Queue the request before dropping fsvq->lock, so
++			 * virtio_fs_requests_done_work() cannot check
++			 * queued_reqs between the failed add and the
++			 * insertion.  Release argbuf first, as dispatch may
++			 * retry the request as soon as the lock is dropped.
++			 */
++			kfree(req->argbuf);
++			req->argbuf = NULL;
++			list_add_tail(&req->list, &fsvq->queued_reqs);
++			if (!in_flight)
++				inc_in_flight_req(fsvq);
++		}
+ 		spin_unlock(&fsvq->lock);
+ 		goto out;
  	}
+@@ -1527,7 +1541,8 @@ static int virtio_fs_enqueue_req(struct virtio_fs_vq *fsvq,
+ 		virtqueue_notify(vq);
  
-+	/* ARP received in L2 BMC frames must not change the neighbour table */
-+	if (bmc_no_learn)
-+		goto out_drop_dst;
-+
- 	/* Update our ARP tables */
- 
- 	n = __neigh_lookup(&arp_tbl, &sip, dev, 0);
-@@ -945,6 +961,8 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 	dst_release(reply_dst);
- 	return NET_RX_SUCCESS;
- 
-+out_drop_dst:
-+	dst_release(reply_dst);
- out_free_skb:
- 	kfree_skb(skb);
- 	return NET_RX_DROP;
+ out:
+-	if (ret < 0 && req->argbuf) {
++	/* On -ENOSPC, dispatch may already have taken req. */
++	if (ret < 0 && ret != -ENOSPC && req->argbuf) {
+ 		kfree(req->argbuf);
+ 		req->argbuf = NULL;
+ 	}
+@@ -1564,13 +1579,9 @@ static void virtio_fs_send_req(struct fuse_iqueue *fiq, struct fuse_req *req)
+ 	if (ret < 0) {
+ 		if (ret == -ENOSPC) {
+ 			/*
+-			 * Virtqueue full. Retry submission from worker
+-			 * context as we might be holding fc->chan->bg_lock.
++			 * Retry from worker context: we might be holding
++			 * fc->chan->bg_lock here.
+ 			 */
+-			spin_lock(&fsvq->lock);
+-			list_add_tail(&req->list, &fsvq->queued_reqs);
+-			inc_in_flight_req(fsvq);
+-			spin_unlock(&fsvq->lock);
+ 			return;
+ 		}
+ 		req->out.h.error = ret;
 -- 
-2.56.1.750.gf70dc682cf-goog
+2.54.0 (Apple Git-157)
 
