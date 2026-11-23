@@ -1,65 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795467389;
-	b=cmsuge6qyAeoJ8CgQYwm+RUFh5i7EraslwUhkrvDinswZ7UaYUgf5vWjxt+W8WrxC3Rt
-	 qrbHXWSWFXfkESJUronHEjqSdFieP8MR/qS53JGwoiogFdd1ZdtuVksKRUOwwejpvbBjM
-	 DLwcTMCnAnTZJQTmVEnAQqa/fS1g0l1MvIXyfp8bUj63LFBRd9daw5rqujeF81tm19PmH
-	 NSlFYu6Teyjbu2qsPmcEpShZt03wKaExoAFwWQIQSeY8hWR5HHikKv/8Fi0tYnfr9Cjv3
-	 xAVrPWG4qWnlgVnchZ6eyST9xG4LnpzbI5wL3TWQpZmF23svkhCaZRyqwHq/Ng4CEwg==
+	t=1795467606;
+	b=x/0SqibpnXooPkJ5QQqkbLeXiUN1oCqydfkfFh4bV4rCInov/C136PZVPa5IjocPMJiu
+	 O8F5VSjkagE3hD8nOyJQ2SISvl1w3PVlNZUvL/O6NBMm7XRF5ZRVoc/sM4oKq0AjmeBUa
+	 MpbLmTdcZ+auWcaiI7c7PMeIiQN/wbtwAsJ0NOTpAOAbQYrqpSeFs6B7TQ2o79Zq+ZXBf
+	 zdFIT81W5AH8/xz1e82YCz0FnYyp10W0TMAA7/EQ6p/Fd075Ak6sqywR1m4HZvFTc0XPG
+	 ofL18///+KTizBw6CMKudNwpjBcEAht96YIRVhRM8yPZX5oIU6uNw/k0GolHv2Whzsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467389;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=uMMQm4mAWp49cFU6NJgpXckSRNY1fS9XcSuusU3yNEY=;
-	b=f1Px5tixQ5jYCSXijQgxxwAQnNkj1zKJ6GjgMSmt7pQZfLPo3Ih/WWDcHFOIOZ0SK47e
-	 sULiudCr6C3w5NCEVCGNeW5cJn64DkUOjH1FQucgqkIHbMwjFmQFFrvFBurUmzJpDnKi6
-	 hB9XvLeRhg5Q+JG3peHz5+nMrKLrqtenlZiNWh9eouS4lph/LwGZ4/hSAuhH94b2EJ1u6
-	 RZVgb5Dl9CLkTFYPfHUUBdlyw8+Sb1XrM09NfNrYxVqnLYXLGgLx8tdFcweW44xuw9rXu
-	 7AQH0MRKPIFQgKbHj8KgizXhpg1joNjpdA3+FZ2vNS8Fq/hg9bBAFHr+/T8R2zo6f/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795467606;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:User-Agent;
+	bh=sH8uw1zQbkKfoZM8eDhcpr5I9ieG2zs6ZWckZtWuoOo=;
+	b=f7fro0Eq2aAIADFnDC4dVgM2FGB1OnnZ3wW5nFrI0rXt3woGXV6Mav/tuqDcw6AeLD0G
+	 9cAELVmFY1Nq/OMObv81sr+ZpM0dp0Rga+tLi55eIhL4VlT/yWTi6dqIC8SKjQik/dkic
+	 dzuLyP2Tj1/VKYJrPkRyMwf/lJJ32LGgjn3t2MIeKVO7u5MgURMgjt3MqOzfpdiVJ4gH8
+	 FjtqFj4/2aR0u6XWFpaiRgLj1xTUbJA24l7dznjaj32ACw+rxrjGgHh+afCva4Rse3JnB
+	 DMQji515OcXtq6D7L7Cl1jd8g4PHP7eGAO+UVovXTPIdDDB0TfxbNj3lwaG+la/60OQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="Eo/ZK1MO";
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f0vxlCYl;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 103DF606A333;
-	Mon, 23 Nov 2026 20:56:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 103DF606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C32F606A32A;
+	Mon, 23 Nov 2026 21:00:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Eo/ZK1MO
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 717834E41722;
-	Mon, 23 Nov 2026 20:56:27 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3D19C601E1;
-	Mon, 23 Nov 2026 20:56:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4BFD411E6AA3D;
-	Mon, 23 Nov 2026 21:56:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795467382; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=uMMQm4mAWp49cFU6NJgpXckSRNY1fS9XcSuusU3yNEY=;
-	b=Eo/ZK1MO3u8khRaCtZ61aO2y81AdlGUDjjkapEsvBJxG16pIiS1NIoAGwUwEGLDzBT/Pyd
-	Xpgv4HaO2ZuTviB2D6c50Qi6NdKniE1dda5oVccPv2ung+ILqk9aqao+9cMLJbalFCXfRx
-	MMRc//OCcW9j3kGniOXPayC5ebMWWH6xMDNL8n24BFUXPWSkmlIkYWMXkiR841AcWZB+br
-	qgI9vwVxBv3ZUGhFGtA4l9jF+NEbX9TtkbNex6GXi/W8npOM5Ixgw1aIAoCZ15r7taoF4e
-	niXdE7L/GiUJ1f917vN7jkN4WiGrLFSLnPShOPoV5bUkRUZV6+SPk+Q9PqJleA==
-Date: Mon, 23 Nov 2026 21:56:20 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: filipp.dunsky@gmail.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] rtc: Add Cortina Systems CS7542 RTC driver
-Message-ID: <202611232056209fabb078@mail.local>
-References: <20261123-b4-cs7542-rtc-v2-0-31ab43f2cc8e@gmail.com>
- <20261123-b4-cs7542-rtc-v2-2-31ab43f2cc8e@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f0vxlCYl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D6691F000D0;
+	Mon, 23 Nov 2026 21:00:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795467605;
+	bh=sH8uw1zQbkKfoZM8eDhcpr5I9ieG2zs6ZWckZtWuoOo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=f0vxlCYlPQT//eNpS6KVzxhI1dwaGnIpWYoNwWgAoj4st0vR9LelbHDvyVH3pwTLH
+	 0sXPMfWI8vkF1oAdwX1ebaxhO76fQWmCLSwqYjTZ6FdRXHi8cE4uD1+iqaKPvtwoBN
+	 CAkKYRQSIzpFgBbuC624CASyHAw9zRXFJMNrHiISL7tE4/9O2PD7rPO190LI7c6aWY
+	 MraMFEygy0MXsToazZjUYwnA+vUvDUXsEnaBTR6nJcvip73TJ+89wyZBAHNdV/aZaD
+	 sTFeTs5zC5Z8g0EnSyvyAki6/OEhqjsu0Wy3hRtnDsoe86GFI6nDEYu76jju+fXbem
+	 LwSWKh2Q0YQqw==
+Received: by pali.im (Postfix)
+	id 70545787; Mon, 23 Nov 2026 22:00:02 +0100 (CET)
+Date: Mon, 23 Nov 2026 22:00:02 +0100
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Brian Mak <bmak@nvidia.com>
+Cc: Hans de Goede <hansg@kernel.org>,
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	Kurt Borja <kuurtb@gmail.com>,
+	Stuart Hayes <stuart.w.hayes@gmail.com>,
+	Matthew Garrett <mjg59@srcf.ucam.org>,
+	Lyndon Sanche <lsanche@lyndeno.ca>, Armin Wolf <W_Armin@gmx.de>,
+	Prasanth Ksr <prasanth.ksr@dell.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
+	"Dell.Client.Kernel@dell.com" <Dell.Client.Kernel@dell.com>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 4/8] platform: dell: Allow DELL_LAPTOP to be
+ arch-independent
+Message-ID: <20261123210002.baki6f34ww7azjob@pali>
+References: <20261121000556.173028-1-bmak@nvidia.com>
+ <20261121000556.173028-5-bmak@nvidia.com>
+ <20261121004828.rk2k2cq4id2ixkal@pali>
+ <af13cde2-6407-453d-81db-1778b30f4763@nvidia.com>
+ <20261123193923.cl2i62lgute6li3u@pali>
+ <58afee6c-52fd-49af-b8d2-b0569051f5e3@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,246 +77,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261123-b4-cs7542-rtc-v2-2-31ab43f2cc8e@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <58afee6c-52fd-49af-b8d2-b0569051f5e3@nvidia.com>
+User-Agent: NeoMutt/20180716
 
-On 23/11/2026 23:27:02+0300, Fil Dunsky via B4 Relay wrote:
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
+On Monday 23 November 2026 20:33:11 Brian Mak wrote:
+> On 11/23/26 11:39, Pali Rohár wrote:
+> > On Monday 23 November 2026 19:11:00 Brian Mak wrote:
+> >> On 11/20/26 16:48, Pali Rohár wrote:
+> >>> On Friday 20 November 2026 16:05:50 Brian Mak wrote:
+> >>>> CONFIG_DELL_LAPTOP is currently not available on ARM64, due to a
+> >>>> dependency on CONFIG_SERIO_I8042. This dependency is actually not
+> >>>> necessary, as there is a fallback. Make it optional.
+> >>>
+> >>> i8042 is used for controlling touchpad LED and for receiving rfkill
+> >>> events when the dell-rbtn is not supported on the particular machine.
+> >>>
+> >>> Touchpad led is available on more Vostro and Inspirion machines and
+> >>> there is no fallback or detection of i8042 at all. Even there is no
+> >>> error checking.
+> >>>
+> >>> And for receiving rfkill events it is same situation.
+> >>>
+> >>> So the dell-laptop driver expects that the SERIO_I8042 is enabled and
+> >>> compiled in.
+> >>>
+> >>> If none of these functionality is available on arm64 HW, then it makes
+> >>> sense to make the SERIO_I8042 only for x86. And then in the dell-laptop
+> >>> driver marking the x86 specific dependency via ifdefs. Which allows to
+> >>> compile driver on arm64 without those specific functionalities.
+> >>
+> >> SERIO_I8042 already can't be enabled on arm64,
+> > 
+> > That makes sense. i8042 is x86 specific.
+> > 
+> >> as ARCH_MIGHT_HAVE_PC_SERIO is not set. With the current patch, the driver
+> >> builds on arm64, but as you mentioned, there's a couple gaps that need
+> >> to be addressed with rfkill and touchpad LED.
+> >>
+> >> For rfkill currently, the driver fails to probe, due to a failed
+> >> i8042_install_filter call, if the device is a Latitude or a Precision
+> >> (checked by DMI) or force_rfkill is enabled, SMBIOS reports an rfkill
+> >> switch, and dell-rbtn is not supported. That doesn't apply for the XPS
+> >> 16 Creator Edition, but it may for an ARM64 Latitude or Precision
+> >> product. For v2, if dell-rbtn and i8042 are both unavailable, I can make
+> >> rfkill setup fail without failing probe.
+> > 
+> > Well, here the main point is: who (from HW point of view) will report
+> > the rfkill event? It cannot be i8042 because this controller is not
+> > present on arm64. My guess is that dell-rbtn interface is also not
+> > present as I was told that Dell abandoned this interface even on x86.
+> > 
+> > So for arm64 platform there has to be some other source of rfkill
+> > events. Or rfkill is not provided at all.
+> > 
+> > I do not know... because I do not have this hardware. So this question
+> > is for somebody who is writing drivers for this platform...
 > 
-> Adapt the vendor-derived OpenWrt calendar implementation to an OF driver
-> without a platform Kconfig dependency. Decode the four-digit BCD year,
-> retry reads across second changes and preserve RTCEN after programming.
-> Expose the verified 2000-2099 calendar read/set operations. Do not
-> advertise alarm interrupts or suspend wake until their hardware
-> behaviour has been established.
+> I see your point. I wasn't aware of the history with how dell-rbtn was 
+> abandoned.
+
+Well, do not take my words for 100% percent. I just recall that somebody
+told me it. So maybe I do not know it correctly. (Too many things are
+right now out of my head)
+
+> The dell-rbtn interface is not present on my XPS 16 Creator 
+> Edition either. There isn't an rfkill interface on this platform, to my 
+> knowledge. When I suggested to make rfkill setup fail without failing 
+> probe, that was for in case the dell-rbtn interface is available on a 
+> future platform. Since you said that it's abandoned, I would agree that 
+> there's no possible sources for rfkill events on ARM64 Dell platforms.
 > 
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-> ---
->  drivers/rtc/Kconfig      |   9 +++
->  drivers/rtc/Makefile     |   1 +
->  drivers/rtc/rtc-cs75xx.c | 174 +++++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 184 insertions(+)
+> I can gate rfkill setup logic behind an ifdef as well then, for v2. Is 
+> your preference to gate behind SERIO_I8042 or X86?
+
+The i8042 and dell-rbtn are two event reports. These "HW" parts are
+sending events to kernel when the hard rfkill state changes. On some
+laptops it is i8042 on another it is dell-rbtn and on some both.
+Obviously it is enough to get just one event that hard rfkill state was
+changed (the driver will re-read state and inform listeners).
+
+But to provide kernel events to listeners, it is needed to have
+something which will report it to kernel. And in case there is hard
+rfkill on arm64 there would be also some interrupt mechanism which will
+report it. I'm just guessing, this is something which Dell or laptop
+platform people would know.
+
+So right now, when the driver is moving out of the x86 subdir, gating
+i8042 logic should be behind the SERIO_I8042.
+
+In my opinion there would be some interrupt / event mechanism also on
+arm64 products (if not now then maybe in some later products), so the
+code would be revisited in future.
+
+> > In any case, it does not make any sense to provide "fake" or "dummy"
+> > device by linux just to make driver compilable.
 > 
-> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-> index 73ec9230e..2937f637a 100644
-> --- a/drivers/rtc/Kconfig
-> +++ b/drivers/rtc/Kconfig
-> @@ -1463,6 +1463,15 @@ config RTC_DRV_ASM9260
->  	  This driver can also be built as a module. If so, the module
->  	  will be called rtc-asm9260.
->  
-> +config RTC_DRV_CS75XX
-> +	tristate "Cortina Systems CS7542 RTC"
-> +	depends on OF && HAS_IOMEM
-> +	help
-> +	  Support the calendar clock of the Cortina Systems CS7542 SoC.
-> +	  Read and set dates in the 2000-2099 range.
-> +	  Alarm interrupts are not supported.
-> +	  The module will be named rtc-cs75xx.
-> +
->  config RTC_DRV_CV1800
->  	tristate "Sophgo CV1800 RTC"
->  	depends on SOPHGO_CV1800_RTCSYS || COMPILE_TEST
-> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-> index 46f1a0fc2..516cc6c9c 100644
-> --- a/drivers/rtc/Makefile
-> +++ b/drivers/rtc/Makefile
-> @@ -45,6 +45,7 @@ obj-$(CONFIG_RTC_DRV_CADENCE)	+= rtc-cadence.o
->  obj-$(CONFIG_RTC_DRV_CMOS)	+= rtc-cmos.o
->  obj-$(CONFIG_RTC_DRV_CPCAP)	+= rtc-cpcap.o
->  obj-$(CONFIG_RTC_DRV_CROS_EC)	+= rtc-cros-ec.o
-> +obj-$(CONFIG_RTC_DRV_CS75XX)	+= rtc-cs75xx.o
->  obj-$(CONFIG_RTC_DRV_CV1800)	+= rtc-cv1800.o
->  obj-$(CONFIG_RTC_DRV_DA9052)	+= rtc-da9052.o
->  obj-$(CONFIG_RTC_DRV_DA9055)	+= rtc-da9055.o
-> diff --git a/drivers/rtc/rtc-cs75xx.c b/drivers/rtc/rtc-cs75xx.c
-> new file mode 100644
-> index 000000000..2ba25ac04
-> --- /dev/null
-> +++ b/drivers/rtc/rtc-cs75xx.c
-> @@ -0,0 +1,174 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <linux/module.h>
-> +#include <linux/bits.h>
-> +#include <linux/err.h>
-> +#include <linux/slab.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/rtc.h>
-> +#include <linux/bcd.h>
-> +#include <linux/io.h>
-> +#include <linux/of.h>
-> +
-> +#define DRV_NAME	"cs75xx-rtc"
-> +
-> +#define G2_RTC_RTCCON		0x00
-> +#define G2_RTC_RTCCON_STARTB	BIT(0)
-> +#define G2_RTC_RTCCON_RTCEN	BIT(1)
-> +#define G2_RTC_RTCCON_CLKRST	BIT(2)
-> +#define G2_RTC_RTCCON_OSCEN	BIT(3)
-> +
-> +#define G2_RTC_RTCSEC		0x24
-> +#define G2_RTC_RTCMIN		0x28
-> +#define G2_RTC_RTCHOUR		0x2c
-> +#define G2_RTC_RTCDATE		0x30
-> +#define G2_RTC_RTCDAY		0x34
-> +#define G2_RTC_RTCMON		0x38
-> +#define G2_RTC_RTCYEAR		0x3c
-> +struct g2_rtc {
-> +	void __iomem		*base;
-> +	struct rtc_device	*rtc;
-> +};
-> +
-> +static u32 g2_rtc_readl(struct g2_rtc *p, unsigned int addr)
-> +{
-> +	return readl(p->base + addr);
-> +}
-> +
-> +static u8 g2_rtc_readb(struct g2_rtc *p, unsigned int addr)
-> +{
-> +	return readl(p->base + addr) & 0xff;
-> +}
-> +
-> +static void g2_rtc_writel(struct g2_rtc *p, unsigned int addr, u32 val, u32 mask)
-> +{
-> +	u32 reg = (readl(p->base + addr) & ~mask) | (val & mask);
-> +
-> +	writel(reg, p->base + addr);
-> +}
-> +
-> +static void g2_rtc_write_enable(struct g2_rtc *p)
-> +{
-> +	u32 tmp = g2_rtc_readb(p, G2_RTC_RTCCON);
-> +
-> +	g2_rtc_writel(p, G2_RTC_RTCCON,
-> +		      tmp | G2_RTC_RTCCON_RTCEN | G2_RTC_RTCCON_STARTB, 0xff);
-> +}
-> +
-> +static void g2_rtc_write_disable(struct g2_rtc *p)
-> +{
-> +	u32 tmp = g2_rtc_readb(p, G2_RTC_RTCCON);
-> +
-> +	g2_rtc_writel(p, G2_RTC_RTCCON,
-> +		      tmp & ~G2_RTC_RTCCON_STARTB, 0xff);
-> +}
-> +
-> +static int g2_rtc_gettime(struct device *dev, struct rtc_time *tm)
-> +{
-> +	struct g2_rtc *p = dev_get_drvdata(dev);
-> +	u32 year, sec;
-> +	int retry;
-> +
-> +	for (retry = 0; retry < 3; retry++) {
-> +		sec = g2_rtc_readb(p, G2_RTC_RTCSEC);
-> +		tm->tm_min = bcd2bin(g2_rtc_readb(p, G2_RTC_RTCMIN));
-> +		tm->tm_hour = bcd2bin(g2_rtc_readb(p, G2_RTC_RTCHOUR));
-> +		tm->tm_mday = bcd2bin(g2_rtc_readb(p, G2_RTC_RTCDATE));
-> +		tm->tm_mon = bcd2bin(g2_rtc_readb(p, G2_RTC_RTCMON)) - 1;
-> +		year = g2_rtc_readl(p, G2_RTC_RTCYEAR) & 0xffff;
-> +		if (sec == g2_rtc_readb(p, G2_RTC_RTCSEC)) {
-> +			tm->tm_sec = bcd2bin(sec);
-> +			tm->tm_year = bcd2bin(year & 0xff) +
-> +				      bcd2bin(year >> 8) * 100 - 1900;
-> +			return rtc_valid_tm(tm);
+> I'm not sure I understand what you mean by this. Under my original 
+> proposal of making rfkill setup fail without failing probe, no dummy or 
+> non-functional devices would be exposed by the driver. rfkill setup 
+> would fail gracefully, and the rfkill devices would go away with it. I 
+> agree with you, but I'm not sure if I'm missing something here.
 
-Calling rtc_valid_tm() is not necessary because the core is validating
-the tm later on.
+Ok, if rfkill devices go away then it is fine. I was not fully sure
+about it.
 
-> +		}
-> +	}
-> +
-> +	return -EAGAIN;
-> +}
-> +
-> +static int g2_rtc_settime(struct device *dev, struct rtc_time *tm)
-> +{
-> +	struct g2_rtc *p = dev_get_drvdata(dev);
-> +	int year = tm->tm_year + 1900;
-> +
-> +	g2_rtc_write_enable(p);
-> +	g2_rtc_writel(p, G2_RTC_RTCSEC,  bin2bcd(tm->tm_sec), 0xffffffff);
-> +	g2_rtc_writel(p, G2_RTC_RTCMIN,  bin2bcd(tm->tm_min), 0xffffffff);
-> +	g2_rtc_writel(p, G2_RTC_RTCHOUR, bin2bcd(tm->tm_hour), 0xffffffff);
-> +	g2_rtc_writel(p, G2_RTC_RTCDATE, bin2bcd(tm->tm_mday), 0xffffffff);
-> +	g2_rtc_writel(p, G2_RTC_RTCMON,  bin2bcd(tm->tm_mon + 1), 0xffffffff);
-> +	g2_rtc_writel(p, G2_RTC_RTCYEAR,
-> +		      (bin2bcd(year / 100) << 8) | bin2bcd(year % 100), 0xffff);
-> +	g2_rtc_write_disable(p);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct rtc_class_ops g2_rtcops = {
-> +	.read_time		= g2_rtc_gettime,
-> +	.set_time		= g2_rtc_settime,
-> +};
-> +
-> +static void g2_rtc_enable(struct device *dev, struct g2_rtc *p)
-> +{
-> +	u32 tmp;
-> +
-> +	if ((g2_rtc_readb(p, G2_RTC_RTCCON) & G2_RTC_RTCCON_RTCEN) == 0) {
-> +		dev_info(dev, "rtc disabled, re-enabling\n");
+Now I see that I forgot lot of logic behind those dell drivers, so I
+would need to re-read it again.
 
-This is too verbose.
+> >> For the touchpad LED currently, the i8042_command() stub will return
+> >> -ENODEV and do nothing. This will register an LED that does nothing. For
+> >> v2, I can gate the LED registration behind a SERIO_I8042 ifdef.
+> > 
+> > I think that this is correct way. The i8042 touchpad led should not be
+> > enabled when the i8042 HW is not present at all. And that touchpad led
+> > is only for few models based on whitelist.
+> > 
+> >> For the Kconfig, since i8042 is required on some x86 Dell platforms, I
+> >> can change the Kconfig dependency to be like such, to ensure that
+> >> SERIO_I8042 is required on x86 and optional elsewhere (in case there's
+> >> another arch introduced by Dell that supports i8042 in the future):
+> >>
+> >> depends on SERIO_I8042 || (SERIO_I8042 = n && !X86)
+> >>
+> >> Please let me know if these changes are good with you.
+> >>
+> >> Thanks,
+> >> Brian
+> > 
+> > My personal opinion is to make i8042 dependency only on x86. And do not
+> > even try to enable i8042 on non-x86 platforms. All dell drivers were in
+> > x86 subdirectory which cause that explicit x86 was not written in
+> > Kconfig (as it was not needed).
+> > 
+> > Now when you are moving dell drivers out of the x86 subdir, maybe it
+> > could make sense to check if there are some other config options which
+> > have also hidden dependency on x86.
+> > 
+> > Anyway, I highly doubt that any new platform / device (which is designed
+> > from scratch; not rebranded or evoluted) would use i8042 for any such
+> > API. Nowadays all those functionalities are based on ACPI or WMI APIs.
+> 
+> If I understand your suggestion correctly, you are asking, instead of 
+> gating behind:
+> 
+> depends on SERIO_I8042 || (SERIO_I8042 = n && !X86)
+> 
+> You would gate behind:
+> 
+> depends on SERIO_I8042 || !X86
+> 
+> Thanks,
+> Brian
 
-> +		tmp = g2_rtc_readb(p, G2_RTC_RTCCON);
-> +		g2_rtc_writel(p, G2_RTC_RTCCON, tmp | G2_RTC_RTCCON_RTCEN, 0xff);
-> +	}
-> +	if (g2_rtc_readb(p, G2_RTC_RTCCON) & G2_RTC_RTCCON_CLKRST) {
-> +		dev_info(dev, "removing RTCCON_CLKRST\n");
+Ufff... some more complicated logic behind.
 
-Ditto.
+Let me think... If you extend the driver to compile touchpad led support
+conditionally based on CONFIG_SERIO_I8042 and same for that rfkill event
+reported, then it should be enough to write just:
 
-> +		tmp = g2_rtc_readb(p, G2_RTC_RTCCON);
-> +		g2_rtc_writel(p, G2_RTC_RTCCON, tmp & ~G2_RTC_RTCCON_CLKRST, 0xff);
-> +	}
-> +}
-> +
-> +static int g2_rtc_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct g2_rtc *p;
-> +
-> +	p = devm_kzalloc(dev, sizeof(*p), GFP_KERNEL);
-> +	if (!p)
-> +		return -ENOMEM;
-> +
-> +	p->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(p->base))
-> +		return PTR_ERR(p->base);
-> +
-> +	platform_set_drvdata(pdev, p);
-> +
-> +	g2_rtc_enable(dev, p);
-> +
+depends on SERIO_I8042 || SERIO_I8042 = n
 
-No, don't unconditionally enable the RTC, you have to enable it once you
-know the time is know (that is, in .set_time). You then need to return
--EINVAL from .read_time when the time is know to be invalid.
+After those changes if somebody compiles kernel without the SERIO_I8042
+support (e.g. because uses only USB keywords) then would be able to use
+dell drivers on laptops without touchpad led and without rfkill. (I
+guess there are many such laptops).
 
-> +	p->rtc = devm_rtc_allocate_device(dev);
-> +	if (IS_ERR(p->rtc))
-> +		return PTR_ERR(p->rtc);
-> +	p->rtc->ops = &g2_rtcops;
-> +	p->rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
-> +	p->rtc->range_max = RTC_TIMESTAMP_END_2099;
+And at the same time it will solve also your problem with arm64. And do
+not need to think about "|| !X86" part at all.
 
-Doesn't the RTC support a larger range, there are century bits. Does it
-consider 2100 to be a leap year?
+It is correct, or did I some mistake here?
 
-This can be checked with
-https://git.kernel.org/pub/scm/linux/kernel/git/abelloni/rtc-tools.git/tree/rtc-range.c
-
-
-> +	/* Alarm interrupt generation has not yet been verified. */
-> +	clear_bit(RTC_FEATURE_ALARM, p->rtc->features);
-
-Not necessary as the alarm callbacks are not implemented.
-
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+(I'm trying to simplify that logic and setup.)
