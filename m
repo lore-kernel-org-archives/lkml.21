@@ -1,55 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432526;
-	b=5g2kuPa8ATc2AWymSUWez2pXL2G8D0mB32/x9g5qv0uUJGM5Bz5JEPT93GF6VeE45oaK
-	 c1v83TJOsRBI495T4fxqbtIquOgqU1YJhzrYmO0wyg35L+ZzmoQU2rZ2byHc9lQdwFgX5
-	 6UE6si2EjJWOcoWGdB0oUgTpUeJkA9EbRUajcqvYb1l6mKA75etrwFHQPlAVAavXHXXqE
-	 7FKPpSU2PKYSTa6QR+SG7g1UYVQ55f86wnoYMrbwYl8YRhegVYWNM4a2x88pvlxoTFzJv
-	 XcaLF48veM8745q0TgWUcJdIYMCoNcjCh56J+13SwyHw/+Ky/tG51pRRcWEUaK+np9A==
+	t=1795432543;
+	b=DY3zEfA4sjjQfNlkZgf/x9u1JXOMNnKsbOhhl9gv4rXVwvxz/X00amiN7GBmRHtg+SXE
+	 Ge7hnaepuXF4YnzAs1vbOYTG4rQYXkPPLao8t+b848js6hbK9RMQD7jkR2gCH2xxr/h99
+	 bTEc01KES6tJ2/3+3Sxd9/FOyAFi4O+N9UJa0LBz015lHjS8mZ0EFssJ7jRnvTa54r6nH
+	 FMaL+2FHkx1OQF3Hme49JSXB+Q3l9m4LvVyhU6k7pwW2aE+FlVuL7sv/jRXVbBrTNrl95
+	 1FHibORpCdfyOWeqV2WSTeZkYpuuRIpNhgTebmMtaHcvT4sUbXYdxEpL4aHX4Ow0WOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432526;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=m3FH9Inv0u/v073kkt2usO8SlhkKeOQiuSBxAimhluw=;
-	b=iPUcEVXNgb7aEepMRc8wqIHXRMA7zn6PY+nJD74R9y6z6CKrux6FUJiGHMFC9NM+nkD7
-	 hVRbzw9lgvSMLScRdE+6GjrYLMxEiHo1/9XDZIYvCzYsVReQHme/PWNfG9A7IV4aDpjxT
-	 WNLa3Z0p7r3V9lT2xA6WW3v7x7/h/n282LsNgXOEYyW9OnVUx2UhQYBC4yCtqQulwZfwY
-	 gxJtyl3UyKk6gFaxgqkjL8y5DmbFPNgnNGBxo4glQi2Rn2+b4OeVwgFXDOTADU64LemgC
-	 acb2Dsle+OneU8tQOZoS490HrDzTWVFdNv0Jf6rRIZQfFwemGQaWaUcQzls3e3N9UGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432543;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=LX+A9a0lW1HiTrW/Uz2nviRvwPEaKkd8gMQoME4OxnI=;
+	b=P1WoyA43wbi70OAq5daMqn1DJj46OqJu4rmBoe/5HVMKYkmejKEg3frKlQXvNnBJKAI6
+	 GJwXVmfx0Eiaan/mjvvnOae8kNXfD2qoZPPujUMffcVx0//Mc5brcIPTTIr8WIOmGbWRS
+	 K5/FTne5wynlC/h8SKEvUn8M4dOwZzywbUPECO/RAs1KKeo7x/yuvoLfF7bvXCbqo539J
+	 1HW97Fq6K2CQ2wlholnYSbJGCU87vMZdr0m72vl4UfWM5hKVjIDc8IHuqaMEsU+66O9Y9
+	 LBt3VMt59srlt7RotaYuYPKFlHb81h3QFcSC1aa9MFCXz4GMoe90Ssa3XA1XswMJChQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="K/y9pfHw";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnSLJtMq;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 144ED606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:15:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39F24606A31A;
+	Mon, 23 Nov 2026 11:15:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39F24606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K/y9pfHw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45C411F000C4
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:15:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795432525;
-	bh=m3FH9Inv0u/v073kkt2usO8SlhkKeOQiuSBxAimhluw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=K/y9pfHw73GAzlQmjcS8+MU0hJ8thxYc/h57qMiaqMrJ+OooIQ7e6zCy5J1ExTCOw
-	 Gg25ykrF33YovsTmHj1GbKy7l8KOXILBz5cnbjfGkrhJMgiGpNvmmgKINppoUFYRRz
-	 ZIX3zb38lJxxOn+WxaH1WcqayE3K+LNgAqctj4DthFl/N27KMZcLwZqwiVchho0hEX
-	 wYVrn9zlhW0Cri0FY6YxxuAk/DTdcHmuJbDWfRdSLBhikl7PMfhjjQyELOX0VoeWhU
-	 I2skRoq2HGc6n149rtUDlYooV7hTQ9H0YYar+/eW5Z7VBI+ofZMEoYMYMiZet+MGrS
-	 6sQ7+1a9Lw/GQ==
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so1943616f8f.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:15:25 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGyix0QmV6ozvNgXf12UJoD9Km1Z4qv69HHqoPcJzUvOrafhK664J1QKm3X3Xd8sOM0AjGVtWmgN5SRibg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9q0ILglpgyehqefguqgH3R17fW/xcml/YmDtg3ZFvfb6aPsVDT
-	WtQPj+ykOxhkdryI9xzmtwsAuNSs57hrAfJDx87oJC+OM5nNwLKz5f2fUJYxTE/xZ2htqSgLnE0
-	zt4yQKerUo/5Bqr6lxBonq8hJNwzN/Go=
-X-Received: by 2002:a05:6000:4381:b0:4a6:5a2a:f5a3 with SMTP id
- ffacd0b85a97d-4abaa9773abmr21927640f8f.3.1795432522530; Mon, 23 Nov 2026
- 03:15:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnSLJtMq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795432543; x=1826968543;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0GpQepsmZFy1Eygu+W9dGi5Abg63IbCvsaFS9IHMmjQ=;
+  b=bnSLJtMqDA6pNaVItfceOxAH7pyqhBKq7iknleXNdfB3iG8HGRv/5gUQ
+   57ZQ8+43aumh1Q4F6CRp4mTHuIj218DAtm7aL6q0Zw7xB/20LOCxKJFCq
+   MgKq/t6/lz0krVXz6b/u+CbfXns0p00Db+07bU40MeFsk5qMDky8PDaR7
+   IBxvX95EBmnLCQrVCcFy/3GgkodnZubjVnztjxYIKxhylwWnhCTLHuCog
+   2zGXx4Kq/vA7m7BIkVTA5e5UIPzNdORwL0MQ8Oy1SswDNO6qlKwckTLIc
+   OFKL8jsc2X8YHDbuY1IXqUIQ6qpnnhyB6Iw+ZoRuco+QlF3w2A5zst7ia
+   g==;
+X-CSE-ConnectionGUID: ArTZG9VISDWOnn5go63wag==
+X-CSE-MsgGUID: K7CPaA2IRryOMbLUCQbiGA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4129649"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4129649"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:15:42 -0800
+X-CSE-ConnectionGUID: VU4irReYScOvik0QYjPauQ==
+X-CSE-MsgGUID: 63R25IokTeuM+ZATFNAn5Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11693110"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:15:40 -0800
+Date: Mon, 23 Nov 2026 13:15:38 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Gwendal Grignou <gwendal@chromium.org>,
+	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] iio: proximity: sx9324: reject negative
+ hysteresis values
+Message-ID: <awQgWmI3HmyqTcrS@ashevche-desk.local>
+References: <20261122074649.239441-1-kapoorarnav43@gmail.com>
+ <20261122074649.239441-4-kapoorarnav43@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,139 +85,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120012712.1957564-1-guoren@kernel.org> <awPgjwuswbjeDftg@thelio>
-In-Reply-To: <awPgjwuswbjeDftg@thelio>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 23 Nov 2026 19:15:07 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQ+cOYfQX=JsK6T6Aij79FU9RGuyxAAouyL958z8ABqng@mail.gmail.com>
-X-Gm-Features: Aa3M54qkVWzvIW1E3JY7I_38vKo1jeuZ7f-WFYjpRl8FFdSV5EvMxwly24Z7rYs
-Message-ID: <CAJF2gTQ+cOYfQX=JsK6T6Aij79FU9RGuyxAAouyL958z8ABqng@mail.gmail.com>
-Subject: Re: [PATCH V6] riscv: errata: Add ERRATA WRITE_ONCE fixup
-To: Drew Fustini <fustini@kernel.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, arnd@arndb.de, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Leonardo Bras <leobras@redhat.com>, Inochi Amaoto <inochiama@gmail.com>, Han Gao <gaohan@iscas.ac.cn>, 
-	Yao Zi <me@ziyao.cc>, Chen Wang <unicorn_wang@outlook.com>, 
-	Xiaoguang Xing <xiaoguang.xing@sophgo.com>, Paul Walmsley <pjw@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122074649.239441-4-kapoorarnav43@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Mon, Nov 23, 2026 at 2:43=E2=80=AFPM Drew Fustini <fustini@kernel.org> w=
-rote:
->
-> On Thu, Nov 19, 2026 at 08:27:12PM -0500, guoren@kernel.org wrote:
-> > From: "GUO Ren (XuanTie)" <guoren@kernel.org>
-> >
-> > The early version of XuanTie C910 core has a store merge buffer
-> > delay problem. The store merge buffer could improve the store queue
-> > performance by merging multi-store requests, but when there are not
-> > continued store requests, the prior single store request would be
-> > waiting in the store queue for a long time. That would cause
-> > significant problems for communication between multi-cores. This
-> > problem was found on sg2042 platform with the qspinlock lock torture
-> > test.
-> >
-> > So appending a fence w.o could immediately flush the store merge
-> > buffer and let other cores see the write result.
-> >
-> > This will apply the WRITE_ONCE errata to handle the non-standard
-> > behavior via appending a fence w.o instruction for WRITE_ONCE().
-> >
-> > This problem is only observed on the sg2042 hardware platform by
-> > running the lock_torture test program for half an hour. The problem
-> > was not found in the user space application, because interrupt can
-> > break the livelock.
-> >
-> > Acked-by: Arnd Bergmann <arnd@arndb.de>
-> > Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > Reviewed-by: Leonardo Bras <leobras@redhat.com>
-> > Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-> > Tested-by: Han Gao <gaohan@iscas.ac.cn>
-> > Tested-by: Yao Zi <me@ziyao.cc>
-> > Cc: Chen Wang <unicorn_wang@outlook.com>
-> > Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> > Cc: Paul Walmsley <pjw@kernel.org>
-> > Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
-> [..]
-> > diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead=
-/errata.c
-> > index 6f1c683f0ec0..64683882d50b 100644
-> > --- a/arch/riscv/errata/thead/errata.c
-> > +++ b/arch/riscv/errata/thead/errata.c
-> > @@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int s=
-tage,
-> >       return true;
-> >  }
-> >
-> > +static bool errata_probe_write_once(unsigned int stage,
-> > +                                 unsigned long arch_id, unsigned long =
-impid)
-> > +{
-> > +     if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
-> > +             return false;
-> > +
-> > +     /* target-c9xx cores report arch_id and impid as 0 */
-> > +     if (arch_id !=3D 0 || impid !=3D 0)
-> > +             return false;
->
-> Doesn't this match more SoCs than just the SG2042 and TH1520 like the
-> commit message mentions?
-The issue has only been observed on SG2042, though TH1520 is
-theoretically affected as well. To the best of my knowledge, it has
-not been observed on any other chips.
+On Sun, Nov 22, 2026 at 01:16:43PM +0530, Arnav Kapoor wrote:
+> sx9324_write_hysteresis() copies the value into an unsigned int before
+> comparing it with the threshold, so a negative value becomes a large
+> one, passes the "val >= pthresh >> 2" check and sets the largest
+> hysteresis instead of being rejected. The comparison is done in
+> unsigned int, so this happens on both 32-bit and 64-bit architectures.
+> 
+> Return -EINVAL for negative values, before converting them.
 
->
-> [..]
->
-> > +#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE=
-)
-> > +
-> > +#define write_once_fence()                           \
-> > +do {                                                 \
-> > +     asm volatile(ALTERNATIVE(                       \
-> > +             "nop",                                  \
-> > +             "fence w, o",                           \
->
-> I tried this on v7.4-rc3 in qemu with -cpu thead-c906 which matches this
-> errata, and I discovered boot fails when CONFIG_DEBUG_VIRTUAL=3Dy.
->
->   kernel BUG at mm/vmalloc.c:879!
->   epc : vmalloc_to_page+0x212/0x260
->    ra : patch_insn_write+0x1a2/0x414
->   [...]
->   [<ffffffff8026ba1a>] vmalloc_to_page+0x212/0x260
->   [<ffffffff8000fa76>] patch_insn_write+0x1a2/0x414
->   [<ffffffff8000fcf6>] patch_text_nosync+0xe/0x22
->   [<ffffffff8001b886>] thead_errata_patch_func+0xac/0x144
->   [<ffffffff80009548>] _apply_alternatives+0x76/0x96
->   [<ffffffff80e038a4>] apply_boot_alternatives+0x48/0x54
->   [<ffffffff80e04d4a>] setup_arch+0x92/0xe8
->
-> The vdso getrandom code uses WRITE_ONCE(), so it now has entries in
-> .alternative. patch_map() ends up calling vmalloc_to_page() on an
-> address in the vdso and triggers VIRTUAL_BUG_ON().
-Oh, thx Drew for catching it. I would disable it in VDSO code.
+...
 
-diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonc=
-e.h
-index 081793d4d772..5305b8bf82bd 100644
---- a/arch/riscv/include/asm/rwonce.h
-+++ b/arch/riscv/include/asm/rwonce.h
-@@ -8,7 +8,7 @@
- #include <asm/vendorid_list.h>
- #include <asm/errata_list_vendors.h>
+>  static int sx9324_write_hysteresis(struct sx_common_data *data,
+>  				   const struct iio_chan_spec *chan, int _val)
+>  {
+> -	unsigned int hyst, val = _val;
+> +	unsigned int hyst, val;
+>  	int ret, pthresh;
+>  
+> +	if (_val < 0)
+> +		return -EINVAL;
+> +
+> +	val = _val;
 
--#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
-+#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) &&
-!defined(NO_ALTERNATIVE) && !defined(BUILD_VDSO)
+You can validate assigned value instead as there are no side-effects.
+But while I wrote it, I have noticed that there is actually one, we
+modify the sign of the value. With that in mind maybe better to have
 
- #define write_once_fence()                             \
- do {
-
---
-Best Regards
+	/*
+	 * Assume only positive input, negative, after conversion to unsigned
+	 * is unsupported. // or something like this
+	 */
+	val = _val;
+	if (val > INT_MAX)
+		return -EINVAL;
 
 
+>  	ret = sx9324_read_thresh(data, chan, &pthresh);
+>  	if (ret < 0)
+>  		return ret;
 
- Guo Ren
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
