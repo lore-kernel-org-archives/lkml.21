@@ -1,76 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421900;
-	b=zWn7DhlT8dTNkDeNOeRy/NbGXV3iHbyvSA0AnLe/9K4q9R5Js1e60KzkJbJrr8v2twmA
-	 4oduj/wjnMkOWgulBTQL2W6JveOjiAJnaMVgRE0LopmRpBWqpPk6sdUx8EZ2EJ+43sKCK
-	 VyYT7oNq+F6hyFwFkYBpCcpijRd7wBhL2HD3xKvlvbBWAo6+MBZXD9NUdvRFZO/EHoVOq
-	 bZzvbMBw7HeHv8cwCexq6jSx+0IjgM9V7s/J/1QJaRQrKMn43rgPXNjgJalous+p+qqlf
-	 cQqJfZL/DO8StGp5B2T+t7+c3crwq2B24dlmiWie4DEBub1gy+YomSa8ObIFKZz3pPw==
+	t=1795421911;
+	b=g69qCX2EfFDU2swCxdBOUQ2seSLzXJO33QiYuu1ML/wkEb7A0B55F+myiC9Y3ibxeaNM
+	 Vhd98YAQ7YYDcjHOyYMSWGR7L1TQpGy4eblO2sEAqqW0n9f+kgS2hBGFgTozuvOUyhpLP
+	 gKX27UaiCZ4TvhViYfXpTGL9N4C+ZAhWzFsQXzTjkyaG+RktmHmw/0iS5PeF409GXBJ7R
+	 u+Bx3VHkKJmbx0OzZFHDofNZFMYEep4fU1BRfM4F2P0JgVPm1LIROe47TzMnWaADZFB1I
+	 ZmZ1aQCV/d0y5tVLmmbQPu1eN6Ha3EWukpDMJSyf1sffpkSrRC2CxW96sdQUF3ZCgPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421900;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:MIME-Version:Content-Type:Content-Disposition;
-	bh=Z3QttmCelU4fh+RHdrJMM1o3nxRY1YISOypB/Kw5PIU=;
-	b=MoNjM13SesK4An8AB7rrt1seI1rcHDYs1IdaRa1X+CT+azKmGuk7sjF38j1lbuhNTBqC
-	 cHKXwTefU1eHu18mkQgfxGIqvO45+z0OshmjLkvKz0QBwqvAD/djT+vRpcdN1iURmhunc
-	 kw2beX32NeAF98CQ31FuVBeK/K+QOkkjYSaFsCCEjaCCnERmNLIyZDqGPNV/UuBAl9x7s
-	 41kM/nxU01yvucDNwpi83RDzOneehOXSZAoo5qLufibDMk6eBE9iEsKIhuHtw3CY8EHCG
-	 ii5lHnxjDEjCuZJKiX6dKddPe8KtneVeh6vJMpQlTrqdIgvm4BWIaN3ZZ1sgYXDvvvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421911;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=pAi0FOlD7jecg0Jih3AEUeZr9uwQOqOruraPDjTwLmc=;
+	b=vw5+CV7ADiR6dHrLlJ6zqdCX7PAM8OvLxIRgnUrW9Zc+Ys5j85cluYRTYuLwkWzBtIrG
+	 R5mGa3tT5tvBHwePIxj8spVmNCXOtRjttg2Se6uA7D7kWe2lTV8lBFrVoiVYD+5DOP9O3
+	 lv2LGVps7OnCY/x8f75OAO03o+tdDAsVdV04nmQJ0s+b2Rwsa2chKiUoRduWchr5dHdWb
+	 /fRQVdh42dfc6be5OlYAaxv9//UkQxPBA9RaHdulELvGoY90+JNl0OjiZ8Aur3F+aJxdL
+	 NDdf4Sdj1ROuxMIKv2ZGIgEQfbPBNjgNFRTzRIevAxWf4Ov1uCNjF7Nc0mxV4q7W4Xg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EiJxPAMP;
-	arc=none smtp.remote-ip=95.215.58.10
-Received: from mta1.migadu.com (out-10.mta1.migadu.com [95.215.58.10])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ff7Tu3cH;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0247E606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:18:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0247E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC71A606A321;
+	Mon, 23 Nov 2026 08:18:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC71A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EiJxPAMP
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Kl7BLUrMrW5GdgYLUZN6g2j9PF1ge3efMGDYYuBtK3w=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795421896; v=1; x=1796026696;
- b=EiJxPAMPmUTcXbCTVFF0TSr6RySGowbPhtRM8APPwzdo4MBmUS29hy9k0FSjZOUdjQGIHng+
- jdP7+3CrSuQaD6NmU4cnrOaaxnxuxjuwmDLbwyeC0kflYRA7zHv8eyID8nXvE+HcSwHX2K8EhHJ
- TPkzFoCUhaYDUeUDSorG3Jus=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 94410b9f1b958063;
-	Mon, 23 Nov 2026 08:18:16 +0000
-X-Mizu-Trace-ID: 94410b9f1b958063
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 10:17:58 +0200
-From: Matti Vaittinen <matti.vaittinen@linux.dev>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Matti Vaittinen <matti.vaittinen@linux.dev>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Radu Sabau <radu.sabau@analog.com>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Salih Erim <salih.erim@amd.com>,
-	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/3] Support ROHM BD79111 ADC/GPIO
-Message-ID: <cover.1795421473.git.mazziesaccount@gmail.com>
-Reply-To: Matti Vaittinen <mazziesaccount@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ff7Tu3cH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795421911; x=1826957911;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YKa1djohSu06ZYy3q58kr/JnsMrhtdQAwwPmVBocZgw=;
+  b=Ff7Tu3cHqQlWas2ytOe0nSnPIrksEw1I6pqFCrsibu8YK0/n6InVtoC0
+   OuIcbPVxEcmxzNu43vuGf3SYWuIQfsKXsSoW5F7PlMp24e0x0IkwUYytV
+   XNBSwuvFY88EAVnC9thrJHGXBfDfRgpuZ70vyQHk6DrTwLfkxIr9E/VRy
+   9bQyt/Ikx6IKFrukRHiuivarVYhGCADz6yrFZssNOoPC1gRTf8yyOcDyO
+   8cI9J5RvmywxstDa7gjm/HRblC5N8Mld45Lk/2JXqz9FzLiHrl37hCON7
+   xF/dgQrdszTq9P4TzMG2WU9nxS6noXQzNA+DOS+TP03RwUImvsUENl7gG
+   A==;
+X-CSE-ConnectionGUID: Que+JSg0TUaTcZy3rpeHVg==
+X-CSE-MsgGUID: ONWSaUv1RnmUAu/zfs3fbQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4068633"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4068633"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:18:31 -0800
+X-CSE-ConnectionGUID: ep+NzUUMTlGojlella1x1g==
+X-CSE-MsgGUID: 6/T851vRRbK81n3gjfVcmg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11562913"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:18:28 -0800
+Date: Mon, 23 Nov 2026 10:18:25 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: Andy Shevchenko <andy@kernel.org>, Hans de Goede <hansg@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH] media: atomisp: Fix potential firmware leak after
+ partial loading
+Message-ID: <awP20Wbc1Fh2dWpN@ashevche-desk.local>
+References: <20261120173523.3923967-1-liguangshuo@mail.sdu.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,70 +83,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="a02bTfSpJ7pb+bT2"
-Content-Disposition: inline
-
---a02bTfSpJ7pb+bT2
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261120173523.3923967-1-liguangshuo@mail.sdu.edu.cn>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Support ROHM BD79111 ADC/GPIO
+On Sat, Nov 21, 2026 at 01:35:22AM +0800, Guangshuo Li wrote:
+> A failed firmware load can leave the minibuffer table and successfully
+> loaded blob parameters allocated. Probe skips firmware unload, and a
+> later retry overwrites the pointers to those allocations.
+> 
+> Unload partial firmware before freeing the IRQ. Clear all_binaries after
+> freeing it so cleanup after a later failed load cannot free the old
+> allocation again.
+> 
+> This issue was found by our static analysis tool under development.
 
-The ROHM BD79111 is a 12-bit, 16 channel SAR ADC / GPIO IC. Or, a "Signal
-Monitor Hub IC" as data-sheet describes it. The key difference compared
-to already supported BD79112 is the reduced number of channels (16,
-BD79112 had 32) and halved sampling rate (500 KSPS when BD79112
-data-sheet stated 1 MSPS).
+Please, test on a real HW.
 
-Revision history:
- v2 =3D> v3:
-  dt-bindings:
-   - No changes
-  driver:
-   - move 'Return -ENODATA instead of -ENODEV when no SPI match data is
-   found' -fix to the patch 2/3, which introduces the SPI match data
-   usage.
-   - Fix double semicolon and drop the unused macro.
-   - Suffle comment wording as was requested by Andy.
- v1 =3D> v2:
-  dt-bindings:
-   - Don't drop the 'root-level' additionalProperties: false
-  driver + Kconfig:
-   - Styling as suggested by Andy / Jonathan
-   - Split to two patches as suggested by Andy
-   - Return -ENODATA instead of -ENODEV when no SPI match data is found
-
-Matti Vaittinen (3):
-  dt-bindings: iio: Support ROHM BD79111
-  iio: adc: rohm-bd79112: Add chip info structure
-  iio: adc: rohm-bd79112: Support ROHM BD79111
-
- .../bindings/iio/adc/rohm,bd79112.yaml        |  29 ++++-
- drivers/iio/adc/Kconfig                       |  10 +-
- drivers/iio/adc/rohm-bd79112.c                | 112 ++++++++++++++----
- 3 files changed, 120 insertions(+), 31 deletions(-)
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
---=20
-2.56.1
-
-
---a02bTfSpJ7pb+bT2
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmsD9rQACgkQeFA3/03a
-ocUowwgAgkfw2swuzUe9ERFyOXwKz5reM4OGlRzFGjsiuBs/B9jrvmq6ecN5NiCb
-oFL1sgNc+cFF9kA0ajmAV+Jvt73wE1sIb6oYqKxHMCeNyGxtUfnt1Dnl87EcvTCp
-m77PYVP8/B0o0JKXhtU+oSTCUihWYwmCZhohDzYyZKXxnvPT44knpJN6V4D1sy4C
-gD9bpdrrmhWkwXv/kZPOc1f2B4F91vfgaH7GJVNyEEUJtAQ5SxAHgpjuETezT7aC
-oIW8BEvk+HxDkik09apW6ueIdCbJR73yN7D7M5+MMUWdcppK2oNJTJzN++2plUPr
-7FmxC7vD76xr8pECVsSJPk35s7N7Vw==
-=bNMM
------END PGP SIGNATURE-----
-
---a02bTfSpJ7pb+bT2--
