@@ -1,63 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795426866;
-	b=R6g0pd3R/Nr5rTDlJ7RyKSDkRZ8D0QY2LzEszSlBIgfLyBjaOU2NgP3vm5mx1mwgn8Zr
-	 WMC1G9j7jGuyRUv+qx6+cemHKeGA84nFX3oif7zuMQzRwQ9zlXwimhLRBNB6wgR02EdRQ
-	 7V2CxQ59jATtuqvz7qiP/XWs7kW14/32neqp7dDc9cQ2vmROWTVjo3vRR1gTjSpc8FL8y
-	 KLTJhH+3Y7pwd5m4AxsGoAZhoyqvgQNqglfnrESxxvAdqmQqqJRF593dc3+Tdy5JaYOk1
-	 Ue+B6wrWDC9wiAl1tCJdz3Ketbrqu7V680CjKmPfYkott3iYrqPzah+gPYwxvWpA9UA==
+	t=1795426870;
+	b=CoESHMhlOQlD7BU4pT6ZaQqCwXoDVOXV4qQ+dWXammBNJ/bqFOqE/9KXWCxGWpHE8ifX
+	 Q812GsdjHyqtKej744jUcJZ40kRKNKtLMwrSaTobqNbCmsqFOhOBaW5G7TFwkZp0wd0LO
+	 im3lJIBXYsAU8TkLs5aFaZVKRFpkXjaFpPBSvgEDJkPRX6yETHImzaec4+/JthVVS1xVp
+	 jPSqO3ylNmnp/hG9sOGTZJH3Wjz7i7DnyNWrQCySS+z/bksZiYhsu9Qx3OrcDfyFsi6h1
+	 nyyjXvJr1JM/mxEnOnNVbOa/sQWS1z7qs/zq7L6jljNoxBS0okrFzGS+unrsuPoam5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426866;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zDbsCd40aR7Nelqiz/HDZ/5GIrPYzGKWnCVoVVylrKQ=;
-	b=hvuiX1q8CV/B8ccKK+hs/lg/0lC5C3xuePHTQ1KynhMYh9lvAzgLOjscCJTpHsB2mGah
-	 0F9W6QL6RRmw3oaZoXsSdSQNf3+mdoAkgCJF+HSOUNRvaKJI+FXbDuEoZomIK0BHdiyv3
-	 AIu3uy9R967DrecL6T4NKRH0v2bqHW1QGOha8nnqolvM+e0GYEGKnOnAyqrE7y9eIZA30
-	 JdVTZ4xVHSxe8ihMifSnmZsJm0K+TPgAi/Z38wGk88Z17d5ueboeevuxng9NTEDvbIL9f
-	 8IV2HeU9k9vZfTrvbYqRpl3Jh9yoUZGVYlfY1tctmRLywChZCwdN0CPJUAjgvsF8bGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426870;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=klUf2CdqHQRXCM9LUthGI+m1p+fVvUp/IIQj44sT9IQ=;
+	b=2lx5QeMKyZjhpBg2xrHH/f8NJTv1EcO4OKyAKUZTRCUTvF0W/0diPgtkd6RhtRTuaxzh
+	 VMPP7X0lftMLuqeWvf4DUPc49/W7Qlrl/EPOiP40thFbqO/3UrcM3tzTAedWclIw3yDN0
+	 T3AmpUVW/L7nMctEljh3jCtLy+JddRW7Z38gzPFXP4tug+lWZFQfRUCyPCT7EehL9UHkF
+	 EcViQxgHe56hXjIKgvmgzDAZtRb7hlQ1WpqNIl5BOLQVopPh4X/9dalhLOFdyk0wdUlhd
+	 t8/mVdqrzJkvg7gzkxWHq5po4xPahkko/EXZ/t2xtxjrKichKnJWPBJjUzAbUe2xM/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ii5KGgU9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="Rtp02d3/";
+	arc=none smtp.remote-ip=115.124.30.124
+Received: from out30-124.freemail.mail.aliyun.com (out30-124.freemail.mail.aliyun.com [115.124.30.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA831606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:41:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 368B2606A32C;
+	Mon, 23 Nov 2026 09:41:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 368B2606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ii5KGgU9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0A971F000C4;
-	Mon, 23 Nov 2026 09:41:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795426866;
-	bh=zDbsCd40aR7Nelqiz/HDZ/5GIrPYzGKWnCVoVVylrKQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ii5KGgU91+AwbrxiYqP9KH9Qd4WEHVCyZvPdZcqMGofPlPGy8+vUsx8utI1Qc+as7
-	 2VH7UaMcpWjCvQQknd1XiMpG4PdTc2TvX/8pstKHeb9RzXXJDJzhKs/t9BifU4S/ws
-	 C4mcsSDGgS8dXgHf4XW6DtisLdPPBhjdEsJr5JnFwMlauuOhTQioA6fwiSJYLUPOWh
-	 /yUsoW2h2Ey9gPXxGg8MD6GeDuR79Qc/GUdsUF0MzrZjNYfptWG0dbxk9t6N+4APgM
-	 c3jWodz4up8EhQQu1p3+wJk1CwO0TWnBfg++BYfabEfRjqijD3PrJVWxMjmv8ro6hu
-	 twnyGDZej7qUQ==
-Date: Mon, 23 Nov 2026 10:40:58 +0100
-From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Li Zhe <lizhe.67@bytedance.com>, Andrew Popple <apopple@nvidia.com>,
-	Balbir Singh <balbirs@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	James Houghton <jthoughton@google.com>,
-	Lance Yang <lance.yang@linux.dev>, Qi Zheng <qi.zheng@linux.dev>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 10/11] mm/cma: localize init_cma_pageblock() to cma.c
-Message-ID: <awQKKhcwHGM-oiFW@localhost.localdomain>
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-11-songmuchun@bytedance.com>
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=Rtp02d3/
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795426860; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=klUf2CdqHQRXCM9LUthGI+m1p+fVvUp/IIQj44sT9IQ=;
+	b=Rtp02d3/aSuZuhPF7fGO+np6FdZ0DoeOW5fdJ8Z48IAVoBOrhNAjWhwrWHAtgf2d0OzSnMhb/PXsTf6xEF4JgYOnlFlMauy8FBFSxbyce/6vVg04+4mnn/nVNwc6HwmiyFuFV76cXh4tZA7bvAM+dObikmS0/5Xz/llkX33zG1M=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R681e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0XFGswNE_1795426856;
+Received: from 30.74.144.153(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XFGswNE_1795426856 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 17:40:58 +0800
+Message-ID: <100c33ee-be1c-4eeb-a94c-567cc0337c78@linux.alibaba.com>
+Date: Mon, 23 Nov 2026 17:40:56 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,22 +53,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120100856.16929-11-songmuchun@bytedance.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/5] mm/vmscan: move code to lru_gen_{add,del}_memcg()
+To: Max Kellermann <max.kellermann@ionos.com>, akpm@linux-foundation.org,
+ kasong@tencent.com, qi.zheng@linux.dev, shakeel.butt@linux.dev,
+ baohua@kernel.org, axelrasmussen@google.com, yuanchu@google.com,
+ weixugc@google.com, baoquan.he@linux.dev, david@kernel.org, ljs@kernel.org,
+ liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, hannes@cmpxchg.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, rcu@vger.kernel.org
+References: <20261116081403.216452-1-max.kellermann@ionos.com>
+ <20261116081403.216452-3-max.kellermann@ionos.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <20261116081403.216452-3-max.kellermann@ionos.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 06:08:55PM +0800, Muchun Song wrote:
-> Move init_cma_pageblock() from mm_init.c into cma.c so it lives
-> alongside the CMA code that uses it.
+
+
+On 11/16/26 4:14 PM, Max Kellermann wrote:
+> Preparation for the following patch that adds tail caching.
 > 
-> No functional change intended.
+> For simplicity, hlist_nulls_del_init_rcu() is now always used, which
+> is also valid during rotation, because the entry is immediately
+> reinserted under `memcg_lru.lock`.
 > 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
+> ---
 
-Reviewed-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
-
- 
-
--- 
-Oscar Salvador
-SUSE Labs
+LGTM.
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
