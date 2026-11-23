@@ -1,56 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=157.90.84.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437409;
-	b=w2CwNJdcFlChC3iGnFxQkrgNHDVbZ1u+B6j7QNHTTB33CgkgUJeEUmgQb4bqe6mPrGCK
-	 Oroksnes0Z5Lcslyq7y8buSAgyqlmOHZGFF9O1j8A2nMfUeeQK7VrvlnFigaPKqlBGpJK
-	 znWBCEG2fNVI5cy1RhM7aCVZsCG22gXX6mS8DMyf5YWthwTliZKnY5+ACafgEtWFSwSc5
-	 pWMkI6HdPaKbsGx20eoP+zY4hPELqXLG9PwT8otTUvISelzlrpZ/gR7+D03Qxc7aUXA3j
-	 OXJ9xC7lNLYyczOw+KC3RShMSW7AsnNKo934bkMI9kLeloDwZZwcUF19P23b6sJwEkQ==
+	t=1795437407;
+	b=jpoxsdpwudoK0jbfTVQU5r2uVGdEG+7Oqsch70tDnEjNuz7EBYrSvWAtko5zv4k4rO5q
+	 Aof8JmtGzQoqlM69WtH3ZkS9zyyg/WiDeu+6AgA+Wqxy8OmmwPezS2G+5AeRSmxDSrgNQ
+	 AlsjBP+KoRr4Af+ldSY+SyFLj/WuGmpHXX4p8lqbkydnIrzRGg13w9Dxwq1yV0YRz6k8S
+	 sXMnsS0PnbSbhAEb9/4TfHMKYLKdvNLuwfya13Xl7PpnAx2q9ohg78Y1qbEpnyCwCsKrX
+	 LD3vZGJ2u6NByDU1TwbC0nsVGsXOdDNzVSZU7v0M9EfKfoOgcWrzjWTUYv5pvrFMKvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437409;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=aZULuFGfR20WLnUBRKpi0zNnosUrXLsUQp77Bob/cn0=;
-	b=UHnNQdN4q4+G1sRbyfoa/+VHdf6Zkcd0Cokxd+BApr3J5cjXj72X/Opgjv+vi+yXNo6/
-	 nMX6yvknjmULKn8Z7Ue+is8XbbtKgN20vI2wZdFMJcGC8PF/l7ofDbzRV/CKC4R48xGWX
-	 x6cUAEfsiU/7nfs4XBPQqqb9vpvothVhEb9QREEKZ36CdphP/p8+zjLCJfPlB33C/z47Q
-	 RdmepG1j0BEExBJUpYFX50UvGuM8P1X1XWzTALtIQ/oM89l/aykBiQW++A8oV85VMF/Tl
-	 vLWW/d5t0nbhVJH8cnEi+69WFBZExNuTZls+OFZWI9SK8PJWKjOz9iAxtM1gYea08Zg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437407;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ZZRwBHNibaWlFnpiuuEMtUB0YA/t47H+l2X5jKIQ1Dw=;
+	b=vF3Z3/9GzKbWckbi8BhjBxi0p2FfBKlXapRH8MTXdgMspyfUCw4GKOJqKhMgPrN7P2Hn
+	 Q4ysj2rizMnrdnDBMAHqNRAV+urt0DP1cxNLJMWrmCYP60XnbqZ+AixoXR5aGUEcefXsZ
+	 qbbWPYXGvX6INawF8dexRC/aGFSCjosGJNiWj7Zmg19oZf6mVdO5WbvBslRproVpFbsRz
+	 haUuTxkukluFDntzmEo2zzTdOEEw3RMPouC9YtTA2q7QOkmQesq7fWFZuelv9e4yZC0HW
+	 tvKSigKGckSmIDo7hHRSKzXg3udIBTEuxPGJ1u1rDb7O4vX9miZHTut2Qf7UjhRWEAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tuxedocomputers.com;
-	spf=pass smtp.mailfrom=tuxedocomputers.com;
-	dkim=pass header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=j0WVyS9X;
-	arc=none smtp.remote-ip=157.90.84.7
-Received: from mail.tuxedocomputers.com (mail.tuxedocomputers.com [157.90.84.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=atlI4xhW;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FA25606A6BC;
-	Mon, 23 Nov 2026 12:36:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FA25606A6BC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tuxedocomputers.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tuxedocomputers.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B50D960A2612
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:36:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B50D960A2612
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=j0WVyS9X
-Received: from [10.10.12.8] (business-024-134-105-141.24.134.pools.vodafone-ip.de [24.134.105.141])
-	(Authenticated sender: wse@tuxedocomputers.com)
-	by mail.tuxedocomputers.com (Postfix) with ESMTPSA id 171152FC0049;
-	Mon, 23 Nov 2026 13:36:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tuxedocomputers.com;
-	s=default; t=1795437406;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aZULuFGfR20WLnUBRKpi0zNnosUrXLsUQp77Bob/cn0=;
-	b=j0WVyS9XNEwULcbxeyO2qiAWSEe5ARR88HvjfXkm7nFR0LQS+4JwcfZkZ9tOjs3N7cD0V4
-	iunF5PjyQRNmZUDKN7KTSuxfzxWnqkaahx3qAOz+vqHliSP2d0aofz5HxmL4OwegzRTgEz
-	UKLxLGSmOtAq6VN/tXxzSZQPFYZq07o=
-Authentication-Results: mail.tuxedocomputers.com;
-	auth=pass smtp.auth=wse@tuxedocomputers.com smtp.mailfrom=wse@tuxedocomputers.com
-Message-ID: <5b1f2805-e1a1-4f06-a5b3-b0644daff5cd@tuxedocomputers.com>
-Date: Mon, 23 Nov 2026 13:36:45 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=atlI4xhW
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3869b68caecso4153999eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:36:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795437406; x=1796042206; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZZRwBHNibaWlFnpiuuEMtUB0YA/t47H+l2X5jKIQ1Dw=;
+        b=atlI4xhWUQnHPQ9nkYx3mQO8Swph4K/bleOIqj2B5EWCD+vbxo7zUlwusUjhC8SBMI
+         74SAW8d+AsGsQPS49KlhZ3wmObfzg3i8k6bjnLML1v3xvmi93htAIrRa3G5Mt47kUkbg
+         8WPcf+BlbVDglyiG/AoRiiYZEv/QbipWZYqJLn/H5MvLp3vLv/WGzFZS8cZZUREwIitt
+         q0EFaL7AhpJcMNbXN/xAKAu5BF0Ucd6YxQBsWhUGBV0e0YZUYNlHBOa0Xb/jU4GhT689
+         kH9CLaUi8j8aRI+IOBYW7nODAPcyglZclBG0+lvwv1k4+VVdcc2GJXQFBiHF+2emdk/p
+         nl4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795437406; x=1796042206;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZZRwBHNibaWlFnpiuuEMtUB0YA/t47H+l2X5jKIQ1Dw=;
+        b=m3D61fAr422mbLxaevZ4BO6a98FVb/czhFDaSImSszzZiMcVf5mEUircNm61c2wC1j
+         vKirqhWl9so+n4Z90Bpf+Fkyuc7+UH4JalsJAH1Si5p0SCM3xOcfKwMOwpYecioHVmSz
+         uEz4DdJ2Ggv+StVv2cuGK+esZs1dZMqP8trwBVNMdvo1s7FOSbaLSLhZNNEOngxEVfhT
+         GtEN9DnLBzzQUh1ddkdm8NnWfMtI6yWinkTyxzvAJvwtHWFcXgFsc9EACBhmYSOEsmNq
+         KgQV7xcvQQskwIgbaSHXb9M6S8eKlFmG9eXM8+79tR2ffY373yyPfmN0Aw4a0eNrJhM5
+         Xbcw==
+X-Forwarded-Encrypted: i=1; AL+hErGkYiZGi1HMirK4x7NwWSFvC3H/fuJNljQvWm+106xpnfSWVWkMoo3X4TqX248+mzy1dAvVNUL4A1CdJQI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8zBLIhZSWebC2lV4jTDMttg9HcYQki7YWZytxkV6TVPfPSe/uY
+	gzGEvtW5oVuCT7+GdXg3EjmriKX+SW6SX2sHG1pH7j9rMD21h7wi1CYg
+X-Gm-Gg: AZFdTZfL+NTQzNK+FcPLAVPovWzXKLDjQ0QYDuWiPtum/o6XKOthp+wQxCfDE2Fr8z+
+	Hq/xxVGXoldQWRhD+1KI/Waj/eBWpwHTRqn6CKN/AAlT7zhEXQRgdxVe99IGWIvoAdblNYuqqFc
+	yRJjOlcvugUKtRuSP76qPtDjGlgwErKFXJdnvYAjymBaae0CCNuImNs5QFgoIR3emhWnFIAsfG0
+	Atgf6peuhDyO0n/Zp1o618VZIpEJriIkO1YAye2yMTYsypbslrxh7GiVsgIFGCsmLjIcB0wlJrF
+	IDOrrAv/v26k3gCb/Hlye8zMNz39QJwA6ufITBEpygqrXjFaDTPi/Fm+ZRXiJwsoIsVNOw3Txo4
+	KJ3+neFOcVgOLsh1P2LyOjgiR6aKR/cqdzItMzDTmYabn+8QehAS0APLa3XuCZqXZML2SE/w3xk
+	VIW9cBJUJclb8srwZrMfwdzloeQ1Rlx0eGZ8PQtqMFrW4J//i8OH/DT9cwGWwcXecYewttNuxjD
+	NApb0+rWVOKbmdRnVJ3WDaSXI4Cto1uxBxP2EOIwrNg8DjMNnL31sMmD/abgjqWsOrQgwb80oYE
+	QBM7/90r+OlE3B+CaOxAcfYroBJGpLTUiDMt0TjHtoqUROAYaYL6si4MYBuJ1Y5j3Gw=
+X-Received: by 2002:a05:693c:8209:b0:36a:4a68:84e5 with SMTP id 5a478bee46e88-3856f14bcfbmr12986753eec.8.1795437405845;
+        Mon, 23 Nov 2026 04:36:45 -0800 (PST)
+Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm32854353eec.13.2026.11.23.04.36.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 04:36:45 -0800 (PST)
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v2 7/7] arm64: dts: qcom: msm8953-xiaomi-tissot: enable front and rear cameras
+Date: Mon, 23 Nov 2026 19:35:46 +0700
+Message-ID: <20261123123546.152162-8-hikmahgumelar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261123123546.152162-1-hikmahgumelar@gmail.com>
+References: <20261123110805.119610-1-hikmahgumelar@gmail.com>
+ <20261123123546.152162-1-hikmahgumelar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,103 +112,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] platform/x86: uniwill-laptop: Remove cTGP control from
- unsupported devices
-To: Armin Wolf <W_Armin@gmx.de>, Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261113144749.59958-1-wse@tuxedocomputers.com>
-Content-Language: en-US
-From: Werner Sembach <wse@tuxedocomputers.com>
-In-Reply-To: <20261113144749.59958-1-wse@tuxedocomputers.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+Enable the CAMSS, CCI, CSIPHY0/CSIPHY2 ports, and the OmniVision OV12A10
+rear camera and Samsung S5K5E8 front camera on Xiaomi Mi A1 (tissot).
 
-Am 13.11.26 um 15:47 schrieb Werner Sembach:
-> Some devices like the InfinityBook Pro series have Dynamic Boost support,
-> but the cTGP setting is actually ignored.
->
-> This commit adds the ability to still initialize DB, but hide the noop cTGP
-> sysfs attribute and applies this to the respective devices.
->
-> Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
-> ---
->   drivers/platform/x86/uniwill/uniwill-acpi.c | 26 ++++++++++++++-------
->   1 file changed, 17 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/platform/x86/uniwill/uniwill-acpi.c b/drivers/platform/x86/uniwill/uniwill-acpi.c
-> index e2a6a704e942e..c0a75bc6e66db 100644
-> --- a/drivers/platform/x86/uniwill/uniwill-acpi.c
-> +++ b/drivers/platform/x86/uniwill/uniwill-acpi.c
-> @@ -366,10 +366,12 @@
->   #define UNIWILL_FEATURE_PRIMARY_FAN		BIT(8)
->   #define UNIWILL_FEATURE_SECONDARY_FAN		BIT(9)
->   #define UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL	BIT(10)
-> -#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(11)
-> -#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(12)
-> -#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(13)
-> -#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(14)
-> +/* Mutually exclusive with the cTGP control feature */
-> +#define UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY	BIT(11)
-just realized something i forgot: this mutual exclusivity must be added to the 
-force parameter. v2 incomming
-> +#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(12)
-> +#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(13)
-> +#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(14)
-> +#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(15)
->   
->   enum usb_c_power_priority_options {
->   	USB_C_POWER_PRIORITY_CHARGING = 0,
-> @@ -1004,7 +1006,9 @@ static int uniwill_nvidia_ctgp_init(struct uniwill_data *data)
->   {
->   	int ret;
->   
-> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
-> +	if (!uniwill_device_supports_any(data,
-> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->   		return 0;
->   
->   	ret = regmap_write(data->regmap, EC_ADDR_CTGP_DB_CTGP_OFFSET, 0);
-> @@ -2577,7 +2581,9 @@ static int uniwill_suspend_usb_powershare(struct uniwill_data *data)
->   
->   static int uniwill_suspend_nvidia_ctgp(struct uniwill_data *data)
->   {
-> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
-> +	if (!uniwill_device_supports_any(data,
-> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->   		return 0;
->   
->   	return regmap_clear_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
-> @@ -2686,7 +2692,9 @@ static int uniwill_resume_usb_powershare(struct uniwill_data *data)
->   
->   static int uniwill_resume_nvidia_ctgp(struct uniwill_data *data)
->   {
-> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
-> +	if (!uniwill_device_supports_any(data,
-> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
->   		return 0;
->   
->   	return regmap_set_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
-> @@ -2910,7 +2918,7 @@ static struct uniwill_device_descriptor phxtqxx_phxagxx_phxaqxx_phxpgxx_descript
->   		    UNIWILL_FEATURE_GPU_TEMP |
->   		    UNIWILL_FEATURE_PRIMARY_FAN |
->   		    UNIWILL_FEATURE_SECONDARY_FAN |
-> -		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
-> +		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY |
->   		    UNIWILL_FEATURE_USB_C_POWER_PRIORITY |
->   		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT,
->   	.kbd_led_single_color = true,
-> @@ -3106,7 +3114,7 @@ static int phxarxx_phxaqxx_probe(struct uniwill_data *data)
->   
->   	if (value & HAS_GPU)
->   		data->features |= UNIWILL_FEATURE_GPU_TEMP |
-> -				  UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL;
-> +				  UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY;
->   
->   	return 0;
->   };
+Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+---
+ .../boot/dts/qcom/msm8953-xiaomi-tissot.dts   | 114 ++++++++++++++++++
+ 1 file changed, 114 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
+index fccb9c4360ca..5d4fd7f42042 100644
+--- a/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
++++ b/arch/arm64/boot/dts/qcom/msm8953-xiaomi-tissot.dts
+@@ -308,6 +308,20 @@ ts_int_default: ts-int-default-state {
+ 		drive-strength = <2>;
+ 		bias-pull-up;
+ 	};
++
++	cam_sensor_rear_default: cam-sensor-rear-default-state {
++		pins = "gpio33", "gpio39", "gpio62";
++		function = "gpio";
++		bias-disable;
++		drive-strength = <2>;
++	};
++
++	cam_sensor_front_default: cam-sensor-front-default-state {
++		pins = "gpio129";
++		function = "gpio";
++		bias-disable;
++		drive-strength = <2>;
++	};
+ };
+ 
+ &uart_0 {
+@@ -325,3 +339,103 @@ &usb3_dwc3 {
+ 	/delete-property/ usb-role-switch;
+ 	dr_mode = "peripheral";
+ };
++
++&camss {
++	status = "okay";
++	vdda-supply = <&pm8953_s3>;
++
++	ports {
++		port@0 {
++			reg = <0>;
++			csiphy0_ep: endpoint {
++				clock-lanes = <7>;
++				data-lanes = <0 1 2 3>;
++				remote-endpoint = <&rear_cam_ep>;
++			};
++		};
++
++		port@2 {
++			reg = <2>;
++			csiphy2_ep: endpoint {
++				clock-lanes = <7>;
++				data-lanes = <0 1>;
++				remote-endpoint = <&front_cam_ep>;
++			};
++		};
++	};
++};
++
++&cci {
++	pinctrl-names = "default";
++	pinctrl-0 = <&cci0_default>,
++		    <&cci1_default>,
++		    <&camss_mclk0_default>,
++		    <&camss_mclk1_default>,
++		    <&camss_mclk2_default>;
++
++	status = "okay";
++};
++
++&cci_i2c0 {
++	camera-sensor@10 {
++		compatible = "ovti,ov12a10";
++		reg = <0x10>;
++		clocks = <&gcc GCC_CAMSS_MCLK0_CLK>;
++		pinctrl-0 = <&cam_sensor_rear_default>;
++		pinctrl-names = "default";
++		reset-gpios = <&tlmm 33 GPIO_ACTIVE_LOW>;
++		pwdn-gpios = <&tlmm 39 GPIO_ACTIVE_LOW>;
++		vana-gpios = <&tlmm 62 GPIO_ACTIVE_HIGH>;
++		avdd-supply = <&pm8953_l22>;
++		dvdd-supply = <&pm8953_l2>;
++		dovdd-supply = <&pm8953_l6>;
++		rotation = <270>;
++		orientation = <1>;
++		status = "okay";
++		port {
++			rear_cam_ep: endpoint {
++				data-lanes = <0 1 2 3>;
++				remote-endpoint = <&csiphy0_ep>;
++				link-frequencies = /bits/ 64 <216000000>;
++			};
++		};
++	};
++};
++
++&cci_i2c1 {
++	camera-sensor@2d {
++		compatible = "samsung,s5k5e8";
++		reg = <0x2d>;
++
++		clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
++		pinctrl-0 = <&cam_sensor_front_default>;
++		pinctrl-names = "default";
++
++		reset-gpios = <&tlmm 129 GPIO_ACTIVE_LOW>;
++
++		avdd-supply = <&pm8953_l22>;
++		dvdd-supply = <&pm8953_l23>;
++		dovdd-supply = <&pm8953_l6>;
++		rotation = <90>;
++		orientation = <0>;
++
++		status = "okay";
++
++		port {
++			front_cam_ep: endpoint {
++				data-lanes = <0 1>;
++				remote-endpoint = <&csiphy2_ep>;
++				link-frequencies = /bits/ 64 <418000000>;
++			};
++		};
++	};
++};
++
++&pm8953_l23 {
++	regulator-min-microvolt = <1200000>;
++};
++
++&pm8953_l2 {
++	regulator-min-microvolt = <1200000>;
++	regulator-max-microvolt = <1225000>;
++};
+-- 
+2.47.3
+
