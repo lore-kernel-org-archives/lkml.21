@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795460189;
-	b=5ZuDW/GIRG8NxbOfOZQTKq6xYPbfapogRJRPoJXj2e+5BmbM3nWbmxYm64DZztz1sc40
-	 I/LaKeGheJidzH30rj/epl7Nr5fbXS+WN/cwt4veJYkhyfKRuVeHEwqU6h0oPKLDqyH0W
-	 6vRD5uGzI4wd5O5cHn8chcYvU1aYIYUPc8UWWUsWnDJQfH1Z5/0+B8nvc4uKq6GxNG3GH
-	 K9wKTJJu3XBxAtaDQ3qslyRrYay0AS0P0yxMJYZa0YBuBGpdIXZiATkTiNHIHUcrR3AE2
-	 hE9NgpgeAszuoO6jENaOJStPOown5FclnNl3pTo3tpAKLm1JaiT0gSfRxsF0YYgmwWQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795460189;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=OnczQ3wxMDViQssbLqUHjFh88GfCTCb774Gt0G83kDQ=;
-	b=ORJsOQdaO2rnkfM9M3/CbtAIQBhlf1bvHm7pUnCucm6X4uM02ajDnxJW36xgY5+A7SC4
-	 zbviEuuhfvErmq5BeaZfhdKDZHuQ2Tq1qxAF9ITKZCKy2eyb7yH83Sru5V1jIjDv9DRZw
-	 pj8SW1fusBTVp6icoyMakQtWfWywGGLU5+wm0G3u1/39yVp06jMaQGUnSC12DrKJxsFAP
-	 BY01A7L3RqvgzIrmORuCqpzd5N0uDcZV6E78u166rAwOXG9M2VSIuMUB8E638mDm9niNi
-	 J0gkw2+b7yUeGzfOOyp3z9md0SC83Www7bwHNXNW70b6yXmWYPGDFcEoQYlpjTH8u8Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795460003;
+	b=uG+arzzinqUBYv7UfwWHxX1vYxsJ/Nd+iNBRuGvMbS5PsWDFo4TNmAHkJdtX3orL4T7w
+	 Eq52dyK4SaBPKtTipLDzNt2dWELrvSG0aOS1UW4OGGGf67P5zB/dqOjxZlTTUi1bfyTjf
+	 rL9FCCNgL3km1TfOFs5oa5nWHRoi/rL9x6CL1R1UbkmcFwzO+8r7Si2m+OegGrjEuZeaG
+	 54XQsQ1rcKVRFk1JeCf5XapN95Y76sS+kFdKnTjUaiiJMRb+xtAUz48wJISUv9SwpRNBA
+	 2W6zBkSzVeoolD/HXTDpE0Q+oXhmcoBqErIZ30O3tyvZx7GjHkqnmBsYvkzLVNOpzaA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795460003;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+wxKwr0AUBQ7HPKVFsvVRhysvOdPNYac/4XTxhyTbxM=;
+	b=HXHsqtc2dqyBFZGEgzRdPPmF1XvnPOaG5PzSEnm9j8uF+46uHTOeNOIk7VKONFvwMcX0
+	 EsSFuvQojt3PtX2QW9Z6QOgQfwGZ1q+3iwFcz/iGpEEb5HelLPCtBOFn7JZoLz41W6bc9
+	 HyDbD4M73obVv2jk/3ve+K8ltl2pFCDK9tQAYtaoM7u8QvIW6T/Qo9hIJiDKXVgeKnepB
+	 BNWwMPWsttXXPncIMjH9OybG2f6SMiGCef9ONK7r5j7S6dCe1lQvp8Htt7+dVXLreoTmp
+	 YvOYdDdwFvjiqeduc1tQcUVRNUv4kypNr5XxO8VXFK0rTOmpKmgCP7KMmYPvJkW7mvg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hZm4Gy/C";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1318C606A31E;
+	Mon, 23 Nov 2026 18:53:22 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hZm4Gy/C
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795460002;
+	b=jbE5KYlXo3tTDI82I9lCHbVI432dR433YtiHse6vLoCtf42Ydr6n3VMFlLdeO6PFLJen
+	 aJpbu9/XGFAjM2aI3v3fFiDr8rS89gumGpv1smBjYblPeI3bAy1JoraiRBP46zgOw1KBd
+	 p1TxLc9/HovtirSL/RuhIHMbn5kuRxAKOHpmWkA3/UEFswB6b1EX7KrtKrmxzzL32fG9j
+	 gVZnFY9yeKfkxl4auCg1ddRQ3/mqvAnbDMVv3V/l2HTN/OVfqvLwTqHhVezIKinfnvxBd
+	 8S9psTh+o1foVRVWqHrpCMa9/jbGPWVddakS3ZpAz1QojvoAIO0aIJvrT8aV9T+DWbg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795460002;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+wxKwr0AUBQ7HPKVFsvVRhysvOdPNYac/4XTxhyTbxM=;
+	b=29BVlU2JunP+b+3Jzgz6CPAEXzXJwaDGBRUIbLUx7fCc07yh4Y1zwBH5ITp/7gt3/FC/
+	 22qfW2kT8SvtmcTM7FSFtfJxjEfm15X/uyt5TTYnrDyhX1NbSmXLjDKotCA8t8Fd3DCb6
+	 iTA8oV/27VWWlavp7EhYYLWG2YFbdhOI8fPpZO6a7DZ1GRMhkLgx9OttajYsR2I6vDJ08
+	 +VSf2EXkAszsCkxz/SbQ0JHHW5he8kt45xof9/vngY+TsFkHAptlX7/MqqfbNh5k3ddgy
+	 aUCKgO+FMWP7GHrJVh9RhkjVNzdwDltKgPqzFwjEKLzxo3NK2YgUFytWQbs5G395iAQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C180606A330
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:56:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C180606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4e937c5bd4fso3133678b6e.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:56:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795460188; x=1796064988;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OnczQ3wxMDViQssbLqUHjFh88GfCTCb774Gt0G83kDQ=;
-        b=rpkyd/NLNKGG0qyuH/nwRcpsetQ9fSkm/O74IFWBCW0ZhlozGJmICZ+gX/RRsMfngE
-         HuMaFGT7A55UpI2V6U7PEQa+i43yueIbxOqtoqpLztIJ+9fT7bVSMMcZgi+1TcXuKkNW
-         32DtnrYuhFVMfEqOku/mgH/aGmKUboHPvF/qkk+NiF7ljY/eiNpZ45OwZJRs0k3gtiro
-         tcBowJLkLVZKQ302NjUbpb3ho2k7OZYGumAGl7kw9p2qoZ1uB8VW//visvZ+WTtw6Qgt
-         Rr7O921rLkjUdKXEXXfSWIRhu1mkuDLn9KMbd+694c6ILJo3Se9qI8R+UZenja5wB/cT
-         Lq7A==
-X-Forwarded-Encrypted: i=1; AL+hErE/hH6MaiyRr1BmhFtOFqwN9drbJ07zFYDwc9+qB1h8sdo9ww225IOUBDgRNTKe/XnvuJO031vvhogiJDY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8duFekcUt5m3xhxYrNKd4gzKKO3daLuTFvaNQwBkdNJKwhfnFN
-	+fN7RWd4Puv55jWJByRVtJtEtc+TY60n1jYC4cU2uRBESIR9+XG1uAD8kTtGbkVAgzLf4yXcFN9
-	VKcw7b0v5h4g0f73LN2O8wmXleu64YpZFwvd1OKT+2Ym94wfvduIt9bnXnuM=
+	by smtp.kernel.org (Postfix) with ESMTPS id D22FE1F000ED;
+	Mon, 23 Nov 2026 18:53:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795460002;
+	bh=+wxKwr0AUBQ7HPKVFsvVRhysvOdPNYac/4XTxhyTbxM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=hZm4Gy/ClI8J1x6AEuTLrcVAreI8T2KcHDqTKwIGHndDRltgDm57JjzZxk4UvcdSw
+	 WoW0rm86cKCHZ6ibPv/C4efJcuE0h4zLTWTrL6xIGvOdM+w2UUCkCizFkzXRWiRc/D
+	 YZrWalR1/bey0p1noYwS/U0Nv0diHeYjPJ8EIUKUTHrJKkKpB2RP/r4oElr8FqJGvg
+	 uz6zFjIUqUYR3vqlU2rQvKOGqqc8G7zLvpl8Qc2m4pAbeOA/8inbLHJtcHVdIxMo6A
+	 bRMLMvZP5Rz6HOfI/8XDJvVPwpsirk9Vv3zOXN09mK4Br/Uw/sA+TOVoInugWJaYYb
+	 PvF/kMHeAVZow==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 5A4E44C635;
+	Mon, 23 Nov 2026 18:53:00 +0000 (UTC)
+From: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
+Date: Tue, 24 Nov 2026 02:52:55 +0800
+Subject: [PATCH v6 03/18] mm/memcontrol: avoid potential counter leak when
+ reparenting local stats
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,112 +83,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:6f97:b0:573:30a5:f24d with SMTP id
- 5614622812f47-57a0a10c7f6mr13468904b6e.17.1795460188434; Mon, 23 Nov 2026
- 10:56:28 -0800 (PST)
-Date: Mon, 23 Nov 2026 10:56:28 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b048c5c.a481e175.27cf24.0021.GAE@google.com>
-Subject: [syzbot] [iomap?] WARNING in iomap_release_folio
-From: syzbot <syzbot+daa4cd155cd8696efe4f@syzkaller.appspotmail.com>
-To: brauner@kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-xfs@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-mglru-fg-v6-3-8ffea39934a6@tencent.com>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+In-Reply-To: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+To: linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, 
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>, 
+ Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>, 
+ Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>, 
+ Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>, 
+ Ehab Ababneh <ehab.ababneh@intel.com>, 
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
+ Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
+ Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, 
+ cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org, 
+ Tianyi Chen <hi@tychen.cc>, Kairui Song <kasong@tencent.com>, 
+ Ridong Chen <ridong.chen@linux.dev>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459977; l=3407;
+ i=kasong@tencent.com; s=kasong-sign-tencent; h=from:subject:message-id;
+ bh=DITLxusEF3jFekXchW/A6iHzf//ot6gPbXly+2fd+cQ=;
+ b=oQEvwa9i+84qyXpmUPi7pXNiCe/5dSBG7wL+wB1oC2sXK73KSejhjUMAwogTXAJ3+Pcs3FOdO
+ fyAevJbJU6HADPweDl0ahO3Xr133F1H4Ez41aJ+ynn60czLlmD8SsmG
+X-Developer-Key: i=kasong@tencent.com; a=ed25519;
+ pk=kCdoBuwrYph+KrkJnrr7Sm1pwwhGDdZKcKrqiK8Y1mI=
+X-Endpoint-Received: by B4 Relay for kasong@tencent.com/kasong-sign-tencent
+ with auth_id=562
+X-Original-From: Kairui Song <kasong@tencent.com>
+Reply-To: kasong@tencent.com
+Content-Transfer-Encoding: 7bit
 
-Hello,
+From: Kairui Song <kasong@tencent.com>
 
-syzbot found the following issue on:
+lruvec_page_state_local() clamps negative values to zero on SMP.  That
+is right for readers reporting page counts, but can be wrong for
+reparenting once MGLRU updates the counters without the lruvec lock.
 
-HEAD commit:    4843f6873f7c Merge tag 'sysctl-7.04-fixes-rc4' of git://gi..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=106a12b5580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=3cc6a7ee2d24d208
-dashboard link: https://syzkaller.appspot.com/bug?extid=daa4cd155cd8696efe4f
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+Reparenting runs after the forced stats flush, so a negative is a real
+balance that has to move to the parent, not be discarded. We will
+introduce lockless MGLRU promotion which may cause following problem:
 
-Unfortunately, I don't have any reproducer for this issue yet.
+ 1. A refs CAS on a folio on the child's lruvec moves it from
+    inactive to active, and its active/inactive counter update follows
+    as a separate step.
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/98fce4d0b21b/non_bootable_disk-4843f687.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/86db8b334894/vmlinux-4843f687.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/94ea4dad441a/bzImage-4843f687.xz
+ 2. A concurrent isolation of the folio reads the folio as active,
+    debits the child's NR_ACTIVE_* by delta before CSS_DYING is visible
+    to it.
 
-AI-generated root cause summary:
-`ntfs3` registers iomap folio lifecycle callbacks (`iomap_dirty_folio` and
-`iomap_release_folio`) on `ntfs_aops` and `ntfs_aops_cmpr`, which attach a
-per-block `struct iomap_folio_state` (`ifs`) to folios whenever
-`i_blocks_per_folio(inode, folio) > 1` (such as when NTFS cluster size is
-smaller than `PAGE_SIZE`). However, `ntfs_read_folio()` in `fs/ntfs3/inode.c`
-directly calls `folio_mark_uptodate(folio)` instead of
-`iomap_folio_mark_uptodate(folio)` when `ni->i_valid <= vbo` (and the same
-pattern appears in `ni_read_folio_cmpr`, `ntfs_compress_write`, and
-`attr_make_nonresident`). If an earlier incomplete or aborted iomap
-write/zero-range operation left `ifs` attached to an `!uptodate` folio,
-`folio_mark_uptodate()` sets `PG_uptodate` without updating the `ifs->state`
-uptodate bitmap. When kswapd later reclaims the clean folio via
-`iomap_release_folio()` -> `ifs_free()`, `ifs_is_fully_uptodate(folio, ifs) !=
-folio_test_uptodate(folio)` triggers the `WARN_ON_ONCE`.
+ 3. The child is killed, and the two __update_lru_size() calls from
+    step 1 land on the parent: NR_INACTIVE_* -delta, then NR_ACTIVE_*
+    +delta.
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=daa4cd155cd8696efe4f
+The child is left with NR_ACTIVE_* -delta while the parent holds the
+matching +delta, and reparenting the child's raw value is what cancels
+the parent's credit.  However, if the child happens to hold few enough
+folios for that counter to be negative, lruvec_page_state_local() clamps
+the child's negative to zero, which drops the debit instead, so the
+parent keeps NR_ACTIVE_* overcounted by delta, and its active + inactive
+total overcounted as well, permanently: the child's local counters are
+gone once reparenting is done.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+daa4cd155cd8696efe4f@syzkaller.appspotmail.com
+So use a raw signed helper and reparent with that.  Ordinary readers
+still keep the clamp.
 
-------------[ cut here ]------------
-ifs_is_fully_uptodate(folio, ifs) != folio_test_uptodate(folio)
-WARNING: fs/iomap/buffered-io.c:295 at ifs_free+0x22d/0x2c0 fs/iomap/buffered-io.c:294, CPU#0: kswapd0/84
-Modules linked in:
-CPU: 0 UID: 0 PID: 84 Comm: kswapd0 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-RIP: 0010:ifs_free+0x22d/0x2c0 fs/iomap/buffered-io.c:294
-Code: 41 5f 5d e9 55 0a bb ff e8 30 8e 4d ff 90 0f 0b 90 e9 0a ff ff ff e8 22 8e 4d ff 90 0f 0b 90 e9 3a ff ff ff e8 14 8e 4d ff 90 <0f> 0b 90 eb c7 44 89 f9 80 e1 07 80 c1 03 38 c1 0f 8c 3d fe ff ff
-RSP: 0018:ffffc90000ed67e0 EFLAGS: 00010293
-RAX: ffffffff827bbe6c RBX: ffff88803922d400 RCX: ffff8880338a8000
-RDX: 0000000000000000 RSI: 0000000000000008 RDI: 0000000000000000
-RBP: 00000000827c3c01 R08: ffffea0000538607 R09: 1ffffd40000a70c0
-R10: dffffc0000000000 R11: fffff940000a70c1 R12: dffffc0000000000
-R13: 1ffffd40000a70c5 R14: 0000000000000008 R15: 0000000000000000
-FS:  0000000000000000(0000) GS:ffff88808a9ea000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007fb6145bafe8 CR3: 000000004527b000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- iomap_release_folio+0x254/0x450 fs/iomap/buffered-io.c:826
- shrink_folio_list+0x22e2/0x4d90 mm/vmscan.c:1569
- evict_folios+0x3326/0x4390 mm/vmscan.c:5097
- try_to_shrink_lruvec+0xf22/0x1630 mm/vmscan.c:5271
- shrink_one+0x312/0x10f0 mm/vmscan.c:5318
- shrink_many mm/vmscan.c:5381 [inline]
- lru_gen_shrink_node mm/vmscan.c:5459 [inline]
- shrink_node+0x631e/0x6c50 mm/vmscan.c:6465
- kswapd_shrink_node mm/vmscan.c:7258 [inline]
- balance_pgdat mm/vmscan.c:7429 [inline]
- kswapd+0x1ff4/0x3a20 mm/vmscan.c:7705
- kthread+0x38b/0x480 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
-
-
+Reported-by: Kunwu Chan <kunwu.chan@gmail.com>
+Closes: https://lore.kernel.org/linux-mm/CAN_Opa-+nb0vxQ+HsENCG2fEEMZoxG9Sy_DBC4CLkWjNLzDWKw@mail.gmail.com/
+Signed-off-by: Kairui Song <kasong@tencent.com>
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+ mm/memcontrol.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+index 091401cecf39..3f551e2e3206 100644
+--- a/mm/memcontrol.c
++++ b/mm/memcontrol.c
+@@ -562,11 +562,10 @@ unsigned long lruvec_page_state_monotonic(const struct lruvec *lruvec,
+ 	return (unsigned long)READ_ONCE(pn->lruvec_stats->state[i]);
+ }
+ 
+-unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
++static long __lruvec_page_state_local(const struct lruvec *lruvec,
+ 				      enum node_stat_item idx)
+ {
+ 	const struct mem_cgroup_per_node *pn;
+-	long x;
+ 	int i;
+ 
+ 	if (mem_cgroup_disabled())
+@@ -577,7 +576,14 @@ unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
+ 		return 0;
+ 
+ 	pn = container_of_const(lruvec, struct mem_cgroup_per_node, lruvec);
+-	x = READ_ONCE(pn->lruvec_stats->state_local[i]);
++	return READ_ONCE(pn->lruvec_stats->state_local[i]);
++}
++
++unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
++				      enum node_stat_item idx)
++{
++	long x = __lruvec_page_state_local(lruvec, idx);
++
+ #ifdef CONFIG_SMP
+ 	if (x < 0)
+ 		x = 0;
+@@ -595,7 +601,8 @@ void reparent_memcg_lruvec_state_local(struct mem_cgroup *memcg,
+ 
+ 	for_each_node(nid) {
+ 		struct lruvec *lruvec = mem_cgroup_lruvec(memcg, NODE_DATA(nid));
+-		unsigned long value = lruvec_page_state_local(lruvec, idx);
++		/* Reparent the raw value: the clamp drops the child's debit. */
++		long value = __lruvec_page_state_local(lruvec, idx);
+ 
+ 		__mod_memcg_lruvec_state(memcg, nid, idx, -value);
+ 		__mod_memcg_lruvec_state(parent, nid, idx, value);
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+-- 
+2.56.1
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
