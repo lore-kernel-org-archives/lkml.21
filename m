@@ -1,62 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795456255;
-	b=iMEj5Vwoa3f5ky4lr6rkqicnjW5WI/4kyTMvc7YJHKzhUjjtRTL85btZpJZvtzIPsNnW
-	 x72VBgm3lFXT1vOo0cz3VwcSFinuREbaFXJhfO84FrtJv4OB3wKltO4zsAv6i24cG1/sg
-	 e5ekrG2B30t8Nh48v3OtG4lFZjdPA0tC4OncS6mL+o5xmdRXh2WomaehChvlIiftqHJkN
-	 OzIMIe7PqeD8wOdA92bEkpkNC3iP653pwBmSUXIbYWUnr+mBxCsOCekLLmcD4/0MdXtGm
-	 OwzUrztUbB5Kk4v0uD/NsUVxwuERMKxPETxU9k3ePIPzbVw/RgfXWjQ+lIKljDzUxMA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=uoTJNTVmfE2CeB8CTbM9hjbqpIYSqycc7NKOwzXDw7hU9hl1xG48eh7S7lw7nWjBrXHx
+	 mtQjvh/0R/ULnMPQ85A22QvkPLVGV5moMNeOUWTvQwAA/HHjjIOTpN+YMLB9GR8b9D/vJ
+	 Lh2L1/+ai+sXz9dC886QlT78vx9hwcnl3ExzCSs5j8bqk6Rl2EUyaH3hxE8lmDF/V/wvT
+	 I1owxIfuzfJx21Q+X0M7l46E/gIAW73Z2etqNOw0igo1/1OBP7c3snkxUqCo0Dd2dYRhj
+	 OcWysOezaA9xLExmmV3BkZaT9L3tBtg03gb8AduoS7jcyAGmnq4us8spTnT8RB4onTA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795456255;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BmdihYOxirTm+1eTZLfQO693ehUdXJrj7zcBiNWtsTU=;
-	b=EI63RUyGy9TUVrDVSmQG04oVxXV9eQa/apzL6GLlMUutVogwyYZQIJZvPAoTne489k5Q
-	 Jfsy67/6Q6Vg+DCLOB8mlT36pCx4ePiJWLnDuKbIyc48o0kmE5DuBeK/MquHGbG1wjhKp
-	 ewHP0j7Ate5HmtjS++EXUwyQl6hijFYmBd0rP1LWxhLjwl6y+JAdLNJRQdPScAd72S/89
-	 36pzyyDSpPm0L4lfQkykQVrQnoVcUdFaJ36xGc2ysVKujAhWT2bla938ETBicE53z6aN0
-	 nPLDCFzQcVEMxaoMEeR35OY7AvN86qhaqhEfFxpVEiNyYKvnTGBXGfi79tiucOcj+XA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nSRmqnb+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ezlDWRMj9kmxxJBJDvLQDaV+rNJm+P/qJAKPI2Vbze4=;
+	b=4XAAdnpdXCZ2A4fZ+3NsWty5wA0xEbu+JvdPqh50GMSVxC3Do9eLEnL1yDFWb1cL1/au
+	 E/s+e4anPNXjXiCHPB0M9Gh++dQvuSuIBuOOm1ZL1F7YCnLy+65wPHiZdDVDfZ5qTd+E3
+	 cVsY5fzwsYk3IjaDYZrFinh3Zhr4fSBxDBvdShuMkn0imXNTtCUb6nfLjatWNx1hiO1VX
+	 e6RMKduD//uvs+0vhwOiTR3Br6qh2jUk/IK6k2SoOi3tGKGTDBD9M+CIZ9cCPKSf7ARHx
+	 3wZTbU5myP90NkZyYRCEth9sZcqVYNHF0mzGxE3y/Zn0rz9S/3DILcCUeuMeDzM9rkw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Rw6Pf2ZE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54937606A32E;
-	Mon, 23 Nov 2026 17:50:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44FB7606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:50:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44FB7606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nSRmqnb+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 654B31F000E1;
-	Mon, 23 Nov 2026 17:50:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795456254;
-	bh=BmdihYOxirTm+1eTZLfQO693ehUdXJrj7zcBiNWtsTU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nSRmqnb+fUbrWxvbElJY6njf1lvjAVkusLXLFpjaFxEgQ+kYXgZgf4ZMN68xKQ+YZ
-	 ZDuOeDeOvEWuXxAdz4qv+/1uDMRZHkpDyX1hQ1mnfoWDZcWUddJmIEI6qTPdBUTbDg
-	 awoNG1kWDag7/uPxC53z6rUsK6vHnGFypQu7hk2+cVKf5+sypF3nTrEcss5aYpXMw+
-	 xoDcJp5Jg6FpDbcSSK1DeP6iO6/SlQUJfg6gEnYBS9hlbKJYlzvCxsOFMRDYGV3Chi
-	 5TT1OusQZKg4Q+PiFJOYRjcC7vso4DnCTC4vreS0mgIU0gaaEptbrENdnfFZRF2lxm
-	 Et+USmiUgrwyw==
-Date: Mon, 23 Nov 2026 17:50:46 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Jia He <justin.he@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, 
-	Shuah Khan <shuah@kernel.org>, Sascha Bischoff <Sascha.Bischoff@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 1/3] KVM: arm64: Don't load hardware vCPU state before
- first run
-Message-ID: <awR4AzA5xeyNmz7i@gremlin>
-References: <20261123150917.2679600-1-justin.he@arm.com>
- <20261123150917.2679600-2-justin.he@arm.com>
- <86eccbzcqh.wl-maz@kernel.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Rw6Pf2ZE
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb6860f867so102595e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:50:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795456254; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Z4LjYrZZUA2SZ5wIQbKBFv15UcvuF5AJCRjUMnsJyyNqhQb5LnEAW2/ikm/iwIVVqZ
+         tUwU9Z2WFPcSIysf9z7OOjW5kwO8fb7zdxRO6BRSkINI4OEtNY1lgwm5jAG6slBaUdsw
+         nMYVzMbzN8sDReIVttK1Ss3k0XSLDKTvCWzQU9fmBqWWfsRAKFR10kLjTKq4HyVzb+PZ
+         aosVE4/iKFLPBCbLMNVdce/+F11L6tfKCpflQvlG1TEUH7STJlrOu9xbZhSwbKo7J9T1
+         UXUns2WtlOWiQZ/cKctnt1YGHSMEvOIAnhJNl1mVUFY+WsNWOuzaZWGDI41Xzug43lnO
+         kvGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ezlDWRMj9kmxxJBJDvLQDaV+rNJm+P/qJAKPI2Vbze4=;
+        fh=73UGsWo9DpJXfGpw+4Tu+vmKBvADAL0BwjND6WfGHX0=;
+        b=fO/bhV1xCXDsjYkMuLhJ5CB14ZwqDxuWhnK5PsjKUDO9bcmKsua73PPlpGeT9EAtHX
+         4N0ZmcUQ7lAHLWWzs/NOQRSZ0TaqQAyTc8tMkpPSkjWaB51dwh/H/30y6nah5JXzg2TW
+         8M7WObq+isGozLIQRFAuEKrqV1/1u4BppCi2ZbCkxjHdSKwDOYiqqJH+0nJHURoIELhY
+         m8HskE3KR3EimVbJQkeS2wqxJ+xxkBIurYo1HemJ34eInM8pqAJtG7pOkPwdaON04xWd
+         7F4tnvp+xOBtqdHPi2yps4HEzK4FJ+dccW5niDzlrW2Umo8LDuZOYMT/BNdONlPIaboe
+         P4CQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795456254; x=1796061054; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ezlDWRMj9kmxxJBJDvLQDaV+rNJm+P/qJAKPI2Vbze4=;
+        b=Rw6Pf2ZEwkI1UXO7urWIQFYldmXs8W5N8krS6E97FFE6mZKhIHwUDIn10TfS01gjv0
+         2ad/qxb2eC2QJ2UwmKmpX8g2xrOhdsb+6+H6gCquaMukF9SRNBjDmZHbmjQIwwKtRQiz
+         4OnUASOkQ+gEQPbp4T/4aQR4JKBPgDMoGv8nxz+UYm2NOW8p0PGH2bBJwz/WImNU3r1U
+         7r8Czk+/KdZ24CppBqkaigsCmxPO9BAkydO5jrN1Xf3tfO/6af1kY2RhTIaGc/+at7nS
+         QY++jE75t3ZW+U8KeoNEjOh2ljFPeod1xGq4fsrYeZNmNMxs/loEagZUSbz58olNW7Oy
+         5/Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795456254; x=1796061054;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ezlDWRMj9kmxxJBJDvLQDaV+rNJm+P/qJAKPI2Vbze4=;
+        b=tnhV2k0YpaXDP6xoCYWC9TOq6mZXklE6W04fKvWhT5uRrLP0/Zy4n/eGUy8LZQ2ZpC
+         IuE+xEDWoGMSTFNohpoFqw/wVtG4mBcQNimeFdAYu7TdiG7GOqYc5bVRiddayuW0EWN6
+         niB4NsW1pl4HuzIQsUjwPiDWTgtdng++AheLE/fvJAREzCVEeXqix3uHvg9YIlnlytTz
+         bVynBH1w5vBDpOEBoYx32RjYUidWPYpY+A913uAHyRhxYZGSm0hzH1HvYj9PXfgyA70z
+         UkwWepvgK2/9K9xZ7pZWSCVmdSfzhWhwa2/pfu0AapTcV1Ol8XaJbczAJZBRlKfi48c7
+         uYfw==
+X-Forwarded-Encrypted: i=1; AL+hErEPTqb9Gt8lBlB8HbZKXmqHgQYquf3JUYpdAq3Vvv953/NjyXqFQehJaeeu1b8WQmy32cyusjMZvEpwPBg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z909trveNJj6gzfoRVB9DLip9xDuejimPOWDWOZCj6WojX+H9KX
+	GOOUTfH6/569Feh3BpNLXZjbQaf/QQMvaDFXHW3BwcWyl5qqTxHQtwBHLJ6UTroKm5bIPzhNKav
+	Rw+KLhvDzh0ahXgIlfFxtcvzSHhtegfmJywDffj3B
+X-Gm-Gg: AZFdTZdmGe0/AvXyZSaDlroJyGAhXjl/fL+ytGmkQ81ryipbRNeTSu+e+/Fq3rtFUP3
+	rU+WR1sYr/gBJiry23Iji7umzip3//peRVRgb0ZVE68wmuasnyxBxywruJQzY2qm67o52Qf2Ulw
+	YuCaD6WuW0ndZ1EJAFZsWYAH1tgtZxgRfP/TRrFUVcaWiYUnMegEcl32OWywNi3y4palqNnD8cT
+	lS1tPl1XI9U5fh7rfo82rxNoDwMHPJMJq49HXbEf55EmjyLOHbf0z5Xf9FnJ6TZqoCV19NUP8H5
+	P86VES2FWN/eXv/GuF9jzfTP9zm/9QibSPqz/KwEVrLfiyOPLfBuFo+fTiMLmyV0pyA8OawMcQi
+	jS2Auz4sms/2v9Y54OP03hCJMZlCRo3/k0SeAB4wvQcFIfB1HnIjpjf0V2a7F7xeR2Zg=
+X-Received: by 2002:a05:600c:287:b0:4a1:e368:cbf7 with SMTP id
+ 5b1f17b1804b1-4bb909d0619mr1867585e9.0.1795456253076; Mon, 23 Nov 2026
+ 09:50:53 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,93 +104,156 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86eccbzcqh.wl-maz@kernel.org>
+References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
+ <20261120135013.GO3115493@ziepe.ca> <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
+ <1f10002ea9ee16a17087bd06e4a1685a973fdf6e.camel@linux.ibm.com>
+In-Reply-To: <1f10002ea9ee16a17087bd06e4a1685a973fdf6e.camel@linux.ibm.com>
+From: Naman Gulati <namangulati@google.com>
+Date: Mon, 23 Nov 2026 09:50:40 -0800
+X-Gm-Features: Aa3M54qK7IY8ZMBupflhQ8_7jK3YPX7yjpTGqvTp5f5henwr9osR6FHQsicVdiQ
+Message-ID: <CAMP57yVZx=s-JXHfQfd_ouv2jV6MMsJXpxVLkQQHG=7qfFVJfA@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
+ for DMA and CoCo
+To: Niklas Schnelle <schnelle@linux.ibm.com>
+Cc: Luigi Rizzo <lrizzo@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, 
+	Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Willem de Bruijn <willemb@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Joshua Washington <joshwash@google.com>, 
+	Harshitha Ramamurthy <hramamurthy@google.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
+	Christoph Hellwig <hch@lst.de>, Dragos Tatulea <dtatulea@nvidia.com>, Pranjal Shrivastava <praan@google.com>, 
+	Mostafa Saleh <smostafa@google.com>, Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, 
+	iommu@lists.linux.dev, netdev@vger.kernel.org, linux-block@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 05:20:06PM +0000, Marc Zyngier wrote:
-> [+ Lorenzo]
+On Mon, Nov 23, 2026 at 2:10=E2=80=AFAM Niklas Schnelle <schnelle@linux.ibm=
+.com> wrote:
 >
-> Hey Jia,
->
-> On Mon, 23 Nov 2026 15:09:15 +0000,
-> Jia He <justin.he@arm.com> wrote:
+> On Fri, 2026-11-20 at 15:19 +0100, Luigi Rizzo wrote:
+> > On Fri, Nov 20, 2026 at 2:50=E2=80=AFPM Jason Gunthorpe <jgg@ziepe.ca> =
+wrote:
+> > >
+> > > On Fri, Nov 20, 2026 at 01:06:30AM +0000, Luigi Rizzo wrote:
+> > > > This is v3 of the RFC previously posted as DMA_PMD [0], now renamed=
+ PISA
+> > > > ("Pre-mapped IOVA Superpage Allocator"). The text below follows
+> > > > Documentation/core-api/pisa.rst (patch 25/25), which has the detail=
+s.
+> > >
+> > > I thought the conclusion was to just do this stuff in netdev pagepool=
+,
+> > > now you come with an enormous AI series spread across the entire
+> > > kernel?
 > >
-> > KVM_PRE_FAULT_MEMORY calls vcpu_load() as soon as KVM_ARM_VCPU_INIT has
-> > completed. On arm64, however, kvm->arch.sysreg_masks, the trap
-> > configuration, vncr_tlb and nested vGIC state are only set up on the
-> > first KVM_RUN in kvm_arch_vcpu_run_pid_change().
->
-> I think I'm going to queue a patch disabling prefaulting immediately,
-> and then we can fix this crap.
-
-Ack, will prioritise looking through Jia's series.
-
->
+> > There were surely comments claiming nothing outside net/ cares or needs=
+ this.
 > >
-> > Running the full vcpu_load() path before then reads unsanitised guest
-> > sysregs and touches uninitialised nested state: get_s2_mmu_nested()
-> > populates nested_mmus[] from raw VTTBR_EL2/VTCR_EL2/HCR_EL2 values, FGT
-> > and HCRX_EL2 are written before kvm_calculate_traps() has run, and
-> > kvm_vgic_load() can enter vgic_v3_load_nested() early. In particular, if
-> > userspace creates an EL2 vCPU with ID_AA64MMFR4_EL1.NV_frac cleared to 0
-> > (so vncr_tlb is never allocated), sets HCR_EL2.NV=1 and an EL1 PSTATE,
-> > and calls KVM_PRE_FAULT_MEMORY, kvm_vcpu_load_hw_mmu() queues
-> > KVM_REQ_MAP_L1_VNCR_EL2. The next KVM_RUN then dereferences a NULL
-> > vncr_tlb in kvm_map_l1_vncr() with preemption disabled and kvm->mmu_lock
-> > held for read:
+> > I respectfully disagree, witness is the fact that e.g. there was alread=
+y an
+> > io_uring proposal which is smaller, but does not address applications
+> > that want to use the standard disk I/O paths (libaio, buffer cache etc)
 > >
-> >   [   73.636014] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000078
-> >   [   73.801972] pc : kvm_map_l1_vncr+0x48/0x2d0
-> >   [   73.884820] Call trace:
-> >   [   73.887253]  kvm_map_l1_vncr+0x48/0x2d0 (P)
-> >   [   73.891422]  check_nested_vcpu_requests+0xb8/0x168
-> >   [   73.896200]  check_vcpu_requests+0x2a0/0x428
-> >   [   73.900458]  kvm_arch_vcpu_ioctl_run+0x2d8/0x6d8
-> >   [   73.905062]  kvm_vcpu_ioctl+0x388/0xaf0
+> > Nothing has changed from the initial series in terms of size, use cases=
+ or
+> > subsystems involved. Large files are placed where they should,
+> > the series covers the same three use cases (disk, network, CoCo), and
+> > touches three parts which it has to touch: mm (most of it; it is a
+> > memory allocator
+> > extension after all), dma (it hooks into map and unmap, not a large cha=
+nge)
+> > and net (the pagepool change is a couple of lines; the tx path needs to
+> > touch more places because the current stack assumes all paths have
+> > the same I/O requirements).
 > >
-> > KVM_PRE_FAULT_MEMORY still needs generic vcpu_load() to set
-> > kvm_running_vcpu for dirty-ring tracking in mark_page_dirty_in_slot(),
-> > but kvm_arch_vcpu_pre_fault_memory() only walks and populates
-> > &kvm->arch.mmu and does not use any hardware vCPU state. Skip the arch
-> > vcpu_load()/vcpu_put() callbacks until vcpu_has_run_once() is true. In
-> > KVM_RUN, vcpu->pid is set under vcpu->mutex right after
-> > kvm_arch_vcpu_run_pid_change() succeeds and before
-> > kvm_arch_vcpu_ioctl_run() calls vcpu_load().
+> > For CoCo, there are very fine grained controls so the bounce buffers
+> > can be enabled only when they don't pose a risk, which in turn
+> > depends on the threat model.
 > >
-> > Since kvm_running_vcpu can now be set without VHE state on the CPU, use
-> > host_ctxt->__hyp_running_vcpu in VHE enter_vmid_context() (matching
-> > nVHE)
+> > Specifically, for network tx buffers or disk writes, the user-to-kernel=
+ copy
+> > is basically a bounce buffer provided it is used correctly and not leak=
+ed
+> > elsewhere (which is the design; of course the implementation
+> > needs to be verified and possibly fixed so that it matches the design).
+> >
+> > cheers
+> > luigi
 >
-> Can you clarify under which circumstances we end-up on the TLB
-> invalidation path? Simply faulting things in should not result in
-> invalidation. Unless we end-up with MMU notifiers firing?
-
-Yeah I think the issue is that an enter_vmid_context() /
-exit_vmid_context() pair flushing some other MMU could end up writing
-the vCPU's (canonical) hw_mmu into VTTBR_EL2/VTCR_EL2 on exit, even
-though it was never loaded in the first place.
-
-But that would just get overwritten when next loaded anyway?
-
-So I think it's probably the right change but makes no difference in
-practice ATM?
-
+> Hi Luigi, Hi Jason,
 >
-> > and check vcpu_has_run_once() in vgic_maintenance_handler().
+> I've been lurking but following this series since the start. I am torn.
+> On s390 where the IOMMU is always enabled on our closest equivalent to
+> bare metal (non paging LPAR hypervisor), and where we also default to
+> an emulated IOMMU in KVM guests, the underlying problem is a real pain.
+> We're also in the process of enabling large IOMMU mappings via the
+> generic_pt API which are 1M and 2G on s390. So, the idea of making
+> better use of larger mappings is very attractive to us and I applaud
+> you for trying to tackle this very real issue.
 >
-> I have similar questions here. It isn't obvious how you end-up getting
-> a VGIC MI if you don't run and don't load the state on the CPU.
+> That said I do have to agree with the critique. This series is too
+> invasive, too unclear in its layering, and most importantly it feels
+> like you're trying to do everything in a big swoop ignoring advice from
+> the maintainers just because it would limit the scope of a first step.
+>
+> I also don't think Jason's point is that nothing outside net/ cares, I
+> think, it's rather that the IOMMU and DMA layers already offer the
+> tools and each subsystem needs to use the right combination for its
+> specific requirements. And if a tool is missing this needs to be stated
+> very precisely including how the addition keeps layering intact.
+>
+> I don't claim to have a simple solution to offer, if I did I would have
+> sent patches already, but let me state my thoughts. First I think this
+> really needs an iterative approach with much smaller self contained
+> steps and focus on specific issues. With that, I think this should
+> focus on the network stack, while the io_uring specific proposal can go
+> after the block layer. Also in my experience networking is where this
+> hurts most.
+>
+> Now, I wonder if we can't start with something simple. What if the page
+> pool could start by allocating in batches of PMD sized and aligned
+> folios of contiguous pages that can share a single large IOMMU
+> translation. The page pool can then still hand out pages from that
+> batch without having to do sub-page allocation but would already use
+> much fewer IOTLB entries and the locality might even help non IOMMU
+> workloads. So, I'd even hope this could be enabled by default and this
+> is actually something I don't like about this series, I really don't
+> like having a tunable when we know that larger IOMMU mappings are
+> strictly better when you have an IOMMU that supports them.
+>
+> I think that approach would also align with Jason's idea to keep things
+> within the network stack and to work with the tools we have until their
+> limits become very clear.
 
-Yeah I don't think there is a way? Maybe this is just defensive?
+Hi Niklas,
+
+I have been working on this idea exactly - extending the network
+page-pool with a memory provider that allocates large pages, splitting
+them into N smaller pages that all share a single IOMMU entry. I
+breifly shared my approach in the v1 PMD series [1]. I'm readying a
+short RFC to share shortly, would appreciate your feedback.
+
+
+[1] https://lore.kernel.org/netdev/CAMP57yWvHO0pWCR3-9q1gtwVe8WV4Y6i69trmw+=
+BJRVYf3JB1g@mail.gmail.com/
 
 >
 > Thanks,
->
-> 	M.
->
-> --
-> Without deviation from the norm, progress is not possible.
-
---
-Cheers, Lorenzo
+> Niklas
+> > >
