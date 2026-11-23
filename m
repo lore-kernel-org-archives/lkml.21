@@ -1,105 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.86
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795422251;
-	b=IRgWSK5K8IrisVqInHuAKzBOYAQc1Du+IfpKplkqW0mAJxF+F4RYXWO5om3Sk+vRRVF2
-	 Yf8Oq8kLecGo9LmQbIsKYJxS8Gjl0xflK0YR5m9xH4tzCoQ20hMd38T7w8yMMNlSdydvN
-	 yXz5NnrcROtUqDAhEk4UjG78/SIZN/erqOIkyFBA/6X7dK3gFWeuvsibmsEc/70PdWP/j
-	 DEtmLqlJRpu/juaQbxpRYY8Cz43wmOoorHxsIw6hHnNGijGe2bPCUqLNJbPB0L4ZrfZAi
-	 6jj4jMzK1ekRDKFwW5E+oDvdy4flsAlvWS3SUIun2Zm1iBj44MNTdVB7E1GVbj3Nywg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422251;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7JV4TwoNsvXMu7vPPeJjdqGmjlYCEzvD+FBkkLCOKsU=;
-	b=SH4xEMRgnkiOJ0sDTb+gaVnCSZwKMoMCsGpNoIMm9Ie/5e6NDVO2pVRHAEbiYs9U9RRb
-	 hKPg+mTHn7Gi3oKTxjzsiNHt5tjTIWCyQgtYjAInAVyni6bBnj7zWqzSYCdVZGld9aF6l
-	 r//FoXV7DROT19ROPYe04lqUm6euvoBMG+J/QLtKT9hZAJXT/WOcxLFNry0lJ45e2ArR+
-	 fxU6Jtzd1M3IK3UCSPS1pfmZWqelSBO6678DEHsGpxkBH2ag+7AmhDQahdrVAtEQIVh0S
-	 V2kPmziQ38ldXYbC09tDtUgp/bsGVihi8c16yBkCKxhhkn3+G/wPrOaAmNN/PyfrKRA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kontron.de;
-	spf=pass smtp.mailfrom=kontron.de;
-	dkim=pass header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=r6buaBv0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.86
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11023086.outbound.protection.outlook.com [40.107.162.86])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.128
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795422256;
+	b=vi0KA+rIT/OuwRVpfsNzQWR/VmNb81+J8yM/uaL5CAvuvmuKrS9/rFEGskFJgKTAq13a
+	 GLHHrbHMcKhyzYJIyqvByVvaEAjieuHxVkTznw1vnznu4mYM3uGeMgQ/e+sq20u0f19K/
+	 yKRYSADO7ghI1mRNlV7PT3am8/P2lKftCnBuz0QS9v7lHmvkYNW5w6BTAJhdP0y8Ws+XS
+	 lhZWQ1bQEpOdOOKje/D+qo3lyZIPiFzYwh04KgyVStqsy2dyjfxiMfwz0k3OqIj8M/q6C
+	 DtlChVt2UIggXLkPqIA0Ppl2q1Hhf5T9bvdGoevHBANHXrQjmOz5L4gQ9mO3otLbL1Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422256;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=E/F9aPQoKXfrKQaypE4bbnWX3DetVkwn7UCBCBTDXjQ=;
+	b=jjIpwrK4RyO4Uecc6zC85PvAfFqOWPuCS2TjeKn16DDth62XPF7LR+yLKtJHgWlDq62R
+	 Xz3vnmWPXXsfq+lAUR0C6+9wZmJavIdntnqh+8gmKttG9mLN45U9MU7pakq0uLnJXyT1N
+	 6ur/zFPwUuo3Q7qZ4DKd849/YgFFsoSqOdzSDDRSEPcZrlkEKHiBzMtrr3F/3UhXY66Xz
+	 NBeKhDuzJV2IvzD63JfJen1DLvYk5KrvLssErE91wEnGunhkhj1Ly6F4rTPidTt03nI5l
+	 xmRPe2oE2I3p/Z136M4hDsc/H93KM7JHfafi8vxvIqFm7tPkpQs91x/i2DoeIeTULGw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=NUMV67UW;
+	arc=none smtp.remote-ip=54.254.200.128
+Received: from smtpbgsg2.qq.com (smtpbgsg2.qq.com [54.254.200.128])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3026B606A31A;
-	Mon, 23 Nov 2026 08:24:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3026B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kontron.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kontron.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA854606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:24:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA854606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=r6buaBv0
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HFnI7BwACHIkbQmNdCCCPtD/23pb9MyFToJQ3cpTDzUXGm+auiEcnUKNS24ClLvnaEc+RiwG96iwPmhNPOlIM3VTJnnbTyqrtuc+9/mCpPVKdrWKyrjMVZCGwakK75GtgHsmpbB+n5Xqe8Ye0QmiaPrWXqvTrEgUvACadLStnG7rMROtUkkNKgAXGhhurW3e5W4dTIdyNfhEDm5qmPOI6gEQO+G8M2LDvfPe6EGEW/f52KWUeDO0omL1oYriNoCG7a2L44s+OeVvy3nCQ35CKrSjbn15eIPTtV6tweFiDVRY6ZdkWxKiLEe76dz4OuDLz1bdOoHHm2KSKv4Kep37MA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7JV4TwoNsvXMu7vPPeJjdqGmjlYCEzvD+FBkkLCOKsU=;
- b=Z1Ej3lh8ZudLSoz6v9u4UE8CdXb/qyR4a5XinJk+oVI2KSU7c22le31v7Pa29cW3O+WFilR2Rj0Bn0QcNHZcrOhkBkJupTgdzaZMr9Q2mv1UGcfXZH8ijVEgrQOnSaZ/Y9i7NBianSJsCkvNnPSPnQnyj1D22cxi/+yYXGyLp2oQmDpK6MY7/CIa54dgvxx6+jdZtinu3zHYnIIqodo0QHJbpE0GQ4ee1FE9C1eR66t+ptFpctgwGi4NoI4wDo/1tiFwPXX7HFKDnPEva4Mp5yWZ6/c5wFJiFIoTBp5CyQpQIPPAzzcp4ZQ48+q+KmMPAdG4Z3yBZFaChQukeQ2sbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7JV4TwoNsvXMu7vPPeJjdqGmjlYCEzvD+FBkkLCOKsU=;
- b=r6buaBv0t052bD7zhrrVXclCAddeyhC1z2PNVM+h2SnXGYvI2BplMtgOq59L1JlWFXeMwNJLeRyWf4Z3WxO3jQ+ydO6/FaJG4Nb12mctbRz1+KJitFrwoIkxMQto7KuZOy+azcXaktnshQlJiP11Y38CFf3PPU+LpTANxG0//REAApOzQRZBPmThMxEjD4rROk/H4Z0Nzri3LOzpiO45ll5lFrD6rqbKj7R5m6P7bzNoREyqGwvkG7G40WorzgBF/yXfww7jbfhGbkbFyAvnpDjCjX+d1C42b+xV+oiS+06ksXJuaYccUuPIftibDSCNFqxIpK4qUxRoBGv8fr9ybQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by GV1PR10MB8673.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1d5::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Mon, 23 Nov
- 2026 08:24:00 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0662.001; Mon, 23 Nov 2026
- 08:24:00 +0000
-Message-ID: <c0d303e2-cbb2-40aa-97b2-c0ec6d493cde@kontron.de>
-Date: Mon, 23 Nov 2026 09:23:59 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/4] net: enetc: Add i.MX952 support
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-To: Clark Wang <xiaoning.wang@nxp.com>
-Cc: "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Claudiu Manoil <claudiu.manoil@nxp.com>,
- Richard Cochran <richardcochran@gmail.com>, Jakub Kicinski
- <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Frieder Schrempf
- <frieder@fris.de>, Eric Dumazet <edumazet@kernel.org>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
- "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>
-References: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
- <ZR6PR04MB5878801865D14143CC9622B73CF37A2@ZR6PR04MB587880.eurprd04.prod.outlook.com>
- <f0538c2e-873a-4522-9883-c28113efb0bb@kontron.de>
-Content-Language: en-US, de-DE
-In-Reply-To: <f0538c2e-873a-4522-9883-c28113efb0bb@kontron.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR3P281CA0193.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a4::6) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=NUMV67UW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795422226;
+	bh=E/F9aPQoKXfrKQaypE4bbnWX3DetVkwn7UCBCBTDXjQ=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=NUMV67UWs9t18N1OIM4ZtUr1G4KUUyxlxQY4jj2StUUgrdfoqQDTi+/hY079+OY0J
+	 OnVGI96JbaGtvfDqiSeE6UMz2sKFebG+gKu+BCHNHj23ZL7vOoQPmmEqMWNRGdnm7O
+	 SxeosppPti5L8UZgKbXLnhj1omBx5TnVbELEq3yg=
+X-QQ-mid: zesmtpgz7t1795422219t18ea3391
+X-QQ-Originating-IP: PVyhqQzatqIPjVoEXm47QT9VjeoAIolcwI+N8CJf7k4=
+Received: from PECI2040 ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 23 Nov 2026 16:23:37 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 16570581694892023629
+From: wangyu <wangyu6@uniontech.com>
+To: syzbot+cff8e1b82d7911dd051c@syzkaller.appspotmail.com
+Cc: agruenba@redhat.com,
+	gfs2@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	syzkaller-bugs@googlegroups.com
+Subject: Re: [syzbot] [gfs2?] general protection fault in gfs2_remove_from_journal (2)
+Date: Mon, 23 Nov 2026 16:23:37 +0800
+Message-ID: <47E6766CB31C3F0F+20261123082337.77430-1-wangyu6@uniontech.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <6978bb60.050a0220.c9109.001c.GAE@google.com>
+References: <6978bb60.050a0220.c9109.001c.GAE@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,131 +70,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|GV1PR10MB8673:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5382b6f6-a27f-4d64-d006-08df493b2046
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261026121527099003|261026140227099003|261028144727099003|261021123027099003|261021121427099003|261021135927099003|261022105027099003|261102123227099003|11063799006|4143699003|56012099006|10067099003|22082099003|18002099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	wbHMoULN8bWzeML+P2DEo55ggEImSWcsWQgRAtAZW/AQHioV1lK8FZ1DKwNDk/5hHyIt2r23VZBfuxWVNLVX173p6l6PiUCrbeZUk+tqf8hmqHSKXgog5Xpn57YF9YR97ZwweL/YiUO2lfVdo4Ncw/Y2XiEH8xTRFlkchQdRvugZmLH0h5hP2Sl1TTxiDjD4AC+8HnGPOZ3GPRS2PspP5RU4pvy9e2qQnXjgFR0am+YfMagcBOvojF97TjKCtbLYKpyFvpzV2iHLC/LQKKkVHT9gL8q5ANPRBool6vB2BiwnhzllwdH6Snk4bNhwM/hdTqh5cVNAn1sAZlip7++3+1IeYsgC45vAS23mJinIcjKQWFuCyFz+2JE4q0nmd/ve6jK1u0zmovzXFOgj8D1m8t8wsSmYWCD2GzWwjoJZyPVhGCQrk3T4ikgkscb3Nt8WeQi19nExOfKOMWLCZbwx4Ug3a+FfYiqvKvXcKBHAVosC5PqdhLW6RaARH3yY93KdSDtY/ZiA8cbNTSwu5+cdqt4HoP8tMtsnCfqEfxKRxsS93QaG1G7ZJZCujXRvMx/MxdQRUuEUyUhJ6O8P+Y6drV/QFTl+bW70o7KJ4xJuRIo=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261026121527099003)(261026140227099003)(261028144727099003)(261021123027099003)(261021121427099003)(261021135927099003)(261022105027099003)(261102123227099003)(11063799006)(4143699003)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eEErSTdpRkduRitkaTZpbk1rRkJBaG1HQ2x2VitIdDVoNkFiVVlXa3c4VFcy?=
- =?utf-8?B?eVpxMXN1aGxxN2Z4aTdYdTZwNTd6MjRhSW1vazlkVVE4RUZHK0pISjRkVG5y?=
- =?utf-8?B?WGVHNTRaek83dkpOUk1RY1Z3YWtKWk5kSUJCTWcxaGhhd0x3eW5HeXlJb2Q2?=
- =?utf-8?B?N0RHbXhJaktVaU9mcXBVOGRvMUhpcU9ucTlxQ1pZdkpvMkxWVzZJS21jT0hj?=
- =?utf-8?B?aGdMRjBWeUhlR1oxSG5PQloxek82WXF1cmE3SVhvcEJ2ZGhXQ1ZmcUlhOFNZ?=
- =?utf-8?B?OHNCZUZsVFh5R1BkeFJLQXRsMnFCeVRwMysvajZEaUQ0N1lKWVRhOGRHWml0?=
- =?utf-8?B?eGtVeTFSNUNTL1JSVDdGbGxlSVBuMEpDVGMvQk1Vc0JlSFZzTVh6MkcwcnpD?=
- =?utf-8?B?alkrWloxYkZTd1NXa21sZ0ljcWZJekluLy9rVTl3ak9UOHZMZEUvVjVuT0FP?=
- =?utf-8?B?QmhvbWNmcmpuREhXZnF4TlIveDVJWXpOWXpMZ2NwZ2lBWm14MFd2MndlQkxJ?=
- =?utf-8?B?bzZRYWVXT0pJNnNweEJsRURtYXlVbC92aHBtTEdPRDlDRXVTZzVmV0UvUDZs?=
- =?utf-8?B?d1VGL1UvVlRSWjlFT1RXaVpzWVV5ZzRQZE44RGI0aWRHbGhrcUlteVlaM3Vv?=
- =?utf-8?B?SEIwN1pDblpUdlZtd0FmQzRPUlhsUDlMWG1ZRTJuYkZ6WmJCQ1h3aVEwbVJT?=
- =?utf-8?B?am5nUDh2ODUxRTBlQVlFTWlJL3pmN2pDeWY3bm9jam5BQlQ0SUpQMmQ5Myty?=
- =?utf-8?B?QThra0RSQ3k5SVViaXJaSmVMM0NsNHBLOTJ2Ym10NUdXRWx1blIzSk5CbnpQ?=
- =?utf-8?B?NnFybDF2cjlyeDZlWWY2KzJTZ3R4aU14bG95ZHY0QnY0WnJhRHJyakNPZ2RM?=
- =?utf-8?B?Z2V2T0xnaGVoS2daekxFTFZ6cUJSZHorTmN4c3UxdUhKcmR4Q3IyTWFENXYw?=
- =?utf-8?B?VjdUT3Y3c1VLVDMwTGZudFVMS1RKZVYxVWdwQ1FSZG9rVkpweHordndhTmx0?=
- =?utf-8?B?WE5hSmdUQkNlZXpwdkF6MjE5NFAxdnFQRm95RWxZS05rQ2dQV0NzUzhsWlBt?=
- =?utf-8?B?UUlyMmJCdXNJQ0tFWHEzTTZpZUtsRzlhbVhsVzM0S251SldRS2ZyYkIrNmJQ?=
- =?utf-8?B?R25qR0Jsd0cyL1g5aDNrWFJXVTBVU1gyTFZ4cGppYS9MMzNSaEdGZTVBZUg3?=
- =?utf-8?B?RDdjMjI5UVczSnJ5QU1od3lwdkhFWll4L2xYTG9Yd2VxUmNYaWdNc3FJUWRy?=
- =?utf-8?B?bnIzOERHK0hOaFl2WWpqdDFvRnJmaTQ0eWNOOXBaTE93YjJZRTlIbGtHendm?=
- =?utf-8?B?TEFHaHBacWZTWmh0Skd5V1htam42NG9ZQTBxUDR2dDVsU0JHSERYcENJU09M?=
- =?utf-8?B?MThteGNsSlI1anJYWk1pM2JVZ0wzUEZnQkMydnJnNkxrY2ltOStxTS9GZEUv?=
- =?utf-8?B?Y3JxSUNGQ0M3RE1ZUEVCeVUyWnoxeXNFbGMxVU84LzZnY04xemcraGo2bUJy?=
- =?utf-8?B?K2xFMUZqR2VxSGtMRUxnZ0hsKy9PNXEzRE43TXVmOFhCTGJTZWM4N2NjdnM4?=
- =?utf-8?B?OUZRUTljNWxrSlMveUlCenVpTmlwUTBuRkJhMXN0YURDRXZUejY4a3ZlMmhZ?=
- =?utf-8?B?R1NaQWdDbm95ZDNzQWJYWlZlVk9MWkJ5b2FXQXc2aXZ4U3QyTTF2N0lCbWlV?=
- =?utf-8?B?dVRBU2lkN0xyNC9kSHlLV0d5RFZSeGVwa2RDQXZ4TDZleG5hMmpHS2hyUENu?=
- =?utf-8?B?ZlM3M0UzTkd0RjF5ZUhJeXdTMHIyc3JacHhmZTFkQlVmZmUwY3U4Tk9xM2x1?=
- =?utf-8?B?eVNwVGRabkhmMkFFalp3ZjExd3NqTlhqVDZhNG03OENXSFpkbFYxWTlMTjAr?=
- =?utf-8?B?UjdqbHprNnlhY2FaalQ0OW9ENU9zemxnek03WUR5Z1ZzajRTUG9KVFVCb1dz?=
- =?utf-8?B?MmFpc2V4YUh3SUE0SkUyUldYdGNKaFZvb3U0SExBNE5OMnI1emRVQitScFIy?=
- =?utf-8?B?OGhnSjFLRlRtdkxNbFB6dk41dk5WQ2JZa1lpOVJiSEpydzZPbHNJYlFMQUZ5?=
- =?utf-8?B?djhuTmNYR3owZ2oxYVR2Y1IvZWJPMVlpcXE4Y0QvckRFZ09jTFAwTVJqUXRn?=
- =?utf-8?B?MWhRR3gra1BPYWVORjBYbUpUNDhEbmo3V3Y0bFBoNUlyencyRkpIT0ExWE1V?=
- =?utf-8?B?QmVCeWdpTjNJZUVrRCtQcHBDdkN6NUkzMW5YL1psN3pBdE4yUlJTc3pZdGh5?=
- =?utf-8?B?Rm83dzFJblA5V2J1bEhrUmRXaWVqKzNWeGZ4MFJsVTNpQi83YlFuUTI2b0RV?=
- =?utf-8?B?K0RFSlRvcEQ1RHE1THlpY3dpeU5kZlppSFdsVnVpWGJjZW9NcndzU1YzcjBS?=
- =?utf-8?Q?CC8Vd/TMs6EDWbWY=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5382b6f6-a27f-4d64-d006-08df493b2046
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:24:00.4382
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NLBxYVN1nwRznOpMIqDe0USYI70iUEUUtOjugvqSyLaCVkXx+I8P+leegaToLwlwbRwUq2LD2IOc7sA+Xl3bHOQ7rc+Jg3ElQefa1Y8NA0Y=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB8673
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz5b-0
+X-QQ-XMAILINFO: NZcrde3zhHkVVrVS4xNBkTmMJlAdrg9SQkt0SNLUzZqn0V2siwX7de1z
+	L4PLAmNOmKAR7ZEB1DgHw9TbkqBaSg+V7/2a473dCT+XZ5ff62FA6Jzox+p69HbiSUGsm6h
+	AH7gloGSQxhQbTHlSHvJQfi6+ghvoHwvOE0hdGOMYmZq4L9lU7As82NbC8o+HfJNUnFzfPB
+	37lcGN3MmKHz7moro5nCsTHMydaFu/cZg3q3z8vJFvTvkVRqBbQgaKuwIBkYj19Vm23IJVw
+	p2vLXKJOEg0Rq6skTRwNlWXcnpJcLlBfC3Ah7929Mq2hdqOkfExNa1pwXtgG7TqOIj76XL9
+	vLrFT8ul6tqHb6kkSlSe6Q+fViqgvBxVqJMPyiHxZpyu5cR4D2KAy+HhzYj/BZsHT7zp2zC
+	7vKskmGKs3mhF18V7oEhOul44eXD/zbThsf5DcRifP6rlocZQo2X1aNiyfapL3Fk/FM/pBb
+	/c+TXDYxfMjbWQF2RMUv9fBG9ejDS64zCS5NcaDhLE92LrWLqm429n8mMuzrxbXwpag05Ik
+	F7f5L8DzQkYoRFeDONoaI1Az/LZRNhK8Fvj4EVxuRFj3SsO89yG+vtoHXIbH8ukruinoV1A
+	5HQr0uqoXhLf2dM1ddLxJh3ZlB6JpecJcFH3Ffm9ZSyNXNNNTuuRIOZtzOZrIvlANZNQbVD
+	IcrSTeKewHJYJKOmsyLW1h1L9Q+P5APVjVpcrVFjLDUW8uYsG238KCLhs58+s+G5VfP9o93
+	FNFVM6HTy+J85rqosKa8MDuljfBpYJ0I9hTLur52J8U4ZeZF1k/ABtD+WROGS+6tz5sS4b8
+	g3yxj/8KHdo6YW0SJ02dV2yTvkMT2tcY0Z02QqS65VHcyKfnpHQ5xAGfYLBp4imw3nOnnyF
+	PLD4HpPG7gBp5s65lpLdgMNMgibjptyW72SuTCm9zgVXGyl1PcW6ZTzFxbhrTVtwh2l3FYH
+	PvpwqsiZCBnHJs1Lr0JyblMIW6RqHqMzpHtLs9UOxGWN7DssuwvSyYqOnVj95tMoMXuD4x1
+	f8eQre88bEEaDULD+YMHn4XMVfkVE=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-On 18.11.26 11:50, Frieder Schrempf wrote:
-> On 18.11.26 11:43, Clark Wang wrote:
->> [Sie erhalten nicht h?ufig E-Mails von xiaoning.wang@nxp.com. Weitere Informationen, warum dies wichtig ist, finden Sie unter https://aka.ms/LearnAboutSenderIdentification ]
->>
->>> Subject: [PATCH net-next 0/4] net: enetc: Add i.MX952 support
->>>
->>> This adds support for the NETC Ethernet controller on the i.MX952 SoC.
->>>
->>> i.MX952 has two ENETC instances (IP revision 4.6), each on its own PCIe bus.
->>> ENETC0 shares bus 0 with the NETC timer and the central EMDIO,
->>> ENETC1 sits alone on bus 1. The NETC system clock runs at 133 MHz, compared to
->>> 333 MHz on i.MX95.
->>>
->>> The patches are ported from NXP's lf-6.18.y vendor kernel. The device tree
->>> changes for imx952.dtsi and the i.MX952 EVK will be sent separately to the i.MX
->>> tree.
->>>
->>> Tested on the i.MX952 EVK with ENETC0 (RGMII): the link works, hardware
->>> timestamping is available and the PHC runs at the correct rate. ENETC1 is
->>> untested as it needs an add-on board.
->>>
->>> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->>> ---
->>> Clark Wang (2):
->>>       net: enetc: netc_blk_ctrl: add i.MX952 support
->>>       ptp: netc: use 133 MHz system clock on i.MX952
->>>
->>> Frieder Schrempf (1):
->>>       dt-bindings: net: nxp,netc-blk-ctrl: add i.MX952 compatible
->>>
->>> Wei Fang (1):
->>>       net: enetc: add i.MX952 ENETC support
->>>
->>>  .../devicetree/bindings/net/nxp,netc-blk-ctrl.yaml |  1 +
->>>  drivers/net/ethernet/freescale/enetc/enetc.c       | 23 +++++++
->>>  .../net/ethernet/freescale/enetc/enetc_ethtool.c   |  1 +
->>>  drivers/net/ethernet/freescale/enetc/enetc_hw.h    |  2 +
->>>  .../net/ethernet/freescale/enetc/netc_blk_ctrl.c   | 73
->>> ++++++++++++++++++++++
->>>  drivers/ptp/ptp_netc.c                             |  7 ++-
->>>  6 files changed, 106 insertions(+), 1 deletion(-)
->>> ---
->>> base-commit: d6816d9a93b66a12bf01e10037e377f3333ad6cc
->>> change-id: 20261118-imx952-enetc-bd2bc331e1b5
->>>
->>> Best regards,
->>> --
->>> Frieder Schrempf <frieder.schrempf@kontron.de>
->>
->> Hi Frieder,
->>
->> I have sent the V1 patchset for imx952, will sent V2 this week.
->> https://lore.kernel.org/all/20261104092217.1730351-1-xiaoning.wang@oss.nxp.com/
-> 
-> Thanks! I totally missed your series when I was searching for it.
-> 
-> Please ignore this series and sorry for the additional noise.
-
-Did you already send the v2? If not, please put me on Cc once you do as
-I'm currently not subscribed to the netdev list.
-
-Thanks!
-
+#syz fix: gfs2: fix address space truncation during withdraw
