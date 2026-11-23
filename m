@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477179;
-	b=eEmXrl37QveQRWfEt0zjtwQhylEB+Z9S8Guij7LlUs7/2mTHsjAH8XzsWOShyP7JZoQj
-	 slmBXryxjJBv+AdY0N3D1q0IhnqT3NWDXMh1kflGCdvfuUCsiITGdG4UXZ+o2HDknIu5J
-	 jJGoRWgAavSzQu7kGsxlmwmcUEPYDfsurPBJ3+EciWXuKnrzMlyPS22VCTLjnCPMHFQhF
-	 lX/TvkqhQNEZmI7VaGvr15BBzE+/lBW9ZTS8krDyFyMntsQsHBiW/GrmGkN5bQFmDu2dy
-	 RrpxrzBNEx7bdkOMVotEhLU2InPY7NfV7wckO5j8/aK/HKltePr1Fbnn0d4z/cDQhVQ==
+	t=1795477180;
+	b=mrZ4SE3W93Lit986YlfmkW+BqP7FUeWbkTe4zPMKJx88JeNwtObsENoqkG1Jc9UK98TB
+	 eP7Lq1McdMcGMkfl/BUfqOTmV/OGaX8lN694PbgSZRZMlDq40o+C0CQAMVTuZs+DMHeSn
+	 n3gehAQ37gLUc1yl6pwJ8UbvdEpFr5q65II5CLcwO1y/qw+8s2sdZvFBQPZBXNT74R9dE
+	 EnQ0MVvDHC6OReZI1fgJjhJDz+PulS29nsMe8ULgokNbggjARVaeGpKDVtknh4OfnCarX
+	 jSIjNSfkh9562It5pRcYqBYUXHy4f6/Ysv8A1UwSSsUSnhVpxTaQSBMgmPfWyEN79nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477179;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477180;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=/ZHoT97tqf5Dj8g+JDW8nW3DDYyt8I058/DSNhpOZoc=;
-	b=CAfmcjdwRSzfs1KiTRYwQv30OyuAd8AcxzQaBrszZyHHmd3QN0R5nwLUjpmIIcj4qOAG
-	 E582LVbJB+2+78aGZdqh4nYxHfIiCls1pMhReViy9bRaH9k6BHdzjltqsyISvyXv/XNe9
-	 EanAWZ3qlpDlMHupbL+p6RwgbAzQDxqiYRis0LXvXleZTmCWug6awu8COyA7hThsR80b4
-	 pyJuCwxiA761RnPA6Otq66Pae2KZVnhl/bqhbwYrrjyxGKMFT8b20TluOPwglYLGtD5CH
-	 2e5gQbCCcrjUtUBeG/rUnC5Mf889CwjdYB8kFpYNTmHRuEXWs/6rUTKdcgsZaK+hqDg==
+	bh=0U5hcBRCn7DYeLCXQ7hEVh/crdm6HmQ04G7xSZHONUs=;
+	b=H1ntxofKPXPLmU24zM2uTwPeLDNvGfGeNJ1h+82KQgAEgPUNZR8WYBSjnJ7lAQEhHGGe
+	 NI2pVSJoypE9Q7a0dHpYhj+txM+GcyKJC81pUomujt/dQe854dXUYaxbU1m3X07BdZTX3
+	 QA5ZAAaBLjd4Eg/b0pOPd4UOnQR3i8J5y37K5mkkgjBBajXozd0P0kLxq2zHUoe+gk19N
+	 nM8VZchb7Xb6xi6BHokmGbHBZX51+XSF5LGYmmgrpsE/oEvixvlzsRk9XygsZFT2XGCcN
+	 sGFCPe3xQluIFh0Wenh1UGc7j7wWEB0SWnd+nh/q98rehBNOa2IsbRIL2P2s9jNuy0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BeXiV+eb;
-	arc=none smtp.remote-ip=209.85.160.69
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WCDrUpQw;
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3927A606A681
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:39:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3927A606A681
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55719606A686
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:39:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55719606A686
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BeXiV+eb
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-45e6091d8a1so2897932fac.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:39:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WCDrUpQw
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-57e3f40cc16so621051b6e.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:39:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795477177; x=1796081977; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795477179; x=1796081979; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/ZHoT97tqf5Dj8g+JDW8nW3DDYyt8I058/DSNhpOZoc=;
-        b=BeXiV+ebiGblBSHbl8C3EnCOu8ZdOH6ppFi+CKQedy0OS1Zgasu1jBo9gwePSvNCjx
-         Jq5dK5JVCYnOe6NtCNWVpZzsY0/f3kWYHcdy0/6/EDewiPUTNSyPx45hP2nKbrPsFzTj
-         fit54InunCMRqgpQzS/WUpqtA4pERmV0i6nDmGRJ8gSZPo1BbLFQvdqQgiVYEFX+pzPE
-         kmombyJjfV6UCRxidMmrVvKUU2on29che9Z1ak/vbZvHDMohcBtgAdMdO4eQjto0rxJs
-         mmn0NRzD0qMACSdG4PysvQW06gbzsMoq4G5OjDIfwFTh+gZB6Rrly8TSXusrdxgx0YU2
-         45EA==
+        bh=0U5hcBRCn7DYeLCXQ7hEVh/crdm6HmQ04G7xSZHONUs=;
+        b=WCDrUpQw4KJhHcdJiYxKeYAhc3EQtTDCanAzb9KhDmQ4KMlW9CFOInrIq3rHkY/rf3
+         qsLT/dIKBM3mDKz1q09xH4QbdsFwyEyAkCO0w/HwOHCgo60mv+cRPSsR2uD/WSXBks+R
+         EEiFkxVtpXXmfo6CwTp7/Utri18E/qzyJ7y+lRWW5NVCtFEeWJ7fSQKvmOq+tA7kqQO8
+         ko0Atg3xLk92yWrgmT8n+h+PuV4LQvQWUP8zXy4mhUQUIZjbefCfE4GmrPXixO01fZB3
+         FOhJMjlos86mfIO6roqSLPbPiVMPIPlEzc3ulcF7V6OAmZKAqt/XzDvqZqQFQImgWg38
+         LtdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795477177; x=1796081977;
+        d=1e100.net; s=20260707; t=1795477179; x=1796081979;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/ZHoT97tqf5Dj8g+JDW8nW3DDYyt8I058/DSNhpOZoc=;
-        b=rDdTcqvMqMTr8iYYJ+p16536EdnM5w288VYSXXfpjZWFIjYi/ct3Y0nPP8ZEX/4TnL
-         Mcu8licigXwxpd2giUoY9bTSpviO58zNwa9jtGyW85mvyKz5eC1/tBS+CBH2QE10XY2l
-         NdiQjE2hVZC/scJF+V+ZHV1arYSgaMZOqG4mvqBoHMQ3z+3pCP9QroJT0RKY9gcjOkV6
-         XhGZFX5Y1WfgCKuQY0a2klng2BZ1YKmwHwm7NDqGKO4HLfhZ6EU7K4O6CA11FuLbfkp1
-         wwGC5VGie3Af1GRHqlJqZp8UeP5AarErh5GbZg62LP/cVnYgGAzj4Fd/iVa43WWn7yJZ
-         foTQ==
-X-Forwarded-Encrypted: i=1; AL+hErGMTLdHP3FSF0SHbHzRGwrh0LJcpC+fQk8tSO12imRJkerUa7D0HGKoQnua7EKH3YDW15uUhlVi5VdFnLs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8IeEqyg+U1HgbI5WvdzOjuPBTsU6d0a63loXftiMcnumNY4bO/
-	C2h25ZJITc9aoYFEee/IRWSOOAZKuZy6IATsmJoK6avP80jULWVXOxGc44rPZ7DtwWJEoEqOkUE
-	gMshb3a7tFmwIeQ==
-X-Received: from ioi24-n1.prod.google.com ([2002:a05:6602:c658:10b0:9d3:b408:7991])
+        bh=0U5hcBRCn7DYeLCXQ7hEVh/crdm6HmQ04G7xSZHONUs=;
+        b=giB7JL14Fwcw/nHgP979GhWSTJTWfympaa3TUztABuW6GrVzSD9orfan1fMKCdMLBz
+         fFi+QLzgQYF/IMRLcgBfzAs/g4naViB+5rjS6XbjwkEJS7u5HqaO8cPx+6I1pjgDjZNU
+         l7LWMRAFbz7VTSvFA6VH0B8ZXB4+5k+kISq2gvgLpArg1oTUqLJArqNL6q5S9MW4wsu5
+         85uhVsqlRuOtP5jWSmxSDiJA9q3dQJfLdHt8oeWbqZ9d4mL4UUHroLVTwUT+7lMUnMz+
+         IdwEdjoFA7wty5E6z0OsLcRc6N9oQPkxgtNIs5oBqD3GlPIU076LDhqQGzS5PRf6Dew8
+         Y5bw==
+X-Forwarded-Encrypted: i=1; AL+hErHU9dAsm3fxTClFd41A/7gAeMlVf/oyfanDtinR/9pwd14LpCyno9ZH/pzbU3jNmYibPF1HfOWEvpziExM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kwv6YVeefgs57BWUua7clgXUHdeBV5f0imMR/+/jFgtRW5IZs
+	1WmjhGxndm8nMKFTUpwIW13aH3hetGDvU0XgeYucaEqNzguirAYvtmX274+nV6tClGt7x1GHJ/Q
+	qQSAqf/PQ0RgdWw==
+X-Received: from ioi10-n2.prod.google.com ([2002:a05:6602:c64a:20b0:9c7:7dbd:f35a])
  (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:2381:b0:50a:7162:87df with SMTP id 5614622812f47-57a06b2491amr12786319b6e.2.1795477176976;
- Mon, 23 Nov 2026 15:39:36 -0800 (PST)
-Date: Mon, 23 Nov 2026 23:39:11 +0000
+ 2002:a05:6808:4fc9:b0:573:4ad5:7e4d with SMTP id 5614622812f47-57a0ac2fa3bmr15601210b6e.35.1795477179082;
+ Mon, 23 Nov 2026 15:39:39 -0800 (PST)
+Date: Mon, 23 Nov 2026 23:39:12 +0000
 In-Reply-To: <20261123233924.3970932-1-dmatlack@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261123233924.3970932-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261123233924.3970932-7-dmatlack@google.com>
-Subject: [PATCH v5 06/18] liveupdate: Don't WARN if tracking a retrieved file fails
+Message-ID: <20261123233924.3970932-8-dmatlack@google.com>
+Subject: [PATCH v5 07/18] liveupdate: Add helpers to track the files that LUO manages
 From: David Matlack <dmatlack@google.com>
 To: kexec@lists.infradead.org, linux-doc@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
@@ -98,83 +98,105 @@ Cc: Alexander Graf <graf@amazon.com>, Andrew Morton <akpm@linux-foundation.org>,
 	David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Handle a failure to add a retrieved file to luo_preserved_files instead
-of triggering a WARN_ON(). Make the failure permanent, and keep the file
-until the file set is finished, like any other retrieved file. Only warn
-if the file is already tracked (-EBUSY), which would be a kernel bug,
-since a retrieved file is always a new file.
+Add luo_track_file() and luo_untrack_file(), which add a file to and
+remove it from luo_preserved_files, and use them instead of open-coding
+xa_insert() and xa_erase() with luo_get_id() for preserved and retrieved
+files.
 
-xa_insert() can fail with -ENOMEM, and userspace can trigger that with
-LIVEUPDATE_SESSION_RETRIEVE_FD, so warning about it lets userspace crash
-systems with panic_on_warn.
+The next commit lets file handlers make LUO track the file they retrieve
+into, which adds more users. The helpers keep the key and the -EBUSY
+behavior in one place.
 
-The handler has already consumed the preserved state when this happens,
-so the retrieve can't be retried. Keeping the file ensures that its
-resources are not released before the file set is finished. When
-finishing the file set, only erase successfully retrieved files from
-luo_preserved_files, so that the id of a file that was never added
-doesn't erase the entry of another file.
+No functional change intended.
 
-Fixes: 00d0b372374f ("liveupdate: prevent double management of files")
 Signed-off-by: David Matlack <dmatlack@google.com>
-Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Reviewed-by: Pratyush Yadav (Google) <pratyush@kernel.org>
 ---
- kernel/liveupdate/luo_file.c | 27 +++++++++++++++++++++------
- 1 file changed, 21 insertions(+), 6 deletions(-)
+ kernel/liveupdate/luo_file.c | 32 ++++++++++++++++++++------------
+ 1 file changed, 20 insertions(+), 12 deletions(-)
 
 diff --git a/kernel/liveupdate/luo_file.c b/kernel/liveupdate/luo_file.c
-index 9d98438b0166..0755a6478aec 100644
+index 0755a6478aec..d51bd75723fa 100644
 --- a/kernel/liveupdate/luo_file.c
 +++ b/kernel/liveupdate/luo_file.c
-@@ -675,14 +675,28 @@ int luo_retrieve_file(struct luo_file_set *file_set, u64 token,
+@@ -192,6 +192,19 @@ static unsigned long luo_get_id(struct liveupdate_file_handler *fh,
+ 	return fh->ops->get_id ? fh->ops->get_id(file) : (unsigned long)file;
+ }
+ 
++/* Make LUO manage @file, or fail with -EBUSY if it already does. */
++static int luo_track_file(struct liveupdate_file_handler *fh, struct file *file)
++{
++	return xa_insert(&luo_preserved_files, luo_get_id(fh, file), file,
++			 GFP_KERNEL);
++}
++
++static void luo_untrack_file(struct liveupdate_file_handler *fh,
++			     struct file *file)
++{
++	xa_erase(&luo_preserved_files, luo_get_id(fh, file));
++}
++
+ static bool luo_token_is_used(struct luo_file_set *file_set, u64 token)
+ {
+ 	struct luo_file *iter;
+@@ -312,14 +325,13 @@ int luo_preserve_file(struct luo_file_set *file_set, u64 token, int fd,
+ 	if (err)
+ 		goto err_module_put;
+ 
+-	err = xa_insert(&luo_preserved_files, luo_get_id(fh, file),
+-			file, GFP_KERNEL);
++	err = luo_track_file(fh, file);
+ 	if (err)
+ 		goto err_free_arg;
+ 
+ 	err = luo_flb_file_preserve(fh);
+ 	if (err)
+-		goto err_erase_xa;
++		goto err_untrack;
+ 
+ 	luo_file = kzalloc_obj(*luo_file);
+ 	if (!luo_file) {
+@@ -351,8 +363,8 @@ int luo_preserve_file(struct luo_file_set *file_set, u64 token, int fd,
+ 	kfree(luo_file);
+ err_flb_unpreserve:
+ 	luo_flb_file_unpreserve(fh);
+-err_erase_xa:
+-	xa_erase(&luo_preserved_files, luo_get_id(fh, file));
++err_untrack:
++	luo_untrack_file(fh, file);
+ err_free_arg:
+ 	kfree(args.arg);
+ err_module_put:
+@@ -401,8 +413,7 @@ void luo_file_unpreserve_files(struct luo_file_set *file_set)
+ 		luo_file->fh->ops->unpreserve(&args);
+ 		luo_flb_file_unpreserve(luo_file->fh);
+ 
+-		xa_erase(&luo_preserved_files,
+-			 luo_get_id(luo_file->fh, luo_file->file));
++		luo_untrack_file(luo_file->fh, luo_file->file);
+ 		module_put(luo_file->fh->ops->owner);
+ 
+ 		list_del(&luo_file->list);
+@@ -675,9 +686,7 @@ int luo_retrieve_file(struct luo_file_set *file_set, u64 token,
  		return err;
  	}
  
-+	err = xa_insert(&luo_preserved_files,
-+			luo_get_id(luo_file->fh, args.file), args.file,
-+			GFP_KERNEL);
-+	if (err) {
-+		/* A retrieved file is new, so it can't be tracked already. */
-+		WARN_ON_ONCE(err == -EBUSY);
-+
-+		/*
-+		 * The handler has consumed the preserved state, so the retrieve
-+		 * can't be retried. Keep the file until the file set is
-+		 * finished, so that its resources are released at the same
-+		 * time as those of other retrieved files.
-+		 */
-+		luo_file->file = args.file;
-+		luo_file->retrieve_status = err;
-+		return err;
-+	}
-+
- 	luo_file->file = args.file;
- 	/* Get reference so we can keep this file in LUO until finish */
- 	get_file(luo_file->file);
+-	err = xa_insert(&luo_preserved_files,
+-			luo_get_id(luo_file->fh, args.file), args.file,
+-			GFP_KERNEL);
++	err = luo_track_file(luo_file->fh, args.file);
+ 	if (err) {
+ 		/* A retrieved file is new, so it can't be tracked already. */
+ 		WARN_ON_ONCE(err == -EBUSY);
+@@ -796,8 +805,7 @@ int luo_file_finish(struct luo_file_set *file_set)
  
--	WARN_ON(xa_insert(&luo_preserved_files,
--			  luo_get_id(luo_file->fh, luo_file->file),
--			  luo_file->file, GFP_KERNEL));
--
- 	*filep = luo_file->file;
- 	luo_file->retrieve_status = 1;
- 
-@@ -780,11 +794,12 @@ int luo_file_finish(struct luo_file_set *file_set)
- 
- 		luo_file_finish_one(file_set, luo_file);
- 
--		if (luo_file->file) {
-+		/* Only a successfully retrieved file was tracked. */
-+		if (luo_file->retrieve_status > 0)
- 			xa_erase(&luo_preserved_files,
- 				 luo_get_id(luo_file->fh, luo_file->file));
-+		if (luo_file->file)
+ 		/* Only a successfully retrieved file was tracked. */
+ 		if (luo_file->retrieve_status > 0)
+-			xa_erase(&luo_preserved_files,
+-				 luo_get_id(luo_file->fh, luo_file->file));
++			luo_untrack_file(luo_file->fh, luo_file->file);
+ 		if (luo_file->file)
  			fput(luo_file->file);
--		}
  		module_put(luo_file->fh->ops->owner);
- 		list_del(&luo_file->list);
- 		file_set->count--;
 -- 
 2.56.1.809.ga0b61035b5-goog
 
