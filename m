@@ -1,54 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.74
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415975;
-	b=y9v/0nrSZ/WrhnTR9eabneKgTP+VJR5PZUQwiahGRGXNS3lkxHFy0BtMgBFAnpQdrjiz
-	 R8VqPthu9scicj+JB999Zz+/hdkc+0+BJe/kZkPIv1fFICqXrdho46qge90Yv3kWDvHwT
-	 LxQHEI+vZLXWpFb7uUPldJcW9YKjMoLJc87vvaKhSqc0x5N6oYxSX2PhIcaT8JYxdP8AU
-	 oLWaNqFXC5VbzWZVVRTRELx72QoaTW/05+FV7Ywe4ckCgbiBqpy2KFs52jeZheze264T4
-	 em007u170aQMfPt66h3zt7Eri8klW5gp/jE3lsBKVi7ZVLvKZnHi3YIz/TCR7JS1zGg==
+	t=1795416003;
+	b=m7n+Sf1y+nRpUZ4IFId61ufYQLQig9xWGxTkkGiFW2k6lB9sJn2RQwP1eAVhvHnV/Qzv
+	 7co7R1xEKQZBdoHDjSYK+Pv1Qdh2dzg/Yt/6Dv+3bCPJcJQdNvf2YVHoz7SQI6YS59Jv5
+	 MX/ENL84P+mhiHDXtW62xdNOS60/PwobDqX4RieeyK6+MklnKMSsXoRJhCE1fQpdwmMLI
+	 vWKjySDqEOC9JnubjqfinMjf3thtslej12INqra9+nhZroOKZ3rd3c7oJjfbUIOVKvlFt
+	 cvVZJDcuDcD8n8+HcRwcG6Azfd2JpFjQ8O12rpGkJzZUyW58EKTnWA66FzC8hFgnO7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415975;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=1S+FjIq6iQ59JuCSrkDkJDXNBT3bARoAzrzzdcKK3hc=;
-	b=c/juWEjLSKRai69U/L9t+wbgCxyOv3WrpFYc8zyuQRhBKDfspwyBxA8AziUABDELIxpq
-	 5mndA7UVS8uNPhrOaevjpWAntPPnSuYxvQ0Pqmb10Vdrl07nong7K3o1HLWmuIGsdnXUj
-	 XGSv2WfZU1kS73hDTAV2epajjk0TmEkUphkM9z5npm1AetsQGmGxc+YruyAcMDcO4L1vx
-	 v4AKfzZQ97ZUW5h1WflELHnzndZwugVfAFdIqX+pKRZcyGd0UwOz2nOSea7PJFifp14Xg
-	 7iRfeNr3U+H2qU/cn9wGFzaxCjMbGwVMeVrJsfTYUFhJThDbg/3fOaFzuRpVwSSCyNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416003;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=tFBbEjTVG6FIv+j1Fe5z/DyiO1sZmnfSor6MAode+lY=;
+	b=zsHF7xhDetiJZZKZcq6MF0DqkSvVdEDV+KxsHkmarc9oZUKQHSvaW8r/zs35ZQrsEkGT
+	 mzBOwaNPhB0FUxy/4vKVK/bXskpxT4JnQMKned8JsvRMgAHk5bYKQWHfC8oeOeUnjv8ep
+	 jSi+fDaYxZ+6yFJt4+UC4Wusr+N2qEwyT6k6JOFvD9v8bLw+DIjwhk9SdKp+kRECPuKDS
+	 NXAdvuGatROFBIlTsDzKyjY0SJNOG4j+s5/7XJ2ydJ81xNCQ39GaJla8RBW5d/b2Zr3O9
+	 16SMnysjD2MQzp3vebE/RktNlVdkpmXslHciET3x6sADn0MwuQeaNqVl4vtF1UTyKCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gpuPjbek;
-	arc=none smtp.remote-ip=91.218.175.74
-Received: from mta0.migadu.com (out-74.mta0.migadu.com [91.218.175.74])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2138B606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:39:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2138B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=m5FAcMP5;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 939B7606A31E;
+	Mon, 23 Nov 2026 06:40:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 939B7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gpuPjbek
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=EGI+hFYSI6qeyRcfjHp8n/r3RKOt4t3CJPzrN5D49Oc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795415973; v=1; x=1796020773;
- b=gpuPjbek126+k4ikzIEVnpzVvCcwh8lf7SHiElMR/xFmDyWR+AmS2CpWX++AkiwuZSCIHli+
- b7uYGDaqJNKoophIy6kfGgY4yH7CruzYv2JLoOb4Jxn83J6wInJAOBosabRtD4fMhPB9kRTAvuj
- JoxmP4rb5FpRe47vFhXHog3k=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id ebc62440839800c0;
-	Mon, 23 Nov 2026 06:39:33 +0000
-X-Mizu-Trace-ID: ebc62440839800c0
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <240018e0-02c1-401a-a979-3f867526191d@linux.dev>
-Date: Mon, 23 Nov 2026 14:39:22 +0800
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=m5FAcMP5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=m5FAcMP5GayGRHDFII3ji4FuUvBJu3AQnlmD2t8GWrv151nFaSffl+dqQ/d74eUajkkGtxgtJjZVs
+	 lgn4DGUoMySvpFsJBkUE8gFQKn6cU8HQdmcrtR8Vp6VxbIXoBMTggQJFWbbFPG6MZVXMbq7UtLwKdE
+	 npAfzTD7QRhVWubQ=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b03dfbfd79-764ec;
+	Mon, 23 Nov 2026 14:39:59 +0800 (CST)
+X-RM-TRANSID:2ee26b03dfbfd79-764ec
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
+	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b03dfbc90c-8a1ad;
+	Mon, 23 Nov 2026 14:39:59 +0800 (CST)
+X-RM-TRANSID:2ee16b03dfbc90c-8a1ad
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
+	chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	sean.wang@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kuba@kernel.org
+Subject: Re: [PATCH v2] net: dsa: mt7530: fix regulator leak in mt7530_setup()
+Date: Mon, 23 Nov 2026 14:39:59 +0800
+Message-ID: <20261123063959.147-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <179541469889.3135.11276449301186567298@kernel.org>
+References: <179541469889.3135.11276449301186567298@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,112 +76,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/11] mm/mm_init: verify zones for
- template-initialized pages
-To: Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>
-Cc: "Liam R . Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Muchun Song <muchun.song@linux.dev>, Li Zhe <lizhe.67@bytedance.com>,
- Andrew Popple <apopple@nvidia.com>, Balbir Singh <balbirs@nvidia.com>,
- Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-2-songmuchun@bytedance.com>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <20261120100856.16929-2-songmuchun@bytedance.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Muchun,
+Hi,
 
-On 11/20/26 6:08 PM, Muchun Song wrote:
-> Template-based ZONE_DEVICE initialization bypasses
-> __init_single_page(), which means copied struct pages do not run the
-> vmemmap zone consistency check.
-> 
-> Verify each destination after copying the template so the fast path gets
-> the same validation as regular page initialization.
-> 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Reviewed-by: Lance Yang <lance.yang@linux.dev>
-> ---
-> v3:
-> - Retarget zone verification to
->    zone_device_page_init_from_template() after integrating the helper
->    series (suggested by Mike Rapoport)
-> - Collect Reviewed-by from Lance Yang
-> 
-> v2:
-> - Apply the zone verification in memmap_init_page_from_template().
-> - Collect Reviewed-by from Mike Rapoport.
-> ---
->   mm/mm_init.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index a9d848c92678..0129152b74d8 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -1082,6 +1082,7 @@ static void zone_device_page_init_from_template(struct page *page,
->   		set_page_address(template, __va(pfn << PAGE_SHIFT));
->   #endif
->   	memcpy_nontemporal(page, template, sizeof(*page));
-> +	vmemmap_optimization_verify_zone(page);
+On Mon, 23 Nov 2026 06:18:18 +0000, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+>
+> - [High] The fix is incomplete: the regulator leak the commit message
+>   describes can still happen.
+> - [Medium] Possible double disable: the new error labels in
+>   mt7530_setup() disable core_pwr/io_pwr, but mt7530_remove() still...
+> - [Low] Possible power-down ordering problem (speculative): the new
+>   err_powers / err_disable_core_pwr rollback in mt7530_setup() disables...
 
-For PAGE_SIZE-aligned devdax, dev_dax_probe() leaves
-pgmap->vmemmap_shift at zero. When section_activate() populates a full
-section for this pgmap, it records compound_page_order = 0.
+Thanks for the review.  These are the same three issues that were found
+in the review of v1 [1], and I agree with all of them for v2 as well:
 
-   memmap_init_zone_device() (pfns_per_compound == 1)
-     -> zone_device_page_init_from_template() (each template copy)
-       -> vmemmap_optimization_verify_zone()
-         -> pfn_to_section_compound_order(page_to_pfn(page)) returns 0
-         -> vmemmap_optimizable_order(0) returns false
+* High: Correct.  The chained error labels only unwind failures inside
+  mt7530_setup().  mt7530_setup_irq(), mt7530_setup_mdio() (both can
+  return -EPROBE_DEFER), the SGMII PCS creation and the DSA core setup
+  steps can still fail with the regulators left enabled, and each
+  deferred probe retry would leak one more enable.
 
-With CONFIG_DEBUG_VM and CONFIG_VMEMMAP_OPTIMIZATION enabled, the
-section-order lookup runs for each copy. The zero order makes the
-condition short-circuit before either page_zone_id() call.
+* Medium: Correct.  In a multi-switch tree, a switch can stay bound
+  without its ds->ops->setup having run; a later failing setup is
+  reported through the other switch's probe.  With the v2 unwinding
+  bringing the enable count back to zero, the later unbind would then
+  hit the unbalanced regulator_disable() in mt7530_remove().
 
-Once patch #4 splits out the base-page loop, could we put this check in
-the compound tail-copy loop? Like the following:
+* Low: Point taken, it is speculative for a software-only fix, and
+  mt7530_remove() already disables the regulators in the same order.
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -734,7 +734,6 @@ static void __meminit 
-memmap_init_page_from_template(struct page *page,
-  		memcpy_nontemporal(page, template, sizeof(*page));
-  	else
-  		memcpy(page, template, sizeof(*page));
--	vmemmap_optimization_verify_zone(page);
-  }
+v2 has been superseded by v3 [2], which adopts the structure suggested
+in the review ("move the enable/disable into a properly paired place,
+such as probe with a devm action"):
 
-  void __meminit memmap_init_compound_page(struct page *head, unsigned 
-long pfn,
-@@ -754,8 +753,10 @@ void __meminit memmap_init_compound_page(struct 
-page *head, unsigned long pfn,
-  	if (vmemmap_optimizable_order(pfn_to_section_compound_order(pfn)))
-  		nr_pages = VMEMMAP_OPTIMIZATION_NR_STRUCT_PAGES;
-  	/* Initialize the tail pages from PFN-independent template page. */
--	for (unsigned long i = 1; i < nr_pages; i++)
-+	for (unsigned long i = 1; i < nr_pages; i++) {
-  		memmap_init_page_from_template(head + i, pfn + i, zone, &template);
-+		vmemmap_optimization_verify_zone(head + i);
-+	}
-  	prep_compound_head(head, order);
+  [PATCH v3] net: dsa: mt7530: manage the core and io regulators with devm actions
+  https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com
 
-  	pageblock_migratetype_init_range(pfn, 1UL << order, MIGRATE_MOVABLE,
+The enables now live in mt7530_probe(), each paired with a
+devm_add_action_or_reset() callback, mt7530_setup() is back to its
+original shape, and mt7530_remove() no longer touches the regulators.
+This resolves all three findings: every later failure path (including
+-EPROBE_DEFER retries and the bind-without-setup case) is covered by
+the devm actions, and there is no second disable anywhere.
 
-Thanks,
-Qi
+pw-bot: cr
 
->   }
->   
->   /*
+[1] https://lore.kernel.org/r/179531318026.3135.909782780821579093@kernel.org
+[2] https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com
+
+Best regards,
+Xiangwu Lai
+
 
