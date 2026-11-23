@@ -1,102 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.33
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795476439;
-	b=tPvlwFR9rGAm3J0EoPIgKi9jilGD5qvfViEC6VulLexRVdHiKuMtIfBmgSdXtuTO73Y6
-	 H1dn8lwHltwaoWKxE4jDBcPkxfL2O9ZkGR2y8YGbc7nHuakAvhOoZO2VCMVNrprgjk83l
-	 4YmPj4pRRlra0llkxDwKxtslrvY+fjy00ovrREBkXyY3HNMECrPYpTEmkSAMPv2OoewiL
-	 HC6NC/Q2GnrGcGYJ/zpLqrmrY3+zrK2O0WhKlKik/6QkfGsJJJ33PLu68zn/0VuvZ21ui
-	 3g3rREbY3LJy8V+te/NoenVV5ZC8KNpZ5T5+I79ZNZQs+HoaiodPWuuJ5E4+GUdf0ow==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476439;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=U94Dr/dGIZWJtxID9zbynnUkPua25RyeVsq4CGIW2Uw=;
-	b=GfpmBv1HATnt2iOtitA8hRV52jrjpJPNQZWmrZiICUMlx53j2VrNMlx4Iiop5UmiYazk
-	 v3mzlzRCsIR5RP9F6rTJVr4/4OzogwyZ/9Z+u5hU+Jr8kyZZWG4Qc1NmAApaoUxASy8++
-	 nyHAQWIBSQxqnBkYkgDs2xkNPZsv629vgXYHDbz9hR5NGGRGkxJlX6ujbwYJRmj59MI7t
-	 q9ECLqi+NtTazwwctTy14FH6+kAYqgIqZT5Dpa7CHSBsKW4Dnmlp7QTjWQ+coKsrrpCdC
-	 kLdrviitt3BzbfqIE0vvTdPzXeDZjxzbRz0CN9sfUFYVfMKhDfRweY6enM5EeVLSPIQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bvZSaQqf;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.33
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010033.outbound.protection.outlook.com [52.101.85.33])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795476440;
+	b=eGKaBM+YhJBxNcsU4FPo8fdcGThKfXhc73siyByAJWyZmCgpxez4oO79YuSMZL+nRQrF
+	 Yg8NyrKugg+IMVOWLJ189ffd/r6XvQoIRjtZ2ZTVG7z6K5ihhlkrsmv95+rcMGAXMhPyJ
+	 JNvZla4+vhAl89s3HhxuVxwSex37x26wHUFdsmGOTL8PaYiUULSGNy1nRzR73JrwInbzw
+	 +CFYkM15Q6B/BETR+OZlJ9rDx3PaL8BipyFHWcV41L+grXFIWzzvcYN+JETL1mH1FbQyS
+	 u2Ga77BCLp3obF/Nt7GKbAj209qaa4vx9lh0lSdr4twkDlVTkPhrufwp3qCLdTV8nMw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476440;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
+	b=hAEgl+drZs2edAWBFf896TH8tkq1pR8RI90GBc3gHIsa92GOqrw8WS5rHLa+bPuTUwBd
+	 CSBqHD++1FwvwkzyxY+/nqhhI7kNNNGLpUf/I8QSIBVkTsH7Mo/oeGsT6IAs9MeMBjDUt
+	 YhXHdejToElZthSgvpq153CPda9sZMPqQi3jKHDrat9trkwHU07jNqPol0vNT0RG+/KhF
+	 09b22LwK/AboABQJX8MsQjq9W97GcQBuefPjyhjwb1xJoPHFgKez2C43YRQDE3Pfg/Gjq
+	 Iz8tO0JzjzYbW5r7W2qkZahXnpyq68MSWAKdIbe9MVdEmtIA91u2yJc8W7BgFsSijFg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=c6mBRDzg;
+	arc=none smtp.remote-ip=209.85.216.41
+Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C242D606A322;
-	Mon, 23 Nov 2026 23:27:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C242D606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 494E3606A687
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:27:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 494E3606A687
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bvZSaQqf
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p1EKM/hzGGjDK09vVPBd7lQkaub1sBKBlM7DGCPQYweLLgvHI1hdoAqoZQzs5kXdxlcLuzKMASU5hCRC55kdnZBsiZAuROJezku6fY9bjed1K181VBaag+21VLtCK5CjxFOA9IMJucE1El7mCd0olaKpFKiQe4P7EqFUJCn9ZR3DbVvdC/g5QKG4qwE3gZs+URIneZjFm0Oex5BYNIfTDkzLz2YxvNW7glj4HyN4BQ1OZ1I+EEq+N8es4ESiykVsWhqzrdt8aHoYylWsOnf+iYWY2IDn8XD3FjPx2sOszU/Z5P14UK/9FJqjY5HAA3bfqsW5YtignZejZ1LQkYrfQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U94Dr/dGIZWJtxID9zbynnUkPua25RyeVsq4CGIW2Uw=;
- b=mMrsNL5Z6xaAn1qzQiHaDP3QW98LSlft9LDkSJeweaQFIjIFV9zpAecYq/AIWOGfF8U9/VhoKvvEYkl7PxmX5ypG0tC7xWcgjevQ0U88GiFUdzzLFvWixcdfmGvzAHP5dpb8NJeYwrHyztQVY47E2aKtNAXopCo5Bu35I0HnXj1wZGz3RHFRQ35GEsK0v7unb3ZSwossQRh6StKK68N4juUGrq4jlB3M7WhGJvl8IxA5YlsHSJB1wskOTqSLq4GqZF4Aaz5gyO7pybzx1IfuQCs1kBNtXMZ5uDINAg6DerrjvlmTPEiickhXNdVm2rw0RsFnb3YZB/XD54X1RtNtAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U94Dr/dGIZWJtxID9zbynnUkPua25RyeVsq4CGIW2Uw=;
- b=bvZSaQqft5RC6RZEvAyBEbARCVGQ1GCVkbPBbY0WCBdnm84cPGypPjo24FFHpJJ4+N1Xdot9mfzopJkeSCeihmibG2Ci+hkd7iLGkkseq63aVG88nFsdyzhN62cBS3K6nRMn0+Rz0RjFtz7rgkIcaFfb4I/PsGQmLO/WPPzu3kk=
-Received: from PH8P220CA0054.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:2d9::30)
- by MN2PR12MB4333.namprd12.prod.outlook.com (2603:10b6:208:1d3::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 23:27:15 +0000
-Received: from PH7PEPF00000009.namprd04.prod.outlook.com
- (2603:10b6:510:2d9:cafe::9f) by PH8P220CA0054.outlook.office365.com
- (2603:10b6:510:2d9::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 23:27:15 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH7PEPF00000009.mail.protection.outlook.com (10.167.243.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 23:27:15 +0000
-Received: from quartz-7b1chost (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 17:27:12 -0600
-From: Yazen Ghannam <yazen.ghannam@amd.com>
-To: <linux-edac@vger.kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <tony.luck@intel.com>, <x86@kernel.org>,
-	Yazen Ghannam <yazen.ghannam@amd.com>
-Subject: [PATCH v2 2/3] x86/mce/amd: Convert bank_map to a bitmap
-Date: Mon, 23 Nov 2026 17:27:00 -0600
-Message-ID: <20261123232701.1923094-3-yazen.ghannam@amd.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261123232701.1923094-1-yazen.ghannam@amd.com>
-References: <20261123232701.1923094-1-yazen.ghannam@amd.com>
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=c6mBRDzg
+Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso1838765a91.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:27:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795476440; x=1796081240; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
+        b=c6mBRDzgIZ9H7GWVPY/NPFpSZVPRkVb3ExQRmZnYsMUhVj6GwRJWUP6DIZ1N8CMm/v
+         IRrlLQKW/o6q8CFyf9Q151QiF4Nmnx/ouFuRYZLqeAx2zQyR9FKTsmnl+pE9/izvJEAw
+         4LuNWS1Cbhh0FDHjAtH3AkhwvRnw0H5H47LPPRqyxJGgr1rWl+5fJQdVJPr+9XVX9TYZ
+         DMT3/WeblE9Ly/L149xdrq8ZO/knZrAxSihN2cTrwv/ajrAm4q0JioORDvEA7VPib6+W
+         Fc1We1SHbHja0aU6la3mCKWmqdmdqyrw7PrK1kBw+lHZZRnVJkwWtgVJrKaeNf49g9jN
+         uuVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795476440; x=1796081240;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
+        b=j1erwheqpOO+g4sndgt3gmgUjFfS74tAqkMglrNkLn6xuygD32ST/c9hhl9RnMsAt8
+         sOp1LtPU5DGG3/yNXhpkYKcp89Gb4XKvz3XnEI4lU84rRK4CBPojuzGHz4V1ExdkcXXp
+         3VXW+Bwb4zrAmrZoXAI0r7WWdm5x9K/TBVh0wRzQjAfaxl1+ODSrtqqW33MMUP1qWOyk
+         LxTYzFm8DHYZUPnsdxAHYExS1hugaDxwvb7cMBA4UQUKjNEwqshxp8dSv7oxQav56pkh
+         Vx+SzJQ0JcixHGqeyvBU1Ld5aEvDIP4RJqi1ymHFhxklOKlYiiQL3Te5GFOdxxOEmHRP
+         meCQ==
+X-Forwarded-Encrypted: i=1; AL+hErHNq2qZwaqqnaD9ajpbo3u5eCaMlfEprwKxxF/5hxOqbPPo070/xzi5eK4i9dlRjsM3YveUE/clBOfcK6U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/D7ys7xOdtbBY+wUwiMjWSBhJOrninu414EmqP3893CQ1G9mM6
+	x617d9iCxh0fSvXJOhIVAAb1kz7OPTzt+x3jqjWmp6EIzUr9TB26iCXSNdOOJXbRm1I=
+X-Gm-Gg: AZFdTZekAILaU4nWObqURbjSG0ru6pUEV7A/6wm7wk+cLcOujHPdGAchWTIHPbERF0D
+	OpaS+xrCt07aSQc7y4TGwSvAj+qgpmP+O3yOWnf86ahWkTKW0J0DN5QHGVn0AaC2rxFT7cPqjLG
+	q96EGJaWniidwBGKtw+05cY2T3WmgryBw/nndqYVAIDItE8Ics3Fnfp22sEDEdJQV0yKNoWjT4P
+	R/dt8bZHr226Ig9UI09iDcnCaAQL3sssG+BrcrVct1vMOcRcKTdjUiE7Gy1+8Zk9Ok/LmcXrSE7
+	uh8Ii8EuuzIy32hXQEo6Kz58u5L8syf+I45C4aWLciJx+sGYQRzwaaDfghR9jSQo7MzIgKeBJqL
+	V2G+WMI4EBlMcdil6nq/GCMK6gZuoJWC/ZlgG2O0Q/SiNZ5+R8DcfwOAbBh4ERA1vDrSdrMTleo
+	yFsKwm9A/F+2CJPXAA5SGkaZzqpOuUF9kDkx0/SIQZr49y00Z23yqKRpO09l+s8UbcbwtmJQUyW
+	ni1u5nTwtpZtTJsEJTGa34mT7FByFsRsUoTiOgj+HU2h2yH9Z46GxdD6foxRe2dYffA5Yh4YaEj
+	PaMeGCFb8+h9ctRKXDr0eP+sss5e8E0nXtR3LfnPF2Q=
+X-Received: by 2002:a17:90b:4a90:b0:3ab:e588:c295 with SMTP id 98e67ed59e1d1-3b41c95b542mr783917a91.42.1795476439597;
+        Mon, 23 Nov 2026 15:27:19 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:5d::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b73b2b3sm8886551a91.2.2026.11.23.15.27.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 15:27:19 -0800 (PST)
+Date: Mon, 23 Nov 2026 15:27:18 -0800
+From: Joe Damato <joe@dama.to>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v6 0/5] bnxt_en: Make RING FREE more robust
+Message-ID: <awTL1hW4kH+lo8Vl@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, netdev@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
+	linux-kernel@vger.kernel.org
+References: <20261120152830.699712-1-joe@dama.to>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,86 +105,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PEPF00000009:EE_|MN2PR12MB4333:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74921079-4f64-4fa4-1885-08df49b94ee3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|23010399003|36860700016|82310400026|10067099003|11063799006|56012099006|261021121427099003|261022105027099003|261009223027099003|261021123027099003|261102123227099003|261026140227099003|261022075727099003|261028144727099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	NLE3sBADCJYZW2iFAWFt1PrQmDbjo9cqXLOGMv/0Id6q7zKd26r4cvC36HUh8eO8ZNphXq7a7cQsiZFBULyu0yj85XPeOoPzK5dO7fA0WiF/rAqiryDXJBh9Wxf8/Dcd/90pmEbwAaN6DP04KGjW4f2vSxpjm6JFGsJ//EFCNvYebBnIf8wPditDrKScuRovgCTJ6Vpo3iRj+rzdJiiMJNdo9OGcv6+UgjAqT2NW3IIkjKL5zJ+0Bor0OUPiY1nEItbgysl8W+reXgAQ4qE7qU+iDtw92KfW+ZgZPx7OQ/c1mergWpVXvgd3xm+PbFaIgPwaizR/nRZbfhKPwVlqtj0CSrCKdmAaMnfxyZ6rAoqOjxgqxzGnZ1/60vTyuJnI5gRjUaf3vRFOvg2QchhJyv+VWAuv1nkmxP1146l+y28TC7Z25eJxTY8tucrmHHBu8huU+uS2DkXJNcc3lGwyOP2H2XkO3cR1C1n7yz6OEk/8K+UVkNzSTjbR3091Eh2bpu9ZLeS6WtKI4w1lXQTzhgyMYgKrCAEKsfZFC25MaPnwu/bEdyQEvH08B/b++EQCBargB4DR+f7nTcjqfSKJjmJ3Z4HbWzFy4J38nHPuVAkiXcHNqaBI8o4pnrZiHYsKYQOdijnB7wlR/iJuc7NFWpqOfGTn+Lc9/7sdZo7Vcx8RG5XfuUYIsRfnBLq/HJ/KsjZ67GjRr8DgJZZktsmaqA==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(36860700016)(82310400026)(10067099003)(11063799006)(56012099006)(261021121427099003)(261022105027099003)(261009223027099003)(261021123027099003)(261102123227099003)(261026140227099003)(261022075727099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	JCdbv7Uyxjeohn2mXEWBJ5RHWLAQbLLjUakkAYL/nfsM1LeouVxhdxoe7KSFg0y4XixhdFB/OLros+lmB0cHbMX05NR8dJpRTxXVt/kTiahnIRRccUL/RdoSij/saBCDyKwCRYNpz2CTuaroX5cc9wnwMNxxrENUsMPLnVHD6iq+drXjSlQpctzoKq1BlRbi1+87rMS9REzOXikbl3IXsXm6PlYojZ2HiSlzn8LjPZyiuqVf7QEoX6RS9aO6T3Ds3dCleooiStpdxKhzb6wUZk8uBVduMQjPNxOmIBIgddWjdgRB7qz14NG0z4u+xIsbJxjqz5F8GYeHQTPfhtyXAE7+AqUhj+1Dzqvvnw78IwZr2fN86xKgEx+NhRHtVzXDTtb9dzaj6uf2KtV0/hTf7dFdT1uXog5TbEqzz06Gf7S28+RAjIwDpG1gNB6xeL5E
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 23:27:15.0059
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74921079-4f64-4fa4-1885-08df49b94ee3
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH7PEPF00000009.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4333
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120152830.699712-1-joe@dama.to>
 
-The per-CPU bank_map records which banks had their block 0 prepared
-during mce_amd_feature_init(). It is a u64, so BIT_ULL(bank) is
-undefined once the bank number reaches 64. That caps the usable bank
-count at 64 regardless of MAX_NR_BANKS.
+On Fri, Nov 20, 2026 at 07:28:22AM -0800, Joe Damato wrote:
+> Greetings:
+> 
+> On two production systems, I saw the following dmesg pattern:
+> 
+>   NETDEV WATCHDOG: transmit queue 0 timed out 6073 ms
+>   Resp cmpl intr err msg: 0x51                  x20
+>   hwrm_ring_free type 1 failed                  x12
+>   hwrm_ring_free type 2 failed                  x8
+>   AMD-Vi: IO_PAGE_FAULT  x3
+> 
+> This suggests that, for some currently unknown reason, TX completions stall
+> and the netdev watchdog fires. The driver asks FW to free the rings, this
+> times out, but the driver ignores the possible failure and frees ring memory.
+> Since the FW didn't respond to the ring free command, it is possible that the
+> FW is still DMAing to the memory which was freed.
+> 
+> To address this, this series makes the driver stop DMA before freeing ring
+> memory when the firmware did not answer RING_FREE.
+> 
+> Since the RFCv4, I found a third system that hit this repeatedly:
+> 
+>   NETDEV WATCHDOG: CPU: 35: transmit queue 0 timed out 5459 ms
+>   hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x64
+>   hwrm_ring_free type 2 failed. rc:fffffff0 err:0    x32
+>   hwrm_ring_free type 0 failed. rc:fffffffb err:1    x64
+>   hwrm_ring_alloc type 1 failed. rc:ffffffe4 err:4
+>   hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x44
+>   Abandoning msg {0x51 0x3e35} len: 0 due to firmware status: 0x408100
+>   nic open fail (rc: fffffffb)
+>   DMAR: [DMA Write NO_PASID] Request device [47:00.0] fault addr
+>   0xffffa07ef000 [fault reason 0x05] PTE Write access is not set
+> 
+> This case differs from the first two in a few ways, but this series would have
+> still helped:
+> 
+>  - The ring frees fail on the close path and again on the error path of
+>    the reopen (bnxt_init_chip()), and the device then writes to memory the
+>    driver has already unmapped. The series stops DMA on both paths.
+> 
+>  - The interface came back up later, the watchdog fired again, and the
+>    cycle started over. The host logged 79 DMAR write faults in about 20
+>    hours. Patch 4 breaks this loop by refusing to reopen after DMA has
+>    been stopped.
+> 
+>  - The firmware answers each RING_FREE about 5 seconds late, after the
+>    driver has given up, and finally reports an error in its health
+>    register. Patch 2 does not treat these late responses as success because
+>    their sequence ids do not match.
+> 
+> In this most recent case, I suspect the hardware is faulty, but the driver
+> shouldn't hand memory back to the system while the device could still write to
+> it.
 
-mce_banks_t is the existing type for per-bank bitmaps. It is declared
-with MAX_NR_BANKS bits, so it follows the macro instead of fixing a
-width of its own. thr_intr_banks and dfr_intr_banks in this file
-already use it.
+Sashiko's review of v6 raised a few questions that depend on how the firmware
+behaves.
 
-Convert bank_map to mce_banks_t and use the bitmap helpers. This is
-preparation for raising MAX_NR_BANKS.
+1. Patch 2: firmware ordering for RING_FREE
 
-Signed-off-by: Yazen Ghannam <yazen.ghannam@amd.com>
----
- arch/x86/kernel/cpu/mce/amd.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+   When the firmware writes the RING_FREE response (valid byte set),
+   has it already stopped all DMA for that TX/RX/AGG ring? Is the
+   only thing still in flight the completions?
 
-diff --git a/arch/x86/kernel/cpu/mce/amd.c b/arch/x86/kernel/cpu/mce/amd.c
-index 255d09cd8544..a0064c26221c 100644
---- a/arch/x86/kernel/cpu/mce/amd.c
-+++ b/arch/x86/kernel/cpu/mce/amd.c
-@@ -263,7 +263,7 @@ static DEFINE_PER_CPU(struct threshold_bank **, threshold_banks);
-  * A list of the banks enabled on each logical CPU. Controls which respective
-  * descriptors to initialize later in mce_threshold_create_device().
-  */
--static DEFINE_PER_CPU(u64, bank_map);
-+static DEFINE_PER_CPU(mce_banks_t, bank_map);
- 
- static void amd_threshold_interrupt(void);
- static void amd_deferred_error_interrupt(void);
-@@ -572,7 +572,7 @@ static int prepare_threshold_block(unsigned int bank, unsigned int block, u32 ad
- 	int new;
- 
- 	if (!block)
--		per_cpu(bank_map, cpu) |= BIT_ULL(bank);
-+		__set_bit(bank, per_cpu(bank_map, cpu));
- 
- 	memset(&b, 0, sizeof(b));
- 	b.cpu			= cpu;
-@@ -1274,7 +1274,7 @@ void mce_threshold_create_device(unsigned int cpu)
- 		return;
- 
- 	for (bank = 0; bank < numbanks; ++bank) {
--		if (!(this_cpu_read(bank_map) & BIT_ULL(bank)))
-+		if (!test_bit(bank, this_cpu_ptr(bank_map)))
- 			continue;
- 		if (threshold_create_bank(bp, cpu, bank)) {
- 			__threshold_remove_device(bp);
--- 
-2.55.0
+   Also, once the firmware answers RING_FREE for a completion ring, has
+   it stopped writing to that ring?
 
+   If the response can be written before the ring is quiesced, patch 2
+   is wrong and I'll change it.
+
+2. Patch 3: abandoned waits because of FW health
+
+   hwrm_wait_must_abort() gives up when the health register reports
+   not-healthy, and patch 3 counts that RING_FREE as stuck.
+
+   I am going to guess no, but is there a health status that guarantees the
+   firmware has discarded its ring state? If so, we could skip stopping
+   DMA in that case.
+
+   Sashiko suggests that an ifdown overlapping with a firmware reset would
+   need a rebind. That might be extremely rare and fine as-is, though.
+
+3. Patch 5: Drop ?
+
+   Sashiko found a deadlock and RDMA restart races. I don't know what the
+   simplest fix to all of this would be.
+
+   Maybe it's better to drop patch 5 and let bnxt_re handle this in a
+   separate series?
+
+It would be really great to get the ring free failure path fixed so that FW
+isn't TX-ing memory the driver has released.
+
+If there's any guidance on the above that Broadcom can provide to help get
+this applied that would be very helpful.
+
+Thanks,
+Joe
