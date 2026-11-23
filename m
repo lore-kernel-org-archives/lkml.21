@@ -1,111 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454604;
-	b=flZxcvup0UJ7FStGV2+1HtLVqWSdpDAZchZbyV6cJKFqVCoq3dJwC57oxy2rnRawtj5M
-	 5VdcgAakXlWgKoWTnrmGVWnOMaVhVjk+aWsSVNWag8zLlEXvw2KHW2LjyK4ckVq0M+dG4
-	 E9HvAJI55+YTpfSdzPpp4oT+OrpSZdp7uConPtm75LSzeXR6QiyApC3O7zg5xiYEyiNJR
-	 ZCqRixh736yCY+MPjLU7mZ/46JVedFVrWnKhsC+xMeghlL53EWqXIXlRYZMDks0jEv+G2
-	 J8DRn7Sop/wlPzboIdg65ltdkyX1lMJPP2dFnxcHfQnvPx15NXqH0kn8XR+08nPZWJQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454604;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=QqMha60toiq9cJ0Dwjl5c0knVmrMb1MbEveOjw8znfg=;
-	b=cpv9y8YOHK715HUZmukknPAqNG3bY3qE8C2iDr8jl6sISTRrZtRgyU/tVSy+yiB7+95V
-	 7nDLDhQ3L1ZjWYI8arpp7wcjkqA76fTzkhbCVZN8Mk/tKXjHC2kqBoEhfYhgimZFyXSPv
-	 BQTW7CRyWvhFXH1M9ZWO3hSqlIo2GYU1UA1ErcYPmo7sLt7qAEWTYA4XBDTUiBmApGA9W
-	 qm+U/bdqbcTgCsOAw+Nt08p6zcz7s55WIjuuS10fBJSb6EjOI9yHikWu2tOdwb/hxLWeK
-	 ntcR4WMZmUL0VbRrgQ6hD1zuvSFVWknC3egn1hXvbQskWhJF8vJEp+TgyWsYTBsfpEg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=knSkjZp5;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QbiDcwdr;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.73
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795454657;
+	b=pc/NgI8Y3AUKEkwephCehO7sTAx32nOi21hAXYsURtdLBn2uvTSaylOMkCGga5vHJkwM
+	 jGDFA6+fhKznZ5VwE12yaXtHeIkTAVB7LdiXmDKJv0ZvD3gAWUbK375dGGKdYl5eT9D9y
+	 OhFLhmd8pJ0qyahamAAiMX6/VLm/cPm3xMNwSm7WJj50FRb/lPz0jYyleq37/icVB0+jf
+	 OZSWADggsZPXQ4EvcQsz0m1mhFG7eye0115qB4CCO7thTQ5thiD5ITXUUioT+/E/J0EPy
+	 J9Lr64isjgEzvTj7pIxNQfugFUYu07RxE3v4FGL6ImNTlHEB0WsNeb3d4jEBiGUNjbA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454657;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
+	b=5Tr5mnJ5kHiKb+UhKyPEqaxmw29hOJkS/MMSqx/MY4e6sQSaRjWmp+2A4OdfS72WjxqM
+	 NmY0D1bv8a64tWgLGI4iVZMTajOs/smIJYOiwjP+EQ7GVY0Xn0dYs8vpX80/qY4Q7+tX9
+	 VMIQOGgu9Hh2ooPlL0ZMD8FjoHUrzS/OGPo1C8OQzObrxYetF9sQovaD7X1NKNSDIRwAl
+	 A1Eb5l2IxQMxs4DNw5unvl3+wWLr/lGqX8U4pXmyQvipokoOGfCFwHHT8oesHkvN8GuR2
+	 Pt0jgnx+0MowTS88OgSqJyFrJ21BtlY1ffMFNgS0kgxCg7fcTpaDefUVyyEyi2hXhJQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BmFABGjQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.73
+Received: from mail-wr2-f9.google.com (mail-wr2-f9.google.com [74.125.225.73])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBC39606A333
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:23:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBC39606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78FE0606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:24:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78FE0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=knSkjZp5;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QbiDcwdr
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGHvwB236065
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:23:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QqMha60toiq9cJ0Dwjl5c0knVmrMb1MbEveOjw8znfg=; b=knSkjZp5LKR92Av2
-	al90EzL7Icqx9lO9pkbP/E0hjvkTFTphVMldeVE+zlb7IHvd9z9iDIX9vDs2133S
-	Y1g99l8t+ePbH5zQzm3kjP13wyEiPZy+G1X0VNSTg7lYg2Silw1llyAPdX88XZaZ
-	R8w5wfayKFiius+c5dkLpWVPFGVrPxrRF43w6glKhHLXL81FiuHnXVna4Y6rFz4K
-	ZpgdopiaJfoiQwwf2XxxXLC3bR30QDGqUUuwZsHpnReLJE7tG/83wKt2wILqcAZR
-	t7ww+/yE/ls/sWw3n1Zr056FB97gXM16MXHIod2hhA6Iaomrj5irQRrQYnjBatbX
-	Qr4SfQ==
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4evsjs01-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:23:22 +0000 (GMT)
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5edfa7703ffso111642e0c.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:23:22 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BmFABGjQ
+Received: by mail-wr2-f9.google.com with SMTP id ffacd0b85a97d-4ab565cd9a1so599613f8f.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:24:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795454656; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Y746LRJbTM73s8Rg8aboX7er37tF9tz6CwMx5VVCEZ/uFfc8TdRwYNC7LcJ1fpZOe7
+         bv5BEeRxuJ2WsvxrzAuq7l72whQjBijQyTlca4Gdbrn2fcoxtRvAh84COAUjs7FB2kKj
+         nm56415Cy9UH2sAMk8ArCh0yHA1eNMXugEelcosoR5OwXB9G656PLFmxHIOgxIobDKxO
+         VclzicGmIatGvyr680x5qyWm+nrTGYLIFajARWl5lK3rF0QnGsRv7v4rk/sbzpM1USGr
+         UV/XrsEWAQJzYyvrRQG54p6OCTOjkKeJjwmydKw+95siMnnl3peb6CtdxU64Pwg4IrIN
+         toLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
+        fh=GurP6c4O2AqstbxOsFCmTiLJkjlGUy5zy+4CPyqSrnw=;
+        b=Fd5ltvGcutvrhzKx2dLnK4JswloY2LwGZ0kT0BQenO31muv9CEgvBibslHwkC6etyS
+         /+qpsgiR5Rvi6l+/2Zo6FrZ2QaxzGrT8OikYDNt3cjNTDcxj8neqEleuegg/1u6A9CgK
+         tNHiRbJTlACQZ8slo8dOotpmVUGgwx9GfATLKCLnmUwOaVn447e+YAdHOJ/ZmNErcSv7
+         JA0Ta0Xk2mbBA4K1ya9zXvT9+2Aydm4uVDVUgGcBP3gwF0w6+Fy9+cFkTZ6G33+XD8wE
+         uvi3L4eVVKm4Evrj8ntfPbcoeFm/PobrCfQGknV+vDjNXXLMcgRD+QfWXoPivGPu/hlH
+         az/w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795454601; x=1796059401; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795454656; x=1796059456; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QqMha60toiq9cJ0Dwjl5c0knVmrMb1MbEveOjw8znfg=;
-        b=QbiDcwdr9s31R9mZuQuvRRe9qQwP6o2gP3s4HAoaHzYGM3KdMGdiuLk75J2H1rmamz
-         GUZlEkkXb0Wvba4ff/LzENQsW3t/kJowWoSuXDRO4knHB/ebY4XBDbuvurCwWs77ylpd
-         V3kEjPbTsWTLDudRSF7SYycW4eJMXN9K6XLSUG/Hr0GOtrbDM4vbJom4nNx/uKJYZkNb
-         38SrHuosvHKPf3mwlKW0CVVHFUGbFRh9Z9/oZ6Enh/SqLAexTk4wH2btIg6pT2dVJJw0
-         8AtEI+gkEBaRv+jcm79aKMTk3v9Ka2ko6DjfUgmKUig6C/cOLHtED957M91rQdOqX55F
-         KI5g==
+        bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
+        b=BmFABGjQN/9jPTL0iJHghX2wIraWr41uMl7Qq4MnUVd4pECgcDaTE1Uwk/vwqJKgVQ
+         iTywB3HX4c8wLBspJbKKJJ9ZzXuTcrhphw9jEQwH5+XL/z7E/q1Mu02KYV6xeT3QMjPQ
+         vRKEpPeDH3FYp+/QOz+k+2UkSKNs8AieMk2uPfJpWdUlg+E3qO5cHRC0+7Bz4PM5BLL5
+         Bob7VZX7005Uvny6lF6Od6VPlHESixgeVnEyV/9hoPeoIgft89xadkOA0+UAAtEwh/BQ
+         Gv/B7DuvJBMTQckyEdf/jWFYFP1yyfeshaDyhV+9NnAypZ5T+XfKJEZTWXQe3CoUsO5X
+         KFFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795454601; x=1796059401;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QqMha60toiq9cJ0Dwjl5c0knVmrMb1MbEveOjw8znfg=;
-        b=mBDDsXCQurw6ByFO29a7xb/ofDeZHnljLr3BDgt++b5KEGzUSPx9LE2cWLkOiQ/2Qj
-         /zubyc+ObILu0nAKRpzsGur/e4PMoHvI6xwsy1sdDBbXlXiLLzuHv69+MM6HY9u38UIr
-         UZKoIUdOY9ZIEDwFFCzI6qApA2/Ht7oI44VkFLVD1swTrIqkAg1WQ4lIKS4R9CrejFw2
-         t9823ewg2DiF1nTzyyzYlGf+TGCiu7JhOkSOHAp8ego8XesV2UVPi67Y+/+lV6zwZ7qJ
-         ZSIGrs7IsOAnwgxTn9bKYNon909/OVFln/iyI2IJEExoI+8StejwlPFFjX125asA7Tqt
-         RH1g==
-X-Forwarded-Encrypted: i=1; AL+hErE9dZIVll5zvYGJxs0ZoB7fi8rXblyHud+D+io8mjx7cWOXNBN+DUefXEKEeHY4pYLTg06Yzbc9yaKwYGk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8TvHcdNrwAlKobK8RQhYU83mQ7Ikj7xLm3QyOWnZhz8xspi8VU
-	6RzMdzqswRlvseZjLoyCeStf9bB1sCYwxZIV3ozHZ3JWjXwuy6K1HDxrIXyhz6aXN2A7MIoBGVg
-	Cma1p8C7sumdgymC/96TSuTeOPv15OjB9gTXRUcykfrO2+sycMJ6KH6EyL67FGe9+mss=
-X-Gm-Gg: AZFdTZcxu36nw8l3n18Xesv0AtE//WdNvcdraiDTJ2ZvKdvJHIOGAEI8x19PXq2rtc6
-	7FS9oc4VeBzj6VdDMYZj/w5hOfmy60R/NZBMLnUoohJZN3awuf1Ibyl2VSn1SISsFBoI2S9JaxE
-	IFVNICJf4RkrJxULjtWe5W0PZc55g+2Dxw5Ec6cS7t8+j8i7WBB8y2SkKA9cZ2DWas/0edVADpN
-	YrcPtfi0JdWLtYzGHRTIwpsH2lqOq5xd1YmVcSnpoGJh8TQxCyvgAFBjM5OGQUZw/lNk/7CQI4D
-	cFJTaduLbeQbF7akBWFX2WyFwQXb8TnTKlG8NJHyeYlOc2yS4t/XD3KCD2v0rbJ+gnE63wzwLsr
-	jVSQEY2vWKKCTyS+8By+c6bVRNrI9l5klwVEsIL2fDigSVWUVeQXYnOb3ECWFiY/UKIjx1aE=
-X-Received: by 2002:a05:6122:6846:20b0:5ec:b437:e670 with SMTP id 71dfb90a1353d-5ee8aeb50e2mr6973967e0c.3.1795454601080;
-        Mon, 23 Nov 2026 09:23:21 -0800 (PST)
-X-Received: by 2002:a05:6122:6846:20b0:5ec:b437:e670 with SMTP id 71dfb90a1353d-5ee8aeb50e2mr6973910e0c.3.1795454600582;
-        Mon, 23 Nov 2026 09:23:20 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae6872asm419548566b.13.2026.11.23.09.23.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 09:23:19 -0800 (PST)
-Message-ID: <40157685-826e-4011-93f2-1632b244a1df@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 18:23:17 +0100
+        d=1e100.net; s=20260707; t=1795454656; x=1796059456;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
+        b=eytfiNwhyTnojPYkvgRSfd3z4qkp2gBpEnmzIVOJ01OSh+RPFXJ4h880xaw/9Gj8FK
+         UzfZe1/YyIryNpuJaEpep5j29e7LJG9kBRmvJ/gxXcQ4gPxceu8c0+f4IsTJO4STJBoW
+         ZP0BhaeuwQon8v0u6RRRTz0B8plU00u7PjxYRAE55FFeHqhZwy5Xa/WkrSWt2B09V8zw
+         Rv9x5T5rfI2I+fB7LuabyUjT0J1u70mRXvhnvARnzGsiDlEe5tYveaJx5gwdkvKXziei
+         qTgLp7Cxhbyi82NxK9LL+Q5IbcMObMYgGnMpLog2RYml4sLwysXr1Yuvk+0uAJCVt3BM
+         h10A==
+X-Forwarded-Encrypted: i=1; AL+hErFyyeMmflOi6vcw+0VjD8vYtluzGTjDqSoUj5d064+/rezrCyXHHnC0vZRkGQn1gv5r3VoEK6EoIM9C/Yg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+xReHlZChdg274fGZJGpyTl6KJ0fFiCt47TrN+Tx2LqQ2l29Mw
+	Z2Og+xK3CU/AyHb9FBB/MHmf81bQ2pgCvon//JiUw6i0MaGHkKqhisnF+7xbSFqjr1VmAecN8X+
+	g0/NxSfaenZmi0IYwUlLxi39jtydysyg=
+X-Gm-Gg: AZFdTZeKzwqPBiTkQR6Sf50fGb58F8rwkbpSqmkSeXVLaTq4vQ94joPVaOxEQ2IxZ+L
+	26RhN2NJnSVDIUesYxvgMZH4wnywCx4ImkdnDQmnC5aeWlfETmIKjTKjvYbFruxd61vl07Ygttd
+	zwJZqj0zRhICgA56f+7LCPO5OpZaYFjIMqKAshBvIehfJFGdOnPMinnSskV5QwcACtv/WmP7Oc+
+	8k3opFsKwF7ucnZSxQAFVKkaaN5AYDCgh5DGV0Cd+NLsYGLBM8oYT7gC27MM+eerFA6iMIFHoMA
+	SnHPhXMMeIaIUUQ8tjH+4wjvj/9U+BskCtkSUhaIuVy161YKQyvbQulnyrYsUh8NHbJ07aVyYIP
+	J/cbe6JkxOI3jdF++vXsx4MXi6tPr0hJYapaFEqXNc1yz0jEZ9URa+p/CtCJeKETrCUxUd4Pi0u
+	omcMjII10Y0QAC4bXWw2IE6qQ3VH9SKNy2FyTbh0A9549uh3JSwrbsefI6R/E46PtVUSCs7t3xL
+	RgK0FMNpQdtjnPX2X0PkhUNiB3+72MxrQLFFQ==
+X-Received: by 2002:a5d:5e8f:0:b0:48f:bf71:2ad9 with SMTP id
+ ffacd0b85a97d-4abb400bcb1mr24309855f8f.41.1795454655445; Mon, 23 Nov 2026
+ 09:24:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,68 +105,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/msm/a8xx: Add missing preempt_record_size
-To: Rob Clark <robin.clark@oss.qualcomm.com>, dri-devel@lists.freedesktop.org
-Cc: linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        Connor Abbott <cwabbott0@gmail.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        open list <linux-kernel@vger.kernel.org>
-References: <20261123172025.402295-1-robin.clark@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261123172025.402295-1-robin.clark@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=AL9GXjHq c=1 sm=1 tr=0 ts=6b04768a cx=c_pps
- a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=S6-QWJaKbxxgmz9MQ4kA:9 a=QEXdDO2ut3YA:10
- a=tNoRWFLymzeba-QzToBc:22
-X-Proofpoint-ORIG-GUID: KQdGaMlCdy19GPanFpPmRZXHr2RO1OzW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2OSBTYWx0ZWRfX25gUnK8J4HDS
- J/nHdSucm9a/kqKNu0SLHG1Lj1HBG2WkT+zgVgHLUpSQucr06NqN6b43ZduLGE2ukEK8bIoVulP
- t5NNatsSchsK+8abnmpuIJtHnQk4cKzKf8olBkZq757RxxKfKZ0VrpTempwABXWwNYx+HgM9L02
- 4WNTJOjP2CKfguaMsgqbvCzL5n2EDkLzUxTaLl6TCDByi+VhXZjJMSQXr4H2320lmJsAUJklCbA
- Dn2/Mx7z6Ou6OeE+LdEqn67jTuZUV26dcFqrQ+xocoRnAwYmCu/6wHuqXjC5hWkReFDoLPVMUNn
- 8CNWpRbsumvDYjBGZ7v4tG3b81J5/sPCf5/YYujyDlbTqsmIupmS+2mcT5X8UXDpxa3ApOot3q3
- 8PvHQeoaIlxP4IEC7NkS+BzO0bW6lyohNbQwbXb6A36fdH4BXXYc49mL1oxRCD3x52zRV8FNx5y
- on3BP7kqXF7mDMdiO4g==
-X-Proofpoint-GUID: KQdGaMlCdy19GPanFpPmRZXHr2RO1OzW
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2OSBTYWx0ZWRfX4m9SRhBxByuP
- wKbIPrxpn4uj+5EGsDLVAyUn6wnuzK076V0MSE52g5q74ay3JGukfEPq3LZVOwkp+dz6WfEQXwo
- RoM0d4qfnfJ4eGqefdlm8tYwi7lqiPw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 phishscore=0 priorityscore=1501 adultscore=0
- malwarescore=0 lowpriorityscore=0 impostorscore=0 spamscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230069
+References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com>
+ <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local> <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
+ <a08e55c4-26dd-4502-9cca-b063387a0e06@intel.com>
+In-Reply-To: <a08e55c4-26dd-4502-9cca-b063387a0e06@intel.com>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Mon, 23 Nov 2026 18:23:38 +0100
+X-Gm-Features: Aa3M54relxQoy3EdiSIPsTaCYulqDgyys0pixRmsp_lAiGy74skMPUx1VNI5t8s
+Message-ID: <CAP01T77AiqVjyTJbHYqXe2v_h+PYzFEe3DeVTc1nyZVnzOfd5w@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
+ user address faults under SMAP
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Borislav Petkov <bp@alien8.de>, bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	kkd@meta.com, kernel-team@meta.com, x86@kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/23/26 6:20 PM, Rob Clark wrote:
-> Somehow this got overlooked, and Glymur/Mahua were falling back to the
-> default 4MB.  Which is way too small for the amount of GMEM on these
-> devices, causing faults in cases where preemption needs to same GMEM
+On Mon, 23 Nov 2026 at 16:36, Dave Hansen <dave.hansen@intel.com> wrote:
+>
+> On 10/9/26 08:23, Kumar Kartikeya Dwivedi wrote:
+> >   SEC("fentry/tcp_retransmit_skb") <- attaches to the entry of tcp_retransmit_skb()
+> >   int BPF_PROG(retrans, struct sock *sk)
+> >   {
+> >           struct file *f = sk->sk_socket->file;
+> >
+> > This program was written for doing a TCP related investigation. The first load
+> > of sk is fine, but sk_socket can be NULL (orphaned socket) or stale, so the
+> > second load becomes a mov with an extable entry. Below is the JITed sequence.
+>
+> In every other part of the kernel, dereferencing a NULL pointer would be
+> called a bug. Isn't this just plain buggy code?
+>
+> I assume the BPF program wants to tolerate these situations because it
+> can't fully participate in the synchronization mechanisms that the data
+> structure actually needs. So, it makes what (in the normal kernel) is a
+> buggy access.
 
-s/same/save?
+It would be equivalent of doing copy_from_kernel_nofault() in the
+normal kernel.
 
-> contents.
-> 
-> Reported-by: Connor Abbott <cwabbott0@gmail.com>
-> Fixes: 7fad33097e67 ("drm/msm/a6xx: Enable Preemption on X2-85")
-> Signed-off-by: Rob Clark <robin.clark@oss.qualcomm.com>
-> ---
+We allow privileged programs to do the equivalent of
+copy_from_kernel_nofault() on such pointers, for reads only (the
+verifier rejects stores). It is just done by instrumenting the
+program's loads, so that the call doesn't need to be written
+explicitly for every dereference.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+The BPF users know that such reads are best effort, and they use them
+with such expectations. Annotating all of the kernel is not scalable
+to determine where it would be safe to allow, so privileged users use
+their judgement on attaching in the right place and using this
+mechanism to do safe reads of kernel data structures.
 
-Konrad
+>
+> The rest of the story is trying to fix that up.
+>
+> But I don't quite know how this can be done "safely" in a way that the
+> fixups end up with good data or NULL. If SMAP isn't in play, can't this
+> just go reading garbage from userspace?
+
+It doesn't guarantee good data. The guarantee is the same as
+copy_from_kernel_nofault(), i.e. the read won't crash the kernel. A stale
+pointer to memory that is still mapped reads whatever is there now.
+
+Programs that need valid data use trusted pointers the verifier can prove valid
+(refcounted or RCU protected), and loads through those have no extable
+entry.
+
+This contract is well understood by BPF users. If they need to read
+valid data they will use trusted pointers. If not, they rely on this
+mechanism and attach to the right place to ensure the data they read
+is valid. In practice it is heavily used by tracing programs
+collecting statistics and observability data.
+
+These loads never read user memory, with or without SMAP. Without SMAP
+nothing changes: the JIT keeps the bounds check in front of the load as today,
+which zeroes the destination register for user addresses and the vsyscall
+page without doing the load. Patch 2 only drops the check when
+X86_FEATURE_SMAP is enabled, where the CPU blocks the load, and patch 1
+lets that fault be fixed up through the same extable entry, as we already
+do for kernel address faults.
+
+>
+> Also, can you talk a bit about the code generation on the BPF side here?
+> Are the instructions covered by the exception table handler all pure MOV's?
+
+That is correct. Each extable entry covers a single load into a
+register. mov for 4 and 8 byte loads, movzx for 1 and 2 byte loads, and
+movsx/movsxd for the sign-extending ones. On a fault, ex_handler_bpf()
+zeroes the destination register and skips the instruction.
