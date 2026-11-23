@@ -1,79 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795477128;
-	b=Dj8tDbuFvmRxy2V+IzC+tpanoM0Xlq0salW2mtI3aHdHtf1k2B8h13m2hF4jbRuKp8e7
-	 T1asZKKdsvcxevzV+6/G5ZUeZK8ji2OAT0puv1U37qhaKvR1Fqe6qlId3/6gUSJDMX270
-	 UIw1DmjJuo7tE35hPQ4rMcUJ8mWIdMJhZPGbBSslvhlFcY+z+t7fQHO2MGK05vZZ0+h3U
-	 gI43mxtjMjgep1SF5tZWDSktUyp5P3ckCpvHRSo+EpHpXjUU1HOhUluF8qZkDMW6of5Io
-	 OaOqrogo15xTLMKWIB0pr3EDqqp05tlupDk/6mWa0YwDwDIZo4dL8S7ETb5tXdWNnmA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477128;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ViCuzC29eFKJ8ML9lwnxCCTUFjkhP+S+d0AfhX4Jfo4=;
-	b=G/NGd6tCmvkg7PLK/vPfHAXUBx+w4+OGfXhlf3JR60PQhTCIH45VaBFVoihyFzmKQmPB
-	 FGdIEdfBoLsYjX2gU045IhlG07x1WKrvg7ftYMAMmiHnJdUOxNjRj8RA/DIuwGxt3LNq6
-	 u8/zzoYtbJaCqW6DuBQIj6A0wxVg8IQ5RDecfXadp+Mvr6evzjUdrYJWrmRoMJqQr6wgA
-	 ep5GGowbg9rkWXY0sEVSv+leyIO+fc6S+lB+dolNcbNTNbXFD1nyuIl5clBWwWX0dH4Rz
-	 ztY6tlTb/pUHbAq27f6VVmLNEiPQRntwnQDb4bP3OwiRsW0MEZjhy3ETGd5/QhVusuQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wxf4IhsA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795477141;
+	b=FbnPEBZ3xTr0ZusvMD2/LYfeIConJr8adCXP+8llvCxCSG7IFR/XjESvPnxlCUP/zDqk
+	 ZYk/XqJEBnH4r/QT++67iOdsytzTZs5z8JJXpwT2wneWxVFLHGNyJub8Z88T5qps2J3Cm
+	 +rJf0PG1HxUfdBl1xqfMsXE7vM/M1VdyQKIu6JARZsRVJvQyBAqZUNLipGvX7git8dAge
+	 T2nnb7xjo44eE36oun/WLJi0JJS7Suw7fuVDLn38eceGhRzf+9tSg19FZj3SaG12iYZ6e
+	 jGEeA5v/eJpxF9EQm8hi+e1C932tg75WMJA39NlPSQO6LPItigQcLDBf6PV1qb1vxdA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477141;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qjO6Sro+kkot/CXJkVtro+u1s9e/UqIOwqJIGnSgPrQ=;
+	b=NyHqf2LRJfnelZKdUpqRuJCQfPUzTlBrQpPoZBLnpLt2pljXHQbavTCba5gqEsYL57DT
+	 ijDDIk8MD+einohAEcdsWC0JOWIJGI9JVRLJ70gz6FAPCMdzgLaukYnSaS2mfEKhe8LtX
+	 Y+z1JCkyeAhVqDFjZ3CfXF7OAP/ZC+YwAfSVIWxBobToN/vnaq6QvhE3rWVb7b6BPHJjv
+	 7nUfhj2bvz/RmbD07zfzr2Wrt1IzsEevwP2gt4WKQHiqAYDVzptDfEwnERl/wmtmejMif
+	 gPXjGux4MiHSwx4RaW2iWJGOVSIUpXxrqgywokpIE1a5Jc965pULQ+ldKPcXwRn7D3g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bx1I1XPv;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8474606A321;
-	Mon, 23 Nov 2026 23:38:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28913606A31E;
+	Mon, 23 Nov 2026 23:39:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wxf4IhsA
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795477128;
-	b=MTiKCHBYdDnerQR7KVaOcegIOxVRy/FDgYSn5qGO5wj4HyHQz47cQHc1GYnd5AAJ0W92
-	 6dVson2rt659QmtlXeTj+TLVAw1ZU6znu8FUMEr0xdW5zEUK0uUQ9XLIkm66eMhtP6cAm
-	 V83DYJ76vtdhWRiabqNac1FNsFNZIUCb1YcICSRTuCDcEGhJyfpItK/8e8qYL39KTCb64
-	 M0rTWQfFIek+zg2WPgUxqw1hne8Vu62WmtL7rq3aYNaLvRUQ49rSWGiYgeRHbQLXcCKQt
-	 Q9ryfUxy/EvhxIZyH26cyglu+WBzM7Asn4HXNdzlUgz2ipYxrhB2bOYoQDkM1f9L6Bw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795477128;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ViCuzC29eFKJ8ML9lwnxCCTUFjkhP+S+d0AfhX4Jfo4=;
-	b=f28d5EQNOGBvJJCQqifzwgVHqnvjgB0pp8b3cNp+1N09XIUrkXJSfwOmolymr9acHOHr
-	 JAO36qa27sWQ6is0WkjLxUng50njG1tVoHejWVyZJuE3RAHeIIOBpIQJeVUFKtjRVC7mC
-	 +gaw2G3T3+uIf7yVYlrgPyMSckMJwFIu2qCsCRvoP2wbo3CgNX1c80fOjLgAf0f32gfW1
-	 S3cnf5HmMscBZj+aDbBSTtVuYb9HlBltRRuFS6mP9SHwL3NB1W2DVgfEjaI3SKqeE26FP
-	 3ZjvX6bo4bzvq06CKhxuupTTmg8I4aE0PGfhhWw7WFApRgtlB7m3+9k+KMdzN7eNTkw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 41A471F000C0;
-	Mon, 23 Nov 2026 23:38:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bx1I1XPv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6901F1F000C4;
+	Mon, 23 Nov 2026 23:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795477128;
-	bh=ViCuzC29eFKJ8ML9lwnxCCTUFjkhP+S+d0AfhX4Jfo4=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Wxf4IhsA9YVrVfJVyWFVjDLKsFFQrHxqmUYfW/hjK6AgpSCeo4QdAJmWQWsZ5Xa6W
-	 Eh1E8zyuSoYy1RSXUjHDjN5s8dNM+rFbejaxmLKWr5nQAWxROl9UGE6Lx5mXJWeT4F
-	 gH9NfW8BxGS5qC8xqM8JP+s9NN3cLPPHuViIGeEmc3ihZx6MxY4LwRAfA3mplZ+L1F
-	 52fok10VVEhU4XsonC/87BVDGHupClvyLiERWteM9rzgK1a5D63tnoSyBbE7sHEX8w
-	 oUVo1HFpgmCB/gPM5ovXHbeOGzBG6McAj+Ik8n/QP9Vvd0LFcyHRX/+ivUIM64VcQe
-	 wZZX91U8cwDTg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 94FC24C7CC;
-	Mon, 23 Nov 2026 23:38:39 +0000 (UTC)
-From: Arina Kharlamova via B4 Relay <devnull+arina.kharlamova.mbzuai.ac.ae@kernel.org>
-Date: Tue, 24 Nov 2026 03:37:45 +0400
-Subject: [PATCH] selinux: reject a 65535-byte xfrm context that ctx_len
- cannot hold
+	s=k20260515; t=1795477140;
+	bh=qjO6Sro+kkot/CXJkVtro+u1s9e/UqIOwqJIGnSgPrQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=bx1I1XPvvUamhT9t3ZhqQPFKJlpys5hQwY6Au1NMilDu7XkGaRwEFoaa8s7KvRuNJ
+	 SbsYX0B/P1DVzr4/NehWpdhgs9pSDOZvplHzuOkseqaTdZu5JyyQv1AIw1vQOmDfH4
+	 ThkEkYsjAhedS3KtY4N2dK/+wT3jvBeJRX6iRIRVEYOX/Lz/OLqvpgVPgyHxeuNho1
+	 FdIJ8kXVZT0TfAUPp6EcYSM0tNRN+ymfdAehG0/SOUX5FO0OHZlnhSBoL1sBB3n75U
+	 rk+TOwudJyu7Ns65LQL445mLsb9jp7T73mRyQA89rS266ySxUhJ+KRvTYfnvMgjcOf
+	 iBLTG8DSd+zMw==
+Date: Mon, 23 Nov 2026 17:38:59 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Yazen Ghannam <yazen.ghannam@amd.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	bhelgaas@google.com, Lukas Wunner <lukas@wunner.de>,
+	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Jon Pan-Doh <pandoh@google.com>
+Subject: Re: [PATCH 2/4] PCI/AER: Clamp negative ratelimit burst to zero
+Message-ID: <20261123233859.GA1120797@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,97 +57,297 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-dev-v1-1-00b99ee684ec@mbzuai.ac.ae>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyMT3ZTUMl1jIzNz4+RkC2MzUzMloMqCotS0zAqwKdGxEH5xaVJWanI
- JSKtSbS0AjuyniWcAAAA=
-X-Change-ID: 20261124-dev-32673cc83656
-To: Paul Moore <paul@paul-moore.com>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: selinux@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-hardening@vger.kernel.org, stable@vger.kernel.org, 
- Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795477118; l=2642;
- i=arina.kharlamova@mbzuai.ac.ae; s=20261123; h=from:subject:message-id;
- bh=Z7AJMpvi6SLYbFT+owIrY8vSwJq5AGT0uGxXNqbrlAE=;
- b=Ar6QmklyIzqD+a5uCiu5IjDZKs7GTVmt6UryLLGPxeHsXub11JIu7vvJo8WDXBtpbHA9LBn3B
- 5m9am+0ZMXsDbMhnvdQPkyZt+lMZLvvHY//Z1rLqhVLarbTzka0VtzK
-X-Developer-Key: i=arina.kharlamova@mbzuai.ac.ae; a=ed25519;
- pk=DzQWwMpUtJvSDuzprqvRdbrC72n4Sq8dW6cq3NRt2Mk=
-X-Endpoint-Received: by B4 Relay for arina.kharlamova@mbzuai.ac.ae/20261123
- with auth_id=1625
-X-Original-From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
-Reply-To: arina.kharlamova@mbzuai.ac.ae
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123165050.GA1741477@yaz-khff2.amd.com>
 
-From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+On Mon, Nov 23, 2026 at 11:50:50AM -0500, Yazen Ghannam wrote:
+> On Fri, Nov 20, 2026 at 06:12:02PM -0600, Bjorn Helgaas wrote:
+> > On Fri, Nov 20, 2026 at 04:13:07PM -0500, Yazen Ghannam wrote:
+> > > On Fri, Nov 20, 2026 at 12:10:43PM -0600, Bjorn Helgaas wrote:
+> > > > On Tue, Nov 10, 2026 at 03:56:12PM -0600, Yazen Ghannam wrote:
+> > > > > The correctable and nonfatal "_ratelimit_burst" attributes store
+> > > > > whatever kstrtoint() parses, so a negative value lands directly in
+> > > > > ratelimit_state.burst.
+> > > > > 
+> > > > > ___ratelimit() reads a negative burst as an uninitialized
+> > > > > ratelimit_state and gives a WARNing.
+> > > > > 
+> > > > > Clamp negative values to zero and document the clamping behavior.
+> > > > > ...
+> > > > 
+> > > > > Fixes: b4fe7398def6 ("PCI/AER: Add sysfs attributes for log ratelimits")
+> > > > > Reported-by: Sashiko <sashiko-bot@kernel.org>
+> > > > > Closes: https://lore.kernel.org/linux-pci/20260714191826.BA81E1F000E9@smtp.kernel.org/
+> > > > > Signed-off-by: Yazen Ghannam <yazen.ghannam@amd.com>
+> > > > > ---
+> > > > >  .../ABI/testing/sysfs-bus-pci-devices-aer     | 21 ++++++++++++-------
+> > > > >  drivers/pci/pcie/aer.c                        |  3 +++
+> > > > >  2 files changed, 17 insertions(+), 7 deletions(-)
+> > > > > 
+> > > > > diff --git a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
+> > > > > index 5ed284523956..215cf8bd4c30 100644
+> > > > > --- a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
+> > > > > +++ b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
+> > > > > @@ -130,9 +130,10 @@ What:		/sys/bus/pci/devices/<dev>/aer/correctable_ratelimit_interval_ms
+> > > > >  Date:		May 2025
+> > > > >  KernelVersion:	6.16.0
+> > > > >  Contact:	linux-pci@vger.kernel.org
+> > > > > -Description:	Writing 0 disables AER correctable error log ratelimiting.
+> > > > > -		Writing a positive value sets the ratelimit interval in ms.
+> > > > > -		Default is DEFAULT_RATELIMIT_INTERVAL (5000 ms).
+> > > > > +Description:	Writing 0, or any negative value, disables AER correctable
+> > > > > +		error log ratelimiting. Writing a positive value sets the
+> > > > > +		ratelimit interval in ms. Default is
+> > > > > +		DEFAULT_RATELIMIT_INTERVAL (5000 ms).
+> > > > >  
+> > > > >  What:		/sys/bus/pci/devices/<dev>/aer/correctable_ratelimit_burst
+> > > > >  Date:		May 2025
+> > > > > @@ -143,14 +144,17 @@ Description:	Ratelimit burst for correctable error logs. Writing a value
+> > > > >  		before ratelimiting. Reading gets the current ratelimit
+> > > > >  		burst. Default is DEFAULT_RATELIMIT_BURST (10).
+> > > > >  
+> > > > > +		Writing 0, or any negative value, suppresses all logs
+> > > > > +		unless the interval attribute is also 0.
+> > > > > +
+> > > > >  What:		/sys/bus/pci/devices/<dev>/aer/nonfatal_ratelimit_interval_ms
+> > > > >  Date:		May 2025
+> > > > >  KernelVersion:	6.16.0
+> > > > >  Contact:	linux-pci@vger.kernel.org
+> > > > > -Description:	Writing 0 disables AER non-fatal uncorrectable error log
+> > > > > -		ratelimiting. Writing a positive value sets the ratelimit
+> > > > > -		interval in ms. Default is DEFAULT_RATELIMIT_INTERVAL
+> > > > > -		(5000 ms).
+> > > > > +Description:	Writing 0, or any negative value, disables AER non-fatal
+> > > > > +		uncorrectable error log ratelimiting. Writing a positive
+> > > > > +		value sets the ratelimit interval in ms. Default is
+> > > > > +		DEFAULT_RATELIMIT_INTERVAL (5000 ms).
+> > > > >  
+> > > > >  What:		/sys/bus/pci/devices/<dev>/aer/nonfatal_ratelimit_burst
+> > > > >  Date:		May 2025
+> > > > > @@ -161,3 +165,6 @@ Description:	Ratelimit burst for non-fatal uncorrectable error logs.
+> > > > >  		allowed per interval before ratelimiting. Reading gets the
+> > > > >  		current ratelimit burst. Default is DEFAULT_RATELIMIT_BURST
+> > > > >  		(10).
+> > > > > +
+> > > > > +		Writing 0, or any negative value, suppresses all logs
+> > > > > +		unless the interval attribute is also 0.
+> > > > > diff --git a/drivers/pci/pcie/aer.c b/drivers/pci/pcie/aer.c
+> > > > > index 6f2460231422..401cd3a1b3d0 100644
+> > > > > --- a/drivers/pci/pcie/aer.c
+> > > > > +++ b/drivers/pci/pcie/aer.c
+> > > > > @@ -752,6 +752,9 @@ const struct attribute_group aer_stats_attr_group = {
+> > > > >  		if (kstrtoint(buf, 0, &burst) < 0)			\
+> > > > >  			return -EINVAL;					\
+> > > > >  									\
+> > > > > +		if (burst < 0)						\
+> > > > > +			burst = 0;					\
+> > > > 
+> > > > Why don't we just return -EINVAL if the user writes a negative value
+> > > > to either *_ratelimit_interval_ms or *_ratelimit_burst?
+> > > > 
+> > > > I don't think there's any reasonable interpretation of negative
+> > > > values in either case.
+> > > 
+> > > Right, that's fair. I think the reason to clamp was to be consistent
+> > > with the current code.
+> > > 
+> > > Would you like a follow up patch?
+> > > 
+> > > > Any non-negative value for the interval makes sense (0 disables).
+> > > > 
+> > > > Any positive value makes sense for burst; I don't know what a 0 burst
+> > > > value could mean, so maybe that should be an error too?
+> > > 
+> > > "burst == 0" came from here:
+> > > 084a990ded63 ("ratelimit: Allow zero ->burst to disable ratelimiting")
+> > > 
+> > > IIUC, the goal is to **always** hide/disable the messages. IOW, keep
+> > > logging the errors internally based on the interval, but don't print any
+> > > kernel messages for them. The user can still get the error logs from the
+> > > trace event and leave the kernel buffer alone.
+> > 
+> > OK, so burst==0 should have the "usual" semantics (disable
+> > ratelimiting IIUC).
+> > 
+> > Can we make a replacement for this patch?
+> > 
+> >   - Return -EINVAL for negative values written to either
+> >     *_ratelimit_interval_ms or *_ratelimit_burst 
+> > 
+> >   - I think the existing *_ratelimit_interval_ms documentation would
+> >     be fine, no change required
+> > 
+> >   - *_ratelimit_burst documentation needs something, but I don't know
+> >     what.  084a990ded63 ("ratelimit: Allow zero ->burst to disable
+> >     ratelimiting") suggests that burst==0 disables ratelimiting, but 
+> >     you wrote "suppresses all logs", which sounds like the opposite of
+> >     disabling ratelimiting.
+> > 
+> >     Also, I don't know what "unless the interval attribute is also 0"
+> >     means.  What *does* happen when interval==0 and burst==0?
+> > 
+> > The pci/aer branch is mutable, so we can just replace the existing
+> > patch.
+> 
+> No, burst==0 is the extreme opposite of disable ratelimiting. It's
+> basically a mute button.
+> 
+> "Interval" takes precedences, so interval==0 means burst is "don't
+> care".
+> 
+> The three scenarios:
+> No ratelimiting (interval==0, burst==X) => show every message.
+> Ratelimiting (interval>0, burst>0) => show messages based on settings.
+> "Total" limiting (interval>0, burst==0) => *never* show messages.
+> 
+> I guess a user could tune the settings to get to certain level of
+> "quiet". But there isn't a way to 100% filter/hide the messages. The
+> burst==0 setting gives that option.
+> 
+> What do you think?
 
-Commit 86c8db86af43 ("selinux: fix selinux_xfrm_alloc_user() to set
-correct ctx_len") made ctx_len count the terminating NUL. ctx_len is a
-__u16 and selinux_xfrm_alloc_user() only rejects str_len >= PAGE_SIZE.
-With 64K pages, str_len = 65535 passes, and ctx_len = str_len + 1 wraps
-to 0 (kmalloc_flex() stores the same truncated value first).
+I think the patch below is great, but should be split into "reject
+negative burst" and "update documentation" patches since the negative
+part is trivial but the doc part is unrelated and will always be a
+little confusing.
 
-ctx_str[] is __counted_by(ctx_len), so the following memcpy() of
-str_len bytes is checked against a buffer of size 0. With
-CONFIG_FORTIFY_SOURCE this ends in __fortify_panic():
+It's more work than I think it should be to integrate "interval" and
+"burst," partly because the "interval" documentation refers to
+"ratelimiting" while "burst" refers to "messages."  And we mix "0" and
+"zero."  Maybe something like this?
 
-  memcpy: detected buffer overflow: 65535 byte write of buffer size 0
-  kernel BUG at lib/string_helpers.c:1044!
-  ...
-   selinux_xfrm_state_alloc+0x18/0x24
-   security_xfrm_state_alloc+0x3c/0x6c
+  correctable_ratelimit_interval_ms
 
-The memory written stays inside the allocation (65536 bytes for the
-string); without FORTIFY_SOURCE the context is stored with ctx_len 0.
+    Writing 0 disables ratelimiting and prints all messages,
+    regardless of burst.
 
-A user context of 65535 bytes can reach this hook through PF_KEY
-(af_key.c only limits sadb_x_ctx_len to PAGE_SIZE); the xfrm netlink
-path cannot, because there uctx->len (a __u16) includes the header.
+  aer/correctable_ratelimit_burst
 
-Reject a str_len that does not leave room for the NUL in ctx_len.
+    Writing 0 never prints any messages (unless interval is also 0,
+    which prints all messages regardless of burst)
 
-Found while surveying callers of kmalloc_flex() whose __counted_by()
-counter is narrower than the count, with the help of an AI coding
-assistant (Claude); I reviewed the analysis and the fix. Tested on
-v7.4-rc2, arm64 with ARM64_64K_PAGES, FORTIFY_SOURCE and SELinux, under
-QEMU (GCC 15.2.0), with a KUnit case that passes a 65535-byte context to
-security_xfrm_state_alloc(): the unpatched kernel hits the BUG above,
-the patched one returns -ENOMEM. The PF_KEY path itself was not
-exercised.
-
-Fixes: 86c8db86af43 ("selinux: fix selinux_xfrm_alloc_user() to set correct ctx_len")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
----
- security/selinux/xfrm.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/security/selinux/xfrm.c b/security/selinux/xfrm.c
-index 8e00b3306574..181748bb5eb3 100644
---- a/security/selinux/xfrm.c
-+++ b/security/selinux/xfrm.c
-@@ -85,7 +85,8 @@ static int selinux_xfrm_alloc_user(struct xfrm_sec_ctx **ctxp,
- 		return -EINVAL;
- 
- 	str_len = uctx->ctx_len;
--	if (str_len >= PAGE_SIZE)
-+	/* ctx->ctx_len below includes the NUL and has to fit its type. */
-+	if (str_len >= PAGE_SIZE || str_len >= type_max(ctx->ctx_len))
- 		return -ENOMEM;
- 
- 	ctx = kmalloc_flex(*ctx, ctx_str, str_len + 1, gfp);
-
----
-base-commit: 347b0c5bacbe94bc99f7683e3c9269c77a0b9c92
-change-id: 20261124-dev-32673cc83656
-
-Best regards,
---  
-Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
-
-
+> ================================
+> 
+> From 88cfa8ba46d3f212cb94679c3a8211ff15bdf678 Mon Sep 17 00:00:00 2001
+> In-Reply-To: <20261121001202.GA917755@bhelgaas>
+> References: <20261121001202.GA917755@bhelgaas>
+> From: Yazen Ghannam <yazen.ghannam@amd.com>
+> Date: Mon, 23 Nov 2026 08:59:07 -0600
+> Subject: [PATCH v2 2/4] PCI/AER: Reject negative ratelimit interval and burst
+>  values
+> 
+> The AER "*_ratelimit_interval_ms" and "*_ratelimit_burst" sysfs
+> attributes accept negative values. A negative interval is treated as
+> 0, which disables ratelimiting. A negative burst is stored as is, and
+> ___ratelimit() then warns about an uninitialized ratelimit_state.
+> 
+> However, a negative value has no meaningful interpretation for either
+> attribute.
+> 
+> Return -EINVAL for negative input.
+> 
+> Also, document 'burst=0' behavior.
+> 
+> Fixes: b4fe7398def6 ("PCI/AER: Add sysfs attributes for log ratelimits")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/linux-pci/20260714191826.BA81E1F000E9@smtp.kernel.org/
+> Signed-off-by: Yazen Ghannam <yazen.ghannam@amd.com>
+> ---
+> Replaces "PCI/AER: Clamp negative ratelimit burst to zero" on pci/aer.
+> 
+> v1->v2:
+> - Return -EINVAL for negative interval and burst values instead of
+>   clamping. (Bjorn)
+> - Keep the original interval descriptions.
+> - Describe what a burst of 0 does.
+> 
+> The rest of pci/aer applies on top. The only conflict is in "PCI/AER:
+> Enable baseline capability error reporting", in the two interval
+> descriptions. The resolution keeps Lukas's capitalization without
+> "or any negative value":
+> 
+>   Writing 0 disables Correctable Error log ratelimiting.
+>   Writing 0 disables Non-Fatal Uncorrectable Error log ratelimiting.
+> 
+> Tested in a QEMU guest with injected correctable and non-fatal errors,
+> for every combination of interval {-1, 0, positive} and burst {-1, 0,
+> positive}. Negative writes fail with -EINVAL. Every error is counted
+> and traced. Interval 0 logs every error, whatever the burst. A positive
+> interval with burst 0 logs none.
+> 
+> An LLM coding assistant helped check the ___ratelimit() semantics,
+> draft the change, resolve the conflict and write the QEMU test.
+> 
+> v1: https://lore.kernel.org/r/20261110215614.3931232-3-yazen.ghannam@amd.com
+> 
+>  .../ABI/testing/sysfs-bus-pci-devices-aer          |  9 +++++++++
+>  drivers/pci/pcie/aer.c                             | 14 +++++++++-----
+>  2 files changed, 18 insertions(+), 5 deletions(-)
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
+> index 5ed284523956..e4c39839cc6a 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
+> +++ b/Documentation/ABI/testing/sysfs-bus-pci-devices-aer
+> @@ -143,6 +143,10 @@ Description:	Ratelimit burst for correctable error logs. Writing a value
+>  		before ratelimiting. Reading gets the current ratelimit
+>  		burst. Default is DEFAULT_RATELIMIT_BURST (10).
+>  
+> +		Writing 0 suppresses all correctable error log messages.
+> +
+> +		Burst value is only used when interval is greater than zero.
+> +
+>  What:		/sys/bus/pci/devices/<dev>/aer/nonfatal_ratelimit_interval_ms
+>  Date:		May 2025
+>  KernelVersion:	6.16.0
+> @@ -161,3 +165,8 @@ Description:	Ratelimit burst for non-fatal uncorrectable error logs.
+>  		allowed per interval before ratelimiting. Reading gets the
+>  		current ratelimit burst. Default is DEFAULT_RATELIMIT_BURST
+>  		(10).
+> +
+> +		Writing 0 suppresses all non-fatal uncorrectable error log
+> +		messages.
+> +
+> +		Burst value is only used when interval is greater than zero.
+> diff --git a/drivers/pci/pcie/aer.c b/drivers/pci/pcie/aer.c
+> index 6f2460231422..2c42d6e8bd9a 100644
+> --- a/drivers/pci/pcie/aer.c
+> +++ b/drivers/pci/pcie/aer.c
+> @@ -690,7 +690,8 @@ const struct attribute_group aer_stats_attr_group = {
+>  
+>  /*
+>   * Ratelimit interval
+> - * <=0: disabled with ratelimit.interval = 0
+> + * <0: rejected
+> + * 0: disabled with ratelimit.interval = 0
+>   * >0: enabled with ratelimit.interval in ms
+>   */
+>  #define aer_ratelimit_interval_attr(name, ratelimit)			\
+> @@ -717,10 +718,10 @@ const struct attribute_group aer_stats_attr_group = {
+>  		if (kstrtoint(buf, 0, &interval) < 0)			\
+>  			return -EINVAL;					\
+>  									\
+> -		if (interval <= 0)					\
+> -			interval = 0;					\
+> -		else							\
+> -			interval = msecs_to_jiffies(interval); 		\
+> +		if (interval < 0)					\
+> +			return -EINVAL;					\
+> +									\
+> +		interval = msecs_to_jiffies(interval);			\
+>  									\
+>  		pdev->aer_info->ratelimit.interval = interval;		\
+>  									\
+> @@ -752,6 +753,9 @@ const struct attribute_group aer_stats_attr_group = {
+>  		if (kstrtoint(buf, 0, &burst) < 0)			\
+>  			return -EINVAL;					\
+>  									\
+> +		if (burst < 0)						\
+> +			return -EINVAL;					\
+> +									\
+>  		pdev->aer_info->ratelimit.burst = burst;		\
+>  									\
+>  		return count;						\
+> -- 
+> 2.55.0
+> 
