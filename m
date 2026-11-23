@@ -1,94 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795409060;
-	b=5EVaQuqDSg05B/tsv/zAO1Fu1Hj1vM1kZruB5ICv6IZ8C+b1eKoDCj3R0VrHRGM2OZHS
-	 KWmu/FRbkQzHnCA2rB/HWyIwdgtqkaAbFoC7rwNTL2ngvgtAzFCdGC5Wnv4pyJNjY0wYH
-	 P53Gez7wSnw+Bq63en+VkWs2FUMcKEN9dLRG6EH5zrULLLJdMOME8QKWwkGOnbJG89ql+
-	 gSxVjmnfeAH4EjEUISx79rHMl6Hor8QhT/DM07sH50HuDe9EAndfn3/bqk49jd2XhqYx5
-	 KHc4enEbYPS7HXFx2DKrzbyWljonM0MuJbyY0IY98NBqX+ZH2s6Q7ztMIsAOW3wvg6g==
+	t=1795409062;
+	b=GzzgoQXC4FdSyI33nDWn8SSxEF/44jpdiihnoTXkYoNHl5DXPCZdJIQqgVO0l/eBV1JA
+	 hC1Ttn5+fV0ulyR3kbj7ZuK4DaFjVOuhYN6GgRt30w1z2ogq+ssQVR4amorpAhtsELAFp
+	 NMHFeQ+qruwhtduQZldt/DqlSAsgx5SmDux3Msrk+P2jrJg/1oUmS9+k4uhSPDPVp3nKm
+	 koVGU/c1U6vwb1XUh2gM637Dm3+JiKtm34ARFpzmcQzkp9aZm6MQ+BFI6bEuwL2VnaXym
+	 d3Oz2x6cCtrpwQqeOosU2Mu+TfxTh2Msdj9lNKB/4x/bI+KIt5ZIep4xX+Al55cHpcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795409060;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795409062;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=WFWQtd86yNkuC9tkkWvizcMlouBBSzOlV36p9Bto29A=;
-	b=0fNER6nD6xU2aaO37l1h9n5PWXPIzov9Hz0WvuZiD0L3AGV/R2UwGNWpYuuV6P+x3uXu
-	 l0m2sLIBH6+YLRe7k3r4XjNl+8n1WiMI4PJkRbGubR/c/zx3767gM4Qne6BuDxqFvL1O4
-	 jqrrP3KUeFTNakPXgftBPxag062Upg1t/C2zX0XBZvf1/wmyMhe3RKm8zjon0q2RI4oEm
-	 Q4BzKwiQRWgZPZlbbl5WWEm5wPCunpHp4k64RFKSrEXBa7ZIQRY3d76E9mZi8kgvibMP9
-	 CBiFbNxbK+Ko3cnEaASToLyBcqW4NiI7h3vwdkf3nkSzIYyA1pPNn3g1MuOlfd7ZsMQ==
+	bh=BdTqrxCjGzvBio68N6oddwP08xR12JMZ0ERx58k85rY=;
+	b=QfYXR/Gj/uaq3f9LByWXtomrYRrcrSbZiRU9ShasJwDLl/gUzt7SfkPLGzntlsQCHMWf
+	 t/m+KEwWx36luA4P0FKh6A3VQUHAZew5kdYq5kjD7rrIX6a1KTGQT0nPeY0O8M3SMEqhN
+	 I7+eUy79Ix1UwPAcCGC0f4tMBhkdHCUPHxNkR3t596Go6rOS/I6pqsCscKwISPUljJn2N
+	 nLxEJpfT1ImagM1AXSUYnfMGk7RbTCjrvhD+XmKvffH5qGFgMzrSEXqYG1R5WKy0X/Ebm
+	 on1EP6nsM4CWC7OTX14H89uycHYu/9P2+V2MgferYcb+asG3dPNduPh68YVSUg6izfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LeQ7m8UJ;
-	arc=none smtp.remote-ip=74.125.82.52
-Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ie1cTnKp;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81490606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:44:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81490606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 027E7606A335
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:44:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 027E7606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LeQ7m8UJ
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-170135e43c7so4017446c88.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:44:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ie1cTnKp
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-382f4710a17so4935523eec.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:44:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795409058; x=1796013858; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795409061; x=1796013861; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WFWQtd86yNkuC9tkkWvizcMlouBBSzOlV36p9Bto29A=;
-        b=LeQ7m8UJUwumbqbaO8qllsDV3Ju+XAZVl1OPvg9NpZKO6lFxpnID3/yqoveeH9Ps/U
-         G0ZWL+cV9tTZV/3oZLKevL/ENld3tMEz7xBIG/rWwlwrOEXyimr31LfOkwbGhOQUqysi
-         J4FfpJMSxAYPYrnB7hb1S/veqjEcydA+pZ8vOR0t1T6GcgC8w2ysbTBIhUEN8SU+GYsK
-         HT6HxVaVxSoNgRoPdb9G47RApr/CADGtdqdshEwSF2C1cmCmQdnh/a0G6Fw/lA6db1L8
-         BGrJ0tpxgeFyA+etBw+lZz9epRFt6A6rzqxIPtlMdhGtE5ZGN8+QqgiVvu5iGBEoWWD3
-         2Pcg==
+        bh=BdTqrxCjGzvBio68N6oddwP08xR12JMZ0ERx58k85rY=;
+        b=ie1cTnKp4MfSfSiEz5OiGwUZxrqFS6GKSJUJ/+96XcM3BSMwu76i0YBbVgn0WR0etQ
+         CA/OWd3qbH5T23Z1cTJ59bGwzzjD6qzFhorJbnaj/FD5eIPiVgiMFzi/+kANFS93iNng
+         AFZ2F7M/2fEBWyB468wgkpCDzSBaxnkqaTjdjTleHMqpdIp31d9v7eFWA1+7Bj//BmYg
+         0qdbhEfDSzD+dM4AD3qyNLTkzGa/+tBYXH9wnAjIPiBR7+dN1qSwZCU3KudcGG0bij6I
+         c+grS98KAOQphg5blyzLGMhPhMe+EhOQ1at+fpR6Bu5fnxX2qBl9zXDPKECcsktprkZU
+         Kcjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795409058; x=1796013858;
+        d=1e100.net; s=20260707; t=1795409061; x=1796013861;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=WFWQtd86yNkuC9tkkWvizcMlouBBSzOlV36p9Bto29A=;
-        b=wyc+qZ8oloN9H7PVhw4G6oPauLauSN9GPiLXGGqe0835ycWt9qRFttDm6hjXYF/MTW
-         rqYlcVaPIm3cet8OT8NFHWF0zWWAwTVi0I1hxh+DLDZbHjcBC9W8AW7bNZkXtC9zth5F
-         ZMEiHkohM0bjxqLvBDDSKNL5/honBTrzfEvZgLT8x7mkqbr2xhipa/TlB+IwfXDnzrvV
-         hl4jZXo1na/tOaT37wfnJ0NALoh+sjlnN7EduPnwNmrHKFyHiwawxw+Fom/41pxvWKtI
-         70Pl73SbJbbgN9COP9hW9q1X61/SkZF32S3kB1o+Oig8UA+lHDSyBQuRGr8MnNSwiEIP
-         UrXw==
-X-Forwarded-Encrypted: i=1; AL+hErE7uR4cBdb84CF1yand/MSrMx+Rdq/EsE3WY2R4BmVkwnjnVAreotYtrrI0uSbh7gEvSr1jm6WqbRB/vPY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+KtAm5dgP90m7gUTYWi/zABQxvSs3G7vADkpA7cDf2Yl1mLTt5
-	9FSCKRDBlSQaxd9LKus+gL8rYIXxfmtxfM9nRzUSpnoQcyeZazSUpJo=
-X-Gm-Gg: AZFdTZeO8ohGFB6WTRaTk+lBH/KcxHIap+I+nRDBxEer9mum4IYra2k7wuC6zxVmgq1
-	AHdJOessG+FlGyYu1pH9pl3Wu1hmj/7EdQ8ivMmNvhjHYt6NwBZbyRyJCQ7APA3jnN4YHNUUz6v
-	5l0RJzMyVCfVN5l2bbvVYnOJSjjir5YiMpwpdAOtRw5+if9rNfd2+EKEEYRovWsGza2OiNMoQZo
-	NN9395EwccOvW596LrNZbIfG0ff00L/0b06YWTrWav3Se+NP/6h09W/c2CxFqbV5dM47V7ssG+R
-	jigciDc9zfofszK8qdt0ZJcyp1nVZjdNRz4LcQT0c6UVWTb4rs7NfwARTfmVhx9davgofvuxJsW
-	Y7AhBuSn42Y/Pd2pd16KqEePsTGs9ZxhTJOrE8kymrw/KO0leCh7xe7O+qJj9VzSAN9XWVHsAMu
-	Tm9Y0agabYYL0N8ND7ut7dZrgSLboHEYzRf8OgyPC/aU8oyJjGibcEmyOUtu0+LW0WRA6TTHZG1
-	ewdTeDGqdGOsHMfm2uWYnMDCOzE3BwUyaNaDtN/M3CuDvTgLldExP/erRI6EOIZGzkSOkKF3UUw
-	tPAoEnbCbFPvPCbnhRnRZdQC0Za4qNqx80+MASONdD5KNMk04KRtrd3EDBBNFcaqm6zsblb3wyn
-	FeR9H8kOd
-X-Received: by 2002:a05:7023:a8b:b0:1b3:af3a:e784 with SMTP id a92af1059eb24-1b5568fe775mr11992061c88.32.1795409058483;
-        Sun, 22 Nov 2026 20:44:18 -0800 (PST)
-Received: from at-Standard-PC-Q35-ICH9-2009.tailbdca44.ts.net ([27.60.27.67])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm24684252c88.1.2026.11.22.20.44.15
+        bh=BdTqrxCjGzvBio68N6oddwP08xR12JMZ0ERx58k85rY=;
+        b=ofoVjcXEkElNVaLKBSjiVOHRKyPp5WfSsSMV+2nerZnjNSkV3rq4cmrDReKVTRMLr0
+         UmCi5fJDTaFP1N9mCRBcCwyJhbP3Fzpo0eB5lMzhbv75QUGStqHnJthE5dsN4AI0ek/n
+         SWUGaQeIW0ceHAZo1QDRj4Ox5TPyhhBnzVpZSrL1FFZe9jK+gc533Z4vS96eGyG8BGr6
+         DqSzaPx8wCyHLGTP19wj7h98WQvBQbZAhIHLPhEz6DmFHwJZg7p4tJcLlXnl09A38ZH2
+         B3Qc3Gei0gmCoRjf5a/QEJbzOCqFhVygh7oyOVgRoYxU6Nepx/h1PuMcFkI5ILeqaXbD
+         FZFQ==
+X-Forwarded-Encrypted: i=1; AL+hErHFRrl/pxHmRWOOA21NoKnWmb/qRHXbW5/2UpvlIk6vkFEMrF0fFTN1VtvN+jxBm0Xigm3W6G8wHc1kamk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8e5kO1ZyiaQZRcURF107ZnH2LP5WrCHzs5A9C49gba1+MXmd7e
+	4kPxmSOQ/FdiIGgd1pfEZForx7ofsXbUQsQqr5sBPsrYPiYL/NnhqlDI
+X-Gm-Gg: AZFdTZc31j8/8cOQk/mcytLvsQL1OUaZ9AyzW+TJCYB3z0O0MP2QXisiVzKZ9LILkFy
+	CkPWblKddNh6uYa+e6idBMc9c4gNQRq7piFDatKHsUmHSvpvqQMNNjBYrx3KoUq+fGN56hOi45j
+	7u/kYodc2QeO+uttExQKNGuS3WESBz9Pv3s7aq5LGoEuPaiYqzQcNRQHTNBjvHWLER+KowWhAWQ
+	M4A4scVdrwLvc9039t9LpizM1AS3T2SxYFQNwpK+f2sFt4/ozVJoV5NMDCfkTmZBbFjh6wst2iu
+	TaUojhxroVHsbYQ7/FXazUzhMUA0SFrfbcPNaA9W3ZjPH3UWhwWPNSb0EPCpzrm8gsOymeFeExS
+	hSGF6ynA9pQMNZPsDxYJZ7fpBnXCF9TSEOb0YLNxA18Qp3Vkf+dNfHKgXNLg7DKjzixyMGNTYF5
+	9d6lRrJYsrfshmhhNeH8f/UHpTC1KrKeMpDGrbaWu38mDN3LPzl6bvuD4rJ5+8ffCM0bO1mkn7a
+	epk+8A1Sl9NgTfCS0SC1IOgKeROoZticoRFlIybZVxORKTBvxwxlDdSdZBG86TjznPHoOOS4vNK
+	i9ut2GEnK4nz7WiW9/3CMLlW08fLdBngEeTEoZOaei9IZLXcgwY=
+X-Received: by 2002:a05:7300:e91e:b0:384:2780:8757 with SMTP id 5a478bee46e88-38570a3e793mr12269206eec.22.1795409061005;
+        Sun, 22 Nov 2026 20:44:21 -0800 (PST)
+Received: from localhost.localdomain ([129.227.183.200])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm24322434eec.19.2026.11.22.20.44.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 20:44:18 -0800 (PST)
-From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-To: 
-Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mathias Nyman <mathias.nyman@intel.com>,
-	linux-usb@vger.kernel.org (open list:USB SUBSYSTEM),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH RESEND v2] usb: xhci-pci: Add Power handling for Card readers on Apple systems
-Date: Sun, 22 Nov 2026 23:44:09 -0500
-Message-ID: <20261123044412.8721-1-atharvatiwarilinuxdev@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Sun, 22 Nov 2026 20:44:20 -0800 (PST)
+From: Guomin chen <chenguoming88s@gmail.com>
+To: Peter Chen <peter.chen@kernel.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Roger Quadros <rogerq@kernel.org>,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Guoming Chen <chenguoming88s@gmail.com>
+Subject: [PATCH v3] usb: cdns3: fix NULL dereference in cdns_host_resume()
+Date: Mon, 23 Nov 2026 12:43:47 +0800
+Message-ID: <20261123044347.3273-1-chenguoming88s@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,172 +100,95 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add Power handling for Card readers on Apple systems using SPWR
-ACPI method, SPWR(1) turns on the card reader, SPWR(0) turns off
-the card reader, on newer systems SPWR just writes a variable in EC.
-On previous systems it writes to GPIO pins.
+From: Guoming Chen <chenguoming88s@gmail.com>
 
-Its also used by the macOS driver with the function
-AppleUSB30XHCICardReaderPort::setDevicePower in AppleUSBXHCIPCI.kext.
+cdns_host_resume() assumes that the xhci-hcd child device is bound and
+passes platform_get_drvdata() straight to hcd_to_xhci_priv().  That is
+not guaranteed: __cdns_host_init() creates the child with
+platform_device_add(), but the child is only probed once the xhci-plat
+driver is registered.  cdns3/ is linked before host/ in
+drivers/usb/Makefile and both drivers are device_initcall(), so on the
+built-in path the child is registered before xhci-plat's initcall runs;
+when xhci-plat is a module, the child stays unbound until that module is
+loaded.  Platforms that set CDNS3_DEFAULT_PM_RUNTIME_ALLOW (cdns3-imx
+is the only in-tree user) let the controller autosuspend (20 ms), so
+the parent may already be runtime-suspended by the time the child's
+probe actually runs.
 
-(This should fix https://bugzilla.kernel.org/show_bug.cgi?id=111201
- But thats not confirmed)
+When the child is finally probed, the driver core resumes its parent
+before calling really_probe(): __driver_probe_device() does
+pm_runtime_get_sync(dev->parent).  That runs cdns_resume() ->
+cdns_host_resume() while platform_get_drvdata() still returns NULL,
+because the drvdata is only set later, by dev_set_drvdata() in
+__usb_create_hcd() called from xhci_plat_probe().  hcd_to_xhci_priv(NULL)
+then evaluates usb_hcd_is_primary_hcd(NULL), which dereferences
+NULL + offsetof(struct usb_hcd, primary_hcd) (the offset depends on the
+configuration).  The oops faults in the first instruction of that
+helper:
 
-(Tested on iMac20,1)
+  pc : usb_hcd_is_primary_hcd+0x0/0x1c
+  lr : cdns_host_resume+0x24/0x44
 
-Changes in v2:
-- Fixed grammatical errors.
-- Added CONFIG_ACPI check
-- Checked for xhci_suspend success before turning off power
+Commit 87e4b043b98a ("usb: cdns3: fix role switching during resume")
+only skips the resume callback when the role changes during resume.  The
+role does not change here: the parent is resumed by the driver core
+while the child is being probed, so that fix does not apply.
 
-Link to v1:
-https://lore.kernel.org/all/20261116231926.5891-1-atharvatiwarilinuxdev@gmail.com/
+Return early when the host child is not available: it has either not
+been probed yet, or cdns->host_dev is NULL because starting the host
+role failed after cdns_role_start() had already set cdns->role.  Nothing
+is lost in either case: a child that is not bound yet has no state to
+restore, and xhci_plat_priv.power_lost is only consumed when an already
+initialized host resumes.  cdns_wakeup_irq() already checks
+cdns->host_dev the same way.
 
-Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+Fixes: 3a85c1011540 ("usb: host: cdns3: forward lost power information to xhci")
+Signed-off-by: Guoming Chen <chenguoming88s@gmail.com>
 ---
- drivers/usb/core/usb-acpi.c | 34 ++++++++++++++++++++++++++++++++++
- drivers/usb/host/xhci-pci.c | 25 ++++++++++++++++++++++++-
- drivers/usb/host/xhci.h     |  1 +
- 3 files changed, 59 insertions(+), 1 deletion(-)
+Changes in v3:
+ - Add the changelog below the tear line, as requested after v2.
+ - Note that commit 87e4b043b98a covers only the role-switch variant,
+   and correct the description of when cdns->host_dev can be NULL in
+   both the commit message and the code comment.  Clarify a few other
+   statements in the commit message.  No functional changes.
+Changes in v2:
+ - Resend with the correct sender address; the patch is unchanged from
+   v1.
+---
+ drivers/usb/cdns3/host.c | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/usb/core/usb-acpi.c b/drivers/usb/core/usb-acpi.c
-index 489dbdc96..69f86b2b6 100644
---- a/drivers/usb/core/usb-acpi.c
-+++ b/drivers/usb/core/usb-acpi.c
-@@ -12,6 +12,7 @@
- #include <linux/acpi.h>
- #include <linux/pci.h>
- #include <linux/usb/hcd.h>
-+#include <linux/platform_data/x86/apple.h>
+diff --git a/drivers/usb/cdns3/host.c b/drivers/usb/cdns3/host.c
+index e01264dc625d..2f430e1e0089 100644
+--- a/drivers/usb/cdns3/host.c
++++ b/drivers/usb/cdns3/host.c
+@@ -140,9 +140,23 @@ static void cdns_host_exit(struct cdns *cdns)
  
- #include "hub.h"
- 
-@@ -199,6 +200,34 @@ static int usb_acpi_add_usb4_devlink(struct usb_device *udev)
-  */
- #define USB_ACPI_LOCATION_VALID (1 << 31)
- 
-+static void
-+usb_acpi_apple_get_location(struct usb_port *port_dev, acpi_handle handle)
-+{
-+	struct usb_device *hdev = to_usb_device(port_dev->dev.parent->parent);
-+	struct acpi_buffer buffer = { ACPI_ALLOCATE_BUFFER, NULL } ;
-+	acpi_status status;
-+
-+	/* The function only applies to CPU's internal XHCI controller. */
-+	if (strncmp(acpi_device_bid(ACPI_COMPANION(to_usb_device(
-+					port_dev->dev.parent->parent)->bus->sysdev)),
-+					"XHC1", ACPI_NAMESEG_SIZE))
-+		return;
-+
-+	if (hdev->speed >= USB_SPEED_SUPER) {
-+		port_dev->location = USB_ACPI_LOCATION_VALID |
-+				acpi_fetch_acpi_dev(handle)->pnp.bus_address;
-+		return;
-+	}
-+
-+	status = acpi_evaluate_object_typed(handle, "SSP", NULL, &buffer, ACPI_TYPE_PACKAGE);
-+	if (ACPI_FAILURE(status))
-+		return;
-+
-+	port_dev->location = USB_ACPI_LOCATION_VALID |
-+		((union acpi_object *)buffer.pointer)->package.elements[1].integer.value;
-+	kfree(buffer.pointer);
-+}
-+
- static void
- usb_acpi_get_connect_type(struct usb_port *port_dev, acpi_handle *handle)
+ static int cdns_host_resume(struct cdns *cdns, bool power_lost)
  {
-@@ -221,6 +250,11 @@ usb_acpi_get_connect_type(struct usb_port *port_dev, acpi_handle *handle)
- 		port_dev->location = USB_ACPI_LOCATION_VALID |
- 			pld->group_token << 8 | pld->group_position;
- 
-+	/* On x86 apple macs, Apple exposes location via SSD method
-+	 * instead of _PLD On USB 2.0, and on USB 3.0 it uses _ADR
-+	 */
-+	if (x86_apple_machine)
-+		usb_acpi_apple_get_location(port_dev, handle);
- 	status = acpi_evaluate_object(handle, "_UPC", NULL, &buffer);
- 	if (ACPI_FAILURE(status))
- 		goto out;
-diff --git a/drivers/usb/host/xhci-pci.c b/drivers/usb/host/xhci-pci.c
-index e278db940..31961de97 100644
---- a/drivers/usb/host/xhci-pci.c
-+++ b/drivers/usb/host/xhci-pci.c
-@@ -15,6 +15,7 @@
- #include <linux/reset.h>
- #include <linux/suspend.h>
- #include <linux/bitfield.h>
-+#include <linux/platform_data/x86/apple.h>
- 
- #include "xhci.h"
- #include "xhci-trace.h"
-@@ -517,6 +518,18 @@ static void xhci_pci_quirks(struct device *dev, struct xhci_hcd *xhci)
- 	if (xhci->hci_version >= 0x120)
- 		xhci->quirks |= XHCI_DEFAULT_PM_RUNTIME_ALLOW;
- 
-+#ifdef CONFIG_ACPI
-+	/* On Apple Machine with Card readers, we have to use SPWR(0/1) to turn
-+	 * off/on the card reader, And on boot the card reader is off, so we turn
-+	 * it on.
-+	 */
-+	if (x86_apple_machine && ACPI_HANDLE(&pdev->dev) &&
-+			acpi_has_method(ACPI_HANDLE(&pdev->dev), "SPWR")) {
-+		acpi_execute_simple_method(ACPI_HANDLE(&pdev->dev), "SPWR", 1);
-+		xhci->quirks |= XHCI_APPLE_CARD_READER_POWER;
-+	}
-+#endif /* CONFIG_ACPI */
-+
- 	if (xhci->quirks & XHCI_RESET_ON_RESUME)
- 		xhci_dbg_trace(xhci, trace_xhci_dbg_quirks,
- 				"QUIRK: Resetting on resume");
-@@ -562,10 +575,14 @@ static void xhci_find_lpm_incapable_ports(struct usb_hcd *hcd, struct usb_device
- 		}
- 	}
- }
+-	struct usb_hcd *hcd = platform_get_drvdata(cdns->host_dev);
+-	struct xhci_plat_priv *priv = hcd_to_xhci_priv(hcd);
 -
-+static void xhci_apple_card_reader_power(struct pci_dev *pdev, u64 on)
-+{
-+	acpi_execute_simple_method(ACPI_HANDLE(&pdev->dev), "SPWR", on);
-+}
- #else
- static void xhci_pme_acpi_rtd3_enable(struct pci_dev *dev) { }
- static void xhci_find_lpm_incapable_ports(struct usb_hcd *hcd, struct usb_device *hdev) { }
-+static void xhci_apple_card_reader_power(struct pci_dev *pdev, u64 on) { }
- #endif /* CONFIG_ACPI */
- 
- /* called during probe() after chip reset completes */
-@@ -853,6 +870,9 @@ static int xhci_pci_suspend(struct usb_hcd *hcd, bool do_wakeup)
- 	/* synchronize irq when using MSI-X */
- 	xhci_msix_sync_irqs(xhci);
- 
-+	if (!ret && (xhci->quirks & XHCI_APPLE_CARD_READER_POWER))
-+		xhci_apple_card_reader_power(pdev, 0);
++	struct usb_hcd *hcd;
++	struct xhci_plat_priv *priv;
 +
- 	if (ret && (xhci->quirks & XHCI_SSIC_PORT_UNUSED))
- 		xhci_ssic_port_unused_quirk(hcd, false);
- 
-@@ -895,6 +915,9 @@ static int xhci_pci_resume(struct usb_hcd *hcd, pm_message_t msg)
- 	if (xhci->quirks & XHCI_PME_STUCK_QUIRK)
- 		xhci_pme_quirk(hcd);
- 
-+	if (xhci->quirks & XHCI_APPLE_CARD_READER_POWER)
-+		xhci_apple_card_reader_power(pdev, 1);
++	/*
++	 * The xhci-hcd child may not be bound yet: cdns3 creates it, but
++	 * xhci-plat probes it only later, and the drvdata is set in that
++	 * probe.  cdns->host_dev itself can be NULL, e.g. when the host
++	 * role failed to start.
++	 */
++	if (!cdns->host_dev)
++		return 0;
 +
- 	return xhci_resume(xhci, power_lost, is_auto_resume);
- }
++	hcd = platform_get_drvdata(cdns->host_dev);
++	if (!hcd)
++		return 0;
++
++	priv = hcd_to_xhci_priv(hcd);
+ 	priv->power_lost = power_lost;
  
-diff --git a/drivers/usb/host/xhci.h b/drivers/usb/host/xhci.h
-index ec4bfeb48..579ddea52 100644
---- a/drivers/usb/host/xhci.h
-+++ b/drivers/usb/host/xhci.h
-@@ -1652,6 +1652,7 @@ struct xhci_hcd {
- #define XHCI_CDNS_SCTX_QUIRK	BIT_ULL(48)
- #define XHCI_ETRON_HOST	BIT_ULL(49)
- #define XHCI_LIMIT_ENDPOINT_INTERVAL_9 BIT_ULL(50)
-+#define XHCI_APPLE_CARD_READER_POWER	BIT_ULL(51)
- 
- 	unsigned int		num_active_eps;
- 	unsigned int		limit_active_eps;
+ 	return 0;
 -- 
-2.55.0
+2.34.1
 
