@@ -1,62 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441285;
-	b=rgtASj3ffQZ4KgVnawag65xsXGbJpTsBa1cTpj4Z3/sH+nmoXzjrQTS0stCNHscVGkYT
-	 yo+t+PVmvBQIxPCmyRbRak2QHLcg6kpY8HzSM7fazpJ3m4epgpyNvwG+NqOmlITZs5jpt
-	 rgD7BINEcpAZKKf9nzbBqAAFoaBOYCOeHXMs7QWHzGGYl2asqWpU1kEWYBt8VZZaCYXYl
-	 lfmC3F657sZom2VolS05D3A7Bg7wBXlCcebbeYOxh0wqXMdRtZRRToE6xpjdtg5Wp2Wom
-	 +9oq5r1JKa+I7Ig4Zmra1K/KexHOMam0mW86idLRw+9rNYI490E23tZV8guvKF/weFg==
+	t=1795441280;
+	b=cwOdmnfDx8cQ4zYMS5Ztb33PKqVs4OAgoaTWn/YEZn4V7TLGo5q58hoirxXnAX/cnISx
+	 Tiy1gtLsY04QxSdufvg5d33dNgQdUmLq14YYVylxaflZL48ist7LUbrPvH15EkIEMsnPT
+	 oGqc9HFrB5l8jcGl3eKPcze0f/Vrdc4BLRH0sIzG3eD62Gt8EiZrObsnZ6VwZnPfnEaXt
+	 pg2JZSpYVM1bSjpay6MNyA13pHUHpbBpmSCUN/f2ZWmrfZs2GJqoN8WClDb+T1K8hRfs+
+	 StH6gakURU2cUd5aEKX/a5jNfor5ix0sNsecywYj4i8XOagSFgIyCXIYi/DJUIg9XXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441285;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441280;
 	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Message-ID:MIME-Version:Content-Type:X-Change-ID:
 	 Content-Transfer-Encoding;
-	bh=2C5LERpIR4RerF/oqQKKb980WkL3XrIcGTt7ILAE0M8=;
-	b=3gGAe7JyflUBTssGY8+aPSxah75HRkULA9wUkAvzc0c7bFzPxX1o6E9tzwr0fnEEmwzQ
-	 u/OaRSI4RobElmyhQ6hbUmxCJEOkPo2rF/+6j6QmGbp/7cstRU0lULXovRzJXJO0h9XfB
-	 SUkcm3T3Eh56RTjk2Ss1HyRsvTIrEdQkmNEerjCG4KZ9hX6N+PWWtvWLhFKpMtYXQGuhy
-	 1tQCzUC2QS6TcKc44TReD1sq0yaSgWj/6oALPJQGd+sHMFRDVqHtA/xdT0thnbx4JcXF2
-	 OfCEXRXOh+t52zRZIIgYCnYezvM5uybx/IW/FhiLrJMiVm8VepfMWfijhVVnPPBReGg==
+	bh=P72trEonM6Y7XOEGHhhXrhsy7lLIVh2meQdrUiqYi4o=;
+	b=1f6+RqZq/P7p6dUeCrXfGPj4DMVF+7LnPiCBhApTtSk0an7ygnDCRD4z4VLmpMM3nEqN
+	 pdtrYV/PVJ/4nSqUfcd7tWa20UR+thWvXCeOwfkT2bkA5mwsfbuFSyKFZ6Q4JuFecDduX
+	 kWaxRDcVMEgsWWZKjgIaL2Yzm6c/63AosGl/MHc+r0vR+XdUkGbgPnfeV2Ktm5lAT0wfH
+	 AUp9Qap4Z+6MXUOeBab0zwkv68a+lay/O2E50mIFlxWFbJeKKqGmqsrePLd+A/0w2d7nu
+	 r/xlP/KBnNCfqATjrWLh1+eLEGt/zrpati2sxHXlqSqKR4iQrwK3r83lTnc6Owa4qaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=MnfTLWI5;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="1+B/jNg3";
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=A+IyIYva;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=udifRIrb;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BD96606A693;
-	Mon, 23 Nov 2026 13:41:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BD96606A693
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33176606A31E;
+	Mon, 23 Nov 2026 13:41:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33176606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=MnfTLWI5;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=1+B/jNg3
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=A+IyIYva;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=udifRIrb
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795441282;
+	s=2020; t=1795441275;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2C5LERpIR4RerF/oqQKKb980WkL3XrIcGTt7ILAE0M8=;
-	b=MnfTLWI5bPSoDROgNwQ4QweduyrCrgNv/9kr9vXAF2HiZNA/bi+OP1o32yM0VWw6r4KZbf
-	VXKfUrgTO5Pp/MCG1xq1VQZ4NAjVq8M4vqN+ZGc01DD6jvN8ONnYlvHXAighS9RQSGCXHK
-	ceFSWLlaWr0IyX/zCT23y97YBraJ2DAiwHtGK4n658vjQDOYEDkGn06Qr1y0jTYuczL4MI
-	dNoO6X6eQHWzGquiYIQt7tBCRBNZU1mswr0dFM6DTcjdRcsxACpG03q1ZvdXvWe60buenw
-	5CZ9mZKe0EwUw/ygvjMY7Pur0mY4moJ+XflMBYG3KXrd5U6mZuBQDqFhhxPqyA==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=P72trEonM6Y7XOEGHhhXrhsy7lLIVh2meQdrUiqYi4o=;
+	b=A+IyIYvauqbZDlTuFJrCwiyTiIrTR6vriQFNX+JdYJu4q8savXR4NH/dytBwbZGhjsntJd
+	YnK0tmB62KjWzfNg5gquw/NhJZAWFbbufoDxyJNfowT2pCaT34i9k6sarSM6qSzHbO8jtQ
+	Vx/Fk4WSB4qt6hMfaC7Kmij4NGzA7zbaN97S39RzvS73DNRkxIspmj36KJU6E/BI5qB8s7
+	sbEqy16YoKSmPvKdOFncc6fXrgiwl8qY0x9ICE+tK0leB5FV8vRMsneOGWU1Rfm2pT0F65
+	KwGxi3zY+mWkVgbsTmOQONY2tJDxnopqSVcLBkP9Qbu12tkaz/ypJd1Vj0Z16g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795441282;
+	s=2020e; t=1795441275;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2C5LERpIR4RerF/oqQKKb980WkL3XrIcGTt7ILAE0M8=;
-	b=1+B/jNg3CkgWgxfm9fgcXhzQupBdQYnBqY6yUBEyiB9sYEGTXMNYGiyTo8jYRnNh1B24Qy
-	IoV6bMmLCBKJ2+Dw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=P72trEonM6Y7XOEGHhhXrhsy7lLIVh2meQdrUiqYi4o=;
+	b=udifRIrbEh/keW0kFfcUyYMsULoybeOen4TtMT0Qo4cawCyDADEASsnztHVzeJQ/M9HIYi
+	/Ay43CgGfEjxNDDQ==
 To: linux-kernel@vger.kernel.org,
 	cgroups@vger.kernel.org,
 	rcu@vger.kernel.org,
@@ -94,11 +92,9 @@ Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	=?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
 	Qais Yousef <qyousef@layalina.io>,
 	John Ogness <john.ogness@linutronix.de>
-Subject: [PATCH v4 4/6] sched: Limit sysctl sched_rt_{period|runtime}_us to RT_GROUP_SCHED
-Date: Mon, 23 Nov 2026 14:41:10 +0100
-Message-ID: <20261123-sched_dl-v4-4-d523e4d960d3@linutronix.de>
-In-Reply-To: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
-References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
+Subject: [PATCH v4 0/6] sched: RT throttling cleanup and a bit of documentation
+Date: Mon, 23 Nov 2026 14:41:06 +0100
+Message-ID: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,74 +105,120 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+X-Change-ID: 20261110-sched_dl-a9727787112f
 Content-Transfer-Encoding: quoted-printable
 
-The admission control for SCHED_DL has been moved to sysfs and RT
-throttling has been moved (long ago) to the fair_server and its debugfs
-interface.
+People used to disable the RT throttling mechanism by writing -1 to
+/proc/sys/kernel/sched_rt_runtime_us. Since v6.12 they can still do this
+but they don't disable RT throttling anymore. Instead this throttling
+mechanism has been taken over by the fair_server which can be configured
+via debugfs.
+This is not really documented but a hint appeared a few cycles later in
+Documentation/scheduler/sched-rt-group.rst. This can be found once you
+know what you are looking for because this document describes the RT
+group scheduling (CONFIG_RT_GROUP_SCHED). The fair_server is used even
+without it.
+The then there is global DL resource control which also shares this
+file proc file (which is stuck if CONFIG_RT_GROUP_SCHED is enabled).
 
-This file remains to have an impact only on RT_GROUP_SCHED. Keeping it
-for ABI/ compatibility reasons makes no sense because its original
-purpose (RT throttling) is no longer served. Anyone changing this file
-and hoping to change the throttling behaviour will be surprised.
+This little series:
+- Marks CONFIG_RT_GROUP_SCHED as broken because I was not allowed to
+  remove it.
 
-Limit sysctl sched_rt_{period|runtime}_us to RT_GROUP_SCHED so everyone
-using this outdated file is aware.
+- Untangles DL usage of sched_rt_runtime_us and moves it to
+    /sys/kernel/sched/dl_period_us
+    /sys/kernel/sched/dl_runtime_us
+
+  This keeps the _us semantic that we used to have /proc. It _could_ be
+  changed to ns instead.
+  The updates to the proc interface are mirrored to the /sys interface
+  and produce warning on the first write without CONFIG_RT_GROUP_SCHED
+  enabled.
+
+- rcutorture is not touched anymore. Joel Fernandes is working on it.
+  The rcutorture can be fixed independently since the sysctl variables
+  are no longer removed.
+
+- Adds sysfs interface under /sys/kernel/sched/cpuX to represent the
+  runqueues. The only knob for now is fair_server_{period|runtime}
+  representing the fair_server parameters. If all goes well, debugfs
+  could be removed. The ext server could be moved, too.
+
+- I tried to correct/ update documentation while at it. I added the -doc
+  folks on Cc so they are aware. I can drop them in the next posting, I
+  expect that this gets routed via the sched/-tip.
+
+v3=E2=80=A6v4: https://patch.msgid.link/20261113-sched_dl-v3-0-a76ffa1cdeee=
+@linutronix.de
+  - Drop the cpu_active() verification for DL admission control updates.
+    Mathieu is working on getting it to work so I preserve it and don't
+    touch it.
+
+  - Drop the RCU-torture changes. Joel is reworking it so it no longer
+    needs to disable the RT-throttling (or the fair_server now).
+
+  - The proc/ sysctl knobs are not removed. Update to the sysctl
+    interface are mirror to the sysfs admission control but not the
+    other way around. An update to the sysctl interface without
+    CONFIG_RT_GROUP_SCHED enabled will print a warning.
+    LTP was complaining about the removal. On the other hand it was just
+    complaining that writting -2 to runtime resulted in EBADF instead
+    EINVAL. So=E2=80=A6
+
+v2=E2=80=A6v3: https://patch.msgid.link/20261110-sched_dl-v2-0-cc9399f7aeb1=
+@linutronix.de
+  - Corrected in wording sched-rt-group.rst (Pointed out by Randy)
+  - RCU-torture now disables the fair_server from its boost-thread. The
+    code expects the CPU to be active which is after the CPU-hotplug
+    notifier is run. An alternative would be to not start the
+    fair_server (in the RCU-torture built-in case).
+  - sched_dl_try_boundary() has now a private mutex to perform the
+    update. sashiko complains that the values are read outside of
+    sched_domains_mutex and written back while it is held, making it
+    possible to write stale period/ runtime values back.
+  - proper u64 casting for NSEC_PER_USEC multiplication.
+  - sysfs_dl_runtime is not static and accessed in
+    dl_bandwidth_enabled(). This was missed earlier.
+    The remaining sysctl_sched_rt_{runtime|period} are now also hidden
+    behind CONFIG_RT_GROUP_SCHED.
+
+v1=E2=80=A6v2: https://lore.kernel.org/all/20261105164724.yxONBd03@linutron=
+ix.de/
+  - Tejun and PeterZ asked for marking CONFIG_RT_GROUP_SCHED broken
+    first.
+  - Everything after patch #1 that got queued up.
+
+RFC=E2=80=A6v1: https://lore.kernel.org/all/20261023161348.t3lpPLQZ@linutro=
+nix.de/
+  - Try to remove RT-GROUP-sched after figuring out that it is useless.
 
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+
 ---
- kernel/sched/rt.c    | 8 ++++++++
- kernel/sched/sched.h | 5 +++--
- 2 files changed, 11 insertions(+), 2 deletions(-)
+Sebastian Andrzej Siewior (6):
+      sched: Mark RT_GROUP_SCHED broken
+      sched: Move DL's admission control to sysfs
+      sched: Add sysfs files for the per-CPU fair_server knobs
+      sched: Limit sysctl sched_rt_{period|runtime}_us to RT_GROUP_SCHED
+      Documentation/sched: Drop the section enumeration in sched-deadline
+      Documentation/sched: Add fairserver to sched-deadline
 
-diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
-index bd37dbf2bebbe..258b187459bb9 100644
---- a/kernel/sched/rt.c
-+++ b/kernel/sched/rt.c
-@@ -2877,6 +2877,14 @@ static int sched_rt_handler(const struct ctl_table *=
-table, int write, void *buff
- 	ret =3D proc_dointvec_minmax(table, write, buffer, lenp, ppos);
-=20
- 	if (!ret && write) {
-+		if (!IS_ENABLED(CONFIG_RT_GROUP_SCHED)) {
-+			const char *msg =3D
-+			"Please note that DL admission control (via sched_rt_period_us, sched_r=
-t_runtime_us) moved to sysfs.\n"
-+			"This update will be mirrored. Controls for RT throttling moved to the =
-fair_server.\n"
-+			"This will not be mirrored. The fair_server settings are under /sys/ker=
-nel/sched/cpuX/.\n";
-+
-+			pr_warn_once("%s", msg);
-+		}
- 		ret =3D sched_rt_global_validate();
- 		if (ret)
- 			goto undo;
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index eb215e3ac1260..922708b6aad65 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -110,8 +110,6 @@ extern long calc_load_fold_active(struct rq *this_rq, l=
-ong adjust);
- extern void call_trace_sched_update_nr_running(struct rq *rq, int count);
-=20
- extern u64 sysfs_dl_runtime;
--extern int sysctl_sched_rt_period;
--extern int sysctl_sched_rt_runtime;
- extern int sched_rr_timeslice;
-=20
- /*
-@@ -585,6 +583,9 @@ extern void unthrottle_cfs_rq(struct cfs_rq *cfs_rq);
- extern bool cfs_task_bw_constrained(struct task_struct *p);
-=20
- #ifdef CONFIG_RT_GROUP_SCHED
-+extern int sysctl_sched_rt_period;
-+extern int sysctl_sched_rt_runtime;
-+
- extern void init_tg_rt_entry(struct task_group *tg, struct rt_rq *rt_rq,
- 		struct sched_rt_entity *rt_se, int cpu,
- 		struct sched_rt_entity *parent);
+ Documentation/arch/arm64/asymmetric-32bit.rst |   2 +-
+ Documentation/scheduler/sched-deadline.rst    | 149 ++++++------
+ Documentation/scheduler/sched-rt-group.rst    |   7 +-
+ init/Kconfig                                  |   2 +-
+ kernel/sched/deadline.c                       | 312 ++++++++++++++++++++++=
++++-
+ kernel/sched/debug.c                          |  56 +----
+ kernel/sched/features.h                       |   2 +
+ kernel/sched/rt.c                             |  27 +--
+ kernel/sched/sched.h                          |  65 +++---
+ 9 files changed, 432 insertions(+), 190 deletions(-)
+---
+base-commit: a4d7daea71be591034445c17d4d81132a1785a12
+change-id: 20261110-sched_dl-a9727787112f
 
---=20
-2.55.0
+Best regards,
+--=20=20
+Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
