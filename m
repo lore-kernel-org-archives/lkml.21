@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434097;
-	b=oum24KAid7r4Y2cSKPk1vEJs26qSULGWvJOc+2rSUYkotGUPqGtyzRkMTXO9rwf69jJ8
-	 7qgmkLumtBAa3YH2SY7munDU1In/ZkfCiw8rGuzwFJ1dDGnwi994xfkz941n5sKpQjGga
-	 a8y2+Z4FlftVLBBIYXwXVLGjsUPin0HBySP87bZQZ665GNKISi24771+Gy4S/qR9yF/Fj
-	 Pk8lLryhvqS/Dw+9+1Bvkvm/y544EyaVGn28tH6fDxTEDCJUn+4b+nNdPeuys5HvP303q
-	 qPRR9FJ5B6EGMDZ/5Hz+e20LoioxhSJLK1H8F0VzTD7l/K0NmZLREyuM6P73C581Hug==
+	t=1795434122;
+	b=FX069KcDZsF/BxHSTRXVVkm+ubXHvWp0WU5YSsVxQd51rii4HYIzMvsOTTKW+jKjojsQ
+	 JAJS4brdNZkYNBFQquoeF6MNh/6wEG6rgqB1s5I30k640cLf2KcRjI8Vhg9ego/vDa3W6
+	 8HVcrio4CjidHI46Y/WWeBIhjKjAjow+Y3qoVeVBXjr33b3wCKfc+fYjaCNbO0j6iDHZo
+	 Px1hDsH2G33t61R7lxwsAhoGwAUv43uyaJXkhvC4dR+0+C5UGVqj3i/XW0ZahfZ8rV2Jk
+	 xKM+OjXxN+zrDL3q9S5PpdcUunZqUcUKGyWRIOqgsDn257q1Tk/y/x6aP7PmRq3fEaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434097;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434122;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
 	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
 	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=9oFz6UDT8gjmviaKWCp1t0akVQqvfGRhOXiu+f5jWeo=;
-	b=UhEW1dIF7Py0JuvvDmM5eatdxJAAeMHQMXCKAmrS63FuHTUfsVMU11dibqUn8LMMoBNp
-	 wfh6MEc+yfluRPnlV/XXBk3Fanu8eLd22Iy7bk4Z/05nrxvLWl+CwbV4UwUWYHOzWSaae
-	 RSw978EOu1xtiWIKejQxgr1VIrqh/KO3DymEYpQW2qP2pZyAQDOkKvAM0x/Asj2luqw4y
-	 WwnMyW4owFPDZ8MC67Ao8tKcbLGuh8RSbqIRmzB+3eDjFtIkA7pcbGq89spxCyRZzuqdP
-	 4tr7BmnIqJiP6v4OxWmu+lIh42YS2E7fvf8FcyrUcBC8pZ9ipqm1kqjntgK3z6pnjqg==
+	bh=RV5KC3iZ1ej2HaOJpSpPN88tsmvHdspNBiKJQsIda+E=;
+	b=0UiEly3DekVtI8hyQeqW/ywIsxXiR+pzBgkIR+lfHuRUVB2k54Zt3bsxRaEheHBsnJ56
+	 o+uwlSTMWkw6K6BO4ZZq4KXPyICKxAuqMuIe5Fv2vHQHmonrHeamwJEzsobTTvisCSF1a
+	 m3CT6VQ1u8vqp7NBfkVaRHJc8NlbRAWKifVC77qipAkDavSk7sCNvYl06MA+bSjmE/65Q
+	 kPax1je92lqUzHZqpsfNSpBSJpzOSSqe/QGHpKSquGsTgK2S5vH+c1CYq9n1BE3FpeMUw
+	 FdXGW17CAK/93enPDKWSo5lMi2t94AFzXapnH9DT9A0Zu8LCJ7fUgEkDcK6/wAAxHEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=paragon-software.com;
 	spf=pass smtp.mailfrom=paragon-software.com;
-	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=VZA9A8z+;
+	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=D2HBlXwI;
 	arc=none smtp.remote-ip=35.157.23.187
 Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48F5E606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F5E606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28A0C606A31F;
+	Mon, 23 Nov 2026 11:42:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28A0C606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=VZA9A8z+
+	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=D2HBlXwI
 Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
-	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id 8CFFD1D4D;
-	Mon, 23 Nov 2026 11:42:11 +0000 (UTC)
+	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id B9E071D4D;
+	Mon, 23 Nov 2026 11:42:42 +0000 (UTC)
 Authentication-Results: relayaws-01.paragon-software.com;
-	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=VZA9A8z+;
+	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=D2HBlXwI;
 	dkim-atps=neutral
 Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
-	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 169C8F7;
-	Mon, 23 Nov 2026 11:41:29 +0000 (UTC)
+	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 4759BF7;
+	Mon, 23 Nov 2026 11:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=paragon-software.com; s=mail; t=1795434089;
-	bh=9oFz6UDT8gjmviaKWCp1t0akVQqvfGRhOXiu+f5jWeo=;
+	d=paragon-software.com; s=mail; t=1795434120;
+	bh=RV5KC3iZ1ej2HaOJpSpPN88tsmvHdspNBiKJQsIda+E=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=VZA9A8z+wHineDXqarlsc1pc2fix7YhKwUB1ZRkQsMhmEpw1LSLuKb24HjGs2EREp
-	 ZOnJPo384wF+KIFvGVvgpJ1qMt3/GJwmCHBdsxdbCdt8Bf0l45ThhsDTN/bzvTnknY
-	 nSJmEhQFshyJDYHYNmXeGKKoTKD7U87T3JXkmjZU=
+	b=D2HBlXwI9cI2y3DOnEN1nUVLJYEMv5kHMRgdGdoP9yLK70r8BMaM5PP1fczpQyXvr
+	 LGq1x6rwTeS9TSbaemXADoNAn1iKmjfMRXm07J/8MwfKNNiJUDEA6/51079JFCY6sX
+	 vJ1y+NIwyocXLZ9cVEI1ceQOya7PzHrR1tRPNsQk=
 Received: from [192.168.95.128] (172.30.20.204) by
  vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.7; Mon, 23 Nov 2026 14:41:28 +0300
-Message-ID: <e010d85b-62aa-47db-af91-fb43026c8b65@paragon-software.com>
-Date: Mon, 23 Nov 2026 12:41:26 +0100
+ 15.1.2375.7; Mon, 23 Nov 2026 14:41:58 +0300
+Message-ID: <4c3c3e35-81b7-4879-bc7f-e1a5437b816a@paragon-software.com>
+Date: Mon, 23 Nov 2026 12:41:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,160 +65,73 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] fs/ntfs3: validate target index entry in
- check_if_alloc_index/check_if_root_index
-To: Tabriz Hasanli <cybersec467@gmail.com>, <linux-kernel@vger.kernel.org>,
-	<ntfs3@lists.linux.dev>
-CC: <w@1wt.eu>
-References: <20260831142344.472594-1-cybersec467@gmail.com>
- <20260831142344.472594-2-cybersec467@gmail.com>
+Subject: Re: [PATCH] fs/ntfs3: fix slab-out-of-bounds write in
+ ntfs_create_inode
+To: "Cen Zhang (Microsoft Security FORGE Labs)" <cenzhang@linux.microsoft.com>
+CC: <ntfs3@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>, <AutonomousCodeSecurity@microsoft.com>,
+	<xmei5@asu.edu>, <tgopinath@linux.microsoft.com>, <kys@microsoft.com>
+References: <20260901175834.8557-1-cenzhang@linux.microsoft.com>
 Content-Language: en-US
 From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-In-Reply-To: <20260831142344.472594-2-cybersec467@gmail.com>
+In-Reply-To: <20260901175834.8557-1-cenzhang@linux.microsoft.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-ClientProxiedBy: vdlg-exch-02.paragon-software.com (172.30.1.105) To
  vdlg-exch-02.paragon-software.com (172.30.1.105)
 
-On 8/31/26 16:23, Tabriz Hasanli wrote:
+On 9/1/26 19:58, Cen Zhang (Microsoft Security FORGE Labs) wrote:
 
-> check_if_alloc_index() and check_if_root_index() walk the index entry
-> chain to verify that lrh->attr_off lands on a valid entry boundary.
-> However they have two gaps:
+> ntfs_create_inode() sizes the non-resident reparse run list as
+> record_size - offset - SIZEOF_NONRESIDENT, then sets the attribute size
+> to SIZEOF_NONRESIDENT + ALIGN(run_pack(), 8). It does not reserve space
+> for the trailing ATTR_END, so a maximally packed run list places that
+> 4-byte sentinel just past the allocated MFT record.
 >
-> (a) They do not stop at de_is_last() — they walk past the last real
->      entry into the trailing gap between the last entry's end and
->      hdr->used, which check_index_header() leaves unvalidated.
+> BUG: KASAN: slab-out-of-bounds in ntfs_create_inode+0x4390/0x5220
+>    ntfs_create_inode+0x4390/0x5220 fs/ntfs3/inode.c:1796
+>    ntfs_symlink+0x108/0x170 fs/ntfs3/namei.c:224
+>    vfs_symlink+0x137/0x420
+>    filename_symlinkat+0x326/0x460
+>    __x64_sys_symlink+0x79/0xb0
 >
-> (b) They do not validate the TARGET entry at attr_off — the walk exits
->      as soon as o == attr_off without checking the entry's size, flags,
->      or bounds.
+> After packing the run list, check that the 8-byte ATTR_END slot still
+> fits in the MFT record. Return -EINVAL if the aligned run list would
+> place it past the buffer.
 >
-> This allows attr_off to point to an attacker-controlled "fake entry"
-> in the trailing gap of a crafted NTFS image's $LogFile.  Four do_action()
-> cases then use the unvalidated entry:
->
->    SetIndexEntryVcnAllocation / SetIndexEntryVcnRoot:
->      de_set_vbn_le() writes 8 bytes at e + e->size - 8.
->      Crafted e->size yields an 8-byte OOB write up to ~64KB past the
->      buffer.
->
->    UpdateFileNameAllocation / UpdateFileNameRoot:
->      memmove() writes 56 bytes at a fixed offset from e.  If e is near
->      the buffer end, this overflows by up to 0x50 bytes.
->
-> The sibling DeleteIndexEntryAllocation case (commit fc4626bb3656) and
-> UpdateRecordData cases (commit 3e127829e57f) already carry per-site
-> guards for the same class of attack; this patch closes the gap at the
-> validator level so all current and future callers are protected.
->
-> Fix both functions to:
->    - stop walking at de_is_last()
->    - validate the target entry: size is 8-byte aligned, >= minimum
->      entry size, and does not extend past hdr->used
->
-> Found by static source analysis and confirmed with userspace ASan
-> harnesses transcribing the kernel's exact validation logic on a
-> 512-byte INDEX_BUFFER with faithful check_index_buffer() geometry.
->
-> Signed-off-by: Tabriz Hasanli <cybersec467@gmail.com>
+> Fixes: 82cae269cfa9 ("fs/ntfs3: Add initialization of super block")
+> Reported-by: Xiang Mei (Microsoft) <xmei5@asu.edu>
+> Cc: AutonomousCodeSecurity@microsoft.com
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Cen Zhang (Microsoft Security FORGE Labs) <cenzhang@linux.microsoft.com>
 > ---
->   fs/ntfs3/fslog.c | 42 ++++++++++++++++++++++++++++++++++++------
->   1 file changed, 36 insertions(+), 6 deletions(-)
+>   fs/ntfs3/inode.c | 5 +++++
+>   1 file changed, 5 insertions(+)
 >
-> diff --git a/fs/ntfs3/fslog.c b/fs/ntfs3/fslog.c
-> index ed50c1d0c..d73e3ff1e 100644
-> --- a/fs/ntfs3/fslog.c
-> +++ b/fs/ntfs3/fslog.c
-> @@ -2953,10 +2953,13 @@ static inline bool check_if_root_index(const struct ATTRIB *attr,
->          u32 o = PtrOffset(attr, hdr) + de_off;
->          const struct NTFS_DE *e = Add2Ptr(hdr, de_off);
->          u32 asize = le32_to_cpu(attr->size);
-> +       u32 used = le32_to_cpu(hdr->used);
-> +       bool has_subnode = hdr_has_subnode(hdr);
-> +       u32 min_de = has_subnode ? sizeof(struct NTFS_DE) + sizeof(u64)
-> +                               : sizeof(struct NTFS_DE);
-> +       u16 esize;
+> diff --git a/fs/ntfs3/inode.c b/fs/ntfs3/inode.c
+> index 56b4f6469a28..d6e4b4b3154d 100644
+> --- a/fs/ntfs3/inode.c
+> +++ b/fs/ntfs3/inode.c
+> @@ -1769,6 +1769,11 @@ int ntfs_create_inode(struct mnt_idmap *idmap, struct inode *dir,
+>                          }
 >
->          while (o < ao) {
-> -               u16 esize;
-> -
->                  if (o >= asize)
->                          break;
+>                          asize = SIZEOF_NONRESIDENT + ALIGN(err, 8);
+> +                       if (asize + PtrOffset(rec, attr) + 8 >
+> +                           sbi->record_size) {
+> +                               err = -EINVAL;
+> +                               goto out5;
+> +                       }
+>                          /* Write non resident data. */
+>                          err = ntfs_sb_write_run(sbi, &ni->file.run, 0, rp,
+>                                                  nsize, 0);
 >
-> @@ -2964,11 +2967,24 @@ static inline bool check_if_root_index(const struct ATTRIB *attr,
->                  if (!esize)
->                          break;
->
-> +               if (de_is_last(e))
-> +                       break;
-> +
->                  o += esize;
-> +               de_off += esize;
->                  e = Add2Ptr(e, esize);
->          }
->
-> -       return o == ao;
-> +       if (o != ao)
-> +               return false;
-> +
-> +       /* Validate the target entry itself. */
-> +       esize = le16_to_cpu(e->size);
-> +       if (!IS_ALIGNED(esize, 8) || esize < min_de ||
-> +           size_add(de_off, esize) > used)
-> +               return false;
-> +
-> +       return true;
->   }
->
->   static inline bool check_if_alloc_index(const struct INDEX_HDR *hdr,
-> @@ -2978,10 +2994,12 @@ static inline bool check_if_alloc_index(const struct INDEX_HDR *hdr,
->          u32 o = offsetof(struct INDEX_BUFFER, ihdr) + de_off;
->          const struct NTFS_DE *e = Add2Ptr(hdr, de_off);
->          u32 used = le32_to_cpu(hdr->used);
-> +       bool has_subnode = hdr_has_subnode(hdr);
-> +       u32 min_de = has_subnode ? sizeof(struct NTFS_DE) + sizeof(u64)
-> +                               : sizeof(struct NTFS_DE);
-> +       u16 esize;
->
->          while (o < attr_off) {
-> -               u16 esize;
-> -
->                  if (de_off >= used)
->                          break;
->
-> @@ -2989,12 +3007,24 @@ static inline bool check_if_alloc_index(const struct INDEX_HDR *hdr,
->                  if (!esize)
->                          break;
->
-> +               if (de_is_last(e))
-> +                       break;
-> +
->                  o += esize;
->                  de_off += esize;
->                  e = Add2Ptr(e, esize);
->          }
->
-> -       return o == attr_off;
-> +       if (o != attr_off)
-> +               return false;
-> +
-> +       /* Validate the target entry itself. */
-> +       esize = le16_to_cpu(e->size);
-> +       if (!IS_ALIGNED(esize, 8) || esize < min_de ||
-> +           size_add(de_off, esize) > used)
-> +               return false;
-> +
-> +       return true;
->   }
->
->   static inline void change_attr_size(struct MFT_REC *rec, struct ATTRIB *attr,
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
 > --
-> 2.53.0
+> 2.55.0
 
 Hello,
 
-The patch was applied, thank you.
+Your patch is applied, thanks.
 
 Regards,
 Konstantin
