@@ -1,88 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.168
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795403830;
-	b=tFsXImO/f1R80wVvF5JbGgesZW/y6AI8PPXqfh8y5XjRmPC3Ud0NkVtz2aASTaRG7PNz
-	 HZjbxNiay29QIPEp/Qq2/NNZAjv5q73n8nFwXuX1ufYbPX344V5CGWhboX1jIpMHFCyck
-	 g9xdtdzxw+FDqpa5CoSW1nxLRLk6BfJX+lrrCOCq5zO9HMDvaFRet5Vaz9C4E9Lo7ghN6
-	 SyxcaYe8sTCYIGcDsvxbiswNmn0HYDq21IJO7pbAQuLspuN3KxQGfB/HbxdEOmEQ0cDq0
-	 zAHX16+1gjSx1MLIWISUz2GRPLdnDEKB+VjRCj6FkC3owZskJlZtsS5mx5vGNfISe2g==
+	t=1795403880;
+	b=pk9WDn1teD8XHbzTQ5OES5JlkuMK0zgkRMzDWAYOpkvgHzfLcjBk8//gIVhS/8/8C5j2
+	 93mEQrrRsnWUKiIgluixAlDgmSZExmuKZaemtvwhJxP7lf7LSKPq/ROI9rfQHXnEQj5zw
+	 wWyia5k3MRoOG8y78fiYuJ+b+QWELTd3tditFDEYrRMvRWfvcl2cw1Ol5Ly8KQnRsTpa4
+	 ET0N7NqJbxpl07p57mD+IrqI70CbvJkL2bsbHUK+hSZRBue3sqVJfzKsnZJ70dI3DDSbh
+	 i3m34C5kdeEN4j2jPggxE5glPShCKAIMR5UHCUTthVK4ZXc0CfTdB5+pfQvza96uedw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795403830;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=pWFmMqdiUBIDsbICVgq5W2a/9yFA/N2NGvzbuzJhY5g=;
-	b=qhf0TLbi63oAe0LsrG9ZzE79JbtT0p1OiRghTavg6jBnrrALPbdiZnvvXFSn1h1kh0Rs
-	 mHYvGgpMz8VfFHWd2RAK0ygLrYfF51GiShAWm3v7xWG56QUNmzAadLWjFfqyAPZ6BijZw
-	 Hqckfvm7I5DY92sz4pTvbIhc38aiO5ZRIbjzxb3BSEXQubKDP0SRYAK3WbbW+TNBWG2Xa
-	 NIxQ0NY23wCk1nsVw5eBsui5XVIfNTrO3WbJbHNBlkV+kL3lA+srrtxVhg5dQx9oO1OKU
-	 20IaV1NQuViiha5brjSxrEHFbyj7+zKHZ5HYTPFsdesYcpvLJhGcSkknMUCUmcqF2YQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795403880;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=lAT9Q9u4ZEAI9esLB5617mXqlXUP6teQqeagq/dxTro=;
+	b=AkdQqQ2aSegfl2ABy2RGLMMi+6pZ9vHXiVo4VsgmvYHuph8deomRNlHhn+StUZAJDCx0
+	 apKKeqwr7B2CXKQ0nQTdGmZBIFeYxkzDVhhF6xm6HiCafUOYb8mtxt53UzMMbd3n9t+10
+	 aaeheowxg2A0H8c/gfWSqVkup6eFf8niEaGstD7Ga09jIcDpmRFHzKK4rrH6gTcg0qsMJ
+	 ktlEjnt5OZ8TbmO7DoJ1bMjmDBjxvj7KSCx5/xiUDgB3MmxsDIgoDubzFRBt4C4Ei0WoD
+	 iSf9hDxzmbyAdISrVT+VOOYQHCApTCJHvXtG/XgzFZBh9HF7QgQ+A4IsOBBCWKI6vlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eMmbiF6Z;
-	arc=none smtp.remote-ip=209.85.215.171
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=G7JrksWa;
+	arc=none smtp.remote-ip=95.215.58.168
+Received: from mta1.migadu.com (out-168.mta1.migadu.com [95.215.58.168])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13DA7606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:17:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13DA7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA111606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:17:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA111606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eMmbiF6Z
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cdb2dfcca94so1102766a12.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:17:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795403829; x=1796008629; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pWFmMqdiUBIDsbICVgq5W2a/9yFA/N2NGvzbuzJhY5g=;
-        b=eMmbiF6ZxgPuFDAR4rlJBb8nL1IkFTIG+dWHkPERXKufQxZAwXVwd/UTn3yWR2jef9
-         Cjt5IC8KHU8BoFGmSvhQTBU0PYqiWEwy7ahy5Kk7ieOGSeaQjk7e5fwBDHoBsZPwuvNN
-         BTDSDUlmsa/MS89hkSpKYnXEg8jT0obKDJ6kAnRGJuxn92/4l+6iD5o0ljTshq1WWhGV
-         HV670sCkbQxUHyGU+dLLzwZ6GiUDmJYBFXUj3WcZQd+GwfeE7TBrjLqZwmdTl2kr0uOv
-         Gax3ngbZNhP60Y2XRqwHDsYiNqfFAc+lhjGuQ0bt58HVOk0L0dmwaj+X8/JEhOmA1a61
-         Gh5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795403829; x=1796008629;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pWFmMqdiUBIDsbICVgq5W2a/9yFA/N2NGvzbuzJhY5g=;
-        b=bNNHKybJ3N/aEtSs6Gkvhj1WDc9H91q4wH9P584wDS12/2kXzt47TzZOMKPOUHZs26
-         xAo12FUvFQy+v5F98EfrYuhPf2mlr9AzVTbONfH3bgfBlLo1BEO1au669WlW/eVwzjQw
-         kghj1XnZwgglCYZUVOStxtFQ4Jkb13wIxVhLPAZ5r0+mQ+SdsgkKBah5ASrJoi0xHayB
-         fbstAeiTCExulQeqqSu1LvyHpm/2sYCHYYGevcM9pMnYxZOzijndbHLpv7ZqFDmx4adb
-         aWlL2plNBYcLReQc11ekWD1ktI4nnuCHcnbqwd7XZSfewuaDgIC7mhdmFoKt8VzicnpO
-         +9Ow==
-X-Forwarded-Encrypted: i=1; AL+hErF1zi39nrzRkgGQDVujkH9Rrwrs2TSpspfQwVPZPGVRvLPV4yq3WqG4V6/KFQ15AZ42lujZH5KDqYj1pUA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jJvvxb8sUEqVFGLcvJZjf3zlKLLfzmuBklJk168NeWfBLMqO1
-	eqLRCjSfGKunwXz3+cpDA7DjDvxNYDKw3tC3SZDpawg3g0l0vloPl8iuHa7IAk56z5o=
-X-Gm-Gg: AZFdTZeSDrTln2+Z6nbexQ2KrNiXCCQwLtra9gRBtVBRyZZhkQYHGS7E2ndx5+maOVG
-	xqTsOhVSc24WFVX4m1pdbhO7c/RzU3MWo6aW8vR/T+f3Ar2vKGlT8EG8vthJHTnrkOv4Wx3Qhn2
-	6qgSnKwStutgYAgmESt9eMvydw62IC9fhHBJk1I7qW7nWJO1KQtHxeaawilHJL/J/VpZDfpG1BP
-	sUbGrjgeEVz5HhOPCWsdrRp0VZHIw5X5KYRWsmgISxHuPETZK2IvPOOOQ+FkzRf69adw0UrZoD5
-	MPu2R9B/ptWkW/dOTBFiG7MRligdZxM/Y1QOh+6qDsV3QYWZGfgdq+5/4gsTcyTM4E+sVAl+vT8
-	skgSDGj6dEEx/iso9M/Axaf6HO/WG/tUTmHiA/0bl7IENkk0xBsyjTFJtvpwwFMbrNXUujLBqH3
-	utMVOl4csyp2ye6w32kDnNQFKtcdquWiapCm4zpRVHzBuIGTpI7E5ems43PoIHBvK/NrEMZaLfl
-	cQxC4ZNLSjyaVsWQWvtFYyGM4vsIPq9aFN9LwHW160px1NcUjtCaFaKrluN+mtE1SfSZmEgemkJ
-	EFVN+JyONHUwL6DOqi6q9S/ljiRMNj+AI3aXwNvjMOaD
-X-Received: by 2002:a17:90b:1dcd:b0:3b4:1bf1:988a with SMTP id 98e67ed59e1d1-3b41c975107mr8883441a91.55.1795403829307;
-        Sun, 22 Nov 2026 19:17:09 -0800 (PST)
-Received: from ?IPV6:2601:600:a482:7d70::b4f9? ([2601:600:a482:7d70::b4f9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b776a14sm5911407a91.2.2026.11.22.19.17.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 19:17:09 -0800 (PST)
-Message-ID: <e011f909-bc90-45b0-9065-e517ffcbcf2a@gmail.com>
-Date: Sun, 22 Nov 2026 19:17:08 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=G7JrksWa
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=M7si56aP3OTtLi9BxKwkRnYNOxami/vKdawrvQc1pi8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795403877; v=1; x=1796008677;
+ b=G7JrksWaznXXXO3UwS+aRhfMXn+x9azT+161MNAfg3oVVBY+wJouOKfbsKOhRae+dAWAhvwg
+ 1x4gXN0KAIqjG2JQKzsnu9lC5/H/QPfLUSxIqLZIkmhEFk3YZbX9TZjVveKIq1L6ewCghr5RepS
+ zKvaTEskZ2QpaMssvec32Amk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 64e1140ea90b8fae;
+	Mon, 23 Nov 2026 03:17:57 +0000
+X-Mizu-Trace-ID: 64e1140ea90b8fae
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 11:17:50 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: netdev@vger.kernel.org, Jay Vosburgh <jv@jvosburgh.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 1/2] bonding: reject a non-Ethernet 802.3ad slave
+ even when the type matches
+Message-ID: <20261123031750.GD10218@Liu-laptop>
+References: <179535729502.2645501.5219010464870440@gmail.com>
+ <179535729502.2645501.7669047222441539373@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,100 +69,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/2] net: wwan: iosm: fix S3 resume by re-binding
- the driver around it
-To: "Maciej S. Szmigiero" <mail@maciej.szmigiero.name>
-Cc: loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
- johannes@sipsolutions.net, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org, nihaal@cse.iitm.ac.in, stable@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20261119042714.505405-1-davidlwesten@gmail.com>
- <20261119042714.505405-2-davidlwesten@gmail.com>
- <5651d569-d291-48e1-b38d-8cbdb2c2f0a8@maciej.szmigiero.name>
-Content-Language: en-US
-From: David Westen <davidlwesten@gmail.com>
-Autocrypt: addr=davidlwesten@gmail.com; keydata=
- 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
-In-Reply-To: <5651d569-d291-48e1-b38d-8cbdb2c2f0a8@maciej.szmigiero.name>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179535729502.2645501.7669047222441539373@gmail.com>
 
-Hi Maciej,
-
-Thanks for the review!
-
-On 11/22/26 12:01 PM, Maciej S. Szmigiero wrote:
-> On 19.11.2026 05:27, David Westen wrote:
->> - Entering suspend-to-idle or standby explicitly while the default is
->>    S3 also re-binds the driver.
+On Sun, Nov 22, 2026 at 11:59:09PM +0900, Kyuwon Cho wrote:
+> Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
+> devices") rejects a non-Ethernet first slave in 802.3ad mode, but only
+> when enslaving it changes the bond's type. A bond keeps the type of its
+> last slave after that slave is released, so a bond that once had an
+> ARPHRD_TUNNEL6 slave can be set to 802.3ad and take another TUNNEL6
+> device, such as a second bond prepared the same way, without the check.
+> bond_open() then adds the 8-byte lacpdu_mcast_addr to that slave with
+> dev_mc_add(), which copies the slave's 16-byte addr_len:
 > 
-> I think this re-binding should never happen on s2idle, even though S3
-> might be the default mem sleep method.
+>   BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>   Read of size 16 at addr ffffffff878a2940 by task test/114
+>   Call Trace:
+>    <TASK>
+>    __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>    dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
+>    bond_open (drivers/net/bonding/bond_main.c:4405)
+>    __dev_open (net/core/dev.c:1762)
+>    __dev_change_flags (net/core/dev.c:10022)
+>    netif_change_flags (net/core/dev.c:10087)
+>    do_setlink.isra.0 (net/core/rtnetlink.c:3294)
+>    rtnl_setlink (net/core/rtnetlink.c:3633)
 > 
-> It looks to me that the only remaining case here is the "opportunistic
-> sleep" code which does not use mem_sleep_current (so won't be covered by
-> pm_suspend_default_s2idle()) - but uses autosleep_state instead.
-
-Agreed, that would be better. The problem is that the PM notifier
-isn't told the target state, and pm_suspend_target_state is only set
-after PM_SUSPEND_PREPARE, so the default was the closest the driver
-could get on its own.
-
-Covering both cases would need the PM core to make the target state
-available before the notifiers run, like pm_suspend_notify_state in
-your earlier S3 patch. Do you think that's needed for this fix, or
-would it be acceptable as a follow-up?
-
->> - A suspend to S3 that calls pm_suspend(PM_SUSPEND_MEM) directly while
->>    the default is suspend-to-idle is not covered and fails as before.
+> An unprivileged user can set this up in its own user and network
+> namespace.
 > 
-> Are there any such pm_suspend(PM_SUSPEND_MEM) calls in the kernel (outside
-> some test code)?
-I found a few: APM emulation, pseries, via-pmu, ZynqMP, SCMI power
-control and the SPI slave system control driver. None of them seem to
-be x86 ones.
+> Check that an 802.3ad slave is an Ethernet device before the type
+> handling, for every slave.
+> 
+> Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
+> Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+> ---
+>  drivers/net/bonding/bond_main.c | 13 +++++++------
+>  1 file changed, 7 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index 042d7c75548f..bcc12ef34d9a 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -1951,6 +1951,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  		return -EPERM;
+>  	}
+>  
+> +	if (slave_dev->type != ARPHRD_ETHER &&
+> +	    BOND_MODE(bond) == BOND_MODE_8023AD) {
+> +		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> +			     "8023AD mode requires Ethernet devices");
+> +		return -EINVAL;
+> +	}
+> +
+>  	/* set bonding device ether type by slave - bonding netdevices are
+>  	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
+>  	 * there is a need to override some of the type dependent attribs/funcs.
+> @@ -1960,12 +1967,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  	 */
+>  	if (!bond_has_slaves(bond)) {
+>  		if (bond_dev->type != slave_dev->type) {
+> -			if (slave_dev->type != ARPHRD_ETHER &&
+> -			    BOND_MODE(bond) == BOND_MODE_8023AD) {
+> -				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> -					     "8023AD mode requires Ethernet devices");
+> -				return -EINVAL;
+> -			}
+>  			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
+>  				  bond_dev->type, slave_dev->type);
+>  
+> -- 
+> 2.43.0
+> 
 
-David
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
