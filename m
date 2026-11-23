@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437805;
-	b=LQ/PPslg7Os9oDggrE3SsQubjUwPLZ3hSkFvNTs5S5XpqbWHf9G+DQUGO8zx6QLhh2qs
-	 e3Ur0Wxb9OG94Qcw5OPuDTAWb5iA6+I1kbh80LV/MpDq1xxrUGAazeC5e8uhwLDwBdF7P
-	 Gu3wFZzfxZnmIhUjVT3SV3u0R874kTZVSmMk5tHNv55RipdZWdJ71z1IlqfCyQHxy9l1L
-	 cQSbEVzSqkCO8zg8DO0r52pK4fdj9qytUA1veS4EJqRp8aLS+hsuvdILbBHWFxqexeOKJ
-	 EhcjgAOOC/p0NKZANMzSMsxOKRDLRP484vtgs4CyDWaPltWqjhbwI5BUbi9Yd3EKy0A==
+	t=1795437873;
+	b=xhqIA0RU5/4IhuE04vaDXEURWkJZL9nEc3Am6m/qakZ++gwjtwx4VJU2mGoyhA4VGh+z
+	 9NFcJCAnpXAbiHcmJqZFphhwpFhNmYiHyG94ekGh0CusEF6qzSndmggdStI7xqeEDfkFZ
+	 QLaoKy5vGk9zciZ0Yb7HxWJeTLz5IOF6PSqRymIv3O4HbvjjDyzNXFVEBf3YKU+RhwQxG
+	 GLEV53WrzCMacKfgSn5o6+WFA3Hz9UoM/+cKZo3UUwbFKR+AWqr/of8eH0Ds8cMZnt9lE
+	 a1e4xXqwGflHC7HZAJAjLOsoMqJHSQpH2a+LZsRziPGVzJcptAWlMI5hnpmxS2IRcNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437805;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=nurLNsvhXtnd6T0cWQV7F3FEw1+K5Q7NyOeJPjQtAzU=;
-	b=xtONENFs9yowj3YUp9WtBvaQrIqhXxWwe+iCnWW90tIIKYdWps1p1hF4GxwEOqZb2FEQ
-	 m2Shrakz6Dwww3XXgd4fz1oCmhwi5VWuxUa6SEDlif5JUk8QKUxAHiBsMbLgkKDE8tAP+
-	 TXdc7TrIK7cfBMveBUF9dkBFSYGKSgegcjsLTJpgM2viWsxuX1Xal+0h57QrGfVxQbwvq
-	 Llav9oXiUt+KDyxGDI5Y+solMo5J1SF75cvsTfVlJsa3N0u2PARaHs71GZ3A2iMcPQCsm
-	 hTAK58ixXnBy+dmhD6y6qpmBHa4xqdxkN+dkcsqq/g7rtSvb8pCjbkF1qEz03/760GA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437873;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type;
+	bh=0b+/w/Gu7/81yyJrjZNFubpzFxZIbcXJGpm7HBlFaXw=;
+	b=niphla4tyijouyBnJuVAoV+XeMCj+DRvCPApsxyZXZO54eAUhL3DCv11b83B0agQ5pMT
+	 usvVcyxyKXfWfHDTRLGluQRcwTshCkt4XsbaG6bngbVtPUw99dlm5A/Gio5KUn7HxQp1P
+	 io/iWRScPSAKeGpwvEMgrSzU1GoS46szdz+H+FTgcI6M/meSQwW2pmfqJiuaMSOu4yB+/
+	 c8ExWOyrcGncVvCrHyaD2RKRKKU0+2jDXCcG/ZZ4EvCSRhjFDT+5O3jVdWlhN3onuys/V
+	 nN/WiK5OKh0pJETyy8ID3wjyo6vbT4O876DOZQlrCbtn5lSaikAmyLa22PXB5nLmcPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=LNbpaZuS;
-	arc=none smtp.remote-ip=220.197.31.9
-Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.9])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=S37Ksspv;
+	arc=none smtp.remote-ip=79.135.106.118
+Received: from mail-106118.protonmail.ch (mail-106118.protonmail.ch [79.135.106.118])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27126606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:43:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27126606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97CA9606A31F;
+	Mon, 23 Nov 2026 12:44:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97CA9606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=LNbpaZuS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=nu
-	rLNsvhXtnd6T0cWQV7F3FEw1+K5Q7NyOeJPjQtAzU=; b=LNbpaZuSzV+MPMtDZ3
-	4qKB9vn5uzmuiR1nnvhbQ16BSqlD3ThNk6gRE0akdk7SIUek3SuMCElB/c0TOxJq
-	0LycWmtcAwQx5Op6fX6v6Mo4C7bTmiFkwgsgakZWi2W/n6wUaM9WV3vFwfciedgY
-	YkWZVCG/gCb+PEgeLJL3qUHZk=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PikvCgA35uu4NARrP97wDw--.65328S5;
-	Mon, 23 Nov 2026 20:42:47 +0800 (CST)
-From: Genjian <zhanggenjian@126.com>
-To: agk@redhat.com,
-	snitzer@kernel.org,
-	mpatocka@redhat.com,
-	bmarzins@redhat.com
-Cc: dm-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	zhanggenjian@126.com,
-	Genjian Zhang <zhanggenjian@kylinos.cn>
-Subject: [PATCH 2/2] dm-integrity: don't mark the bitmap clean on a failed target
-Date: Mon, 23 Nov 2026 20:42:13 +0800
-Message-Id: <20261123124213.1102958-2-zhanggenjian@126.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261123124213.1102958-1-zhanggenjian@126.com>
-References: <20261123124213.1102958-1-zhanggenjian@126.com>
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=S37Ksspv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795437870; x=1795697070;
+	bh=0b+/w/Gu7/81yyJrjZNFubpzFxZIbcXJGpm7HBlFaXw=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=S37Ksspv6FMqeI67YJdulvHnqRcN/UI+pKp65mZ2bogVh145crzoixmMolgKrQa9E
+	 idfpE8XCqH4Oe46Ca3wc7PTRyNXcMpYk+7EcxYOHuoP67Ro4kDMs16RlVcuznuAXri
+	 vyd+J6WYYaFs3ZxbZmv+WQhG0Eo+VxGI8OMhlzFdowGQQ7gPy2zewf3eIwa4F00WC/
+	 jP1Mk99FKjYHZ/TWzqZtBa6lZCbOSb/zLCW9drubMU5p4HWvsFOhcNXDaiMoigAhJk
+	 RSyjKz2kTFpzIQ72gY/HPuY4mPtf7WrTfJHADbY5WjhOySyWgussHw6cQcCeQF1kc+
+	 BrHvEwPM3y98g==
+Date: Mon, 23 Nov 2026 12:44:24 +0000
+To: Eugenio Perez Martin <eperezma@redhat.com>
+From: fadouse <fadouse@pm.me>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, Linfeng Sun <linfeng.sun.dev@gmail.com>, Fang Xieyan <fangxy@xiaopeng.com>, kvm@vger.kernel.org, virtualization@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] vhost: mask the in-order used-ring log cursor
+Message-ID: <uD642sRa0jdIPD2nCoKzjJDfS2fpCefT340JqjRvOUyFkoXpwNAAabmjwSltui9-PD1DNwFJrw0xrsZqbYKJ5x3fraz9Wv46l3OrkBVA3vc=@pm.me>
+In-Reply-To: <CAJaqyWdOF3LVF+WHaGw8gimULaCunRkuLnKAhciB7HWpYhnm9w@mail.gmail.com>
+References: <20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-v1-1-fc1253d60351@pm.me> <CAJaqyWdOF3LVF+WHaGw8gimULaCunRkuLnKAhciB7HWpYhnm9w@mail.gmail.com>
+Feedback-ID: 173252840:user:proton
+X-Pm-Message-ID: bafe6e04ebbed8c7cdd7426462ae83353df9de95
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,52 +64,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PikvCgA35uu4NARrP97wDw--.65328S5
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZF4ktr4UWr1rJr1rAF4Utwb_yoW8XrW7pr
-	1xK3yFk3ykAF429a1xCF43CFyrKa4Ikry3CrZIkw1fK345ur17Xw1kGFyUJryUGF4fXF1U
-	ZF1Yka4Uur4DWr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRZF4_UUUUU=
-X-CM-SenderInfo: x2kd0wxjhqyxldq6ij2wof0z/xtbBtAcamGsENMfS1AAA3r
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha512; boundary="------58b4c18d041a1900b7efe55bc7f3f43ca00cda905f3a1cbf8a2befe5d918f9b7"; charset=utf-8
 
-From: Genjian Zhang <zhanggenjian@kylinos.cn>
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------58b4c18d041a1900b7efe55bc7f3f43ca00cda905f3a1cbf8a2befe5d918f9b7
+Content-Type: multipart/mixed;boundary=---------------------d069c3b756c1c87bc344816b0df5f7b0
 
-In bitmap mode, dm_integrity_postsuspend() clears SB_FLAG_DIRTY_BITMAP
-and writes the superblock even when the target has already failed. If
-resume rejected a changed superblock, this write can overwrite it with
-the constructor's saved copy.
+-----------------------d069c3b756c1c87bc344816b0df5f7b0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;charset=utf-8
 
-Check the target's failure state after init_journal() so that a journal
-write error during initialization also prevents the bitmap from being
-marked clean.
+Hi Eugenio,
 
-Fixes: 468dfca38b1a ("dm integrity: add a bitmap mode")
-Signed-off-by: Genjian Zhang <zhanggenjian@kylinos.cn>
----
- drivers/md/dm-integrity.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+> Although I'm ok with the proposed patch as hardening or optimization,
+> this sounds more like a bug in get_rx_bufs. Where are the memory
+> addresses for these pieces stored if there are no more buffers in the
+> virtqueue? Or is it able to loop through the vq?
 
-diff --git a/drivers/md/dm-integrity.c b/drivers/md/dm-integrity.c
-index b17bb9da9195..0964d21c3c44 100644
---- a/drivers/md/dm-integrity.c
-+++ b/drivers/md/dm-integrity.c
-@@ -3852,10 +3852,12 @@ static void dm_integrity_postsuspend(struct dm_target *ti)
- #if 1
- 		/* set to 0 to test bitmap replay code */
- 		init_journal(ic, 0, ic->journal_sections, 0);
--		ic->sb->flags &= ~cpu_to_le32(SB_FLAG_DIRTY_BITMAP);
--		r = sync_rw_sb(ic, REQ_OP_WRITE | REQ_FUA);
--		if (unlikely(r))
--			dm_integrity_io_error(ic, "writing superblock", r);
-+		if (!dm_integrity_failed(ic)) {
-+			ic->sb->flags &= ~cpu_to_le32(SB_FLAG_DIRTY_BITMAP);
-+			r = sync_rw_sb(ic, REQ_OP_WRITE | REQ_FUA);
-+			if (unlikely(r))
-+				dm_integrity_io_error(ic, "writing superblock", r);
-+		}
- #endif
- 	}
- 
--- 
-2.25.1
+Yes =E2=80=94 get_rx_bufs() loops around the same virtqueue when a
+non-conforming guest advances avail->idx while earlier descriptors are
+still in flight.  handle_rx() passes quota =3D UIO_MAXIOV (1024) for
+mergeable RX, and each vhost_get_vq_desc_n() call appends the
+translated buffer addresses into vq->iov (also sized to UIO_MAXIOV).
+Because vhost_get_avail_idx() compares avail_idx against
+vq->last_avail_idx rather than vq->last_used_idx, it rejects only when
+
+  (u16)(avail_idx - vq->last_avail_idx) > vq->num
+
+so the guest can reuse the 32 ring slots mid-packet and get_rx_bufs()
+appends those addresses again into vq->iov[32..63], returning
+headcount =3D 64.
+
+Bounding get_rx_bufs() (e.g. capping its quota against vq->num, or
+checking in-flight descriptors more broadly) is certainly worth
+looking at separately, while keeping the mask in
+vhost_add_used_n_in_order() keeps the dirty-logging cursor consistent
+with the publishing loop from commit e244725e86be.  If you think a
+follow-up check in get_rx_bufs() makes sense, I'm happy to look into
+that as a separate patch.
+
+> Can you post the reproducer? Even better if it is integrated in
+> tools/virtio/vhost_net_test.c.
+
+I just posted the standalone C reproducer in my reply to Jiaming in
+this thread.  Note that tools/virtio/vhost_net_test.c drives the ring
+through the conforming vring_new_virtqueue() / virtqueue_add_inbuf()
+API, whereas reproducing this requires a raw vring advancing avail->idx
+past last_used_idx + vq->num with VIRTIO_F_IN_ORDER |
+VIRTIO_NET_F_MRG_RXBUF | VHOST_F_LOG_ALL and VHOST_VRING_F_LOG set in
+VHOST_SET_VRING_ADDR.  If you'd still like a raw-vring test case added
+under tools/virtio/, I'm happy to include it in a v2 (along with fixing
+the minor 262 -> 260 byte used-ring size typo in the commit message).
+
+Thanks,
+YanXin
+-----------------------d069c3b756c1c87bc344816b0df5f7b0
+Content-Type: application/pgp-keys; filename="publickey - fadouse@pm.me - 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="publickey - fadouse@pm.me - 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+
+LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCgp4ak1FYVV1T01SWUpLd1lCQkFI
+YVJ3OEJBUWRBdG5ZbFN6SFRMSEEySXp1TkUxQXk4SnJLVUN4NmhQKy8KdGM0TERYQ25yZXpOSFda
+aFpHOTFjMlZBY0cwdWJXVWdQR1poWkc5MWMyVkFjRzB1YldVK3dzQVJCQk1XCkNnQ0RCWUpwUzQ0
+eEF3c0pCd2tRdVoxZ3QrWG0yWFJGRkFBQUFBQUFIQUFnYzJGc2RFQnViM1JoZEdsdgpibk11YjNC
+bGJuQm5jR3B6TG05eVp6bTBCcDNlRVhSV2tuSWdDbFd3dmR4Wm1vMVhuVmI2RmthalhUVk0KMUIv
+akF4VUtDQVFXQUFJQkFoa0JBcHNEQWg0QkZpRUVtVWhhbzNaL0FuQkk0TEJZdVoxZ3QrWG0yWFFB
+CkFMcTJBUUQ3OEs2cGVkU1gzbGROeXFkM09IMXVNak8zdjdMWU1oTytsN2NuU0xXckVBRCtPQ1Nx
+MTFTZQphS29ic1ZHckxlalRNc21Nc1BCOGpueGZpZDNoQ04rcGV3VE9PQVJwUzQ0eEVnb3JCZ0VF
+QVpkVkFRVUIKQVFkQXdYZHpWSXFFSC94OEhaalIvUE90MkFpRmJFbTZZcVhYMmoydjJpS0RzUU1E
+QVFnSHdyNEVHQllLCkFIQUZnbWxMampFSkVMbWRZTGZsNXRsMFJSUUFBQUFBQUJ3QUlITmhiSFJB
+Ym05MFlYUnBiMjV6TG05dwpaVzV3WjNCcWN5NXZjbWRkS05RWURGV2NFVmQzeE9IZVFwNnN5bjc5
+TkZwTnFrSHoraXpwSUxCblVnS2IKREJZaEJKbElXcU4yZndKd1NPQ3dXTG1kWUxmbDV0bDBBQUR6
+UWdEL2NJSjA4OUprbm9nVHM2dnZRWitKCjNMUklEYUk5K1FtK1Q1cU9tTms0eVhFQkFMUElsSkNT
+OGFoNWRCWVphOUwrSHFqYkRtZVNnRG81OHVTeAoraVd3KzZVTAo9TXVzVAotLS0tLUVORCBQR1Ag
+UFVCTElDIEtFWSBCTE9DSy0tLS0tCg==
+-----------------------d069c3b756c1c87bc344816b0df5f7b0--
+
+--------58b4c18d041a1900b7efe55bc7f3f43ca00cda905f3a1cbf8a2befe5d918f9b7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wrsEARYKAG0FgmsENRsJELmdYLfl5tl0RRQAAAAAABwAIHNhbHRAbm90YXRp
+b25zLm9wZW5wZ3Bqcy5vcmdj965l96TGsIIKmmxQU32Zw/dVnWCzLdb8YQz0
+Gr3K8RYhBJlIWqN2fwJwSOCwWLmdYLfl5tl0AAD7hQD/fwtoieRvuhRodIxq
+IWCsEyxpCrl4gXWSL/hGE2HK77gBAPyNdErgg+xso5um/oMKGA/E16dhYy4H
+l2dwd5UCXaEH
+=1GBE
+-----END PGP SIGNATURE-----
+
+
+--------58b4c18d041a1900b7efe55bc7f3f43ca00cda905f3a1cbf8a2befe5d918f9b7--
 
