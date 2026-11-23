@@ -1,72 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440345;
-	b=lYd0TnkWQ1H4il619v2E/we157RRF7d5tCWTiZ7UcawhlO4w61mpKo9SzlEVC3LaM5TY
-	 6INACqrV3D3q9IMftaD+yCXUXGb3g+KOerVksqlT7WK0ogBgm3cfC9ZGCfFGkDiqJR+Va
-	 FYHAdk80X4S4h1vtSK8xZfgUwNLCtdVFStv6yuNvVxyxcswVlJMJn2IIsKWU30FB9R/Gl
-	 2RZHKLHA2HRIf0mH0Vufhl3JEvF9Zci8HtM//6m8Hzu+qfKq1iR4OS6uhQyH1Ftj1fBF4
-	 K/aedHhzNRZIcRp25ZLdTycytExiTrqel0m1WX6PbDvO2Qs/Bh4LqKN+7cTZD32Om5Q==
+	t=1795440341;
+	b=VuCE4aQOUn5sMhnDjfLMDLZQ7dP0CS5BFJGpfthei8NPSikzIA7gs9zv9MGhBzpV33CN
+	 pdUaT2cxGDK2KNpjNkYLCbXgdJera9nnea8YDgs/BMEgiOJ4fPFxYkV2/QeGRwjObjR+K
+	 u61+lOyRMlMlkS/VTHD+5uudLOT5XkHeTaai+X+A/VR/ihCxpSIu5wwn+mMdW3qDkiTCO
+	 VpsJ5KiQd1fmX5NWgytcyAUBHC2XwuLTkpbh+IS/+AA6Gcj9O4fU7OjA+l6TnHr5Eeoad
+	 USeKWxGtgmIwNTC+GUTDTFlRT4DBOdnzDU99eZswR2+02rshD7OxIgDo+Bq6LwgkP8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440345;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440341;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=URu20HOx1V3fAUrNtBnQmt6dwNehMVtt7uCyxpQHTs8=;
-	b=a6Wbzor1JQSNveIuo/zqLMuSNFUvFH45oLwngKiHZCb+sWfIdxrzqIVXF6HqiwDcme9J
-	 Q1Y4yYPD+bOQCRzucYsIHOEEgTkGwOwl35HDtoOldPkB8nGpdiziQvcyxlbFfWRr2fb7Q
-	 ter16b4Sdg+kNF7eBcuxeto4awup6rQiTqiUstx5F7/OTsITuXbr6ceJHU7WgLj6QEiSJ
-	 FTCFvvoTDajhn8k3+4B8aDch0SxGHJx5ygCy4Ik3qybv/kvyQtoNGDBfNFs3aRLzSZgi+
-	 abvlhbP6aPSmPQAWVXtvvz8OkLnffkldWK7Rk0bJReyCxu6+j3hgQ7pAltmk8fVx9dA==
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Subject:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:To:CC:X-Mailer;
+	bh=Zruk1kJrG0KNFuKlQxpAt1DgMhhrbuqeYBz1BcIwEMM=;
+	b=WkHxX6nEhFro1oYBUB1c8IohDG2DmZhp4pGjpaNHnuw8axPCkEnNFhisoW92nELBZkJF
+	 E3DBbuN5hoAArNEQ/FfTek4NEKFJoZ//MUXmET/JkSleyF/yD2cjoDQ0fLCkvwPzKN9qD
+	 tmCh8jhdUWJwZ83JUYcR3kXWFkcGwD4ar3Wcec8WKwxlvhvxgLiVeumJN0FKZuc2xnCWC
+	 HMuA/jGI10ZMIhEhXmZwIK5bzn8iEJR9r9Qb4N++BRDh0CEhvuaBYLHs1UlrI8TCJlRwZ
+	 YrrhnNwMg3IcWIeFK8SRDNlWgU6QPvQbO1isy5LXtF6E8eRj5T5Qfj84vjABSOIRhLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=microchip.com;
 	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=FrJFc6zm;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=PsovGr3W;
 	arc=none smtp.remote-ip=68.232.154.123
 Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 445A5606A692;
-	Mon, 23 Nov 2026 13:25:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 445A5606A692
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91147606A31F;
+	Mon, 23 Nov 2026 13:25:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91147606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=FrJFc6zm
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=PsovGr3W
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795440345; x=1826976345;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=1pCgMcYWlFbwmXsksCggSw+46t6101lOBZsvJTMzEqg=;
-  b=FrJFc6zmfccsAwm6Z0/zuCzKxSFhKjIlQCwHRMHEtT0YtErSm0FSXPQa
-   6sunLyGAw4opCFv7mhUnAMgdSVVzyVSJtB8ZhX5GGZSNfR6S+T40f5+yp
-   v+4NU9AvTJUGvzMUB7AC/yark3MArekyCmb61kgHkTFcn//gE+49x5Umq
-   +89MVfd0QgMnutnJcnvFl+9Ticb+yHu6mK/r6WtJlf/Haw1HjuTHdhX1X
-   1kHTYpEsC6YtOvnOdsu2EKKEZx0hrENa1sfKnzdTCyLznxhhjWueYMfdO
-   kVJKR6w5EWEtyVBieG1YkYAXZeAxRHHN6HUsJPMQ/S/o2WET9CAsiojJw
-   g==;
-X-CSE-ConnectionGUID: T6AumBlzTmK0NbiqQp75MA==
-X-CSE-MsgGUID: YaDYm93xRu25eqKQpwNSHA==
+  t=1795440340; x=1826976340;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=b+in/dX32hm/jDF5wRo84HDsEtawHGqccdnfijHYad0=;
+  b=PsovGr3WTDoNHN413GhErmVS333zun6B8zFIfRi+eG66cs+RMSqvFgbH
+   5J9HfL+RBGiMVywsS6YsK4mM9XUDj5UYHLEHsdzZe8fTQ7b4zb3elzd2x
+   frxdFNtk3CJV9HgBbKgTQVMP0X6A36m2oYRKTUtrjx2dd4DLkOQIUZoB1
+   DDo92yCvpnR+JelPQFxqrvZ7zNo260otpGQDNMtc3ndQ7DOOBA5RXras9
+   32wZvaczAL6j5R7RPDWFAnTn7qBYCTXA/j2hiYrdtLOe8/VT8ie5TVmva
+   7agJuoX6aXr0bds7Awyzc+1RaHvgM+iKXewg2w5BqMpDzF6U+9FpxOABM
+   Q==;
+X-CSE-ConnectionGUID: B4FUNwb8QjeG36RMYBLkxQ==
+X-CSE-MsgGUID: Fg0VtAI2RzqOM4svlNVm9g==
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="67154010"
+   d="scan'208";a="233969644"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 06:25:45 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 06:25:39 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 23 Nov 2026 06:25:44 -0700
+ 15.1.2507.58; Mon, 23 Nov 2026 06:25:39 -0700
 Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Nov 2026 06:25:42 -0700
+ Transport; Mon, 23 Nov 2026 06:25:37 -0700
 From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
 	<jensemil.schulzostergaard@microchip.com>
-Date: Mon, 23 Nov 2026 14:25:06 +0100
-Subject: [PATCH 2/4] dt-bindings: mfd: Add the Microchip LAN9645x switch
- family
+Subject: [PATCH 0/4] mfd: ocelot: Support the LAN9645x switch family
+Date: Mon, 23 Nov 2026 14:25:04 +0100
+Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,9 +78,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-2-567d811fe1de@microchip.com>
-References: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
-In-Reply-To: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+X-B4-Tracking: v=1; b=H4sIALE+BGsC/x3NQQqDMBBA0avIrDtgQtTaqxQXYzLaAZuEJIog3
+ r2hy7f5/4LMSTjDq7kg8SFZgq9Qjwbsh/zKKK4adKt7pdQTv4vDYHkLBck53MiPvelOzHuMIRU
+ cyZrW6JnM0EGtxMSLnP/De7rvH6+330RxAAAA
 To: Colin Foster <colin.foster@in-advantage.com>, Lee Jones <lee@kernel.org>,
 	<UNGLinuxDriver@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
  Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Richard
@@ -91,177 +91,60 @@ CC: <mfd@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
 	<jensemil.schulzostergaard@microchip.com>
 X-Mailer: b4 0.15-dev
 
-The LAN9645x switch is controlled externally over SPI the same way as
-the VSC7512 described by mscc,ocelot.yaml, but the two families share
-no child devices. Add a schema of its own for the LAN9645x.
+The Microchip LAN9645x is a family of ethernet switch chips without an
+internal CPU. Like the VSC7512, the chips are controlled externally over
+SPI, and the register targets of the chip are distributed as named
+regmaps to child devices. This series extends the ocelot MFD driver to
+the LAN9645x family, with the pin controller, the two MDIO controllers
+and the switch as child devices, served by the existing pinctrl-ocelot,
+mdio-mscc-miim and lan9645x DSA drivers.
 
-The microchip,lan96455s compatible, the smallest SKU of the family, is
-the fallback of the compatibles of the other SKUs, as in the switch
-binding. The children are the microchip,lan96455f-pinctrl pin
-controller, microchip,lan966x-miim MDIO buses and the switch.
+Patch 1 moves the VSC7512 specific SPI interface, reset and child device
+setup into match data and per chip tables.
+
+Patch 2 adds a binding for the LAN9645x family.
+
+Patch 3 adds the LAN9645x support.
+
+Patch 4 reads LAN9645x registers in a single SPI transfer on full duplex
+controllers.
+
+Dependencies:
+
+This series is based on net-next which includes [1]. The binding in
+patch 2 references the switch binding
+net/dsa/microchip,lan96455s-switch.yaml, and patch 2 adds the new
+binding to the MICROCHIP LAN9645X ETHERNET SWITCH DRIVER entry in
+MAINTAINERS, both added by that series.
+
+The series therefore does not apply to for-mfd-next yet, and
+dt_binding_check of patch 2 fails on a base without the switch binding.
+
+The DSA series is expected in v7.5-rc1. The series is posted now for
+review, and will be resent rebased on v7.5-rc1.
+
+[1] https://lore.kernel.org/r/20261111-dsa_lan9645x_switch_driver_base-v17-0-83a471c5bddb@microchip.com
 
 Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 ---
-The $ref in this binding is to net/dsa/microchip,lan96455s-switch.yaml,
-and the MAINTAINERS entry extended here is MICROCHIP LAN9645X ETHERNET
-SWITCH DRIVER, both added by the LAN9645x DSA series in net-next and
-expected in v7.5-rc1.
----
- .../bindings/mfd/microchip,lan96455s.yaml          | 132 +++++++++++++++++++++
+Jens Emil Schulz Østergaard (4):
+      mfd: ocelot: Select the chip through match data
+      dt-bindings: mfd: Add the Microchip LAN9645x switch family
+      mfd: ocelot: Add support for the LAN9645x switch family
+      mfd: ocelot: Read LAN9645x registers in a single SPI transfer
+
+ .../bindings/mfd/microchip,lan96455s.yaml          | 132 +++++++++++
  MAINTAINERS                                        |   1 +
- 2 files changed, 133 insertions(+)
+ drivers/mfd/Kconfig                                |   2 +-
+ drivers/mfd/ocelot-core.c                          | 263 ++++++++++++++++++++-
+ drivers/mfd/ocelot-spi.c                           | 242 ++++++++++++++++---
+ drivers/mfd/ocelot.h                               |  25 +-
+ 6 files changed, 617 insertions(+), 48 deletions(-)
+---
+base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
+change-id: 20261118-mfd-ocelot-add-lan9645x-support-9ac4042ba475
 
-diff --git a/Documentation/devicetree/bindings/mfd/microchip,lan96455s.yaml b/Documentation/devicetree/bindings/mfd/microchip,lan96455s.yaml
-new file mode 100644
-index 000000000000..82f7c6290004
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/microchip,lan96455s.yaml
-@@ -0,0 +1,132 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/microchip,lan96455s.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Microchip LAN9645x Externally-Controlled Ethernet Switch
-+
-+maintainers:
-+  - Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
-+
-+description: |
-+  The LAN9645x is a family of ethernet switch chips without an internal CPU.
-+  The chips are controlled externally over SPI. Besides the switch, they
-+  contain a pin controller and MDIO controllers.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - const: microchip,lan96455s
-+      - items:
-+          - enum:
-+              - microchip,lan96455f
-+              - microchip,lan96457f
-+              - microchip,lan96459f
-+              - microchip,lan96457s
-+              - microchip,lan96459s
-+          - const: microchip,lan96455s
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+patternProperties:
-+  "^pinctrl@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/pinctrl/mscc,ocelot-pinctrl.yaml
-+    properties:
-+      compatible:
-+        contains:
-+          const: microchip,lan96455f-pinctrl
-+
-+  "^mdio@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/net/mscc,miim.yaml
-+    properties:
-+      compatible:
-+        const: microchip,lan966x-miim
-+
-+  "^ethernet-switch@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/net/dsa/microchip,lan96455s-switch.yaml
-+    unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+allOf:
-+  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    spi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        soc@0 {
-+            compatible = "microchip,lan96455s";
-+            reg = <0>;
-+            #address-cells = <1>;
-+            #size-cells = <1>;
-+            spi-max-frequency = <28000000>;
-+
-+            ethernet-switch@4000 {
-+                compatible = "microchip,lan96455s-switch";
-+                reg = <0x4000 0x244>, <0x8000 0x4c>, <0xc000 0x1f0>,
-+                      <0x10000 0x134>, <0x14000 0x2c8>, <0x18000 0x1910>,
-+                      <0x1c000 0x468>, <0x20000 0x1480>, <0x24000 0x468>,
-+                      <0x28000 0x468>, <0x2c000 0x12d4>, <0x30000 0xe4>,
-+                      <0x38000 0xb8>, <0x3c000 0xb8>, <0x40000 0xb8>,
-+                      <0x44000 0xb8>, <0x48000 0xb8>, <0x4c000 0xb8>,
-+                      <0x50000 0xb8>, <0x54000 0xb8>, <0x58000 0xb8>,
-+                      <0x100000 0xa000>, <0x120000 0x1998>, <0x140000 0x7468>;
-+                reg-names = "gcb", "qs", "ptp", "chip_top", "tas", "rew", "vcap0",
-+                            "mep", "vcap1", "vcap2", "sys", "hsio", "dev0", "dev1",
-+                            "dev2", "dev3", "dev4", "dev5", "dev6", "dev7", "dev8",
-+                            "qsys", "afi", "ana";
-+
-+                ethernet-ports {
-+                    #address-cells = <1>;
-+                    #size-cells = <0>;
-+
-+                    ethernet-port@0 {
-+                        reg = <0>;
-+                        phy-handle = <&cuphy0>;
-+                        phy-mode = "gmii";
-+                    };
-+                };
-+            };
-+
-+            gpio_lan9645x: pinctrl@4028 {
-+                compatible = "microchip,lan96455f-pinctrl";
-+                reg = <0x4028 0x68>;
-+                #gpio-cells = <2>;
-+                gpio-controller;
-+                gpio-ranges = <&gpio_lan9645x 0 0 51>;
-+            };
-+
-+            mdio@40bc {
-+                compatible = "microchip,lan966x-miim";
-+                reg = <0x40bc 0x24>;
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                cuphy0: ethernet-phy@1 {
-+                    reg = <1>;
-+                };
-+            };
-+        };
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 97308edec53d..b254f8c92b0d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18331,6 +18331,7 @@ M:	Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
- M:	UNGLinuxDriver@microchip.com
- L:	netdev@vger.kernel.org
- S:	Maintained
-+F:	Documentation/devicetree/bindings/mfd/microchip,lan96455s.yaml
- F:	Documentation/devicetree/bindings/net/dsa/microchip,lan96455s-switch.yaml
- F:	drivers/net/dsa/microchip/lan9645x/*
- F:	include/linux/dsa/lan9645x.h
-
+Best regards,
 -- 
-2.52.0
+Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 
