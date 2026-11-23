@@ -1,93 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.205
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795412342;
-	b=B1bO59kJmEZcTJxEGGplC+71HgxXsn39U0/ecaxWTw8T5VUUnRDfocFwxpcM2yrVQCCU
-	 E9KFi4Sj8GnLnjXz4kYQ7c5wY3jNrPJGBuXPX9/zWm9sjGfpMcJa8RXg9etZ7rHwpbr5e
-	 FhHh75qpNR7E34K/ItLjH2LchYkMDd5tQNe/tyQAH+tHE4IFexRKkWC83Y7M3NcTpM0wP
-	 7Y6DSN48JOEUA0K/+hA2/iQpSuZc7ei18jGTGGvUCasfuRu8X1tQJ+bF+46SJMGHLbzfC
-	 HKkpTLf4lZP514XfYNri9LMcvIRfKF4KayBdv6ETn6niKG9CLPCuc6HijDdnItlfNvg==
+	t=1795412351;
+	b=yRYhgf/fIyEu55C4MUr2hVokdJtHZS6bOM4aG/oGKIM2N5PSZ4fnPnOz/cqjUWkfHEkJ
+	 M0cIGNpYDCOGpnzejk6y/nHjm5cGiac3Jpag0v+prKMOrMtIZIAd9X3pRGSd5+ZttUbqV
+	 jOxLHHNsAt/wMFnpbb5MiMWIjvCHQ2uZF0X3n7MwWMZZIjlroL4UupHwLTjVK1vE/G7tR
+	 Twm2TTsWrbRtujmiV0i8qr3AawQSaJfq7yz4UM5ZjebygQUQRLkGMF43iUMgyW0w3Fs7o
+	 ezXoXDQSfx2/kwDbKuopRC1iCAQsGw/MxVd+eyA6e8DcBOXFZbR1ao6+RbFroPs9GFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795412342;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=1clr5r2wO4r4dTZUcOGCWEDQFMnWEIuiQe2vSyPXs6U=;
-	b=KglIpy9prsgCmvNZwk8FOTXOX9YGNSjh7flyaVVr6IVHpGJhRvQ/Nqa/fcejfjCvAA9f
-	 qgrnKxVTP/XMyyUguJjtJXZohzpEzxHudyT9hdm3x3+902qNPSEYlg+emb5GRfPwCFKVX
-	 0Df9mmp2abJRIGxoMJPhL0wP6tynjo7c5YySWq2bb+S4Jb+YfIilR1mg3MdPcSn5tKcsR
-	 jhGxJtgMOsNP/M2y84cin1cxbouEecPuyFIn61AV/7RFZHf1JuFvkW0k4Pj42CGtQgTU2
-	 bmS3vibPkQWux3nhT6PxoyEmktAI6Y2xxu9DedLZpYjYoX6vkiUur/G4CVka21JZRqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795412351;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=9fZC67cJJ/GjqV+nhFxv50Ir/g4Ncc4bsSbtF+FPqMU=;
+	b=Dyb7Gogj9loFlcisUSM9Skx9ez6XPpS1Dc1NN3SPnF5+c06VkGKv3mcJKKsHndgE39p9
+	 ERH12+uk4I0xBOGJgX52pmVRwRDZGh5iP47BG1/S51BYfsMvsU1/1JMMEG2DRHqsOWPAX
+	 yinr9yNTiUODqtWRp5BT3tx3/iXPbA/+lqjkw8hPS9ixttlj8yQ7XCGIKBjouAlvkos++
+	 hBcbQyXp3cmTQqVXKg7ngWFobHhjR8xR1m7AGKBYvqvsLL1YUgbSbsTF1dAIVGtJg6LOm
+	 fVP82f/geIFSO5J7dFOBnqGMgJz6EymQSIwwBV4KA63WDkG3DpuNs96H4APrp9brS7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=JfSnrCNI;
-	arc=none smtp.remote-ip=209.85.214.177
-Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN;
+	arc=none smtp.remote-ip=91.218.175.205
+Received: from mta0.migadu.com (out-205.mta0.migadu.com [91.218.175.205])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3163E606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:39:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3163E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8C2C606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:39:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8C2C606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=JfSnrCNI
-Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f037bc348dso24013975ad.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:39:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795412341; x=1796017141; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1clr5r2wO4r4dTZUcOGCWEDQFMnWEIuiQe2vSyPXs6U=;
-        b=JfSnrCNIKPICj0RrhiN+MnxvrazaYg8GflRhbxQTTHfkuFTNW3UWYoQHRpFBVw0FFW
-         CusggcdbmunQhXC+CVemjVC1B/WnKrWhr0v02iPfmyfaSLz951gCOlra3Ih5p3FeIF2O
-         ibz8+H8V3z1WuViw6wcap6swTO8LDUGYEVWts=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795412341; x=1796017141;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1clr5r2wO4r4dTZUcOGCWEDQFMnWEIuiQe2vSyPXs6U=;
-        b=Lu8xtkM3IVch5p+9+ZMvVWkF0znSGqH48USLj3kLuFAolQaHrizen/7+A8GDdZxDt8
-         z66XsHeEnery2WDsuHtr4OGosOHNK4L4A76unr1rs0nMl1HiUAfHQs7j6HssZaEmvfMg
-         zzh3Jwsp9FATTr6VqSN6Q506JKGS5nUNr21xm6q6h/dH1qPi9l1ma1MClZDenMhN8Q2w
-         fs1C/WT3cVU/pwe2sK8XxQvUeiOynu3Ph4zmf04QkmU7mATgpHBiv3tNbpuF+kWQiaQs
-         cBmBIMJC129wchgcp90eQKDlM4lbmotSBkYGpzm7BBDp3l9+HbTDckfh9kwZMwjEK6H1
-         FTxQ==
-X-Forwarded-Encrypted: i=1; AL+hErHJtRHiQcT2U5/lBgbcWvcLiKcByDlUSG3/3lnbAu5VV6cmNIek3skLgA3I+6yS7vshV2fguV0RK5QPogg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/N4aqiZUAFaDc8yf/vUHoMrnZAtCzIMIBefFCjDsTQSnvjfav8
-	ALOqDCHGAwaDHPK5S+bVtiN1yqUB7AdY4LNxyvCH35PSJgftNeYaPyYvMPk7o3/Vjg==
-X-Gm-Gg: AZFdTZfqcEMOvJPwjP/ZFWrwhxooeavm4Auy7sLPv3syYJiArkDViiyg4J2w62Q6YcD
-	EAVoLS7zDivptAvvEhJp6AqC8iQW3ZBZs47FGMIrAYKqeQskKRR/RiBH5ltuBZF6EoAF6IKxsu5
-	E1hUc2zFMKDq3nrem4N4JVb3EQulf9PoWgkrkvPhtsqO41+D0VYQ4Pg5LPHcYbUByfBChndw1nV
-	dIFRcd+HrQ3qAi3VkFbwSqIsLXIx4c/xQadCD3baCkyPRZ5YPldER2OzhBdJQ9bw4aC61UlXP6K
-	apgs5U2t5LpDPgqDZz8BLNyiFC4DEVPeswVPsY8b8Ss0Xy4o9gYXIjNy4x2B4FAHtKk1ul849qH
-	W2yRJORPDXyVAEH/stOl09DG6e0a4a6HYuNyv203En4MQacgzgKwEsOcB885zTgFdMvSlfAGeLK
-	BrSRPnxKPtv3kXXIxcleHP6qU1iHL7XATx/YvNcE0E9rJKVOafR/KIt2aId17WVYgxkGylYCpp5
-	iAGdwmTQ19QAvvy1gNqkCLibMQKRbH7sJby1R0I7FkujsZXOb5/ErBipFhyYVv7+tpyj0WOlUWy
-	ZG1s8KA+qkaesylLAB0hNC4etV6WfLsi1J1+grwlJebY8/EzC4AUygf54PK7cBpAiX4xdQ==
-X-Received: by 2002:a17:903:19e7:b0:2ef:e8f2:ba28 with SMTP id d9443c01a7336-2f03f249c83mr98893775ad.36.1795412341632;
-        Sun, 22 Nov 2026 21:39:01 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:d8fa:c511:e415:e0d0])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f14fc8csm45964775ad.74.2026.11.22.21.38.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 21:39:01 -0800 (PST)
-Date: Mon, 23 Nov 2026 14:38:57 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Nhat Pham <nphamcs@gmail.com>, Yosry Ahmed <yosry@kernel.org>, 
-	Hongfeng Chen <hongfengchen@xiaomi.com>, Brian Geffon <bgeffon@google.com>, 
-	Minchan Kim <minchan@kernel.org>, linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [PATCH v2 2/2] zram: keep the hot statistics per CPU
-Message-ID: <awPRKEk_Q0wRhZx1@google.com>
-References: <a74aca7a3d27333972782b29786c7b33861a56f1.1795412161.git.senozhatsky@chromium.org>
- <cd96ecab2cfbb9a50a0b5141c09f9fda086780a0.1795412161.git.senozhatsky@chromium.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=GGgKl6H2K6gHd6hfWzXd1Bt9/gcGE2YwIrAA2CbG6HE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795412347; v=1; x=1796017147;
+ b=OJheM6XNmkjKLELNqpyXr1iE+WMP8bwEStj1ztPkWTyBCt43i7svWeJ5eQF7MvEVAGKFPuDl
+ 0NcZYGSB55t39ls9W4uFbaHdWJBxoohMz6bWoxQ74kf+rlSv1gI8maU/M3n6hq8p5+IL0BU3j3h
+ vTbtM7KzjNxxcqb0jyn1C6tE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 80c29ab3a696dce2;
+	Mon, 23 Nov 2026 05:39:07 +0000
+X-Mizu-Trace-ID: 80c29ab3a696dce2
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 13:38:56 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
+Subject: Re: [PATCH net-next] selftests: net: reuseport_addr_any: report
+ epoll_wait timeouts honestly
+Message-ID: <20261123053856.GH10218@Liu-laptop>
+References: <20261120065855.22628-1-emmaonana18@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,32 +70,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cd96ecab2cfbb9a50a0b5141c09f9fda086780a0.1795412161.git.senozhatsky@chromium.org>
+In-Reply-To: <20261120065855.22628-1-emmaonana18@gmail.com>
 
-On (26/11/23 14:36), Sergey Senozhatsky wrote:
-[..]
-> +static u64 zram_stat_read(struct zram *zram, enum zram_pcpu_stat item)
-> +{
-> +	struct zram_pcpu_stats *stats;
-> +	s64 sum;
-> +	int cpu;
-> +
-> +	/*
-> +	 * Other CPUs keep updating while the values are added up: a page
-> +	 * stored on a CPU already summed and freed on one not yet summed
-> +	 * can make the sum negative.  Sum them up again then.
-> +	 */
-> +	for (;;) {
-> +		sum = 0;
-> +		for_each_possible_cpu(cpu) {
-> +			stats = per_cpu_ptr(zram->pcpu_stats, cpu);
-> +			sum += local64_read(&stats->stat[item]);
-> +		}
-> +		if (sum >= 0)
-> +			return sum;
-> +		cond_resched();
-> +	}
-> +}
+On Fri, Nov 20, 2026 at 07:58:55AM +0100, Omokefe Emmanuel Onanaroghene wrote:
+> receive_once() waits 3ms for a packet but only checks for errors
+> (i < 0). On timeout (i == 0) it falls through and uses ev.data.fd
+> uninitialized. recv() on a garbage fd fails with a misleading
+> "failed to recv" (or worse, blocks or returns a bogus fd). Report
+> the timeout for what it is; errnum 0, since epoll_wait sets no
+> errno on timeout.
+> 
+> Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+> ---
+>  tools/testing/selftests/net/reuseport_addr_any.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/net/reuseport_addr_any.c b/tools/testing/selftests/net/reuseport_addr_any.c
+> index 1c43401a1c807..2e8aa83f68dd0 100644
+> --- a/tools/testing/selftests/net/reuseport_addr_any.c
+> +++ b/tools/testing/selftests/net/reuseport_addr_any.c
+> @@ -155,6 +155,8 @@ static int receive_once(int epfd, int proto)
+>  	i = epoll_wait(epfd, &ev, 1, 3);
+>  	if (i < 0)
+>  		error(1, errno, "epoll_wait failed");
+> +	if (i == 0)
+> +		error(1, 0, "epoll_wait timed out waiting for packet");
+>  
+>  	if (proto == SOCK_STREAM) {
+>  		fd = accept(ev.data.fd, NULL, NULL);
+> -- 
+> 2.43.0
+> 
 
-Oh god... and, of course, I forgot to quash the clamping patch...
-What a muppet.
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
