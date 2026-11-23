@@ -1,100 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.11.138.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425833;
-	b=sfm2uAxqMVclsKrjMamuI/jiVcGy8EIOApCwrE75vUlISuV2O8icK+mzNdDW2j4zKkFW
-	 1P0GghSi6O/BuyePqfdnmW2tAj8yi2qfXLyhiZX8zEajl1nNd9d8xQd39UIqzigY5Vv1F
-	 ZaNaydEXcR6IuBT9vZSqSnsgKqVGdlHDbTa6ytN0mCJDcwmN0p86NglW94KDMXt8ZIJGT
-	 vrp50POuYe7sQOwF1F1pgoM5NcqgFie3j9DJJQdNeHjt6RdTLA8NBegi0WDE5mee/9wTT
-	 m+239o0o6FyaIudvmwFNwNSb+74eQ+Y4mUbwBAdDcSKbtUMhSH1Iw5XDdPyYxrFhgtg==
+	t=1795425832;
+	b=zVVqzuK+RRt0q+WlMEkBsilgIaaBi5U5OWAT4wbxu51zGPQ86swAeLu33E131v9ESfqU
+	 LsBufIzX05wXjl1rIhFi/CS33AAm6QozSf3zmXN3OgveRUUwgZq2HSIMzklRWdokgIxF9
+	 WPyqWVhCScaz8RHbEKC09kNE1SiEvsjH6VaNSKnu7fHtz4gaNYtElhkfbHs78NLDniF2c
+	 XbyUAnRKGgjWmgW/bxn3LIymmtGx58cVeYDtDMDJm6cYdqIsgs8Nas6hbaIQQ6HVGG83/
+	 pdUwNsgYGmTOwlfxc3b2ykMay9UYbvZ31pcIKZV0hahbzG4a3wguj9GjuQU28LORTmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425833;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Y7VvbILs3Zv2pV7V8AkAMmQVIReBp3cvjUTRip46v1c=;
-	b=G7n96dlyo+NKMp1/fQH/IE0CMhbhL10qL+W175xHNK9ME0SPHPqHZQHFROBDi8oYtLge
-	 rGisOdw/SiYNZs5hFmehkr0SziuxX//HX2SwYhayKZ0EcIyfBQgTmeSimdkpz0baV+6J/
-	 4dk1YjovWg4vLCvCgU9bNsdc97oJnvz1objbLmKBTkmcXIquNgiaPtWylNhw6mMcvwwto
-	 6cDRfv/P+c0qn3qQOlHHcrMfr9G4Zw/ajzuS2muSFbtQ48/pOttaOgawEXENdmkMpROC8
-	 SqobKpJyuNjEV5ajAp9DviW8tOstPifENbxlG4caeN/Cj+y7VNX59aGCAbEg/97q/pg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425832;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type;
+	bh=9s01IOL/VfsGnGIqdOhwdDoI7uOEMrcArvSSD1ab7Bk=;
+	b=mBuIfHNhuZlVBCs9ZQd/Tm8woQSq2B9DSV+Vog86XkFT1PhrdHEMO+VbgRxPHInOhQbI
+	 clDdmVifGWDfadx1xBvhB+yxrDITnptJfZ30SGtUpsVPtPL+xlPoRq9SvMbfSm1mW2J+Y
+	 r8gL5XcXX+2XBR1HGYKhMO4CbfutoTGEVBV//Abh1Uz0vRomEXlFjV08wObMhyQMWr/SG
+	 tSO8VMvJGyqy0UZGNWz2LlnP1KN9xpQ9v2Wwd3jC3fnCrzq0w4or5N+etC5vpVnKFd5Wr
+	 OMK9ot4T0u557gf29DZDAq8A3pTjbmN7abd28BmHWjLa3PXeTCb1NV93D8UbkEc8isw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eQtHTTve;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=sntech.de;
+	spf=pass smtp.mailfrom=sntech.de;
+	dkim=pass header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=IgsJAasd;
+	arc=none smtp.remote-ip=185.11.138.130
+Received: from gloria.sntech.de (gloria.sntech.de [185.11.138.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F60C606A6A8
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:23:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F60C606A6A8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28536606A68E;
+	Mon, 23 Nov 2026 09:23:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28536606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=sntech.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sntech.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eQtHTTve
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so30196925e9.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:23:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795425831; x=1796030631; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y7VvbILs3Zv2pV7V8AkAMmQVIReBp3cvjUTRip46v1c=;
-        b=eQtHTTve4Z4uO0VZAtHlaMiIMXczJdOAy4HbaVdlYYWPvJSM/QLmy77k1bybeIhLDg
-         7vp8/Amt70kttKGpzcb4OlAXd3W4509mL3m9WSXnuocukElT5X3Qv20D8ueCPJpSMkmk
-         XEwlt1AIdCc1QwRi+JamZfTnYH2nRYP932nArkis14HhM/ien5Dt0sEgjlrL7dBiaiK9
-         9qN+THVqxl1Aj6cKAeV+vjl9owYMdEPUUm0QOujTJnwtdNOUF0etsUlbW2GVax9839Kt
-         S99uEhGtNZVd48dfgQDuOh+3puZ39tE6ZcrMF0BPgFgXHCjMCjPX3cPY2wuf9TQZISV5
-         aUWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795425831; x=1796030631;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Y7VvbILs3Zv2pV7V8AkAMmQVIReBp3cvjUTRip46v1c=;
-        b=N/OCqlVukxsZro3QwlfnPFg2DM4YdXkqugRxuVCUBXeGsDi04NwifWU+2/fm9EH5xV
-         R0gyO98l5DXwkYblOGfXg94/74p11Rm6mCVbfmuPuckhA0yDEDqh9H54zkiHrdrRaN2c
-         IgqS5MLo00wgmyMgEw9XgVoGycDbuHvz1m9niSMVfzPgOM6u8s0J023Psb7Z1bZv9ZeC
-         LGdBVlQ0+GzKPtf8MXgmwjA42X8YzOug8kdqHKa7Zw81lr1SNkAPQM2J83ljed/CFY/X
-         /bA6dBweHl0vlMY8DBVf2CrRlpxDMU2Z0YhVcd2cOkewzCAqHVLnTAhmiBbRPsrm62Vv
-         4yMQ==
-X-Gm-Message-State: APuU4Z/BuWzWtS+siq3hmCqMT6zWUSgyYgQyaSs8nzFLE0Q0Oh4rcfoZ
-	CuC8dPkqL8VVjG33mJjmqHEEstuGhp7BOhc40lJLZll9miTslVbw4QtL1Hm+92PR1QW7+g==
-X-Gm-Gg: AZFdTZe3txhlc1tXU7LviFh62lIZkzaFqC43g0E9d4jTiPQXTrEjD9NF20IFH9tHUGj
-	A+DsEkJUuXjXTcQiEcbfWOl78sqQcWJbYAAR3kZX9typGz8lWknwSRVseRfGqlD8fKLKBiMMNDE
-	eucHChMtHpg5kRhI8xnKPODXO69Og08EyXCRM+S+7FGtfXF3ud9Eb5nBvBfm0pHc99zxtiSyZE5
-	OJE7YNgn0VZgoOphorfFOQqHEzb80JT61TijC8xaMRGo56sJoEwBNhR3efuzM0NNNW5wS6vC2pz
-	xx3uIZxDObJDi0//6NdK4dIJ19B8I8jxawbQvIT461lHgyMVOxguD1+DjpwSg8kiu+pGl8E1aLc
-	buqlvkj9whuDMu5QhoMk69xOGSnEVHDO/Yp4r4RAHKDrVuV9i4jIN8/jD6/sznbTwje0kL73iXN
-	1KkPh3SLqDf4FiGd0GlL67bJm6nFGY+5po5twjrxvUk1v4p6O4Oq0h4ibmYBSXEGXbhWsoo9Wv6
-	/O+6kf5k0QWwngrbuAXRlu/xFJtvN/uQedybInPLiOt9oUqDpNtHiRIRjLuSRixu4rvvJpuTgcq
-	aVV7/q65235iYEEYBARtui+YdQIz5PEL+wVwhmQDDNzIM3Sw8pUcxzOQgtbzhYu2gbGcg3bfjPE
-	Q5tGClhmta+8Zhi6VTJ7GR88ZQNQrXR2CWw==
-X-Received: by 2002:a05:600c:6290:b0:4a3:59c9:a743 with SMTP id 5b1f17b1804b1-4bb8882a21amr217705195e9.27.1795425831349;
-        Mon, 23 Nov 2026 01:23:51 -0800 (PST)
-Received: from DavidArch.internal (catv-78-139-0-46.catv.fixed.one.hu. [78.139.0.46])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm21060655f8f.50.2026.11.23.01.23.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 01:23:51 -0800 (PST)
-From: David Virag <virag.david003@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>
-Cc: linux-kernel@vger.kernel.org,
-	David Virag <virag.david003@gmail.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH v2 5/5] arm64: dts: exynos: exynos7885-jackpotlte: Enable USB support
-Date: Mon, 23 Nov 2026 10:22:42 +0100
-Message-ID: <20261123092244.1792040-6-virag.david003@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261123092244.1792040-1-virag.david003@gmail.com>
-References: <20261123092244.1792040-1-virag.david003@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=IgsJAasd
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=9s01IOL/VfsGnGIqdOhwdDoI7uOEMrcArvSSD1ab7Bk=; b=IgsJAasdLG82fnozH9SFHpbn7P
+	rQN7p6u1BmpqmfCVrfFpMN/CPRVfnjghSvLdu5DNRY9Kx2aBOufpGSPkLjPPtS8/GHRKm5ZntGM8g
+	7QHA1Qmo5knPoVIFe8WGG6mRangNs/0gnzzFBRfMZsieglXNU1VL1v2kg8xs1v0KMKNGz0x2jH5T+
+	9z1t9OEv2OGKRFD7xefUZmA2NG2M1CyBskRYiKtcZtgaQ9IAdGDKrJpi1ExtuCcP3mBdx92lYzdhH
+	f9j2eWYk03aHVkkpRG+lIT+z/rWGv6H4XR0xeKrr6U4ifh/4qj7JafF5dXRdxiZdtTaeQsnNPj2Rd
+	HkQaL/Mg==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Xiangyu Zhu <1194781887@qq.com>, Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject:
+ Re: [PATCH v4 0/3] clk: rockchip: rk3506: Add the SAI MCLK output gate clocks
+Date: Mon, 23 Nov 2026 10:23:26 +0100
+Message-ID: <pWqLoF7FQU26AfZrjX9Cfw@sntech.de>
+In-Reply-To: <5176e5e2-72f3-4175-8b29-1dbc64c4e418@rock-chips.com>
+References:
+ <tencent_C2AD19EB4A6C91A75AD3DC4089CB875C4005@qq.com>
+ <5176e5e2-72f3-4175-8b29-1dbc64c4e418@rock-chips.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,58 +67,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 
-The Samsung Galaxy A8 (2018) has an USB-C port capable of USB 2.0
-speeds, used both as host and device, and is used for charging the
-phone.
+Am Montag, 23. November 2026, 02:51:32 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Chaoyi Chen:
+> Hi Xiangyu,
+>=20
+> On 11/23/2026 8:38 AM, Xiangyu Zhu wrote:
+> > The RK3506 has four SAI MCLK output gates: SAI0 and SAI1 are controlled
+> > by bits in the PMU GRF, SAI2 and SAI3 by bits in the system GRF.  Model
+> > them as GRF gate clocks so the SAI MCLK pin direction can be controlled
+> > through the clock framework.
+> >=20
+> > This is v4 of the earlier "rockchip,clk-out" binding/driver submission.
+> > That one introduced a generic "rockchip,clk-out" compatible plus a
+> > standalone driver, which is not acceptable: upstream already has generic
+> > GRF gate support (branch_grf_gate together with rockchip_clk_add_grf()),
+> > and RK3576 and RK3588 register their SAI/I2S MCLK output gates with it.
+> > No device tree changes are included.
+>=20
+> Please slow down the pace at which you send patches so that people have
+> time to read them. Don't send your patches within 24 hours.
+>=20
+> In addition, your Message-ID seems to have been modified by your email
+> provider:
+>=20
+> Message-ID: <tencent_C4C715C962613597F98212938F8940633306@qq.com>
+>=20
+> Please try the downgrade the git version[0] you use for
+> git send-email, or switch to a different email provider.
+>=20
+> [0]: https://lore.kernel.org/all/8771714B848C3A9F+9f64a309-ff70-466f-8d29=
+=2D15950318b728@airkyi.com/
 
-The physical port is directly connected to an S2MU004 IC, but until we
-have support for it, we can still use the USB device funtionality.
+tencent is notorious for mangling message-ids (adding that "tencent_"
+in front. This will likely happen with all git versions.
 
-Signed-off-by: David Virag <virag.david003@gmail.com>
----
-Changes in v2:
-  - None
+I think the best way forward is what most "qq" users do nowadays
+to use "b4" and use it web-submission option [0]
 
- .../boot/dts/exynos/exynos7885-jackpotlte.dts | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7885-jackpotlte.dts b/arch/arm64/boot/dts/exynos/exynos7885-jackpotlte.dts
-index 4b1961ca365b..5550b21e4113 100644
---- a/arch/arm64/boot/dts/exynos/exynos7885-jackpotlte.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos7885-jackpotlte.dts
-@@ -59,6 +59,12 @@ power-key {
- 			wakeup-source;
- 		};
- 	};
-+
-+	/* TODO: Remove this once PMIC is implemented  */
-+	reg_dummy: regulator-0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dummy_reg";
-+	};
- };
- 
- &mmc_0 {
-@@ -112,3 +118,17 @@ key_power: key-power-pins {
- &serial_2 {
- 	status = "okay";
- };
-+
-+&usbdrd {
-+	status = "okay";
-+	vdd10-supply = <&reg_dummy>;
-+	vdd33-supply = <&reg_dummy>;
-+};
-+
-+&usbdrd_dwc3 {
-+	dr_mode = "peripheral"; /* Force to peripheral until we have Type-C working */
-+};
-+
-+&usbdrd_phy {
-+	status = "okay";
-+};
--- 
-2.56.1
+Heiko
+
+[0] https://b4.docs.kernel.org/en/latest/contributor/send.html
+
 
