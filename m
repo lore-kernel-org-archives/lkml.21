@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438761;
-	b=bmk05kCg49Ie/coRpL/AGlkgJLfZaZoeDA1bE/XXissdaJWuQwNnAy/dUKC/x6vzmDUf
-	 YWfwXu25HqHp5vozxIruLJowwK23v4FaZDsCNcw92JkC31ZFF9LCx/98HG23JeN/jx5QM
-	 ZZtuLFWKS1w5KZOVH96qLOaCy1iW7/KtB7fHQcz3Y09cfOTWAQDJtuF7QA46LP3IXxIOB
-	 qaP1SQSiIAZ46Vkc3Hbb4sio4pe8/MZfpZtf3UVAxDQwL88pAqmWRenvLh4n9JH7U1afA
-	 akryiLS2JyY86XWupgyXT1cA2X0cQPU5HCZhv6T6TMYNjjI18CZsyUn56/riYl+6KhA==
+	t=1795438769;
+	b=FWAVrBmU+k8FXvwUj/oD45jVzBD0Y2R8gS5246aKKPGmjFs0nMI3G9MDBejAR8reGhi+
+	 SO4L3S1iz83BaMgKUWMBlR2/V+XtSjQ5tvlMiNgtvBoThoqmM63AaDSvEmoqS7PqJ73bD
+	 Va2hxRZasoBaykrCz/qzf8/2oMKzXiogYdGqFvK5siJy1AgniFSymSD7/QKkleXlSTX/K
+	 JpsR9l25ALKMWJGjCJyI02WasFtdYuOHdeIi+5v6CbH0yAMOB9rodVqFfm0pjdljsFoh+
+	 nnIxKpd1dLvI8eJICeimx/sTNKcIdVP0DTa9OVMp1a28ONI9Ppgn1fKWq8W2MBSBwow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438761;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438769;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=gEWQnguPB7hMdARfJ31ISn8RsG2f0AX2Jn3S+xqhW8w=;
-	b=TW2cptaG2mISn/9ulXzXCTbcYGfM0qQGqWqeGpIMu/eZWn1es3Vy3ktTBPwvFEDNKgeA
-	 RED/vOcEosrBkHeRzOZz/8Dbfk+dl5miPjMcIsYOCnwvTPRGhvvxtcHK49G5sHOopjSMs
-	 92A3ggG3iTmxCeitcLCRaQOTNIf1gn5h7kO3a7tnBbX7dWoaZWM1vQpV2InKR5hPng5vw
-	 tGWUX7UKPH43XKUXrXpgGLNcqhiFobJWUvgHe86ftAXI1sxrQGvADDa22HNtoJJYB2g8l
-	 cRRTyRgCqm7ZY4Ecf3j+V6jXHI8MrhSEJOybxGx79zxRzOQ0hu9NctNa2Ol2OTJlyOw==
+	bh=EZSpnZlL8gNTPlGNgAs8d3Krs3Gsn2Z8b45Cr/NTJQw=;
+	b=LsXURJxPsohQfiCUP0tMalF+HcLsgqowvuOROAUYR86G1xAk6d2sA8nsOKIWulXxE7Pc
+	 J4bfFjASGLynoJH6h5l2h9OZ2Qsjjr+vHug364amXUboTuEk8SMxv6TaZcAdKmDyELfiU
+	 hC13gBs5QCuPp1pD+fl1x4I9ZkEDLZJQVRyblAQ5R/3dE+0O+Zddqwtyv+GvJ8slaZrn8
+	 HoouPN97oIDDmrVt6oXinVx3Eeg/q4PWHDfKk+xRSwztodtD5WEs9FXR5WA9lVTQU6QPd
+	 hvHyY5T+EiKOE/LLLHp/A3iufiTRKFFQadajWVz3BddYEjUAdWhP5PUuQLfNf8jZnYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hkaipYgG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kcsqXLke;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61B58606A321;
-	Mon, 23 Nov 2026 12:59:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 566FE606A321;
+	Mon, 23 Nov 2026 12:59:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hkaipYgG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D4A31F000D1;
-	Mon, 23 Nov 2026 12:59:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kcsqXLke
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFAEE1F0156C;
+	Mon, 23 Nov 2026 12:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795438761;
-	bh=gEWQnguPB7hMdARfJ31ISn8RsG2f0AX2Jn3S+xqhW8w=;
+	s=k20260515; t=1795438768;
+	bh=EZSpnZlL8gNTPlGNgAs8d3Krs3Gsn2Z8b45Cr/NTJQw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=hkaipYgG2YTQpKjQgqh0ngFfPCpySP8SskZdYMMhATS91RsLzDWGm/UFwunfJ36P3
-	 2iMHbXPUNZh0TS73gVR3kSt5BhqD9jkXnBiIDaAHrV8QJcxGk2sIhenFnWWStJqyXY
-	 b/xiKnlYBKjRVJYHVs/SBLRp/vwKEbFhw+9Qr2JE9PJRuWql0pPQVivzf+0cPBHZA8
-	 sut4Gk0PC35mBsFQf7aImkfSQpOrogprIfs//wakmA6+3JxlHHQWylw0t6nm80eIcS
-	 VsziaJdw0QZT6vhadi3HWUMpE2i4nKdhRqMzL84LC/0q+oz3BB0Yu9jCn9OyUgB54u
-	 PuDomONGd2VNA==
+	b=kcsqXLkeA+gBxK3mywWkl+GAAOxvRv7mLuYCDgEufguK/bwFghU19+UDBJbfpf4nK
+	 QxtySkBTOjCXfmoVMjQy7WFTAklHFJtCR2J3Ifgm1QgptnMJGdKaCteBPBAmX+oebn
+	 tMvJCptWYPRcg7+gXi142aTbsXLzl36SJ1jfUtaHHM6FoU515U3Wt+EHc0oGlnnKbz
+	 yUvHvg7qnVSnYDAs8rOTY20YLzwaNELFoaTYHswgfCTE/Ytkd/Jk7fShVEbuEyZICG
+	 vapxld9Uwe+ipi58T6kNc3/d7pwDvHnAFkB9G5LyZENNVy57vH4UOVtQ33RcoxSaD0
+	 9s/EDRvuQizkg==
 From: Jeff Layton <jlayton@kernel.org>
-Date: Mon, 23 Nov 2026 04:59:04 -0800
-Subject: [PATCH v2 01/11] nfsd: don't hold inode_lock while waiting for a
- delegation in nfsd_setattr()
+Date: Mon, 23 Nov 2026 04:59:10 -0800
+Subject: [PATCH v2 07/11] nfsd: recall when a CB_GETATTR reply omits the
+ size
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-delegts-fixes-v2-1-960ce0fb2fed@kernel.org>
+Message-Id: <20261123-delegts-fixes-v2-7-960ce0fb2fed@kernel.org>
 References: <20261123-delegts-fixes-v2-0-960ce0fb2fed@kernel.org>
 In-Reply-To: <20261123-delegts-fixes-v2-0-960ce0fb2fed@kernel.org>
 To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
@@ -65,139 +65,98 @@ Cc: =?utf-8?q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>,
  linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jeff Layton <jlayton@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4815; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=gfHLApKVxnVRAVhXAlVUqlmSc1b8cj0Xz02L3tCImHo=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBDikjIqcBpUUvxaMz8LFt8Dn5TSB7EUB/o89k
- ++W+xLZIT+JAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawQ4pAAKCRAADmhBGVaC
- FQhBD/4llLbbl62CxAGV3lAPgQORjW3AbIB59GsEjFLFsIQ0O6O1Ca5IMh5+6FRBMXWnNTij1VE
- SDTJrNSVxgWy2gLCr+8I159KQek66weNj2+vPiGAyvCza+7OU0NtS9mcdtCfcvMXouXknV1Wlw2
- EVBrQ86uTMwtNHZLJGzi0BumvNx6+RQfw3R4dG5LYxKGgzk12cm1nwT1O00Bp9RNXgEm7uVi5wB
- Udr9mumj/Xz8CZZkBFuMZxCAhiGqpEV6GhimqyN0pXVOgeLw0PCMw8RtyU7R3BsV5rm3gs6XuVq
- 0FGyisY/EncyAuE8sLTKyF5bxbLhvLBGpANBorcqMsZ05vm6Up/UhUoNRY1URIlFPDmbURr56pB
- PdpebDTyW74sboBpuSAnGobsOWx6+BweBff91mdUQ92ir5V89mUN+oIrId2pE1GuY3x4AEOkwY0
- i5ylw/9+M9QnfZ3NkDRA4M1dQYaaSi3K7vw4rxce5gR7A+BkeENBxjV1JlTU0aIJ65trEwUSpgr
- qNW/Y2Rj0z+yQV/N+hdwzHAbNKKLtHHWjTYyAYizwEwnpNozZJMUMVbhqXxFm8xAuhe8GQ+tmXU
- fmSe/4OwXAJfoq1ATKC6Chq/QGmhT5lt8O5aFPMEJkjvw2OFXsLdk+nWjwADEGEz2NR1/c+0AIH
- xFHuOf6iv9Dxf8w==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3116; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=lkP42evRkorYaKR/aawJ9jEmNQO7sFKsC47VpjtdSHw=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBDilAshV1KEaEPZnccjHxzNKSppOL0Wi4el4F
+ 7cw9UCSYlKJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawQ4pQAKCRAADmhBGVaC
+ FX7mEACArUM9F4zuUNCsyFeiCdZV56oUKk0acaTH/DC+zc8ekQAQEFOy2KW3ZzZC7CztMvgTvAF
+ Tm5Xuze/qGxvslIkyBOlBKaufuGrv52nPeGmOECP1wTTxSbHnEcBQZoEdBuqWbv4U5WiN+PAHfB
+ bbsFkho+i1MyCSYdUGfY4i3gqA0oHOqtU//55V244sxGceq2av5ltkWxRgLW5ImjLZK0YZwNQ8Y
+ rNU5R8dgfYwkJ+OI7UIt7VH0tdyKP9+kU3w/K17aakN+5Jcotw5tX5UCzoRyYYRcLTZxqU9W8hN
+ F7iiSeP98OSA7KLfsR2J4SXMRMSS2VwI0eI6A3NX6iIVhujr5yxRf7yr7zMbEPUstl0EYOFSZzs
+ jUruSxkGFEiFbYAfu/2TViFeMHtZHOgK4V1qyfQzvwUTz6Cl0XQmb86pYB9cxiO6lMPJTXn4AWW
+ VyvggIwhCHoFWDHSyBCIbgWvT/nZeDbk6cU9xIEj/r+D15XXVhc68nl7vAc9Eeqq5hqc1bJ7eMj
+ IOvRQVjePbDdWvstDL3ulN5gM9AO6z7EfsZF9n2HJGoUQwjp+u9AQwyJYhfpCFXYB6V6Q8/KIpe
+ ISLGrCaQDnB9RNe/Nbo61bgh0EbVx3e7CgyyASSeH5MsJqf6/V/r2ce8x0LlvPilh3fdIXnWSu2
+ OnX5eAqkFxVXlIw==
 X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
  fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-When notify_change() breaks a delegation, nfsd_setattr() waits up to
-NFSD_DELEGRETURN_TIMEOUT for the holder to return the delegation and
-then retries once. nfsd_setattr() waits with inode_lock still held, but
-what the holder sends before DELEGRETURN can need that lock. WRITEs that
-flush the holder's dirty data take i_rwsem exclusively on ext4 and xfs,
-and a SETATTR with delegated timestamps in the DELEGRETURN compound goes
-through nfsd_setattr() itself. The wait then always times out, and the
-SETATTR fails with NFS4ERR_DELAY after stalling the DELEGRETURN that the
-wait was for.
+decode_cb_fattr4() zeroes ncf_cb_fsize and fills it in only if the
+reply's bitmap includes SIZE. nfsd4_deleg_getattr_conflict() doesn't
+look at that bitmap. For a reply without SIZE, a non-empty file's size
+doesn't match zero, so the waiter marks the file modified and sets
+ncf_cur_fsize to zero. GETATTR replies then report the file as empty to
+every client but the delegation holder.
 
-Drop inode_lock across the wait, as callers of break_deleg_wait() do.
-The file can change while the lock is dropped, so start over after the
-wait. Check again that the truncate is allowed, take fresh pre-op
-attributes, check the guard again, and sanitize a fresh copy of the
-attributes, since the setid bits that a chown must clear depend on the
-current mode. Redoing these steps under the lock keeps them atomic with
-the attempt that changes the inode. fh_fill_pre_attrs() does nothing
-once pre-op attributes are saved, so restore fh_pre_saved to its value
-on entry.
+NFSD always requests SIZE in CB_GETATTR, and the holder may have changed
+the size. Add ncf_cb_bitmap0 to hold word 0 of the reply's bitmap,
+cleared when the callback is issued. In nfsd4_cb_getattr_done(), treat a
+reply without SIZE as failed. The waiter then recalls the delegation, as
+for any other CB_GETATTR failure.
 
-If the wait times out, still try once more rather than finishing with
-the attributes from before the wait. A lease that is already being
-broken isn't broken again, so the retry just gets -EAGAIN.
+A reply that omits CHANGE is left alone. The zero change attribute does
+not match, so the waiter errs on the safe side and treats the file as
+modified.
 
-Don't start over once the size change is done, though, as when a
-filesystem returns -EAGAIN for the other attributes after the truncate.
-The retry would truncate again, over whatever was written while the lock
-was dropped, and the retry's fresh pre-op attributes would hide the
-first truncate. Return the error instead, as if the wait had failed.
-
-Fixes: 34b91dda7124 ("NFSD: Make nfsd4_setattr() wait before returning NFS4ERR_DELAY")
+Fixes: c5967721e106 ("NFSD: handle GETATTR conflict with write delegation")
 Signed-off-by: Jeff Layton <jlayton@kernel.org>
 ---
- fs/nfsd/vfs.c | 48 +++++++++++++++++++++++++++++++-----------------
- 1 file changed, 31 insertions(+), 17 deletions(-)
+ fs/nfsd/nfs4callback.c | 1 +
+ fs/nfsd/nfs4state.c    | 8 ++++++++
+ fs/nfsd/state.h        | 1 +
+ 3 files changed, 10 insertions(+)
 
-diff --git a/fs/nfsd/vfs.c b/fs/nfsd/vfs.c
-index e033fbc225cf..4a5674e583cc 100644
---- a/fs/nfsd/vfs.c
-+++ b/fs/nfsd/vfs.c
-@@ -549,7 +549,9 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
- 	int		host_err = 0;
- 	bool		get_write_count;
- 	bool		size_change = (iap->ia_valid & ATTR_SIZE);
--	int		retries;
-+	bool		pre_saved = fhp->fh_pre_saved;
-+	bool		retried = false;
-+	struct iattr	attrs;
+diff --git a/fs/nfsd/nfs4callback.c b/fs/nfsd/nfs4callback.c
+index 70ab4fd32195..ac65ba4c4b7d 100644
+--- a/fs/nfsd/nfs4callback.c
++++ b/fs/nfsd/nfs4callback.c
+@@ -737,6 +737,7 @@ static int nfs4_xdr_dec_cb_getattr(struct rpc_rqst *rqstp,
+ 		return status;
+ 	if (xdr_stream_decode_uint32_array(xdr, bitmap, 3) < 0)
+ 		return -EIO;
++	ncf->ncf_cb_bitmap0 = bitmap[0];
+ 	if (xdr_stream_decode_u32(xdr, &attrlen) < 0)
+ 		return -EIO;
+ 	maxlen = sizeof(ncf->ncf_cb_change) + sizeof(ncf->ncf_cb_fsize);
+diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
+index 4e7bbaf65050..645ad916d2ef 100644
+--- a/fs/nfsd/nfs4state.c
++++ b/fs/nfsd/nfs4state.c
+@@ -3876,6 +3876,13 @@ nfsd4_cb_getattr_done(struct nfsd4_callback *cb, struct rpc_task *task)
  
- 	trace_nfsd_vfs_setattr(rqstp, fhp, iap, guardtime);
- 
-@@ -587,8 +589,6 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
- 	dentry = fhp->fh_dentry;
- 	inode = d_inode(dentry);
- 
--	nfsd_sanitize_attrs(inode, iap);
--
- 	/*
- 	 * The size case is special, it changes the file in addition to the
- 	 * attributes, and file systems don't expect it to be mixed with
-@@ -611,6 +611,7 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
- 		}
- 	}
- 
-+retry:
- 	inode_lock(inode);
- 	if (size_change) {
- 		err = nfsd_may_truncate(rqstp, fhp, iap);
-@@ -630,20 +631,33 @@ nfsd_setattr(struct svc_rqst *rqstp, struct svc_fh *fhp,
- 		}
- 	}
- 
--	for (retries = 1;;) {
--		struct iattr attrs;
--
--		/*
--		 * notify_change() can alter its iattr argument, making
--		 * @iap unsuitable for submission multiple times. Make a
--		 * copy for every loop iteration.
--		 */
--		attrs = *iap;
--		host_err = __nfsd_setattr(dentry, &attrs);
--		if (host_err != -EAGAIN || !retries--)
--			break;
--		if (!nfsd_wait_for_delegreturn(rqstp, inode))
--			break;
+ 	trace_nfsd_cb_getattr_done(&dp->dl_stid.sc_stateid, task);
+ 	ncf->ncf_cb_status = task->tk_status;
 +	/*
-+	 * notify_change() can alter its iattr argument, making @iap
-+	 * unsuitable for submission multiple times. Pass a copy,
-+	 * sanitized under inode_lock, because the setid bits that a
-+	 * chown must clear depend on the current mode.
++	 * A reply without SIZE leaves ncf_cb_fsize at zero, which the
++	 * waiter would report as the file's size. Fail the callback, so
++	 * the waiter recalls the delegation instead.
 +	 */
-+	attrs = *iap;
-+	nfsd_sanitize_attrs(inode, &attrs);
-+	host_err = __nfsd_setattr(dentry, &attrs);
-+	/*
-+	 * A delegation was broken. Drop inode_lock while waiting for the
-+	 * holder to return the delegation, since what the holder sends
-+	 * first, such as WRITEs that flush the holder's dirty data, can
-+	 * need the lock. The file can change meanwhile, so start over,
-+	 * taking fresh pre-op attributes and checking the guard again.
-+	 * Starting over is safe only if this attempt changed nothing. A
-+	 * retry would repeat a size change that is already done
-+	 * (__nfsd_setattr() clears ATTR_SIZE) over whatever was written
-+	 * after the truncate, so return the error in that case.
-+	 */
-+	if (host_err == -EAGAIN && !retried &&
-+	    !(size_change && !(attrs.ia_valid & ATTR_SIZE))) {
-+		inode_unlock(inode);
-+		retried = true;
-+		nfsd_wait_for_delegreturn(rqstp, inode);
-+		fhp->fh_pre_saved = pre_saved;
-+		goto retry;
- 	}
- 	if (attr->na_seclabel && attr->na_seclabel->len)
- 		attr->na_labelerr = security_inode_setsecctx(dentry,
++	if (!task->tk_status && !(ncf->ncf_cb_bitmap0 & FATTR4_WORD0_SIZE))
++		ncf->ncf_cb_status = NFS4ERR_IO;
+ 	switch (task->tk_status) {
+ 	case -NFS4ERR_DELAY:
+ 		rpc_delay(task, 2 * HZ);
+@@ -4123,6 +4130,7 @@ static void nfs4_cb_getattr(struct nfs4_cb_fattr *ncf)
+ 
+ 	/* set to proper status when nfsd4_cb_getattr_done runs */
+ 	ncf->ncf_cb_status = NFS4ERR_IO;
++	ncf->ncf_cb_bitmap0 = 0;
+ 
+ 	/* ensure that wake_bit is done when RUNNING is cleared */
+ 	set_bit(NFSD4_CALLBACK_WAKE, &ncf->ncf_getattr.cb_flags);
+diff --git a/fs/nfsd/state.h b/fs/nfsd/state.h
+index f80abcc278f6..c5f607049aaf 100644
+--- a/fs/nfsd/state.h
++++ b/fs/nfsd/state.h
+@@ -205,6 +205,7 @@ struct nfs4_cb_fattr {
+ 	u32 ncf_cb_status;
+ 
+ 	/* from CB_GETATTR reply */
++	u32 ncf_cb_bitmap0;		/* word 0 of the returned bitmap */
+ 	u64 ncf_cb_change;
+ 	u64 ncf_cb_fsize;
+ 	struct timespec64 ncf_cb_mtime;
 
 -- 
 2.56.1
