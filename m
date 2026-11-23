@@ -1,54 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.207
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433677;
-	b=ezq2ePXaK4ZNnQmt5PZft/Li3KzgW4N7qaszCKZ08xCaTVFgECuM0IiA1cxLcmzhax9q
-	 VjlKQsYhahnkLHln6ej+8dT/Q6yak/bi88LgJ1gl0f1DoppJ+HYk9hysY/8Nky2RIGFYC
-	 8pA7VEP8dI96pgciy+5sOziUsFg47ev3Zzys9S31TI14Mm+PWuP7OhMokQQ770AbvnvoX
-	 cN00SQNnlzehClXtvrgT0w3j4BqrOdkanaTXLQ+ztHq2AfFSUAYJAT+QQl+i6Mvr6E+rP
-	 fXgOR878BvKAzpRZIbOj/LmQ+CS8N7MhU/dj+9vYFlZ0IcFFHtp0YrgXgf+jIsDMq7g==
+	t=1795433683;
+	b=1Cw1OkiUffpjUaQluNvfMb8qpNjS6IIy9qOEUWFA6Ct2yXhq8rZy10cA9YYPGP5O+ZsN
+	 E6XrVgosKi02cx4HscOPNPYnHM/PzJVZArOvrEr2YZOsMxY0MBwy7B9LyEzRj7AoMKuW4
+	 3IQBf+uLm3RTpL2afj0mRUKz9gwcl2x0aHAwTtAGQiYfF3x2liihzoZeG3VHaCIQC2te9
+	 Fn/aiNueY1rLuoBpB/dLGGWtsUDAM5RbjwGFp8e4lzsyiGr2ylJjZV0hglQvyQjU4Np9t
+	 NsIUCkSlXU6EvJyhFePy1sRtZzYVgcnu1m7li4r91Lr2Slr4q9mb3JSiNjQCO89+zGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433677;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433683;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=0NW5PHzU8niu/Vyq4xWZ0l8rjf3Rlalc4LXyc2xQlwg=;
-	b=rKvP7JqPPy1rys68fuQKzo9plU6lAjFERRUD6YTmAwPAqoPOorCmYzqQNorkz+KCBJ7u
-	 308nB5X+HyBszOunxyu9uc4/TWuyDk90xG459J9Rrpi4KXpnKV1M4BvQRnK86F9dKx6oG
-	 84vPHbypzVe1budgddm2DzmWaGb3ZIc/Hz0GdCjCbDIRs524qhBP+OYb8P4YjWgo9CUPi
-	 UzMM+vjXETnW9ql4okmV5HcUIuAIHZ4p8x1LIibL25W4+eRPFd1OoJnltQFhD16dVDd0y
-	 HlBo0capB+D3we2kIjqNsnTjhrH1PCZhXaA31aO1ENNm2AstWe23z1B9W9WLmrqJq0Q==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=NPRhYDnwJRvicd4u9ac46NRRTHp7yf2uOQ6I7pysTOs=;
+	b=CzTowBUwigTNVuBgzjWBB6AZpWUgqwXoDTISTwP0G374xXYGtV2+djRzsGKMYKl1t0qV
+	 K36Wp+TYwS6UmgZ1P8uPVfCWA78YDpWws1Rg2jnzvLw361NxaKCPuC4AB0w7W+kybVOZ+
+	 bjzBLxnxiMJttL5V9BYQOyae/wLOzOSPsLuDXiOQuKDPZz8EASBflY5pk80G8RWJx9RUe
+	 ERbGmc4f/i2YYLJeAwOKY2myxYdEikVqA1Te6sEai4abqDwlEnIYA5uhQ1IoTQa1QoWGa
+	 nf8fjgaJL5SMjF8M5c9GhS1caJPldnAXfnm2yrh5xxHMwRbpBVK5KbFOHb5Lj7QzEoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=W1HjE5bz;
-	arc=none smtp.remote-ip=91.218.175.65
-Received: from mta0.migadu.com (out-65.mta0.migadu.com [91.218.175.65])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LJyZfoTK;
+	arc=none smtp.remote-ip=95.215.58.207
+Received: from mta1.migadu.com (out-207.mta1.migadu.com [95.215.58.207])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E60E6606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:34:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E60E6606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7229B606A332
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:34:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7229B606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=W1HjE5bz
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LJyZfoTK
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=oxaCqIVg13ImZ+B7nAeaMCiK0nlxtkXNZVdvJO0RIyc=;
+DKIM-Signature: a=rsa-sha256; bh=sjV6qrYMC8GhJztUOTln5L8ygixllt0tnTT6CrNeYyI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795433675; v=1; x=1796038475;
- b=W1HjE5bzp1rH8OCW52+xWhhIRSJeMKRMn6cVUnk14tIyopR95KQN/KHY1nNoWzRztc76DvVY
- xYynpAaIyyjGRJG79CvDaaJ+qPr5uGvmc3IbYdYNoZwUZFtL3bYRR3iq1OAoqKgLdwSpLYf35yC
- Eurx2tzpGFpBw64JT8nIvJ+U=
+ t=1795433680; v=1; x=1796038480;
+ b=LJyZfoTK8ZtIYq9wmTcSMfhlUK4V/QQiyUq0/16fublnXDwgzY+bHufptb+40LP4Btx/jvBA
+ tgXKmtXeFKVh5OcpvJu9iiFbyoBSjybXUlU/ZuYeQdOrleefE2eqzdiLKQDG/oSAAlKgTUANJKM
+ GQzMMepdx6XCOdQtir/HYZbE=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 6f5034aee4cb3981;
-	Mon, 23 Nov 2026 11:34:34 +0000
-X-Mizu-Trace-ID: 6f5034aee4cb3981
+Received: by smtp.migadu.com with ESMTPS id b141b18848b98b72;
+	Mon, 23 Nov 2026 11:34:40 +0000
+X-Mizu-Trace-ID: b141b18848b98b72
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <28200e68-464d-45b8-a7c8-c3f239b31841@linux.dev>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	kvm-riscv@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v3 0/3] KVM: Bound KVM_PRE_FAULT_MEMORY by the vCPU's dirty ring
 Date: Mon, 23 Nov 2026 11:34:32 +0000
+Message-ID: <20261123113435.1170711-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,38 +81,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] block: fail short atomic bounce bios in
- bio_iov_iter_bounce_write()
-To: Christoph Hellwig <hch@lst.de>, Christian Brauner <brauner@kernel.org>
-Cc: Tal Zussman <tz2294@columbia.edu>, Jens Axboe <axboe@kernel.dk>,
- linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-xfs@vger.kernel.org, linux-fsdevel@vger.kernel.org
-References: <20261107-blkdev-atomic-bounce-v1-0-f66344262096@columbia.edu>
- <20261120-gratwanderung-wickeln-mitkommen-1fa50bede59a@brauner>
- <20261120164309.GB32683@lst.de>
-Content-Language: en-US
-From: John Garry <john.garry@linux.dev>
-In-Reply-To: <20261120164309.GB32683@lst.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/20/26 16:43, Christoph Hellwig wrote:
-> On Fri, Nov 20, 2026 at 10:04:37AM +0100, Christian Brauner wrote:
->> No objections per se, I just would like see Christoph take a look first.
-> 
-> No fucking idea.  As far a I can tell atomic writes are a mess and we
-> should not have done them in the first place.  Ask the people who
-> create this mess.
+Hi folks,
 
-For this series, the 2nd patch just removes some duplicated code.
+Changes since v2 [1]:
+  - Added patch 2, which warns in api.rst against calling ioctls other
+    than KVM_RUN while an exit is pending. (Sean)
+  - Mentioned riscv as well as arm64 in patch 1's exit_reason
+    paragraph. (Lorenzo)
+  - Collected Lorenzo's Acked-by on patch 3. (thanks!)
 
-As for the first patch Re. bounce buffering atomic writes, it's a 
-another similar check for creating multiple bios for a write. To me, any 
-atomic write should be stable and userspace should ensure that. But 
-whether bdev_stable_writes() should also check for atomic write 
-capability, I am not sure.
+KVM_PRE_FAULT_MEMORY never checks the vCPU's dirty ring, so one call
+over a large enough range of populated, dirty-logged pages overflows
+it. The first patch stops the loop at the soft limit, as KVM_RUN does.
+The second warns userspace against calling ioctls other than
+KVM_RUN while an exit is pending. The third adds the case to
+pre_fault_memory_test.
 
-> 
-> ---end quoted text---
+Pre-faulting isn't the only ioctl that can push past the ring's
+reserve. On x86, KVM_SET_MSRS does too when it writes the wall clock or
+the Hyper-V hypercall page. A guest can also push past the reserve
+within one exit, for example through the arm64 ITS. What those paths
+should do when the ring fills is an open question for the dirty ring
+API, which I don't think belongs in this series.
+
+I didn't include the kvm_dirty_ring_check_request() rewrite that Sean
+sketched on v1, since I think it can lose a request. It tests the
+request first and clears it afterwards. If the vCPU is scheduled out in
+between, loongarch sets the PV preempted flag in guest memory and x86
+updates a Xen guest's runstate area, either of which pushes an entry.
+When that push makes the ring soft full, the request it makes is then
+cleared, and the vCPU runs with the ring soft full until its next push.
+Clearing first and re-setting, as the code does now, doesn't have that
+window.
+
+Based on Linux 7.4-rc2 (7475ea8b58616; also applies to kvm-x86/next
+cbe54fc3462b3 with git am -3).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20261117074428.7544-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (3):
+  KVM: Stop KVM_PRE_FAULT_MEMORY when the vCPU's dirty ring is full
+  KVM: Warn userspace against ioctls while an exit is pending
+  KVM: selftests: Test KVM_PRE_FAULT_MEMORY against a full dirty ring
+
+ Documentation/virt/kvm/api.rst                |  20 ++--
+ include/linux/kvm_dirty_ring.h                |   5 +
+ .../selftests/kvm/pre_fault_memory_test.c     | 102 ++++++++++++++++++
+ virt/kvm/kvm_main.c                           |   5 +
+ 4 files changed, 126 insertions(+), 6 deletions(-)
+
+
+base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+-- 
+2.47.3
 
