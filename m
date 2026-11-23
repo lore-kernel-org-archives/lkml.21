@@ -1,101 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795425448;
-	b=NjiKxDSWDYzniP4idYn+jS8KOOuEzqCfpILaNJoTA24sejKGllHoeNz3Aazk0mi58u+e
-	 g6uIBMLkm7YU+yPr2pSnUU00DXYq26jI2pN2hkr4OchT4UsFhaZvJz8uPwUd9ootWZDr/
-	 FWhKkv0/IMItFWitQ2SbaCl4x5+PAPCMRq3INAY2aKfbV50clL0rq/YzjDxH9rZsTJaDw
-	 9OO87A0XU6DzL12EGX+WC7vvWkHTqQHzYYCCqFBxalhsxrqUnNPWqbxpJhImmZ6AbNh05
-	 3aoI2PfXJnjRah9lFY/Qez2P3uV3EP02DLo5eFhzGdbmhUHJs+bWG0t5SnqVnP7md0Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425448;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-ID:References:In-Reply-To:To:CC:
-	 X-Mailer:X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=oz6UNjZCoPmMY1WXN5knPFkTJJzqyQ0AK2l/KmH4Irc=;
-	b=CdhGZUj1ADf3qP6WooWVnsbjR20KVij/+H53ajPIM3XK1syRyIWjy5L+aiRFWWOToWDK
-	 XGi1DN2Bzo2OHHV1ypq3y2JPxW2ihMLwF75Txavgh67zLOofr8RPc7+nqyu66NJqjQ86W
-	 oLUiEcr4yFwYUcKdTrofRkWjT6ALTDKBpnQSkOkZiC4FyxldF2cnPXihamVjezpiMBLuD
-	 mXItW7WK81gcZ/ONziFY384BD2r8bTq+cYQOfE5kTdZ84j1M1zfIQNl1Tman9dl0L23R+
-	 glySs6zJyfUqHHOa/w7s//xGDjQNt1Z0lzABqxjggoMIJ/BhysgiHPuQotmOGS6sskQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=Df9PskDk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.45
-Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010045.outbound.protection.outlook.com [52.101.69.45])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795425445;
+	b=iuGnaf8Rq4TDU0WOGptI22JcoNHcr9DzwEU84T3XjAasxJgBe+l6ahAPM9cW8G6qcaUD
+	 yfh8PxLaAl27LLEAY/2MOT5xReUOGiqp2+3fAUG5pck7r+v0O3N1lA5A6wVXQDO6qqOgo
+	 IDvc5GcASJ/kk9Cqr56pPfGS2DPI8TQkyUjkksFkktSphIIX1gGeDhoCCLJ2zeYIP5gXX
+	 PmBSedtvfWqln6rH4lzQPZkBZDk2oU2BIekuMyl/13IPaVhF/mXwnXxicorowD9E5a4SN
+	 b5S/fbcFQn/Wtoi7i2Ug2jDdVIthJpXTCCvsxVZSLpKIl16xSDTUNczUfmfjY0zyXrA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425445;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=bfZwdrHDy1GNoA44s3G+1XzXoMHIKEYDGfkc9JfB56s=;
+	b=pokLJITTHSbLuqdbTYgG6f3q9F6xPG95+Q8Jq2FawrRhW20K+6yIDnJSRQUaHbpPcSvI
+	 j/oZz89BTUKboF5N3/FLIjkUcCiNP5jSEMDShbJ7ZeAuFGZhpl14vcpnUCtICh/qbVS/G
+	 3deG+KqiD0GkQsGHfCFArshd0goAS9rX4huX8WC7GW/Yff3n/VGy3KspVym+041GtqhFw
+	 VMjI+amoxyM+uc/hxdJfYjOKA0W4gtnJA9IodDpz2d+RjFVNrypvBXCSwu3k3oldGxuLV
+	 obikDyBJkAQAjv3vBmE6y5kxcCQVCCw6BcBnJ/9l5EGf5Y2fb3jLwTGHnTgjaElgB1w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=fairphone.com;
+	spf=pass smtp.mailfrom=fairphone.com;
+	dkim=pass header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=mRpGJUoU;
+	arc=none smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8074606A33E;
-	Mon, 23 Nov 2026 09:17:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8074606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8CC7606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:17:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8CC7606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fairphone.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fairphone.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=Df9PskDk
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bWXzTf2kXXVYusy9peQHy+tHZjzpGUNjCuv4x5SQomNG9QIiwa61nkUDQ8ciIJKu4UBvtLt7xEokyLiM+bXUdJ6aYanKzhzdttRh+7qsZ/39VnOGh5jGKqZ0ixK//8SuzDU6Gyp4TeR3D+LNQMHKT7137F0ZRyhoyaW0Iwe1l8cYjWZDneyaE5dhd6YpmmYasWWUBlUC5+8vqNHcfmxAOecp4224O5uqPeFCjVgSvV1Te/mGy/fC9tb+v26aIm8pMgZhxyN+1U57FVWicVCACzJC5ucj7SUvAqUQIbazUWkfefp3o2EUSs3M6JRY13WrTE+Gw9qYOAHuavzq2NygqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oz6UNjZCoPmMY1WXN5knPFkTJJzqyQ0AK2l/KmH4Irc=;
- b=jN4t3Pd1i4p2Yy7Abc/78x1dsz6zV4KH5OQkLbHG4EIAb2aIFpP1xapJEzXBtolbUVT95Cxb3uOCjcuWSxPXZhitwhSUIUI+r9a+cZTdJO+B+8aNHjrzM5D7EPqihtwQDH1OXcJLl5m/syNwPs4/DKjS9+9SWo95ojTGigIm7YCcDYdXvk85NuLxPzNVQ4iTjseZ9My+TUwCgOl4G0FDlK0WG4d5XkqiWXbMzKZsIATexWB4iZPg7KGV6Aqzv57Vk3LCAUvZgI/0fxMh8NwSfZTv7t/8Z0NALAwMK2Uma23QDD1oOrug/eHS3dKsZW546jd8xuz8+KrmhgtFnZZ+ig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oz6UNjZCoPmMY1WXN5knPFkTJJzqyQ0AK2l/KmH4Irc=;
- b=Df9PskDkwLQXeFSaFBBXfVA1QNkDMqYJNqkKbSnHyGevIwQbqa4m9wTN8cCmaWwmYGDrltn6phQMeerVM7xq3/tFrUrxurCurz/yy9zWpWt7aFDm3MEGSiHdYh++b8VYAJsDc+QW/AHdreZQPB60toDN6fijIp7iY1B2LrrHB3JrUrmgNXcJgu0jNIGt7hqTWYJ9bPFw6hzsydz1BJlX+8cbIocQj4tP0w4mik+zVwvmP+aO+sP3DNCPmXFEGyKRglL3zNHSLGfO8z983s7b7g9a8VT6vGtihqSTZgBzK2baC4NFXS+WO0EXfuLtEe7I5mTMQlqNo8CVvIW3Ovq/pg==
-Received: from AS8PR04CA0011.eurprd04.prod.outlook.com (2603:10a6:20b:310::16)
- by DU0PR10MB6274.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3ed::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Mon, 23 Nov
- 2026 09:17:21 +0000
-Received: from AMS1EPF0000009C.eurprd02.prod.outlook.com
- (2603:10a6:20b:310:cafe::5f) by AS8PR04CA0011.outlook.office365.com
- (2603:10a6:20b:310::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 09:17:21 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AMS1EPF0000009C.mail.protection.outlook.com (10.167.242.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 09:17:21 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 23 Nov
- 2026 10:18:09 +0100
-Received: from localhost (10.48.87.222) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 23 Nov
- 2026 10:17:20 +0100
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Date: Mon, 23 Nov 2026 10:17:06 +0100
-Subject: [PATCH v2 2/4] dmaengine: stm32-dma3: set LL base address when
- transfer starts
+	dkim=pass (2048-bit key) header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=mRpGJUoU
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c4d581da0aaso392249066b.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:17:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fairphone.com; s=fair; t=1795425442; x=1796030242; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bfZwdrHDy1GNoA44s3G+1XzXoMHIKEYDGfkc9JfB56s=;
+        b=mRpGJUoU5NoqyhwJ0w8OwZQIUnCDN/5fpynpyGn9jzsx1jYEwfaQR/bW/LIbuTv4FP
+         HtCOvcQfOBTtQbUygTRXF6/17BZUC/CCtQwrLOvg9292Pv6dsoD7zDbaCvIJT/zRcRxO
+         MbIKHbJ1QOBg8Wys2xzfQCj1lY6QfqsTffezatDUGaY2lnhxi2IxR+XFTONEr778NfoU
+         UyNZzn7nVB5bVPZcpv2HM9L62dtivuQJ2UJ2jenxhlPTqevL0prFen/4YMwDGWNGpHSx
+         IowKIORJ7A0BzCLXZe3ybGG6jO1ZdM8muAingKU/H0QnXL7koAD1dNCNemRlfty9Q4Df
+         o5dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795425442; x=1796030242;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bfZwdrHDy1GNoA44s3G+1XzXoMHIKEYDGfkc9JfB56s=;
+        b=aZ8zqisa9EWmwO+A/XLV16zI3ZvZFuChkfENz94xillkIjEMaPChe/5gf5x18oRoCx
+         kj7yf37VTp5hgt1rTZ80j3tOF1DGqdJ58QqREmwhScj4N3n8lAQqctS+zbgAwQ0/2lpZ
+         il8/3ag4basEHHZ0L1JqSEcxQwM75E2kg3sqmSjAkdyl1GKntYVZKyMnY9bjhnTmvG7P
+         0yeCOODHlFN0hw8f968zhInCdrm99YJuxasbnD7VX0LfGq3IoJbrVIgMkCKk7IUddX3u
+         elsOeodTTU9/kzcM+VimWJqnGQg0UzldNe4lehCG6TF4jtnMdW8hEVKwXKZsCz+tBx01
+         1s4w==
+X-Forwarded-Encrypted: i=1; AL+hErH0rVdBvcTxjPpbbo3TJ3nSpwQlyjqxuP9HdHT/cIHUWZvZ8RBO9YGVmKrwQBni2N3ihnkRJkcD8I6wFwU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BiB0HdPe23VoaX94u2GQBZbMloJHnp29Zm7do0h381h8tGUz+
+	MiO3rq6tm4lVMNPUotkbNrxxxtfsMHIqRGc16nOTCQnvxLbaL4CtrCKN/ha5Y2ILu0M=
+X-Gm-Gg: AZFdTZdiFgJIhP9AAFvlx8trIoGCYKTgQtIP/4SCWLCQY+vC9d+ZBtHt4Ra/Ih3SFTC
+	YG2zamaqXU6jhdljbx62nlAh82Tn4gfdufxyn8XwE30LAzEey0dP3T1cSGtR2iB32Z409ZpPoi4
+	ap25iE7hDgaVyGR2l72ugJ2YQ2A7p8XpG/OMeYOoroXpy7UVUl90fvgpAvS3mTGCMz/ImWnla/1
+	YkegguGUuart9b+beooejBJTn1RrODF6qehuPi5yYY9dZMBSVZynARd/nl51qii/de4o59+mcxo
+	hWW6tCqu1/p0hK9wcTgzToVqm/iXO2qVMKl3uOkoZz2VGTmOQN1cE0D2yTcqozb4WG6DJc7/7DL
+	CKHsQm3IyAaHqMqBKwzq9rPt5Ozr2H9Ps1c9AiXsvi2vseILie9uN3ZXs9pcJdkKO7cjad5vW0d
+	yZQIbk6ZTbbQmuNXsIDCRRwyG6iS2nAtGtCSADrkc4f0PtVdrFWbCaVkeAb49UaBMOBmw0opmnV
+	gtpsB/YSQq1G0v5vlFbLpudyWtJK3L/hxbi0p6LJ7WiQBi3f11Vs5ajkf40y8fUQfUfcv1eH8WW
+	NtSKd5GtKuomI+H7jmMD7tODja44Byf7uzbNlD7B4Tzixzz5J2RxyfVSLSp7cU5RKvRsrUIyTA=
+	=
+X-Received: by 2002:a17:907:3cc7:b0:c2e:2d8c:4585 with SMTP id a640c23a62f3a-c513ab4cd0dmr859651666b.36.1795425442222;
+        Mon, 23 Nov 2026 01:17:22 -0800 (PST)
+Received: from localhost (144-178-202-142.static.ef-service.nl. [144.178.202.142])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afca58asm371207466b.65.2026.11.23.01.17.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 01:17:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,108 +88,167 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261123-dma3-fixes-v2-2-0a5b013f79d2@foss.st.com>
-References: <20261123-dma3-fixes-v2-0-0a5b013f79d2@foss.st.com>
-In-Reply-To: <20261123-dma3-fixes-v2-0-0a5b013f79d2@foss.st.com>
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, =?utf-8?q?Am=C3=A9lie_Delaunay?=
-	<amelie.delaunay@foss.st.com>
-CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.16.0
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF0000009C:EE_|DU0PR10MB6274:EE_
-X-MS-Office365-Filtering-Correlation-Id: be2ac969-d505-4fb0-84c9-08df49429467
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|261102123227099003|261026140227099003|261022105027099003|261022075727099003|261028144727099003|5023799004|11063799006|56012099006|10067099003|18002099003|22082099003|261021121427099003|261021123027099003|6133799003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	GymJLQ/ZPc0SuiOWKbM1KwoyD7QFwJlY4j1VirDjBGi3n+ENaeGb6kfaataGvumUD45A7TJpjuXiuoX+KxZOB6Ogt+RWMrbQGuByrM3Z0UkM/wSibqK/RoYzexeRPF6/UpvftuEsPzZTt5Wv3y9OR1LQlYc01v0FHiFqTFhsv96Eva5zYgZE0ao05wHSFTmpRNDdjYSxREXv9RazNp3ZfZ59H1esPTJazyGYzvEXWLOLxGguvopxO7fQD8uTGufsS4wa/a37qvm0w/wRWu+RzIchj6V+8hVc7p/9AukzoieyntEGGZZAnQW9OwphdGoxwr3ufEOFsqw6ojXLm5Ln0FyOGZQLf4eA5pylUTgv1C3mXCYgziTWoJ0f09uX/XI8dahjslc7uPnWRef8wsHxuPOtVG8miSg4tdPHnILWwlhYlhyw2c8OD9LDeMkmya1l64zkUkiJdrlRWXRcWEG8WlJpRuf/G2cgxf3dcZDJttQEbHdV4HRXlccjKc+RlkUiqUbIdsAPdya/iV/Ps4Nx26B3AZ+CWu0uKqdKEKlu1nL6lKnoyDIlS1zBbm0i4zObtYMc8xgh/aVgA265UwBlr+dpa0yfSIuF/C3krMjAYgtH42+1xnuFfeLoxECW7/tJFpWK3R3X97GwcD5nuX0fshkQK81oc54D9fgTiyZkAn4m2EjBmeGVWAUVdLYr+Q7FYdHjJj96bHy54VmoZuj6Sg==
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(261102123227099003)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003)(5023799004)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003)(261021121427099003)(261021123027099003)(6133799003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	7HCvgkuhYll2wNLGqbEkngAxAnV7hC7TdHAigxqgSNrWhmpC/+4w2uUwn3ix129I4G5sO64fJAWKu65awy5xcFk5Vrmogo15kJNwQQm8IwLDzN+aQqIC/5vGej27T80SohrTPaB10W1K/h1ksDHCVw0PBeFXe5R9PapgMWRv2/XXhyoAYJl36OBm2Qhz3mwi2H442Ype0bXNCZ6Wo0cb30ECdRZxLEHAsf3D0tmRGMdHyzqS9rLIAT6SHEs4X2qOB6rnWIVNFxt4G/H3LlKR4PEHG5Eb/I0F5QNPIIVoy7M3W8XwIiwvbrOu/BmzptFQ7OCLwuv3kg91d4H9MfEPVdSI3AO22Z6aRauchxJqJVAsaXj6t2Bdrc+fKE1IsBO3D8uxEQb9ZSZAGDt/ySnXyrwqW3BlfFFmAKzOyGri0Gc3D+EnOhUUCXXSrsgJz7Im
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 09:17:21.5600
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: be2ac969-d505-4fb0-84c9-08df49429467
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	AMS1EPF0000009C.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6274
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 10:17:21 +0100
+Message-Id: <DN2H797ASILD.3P89IOZH1IU1H@fairphone.com>
+Cc: "David Lechner" <dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, "Andy Shevchenko" <andy@kernel.org>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, "Zhang Rui" <rui.zhang@intel.com>, "Lukasz
+ Luba" <lukasz.luba@arm.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Laxman Dewangan" <ldewangan@nvidia.com>, "Bjorn Andersson"
+ <andersson@kernel.org>, "Konrad Dybcio" <konradybcio@kernel.org>, "Hans de
+ Goede" <hansg@kernel.org>, "Jens Reidel" <adrian@mainlining.org>, "Casey
+ Connolly" <casey.connolly@linaro.org>, "Val Packett" <val@packett.cool>,
+ "Daniel Lezcano" <daniel.lezcano@kernel.org>,
+ <~postmarketos/upstreaming@lists.sr.ht>, <phone-devel@vger.kernel.org>,
+ <linux-arm-msm@vger.kernel.org>, <linux-iio@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+ <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v4 1/5] iio: adc: qcom-spmi-adc5: Add battery thermal
+ channels
+From: "Luca Weiss" <luca.weiss@fairphone.com>
+To: "Jonathan Cameron" <jic23@kernel.org>, "Luca Weiss"
+ <luca.weiss@fairphone.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3-dirty
+References: <20261117-bat-temp-adc-v4-0-14d5d309ebfa@fairphone.com>
+ <20261117-bat-temp-adc-v4-1-14d5d309ebfa@fairphone.com>
+ <20261122031305.0fdc69cd@jic23-hlaptop>
+In-Reply-To: <20261122031305.0fdc69cd@jic23-hlaptop>
 
-Linked-list (LL) is allocated in stm32_dma3_chan_desc_alloc(). The LL is
-then used when starting the transfer in stm32_dma3_chan_start(). Nothing
-prevents a user from preparing another transfer before starting the
-previous one. If, for the same channel, another kind of transfer is
-prepared (using dmaengine_prep_xxx API), the LL base address may change.
-This address could be overwritten in the CxLBAR register if the channel is
-disabled, or the CxLBAR might not be updated if the channel is enabled,
-leading to a mismatch between the transfer being started and the LL pointed
-to by CxLBAR register.
+Hi Jonathan,
 
-To avoid this, write the LL base address in CxLBAR when starting the
-transfer instead of when the linked-list is allocated.
+On Sun Nov 22, 2026 at 4:13 AM CET, Jonathan Cameron wrote:
+> On Tue, 17 Nov 2026 09:23:11 +0100
+> Luca Weiss <luca.weiss@fairphone.com> wrote:
+>
+>> Add the BAT_THERM channels with millivolt as output, which can then be
+>> used along with information regarding the NTC in the battery, to get the
+>> actual battery temperature.
+>>=20
+>> A static lookup table in the ADC driver won't work since different
+>> devices have different Ohm and Beta values in their battery NTCs, for
+>> example a NTC can be 10kOhm & B=3D3435K.
+>>=20
+>> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
+> Given this is independent of the following elements other than
+> the dtsi changes, do you want me to pick it up now?
+>
+> You may need to use numeric values in dtsi until the header
+> catches up then chase with a patch flipping to the defines next cycle.
+> That's how we normally avoid that dependency slowing things down.
 
-Fixes: f561ec8b2b33 ("dmaengine: Add STM32 DMA3 support")
-Cc: stable@vger.kernel.org
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
----
-Changes in v2:
-- emtpy line added  emtpy between parapragh following Frank Li's review
----
- drivers/dma/stm32/stm32-dma3.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+Sounds good from my side. Thank you!
 
-diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-index a464e0cefd64..a056f73fbe02 100644
---- a/drivers/dma/stm32/stm32-dma3.c
-+++ b/drivers/dma/stm32/stm32-dma3.c
-@@ -396,7 +396,6 @@ static void stm32_dma3_chan_dump_hwdesc(struct stm32_dma3_chan *chan,
- 
- static struct stm32_dma3_swdesc *stm32_dma3_chan_desc_alloc(struct stm32_dma3_chan *chan, u32 count)
- {
--	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
- 	struct stm32_dma3_swdesc *swdesc;
- 	int i;
- 
-@@ -423,10 +422,6 @@ static struct stm32_dma3_swdesc *stm32_dma3_chan_desc_alloc(struct stm32_dma3_ch
- 	}
- 	swdesc->ccr = 0;
- 
--	/* Set LL base address */
--	writel_relaxed(swdesc->lli[0].hwdesc_addr & CLBAR_LBA,
--		       ddata->base + STM32_DMA3_CLBAR(chan->id));
--
- 	/* Set LL allocated port */
- 	swdesc->ccr &= ~CCR_LAP;
- 
-@@ -790,6 +785,10 @@ static void stm32_dma3_chan_start(struct stm32_dma3_chan *chan)
- 	writel_relaxed(hwdesc->cdar, ddata->base + STM32_DMA3_CDAR(id));
- 	writel_relaxed(hwdesc->cllr, ddata->base + STM32_DMA3_CLLR(id));
- 
-+	/* Set LL base address */
-+	writel_relaxed(chan->swdesc->lli[0].hwdesc_addr & CLBAR_LBA,
-+		       ddata->base + STM32_DMA3_CLBAR(chan->id));
-+
- 	/* Clear any pending interrupts */
- 	csr = readl_relaxed(ddata->base + STM32_DMA3_CSR(id));
- 	if (csr & CSR_ALL_F)
+I think realistically, there's no other option than what's implemented
+in this patch, even if PATCH 2/5 (dt-bindings change for generic-adc) is
+not reviewed yet. But I hope the dt maintainers will be okay with that
+as well.
 
--- 
-2.43.0
+Regards
+Luca
+
+>
+> Thanks,
+>
+> Jonathan
+>
+>> ---
+>>  drivers/iio/adc/qcom-spmi-adc5.c         |  6 ++++++
+>>  drivers/iio/adc/qcom-vadc-common.c       | 16 ++++++++++++++++
+>>  include/linux/iio/adc/qcom-vadc-common.h |  3 +++
+>>  3 files changed, 25 insertions(+)
+>>=20
+>> diff --git a/drivers/iio/adc/qcom-spmi-adc5.c b/drivers/iio/adc/qcom-spm=
+i-adc5.c
+>> index d57ba8526e0c..24ac84580570 100644
+>> --- a/drivers/iio/adc/qcom-spmi-adc5.c
+>> +++ b/drivers/iio/adc/qcom-spmi-adc5.c
+>> @@ -542,6 +542,12 @@ static const struct adc5_channels adc5_chans_pmic[A=
+DC5_MAX_CHANNEL] =3D {
+>>  					SCALE_HW_CALIB_DEFAULT)
+>>  	[ADC5_XO_THERM_100K_PU]	=3D ADC5_CHAN_TEMP("xo_therm", 0,
+>>  					SCALE_HW_CALIB_XOTHERM)
+>> +	[ADC5_BAT_THERM_30K_PU]	=3D ADC5_CHAN_VOLT("bat_therm_30k_pu", 0,
+>> +					SCALE_HW_CALIB_THERM_VOLT)
+>> +	[ADC5_BAT_THERM_100K_PU] =3D ADC5_CHAN_VOLT("bat_therm_100k_pu", 0,
+>> +					SCALE_HW_CALIB_THERM_VOLT)
+>> +	[ADC5_BAT_THERM_400K_PU] =3D ADC5_CHAN_VOLT("bat_therm_400k_pu", 0,
+>> +					SCALE_HW_CALIB_THERM_VOLT)
+>>  	[ADC5_BAT_ID_100K_PU]	=3D ADC5_CHAN_TEMP("bat_id", 0,
+>>  					SCALE_HW_CALIB_DEFAULT)
+>>  	[ADC5_AMUX_THM1_100K_PU] =3D ADC5_CHAN_TEMP("amux_thm1_100k_pu", 0,
+>> diff --git a/drivers/iio/adc/qcom-vadc-common.c b/drivers/iio/adc/qcom-v=
+adc-common.c
+>> index b03cf584b165..101b3c724f8d 100644
+>> --- a/drivers/iio/adc/qcom-vadc-common.c
+>> +++ b/drivers/iio/adc/qcom-vadc-common.c
+>> @@ -309,6 +309,10 @@ static int qcom_vadc_scale_hw_calib_therm(
+>>  				const struct u32_fract *prescale,
+>>  				const struct adc5_data *data,
+>>  				u16 adc_code, int *result_mdec);
+>> +static int qcom_vadc_scale_hw_calib_therm_volt(
+>> +				const struct u32_fract *prescale,
+>> +				const struct adc5_data *data,
+>> +				u16 adc_code, int *result_mV);
+>>  static int qcom_vadc7_scale_hw_calib_therm(
+>>  				const struct u32_fract *prescale,
+>>  				const struct adc5_data *data,
+>> @@ -333,6 +337,7 @@ static int qcom_vadc7_scale_hw_calib_die_temp(
+>>  static const struct qcom_adc5_scale_type scale_adc5_fn[] =3D {
+>>  	[SCALE_HW_CALIB_DEFAULT] =3D {qcom_vadc_scale_hw_calib_volt},
+>>  	[SCALE_HW_CALIB_THERM_100K_PULLUP] =3D {qcom_vadc_scale_hw_calib_therm=
+},
+>> +	[SCALE_HW_CALIB_THERM_VOLT] =3D {qcom_vadc_scale_hw_calib_therm_volt},
+>>  	[SCALE_HW_CALIB_XOTHERM] =3D {qcom_vadc_scale_hw_calib_therm},
+>>  	[SCALE_HW_CALIB_THERM_100K_PU_PM7] =3D {
+>>  					qcom_vadc7_scale_hw_calib_therm},
+>> @@ -583,6 +588,17 @@ static int qcom_vadc_scale_hw_calib_therm(
+>>  				 voltage, result_mdec);
+>>  }
+>> =20
+>> +static int qcom_vadc_scale_hw_calib_therm_volt(
+>> +				const struct u32_fract *prescale,
+>> +				const struct adc5_data *data,
+>> +				u16 adc_code, int *result_mV)
+>> +{
+>> +	*result_mV =3D qcom_vadc_scale_code_voltage_factor(adc_code,
+>> +				prescale, data, MICRO / MILLI);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>  static int qcom_vadc_scale_hw_calib_die_temp(
+>>  				const struct u32_fract *prescale,
+>>  				const struct adc5_data *data,
+>> diff --git a/include/linux/iio/adc/qcom-vadc-common.h b/include/linux/ii=
+o/adc/qcom-vadc-common.h
+>> index 3bf4c49726a7..7586016ff14d 100644
+>> --- a/include/linux/iio/adc/qcom-vadc-common.h
+>> +++ b/include/linux/iio/adc/qcom-vadc-common.h
+>> @@ -93,6 +93,8 @@ struct vadc_linear_graph {
+>>   *	voltage (uV) with hardware applied offset/slope values to adc code.
+>>   * @SCALE_HW_CALIB_THERM_100K_PULLUP: Returns temperature in millidegC =
+using
+>>   *	lookup table. The hardware applies offset/slope to adc code.
+>> + * @SCALE_HW_CALIB_THERM_VOLT: Returns voltage in mV of a temperature c=
+hannel.
+>> + *	The hardware applies offset/slope to adc code.
+>>   * @SCALE_HW_CALIB_XOTHERM: Returns XO thermistor voltage in millidegC =
+using
+>>   *	100k pullup. The hardware applies offset/slope to adc code.
+>>   * @SCALE_HW_CALIB_THERM_100K_PU_PM7: Returns temperature in millidegC =
+using
+>> @@ -114,6 +116,7 @@ enum vadc_scale_fn_type {
+>>  	SCALE_PMI_CHG_TEMP,
+>>  	SCALE_HW_CALIB_DEFAULT,
+>>  	SCALE_HW_CALIB_THERM_100K_PULLUP,
+>> +	SCALE_HW_CALIB_THERM_VOLT,
+>>  	SCALE_HW_CALIB_XOTHERM,
+>>  	SCALE_HW_CALIB_THERM_100K_PU_PM7,
+>>  	SCALE_HW_CALIB_PMIC_THERM,
+>>=20
+
 
