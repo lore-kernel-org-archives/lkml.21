@@ -1,99 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432745;
-	b=DzA2/V8HJGWUQw7mLrdKh+N/Etj1amURMJ20ecc8ccdMtGQALm2etmKG+zXfpZfHC1sB
-	 +Zy/eELQL0QsDchW6tN78H/NCwdIRpjQtsVloHr/M4KAyIhFM4h7Le/rsI/G0agsYn7q/
-	 q2U/RxpGi3rBJ3nPAC0NN9SNMz6phH3w0v1AVONHIObLTbc9UpGEKFoRlSblcMJiVRN9P
-	 WQFLDMyggKAupgtjsJPb9ot+tcw57j4jgQjWTc2T4JcQWYyERLOQ+fOEq0zJ6+yaS/HC2
-	 yeRDUKHGRZQAMMUUJX5GheTKyyVd5mT8y7NEmwgkQW6bFGH48P3oj/0Wf9j6nboLa9A==
+	t=1795432746;
+	b=eILRzXUOIpnRHlMNj4OL8cxqqYTLcFfxzQOk4HL+W+vYCVBpxZDmkLSLuqicOAsA1jaH
+	 lcx+m/vZyvnpNdegMVi19sZmrRG6jswrgK/7pu2e5yy106JziSVSsbA9xtCQ2bRadAl4c
+	 1eztKjBVGag8kSuVVnWtbnvTlR4Fr0czv2eP564SP139vQIcpoN17pSAl8vUJRX+LGn1t
+	 oQdL3v4xBOWnZePYyfhCSLzzXIyfCvmLIf14PnIpj3TO2J30xHKUVfRVoBARODXMlDEzU
+	 iiWXN7+OtRyvt7m/HC65+O0RyJQ0rfXHK+XiSzXU7bWzjr5gqIZIHYOE/+fHP9EEbkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432745;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432746;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=k3uSf+LngMc+GclAQbDex6wYdGJF5q3WDMpqyCChbf8=;
-	b=dOFoCJ8NziQRgVZC1/RZozXpEHPRWi6PckE8rVt9nUhRdNvlpsijc/w9NTPL+ocRslyz
-	 LvHl58YiP1YDOtGdivC7WtBMRxc05kq2tt0NPySpaomdzZ2+7RuAS65pJQJE10AfbNR4n
-	 5zEuGDoc1yKUZXpuHFaUriPdAz3meaMGoLZRQXxDDU1r8ARRDT14RMSKsOYv/wsnhM+gU
-	 sGTcGs8Y0Z7UblBvzJeoZVVisSSO4+Pg4AW2OSwG8IkWblEAG7tiaaEhliXxPMj7qvygm
-	 u+EkUjSnlUDe9bDqX57Sw24kGzq8AOZgXtFUgbOcmy5kZCFyNLwPBfEr3fie2Zdj2mA==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=EtVDEEY+1Q2B+PJRdO/nFO/tm1fJ8wXwnQSpYA2WKh8=;
+	b=cqusMhyBq5onX8KV19anzo9/SqYJLGqbAsf+UoUuHo7OEErlvcgHyU7EcT+vz+BDBvIu
+	 cYx9xPKGVpdnMqZm2GLKn/tjAv8WIDKjfr6m5Z+4MakADovfDt9DRo9zHHWw7nz5X7Uhv
+	 ByZrMqzcMDfDZEKRt0Vn/F7kJ2EFS+vxWTW+M/diZf4svqiHH0qYwebVBvhsD17lJuXRC
+	 ZlgAoxpedlfevb/NsvgrbkMI8hNQUWqj+O4neZzpJB0S8MkfuomdHdGCWGdDVb9iwzLTW
+	 Ri4JPbUpYCbiVkGvI39Qqwl2g/kgXLVBxPjZ9XySffk9JEGYvi5uqUkmNxkwoGkiazA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=g91psyOu;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VfIg7S0N;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87FAB606A695
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C74CB606A682
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87FAB606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C74CB606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=g91psyOu
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso38100685e9.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VfIg7S0N
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c515369b627so266676566b.1
         for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795432744; x=1796037544; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=k3uSf+LngMc+GclAQbDex6wYdGJF5q3WDMpqyCChbf8=;
-        b=g91psyOuMV22qP7IvX6gUT2og19/KdUaOsLCB8AbTNWuwLr2fAtlilWsqHx1DFxtYX
-         DYwFcKFZ44GbfyVL2ydF8i030SzQ7euBnmMxgTMOPgynAH3v+rzwnqcK1Da7KuHD9klC
-         FHxwrfgZIei+Zc7docuwjXTNmZ0wCzfKF2z08/zJ7rn8wGA7qdotmNRSCfi9c7mL5kb8
-         pPCWbdOJ9qRX2fVk75G8xX22QM2t8Wq9v4fmMr+ztc5C3HeaHbuPM2r0gewYr65SZcqY
-         kVXf3XcRlutq2hve8tqFhmghSjWNXIfTPbS9KwiRoaUFpsmpykTTJRuCy4jLOWO4/e0H
-         eIjQ==
+        d=gmail.com; s=20260707; t=1795432744; x=1796037544; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EtVDEEY+1Q2B+PJRdO/nFO/tm1fJ8wXwnQSpYA2WKh8=;
+        b=VfIg7S0NyjDFiESdcciLc42EeZNUHkJFW+yGCnS+PA5FOZnFbalkEzBPwAkLuIayTa
+         eRr83rB0tVsFoar4KBae9dFGYMZVX68eI4RjOO0yq+tVzl2VhYKSok73vfwwVjZbSg6H
+         d6ewwLont5tR6xs0d8c2QiD02Y4M2y5Y02DebZ/RuAAl5cc1HPD8id35r3iMfrsLug4z
+         MijCMWgZ2iXwVRvzNp7hJH2BQXLmLsLnSHzmlnWqZq/sjECnDCsociBw6WQ2fZU1z1KX
+         zmfHulnVN2dQYmRqS/w3NZULcuK1a7Ac/Y7lAXMV9j+jf3FA7SbDfrxoGfY3rN+z3yX2
+         SM0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795432744; x=1796037544;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=k3uSf+LngMc+GclAQbDex6wYdGJF5q3WDMpqyCChbf8=;
-        b=tAqS3WdP1kJYjtUOcppDRO2m3w86eZcd3zk7mt/x29/i5Qfm6OSsVBmyC+VwPh3bdM
-         SDOcsPP9jKMn7XMd7qHEEn8eCi86CXKn7IspzLlxVVZqAegUJOrIKBv0sJ1erhwk+l2k
-         8+kCBma0f6cogLYRenm4mdUNsDo3elfrEbEClVCvMYnAa6bwwed/L/+nqPqgf2TKjG0+
-         +AVKRYqikBd0hKY6S3WrhutBQu51tgOWNC8rNDkq8AIknuWmCi631orp3LqsxAwTisuZ
-         z/drPg7WMGPEPnqZUPlwbAUUTifiKOH1RJspuIyTXY+18h1dMxUogxqMwoBGauBwEwp9
-         e3zA==
-X-Forwarded-Encrypted: i=1; AL+hErHMukXSCvzkiZ3s+KYL9sJEIgari5RssWiC+8OoCz93ukvlA8LaWBKr0jWafXV7gRZuqUCDAVWh9bvm5e4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Y5YksGlN2XsjMYWOYbPdWIknJf63tfeTvdGN9Hqlswk1AjEA/
-	63WIcCEfoyBDoSvMdQ06HgapzU0FGbF0oJBavOJ2EpkNxlNF6UI8ApZQMQRxoGTpHg4=
-X-Gm-Gg: AZFdTZdEMKo3dHFPepBLeNf/Z5SYKsh0uSG4u+KuFwWxtQwB3mwtFwNecsOF6RoY+zC
-	8Z2fDFFxJ5z5zlcVwzD3BhYNZdetx8SoiSkFk9Q90H7wtRriwtF98I/5B0Y0q8LH+CAvM/5GtXz
-	3Dw6YP+tShedVygZuA8e65ioJ+pHjHZgTdDuduyiWoWYOCrK4o3CaWJIiWz8m32vntnTEq8NV5L
-	+zPzNlcPWWXWietWy3jEjuNgP7JVpvs9T/oXdtqg8YihtFRD5N0wQ2DnzVsfnnasgA8pAukxGDw
-	szj7UnA1tsS6hZzl21OANVwPduyRVT5ciSRHNEh/6DbQEIkpZDVCtQ8vPU0AqpTUwBucCneju/7
-	mRdA+WUTocLgQbENmiijReavrhzxJX8ensy2xuCTtgn8e0fw8klgA2j0xDQv09qk8Q/UChWzvW4
-	1ZYK5xk8h8TkC6iGmwkkl+QM268SQuBJ4t/jfjS7k78cZRoHcaSEP9MbddKuVDRyjE72IiXAjiM
-	CHcKpvM5yCxvl+NAH//vjJtP/7q9VYQ/EHn+iOR2Zi8vqpL7UGIQVTESxuy+Sn1DaCSP5/rIa1w
-	tyhzSVTrt+RaznSEZCUQjGhddM6WctLAUV59275VB490+qLJQ7RzB9PqznOq012XeVny7LM8L/6
-	r6XmrAsPhuAssKEb5
-X-Received: by 2002:a05:600c:3ba3:b0:4bb:6118:4c9a with SMTP id 5b1f17b1804b1-4bb88819940mr261104855e9.30.1795432744004;
+        bh=EtVDEEY+1Q2B+PJRdO/nFO/tm1fJ8wXwnQSpYA2WKh8=;
+        b=yUqerhy5AMJ+D1IvSn8zvyQ8Y7R7LFh73Hi7SURHebyLcHSM/fC7RDJTTFVdY9U61N
+         l+YMRzheplL2Mex3s8lI9brjkIn9NUD/d1PMiPfSNEGdEDKEnsFz5is05w4PJHjBcSgO
+         Qmr4Tf4f5ylfnKDCNqaycLmFIH/okq1WVlaITWJAqQeHmLhkdWKZvtKryYKJsz9MTcST
+         lM6H7VBLY0wE7osXdF/6QnWkV5/KGMYdvIY8BT4ktttRudmhiK6J2lIR3TlhFCHgBCNT
+         iaBvmbiu5wH3da1q4/9n3+B3I2q1N6V2fVMiEm38+leKzFJF7LprxPnO2WN1iSZ1uFsd
+         O4/Q==
+X-Forwarded-Encrypted: i=1; AL+hErF2rDrbFBCYPw3XdwIPJwA5G7pbOSASWaoAkaE7oWzoMP++KbXNa3nGzEA+oecdhO/bzk5bVkNrwg4O0io=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PnzshPqYGBI/zycEuf59flywIW7sBPeEbUiXStzTbICpN4tG9
+	7BqHLw6EJ4InCUlnduBctFPOIQJCZJ/kqbqal03Fcudd9UN5DGFKBZv7
+X-Gm-Gg: AZFdTZc75l2iMHtW5x8mZM0bDL5wWhYuuqZNTQ0giR7mK1MbxE5B07kCzFkhSF0wHXN
+	e5OS4RDLK9xnpmryxiVOktEGUt6RxU6YKgORugEEfEXfPTq7rWVRBUCdzPSp1F1S8CCFFhCdBg+
+	oguBuaBWTJqzDL8RixBwPBKUsngR3F9kpW8aZi1TJt7nFl/3WUony2sTtdiLHwdEFzKXRubMzX+
+	CFFUZthsmtNsrf2XWJEEnhhdyi7lP6woRh+/qRcMxQ9rSFsZKFxcajfYUKxPmoL9/6QYhvj/zwe
+	aI3fw0NTuVpM0y0MVCeRORgJiCoLHlPsX/UFTVu8BuRwzIedIJs6maO2sgy/m3ydd6mGAoTjV3C
+	XaMx/WVxcOH77Jd2PYbY8r5Ipmy6OwAxQ59ShMjyiuIsAo0rQ7DUxB4JCkIRhgiXTGnB3VK9JO+
+	vfYeDhwzk0M6NPZ17738fJOwt22c7/B0jmOMfH2qSX3RFHFw8EFFJqVaGfhIrj3zQnIUjtb5Lrd
+	phDrqhz0mIRwnEndt0gOXAaPVP0TXeESlJXtyPYV+4PmNQTMt+3LO/NuN3oIt1NvwWbdwff0t1m
+	WU9lK/fI4Fv9peEpfy6K2TjnoyuXISaLqQnJbveX11xkYTbQl05lMvugsm0mUB4w+A==
+X-Received: by 2002:a17:907:948e:b0:c51:3b09:f7f8 with SMTP id a640c23a62f3a-c513b09f8eamr826376566b.25.1795432744060;
         Mon, 23 Nov 2026 03:19:04 -0800 (PST)
-Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb853b2437sm512008535e9.13.2026.11.23.03.19.03
+Received: from [10.120.183.232] ([50.7.123.82])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc679bsm392442266b.63.2026.11.23.03.19.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Mon, 23 Nov 2026 03:19:03 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Lee Jones <lee@kernel.org>
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
-	mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Linus Walleij <linusw@kernel.org>
-Subject: [PATCH v5 04/17] mfd: lp87565: Explicitly set driver data for the generic dt compatible
-Date: Mon, 23 Nov 2026 12:18:02 +0100
-Message-ID:  <e2659aee5fd535a1af5bfddaf363ee4e5ce1c1b7.1795431460.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
-References: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
+From: Alexander Letuchiy <asalde.le1@gmail.com>
+Date: Mon, 23 Nov 2026 14:18:35 +0300
+Subject: [PATCH v3 2/7] dt-bindings: serial: mediatek,uart: Add compatible
+ for MT6895
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,38 +92,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=899; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=041Ou2CUmqGEP+iZWns10y5sS6irUDUF3uHGK8uBwY8=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBCDxQ1Bh+OxORbNKyYh6miKzEokYLD2L4x8dy 0DNt+iHcbOJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawQg8QAKCRCPgPtYfRL+ ToMwCACPUcymCoZTmzE4UKqfBqCXcu21ZylCcGbiixCoZ+Jgbnos+K7KvqG880IDBWHpCoUeWH1 +n32hQn1VrM8DDcIwE8YBxbnivVYWnhV/ukbOYsNZoy01sT4NTV2EtWoStfWGLtSrG2Ycox+QN/ HbP/5Sml7Ple5g4qbnWQDKjvbNOZagO21dFi+ff1z+HwjtUUxfcxsFqo97SkFWp70b3mdZQJxTV vIebcsGyLsxFHzhsWZb8OpaK2UQ98+zfBHcL5k+A4Ur/pACfGLdH+lLTJDkOklu1bCNQ3LlTkkz n/U3z7j92rohADNvv5SLLy5pgMq9I7fUgZiPvBfU+IBW39td
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-initial-mt6895-v3-2-95c46597e63d@gmail.com>
+References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+In-Reply-To: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-serial@vger.kernel.org, linux-input@vger.kernel.org, 
+ phone-devel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+ Alexander Letuchiy <asalde.le1@gmail.com>
+X-Mailer: b4 0.15.2
 
-From: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Add a compatible string for the UART of the MediaTek MT6895 (Dimensity
+8000/8100) SoC. It works with the existing driver through the
+mediatek,mt6577-uart fallback.
 
-The driver relies on .data being (void *)LP87565_DEVICE_TYPE_UNKNOWN
-(i.e. NULL) for the generic device tree compatible. Make this explicit.
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
 ---
- drivers/mfd/lp87565.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/serial/mediatek,uart.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/mfd/lp87565.c b/drivers/mfd/lp87565.c
-index 9e5059636225..08e7ab41a638 100644
---- a/drivers/mfd/lp87565.c
-+++ b/drivers/mfd/lp87565.c
-@@ -26,7 +26,10 @@ static const struct mfd_cell lp87565_cells[] = {
- };
- 
- static const struct of_device_id of_lp87565_match_table[] = {
--	{ .compatible = "ti,lp87565", },
-+	{
-+		.compatible = "ti,lp87565",
-+		.data = (void *)LP87565_DEVICE_TYPE_UNKNOWN,
-+	},
- 	{
- 		.compatible = "ti,lp87524-q1",
- 		.data = (void *)LP87565_DEVICE_TYPE_LP87524_Q1,
+diff --git a/Documentation/devicetree/bindings/serial/mediatek,uart.yaml b/Documentation/devicetree/bindings/serial/mediatek,uart.yaml
+index 5bd8a8853ae0..a3969cfdea7e 100644
+--- a/Documentation/devicetree/bindings/serial/mediatek,uart.yaml
++++ b/Documentation/devicetree/bindings/serial/mediatek,uart.yaml
+@@ -35,6 +35,7 @@ properties:
+               - mediatek,mt6795-uart
+               - mediatek,mt6797-uart
+               - mediatek,mt6893-uart
++              - mediatek,mt6895-uart
+               - mediatek,mt7622-uart
+               - mediatek,mt7623-uart
+               - mediatek,mt7629-uart
+
 -- 
-2.47.3
+2.56.0
 
