@@ -1,68 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.213
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.121.53.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405401;
-	b=k5KsxPkCh8N/FFidcwT1fJ2zeInNbe8HB264jmY9BpFOeeseCIsahEM+qU9Eq6KVmG73
-	 SW1aVw04OmkvY68Dwz37/BEwE5EXb46n6ZhJCkkpFFAGLNAjiyOL8G+i1GGntG0tlcKn5
-	 6TcOnFT8WLs736J7aZ+WhwRnqrIZjhS+SaSz43sGShwyF+KmCFBeTHEp+y+jmVUKEFIh6
-	 TiHo3GLE8/F40rOqU/JK3aKhxWjQGIL8ZypwPCROBBMBPBZJ1+FH0hgC3wVlxXsqc8Ola
-	 jqDV4X0kkguhEZlL+SCq3SQTxXNJx7npxlFJmbbgak4AVok4cmhAxlRwXexWqt15e2A==
+	t=1795405421;
+	b=vZtifqSv8QcH3NxDWSRhSolKO1hsFfgBQcqE7I1TzksaP+1i5v3F/yRbRTUXTqWaDC/k
+	 DGj+nG9UpYU9jA6HpfI+XE1TEpj9mPgLC2XG+gcsNhMDf2jQO9rFTrsaWXnxqVkdZ9nlD
+	 G4tKKNLTt21SnzYaHNR30DVO6ps1oAz9TP+35pnqe2v+qKBf06e97UxhDRMEsuvxUY863
+	 apTEzA9qCYhlkFqdocwd8abGhBtwYwGNQJ8l3Cbt61/MXFSMzir17oS7fw9YiSvzFGwgO
+	 QQcwVJTw+Y0PzXeC1EfPRTUnTGVSlwe3ednOofXp4CFN6kBV+2CM2hc3ljLLP86WiSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405401;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=u/dSSnvt29VXMuqEAAa81mXAdbrbhqEv++QT9+xRYhg=;
-	b=Z9wtK+rr2LYgbveXz0K1jt65h3mKwSANG2R4GwJUEdgSrx8iUR5Grh2dI47F0iUshkgB
-	 q5vNRFHPk+Y1mrQKqVDzl2+AON+rRh6FdcyRv7wYbPilW8SQMHkrXG7JIGB0SGAMRxota
-	 NmI5FLQZkeRFIR6QIFRkDyu49jf5Y6qZ45D62BxuRSPqb8cYhrn3jq0Dsg8FOevybsXui
-	 8sERGtxRWEsQPfJqbjwBEa8ODy+f9ByRbBla5JqnS/d62ShQHUecrBb6u5DqDrUazsSmI
-	 tLwIUPESG0pIyQJ2u4QI2g/aTMzHEEnhyuxYTd80u+liNhgJg8vy1b+Zl4q7K2qrWYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405421;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:X-CMAE-Analysis:
+	 Feedback-ID:X-SECURESERVER-ACCT:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CMAE-Envelope;
+	bh=tQsWGsrdylhfbIovzYYPzApT8twvdpT+bFKB3zTrmE0=;
+	b=I8FjTGPKTtkDL/OIpj704mU/rghcG5xr+Aqnw44v0Eb2cbyWJm/FmTlQpFU3y3FUDrBM
+	 X/At1I1JhYTlSXf8dTCSpQHRInRIBQN4Rfn0z65fBYZYJb2LtJ+h6cEurWQNNgspr1XBf
+	 lSMK+w+montuEo/x0FLUK9IjXqPPkUBB2iEA0Wn5L/uphZNAkmYGWLz14lukmopSkYtW2
+	 HKtjOBN+rzs4R3sfiZgQDQvchHuYckFsPiO9nT3SzjpSDfZ1iAr0C9ZFNPmxdMT2DBZ4Y
+	 JfByOpMLcISMsjHkaWscPIvUFthcv09icPLcBxg0h1IaT5u575hTDdNKNBr+FC3kqUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sym98uDI;
-	arc=none smtp.remote-ip=91.218.175.213
-Received: from mta0.migadu.com (out-213.mta0.migadu.com [91.218.175.213])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=squashfs.org.uk;
+	spf=pass smtp.mailfrom=squashfs.org.uk;
+	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=FLkRT4yP;
+	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b="gr/YQIok";
+	arc=none smtp.remote-ip=188.121.53.37
+Received: from sxplsmtpa04-04.prod.sxb1.secureserver.net (sxplsmtpa04-04.prod.sxb1.secureserver.net [188.121.53.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27EA0606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:43:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27EA0606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD94E606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:43:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD94E606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=squashfs.org.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squashfs.org.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sym98uDI
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=u4K0EQqDi4+xhHfJPHjH7LQ7MYMicDcjgwVFleEBNuM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795405399; v=1; x=1796010199;
- b=sym98uDIogUQEVzQ57BtWFFt9Lo0yVdauWGeKKZLwDg6jJADX1S8k4zgKh5ONHgbDFhurkMK
- n23ugOKub2PpV5+WNX0IZz83zQ0Q6CLMi5FsPRTiOi4sV9uGT8ZKJz8Vq0vQeAAG9l+Mf8rx+DV
- ZHFqO7Q4VPkh4Ai1On/OOOAg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id b23e18659fa0a669;
-	Mon, 23 Nov 2026 03:43:19 +0000
-X-Mizu-Trace-ID: b23e18659fa0a669
-X-Migadu-Flow: FLOW_OUT
-From: "Xu Xin (vivo)" <xu.xin@linux.dev>
-To: xu.xin@linux.dev
-Cc: akpm@linux-foundation.org,
-	chengming.zhou@linux.dev,
-	david@kernel.org,
-	donettom@linux.ibm.com,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	stable@vger.kernel.org,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Subject: [PATCH v3 1/3] mm/ksm: do not inherit ksm_zero_pages counter or PTE markers on fork
-Date: Mon, 23 Nov 2026 11:43:07 +0800
-Message-Id: <20261123034307.236032-1-xu.xin@linux.dev>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123034136.209410-1-xu.xin@linux.dev>
-References: <20261123034136.209410-1-xu.xin@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=FLkRT4yP;
+	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=gr/YQIok
+Received: from avalon.fritz.box ([82.69.79.175])
+	by :SMTPAUTH: with ESMTPA
+	id VKxRxJoOeZuU3VKxhxiqPh; Mon, 23 Nov 2026 03:43:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secureserver.net;
+	s=secureserver2; t=1795405407;
+	bh=tQsWGsrdylhfbIovzYYPzApT8twvdpT+bFKB3zTrmE0=;
+	h=From:To:Cc:Subject:Date;
+	b=FLkRT4yP3x7S06g0vWaAfpx9UZ9Ud4m5FJICQsKP90ff6hrF2ZJ9OQ3N9GeHdzkEw
+	 QjKPocvQc3kDhNh3lCjptwyz57Vcnl/JU+buV84rjihYVcdrWbFjhcsdv8WvkMchez
+	 3YqBkitZOTWu3NlOHubaol91iIJEBncCIlpduDT/SxZDd19mrZ+ukbZVgfiNz63lqe
+	 fA6JNAjMjlmekvg0WXkza6BTOmRYqZ9iuZzQ5uXDn/1/aT6jO+XB/zQ6QKZNp9GotF
+	 CSP4YxP8pJDZgEPfer+6ukof25Hqe1Dyl7ySMs/5an/ySlOb8ByhjzGc05iS2JPW9r
+	 3Fl5nuex+eMZQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squashfs.org.uk;
+	s=secureserver1; t=1795405407;
+	bh=tQsWGsrdylhfbIovzYYPzApT8twvdpT+bFKB3zTrmE0=;
+	h=From:To:Cc:Subject:Date;
+	b=gr/YQIok9HM4QLxACZ2PUI7EBIlAicO6U4dqYGExu18nls20kd5gBsAznyWU8hZX+
+	 YlRxiziEPGon/+gqz4ETwTR4HjCVHuGeAYb/rQLpReWiwYw3SBOF77MHuHt5WYaQ3Y
+	 ADnwXw71Jjl9G2q5chYv9vQ/3LaJ+ATlqxayT5S48pfO+mA5r4H9tGugX/jyHNzj6s
+	 7EKVIzsu9wqLjoNNItLHN/6YVTjVsWGJBwYiv3d5GNgTYcuVk/adfafhJLcMwOdwim
+	 nLiixypAtSBtJp7jyexFEmPz37D0DAdATfecugpJat0eXSs18J/xn2zBppds7/b7R8
+	 hJfWQZS9FbyaA==
+X-CMAE-Analysis: v=2.4 cv=CvYq4X4D c=1 sm=1 tr=0 ts=6b03b65e
+ a=84ok6UeoqCVsigPHarzEiQ==:117 a=84ok6UeoqCVsigPHarzEiQ==:17
+ a=1KwyjEPoHUs1rspk:21 a=fawebWP89Nc0O0UJM6IA:9
+Feedback-ID: 8032107b193a5c25f81d045e0ed6f983:squashfs.org.uk:ssnet
+X-SECURESERVER-ACCT: phillip@squashfs.org.uk
+From: Phillip Lougher <phillip@squashfs.org.uk>
+To: akpm@linux-foundation.org,
+	linux-kernel@vger.kernel.org
+Cc: Phillip Lougher <phillip@squashfs.org.uk>
+Subject: [PATCH v3 00/23] Squashfs: fix a lot of AI issues and AI style issues
+Date: Mon, 23 Nov 2026 03:42:41 +0000
+Message-ID: <20261123034304.261742-1-phillip@squashfs.org.uk>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,140 +81,80 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CMAE-Envelope: MS4xfI6pBnRa2XqnDGWbAOtAfRGerKU9v2YTGG1sBcwiPQxH+2nHAoh30un8cvQPLH8/dEQJK/j9jqUhr4P32Bu3/bq/u36QwxbPVJIqbPQWCzbMESleSRsc
+ R1sPEaUowdDio/ul9G2DgJFNQSVgvY11D6r2NFy4HB7tbL4D5v2Mc14CrwD/G1H1TqxIFCeLg3IelTpcnRLjSLvS40+umqRZ/tdcw77AAKKug5fnmTJ0Etx9
+ Ye7f97vUR67UEd6nZJPkVu5volf/A+3jkt2fnHmZD9BLLW+MaH9dJBCESGyi1bgZ
 
-As documented in Documentation/admin-guide/mm/ksm.rst, ksm_zero_pages
-accounts only for zero pages actually placed by KSM.  However, the
-current implementation wrongly accounts for forked zero-page PTEs as
-KSM's contribution, inflating both the child's per-mm counter and the
-global ksm_zero_pages counter.
+This large patch-set is inspired by the recent spate of AI generated
+code reports.  Four of the patches directly fix AI reported issues, and
+the rest have been found manually by a read-through and testing of the
+code.
 
-Originally, commit e2942062e01d ("ksm: count all zero pages placed by
-KSM") marked KSM-placed zero-page PTEs with the dirty bit for unmap
-accounting, but forgot to clear this marker during fork().  Later, to
-prevent ksm_might_unmap_zero_page() from underflowing the counters on
-child exit[1], commit 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter
-handling in mm_struct during fork") kept the child's inherited per-mm
-counter and added it to the global counter.
+In all cases (except patches 1 - 8, 18 - 20) the patches deal with
+over-sights relating to variable overflow, arithmetic overflow, variable
+signedness or just lack of sanity checking of data read from disk.
+These can cause the code to fail, and which could be used as a potential
+exploit.  
 
-Instead of inflating the counters, fix the root cause by resetting the
-child's mm->ksm_zero_pages to 0 in ksm_fork() and clearing the KSM
-zero-page marker via ksm_fork_pte() when copying present PTEs in
-copy_present_ptes().  With the marker cleared,
-ksm_might_unmap_zero_page() will not decrement the counters on child
-exit, MADV_UNMERGEABLE in the child will not unnecessarily unshare
-inherited zero pages, and the global counter remains untouched.
+Patches 18, 19, and 20 fix potential excessive memory use exploits.  The
+code in question was written in the early days when Squashfs filesystems
+were small, but with very large filesystems it could try to allocate
+memory in excess of 4 MiB, and up to 64 MiB.   
 
-[1] https://lore.kernel.org/all/53a7bf3d-843d-4e19-b0a3-cc6852fe72c1@redhat.com/
+The patches can be broken down as follows:
 
-Fixes: 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter handling in mm_struct during fork")
-Cc: stable@vger.kernel.org
-Tested-by: Karl Mehltretter <kmehltretter@gmail.com>
-Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
+Patches 1 - 6 are preparatory patches.  They convert old fashioned
+#define macros into inline functions.  These being typed make widths and
+signedness explicit, and allow additional checking to be added in later
+patches.
+
+Patch 7 fixes an incorrect offset value in TRACE statements in
+squashfs_read_inode().  This was new to the v2 patch-set.
+
+Patch 8 is new to this v3 patch-set.  The patch is an attempt to stop
+Sashiko from getting stuck in logical contradictions when some
+sanity checks are introduced later.
+
+Patches 9 - 17 fix various issues relating to variable overflow,
+arithmetic overflow and add additional sanity checking to prevent these
+issues from occurring.
+
+Patches 18 - 20 remove the excessive allocation of memory by introducing
+caches, which limit the maximum usage to 4 pages.
+
+Patches 21 - 22 were new to the v2 patch-set.  They deal with some
+issues Sashiko reported in the original patch-set.
+
+Patch 23 was also new to the v2 patch-set.  It adds an additional belts
+and braces sanity check.
+
+Patches 9 - 21 have reproducers which show how the existing code faults
+can be exploited, in some cases which can allow a Squashfs filesystem
+to be tampered with to make files readable by unprivileged users.
+
+BTW checkpatch.pl complains about the '#' lines in the BASH script
+reproducers. Let me know if that will cause problems.
+
+ fs/squashfs/block.c            |  20 ++-
+ fs/squashfs/cache.c            |   8 +-
+ fs/squashfs/dir.c              | 114 +++++++++----
+ fs/squashfs/export.c           | 146 ++++++++++++-----
+ fs/squashfs/file.c             |  93 +++++++----
+ fs/squashfs/fragment.c         | 113 ++++++++++---
+ fs/squashfs/id.c               |   9 +-
+ fs/squashfs/inode.c            |  77 +++++----
+ fs/squashfs/namei.c            | 137 +++++++++++-----
+ fs/squashfs/squashfs.h         |   9 +-
+ fs/squashfs/squashfs_fs.h      | 101 ------------
+ fs/squashfs/squashfs_fs_i.h    |   2 +-
+ fs/squashfs/squashfs_fs_sb.h   |  25 ++-
+ fs/squashfs/squashfs_helpers.h | 362 +++++++++++++++++++++++++++++++++++++++++
+ fs/squashfs/super.c            |  96 +++++++----
+ fs/squashfs/xattr.c            |  49 ++++--
+ fs/squashfs/xattr.h            |  21 ++-
+ fs/squashfs/xattr_id.c         | 173 ++++++++++++++------
+ 18 files changed, 1133 insertions(+), 422 deletions(-)
+
+Phillip
 ---
-Changes in v3:
-- Rename might_clear_ksm_zero_pte() to ksm_fork_pte() and move the
-  is_ksm_zero_pte() check into copy_present_ptes() under the !page
-  branch, as suggested by David Hildenbrand.
-- Expand the comment above ksm_fork_pte() to explain why the marker is
-  cleared on fork.
-- Add Tested-by tag from Karl Mehltretter.
-
- Documentation/admin-guide/mm/ksm.rst |  7 ++++++-
- include/linux/ksm.h                  | 22 +++++++++++++++++++---
- mm/memory.c                          |  5 ++++-
- 3 files changed, 29 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/admin-guide/mm/ksm.rst b/Documentation/admin-guide/mm/ksm.rst
-index c329ca747b8c..8968ae3f55c0 100644
---- a/Documentation/admin-guide/mm/ksm.rst
-+++ b/Documentation/admin-guide/mm/ksm.rst
-@@ -214,7 +214,12 @@ stable_node_dups
-         number of duplicated KSM pages
- ksm_zero_pages
-         how many zero pages that are still mapped into processes were mapped by
--        KSM when deduplicating.
-+        KSM when deduplicating. Note: on fork(), the child process does not
-+        inherit the ``ksm_zero_pages`` counter, and any inherited KSM-placed
-+        zero-page mappings are converted into ordinary shared zero-page
-+        mappings. Consequently, these mappings are neither accounted for in
-+        the child's counter nor unshared when ``MADV_UNMERGEABLE`` is called
-+        in the child.
- 
- When ``use_zero_pages`` is/was enabled, the sum of ``pages_sharing`` +
- ``ksm_zero_pages`` represents the actual number of pages saved by KSM.
-diff --git a/include/linux/ksm.h b/include/linux/ksm.h
-index 596c04ca7326..f29aec4496d0 100644
---- a/include/linux/ksm.h
-+++ b/include/linux/ksm.h
-@@ -32,6 +32,17 @@ void __ksm_exit(struct mm_struct *mm);
-  */
- #define is_ksm_zero_pte(pte)	(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte))
- 
-+/*
-+ * Since the inherited mappings on fork are not expected to be accounted for
-+ * in the child's ksm_zero_pages counter (reset in ksm_fork()), we must
-+ * clear KSM's dirty-bit marker on KSM-placed zero-page PTEs to avoid
-+ * underflowing the counters on child exit.
-+ */
-+static inline pte_t ksm_fork_pte(pte_t pte)
-+{
-+	return pte_mkclean(pte);
-+}
-+
- extern atomic_long_t ksm_zero_pages;
- 
- static inline void ksm_map_zero_page(struct mm_struct *mm)
-@@ -57,11 +68,9 @@ static inline void ksm_fork(struct mm_struct *mm, struct mm_struct *oldmm)
- {
- 	/* Adding mm to ksm is best effort on fork. */
- 	if (mm_flags_test(MMF_VM_MERGEABLE, oldmm)) {
--		long nr_ksm_zero_pages = atomic_long_read(&mm->ksm_zero_pages);
--
- 		mm->ksm_merging_pages = 0;
- 		mm->ksm_rmap_items = 0;
--		atomic_long_add(nr_ksm_zero_pages, &ksm_zero_pages);
-+		atomic_long_set(&mm->ksm_zero_pages, 0);
- 		__ksm_enter(mm);
- 	}
- }
-@@ -95,6 +104,8 @@ bool ksm_process_mergeable(struct mm_struct *mm);
- 
- #else  /* !CONFIG_KSM */
- 
-+#define is_ksm_zero_pte(pte)	false
-+
- static inline vma_flags_t ksm_vma_flags(struct mm_struct *mm,
- 		const struct file *file, vma_flags_t vma_flags)
- {
-@@ -114,6 +125,11 @@ static inline void ksm_exit(struct mm_struct *mm)
- {
- }
- 
-+static inline pte_t ksm_fork_pte(pte_t pte)
-+{
-+	return pte;
-+}
-+
- static inline void ksm_might_unmap_zero_page(struct mm_struct *mm, pte_t pte)
- {
- }
-diff --git a/mm/memory.c b/mm/memory.c
-index 6a23198c1c67..f0b5df879e6f 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -1184,8 +1184,11 @@ copy_present_ptes(struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma
- 	int err, nr;
- 
- 	page = vm_normal_page(src_vma, addr, pte);
--	if (unlikely(!page))
-+	if (unlikely(!page)) {
-+		if (unlikely(is_ksm_zero_pte(pte)))
-+			pte = ksm_fork_pte(pte);
- 		goto copy_pte;
-+	}
- 
- 	folio = page_folio(page);
- 
--- 
-2.34.1
-
+Squashfs maintainer and author
