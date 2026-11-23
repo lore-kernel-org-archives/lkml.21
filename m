@@ -1,81 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444533;
-	b=5Mjgsfe6/bWzHJ7s/1/WcvuLMKMdh1zwBEhnf/9s0OHKfTF3BwXSLHGq8PbpAAb6UNEf
-	 liHYaR/MI2NNz97TQcbyyImRPNqcQDaFR8zOE0qaeCZDh0e4OkzT3WU2KIJG37BhxF9xD
-	 H1E7GWo76JEIoDrbLVda4HQmc5rdqjJpweYyQMRnHFH2LdIYUPovm3tLBk/uSs1Zi030D
-	 sFA3oGcG0k1jluhUnFBGVK/XwJAFXDjWTyXt3LojtDtNmbC5yoqmESnbwQxG9O0kj8Cr/
-	 SjvAcih4xOf6fXoK9YKySdoW6JKg2lRxFMIpOTo/xdSEBflcPk8cwn2VZvmrSgmkDOg==
+	t=1795444542;
+	b=SsPjfoslYSDbPrwhrc8WL/QcLWGtuCWbU/qVWtg67ytLxXr9QHC8Ns+EXVPLMK/+cOv4
+	 8jt6itrkbk3Qr+Qtuz2dBjxC8UqfyZU5+DBmh8a63s6IECD3jEQY0O1rqcYI4W4MtuoUM
+	 w7c9cn/Axh4rJvIjbhZvPZLzGu/dBNKdK1Xc+/wZPl7xFUpT3qvohKwAQ/hy1iV//gzbU
+	 QD5Vz9xLfjn81HiCj/shbHtVdco6lFXJ26mU2G6ueNbH3O0VbEFyEViIm0sm0bGOi7kbn
+	 UcmR7KkBOBHUnnclQacMBSQzzMnc9kz0Ry7Qvk38rrRYgd8ewGZWWbmAMTkNL8V/47A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444533;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=PcCW+rqNgrACV07eEtKyYGyFh6QSwIbd8Ip3J19mL0A=;
-	b=lMNU1YF5T5Fff6ysa+S8DEyB/uBJpdEFO0nIyjsOl9PJIEuc0IQAjDJDoFaOgoErZBiv
-	 /BtZ02QlUaIbUliShnxFH7RChYS0WP7hTkEZvYV8Jm5CwhVU8bB3IU/o3df7r5fn0N6YB
-	 9RHXpDb+qi7VzpveaPFQqYlsg9L8eStaX/C7eI/8MG9SuKVDRtHZRn7Nk1Kz2Hz+J/+PP
-	 qsNKqzlZgSIA3tj2O5Kt/eDVVzmzq6kPKLI8ienTsNXaaDWI5c9pqONEqqc6Veg2OWlIm
-	 MXGGCFlHft7ZIEFv3zkU592zAkQYkVtz9x7g5ahoDv3e05qe2Iya55cThkvOOBM9PhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444542;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=mBim/Hkn0bG2Xgqqehb5DNOIciJ6suXgpAyGSHCaxzk=;
+	b=r9WhplUaVla27GdDlgkH7jp6lVOlHURMEckAa1oC53+/JLoPIpeqQt2Pu9y37yG+dfoL
+	 anMGXyffu9RXu5/ZnejwbyU3EbP9SKtpcSYHac97NIShdldCniwifb2BO+SsoVeSHIGAe
+	 1w5O4Zo32XxxcrU01A7NvWP9W04PII3E47fxL7lfik47kZmb53PrFPQGDDGX5sD0xsAvv
+	 yPAvsxV9fCq110DeXSI84rnuj4s8v5DfuhoDdhlxIO/m7BF4Vy4+hA28+YFKIEXk2OiUb
+	 ZJBouXbn8X6iuLrJvKlrAAUWzvVeVVvEzszcCAozT7G/LqoovkMFzvxbUgSnxUTeu9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="F/2bOld/";
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kz2HxZH9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B784606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:35:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B784606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DDE6606A31E;
+	Mon, 23 Nov 2026 14:35:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=F/2bOld/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795444532;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PcCW+rqNgrACV07eEtKyYGyFh6QSwIbd8Ip3J19mL0A=;
-	b=F/2bOld/H96MfulLSpxIndPhTRzMtchbMT4aig7YTVSEy0v22bHgc4PcOGyZhYPNb4zr6W
-	uW6iCyW27mxm6fMOYXWQTQ72wn95paoh6bDBsUa7uZ0cO6aR3seOS0tkkWNKJ5zrD7XwE6
-	J0YmwGg3PupqyBw09vgasg/tZCtBWZ8=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-131-fAw_F4G0O3WqccqgtDoXig-1; Mon,
- 23 Nov 2026 14:35:24 +0000
-X-MC-Unique: fAw_F4G0O3WqccqgtDoXig-1
-X-Mimecast-MFC-AGG-ID: fAw_F4G0O3WqccqgtDoXig_1795444518
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AF90719560B8;
-	Mon, 23 Nov 2026 14:35:17 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 929EA348;
-	Mon, 23 Nov 2026 14:35:14 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Mon, 23 Nov 2026 15:35:17 +0100 (CET)
-Date: Mon, 23 Nov 2026 15:35:13 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Michal Nazarewicz <mina86@mina86.com>,
-	Wen Yang <wen.yang@linux.dev>, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, tz2294@columbia.edu,
-	Mani Tofigh <mt4022@columbia.edu>
-Subject: Re: [PATCH v2 2/2] sched/wait: Pass wq_flags to
- __wait_event_interruptible_locked()
-Message-ID: <awRPIenAyY1fCRIg@redhat.com>
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
- <20261122-b4-sched-wait-intr-head-v2-2-4a764b64e8ce@columbia.edu>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kz2HxZH9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C44B1F000C4;
+	Mon, 23 Nov 2026 14:35:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795444542;
+	bh=mBim/Hkn0bG2Xgqqehb5DNOIciJ6suXgpAyGSHCaxzk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Kz2HxZH9Wm9+GwaAPXZUssHWGF/nGt5FCqgEiB45Mt5BMwdY3iF/mjLOaoCeck1Al
+	 hMkgxiNrFGo++1VjrLOqyNhy95tsGKjxrCsTFXWlqTZox4k+S4g3wIIo++MPysep6M
+	 kC3XgX560Nd02tY2a4IphH1QqsAzT/J9uQNFQk8atFO/xcbSUydnC0AZ+htXNzydQj
+	 lw9z6RqpHxsmZJg42lvp05Wxnn7yrXYWnsAFK1YHLNP/O/DfISEI7c0oSOsz9iUDtN
+	 vE4PfH8AUMVhcTO7vAUjLLvjPzYaSBxcYe+QIj9igXVSSpBQn7ba1kDvqRE7GSQyoM
+	 Ef7Yi0KkelMTA==
+Date: Mon, 23 Nov 2026 14:35:38 +0000
+From: Simon Horman <horms@kernel.org>
+To: Subash Abhinov Kasiviswanathan <subash.a.kasiviswanathan@oss.qualcomm.com>
+Cc: sean.tranchetti@oss.qualcomm.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
+ dev_set_mtu() and restore on failure
+Message-ID: <20261123143538.GD31322@horms.kernel.org>
+References: <20261117060737.2764327-1-subash.a.kasiviswanathan@oss.qualcomm.com>
+ <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,45 +62,140 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261122-b4-sched-wait-intr-head-v2-2-4a764b64e8ce@columbia.edu>
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+In-Reply-To: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
 
-On 11/22, Mani Tofigh via B4 Relay wrote:
->
-> --- a/include/linux/wait.h
-> +++ b/include/linux/wait.h
-> @@ -770,12 +770,11 @@ do {										\
->  extern int do_wait_intr(wait_queue_head_t *, wait_queue_entry_t *);
->  extern int do_wait_intr_irq(wait_queue_head_t *, wait_queue_entry_t *);
+On Mon, Nov 16, 2026 at 10:07:38PM -0800, Subash Abhinov Kasiviswanathan wrote:
+> When the real device MTU or the data format requires a smaller MTU,
+> existing endpoints are shrunk by writing dev->mtu directly. No MTU
+> notifiers run and userspace gets no link notification.
+> 
+> Resize the endpoints with dev_set_mtu() so that the normal notifiers
+> and link notifications are delivered. If resizing an endpoint fails,
+> restore the endpoints which were already resized, ignoring any errors
+> from the restore, so that a failed request does not leave some of them
+> shrunk. The data format is not yet published while the endpoints are
+> resized, so the restore is validated against the format the endpoints
+> were sized for. The error from the failing dev_set_mtu() call is
+> returned to the caller.
+> 
+> Fixes: b7f5eb6ba21b ("net: qualcomm: rmnet: Update rmnet device MTU based on real device")
+> Co-developed-by: Sean Tranchetti <sean.tranchetti@oss.qualcomm.com>
+> Signed-off-by: Sean Tranchetti <sean.tranchetti@oss.qualcomm.com>
+> Signed-off-by: Subash Abhinov Kasiviswanathan <subash.a.kasiviswanathan@oss.qualcomm.com>
+> ---
+>  .../ethernet/qualcomm/rmnet/rmnet_config.h    |  1 +
+>  .../net/ethernet/qualcomm/rmnet/rmnet_vnd.c   | 30 +++++++++++++++----
+>  2 files changed, 25 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h b/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h
+> index 5adda0323dda..47b8db3206b9 100644
+> --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h
+> +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h
+> @@ -19,6 +19,7 @@ struct rmnet_endpoint {
+>  	struct net_device *egress_dev;
+>  	struct hlist_node hlnode;
+>  	struct rcu_head rcu;
+> +	int saved_mtu;
+>  };
 >  
-> -#define __wait_event_interruptible_locked(wq, condition, exclusive, fn)		\
-> +#define __wait_event_interruptible_locked(wq, condition, wq_flags, fn)		\
->  ({										\
->  	int __ret;								\
->  	DEFINE_WAIT(__wait);							\
-> -	if (exclusive)								\
-> -		__wait.flags |= WQ_FLAG_EXCLUSIVE;				\
-> +	__wait.flags = (wq_flags);						\
->  	do {									\
->  		__ret = fn(&(wq), &__wait);					\
->  		if (__ret)							\
-> @@ -870,7 +869,8 @@ extern int do_wait_intr_irq(wait_queue_head_t *, wait_queue_entry_t *);
->   */
->  #define wait_event_interruptible_exclusive_locked(wq, condition)		\
->  	((condition)								\
-> -	 ? 0 : __wait_event_interruptible_locked(wq, condition, 1, do_wait_intr))
-> +	 ? 0 : __wait_event_interruptible_locked(wq, condition,			\
-> +						 WQ_FLAG_EXCLUSIVE, do_wait_intr))
+>  struct rmnet_egress_agg_params {
+> diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> index 8bf87c5ecb43..dce436e4c630 100644
+> --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> @@ -433,24 +433,42 @@ int rmnet_vnd_validate_real_dev_mtu(struct net_device *real_dev)
+>  int rmnet_vnd_update_dev_mtu(struct rmnet_port *port,
+>  			     struct net_device *real_dev, u32 data_format)
+>  {
+> +	struct rmnet_endpoint *fail_ep = NULL;
+>  	struct hlist_node *tmp_ep;
+>  	struct rmnet_endpoint *ep;
+>  	unsigned long bkt_ep;
+>  	int new_mtu;
+> -	int err;
+> +	int err = 0;
 >  
->  /**
->   * wait_event_interruptible_exclusive_locked_irq - sleep until a condition gets true
-> @@ -901,7 +901,8 @@ extern int do_wait_intr_irq(wait_queue_head_t *, wait_queue_entry_t *);
->   */
->  #define wait_event_interruptible_exclusive_locked_irq(wq, condition)		\
->  	((condition)								\
-> -	 ? 0 : __wait_event_interruptible_locked(wq, condition, 1, do_wait_intr_irq))
-> +	 ? 0 : __wait_event_interruptible_locked(wq, condition,			\
-> +						 WQ_FLAG_EXCLUSIVE, do_wait_intr_irq))
+>  	new_mtu = rmnet_vnd_target_mtu(real_dev, data_format);
+>  	if (new_mtu < 0)
+>  		return new_mtu;
+>  
+>  	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> -		if (ep->egress_dev->mtu <= new_mtu)
+> +		ep->saved_mtu = ep->egress_dev->mtu;
+> +		if (ep->saved_mtu <= new_mtu)
+>  			continue;
+>  
+> -		err = rmnet_vnd_change_mtu(ep->egress_dev, new_mtu);
+> -		if (err)
+> -			return err;
+> +		err = dev_set_mtu(ep->egress_dev, new_mtu);
+> +		if (err) {
+> +			fail_ep = ep;
+> +			break;
+> +		}
+>  	}
+>  
+> -	return 0;
+> +	if (!err)
+> +		return 0;
+> +
+> +	/* Restore the endpoints which were already resized. Failures here
+> +	 * are ignored since the original error is the one to report.
+> +	 */
+> +	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> +		if (ep == fail_ep)
+> +			break;
+> +
+> +		if (ep->egress_dev->mtu != ep->saved_mtu)
+> +			dev_set_mtu(ep->egress_dev, ep->saved_mtu);
+> +	}
+> +
+> +	return err;
+>  }
 
-Reviewed-by: Oleg Nesterov <oleg@redhat.com>
+The preferred idiom in Networking code is to:
+1. Keep the happy path in the main unconditional path of execution.
+2. Use goto for unwind on error
 
+I think that can be achieved here with this incremental change
+(compile tested only!).
+
+diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+index dce436e4c630..6b147ef5211e 100644
+--- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
++++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+@@ -433,12 +433,12 @@ int rmnet_vnd_validate_real_dev_mtu(struct net_device *real_dev)
+ int rmnet_vnd_update_dev_mtu(struct rmnet_port *port,
+ 			     struct net_device *real_dev, u32 data_format)
+ {
+-	struct rmnet_endpoint *fail_ep = NULL;
++	struct rmnet_endpoint *fail_ep;
+ 	struct hlist_node *tmp_ep;
+ 	struct rmnet_endpoint *ep;
+ 	unsigned long bkt_ep;
+ 	int new_mtu;
+-	int err = 0;
++	int err;
+ 
+ 	new_mtu = rmnet_vnd_target_mtu(real_dev, data_format);
+ 	if (new_mtu < 0)
+@@ -452,13 +452,13 @@ int rmnet_vnd_update_dev_mtu(struct rmnet_port *port,
+ 		err = dev_set_mtu(ep->egress_dev, new_mtu);
+ 		if (err) {
+ 			fail_ep = ep;
+-			break;
++			goto restore_mtu;
+ 		}
+ 	}
+ 
+-	if (!err)
+-		return 0;
++	return 0;
+ 
++restore_mtu:
+ 	/* Restore the endpoints which were already resized. Failures here
+ 	 * are ignored since the original error is the one to report.
+ 	 */
+
+-- 
+pw-bot: changes-requested
