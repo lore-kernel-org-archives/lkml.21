@@ -1,101 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795407674;
-	b=4Me22WTCSsJmghl1wTb+PlBzZ+bN+2+3RX9kA2OT1MB+qi61qjH6pLLv2FiKoomsGtBe
-	 k3gyG3TfgYrDBiok/J/gUHExsZrfXbhshDe5HeADIJfReHH+1oN/CV9hHYMC1Dnw67pUW
-	 qds0moynRSJA0xG8HdND9ScA7YsYGuFFH5vTp6IHb2ldyd2ZgdIeBLfgJ/w7ytiw5Vpy/
-	 +kAcOgi6WJZfZzemDo7qBDkpS8e6MKZioE7K3Q/6Dr/rv3V23T0yIoHd3oF/E25S9R1Ln
-	 ATLuZ5GWmjywGiUiL7Y7djbg3j8OXn3a0hy6OQc2rWnFtcAEGRse28KCNsIPDvwC/4g==
+	t=1795407770;
+	b=mdGRVrfeLjJI2LcJ39wVgL1nJVW8JTwkkumFBzn6FuTnMqGULY06eOWFzS/oXOVwnwWP
+	 0Z1ufc3KDzSjiGvuwJHUhEb0n72/UkD8RiBQDqb0STly5vyTAFD2aXc1surE5q0Ml1vpP
+	 M1TfoEJJeBriobkDs8t5IGsx4Bonqui3D1a39f8kYcvJzM8ui4Oe9DrdQOe8luNZWCmlO
+	 OSaqtQ4GemTmLSy1aUzjeV7vS3B5kA+2sCwTkXHNFbg20VMs1rs1lC71vMhA2FyxVCiTe
+	 cec6MGSjBuPe+KVcV19AYvcK+KwMQQzFfOfu5lRoQOgg6kh7lMkcRMEmOKhewji7U0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795407674;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=3lcAY4q+qNuXrOlRujle6G1kafferflNNP255tdpCqI=;
-	b=FKRYCu7nu/69vh26Qom1Z47hBM1rHQ2bRWW1/VBcKm7926vEnR4wA1981QVshhMKEsON
-	 7+fMB33oNlLL0zXuqtCPakH5VWSmnFdfvjXSYEdc02kI7wgyTpYlJ6Z9cDKlKBA9/KCFH
-	 qECZfB1TCPtmsEa41hY5dBBffElOkcGCMEbYEhlQ1w100hcDPOZl6zmxCiTBHTPjwti01
-	 UcXKMfNqBLighLiJjr0Dp9ZhuaNdJVUHYfdRaZ7wT7+pvDKD2bNO0C71DCGjvz8Mhcz55
-	 DVSzEW2vgP0Qv9X41ng5i7F9zGJ3VD1cZ/JsPNrPL63CLG5gRs4eBr+W1xc2toYDJng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795407770;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=iUaYkVElwHXmOSgYzkznsrZDmTk+0hZ8WoKAJqfKpZw=;
+	b=s6cv0IevklkhKL2dEC7RZgRyUB7xjxz2npVh/mzK6gfk08HVepsl11C1kQ085wluI+/g
+	 Drrqn4HwJlxfiLIgUq8AQtQePkXwIt8cTBYHfnirOdYozCq7gHKaLHma4JCi/4pxxBmTj
+	 ekoH+VZnXpZHF2pq2cSwg46du78JBcHR+nl8PpQtMoKH2p6RlbWfObtOJzsL20stWLpZS
+	 NS4Z0o2X4pU03q6/SDPHN9+5Jr091k1U2LKSQqawqakne/rY+7snu1O8zKTXR7TY9BRKI
+	 ZwKMClJmNp0doAKM/DZM+aYswGLsJDyVOShZLNQ3SdAkAYuojaiowYoTvXotU3EzlCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a++1msNE;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oY7e1YEi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A49C606A681
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:21:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A49C606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 271B1606A31A;
+	Mon, 23 Nov 2026 04:22:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a++1msNE
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-38431138772so3663927eec.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:21:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795407673; x=1796012473; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3lcAY4q+qNuXrOlRujle6G1kafferflNNP255tdpCqI=;
-        b=a++1msNELjCBBUe4+xupGZNZ5/B5lHc/WI64n3cKoQyuZ+DdaEzNCqqoEfsqjKW3ug
-         oM5i0Hz/l/CE0JS+wgWSBzk2nFPJftbQdAmPflY+lx5Xi69nr9Tw/m4sSRWWP4/Fztu+
-         IcrMwIbyQ4cifeRYBV9WWYSgJyyBKiGkcz0B6JYueIjMzR46nf5uqYq9lsS8tJRhubxS
-         t/wSWFBDbsSMr9mf6yz62c9/7bHLrjIK4/it6PBuEKKDV3DWcZB/OwjCe/npE6bW/kbh
-         8G1NhZIzQERmeGN/XvSQtymJkMCEa1Fe/pIxPyJTcIBk3s449y3rgxsNOFImGXqqY7Bg
-         OM2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795407673; x=1796012473;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3lcAY4q+qNuXrOlRujle6G1kafferflNNP255tdpCqI=;
-        b=kO7o2denJn6fMQQfHtnOrT6M4c41Ro0gehvC59deK1bGEC5B6ywvN3qQg+d8rg+AD1
-         XlqYD+OYdGGiyPVmfp+qJbQHC8AFghdWo+C57a3T6P4zag5f+1vAH1CVVsqwRM+Vyg1R
-         Kw8NwB3jgVngfR8AOJYwXMydYd4hTfOv7j8EA8dyvI6NRhVF4wRtrFPFC8TBp1NhvclP
-         ihrP1UP36QLZRDFttm8QUfPXORL5OZFUKB6SOHazZnMDrcpd1KvjTRpj/oDfqRgi9TlD
-         hMHj1d7tkWG4yHia09eLfFbFzxgQXYEVrECE0+YwEJ45kMw86Q7itZlKdCElq1weND2u
-         T/nQ==
-X-Forwarded-Encrypted: i=1; AL+hErEDNz7tZvtUzXdItHPSogy5XkqGwkR0HXgC01suTJtkRNI6jgpbp98GOMUh4sHWRiCWkW7QA+rdvDLQ2lw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DfdEKx4gr3qT55B8K7xyRm8u5ONJ46NuISvxuXP6CB50rZt1W
-	ndAL4bgR893WL9NQk+DKn1PHaVDbXRVEKjNjiEK/eRNmWkrVA5X0FN8p
-X-Gm-Gg: AZFdTZc8zHU9BpJ5u1kGOVgloc7FuX5f3TQVsN5lvMu25H+52MLtdP8qU4wX/dkRNJ2
-	dPQHBeju56mmyg3TbvG1N0QpRyzEk0DYXDq06NePj6SyAaKV71LkUniql975DyuvPZy+PAXpYOf
-	VBP9XEyMiy32hbFcLGIdn8fDigpAjxMFhaKLZJq5tQ8PIA+gfILNV5557jwVcM4a1LDi1UtIHwM
-	v+cMzBVcG/NmAL+BjlzuR9yiuPmj6UQPHOkQ1uaB+uA5JsZm/09w4ng0vEV8qZB2iJOA8KEXm/C
-	kuvqnDZJtVlw+ui5/lz/SiJGD0Un+IWizRNSMmiYtt7c3hb/vAHcrNIHIPBy1z/1YnT9/OE0N7b
-	2O+Ldvmz2r5xSEnhVZiuM8/FXv+9LnzsQE5JrQdT2zuzAIZ6JaypQljxektfwhzi6Y8YRwkXcjc
-	2x9fRy1FiW8Kb4g9HW8jTnJIuVDHyOu8ricTT5Z6WaaQwOI9/G4bqe3khiiI6r8TY1BM8aRGlsR
-	jt00Y77gLZznXb8VWa2Sq2gVK/jUENFMm3Pgf8QMbeqVTvtDgoDf1U3VUe3I9Tnnrs867eJ8PHK
-	fy7Ev0vezfkz5aOeIUGGzKdubsiW6ut6Ub4YLBvV0wyzdrEHx9O51+wN9mXXC0C4xCcj+/nXTnL
-	tOQH4nEhwwufJig9b7ptOObeeNY9WB+OMd+OECUQmAnnkTnI=
-X-Received: by 2002:a05:693c:65c5:b0:386:b5ce:4627 with SMTP id 5a478bee46e88-386b5ce496bmr502496eec.30.1795407673528;
-        Sun, 22 Nov 2026 20:21:13 -0800 (PST)
-Received: from spark-da2e.tail8e743c.ts.net ([211.105.22.106])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm30804737eec.15.2026.11.22.20.21.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 20:21:13 -0800 (PST)
-From: Jinmo Yang <jinmo44.yang@gmail.com>
-To: ping.cheng@wacom.com,
-	jason.gerecke@wacom.com,
-	jikos@kernel.org,
-	bentiss@kernel.org
-Cc: dmitry.torokhov@gmail.com,
-	linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jinmo Yang <jinmo44.yang@gmail.com>,
-	stable@vger.kernel.org,
-	"Claude Opus 4 . 6" <noreply@anthropic.com>
-Subject: [PATCH v5 6/6] HID: wacom: add NULL touch_input guards to remaining touch handlers
-Date: Mon, 23 Nov 2026 04:20:15 +0000
-Message-ID: <289785de10fffc66131938162155c1c3e3743a90.1795405057.git.jinmo44.yang@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1795405057.git.jinmo44.yang@gmail.com>
-References: <cover.1795405057.git.jinmo44.yang@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oY7e1YEi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CD371F000C6;
+	Mon, 23 Nov 2026 04:22:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795407769;
+	bh=iUaYkVElwHXmOSgYzkznsrZDmTk+0hZ8WoKAJqfKpZw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=oY7e1YEihc8egQNKXPT3/Igp5Siys9HKKhLv2PGAi5SdqdkkhJ/XM59sfO5ETNoBB
+	 UjrntvtSorg+k6TzuKWkuk3a9IPfdR88EcJ8tVWsyK6O86xaKmbtmxeZry/u8tD39R
+	 mrR+OsKgdrNG2aBiCP0ABZhlV17pX2JPMZfp8LEyDBj8QshaFv0JilCAlMxppj6RAl
+	 10rYQLKKbzDYxr4Gyn0bzTf2f2G/HTcdXMx/5fYHeuTlPfnLstyLPLw/EeCSRAQNgb
+	 RG6IMoky67K/qWCX/v9CQMlDQA2/OgVedooifPRTNa5OSwEbeCneriSRE2XIOnnCqw
+	 412xiWrB/cmmw==
+Subject: Re: [PATCH net v2] net/smc: validate the peer's CDC cursors against
+ our own buffers
+From: netdev-bot+sashiko@kernel.org
+To: piyus@iiitd.ac.in
+Cc: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com,
+ sidraya@linux.ibm.com, mjambigi@linux.ibm.com, netdev@vger.kernel.org,
+ tonylu@linux.alibaba.com, guwen@linux.alibaba.com, linux-rdma@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kapil@presceralabs.ai, kuba@kernel.org
+Date: Mon, 23 Nov 2026 04:22:48 +0000
+Message-ID: <179540776852.3135.18298742575411764997@kernel.org>
+In-Reply-To: <20261122042120.2430434-1-piyus@iiitd.ac.in>
+References: <20261122042120.2430434-1-piyus@iiitd.ac.in>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,69 +65,259 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-wacom_24hdt_irq() (also handles WACOM_27QHDT), wacom_intuos_pro2_bt_touch(),
-and wacom_bamboo_pad_touch_event() dereference wacom->touch_input without
-checking it.
+Thank you for your contribution! Sashiko AI review found 6 potential
+issue(s) to consider.
 
-As with the other handlers in this series, touch_input can be NULL when
-wacom_setup_touch_input_capabilities() returns -ENODEV during an
-otherwise successful probe.
+Critical: 0 · High: 1 · Medium: 0 · Low: 5
 
-Fixes: 2a6cdbdd4cc0 ("HID: wacom: Introduce new 'touch_input' device")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jinmo Yang <jinmo44.yang@gmail.com>
-Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Reviewed-by: Jason Gerecke <jason.gerecke@wacom.com>
----
- drivers/hid/wacom_wac.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+- [High] The fix is incomplete.
+- [Low] The new validators use `>` and accept count == buffer length.
+- [Low] The commit fixes remotely triggerable KASAN-confirmed faults: an
+  out-of-bounds RMB read whose bytes reach userspace via recvmsg(), plus…
+- [Low] The From: author is Piyus Kedia, but the first Signed-off-by is
+  Kapil Vaswani, with no matching Co-developed-by: tag.
+- [Low] smcd_cdc_cursors_invalid() starts with `if (!conn->rmb_desc)
+  return true;`.
+- [Low] The new comment in smcd_cdc_rx_tsklet() says the check guards the
+  consumer-cursor credit to sndbuf_space under DMB-nocopy.
 
-diff --git a/drivers/hid/wacom_wac.c b/drivers/hid/wacom_wac.c
-index db8d3432dbd7..c48f957f8970 100644
---- a/drivers/hid/wacom_wac.c
-+++ b/drivers/hid/wacom_wac.c
-@@ -1489,6 +1489,12 @@ static void wacom_intuos_pro2_bt_touch(struct wacom_wac *wacom)
- 	int num_contacts_left = 5;
- 	int i, j;
- 
-+	if (!touch_input) {
-+		dev_warn_once(&container_of(wacom, struct wacom, wacom_wac)->hdev->dev,
-+			      "%s: touch_input is NULL\n", __func__);
-+		return;
-+	}
-+
- 	for (i = 0; i < finger_frames; i++) {
- 		unsigned char *frame = &data[i*finger_frame_len + 109];
- 		int current_num_contacts = frame[0] & 0x7F;
-@@ -1660,6 +1666,12 @@ static int wacom_24hdt_irq(struct wacom_wac *wacom)
- 	int byte_per_packet = WACOM_BYTES_PER_24HDT_PACKET;
- 	int y_offset = 2;
- 
-+	if (!input) {
-+		dev_warn_once(&container_of(wacom, struct wacom, wacom_wac)->hdev->dev,
-+			      "%s: touch_input is NULL\n", __func__);
-+		return 0;
-+	}
-+
- 	if (touch_is_muted(wacom) && !wacom->shared->touch_down)
- 		return 0;
- 
-@@ -3450,6 +3462,12 @@ static int wacom_bamboo_pad_touch_event(struct wacom_wac *wacom,
- 	int x, y;
- 	bool valid;
- 
-+	if (!input) {
-+		dev_warn_once(&container_of(wacom, struct wacom, wacom_wac)->hdev->dev,
-+			      "%s: touch_input is NULL\n", __func__);
-+		return 0;
-+	}
-+
- 	prefix = data[0];
- 
- 	for (id = 0; id < wacom->features.touch_max; id++) {
+--
+
+net/smc: validate the peer's CDC cursors against our own buffers
+
+This commit checks the producer and consumer cursors in incoming CDC
+messages, in smc_cdc_rx_handler() for SMC-R and smcd_cdc_rx_tsklet() for
+SMC-D. A message is dropped if a cursor count is larger than
+rmb_desc->len (producer) or peer_rmbe_size (consumer). The goal is to
+stop out-of-bounds reads in the urgent data, recvmsg() and splice()
+paths.
+
+> Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+> Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+
+[Severity: Low]
+This patch fixes out-of-bounds reads that a remote peer can trigger on
+both SMC-R and SMC-D. There is no Fixes: tag and no Cc: stable.
+
+Could Fixes: tags be added? The SMC-R path probably goes back to the
+original CDC receive code. The SMC-D path probably goes back to the
+commit that added SMC-D CDC receive. So two tags may be needed.
+
+[Severity: Low]
+The author is Piyus Kedia, but the first Signed-off-by is Kapil Vaswani,
+and there is no Co-developed-by: tag.
+
+Documentation/process/submitting-patches.rst lists a co-author with
+Co-developed-by: immediately followed by their Signed-off-by. Otherwise
+the Signed-off-by order should follow how the patch was handled.
+
+Should this be Co-developed-by: plus Signed-off-by? If Kapil reported or
+analysed the issue, Reported-by: or Suggested-by: may fit better.
+
+> diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
+> index 32d6d03df3214..8d24e0c839260 100644
+> --- a/net/smc/smc_cdc.c
+> +++ b/net/smc/smc_cdc.c
+> @@ -433,6 +433,18 @@ static void smc_cdc_msg_recv(struct smc_sock *smc, struct smc_cdc_msg *cdc)
+>  	sock_put(&smc->sk); /* no free sk in softirq-context */
+>  }
+>  
+> +static bool smcd_cdc_cursors_invalid(struct smc_connection *conn,
+> +				     struct smcd_cdc_msg *cdc)
+> +{
+> +	if (!conn->rmb_desc)
+> +		return true;
+> +	if (cdc->prod.count > (u32)conn->rmb_desc->len)
+> +		return true;
+
+[Severity: High]
+Is checking only the count field enough to keep bytes_to_rcv within
+rmb_desc->len? Neither this check nor the one in
+smcr_cdc_cursors_invalid() looks at wrap. Neither looks at how far the
+cursor moved since the previous message.
+
+When the wraps differ, smc_curs_diff() can return up to twice the
+buffer size:
+
+net/smc/smc_cdc.h:smc_curs_diff() {
+	if (old->wrap != new->wrap)
+		return max_t(int, 0,
+			     ((size - old->count) + new->count));
+	...
+}
+
+On SMC-R, smc_cdc_cursor_to_host() rejects only backward wrap moves, and
+the peer controls seqno. On SMC-D, smcd_cdc_msg_to_host() has no
+ordering check at all.
+
+Take an RMB of length L, with prod starting at {wrap 0, count 0}. A peer
+could send:
+
+  prod {wrap 1, count L}  -> passes, diff_prod = 2L
+  prod {wrap 2, count L}  -> passes, diff_prod = L
+
+smc_cdc_msg_recv_action() then adds both with no cap:
+
+	atomic_add(diff_prod, &conn->bytes_to_rcv);
+	/* guarantee 0 <= bytes_to_rcv <= rmb_desc->len */
+
+That leaves bytes_to_rcv at 3L. In smc_rx_recvmsg(), only the first
+chunk is clamped to rmb_desc->len - cons.count. The remainder is used
+as-is:
+
+	chunk_len = copylen - chunk_len; /* remainder */
+	chunk_len_sum += chunk_len;
+	chunk_off = 0; /* modulo offset in recv ring buffer */
+
+The second chunk would then be 2L bytes from offset 0. memcpy_to_msg()
+would copy L bytes past the RMB to userspace.
+
+splice() gets the same oversized chunk in smc_rx_splice(). Past the end
+of the RMB, vmalloc_to_page() can return NULL, and get_page()
+dereferences it.
+
+Using >= instead of > does not change this. {1, L-1} followed by
+{2, L-1} still gives 3L-1.
+
+The consumer side looks similar. diff_cons is added to peer_rmbe_space
+with no cap. Under DMB-nocopy, diff_tx is added to sndbuf_space with no
+cap either.
+
+smc_tx_sendmsg() uses the same unclamped second-chunk pattern. An
+inflated sndbuf_space could therefore become a write past
+sndbuf_desc->len. smc_tx_rdma_writes() can also size dst_len from an
+inflated peer_rmbe_space. DMB-nocopy is only used by loopback-ism today,
+which narrows this part.
+
+Given this, does this statement in the commit message hold?
+
+  "Validate both cursors where each transport accepts the message, so
+  that one test per transport covers every consumer."
+
+Would a relational bound work better? For example, reject a prod that is
+more than rmb_desc->len ahead of local_tx_ctrl.cons (via
+smc_curs_comp()). Or reject when bytes_to_rcv + diff_prod would exceed
+rmb_desc->len.
+
+For cons, the new value could be required to lie between the previous
+cons and our sent producer cursor. Wrap jumps greater than 1 could also
+be rejected. Together these would bound the credit side.
+
+> +	if (cdc->cons.count > (u32)conn->peer_rmbe_size)
+> +		return true;
+> +	return false;
+> +}
+> +
+
+[ ... ]
+
+> @@ -452,6 +464,15 @@ static void smcd_cdc_rx_tsklet(struct tasklet_struct *t)
+>  	data_cdc = (struct smcd_cdc_msg *)conn->rmb_desc->cpu_addr;
+>  	smcd_curs_copy(&cdc.prod, &data_cdc->prod, conn);
+>  	smcd_curs_copy(&cdc.cons, &data_cdc->cons, conn);
+> +	/* This CDC was written by the peer into the DMB we published to it, so
+> +	 * both cursors are peer-supplied and index buffers described on this
+> +	 * side.  Nothing else checks them, and smc_cdc_msg_recv_action() uses
+> +	 * the producer cursor as a receive length and the consumer cursor to
+> +	 * credit sndbuf_space - which under DMB-nocopy is the memory the peer
+> +	 * itself owns.  Unlike the SMC-R path these values are host order.
+> +	 */
+
+[Severity: Low]
+This comment says the check protects the consumer cursor's credit to
+sndbuf_space under DMB-nocopy. smc_cdc_msg_recv_action() computes that
+credit against sndbuf_desc->len:
+
+	diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
+				&conn->tx_curs_fin,
+				&conn->local_rx_ctrl.cons);
+
+smcd_cdc_cursors_invalid() bounds cons.count by peer_rmbe_size instead.
+
+The two lengths come from different places. peer_rmbe_size comes from
+the DMBE size advertised in CLC. sndbuf_desc->len is set in
+smcd_buf_attach() from the dmb_len that attach_dmb returns.
+
+If those two ever differ, could a cons.count that passes this check
+exceed sndbuf_desc->len and reach tx_curs_fin and the sndbuf_space
+arithmetic?
+
+Conforming in-kernel peers produce equal values, so this is mostly about
+the comment. Even when the lengths match, the check does not bound the
+accumulated sndbuf_space credit. The comment seems to promise more than
+the check does.
+
+> +	if (smcd_cdc_cursors_invalid(conn, &cdc))
+> +		return;
+
+[Severity: Low]
+This isn't a functional problem, but the NULL test at the start of
+smcd_cdc_cursors_invalid() can never fire on this path:
+
+	if (!conn->rmb_desc)
+		return true;
+
+smcd_cdc_rx_tsklet() has already dereferenced conn->rmb_desc->cpu_addr
+and read both cursors from it before it calls the helper.
+
+Should the test be dropped? If rmb_desc really can be NULL here, should
+the test move ahead of the dereference?
+
+>  	smc = container_of(conn, struct smc_sock, conn);
+>  	smc_cdc_msg_recv(smc, (struct smc_cdc_msg *)&cdc);
+>  }
+
+[ ... ]
+
+> +static bool smcr_cdc_cursors_invalid(struct smc_connection *conn,
+> +				     struct smc_cdc_msg *cdc)
+> +{
+> +	if (!conn->rmb_desc)
+> +		return true;
+> +	if (ntohl(cdc->prod.count) > (u32)conn->rmb_desc->len)
+> +		return true;
+
+[Severity: Low]
+The commit message says:
+
+  "A cursor equal to the buffer length is legitimate (a full ring), so
+  only a larger one is rejected."
+
+Is that how cursors are actually encoded? smc_curs_add() normalises
+every cursor so that count stays below size:
+
+net/smc/smc_cdc.h:smc_curs_add() {
+	curs->count += value;
+	if (curs->count >= size) {
+		curs->wrap++;
+		curs->count -= size;
+	}
+}
+
+The senders put that host cursor on the wire unchanged. A conforming
+peer therefore always sends a count in [0, size). A full ring shows up
+as a wrap difference, not as count == size.
+
+Should this check, the cons check below it, and the two checks in
+smcd_cdc_cursors_invalid() use >= instead?
+
+Accepting count == len lets in a value that only a non-conforming peer
+can send. It then lands in local_rx_ctrl.prod/cons, urg_curs and, under
+DMB-nocopy, tx_curs_fin. It also allows the single-message credit of
+2 * size from smc_curs_diff() described above. Changing this alone would
+not fix the accumulation problem, though.
+
+> +	if (ntohl(cdc->cons.count) > conn->peer_rmbe_size)
+> +		return true;
+> +	return false;
+> +}
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122042120.2430434-1-piyus%40iiitd.ac.in
