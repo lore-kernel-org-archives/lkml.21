@@ -1,78 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795403395;
-	b=1i+4U5rbZsinrVtPcXCpauhTQLt7qoombjcLIqz8mK2Kk4imyDP7iGoc1Hw87ZgAgzCw
-	 aX85gV6hEAUD/iW2cAPKlYwmbw8gaHIlvjglXXrXp4VgX0giElvX7EBvyQcZvtjAiUK2y
-	 Tldn+0b2n+YJBoGS+ueNDeHLL+1CSDHgJMntbxTjDQvrIYaG3W/Hz32cFIrwDfL7IZJNs
-	 wm/stcyBuxlvJxI+ZNnzKwF0AAqWbZZwZ7PmQS/qVuZmTPUa9yq1s4Vb82dXBcxy3rZz6
-	 PBpf3CRsRmwIJBPXwFULwAONTx9WJt1kOKhjvZFdUBPq8pAXAuotgzXZNRgTzDKXIMg==
+	t=1795403402;
+	b=oEsyHvJT0aWEfpWpJKyUWXP7MxfFM9JkSH3KuU8hgC4Zk5mmkpPOojRgwEICxoQMxyrx
+	 wPlJeczuOwTKogTR/c/xqDXhzLC5jzvzETMsLEoW7Nm7Mng2tqjGa0s5AntKKaakA7TvI
+	 VrLR7CTIFmrUOrPpiSTPq0BMRoSFAYHL1pXM+yg3YnJ8271deoU2691PtbGQBx2AMJv3p
+	 zq0z6Bwd9iNayueQNGhwgek0NR8fMhrr8wQEXfTMWUOpPHA40QRwXVesifSPCXv/KhI7K
+	 TViNzeboXuLn0OOj/7IOIh//K+GTCYeqpUBbvNuBqftqyvYJVImB/kVMPlqruotjatg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795403395;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=oNfCshgfylwcbv5xC9TWUsVsDyDxPcrICrC9vT/UFVQ=;
-	b=L3c5fscJhe8n++pjIBvNG+WLR2640YLWLhZ8AED9VBXU02q9I4QRk/c9N4/40oEZaszi
-	 rPHT675sGmTuSOYD6h1bLkLym9OfmR3rwtMeXG+JsiYmsjP9V6beNZLGH1KEJyvETQKKC
-	 Ygjui8UDv6zrXw/7KmUMfc38Ds3CkQPiffADS5MHUFdN8UQ+oTCyaqXweMRvO9yatXHEh
-	 Hf8fQeRwtAlRd6ssPA6Y+gK3r4PY1/fWNhiT4evEBwVQy3owG+k/hLYNHPGNtLVUYDKuA
-	 LqLQBwIRIsuH5BA03JjZ2j4SiKvD+4o6tYEHBVj5VL2HmReODrOsCIT69J8oQMZVxMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795403402;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=BKJVZaS7a8HTdoTnBNxg/XnU130zaQQ9ueEmJs3IAi4=;
+	b=ItfK7SzBMg3kBkEz9izeMEs3Jkyjyp0TRr7WMoWenASriDwEj7d6Vw+1NNyHLWqvybEf
+	 +zW/KQIgzVEi4Cr27qEQmlE9VNwBmDMJhCAPXHAywAUUN1mQDAsyyVOR0ddcxidILIjLT
+	 7cL6WuCTqooJReKmbaKk2JtM3O6ZAcVvgwiCqdZA593jVJasCVrCCtGU+dqox6UtFQjqI
+	 u4EgeZo5hTah3b4xF2Mmgrls2dolBglcXpu6nIBEZ/CLPlY2tPzUp1blIrtCAQQfAnAxP
+	 6b04STG6CfWjP+7aX38ymcfbrK1PUaV31t4Z+h4qXBX1DOIMCR0dyhNPATkb3LbSnoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=V+h2ShV3;
-	arc=none smtp.remote-ip=54.204.34.129
-Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="F0/Hutkv";
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7ABC606A31A;
-	Mon, 23 Nov 2026 03:09:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7ABC606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E51C7606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:10:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E51C7606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=V+h2ShV3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795403358;
-	bh=oNfCshgfylwcbv5xC9TWUsVsDyDxPcrICrC9vT/UFVQ=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=V+h2ShV36q7W84wvDn5DE9l7+VNJFpAcIwzbLn/qbNVafCAvu2CeSHyCL8XjdJ7aq
-	 935Y9QkCNxv5hg4/H6kaNoTNA/OxnXPwliIovTtd2WsSDJdjwMCtMATIZVNG3UlSm1
-	 hCRoOFIRNlb6HvLppob1oJTsx6E4PEgr1ABW4abw=
-X-QQ-mid: zesmtpsz2t1795403352t73ab4d9c
-X-QQ-Originating-IP: oyGw9ttpeTpeqils+8yDH5/B7JsCcA7IMaplBy638c0=
-Received: from PECI3347 ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 23 Nov 2026 11:09:06 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 919220475888949696
-EX-QQ-RecipientCnt: 18
-From: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
-To: linux-mm@kvack.org,
-	linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	zhaozhengzhuo <zhaozhengzhuo@uniontech.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Mike Rapoport <rppt@kernel.org>,
-	Michal Hocko <mhocko@suse.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH v2] Docs/mm: fix stale split page table lock references
-Date: Mon, 23 Nov 2026 11:09:03 +0800
-Message-ID: <6E11B4A6A6E0DCF9+20261123030904.57369-1-zhaozhengzhuo@uniontech.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F0/Hutkv
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b3af93b85cso1541813a91.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:10:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795403401; x=1796008201; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BKJVZaS7a8HTdoTnBNxg/XnU130zaQQ9ueEmJs3IAi4=;
+        b=F0/HutkvyCPPD/aytB1JD5G7BY2E8YF4zhuo/p55tqfkaRr+WsKcsuopxTxulvwM3Q
+         vVBmWU+ddjKkQYRxhzXDLcESmv0KeqgtAvYaBvSQ4qbO3IxuRaHgHDDzscdJNByk9DxA
+         eW8xSE+AeVmN61XHnS3WK4NQ9hhPAK1mPxR0lZNGBmRxidoxB0W+3B7W82KCsSmBc4yk
+         pZ4vE5wLNaBOxtvOrsGyFIr2/cI1EoO8hQiIAdIZATT/Wt0iVNSJrNcZbRxBr1/Z9pwT
+         w4xGSKQWxlKeo6gdiM3lR0LTdQa1L8OkHTJw2jhmEPNU1djls6w3SwfIoHlSC4QFOorH
+         M3EA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795403401; x=1796008201;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BKJVZaS7a8HTdoTnBNxg/XnU130zaQQ9ueEmJs3IAi4=;
+        b=ZYGisK+qRcdw85g9o+HJsHYXKjQD7HwTZxYMZ7msh53ez8hX+wGWG/h1sIwq6y6kPF
+         zB8qHzuPAduWzU7VLpe1P48KbAa/d2pG6fHTmAkQK9A0dhNqFpJLDUxMKQWLb3HmyhOD
+         3XM59nmqZVkSN3NRUqb6jCPQ1XTltuHDk2o6blQ5G5q/zDepfYljVSpc3zEQgu2J45bc
+         otXsls46dUzWya956a3f/9WZ3SXuQaRDuizbOGCEhuuiFgNF8KRRpY/vg0IUHBMIkGoK
+         idPfSUHgWoVh6v0RLgcsz2oQdExQInDHIObsBQPmb6aB84NjWpu/2WdiVYtc1EYCxuxJ
+         WLgw==
+X-Forwarded-Encrypted: i=1; AL+hErFHWYXWdq5kUUPMwsg1VGrEhve7UEbGyLCvn5O3SGBLPEZO8JD5ULIdhDKGTrGNmnLTGy4g3ImwT8UsWJo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/rRKDW1AsAoTZWuzUE7RovVPRWGEx7rzvn2eX6IAJpbw61+mB+
+	GoDlFURAjkGJcJJoiCL1IvunWku0JkhcqBcZ6eTXXkO99WHho+qXJPJ/
+X-Gm-Gg: AZFdTZfTqsY3Uk8iuZmdfyFg0tDmRpZWQBz+w8JB+S2jKaqKcuiCQVGC2ccs14QhuOq
+	ReeqC69P+YpCpb4PeaSFRxSyOQx7olYdfsv8TT8CnuaLXEn6P+AEU4Y+4ATxt4hJ1xu1W1TRNf0
+	keYymwx2SSvC9IxNLMk30TT2vqs2Xc5iIeGU8OoihCWEe182M+z64kT7WLhDLATEUUkZ8RVOOHY
+	qeGHJHW+PlJwceO7hud+ONZj1yzwphTaRidFPiE2TSY0Rt5Tz2oWSP34zDl/dkQ9odb1QSW1wkN
+	HPQn+wykWiQi8gc86JXAbbOX/IdVz8hdDuy1W0ZKrFdRUllGPQ+JndFH/h6zBkfrLbM5Yrpg4R/
+	BzqZvjn7cKTK/A9a/lmyKCvGLzK9LlXh5Tm2j1pc8nNEp+T8XLLFPrD3MI17gPFGrzH4lFTgGvE
+	LATFK4pJ+vGgJ+vU0iKuKSnUeB57soYt4wLkbFeC9XE+TVpK60kyD255WJkV4MYK4da0/jxEhn8
+	/Unj3485skYQTLbpcTDBVzdQYmeEl/P93IZHLPvFcYGJsAzHriAa64yivDSuYchdh5X83ksZr06
+	588vnDqo73EwzluK0+9sWwy2BAlL80Q2RcT6KTDvwRNhLA==
+X-Received: by 2002:a17:90b:5887:b0:3aa:fc22:8aad with SMTP id 98e67ed59e1d1-3b41c97c995mr10199877a91.54.1795403401097;
+        Sun, 22 Nov 2026 19:10:01 -0800 (PST)
+Received: from osman.mioffice.cn ([43.224.245.178])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe16sm15693445a91.17.2026.11.22.19.09.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 19:10:00 -0800 (PST)
+From: Zhan Xusheng <zhanxusheng1024@gmail.com>
+To: ernest.borowski.git@proton.me
+Cc: linkinjeon@kernel.org,
+	hyc.lee@gmail.com,
+	liubaolin12138@163.com,
+	ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhanxusheng@xiaomi.com
+Subject: Re: [PATCH v8] ntfs: trim the sizes after a short write
+Date: Mon, 23 Nov 2026 11:09:54 +0800
+Message-ID: <20261123030954.1614965-1-zhanxusheng1024@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179537167473.2649834.14001007738076272792.b4-reply@b4>
+References: <179537167473.2649834.14001007738076272792.b4-reply@b4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,75 +102,28 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz5b-2
-X-QQ-XMAILINFO: NHDJBjaQv4EtxhMPydh/IDyd6L3yTQRF632UhwULb8u7W6ttwPhUXYZ8
-	Xhog0MU7BoOZnJYpJN74QU0ZNoOyZc+qN1g4Zu4xSqYlK1yXVg49MqF8WfaVrYrDiWSeMiJ
-	tLD/64XejCu9gWyyRO620jkXJg13snvgoyCYIbp8+OyQfzPrSFwXz4f8MHa5FCUE+8b/jDG
-	P9DLsF7ViPEyCG6ae0kL0E+K40Qo+rB18rHS/6Msp/c4T0iwthqexrHrn/Q8RsFjYds1TEw
-	yQ8bWmpG0kJ3m133u5sQ8RQl0Avs2AVdXf1vzkaO0epOr6+qd2HC+4eHfmT62aEkWZ4IVmc
-	Gmj+IqMoYwFhrYBbnfw10AdS7O91VeiP44jPyecty/2foeHQELZ2uz6YgnQ4uWNsCLfQrH+
-	43gqO8X4fB/cjyJW/E2WUBXorc9xg177x6X5HfM3uR7YDTRrxHEaYbK05Fx6rzYuwM2vtZR
-	g8u3oiE1c7XnbMlgwZA9Hv8qt3vCdj00BhjellhJ1H1gFmbLG0gTIgJ2v7RBew8cTewFD+q
-	CnWpITN2FdbLig/0l+MuGVsS0RHJR8v3rmZEhryWDOpZY9DXqfFMDU9REeuZe8/z6OwSGmp
-	cCUD7yL+XfJZOtFtEzDc8/STFh5S0tucu97NYtJVoXqwtIQq0RNTZ4nekufKym5JmPLIfYP
-	LtGi78/R3d6b7XiNKryzcZGb4qE0EmwEQAr6hiof/eqvcfOipc3FX7xO5mQqsC0mWL1guYq
-	Bg+mcOswXb0QYuWhaPoOyzvFIg0Zq639cEPTJgHDNHYmma9im7kcvQlKSIAAs8kOeQobvxR
-	D3VhDcRu46+0p3ShZR0sQOCZtpvMoMrbWaNcrEsEU8l+fKzkj51EKgTzn917KDCSEnz0Wld
-	bVjegBKqeAFyaZNsDe3GxO5b0PzoCpSuu15rjZ4acreq8dDIXHTCt1lAZ8CWAhPXCjjs8Ls
-	yINfGma+4VJmE1y4lqZ9ziiPSZ650VGWNYflqXXELEBjCxg0KjmdWosbXwOby6EowvDUwnv
-	upES0xnP7ctQg9Dz0hL+syJG7FC2I=
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
 
-The USE_SPLIT_PTE_PTLOCKS and USE_SPLIT_PMD_PTLOCKS macros were turned
-into Kconfig options, and CONFIG_SPLIT_PTLOCK_CPUS was replaced, but two
-Documentation/mm files still refer to the old names.
+Hi Ernest,
 
-Update both references.  Point readers to mm/Kconfig for the dependencies
-instead of restating information that can become stale.
+On Sun, Nov 22, 2026 at 06:21:27PM +0000, Ernest Borowski wrote:
+> Zeroing from a worker when the caller has a fatal signal pending fixes
+> it. Something like this on top of v8:
 
-Fixes: 394290cba966 ("mm: turn USE_SPLIT_PTE_PTLOCKS / USE_SPLIT_PTE_PTLOCKS into Kconfig options")
-Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-Signed-off-by: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
----
-Changes in v2:
- - Point to mm/Kconfig instead of restating SPLIT_PTE_PTLOCKS dependencies,
-   as suggested by David.
+Thanks.  I reproduced it on ntfs-next f674e4b6c315 at 4K and 64K
+clusters: with v8 the page stored through the mapping reads back as
+zeroes, with your diff it is kept, and v8's other tests give the same
+results.
 
- Documentation/mm/process_addrs.rst         | 2 +-
- Documentation/mm/split_page_table_lock.rst | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+I'd like to fold the diff into v9 as it is.  Can I add your
+Co-developed-by and Signed-off-by for it?
 
-diff --git a/Documentation/mm/process_addrs.rst b/Documentation/mm/process_addrs.rst
-index 04b649818cc1..0b6355e6d1d5 100644
---- a/Documentation/mm/process_addrs.rst
-+++ b/Documentation/mm/process_addrs.rst
-@@ -659,7 +659,7 @@ acquired in :c:func:`!__p4d_alloc`, :c:func:`!__pud_alloc` and
-    references the :c:member:`!mm->page_table_lock`.
- 
- Allocating a PTE will either use the :c:member:`!mm->page_table_lock` or, if
--:c:macro:`!USE_SPLIT_PMD_PTLOCKS` is defined, a lock embedded in the PMD
-+:c:macro:`!CONFIG_SPLIT_PMD_PTLOCKS` is enabled, a lock embedded in the PMD
- physical page metadata in the form of a :c:struct:`!struct ptdesc`, acquired by
- :c:func:`!pmd_ptdesc` called from :c:func:`!pmd_lock` and ultimately
- :c:func:`!__pte_alloc`.
-diff --git a/Documentation/mm/split_page_table_lock.rst b/Documentation/mm/split_page_table_lock.rst
-index cc3cd46abd1b..52c992b6bcfa 100644
---- a/Documentation/mm/split_page_table_lock.rst
-+++ b/Documentation/mm/split_page_table_lock.rst
-@@ -37,8 +37,8 @@ There are helpers to lock/unlock a table and other accessor functions:
-  - pmd_lockptr()
- 	returns pointer to PMD table lock;
- 
--Split page table lock for PTE tables is enabled compile-time if
--CONFIG_SPLIT_PTLOCK_CPUS (usually 4) is less or equal to NR_CPUS.
-+Split page table lock for PTE tables is enabled at compile time when
-+CONFIG_SPLIT_PTE_PTLOCKS is enabled; see mm/Kconfig for its dependencies.
- If split lock is disabled, all tables are guarded by mm->page_table_lock.
- 
- Split page table lock for PMD tables is enabled, if it's enabled for PTE
--- 
-2.50.1
+> Patch 7 has the same kind of helper in fs/ntfs/iomap.c, so whichever
+> lands second can share one copy.
 
+They zero through different paths: the one in patch 7 calls
+ntfs_zero_range(), whose ntfs_iomap_valid() only accepts delalloc
+mappings, while v8 zeroes allocated clusters past the initialized
+size.  A shared helper would need the zeroing function passed in.
+
+Thanks,
+Zhan Xusheng
