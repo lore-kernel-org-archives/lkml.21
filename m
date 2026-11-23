@@ -1,70 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795397750;
-	b=oXzbT/nPXlnDCVq0/2/N7lLr0LCy3NVJL8foWSjrkR3cUOTGpa2NuRdPrMy+yhVfjEXd
-	 kuN8Bo7rdNE0Q+Y6QCA0n9S3VdWiAOqf5CxnX+SFjqV7SjvVJ5+gd/7dBMnR8OxpJdIrs
-	 NcWlZR+ahL3pdcd0ud4zMYxyJSwMfVQEfgKPafk1095ukjF0DmDPgPwWfYTyGUu4fTpsy
-	 uMbOn8TpP+BNwCu/RaOzAeY3/FTuACblwYDWgQuFvNykkNcp8sg0GEnCXRg1hO2P4ixZA
-	 FXXizpryOWD2j2PDnpy67uNA6CIYIKXP8IQ/eLQqzdW9m/BKC5e2OAuQo2bs0WON18A==
+	t=1795397760;
+	b=nkwvpM9aFuUz0xNj6qIEL5/vAqSVv10lgway2baFReXypme0j1xYIqe9jfup/9MUEazM
+	 1UZgztml8OSSuNF8BIBBuWVkWYxu3v+sh/BOT3BNsgPqd2Jkfup4uwAXgs5IqgWGkwnXC
+	 dcPLWcL6Fe2T0E/TsWEaTn4E4ZsmMKsS3jAJD51xTPqb7A7DATTD1/8lwXk8yfYmAgiYu
+	 9N7mhHE78GW8N4fYakXSPRhe9QDy1MK8g+2kZ31KuICNyfi9YJiCzssZI5gqn8OdJZs86
+	 UcrN3NrtjKVVnq4rGdS4LE8uAIu0/YYOMEJoXk7phaLzZA0HkK7D2g8rj3Ee8OYLYEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795397750;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	bh=y98ftDp/lih4jNRQh6Ujz2pOnbGhFINQ0G48WEObppU=;
-	b=X6EoRa1MAkhXj4NLKc93ZATPTqb+4tTbyQnoNqMsthsGHAT2VwYGgGF7u7bVl4ctfBI/
-	 iLvxn0I9PIBt0lUWHj5JYTpIT4WNwLiHnXaBFGYwzqtsxeIXCiHW566OI0Xz4HZh7aBS1
-	 nj3MFIjPjlEL02YVJJlCk8qcCMSgBD2T+lPOmrucrF1zQPt4HJ5JPU9ZQy3o6E7KpW16b
-	 OlgGkFutG3zwksMVAGYOxRfwiaNGn4UQu/qlYcHsCOSZ7qmyEIkDkaI2d+piHvHjS+pLQ
-	 5DzAA6i1h/nBmZVSnU74Q0SGSgaHOuJtGuwFykOm4fbemST/j9lVOGz2qMTJ2LOQ2kA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795397760;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=LtCu/Lv31KKfbMFIllslMcSrDnoqZxMzFxkbUKmBWlg=;
+	b=jFlkM0ei2EfUvRDMjSpYwHxZa3KmtyBD1La8M3CCVxCqqtnX8U7yC5dlo91I7UOVDW9W
+	 z/+oPfJnOfRshCC6vGAhWOvv0/tfMdZp649uQYC6L4MJS28rhGgNluxsVjpdaQwzhufI8
+	 9Z5cp7quCsHbD2fnncSt1lHLg3nKR+gIFUTNEDMgXtmWu3XvJ0rNvweA+CkbPdqfcV4Tk
+	 XYm60UmUIgaF3Glm3iXEgtSGX+w9NLoIb2iPX2Mm2ycW9PcGgH4uce5Lr+wzoQlfBLxI/
+	 8RDh6Fai3mIEySZRnTD5tlHg35BzaM81ZOCVx1K2vpPqvpvCEya1Y1M8gc9gvuPaBKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=bRj0nPGV;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iDlnfJv+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E733E606A31E;
-	Mon, 23 Nov 2026 01:35:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E733E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A887D606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:36:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=bRj0nPGV
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AN1ZOSW01203302, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795397724; bh=y98ftDp/lih4jNRQh6Ujz2pOnbGhFINQ0G48WEObppU=;
-	h=From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	b=bRj0nPGVdazd57Isp4gG6b6J995V07AAoavGWaA2s0sKfopCfbndXZFy4U/VTz8t1
-	 rKPY4cZ+RVNJUgRXJgY2lnFEXSQvcQmqu22USINVqnlaexVAbtO8VY+STM5NjwluJQ
-	 vdFG0uHWGbErPCFWGpMBLnnKv3uybBtlbFTQQIdfIZskjs9jZea2IyIHpcokhbsfgu
-	 FKCuHx269KK4nIHxyi4lGHfzGWEkA46CdR665/gGT+6UaIbCD+bbbibS9xUUtvHPSx
-	 RFH3w7zvIZJg7CsolElkkV1T6b7TWf8OTZqr1VUfULHDg/g6s/s5PHeHxc5OMCop8g
-	 Axrvrj5w2oBvQ==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AN1ZOSW01203302
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 23 Nov 2026 09:35:24 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 09:35:24 +0800
-Received: from [127.0.1.1] (172.21.40.75) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
- Transport; Mon, 23 Nov 2026 09:35:19 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Ahmet Zeren <niko3x@proton.me>, Jes Sorensen <Jes.Sorensen@gmail.com>
-CC: <linux-wireless@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Ping-Ke
- Shih <pkshih@realtek.com>, Ahmet Zeren <niko3x@proton.me>
-Subject: Re: [PATCH rtw-next v2 1/3] wifi: rtl8xxxu: honour the rate of injected frames on gen1 chips
-In-Reply-To: <20261122-b4-inject-v2-1-0ee720fe706d@proton.me>
-References: <20261122-b4-inject-v2-0-0ee720fe706d@proton.me> <20261122-b4-inject-v2-1-0ee720fe706d@proton.me>
-Message-ID: <490b93e7-fe3b-4245-a3e3-0c697c61dbda@RTKEXHMBS05.realtek.com.tw>
-Date: Mon, 23 Nov 2026 09:35:19 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iDlnfJv+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 557101F0089E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:36:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795397760;
+	bh=LtCu/Lv31KKfbMFIllslMcSrDnoqZxMzFxkbUKmBWlg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=iDlnfJv+Z9rSHd8GLoqfvgkwVTlx53iufTvvD1pHLs2ng42geuqVkxpT5Kp/tTTyW
+	 RjkgvdXFDsSSJmhS2ex1j6QN7ONvTnCDL89BErBSWbjAQC9rv8K8NrJSVsPzJjlXUa
+	 RjvNPgluwksPzX6TdJn4l0n8C9SiGmDURxp70FErfFfuemISKxPM44v1qiCw7FjTV8
+	 LlHrqbsHm9giby2oFgQWfzrvSNwHapobAr/VMZCjswN/qW1SgGWJ0lL940f1NjeLUG
+	 QqGMoA6q2RTOimIGb9AczqNtGeY26CzsI5mAw0i+vrZ3RoZeICd8bSIt/GA1Y8XVqa
+	 4EHLsvPoaZltQ==
+Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-94961bfe1a0so184898685a.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:36:00 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFriJibgQNp6Di9dg8vd9+gFgVMxM8eVNlyAv5lVLBunxzd5qucvqRlOekJ7dgTlxX5597QTSWdK/U15LU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/jNMpftvtVWF0X33CYv3ht0JbbupZemRGtDOBBOHJFX4OlZ9k5
+	BXdTf/Fv8NiL72HeTTYHFyooOyDp7HqsHc/2qwAheCt7FZJi0ilqqbqvorli2HPC8PtKIL4XIZb
+	RqzEKljcBp6P8TIqORrXAnDKUHMYbFxg=
+X-Received: by 2002:a05:620a:838a:b0:949:3521:b627 with SMTP id
+ af79cd13be357-949ba9ff2b7mr1644030785a.38.1795397759398; Sun, 22 Nov 2026
+ 17:35:59 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,32 +59,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20261116081403.216452-1-max.kellermann@ionos.com> <20261116081403.216452-3-max.kellermann@ionos.com>
+In-Reply-To: <20261116081403.216452-3-max.kellermann@ionos.com>
+From: Barry Song <baohua@kernel.org>
+Date: Mon, 23 Nov 2026 09:35:47 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4wit5jKGn4L-NDTqzxDRNS8s8-FV3g0m5e6BOcG2Gx2Eg@mail.gmail.com>
+X-Gm-Features: Aa3M54oWK8aP7uwb_r3XD3rWcrMQ-9dwA-s2hQH_XdkfS1nJ0lq-9viUM0tfLcs
+Message-ID: <CAGsJ_4wit5jKGn4L-NDTqzxDRNS8s8-FV3g0m5e6BOcG2Gx2Eg@mail.gmail.com>
+Subject: Re: [PATCH v3 2/5] mm/vmscan: move code to lru_gen_{add,del}_memcg()
+To: Max Kellermann <max.kellermann@ionos.com>
+Cc: akpm@linux-foundation.org, kasong@tencent.com, qi.zheng@linux.dev, 
+	shakeel.butt@linux.dev, axelrasmussen@google.com, yuanchu@google.com, 
+	weixugc@google.com, baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, hannes@cmpxchg.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, rcu@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Ahmet Zeren <niko3x@proton.me> wrote:
+On Mon, Nov 16, 2026 at 4:14=E2=80=AFPM Max Kellermann <max.kellermann@iono=
+s.com> wrote:
+>
+> Preparation for the following patch that adds tail caching.
+>
+> For simplicity, hlist_nulls_del_init_rcu() is now always used, which
+> is also valid during rotation, because the entry is immediately
+> reinserted under `memcg_lru.lock`.
+>
+> Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
 
-> From: Ahmet Zeren <niko3x@proton.me>
-> 
-> When a frame is injected with a rate in its radiotap header, the driver
-> ignores it and leaves the choice to the firmware rate adaptation. On a
-> RTL8192CU every injected frame went out at MCS 7, whatever was asked.
-> 
-> Use the injected rate and guard interval, and disable rate fallback so
-> the frame is sent at exactly that rate.
-> 
-> Tested on RTL8192CU (0bda:8178) in monitor mode on 2.4 GHz: 1, 5.5, 6
-> and 54 Mbps, MCS 0/7/8/15 with long and short GI were all received at
-> the requested rate. Frames without a radiotap rate are unchanged.
-> 
-> Reviewed-by: Ping-Ke Shih <pkshih@realtek.com>
-> Signed-off-by: Ahmet Zeren <niko3x@proton.me>
-
-3 patch(es) applied to rtw-next branch of rtw.git, thanks.
-
-50b9e3778de9 wifi: rtl8xxxu: honour the rate of injected frames on gen1 chips
-b2ccb6a04761 wifi: rtl8xxxu: honour the retry count of injected frames on gen1 chips
-30f5119c965e wifi: rtl8xxxu: honour the bandwidth of injected frames on gen1 chips
-
----
-https://github.com/pkshih/rtw.git
-
+Reviewed-by: Barry Song <baohua@kernel.org>
