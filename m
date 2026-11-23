@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=37.230.196.243
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442549;
-	b=QDNHyMgZb6MlqQ1cRNxS1bZ6VuN1a5yNYd6NOj6crzowQxKrs2tPUYShFAKy8DT/EYXR
-	 MQtkgJRJ0u7MkisABt+94TMnmkuYettO2EszuUOwbfdMM4zn0vkqtcQZq6zAghqjPLseu
-	 EvQ2IoyQgpd/0NmgQBQ+Ur8xFPwo0G1CA6EyH6bFJHrJ3s0wLQp5FAY7o1rHho5AqtjhI
-	 Yd5+TpBeLIkGGQDnQqwNlYBUiBTe66x1cVz0Bnij/LYeFt2D93oVqOeL4CwSHTaX15B+H
-	 vxVfGrOPOlMx6SCgI+uQmYCSFdjLs95AtChda0JbZ5hnxEUa7kFgMcA4QXwmOlEeSvA==
+	t=1795442555;
+	b=2f7rJXednaJaFZq76HgH0K1TA7R6jl1xXsZAb4l7HAL+XDiMhFjiJ/C0KIVe8jNTkeme
+	 QKFAlwwqv1yIlBLuPNE3/A5o8o7iXR5CwXUIgCpJdN0NVpS7CWwRx4rjhDRo/LJp5wlU3
+	 IoCIt3bgemErflwIrYiqV1D2N3UDY9ViVW/Md/Bhv1sOPeaIdVUPVTBHtgwZ6V4I7OdU7
+	 Rc+xTGnaA92BigqruiyXeIJnjdjQ683HzQKM9cgzTYAGJhDj28/KWvP4mpZi1JVBOmMOQ
+	 0ke8mlR/JYwbpEhhOqNcUqR0alQAq+GfMkkXiyZJ4P4fa76cyvrUgXEwzFKbxHxJuFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442549;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442555;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:Received:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-KSMG-AntiPhishing:X-KSMG-AntiSpam-Auth:
@@ -16,50 +16,50 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-KSMG-AntiSpam-Method:X-KSMG-AntiSpam-Rate:X-KSMG-AntiSpam-Status:
 	 X-KSMG-AntiSpam-Version:X-KSMG-AntiVirus:X-KSMG-AntiVirus-Status:
 	 X-KSMG-LinksScanning:X-KSMG-Message-Action:X-KSMG-Rule-ID;
-	bh=JwQrfwT7frcR2b0vL9U7KAl8BP8bt75spL50zxwzzSI=;
-	b=z9lEFKIaoAZOSGNlG9pBoURvRb/Ban4mo/JKFeLaFtAXgOcUVgUNYNoaDzrq8VAqyN0D
-	 jNIuikPXt8LyOJCAnWp84cm/WbcLlubnddtNzbSqiynNOcBKKbamcOeQjZG2SSGTJilJl
-	 jo1UmIzH9hh5seHb5X12/+l3oowtYl51sNIX3ujzvkXp95UwpbnPCyLujNzEUEtoEC+cN
-	 pj81w58a+k5co8yEZsEavZ0n6itPmb8vpUf8Y91lgMjscxTzynj+R/bdqWesm3d8Ozvp9
-	 Zv5E2sK5s4zrnOVKP8VdUT3uH+V2xOPkHte4bgu9opkCm/4UoVi7uxZ/1l0qWU6JWvw==
+	bh=1atnC9AuJrhB8fulAsNtM32hSGbPVQ1Bt8uHk0JYjxE=;
+	b=FIE83Gfvb4DLVx3cXQPXNlW5Kiyj+nKQR76rMBwWAV7rjnb3NW+k1QGCxRP+RBN577A9
+	 Mtqor4J/K0nYT3mwuCQ/X6sK2EYPoaaemiMazi2B8pPfC1uSpvUtGQgSQU4C1KypzBGmj
+	 PSVQSYqNKrwHPMMIiyQbp+jRD+FN7TR5IkobH1dd4p5VLI5zB4w0sG9Kwn3TA6vADAa60
+	 Rffn6jPysxHfEHdQ8T2b6XxVVyuFDmANqQ3nLaUndxvbJR5VAXW8t11pzuFdfCp/Ig9kl
+	 8yZeBjVVC5aHnhxQ0Ze4DIVbfVjNwVswbSgTIokIRtVvZ40t4BtILjddjZHtaxgk5ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=astralinux.ru;
 	spf=pass smtp.mailfrom=astralinux.ru;
-	dkim=pass header.d=astralinux.ru header.i=@astralinux.ru header.a=rsa-sha256 header.s=mail header.b=QPY7XoHo;
+	dkim=pass header.d=astralinux.ru header.i=@astralinux.ru header.a=rsa-sha256 header.s=mail header.b=XJF1E+wH;
 	arc=none smtp.remote-ip=37.230.196.243
 Received: from mail-gw01.astralinux.ru (mail-gw01.astralinux.ru [37.230.196.243])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85E1D606A6B2;
-	Mon, 23 Nov 2026 14:02:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85E1D606A6B2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B52EB606A683;
+	Mon, 23 Nov 2026 14:02:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B52EB606A683
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=astralinux.ru
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=astralinux.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=astralinux.ru header.i=@astralinux.ru header.a=rsa-sha256 header.s=mail header.b=QPY7XoHo
+	dkim=pass (2048-bit key) header.d=astralinux.ru header.i=@astralinux.ru header.a=rsa-sha256 header.s=mail header.b=XJF1E+wH
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=astralinux.ru;
-	s=mail; t=1795442546;
-	bh=QmUJ+afkoKaCm+QSeG43dH9X+kC2myYf+nfZ4OGBHGY=;
+	s=mail; t=1795442553;
+	bh=VonueuUjBSWV638/H3oixKhiSY8bmRr9CvNuw0iCOng=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QPY7XoHoZq0yXNFWUTt0ZlY6BJ+aLD4GlnJjrim1LWl537mSGyCb6EnJSuWeFIjSA
-	 ++oc5J+O1lhi5BLOkrwfjLkTT85SO/P+cdj+DKef6lCtHIinWuJqjOkN2YFwgoelHq
-	 TC+Da5NxV7BfzbkS5uO5ek/RviDKU7eyIMKaxrwmwtHNnvzWTQ20m4SwSuHCQDapfO
-	 y33ek1+o7f8ugKxwNkonqz9zGeiXcJDqXBP+Qk1e49ySiZs1EflfQckvuzAph9c9Ly
-	 lx7xgQwq1WJuLe1+4u6uDFR+4StJplU1gyTeRQstFQ0yr4m5Iq4f71AnRTnUATKBXA
-	 JlEoTp6E8qPkg==
+	b=XJF1E+wHrIKC5JMudT6YHMExiYmfEpQ8FVtCfGDk9lFK2yRaSw+TYaE1Jr4Zm70Me
+	 3SxCWyCkWN+ERvVg/Loo0hOt3SVE7yHe4oEFVzThYBZMOp0pH6MUT2/JjSV99N4/tH
+	 +a6H3XxnQOlHhEmDlHLUfHd6tc3+tGD7BeopM85h5samHBdHjxNk0Az88BPEL9uGTv
+	 FxP5cG00Q39J9HYOZsSkoP6q37v4JqBYTm+VyBASBixVgFdB9XCR+JMWM1m6nkQzM/
+	 OZ4tgNe1RT8n/JVcv8MqNxz2zXX0muNQSXwVurF9CVsp1dY9eTnJxXRvrdDDjoo2Ym
+	 Kv3TarXmRWbrg==
 Received: from gca-sc-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
-	by mail-gw01.astralinux.ru (Postfix) with ESMTP id A290A26B3D;
-	Mon, 23 Nov 2026 17:02:26 +0300 (MSK)
+	by mail-gw01.astralinux.ru (Postfix) with ESMTP id 25BC826B6A;
+	Mon, 23 Nov 2026 17:02:33 +0300 (MSK)
 Received: from mail.astralinux.ru (unknown [10.205.207.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
 	by mail-gw01.astralinux.ru (Postfix) with ESMTPS;
-	Mon, 23 Nov 2026 17:02:24 +0300 (MSK)
+	Mon, 23 Nov 2026 17:02:30 +0300 (MSK)
 Received: from DESKTOP-D46TNHI (unknown [10.198.55.149])
-	by mail.astralinux.ru (Postfix) with ESMTPA id 4jY71C5l76z1FqF;
-	Mon, 23 Nov 2026 17:02:23 +0300 (MSK)
+	by mail.astralinux.ru (Postfix) with ESMTPA id 4jY71K69V3z1FqJ;
+	Mon, 23 Nov 2026 17:02:29 +0300 (MSK)
 From: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
 To: stable@vger.kernel.org,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
@@ -77,9 +77,9 @@ Cc: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>,
 	ocfs2-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	lvc-project@linuxtesting.org
-Subject: [PATCH 5.10/5.15 v2 2/4] ocfs2: restrict OCFS2_INVALID_SLOT suballoc slot to system inodes
-Date: Mon, 23 Nov 2026 16:59:35 +0300
-Message-ID: <20261123143419.ocfs2-slot-validation-v2-2-mdmitrichenko@astralinux.ru>
+Subject: [PATCH 5.10/5.15 v2 4/4] ocfs2: validate DIO orphan slot during inode read
+Date: Mon, 23 Nov 2026 16:59:37 +0300
+Message-ID: <20261123143419.ocfs2-slot-validation-v2-4-mdmitrichenko@astralinux.ru>
 X-Mailer: git-send-email 2.54.0.windows.1
 In-Reply-To: <20261123143419.ocfs2-slot-validation-v2-0-mdmitrichenko@astralinux.ru>
 References: <20261106104249.1811-1-mdmitrichenko@astralinux.ru> <20261123143419.ocfs2-slot-validation-v2-0-mdmitrichenko@astralinux.ru>
@@ -109,142 +109,76 @@ X-KSMG-LinksScanning: NotDetected, bases: 2026/11/23 12:55:00
 X-KSMG-Message-Action: skipped
 X-KSMG-Rule-ID: 1
 
-From: Joseph Qi <joseph.qi@linux.alibaba.com>
+From: ZhengYuan Huang <gality369@gmail.com>
 
-commit 25bf9e549360b656a6763232e0e9e58a00c3aff7 upstream.
+commit bb88131c9831075b8dc08cdd375743e5d44c7ca2 upstream.
 
-Patch series "ocfs2: validate suballoc slot and bit of metadata blocks", v3.
+[BUG]
+A corrupted append-DIO dinode (high byte at offset 0xa1
+corrupted from 0 to 1) can carry an i_dio_orphaned_slot
+outside the mounted filesystem slot range and trigger a
+use-after-free error:
 
-The ocfs2 metadata validators trust the on-disk suballoc slot and bit
-without checking them against the slot range of the mounted filesystem and
-the capacity of the block group bitmap.  A corrupted image can carry
-OCFS2_INVALID_SLOT or another out-of-range slot, or a suballoc bit beyond
-the bitmap, and once the corresponding inode, extent block, xattr block,
-dir index root or refcount block gets freed, the bad value goes straight
-into ocfs2_get_system_file_inode() or _ocfs2_free_suballoc_bits() and hits
-a BUG_ON() or runs off the end of local_system_inodes[].
+BUG: KASAN: slab-use-after-free in ocfs2_get_system_file_inode+0x780/0x820 fs/ocfs2/sysfile.c:102
+Read of size 8 at addr ffff88800b767c00 by task kworker/u8:3/85
+Call Trace:
+ ...
+ ocfs2_get_system_file_inode+0x780/0x820 fs/ocfs2/sysfile.c:102
+ ocfs2_wipe_inode+0x292/0xf70 fs/ocfs2/inode.c:840
+ ocfs2_delete_inode fs/ocfs2/inode.c:1155 [inline]
+ ocfs2_evict_inode+0x6c9/0x1170 fs/ocfs2/inode.c:1295
+ evict+0x38e/0x8f0 fs/inode.c:810
+ iput_final fs/inode.c:1914 [inline]
+ iput fs/inode.c:1966 [inline]
+ iput+0x55b/0x8b0 fs/inode.c:1926
+ ocfs2_recover_orphans+0x610/0xe40 fs/ocfs2/journal.c:2374
+ ocfs2_complete_recovery+0x5af/0xd00 fs/ocfs2/journal.c:1373
+ ...
 
-This series rejects such values at read time, in the existing validators,
-so corrupted objects fail with -EROFS (and a read-only remount) instead of
-crashing:
+[CAUSE]
+ocfs2_del_inode_from_orphan() uses i_dio_orphaned_slot to index the
+slot-local system inode cache. The dinode validator does not check
+this active slot, so an out-of-range value produces an invalid cache
+entry pointer that is dereferenced as an inode pointer.
 
-  patch 1 restricts OCFS2_INVALID_SLOT dinodes to system inodes,
-        completing fe7a283b3916 ("ocfs2: add suballoc slot check in
-        ocfs2_validate_inode_block()"), and turns the "system file
-        state is ambiguous" BUG_ON() in ocfs2_read_locked_inode() into
-        an ocfs2_error();
-  patch 2 rejects oversized dinode suballoc bits;
-  patch 3 validates the suballoc slot and bit of xattr and dir index
-        blocks;
-  patch 4 validates the suballoc slot and bit of extent and refcount
-        blocks.
+[FIX]
+Reject an active i_dio_orphaned_slot outside the slot range during
+dinode validation, before DIO orphan recovery can consume it.
 
-The checks only enforce what the kernel and mkfs.ocfs2 already write: a
-valid slot from meta_ac->ac_alloc_slot and a bit within the block group
-bitmap, with system inodes carrying OCFS2_INVALID_SLOT plus
-OCFS2_SYSTEM_FL and extent blocks using slot 0.  Nothing changes for
-healthy filesystems.
-
-Each new check was exercised under QEMU by corrupting the field in
-question with an out-of-range value; with the series applied the access
-fails with -EROFS and the filesystem remounts read-only instead of hitting
-the BUG_ON().
-
-
-This patch (of 4):
-
-ocfs2_validate_inode_block() currently permits i_suballoc_slot to be
-OCFS2_INVALID_SLOT for any dinode.  Only system inodes created by
-mkfs.ocfs2 are allocated from the global allocator and thus legitimately
-carry this value; regular inodes are always allocated from a per-slot
-suballocator and hence must have a valid slot.
-
-If a corrupted regular inode with OCFS2_INVALID_SLOT is accepted,
-ocfs2_remove_inode() will pass the slot to ocfs2_get_system_file_inode()
-and get_local_system_inode() will hit BUG_ON(slot == OCFS2_INVALID_SLOT)
-when the inode is deleted.  This can be triggered by an unprivileged user
-unlinking such a corrupted file.
-
-Reject OCFS2_INVALID_SLOT for non-system dinodes during validation, while
-still accepting it for system inodes.  Note that a crafted dinode carrying
-OCFS2_SYSTEM_FL passes the check above, yet a plain lookup of it still
-used to BUG() in ocfs2_read_locked_inode() ("system file state is
-ambiguous").  Since i_flags comes from disk, handle that mismatch with
-ocfs2_error() instead of BUG_ON() as well.
-
-Link: https://lore.kernel.org/20260901125221.1634686-1-joseph.qi@linux.alibaba.com
-Link: https://lore.kernel.org/20260901125221.1634686-2-joseph.qi@linux.alibaba.com
-Fixes: fe7a283b3916 ("ocfs2: add suballoc slot check in ocfs2_validate_inode_block()")
-Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Cc: Changwei Ge <gechangwei@live.cn>
-Cc: Heming Zhao <heming.zhao@suse.com>
-Cc: Joel Becker <jlbec@evilplan.org>
-Cc: Jun Piao <piaojun@huawei.com>
-Cc: Junxiao Bi <junxiao.bi@oracle.com>
+Link: https://lore.kernel.org/20260803030007.3993199-3-gality369@gmail.com
+Fixes: 06ee5c75b575 ("ocfs2: add functions to add and remove inode in orphan dir")
+Signed-off-by: ZhengYuan Huang <gality369@gmail.com>
+Reviewed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
 Cc: Mark Fasheh <mark@fasheh.com>
-Cc: <stable@vger.kernel.org>
+Cc: Joel Becker <jlbec@evilplan.org>
+Cc: Junxiao Bi <junxiao.bi@oracle.com>
+Cc: Changwei Ge <gechangwei@live.cn>
+Cc: Jun Piao <piaojun@huawei.com>
+Cc: Heming Zhao <heming.zhao@suse.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
 Signed-off-by: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
 ---
-Include the follow-up to fe7a283b3916 so that the new suballoc-slot
-check does not leave OCFS2_INVALID_SLOT accepted for regular inodes.
+Backport fix for CVE-2026-90204
 
- fs/ocfs2/inode.c | 37 ++++++++++++++++++++++++++++---------
- 1 file changed, 28 insertions(+), 9 deletions(-)
+ fs/ocfs2/inode.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/fs/ocfs2/inode.c b/fs/ocfs2/inode.c
-index b6fa3c8c6663..2b4936c8a789 100644
+index 117b60ef0aff..18e5303e55d5 100644
 --- a/fs/ocfs2/inode.c
 +++ b/fs/ocfs2/inode.c
-@@ -561,14 +561,18 @@ static int ocfs2_read_locked_inode(struct inode *inode,
- 	fe = (struct ocfs2_dinode *) bh->b_data;
- 
- 	/*
--	 * This is a code bug. Right now the caller needs to
--	 * understand whether it is asking for a system file inode or
--	 * not so the proper lock names can be built.
-+	 * The caller must know whether it is asking for a system file inode
-+	 * or not so the proper lock names can be built.  Since i_flags comes
-+	 * from disk, a mismatch is filesystem corruption instead of a code
-+	 * bug, so handle it with ocfs2_error() rather than BUG_ON().
- 	 */
--	mlog_bug_on_msg(!!(fe->i_flags & cpu_to_le32(OCFS2_SYSTEM_FL)) !=
--			!!(args->fi_flags & OCFS2_FI_FLAG_SYSFILE),
--			"Inode %llu: system file state is ambiguous\n",
--			(unsigned long long)args->fi_blkno);
-+	if (!!(fe->i_flags & cpu_to_le32(OCFS2_SYSTEM_FL)) !=
-+	    !!(args->fi_flags & OCFS2_FI_FLAG_SYSFILE)) {
-+		status = ocfs2_error(osb->sb,
-+				     "Inode %llu: system file state is ambiguous\n",
-+				     (unsigned long long)args->fi_blkno);
-+		goto bail;
-+	}
- 
- 	if (S_ISCHR(le16_to_cpu(fe->i_mode)) ||
- 	    S_ISBLK(le16_to_cpu(fe->i_mode)))
-@@ -1452,8 +1456,23 @@ int ocfs2_validate_inode_block(struct super_block *sb,
+@@ -1487,6 +1487,14 @@ int ocfs2_validate_inode_block(struct super_block *sb,
  		goto bail;
  	}
  
--	if (le16_to_cpu(di->i_suballoc_slot) != (u16)OCFS2_INVALID_SLOT &&
--	    (u32)le16_to_cpu(di->i_suballoc_slot) > OCFS2_SB(sb)->max_slots - 1) {
-+	/*
-+	 * Only system inodes created by mkfs.ocfs2 are allocated from the
-+	 * global allocator and thus legitimately carry OCFS2_INVALID_SLOT.
-+	 * Regular inodes are always allocated from a per-slot suballocator.
-+	 * If a regular inode with OCFS2_INVALID_SLOT was accepted here,
-+	 * deleting it would pass the slot to get_local_system_inode() via
-+	 * ocfs2_remove_inode() and trigger BUG_ON(slot == OCFS2_INVALID_SLOT).
-+	 */
-+	if (le16_to_cpu(di->i_suballoc_slot) == (u16)OCFS2_INVALID_SLOT) {
-+		if (!(le32_to_cpu(di->i_flags) & OCFS2_SYSTEM_FL)) {
-+			rc = ocfs2_error(sb,
-+					 "Invalid dinode %llu: suballoc slot %u for non-system inode\n",
-+					 (unsigned long long)bh->b_blocknr,
-+					 le16_to_cpu(di->i_suballoc_slot));
-+			goto bail;
-+		}
-+	} else if ((u32)le16_to_cpu(di->i_suballoc_slot) > OCFS2_SB(sb)->max_slots - 1) {
- 		rc = ocfs2_error(sb, "Invalid dinode %llu: suballoc slot %u\n",
- 				 (unsigned long long)bh->b_blocknr,
- 				 le16_to_cpu(di->i_suballoc_slot));
++	if ((le32_to_cpu(di->i_flags) & OCFS2_DIO_ORPHANED_FL) &&
++	    le16_to_cpu(di->i_dio_orphaned_slot) >= OCFS2_SB(sb)->max_slots) {
++		rc = ocfs2_error(sb, "Invalid dinode %llu: DIO orphaned slot %u\n",
++				 (unsigned long long)bh->b_blocknr,
++				 le16_to_cpu(di->i_dio_orphaned_slot));
++		goto bail;
++	}
++
+ 	/*
+ 	 * Reject dinodes whose i_mode does not name one of the seven
+ 	 * canonical POSIX file types.  ocfs2_populate_inode() copies
