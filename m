@@ -1,50 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795403249;
-	b=Au+uccImHo/1/koOQgqyzH1X9Us9dbKabyTX0DIq90YkGK9aeHA7KTnEoL81QfW7YK4M
-	 Mk9+uWKz0KGqwPn1TbLeN6RPuMIKUOVBTE7Rf/7B+Wv2EbqTJlZpg2oS4e5X3ApKp60Yj
-	 mB++fdNZPar8w/BcQK/iarxy07qQUPu1YeFvJqiNGLg+9p1WZ1oaM39uC+oLu6+ufvaHI
-	 baB62li1qTj4c4P7yX1q6yYkRu5Em8lkuPdIvVIR2mkVJlKJ9OAjVOqmCWmnScOWsZNWL
-	 9TuWHu4Ei2TrXD/wCF7pYJ4IcZetxnvmtFa991upsCqeT+4U6P5vGkwkS23eVd4+Jsw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795403249;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=eyDqS/O3c0kqK8TrfNnSDeEA8RqYuMsPMyYIE/Q0Xfo=;
-	b=miti/4tqN0hzh317PPqeaUGLj5QkhPNEislZYFDyqRFioTPeLlAOoguwN/QYpd/ZNkQD
-	 1iFAV6SAQbvuk2OuW72t3MxZwCV0A5HxdaUKiMGDK26vWdmXwDLq1g5TC4sZAWWaa4ygX
-	 GbTRBIN/Y4s1YSKwllTypYijqbwsebVDi9tYF3irIHBxSCoRgNXHP98rArybeIn3ezTU4
-	 2dUHkU92m5niVJ4xStma1yi/c1DgjNkhByu9hHRT7i3yPOVh7yNVfVj4Z69BxTFbld6pd
-	 YAgd0oPXXwdSYWEcqLD316VjPQhEZPM5FJ9P1TliVdiFf1qzqqWzusau7MFHyg/TIyA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=jFJwHuZ1;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795403264;
+	b=wDkdcevNFJnFpAyWpQmdv+X8WhxKHwLnHInuBhhP+KLX2za9pK4i9ZYJikKAlS8JNeqb
+	 9D8XM97m8wHdrhRTMO+yFrmExPCI+2oZbt3E9x40AeqBFkmvWyoSakibryeKU34uu7qmq
+	 Bq6JaJ1IdzOIdij9/5n0KmINMDHLLE2stSc27VeVkh/kmYukafcdqBXsMuhat36UlD6vO
+	 SOtTBFId8CbzgjXu6+q3Tdjfwg5CW1dcoh4Jy0TCe1Qo7Nob1Pq00nMjHyc6mrLCitUYY
+	 vszqaq6te6JI9VuDtJQ225SWw7qNybBNG55YdBKBYP1mwgpKU6s61powS76+7Fd8ETg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795403264;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=zO0YA7WUWXAZgmomCawg3kayi310uedvbvLHcZGxBZA=;
+	b=C6fcjtuTj+Z5AEVfBU2Y0VXkapCvKi0QEg+ZQdLOUreoc5WLampItlCwt/CFPKKzI3D3
+	 1roAHrTggfIwYgYUlox1fhPE/yFFzc4a9suisAWeB9vu7NQBlIj67So97zEHLBVp8kMi8
+	 nTYLjNkZKDjUSXGwZJ9Pi5M8HxUfRC5OT+QrEp13/CcIEwOqJ+KW1CYWXdmFqkINtdzae
+	 ckghVbjuMFIoVTJBgN+uXns18FngQ2jxLZZBtyQwiYKj7BCXNa1rbxlXHgSxD1SgzbKMu
+	 8MpJWI5d/kd8X2TKubLCSysErWTQss9n0WgZD7MVLysaounYB/mF3YOsRnCgjq6pNmQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ys13Dghj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23E1606A6A2;
+	Mon, 23 Nov 2026 03:07:43 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ys13Dghj
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795403263;
+	b=aOvKemtA4bQ7wgC1mKkyxyYG6STU5J4Vn/edEO6DqM+oAgWU5pjjcmYhPcrOerX1s1f6
+	 tX5RV3Ia8RyATENHd7LsCvhvbHaSygjYUXTAowfCACVpWXDwke1VkpkdltKF5cBoredMW
+	 pQeSaIRWwwSQlCoGqa0fOkLp1m/LwfXuFZCOY5vu+KSycN1IiD1Ees2XpnReQcVh1uS/Z
+	 L7Mlp1ZP5qcAKPgo8YWn/l3zUF+3yht3QIQPok16uOCrGbqlp6fZmngvFcp81TCjKaooa
+	 IlqZyGbyYuiHymxAcuffW7qrNqMcHuek+TGdCIQRsDvYOTFfdmCpqERtdF0zFA9Tpzw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795403263;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=zO0YA7WUWXAZgmomCawg3kayi310uedvbvLHcZGxBZA=;
+	b=qqZ2t4rRklX8mQre71wrC8wdLizlqYyWfERcV6a+2r+/UlOt03gXFfbyinejj5St0v1Y
+	 XGGfzlSAevfXUbyFWLPeQTx94uZ988Bq5vLzQBtx21/Hohy7LegrmoQuWB9CGSy71nf7H
+	 4o+ot8Sup9vQoLxA0j/VKVFJeqe4LSORXIAKQPqzk+TOg3SS+fXh4ZQHa5EW51l/s5EmU
+	 3TWZMtSJIQ+j5DbPwjAONuY8zz4kmBcsQpQrMqK+B0YU0lG1u45vt571NcDcc9Nk4Sk3y
+	 dfjF1xqR5t4M3KJHT0lEMwgsixDb8S0vEr1JY8OKI6k5hHxnnxcbBi6P9KCrV2X9B6g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEF5E606A333;
-	Mon, 23 Nov 2026 03:07:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEF5E606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=jFJwHuZ1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=eyDqS/O3c0kqK8TrfNnSDeEA8RqYuMsPMyYIE/Q0Xfo=;
-	b=jFJwHuZ1HFJzl9OR+ovjErymF3nyLSyzvVZ3QHhK32cktbkWzxOB7p3Jqgj1/Y
-	e91Ij7P/Tio3xYvwi3AhlsptEchbUgiH9N6uNS0qHVBBiPwo3pDqePHrZFCzu/Hm
-	thZXLMr9tzJeFjqEFQx8umJRX3NLKOIAUmTCaXdwwwfLk=
-Received: from [IPV6:2409:8900:1fd4:b208:1e0e:657f:3fe8:68fc] (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id PSgvCgB3lRyyrQNr7GOJHA--.54075S2;
-	Mon, 23 Nov 2026 11:06:29 +0800 (CST)
-Message-ID: <6d054adc-5b6d-4a1c-b9e5-b32916e06abe@163.com>
-Date: Mon, 23 Nov 2026 11:06:26 +0800
+	by smtp.kernel.org (Postfix) with ESMTPS id 9EB3A1F0093C;
+	Mon, 23 Nov 2026 03:07:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795403263;
+	bh=zO0YA7WUWXAZgmomCawg3kayi310uedvbvLHcZGxBZA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Ys13DghjVDfT7oefNqnMl/pZIjS1ZK/qyhoxaO0DLuM6r08bkh8nlXAgdgTueqH5U
+	 EcIxvVXgM1mUtBg9MmWnJNCMxORDPWDzBOjDvNjVcABJNFR/DIqlAtDOWuerNv9mO+
+	 HxXeAiZLBI0Q2B62601jlNvw1b8Iy9Gn8d6YefmMkkULy4EKh2hSy+CEBkQ2X96bfw
+	 JB6+vWT4l4J3KDD0dqsngS1g3uUZdXKNYXnJlNGMyJxk9cC1VkHyjeoBsroKhi1zA3
+	 iqrTUuoOOqE/qEZRePDhhumDysK4sTMkM95sqRBlBC60kOvTNxZtO1RFLxBz8ziwph
+	 p1SO9roNL9cWg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 2C0F94C308;
+	Mon, 23 Nov 2026 03:07:33 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Mon, 23 Nov 2026 11:07:27 +0800
+Subject: [PATCH net-next v5 1/2] dt-bindings: net: rockchip-dwmac: Add
+ RK3572
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,229 +83,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] ntfs: switch to the new xflags fileattr API
-To: koraynilay <koray.fra@gmail.com>, Namjae Jeon <linkinjeon@kernel.org>,
- Hyunchul Lee <hyc.lee@gmail.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>
-Cc: Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>,
- Jan Kara <jack@suse.cz>, "Darrick J . Wong" <djwong@kernel.org>,
- Andrey Albershteyn <aalbersh@kernel.org>, Amir Goldstein
- <amir73il@gmail.com>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>,
- Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Dave Chinner <dgc@kernel.org>, linux-btrfs@vger.kernel.org,
- linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, ntfs@lists.linux.dev,
- linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
-References: <20261122000856.536902-1-koray.fra@gmail.com>
- <20261122000856.536902-4-koray.fra@gmail.com>
- <1ebbb85f-3515-4c45-a850-8039aad93800@163.com>
- <DN265Y2EAGQV.1ZD49JSIDMME5@gmail.com>
-Content-Language: en-US
-From: liubaolin <liubaolin12138@163.com>
-In-Reply-To: <DN265Y2EAGQV.1ZD49JSIDMME5@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PSgvCgB3lRyyrQNr7GOJHA--.54075S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Wr48Gr18Zw4Duryrury7trb_yoW3Gw48p3
-	95CF4jkay8Jry3Can2q3ZIgayFvr4fCF4UZFy5tF18ZF9xtrn3W3ykKryfKFyUursakw1U
-	Way2v39xCrW3Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UZiSLUUUUU=
-X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6hU0-msDrbVSSQAA3e
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-add-board-ok3572-c-net-v5-1-8ec9012b578f@qq.com>
+References: <20261123-add-board-ok3572-c-net-v5-0-8ec9012b578f@qq.com>
+In-Reply-To: <20261123-add-board-ok3572-c-net-v5-0-8ec9012b578f@qq.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ David Wu <david.wu@rock-chips.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Cunhao Lu <1579567540@qq.com>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, Andrew Lunn <andrew@lunn.ch>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795403251; l=3013;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=iKMYPtTxUePu3pZnxvEMniYbCZ7tgRVNF5E2Fo/FU0U=;
+ b=URxNSNcO4SUxUR7SwO2KSiPd4fPNS/TjxH+XIn9+KS6NAatVP/BUjiUIBzw06w656ykHdRuaF
+ 0gZybEww8Y+CTIciWZMvyDFORMJR0/1flFgEFUnMNjsU4Z+BdLrxK0q
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
+Reply-To: 1579567540@qq.com
+Content-Transfer-Encoding: 7bit
 
+From: Cunhao Lu <1579567540@qq.com>
 
+Add the rockchip,rk3572-gmac compatible with the snps,dwmac-4.20a
+fallback and require rockchip,php-grf.
 
-在 2026/11/23 08:38, koraynilay 写道:
-> On Sun Nov 22, 2026 at 1:49 PM CET, liubaolin wrote:
->>
->>
->> 在 2026/11/22 08:08, koraynilay 写道:
->>> Switch ntfs_fileattr_[gs]et() from the legacy FS_*_FL flags to the
->>> modern xflags (FS_XFLAG_*) fileattr API with masks.
->>>
->>> Introduce FS_XFLAG_COMPR and FS_XFLAG_ENCRYPT and add them to
->>> FS_XFLAG_COMMON (and add FS_COMPR_FL and FS_ENCRYPT_FL to FS_COMMON_FL)
->>> to be used in this API switch.
->>>
->>> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
->>> Signed-off-by: koraynilay <koray.fra@gmail.com>
->>> ---
->>>    fs/file_attr.c           |  8 +++++
->>>    fs/ntfs/file.c           | 63 +++++++++++++++++++---------------------
->>>    include/linux/fileattr.h |  6 ++--
->>>    include/uapi/linux/fs.h  |  2 ++
->>
->> Hi koraynilay,
->>      One suggestion on the patch split: would it make sense to put the
->> new COMPR/ENCRYPT xflags and their VFS handling in a separate patch
->> before the NTFS conversion?
->>      The changes to include/uapi/linux/fs.h, include/linux/fileattr.h
->> and fs/file_attr.c introduce generic fileattr support, and the
->> COMMON mask changes also affect other filesystems.
->>      Keeping those changes together in a VFS patch would make the API
->> and compatibility aspects easier to review.
->>      The following NTFS patch could then focus on using the new flags
->> while preserving the existing NTFS behaviour.
-> 
-> Hi Baolin and thanks for the feedback,
-> for now I put them in the same patch since they're not many lines of
-> code changes, but I now also had to add NOCOMP, maybe I'll split it in
-> the next version.
-> 
->> Thanks,
->> Baolin.
->>
->>>    4 files changed, 44 insertions(+), 35 deletions(-)
->>> [...]
->>>    	if (err)
->>>    		return err;
->>>    
->>> -	if (fileattr_has_fsx(fa))
->>> -		return -EOPNOTSUPP;
->>> -
->>> -	/* chattr passes the unchanged read-only flags back to us too. */
->>> -	if (NInoCompressed(ni) || NInoWofCompressed(ni))
->>> -		readonly |= FS_COMPR_FL;
->>> -	if (NInoEncrypted(ni))
->>> -		readonly |= FS_ENCRYPT_FL;
->>> -	if ((fa->flags ^ readonly) & (FS_COMPR_FL | FS_ENCRYPT_FL))
->>> -		return -EOPNOTSUPP;
->>> -	allowed |= readonly;
->>> -
->>> -	/* Case folding is a read-only, mount-wide property. */
->>> -	if (!NVolCaseSensitive(ni->vol))
->>> -		allowed |= FS_CASEFOLD_FL;
->>> -	if (fa->flags & ~allowed)
->> Hi koraynilay,
->>      There is another case worth keeping in mind when replacing this check:
->>      fileattr_fill_flags() only translates a subset of FS_*_FL bits,
->> so some unsupported flags will not appear in fsx_xflags.
->>     For example, a direct SETFLAGS request containing only FS_NOCOW_FL
->> produces fsx_xflags == 0. On a normal file on a case-sensitive mount,
->> the new check would accept that request.
->>     If the file already has persistent NODUMP set, the request would also
->> clear it, since the setter rebuilds linuxflags without NODUMP and writes
->> it back to the EA. The current code rejects the request and leaves the
->> existing attributes unchanged.
->>
->>     Would it be possible to keep validating fa->flags when flags_valid is
->> set, in addition to the xflags check?
-> 
-> We could, but the objective is to have filesystems that implement the
-> new _masks API use only xflags.
+Mark tx_delay and rx_delay as deprecated and disallow them for RK3572
+so new designs do not use the legacy delay properties.
 
-Hi koraynilay,
-    That makes sense, and I'm fine with NTFS using only xflags.
-Could we still make sure that legacy SETFLAGS requests with flags 
-unsupported by NTFS are rejected rather than silently accepted after 
-conversion?
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Changes in v3:
+- Deprecate tx_delay and rx_delay and disallow them for RK3572.
 
-Thanks,
-Baolin.
+Changes in v2:
+- Add RK3572 to the shared Synopsys compatible list for consistency.
+---
+ Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 15 +++++++++++++++
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml     |  1 +
+ 2 files changed, 16 insertions(+)
 
-> 
->> Thanks,
->> Baolin.
->>
->>
->>> +	/*
->>> +	 * When userspace uses file_[gs]etattr(), VFS already checks and fails
->>> +	 * with -EOPNOTSUPP if rw_mask & ro_mask != 0 and rw_mask & ~allowed,
->>> +	 * but for FS_IOC_SETFLAGS and FS_IOC_FSSETXATTR VFS can't check for
->>> +	 * allowed flags as these ioctls don't support fsx_xflags_{rw,ro}_mask,
->>> +	 * so we need to check for unsupported flags anyway.
->>> +	 */
->>> +	if (!fa->has_masks &&
->>> +	    ((fa->fsx_xflags & ~NTFS_RW_XFLAGS) ||
->>> +	     fa->fsx_extsize || fa->fsx_projid || fa->fsx_cowextsize))
->>>    		return -EOPNOTSUPP;
->>
->> Hi koraynilay,
->>      Could we keep the existing handling of read-only attributes
->> for legacy SETFLAGS callers here?
->>      On a case-insensitive NTFS mount, the VFS carries over
->> FS_XFLAG_CASEFOLD from the current attributes, since it is not in
->> FS_XFLAG_COMMON.
->> This check would then reject it because CASEFOLD is not in
->> NTFS_RW_XFLAGS, so even chattr +d would fail with EOPNOTSUPP.
->>      The unchanged COMPR/ENCRYPT bits that chattr reads with GETFLAGS and
->> passes back with SETFLAGS would also be rejected on compressed/encrypted
->> files.
->>      Allowing those existing read-only attributes to be passed back
->> unchanged  would let users continue setting and clearing the persistent
->> flags through chattr,as they can today.
->>
->> Thanks,
->> Baolin.
-> 
-> Since I wasn't quite satisfied with this version, I'm working on a
-> revisited v2, that is hopefully cleaner and fixes these bugs and the
-> ones reported by sashiko.
-> 
-> Thanks,
-> koraynilay
-> 
-> 
->>>    
->>>    	forced_immutable = ntfs_is_forced_immutable(vi);
->>> -	if (!(fa->flags & FS_IMMUTABLE_FL) && forced_immutable)
->>> +	if (!(fa->fsx_xflags & FS_XFLAG_IMMUTABLE) && forced_immutable)
->>>    		return -EPERM;
->>>    
->>> -	if (fa->flags & FS_IMMUTABLE_FL) {
->>> +	if (fa->fsx_xflags & FS_XFLAG_IMMUTABLE) {
->>>    		new_fl |= S_IMMUTABLE;
->>>    		/* Do not persist an immutable bit derived from the mount. */
->>>    		if (!forced_immutable ||
->>>    		    (ni->linuxflags & NTFS_LINUXFLAGS_IMMUTABLE))
->>>    			linuxflags |= NTFS_LINUXFLAGS_IMMUTABLE;
->>>    	}
->>> -	if (fa->flags & FS_APPEND_FL) {
->>> +	if (fa->fsx_xflags & FS_XFLAG_APPEND) {
->>>    		new_fl |= S_APPEND;
->>>    		linuxflags |= NTFS_LINUXFLAGS_APPEND;
->>>    	}
->>> -	if (fa->flags & FS_NODUMP_FL)
->>> +	if (fa->fsx_xflags & FS_XFLAG_NODUMP)
->>>    		linuxflags |= NTFS_LINUXFLAGS_NODUMP;
->>> -	if (fa->flags & FS_NOATIME_FL) {
->>> +	if (fa->fsx_xflags & FS_XFLAG_NOATIME) {
->>>    		new_fl |= S_NOATIME;
->>>    		linuxflags |= NTFS_LINUXFLAGS_NOATIME;
->>>    	}
->>> diff --git a/include/linux/fileattr.h b/include/linux/fileattr.h
->>> index 4faa40febf11..219e7c8eb601 100644
->>> --- a/include/linux/fileattr.h
->>> +++ b/include/linux/fileattr.h
->>> @@ -7,12 +7,14 @@
->>>    #define FS_COMMON_FL \
->>>    	(FS_SYNC_FL | FS_IMMUTABLE_FL | FS_APPEND_FL | \
->>>    	 FS_NODUMP_FL |	FS_NOATIME_FL | FS_DAX_FL | \
->>> -	 FS_PROJINHERIT_FL | FS_VERITY_FL)
->>> +	 FS_PROJINHERIT_FL | FS_VERITY_FL | FS_COMPR_FL | \
->>> +	 FS_ENCRYPT_FL)
->>>    
->>>    #define FS_XFLAG_COMMON \
->>>    	(FS_XFLAG_SYNC | FS_XFLAG_IMMUTABLE | FS_XFLAG_APPEND | \
->>>    	 FS_XFLAG_NODUMP | FS_XFLAG_NOATIME | FS_XFLAG_DAX | \
->>> -	 FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY)
->>> +	 FS_XFLAG_PROJINHERIT | FS_XFLAG_VERITY | FS_XFLAG_COMPR | \
->>> +	 FS_XFLAG_ENCRYPT)
->>>    
->>>    /* Read-only inode flags */
->>>    #define FS_XFLAG_RDONLY_MASK \
->>> diff --git a/include/uapi/linux/fs.h b/include/uapi/linux/fs.h
->>> index e40806b3a69c..09fc7e066485 100644
->>> --- a/include/uapi/linux/fs.h
->>> +++ b/include/uapi/linux/fs.h
->>> @@ -275,6 +275,8 @@ struct file_attr {
->>>    #define FS_XFLAG_CASENONPRESERVING 0x00080000	/* case not preserved */
->>>    
->>>    #define FS_XFLAG_PROJID		0x00100000	/* project ID */
->>> +#define FS_XFLAG_COMPR		0x00200000	/* Compress file */
->>> +#define FS_XFLAG_ENCRYPT	0x00400000	/* Encrypted file */
->>>    #define FS_XFLAG_HASATTR	0x80000000	/* no DIFLAG for this	*/
->>>    
->>>    /* the read-only stuff doesn't really belong here, but any other place is
-> 
+diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+index e8dda1961ab3..d7b7bb008235 100644
+--- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+@@ -27,6 +27,7 @@ select:
+           - rockchip,rk3506-gmac
+           - rockchip,rk3528-gmac
+           - rockchip,rk3568-gmac
++          - rockchip,rk3572-gmac
+           - rockchip,rk3576-gmac
+           - rockchip,rk3588-gmac
+           - rockchip,rv1108-gmac
+@@ -54,6 +55,7 @@ properties:
+               - rockchip,rk3506-gmac
+               - rockchip,rk3528-gmac
+               - rockchip,rk3568-gmac
++              - rockchip,rk3572-gmac
+               - rockchip,rk3576-gmac
+               - rockchip,rk3588-gmac
+               - rockchip,rv1126-gmac
+@@ -112,6 +114,7 @@ properties:
+     minimum: 0
+     maximum: 0x7F
+     default: 0x30
++    deprecated: true
+ 
+   rx_delay:
+     description: Delay value for RXD timing.
+@@ -119,6 +122,7 @@ properties:
+     minimum: 0
+     maximum: 0x7F
+     default: 0x10
++    deprecated: true
+ 
+   pcs-handle:
+     description:
+@@ -141,11 +145,22 @@ required:
+ allOf:
+   - $ref: snps,dwmac.yaml#
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3572-gmac
++    then:
++      properties:
++        rx_delay: false
++        tx_delay: false
++
+   - if:
+       properties:
+         compatible:
+           contains:
+             enum:
++              - rockchip,rk3572-gmac
+               - rockchip,rk3576-gmac
+               - rockchip,rk3588-gmac
+     then:
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index ddfc32ba29cb..69d88a9b1925 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -94,6 +94,7 @@ properties:
+         - rockchip,rk3506-gmac
+         - rockchip,rk3528-gmac
+         - rockchip,rk3568-gmac
++        - rockchip,rk3572-gmac
+         - rockchip,rk3576-gmac
+         - rockchip,rk3588-gmac
+         - rockchip,rv1108-gmac
+
+-- 
+2.34.1
+
 
