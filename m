@@ -1,97 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.70
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795448430;
-	b=f7PWyVi7THTQnbgTGdqOitxUh9soVtSviG1HRPQwLg2bvmfGLYu9a+uowVx7uObPujvc
-	 ObwdAkOWtY67n64340lVld0Lg1Kr4ETOfNquVybKRtc//A5VkerKCG0uPVeH/DK8XZzpD
-	 5n49yyF4TLLYLvRFHP5/zbvXmgDVpqGaKtGnyGJzGstS1k7FpLfzJquEeI8lfZSq7c7xa
-	 NOdyveRzAbY5Wa++QYJfGHWQPeRyQ3EVsPdILmL3xAWwrmuTMlKYMOqnphDssSgpQtenL
-	 ndabYQsx2v1OMGVfNp6nFSsgtuWbK0ct+1hj4grghv3aVOA7gZSOU1IZ69YZr+Sjwog==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448430;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=txfYluJCCySe/4qjl14LymA0WkLgMfGf42JrvVZo+tM=;
-	b=ZlPwIAGUY2piogDQHQbRzvQlRis/dejCbzuu0HOvXf2Wx83w4u9dzBe668izf+SRZqdO
-	 3kPUzHJ1WU1uq9w37Iz7+N8tZRqiIUly0u7hEgeqTj59IzzfNMtMeyfNgBrYGPuVhiXdx
-	 WDUZ355lmA00NBrXvaqTlde3KHV0JqBrzUNmSLu/jFeps14LRnS8zzSLYTuNNVuPBUqP9
-	 LUpPj/lE4BR6FFQ291fd3ypWligpg5lOBbe99pbqCVpKL1KaPt8gU+DDR9yeIHewh16aY
-	 DbZbHn5cBUG4NkZVe59SOzAFpHNJITR41YAzHxd+VyvbBMnCySPQkWOPvc302dibPcw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YohIAvI6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.70
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010070.outbound.protection.outlook.com [52.101.193.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795448444;
+	b=N9grWtBOyYhxPLhoW+dM2AbntFAPpxA3XzIqrppbLnQBGbCU7M4r9f4hO8fk8+fKrQnW
+	 p+6j5qDlI/yI4yYKfCSEzSNIRkuxLP+0jPdD/1z4K8mk+B3mIaEaJ0YeZXGe8KyBF4lbS
+	 8dw8pRAb3hYJ3yygCvJpOD74nG4rw/q5TrAUUp3SHVAfwLhU9I8d7NR50+H5uGh4OW25X
+	 2XtbV3dOM9gbmFuTH68PxX1cWLbEeZfyoyAADx04Jux8UHGWFtO+z+AAoGgN11Co2OSwt
+	 Kc4QBPlCrNDItwyhYzYewLANoqYIxHy/rTRQ4ZJ5x6LKbt9yh+JUKWWYCXh8sRXt3KQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448444;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=YxzVyVE4ai8Ea+LyIq1A/L2q3uxrmhBKTxjVeIPKjac=;
+	b=PSNQxsuPXe1Y4NDhBDyD/XfULAdjf+oH2J0ARqVgDbxJY0i1H6PZwDdTaK5RR9L/mwV6
+	 hqlV35OfcEt7BHJrgN/E96NrhwpJqSMmeg/CeD8LF9RKyy9lC80jyF2hHtDrCTKxf1f9g
+	 oBui2GRO+zTIlFetnom8dOumCi5DHgyNGVpa/vc30n/7vYK/O1BoGk7ZZePRaRSwuh5lY
+	 BGXir8pc1ENhhh4P0AXzlDme48FzZSGAijg4k5OthnVvYRnOmIIYy2itZq3XU/JRhsPw4
+	 cfUGfKVY3hFIuR1pmZ+W4CcTtAt/Xfdky3QnsOATyP78VSdHOAjUz/98wGr6IZDjq+Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=DCWIajyU;
+	arc=none smtp.remote-ip=209.85.160.180
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28C21606A33C;
-	Mon, 23 Nov 2026 15:40:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28C21606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AF9560A262C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:40:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AF9560A262C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YohIAvI6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JrAdgN/cY7jdWKuoTEWkIgnsrGZVXeU0RhafsHu3rTm7ZpSSR62y3yQ6F4zlokFyY4TEzW5M0e+pkZw0rpsLiAuHsCL5pMsIFAmddtGbx0RPkjm+KDjcOcTodnDTdeL9XS8B9lM5nR58gxgTpcq5/XRW9wDrny/n8xtuXQe/mjhKjKEJ52Yp8lDw3hSenIjiCqQ0hXUJy2sf4WBwhPNgNnS238kVYjvLm1huywNyRC4qaPoNk2FemO1/jzwezODb4Lp9KOpEyjlSHU4ydboogV/R9RNt+OnuqZcJmH1sLAFb70oc4ZZkUBzjxHIHyE0klf2IRFtCquFbwaJlJvU9dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=txfYluJCCySe/4qjl14LymA0WkLgMfGf42JrvVZo+tM=;
- b=pJ7075RsnE2TZ1Y/Iy1TFGpywj+2U0ihlZLDjqbY3/u+f6JhdLZz39s6va4YTi4lycKMLXJiMyNFyJV4CXC6r82N9asxMz4NvsZEeORurANXMYPoT3PewlpFAh0ZGlQrbCTZHjjpZIR19ciuhSCPdZag7BzuhzsXKgPXhHUj7zBF2jn1bp+g3Gq4YOz16v0poyolPEsWE1R72NmeuSbK/usqYuA/IdYPUKo4tE1w2zp/xINj0m+55ICDSx4NyYvJN6kE46OdhR8MEM2OkVRGziHwnTol96IATc/lDZjM1BFZD31u8PfV2tIJIl41WTFf4fh6ACrNDFlhGuS4W1JmwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=txfYluJCCySe/4qjl14LymA0WkLgMfGf42JrvVZo+tM=;
- b=YohIAvI6eutI42oAA+8AVfSjAFWr44/RPTAc3ASIoWGy6HFO+sYlBraLiS65j92yZj0hXQ3T08bnbMpsfNso13Bhf5aqt0de8kM/i/wsINmXiRLxnAqTpie9/cuOFMfMQljbRPZZuOmuwTEJ6htTZB8qczuEe9nBLW4mxmkxAx/A4eN8BPizaHfDA+7Z6/blJbZS1ygT1NVIBeMiBhE9hS/NR3RHyqbB/rYDlhhRxIwUnnByS3Db0WF1c2HzQ0hPiTKxqAkDU+w2C9YCAm9Bzl9kUMzQzscRkkd9DT996aHHoYY6xLRHCXNZACiSoNCYjHl4GR20KVxOMDA8seqOSA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by DS5PR12MB484139.namprd12.prod.outlook.com (2603:10b6:8:47c::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 15:40:26 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 15:40:26 +0000
-Date: Mon, 23 Nov 2026 17:40:17 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: Vladimir Vdovin <deliran@verdict.gg>
-Cc: David Ahern <dsahern@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net-next v4 2/3] ipv6: Cache pmtu for all paths of a
- multipath route
-Message-ID: <20261123154017.GA3456673@shredder>
-References: <20261117193141.27004-1-deliran@verdict.gg>
- <20261117193141.27004-3-deliran@verdict.gg>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117193141.27004-3-deliran@verdict.gg>
-X-ClientProxiedBy: TL2P290CA0020.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:3::9)
- To LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=DCWIajyU
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-5365d26ccbdso43397291cf.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:40:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795448443; x=1796053243; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YxzVyVE4ai8Ea+LyIq1A/L2q3uxrmhBKTxjVeIPKjac=;
+        b=DCWIajyUd2NrR5Rg5QH4BYrc18jOuaIFNK9krdfrMVuNBFHlfubE8POzOdp0A6zoio
+         BK3Jm8Da6025c7dLknh9DJk0+VZH9DV55cQrJ8yJnUw7oCdRMpIHTUv6YgHpYHhqIori
+         GGrUVou8pcQMhd9KQWvZXddio3gurupEp+aji/SeMFzVVqTC+CtP/te/WmUVmR+NlGSs
+         KmBOlJCgCk0+qX6nR0Aw5RMZqvS6VBJFSdaldgcPjsZr2AoWVUN5puz1Vgd90tEBLzpY
+         eAIRonSuZWxNolGYAuXxViEQpSYv2RNGlQkdAhBcBAeO1UcT99mpa3vZgxg4rC/bbjsA
+         7Wew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795448443; x=1796053243;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YxzVyVE4ai8Ea+LyIq1A/L2q3uxrmhBKTxjVeIPKjac=;
+        b=SHSvUF60opip2iIHDTcXy9YTRPbC5fkADGdXurrxmeG0Gz7tjXNeHi4V09C95v8A1r
+         ffRkTOO0s7Nc9/vhOuo+TIecMr4CaEEoChxMqzbmOSwrROJqvbGalDFMau/5Wsfy6j6p
+         NQ9xg/wG3QRt3k55oq60NjzPCgvcb5BSNHwtgQ70IpmL327TfCaol2BLI+/U5H85ZQnt
+         VTXJ6m01NMQioXPK16nuAhaRuwR8OzwOhN6ya4IpEUOv7MG5wkat3Tm4F9sZlhCD5jL2
+         Q8GjuwPwyqKujVC+QFSCEsUMfISCndOrBmTvhYkMocFq7mRqDcXBVRwnNx1RA0pzwCSX
+         6EUA==
+X-Forwarded-Encrypted: i=1; AL+hErEKwRjRQAae6VSYR24XxhR982SmoahWrbonFFItS/PtujegWjGaiclxOS+UFp0z+oqwfK3py3pksxohm5U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8MhU68nG+fbuykhEkFs0mmo6weOscHT17knHN9dFHK0gHsGUFm
+	VOsKaOk5I85VRjUfu01+K3QQP8miNWz1i3o1P2RuOrOrORmt3whRGDmx5BI7gX+4ccM=
+X-Gm-Gg: AZFdTZcLTSOQmIshfEyI79DrUnjV5SvNvKvMe3M6e0KoXUX1WERP3VekGXztIfL1XU6
+	YuRE7JMVOXEHgvF7xDoKNhKQ6L46E/EzLKBrdrHxeleM7xhJzvNbTjX6tEPtudPhQxDr/dUkIim
+	XFYHCsRqW3jySXaqKJgZtJAQu9wMmq0oNL7ReO8h4cO9Ly3nn10JExABVEc+0SMNfcBk66LF8qp
+	uglPpeA+KNVLJ9+aSk3NyaxRfEq4AdoiU1JMeAdFi28WGAHNMo8eZvwvS8yvvi6IFxhqiz+R7LH
+	JnjKu4xvqvFRK/Hxi1zFKEw/Pmhk4MEgfVqn5HC1XRQs4GPPm1/v86/BFufJA4njDQ7+7NvV/rd
+	XmDCEDtjQvBEnZ6BowPSkxbhG+YPnb6TXfGFyZ7XT+W1XBy04FUNkHlK5L1Lv3Ysqcay2AepFN+
+	mk5eF5Argwiy3KF3SOcvxjeHDGYm+kgi2ytphtW1SVQvn6KSqR1kWGrUpH7xcVqCR47yymtB2py
+	JXSLWvZDxHCXusA44rV4Yh44MCUTFXi3RhYUJy9yQQyM3NNNyeiCQyCeGMkpyDAqKz31mCXO1xg
+	42iAIj03ricTGs6+T45S//WAjMzsqGXOy00/p+SVeo1sL+oKjiSFPm6A/BzdU1Qf9whQ1bh4tK6
+	YMm8=
+X-Received: by 2002:ac8:570d:0:b0:55c:bc0:63cc with SMTP id d75a77b69052e-55d768a2916mr224280231cf.6.1795448443241;
+        Mon, 23 Nov 2026 07:40:43 -0800 (PST)
+Received: from ziepe.ca (stjhnbsu6iw-159-2-142-59.dhcp-dynamic.fibreop.nb.bellaliant.net. [159.2.142.59])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134796329sm107324056d6.2.2026.11.23.07.40.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:40:42 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xVW9q-00000000t9u-0g9S;
+	Mon, 23 Nov 2026 11:40:42 -0400
+Date: Mon, 23 Nov 2026 11:40:42 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-api@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, david.quigley@intel.com, lukas@wunner.de,
+	ksinyuk@kernel.org, rodrigo.vivi@intel.com, cedric.xing@intel.com,
+	sameo@meta.com, drdeeglaze@gmail.com,
+	James.Bottomley@hansenpartnership.com, aik@amd.com,
+	jpiotrowski@nvidia.com, qinkun@google.com, pgonda@google.com,
+	jic23@kernel.org, alistair.francis@wdc.com, ankita@nvidia.com,
+	suzuki.poulose@arm.com, kas@kernel.org, rick.p.edgecombe@intel.com,
+	elena.reshetova@intel.com, dave.hansen@linux.intel.com,
+	sathyanarayanan.kuppuswamy@linux.intel.com, peter.fang@intel.com,
+	zohar@linux.ibm.com, aneesh.kumar@kernel.org, dave.jiang@intel.com,
+	nik.borisov@suse.com, sergii.dmytruk@3mdeb.com
+Subject: Re: [PATCH RFC v2 9/9] attestation: Add the TDX family implementation
+Message-ID: <20261123154042.GI179082@ziepe.ca>
+References: <20261113160838.2512652-1-jiri@resnulli.us>
+ <20261113160838.2512652-10-jiri@resnulli.us>
+ <awQCrnD5CtEhKRWz@e129823.arm.com>
+ <awQz1P6iXYrL8lv0@kernel.org>
+ <20261123151128.GD179082@ziepe.ca>
+ <awRYr7yB8IWj7S3G@kernel.org>
+ <awRan8ZELzpTwduV@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,236 +119,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|DS5PR12MB484139:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc13ea93-e23f-4500-415a-08df49781828
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|7416014|261102123227099003|261026140227099003|261026121527099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|11063799006|56012099006|4143699003|10067099003|261009223027099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	/eKHiPmQLQpXwRVzcWb+pkRjkztk8QSMYnqNJvp7VRaUidZy0BPt3HfNg+FKami+IKCGs1RWIVb820JHratXiLuFtbbd1um13vFUCWiO2mULQ7b6EAB63EkMBACfMn4wlcNCnPEqVqIxC39mw+v6rsAb5xO/4x8P2LkEmIS/6YlWyO0qDSWA3xnGc2xdY1N45fUi5UzwVyx89fg4OjCzy6bvJcL+NVIidnt799acE+3I5fgZ0++gwJbOY1hFS+s4inE/VjFLN7/ZYKU/HKGqPDn02uIaSAS3omnHXSxpiH+YW8WJOx7AKaLa/2k+Vn9OGVAW+1gFcKCRyfIyVySqfACk9AircGGo6m5xRpbYGiIxocfQc78ckw5oV8pPLogZYCAjFSgZrzKCBLHw6XkqbHSuKrpMw02Tho7TA9Vh3svxSqhhYaWmIJHznmFk/OXfckdfPcMFNxJDwsIPqzS2entFqaAe0Kz7H9b+aSn6Cyxduz+l14Xp3HehjFjnMLMkj//XK7LqVqGHZnzyl3lrHOeRG3FjPFSN4ljkfLKdXa53SoPSF1Uy+9b48UDCQ4UrDhBKcIGvKaC4T1I14KCqvCHQWJ7C7ylcEwmuwHYc9dYN0D86DnAnP5T4EFmJiFrM9b0CrMGNp7Qxz6yqy3b5Cq/plcF3JJQONabEhv8Gn3k=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(7416014)(261102123227099003)(261026140227099003)(261026121527099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(11063799006)(56012099006)(4143699003)(10067099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?2235wAir+ET4s2Z8PlPpp0t0Z1wndsJ4yM6mFSIuh7S9URzxz8BrRpZAGrtu?=
- =?us-ascii?Q?tqzKBGJAL7N6xDznSQ0/yciGKTVSjmxF/rhvYjPg0ZrdeWUZbJGly4IywTIL?=
- =?us-ascii?Q?MVPpLGU35aKAWQKyURTJtL87OlXKEg8xRAfs4MeaNnxYycWdwH8nE9EAmqb7?=
- =?us-ascii?Q?0Wl9l5X3ADDWfouSqoHhI0zIj8wzkFQJKqXcsSJRcKt6bZ5jIFpddFe6Eg0g?=
- =?us-ascii?Q?QWev+WvPgclY0NQv9wC2mpPQIj66IeP7Rg0g4K9hACyityBq+VFjPDePNtfL?=
- =?us-ascii?Q?hStZO5gt5bCGjS5Jpm3Vc1iZ0vQA8b4QDcYQ8MwptcH6MuGzU+uZwpcogKpv?=
- =?us-ascii?Q?NqJ4RF68o0pnLa45AQzUynER0jhNYiYwLeMwRlARtjmAdTBL1upgVpo7Tr6s?=
- =?us-ascii?Q?U8loKVm4ozgGxpGqLCCKD7pEvmm8LhO3iKh+wEIlWEtMuVKyM9kMJOxk5sQn?=
- =?us-ascii?Q?7U5Darv2OWi/nD6xH4erzEWOuzvQxz3sqNOI9+Yzf1nJ1Ll8JbIAdqLkGfoO?=
- =?us-ascii?Q?72K8d/boPqCQPyzJ7S48f7FqjkmATJKtj8MC3XQPG9v4Nxn47TkMKvve16hX?=
- =?us-ascii?Q?kuAPNL8Kmk1GYBr9s0yIem758IgDstVPJhRq8j3Q9ldc3SiOID7mf2/HWFYS?=
- =?us-ascii?Q?qFJ/YlYBQxYkioLRNgRq2CAxIwkxmj9T85DI7o/fmj6DQP92CKn2HXCtZ2Mm?=
- =?us-ascii?Q?F0Vf46lJUhQssu4/IM+pBZaI85E9148/+N2lxCc6HQcVApCcrUibOrURjPNc?=
- =?us-ascii?Q?sWHHXzD9TRhWQc0wZXiFSbRh8liIGaabZ76CFcAuEbf/m1RPrqIof1TQbVnN?=
- =?us-ascii?Q?qA97xOQ1E2NVlAwPvm7s652WshFnJZmt3U0I05pxdyX4tQC8WjL5nP9/EDNf?=
- =?us-ascii?Q?PjpAOqkagzKOqIFbymIhquBvOHMf0FLspQ/2MRWzq9vZSj69pOC0hL8uLdXN?=
- =?us-ascii?Q?92h3DA25Dc19mh0H+CvNkFnhk8qXMjVtgU8XcueIPoXkzy8ahLNpSgman1PK?=
- =?us-ascii?Q?F9DMSRk3/FnhBwIO8Rlf2LRlrxLU2wxTNuph7g0hVwUFjKDsh26GAAOE4zwt?=
- =?us-ascii?Q?HH/dDCMWyAxdrJLCgxdwHk/wumizNmyQO3GVnAqEw4Z+glKB3TpczcWXaXkU?=
- =?us-ascii?Q?GaOrUXqKXxmmwk5/PEXGdb7kaS6iD1PKjr5Gb1nIx9yXYjHY45iwb8g2B3L5?=
- =?us-ascii?Q?ecdwZumrfvGyKO2V4sVI/6NOhP0OhLuJLMyVKWMoae0szOirFHrliCJY0BRb?=
- =?us-ascii?Q?HHw+T2360eiy51sNuXTEX9WebYwLeb5r35M9Xu3roBARLwMFO7oMVoZErxQ/?=
- =?us-ascii?Q?qR5kXX3mgbCb16LF1Wnea/PseE1me7/+fqpWy12CVYj1sNjJu9zlyhMh8hoX?=
- =?us-ascii?Q?BWPE9r7pvo0Gzim8A/jgmUzDHmsGh9x4PUCDgT8n1I9TnLjR4dAfObqj6Vaf?=
- =?us-ascii?Q?jOiCqcsczJS6ojz44oMLPyDuiSSKPYpJa2pnBcXLEKfrXlor1QY9FHNSAjeO?=
- =?us-ascii?Q?UbJeEW7Vo0mHyhsItlZa9y0x3E3cj8mXx7f9SLKLaPOhvKT7l/aclasV+9Jf?=
- =?us-ascii?Q?KbpuGfpgKD1lRbJDHXpJi2y+0bd0eMMopLRcc7Cx6leBwZ2IIoEXongYwpfG?=
- =?us-ascii?Q?BeQtEtM3xNDg/77K7xXWbplEsbjf6dMlltuEo7/x1T1e37DljI906RIz6+gd?=
- =?us-ascii?Q?nrdF7tGBJe43eOxoTOnr7eBeV+0bwtb9rdgE+EuckR1HPi4S?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc13ea93-e23f-4500-415a-08df49781828
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 15:40:26.1571
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ErwLUhhHpxt9L7fn1LMbWu3aUyW9l5JcXt4G/2NUYnOlHBHFbUO0e2X2GyvCqs7C7gLkkRg52HZJHezY2ZY6ZQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PR12MB484139
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awRan8ZELzpTwduV@kernel.org>
 
-On Tue, Nov 17, 2026 at 10:31:40PM +0300, Vladimir Vdovin wrote:
-> Same problem and same fix as for IPv4 in commit 7d3f3b4367f3 ("net:
-> ipv4: Cache pmtu for all packet paths if multipath enabled"): the
-> exception for a Packet Too Big may land on another path of a multipath
-> route than the one the flow is on, and the flow keeps blackholing. Cache
-> the pmtu on every path of the route instead.
+On Mon, Nov 23, 2026 at 05:24:15PM +0200, Jarkko Sakkinen wrote:
+> > > > As per the function, perhaps tpm2_calc_event_log_size() should be
+> > > > relocated to lib and have non-TPM name like firmware_event_log_size()
+> > > > or something.
+> > > 
+> > > Probably under drivers/attestation since that is where all the TCG
+> > > formatted logs should end up. It should be 'tcg_event_log_size()' or
+> > > something. Maybe a tiny module for it like we would have done in lib/
+> > 
+> > +1 for the name, as it is obviously more accurate prefix.
 > 
-> For IPv6 that means:
-> 
-> - ip6_update_pmtu() looks the destination up by the interface the
->   Packet Too Big came in on, or by a hash without the protocol and
->   ports for an unbound socket, neither has to be the path of the flow.
-> 
-> - the paths are the fib6_nh of a nexthop object, or the siblings of the
->   fib6_info the dst came from. Only ip6_update_pmtu() walks them, the
->   dst of sockets and tunnels is the path of their flow.
-> 
-> - a path only lowers what it uses, the pmtu of its exception, updated
->   in place to keep a gateway from a redirect, else the mtu of the route
->   and the device. The looked-up dst isn't checked anymore, it may be
->   narrower than the Packet Too Big while the path of the flow isn't.
-> 
-> - siblings not in the tree and a nexthop replaced by a blackhole are
->   skipped.
-> 
-> A Packet Too Big now costs up to one exception per path, as a
-> Fragmentation Needed does for IPv4 since the commit above.
-> 
-> Link: https://lore.kernel.org/netdev/ad29493c-9e48-4a94-b327-e47af3a9d137@kernel.org/
-> Signed-off-by: Vladimir Vdovin <deliran@verdict.gg>
-> ---
->  net/ipv6/route.c | 138 +++++++++++++++++++++++++++++++++++------------
->  1 file changed, 103 insertions(+), 35 deletions(-)
+> Location, I don't know. I was thinking something like "lib/tcg.c" with
+> routines that are plain calculations based on TCG/TPM data.
 
-Why not make it similar to IPv4 where we always try to update the PMTU
-on all the available nexthops? Something like [1].
+I think we should not have new users outside attestation subsystem,
+but the legacy onces will still exist obviously..
 
-Anyway, I suggest finishing with IPv4 first, then moving to IPv6. Send
-two patches for IPv4 (fix + selftest), then, once accepted, send the
-IPv6 part (another two patches).
+IDK either, but this is my guess..
 
-[1]
-diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 04098cf32eab..550616981086 100644
---- a/net/ipv6/route.c
-+++ b/net/ipv6/route.c
-@@ -2911,12 +2911,52 @@ static bool rt6_cache_allowed_for_pmtu(const struct rt6_info *rt)
- 		(rt->rt6i_flags & RTF_PCPU || rcu_access_pointer(rt->from));
- }
- 
-+struct rt6_pmtu_arg {
-+	struct fib6_result	res;
-+	const struct in6_addr	*daddr;
-+	const struct in6_addr	*saddr;
-+	u32			mtu;
-+};
-+
-+static int rt6_nh_update_pmtu(struct fib6_nh *nh, void *_arg)
-+{
-+	struct rt6_pmtu_arg *arg = _arg;
-+	struct fib6_result *res;
-+	struct rt6_info *rt;
-+
-+	res = &arg->res;
-+	res->nh = nh;
-+	rt = rt6_find_cached_rt(res, arg->daddr, arg->saddr);
-+	if (rt) {
-+		if (arg->mtu < dst6_mtu(&rt->dst)) {
-+			rt6_do_update_pmtu(rt, arg->mtu);
-+			fib6_nh_update_exception(nh, res->f6i->fib6_src.plen,
-+						 rt);
-+		}
-+		return 0;
-+	}
-+
-+	if (arg->mtu >= fib6_mtu(res))
-+		return 0;
-+
-+	rt = ip6_rt_cache_alloc(res, arg->daddr, arg->saddr);
-+	if (rt) {
-+		rt6_do_update_pmtu(rt, arg->mtu);
-+		if (rt6_insert_exception(rt, res))
-+			dst_release_immediate(&rt->dst);
-+	}
-+
-+	return 0;
-+}
-+
- static void __ip6_rt_update_pmtu(struct dst_entry *dst, const struct sock *sk,
- 				 const struct ipv6hdr *iph, u32 mtu,
- 				 bool confirm_neigh)
- {
--	const struct in6_addr *daddr, *saddr;
-+	struct rt6_pmtu_arg arg = { .mtu = mtu };
- 	struct rt6_info *rt6 = dst_rt6_info(dst);
-+	const struct in6_addr *daddr, *saddr;
-+	struct fib6_info *f6i, *sibling;
- 
- 	/* Note: do *NOT* check dst_metric_locked(dst, RTAX_MTU)
- 	 * IPv6 pmtu discovery isn't optional, so 'mtu lock' cannot disable it.
-@@ -2947,47 +2987,43 @@ static void __ip6_rt_update_pmtu(struct dst_entry *dst, const struct sock *sk,
- 		/* update rt6_ex->stamp for cache */
- 		if (rt6->rt6i_flags & RTF_CACHE)
- 			rt6_update_exception_stamp_rt(rt6);
--	} else if (daddr) {
--		struct fib6_result res = {};
--		struct rt6_info *nrt6;
--
--		rcu_read_lock();
--		res.f6i = rcu_dereference(rt6->from);
--		if (!res.f6i)
--			goto out_unlock;
-+	}
- 
--		res.fib6_flags = res.f6i->fib6_flags;
--		res.fib6_type = res.f6i->fib6_type;
-+	if (!daddr)
-+		return;
- 
--		if (res.f6i->nh) {
--			struct fib6_nh_match_arg arg = {
--				.dev = dst_dev_rcu(dst),
--				.gw = &rt6->rt6i_gateway,
--			};
-+	rcu_read_lock();
-+	f6i = rcu_dereference(rt6->from);
-+	if (!f6i || !rcu_access_pointer(f6i->fib6_node))
-+		goto out;
- 
--			nexthop_for_each_fib6_nh(res.f6i->nh,
--						 fib6_nh_find_match, &arg);
-+	arg.daddr = daddr;
-+	arg.saddr = saddr;
-+	arg.res.f6i = f6i;
-+	arg.res.fib6_flags = f6i->fib6_flags;
-+	arg.res.fib6_type = f6i->fib6_type;
- 
--			/* fib6_info uses a nexthop that does not have fib6_nh
--			 * using the dst->dev + gw. Should be impossible.
--			 */
--			if (!arg.match)
--				goto out_unlock;
-+	if (f6i->nh) {
-+		if (!nexthop_is_blackhole(f6i->nh))
-+			nexthop_for_each_fib6_nh(f6i->nh, rt6_nh_update_pmtu,
-+						 &arg);
-+		goto out;
-+	}
- 
--			res.nh = arg.match;
--		} else {
--			res.nh = res.f6i->fib6_nh;
--		}
-+	rt6_nh_update_pmtu(f6i->fib6_nh, &arg);
- 
--		nrt6 = ip6_rt_cache_alloc(&res, daddr, saddr);
--		if (nrt6) {
--			rt6_do_update_pmtu(nrt6, mtu);
--			if (rt6_insert_exception(nrt6, &res))
--				dst_release_immediate(&nrt6->dst);
--		}
--out_unlock:
--		rcu_read_unlock();
-+	list_for_each_entry_rcu(sibling, &f6i->fib6_siblings, fib6_siblings) {
-+		if (!READ_ONCE(f6i->fib6_nsiblings))
-+			break;
-+		if (!rcu_access_pointer(sibling->fib6_node))
-+			continue;
-+		arg.res.f6i = sibling;
-+		arg.res.fib6_flags = sibling->fib6_flags;
-+		arg.res.fib6_type = sibling->fib6_type;
-+		rt6_nh_update_pmtu(sibling->fib6_nh, &arg);
- 	}
-+out:
-+	rcu_read_unlock();
- }
- 
- static void ip6_rt_update_pmtu(struct dst_entry *dst, struct sock *sk,
+> And perhaps for tpm_buf (both stack/heap allocatable), if Trenchboot
+> ever moves forward.
 
+DRTM users will route through attestation subsystem to do their
+extends so the tpm_buf user would be the TPM driver inside
+attestation. We definitely need this for ROT agility.
+
+We should be able to build the attestation TPM driver without any
+trenchboot stuff to motivate it.
+
+Jason
