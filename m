@@ -1,80 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795461742;
-	b=R721GCNfiLqCWNQN5dejH2sZCgYU3500j432gDzlcB5dnI5S3tb6LaSaLlACPVFEdchQ
-	 BDwwW8Vc32DyZ+5y639mdI/79KiVJYyjMZ6SYsiFQk0e6zkRmf1MWNsszVZob5AhQva5k
-	 WrMB6M9Q1FvZ5P0Hh2EW7smkYyvKQjuYrX8quPrO280xhozWOTcwYW3863nESJpbSyIUV
-	 RhgljqwwwKD7hr3Ml1iC4QaJkQ6XZOIQrcofcYvdoHO594VfG4VRdurNwtyPbYME+WRpz
-	 y2ooEd5S8BmXPBOISEkoIQZ9re750CSY3XW+27oqj1Mhd+LkoqS/hdG0EebofJ3vC2g==
+	b=s8R6pSxLlhSp1xgfFwo6FJV+6vX0TL9afdynYxXOqqjEW71K4uNCosWevBECbV8b3Dct
+	 xBQbHFL8jSjtY/E7msbrErRYExBOI5IPBcTqAmzhsRBtQG5+RZeasY/kyOvNiA3eBXyjO
+	 fhmnsfuUNLUyhReKzoGiREIxFrWFzwP7/XpiR8Ll2DRXfGkDRRG28CIHYmDfxHD2CIkWb
+	 yFNBHATQ0sxVFyeeX+2LZn21CnHUMfpNyQDmaRG8jP00A9p1+RL+81obPxVxzHTEinEGw
+	 TCWlgl5x8LJcgvbw0bZ+rRwDpenIr/xUPymVhW3hOeK9w/D+RtkfXx0J4CZoE5ZYrjQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795461742;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=Iu/W9cI80BP0uOCZ90VcjQkDZ8KJf9BC5LnUoRjoXXc=;
-	b=s/9or+51zS/EQF4ZAVRAoi0TSUcHmLiFAJ//HlhmLlaKIR6rQiOoUBRW3w8GUFEdPH6C
-	 5rwpmuTqB8mDh2AcZXVfkPZiApGjbL5/7/spqdgYDnmVK7KZjQt+cIa3+T7QM0J5H6NvU
-	 Z/vmApfU+pq/8O0cdZK96knTepz8QnMxdEPUkEgTtlOox7Fv6jCQQqaGbxgWut2saMchk
-	 PaWevTEIwoGkzLE+GD2tF7wZr/NSoDMAR12W+rGzH9ohL2p9twq2Hqu9YbKSuq06DOC1a
-	 BxWDFSr4IiTiLCUC5p2LyRIoJ+2mjs8Vl6//UO/5RatvJyrbv1rY6b+6J69wmdoTjwg==
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=AyL+KMh6DD33kI+Y41G7RzMfbQwYAGuOCoDwtZ9/VBE=;
+	b=hIYS79eKg/jvYeHcKK5VxOJEWe0THzA717DXZQDKjm9moCGbyAupMKlBu9z5nimZ0hq9
+	 hRshwpkf4/nM6ylbh2zGyueCxHmfy0BFcHKYYBM8Zw3UiefTL9oQUWVJv0MshDfqtHpoE
+	 t1g+4wdUASHeJ4FTyXymizyHHv4eMoHL6UuPedQ4R3JH3JCnDfR+eJHtsvPBoCKrn0gzo
+	 1LViBWKaOXHoriSUMP01XYVa/ZHzfc/oJPwNwVK4ibuvAjdSMgixvb7T2Hhlsad4ehyLw
+	 JdHVtaMSezQ4Mt1mBUlBlb8F9CzBA8TuH8QySd3e115z8685oAnI9YGromzpmj0+mFw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nCLL7L84;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c6c+As3p;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 236F6606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:22:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B04B4606A330
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:22:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nCLL7L84
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c6c+As3p
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795461741;
-	b=eNYjEwLISIjCAXb7Z5mVVmaJnAc1RjGfrVrMuAF58BBOaUf2xb2ytLkz6zlXkSKC3ajM
-	 jber4d50uuFSa9c5e70NHk5f7tclxu9qKwj943WgNzdMaKN5oyvTlwZ95BXYpyVknbTsC
-	 STeUEJKqhu5UBgzjdaANlYFHlb49zJW0YyFhXWHduUKqzAuCR7TT0eFqqdQ4niLcUYlq3
-	 QfJqfIy1zToy/JEr0Fg95GEhQqPbze9rIXjtuDaDvQcSsggdSR5mvzpTIOm0eQYuDqCBS
-	 DJyD5L5yfun5YG6a2TLp3pp+r/8NWYbUVJysQ9xpJamKyV4SnLKja1vjMxmr75kSHKw==
+	t=1795461742;
+	b=yYDjWQnW8WN1uyjxNqBR674mFWlIaq0De5lh2V8HVo9mdPwlB1BS54sey2FIwGOc5PJE
+	 Mh9SI0qYDirPE2cLJiTejjh+M8m+OtBKksIXCu0S0QsJltMmsfNDhSfQmQC/mvXh4Asxb
+	 qyadPlZLaRE31Z+xSn8sV53a7/gpxd31WcNWTZvtSNJiu8whttZe0VIMW/EnDmOIyLVbh
+	 LOsMCVN+cicDFXGOoscgV5HJud2ngnPklJ4xbykXylPyQGQLljqr7nEiA7rTDt+N+5jKw
+	 KfJ219nmHIlANM+ub1gNX0M7FWo0typUDyg1A1QqA87rXUy7jdpNkAygwJvXTrphFdQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795461741;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=Iu/W9cI80BP0uOCZ90VcjQkDZ8KJf9BC5LnUoRjoXXc=;
-	b=FzFE836iSh2jXJl0URzb5rjMW+FcAf9zYdYMAH5kRiWfIzhZ0f3euLltdrFi8IN/sCrz
-	 B19dnoNfFqPJYV2KwHt9EvkawWzlVWksU9Rgk9cz9b0v2Gkou+P/0wVG2eNF35b/yjxTv
-	 QreEa3C7ocSE7ucsyDf01jKKAE7ndVwurOyDuXEDmi5dflXPH7yGNYbAhtLkdvsqMTNfo
-	 GUXhfyxV5EhXJPJaxwDdhMnRO4t5hdQp/2aLBb7mRkNCynAEkNcYos4kPu0KNoh6iqrZD
-	 0rDBe0NeRC6ucHRcgE/Q8DjP8ZgnxNuv/MPtQVnkhGYycgDXkJTiPw/ZNt3Nb4sMIfw==
+	c=relaxed/relaxed; t=1795461742;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=AyL+KMh6DD33kI+Y41G7RzMfbQwYAGuOCoDwtZ9/VBE=;
+	b=cSH1zPJLv10vrLrvLunmf/Syu5if0cLDh4GvxZZL03i/NObfHFyDxzToST+2uxpJxIWm
+	 EhG5Myo5sHlSWiGGxMK3FRCLpaXWu1uiU4Kj5XywOp6eNOc+BcdluHdKWf74lT9uKE5sn
+	 LWVdvCCS3wo0RBSjjAVXNglG1fBYLzlNGYb1Mca9lqEow02LgyKJ60zatsVPLBdVTCZBE
+	 UjBakal9e/0HeIGbRL4SQhV9iy8OqdlVVGE17B05kWJBNv2fopBiN9QCO0csNORh6Cc3/
+	 hhO8U9wEft7PRXbZurK5h0mIi89eMHUMV5fDVlVFq0YKiTOHN8vpuczaKRnITyw67GQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4A46F1F000C6;
+	by smtp.kernel.org (Postfix) with ESMTPS id 4A4C91F000D2;
 	Mon, 23 Nov 2026 19:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795461741;
-	bh=Iu/W9cI80BP0uOCZ90VcjQkDZ8KJf9BC5LnUoRjoXXc=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=nCLL7L84sCsoULh0wtli0uw762r1nryLFntswHhtjQvluTSsWOfXjkzhG5fGej6gS
-	 9AgN2AmTIemADHOeKUGdVSUjggWUb9BhFqHIBxxx5aZaJ/BNxaQqULAa2rjhprzu38
-	 EcMfBJELa8mGOn/nQ9VBwLewGLLxlLWD5qtembe0GzMoziWFymQG33Iewnc5NNLzCd
-	 dwlfxYTui1S+l12Gw6AqqRmziVUJc35hLb1JsKpYJ5JTZXv8vWPCUO2j3yZUr4hc9f
-	 fuX91VvPrgTf2TGe6eBU7K0jMjV0d7hiwCz4+P6t4crict+XBLVqC8DPG90qCV4Scq
-	 I/uJwa+pbHzLQ==
+	s=k20260515; t=1795461742;
+	bh=AyL+KMh6DD33kI+Y41G7RzMfbQwYAGuOCoDwtZ9/VBE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=c6c+As3pYkf61WB1sF1LQlvjI6blT3xLtMqdJh3dcgy/pVpL7zuF7ddMJaVF6ZXnk
+	 /qWBE7XM5/ZVy2zv+oy33prT06N4JP4xvqNI2W2O9Mc2GNdENnvOrVn1HXDN+mWqzx
+	 mHO9W/VyAcqr+N0mpPB0WFoXz7nEIegoCJpV4sqnuKioZDlStkB/PR3hxV9GVdpGci
+	 d3YlzDkRqB4N9J1fp6b/pLUUSmtNo93bcYb/9yy9+8R9vKxELx+vVtEEKl8MEMKV1F
+	 438Aq7Bu/e6g6ZdVfiImREMshqcHENzyyW9R0wK4hmdanyLauvtF3xjBxrRO3I9PrE
+	 wGSiwxFIcAA/w==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A33384C64D;
+	by lkml.kernel.org (Postfix) with ESMTP id C70E54C63D;
 	Mon, 23 Nov 2026 19:22:10 +0000 (UTC)
 From: Josh Lafleur via B4 Relay <devnull+josh.lafleur.outlook.com@kernel.org>
-Subject: [PATCH 0/2] sched/rt: Restore the PUSH_IPI fallback for migration
- disabled next_task
-Date: Mon, 23 Nov 2026 11:21:42 -0800
-Message-Id: <20261123-migrate-on-ipi-v1-0-eacfe7e4b808@outlook.com>
+Date: Mon, 23 Nov 2026 11:21:43 -0800
+Subject: [PATCH 1/2] sched/rt: Allow queued stopper targets past the
+ pushable-head check
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,11 +84,9 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAEaSBGsC/y2NQQqDMBBFryKz7oATayleRbpIdNQpNOokiiDev
- al1+eD993cIrMIBqmwH5VWCjD4B3TJoBut7RmkTg8nNg8gU+JFebWQcPcokWFLu7tS6Z0kW0mh
- S7mQ7g/Xrz2Fxb27ir3IZyvOSnuKlHccX8wKoAocAAAA=
-X-Change-ID: 20261123-migrate-on-ipi-510b41db851a
+Message-Id: <20261123-migrate-on-ipi-v1-1-eacfe7e4b808@outlook.com>
+References: <20261123-migrate-on-ipi-v1-0-eacfe7e4b808@outlook.com>
+In-Reply-To: <20261123-migrate-on-ipi-v1-0-eacfe7e4b808@outlook.com>
 To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
  Juri Lelli <juri.lelli@redhat.com>, 
  Vincent Guittot <vincent.guittot@linaro.org>, 
@@ -104,123 +101,83 @@ Cc: Rahul Chunduru <rahul.chunduru@nutanix.com>,
  linux-kernel@vger.kernel.org, 
  "Josh Lafleur (Zipline)" <josh.lafleur@outlook.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795461730; l=6430;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795461730; l=2708;
  i=josh.lafleur@outlook.com; s=20260930; h=from:subject:message-id;
- bh=Wrsd8e1gb5ciWU+hltY5kz+iDYcS2cMAQldKALBiziU=;
- b=Ce/mxKtmYakO/QuEOjUYJu98SE0du3KHC554k7MbDraIaifHFxaVHcEEM115aG9uixqShTFZ/
- 62S/U1ZqEn0DsFcNTbou3PE9vzoT2cyN1i+PDdNu43utyWIneXgNnes
+ bh=o4GzxLYqqTV3IeOkvWTrIx4wPgWzaqGktUyZ0rosvB8=;
+ b=F7U76h1hy9eXYv5ekR6RwyYyecYwEn7/TSFjYsIfG3AIoeP1vWcvQZmmTUO6sMmuxcHGoHYJ9
+ fD7ipgBdECoDNS1NCHjwELfyxCVSwWyzn/Bw5kG80/HmMxdIMfoaqpw
 X-Developer-Key: i=josh.lafleur@outlook.com; a=ed25519;
  pk=slf3cskRg11vRnFROP6D9bMBKyvvRNsP2Msvm4/qpmM=
 X-Endpoint-Received: by B4 Relay for josh.lafleur@outlook.com/20260930 with
  auth_id=1090
 X-Original-From: "Josh Lafleur (Zipline)" <josh.lafleur@outlook.com>
 Reply-To: josh.lafleur@outlook.com
+Content-Transfer-Encoding: 7bit
 
-A migrate-disabled RT task will remain on the pushable list though fail
-migration.
+From: "Josh Lafleur (Zipline)" <josh.lafleur@outlook.com>
 
-The PUSH_IPI path originally used the non-migrateable condition to
-request a stopper push of the running task, allowing the pinned task to
-run. The head check added by 690e47d1403e can reject the stopper target
-after the source rq lock is dropped; dae5c0292080 then prevented the
-PUSH_IPI path from selecting the pinned candidate at all to reduce stopper
-handler load, however this is still at the cost of increased rt latency
-when there are other available cores which may run both the current and
-next tasks of a rq.
+Commit a7c81556ec4d ("sched: Fix migrate_disable() vs rt/dl
+balancing") added a stopper push when RT balancing cannot push a
+migrate-disabled task which moves the running task so the pinned
+task can run locally. The PUSH_IPI path can request the same fallback
+when it selects a pinned push candidate.
 
-Patch 1 allows a queued stopper target through the head recheck while
-retaining the ordinary push validation.
+Commit 690e47d1403e ("sched/rt: Fix race in push_rt_task") added a
+pushable-head check after find_lock_lowest_rq() drops and reacquires
+the source rq lock. That check protects ordinary pushes, but can
+reject a queued stopper target when another task remains ahead of it
+in the pushable list. The stopper then gives up without moving the
+task. Since we know in the stopper push case the rq is actively
+owning the last running task and the rq is push_busy, we can be
+confident that it will not be migrated between the push_rt_task()
+and subsequent stopper handler.
 
-Patch 2 selects pinned candidates only for the PUSH_IPI path. Ordinary
-pushes continue to skip them and can reach movable tasks behind them.
-One caveat with this change which would be good to address is that it
-(seems?) feasible for a Task A running on core N with task B queued
-behind it and of lower priority to attempt pushing task A onto a cpu
-running task C (prioritized in-between the A,B) which would be roughly
-a short windowed priority inversion of task C. I have posited a third
-change to precheck the push_rt_task() codepath which would ensure the
-next_task is of higher priority than the remote rq->curr, however this
-is up for discussion. I can see how we would want to avoid cascaded
-load-balancing sequences even after the recent improvements to the IPI
-balancer, but this problem should technically still exist because the
-remote rq can concurrently re-shuffle during the push->handler
-sequence.
+Allow a queued stopper target that is still on the source rq to pass
+the head comparison. Keep the migration-disable and affinity checks,
+and retain the head comparison for ordinary pushes. This also makes
+the PUSH_IPI fallback usable when pinned candidates are selected by
+the following patch.
 
-I was able to reproduce the failing migration with a set of 4 tasks
-which are runnable on 3 cores in addition to 1 per-cpu high frequency
-periodic. The periodic runs at multiple kHz to stress a higher->lower
-priority transition to kick off cross core IPI balancing. The A, B,
-high priority, and busy worker are all ~wake aligned operating at 50Hz
-(arbitrary number for this test case). The A and B tasks content on an
-rt mutex in a non-migrateable section for 10% of its runtime whereas
-the other 90% is spent running busy work. The A, B, and Busy tasks
-have 5ms of work to complete whereas the high priority task has 1ms.
-The periodic runs at 4kHz and does ~25us of work.
-
-The intended sequence is that the A, B, and High priority tasks start
-~algined on cpu such that one of the victim tasks goes non-preemptible
-and blocks on the acquired mutex. This then allows the busy worker to
-step on cpu for its 5ms runtime. In ~1% of runtimes, we would see the
-worst case completion time of the victim be over 10ms with high IPI
-interrupt rates due to failed migration. After this changeset, we
-reduced rt completion latency by ~40% due it no longer being stuck in
-the runqueue, in addition to the reduced IPI rates.
-
-Note: Codex assisted in the creation of a test module and for
-post-processing ftrace/test application data.
-
-The original testing was conducted on a PREEMPT_RT LTS without
-dae5c0292080. The fixed scheduler saw a reduction of 10/1200 missed
-deadlines to 0/1200 missed deadlines. It also saw a reduction in the
-max IPI per period going from 190->64. Following this testing, we
-applied dae5c0292080 and saw roughly the same deadline misses (15
-total), though roughly comparable improvements to IPI hard irq rates.
-Max completion times for A, B were still over 10ms with just the
-dae5c0292080 patch applied. This is expected as that change didn't
-intend to resolve the balancing storms, only mitigate the failed
-handler load.
-
-Completion Time Analysis
-
- Worker           Unfixed mean ± SD     Fixed mean ± SD    Maximum, unfixed → fixed
-━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━
- A                 5.088 ± 0.264 ms    5.937 ± 0.303 ms           10.546 → 6.065 ms
-───────────────  ───────────────────  ──────────────────  ──────────────────────────
- B                 5.982 ± 0.485 ms    5.096 ± 0.179 ms           10.549 → 6.069 ms
-───────────────  ───────────────────  ──────────────────  ──────────────────────────
- High priority     1.037 ± 0.021 ms    1.036 ± 0.002 ms            1.541 → 1.064 ms
-───────────────  ───────────────────  ──────────────────  ──────────────────────────
- Busy              5.133 ± 0.293 ms    5.130 ± 0.289 ms            6.057 → 6.056 ms
-
-I did note that per test run, results seem quasi dependent on the way tasks
-tend to land on cpus in the first scheduler run which is why I believe
-the A and B workers are non-deterministically the victim though we can
-see the worst case completion time significantly improve across the tests.
-
-I believe this is also similar to discussions in [1,2] (among many others
-when going through the lore) though I believe it addresses the root cause
-of the failed migration storms leading to increased RT latency.
-
-Note: The seperate items relating to the DL scheduler in related issues
-and the original changes is out of scope of this change-set.
-
-[1] https://lore.kernel.org/all/20261113160655.2909479-1-mgorman@techsingularity.net/
-[2] https://lore.kernel.org/all/178833372384.3717435.9283330313829938009.tip-bot2@tip-bot2/
-
-Signed-off-by: Josh Lafleur (Zipline) <josh.lafleur@outlook.com>
+Fixes: 690e47d1403e ("sched/rt: Fix race in push_rt_task")
 ---
-Josh Lafleur (Zipline) (2):
-      sched/rt: Allow queued stopper targets past the pushable-head check
-      sched/rt: Restore pinned candidates for PUSH_IPI balancing
+ kernel/sched/rt.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
- kernel/sched/rt.c | 22 +++++++++++++++-------
- 1 file changed, 15 insertions(+), 7 deletions(-)
----
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
-change-id: 20261123-migrate-on-ipi-510b41db851a
+diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+index 1535046a23ffa..54a6533cffe07 100644
+--- a/kernel/sched/rt.c
++++ b/kernel/sched/rt.c
+@@ -1923,19 +1923,26 @@ static struct rq *find_lock_lowest_rq(struct task_struct *task, struct rq *rq)
+ 
+ 		/* if the prio of this runqueue changed, try again */
+ 		if (double_lock_balance(rq, lowest_rq)) {
++			bool stopper_push = rq->push_busy &&
++					    (rq->curr == rq->stop) &&
++					    (task_rq(task) == rq) &&
++					    task_on_rq_queued(task);
++
+ 			/*
+ 			 * We had to unlock the run queue. In
+ 			 * the mean time, task could have
+ 			 * migrated already or had its affinity changed,
+ 			 * therefore check if the task is still at the
+-			 * head of the pushable tasks list.
++			 * head of the pushable tasks list. A queued stopper
++			 * target need not be at the head of that list.
+ 			 * It is possible the task was scheduled, set
+ 			 * "migrate_disabled" and then got preempted, so we must
+ 			 * check the task migration disable flag here too.
+ 			 */
+ 			if (unlikely(is_migration_disabled(task) ||
+ 				     !cpumask_test_cpu(lowest_rq->cpu, &task->cpus_mask) ||
+-				     task != pick_next_pushable_task(rq))) {
++				     (task != pick_next_pushable_task(rq) &&
++				      !stopper_push))) {
+ 
+ 				double_unlock_balance(rq, lowest_rq);
+ 				lowest_rq = NULL;
 
-Best regards,
---  
-Josh Lafleur (Zipline) <josh.lafleur@outlook.com>
+-- 
+2.53.0
 
 
