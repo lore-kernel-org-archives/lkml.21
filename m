@@ -1,103 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421641;
-	b=SEUBwkWEFVbyqpm/oYfuD0Ei3M7FLgGzmUxhNwiqBR/CUZJPNt9nAN0wQyMZ+LEiVXId
-	 STeo+1wiplHHM3TC+LSfiv3psyOup2CEy2dEK5SnmWfTGAVOf9zjdMJVsGadILws8Qd3g
-	 ykQ2BEl4TaUXup587v9gjH+fT3yZYRrZJkvWXFi61N88LnWgq8rqY0kerfo7pPs1GcJ9b
-	 b0hcXKB2fvmeZjvLnZAyCxHDCaZxQ5XHmW5MOdAIaWVWchenxgquOWfmo1Yslrzp8nAql
-	 mEk9NfeyP+MGeNuJyKqFi3iJBBgPIXbzo8zOJ8zjnSdlZdUt6D55Ve6BSHAGnKhaFEw==
+	t=1795421637;
+	b=qbFcT6UP8uqBqeO92WJ4Fln76OcQ0vmxuLLB8zhSlfeaTMEsCHJh/q43tZYEJywg9na9
+	 JkHtErb7STHJUzLTCCsgj26oGgD8f4X/wG1Xirk9sv6+d6Vu8nTs0ovSslfHIkQCaJ5l4
+	 +lvbQH9Sqq98y7W5QfB6cy6qwadP2HMzKxfCNHbRPGdByr0sJlY143sG0IFydZNeXsbBA
+	 PgSCtzoknTlHdT7Elvew20Dv06B2yngf5vup9hD9vA8kppUJ1SW952FPQL6DGCxc03ZL6
+	 WvS3vhgdSE4K9VcyNc4bsSBYVztQRIB6SvNafMSn7+95lImcLtdugrQYEnWI4wF8VCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421641;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=9lbGMQbqskhDEKZSTwjg1vaUlLvZgaoFI65yAtcZ0YY=;
-	b=IXyTjM9MzV3AOu4m1D78DnLyrw1sEcIRJ7aE/FeHBj/SPPNAkm3xaejocoRa/fMM7I2y
-	 xzwIVs4dfj+JbdfP5otbsdWGfhM1nW1w/RF0xWWs8zupTzRw9poXQ/2GjDhppw8C8Kjw6
-	 rkHZ8K7mn6uAaj2uDsZzcVdLb3jzLars1YEkfM64zaAc3ZW0dJEklRsRBRpLJQDlMUe+f
-	 kSfP1ddxSiqbaga5TeI6088E3rboQ6bkfQ6YurXZVmA+XTD9+fM8J+789n6ndnO70N8CM
-	 yme5nH2wN6ikNc27+soxC1RFfMS1Zu3tl8vpWZGYRuXPeaQzpxDDUfPZqFWoYXoM3vA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421637;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Y1VdEYkOFsdjBJ4FhwL8M9gh2t6rskpg0TRoh1e25yA=;
+	b=d9RulYzDx9RfHFZ64VXlmK3jzYu80HRmeHVxNwc2pTCaYgVaaoidY8GgKJfP0FvAYkiV
+	 7GGCbcWbtJme7ji8rnyL9alowREq01cSNm1kuX2D/H4r9HqVBw8U5cJel5wmE5a3iQ9ld
+	 BiJfa+js5Vjgx2NuLS35uqXIqbNIWp0DtROpLr7pqmmVJsFFwd7/3EokhhNnmrwrPlkGH
+	 M68Gld2T/Uw5CH3JWGDqnm9YtI+B4c28DNP2tYS9lSpI4d13i0uk2GUtbSqcwhmcsXFY1
+	 Hr9/Q0M4EcTqviVhJtiHd6nZhgv1kSHQMKYmFxIHg9RMrSc6SAV7lx1OajWBV849mtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="BjD8Sw/b";
-	arc=none smtp.remote-ip=74.125.227.137
-Received: from mail-pj2-f9.google.com (mail-pj2-f9.google.com [74.125.227.137])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZceTKAIe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F649606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:14:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F649606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 995CD606A31E;
+	Mon, 23 Nov 2026 08:13:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BjD8Sw/b
-Received: by mail-pj2-f9.google.com with SMTP id d9443c01a7336-2f06c2c371aso6246045ad.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:14:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795421641; x=1796026441; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9lbGMQbqskhDEKZSTwjg1vaUlLvZgaoFI65yAtcZ0YY=;
-        b=BjD8Sw/b2rAU/ErTCTCvZIesPsLIQStPziB+D6b2gfzre3ohmjHSB84hfghwxMN+eW
-         UdvPN/AZsDZweQyyvTLYeF5LiagL0ZVHtJ18Gt7UEM1BKQRM3DAGIvZlNobRiPRbULIE
-         6TXhEmbZ0350cq2jrb/H5SS9WyngMpygfK8PYNgPci9eiEMrIqQ3DCDv11yPbBG2EPpH
-         m7pbKfL+iY3K1TkJt0bzlMUjS+iU3ldPIXMKD8Mvju+Y8BjevxDJnA9HPT6VFErxWEup
-         BsXaBHkm5qesFFonJczGyjDwMHJy03vWyxgZUQflCnt4wtaevbCDT111yYiKeELHM/IH
-         0eRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795421641; x=1796026441;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9lbGMQbqskhDEKZSTwjg1vaUlLvZgaoFI65yAtcZ0YY=;
-        b=wL2pGdxm0KJPHqu9VpQMICO0gNqI5v4blnpgmMmSFQ7YIqwU/wycJ+SV5EfYslt6Ul
-         P+NRPU2NU0/iA6gCllTuXe/ALDsyuA00mGRMKkrZsO7T1SMFzH7//LqPiVOJlBYA89ad
-         mx+Rre3UmEmhqB1WnZ63D2vAh9kSmqrkkrzyPH+3Z2JaR5A5Wk4zHSctn4CNPxyMgIyR
-         8vA17DOw1ECgzp3ZSwidICnyGu134JLNY9FbCC8EsHCtmKT/bThTt2T5mfuLYCEs6q9Z
-         pVT6JPPX7yZUJpL3F1EOvse/C229POn5XA/gJEWGqxb0Schl+nI6wYge0XjCb8WFVpve
-         7eNQ==
-X-Forwarded-Encrypted: i=1; AL+hErEs3GTKXUVwuvW6l4Vtjo+bhpUqjAfugGKzFbEeCU4NzTyUgKU8mY0OmpMgsrsOcRQoUop5QxN7uBdpU2I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9k/+n5nPB8GW01HyxYIvlLivTrcw55O6c04SMR/cAbPuiE3LWI
-	JdjG7EjeRI1vUOwjDLLwG5HopzPh1r096SVdWZuzcVsrhEk3b6xZLbLk
-X-Gm-Gg: AZFdTZfTEmHLU8zdtDhPHoRFKVMzTubgxnwneuq2gX5wFPoApT83+iZbSwuPQ+aB3GU
-	ryuuxMVd7+xPF/BMzVif4S96vqsvoO29swQI0HlhCzzQYzqqiq6PeMKw6v5QgJmGy7khRxTBJd9
-	LkaAp71CskSv4q8mJCtWHnPE5C2mWHMQwLu7AAfqjKC07iHx9J8qpbH3ZV70FwY9/izfcITxcU3
-	iPRAvIa0T7EElng35wTYqnVpzRt1T+5tL4QYHSpUpqcblWpo5RpdG35JVBIDxi7VUFGrYkHRRHR
-	5OHpNKzT7vjRuP9/KR8hYdkcDqvsGWLq2szqsEZ1TYQ2uT3uus9kzpZlkI21AqAYtuUYRdAOtSr
-	mPnHdwkxYKso8toKlb/n0CrLH/rKzNv5bGYfidWfWPBWVttdo4gxy6rJCj75iwMsoBChvUPndxS
-	BV3P+Nz7txnBBc20x+oOoTQIaeUk9DPkPvElurTO5Ed36rb4UKelfvIljeguhLHxhprFxJkG+Z7
-	Wghwk/Hl2l8BXFE4HSFHVjXIxPAoqg1FlanS382N/2b6CA4HX2vsfPIQgHV/uu64TGt+VAj67Ej
-	OBvT94YyAzqEVWOWJtuXasxJI+g7r6ezDjBqWnUmnBLPFKjEkcedMXZU8Q+28kpPe5chRQXm07Y
-	=
-X-Received: by 2002:a17:903:b4b:b0:2e5:4604:c375 with SMTP id d9443c01a7336-2f03f1b6f40mr103618765ad.48.1795421640608;
-        Mon, 23 Nov 2026 00:14:00 -0800 (PST)
-Received: from BSDHENRYMA-PC1.localdomain ([43.132.141.13])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f07d6d4bddsm20290285ad.62.2026.11.23.00.13.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 00:14:00 -0800 (PST)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Zhang Qiao <zhangqiao22@huawei.com>,
-	Tejun Heo <tj@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] sched/autogroup: Fix task_group use-after-free when fork races autogroup_move_group()
-Date: Mon, 23 Nov 2026 16:13:52 +0800
-Message-ID: <20261123081352.3570164-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZceTKAIe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE48A1F000CF;
+	Mon, 23 Nov 2026 08:13:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795421636;
+	bh=Y1VdEYkOFsdjBJ4FhwL8M9gh2t6rskpg0TRoh1e25yA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ZceTKAIeBcgVkkVLqhcltRBe/mvkHF0yq1cHkYA7Xr6s5K7iBpNALqzO0V/e/o8LM
+	 wjzPq6dsbfD7uPAeO8Oagu+bn6fXAGMdNvqwktcrmSgBu4FEF6YiOcv5xQl9JbHtFJ
+	 TJJhOeIWLfbGfaVc9n7aa3cBpy2cAjXRcnGNiQFhY5lv54HP44bP+lleKXhxi4Ji9W
+	 KpAIu7nevQdoaNeMmNS9UIZvQzkhgDuMeL6y5iLpFFgZHGXrnIGh8DT3m0eUr2GrQp
+	 6/gitOqrTvz03EtIhV2yEIKHmg4ucWZEPawky2v/r9o+yzHm1SvC+04/PWSRCnhmm7
+	 1aRX6IocvcFWQ==
+Subject: Re: [PATCH net v4] net: stmmac: preserve RX checksum capability when
+ offload is disabled
+From: netdev-bot+sashiko@kernel.org
+To: james.hilliard1@gmail.com
+Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-sunxi@lists.linux.dev
+Date: Mon, 23 Nov 2026 08:13:55 +0000
+Message-ID: <179542163545.3135.9945110205092257108@kernel.org>
+In-Reply-To: <20261122-submit-stmmac-rx-checksum-capability-v1-v4-1-b729bef2695d@gmail.com>
+References: <20261122-submit-stmmac-rx-checksum-capability-v1-v4-1-b729bef2695d@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,132 +67,229 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-sched_cgroup_fork() reads signal->autogroup->tg without ->siglock, before
-the new thread is linked into signal->thread_head.  A concurrent
-autogroup_move_group() misses it in for_each_thread(), drops the last
-kref of the old autogroup and frees its task_group, which the new thread
-then keeps enqueueing into:
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-BUG: KASAN: slab-use-after-free in enqueue_task_fair+0x1075/0x33b0
-Write of size 8 at addr ffff888101007940 by task poc/20125
-CPU: 2 UID: 1000 PID: 20125 Comm: poc
-Call Trace:
- kasan_check_range+0x100/0x1b0
- enqueue_task_fair+0x1075/0x33b0
- enqueue_task+0x70/0x170
- ttwu_do_activate+0xe9/0x590
- try_to_wake_up+0x69e/0x1110
- hrtimer_wakeup+0x39/0x50
-Allocated by task 20119:
- sched_create_group+0x1a/0x90
- sched_autogroup_create_attach+0x5e/0x310
- ksys_setsid+0x2f6/0x410
-Freed by task 0:
- kmem_cache_free+0x1dc/0x3c0
- rcu_core+0x570/0x1850
-Second to last potentially related work creation:
- autogroup_move_group+0x2ac/0x3d0
- sched_autogroup_create_attach+0x167/0x310
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-Re-sync the new thread right after it is linked into thread_head, while
-->siglock is still held: a concurrent move_group() then either already
-installed the new autogroup, which the re-sync picks up, or is still
-blocked on ->siglock and will see this thread in its for_each_thread()
-sweep.  The re-sync compares pointers only; p->sched_task_group may
-already be freed and must not be dereferenced.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-This issue was discovered by Tencent CodeBuddy Security.
+- [Medium] When stmmac_set_features() fails to enable RX checksum on a
+  running interface, it returns -EIO before applying the split-header…
+- [Medium] Toggling RX checksum offload on a running interface still
+  changes the IPC bit while the MAC receiver, the MTL RX FIFO and the RX…
+- [Low] On a MAC that advertises RX COE but does not keep the IPC bit set
+  (the case the original d2afb5bdffde3 check handled), the patch retries…
 
-Cc: stable@vger.kernel.org
-Fixes: 4ef0c5c6b5ba ("kernel/sched: Fix sched_fork() access an invalid sched_task_group")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
- include/linux/sched/autogroup.h |  4 ++++
- kernel/fork.c                   |  1 +
- kernel/sched/core.c             | 29 +++++++++++++++++++++++++++++
- 3 files changed, 34 insertions(+)
+--
 
-diff --git a/include/linux/sched/autogroup.h b/include/linux/sched/autogroup.h
-index 704391cc1d20..edb1d5c022b2 100644
---- a/include/linux/sched/autogroup.h
-+++ b/include/linux/sched/autogroup.h
-@@ -6,11 +6,13 @@ struct signal_struct;
- struct task_struct;
- struct task_group;
- struct seq_file;
-+struct kernel_clone_args;
- 
- #ifdef CONFIG_SCHED_AUTOGROUP
- extern void sched_autogroup_create_attach(struct task_struct *p);
- extern void sched_autogroup_detach(struct task_struct *p);
- extern void sched_autogroup_fork(struct signal_struct *sig);
-+extern void sched_cgroup_fork_sync(struct task_struct *p, struct kernel_clone_args *kargs);
- extern void sched_autogroup_exit(struct signal_struct *sig);
- extern void sched_autogroup_exit_task(struct task_struct *p);
- #ifdef CONFIG_PROC_FS
-@@ -21,6 +23,8 @@ extern int proc_sched_autogroup_set_nice(struct task_struct *p, int nice);
- static inline void sched_autogroup_create_attach(struct task_struct *p) { }
- static inline void sched_autogroup_detach(struct task_struct *p) { }
- static inline void sched_autogroup_fork(struct signal_struct *sig) { }
-+static inline void sched_cgroup_fork_sync(struct task_struct *p,
-+					  struct kernel_clone_args *kargs) { }
- static inline void sched_autogroup_exit(struct signal_struct *sig) { }
- static inline void sched_autogroup_exit_task(struct task_struct *p) { }
- #endif
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 5efceb8d58a7..da6a59a260a0 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -2574,6 +2574,7 @@ __latent_entropy struct task_struct *copy_process(
- 			task_join_group_stop(p);
- 			list_add_tail_rcu(&p->thread_node,
- 					  &p->signal->thread_head);
-+			sched_cgroup_fork_sync(p, args);
- 		}
- 		attach_pid(p, PIDTYPE_PID);
- 		nr_threads++;
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 5ed660f099a5..3d911ae0f147 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -4975,6 +4975,35 @@ int sched_cgroup_fork(struct task_struct *p, struct kernel_clone_args *kargs)
- 	return scx_fork(p, kargs);
- }
- 
-+#ifdef CONFIG_SCHED_AUTOGROUP
-+/*
-+ * sched_cgroup_fork() pinned @p to the autogroup that signal->autogroup
-+ * pointed at back then, without ->siglock.  A concurrent
-+ * autogroup_move_group() that ran before @p became visible in thread_head
-+ * could not see it in for_each_thread() and destroyed that autogroup,
-+ * leaving @p->sched_task_group dangling.
-+ *
-+ * Now that @p is visible, such a move_group() either already ran (and
-+ * missed @p) or is serialized behind the ->siglock its sweep needs.  In the
-+ * former case @p is still tied to the destroyed task_group and must be
-+ * re-synced.  @p->sched_task_group is only compared here, never
-+ * dereferenced: it may already be freed.
-+ */
-+void sched_cgroup_fork_sync(struct task_struct *p,
-+			    struct kernel_clone_args *kargs)
-+{
-+	struct task_group *tg = p->sched_task_group;
-+
-+	/* Only the autogroup path can leave @p on a destroyed task_group. */
-+	if (kargs->cset->subsys[cpu_cgrp_id] != &root_task_group.css)
-+		return;
-+	if (tg == &root_task_group || tg == p->signal->autogroup->tg)
-+		return;
-+
-+	sched_move_task(p, true);
-+}
-+#endif /* CONFIG_SCHED_AUTOGROUP */
-+
- void sched_cancel_fork(struct task_struct *p)
- {
- 	scx_cancel_fork(p);
+net: stmmac: preserve RX checksum capability when offload is disabled
+
+This commit keeps stmmac_hw_setup() from throwing away the detected RX
+checksum type when the IPC bit reads back clear after a disable. The
+requested state is now passed straight to the rx_ipc callbacks. After a
+failed enable, a new rx_csum_failed flag masks RXCSUM in feature
+negotiation until the next MAC reset, and open and resume now reconcile
+features before RX starts.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index a685ce4638f61..739c6aca447ed 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3675,25 +3675,51 @@ static bool stmmac_tso_channel_permitted(struct stmmac_priv *priv,
+>  	return !(priv->dma_conf.tx_queue[chan].tbs & STMMAC_TBS_AVAIL);
+>  }
+>  
+> +static int stmmac_set_rx_csum(struct stmmac_priv *priv, unsigned int rx_csum)
+> +{
+> +	int ret;
+> +
+> +	if (!rx_csum) {
+> +		WRITE_ONCE(priv->hw->rx_csum, 0);
+> +		stmmac_rx_ipc(priv, priv->hw, false);
+> +		return 0;
+> +	}
+> +
+> +	ret = stmmac_rx_ipc(priv, priv->hw, true);
+> +	if (ret <= 0) {
+> +		WRITE_ONCE(priv->hw->rx_csum, 0);
+> +		priv->rx_csum_failed = true;
+> +		return ret ?: -EIO;
+> +	}
+> +
+> +	WRITE_ONCE(priv->hw->rx_csum, rx_csum);
+
+[Severity: Medium]
+The commit message says:
+
+  Check the result of an enable before allowing RX to mark packets
+  CHECKSUM_UNNECESSARY, including when the checker is first enabled on a
+  running interface.
+
+When stmmac_set_features() calls this on a live interface, is RX still
+running? The IPC bit changes while the MAC receiver, the MTL RX FIFO, the
+RX DMA ring and NAPI all keep going.
+
+Frames already in the RX ring or FIFO were received with IPC off. If NAPI
+handles them after the WRITE_ONCE() above, could they be marked
+CHECKSUM_UNNECESSARY even though the engine never checked them?
+
+The descriptor status does not seem to show whether the engine ran:
+
+- dwmac4_wrback_get_rx_status() sets csum_none only for
+  RDES1_IP_HDR_ERROR or RDES1_IP_PAYLOAD_ERROR.
+- RDES1_IP_CSUM_BYPASSED only increments a counter.
+- enh_desc_coe_rdes0() decodes status 0x4 as good_frame.
+
+stmmac_rx() and stmmac_dispatch_skb_zc() then do:
+
+	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
+	    (status & csum_none))
+		skb_checksum_none_assert(skb);
+	else
+		skb->ip_summed = CHECKSUM_UNNECESSARY;
+
+The disable path has the same problem in the other direction.
+stmmac_rx() reads coe once per poll:
+
+	int coe = READ_ONCE(priv->hw->rx_csum);
+
+A poll already running on another CPU keeps the old non-zero coe for its
+whole budget. Frames the MAC receives after IPC is cleared could then also
+be marked CHECKSUM_UNNECESSARY.
+
+On TYPE1 COE cores, would frames that straddle the toggle also get a
+length that is off by 2 bytes? stmmac_get_rx_frame_len() strips the
+appended checksum bytes based on the sampled coe, not on the IPC state
+the frame was received under.
+
+The readback shows the checker is on from this point on, but not that
+frames already queued were checked. Would RX need to be quiesced around
+the IPC change to close the window, for example by stopping RX DMA and
+NAPI and draining or reinitialising the ring before publishing rx_csum?
+
+> +	return 0;
+> +}
+> +
+> +/* Recheck the wanted features if this reset clears or uncovers a failure. */
+> +static bool stmmac_init_rx_csum(struct net_device *dev)
+> +{
+> +	struct stmmac_priv *priv = netdev_priv(dev);
+> +	bool was_failed = priv->rx_csum_failed;
+> +	unsigned int rx_csum;
+> +
+> +	priv->rx_csum_failed = false;
+> +	rx_csum = dev->features & NETIF_F_RXCSUM ? priv->plat->rx_coe : 0;
+> +	if (stmmac_set_rx_csum(priv, rx_csum))
+> +		netdev_warn(dev, "RX IPC Checksum Offload disabled\n");
+> +
+> +	return was_failed || priv->rx_csum_failed;
+> +}
+
+[ ... ]
+
+> @@ -4216,6 +4244,12 @@ static int __stmmac_open(struct net_device *dev,
+>  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
+>  		return ret;
+>  	}
+> +	if (stmmac_init_rx_csum(dev)) {
+> +		netdev_update_features(dev);
+> +		if (priv->rx_csum_failed)
+> +			netdev_update_features(dev);
+> +	}
+> +	stmmac_hw_start(dev);
+
+[Severity: Low]
+Some MACs report RX COE but do not keep the IPC bit set, which is the
+case d2afb5bdffde3 handled. On those MACs, does this retry the enable on
+every open and resume, and fail each time?
+
+On the first open, stmmac_init_rx_csum() fails, sets rx_csum_failed and
+warns. netdev_update_features() then masks RXCSUM out of dev->features.
+
+On the next ifdown/ifup, or on resume, the sequence looks like this:
+
+__stmmac_open()
+  stmmac_init_rx_csum()
+    was_failed = true
+    priv->rx_csum_failed = false
+    stmmac_set_rx_csum(priv, 0)   succeeds, RXCSUM not in dev->features
+    returns true
+  netdev_update_features()
+    stmmac_fix_features()         no longer masks RXCSUM
+    stmmac_set_features()
+      stmmac_set_rx_csum(priv, rx_coe)
+        rx_ipc(true) reads back 0, returns -EIO
+    __netdev_update_features()
+      netdev_err "set_features() failed (-5); wanted ..., left ..."
+      returns -1, so netdev_features_change() sends NETDEV_FEAT_CHANGE
+  netdev_update_features()        masks RXCSUM again
+
+stmmac_resume() follows the same path.
+
+Before this patch, the capability was cleared once with a single
+netdev_warn(). With this patch, every ifup and every resume would log a
+netdev_err() from the core and send an extra NETDEV_FEAT_CHANGE
+notification. Is that intended?
+
+The commit message says "a reset can restore offload if it is still
+wanted", but it does not mention this behavior on hardware where the
+enable always fails.
+
+[ ... ]
+
+> @@ -6400,18 +6434,18 @@ static int stmmac_set_features(struct net_device *netdev,
+>  			       netdev_features_t features)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(netdev);
+> +	bool running = netif_running(netdev);
+> +	unsigned int rx_csum;
+> +	int ret;
+>  
+[ ... ]
+> +	rx_csum = features & NETIF_F_RXCSUM ? priv->plat->rx_coe : 0;
+> +	if (running && rx_csum != priv->hw->rx_csum) {
+> +		ret = stmmac_set_rx_csum(priv, rx_csum);
+> +		if (ret)
+> +			return ret;
+> +	}
+
+[Severity: Medium]
+If stmmac_set_rx_csum() fails here on a running interface, the early
+return skips the split header update and the hw_vlan_en and
+stmmac_set_hw_vlan_mode() changes requested in the same call. Open and
+resume run a second netdev_update_features() to recover, but is there
+anything like that on this path?
+
+For example:
+
+1. The interface is opened with RXCSUM off, so rx_csum_failed stays
+   false.
+2. An admin runs "ethtool -K eth0 rx on rxvlan off".
+3. stmmac_fix_features() does not mask RXCSUM. stmmac_set_rx_csum() fails,
+   sets rx_csum_failed and returns -EIO before hw_vlan_en is updated.
+4. __netdev_update_features() logs the error and leaves dev->features
+   unchanged. VLAN stripping stays on in hardware and in dev->features,
+   while wanted_features asks for it to be off.
+5. Repeating "ethtool -K eth0 rxvlan off" over netlink does nothing,
+   because ethnl_set_features() only calls __netdev_update_features() when
+   the requested wanted bitmap differs from the old one.
+
+The VLAN change stays pending until an unrelated netdev_update_features()
+call, a reopen or a resume.
+
+The v3 changelog says "Keep a failed enable from blocking unrelated
+feature changes", but that seems to cover only open and resume.
+
+Should this path also run feature negotiation again, or apply the
+remaining changes before it returns the error?
+
+[ ... ]
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122-submit-stmmac-rx-checksum-capability-v1-v4-1-b729bef2695d%40gmail.com
