@@ -1,105 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433999;
-	b=HiIYYDF36mm0niYkooSPuxj4PIo23cSV7QMp1IjMFm2XvRfhogNzOvyhu4nYs+42Bson
-	 P56tddC52Dt/KwW7Iby5CT15s0ucz6paxl76aducML0wifwH1WdW/Z7gg4MAEzOUnb+A1
-	 TOxH0fHhsykXcrRfqiknut70hBq62gTxfANhiv8TPJlpCbzB8s8Uug8CYHs3esmEDSzMG
-	 lOe1AjwCpXG7JoDufIWp+LyrJxHn3UKoMZnVbWMSDnIdMTPfc/Pd78NcCBl0Azmk/BUUl
-	 uemGw/QRYSBz0zixXVep95xp3/qa64QVgVxU5uLidwQ1nX1V76eHGpiAuvCUquiSEZw==
+	t=1795434070;
+	b=Bulx6jXuIzltPAEeksXY3D57v2z0EQhQHoRJfDXi8lR2PZJyn1TplSROdEni2JwZTtK9
+	 amNdFv2B6//VmFyMtdaf0XNsSgIm64fnrBi0jVR3jtgfbCGf7+Ou3RiLzMfx+/0DqHF1F
+	 US9usb2twIeI1Ir/PeRBvh+9A1G1dQDrT/a+rIshlCsiCOHf8tR26pHwrxZZW7oZzsTDg
+	 23LMWsiG7SquB9xyYgc9SdG9RO9Ral65HE0InFMmclXTebl05o9zAuMmVmjVHJzzXVC2U
+	 FHOmf2/tI4s2w3pOEoSlvD+3+i/Kj4CST1jBteMzCnHEFOVRNCaEI1vFHMtF7r/s3QQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433999;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434070;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=dzG3GXZhvfXV1CjH4z9JC/RUQc8XXCYXZlNff5428CY=;
-	b=ItGMr+a92ZeUxKND3I9dlFVbSKjYjSLoReL4Sc+TK24ZAykaEgdK2erCnuSH27IvhOQP
-	 OAGjUYurWULqLywrpWmhc/+QWglWDsRHoP0Mf0HB4P6GFmpBCrtvJa9hGxyuleYkbONPz
-	 D25DExs7Cz6gsCEto5m7nlD8aMb4OHcyaa/wj4hK5g4egSpyDY0DvDGO9F+uuY6SXs9Da
-	 LRlwz7hha9zDY0kJZaJAUvi8vgah3P0soPUDPsxcLF7C2IRML/QkFTENGL410sY+TSUdY
-	 jNyaS3AlQY7o8jY0d/PSaB3Y79a5yZa0SqAnOObGa6T1Sgfbe2/A+5f3tuuXBF3WmLw==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=F8UfxySGOv1BnhxOIHb7TZOrVtDzm4+SYsgNqgsm3UU=;
+	b=FVo9JXIrMoNMA0f8gVo1mfMRKThWkC3WVTqzwlARkE7mkOoWI4y8/95WGonR6nHGmpXT
+	 srjZrtno3Dz88/EvZJIeZ4Q24CjAr7h7jPnHMcy2cKWHMMVDyOmUWUul4gHQQEBZ3v/U/
+	 gxhqQlSAIwPL9/QEfmTOomnNf99+4/qRw2jPMl6t17pF8eSfJILFtZsXnnBtVxdBLMTUc
+	 BcSxKw0W2zUwYiT1nIUry8WAQ+PghG8w7hWwdL6jIuh+oAyE2dobH2+e2IPL7h21KpWqD
+	 FjhASXSC4q7Xaa+/9MleF/aiKAijHmxZ6jZNMgjG3ZChVEBWGB9jbL8MUorDWj6wp3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A2dH5veA;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=J08bLTro;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22E2D606A32D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:39:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22E2D606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A0B7606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A0B7606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A2dH5veA
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f0458cc9easo22383775ad.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:39:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=J08bLTro
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so40000355e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:41:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795433998; x=1796038798; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dzG3GXZhvfXV1CjH4z9JC/RUQc8XXCYXZlNff5428CY=;
-        b=A2dH5veAYU9uoMnrxmCkRpQeZ0A/ZwDFNnDLQM4oCIdIkraVq13RcbOIFo5ogYHW34
-         yQEXCsWBQBd5Oi03QRr/O7Ge9qpd4RlbrSFDsGIEDcagzszpXiPvKQC/9tioZWqMapSx
-         CnZjg/qRD3DcZv0suqf0F6vnaXAyYJi2sv2CmvnHSziWmyD1ctOCJX9NM/wYuV8ZcFOD
-         u0QHblU1m6MXTIUlqb2N02flLxsbt1XVqP4Xa3q7GL21gplmPtn2NcmRpbggGx5lpZ2y
-         xkXavM2K+bb/WDFqfj2y+9AN4RRXWZHaaVUSq4ibjQBlOFIxzl/qBmAUY2V9lzOhBrZd
-         fFjQ==
+        d=suse.com; s=google; t=1795434068; x=1796038868; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F8UfxySGOv1BnhxOIHb7TZOrVtDzm4+SYsgNqgsm3UU=;
+        b=J08bLTrowdgJPgjhkkBH+cXrotJoMXPemIQ4IlNLhjvUsvEXaRek0D+f3nVkoBcNkh
+         4tYINQfWwWQYjZJIlLQN7nHRU5q0XXX7krCcQyjlax7TWO7IePBcmfPUf+Mr6jhXfDCk
+         H3bhw/sV2MAVi+2jL0qxEeFIoxAWTK29mrR0a67pf0Ds86fuCZPFR+XxshrI8rgaivJB
+         x/xrLo5p9ErhpMb6qjIVcyaFLdwNrebz2W33vCrRZSQqllNBEcP7PTqtwNRxdu4XzMWy
+         b5ahG1Oh+3zy2Vlxntkrt2K0Xb9n5G26GmZlA7sg3+MVUM6Ss/I7lxY1+LPE8HHVQ6sv
+         k6NA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795433998; x=1796038798;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dzG3GXZhvfXV1CjH4z9JC/RUQc8XXCYXZlNff5428CY=;
-        b=IMmMGdMBsYu/c0TMAhBjH+0TYBK7HbLlpPOfmX17PEyJ0ZLgzpFZPQy0YmBqeYkqGz
-         Ni0wi5KtelMuMSNixVnWoUAnUvdGYcnNoi/ZcyIk+Hz6lnU98e7YLfeCqz0aDTFnlJoz
-         ximrMnwiq6xJM6gCWX34w7Z0BF7nHaBJWAwSDgTiJl9R03AN1il43CZEk8toXAd9BTzS
-         o7gj6QTxpkggPBGSa7uY22k2tgLsrkzYOIiI+erVhD67HTd4Xhnn7bqH9+rwKP2JHtFo
-         NOJAexZB39VX2U60N1A7VxIiaeAd/S9Y0L77rW1tvot4m25kQnyRIg5bPQ7HJt05PJIC
-         sXeQ==
-X-Forwarded-Encrypted: i=1; AL+hErGQAnzAN5ADleWXRpXgG4OACUwn8TouVB51gVkWbVp8Y5SQyP3I1Xymcgnn5CZ+ZtBQ3yGlkBYZXq5AZXc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+o4QhO/x6bHhV5BI/6ycsU2th1vTqL9uL7dzPByax8OUZK0BVB
-	PpfKsRETfQ45VMeccnaG0dCSKtOONX1iq7JLnxb1rP72uXWioYvsLtuWVXPqnnA/
-X-Gm-Gg: AZFdTZdDA5TmxFgXZIJsXZwMVnGTf0pnramg92HZNqcED4KGkdJemk4/5RSRwfu+pzO
-	kJ+LyeojzV7e4lSGcKcO67hdDm3WfRU/TgyPxtMcZhIoxoRMZBFJHqxvMGsg+YjpsSCde+1WCX0
-	6HvMRFbbgSsZPgDZNOrnLQDlrIMrffxkhhfMxEhn7k65PisaExSslDgU1EN145PSJkZDh9zTii4
-	RfsLtV3aahXkinfb/upkEEYPS8wjXkcqVM+U+rXmPh5ikJ5HhvEL7OZ6dpN9Zt2++uT6wu4OuMO
-	IHgy9qfVrrjJubcRLlxK+jXj5pDTgelNKKI7ThQQN6xsAC4eHCdxTCq/6F6dXBgu2MsWV4V9pqi
-	wgDhLqex8kCsi30DZ9fMYWK3nesxHdmFA/z0za860FkuD6y8N9O1lv7hdbIg0btr4g5+L0BnqiR
-	2BtI3LfOhpwK0HqxktJtFTFD+0pBZ7snZLHSJV0sED9p5DlI7uvGH8iyhQLTTFgq12omu7Qw/lK
-	idISSs7BqRMRtlzc9XjE0cXagj73ZhIDFJYW+S4zIlAelneyr/ov5bS0/T6wiB2guwKuzfCP8OJ
-	Xhng934NGL3PIWzYYafCeM1mpqJc5gtQLVVtH6JqpGen6A==
-X-Received: by 2002:a17:902:ebd2:b0:2e9:970c:2c9 with SMTP id d9443c01a7336-2f03f1c75bdmr133283195ad.42.1795433998310;
-        Mon, 23 Nov 2026 03:39:58 -0800 (PST)
-Received: from osman.mioffice.cn ([43.224.245.178])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1f42sm51601475ad.25.2026.11.23.03.39.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:39:57 -0800 (PST)
-From: Zhan Xusheng <zhanxusheng1024@gmail.com>
-To: tj@kernel.org,
-	mhocko@suse.com
-Cc: akpm@linux-foundation.org,
-	hannes@cmpxchg.org,
-	roman.gushchin@linux.dev,
-	shakeel.butt@linux.dev,
-	muchun.song@linux.dev,
-	penguin-kernel@i-love.sakura.ne.jp,
-	mkoutny@suse.com,
-	chris@chrisdown.name,
-	cui.tao@linux.dev,
-	cgroups@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	zhanxusheng@xiaomi.com
-Subject: Re: [PATCH v3] mm: memcontrol: don't miss processes whose leader has exited in OOM scans
-Date: Mon, 23 Nov 2026 19:39:51 +0800
-Message-ID: <20261123113951.1771223-1-zhanxusheng1024@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <305c5803b904a57c188b505d6ed9e1e4@kernel.org>
-References: <305c5803b904a57c188b505d6ed9e1e4@kernel.org>
+        d=1e100.net; s=20260707; t=1795434068; x=1796038868;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F8UfxySGOv1BnhxOIHb7TZOrVtDzm4+SYsgNqgsm3UU=;
+        b=W3WBRwPUcwdXcGfCkfL3nh6Ewh/7nrsoh3w9KCSZgW19KR6QUMkJW43ssicVH9ihgJ
+         SqK45MI1FQTwklVB6eYJ1cnIdoHsiu6xgdfmWkgs9NwlxdvY8ED2bXlGIy/ryVbAq+4E
+         4+2fwD2jZUxlxYHfX95dYGDfflQYYhorjGTqnAArd8nR1HnobhyQ4WFyZEdE+OdKfBVh
+         WLpffFUVs+er7/qICPsX5zhAzvswdSsIA9YlKjZj6S+R1Fgo9Xt/vZ2bt3CDmLC+bD/+
+         5ddAzdHCI/XSM6UYdX/sjgGoQuBJ6YI3Q6xzaZoldakOJzYNUh44VzeIxFO/K9SIDuH6
+         BdZA==
+X-Forwarded-Encrypted: i=1; AL+hErFMI90a0nJKNGfPmGkv46DHE9xYzqSURIuVZlzcvfgZoodLXBfrcWosUil9wNZmN5rySt8qlqYiPOy+Nqo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/acvK7WrzJeaUkbGxuMXYxhDCEZ6Np9mwEs3670FgYhVFw7pQA
+	MyZMAKorL2H6N4b0cpAxQBoLWGsu9FGl9vvCg8qqob0CxicVtkCGHBp9DbwPhY7Qbxo=
+X-Gm-Gg: AZFdTZdT9mF5abw++yOV+2CFAy9+3eK0ohNPDyLS4v+hym4lW+9NT32SX0JoAtBzhee
+	ruBBKwd975nEKzU8u4KxeyBwpiJ8VbtebeXMKD5awbLLAHgSDXJblCPr+ByYrucQsCjSOKcujKv
+	vYLf75viEzj5xm2J7IJAQ3N/9OgazicOJaUfbL1WcM6xTYtHKrwVU+gtWyYnNIyndzrWQpFrshd
+	BfsZWsnoKybPJF55Rs4rfcn42pnU2k/OBnyvOCpTjzE7tzoCuNQskVljguXSy5C/iTeEwQyGHn2
+	GId8dQ0+28lt5B59pBOwhugpg6gq0Hw1rzLLnaC/cdhP2KaKbuiEXT0hi5p4inAxkybLyl444hG
+	N5RSjAAdcdNtq+MNwAaPVIhm1PAl+N1OPZu2HMh7iXej2ylWS3w5HzAUTjZG1z1uXvr563J+CLb
+	PfVAqE4FHg0cZhuWw5/92lswexcNp1VYQ5buYJuQtcljpLvpovzI/vbdunsHadY26rFTJaOOY6M
+	uKqG6PNqFij+MHLJb9Knej2P87jg6e2BuBNHuEP2BnfWGuC7OTIdY3qxgbnzSA85H0BYmfHh73j
+	lgG9iI4DW0fRfc+tqWCCvMwDQhJ1zhlnahomMRuoowy0Fw8GIKtxZsWP6QSX9RRbeLshS2fFjwL
+	AQRr4Kox4jv1+POX5
+X-Received: by 2002:a05:600c:3547:b0:4a1:c27d:e1a8 with SMTP id 5b1f17b1804b1-4bb8880b88fmr223796715e9.10.1795434068387;
+        Mon, 23 Nov 2026 03:41:08 -0800 (PST)
+Received: from ?IPV6:2001:a61:131e:b901:6da9:459e:7c6c:e85e? ([2001:a61:131e:b901:6da9:459e:7c6c:e85e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b39b6sm305870855e9.12.2026.11.23.03.41.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 03:41:08 -0800 (PST)
+Message-ID: <cef781a8-45db-4540-981d-b38667dcfbb7@suse.com>
+Date: Mon, 23 Nov 2026 12:41:07 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,15 +93,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] usb: uas: expose US_FL_NO_ATA_1X in sysfs as
+ ata_passthrough_disabled
+To: =?UTF-8?Q?Mateusz_Jo=C5=84czyk?= <mat.jonczyk@o2.pl>,
+ Oliver Neukum <oneukum@suse.com>, Alan Stern <stern@rowland.harvard.edu>
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <mkp@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
+ linux-scsi@vger.kernel.org, usb-storage@lists.one-eyed-alien.net,
+ linux-kernel@vger.kernel.org
+References: <20261121155253.4980-1-mat.jonczyk@o2.pl>
+ <68f6376d-a0cf-4f87-9cbb-0afb7b8536d4@suse.com>
+ <52a233cb-1671-431c-8c14-7757ca947aa5@o2.pl>
+Content-Language: en-US
+From: Oliver Neukum <oneukum@suse.com>
+In-Reply-To: <52a233cb-1671-431c-8c14-7757ca947aa5@o2.pl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-Hi Tejun,
 
-On Mon, Nov 23, 2026 at 01:13:25AM -1000, Tejun Heo wrote:
-> Maybe the leader can pretend to be in the new cgroup instead.
 
-Thanks, I'll implement that and send it to cgroups.  The memcg scan can
-then stay on CSS_TASK_ITER_PROCS, so this patch is not needed.
+On 23.11.26 11:48, Mateusz Jończyk wrote:
+> W dniu 23.11.2026 o 09:27, Oliver Neukum pisze:
 
-Thanks,
-Zhan Xusheng
+>  > thank you for handling this. One thing though. This requires putting
+>  > the emit code into every driver. Can we centralize that somehow?
+> 
+> Not really, short of moving the handling of the ata_passthrough_disabled
+> attribute into the middle SCSI layer (which would also likely involve
+> moving the whole of US_FL_NO_ATA_1X logic from uas_queuecommand_lck()
+> there). Is this what you mean?
+
+Now that you mention it, shouldn't that be where it ought to be anyway?
+Usually the SCSI layer generates or filters commands, while the LLDD
+determine what command sets a device will accept and reports that.
+
+	Regards
+		Oliver
+
+
