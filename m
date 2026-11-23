@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795417313;
-	b=tcMGxkucm4VirDRhPsdXl2HeCS1Dd+1eSYs+9H2pw6YU6njYYRGya8LVPgMGbGSK2pur
-	 xYKI/v22/cAwQBjbrV3cq9tLFmNCfo48PyVpftt9Is79cYxevXpZQ1530hN8kJekoyDqb
-	 zpaEjSr68ZAk+hm+G9cJ7Td/Tn/EzRFTOS/cSjL7r/TKC04lpLYB5+hSY6ocpjodCxU+o
-	 VSH4zJSBaOWfgbI027ooctljFWPfqFU7awJhcIwz87IDIYzTzOkfko9OYuWLXjYWLbgns
-	 u5dizf5pki6dihWdq+ajaUFdkzhrDzmD2SS55QD6MMpQejeAaQEbJMOYGy7NpJcFdIQ==
+	t=1795417318;
+	b=UhI/ul86qIHx0/fFbC+Nt8gNXCtk+TJXehLliATG0RlbmqZgmozv4EPQXNrMwyFbVgLa
+	 YjK7KwpzSP242is3emoY9rGvBN9r4jGReMOtXyljpia8Kpr1Yf7m9xfS6xAR1QcCEyBak
+	 lT61+yWK8+1BXeNQdnqnZp7zIE+6FlO4DNVgmbOKpz2Qqrh4rBNRpt8OcBU2zt0eNfMGl
+	 70CVnwAJZ8SUqfB+urmL7r/5yK35H9fDAK1qJYjTEjUCIdYmJxSBmlR2yQp2XwUNIaN8t
+	 n/PZwENQmu8gd09i32lZG8DTsArq7nhDNW48UQoWcCXEU9ujoBjqST4H8o9OXRuDEtQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795417313;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795417318;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=BaHVj1vymyANMIuaDlnAd/LpWMipmRDfZVKqcVMgeBQ=;
-	b=AfeYIwJTrkMBOv2A8Uf21KAY/VeBq1fpfc7lionLhXb8jBQGf1VHiv/nzLdTx8mdBG/P
-	 zcx5f0xouob2zzp/YSrplgayj9g6FOcOTPDcjrB5jWVGeAgZSLVijOqUUpm6w1xLm/9ZS
-	 CiHpMqCRXxX98HECNR8asPfNSVMEu/qyVHMvXNa735K6k5dFT8dCiWEBSXJFnAJMHjMRe
-	 zge2X+x7GFvpF+Fv8Xmv6GDKGakUQWMARvCAqpklYrSTh7WqIZxaBEWL/H2c7+dXUBsEZ
-	 jwFi9MMxDP57xIQiA2g/Daenipkj8SNtnbSAcK1NjulVBjNwKaD6W005+1DG4aY/blw==
+	bh=g2CjduqTplR6Y/0NMaC1HGY20Z0WtrWxgraSoRihXcI=;
+	b=tv63mcXx+WL3nmXbWkQXxea4BHYmmWrAjBKD57Rk9zjIjALIlKXUA0zGp/hL9pbRxoa2
+	 d91+FGCTkZt8lWjZH8Y9E5AnO/ueIRmbetXOY6fY0h8A5miJgTEAHgcrzdvmjWP96ru+i
+	 l6lVft5vBpwvW+O6LMsaqudhcJQNbb6shvt1jUOAZLRid2NEylSoYSgBt5maGgiDxNv+g
+	 N4APaHoOVs99JImg8RkxUv9AAjeW+z5b7xqAbS+tA1Na4hdyXQoP7Awog7K6796JmzxXE
+	 welbLFkh6w/HWjp4CjyUqS9dAVtt2+VBp354nVrOIjGwRRci1Zn3q6UAe22vKHGY/yA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CVkYng4x;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CXWHNzgj;
+	arc=none smtp.remote-ip=209.85.208.43
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2F83606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:01:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2F83606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41813606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:01:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41813606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CVkYng4x
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb606491faso15775355e9.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:01:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CXWHNzgj
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so3143406a12.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:01:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795417311; x=1796022111; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795417316; x=1796022116; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BaHVj1vymyANMIuaDlnAd/LpWMipmRDfZVKqcVMgeBQ=;
-        b=CVkYng4x4mEQ5lXZmAniDlM9/OoBk5AFW1ldYs+5E0C7TfuPXvtewxUDzoTf0izWu+
-         58k4A39TAfQjaLr70kjJZ8qe/cbVT2MSxDycuJXoIRSaMVidCxJr+wzwDiZdAE5vHesJ
-         6M48Oh8012gQY6kklaGIcPYcecJA9TBR5r46206WzyzGuguCUMBdKEQhc6Mq2Nkxcr9o
-         CN1mW62lU+xuSjrTTLfGmcTNFQr52e5qqLn9+s3aPLOOiZ46DMBpSEg1h0DUPGYUcMFq
-         0pDJRPrcXQ2Z4yjbMDJqTZxYotfD43HWkZob1Ls5PU+u2fP7E/s8UUsaPNCrsl0vusjv
-         5zCA==
+        bh=g2CjduqTplR6Y/0NMaC1HGY20Z0WtrWxgraSoRihXcI=;
+        b=CXWHNzgjA0yUA2i/GW2ZXwg+sMyS3y7h5sGKuvPwI5gWhUxGwOmhqX8mt046G81QOz
+         Zc5oqQ/HCN3zeVzGcjtF6MlbZsPYIwbCaUCa8c5EWO8VsZZR2V5+IbDCcTWLIu5zletL
+         CNdyCaEKlsVu08+X/T2tqyspVHqrTGEmX2rJc9FiVP2GCnlso7FaD51sJPcxRASrImJQ
+         hk6Sit7QC5kk6URFZwICYJk9rwvesjW+vv1xU4H9jyoAwpuTW8Gw9kroSE7jnT7L24Kd
+         7GmacQQr1IypIp5gjvIUASqZXqM+QpvkAFh9mY4T9Gvdq3RQFhXPoC/h4UBQlcspamhU
+         aCtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795417311; x=1796022111;
+        d=1e100.net; s=20260707; t=1795417316; x=1796022116;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BaHVj1vymyANMIuaDlnAd/LpWMipmRDfZVKqcVMgeBQ=;
-        b=OuRc/QCUejk1qh6Mm+YZyXvkk0vyY3cCGQUPQaLqrIXzPxDB4O9/RbIrzeaKriKFf5
-         JEOO7+5FlM7qsL8Bnm5fWhfcmHKlPaoxEioB2hfioEb6bFzaL/MEKbbNqs9/+IRPh6Lx
-         W6pWMdZlIzl3/p+uBo8bMWnNRYZeDLp0/cpvzTSEw5FPZp4Bw8FQFh+WAFxJ//ep/c4R
-         RGPlYnVxsimCox9xGUEw0s+6lERZmuOb1MTlP3XJBD2dOvMeG1XqCNa7OObw9JmVzI6h
-         2hELSQ2DpKJrIdmAZD7Cc8pKKG7fA7+0pQlTL6zm6w1b7fb66hLhKq1Lw9NeetCp39dL
-         hX3g==
-X-Forwarded-Encrypted: i=1; AL+hErHe4C/fZoPk6t6wgJRPRcsslXXevK1EYkfYRBKkjSxTwdqizNbe4E1Jj+ALPIxvV3MjAuIcl9pNrrSY/bg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CDxDtRvlazhHc/xmn/fPOfdMEOpE63w1M2EnF8u/C4tpiahhV
-	9w/+zusoK8kX9U73D8CJboCRCJFN4r+zZPzJS6cksNY0vRO64RJvPYmo
-X-Gm-Gg: AZFdTZdNiFTjxeUWQ6VxPkYfMOJOZdfWx+pYN5GkG5ehTmD8syTWo53xjr57KdCBfCT
-	N7kqCcK23iDZ471tWb/BnoXG+Wakqqx4uS9dQtLOsa4hqDlUkeMHVFP8Q/0qpStqnuUOI+gGdYj
-	RK/pSG4N9nsWMSmdKIQte6WDYRmWVV9TFwydQOhx8yKOLSNw4l2ogRp+c+jX8IexoEiljv5r7ZS
-	QFX7ibFfvJHJJmau63gdt+JTcNKlz/PNabhrv3nnyjD7Q6hgP6kIRKY2FiDqsD235qYVbBrgZDY
-	dhdb/EBCkdXYI65c7sbo/SdXKGDiROozmRbtphwT5NUVLNgLTMEDD+8ryk5ggFvplhaRTzoykhy
-	54S+WFazCLqNCgLotgKj+vjgj8FtAY5tZpMinQ8OvVzEIv8sr63V2s26X0/MHDacXuH1eRal8kJ
-	8IGv19h7E7drsp3nJck2DqD/wocxPh9d6dal0vO+uGB3KNBeKfwqGETsAPAGvrHjJQhhqcgDi3P
-	/OHlev2BCLkVYKqn9yQSQgWej80QHJi9ucrVavEe/Xd1hKEjaRR21P/cj7kQbHCtYbgCzSSE5aF
-	DaFrP8X/zlLWYgU02yxWBKBCZDwek1qnWiRw
-X-Received: by 2002:a05:600c:4e0d:b0:4a5:e6fd:65e5 with SMTP id 5b1f17b1804b1-4bb88922a67mr213919275e9.31.1795417310939;
-        Sun, 22 Nov 2026 23:01:50 -0800 (PST)
+        bh=g2CjduqTplR6Y/0NMaC1HGY20Z0WtrWxgraSoRihXcI=;
+        b=jGrtKe8N9bKxgyHNHD99lQR5mrDGzBXyDeDu9YsmSUcHH8LCzuSnjbIznoywap+z9P
+         70nw5rUHBK0ty/3kLK11FkY+kzH3uWxuZuigyBYDl9cTcW/Wxu0rRAXh+/wP1ZexctSt
+         +1nIRZDP3OZK7WIfd3BgMi5MC17M4HU6lP0aZRKedVwyV46rcpBxSAArRXBe2TFvw3SR
+         UvYzHIiyijpbqLXfeouly8Mim7ILhN6jBM0swZf4vMSWLspV1K4ixM6qKyxRorXId8lp
+         fTjx6eNqA4pICpVhjgH7xhHBgtEOor3fG9AQxHMC+aqSGp63Cu7svCY9m8Xii7O2g/VL
+         MgqA==
+X-Forwarded-Encrypted: i=1; AL+hErFkirCl/TL085AE2nKpGnJDMon9JbsGxXCpCxXcb1jx2GKGMWiukdItWDm3yh22bE2YhiT94aj+FJ0YiAo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Ae+ECfMvJ4THudXYesknlGH72ZHQZW2Bu6e/aPW5QMJE5c/dM
+	2hAK0hsl5dOy/uU5RcJb/sXKCk3MBM/vOl8RH39hTqHGTUz3N5q8P/VY1kUNVg==
+X-Gm-Gg: AZFdTZfNArmu08FXhmxZkPTr/kNMTOVrvxKwFhNQrrDyRgVmYlGSMD7UyQrNywwJVS+
+	b8lUJc6f+kkYpPQ8DmROw5OQVXE+Be3JuSEU0DbJvWWk8iyhYnciLWVn3cCUR5jKg7+2pOImxLA
+	ia/QHdTMLxM1l6f1O4aWZM9rNLrouQ8pJpkKUq3DavbyWYD7P06KsEWnisDNNNWiDjaAhkYdDob
+	4/5KX5QXx5z+gND/w9i1cu1UilGTDsteYwMKvEMjZKq2tg+MDFd4a5NbCTVeNVz+DUG2OdtqYt7
+	0AeUzIh/EDIKlivBOMXT8Kp025Qg2oqIPpDjHNBJOzZZFkdj9ZnPfodS1AoZRUH7LP+Liy6qGtG
+	2vfaCt79tDIYZwspYNUnZVpejExDTd6u+JAYhxRZwLyssPXYFcVAQwYDekXTqho38GPCOP+yqtP
+	xKCSB9AjXp7TPBSUyZfolOW4I1qpjfSj9h0GE14jfZc2aqqbbqnwfAJ2/LTO3miTCpBQOPr5zKp
+	BpeE/wnqksdYfg34yuUR6UVpeYsz+72IRTvFKUFcude5j/ZWNlf47G6wYP0IyJcId7w7OOHyUw+
+	zgOD+KrmfmfM8sRab/rdmc4r2zUas/rVFUY+
+X-Received: by 2002:a05:6402:2807:b0:6ba:b1fd:6e7c with SMTP id 4fb4d7f45d1cf-6bab1fd717dmr1440319a12.1.1795417316290;
+        Sun, 22 Nov 2026 23:01:56 -0800 (PST)
 Received: from fedora ([154.182.66.143])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm20779007f8f.3.2026.11.22.23.01.48
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm20779007f8f.3.2026.11.22.23.01.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 23:01:50 -0800 (PST)
+        Sun, 22 Nov 2026 23:01:55 -0800 (PST)
 From: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>
 To: jic23@kernel.org,
 	linux-iio@vger.kernel.org
@@ -95,9 +95,9 @@ Cc: dlechner@baylibre.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Abdelnasser Hussein <abdelnasserhussein11@gmail.com>
-Subject: [PATCH v5 4/8] iio: adc: at91_adc: convert to device_property_*() APIs
-Date: Mon, 23 Nov 2026 09:00:57 +0200
-Message-ID: <20261123070101.53868-5-abdelnasserhussein11@gmail.com>
+Subject: [PATCH v5 5/8] iio: adc: at91_adc: use local struct device pointer in probe
+Date: Mon, 23 Nov 2026 09:00:58 +0200
+Message-ID: <20261123070101.53868-6-abdelnasserhussein11@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261123070101.53868-1-abdelnasserhussein11@gmail.com>
 References: <20261123070101.53868-1-abdelnasserhussein11@gmail.com>
@@ -112,130 +112,194 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Use the firmware-agnostic device_property_*() helpers instead of the
-OF-specific property readers, so the driver does not depend on a device
-node being available in probe.
+Introduce a local struct device pointer in at91_adc_probe() and use it
+in place of &pdev->dev and &idev->dev throughout the function.
 
-Update at91_adc_probe_dt_ts() to take a struct device and read its
-properties through device_property_read_u32() as well.  Since the helper
-no longer uses DT-specific APIs, rename it from at91_adc_probe_dt_ts() to
-at91_adc_probe_ts().  This removes the need for a struct device_node
-pointer in at91_adc_probe(); as a result, at91_adc_probe_ts() now logs
-against dev (&pdev->dev) instead of &idev->dev.
+Also switch devm_iio_device_alloc() to use sizeof(*st) instead of
+spelling out the full private structure type.
 
-Drop the " in the DT" suffix from the missing property messages to match
-the firmware-agnostic property APIs.
+This is a preparatory cleanup to reduce the diff noise of the upcoming
+conversion to device-managed resources.
 
-With no OF APIs or struct device_node left in the file, drop the
-<linux/of.h> include and add <linux/mod_devicetable.h> for struct
-of_device_id.
+As a result, messages previously logged against the IIO device are now
+printed using the platform device being probed.
 
 Signed-off-by: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>
 ---
- drivers/iio/adc/at91_adc.c | 34 +++++++++++++++++-----------------
- 1 file changed, 17 insertions(+), 17 deletions(-)
+ drivers/iio/adc/at91_adc.c | 61 +++++++++++++++++++-------------------
+ 1 file changed, 30 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/iio/adc/at91_adc.c b/drivers/iio/adc/at91_adc.c
-index 2a378540837d..b6e6fa77c782 100644
+index b6e6fa77c782..3d9ae99a2ce6 100644
 --- a/drivers/iio/adc/at91_adc.c
 +++ b/drivers/iio/adc/at91_adc.c
-@@ -15,8 +15,8 @@
- #include <linux/interrupt.h>
- #include <linux/jiffies.h>
- #include <linux/kernel.h>
-+#include <linux/mod_devicetable.h>
- #include <linux/module.h>
--#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/sched.h>
-@@ -790,13 +790,12 @@ static u32 calc_startup_ticks_9x5(u32 startup_time, u32 adc_clk_khz)
- 	return ticks;
- }
- 
--static int at91_adc_probe_dt_ts(struct device_node *node,
--	struct at91_adc_state *st, struct device *dev)
-+static int at91_adc_probe_ts(struct device *dev, struct at91_adc_state *st)
- {
- 	int ret;
- 	u32 prop;
- 
--	ret = of_property_read_u32(node, "atmel,adc-ts-wires", &prop);
-+	ret = device_property_read_u32(dev, "atmel,adc-ts-wires", &prop);
- 	if (ret) {
- 		dev_info(dev, "ADC Touch screen is disabled.\n");
- 		return 0;
-@@ -815,7 +814,7 @@ static int at91_adc_probe_dt_ts(struct device_node *node,
- 	if (!st->caps->has_tsmr)
- 		return 0;
- 	prop = 0;
--	of_property_read_u32(node, "atmel,adc-ts-pressure-threshold", &prop);
-+	device_property_read_u32(dev, "atmel,adc-ts-pressure-threshold", &prop);
- 	st->ts_pressure_threshold = prop;
- 	if (st->ts_pressure_threshold) {
- 		return 0;
-@@ -990,7 +989,6 @@ static void at91_ts_unregister(struct at91_adc_state *st)
+@@ -989,68 +989,67 @@ static void at91_ts_unregister(struct at91_adc_state *st)
  static int at91_adc_probe(struct platform_device *pdev)
  {
  	unsigned int prsc, mstrclk, ticks, adc_clk, adc_clk_khz, shtim;
--	struct device_node *node = pdev->dev.of_node;
++	struct device *dev = &pdev->dev;
  	int ret;
  	struct iio_dev *idev;
  	struct at91_adc_state *st;
-@@ -1007,32 +1005,34 @@ static int at91_adc_probe(struct platform_device *pdev)
+ 	u32 reg, prop;
+ 	const char *s;
+ 
+-	idev = devm_iio_device_alloc(&pdev->dev, sizeof(struct at91_adc_state));
++	idev = devm_iio_device_alloc(dev, sizeof(*st));
+ 	if (!idev)
+ 		return -ENOMEM;
+ 
+ 	st = iio_priv(idev);
+ 
+-	st->caps = device_get_match_data(&pdev->dev);
++	st->caps = device_get_match_data(dev);
  	if (!st->caps)
  		return -ENODEV;
  
--	st->use_external = of_property_read_bool(node, "atmel,adc-use-external-triggers");
-+	st->use_external = device_property_read_bool(&pdev->dev,
-+						     "atmel,adc-use-external-triggers");
+-	st->use_external = device_property_read_bool(&pdev->dev,
+-						     "atmel,adc-use-external-triggers");
++	st->use_external = device_property_read_bool(dev, "atmel,adc-use-external-triggers");
  
--	if (of_property_read_u32(node, "atmel,adc-channels-used", &prop))
-+	if (device_property_read_u32(&pdev->dev, "atmel,adc-channels-used", &prop))
- 		return dev_err_probe(&idev->dev, -EINVAL,
--				     "Missing adc-channels-used property in the DT.\n");
-+				     "Missing adc-channels-used property.\n");
+-	if (device_property_read_u32(&pdev->dev, "atmel,adc-channels-used", &prop))
+-		return dev_err_probe(&idev->dev, -EINVAL,
++	if (device_property_read_u32(dev, "atmel,adc-channels-used", &prop))
++		return dev_err_probe(dev, -EINVAL,
+ 				     "Missing adc-channels-used property.\n");
  	st->channels_mask = prop;
  
--	st->sleep_mode = of_property_read_bool(node, "atmel,adc-sleep-mode");
-+	st->sleep_mode = device_property_read_bool(&pdev->dev,
-+						   "atmel,adc-sleep-mode");
+-	st->sleep_mode = device_property_read_bool(&pdev->dev,
+-						   "atmel,adc-sleep-mode");
++	st->sleep_mode = device_property_read_bool(dev, "atmel,adc-sleep-mode");
  
--	if (of_property_read_u32(node, "atmel,adc-startup-time", &prop))
-+	if (device_property_read_u32(&pdev->dev, "atmel,adc-startup-time", &prop))
- 		return dev_err_probe(&idev->dev, -EINVAL,
--				     "Missing adc-startup-time property in the DT.\n");
-+				     "Missing adc-startup-time property.\n");
+-	if (device_property_read_u32(&pdev->dev, "atmel,adc-startup-time", &prop))
+-		return dev_err_probe(&idev->dev, -EINVAL,
++	if (device_property_read_u32(dev, "atmel,adc-startup-time", &prop))
++		return dev_err_probe(dev, -EINVAL,
+ 				     "Missing adc-startup-time property.\n");
  	st->startup_time = prop;
  
  	prop = 0;
--	of_property_read_u32(node, "atmel,adc-sample-hold-time", &prop);
-+	device_property_read_u32(&pdev->dev, "atmel,adc-sample-hold-time", &prop);
+-	device_property_read_u32(&pdev->dev, "atmel,adc-sample-hold-time", &prop);
++	device_property_read_u32(dev, "atmel,adc-sample-hold-time", &prop);
  	st->sample_hold_time = prop;
  
--	if (of_property_read_u32(node, "atmel,adc-vref", &prop))
-+	if (device_property_read_u32(&pdev->dev, "atmel,adc-vref", &prop))
- 		return dev_err_probe(&idev->dev, -EINVAL,
--				     "Missing adc-vref property in the DT.\n");
-+				     "Missing adc-vref property.\n");
+-	if (device_property_read_u32(&pdev->dev, "atmel,adc-vref", &prop))
+-		return dev_err_probe(&idev->dev, -EINVAL,
++	if (device_property_read_u32(dev, "atmel,adc-vref", &prop))
++		return dev_err_probe(dev, -EINVAL,
+ 				     "Missing adc-vref property.\n");
  	st->vref_mv = prop;
  
  	st->res = st->caps->high_res_bits;
  	if (st->caps->low_res_bits &&
--	    !of_property_read_string(node, "atmel,adc-use-res", &s)
-+	    !device_property_read_string(&pdev->dev, "atmel,adc-use-res", &s)
+-	    !device_property_read_string(&pdev->dev, "atmel,adc-use-res", &s)
++	    !device_property_read_string(dev, "atmel,adc-use-res", &s)
  	    && !strcmp(s, "lowres"))
  		st->res = st->caps->low_res_bits;
  
-@@ -1043,7 +1043,7 @@ static int at91_adc_probe(struct platform_device *pdev)
+-	dev_info(&idev->dev, "Resolution used: %u bits\n", st->res);
++	dev_info(dev, "Resolution used: %u bits\n", st->res);
+ 
+ 	st->registers = &st->caps->registers;
+ 	st->num_channels = st->caps->num_channels;
  
  	/* Check if touchscreen is supported. */
  	if (st->caps->has_ts) {
--		ret = at91_adc_probe_dt_ts(node, st, &idev->dev);
-+		ret = at91_adc_probe_ts(&pdev->dev, st);
+-		ret = at91_adc_probe_ts(&pdev->dev, st);
++		ret = at91_adc_probe_ts(dev, st);
  		if (ret)
  			return ret;
  	}
+ 
+ 	platform_set_drvdata(pdev, idev);
+ 
+-	idev->name = dev_name(&pdev->dev);
++	idev->name = dev_name(dev);
+ 	idev->modes = INDIO_DIRECT_MODE;
+ 	idev->info = &at91_adc_info;
+ 
+@@ -1069,24 +1068,24 @@ static int at91_adc_probe(struct platform_device *pdev)
+ 	at91_adc_writel(st, AT91_ADC_IDR, 0xFFFFFFFF);
+ 
+ 	if (st->caps->has_tsmr)
+-		ret = devm_request_irq(&pdev->dev, st->irq,
++		ret = devm_request_irq(dev, st->irq,
+ 				       at91_adc_9x5_interrupt, 0,
+-				       pdev->dev.driver->name, idev);
++				       dev->driver->name, idev);
+ 	else
+-		ret = devm_request_irq(&pdev->dev, st->irq,
++		ret = devm_request_irq(dev, st->irq,
+ 				       at91_adc_rl_interrupt, 0,
+-				       pdev->dev.driver->name, idev);
++				       dev->driver->name, idev);
+ 	if (ret)
+ 		return ret;
+ 
+-	st->clk = devm_clk_get_enabled(&pdev->dev, "adc_clk");
++	st->clk = devm_clk_get_enabled(dev, "adc_clk");
+ 	if (IS_ERR(st->clk))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(st->clk),
++		return dev_err_probe(dev, PTR_ERR(st->clk),
+ 				     "Could not prepare or enable the clock.\n");
+ 
+-	st->adc_clk = devm_clk_get_enabled(&pdev->dev, "adc_op_clk");
++	st->adc_clk = devm_clk_get_enabled(dev, "adc_op_clk");
+ 	if (IS_ERR(st->adc_clk))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(st->adc_clk),
++		return dev_err_probe(dev, PTR_ERR(st->adc_clk),
+ 				     "Could not prepare or enable the ADC clock.\n");
+ 
+ 	/*
+@@ -1098,13 +1097,13 @@ static int at91_adc_probe(struct platform_device *pdev)
+ 	adc_clk = clk_get_rate(st->adc_clk);
+ 	adc_clk_khz = adc_clk / 1000;
+ 
+-	dev_dbg(&pdev->dev, "Master clock is set as: %d Hz, adc_clk should set as: %d Hz\n",
++	dev_dbg(dev, "Master clock is set as: %d Hz, adc_clk should set as: %d Hz\n",
+ 		mstrclk, adc_clk);
+ 
+ 	prsc = (mstrclk / (2 * adc_clk)) - 1;
+ 
+ 	if (!st->startup_time)
+-		return dev_err_probe(&pdev->dev, -EINVAL,
++		return dev_err_probe(dev, -EINVAL,
+ 				     "No startup time available.\n");
+ 	ticks = (*st->caps->calc_startup_ticks)(st->startup_time, adc_clk_khz);
+ 
+@@ -1131,7 +1130,7 @@ static int at91_adc_probe(struct platform_device *pdev)
+ 	/* Setup the ADC channels available on the board */
+ 	ret = at91_adc_channel_init(idev);
+ 	if (ret < 0)
+-		return dev_err_probe(&pdev->dev, ret,
++		return dev_err_probe(dev, ret,
+ 				     "Couldn't initialize the channels.\n");
+ 
+ 	init_waitqueue_head(&st->wq_data_avail);
+@@ -1145,12 +1144,12 @@ static int at91_adc_probe(struct platform_device *pdev)
+ 	if (!st->touchscreen_type) {
+ 		ret = at91_adc_buffer_init(idev);
+ 		if (ret < 0)
+-			return dev_err_probe(&pdev->dev, ret,
++			return dev_err_probe(dev, ret,
+ 					     "Couldn't initialize the buffer.\n");
+ 
+ 		ret = at91_adc_trigger_init(idev);
+ 		if (ret < 0) {
+-			dev_err(&pdev->dev, "Couldn't setup the triggers.\n");
++			dev_err(dev, "Couldn't setup the triggers.\n");
+ 			at91_adc_buffer_remove(idev);
+ 			return ret;
+ 		}
+@@ -1164,7 +1163,7 @@ static int at91_adc_probe(struct platform_device *pdev)
+ 
+ 	ret = iio_device_register(idev);
+ 	if (ret < 0) {
+-		dev_err(&pdev->dev, "Couldn't register the device.\n");
++		dev_err(dev, "Couldn't register the device.\n");
+ 		goto error_iio_device_register;
+ 	}
+ 
 -- 
 2.56.0
 
