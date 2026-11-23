@@ -1,71 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=149.28.215.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795407146;
-	b=QrODs59spxOCjEmN6iJN9RNdGXxq/YXsmA+GFbjNgZ2pVoueI+TlwOTTBIvpwamtcSoW
-	 JMwJuSxE9Vf/swlgMNLvCfr+JJLSfYRnwPNUMjdjrxd60V/YhF4oBhlNYq7MQwLErbp4E
-	 32EFmC+ZYogrtATocsVV0totAuNZG8s6jmlEWJMInXT9/qOAqxmoU+iD5JNS2VpKl4thN
-	 1KyoeEKjmf+VnwlY/9bVWk1M5BDMfvdo/oqaqAKIEe1lZeDiR8Vqe/F0wj9JMhI6RpAK+
-	 jDsEOvbBK81NkBTOIdISjVLfin8h9j5vhUPcDB+nej3+dn4wzik1/WzY2qaUBjhPsKg==
+	t=1795407153;
+	b=mH1KU4rDgAridBoXfJ57CjI27kVdrPfl3KGg9U23M4ZksbMh3uyFm6A7R8AWWBlVoAWA
+	 2o1jP/XqDGUrfCSCNfNJo4JHDUhyG0U2iaxGvoAkK77sHOIi+FCgKzfqzo0iRndnHuuN4
+	 Yizj7nNwuBg1ipvZp7XgjZn6HTupzZb2cGJ8u7HPjmaic/vvFfmrlkBdmjezGGx7kbVmz
+	 CN+1pCyT2YNAehJS4ZrbDdKCWNrg7/myDDdnfTva2V1/OMm5tWvG6wLLTIjWlxWse6gB/
+	 HTjIX3dJS7ERGd2gkTHqdFeKx5MudpxI0gzwbRh91IwI2p3nL7GzaS6W6bMjvLVyijQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795407146;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=fhNl0a2bNDX2xO1fDfY+x8/kfxDi7en+9Qu0kuJSav4=;
-	b=GfAY+FYAfGyhUMn8zHhfsL2avOJFpqTcBZoI9fUG97tYy+hJLM9d+Bt7VGFhASwzifvt
-	 uiXvdHlgHx2d5UppEO7tnwETrfsfNixIBgZtIHFIiYa2hZYCppAWspbL9sYkMZnSd7vpV
-	 ZtquD6rZ72fQsZ0nEs0khfuX9GyNARBvwasZfbEhxCXnxJmF194FANSl5iRuoTw4M50Up
-	 51gqwj3Rl6opbbqUfrj5JYxV9741HiaMWTYFqRPkpYZiMHJ4rcXi4Cng738TW8bqYmRGE
-	 YEDLx7ztnuZTSUFFjlciUSzdjnksJ3geaj2BqZF8aWECVBWTAanLWwMOq71+BEjEMAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795407153;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=5TmNVpfj4hDwFh6gyMhke7jXfX4xLa6sU8BErkMxfqc=;
+	b=aY+Le3iY8LxOLmcdQ3AEG/SHlHs/LmjFCvuBFJYzc7zAsbnX3X9Jv1gKdFDNQKg4ZZ+0
+	 8bjR0UPZhmQHfvujZiUchJDEM35Jqio1nO7OfJ/7joq6bqqef53ym9C/ItVyonTEPjCgm
+	 /e7+F7s95TPCVWlK5hadrTjYG1EsbxGPJ1nMuesJX5oUXWdARHHn7kFD5dw8YweOZEwTM
+	 802mS+qzj4o9uv+4kvCE+wgKpEQZMnIHuIE3aOh+GipIT6KOC00acWWEqOKmdZsruduPQ
+	 FqZ0+Le1kRQ0RbIUijy8X+m5jHsB2eyinAFUIZ/3Yf0+8wbevvZfr/l/pJ+hlXELm1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ovn.org;
-	spf=pass smtp.mailfrom=fe-bounces.ovn.org;
-	dkim=pass header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=ebUp27p8;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=dS2eeZ66;
-	arc=none smtp.remote-ip=149.28.215.223
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [149.28.215.223])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Frgk8XGp;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CC10606A320
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:12:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CC10606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ovn.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.ovn.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FEBE606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:12:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FEBE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=ebUp27p8;
-	dkim=pass (1024-bit key, unprotected) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=dS2eeZ66
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ovn.org;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-13eddc7e57;
- t=1795407145; bh=fhNl0a2bNDX2xO1fDfY+x8/kfxDi7en+9Qu0kuJSav4=;
- b=ebUp27p8Mg4Llxgd3g8vId+BLr90/Ww4fClHzNKQWWBQlloYsvH+mD/CZqCDIKhZteMdmtC4v
- +13dkdyynoxA8sykP9uPO4GUJvxnH2TFoWDcdTEKtMsv++/i1hsYnRJGTN9ZfmDkmWl5cMYSToN
- OpiaZPHKN9A/IYVfxazlk+8=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1795407145; bh=fhNl0a2bNDX2xO1fDfY+x8/kfxDi7en+9Qu0kuJSav4=;
- b=dS2eeZ66v/DmdfxT/34aWmaeHCAgDo5oK0hskz1rZpKkIJmDqCwhbT6HA6z8PETkwtFDsFdhC
- rt4jomBDd63WEizma7VdhXQ2XMBBeWMzes/LgUs2557dnl8cUv/j+ImHhT/YOmE9KbKdNmYeSSS
- Da0iT57emlAsbkz8OE1xCb4=
-CFBL-Feedback-ID: 6b03bd27820b813f2fb1faea:4408a1a079db1d613e8f0abf89aa9770
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6b03bd27820b813f2fb1faea
-X-Forward-Email-Sender: rfc822; i.maximets@ovn.org, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.19.37
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <ccfbd34e-ce6e-4517-bce1-c68e5ac2bb50@ovn.org>
-Date: Mon, 23 Nov 2026 05:12:19 +0100
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Frgk8XGp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795407151;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=5TmNVpfj4hDwFh6gyMhke7jXfX4xLa6sU8BErkMxfqc=;
+	b=Frgk8XGpbTp0JjHGKEljXjwszs968sDuDkfW8wtK6NKzq8yaPy72+MAr4dCcaW+KLT22FY
+	GnNPHrI2YU4gzGeiDXyUM9uSdDNwxI5R/OP2+b1SQSvYDo9g8LScr8aM4yttuPDHunDNfx
+	b4Yw78Wj5F1Ded/eOL3ppX2L7zJUpCQ=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-10-tWRd4N6nPG2Ybc8jMblIAw-1; Mon,
+ 23 Nov 2026 04:12:27 +0000
+X-MC-Unique: tWRd4N6nPG2Ybc8jMblIAw-1
+X-Mimecast-MFC-AGG-ID: tWRd4N6nPG2Ybc8jMblIAw_1795407144
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 33EBD1954B2F;
+	Mon, 23 Nov 2026 04:12:23 +0000 (UTC)
+Received: from llong-thinkpadp16vgen1.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0B24918011D8;
+	Mon, 23 Nov 2026 04:12:17 +0000 (UTC)
+From: Waiman Long <longman@redhat.com>
+To: Tejun Heo <tj@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ridong Chen <ridong.chen@linux.dev>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: cgroups@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Guopeng Zhang <guopeng.zhang@linux.dev>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Waiman Long <longman@redhat.com>
+Subject: [PATCH-next v2 0/3] Skip boot CPU or don't allow it from being used in isolcpus and isolated partitions
+Date: Sun, 22 Nov 2026 23:12:06 -0500
+Message-ID: <20261123041209.382726-1-longman@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,169 +98,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4] net: openvswitch: make transport checksums
- writable
-To: Kyle Zeng <kylebot@openai.com>, dev@openvswitch.org
-Cc: netdev@vger.kernel.org, aconole@redhat.com, echaudro@redhat.com,
- i.maximets@ovn.org, davem@davemloft.net, kuba@kernel.org,
- edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261120191115.39932-1-kylebot@openai.com>
-Content-Language: en-US
-From: Ilya Maximets <i.maximets@ovn.org>
-Autocrypt: addr=i.maximets@ovn.org; keydata=
- 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
-In-Reply-To: <20261120191115.39932-1-kylebot@openai.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
-On 11/20/26 8:11 PM, Kyle Zeng wrote:
-> OVS can still rewrite an IP address after transport-header extraction
-> fails. The checksum helpers check skb->len, which includes non-linear
-> data, before directly accessing the L4 checksum. If the transport header
-> was not pulled into the linear head, the checksum update can read or
-> write beyond it.
-> 
-> Call skb_ensure_writable() before IPv4 TCP/UDP and IPv6 TCP/UDP/ICMPv6
-> checksum updates. Save the original addresses and reload header pointers,
-> since even a failed pull can move the skb head.
-> 
-> Keep failures nonfatal to preserve the existing policy of rewriting IP
-> addresses when the transport header is unavailable. A failed pull or
-> unshare may leave a stale checksum or CHECKSUM_PARTIAL seed; the receiver
-> may discard the packet.
-> 
-> The issue was found by an LLM.
-> 
-> Fixes: ccb1352e76cf ("net: Add Open vSwitch kernel components.")
-> Fixes: 3fdbd1ce11e5 ("openvswitch: add ipv6 'set' action")
-> Suggested-by: Ilya Maximets <i.maximets@ovn.org>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Kyle Zeng <kylebot@openai.com>
-> ---
-> v4:
-> - Document that both IPv6 checksum addresses must be outside the skb.
-> - Use the IPv6 address fields' sizes in the final copies.
-> 
-> v3: https://lore.kernel.org/r/20261113232158.61174-1-kylebot@openai.com
-> - Select source and destination addresses with booleans instead of
->   calculating offsets. Keep the saved IPv6 address across head movement.
-> - Remove the redundant IPv6 fragment check and correct tab alignment.
-> - Move testing details below the separator and clean up attribution.
-> 
-> v2: https://lore.kernel.org/r/20261107040238.27606-1-kylebot@openai.com
-> v1: https://lore.kernel.org/r/20261030042304.74291-1-kylebot@openai.com
-> 
-> I have a reproducer for this issue and can share through DM.
-> 
->  net/openvswitch/actions.c | 80 +++++++++++++++++++++++++--------------
->  1 file changed, 52 insertions(+), 28 deletions(-)
-> 
-> diff --git a/net/openvswitch/actions.c b/net/openvswitch/actions.c
-> index 12e339cbf791..7691f262294d 100644
-> --- a/net/openvswitch/actions.c
-> +++ b/net/openvswitch/actions.c
-> @@ -319,20 +319,22 @@ static int pop_nsh(struct sk_buff *skb, struct sw_flow_key *key)
->  	return 0;
->  }
->  
-> -static void update_ip_l4_checksum(struct sk_buff *skb, struct iphdr *nh,
-> -				  __be32 addr, __be32 new_addr)
-> +static void update_ip_l4_checksum(struct sk_buff *skb, __be32 addr,
-> +				  __be32 new_addr)
->  {
-> -	int transport_len = skb->len - skb_transport_offset(skb);
-> +	struct iphdr *nh = ip_hdr(skb);
->  
->  	if (nh->frag_off & htons(IP_OFFSET))
->  		return;
->  
->  	if (nh->protocol == IPPROTO_TCP) {
-> -		if (likely(transport_len >= sizeof(struct tcphdr)))
-> +		if (likely(!skb_ensure_writable(skb, skb_transport_offset(skb) +
-> +						sizeof(struct tcphdr))))
->  			inet_proto_csum_replace4(&tcp_hdr(skb)->check, skb,
->  						 addr, new_addr, true);
->  	} else if (nh->protocol == IPPROTO_UDP) {
-> -		if (likely(transport_len >= sizeof(struct udphdr))) {
-> +		if (likely(!skb_ensure_writable(skb, skb_transport_offset(skb) +
-> +						sizeof(struct udphdr)))) {
->  			struct udphdr *uh = udp_hdr(skb);
->  
->  			if (uh->check || skb->ip_summed == CHECKSUM_PARTIAL) {
-> @@ -345,32 +347,37 @@ static void update_ip_l4_checksum(struct sk_buff *skb, struct iphdr *nh,
->  	}
->  }
->  
-> -static void set_ip_addr(struct sk_buff *skb, struct iphdr *nh,
-> -			__be32 *addr, __be32 new_addr)
-> +/* May move the skb head; callers must reload packet pointers. */
-> +static void set_ip_addr(struct sk_buff *skb, __be32 new_addr, bool saddr)
->  {
-> -	update_ip_l4_checksum(skb, nh, *addr, new_addr);
-> -	csum_replace4(&nh->check, *addr, new_addr);
-> +	__be32 old_addr = saddr ? ip_hdr(skb)->saddr : ip_hdr(skb)->daddr;
-> +
-> +	update_ip_l4_checksum(skb, old_addr, new_addr);
-> +	csum_replace4(&ip_hdr(skb)->check, old_addr, new_addr);
-> +
->  	skb_clear_hash(skb);
->  	ovs_ct_clear(skb, NULL);
-> -	*addr = new_addr;
-> +
-> +	if (saddr)
-> +		ip_hdr(skb)->saddr = new_addr;
-> +	else
-> +		ip_hdr(skb)->daddr = new_addr;
->  }
->  
-> +/* Neither addr nor new_addr may point into the skb, since
-> + * skb_ensure_writable() can move the skb head even on failure.
+ [v2]
+  - Update the patches to address issues reported by sashiko.
 
-The 'even on failure' part is not necessary here, as the values are
-never used on failure of skb_ensure_writable().  But it's not worth
-re-spinning just for this.
+It is reported that having CPU 0 being domain isolated can cause
+problems in the some kernel subystems which don't take into account
+that the boot CPU (CPU 0) may not be a HK_TYPE_DOMAIN housekeeping CPU.
+As a result, it makes sense to just disallow CPU 0 from being used
+in the isolcpus=domain boot parameter as well as in cpuset isolated
+partitions instead of trying to fix the problems when they show up.
 
-Reviewed-by: Ilya Maximets <i.maximets@ovn.org>
+The first patch fixes the inconsistency problems between
+tick_nohz_full_mask and HK_TYPE_KERNEL_NOISE cpumask.
+
+The second patch removes the boot CPU from the isolcpus=domain parameter
+if set.
+
+The third patch disallows isolated partitions from being created if CPU 0
+is specified in its effective exclusive cpumask.
+
+Waiman Long (3):
+  tick/sched: Make tick_nohz_full_mask and HK_TYPE_KERNEL_NOISE cpumask
+    consistent
+  sched/isolation: Forbid the boot CPU from being domain isolated
+  cgroup/cpuset: Disallow CPU 0 from being used in isolated partition
+
+ Documentation/admin-guide/cgroup-v2.rst       |  1 +
+ .../admin-guide/kernel-parameters.txt         |  7 +-
+ include/linux/sched/isolation.h               |  2 +
+ kernel/cgroup/cpuset-internal.h               |  1 +
+ kernel/cgroup/cpuset.c                        | 90 ++++++++++---------
+ kernel/sched/isolation.c                      | 33 ++++++-
+ kernel/time/tick-sched.c                      |  2 +
+ .../selftests/cgroup/test_cpuset_prs.sh       | 43 +++++----
+ 8 files changed, 117 insertions(+), 62 deletions(-)
+
+-- 
+2.56.1
+
