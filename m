@@ -1,110 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432766;
-	b=jyUjn8OAP7dEhqmHubxEb/iHaSiYfkKpJ3OX88XcimDpTvnGnIn15Xy+4ld3SJHeUC0H
-	 7eEdcJ9n+DP3kIAqoK4FoBMZd9Q3Za9tyzUWii4kWLSclmqOgMT7VrUrYKjlYyLliXAnz
-	 xfDbzb21McskZXxXka47aLFnBNdVGta5b1ZsAqjbjyktUEaXvTQZRpwADlv69DtcJNx6y
-	 UQf+Ay24CdAfGQoBsAbnDvz3HS4dRfkoCr+4ghq6X2klVjS7uXAmWYhCIwMC8DYablWAW
-	 i9+U1ZAVD1AUxKnROK9NfQctqnRoCYhS43u7D6frBDQi39FzclDKy8nZVYa3f8mOz8Q==
+	t=1795432769;
+	b=mH4O7QXpRfEu4cBrwIGvNhzUA25j7asoOLkh74bN0aqv5iRJQWM5yPinCvyCGasbMf7J
+	 o/PDp7EqvoI6ZHnvQ6kwCh+c9ViBehW4HC1H27A36hrO5PLr8Z0vIzJZoBNQot7yVqJSU
+	 3o7HYJ+i1tZohRgcZqevqPwBTuOAWr1Mp9sVz2C2k3UAUjO4d4NsQ4KxSIh48PLKQNJ5s
+	 xT1zcnnx0uOm/0nNzxenLG/+6nrcnU1bg8T780MQRoWes38o8O7qb0nRkf7HQIbetQFVI
+	 Ko04j2OQ2eDMKJLPTQDrRCAo09kgPv1s4j4UzfCCUIM94jdkVKDIra3IIX2lg9rnLNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432766;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432769;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
 	 Content-Transfer-Encoding;
-	bh=UriCVVi4FzVmNtd9uxOgPEfOtJolmF8AfkCfRGKWNaA=;
-	b=lxh8Pf11uuKzu1712VAw9SP4x3NJjkcfI1BVPrR0zaSFHWFjBgaV9SWrVjxG0/lhMnbu
-	 am0Qmtc0VYvbHdqwbnMFOWERRY4bXJth3HVCn++aHWkGkNi/Uyvo+VDH/FLwKL7cLF3io
-	 OByMRLKyh1hy9uZ1tT3HbFSNhXGGTkxn6Cg+KfLbe2bwuNtx/TedhngzGAFPLOnlF/dET
-	 akm+tcDNaz7QFzJ7L7jE0G2Q2CsyuLrWlcH9dTapxU2Ja6DjtIXx+sKwVB+xLcv6xUR0N
-	 gwpKlg3hV77hIcuD6UQ+3NY0iS00xGTsELCSI9ZD5yBJ/7Mmbs6hYFffUlGOczUvOkw==
+	bh=YUXTW8SKxn8Wpo9ruaaiGpQxcX3RyegPc9c7rxFhcBE=;
+	b=YHIKb6OwL+0x+d9jJ0Y2gN+9CUP3zX/s9rmf91PUxxSa+NzriZMEu1lUTrDnUX88ygk8
+	 HGCNFkJzM+lvmuI06LGDzntVnCCz1OGEfAqzL1yxH7lTf/oUrXUU2ZzXI7DjG4GHGi0q1
+	 VwPw359LuAnQhwlFtHbobKS0JT8Y6DG27wiwXN+p/jIBACcCsD0LHIfTsA7TIxFavWJzz
+	 +LyvcZoPxZttHbUcIvZFGyRk/XDirKyZjPW7kXdiAPHA9sI61jQO3kvPdY/1AlxEQhLNN
+	 DcMjVCJNEQHmKVn0I8fKsqCiMXZdd+dSH3J/JqBEx9ARHogZyJOOXeFnuW7pRtEXNxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=USvG9OQZ;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b="RIN/qcAn";
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D718560A2608
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D718560A2608
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8895160A2611
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8895160A2611
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=USvG9OQZ
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a210470b49so29913255e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=RIN/qcAn
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so24079845e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795432764; x=1796037564; darn=vger.kernel.org;
+        d=baylibre.com; s=google; t=1795432768; x=1796037568; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=UriCVVi4FzVmNtd9uxOgPEfOtJolmF8AfkCfRGKWNaA=;
-        b=USvG9OQZtCSyZnQrX8fl7VEnt57WZrcHgr3ItD9StEAp8J0VFqvOGi2v5YLaUiIjYj
-         ouPb2u40lPGbSZZnMQsbofsJ6sjaaqKiPU6Vawimqd0JFucD7k2ymWZt3C1KC/0pGFbH
-         gQTIDTRFiwfcPACNgnkPrVy5bAhQWEp5g71spy5SKykP2Z5LUXfmbeGnGTIMXsgkRCM+
-         W4+DySM6yKz6UdPfQpqSihJLF0+r6e7EmmEZ1NfSjPc6VDL4pZNcqVpoO1PL+fKOEgKk
-         SZkgBLQCGwJa0j2bM9aDwAUNYcYdmVJXJr065DnVbfzH5D3udyQ2BiF9bHILSMJuZSwu
-         ZIzQ==
+        bh=YUXTW8SKxn8Wpo9ruaaiGpQxcX3RyegPc9c7rxFhcBE=;
+        b=RIN/qcAnbXJ2U4KAMVB2wqHkNrR+xA86G/XGZVwdB8PQYxr9AafrMHIt+Dn9kQUxbb
+         4Vc58t0AbqpL9qHZRgKSyeNbd11Cu/UhKgiNyh6gWaQ/gloWHbO9fK9ot77+BG2t25ks
+         aljLPKlK3sZmVktths0RRQZvLZhmbN0hwZVhjEoPvWZoTN6uuitQFkVd2lbG2lmW2h1W
+         dEGXqTQjXRcJYTI5LrE5CfhZXMc/eFpf66zZLGecyrSmRHxx2fZCKX+wFOLiJ64Pjv33
+         ZQCyOYaNm+gbbjLuCcXnRGbXeRgtKnMcu2MPq1ilXmoSHNgzLZM6B8X1g/nJdUji58Hu
+         szNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795432764; x=1796037564;
+        d=1e100.net; s=20260707; t=1795432768; x=1796037568;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UriCVVi4FzVmNtd9uxOgPEfOtJolmF8AfkCfRGKWNaA=;
-        b=SEen6P4PbJyGWW9g9JZbg2VcBDatlpN3E2P8HSKYgsHpNxYix+dPeLuHjB0iNUAF9T
-         M3u4U45ySGgwxttfOCCB5Y0Ffdmz41oTutW5uvGAcTcEzi93HH7ZA+MTIR/ykF6s7DyH
-         /pG2HDiVG0PkohqiCuxxPiMKOC+HefvrmwWBLP2WmtMHA3Gfca+yvuEE/f1sV568L7PX
-         QSVZBJvhNjYS5dXNjQXomWMMwNEHgg23bo8HGtbkv2otoA3m+D8b28t5UIzxy7UXouCY
-         FCKmAka2wZWVun1WjoIEh7xnf4yUcaw0zbx+frmWFueAlo1MWnt52CE/FjiCESeG/hKk
-         DIBQ==
-X-Forwarded-Encrypted: i=1; AL+hErEICwFk9WpIC2ZllvWLGOX3T9Tq+/ZQHcXAEsyZ/2k3jhtGXeD8M/250+gQRsUTB3VX50GZKeKNV9I4Z40=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3ZnQP0xf3IxwfDAnCMD+CmzJ6xwLb0f7w8yejjihoYyhwOdha
-	Oijzhh3atlz+9PZVx5rGRQAexKPGe/SKK7EChbEma/KzIq1l+ajVlC1jgwIbppF131M=
-X-Gm-Gg: AZFdTZfElR8aSn9+dyCRyoifYBZnY2g/pZxYy6vgL012SFK2SR6oku2Hi21FMwHIoZq
-	7plFvSjKLLIH2H4vkwjwxH/fP1bBfiRoAR65EDHSPVzkoVj3Jlp7yqm4n8eeOsuyltToe7KcUMK
-	TrtuTesXkTmpLciuKboAE7USgTL+zqMzOZWePLU13Xb7sve8kkadll5NOqiTQdM+GzsQ/NCH/oR
-	6XnHRynpQNWISdz3LQfd2DpxjnwZXt72Ly/Dp5Ur41lB1MOMYLxuW7XDQc+1wAAi+tDhNkedkHP
-	44qsuCoT4vH4qS3k6zKYD9R+ns9U1wfCQwY5s4waJ6QHqpjfM7wrf0SroFoF7vIizlZ9delhyMu
-	QTrXNEtv/B053m2LtZls2TF9kEs5h3QqDlaHmgu1BqxdC9tm+THy+i/9zAaXmF33BX7yhgYi9LY
-	E4jTV6m31iQTLM58kviQqD+nd8HNOOjoxbwgK9kK7QcZb7/xwf3Urz2llJuxf2+5gYbz7ehsA7Y
-	YAJB1jMMwLnPxiaH+QDhGdDl/I5oYemSlAKYDehicFRbdxUJUQpBWl1VXqXDutfiXjBXIKKhINz
-	uDB7zdPGs8wxr6YPK2QZ5IpGIvoNeX42DSC3OcqFmv9IZbk0TSCWDCXEruKTFxkhoHtkmDhgqr0
-	zgvyZNxGBn01guV2Q
-X-Received: by 2002:a05:600c:468c:b0:4bb:6d61:af7c with SMTP id 5b1f17b1804b1-4bb88944bf5mr221173065e9.35.1795432764263;
-        Mon, 23 Nov 2026 03:19:24 -0800 (PST)
+        bh=YUXTW8SKxn8Wpo9ruaaiGpQxcX3RyegPc9c7rxFhcBE=;
+        b=F9apxBHeDjey+BtCqkfnTkoF0GZWAnVmv+HUdQpve1O/SSoZuHmO5XOOYNnGKG/zL1
+         ju3W6nCZ41KU8h/3wVHmqBMpNJoH650cy909wHf/W41+m1a8R/V28hJkkrbFXZdshx3o
+         AgeZwKTWhjjwDz3YfYprlaMRuiQwGlwdHix3zum79KGhUCt7taBThuEPSSLHBjmQ60UU
+         yvyiai+drO9qeDo1eO7SofM+j6FW1sSZp5yu/OmMRM5BDs7nh4juIik7sWsRXPWBbJZX
+         v0KP6KXQYn2xIxEmEyRQxrvRngNWkXx/M5lmTZw195Y8zF1lB2ShGJrpM8AQr3hvaNlZ
+         Nltg==
+X-Forwarded-Encrypted: i=1; AL+hErHcE7qRVek7tp9KnZ+itbdza/TdOA+5Eu9gVngSQj7D5qDvfSe/b9PntmuFVs5PiFpvMIi2/rhL013x4Hg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xA4vNDePPDXX0FRWkh4k0L47sVJLYzNoBa3ZjIzQw+O7IwEYr
+	ACuT2SmZH+GkTkX0bowQ42fQf6w/BEamKlnoFbtKwgj3uayLJEME2OZ2l8jpK5oPIa/jPKrGjmC
+	c9zg5
+X-Gm-Gg: AZFdTZfJNfDFTfK46faTzTGBdwz9mNsIKwcZLh5J8jVdahItMt54yydNAcyOSPt0vhp
+	NXTBg2/sIpUkN7YccQ+TtzXhiviQgk3jxhPg+jB6RTYs0at4MVSMwFeY/sZw+CgzDYaPcMoccLs
+	otq62RPqkQQ1sn6TYdY54bT2bJlIUTzPo0GLVRinLv/yYh+oRTKnglHz2SoeeocJkFWto3ABLyj
+	jLtIb9MiD58duUMhfCCvjPoULZPo9K/nkOuEDuO76yWFtsslzbIZLoxEgbmAzjKAOd+A9lPtxZQ
+	dAF79dFnBxobTyIEnJzv4yKDnIJEEV8MDizJN7f2bSqUwn0xh75FiVj3CRIbPClWBm5uASfm0T1
+	2EkVZh7oB1nEEa9uFtwzo3MHJU1O0yxd87/R2WDW3kfaKsOGTRrW9utltg4AME2ciUpWf9wwrUT
+	nVkTEaaUfbI0wCgiE9QL6bD936jXxdU/gHfixt0h1wDnQ6D9FtKwW6GW/bCrSZRJugjQzWd9/7o
+	9kZR1i8DAlSWPfzW5jsz4lv0hmISaRUareT6+Y/9euJWwsjYZeVs8DfWI0ERDYXNQbLpbKQHNlv
+	7LsCdSohVlWOklXzi9/hYWMYXzI371VXolCM3HHyWvu1QZOFnwSexAXaw40PCa5xWlIt8fCRPfz
+	JeaHVWVHnDZvpe58h
+X-Received: by 2002:a05:600c:46cc:b0:4bb:6f41:399f with SMTP id 5b1f17b1804b1-4bb888236a3mr231635085e9.24.1795432768035;
+        Mon, 23 Nov 2026 03:19:28 -0800 (PST)
 Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb906817ccsm160694775e9.5.2026.11.23.03.19.23
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb9065744esm147721245e9.1.2026.11.23.03.19.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:19:23 -0800 (PST)
+        Mon, 23 Nov 2026 03:19:27 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Lee Jones <lee@kernel.org>
 Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
 	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
-	James Ogletree <jogletre@opensource.cirrus.com>,
-	Fred Treven <fred.treven@cirrus.com>,
-	Ben Bright <ben.bright@cirrus.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
+	Peter Tyser <ptyser@xes-inc.com>,
 	mfd@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-omap@vger.kernel.org,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
 	Linus Walleij <linusw@kernel.org>
-Subject: [PATCH v5 15/17] mfd: Unify style of i2c_device_id arrays
-Date: Mon, 23 Nov 2026 12:18:13 +0100
-Message-ID:  <73d8e90d1a392767976100e83402ad31784a1fb2.1795431460.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v5 17/17] mfd: Unify style of pci_device_id arrays
+Date: Mon, 23 Nov 2026 12:18:15 +0100
+Message-ID:  <efe17ff4ceea6df09ff98818c365ad31df11fae3.1795431460.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
 References: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
@@ -118,14 +106,14 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9684; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=Fdl26dtonR7KNI6QS7TwlVPlGBMUYj+GEYuuZH9GZEQ=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBCEN92s/Oe/+Qgz1dbF6dfn+BQeokBrqy4q+W 8oJMl1lSRCJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawQhDQAKCRCPgPtYfRL+ ToVYCAC60VXGJyc9KXGFedrGxmQ18JZn7pkcWp2Ak04fM93K66CnovfvTBM5ZKgkHr2sLzcIaVJ Kyvwt+tQCc17ZbnyX1lRm37InUxvQ5gZbPjVUjhJ4KjYqL23FkqbNT8V1B2jem0pUgBeoVuhXaH 5lOaUdVERrmAx18H7E7qIfBs1a91gA7AT5EAvdZZwK+AyMDLWLs7jMOig10LjXgQS4tNtvXsYPo Kq1HARQJuY7g8OxIxdjNtDYl7qk04nIrG2T/K0XOq9WfR15HvopCaGaKdKci3kMSsC4IcdCFgaA 2n2tc54Dt9SWLIYrVZ1pJICGYTaxTMpPu6GtxRKOl4C4yICd
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5272; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=keSdCWc8b6i5OedMT7cIB7iKQFXYLPvQ+pKYJhooRnk=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBCEU9dvITQixoFy5IuQcdBWdwHMSh1NIUouiu Y6B38HGAM2JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawQhFAAKCRCPgPtYfRL+ Tga5CACxrjdW910oA9QbL+KHow6JngPLeLLPpgUbrOS0QCojPhq08gIehBwll/iPPqlVPI4qkJw W8aTRdHt/o7trugWvlPAFXmdUctZ+9DTgD0Xpbf9BF/YTqUEJEZKzppyRalaNqUW+pJtulOLOUe IhO1OTZqpxwpWFMiODFcZyYRvo5uhbN1Uodq/xWATBKejx5W7ru54uZmQD2zZwf7ZiTsxiUY4EB sHcUC4ylklcwQMnf62loePw31FQpqjWTwnGbQoy3PG6vy9UjhP9UxL5lSgSqrOuKfySbdlu2TjN ry6tMTSj7J8tQNk1C8ZSKf5f6FkYOUMCz1nBxLR+fwwHPODq
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 
 From: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
 
-Most of these arrays already mostly match the most used and
-generally recommended coding style. That is:
+These arrays already mostly match the most used and generally
+recommended coding style. That is:
 
  - no comma after the list terminator;
  - a comma after an initializer if (and only if) the closing } is not
@@ -134,287 +122,141 @@ generally recommended coding style. That is:
  - a space after an opening { and before a closing }, a single space in
    the list terminator;
 
-Adapt the few offenders accordingly and also use tabs for indention for
-two drivers.
+Adapt the offenders accordingly.
 
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
 ---
- drivers/mfd/88pm800.c       | 2 +-
- drivers/mfd/88pm805.c       | 2 +-
- drivers/mfd/88pm860x-core.c | 2 +-
- drivers/mfd/act8945a.c      | 2 +-
- drivers/mfd/as3711.c        | 2 +-
- drivers/mfd/as3722.c        | 2 +-
- drivers/mfd/bq257xx.c       | 2 +-
- drivers/mfd/cs40l50-i2c.c   | 2 +-
- drivers/mfd/da903x.c        | 2 +-
- drivers/mfd/da9052-i2c.c    | 2 +-
- drivers/mfd/da9063-i2c.c    | 2 +-
- drivers/mfd/max77620.c      | 2 +-
- drivers/mfd/max77843.c      | 2 +-
- drivers/mfd/max8907.c       | 2 +-
- drivers/mfd/rc5t583.c       | 2 +-
- drivers/mfd/rsmu_i2c.c      | 2 +-
- drivers/mfd/si476x-i2c.c    | 2 +-
- drivers/mfd/tps65910.c      | 6 +++---
- drivers/mfd/wm8400-core.c   | 4 ++--
- 19 files changed, 22 insertions(+), 22 deletions(-)
+ drivers/mfd/cs5535-mfd.c           | 2 +-
+ drivers/mfd/intel_quark_i2c_gpio.c | 4 ++--
+ drivers/mfd/ioc3.c                 | 2 +-
+ drivers/mfd/janz-cmodio.c          | 2 +-
+ drivers/mfd/lpc_ich.c              | 2 +-
+ drivers/mfd/rdc321x-southbridge.c  | 2 +-
+ drivers/mfd/sm501.c                | 2 +-
+ drivers/mfd/timberdale.c           | 2 +-
+ drivers/mfd/vx855.c                | 2 +-
+ 9 files changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/mfd/88pm800.c b/drivers/mfd/88pm800.c
-index 570700d503a7..961d37814aba 100644
---- a/drivers/mfd/88pm800.c
-+++ b/drivers/mfd/88pm800.c
-@@ -117,7 +117,7 @@ enum {
- 
- static const struct i2c_device_id pm80x_id_table[] = {
- 	{ .name = "88PM800" },
--	{} /* NULL terminated */
-+	{ } /* NULL terminated */
- };
- MODULE_DEVICE_TABLE(i2c, pm80x_id_table);
- 
-diff --git a/drivers/mfd/88pm805.c b/drivers/mfd/88pm805.c
-index 2eb3380a5207..8df11233bc4c 100644
---- a/drivers/mfd/88pm805.c
-+++ b/drivers/mfd/88pm805.c
-@@ -31,7 +31,7 @@
- 
- static const struct i2c_device_id pm80x_id_table[] = {
- 	{ .name = "88PM805" },
--	{} /* NULL terminated */
-+	{ } /* NULL terminated */
- };
- MODULE_DEVICE_TABLE(i2c, pm80x_id_table);
- 
-diff --git a/drivers/mfd/88pm860x-core.c b/drivers/mfd/88pm860x-core.c
-index 733f2a50247a..ce521b042c5c 100644
---- a/drivers/mfd/88pm860x-core.c
-+++ b/drivers/mfd/88pm860x-core.c
-@@ -1231,7 +1231,7 @@ static DEFINE_SIMPLE_DEV_PM_OPS(pm860x_pm_ops, pm860x_suspend, pm860x_resume);
- 
- static const struct i2c_device_id pm860x_id_table[] = {
- 	{ .name = "88PM860x" },
--	{}
+diff --git a/drivers/mfd/cs5535-mfd.c b/drivers/mfd/cs5535-mfd.c
+index d91d60dc5416..a47f050f27f6 100644
+--- a/drivers/mfd/cs5535-mfd.c
++++ b/drivers/mfd/cs5535-mfd.c
+@@ -155,7 +155,7 @@ static void cs5535_mfd_remove(struct pci_dev *pdev)
+ static const struct pci_device_id cs5535_mfd_pci_tbl[] = {
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_NS, PCI_DEVICE_ID_NS_CS5535_ISA) },
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_CS5536_ISA) },
+-	{ 0, }
 +	{ }
  };
- MODULE_DEVICE_TABLE(i2c, pm860x_id_table);
+ MODULE_DEVICE_TABLE(pci, cs5535_mfd_pci_tbl);
  
-diff --git a/drivers/mfd/act8945a.c b/drivers/mfd/act8945a.c
-index bb1b4e4fb288..e5fba40f89d4 100644
---- a/drivers/mfd/act8945a.c
-+++ b/drivers/mfd/act8945a.c
-@@ -55,7 +55,7 @@ static int act8945a_i2c_probe(struct i2c_client *i2c)
- 
- static const struct i2c_device_id act8945a_i2c_id[] = {
- 	{ .name = "act8945a" },
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, act8945a_i2c_id);
- 
-diff --git a/drivers/mfd/as3711.c b/drivers/mfd/as3711.c
-index 9513dc4ee0cd..23dabf4483e5 100644
---- a/drivers/mfd/as3711.c
-+++ b/drivers/mfd/as3711.c
-@@ -192,7 +192,7 @@ static int as3711_i2c_probe(struct i2c_client *client)
- 
- static const struct i2c_device_id as3711_i2c_id[] = {
- 	{ .name = "as3711" },
--	{}
-+	{ }
+diff --git a/drivers/mfd/intel_quark_i2c_gpio.c b/drivers/mfd/intel_quark_i2c_gpio.c
+index 7f8c16d82738..08dda59b9236 100644
+--- a/drivers/mfd/intel_quark_i2c_gpio.c
++++ b/drivers/mfd/intel_quark_i2c_gpio.c
+@@ -148,8 +148,8 @@ static struct mfd_cell intel_quark_mfd_cells[] = {
  };
  
- static struct i2c_driver as3711_i2c_driver = {
-diff --git a/drivers/mfd/as3722.c b/drivers/mfd/as3722.c
-index dfabb9b8956e..e545cdd09d81 100644
---- a/drivers/mfd/as3722.c
-+++ b/drivers/mfd/as3722.c
-@@ -433,7 +433,7 @@ MODULE_DEVICE_TABLE(of, as3722_of_match);
- 
- static const struct i2c_device_id as3722_i2c_id[] = {
- 	{ .name = "as3722" },
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, as3722_i2c_id);
- 
-diff --git a/drivers/mfd/bq257xx.c b/drivers/mfd/bq257xx.c
-index 1858f03df29a..ea47496a81e3 100644
---- a/drivers/mfd/bq257xx.c
-+++ b/drivers/mfd/bq257xx.c
-@@ -131,7 +131,7 @@ static int bq257xx_probe(struct i2c_client *client)
- static const struct i2c_device_id bq257xx_i2c_ids[] = {
- 	{ .name = "bq25703a", .driver_data = BQ25703A },
- 	{ .name = "bq25792", .driver_data = BQ25792 },
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, bq257xx_i2c_ids);
- 
-diff --git a/drivers/mfd/cs40l50-i2c.c b/drivers/mfd/cs40l50-i2c.c
-index 31da37fcc567..0e6fa90bb603 100644
---- a/drivers/mfd/cs40l50-i2c.c
-+++ b/drivers/mfd/cs40l50-i2c.c
-@@ -41,7 +41,7 @@ static void cs40l50_i2c_remove(struct i2c_client *i2c)
- 
- static const struct i2c_device_id cs40l50_id_i2c[] = {
- 	{ .name = "cs40l50" },
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, cs40l50_id_i2c);
- 
-diff --git a/drivers/mfd/da903x.c b/drivers/mfd/da903x.c
-index 36e1df514294..88a20e73a1ef 100644
---- a/drivers/mfd/da903x.c
-+++ b/drivers/mfd/da903x.c
-@@ -449,7 +449,7 @@ static const struct da903x_chip_ops da903x_ops[] = {
- static const struct i2c_device_id da903x_id_table[] = {
- 	{ .name = "da9030", .driver_data = 0 },
- 	{ .name = "da9034", .driver_data = 1 },
--	{ },
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, da903x_id_table);
- 
-diff --git a/drivers/mfd/da9052-i2c.c b/drivers/mfd/da9052-i2c.c
-index d1da6e9e9b6b..110d0886f829 100644
---- a/drivers/mfd/da9052-i2c.c
-+++ b/drivers/mfd/da9052-i2c.c
-@@ -108,7 +108,7 @@ static const struct i2c_device_id da9052_i2c_id[] = {
- 	{ .name = "da9053-ba", .driver_data = DA9053_BA },
- 	{ .name = "da9053-bb", .driver_data = DA9053_BB },
- 	{ .name = "da9053-bc", .driver_data = DA9053_BC },
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, da9052_i2c_id);
- 
-diff --git a/drivers/mfd/da9063-i2c.c b/drivers/mfd/da9063-i2c.c
-index c91f4c4feda4..fc053485656b 100644
---- a/drivers/mfd/da9063-i2c.c
-+++ b/drivers/mfd/da9063-i2c.c
-@@ -478,7 +478,7 @@ static int da9063_i2c_probe(struct i2c_client *i2c)
- static const struct i2c_device_id da9063_i2c_id[] = {
- 	{ .name = "da9063", .driver_data = PMIC_TYPE_DA9063 },
- 	{ .name = "da9063l", .driver_data = PMIC_TYPE_DA9063L },
+ static const struct pci_device_id intel_quark_mfd_ids[] = {
+-	{ PCI_VDEVICE(INTEL, 0x0934), },
 -	{},
++	{ PCI_VDEVICE(INTEL, 0x0934) },
 +	{ }
  };
- MODULE_DEVICE_TABLE(i2c, da9063_i2c_id);
+ MODULE_DEVICE_TABLE(pci, intel_quark_mfd_ids);
  
-diff --git a/drivers/mfd/max77620.c b/drivers/mfd/max77620.c
-index 1b5d4f0c71fc..10a2ed2acfdd 100644
---- a/drivers/mfd/max77620.c
-+++ b/drivers/mfd/max77620.c
-@@ -697,7 +697,7 @@ static const struct i2c_device_id max77620_id[] = {
- 	{ .name = "max77620", .driver_data = MAX77620 },
- 	{ .name = "max20024", .driver_data = MAX20024 },
- 	{ .name = "max77663", .driver_data = MAX77663 },
--	{},
+diff --git a/drivers/mfd/ioc3.c b/drivers/mfd/ioc3.c
+index 34e4db8c2226..391477450287 100644
+--- a/drivers/mfd/ioc3.c
++++ b/drivers/mfd/ioc3.c
+@@ -662,7 +662,7 @@ static void ioc3_mfd_remove(struct pci_dev *pdev)
+ 
+ static struct pci_device_id ioc3_mfd_id_table[] = {
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_SGI, PCI_DEVICE_ID_SGI_IOC3) },
+-	{ 0, },
 +	{ }
  };
+ MODULE_DEVICE_TABLE(pci, ioc3_mfd_id_table);
  
- static DEFINE_SIMPLE_DEV_PM_OPS(max77620_pm_ops,
-diff --git a/drivers/mfd/max77843.c b/drivers/mfd/max77843.c
-index 9d588e10f35d..81c95b7fdfb1 100644
---- a/drivers/mfd/max77843.c
-+++ b/drivers/mfd/max77843.c
-@@ -170,7 +170,7 @@ static const struct of_device_id max77843_dt_match[] = {
+diff --git a/drivers/mfd/janz-cmodio.c b/drivers/mfd/janz-cmodio.c
+index a0cf86460a23..659b926a0aee 100644
+--- a/drivers/mfd/janz-cmodio.c
++++ b/drivers/mfd/janz-cmodio.c
+@@ -265,7 +265,7 @@ static const struct pci_device_id cmodio_pci_ids[] = {
+ 	{ PCI_DEVICE_SUB(PCI_VENDOR_ID_PLX, PCI_DEVICE_ID_PLX_9030, PCI_VENDOR_ID_JANZ, 0x0202) },
+ 	{ PCI_DEVICE_SUB(PCI_VENDOR_ID_PLX, PCI_DEVICE_ID_PLX_9050, PCI_VENDOR_ID_JANZ, 0x0201) },
+ 	{ PCI_DEVICE_SUB(PCI_VENDOR_ID_PLX, PCI_DEVICE_ID_PLX_9050, PCI_VENDOR_ID_JANZ, 0x0202) },
+-	{ 0, }
++	{ }
+ };
+ MODULE_DEVICE_TABLE(pci, cmodio_pci_ids);
  
- static const struct i2c_device_id max77843_id[] = {
- 	{ .name = "max77843", .driver_data = TYPE_MAX77843 },
+diff --git a/drivers/mfd/lpc_ich.c b/drivers/mfd/lpc_ich.c
+index 783d44355bc3..8e4482c43e0c 100644
+--- a/drivers/mfd/lpc_ich.c
++++ b/drivers/mfd/lpc_ich.c
+@@ -958,7 +958,7 @@ static const struct pci_device_id lpc_ich_ids[] = {
+ 	{ PCI_VDEVICE(INTEL, 0xa1c7), .driver_data = LPC_LEWISBURG },
+ 	{ PCI_VDEVICE(INTEL, 0xa242), .driver_data = LPC_LEWISBURG },
+ 	{ PCI_VDEVICE(INTEL, 0xa243), .driver_data = LPC_LEWISBURG },
+-	{ },			/* End of list */
++	{ }			/* End of list */
+ };
+ MODULE_DEVICE_TABLE(pci, lpc_ich_ids);
+ 
+diff --git a/drivers/mfd/rdc321x-southbridge.c b/drivers/mfd/rdc321x-southbridge.c
+index c44a76285147..9405d9ac9918 100644
+--- a/drivers/mfd/rdc321x-southbridge.c
++++ b/drivers/mfd/rdc321x-southbridge.c
+@@ -79,7 +79,7 @@ static int rdc321x_sb_probe(struct pci_dev *pdev,
+ 
+ static const struct pci_device_id rdc321x_sb_table[] = {
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_RDC, PCI_DEVICE_ID_RDC_R6030) },
+-	{}
++	{ }
+ };
+ MODULE_DEVICE_TABLE(pci, rdc321x_sb_table);
+ 
+diff --git a/drivers/mfd/sm501.c b/drivers/mfd/sm501.c
+index d1a27fef79a5..e84009e596f3 100644
+--- a/drivers/mfd/sm501.c
++++ b/drivers/mfd/sm501.c
+@@ -1642,7 +1642,7 @@ static void sm501_plat_remove(struct platform_device *dev)
+ 
+ static const struct pci_device_id sm501_pci_tbl[] = {
+ 	{ PCI_DEVICE(0x126f, 0x0501) },
 -	{ },
 +	{ }
  };
  
- static int max77843_suspend(struct device *dev)
-diff --git a/drivers/mfd/max8907.c b/drivers/mfd/max8907.c
-index ae66027b5c35..e15370320a50 100644
---- a/drivers/mfd/max8907.c
-+++ b/drivers/mfd/max8907.c
-@@ -315,7 +315,7 @@ MODULE_DEVICE_TABLE(of, max8907_of_match);
+ MODULE_DEVICE_TABLE(pci, sm501_pci_tbl);
+diff --git a/drivers/mfd/timberdale.c b/drivers/mfd/timberdale.c
+index e75e1d6851ab..adf7a7ead3b6 100644
+--- a/drivers/mfd/timberdale.c
++++ b/drivers/mfd/timberdale.c
+@@ -845,7 +845,7 @@ static void timb_remove(struct pci_dev *dev)
  
- static const struct i2c_device_id max8907_i2c_id[] = {
- 	{ .name = "max8907" },
--	{}
+ static const struct pci_device_id timberdale_pci_tbl[] = {
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_TIMB, PCI_DEVICE_ID_TIMB) },
+-	{ 0 }
 +	{ }
  };
- MODULE_DEVICE_TABLE(i2c, max8907_i2c_id);
+ MODULE_DEVICE_TABLE(pci, timberdale_pci_tbl);
  
-diff --git a/drivers/mfd/rc5t583.c b/drivers/mfd/rc5t583.c
-index 96553e5a8279..becb6637d346 100644
---- a/drivers/mfd/rc5t583.c
-+++ b/drivers/mfd/rc5t583.c
-@@ -281,7 +281,7 @@ static int rc5t583_i2c_probe(struct i2c_client *i2c)
+diff --git a/drivers/mfd/vx855.c b/drivers/mfd/vx855.c
+index 985f81c1739c..623735be62ad 100644
+--- a/drivers/mfd/vx855.c
++++ b/drivers/mfd/vx855.c
+@@ -105,7 +105,7 @@ static void vx855_remove(struct pci_dev *pdev)
  
- static const struct i2c_device_id rc5t583_i2c_id[] = {
- 	{ .name = "rc5t583" },
--	{}
+ static const struct pci_device_id vx855_pci_tbl[] = {
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_VIA, PCI_DEVICE_ID_VIA_VX855) },
+-	{ 0, }
 +	{ }
  };
+ MODULE_DEVICE_TABLE(pci, vx855_pci_tbl);
  
- static struct i2c_driver rc5t583_i2c_driver = {
-diff --git a/drivers/mfd/rsmu_i2c.c b/drivers/mfd/rsmu_i2c.c
-index 435ffe3b0c89..e1c4eec6098d 100644
---- a/drivers/mfd/rsmu_i2c.c
-+++ b/drivers/mfd/rsmu_i2c.c
-@@ -335,7 +335,7 @@ static const struct i2c_device_id rsmu_i2c_id[] = {
- 	{ .name = "82p33811", .driver_data = RSMU_SABRE },
- 	{ .name = "8v19n850", .driver_data = RSMU_SL },
- 	{ .name = "8v19n851", .driver_data = RSMU_SL },
--	{}
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, rsmu_i2c_id);
- 
-diff --git a/drivers/mfd/si476x-i2c.c b/drivers/mfd/si476x-i2c.c
-index 4be7ea17e2d8..b1f70a6cb027 100644
---- a/drivers/mfd/si476x-i2c.c
-+++ b/drivers/mfd/si476x-i2c.c
-@@ -843,7 +843,7 @@ static const struct i2c_device_id si476x_id[] = {
- 	{ .name = "si4761", .driver_data = SI476X_CHIP_SI4761 },
- 	{ .name = "si4764", .driver_data = SI476X_CHIP_SI4764 },
- 	{ .name = "si4768", .driver_data = SI476X_CHIP_SI4768 },
--	{ },
-+	{ }
- };
- MODULE_DEVICE_TABLE(i2c, si476x_id);
- 
-diff --git a/drivers/mfd/tps65910.c b/drivers/mfd/tps65910.c
-index d7814f7bf6bf..ef465da7cf44 100644
---- a/drivers/mfd/tps65910.c
-+++ b/drivers/mfd/tps65910.c
-@@ -551,9 +551,9 @@ static int tps65910_i2c_probe(struct i2c_client *i2c)
- }
- 
- static const struct i2c_device_id tps65910_i2c_id[] = {
--       { .name = "tps65910", .driver_data = TPS65910 },
--       { .name = "tps65911", .driver_data = TPS65911 },
--       { }
-+	{ .name = "tps65910", .driver_data = TPS65910 },
-+	{ .name = "tps65911", .driver_data = TPS65911 },
-+	{ }
- };
- 
- static struct i2c_driver tps65910_i2c_driver = {
-diff --git a/drivers/mfd/wm8400-core.c b/drivers/mfd/wm8400-core.c
-index 562fef196c34..bcbd2408acad 100644
---- a/drivers/mfd/wm8400-core.c
-+++ b/drivers/mfd/wm8400-core.c
-@@ -135,8 +135,8 @@ static int wm8400_i2c_probe(struct i2c_client *i2c)
- }
- 
- static const struct i2c_device_id wm8400_i2c_id[] = {
--       { .name = "wm8400" },
--       { }
-+	{ .name = "wm8400" },
-+	{ }
- };
- 
- static struct i2c_driver wm8400_i2c_driver = {
 -- 
 2.47.3
 
