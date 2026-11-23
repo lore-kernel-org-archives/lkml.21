@@ -1,74 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795429396;
-	b=wvYReGZYLZDEAyO9EmGJBzn5QaGnNEiwK336uQa7Vlai1YXOdsIBMP3ma1FdlKnxlcxc
-	 AtvxKVHsF7dDSOSfjtZfWLijb01QbGsLOORKbi3tZ8eK5cp/rRU0lEb6W0v58Wx7GNxBb
-	 ORTVVmbpurz1MvcCslnsYViKUK7EAgYvdAY7r7eGmwfHjB7Dzatiht+cvOv74VKHvsDq3
-	 Et7+s4pgUsSunGE2yxrHN32iwO7zaLSAIe9qtMlo52eEeenysA4Nosy4fDrlFKdSYjgXI
-	 dpq4QMbMmFkeHVXdsmH1qiI4QWRntFYfQ6qjiXWUOnPbXeIh543sC3ttvRcc9jZokWw==
+	b=TM3RY2hR5LSFY6mI3hanMl1hecNHJ8OLuuSBHm7E1F5VUmnwIaAiOcTy7Wu9s0+Ot0jZ
+	 klatwizuLDERvIa6/jA2WvteE5zDoivWXV4U/nARyeQ/4zyVhm7oTCa52ET0sEQzdy8nc
+	 z/kzzSifKSwUXF67Y05eDcWoaPoM0uibr6fz5fdtXyDCn6LWhVvTWVVWFSe5iNEzhgCTC
+	 6ajDwTYU/Qk+uq3UjcfjvIYKi/5MA9gvBv6mtWOwZRCBJeuDLzDXFKcPwqC0UYWLaLmzV
+	 UXCc3DkifbzMEOxKHSYUSzYUfXH6xPywMbp17oM4zfgNXYqjHDa4BxmlnlhGUJJ4d0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795429396;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=O/TVybr8Y41ODysXPEJFTx9rL5xSFvq+OlfoIENk3fU=;
-	b=jklQhDbDggJrknzu7SQBNxd1/dWoHqlz4Uu0NdB4SRCvBHFv2e7SaWtBL7n/xuO3fkNq
-	 4F7dJv+6K17ShwLGiqUr7SKzKFamWVeu+DI28Num5qiLDrVFuVBb27lmMbnaocYwtNHLq
-	 6/ae7X7jpSkEPtGvzNKbXP2x6Rl8mYBzONsakHHPqyq8agN0NEtGJUxh2pq9L6AF3YU71
-	 //NFdkv3tJnKp0d1xb7TaOj4qaMe+UMXXK8QHfOAE1JuF9iwgQOqvgEYNTmXEUYCaoI85
-	 1HRGm5F76wXOG5cP1SEk9UMe9JzTT+MAicKkPdYo2eEuAlLEV/ldQzD1eXiiDDOsOag==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=1MG7opruDk6HGbhLyOi9TXyXBCsTd7Khpfpd5KuFRfw=;
+	b=WHYcvW0JQLAz7ztsGvxg3yaZMzvilSj0qPC3EvsLolCQHKTmKGt24JyQontk86Ig7pn6
+	 x4y8zw/cb6IKI74zi/gqK/NE+T3onj9CUsw1ik53U7Fn0LgN1w8pZGCV9OwMyoiWIk2S6
+	 B/mwZRbcaoAZF0efIltQW2fIPDzjy7D0ZM4bi8/x4KCPW5xKr/Yh+4x1fa7tAIcDc7YNl
+	 aVfhiyMQGetV01AS3PgI/3vZf6lKc5D6wWuokWJKVXQkhl09vTsKPBiZfXJ+bROiExPTv
+	 zL9EyFy+n9SjlyGsr3F41piVlgacbWi+zJbB2sih8PPJFIN1oKjnmQSqpP2iOc/1Oqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=SDGH8ifw;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=hUXdo6hR;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=cmEDHLqa;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C1DE606A332;
-	Mon, 23 Nov 2026 10:23:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C1DE606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2C91606A338
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:23:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2C91606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=SDGH8ifw;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=hUXdo6hR
-Date: Mon, 23 Nov 2026 10:23:12 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795429394;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=O/TVybr8Y41ODysXPEJFTx9rL5xSFvq+OlfoIENk3fU=;
-	b=SDGH8ifwaVX10tLeGvCe8z3DX3xZ6IBz0POKC5ix/qBL+tKqnH7TevsIXRD6wbNo0jwv2U
-	7MVift2ZejNmijQ8+EmdbjaGKh4+jIn7HZH9Pql9f9JltPuX1L/t+nKyklqDZ2P1fDRMQc
-	eal7W9zt9E7c+AimgZu9UZ2gQ8ht3KzmbsUdCkdLOwO+0XjhJENrJ+KtJqkFcfEoOSVMrQ
-	zk3IW+AmaQHJvm2dWKiL4reh3RGyLwifDR/YTX48HAoax/rPfz3TQaaZT9whxSBR2eJ8Lj
-	xPQVYQMLrZL/dkRY4nrctJnXXEY+7H4R4QK42eLV1jrlTOZU9dbGCPQVdKnx3w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795429394;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=O/TVybr8Y41ODysXPEJFTx9rL5xSFvq+OlfoIENk3fU=;
-	b=hUXdo6hRMHRrTdeK4rDN0ZX2zO83MY8fp7vhyPWvQp7mCrVYpTXVpAJLETnuYeLQwcuP3U
-	DzM/8mj1umrdldDw==
-From: "tip-bot2 for Usama Arif" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: perf/core] perf/core: Don't zero perf_sample_data
-Cc: Usama Arif <usama.arif@linux.dev>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Ingo Molnar <mingo@kernel.org>, x86@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261119211235.99805-4-usama.arif@linux.dev>
-References: <20261119211235.99805-4-usama.arif@linux.dev>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=cmEDHLqa
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so16853745e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:23:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795429394; x=1796034194; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1MG7opruDk6HGbhLyOi9TXyXBCsTd7Khpfpd5KuFRfw=;
+        b=cmEDHLqaWYolsqsyPJ6jVl2HyBwR4eOy3PT+08higAX1YYgkcwC062OFRyuyIWXqkX
+         t8lH6BuXt3w2QUgepijLAGLr4VkNVcdRKcFL1A0ioX6jMt16yzOcpke/ySd6nWemt2B2
+         vO1e7FP9Y3XTcwhFuZaYbvJWBAqMaC3u7qPQYHaV0jRIVXlRLkP340VQm9zPrzQyoLA/
+         NTq44exarTHa5EuwRjqhGckyQ1eYGd6V2q8AwlwGmvcUXsibUhH/mCLQS5vLox0CZk8X
+         Eqn1SWUa3s8TDegfC2T1SUZ+8sHyMDWXqzgT6Uf6Gh8p5BA4dHMLQ9NjLfDyvardwwkY
+         iuNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795429394; x=1796034194;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1MG7opruDk6HGbhLyOi9TXyXBCsTd7Khpfpd5KuFRfw=;
+        b=H7Z41cBCHy7ADal1SsulXsyZ0TAVvCkufx6iDG5FVN5SMynTw1lzoIjjQiu2WEF+yd
+         KYEC48/DuzhcTtjSzGCegzc0ID9u0mv3nXsOcnTqvbc7doAd9CfBBjSB1kGlk3g1Rt/4
+         OJqyLd+hPV5/v0h2HrhEktU3C2oSBWKmu0n8FI9h+hamvVZfkLCJNxz5zCjH+xMjD5Qj
+         yM//pgn2nTvOpRFhf2A9hdtq8VAjxEJX947OcqQnSnlcT8FSi5s2WPj4x+GWqDP9lsba
+         2qc/sBR5tBrScP1KeEU3FImFStl3W8NHruX0nrvXeZTQIObRaFDkBpuQ94PdpRfgNSyD
+         OGsw==
+X-Forwarded-Encrypted: i=1; AL+hErH4gMT1MMuGl3S0GszRubFWMFA1qJEUWuRwzNMqr7Ehx3IYF7IBXyOIie7uA7lmMU8cLD6NkuOLP8SNuhY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Yu+GUAGHiwsnDFB2UCIHLUn1FgcsiBu5igp5nJkVhWJOppbFS
+	JWXryQdi+i0HwAPGwtzskPBNBq5mBKcSa6MufSM+/jOVV6zfvYiaR+8Tk/TkIvrtuLY=
+X-Gm-Gg: AZFdTZfe7Nbqu897RsV0vbMRg2pCQgA7zmQGRT3O1Zo+5WcL5VVLqQEEs17cH9/3+4Z
+	ICR58TOEGJDktvxX0mvS4Q5j6L7dmva3xgkxhIg7soulWlfdUefYtJh1orgYpp+vRaRJL9BHhJW
+	3uIjEXbYowDOkLpqbgzA34ejHftoDK8syjXhtpSqY2dUhpmWv8jRf2DfqR94tGeYKFgsIDfEsXM
+	vsM0cuQaTCWSXyihk312s883hu8fRh5rt7AXwmDC8CMSwhD4XNni8uWyLLGKc0+ugQIO7WDb2sM
+	jbNDj2EPkLM6IierNdAZ3BHgxFlF37Sq+kh7+/KNifOB/friRIYDnPYFg6TkslnXBoWXjtYWyyr
+	6AA5FowKk0zdYszhJGNmqg6zvazqsmLk6I+pS2Mtm+mKz1fUQfu+uR2ZZvwrrgy3JKHpTM6FPbe
+	fy4wqtRzTF149+G2kAwzr/0YHaTHgf4lGLHsfEvmdhtM8PUOKHconRub2XJQGEItA2CAEmVc1HZ
+	jW68Reu+fpvHEKrMCVF2D2LjGWgGbqUyqFsurqXSPQK6pLk4pRtyXsvMNiVmxuJzUocvbMVk2sm
+	CZbIjsiwOtLr5CLkepAIYXrAGaNe4KN5TUAc4kIafv6mxYMWfzUnwgpc69Bn04gJBlnK8ZBKBMc
+	gVWCyX+2XjadJWE6w
+X-Received: by 2002:a05:600c:674b:b0:4bb:6947:3e1d with SMTP id 5b1f17b1804b1-4bb8892c0fcmr212081605e9.20.1795429394227;
+        Mon, 23 Nov 2026 02:23:14 -0800 (PST)
+Received: from ?IPV6:2001:a61:131e:b901:6da9:459e:7c6c:e85e? ([2001:a61:131e:b901:6da9:459e:7c6c:e85e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b205443sm22138236f8f.39.2026.11.23.02.23.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 02:23:14 -0800 (PST)
+Message-ID: <51674f53-673c-4115-af66-c0fae252fcd3@suse.com>
+Date: Mon, 23 Nov 2026 11:23:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,267 +93,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179542939252.92412.16634687106310976644.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] USB: cdc-acm: restore the line coding after a
+ reset-resume
+To: Piotr Kubik <piotr@kubik.pl>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Francesco Lavra <francescolavra@interfree.it>, stable@vger.kernel.org
+References: <20261120171809.1494779-1-piotr@kubik.pl>
+Content-Language: en-US
+From: Oliver Neukum <oneukum@suse.com>
+In-Reply-To: <20261120171809.1494779-1-piotr@kubik.pl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-The following commit has been merged into the perf/core branch of tip:
+On 20.11.26 18:18, Piotr Kubik wrote:
 
-Commit-ID:     9d63bfc5021337ab460d2bc49be175dd131021e9
-Gitweb:        https://git.kernel.org/tip/9d63bfc5021337ab460d2bc49be175dd131=
-021e9
-Author:        Usama Arif <usama.arif@linux.dev>
-AuthorDate:    Thu, 19 Nov 2026 13:10:46 -08:00
-Committer:     Ingo Molnar <mingo@kernel.org>
-CommitterDate: Mon, 23 Nov 2026 10:57:48 +01:00
+>   /* devices aren't required to support these requests.
+> @@ -1739,10 +1749,27 @@ static int acm_resume(struct usb_interface *intf)
+>   static int acm_reset_resume(struct usb_interface *intf)
+>   {
+>   	struct acm *acm = usb_get_intfdata(intf);
+> +	bool last;
+>   
+>   	if (tty_port_initialized(&acm->port))
+>   		tty_port_tty_hangup(&acm->port, false);
+>   
+> +	spin_lock_irq(&acm->write_lock);
+> +	last = acm->susp_count == 1;
+> +	spin_unlock_irq(&acm->write_lock);
+> +
+> +	/*
+> +	 * The device can lose its line coding, for example when it loses
+> +	 * power during system suspend, and acm_tty_set_termios() sends the
+> +	 * line coding only when it differs from acm->line. Send it from the
+> +	 * last interface to resume, before acm_resume() restarts the URBs.
+> +	 * In a runtime resume of the device, an autopm reference here would
+> +	 * wait for this resume and never return.
+> +	 */
+> +	if (last)
+> +		__acm_ctrl_msg(acm, USB_CDC_REQ_SET_LINE_CODING, 0,
+> +			       &acm->line, sizeof(acm->line));
 
-perf/core: Don't zero perf_sample_data
+Thank you, I was a bit premature unfortunately. Could you use
+the acm_set_line() macro, so that the driver stays consistent
+in that regard?
 
-Kernels built with CONFIG_INIT_STACK_ALL_ZERO, the default when the
-compiler supports it, clear every local variable on function entry. For
-the 256-byte struct perf_sample_data in do_perf_sw_event() that is a
-memset, and it runs on every entry, before the list of events is even
-looked up.
+	Regards
+		Oliver
 
-do_perf_sw_event() is entered for a software event, e.g. a context
-switch, as soon as one event of that kind is open anywhere in the
-system. Counting events add to event->count and never read the struct.
-For every matching event, perf_sample_data_init() resets sample_flags,
-period and dyn_size and stores the address if there is one; for a
-sampling event, perf_prepare_sample() then fills in what its
-sample_type asks for.
-
-A single context-switch counter, e.g. one kept open by a monitoring
-daemon, is enough for every context switch on the machine to pay for
-the clearing. On hosts running many small VMs, ___perf_sw_event() is
-0.3% of all kernel cycles, and the memset about a seventh of that.
-
-Mark the struct __uninitialized, which is what kernels without stack
-auto-initialization get anyway. Because its contents are copied into a
-ring buffer that userspace maps, every field that is read must have
-been written first. That holds for perf_output_sample(), and with the
-previous patch also for what a BPF program can read through
-bpf_perf_event_data.
-
-In a KVM guest on AMD Zen 5 with software counters open on every CPU,
-this cuts the time they add to a context switch from 54 ns to 44 ns
-(sched_yield() between two threads on one CPU, with
-spec_rstack_overflow=3Doff).
-
-[ peterz: If one is safe and beneficial, then all are. ]
-
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Link: https://patch.msgid.link/20261119211235.99805-4-usama.arif@linux.dev
----
- kernel/events/core.c | 40 ++++++++++++++++++++--------------------
- 1 file changed, 20 insertions(+), 20 deletions(-)
-
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 38dac15..773b132 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -9121,7 +9121,7 @@ perf_event_read_event(struct perf_event *event,
- 			struct task_struct *task)
- {
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	struct perf_read_event read_event =3D {
- 		.pid =3D perf_event_pid(event, task),
- 		.tid =3D perf_event_tid(event, task),
-@@ -9388,7 +9388,7 @@ static void perf_event_task_output(struct perf_event *e=
-vent,
- {
- 	struct perf_task_event *task_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data	sample;
-+	struct perf_sample_data	sample __uninitialized;
- 	struct task_struct *task =3D task_event->task;
- 	int ret;
-=20
-@@ -9532,7 +9532,7 @@ static void perf_event_comm_output(struct perf_event *e=
-vent,
- {
- 	struct perf_comm_event *comm_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int ret;
-=20
- 	if (!perf_event_comm_match(event))
-@@ -9623,7 +9623,7 @@ static void perf_event_namespaces_output(struct perf_ev=
-ent *event,
- {
- 	struct perf_namespaces_event *namespaces_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int ret;
-=20
- 	if (!perf_event_namespaces_match(event))
-@@ -9746,7 +9746,7 @@ static void perf_event_cgroup_output(struct perf_event =
-*event, void *data)
- {
- 	struct perf_cgroup_event *cgroup_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int ret;
- 	u16 size =3D sizeof(cgroup_event->event_id) + cgroup_event->path_size;
-=20
-@@ -9857,7 +9857,7 @@ static void perf_event_mmap_output(struct perf_event *e=
-vent,
- {
- 	struct perf_mmap_event *mmap_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int size =3D sizeof(mmap_event->event_id) + mmap_event->file_size;
- 	u32 type =3D PERF_RECORD_MMAP;
- 	u16 misc =3D PERF_RECORD_MISC_USER;
-@@ -10153,7 +10153,7 @@ void perf_event_aux_event(struct perf_event *event, u=
-nsigned long head,
- 			  unsigned long size, u64 flags)
- {
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	struct perf_aux_event {
- 		struct perf_event_header	header;
- 		u64				offset;
-@@ -10186,7 +10186,7 @@ void perf_event_aux_event(struct perf_event *event, u=
-nsigned long head,
- void perf_log_lost_samples(struct perf_event *event, u64 lost)
- {
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int ret;
-=20
- 	struct {
-@@ -10238,7 +10238,7 @@ static void perf_event_switch_output(struct perf_even=
-t *event, void *data)
- {
- 	struct perf_switch_event *se =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	u32 type;
- 	u16 misc;
- 	u16 size;
-@@ -10305,7 +10305,7 @@ static void perf_event_switch(struct task_struct *tas=
-k,
- static void perf_log_throttle(struct perf_event *event, int enable)
- {
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int ret;
-=20
- 	struct {
-@@ -10361,7 +10361,7 @@ static void perf_event_ksymbol_output(struct perf_eve=
-nt *event, void *data)
- {
- 	struct perf_ksymbol_event *ksymbol_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int ret;
- 	u16 size =3D sizeof(ksymbol_event->event_id) + ksymbol_event->name_len;
-=20
-@@ -10448,7 +10448,7 @@ static void perf_event_bpf_output(struct perf_event *=
-event, void *data)
- {
- 	struct perf_bpf_event *bpf_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	int ret;
-=20
- 	if (!perf_event_bpf_match(event))
-@@ -10538,7 +10538,7 @@ static void perf_callchain_deferred_output(struct per=
-f_event *event, void *data)
- {
- 	struct perf_callchain_deferred_event *deferred_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	u64 nr =3D deferred_event->trace->nr;
- 	u16 size, id_size, max_payload;
- 	int ret;
-@@ -10613,7 +10613,7 @@ static void perf_event_text_poke_output(struct perf_e=
-vent *event, void *data)
- {
- 	struct perf_text_poke_event *text_poke_event =3D data;
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	u16 size =3D sizeof(text_poke_event->event_id) + text_poke_event->tot + tex=
-t_poke_event->pad;
- 	u64 padding =3D 0;
- 	int ret;
-@@ -10684,7 +10684,7 @@ EXPORT_SYMBOL_GPL(perf_event_itrace_started);
- static void perf_log_itrace_start(struct perf_event *event)
- {
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	struct perf_aux_event {
- 		struct perf_event_header        header;
- 		u32				pid;
-@@ -10719,7 +10719,7 @@ static void perf_log_itrace_start(struct perf_event *=
-event)
- void perf_report_aux_output_id(struct perf_event *event, u64 hw_id)
- {
- 	struct perf_output_handle handle;
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	struct perf_aux_event {
- 		struct perf_event_header        header;
- 		u64				hw_id;
-@@ -11210,7 +11210,7 @@ static void do_perf_sw_event(enum perf_type_id type, =
-u32 event_id,
- 				    u64 nr, struct pt_regs *regs, u64 addr)
- {
- 	struct swevent_htable *swhash =3D this_cpu_ptr(&swevent_htable);
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct perf_event *event;
- 	struct hlist_head *head;
-=20
-@@ -11601,7 +11601,7 @@ void perf_tp_event(u16 event_type, u64 count, void *r=
-ecord, int entry_size,
- 		   struct pt_regs *regs, struct hlist_head *head, int rctx,
- 		   struct task_struct *task)
- {
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct perf_event *event;
-=20
- 	/*
-@@ -11947,7 +11947,7 @@ void perf_event_free_bpf_prog(struct perf_event *even=
-t)
- #ifdef CONFIG_HAVE_HW_BREAKPOINT
- void perf_bp_event(struct perf_event *bp, void *data)
- {
--	struct perf_sample_data sample;
-+	struct perf_sample_data sample __uninitialized;
- 	struct pt_regs *regs =3D data;
-=20
- 	/*
-@@ -12401,7 +12401,7 @@ static int perf_event_set_filter(struct perf_event *e=
-vent, void __user *arg)
- static enum hrtimer_restart perf_swevent_hrtimer(struct hrtimer *hrtimer)
- {
- 	enum hrtimer_restart ret =3D HRTIMER_RESTART;
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct pt_regs *regs;
- 	struct perf_event *event;
- 	u64 period;
