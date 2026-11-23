@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443587;
-	b=SY0LF7q3K9UTXZITawjKpewWp+/TAUQpa4CZG0Ivw61YnRJpHAVCH52/9D+ztSDIWe7q
-	 qmI5xvADkTisf9ONkHv+ZdwDnxedDo57bHcuijuKA206qy4/DGkO/NM3dyQxroS6A6lv8
-	 77X6/Y1ccNEzMSLSfq4TS7PDsryp7xP4OQgEVUi7NTlEUfKv4r6wXzVJA2vGdkHSfUrO1
-	 RroptnV7TgVGNw66NI2cRSYkfAdLRbc/tjBIRDuPIJwpCfHX433+fZnifmgwKRs5tW70t
-	 evs9hteq/quddOho1oZjIjvAA5+XFQlZ27gfbv1JPH7urH+eOY47FkJ8sKFQZdpluUg==
+	t=1795443599;
+	b=aOB4KanLvSqdLVHIm9nn9u+pMhuaOnTtgI4jq53V58HHHbMUelui3HidDNwxnoWMlJpj
+	 aXfTK+7hnScMaQJ/ChjgBQuWFn97Uub6PuxReFNB1mqg4GFYweVMrigbO510cQq8xKLoN
+	 3/0qTp7IpFszg6hkZj+o0UMFMgCeD/Tjj23jZp92QDFOhJiQTCcPQOVmPiqkx2t+r3kUG
+	 LJcWNk+NfqaVFdJsko9GkTxrehiLVk0qz1ut46l+CjmASNYh0CX13Y0qKdkijqNNgq829
+	 afkRktyrwsmvI7k1sHWn13gaH1ThRC6QK3vgEOe3x7RMxLCUuX+LiagQioqeV6DaVhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443587;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443599;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=QkfpB6aPJNVrsOpvuqLtkcdraYbSYI467HC25kQ7nfA=;
-	b=P4MMpZ4kOAhkDnbREo9EgcJOmlCgRDqtmyp+9bWQBmwfEUMBYWaF8hYKc3DhST9BBP2h
-	 DxmAdImd2n0MDtH0aVQqArlWcmnAqeMHS9Gu1UWHAl1GeYmxG1TLn3Mdr/azqX0aYFDrn
-	 DSAFxT55yduVAvbF7RObALtPPcqZJeWCwaC1o4QyuG4WdKJG3VlXmg1Eb18LIIfun4rC8
-	 QAesHANJftY9PKuSYqo/sxL1sr6oLGrv0+OSs0HubXLCbKgEjhxDazz18yPBP6zxGu6+Z
-	 ZnvOPsWkddXKg9qFqUO3fwLvgDmnm0Cp0rlc8RQrbyDRPo1wryeeKDL7U0ic+9jk6SQ==
+	bh=y226DZkwLHV/0wLned+bdA2tSEyU1JvBKnaVWIVUoR8=;
+	b=4PxSw1WNzrNr8I3zvFevvaZBFRwGEmN7T0rCZpOjoHHOE+5FA9+zKvyfeYfNNNIDTp8z
+	 m3j99ZM6tPZDie4Qha9yEhhQxRufen2KxD0SqdJdszlV13UKHSdaPKYqbvgSGWHmA026Y
+	 eArSb7VKJ6eBFoDaA7qFMq9anz2SlrwZjOuZa33qJs91ySW8AmdozjwR5QbP/jkoHF0UL
+	 CqIhj5bnEC//oY1qgABCf/C1dZtqhIKLDC/OvLBgD/i4vWKUjJ3pN6rxw3Vm9GqNh495a
+	 KiiNwKe2NABzpwrA0zxYh7hiug+i3hvkKc+5c/YLZ7B4NB9Llg7hAwfMkPU89oLu4Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ex+6J2Q+;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="BkREXJ/B";
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AD2E606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:19:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AD2E606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72DCA606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:19:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72DCA606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ex+6J2Q+
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-380b40312e2so8142449eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:19:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BkREXJ/B
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so4079945c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:19:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443586; x=1796048386; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795443598; x=1796048398; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=QkfpB6aPJNVrsOpvuqLtkcdraYbSYI467HC25kQ7nfA=;
-        b=ex+6J2Q+kJIWVNtXyW+FJJalU8fFHwVJdnc2q1Dz5lsH+iChahTQYfnTKY/hN3spQB
-         noM2EP2I8buPfvagx4GIva3BscwG0/DHRUW/a0ThRFc9JpvFyTIyqLxR8zqbMpEOcQQd
-         i/dAOmYIC9HB28xKCVbewoqwFa3YwVV45J47Tp7JSBrg/aEa4etPXYP1+likJgmMqy76
-         YEv2UB3UtKuuATWdj6N8qnoTXbqpzcbJYk27i873yKvVabOUzphFw2TsJCfVc5PLI9zG
-         HZ+kCSQG3CRv9lxp6q8BxUkJz5ueNW6KmGtF9AV27AB36WyE+ADD6dp66faVbS8Uxf/p
-         0w/A==
+        bh=y226DZkwLHV/0wLned+bdA2tSEyU1JvBKnaVWIVUoR8=;
+        b=BkREXJ/BXiDHJyUVu9BXVhXdtOTtx2gQC44oDHvVkAnLsroA70wEVDpoiTzJkhjAbD
+         hQV5IlaaajhaDZiA/u41gVg0720axesf4RBXB0p4P66LmSjkszkkT3kkJYqWQ7p7sw32
+         rDWX6hpEeTUw4/JUkLhIRrTEPHpqp0xjxRsw2qRU1UK9vOTeYzHXtMjo4Jg/FiHILvNu
+         d4upBmFwjoFVgR4ZRGusk0HTg/0FiJeCw+HCSUqt7DYgXc/iMhGX61CXNGGc0kOae3xk
+         ZIaeHM9/tFZUezu4yLK0RJC82OXvnmgAIyEdKyGgPjn9nywBSJbw+MwDcFXsupwH5v/i
+         OJjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443586; x=1796048386;
+        d=1e100.net; s=20260707; t=1795443598; x=1796048398;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QkfpB6aPJNVrsOpvuqLtkcdraYbSYI467HC25kQ7nfA=;
-        b=D2OOTR1P/fbcBItUnpFGWhUb30860Vw9nZOwxyd+TEwwMTszgptCF4MzY+XK79u2cG
-         ZlVX9l7ImdA6BgIxCvNjdHgzsgtniGIdAmjdNiUwI0TpIYmISqOHwF+Ufxiv9a1h38NN
-         3okNYCKKDn8vJIQnEeF42LxjdxmFeQ3aWXFFH4ErSqn+ZtS+Ey99J4rDdwaKrF/wgXYi
-         aoUx6PasfqPit8+YJNj452XH3Gf+ws+nWzEab0kfunrVqomGI6VJou2LJFuqrO+fiCOb
-         ZHV2XULi5nZlQQDGXQaoHXIm/dnqsV5lFGF6oRpKV+sBdpqtchn6FpDJTuELEsQRvOLS
-         26yA==
-X-Gm-Message-State: APuU4Z9yNpV92Vfp9M8V1uZLSuLGeQn20AqXBGTDmgbINbMLLQZja2BM
-	Nmz0QJyYQnMGRbECynLoluawEVlG38utFfhNjJOKqg7cIaM8p53hpzlh
-X-Gm-Gg: AZFdTZeCbo0ogPFSMS9J0gb1uIJQahGeZJYu/fCYlJpFrdSglcAAfxSBIJB6s6Sv8DT
-	nBBLk1fjiMd+ici8hl7OSKM0phZFtJwPIsU4tPbFoLhJ54EVgXFg8lqYIZ5HJ1Jq98A9sAWvnNG
-	AchTTQKf8S0zQeu7J7jgECnlaJ5IxX4WpWJLV4WexzvFmkf64CMJDt5+i1IWMtTYgKPR81SmZAs
-	SUyh9lwfGBk50/p0XIvazpXiimemVvtvfOLOb4hv+/7xJxv9M9fYAn+ahk7gE9Mosimr1+z3Rkm
-	YXspFFssTAwps5XFoh7/dLU7R4/lcMFz3sWj9YWWohjiTIhPG517Iqpk23TTwfpRDoXfQByBI7E
-	nI5vQOkHMEhaTxjLYLzSz0SXiNV4KtRGly2r1H/BI4VUkMpIc+Wzrqxdyu8Jp/pBGSGacP3RR6k
-	ncJRNlPP6tBtjMcV8JCVFyG+YljBpm1vUkcCfQaNEpJRgUlYh8fXUzhKqfsJwFVO+379UxIpPs+
-	hgBw6QWbYTsy/KNX5ddrVuueQLZAc8dAI+nR0dTBhP3hrLvFxNcXAsAnLRldIAd+Wc1PSf/t6is
-	zUhxlSGVSqt/9HqqqbEhPBgrkbxI3Dx4XK76PNcZCe9NoVFlgnUIDds0NSOYyJibLXPA
-X-Received: by 2002:a05:693c:880b:20b0:386:b025:1e1e with SMTP id 5a478bee46e88-386b02522d2mr3390054eec.16.1795443586180;
-        Mon, 23 Nov 2026 06:19:46 -0800 (PST)
+        bh=y226DZkwLHV/0wLned+bdA2tSEyU1JvBKnaVWIVUoR8=;
+        b=AMfTlQ9kg+iEq5SS3wJTJEKtXEfXgmRquIAs+PpgastfmFujKW67n+uautAS/FhKOG
+         8w3ScM7eVgLAnVRhyCVYO5Ucy0UaG9PUisPFTjH44832e36tbOGliJed7jlZ/CDbxDjQ
+         hwx5Ke3wLzsukc7zDGrZjJXPAf8MGxit5aT+P12s1O2EMyE0UlP1gFa4QMEUTidtvtLd
+         ubXwm6c998PkdsRZlPM94CkfD9yxFB7qjivD3k/IYR37czzf2Lf0DHrZ/DUw6cMLi/8c
+         s+hOYzF7peFILyJt9eVnh3Jnu6seU96wvH5bCg5SEbJOhrDl7HUeucKaXM2Rm88TP1P2
+         P7Vw==
+X-Gm-Message-State: APuU4Z8xSfFkoR/fhTirhr+Zp0022FTA2XwzIRwU5lfTvTkhwF4OBm/m
+	DvQVAXlQUjNMH3+tNXfhDXUZveE5fwoxjNIFKuZRv2aGRL3c4fgF6ivQ
+X-Gm-Gg: AZFdTZcEBV0cp0AqqutW4H39g0PxKKfH2tu35dsbPM3HxQU2/UO1A9UVgbe7sMH+cHB
+	okHBZIAmbzrmUCbMWhCyL+T1kCX/OvlILcgfPHURfOMzLYm52qCGQmv3JZER1YkBC5zsFHWR61x
+	i+IPJx81ibdwN/Jugbo15iSeTBLGj5Nui2H/AK5qPguT++uq0rk+1G0hA0i3W3DoxQtCpGXao2J
+	1VPWuyBGKmrNZzNrkMzxVkqGmQx0N2aFojf5u6e785qU7mi54Ii9kkl2N3Az8oA6KQ2tJW2z7Rf
+	VaIvLl3UkfJvFC3DGvNSWdUesJvJdeS1lBtfj+0i0eVekUxj1/XP9yeEznNF/jMyb0sA/B1HX7+
+	hXVjJ1dmYUdDmfZ31zboZIiGkFTb4p3MbhtA/KDDY+wFDn7BTVDbeP90Xac2SG7cH9WvKBqTgsq
+	FSzyezWpWjrNAZphif4+I/j+Iu9ZUUquMy9OABmUIc7iUBOvncbZVRlxMTEaOpLZtT12fExbu6P
+	zxU7Uu1wIZ27wGH+NwdxS8goVpeFvKQ4Qy2HBQRiKiGeNTOnF3myb1QAT7H2ppI03ePMNZjk2wj
+	QSH9vBXZRyGsZqQp7R0E9MHl8DwfuvTNY5uqeHn2eDrJmNogLsho+fjzx1DpXH8blnevrPbIRhN
+	vQlPQNC6S2UOlUUg=
+X-Received: by 2002:a05:7022:1586:b0:199:e38c:29a0 with SMTP id a92af1059eb24-1b55690e6e8mr13031567c88.31.1795443598397;
+        Mon, 23 Nov 2026 06:19:58 -0800 (PST)
 Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aa203267sm12602179eec.0.2026.11.23.06.19.39
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm29427377c88.12.2026.11.23.06.19.51
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 06:19:45 -0800 (PST)
+        Mon, 23 Nov 2026 06:19:58 -0800 (PST)
 From: Lian Wang <lianux.mm@gmail.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -94,9 +95,9 @@ Cc: linux-kernel@vger.kernel.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v5 16/19] mm/swap: reuse per-CPU queue readers across priority changes
-Date: Mon, 23 Nov 2026 22:19:35 +0800
-Message-ID: <227a1e9b7213652ee5eca947d2f1c3da88462dde.1795439990.git.lianux.mm@gmail.com>
+Subject: [PATCH v5 17/19] mm/swap: advance the global queue cursor directly between priority rings
+Date: Mon, 23 Nov 2026 22:19:47 +0800
+Message-ID: <7d2e42d489849716d6a4a3b906673959e6d9a28d.1795439990.git.lianux.mm@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
 References: <cover.1795439990.git.lianux.mm@gmail.com>
@@ -111,110 +112,142 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Inserting a new priority allocates a replacement per-CPU reader array
-even when earlier ring removal left enough storage. An unnecessary
-allocation can add swapon work or fail despite sufficient capacity.
+The allocation walk previously passed a total retry index to the selector.
+Each retry translated it back to a priority ring by scanning from the
+beginning of swap_queue. Keep the ring index and the number of attempted
+peers in the task-local cursor instead.
 
-Track the installed reader capacity and retain its high-water mark
-until the queue becomes empty. Reuse existing storage when the new ring
-fits, initializing every valid ring index for the new topology. Prepare
-larger storage outside the writer only when growth is required and
-recheck capacity under the writer before publishing.
+Snapshot the starting device only on the first visit to each ring and
+advance each peer exactly once, including masked entries. Preserve the
+large-folio same-ring boundary and the stale reader-offset correction.
+The selector's complete walk is linear in the devices and priority groups;
+device cluster scanning and availability updates have their own costs.
 
-Preserve the existing prepare/install ownership and failure rollback
-protocol. Device removal continues to avoid per-CPU shrinking allocation
-under the writer.
+Keep the topology read lock and CPU migration protection across the walk.
+The global selector uses only existing priorities and adds no per-memcg
+device-selection state or ABI. Existing swap charging and limits remain
+in folio_alloc_swap(), whose failure path classifies allocation errors.
+
+The walk no longer returns an ignored internal error to that caller.
 
 Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 Signed-off-by: Lian Wang <lianux.mm@gmail.com>
 ---
- mm/swapfile.c | 28 ++++++++++++++++++----------
- 1 file changed, 18 insertions(+), 10 deletions(-)
+ mm/swapfile.c | 51 ++++++++++++++++++++++++---------------------------
+ 1 file changed, 24 insertions(+), 27 deletions(-)
 
 diff --git a/mm/swapfile.c b/mm/swapfile.c
-index 7d932035c961..0c4452fa53ae 100644
+index 0c4452fa53ae..5a8663e9f954 100644
 --- a/mm/swapfile.c
 +++ b/mm/swapfile.c
-@@ -201,6 +201,8 @@ struct swap_queue_cursor {
+@@ -194,10 +194,10 @@ struct swap_queue_reader {
+ };
+ 
+ struct swap_queue_cursor {
+-	bool valid;
+ 	bool no_fallback; /* Do not descend to a lower priority ring. */
+ 	unsigned int ring_idx;
+ 	unsigned int offset;
++	unsigned int nr_iter;
  };
  
  static __percpu struct swap_queue_reader *swap_queue_readers;
-+/* Keep the high-water capacity until the last priority ring is removed. */
-+static unsigned int swap_queue_readers_capacity;
+@@ -307,37 +307,39 @@ static void swap_queue_install_readers(struct swap_queue_reader __percpu *reader
+ 	swap_queue_reset_readers();
+ }
  
- static inline bool swap_device_masked(struct swap_info_struct *si)
+-static struct swap_info_struct *swap_queue_get_device(long nr_alloc, int nr_iter,
+-						      struct swap_queue_cursor *cursor)
++static struct swap_info_struct *
++swap_queue_get_device(long nr_alloc, struct swap_queue_cursor *cursor)
  {
-@@ -240,7 +242,7 @@ static bool swap_queue_needs_readers(int prio)
- 			return false;
- 	}
+ 	bool rotate = false;
+ 	struct swap_info_struct *si;
+ 	struct swap_queue_reader_head *head;
+ 	struct swap_prio_ring *ring;
+-	unsigned int dev_idx, queue_idx;
++	unsigned int dev_idx, queue_idx, nr_iter;
  
--	return true;
-+	return swap_queue_len >= swap_queue_readers_capacity;
+-	if (!swap_queue_len)
++	queue_idx = cursor->ring_idx;
++	if (queue_idx >= swap_queue_len)
+ 		return ERR_PTR(-ENOENT);
+ 
+-	queue_idx = 0;
+-	while (nr_iter >= swap_queue[queue_idx]->size) {
+-		nr_iter -= swap_queue[queue_idx]->size;
+-		if (++queue_idx >= swap_queue_len)
+-			return ERR_PTR(cursor->no_fallback ? -E2BIG : -ENOENT);
+-	}
+-	if (cursor->no_fallback && cursor->ring_idx != queue_idx)
+-		return ERR_PTR(-E2BIG);
+-
+ 	ring = swap_queue[queue_idx];
++	if (cursor->nr_iter >= ring->size) {
++		if (cursor->no_fallback)
++			return ERR_PTR(-E2BIG);
++		queue_idx = ++cursor->ring_idx;
++		if (queue_idx >= swap_queue_len)
++			return ERR_PTR(-ENOENT);
++		cursor->nr_iter = 0;
++		ring = swap_queue[queue_idx];
++	}
++
++	/* Consume masked peers too, so every walk remains bounded. */
++	nr_iter = cursor->nr_iter++;
+ 	local_lock(&swap_queue_readers->lock);
+ 	head = this_cpu_ptr(&swap_queue_readers->heads[queue_idx]);
+ 	/*
+ 	 * Snapshot the starting offset for this walk. Other allocations on
+ 	 * this CPU can move the shared head between retries.
+ 	 */
+-	if (!cursor->valid || cursor->ring_idx != queue_idx) {
+-		cursor->valid = true;
+-		cursor->ring_idx = queue_idx;
++	if (!nr_iter) {
+ 		if (head->rr_counter < nr_alloc)
+ 			rotate = true;
+ 		else if (head->offset >= ring->size)
+@@ -1845,29 +1847,25 @@ static bool get_swap_device_info(struct swap_info_struct *si)
+ 	return true;
+ }
+ 
+-static int swap_alloc_entry(struct folio *folio)
++static void swap_alloc_entry(struct folio *folio)
+ {
+ 	struct swap_queue_cursor cursor = {};
+ 	long nr_pages = folio_nr_pages(folio);
+ 	struct swap_info_struct *si;
+-	int nr_iter, ret;
+ 
+ 	percpu_down_read(&swapon_rwsem);
+ 	migrate_disable();
+-	for (nr_iter = 0;; nr_iter++) {
+-		si = swap_queue_get_device(nr_pages, nr_iter, &cursor);
++	for (;;) {
++		si = swap_queue_get_device(nr_pages, &cursor);
+ 		if (IS_ERR(si)) {
+-			ret = PTR_ERR(si);
+-			if (ret == -EBUSY)
++			if (PTR_ERR(si) == -EBUSY)
+ 				continue;
+ 			break;
+ 		}
+ 		cluster_alloc_swap_entry(si, folio);
+ 
+-		if (folio_test_swapcache(folio)) {
+-			ret = 0;
++		if (folio_test_swapcache(folio))
+ 			break;
+-		}
+ 
+ 		/*
+ 		 * For large allocations, try every device at the same priority,
+@@ -1882,7 +1880,6 @@ static int swap_alloc_entry(struct folio *folio)
+ 
+ 	migrate_enable();
+ 	percpu_up_read(&swapon_rwsem);
+-	return ret;
  }
  
  /*
-@@ -288,13 +290,15 @@ static void swap_queue_reset_readers(void)
- 	}
- }
- 
--static void swap_queue_install_readers(struct swap_queue_reader __percpu *readers)
-+static void swap_queue_install_readers(struct swap_queue_reader __percpu *readers,
-+				       unsigned int capacity)
- {
- 	int cpu;
- 
- 	lockdep_assert_held_write(&swapon_rwsem);
- 	free_percpu(swap_queue_readers);
- 	swap_queue_readers = readers;
-+	swap_queue_readers_capacity = capacity;
- 	if (!readers)
- 		return;
- 
-@@ -430,7 +434,8 @@ static int swap_queue_add(struct swap_info_struct *si,
- 	}
- 
- 	/* No ring at this priority: insert a new one at pos. */
--	if (!*readers || nr_readers <= swap_queue_len)
-+	if (swap_queue_len >= swap_queue_readers_capacity &&
-+	    (!*readers || nr_readers <= swap_queue_len))
- 		goto failed;
- 	new_queue = kmalloc_array(swap_queue_len + 1, sizeof(*swap_queue), gfp);
- 	if (!new_queue)
-@@ -458,8 +463,12 @@ static int swap_queue_add(struct swap_info_struct *si,
- 	memalloc_noreclaim_restore(noreclaim_flag);
- 	kfree(old_queue);
- 
--	swap_queue_install_readers(*readers);
--	*readers = NULL;
-+	if (swap_queue_len > swap_queue_readers_capacity) {
-+		swap_queue_install_readers(*readers, nr_readers);
-+		*readers = NULL;
-+	} else {
-+		swap_queue_reset_readers();
-+	}
- 	return 0;
- 
- add_to_ring:
-@@ -502,10 +511,9 @@ static void swap_queue_del(struct swap_info_struct *si)
- 	}
- 
- 	/*
--	 * Shrinking the small topology arrays is optional. Keep reader storage
--	 * until a new priority is inserted or the queue is empty: per-CPU
--	 * allocation must not run under this writer's noreclaim scope, which
--	 * can grant backing pages reserve access.
-+	 * Shrinking the small topology arrays is optional. Keep reader capacity
-+	 * until the queue is empty: per-CPU allocation must not run under this
-+	 * writer's noreclaim scope, which can grant backing pages reserve access.
- 	 */
- 	gfp = GFP_NOIO | __GFP_HIGH | __GFP_NOMEMALLOC;
- 	noreclaim_flag = memalloc_noreclaim_save();
-@@ -548,7 +556,7 @@ static void swap_queue_del(struct swap_info_struct *si)
- 			swap_queue = NULL;
- 		}
- 		if (!swap_queue_len)
--			swap_queue_install_readers(NULL);
-+			swap_queue_install_readers(NULL, 0);
- 	}
- 	spin_unlock(&swap_queue_update_lock);
- 
