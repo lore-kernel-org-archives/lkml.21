@@ -1,64 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.205
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795412351;
-	b=yRYhgf/fIyEu55C4MUr2hVokdJtHZS6bOM4aG/oGKIM2N5PSZ4fnPnOz/cqjUWkfHEkJ
-	 M0cIGNpYDCOGpnzejk6y/nHjm5cGiac3Jpag0v+prKMOrMtIZIAd9X3pRGSd5+ZttUbqV
-	 jOxLHHNsAt/wMFnpbb5MiMWIjvCHQ2uZF0X3n7MwWMZZIjlroL4UupHwLTjVK1vE/G7tR
-	 Twm2TTsWrbRtujmiV0i8qr3AawQSaJfq7yz4UM5ZjebygQUQRLkGMF43iUMgyW0w3Fs7o
-	 ezXoXDQSfx2/kwDbKuopRC1iCAQsGw/MxVd+eyA6e8DcBOXFZbR1ao6+RbFroPs9GFA==
+	t=1795412354;
+	b=kxqRiZMeH26D160mqWydEnE2+E3nTmXay/CmUmF60t25CNZXRZNZ2aBTmbII9wXsf4sA
+	 HQxJGAcgVO+KVNtgmJ8L/ISYm8+EWexdG5CqiYuDo+8cixfqW1BI4yIJOo49Uj2bJtOPm
+	 zu00I8FOcxHXcOLTE7ymZizyRREaOoqjDXmeWEb/x66slsFweQr3LOK511X1tlNFWkrw9
+	 bwDzNReuNzj7msKc9gIRBKOtVUiiKfcCvtih+TWIwbozofghYgbqlHV9Bj7FM8u4jTb9B
+	 SUoxGrCKoK9XCV8xPiHAodEH79DMAAAci1TpnAHhJ8xZ1MU3vWksAKwidPxpVkCHoiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795412351;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=9fZC67cJJ/GjqV+nhFxv50Ir/g4Ncc4bsSbtF+FPqMU=;
-	b=Dyb7Gogj9loFlcisUSM9Skx9ez6XPpS1Dc1NN3SPnF5+c06VkGKv3mcJKKsHndgE39p9
-	 ERH12+uk4I0xBOGJgX52pmVRwRDZGh5iP47BG1/S51BYfsMvsU1/1JMMEG2DRHqsOWPAX
-	 yinr9yNTiUODqtWRp5BT3tx3/iXPbA/+lqjkw8hPS9ixttlj8yQ7XCGIKBjouAlvkos++
-	 hBcbQyXp3cmTQqVXKg7ngWFobHhjR8xR1m7AGKBYvqvsLL1YUgbSbsTF1dAIVGtJg6LOm
-	 fVP82f/geIFSO5J7dFOBnqGMgJz6EymQSIwwBV4KA63WDkG3DpuNs96H4APrp9brS7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795412354;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=fvhTAiYdeCl5kHtUIEV2YL4HP0g+GBZ1mPbqO9vDWEQ=;
+	b=NHE5mKoeKL7H7jy7+eEFpJBYLC6mHcuQvOpM6F83DNvtN8qvG/G+hdokr5zfH/JEcAiw
+	 jU9ZL34tyPk9IYo2X+BPXjTFmCyyh6q51PNDBUDcjghV5C+ke07xl405Z8ck8CAuNxlL2
+	 DblLj3C/zx+BFSDOr2UMMafhf2w5HI/gltyoF6Pggym+RYK64ZzqknZBM/cHOI7GOBcYf
+	 XGgNstG7W/bZ6gEHlCL4hD2d73sEj2MSxg1W6BMWZp5KAysQ6yRbwKPAnFRGVI2GjNrVT
+	 YOkATxPke4MCNH+vBnc2lRgIVW69Aj6+WGDhfJA7A+VQx1jVShOZY0pwh30jmIrXzqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN;
-	arc=none smtp.remote-ip=91.218.175.205
-Received: from mta0.migadu.com (out-205.mta0.migadu.com [91.218.175.205])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=BbXsc7S2;
+	arc=none smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8C2C606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:39:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8C2C606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2637D606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:39:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2637D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OJheM6XN
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GGgKl6H2K6gHd6hfWzXd1Bt9/gcGE2YwIrAA2CbG6HE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795412347; v=1; x=1796017147;
- b=OJheM6XNmkjKLELNqpyXr1iE+WMP8bwEStj1ztPkWTyBCt43i7svWeJ5eQF7MvEVAGKFPuDl
- 0NcZYGSB55t39ls9W4uFbaHdWJBxoohMz6bWoxQ74kf+rlSv1gI8maU/M3n6hq8p5+IL0BU3j3h
- vTbtM7KzjNxxcqb0jyn1C6tE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 80c29ab3a696dce2;
-	Mon, 23 Nov 2026 05:39:07 +0000
-X-Mizu-Trace-ID: 80c29ab3a696dce2
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 13:38:56 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
-Subject: Re: [PATCH net-next] selftests: net: reuseport_addr_any: report
- epoll_wait timeouts honestly
-Message-ID: <20261123053856.GH10218@Liu-laptop>
-References: <20261120065855.22628-1-emmaonana18@gmail.com>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=BbXsc7S2
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6ba85ac95b7so137121a12.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:39:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795412352; x=1796017152; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fvhTAiYdeCl5kHtUIEV2YL4HP0g+GBZ1mPbqO9vDWEQ=;
+        b=BbXsc7S2FcaMo2r/z65LEH7s/j2SKbvYz391NVC7yplm3ZolF1p4R5JOiC595I80+w
+         4CkhYd7mSqZaiXocqpnQbkhTQLRBAtIjhFVSuEX4JWYDrfODNiw9VaWMUXRfI4yCHTA1
+         +mT6d//jA6LvzA5CxuzuNQOl7WLxKvUkPsgHoTSe8Ln0KzPZJd1w3vwEt828xv9cPE0T
+         Z6U2UC0ltz/ndTo7WW4Dig0NZ/pT/1ppxL481bVJn6a+zedHuqz4XASZjVarZEHLzuE1
+         7z5xiL3MHOTVmmJyoICrZZPapq7vEOG486578+A6r1w23tfb2ZrSTrbnJLbhykSELe3J
+         duPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795412352; x=1796017152;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fvhTAiYdeCl5kHtUIEV2YL4HP0g+GBZ1mPbqO9vDWEQ=;
+        b=H/F68mFD57piSwQyMLckoenRRKluy6pSxWIFe3at1257L06oY3XsRc59XeEXSTGuTJ
+         TcgC5vIDhuM0tg3fGx8yY9YWI6tod12jKdeyiSPqbj8WXwApgxRvs69I+n20k0cQaonx
+         E1uY9IEo5005CUU2vPRthP2kVgxy7h6sQrCi7s/J6X7zp47CRMv9DBdznUKD44+/i/fu
+         jn9gbYXKJG0XI2OjHN4qmwIu4yMP7I7BPzlyhfU/Tmci7Vr8rU5Xpbs6/9mQAk7PF+ip
+         hhw7Fg8q/W0JIPUEvExzeCSwyARWP1OlQAPIV9X1UKTOorEQNpUK2W3VPlZK1/ExjQDg
+         SoQg==
+X-Forwarded-Encrypted: i=1; AL+hErGocgOPA7oBW9xLwlNaTaRmetEDRAA2kc9ZnAlLn0l05r5VHQblAq9T7KjSZCDdRRchj2J1HUpZruw0rCI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9lWOQk9UyIKm89gZ7imJCz2N0gWDBw10sBeVkimwRMLBfpDesr
+	S8wsbdS/SrXUUrPlcZMaHLQbG20240WTOLAncqnNYKK8WpCJzK/9+OiC+frDhoz96qQ=
+X-Gm-Gg: AZFdTZc9xdlhDTtv1BjL1nPNrQMJIFk0FescS200dX59MEYyLz1d3uGmSGBzmpqzXEn
+	Grm4tFAhUUaFAzjRYUtbSZSQ7Ho7nHILzigQ+Nu9Gqed/sAognvMWfLsjPw+CDLr6EZZ6y9vrVV
+	6y3hIYskxu+2jSAup1v3zBcRGuU25EtpiEuezH3y0rj7i72ji1Pln9lWWPAcf68oZ8D09NVWtEe
+	Ewl2Y9oKtoP9pjsN6figZJlnMuGeE3s3nsDtOKwAtwNuDGbvB++X4nMrB8VIi4ARYHSWBaoiMsv
+	UCbHh8tBgzSJyD9J5jC9VRb7FpItbc+xZZPw/oneO1KVd9qfWqvRAC1UP+zQlrz3czS7k015fTr
+	42FH6U2tj40AG9GgYj7YPliVIUBNyzwFpjHYTRhuyCdXLjMTQSWXo58Alvxs7yCWET+e18APOlE
+	PC4/R6a+cLcbLmRmV9d4wXMFkuCeDQQWV6FC/IpijYKbfVpYv0ir/q/7bhNpTXs0/MGZpXDpN61
+	0VcZqR5QkBaNh7ZC7lAu+FPb/THY+93wOTzj98Ehwt/ol9Gkbb4hRK7bBOGUpMEeRRk1d5xJWSh
+	28r/N9lnq8+Yufe+Xt417DAlzBpwMxg1Yxw=
+X-Received: by 2002:a17:907:932:b0:c51:8bf:9f22 with SMTP id a640c23a62f3a-c513a5c0549mr753217366b.2.1795412347619;
+        Sun, 22 Nov 2026 21:39:07 -0800 (PST)
+Received: from [10.202.112.30] ([202.127.77.110])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f118c88sm46640605ad.56.2026.11.22.21.39.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 21:39:06 -0800 (PST)
+Message-ID: <32151907-21a5-4655-b4ae-253dc7934588@suse.com>
+Date: Mon, 23 Nov 2026 13:39:01 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,38 +90,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120065855.22628-1-emmaonana18@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v9 1/3] ocfs2: Add new ocfs2_map_blocks() to introduce
+ iomap feature
+To: Christoph Hellwig <hch@lst.de>
+Cc: joseph.qi@linux.alibaba.com, mark@fasheh.com, jlbec@evilplan.org,
+ ocfs2-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261120060014.12087-1-heming.zhao@suse.com>
+ <20261120060014.12087-2-heming.zhao@suse.com> <20261120183415.GA2450@lst.de>
+From: Heming Zhao <heming.zhao@suse.com>
+Content-Language: en-US
+In-Reply-To: <20261120183415.GA2450@lst.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 07:58:55AM +0100, Omokefe Emmanuel Onanaroghene wrote:
-> receive_once() waits 3ms for a packet but only checks for errors
-> (i < 0). On timeout (i == 0) it falls through and uses ev.data.fd
-> uninitialized. recv() on a garbage fd fails with a misleading
-> "failed to recv" (or worse, blocks or returns a bogus fd). Report
-> the timeout for what it is; errnum 0, since epoll_wait sets no
-> errno on timeout.
+On 11/21/26 02:34, Christoph Hellwig wrote:
+> On Fri, Nov 20, 2026 at 02:00:11PM +0800, Heming Zhao wrote:
+>> As part of migrating OCFS2 DIO read/write code paths towards the modern
+>> and performant iomap framework, here introduces ocfs2_map_blocks() to
+>> replace the legacy, high-overhead buffer_head based block mapping
+>> routines.
 > 
-> Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-> ---
->  tools/testing/selftests/net/reuseport_addr_any.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/net/reuseport_addr_any.c b/tools/testing/selftests/net/reuseport_addr_any.c
-> index 1c43401a1c807..2e8aa83f68dd0 100644
-> --- a/tools/testing/selftests/net/reuseport_addr_any.c
-> +++ b/tools/testing/selftests/net/reuseport_addr_any.c
-> @@ -155,6 +155,8 @@ static int receive_once(int epfd, int proto)
->  	i = epoll_wait(epfd, &ev, 1, 3);
->  	if (i < 0)
->  		error(1, errno, "epoll_wait failed");
-> +	if (i == 0)
-> +		error(1, 0, "epoll_wait timed out waiting for packet");
->  
->  	if (proto == SOCK_STREAM) {
->  		fd = accept(ev.data.fd, NULL, NULL);
-> -- 
-> 2.43.0
-> 
+> Do you have numbers to antiy the high overhead?  Or should this be toned
+> down a bit?
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Thanks for the review.
+"high-overhead buffer_head" means that regardless of the IO chunk size
+(per IOCB), the OCFS2 buffer_head DIO path splits the IO into 4KB page-sized
+IOs. This logic cannot fully utilize the bandwidth and easily leads to
+fragmentation. In contrast, with this patch set, iomap can handle up to 16MB
+per IO chunk.
+
+-Heming
+> 
+>> In addition, OCFS2_MAP_* flags are defined to gridge OCFS2 internal block
+>> mapping flags with the iomap API requirements.
+> 
+> "gridge"?
+> 
+> Otherwise looks good:
+> 
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+
