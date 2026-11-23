@@ -1,92 +1,42 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795403688;
-	b=ZE6/kldoWCBgRFJ1FRlZBBDIdK6eOReA/rWHcU18nQsm15KW+JDRRrqsZg+T1JMLZ3qb
-	 x5nOrxKaVNB1cVZefzxHIPrSeFazEypzbQYBmHqnRsgNoxrUJHCYFZAxKvJeuQYF5LT9c
-	 6iiuAat31g8GT287unHdwSgUnd63K5EY6EqmX8hNePgBfp6HSgtKVFGIrNmmp2gcOQ0Sp
-	 FFZ5F5DM1MV+0T99bCS5ZWjCUxT4fQL53o2HqxDQPlk9qc8os6oWxPEKYM8eUHNiaSo3i
-	 aXPjKUrxyhCgTjfh0DIjm/BpWsi7EZb91ce4zpuYms2ZIVbPGS4zBK0EK4WgBzLC8sw==
+	t=1795403799;
+	b=Tg6mtkTN0yEpNBe+6SamSvQ0Wqadv0LQts9jh4vKpzR45aWZlGfMC1BtPowv0N89nDZK
+	 oq8H3mElPqFZAHsbulzpO7sFly8K7IwAHqRqjLZk6OJrr1QXLAjUh5ZGPXD84St43F11d
+	 ObL6gNwnrICn8c9E+cAHKMKSVBi7uQaD13nY4imJR6p3zwvijR2p53yt//+iS5GIbL3GL
+	 T6Rfc4qcCWikS49jtIvXRwY+xQ70DVAOmECmlRz//BU6OUPsmlfhkcPWhAin6EZNGRZkX
+	 lrs/preP2TLuKFP1KClKdrUtiTLTtruS0eZxMh1xS8L+gGkNSN6ZscFtp0xtBWGYy3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795403688;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=WmgsHFkL+h5rhuDAcwccXtAUWFqNQ8ooJCVW/O2Ov/8=;
-	b=muuiRDyzXKdjQVtMR1KWs27ZfKbthz4wwhoShg46+Z8GM/BCITJZZRlLyPMjA/wQuOXB
-	 5QL80AJ+6y0gUHP6J/HR8DrQYIvVUp7XhawXq7j9lRDHEmHi1AIl/YDH5irjVleG503SH
-	 o8i56mY924t0JMHvDjdkeXOlh1Z3nJ+Flq23ZvaM8z1ZADPILr3M8AiJLJSA6fLXJXZ+v
-	 AQhD+OtwIjpfFCT9PZfZXChjQ9MOMHRoUm/c9HNXqGaayPd4ximcYrFbKEdJ2k/HALnNu
-	 NhHMUbaNZbagYY2X1kkuqfxQMcqYJY3EQl6PhrWA7WYmO5EKB9TAeJlXoGJkPGrA4dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795403799;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:To:Subject:From:
+	 Mime-Version:References:X-Lms-Return-Path:Date:Message-Id:
+	 Content-Type:Content-Transfer-Encoding:Cc:In-Reply-To;
+	bh=hMNmEy/NoOizKQ3EVxwc1u9uhogdrN802eAtzB7OmaE=;
+	b=fnXWhOPPLZgncQ2gPDKU12sln4OdhQmNWamspeqAFHf8z6LCBYXSBYy8y2gKTKK5u6BE
+	 zFO33mc75vpljHAWyMvUyXxEuBWVwC34wLN1SopFVKGtxCEvJdTq6XBiLE7HWjXOLZIOL
+	 8d/CdfhnOE0A4JSZ5jIqMlOe5xOOw2O2tJSx9QmbBjjE1Aw5MAJdxfMsE3LS8zsBu4px+
+	 caI5KkdIWgBtqdS4YiPv85M0YyIotFvq3gMCdfSP181N7cL9BmaelZrmHQcP1Onv8LsPu
+	 0Z1mB0foxH8hR0UUEFS+Rvv40iRwI8hb4Mwt74tESPbR/ttLGVAxjo8LxeQiyJuLI/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=WnOdVWyh;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kaihong.com;
+	spf=pass smtp.mailfrom=kaihong.com;
+	arc=none smtp.remote-ip=115.124.28.98
+Received: from out28-98.mail.aliyun.com (out28-98.mail.aliyun.com [115.124.28.98])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4D88606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:14:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4D88606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=WnOdVWyh
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3ae7626d14aso1268669a91.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:14:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795403687; x=1796008487; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WmgsHFkL+h5rhuDAcwccXtAUWFqNQ8ooJCVW/O2Ov/8=;
-        b=WnOdVWyhp1gkrfxHlEH2PWk6G9rSeBv/1eaEH1icWinqo2eKIbt3k0B0RAy2laNiyi
-         h/WJEVTljgFwB7AWcEDVl1eb7BulHCnbBlw/QJjV4nW18uOPOpAz6Zcb6u1J002+staA
-         2tldpYvcKVYtztHhnZQYO6iNSYVkPf+sTDiCg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795403687; x=1796008487;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WmgsHFkL+h5rhuDAcwccXtAUWFqNQ8ooJCVW/O2Ov/8=;
-        b=xmm65t2DHGNum6x4qmkmLDUif36fMZzuL1Ab3Jsoij8Qg2BXt7Lf5G5pvyP09FRPok
-         yZdAPvnunNcb2u/5uMFww+t/EjlsDcxPothugRyPIKr6RzovCh30L84POfDiDIUG3V2r
-         70CC5Rz/IR0tiNxtYJ/ZwYaRIyArIWKhw4vV3JFBPCkOocrDqSQJSjnyTm6sIGNTRNfj
-         OiMEG3BPTxB9OSlBF1CJ3U/F4UX//YHcczBoK4yuZ7IetJC+EGEADe1nwFI5R4hYT8s+
-         Ra7p6Yp9JjJVwpR7fplCoJXYCSbVORjdamtkLl9DoewWISgaVpn4E/KX+8W3nyodK6Hs
-         WoJQ==
-X-Forwarded-Encrypted: i=1; AL+hErH5mkzwgdYXUA+l6neHAU2deCIHCxxClikkanL6QPLNGmLdLOFtMoBedp5zaeSB4QakzFgsH8tyAr/NOkI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/4u3B7EW77rhZkHHhv4eBEBXqlMIT4lJw8GV0m1m/COkfsLDdl
-	fGgJ7FJ1p4n8qF2OPUanYpWFTCIndvlVDOaA9mXJ/oM1ckJEH6LCX5asNbwnZu8Ptg==
-X-Gm-Gg: AZFdTZcIAHEa5z3JV8FgueOKgeNbj9oa8vY22TV1ghxeCu8/itkDC4BbFfpP3eKVFDv
-	hCIEz7JsTcii2wSPdP9lmoYvHj+Qeq3XJQ02T1kqAhXSBtX323mR+A5ZNbOdoISCf+ze8Gf+S5f
-	O+4hEz8Q9W2uE9bEhy0SOZK+IJoeL7KQnGdSSBfMGyqCdmblSTdqYhj5/GqIIMSgNWn3bIAhiU4
-	9WrMAU+8h2aifz7KhbL286EyROdMt8bWzHetT+ugDmYyuVM1HtYADKh3sRmDeRiPQiUa4XhXM0a
-	Wpm49OkrSp/nW09eaDH9cl1/525Cm1ZY5045T9jlKze/x2BJIU7JzCUpETdj8UiuMIO1dl8JqGs
-	Zg4H/feygoQy0KPhm4ZvozrEuCeBG2F7G4YCAXenRBQXziHKU4iC0BirAA1ygQQNBw1hq6XL4td
-	IZmGvWWrUe8SbmT46UNnRn7JZXOrx/vN6myKYOLc6ZinZgZADzxYDet/AzVWB28bcQiOVLWcuct
-	Sul53b0AMPpuG9Vw0rZGF6CZ9kcNeSHGEaCbkZ9LykUMzOY+tH01hl2fJfQSiJAHxy12F6s79rB
-	pYflsVVp59yBYRjRWz75Dy6lydnzYqCifEraAg1iZalNlaCrrSqVBYtSRw3rCEXQJWYDFA==
-X-Received: by 2002:a17:90a:e7d0:b0:3ac:929e:691 with SMTP id 98e67ed59e1d1-3b41c8d5a52mr9034938a91.17.1795403687341;
-        Sun, 22 Nov 2026 19:14:47 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:d8fa:c511:e415:e0d0])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm16010576a91.1.2026.11.22.19.14.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 19:14:46 -0800 (PST)
-Date: Mon, 23 Nov 2026 12:14:43 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Nhat Pham <nphamcs@gmail.com>, Yosry Ahmed <yosry@kernel.org>, 
-	Hongfeng Chen <hongfengchen@xiaomi.com>, Brian Geffon <bgeffon@google.com>, 
-	Minchan Kim <minchan@kernel.org>, linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [PATCH 1/2] zsmalloc: free a zspage's pages in one batch
-Message-ID: <awOvXnBW_QWGigkX@google.com>
-References: <5666c1c8c04998784c81fc8fe751e35aa40af578.1795403342.git.senozhatsky@chromium.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EF39606A31A;
+	Mon, 23 Nov 2026 03:16:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EF39606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kaihong.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kaihong.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436907|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00845091-0.000289608-0.991259;FP=675755574188172471|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037026024;MF=wangxiaolei01@kaihong.com;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k7wtvA8_1795403786;
+Received: from localhost(mailfrom:wangxiaolei01@kaihong.com fp:SMTPD_---.k7wtvA8_1795403786 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 11:16:27 +0800
+To: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Subject: Re: [PATCH v2] drm/v3d: Fix double free of query arrays on parse failure
+From: =?utf-8?q?=E7=8E=8B=E5=AD=9D=E9=9B=B7?= <wangxiaolei01@kaihong.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,14 +45,190 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5666c1c8c04998784c81fc8fe751e35aa40af578.1795403342.git.senozhatsky@chromium.org>
+Mime-Version: 1.0
+References: <20261120022828.2612091-1-wangxiaolei01@kaihong.com>
+	<3f029973-1a52-4118-acd5-4a433fb49710@igalia.com>
+X-Lms-Return-Path: <lba+16b03b008+3a14de+linux.intel.com+wangxiaolei01@kaihong.com>
+Date: Mon, 23 Nov 2026 11:16:23 +0800
+Message-Id: <e457d7c64cc913174affb10b272225cc3cbe88a3.b0668e69.1f3f.46c7.85ca.d83a1dbea56d@feishu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Cc: <mwen@igalia.com>, <maarten.lankhorst@linux.intel.com>, 
+	<mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>, 
+	<simona@ffwll.ch>, <tvrtko.ursulin@igalia.com>, 
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>, 
+	<stable@vger.kernel.org>, "Iago Toral Quiroga" <itoral@igalia.com>
+In-Reply-To: <3f029973-1a52-4118-acd5-4a433fb49710@igalia.com>
 
-On (26/11/23 12:10), Sergey Senozhatsky wrote:
-> [...]  The batch lives in its own noinline
-> function, which also keeps.
-
-Oh, the "which also keeps" part is a lefover from a previous version of the
-patch.
+Hi Ma=C3=ADra,=C2=A0
+Thanks for the review
+> From: "Ma=C3=ADra Canal"<mcanal@igalia.com>
+> Date:=C2=A0 Sat, Nov 21, 2026, 00:49
+> Subject:=C2=A0 Re: [PATCH v2] drm/v3d: Fix double free of query arrays on=
+ parse failure
+> To: "Xiaolei Wang"<wangxiaolei01@kaihong.com>, <mwen@igalia.com>, <maarte=
+n.lankhorst@linux.intel.com>, <mripard@kernel.org>, <tzimmermann@suse.de>, =
+<airlied@gmail.com>, <simona@ffwll.ch>, <tvrtko.ursulin@igalia.com>
+> Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>, <s=
+table@vger.kernel.org>, "Iago Toral Quiroga"<itoral@igalia.com>
+> Hi Xiaolei,
+>=C2=A0
+> On 19/11/26 23:28, Xiaolei Wang wrote:
+> > v3d_get_cpu_timestamp_query_params(), v3d_get_cpu_reset_timestamp_param=
+s(),
+> > v3d_get_cpu_copy_query_results_params() and v3d_copy_query_info() -- th=
+e
+> > latter shared by the reset and copy performance parsers -- free the que=
+ry
+> > array on their error paths through v3d_timestamp_query_info_free() and
+> > v3d_performance_query_info_free().
+> >=C2=A0
+> > The same job is then released by v3d_submit_cpu_ioctl()'s failure path
+> > (v3d_submit_cleanup_jobs() -> v3d_job_cleanup() -> v3d_job_put() ->
+> > v3d_cpu_job_free()), which calls the same helpers on the same query_inf=
+o.
+> > On these error paths query_info->count was never assigned -- it was onl=
+y
+> > written after the parse loop completed -- so the syncobj loop ran zero
+> > times and no syncobj was put twice, but the "if (query_info->queries)" =
+test
+> > still succeeded and the dangling pointer was handed to kvfree() a secon=
+d
+> > time.
+> >=C2=A0
+>=C2=A0
+> =3D=3D=3D=3D
+> > Every failure inside the parse loop takes this path: -ENOENT from
+> > drm_syncobj_find(), -EFAULT from get_user(), or -ENOMEM from
+> > kvmalloc_array() in v3d_copy_query_info().
+> =3D=3D=3D=3D
+>=C2=A0
+> Needless paragraph.
+>=C2=A0
+> >=C2=A0
+> > Fix the ownership instead of the symptom: the query array, and the per
+> > query kperfmon_ids, belong to the job and are freed exactly once, by
+> > v3d_cpu_job_free(). =C2=A0The parsers no longer free anything; they onl=
+y fill
+> > the array in and record how far they got:
+> >=C2=A0
+> > =C2=A0 =C2=A0- query_info->count is set before the parse loop, so the h=
+elpers know how
+> > =C2=A0 =C2=A0 =C2=A0many entries were touched when parsing fails halfwa=
+y;
+> >=C2=A0
+> > =C2=A0 =C2=A0- the arrays are allocated with kvzalloc_objs(), so entrie=
+s that were
+> > =C2=A0 =C2=A0 =C2=A0never reached carry a NULL syncobj and a NULL kperf=
+mon_ids;
+> >=C2=A0
+> > =C2=A0 =C2=A0- the helpers walk the full count but test every entry, so=
+ they put
+> > =C2=A0 =C2=A0 =C2=A0exactly the syncobj references that were taken, kee=
+ping
+> > =C2=A0 =C2=A0 =C2=A0put-count =3D=3D find-count on all failure paths;
+> >=C2=A0
+> > =C2=A0 =C2=A0- the inline kvfree() of kperfmon_ids in v3d_copy_query_in=
+fo() is dropped
+> > =C2=A0 =C2=A0 =C2=A0for the same reason;
+> >=C2=A0
+> > =C2=A0 =C2=A0- the count argument of v3d_timestamp_query_info_free() an=
+d
+> > =C2=A0 =C2=A0 =C2=A0v3d_performance_query_info_free() goes away, as the=
+ count now lives in
+> > =C2=A0 =C2=A0 =C2=A0query_info itself.
+>=C2=A0
+> You don't need to describe every single detail of the code in the commit
+> message.
+>=C2=A0
+> Please, make your commit message for human-readable.
+I will rewrite the commit log in the next version to make it easier to read=
+.
+>=C2=A0
+> [...]
+>=C2=A0
+> > diff --git a/drivers/gpu/drm/v3d/v3d_sched.c b/drivers/gpu/drm/v3d/v3d_=
+sched.c
+> > index 1924e3440dc9..6ee64fbacae9 100644
+> > --- a/drivers/gpu/drm/v3d/v3d_sched.c
+> > +++ b/drivers/gpu/drm/v3d/v3d_sched.c
+> > @@ -95,34 +95,44 @@ v3d_sched_job_free(struct drm_sched_job *sched_job)
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 v3d_job_cleanup(job);
+> > =C2=A0 }
+> > =C2=A0=C2=A0
+> > +/*
+> > + * The query arrays are owned by the job: they are allocated by the ex=
+tension
+> > + * parsers in v3d_submit.c (which also publish ->count before they sta=
+rt
+> > + * filling the entries) and they are released only here, from
+> > + * v3d_cpu_job_free(). =C2=A0The arrays are zero allocated, so on a pa=
+rsing failure
+> > + * the entries past the last one set up are all zero and get skipped.
+> > + */
+>=C2=A0
+> This comment is superfluous. Please, delete it.
+It will be dropped in the next version.
+>=C2=A0
+> > =C2=A0 void
+> > -v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_i=
+nfo,
+> > - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0unsigned int count)
+> > +v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_i=
+nfo)
+> > =C2=A0 {
+> > - =C2=A0 =C2=A0 =C2=A0 =C2=A0if (query_info->queries) {
+> > - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0unsigned int i=
+;
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0unsigned int i;
+> > =C2=A0=C2=A0
+> > - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0for (i =3D 0; =
+i < count; i++)
+> > - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0drm_syncobj_put(query_info->queries[i].syncobj);
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0if (!query_info->queries)
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return;
+> > =C2=A0=C2=A0
+> > - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0kvfree(query_i=
+nfo->queries);
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0for (i =3D 0; i < query_info->count; i++) =
+{
+>=C2=A0
+> Stop the loop at the first NULL syncobj.
+>=C2=A0
+> if (!query_info->queries[i].syncobj)
+> =C2=A0 =C2=A0 =C2=A0break;
+It will be dropped in the next version.
+>=C2=A0
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0if (query_info=
+->queries[i].syncobj)
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0drm_syncobj_put(query_info->queries[i].syncobj);
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }
+> > +
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0kvfree(query_info->queries);
+> > =C2=A0 }
+> > =C2=A0=C2=A0
+>=C2=A0
+> [...]
+>=C2=A0
+> > @@ -915,7 +885,8 @@ v3d_copy_query_info(struct v3d_performance_query_in=
+fo *query_info,
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 struct drm_file *file_priv)
+> > =C2=A0 {
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 unsigned int i, j;
+> > - =C2=A0 =C2=A0 =C2=A0 =C2=A0int err;
+> > +
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0query_info->count =3D count;
+>=C2=A0
+> Leave this in the functions that call v3d_copy_query_info() and remove
+> count from v3d_copy_query_info()'s parameters.
+It will be fixed in the next version.
+thank
+xiaolei
+>=C2=A0
+> Best regards,
+> - Ma=C3=ADra
+>=C2=A0
