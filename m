@@ -1,127 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461210;
-	b=ZHNTNzFQj62sFWXW6sbBQ/FSTLLLGvTSi6hN7F6d0FjZP0ZI+SWSEilKG4JJ0tdQAbH1
-	 /DUreaYScCuDD6XMpA9rgeUeBbXJsu9+X1U0knU5jR5qU7IAli383M8sdKBJJwwD0evGX
-	 e4IE1rE6/X7Z4XGp/YNJWTKGrisMDtF14vIhfkVnGYbEL2p6xf5+KoM4VFH/nnjDK2f3n
-	 UU5aF9kYAFAbj7xMmUajKhDdP9K7hlbmA1/lpNo0JNVUn7/QRSlZ8fRxWsvq1T3SnGup6
-	 /RIw5g0AVrcItttwR5rcb3ThLwxVb8mMbCBam5RFacEakOicHWT6BRpks7RV9+CKMkA==
+	t=1795461279;
+	b=AOcIoA3x/yfKL6C+qgcmhI2ZfSukkMX8XtkGX1S4rTBWB+tLiN7ClPaydMLL65k1gBRY
+	 nnjEns9fImc3C7jWDDOaYGVr+55b2M+DCRDzaZQ0474mBQ3mQPFKYeZOo4nrEsI6Vi4/J
+	 9Cfi9j7Bzl+xkPnNxU0SNP/GH5Y0jnHfKB+O/JimLbRNjW0m24LQLhw3iH2tIbfFdzVBo
+	 dHey88O8u2/ruJnbHUvKYuKsf8PC6rbIBtzM2vzPhNTQLNYIBeEhC8xwmBQko7hsROl/C
+	 Ls6OngOmKRdTuotpeYZOmM5C8S2kQyv652yAvbZ28vhR6iusemOvwyFL7Oy7z+BP6ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461210;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=YR8r7f4rM1O5e4ts7vOzM/QDGbuavuSX4eKpuFwSzac=;
-	b=CzQOWPzZGZmCOPWfFLzfNl3IVlMpL1qJjmJDiOIsk2SStgWwhZNblIq69UqtSmZcfD7i
-	 1PJyzptiF0ullg/WFWHSJPJgdKR7BTousaDsZUeYx+l1iDTS0VdfMGATJs7p2kyMpi4U4
-	 vjoZVHDKAt2DE7LGj8bjWL53jV+DrVCyF+rrlZWlZ6tsi8DDxbVViWv/TNAiHgfQwxPA4
-	 3s8cP2dvv05ybM2WTWu8BRv2VZdtB23JAuDfehtjee5fP9PNF776M0F2gMxsqLzIeDcXF
-	 Uxtygxkr+aJJT5cgZswsH+BjqyyKOWROPq/Q+SJfaVC6O0+TUT9fyMjGciOVJY2LIIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461279;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=s978hanZLVpv0RWXocH12aEKpIm1bxVlYeeOLTZgo3s=;
+	b=P/YA9VKyRBST/gVQzGR4f7KDVMI47xFicpDLhFFnXwfWfLEl+i9OcabZkQGO21j+yYEs
+	 vvsNxRnXxSiE1TXg6CIgXkRnSbxQVLl11mB5vU8chizxOHCLNxohzm27VhyO/hZ/g+cjf
+	 7pu39ikHEefCYb17/FSQaK5Z+DQ2PZoE/KJp7e5D6BEPSIrMdvSm7Dti4VNHk++N2TKIm
+	 N6WYkpmryssJXUZGFtVbrzDvqa8W/A5DASZjNNQ5CPppbgHdZHzFm9emFkBTjoNiwR/jK
+	 MrDtfDrZ5EqmQKJ4oGZ7OWrJRMAN+3Nyh4xN1TsuLRjih1eGT+wmBl/6xUiNNDJ0sOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=queasysnail.net;
-	spf=pass smtp.mailfrom=queasysnail.net;
-	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=nZK5rqPv;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="tj/sMQz3";
-	arc=none smtp.remote-ip=103.168.172.147
-Received: from fout-a4-smtp.messagingengine.com (fout-a4-smtp.messagingengine.com [103.168.172.147])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j4C1EzC4;
+	arc=none smtp.remote-ip=192.198.163.7
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1F6E606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:13:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1F6E606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 227FD606A31A;
+	Mon, 23 Nov 2026 19:14:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 227FD606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=nZK5rqPv;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=tj/sMQz3
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 352A5EC1D06
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:13:29 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-10.internal (MEProxy); Mon, 23 Nov 2026 14:13:29 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1795461208; x=
-	1795547608; bh=YR8r7f4rM1O5e4ts7vOzM/QDGbuavuSX4eKpuFwSzac=; b=n
-	ZK5rqPvJW730T8tfMKB1H4oQEa7o39yBW1fSQQKqUqoZLXw0AuszIOaOjYf9p2Ax
-	TjlCHOfElPl57h6Npkr//Va/WWaZhLBp/BJZTk7W/xV32ANlncU5PKw/yZWGc4F/
-	TZWB63AfRedalkY2OPTFdgr9ZIViquAaEBpBt1rRvTg99IQmZUvSwI7y9+ej+kOv
-	KXBgC52IAvU140j4Yjow0lRDMX2VnheLdvMkIKTe3xp7x+RT/NIMZV1EFaBD5lY1
-	1BcZPZTj82E22GfQSC8nr4grzN+Qk7D+3k8FFGfIQI7edbCv3YbaWk0Yz7KX130B
-	iotV+Sr63Zd8pyqYFQTvw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795461208; x=1795547608; bh=YR8r7f4rM1O5e4ts7vOzM/QDGbuavuSX4eK
-	puFwSzac=; b=tj/sMQz3QJQ5hK67cFojDyQ8R+niPwnun8d14W1swu+gz3VBx38
-	2kUdpypmEZMoJUWWQBC6Xha14gBB2Wy0M+2j4V18oxX+HnEmDfnv/6A5brNO1Ngt
-	7fPv7jo4hAGdNzruEvUEjwBr2qTCVMvnUvCHCpTuNkKCvEcsFmKidGFL0RDUY+2T
-	FWLct9XU5TijAY+2M4w3rFs/CgsnIE4m5oqFsXVtcO/uI7tGduS/N6CSt3tmO1xW
-	MeQZwCazEGxUxMYndq4lR5LVl9IvG4yRYvvzFusvGb6Lc3dMDnZqytOeCJaSgFan
-	8Kqt+gGYqE1+yow9Uf59br9aQgtDyfSwgRA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=queasysnail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795461208; d=queasysnail.net;
-	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:ol3C7CyjyY8gCVcADhEX/baXCPwtkGqZuuTbz/3eTWNAWIl
-	p5YTDBUmkLhA9Jufc/RTt3tEMKqzXar9by1stPyzmw2NMPVCXqXyIY/Kuoopv5KU
-	hk1gWkvqm5HdUVAsluezRj/ezrKoI0AFzg3wB8C/omn5T7hVTNs9fua7Ptu/Q4mB
-	e+97e0j6gmeBEfMfAD5UtYLDbRfIr6RPYbWFb+cQqF+SI5REoUFBQnwFkvrDDpFc
-	ivKENOtDVSm1NF8Z8WxTTN6Elr4tt2f8pvujN7Xr2fpmZwOf535JbiBGvAYsUqlk
-	Oov1H2mxjHL9p/8QhT4EbefJOJe9JmbUKVr0o3Q==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:v4kYJzz3IEeYSra49NR0XOJqlPWeaMimSU2Ds3Nathw=:BoV5LV//uGpHLV8n06WmOk6SLJtz+qcgP9tEglSi9uI=;
-X-ME-Sender: <xms:WJAEa2aZGkMZKUyyMGa1OrcnPk2LfYiRdl01ANhpalPvH7hEhuHp7w>
-    <xme:WJAEa2FA12OYAHlsz1H8zztRLe2udQrvE-ipVzCdvM70WGMBpM-u0QBhtlgAl6c-h
-    _xjC7OYi24zpnrUObZlPdsklF2oAzbjhx-2PWnaiZpPatX-A5WQ9Df0>
-X-ME-Received: <xmr:WJAEa01y19c4KpsMFTWuejMPWjH-zGVC1zInfyerqa8jfcaFNdOqYj7uuj8>
-X-ME-Proxy-Cause: dmFkZTFGfMpzRIlRD0JqalkLOXufcldaW5mPKf9gnwsFJ+vDBNXu+ucuA2mHV3sG8awFD7
-    TlQIpLKAlhdRZZzmHM5dzCLr9yCnlqE++1MlGQQlh2hXPAqwPuBKqVs+0+vPLr0jD3m21t
-    KMWW9e6Nr1j2suHosCkXbxWML5v/2o8alliubSq4BLKdJ8hbk8S/De75gOw23JrVIkPY8N
-    D1D3yW5QclrWuPlgXczruL49Qy/XefuKPG45Q8mhw3p9cd6s3zLGtXYEfumcXvrZY2eHdx
-    vAfqlz0+MYyB1suAIuZNChzbjL65w1LKUjDuaCq/DRfI4jG14yihH6ToIZrLFbuh+tdvlf
-    RM4oWrv53uYud4eEZf1oTUecOk4kxAWu3OsndNwPjHNbpfhtg2Hpg4kM2ozQDGYUFHzi1L
-    5YBN7qwo6cfj7KqCQG/xTfmuMD/iU4iG9Me3pm4agOBpx0/BgqhGbvPetT4TnN1O1xSXMh
-    XxRL4Lzujz+y7fJoarIv5kt1tThSR2L4E8bYBqsj/IDkw+VIPvBmE8ChB3mjVUQ560i259
-    76/VteTqA9GoYlEUWcJZBCaGE6vumhPU9wxAQbU+k4NtYrUpsJezOkowezDIbB+hEqwUIz
-    0S4kvOsVUUwV2jgJKb8DTKrQaDXOaY/x6HJcPwELITxClVnJ1yGdW5z908+g
-X-ME-Proxy: <xmx:WJAEayzMLjpNfqkeI8W46X9Md2R7esdKT81R7NMxM7_4kKluNINwdA>
-    <xmx:WJAEa1jEY_lNuGMbtT7Jq6yYnIjxIdkzk6aSlMXgV-LNnYCQNqw4mA>
-    <xmx:WJAEa_PwgVNpPzWUIvB2JQmkr0VLkREePcpdqWMTj8tKCtN0r6ouEw>
-    <xmx:WJAEa4dxPEaYxJyNAi3-26PBrfrXLo8CUhFLLV4gvZJv-aryT6XMwQ>
-    <xmx:WJAEa2FxrWrhVk_PWcg0BKDJpqlRi6HT5g62eQHr2m019VQiU3pNxon6>
-Feedback-ID: i934648bf:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 23 Nov 2026 14:13:27 -0500 (EST)
-Date: Mon, 23 Nov 2026 20:13:26 +0100
-From: Sabrina Dubroca <sd@queasysnail.net>
-To: Rishikesh Jethwani <rjethwani@purestorage.com>
-Cc: netdev@vger.kernel.org, stable@vger.kernel.org,
-	John Fastabend <john.fastabend@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	Boris Pismenny <borisp@mellanox.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v5 2/2] tls: restrict device-down TX fallback to
- hardware TX sockets
-Message-ID: <awSQVksKrzWT5lm8@krikkit>
-References: <20261116183519.3314837-1-rjethwani@purestorage.com>
- <20261116183519.3314837-2-rjethwani@purestorage.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j4C1EzC4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795461279; x=1826997279;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=e+/1NxiLLSGddz3PUhRX/hgFu4BM5p/TKa5GvarfqgA=;
+  b=j4C1EzC4M1YWxeV8/Cst97LrXgjhx5+11hl6Lln1UBVQtaing252cYoQ
+   Q1kZB/bo2HRkg4UZz3QxvuTZkRnkF2496IfUkzTUFEc6Jad7nK/BFtB+/
+   ++s1h6PfQFTZX/Imygkgl16ykauSHEGYKjqTPc6EvrprDFHhVaVsItDyK
+   d480nKuggTVaovvh1F077ALsncYOp+Uq4TDjnzlURWuo1TzbDWSBt40d0
+   4dCCPHrsHK7Kzb92/0mVMQ3xHHxPhTsvLB+PtG75zw6FHjFYuZz/iwH0O
+   OV8LWil6px096qQLzSnkeqyOXusPwubU2t7sub8FvLQDJLvDKDFDwu+Xt
+   w==;
+X-CSE-ConnectionGUID: 3UOSt32pRmSmDjeik93CHw==
+X-CSE-MsgGUID: yIGAf5GMRmOwxNaVg0vobQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4123606"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4123606"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:14:38 -0800
+X-CSE-ConnectionGUID: r7iGBVpiTDKe4NiPBnxscw==
+X-CSE-MsgGUID: Mq9WxcT0S0CS1hrxEd8tKw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="13160534"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:14:36 -0800
+Date: Mon, 23 Nov 2026 21:14:34 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Yasin Lee <yasin.lee.x@gmail.com>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] iio: proximity: hx9023s: fix division by zero in
+ set_samp_freq
+Message-ID: <awSQmteht_FDRXpp@ashevche-desk.local>
+References: <20261123165255.239490-1-kapoorarnav43@gmail.com>
+ <20261123165255.239490-2-kapoorarnav43@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,29 +84,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261116183519.3314837-2-rjethwani@purestorage.com>
+In-Reply-To: <20261123165255.239490-2-kapoorarnav43@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-2026-11-16, 11:35:18 -0700, Rishikesh Jethwani wrote:
-> tls_device_down() installs the hardware TX fallback on RX-only and
-> software-TX sockets. The fallback expects a hardware context in
+On Mon, Nov 23, 2026 at 10:22:47PM +0530, Arnav Kapoor wrote:
+> hx9023s_set_samp_freq() passes val * MEGA + val2 to div_u64(), whose
+> divisor is a u32, so the sum is truncated to 32 bits. MEGA is an
+> unsigned long, so on 64-bit the product itself does not overflow, but
+> the truncation does, and on 32-bit the product already wraps. Either
+> way, any value for which val * MEGA + val2 is a multiple of 2^32 gives a
+> zero divisor, e.g.
+> 
+>   echo 67108864 > sampling_frequency
+> 
+> (67108864 * 10^6 = 15625 * 2^32) triggers a divide error, on both 32-bit
+> and 64-bit architectures. Negative values wrap the same way (-67108864
+> also gives 0), which the check added by commit a318cfc08537 ("iio:
+> proximity: hx9023s: Protect against division by zero in set_samp_freq")
+> does not catch, as it only rejects val == 0 && val2 == 0.
+> 
+> Reject negative values and do the division in 64 bits with div64_u64().
 
-Here as well, "the fallback" is some function that has a name.
+...
 
-[...]
-> Track RX state with TLS_RX_DEV_CLOSED:
+> -	if (!val && !val2)
+> +	if (val < 0 || val2 < 0 || (!val && !val2))
 
-Well, is that new? It's just being extended a little bit to also cover
-"not configured yet".
+I think in this case the
 
-> set it at context creation and after deletion, and clear it after a
-> successful driver add under device_offload_lock. This avoids deleting
-> absent RX state and reading configuration bitfields while their shared
-> byte is updated.
+	if (val < 0 || val2 < 0 || (val == 0 && val2 == 0))
 
-Now that feels like this patch is fixing 2 separate issues (one TX,
-one RX) at once.
+is slightly better as the consistent style in the same expression is used.
+
+>  		return -EINVAL;
+
+...
+
+> -	period_ms = div_u64(NANO, (val * MEGA + val2));
+> +	period_ms = div64_u64(NANO, (u64)val * MEGA + val2);
+
+LOL! Why is this 64-bit division?! Anything more than NANO will give 0, no?
+And NANO is 32-bit value.
 
 -- 
-Sabrina
+With Best Regards,
+Andy Shevchenko
+
+
