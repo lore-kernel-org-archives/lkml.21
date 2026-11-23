@@ -1,47 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795459331;
-	b=lPg110WXFIm4GFBHQqNFEXxD19PGsXKuYcMVJO+FsN+sbF5F2F4qI2iyd5/49UICRv2H
-	 e+3guD9/Iq8tYXwPGN7UwBoIYuBe6QjaI95sDa/cpDLzKaeCHfuwZQdKQyKKlgcOJtHc1
-	 8iLlVpecRCYth4GYi9LMghGGSdM4rRr7YG2rM7b5X4ydi+jgZoVX8UX/jpcb/R5xJmwEA
-	 BcdE09VrjsCQLErqZX7WYGYv1XpjKH6RBH4gyzJ9tbleQsI18plRP5AgVTDKvnZQ39ga/
-	 D7ePWhplZLLZNlRCzqavu0kUUCIvQr1ftb2yj16AVWkDL1xZXhZJM1FG2lofhBQ+Tmw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=5nbzmT/S/Ep7RCI/FP2tqUS/p2rM4zRzCZCr0j2lenVpeizOdb9Vf3IWzqzqVY78zhHA
+	 CuuXWX4BuT4qYi1IYPXsPPSUt5sCxWUeWg5r5bdBeDQ3rnIfiLje5q3ca97NdoMUOmS/W
+	 r0IXxxHFw3UzGfoNVx3i+Bw2gH7TIS8Qeqae6xiNRB4V4VqCOrrCSKcBYLB3af2dd8rbV
+	 4ulzhLECtfn4B3DyE8NauNCmwrTngAekVKaFl9iwgp79eNiHiGvMEBTn2rrIiHlsbrv2u
+	 e6gfSGLPYA6rEBQU1Eem/bg+JMQHKjBrIB8Yc0pydDN9WqRPEXOyaBFi+Q1IM9DFEtw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795459331;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Yywvn99t5vyID8JsEqVqCf3adnY7F2OW4XSP+9EQHU8=;
-	b=vXyBl19W2OTXMbg/msR/mHiy+3evXxqcUFAifTcz69II6UpQ48E3EHm3n5PH94Do9qiC
-	 6XvOu6tZATp+bzNplGl7r5gjNY4G+WqkzjGJ6+7REpifM2Dq1LbLMCNWf/IsaLFL+UUrA
-	 8JJode2617ZRONIkrwZHBTcY/RaKwouJjmco74hYPHz0Z4Q6eqBV37H0glky5Jpi/xf89
-	 nql98hD9M08SjjkdTqy/Xj5p6hF1wr+RW2LNcUf1pg7caa2778o3S+Wr7Rq3h1yoMdmK3
-	 I+ShW6+8m4tCCU+3XxSfNaz0ppyoWGt7UPKvhgTxFLA9kzB2XXzZBrzbTEHdMrQ0fSA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0k5imMF;
-	arc=none smtp.remote-ip=100.103.45.18
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ZoWcuFn13Z7HG21dAdgpMWm0Rmxy6JtdAHIg3Z0BlU8=;
+	b=gJsM8QjBTvCyYjHUAoGwZQiifPVmkG0fo69sgslCVzPtN7WSQ4//q2E6pxUDZztZOedx
+	 HN8bWP794e9bCFCeP7okhT3R1yoTeSf7rJ+y4f6F2KSQ74NUnL8sKS3qR5DyITDSV3wFV
+	 hLkwD3vWqAyHG51v/s9/pzBnxpHccol19zSkxh7+qYTXnFUyb2c+ccvTzkbdgAH1KBaWN
+	 nvXUm+AYGLLd9KQmqIBv33DSqApGDYTnyInHH6Rkkwg/55+x9OjMreol4+ZqTrgkTIB2p
+	 A9qg1UqhkdaWFvHum4wZvKdANf5NE+XitUWgY/UGFgac2B5W8OAfW4UCfWFANpeIHMg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WrakwJ/v";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99A7D60A2634;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC86560A2635;
 	Mon, 23 Nov 2026 18:42:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0k5imMF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7740B1F00AE3;
-	Mon, 23 Nov 2026 18:42:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WrakwJ/v
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795459331;
+	b=FpsEv8/fjqUcT3xv2O35SnZqPUQtJtRRNnUQgjLWC2hkIDQXkGDBXKH6O6SZIH5JE4Ut
+	 rtfGTHURZjIhinpjs8xRodG0KbA3BOJ8aPYiAEVv9WiqhH+MDMkJ6UMZs5aTsxeHHfAGR
+	 A498VRDpuWAQnUjQq9JFWC4j5vrVUNGrzmpCBfdjGr9J1PHjtbNq/tt2yasI4jmrJfn1i
+	 5h1Wiras7YqHNRcc7t4V6vxIk/Dg4puMp7cDrx++1/dIbqt6SfSwOav9swGv3wMQOAYS3
+	 6Benxj0/GMyixmXUUoZ4ipxq/nHc0FkJCk7ABn7AUct6OBTpE5YCI6g0jr2NPWI2SKA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795459331;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ZoWcuFn13Z7HG21dAdgpMWm0Rmxy6JtdAHIg3Z0BlU8=;
+	b=ghvuZzBtN6FFN8vmXJDpejWnVhvP2QJ2C7qLaihv8o3vrf6+PM5u8iFdPr4Pjrz1DoW3
+	 ahOLzAL/qIVTFkpmdkVP5xJUUfpgucgw5rSW6zFf3NT850XcuXB6BzJLjxEjLLSp18lmU
+	 4gvORZB7SV+cQwmzfkrHBmmkivJW2Ktc3JmmtgMpz/CGXt+gNnDyQ9YqInqCcDfx05Kct
+	 o1IaEiCqR0AdQYVS0HLkc1uR5V+0EhnBNSJ8/zu/14MmszolZOFvRA3HVX1FzH3QYOfM1
+	 UdWpMPsq6Tr2eSounBBEOeo76DfW7LpVEsu2yd1yBWNvZbQZIlYAfkV3T9hfd57nQFA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id C2A531F000D8;
+	Mon, 23 Nov 2026 18:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795459331;
-	bh=Yywvn99t5vyID8JsEqVqCf3adnY7F2OW4XSP+9EQHU8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=I0k5imMFuqZW10B5A3KWYrvlSpEQNeoKYApw790I7zdUIopT7ls67wmR0E5krWtkI
-	 ShzGSDQi7L+0fFNAPsr69AxASHkfJDtvBltV5GWVwTr0qaKVIWTQgnu5VIAZUOhDtE
-	 o7muXDgSDCopyrw2JlRLL8r5dXaFExZl3pDm5rfHvCS6wYusFcjGbb31MNOe6l7HZ/
-	 yooQM4tMJvNwC5u6lVsCBeCOy3fRJdgtZzZnVWopsUYe1EdZziv7l11aKQeKbc6mlb
-	 qR4IKeS5UFNbRSsJvcbl6D+rCDdlavsdikTDzUbKyNvopWY5InWlXgaIVymJWq0Tht
-	 fdm/4qq4585wg==
-Message-ID: <2fd6f05a-6dfe-40c9-a7ad-44c28af8584b@kernel.org>
-Date: Mon, 23 Nov 2026 19:42:04 +0100
+	bh=ZoWcuFn13Z7HG21dAdgpMWm0Rmxy6JtdAHIg3Z0BlU8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=WrakwJ/vDv5HNKNtFhHEIzhc3sgJTNkPXkdxilhUC93M/LKjR4RJ2gfyX7QTW50sq
+	 JgzgG/dpiKA5kybLymQR391WBrTH7IRzk37TvcVZ84nSoISIxN4spjDwg8ZVVNy/5S
+	 yE2oxcx863bOexIi+Ak7JHc5nc+ybbpGvZVbC6xaw+A1X3zlKDtGkqqKmUToIodrvF
+	 olHaDffJg+EpY3VQWxjNpdpdnteVwT3FPAEqXL1MlHEYMKnTme88W0bbVge3nvTdoV
+	 6iDdzIxttvJ9QrLQhafKU6ahsW5b83Z/OeGRjN1qhFm8V2Ik6ZG5bDDaEc7kjigubT
+	 zxdFmu7lYg8Uw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D074A4C5F1;
+	Mon, 23 Nov 2026 18:41:42 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Mon, 23 Nov 2026 21:41:42 +0300
+Subject: [PATCH net-next 1/3] dt-bindings: net: Add Cortina CS7542 MDIO
+ controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,92 +83,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: linux-next: build failure in the final build
-To: Mark Brown <broonie@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-phy@lists.infradead.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux Next Mailing List <linux-next@vger.kernel.org>
-References: <awR7nSOWkxRm-iP6@sirena.org.uk>
- <c631c19d-4fcc-4881-a6ec-9dad24419fe4@kernel.org>
- <b7fda918-8355-46da-b7f4-40e1a104279b@sirena.org.uk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <b7fda918-8355-46da-b7f4-40e1a104279b@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-b4-cs7542-mdio-v1-1-626d0a0e3b4d@gmail.com>
+References: <20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d@gmail.com>
+In-Reply-To: <20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d@gmail.com>
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459301; l=1747;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=wvzbW6/ViVc3D6Bi4MMZRceIJxjSfYxZh+iECcbGyQg=;
+ b=KRgxNys71JdSYKfJpeuhdJw1d6ARDtsAA/DekI9MicChVy0DTe6c410XSsU5Ts1iR/5w16oxK
+ SPmY8TC3+3JBMnp71WVmqDsAeLkUwA96r0rCByje5fQDylqvoQa3LwT
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
 Content-Transfer-Encoding: 7bit
 
-On 23/11/2026 19:37, Mark Brown wrote:
->> Greg, that's commit in your tree, how about dropping
->> b28eecc89399e5371483f03fecded33a26a8e655? Authors probably built only
->> defconfig and thought they are done...
-> 
-> The PHY driver is bool and depends on ARCH_QCOM too which doesn't help,
-> people would need to do a specifically arm/arm64 all*config to hit
-> issues.
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Sorry, but that's trivial in this particular case. Whenever one touches
-subsystem wide stuff, author should AT LEAST build that subsystem, which
-is trivial:
+Describe the CS7542 Clause 22 MDIO register bank and devices on its bus.
+The firmware initializes the MDC prescaler, which this interface
+preserves; clock-frequency and preamble suppression are not supported.
 
-ARCH=arm/arm64 ... make allyesconfig -j12 drivers/phy/
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ .../bindings/net/cortina,cs7542-mdio.yaml          | 48 ++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-Followed by W=1 clang build. This is bare minimum and is fast. We do not
-speak here about full allyesconfig build, which requires some build
-machine, but basic build which my laptop did in 10 seconds (I mean, 10
-seconds to spot the error).
+diff --git a/Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml b/Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml
+new file mode 100644
+index 000000000..77b5e2f09
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml
+@@ -0,0 +1,48 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/cortina,cs7542-mdio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS7542 MDIO controller
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++description:
++  Clause 22 MDIO controller. Firmware configures the MDC prescaler before
++  the operating system starts; the driver retains this setting.
++
++allOf:
++  - $ref: mdio.yaml#
++
++properties:
++  compatible:
++    const: cortina,cs7542-mdio
++
++  reg:
++    maxItems: 1
++
++  clock-frequency: false
++  suppress-preamble: false
++
++required:
++  - compatible
++  - reg
++  - "#address-cells"
++  - "#size-cells"
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    mdio@f00700a0 {
++        compatible = "cortina,cs7542-mdio";
++        reg = <0xf00700a0 0x14>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        ethernet-phy@0 {
++            reg = <0>;
++        };
++    };
 
-Author simply did not built the code they touched (by touching subsystem
-header).
+-- 
+2.53.0
 
-Best regards,
-Krzysztof
+
