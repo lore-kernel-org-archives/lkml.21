@@ -1,73 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795435530;
-	b=yiBqXmnBGrBG87kiT6yn9Y8R4duiOXRAuwsN/7qUFzV2gPkOfiKyJR5D28vBizcdW+uf
-	 7mCKzolVOBporos7vmWMt4OFXVd6WJiW/jPnS48aCRIFSgCjahoKl6pa6VI7Dv82S2Z+K
-	 2PAlVXGQolMhrpHOc/CS+e8DeMJSObRI7m9drE+lAuDvLElDCpsjA7FUYRUnNV5YJwRfQ
-	 r21KR2R2U3D4m7aFCWrv3d6oHYkGgtK8e1VtG/+X8UnwXrFd3pk2kMybJEyrfijyrSlQo
-	 KLGMRIDdzg4pKewsucv5+VAVLPBBTjDrt+um7mGBUnaR/A2XhBJfGOm2Bw2bwLH9x6g==
+	t=1795435594;
+	b=fSiML7YRvZP4YeQnA/cAHk7sm4i5HUmnAsf5SJNG2h6fqH8m3gC9+EATtfKzpCy0LB5e
+	 HSg4FUdau0eJ5t39ToEJtwRCBpLEPWNonBWT758wMIbu0sZaa2KCyZdgPLHBxjjHuKjDz
+	 XtlTJ4hXpcy2ZpNuRpm/zy3tATehD204Jt9Pu84o9onDYvRmgQjwE8C0Eyiko06EPT4fu
+	 KvCeAkLQm2iY4cUCcmRvIYPsRp0yVbY9VnaRu7NxU8KNXcqUMmElcrlpTu+SPEvxKowx0
+	 mb0SE6MdVgJao1S+QivxeRw4byLqSXERKxdwXQzp0VDNZ6Tk2Oh1nUJNFDcT6+yX+Lw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795435530;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TFDMSFpnPErRbunntFxo9TmJj7HbgxkIMchgGyOpqDo=;
-	b=d02r9ghTphRqrZToybD7Sj+u28iABMi6Wkb3pHvo8QZziF3JORi+y7ve7CWK2bc5VpgW
-	 lVmSHMb2Hh6IZa6Vn9oh39B8+SKOEnGf02yq5olhP5lcxT+DETEbUvEjCCY10hNW0UWjo
-	 tLA/h/HvyhcdoyvmCokRUzG6LOQxWdxSv9rYv/u3eykmGC3n2EvEQEqzgA7NWITC8jate
-	 NpB3wgigz+rPDH19qVTZ3tsNw0sZxiKp2ExEFldmvJmp2kTlTTX+DiOe0KD/2LfX/5ka7
-	 UAv/kljmqayGGwXok4nxAP1tJ8Yrt+FHGc5oEZqf2pOHM4Wygppt97bd+bGsfqDTwKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795435594;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=fU0qgGX6rvDQa6Hs2GlCa9ePVhgC0MKqV7droMC1ftE=;
+	b=hZKfc/32o3hm7cNfit/jGXVSAPW701h4rQuHA9iHBlEoedZqlIb6jgvk7HCYA8aWnGJM
+	 bygmsOK1XBf3/eawAUvMqrWOgyu3GFZAQN9fkPr/sfGm0SeNxUhzMSXDKklgauWHNEjDT
+	 qx4hqAaq0WgqQT96Tx0KEaMRncibuteS64wEUxHGB5aMd2dlS3P4qt/KJ358VO2CKhvbr
+	 fHWHwPHugsodc6fBR0ac6+pUcWwREHI9q9k/XYpMi3Kzw+C3LvskWAXIdiowRiKSGduID
+	 mFUvyXII0BZuLujKvUcSjRcLv9HWz0amXQtrgDMIOkPSSgYFAtOaO8SSdn3eQ03231w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eFkIqGEs;
-	arc=none smtp.remote-ip=95.215.58.6
-Received: from mta1.migadu.com (out-6.mta1.migadu.com [95.215.58.6])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jvkOvvVL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FEE2606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:05:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FEE2606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 568CE606A31A;
+	Mon, 23 Nov 2026 12:06:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eFkIqGEs
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=TFDMSFpnPErRbunntFxo9TmJj7HbgxkIMchgGyOpqDo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795435527; v=1; x=1796040327;
- b=eFkIqGEsxjhzphH79hnrfhdUUbUVw96EA1/H3OfRimz6YmNFeW8E9UHTywVtecWVt8nhZk7s
- zksiW88VjvIm+lSLqu3zij6hZr7Yt9z6bxIrebc5HqHOKmIdaVXSyFAiWYxOw/KX9ihT4MZ3yPT
- gGK/dBLuRAjr+EHRToLz1bMk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 159dbe6bb404d09e;
-	Mon, 23 Nov 2026 12:05:25 +0000
-X-Mizu-Trace-ID: 159dbe6bb404d09e
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Rik van Riel <riel@surriel.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Harry Yoo <harry@kernel.org>,
-	Jann Horn <jannh@google.com>,
-	Lance Yang <lance.yang@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Kiryl Shutsemau <kas@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/rmap: flush the TLB once per mapping in page_vma_mkclean_one()
-Date: Mon, 23 Nov 2026 07:05:14 -0500
-Message-ID: <20261123120514.4141292-1-qiliang.yuan@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <awQo2tg9rzMJYCQe@gremlin>
-References: <20261123-feat-mm-mkclean-batch-flush-v1-1-7e998ad13251@linux.dev> <awQo2tg9rzMJYCQe@gremlin>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jvkOvvVL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D45951F000C0;
+	Mon, 23 Nov 2026 12:06:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795435594;
+	bh=fU0qgGX6rvDQa6Hs2GlCa9ePVhgC0MKqV7droMC1ftE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jvkOvvVLjNnnARXxCGjXocJep2IHYAS5xr97CekeRfZqkxcyNIittO7p7o5Z2Po2U
+	 j+W0OBWU7/+D1HwZtwzqRhsIc/N0TpXgsv2yRQuf+hid+1mROTjg9REZV7h7UOsCIK
+	 kmTlgo1HhVKzON+bjQ3wy6EuB4QXwfvW5fYM7ZDIDOHXknOGQjn7dF09n8n+3wLUYj
+	 sICuXcCKEaXfQDx9zAg5yrYMDkRg/O/6K9TP26Ac384R5KJ+oTWJuBZ3mtBrDIxU5D
+	 COJ6Jbn5nvsnLGN1eMWRar3a/+FPn2E7T2qBtgLdVWZ8TlKdm7L0/Ltpa+TlaThTy/
+	 8HSdscy6zICEw==
+Date: Mon, 23 Nov 2026 13:06:30 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Robert Marko <robimarko@gmail.com>, Guru Das Srinagesh <linux@gurudas.dev>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Lee Jones <lee@kernel.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Wesley Cheng <wesley.cheng@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+	Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Amit Kucheria <amitk@kernel.org>, Thara Gopinath <thara.gopinath@gmail.com>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Georgi Djakov <djakov@kernel.org>, 
+	Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Ulf Hansson <ulfh@kernel.org>, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, mfd@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-usb@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-scsi@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 05/16] dt-bindings: usb: qcom,snps-dwc3: Add Halliday
+Message-ID: <20261123-uptight-zealous-tench-ccfb03@quoll>
+References: <20261116-halliday-dts-v2-0-2c92438c6c46@gmail.com>
+ <20261116-halliday-dts-v2-5-2c92438c6c46@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,45 +76,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261116-halliday-dts-v2-5-2c92438c6c46@gmail.com>
 
-On Mon, Nov 23, 2026 at 11:53:50AM +0000, Lorenzo Stoakes wrote:
-> You are flooding the kernel with patches, 6 series across 4
-> subsystems over 19 hrs:
-[...]
-> Given the volume both recently and in the past I assume you are using an LLM to
-> do this, so could you confirm your understanding of the problem (as well as
-> those of patches sent to other subsystems) and what real-world task you were
-> doing to identify this issue?
+On Mon, Nov 16, 2026 at 09:26:21PM +0000, Stanislav Aleksandrov wrote:
+> Document the DWC3 USB controller on the Qualcomm Halliday SoC.
+> 
+> Signed-off-by: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/usb/qcom,snps-dwc3.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 
-Yes, I use an AI assistant. What it changed for me is mostly breadth: I
-used to work in depth on one area of the kernel, and with the assistant
-I can bring the same kind of algorithmic work to other paths and measure
-it there. The patches stay small, a few to a few dozen lines each. I
-test every change myself, with before/after measurements and the
-relevant selftests, and debug kernels where it touches locking or
-memory ordering, and I review the code line by line before sending it.
-I don't send anything I don't understand, and I can explain every one
-of them.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-For this one, I was looking at how AI training jobs save checkpoints.
-Writing a checkpoint through a shared mapping was 3-4x slower than
-write(), and perf showed the writer spending about half of its time in
-IPIs. Counting the callers of flush_tlb_mm_range() showed writeback's
-folio_mkclean() flushing once per PTE in page_vma_mkclean_one(), so a
-large folio mapped by PTEs costs one flush per page. The patch
-write-protects the PTEs the way change_protection() does and flushes
-the range once, before folio_mkclean() returns: stores through a stale
-TLB entry land before writeback reads the folio, and later stores fault
-and redirty it. Besides the timings in the changelog, I checked this
-with writers storing through the mapping while another thread loops
-fsync(), then compared the file with memory, on xfs and ext4 with 1 to
-16 writers and on a KASAN/lockdep/DEBUG_VM kernel: no mismatch and no
-warning.
+Best regards,
+Krzysztof
 
-I'd like to understand the concern better: is it the review load from
-the number of postings, or something in these patches you think I may
-have missed? If it is the former, I can space them out.
-
-Thanks,
-Qiliang
