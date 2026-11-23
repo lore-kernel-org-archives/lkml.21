@@ -1,94 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795416477;
-	b=GG2KNfAHHhpSLnsaRTVG6T/V4e8zfcU96FLngmestKpcckoJSuBC4ECuYFljw5Xoqv2n
-	 x1dbZOijP3fdFANOr3xBuoxaRIFKB+WnzTLnXflI3O9aR0Rke5UCDwABFrKswchu6pRoM
-	 MKVqgZ0z50i/ZQFK4jHpcBiCNdDLihG4QTIucVcFZumOWaplQgYoIC6g9gqXnsGpXhsRd
-	 CiwmNlGA80JE+KCcn9kU283HVJYUn9GnB+QpJZZBHzi0UR9dqkT2xOK9JUqEF/U89/44v
-	 rNKqhglgk1b85c8MfIw/EsvHXMeeOLnHhSfeMBYeyVeNNQZXY+yGm7lm2VLTRNTl1Iw==
+	t=1795416481;
+	b=cjs6JZrCMUiejn6a5bG7f+MHo1LF66Crdb2OCq1SdBjVoUS4hI6+j3zrbGJDlUJ7nFKb
+	 eAJr4Btc3OZMW2fU4bOuN8aepqdQwlRePbWzwwVrAqPh0HPyug/JwzUo3he1tFJ+b42Zi
+	 HIAO17AXHnQX37rd1C/j5IfV/8fjiPVSDshx5j8QeF+JEXxK2ZOWYRGQ2zEJDOW+9TXWB
+	 TI6/50Y3X8o2Av34ltS8Sqa+TziI4kGlnuRL0CE64HSJR+71Atkjar2+eD72FgU4Jc5E7
+	 JGfMPO2mhg+tJGyUcv0B/mSoc1fR3rnx9NvRFI+vfITzwD+ozvDEIQ+whHu0VuUR1ZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795416477;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416481;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Content-Disposition;
-	bh=MpdWRQGt7FrCuyLLRBTmUxjIIESLmxZZy2MLy3uKw7k=;
-	b=iPtOTe2LdWImVd+USvDFFU5PhUmfycTJkidsmLZG7cT1QfL4KrSUOBIa+xzWKBz6VbvZ
-	 W15t+kyv0jZ6JOiwRWBI7yK+GDlctVLAb0VRP8VeOkIsSY8VbDj7zu0ddtFhFGbE4wiAC
-	 IEF7EnHJ4g/v/70jfofXw+8XT3Qqo6Vl0XSSqW36/f8UNJOI0YKeLmsLc7MxDmc2crafF
-	 mhJ9f8AhvWq1w7W0esqRgIDCuMxfHwcLhVnSRK0hxSaMtL1tF6YaBDHjGVVTB3conCzj9
-	 M+8lNsPGPldXTJQHNVXRmZHfSnLCjBGd65bjHuWccb3V7Zys2jcWvKtbPREwkb3vQtA==
+	bh=9XAnfSrCk5TAgri3G5kirQJ+1QUBkthXAlw0j/mwUvk=;
+	b=TgOJfxQlAIJZmsil1LlsQ5Roxnh65SrmjoUmvC9JwTSEwsVbPkeH/nAfSPzWAK/iRUSH
+	 2TFBKEbDaD4t8H2VQaKk9+c3LfcXnVOpzvTFlrYqJZY6bGPb8tLdL0tLv2YJG7zESb7M0
+	 +mLgVUSSpNPA+qtfzUSHWqDecBPzcfeV+2Xd7DUBiZtw8h9rMKLi8gFbG0Ed5CpHXDRfy
+	 WLiW426WOP4WsVFSTJ17dpvsVYNRQSVraCLNbM+u78opDDeo/LB7MlTt7GbOl7CtgoMA0
+	 Od1pZB6F1LviP3wu8bRUA5WowzusFuVRbc2h0dyRrknJvyBMRZrlCP5ALxYFubTIVww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sui00Ob7;
-	arc=none smtp.remote-ip=209.85.210.169
-Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QtcT5jHJ;
+	arc=none smtp.remote-ip=209.85.214.175
+Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4DB3D606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:47:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DB3D606A321
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A662A606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:48:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A662A606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sui00Ob7
-Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b5e5e64494so1533324b3a.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:47:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QtcT5jHJ
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f0621eec70so15247435ad.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:48:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795416475; x=1796021275; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795416480; x=1796021280; darn=vger.kernel.org;
         h=content-disposition:content-transfer-encoding:content-type
          :mime-version:references:in-reply-to:subject:cc:to:from:message-id
          :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MpdWRQGt7FrCuyLLRBTmUxjIIESLmxZZy2MLy3uKw7k=;
-        b=sui00Ob749YP/4E0URw2ubSzDUQP9KyBjfsmmDw9AzxIDxTYS6M49S1JibeFvPEBVc
-         qxmPMlLkjqeHtjjaN7HvIH7fHwsh4z3btvPa519DONCM3a8F31p3NAmeMGSbIBAqhVXw
-         5txmr4OBG91xAg91dxl180zBYNgs2sAiXvTgDE7cFJeajijmCEsby493dgeu2NU9qZIe
-         AOvHl8i6VREYiO1AJs8bd9Y+u3Wd8mtajSfG6AMj9CMP8bF0uqYgd4Y9TA7w5AXW8uDK
-         YQ+QuR6/yknUWT84taqMCfSyX7b6XxC7IIgRv2PGwskSgwLDtlasV+5SLJy7c7g+qSd2
-         P3Lw==
+        bh=9XAnfSrCk5TAgri3G5kirQJ+1QUBkthXAlw0j/mwUvk=;
+        b=QtcT5jHJqWm1+yYAA4VFMUP9cS+spmeKwR5RDKEV3n+c3ftxMf2A+S0r6XtwhfzSkA
+         i89BXqck7v1ltIBc4g+zcm6rPOPLJn/WoTGr6fWujJ5HHX37VCCqn+5hkt4UpvPDAyK/
+         DzuOh0Appm/d4BWAtNs5xZba9MLv+lEZJLKeuv9+JAAyKr9eFkW+rOMsNjggp1sksr5X
+         B2JKTwP7urRGyQVRlhafyhdA2ffZMnmFgkniU7mpAO/qkc49LYqaFAX5hYEglksH7mef
+         k7TEeU43ML1MTVqG7C5tNuJ/CESrvVz2mPnzpvEBeefrauZymIXXWJIHNRH3mUgbvMWa
+         6S3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795416476; x=1796021276;
+        d=1e100.net; s=20260707; t=1795416480; x=1796021280;
         h=content-disposition:content-transfer-encoding:content-type
          :mime-version:references:in-reply-to:subject:cc:to:from:message-id
          :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=MpdWRQGt7FrCuyLLRBTmUxjIIESLmxZZy2MLy3uKw7k=;
-        b=k77RzlVWrGOfJac0BM4/1A8ktH4TSZcGS8lM6z96TdbEJemIx1cWcI7/Q2IRml5nXg
-         6kZ+HfIqPsqn6UzPffTA8taSVFWmD4F7KLLPmOrrFIE8A3/tUUlBVYZ3KZSBbQ+HO/0H
-         R5enP/Wrw5dgSgw4Y65IVgaDcGbbykfTjtGKXqairCIiIetO/yLxXCTssz+dmmklndip
-         SE6Rq85ngGBmA7HnWImkbWtaNtOLPX4EUYM1k8AvKrw0n39cSF9j3LXz9b53zLlOZKie
-         l6AwAlwPB9fVavmPId3TwoJ6D2ZLxEkWXnocLnMHUWosorKB8W6TMR+5wiqbWdmtO4KG
-         3GqA==
-X-Forwarded-Encrypted: i=1; AL+hErGBM9ZW171fFmcyr5jRSjQosjU8/+TXvB/qeTPMig4amZ9JQ9UXoZl6PhDfetyznZCPbX3EWsemk+oJ0oE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8kSnFoLixHJOxkXZU7JiPjzc7P19BHhNsGb5bzF2Su1h2FLq2S
-	guumYrJOIMFTxJXvj2MW3DCTaSJObAk3Zn2M+578GKglsfQIn6HsBNaZ
-X-Gm-Gg: AZFdTZdj5hA7q3JNg8cXBJvESRkFNP3JifSJo2CuBVCuNN9BnJ6OZaQj40astkOnypf
-	CQwCoGWzD2wt+iRb/nK6/W8UAcW6H68Kphc43XvTglzFhGM8aZE9bPkfr+JiTxLoBhYGKmcZ4fK
-	FSjNMtLjlbG7Vl5dwOV1twU4ZeDSJWCWuAiCeCVRacsm72urgaOsREhmq2unrlKPJWIR0iy7aUq
-	JuOw/At7wuIj/VlEKt0UPjQWnn8pHkg1ohtd6Aalqi3PlGvGQ5zjcnBqKfeLCUEwBOoIQiK6yAM
-	vtPWNNkY6r8wxyqEK1lBqdpMNtag9UZaxbtOBd3riCdhxC24t5K00YCl7GAr5XSYkGykTtUXs07
-	QkugFsXRCAZU4uKMFN8TbIbdbCpaLBK44+Cpk4LvnVgPSLsHAfuhEIY3yHNdVdNws5/+ViLF8b0
-	tTeqecop3xallH48SwTju9t5hN+fBZyAw0mu+wk3XQ3E/mdkAT+5c9mTfhbWewRm0ajCJxzW3z/
-	UlL4Mqq9Sf9zbpJD1O8/VxIdeP1KL6TAD/v82FXfnr3vntJUnaVhr6X9gIThaSC2wq7K6UuV+mO
-	f7+8d3luBYQruQJu8Mj8ieKRkmJngRnc3hdqLIeUp6OOFHCOEdqLst/rC71HROdUnJprOw==
-X-Received: by 2002:a05:6a00:2196:b0:878:3538:8f77 with SMTP id d2e1a72fcca58-8c87c6701c8mr9415691b3a.37.1795416475541;
-        Sun, 22 Nov 2026 22:47:55 -0800 (PST)
+        bh=9XAnfSrCk5TAgri3G5kirQJ+1QUBkthXAlw0j/mwUvk=;
+        b=kzLLxLEnieibpgoKWH8iAtCmBBZGh3wxrx8xhVrI+1YaBee9XaUiXMX/DMW7JkTxkC
+         sy1Uki1IDzbdzP+tSMBmE43h3QgRaY6b7WCqqW0QAYCQdUid259gPal5rRF4cCEgQ018
+         SVmysBHbBL/Lf2Dm60y6g43t5yMDW0yW3mt4mAH51IG7Z0o9/SUPyzgi8koR8Wj3TROP
+         sRcPJsR0qrt6F91I5cBO3hvoqjo9WcZkoCbzGagyUtTDKZq00zqH58Xk2zBbR3sIFF/G
+         WciCs2w9nqxflgN3sJl9zU2LnxacXJqHhlisMs5p/yyISnXsnSWoeoejDbdAKdOEDEVE
+         lvWA==
+X-Forwarded-Encrypted: i=1; AL+hErETJgZ0ols6coHPfVmpezIFCeSkHBc1S1bqBh/TGkkosUZ1cDnrep1TbeCIDKLTtloIuOg1gMeTyuOKHwQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z89xxFQ+MFHMC+ooblG4HI1LL34Rp84HBEtRWBu3myc+9VrCJRn
+	NqiGRZwBsDMuhB4lNumdGWt6tAJgjZKxKwufWEbsz7Pl9OpQf3D+Ty6A
+X-Gm-Gg: AZFdTZdhHJpUTdfTr5qvwCHxmOYteT4QL/lgeFUJBW6RKmTil8i8hgFWcoj0reMKpAz
+	8cj4bb/jvNapPp+iGovrjc1MpK4P4BlJEuXu2mkXPvZHPL/QTHsUa8Z7Ybxlh3cQUONFy63reIK
+	D+JVBHkP4MpaAeiOt0lK4vPswIpb9Jwp+vRfGjzYzY+qLIvzleMCX1Aicf9a73Utpc/7NPzs8gZ
+	cKo7WuWXQBnYy0RRAuUctxzAAPF1b9CUVJCbi3p0Dne4FiEm38yp+Oxd9ied/byEBpU9R35b5Ce
+	DVGjJszyR5+gJHYJsSsX3efSjX1uSk4RY5z5fy4I9B25ye4OAQUtFPb7SpP37k82RG2wy/SsfBy
+	95ZLBRsOK92kjRBSFy4cvTA73tTaZ6l6GRIxO4ZN7ttHPlgCj21ZFd5URAOqTw/6jDFQDCb3sdg
+	LBAcdrexNHaTenIdGg4yqgA7Pkf1y/Jc/2lHl+/Mx/HYuJL3nwvMeP21xiKEcSD1bHTb64mcXoi
+	1yJLN7/AHMEAkW0Phj6KQKwZfh023syIy9vZY3ZhIvRJgEYoJ2aEzg1swdjENDTlgdNkEzv3bfj
+	R1O0L5nmOay5k4YbdEZ6RdWBZUxctyQ/W3Tt/ayEgcXk6I6ZwhgjFd0yGXl3AkY8WPiRZg==
+X-Received: by 2002:a17:902:ce82:b0:2ef:e9df:2422 with SMTP id d9443c01a7336-2f03f1cf4e6mr103786255ad.16.1795416479999;
+        Sun, 22 Nov 2026 22:47:59 -0800 (PST)
 Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077fe3fsm5152686b3a.4.2026.11.22.22.47.54
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84364sm48678155ad.5.2026.11.22.22.47.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:47:54 -0800 (PST)
-Date: Sun, 22 Nov 2026 22:47:54 -0800
-Message-ID: <5ec374e9acccdbb5422291d106bd9ea9@gmail.com>
+        Sun, 22 Nov 2026 22:47:59 -0800 (PST)
+Date: Sun, 22 Nov 2026 22:47:58 -0800
+Message-ID: <8ee0713aa3e3cb1e54c0a60f1b32cb86@gmail.com>
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Mika Westerberg <westeri@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
 	Corey Minyard <corey@minyard.net>,
 	Hans de Goede <hansg@kernel.org>,
 	Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>,
-	Sebastian Reichel <sre@kernel.org>,
 	linux-i2c@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -96,9 +96,9 @@ Cc: Mika Westerberg <westeri@kernel.org>,
 	openipmi-developer@lists.sourceforge.net,
 	platform-driver-x86@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: Re: [PATCH 2/8] i2c: docs: update i2c_smbus_read_block_data() prototype in writing-clients
-In-Reply-To: <auo-JCn9VES7OwX5@google.com>
-References: <20261024-i2c-smbus-read-block-data-v1-0-19bb97467982@gmail.com> <20261024-i2c-smbus-read-block-data-v1-2-19bb97467982@gmail.com> <auI4Qq1KUo7YYVtG@zenone.zhora.eu> <auo-JCn9VES7OwX5@google.com>
+Subject: Re: [PATCH 8/8] power: supply: sbs-battery: use 4-argument i2c_smbus_read_block_data()
+In-Reply-To: <avELD9tlEfl9Uth7@venus>
+References: <20261024-i2c-smbus-read-block-data-v1-0-19bb97467982@gmail.com> <20261024-i2c-smbus-read-block-data-v1-8-19bb97467982@gmail.com> <avELD9tlEfl9Uth7@venus>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,22 +112,20 @@ Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
 
-Hi Andi,
+Hi Sebastian,
 
-On Tue, Nov 03, 2026 at 12:04:29PM -0800, Dmitry Torokhov wrote:
-> On Wed, Oct 28, 2026 at 07:00:49PM +0100, Andi Shyti wrote:
-> > On Sat, Oct 24, 2026 at 07:48:42PM -0700, Dmitry Torokhov wrote:
-> > > Update the prototype of i2c_smbus_read_block_data() in the SMBus
-> > > protocol function table to include the length parameter.
-> > > 
-> > > Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+On Mon, Nov 09, 2026 at 12:52:18AM +0100, Sebastian Reichel wrote:
+> On Sat, Oct 24, 2026 at 07:48:48PM -0700, Dmitry Torokhov wrote:
+> > Pass the destination buffer size to sbs_read_string_data(), and pass
+> > the buffer capacity reserving space for a trailing NUL terminator to
+> > i2c_smbus_read_block_data().
 > > 
-> > Reviewed-by: Andi Shyti <andi.shyti@kernel.org>
+> > Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 >
-> Andi, so will you be picking up the patches affecting drivers/i2c?
+> Acked-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-Gentle ping on patches 1/8 and 2/8. Will you be applying them to the i2c
-tree, or do you expect me to queue them through my tree?
+Thank you for the ack. Will you be applying this patch to your tree, or
+do you expect me to queue it through mine?
 
 Thanks.
 
