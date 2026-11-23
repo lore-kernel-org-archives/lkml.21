@@ -1,55 +1,156 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450598;
-	b=F29PpU+cR85ZTec1IYfr1HWQKuDvCS8Di26VQxa0hbS+UwXqhkZmrwDG56njacMPdLIF
-	 MXiOCTyOiAnQ8hvrGeZdYh9hhbxS47PbZtMUW4HORL+AMtlhZJsu1cb2zhc3v2UQZVC89
-	 D7vZbdFZijc2kqSK/2IEuKMv7vUQ0DAu+fSfYUbiyBuid0TaTBPWZUVFW3A0benr9SLMl
-	 COGeIGxZiwyxuJCvSyh3E3DlnQNToFyuiYZoXV8TdyWBfbZyQHS0T2jIFNyBvx1Uzd1tu
-	 7XkcgidjwixI94FKIStms2ZeJXBYxw2zOeWqJdey7ERAuRtppj3m30MvaOS8BOpoKeg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450598;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
-	b=qEX0Nvmw/+FaxU/ii7w76+1E0KCrT0xcW/WyVmnzEQ29hl7ohUv+LB9Yw0nz2eIFOppn
-	 BDft6Ghi1MaDOjT1ad+rw8tOY3LK5vE4kmF2/lhA54PkfQRYNJv6fgG/BAh80aGWuXBnD
-	 LtGcUVSg8Ofwhl1R5uYPOlLosbrXPvNUCVgsZ25DqINgKPuiZrCs/6tPUimzLMWD1blvy
-	 cfNb8ypbo/IgRpRUdWbrd4XVRwj1IHS/U/N3w8yr+6G/VCIBXkQHUa1Wpq0Ob1m6V//7j
-	 VQDhvYODJiEb6ZbSTNZdiZABuDCqPGgPe/WSeY+i9jHroV3JnN4njsF8oOOyW+wqpog==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795450613;
+	b=QyW7AOOBd+5XNhbLpmGX/aIFLxvznOIMBnm0M1YrqCqR+MMiOzmFix1iQ8HFVAhp62Vq
+	 NJBj7i+vG01kKoODg11tEVJ/+b6brTn/QKv4GV4SQ+vS4oflFYHK0fOAewAe4Kf5EFr/V
+	 8fmgP9UveolrCnq9vLxG1oNGjcI9TNioeJuE4/Bu+FasjS3PiLmJvNmNAm2aemonYAOhu
+	 /HMEu99B26OnETu8R/MAUC7ARmJuknd1bdF67w48rz51gqKOM+/B0dBN3Fr4oZIJg7YrD
+	 0w+1/G12LzftUQHOObJ5jg0RTWiq0BXfkdjCqj2ay8BBH42GYW4jymZiYjuTHboQneg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450613;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ld-processed:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=H43if5ZJq7nJEbgDSn8oblDoK0fvIVVhHkm5OuSMzEI=;
+	b=kjW9csG1Ck3KbCX7kbM7lu8tAnAOxNTrcJW7ldDyJrxWMCa43bUnr3Z+9STutINh8JXR
+	 K1DfgwBuVCPCpwffHbMjFTmfnPjvmYGvo6gXqQN9PJrC3+XFnjGaUKMVsi/bunn/8cmMv
+	 +T5aQJ7g5vYaEDSnaTMiPMERN4KqqFgUajgw6v3kXE7FmUP7ouh+2trjGZbfrlDseYDhj
+	 AoklIL1ACSdCR7RX6SRY0GQhiks4MIo/qLAbuxv8tUl9A9s+EiUo0sLEMbCOArtTVKXKD
+	 d1QGvqtZipM94BD9jZGQR1N9+V/4OeyB0/2buod18Sg7WGtbP/Ls8qVnfo2W5tm7g6g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bp.renesas.com;
+	spf=pass smtp.mailfrom=bp.renesas.com;
+	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=XhVYK8Eg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.11
+Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazon11011011.outbound.protection.outlook.com [40.107.74.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1423606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:16:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1423606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3DCC606A31A;
+	Mon, 23 Nov 2026 16:16:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3DCC606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 68F681A179E;
-	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 24996601E1;
-	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40D5411E6A6F4;
-	Mon, 23 Nov 2026 17:16:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795450590; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
-	b=eIYvsQdJtYxWZ/9Mp4YVjUbwRpWXdnFJZDKQxAIIKnxVA225RdGHFg2r38CZr1c839J4sE
-	ognTwskLHcLYue5GxHvYt6P3j1glKRAFdJEKuYRhmCdUPXE9GOfwWBFWCCyzjSBm7A23EN
-	lw8W49H1OgRz849nmvj6O4t3ZgAkmFTFxUs3LxW2j6wvB5v29zN1ujaRebiHbMGnLCQyd8
-	5aPtk91XDGO7mSCIOVm0D6Exht214aw0S8Cyzt1lxjaBsPSiTepZ1ro5I0yl3gU4SMqxh8
-	/Appw7k/YtmYhjbo6pF8YplmJDsKvk+q/1Wd5KiTpoLCqURAB4F0I0+vP1nS7w==
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=XhVYK8Eg
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y0eNF7kVvEhWTE4J0If6OLOp8c/6bOey+2Ch/qATA7FNMsVYMMUb2gp7tm0m0dO0JR3ohnn6DcYvtR+MYqDU91BLAXTrKFjyPq2tk74dg6i0d7Nzok62sencaXYfRrEsfbZDj4/UFaM1lPlSWsKgsRflmxeENq1GqSvC3f+uVtofwCuZ1AhHIXTeUMJL+f9dr7MOgUXrAHDSjQE528nS43RMHneKAWxEdPtcaIsAe8iSPus1DqbNvRBi5W97Ef7/vAfZGvMAjpxemGgfSFzPsfAI68KLqJFHl92OwH8wt2z0qoizn+GNls7cwwVTquluhQom7loaFCPb8J5URbtNPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H43if5ZJq7nJEbgDSn8oblDoK0fvIVVhHkm5OuSMzEI=;
+ b=sqfk/60YJS5U/NgGpxFnHoXWuwizjf2tHB6hT6brmGNXy71vP8w+nXdfSKXX5ILG+gbCY3MZcvJL5Y9MAERuOK6rOiIcz0uCDs9CfMpxBg2LuVzvvpUHF0R12+PFEWuGki88qAi1/iV7FDhL4L99yMApVzZBqUURntCsCu66rbuAAWEBlj/O4r4EUKwgoDRDrlX8tNVNdBZcQ/z/fvDTN65EIk/ta/1/WKTJgn1+Y5e5j/6fnRsphezGAK29pt4NfreaR55VIfNlSMNcGwd5Dc7xp6fSLbLsTswfPmQW+FC7OGlCYKIBlYT/gacW8ckdI+I4v2rQ0vucsd1pElnSZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H43if5ZJq7nJEbgDSn8oblDoK0fvIVVhHkm5OuSMzEI=;
+ b=XhVYK8Egu7ZfFhfUbpfMIOKnV2REw5eqw+6HYdIeggTmBLDqQ1bWkDxhV6QvyTu6m3JRBMpCk+V5HZwcP6H1grZhfBAsX332zRT4++xjSFF99A1lNKR4N6Rlctep0YbBdsN2cwQWu4zdaVJx+q/vwPPT3orP13PSb+ktz3g7FBQ=
+Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com (2603:1096:400:e0::9)
+ by TY3PR01MB10371.jpnprd01.prod.outlook.com (2603:1096:400:253::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 16:16:50 +0000
+Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com
+ ([fe80::145b:b854:162:2e7f]) by TYYPR01MB6603.jpnprd01.prod.outlook.com
+ ([fe80::145b:b854:162:2e7f%5]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 16:16:49 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>, Tommaso Merciai
+	<tomm.merciai@gmail.com>, Prabhakar Mahadev Lad
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>
+CC: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
+	"magnus.damm" <magnus.damm@gmail.com>, Laurent Pinchart
+	<laurent.pinchart+renesas@ideasonboard.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v10 04/12] drm: renesas: rz-du: Count all registered
+ encoders for the possible clones
+Thread-Topic: [PATCH v10 04/12] drm: renesas: rz-du: Count all registered
+ encoders for the possible clones
+Thread-Index: AQHdc2l2PpgSPwCMQU24gGwjyRcQzbc75O3w
+Date: Mon, 23 Nov 2026 16:16:49 +0000
+Message-ID:
+ <TYYPR01MB6603A9BA2A0D853AB6F97BF286452@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+References: <cover.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <a1d01f35c0e15947936e69ff0a642a2458ca2e67.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+In-Reply-To:
+ <a1d01f35c0e15947936e69ff0a642a2458ca2e67.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYYPR01MB6603:EE_|TY3PR01MB10371:EE_
+x-ms-office365-filtering-correlation-id: e2b10d2e-5342-408c-ab73-08df497d2dda
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|38070700021|10067099003|261009223027099003|4143699003|11063799006|56012099006|5023799004|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261028144727099003|261026140227099003|261102123227099003|18002099003|22082099003|3023799007;
+x-microsoft-antispam-message-info:
+ OrbV+3xHH3Doh8f5LI+DIe6tiiGxU/i9qEvc9sAh2roY/oB/Oza8R80YiqOt7HmgFBYe/GhUt3X8W+IVWuoPPoZkF1aQzn9z+Bg3Q8mQSDw/QX/RyL+qRn7rJrLDzDVVDJWtN4hVO/970INWjOS0gEpSVtYt47DJM7bzQ9udZNqWlLTBCRpNXcFhVLPlU67ds63HbEhNTiuJ1C/TJhK5NulHNsFfp1NO4DejUuEnsjegJzIsDvF6FoV0OlPrS7wxbKnBUUPL7ctnhYK4iJncfQQup4m5fdMdJhOAiYgkzmn59lgBoGxMbw/Cn3F3m2s9sMga6RW+cEBOu6cGoWXdYpa740E1WXOfsAF/n3rO+xp4apGE7e9bASk+ORVVc6XgkOAfMjykWn+wSM6nHHHlxnGz1nxKqA5K1Ya2TPguYixLvRTl2ozohsmDwHjpxZDGih1ULmD2qtZBC5ShlDfs6yrKL7MTFhtH7xAq2go3K0UbmIaSs2By7sVowsOAIW9n3Psl55lokcmMqgmX3NZZOwsVMeX3/brSSYniZJNfamhmXyJYr4LVA1OhhcdQHg/9HJzxhxlB0ji7Ub2I9cldqntK3VRq/mDA0cgypBbtXi6kjCZ6hNPZi/E1P6SmS7o2FhHi+yc+ywh7qeGin0ltaYXI31J1Y2k2h4kahCBVf3AHdT7ohTIBNSZNTGf+H0FiuNH0prdVER4E24p+Tn16oGeuNrchw9cieniHeEmwUXA=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6603.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(38070700021)(10067099003)(261009223027099003)(4143699003)(11063799006)(56012099006)(5023799004)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261028144727099003)(261026140227099003)(261102123227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?zrXxq/I37sJP8JYXNN6jqY7u9jKvMQODfkUspc6jZmXsarpWxFW0oteqfzOP?=
+ =?us-ascii?Q?v74+YZlD5oyY4QrOZcXWbLgCyfv65KzDDFkLvwDEdX8Aw/qsTl3cuKgngud4?=
+ =?us-ascii?Q?UimGlxpXeML3jshOo2x1EjFrc68REXH7QLXkaSw8zh41P+4/fHAp1UnneucS?=
+ =?us-ascii?Q?InHUDlWDZUO6gbZlLt/MK0e90DKIfVX4SLU9OYaf5S+4M0C6tDXE3NOsrI8o?=
+ =?us-ascii?Q?EBUTEDRaJooOCeUgHy8QnrSiyifHqsE0VUQ6LLlkoVv9tZXbjMCEy2u9tSGR?=
+ =?us-ascii?Q?1ujVfq+JcMpNTKnpbG7Qeb5qyihP1zKQwM/GTqW60O8wQEOz+9ntb+PdY1Li?=
+ =?us-ascii?Q?muwydaGAcJIyppe1HtxtjONLZ0vtZQN02uNlfDq9pS8t1cdcsIEiqOjmaJ+J?=
+ =?us-ascii?Q?0AhQE9lhILX3th1vZxQvP8yh/72b7w67Gw9B1GuCJp3+ZmCE8U7gzzj9jVCp?=
+ =?us-ascii?Q?jDUI10W2QBhOqcsWhrMn2HoIEJhkfc7ZGio+2rytsd/zPDmlNnkW1AXQ8zQT?=
+ =?us-ascii?Q?Ve+9CR9b2IfbBUM5yJEni26ayGeFR/wNS9WzFkMBmY79dZyC2bykqs47PPzB?=
+ =?us-ascii?Q?dxPRkiJcTNE2pE4k7E9mpJ9vp8mCwwDTocf2GMWS9NEvv6x682TIY4Hk6eF6?=
+ =?us-ascii?Q?7AfDr3kumz3W7YbulsINGrri+2Yt/zi6z0hM+D/7tYKx2iUf54gLwh6hQfJg?=
+ =?us-ascii?Q?PmUru0dCjfdpQLdjmyfXWXgh3PTmJ1T2LBvoSD9ynXfq/8RfAAnp0tkgUccU?=
+ =?us-ascii?Q?bBZl35Xe4xm0pr1IeYCMbdornIIMTBjzAwFrCz3Vr3/wgrR/H9kfQITAa7DW?=
+ =?us-ascii?Q?4iIY7dyexII8jx/FVhxPHA8dub7vBnQoo0M+A2MKyOTn1W77Q7XddVtAeGww?=
+ =?us-ascii?Q?yhq8MyVDt229+oLfqRvo6ZR8O+zwp77tUv5ID3CN53MxwyvA5YDmLdRe5AwI?=
+ =?us-ascii?Q?0Hh3fgCsAV7NP1PQBiVGhPsEkW9yNLbJEyyvtWHZwej8xAw34N4RPFlmn8FK?=
+ =?us-ascii?Q?5i0/bmuxBNa3M0l/Zk8I59Bdgv5BamUeEQ9kFmpeRaJ1w1jh7p7OfWaFlkZj?=
+ =?us-ascii?Q?xVYNGgRPVHY2uLTPk0uLXBXdhUFDyIrAOLJz/ti5/Iw4XWSyPcblUCgslQqq?=
+ =?us-ascii?Q?aMscZADSrdL0A3n66NMmN5OnB+Q9Wgw4jb3pjffFBQ4j2tpTmYUY2lRXGTzf?=
+ =?us-ascii?Q?AtdAzSgN6g+Zjbj8es1orGqkbA8oE/cTjzcUT7RqQywkgD7vvZNkZyYlk8eN?=
+ =?us-ascii?Q?wTujmfmqDg6CGWUyceodi4rFUMXxfA/1wfszYXWkqeJUWJ6kRyAIRM3R3wn0?=
+ =?us-ascii?Q?Jou3B0BAdEyvMWWFS5yqTEAeFHzcxwM2sUYmUd3X047GWBIHATUPN2fs+nxS?=
+ =?us-ascii?Q?dc1EgVnEtUmNYUnLsibkFD8uSpnffDKtK0du+4KCOm/YXKF6amgIMCZTmJiS?=
+ =?us-ascii?Q?71ot7mj9/UDP6xuZdzvTQO54cH3SnhmfJTI2BJlFQJF1HSx2/QxdnshLerVU?=
+ =?us-ascii?Q?QStImvkOqlX6iwaRw7maMRzplrZezj/L2TW6BMzjaHGsKo311vpZEC8S634F?=
+ =?us-ascii?Q?RreXS+lj1/Yz5dXnqTEbM2+XUrjMEgAstfckOa2llNhHDD5RJLvpBnx5tB2q?=
+ =?us-ascii?Q?ocrMZ/c2rDuVGwZrI3ENfOSApjaN/liswaxwp2oQN0ueIeuW3Alx2io5B5R3?=
+ =?us-ascii?Q?GoFtSENuxJuJxmXdtkK959+cXz5DAiO9AIALPcTEXz/lx5lxZ8EOAgUGcJCo?=
+ =?us-ascii?Q?dSwhH79niQ=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,151 +159,74 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 17:16:26 +0100
-Message-Id: <DN2Q44M3PG5M.1Q2PKJ5A3RKNY@bootlin.com>
-Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
- <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
- <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
- <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
- <thomas.petazzoni@bootlin.com>
-To: <netdev-bot+sashiko@kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH net-next v7 3/3] net: macb: distribute evenly Tx SRAM
- segments
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261118-macb-set-channels-v7-3-2dbc00f686af@bootlin.com>
- <179537769513.3135.7979336425983650280@kernel.org>
-In-Reply-To: <179537769513.3135.7979336425983650280@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6603.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2b10d2e-5342-408c-ab73-08df497d2dda
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 16:16:49.8431
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: SwA7CZOaec5C9CSqaYpUcj+y/jrvTet3LaGyl0rJcQ04/MVwHnwXM5godPzy8H5EYjXxOauEz/djvK+D85i7rLRtKwwKyVjyXzMF2DI7OhU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY3PR01MB10371
 
-Hello netdev-bot+sashiko,
+Hi Tommaso,
 
-On Sun Nov 22, 2026 at 9:01 PM CET,  wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in ca=
-se
-> you want to address the nit picks below when you respin.
->
-> Low priority / nit picks for your consideration:
->
-> - [Low] gem_sram_distribute_segments() in
->   drivers/net/ethernet/cadence/macb_main.c handles num_queues >=3D=E2=80=
-=A6
-> - [Low] The comment above static_assert(MACB_MAX_QUEUES =3D=3D 8) in
->   gem_sram_distribute_segments()=E2=80=A6
->
+> -----Original Message-----
+> From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> Sent: 13 November 2026 12:20
+> Subject: [PATCH v10 04/12] drm: renesas: rz-du: Count all registered enco=
+ders for the possible clones
+>=20
+> rzg2l_du_modeset_init() sets the possible clones of every encoder registe=
+red with the DRM device, but
+> builds the mask from the number of outputs that rzg2l_du_encoders_init() =
+initialized successfully. An
+> output whose bridge fails to attach after its encoder has been allocated =
+is skipped and not counted,
+> while its encoder stays registered. The mask then misses the bit of the l=
+ast encoders, and
+> drm_mode_config_validate() warns about bogus possible clones.
+>=20
+> Build the mask from the number of registered encoders instead.
+
+Looks this is a fix. Can you please move this patch at the starting and add=
+=20
+Fixes tag.
+
+Cheers,
+Biju
+
+>=20
+> Signed-off-by: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> ---
+> v9->v10:
+>  - No changes.
+>=20
+> v8->v9:
+>  - New patch.
+>=20
+>  drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c b/drivers/gpu/d=
+rm/renesas/rz-
+> du/rzg2l_du_kms.c
+> index 13d14ecacba9..6eb1865f43b4 100644
+> --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
+> +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
+> @@ -455,7 +455,7 @@ int rzg2l_du_modeset_init(struct rzg2l_du_device *rcd=
+u)
+>  		return -EINVAL;
+>  	}
+>=20
+> -	num_encoders =3D ret;
+> +	num_encoders =3D dev->mode_config.num_encoder;
+>=20
+>  	/*
+>  	 * Set the possible CRTCs and possible clones. There's always at least
 > --
->
-> net: macb: distribute evenly Tx SRAM segments
->
-> This patch adds gem_sram_distribute_segments(). It programs the GEM
-> TXQSEGALLOC register so that the Tx SRAM segments reported in DCFG6 are
-> spread across the active queues as powers of two. It is called from
-> macb_init_hw() and macb_context_swap_end(), and it is enabled for the
-> zynqmp, versal and eyeq5 configs.
->
->> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
-rnet/cadence/macb_main.c
->> index 180da5d62f09a..5d382f0e4aec3 100644
->> --- a/drivers/net/ethernet/cadence/macb_main.c
->> +++ b/drivers/net/ethernet/cadence/macb_main.c
->> @@ -3319,6 +3319,69 @@ static u32 macb_dbw(struct macb *bp)
->>  	}
->>  }
->> =20
->> +/*
->> + * Distribute evenly available segments across active queues. The compu=
-tation
->> + * is complex because (1) segments are counted in powers of two and (2)=
- a queue
->> + * can only use up to 128 segments. There are four types of cases:
->
-> [ ... ]
->
->> + *  - Sharing all segments is not doable because not enough segments ar=
-e
->> + *    available. Take num_queues=3D4 and num_segments=3D2.
->
-> [ ... ]
->
->> +static void gem_sram_distribute_segments(struct macb *bp)
->> +{
->> +	unsigned int num_segments, pow, remaining_segments, i;
->> +	unsigned int num_queues =3D bp->ctx->num_queues;
->> +	unsigned int num_advantaged_queues =3D 0;
->> +	u32 val =3D 0;
->> +
->> +	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
->> +		return;
->> +
->> +	num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG=
-6));
->> +
->> +	/* When growing the max # of queues, make sure to return a u64 here an=
-d
->> +	 * to write into GEM_TXQSEGALLOC_UPPER.
->> +	 */
->> +	static_assert(MACB_MAX_QUEUES =3D=3D 8);
->
-> [Severity: Low]
-> This isn't a bug, but the comment talks about returning a u64.
-> gem_sram_distribute_segments() is a static void function. It builds its
-> result in the local u32 val and writes it with:
->
->     gem_writel(bp, TXQSEGALLOC_LOWER, val);
->
-> To support more than 8 queues, wouldn't the change be to widen (or split)
-> val and add a second write to TXQSEGALLOC_UPPER, rather than to change a
-> return type? Could the comment say that instead?
-
-Yes; we shall replace:
-
-   When growing the max # of queues, make sure to return a u64 here and
-   to write into GEM_TXQSEGALLOC_UPPER.
-
-By:
-
-   When growing the max # of queues, make sure to write into
-   TXQSEGALLOC_UPPER.
-
-For the full story for why this comment went stale:
-gem_sram_distribute_segments() used to return a u64 with the low 32
-bits written into LOWER and the high 32 bits written into UPPER. That
-returned value was then writel() by the caller. But now that it can be
-called from two places, the writel() was moved into the function to
-avoid code duplication.
-
->> +
->> +	/* pow=3D0 for all queues. ilog2(0) is dangerous. */
->> +	if (num_queues >=3D num_segments)
->> +		goto writel;
->
-> [Severity: Low]
-> What happens here when num_queues is strictly greater than num_segments?
-
-I don't know, but this is not our worry.
-
-This check has been introduced to deal with the equality case.
-From my understanding, `num_queues > num_segments` is unreachable.
-
-And if `num_queues > num_segments` ever occurs, yes, we give each active
-queue 1 segment by doing a:
-
-   writel(0, TXQSEGALLOC_LOWER)
-
-We will *not* introduce code to lower max_num_queues if num_segments is
-found to be lower than the runtime detected queue count from
-macb_probe_queues(). This would be useless.
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> 2.54.0
 
