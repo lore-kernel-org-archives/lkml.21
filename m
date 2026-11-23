@@ -1,47 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.94.104
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396661;
-	b=ySMXryBjFV8m71ew9BYffjlBnErNXebIBNR1gltN6tBGcEnQ5JVJ3SXUOk/+HRkg24cY
-	 zFFU2Kvz8qPZBdmctQ8LE7ZHEa6THMFP5pF9YgPiktXWGhrAoAdfC+/MNGCxtP2JuO0BC
-	 TIla5/f+xGTXy8Ngp67J4Jlyl/SXezXTjvECE3a80a9AtzPt0O0nMvsqdJWVbiixxZcKa
-	 r3A5uF58hNHia1Cen/3qZEn/ObRynorjxln6C6ObW4DqI/EKuxhoU7hPET+pW7+4lffGA
-	 QzWKVivlt52/7lNYk/2LZnf9cb6BDMvvi33phS6eQbY3PcBLHat0kg10sBLRo93co/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396661;
-	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=SORymCjbMCFkb6rdzGj9ji2mQ7C8CsoXg/OHwL7/WCY=;
-	b=ajDEcmF3IXxazWFUYeYThkezypbXCAF3dujEgPDcYHjUQcF71+waaonk5VkxHnwAmKla
-	 9e0ZBUn5F9hixF3R19a7AuJv4ixGClvy7QwomE70u/oyGbh1kWeZ/JXkPqrpzM9DsIbfk
-	 k/7rFdIIu0mWitah82tMavv97ixvBIXKx1HOOJVcPHYMJe64LKZpKNbmCddQjeffreLBc
-	 NM9d5UMnxrUfnZLmIxcXiOFQwZ/KpsxuZkA5alkeEpOc4ZJVrjtYpQgWMLV3U1HsB89gW
-	 660JexHb4+xRz0PdY1zpP/O+WWkIZuumLFOHa5z6y8Tve2iqq0SpyyWqh/tly1BxJDw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=pass smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.94.104
-Received: from dggmsgout13.his.huawei.com (dggmsgout13.his.huawei.com [124.71.94.104])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795396659;
+	b=yaWOsmwM+gQT+4Np6OFJ9lqScCnlZnka04D498HsizBY2CPGf3UD8MaLDx0yFvlbixdA
+	 M8yNF78CAV2AcOBcUdlqEgRd/7//pJpphN2EvHa2/aQWyLcUilGwcvGVI+JChk89ICRGv
+	 acLSI3HNimJQ91K4WvcXZLAaq7K370v1QWpzNDBnr6HT/HSblMI0JEEl3Aeh4wwrFWqQK
+	 +xKlqCFdmenft1ptINxbzVIysWi5zQbpyXKjMRuv498j8koE2h3xFCpgJMKSIjPn+f0x/
+	 BTH0KJhqJ0E4xNhIAilaYjflufcSlfEBjbtL60RX8em8uvSK1y0QR7lRT+LEtz/XtHw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396659;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=4B36WbMifke7+O2AJIQ+hm2Rk03uKtR2vzfH5UQsqfg=;
+	b=IM17FH+X93fn4WHpxeWogldCYmcEL38xXI16aWgaLqa1ufe911AT/WaLVoM3vfXdvBpF
+	 yvB7pjw25iGW1ddOrtY+ztVlswUxqnoCeeR2ZnG0e4Td2zNqstByeQLWevgszgN07vbrJ
+	 shgISplf8ijLw11SFP/kTF5txsoaJiDCtqrVbac06QvLIxx/oR9dtOO+lfaKGpge5HBz+
+	 67KnFjHxR7UTNzxS8TcEupQlPmjtJdlhFmN9YGCc9fsY15z4OFM0Uu0QyJeFWjA47Xa0t
+	 feXw07KjguHCILW/7T3vDujaq+DOXd1MjxQOvYxe5l0xa05klq5IDyWEMg3T2rHja+w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VXz0/ij6";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54693606A334;
+	Mon, 23 Nov 2026 01:17:39 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VXz0/ij6
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795396659;
+	b=b/VvX1KUEugZVjTe1n3JiHC7O78Avsn8WjdHgSyiI2jYjw4VFAG9pZr9hn5T6wOQgOT1
+	 +PyGOgd7PoffFC4nOS5ysYCSISi/hYPuVSqPM95mRSodqHEuVXabWN1JEh6snVcoKGEh9
+	 E8qfv27x7/f7qvZrAIH9/Rl1CK8aNpPyyj0bH60Bpj/gb+H4KaDTob9zpC7DwRcmqczO7
+	 eoERR+Ce7QavnopY12VRNT4W/QLKBPxWQjuECyOckKyzz8DRiK0ZE5UnJp/xVlKvJcCq5
+	 qavP6Sd7oIcVpq9u3+wXlfQXwLGy4y7x2suZtDPkG45jcCd5Yo132x3GviRBqCWoQYg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795396659;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=4B36WbMifke7+O2AJIQ+hm2Rk03uKtR2vzfH5UQsqfg=;
+	b=xOVWOGP2Ed5OUUr1WZHHP/Rh20JNr/sZeLpmvm6lxXxHPjJ9Wvo0yWuk3J8ySYaoeQnw
+	 U0Lqkjd2mirtq3o7lwpnKHElx7AUj8p+6jT3oX84ZuSwZtIrUHor0wTmHfGaGUvCaLNdo
+	 m0wwZ2vOOzQ+5bNDnWGrbEE4L9YE4XLu1VIpvBuXPS3OS+bbhI6obOdcNo8S5kA1wl2kA
+	 Rc37wR+X606GFSjsbMZVNy+vXHSK7CAEzzD4s01ngx8pYZFeCExTo8Qrd7VSUtx9TXZ6E
+	 NYWIBHzjKpm7dYdD3iooETPTUjKaq+/tYnL1EvrVxeHJ9TM3no7K1fxTKTR0XqmaNDA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48027606A333;
+	by smtp.kernel.org (Postfix) with ESMTPS id 90DC71F000C4;
 	Mon, 23 Nov 2026 01:17:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48027606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggmsgout13.his.huawei.com (SkyGuard) with ESMTP id 4jXp1T5m85z1rqWm;
-	Mon, 23 Nov 2026 09:16:29 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 5A09E40574;
-	Mon, 23 Nov 2026 09:17:30 +0800 (CST)
-Received: from [10.67.110.36] (unknown [10.67.110.36])
-	by APP1 (Coremail) with UTF8SMTPA id cCh0CgAXbtMolANrEoJnFQ--.47197S2;
-	Mon, 23 Nov 2026 09:17:29 +0800 (CST)
-Message-ID: <90ab8953-a2e8-432f-a338-ce216136e22d@huaweicloud.com>
-Date: Mon, 23 Nov 2026 09:17:28 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795396659;
+	bh=4B36WbMifke7+O2AJIQ+hm2Rk03uKtR2vzfH5UQsqfg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=VXz0/ij6zrNgfGTuKKVRNSVAZqB75F4iuEcPh6yc+SpHJg9ANTqwKFvMFgfI1paQo
+	 +C6UiM20Ick79CyJl9O6zmNGBRuHQ1x92laGk666FI6oGJfqgDBbwQuVRmdqpy4rNt
+	 rv86eQbwj7E0J5KsxaUHEMjni4OsID26m5NKngeHjqXm4BLrBjB0yhVXG7iwEXyd/J
+	 7+gCVSoW4GeNh0F24fnFtAiBIKxLlMHn3bGzB2zQ7NidVKuNLEpXVAAqwjzEh+e2Ku
+	 Zn3TvpJ3SL/7iWEFY1BqsQzX5OySIuvuVL/B47ksQElmUl4MxepKFSVeoKZ0EnsSmS
+	 X+awfoX1SF5jg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1211D4C2A1;
+	Mon, 23 Nov 2026 01:17:38 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Mon, 23 Nov 2026 01:17:37 +0000
+Subject: [PATCH v2 1/2] dmaengine: at_xdmac: Kill the channel tasklets
+ before unregistering
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,61 +83,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
- enqueue
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
- <20261120154457.GZ2668564@noisy.programming.kicks-ass.net>
- <20261120154959.zw08JC0V@linutronix.de>
- <20261120160140.GR2668804@noisy.programming.kicks-ass.net>
- <20261120162604.GL2669272@noisy.programming.kicks-ass.net>
- <20261120172831.5XwELZY5@linutronix.de>
-Content-Language: en-US
-From: Tengda Wu <wutengda@huaweicloud.com>
-In-Reply-To: <20261120172831.5XwELZY5@linutronix.de>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID:cCh0CgAXbtMolANrEoJnFQ--.47197S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYa7kC6x804xWl14x267AKxVW8JVW5JwAF
-	c2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII
-	0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xv
-	wVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84
-	ACjcxK6I8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02
-	F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI
-	0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxAIw28IcxkI7VAKI48JMxAqzxv26xkF7I0En4kS14v26r1q6r43MxC20s026x
-	CaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_
-	JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r
-	1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_
-	Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8Jr
-	UvcSsGvfC2KfnxnUUI43ZEXa7IU1zuWJUUUUU==
-X-CM-SenderInfo: pzxwv0hjgdqx5xdzvxpfor3voofrz/
+Message-Id: <20261123-dma-chancnt-v2-1-241b1672883e@gmail.com>
+References: <20261123-dma-chancnt-v2-0-241b1672883e@gmail.com>
+In-Reply-To: <20261123-dma-chancnt-v2-0-241b1672883e@gmail.com>
+To: ludovic.desroches@microchip.com, vkoul@kernel.org
+Cc: Frank.Li@kernel.org, dave.jiang@intel.com, linux-kernel@vger.kernel.org, 
+ andriy.shevchenko@linux.intel.com, dmaengine@vger.kernel.org, 
+ allen.lkml@gmail.com, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795396657; l=2983;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=37CrXOmHngl8hduNk3ISIljXPc21J8blRcQ8FE7hl2Y=;
+ b=xRJ6Jxg/MhAl8yKoKVPpMjDP/LVLwP5ZpBd/diE5bv3dkjKDbpzQCVIlWfz7HhwBjyX63FBkB
+ /MZbutFOEfxCVN5Mx/JaIOV72KLvp6HbenUm+7kfvvRMGTQwAVNw7pH
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
+at_xdmac_remove() unregisters the DMA device and disables the clock,
+and only then frees the IRQ and kills the channel tasklets in a loop
+over dma.chancnt:
 
-On 2026/11/21 1:28, Sebastian Andrzej Siewior wrote:
-> On 2026-11-20 17:26:04 [+0100], Peter Zijlstra wrote:
->> Also, sending signals on software events seems utterly insane. But I
->> don't support we can go limit that now :-(
-> 
-> Tengda: Is this an actual valid use case that you have here or did an AI
-> figured out that this broken?
-> 
-> Sebastian
+	dma_async_device_unregister(&atxdmac->dma);
+	...
+	clk_disable_unprepare(atxdmac->clk);
 
-Sorry for the late reply. No AI involved, this was produced by running
-syzkaller. I've turned it into C code.
+	free_irq(atxdmac->irq, atxdmac);
 
-Tengda
+	for (i = 0; i < atxdmac->dma.chancnt; i++) {
+		...
+		tasklet_kill(&atchan->tasklet);
+		at_xdmac_free_chan_resources(&atchan->chan);
+	}
+
+Since commit e81274cd6b52 ("dmaengine: add support to dynamic
+register/unregister of channels"), dma_async_device_unregister()
+unregisters each channel and decrements dma.chancnt for it, so the
+loop does nothing and a tasklet scheduled by an interrupt can run after
+the devm-allocated atxdmac has been freed. Even when the loop ran,
+tasklet_kill() let a pending tasklet run after the channel devices
+were freed and the clock was disabled, and the tasklet reads the
+channel registers and logs through the channel device.
+
+Free the IRQ, kill the tasklets and free the channel resources right
+after at_xdmac_off(), before the channels are unregistered and the
+clock is disabled.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: e1f7c9eee707 ("dmaengine: at_xdmac: creation of the atmel eXtended DMA Controller driver")
+Fixes: e81274cd6b52 ("dmaengine: add support to dynamic register/unregister of channels")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+ drivers/dma/at_xdmac.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/dma/at_xdmac.c b/drivers/dma/at_xdmac.c
+index ef0dfe9d37ba..d5d60f3d3543 100644
+--- a/drivers/dma/at_xdmac.c
++++ b/drivers/dma/at_xdmac.c
+@@ -2439,21 +2439,26 @@ static void at_xdmac_remove(struct platform_device *pdev)
+ 	int		i;
+ 
+ 	at_xdmac_off(atxdmac, true);
+-	of_dma_controller_free(pdev->dev.of_node);
+-	dma_async_device_unregister(&atxdmac->dma);
+-	pm_runtime_disable(atxdmac->dev);
+-	pm_runtime_set_suspended(&pdev->dev);
+-	pm_runtime_dont_use_autosuspend(&pdev->dev);
+-	clk_disable_unprepare(atxdmac->clk);
+-
+ 	free_irq(atxdmac->irq, atxdmac);
+ 
++	/*
++	 * Do this before dma_async_device_unregister(): it frees the channel
++	 * devices and decrements dma.chancnt, and the tasklets also need the
++	 * clock.
++	 */
+ 	for (i = 0; i < atxdmac->dma.chancnt; i++) {
+ 		struct at_xdmac_chan *atchan = &atxdmac->chan[i];
+ 
+ 		tasklet_kill(&atchan->tasklet);
+ 		at_xdmac_free_chan_resources(&atchan->chan);
+ 	}
++
++	of_dma_controller_free(pdev->dev.of_node);
++	dma_async_device_unregister(&atxdmac->dma);
++	pm_runtime_disable(atxdmac->dev);
++	pm_runtime_set_suspended(&pdev->dev);
++	pm_runtime_dont_use_autosuspend(&pdev->dev);
++	clk_disable_unprepare(atxdmac->clk);
+ }
+ 
+ static const struct dev_pm_ops __maybe_unused atmel_xdmac_dev_pm_ops = {
+
+-- 
+2.34.1
+
 
