@@ -1,55 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.97
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795400679;
-	b=UD1yzWTxBAZ3cCXBpX8vr7yVK4S23+mbIvXosT5XopwgSxUsEiz+3ZnXHePsB/K918Vt
-	 1bBts171LDd52LkewJtx5c+RjlQ0DhwIBrnn6Of+sOSRhur4iRf889WMaJYTjHBndYsLA
-	 V+F+s/bgy2aKAYccu7irFbMwJT/4ZskumV5e2a9j61/oU21RPny03inVUO8pC1dVRWji1
-	 7sxJ9brOVk0GSLj0uvMyvHe/fhKViqI4MGOXQvnupGdlea2HfYw4myhKUFcNW/enXbPJ6
-	 QkrE12Ak+alCjvNmPA4C4WChWm5APsuCaCoxF8JECT3si/uDV2BT2shyCTl4M5aFR/Q==
+	t=1795400747;
+	b=eIgbVqbJoETDLpPyeUYpx3sXfVkSvr6PyQhvb14KkqyFlh8sIovc2B/9dbSgWO2yivJf
+	 O54IkciHiluTxa2ddGCFlHL/9R/v5jpL9fB8TOB08bE8f8Saq970q9zUqqcXphGGUVF+v
+	 nVcs9MwcWznRdyy18QPkWHuiH6TPYfO9Gir+6e4jzE4/zF/8qWoW66WXMS72ipVYL51Qw
+	 oK72ninwv1EXBylO8SkVn6upCPLh2Hn01ylBhWn47/WlGxsXLZOfG9vPdaMazIOEnahGu
+	 3sGNxiTG28EdSBJg7QZFQoepfAN+/UzBupDEQcEdRmIetewuMHXaurx+v2wxrdn1Efw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400679;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=57tb2/Vr7t/oaBgLBwC/I6C/d76kKekhB9lL9K1wXnM=;
-	b=qAk3/uKFqsqfdq1+rSnBNMFZHDiE3Zy0PZbnJ2naOCLDf725UjYeRiqwPcH4QTwSL69x
-	 uZ9RPA42kexqYzkbz3a7jZKN/ufDPmS0wY6Q7VmHH9ZzRyP60Fodh4dF/3K1Njnn1qv5b
-	 b6i0OQt3VwSZFBDXR3D1MAXBaCUqjqTOnq750IKnnVj744WvbhTCze1UEtuZeD04YR/KF
-	 NzsXQCYd18J1E4pn5bFxFGZ0lHkkwznJMttgD65rmppPn3fy9Ha/snLU7U69PisPX20k1
-	 rigyaCz9UPfi5Ard2TPFdOlY6Yke+AxuFiuqmD24hQWyg3MjY0r9Ii1mELEy46+GOCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795400747;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=0jf05AivAf9iRp9AP9BjA4tTMOtS7Al7ccSsRTpnHXE=;
+	b=boUO6dNXKUZaAX+teubtvlKysrWqNAACgrDtRWVqMy0YvPe4uA1fezeQPImnG8MYzpwU
+	 /onX026oxz32hYn7hMSQImocW1ejtY5QZ9HnvThMrVyxUfbTWV1maq1beEGayc4jSNJVJ
+	 fnUhB+9fhkxM+TZlzNTlcdyXHlVhI9FZJY0MVUFyeh7fLndkD8dqxEo5ea16W7pmWspkn
+	 dMWcDDCSIaPQenkThg0tqGo0R2HEGoZfTxCBDuqYwIUQZmEnxn7MYgYQhYJANEHI0jDzX
+	 Sg6YDnHS3/emnn6eE0oWCInh4bvgehw4wCbT09FlxPvud4DXMWaDSTeiWy7cQEVae7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JrzfS8jq;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=A1eatCMC;
+	arc=none smtp.remote-ip=115.124.30.97
+Received: from out30-97.freemail.mail.aliyun.com (out30-97.freemail.mail.aliyun.com [115.124.30.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E47A9606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:24:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCD9B606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:25:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCD9B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JrzfS8jq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27F791F000ED
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:24:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795400678;
-	bh=57tb2/Vr7t/oaBgLBwC/I6C/d76kKekhB9lL9K1wXnM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JrzfS8jq/ZdwzK7qWLGEcDSyB9OKqmNuSOS3xhsOwReZb6AV3RVA8NEiI4XXHb5uk
-	 NpoLRXLnpKKSNqolb97sUYCWPyyPNs/FQlPVEIYcO6T+VqlKBBFuQIkjeYSA9+r1vd
-	 uCx4NNqhngD/6HO7Jn/D7ym2JjRXQp7isD6BxQAAdtgJi4ejsnl8mFUDk7yCOAdJ3r
-	 EIbPD3LqkWS8IfS15OBb2Ovqv9N2gDbaEVahpUWO6c8uVwTImsKqh3ujdnaQSUZQRx
-	 u6PZFiS2I7H70MAcPkfEoXQjVw9psXSUGizSGzLlqBPXZx7h0YMGMwKCojgAjcQHR0
-	 htp2KmbblZ12A==
-Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-93f2f2edb19so260933985a.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:24:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErExc8klzrgHorhvllM/F8AWXPN9nd7Z6rKrJ4oqVeT+to7Eg0Zzb2FaDerU0WABABDeb0X3B9BO/ajeLw0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8odU3HrV+aogGfczUHlMrVLG+D8MrgUJJO9fk5pIExQLBkNqi/
-	GA5rrrsylARCqOnbkjwpYqtdVvaXcuX4qzWxLgtWOsuCSRJ9Hwv4Dsn+f2iJqp4XQBLhLbrnUyf
-	i7F9VUXKvHtvyV0r3tVHtAqrYAx8jdUY=
-X-Received: by 2002:a05:620a:269b:b0:93f:228c:5301 with SMTP id
- af79cd13be357-949bab678d4mr1820344485a.64.1795400677521; Sun, 22 Nov 2026
- 18:24:37 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=A1eatCMC
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795400742; h=Message-ID:Date:MIME-Version:Subject:From:To:Content-Type;
+	bh=0jf05AivAf9iRp9AP9BjA4tTMOtS7Al7ccSsRTpnHXE=;
+	b=A1eatCMCzn5K0CZuRBeHY8oARRvkoK6INweF1jGl/tvpmCesmNLea5N/3ggBIloSIK86XMkM1eiix1PEufU7H1+lTLkFBY9070agI6YwZoTKhPCOluxFbq3v84ex5EFzGY8RH09yRy3vRd76vXCTCNFvWvT4u+h6TRvh6nT1nBE=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0XFC-hGu_1795400741;
+Received: from 30.222.33.45(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFC-hGu_1795400741 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 10:25:41 +0800
+Message-ID: <f178e3d2-5770-4f97-8b7f-f943fbd8cd8f@linux.alibaba.com>
+Date: Mon, 23 Nov 2026 10:25:41 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,38 +53,198 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116081403.216452-1-max.kellermann@ionos.com> <20261116081403.216452-6-max.kellermann@ionos.com>
-In-Reply-To: <20261116081403.216452-6-max.kellermann@ionos.com>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 23 Nov 2026 10:24:24 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4y5cEBmdxz91WJqc1WJdHM=8_nMomMDO=D5As2tfnAMbQ@mail.gmail.com>
-X-Gm-Features: Aa3M54po4ST5My0w1x9oemNrt7Y_OkpJAd7w1jCl5IIsGSWDYO39vxHRXon-7kE
-Message-ID: <CAGsJ_4y5cEBmdxz91WJqc1WJdHM=8_nMomMDO=D5As2tfnAMbQ@mail.gmail.com>
-Subject: Re: [PATCH v3 5/5] mm/mglru: reschedule between memcg reclaim attempts
-To: Max Kellermann <max.kellermann@ionos.com>
-Cc: akpm@linux-foundation.org, kasong@tencent.com, qi.zheng@linux.dev, 
-	shakeel.butt@linux.dev, axelrasmussen@google.com, yuanchu@google.com, 
-	weixugc@google.com, baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, 
-	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, surenb@google.com, mhocko@suse.com, hannes@cmpxchg.org, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, rcu@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v9 0/3] migrate ocfs2 DIO from buffer_head to iomap
+From: Joseph Qi <joseph.qi@linux.alibaba.com>
+To: Heming Zhao <heming.zhao@suse.com>, hch@lst.de,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: mark@fasheh.com, jlbec@evilplan.org, ocfs2-devel@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261120060014.12087-1-heming.zhao@suse.com>
+ <c57890bc-6085-461f-9f7c-47b72e104b65@linux.alibaba.com>
+In-Reply-To: <c57890bc-6085-461f-9f7c-47b72e104b65@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 4:14=E2=80=AFPM Max Kellermann <max.kellermann@iono=
-s.com> wrote:
->
-> shrink_one() can return immediately for empty or protected memcgs, and
-> try_to_shrink_lruvec() can break out before reaching its
-> cond_resched().  A scan through many memcgs can repeatedly rotate
-> entries without giving other runnable tasks a scheduling opportunity.
->
-> Call cond_resched_tasks_rcu_qs() (as the existing shrink_lruvec() loop
-> does) after shrink_one(), while the memcg reference still pins the
-> cursor and before reacquiring the RCU read lock.  Also call it between
-> bins and nulls-marker retries, covering scans that skip every entry.
->
-> Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
-> ---
 
-Reviewed-by: Barry Song <baohua@kernel.org>
+
+On 11/21/26 9:12 AM, Joseph Qi wrote:
+> Thanks for this work.
+> I'll apply this series on top of next-20261119 and run a full test first.
+> 
+
+I've run ocfs2test as well as xfstests 90-test DIO-focused set, and found
+no regressions.
+
+For ocfs2test,
+  direct-aio (writeback, ordered)	PASSED
+  aio-stress (writeback, ordered)	PASSED
+  fill_verify_holes — 9 variants incl. -M mmap, -U unwritten, 512/4096 blocks, 4K–1M clusters	PASSED
+  mmap_truncate — 6 variants	PASSED
+  splice, sendfile, mmap	PASSED
+  rename_write_race, create_and_open, filesizelimits	PASSED
+  reserve_space, inline_data, xattr_test (1786 s), mkfs, tunefs, backup_super	PASSED
+  80 passed, 2 harness-path failures, no kernel-related failure
+
+For xfstests DIO-focused set,
+  base   : PASS=52  FAIL=10  NOTRUN=28  EXPUNGED=6   (Failed 10 of 90)
+  iomap  : PASS=52  FAIL=10  NOTRUN=28  EXPUNGED=6   (Failed 10 of 90)
+  Failures (both): 091 094 219 263 326 328 521 587 617 733
+
+Thanks,
+Joseph
+
+> 
+> On 11/20/26 2:00 PM, Heming Zhao wrote:
+>> This patch set migrates ocfs2 Direct I/O (DIO) from buffer_head mode
+>> to iomap mode. It is based on commit aebb72744764 (v7.4-rc3), and
+>> also incorporates Joseph's code and ideas from [1]:
+>>
+>> V9 changelog:
+>>
+>> Address sashiko's review comments [3] (all changes are in patch [3/3]):
+>>
+>> ocfs2_file_write_to_iter():
+>> - switch pr lock to ex when DIO falls back to buffered IO
+>> - Fall back to buffered I/O for a direct write when block size is smaller
+>>   than the page size and the write does not cover whole pages
+>> - clear orphan when rw_lock is still held
+>>
+>> ocfs2_dio_wr_map_blocks may use a value beyand u32 to call
+>> ocfs2_clusters_to_blocks()
+>>
+>> initialize oi->ip_dio_orphan_pid and oi->ip_dio_orphan_end in
+>> ocfs2_inode_init_once()
+>>
+>> --------------
+>> # test report
+>>
+>> This patch set has been tested on 7.4-rc3 kernel
+>>
+>> ## ltp
+>>
+>> runltp -f dio -d /mnt/ocfs2/
+>>
+>> results: passed
+>>
+>> ## xfstests
+>>
+>> ./check -g quick -T -b -s ocfs2 -e generic/081 \
+>> -e generic/266 -e generic/272 -e generic/281 \
+>> -e generic/338 -e generic/347 -e generic/361 \
+>> -e generic/628 -e generic/629 -e generic/648 -e generic/650 
+>>
+>> OCFS2_MKFS_LOCAL_OPT="-b 2K -C 4K --fs-features=local --fs-feature-level=max-features"
+>> Failures: generic/003 generic/056 generic/091 generic/094 generic/177
+>> generic/211 generic/225 generic/263 generic/321 generic/322 generic/329
+>> generic/331 generic/370 generic/376 generic/424 generic/448 generic/467
+>> generic/477 generic/481 generic/498 generic/510 generic/512 generic/513
+>> generic/534 generic/537 generic/552 generic/557 generic/563 generic/578
+>> generic/588 generic/607 generic/620 generic/630 generic/755 generic/760
+>> generic/771 generic/777 generic/779 generic/784
+>> Failed 39 of 632 tests
+>>
+>> OCFS2_MKFS_LOCAL_OPT="-b 4K -C 4K --fs-features=local --fs-feature-level=max-features"
+>> Failures: generic/003 generic/056 generic/070 generic/091 generic/094
+>> generic/177 generic/211 generic/225 generic/263 generic/321 generic/322
+>> generic/329 generic/331 generic/370 generic/376 generic/424 generic/448
+>> generic/467 generic/477 generic/481 generic/498 generic/510 generic/512
+>> generic/513 generic/534 generic/537 generic/552 generic/557 generic/563
+>> generic/578 generic/588 generic/607 generic/620 generic/630 generic/755
+>> generic/760 generic/771 generic/777 generic/779 generic/784
+>> Failed 40 of 632 tests
+>>
+>> OCFS2_MKFS_LOCAL_OPT="-b 2K -C 8K --fs-features=local --fs-feature-level=max-features"
+>> Failures: generic/003 generic/056 generic/075 generic/091 generic/094
+>> generic/112 generic/177 generic/211 generic/225 generic/263 generic/321
+>> generic/322 generic/329 generic/331 generic/370 generic/376 generic/424
+>> generic/448 generic/467 generic/477 generic/481 generic/498 generic/510
+>> generic/512 generic/513 generic/534 generic/537 generic/552 generic/557
+>> generic/563 generic/564 generic/578 generic/588 generic/607 generic/620
+>> generic/630 generic/755 generic/759 generic/760 generic/771 generic/777
+>> generic/779 generic/784 ocfs2/001
+>> Failed 44 of 632 tests
+>>
+>> ## fio
+>>
+>> (4k blocksize 4k clustersize, local mount)
+>>
+>> fio --direct=1 --iodepth=32 --rw=write --ioengine=libaio --bs=128k --size=1g \
+>> --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+>> before patch: write: IOPS=32.2k, BW=4028MiB/s
+>> after  patch: write: IOPS=38.6k, BW=4824MiB/s
+>>
+>> fio --direct=1 --iodepth=32 --rw=read --ioengine=libaio --bs=128k --size=1g \
+>> --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+>> before patch: read: IOPS=49.1k, BW=6132MiB/s
+>> after  patch: read: IOPS=50.9k, BW=6360MiB/s
+>>
+>> fio --direct=1 --iodepth=32 --rw=randwrite --ioengine=libaio --bs=4k \
+>> --size=1g --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+>> before patch: write: IOPS=14.4k, BW=56.4MiB/s
+>> after  patch: write: IOPS=14.4k, BW=56.1MiB/s
+>>
+>> fio --direct=1 --iodepth=32 --rw=randwrite --ioengine=libaio --bs=4k \
+>> --size=1g --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+>> before patch: read: IOPS=382k, BW=1492MiB/s
+>> after  patch: read: IOPS=419k, BW=1637MiB/s
+>>
+>> ------
+>> [1]:
+>> https://gitee.com/anolis/storage-cloud-kernel/commit/ea3fe75e2060118ba093e90b1cd34fa382914b29
+>>
+>> [2]:
+>> https://sashiko.dev/#/patchset/20261103135605.22943-1-heming.zhao%40suse.com
+>>
+>> [3]:
+>> v1 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20260724052559.15409-1-heming.zhao@suse.com/
+>> v2 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20260727061802.18485-1-heming.zhao@suse.com/
+>> v3 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20261018143319.22329-1-heming.zhao@suse.com/
+>> v3 sashiko review:
+>> https://sashiko.dev/#/patchset/20261018143319.22329-1-heming.zhao%40suse.com
+>> v4 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20261103135605.22943-1-heming.zhao@suse.com/
+>> v4 sashiko review:
+>> https://sashiko.dev/#/patchset/20261103135605.22943-1-heming.zhao%40suse.com
+>> v5 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20261105071930.16399-1-heming.zhao@suse.com/
+>> v5 sashiko review:
+>> https://sashiko.dev/#/patchset/20261105071930.16399-1-heming.zhao%40suse.com
+>> v6 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20261115154013.9379-1-heming.zhao@suse.com/
+>> v6 sashiko review:
+>> https://sashiko.dev/#/patchset/20261115154013.9379-1-heming.zhao%40suse.com
+>> v7 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20261118002050.9019-1-heming.zhao@suse.com/
+>> v7 sashiko review:
+>> - https://sashiko.dev/#/patchset/20261117150053.18417-1-heming.zhao%40suse.com
+>> - https://sashiko.dev/#/patchset/20261118002050.9019-1-heming.zhao%40suse.com
+>> v8 patch set:
+>> https://lore.kernel.org/ocfs2-devel/20261119064029.11910-1-heming.zhao@suse.com/
+>> v8 sashiko review:
+>> https://sashiko.dev/#/patchset/20261119064029.11910-1-heming.zhao%40suse.com
+>>
+>> -----------------------
+>>
+>> Heming Zhao (3):
+>>   ocfs2: Add new ocfs2_map_blocks() to introduce iomap feature
+>>   ocfs2: switch DIO read path from buffer_head to iomap
+>>   ocfs2: switch dio write path from buffer_head to iomap
+>>
+>>  fs/ocfs2/Kconfig      |    2 +-
+>>  fs/ocfs2/aops.c       | 1685 ++++++++++++++++++++++++++++++++---------
+>>  fs/ocfs2/aops.h       |   43 +-
+>>  fs/ocfs2/extent_map.c |   34 +-
+>>  fs/ocfs2/extent_map.h |    3 +
+>>  fs/ocfs2/file.c       |  314 +++++++-
+>>  fs/ocfs2/inode.h      |    9 +
+>>  fs/ocfs2/mmap.c       |    2 +-
+>>  fs/ocfs2/ocfs2.h      |   25 +-
+>>  fs/ocfs2/super.c      |    3 +
+>>  10 files changed, 1690 insertions(+), 430 deletions(-)
+>>
+> 
+
