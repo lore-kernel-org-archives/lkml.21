@@ -1,53 +1,73 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455924;
-	b=WMvVdjcJYdRnjGjmntnrqoYfILtC5czMNv9IpryJX8rn9TXkOUTgH82HMpiqQDGShjwj
-	 kWBw5E9O2X162m3X3fWWmgQvsaCANZD+ly9j9uQGevXNb2jfpULCLTkcQxpVi9GdtTZq3
-	 JfF7FtV/4eT8S7cAyVslBDCFxhFi/Z60GxiW/a5FVPY1IImvTaRuSr5q0EZCI6u457gOW
-	 bAEuFJNKKF6VJoyYYluUkeUeGIRBH8FylryUgGpm4IQzCThTCo8oSssXdQMSqhEg67Wmr
-	 7BqmBvMkOvv1r0hC8y4/xnHT9j94z9dQqq/NoDxnvXxg5XcA7y7lySV40GGpps2wiYw==
+	t=1795456001;
+	b=YcjMddfT4XPN0JuxHYDEXmkqL5TVm1Q5EHTTrbi2U/R99pYCNnclgvwRyC8nqNGqYXKw
+	 MgaQcHbSLlLn/DAVN6d91j/F6qEfvZklu7VqFrvYmmI+COo/PH4vQmAN4HtHMFdjViAxP
+	 jdBsPr8o1OcF5djViwXFBSUO5SrpJlonIPfEwpkYXq2uJ6qtEiFYC5kSEJ/mwy/HZtkWf
+	 y8LvzwRom3yCiRbm95b33byDoVKLNorMlfAI9//2nb3bWokVsRcnTcdDFoAArRXfkIaDo
+	 Ox238UiPqA3Q3mjV0T9MULkWwrv543QekG9Gwtc0hD1K7Qqjp30SpiQpXq4MK6gmD+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455924;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=IKSlySScv1/FLO6FYrFecjofDZSXTakkY7/4hkyveT0=;
-	b=dw624xWv+yyMRFzcBD3qDfxPV60eJuBMgmDZdLJoCYl2u2DPiQhTSAStGy6fqHvOB+vA
-	 WXOq0cVa/+ChlGxLgA0Q/Sz8a2JMRvlw8cy5Bt8Hf7xipWh/NNnsRXTIoq8mW67nLvf3L
-	 Ev81I1my8A1o4tnHdJHapNBxXXY1dxYQ5hHDNvfNGisT2eCrq22p5i8e6G/GqldPahyhM
-	 aWQC33snoZqj2kQwHWvM2qx9kQXtT8Y/+PeX84KONSdKzSSLsILS93f2mOCmuM92luomF
-	 O+X2JsKZbQGrEmL8/6jhsKf7IPhIX6P7BK/2iWvM7icC/29yYeSX7iq4hOwb1SuqUmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456001;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=4nLP39eq4bHx3bOXA1PI54TRX3Ud7vwzTs+mgeRzazU=;
+	b=P9m/4tWFqn9ICJx4jPiUfHvcL8czNgNMQggEBFZIt1mBvc3/gLs8unlaqOdGeXsw9Oam
+	 wHankZXkffcbpVymwCQ1edA2NIenYsF/5SpVVddj7yNfgJzdjm9mhAkwqzcgUX/BojMkT
+	 brOf3Ju4vEgY20SM3vHsfa6WD/ZOiJffJUWu74PplJCQ2MGBEFakTIfWwk1yk7aEdXpFG
+	 83fQrOQrEtV0A3TihRdFD2LgGFATNvFkYBqf8jGr4pfUw5Gi4BSIwm4Mbk+qOsPunhgS0
+	 NHF5zRPAqqmA2HX1Y+3hvqFaduaq9kXP84F7dt8Tw3FMdZjUmMIbqYeN8U/j4wursoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xp68NHs3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KkM0EjlE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE628606A321;
-	Mon, 23 Nov 2026 17:45:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0048D606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:46:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xp68NHs3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 325951F000C6;
-	Mon, 23 Nov 2026 17:45:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KkM0EjlE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 085151F000E6;
+	Mon, 23 Nov 2026 17:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795455924;
-	bh=IKSlySScv1/FLO6FYrFecjofDZSXTakkY7/4hkyveT0=;
-	h=Date:From:To:Cc:Subject;
-	b=Xp68NHs3NuzLN8PbZ8K93eWGQ4B+WdHRcQUVftP+p8Fs3jMEyWTQtdtbY9HZpIzxr
-	 9DFchNlzT0hbvtXr32RmD9JaAAUrfFas+bcXcg9raT+S1Myvw1VRJ1EVzCfYJ9l8gL
-	 NhyiwPTho+czAhD0/1zhMzP1A1GfPy3MY52yrSBwVzqLhfk1yzAIOvZWxx7fCoZb9E
-	 cgtR5kmylT3O0J7LqpnkqIR5XNC9LekdbDZolGuKz8qNn3MafAq4/n3FAfcyprORjh
-	 ByCmK1HV+1TrNrxBCcanzon//X3ffDJGdouTagTYHYwNOOsQsaU8tECEuK5TivgYB8
-	 /5repmi84B80Q==
-Date: Mon, 23 Nov 2026 17:45:20 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Greg KH <greg@kroah.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Shunbo Shi <shishunbo@cmss.chinamobile.com>
-Subject: linux-next: manual merge of the usb tree with the usb.current tree
-Message-ID: <awR7sFLQtxE1tbu9@sirena.org.uk>
+	s=k20260515; t=1795456000;
+	bh=4nLP39eq4bHx3bOXA1PI54TRX3Ud7vwzTs+mgeRzazU=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=KkM0EjlESvm+Edyzj7LJoeMpi9b6WHYmhMjbtTbfsQI3dlZFyer49WsMtFyxgEUsV
+	 TNuZUSkGEmrF/wjd4thR4wBgPs8oVzM/2CkIisynYDm8wkYzE4DRnH62V3f4C2YagY
+	 8SpfyIL1BjQ3/hUEsfZivxqwdQNsNLLhrs8KVWGwnsIKboBAtV2yDikrPVVLh9K0nB
+	 hml9pvdNa/hmtCesWtYtJxPc74l1mdoILo2WLq98MfHPe4BoS8vsXEuB0W8zoJtffE
+	 wQpkx3nzEldnhiDZ2vpNkvSexFYvJZiJZDX7xGMLAIumtcaBJhChSbSudp14rsq50U
+	 HPU5J9NoA1uiA==
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 292C5F40066;
+	Mon, 23 Nov 2026 12:46:39 -0500 (EST)
+Received: from phl-imap-15 ([10.202.2.104])
+  by phl-compute-10.internal (MEProxy); Mon, 23 Nov 2026 12:46:39 -0500
+X-ME-Sender: <xms:_3sEa26y3Zom9JuTHz2MTxX8x5SlwRb62v0snfdckuWZgvUbU2fSJQ>
+    <xme:_3sEa6ugqtvQ3r6ngz2D00xoRTxQToXlkXOC3bu8o_jIfSpul_UFIYfQJI-htm8Fc
+    aLwPLkFRrYuf0WXfmVyfqBvUCfy-G5hWDs250wdZPsspJ8WVwZfbPM>
+X-ME-Proxy-Cause: dmFkZTGhIDTy2XP9c312iEESSIo05vch7kJHk91EQe1UDP4iT00cyg4D7Cj4y5mWJswrwB
+    vRlQ0BteOaimzucih9X7eTQuu43Z86w/hIyHk5Vg5tSGJlbRYdkcMLoO5OeYqDjdHRyl5s
+    VpRu3QQXtE/nscjIwz/+09uQsbWr8H/JWMENtPeOGzDW2KrILfHoOIupFm9O8XQ78qVViD
+    N0F+Dzl5VZQk4u+KYuKFJDNo9HbX2Ute50EF5fgDrWTMQqKw/4geE/YqA26oyWXSct3AfR
+    K8srqs/j9pRo8f1L3Cfjf9Q3ikjdSsJgiTDemy1bjfV3y5L0gUBRgGXorP5izrEj9LefpB
+    AObQkgY7331g/HqTP3d9kbJfQnaFRWOCiUrPBKdQO16g3CYbhNMNzFGb0lJbN22uytcyTk
+    1nFbb6Ny87IVVB9P0/bJvp+yMJV9f027uwgxBMEnCEUC8q7CO+IIiM+KKdC1CaGO6DMUDI
+    8bXAK9kc6ELAVEyiMjZNRJQ0G5ahQXQjkfUuWmQnCZFYC7lzfMr99JmkF/QarKaENjwtJb
+    T0JvVGPGSng9cmgDPdxa720D3yMakadNEPWw2pOSF7aqNcXJRJ4AOmBVIuaKSmzwgtmrlG
+    frPIzPedQjk1fcVeqGKxgA6Qg3HH/iJIPfml/ZZUHvgj9cocPewW4Y0eUZQA
+X-ME-Proxy: <xmx:_3sEa6IsjHi9_VkssvT_bCzO7Opc3LeZgioEboW1Y_VHY3z5RK1olg>
+    <xmx:_3sEaylDwvaxZEWY9x7-3py-qZSY1gRFrK7MWLochbMlbMA6zUITAA>
+    <xmx:_3sEa7Zq4NlneI502smGvFhvWFw7lUGJw4ihv-Gm0hy6lVscxVcNgA>
+    <xmx:_3sEa2_aABBRZOY4Ccs_gSvbKiZhEwj4rzDSeVBfXmmv0v3Vbqzhfg>
+    <xmx:_3sEayb0lqgTQHlwdu5Isv8MINPnCRkplzD8WiHO37RFVX_33YtGTmVM>
+Feedback-ID: ifa6e4810:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 0B43B780070; Mon, 23 Nov 2026 12:46:39 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,71 +77,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="px+xhq2Kr8k734Cc"
-Content-Disposition: inline
+X-ThreadId: AkB0n0PsGghc
+Date: Mon, 23 Nov 2026 12:46:17 -0500
+From: "Chuck Lever" <cel@kernel.org>
+To: "Jeff Layton" <jlayton@kernel.org>
+Cc: NeilBrown <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>,
+ "Dai Ngo" <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>,
+ "Christian Brauner" <brauner@kernel.org>,
+ =?UTF-8?Q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>,
+ linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <73ca8e61-2943-4780-9e6e-dc8c70c8401a@slotpi15m67>
+In-Reply-To: <20261123-delegts-fixes-v2-2-960ce0fb2fed@kernel.org>
+References: <20261123-delegts-fixes-v2-0-960ce0fb2fed@kernel.org>
+ <20261123-delegts-fixes-v2-2-960ce0fb2fed@kernel.org>
+Subject: Re: [PATCH v2 02/11] nfsd: take freeze protection before updating delegation
+ timestamps
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+
+On Mon, Nov 23, 2026, Jeff Layton wrote:
+> +	/*
+> +	 * This function also runs from the laundromat and from NFSD
+> +	 * shutdown. Neither path may wait for a frozen filesystem to
+> +	 * thaw, so leave the times alone while the filesystem is frozen.
+> +	 */
+> +	if (!file_start_write_trylock(f)) {
+> +		nfsd_cmtime_notice(file_inode(f), -EBUSY);
+> +		return;
+> +	}
+
+DELEGRETURN reaches this trylock too, through destroy_delegation().
+FMODE_NOCMTIME is already clear by then, so nothing sets mtime and
+ctime afterward. A client that writes under a WRITE_ATTRS_DELEG and
+returns it without a SETATTR of the delegated times, while the
+filesystem is frozen, leaves the file with its pre-delegation times
+after the thaw.
+
+The laundromat and shutdown can't wait, but DELEGRETURN runs in an
+nfsd thread, and the WRITEs that dirtied the file already block in
+file_start_write(). Can DELEGRETURN wait for the thaw as well, or
+might it be OK to return NFS4ERR_DELAY in this case?
 
 
---px+xhq2Kr8k734Cc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi all,
-
-Today's linux-next merge of the usb tree got a conflict in:
-
-  drivers/usb/gadget/function/f_hid.c
-
-between commit:
-
-  07ec204e8aecb ("usb: gadget: f_hid: fix race between userspace report upd=
-ate and GET_REPORT response")
-
-=66rom the usb.current tree and commit:
-
-  d034e353e3ef5 ("usb: gadget: fix a few spelling mistakes in comments")
-
-=66rom the usb tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc drivers/usb/gadget/function/f_hid.c
-index 428635e580bb7,4befb3d0f58c9..0000000000000
---- a/drivers/usb/gadget/function/f_hid.c
-+++ b/drivers/usb/gadget/function/f_hid.c
-@@@ -637,9 -622,10 +643,9 @@@ static void get_report_workqueue_handle
-  			 * Either get an updated response just serviced by userspace
-  			 * or send the latest response in the list
-  			 */
- -			req->buf =3D ptr->report_data.data;
- +			memcpy(req->buf, ptr->report_data.data, req->length);
-  		} else {
-- 			/* If there are no prevoiusly sent reports send empty report */
-+ 			/* If there are no previously sent reports send empty report */
- -			req->buf =3D hidg->get_report.data;
-  			memset(req->buf, 0x0, req->length);
-  		}
- =20
-
---px+xhq2Kr8k734Cc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEe68ACgkQJNaLcl1U
-h9B89wf/YQJYFdWwLhntZeu4gCIZmGodHxJT1c/IiInq+MtjjKHKJ/vxvL0vOmPk
-G7r7IM0XHTnY8vwlSA7H7Za3+y0ZQkRtcQ8yobKUUDapDUDKW7b+L9oIwA1VjLZA
-94mDf0pckWBW7Jyd8Z0u9iQKi0Qaze6r9HH/CD+edmrus4RGFBum2BiIcTSmFOaW
-OjNOpHKpG9UL2TgV+IZroFx95fzbukMLK+Fs7LmrbyNrZPpUs3VSKJTU/Gk2IcZQ
-EOXB9f57Idg1xK7CrjkVSI3Blohj8X5yHvUyKhmd2uqkdPm+nE+/BUefZfXVYQYS
-8pE30Yyg14VG/c0JDanzH+aCwdcXrw==
-=yXTd
------END PGP SIGNATURE-----
-
---px+xhq2Kr8k734Cc--
+--
+Chuck Lever
