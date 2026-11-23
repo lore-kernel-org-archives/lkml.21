@@ -1,98 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795448407;
-	b=BltK2lz0bm8q+hK4y5gblTEEwWpcOxb8EmJ1mSvl2pjQlVx/yBy7Qr1mSCknUuMzUzVK
-	 l3ZKKOPbkq1N/ddBnm/qYoVENNtCsbh0yew/jrLFRV539w+iOVhEa7k7oo0sBVQpepmYN
-	 RGNYEh+rZfsJwyLPLP0qCo/fCmpF8rgQU2HW2U7vbDCYxU6CDrHM2t6R+06WK2tbLn7Zy
-	 XXuln1NBT6zxdoz9jt0QdaVmpKoxtX/phBXW5rljPhErBtBsIWairVYKYyS0nrFbJKM7W
-	 4yOXbQWYzdKLz2NPsABbPUGOay8IqmbwuC0Ajmpwf/1gdd0lEnpTRea2bxqv7oUHkkQ==
+	b=q5IymUeYpakYXFpwVCcUu3UluLngcKa24kl+uQFL4SMA21vPVN/Dg+U0IMdFfCS09iqa
+	 DxsaWwjSyEHIM4SWRmAp5tVr8iL7PzMyKl3IIFcZi/D4NGtpRglaRCKkibUBedXynt31H
+	 hBSwi5z2lcOESSHP9ghQfLIAOrc/8yJM7sn6V4HaK0nlKG3vLBhAuZNcqpgJK3GKkEzR0
+	 H4MbgZnaSvpHzdvC8IEDN+GjwNNi0LAB8ffQN2Z2S6SGPDLNMr8nxjHjf9iy4E0JqeEyF
+	 psrk/gSlKmO9H6POYbGWLk0yvJivPr8tCBMyko8nPzFTv3ETdJCWetS0ZadCRSYSr0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795448407;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=1SEAJCvwxTi8XMRtkX81cceNuOWvlT9PFn4ME1tNCNc=;
-	b=mMvAu4D+u6xE/EEzkA8w2SM27DPABx4eN+EiRcgQ/PgGabJ5YkFDHcRoXtVRQmhsryaj
-	 yOU1q6rFzBpc7g+Nse60RFHyUygUKldGljMK691NACLfjGdpGfDVY7pGrsZxsHImt0V8T
-	 +2UI0CF7n1Sy1F8QL5ZS70V2xJDCd4LLfSyh2Kks247ZqZ+upi8fr1mbKPwwoN58pfgWb
-	 tUmTDs02UrLeYjzyqo2wea2DyBtQGr+/n3yPIB1xnuMhHxkULZvMb31dJJIq7DzMwu2YA
-	 s3/oCjGRdF5lLO6WZelUdOExZxTk7HNEq1vbREpaEU0LkaBX2GUVGJEAHUzRR/uCU+A==
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=OefWWDM6765zS8UeXsEa0lfO1VMuF0rqbjFE03jLU2U=;
+	b=xEJ3RBpsavY0F5OyTUohm6zAf+W6RTYf7Szw7lZfkqLy1rR3rndDLe9Rfgi27Gfpd1Cu
+	 5sJaIOND+0i29DEN5wtmHmgHQXY020n+wjsB6DncK5qzdI2mIPtMJSFSjHiAvZY9RIlA5
+	 EN4Z5Rd9UW0nf9xWZaJLNKXQAZQXIflVS8Ws8Ox7zq48eD6uqvVLz4zELu9EL8uTqvrL6
+	 Max+qe34ok2Ysul4cYPF11+8yzcXSo3HmgOxUc4urNa1J0Hgd7QgXN5TqB0bIveQhz2/9
+	 WZKqUwWENiqr/0fEcW8maqiv2OLjx15SPvZ8US+yHRtmTbJyAY/PlrbCzjCWn58BQkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ga7ggsym;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="CRi/AjKi";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1491606A6AB
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:40:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1491606A6AB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD96860A3806;
+	Mon, 23 Nov 2026 15:40:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ga7ggsym
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso4321839c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:40:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795448406; x=1796053206; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1SEAJCvwxTi8XMRtkX81cceNuOWvlT9PFn4ME1tNCNc=;
-        b=Ga7ggsymS6VkHSwUlv4H5Hwln7hS9KKekPYB3UukwQQfWeQrCZPK4VSH8UqtxZcTuM
-         wJe6yEhFLKIGNYrulPr/wCz+z2V5NUK0a7pLr5f30VGXWhr6kh0aijjjmshphpLy/cMk
-         dMbhlz7/k69ZDRJjsPxpk8Eg10ILl3LTrG0cu3leMjxE4iUoZCi1pTZPC4nqnwkvhz/N
-         g42reKu3SfHvVlKWiPeI1XzYMFI7ubp5gntKSNZ8bxlJa4mQ7c79CSTDhJGTbuoStTwF
-         d6XQlT0Khyk0GWKU8ynylDsTf8Z4XMq2gEYPCoP9Qzzi+Iwl2j4I3APUQQ45pKS/y2pM
-         q4Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795448406; x=1796053206;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1SEAJCvwxTi8XMRtkX81cceNuOWvlT9PFn4ME1tNCNc=;
-        b=Iy7TPwS19RFDp8StoS/ZHEHZbFas8RkUKDizuz28tYLv74lRcVgswYgtLj+4jUmNmr
-         4XUT5PZU0BScxnJ8yNCIZcCZTPlCmkQxqJXV0kQB4lI1NYjL8WbHLZ29oa7W3w1hpl+/
-         BtUWyrf77jpgUXo0kF2d1R1nYauFJnWg+xb50HFchQF/dA7N5LWCVqP7DGhWIVwoi0Pl
-         yO81YJGaVnVwB9AqEieSYMXTjRB93FtCypht7nmz1Gc+AsIfr6isQVfIxOH/q8ZvcOtV
-         7Wi9hTg0MP69ABFfCvYjeol6mFx1GEI+v3w6crSsmUv0b5h07LKMIbFRaXVMN0RbFH+J
-         9New==
-X-Forwarded-Encrypted: i=1; AL+hErGb+gnDqQzogJlEGSggUYvW4wi0pDQfFSI1qhOGJiaDdzHqNw445Gk8IRtDLhzC6rz/4jMtx8iM9qnlCaw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9y5UfZJOfyT6faDkguL2LpaO6Ua2vya+UFP4Rzz9Yzqu+1OoZ0
-	gM0hMWTlRpq8cwf6nOxblZisgB2GH5rcnlGWfLJt6u3tyxL1k4ubfOP8
-X-Gm-Gg: AZFdTZfhOVML0OzgaOg5yUGkDZ4WLOr4Vohbgk2eF9xHnZEPjOTmkM83jQKJ8kbGF4U
-	rqzlrlbdDr7lboVR03Og5jHDHkuIB4RaePEGpnK5/2Qkh+a8Kf8c/0dIB7thp+3BJT8xt1i2+Rl
-	bTt40d4SVKeJ5TSy3ekmzOMctWrwdXywEilhzvIQK/Xkrf2vRW4yEa9uwN4qQHRG5BXkBofMnlQ
-	d5CpK0a2Y9uOrb+BG09Fbr6omP1pPW/WvxaF2d4FpXCmEjpn7QlOo81cx+8haOTujTb96bRtmzR
-	HML1eJUCRSsVPcZjtoot33f3BneiLhXv/2sNNl1QwSwKip0Z2qR9LY+IAB6mwYb5xWtYVnARujc
-	HKpPKOdn9LXjQTQ7bVlUifGHEOeVWZ5wxAFY/KoXd4x6Rj++hXFfSRi2Cjh8FcLwcpF3N3CARre
-	8aCkaGBGWSscTYZ77gh+roCmp9IiwfLWY6L0E58QkAY3JaRBaoV78CI5K8AlqTUYwDIH1+KuLT3
-	xDY42juzV5AYn1KjvepkbHmU5OicbOrcll8lisAnjW9PidUjAkIUAY67dM1RReN04BOehXnTFcS
-	b2CFHG56S4ei4zIvN92gbaPSenrU+2ec3vp/C6DWjIon4FoXE3cUob4rMBcOKXZMoQU2
-X-Received: by 2002:a05:701a:c9c1:10b0:15e:6541:3099 with SMTP id a92af1059eb24-1b55687eb4dmr10798186c88.7.1795448405886;
-        Mon, 23 Nov 2026 07:40:05 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm33680067c88.7.2026.11.23.07.40.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:40:05 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: sakari.ailus@linux.intel.com
-Cc: linux-media@vger.kernel.org,
-	Cong Nguyen <congnt264@gmail.com>,
-	Mehdi Djait <mehdi.djait@bootlin.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 12/16] media: i2c: tw9900: power off the decoder on remove
-Date: Mon, 23 Nov 2026 22:39:23 +0700
-Message-Id: <20261123153927.2547169-13-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261123153927.2547169-1-congnt264@gmail.com>
-References: <20261123153927.2547169-1-congnt264@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CRi/AjKi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 465B11F000F2;
+	Mon, 23 Nov 2026 15:40:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795448407;
+	bh=OefWWDM6765zS8UeXsEa0lfO1VMuF0rqbjFE03jLU2U=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=CRi/AjKi4ehlkE4PSAya5g8d7tvW4OSud7sc9Pg8fH40HXBLEs2tvnoejsHdpVAQO
+	 KUEWHcY7c1o0OrfflSZro2e3gz1vVQmmfo6Z7GhuuYscWwRYRKUqoRZxSASxB+Y7hT
+	 ZiYuOP94M5x1WnXCz6zE46plzqY24R2fM/HBpGwl0AGRsU4wKmHbQEs7qNyz/QAhmN
+	 xUHgoJs0YhOFDxiiwtrcfoW4Yx+HQapnsQDSsGuM6SYycICAV4lnTBfcQDb1H1XeDx
+	 2eWAAu87tMpA5rbUBMy1k1jaAKVw39U/7SR6PmoLIbVSeYACdYl+DZqJ3dxfU5e2og
+	 GcUBce8Tr0lRw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A5EE392EE0C;
+	Mon, 23 Nov 2026 15:40:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,43 +54,45 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: dsa: mv88e6xxx: do not override PHYIDs on
+ external MDIO
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179544840577.2474785.6234725190698108233.git-patchwork-notify@kernel.org>
+Date: Mon, 23 Nov 2026 15:40:05 +0000
+References: <20261119-mv88e6xxx-fix-v1-1-2db604f3516f@airbus.com>
+In-Reply-To: <20261119-mv88e6xxx-fix-v1-1-2db604f3516f@airbus.com>
+To: Blake Alexander <blake.alexander@airbus.com>
+Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ f.fainelli@gmail.com, vivien.didelot@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
-tw9900_probe() ends with the device runtime suspended, and
-tw9900_s_stream() takes a runtime PM reference with
-pm_runtime_resume_and_get() when streaming starts and drops it when
-streaming stops. tw9900_remove() only calls pm_runtime_disable(), which
-does not run the runtime suspend callback, so a device that is still
-runtime active when the driver is unbound can keep its regulator enabled
-and its reset line released.
+Hello:
 
-After disabling runtime PM, call tw9900_runtime_suspend() if the device
-is not runtime suspended, and set the runtime PM status to suspended.
-This has to happen before the mutex is destroyed, as the callback takes
-it.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-This issue was found by auditing the driver with an LLM coding assistant.
+On Thu, 19 Nov 2026 11:50:00 +0100 you wrote:
+> From: Blake Alexander <blake.alexander@airbus.com>
+> 
+> Some variants of the Marvell 88E6xxx family (such as MV88E6390) support
+> an external MDIO bus (in addition to the internal MDIO bus for
+> configuring internal PHYs). A typical use-case for the external bus is
+> to configure PHYs that are external to the switch. On switches that do
+> not assign a PHYID for internal PHYs (i.e. the value is 0), the
+> mv88e6xxx_mdio_read() function traps read calls to the PHYID registers
+> and sets the PHYID equal to the family ID of the switch.
+> 
+> [...]
 
-Fixes: 918b14a26b12 ("media: i2c: Introduce a driver for the Techwell TW9900 decoder")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
----
- drivers/media/i2c/tw9900.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Here is the summary with links:
+  - [net] net: dsa: mv88e6xxx: do not override PHYIDs on external MDIO
+    https://git.kernel.org/netdev/net/c/dd206ec7ed36
 
-diff --git a/drivers/media/i2c/tw9900.c b/drivers/media/i2c/tw9900.c
-index 51db5d5ddbde..1baf55ea48ef 100644
---- a/drivers/media/i2c/tw9900.c
-+++ b/drivers/media/i2c/tw9900.c
-@@ -744,6 +744,10 @@ static void tw9900_remove(struct i2c_client *client)
- 	v4l2_ctrl_handler_free(sd->ctrl_handler);
- 
- 	pm_runtime_disable(&client->dev);
-+	if (!pm_runtime_status_suspended(&client->dev)) {
-+		tw9900_runtime_suspend(&client->dev);
-+		pm_runtime_set_suspended(&client->dev);
-+	}
- 
- 	mutex_destroy(&tw9900->mutex);
- }
+You are awesome, thank you!
 -- 
-2.25.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
