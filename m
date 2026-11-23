@@ -1,49 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795439300;
-	b=09aqyKOEl32IBkNpbU45bh0rhTz/5Ir+b5199Bmrz+9sNZek758sTUUVyhJ617PrdqVI
-	 34mVEqomhXKPY6DzUWIXiBF1mPA/kPUxfUHYxXsk0laCh4kRzFbrJm53wNjgWOKtcnLJ/
-	 J6N0zYqmcnjl3TubGFxy59U3rWbSUA2SbjZJgqEyGcntcUv715TJZUbetb0xO2S8V76ew
-	 V9oRweb0X4XTWdxY6tsqWmFLItZjcPEjzlC0E538BfKlZUbN8UamnWC3ABh+Zah2FTLLN
-	 isMoLq26rlTkiakF4IqhO8apyUA+gy2azLOilP6sVQbMWuXxk+pGlisyAH+fLhSwOkw==
+	t=1795439347;
+	b=s7j3weQOvfofNl7phesqnTsPShP8evpktvseI9kQIzDu7EZsV6yJY1bja3iRrOdbfauY
+	 CM6NlLN7n2WG4UxOOQZbCIINBE+2Z2yIoEefMPZqAW2G/kPQNeE5A9tX1CVgky7nCgFlb
+	 2BMb7ABSVrZ33yyNUN/ApyowHfSLhiq9HPQe/DK0oYPZJ7qlvO3VCBxqidh8JUa5uPgEA
+	 CUBdG/jU3YNTnvqYAa++A7SUo+OgNCbd30PU592G5Lvb4BBHUiQOA2AmSC9sogwl1TjgB
+	 qPtYNiv+tuLXdRj6Ersdie44NRhhhqI1G9dBXcLAgrSjEQHz60bCZTcmZyBOjiwcnzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795439300;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=IfBYhQEgKpwaPrKRintjbxeYpbMzHP46mzrr0D1B6ac=;
-	b=wlFgnWOpN06c1i1eRxag6NDhedi4pIgP9n1jYZ8UBd/GrxpGakkdbJpZCxZuNso2Tnsx
-	 AvBPajxpDVv1C45cqfp5wLWamTIOildjO3Zv/cpzRLPk7Koo3SYWWwA78N8fqOwNHJ2wQ
-	 Tgm9IOHgr1D5bUaLzfagxXerq9M9HDnuetk20bQ3HKlS533zEK++atoYpLM4fPM1Odk3e
-	 NEzlXQab77fKtPCjLxic0r2pqB/KDeEszn+IipUl0hQpg1Ca6qdBPKVI/nxpMyDiqlJcr
-	 KoUzcZLgxTWpt6yt549nD2ylxb9FptEFM+Qltp+FvJlHiZ4h5NpXCGTmmoWKbzV1IUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795439347;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=ANfkCzqxV9oez3uXmoRvr8M+fH7rHon0FntvlHoB7hs=;
+	b=Po5kT2CRTjSUyC49OKFV2JIrZMglVb3XS1kLpcZYEW1mxMvt9A6aXfbTzI713QstaH+s
+	 r1iouLOZ60jsV6a7wGYTtaOaRwT2OX0UKE5GEvAr2oapllDQaVop2LO8WtLjR/+yc72dT
+	 SQJ3iD91utH83ICWHTQBRkcEzb3mXYlufOUHZWMGna274QhqBKWHkLnPkT3sj+iDrJUZK
+	 K5c1LE3bQ7AE5y60Bn+WuFOyZhTYT6TYknjffuVJKjYmWBf6pWB960imyHo67q58TPKUs
+	 6Ah/0Vh/aK2PuJSbhAO/I1gUGRH7ob8SwW7IZXktVhNonDy/jhfwYhhoYB75INUuAWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RAzeYCjm;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id BE94F606A31A;
-	Mon, 23 Nov 2026 13:08:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE94F606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AbTHWCCK;
+	arc=none smtp.remote-ip=209.85.214.197
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D996606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:09:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D996606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RAzeYCjm
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 041DB143D;
-	Mon, 23 Nov 2026 05:08:16 -0800 (PST)
-Received: from [10.57.63.68] (unknown [10.57.63.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C85D3F882;
-	Mon, 23 Nov 2026 05:08:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795439298; bh=ahbRbR3XjEmixrc6o49AmVmSn0rHTdwpUMW55Mj3SNM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RAzeYCjm5E+gUtL5lb7UpxDnCX1FDHV9QzvHeAhnVBMMc4A34OhQSsb1Byidwllvi
-	 eeR7C6LtSyysuwvcbX7IrqyzPH9RR2HJ53UVmYDzsmdbmRtc47Sjq6DZJc7laoCzQW
-	 8WG/BtCbDWFd7soSi6D8/0naxl2XkH1J/ZTyHv8c=
-Message-ID: <f543aea2-3a21-44ce-bb44-c84bd66b0a76@arm.com>
-Date: Mon, 23 Nov 2026 14:08:14 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AbTHWCCK
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2efe8f2bdc0so25062765ad.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:09:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795439347; x=1796044147; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ANfkCzqxV9oez3uXmoRvr8M+fH7rHon0FntvlHoB7hs=;
+        b=AbTHWCCKL9FRd4nQFbmZri/ixJuUevL13q7H/QK/lmtrTDh+y3XSr5+CpS/Ic/X1Xu
+         OcMgWSeHBRU0N+SGtba/pDfvH+vKAjys4h1IDxUq4ruPjQdSFbrO7KLNGsgeMHxUqSP1
+         ykxCexA1fY6aXPup+nBefcMdNy4kAc1laEUBaL29qdOPlyRujEYMOUgCjI+1tpW0FJm2
+         NYWk6z6LK2gHt7/NVDM7V/HGAg2b+ew3RKz9iJ3Rnehh0v3j9ltMBKFhejiapYO6jVnu
+         NGSTv6ojPcZy7eqOhfueoqMo6fEFrk75DrmXeRuqTPdsd+oA1nvO+ylPWdQQZ54AbKx7
+         NaQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795439347; x=1796044147;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ANfkCzqxV9oez3uXmoRvr8M+fH7rHon0FntvlHoB7hs=;
+        b=ous1fdEplqPeEMV7itmHfwXg8Y/fhar4Pf8tGVPqp/mkgpya7zzo6cSoNbSvrrW8ke
+         BUQv0LACDQmph+eOrNetqQXaAL1KcEn2h6bIxPNmuSNnoHeIrpOA7FF/Q3G8rYv3k5TA
+         L7tlWa47EWrH15emhS9sInDyfeVdpuBst10HobXscdDn5NcZKVABwAFIfYTJD0AOTG0I
+         4M3RBW0ecF+QnpVe6Z0wndniUwlWcW/dEOjhYUxImVT9mrQQcDgIVng0Ugz0SIV5JZuv
+         D1sbpHo4weNPqBbI4pRyuMHXrlFmvsNy8P8pm70SPdrPLJE6DAt7CkWB+tQDk472fVMC
+         CwIg==
+X-Forwarded-Encrypted: i=1; AL+hErE8fkxIT2egPy45zbOPUK8R7sUpdTt5P27y1iIjpxM2i/gvD38iZuZcugeZicBz6R+gBqSSEydV3JChRbc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ydXWZte6FxUh/6knp9xDhNWRg1hwDpA1aQXsYSSUr7zhUdFj7
+	m2Zi4KRRKsa1wl44c3kikev6G5q6EA6euju8rDmwWb8mQnelZdRJ7a76j9OpYCMB3twJd8N2J+s
+	tBKSGXIfpq50LMUKzsHYr+fFR3Q==
+X-Received: from plkh14.prod.google.com ([2002:a17:903:19ee:b0:2f0:31b2:9171])
+ (user=amitamishra job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:ce0d:b0:2e9:3dd2:a8fe with SMTP id d9443c01a7336-2f03f1537bamr103175945ad.21.1795439346390;
+ Mon, 23 Nov 2026 05:09:06 -0800 (PST)
+Date: Mon, 23 Nov 2026 13:08:59 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,78 +75,82 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: mm: Don't defer the barriers when installing a
- fixmap entry
-To: Ryan Roberts <ryan.roberts@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261120121638.194154-1-fuad.tabba@linux.dev>
- <20261120121638.194154-4-fuad.tabba@linux.dev>
- <6782b5ee-3dfe-4076-a79c-fbeb2c2ac7da@arm.com>
- <CA+EHjTziXrRdR+guikKbj93Az96T+AMx_=0sVeyWG5C4fwaaTg@mail.gmail.com>
- <5b0a26ee-30b0-4a79-9cca-9848dc9d65c5@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <5b0a26ee-30b0-4a79-9cca-9848dc9d65c5@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261123130859.3487100-1-amitamishra@google.com>
+Subject: [PATCH] iommu/arm-smmu-v3: Support IOPF for masters with multiple StreamIDs
+From: Amita Mishra <amitamishra@google.com>
+To: Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+	Jason Gunthorpe <jgg@nvidia.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>, 
+	Mostafa Saleh <smostafa@google.com>, linux-arm-kernel@lists.infradead.org, 
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Amita Mishra <amitamishra@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On 23/11/2026 11:36, Ryan Roberts wrote:
->>
->>>> @@ -127,7 +127,9 @@ void __set_fixmap(enum fixed_addresses idx,
->>>>          ptep = fixmap_pte(addr);
->>>>
->>>>          if (pgprot_val(flags)) {
->>>> -                __set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
->>>> +                /* The slot must be usable on return, even in lazy MMU mode. */
->>>> +                __set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
->>>> +                emit_pte_barriers();
->>> I wonder if it would be clearer to wrap __set_ptes():
->>>
->>> lazy_mmu_mode_pause()
->>> __set_ptes()
->>> lazy_mmu_mode_resume()
->> That would work. However, there's the stable backport. 6.18 has the
->> bug, but lazy_mmu_mode_pause() was added in 7.0, so 6.18.y would need
->> its own patch. This patch applies to 6.18 unchanged.
->>
->> I'm happy with either, or with a followup patch in the same series.
-> I'd personally prefer to use pause/resume since it's makes it very clear what's
-> going on and avoids the layer violation. Perhaps your approach as the back
-> portable one, then pause/resume as follow up (along with ptep_try_set() tidy
-> up)? Others might think differently though...
+Currently arm_smmu_enable_iopf() rejects stall-capable master devices
+with more than one StreamID because arm_smmu_page_response() hardcodes
+master->streams[0].id when issuing CMDQ_OP_RESUME instead of tracking
+which stream originated the fault.
 
-Using pause/resume does work, but it is a bigger hammer than necessary.
-If other features make use of lazy MMU mode, then we may end up paying
-extra cost by leaving/re-entering the mode.
+Save the faulting StreamID in fault_evt.fault.prm.private_data[0] in
+arm_smmu_handle_event(), use it in arm_smmu_page_response() to target
+CMDQ_OP_RESUME at the stalled stream, and drop the single-stream check
+in arm_smmu_enable_iopf().
 
-For instance, with page table hardening [1], using the pause/resume
-approach means 4 extra ISBs:
-- 1 when pause() leaves lazy MMU mode: restoring default kpkeys context
-- 2 in __set_pte(): switching to page table update kpkeys context, and
-then back to default
-- 1 when resume() enters lazy MMU mode: entering page table update
-kpkeys context
+Signed-off-by: Amita Mishra <amitamishra@google.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-An explicit __set_pte_nosync() + emit_pte_barriers() achieves exactly
-what we're after (immediately visible PTE update) and doesn't disrupt
-lazy MMU mode - we don't unnecessarily set TIF_LAZY_MMU_PENDING. 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 100b34f07032..53c396d3187a 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -954,10 +954,11 @@ static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
+ 					   cmds->num, true);
+ }
+ 
+-static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused,
++static void arm_smmu_page_response(struct device *dev, struct iopf_fault *evt,
+ 				   struct iommu_page_response *resp)
+ {
+ 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
++	u32 sid = evt->fault.prm.private_data[0];
+ 	u8 resume_resp;
+ 
+ 	if (WARN_ON(!master->stall_enabled))
+@@ -977,8 +978,7 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
+ 	}
+ 
+ 	arm_smmu_cmdq_issue_cmd(master->smmu,
+-				arm_smmu_make_cmd_resume(master->streams[0].id,
+-							 resp->grpid,
++				arm_smmu_make_cmd_resume(sid, resp->grpid,
+ 							 resume_resp));
+ 	/*
+ 	 * Don't send a SYNC, it doesn't do anything for RESUME or PRI_RESP.
+@@ -2164,6 +2164,7 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu, u64 *evt,
+ 			.grpid = event->stag,
+ 			.perm = perm,
+ 			.addr = event->iova,
++			.private_data[0] = event->sid,
+ 		};
+ 
+ 		if (event->ssv) {
+@@ -3313,10 +3314,6 @@ static int arm_smmu_enable_iopf(struct arm_smmu_master *master,
+ 	if (!master->stall_enabled)
+ 		return 0;
+ 
+-	/* We're not keeping track of SIDs in fault events */
+-	if (master->num_streams != 1)
+-		return -EOPNOTSUPP;
+-
+ 	if (master->iopf_refcount) {
+ 		master->iopf_refcount++;
+ 		master_domain->using_iopf = true;
 
-An alternative approach that addresses your point about layer violation
-is to call arch_flush_lazy_mmu_mode() and leave the __set_pte() call
-unchanged. This is slightly slower as we still end up setting/clearing
-the TIF flag in that case. Not sure this is worth it - ultimately we
-have to be mindful of what lazy MMU mode is doing to ensure this code is
-correct. I'm happy with the current approach.
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.56.1.750.gf70dc682cf-goog
 
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-- Kevin
-
-[1] https://lore.kernel.org/r/20261109-kpkeys-v10-0-aa6c4d9603bc@arm.com
