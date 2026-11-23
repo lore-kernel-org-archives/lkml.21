@@ -1,70 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795400660;
-	b=3S8uj1S8oh2UIwToJn0hM87HmQqExkVRLx5JO7tX8ElAtCqjUKSCHEGDB48q7fdKEQxm
-	 LwkjzX9UD1gLWwrVg+qrvbAKt+fk5nwR+oLL00ESuyXc0avZQgMt9AQ0mpxivrcY17v8Q
-	 R7IzNR+WjuCSkKgYfDTQnNgdUQzSQoUGT1orD2vAMCBiNity8IaNNvxGftv4IPVcntcH9
-	 hVKymF/uSeH5fSMxg6aIMAo6Uq2o66msi1ZUrLw4XW2PeQvXhrjVrz44vA/BXrEPJaq/M
-	 iAcaYgdjKpk79z9WnUz911xmHT1MTj6/12CsH/qkM4g5RkxhLTjiOgu45uohzfCBtgw==
+	t=1795400679;
+	b=UD1yzWTxBAZ3cCXBpX8vr7yVK4S23+mbIvXosT5XopwgSxUsEiz+3ZnXHePsB/K918Vt
+	 1bBts171LDd52LkewJtx5c+RjlQ0DhwIBrnn6Of+sOSRhur4iRf889WMaJYTjHBndYsLA
+	 V+F+s/bgy2aKAYccu7irFbMwJT/4ZskumV5e2a9j61/oU21RPny03inVUO8pC1dVRWji1
+	 7sxJ9brOVk0GSLj0uvMyvHe/fhKViqI4MGOXQvnupGdlea2HfYw4myhKUFcNW/enXbPJ6
+	 QkrE12Ak+alCjvNmPA4C4WChWm5APsuCaCoxF8JECT3si/uDV2BT2shyCTl4M5aFR/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400660;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=VUjnilYGMK6n8uRV96C20nGUmNVbpW+6JA21u4o9l+Y=;
-	b=iQxw5wl3Z59I9DPbgUbud+449Se6b2P+CTKPGTaI3iwIGWCUwAQYk8eKH6RhRF3V8sES
-	 J2LmtptYHYVYwHRiYRRVQdMcTJE5R+BvTRroj9oOnXw/s+Aekw4nmgLeF6XyUuChWxdX1
-	 7M4J0XaclONyigRFG64TDLK5psPaKa6qrD1LPdQll7jmYyzMQSZuvWwb9mVJEdrxqrHfs
-	 dnO1oGGsrieSg+vIF0CrsoZ6HmGiiqSduGesU4YrkZw2DplBsl77PblpZTbTyr4ncodBp
-	 LJv1iwIV0AS+U5yX3SHVt2DcYX8rhRqDPApRdgVLZkyXinIhMsX6cH6nYYQtzdKBZMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795400679;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=57tb2/Vr7t/oaBgLBwC/I6C/d76kKekhB9lL9K1wXnM=;
+	b=qAk3/uKFqsqfdq1+rSnBNMFZHDiE3Zy0PZbnJ2naOCLDf725UjYeRiqwPcH4QTwSL69x
+	 uZ9RPA42kexqYzkbz3a7jZKN/ufDPmS0wY6Q7VmHH9ZzRyP60Fodh4dF/3K1Njnn1qv5b
+	 b6i0OQt3VwSZFBDXR3D1MAXBaCUqjqTOnq750IKnnVj744WvbhTCze1UEtuZeD04YR/KF
+	 NzsXQCYd18J1E4pn5bFxFGZ0lHkkwznJMttgD65rmppPn3fy9Ha/snLU7U69PisPX20k1
+	 rigyaCz9UPfi5Ard2TPFdOlY6Yke+AxuFiuqmD24hQWyg3MjY0r9Ii1mELEy46+GOCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=K2VMpE3x;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2B382606A31A;
-	Mon, 23 Nov 2026 02:24:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B382606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JrzfS8jq;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E47A9606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:24:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=K2VMpE3x
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=K2VMpE3xFZwJoX/l9Aplb6D9Z22o/0VoN3wPthTYr628O17R/mNJPjvlRCov2DgCxXNcv6e5Jou3/
-	 7PTWcYdBieZ8u0Nw0ZZIEeie+/ZX0rIrb8oPcCWSGj8R/DqSBOgvNPcMn045NlXoNXrOAtcq/RhJkD
-	 dz9Xjwmy4mbFD8TY=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b03a3cf244-d793a;
-	Mon, 23 Nov 2026 10:24:15 +0800 (CST)
-X-RM-TRANSID:2ee46b03a3cf244-d793a
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b03a3cde27-eb193;
-	Mon, 23 Nov 2026 10:24:15 +0800 (CST)
-X-RM-TRANSID:2ee86b03a3cde27-eb193
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: chester.a.unal@arinc9.com
-Cc: daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev-bot+sashiko@kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH v3] net: dsa: mt7530: manage the core and io regulators with
- devm actions
-Date: Mon, 23 Nov 2026 10:24:15 +0800
-Message-ID: <20261123022415.433-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JrzfS8jq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27F791F000ED
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:24:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795400678;
+	bh=57tb2/Vr7t/oaBgLBwC/I6C/d76kKekhB9lL9K1wXnM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=JrzfS8jq/ZdwzK7qWLGEcDSyB9OKqmNuSOS3xhsOwReZb6AV3RVA8NEiI4XXHb5uk
+	 NpoLRXLnpKKSNqolb97sUYCWPyyPNs/FQlPVEIYcO6T+VqlKBBFuQIkjeYSA9+r1vd
+	 uCx4NNqhngD/6HO7Jn/D7ym2JjRXQp7isD6BxQAAdtgJi4ejsnl8mFUDk7yCOAdJ3r
+	 EIbPD3LqkWS8IfS15OBb2Ovqv9N2gDbaEVahpUWO6c8uVwTImsKqh3ujdnaQSUZQRx
+	 u6PZFiS2I7H70MAcPkfEoXQjVw9psXSUGizSGzLlqBPXZx7h0YMGMwKCojgAjcQHR0
+	 htp2KmbblZ12A==
+Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-93f2f2edb19so260933985a.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:24:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErExc8klzrgHorhvllM/F8AWXPN9nd7Z6rKrJ4oqVeT+to7Eg0Zzb2FaDerU0WABABDeb0X3B9BO/ajeLw0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8odU3HrV+aogGfczUHlMrVLG+D8MrgUJJO9fk5pIExQLBkNqi/
+	GA5rrrsylARCqOnbkjwpYqtdVvaXcuX4qzWxLgtWOsuCSRJ9Hwv4Dsn+f2iJqp4XQBLhLbrnUyf
+	i7F9VUXKvHtvyV0r3tVHtAqrYAx8jdUY=
+X-Received: by 2002:a05:620a:269b:b0:93f:228c:5301 with SMTP id
+ af79cd13be357-949bab678d4mr1820344485a.64.1795400677521; Sun, 22 Nov 2026
+ 18:24:37 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,161 +59,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261116081403.216452-1-max.kellermann@ionos.com> <20261116081403.216452-6-max.kellermann@ionos.com>
+In-Reply-To: <20261116081403.216452-6-max.kellermann@ionos.com>
+From: Barry Song <baohua@kernel.org>
+Date: Mon, 23 Nov 2026 10:24:24 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4y5cEBmdxz91WJqc1WJdHM=8_nMomMDO=D5As2tfnAMbQ@mail.gmail.com>
+X-Gm-Features: Aa3M54po4ST5My0w1x9oemNrt7Y_OkpJAd7w1jCl5IIsGSWDYO39vxHRXon-7kE
+Message-ID: <CAGsJ_4y5cEBmdxz91WJqc1WJdHM=8_nMomMDO=D5As2tfnAMbQ@mail.gmail.com>
+Subject: Re: [PATCH v3 5/5] mm/mglru: reschedule between memcg reclaim attempts
+To: Max Kellermann <max.kellermann@ionos.com>
+Cc: akpm@linux-foundation.org, kasong@tencent.com, qi.zheng@linux.dev, 
+	shakeel.butt@linux.dev, axelrasmussen@google.com, yuanchu@google.com, 
+	weixugc@google.com, baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, hannes@cmpxchg.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, rcu@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-mt7530_setup() enables the core and io regulators of the MT7530, but the=0D
-only matching regulator_disable() calls live in mt7530_remove(), which=0D
-never runs when the probe fails.  A failure anywhere between the enables=0D
-and a fully registered switch - the remaining steps of mt7530_setup(),=0D
-the IRQ chip or MDIO bus registration in mt753x_setup() (both can also=0D
-return -EPROBE_DEFER), the SGMII PCS creation, or the DSA core itself -=0D
-therefore leaves both regulators enabled.  The devm-acquired handles=0D
-are then released with a non-zero enable_count, which triggers the=0D
-WARN_ON() in _regulator_put(), and each probe deferral grows the count=0D
-further.=0D
-=0D
-Move the enables to mt7530_probe(), right after the regulators are=0D
-acquired, and pair each regulator_enable() with a=0D
-devm_add_action_or_reset() that disables it again.  This covers every=0D
-error path after the enables, and replaces the explicit disables in=0D
-mt7530_remove(), so the enables and disables stay balanced in all=0D
-combinations of probe, setup and unbind.=0D
-=0D
-Found by code inspection, the issue has not been triggered at runtime=0D
-and no MT7530 hardware was available for testing.  The visible symptom=0D
-of the leak would be both regulators staying powered after a failed=0D
-probe and a WARN_ON(enable_count) splat from the regulator core when=0D
-the devm-acquired handles are released with a nonzero enable count.=0D
-=0D
-Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 sw=
-itch")=0D
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>=0D
----=0D
-=0D
-Changes in v3:=0D
-- Replaced the setup error-path unwinding of v2 with devm-managed regulator=
-=0D
-  enables in mt7530_probe(), and removed the explicit disables from=0D
-  mt7530_remove().  The late error paths outside mt7530_setup() (IRQ chip=0D
-  and MDIO bus registration, SGMII PCS creation, the DSA core) are now=0D
-  covered too, as suggested in the review of v1 by the netdev AI bot.=0D
-=0D
-Link: https://lore.kernel.org/r/20261119060424.1476-1-laixiangwu@cmss.china=
-mobile.com=0D
- drivers/net/dsa/mt7530-mdio.c | 48 +++++++++++++++++++++++++----------=0D
- drivers/net/dsa/mt7530.c      | 18 -------------=0D
- 2 files changed, 35 insertions(+), 31 deletions(-)=0D
-=0D
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c=
-=0D
-index 0be107dc6..99432d658 100644=0D
---- a/drivers/net/dsa/mt7530-mdio.c=0D
-+++ b/drivers/net/dsa/mt7530-mdio.c=0D
-@@ -155,6 +155,14 @@ static const struct regmap_config regmap_config =3D {=
-=0D
- 	.unlock =3D mt7530_mdio_regmap_unlock,=0D
- };=0D
- =0D
-+static void=0D
-+mt7530_disable_regulator(void *data)=0D
-+{=0D
-+	struct regulator *regulator =3D data;=0D
-+=0D
-+	regulator_disable(regulator);=0D
-+}=0D
-+=0D
- static int=0D
- mt7530_probe(struct mdio_device *mdiodev)=0D
- {=0D
-@@ -210,6 +218,32 @@ mt7530_probe(struct mdio_device *mdiodev)=0D
- 		priv->io_pwr =3D devm_regulator_get(&mdiodev->dev, "io");=0D
- 		if (IS_ERR(priv->io_pwr))=0D
- 			return PTR_ERR(priv->io_pwr);=0D
-+=0D
-+		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
-+		ret =3D regulator_enable(priv->core_pwr);=0D
-+		if (ret < 0) {=0D
-+			dev_err(&mdiodev->dev,=0D
-+				"Failed to enable core power: %d\n", ret);=0D
-+			return ret;=0D
-+		}=0D
-+		ret =3D devm_add_action_or_reset(&mdiodev->dev,=0D
-+					       mt7530_disable_regulator,=0D
-+					       priv->core_pwr);=0D
-+		if (ret)=0D
-+			return ret;=0D
-+=0D
-+		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
-+		ret =3D regulator_enable(priv->io_pwr);=0D
-+		if (ret < 0) {=0D
-+			dev_err(&mdiodev->dev,=0D
-+				"Failed to enable io pwr: %d\n", ret);=0D
-+			return ret;=0D
-+		}=0D
-+		ret =3D devm_add_action_or_reset(&mdiodev->dev,=0D
-+					       mt7530_disable_regulator,=0D
-+					       priv->io_pwr);=0D
-+		if (ret)=0D
-+			return ret;=0D
- 	}=0D
- =0D
- 	rc.lock_arg =3D &priv->bus->mdio_lock;=0D
-@@ -228,23 +262,11 @@ static void=0D
- mt7530_remove(struct mdio_device *mdiodev)=0D
- {=0D
- 	struct mt7530_priv *priv =3D dev_get_drvdata(&mdiodev->dev);=0D
--	int ret =3D 0, i;=0D
-+	int i;=0D
- =0D
- 	if (!priv)=0D
- 		return;=0D
- =0D
--	if (priv->id =3D=3D ID_MT7530) {=0D
--		ret =3D regulator_disable(priv->core_pwr);=0D
--		if (ret < 0)=0D
--			dev_err(priv->dev,=0D
--				"Failed to disable core power: %d\n", ret);=0D
--=0D
--		ret =3D regulator_disable(priv->io_pwr);=0D
--		if (ret < 0)=0D
--			dev_err(priv->dev, "Failed to disable io pwr: %d\n",=0D
--				ret);=0D
--	}=0D
--=0D
- 	mt7530_remove_common(priv);=0D
- =0D
- 	for (i =3D 0; i < 2; ++i)=0D
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c=0D
-index 7781a63b4..b669a94d4 100644=0D
---- a/drivers/net/dsa/mt7530.c=0D
-+++ b/drivers/net/dsa/mt7530.c=0D
-@@ -2411,24 +2411,6 @@ mt7530_setup(struct dsa_switch *ds)=0D
- 	ds->ageing_time_min =3D 2 * 1000;=0D
- 	ds->ageing_time_max =3D (AGE_CNT_MAX + 1) * (AGE_UNIT_MAX + 1) * 1000;=0D
- =0D
--	if (priv->id =3D=3D ID_MT7530) {=0D
--		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
--		ret =3D regulator_enable(priv->core_pwr);=0D
--		if (ret < 0) {=0D
--			dev_err(priv->dev,=0D
--				"Failed to enable core power: %d\n", ret);=0D
--			return ret;=0D
--		}=0D
--=0D
--		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
--		ret =3D regulator_enable(priv->io_pwr);=0D
--		if (ret < 0) {=0D
--			dev_err(priv->dev, "Failed to enable io pwr: %d\n",=0D
--				ret);=0D
--			return ret;=0D
--		}=0D
--	}=0D
--=0D
- 	/* Reset whole chip through gpio pin or memory-mapped registers for=0D
- 	 * different type of hardware=0D
- 	 */=0D
--- =0D
-2.50.1.windows.1=0D
-=0D
+On Mon, Nov 16, 2026 at 4:14=E2=80=AFPM Max Kellermann <max.kellermann@iono=
+s.com> wrote:
+>
+> shrink_one() can return immediately for empty or protected memcgs, and
+> try_to_shrink_lruvec() can break out before reaching its
+> cond_resched().  A scan through many memcgs can repeatedly rotate
+> entries without giving other runnable tasks a scheduling opportunity.
+>
+> Call cond_resched_tasks_rcu_qs() (as the existing shrink_lruvec() loop
+> does) after shrink_one(), while the memcg reference still pins the
+> cursor and before reacquiring the RCU read lock.  Also call it between
+> bins and nulls-marker retries, covering scans that skip every entry.
+>
+> Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
+> ---
 
-
+Reviewed-by: Barry Song <baohua@kernel.org>
