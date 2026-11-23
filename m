@@ -1,53 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438624;
-	b=XQANfWEC3xCMSZsrRob0HqZaJTj8wtvEwhat1vlydQ7EGqi4U9bqymzkIr6pLynsIB7n
-	 8uihSDIFctfs2pvl2QnxaOIQ/mBqQF0gk4T/UWn/8HwQtOUw66PZv4fK5bskBrSoeLsht
-	 2x6vYnbAmhUKfIEvV9avkZosTgJkz47EPufnqnoTxsCKQTq7i1OS4FJ17DRFd+9O2zulg
-	 yLBr3zFYhQLKYJreHFZEf9xuK7IPuXyQL3uN/8Drut7JGSZ6mCABRzUCRlnNwc6MU39Ow
-	 Jtz0NkZ8GD0EDET5+Bqzw/zDzRNp3YRttxL5LkCvnX31Go7ZkzeNZLPoBlLDGGAbbMw==
+	t=1795438628;
+	b=IKLPngG3OpLbs/BfSUL64J3bQx9DMGbPGeXyERGxDJFaw6IxODScp35OFV97wYMv1APD
+	 6JrBuYFSKL20txVQ1rxYFxcRxoxnEX2D5o44qIMgCVgYOlwwpAvxaq/U+ka674dTcsTiu
+	 p93xuuNDHq6My4PpXWXVlMY8ZG10JYtlSEsRjUDLVgp/g6DGx4wL39G1DmuagElzYbzKa
+	 OfiN5Rj0Y6DRJCMwM+7y7zA73R8ku9QYNcy+SBa0kTQKPkychSZzcmTVsokpvvbJti763
+	 rT1R0BsrZewU+tkCGV0LI9/6wNYH1QgehLYdFytEtsWLnrZMTPIvCfUNiDoqP1MxzEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438624;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=7KhFRGOGWNgz2SmM6coaV7ZmtXwELyPDD+JotHp5BbU=;
-	b=P+QcccJnt5Cd32j8a01nVEldxqtsEoqfPe9OsHWmgW7F1a75s6/3uItbaq5nYWodx/BI
-	 kW2ZqQXzUaLZzg3CXqPWNKyvPYcKg2xxDjoY/e4732U2xMKdTogl8BX+SsoAjPMepeLCO
-	 YZsybGXy7jUQgZ3ruGMmmNCCna+nJcv1QRldv0Ye8R8TmjpgqEckhjvpqGc04Lm5M4jSL
-	 B2an4IweYAG4tTGJq4ghnWxvX6E6KRqQ9mV1In+LSqwfuxgLz1LQrCCHsu6zF5BnSNrhv
-	 rbOk2mLiZrYI6oS/SH7+5Is72C67Alx7cdjWFllFkdhQRYOANMoUdCyZpANDLNBZ6/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438628;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=CozIl/nMLzShLCc13DpVZQu/fWHZTEKCUOFKOb0MjSA=;
+	b=KKoW/otxLHh2UoHaqaJGYfKKjVsU2MMbGFuV5KfliA6y4Iwr51encehQz5+RUFtDNxyb
+	 fMyCzvXu0mbkLDXCEGDifFF4JpG/fmTCaJ1AvqXyuhTABdb6HldIZo4eN81phZsqLMmJo
+	 nvLScfT3PiHD59mAIYWB4+BG4V5G7nIkSv0X9EV19o90Mb2j+nnznQEpN0BoDaEWIyk09
+	 RLPc/FyLsGDm9IP20jkxXjgpTaEbsyRbkGwih22XQwNLWHVb8t81QGd73N8dVC2eO+VNH
+	 fSmral24mqizd6X2sAgZxHI+4Lz3poG3HotdwOGcBWsHUwmkBR2YYhPYfkKhyepH6qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=NPaT0MV+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O87i8GVc;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B1A6606A31F;
-	Mon, 23 Nov 2026 12:57:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43646606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:57:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43646606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=NPaT0MV+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3D9A1F000C4;
-	Mon, 23 Nov 2026 12:57:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795438623;
-	bh=7KhFRGOGWNgz2SmM6coaV7ZmtXwELyPDD+JotHp5BbU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NPaT0MV+BdIvrNfUCbT4c3xYEQSk+094MgQUb4RwX57A9l9JSaoeMiwtiOOuEIfqH
-	 niy80zPiBA4Z0xJxQRrZ4/NtVsGY4tMaiMNrQ0v7dS0/8MC0XtmYL0qrkezquJ6rC6
-	 V+k5WWI+lp2A9XhGn7Sb4A/RNBwWqZ90yBZdM7JY=
-Date: Mon, 23 Nov 2026 13:57:24 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Ren Wei <weir@nebusec.ai>
-Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	rafael@kernel.org, dakr@kernel.org, johan@kernel.org,
-	akpm@linux-foundation.org, kay.sievers@vrfy.org, vega@nebusec.ai,
-	caoruide123@gmail.com
-Subject: Re: [PATCH driver-core 1/1] kobject: reserve an envp slot for the
- terminator
-Message-ID: <2026112301-jingle-multiply-c72d@gregkh>
-References: <cover.1795426787.git.caoruide123@gmail.com>
- <cd35c5682ebe0f5a58fa6beed90bb7d0e7d5e9a2.1795426787.git.caoruide123@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O87i8GVc
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-491971ac844so3002989f8f.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:57:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795438627; x=1796043427; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CozIl/nMLzShLCc13DpVZQu/fWHZTEKCUOFKOb0MjSA=;
+        b=O87i8GVcp2rY4oL5wP+87gFKFjwahk7pR4foZm6HCuDUGX5vA2H5zrUbu6AbGWrcwE
+         V57Y1P06JQjuEXHTs4gwPjZronptVBRKQADW9co9FpImSZtsjvKFvaYHaA7xZ+ZA0ZrG
+         EZDTEHiRBqh3xR7/8cd4HmcxDIOSmJzYo0qcuxsp8gBebJU7V00FLXxa05zgXyiOE0UD
+         CMxfTUdry0bbXaGFr+Lkw2XSbI1fsbR0ZbuCrw/UPVX5uNIG+qjEGTJ2eEOdBduxC/CW
+         aBr6T/phVOyB6W9uljyqyMIMpPOO1VAmBAQBpJ5c8t3ZLPMTU/j0uacJW3Eqa+XnIRiQ
+         K3jQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795438627; x=1796043427;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CozIl/nMLzShLCc13DpVZQu/fWHZTEKCUOFKOb0MjSA=;
+        b=MA5c+6GWZU6SaJyGTXWcpJBARQH6DTBkAFDrGKvSM4YTF4B/eYRq0bwdc0ZF+z0TEH
+         bGTgem7As9vQJLNIwibQGMc87wKhsZ4pry+idbnCUSaZSysu51jf9oARjXSnxjtAX3W5
+         Nx/eI13IqwvvGmXybQA9PWPumWQHx+LYKm6KQfewu4PTRBVmpBy19ZFmWc7x3sd0V8K/
+         2tN/3rOsuOeED/l/e1E7Oi3siDGo2aXCcFaWNhE3Cxh2teNlck5a9avVVt2HDAMdeRpe
+         2yMwk7/SSyp8VfUubogAUZTHZCJftE7IzL5IKcqND5nB3ymObFKsNMbBaTvq+fqInS7k
+         RQWg==
+X-Forwarded-Encrypted: i=1; AL+hErFbFlRu++b2NWJywFjzxHdDuWDbX6GEp9DFENqxOoSU5CuaTo+7jTYlki501ABzq9HWFF/Nq/CaZgue3Dg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/LfmKyKVxxRQzTPV6UUrARKSk2gtbYn7lRqsRbEUVHUJNhsJEY
+	23/QMa82Y5MfeAK/h5ChAaBw3b/er8OOhjGtqP2AHpSHa4mcutNcqkYg
+X-Gm-Gg: AZFdTZfqJ2KD/1NCWIDt8QAXbO3YLbeI9u3oN7321GPdCIxcb/w+wPzP345agHD65At
+	7+T0Rg15SIUBsonct/MmTDsm/VV273qVrx2fnCPifpC+3KoD6ViQmCNz6VKseMDvvHgPZQEYZVQ
+	EebnjZkIFkjOfs1+lw3TMamkxtoJR4fQftXHiWnFI7wV5GWzoaNLl5GdEFQmE97Mu0vjRXpEQz7
+	Gzeuppu7+gHb5QO7n2gpBhz5s+fF7WrnIkTGUhkPaTctfJt0r3PsGvq8msvXmBKm7wVZrzFEhT7
+	88v0YDn5MS2AdcScOFu4gKQlnVl1d8ca2ACd8+NP3UcUuxQ3OAZl8kMnDNMciBIzuiqxSuVpTnx
+	21wk+sXreMUnwPhAjSOmMkJrU9J6mW3mo1SNYrkTkhPIzPYf8SvSYpzbY7DQr0eZTfiPCqiebd3
+	ZGbpnKG0h01nzdv/iITUGUjjZTdi7LC/3Bn+KKeIZDT3SC0D+HDS07gePEfkX74q1oTJJHWrsYu
+	2ajnRFem8Cf7DiIgq9kMsGIb8QZvzEbLoQhwXUU7HXUrtKYxO2nTp7OyaEugmzKtC/cnpaIEkP9
+	4xlxl+MVfWjA0k0UBfkKabj1wgP01XVO0ae8sA==
+X-Received: by 2002:a05:6000:4617:b0:48d:f464:6989 with SMTP id ffacd0b85a97d-4abb18cbe2cmr22485211f8f.27.1795438626537;
+        Mon, 23 Nov 2026 04:57:06 -0800 (PST)
+Received: from mail.gmail.com ([2a04:ee41:4:b2de:1ac0:4dff:fe0f:3782])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm21305484f8f.7.2026.11.23.04.57.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 04:57:06 -0800 (PST)
+Date: Mon, 23 Nov 2026 13:08:51 +0000
+From: Anton Protopopov <a.s.protopopov@gmail.com>
+To: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Cc: KP Singh <kpsingh@kernel.org>, Matt Bobrowski <matt@bobrowski.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next] bpf, lsm: Make bpf_lsm_get_retval_range()
+ return void
+Message-ID: <awQ642Ko94a255rT@mail.gmail.com>
+References: <20261120-jf-bpf-lsm-retval-range-v1-1-d712e4090907@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,48 +104,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cd35c5682ebe0f5a58fa6beed90bb7d0e7d5e9a2.1795426787.git.caoruide123@gmail.com>
+In-Reply-To: <20261120-jf-bpf-lsm-retval-range-v1-1-d712e4090907@linux.dev>
 
-On Mon, Nov 23, 2026 at 08:16:37PM +0800, Ren Wei wrote:
-> From: Ruide Cao <caoruide123@gmail.com>
+On 26/11/20 04:28AM, Jose Fernandez (Anthropic) wrote:
+> With CONFIG_BPF_FMODRET_SCAN=y, fmod_ret programs can attach to tagged
+> functions, so a program on bpf_lsm_get_retval_range() can make it fail
+> for an LSM hook that returns a value. get_func_retval_range() then
+> reports no range, and do_refine_retval_range() and check_helper_call()
+> ignore the error and use a range the call did not set.
 > 
-> add_uevent_var() currently allows envp_idx to reach ARRAY_SIZE(envp).
-> This fills the final pointer slot without leaving room for the NULL
-> terminator expected by usermode helper consumers.
+> The function fails only for a void hook, which every caller but
+> get_func_retval_range() already rules out. Check for a void hook there
+> and make the function return void, so resolve_btfids no longer tags
+> it and no fmod_ret program can attach to it.
 > 
-> A synthetic uevent can supply enough variables to make this happen.
-> When CONFIG_UEVENT_HELPER is enabled, kernel_execve() then scans beyond
-> the array while counting the environment and may dereference arbitrary
-> data as a string pointer.
-> 
-> Reserve the final slot so an environment is always terminated.
-> 
-> Fixes: 7eff2e7a8b65 ("Driver core: change add_uevent_var to use a struct")
-> Cc: stable@vger.kernel.org
-> Reported-by: Vega <vega@nebusec.ai>
-> Signed-off-by: Ruide Cao <caoruide123@gmail.com>
-> Signed-off-by: Ren Wei <weir@nebusec.ai>
-> ---
->  lib/kobject_uevent.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/lib/kobject_uevent.c b/lib/kobject_uevent.c
-> index 1d29378d4f55..f7aa67d6ee54 100644
-> --- a/lib/kobject_uevent.c
-> +++ b/lib/kobject_uevent.c
-> @@ -673,7 +673,7 @@ int add_uevent_var(struct kobj_uevent_env *env, const char *format, ...)
->  	va_list args;
->  	int len;
->  
-> -	if (env->envp_idx >= ARRAY_SIZE(env->envp)) {
-> +	if (env->envp_idx >= ARRAY_SIZE(env->envp) - 1) {
->  		WARN(1, KERN_ERR "add_uevent_var: too many keys\n");
->  		return -ENOMEM;
->  	}
+> Fixes: bc45414d1690 ("bpf: Allow fmod_ret on tagged functions and check the return value")
+> Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
 
-As "simple" as this looks, I think there's been problems with it in the
-past.  Have you tested this?
+The change looks ok, makes sense for this function.
 
-thanks,
+I am not sure if the topic should be 'bpf, lsm',
+I see no lsm part here. Otherwise,
 
-greg k-h
+Acked-by: Anton Protopopov <a.s.protopopov@gmail.com>
+
+> ...
