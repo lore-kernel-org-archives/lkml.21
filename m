@@ -1,88 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795452525;
-	b=I5RId/d6fayr1VaagU/yBPlzw9qTobgu+ycnDrOoTZ6g45EdqBQKYDOkVTciC7DLWeEy
-	 CQN1ikh7TDD/7QCn0qnUaqCqvAgNY75WBYEtVswKl6H+8WZtErMCZC/9sheNRFkX2rIVM
-	 XpsueG94TXZXwCNV8kUsh1FkiiFcUGZRzNqw/m15zgQoiAQ8keyLeW/QmeYXQaYPqTty2
-	 rcNqSWCnxHuWtcYTtMB7Y6BXd+ZLc5bJwHAZzFJ1LSKA9WAWklZU8S/LmyOmT0yf+mYw2
-	 rVno1JCgPlErZqSnsbXXA14PDEyc4Nm6ae5fB5o6cLezuOs4iWnrypWAz47NeV7RZVg==
+	b=C/9/8YcTDQi6eDvfH/b9qMvp4aOr9u/xK0dCMHCjYuG+6X7hSXoo/jNFebzoyZ3QfsO1
+	 /5nL2ulCBlF3e3IyJ4c5YVtHsVem+AHGX6HesYyTZMMPjZ3zrbmSKkSRlJ1t5g7jbNDRY
+	 IRiNppHYl4svGqhhOdpM3pN8kHNfdtuJLHIbi5hY1QUGA69Vb+5OgSOp6gk/m9E0XJYaq
+	 +TsNVbwlIZV/0U7NRCRu1jr/a18ZDUiY+kKNZRWG9mEzY+VxvHJYdaBmPuI4axWjItGcR
+	 TmJ5KtngV6FjGL9mQBaK2qr1cKLJfxvlAwYzz6yQrB13JaAClrTk1oiX5fD0lk3J6uA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795452525;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=QTHxkjwnWdi0Sg67/NbYoTIjq9LWwP65YaigHl4xtvM=;
-	b=cXJdpwA5Jus/kSU0GI/IHROnNKD4hFsmBUW79pMRo1HYhLQA4qTVxAlgcNWfUgf7qc42
-	 CIzisFB6/tPihDOYJNqF7d9iD1BGjWJpDfb+JbqDZ0bYi2UMB3YiO9P1CXzduOLUtaDbS
-	 6fXNgDzQjAjLikB3Q1ww0jh4/DNUYyuDp7ltORkhps9NMyYhawlaULVbXBeh9vty8ifLC
-	 aW9yffbMSPU3bxEnWD09xmMXSm+QaUHRYllTSfRNy+/9MIiyuIcP9kZ08iKlDbJvyD4/P
-	 f4uR+WSRJrbtuRxpG6313sorqbjZ+J3BR45/gEK/nf7c3xt27VCHIo43p7ijauuCz0Q==
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=msw4FIKrAUyInphRYrqr8Ra5cv1R+7cgbS2Ass40zs0=;
+	b=IK6C4T0tLA/SXEkiDm2utLLdEZp0JHvajzRwxUUrpBDWkpxqUVB/Tm5SQRG9qUuHF7mn
+	 jq/PepvY70FRwmgS06SrBi9ze8UekGrEzixbmkBrcWbH5rfCX+ED38kR1kv2NoUNcjf7G
+	 U/oFAa6JYXxQ2DP5D1sg9B2+rNXY/BeMmtu4K7g7XWw+wuJY2XlLZAtKipnxdSmhqgcIY
+	 ZNC5vYaS5VL3BAaXzDZyPnIptBQQ1lLp9He+t7ne2NUAGYqD2KqBzVzDVYinHiS/Xb4yz
+	 pJStZBYRKsyT6xNzXKbzvuhjOnzsaqAJdq7aqGqeGGx3oSiU18hZnQsevzSGafYIksQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EWsuP7zJ;
-	arc=none smtp.remote-ip=209.85.210.181
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FDF5ZjcJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 514A6606A33C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:48:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 514A6606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0697606A33F;
+	Mon, 23 Nov 2026 16:48:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EWsuP7zJ
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8b6b22be970so1324747b3a.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:48:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795452520; x=1796057320; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QTHxkjwnWdi0Sg67/NbYoTIjq9LWwP65YaigHl4xtvM=;
-        b=EWsuP7zJJNvbfMPNG7SLHEF3yL+QlEtMOmwu3by8A/WNpiRSTgAdB++0K9EZ63MAyy
-         GH/dq6DxwptKu20HOnCL709zeFibKErwDUJ31x2cknJd4fyN/snaHcQZfAwyzZ7yh7Uk
-         BAukFuqFnE2UP7n0BRfkKl8mvELW8MPhSm0MFsHS0iPEnAERpzScvrIcCwoT+sO9f6T+
-         VSqQ1de51OHqXLQT4UXz6dUD25pV6axh9dJhq1X56+pbxs/zElSZ8gf62GpCsQpHQhtK
-         4VyxmcuYiel5SCFACJZlWnEXUlLsGRSxqRA2YKsm7toBb/R8Ho9MJQnbZwdc5+6GdhCa
-         bcaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795452520; x=1796057320;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QTHxkjwnWdi0Sg67/NbYoTIjq9LWwP65YaigHl4xtvM=;
-        b=taBuE9r6p5KKqZ7zzNUmenCNw6PIeyeImBi+GKe0puppE5e8iwhzbd5hOLIcGp4FBs
-         H/Ekn7eRflxygT1UGOnm5gKQqDqq7BIuTzkz7DC1ivQipqjXdL00Rv4RkwnWqEgpHPwW
-         KV2cDiWXCknVbjhmfkFiAIBb/IT1CeDhfmxJnPlvGPFxiaduFulVuijFsIP8i1onGUiY
-         KEc4BfzJrcgHWWkXTYaaKBZUjq73+eLjjQirorAzY7moEzmRu77+PwEDDiPgfFsQ8zbf
-         NMFkK+76PpuvYQZ4sqfk85w4ULJe8qpRnPZgKfD9YFHYKBhKTNvI8EWO121PC6QyQcqz
-         8IRA==
-X-Forwarded-Encrypted: i=1; AL+hErG/mG2uU0K3sO7HdrbgNR7ii7yo+SzND+xuzyHjhoKqvjTUzpV/b+yVYt/Wh264I2kg4jPIoKPtFDfgfkE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/wJnZ+j5wWTabeaP7qNlsoG6Y8gzg+RmRYAnIPPQJ9M+69Vf2Z
-	enrK/ntDMECbnjTer27reW8C+2u52Qu3SQVe2I8RM9haMcQ6qiDJj56mEr/qpqIN
-X-Gm-Gg: AZFdTZfurCOTD3GGaO/LQlcvKsSfoCVD4EISB7SLPbNsSZAtNjISKIB7BXw6UV5AIke
-	P4Ow2PC2Kket6ZFoNXdlZr2YiuCFhN8AWc7yWjSpjdV0hoKN6Tw2D8+gU+U1ysH4Rww3Oe2wny7
-	3JDxv2yW0pZhAvZqqf+8pZYMlLn5f79iXiBy4z/LlXPgWygu53Y0PgVCrX8rjRi82oA/H4w4Nmf
-	Wjt157OpM33RXRCuGNDwlEo7qBZs9r+pbOnYiOECBqDdZIuKHhqG0hgBGzfwq3Cc6Cmi/bHRXnB
-	jh781I8cSQyyuqfStkV1yb+rZLjAiA+CL0/W32fOS03Nx7MICZXxvs9f+AU/Z4fi0ZrMDoZI+7H
-	YbryNveeLXq6zuf1gtySkfddR1vgEciWQfnUc0nYZ8/lV8OxH4ymzKk0tOoETUfpPtujUBSo60h
-	LIEuQ57vYCfby7YAw9dXKrHXIU95omhY4CQ/hcRYlJUqGq4KmGXNW8i/OTdRZwa772NJKtkfzrJ
-	xlbzUS/D4ZzSUt3sUtxgaxWLEWGAwdlU397DPp+//SApfBJcgTx1kBQ+RF7zt8ghGcmabO07b6L
-	zJT6e9MBzclkYI7CAXpFFz5GHjnxm4cQTaASVPv1fwciNbE=
-X-Received: by 2002:a05:6a20:c992:b0:3f9:9114:804f with SMTP id adf61e73a8af0-4014d15937dmr11140810637.27.1795452519544;
-        Mon, 23 Nov 2026 08:48:39 -0800 (PST)
-Received: from [10.2.0.2] ([159.26.115.37])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343fe6csm6085691b3a.37.2026.11.23.08.48.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 08:48:39 -0800 (PST)
-Message-ID: <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
-Date: Tue, 24 Nov 2026 00:48:34 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FDF5ZjcJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6BEA1F000CF;
+	Mon, 23 Nov 2026 16:48:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795452524;
+	bh=msw4FIKrAUyInphRYrqr8Ra5cv1R+7cgbS2Ass40zs0=;
+	h=From:To:Cc:Subject:Date;
+	b=FDF5ZjcJciDoEpkil1kpfCRri+Jge5eOMAixKUEN0r6++t8yVnG6E1DCNhHu5gYgB
+	 S22zyhbQ5N7Uy8+2qGcKoaS2aHnbKKLSk8Wo6cdmfkRhGUc04L+BmIKpToi5ul/RIZ
+	 BmItkIWXUGcu8LLQ1aJfSizqqFlgNLmcQaoXcfZ5/YSg1cf3HT7mRNVm+SxlksuMK0
+	 ENWLPUcAPLz3GXQCcSCzkD9ecq1WlRx/xjhOcTlUxz4l6XaXFMWzObMkYH6yLp26hx
+	 5z9wvUkJh/Xqv70vJNQrHjTAbU6iPKk8Xjja9FBbupMa9UaGjpJPMR1fG6HlnDyjT/
+	 7had/M0yF6Olw==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	"Zhao, Linaro" <richard.zhao@linaro.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Amit Daniel Kachhap <amit.daniel@samsung.com>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Chander Kashyap <k.chander@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	imx@lists.linux.dev,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Joel Stanley <jms@oss.tenstorrent.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Jyri Sarha <jsarha@ti.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Liam Beguin <lvb@xiphos.com>,
+	Linaro Ltd <mturquette@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Lubomir Rintel <lkundrak@v3.sk>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Marian Mihailescu <mihailescu2m@gmail.com>,
+	Maxime Coquelin <maxime.coquelin@st.com>,
+	Mike Looijmans <mike.looijmans@topic.nl>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Prashant Gaikwad <pgaikwad@nvidia.com>,
+	Rosen Penev <rosenp@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sergej Sawazki <ce3a@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Thomas Abraham <thomas.ab@samsung.com>,
+	Tomasz Figa <t.figa@samsung.com>
+Subject: [PATCH 00/10] clk: Assorted bug fixes across clock core and drivers
+Date: Mon, 23 Nov 2026 16:47:33 +0000
+Message-ID: <20261123164834.3330320-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,106 +107,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: Stefan Hajnoczi <stefanha@redhat.com>,
- Stefano Garzarella <sgarzare@redhat.com>,
- Bobby Eshleman <bobbyeshleman@meta.com>, Jason Wang <jasowangio@gmail.com>,
- =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
- Asias He <asias@redhat.com>, kvm@vger.kernel.org,
- virtualization@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261117164916.2332953-1-phind.uet@gmail.com>
- <20261118012321-mutt-send-email-mst@kernel.org>
-Content-Language: en-US
-From: Nguyen Dinh Phi <phind.uet@gmail.com>
-In-Reply-To: <20261118012321-mutt-send-email-mst@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/18/2026 2:33 PM, Michael S. Tsirkin wrote:
-> On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
->> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
->> vhost_vsock_mutex, but It is also read without that mutex in
->> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
->>
->> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
->> ioctl while the device has TX traffic. For example:
->>
->>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
->>    vhost_vsock_dev_ioctl+0x25f/0x720
->>    __x64_sys_ioctl+0xc2/0x110
->>    x64_sys_call+0x299/0x20a0
->>    do_syscall_64+0xc9/0x510
->>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
->>
->>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
->>    vhost_vsock_handle_tx_kick+0x41b/0x740
->>    vhost_run_work_list+0x97/0xc0
->>    vhost_task_fn+0x98/0x1f0
->>    ret_from_fork+0x2e2/0x3c0
->>    ret_from_fork_asm+0x1a/0x30
->>
->>   value changed: 0x0000004d -> 0x00000032
->>
->> Both readers load the CID once and works correctly with either the
->> old or the new value.
->>
->> Mark the store with WRITE_ONCE() and the two lockless loads with
->> READ_ONCE(), so KCSAN knows the race is intentional.
-> 
-> You make it sounds like it is just KCSAN false positive.
-> Is it?
-> if yes, this should be data_race. If no, document why.
->
+These issues were reported by Sashiko.
 
-This is an actual data race, not a false positive. The value of guest_cid
-can change while the TX worker or lookup path reads it with plain accesses.
-Because each check loads the CID once and either value is valid, the result
-is equivalent to the read running just before or just after the ioctl.
-Even so, plain concurrent accesses are a data race under the Linux kernel
-memory model, and using READ_ONCE()/WRITE_ONCE() also prevents
-compiler re-fetching or tearing rather than just silencing KCSAN.
+None of these changes have been tested on physical hardware.
 
->>
->> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
->> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
->> ---
->>  drivers/vhost/vsock.c | 6 +++---
->>  1 file changed, 3 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
->> index 88a310390eb0..f26c59013075 100644
->> --- a/drivers/vhost/vsock.c
->> +++ b/drivers/vhost/vsock.c
->> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
->>  
->>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
->>  				   lockdep_is_held(&vhost_vsock_mutex)) {
->> -		u32 other_cid = vsock->guest_cid;
->> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
->>  
->>  		/* Skip instances that have no CID yet */
->>  		if (other_cid == 0)
->> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
->>  		hdr = virtio_vsock_hdr(skb);
->>  
->>  		/* Only accept correctly addressed packets */
->> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
->> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
->>  		    le64_to_cpu(hdr->dst_cid) ==
->>  		    vhost_transport_get_local_cid())
->>  			virtio_transport_recv_pkt(&vhost_transport, skb,
-> 
-> Will prevent compiler from hoisting the reads out of the loops.
-> Does it matter?
-> 
+Cc: "Uwe Kleine-König" <u.kleine-koenig@pengutronix.de>
+Cc: "Zhao, Linaro" <richard.zhao@linaro.org>
+Cc: Abel Vesa <abelvesa@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Amit Daniel Kachhap <amit.daniel@samsung.com>
+Cc: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Brian Masney <bmasney+clk@redhat.com>
+Cc: Chander Kashyap <k.chander@samsung.com>
+Cc: Chanwoo Choi <cw00.choi@samsung.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>
+Cc: Drew Fustini <fustini@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Cc: imx@lists.linux.dev
+Cc: Jerome Brunet <jbrunet+clk@baylibre.com>
+Cc: Joel Stanley <jms@oss.tenstorrent.com>
+Cc: Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Jyri Sarha <jsarha@ti.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: Liam Beguin <lvb@xiphos.com>
+Cc: Linaro Ltd <mturquette@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-clk@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: linux-tegra@vger.kernel.org
+Cc: Lubomir Rintel <lkundrak@v3.sk>
+Cc: Lukasz Luba <lukasz.luba@arm.com>
+Cc: Marian Mihailescu <mihailescu2m@gmail.com>
+Cc: Maxime Coquelin <maxime.coquelin@st.com>
+Cc: Mike Looijmans <mike.looijmans@topic.nl>
+Cc: Peng Fan <peng.fan@nxp.com>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Peter Griffin <peter.griffin@linaro.org>
+Cc: Prashant Gaikwad <pgaikwad@nvidia.com>
+Cc: Rosen Penev <rosenp@gmail.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Sergej Sawazki <ce3a@gmx.de>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>
+Cc: Thierry Reding <thierry.reding@kernel.org>
+Cc: Thomas Abraham <thomas.ab@samsung.com>
+Cc: Tomasz Figa <t.figa@samsung.com>
 
-Not much in practice: because the loop body calls non-inline functions, the
-field needs to be reloaded across calls anyway (and in `vhost_vsock_get()`,
-the `vsock` pointer changes on every iteration). I checked with gcc 16.2 and
-clang 21, and the compiler does not hoist the load out of the loop even
-without the patch.
+Lee Jones (10):
+  clk: imx: imx8qxp-lpcg: Prevent stack overflow when parsing clocks
+  clk: lmk04832: Validate child reg index in lmk04832_probe()
+  clk: tegra: bpmp: Bound num_parents by MRQ_CLK_MAX_PARENTS
+  clk: composite: Initialise sub-hw pointers in determine_rate()
+  clk: divider: Avoid division by zero in _div_round_closest()
+  clk: gpio: Reject gate clocks with multiple parents
+  clk: samsung: exynos5420: Terminate PLL rate tables with sentinels
+  clk: tenstorrent: Poll atomically in atlantis_clk_pll_enable()
+  clk: cdce925: Use devm_of_clk_add_hw_provider() to avoid UAF on unbind
+  clk: mmp: audio: Use devm_of_clk_add_hw_provider() to prevent UAF
 
+ drivers/clk/clk-cdce925.c               |  4 ++--
+ drivers/clk/clk-composite.c             |  2 ++
+ drivers/clk/clk-divider.c               |  3 +++
+ drivers/clk/clk-gpio.c                  |  3 +++
+ drivers/clk/clk-lmk04832.c              | 10 ++++++++--
+ drivers/clk/imx/clk-imx8qxp-lpcg.c      |  4 ++++
+ drivers/clk/mmp/clk-audio.c             |  4 ++--
+ drivers/clk/samsung/clk-exynos5420.c    |  4 ++++
+ drivers/clk/tegra/clk-bpmp.c            | 14 +++++++-------
+ drivers/clk/tenstorrent/atlantis-prcm.c |  9 +++++----
+ 10 files changed, 40 insertions(+), 17 deletions(-)
+
+-- 
+2.56.1.750.gf70dc682cf-goog
 
