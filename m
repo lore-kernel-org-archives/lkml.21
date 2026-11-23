@@ -1,98 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477257;
-	b=s0JcyasUmufX1sj8ZZjSIqkdBEWGY6JDynzwsSDM/q5/GDT9QtJlK0euS4+cvuahxy0t
-	 FAGTvryed4xf9DPokPMX5MCcymTYasfTxE+SauzOdll4SgmfP9fipEfK6+c+Zxdfv5H01
-	 0OCjI+sYZKlWSCNcEaLoA/hTp0LztoXUyKo58fOY4KuGoRihy7b90U5O6KZCwpGerirLC
-	 RHAFvQOf3cpQCgH0321el5HTEflQF/PNkXi6I6AnB/xtUhAQJ2GyZ/oYYYxToKUyGMLbF
-	 Oc2eFeHz2ouzomd0tZx2+RcbrTN9/166pVyDbDJogQ3sysTPqaxHaasR+9cRdGVvLzg==
+	t=1795477262;
+	b=oYjnQuM8HNj4DwBq6Y3qVSnE+FEjA2joPLb06OlxeG3uOmkJZwnSdDweSue0mT6jPcyd
+	 xX8VqL53UIBfx4ev9HmQMvdhCKh8rZt9g+tRoSmBathFX0g5MRvwH+QbE1bEunrg9IfSy
+	 UpFnBCjiOCe5hsZnu9gpwTZvPCdJ9vVMnGtzR8BTpy4SEyZNFpck+LhqMx4zXNyJdteF9
+	 4gyfKmnpQMHVxJYdPkqwbxsKSzTKjQnpYVJBd0HP6C4JJVwnAL4twkaQokH14pVlaoeIj
+	 K46xth6WBu6+swMpnohO1zGztW8xZi5/CQcsNcvO7cKiTmcPoUBDOXRIRiFogtz3fVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477257;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477262;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=3HojZ9LpVYk+EaEbek6rtnOZZ9lGu8QqE5B+74nGxs0=;
-	b=VmUlsssgJyStldk5UUk8AzRug5f2CCrgrmX9w+b286e5oXbchn9mI0F1LkeLvnFUhbVX
-	 iA456BHm5tH+br/07BCzXGY5hoFKwx3UTLPoGcLcy3OMgnNo2490/gwy+W56lAA+aU3ru
-	 ca3DBv8yUP+SJJc674umBI1pA2AlfIa9DFGXgY3yi/aVUJJQ2u8UjidKQ90tiJzyu/olq
-	 KecIJ97ouZt/38MRrSi/bZdYdqtwCZMM0VyEsT8Tk+na+2wg31ggPf/xsh6b/VignM454
-	 8LFBSiH85W+j5KyT+d7VOTGvoybrxeVLr6wmQtGq+mhgaoQMheVd/HDqjus91XRiADQ==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=6Jona4pqFJCvkAlDQiwA0g0kWVm7ypHuKu5UjsDxy74=;
+	b=HnX90xMvii4iy1kd4xU9uwUBbtkcwlJkuicLgUCKzFVxZtNesw+Mr023dK3q0FS4LME3
+	 ivSEVomcPZpv2/ZjBZFVyliZOlI+osoDLOhl5tIGrJ3Fh7RpwBgBa9ON3ZwD6ePFzIAo5
+	 WahoV1J7NqNOvIbiGvTH8ZRJDi0kjNeBGIPqgCGZrEPIBpGS25PbTdTsw1ImlfZwP6Co1
+	 3vnWFqRPL8xxFOyCDufUId9lYJE6MlgXhZwuSkzRf6l8qikdZqTX9vuUGTXsqkjgUTSBB
+	 FmXzeFgnQhIgqNU7Y55JoQ7bLSfQBAVGYNXw9EH/etqZkpAgGqtThSUBnLHCcLcYG2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=morsemicro.com;
-	spf=pass smtp.mailfrom=morsemicro.com;
-	dkim=pass header.d=morsemicro-com.20260707.gappssmtp.com header.i=@morsemicro-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EcJNjE8I;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BjL5nyIr;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3FCC606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:40:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3FCC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=morsemicro.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=morsemicro.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C560606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:41:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C560606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=morsemicro-com.20260707.gappssmtp.com header.i=@morsemicro-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EcJNjE8I
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so3070975a91.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:40:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BjL5nyIr
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so26326415e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=morsemicro-com.20260707.gappssmtp.com; s=20260707; t=1795477256; x=1796082056; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3HojZ9LpVYk+EaEbek6rtnOZZ9lGu8QqE5B+74nGxs0=;
-        b=EcJNjE8IXRBcGjKCwKjvUcw5G5Nn7/EynpZU0SjQFHiO89Sd4OWYCmVyI1p8F0KGQn
-         Xrzv8zFJAqIundGy0wrWqECU9k3IsGMuOGx0Qjz19NfJlDUDZSMZo8mHAtSqKGTdli8v
-         in3WxYmrTe8Um8PiGty5HFQYlBeaJF7g5an4ANNR7jfKn+f8BRLiorqhQB8HJ4yQdPxS
-         z3OkFPo/Cqt5v/ZJSGLNfyCvX962guIyxI6zdiHvPHz+ez3JGT8iPudO0cQbOj98N7Mr
-         ZQyMbJ2S/t3DHcavl5yL0fmFuXCLcbqHJCOLf8z69uW7O+3zzoPPW+CEGv794UvvOzgK
-         HRdQ==
+        d=gmail.com; s=20260707; t=1795477260; x=1796082060; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6Jona4pqFJCvkAlDQiwA0g0kWVm7ypHuKu5UjsDxy74=;
+        b=BjL5nyIrKNh+QDVjf8eaQALxMPjdbelbz5KCEraemj4Zj/ingQwfseuZS/YGQakrba
+         ckzOv0cdddsuNSTHBdjHm1t2s9FTpkQjGA0lxx/C00IN6K8mqfmTBloLhubbPehKPmMz
+         LfMjiuMiI1oDQiiaxBqmqTJc5qrD+V/AtCzj/up2MKr2A1tJLjGQ8igIwcAMIqX9/hNX
+         L3f77wnTbGIgzpQzePV43x7HSWaZmIdGlpnPP3iPf9oW4rqhFuTdfroqt5h2fHs+U4lw
+         20ywHLQC+7OtzvpfqF3IgWLJ7DXF7gLaVej5WT+dWs+tiIt9HbN6cS++FOxBIcwsdu/W
+         VJxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795477256; x=1796082056;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3HojZ9LpVYk+EaEbek6rtnOZZ9lGu8QqE5B+74nGxs0=;
-        b=dWjuGtGY7ZnwGvMzClJyFQywxxdfOvzvE3m9PQSls1bd086WtyeRgX0iNwGV5AUi84
-         Qign8Eu3yPZsmtNvAsd67eh2fZXpsi8SY0Y6ALLJigpV5B3JT4wLCNPriT++UiRJQmPA
-         S41+RPKNKC9LCeEb+6Dl3hRYhDW5eJI/lsyUOBXKfRMsfqGmqZMdP9ndV00PtgXN4FzI
-         hdlE8Hi0MDw9WJ21Mn9LLtyhcxLuS2gxGHcq9mGdqOLvRl5Sxw4HxPkP08r5D2s8T5SP
-         VkfwGxxpgDcuyyvCuozlBcWlW+n4u9vEc/G2e1emwj5m+LLzz2d0r9qKt0UYRl3PdSRl
-         S0Bw==
-X-Forwarded-Encrypted: i=1; AL+hErHIKQD3JBt/LeN8EtDpWsDwXyBDprOmUqzoC5xc5kGT7sXaMxmw9jycLb1kOHyZPkfLvhaCup5KyGzZ6GM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8328DP6u59r2aXNQRjRzmmAQ8d6wHQLU2Z7vrNbsAOJpUFDOX9
-	9GSZ0+b5hOHqcCTTIpq+LlFufO0rOLF4eYxlw61gnqNDd3EME+CamfnslcYB0tUXAGjSjyDRLHk
-	xyjR2
-X-Gm-Gg: AZFdTZeilDZwblM0TEcg6iQvNqla0Crpd1bkQw4y4tmKPB7V8LTSZXYdKMd/hnqV6x+
-	7s4hZuff6DOUZRjcWmWa4eZNtL2bQDCxZgq126Oi+/vJRIRhlc5p1cDyQLH4PlLOkKc0Tzm9egJ
-	XERaL6P+qcb/6OoY+J+hLopjenQ4u+CQwZDm5yBwKiFty5UhPuxqG3+P6FzWOv+g+3GgLbqc0hm
-	BCasPLZyBRJN9rHmLHLMrGKJvnwxKFN2mSd0LCmAGWh0VbsgCaqV/BpsS2JvU9S3KeMeyrlsIu5
-	5lTilANocowp3ZPOyRRmr+coUDjuIza4+RhR9pFbBOuLBAhSaH7+YwRabJYlstLK0SiHFk4IBNG
-	xIw5F92xVpeXontuZ35V+JSWz4bpL3BUab+rEoUyoq4bLQjBig7XEvTlIqbKbCTJfnY4d6pdkU/
-	BVOsa4clScudWad/Iuk+JUI9OwcR87uAHCjETCb7JWVjm3HJiksevhV5Aogza7wOiFXXPvThbXx
-	CvEFkAC1f7prMAUHHIXeGYvpoyNEfMzyBvRGZYZAbjeuRBGqAmnT3NJ4fImC1bu69U5YxGohXKX
-	+sG7lHssm0u6L7bpivmrWdgZ9LWyDVScaAkPcr++Aq1L6H8dzFwE6zqiLwh4VvTKvNQHOVcrHE1
-	6B+/F7l/c2Myvq6y3HfvbDjSQgA==
-X-Received: by 2002:a17:90b:278c:b0:3b3:bd07:6646 with SMTP id 98e67ed59e1d1-3b41c97ac3dmr12156450a91.52.1795477256132;
-        Mon, 23 Nov 2026 15:40:56 -0800 (PST)
-Received: from localhost (60-242-93-14.static.tpgi.com.au. [60.242.93.14])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm20170750a91.9.2026.11.23.15.40.55
+        d=1e100.net; s=20260707; t=1795477260; x=1796082060;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6Jona4pqFJCvkAlDQiwA0g0kWVm7ypHuKu5UjsDxy74=;
+        b=jJLb6j5+e90pzrkQSGjfyClLRoiy6sB/WdnsEItwhI8P4rKSAPXfsZf+Uw5mnfe9K8
+         B6l4LwKaZcq9XnYLKM70Zoppk/75rrs8MYAV0oolYIn43WEQy+m2W23dBnl47lq1xfif
+         uBujzlWlzofScirl77WaPquEVJdW7drPuq9PS2foBdqi2Mzj4PSFNYQ4H8V78xPuFXDB
+         up6TpldyfdWc5rs9lolyO1AZr9xWFwqZLjOsGZiMFm0871ASdRev+rLElrvcdyt7/Avy
+         7qAZWkZPJ3XA11tteyEiWhMkCcTYuh3Yr/BHDxtxACI0bN7aYsZ2zjF28dlqUE+alMM4
+         XTXw==
+X-Forwarded-Encrypted: i=1; AL+hErFHHobcqD3ihLYuVga//6vRYp0tf2YHwwnSzg7jCqjg7Z5pnjtqphpw+NSPAtpifFBMFpMED26Tg1LeJBQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+k0LZ0+rvbvaNGNYHkMJgBh9a7eExInOXIffRstZCkOX0bWNGq
+	Y6gXQMX0ZMOo/SgC9VVmLxHujadUIsxuw8yZQU9XWn2cHWVSTg2sHLo=
+X-Gm-Gg: AZFdTZfhcnIhSt3N56DoQMNb3zoqc3l5I1hi10OSdijtQk7YcgaQjTfqkhfJHHqDkPS
+	cMs1zYCxR0U0AM9on7qgfd3th01tm4tY6gMEUdDA9+TGKShzCo2OMsiYnqp4NOiKakUVmEhv0tu
+	rEYIgR2ZXreoa1xlGdJcZuLKlE8ezHaQ4LcdRrtm46kWbIhn3N56Rp10Ipqbo49xA3AUTY3kley
+	C829bEs/s7VrC2+Vo5kTRbF0wTv1by1bbMk1I7/Mg5EfabtfHIotFQ6+3pqv/gcQffWYWSz5QvU
+	Zz6xeeSbmfiDzHOK+E/Yi8kMcMg2TIMYMrblyruUcNYVmUpMR8ZZXDTUo4Mu8PMpmT0IQP4t/iR
+	tEC0LVKt9+m5QHZ3zr+vnZVn/0c2ogCFWh2vA38pVyx3FwuYW5mExp5aRFY4d3wRt5Mr9r1bf/5
+	rbsStDbiE1lhDwacrynMkHrdMXb/ySwdhrJr4CdFEjRKpKuzmncS+cx+PxKRglubgetKr7H2BQD
+	PZnYuriojfvx1IkqUMVO4FU9237+AGz09z93Fh4wJioQeVU/B8uNtRlT4DMUqeEXFoiewqRDdg2
+	xeyp5FQuXtiWpztkZqHQHVKXJNikupToy9eiFx78wS+rpZ3TXFGyBg==
+X-Received: by 2002:a05:600c:6749:b0:4bb:8508:7fb3 with SMTP id 5b1f17b1804b1-4bb8881c3b3mr247978235e9.11.1795477259871;
+        Mon, 23 Nov 2026 15:40:59 -0800 (PST)
+Received: from localhost.localdomain ([193.207.76.55])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm568321645e9.13.2026.11.23.15.40.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:40:55 -0800 (PST)
-Date: Tue, 24 Nov 2026 10:40:53 +1100
-From: Lachlan Hodges <lachlan.hodges@morsemicro.com>
-To: guohongyu <guohongyu@cmss.chinamobile.com>
-Cc: dan.callaghan@morsemicro.com, arien.judge@morsemicro.com, 
-	johannes@sipsolutions.net, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	13057616121@163.com
-Subject: Re: [PATCH v2 2/2] wifi: mm81x: bound disabled-channel loop to the
- allocated response
-Message-ID: <yfxyvklmyq4cglvydogqkoiqsgjvjqy6qhelu2xbxtzgh47zmg@tlfytt2dgncv>
-References: <20261117032227.154874-1-guohongyu@cmss.chinamobile.com>
- <20261120064905.192045-1-guohongyu@cmss.chinamobile.com>
- <20261120064905.192045-2-guohongyu@cmss.chinamobile.com>
+        Mon, 23 Nov 2026 15:40:59 -0800 (PST)
+From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Shenghao Ding <shenghao-ding@ti.com>,
+	Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>,
+	Sen Wang <sen@ti.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
+Subject: [PATCH 0/4] ASoC: tlv320aic32x4: Complete analog routing, Mixer Amp bypass, and volume controls
+Date: Tue, 24 Nov 2026 00:40:46 +0100
+Message-Id: <20261123234050.150364-1-gianfranco.mariotti94@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,33 +102,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120064905.192045-2-guohongyu@cmss.chinamobile.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 02:49:05PM +0800, guohongyu wrote:
-> mm81x_mac_check_fw_disabled_chans() allocates a response buffer sized
-> for ARRAY_SIZE(mors_s1ghz_channels) (26) channel entries plus the
-> fixed header, but then iterates the entries with the firmware-provided
-> count alone:
-> 
-> 	for (i = 0; i < le32_to_cpu(resp->n_channels); i++) {
-> 		struct host_cmd_disabled_channel_entry *entry =
-> 			&resp->channels[i];
-> 
-> n_channels is a __le32 filled by the firmware response and is not
-> validated against the buffer size in any way.  A firmware that reports
-> more than 26 channels makes the loop read past the end of the
-> kzalloc()ed buffer into adjacent heap memory and interpret it as
-> channel entries.
-> 
-> Bound the loop to the number of entries the buffer was actually
-> allocated for.
-> 
-> Fixes: b1906cea00b0 ("wifi: mm81x: add mm81x Wi-Fi HaLow driver")
-> Signed-off-by: guohongyu <guohongyu@cmss.chinamobile.com>
+The TLV320AIC32x4 driver currently exposes only a subset of the codec's
+analog input/output routing switches and omits support for its Left and
+Right Mixer Amplifiers (MAL/MAR) and analog bypass volume attenuators.
 
-Same as other patch, this has been fixed ad130fe51691 ("wifi: mm81x:
-validate n_channels in disabled channels response").
+This series completes the analog DAPM topology and mixer controls per
+the TI TLV320AIC3204 Application Reference Guide (SLAA557):
 
-pw-bot: rejected
+1. Add the missing cross-channel DAC negative terminal switches (L_DAC
+   to HPR, R_DAC to LOL) and output driver bridging switches (HPL to
+   HPR, LOR to LOL) used for mono differential headphone and line-out
+   configurations.
+2. Model the Left and Right MicPGAs and Left/Right Mixer Amplifiers
+   (MAL/MAR, Page 1, Register 9 bits 1:0) in DAPM and wire their routing
+   switches into the HPL, HPR, LOL, and LOR output mixers for amplified
+   analog ADC/DAC bypass.
+3. Add the non-linear analog bypass attenuation volume controls for
+   IN1L/IN1R-to-HPL/HPR (Page 1, Registers 22-23) and MAL/MAR (Page 1,
+   Registers 24-25) using piecewise DECLARE_TLV_DB_RANGE tables.
+4. Expose the CM2_L and CM2_R common-mode resistor selections in bits
+   1:0 of AIC32X4_LMICPGANIN and AIC32X4_RMICPGANIN (Page 1, Registers
+   54 and 57).
+
+Tested on two TI TLV320AIC3204 boards (one wiring IN1 with LOL/LOR, the
+other wiring IN3 with HPL/HPR) across headphone, line-out, capture,
+driver bridging, and MicPGA-to-MAL/MAR analog bypass configurations.
+Since neither board wires both IN1 and HPL/HPR on the same codec, the
+direct IN1-to-HP bypass volume control ('IN1 Bypass Playback Volume')
+was verified via alsa-lib TLV dB conversion and live I2C register
+readback (Page 1, Registers 22-23) rather than end-to-end analog audio.
+
+Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
+
+Gianfranco Mariotti (4):
+  ASoC: tlv320aic32x4: Add missing DAC and driver output mixer routes
+  ASoC: tlv320aic32x4: Add Left and Right Mixer Amplifier DAPM support
+  ASoC: tlv320aic32x4: Add IN1 and Mixer Amp analog bypass volume
+    controls
+  ASoC: tlv320aic32x4: Add CM2_L and CM2_R negative MicPGA input routing
+
+ sound/soc/codecs/tlv320aic32x4.c | 117 ++++++++++++++++++++++++++-----
+ sound/soc/codecs/tlv320aic32x4.h |   4 ++
+ 2 files changed, 107 insertions(+), 14 deletions(-)
+
+-- 
+2.25.1
+
