@@ -1,101 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.73
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795454657;
-	b=pc/NgI8Y3AUKEkwephCehO7sTAx32nOi21hAXYsURtdLBn2uvTSaylOMkCGga5vHJkwM
-	 jGDFA6+fhKznZ5VwE12yaXtHeIkTAVB7LdiXmDKJv0ZvD3gAWUbK375dGGKdYl5eT9D9y
-	 OhFLhmd8pJ0qyahamAAiMX6/VLm/cPm3xMNwSm7WJj50FRb/lPz0jYyleq37/icVB0+jf
-	 OZSWADggsZPXQ4EvcQsz0m1mhFG7eye0115qB4CCO7thTQ5thiD5ITXUUioT+/E/J0EPy
-	 J9Lr64isjgEzvTj7pIxNQfugFUYu07RxE3v4FGL6ImNTlHEB0WsNeb3d4jEBiGUNjbA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454657;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
-	b=5Tr5mnJ5kHiKb+UhKyPEqaxmw29hOJkS/MMSqx/MY4e6sQSaRjWmp+2A4OdfS72WjxqM
-	 NmY0D1bv8a64tWgLGI4iVZMTajOs/smIJYOiwjP+EQ7GVY0Xn0dYs8vpX80/qY4Q7+tX9
-	 VMIQOGgu9Hh2ooPlL0ZMD8FjoHUrzS/OGPo1C8OQzObrxYetF9sQovaD7X1NKNSDIRwAl
-	 A1Eb5l2IxQMxs4DNw5unvl3+wWLr/lGqX8U4pXmyQvipokoOGfCFwHHT8oesHkvN8GuR2
-	 Pt0jgnx+0MowTS88OgSqJyFrJ21BtlY1ffMFNgS0kgxCg7fcTpaDefUVyyEyi2hXhJQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BmFABGjQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.73
-Received: from mail-wr2-f9.google.com (mail-wr2-f9.google.com [74.125.225.73])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795454682;
+	b=0jPbfnDVYO5XPjwZoFLKUCv7spbHG4w6lowSu4m8Nk1jvcu35HYdSzNtj0zRHbwVKAcO
+	 yu//DjoCJCmyqS1a38Cfw1C0xXGnQwqITy0DSmjHZUikfBBTA8KpBQz2fBgAyNpCOVKkp
+	 A7E7Zzneqn/uhCwg0ewPcrLHz9uWaZUe8xwLYdlyH5DsoX0lI1Mp8iFqaih+pyPGDWhRH
+	 1T7RBILseJZgn+U9ps7ztJQiY5QaR7P2h9Yndq5K26SwOaadRmTZAPujEu2ZYgFZcFi0H
+	 GgQidx2JUXpZCvamLzGNwBfZVFQE5+dycmISHh8Gh5x/aBQ/XEbdxZkyp6jwVIGnNkw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454682;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=JOBTC/Bts81uYSw4jWTx0KjcitZ5QkeYRyFe+0Yns5g=;
+	b=NAU782hbz//o0GowHmh74dinWf5/5mjb7+sQYD7NXGX4XQB/+61f/92zmop2mkKMtFE4
+	 wAECtdoDFE0UozduHDxQkpgqW9t6MOAKxX46OkpZvvXAB/1WxgXuAGyKbuS3/DFII+9Aq
+	 MjurNTZ9diRYSNJABqsRxBPOCr3r8bRyD8bm4y1BJ/Km7jIMgkuV2PFlFbNJR+W5U3XkH
+	 6c4l1kMtZlxR1hd5FSK1512+WB2Ge8XFySzuWVUsL9WU55Ok/SSJtfGswEjXAh13EacMq
+	 sGKrQO730g01EsLHEp6+PeO+EeuY4CNjEt+b/nz/0w4OL4nAXU7YmYNEVK5yPGYtoww==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E9US0Gnl;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78FE0606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:24:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78FE0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95395606A31A;
+	Mon, 23 Nov 2026 17:24:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BmFABGjQ
-Received: by mail-wr2-f9.google.com with SMTP id ffacd0b85a97d-4ab565cd9a1so599613f8f.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:24:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795454656; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Y746LRJbTM73s8Rg8aboX7er37tF9tz6CwMx5VVCEZ/uFfc8TdRwYNC7LcJ1fpZOe7
-         bv5BEeRxuJ2WsvxrzAuq7l72whQjBijQyTlca4Gdbrn2fcoxtRvAh84COAUjs7FB2kKj
-         nm56415Cy9UH2sAMk8ArCh0yHA1eNMXugEelcosoR5OwXB9G656PLFmxHIOgxIobDKxO
-         VclzicGmIatGvyr680x5qyWm+nrTGYLIFajARWl5lK3rF0QnGsRv7v4rk/sbzpM1USGr
-         UV/XrsEWAQJzYyvrRQG54p6OCTOjkKeJjwmydKw+95siMnnl3peb6CtdxU64Pwg4IrIN
-         toLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
-        fh=GurP6c4O2AqstbxOsFCmTiLJkjlGUy5zy+4CPyqSrnw=;
-        b=Fd5ltvGcutvrhzKx2dLnK4JswloY2LwGZ0kT0BQenO31muv9CEgvBibslHwkC6etyS
-         /+qpsgiR5Rvi6l+/2Zo6FrZ2QaxzGrT8OikYDNt3cjNTDcxj8neqEleuegg/1u6A9CgK
-         tNHiRbJTlACQZ8slo8dOotpmVUGgwx9GfATLKCLnmUwOaVn447e+YAdHOJ/ZmNErcSv7
-         JA0Ta0Xk2mbBA4K1ya9zXvT9+2Aydm4uVDVUgGcBP3gwF0w6+Fy9+cFkTZ6G33+XD8wE
-         uvi3L4eVVKm4Evrj8ntfPbcoeFm/PobrCfQGknV+vDjNXXLMcgRD+QfWXoPivGPu/hlH
-         az/w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795454656; x=1796059456; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
-        b=BmFABGjQN/9jPTL0iJHghX2wIraWr41uMl7Qq4MnUVd4pECgcDaTE1Uwk/vwqJKgVQ
-         iTywB3HX4c8wLBspJbKKJJ9ZzXuTcrhphw9jEQwH5+XL/z7E/q1Mu02KYV6xeT3QMjPQ
-         vRKEpPeDH3FYp+/QOz+k+2UkSKNs8AieMk2uPfJpWdUlg+E3qO5cHRC0+7Bz4PM5BLL5
-         Bob7VZX7005Uvny6lF6Od6VPlHESixgeVnEyV/9hoPeoIgft89xadkOA0+UAAtEwh/BQ
-         Gv/B7DuvJBMTQckyEdf/jWFYFP1yyfeshaDyhV+9NnAypZ5T+XfKJEZTWXQe3CoUsO5X
-         KFFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795454656; x=1796059456;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ZgEGg9m51G/5DAgpzXL9PswXeGkJCwpX5Mf+qQRbeMc=;
-        b=eytfiNwhyTnojPYkvgRSfd3z4qkp2gBpEnmzIVOJ01OSh+RPFXJ4h880xaw/9Gj8FK
-         UzfZe1/YyIryNpuJaEpep5j29e7LJG9kBRmvJ/gxXcQ4gPxceu8c0+f4IsTJO4STJBoW
-         ZP0BhaeuwQon8v0u6RRRTz0B8plU00u7PjxYRAE55FFeHqhZwy5Xa/WkrSWt2B09V8zw
-         Rv9x5T5rfI2I+fB7LuabyUjT0J1u70mRXvhnvARnzGsiDlEe5tYveaJx5gwdkvKXziei
-         qTgLp7Cxhbyi82NxK9LL+Q5IbcMObMYgGnMpLog2RYml4sLwysXr1Yuvk+0uAJCVt3BM
-         h10A==
-X-Forwarded-Encrypted: i=1; AL+hErFyyeMmflOi6vcw+0VjD8vYtluzGTjDqSoUj5d064+/rezrCyXHHnC0vZRkGQn1gv5r3VoEK6EoIM9C/Yg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+xReHlZChdg274fGZJGpyTl6KJ0fFiCt47TrN+Tx2LqQ2l29Mw
-	Z2Og+xK3CU/AyHb9FBB/MHmf81bQ2pgCvon//JiUw6i0MaGHkKqhisnF+7xbSFqjr1VmAecN8X+
-	g0/NxSfaenZmi0IYwUlLxi39jtydysyg=
-X-Gm-Gg: AZFdTZeKzwqPBiTkQR6Sf50fGb58F8rwkbpSqmkSeXVLaTq4vQ94joPVaOxEQ2IxZ+L
-	26RhN2NJnSVDIUesYxvgMZH4wnywCx4ImkdnDQmnC5aeWlfETmIKjTKjvYbFruxd61vl07Ygttd
-	zwJZqj0zRhICgA56f+7LCPO5OpZaYFjIMqKAshBvIehfJFGdOnPMinnSskV5QwcACtv/WmP7Oc+
-	8k3opFsKwF7ucnZSxQAFVKkaaN5AYDCgh5DGV0Cd+NLsYGLBM8oYT7gC27MM+eerFA6iMIFHoMA
-	SnHPhXMMeIaIUUQ8tjH+4wjvj/9U+BskCtkSUhaIuVy161YKQyvbQulnyrYsUh8NHbJ07aVyYIP
-	J/cbe6JkxOI3jdF++vXsx4MXi6tPr0hJYapaFEqXNc1yz0jEZ9URa+p/CtCJeKETrCUxUd4Pi0u
-	omcMjII10Y0QAC4bXWw2IE6qQ3VH9SKNy2FyTbh0A9549uh3JSwrbsefI6R/E46PtVUSCs7t3xL
-	RgK0FMNpQdtjnPX2X0PkhUNiB3+72MxrQLFFQ==
-X-Received: by 2002:a5d:5e8f:0:b0:48f:bf71:2ad9 with SMTP id
- ffacd0b85a97d-4abb400bcb1mr24309855f8f.41.1795454655445; Mon, 23 Nov 2026
- 09:24:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E9US0Gnl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58EE41F000C0;
+	Mon, 23 Nov 2026 17:24:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795454681;
+	bh=JOBTC/Bts81uYSw4jWTx0KjcitZ5QkeYRyFe+0Yns5g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E9US0Gnlbg5OPz1RjYiRKycFC5TTNqCsgbAp3Qx2QF9f1zsa32qirjMEenlHMPzg0
+	 EAMc1MdUPxrrol/WFNQr+iCqYyjMDwJGoTviuRo11m7S7vYv8BNIIW3A4fTju31Ngv
+	 c2Xiqq7tBwE6MV+wtHqQ2ao8FAG+nXsaycT+4TPCnkmTnYo2dBcrBRYKwuRz13Eayn
+	 sYmLAzxr22Y0VNMcTc4fWjX6KHu2QP7goCb3z+aFA7q64Mrd4oIqkwxsI8QOWBgca5
+	 QXAzGpRhE9Qqn+f+d9wFLD2EchacbFQKjINAD8OJQ0MJT92Y/zzAqaD/+uZPxuT9vS
+	 cUZ5VjTAdvnAg==
+Date: Mon, 23 Nov 2026 17:24:31 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, apopple@nvidia.com, 
+	byungchul@sk.com, david@kernel.org, gourry@gourry.net, jannh@google.com, 
+	joshua.hahnjy@gmail.com, liam@infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, matthew.brost@intel.com, mhocko@suse.com, 
+	pfalcato@suse.de, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	ying.huang@linux.alibaba.com, ziy@nvidia.com, kas@kernel.org, hannes@cmpxchg.org, 
+	riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com, 
+	baolin.wang@linux.alibaba.com, Nico Pache <nico.pache@linux.dev>, ryan.roberts@arm.com, 
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev
+Subject: Re: [PATCH v3 3/5] fs/proc/task_mmu: read the PMD once in
+ smaps_pmd_entry()
+Message-ID: <awR2bZl4CvSuInmk@gremlin>
+References: <20261123163301.1568240-1-usama.arif@linux.dev>
+ <20261123163301.1568240-4-usama.arif@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,96 +65,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com>
- <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local> <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
- <a08e55c4-26dd-4502-9cca-b063387a0e06@intel.com>
-In-Reply-To: <a08e55c4-26dd-4502-9cca-b063387a0e06@intel.com>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Mon, 23 Nov 2026 18:23:38 +0100
-X-Gm-Features: Aa3M54relxQoy3EdiSIPsTaCYulqDgyys0pixRmsp_lAiGy74skMPUx1VNI5t8s
-Message-ID: <CAP01T77AiqVjyTJbHYqXe2v_h+PYzFEe3DeVTc1nyZVnzOfd5w@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
- user address faults under SMAP
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Borislav Petkov <bp@alien8.de>, bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	kkd@meta.com, kernel-team@meta.com, x86@kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123163301.1568240-4-usama.arif@linux.dev>
 
-On Mon, 23 Nov 2026 at 16:36, Dave Hansen <dave.hansen@intel.com> wrote:
+On Mon, Nov 23, 2026 at 08:32:09AM -0800, Usama Arif wrote:
+> smaps_pmd_entry() dereferences the pmd pointer six times. Read it once
+> into a local with pmdp_get(), the way smaps_pte_entry() already does
+> with ptep_get(), so that every test sees the same value.
 >
-> On 10/9/26 08:23, Kumar Kartikeya Dwivedi wrote:
-> >   SEC("fentry/tcp_retransmit_skb") <- attaches to the entry of tcp_retransmit_skb()
-> >   int BPF_PROG(retrans, struct sock *sk)
-> >   {
-> >           struct file *f = sk->sk_socket->file;
-> >
-> > This program was written for doing a TCP related investigation. The first load
-> > of sk is fine, but sk_socket can be NULL (orphaned socket) or stale, so the
-> > second load becomes a mov with an extable entry. Below is the JITed sequence.
+> No functional change intended.
 >
-> In every other part of the kernel, dereferencing a NULL pointer would be
-> called a bug. Isn't this just plain buggy code?
+> Suggested-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+
+LGTM so:
+
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+> ---
+>  fs/proc/task_mmu.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
 >
-> I assume the BPF program wants to tolerate these situations because it
-> can't fully participate in the synchronization mechanisms that the data
-> structure actually needs. So, it makes what (in the normal kernel) is a
-> buggy access.
+> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+> index 540c936aad4714..105c4998eef48f 100644
+> --- a/fs/proc/task_mmu.c
+> +++ b/fs/proc/task_mmu.c
+> @@ -1022,14 +1022,15 @@ static void smaps_pmd_entry(pmd_t *pmd, unsigned long addr,
+>  	struct page *page = NULL;
+>  	bool present = false;
+>  	struct folio *folio;
+> +	pmd_t pmdval = pmdp_get(pmd);
 
-It would be equivalent of doing copy_from_kernel_nofault() in the
-normal kernel.
-
-We allow privileged programs to do the equivalent of
-copy_from_kernel_nofault() on such pointers, for reads only (the
-verifier rejects stores). It is just done by instrumenting the
-program's loads, so that the call doesn't need to be written
-explicitly for every dereference.
-
-The BPF users know that such reads are best effort, and they use them
-with such expectations. Annotating all of the kernel is not scalable
-to determine where it would be safe to allow, so privileged users use
-their judgement on attaching in the right place and using this
-mechanism to do safe reads of kernel data structures.
+NIT: Can this be const or are the helpers not safe for it?
 
 >
-> The rest of the story is trying to fix that up.
+> -	if (pmd_none(*pmd))
+> +	if (pmd_none(pmdval))
+>  		return;
+> -	if (pmd_present(*pmd)) {
+> -		page = vm_normal_page_pmd(vma, addr, *pmd);
+> +	if (pmd_present(pmdval)) {
+> +		page = vm_normal_page_pmd(vma, addr, pmdval);
+>  		present = true;
+>  	} else if (unlikely(thp_migration_supported())) {
+> -		const softleaf_t entry = softleaf_from_pmd(*pmd);
+> +		const softleaf_t entry = softleaf_from_pmd(pmdval);
 >
-> But I don't quite know how this can be done "safely" in a way that the
-> fixups end up with good data or NULL. If SMAP isn't in play, can't this
-> just go reading garbage from userspace?
-
-It doesn't guarantee good data. The guarantee is the same as
-copy_from_kernel_nofault(), i.e. the read won't crash the kernel. A stale
-pointer to memory that is still mapped reads whatever is there now.
-
-Programs that need valid data use trusted pointers the verifier can prove valid
-(refcounted or RCU protected), and loads through those have no extable
-entry.
-
-This contract is well understood by BPF users. If they need to read
-valid data they will use trusted pointers. If not, they rely on this
-mechanism and attach to the right place to ensure the data they read
-is valid. In practice it is heavily used by tracing programs
-collecting statistics and observability data.
-
-These loads never read user memory, with or without SMAP. Without SMAP
-nothing changes: the JIT keeps the bounds check in front of the load as today,
-which zeroes the destination register for user addresses and the vsyscall
-page without doing the load. Patch 2 only drops the check when
-X86_FEATURE_SMAP is enabled, where the CPU blocks the load, and patch 1
-lets that fault be fixed up through the same extable entry, as we already
-do for kernel address faults.
-
+>  		if (softleaf_has_pfn(entry))
+>  			page = softleaf_to_page(entry);
+> @@ -1046,7 +1047,7 @@ static void smaps_pmd_entry(pmd_t *pmd, unsigned long addr,
+>  	else
+>  		mss->file_thp += HPAGE_PMD_SIZE;
 >
-> Also, can you talk a bit about the code generation on the BPF side here?
-> Are the instructions covered by the exception table handler all pure MOV's?
+> -	smaps_account(mss, page, true, pmd_young(*pmd), pmd_dirty(*pmd),
+> +	smaps_account(mss, page, true, pmd_young(pmdval), pmd_dirty(pmdval),
+>  		      locked, present);
+>  }
+>  #else
+> --
+> 2.53.1-Meta
+>
 
-That is correct. Each extable entry covers a single load into a
-register. mov for 4 and 8 byte loads, movzx for 1 and 2 byte loads, and
-movsx/movsxd for the sign-extending ones. On a fault, ex_handler_bpf()
-zeroes the destination register and skips the instruction.
+--
+Cheers, Lorenzo
