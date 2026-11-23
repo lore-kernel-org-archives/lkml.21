@@ -1,111 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424566;
-	b=dXhv/tTY2JHbJkyfq9qOHvAUljDM3QCO4jYqRfcXZUx1JBEX4QTRVmrDv+517/1hMCyv
-	 kmJUucDCJhwGvsSdZ5VWrarM9FT0tezeXNEOH4uZdv9Jl0RLZ0Oj7nrztJ8m6VjuYAO2n
-	 1vB7p7/5PhYOFL8j2m2CyQJpwfIeNHt1jVBaYtJwIgCtWg8576IcENrS+Fa8L5uhr03cN
-	 P4q+J9SQWU4c6Cif97uWoUOeO8qHqYswKAc3QfJkojkc7gUBS1GoTCuD12X1U3hr71/Z8
-	 CYeXxkt3pB8RxPiq0ZFTT80yXUvszQT0VoLSEN+VcVGAJ++dCBxJXB8CEa/NOC7RNow==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424566;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=mSMHW4SmZ7OYr+vBAy7Z/uvi3mUnomgOnauIX7oa3es=;
-	b=UMA5KJXxQF9y5bVh+rCLu5SQajhduX9SZZGJloVbwasxFy7F1jGua/SEUiR/HM5qGv7w
-	 Z9rLC7SYQbKdkqzdmjSfShjj3xKHupatinYERpE7g7x8aXdyfjzrSyX2CYj6o4JY/Y9Ry
-	 +wn7p6zDTOyzibwBVSuzcSRGfIy8BL8YD5CeGlv8Hj43wIN4/1KYkssKXPOpQ/315FUIi
-	 C0sr8KVYxPz0iuKivBoNwrkFlwBoSqI01zoIEc/BiL4rdMiZN5iv7TYe3edMctPF52hNq
-	 Nv1r7zAKxM3QeOMCROhXmbRBhypIfF2rNiyl33J22uvpV3GGJLXfCXHQyExRSMhe0Mg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=fpxlC60b;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=4MkzlCSf;
-	arc=none smtp.remote-ip=103.168.172.154
-Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.176
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795424567;
+	b=TCjxZdLlZvJl7dIs1/HsIohBPE5Q9vFL/I763OJTINhqiS5Pb9Gkf9YlrbAbWUBFcMQN
+	 l9k40yb0SgjE/SWWT0kLejAZkc29xp8Dnz4UTeTfiOdEI6pujyw4qnUvah1nziZiQlwVY
+	 KGPaR+hzJoLdPt3J5Hh/4p39FhMOZGorkrtkSadNbyCU4kTeCdY/NwJJEX4hGaUtrVfVz
+	 IjVafasobYy7ic0OLACFCiWlee9/nLjSqyLnPuSrnHBRK3jlwZGhllEj3+h0H3iW7CE/I
+	 kN3uHUmHFFiul06vpw1QeSa8vrKIaG7fyWXtLYFGRHE37toiXZUU2ur8XAK0QPsAvGQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424567;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=Lk3ClGXLFeejrzB80QpDKmxthQvAkXy7kfjeBeRziuI=;
+	b=oRazyNOVgxAuPfbJMAB2k8sAUW+hWY3csgb7cYPb1R5thw6tZv9FMAV5/FAj1dExNO3F
+	 QfpDudOupTpOuqhwt/7HLELdWca1k1+C/F0dsXSFqYHTu6+hpdP8LD1WlPgZXSMhGKKaP
+	 eHqPXSCb0OndbL77RpLNK5N4rwOxkOvzMhgTBmYV1KWhQR+P++dWUZ/kCpMQDDxFzYZ14
+	 x0B6tgYQi8JgrFbChvVQYkAC2M/qkowBQa2RX0aA9fHenTnVKwL/1lEN1jwRF51gG44pK
+	 RYaOBb5ToHY8ddavmwKddxn00EOIV5H6+tW4s56L1foWtDij6Rf3Vni8taeOPCUxe1A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=haFZeWPE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9E9F606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:02:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9E9F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F128606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:02:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F128606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=fpxlC60b;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=4MkzlCSf
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 73FE81400225
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:02:44 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 04:02:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795424562;
-	 x=1795510962; bh=mSMHW4SmZ7OYr+vBAy7Z/uvi3mUnomgOnauIX7oa3es=; b=
-	fpxlC60bM6d+JfyxhTLEzy0J2w82OoNEjAhij7fAfezI05lGutEljsMTcwKO2VjZ
-	Q+d3h0FtJbom2lLxYhTs/3vNwko/hBKxLSWvtW4In7hc9oFVRBg2ThIQ9wHKQnKU
-	cAJPBvxMtl6LVSfEij94+l8tlVRhJZILs8P1XQ5aVFDX6l6eY6wAjDlG6sVOpk/h
-	aKEFd6CGChKK8TqN+3JaUmCsKYWGA8Wk2KcRfv6Yyjw7HeKg0tGNWbeYh8UGMH+w
-	kmgFlASoXWakyk6MIJ4ikXMNlpuSXAIld0PHfd8MD6jrd7/9mRGwNuBEnvCdfbg5
-	Lju6tOnMr3Jevf8q89RRDw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795424562; x=
-	1795510962; bh=mSMHW4SmZ7OYr+vBAy7Z/uvi3mUnomgOnauIX7oa3es=; b=4
-	MkzlCSfhwa1uB9QClYolpD7GussMQue68b+1FvyoDyyPXi9/WbU9HuErLnp94iPO
-	u4KPSoAjzG0tDvI7I94wm9XXNG7R4pDciPQ4LDEnC0XQkCqlwUvDmqXIYyH+/1uN
-	f/9AaHCsCkZruiPl1B4Lqs6Re5yFlad/H3i/A7orewTd/NtnYzcoptGIt3//YvGM
-	KLNAVMONmpvZj2d7JiiOSpDy/r7Uw2zesJvGR/8J9kZBalmkorWDAEahH+QEu+Pd
-	cJtnywJIx95u63j5bpBVRi0kWtLxwZ5SWoGL/VH6GmKORXR1DuTZZGszSP728g9z
-	dZGB0x5Xfuw3JKx2StO3w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795424562; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:c9BizuFYRsT2DbAYQCfczONqjLvuN4yuiGNs4S48UxaM9oz
-	FVc1RDDzvOOer3SJrfsMjg6b5KYWmdpTdp1dtZqCv+kVAkHVyxJVpHyFqoRiWHYr
-	qPyaqmW6zzFdRnvZmWQKFxcvYnwr1w7+YHoFOtaw7n4bX7KCEiS2DgsvfSVz0RiI
-	baXcmTjKFeGQS0B/WVwLZHb2rDPz772+8D4mqq75z0U1I2gZo4sSVC452hCIPMPD
-	FST4dAszYC81ZJr8oIDfP5WZuhU7lQQ3f5YbNEPz1mIpfwhFXCtOvbHXLbLCSuUE
-	kPyr6Pna4Xl6k0RD8v0S64C4+LiptrTUa9ypzYA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:tmvIL/cahxEGzpB6SnMH6xFzrQqc+W+Phe/Jt9mB6VQ=:7qk2guwvbFcpSziYnVgksq9uHBCrUvs17Vv8cIfjMUk=;
-X-ME-Sender: <xms:LwEEa0LA4UbHIUGPBftaT23VpD8V3IZts_k4uNWFIonSwe3zzsCc3Q>
-    <xme:LwEEa-_7QFXV03S3sNVlKMlduOEUiBTd-w-uMLwPmnIBH25QKgn5Pxu3QIwCi5Kyf
-    xes0267U1_RXfz5yfOaOTSlhbOX9Ln18YmiWUZGVXiQIjXXz3nL_Ccf>
-X-ME-Proxy-Cause: dmFkZTE9Y3bDyglrTkB27cTrD9anESzEMkv2GhLbk9MHV7VdB19BLh3aknxC8pv/OdT0OO
-    13hymE4x0RdBa5v+V5RCo0yMGUpzt9F/qDF3NZJqw2MaE6jqmcQzg0eV2s7or+C1wsojf/
-    sWfzHbrqscDbDJ1U55BDcx2bmx4OK6L4AMmt0jgq25z7ncnkK3LD+yhe6e5TgJEtoGfJYi
-    08ByI6j5c3uoEM2+qTpW1HUZ3ZeshsCNXR6lFgU931+f6qEBHls58W0AEce3/fTcRIcZq6
-    nqiyeVA29+RNZyMXzSEj8qgVYDLaXR8k3quLuO7bXzsEGfAbAZiIrR8e6lwzwwVL/pY/EC
-    de8Rbs5qrJbdz7TUsow12VuQihh9nTJWMJNJfbIZfh7hl2PA8w7YD0+6/erN5zb+8oUCXj
-    cTGEvacABfmp3siPPM07gIWsvoqX4IRo59tIlNJzrSIgqIp+pb+WDQf1jfU9Ovrjc5vSvn
-    Vmwx/+ue74p+1REUDJ7tIQcLRZ0IxqPMNeEHVQqwh4icDMF/oS7gOYGuFkRrzmVbb7uGnb
-    uqwG3JH0V2krDmrG3l3bRtjehOwgezpLwiMpuQS788fTUWXA0x7FO43B8rhqYFWvLRZIuF
-    RJSk7c82AA/QpeA4rW9q5pKl2TdK6VOVJzxhbLYJbn5lfublEGxUH6MI02rA
-X-ME-Proxy: <xmx:MAEEa2jekWHxIUONRMlo4W2Mg_O_99PuKGJfz1XlAUYAPzAwS1s2_g>
-    <xmx:MAEEa09qBifBzy-WvlfkR2UfbrOhEZb1JMVOSHw61w5SEXFQsg_Hzw>
-    <xmx:MAEEawZ_g9s9PsIxtitF7WeuUYtKbjb1ZVkZwcNjKqSENNZkQaOgZw>
-    <xmx:MAEEaz3UZzFnvNskrMHZN30xmwBI6EkrpINJ3sHgQfJ4Yf0l6cA8rA>
-    <xmx:MgEEa1jMiPI1Hk28KL-zwW5wVlzHsd5sOmBQyZPRoc4VsiE6YETYyj9O>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 4AB3C32A0099; Mon, 23 Nov 2026 04:02:39 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=haFZeWPE
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-380b40312e2so7376732eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:02:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795424566; cv=none;
+        d=google.com; s=arc-20260327;
+        b=crF5tyIZ4OyFQ9XwZEPaxSItwdBMf6YpU4RlSQaLohozg9cKaoHcc60kTlOaS09Yj2
+         Y9oIWZjLH6PymnH1hxaDyE3nB+Jhdyev2loo8Mfnc4Ty4e32a74bMTQlnReagCvuDGDX
+         9EyfGTHFaSZaqwGURTgASui4vmpS/mcJzSt2/3qcAI6Rj2bLFi/ftCW/wjogTd9fA7Mz
+         zCkcFmQQ8/EOCsD385aVcvk+k65vn4sIx00YbCHwgkEqrl1r0l/P/zGtT0d14QN9NxtK
+         IRPMi8OWARSkL2uvaftgVD075RLfvXh4A0ct40R+aFIxSp1/7vE6nOM79qcsLXWVkq9T
+         kInA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Lk3ClGXLFeejrzB80QpDKmxthQvAkXy7kfjeBeRziuI=;
+        fh=oIHnbc4N7VywgJIcj/vqXIl+lwVaJanXgE0XshX1abI=;
+        b=p5z41lJTFpE9zCw7zlRvrOaOMQAAHjXP2X8NYw16hx/874cDRLQXjj3ItIKSRL6TgT
+         yArGZC5MttuPAL2kb2JS76rQGLZqeOwHqv5F2yPgr1FsSS0N0upCu/hUa05ZGX3B9xAO
+         Tb0YlBJrBUimaWuFhgkKE3BLGN2ATH44lCH221KMVMjfBmjioGDAMKaCcBB8FcFOgGvI
+         E50/r3b+Sm1L6GU7amC93yfJls7L0u2wnMC02Bd7G+SyeAygE2X+BTbNEv/cXUhVr4iT
+         sj1OMA/D6ynQHjskbKY8E9Y6qZXFGKtvezCGM17OnHD4ATv62UUjqFZswJyX9jX1r+zV
+         IB8A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795424566; x=1796029366; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Lk3ClGXLFeejrzB80QpDKmxthQvAkXy7kfjeBeRziuI=;
+        b=haFZeWPEpW+w0I5PD6ToXFKJJ8pe+QM3mmiik1oc+HNHPSgO1jMB+7YAAid6Dtf/pX
+         7XcY8gAhR9ISZpYAQK6uzbpEbntXD4bVkikpMpwaBFuxQPmTD07Zgc2mdVEkSPCFEA0Z
+         2BQWwpcGYUHXB0mu+A9Hr+SnRvvdOd8m5CMuKHWwgiMvKadHGWwXptCJwyUXWVzVKKqx
+         zo4BGGbxDV1PDHZ+qp9PK65SvqIxXrO/tymZWgmxcZ5KhqhqVkINA6AnZyNKj9SgjaRp
+         K2RcZZ3JO7Ur5xatAzFOtFQTqF3A0eY3oy3tGJY3NvoHbVCai/BItwwQ8olHPl8hPidn
+         mW9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795424566; x=1796029366;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Lk3ClGXLFeejrzB80QpDKmxthQvAkXy7kfjeBeRziuI=;
+        b=Ul7HDneNxJbW+U16ZnR5Iq16ZnqPZr2doDHAM5Q2oDpX/qV56RMrYIO+un3YjjJoEz
+         RcnW3VMLQzgxCG14ZAGgS5yH19pv8XDro0yd39tz2dZ7dCvfGbN3x3VFzN1dnCvpJ16L
+         WysxuBOmtQsfbhEMMwO4xmF4lGrLgq5kNxx0Oj6MG4xBUUCmguiW6Jwm8vjdnJ69k7ST
+         FXu8lP5YOiGT2I9fs+dEDYxSsurpT9CJyDxVtYP+cXKRrM7smb5BonnhEBQZSBU4VQct
+         Q4iHdkofFeDa88YeLgkzAkE+ZrU/iuOMhLZIC56MQAWkM5Nja58xhk7BP/NWfF1yzbXZ
+         phkQ==
+X-Forwarded-Encrypted: i=1; AL+hErEPoewZE0WEvWMtzmPe+cVswkeh0fEMT6NtygvAyrc/gBlDCcx664hSUOGPIfX027pAJPpzyKCrlo6sbww=@vger.kernel.org
+X-Gm-Message-State: APuU4Z//wPgLBMYnIhE7J9msM6SHBHoN1TUv078Ysl50avA4j/Kl3LHb
+	wtnVru/qYFvuwX3nze1OX3w48x92ZoaHkHj/fEJRVIIJ+QFjazsloRIpGBVvt9zFu3bjeq6dpDg
+	NEQ7OsdU3d6rtYqNbFbaKlz5oVr86+rVxuMAcm44y
+X-Gm-Gg: AZFdTZdkc9LLmldRrSirZJtABD88aMapH9d7u7MpgWvnkGo5YlrK1jjYZk4RXgZZyJa
+	DgUdRyfr//SB066JGDW7EHOT2JpS7+uR5xSmwMAz3pfjfkbKIn4BHIlaswbpWCTFuY+gfQnk0QW
+	ehes3oq0AgSU/q8Drh6sVByxRQXa9hqc1ZvcM2ZpcymdaTptAYIEfcgY6LoNqzP81Fxo4NTEdV6
+	yNdrl6nOZe4VJUtvXWZ9D8v34Yo0iUbbgYg6UyG2NuBcWBEP1XXj7mGcl54dXAUvx7QbKg00FsM
+	p7XU2z4+8JV0wLnw02amsMiynzRvO3i7B1g0maf2Jreav1FlFsyL5nkXUmSO7pgv1Rmq7bN6Eei
+	HDGCmnWPk8GmQio0HFhUDRCxL6ZBOjlPV2fQgXk8stvg4IZnyALtIO2ssv4AIZ7LJC2un
+X-Received: by 2002:a05:7301:3f0a:b0:384:8f9:bbf6 with SMTP id
+ 5a478bee46e88-3857180d3b2mr18589586eec.38.1795424565611; Mon, 23 Nov 2026
+ 01:02:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,35 +103,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: APJ_bPFyyT9Z
-Date: Mon, 23 Nov 2026 10:02:18 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Vineet Gupta" <vgupta@kernel.org>, linux-snps-arc@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, "Dinh Nguyen" <dinguyen@kernel.org>,
- "schuster.simon@siemens-energy.com" <schuster.simon@siemens-energy.com>
-Message-Id: <65dc77ce-395b-44b9-ad03-601d06c1040a@app.fastmail.com>
-In-Reply-To: <20261123000645.2097033-1-vgupta@kernel.org>
-References: <20261123000645.2097033-1-vgupta@kernel.org>
-Subject: Re: [PATCH v2] ARC: stop linking libgcc
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <6b039d4a.a481e175.27cf24.0013.GAE@google.com>
+In-Reply-To: <6b039d4a.a481e175.27cf24.0013.GAE@google.com>
+From: Marco Elver <elver@google.com>
+Date: Mon, 23 Nov 2026 10:02:08 +0100
+X-Gm-Features: Aa3M54ryWW6E5eniKyIB92OCNHEPzmjvoG_MICiuqBpgAvPnFl_YAqPfawxIrG8
+Message-ID: <CANpmjNPn5BRZsm0KLgt6hyN-St-B5xsuwhN4CNgc7dbvxBxOvw@mail.gmail.com>
+Subject: Re: [syzbot] [exfat?] KCSAN: data-race in copy_folio_from_iter_atomic
+ / fat12_ent_put (6)
+To: syzbot <syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com>
+Cc: exfat@lists.linux.dev, hirofumi@mail.parknet.co.jp, linkinjeon@kernel.org, 
+	linux-kernel@vger.kernel.org, sj1557.seo@samsung.com, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026, at 01:06, Vineet Gupta wrote:
-> With the generic lib/ versions of the shift/multiply/compare helpers,
-> the 32-bit divide routines (only needed without hardware div/rem) and
-> clz/ctz all provided by the kernel, and the 64/64 divide and floating
-> point routines gone, nothing in the kernel or modules resolves against
-> libgcc any more.
+On Mon, 23 Nov 2026 at 02:56, syzbot
+<syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com> wrote:
 >
-> Drop it from the link so that any new dependency on it (e.g. a raw
-> 64-bit division instead of div_u64()) shows up as a build failure
-> rather than silently pulling in libgcc code.
+> Hello,
 >
-> libgcc elision can break -Os builds as older gcc generate millicode
-> thunks: disable them with -mno-millicode.
+> syzbot found the following issue on:
 >
-> Signed-off-by: Vineet Gupta <vgupta@kernel.org>
+> HEAD commit:    f802b6558eb8 Merge tag 'xfs-fixes-7.4-rc4' of git://git.ke..
+> git tree:       upstream
+> console output: https://syzkaller.appspot.com/x/log.txt?x=17d97cd5580000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
+> dashboard link: https://syzkaller.appspot.com/bug?extid=c1b4f0f31099fb2324e2
+> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+>
+> Unfortunately, I don't have any reproducer for this issue yet.
+>
+> Downloadable assets:
+> disk image: https://storage.googleapis.com/syzbot-assets/2b34daaac71e/disk-f802b655.raw.xz
+> vmlinux: https://storage.googleapis.com/syzbot-assets/1e58ec148c51/vmlinux-f802b655.xz
+> kernel image: https://storage.googleapis.com/syzbot-assets/465e72cdcb06/bzImage-f802b655.xz
+>
+> AI-generated root cause summary:
+> fat12_ent_put() in fs/fat/fatent.c modifies FAT table buffer_head data
+> (fatent->bhs[0]->b_data and, for block-spanning entries, fatent->bhs[1]->b_data)
+> without acquiring lock_buffer(). Because block device writeback
+> (blkdev_writepages() -> block_write_full_folio() / write_dirty_buffer()) relies
+> on lock_buffer() to synchronize buffer modifications against in-flight write
+> bios, fat12_ent_put() can overwrite bh->b_data concurrently while the block
+> driver (here loop1 via lo_rw_aio() -> shmem_file_write_iter() ->
+> copy_folio_from_iter_atomic()) is reading the buffer for an ongoing writeback
+> I/O.
 
-Thanks, I have updated the asm-generic tree to use this version now.
+>  CPU 0 (vfs_write -> fat12_ent_put)       CPU 1 (writeback -> loop1 -> shmem)
+>
+>                                           __block_write_full_folio(folio)
+>                                             lock_buffer(bh)
+>                                             test_clear_buffer_dirty(bh)
+>                                             __bh_submit(bh, REQ_OP_WRITE)
+>                                               -> queued to loop1 (BH_Lock held)
+>
+>  __fat_alloc_clusters()
+>    fat_ent_read_block() -> sb_bread()
+>      // bh is already uptodate; returns bh without waiting on BH_Lock
+>    fat12_ent_put(&fatent, FAT_ENT_EOF)
+>      spin_lock(&fat12_entry_lock)
+>      // bh->b_data[0x18] = 0xff (low 8 bits of new)
+>      *ent12_p[0] = new & 0xff;
+>                                           loop_workfn() -> lo_rw_aio()
+>                                             shmem_file_write_iter()
+>                                               copy_folio_from_iter_atomic()
+>                                                 memcpy(dst, bh->b_data, 1024)
+>                                                 // reads new ent12_p[0], old ent12_p[1]!
+>      // bh->b_data[0x19] = (old & 0xf0) | 0x0f
+>      *ent12_p[1] = (*ent12_p[1] & 0xf0) | (new >> 8);
+>      spin_unlock(&fat12_entry_lock)
+>      mmb_mark_buffer_dirty(bh, ...)
+>                                           // Torn 12-bit FAT12 entry written to backing
+>                                           // shmem file (or checksum mismatch if
+>                                           // BLK_FEAT_STABLE_WRITES is enabled)
 
-     Arnd
+> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=c1b4f0f31099fb2324e2
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com
+>
+> ==================================================================
+> BUG: KCSAN: data-race in copy_folio_from_iter_atomic / fat12_ent_put
+>
+> write to 0xffff8881074bf418 of 1 bytes by task 4984 on cpu 0:
+>  fat12_ent_put+0x74/0x180 fs/fat/fatent.c:168
+>  __fat_alloc_clusters+0x571/0xdc0 fs/fat/fatent.c:542
+>  fat_alloc_chain+0x25/0x30 fs/fat/fatent.c:610
+>  fat_add_clusters fs/fat/inode.c:109 [inline]
+>  __fat_get_block fs/fat/inode.c:156 [inline]
+>  fat_get_block+0x276/0x650 fs/fat/inode.c:191
+>  __block_write_begin_int+0x459/0x1070 fs/buffer.c:2043
+>  block_write_begin fs/buffer.c:2157 [inline]
+>  cont_write_begin+0x4af/0x6c0 fs/buffer.c:2519
+>  fat_write_begin+0x52/0xf0 fs/fat/inode.c:233
+>  generic_perform_write+0x198/0x510 mm/filemap.c:4407
+>  __generic_file_write_iter+0x9e/0x120 mm/filemap.c:4524
+>  generic_file_write_iter+0x77/0x1f0 mm/filemap.c:4550
+>  new_sync_write fs/read_write.c:575 [inline]
+>  vfs_write+0x57a/0x9b0 fs/read_write.c:667
+>  ksys_write+0xdc/0x1a0 fs/read_write.c:719
+>  __do_sys_write fs/read_write.c:730 [inline]
+>  __se_sys_write fs/read_write.c:727 [inline]
+>  __x64_sys_write+0x40/0x50 fs/read_write.c:727
+>  x64_sys_call+0x154e/0x2550 arch/x86/include/generated/asm/syscalls_64.h:2
+>  do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+>  do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>
+> read to 0xffff8881074bf400 of 1024 bytes by task 33 on cpu 1:
+>  memcpy_from_iter lib/iov_iter.c:85 [inline]
+>  iterate_bvec include/linux/iov_iter.h:123 [inline]
+>  iterate_and_advance2 include/linux/iov_iter.h:306 [inline]
+>  iterate_and_advance include/linux/iov_iter.h:332 [inline]
+>  __copy_from_iter lib/iov_iter.c:261 [inline]
+>  copy_folio_from_iter_atomic+0x73a/0x1050 lib/iov_iter.c:491
+>  generic_perform_write+0x34b/0x510 mm/filemap.c:4425
+>  shmem_file_write_iter+0xc5/0xf0 mm/shmem.c:3701
+>  lo_rw_aio+0x6e9/0x7a0 drivers/block/loop.c:-1
+>  do_req_filebacked drivers/block/loop.c:-1 [inline]
+>  loop_handle_cmd drivers/block/loop.c:1847 [inline]
+>  loop_process_work+0x569/0xb00 drivers/block/loop.c:1882
+>  loop_workfn+0x31/0x40 drivers/block/loop.c:1906
+>  process_one_work kernel/workqueue.c:3495 [inline]
+>  process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
+>  worker_thread+0x56c/0x770 kernel/workqueue.c:3659
+>  kthread+0x248/0x2a0 kernel/kthread.c:436
+>  ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
+>  ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+>
+> Reported by Kernel Concurrency Sanitizer on:
+> CPU: 1 UID: 0 PID: 33 Comm: kworker/u8:1 Not tainted syzkaller #0 PREEMPT(lazy)
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+> Workqueue: loop1 loop_workfn
+> ==================================================================
+> netdevsim netdevsim1 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> netdevsim netdevsim1 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> netdevsim netdevsim1 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> netdevsim netdevsim1 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> bond0 (unregistering): Released all slaves
+> hsr_slave_0: left promiscuous mode
+> hsr_slave_1: left promiscuous mode
+> veth1_macvtap: left promiscuous mode
+> veth0_macvtap: left promiscuous mode
+> veth1_vlan: left promiscuous mode
+> veth0_vlan: left promiscuous mode
+> netdevsim netdevsim4 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> netdevsim netdevsim4 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> netdevsim netdevsim4 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> netdevsim netdevsim4 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+> bridge_slave_1: left allmulticast mode
+> bridge_slave_1: left promiscuous mode
+> bridge0: port 2(bridge_slave_1) entered disabled state
+> bridge_slave_0: left allmulticast mode
+> bridge_slave_0: left promiscuous mode
+> bridge0: port 1(bridge_slave_0) entered disabled state
+> bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+> bond_slave_0: left promiscuous mode
+> bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+> bond_slave_1: left promiscuous mode
+> bond0 (unregistering): Released all slaves
+> hsr_slave_0: left promiscuous mode
+> hsr_slave_1: left promiscuous mode
+> batman_adv: batadv0: Interface deactivated: batadv_slave_0
+> batman_adv: batadv0: Removing interface: batadv_slave_0
+> batman_adv: batadv0: Interface deactivated: batadv_slave_1
+> batman_adv: batadv0: Removing interface: batadv_slave_1
+> veth1_macvtap: left promiscuous mode
+> veth0_macvtap: left promiscuous mode
+> veth1_vlan: left promiscuous mode
+> veth0_vlan: left promiscuous mode
+> team0 (unregistering): Port device team_slave_1 removed
+> team0 (unregistering): Port device team_slave_0 removed
+>
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> See https://goo.gl/tpsmEJ for more information about syzbot.
+> syzbot engineers can be reached at syzkaller@googlegroups.com.
+>
+> syzbot will keep track of this issue. See:
+> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+>
+> If the report is already addressed, let syzbot know by replying with:
+> #syz fix: exact-commit-title
+>
+> If you want to overwrite report's subsystems, reply with:
+> #syz set subsystems: new-subsystem
+> (See the list of subsystem names on the web dashboard)
+>
+> If the report is a duplicate of another one, reply with:
+> #syz dup: exact-subject-of-another-report
+>
+> If you want to undo deduplication, reply with:
+> #syz undup
+>
+> --
+> You received this message because you are subscribed to the Google Groups "syzkaller-bugs" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to syzkaller-bugs+unsubscribe@googlegroups.com.
+> To view this discussion visit https://groups.google.com/d/msgid/syzkaller-bugs/6b039d4a.a481e175.27cf24.0013.GAE%40google.com.
