@@ -1,43 +1,43 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.75
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.63
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443938;
-	b=FpHxRKEtJoQpBfSITFb20etlU9mG8VCDsOac9HogNl5TSgtlHPCuDXCy84U8Bj1Epqbc
-	 6dxGTn/Iwb1bCva0VPhpPvjcgbDbpshklu+RQrB2gIvzYeTlUXEYtOG0zcvbEe1Msttvj
-	 tefgbNrTG4b4gIpnRviTFhObVCRE/jb1oEougf9WWJmN+HqI63wHCOvwlkvPuhx43f/i5
-	 gAw1tBcEB7K8QBDhQrwH4KNG1OfP/STuBp1y0dHxUeBv+tTHw0upA53IcO8zIFXtSeBks
-	 vJRKpLfS3USDHUn531zICsT4gu9FNZKWS+mHfUVCDGXp6cTuSmzCzaAxSR2pdlBRjYQ==
+	t=1795443939;
+	b=1YElu+2cMl5kVQzGRRlI3lgcC+TGTGR131GY0lJAM7rPjm6Ra03m6L55uNRIxgvOYrYY
+	 CXGd8CCs4c9a+KAuiQCISBwezd90ZbvwA7C3GCmN9ffdgVR1Wsx4XaNlvnIDjbpiYU4gY
+	 lfWYNLebon7kxI6g5HvKCJQcgFYD81OJWxtpV+Dyrprx/y9ubkfrKBhbbVfv2xmQI7SMi
+	 ecvSi4QLfy8pk5mEEHcSEADVr2Vf66oDmPvK0pGo/LWfYpouHq+N7A2tKOjZm7lACxKfo
+	 d86RizSES7dGoRtfntkvOU3CZCiwefiKIw8DsCIQwrrcGrWW8D1Y+1FvxOzwAi3RzsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443938;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443939;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
 	 DKIM-Signature;
-	bh=s993QDJ+0cBPgokfj9se/N7j69mh8bQ7H38pHF7uEYs=;
-	b=TNKfxCp71dHdSp+dmqaI3tSP1kj7zvPf/zTWOPNvm4SL37hFgY+Hf3fCDoyM4e6KsbJt
-	 D2MjathKWevYSBqybGk1/qewJrEmybOFT5kP9qVZQkphMaES4uKsilYIhJutIZwlOa5O5
-	 3cLVUNgLH3gnw8JaXVh6mgojFOBoMxEq0JM0iIZd2IB71RQTpBLpmjH6cq+9hakCdNvNF
-	 Wt5f6Z+vdZW+66ybbo4bcIS7i840ZPSL2r6VINJ+Y1asBpTfTlVxFW9S2Q+WebhdfWEEA
-	 yImLuhDiJEDRhrXS0OoqngOZd0inJc9WYdsRuoErRUTTBSs1xj9QM8TPdJDjo/W7oWA==
+	bh=sB0hPTHRDwA3P79tcE0bF9Aq9M5h4zOzCASvBHfpxy8=;
+	b=2BZm3DVI0Wm/Tek7iICkhCARB/QKEB/Ky0clX6iBwA7XAndxaOJobFnGv6Pr9pGScaDX
+	 SfXmQa/VtIb5Y8HFzPsdIACJaCPF2gb5B1z2e1bpr/35HiXdoW0Vi7IJ1xPtPVm+jeXME
+	 9xdx9CLLEPLNrVovF6JNoOHIt8jLDGuE5irA6LMW8rLfeW02HImAJopz4yTmsmbgN6H/r
+	 mfsiyQKIwbJax+dC+9W5Gzs+2sbW+FRpj2Pec/DcGufqrQ567W/aaw4OsqWQNUeDcOu7E
+	 guzoHC5ID5Zg1DfpKPORiz3mwF/tG4ROSAh34ZfU0G6UU2sSrwNoQxWcQZU5gTWgTfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=poczta.fm;
 	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=C3I7JFgh;
-	arc=none smtp.remote-ip=217.74.67.75
-Received: from smtpo75.interia.pl (smtpo75.interia.pl [217.74.67.75])
+	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=cYjCJzpj;
+	arc=none smtp.remote-ip=217.74.67.63
+Received: from smtpo63.interia.pl (smtpo63.interia.pl [217.74.67.63])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF217606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:25:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF217606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25005606A33E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:25:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25005606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=C3I7JFgh
+	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=cYjCJzpj
 Received: from localhost (unknown [80.68.231.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
 	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Mon, 23 Nov 2026 15:25:33 +0100 (CET)
+	Mon, 23 Nov 2026 15:25:36 +0100 (CET)
 From: Slawomir Stepien <sst@poczta.fm>
 To: gregkh@linuxfoundation.org,
 	jiashengjiangcool@gmail.com,
@@ -50,9 +50,9 @@ Cc: Slawomir Stepien <sst@poczta.fm>,
 	linux-kernel@vger.kernel.org,
 	syzbot+2799146a53c356f8017d@syzkaller.appspotmail.com,
 	stable@vger.kernel.org
-Subject: [PATCH v2 2/3] usb: gadget: f_tcm: detach gadget when dropping an enabled TPG
-Date: Mon, 23 Nov 2026 15:25:12 +0100
-Message-ID: <20261123142513.204652-3-sst@poczta.fm>
+Subject: [PATCH v2 3/3] usb: gadget: f_tcm: take the TPG in tcm_bind() instead of tcm_alloc()
+Date: Mon, 23 Nov 2026 15:25:13 +0100
+Message-ID: <20261123142513.204652-4-sst@poczta.fm>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261123142513.204652-1-sst@poczta.fm>
 References: <20261123142513.204652-1-sst@poczta.fm>
@@ -67,61 +67,167 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795443935; bh=s993QDJ+0cBPgokfj9se/N7j69mh8bQ7H38pHF7uEYs=;
+	t=1795443937; bh=sB0hPTHRDwA3P79tcE0bF9Aq9M5h4zOzCASvBHfpxy8=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=C3I7JFghO79ez0l2jAaJZRSQBVG7fflMuDZIA6Z4Px98Np4D9JtopLW49a6KRZVCZ
-	 1b9sojHd9knbxNtVCETubSDbat52YPcuOQL3lkKLtazpQoVfkHUAGv18B3k1Djd55O
-	 HtKIs11qOsetCvtOycSPTXSRBMl80a5geZyIdXGM=
+	b=cYjCJzpjA8zt9Md9hTm89mrb9iTQ/bm+S9Z7mt8IEudhbU7bt5SsmzuU2L/ICl7Or
+	 wonEISpsBfmumOEvcN5KTbujuhuaWfKPA57/HNgiszBd8wePwwHOnSC1eJh234iQZ3
+	 pyDSyL8txrEO+xn4oopWkNer7Hl6psYxj0kXUd24=
 
-Removing a TPG directory via configfs rmdir ends up in usbg_drop_tpg()
-through target_fabric_tpg_release(). The target core does not disable
-the TPG first, so if the TPG is still enabled and the gadget is bound to
-a UDC, usbg_drop_tpg() destroys the TPG workqueue and frees the TPG
-while the bound function still references it through fu->tpg.
-Subsequent USB traffic (tcm_setup(), bot_submit_command(),
-usbg_submit_command(), ...) then dereferences freed memory and queues
-work onto a destroyed workqueue.
+tcm_alloc() runs when a TCM function is symlinked into a gadget
+configuration. It searches tpg_instances[] for the function instance
+and copies the TPG pointer into fu->tpg at that point, under
+tpg_instances_lock, and fu->tpg is never updated afterwards.
 
-Disable the TPG through usbg_enable_tpg() before tearing it down, so the
-gadget is unbound in the same way as when writing 0 to the enable
-attribute. Only do so when the gadget is connected: for the legacy
-g_target driver, detaching a never-attached TPG would call
-usb_composite_unregister() on a driver that was never registered.
+The function and the TPG can be set up in either order. If the
+function is linked into a configuration before the TPG directory is
+created, fu->tpg stays NULL. Creating and enabling the TPG afterwards
+lets tcm_bind() succeed, and the first USB request that reaches the
+target code dereferences the NULL fu->tpg. Likewise, if the TPG is
+removed (the previous patch detaches the gadget first) and a new one
+is created and enabled, the next bind keeps using the freed TPG.
 
-This goes through tcm_unregister_callback(), which no longer holds
-dep_lock across unregister_gadget_item() after the previous patch.
-With it, a TPG is never freed while a function is still bound to it.
-fu->tpg is still only set at link time; the next patch fixes that.
+Store the TPG in struct f_tcm_opts instead: set it in usbg_make_tpg(),
+clear it in usbg_drop_tpg() and copy it into fu->tpg in tcm_bind().
+opts->tpg cannot change while the function is bound: tcm_bind() only
+runs for an enabled TPG, and usbg_drop_tpg() detaches the gadget before
+clearing it. No extra locking or reference counting is needed.
 
-Fixes: c52661d60f63 ("usb-gadget: Initial merge of target module for UASP + BOT")
+With fu->tpg no longer set in tcm_alloc(), the tpg_instances[] lookup
+there serves no purpose: f->fi already identifies the instance for the
+item's whole lifetime. Drop it, and with it the tpg_instances_lock
+acquisition. config_usb_cfg_link() calls tcm_alloc() with gi->lock
+held, so this also removes the gi->lock -> tpg_instances_lock edge
+from the following lockdep report:
+
+  WARNING: possible circular locking dependency detected
+  task is trying to acquire lock:
+   (tpg_instances_lock){+.+.}-{4:4}, at: tcm_alloc
+  but task is already holding lock:
+   (&gi->lock){+.+.}-{4:4}, at: config_usb_cfg_link
+
+  the existing dependency chain (in reverse order) is:
+  -> #2 (&gi->lock):
+         config_usb_cfg_link
+         configfs_symlink
+  -> #1 (&sb->s_type->i_mutex_key#24):
+         configfs_depend_item_unlocked
+         usbg_make_tpg
+         target_fabric_make_tpg
+         configfs_mkdir
+  -> #0 (tpg_instances_lock):
+         tcm_alloc
+         usb_get_function
+         config_usb_cfg_link
+         configfs_symlink
+
+Fixes: 4bb8548df632 ("usb: gadget: f_tcm: add configfs support")
 Cc: stable@vger.kernel.org
+Reported-by: syzbot+2799146a53c356f8017d@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=2799146a53c356f8017d
+Link: https://syzkaller.appspot.com/ai_job?id=51e1f189-6d91-4321-a6ba-07d4eb3cd8cd
 Signed-off-by: Slawomir Stepien <sst@poczta.fm>
 ---
- drivers/usb/gadget/function/f_tcm.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/usb/gadget/function/f_tcm.c | 23 ++++++++---------------
+ drivers/usb/gadget/function/u_tcm.h |  6 ++++++
+ 2 files changed, 14 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
-index 110a7d334afa..3949b5c50cc0 100644
+index 3949b5c50cc0..469939a3329c 100644
 --- a/drivers/usb/gadget/function/f_tcm.c
 +++ b/drivers/usb/gadget/function/f_tcm.c
-@@ -1739,6 +1739,7 @@ static struct se_portal_group *usbg_make_tpg(struct se_wwn *wwn,
- }
+@@ -1720,6 +1720,7 @@ static struct se_portal_group *usbg_make_tpg(struct se_wwn *wwn,
  
- static int tcm_usbg_drop_nexus(struct usbg_tpg *);
-+static int usbg_enable_tpg(struct se_portal_group *se_tpg, bool enable);
+ 	tpg_instances[i].tpg = tpg;
+ 	tpg->fi = tpg_instances[i].func_inst;
++	opts->tpg = tpg;
+ 	mutex_unlock(&tpg_instances_lock);
+ 	return &tpg->se_tpg;
  
- static void usbg_drop_tpg(struct se_portal_group *se_tpg)
+@@ -1763,6 +1764,7 @@ static void usbg_drop_tpg(struct se_portal_group *se_tpg)
+ 		tpg_instances[i].tpg = NULL;
+ 		opts = container_of(tpg_instances[i].func_inst,
+ 			struct f_tcm_opts, func_inst);
++		opts->tpg = NULL;
+ 		mutex_lock(&opts->dep_lock);
+ 		if (opts->has_dep)
+ 			module_put(opts->dependent);
+@@ -2308,6 +2310,11 @@ static int tcm_bind(struct usb_configuration *c, struct usb_function *f)
+ 		mutex_unlock(&opts->dep_lock);
+ 		return -ENODEV;
+ 	}
++	/*
++	 * tcm_bind() only runs for an enabled TPG, and usbg_drop_tpg()
++	 * detaches the gadget before clearing opts->tpg.
++	 */
++	fu->tpg = opts->tpg;
+ 	mutex_unlock(&opts->dep_lock);
+ 	us = usb_gstrings_attach(c->cdev, tcm_strings,
+ 		ARRAY_SIZE(tcm_us_strings));
+@@ -2734,22 +2741,10 @@ static void tcm_unbind(struct usb_configuration *c, struct usb_function *f)
+ static struct usb_function *tcm_alloc(struct usb_function_instance *fi)
  {
-@@ -1747,6 +1748,9 @@ static void usbg_drop_tpg(struct se_portal_group *se_tpg)
- 	unsigned i;
- 	struct f_tcm_opts *opts;
+ 	struct f_uas *fu;
+-	unsigned i;
+-
+-	mutex_lock(&tpg_instances_lock);
+-	for (i = 0; i < TPG_INSTANCES; ++i)
+-		if (tpg_instances[i].func_inst == fi)
+-			break;
+-	if (i == TPG_INSTANCES) {
+-		mutex_unlock(&tpg_instances_lock);
+-		return ERR_PTR(-ENODEV);
+-	}
  
-+	if (tpg->gadget_connect)
-+		usbg_enable_tpg(se_tpg, false);
+ 	fu = kzalloc_obj(*fu);
+-	if (!fu) {
+-		mutex_unlock(&tpg_instances_lock);
++	if (!fu)
+ 		return ERR_PTR(-ENOMEM);
+-	}
+ 
+ 	fu->function.name = "Target Function";
+ 	fu->function.bind = tcm_bind;
+@@ -2759,12 +2754,10 @@ static struct usb_function *tcm_alloc(struct usb_function_instance *fi)
+ 	fu->function.setup = tcm_setup;
+ 	fu->function.disable = tcm_disable;
+ 	fu->function.free_func = tcm_free;
+-	fu->tpg = tpg_instances[i].tpg;
+ 	INIT_WORK(&fu->delayed_set_alt, tcm_delayed_set_alt);
+ 	spin_lock_init(&fu->delayed_set_alt_lock);
+ 
+ 	hash_init(fu->stream_hash);
+-	mutex_unlock(&tpg_instances_lock);
+ 
+ 	return &fu->function;
+ }
+diff --git a/drivers/usb/gadget/function/u_tcm.h b/drivers/usb/gadget/function/u_tcm.h
+index 2cd15d9a1c0d..68ce03d3fb6f 100644
+--- a/drivers/usb/gadget/function/u_tcm.h
++++ b/drivers/usb/gadget/function/u_tcm.h
+@@ -15,6 +15,8 @@
+ 
+ #include <linux/usb/composite.h>
+ 
++struct usbg_tpg;
 +
- 	tcm_usbg_drop_nexus(tpg);
- 	core_tpg_deregister(se_tpg);
- 	destroy_workqueue(tpg->workqueue);
+ /**
+  * @dependent: optional dependent module. Meant for legacy gadget.
+  * If non-null its refcount will be increased when a tpg is created and
+@@ -23,10 +25,14 @@
+  * @ready: true if the dependent module information is set.
+  * @can_attach: true a function can be bound to gadget
+  * @has_dep: true if there is a dependent module
++ * @tpg: target portal group associated with this function instance. Set
++ * when the TPG is created, before it can be enabled, and cleared after it
++ * has been detached, so it never changes while the function is bound.
+  *
+  */
+ struct f_tcm_opts {
+ 	struct usb_function_instance	func_inst;
++	struct usbg_tpg			*tpg;
+ 	struct module			*dependent;
+ 	struct mutex			dep_lock;
+ 	bool				ready;
 -- 
 2.56.0
 
