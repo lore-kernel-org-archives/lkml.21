@@ -1,61 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.74
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415969;
-	b=epdhtve3j53VztQYEENwl/KX0/wOSwfEc2hpIXK2nMupaptEFCGvEtMfZxgeYdX5gjcP
-	 J84o5BJycI12ArvZqqKmb87/z0BCME+wynBieiPM2BOpkioN0fy0nUQm2uU4oanpq7+Ct
-	 bxgm1raR4ysrB7EmXG+TqtfPRYMMfHgJv+9UhUUxjcTZ9BlTmAzj6E4KBvmQhof++Ugcl
-	 sF1Er6+ylRdqr8OCXwK5SUzW7DvN38xkNB0LUx4tXggZbZuj1WvrsPEml3nXBIuTA38sv
-	 YZ2DuwMeb0vu/GeYNH5SIKq0Gyj4Adkyf1XfvT2PYH4+zajnE3oIlU63AWpcir9SMag==
+	t=1795415975;
+	b=y9v/0nrSZ/WrhnTR9eabneKgTP+VJR5PZUQwiahGRGXNS3lkxHFy0BtMgBFAnpQdrjiz
+	 R8VqPthu9scicj+JB999Zz+/hdkc+0+BJe/kZkPIv1fFICqXrdho46qge90Yv3kWDvHwT
+	 LxQHEI+vZLXWpFb7uUPldJcW9YKjMoLJc87vvaKhSqc0x5N6oYxSX2PhIcaT8JYxdP8AU
+	 oLWaNqFXC5VbzWZVVRTRELx72QoaTW/05+FV7Ywe4ckCgbiBqpy2KFs52jeZheze264T4
+	 em007u170aQMfPt66h3zt7Eri8klW5gp/jE3lsBKVi7ZVLvKZnHi3YIz/TCR7JS1zGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415969;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=7agXcixM5SUecxuwupsf5SFmE1L7F0iLFU7WsXCvLCo=;
-	b=Z7ow5/bcnSDi18kZJU6BXO7Z3ICMwUocwzJG4t+udrm1c36l/4HLOoJVh8ZAP5R2WCsD
-	 6AfXQ5B6NGJ7h0yfHf2LsSbVzhBWab9MPTk75NMdixxMmM6CE0rydxFypkCf9HqSQz6Y9
-	 fNbSYosrSmlox9kQcmOgQ/UpRLboASJoOYrUTrfdMbKPO4RLwUbZNzmOhEcehd+KWGf2K
-	 ZKcpmffQhQZxWukQTXYITsvzvji5sf0NC6TSZR0sT/oUUat551JmHwuJ89dmvE51E+CXy
-	 Q/aOyoFMbvuvEnNYjVeU4CRksFSCoRbh9m8IWeKEoqbn6/8wbAGuqMkFE+zCtqt9D+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415975;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=1S+FjIq6iQ59JuCSrkDkJDXNBT3bARoAzrzzdcKK3hc=;
+	b=c/juWEjLSKRai69U/L9t+wbgCxyOv3WrpFYc8zyuQRhBKDfspwyBxA8AziUABDELIxpq
+	 5mndA7UVS8uNPhrOaevjpWAntPPnSuYxvQ0Pqmb10Vdrl07nong7K3o1HLWmuIGsdnXUj
+	 XGSv2WfZU1kS73hDTAV2epajjk0TmEkUphkM9z5npm1AetsQGmGxc+YruyAcMDcO4L1vx
+	 v4AKfzZQ97ZUW5h1WflELHnzndZwugVfAFdIqX+pKRZcyGd0UwOz2nOSea7PJFifp14Xg
+	 7iRfeNr3U+H2qU/cn9wGFzaxCjMbGwVMeVrJsfTYUFhJThDbg/3fOaFzuRpVwSSCyNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NOKrRDrr;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gpuPjbek;
+	arc=none smtp.remote-ip=91.218.175.74
+Received: from mta0.migadu.com (out-74.mta0.migadu.com [91.218.175.74])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56497606A31A;
-	Mon, 23 Nov 2026 06:39:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2138B606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:39:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2138B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NOKrRDrr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F21701F000CF;
-	Mon, 23 Nov 2026 06:39:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795415968;
-	bh=7agXcixM5SUecxuwupsf5SFmE1L7F0iLFU7WsXCvLCo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NOKrRDrrj6eRUaabPUhzPcwV+gkEJogXEb2Au13b84teh3Gk8VNyNCNENuvdHjNGl
-	 oqdOWYsPCA/87fO+bc/dNhjmfYcnY4NtPWfNiGr30RnbvoIvDiaN4dRAhApBnLAqER
-	 epTUnH28hTOj5uvLuHtT4U/4yqPcjmpy6Er8/88a6ckSUARkXlgUzBkML4a2fBvGEn
-	 BQ7uGI6K/FMOi11L881IUooUP4HYlhOIkySp306IXn4QVi8/AslHUQoFHSKgwdMbFw
-	 eEolOWrQixXJOJBXzXLbV3Fq469UNk1bEFGTtI4M1pVACy8vyfcFGSlP7HmgGwxeVf
-	 IltdaeN86w5Ag==
-Subject:
- Re: [PATCH net] net: wwan: t7xx: validate PIT data offset before skb_reserve
-From: netdev-bot+sashiko@kernel.org
-To: fangxy@xiaopeng.com
-Cc: chandrashekar.devegowda@intel.com, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, ilpo.jarvinen@linux.intel.com, netdev@vger.kernel.org,
- haijun.liu@mediatek.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, linqj@xiaopeng.com
-Date: Mon, 23 Nov 2026 06:39:27 +0000
-Message-ID: <179541596756.3135.6965744505387412637@kernel.org>
-In-Reply-To: <20261119062044.72261-1-fangxy@xiaopeng.com>
-References: <20261119062044.72261-1-fangxy@xiaopeng.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gpuPjbek
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=EGI+hFYSI6qeyRcfjHp8n/r3RKOt4t3CJPzrN5D49Oc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795415973; v=1; x=1796020773;
+ b=gpuPjbek126+k4ikzIEVnpzVvCcwh8lf7SHiElMR/xFmDyWR+AmS2CpWX++AkiwuZSCIHli+
+ b7uYGDaqJNKoophIy6kfGgY4yH7CruzYv2JLoOb4Jxn83J6wInJAOBosabRtD4fMhPB9kRTAvuj
+ JoxmP4rb5FpRe47vFhXHog3k=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id ebc62440839800c0;
+	Mon, 23 Nov 2026 06:39:33 +0000
+X-Mizu-Trace-ID: ebc62440839800c0
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <240018e0-02c1-401a-a979-3f867526191d@linux.dev>
+Date: Mon, 23 Nov 2026 14:39:22 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,175 +58,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/11] mm/mm_init: verify zones for
+ template-initialized pages
+To: Muchun Song <songmuchun@bytedance.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
+ Mike Rapoport <rppt@kernel.org>
+Cc: "Liam R . Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Muchun Song <muchun.song@linux.dev>, Li Zhe <lizhe.67@bytedance.com>,
+ Andrew Popple <apopple@nvidia.com>, Balbir Singh <balbirs@nvidia.com>,
+ Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261120100856.16929-1-songmuchun@bytedance.com>
+ <20261120100856.16929-2-songmuchun@bytedance.com>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <20261120100856.16929-2-songmuchun@bytedance.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Hi Muchun,
 
-Critical: 0 · High: 2 · Medium: 1 · Low: 0
+On 11/20/26 6:08 PM, Muchun Song wrote:
+> Template-based ZONE_DEVICE initialization bypasses
+> __init_single_page(), which means copied struct pages do not run the
+> vmemmap zone consistency check.
+> 
+> Verify each destination after copying the template so the fast path gets
+> the same validation as regular page initialization.
+> 
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Reviewed-by: Lance Yang <lance.yang@linux.dev>
+> ---
+> v3:
+> - Retarget zone verification to
+>    zone_device_page_init_from_template() after integrating the helper
+>    series (suggested by Mike Rapoport)
+> - Collect Reviewed-by from Lance Yang
+> 
+> v2:
+> - Apply the zone verification in memmap_init_page_from_template().
+> - Collect Reviewed-by from Mike Rapoport.
+> ---
+>   mm/mm_init.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/mm/mm_init.c b/mm/mm_init.c
+> index a9d848c92678..0129152b74d8 100644
+> --- a/mm/mm_init.c
+> +++ b/mm/mm_init.c
+> @@ -1082,6 +1082,7 @@ static void zone_device_page_init_from_template(struct page *page,
+>   		set_page_address(template, __va(pfn << PAGE_SHIFT));
+>   #endif
+>   	memcpy_nontemporal(page, template, sizeof(*page));
+> +	vmemmap_optimization_verify_zone(page);
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+For PAGE_SIZE-aligned devdax, dev_dax_probe() leaves
+pgmap->vmemmap_shift at zero. When section_activate() populates a full
+section for this pgmap, it records compound_page_order = 0.
 
-- [High] The patch fixes the modem-supplied PIT address/length problem
-  only for the normal BAT path.
-- [High] The new err_drop path in t7xx_dpmaif_set_data_to_skb() calls
-  `t7xx_dpmaif_set_bat_mask(rxq->bat_req,…
-- [Medium] The patch makes the normal-BAT error path free the skb and set
-  the entry's bit in bat_req->bat_bitmap, so release can move past it.
+   memmap_init_zone_device() (pfns_per_compound == 1)
+     -> zone_device_page_init_from_template() (each template copy)
+       -> vmemmap_optimization_verify_zone()
+         -> pfn_to_section_compound_order(page_to_pfn(page)) returns 0
+         -> vmemmap_optimizable_order(0) returns false
 
---
+With CONFIG_DEBUG_VM and CONFIG_VMEMMAP_OPTIMIZATION enabled, the
+section-order lookup runs for each copy. The zero order makes the
+condition short-circuit before either page_zone_id() call.
 
-net: wwan: t7xx: validate PIT data offset before skb_reserve
+Once patch #4 splits out the base-page loop, could we put this check in
+the compound tail-copy loop? Like the following:
 
-This patch makes t7xx_dpmaif_set_data_to_skb() check the modem-supplied
-PIT data address and length against the skb tailroom and the DMA mapping
-length before it calls skb_reserve(). On error it now frees the skb and
-marks the normal BAT entry consumed, so the BAT ring can be released and
-refilled.
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -734,7 +734,6 @@ static void __meminit 
+memmap_init_page_from_template(struct page *page,
+  		memcpy_nontemporal(page, template, sizeof(*page));
+  	else
+  		memcpy(page, template, sizeof(*page));
+-	vmemmap_optimization_verify_zone(page);
+  }
 
-> diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-> index 5af90ca6e0631..44e2ba15984df 100644
-> --- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
-> +++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+  void __meminit memmap_init_compound_page(struct page *head, unsigned 
+long pfn,
+@@ -754,8 +753,10 @@ void __meminit memmap_init_compound_page(struct 
+page *head, unsigned long pfn,
+  	if (vmemmap_optimizable_order(pfn_to_section_compound_order(pfn)))
+  		nr_pages = VMEMMAP_OPTIMIZATION_NR_STRUCT_PAGES;
+  	/* Initialize the tail pages from PFN-independent template page. */
+-	for (unsigned long i = 1; i < nr_pages; i++)
++	for (unsigned long i = 1; i < nr_pages; i++) {
+  		memmap_init_page_from_template(head + i, pfn + i, zone, &template);
++		vmemmap_optimization_verify_zone(head + i);
++	}
+  	prep_compound_head(head, order);
 
-[ ... ]
+  	pageblock_migratetype_init_range(pfn, 1UL << order, MIGRATE_MOVABLE,
 
-> @@ -643,22 +643,35 @@ static int t7xx_dpmaif_set_data_to_skb(const struct dpmaif_rx_queue *rxq,
->  	data_bus_addr = le32_to_cpu(pkt_info->pd.data_addr_h);
->  	data_bus_addr = (data_bus_addr << 32) + le32_to_cpu(pkt_info->pd.data_addr_l);
->  	data_base_addr = bat_skb->data_bus_addr;
-> -	data_offset = data_bus_addr - data_base_addr;
->  	data_len = FIELD_GET(PD_PIT_DATA_LEN, le32_to_cpu(pkt_info->header));
+Thanks,
+Qi
 
-[ ... ]
+>   }
+>   
+>   /*
 
-> +	if (data_bus_addr < data_base_addr) {
-> +		dev_err_ratelimited(dev, "Invalid PIT data address\n");
-> +		goto err_drop;
-> +	}
-> +
-> +	data_offset = data_bus_addr - data_base_addr;
-> +	tailroom = skb_tailroom(skb);
-> +	max_len = min(tailroom, bat_skb->data_len);
-> +	if (data_offset > max_len || data_len > max_len - data_offset) {
-> +		dev_err_ratelimited(dev, "Invalid PIT data offset or length\n");
-> +		goto err_drop;
->  	}
-
-[Severity: High]
-Does t7xx_dpmaif_set_frag_to_skb() need the same validation? It derives
-the offset in the same way from the modem-supplied PIT address, and
-still stores it in an int:
-
-drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c:t7xx_dpmaif_set_frag_to_skb() {
-    ...
-	int data_offset;
-    ...
-	data_offset = data_bus_addr - data_base_addr;
-	data_offset += page_info->offset;
-	data_len = FIELD_GET(PD_PIT_DATA_LEN, le32_to_cpu(pkt_info->header));
-	skb_add_rx_frag(skb, shinfo->nr_frags, page_info->page,
-			data_offset, data_len, page_info->data_len);
-    ...
-}
-
-On this path the only check is t7xx_frag_bat_cur_bid_check(). It
-validates the BID, but not the address or the length. PD_PIT_DATA_LEN is
-a 16-bit field (GENMASK(31,16)), and the fragment buffer is only
-DPMAIF_HW_FRG_PKTBUF (128) bytes. skb_add_rx_frag() does no bounds
-checking of its own.
-
-PKT_BUF_FRAG PD PITs come from the same PIT ring, through
-t7xx_dpmaif_rx_start()->t7xx_dpmaif_get_frag(). A backwards address, or
-an oversized offset or length, would produce a fragment that points
-outside the 128-byte DMA-mapped buffer. A negative int offset would also
-become a huge fragment offset.
-
-Could later GRO header pulls, checksum walks or socket copies then read
-memory outside the fragment allocation? Should the frag path also reject
-data_bus_addr < data_base_addr, and any offset plus length beyond
-page_info->data_len?
-
->  
-> +	skb_reserve(skb, (int)data_offset);
-
-[ ... ]
-
-> +
-> +err_drop:
-> +	dev_kfree_skb_any(skb);
-> +	bat_skb->skb = NULL;
-> +	t7xx_dpmaif_set_bat_mask(rxq->bat_req, t7xx_normal_pit_bid(pkt_info));
-
-[Severity: High]
-This line reads the BID from the PIT entry again. The PIT ring
-(rxq->pit_base) is dma_alloc_coherent() memory, so the device can write
-to it.
-
-The caller t7xx_dpmaif_get_rx_pkt() has already read the BID into
-cur_bid and bounded it with t7xx_bat_cur_bid_check()
-(cur_bid < DPMAIF_BAT_COUNT). That checked value is not passed down to
-this function.
-
-A re-read BID can be as large as 65535 (PD_PIT_H_BID << 13 plus
-PD_PIT_BUFFER_ID). bat_bitmap comes from
-bitmap_zalloc(DPMAIF_BAT_COUNT), so it holds 8192 bits. Because
-dma_unmap_single() and dev_kfree_skb_any() sit between the reads, the
-value really is loaded again from coherent memory.
-
-If the modem rewrites the PIT entry after the caller's check, can the
-set_bit() in t7xx_dpmaif_set_bat_mask() write past the end of
-bat_bitmap?
-
-Even if the index stays in range, the bit could land on a different slot
-from the one whose skb was just freed. The freed slot would then stay
-unmarked, and a slot the hardware still owns would be counted as
-consumed and refilled.
-
-The earlier re-read in "bat_skb += t7xx_normal_pit_bid(pkt_info)" has
-the same problem and predates this patch. Would it help to pass the
-validated cur_bid down (or read the PIT words once) and use that one
-value for both the bat_skb indexing and the bitmap update?
-
-> +	return -ENOBUFS;
->  }
-
-[Severity: Medium]
-This path now marks the normal BAT entry consumed. Can the frag BAT ring
-still stall in the same way, from the same malformed input?
-
-When the head PD is rejected here, skb_info->cur_skb stays NULL. Every
-following PKT_BUF_FRAG PIT of the same packet then takes this branch in
-t7xx_dpmaif_rx_start():
-
-		else if (!skb_info->cur_skb)
-			ret = -EINVAL;
-
-That branch leaves the frag page mapped and never sets its bit in
-rxq->bat_frag->bat_bitmap.
-
-t7xx_dpmaif_get_frag() also sets the bit only on success:
-
-	ret = t7xx_dpmaif_set_frag_to_skb(rxq, pkt_info, skb_info->cur_skb);
-	if (ret < 0) {
-		dev_err(rxq->dpmaif_ctrl->dev, "Failed to set frag data to skb: %d\n", ret);
-		return ret;
-	}
-
-	t7xx_dpmaif_set_bat_mask(rxq->bat_frag, cur_bid);
-
-So a failure such as shinfo->nr_frags >= MAX_SKB_FRAGS leaves the entry
-unmarked as well.
-
-t7xx_dpmaif_avail_pkt_bat_cnt() counts set bits with
-find_next_zero_bit() starting at bat_release_rd_idx. One unmarked frag
-entry therefore stops release and refill of the frag ring for good.
-
-Isn't this the same "stall BAT release and buffer replenishment" problem
-the commit message describes, only on the frag ring?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119062044.72261-1-fangxy%40xiaopeng.com
