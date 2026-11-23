@@ -1,66 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477040;
-	b=jTlSsUqWKpjQU1lnyp+I1a33WVod/WOXyYbooFJsoaNuHNY3IJCvNq7nfYkSQ7+TEJxW
-	 h7B2xa3gCVGHubmmFM1pFU/tDeej3seoYlfhU0hl/lpA/qzhia395+Qn2hULfhog9boy2
-	 tm7T1iJSgFnIMmBQU3YKLPVpZGUFrwI4PY2XE3Xhv/vIRL77x2dunSgWnPe7mA+BTY9C3
-	 mQln9dhTl8IMMZWsnp4SjRzhprGKGMcGxVR3YxpMJXi4txSLLcHCSE5SW9XBDu3BkTRkR
-	 6VadVsU/6PcLd2b8T5OEOB91NfVBB+o0gSVWwfwQzhU4r2Kvh5Fcv6+16BX0Rcxfldg==
+	t=1795477051;
+	b=xNnmBDhLnZ9oodiKz2jBZJlzIvxsb3Z61kSxZ6iKwDdamYOJXniEsMUU9Tt18VgADlAv
+	 PrY8duDq8Noqdr/ipkwrZhPstItVzA5E4dWKn1quI+mSgVAXvJG2e7JYLbV/K8wzcBnrB
+	 mhdLTw6XL4WYUiIbo5M8hp8cBhLSORYl1t1AJpqLeT9uMgu4rZ6XXviT2e29FiZoMxVmq
+	 DZrUlWxHQ/bDPMQBOEeG1rcC+KGXw7lIXsFJZ3oA3GLazk7w05pQt8frM4qIHXDghkcm5
+	 sponA9SmN+xUgRrJpTxl9jyNIFjeh5S6OemkhrN+92L3wAC6ZgCZYQgdyZOniTGzSMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477040;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=vZhwtoY0rC9tiCZjGnjs0trKwj1W0j+uoO6PhMytwUs=;
-	b=MyedLQBZcw2DXqeh9NkseT4ht0Z03pvsLbrk8rsMFms1NNUYGhgEBRMKe0x6JGMHpCxe
-	 lZPm5lDUQGcXkdQByuH0d/KwnCzoWAbvzOGXtmxaxxEP4irb3yX9cNzBijUKI+pYGeEcw
-	 Wz/eTAaKLxkiWA9WcBtmL/Lw0+KGFFxh5t02WJqgH59bg10XyRPQdXn/dbCx1aqMyG6ac
-	 xdCxw41zSfotfZ6SSlh88biSq3AF4gZ0YMNqnJ2mhUVzYvGHZ0zPDnIeCe3NO7sJ/oQl4
-	 CWbXDX4WxHopVrTYvCk0F5f7eXn9e4B0K2bBaROp/+GfHCZe+UxpYC+YXg2KYxLt0Dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477051;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=nCtOThlgIxlSduoLEYBHryFj9jT/Zq+67s7VxNMjkzk=;
+	b=AyOjrCw6FQd1f2OdLYAALJZH6THSTKVgp94zIkqgyqu56ZN6PdmrYF165dO+DNLeyM75
+	 zbOp9l5dTnQXKEWKr+0cj6x93h4llzmoDclj1S1NR1MRnMSPJhjjOoQDPHLU+FthuE9Pa
+	 R3Y5cC2WpC870zhq1rztOA83+mg8X5JhzPIkuN6b/2l2dpNw5IQ3K1bznnIfGri0Ph7VY
+	 T0qovkRRm0FmOilcxRSTg8xdmxNAE59th7Kjjqdc4e3GWvvLT8If4zNmknx7leRqJOlbE
+	 MsRW4VLpaLYlGd5IR/xLZdWXkGMNyd3YZiFqAlg1Wl2zK0T8oputzr6W39f9CqnyE7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=acm.org;
-	spf=pass smtp.mailfrom=acm.org;
-	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=STkenfZj;
-	arc=none smtp.remote-ip=199.89.1.16
-Received: from 013.lax.mailroute.net (013.lax.mailroute.net [199.89.1.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=morsemicro.com;
+	spf=pass smtp.mailfrom=morsemicro.com;
+	dkim=pass header.d=morsemicro-com.20260707.gappssmtp.com header.i=@morsemicro-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=NHlkL+qI;
+	arc=none smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD07F606A31E;
-	Mon, 23 Nov 2026 23:37:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD07F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62436606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:37:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62436606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=morsemicro.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=morsemicro.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=STkenfZj
-Received: from localhost (localhost [127.0.0.1])
-	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jYMmb1Hz2zlfvqM;
-	Mon, 23 Nov 2026 23:37:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1795477032; x=1798069033; bh=vZhwtoY0rC9tiCZjGnjs0trK
-	wj1W0j+uoO6PhMytwUs=; b=STkenfZj4VkbVQLHeDA3XMnNB6jkg7p1pv3acqQL
-	xWYVRpEfS0spAZLFnHD8/R7/Q5lF/lkNSDTU+UCrWMtlnqyGg27K3HbAQLmGTOwb
-	jgn8KzoBzVaZnayMIizHneXNIFV8jyo6tZ7iMl0q6tWdXL7bpbSpeNBrOs77QKTw
-	jhE0nCnBZFVnnWEFpEeIQnvV+t7/8RdsItTcEJFR8DXTLi93Ap30n9Wz5ko52yqB
-	405kclQYg+Ccp1puRKAM7b/3h/34ybQWDe6wE76U2UWLwa+hsOt+v1/NePhzrgpA
-	nHO/rn4nNX4In8GsF7qRR25ngg6s040aJzgMYByVIXiFyQ==
-X-Virus-Scanned: by MailRoute
-Received: from 013.lax.mailroute.net ([127.0.0.1])
- by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id vk9VGeuZSzFz; Mon, 23 Nov 2026 23:37:12 +0000 (UTC)
-Received: from [100.80.227.185] (unknown [104.135.182.41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jYMmS40TJzlfvqS;
-	Mon, 23 Nov 2026 23:37:12 +0000 (UTC)
-Message-ID: <8a0f78e3-5483-42a2-ae27-473bbb6de915@acm.org>
-Date: Mon, 23 Nov 2026 15:37:11 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=morsemicro-com.20260707.gappssmtp.com header.i=@morsemicro-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=NHlkL+qI
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b413d04c93so2252418a91.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:37:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=morsemicro-com.20260707.gappssmtp.com; s=20260707; t=1795477050; x=1796081850; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nCtOThlgIxlSduoLEYBHryFj9jT/Zq+67s7VxNMjkzk=;
+        b=NHlkL+qIwXD8b1pC0f90rQnXIGTuE42Rd17hMdouo0VjxooaoGPJLXqj0mPM0dP0Uu
+         UQObb7iUBTm89PIsssTqdgIOZ5nIUzluWbEryuNEf4D03NOA9bUWJd4MdbihzEew2kM4
+         6qhFFyZxo3kz+fppgYOVZL/e0pxhA4LTdmp7TiWGdz7n/kr9g1fckW/XKLmovydGoPdx
+         jMNPDET4E4xfYQou6PQSQxVfL7hapvjtVavUM+vn3nqjzoVzQlPO3HFe+OlTB2nzZ22P
+         zPwGgHq0Xb/aSmdc6cP7GJd8MUE8hEmg1Yr/jE17BwVQhXLhmkYzVi5n4d62GyvcEl9Q
+         anaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795477050; x=1796081850;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nCtOThlgIxlSduoLEYBHryFj9jT/Zq+67s7VxNMjkzk=;
+        b=OJmYs6efNTGQXMm4c2TawNA7q1rfQuGBXJErvhAWrS5qYwAno0JhpBV2PZhBghntvE
+         uJymsRVmnTfuOCTFZbw0BZvR/S8OJtTLJ2Jt8uwMZ1QxTlDGEXiF5uDGxeF6k9LgnpEw
+         vDnOEGseIL7kqamOIpXvT2/2MpRcfh0b+CMZ5Uz9s0VW3Uzd1RbEWA+tA434escrWh+N
+         /77GrhHOhqmAVoQQG0VPl/eNdSzIDlQ7lo1ukLjeV1eRWm8o6mWIjHHAGIN8/wypyhve
+         ipW+swYJbOLOh+mZs8y1yJOroMhX0wM6TBayF7PleB6J/nw4zHcnPO8VBjhDE4/ws+U5
+         N9fg==
+X-Forwarded-Encrypted: i=1; AL+hErFlGfJ/x98a9px89TVYYetVBV3+1oeuFbTdemYUDVLb7SWAnwYJSHNXroNCPPSdmhTlJJsscSmjaOekC60=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xa6ovaZqNZtD0DhmEJYk4n9vQMKqrCETVfbrKOYtDBJFOSQuC
+	nvQNFvIXAE0DQ/6h1lWW9A6EbM6KL7MUTTbf2rsuwonj1IKlF5okWXnp+fUiwehCof0=
+X-Gm-Gg: AZFdTZcmJtZQX7r4Z0LyUEwMxZseEmb3YK20hYYPHvLY8PUr9teluki26DPaF3o/rWX
+	ZaH/+WJJNnxZmbMfVMpHF8/y/zNLgwINI8Ta0F53qa+jS8zoZ/zTzFB4Mfmw1JdWPhBZBsl3+4I
+	YILsRqOOVr3y30pTnU60H7nr2YN9u+r9Qi/Be4308KSGk1HFxAqhfYUiKwxmP5Vw9NBTuztFMk/
+	z5gX3gOkLPKLN2hedJ+zvt1ee0pdWxxOjYNntRCWpBmBUccDA8ZeZfnQzZhwyrl2+NlkCzpD5SS
+	78kZzBnlZ0lSsU4XeckMZNFZFjQfEMpmw4BZ05OuRC78gBe04eI1eClo2/6wEHgbLTn6oQ20c1i
+	7hUMviIryqk+3ffZZKdVzC0/slmCdS6tnUvWoIww8BkQpuwhaXU01WDNsxNZtPZI+ui1dui7sge
+	xW5sgAycjwRh3+5fJeVg2mXAeUARHu8grYQsFdSjmia5Rid+YNIxabKBAapxBLUVdbcQwBd83dA
+	27TkJ4Wmr6R8VqGpaHpAWS48seEr0nBXe1s2tJgQhjYhi6N8PSEa/olVFOkMs4oKRS+/EuXn9bB
+	HouSiCeHIxijqTm1nTUedYpZuN4IFCLn9ebiu55qvyQMys18PWLajM7b6ScKmfVnImTL2f+LIYY
+	CunEytNO7zIunzB4x9Y1VJo1zow==
+X-Received: by 2002:a17:90a:d2cf:b0:3b0:9781:ee8b with SMTP id 98e67ed59e1d1-3b41c9e46b9mr11862740a91.26.1795477049685;
+        Mon, 23 Nov 2026 15:37:29 -0800 (PST)
+Received: from localhost (60-242-93-14.static.tpgi.com.au. [60.242.93.14])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ec698dsm22676475a91.14.2026.11.23.15.37.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 15:37:28 -0800 (PST)
+Date: Tue, 24 Nov 2026 10:37:25 +1100
+From: Lachlan Hodges <lachlan.hodges@morsemicro.com>
+To: guohongyu <guohongyu@cmss.chinamobile.com>
+Cc: dan.callaghan@morsemicro.com, arien.judge@morsemicro.com, 
+	johannes@sipsolutions.net, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	13057616121@163.com
+Subject: Re: [PATCH v2 1/2] wifi: mm81x: clamp command-response copy to the
+ received skb length
+Message-ID: <bpjumdldx5sj6ejkypglwajk7th245ppczedzmzj4rxjt2ug44@bgbijfc5smby>
+References: <20261117032227.154874-1-guohongyu@cmss.chinamobile.com>
+ <20261120064905.192045-1-guohongyu@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,144 +100,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: include/linux/compiler_types.h:631:45: error: call to
- '__compiletime_assert_433' declared with attribute error: BUILD_BUG_ON
- failed: offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) !=
- sizeof(*u)
-To: Finn Thain <fthain@linux-m68k.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: kernel test robot <lkp@intel.com>, oe-kbuild-all@lists.linux.dev,
- linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Linux Memory Management List <linux-mm@kvack.org>,
- Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <James.Bottomley@hansenpartnership.com>,
- "Martin K. Petersen" <mkp@kernel.org>, scsi <linux-scsi@vger.kernel.org>
-References: <20261121034304.2dPxVKzk-lkp@intel.com>
- <0b947a72-7a68-9bde-8b0b-adb539f09a8c@linux-m68k.org>
- <CAMuHMdUxYwD2t8zrqs4QBCtATOtf9xE83Djo0g7qbNFGSCWAQA@mail.gmail.com>
- <669b9ce8-bb33-f7ee-1087-88c1e9d3b610@linux-m68k.org>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <669b9ce8-bb33-f7ee-1087-88c1e9d3b610@linux-m68k.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120064905.192045-1-guohongyu@cmss.chinamobile.com>
 
-On 11/23/26 3:05 PM, Finn Thain wrote:
-> Yes, two alternative solutions were submitted in March (either remove the
-> assertion or rework it). The build bot reported the problem again in
-> September so I resubmitted the "rework" alternative. Sashiko-bot didn't
-> have much praise for that*, so now I'm leaning towards the "remove"
-> alternative. I have been advised to keep re-submitting, and I will do so
-> after a suitable back-off in retry rate i.e. 2027 or 2028.
+On Fri, Nov 20, 2026 at 02:49:04PM +0800, guohongyu wrote:
+> mm81x_cmd_resp_process() copies a synchronous command response from
+> the received skb into the caller-provided buffer:
 > 
-> *
-> https://lore.kernel.org/r/93e35f60-e465-7f76-0043-f997fe2ec8c7@linux-m68k.org
+> 	length = min_t(int, length,
+> 		       le16_to_cpu(src_resp->hdr.len) +
+> 			       sizeof(struct host_cmd_header));
+> 	memcpy(dest_resp, src_resp, length);
+> 
+> src_resp->hdr.len is the inner host_cmd_header length of the firmware
+> response.  The skb, however, was sized by the *outer* mm81x_skb_hdr.len
+> (mm81x_yaps_read_pkt(), yaps.c:186-199: skb_len = sizeof(*hdr) +
+> hdr->offset + le16_to_cpu(hdr->len); skb_trim(skb, skb_len)), and
+> nothing ties the inner header length to the outer one.  A buggy or
+> malicious firmware can therefore declare an inner hdr.len far larger
+> than the payload actually present, and the memcpy reads past the end of
+> the skb's data into adjacent heap memory, leaking it into the command
+> response buffer.
+> 
+> Clamp the copy to skb->len so we never read past the data actually
+> received.
+> 
+> Fixes: b1906cea00b0 ("wifi: mm81x: add mm81x Wi-Fi HaLow driver")
+> Signed-off-by: guohongyu <guohongyu@cmss.chinamobile.com>
 
-What an LLM came up with after I asked it to fix
-https://lore.kernel.org/lkml/202603030747.VX0v4otS-lkp@intel.com/ can be
-found below. One of the comments of the LLM is "This is essentially Finn
-Thain's "Rework BUILD_BUG_ON() assertion" patch with your two review 
-comments from this morning applied". Sashiko reports "No issues found"
-for the patch below. No Signed-off-by from me because I think Finn
-should be credited for his work instead of I.
+This has already been fixed by cd4335a9a41f ("validate response length
+in mm81x_cmd_resp_process()"). Make sure you base your work on the
+mm81x-next tree [1] (or -current).
 
-Bart.
+[1] https://github.com/MorseMicro/linux-wireless
 
-     scsi: qla2xxx: Fix the qla_tgt_sess_op layout assertion
-
-     qlt_queue_unknown_atio() allocates a struct qla_tgt_sess_op followed by
-     add_cdb_len bytes and copies an ATIO plus its additional CDB bytes into
-     the 'atio' member. Hence no other member may follow 'atio'. The
-     BUILD_BUG_ON() that is supposed to verify this compares the end of
-     'atio' with sizeof(struct qla_tgt_sess_op). That is wrong because it
-     also triggers if the compiler adds tail padding. This is what 
-happens on
-     m68k since atomic_t is aligned on a four byte boundary: 'atio' ends at
-     offset 102 and the structure size is 104 bytes. This breaks the build
-     for CONFIG_COLDFIRE=y and CONFIG_SCSI_QLA_FC=y:
-
-       error: call to '__compiletime_assert_431' declared with attribute
-       error: BUILD_BUG_ON failed: offsetof(struct qla_tgt_sess_op, atio) +
-       sizeof(u->atio) != sizeof(*u)
-
-     Additionally, the BUILD_BUG_ON() does not detect all members that could
-     be added after 'atio', e.g. a zero-length array.
-
-     Fix this by adding a flexible array member after 'atio' that represents
-     the additional CDB bytes. The compiler rejects any member that is added
-     after a flexible array member. Assert that the flexible array member
-     follows 'atio' immediately instead of making assumptions about the
-     structure size. Use kzalloc_flex() to allocate the structure. This does
-     not change the allocation size.
-
-     This patch is based on a patch from Finn Thain and on a suggestion from
-     Tony Battersby.
-
-     Do not modify the memcpy() call in qlt_queue_unknown_atio(), which
-     still writes past the end of the 'atio' member.
-
-     Compile-tested only, for m68k (Coldfire) and x86_64.
-
-     Reported-by: kernel test robot <lkp@intel.com>
-     Closes: 
-https://lore.kernel.org/oe-kbuild-all/202603030747.VX0v4otS-lkp@intel.com/
-     Closes: 
-https://lore.kernel.org/oe-kbuild-all/202609301230.CauIUXCF-lkp@intel.com/
-     Link: 
-https://lore.kernel.org/all/4808a5dc1a71528ffa3360868561009744277450.1791502886.git.fthain@linux-m68k.org/
-     Fixes: 091719c21d5a ("scsi: qla2xxx: target: Fix invalid memory 
-access with big CDBs")
-     Fixes: e428b013d9df ("atomic: specify alignment for atomic_t and 
-atomic64_t")
-
-diff --git a/drivers/scsi/qla2xxx/qla_target.c 
-b/drivers/scsi/qla2xxx/qla_target.c
-index 5a7caff61b16..afa96551c13c 100644
---- a/drivers/scsi/qla2xxx/qla_target.c
-+++ b/drivers/scsi/qla2xxx/qla_target.c
-@@ -212,9 +212,6 @@ static void qlt_queue_unknown_atio(scsi_qla_host_t *vha,
-  	unsigned long flags;
-  	unsigned int add_cdb_len = 0;
-
--	/* atio must be the last member of qla_tgt_sess_op for add_cdb_len */
--	BUILD_BUG_ON(offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) 
-!= sizeof(*u));
--
-  	if (tgt->tgt_stop) {
-  		ql_dbg(ql_dbg_async, vha, 0x502c,
-  		    "qla_target(%d): dropping unknown ATIO_TYPE7, because tgt is 
-being stopped",
-@@ -227,7 +224,7 @@ static void qlt_queue_unknown_atio(scsi_qla_host_t *vha,
-  		add_cdb_len =
-  			((unsigned int) atio->u.isp24.fcp_cmnd.add_cdb_len) * 4;
-
--	u = kzalloc(sizeof(*u) + add_cdb_len, GFP_ATOMIC);
-+	u = kzalloc_flex(*u, extra_cdb, add_cdb_len, GFP_ATOMIC);
-  	if (u == NULL)
-  		goto out_term;
-
-diff --git a/drivers/scsi/qla2xxx/qla_target.h 
-b/drivers/scsi/qla2xxx/qla_target.h
-index 71bc1affb1bc..c1559f034f85 100644
---- a/drivers/scsi/qla2xxx/qla_target.h
-+++ b/drivers/scsi/qla2xxx/qla_target.h
-@@ -845,9 +845,16 @@ struct qla_tgt_sess_op {
-  	struct rsp_que *rsp;
-
-  	struct atio_from_isp atio;
--	/* DO NOT ADD ANYTHING ELSE HERE - atio must be last member */
-+	/*
-+	 * The part of atio.u.isp24.fcp_cmnd.add_cdb[] that extends past the
-+	 * end of atio. Must follow atio immediately.
-+	 */
-+	uint8_t extra_cdb[];
-  };
-
-+static_assert(offsetofend(struct qla_tgt_sess_op, atio) ==
-+	      offsetof(struct qla_tgt_sess_op, extra_cdb));
-+
-  enum trace_flags {
-  	TRC_NEW_CMD = BIT_0,
-  	TRC_DO_WORK = BIT_1,
-
+pw-bot: rejected
