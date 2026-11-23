@@ -1,47 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795458709;
-	b=FJL2slUBh5K/smHo+1HmL1xuyW5FXp44iSAqS1xKdrN4bCsKSISlqiGIeHtmrel0eZYz
-	 MHn78SIN6iotBFE3QPzI4le+H46mxaDCZZjnvZGnF0mXLq9FDDEDrIio6Hps1azbbb7Zd
-	 8gHRDFVBNMZdeINmi6eAZTqhbvjwgu5tZ5euLWxcOLQUs2uuZsjOV6IVDXvdaC1xSxf3m
-	 h3A4AK+OsPv70nArUfS60Qkkc1JRFDxOvosn5DAudldMcB6VNdndQ+ndBuvr7kOYxWR/9
-	 yRNOYMStBnrnfYva2izpgNl2hTRPvTCFUx/ws640iYhpNK5gdqyFbiZAN1KBBsec5TQ==
+	t=1795458729;
+	b=EWs3vWoAaX7t8EzhpNtBYbnIMn419HPkm/GH3KqdWD0Wp0t4uaCbWbmgwYZzCToUHkZU
+	 Mbi20bTeQwaXCj/4E6MOvZTDbUkgP7VcX9zoHNTa2fKxgrfRDnlfm642S571G+ehqBGkY
+	 2f4RujpfjLH0BZ9rmLTgMCmk+Exm11s1Q8Tr6p9kA9V9EBrvYnt5YHCFwuFOr4JM68WaR
+	 NAbem34vMzNvOkPaGW2x/pBCuZIdVwp5YFsx40sr5hynIAIpq9QOWWjedvdQoXNE7aS91
+	 UvyGYHA8gabtTJwRLNxdhvD4wMs6JEJYUigZhbW9MYv3orzGx6wt30Zs5N86RUdnkBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458709;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ToWYk38FNvu30597eBl4hMsIU1KeznrHsCT06pSLviM=;
-	b=DYJfHRI/liEj70WlVXEiCtvN28mvrN2AAwyTnM6wLLDjkDAjmKnipfctsBv2SN0nhhOd
-	 q5JiXU2lc4mpu7F15nVpxd7/PEVO4DHOij/3ynjTf9kCI5xg+GtPXwYRmgpmCjpFGxHFQ
-	 2jf7BqY1pmmKUsA02sAo/qLXEBaH7xkUlbtrgdhXVQ9YsrpieDCaK7rZYazksDg97KRtG
-	 4j8PoQn7abOah7LDpUvlGwvuE0Y69ZqFTkdqhPUKHwgE1hOd8e566MLvGQftyY6PzCT2X
-	 GlHkodCQtfYOcugiI3meeXvoe7//Kb5AotcU3+0Zn9yv7yQ/gWZ7QQ6WOEeVawzrA3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458729;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=w3cnyFXRTHoFwReHmudPZ5M2WczBBfc0l9gr3HBh5B4=;
+	b=vwtqcwITc3olOS9pGcbrpA+ecW/phK1UVTJLWJ6f1uVQ5QdeCwnGm6KtQf2UKLlJ428T
+	 Evuo9Y4hK2XEGSS1nFdsIu50mTL+LWRpSWM6RluSrXUlzv8NNclelzkiTDofPYFAtjwfo
+	 V4tOovvlUicGsZzxNKFa3+M24pzxBPqK0/ZtSbe4yfc3ybktI8MW6QfzLQW1hQbgbl7Zp
+	 rn+BOd7cWBUdrwxu9tvvboTAT+DLZl5ETY0gAQ/HCrQByRv+HKuS+yqajYZXdFInzO9W0
+	 x+/zdi2IJ2rLOtIXuSEmpbxkt962jfJ/zapNc7E0w+r3A1xNRkU65kiNk83zOicFKNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0IrV4vT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VqpqqUkm;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D4ED606A31A;
-	Mon, 23 Nov 2026 18:31:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1793A606A31A;
+	Mon, 23 Nov 2026 18:32:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0IrV4vT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BC6E1F000C4;
-	Mon, 23 Nov 2026 18:31:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VqpqqUkm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 873F61F000D0;
+	Mon, 23 Nov 2026 18:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795458708;
-	bh=ToWYk38FNvu30597eBl4hMsIU1KeznrHsCT06pSLviM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=j0IrV4vTLxhgHGR0ajgzVViKNWfLGXybpgMGQDYJuo6Br78KXVcTssrZifLLcyEKy
-	 T/XAwpoiMrHsSzUlJn6zp/IHHtZYJAPuPEwdFyIl+/8qdeDC7ay4r04NTtHLj1Ungt
-	 qw7+u0ImnyV+iZYiM9sLAf8YeMwOzRhKjn7CbQz5+8nrexbATzc+yz8C6khlWFey7Z
-	 DTzO8AQ9HTM4FbPmMqQcJ1xjOsQUAM525xZpAfRmhLoPOXpC7C4iyJ6PIx1soEGrqF
-	 /dHajqFGPXm3aDgWsEMM72hAG+XClBQRPEuT/W3jcUCiMbz3XC84rY6j9SBHW4b/Bc
-	 WW46finYM0syQ==
-Message-ID: <ca2615ca-7483-481f-ac9c-cf64054ec0de@kernel.org>
-Date: Mon, 23 Nov 2026 19:31:41 +0100
+	s=k20260515; t=1795458728;
+	bh=w3cnyFXRTHoFwReHmudPZ5M2WczBBfc0l9gr3HBh5B4=;
+	h=From:To:Cc:Subject:Date;
+	b=VqpqqUkmfi4DHoKE6YP7bpEvLzUv96RQgHL7OA8dKq/lyse5senryP7efA/DQlFeU
+	 G7KhCVzmT7akQnmGu8o+F+6YwswzcqE91LE7xnPDU4W2u0aRrADHqRaqfRyCsPsd9F
+	 9RfRdhobzagzcsJ09n80tNPXiNLIFSel+d4zHON0VgUp1MO7eFdeS17+pUsE/P1uKV
+	 XWSULDlN9oFHahCFNc9I/LLeJrYpD/qCkZxWD3zz/QJtrLfsLFSS6csS5I/3zeGolP
+	 8/WV0OLrgG8H1vEOua58Cx/znV6pnCH7AyHZPHLWNnzDhwq94mXnOnliFgZ6zNsuFM
+	 saBdJino7XmEA==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: "Cheng, Wacom" <pingc@wacom.com>,
+	=?UTF-8?q?Ronald=20Tschal=C3=A4r?= <ronald@innovation.ch>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Andrew Duggan <aduggan@synaptics.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Carlo Caione <carlo@caione.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Dudley Du <dudl@cypress.com>,
+	Fengping Yu <fengping.yu@mediatek.com>,
+	Greg Kroah-Hartman <gregkh@suse.de>,
+	Hans de Goede <hansg@kernel.org>,
+	Ian Bridges <icb@fastmail.org>,
+	Jaya Kumar <jayakumar.lkml@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-input@vger.kernel.org,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marek Vasut <marek.vasut@gmail.com>,
+	Mattijs Korpershoek <mkorpershoek@kernel.org>,
+	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Vojtech Pavlik <vojtech@ucw.cz>
+Subject: [PATCH 00/10] Input: assorted bug fixes across input drivers
+Date: Mon, 23 Nov 2026 18:31:06 +0000
+Message-ID: <20261123183200.3900004-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,119 +87,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/2] clk: samsung: exynos5: fix sub-CMU power domain
- attach
-To: Marek Szyprowski <m.szyprowski@samsung.com>, y-asai.0816@docomonet.jp,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <CGME20261123141844eucas1p221c650882789ccab239e57ee458c02a1@eucas1p2.samsung.com>
- <20261123-exynos5-subcmu-defer-v1-0-43aef47d4f2b@docomonet.jp>
- <d0bf2242-d9ad-4a7e-a1cb-ef32e50f34f9@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <d0bf2242-d9ad-4a7e-a1cb-ef32e50f34f9@samsung.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 23/11/2026 18:53, Marek Szyprowski wrote:
-> On 23.11.2026 15:18, Shigeaki Asai via B4 Relay wrote:
->> Since commit c09a3e6c97f0 ("soc: samsung: pm_domains: Convert to regular
->> platform driver"), the exynos-pd platform driver registers the power
->> domains too late for exynos5-subcmu, so the sub-CMUs are not attached to
->> them and their clock setup is not restored. On ODROID-XU4 this drops the
->> GPU performance badly (about 3.5 fps in the Kodi menu, with repeated
->> panfrost "gpu sched timeout").
->>
->> This series fixes it as follows:
->> - Make the exynos5-clock probe wait until the power domains are
->>   registered, so the sub-CMUs are attached to them.
->> - Also make audss wait for pll_in. As a side effect of making the
->>   sub-CMUs wait, audss would otherwise probe before pll_in exists and
->>   generate audio from the 24 MHz pll_ref, which causes audio stuttering.
->>
->> However, this relies on deferred probe, which conflicts with the move 
->> towards platform_driver_probe(), and the sub-CMU clock data is
->> __initconst, so the deferred probe has to finish before init memory is
->> freed. So I would like to discuss the preferred way to fix it.
->>
->> This may also explain the oopses seen in the RFC series "clk: samsung:
->> Use platform_driver_probe() to avoid __refdata". Krzysztof saw them
->> when converting exynos5-subcmu, and Stephen pointed out that
->> platform_driver_probe() is incompatible with deferred probe. The
->> sub-CMUs have to wait for their power domains, so exynos5-subcmu
->> probably cannot use platform_driver_probe() as long as exynos-pd is a
->> regular platform driver.
->> https://lore.kernel.org/all/20250305-clk-samsung-ref-init-data-v1-0-a4e03a019306@linaro.org/
->>
->> Testing:
->> - Tested on ODROID-XU4 with a Linux 7.3 based LibreELEC kernel:
->>   every power domain now has an exynos5-subcmu device attached in
->>   pm_genpd_summary, the Kodi menu went from about 3.5 fps to 25-30 fps,
->>   "gpu sched timeout" went from 17 to 0, and there is no audio
->>   stuttering.
->> - On next/clk, only build-tested (exynos_defconfig, W=1) and checked
->>   with checkpatch. I have not booted next/clk on the hardware.
->> - These patches are already carried in LibreELEC.
->>
->> I investigated the root cause and wrote these patches and the commit
->> messages with the help of Claude (claude-opus-5-5). I reviewed the
->> changes and tested them on the hardware as described above.
-> 
-> https://lore.kernel.org/all/20261030075325.517182-1-m.szyprowski@samsung.com/
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=5fbe2d229bd3738ed63c7c9177466ad6bc130f18
+These issues were reported by Sashiko.
 
-Which was even committed three weeks ago! I guess author just sends slop.
+None of these changes have been tested on physical hardware.
 
-Best regards,
-Krzysztof
+Cc: "Cheng, Wacom" <pingc@wacom.com>
+Cc: "Ronald Tschalär" <ronald@innovation.ch>
+Cc: "Uwe Kleine-König (The Capable Hub)" <u.kleine-koenig@baylibre.com>
+Cc: Andrew Duggan <aduggan@synaptics.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Benjamin Tissoires <bentiss@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Carlo Caione <carlo@caione.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>
+Cc: Danilo Krummrich <dakr@kernel.org>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Dudley Du <dudl@cypress.com>
+Cc: Fengping Yu <fengping.yu@mediatek.com>
+Cc: Greg Kroah-Hartman <gregkh@suse.de>
+Cc: Hans de Goede <hansg@kernel.org>
+Cc: Ian Bridges <icb@fastmail.org>
+Cc: Jaya Kumar <jayakumar.lkml@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-input@vger.kernel.org
+Cc: linux-mediatek@lists.infradead.org
+Cc: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Marek Vasut <marek.vasut@gmail.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Cc: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Samuel Holland <samuel@sholland.org>
+Cc: Takashi Sakamoto <o-takashi@sakamocchi.jp>
+Cc: Vojtech Pavlik <vojtech@ucw.cz>
+
+Lee Jones (10):
+  Input: matrix_keypad - validate GPIO counts against matrix limits
+  Input: cyapa - validate firmware image size in cyapa_pip_check_fw()
+  Input: applespi - cancel touchpad registration work on removal
+  Input: matrix_keypad - only stop and start active device across sleep
+  Input: stinger - zero-initialise driver state in stinger_connect()
+  Input: synaptics-rmi4 - check for NULL drvdata in rmi_set_attn_data()
+  Input: axp20x-pek - skip IRQ handling during sleep without input
+    device
+  Input: mt6779-keypad - enable keypad clock before programming
+    registers
+  Input: pinephone-keyboard - request IRQ before registering input
+    device
+  Input: wacom_w8001 - use reinit_completion() in w8001_command()
+
+ drivers/input/joystick/stinger.c            |  2 +-
+ drivers/input/keyboard/applespi.c           |  1 +
+ drivers/input/keyboard/matrix_keypad.c      | 19 +++++++++++++++----
+ drivers/input/keyboard/mt6779-keypad.c      |  8 ++++----
+ drivers/input/keyboard/pinephone-keyboard.c | 12 ++++++------
+ drivers/input/misc/axp20x-pek.c             |  6 ++++++
+ drivers/input/mouse/cyapa_gen5.c            | 15 +++++++++++++++
+ drivers/input/rmi4/rmi_driver.c             |  2 +-
+ drivers/input/touchscreen/wacom_w8001.c     |  2 +-
+ 9 files changed, 50 insertions(+), 17 deletions(-)
+
+-- 
+2.56.1.750.gf70dc682cf-goog
+
