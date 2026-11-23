@@ -1,79 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795478343;
-	b=iebKBIoyE2qpy4F5xyuTNiKZTGm+Bu8X7GMpymdrFBzBeBS1MobP4c0hR1a6xh6xhkGd
-	 YDIcEbw6o97LabtrfuSyyWYtcccvX1adBNdEShSB4YKqLNs3m2KQoJxlesk+o4kyAeRin
-	 JT2HGrtyyKfFHFZ/Og3MeAqpOqmmdE9dnAhFMdugYavdEvxShUrtdq48eK46ViQcZWk8m
-	 qBSRz8ED8fSeTasbWFCLCjFW3IFSK75tuG1JCdW/rFkfGNc3PuvZcKM0801WsyzohZeUx
-	 0DSSYsakX3R4BcbMxjoYMENQPhpgpiuxgw348+axI+V0sjWe4LgOAfXnvz1yR+HsBYA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=JEBmpFplbNmO69NLeApU96yKNTjtBDobfhpX+nlNWoWNGYh1tbIt+lUSJQQIeLH35qR5
+	 8dqMuJYB/nFaklT0TmBxJKA3t5Z6ZwERTUzDS+o831E9OdV35kDHTDL3uECY9A0c7vJpD
+	 PXnMjOq9NGyIS2+fjc69r1/V5OissDKILKehe4q4Ce53Q0DMuGqzu40WxwPCPafLlVKAk
+	 gD2ln4fI31t4iKk5G0gM3/L+YWYwAw+Y0IBwu2Ewin4ipmbIBLLO+hgAEZyJsuBsRXH/T
+	 nGXs1daRiTZKV4llCXKtEvAhTrepCeWnW1CbnetO9Tve/jIv8caZU7iISWrDN7QkLtw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795478343;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Hwii7vj0qMB50+PolmP4b2hhHOl1mk2HpN/JxsVpo4s=;
-	b=CfArPpiZLFqRthmUXS5brxjTQKX/lz4fgvLtoEZl/52zDHjzNxUOvn816Ni6lV/FrWUo
-	 ci9RKA2q2N5VBUNC7QiO49c4w+K18ujwsbTqTW/hR/3HBtSg/GEwyIJbt2OOPdwpcrYg6
-	 wBOoDROtN/pfTv4nAhX1+dALUnQTl10LtBka5t+buuuhlWyFr/1cksxfifstK7Zo9XAfS
-	 4Gh5aXOF+nFHPQ/nbhxDNWlVBz1TTVaAZfBxD8JmUruDcnQLKo7kXDNGiHmXWRW9d9PuZ
-	 s1twU+8OiDeNbmPc4rLqPEqgMrg5Kf1TX7+n22Qwz7TG//V9sDldRwpt+mcr4x8yBDg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YlpsnZCn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E094606A326;
-	Mon, 23 Nov 2026 23:59:03 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YlpsnZCn
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795478342;
-	b=s0tbTPdR+jWQhQlrAz3b4dE4ZENRC3wbNwE64JedaM5vKUKUctXnEn/dmIgFRP19UENl
-	 IlNfKuUTsZK5lEdhtSDEJ2S83mr/tMbge0Ef6jP0KuNmKc3Nmi0hVGSkOR4E0deP51NH2
-	 DYiXl6ppTKRuK8pprZfQulhCdzHumqSmdI6pmjsvEzqQ+w+ONSlm4/J26Ia02/zpBgQT/
-	 4jU+13HLJ8pix5M/qK5DvWLkPMlxGqxAattu4Tj7ClJ0pVUWr3sP5TiNTruXz5PuvbZA/
-	 1pe0U0DRnmBQ3v/JUabY5pr69315/fr0p8ACXfTRljBIUzeszZY8qhO9zw57VqwyQ7A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795478342;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Hwii7vj0qMB50+PolmP4b2hhHOl1mk2HpN/JxsVpo4s=;
-	b=XYInjS1GxG7qiFVEf7LmpRchml6NeSMQqrXU1yTBdpF1bu6K32cHznHtmV9+s5+klrb0
-	 MUik16lg93JnDhPGjc1ql+hpC+CQQK1cCjd38iUz7LYGHnkjDbOkFC3Y2YgNNhIRz6NLM
-	 iAZxcvYHWr1dFN3U6HLJQYwQyYSY8hIoiy5bWySFd3bDNRzIf8vf67u5JvLSXOM4khN9n
-	 ZKqqakOpmTQ3tbjE0VbvUAd2V2ngg2yHHKs0g58k3eI5e/TOKDQb7kUEeIqAr/BF9Iva/
-	 RKxnqXMsCb+52l1x9n7PQUfzz4b9151tG9Pq8xTzfc1ue2c4Cp0nh9G+5JmaFHC8gKA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=1KEZlJHY2iJZV5bGkgX8FT1FWywheNVCNg2fp4w3t8o=;
+	b=b+hzW9MBVPrD3zaZgrUoWZdWOjCNj183I9fnntmSzWpk1SoD2msPi6bfXozbuFQQiSvH
+	 T1/24KJh2GfhauznPFHQomsn6y+0nQsA7bD1D7rH7do8xMBLiQRMzlDuQFO3CIoKWm6Sa
+	 /LFAQ1QAfr+EDXwjo09rSAo4fxAUbcB3lEF2U6rCHJOYNUXnFN+35Ew+tS6AvpFTP4psC
+	 b9KIPgS07+m8yTzrgNNWZw7DSDpm8unS0dYZdlgAYhA6X2paoM8yOr7QfvJ2JsR/zPH/G
+	 /mO3sNZKVNZ9OyRfKHN3DhopA3SeXAxFlxZsUvV4nSSGPK3BDH24b4L3Xo4xpMyYe4A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=STikYJ43;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id ABA141F000C0;
-	Mon, 23 Nov 2026 23:58:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795478342;
-	bh=Hwii7vj0qMB50+PolmP4b2hhHOl1mk2HpN/JxsVpo4s=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=YlpsnZCnDYM5Y0Efu8Qa1tc5iLxAkr65MLam+itVHAxa2cstPu6J+PD9Ih1ZSyL1z
-	 sMVeBZ35Aw24mZS5rtIK+DvMvr71FSOzWaQMmMvKbhHfTi/2KaGDmlDwKbpOnn/zm/
-	 D8USCp6ArjhEw9PeN60I07WfDX3rCAGz5zO/wQKpZ4PTPzDSmIwEeGseTXhQ8yO9xk
-	 myTtx1y5VEhbH1oAL9EaUShQaY1zVcTEtw7HKKZ4cwq5l4PxPyZwCh5x5BVgQ76Bwo
-	 hkByU1MUQcc1itm9smeQpBCnRUMlrGBS+uEvsZABU4B/84er93dXaLZe1bTrl348Q8
-	 9mzkR8XUkaFkQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0F7B44C7CC;
-	Mon, 23 Nov 2026 23:58:57 +0000 (UTC)
-From: Arina Kharlamova via B4 Relay <devnull+arina.kharlamova.mbzuai.ac.ae@kernel.org>
-Date: Tue, 24 Nov 2026 03:58:53 +0400
-Subject: [PATCH] slab: fix the kernel-doc of kmalloc_flex() on counter
- overflow
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A965D606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:59:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A965D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=STikYJ43
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4a42b34e930so3430676f8f.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:59:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795478341; x=1796083141; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1KEZlJHY2iJZV5bGkgX8FT1FWywheNVCNg2fp4w3t8o=;
+        b=STikYJ43suh43QJ8vmzVNSCO6iCeQchd6lx48KeLmIArc+Ky8rT3PMBUz4QMWOruDU
+         NcuTTu9xgibmhlmEE2Edb4vyhOWSpekv8xw1bJR5Uh9/3PAywTViopxhnvReTFs/4VGh
+         zfnweL6t2DJJlHgkSGHsMmHykvfxa5y5MsbN0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795478341; x=1796083141;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1KEZlJHY2iJZV5bGkgX8FT1FWywheNVCNg2fp4w3t8o=;
+        b=Of98+X9//K3ORiud4etYc8Kshh6TTtQi5j826q1JRV0WIz9LyNAogRhkRNZEEubOt4
+         q8RuoRNe3oEf6J5pnVFXpTFhnP+rHgV75X3rvKXz+bZ1LgC/HFCCx7HMf2q+J2GoCrS4
+         WxCEQvvccc+N1WEhRGggeWAVFcjeb1MIg+TxEYDKKmb8KuGAwy10HpAOdzmayhlo2VUe
+         8AGl+9UbmLsufvohMfXugvKJM8hGBCPdo/sHAQEC0PG8SUuw+P3IbRpUBxJc7YZw8RD+
+         8OdDhT1ZOPkeGv0fynueaRr8U5ftbE7u4sE+oQtFNcZ7Jyk8usyTB6+a2ZBPHytdLN5N
+         OiTw==
+X-Forwarded-Encrypted: i=1; AL+hErEhbw7LbV/nlUUJvrTEUeJRjSWplu6kKWyU+Gwv/kwLJKPga91VgThowZnrVRH1e9/uBFkEE/6Plms27rw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/r9U8fDDoFGmYQ16cN5KP0k9B8ZPcKXbgb7cZNmkSa9e/CtKbE
+	GgUKruSvH5TmXLWf5kQo22DbEza0mBIyBqdWs2a9ZjUI+D1OadOWMsclLu6IfmvC2Q==
+X-Gm-Gg: AZFdTZfb0HqO/pR4paU+5EnQC2IhNxZ9gzkAPINrGee6ugjZ08nbnzQtsDgiz41R0Sa
+	NfYKgPPjuPx9AGsgmkS+sybP9AQYW7GUDAjAeRvZjT2Dtamdl/UI1oJXcHP8pSFkfjHnZG68k8g
+	2r5ybCiV1rWUFY14HMJinn+NLHTBcTnQ9HT4VM6pwWvge3wEFNlAoDhLYfewp8cygWB6nr6i6S+
+	Ozpqw+D6/vo6cDgGnEcWnlaL08+5NXy7khniZls/G2ZrZhiy5vgJP65EQYxjS2n/DcZfiLTHQab
+	PnxEc4U3lITO7cihJ8fjfOLkIKWqRHwjs9058rdl55h0SIVllj0/DXmISEy5xnmoLgPUtM+f3EI
+	EWICdrYb5XcJcfQvf/HEHFctuRmLRnGw3yjLqzRiR2zIshqJPT5yIge4FLl35fvzRRuSTKEXfLp
+	Rwscx0tjZ4rb2Rn2KYhv7OJUdn7IwTr35xS02uZAMXaa9hSdnJm0LaIN3QdBHhzQ14FJ+BY6BLK
+	gTDqV91SWQN/b2D5VrbJYEG8KPrMPGkPgGxjJNmqFAqmPD77A4w37JAmzBuQ+rQYH4ImjkGq3yV
+	+OmyZdpwRv0R6XZXObcWTfdL0j6D9xlAk5bnxJe8uE7P5REs0EOMHHyWRtJea3e+beDJkV4clM5
+	U1NEv64O1ThxOpo9/fg==
+X-Received: by 2002:a05:6000:40c9:b0:4aa:f8a3:3cf6 with SMTP id ffacd0b85a97d-4abb3955aa0mr26517246f8f.30.1795478340984;
+        Mon, 23 Nov 2026 15:59:00 -0800 (PST)
+Received: from dmaluka.c.googlers.com.com (120.142.205.35.bc.googleusercontent.com. [35.205.142.120])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm25727068f8f.59.2026.11.23.15.58.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 15:58:59 -0800 (PST)
+From: Dmytro Maluka <dmaluka@chromium.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Lu Baolu <baolu.lu@linux.intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Dmitry Torokhov <dtor@google.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Bjorn Helgaas <helgaas@kernel.org>,
+	iommu@lists.linux.dev,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
+	Joshua Peraza <jperaza@google.com>,
+	Jesse Barnes <jsbarnes@google.com>,
+	Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	"Oliver O'Halloran" <oohall@gmail.com>,
+	Pavel Machek <pavel@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rajat Jain <rajatja@google.com>,
+	Rajat Jain <rajatxjain@gmail.com>,
+	Will Deacon <will@kernel.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Vineeth Pillai <vineeth@bitbyteword.org>,
+	Aashish Sharma <aashish@aashishsharma.net>,
+	Grzegorz Jaszczyk <jaszczyk@chromium.org>,
+	Tomasz Nowicki <tnowicki@google.com>,
+	Dmytro Maluka <dmaluka@chromium.org>
+Subject: [PATCH v11 0/2] PCI/ACPI: Support Microsoft's "DmaProperty"
+Date: Mon, 23 Nov 2026 23:58:27 +0000
+Message-ID: <20261123235845.564027-1-dmaluka@chromium.org>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,159 +119,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-slab-doc-v1-1-9f14dfce47c8@mbzuai.ac.ae>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM3QpAQBCG4VvRHNva3TbhVuRgfwYjoR2k5N4tD
- p96v+8CxkjIUGcXRDyIaZkTVJ6BH+zco6CQDFrqQiltBE/WibB4ocrKeCtNkLKAlK8ROzq/q6b
- 9zbsb0W/vHu77Aa5/koJsAAAA
-X-Change-ID: 20261124-slab-doc-1894ca04d006
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
- Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
- David Rientjes <rientjes@google.com>, 
- Roman Gushchin <roman.gushchin@linux.dev>
-Cc: workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- linux-mm@kvack.org, Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795478335; l=6300;
- i=arina.kharlamova@mbzuai.ac.ae; s=20261123; h=from:subject:message-id;
- bh=5QShQXRZX54gNTgo0Gx3CJ2jzLByJpRHbpnqHOcnA1Q=;
- b=1eSZpwSTpC+3FeEXiCh//wqMlujfe0v75aaKlaNcdfpPcrsBt+RFLknIU+B407OxXm5P23JDj
- 87e/QpMtB2lBBq4wxtsV6OJt5sc0ya3E/trBJjv9gwM1F/sPOy9RgXc
-X-Developer-Key: i=arina.kharlamova@mbzuai.ac.ae; a=ed25519;
- pk=DzQWwMpUtJvSDuzprqvRdbrC72n4Sq8dW6cq3NRt2Mk=
-X-Endpoint-Received: by B4 Relay for arina.kharlamova@mbzuai.ac.ae/20261123
- with auth_id=1625
-X-Original-From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
-Reply-To: arina.kharlamova@mbzuai.ac.ae
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+[ Resending + rebasing a series which was last submitted by Joshua and
+  acked by Greg over 1.5 years ago [7]. ]
 
-Commit fa5c82f4d2bb ("slab.h: disable completely broken overflow handling
-in flex allocations") removed the overflows_flex_counter_type() check from
-__alloc_flex(), but left the kernel-doc of __alloc_flex() and
-kmalloc_flex(), and the text in deprecated.rst, saying that the
-allocation fails when COUNT cannot be represented by the __counted_by()
-counter.
+Threat model: An overview of the security implications of non-strict
+IOMMU is presented at [1]. This change is motivated by “Case 1” where
+a DMA-capable device is processing untrusted inputs, e.g. network
+devices.
 
-The code instead allocates COUNT elements and stores COUNT into the
-counter, truncated to the counter's type. With a u8 counter,
-kmalloc_flex(*p, array, 256) returns a 256-element object whose counter
-is 0. With compilers that lack __builtin_counted_by_ref() the counter is
-not written at all.
+This patchset proposes using “DMA protection” to mitigate these risks.
+This has the following effects, currently controlled by the
+“pci_dev::untrusted” flag.
 
-A caller that relies on the documented check and does not bound COUNT
-itself gets an object whose __counted_by() size is smaller than the
-allocation. Accesses inside the allocation are then reported by
-UBSAN_BOUNDS, and readers that loop up to the counter see fewer elements.
+- Separate IOMMU DMA domains
+- Use of SWIOTLB if CONFIG_SWIOTLB
+- Disables quirks in Intel IOMMU
+- Disables Address Translation Services
 
-Make the documentation describe what the code does, and fix the
-Returns: text of overflows_flex_counter_type(), which still describes
-the inverted logic that the same commit corrected.
+The “untrusted” flag was introduced in 2018 in [2]. The motivation for
+that change was to enable using IOMMU to protect against DMA attacks
+from externally facing devices such as thunderbolt ports. The patchset
+introduces the “untrusted” flag which “is supposed to cover various
+PCIe devices that may be used to conduct DMA attacks.” The patchset
+originally proposes naming the flag “is_external” but is renamed to
+“is_untrusted” and then “untrusted” supposing that it could apply to
+more than just externally facing thunderbolt devices. The fact that
+“ExternalFacingPort” is not part of any standard is called out during
+review but also that Windows expecting firmware to identify external
+facing ports makes it “as good as a formal standard in the Windows
+world.”
 
-Returning NULL, as the old text described, is not done here. Some
-callers allocate one element more than the counter can hold and then set
-the counter themselves: ext4_htree_store_dirent() calls kzalloc_flex()
-with ent_name->len + 1 elements for a struct whose name_len is a __u8,
-so a 255-byte name would then fail with -ENOMEM.
+This current patch series was first proposed in January 2022 [3]. It
+originally proposed a new property “UntrustedDevice” which would cause
+the untrusted flag to be set. In V1 Greg questions whether the new
+property is part of the ACPI standard and asks who is making this
+policy decision. Mika links to Microsoft's documentation of
+“DmaProperty” and suggests that property should be adopted instead.
+Greg objects that Linux does not have “dma protection” but Mika says
+that this is the IOMMU. Today, the term “DMA protection” is used in
+thunderbolt driver code with the same meaning and in an Intel white
+paper [4] describing the technique. Mika also observes that Linux has
+recognized several properties documented by Microsoft but not part of
+the ACPI standard. There is discussion between Mika, Rafael, and Rajat
+about seeking to align with Microsoft on the semantics of
+“DmaProperty” for compatibility with firmware produced for Windows.
 
-Found while checking a summary of the kmalloc_obj() family against the
-v7.0 to v7.4-rc2 text of slab.h with a battery of inputs compiled by
-GCC 15.2, with the help of an AI coding assistant (Claude); I reviewed
-the analysis and the patch. A KUnit case (not part of this patch) that
-calls kmalloc_flex() with a u8 counter and COUNT 256 gets a non-NULL
-object with the counter 0 on v7.4-rc2 (UML, GCC 15.2.0); with
-UBSAN_BOUNDS, writing element 255 of that object reports "index 255 is
-out of range for type 'u32 [*]'". This patch changes comments only;
-scripts/kernel-doc -Wall reports the same warnings for slab.h and
-overflow.h before and after it.
+V2 of this patch series [5] again proposed an “UntrustedDevice”
+property which Greg objects to because it is not sufficiently
+descriptive, not sufficiently documented, and policies about trust
+don’t belong in the kernel. Rajat describes the “untrusted” flag’s
+current use, controlling IOMMU and Greg suggests naming the flag
+“use_iommu” or “able to do DMA.”
 
-Fixes: fa5c82f4d2bb ("slab.h: disable completely broken overflow handling in flex allocations")
-Signed-off-by: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
----
- Documentation/process/deprecated.rst |  8 ++++----
- include/linux/overflow.h             |  5 +++--
- include/linux/slab.h                 | 15 +++++++++------
- 3 files changed, 16 insertions(+), 12 deletions(-)
+V3 of this patch series [6] proposes recognizing “DmaProperty” with
+slightly altered semantics from Microsoft’s documentation. Greg
+suggests adhering to Microsoft’s semantics for “DmaProperty” and to
+introduce a new property with new semantics instead. Greg again states
+that the flag being named “untrusted” is confusing.
 
-diff --git a/Documentation/process/deprecated.rst b/Documentation/process/deprecated.rst
-index 22a5e62c92ea..f8b7fb6f9629 100644
---- a/Documentation/process/deprecated.rst
-+++ b/Documentation/process/deprecated.rst
-@@ -405,7 +405,7 @@ become, respectively::
- 	__auto_type ptr = kmalloc_obj(struct foo [, gfp] );
- 
- The argument gfp is optional, the default value is GFP_KERNEL.
--If `ptr->flex_member` is annotated with __counted_by(), the allocation
--will automatically fail if `count` is larger than the maximum
--representable value that can be stored in the counter member associated
--with `flex_member`.
-+If `ptr->flex_member` is annotated with __counted_by(), the counter
-+member associated with `flex_member` is set to `count` on compilers that
-+support it. `count` is not checked against the type of the counter, so
-+the caller must make sure it fits.
-diff --git a/include/linux/overflow.h b/include/linux/overflow.h
-index d0f04436343e..6ce610dbc12e 100644
---- a/include/linux/overflow.h
-+++ b/include/linux/overflow.h
-@@ -566,8 +566,9 @@ static __always_inline size_t __must_check size_sub(size_t minuend, size_t subtr
-  * @FAM: Member name of the FAM within @TYPE.
-  * @COUNT: Value to check against the __counted_by annotated @FAM's counter.
-  *
-- * Returns: true if @COUNT can be represented in the @FAM's counter. When
-- * @FAM is not annotated with __counted_by(), always returns true.
-+ * Returns: true if @COUNT cannot be represented in the @FAM's counter.
-+ * When @FAM is not annotated with __counted_by(), or the compiler cannot
-+ * resolve the counter, @COUNT is checked against size_t.
-  */
- #define overflows_flex_counter_type(TYPE, FAM, COUNT)		\
- 	(overflows_type(COUNT, typeof_flex_counter(((TYPE *)NULL)->FAM)))
-diff --git a/include/linux/slab.h b/include/linux/slab.h
-index ad645967a3ee..69fa9066137f 100644
---- a/include/linux/slab.h
-+++ b/include/linux/slab.h
-@@ -1091,10 +1091,13 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
-  * @FAM: The name of the flexible array member of @TYPE structure.
-  * @COUNT: how many @FAM elements to allocate space for.
-  *
-+ * If @FAM is annotated with __counted_by() and the compiler supports
-+ * __builtin_counted_by_ref(), the counter member is set to @COUNT. @COUNT
-+ * is not checked against the type of that member: a value it cannot
-+ * represent is stored truncated, so the caller must bound @COUNT.
-+ *
-  * Returns: Newly allocated pointer to @TYPE with @COUNT-many trailing
-- * @FAM elements, or NULL on failure or if @COUNT cannot be represented
-- * by the member of @TYPE that counts the @FAM elements (annotated via
-- * __counted_by()).
-+ * @FAM elements, or NULL on failure.
-  */
- #define __alloc_flex(KMALLOC, GFP, TYPE, FAM, COUNT)			\
- ({									\
-@@ -1137,9 +1140,9 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
-  * @...: optional GFP flags for the allocation (GFP_KERNEL when not specified).
-  *
-  * Returns: newly allocated pointer to @VAR_OR_TYPE on success, NULL on
-- * failure. If @FAM has been annotated with __counted_by(), the allocation
-- * will immediately fail if @COUNT is larger than what the type of the
-- * struct's counter variable can represent.
-+ * failure. If @FAM has been annotated with __counted_by(), the struct's
-+ * counter variable is set to @COUNT when the compiler supports it. @COUNT
-+ * must fit in the type of that variable; it is not checked.
-  */
- #define kmalloc_flex(VAR_OR_TYPE, FAM, COUNT, ...) \
- 	__alloc_flex(kmalloc, default_gfp(__VA_ARGS__), typeof(VAR_OR_TYPE), FAM, COUNT)
+V4 renames “untrusted” to “poses_dma_risk”. Christoph suggests
+“untrusted_dma” and Rafael agrees.
 
----
-base-commit: 9b95c9eeec894e969d590f45f9b760e88ba92876
-change-id: 20261124-slab-doc-1894ca04d006
+V5 renames the flag to “untrusted_dma”. Bjorn asks for clarification
+about whether the semantics of this flag will match Microsoft’s
+documentation. Rajat responds that Microsoft has agreed to update
+their documentation to have aligned semantics, in particular “the
+property is not restricted to identify ‘internal PCIe hierarchies’
+(starting at root port), but to "any PCI device". As of today,
+Microsoft’s documentation does not appear to have been updated.
 
-Best regards,
---  
-Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+In V6 Rajat updates a link to Microsoft’s documentation, renames a
+function to pci_dev_has_dma_property() and uses
+acpi_dev_get_property() to read “DmaProperty”.
 
+In V7 (Nov 2024) Joshua re-sends and Greg requests a summary of the
+history of discussion about the name for the “untrusted” flag and
+justification of the new name.
+
+In V8 Joshua renames the “untrusted” flag to
+“requires_dma_protection”. Greg requests more information about the
+threat model, what does this property convey, and why we should use
+Microsoft’s DmaProperty and its semantics instead of inventing
+something new.
+
+In V9 Joshua updates the cover letter with more information from
+previous submissions in this series and the “untrusted” flag’s
+introduction.
+
+In V10 Dmytro rebases the patches onto the newest kernel (v7.1-rc5)
+and applies s/system may need protection/system needs protection/
+per Greg's suggestion in V9. No other changes since V9.
+
+In V11 Dmytro rebases the patches onto the newest kernel (v7.4-rc4).
+Also collect the links to all 10 previous versions of the series in
+one place in the cover letter for convenience.
+
+V1: https://lore.kernel.org/all/20220120000409.2706549-1-rajatja@google.com/
+V2: https://lore.kernel.org/all/20220202020103.2149130-1-rajatja@google.com/
+V3: https://lore.kernel.org/all/20220216220541.1635665-1-rajatja@google.com/
+V4: https://lore.kernel.org/linux-pci/20220320062907.3272903-1-rajatja@google.com/
+V5: https://lore.kernel.org/linux-pci/20220325184609.4059963-1-rajatja@google.com/
+V6: https://lore.kernel.org/linux-pci/20220426000640.3581446-1-rajatja@google.com/
+V7: https://lore.kernel.org/linux-pci/20220426172105.3663170-1-rajatja@google.com/
+V8: https://lore.kernel.org/all/20241118193024.2695876-1-jperaza@google.com/
+V9: https://lore.kernel.org/all/20250221000943.973221-1-jperaza@google.com/
+V10: https://lore.kernel.org/all/20260525224023.2753569-1-dmaluka@chromium.org/
+
+Links:
+[1] https://lore.kernel.org/linux-arm-msm/20210624101557.v2.3.Icde6be7601a5939960caf802056c88cd5132eb4e@changeid/
+[2] https://lore.kernel.org/lkml/20181129155153.35840-1-mika.westerberg@linux.intel.com/
+[3] https://lore.kernel.org/all/20220120000409.2706549-1-rajatja@google.com/
+[4] https://www.intel.com/content/dam/develop/external/us/en/documents/intel-whitepaper-using-iommu-for-dma-protection-in-uefi-820238.pdf
+[5] https://lore.kernel.org/all/20220202020103.2149130-1-rajatja@google.com/
+[6] https://lore.kernel.org/all/20220216220541.1635665-1-rajatja@google.com/
+[7] https://lore.kernel.org/all/20250221000943.973221-1-jperaza@google.com/
+
+Rajat Jain (2):
+  PCI/ACPI: Support Microsoft's "DmaProperty"
+  PCI: Rename pci_dev->untrusted to pci_dev->requires_dma_protection
+
+ drivers/acpi/property.c     |  3 +++
+ drivers/iommu/amd/iommu.c   |  2 +-
+ drivers/iommu/dma-iommu.c   | 16 ++++++++--------
+ drivers/iommu/intel/iommu.c | 10 +++++-----
+ drivers/iommu/iommu.c       |  5 ++---
+ drivers/pci/ats.c           |  2 +-
+ drivers/pci/pci-acpi.c      | 22 ++++++++++++++++++++++
+ drivers/pci/pci.c           |  2 +-
+ drivers/pci/probe.c         | 10 +++++-----
+ drivers/pci/quirks.c        |  4 ++--
+ include/linux/pci.h         |  7 ++++---
+ 11 files changed, 54 insertions(+), 29 deletions(-)
+
+-- 
+2.56.1.831.g720f3f5937-goog
 
