@@ -1,72 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445140;
-	b=ZBZ7EUf68Qi4NhnIK+/7gcT13BbKOV6v0gEEFuhq/c4u51xEanIFweHKxkKJjEOsLzDa
-	 r98X686REHF3KcbeMQS7tfqffr0RkvaFFvK0aD8T3jZvKZ5/c89/UJ0TvasIEdCU3u8PD
-	 +Dbso+Jg3Vk7CpQevI8d1AVKQ2PVB9cYhz2VxipyNpY2tBSU2wJpk4KdRNTTen4I7ZwWz
-	 D9NA9trqWcFgg7wxD1ji1YOC2rqGicKPCbtmS1kNBZs5WxOn5kRI8kpn89CIZiBXA7Yux
-	 djfqI69pLq2OLwxM8qKIPL22BAha3GGtJnunk+9M+Jc1deqvn2ZdHS0yczVvBSBOauA==
+	t=1795445151;
+	b=y1wDVc7/WzI9qsk9PUwhg05iJDecm/rGjuY/h4riRsfDR+sGOY5ZmrzN5bbA3QjOybiR
+	 1vo7wA44G88jcv+CzF1b+3qRtqL/IGuy9gGgm+uRmQs2RiRxXJ98VTCn7Ru5fmoaQon6Z
+	 XM6fXV9wKAa37qd6dl6utuXaOubz5z/B0Go9aWfwSpTyrzZu80w1+2ANP6wKv44yUwjaM
+	 z4Qs+s7t+31NZ/nfODM8gw9dbOF1of4+GrVltJGPl+WTPVWThQ7S8zn3m8SMmyXxhy2Se
+	 0rhoAPp1xvfF3Pholr7tdPKSJnqwB81Tp9vRZhLr5RbcepD84VjwomxNy/G8HVqBEWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445140;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=HgymT9X4GLVCIEw/A5amCe6qZlzOlDVRvVwfoXilmPY=;
-	b=bo7eRScug+A/YRGLhDi0tZYlxjeHfMTJoguxFxYVpuUjDdlQS1RwwJmhMrWsWJDuwWrr
-	 47/SYBLnd1tBLTatr7TjChf59KSuoYdzo6QCRCrxZccKNeOxLXVbnKUk+o1kqH/wSFb6K
-	 gqs/Py+VOv0s0Q19XYTKz8iuXOuvC7PWDRpEmVzHd/dHRGQFWq6bZCDkGxm7BvEyYjx6m
-	 EgdQ7UxMU4Ooz4If0Djg67fiLcHQlqYYpl03MNfrBPUOxnU2Z9/MdYwAlZc8cNrBgq/TK
-	 wkGSx6Hn2b6qH7qM//P+3KvYWx7KrjSkzHazIDRN1f24yIgeg0zxOqseKLqEUxrJP/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445151;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=i7/HPF1Cxm7oWTLlVBdlvJlynM4y5VdJj8Z3P3dxC+g=;
+	b=mVveKLd5BkHFY2zlCX+Jk021IBrDKRIA+FbjpPB/XoAkxlrVTqYUwFGB7lozkel/gAGe
+	 sRpFkPtxz6QbzQX7y9xc1+GQdYO6qWNxgtQjg3IAuYDjUcAfOaQjWNe7go88FBOpZSBIM
+	 SW41pcGDivQnTnnrmUGcDq2ej0VWTJQzsWRI58Deqz8RPShoF0ESJiBfcnNv69lfOuRkb
+	 HKGybOl/JhXqld7W79fIyAN6u0OxYDyTn6sCst/Vhbp2qALRXaVa29uiBsOZbcEv4JLcP
+	 cvdMx4QC1EqdnCifLHkRWLvwtLgMwcnhbdGb3mHffSFrUQekqEXU3sjippPgdYp7zIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--starchang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZIHYubhv;
-	arc=none smtp.remote-ip=209.85.210.199
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CZN4Wi7C;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A3D6606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:45:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A3D6606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--starchang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97752606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:45:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97752606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZIHYubhv
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8a01e2962a1so2641212b3a.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:45:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795445139; x=1796049939; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HgymT9X4GLVCIEw/A5amCe6qZlzOlDVRvVwfoXilmPY=;
-        b=ZIHYubhvLp+vswPrauUvTV78Che5NPhf+XNJK5EgPL25dhbOPx5W4Fp83LqTdXDwOs
-         r+wefDmK25nWYKSlI5gID5ptgCb3yj12S4Od2NVNgFpqdFYTMWvJ6+akALEWgvGCvQZg
-         uVZ5CBJezmnF5d6Y7pz3XWfWqQwdS4hTua4q8xSjRsCxf9kYAt676D4USV5cg4X9WxQF
-         MelaPYhufjjLau6KH3IVjZheiHIn1VBbKPZfDR+uSHeCykp3YnDBnAILarAswKiChS4r
-         vwu2y4nqgNaIhK9GQYptHc8CrL4/Ktln1/rdfYaLeBZJ2gZuF5/GiDGHP36m2g/djVvb
-         4nnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445139; x=1796049939;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HgymT9X4GLVCIEw/A5amCe6qZlzOlDVRvVwfoXilmPY=;
-        b=mye0oDdVrQ+0V/XoEkRmZJl7NPMLNagEJOxDN1V4Ah01o/zH1PNk4pdEj3xD81La9U
-         PcrCZozwA7UrRVK1teX3hhL1VomPfU2CA4EniqRYtVevfmJsAOWTf/I2Mr21la8waBGS
-         Xaa4GDWSjaGJgV9BOjl/ROzjZ/3tX/UUnGEtG7gulEf7QxljU4oCWiLPpHUw+JktivRO
-         BMANQoJYGW8SXnoefhlMYkgKnrjP6xjSKF5UrM06ihdLQZNtzY6yFgpWT1lDL9gtwlTS
-         mTr//0heGSg3h+l4KxI3m52uVjunklftrDYYpCOS8/n0LOVtbgK6paDRQ8ay+vhGHiIW
-         eJnA==
-X-Forwarded-Encrypted: i=1; AL+hErHsieHE01krCjCdWgvGg2SB0tORbB320wwb3anON7WDv8vzz0mIgyoVerzkqVHXTpLjczKfq7v7zCd+fUs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5hi7+KB3fAHY1HtWMF8K+Yid5q0jULlui278W7jT90Q17TFF+
-	yrHZ2MwUpYvrdQkzcXq0jLknQJ1QhAj0h+/tkymY2QST3ergN/tnrUiC3gLFhXFPj0nVMNbv/sw
-	mCJwJth4SJpNV6smJyA==
-X-Received: from pfbw1.prod.google.com ([2002:a05:6a00:b481:b0:88b:8b90:725d])
- (user=starchang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6300:8052:b0:3e2:827c:2fe2 with SMTP id adf61e73a8af0-4014a470489mr10760040637.1.1795445138722;
- Mon, 23 Nov 2026 06:45:38 -0800 (PST)
-Date: Mon, 23 Nov 2026 14:45:35 +0000
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CZN4Wi7C
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1CFDA4E41631;
+	Mon, 23 Nov 2026 14:45:49 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D764E601E1;
+	Mon, 23 Nov 2026 14:45:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0F8FE11E6A2B6;
+	Mon, 23 Nov 2026 15:45:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795445143; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=i7/HPF1Cxm7oWTLlVBdlvJlynM4y5VdJj8Z3P3dxC+g=;
+	b=CZN4Wi7CykBfhjv/s5DwbZ+P3nOxN9r07Ld8QW+bptZH045lNdndvxOTZPtF/YHTEdIhFD
+	Q8rAg56SaEIpvKqFhJdwCrJmxz3p5PP5DAEIeUypiZ2X3eZv2SfVsHPOD+9BOA9PFSuevP
+	t0k8eGFnDdPssIhTAI088XIjnqNLPt/JwATH61PdNZKFH/z8ml1AbeJW85RIrc+omxC1x3
+	AGOpSRWMry49+1Y9AFJXGm4HRuezbrqM9SFN4QF4pJm3Rzgy15D9C4tMwyD8OGByx1jxTs
+	yF96rSujmUS12truLDHx93TYYJF7lmaJ92xiA//slsTOsbWrZUeUcdSVjvsAdw==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
+ llvm@lists.linux.dev, 
+ =?utf-8?q?Jos=C3=A9_Exp=C3=B3sito?= <jose.exposito@redhat.com>
+In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+Subject: Re: (subset) [PATCH v6 00/43] VKMS: Introduce multiple configFS
+ attributes
+Message-Id: <179544513429.3984754.11135719755911260525.b4-ty@b4>
+Date: Mon, 23 Nov 2026 15:45:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,166 +89,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261123144535.155300-1-starchang@google.com>
-Subject: [PATCH net v7] arp: Do not update neighbours from ARP in L2
- multicast/broadcast frames
-From: Star Chang <starchang@google.com>
-To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, Julian Anastasov <ja@ssi.bg>, 
-	Johannes Berg <johannes@sipsolutions.net>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, wangroger@google.com, starchang@google.com
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Last-TLS-Session-Version: TLSv1.3
 
-The drop_unicast_in_l2_multicast sysctl drops unicast IP packets that
-are received in link-layer multicast or broadcast frames. On Wi-Fi this
-protects against the "Hole-196" attack, where any station that knows
-the group key injects frames as group-addressed traffic.
 
-ARP is not covered. A broadcast ARP request or reply with sip set to
-the gateway address and sha set to the attacker MAC still creates or
-updates the gateway neighbour entry, so the attacker can poison the
-ARP cache of other stations. ARP requests are legitimately broadcast
-and cannot be dropped, and drop_gratuitous_arp only catches sip == tip.
+On Fri, 20 Nov 2026 18:58:42 +0100, Louis Chauvet wrote:
+> VKMS have a wide range of options. The aim of this series is to introduce
+> many configfs attribute so VKMS can be used to test a wide range of
+> configurations.
+> 
+> PATCH 1-3 fix display and locking of the configfs attributes
+> PATCH 4-9 expose human readable strings from drm core
+> PATCH 10 is a fix for the default rotation value
+> PATCH 11 is ABI documentation
+> PATCH 12 introduce reference counting for vkms_config
+> PATCH 13 add a KUnit test for the device lifecycle
+> PATCH 14 added some error checks in plane configuration
+> PATCH 15 cleanup in plane_release
+> PATCH 16-17 change the display in configfs to be more readable
+> PATCH 18,19 plane name
+> PATCH 20,21 plane rotation
+> PATCH 22,23 plane color encoding
+> PATCH 24,25 plane color range
+> PATCH 26,27 plane format
+> PATCH 28 properly use zpos
+> PATCH 29,30 plane zpos
+> PATCH 31 back pointer to connector
+> PATCH 32,33 connector type
+> PATCH 34 preparation in connector initialization
+> PATCH 35,36 connector supported colorspace
+> PATCH 37,38 connector EDID
+> PATCH 39-41 dynamic connectors
+> PATCH 42,43 PATH property
+> 
+> [...]
 
-This was found in an internal security review and reproduced in a lab
-on a WPA2-PSK network: a group-addressed ARP reply injected by another
-station changed the victim's gateway neighbour entry to the attacker
-MAC. There are no kernel messages, only the wrong neighbour entry.
+Applied, thanks!
 
-When drop_unicast_in_l2_multicast is set, do not pass ARP packets
-received in L2 multicast/broadcast frames to neigh_event_ns() or
-neigh_update(), so they can neither create nor change neighbour
-entries. Requests for local and proxied addresses are still answered;
-neighbours are learned from unicast replies to our own requests.
+[01/43] drm/vkms: Explicitly display connector status
+        commit: fd0c30bdfde7fbc4c6f5f9b49ae859f460ced00c
+[03/43] drm/vkms: Add new lines for configfs attributes
+        commit: be587c4f863d07215726820156c77bbf86ed466e
 
-Fixes: 12b74dfadb5a ("ipv4: add option to drop unicast encapsulated in L2 multicast")
-Suggested-by: Julian Anastasov <ja@ssi.bg>
-Signed-off-by: Star Chang <starchang@google.com>
----
-v7:
- - Rebase on net, arp_process() changed (Julian)
- - Add an empty line before out_free_skb (Julian)
- - Mention how the issue was found in the commit message
-v6: https://lore.kernel.org/netdev/20261123063608.3665186-1-starchang@google.com/
- - Instead of dropping L2 BMC ARP replies, skip neigh_event_ns() and
-   neigh_update() for any ARP received in L2 BMC frames, which also
-   covers broadcast requests with sip = gateway (Julian)
- - Drop the frame and release reply_dst on that path (Julian)
-v5: https://lore.kernel.org/netdev/20261030031136.607720-1-starchang@google.com/
-v4: https://lore.kernel.org/netdev/20261027015619.1745984-1-starchang@google.com/
-v3: https://lore.kernel.org/netdev/20261026150539.1357037-1-starchang@google.com/
-
- Documentation/networking/ip-sysctl.rst |  4 ++-
- net/ipv4/arp.c                         | 39 +++++++++++++++++++-------
- 2 files changed, 32 insertions(+), 11 deletions(-)
-
-diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-index d3523c9064a2..fd2ffb2d2812 100644
---- a/Documentation/networking/ip-sysctl.rst
-+++ b/Documentation/networking/ip-sysctl.rst
-@@ -2302,7 +2302,9 @@ promote_secondaries - BOOLEAN
- 
- drop_unicast_in_l2_multicast - BOOLEAN
- 	Drop any unicast IP packets that are received in link-layer
--	multicast (or broadcast) frames.
-+	multicast (or broadcast) frames. ARP packets received in such
-+	frames are not used to create or update neighbour entries,
-+	but ARP requests for local addresses are still answered.
- 
- 	This behavior (for multicast) is actually a SHOULD in RFC
- 	1122, but is disabled by default for compatibility reasons.
-diff --git a/net/ipv4/arp.c b/net/ipv4/arp.c
-index 3bc8db6ccd68..cc69ea07fc2d 100644
---- a/net/ipv4/arp.c
-+++ b/net/ipv4/arp.c
-@@ -715,6 +715,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 	struct neighbour *n;
- 	struct arphdr *arp;
- 	struct rtable *rt;
-+	bool bmc_no_learn;
- 	__be32 sip, tip;
- 	int addr_type;
- 
-@@ -794,6 +795,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
- 		goto out_free_skb;
- 
-+	bmc_no_learn = (skb->pkt_type == PACKET_BROADCAST ||
-+			skb->pkt_type == PACKET_MULTICAST) &&
-+		       IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
-+
-  /*
-   *	For some 802.11 wireless deployments (and possibly other networks),
-   *	there will be an ARP proxy and gratuitous ARP frames are attacks
-@@ -853,14 +858,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
- 				dont_send = arp_filter(sip, tip, dev);
- 			if (!dont_send) {
--				n = neigh_event_ns(tbl, sha, &sip, dev);
--				if (n) {
--					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
--						     sip, dev, tip, sha,
--						     dev->dev_addr, sha,
--						     reply_dst);
--					neigh_release(n);
-+				n = NULL;
-+				/* Do not learn the sender from a BMC frame */
-+				if (!bmc_no_learn) {
-+					n = neigh_event_ns(tbl, sha, &sip, dev);
-+					if (!n)
-+						goto out_consume_skb;
- 				}
-+				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
-+					     sip, dev, tip, sha,
-+					     dev->dev_addr, sha,
-+					     reply_dst);
-+				if (n)
-+					neigh_release(n);
- 			}
- 			goto out_consume_skb;
- 		} else if (IN_DEV_FORWARD(in_dev)) {
-@@ -869,9 +879,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
- 			     (rt->dst.dev != dev &&
- 			      pneigh_lookup(tbl, &tip, dev)))) {
--				n = neigh_event_ns(tbl, sha, &sip, dev);
--				if (n)
--					neigh_release(n);
-+				if (!bmc_no_learn) {
-+					n = neigh_event_ns(tbl, sha, &sip, dev);
-+					if (n)
-+						neigh_release(n);
-+				}
- 
- 				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
- 				    skb->pkt_type == PACKET_HOST ||
-@@ -890,6 +902,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 		}
- 	}
- 
-+	/* ARP received in L2 BMC frames must not change the neighbour table */
-+	if (bmc_no_learn)
-+		goto out_drop_dst;
-+
- 	/* Update our ARP tables */
- 
- 	n = ipv4_neigh_lookup(dev, &sip);
-@@ -953,6 +969,9 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
- 	dst_release(reply_dst);
- 	return NET_RX_SUCCESS;
- 
-+out_drop_dst:
-+	dst_release(reply_dst);
-+
- out_free_skb:
- 	kfree_skb(skb);
- 	return NET_RX_DROP;
+Best regards,
 -- 
-2.56.1.750.gf70dc682cf-goog
+Louis Chauvet <louis.chauvet@bootlin.com>
 
