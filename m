@@ -1,100 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795443551;
-	b=qCe3rahErdtvAbNOY0pU1Ly3jrQeub6UrM2asanGpAyCoDSl1qlk8k/5/RbCi94Na2Ol
-	 zF3eyaIuXMmPNWIE9de9ap6vDcIfEEQmoDk4Zu/YQB6piyrlagX+ICWyvOXzTF9rKO8D/
-	 qz8w9SUO06DcKZ+RwvkHFWHe8evvg+/n+TL4m1QpEUq/e5PEFhw8OwnkGMt24V/kF7+l4
-	 yhWHCZlvc5PkzB+ZxGvRaKdsUvw/gkFxFOK9ZWVBBEHq3Wa/taAjka/h0LbNSgi8GjFaT
-	 f7HoOiizpmtr7UOkJYfdXtjAMwcMsVeveagaHoExDn427K1kF7xSVCLgFTJPCdnr4Qg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443551;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795443564;
+	b=YnQ1nRsSC9k2hIb6hwM7q1K993Z/7WxGFgXQn7I1h24t/w8zbLH86MVwnp8IhzTDwt9E
+	 cKHbE9zBnpff83HSIsSdjoYvy3WAyv7Auft52pYAZVJ7pCgNO9r9Ae5GL7JZXZ8Dc6NpF
+	 g09f5OeHi/g0Hl5tEXcHe18cTSa9MvDRM+WQqIPL6yMavowut9CYziNQC17B70HdARZZ+
+	 jnXNJX7Laesqv19QIHcBrDeZgpCb0uYRUPSxhgOgKtvqI0zzIh8mUEOONex3sZeS59STf
+	 uS1SYh7/+Vd1EI7KBWBHbJi936Ej0pZxI6Yco72ae+31vtZqA1Ec7w00tAEkr7Lsbqg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443564;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=SGqpzMMXOxhLnysXHPX7ervAuuBOMpPxjnvIFfmSlbo=;
-	b=5giPpB307XUHs9ZsdQirD6UA3ge1NNY2AAc8JeciDtvfDDFubAgfwOksxt2AA8FMornf
-	 p+B6NBU3mfNMquZBtaNZF4re4sB7hyFjx1n0pAyva3jdV+PLkAtZN7UneWszcYkvDFp+o
-	 swK2qGHiPRhMGWKwNYepe6Nm3JB1ayQH1fJnaXpdTrFQR4jZ787S0jTdfS2miQv7TROFF
-	 3Cvu2UVxdPHd/46IvMGtJH3Qy5THlw8oYXehVaaez7D6avumPiqeyNeXj3qFESnAiLYMH
-	 4ZR9dNDRnU0h3+y17rYqK7CVd5KWZ9UzqpdIqcuMWchQ4Rn4iK2WyuBQhMs3drBOJzw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=AWoQ0K2b19xOIDahw7K8oHg1peK86ncFA9KLsX9V9fY=;
+	b=KIjPFN3YXpr8arf9hLXwyCxKreTYgm5ua52FP0QpDKXUp/2LWCOLpPKEthgHYgKJ4u8L
+	 mKIvqdaTSvXCyRtxuhCI6cgon3oydQHAl1pXj6KlQPsvF4y090QSTSyR041QLBUkJfVFQ
+	 GRc1gvU19hFCTobbVFQ5k3mz82z+Mm5PWfskVNo1p5AUXpyg2AyUI6UxS3JChaGco6ab2
+	 Je8be9Ko12kfKH/5hQ+lLwK7Oy0d8r/dOSekBTlDEgnXxy4GOOem/lf0OJEloLgpTxWZ6
+	 Z7MHvMMlizErLzvz2qPzyPxbyjZa4xGzto9GDR8XmCz6R0d7Yp/mBQPuU3WFYe4q5mw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ia/9bOu8";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dAlwWOW4;
+	arc=none smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86C32606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:19:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86C32606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E13A4606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:19:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E13A4606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ia/9bOu8
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b8977f2785so4402612a12.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:19:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795443550; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BwDFGyRyV/BKmRGqlDDU/Rz4BW9F0LeyIzbeI4ZouXY4g84lgJoPj5qTSzornJKB5N
-         lhESxzUF10/FmSr3ubov+/xpSNVoZkmsN4JDbr8c9ZZrYOi5hxj8k3PIKrixdAx/8HIX
-         F4STnAOAwX0vuCB3VtbPtjhnt+SozZkgQ/jRo6/in6L8J7Jf6DIK23FLKorz+h82vtdW
-         TpWDLSj5CcxLoeDNJcneEoixqZ2WkTYFHOWpIhDUBbR5Hc25uweZ8XxpSOB5Iy3T8901
-         i46sXfvzv/YndFSGaH6fAn8mokK7SSaEefgxlcg5iDZIMs11t6kuG5ipEYlvnhDy3s8n
-         NaGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=SGqpzMMXOxhLnysXHPX7ervAuuBOMpPxjnvIFfmSlbo=;
-        fh=5lpMu1TCU+fwxooL4+bnuej+eYywsTMrAb3dCK4RE78=;
-        b=ZO+q20HaINqar1UXiqGp5h05Uro87gr7bo/2LIqYfC3vqGQwrRt3djBwoDY28oTUP3
-         v/z24BO13qiZ2jQvORfyboIX2U+hgMkJykXnqFFWpbyKQvs1KsHWOLSl+PcEb1X9FkiK
-         CCFWHiw8ndM4CI1StboGrQG+z0j+Q+6CBxTiDF6Yqg9kz7xcmkxEDeRxA+/YbB7uLU2/
-         vyJO05znZhKut28isytCe/e9tySBOJmQ5oVNrx5BERRyYg46dZyhHNzMc01tHtcU0c98
-         OPSIJJg9wPNlSHN25OBIydzDMprac60pZbRYYPu052QwhjU1fqKXajinsym8rEadhR3C
-         7xXA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dAlwWOW4
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b3acec6677so4682540c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:19:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443550; x=1796048350; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SGqpzMMXOxhLnysXHPX7ervAuuBOMpPxjnvIFfmSlbo=;
-        b=ia/9bOu8jSdEcdklu7sre/wKzZoFdki81W2YJr5dws7NTbMa6eVh8vfd8h7EZAJ14D
-         zJ0mFNzTG9vSV7EDC7ZzObA4FfyyFHJFmlg2OfQnE1GzlKJYEiaPGS+81TXDzscV3Lmf
-         e1X/UPfaxn/OuM29vOeBkbikjniBtlasyUheiBxZBmZndMWZEYV/NoVgu4CKY5knEIJ4
-         FHLmL5+7Zqnk0SKhO1f5Rpk1eEaOfaYiP0nRtrE5LwUEhOM5CmVruhmq/q9f3TExFydB
-         fjuNhxX5EXWG9T9dmW5z9mMjNIKUvdWzXZN1cU45mM7c3rZLJkxX3+ShE2gwYEV7l3VB
-         J4+A==
+        d=gmail.com; s=20260707; t=1795443563; x=1796048363; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AWoQ0K2b19xOIDahw7K8oHg1peK86ncFA9KLsX9V9fY=;
+        b=dAlwWOW4FZ9n7GhJSBSNH14ZMHykMNOgJZJPH5tZ4jM7PWJpaDKTb3mfDDPPcLaidq
+         8Mx0MkahQy6wP+C+GksuuTVwGclhGd6w0G5cDRENmg8a8OglqSuoYLKubUXMIXrO4Tdh
+         L3q5CixdD+WKPnY6XdtXt3a7A4CNtumD1hkcZDYRo3IKBTZJ+0tp89VQEA3jg91jVw9D
+         IxUGaT2tpnydoEJPSqAGLhslfgKe3heSPoisHRQPMUIdI0GKVgKQ+acBcd/JAPb76bTm
+         gkSTz2IXT5mGPq9strn64DLEMNY9eCp0MKbsydOD90KrTTbdAfTGPX1LY0gD26Uox9YP
+         pPjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443550; x=1796048350;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SGqpzMMXOxhLnysXHPX7ervAuuBOMpPxjnvIFfmSlbo=;
-        b=JCkJNpNWoGpIOA08PxiZcCpIpWBfAXI2mLNztA/kpSJ0zzTgi6mBm90LoYegaDQby+
-         9mMWDjOFW8hJPqvsdPSbCyKST8TknXVNPoruP0jeFK6fbb7Ua0rod75XLcDQSxnXPfPt
-         kq3YJU8Q0QsaMtIKI1cwMt08Q8X1JWUO/CymkiJQRcSfqlyNtDMls7b6iCUavIPhkMXQ
-         +JSPuGcKUKYuyRozqJgqwzjzMvXkoYEperPyZQjcFX1TxUugrHEZxFkC7R6rwtJAAWxH
-         Vja1K47CIi2vCokcMOaytemnSrUl+JVpa+w4PKgkb9sE7osSkAnVLJ9adK0snoFmqRkB
-         3saQ==
-X-Forwarded-Encrypted: i=1; AL+hErHtsUeJYjML9Fz3VQgjuienlHDA4omQnT/dDvTWEf/tuzymlyDTk9u670bg7PgauUKwABWkV3G2NUGR1c4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pV6PRZAmaUxwrjF6Y/xaS/8lXIomNWtTt4w5ir2i1FuIG0ydG
-	wyXDspx0va/5WKBXcIg4y69JKAxVv9mkTelv3ze8cM28GQ/ir704Rx9gXu3cOgI8onnmPlkKMqK
-	V9pZlUIaxhwsQi+kOKHy8pEs9rdeTtLw=
-X-Gm-Gg: AZFdTZeg380sBe/Xd8yqs9R2/dBkr05sq9zXsziPrX5FMiU6eZ2OEW8pZ/O+n5jpoKe
-	PFGnuLYEPjvMEeQUAzG/bSTUtrZzm6MN3/A+SIb1u61e2ZsBlcW80c6EVamAglnB9UcVl7tCbzW
-	EqZTLXfraYxABahkgyZMqZ2xgCiwjMkaCU5mNzwRIok4A6eeQ/HkDt7/v9yZ/4YyrSFu4qC7N0G
-	cqWM6jRu9f9nfrQc6A1DYBzlizFD8WchbARJkklhJ3UiwekDqQ55neDE7fjrNMsDwgHRrA1gYJ2
-	bKJhKQWYeuU7OgcSH21BJHqdV33CCCMd/CR8R4s+P7XkEXA04lr2OE9jzNsK6h15N9ctA6o+d2s
-	5Q55HChEgDf2Q1jfCJg9dYYCN07JEUxrL3JFsElEGoMlqMLsXL42swWb8CWCmvTjkORZGvA==
-X-Received: by 2002:aa7:c61a:0:b0:6b9:86d:bb5e with SMTP id
- 4fb4d7f45d1cf-6ba37e91e14mr6755202a12.41.1795443549130; Mon, 23 Nov 2026
- 06:19:09 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795443563; x=1796048363;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AWoQ0K2b19xOIDahw7K8oHg1peK86ncFA9KLsX9V9fY=;
+        b=IdnhaMWaVYz/EbejhzpPcUmrIlJoHNVEC6gduOUN6w0z0RtqQ41UAcFM/pvOvThT35
+         fANDpsJIgyVUPSRZ6hm5HXvxBet9MTFHOpuOI6lRvwlk6p7s//x9X7sWA7Rv+GGK6lBM
+         t0Sxlq1lbCqLe6ufwaY8qY38OnsACfjuSbNlCETMKn/LeqB4SfD5vrmWFEHXDcLLRB5U
+         M3PXeBLmRqVRyJWjBWwgSBaVrytuj/zzLhleISquxB+9i22O3wbpQ3hh+u9Z9DxPVDiz
+         Gf0mDLLLh9G4U6yMlXDeD+3+LNvR6Olao9OHIF1qyo1abzXQabrTrSGo0hThKBAN792U
+         DAhA==
+X-Gm-Message-State: APuU4Z+09FCgFye/ezd6w7xsseceLa+JebftA78cEdXtr4GeZlnhCBbH
+	o8s1URm6ClxBqivv04Jtbm5uiEopox7uXJ4MZz4nXRTzD88jiZrHQodp
+X-Gm-Gg: AZFdTZfmuWgtM2B5VJ5fKoGrW0E8uKNs0cYa3xVRmi3gCk0ZcNOdkj2Z7ZgAHX52S0n
+	/m4Z13vwus/NcH3BFysi8ASXwvohxQcWlZLU7jcZJy/HkiA0HSnE4w74Nb1A6jsSZr+f/NL14iU
+	KZ19pXaGquRkmtgVnG1Cr15NZLl72zKwtBlJ272SjueNwVK1f6ZJmamW5Cs3fSnlSk5IGnISX0U
+	ne4aMJ+MaK8pZs52HaXXN1+UitHjxeXnweeEg9uDgTLJKvKCDlfo4VZuPOOYie8GC0/+wth7EY7
+	AfgyXlF+k5jbdAIZYF8tJDNeLt4Ja6B0il0X86wfHvuMJTYnqv5OM1Eumai+tVM2AgDEnPMmVTf
+	SReQveT4jrtdWzvc8IU8wO6vihY1rkSw68gRUcIbYrHNJozFtnj5oZmQPX+ODn3mcVS8FSKFsa2
+	9u+hiUI+9WKGllOKvbKVmWcCxSZXAFUSGkqIzG2l9aclKgjZKN56ABw1OFCl9bt+77kr7rERgrB
+	2O67zcxA+CS23GIuw/7dgzR51CRHxy9lsc94RDsMUpfGNZue+03SYo03cdXvD50DPkPg8sVp1tk
+	mSumfTS+GlhfUxw67dvY7gu2G00tAUCovK+D/6qDN6+6b5zIHsc5FV9t2ibCRDb9egzr
+X-Received: by 2002:a05:7022:299:20b0:1b5:7c7b:c1f3 with SMTP id a92af1059eb24-1b57c7bc2a9mr256829c88.15.1795443562761;
+        Mon, 23 Nov 2026 06:19:22 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm32516063c88.13.2026.11.23.06.19.15
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 06:19:22 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Chris Li <chrisl@kernel.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v5 14/19] mm/swap: drop swap active plist
+Date: Mon, 23 Nov 2026 22:19:11 +0800
+Message-ID: <31eee155bb6d4100e78a071cc101b6afd48feb17.1795439990.git.lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,47 +109,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122000856.536902-1-koray.fra@gmail.com> <20261122000856.536902-2-koray.fra@gmail.com>
- <awP8S5KF9v-nqWVY@aalbersh-thinkpadx1carbongen13.rmtcz.csb> <DN2NJH234CC4.2LSWRSOO4TX5I@gmail.com>
-In-Reply-To: <DN2NJH234CC4.2LSWRSOO4TX5I@gmail.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Mon, 23 Nov 2026 15:18:57 +0100
-X-Gm-Features: Aa3M54qCw9X0Tb0EaHQOCg1GMA-OBfzeB1bXtwNxs39Fn8cRfeeS4nOAW1KHDXc
-Message-ID: <CAOQ4uxiREfVU-WKiUVRZLb-uzMXzDEsmG13FVMW7YBoyq10=Nw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] vfs: use goto out on error in vfs_fileattr_set()
-To: koraynilay <koray.fra@gmail.com>
-Cc: Andrey Albershteyn <aalbersh@kernel.org>, Namjae Jeon <linkinjeon@kernel.org>, 
-	Hyunchul Lee <hyc.lee@gmail.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
-	Jan Kara <jack@suse.cz>, "Darrick J . Wong" <djwong@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
-	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 3:15=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
-ote:
->
-> On Mon Nov 23, 2026 at 9:42 AM CET, Andrey Albershteyn wrote:
-> > On 2026-11-22 01:08:54, koraynilay wrote:
-> >> Switch from using if (!err) { ... } to the cleaner if (err) goto out;
-> >> in the main body of vfs_fileattr_set().
-> >>
-> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
-> >
-> > Looks good to me
-> > Reviewed-by: Andrey Albershteyn <aalbersh@kernel.org>
->
-> Thank you, can I add this tag to the v2 version of this patch (since it
-> won't be changed, and link to this thread in the comment section of the
-> patch)?
+From: Kairui Song <kasong@tencent.com>
 
-You should always keep RVB when re-posting without meaningful
-changes to a patch.
+Remove swap_active_head and the associated plist_node. Device identity
+lookups can use the writable swap_info iterator without ordering.
 
-That's how reviewing works.
+Keep priority ordering for the block-cgroup swap throttle target by
+walking the priority queue under the topology reader. Choose the first
+unmasked, writable, non-offlist device with a backing block device.
+Check OFFLIST as well as the pointer tag because full transitions can
+temporarily leave an unmasked entry, and keep the explicit WRITEOK
+check. The disable transition already publishes its mask before
+releasing the topology writer.
 
-Thanks,
-Amir.
+This read-only lookup does not consume per-CPU allocation quotas or
+change retry cursors. It avoids making the throttle disk depend on
+swapon's swap-type assignment order when devices have different
+priorities.
+
+Signed-off-by: Kairui Song <kasong@tencent.com>
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+---
+ include/linux/swap.h |  1 -
+ mm/swapfile.c        | 60 +++++++++++++++++++++++---------------------
+ 2 files changed, 32 insertions(+), 29 deletions(-)
+
+diff --git a/include/linux/swap.h b/include/linux/swap.h
+index d31f3f023d36..ce8a800751ca 100644
+--- a/include/linux/swap.h
++++ b/include/linux/swap.h
+@@ -263,7 +263,6 @@ struct swap_info_struct {
+ 	struct percpu_ref users;	/* indicate and keep swap device valid. */
+ 	unsigned long	flags;		/* SWP_USED etc: see above */
+ 	signed short	prio;		/* swap priority of this type */
+-	struct plist_node list;		/* entry in swap_active_head */
+ 	signed char	type;		/* strange name for an index */
+ 	unsigned int	max;		/* size of this swap device */
+ 	struct swap_cluster_info *cluster_info; /* array, one entry per cluster */
+diff --git a/mm/swapfile.c b/mm/swapfile.c
+index d28dd10c92cc..7d932035c961 100644
+--- a/mm/swapfile.c
++++ b/mm/swapfile.c
+@@ -42,7 +42,6 @@
+ #include <linux/completion.h>
+ #include <linux/suspend.h>
+ #include <linux/zswap.h>
+-#include <linux/plist.h>
+ 
+ #include <asm/tlbflush.h>
+ #include <linux/leafops.h>
+@@ -91,12 +90,6 @@ bool swap_migration_ad_supported;
+ static const char Bad_file[] = "Bad swap file entry ";
+ static const char Bad_offset[] = "Bad swap offset entry ";
+ 
+-/*
+- * all active swap_info_structs
+- * protected with swapon_rwsem, and ordered by priority.
+- */
+-static PLIST_HEAD(swap_active_head);
+-
+ static inline struct swap_info_struct *__swap_iter(int *i, unsigned long flag)
+ {
+ 	lockdep_assert_held(&swapon_rwsem);
+@@ -3533,7 +3526,6 @@ static void __swap_device_enable(struct swap_info_struct *si)
+ 	spin_unlock(&si->lock);
+ 	atomic_long_add(si->pages, &nr_swap_pages);
+ 	total_swap_pages += si->pages;
+-	plist_add(&si->list, &swap_active_head);
+ 	add_to_avail_list(si);
+ }
+ 
+@@ -3553,9 +3545,8 @@ static int swap_device_disable(struct address_space *mapping,
+ 	int err = -EINVAL;
+ 
+ 	percpu_down_write(&swapon_rwsem);
+-	plist_for_each_entry(si, &swap_active_head, list) {
+-		if ((si->flags & SWP_WRITEOK) &&
+-		    si->swap_file->f_mapping == mapping) {
++	for_each_avail_swap(si) {
++		if (si->swap_file->f_mapping == mapping) {
+ 			err = 0;
+ 			break;
+ 		}
+@@ -3581,8 +3572,6 @@ static int swap_device_disable(struct address_space *mapping,
+ 	spin_lock(&si->lock);
+ 	del_from_avail_list(si, true);
+ 	spin_unlock(&si->lock);
+-
+-	plist_del(&si->list, &swap_active_head);
+ 	total_swap_pages -= si->pages;
+ 	atomic_long_sub(si->pages, &nr_swap_pages);
+ 
+@@ -3907,7 +3896,6 @@ static struct swap_info_struct *alloc_swap_info(void)
+ 		 */
+ 	}
+ 	p->swap_extent_root = RB_ROOT;
+-	plist_node_init(&p->list, 0);
+ 	p->flags = SWP_USED;
+ 	percpu_up_write(&swapon_rwsem);
+ 	if (defer) {
+@@ -4317,12 +4305,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
+ 	if (swap_flags & SWAP_FLAG_PREFER)
+ 		prio = swap_flags & SWAP_FLAG_PRIO_MASK;
+ 
+-	/*
+-	 * The plist prio is negated because plist ordering is
+-	 * low-to-high, while swap ordering is high-to-low
+-	 */
+ 	si->prio = prio;
+-	si->list.prio = -si->prio;
+ 
+ 	/*
+ 	 * Publish swap_file before making the percpu ref live, then add the device
+@@ -4450,7 +4433,33 @@ int swap_dup_entry_direct(swp_entry_t entry)
+ #if defined(CONFIG_MEMCG) && defined(CONFIG_BLK_CGROUP)
+ static bool __has_usable_swap(void)
+ {
+-	return !plist_head_empty(&swap_active_head);
++	return READ_ONCE(total_swap_pages) > 0;
++}
++
++static struct swap_info_struct *swap_queue_first_usable_bdev(void)
++{
++	struct swap_prio_ring *ring;
++	struct swap_info_struct *si;
++	unsigned int ring_idx, dev_idx;
++
++	lockdep_assert_held(&swapon_rwsem);
++	for (ring_idx = 0; ring_idx < swap_queue_len; ring_idx++) {
++		ring = swap_queue[ring_idx];
++		for (dev_idx = 0; dev_idx < ring->size; dev_idx++) {
++			si = READ_ONCE(ring->dev[dev_idx]);
++			if (swap_device_masked(si))
++				continue;
++			si = swap_device_unmask_ptr(si);
++			if (!(READ_ONCE(si->flags) & SWP_WRITEOK))
++				continue;
++			if (atomic_long_read(&si->inuse_pages) &
++			    SWAP_USAGE_OFFLIST_BIT)
++				continue;
++			if (si->bdev)
++				return si;
++		}
++	}
++	return NULL;
+ }
+ 
+ void __folio_throttle_swaprate(struct folio *folio, gfp_t gfp)
+@@ -4474,14 +4483,9 @@ void __folio_throttle_swaprate(struct folio *folio, gfp_t gfp)
+ 		return;
+ 
+ 	percpu_down_read(&swapon_rwsem);
+-	plist_for_each_entry(si, &swap_active_head, list) {
+-		if ((si->flags & SWP_WRITEOK) &&
+-		    !(atomic_long_read(&si->inuse_pages) &
+-		      SWAP_USAGE_OFFLIST_BIT) && si->bdev) {
+-			blkcg_schedule_throttle(si->bdev->bd_disk, true);
+-			break;
+-		}
+-	}
++	si = swap_queue_first_usable_bdev();
++	if (si)
++		blkcg_schedule_throttle(si->bdev->bd_disk, true);
+ 	percpu_up_read(&swapon_rwsem);
+ }
+ #endif
