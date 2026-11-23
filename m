@@ -1,114 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.136
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433167;
-	b=eNDg0UhAv7vr60M4Qd07NUIn/HvVTx7blA++J+XnvL1hsZHDzmLf/PbPoyU3eJWl5ARH
-	 QEJivoILkdB1xF8Cpzpe2EfVBsrvTRZOJ9xhjYdV3oTIjRuVqiECqZx4MtnTCdwQf5vEX
-	 YGllfaKg9T3N291/SiSGO6ILXa9DL2BFE7mC3uxq1jkXSJNfh+uSIv0pm1lD10URlgopF
-	 UjrnkwIkUo2LPvntq0Hdhp/4YsFXKo39Zmz61UFVoX1aR6sf+r4sD/YxX3cLvaOIQ/Kyl
-	 mbtDPJ1mVySpdohDl+1FEt38s+7rAzysfvpXmtb9t3jWDO3FqfjVHdqIs8hGkiQyQjg==
+	t=1795433190;
+	b=zq2eJ/2jCJVRrpmYOliVYkPVX60C+PaD1OxagXF3rcIKzLg7EpzRQUhgp5n//VKnd6c/
+	 89u8v5QlrlZ30Ma0tNLq7nw+De97a9mzHUg1C+GEPQl1eocKSRl99UuvQ0J/FMKgj8H8l
+	 yN9Fg4D9GJF4beLFPU07bEHSjm37pKPUiA0aAYyurMKcAU9VFZwxaUkz+E6+QaLGUFUcz
+	 D3+HOmStm6MV3EfDk1enGsGXNpE5DxLOQ0rt8SpQBh9xl/VTysnFzKJcqQFTc45Il4dyu
+	 kxlHJbalDg956yetGXZiBgGJNTiUelEUTDRjpsyQLAZsGwD7d1CCfqJk+Eo1Dymosyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433167;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=Io7ujKNNt7SQhbgiNtNsmPHGRtWoUuLSgdS1AFaBjnc=;
-	b=N/PtmOVvm2Aabno85mQJtIBRCDKuzqbArqL0kTEviST4NVJP8UpgmhUfn3I4gcQfhxbb
-	 akyVR6UHOwRa0612eniveHGzKC16iqr4rviAizScD7zMWB4YADkvSAnXah/TUD/RQXHEt
-	 Z6Wto2qjyHCVc7wnNLId8S0XwgyAnrFMZfZFceRnDRfeaq6Zi/aouS9EJk7PghzMORLWQ
-	 n8052dp1BpSYBEiwuyw/btaevrXyIBB22arCUfeHLcMWGqig+4YolIg+wW6Jf9/DnWunQ
-	 qo5DCiTRC8X01A65i3/JhRoRs0DckAEMoYYerIERt4O7jJf7ajsCtj+oJf3J1l+/AIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433190;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=eRHJYff7xbuoGc4caiW1C1gZpXcbzwTAvEFSpmbyqfs=;
+	b=SX8D8bAO+e10vB70yCfDnS3vmU/sJlyPV2fl6G9icXQq6IS+DZ3KFA/t6SxShBiOusf9
+	 EJqzXg1g35/9mWYIr7nQq9DUir5LxaUn20LIEjIB48QxMCZEmZBNRGxQLkn86weHp+yMV
+	 fX/7kn8PDM+3ZoC25ekVuEMKli0/NjgSZoc/618900nprSW+v52NYUUj9EcVn/mOpbc3G
+	 pgJiWMyympYbbfc6f8RK6inGj1Ca+lyUIB6rI24QR2+FnbZggmBjefdZH7IIFZERV49Qo
+	 LC8xCQrr4Z74uM6NAYVMkA1YGV+MXbiAbtzSzv086jpHM4nCSazhTeoPjfxLPuxaq1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DmuyGlSV;
-	arc=none smtp.remote-ip=74.125.227.136
-Received: from mail-pj2-f8.google.com (mail-pj2-f8.google.com [74.125.227.136])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MgENCpS4;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB39C606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:26:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB39C606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E38D606A31A;
+	Mon, 23 Nov 2026 11:26:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E38D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DmuyGlSV
-Received: by mail-pj2-f8.google.com with SMTP id 98e67ed59e1d1-3ae93a86008so1736499a91.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:26:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795433166; x=1796037966; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Io7ujKNNt7SQhbgiNtNsmPHGRtWoUuLSgdS1AFaBjnc=;
-        b=DmuyGlSVyG0u5kdHOp1ild90T4N/HC7n+JkFjIWZ7Qz0SJ/qFf78h+3H1j8N1TLC8/
-         dFYgp2JnaSmUDKnkMd4SWTZ7Sr/32VbO71cd5+kUIBjBCy2YfgrbHSjV4Mi774QTss4L
-         58rqlv5QMJZSVsd3hLGM1ziY8Udp8cnfbjZGpQRuZYH3E5ojg/owA6GyvNumphsyF8pw
-         F94jWV42N+KzboOAVlP0DCuL38oHmXRmrrCwE7OY2+nFiA72NaD7E1UQnts9UqCt1WLD
-         zhB31LMAV2ev4ZD5wC+U/dscosPhA+hfIuN3zZZGQWXcML0UnxKaGSjP8sIH7mdWslFM
-         KlHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795433166; x=1796037966;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Io7ujKNNt7SQhbgiNtNsmPHGRtWoUuLSgdS1AFaBjnc=;
-        b=sLUngKJeAuvAt+OzNfkJKQFRmO/pPcoQ+hUXxQqWf8C6ecnoabf4jbOxD2pzkbjGn5
-         NKMMvW/3QPp8tW8RCIrmVRO0yJZoDtuA29KSoGsptsP1sbdQ32l+EBiIlE/gGgsI6HBs
-         4iPBK1YopRYLBufPtRh9XebkYZaFAUkfhAyt0EMj1v2EB30CMNkgAm+F1YnZysaHg9Su
-         DUvSn0otx0oiCnSfFAxYWqReU6/FxZLSdJKxwOsPsb5hZFV+4PT5ADrTbPKChWopimMH
-         Qg9xeKN7DL/p84cUael13Bd130QF+1/RSzkphX5RDzSLICDI9MQ9MGqKinecUnQIyiZl
-         OMHw==
-X-Forwarded-Encrypted: i=1; AL+hErH6XXK9nyEFSTbH5l/w40acqPOq+WVPrkIYpKmmpPIaYFzHaf/+UvO2u17g+7ochj0+v8qYhaKvUv7ZFvs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+wwhMQJabwELoBEEWJSEb9f+VcBfG21kFJ76KHNKisUiCkanQa
-	01Xy8qgDA3SFO7sSWxweuybg/0odD8ubx1nJ7i97offQ4ki/RalokVxu
-X-Gm-Gg: AZFdTZd6PCQz5/3noRh0gCgxuZu4lrkxfepO5QHo+nFFtaOJ/BP+3OYghb9Gq3AMQ0O
-	z/H25IRf7lqznTwI0yYNGx7PHFjNmvEx1ns8BaHhqD/7nPMzghfduuayBgjK58MTthcidnyfPVf
-	Psf7TmguTSy1XhL4l6bPbUGJg/BukeJpIY8kbavsqGkQlHQl9WQbche6GgBIe9rpScQzCFjAdAz
-	rAdDRf1F/eaTW2jg/tTMJ/a5t67k1ixd2nBJhW63vov2G7DYA3+Uxv1ZIt0h/6cCwPrq1R5uC2E
-	vXRB8IhIaAsgc+IbX5b45CrXPoQ+b577lRKC+a4AxcI1NlwTpO3vHVp1NYeE0fy/GaSsJ8GbsyV
-	GkL08czbsHyn6nWoKzCfxSFKM+mlCyTDjmoiqXmET3t/a420rPfbNBY5I1fWESRx6g57AMEPrOp
-	SzGRORcWKHhJLkg76+n2velK0u6XAkOuCMp5zNr/0GZBVjKhxfeM44JLNm5JYIVqW1L6FcQs93m
-	ZrlRmvw49OtFZ+sbtewzYrmpTG98PlePrZnalx4qPU5EGDJc8vgDavw3FGb2MjcZCQaayt2APFr
-	Zx7ePe3lwJJmaZ90Toz+Mpl2DgKRooeKCCY=
-X-Received: by 2002:a17:90b:4c07:b0:3b4:f92:ade7 with SMTP id 98e67ed59e1d1-3b41cb20eb8mr10517519a91.52.1795433165943;
-        Mon, 23 Nov 2026 03:26:05 -0800 (PST)
-Received: from localhost ([2403:2c80:6::10a9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8e93asm17449770a91.11.2026.11.23.03.26.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:26:05 -0800 (PST)
-Date: Mon, 23 Nov 2026 19:26:02 +0800
-Message-ID: <f5c6f44bfb6040289653cdc079b1cb2a.codykang.hk@gmail.com>
-From: Cody Kang <codykang.hk@gmail.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Yixun Lan <dlan@kernel.org>, Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Yao Zi <me@ziyao.cc>,
- Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Guodong Xu <docular.xu@gmail.com>, Icenowy Zheng <uwu@icenowy.me>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>,
- Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 10/17] drm/spacemit: add Saturn DPU KMS pipeline
-In-Reply-To: <awPxPHpr4NYxqdmf@houat>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
- <20261121-k3-display-v3-10-ec419e8e96b8@gmail.com> <awPxPHpr4NYxqdmf@houat>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MgENCpS4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795433190; x=1826969190;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=scRuyMIVv2lSRt7Jqqyl2xDUabYgnyyzF+RNayr6wKA=;
+  b=MgENCpS4ION/zXFfXyRtERugp/JjLOb8jhVWPJF88eVlKyHUY0arZsjq
+   VH2aIpJKj289Mfh3COQOZzhZELvDJ6Y/h/cxTUlHLlrG4/cEO2Kgb2LrR
+   wjMv5APOiv+VMk+sAKNnXzl5Kzn5Pl8TISd6vw4XPi8v0/6Sys+FfDzLJ
+   ubxpRfRVyxoVY392CzL3e6zZCiDBatdnLewZcaWw7zO++FJ1w0s6qjeBX
+   0XwzXcZIGAOL6SpDGvNMIoHEkBTWDQa3f7hIEOehaWJlEoTtXDSI62loS
+   0Q8OmEnC0lE7srEOUc1hHJ5a3EY4CnetB5Gju6kr+Yvz+Yq4UuBzVFsFU
+   A==;
+X-CSE-ConnectionGUID: LKd5JXJwQ2CDmMarhiXT/Q==
+X-CSE-MsgGUID: U8uIx+IPRWW/KovgHkeJ/g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4145911"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4145911"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:26:30 -0800
+X-CSE-ConnectionGUID: cbCy/wYMRJyyTIi9MGLbzg==
+X-CSE-MsgGUID: yZuAygo+QousR0HtCJACrA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11363503"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:26:27 -0800
+Date: Mon, 23 Nov 2026 13:26:24 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Marius Cristea <marius.cristea@microchip.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Bogdan Bolocan <bogdan.bolocan@microchip.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 4/7] iio: adc: pac1934: Fix custom attribute
+ allocation and channel bounds
+Message-ID: <awQi4MTY4CMM0hsV@ashevche-desk.local>
+References: <20261123075122.373060-1-lee@kernel.org>
+ <20261123075122.373060-5-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,17 +86,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123075122.373060-5-lee@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hi Maxime,
+On Mon, Nov 23, 2026 at 07:50:30AM +0000, Lee Jones wrote:
+> pac1934_prep_custom_attributes() sizes the pac1934_custom_attr pointer
+> array using sizeof(*pac1934_group) instead of
+> sizeof(*pac1934_custom_attr) and adds 1 byte rather than one pointer
+> element for the terminating NULL entry.  When active_channels_count is
+> zero, only a single byte is allocated and iio_device_register_sysfs()
+> reads past the allocation when scanning the attribute list.
+> 
+> In addition, active_channels_count is counted over info->phys_channels,
+> whereas the population steps unconditionally inspect all four entries of
+> info->active_channels[], which can write past the end of the array on
+> 1-, 2-, and 3-channel chip variants.
 
-On Mon, 23 Nov 2026 08:55:40 +0100, Maxime Ripard wrote:
-> On Sat, Nov 21, 2026 at 03:40:49PM +0800, Cody Kang via B4 Relay wrote:
-> > +static int spacemit_drm_master_bind(struct device *dev)
-[...]
-> > +	drm_mode_config_reset(drm);
->
-> You need to use drm_mode_config_create_initial_state().
+...
 
-Thanks for the review. Will fix in v4.
+>  - Order local variables in reverse Christmas tree style (Andy,
+>    Jonathan)
 
-Cody
+Oh, I meant only this for the case when we touch the content.
+Since now it's not changed there, no need to do it, probably?
+
+...
+
+>  static int pac1934_prep_custom_attributes(struct pac1934_chip_info *info,
+>  					  struct iio_dev *indio_dev)
+>  {
+> -	int i, active_channels_count = 0;
+> +	struct device *dev = &info->client->dev;
+>  	struct attribute **pac1934_custom_attr;
+>  	struct attribute_group *pac1934_group;
+> -	struct device *dev = &info->client->dev;
+> +	int i, active_channels_count = 0;
+
+It took me a while to understand why, but no need to resend, if Jonathan is not
+okay with that, this hunk may not be applied while the rest is fine.
+
+TL;DR:
+Up to Jonathan (but personally I would leave this as in the original code).
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
