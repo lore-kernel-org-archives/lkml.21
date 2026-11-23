@@ -1,47 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451239;
-	b=OKrrWkCCNumvNI3tRIvZ+tizkM2uDTjI42g5otYNIsJ63M7OcKgtxDhUP8lWmEIzRswx
-	 fmbVNrj9wPke+K/47p1OEAb3PmbrRCbm1k7lzwW0nXA53BGlQ49i8IbL2yi2qVq9M9NPh
-	 rUZzhs62VM4g8gkdyKMsl5VjJL1d5VjV6ofwstvAgih/dMUzlms2p1pfoXGuTvhS5H7LT
-	 Yngac45G2fJ9Y4NpqR6dPs7mnTq4gdF4YRslNcYb1oADV8w4TZjPWDWmmPaIL6xl+xfJY
-	 JEb6i17flQjIAw2BFjooAx5LCSlIkYnHDgk/s4FtKfODTqQWvMcxo5hkvGSecNkjTlg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451239;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=OvM3jUunlZEyJZhci9V5BaFyjvhFVzYl/wg6Ouo9vg8=;
-	b=hTuuCsNRHNIqtmSqSLFKp5EtzhWeCrQhtsIyu1loB/RQIU6/bxDqj9EPaIIgOcNnJyGk
-	 tyd3AT5GOKCVKcRA1hU4v1G6nW0JtGl3fAq5D4EyqrY33uGd68v8y7VcRI/e2324eLcs3
-	 uqF5vgPHFXtwnxl5RqfrAyoJDQj1UqyEajkVkJE9wYhnEqlzqxTE6WvZhotikAx9Vjgsz
-	 Z+bs0Kiyr/WFjPROyy6W0+0BPaWG62vumTLfa2e5A96eQVl9dBiScrlAyHIuXA2cqcdw2
-	 4qkESwel5MsWdYrn3BOEqJbKDr5diRi9rOD9OQ7slbF72Xoq1iiUToZH3/6jQIHLDpw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="mkURuO/o";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.170
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795451263;
+	b=Fqoy2ppNLkpZLGaeedR8nZ6K7E4JjWRwuBkruFz81e4QPA33ZAvU+OxK/ZnVJKqicVjX
+	 VhT/HgUXgA9q+sGHb3VtioTfyqeePvV1MY+ypPTZCYsLJX+Cnk71350aiFXHVsOxSKx5J
+	 oixss8coJyoWSwvSPZaUFb8C3sbw9ioBIfBmOS0CnLE8JDiX/zIkkr5++pECGFjF+AP3P
+	 dCUsSnK1WcxrAnGLcFw3Aky7bNV8+BqvqiWPd4HzxXDKVfzvmiMzfobgIf8pMZlIFP1pw
+	 wMX990pwqN2K7/TQ1Ofivh/0zVfB4p7rbIrxmkX83f5gkKbOis4bt5atMyJidp0p3Xg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451263;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=vB3psAisz6oN/RnCKU/w6FpM8F0jva1/kUicZCF7qx4=;
+	b=QaRFDI0sjl7U6oMepUMZVrc3K2/HJtMKd/iDcXfXYLRSNZojObdECriZrqUCBvdR+fbQ
+	 5WV9NSbYYeV2TmkAtCkYZ237sCMFCqxzqfc79kfmAtYscCzr4ay+9lOSbSXFBY/GflStp
+	 gB9562cUURayW/09yz8QVR5DMPuV9uOKiPhTzf4qd2nXGP1KDtdv2r+sGePDjioQaJd4e
+	 BelG/wpcfupSbZ2d7Zm5xXykRMhxwtw0/XSplKQYsIN+g7FaFbDVwNFcTg0KRwHYPL6mN
+	 3a5BRULQlJ61+p8YBXENq1mccgiyOoEEr8UKPizVrPPc8/BobB33b9aWpqUK3QNLXaA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jLLFt0C1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.170
+Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com [209.85.160.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3D9B606A31A;
-	Mon, 23 Nov 2026 16:27:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8667B606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:27:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8667B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mkURuO/o
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C35771F000C6;
-	Mon, 23 Nov 2026 16:27:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795451238;
-	bh=OvM3jUunlZEyJZhci9V5BaFyjvhFVzYl/wg6Ouo9vg8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mkURuO/oPrFCChNLUmQvKUWYsxvB39BRI6HI+jVHtvQd7tCureqiVGFDLVeTTL/qL
-	 atY09NVWYFLdr0zq+pCEFwIZEf5CxOyGFvxFmkNIEq09wt3nIW1o/dUbHIHX5l2ta5
-	 009lvaywxEeDbUkth9tPVVu9vdvp+QcIvhLfLYx0fMSTt3I9jZL+R1P6ipIMqTotKz
-	 opmvGfyI0qJf3pophh/jR8GQEr0QbxZBHgaWtPKwrcqZEAi6RrkJExbgoe7do6XuI0
-	 ZMW5bi/gR1cV4xbmwJRhqJOT2PoWQP0AG/pW2svT0QtXlPonZ0gCqLQdlZoP0oR45d
-	 5yET9izTjpg3w==
-Message-ID: <7c9ad493-d9be-4606-9f7e-8154aca1c45e@kernel.org>
-Date: Mon, 23 Nov 2026 17:27:08 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jLLFt0C1
+Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-5364042eecfso46084991cf.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:27:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795451262; cv=none;
+        d=google.com; s=arc-20260327;
+        b=reFMH8O+2bdl6ixrV4c9fbtO6cygAvAMYkYGp6Xc/x7z7UrO0rm3zWB2XXtA/Mfkrk
+         rv0j26uSqtmE7tOmnqKJWCCfNYaXJG1cTO5udfU9QeNv8nkJ9ja2h/5cextzx9HsNdvY
+         DPc91ZNNSx32Yb7mTu3or6TyLyTfRljuWEpv0OsVNW4Ax0W+vlZI/1MJKQHLSqpw2fXm
+         dBbOyVQ2/x+/mfICv6xYDu/HT350Ao6oN4ChhBYtKGmScIWbdoUy0VKSc3Ro3/XTs5rd
+         GUJiKQn+nlww/CVeau4RbLcsIAtu4jRp4yngJJO1npIa1IuGOrqXwR1NgUpZG13UIawx
+         kdIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vB3psAisz6oN/RnCKU/w6FpM8F0jva1/kUicZCF7qx4=;
+        fh=wsKVZ+/DPmhaEwC8um/Eq41KdkB5qvkUe7r4Ra5jhyU=;
+        b=GOn1YwTd+NjBlBRtXaREPw8bQRy8o9xlxvZtvlPixSF2bPHyokGQeIGovkOCLu32oj
+         Hoo7Lef3frV2XJUdxjQ0lEtnvd9eCbeoGg4INam3KDQXt+m0Cs2uQzuq7gtvt9o5uApL
+         rxPOKyqzicAkCZOgfMT90U210TYk/j8QMxX1Af+x+eZVGu8QkjMUlcwJeQ5wOnMFMkkL
+         j1pUZ7XH1XLPF4276JU7I1G9IX+oWxUCJwlBuz8Lnng5zInEpaC3yOBP60MtarZuWu/S
+         fq7qajWLjwtLLXQrrR2skyDP8dhJaiopHOmtZBncahcuA+p8uH/JzgP6L6ErD3pMEkCz
+         iWNw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795451262; x=1796056062; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vB3psAisz6oN/RnCKU/w6FpM8F0jva1/kUicZCF7qx4=;
+        b=jLLFt0C1tUxuzmq1/dAe3AizY26009ud2oEFFwgb6/BOL4L542gMsBL3pJRtL6iq2v
+         Uc+MNqdDJE4FLmnWZ5bECDKnpt1Q354qkZK0NJPf6wxjDXiZOGBcEDbFfNH1dHefJY6J
+         EGcBbEhfeaybNqvnV22+WqA/6NFra4pzNtmFzJUiFu4dJnj7AwIEPtPDA2VLYLIb7/u7
+         DBeRwxnxHiZaSDn0mApye8nobpijGcq3rnyNXh7/3Rmnad1TQN+aJFSvCo5EFSJGjAv5
+         sMi1AvSBUjj1jKNN15rILP7IgC7bbcc5qGJ2ojhuLvC3KO8z6/MVUPjHKsYxeG4Rks9E
+         ZFvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795451262; x=1796056062;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vB3psAisz6oN/RnCKU/w6FpM8F0jva1/kUicZCF7qx4=;
+        b=XkEHKmPeDSwEGLjzQecopAVV+56iJsQvP0I++LHeGIGtJCPb4VBOHL/Dw+dk2smpcX
+         GVFb0wgVObCLQRIiDkt7E/ntRk49ZAy1STy7dRiuiQY1VjAE0KawTKbBnfT9l1CH0lGj
+         PaMGavdr3FnO1iNMRBIVm67OoHakYeL+BislHqjEk2yGa9R1yAIycRVsfukEPLlOWlrX
+         fviDX1mKxM+UQArkyTNCAwo7V/VV/EKsd5xLjqCgjq5KOjlq5UH8Ah+Fe1l1vHjOg2ul
+         FnYZ2SEBP0fxq3OpfNnl04yX4CWCdNoliR805cLeMD25agLf1a60Gyb51sXXn3Vf+jsM
+         FgiA==
+X-Forwarded-Encrypted: i=1; AL+hErH7qplrv/Wu+s6WzM7nUj/W3ur7n5qYc+EOnLHvL12Ga+AnZ67afZb3YxE9OopBhjK+67og5HEAfkKSnCQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Oqg1TJXpin+MhOjV366dKYGkpSfTXkCNnAZCw3F3fYI1oI/4W
+	tI4T1udq/vbw3hqBStkm8+jSZ6GPUSeJrFcWzhJQjGW/xxEIW2JZ5uBcpnHtlnlq38M3DWRxxki
+	JspgMjfLPpSuZNI1ObW6qrRSFedM+SPg=
+X-Gm-Gg: AZFdTZdUktE2zrtDU3X6c2CFcGWEAbjU+X9ZuyHxHgmcEsZXJ6JpZWyibkzsAiIsI/N
+	onEWZ5Ui8/zVnOJfLev1N/tlXvyFMGY9ibEo9gViFv6Ywe6Y/9reVgwvNR8Io+qTwzn4FGoF8Jy
+	yKZHRAF1ct9jNKt2iTjfpYn7IeF8DAoQq7H9rXuAreUrAXoqvTk9bWDDnt6ITZJ7IkxdeFrj4Q9
+	RRVbrUnZQhRfsx+LpZuro/28Zobk/EJxSGnq+haEq1EPps/FIK+v5mCvVt6wN0YcjCARt688eTU
+	Z/v9/INjPEdGPHI4V5ZAh0+fHRSPOQ/s7L0pQtptR5tW3/jPCaX5yLZYRlfYtVc1Z6SwfI2POTg
+	E7xerqyIGop7L0zth2S+FV7YrcIHQ6omb9hPxb9vqd301klamLqFSudfBXHs3bBktdAt6WIx+20
+	sW/E06wmH/TGz0BuOgmXAXrvpvQsi1oPjjTUTI73rPUdHjf7qAvr9PY8ihfM8=
+X-Received: by 2002:a05:622a:2609:b0:55d:6ac2:ceef with SMTP id
+ d75a77b69052e-55d768a3013mr222786721cf.2.1795451262262; Mon, 23 Nov 2026
+ 08:27:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,106 +105,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] mm: fix deadlock on the folio lock due to inode
- eviction
-To: Chris Down <chris@chrisdown.name>
-Cc: Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- William Kucharski <william.kucharski@oracle.com>,
- Heiko Carstens <hca@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Johannes Weiner <hannes@cmpxchg.org>, "Lorenzo Stoakes (ARM)"
- <ljs@kernel.org>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,
- Chris Mason <mason@kernel.org>
-References: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
- <awPUxY7eDWuo_5qP@chrisdown.name>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <awPUxY7eDWuo_5qP@chrisdown.name>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261029192032.1325629-1-thepacketgeek@gmail.com> <CADvopvYQDLx81gDFNR8MAg9E010K3yJNEByAwawQHFahRYiXzA@mail.gmail.com>
+In-Reply-To: <CADvopvYQDLx81gDFNR8MAg9E010K3yJNEByAwawQHFahRYiXzA@mail.gmail.com>
+From: Matthew Wood <thepacketgeek@gmail.com>
+Date: Mon, 23 Nov 2026 08:27:31 -0800
+X-Gm-Features: Aa3M54or1N6jhbFLhNPl69WhIQyJD3OfJsyAOFV4LpBHefX5dDm7mu41jxBLzCc
+Message-ID: <CADvopvYBODrxGbO1B6YRWeyAanBPd8MPa9Obat0SuGD7HNxJYQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] PCI/sysfs: Wait for config access lock in sysfs attributes
+To: Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, kbusch@kernel.org, 
+	Alex Williamson <alex@shazbot.org>, kvm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/23/26 06:53, Chris Down wrote:
-> Hi David,
-> 
-> Thanks, this looks good. I exercised that in a VM:
-> 
-> - with the series applied, migrate_pages() on a virtiofs file mapping
->    no longer allocates destination folios while it holds folios from
->    the batch locked
-> - splitting a file THP no longer passes __GFP_FS to the XArray node
->    allocations
-> - and the migration and split_huge_page selftests still pass
-> 
-> That said, I didn't manage to practically trigger the deadlock with a
-> virtiofs mbind() migration racing an unmap before this patch. It might
-> just be that I am unlucky though, and the code looks correct.
-> 
-> Given that for the whole series:
-> 
-> Reviewed-by: Chris Down <chris@chrisdown.name>
+On Thu, Nov 12, 2026 at 11:35=E2=80=AFAM Matthew Wood <thepacketgeek@gmail.=
+com> wrote:
+>
+> On Thu, Oct 29, 2026 at 12:20=E2=80=AFPM Matthew Wood <thepacketgeek@gmai=
+l.com> wrote:
+> >
+> > Many PCI sysfs attributes that read from config space are using kernel
+> > accessors that don't wait for pci_cfg_access_lock() holders before read=
+ing:
+> >
+> > - serial_number
+> > - max_link_width
+> > - current_link_*
+> > - *_bus_number
+> >
+> > If userspace attempts to read from these attributes while config space =
+is not
+> > available (e.g. during a reset) there's no telling what values will be
+> > returned: All ones, zeros, or garbage.
+> >
+> > Looking at attribute addition history it seems like this was an oversig=
+ht
+> > instead of a specific decision so this series tries to resolve the attr=
+ibutes
+> > above to match the sysfs attributes that do use user accessors: config =
+& vpd.
+> >
+> > Patch 1 is a prerequisite for the rest of the series. The kernel
+> > accessors these attributes use today skip devices marked disconnected
+> > but the user accessors don't, so switching over alone would make the
+> > attributes start sending config reads to disconnected devices. Patch 1
+> > adds the same pci_dev_is_disconnected() check to the user read
+> > accessors.
+> >
+> > Note: That check also affects their existing callers. On a disconnected
+> > device, VPD reads and writes, VFIO config reads, and VFIO writes to
+> > PCI_COMMAND now fail with -ENODEV, rather than returning ~0 data or,
+> > for VPD writes, timing out with a "firmware bug" warning.
+> > pciconfig_read() fails with -EIO, and the sysfs "config" file and
+> > /proc/bus/pci still return ~0 data.
+> >
+> > Changes were successfully tested by continuously reading sysfs attribut=
+es
+> > while a reset was issued.
+> >
+> > Changes in v2:
+> >   - Patch 5: check DSN read errors in serial_number_show() and return
+> >     -EIO instead of an all-ones serial number
+> >   - Collected Reviewed-by from Keith Busch on patches 2-4
+> >
+> > v1: https://lore.kernel.org/linux-pci/20261025000836.58294-1-thepacketg=
+eek@gmail.com/
+> >
 
-Thanks everyone for the very fast review!
+Hello,
 
--- 
-Cheers,
+Checking in again on this, is there any feedback or concerns or do
+these changes make sense?
 
-David
+Thank you!
+Matthew
