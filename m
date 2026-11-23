@@ -1,100 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795437912;
-	b=BXycABoJs7DFbNAp89w/1W264NZbDsQGw6uGZWDPREUXcwUVwoPL0MbFL9TM17lKxd1q
-	 FhWobk2lL/2CWmWzm6uqZECLNCJ3D20hbQq7DRbIh3mo1pCRWmiUvqZ0aG55q1gzgZtPn
-	 Gj0BBpsvcrE2fxhPs5C3GFM5zGSkIq9tdrh1qYMoyj5yWjB1qhcEfA+j9Gu/lXuyw4Upo
-	 Tn4at7drcORUTubEbhDHEBGNe6aIEYRkeMGkLuDaZcP7+qUQhthRumdTVxD70NeHriR9K
-	 oTbyM8aTMg6eYDxidK/mXE7JWaik1bU+RAWf4jQCy3E2Ddvq6r5IGIeIMuIddOahCkQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437912;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=CAL2j8QXvL//pfGVziag+KoxLrraiNkA6FIwTqOpy24=;
-	b=tbR+1sc7365hdWJ0HvUnf9BikD4QFDxD6LUVeQ6V0rJlcm4oX8Mt8fTyQR0ayjsD47kF
-	 iY5WjFx/G/XCooU0FKn1nS17LngmqEjdlYVn/VGGUcbrqJ1mhmtOjZqYSTo62DELT4iva
-	 Coy/sMMd2vWz51jwpchlbTWNx8bHqJ1+zNrcKG2/2/CagI5O6RNDX6jSCG8hidJnUmStm
-	 8A2WCW7P2CYb0lXMxjboG9sIB60Wacz7izi5OzOIQcG0YXmP9tRNhcjBajxbtnStK36pC
-	 Xa1rWQE7UHvtPiPJklL+R8qeTsu1h610K5ZLImB/kzNf+alI5lJbjhHx3Ea4jIUYEFQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="P/OWlvIw";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.53
-Received: from mail-qv1-f53.google.com (mail-qv1-f53.google.com [209.85.219.53])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.113
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795437966;
+	b=XU8jCPIeTGTIwwrqDtLZOIsj9y4TrGQ8s6W3Iul3nl4xTjHHSUHuSV15O0wVlVZy0fpe
+	 41EK47W5X3+ixfU7eeEq7960oZ8MC+V70Pikdt41PIX81FOX4JEMWG0sKX4IijSF9+7eF
+	 XT1/0wkoZaJEEo+CqkxM+9a/Bzx9swzSn3v9XmcTC50qaT7NUHLfoDOOz4d5VveYIzKor
+	 FgVy7ssGdZmoxyV5Q/IMX88JcfZQ0/08hT55LoLEejoBBF076nQm3cUevd3fc4UtHPmtX
+	 +4vaHEjZrTyOZU/s+2SGjNTdLut6MrPhuiu6oe+ESkmnCj9sL13J6p81BEAPcBaS7kg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437966;
+	h=DMARC-Filter:DKIM-Signature:Cc:From:Content-Transfer-Encoding:
+	 Content-Type:To:Subject:Message-Id:X-Original-From:X-Lms-Return-Path:
+	 Date:Mime-Version:X-Mailer;
+	bh=f52SNuh4fVTxkpx9eifPGKQ42yXiymJUGBpuYwvUaEA=;
+	b=HvxkMHMxwNVQPHHiyk3Ij6QwJKKWrnXTDv2xF1Rvf5ULwr2JHQO9eaO9LM8+7W57F2g5
+	 C9MEZ1qLMLnIhlXvTl5LltAsDH7VNNQWIVkxIW8mHwWJpih1drQG99Qksq+HPIUSmuCDB
+	 P8B4OmCb0pJkaVdnEkgMKhmx/f/0/H3607M8kLsEl93OfoV1chp4+Pan7lCeNKUiQloVX
+	 V9VT+VwyJkx16MOHNHBSA+Pn7PUvLlV3G+c0Xy/uZpP5JixydRitmejj25VwDeXsCWUv6
+	 WOSsew+nrFcFlvbWxJUrLdEcx10EwoI69OU105z5K2BaOwoYG0UI6jOgaG6+In/10zA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bytedance.com;
+	spf=pass smtp.mailfrom=bytedance.com;
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b="cL8oKkS/";
+	arc=none smtp.remote-ip=209.127.231.113
+Received: from va-2-113.ptr.blmpb.com (va-2-113.ptr.blmpb.com [209.127.231.113])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D91C606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:45:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D91C606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 615F2606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:46:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 615F2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P/OWlvIw
-Received: by mail-qv1-f53.google.com with SMTP id 6a1803df08f44-9210f2622ccso41500626d6.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:45:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795437911; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TaQ33hVSY4dwh0eLKHxpCh4BIjBesVEMDP6iNE49s3L3dvh9RHn7fZFmRRFBpABwG5
-         utc7izVt7AVnbTsIJ2YRyFILwb63++HdHoI/sYTMlHTuvPDfRi1G2pkMeqzWhNYoRGk3
-         Ylvzcb9TNdFRe2cI7F+usOrCbzi04vGwXiI0VHSC2r4wBEMQgngZWyQX2kPkkFs4AVf3
-         3FuF+IazC9UOiptimplB2cuxaJIIlpI7alJYAZEv3QFTd1itoiynP0qpph6alz2pA5vS
-         QmPXWa16wrTBKCnjqUHVy8OPp6OjYRWVe3UlzBRsLPscAP/Dn+z5PfhtckmWpqOLfG/N
-         eDOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=CAL2j8QXvL//pfGVziag+KoxLrraiNkA6FIwTqOpy24=;
-        fh=Og3ahkAwoyK2oSP417069fHWGVqqhs28kHB2ytOQPkE=;
-        b=JmfTYPdtSO8/pcVx46VmebDMYUwbdm/449apEDiViSqsWtUTQ6dloUgnry6ho9Pni9
-         z1PgEuT6gmmAQJBC+X7SHPt62gMkDsYbAJt2AZT3g6rHPpxhuYlYPUTsJzq7sTJF9alk
-         yDt32lhs5TL0R+/s6YRaHzpOZ8TAeSBNQ80uyOXpZ9KT+4o8YTlDq26U2LxOUOYyMMlc
-         W8JpItIIsLdnk9hITBVePyp0UttOagQk2Myx5Kb62t8oMzXQx6zmUiZgNMph9PWqs4Fb
-         Fh+BpRIgsTvyLnPpu4e05xU7VlJgP8owRlZbOxoKQogVkdqdYIKoR8NoP6+AqQE0URKb
-         OFaQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795437911; x=1796042711; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CAL2j8QXvL//pfGVziag+KoxLrraiNkA6FIwTqOpy24=;
-        b=P/OWlvIwki7NIRipOUdk6t/vKOD1Jxhz8y/qb7dnEE4ruyiUIcDfinAGJmeuHLcTH2
-         KXr1mqY6thscQxlC++Cqye6tsCFsEvOtslxbfYPWiHHse0ucW0B1x1NOgMCRaaSfjcu3
-         Y0HinV2jM/CbqpPuBWCXee2JcovPumtZka1KC6VQrsPJkdrLX1eNlzGdz5RypenKlSpq
-         MXHS7Jg5OrHpj1NjuQnuRjKm0bgcrL7gRSEBwxX8Wo+fvwiLmq94aYzfNKwD4hPlEWlY
-         ofDYSA71bl4O2iWnUS5BYTnQTodEtJxNWVF31XbgOd3hZWTHgwWLfBkKP1/OSeAE243x
-         TCzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795437911; x=1796042711;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CAL2j8QXvL//pfGVziag+KoxLrraiNkA6FIwTqOpy24=;
-        b=wOyQAdV6+/giOTqk32aiLpKQvSjWwCGdzD1gdAvvXWwdYkKFJNCM3kKRcqXOBxYUr0
-         9sB1lTOWrVATU+5kAvayYwG/VNkOfIFoq5XhVu6ZuDjSSIhWOdK5XKYpA0Y9ozXURu4n
-         08zWfkYi71ZlJTneQgdDg+g3Hl0yddkXxNJ68APR5lhOj4hmRQrmXXyyEh6GtQMJDsCm
-         WmIIVENaVoQueQVJO4tuV7eU86yhj3aBmlpj0pUWTcM+s7Jw4dmAZWLOcqunzflkNG80
-         DyvAyAPtLi+hPIAauRoHZRYGlWgHR/RYQxXZoSPDhpF5sXnyrD9ku2CFCxzHUyH8PGsP
-         dJMQ==
-X-Forwarded-Encrypted: i=1; AL+hErG08bpXDJRhY2ewGBivt03pZCVtvsVTCDDKSZ4KfHLU/k4mst9W3ouG3kIqjsYPFIWQS9TgNEx4Id5Q+gQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/pGhPK+hz17TiJWoTSLo2PM87RmefsHX8OPK9S3V0Qdgijg55Y
-	hiWonhmMmmmvlG3PBSpnAHIS6LWB/xCFFGUluHmrBrNZZMkQbgU+TEQDl3R4us6B2BOgDxQY26i
-	K0yF0cqgzg5AMwSDysITCgPI1R6dANao=
-X-Gm-Gg: AZFdTZcVYLdSV2yFYLhGKa+zhkR/MCXElq4xU5WF/x3r3U9H8Vc/naiTOKhdZgeZOFi
-	rzHx1avE2YrVlcZ4yNCNCfqUda+At9XXUxwM4xO8aSCRIFJHx+Zt2UDYIN0XRYl/vCynBZGvj+T
-	SpbOZ+vla74uxGqgT2AdPX614swavG+/71OsgV8UDKWl1kumffd/XfmDQL3rKRhYYPKmDbraoVR
-	oPQCxypqJWKXN/q7GTjalBEYyu331w3MmLPACQt2NHXbxzJAnFR4yBMhGuQOsikWGzMMHD3FEqg
-	mdIITgtz6yrn3tO+OpnylF05V6gtOY8xYXX53qMTTi0lM7OmvQbK8phWrQjrtTWQI0D/7OivxUn
-	YjRHYWZ3urrv0oT5b5kghUhC/63UAwryaWpclmlR33OecDJF3f28zFfQOILoumRboMhetBpkXCX
-	qnM4u/ZBfMIYmZA8omm5mYG03Zvw==
-X-Received: by 2002:a05:6214:440d:b0:921:1ac1:34e2 with SMTP id
- 6a1803df08f44-92134aee700mr213563336d6.24.1795437911221; Mon, 23 Nov 2026
- 04:45:11 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=cL8oKkS/
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1795437955; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=f52SNuh4fVTxkpx9eifPGKQ42yXiymJUGBpuYwvUaEA=;
+ b=cL8oKkS/U2uX9h8qdhXf+n0Oa5lF39kySatoKKuN/md/D/XaXf/H8UoLDVEmIozeizwGMc
+ 3ZLr1BM4ksRZyokaFaNidqdHnQEeizMGPZjp5eqY6ibYPpmG9FC1f/paAy5Ne5KmLKwGcb
+ nNXDQvSCBk+/ZxoEM249jpWHlOJmQ0Mt2vmYz1SO6g2et3j7a8QPaJOiykIkcEoFZZCSvv
+ gRvwb3i3c/Ou7kLZ83oIpf9n3C9NGP/q33l0g9RBZZyraXaQlzS4Lx593ySLS2cktmTjvQ
+ HOzTp8KnJn7A0avtgHEARXS0LiXZ5EMk+2teLBGL4UfjKI/oNVMD6CZVc/MGeQ==
+Cc: <linux-kernel@vger.kernel.org>, "Chuyi Zhou" <zhouchuyi@bytedance.com>
+From: "Chuyi Zhou" <zhouchuyi@bytedance.com>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+To: <longman@redhat.com>, <tj@kernel.org>, <hannes@cmpxchg.org>, 
+	<mkoutny@suse.com>, <ridong.chen@linux.dev>
+Subject: [PATCH 0/3] cgroup/cpuset: Speed up v2 mask updates and domain rebuilds
+Message-Id: <cover.1795436486.git.zhouchuyi@bytedance.com>
+X-Original-From: Chuyi Zhou <zhouchuyi@bytedance.com>
+X-Lms-Return-Path: <lba+26b043581+bf4e8e+vger.kernel.org+zhouchuyi@bytedance.com>
+Date: Mon, 23 Nov 2026 20:45:21 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,129 +62,51 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261117084748.2387647-1-jonas@jonasjelonek.de>
- <df35e0d4-9f1f-4882-bc6b-257add4e9fb1@lunn.ch> <6fecc631-e493-4e05-aa3c-61a8b0d2d1cc@jonasjelonek.de>
-In-Reply-To: <6fecc631-e493-4e05-aa3c-61a8b0d2d1cc@jonasjelonek.de>
-From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Date: Mon, 23 Nov 2026 13:44:59 +0100
-X-Gm-Features: Aa3M54oKzn5UdFFwG51i21B9Z58VromwpMQTF5kRSx2z_fy0ELZVeYW8tGG_qX0
-Message-ID: <CA+_ehUy2UYqELMFhh7Gf0JZ2uwVHFg4kGFbz03DosfgQC5buJA@mail.gmail.com>
-Subject: Re: [RFC PATCH net-next 0/2] Add Realtek XSGMII interface mode
-To: Jonas Jelonek <jonas@jonasjelonek.de>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	netdev@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.20.1
 
-Il giorno lun 23 nov 2026 alle ore 13:36 Jonas Jelonek
-<jonas@jonasjelonek.de> ha scritto:
->
-> Hi Andrew,
->
-> On 22.11.26 22:24, Andrew Lunn wrote:
-> > On Tue, Nov 17, 2026 at 08:47:46AM +0000, Jonas Jelonek wrote:
-> >> Hi,
-> >>
-> >> This RFC adds an explicit PHY interface mode for Realtek's proprietary
-> >> XSGMII transport. It carries eight 10/100/1000 Mbps ports over one
-> >> 10.3125 Gbaud SerDes lane. Each logical port remains limited to 1 Gbps;
-> >> the aggregate serial rate is not a per-port Ethernet speed.
-> > We should be careful with naming. We have already have QSGMII and
-> > PSGMII, for Quad and Pent. X is too vague. So we should somehow
-> > indicate 8, Oct.
->
-> In principal I agree, the naming doesn't really fit the others. I just used
-> Realtek's naming for now, they use XSGMII everywhere for this.
->
-> > But...
-> >
-> >> Protocol identity and naming
-> >> ----------------------------
-> >>
-> >> XSGMII is the name Realtek uses for this interface. Calling it simply
-> >> "octal SGMII" would describe its capacity without identifying its
-> >> protocol. Existing modes such as QSGMII and PSGMII already distinguish
-> >> multiplexed MAC-PHY transports; the PSGMII introduction is an example of
-> >> adding the generic mode definitions separately from a driver user [1].
-> >>
-> >> Cisco USGMII is a relevant comparison, but equivalent port capacity does
-> >> not establish interoperability. Cisco defines Q-USGMII for four ports
-> >> over 5.0 Gb/s and O-USGMII for eight ports over 10.0 Gb/s, using 8b/10b
-> >> coding and a packet-control header [2]. Linux already represents the
-> >> quad variant as "qusgmii", with its own control-word decoding [3].
-> >>
-> >> Realtek documents XSGMII and O-USGMII as separate RTL8218E interfaces:
-> >> XSGMII runs at 10.3125 Gb/s and O-USGMII at 10.0 Gb/s, with different
-> >> hardware strap selections [4]. The SDK also distinguishes them in
-> >> phy_8218e_macIntfSerdesMode_get() and applies separate initialization
-> >> tables. Realtek's O-USGMII is therefore the candidate for comparison
-> >> with Cisco's octal USGMII; it is not evidence that XSGMII can be renamed
-> >> to USGMII. Compatibility of those O-USGMII implementations would need
-> >> separate confirmation.
-> >>
-> >> This proposal retains the vendor's XSGMII name rather than assigning an
-> >> existing protocol name to a distinct hardware configuration. It does
-> >> not assume a particular XSGMII line encoding merely from the line rate.
-> > https://deepwiki.com/lotusmomo/airoha_sdk/3.1-sgmiixsgmii-drivers-and-apis
-> >
-> > Airoha also seems to have an XSGMII. Is it the same, or different?
->
-> Looking at the referenced code it seems to me that this is rather used
-> like 'xSGMII' - an umbrella term for SGMII, HSGMII and USXGMII in the
-> SDK code. Probably the deepwiki side summarized that incorrectly.
->
-> Overall I found no other usage or naming of a real XSGMII mode apart
-> from Realtek switch SoCs and PHYs. Those PHYs (mostly RTL8218D
-> and RTL8218E) apparently are exclusively used with Realtek switches.
-> The RTL8218E might be used elsewhere too but in contrast, it explicitly
-> also support O-USGMII as a separate interface next to XSGMII.
->
-> > Adding Christian.
-> >
-> > I hope we are not going to have vendors introducing there own
-> > variants, and we need
-> >
-> > PHY_INTERFACE_MODE_REALTEK_OSGMII & PHY_INTERFACE_MODE_AIROHA_OSGMII,
-> > etc.
->
-> Doing some more research on this, as already mentioned in the patch,
-> there is O-USGMII: described by Cisco, being compatible to SGMII and
-> QSGMII, using 8b/10b coding, 10Gbaud rate. Though, this should be
-> totally separate from the proposed mode because it uses 10Gbaud
-> instead of 10.3125Gbaud like XSGMII does.
->
-> Apart from that I occasionally saw some vague information about an
-> extension to USXGMII, allowing 8 ports and reusing the USXGMII spec
-> control word and format.
->
-> There is no detailed documentation about XSGMII, so assuming it uses
-> any standardized frame format would be risky and very likely doesn't
-> apply. The naming of the mode - given it'll be accepted somehow -
-> should reflect that and not conflict with variants like 10G-QXGMII.
->
+We run high-density container workloads on large bare-metal hosts using
+cgroup v2. We may configure many root partitions on a single host.
 
-Hi Jonas and Andrew,
+Changing a member's cpuset.cpus scans its siblings under cpuset_mutex,
+so the cost of a write grows with the number of children under the same
+parent. Creating or resizing a root partition can trigger a scheduling
+domain rebuild. The rebuild checks every pair of partition CPU masks for
+overlap, so the number of checks grows quadratically with the number of
+partitions.
 
-yes I agree with Jonas here... It seems to me any vendor after the 2.5g
-""apocalypse"" (2500base-x vs HSGMII) just decided to use random
-naming as xSGMII with anything that transports 10g traffic.
+This series speeds up cpuset.cpus updates and scheduling domain rebuilds
+on these hosts. The timings below are from a dual-socket Xeon Platinum
+8582C with 240 online CPUs.
 
-Also from what I can see in the datasheet, they don't really declare
-a specific standard they follow aside from saying that the xSGMII port
-can be paired with USXGMII and 10g base-t (following the fiber spec)
+1. All v2 partitions use the default scheduling domain attributes.
+   Passing NULL saves one array allocation per rebuild and one attribute
+   initialization per partition.
 
-Honestly speaking from what I notice, xSGMII is more the 10.3125 fiber
-spec than the ethernet one...
+2. Check each partition's effective CPUs against the union of the masks
+   already seen to detect overlap in a single pass. With 128 root
+   partitions, median time in generate_sched_domains() fell from 42.9 us
+   to 3.14 us.
 
-When configuring the the PCS with all the register, clocks and rate
-they all gets set to 10.3125.
+3. Skip the sibling scan when a member's cpuset.cpus.exclusive stays
+   empty. With 2,048 children under one parent and one sleeping task in
+   the target cpuset, median write latency for cpuset.cpus fell from
+   24.1 us to 0.85 us.
 
-Maybe someone from marvell can also join the discussion searching
-for pattern?
+Thanks,
+Chuyi
+
+Chuyi Zhou (3):
+  cgroup/cpuset: Skip the sched domain attribute allocation on v2
+  cgroup/cpuset: Check v2 partition overlap in a single pass
+  cgroup/cpuset: Skip sibling checks for v2 members without exclusive
+    CPUs
+
+ kernel/cgroup/cpuset-internal.h |  1 -
+ kernel/cgroup/cpuset.c          | 74 +++++++++++++++++----------------
+ 2 files changed, 39 insertions(+), 36 deletions(-)
+
+
+base-commit: a6ca40399708c4322e87448f6c47da7192d72895
+-- 
+2.20.1
