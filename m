@@ -1,56 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795413429;
-	b=A2rBCjy3VIYqfwnsVPEb0sj+4nxMtpnsdBzmHTc7sgVTyVs9AcFXYGErID9IZPkwB36I
-	 q2tuoduMQoPiK1yBUNeEgF7xLNP4i3/Ak9E1tcPrcbz6c4zTOxHeD1KLLaOXMyQGTKgRc
-	 GT0xOa5JNHESTEM7ZXqQ+bl+AhS7BVr5wag0zYZnRklpfYVg62ZhKMrl1z2mb29PQ6+hm
-	 TC3kg1BmbF+4sDyMJ5/5oBTOw3Jgh2S56PdcsBF0gRozo/NEGuA0PzDHtc1eOk3wPK4tV
-	 rlIFJuKFmQNnHLchgIGn5rRI7ENBpUuT7qW4NdK1UoNS1SN7qZsv4lFDh4szMha0QyA==
+	t=1795413484;
+	b=WBUS+v6hs0Kfs+EuYifaSEmTr5XsgGA4+R8muLhZjGTNb6Hk8p7j1oww3sz06wkjnVTP
+	 PWkAKhW1bBhUnKPKuH9sOMWDaIbYr0GjfeTPP8Qu6vUNw5IJWrtsa36RHYk/2Ley3URVy
+	 iLToPog75MfzfK3fVXgc73CoeaUggTiBavQVzoN7vLm+iqaPP2AELUBk1Xmt3Zj//DJyr
+	 thta3vGwoQlZJVCibhQn/tDQQc4J49VohwJYOeSz1pciUnY4UUqYbDLVdHq3MNFsDszkp
+	 A8yZoy0GLB8wobU/shCbaKtgbHR6n1sdE1aETVQCkQghQpRc2ZTtmyDzbT/DpE2ibYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413429;
-	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
-	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=VLBfrvYTChA3dFqQBP/M2npRQQ8sZ+YNEJQyuYJmyF0=;
-	b=zDSjxi6sr0/5+NFs+j7+1AJnFAfNGOdTXBWycVNCECDjcV4N5ECJnh5rzV443AeTpyJY
-	 cj1ap1JL05AZ6LHkdvQhTD3YcfmR8KA9i4Duspq2TZk7SVM9yPaMrdCCmIqHv5C6szxGu
-	 4N/6Fn7JSrGVlEUzfMPrC0D4n4xX9qTbYggXT0ei5mn4gtC1DZ4i52UX/L5kKMbKMPP23
-	 XFQsJYBsxN0rjC2Rk/Mdw/+FtwoOXHDiesJAj9llo39SM5YmZ4MVeX+Hc118cOT3qNft9
-	 xmUvdz+fOmr1+wXAcAHuLJ0q7uw7GM+urSgA2Mhi+1AuTNTYDusg/nQi184IBABKX9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795413484;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=sQWFC0f/1QUqQOyIEaOvFD2iCSmZJvZkkc8zqipcZqI=;
+	b=P0bYhKu3jJ3wdh1j4YBLoK5AvBEWJeNkYBYKYuMfh/L7LoTCs2Z0cAhJbJcsREa5DCEI
+	 aw0Uem4Ljv57/DVhPSAEnahz8gEfAAvQFIB7aG0rLIwys01bzqH93aaOJNi3MNXm9zzLc
+	 pk9f5BXzgDdIIHN3Xf6KX8ky2QYWRH0uTD23+6lvEMhm1S8pKv9gZSC4EMFzX+225nThb
+	 +CnUwzlZPM+EjJcF3qLz/LLygru822hGlLKFvROUdXKfpg2NzN+cNm0p/uKwXhZgVeNvO
+	 Y8QlO5wMfEIjIhUWc1RVFtjqQwxTP1X/1ZQeUB3BG2nUIdQv8OAXF7xz56Op9AjfuRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=open-hieco.net;
-	spf=pass smtp.mailfrom=open-hieco.net;
-	arc=none smtp.remote-ip=115.124.28.49
-Received: from out28-49.mail.aliyun.com (out28-49.mail.aliyun.com [115.124.28.49])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VHkvfDT4;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 345DA606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:57:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 345DA606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.09214134|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.0467983-0.000864812-0.952337;FP=10292264724248510578|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034017;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k87d-Ke_1795413413;
-Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.k87d-Ke_1795413413 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Mon, 23 Nov 2026 13:56:55 +0800
-Subject: Re: [PATCH v3 1/3] sched: Give root domain moves their own
- sched_class callbacks
-To: Qiliang Yuan <qiliang.yuan@linux.dev>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: linux-kernel@vger.kernel.org
-References: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
- <20261120-bug-sched-fair-offline-active-v3-1-325e9eefa56d@linux.dev>
-From: Li kunyu <likunyu@open-hieco.net>
-Message-ID: <a8196fdd-9b96-2479-9b5d-9bdc8be3cf7f@open-hieco.net>
-Date: Mon, 23 Nov 2026 13:56:55 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8FA0606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:58:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8FA0606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VHkvfDT4
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38699cf08dfso2528957eec.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:58:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795413482; x=1796018282; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sQWFC0f/1QUqQOyIEaOvFD2iCSmZJvZkkc8zqipcZqI=;
+        b=VHkvfDT4ZdDkVgEY5yPw1fzWVMiIToihl58fOKC0/u6RHqbbBneDNjOyLIuCq+VXXb
+         FgbPArrbmCP+tvvSfNlbgaeTtNhh1OOcQ1hwHbD7sWAkmoJKe/Rx6sQ97+sHZWqm5dwa
+         ZwPh93nJp/zmgCypr9/ltLq+JmsDXmT8C9YF3o3nbNB1deFUfsIndbUN45aviERka1mc
+         K0BMlttarmtX+9lwTnJsuiBrohnRWp5qI/GxerP+2kg3SYSpfp3kMTZUmKRV8H+lgEqi
+         GooVAr2wPlHab+41Taf+XpDJhc2EdnS8vArCSlVtobVcoYQqPke4y8hG8RpctK/K3qqP
+         HA4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795413482; x=1796018282;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sQWFC0f/1QUqQOyIEaOvFD2iCSmZJvZkkc8zqipcZqI=;
+        b=Vckrw88GEhvMjUlb5piTr2JDanfh5ps72CKU1aIlf4cV6/dcNMksqVGF4gxQWB02T5
+         6AJc/AHSqRkx9JbeQTcCRcrrE75tCJlYopN03/n/CWcm9e/Ajgth+LIYsTfGbU7+u8fj
+         Z4c1ZSjumzrIhT1YSHogU1jHxcOfR/q6e536/uIRPF8+Ac/xa7QECXg3jNIJIoGquAfd
+         +L7bksssvLVzZx3WALOmQj6zMOmtwt+TddACQ4N35gwzsI0+7V+CoNI1EBqpI4RxFBAf
+         YC3W0w//9yNnaK3+6L+kZWMrSHC7qnhCKQjV1c8x1dQji0x2/6MDtbCQ09YECzmfQy77
+         cZlg==
+X-Forwarded-Encrypted: i=1; AL+hErHK3tiYHIjKVdKf6rKT8NPciSslM6+PbVZ+DBhkhgoux0bz4ttDbx0tRCMn6lkJzncIwLG662ja0eW9XwQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z89aXRCco6ZfxlotYpJnWnh8BhCZgtBbOyi8D1K2EIegrM/5Kg0
+	NW7+HfEaF+UtOMV9ljtLr3IOHIRIvcNfV+0OCm7vVn5wLAgyTYTYZDSxJEXx
+X-Gm-Gg: AZFdTZeqls0nay3WpCoyXJcW5Jx1tBmys8Lsh5WUMaE4CKqwZsjob5zVF+i7VF2DZzN
+	jq/+LwAlckJbTuIJ5qreWwy//Wwv6TGbpxmGFRUCE6TBbuKs3+4LHOHWfyzTh7IbeDrezHXJxof
+	q0hkwFhgQw88+j+K7bY57LrnN0GTEsFbbquB0JlUeu9wLrLC1Q+g8FruVaG6nvpM5NYndtOOD3q
+	7HelpVLJ0B2Uj9aLyK1N+RS9tMM05x2fTRxtIHboiPINpnZwk0jcXcsafGo/Blse2zS2IeK/XtQ
+	hBdQRZuZIwrJTyRJallhXpcD85MF9rrCMqdhcLOHMbdsLuOMp2lSGPsJ/zCHEBsi/DhtKHfaBi8
+	FX1+Biq9Ap0FFUiioQSjtPAdD0WDQTQneSYBye+yXWFTIvNuS+xhbHSb7pspGT4ckXrTKg18vuI
+	x91mLl/wzmvSc7XbthJH2v4vJUzIr37m57wPRZQQlm/U1XDL8yNypJULwnldtKtdFnaGQPx4mvS
+	JjQXOgvYycANQ6gsGMCQHMN+BW0LMJSs/cPhrVwfvqu++Q41p6ZpKyAbmokbH/wgP3conWgOoF/
+	Ige95VyG15dMdp4GbQ0+VJNgGnWAvbDECdM2vXU26NeRQaqAcJiGcpmsJ8NjS5xQDwq2bLWm1I/
+	c+X9rI/Eb
+X-Received: by 2002:a05:7300:c7ca:b0:386:964d:45d2 with SMTP id 5a478bee46e88-386964d5ddcmr8948434eec.11.1795413482428;
+        Sun, 22 Nov 2026 21:58:02 -0800 (PST)
+Received: from at-Standard-PC-Q35-ICH9-2009.tailbdca44.ts.net ([27.60.27.67])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm29938655eec.16.2026.11.22.21.58.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 21:58:01 -0800 (PST)
+From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: atharvatiwarilinuxdev@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org
+Subject: Re: [PATCH] usb: acpi: Get correct location data for Apple macs
+Date: Mon, 23 Nov 2026 00:57:57 -0500
+Message-ID: <20261123055757.11283-1-atharvatiwarilinuxdev@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <2026112338-pummel-hyperlink-2957@gregkh>
+References: <2026112338-pummel-hyperlink-2957@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,93 +99,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <20261120-bug-sched-fair-offline-active-v3-1-325e9eefa56d@linux.dev>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Qiliang,
+> Local static variables are usually not a good idea.  Why is this needed
+> as it's only referenced once?
 
-On 2026/11/21 10:57, Qiliang Yuan wrote:
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -8553,6 +8553,8 @@ void set_rq_online(struct rq *rq)
->  		rq->online = 1;
->  
->  		for_each_class(class) {
-> +			if (class->rq_attach_root)
-> +				class->rq_attach_root(rq);
->  			if (class->rq_online)
->  				class->rq_online(rq);
->  		}
-> @@ -8569,6 +8571,8 @@ void set_rq_offline(struct rq *rq)
->  		for_each_class(class) {
->  			if (class->rq_offline)
->  				class->rq_offline(rq);
-> +			if (class->rq_detach_root)
-> +				class->rq_detach_root(rq);
->  		}
->  
-> 
->  /* Assumes rq->lock is held */
-> -static void rq_offline_dl(struct rq *rq)
-> +static void rq_detach_root_dl(struct rq *rq)
->  {
->  	if (rq->dl.overloaded)
->  		dl_clear_overload(rq);
-> @@ -3664,8 +3664,8 @@ DEFINE_SCHED_CLASS(dl) = {
->  	.select_task_rq		= select_task_rq_dl,
->  	.migrate_task_rq	= migrate_task_rq_dl,
->  	.set_cpus_allowed       = set_cpus_allowed_dl,
-> -	.rq_online              = rq_online_dl,
-> -	.rq_offline             = rq_offline_dl,
-> +	.rq_attach_root		= rq_attach_root_dl,
-> +	.rq_detach_root		= rq_detach_root_dl,
->  	.task_woken		= task_woken_dl,
->  	.find_lock_rq		= find_lock_later_rq,
->  
-> 
-> diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
-> index 81a71aa5f094a..45d10334f7253 100644
-> --- a/kernel/sched/rt.c
-> +++ b/kernel/sched/rt.c
-> @@ -2398,7 +2398,7 @@ static void task_woken_rt(struct rq *rq, struct task_struct *p)
->  }
->  
->  /* Assumes rq->lock is held */
-> -static void rq_online_rt(struct rq *rq)
-> +static void rq_attach_root_rt(struct rq *rq)
->  {
->  	if (rq->rt.overloaded)
->  		rt_set_overload(rq);
-> @@ -2409,7 +2409,7 @@ static void rq_online_rt(struct rq *rq)
->  }
->  
->  /* Assumes rq->lock is held */
-> -static void rq_offline_rt(struct rq *rq)
-> +static void rq_detach_root_rt(struct rq *rq)
->  {
->  	if (rq->rt.overloaded)
->  		rt_clear_overload(rq);
-> @@ -2626,8 +2626,8 @@ DEFINE_SCHED_CLASS(rt) = {
->  	.balance		= balance_rt,
->  	.select_task_rq		= select_task_rq_rt,
->  	.set_cpus_allowed       = set_cpus_allowed_common,
-> -	.rq_online              = rq_online_rt,
-> -	.rq_offline             = rq_offline_rt,
-> +	.rq_attach_root		= rq_attach_root_rt,
-> +	.rq_detach_root		= rq_detach_root_rt,
-> 
-> +	/*
-> +	 * Move an online rq to or from a root domain: rq->lock
-> +	 */
-> +	void (*rq_attach_root)(struct rq *rq);
-> +	void (*rq_detach_root)(struct rq *rq);
-> +
+is_apple_location signifies that SSD methods are available in the ACPI bus,
+if we dont check this there might be a situation like:
 
-The newly introduced abstraction function cleanly separates the RT and DL
-handling of the root domain, while leaving the CFS scheduling class entirely
-unaffected, resulting in a well-structured design.
+Is internal USB Controller = true
+x86_apple_machine = true
+is_apple_machine (Are there any SSD methods in the hub) = false
 
--- 
-thanks,
-kunyu
+So all USB2.0 ports will get a error, and all USB3.0 ports will succeed and
+provide wrong info.
+
+And btw the SSD methods are only used in new intel macs (2016+), so this becomes necessary.
+
+Thanks,
+
+Atharva.
