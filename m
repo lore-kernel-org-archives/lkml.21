@@ -1,105 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443427;
-	b=gBvvaeaxg7r5OL1JYdCirGSKdwdQrcv4sw/zDHAzU/RvY9rPjiiWua+iAvHUHdvZBpjM
-	 /3k34oO3c8SIAPxG9yWiyrKsnhO/ZZx2MyTpl6nuS/xUp7ux6rEvSpVy+B7x9Y+Iryxtm
-	 /SHYvPykK9pLUxQEz5DAP2RcRoX0szM7AQW3hBG7ABuJIHDmdLleYhpuDs53xCFAb76a3
-	 Cp1qdsNoZkoihVRpoEnI5In43rRW3GNOQSjSBuL4QYC+Ql5Bc7m+buRGYUm9tE4iTwrn4
-	 UrP0MK+RnBpJZ3EbViGjkndizUwJax14hY61YWfIJQ0fA07Ni+5FA3MlpJ28LIZ9VFQ==
+	t=1795443439;
+	b=aFLTYRf87r7kpYAYFAviFr6FBh7D5zKpDtIo8NZuxXZ9eqDohR5kvSGCi43r/44rA+AC
+	 UufGedi4Nfls/FjGmnouPQiA6Xmrm/0825hUwwq0L1WPrQo1cgWRiOvTiJ5Y9kIlTKM7Z
+	 xGdOonsK7bVW8bMelZPmxBw0C4GeKYh6rOHOXuXGPjav4/1av8vBGh9I5kvgVRv1tEg/y
+	 7IvqASIes3vropZiAMwCtOKXSOmzRltvcMpzXnvjmsINg5RkgMajJAkXqZaJET4AQiJqu
+	 9wf+4qKu7wngC4zYph/SIKM8lSflW9ajF3gsvejCBslu+x/Rh5MFy64/xNvM5X8yRPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443427;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=XBjZy5aXe1k0hsGSbAtSU1DGVkk1NgApIFU82uacohQ=;
-	b=WSLNbhdX/pf/WJm4fHLndKQfBKdvrIdk9D9Jdej3UmCUm+wHYR4Ah9EVTLkEfjd2+Nia
-	 dtA1QOL8aFjuQbJUgrbQngxH5/Ur6wsn6n8tdfR92OZi4o5QMHCSoSt6pylBZNYbHslNu
-	 HtRkla/drcSmzSqNO+AgL2be2dKc+iX4wvRZ2+R0b3vzjD14kWY3GWiEzRMArlETTFPDR
-	 sp9Ra51yycw1RNm4HDxPiBU1QsCuUkcyma8rR2KzMKC5xQaVwTlfXyiMKlnHZchU3g/XG
-	 N2QX2d1+fkYqkbGICxHsy3xkn83nToLk0cNEs45F5S3sC7a8KchWB9qrtLQz5Ci0/sQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443439;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=BHJ91NJtNYQ6/J6+FaRGzznho5yPOY/r3tuo2Sshg1o=;
+	b=hG904PbAlkXTCGQPHdM4UMh3CaNIhT6IRAyEDTsutR+vrJGbsv9aHc3WVzXlJqDz3ZjO
+	 KM6HDCjrHlN9CWmzHNDBUe4TucISCFijfeHo1OrI4ietNRDU4QR+y2SjOKMo/7XgVH7A9
+	 7T2tdwwRcXu7L7Yp5qLJJYqjzs1XJEI5GEx9DuIyIR59PLxlQk+hKb7uyCGWaxr4lWc1E
+	 S+XEoGpkCuiGk8fZImDr9PrNssVYp12BSpN5uDlHp+Z4IiPqGFpMei65ZKVQKOUwwpsJq
+	 NR9xyxyveMFB+7Nd5P1z8UhmQAAP9suTxuWTuuQusHn22Sm3chvyWIWFuHmFHy9AGXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cLxaeoE4;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=cPLj8Yt9;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=hC6LIkJb;
+	arc=none smtp.remote-ip=103.168.172.148
+Received: from fout-a5-smtp.messagingengine.com (fout-a5-smtp.messagingengine.com [103.168.172.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4D0A606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:17:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4D0A606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 188A5606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:17:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 188A5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cLxaeoE4
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b3acec6677so4677972c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:17:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443426; x=1796048226; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XBjZy5aXe1k0hsGSbAtSU1DGVkk1NgApIFU82uacohQ=;
-        b=cLxaeoE4iXSISfK4RRn8Ug9SvqprdpAI6yj+RxqmLvbmun2F1V45+2ywOqhIIPr3Kp
-         jMpMoFYijCPOzHOSRIwesOqR7RK+HdX+Kd+h5Jskymk3cTo3y465D8IdBlE8ygYpVUs0
-         VUDeMmyUBmOEt2w0KYcKokGEwsYN2kq2RE/gZtZfka5Y4DIVG26/7QowxcANZOQhzdy6
-         PCDZzkMphEQVgaPz1nSkhfAHVy/1H0WQ+2yBSn91vzPhqWLe5JttQinOXRX2EG490iWH
-         y/+UrW/BPlI1dv2wpXENOEhnfddHsGZgt6X8tbLJqs9dDefB9OSP83oHnignIdWAuf8Q
-         JKXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443426; x=1796048226;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XBjZy5aXe1k0hsGSbAtSU1DGVkk1NgApIFU82uacohQ=;
-        b=PzHpAF5JgmO/zLf+B0KTYxLR+ymMQujj73PLmmrxjejEVB1KimsfTz5BpGV1FwW8IG
-         RahEQTEWs41WBO1/3o/p2M7EvmomTWceahMurIbyg0jFezi9nvePsS3UbYgKloQL12nk
-         kllIhitlFWLYT4UwGC5BYRgqzAZrxSTD35jmAHCV6zGjwpGyJmQH+Ug5XdKD4Xj8jqU7
-         UGswSy0xUwiU8l2W4F3RNxiZtsOzGsH3sDv+bISwCJLcwdATi6lobLc4nJn6Iz+kZQ9Z
-         oLzfobeVu4Xufh1avqYL5qPrmM/Tjf/V/QVLSaxSEwnM4O20+Oe3PTlLyhi4v4AdlZ12
-         SRJQ==
-X-Gm-Message-State: APuU4Z93QTiWChjVSCatckAEMiqzXdskYA+rgOhc6qXrw+Tt0Me0OC9p
-	cqGjrMY6RjOwoA+XqlgJ4cI6KMLIubdxzVAqL3h4oKIX0R1n07V3V4H1
-X-Gm-Gg: AZFdTZf7DEw9cvS2FCeFeU+EyVv7jvQfJOKIY4KBQiSPN3s/rrawinbuTnCL5tbBik0
-	iz7iTdDBo0BikUPhGrRcveIMPjqlEUboKzcSGd54Jyq32gY9QeWvozVtTxppQpGxcTQmnSTuIy4
-	wyxU8JubZzO4pTiXsKg51VoJx29CzFnIA537QUmZ9kwxRrjiZSxpz4nbPL1Islfl183hlhNHQiY
-	M7twIHPnkZ895KqbFWMv2UM6ssYHtEJgzQNXW3zV1GTa+VTIRXdjcBM4wVJctZAXMYKAo/rG/8T
-	287oBx7WNWUFp4kRuMKQExVcv8kr7UFIon3FKLTqe87VVdcnkrQAA8bNK78QdMiZYO75p77U6kM
-	fHD3QJxEhw1Yjo9pAbUWr8dJee30fAZzjm1uyXWPFtioR74N8Csj6DXhShw86zzH8Fy2m6QGaae
-	CK3bfrQTY8sv1YMHr202cJUpaMHrLeyN14LuzGmZFKuD+VZakxG6uxlq3D9Y7XKSHlua8Ek4+bF
-	Twk1+vkfx/qSDWlvTDJny0m+MaMyyP46FQXsR71al4Z0yjA5OZ/amCFni8F153+miu0d/22yzy9
-	b07DEYwxptn4QHUVtCi5Yz5TbrdeceD83wwMmsJam/yWfOq0o5LcVxyH3wPwqnFi+700
-X-Received: by 2002:a05:7022:7e82:b0:189:d6bf:7eaa with SMTP id a92af1059eb24-1b56f39c64bmr4473331c88.16.1795443425420;
-        Mon, 23 Nov 2026 06:17:05 -0800 (PST)
-Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm31107781c88.6.2026.11.23.06.16.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 06:17:05 -0800 (PST)
-From: Lian Wang <lianux.mm@gmail.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Chris Li <chrisl@kernel.org>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Kairui Song <kasong@tencent.com>,
-	Jihan LIN <linjh22s@gmail.com>,
-	Kunwu Chan <kunwu.chan@linux.dev>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v5 06/19] mm/swap: serialize swap publication before removing swapon mutex
-Date: Mon, 23 Nov 2026 22:16:54 +0800
-Message-ID: <030796dcb2086484f87e2250d9cf9a04fccf54ab.1795439990.git.lianux.mm@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
-References: <cover.1795439990.git.lianux.mm@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=cPLj8Yt9;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=hC6LIkJb
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.phl.internal (Postfix) with ESMTP id 2A857EC0BA7
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:17:18 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 09:17:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795443431;
+	 x=1795529831; bh=BHJ91NJtNYQ6/J6+FaRGzznho5yPOY/r3tuo2Sshg1o=; b=
+	cPLj8Yt9KDzFT9oOBUn+/GuSsf5mynsPFU3peaGSzzjdcM3xPq2nCeDkNchhwU0y
+	agEnTSgyBbGQ/yirLqdAtbec6K/eMPAPx84L678ABrYcb+wpXySl2GHRp4LB9WLN
+	CFo2ebu58MUl9iNZ9Ieq9B5w0n8KUsPK5DwUz9m8y9EZ7/GezgGomuFh9mdki4r/
+	+BIiXtKtzOGG5D+kuw3mpodMWyr20zPfOAhpC9pxJqrf1XcU6K399GtXsEQMc/8R
+	39qj2UCf7kgamdATa+Pl6YH54Dj6cd0VQx4T8GjJ0eSyaIyzVoR7OVUL9GzpK8m7
+	+ruoO3v7zMRO6WezXgniMQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795443431; x=
+	1795529831; bh=BHJ91NJtNYQ6/J6+FaRGzznho5yPOY/r3tuo2Sshg1o=; b=h
+	C6LIkJbKj92f5S7k/JXfyeaid1Af9ZzNDUOfhQPFxJP9BRVK8CoFu3txAUBGFSdE
+	kDtEOIgPiZzvlCZbCv4YLx/KipUoHlpFtABBaFDzTO/Eo99zurKqUHK11ZRFH3nk
+	zrK7lUHYw/5sxSK66fxI2EBGUdhZg116RSbILC1OuB62zbnw2sD4sW3+a4PBWhw+
+	vIkMNp+LX1SFD5zMvRTmes4VjgpqWOOFse8Womzu4lb2d/5udJ8V95DWmA0O1EvJ
+	RGzmtn81sr/9oZLy7H3BztHTIli/UeDdJz4S0o8+2QlJ2kzB0w3ffJ58MILv/tOp
+	VBsPDLa1+OUIFoA4NwwtQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795443431; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:TZ+W9oPNPdrcB/eBe4Aa8I1iZlgd3Qvnl199jRQzZIiGQC/
+	0r178JJd9Ie90ucm70d3eQn6dC3Yjjk4gaSfoKwuKOK41FoXqFa3FTX3N9Vk7+R4
+	REcR+87yvnMAP5its2NFUsSKNHI3Hm45PwMJslpDn8kPbaWOdTwHcQVqq42mJVwf
+	pHZmrQ+aLCn3xI6viDA+uzkHO8RMvKCiaw6zZ5ujK+nGOJLymmkTnY5APDvynYIP
+	WtGQIZ3V15+MHHf2wMXPN/6taIS3s0mCMntQ5hNs8e2JfT+j5/6PfIu5JHkToaaq
+	Hri7yc7PvgINXRaTTojbf1Hp6dh2BNn4NzbTQyw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:Sap56MIkcyZT8r4cYNPG+lEt8q7zj6cm/hR6DX/YHXU=:rDsMBjpfa65jK66igtyHf1M93PmlfJObl6/94lUiVSI=;
+X-ME-Sender: <xms:4koEa8b6jWHk9Km-gWsvkjXKBe9FOycLSAoQHdX1x28WgylltvrlXg>
+    <xme:4koEayN-2NZ5tuVMTv_F6M4wNcDyjmgtjmjdAzvHywIA7KHMufFQZrYw4q170T5Th
+    fPdBGfTNlodLlNUN9knmz7mxDJr9FP9Hc2uPOv3pg8T14AiyewMGhM>
+X-ME-Proxy-Cause: dmFkZTGFrwq2MF5SSuOMe3naqs9tbtMAmc3XEG2p+PrgD+xfiVSS77ldCceRFMgHOXXvSL
+    Ging+R6VT6K3yz4OUeCdmIETXjNj7XXI0r9Tg2543OHjiuaKhMh+yVJAoB6OkAWbwGP/U3
+    JowxnSxhNhDyTsBNjiM7LlqkLGWpphbuTeJ0WjErvJ9KhK0fJtLolaHFC6Kw2talXF2YGF
+    JN7yWyVcYnsY66wGn8uoBc1Op9fn/HtafFpC/Ha3Z7ng5ziTGTERGiQYQq5K4ZdS/5JuDE
+    HH1gfdWjYiM0bW96wZfgClnWGF2XIAu99qwAHGam6Iwuv/kahBWnYmwWVFrVPNzzZ/ahP5
+    U1UkBFU5ZxOctbFZFvYR87OCQ9D85IrFkHXF9AU7aFYWG6vLW8lI9uDg5E561v2/5hKHQA
+    sjQFn5A8NcDFUKKIz/Gj2N6XcZVOTlbQkDMhl7pFKmJR0nTwtc/ea8J3ozLffLR/0wUUbB
+    iamGkspUsbgem4niF9wBtKb8Aybdc10XaTbLUSATly8dgGeAoj4vWgf2FM9ltEDrHvDjNY
+    51emBC5k6bV+SyYpJacMFkokFxMkxKPk9r+T99bzSjJsfdRVRAC/r+2KM3FJJSK6C1f8wW
+    I+V82FhA+/RpOowStt3CO/53UAvaoCC1+Mr9HKqAkD73+MJL10fMk/SelFXQ
+X-ME-Proxy: <xmx:5UoEa7zTEzd5mDVuAJ0khzXfAhl-NnyAwD2CijXl1cunNEN88JhvqQ>
+    <xmx:5UoEa4LmzfnQ4K0KUaYuA7sCKQ4bXebQmmhpsTBdhtm50HSfa0pUZw>
+    <xmx:5UoEa9456MjeyYgj744opH-waU6skY_xuQzxaCDvT7bwukaslpL8Pw>
+    <xmx:5UoEa2xmieeiTKUZnDvuF-Yhydil8f6ZkK_qEXx5P2wofodg1yRZbQ>
+    <xmx:50oEa5l_6AC-8c6ZgGJR10cedMu4FgnH1XmeVBS7jPfPPs2PoWN-CFom>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 6EB4832A009C; Mon, 23 Nov 2026 09:17:06 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,164 +115,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AMjdjL9dYp0J
+Date: Mon, 23 Nov 2026 15:16:41 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: "Kees Cook" <kees@kernel.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-alpha@vger.kernel.org, "Paul Walmsley" <pjw@kernel.org>,
+ "Andy Chiu" <andybnac@gmail.com>, "Magnus Lindholm" <linmag7@gmail.com>
+Message-Id: <b7b8e8cd-d0ba-4e37-93f3-0fa209207124@app.fastmail.com>
+In-Reply-To: 
+ <20261123110111-6431e85f-39a4-427e-b545-2e7a590a6c19@linutronix.de>
+References: <20261123-at-vector-size-arch-v3-0-d342dae9e843@linutronix.de>
+ <ec5359c1-c16e-4177-8dfa-2ae5ab8a874f@app.fastmail.com>
+ <20261123110111-6431e85f-39a4-427e-b545-2e7a590a6c19@linutronix.de>
+Subject: Re: [PATCH v3 00/15] exec: Remove AT_VECTOR_SIZE_ARCH from UAPI
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-From: Kairui Song <kasong@tencent.com>
+On Mon, Nov 23, 2026, at 11:03, Thomas Wei=C3=9Fschuh wrote:
+> On Mon, Nov 23, 2026 at 10:44:40AM +0100, Arnd Bergmann wrote:
+>> On Mon, Nov 23, 2026, at 10:37, Thomas Wei=C3=9Fschuh wrote:
+>> > There is nothing userspace can do with this value. In the kernel is
+>> > always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
+>> > userspace and also changes from time to time.
+>> >
+>> > Move the symbol to kernel-internal headers.
+>> >
+>> > Meant to be applied through the asm-generic or execve tree.
+>> > The default recipient list was huge. I trimmed it to only the
+>> > architecture lists.
+>> >
+>> > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.=
+de>
+>>=20
+>> Hi Thomas,
+>>=20
+>> I'm happy to take this through the asm-generic tree. I've already
+>> made sure it all applies and the patches look good to me. I'd
+>> wait a few more days for additional Ack or any other replies,
+>> let me know once you think I should apply this version.
+>
+> This v3 is functionally identical to v1 and v2 which have been on the
+> list of a long time. I am not sure how much more feedback will come.
+> IMO it can already be applied to gain more exposure in -next.
 
-Move publication of swap_file, resurrection of the device reference and
-the writable transition into one swapon_rwsem writer section. Split out
-a writer-held enable helper so initial publication can share this
-section, while failed swapoff can use the locking wrapper.
+Fair enough, pushed out to the asm-generic tree now.
 
-With file publication and teardown serialized by the writer, remove
-swapon_mutex and use a topology reader across /proc/swaps iteration.
-Only expose entries with a published swap_file. Other bits in flags
-can already change during device setup, before publication.
-
-The publication boundary excludes proc readers from partially published
-state and gives the lockless live-reference users initialized device
-metadata before the device becomes an allocation candidate.
-
-Signed-off-by: Kairui Song <kasong@tencent.com>
-Co-developed-by: Lian Wang <lianux.mm@gmail.com>
-Signed-off-by: Lian Wang <lianux.mm@gmail.com>
----
- mm/swapfile.c | 39 +++++++++++++++++++--------------------
- 1 file changed, 19 insertions(+), 20 deletions(-)
-
-diff --git a/mm/swapfile.c b/mm/swapfile.c
-index 7a97cfd8d009..24f301ef4e3a 100644
---- a/mm/swapfile.c
-+++ b/mm/swapfile.c
-@@ -139,9 +139,6 @@ static inline struct swap_info_struct *__swap_iter(int *i, unsigned long flag)
- 
- static struct kmem_cache *swap_table_cachep;
- 
--/* Protects si->swap_file for /proc/swaps usage */
--static DEFINE_MUTEX(swapon_mutex);
--
- static DECLARE_WAIT_QUEUE_HEAD(proc_poll_wait);
- /* Activity counter to indicate that a swapon or swapoff has occurred */
- static atomic_t proc_poll_event = ATOMIC_INIT(0);
-@@ -3161,9 +3158,9 @@ static int setup_swap_extents(struct swap_info_struct *sis,
-  * Mark a fully initialized swap device writable and expose it to the
-  * allocator. The caller must have resurrected its percpu ref first.
-  */
--static void swap_device_enable(struct swap_info_struct *si)
-+static void __swap_device_enable(struct swap_info_struct *si)
- {
--	percpu_down_write(&swapon_rwsem);
-+	lockdep_assert_held_write(&swapon_rwsem);
- 	spin_lock(&si->lock);
- 	spin_lock(&swap_avail_lock);
- 	si->flags |= SWP_WRITEOK;
-@@ -3173,11 +3170,16 @@ static void swap_device_enable(struct swap_info_struct *si)
- 	atomic_long_add(si->pages, &nr_swap_pages);
- 	total_swap_pages += si->pages;
- 	plist_add(&si->list, &swap_active_head);
--	percpu_up_write(&swapon_rwsem);
--
- 	add_to_avail_list(si);
- }
- 
-+static void swap_device_enable(struct swap_info_struct *si)
-+{
-+	percpu_down_write(&swapon_rwsem);
-+	__swap_device_enable(si);
-+	percpu_up_write(&swapon_rwsem);
-+}
-+
- static int swap_device_disable(struct address_space *mapping,
- 			       struct swap_info_struct **swap_info)
- {
-@@ -3340,7 +3342,6 @@ SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
- 	if (!(p->flags & SWP_SOLIDSTATE))
- 		atomic_dec(&nr_rotate_swap);
- 
--	mutex_lock(&swapon_mutex);
- 	percpu_down_write(&swapon_rwsem);
- 	spin_lock(&p->lock);
- 	drain_mmlist();
-@@ -3355,7 +3356,6 @@ SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
- 	percpu_up_write(&swapon_rwsem);
- 	arch_swap_invalidate_area(p->type);
- 	zswap_swapoff(p->type);
--	mutex_unlock(&swapon_mutex);
- 	kfree(p->global_cluster);
- 	p->global_cluster = NULL;
- 	free_swap_cluster_info(cluster_info, maxpages);
-@@ -3397,20 +3397,18 @@ static __poll_t swaps_poll(struct file *file, poll_table *wait)
- 	return EPOLLIN | EPOLLRDNORM;
- }
- 
--/* iterator */
- static void *swap_start(struct seq_file *swap, loff_t *pos)
- {
- 	struct swap_info_struct *si;
--	int type;
- 	loff_t l = *pos;
- 
--	mutex_lock(&swapon_mutex);
-+	percpu_down_read(&swapon_rwsem);
- 
- 	if (!l)
- 		return SEQ_START_TOKEN;
- 
--	for (type = 0; (si = swap_type_to_info(type)); type++) {
--		if (!(si->swap_file))
-+	for_each_swap_info(si) {
-+		if (!si->swap_file)
- 			continue;
- 		if (!--l)
- 			return si;
-@@ -3431,7 +3429,7 @@ static void *swap_next(struct seq_file *swap, void *v, loff_t *pos)
- 
- 	++(*pos);
- 	for (; (si = swap_type_to_info(type)); type++) {
--		if (!(si->swap_file))
-+		if (!si->swap_file)
- 			continue;
- 		return si;
- 	}
-@@ -3441,7 +3439,7 @@ static void *swap_next(struct seq_file *swap, void *v, loff_t *pos)
- 
- static void swap_stop(struct seq_file *swap, void *v)
- {
--	mutex_unlock(&swapon_mutex);
-+	percpu_up_read(&swapon_rwsem);
- }
- 
- static int swap_show(struct seq_file *swap, void *v)
-@@ -3954,7 +3952,6 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
- 		goto free_swap_zswap;
- 	}
- 
--	mutex_lock(&swapon_mutex);
- 	prio = DEF_SWAP_PRIO;
- 	if (swap_flags & SWAP_FLAG_PREFER)
- 		prio = swap_flags & SWAP_FLAG_PRIO_MASK;
-@@ -3966,11 +3963,14 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
- 	si->prio = prio;
- 	si->list.prio = -si->prio;
- 	si->avail_list.prio = -si->prio;
-+	/* Publish the file, live reference and writable state together. */
-+	percpu_down_write(&swapon_rwsem);
- 	si->swap_file = swap_file;
- 
--	/* Sets SWP_WRITEOK, resurrect the percpu ref, expose the swap device */
-+	/* Make the reference live before exposing the writable device. */
- 	percpu_ref_resurrect(&si->users);
--	swap_device_enable(si);
-+	__swap_device_enable(si);
-+	percpu_up_write(&swapon_rwsem);
- 
- 	pr_info("Adding %luk swap on %s.  Priority:%d extents:%d across:%lluk %s%s%s%s\n",
- 		K((unsigned long)si->pages), name->name, si->prio, nr_extents,
-@@ -3980,7 +3980,6 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
- 		(si->flags & SWP_AREA_DISCARD) ? "s" : "",
- 		(si->flags & SWP_PAGE_DISCARD) ? "c" : "");
- 
--	mutex_unlock(&swapon_mutex);
- 	atomic_inc(&proc_poll_event);
- 	wake_up_interruptible(&proc_poll_wait);
- 
+     Arnd
