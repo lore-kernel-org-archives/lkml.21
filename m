@@ -1,62 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.90.104.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.56.165
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433862;
-	b=rnCIQ5Oxa6CyszQF0GbVjgag+lciIWxovsov+66hPp1Xc0mD7MtRJu5DQrDHFoMMXoP9
-	 E4CGOTsefCZWmWWEelOhoQFMU60GAVAFu6/d1VEdG4NHmbGHbUrQxk90OxVmsm93qwUAX
-	 KQGBznIkYJxze2PEMQ1o5dtORMqRqkGug3b9ILp3XfnSE7VvTw7NT+iUm9kJIZQDx2UmC
-	 AAmmw3E6XKDjsKrvN3SPEHeU0COsW7fUCfxMWfXSPABn1/NgIwMcz8eiQaerGf/kkxOe2
-	 Y2Ls9kQ/JmhmaNYpHcNTkibMyzDRHcviMWdoMb1vIzlSuP7cEmfFeXhqzo/QW3/lHZQ==
+	t=1795433899;
+	b=wleaVJL0dGhlw7uZQLdGQ3oW8ALfh6qva35EffYQGTxf6pM0Y8FDTPkOiq36al4mLm9p
+	 4GnvfyMZll367xSFz8+ogDepLJWc5m3VyUstUDZF9T1UBfK5bsX3dpPtvaZ10u8iEoGJr
+	 3S34qUPTvq8MBSFPAVj89kAkcdReN12/vIfbmzytZqdZZNy77GwXbW28VNbiQIyuEn8fv
+	 DWTZeXmEZw9/QTuXpxVD9k3BDaxRFHYSELUd/gastSDQsFsqtfFDD3y2LiJxSwdtTWf5+
+	 gLg7L6SbcqQvtHjl3IYCQezxIuMV5qTfKHJYq357f0Lp+THCTKl6c3gEYp8M5y9iBjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433862;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-Amp-Result:X-Amp-File-Uploaded:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:Received:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=8VjKfFnIZSkrCLXCygsuoSQMlE9SiraWmXyOrGKYFrE=;
-	b=jbtdt/fkvi5L4IdbztnLSQ+xr9UAToyVIDZvWE84hpE6iCeMdn7Wtf1SU1dLg5KNZ0gf
-	 ZWGu2jvFUoXSpgaFA4uziTN4ksKwz2k4jDr3a8Zkp8KxBJXPm0TWeTPJ9nEMN0To4tmQh
-	 QtP9GNS6l90Mu0m4LC7yhmUAFsmd58iVOlTOijr0T3fMIz29Tkb7bcySuS1nOgvca4RDr
-	 jXnGe2RexcV+mASEWtku2OKSgVFjCgLgWMTWApQ/yPgos+d147yE1582HEoVUYvL3cqIe
-	 pF/x1vRDiJQ4K6jUgpTqaIt+0hssXL7xjEZwDI+FrH2SlLQxAqrSjbHORLh4LEnYbWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433899;
+	h=DMARC-Filter:Received:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ibTuH5326GpSfDxyW8QGVkxEl1EU9AG5En46fuNsGfU=;
+	b=yRQGLNHlpNA3Z93lTSMnRJ9xSBxz3u5qr51xFHfV4Ew5XBuzRlqmzhrPYQel8AL2p/kO
+	 kCJmSG81WthbdRpVAbg2IbyPtEtJHt/6V/CRKp3fSAO5tb324iEydKK7TajE8N+2rNq/+
+	 /wXQVP2JIcTb71tirbXD+VvcHaZ63eIZwR4g2aKzZvIe++QIjk7VgMRur6pMpMouofaFg
+	 0QZWbD4FSEbfwj0nJnsCr6Vbgfy08HB3YDqrADBLr+ZIET81uaq1vmBl66DsLZclds3AT
+	 9GNxtOCV6j73EZCy3/xWWFDV5XbgMnzIiwq4vwKgrzkbqK45hanfNJyZ4gZ3alan6RQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mobileye.com;
-	spf=pass smtp.mailfrom=mobileye.com;
-	arc=none smtp.remote-ip=23.90.104.144
-Received: from esa1.hc555-34.eu.iphmx.com (esa1.hc555-34.eu.iphmx.com [23.90.104.144])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6475E606A680;
-	Mon, 23 Nov 2026 11:37:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6475E606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mobileye.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mobileye.com
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1795433860; x=1826969860;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=6HSsbhIJ2/LzJaFX+VzpT4jqVpYrVahm8NgRsq5w1c0=;
-  b=cu9BtLwI6zIh04aRe5oEXBgHu5pcphEXdRGUYCtUMyzXNC+jTY63RDyS
-   pzUXhZXRng/4U57+yPE7RmStto7apnesYa8VGlNx76U6JZRhh2PJHsvV+
-   s0ivypm0fZdaMv5j2QfGjjEBSgzuN+Ok5IwBfhOpEmqwNG36y/sd/wEvU
-   d3BNb3XT7qAnwf9o5K7hO4IiOhiBddTNSQk4jJttKSO3TTGI4EuKR3s4b
-   XH1DmnScMv1w7AdQCpHHfS9IsNh5ssGQ+u5slIP5J5AmURB/PTiasm9TM
-   pV7KsdJ/o03vvEQNwtIn2OYIDsIpYW5hVXPAYgE5amIRLGNelCOKlCnLi
-   A==;
-X-CSE-ConnectionGUID: aFHaIcV+S7aBTvYTrtdGmA==
-X-CSE-MsgGUID: hSra9YUxSG28GnS0+iynEw==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 13:37:29 +0200
-X-CSE-ConnectionGUID: wwCti2eIQNyQPVs2zMcl2w==
-X-CSE-MsgGUID: zZwA3l2rQHeuaw3KjWwvFQ==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces04_data.me-crop.lan with SMTP; 23 Nov 2026 13:45:49 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 23 Nov 2026 13:37:28 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Mon, 23 Nov 2026 13:37:11 +0200
-Subject: [PATCH v4 1/6] mips: {cm,cpc}: Make cm_core_lock, cpc_core_lock
- raw spinlocks
+	dmarc=pass header.from=ideco.ru;
+	spf=pass smtp.mailfrom=ideco.ru;
+	dkim=pass header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=Wf5cSZl8;
+	arc=none smtp.remote-ip=51.250.56.165
+Received: from smtp.ideco.ru (smtp.ideco.ru [51.250.56.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C35C606A31A;
+	Mon, 23 Nov 2026 11:38:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C35C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ideco.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideco.ru
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=Wf5cSZl8
+Received: from [169.254.254.254] (localhost [127.0.0.1])
+	by smtp.ideco.ru (Postfix) with ESMTP id C6380202F55A;
+	Mon, 23 Nov 2026 16:38:09 +0500 (+05)
+Received: from fedora (unknown [94.190.79.152])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.ideco.ru (Postfix) with ESMTPSA id 6CD8A202F558;
+	Mon, 23 Nov 2026 16:38:06 +0500 (+05)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.ideco.ru 6CD8A202F558
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ideco.ru; s=ics;
+	t=1795433889; bh=ibTuH5326GpSfDxyW8QGVkxEl1EU9AG5En46fuNsGfU=;
+	h=From:To:Cc:Subject:Date;
+	b=Wf5cSZl8TL9BTV90b2y7Y2GG5Nz8ljbjRGppKZQVBeL1UHCvaJD8M8g6glTLnwIs7
+	 10/gzv7zkeAO+SytUtL+Ok1az3uSAEz5AZIBftFlnmODG4ZfF8dwOoRMgQVWpOFTpn
+	 MY5oO+IKLBBEhUOIGye9Uw8Z18xj59wFXASNlbFpS0KeNj/pKQeofaML/s3wnoUzQW
+	 +0+QAdptaP5y3ZxZFrEwKFJW3hdjtiOtIidPkvFjC8TkNta9LzOu/l/cOfnlZJwVIL
+	 o7ByVPIxPaCXZUOlbu2/BzZvi/26se3QZDrJYfDA1Ib5uyLgG2Yrchi6ZlWBUzcROX
+	 DkClIQrzfV0JQ==
+From: Eduard Orehov <e.orehov@ideco.ru>
+To: Paul Moore <paul@paul-moore.com>,
+	Stephen Smalley <stephen.smalley.work@gmail.com>
+Cc: Ondrej Mosnacek <omosnacek@gmail.com>,
+	selinux@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
+	Eduard Orehov <e.orehov@ideco.ru>
+Subject: [PATCH] selinux: initialize sport/dport in __ad_net_init()
+Date: Mon, 23 Nov 2026 16:37:24 +0500
+Message-ID: <20261123113724.35381-1-e.orehov@ideco.ru>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,153 +73,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-i6500-cm3-pmu-v4-1-5a9f5351688f@mobileye.com>
-References: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
-In-Reply-To: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- Fu Chao-Ying <chao-ying.fu@globalfoundries.com>
-Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-hardening@vger.kernel.org, Paul Burton <paulburton@kernel.org>
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
 
-From: Paul Burton <paul.burton@mips.com>
+Since commit dd51fcd42fd6 ("selinux: introduce and use lsm_ad_net_init*()
+helpers") the struct lsm_network_audit used by the SELinux network hooks
+is no longer zeroed; __ad_net_init() sets only netif, sk and family.
+The addresses are always filled in by selinux_parse_skb(), but sport
+and dport are set by selinux_parse_skb_ipv4()/selinux_parse_skb_ipv6()
+only for TCP, UDP and SCTP. For any other protocol (e.g. a raw
+socket with IPPROTO_IGMP, UDP-Lite) and for non-first fragments they
+are left uninitialized.
 
-cm_core_lock and cpc_core_lock are used to protect access to a CPU's
-core-other/redirect CM and CPC register blocks. Since each CPU sees
-its own copy of this block, we need to ensure that critical sections
-holding a cm_core_lock run on one CPU - ie. we need to disable
-preemption.
+When such a packet hits an AVC denial (e.g. with NetLabel or secmark
+peer labeling enabled), dump_common_audit_data() passes the garbage
+ports to print_ipv4_addr()/print_ipv6_addr(), which leaks up to four
+bytes of kernel stack into the audit log as "src=" / "dest=" and is
+reported by KMSAN:
 
-Use raw_spinlock_t to implement cm_core_lock and cpc_core_lock in
-order to provide the guarantees we need on PREEMPT_RT systems.
+  BUG: KMSAN: uninit-value in common_lsm_audit+0x2196/0x2ff0
+   print_ipv6_addr security/lsm_audit.c:178 [inline]
+   dump_common_audit_data security/lsm_audit.c:373 [inline]
+   common_lsm_audit+0x2196/0x2ff0 security/lsm_audit.c:458
+   slow_avc_audit+0x17f/0x1d0 security/selinux/avc.c:773
+   avc_has_perm+0x2d6/0x360 security/selinux/avc.c:1191
+   selinux_inet_sys_rcv_skb+0x116/0x280 security/selinux/hooks.c:5326
+   selinux_socket_sock_rcv_skb+0xaae/0x1270 security/selinux/hooks.c:5408
+   security_sock_rcv_skb+0x79/0x120 security/security.c:4853
+   sk_filter_trim_cap+0x18b/0xa60 net/core/filter.c:151
+   sock_queue_rcv_skb_reason+0x46/0x1a0 net/core/sock.c:522
+   rawv6_rcv+0x1b17/0x1c20 net/ipv6/raw.c:371
+   ...
+  Local variable net created at:
+   selinux_socket_sock_rcv_skb+0x118/0x1270 security/selinux/hooks.c
 
-Signed-off-by: Paul Burton <paul.burton@mips.com>
-[added CPC part]
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Initialize sport and dport in __ad_net_init(). Zeroing only these two
+fields keeps the cost low, which was the point of dd51fcd42fd6.
+
+Found by Ideco on behalf of Linux Verification Center
+(linuxtesting.org) with Syzkaller.
+
+Fixes: dd51fcd42fd6 ("selinux: introduce and use lsm_ad_net_init*() helpers")
+Cc: stable@vger.kernel.org
+Signed-off-by: Eduard Orehov <e.orehov@ideco.ru>
 ---
- arch/mips/kernel/mips-cm.c  | 20 ++++++++++----------
- arch/mips/kernel/mips-cpc.c | 12 ++++++------
- 2 files changed, 16 insertions(+), 16 deletions(-)
+Tested on a 6.12.114-based kernel with KMSAN: the reproducer (NetLabel
+static default label + raw IPv4/IPv6 socket with protocol 2, and UDP-Lite
+over IPv6) triggers the report on the unpatched kernel and no longer does
+with the fix. Mainline was not booted; the affected code there is
+identical.
 
-diff --git a/arch/mips/kernel/mips-cm.c b/arch/mips/kernel/mips-cm.c
-index 7c9c5dc38823..3bfe85e86a9a 100644
---- a/arch/mips/kernel/mips-cm.c
-+++ b/arch/mips/kernel/mips-cm.c
-@@ -179,7 +179,7 @@ static char *cm3_causes[32] = {
- 	"0x19", "0x1a", "0x1b", "0x1c", "0x1d", "0x1e", "0x1f"
- };
- 
--static DEFINE_PER_CPU_ALIGNED(spinlock_t, cm_core_lock);
-+static DEFINE_PER_CPU_ALIGNED(raw_spinlock_t, cm_core_lock);
- static DEFINE_PER_CPU_ALIGNED(unsigned long, cm_core_lock_flags);
- 
- phys_addr_t __weak mips_cm_phys_base(void)
-@@ -309,7 +309,7 @@ int mips_cm_probe(void)
- 	mips_cm_is64 = IS_ENABLED(CONFIG_64BIT) && (mips_cm_revision() >= CM_REV_CM3);
- 
- 	for_each_possible_cpu(cpu)
--		spin_lock_init(&per_cpu(cm_core_lock, cpu));
-+		raw_spin_lock_init(&per_cpu(cm_core_lock, cpu));
- 
- 	return 0;
- }
-@@ -347,8 +347,8 @@ void mips_cm_lock_other(unsigned int cluster, unsigned int core,
- 		 * mips_cm_lock_other() leading to a deadlock or a nice warning
- 		 * with lockdep enabled.
- 		 */
--		spin_lock_irqsave(this_cpu_ptr(&cm_core_lock),
--				  *this_cpu_ptr(&cm_core_lock_flags));
-+		raw_spin_lock_irqsave(this_cpu_ptr(&cm_core_lock),
-+				      *this_cpu_ptr(&cm_core_lock_flags));
- 	} else {
- 		WARN_ON(cluster != 0);
- 		WARN_ON(block != CM_GCR_Cx_OTHER_BLOCK_LOCAL);
-@@ -359,8 +359,8 @@ void mips_cm_lock_other(unsigned int cluster, unsigned int core,
- 		 * race with us.
- 		 */
- 		curr_core = cpu_core(&current_cpu_data);
--		spin_lock_irqsave(&per_cpu(cm_core_lock, curr_core),
--				  per_cpu(cm_core_lock_flags, curr_core));
-+		raw_spin_lock_irqsave(&per_cpu(cm_core_lock, curr_core),
-+				      per_cpu(cm_core_lock_flags, curr_core));
- 
- 		val = FIELD_PREP(CM_GCR_Cx_OTHER_CORENUM, core);
- 	}
-@@ -380,11 +380,11 @@ void mips_cm_unlock_other(void)
- 
- 	if (mips_cm_revision() < CM_REV_CM3) {
- 		curr_core = cpu_core(&current_cpu_data);
--		spin_unlock_irqrestore(&per_cpu(cm_core_lock, curr_core),
--				       per_cpu(cm_core_lock_flags, curr_core));
-+		raw_spin_unlock_irqrestore(&per_cpu(cm_core_lock, curr_core),
-+					   per_cpu(cm_core_lock_flags, curr_core));
- 	} else {
--		spin_unlock_irqrestore(this_cpu_ptr(&cm_core_lock),
--				       *this_cpu_ptr(&cm_core_lock_flags));
-+		raw_spin_unlock_irqrestore(this_cpu_ptr(&cm_core_lock),
-+					   *this_cpu_ptr(&cm_core_lock_flags));
- 	}
- 
- 	preempt_enable();
-diff --git a/arch/mips/kernel/mips-cpc.c b/arch/mips/kernel/mips-cpc.c
-index 3e386f7e1545..4b50c58628dc 100644
---- a/arch/mips/kernel/mips-cpc.c
-+++ b/arch/mips/kernel/mips-cpc.c
-@@ -15,7 +15,7 @@
- 
- void __iomem *mips_cpc_base;
- 
--static DEFINE_PER_CPU_ALIGNED(spinlock_t, cpc_core_lock);
-+static DEFINE_PER_CPU_ALIGNED(raw_spinlock_t, cpc_core_lock);
- 
- static DEFINE_PER_CPU_ALIGNED(unsigned long, cpc_core_lock_flags);
- 
-@@ -74,7 +74,7 @@ int mips_cpc_probe(void)
- 	unsigned int cpu;
- 
- 	for_each_possible_cpu(cpu)
--		spin_lock_init(&per_cpu(cpc_core_lock, cpu));
-+		raw_spin_lock_init(&per_cpu(cpc_core_lock, cpu));
- 
- 	addr = mips_cpc_phys_base();
- 	if (!addr)
-@@ -97,8 +97,8 @@ void mips_cpc_lock_other(unsigned int core)
- 
- 	preempt_disable();
- 	curr_core = cpu_core(&current_cpu_data);
--	spin_lock_irqsave(&per_cpu(cpc_core_lock, curr_core),
--			  per_cpu(cpc_core_lock_flags, curr_core));
-+	raw_spin_lock_irqsave(&per_cpu(cpc_core_lock, curr_core),
-+			      per_cpu(cpc_core_lock_flags, curr_core));
- 	write_cpc_cl_other(FIELD_PREP(CPC_Cx_OTHER_CORENUM, core));
- 
- 	/*
-@@ -117,7 +117,7 @@ void mips_cpc_unlock_other(void)
- 		return;
- 
- 	curr_core = cpu_core(&current_cpu_data);
--	spin_unlock_irqrestore(&per_cpu(cpc_core_lock, curr_core),
--			       per_cpu(cpc_core_lock_flags, curr_core));
-+	raw_spin_unlock_irqrestore(&per_cpu(cpc_core_lock, curr_core),
-+				   per_cpu(cpc_core_lock_flags, curr_core));
- 	preempt_enable();
- }
+ security/selinux/hooks.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
+diff --git a/security/selinux/hooks.c b/security/selinux/hooks.c
+index 9950f89dfaa2..9029e2ab072a 100644
+--- a/security/selinux/hooks.c
++++ b/security/selinux/hooks.c
+@@ -242,6 +242,8 @@ static void __ad_net_init(struct common_audit_data *ad,
+ 	net->netif = ifindex;
+ 	net->sk = sk;
+ 	net->family = family;
++	net->sport = 0;
++	net->dport = 0;
+ }
+ 
+ static void ad_net_init_from_sk(struct common_audit_data *ad,
 -- 
-2.43.0
+2.56.1
+
 
