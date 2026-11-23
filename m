@@ -1,109 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.127
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447717;
-	b=Lyv09Traert1bIT/Mhbo3ZnTizDKKKMl5L4og+KyCooo/G3DYKd5O5dpqEgQE4K2R4gl
-	 zTiVieVHU1/omY03Oo8vncv8szQj0bU3IA/boN61ufqkL1t95scFheqpxJyQLDwKjXE7I
-	 xu1q6cIs3JgjtQ0VKtnTBoZmkqZawdIzEeZakm7GMTru1GOwqmOyaefDjFy4Y6vA5TNen
-	 oIjma17yD0gVb8e6rT+udlcV51yhUa/R7f2GyN+/tzCI+jk58ICimTcajcyfJNkIwTguo
-	 2235vH44JdmIjzkOTEy3IOY71zpI6wZezgaMrj4Zeme+126VzGGWaWJKpFyRp89+lSw==
+	t=1795447723;
+	b=i/LfTafclWUAe5HPF/LMzcQK5ZsC8PtqNrPw1IfZGkQsxr9eI4WyoE9r8Ea3qne2b8ZU
+	 vy2lO82ZUny8eYTA1gm9el+20KBi+dJfOlW+FxIMDjvGoGNmhJ4v5eSN+coNxHcVGvKzY
+	 5rA7g7+OMKLIomqgRaYkJudAMXf98CqjNi5c5nQB8VmTG4j+KpDjqHwqPGK9+1PKJCw5c
+	 pkiKaF0qmixnRctcMAsBCwdG7OE+p0WmX/ye0y+zK2uIxVxXHF31csXl1NNN+aXJmItWF
+	 /c9Kvtq1DVIk4EHjAxxq4o4iDW+iLBswSo/i/XEniYVCyWrgEfyHBHdjD+x6tW1oCnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447717;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=8Fw+noiK9kAcfeODMTvJMgn1wwb8bhqn2HupkR+qaYQ=;
-	b=V5PU1f/NvTzHAqUea1RLaNhq+hcSn6NyWCIUjAcnRzxintqvjAQ+goJU49Z09dbZfI39
-	 M7Bg0Pj+pgrBqUyold4O36lZPfZPkM2ihnOXl0AeNBNrrmpq9asr2GI52b8IxhHGCJQ32
-	 CBahlnQar43/oAt0tQ63Fit2Ragwl8A/dc47v+F1TLxCAf2/uJpJEmlCbo35i5UxP/OiW
-	 0dHieEncbOWjxI5s0fhmAFbswq3GX3uTxc1aiRqsKq2hRsH5nfy09xjHNnwWjReQbKY/j
-	 8CE4OEl8wCIurvLINSC1aXUYCCBGL7wwRvIqVlb5llh9qU/qZuesf/FSIKrsMzL/xzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447723;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=WBawq0kefs4fX8JwtKrMJzGzKJgEuJuO/xjcFfq6ot8=;
+	b=XBXHluPx4Y1FzzGBDUw3yjkC2cxEQyUZjn/eY+LCVY/9aR75MjxVK4OAmmc5AML6A4LP
+	 ffgJC5sMebjqRgPSpNusrtlK3ii6fysoIRt67qOWblSBYjqu/PP8CmpDVIRtE4fEmNW0v
+	 gmNrsU0nCU3Er149Z+qF9ZrKbcDyOgJlpYqEXEvZnK18DXeHUfqiKubuDan5nBnnxZt7+
+	 0FhoZSUhIm2yuwkux0+OAvSL5yJIJCZDLtdlB2kp/qdJtPBcYXGZBF/EU3On1sE6yOucG
+	 6IbweUvHmch46EvFS+QxsTiq21AvMtVMsaYJtiBjramnyD3DtWnrB4//ePnqdPXucjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vKzVRy7m;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j5XgoxkM;
+	arc=none smtp.remote-ip=95.215.58.127
+Received: from mta1.migadu.com (out-127.mta1.migadu.com [95.215.58.127])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96CDB606A333
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96CDB606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F390F606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F390F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vKzVRy7m
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-38644aedba1so5114921eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:28:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795447716; x=1796052516; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8Fw+noiK9kAcfeODMTvJMgn1wwb8bhqn2HupkR+qaYQ=;
-        b=vKzVRy7mwuKBKbUW0ZKPawu3QBwVZ+NQquYjMwzbYxOknDNOH8XM4rYwyRk/jzuLKu
-         RtYGku6ss5iMfqc4u0wjFglzSOa4JXQbol9Z1y5NEF3BMs9mFLdnAjif0xRA5qESdFJN
-         qNjWLArsX1pkSv0EVPkFHuxWwniwKEdFmQ13z83ISe2HYgJcPIWYOVWoY9gGVTt7YqIi
-         RyN9gl+gI8kj7J3jYfJpXPY72Ker89U+8C6JOJbG6ssAnEfUdCOM0Wy25cIzgqZgRhMK
-         o3Q6jEOoIlXW+qAQn3W1beH25La6jXa14kgAC3QVJbk78DYbgUIvvbhZTm8XSqZONeZG
-         PGSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447716; x=1796052516;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8Fw+noiK9kAcfeODMTvJMgn1wwb8bhqn2HupkR+qaYQ=;
-        b=mEl8TGWg3pGkQh9cd9TgLaYvyIdz9FCPkVeI0BgBIlcTvvdeYEVmWLF1kSvp7IHsrz
-         Rbjf6BjFKR4IGQ2UTa/i9oAGTeg7bb1JC375ioIqfCb2VKhJkwFLqFZKynEK+A3AKwNK
-         z9KDzB0Gs8duNbmmGPDgRvr9ohud3R3Un4/BY3PXlmEh7hWpiPl4Rrk/RCGlVWcuPwkg
-         CkFn0n0VrzSvcP8S0VEFIINo8JDXclUWtSgrDeJSckmvSyV2T5vVx4yxHKS/3p1StpvI
-         CAizz+erPYHlrI0SFmwmVwYO75ktSJx6OhwTu2F0KHS0QLdl6u11cZd9N2FdGRADjLKk
-         ZfBQ==
-X-Forwarded-Encrypted: i=1; AL+hErGMx9i2tO7QZZg3rnzERTvK2GBO0LvGTCEA6sGdjj6ta4H3dtO6Ysrrk5uBYcblTSTD/l2jkRTNLHoJPKg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8CdY6pA1IQy0KYbuat6kdrmZ4n9N+ZKYrLx5p24GTEPXMKntZg
-	jxrgbANTByYeEfLazYvOsx+WQ1r79CHWjFYuSRiuQ/e2YBVo97JCUdUz
-X-Gm-Gg: AZFdTZezPAdEeAtSyvdcHVu3C9w4wJ9GzEWO/aeO87x7dufdcdVEl5pKt3JK7/hIY7Q
-	CkVjN3aGSo8PMpajiKTXZYWYgKKobY0ZBLnot2W4fxcDiB1SlvYkdRaGVxmAYF4w3eDN3t92l4T
-	N+uD+muu9i2PLPIsjXDWb5zt0Rz2TxWP61RydR2U0K+nUogo+ozlaI5K2O/YG7bdTKftFCcEArQ
-	WTI9Hb6vi3YsN/OjKo7EpCsYj2OpFpzHEE2SpqBzLgfNlgvRRFnm7/6sjqgo4MhkwSdmKpR7Nv6
-	DtPMKw0lnlU4yai9MB/TsKDEFNpjI5Xrzu/7B3L4JyTJMk0ppXz8UkdcsM2fCLCoxYPt9LKY0ll
-	ISZlJoWYmz7YREyh1G6/dXrtIHcRjboDpesSdCY/4uGNSF1fNPftoi33dn81OV4YdQ1iSPqnkmx
-	iKDfIE9QbqfMM8ke5EiKQt/uY8Q8Ba9xlrTh86oPQkfnjg2Ir7y7cb4guiGks8pskP0+aZbCOov
-	ioC4Ne8TQ5iFwi+7RF5pFo/NL9TvpztvFEX7+KtMaWmHgjOP+cY+Enm6SuEq/LOpWhu9uLNeqeW
-	7F+s+doxcqqHlMkLGZJu4WoZ5LeW3TUZ8bi3gzM0pFG+IwK+PMxDii6ePk53DNWRcOA=
-X-Received: by 2002:a05:7301:6482:b0:386:ab5a:d3d6 with SMTP id 5a478bee46e88-386ab5ad5d7mr4917208eec.12.1795447715351;
-        Mon, 23 Nov 2026 07:28:35 -0800 (PST)
-Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm46569087eec.5.2026.11.23.07.28.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:28:34 -0800 (PST)
-From: Hikmah Gumelar <hikmahgumelar@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j5XgoxkM
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=beLoumSdtXSUDe0bLh5ibk4kp0kr7kK5ZnUjBRr8qLs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795447720; v=1; x=1796052520;
+ b=j5XgoxkMY/Ku49xpJBtydBIcv70bAeNW9LmQFRm+bkb2BNFWWclx9XSxNWohPpDbf8cPqpxQ
+ 9tG4HYV7faGp3HOSg04hhlrc7Nq42f96tExcK+o3npifNi8I0QLQBJYe+DeoX2ka60CZaq76VTB
+ ZwKn4dp7pSpar/LNltpWqAGQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id e7fb2cfc6f1efa96;
+	Mon, 23 Nov 2026 15:28:39 +0000
+X-Mizu-Trace-ID: e7fb2cfc6f1efa96
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
 	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Subject: [PATCH v3 5/7] media: i2c: add ov12a10 image sensor driver
-Date: Mon, 23 Nov 2026 22:27:20 +0700
-Message-ID: <20261123152722.168879-6-hikmahgumelar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261123152722.168879-1-hikmahgumelar@gmail.com>
-References: <20261123123546.152162-1-hikmahgumelar@gmail.com>
- <20261123152722.168879-1-hikmahgumelar@gmail.com>
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v3 4/9] bpf: Add log support for cgroup prog link_create
+Date: Mon, 23 Nov 2026 23:27:38 +0800
+Message-ID: <20261123152743.19629-5-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
+References: <20261123152743.19629-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,773 +89,286 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add V4L2 subdev driver for the OmniVision OV12A10 1/2.8-inch 12-megapixel MIPI CSI-2 CMOS image sensor supporting 1280x720 binned 10-bit Bayer output.
+Cgroup prog BPF_LINK_CREATE returns errors without explaining invalid
+flags, target FDs, or relative attachment parameters. Revision mismatches,
+cgroup hierarchy restrictions, conflicting attachment flags, and the
+per-cgroup program limit can also cause unexplained failures.
 
-Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
+Pass the BPF_LINK_CREATE log through the cgroup attachment helpers and
+report these failures at the checks that reject the attachment. Diagnose
+relative link attachments that omit BPF_F_LINK.
+
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 ---
- drivers/media/i2c/Kconfig   |   9 +
- drivers/media/i2c/Makefile  |   1 +
- drivers/media/i2c/ov12a10.c | 719 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 729 insertions(+)
- create mode 100644 drivers/media/i2c/ov12a10.c
+ include/linux/bpf-cgroup.h |  6 ++-
+ kernel/bpf/cgroup.c        | 76 +++++++++++++++++++++++++++-----------
+ kernel/bpf/syscall.c       |  4 +-
+ 3 files changed, 60 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
-index 3ef98f32dae6..a4204f1456f2 100644
---- a/drivers/media/i2c/Kconfig
-+++ b/drivers/media/i2c/Kconfig
-@@ -538,6 +538,15 @@ config VIDEO_OV08X40
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called ov08x40.
+diff --git a/include/linux/bpf-cgroup.h b/include/linux/bpf-cgroup.h
+index dfa7a75507c9..0b63c2cc1399 100644
+--- a/include/linux/bpf-cgroup.h
++++ b/include/linux/bpf-cgroup.h
+@@ -428,7 +428,8 @@ int cgroup_bpf_prog_attach(const union bpf_attr *attr,
+ 			   enum bpf_prog_type ptype, struct bpf_prog *prog);
+ int cgroup_bpf_prog_detach(const union bpf_attr *attr,
+ 			   enum bpf_prog_type ptype);
+-int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog);
++int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog,
++			   struct bpf_verifier_log *log);
+ int cgroup_bpf_prog_query(const union bpf_attr *attr,
+ 			  union bpf_attr __user *uattr, u32 uattr_size);
  
-+config VIDEO_OV12A10
-+	tristate "OmniVision OV12A10 sensor support"
-+	depends on I2C && VIDEO_DEV
-+	select MEDIA_CONTROLLER
-+	select VIDEO_V4L2_SUBDEV_API
-+	select V4L2_FWNODE
-+	help
-+	  V4L2 sensor driver for OmniVision OV12A10.
-+
- config VIDEO_OV13858
- 	tristate "OmniVision OV13858 sensor support"
- 	help
-diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
-index bdcb8f34aca3..8148ee872a31 100644
---- a/drivers/media/i2c/Makefile
-+++ b/drivers/media/i2c/Makefile
-@@ -99,6 +99,7 @@ obj-$(CONFIG_VIDEO_OV02E10) += ov02e10.o
- obj-$(CONFIG_VIDEO_OV05C10) += ov05c10.o
- obj-$(CONFIG_VIDEO_OV08D10) += ov08d10.o
- obj-$(CONFIG_VIDEO_OV08X40) += ov08x40.o
-+obj-$(CONFIG_VIDEO_OV12A10) += ov12a10.o
- obj-$(CONFIG_VIDEO_OV13858) += ov13858.o
- obj-$(CONFIG_VIDEO_OV13B10) += ov13b10.o
- obj-$(CONFIG_VIDEO_OV2640) += ov2640.o
-diff --git a/drivers/media/i2c/ov12a10.c b/drivers/media/i2c/ov12a10.c
-new file mode 100644
-index 000000000000..48e7a5e98197
---- /dev/null
-+++ b/drivers/media/i2c/ov12a10.c
-@@ -0,0 +1,719 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/i2c.h>
-+#include <linux/module.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/unaligned.h>
-+#include <media/v4l2-ctrls.h>
-+#include <media/v4l2-device.h>
-+#include <media/v4l2-fwnode.h>
-+
-+#define OV12A10_CHIP_ID_REG		0x300a
-+#define OV12A10_CHIP_ID			0x5612
-+#define OV12A10_REG_MODE_SELECT		0x0100
-+#define OV12A10_MODE_STANDBY		0x00
-+#define OV12A10_MODE_STREAMING		0x01
-+#define OV12A10_REG_VTS			0x380e
-+#define OV12A10_REG_EXPOSURE		0x3501
-+#define OV12A10_REG_ANALOG_GAIN		0x3508
-+#define OV12A10_REG_TEST_PATTERN		0x5080
-+#define OV12A10_XVCLK_FREQ		24000000
-+#define OV12A10_LINK_FREQ_216MHZ		216000000ULL
-+#define OV12A10_PIXEL_RATE		144000000ULL
-+
-+struct ov12a10_reg { u16 address;
-+u8 val;
-+};
-+struct ov12a10_mode {
-+	u32 width, height, hts_def, vts_def, vts_min, num_regs;
-+	const struct ov12a10_reg *regs;
-+};
-+
-+static const char * const ov12a10_supply_names[] = { "avdd", "dvdd", "dovdd" };
-+#define OV12A10_NUM_SUPPLIES ARRAY_SIZE(ov12a10_supply_names)
-+
-+static const struct ov12a10_reg ov12a10_common_regs[] = {
-+	{ 0x0103, 0x01 },
-+	{ 0x0302, 0x49 },
-+	{ 0x0303, 0x00 },
-+	{ 0x0304, 0x00 },
-+	{ 0x0305, 0x01 },
-+	{ 0x0312, 0x11 },
-+	{ 0x030b, 0x06 },
-+	{ 0x030c, 0x02 },
-+	{ 0x030d, 0x88 },
-+	{ 0x030e, 0x02 },
-+	{ 0x0313, 0x05 },
-+	{ 0x3002, 0x21 },
-+	{ 0x3012, 0x40 },
-+	{ 0x3013, 0x72 },
-+	{ 0x3016, 0x72 },
-+	{ 0x301b, 0xd0 },
-+	{ 0x301d, 0xf0 },
-+	{ 0x301f, 0xd0 },
-+	{ 0x3021, 0x23 },
-+	{ 0x3022, 0x01 },
-+	{ 0x3106, 0x15 },
-+	{ 0x3107, 0x23 },
-+	{ 0x3500, 0x00 },
-+	{ 0x3501, 0xd0 },
-+	{ 0x3502, 0x00 },
-+	{ 0x3505, 0x83 },
-+	{ 0x3508, 0x02 },
-+	{ 0x3509, 0x00 },
-+	{ 0x3600, 0x43 },
-+	{ 0x3611, 0x8a },
-+	{ 0x3613, 0x97 },
-+	{ 0x3620, 0x80 },
-+	{ 0x3624, 0x2c },
-+	{ 0x3625, 0xa0 },
-+	{ 0x3626, 0x00 },
-+	{ 0x3631, 0x60 },
-+	{ 0x3632, 0x00 },
-+	{ 0x3641, 0x80 },
-+	{ 0x3642, 0x12 },
-+	{ 0x3644, 0x78 },
-+	{ 0x3645, 0xa7 },
-+	{ 0x364e, 0x44 },
-+	{ 0x364f, 0x44 },
-+	{ 0x3650, 0x11 },
-+	{ 0x3654, 0x00 },
-+	{ 0x3657, 0x31 },
-+	{ 0x3659, 0x0c },
-+	{ 0x365f, 0x07 },
-+	{ 0x3661, 0x17 },
-+	{ 0x3662, 0x17 },
-+	{ 0x3663, 0x17 },
-+	{ 0x3664, 0x17 },
-+	{ 0x3666, 0x08 },
-+	{ 0x366b, 0x20 },
-+	{ 0x366c, 0xa4 },
-+	{ 0x366d, 0x20 },
-+	{ 0x366e, 0xa4 },
-+	{ 0x3680, 0x00 },
-+	{ 0x3714, 0x24 },
-+	{ 0x371a, 0x3e },
-+	{ 0x3737, 0x04 },
-+	{ 0x3739, 0x12 },
-+	{ 0x3765, 0x20 },
-+	{ 0x3767, 0x00 },
-+	{ 0x37a1, 0x3e },
-+	{ 0x37a8, 0x4d },
-+	{ 0x37ab, 0x2c },
-+	{ 0x37c2, 0x04 },
-+	{ 0x37d8, 0x03 },
-+	{ 0x37d9, 0x0c },
-+	{ 0x37e0, 0x00 },
-+	{ 0x37e1, 0x0a },
-+	{ 0x37e2, 0x14 },
-+	{ 0x37e3, 0x04 },
-+	{ 0x37e4, 0x2a },
-+	{ 0x37e5, 0x03 },
-+	{ 0x37e6, 0x04 },
-+	{ 0x3800, 0x00 },
-+	{ 0x3801, 0x00 },
-+	{ 0x3802, 0x00 },
-+	{ 0x3803, 0x00 },
-+	{ 0x3804, 0x10 },
-+	{ 0x3805, 0x0f },
-+	{ 0x3806, 0x0c },
-+	{ 0x3807, 0x0f },
-+	{ 0x3808, 0x10 },
-+	{ 0x3809, 0x00 },
-+	{ 0x380a, 0x0c },
-+	{ 0x380b, 0x00 },
-+	{ 0x380c, 0x04 },
-+	{ 0x380d, 0x28 },
-+	{ 0x380e, 0x0d },
-+	{ 0x380f, 0x12 },
-+	{ 0x3811, 0x0a },
-+	{ 0x3813, 0x08 },
-+	{ 0x3814, 0x01 },
-+	{ 0x3815, 0x01 },
-+	{ 0x3816, 0x01 },
-+	{ 0x3817, 0x01 },
-+	{ 0x3820, 0xa8 },
-+	{ 0x3821, 0x00 },
-+	{ 0x3822, 0x91 },
-+	{ 0x3823, 0x18 },
-+	{ 0x3826, 0x00 },
-+	{ 0x3827, 0x00 },
-+	{ 0x3829, 0x03 },
-+	{ 0x3832, 0x08 },
-+	{ 0x3833, 0x30 },
-+	{ 0x3c80, 0x00 },
-+	{ 0x3c87, 0x01 },
-+	{ 0x3c8c, 0x1a },
-+	{ 0x3c8d, 0x68 },
-+	{ 0x3c97, 0x02 },
-+	{ 0x3cc0, 0x40 },
-+	{ 0x3cc1, 0x54 },
-+	{ 0x3cc2, 0x34 },
-+	{ 0x3cc3, 0x04 },
-+	{ 0x3cc4, 0x00 },
-+	{ 0x3cc5, 0x00 },
-+	{ 0x3cc6, 0x00 },
-+	{ 0x3cc7, 0x00 },
-+	{ 0x3cc8, 0x00 },
-+	{ 0x3cc9, 0x00 },
-+	{ 0x3d8c, 0x73 },
-+	{ 0x3d8d, 0xc0 },
-+	{ 0x4001, 0x2b },
-+	{ 0x4008, 0x02 },
-+	{ 0x4009, 0x0f },
-+	{ 0x4011, 0xff },
-+	{ 0x4013, 0x08 },
-+	{ 0x4014, 0x08 },
-+	{ 0x4015, 0x08 },
-+	{ 0x4017, 0x08 },
-+	{ 0x401a, 0x58 },
-+	{ 0x4050, 0x04 },
-+	{ 0x4051, 0x0b },
-+	{ 0x405e, 0x20 },
-+	{ 0x4501, 0x00 },
-+	{ 0x4503, 0x00 },
-+	{ 0x450a, 0x04 },
-+	{ 0x4601, 0x30 },
-+	{ 0x4800, 0x24 },
-+	{ 0x481f, 0x30 },
-+	{ 0x4837, 0x0d },
-+	{ 0x483c, 0x0f },
-+	{ 0x484b, 0x01 },
-+	{ 0x4d00, 0x05 },
-+	{ 0x4d01, 0x19 },
-+	{ 0x4d02, 0xfd },
-+	{ 0x4d03, 0xd1 },
-+	{ 0x4d04, 0xff },
-+	{ 0x4d05, 0xff },
-+	{ 0x5000, 0x09 },
-+	{ 0x5001, 0x42 },
-+	{ 0x5002, 0x45 },
-+	{ 0x5005, 0x00 },
-+	{ 0x5081, 0x04 },
-+	{ 0x5180, 0x00 },
-+	{ 0x5181, 0x10 },
-+	{ 0x5182, 0x02 },
-+	{ 0x5183, 0x0f },
-+	{ 0x5185, 0x6c },
-+	{ 0x5200, 0x03 },
-+	{ 0x5203, 0x7c },
-+	{ 0x5204, 0x1f },
-+	{ 0x5205, 0x41 },
-+	{ 0x520b, 0x07 },
-+	{ 0x520c, 0x0f },
-+	{ 0x0300, 0x02 },
-+	{ 0x0302, 0x53 },
-+	{ 0x380c, 0x04 },
-+	{ 0x380d, 0x90 },
-+	{ 0x380e, 0x0c },
-+	{ 0x380f, 0xe6 },
-+	{ 0x4837, 0x10 },
-+};
-+
-+static const struct ov12a10_reg ov12a10_1280x720_regs[] = {
-+	{ 0x0300, 0x06 },
-+	{ 0x0301, 0x02 },
-+	{ 0x0302, 0x48 },
-+	{ 0x0307, 0x01 },
-+	{ 0x0303, 0x01 },
-+	{ 0x030b, 0x06 },
-+	{ 0x030c, 0x02 },
-+	{ 0x030d, 0x88 },
-+	{ 0x0312, 0x11 },
-+	{ 0x0313, 0x09 },
-+	{ 0x3642, 0x10 },
-+	{ 0x3666, 0x00 },
-+	{ 0x366b, 0xa4 },
-+	{ 0x366c, 0x20 },
-+	{ 0x366d, 0xa4 },
-+	{ 0x366e, 0x20 },
-+	{ 0x3714, 0x28 },
-+	{ 0x371a, 0x3e },
-+	{ 0x3737, 0x08 },
-+	{ 0x3739, 0x20 },
-+	{ 0x37c2, 0x14 },
-+	{ 0x37d9, 0x0c },
-+	{ 0x37e3, 0x08 },
-+	{ 0x37e4, 0x36 },
-+	{ 0x37e6, 0x08 },
-+	{ 0x3800, 0x03 },
-+	{ 0x3801, 0x20 },
-+	{ 0x3802, 0x03 },
-+	{ 0x3803, 0x68 },
-+	{ 0x3804, 0x0d },
-+	{ 0x3805, 0x3f },
-+	{ 0x3806, 0x09 },
-+	{ 0x3807, 0x27 },
-+	{ 0x3808, 0x05 },
-+	{ 0x3809, 0x00 },
-+	{ 0x380a, 0x02 },
-+	{ 0x380b, 0xd0 },
-+	{ 0x380c, 0x04 },
-+	{ 0x380d, 0x28 },
-+	{ 0x380e, 0x03 },
-+	{ 0x380f, 0x4c },
-+	{ 0x3810, 0x00 },
-+	{ 0x3811, 0x08 },
-+	{ 0x3813, 0x08 },
-+	{ 0x3814, 0x03 },
-+	{ 0x3816, 0x03 },
-+	{ 0x3820, 0xab },
-+	{ 0x4009, 0x0d },
-+	{ 0x4050, 0x04 },
-+	{ 0x4051, 0x0b },
-+	{ 0x4501, 0x00 },
-+	{ 0x4837, 0x1b },
-+	{ 0x5001, 0x42 },
-+	{ 0x5002, 0x45 },
-+	{ 0x3501, 0x34 },
-+	{ 0x3502, 0x00 },
-+	{ 0x4800, 0x24 },
-+};
-+
-+static const struct ov12a10_mode supported_modes[] = {
-+	{
-+		.width = 1280, .height = 720, .hts_def = 1440,
-+		.vts_def = 3376, .vts_min = 844,
-+		.num_regs = ARRAY_SIZE(ov12a10_1280x720_regs),
-+		.regs = ov12a10_1280x720_regs,
-+	},
-+};
-+
-+static const s64 link_freq_menu_items[] = { OV12A10_LINK_FREQ_216MHZ };
-+
-+struct ov12a10 {
-+	struct device *dev;
-+	struct v4l2_subdev sd;
-+	struct media_pad pad;
-+	struct clk *xvclk;
-+	struct gpio_desc *reset_gpio, *vana_gpio, *pwdn_gpio;
-+	struct regulator_bulk_data supplies[OV12A10_NUM_SUPPLIES];
-+	struct v4l2_ctrl_handler ctrl_handler;
-+	struct v4l2_ctrl *link_freq, *pixel_rate, *vblank, *hblank, *exposure;
-+	const struct ov12a10_mode *cur_mode;
-+	/* Serialize access to sensor registers and streaming state */
-+	struct mutex mutex;
-+	bool streaming;
-+};
-+
-+static inline struct ov12a10 *to_ov12a10(struct v4l2_subdev *sd)
-+{
-+	return container_of(sd, struct ov12a10, sd);
-+}
-+
-+static int ov12a10_read_reg(struct ov12a10 *ov12a10, u16 reg, u32 len, u32 *val)
-+{
-+	struct i2c_client *client = v4l2_get_subdevdata(&ov12a10->sd);
-+	struct i2c_msg msgs[2];
-+	u8 addr_buf[2], data_buf[4] = { 0 };
-+	int ret;
-+
-+	put_unaligned_be16(reg, addr_buf);
-+	msgs[0].addr = client->addr;
-+	msgs[0].flags = 0;
-+	msgs[0].len = 2;
-+	msgs[0].buf = addr_buf;
-+	msgs[1].addr = client->addr;
-+	msgs[1].flags = I2C_M_RD;
-+	msgs[1].len = len;
-+	msgs[1].buf = &data_buf[4 - len];
-+	ret = i2c_transfer(client->adapter, msgs, 2);
-+	if (ret != 2)
-+		return ret < 0 ? ret : -EIO;
-+	*val = get_unaligned_be32(data_buf);
-+	return 0;
-+}
-+
-+static int ov12a10_write_reg(struct ov12a10 *ov12a10, u16 reg, u32 len, u32 val)
-+{
-+	struct i2c_client *client = v4l2_get_subdevdata(&ov12a10->sd);
-+	u8 buf[6];
-+	int ret;
-+
-+	put_unaligned_be16(reg, buf);
-+	put_unaligned_be32(val << (8 * (4 - len)), buf + 2);
-+	ret = i2c_master_send(client, buf, len + 2);
-+	return ret == len + 2 ? 0 : (ret < 0 ? ret : -EIO);
-+}
-+
-+static int ov12a10_write_regs(struct ov12a10 *ov12a10, const struct ov12a10_reg *regs, u32 len)
-+{
-+	u32 i;
-+	int ret;
-+
-+	for (i = 0; i < len; i++) {
-+		ret = ov12a10_write_reg(ov12a10, regs[i].address, 1, regs[i].val);
-+		if (!ret && regs[i].address == 0x0103)
-+			usleep_range(5000, 6000);
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+static int ov12a10_power_on(struct device *dev)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(dev_get_drvdata(dev));
-+	int ret;
-+
-+	if (ov12a10->vana_gpio)
-+		gpiod_set_value_cansleep(ov12a10->vana_gpio, 1);
-+
-+	ret = regulator_bulk_enable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(ov12a10->xvclk);
-+	if (ret) {
-+		regulator_bulk_disable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+		return ret;
-+	}
-+
-+	msleep(35);
-+	if (ov12a10->pwdn_gpio)
-+		gpiod_set_value_cansleep(ov12a10->pwdn_gpio, 0);
-+	if (ov12a10->reset_gpio) {
-+		gpiod_set_value_cansleep(ov12a10->reset_gpio, 1);
-+		usleep_range(3000, 5000);
-+		gpiod_set_value_cansleep(ov12a10->reset_gpio, 0);
-+		msleep(35);
-+	}
-+	return 0;
-+}
-+
-+static int ov12a10_power_off(struct device *dev)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(dev_get_drvdata(dev));
-+
-+	if (ov12a10->reset_gpio)
-+		gpiod_set_value_cansleep(ov12a10->reset_gpio, 1);
-+	if (ov12a10->pwdn_gpio)
-+		gpiod_set_value_cansleep(ov12a10->pwdn_gpio, 1);
-+	if (ov12a10->vana_gpio)
-+		gpiod_set_value_cansleep(ov12a10->vana_gpio, 0);
-+	clk_disable_unprepare(ov12a10->xvclk);
-+	regulator_bulk_disable(OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+	return 0;
-+}
-+
-+static int ov12a10_set_ctrl(struct v4l2_ctrl *ctrl)
-+{
-+	struct ov12a10 *ov12a10 = container_of(ctrl->handler, struct ov12a10, ctrl_handler);
-+	int ret = 0;
-+
-+	if (!pm_runtime_get_if_in_use(ov12a10->dev))
-+		return 0;
-+	switch (ctrl->id) {
-+	case V4L2_CID_ANALOGUE_GAIN:
-+		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_ANALOG_GAIN, 2, ctrl->val);
-+	break;
-+	case V4L2_CID_EXPOSURE:
-+		ret = ov12a10_write_reg(ov12a10, 0x3500, 3, ctrl->val << 4);
-+	break;
-+	case V4L2_CID_VBLANK:
-+		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_VTS, 2,
-+				ov12a10->cur_mode->height + ctrl->val);
-+	break;
-+	case V4L2_CID_TEST_PATTERN:
-+		ret = ov12a10_write_reg(ov12a10, OV12A10_REG_TEST_PATTERN, 1, ctrl->val);
-+	break;
-+	}
-+	pm_runtime_put(ov12a10->dev);
-+	return ret;
-+}
-+
-+static const struct v4l2_ctrl_ops ov12a10_ctrl_ops = { .s_ctrl = ov12a10_set_ctrl };
-+static const char * const ov12a10_test_pattern_menu[] = {
-+	"Disabled",
-+	"Solid Color",
-+	"100% Color Bars",
-+	"Fade to Grey",
-+	"PN9",
-+};
-+
-+static int ov12a10_init_controls(struct ov12a10 *ov12a10)
-+{
-+	struct v4l2_fwnode_device_properties props;
-+	struct v4l2_ctrl_handler *hdl = &ov12a10->ctrl_handler;
-+	s64 hblank = ov12a10->cur_mode->hts_def - ov12a10->cur_mode->width;
-+	int ret = v4l2_ctrl_handler_init(hdl, 8);
-+
-+	if (ret)
-+		return ret;
-+	hdl->lock = &ov12a10->mutex;
-+	ov12a10->link_freq = v4l2_ctrl_new_int_menu(hdl, &ov12a10_ctrl_ops, V4L2_CID_LINK_FREQ,
-+			0, 0, link_freq_menu_items);
-+	if (ov12a10->link_freq)
-+		ov12a10->link_freq->flags |= V4L2_CTRL_FLAG_READ_ONLY;
-+	ov12a10->pixel_rate = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_PIXEL_RATE,
-+			OV12A10_PIXEL_RATE, OV12A10_PIXEL_RATE, 1, OV12A10_PIXEL_RATE);
-+	ov12a10->vblank = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_VBLANK, 124,
-+			0x7fff - ov12a10->cur_mode->height, 1, 2656);
-+	ov12a10->hblank = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_HBLANK, hblank,
-+			hblank, 1, hblank);
-+	if (ov12a10->hblank)
-+		ov12a10->hblank->flags |= V4L2_CTRL_FLAG_READ_ONLY;
-+	v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_ANALOGUE_GAIN, 0x80, 0x7ff, 1, 0x300);
-+	ov12a10->exposure = v4l2_ctrl_new_std(hdl, &ov12a10_ctrl_ops, V4L2_CID_EXPOSURE, 4,
-+			3360, 1, 2400);
-+	v4l2_ctrl_new_std_menu_items(hdl, &ov12a10_ctrl_ops, V4L2_CID_TEST_PATTERN, 4, 0, 0,
-+			ov12a10_test_pattern_menu);
-+	if (hdl->error) {
-+		ret = hdl->error;
-+		goto err;
-+	}
-+	ret = v4l2_fwnode_device_parse(ov12a10->dev, &props);
-+	if (ret)
-+		goto err;
-+	ret = v4l2_ctrl_new_fwnode_properties(hdl, &ov12a10_ctrl_ops, &props);
-+	if (ret)
-+		goto err;
-+	ov12a10->sd.ctrl_handler = hdl;
-+	return 0;
-+err:
-+	v4l2_ctrl_handler_free(hdl);
-+	return ret;
-+}
-+
-+static void ov12a10_update_pad_format(const struct ov12a10_mode *mode,
-+		struct v4l2_mbus_framefmt *fmt)
-+{
-+	fmt->width = mode->width;
-+	fmt->height = mode->height;
-+	fmt->code = MEDIA_BUS_FMT_SRGGB10_1X10;
-+	fmt->field = V4L2_FIELD_NONE;
-+	fmt->colorspace = V4L2_COLORSPACE_SRGB;
-+}
-+
-+static int ov12a10_get_format(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
-+		struct v4l2_subdev_format *fmt)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+
-+	fmt->format = (fmt->which == V4L2_SUBDEV_FORMAT_TRY) ? *v4l2_subdev_state_get_format(sd_state,
-+			fmt->pad) : fmt->format;
-+	if (fmt->which != V4L2_SUBDEV_FORMAT_TRY)
-+		ov12a10_update_pad_format(ov12a10->cur_mode, &fmt->format);
-+	return 0;
-+}
-+
-+static int ov12a10_set_format(struct v4l2_subdev *sd, const struct v4l2_subdev_client_info *ci, struct v4l2_subdev_state *sd_state,
-+		struct v4l2_subdev_format *fmt)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+
-+	ov12a10_update_pad_format(&supported_modes[0], &fmt->format);
-+	if (fmt->which == V4L2_SUBDEV_FORMAT_TRY)
-+		*v4l2_subdev_state_get_format(sd_state, fmt->pad) = fmt->format;
-+	else
-+		ov12a10->cur_mode = &supported_modes[0];
-+
-+	return 0;
-+}
-+
-+static int ov12a10_enum_mbus_code(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
-+		struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	if (code->index > 0)
-+		return -EINVAL;
-+	code->code = MEDIA_BUS_FMT_SRGGB10_1X10;
-+	return 0;
-+}
-+
-+static int ov12a10_enum_frame_size(struct v4l2_subdev *sd, struct v4l2_subdev_state *sd_state,
-+		struct v4l2_subdev_frame_size_enum *fse)
-+{
-+	if (fse->index >= ARRAY_SIZE(supported_modes) ||
-+	    fse->code != MEDIA_BUS_FMT_SRGGB10_1X10)
-+		return -EINVAL;
-+	fse->min_width = fse->max_width = supported_modes[fse->index].width;
-+	fse->min_height = fse->max_height = supported_modes[fse->index].height;
-+	return 0;
-+}
-+
-+static int ov12a10_set_stream(struct v4l2_subdev *sd, int enable)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+	int ret = 0;
-+
-+	mutex_lock(&ov12a10->mutex);
-+	if (ov12a10->streaming == enable) {
-+		mutex_unlock(&ov12a10->mutex);
-+		return 0;
-+	}
-+	if (enable) {
-+		ret = pm_runtime_resume_and_get(ov12a10->dev);
-+		if (ret < 0)
-+			goto out;
-+		ret = ov12a10_write_regs(ov12a10, ov12a10_common_regs,
-+				ARRAY_SIZE(ov12a10_common_regs));
-+		if (!ret)
-+			ret = ov12a10_write_regs(ov12a10, ov12a10->cur_mode->regs,
-+					ov12a10->cur_mode->num_regs);
-+		if (!ret)
-+			ret = __v4l2_ctrl_handler_setup(ov12a10->sd.ctrl_handler);
-+		if (!ret) {
-+			static const struct ov12a10_reg stream_on_regs[] = {
-+				{ 0x0100, 0x01 },
-+			};
-+			usleep_range(10000, 12000);
-+			ret = ov12a10_write_regs(ov12a10, stream_on_regs,
-+					ARRAY_SIZE(stream_on_regs));
+@@ -455,7 +456,8 @@ static inline int cgroup_bpf_prog_detach(const union bpf_attr *attr,
+ }
+ 
+ static inline int cgroup_bpf_link_attach(const union bpf_attr *attr,
+-					 struct bpf_prog *prog)
++					 struct bpf_prog *prog,
++					 struct bpf_verifier_log *log)
+ {
+ 	return -EINVAL;
+ }
+diff --git a/kernel/bpf/cgroup.c b/kernel/bpf/cgroup.c
+index f195d5fcae6c..4dff4a178af3 100644
+--- a/kernel/bpf/cgroup.c
++++ b/kernel/bpf/cgroup.c
+@@ -901,7 +901,8 @@ static struct bpf_prog *bpf_get_anchor_prog(u32 flags, u32 id_or_fd)
+ }
+ 
+ static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_prog *prog,
+-					   struct bpf_cgroup_link *link, u32 flags, u32 id_or_fd)
++					   struct bpf_cgroup_link *link, u32 flags, u32 id_or_fd,
++					   struct bpf_verifier_log *log)
+ {
+ 	bool is_link = flags & BPF_F_LINK, is_id = flags & BPF_F_ID;
+ 	struct bpf_prog_list *pltmp, *pl = ERR_PTR(-EINVAL);
+@@ -914,20 +915,30 @@ static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_
+ 	is_after = flags & BPF_F_AFTER;
+ 	if (is_link || is_id || id_or_fd) {
+ 		/* flags must have either BPF_F_BEFORE or BPF_F_AFTER */
+-		if (is_before == is_after)
++		if (is_before == is_after) {
++			bpf_log(log, "Specify exactly one of BPF_F_BEFORE or BPF_F_AFTER.\n");
+ 			return ERR_PTR(-EINVAL);
+-		if ((is_link && !link) || (!is_link && !prog))
 +		}
-+		if (ret) {
-+			pm_runtime_put(ov12a10->dev);
-+			goto out;
++		if (is_link && !link)
++			return ERR_PTR(-EINVAL);
++		if (!is_link && !prog) {
++			bpf_log(log, "BPF_F_LINK is required for relative link attachment.\n");
+ 			return ERR_PTR(-EINVAL);
 +		}
-+	} else {
-+		ov12a10_write_reg(ov12a10, OV12A10_REG_MODE_SELECT, 1, OV12A10_MODE_STANDBY);
-+		pm_runtime_put(ov12a10->dev);
+ 	} else if (!hlist_empty(progs)) {
+ 		/* flags cannot have both BPF_F_BEFORE and BPF_F_AFTER */
+-		if (is_before && is_after)
++		if (is_before && is_after) {
++			bpf_log(log, "BPF_F_BEFORE and BPF_F_AFTER are mutually exclusive.\n");
+ 			return ERR_PTR(-EINVAL);
++		}
+ 	}
+ 
+ 	if (is_link) {
+ 		anchor_link = bpf_get_anchor_link(flags, id_or_fd);
+-		if (IS_ERR(anchor_link))
++		if (IS_ERR(anchor_link)) {
++			bpf_log(log, "Invalid relative link %s.\n", is_id ? "ID" : "FD");
+ 			return ERR_CAST(anchor_link);
++		}
+ 	} else if (is_id || id_or_fd) {
+ 		anchor_prog = bpf_get_anchor_prog(flags, id_or_fd);
+ 		if (IS_ERR(anchor_prog))
+@@ -952,13 +963,16 @@ static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_
+ 	hlist_for_each_entry(pltmp, progs, node) {
+ 		if ((anchor_prog && anchor_prog == pltmp->prog) ||
+ 		    (anchor_link && anchor_link == &pltmp->link->link)) {
+-			if (!!(pltmp->flags & BPF_F_PREORDER) != preorder)
++			if (!!(pltmp->flags & BPF_F_PREORDER) != preorder) {
++				bpf_log(log, "Relative attachment BPF_F_PREORDER mismatch.\n");
+ 				goto out;
++			}
+ 			pl = pltmp;
+ 			goto out;
+ 		}
+ 	}
+ 
++	bpf_log(log, "Relative attachment not found in target cgroup.\n");
+ 	pl = ERR_PTR(-ENOENT);
+ out:
+ 	if (anchor_link)
+@@ -970,11 +984,11 @@ static struct bpf_prog_list *get_prog_list(struct hlist_head *progs, struct bpf_
+ 
+ static int insert_pl_to_hlist(struct bpf_prog_list *pl, struct hlist_head *progs,
+ 			      struct bpf_prog *prog, struct bpf_cgroup_link *link,
+-			      u32 flags, u32 id_or_fd)
++			      u32 flags, u32 id_or_fd, struct bpf_verifier_log *log)
+ {
+ 	struct bpf_prog_list *pltmp;
+ 
+-	pltmp = get_prog_list(progs, prog, link, flags, id_or_fd);
++	pltmp = get_prog_list(progs, prog, link, flags, id_or_fd, log);
+ 	if (IS_ERR(pltmp))
+ 		return PTR_ERR(pltmp);
+ 
+@@ -999,6 +1013,7 @@ static int insert_pl_to_hlist(struct bpf_prog_list *pl, struct hlist_head *progs
+  * @flags: Option flags
+  * @id_or_fd: Relative prog id or fd
+  * @revision: bpf_prog_list revision
++ * @log: Optional log for attachment errors
+  *
+  * Exactly one of @prog or @link can be non-null.
+  * Must be called with cgroup_mutex and cgroup_bpf_mutex held.
+@@ -1007,7 +1022,7 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
+ 			       struct bpf_prog *prog, struct bpf_prog *replace_prog,
+ 			       struct bpf_cgroup_link *link,
+ 			       enum bpf_attach_type type, u32 flags, u32 id_or_fd,
+-			       u64 revision)
++			       u64 revision, struct bpf_verifier_log *log)
+ {
+ 	u32 saved_flags = (flags & (BPF_F_ALLOW_OVERRIDE | BPF_F_ALLOW_MULTI));
+ 	struct bpf_prog *old_prog = NULL;
+@@ -1045,23 +1060,33 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
+ 	atype = bpf_cgroup_atype_find(type, new_prog->aux->attach_btf_id);
+ 	if (atype < 0)
+ 		return -EINVAL;
+-	if (revision && revision != cgrp->bpf.revisions[atype])
++	if (revision && revision != cgrp->bpf.revisions[atype]) {
++		bpf_log(log, "Cgroup revision mismatch: expected %llu, actual %llu.\n",
++			revision, cgrp->bpf.revisions[atype]);
+ 		return -ESTALE;
 +	}
-+	ov12a10->streaming = enable;
-+out:
-+	mutex_unlock(&ov12a10->mutex);
-+	return ret;
-+}
-+
-+static int ov12a10_open(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh)
-+{
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+
-+	mutex_lock(&ov12a10->mutex);
-+	ov12a10_update_pad_format(&supported_modes[0], v4l2_subdev_state_get_format(fh->state,
-+			0));
-+	mutex_unlock(&ov12a10->mutex);
-+	return 0;
-+}
-+
-+static const struct v4l2_subdev_video_ops ov12a10_video_ops = { .s_stream = ov12a10_set_stream };
-+
-+static int ov12a10_get_selection(struct v4l2_subdev *sd, const struct v4l2_subdev_client_info *ci,
-+				struct v4l2_subdev_state *sd_state,
-+				struct v4l2_subdev_selection *sel)
-+{
-+	switch (sel->target) {
-+	case V4L2_SEL_TGT_CROP:
-+	case V4L2_SEL_TGT_CROP_DEFAULT:
-+	case V4L2_SEL_TGT_CROP_BOUNDS:
-+	case V4L2_SEL_TGT_NATIVE_SIZE:
-+		sel->r.left = 0;
-+		sel->r.top = 0;
-+		sel->r.width = 1280;
-+		sel->r.height = 720;
-+		return 0;
-+	default:
-+		return -EINVAL;
+ 
+ 	progs = &cgrp->bpf.progs[atype];
+ 
+-	if (!hierarchy_allows_attach(cgrp, atype))
++	if (!hierarchy_allows_attach(cgrp, atype)) {
++		bpf_log(log, "Cgroup hierarchy does not allow attachment.\n");
+ 		return -EPERM;
 +	}
-+}
-+
-+static const struct v4l2_subdev_pad_ops ov12a10_pad_ops = {
-+	.get_selection = ov12a10_get_selection,
-+	.set_fmt = ov12a10_set_format, .get_fmt = ov12a10_get_format,
-+	.enum_mbus_code = ov12a10_enum_mbus_code, .enum_frame_size = ov12a10_enum_frame_size,
-+};
-+static const struct v4l2_subdev_ops ov12a10_subdev_ops = {
-+	.video = &ov12a10_video_ops,
-+	.pad = &ov12a10_pad_ops,
-+};
-+static const struct media_entity_operations ov12a10_entity_ops = {
-+	.link_validate = v4l2_subdev_link_validate,
-+};
-+static const struct v4l2_subdev_internal_ops ov12a10_internal_ops = { .open = ov12a10_open };
-+
-+static int ov12a10_probe(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+	struct ov12a10 *ov12a10;
-+	u32 val = 0;
-+	unsigned int i;
-+	int ret;
-+
-+	ov12a10 = devm_kzalloc(dev, sizeof(*ov12a10), GFP_KERNEL);
-+	if (!ov12a10)
-+		return -ENOMEM;
-+	ov12a10->dev = dev;
-+	v4l2_i2c_subdev_init(&ov12a10->sd, client, &ov12a10_subdev_ops);
-+	ov12a10->xvclk = devm_v4l2_sensor_clk_get(dev, NULL);
-+	if (IS_ERR(ov12a10->xvclk))
-+		return dev_err_probe(dev, PTR_ERR(ov12a10->xvclk), "xvclk\n");
-+	clk_set_rate(ov12a10->xvclk, OV12A10_XVCLK_FREQ);
-+	ov12a10->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-+	ov12a10->vana_gpio = devm_gpiod_get_optional(dev, "vana", GPIOD_OUT_LOW);
-+	ov12a10->pwdn_gpio = devm_gpiod_get_optional(dev, "pwdn", GPIOD_OUT_HIGH);
-+	if (IS_ERR(ov12a10->reset_gpio))
-+		return dev_err_probe(dev, PTR_ERR(ov12a10->reset_gpio), "reset\n");
-+	for (i = 0; i < OV12A10_NUM_SUPPLIES; i++)
-+		ov12a10->supplies[i].supply = ov12a10_supply_names[i];
-+	ret = devm_regulator_bulk_get(dev, OV12A10_NUM_SUPPLIES, ov12a10->supplies);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "regulators\n");
-+	ret = ov12a10_power_on(dev);
-+	if (ret)
-+		return ret;
-+	ret = ov12a10_read_reg(ov12a10, OV12A10_CHIP_ID_REG, 2, &val);
-+	if (ret || val != OV12A10_CHIP_ID) {
-+		dev_err(dev, "failed to identify ov12a10 (ret=%d, id=0x%04x)\n", ret, val);
-+		ret = ret ? ret : -ENXIO;
-+		goto err_power;
+ 
+-	if (!hlist_empty(progs) && cgrp->bpf.flags[atype] != saved_flags)
++	if (!hlist_empty(progs) && cgrp->bpf.flags[atype] != saved_flags) {
+ 		/* Disallow attaching non-overridable on top
+ 		 * of existing overridable in this cgroup.
+ 		 * Disallow attaching multi-prog if overridable or none
+ 		 */
++		bpf_log(log, "Attachment flags conflict with existing flags.\n");
+ 		return -EPERM;
 +	}
-+	dev_info(dev, "identified OmniVision OV12A10 sensor (0x%04x)\n", val);
-+	mutex_init(&ov12a10->mutex);
-+	ov12a10->cur_mode = &supported_modes[0];
-+	ret = ov12a10_init_controls(ov12a10);
-+	if (ret)
-+		goto err_mutex;
-+	ov12a10->sd.internal_ops = &ov12a10_internal_ops;
-+	ov12a10->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
-+	ov12a10->sd.entity.ops = &ov12a10_entity_ops;
-+	ov12a10->sd.entity.function = MEDIA_ENT_F_CAM_SENSOR;
-+	ov12a10->pad.flags = MEDIA_PAD_FL_SOURCE;
-+	ret = media_entity_pads_init(&ov12a10->sd.entity, 1, &ov12a10->pad);
-+	if (ret)
-+		goto err_ctrl;
-+	ov12a10->sd.state_lock = &ov12a10->mutex;
-+	ret = v4l2_subdev_init_finalize(&ov12a10->sd);
-+	if (ret)
-+		goto err_media;
-+	ret = v4l2_async_register_subdev_sensor(&ov12a10->sd);
-+	if (ret)
-+		goto err_media;
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
-+	pm_runtime_idle(dev);
-+	return 0;
-+err_media: media_entity_cleanup(&ov12a10->sd.entity);
-+err_ctrl: v4l2_ctrl_handler_free(ov12a10->sd.ctrl_handler);
-+err_mutex: mutex_destroy(&ov12a10->mutex);
-+err_power: ov12a10_power_off(dev);
-+	return ret;
-+}
-+
-+static void ov12a10_remove(struct i2c_client *client)
-+{
-+	struct v4l2_subdev *sd = i2c_get_clientdata(client);
-+	struct ov12a10 *ov12a10 = to_ov12a10(sd);
-+
-+	v4l2_async_unregister_subdev(sd);
-+	media_entity_cleanup(&sd->entity);
-+	v4l2_ctrl_handler_free(sd->ctrl_handler);
-+	mutex_destroy(&ov12a10->mutex);
-+	pm_runtime_disable(&client->dev);
-+	if (!pm_runtime_status_suspended(&client->dev))
-+		ov12a10_power_off(&client->dev);
-+	pm_runtime_set_suspended(&client->dev);
-+}
-+
-+static const struct dev_pm_ops ov12a10_pm_ops = { SET_RUNTIME_PM_OPS(ov12a10_power_off,
-+		ov12a10_power_on, NULL) };
-+static const struct of_device_id ov12a10_of_match[] = { { .compatible = "ovti,ov12a10" }, { } };
-+MODULE_DEVICE_TABLE(of, ov12a10_of_match);
-+static struct i2c_driver ov12a10_i2c_driver = {
-+	.driver = { .name = "ov12a10", .pm = &ov12a10_pm_ops, .of_match_table = ov12a10_of_match },
-+	.probe = ov12a10_probe, .remove = ov12a10_remove,
-+};
-+module_i2c_driver(ov12a10_i2c_driver);
-+MODULE_DESCRIPTION("OmniVision OV12A10 12MP sensor driver");
-+MODULE_LICENSE("GPL");
+ 
+-	if (prog_list_length(progs, NULL) >= BPF_CGROUP_MAX_PROGS)
++	if (prog_list_length(progs, NULL) >= BPF_CGROUP_MAX_PROGS) {
++		bpf_log(log, "Too many programs attached to cgroup (limit %u).\n",
++			BPF_CGROUP_MAX_PROGS);
+ 		return -E2BIG;
++	}
+ 
+ 	pl = find_attach_entry(progs, prog, link, replace_prog,
+ 			       flags & BPF_F_ALLOW_MULTI);
+@@ -1083,7 +1108,7 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
+ 			return -ENOMEM;
+ 		}
+ 
+-		err = insert_pl_to_hlist(pl, progs, prog, link, flags, id_or_fd);
++		err = insert_pl_to_hlist(pl, progs, prog, link, flags, id_or_fd, log);
+ 		if (err) {
+ 			kfree(pl);
+ 			bpf_cgroup_storages_free(new_storage);
+@@ -1143,13 +1168,14 @@ static int cgroup_bpf_attach(struct cgroup *cgrp,
+ 			     struct bpf_prog *prog, struct bpf_prog *replace_prog,
+ 			     struct bpf_cgroup_link *link,
+ 			     enum bpf_attach_type type,
+-			     u32 flags, u32 id_or_fd, u64 revision)
++			     u32 flags, u32 id_or_fd, u64 revision,
++			     struct bpf_verifier_log *log)
+ {
+ 	int ret;
+ 
+ 	cgroup_bpf_lock_hierarchy();
+ 	ret = __cgroup_bpf_attach(cgrp, prog, replace_prog, link, type, flags,
+-				  id_or_fd, revision);
++				  id_or_fd, revision, log);
+ 	cgroup_bpf_unlock_hierarchy();
+ 	return ret;
+ }
+@@ -1635,7 +1661,7 @@ int cgroup_bpf_prog_attach(const union bpf_attr *attr,
+ 
+ 	ret = cgroup_bpf_attach(cgrp, prog, replace_prog, NULL,
+ 				attr->attach_type, attr->attach_flags,
+-				attr->relative_fd, attr->expected_revision);
++				attr->relative_fd, attr->expected_revision, NULL);
+ 
+ 	if (replace_prog)
+ 		bpf_prog_put(replace_prog);
+@@ -1765,19 +1791,24 @@ static const struct bpf_link_ops bpf_cgroup_link_lops = {
+ 	 BPF_F_PREORDER |	\
+ 	 BPF_F_LINK)
+ 
+-int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog)
++int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog,
++			   struct bpf_verifier_log *log)
+ {
+ 	struct bpf_link_primer link_primer;
+ 	struct bpf_cgroup_link *link;
+ 	struct cgroup *cgrp;
+ 	int err;
+ 
+-	if (attr->link_create.flags & (~BPF_F_LINK_ATTACH_MASK))
++	if (attr->link_create.flags & (~BPF_F_LINK_ATTACH_MASK)) {
++		bpf_log(log, "Invalid flags.\n");
+ 		return -EINVAL;
++	}
+ 
+ 	cgrp = cgroup_get_from_fd(attr->link_create.target_fd);
+-	if (IS_ERR(cgrp))
++	if (IS_ERR(cgrp)) {
++		bpf_log(log, "Invalid target_fd.\n");
+ 		return PTR_ERR(cgrp);
++	}
+ 
+ 	link = kzalloc_obj(*link, GFP_USER);
+ 	if (!link) {
+@@ -1797,7 +1828,7 @@ int cgroup_bpf_link_attach(const union bpf_attr *attr, struct bpf_prog *prog)
+ 	err = cgroup_bpf_attach(cgrp, NULL, NULL, link,
+ 				link->link.attach_type, BPF_F_ALLOW_MULTI | attr->link_create.flags,
+ 				attr->link_create.cgroup.relative_fd,
+-				attr->link_create.cgroup.expected_revision);
++				attr->link_create.cgroup.expected_revision, log);
+ 	if (err) {
+ 		bpf_link_cleanup(&link_primer);
+ 		goto out_put_cgroup;
+@@ -3253,7 +3284,8 @@ int cgroup_bpf_struct_ops_attach(struct bpf_map *map, const union bpf_attr *attr
+ 	cgrp->bpf.flags[atype] = BPF_F_ALLOW_MULTI;
+ 
+ 	err = insert_pl_to_hlist(pl, progs, NULL, link,
+-				 flags | BPF_F_ALLOW_MULTI, attr->link_create.cgroup.relative_fd);
++				 flags | BPF_F_ALLOW_MULTI,
++				 attr->link_create.cgroup.relative_fd, NULL);
+ 	if (err)
+ 		goto unlock;
+ 
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index f485e68a14ee..56b3f42fded0 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -5929,7 +5929,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 	case BPF_PROG_TYPE_CGROUP_DEVICE:
+ 	case BPF_PROG_TYPE_CGROUP_SYSCTL:
+ 	case BPF_PROG_TYPE_CGROUP_SOCKOPT:
+-		ret = cgroup_bpf_link_attach(attr, prog);
++		ret = cgroup_bpf_link_attach(attr, prog, log);
+ 		break;
+ 	case BPF_PROG_TYPE_EXT:
+ 		ret = bpf_tracing_prog_attach(prog,
+@@ -5952,7 +5952,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 		else if (prog->expected_attach_type == BPF_TRACE_ITER)
+ 			ret = bpf_iter_link_attach(attr, uattr, prog, log);
+ 		else if (prog->expected_attach_type == BPF_LSM_CGROUP)
+-			ret = cgroup_bpf_link_attach(attr, prog);
++			ret = cgroup_bpf_link_attach(attr, prog, log);
+ 		else if (is_tracing_multi(prog->expected_attach_type))
+ 			ret = bpf_tracing_multi_attach(prog, attr, log);
+ 		else
 -- 
-2.47.3
+2.55.0
 
