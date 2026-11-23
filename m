@@ -1,100 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446665;
-	b=Qito3PJJtqiHQJxkHeO97r4F0zlsp0pJ31kL/g3LJGRDwl2vBoQ5VwZUzqsrWIjhGEmB
-	 N3YBAWSJd7O5oaa142qHOQWAaAO+SZHRrXmSaTne/eu7IbaPULSI7ro6QyUGoc5cxPt6b
-	 T9POu6zHzxD784sFzbC5itfIvjFSOZy44bcyXgdF28rg/UQEVqolKiCAceLixcGdFvr57
-	 5XkJPcBNQ9MmmErFZKqV3dJNtFT/p0mRNybc9Pe1ZMF/QYEX85gR/qxpsqA2jAWjRUBeK
-	 wulHE6rWRNhHVSzoYZB3bE91TLUbYO7FxaFP8rQ2Z/iPUsIpgSojOWXUcTT1gjNMkoA==
+	t=1795446667;
+	b=mYe85CndrSo1EVO1QOZxVPatYBJZ/SFI6sMmTm4ekrzkiqAqswG5WrYMR7v3C+aMHFzV
+	 8X7zIzUlNrdzdCZB9ewzlZGaHAOpOSf0p4OZe/VkPdrzLYaBNlDvIk9jP752gftiLSn9l
+	 yAZ5VCPaIk52JcPnaFFT2q4Fst+EAK7ckN8mLUXRQ6rXfarZpKJ0F1rD+AgAwShIezJLK
+	 GulARPI+0pl/IBTtx3dhFtrkkJ3wW+AA4d47g7Hpxo4fsN4xRo6iIAguLgVLLjYgesCMI
+	 UNSXwJ8C8+2lkeqA0Zq1M7rG9EY5q+YDLSa0xmkkRDOrzw9TFfropFb5quWLXup+72Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446665;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=2rXwqdKcXils5ZX0aUJ4kLahSvMQRVDM5PZVEx1DXik=;
-	b=U3ovmN7HmPYhyQ/ncwi1k9KjWQOtVl1UHXeN3SHpHdBz2+WNCDHGSLjIA7fRvrbauftd
-	 2YO7A+9Eot8lo6xBa6BGWkHzPMoF9ybaEcAxb1rAX4c/z4YRNk6+jTKQLHIz3DyQBcOKL
-	 iG+zkUS28a2cyexzGyA6iLEKRXrINuirSMr2t+zG7ah+4MJ7W+rX3CmWmamH9fhZ+Hijr
-	 SvMaxeI0gI5QQL7ogk5iEoYylICyH3LI+STKDn0eBCRqFf620RkXNrIxRdXauNAmEOHsd
-	 K0vPnztjICpB85NNgPjr9G2+87f1oQJhgRip4so3BYWhh7xH6f4Fcj//PZ6Bym9g2Mg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446667;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=0f43kva3JnPNZIo4MkOphqg9NfyeNtnXCj3+kANMNKY=;
+	b=cNtQ4Y9XG82PZrIjcU0qda+G3lksQWdwRK78hHuYuN0EBzvO7D10QMqZUmPCsQiwdBTO
+	 eYg+L+k8rRlfUCDhwxpJOTyhLv9gM6rC1/zPDyCJbSmGa86yXg8dUNk4C1qt/ltpqDGj8
+	 Qaq2FxSCQ0g3JI+Z9003gzw9neBYSDIa9HsgCKldJAtXlITXPDEM40H9gEmOIhs97HNny
+	 GAiW+ByFRyHAChsq/2be/2acy7FDHXm4tb56wynS4ulP1b0pHMFT8ceUfyy3LWG+9Rstg
+	 0wbVfKHIYwrdxrAwIdel6ZBjsMjd+tw+6xqMyCmDHBrg03JSzV2/c85/X/o7m6jyb0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vk93L+Dt;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF4A8606A31A;
-	Mon, 23 Nov 2026 15:11:05 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="EJ/+0Trp";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CDBED606A335
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:11:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDBED606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vk93L+Dt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5906A1F000D2;
-	Mon, 23 Nov 2026 15:10:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446665;
-	bh=2rXwqdKcXils5ZX0aUJ4kLahSvMQRVDM5PZVEx1DXik=;
-	h=From:To:Cc:Subject:Date;
-	b=Vk93L+Dt9YLMBXzvXYfSpC+H3lffXA2iZOKJX2mWjUeIaeUHbBaqwNoa5LUcMB6lC
-	 JfWNJXpQxz1SBDTRWQGOikzJIMIbAB/RORvCqKOBB5G8dP0T7z/v8TERi9xkaGAtTP
-	 i/qTJZHV3ue2mzAkVJz6r0ecPZwLtyJNsWjW0ciNe8zX9EEQBVbnR4zAiGXI35M6Lc
-	 XPRdP/r12xXxidCz58UwmLi6cuT0gObPoQw96fM9tMr1jvlk+CL6VV44kNCS4nV8un
-	 ZhcPhVMQ5QpqHxKmRiROaRwQswAgRC1oWqN45oCedzrzy2erJ0kxIHoMmWX3AgLV8d
-	 mtMQtwbFYf9Mg==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	=?UTF-8?q?Horia=20Geant=C4=83?= <horia.geanta@nxp.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Aleksander Jan Bajkowski <olek2@wp.pl>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Antoine Tenart <atenart@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Bharat Bhushan <bbhushan2@marvell.com>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Bulent Abali <abali@us.ibm.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Corentin Labbe <clabbe.montjoie@gmail.com>,
-	Dan Streetman <ddstreet@ieee.org>,
-	Evgeniy Polyakov <johnpol@2ka.mipt.ru>,
-	Haren Myneni <haren@us.ibm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Kim Phillips <kim.phillips@freescale.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	Longfang Liu <liulongfang@huawei.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Meenakshi Aggarwal <meenakshi.aggarwal@nxp.com>,
-	Meng Yu <yumeng18@huawei.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Nicolas Royer <nicolas@eukrea.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Pascal van Leeuwen <pvanleeuwen@insidesecure.com>,
-	Paul Louvel <paul.louvel@bootlin.com>,
-	Robert Jennings <rcj@linux.vnet.ibm.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Seth Jennings <sjenning@linux.vnet.ibm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Srujana Challa <schalla@marvell.com>,
-	Stanimir Varbanov <svarbanov@mm-sol.com>,
-	Steffen Trumtrar <kernel@pengutronix.de>,
-	Thorsten Blum <blum@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Weili Qian <qianweili@huawei.com>,
-	Zaibo Xu <xuzaibo@huawei.com>,
-	Zhiqi Song <songzhiqi1@huawei.com>
-Subject: [PATCH 00/10] crypto: Assorted bug fixes across crypto drivers
-Date: Mon, 23 Nov 2026 15:09:51 +0000
-Message-ID: <20261123151055.2533735-1-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=EJ/+0Trp
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58E7619F0;
+	Mon, 23 Nov 2026 07:11:03 -0800 (PST)
+Received: from [10.57.63.212] (unknown [10.57.63.212])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7EB193F632;
+	Mon, 23 Nov 2026 07:11:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795446666; bh=IpSqJ4KJv0CHrLNqzVscN5CM6p8mgmVvtxNtKC0YMYI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EJ/+0TrpY//IlNkmSNPKdVi4fCItrGqq5rKJ+9KvLZEMdtVffCGcXw3prJVD+kE9h
+	 25tqfBvu8sp0mkSzFHPpE9ves6yzxuyeD6rAakncFrixvPiBlMFLJbliV+KxZLJU2X
+	 5n5Zdjow47cEE8pZ15uufNt7C77oKdlVguc94I6w=
+Message-ID: <4265cf08-2b1d-4b06-be25-5039b6bb6f42@arm.com>
+Date: Mon, 23 Nov 2026 15:11:01 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,88 +53,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 5/8] drm/panthor: Introduce sampling sessions to handle
+ userspace clients
+To: Lukas Zapolskas <lukas.zapolskas@arm.com>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Alice Ryhl <aliceryhl@google.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Liviu Dudau <liviu.dudau@arm.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, nd@arm.com
+References: <20261011-panthor-performance-counters-v7-0-12c32495062f@arm.com>
+ <20261011-panthor-performance-counters-v7-5-12c32495062f@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261011-panthor-performance-counters-v7-5-12c32495062f@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-These issues were reported by Sashiko.
+On 11/10/2026 18:36, Lukas Zapolskas wrote:
+> To allow for combining the requests from multiple userspace clients,
+> an intermediary layer between the HW/FW interfaces and userspace is
+> created, containing the information for the counter requests and
+> tracking of insert and extract indices. Each session starts inactive
+> and must be explicitly activated via PERF_SESSION_START and
+> explicitly stopped via PERF_SESSION_STOP. Userspace identifies a
+> single client with its session ID and the panthor file it is
+> associated with.
+> 
+> The SAMPLE and STOP commands both produce a single sample when called,
+> and these samples can be disambiguated via the opaque user data field
+> passed in the PERF_SESSION uAPI. If this functionality is not desired,
+> these fields can be kept as zero, as the kernel copies this value into
+> the corresponding sample without attempting to interpret it.
+> 
+> Currently, only manual sampling sessions are supported, providing
+> samples when userspace calls PERF_CONTROL_SAMPLE, and only a single
+> session is allowed at a time. Multiple sessions and periodic sampling
+> will be enabled in following patches.
+> 
+> No protection is provided against the 32-bit hardware counter
+> overflows, so for the moment it is up to userspace to ensure that
+> the counters are sampled at a reasonable frequency.
+> 
+> Signed-off-by: Lukas Zapolskas <lukas.zapolskas@arm.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_perf.c | 657 ++++++++++++++++++++++++++++++++-
+>  drivers/gpu/drm/panthor/panthor_perf.h |  11 +
+>  2 files changed, 664 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_perf.c b/drivers/gpu/drm/panthor/panthor_perf.c
+> index ba466e22c50d..76c346981150 100644
+> --- a/drivers/gpu/drm/panthor/panthor_perf.c
+> +++ b/drivers/gpu/drm/panthor/panthor_perf.c
 
-None of these changes have been tested on physical hardware.
+[...]
 
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: "Horia Geantă" <horia.geanta@nxp.com>
-Cc: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Antoine Tenart <atenart@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bharat Bhushan <bbhushan2@marvell.com>
-Cc: bui duc phuc <phucduc.bui@gmail.com>
-Cc: Bulent Abali <abali@us.ibm.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Corentin Labbe <clabbe.montjoie@gmail.com>
-Cc: Dan Streetman <ddstreet@ieee.org>
-Cc: Evgeniy Polyakov <johnpol@2ka.mipt.ru>
-Cc: Haren Myneni <haren@us.ibm.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Kim Phillips <kim.phillips@freescale.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-arm-msm@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org
-Cc: linux-sunxi@lists.linux.dev
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: Longfang Liu <liulongfang@huawei.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Meenakshi Aggarwal <meenakshi.aggarwal@nxp.com>
-Cc: Meng Yu <yumeng18@huawei.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
-Cc: Nicolas Royer <nicolas@eukrea.com>
-Cc: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Pascal van Leeuwen <pvanleeuwen@insidesecure.com>
-Cc: Paul Louvel <paul.louvel@bootlin.com>
-Cc: Robert Jennings <rcj@linux.vnet.ibm.com>
-Cc: Sahil Malhotra <sahil.malhotra@nxp.com>
-Cc: Samuel Holland <samuel@sholland.org>
-Cc: Seth Jennings <sjenning@linux.vnet.ibm.com>
-Cc: Shrikanth Hegde <sshegde@linux.ibm.com>
-Cc: Srujana Challa <schalla@marvell.com>
-Cc: Stanimir Varbanov <svarbanov@mm-sol.com>
-Cc: Steffen Trumtrar <kernel@pengutronix.de>
-Cc: Thorsten Blum <blum@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Weili Qian <qianweili@huawei.com>
-Cc: Zaibo Xu <xuzaibo@huawei.com>
-Cc: Zhiqi Song <songzhiqi1@huawei.com>
+> +/**
+> + * panthor_perf_session_create - Create a user-visible session.
+> + *
+> + * @file: DRM file associated with the request.
+> + * @create_args: Creation arguments passed in via ioctl.
+> + * @sid: Session identifier output.
+> + *
+> + * Creates a new session associated with the session ID returned. When initialized, the
+> + * session must explicitly request sampling to start with a successive call to PERF_SESSION_START.
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int panthor_perf_session_create(struct drm_file *file,
+> +				struct drm_panthor_perf_session_create *create_args,
+> +				unsigned long *sid)
+> +{
+> +	struct panthor_file *pfile = file->driver_priv;
+> +	struct panthor_device *ptdev = pfile->ptdev;
+> +	struct panthor_perf_bo ringbuffer = {}, control = {};
+> +	const size_t slots = create_args->sample_slots;
+> +	struct panthor_perf_pool *pool = pfile->sessions;
+> +	struct panthor_perf_session *session;
+> +	struct panthor_perf_enable_masks *em;
+> +	size_t user_sample_size;
+> +	u32 session_id;
+> +	int ret;
+> +
+> +	if (!ptdev->perf)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (!pool)
+> +		return -EINVAL;
+> +
+> +	if (!perfmon_capable())
+> +		return -EACCES;
 
-Lee Jones (10):
-  crypto: caam - Fix descriptor buffer overflow in caam_process_blob()
-  crypto: marvell - Fix AEAD key buffer overflow for SHA-384/512 HMAC
-  crypto: nx - Fix bounce buffer copy overflow in decompress()
-  crypto: sun8i-ss - Fix scatterlist array overflow for HMAC requests
-  crypto: hisilicon/hpre - Fix buffer overflow on odd ECDH input size
-  crypto: talitos - Remove duplicate IV unmap in AEAD encrypt path
-  crypto: safexcel - Check scatterlist errors before max() for in-place
-  crypto: qce - Pass mapped scatterlist count to qce_dma_prep_sgs()
-  crypto: qce - Terminate RX DMA channel if TX preparation fails
-  crypto: atmel-tdes - Update output IV before clearing busy flag
+This requirement isn't mentioned in the uAPI.
 
- drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c  |  7 +++++--
- drivers/crypto/atmel-tdes.c                        |  7 +++++--
- drivers/crypto/caam/blob_gen.c                     | 12 ++++++++----
- drivers/crypto/hisilicon/hpre/hpre_crypto.c        |  5 +++--
- drivers/crypto/inside-secure/safexcel_cipher.c     |  7 +++----
- drivers/crypto/marvell/octeontx/otx_cptvf_algs.h   |  2 +-
- drivers/crypto/marvell/octeontx2/otx2_cptvf_algs.h |  2 +-
- drivers/crypto/nx/nx-842.c                         |  5 ++++-
- drivers/crypto/qce/dma.c                           |  8 ++++++--
- drivers/crypto/qce/sha.c                           |  9 +++++----
- drivers/crypto/talitos.c                           |  4 ----
- 11 files changed, 41 insertions(+), 27 deletions(-)
+I also don't see any validation of "block_set". And I think the check
+the padding should be moved here rather than hidden in
+panthor_ioctl_perf_session_create().
 
--- 
-2.56.1.750.gf70dc682cf-goog
+> +
+> +	session = kzalloc_obj(*session);
+> +	if (ZERO_OR_NULL_PTR(session))
+> +		return -ENOMEM;
+> +
+> +	if (!is_power_of_2(slots)) {
+> +		drm_err(&ptdev->base,
+> +			"Number of slots is not power-of-2 aligned\n");
+> +		ret = -EINVAL;
+> +		goto cleanup_session;
+> +	}
+> +
+> +	user_sample_size = ptdev->perf_info.sample_size * slots;
+
+create_args->sample_slots (slots) is user supplied and I believe this
+could overflow (on a 32 bit system). Specifically 1 << 31 (as this has
+to be power-of-2).
+
+Thanks,
+Steve
 
