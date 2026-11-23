@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.183
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795413962;
-	b=2D51qXVx87ibdqQ+SQvlyP90itkTAZl5tU1tmpQzrLtlGXaM7pOM3yXt9T+dxcfGqh2q
-	 CWpRpHAPUyUh8Cev0LwpvnGbCYdTdOCWmG7swAd4ZbVfaOrjWRF+3XLI8n0UxRx/JhWg8
-	 3StFb75Shkdrv+GWbvvkbDXdr2KLe1nmryU85Qm2mAFzk35K5GEPPrs9HB5NcgPqCEx0j
-	 YGRH5kf7fFc4mVLi3WyLvOuVBRQfU8feDsRuiBbg89pAQf727yMiCQL8GlwrVbVwnck4R
-	 pOd9lJL3aKc4B5P9QoW5Zk6LjqEuzteEleXzY2Mt1fiR7u7e0avvIJw4Pj4clD5Hv5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413962;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/PuORYyIRteJHQ11GLpV7a3611w1hxaJP4SNy0f1jBM=;
-	b=wbxeQm0WwuL3z2IU+8WMF/4kT/Bm+bboTsxaujhGDpz8pgojStbCJYOk4ZNm7Kj1IERr
-	 J5tEHcybmsx+q2BXnbVv5SAIqqnzp8vEGJbq/0migLXOblVipTG1ZgeGAepZj6vdphYqJ
-	 9zerPv3uabk5Jy1gM5EfvP0IcNWKxr5WE+4mjNlTqDsy2v6dyEXoaoAV55BN2ojVsD9+B
-	 GVhCS/zLuVQDKG+Qqf7q5OspAeUQy8hknl9DR08nlBIOXROc7In4Q8O/VJ3sMVr6Rb+pr
-	 S9nvBzGDzedCXhpCNdYNwCYXlS++fr5W5PVxVca4LZ6zdj2etss8L3GS8FUmSioTYVw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="fOY3WO/a";
-	arc=none smtp.remote-ip=91.218.175.183
-Received: from mta0.migadu.com (out-183.mta0.migadu.com [91.218.175.183])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795414086;
+	b=kiRO+XKHK1sgxIQOPdq0DJpUQ3iJvKoK2zhjoqTJg3vho9DNoPlJIMOetyGJCEmgs6NZ
+	 MA6H57s/5jtz7RrvdvmSFhsO7Xy9vdDhorSVpITjzuJPSGEHTkiNFfyAbzOv2pn6OYpiS
+	 nPCdhyhN0MhYiDJ+5fL3ytt1ee2dncoOUXUOcMW91ZEFNLHoZcwEP8PqUwOzuelnPGpwU
+	 v8Q8CXtXD+9JIIzSE77wxFigVYpnZEHKfyiX1o/ReeIeSKHBbajs4FgLoiUO99SvIPnPR
+	 pLCJqNvgoV0Q4nNmgH5kXok9SR/1lceJNtbR/10r9X/4BpSmC3EZaEMOf/fhtBwI5yw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414086;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ReilvFzCgYhLXA7zjDQvMxQ2lWWe0sIwwMgvBSXISis=;
+	b=KCOH1NWTGk4+G4UBheoIevsHMEFv/VNbRkIz80lsjAItqi2KS1nLISI1lczGl7w79/vC
+	 k8BODAktXLm3AGZzB3UYTq1r4xgbgidZZg5P+B742o3IzL4slcd6TkDi0iCzj77+oeIhI
+	 4zXDNoqYU53hLm7sZw9DaoAkgAcgjCz87VCktovXHwsCblgUCaweALJe9haOxjWZwz+mN
+	 xOYpG/N2ZrLiQdG4D6XW4RgvZyReQ6MW4VGatfJW4mpEdgbnrNZ55FI1WWx3EeNGAhTGv
+	 dVmkzZfQEAIeVFL+F2H8sBIMvcpOL36xV1WmXFLAB6v0IBzWRq6PnHioWAyyiOAZF4g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=acX1GXXq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 282E9606A31A;
+	Mon, 23 Nov 2026 06:08:06 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=acX1GXXq
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795414085;
+	b=PGXz+jXOMzN0/DjFziAUgIrfgu60yL25QHZHEg0tjBse036aRBK79FZuaBitK+tD6dE6
+	 MH2R94U9c6yGf+3FVQYOzQVVvbKWhauMAX19XF2abbHkvODdBIwLGFczMnS0s26oiIMDP
+	 Z9HE6y1WEYLY2NtY+tjQJ8kM0s625Oig7KRNc9edGKNUmOgf9XkHqdIavNrq7uk0QCItS
+	 hdIIg0l0z1J/IoxJvVpH1477YThtJG9exDZyxa34ylRFXXcrVg/tjEc/8Nw0ubXY6vPRN
+	 XVdBpqiihmt7GaDaLslglt+pEUr892MHr0ztwO80S1y9+AUhvxjUOgiWknxMfxyaWnw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795414085;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ReilvFzCgYhLXA7zjDQvMxQ2lWWe0sIwwMgvBSXISis=;
+	b=J52XuCkCrN4AAp+KBdcE9f+nxoNKEs+rY+S7fRCCSfkrsGIfGiq/hRJ/tWOTtOscm+FJ
+	 /pIHeYrzgvGe77nAvQffFYLoS4I5pjFVCm3T/DM+qOEuawsjvvZgJc5RavQkO1WDXGNOX
+	 y3m7mPlwwxEQFRhNNllB6SzSfpjRa36r6xEMIisti5o8xlFmYovdNe2V0phje7+j8O1vA
+	 0p+7qKf86bfNBnKaOpgovgHPSt84/AQ1dbaiOvi2+ELnXDtz64P+QkhgMda6epoEqJ5jJ
+	 W+kcd+P92+PXIOCC5ilYnDK/89Z7COstl0AlydrqopsPQjqKIOz63Jm+cPmRVB01rew==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3649606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:06:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3649606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fOY3WO/a
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=6VgZ8APOVsZATxmkMTLKbiBq2l/jRInYDz1+DuyOQ5g=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795413959; v=1; x=1796018759;
- b=fOY3WO/a0soK8p+g8L6ox7ROdjzFom203CK50EmztSfjCy8r0eDGM4n2v4CioGRsEip99aUl
- 0dP8zXe2iLIZN4C4qAUrhxSQEpoVQ+mPXcGZndI5e2v9Und3bLoczm/G6tQBPq/HDwByWjhd820
- 3W1YJEmBU03UiJZMrTyEQEfE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a6b9e6724bc2b9ab;
-	Mon, 23 Nov 2026 06:05:59 +0000
-X-Mizu-Trace-ID: a6b9e6724bc2b9ab
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <75bc217d-585c-40bb-954e-cf6df80e24f2@linux.dev>
-Date: Mon, 23 Nov 2026 14:05:51 +0800
+	by smtp.kernel.org (Postfix) with ESMTPS id 6A67B1F000CA;
+	Mon, 23 Nov 2026 06:07:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795414085;
+	bh=ReilvFzCgYhLXA7zjDQvMxQ2lWWe0sIwwMgvBSXISis=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=acX1GXXqYktOxTs7tba0wJlXLba987VVTc02Y2bG4YJoNcPk8SF/LTDqjf7XQae/b
+	 JPY2ZbyOIb3eR7CHDwkLcNiDAszqnrS9ifSH+X6VfrKPryo0DlCoYZQy6qKIlv9py3
+	 37Egce38+16Eoh8wB3IZIDv4xe2SrzH8f5Zv08DCalNKlUifSysu6eN+ymR7p3N/Zr
+	 HGPh6207SAXvwD3CUlx4o9WhQ7YP8MzLvfeGBEVarW71KHN9amt87poS1PCumj7l5S
+	 AXZitnO/HE/DUYZ9b7CAVnMozrDwI9/ykOM3qrAgm/b9VahqpP4zq2a9+3MoVSEaN6
+	 yOf19OpAwBxBA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id EF2354C387;
+	Mon, 23 Nov 2026 06:07:55 +0000 (UTC)
+From: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>
+Date: Mon, 23 Nov 2026 01:07:56 -0500
+Subject: [PATCH v2] btrfs: fix loss of fsynced file after link into new dir
+ and unlink
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,112 +83,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: shrinker: stop counting when the seq buffer overflows
-To: Xuewen Wang <wangxuewen_ky@163.com>, akpm@linux-foundation.org,
- david@fromorbit.com, roman.gushchin@linux.dev, muchun.song@linux.dev
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Xuewen Wang <wangxuewen@kylinos.cn>
-References: <20261120110538.3256962-1-wangxuewen_ky@163.com>
- <57ef6b0f-e9eb-4484-b07f-63c848ffde4e@linux.dev>
- <56dc7b93-604c-49bd-9e86-f519c7a90b97@163.com>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <56dc7b93-604c-49bd-9e86-f519c7a90b97@163.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-btrfs-link-unlink-fsync-v2-1-ed3f9f63fbd7@columbia.edu>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CQAyF4auQrm1iZwIJXsW4GMYOVE01UyAQw
+ t0dcfXyLd6/gXEWNrhUG2SexeStBe5UQRyC9oxyLwZ3dg2R89iNORm+RJ846THJVo0YfGiprol
+ 800J5fzInWY7y9fa3Td2D4/jLwb5/AXziXF57AAAA
+X-Change-ID: 20261123-btrfs-link-unlink-fsync-a3a915511369
+To: David Sterba <dsterba@suse.com>
+Cc: Chris Mason <mason@kernel.org>, Filipe Manana <fdmanana@suse.com>, 
+ linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ tz2294@columbia.edu, stable@vger.kernel.org, 
+ Mani Tofigh <mt4022@columbia.edu>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795414075; l=3112;
+ i=mt4022@columbia.edu; s=20261026; h=from:subject:message-id;
+ bh=Tc91JtfYmxCuiF0usK0qEfcZgYz3hGtDsKZfAKcD+5w=;
+ b=M7IgzntfDd/wqtPf0wHciUSB5SEDcweEyRSuqVzvtgtZRBku0pV6oB/3gj7A9c0e+R8+QD24H
+ +L4yLy5ZV6TDAbcEUoc727CvBKhH0JdCYH7tWSZvejEMSzKI+lyIgtq
+X-Developer-Key: i=mt4022@columbia.edu; a=ed25519;
+ pk=gljCMQDuxyKPmd5y37CRpEJGSPXDV1MyAnHBhCgXl0I=
+X-Endpoint-Received: by B4 Relay for mt4022@columbia.edu/20261026 with
+ auth_id=1322
+X-Original-From: Mani Tofigh <mt4022@columbia.edu>
+Reply-To: mt4022@columbia.edu
+Content-Transfer-Encoding: 7bit
 
+From: Mani Tofigh <mt4022@columbia.edu>
 
+If we create a file, add a hard link to it in a new directory, remove
+its old name and then fsync the file through a file descriptor opened
+before the unlink, the file is gone after a power failure.  Example:
 
-On 11/23/26 1:45 PM, Xuewen Wang wrote:
-> 
-> 
-> 在 2026/11/21 19:10, Qi Zheng 写道:
->>
->>
->> On 11/20/26 7:05 PM, Xuewen Wang wrote:
->>> From: Xuewen Wang <wangxuewen@kylinos.cn>
->>>
->>> The shrinker debugfs count file uses single_open(), so all memcg rows
->>> belong to one seq_file record. When the buffer overflows, seq_file grows
->>> it and retries the entire record. Queries for subsequent memcgs in
->>> an overflowing pass cannot contribute to the final output.
->>>
->>> Stop the traversal once seq_has_overflowed() is true, using the existing
->>> mem_cgroup_iter_break() path to release the current memcg reference.
->>> Leave the overflow state intact and return zero so seq_file can retry.
->>>
->>> Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
->>> ---
->>> In a single-node KVM guest with 1024 cgroups each caching 16 ordinary
->>> files on ext4, the 8865-byte output required three show attempts. Count
->>> callbacks fell from 3075 to 2472 (19.6%). With probes disabled, six 
->>> fresh
->>> guests per variant each performed 101 full reads. The median of guest
->>> medians fell from 128.2 us to 112.2 us (12.4%, about 16 us per read).
->>> Small and sparse outputs had unchanged callback counts. Complete output,
->>> small reads and seek-to-zero rereads matched; concurrent memcg deletion
->>> and signal interruption checks also passed.
->>>
->>> The successful pass still traverses the full list. Early exit skips
->>> count queries for subsequent memcgs in overflowing passes.
->>>
->>> When overflow coincides with a pending signal, the original code can
->>> return -EINTR in the current pass. With early exit, seq_file attempts to
->>> grow the buffer first. The retry can return -EINTR, or buffer allocation
->>> can fail first with -ENOMEM.
->>
->> Would something like the following work instead?
->>
->>           if (!memcg_aware) {
->>               mem_cgroup_iter_break(NULL, memcg);
->>               break;
->>           }
->>
->>           if (signal_pending(current)) {
->>               mem_cgroup_iter_break(NULL, memcg);
->>               ret = -EINTR;
->>               break;
->>           }
->>
->> +        if (seq_has_overflowed(m)) {
->> +            mem_cgroup_iter_break(NULL, memcg);
->> +            break;
->> +        }
->>       } while ((memcg = mem_cgroup_iter(NULL, memcg, NULL)) != NULL);
->>
->> Thanks,
->> Qi
->>
-> Hi Qi,
-> Thanks for your review. I've modified and tested the patch following 
-> your suggestions, and will send out v2 shortly.
-> 
-> Thanks,
-> Xuewen
->>>
->>>   mm/shrinker_debug.c | 2 +-
->>>   1 file changed, 1 insertion(+), 1 deletion(-)
+  mkdir /mnt/A
+  fd = open("/mnt/A/foo", O_CREAT | O_WRONLY)
+  mkdir /mnt/A/B
+  ln /mnt/A/foo /mnt/A/B/bar
+  unlink /mnt/A/foo
+  fsync(fd)
+  <power fail>
 
-LGTM, so:
+After log replay, B and B/bar don't exist and the file is gone.
 
-Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+The fsync uses the file's dentry, which is still the unlinked A/foo.
+The inode is new, so btrfs_log_all_parents() finds no parent in the
+commit root, and log_all_new_ancestors() then takes the fast path for a
+single link.  That path walks up from the dentry's parent A and never
+logs B.  On log replay the inode ref for B/bar is skipped because B
+doesn't exist, and the inode ends up with no links.
 
-Thanks,
-Qi
+Fix this by not taking the fast path when the inode had a link, unlink
+or rename in the current transaction.  The slow path finds the parents
+from the inode refs in the subvolume tree and logs B and A.  Also return
+early for an inode with a link count of 0, which has no parents to log.
 
->>>
->>> diff --git a/mm/shrinker_debug.c b/mm/shrinker_debug.c
->>> index cafb566301326..3022d103b0b1e 100644
->>> --- a/mm/shrinker_debug.c
->>> +++ b/mm/shrinker_debug.c
->>> @@ -74,7 +74,7 @@ static int shrinker_debugfs_count_show(struct 
->>> seq_file *m, void *v)
->>>               seq_putc(m, '\n');
->>>           }
->>> -        if (!memcg_aware) {
->>> +        if (!memcg_aware || seq_has_overflowed(m)) {
->>>               mem_cgroup_iter_break(NULL, memcg);
->>>               break;
->>>           }
-> 
+The problem is old, e.g., v7.1 has it.  It was hidden by a transaction
+commit fallback between commit 0f24ea456ae1 ("btrfs: tracepoints: add
+trace event for btrfs_log_all_parents()") and
+commit 36f9aafa46f5 ("btrfs: fix unnecessary transaction commit fallback
+from btrfs_log_all_parents()").
+
+With the fix, the file survives log replay.
+
+CC: stable@vger.kernel.org
+Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
+---
+Changes in v2:
+- Return early from log_all_new_ancestors() for an inode with a link
+  count of 0, to avoid a transaction commit (Filipe)
+- Drop the fdatasync mention and the reproducer paragraph (Filipe)
+- Rebase on btrfs for-next
+- Link to v1: https://lore.kernel.org/r/20261111-btrfs-link-unlink-fsync-v1-1-a817d4a890af@columbia.edu
+---
+ fs/btrfs/tree-log.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/fs/btrfs/tree-log.c b/fs/btrfs/tree-log.c
+index 763487114f85..445374b06ee8 100644
+--- a/fs/btrfs/tree-log.c
++++ b/fs/btrfs/tree-log.c
+@@ -7541,11 +7541,19 @@ static int log_all_new_ancestors(struct btrfs_trans_handle *trans,
+ 
+ 	trace_btrfs_log_all_new_ancestors_enter(trans, inode);
+ 
++	if (inode->vfs_inode.i_nlink == 0) {
++		ret = 0;
++		goto out;
++	}
++
+ 	/*
+ 	 * For a single hard link case, go through a fast path that does not
+-	 * need to iterate the fs/subvolume tree.
++	 * need to iterate the fs/subvolume tree. But not if the inode had a
++	 * link, unlink or rename in the current transaction, since the dentry
++	 * used for the fsync may then be an unlinked one.
+ 	 */
+-	if (inode->vfs_inode.i_nlink < 2) {
++	if (inode->vfs_inode.i_nlink < 2 &&
++	    inode->last_unlink_trans < trans->transid) {
+ 		ret = log_new_ancestors_fast(trans, inode, parent, ctx);
+ 		goto out;
+ 	}
+
+---
+base-commit: 845c6105edd82f5d0aa72377ef6eb8592ac4e00a
+change-id: 20261123-btrfs-link-unlink-fsync-a3a915511369
+
+Best regards,
+--  
+Mani Tofigh <mt4022@columbia.edu>
+
 
