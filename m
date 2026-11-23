@@ -1,55 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450004;
-	b=k6Bl3SrSV3U3tGFvOWWGU39eRNyC5SHTBy7Xr7/hhdH7VH//ZH81cYSSrLzpy3nzqZ7D
-	 P9RFto00BVRWdO9da3Zxhphbz5ZnHAcK8KOxbN2H6cqVSd9/GXg3KgFQTFhyUaNGkqstN
-	 BQ7TlGhZyDEJ3Q/psa+I5No/2F0qalnJPhwFV8A5KmsgoK9zOAxVtky2uNBCu5GEHlR9l
-	 R9m3J1oK20FB0+Xwcumh5+0l6pScwdKmmsoSkB/aO+RF+gXqoSn7pEpu15VbZ2yWebG4O
-	 N3oQpLZndtCt/WkWYD3bTjBTrB2g0ExfvjxgxUhJ9pjX3me0OqE+RKYcTsl+kM9lRHA==
+	t=1795450011;
+	b=3HxVypGFcTfx1sODnID4qAYObARac7lWy1t7cfsvfadZVTWE7eXsbRa0+DoOL0i2n1RD
+	 LVOhXIdAwuKXxTE+4uEHXHnIZNxVxRjhX0AakLlmWZjAiIUFPEOqrTPH3voEXJEULOsTX
+	 8NwaRd3JWC1BrUtQxOJkY0vAUWX5++dUkmMAEURpYB9zt78Y1aVda36CNLG6XqQn99PwL
+	 RC7XicaZYmeAaWEt1CmTKMyBJ0IFFXJXfvhVCuZ+mm/5ng0wDzVLlnAhOYZazJhlgnri5
+	 qI4YOA7Cuja/qew4rKFu7pqBN4dufjuclK87rVHoqu4CiQeYSearYBQSmqKmesfaz5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450004;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=l4IBb4xjYzTBoSi6YXuP+odsV5j50E3nqTxEjgiJFXU=;
-	b=Jm02sWTOb79sacQTNpOOUO+2FuFWhDZFSd5MLPqDHZ7d2EG0TVOmnPkHndlh7iKBQxD/
-	 lj/31cgPX3lhmZRcPzBV06TPwsDyg8vQCOtzN/8/DKl8QbAYrNfIPSWjroxorFs3cxn5Y
-	 UmGerr7uTdofLqLUWG3WS9xeSle7FMv+toLwmAgObE5yNjZBygVlRXbuqCUTJOY9L4Qyu
-	 wqU1MNCicU8ER+iM3YNsIwsGGbvFV3myaXHEHdEcRHW6RuP40reAByacejVMfNCh/D+Jc
-	 Xti8AqCf2ubhs9W5uOc+XRRDF5myIVoSeYgBXqL1kx8glel0/FqLC8P16xNW2sgBVNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450011;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=GzTD9WH9/UERM7DubWsp4AE37bmITVN0W6tIx9FHUTE=;
+	b=mjcuxjJDPBAFgRttA5JofBRtrFcDpNmKQSLGq8hIlpMjRQKQYpzxzKpBqJoxWr8JI5fQ
+	 clGg5ksF1Gc9udoyYnytAjxVKVLxRY4pma1JGt4EqN+5Jr3TIBL2u066bup+IQWWeQcGq
+	 TRnyxgIA19XG8YjbRs7B0VwBD6LpJacfSQtyyPYW995wjlia/bwDc7YeEvZmsVPzgubC+
+	 TuOuU+RsbMkcgIGFoWlTFYzebwBuRlLyuPXAdmNJIbgCKjZT4MU/rt/dasr6Q2V+/hz67
+	 y3eo3GMaKcuT3yQQ+gXcI5tmLWVlRNPG7FkMIhA7T7bW4GgS2D+kB+94n2GKMk+AAbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ScMHru2V;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="gu/9OOJc";
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3AE6606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:06:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42485606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:06:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42485606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ScMHru2V
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DD3F1F000CA
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:06:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795450004;
-	bh=l4IBb4xjYzTBoSi6YXuP+odsV5j50E3nqTxEjgiJFXU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ScMHru2VIvuBRXLr3rU7S50QEYGVjq8CNRcZ90X1RmgFFmqUXmI3YULA3G4VvlSEq
-	 6mWi0Mkcg2NuWySrlMfFaQ4/x2Y4L6H8elSGIcBStc29EiUNOuhieiTLqJpRHA7mWU
-	 GR8SMyiofhxm+IP4nVcQwSQZzhs3MV1VXi+S/zSDs4xJP2J2jqOTFed7e+gIF0Ss+C
-	 SHJj9cl6aFc/v7iLXUiIWzzKBMuJU8l0Mp/CyL1OHWbZXjGWWJt9D5TqcYLtSuWfeB
-	 KnvoDyxvXa6KA+WRga2yvZfaxAnV3N2jlDdP+Cpzr6WRV6vy+ctOrPsqL/m7vH5am+
-	 cXJXpWRXCxqUQ==
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso4376236c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:06:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHWcHEfGr4oDSPDOozsHpujtPIhGCAI66Di+ohJcKcNmL3czvp9lCtauvfRYVjw9FsDDlorSxV7zmSZN0s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8TDJi7j1qwL91JTKHdyGNoSWENALjeOJSJNTBwMQPpecoX2vC0
-	WePRoGjgBCkgJNLpJcGXxtnvrGLd2mPNVpdCNk22kIU5c8sHnGprjIIh1GRi57JkVt2zLhUMJfa
-	uuefTUCn6BcPuDET0C+iW8LY1FZ617w==
-X-Received: by 2002:a05:7022:b056:20b0:1b3:ac53:da84 with SMTP id
- a92af1059eb24-1b5568e371bmr13106997c88.32.1795450004014; Mon, 23 Nov 2026
- 08:06:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gu/9OOJc
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4ac109a8a12so1996546f8f.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:06:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795450010; x=1796054810; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GzTD9WH9/UERM7DubWsp4AE37bmITVN0W6tIx9FHUTE=;
+        b=gu/9OOJchsNnRNlV3NFQ8M+VWDynXxt0MDE3ACvNV105QrCtPT1CbLfssYATpGWWlW
+         5of0Ha43hC51xyJsCv5Fq11olSn1zuYmUOK3gua5Q3yA7mahJOFLZl9NePUp/vH2Y3Xd
+         CO62CDZY1HinDeGPm4B303xP0f1QOxIQDfuz41SqPfvcPx6zcds4m/7XvhSKXf/aQZkV
+         3XHsKyjLGoU4IL+VX5z5GDdvtkL/ckhSK1CagEetXUYtQVvFOXYlDT1+g/OA1fzTADRi
+         hIwhh5GqRjIfWqPKwjJ6HFM5+yLT52IpqwNzoa6TuYeXVguo+ROdv8N1YANli8E/Ucdj
+         QE6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795450010; x=1796054810;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GzTD9WH9/UERM7DubWsp4AE37bmITVN0W6tIx9FHUTE=;
+        b=wtCRZtNmWRlX4n/TBuhGluu4BeG59rG5KWK0q6cFb50LO2pMKpN5ktykHNqio9Pi22
+         5gVczHxkaSz6GJXRLW6jf3JE6R/rlWV77wR5x0UXB5rePkGXJjdehROpvSawnf49PvVc
+         WzwT6GA8Dg/C7Q9Guo0m9JX8IiQNTqgG+qTUguHHTCfD9GukDxsBK1EnT7WeJ9t9nLmd
+         ZDvZwc/9eY7oV/yfUK6P1BVHoX90wkhE0SRema6InjAQHdQwSaaMKntuZtWGJEVdG12R
+         yRrox3nfycHzEgoSvRiK0mSlXLe0N961qlGoIPTyjEKdruXzDXdigNeYStmA4wxttMXB
+         ih9A==
+X-Forwarded-Encrypted: i=1; AL+hErFOKiYnKPOqWoGG1ZbdqiIeNwhsAmcNlnivN9Jb+3Esqk3dqTO2ZYssT2AjbYmU2T3dugV8ucEcggTxNAo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9kp3Xdx4O5rUhMRyQRgk1R1F7ALAyFh7TgQGv4ZAFeGpVJXK6T
+	gCssGHyAoFB7yHWKSoNU0jFiVc9BOLsKnKeabnZak++H4b4qz9ztfHm8
+X-Gm-Gg: AZFdTZfVakp3tLF7Y/bF8LFa6wEKYSpaLJgGJB4xMtOOmQ0CDhOGdJgqfksdxd68toB
+	eJc7j9jWsCcTaWnF8fZoewoDaWl7tMSOE0BK9XEYTSjIXB2vsbpWapSXDEyJoH6P4/8vDojo2tS
+	b4k0HlnJz9II/5z3WjZonYQtAyK+ksuhzxzUctg5S+UsG6GUimzoHAeNR9FMpVcILdCKDGTlxYu
+	Cnj7+BExjm9qf05YUYYsT+ZOLMJtSvQH4onIuULQxHqRIjLyJFVjIqGbBu9+By+2RgiSOdkxlkB
+	fcmtMuAwdE+Hezl/P3UKnyeKxy6izjRezsPrcs376dJ218CnEhiAm/z4FJrcCWJ+Bm8HjsCKBvG
+	8h+couP5x/Hx2AXKoVqRWbL62pl3pZOvrtSEh4G+ACptRTJ6rPh9+xP0sNJuVXy5CFAFGzCNlBD
+	k+4eqgq1kHFYxYAPoQqQlk7siDmiOHXoDdWnTCDZ0R/K3/rFVxOk8YkTJO1I2RpP/aOVgr1v9Xi
+	MpqDrKr2oq4bWM/ncW+zv9XShjY1BiLLXDfTTkOHfegtjRK+z8j4xnA2ybBcP5y2eSqwx048nsM
+	JmxEQyoDUtlKzWMicHCsfWVmsA==
+X-Received: by 2002:a05:6000:2c05:b0:4a7:ed95:7c9f with SMTP id ffacd0b85a97d-4abb19c16a4mr23817893f8f.22.1795450009406;
+        Mon, 23 Nov 2026 08:06:49 -0800 (PST)
+Received: from metepc ([46.197.185.3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb42absm24580960f8f.1.2026.11.23.08.06.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 08:06:48 -0800 (PST)
+From: =?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
+To: gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	dakr@kernel.org
+Cc: akpm@linux-foundation.org,
+	edumazet@google.com,
+	brauner@kernel.org,
+	stable@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
+Subject: [PATCH v3] kobject: fix use-after-free in tagged uevent broadcast
+Date: Mon, 23 Nov 2026 19:03:16 +0300
+Message-ID: <20261123160615.1074229-1-omermetekaya0@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,61 +102,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-6768-dsi-fix-v2-1-6654a072884e@protonmail.com>
-In-Reply-To: <20261117-6768-dsi-fix-v2-1-6654a072884e@protonmail.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 23 Nov 2026 16:06:30 +0000
-X-Gmail-Original-Message-ID: <CAAOTY__tykvuoNWOD3ZMy1etCEwPPJrvY=y5xOO7h7DL=ErRdA@mail.gmail.com>
-X-Gm-Features: Aa3M54q66gFGZx_hKSNABqOrF2C_XAAy0XYCXxVeneDbJLO5H6L8BwiOx2EzBXg
-Message-ID: <CAAOTY__tykvuoNWOD3ZMy1etCEwPPJrvY=y5xOO7h7DL=ErRdA@mail.gmail.com>
-Subject: Re: [PATCH v2] drm/mediatek: mtk_dsi: do not enable HS clock in
- pre-enable for LPM panels
-To: rva333@protonmail.com
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
-	Gary Bisson <bisson.gary@gmail.com>, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-=E6=96=BC 2026=E5=B9=B411=E6=9C=8817=E6=97=A5=E9=80=B1=E4=BA=8C =E4=B8=8B=
-=E5=8D=886:27=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> From: Roman Vivchar <rva333@protonmail.com>
->
-> Commit 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock during
-> pre-enable") moved HS clock enablement from mtk_output_dsi_enable()
-> to mtk_dsi_poweron(). Later, the commit 3e191eddbdcb ("drm/mediatek:
-> mtk_dsi: Enable HS clock only at pre-enable") moved the call to the
-> mtk_dsi_bridge_atomic_pre_enable().
->
-> However, mtk_dsi_lane_ready() explicitly sets mtk_dsi_clk_hs_mode(dsi, 0)
-> so that DSI panels with MIPI_DSI_MODE_LPM can transmit initialization
-> commands in Low-Power mode during their prepare() callback. Enabling the
-> HS clock unconditionally in mtk_dsi_bridge_atomic_pre_enable() overrides
-> this before panel prepare() runs, causing command transmission to fail.
->
-> Only enable the HS clock in mtk_dsi_bridge_atomic_pre_enable(), when
-> MIPI_DSI_MODE_LPM is not set, and restore mtk_dsi_clk_hs_mode(dsi, 1) in
-> mtk_output_dsi_enable(). This is a no-op for non-LPM bridges.
+kobject_uevent_net_broadcast() accesses net->uevent_sock->sk without
+protection in the tagged (namespace-aware) path. During network namespace
+teardown, uevent_net_exit() frees the uevent_sock while a concurrent
+kobject_uevent_env() call can still reference it, causing a
+use-after-free.
 
-Applied to mediatek-drm-fixes [1], thanks.
+Extend uevent_sock_mutex to cover the tagged broadcast path and the
+netlink receive path, serializing them with teardown: in
+uevent_net_exit(), set net->uevent_sock to NULL under the mutex before
+releasing the socket. In the tagged broadcast path and in
+uevent_net_rcv_skb(), check for NULL under the same mutex before
+accessing the socket.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+Closes: https://syzkaller.appspot.com/bug?extid=7db35adbc02c5b86d4e0
+Fixes: 5c0941c55e5f ("kobject: reduce uevent_sock_mutex scope")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ömer Mete Kaya <omermetekaya0@gmail.com>
+---
+v3: Switch from explicit mutex_lock/unlock to guard(mutex) and
+    scoped_guard(mutex, ...)
 
-Regards,
-Chun-Kuang.
+ lib/kobject_uevent.c | 34 +++++++++++++++++++++++-----------
+ 1 file changed, 23 insertions(+), 11 deletions(-)
 
->
-> Fixes: 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock during pre-e=
-nable")
-> Fixes: 3e191eddbdcb ("drm/mediatek: mtk_dsi: Enable HS clock only at pre-=
-enable")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> ---
+diff --git a/lib/kobject_uevent.c b/lib/kobject_uevent.c
+index ddbc4d7482d2..768540433c7f 100644
+--- a/lib/kobject_uevent.c
++++ b/lib/kobject_uevent.c
+@@ -14,6 +14,7 @@
+  */
+ 
+ #include <linux/spinlock.h>
++#include <linux/cleanup.h>
+ #include <linux/string.h>
+ #include <linux/kobject.h>
+ #include <linux/export.h>
+@@ -411,9 +412,14 @@ static int kobject_uevent_net_broadcast(struct kobject *kobj,
+ 						    devpath);
+ 	else {
+ 		const struct net *net = container_of(ns, struct net, ns);
+-
+-		ret = uevent_net_broadcast_tagged(net->uevent_sock->sk, env,
+-						  action_string, devpath);
++		struct uevent_sock *ue_sk;
++
++		guard(mutex)(&uevent_sock_mutex);
++		ue_sk = net->uevent_sock;
++		if (ue_sk)
++			ret = uevent_net_broadcast_tagged(ue_sk->sk, env,
++							     action_string,
++							     devpath);
+ 	}
+ #endif
+ 
+@@ -743,6 +749,7 @@ static int uevent_net_broadcast(struct sock *usk, struct sk_buff *skb,
+ static int uevent_net_rcv_skb(struct sk_buff *skb, struct nlmsghdr *nlh,
+ 			      struct netlink_ext_ack *extack)
+ {
++	struct uevent_sock *ue_sk;
+ 	struct net *net;
+ 	int ret;
+ 
+@@ -760,7 +767,12 @@ static int uevent_net_rcv_skb(struct sk_buff *skb, struct nlmsghdr *nlh,
+ 		return -EPERM;
+ 	}
+ 
+-	ret = uevent_net_broadcast(net->uevent_sock->sk, skb, extack);
++	guard(mutex)(&uevent_sock_mutex);
++	ue_sk = net->uevent_sock;
++	if (ue_sk)
++		ret = uevent_net_broadcast(ue_sk->sk, skb, extack);
++	else
++		ret = -ENODEV;
+ 
+ 	return ret;
+ }
+@@ -794,9 +806,8 @@ static int uevent_net_init(struct net *net)
+ 
+ 	/* Restrict uevents to initial user namespace. */
+ 	if (sock_net(ue_sk->sk)->user_ns == &init_user_ns) {
+-		mutex_lock(&uevent_sock_mutex);
++		guard(mutex)(&uevent_sock_mutex);
+ 		list_add_tail(&ue_sk->list, &uevent_sock_list);
+-		mutex_unlock(&uevent_sock_mutex);
+ 	}
+ 
+ 	return 0;
+@@ -804,12 +815,13 @@ static int uevent_net_init(struct net *net)
+ 
+ static void uevent_net_exit(struct net *net)
+ {
+-	struct uevent_sock *ue_sk = net->uevent_sock;
++	struct uevent_sock *ue_sk;
+ 
+-	if (sock_net(ue_sk->sk)->user_ns == &init_user_ns) {
+-		mutex_lock(&uevent_sock_mutex);
+-		list_del(&ue_sk->list);
+-		mutex_unlock(&uevent_sock_mutex);
++	scoped_guard(mutex, &uevent_sock_mutex) {
++		ue_sk = net->uevent_sock;
++		net->uevent_sock = NULL;
++		if (sock_net(ue_sk->sk)->user_ns == &init_user_ns)
++			list_del(&ue_sk->list);
+ 	}
+ 
+ 	netlink_kernel_release(ue_sk->sk);
+-- 
+2.56.0
+
