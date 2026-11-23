@@ -1,79 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795459476;
-	b=RBlCnkT5Qufx72GmGoJRnESLXiTm33nSqBqtt78oPON/G0jsPYrYx1MZKMvAsYkXYNnk
-	 Ost8WaqM7UTajcrp7/dQHL8mCHQHn5Du7hE68od/u7fB7MgdbWgcIMUTFdyIvijf5YDbG
-	 y+T1MREc0gNahgK3fAIHcVNNQSD4F0p88s9rWiGnMA5ugXCVFx/Zql7igw+uCNmD1c5Gs
-	 2dX12UEZ8Iyc89xpiJGbeV6rzQEvi12ThxhfeQUXCxyu+8RCWi2Nh7nu73iQ5PzRRY4lb
-	 5jx8mFs5eEEJb/M6KMT3XDO1kgcboRs+67ZEpjP3J2/uyoxW4Eoxl054lo4z6Zct0zw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459476;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hUFvvMrtcN3xKAWIZoqvLk+7RqIxx8dguKgTelmkfsM=;
-	b=rAMt+gdzKo8URmndsPf0s7BurRCHVzSPHmyiU7kcqNxKKVQjz5TygkvALbOkF5ah000R
-	 pZel0Y2+BVXmfBU6Ltt/wsiG3HIf4hWjm7dPcyzxk1Ml/skl/qazVkE3I/MJOlWTjiRwU
-	 /nrep9z4i8PKJn4/qdjOFsISR3coNLdO/BETJarE60HLl3wvVonqIkvUPx2DMEBa+/OrF
-	 nXOJpLB6I5Eq6SEJDcgHFUdqKLT817JEffZpv9+1Hiu7hzpLjnjdjBIn+zfJmDCCv+cIs
-	 Lz5CIhxbEMtgkK3euXw28SICiNUPepvIfbDcJqmw7GzvP1A8spz37EielUDAmwfgCqg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OV4JrOj5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795459651;
+	b=3ZNqnHthVtyc+ohNBUSq6vTfA+qFDRo0ahX5cdmzQVTJhiADVkRVhhCUrz0xvYEcjOVP
+	 x84L6TVVJWYw7aUb/uvbo6s/OTO1EdJOlWXOGFuEXcEudlH1USUIF0HrtjtJ1s22sJjWF
+	 jDLR6Iya3IDoG/MAFqKxNhhETma50WOupTiurkurupbKubO6r/fmI0CJagUSVk8KtKHGp
+	 HxAhO1rgt8Evqh1NRM4cc14I/4D5dKZQhPPq1urSSusrjk2shf8qYVIpPMhlO8vyTZdkv
+	 f7HcG1qqIctM/8TryvHiJOJZHNKS9GwfVSl7U4rgKOeIGdwdXUKLFV9MH+ct1YHp7pA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459651;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=aSALYuTxlI9FeESjO7ECbl+uracOgIb0rur/G8EWRyQ=;
+	b=0Wti3bktzWHO6Nb8R6CJeaXX+t+6Mo5eoXG4hT4Qyz/4iuZvbTLpPef9FEgV0jwSo9wc
+	 8EB2nUYgr2CXGXg7OngPvOHoQbAny3D43oHGMJ6qzmSVFkNrTPCOLm7uaFDlKWKeSQMYg
+	 0NAecp0XGvd+sImUCgBIs1k2PDcU60gsRELa6TzYdnpg3ZSJiWEudAERink+Gj5AtjV4L
+	 fV5n0El6nNKNVaHYFHs4obESUT5be2iGMzhdD6jQo7Gmu9JjzcT9mgnPzjMYsNDqqLJVO
+	 t7sHb2MC15I+M9OAv0dthBN2HjWtygpQ3zX6vU4xW6jJQmegee5aTOSzVCqQBx6YOzQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GgxVl97e;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DB07606A327;
-	Mon, 23 Nov 2026 18:44:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70D90606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:47:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OV4JrOj5
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795459476;
-	b=KzT7mAT98CCBciMIiudfpRF9OKpaklN1TQ9hHJo2QphWKijMdY50nGkqPACgDAGCaBg+
-	 3+DLzqdjTEx/7MKFtRqCYeNsic5GIqvjHTJJwEHW6tq+VBpGDkjTOVaSQnLfOtOk3yuFH
-	 MIdPV9u3wZNKzhBgtIBleuA3cpP3olwS3Ot437r+Ukh1OthY8e7SQJOzgs7Jvxnig0Qga
-	 8DRQuNYK4t3Pmy+8gnT18hmWcsWGZH4RVwvFCe4+DJK9DnhFBw1DIhHJf5cHN0T2vMqb0
-	 I1OyO4rjx2kMIhVbHJUx/vpePvONoMv6WwBrS9w+IGOGN9W/0DYG3iTIu2ocup5AOyg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795459476;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hUFvvMrtcN3xKAWIZoqvLk+7RqIxx8dguKgTelmkfsM=;
-	b=P+sg0jvPPUNrO6bG8qQN8uIxYmMyFrvZV8iQkm/pXUkAM/XnJ9mYUCZIXPgJfKZ843mG
-	 64RzDbI7zXcamns6KDuBif044L6WW4eDw8dvqeU4nB5PSMxtBZ03H7Gij2vXJzbMdoEO9
-	 s7ULIfNS1F+6TALdr7pkKV69/1gMPU9oml1FhOvoM4N37Ar334RCkiqtlEXI1aY+tGqJ+
-	 IiG9W/6i2NAYBujBUwDjtYmz4UfDjWcGZngCrjiPWCE6wrkFB5VJ7BtEsE5dh2xpUALs3
-	 0s9NbbuJTXK4fwxOWoMmLmptkhS/NPBhwRtMlJTTA5zOYXM6rtrGuSQR3oangDkREiw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 280751F0093E;
-	Mon, 23 Nov 2026 18:44:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GgxVl97e
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A6071F000C0;
+	Mon, 23 Nov 2026 18:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459476;
-	bh=hUFvvMrtcN3xKAWIZoqvLk+7RqIxx8dguKgTelmkfsM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=OV4JrOj50sAqztog0hetQwa+bPERizMvGtBxtvU3GCoAMV4MUFSdVbLurgPp1YzeE
-	 +//pchrpUTm8FWFNB3AnTbWvUwL4f2u7/FVVlHdrNWNx3SPdbNs4RX6v1OiNJBEgzX
-	 G52hOi8etMZfCPFNjr2i5To1vQetX9YSs78Di3C0W2nk0gLoaOiDJfuxx1dqsrL0W9
-	 S6Xi0Ewnf7oFNviVPb0y0OOYZ+S2g+uA7X5YixF7YGL4AoKhZZ2ee8qr/GoaTm1xjF
-	 SXuxQKRSFykuxQS8lH/i3pqEZrb3VTPmqyYCa7FtpAXoOIhrcaaCMEFdfkbaWZaadJ
-	 Gqcl8OO8U7qfA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AB97F4C625;
-	Mon, 23 Nov 2026 18:44:13 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Mon, 23 Nov 2026 21:44:14 +0300
-Subject: [PATCH net-next 5/5] MAINTAINERS: Add CS7542 network engine
- support
+	s=k20260515; t=1795459650;
+	bh=aSALYuTxlI9FeESjO7ECbl+uracOgIb0rur/G8EWRyQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GgxVl97eZ3AUEyjHNcn367UVnLOH6rapiXfmJG3lNlByBsLNBaLobvSUJO7giH+83
+	 pyFW3GW0CGzHTcHvCeNtwBB89xNEgueKTAvNLXCQbZBPyx2e2GDqNtfQvP3P+EOWCR
+	 g4SD3jz4+DV/Sx6IwFwrIcr1ifMqVMhbx4LHa5DIyGJhpmsLdObKaLQFGQV6dNRcvu
+	 yby66ii73BD3ayfJtRDK/r/sDGvt+/irzHH9AEzO+tPX9ETAl7u9p0AKlNDNs5247H
+	 MDWhBZunKRtmIB35P++dhs91qi4EYqfVjglAXIJhf7e8R48Se0Jl/hTdIWl8ssagdk
+	 B7ov1lMR/pcqw==
+Date: Mon, 23 Nov 2026 18:47:28 +0000
+From: Harry Yoo <harry@kernel.org>
+To: Joshua Hahn <joshua.hahnjy@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Dev Jain <dev.jain@arm.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH v4 1/2] mm/page_alloc: move the kswapd node skip check
+ into a helper
+Message-ID: <awSJ7G7nf3nmL4zx@thinkstation>
+References: <20261123181829.4065581-1-joshua.hahnjy@gmail.com>
+ <20261123181829.4065581-2-joshua.hahnjy@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,65 +64,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-b4-cs7542-ethernet-v1-5-fdb5e8c2d508@gmail.com>
-References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
-In-Reply-To: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459449; l=1003;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=G+m7gJTK/NeHqNoGXUe2fybpj2Fx+enthhwoUjEoXRw=;
- b=7ecsMKI92CxEavAgE91R7+aRS33PjSd5cBpv9g0WV8kA+QieWXLcDOLx0NYijgRNp1xIpfZUr
- 2EjrS+tfyxXAkzlfCo2vL7KTb7EQCGjP8pVNMjP32958r/NdAhVg+4h
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123181829.4065581-2-joshua.hahnjy@gmail.com>
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+On Mon, Nov 23, 2026 at 10:18:27AM -0800, Joshua Hahn wrote:
+> get_page_from_freelist() checks many conditions for each zone, often
+> with a big comment block explaining the conditions.
+> 
+> Move the kswapd check and its comment into should_skip_kswapd_zone() to
+> make the zone iteration cleaner to read.
+> 
+> While moving this, also resolve a checkpatch warning which complains of
+> a waitqueue_active() call with no corresponding comment explaining why
+> the lockless use is OK in this case.
+> 
+> No functional change intended.
+> 
+> Reviewed-by: SJ Park <sj@kernel.org>
+> Reviewed-by: Chris Down <chris@chrisdown.name>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> Reviewed-by: Gregory Price <gourry@gourry.net>
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
+> Tested-by: Chris Down <chris@chrisdown.name>
+> Signed-off-by: Joshua Hahn <joshua.hahnjy@gmail.com>
+> ---
 
-Cover the Ethernet binding, network engine and reset provider under a
-dedicated CS7542 network engine entry.
-
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d8835aeca..e5d1edd7b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2959,6 +2959,15 @@ F:	drivers/clk/clk-cs7542.c
- F:	drivers/pinctrl/pinctrl-cs7542.c
- F:	include/dt-bindings/clock/cortina,cs7542-clock.h
- 
-+ARM/CORTINA SYSTEMS CS7542 NETWORK ENGINE
-+M:	Fil Dunsky <filipp.dunsky@gmail.com>
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-+F:	Documentation/devicetree/bindings/reset/cortina,cs7542-ne-reset.yaml
-+F:	drivers/net/ethernet/cortina/cs752x_*
-+F:	drivers/reset/reset-cs7542-ne.c
-+
- ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE
- M:	Hans Ulli Kroll <ulli.kroll@googlemail.com>
- M:	Linus Walleij <linusw@kernel.org>
+Looks good to me,
+Reviewed-by: Harry Yoo (Meta) <harry@kernel.org>
 
 -- 
-2.53.0
-
-
+Cheers,
+Harry / Hyeonggon
