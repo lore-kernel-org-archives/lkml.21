@@ -1,91 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431712;
-	b=Qr2AaPcPubqVOd/EAOvHVA4A3OWIl4wb0XOKf2feM2PtLk8PkxzaI0Cgpm9UB7xeEgZK
-	 o+xp6XFMPe71VUUTiXIUsIU1UIGZOdXHu3F8ZnxBYl+4izBep8D+iiW9T4PIwgCRkWPkx
-	 wDQswMOhFCD1R9d0WgVtG3GSApo4FiPXAA///G4NRgn+r6n7plqxGPcf2p7IxdcV3dTuj
-	 CFpNrOsM6pR6CmQV6m0ZQvYfvuvy41xWKbrJE9uQgzRbnX8osRqZ+ix4coaoyNykrvu0q
-	 HI9CtK+VD6YA0eX9G2YrHAnlfZdyLBm++JsS4zu0Gh8J8QCUzUQVEK+AAmPfgof5Wtg==
+	t=1795431745;
+	b=TuZiLJO6pJT292htiv9oBSN6b8mPW6Ru2S8pl/q1Thv8MUUMygMBKKNumK6JdXsRQFaK
+	 uGP93EC2X37jnSI8eftDXCOIrLazUQwrL493D4/jB9j1Z8L1LJNhxVzkmpBatvxrzeNJr
+	 3pWzrEexT3nCKGubiWWWDTMG9EeF3Y6M4y5GhEBjoTZJZeLnbkc/LKaImOCwayU/F/K+W
+	 oLsDbileA5ASZTFqvT83pwKBh7sgcKxz0l2tVZJc9PrzrBwhamVVr5kdcsNDDEuwZxWq+
+	 v0u3mQuxuYBT3yYgo+fU931EEhteSsCr2/PzLwVUL/cG+nb/xqQv3PybrZZHgvXmdVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431712;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=LgD3nSY1257E1IsY6TfVWiTgP6c1xTVWYijnR0FS17I=;
-	b=FR9fXFvKaHn8SnC0GmcDNjfhA08oAP9xkcZwm4gmqNiJL9fH9qAEidF9iY42RtfakVL2
-	 Uc7YVu4H82zvUBGz69SrLQwhB8HiWw0FWdOd8nbAUToXzqJPGzIiqkL4AEvoENYf/Cqdj
-	 SarmL3u/w2zqHkWz/gYY95i1437ADCqIt0Ayn9n/o5Ua/MAD8BqFCQqTXbhinRn6hrDBg
-	 Rm9/MCrcLc3GWPj7XSursNHicgHSqtQSqIGcwC105Ox5Vur3AHGIBrnCiqF+CcUzeKBgd
-	 CFHbv0PZ5ALcYkqWmSM7+4mGxzDiB0rj9bRANzFqcA75RA3kqder9ZxD3ZNKbU+cjMg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431745;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=dpHDgxjo5vKtcEiGzC5vTWmIlYONhB1xpyVmc6KAFtc=;
+	b=IXexBgAkwgugo4+KtygDl2ikJ7Dmn6nCkCIMzsAhSic/BAVxMNgbXw+1m1hTMZytFJZ6
+	 D1skPGf7e/Xv0KPrFgt751tyfAcLYdmAlTzx7gAOZO/M2P4uSAO3riKewjzxwNaZN6sey
+	 xn55p0OwjSbinChm+uyx8gMfg2jlC+SJucd6jbzFhWzRN+rChCwTT8vvxamnfB2ZJ6eFG
+	 0pCdjFzVJuegfPD7UpsjgXZw1OiqvbosgEg0LT5Bsm4dTWzd9h2zpyTQhViGs8ffDqBfz
+	 CiJpqh6p1m8epBEdIVVtXyrrEZr4Gc6GwAaVQeUGsVv0jqJrMuCrpXVvq1Ru7Cyec6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Oh6yh5Nj;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dx3YruT0;
+	arc=none smtp.remote-ip=209.85.214.170
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AFA8606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:01:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AFA8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52136606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:02:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52136606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Oh6yh5Nj
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9YX2n3194393;
-	Mon, 23 Nov 2026 11:01:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=LgD3nSY1257E1IsY6TfVWiTgP6c1xT
-	VWYijnR0FS17I=; b=Oh6yh5NjKX5dY7LTgUjrDCDC1ri44Coy8lb3EjIxQUnpzd
-	4cpcAeNy9wrcbU1YHQNNyzU0cYvy5p5u+bRrwKb8vkwCOQddbYZhAkOcHySgnHqA
-	MTrM8Jk0lc2g+oGb1O8NNNSGbFrdGLPQf1/EW57ohHX2coXTTt9oxqI4OTugrAY9
-	+6W2eZCRqnnkAeVzqhho/LfJvY+wqIKFg8cva4Om+ZS3MH7ib9gFwxOa+oCerDIJ
-	RAaunIiK5xfQSoUYDZ7MaFBGplcsHHYd7AwEvkemplUyTS+t2ns00gtGbxkaxtfu
-	MYJsY5h3Kl8ZTgW7qUV1Rh3jP2THei3EU1w4xNDQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gv2j7t-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 11:01:34 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9JQtK3089101;
-	Mon, 23 Nov 2026 11:01:34 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmjxhmb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 11:01:34 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANB1Vkl6553884
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 11:01:32 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B8AD02004B;
-	Mon, 23 Nov 2026 11:01:31 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4CD2F20074;
-	Mon, 23 Nov 2026 11:01:31 +0000 (GMT)
-Received: from osiris (unknown [9.87.148.25])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 23 Nov 2026 11:01:31 +0000 (GMT)
-Date: Mon, 23 Nov 2026 12:01:29 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Sascha Bischoff <Sascha.Bischoff@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 7/9] arm64: sysreg: Reject a macro name defined twice
-Message-ID: <20261123110129.20959-G-seiden@linux.ibm.com>
-References: <20261123075219.369042-1-fuad.tabba@linux.dev>
- <20261123075219.369042-8-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dx3YruT0
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f05e191b2fso1101595ad.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:02:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795431745; x=1796036545; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dpHDgxjo5vKtcEiGzC5vTWmIlYONhB1xpyVmc6KAFtc=;
+        b=dx3YruT0ARLjuy+dcTkzYx5kxGV0p5gxwZmrY2OTXyfIUk3ubpa6chOFCdfWpkmpaE
+         RPJ94WleWjEMfUstflJvhnjBnBqKk/bux0sVAVIjMz0XFXphh/SnOrBEet43uNzujQlK
+         /wijNacojjLFfVtiud36HE25BKIlka/XgxYX+/XsAjjgYHtwB7bZcLzffGzwdEmIFWMY
+         CKFjS04Zfofbox7Me+pfQ16hs/AtOtpKM1LbxURrAZo1TWW8sJlaft3BJCu7XM3vW5tf
+         t7bvigOVy2Txd8ryD/34Y++cQxYdyWZIDum35SSFkNGVyRrWT0ymAPQ62ZkbK9+qBvz5
+         09RQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795431745; x=1796036545;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dpHDgxjo5vKtcEiGzC5vTWmIlYONhB1xpyVmc6KAFtc=;
+        b=dhOK0hxCPxW6UkoSyxDBFqTTyQrwpnYdRtni1lJZfGBfduiD1frYIL2XdFEQ6HmBEB
+         NsOCXcfSCXKa4SdgelG7qYnO7FvoG2iZwu+zdscRPAYcYJ0GT9sK7litMCvaqjOBnY6c
+         Stl5DbCcoj4oFJEpKlwbtSck2hgPDGO4xzuL1stlLvpdtKqSSdOCF49tiQJ+wnBmFhl2
+         26tS1WNHDTD3/Vx4Dy4pqSLn7w+QTZHqzHuYRbwlmujdUVkb2pRJl1j+nwWCLCtgoI6H
+         jYE/WUHn1W/KN5bQN6PBmJGQ239kOgdygbkOYujjm7TKROey3MZLXIJqVURXU8qQ8n2x
+         U7dQ==
+X-Forwarded-Encrypted: i=1; AL+hErHevWJnbXOVrK2fBZylgxWcd58Ojwu2wNwLxrxG6XjgrnTbVnhmuHBxt9Mbtq4ABFAFW9NG+rYkn4n4kwI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+NU7K6mUxeJURUV/6aeyUXUTm8Rn6h7ApiSMYkcWnER4r14aMj
+	/7dPcJuUyp4ZSdYMRITnlnXLZHDJdYvXvMmPczOnJbkMbvIjWVvD89BOIva5I50P
+X-Gm-Gg: AZFdTZdL1DfvOn68n0Fsi1mfpAH0ppV+wfvT4/+fn/xJxVKLfpQNn7FpOY8FJoBuuDF
+	g6mXiv+3PevUtJHOVCj7cY7RL+uHK7/8B55412JLjH/8ypxrVQs/dJw3Ec5K6OsimYql6asF993
+	7VUNu85Umc6hJgWehniGwKLDXoxNE7rhwdJvQ+GeJKVneXlSiMFnTwptMCpYytm4t3e60eFtu4y
+	Ql/nrzceGcYalhFKddgBowDfiQzXyu7BR1FkEPhluBsR+5CZg/MGP6NOQncUqeMEx1gqMG7nChE
+	sSWnKDGoXuixA9Hm23kvqHXfrDZLhbn5TtAHSf3EZ8lkUxB2lY6NFq+lyfWP3RWBbGpmZJDZcFC
+	rnawoM63+QcOmIkokMW86c5zUui/yD1i9sC3z8eEOsbzMU68v++30wSXxhGBUNwWXEK3Qqo4Kmc
+	yLbpa2VOvtJR9wUllMaiLOTF55w7bS1KQIcoo9oBUsZs3INRn1hkYfIOGrCfip+tlZFP/KYoJfV
+	MX6IaUxcCPdXKbGjPu8PIArkfcrjlqsIrA0hRPkpv9HcwI7qSY7OYoYyGuz45Drbxv1wKj1Uwcf
+	SQQUUT+3qU4OoNzlg5BhXFr7eK3Y2fCSy3IXihwwz23BS/0c9Qqo8XjaSCci9PuesyhMo8IGgBA
+	egtj+o14vITENqXZwfpjLKGrr
+X-Received: by 2002:a17:902:eccf:b0:2e9:9263:a58 with SMTP id d9443c01a7336-2f03f0c2295mr177401605ad.1.1795431744564;
+        Mon, 23 Nov 2026 03:02:24 -0800 (PST)
+Received: from chenyou.ncku.edu.tw ([140.116.19.16])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1aa3sm50380785ad.21.2026.11.23.03.02.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 03:02:23 -0800 (PST)
+From: Chen-Yu Yeh <chenyou910331@gmail.com>
+To: alexs@kernel.org,
+	corbet@lwn.net
+Cc: wy@wyuan.org,
+	dzm91@hust.edu.cn,
+	si.yanteng@linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chen-Yu Yeh <chenyou910331@gmail.com>
+Subject: [PATCH v2 00/25] docs/zh_TW: process: resync translations with the English originals
+Date: Mon, 23 Nov 2026 19:01:51 +0800
+Message-ID: <20261123110217.170025-1-chenyou910331@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,55 +101,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123075219.369042-8-fuad.tabba@linux.dev>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b041d0f cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=bDhmL7OSd28iwCYqBswA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfXzzrzawKL9SDz
- Db84+zU9vjDAQYV5VPZBZEJRoJONrtPTPMYX20I2oB+ntWsUyW992oN49j4qXRbGwKD4PfAh0Nb
- VlcSPeZCOL/vhl+fr2bdDmiP1tcCw6E=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfX1eEajBdoVUsK
- TniiyViTaxfwIfHot+IBhSZnOGRwtk7Xr8W7hbiUHgJLGh66Fk7ZbZUyjakR6Ugsfj/+5wrb1xL
- pzRYkT9DFYuaievpr90JXLnJBFuNhGgNvWU0EP0kNSTbhj3V5LSW48N3SLTWW5JZwHIZ+O4ZXen
- ZmqcCm+gduWLlSkxrM2by4GLFceq1BNF8dWUl8xPwy4H2d5vq6QFmG0Cd3oWF3O2NVgCwh6/SaL
- KfjivN2BmS4IAtyUduF9G66AhlNczS80dk4evKkOHdvgi+DPcJ3niMsL6EMSbTK93dvxATi+K6V
- MjqWCAkKQXWJOx2Q6paHtUg9IZr648nLrgHLoehtn3Gpr9Y3ZYdo2tGUg9ZJ+2HbP5PmSWhy0BX
- S6tHFmzFdYhsshBnOBIFyKlYPteaTm2IuYD8iO9Zp0ScR/3df0r2aFwL/c9CQuDNPFg1Or716DP
- nzSWoeHnGecxpte12OQ==
-X-Proofpoint-ORIG-GUID: E6WNZgee__Cn0xmamNsHqUKFKFsWb6mG
-X-Proofpoint-GUID: mGOpEqJl_7I00zEVZUuN3JGt6JdyWXk8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230042
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 07:52:17AM +0000, Fuad Tabba wrote:
-> The generator rejects a duplicate register, SysregFields block, prefix
-> or enum value, but not two definitions of the same macro. Two fields
-> called F in REG make it emit REG_F twice with different masks, which the
-> compiler reports only as a redefinition warning against the generated
-> header, in every file that includes it. Two values of one enum sharing a
-> name do the same, and so do names that collide only once the generator
-> joins them: a field A_B beside value B of field A, a field F_MASK beside
-> F, or a field B_C in FOO beside a field C in FOO_B.
-> 
-> Record every macro name the generator defines, and fail on the second
-> definition. This covers a duplicate block or prefix too, but their own
-> checks stay, since they report the duplicate at the block's own line, by
-> block name.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+This series brings 25 of the zh_TW process/ translations back in line
+with their current English originals.
 
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+The "update to commit" markers in these files cannot be trusted. While
+preparing the earlier process/ terminology series I found translations
+whose marker named a recent commit while the text still followed a much
+older revision, so every English change in between had never been
+translated. checktransupdate.py takes the marker at its word and cannot
+catch this. Each file was therefore compared section by section against
+the full current English text, not just the diff since the marker. Each
+commit message lists what was added or removed, and the marker is reset
+to the latest substantive English commit.
+
+Mistranslations found along the way are fixed in the same patch, and
+leftover mainland Chinese terms in the touched text are localized.
+
+Not in this series, to keep these diffs reviewable:
+
+ - Whole-file terminology unification (e.g. 補丁 -> 修補程式,
+   許可證 -> 授權條款, quotation marks -> 「」) together with an update
+   of glossary.rst. This will follow as a separate series, so some
+   files still mix old and new terms for now.
+ - programming-language.rst, whose current marker points at a merge
+   commit; it will be resynced after 7.4-rc1.
+
+checkpatch reports "Unrecognized email address" for some lines in
+2.Process.rst and submitting-patches.rst. These lines describe tags
+such as Cc: and Acked-by: and trigger the same warnings in the English
+originals.
+
+The series is based on the docs-next branch of
+https://github.com/kernel-zh/linux-zh_TW.
+
+Changes in v2:
+ - Display the zh_TW path in :ref:s that point at zh_TW labels, so the
+   text matches where the link goes (Weijie)
+ - embargoed-hardware-issues.rst: refer to the zh_TW security-bugs.rst
+   by its path instead of the stale "Documentation/admin-guide/" :ref:
+   copied from the English text
+ - Restore the tabs on lines kept verbatim from the English text (URLs,
+   quotes and examples); tables and other lines with CJK text keep
+   spaces (Weijie)
+ - 1.Intro.rst: translate "3-clause BSD" as 三條款BSD授權條款 (Weijie)
+ - Collect Weijie's Reviewed-by on 01/25
+
+v1: https://lore.kernel.org/all/20261106113142.706783-1-chenyou910331@gmail.com/
+
+Chen-Yu Yeh (25):
+  docs/zh_TW: process: sync 1.Intro.rst with the English original
+  docs/zh_TW: process: sync 2.Process.rst with the English original
+  docs/zh_TW: process: sync 4.Coding.rst with the English original
+  docs/zh_TW: process: sync 5.Posting.rst with the English original
+  docs/zh_TW: process: sync 6.Followthrough.rst with the English
+    original
+  docs/zh_TW: process: sync 7.AdvancedTopics.rst with the English
+    original
+  docs/zh_TW: process: sync 8.Conclusion.rst with the English original
+  docs/zh_TW: process: sync code-of-conduct-interpretation.rst with the
+    English original
+  docs/zh_TW: process: sync code-of-conduct.rst with the English
+    original
+  docs/zh_TW: process: sync gdb-kernel-debugging.rst with the English
+    original
+  docs/zh_TW: process: sync development-process.rst with the English
+    original
+  docs/zh_TW: process: sync email-clients.rst with the English original
+  docs/zh_TW: process: sync kernel-driver-statement.rst with the English
+    original
+  docs/zh_TW: process: sync kernel-enforcement-statement.rst with the
+    English original
+  docs/zh_TW: process: sync management-style.rst with the English
+    original
+  docs/zh_TW: process: sync security-bugs.rst with the English original
+  docs/zh_TW: process: sync volatile-considered-harmful.rst with the
+    English original
+  docs/zh_TW: process: sync 3.Early-stage.rst with the English original
+  docs/zh_TW: process: sync coding-style.rst with the English original
+  docs/zh_TW: process: sync embargoed-hardware-issues.rst with the
+    English original
+  docs/zh_TW: process: sync howto.rst with the English original
+  docs/zh_TW: process: sync license-rules.rst with the English original
+  docs/zh_TW: process: sync stable-api-nonsense.rst with the English
+    original
+  docs/zh_TW: process: sync submit-checklist.rst with the English
+    original
+  docs/zh_TW: process: sync submitting-patches.rst with the English
+    original
+
+ .../translations/zh_TW/process/1.Intro.rst    |  18 +-
+ .../translations/zh_TW/process/2.Process.rst  | 182 ++++----
+ .../zh_TW/process/3.Early-stage.rst           | 192 ++++----
+ .../translations/zh_TW/process/4.Coding.rst   | 416 +++++++++---------
+ .../translations/zh_TW/process/5.Posting.rst  | 121 ++---
+ .../zh_TW/process/6.Followthrough.rst         | 247 ++++++-----
+ .../zh_TW/process/7.AdvancedTopics.rst        |  49 ++-
+ .../zh_TW/process/8.Conclusion.rst            |  25 +-
+ .../code-of-conduct-interpretation.rst        |  16 +-
+ .../zh_TW/process/code-of-conduct.rst         |  54 +--
+ .../zh_TW/process/coding-style.rst            | 286 +++++++-----
+ .../debugging/gdb-kernel-debugging.rst        | 104 +++--
+ .../zh_TW/process/development-process.rst     |  12 +-
+ .../zh_TW/process/email-clients.rst           |  78 ++--
+ .../process/embargoed-hardware-issues.rst     |  53 +--
+ .../translations/zh_TW/process/howto.rst      | 186 ++++----
+ .../zh_TW/process/kernel-driver-statement.rst |  24 +-
+ .../process/kernel-enforcement-statement.rst  |  59 +--
+ .../zh_TW/process/license-rules.rst           |  86 +++-
+ .../zh_TW/process/management-style.rst        | 294 +++++++------
+ .../zh_TW/process/security-bugs.rst           | 296 +++++++++++--
+ .../zh_TW/process/stable-api-nonsense.rst     | 243 +++++-----
+ .../zh_TW/process/submit-checklist.rst        | 159 ++++---
+ .../zh_TW/process/submitting-patches.rst      | 346 +++++++++------
+ .../process/volatile-considered-harmful.rst   | 115 ++---
+ 25 files changed, 2108 insertions(+), 1553 deletions(-)
+
+-- 
+2.43.0
 
