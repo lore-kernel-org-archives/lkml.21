@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.67.36.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795459836;
-	b=4BGMgVSF8NcvG07MAJTHJv6pmGURSzMO1d6T/ezyoBq5Zrl8b+MTYylvgrVoCv1ajD3t
-	 U7bfyg5Bk47k95OYVJserF9vdQd4fy2GfxfGq1/r+HdWuGjZsS54rbR1EsSnS+07kxNio
-	 kHVGdNJ72sUchISP2oGbrKkPzlGIvi3OHRuZ/CP+DJCAJLnrIXILj6RYrFCmJaWX+GIRg
-	 7k28oYMxum2eBgKCqVf/YObh9E1Enb9RiVafbQErDUdvSqAp079Z/GUZzmEqQfUKMK/AX
-	 X2XaBvWvt7Koae7jpbDPOV5MdsAqHuMN64iOddOz1/+rNcsJF1C2WWdxmm8MwNuNRsQ==
+	t=1795459874;
+	b=nIuou8CcYn1w1S+jS4rBmJICY6eTr+yEvnd/MUiUuKpzGsbW3oo9q+K7xteOjALPe5C9
+	 RDs9fdqcSzGkT0hhxRVUUNcW/K6gqobcKBHRROdsrzXbRDG/3IasP2ZOZdMou7JBJbcej
+	 ayVxP2Um1FRBsayDtXrXLlhziGM+ya8FTRbXE9/Bovm+dR+OdDe3ZjRkfMwnIpMFZmW7r
+	 5BxDcF3ccgBYNBg01aczf2KZM2j4mNxXnl9xuIziWspPybqrODA9IRF6iN8GGHWpJV8lY
+	 bd55FbkRjCcUiOZwlFKMEYysv+fNKkEmWVZNXfZ/FqeOPs0eOa5/J+bJAQ5Qi7L6kWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459836;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
-	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=b+4fU8GUHMfUQSEEIN10ewQnlXfW4gN/+OEy1aDtAy4=;
-	b=AnZCYK9ljz5X5A1WJZr1LDNWxwb3GqO3hrcFMdnn33HQajEyU1a+1JfvZqs+DwyASSux
-	 c7Uh+LlMEmxngRZSO6qvLU97fGnAyCIJVG0LvD/JTXZeCRmhQGtMYxxcrRQQHbvOFpEz9
-	 wBhCBtnh+a/g9U1/hQO46UTUxIF/v1k21SBDchJFK++magN2SkzObTaAXzyCg0BcpBLOR
-	 NvOrzNoOWxLU+84YOdBVUSta4tqgMXGMTxCt3QOa59vqXXSyDq/H+uKKovKLy5pQ6FWPC
-	 2Ky+LLs2yyRLhZJnmZy12QD1YImGp3cWiCqTNZ227gW12df81HeFpzKKdbEIhYk1y4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459874;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:MIME-Version:Date:From:
+	 To:Cc:Subject:Message-ID:Content-Type;
+	bh=0TtzW5sp0xk0OpAF7Riz7bVTLUNB2d1iSqb3Drynuug=;
+	b=5ml5/R0PwGftAqgWDUlPhXBIyvHqGWXsV0i0nzipwRXj8eKFGCayHvcvE2qgZl4YF0Bu
+	 pa/nQDA3LP0tvhaUuXzo3zH1l0jYtkD+mAREos2sl8c3Abs40+ysGD847pb5twJ9Anarv
+	 gP+uMUMhRNVg9/rFBLnrXFCoIb9QDlQtywwHALBCo7Cy6G/1QeQHBfWprGjT08nTw9Jek
+	 6gqMRbJ7TA6a1Sp05s5g+HZ7P2/JatPZC2cNf1P5nOjOIZoQFYzz+sGUH8RaVNs2UZTNM
+	 mYY0TqgtIFThpkCz+YjGEM1EXXcZIs7E2PmNyE3CVUmAIaRiMQnBMt+w7c7yH5Re6Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=OKefz29i;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dmarc=pass header.from=posteo.de;
+	spf=pass smtp.mailfrom=posteo.de;
+	dkim=pass header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=WPPXWHHQ;
+	arc=none smtp.remote-ip=185.67.36.65
+Received: from mout01.posteo.de (mout01.posteo.de [185.67.36.65])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36D13606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:50:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36D13606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 201BD606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:51:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 201BD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=posteo.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=posteo.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=OKefz29i
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 03E01C79AA9;
-	Mon, 23 Nov 2026 18:50:40 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B0BE2601E1;
-	Mon, 23 Nov 2026 18:50:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F0DFF11E6A90D;
-	Mon, 23 Nov 2026 19:50:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795459827; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=b+4fU8GUHMfUQSEEIN10ewQnlXfW4gN/+OEy1aDtAy4=;
-	b=OKefz29i0VY74QF7ONwAO7dXb4FAPy9MWvXDw8oihHIRsngzi0gnGXeqFdedh/m587zvsF
-	oojlhDtZpCN/DBoUlipsMOf7ToasrEONGKTchSYrXHO3v8TrXFA7Ph21zdwRhhmOK+id6o
-	/uZxbNx3i8js77UHTNnMgywmpvkTwmZPteoL1Tfp/H750Bwz7WOG2MSnkYoob89e25Qre3
-	gBFoL0m4l4IggXoOzzqsoEjKURf0fFdu7I/FPahIYAFKlC8q9JRjmp6xPJyWiXx2jcb1F5
-	HMXJmHMYVmfkmOqUYLUq1tt1F4wnuJFusgxf8AI7dWiZJChi72rNHD76wF38uA==
+	dkim=pass (2048-bit key) header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=WPPXWHHQ
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id C0A3524002B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:51:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1795459863;
+	bh=0TtzW5sp0xk0OpAF7Riz7bVTLUNB2d1iSqb3Drynuug=;
+	h=MIME-Version:Date:From:To:Cc:Subject:Message-ID:Content-Type:
+	 From;
+	b=WPPXWHHQVps1yQnvV90vBahIU0nnr6QRmfAnCS9zzskN5FmwZ+1V6McYNBKkROKg6
+	 LqahPlIUVJrw+RX562kmIAQ6RR5nSnU2qP+g0T8Ado+WBm3umgrLMoLRVTWERA6lps
+	 QVra8OQzusTPX029MRNDtBWpQUwePi8zIqY3Sluhd4Al8ROBnPSZGGnKniVuf7ojjg
+	 MaXLoVXcpLxQvl3pLPsBLtImHMvMA7W2ONn60AtYJbcNh08WX/wD9cRpZiAhkbl9Su
+	 zzxIo7VOJ3p3MZXVv8HoXmw63H9ljSqoTBzKLtQsTvUFE8k29DMesaTYA5pD6oN70j
+	 PNJqvD8ub4J7Q==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4jYFQF4g3Hz6v0W;
+	Mon, 23 Nov 2026 19:51:01 +0100 (CET)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,204 +57,373 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
+MIME-Version: 1.0
+Date: Mon, 23 Nov 2026 18:51:03 +0000
+From: Tobias Laas <tobias.laas@posteo.de>
+To: Damien Le Moal <dlemoal@kernel.org>, Jens Axboe <axboe@kernel.dk>
+Cc: regressions@lists.linux.dev, linux-block@vger.kernel.org,
+ linux-ide@vger.kernel.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Niklas Cassel <cassel@kernel.org>, David
+ Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, Joerg
+ Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
+Subject: [REGRESSION] DMAR fault by Intel H97 SATA controller since "block:
+ Increase =?UTF-8?Q?BLK=5FDEF=5FMAX=5FSECTORS=5FCAP=22=20=28=36=2E=31=37-r?=
+ =?UTF-8?Q?c=31=29?=
+Message-ID: <5ad27a97aafbc08a8702d5b90d09cd59@posteo.de>
+Content-Type: multipart/mixed;
+ boundary="=_b778223e81541350946220aa408d95c8"
+
+--=_b778223e81541350946220aa408d95c8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 19:50:20 +0100
-Message-Id: <DN2TDYY9HUYK.3KCMO2YKBULO@bootlin.com>
-Subject: Re: [PATCH net-next v7 1/3] net: macb: cache ENST config across
- link down/up
-Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Nicolai
- Buchwitz" <nb@tipi-net.de>, "Paolo Valerio" <pvalerio@redhat.com>,
- "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, =?utf-8?q?Beno=C3=AEt_Monin?=
- <benoit.monin@bootlin.com>, "Tawfik Bayouk" <tawfik.bayouk@mobileye.com>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>
-To: "Vineeth Karumanchi" <vineeth.karumanchi@amd.com>, "Conor Dooley"
- <conor.dooley@microchip.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>,
- "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
- "Russell King" <linux@armlinux.org.uk>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com>
- <20261118-macb-set-channels-v7-1-2dbc00f686af@bootlin.com>
- <fe08db37-4415-4b4b-b226-cc1a0ec4f029@amd.com>
- <DMZAUI64FXCL.13646UPPGKGTC@bootlin.com>
- <0933f10c-8d74-4d98-afdd-1a83409c2402@amd.com>
- <DN2S4TWF22LW.1ZF2FB4STUM0W@bootlin.com>
-In-Reply-To: <DN2S4TWF22LW.1ZF2FB4STUM0W@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
 
-Hello Th=C3=A9o,
+Hi,
 
-On Mon Nov 23, 2026 at 6:51 PM CET, Th=C3=A9o Lebrun wrote:
-> On Fri Nov 20, 2026 at 7:44 AM CET, Vineeth Karumanchi wrote:
->> On 11/19/2026 9:10 PM, Th=C3=A9o Lebrun wrote:
->> <...>
->>>>> @@ -972,6 +1010,7 @@ static void macb_mac_link_up(struct phylink_conf=
-ig *config,
->>>>>  	spin_lock_irqsave(&bp->lock, flags);
->>>>> =20
->>>>>  	bp->link_up =3D true;
->>>>> +	bp->speed_mbps =3D speed > 0 ? speed : 0;
->>>>> =20
->>>>>  	ctrl =3D macb_or_gem_readl(bp, NCFGR);
->>>>> =20
->>>>> @@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_co=
-nfig *config,
->>>>> =20
->>>>>  	spin_unlock_irqrestore(&bp->lock, flags);
->>>>> =20
->>>>> +	if (bp->enst.speed_mbps && speed !=3D bp->enst.speed_mbps) {
->>>> Why drop the schedule on a speed change? The taprio qdisc stays
->>>> installed, so the user's configuration is still valid;
->>>> Could we instead recompute the ON/OFF times for the new speed on
->>>> link-up, and only disable (with a warning) the queues whose intervals =
-no
->>>> longer fit the hardware range at that speed?
->>> See explanation above. It felt like a good local maximum: simple code
->>> that probably doesn't introduce rounding bugs and solves it for most
->>> usecases.
->>>=20
->>> In any case, we will sometimes have to drop the qdisc and warn about it=
-.
->>>=20
->>
->> yes agreed!.
->>
->> I also looked at a few usage scenarios and at how other implementations
->> handle this (with some AI assistance). They lean towards recalculating
->> on link-up:
->>
->> - taprio core: keeps the schedule on a speed change and recalculates its
->> speed dependent values (picos_per_byte, max frame durations) from its
->> NETDEV_UP/NETDEV_CHANGE notifier.
->>
->> - felix / VSC9959 TAS: gates are in ns; on a speed change,
->> vsc9959_sched_speed_set() updates the TAS link speed and calls
->> vsc9959_tas_guard_bands_update() to recalculate the speed dependent part=
-s.
->>
->> Typical scenario:
->>
->> - Autoneg downshift 1G -> 100M (damaged cable, 2-pair or M12 cabling,
->> PHY downshift): fairly common in the field. Users expect best-effort
->> traffic to keep flowing, a clear warning, and recovery once the cable is
->> fixed.
->>
->> That said, I am fine with either approach.
->
-> The more I think about it, the more I feel it is fine to drop the TAPRIO
-> schedule as is being done by this patch.
->
-> Really, EnST on an unstable link that got downgraded to a lower speed
-> makes no sense. It is used on Time Sensitive Networks and the link down
-> is the major issue in that case, not the EnST schedule being off.
-> Userspace must give us a new schedule that is computed from the link
-> speed. It is just a bit sad we cannot report the qdisc got dropped.
->
-> Anyway, this patch is way better than the current situation, and we
-> don't have an easy way to a perfect solution. So I say we go with this
-> and improve if we feel like it is needed later on.
->
->>
->>>>> +		netdev_warn(bp->netdev,
->>>>> +			    "TAPRIO dropped because link speed changed\n");
->>>>> +
->>>>> +		memset(&bp->enst, 0, sizeof(bp->enst));
->>>>> +	}
->>>>> +
->>>>> +	macb_apply_enst_config(bp);
->>>>> +
->>>> Could this be a single macb_apply_tc_config() (or similar) that
->>>> reprograms every enabled tc offload? CBS needs exactly the same
->>>> handling, since idleslope is also relative to the link rate.
->>> Yes sure!
->>>=20
->>> Do you want to take over and handle this? You seem to be interested in
->>> those TC features.  You can either copy the patch as-is or modify it
->>> under your own authorship, I don't mind.
->>>=20
->>> Or if you prefer, I keep it here and iterate. But if I keep it, I'll
->>> continue with ENST and then at a later stage we'll add CBS & co onto
->>> it. This patch looks like a good starting point to add more onto it.
->>>
->>
->> Your changes look good to me (after generic struct/api), and I am happy
->> with either option. I can take over the patch and make any necessary
->> adjustments alongside the CBS changes, or add CBS support after this
->> series is merged.
->>
->> Please let me know which you prefer.
->
-> Now that I have the patch I'll iterate on it! Thanks for the quick
-> feedback; I'll make sure to CC you from now on.
+commit 9b8b84879d4adc506b0d3944e20b28d9f3f6994b ("block: Increase=20
+BLK_DEF_MAX_SECTORS_CAP" - 6.17-rc1) causes my system based on an ASRock=20
+H97M Pro4 mainboard (Intel H97 chipset) to fail to mount the rootfs=20
+(XFS) when booted with intel_iommu=3Don. With intel_iommu=3Doff, the kernel=
+=20
+mounts the rootfs without any problems, but I cannot rule out silent=20
+data corruption. The SSD with the rootfs is connected to port ata5 of=20
+the Intel H97 SATA controller.
+A similar issue has also been reported at=20
+https://askubuntu.com/q/1565093 , but unfortunately the answer provided=20
+there does not address the IOMMU-related errors.
 
-I just want to bounce back on the "after generic struct/api" you said.
-Your proposal was of the sort:
+The first error messages displayed at boot are (kernel at=20
+4843f6873f7c4835e62f2c73ba0fd538e57a2f22 "Merge tag=20
+'sysctl-7.04-fixes-rc4' of=20
+git://git.kernel.org/pub/scm/linux/kernel/git/sysctl/sysctl")
+DMAR: DRHD: handling fault status reg 3
+DMAR: [DMA: Write NO_PASID] Request device [0000:00:1f.2] fault addr=20
+0xff400000 [fault reason 0x0c] non-zero reserved fields in PTE
+DMAR: DRHD: handling fault status reg 3
+DMAR: [DMA: Write NO_PASID] Request device [0000:00:1f.2] fault addr=20
+0xff4a0000 [fault reason 0x0c] non-zero reserved fields in PTE
+DMAR: DRHD: handling fault status reg 3
+DMAR: [DMA: Write NO_PASID] Request device [0000:00:1f.2] fault addr=20
+0xff450000 [fault reason 0x0c] non-zero reserved fields in PTE
+ata5.00: exception Emask 0x70 SAct 0x30000000 SErr 0x440900 action 0x6=20
+frozen
+ata5.00: irq_stat 0x28000000, host bus error, interface fatal error
+ata5: SError: { UnrecovData HostInt CommWake Handshk }
+ata5.00: failed command: WRITE FPDMA QUEUED
+ata5.00: cmd 61/f9:e0:68:47:7b/0f:00:18:00:00/40 tag 28 ncq dma 2093568=20
+ou
+ata5.00: res 40/00:00:00:00:00/00:00:00:00:00/00 Emask 0x70 (host bus=20
+error)
+ata5.00: stats: { DRDY }
+ata5.00: failed command: WRITE FPDMA QUEUED
+ata5.00: cmd 61/07:e8:61:57:7b/0f:00:18:00:00/40 tag 29 ncq dma 3594 out
+ata5.00: res 40/00:00:00:00:00/00:00:00:00:00/00 Emask 0x70 (host bus=20
+error)
+ata5.00: stats: { DRDY }
+ata5: hard resetting link
 
-	struct macb_tc_queue {
-		struct {
-			u32 idleslope;          /* kbps */
-		} cbs;
-		struct {
-			u32 start_time;         /* ENST_START_TIME register value */
-			u32 on_time_ns;         /* gate open interval */
-			u64 off_time_ns;        /* gate closed interval */
-		} enst;
-	};
+The request device in the DMAR fault is the Intel H97 SATA controller:
+00:1f.2 SATA controller: Intel Corporation 9 Series Chipset Family SATA=20
+Controller [AHCI Mode] (prog-if 01 [AHCI 1.0])
+	Subsystem: ASRock Incorporation Device 8c82
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr-=20
+Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz+ UDF- FastB2B+ ParErr- DEVSEL=3Dmedium >TAbort-=20
+<TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin B routed to IRQ 34
+	IOMMU group: 11
+	Region 0: I/O ports at f0d0 [size=3D8]
+	Region 1: I/O ports at f0c0 [size=3D4]
+	Region 2: I/O ports at f0b0 [size=3D8]
+	Region 3: I/O ports at f0a0 [size=3D4]
+	Region 4: I/O ports at f060 [size=3D32]
+	Region 5: Memory at efc39000 (32-bit, non-prefetchable) [size=3D2K]
+	Capabilities: <access denied>
+	Kernel driver in use: ahci
+	Kernel modules: ahci
 
-	struct macb_tc {
-		struct macb_tc_queue queues[MACB_MAX_QUEUES];
-		u32 enst_queue_mask;
-		// ... etc ...
-	};
+I bisected the issue to the value of BLK_DEF_MAX_SECTORS_CAP in=20
+block/blk.h, which was increased by the aforementioned commit.
+With
+#define BLK_DEF_MAX_SECTORS_CAP 4088u
+the system boots and mounts the rootfs successfully, but with 4089 and=20
+larger there are errors. I have attached a dmesg log from a successful=20
+boot with 4088 sectors.
 
-	struct macb {
-		// ... what already exists in struct macb ...
+One way forward could be to a new entry to __ata_dev_max_sec_quirks=20
+similarly to the recent commit a12cc63129380a5364e787d92b30a3257f66c250=20
+("ata: libata-core: Add max sector quirk to INTEL SSDSCKKB240G8").=20
+However, I wonder, whether that would fix the underlying issue or rather=20
+be a workaround, because 4088 does not fit the pattern of all other=20
+entries, which specify either a power of 2 or a power of 2 minus 1.
 
-		struct macb_tc tc;
-	};
+Furthermore, the first error messages are DMAR faults, and a SATA SSD=20
+that isn't functioning properly shouldn't cause any DMAR faults, because=20
+the SATA controller should never read from or write to areas outside its=20
+memory region.
+Since the issue with mounting the rootfs disappears with=20
+intel_iommu=3Doff, I wonder, whether there is a limitation on the maxmium=
+=20
+block size either by the hardware or from the configuration of the IOMMU=20
+and SATA controller by the kernel. Perhaps this was uncovered by the=20
+increase in the maximum number of sectors similarly to=20
+af8c27375733fb6a6df9fa484cda77cc3dd0cb80 ("scsi: megaraid_sas: Limit=20
+NVMe request size to the PRP chain frame"). Note that I cannot rule out=20
+the possibility of silent data corruption, even if the rootfs is mounted=20
+successfully, should the SATA controller write to other memory areas=20
+with the increased number of sectors=E2=80=94which would not be detected wi=
+th=20
+intel_iommu=3Doff.
 
-But actually I will keep my patch as-is, because I would much prefer:
+I would appreciate it if someone could investigate this issue. Any=20
+insights into its possible cause would be greatly appreciated.
 
-	// same for cbs, etc.
-	struct macb_queue_enst_config {
-		u32 start_time_mask;
-		u32 on_time_bytes;
-		u32 off_time_bytes;
-	};
+Best regards,
+Tobias Laas
+--=_b778223e81541350946220aa408d95c8
+Content-Transfer-Encoding: base64
+Content-Type: application/x-compressed;
+ name=dmesg-4088.log.xz
+Content-Disposition: attachment;
+ filename=dmesg-4088.log.xz;
+ size=13404
 
-	// same for cbs, etc.
-	struct macb_enst {
-		struct macb_queue_enst_config	queues[MACB_MAX_QUEUES];
-		u32				speed_mbps;
-		u32				queue_mask;
-	};
-
-	struct macb {
-		// ... what already exists in struct macb ...
-
-		struct macb_enst enst;
-		struct macb_cbs cbs;
-		// ... etc ...
-	};
-
-The benefit of the latter strategy is two-fold:
- - The structs are independent: less patch conflicts and each part can
-   be added one after the other.
- - We can memset/memcpy a state; it is used quite a lot in the current
-   patch version. With your proposal, it requires iterating over the
-   queue loop to partially memset/memcpy (or equivalent) each queue.
-
-I wanted this decision to be documented here before I send the next
-revision.
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+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
+iwIAAAAAAVla
+--=_b778223e81541350946220aa408d95c8--
 
