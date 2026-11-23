@@ -1,76 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394597;
-	b=dIqmkEmP0jC/51WqvB5v0C2FxveqFlAfkENtGb571NAzrdVMiJVZcEByOYNac+8obxwM
-	 bCrgl/O9SRwHSlIRNbsB/TEF/EwEwBxbf/ssbAa+xuFNjnT8GB9+THABqPIRvgQMMFR6U
-	 R2z34/8dbJ9Yt0kPm9S8AR7hPj38nheKBw3YVjahLVPK+Oyq4n+2+PlIxBZ1tM9+daUAT
-	 He9zn8zom+q+BAFuC9r4lQjfwI4nCwwF8MpXOl1ZM9rk4bAsLMRxJqCgwFWhcSeTS0VUs
-	 eBPqPol4agpY7KJPCmG4TamO2hUXbpFe/vq1aJVLibLqKIqkKd/4+xorIgHsgRlaGqg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394597;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=TLXj3Fi8Kl5VNZ08p1Bk9+717X3RrFhG/5sffc1EOzM=;
-	b=Kts1F8uAftwV8Z5qviE03kvROAHT/DJ17gvUkJZWdarqsBG0VycisWfSHL0dm2mdDrBb
-	 HHuL5WV6v0VeTNZHiq1uJt5r6QqdONMHT5lm7qSrKi4keIahpejxq+2x4A5BpEWWP1OkU
-	 UqO/0u1ZtZTXVWEStfGXVtsnuwHQ7x6APbKdKy4lJ9I9T/VkIhrktSgvvdrZ2B3DxAUlf
-	 cYGWdTqC84qZmy/EOEPdVUaAQbrO9bQAhRXt+3OGh3AZcnhuqNDQi3xwjGPC/WMKSbaTu
-	 KUCg1rv4DLWddLnCGOCbK14Vw6bEFJqFoyXofA4CffdHJjn76zSoF9TJY6aHzwZlttQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Op86zi+m;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795394607;
+	b=jZtQ+s5g8NGuvSkBqV+r4mKO2JLYeCCw1cHiwu18XdSet0uDLXuQtR1o9yeWb8EhtwMB
+	 D/cXwBrS7fM/SvTEKaVExZDmQ4vm7C07I4AZgC9NvhFTNBzCYY8A1CPMvC60Fj2Zw51Zk
+	 G7s9SoDCre4JR5mmvHly/NaSuVjDGH4RL0POCt6tzg5f4rTKPkIvW3M8KPcAvbBm3K4V9
+	 tbRxb+rQU6ieIwP87PQH1k63CSZ05czy3ESJ7pWgZsgKDu3SYvFpuN1ZfgRkgcDlIwiD2
+	 rNba6B1hMcCuvZY7/iYB4EmCdvnAn+Tgya0NQEGSyg6wMn5VyRTopm5beLwMrOmQfSQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394607;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=7RaFfDowDDHtzxYlO4vBT53fBYjb+jNKJQ2d6Vz4AwQ=;
+	b=DyfuwACWPVfikwL4LwtgaT8ffiPBb77s2cxDEKQtKj1fXi+9hSKTF1+UfAk/4/mGXT4A
+	 RjcqPZAePSJnZQIeWcKqgWcs65MzLCtV1xsOKtORIkqsDOfZz4zma2g9bdpntcaj/OG7P
+	 8UGkGakkKPvN97hfT7gbdq9qgvltT3tjz59pLsZMuWStM0kX6CoKD/LexS8tFngkWLRFw
+	 LxCaZBngkj4wNwCgMdvhlxwiO0MvmqdmnOk5FPNugYsbhQeW+8t2QS7qqvjwOtSyv/GeL
+	 QlyFuSwlPMgOAJ22g2NNpAp9Kk6bLPKnHlNwyShKlMhfIlabowNsrYKVEM2Bz2azHZA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rk0KeU2i;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B472606A33C;
-	Mon, 23 Nov 2026 00:43:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B472606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 691FD606A33D;
+	Mon, 23 Nov 2026 00:43:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Op86zi+m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795394595; x=1826930595;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=iJ4+vs+nmNJDXv13dvpUiuHGj5q0As+YtfUP5iiyV5A=;
-  b=Op86zi+mR5dhHG+z/KwsvjqMy+VXBm8tV//ZWRvUVIrOhCSlyn6EKNCf
-   QzIZgbZ1OLTaAQDQ9EtlgfpGMNlICcBgLUIMQq+BXFGB7jfGIkV7/Fl0s
-   5jt0j6baO4ivtoF6uoY6zbN5zO+14rjDIp+9vXdj4X5oqtKCFD4jX89kE
-   ZfodtWhIX89CbiOl7qVM3RJ2EZpWfHJDr3vLuJz7gbc1fJrk86SBDLaFM
-   P4/tqx8lYC5aMSt8KuJZEb7/0bC6kfahZpKGYq6GRXZYkDud/VPbMSAo4
-   cQi3v4sNDKdaIHnPPYYU1RXJI1RNH2oCCw5h8Lr7scgm1AMiysiQYVokY
-   g==;
-X-CSE-ConnectionGUID: YWAvt++IRyy32qublHLk7Q==
-X-CSE-MsgGUID: Jdkl/GJ4TSCp7yrhWIQDKg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4279016"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4279016"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 16:43:14 -0800
-X-CSE-ConnectionGUID: ZkRECSoFTU6hGqtygMhgig==
-X-CSE-MsgGUID: 1bGPQQSXR5GrRHxZBsawWQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11073546"
-Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 16:43:12 -0800
-Date: Mon, 23 Nov 2026 08:43:08 +0800
-From: kernel test robot <yi1.lai@intel.com>
-To: Emil Tsalapatis <emil@etsalapatis.com>
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>, bpf@vger.kernel.org,
-	yi1.lai@intel.com
-Subject: [linus:master] [bpf]  bd59a58663:  stress-ng.seccomp.ops_per_sec
- 59.6% regression
-Message-ID: <202611230821.f5107bac-lkp@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rk0KeU2i
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795394607;
+	b=cVtw13huFvNp7MDRcIfKsznuoXU4mWLjwhWbvFlrgwJv1CbNXCDfCYfBD4rGBlmzbLQF
+	 Yu/l8m2ORlBysUM8dLj656TverAtpXkmycbm2RfvsyRgInTzXgwFETt7WZHJdJSbRrJLG
+	 ZTgvYEaY2Sm+qe9HljeG5tzjAzfMVop1r+XtwDVcn8qnvCIZtMZfLPdWaQnrQRR0Wh8We
+	 Lecoi8qHRq6ymRnn8CkFI8fispAFC86TRSWazsLbpORxGah17e9QTZxd7EKkpUwLcwE9B
+	 stZXtvezrbOD28LmGd7yrmFK2w467EDlE/S9b2KUPxS6PyWuPyc3XuUxyzgSRFZNgjg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795394607;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=7RaFfDowDDHtzxYlO4vBT53fBYjb+jNKJQ2d6Vz4AwQ=;
+	b=Xa30P7ZWeXbRK3ECzeMWccfTIRUrwbxbxvPwp7zZ0USwq3jKPQrS7rBdi2xF8Fg/np8Q
+	 aczhiQYepao9t51PIBN+fPFJsbqabVHzZPAxwSlg1P0YIG3z1P12dbaezu1rYLUvSSAts
+	 cFw8MsVh7QN/CPnBBsgba946ij8N7ah+Pg9APS2Kz0NMceuaFyR8DHAWQbCJgEDWu9ZED
+	 ULzkNp2ZV3O7++Ahmfu0dHVKM6t7UoOoqE9R5uHTn/0GSfVKT/YhindyDVqHr+DX79rnm
+	 88NBzQyakeg7yYqFwbfr2InexnWgDl4k/7IiwlWsojlSfIOaoSE4LxcgD1L3WstJ2mw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 4C46A1F000D2;
+	Mon, 23 Nov 2026 00:43:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795394607;
+	bh=7RaFfDowDDHtzxYlO4vBT53fBYjb+jNKJQ2d6Vz4AwQ=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Rk0KeU2iS6aPGVCD9aBVzPgHALNr6n8LTzIvfZBFeRamJ3/Q+3OJzXBlSzrbJSV2O
+	 OP7RAN4GzUBs7m9ksjTm0Bz+3J0+IpwLr8cplO6Y7kyFp1Y2sTNdQempRoJQxqW2Sa
+	 gaVDHWf/EYtkEPLJgVz79ANrcsptRtEAL41zNRufI9RKdTHiH+5YRkaPs3RtLhhjgU
+	 HKt7lP3OtXOT8AJKIMIh/Pji2OiHPvD7vU9HxsAsF5Ty//9iLxT1eGf0VUGlccCL/4
+	 Ws3pxM24TOCxwLYdqy4LR709S6HcOsxplxueimELr99DzQpKTvtqVTnlOHZUY00QBk
+	 FRyJFj7d26BeA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A10E04C261;
+	Mon, 23 Nov 2026 00:43:23 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Mon, 23 Nov 2026 00:43:23 +0000
+Subject: [PATCH] RDMA/mthca: Free the AV table index if kmalloc fails in
+ create_ah
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,71 +83,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-mthca-v1-1-506d3c3a7d4e@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACqMA2sC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyNj3dySjOREXTMDS0NToyTDZIvURCWg2oKi1LTMCrA50bEQfnFpUlZ
+ qcglIs1JtLQB5iu6DaQAAAA==
+X-Change-ID: 20261123-mthca-609152b1c8ea
+To: jgg@ziepe.ca, leon@kernel.org
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795394602; l=1724;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=EGEqNSPKVCYN2FXlRYLvj7sqk9iwm3B+WQLsdldjfns=;
+ b=ASVARoyNrqVBrE8R6tcfCPwQRJvOWtp5Zi1GUUtLlCmd50LmskhKkZ0IXzfCmqdomYPJkTMkD
+ PaDonl9iNTBB6I8otZvtfJyEC5GOPinti6Lu8Na4b0//bL4F+FrQYP6
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
+
+From: Suyuan Wang <stevewong@hust.edu.cn>
+
+When an address handle can be stored in HCA memory, mthca_create_ah()
+first takes an index from the AV table and then allocates a temporary
+AV buffer:
+
+	index = mthca_alloc(&dev->av_table.alloc);
+	...
+	av = kmalloc_obj(*av, GFP_ATOMIC);
+	if (!av)
+		goto on_hca_fail;
+
+If the allocation fails, the code falls back to the PCI pool and
+ah->type stays MTHCA_AH_PCI_POOL. mthca_destroy_ah() then frees the
+pool entry but never the AV table index, so the index is lost for
+good. The allocation is GFP_ATOMIC, so it can fail under memory
+pressure, and repeated failures can exhaust the free on-HCA AV indices
+until no new on-HCA address handle can be created.
+
+Return the index to the allocator before falling back.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Compile tested on x86_64 (W=1). I don't have the hardware.
+---
+ drivers/infiniband/hw/mthca/mthca_av.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/infiniband/hw/mthca/mthca_av.c b/drivers/infiniband/hw/mthca/mthca_av.c
+index 83a7ba41fa04..a90b3e75cf00 100644
+--- a/drivers/infiniband/hw/mthca/mthca_av.c
++++ b/drivers/infiniband/hw/mthca/mthca_av.c
+@@ -176,8 +176,10 @@ int mthca_create_ah(struct mthca_dev *dev,
+ 			goto on_hca_fail;
+ 
+ 		av = kmalloc_obj(*av, GFP_ATOMIC);
+-		if (!av)
++		if (!av) {
++			mthca_free(&dev->av_table.alloc, index);
+ 			goto on_hca_fail;
++		}
+ 
+ 		ah->type = MTHCA_AH_ON_HCA;
+ 		ah->avdma  = dev->av_table.ddr_av_base +
 
 
-Hello,
-
-kernel test robot noticed a 59.6% regression of stress-ng.seccomp.ops_per_sec on:
-
-commit: bd59a58663895778da607fd02a8f17a93db97d16 ("bpf: Use dedicated workqueue for freeing BPF programs") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
-
-testcase: stress-ng
-config: x86_64-rhel-9.4
-compiler: gcc-14
-test machine: 224 threads 2 sockets Intel(R) Xeon(R) Platinum 8480CTDX (Sapphire Rapids) with 256G memory
-parameters:
-
-	nr_threads: 100%
-	testtime: 60s
-	test: seccomp
-	cpufreq_governor: performance
-
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <yi1.lai@intel.com>
-| Closes: https://lore.kernel.org/oe-lkp/202611230821.f5107bac-lkp@intel.com
-
-
-Details are as below:
--------------------------------------------------------------------------------------------------->
-
-
-The kernel config and materials to reproduce are available at:
-https://download.01.org/0day-ci/archive/20261123/202611230821.f5107bac-lkp@intel.com
-
-=========================================================================================
-compiler/cpufreq_governor/kconfig/nr_threads/rootfs/tbox_group/test/testcase/testtime:
-  gcc-14/performance/x86_64-rhel-9.4/100%/debian-13-x86_64-20250902.cgz/lkp-spr-r02/seccomp/stress-ng/60s
-
-commit: 
-  ef2cb4d4c5 ("Merge branch 'reject-writable-map-iterators-on-read-only-maps'")
-  bd59a58663 ("bpf: Use dedicated workqueue for freeing BPF programs")
-
-ef2cb4d4c59132b8 bd59a58663895778da607fd02a8
----------------- --------------------------- 
-         %stddev     %change         %stddev
-             \          |                \  
-    613342           -59.6%     247980 ±  2%  stress-ng.seccomp.ops
-     10230           -59.6%       4134 ±  2%  stress-ng.seccomp.ops_per_sec
-    691777           -84.6%     106534        stress-ng.time.involuntary_context_switches
-  60318172           -59.8%   24270033 ±  2%  stress-ng.time.minor_page_faults
-      5077           +48.9%       7560        stress-ng.time.percent_of_cpu_this_job_got
-      3007           +50.6%       4527        stress-ng.time.system_time
-     44.78           -55.9%      19.74 ±  2%  stress-ng.time.user_time
-   1475619 ±  2%     -71.9%     415109 ±  2%  stress-ng.time.voluntary_context_switches
-
-
-Disclaimer:
-Results have been estimated based on internal Intel analysis and are provided
-for informational purposes only. Any difference in system hardware or software
-design or configuration may affect actual performance.
-
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
 
