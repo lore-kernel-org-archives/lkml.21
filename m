@@ -1,59 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795453682;
-	b=hKXN+Js3VIJQ1UyxbKu6Rn9ZhnbMCfR8lGEEryob+sqCifkMfJ0fVYXzJi20dxzRIWbM
-	 2q3tUJA1oTtxLrpcc6h1SQWVIp9AnAAgBCCgC03gJSTcj9/8lDWIZvCkmnq1aIbamKpgw
-	 ohdpJRxKAeXpqTQ1BK9hNGAWlgJsiYmxf3LMTmsaNoxp+dreYIkUwNJV2Vl5HN4axGv6D
-	 NzrbCjxi3+llIGzXjuIJh4KpedYOoB53wHfMihS8xbAWOcUPE/agWP0YjXQE8QOspCo6a
-	 oNMZMLTuxkN8pl4wqxks3Vbsaq9/5sS56d9WstgWYXNtXwAhuFtL0MSrv5S9B42Qd8A==
+	t=1795453687;
+	b=4JNcLdkGP0ns4So9f+3Zp9xNSDlrpq+glTtcvRO9DipE0IfxQEWKynSfslU2ko4qos0K
+	 eMlqLeVXtAuwxBuoJ1aieBdjIFzM3BLs54AEOVLAduzdJXoGqmOMParFeltU0WzZmELPz
+	 +RzaWh+AjxrUQx3bf6+hmCwooZmHypwANM8GGmrUMcxTx1zoULvV5+/lY7dMtv5JmfuwY
+	 gP4QcynAIoymO1zwrWS0JYj3wEdsh8Va4X1c2texMjZwPXjvyo3r3LyA+jXwErxkMdcGK
+	 64QEl5mFFOP5tItsKXPD20HMSf4PmyWMNEwv0s0dFZbMjmNpPbrNFSlzhVq3B9mT2Eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795453682;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=DlOdsAbl+7GPy5K40QdjPtFjdnN5GP44VrhDUatQmqs=;
-	b=RkXW/7uMTJ3CIkMtqoz0FBytBHojdQZjKUdIOgjn5MEGoxh/wHczrJqCqcfsdWhV0hB4
-	 TH03CACgClwlXZv7/PtsvrheLc1lujxV/zZ2Lig7RGHnpcmvcnqI0OkYktV0Z3IfRWrvv
-	 xkQu/4V1RTRZGxIUGd9u8AvLZdkPOlNjjUtwnqC7Rp9KBV9S912mRjPmrvKMtXPHv0w0z
-	 F3ZeJ+kcrZQ4CraSOKYnv4q86U5OgkpFx2G1BER7taYTJ2MqeKCNBVIGGSYme4z6uRtgg
-	 QFNtLnbAVAsWZbyvuyhstZvBzzfwaNua2lB+Jf/hqpOh7xrRz6ij7B6o+ubNxP9n2Dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795453687;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2zkp9cMv4e8NHpUDT1W+gSGvLR4lxUOYrpHFgT5nEig=;
+	b=WgFwIpQvIcVsXSR4wwHbi2U55McZ8dz/mboGQASnwFgJPaJaMerlJiTeZUkS0Dd2o1Bw
+	 ZVZKnYG8A5fRHrrh3SpAPZlZeq1jFwfPpSa0Yd250nEInuQyk5+obl4L9ivRm2/k7gB+3
+	 9LomnLsyx0xc94JFn0FY+xUAvxdPn5UHslCyZJaC6zzqKQ63Hbj5DISOCFp/l85dcyvsM
+	 7kIa6TQn49A1y6eT+Hv0L18A+ssPj/3rpUOlXtbpDbIsEZj5qutL0tu5xVHXI30N5jHkH
+	 1bhUXsrNRZtlZNUdvbdhe1pwhVquSDA4kIWySdidx3/1cpXi6xRNJEfsuum6sw1aJhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hq/CIiDe";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=QApyWru8;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62F14606A31A;
-	Mon, 23 Nov 2026 17:08:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2AEB606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:08:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2AEB606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hq/CIiDe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5A601F000D2;
-	Mon, 23 Nov 2026 17:07:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795453682;
-	bh=DlOdsAbl+7GPy5K40QdjPtFjdnN5GP44VrhDUatQmqs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hq/CIiDe0OP6u66SeqJ1/t9AN0UcCaHCcTZVdClRVs2zltCok+PqRzRnE5NIfrIIg
-	 eQAxPUpHAZH8QSWaIcMynaXEifLFafHi3I0rs3zl17rDX6eg92G6s4KjWfJFJOHg9s
-	 I+aHC3wv/9w7LHfTZUPnsjDa/4Ukwzx/bFev7CWFS2BNgN9+lHye9eOLIK/uKO+CuS
-	 IgIJiUP2Yq59wK/lVDX6R1nEwvvEioqEKWOGi3sMK/GrB/l3sMxJm4TZxTOD4FS2lk
-	 Yc/NIeKTDV9tn8AydAwIT6EaHDmYeNKiusTF8s58Z45vGqdXOMbeeiTvFcoWmwzRSW
-	 n24s8yrzdtb2A==
-Date: Mon, 23 Nov 2026 17:07:57 +0000
-From: Conor Dooley <conor@kernel.org>
-To: rva333@protonmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joshua Crofts <crofts@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/7] dt-bindings: iio: light: stk33xx: add stk3331
-Message-ID: <20261123-emblaze-dismount-b03962c99a21@spud>
-References: <20261122-6768-stk3337-v3-0-b0d0a924e843@protonmail.com>
- <20261122-6768-stk3337-v3-6-b0d0a924e843@protonmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=QApyWru8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=2zkp
+	9cMv4e8NHpUDT1W+gSGvLR4lxUOYrpHFgT5nEig=; b=QApyWru8pfisxurBedbY
+	ErEyiLS7sFG9rdTwlgOWit/R8ykWMOAQudIkwimIaunVrFjAFkmv4fDJQVrpeb0l
+	YpPcPN7bun+96PlLu40ARAPb3qGm1J4Q8TZ4UN6L4Nrxen1FaYdKe5MKNc2bMJIY
+	bCDEsmbssguGuRIRkjgBKKCqEGh1OMnt0TAqx3nvikxox/rcffC7V9GZkfM6eJJ1
+	0CqxL5UgJTFbUMP7bwxI881YQcWwrMxI59W2Zcuag5Plbtg+dOwRvHj/1M9nQ368
+	faCmN0v3OKfKKOAbr4yVAsU+B5Tf9T9cS5aAcywNQf6lEfEvkmYJlzqnq4zLWxvZ
+	tA==
+Received: (qmail 2845069 invoked from network); 23 Nov 2026 18:08:02 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 23 Nov 2026 18:08:02 +0100
+X-UD-Smtp-Session: l3s3148p1@RST4ovRgtugujnsu
+Date: Mon, 23 Nov 2026 18:08:02 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-renesas-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Jacopo Mondi <jacopo+renesas@jmondi.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Phil Edworthy <phil.edworthy@renesas.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	kernel-janitors@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH v2] pinctrl: renesas: rzn1: Use devm_clk_get_enabled() in
+ rzn1_pinctrl_probe()
+Message-ID: <awRy7paUt9gCwKVE@ninjato>
+References: <02632c0d-110f-4d42-82f8-30091468aa91@web.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,26 +74,59 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OkWGF633C/Dze2zf"
+	protocol="application/pgp-signature"; boundary="jR6Tu5F0eho3hBgh"
 Content-Disposition: inline
-In-Reply-To: <20261122-6768-stk3337-v3-6-b0d0a924e843@protonmail.com>
+In-Reply-To: <02632c0d-110f-4d42-82f8-30091468aa91@web.de>
 
---OkWGF633C/Dze2zf
-Content-Type: text/plain; charset=us-ascii
+--jR6Tu5F0eho3hBgh
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+On Mon, Nov 23, 2026 at 03:21:57PM +0100, Markus Elfring wrote:
+> From: Markus Elfring <elfring@users.sourceforge.net>
+> Date: Mon, 23 Nov 2026 15:00:10 +0100
+>=20
+> * Reuse existing functionality from devm_clk_get_enabled() instead of
+>   keeping duplicate source code.
+>=20
+> * Delete a clk_disable_unprepare() call on an error handling path
+>   and the implementation of the function =E2=80=9Crzn1_pinctrl_remove=E2=
+=80=9D.
+>=20
+> * Convert the data structure member =E2=80=9Cclk=E2=80=9D to a local vari=
+able.
+>=20
+> * Omit the label =E2=80=9Cerr_clk=E2=80=9D.
+>=20
+> This issue was detected by using the Coccinelle software.
+>=20
+> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
 
---OkWGF633C/Dze2zf
+No regressions observed on my N1D board and nice diffstat!
+
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+
+
+--jR6Tu5F0eho3hBgh
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawRy7QAKCRB4tDGHoIJi
-0jViAQCaXQ2kHbIfFQRLocQFqn5kifQGAjCZ8YeuakKAEYTjmgEA0hngKuGnvhC/
-4u286bBbTHC6FVKqIhWjR/JKSxnkJwE=
-=wg8a
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsEcu4ACgkQFA3kzBSg
+KbbehQ/+LtDdFMxdSyOVoAU86E6pIOud05/a2Oc+HYUMXv6ZfS22yQAiCsh7qVG4
+V1r0NDPB4a6L43pY76W6qqFP9yBqTFA1NiJcspJtAFhIRHVFBZf+TmPet7jQ0leT
+U5LCyNNgrgRczsYOPvv/1g6/0wI8ikjz+MCu/iv+czmTIQqhTHEhPTbOi5YNsf5K
+Nq0x4wEInZIZpnZl00t1vodg2eRwd0T7T+2U1Bgp2Hto+ot2CfLnTJ3uoWPBAPfR
+HYpeAE6GOBxAQAlngxT48I7q2hQr6K1EwGNmY49EisdLcup3DWA9iThHJOU/bqOL
+xqfrEaRyhq85JA8tnPetUAfSgq7A+cZIhPN1rQP9b4gVdljnGdeWNHabl4VZQRV2
+jdJlBdgC3UCvAugTVb4PtIb9yRslLTF4zUwGguHzCMREoc75LCrtJyj5mtWwFLAy
+axObeGO0pigghQ5txSBZ/Q12/oZJdobE5doK/jYOdBUH4hZCuBvCItBK14tdQq4C
+9eE3A1rtblOROl8PzMM/IstnJVND8qicvaDTWQjMWlXYXk99NZfIjrG9Nh3esruw
+SdhIZWuTIy/PQ/ksr7RkoWbXYSf4F1Xn9LYNIU/wGQmM9DAnj8Ur3vJJvBC7yTMc
+IQzImRT9QFViSp42D0sCB1eFIFvAEfIKEjuMKa3E5yy5kKUKQlg=
+=l8xz
 -----END PGP SIGNATURE-----
 
---OkWGF633C/Dze2zf--
+--jR6Tu5F0eho3hBgh--
