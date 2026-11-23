@@ -1,61 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448291;
-	b=C3QjVV7BdOiS9uae5TzEF9aF8ReiDn8f3lkCY3Ng8qivLl9JEJBlHI5ZkkCavamxw2NU
-	 1JMzuUsqUZoIFaZ6kNGRq2mpAJcKHeSHz1QZ6LV4c5K0R5u8qMYtWoS6pkbvOHe6aMpuX
-	 JTQYerxOZiMJwZLpKJEAXP6CIkWeYHQPveMpYVRNgce4e5z4Ser4J0bHfz2hu/n8o9IBx
-	 WD5YlOkdufg53sAx4WG3148fWHEqiAiM9c9gGgurjnUGrUtT/kYQkXA1sPVVCv2//S/hq
-	 /4+jMul3zB4vVLqjiVaE9K7EYgePbBBtLNUYF0SfV/YPlBW7iJmoysEf/oKydPbpHXA==
+	t=1795448307;
+	b=b2/itlHra2EVfRELpGP44uO4XOi0vLnK1o9DStC7U6SNEdaJYJTPUzbJO7xK/WIxHwRt
+	 m4qPNUs0jxKBCXWyUdCYa9G2qzVIDbsIg0F4nyLEfV3Zn9ln6c3/AsKUKP9pVYLmW4zRP
+	 TtL3RUr4CWctxJmFimzLJPz4fKcQqsyHP6YGiCO/7oAX5w3H9hBCRkDg+xmUfCieRBaOb
+	 z+O84x/GWIDJdaRzWWwl1JcfCf6pvom8mX5n4TvmquHfuAc3e4dYyCTxX5Z8saqUHwBvw
+	 p4uAsOB5C0KwhzhB5DPxhY3+scwXPa8i4Y3hPVFcOsttawhFn8Cim8DZRo3xYxrr7AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448291;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=IP6w07Na1xzP00O84ze68WNlf1Q0/rR61f7HlDCxa/4=;
-	b=chvpPfMRDjci05hykxTjXIEuMbQQYD9ixbk94+s/GSJlh8XagJA+kz/PQTsV8deRKO5K
-	 USi6oVNReW60zGcSrgLEChE9/PgW19kKFvNHDaAtLfrZIWMDlNtMuXK1+lK9MNn66uwPJ
-	 aGXubHoMXHX9VTNcCHwMFJdueJR2FfRJLsGzxXNLjKGnjvwjzMCbuIKFUVEYEuWhDs3wU
-	 zYcasebXCvua1kOV169VXc92k+o2JwbkXZ9KCUKHZtp/druIkZJir2QOb7pFZnDik8hnq
-	 x8Pi7mVdj4+pC4btEK6exjg2Wve2q68zsItNKVK05hSTHwz4wGdb13lTZ4Zbz+q6WgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448307;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=mvP4StCLFnrfhMTTzT3GA6loA7QXzjD1GihUYmhhsZA=;
+	b=cDWkMkt5zXVDH6VJUFopfbmeC7wrbGDTmm5xsZh2AxzaFpJT9NlIAcI/wFhPDdcAYvJF
+	 9qC9ff1WUP/xT7bayKGWbwPPkgGZDjhGJjxP1Jd6CN7ZxV+IhUvVKZO97C4YYkiFqEzTF
+	 XstExbwK9SV5gRE6IR3XGCYs+PTJnS8KsZsArcXCDPJZfL5ccTwzT4fQHYKqDV8jGyH2i
+	 5pbkeMsgNPR6OqkmRDuXGPyO4D06DSoITGc5sqOFoODInqInURjaYWOSgqR3MtxzcERJq
+	 b4wnMIbT3f9Bd4VgQTbd1ozHz/zlwLaGjiTdITwCikL3yzPyz+vhGSm1CuuQlsuxYOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L20A+qUo;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eEljJ3pP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B758B606A32D;
-	Mon, 23 Nov 2026 15:38:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B0F8B606A31A;
+	Mon, 23 Nov 2026 15:38:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L20A+qUo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8953E1F0093E;
-	Mon, 23 Nov 2026 15:38:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eEljJ3pP
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id C8E7F1F000CA;
+	Mon, 23 Nov 2026 15:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448291;
-	bh=IP6w07Na1xzP00O84ze68WNlf1Q0/rR61f7HlDCxa/4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=L20A+qUoF4xxUtz78jGuSpdyIXQh8sV+EHFs30v4fTmwrARqD222/dUooQV+igm/9
-	 lsY2OCW6VXwwE0XP9p2fzoi2bZdS8zQAeAG/S9sI+4D9AVcbfqJfxasaZLiXpFtyce
-	 4bDgJE1FaDsTALa0YW1MnbNGLz0LzPtScsMWDMnqfk007vsa4BzyN7pUklZRmLkOu7
-	 m2TxsqNHqucnCvycFxkq8R7/5h85k0mSvwVjRo0utaeqvc52Ptxo+poxKhlmtSm8pA
-	 VMwar5lCVwSqH6h+XRn2Moqla0PeVuOjulfdFa9Ear6BSbMGQto6e4RjrXnJxyTF4x
-	 AoZvavxtkxgRQ==
-Subject: Re: [PATCH net v3 1/4] net: tun_vnet: validate hdr_len after skipping
- header padding
-From: netdev-bot+sashiko@kernel.org
-To: graypanda.inzag@gmail.com
-Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- gwanhyunlee@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Date: Mon, 23 Nov 2026 15:38:10 +0000
-Message-ID: <179544829010.3135.9748959187466482821@kernel.org>
-In-Reply-To: <20261119144241.360238-2-graypanda.inzag@gmail.com>
-References: <20261119144241.360238-2-graypanda.inzag@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795448307;
+	bh=mvP4StCLFnrfhMTTzT3GA6loA7QXzjD1GihUYmhhsZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eEljJ3pPav7hXov+sLp0SFXn365X/pJXTV06KSqROoCnCZPHwqOfPBe+eDtQynMl5
+	 0nYQkEOLF3f5IwxzQ7+cHv9oxCVarHi3GRhVSNlKI49Ax25ZhVWAyKweRegfTLlU3a
+	 h2HzhagJyUX3eg8dAfpDZIM4iCEYV4w8UQPsp28RADBmBYxn7bNeP5Voi0V8wlQ2in
+	 0T2fqIlLmmBMloo6Ybvljsa5njKGFzj/6qALAVsCJyEsEL0ekW2ZEuDkOfe/Al0Wrw
+	 IeMVoCJmdP5tUMZMkQJhUqdnPv364Pwtso5NM6pBLflh0/SmJPnoP/GfjLcuA62NEC
+	 nDpK6VnJI3PNA==
+Date: Mon, 23 Nov 2026 16:38:23 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: Michael McAllister <me@michaelmcallister.org>
+Cc: Marcel Holtmann <marcel@holtmann.org>, 
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>, linux-bluetooth@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, quic_bgodavar@quicinc.com, lumag@kernel.org, mka@chromium.org, 
+	markus.probst@posteo.de, shuai.zhang@oss.qualcomm.com, enderaoelyther@gmail.com
+Subject: Re: [PATCH v3 0/5] Bluetooth: qca: Power off WCN3950
+Message-ID: <hvwqozj3r7n7igxw5qogu7xxya4fkhqanb334sroj37ufzdizu@qarvtlkkulmj>
+References: <179484638195.54009.1916641645532262287.wcn3950-poweroff-v3-0@michaelmcallister.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,119 +58,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179484638195.54009.1916641645532262287.wcn3950-poweroff-v3-0@michaelmcallister.org>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Mon, Nov 16, 2026 at 04:26:21PM +0000, Michael McAllister wrote:
+> Hi Zhao, thanks for the review. I've split the serdev unregister fix into
+> its own patch as requested.
+> 
+> The final code is unchanged from v2, which I tested on my Moto G10. I've
+> also build-tested the standalone fix and rerun the regression tests.
+> 
+> Thanks,
+> Michael
+> 
+> Changes in v3:
+> - Split the generic unregister fix out as patch 1, with a stable Cc.
+> - Keep the port-state-dependent TX flush with the QCA power-off change.
+> - No changes to the final source tree.
+> 
+> Patch 1 applies independently. The remaining series keeps the separate
+> Marvell port-lifetime fix as a prerequisite, as in v2.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Then send patch 1 separately. As it is, this series doesn't apply on top
+of linux-next.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] At this commit, the new check in __tun_vnet_hdr_get()
-  (drivers/net/tun_vnet.h:141-143) only limits a non-zero hdr_len to the…
-- [Low] The commit message says "The new tun and tap selftests pass on
-  the patched kernel", but this commit only changes…
-
---
-
-net: tun_vnet: validate hdr_len after skipping header padding
-
-This patch moves the iov_iter_advance() past the virtio header padding in
-__tun_vnet_hdr_get() so it happens before the hdr_len check. hdr_len is
-then compared against the payload that is really left. With that, a
-hdr_len larger than the frame is rejected with -EINVAL in tun_get_user()
-and tap_get_user().
-
-> The problem was identified during review of the tap zero-copy fix and
-> reproduced with vhost-net in an x86-64 QEMU guest: a 14-byte input
-> produced a 256-byte frame on both tun and tap. After the change, both
-> drivers reject that input with -EINVAL. The new tun and tap selftests
-> pass on the patched kernel.
-
-[Severity: Low]
-This commit only changes drivers/net/tun_vnet.h. Which selftests does
-"The new tun and tap selftests" refer to?
-
-They appear to be added by a later patch in this series, "selftests: net:
-check padded vnet hdr_len in tun and tap". That patch adds
-padded_hdr_len_exceeds_payload and padded_hdr_len_zero to
-tools/testing/selftests/net/tun.c and tools/testing/selftests/net/tap.c.
-
-Pointing at tests elsewhere in the same series is common. Could the
-message name that selftest patch, though, so stable backporters know to
-take it as well?
-
-> diff --git a/drivers/net/tun_vnet.h b/drivers/net/tun_vnet.h
-> index f4c652b1fa44d..0b96228916814 100644
-> --- a/drivers/net/tun_vnet.h
-> +++ b/drivers/net/tun_vnet.h
-> @@ -138,11 +138,10 @@ static inline int __tun_vnet_hdr_get(int sz, unsigned int flags,
->  		hdr->hdr_len = cpu_to_tun_vnet16(flags, hdr_len);
->  	}
->  
-> +	iov_iter_advance(from, sz - parsed_size);
->  	if (hdr_len > iov_iter_count(from))
->  		return -EINVAL;
-
-[Severity: High]
-Does this fully close the uninitialized bytes leak that the commit
-message describes? The check only limits a non-zero hdr_len, so
-hdr_len == 0 always passes.
-
-On the vhost-net zerocopy path, tun_get_user() then falls back to
-GOODCOPY_LEN and does not cap it by the remaining payload len:
-
-drivers/net/tun.c:tun_get_user() {
-    ...
-	if (msg_control) {
-		...
-		copylen = min(hdr_len ? hdr_len : GOODCOPY_LEN, good_linear);
-		linear = copylen;
-    ...
-}
-
-tap_get_user() does the same:
-
-drivers/net/tap.c:tap_get_user() {
-    ...
-		copylen = clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good_linear);
-		linear = copylen;
-    ...
-}
-
-Take the same 512-byte vnet_hdr_sz and a 14-byte frame. The
-handle_tx_zerocopy() threshold (len >= VHOST_GOODCOPY_LEN) includes the
-vnet header, so this frame still takes the zerocopy path. After that:
-
-tun_get_user() / tap_get_user()
-  tun_alloc_skb() / tap_alloc_skb()
-    skb_put(skb, linear);                 /* linear == 128 */
-  zerocopy_sg_from_iter()
-    int copy = min_t(int, skb_headlen(skb), iov_iter_count(from)); /* 14 */
-
-Can that leave 114 bytes of uninitialized heap in the transmitted frame?
-That is the same result this patch sets out to fix.
-
-The trigger needs vhost-net with experimental_zcopytx=1, SOCK_ZEROCOPY on
-tap, and a large vnet_hdr_sz set by the host. With those in place, the
-guest controls hdr_len == 0 and the frame length.
-
-Two later patches in this series appear to close the gap: "tap: clamp
-zero-copy copylen to remaining payload length" and "tun: clamp zero-copy
-copylen to remaining payload length". They clamp copylen to len with
-min_t() in tap_get_user() and tun_get_user(). Could that dependency be
-noted here, or those changes folded into this patch, so this fix is not
-backported without them?
-
->  
-> -	iov_iter_advance(from, sz - parsed_size);
-> -
->  	return hdr_len;
->  }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119144241.360238-1-graypanda.inzag%40gmail.com
+Bart
