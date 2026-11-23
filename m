@@ -1,105 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432572;
-	b=PqNAdoCrIyvok8lz2n3bi88qaPqcEf0fsjtOXB92NCGfYiZGKTn/Puhcwe8dpBvJWEeN
-	 aNjh8HtHjF/FtgH4AMMzQxPdetHdkDxV4LoM84HDw4YkAdcF6HEnsvZWpAX2a8ZiGcus4
-	 hVfZwODTf/PFfkWOduX6zg567Dw7kGKnSyKKOwL7aXAV5rUlfGbDbXVF4C7L7ILfEzcZL
-	 7fAFqcsTi3Z1dERlsshMvP1RxGU1Rse2CKR20kskGkNA/DPQ6TqJg1j16o4QZz9hUn/L3
-	 uo1P402AlWASG9eOCDjfYv4xCJa3wO4rbNTDNeZn8GjlazGhyIMYerfNJIyVPcFxlwA==
+	t=1795432582;
+	b=KKXfufrWFCCYwW0ELgtgsrYSsKvS0oZ3NH8T9g3ZpYQvO2z2msN1V389rrCbVyzLo2vb
+	 IHsIphIJSWkcJ5F5NSzRmplVEgyf/I5dsROZe9b8ya411gNgP2vjgHFw+u8jyfWcXi6Og
+	 9wjulRKt6emnNmoK1Kl5NWLTgGYpxD5F6pYRwU/mnYg7IrQvS1Hb6jsYSMQ6+ED0sEq3g
+	 dojwpe8d8escFhZnCKCe8X5saA1hMraHfhjUMX/iIa9HM0POJyB0VWzbRxKJWu4xBntdX
+	 WojnCwg0KERZGRok/y4odEDb07nz/9s85mjAs+vcN2xPsEj/7tb8ndCduNaydOD5sAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432572;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=wHEXuOSq8IB0JemVzpCJR/4WrOKlizJ3OUREG2wJ9Qk=;
-	b=lwDBoTJPUy8AjTl3uhwKC3xPb5YPGi6ulLBo8J37qVCKPGdQZtG72MoS0M0+YyJWPoXu
-	 RtKdGH/POmAdbpUkqQC5aOr6VeMWnlNxaJGoZwJJmdFvOmwrgfDulyQQ8Cs9+Uay8KgkH
-	 mstVgld1AAHXMI6+lkXWtLladfK5xbG+YxJqHuidb2bZO6nSi4JP5ZnTZoT1ftPfsxM9h
-	 SkgJ1G6Ltu0JBhDytOMlrGEW3yhULXaMBtSSu3ACcnoJRVgBkjqleOG5ZQ1zEGuGdwvMN
-	 jYuvEyMsavC51zsEszCY04+TYOYiQK1DNWKhVhyVffrg7bI9Jvkz1lDzCDjs73vbZwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432582;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=qMbhXwmp16IW/m6Dno0vydG5WKg0egDd7dQoH23pp9A=;
+	b=eiN2BbGFoMq1M1oUHE+DQbmW5dBvmZ5JHPZxZ7RH1v/SuSzExpuG5Oy3FnmHTUvfI8WH
+	 tc6NU3srmmmaXkmUo2zM9daR00lVwFyqiu9CRZVx+8AAqoupjIfaUmMYP9LTgdCxQLZpS
+	 IoUw7+s0GhK3b29bRyVK1RZVEYl1oPzB/LqMus1znjP3yjKsLqOnTnwKr378Dih8JigBt
+	 EUK2iePoPDvRmVT/1ynT4S08Q64UB/5wGVva7ZYsRhoYBO4tNStxHk4j74ZyerMOSYpF2
+	 K+d2a/4cmB/kX2ukavAiJVIhURMXLhEUjGToLt9Q3kV4HYi1WYIWDKwkt1Ra3fz+2BQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yf+SMwhU;
-	arc=none smtp.remote-ip=209.85.221.174
-Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com [209.85.221.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="DsCJf/R4";
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 392E4606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:16:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 392E4606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C313B606A321;
+	Mon, 23 Nov 2026 11:16:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C313B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yf+SMwhU
-Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-5ee3e658c70so887916e0c.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:16:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795432571; x=1796037371; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wHEXuOSq8IB0JemVzpCJR/4WrOKlizJ3OUREG2wJ9Qk=;
-        b=yf+SMwhUXQdwf3ksRdD6AYU7wddNetPL90dWfhTdFfBWhXvVQozMsBVTaTSZc+L0c8
-         NDSI07AXbfg3Vp5k8VGZAnvjjQdyrxTW8uRi6CqVVqTbUB8cLwoe0xaWE8VrL78zWhkc
-         ctqvkUTzYgiZmUWGyPamz6TKiDufOYD5oL8FHQue4dzDTqqEUg0rBXPjinREr2EVH0yy
-         RhtxzvPl8WcrWkhK6wz5Jiu+Eg7oJGpi2qAwWQ0PvQSudcVUrItq+VFg2YrxfqvkQxLt
-         aFefnQpcTCsefUzY7LNI34SUnsnPbuJWJOe+OWyjpcpS9dWSwiWuOmeZrD+LLI6DYTa1
-         Ydeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795432571; x=1796037371;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wHEXuOSq8IB0JemVzpCJR/4WrOKlizJ3OUREG2wJ9Qk=;
-        b=EfsuiTNozWfc9JKwoMh81A+oLDA0qqm03EGrxGZB4chfpMFEwy23KL+PSqlIHtFY0P
-         858TOenIV/WCGNbm5a2lFr2p0dPiPG95lv2zWTuuLtDWmYqcDMbI4KdybcuXlS/uxVLe
-         cjETFf37cOzNUner4X7tW4bR8l9TF6OMqppo45/bYvHorxUUOlQIiYxoOrZrxA8z6aIx
-         PGFgTnbA9qAYhCyDK6LZWOL2q+/CypnLpP14eUOCYZPf0JO9h/s5DRePGM4K3+IgzeKe
-         iNBKMe5+0PfAJF4Jc8kBamj73vHGLPXtnkKlM3t5utKSq07tlCJOVGgJAFNsLEz86/Mt
-         OXgQ==
-X-Forwarded-Encrypted: i=1; AL+hErEF2g8uP1cTvh9CBuIyjV48stYjadOkH9/I+nvPnrP1QekOkimU7Oz7ctTj3k0IZ/NIriUCg2xCfOVw0hg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/e0uBldp54ZCWXSEGMzpxSBmj0Tn5b6tUlxh6PNQSrpz1lzT64
-	domuukdSw+1oEXMgwKaYSk2M/03VyMj5BnwtuMvFNisV2kNiV2HcObBV
-X-Gm-Gg: AZFdTZfAgBcBQqV4BsUBUvw3R5CYzeHStF3d4yEk99PyVaez8cb22WPB/4nngtd/P3b
-	hJG/Zbv4KU9cAcGODr70vgSDa/0dgMaWIqSnwMO4epD4Wv4Xt32yKeyWxJPQMhWXpsdkrQlk437
-	KhBPUSw4TKAQOJu0GFNfdMpUak6w9XXEgaJrzkhBab3Wl4Jq5cKRzyiRt8Kf+LF/mh1DorihB1h
-	zE1rblleW472m6feGH7sDtjDvZQ6Vy6AUGrfGxdXNBZYjAxr055qQVRtSF0Zqv5hrFIZN6zNphx
-	e0eeJVSFcbLtnV15IC73JruMH8ZRyZT8Ohu/mf60/u1z7OFNTMwDRXjZrqikr/WhkKlmLevkYhp
-	cKgaHiF5BefX+0MEllI09Wkf0HmqNnLzEZpRt4NNaM1RUNBjcyHA2kRTvQxVlAaAMEsFWrKmSj0
-	1ROEEt3HYY4kWzPedDnuJ78LigrN0c6dRIc7ACX0lEeSBGgTbhMZEmNC981/HPBA9M8HW6RxECJ
-	K8NSUcmz+bJdb813A/sw9JhgGNm5To4uflCPHhhbq0E569QPS3jN7ODPMJXiSbyz9wcFZt5Sd1K
-	8FZb/Xtj8aHnnknkUMERoq17JUoY5rvhEP2C8DRV7ftgInREy7YbNu7l+AkcjpMPaIkYfaTGN8o
-	vdxwn1BKg6opzbbZ4X8dIsYJqPVBjAUGBz7Ek+iWoi/xnGlYq1tuKh1LiLxE=
-X-Received: by 2002:a05:6122:288a:b0:5c9:c60e:3a40 with SMTP id 71dfb90a1353d-5ee8af56a83mr5616946e0c.18.1795432570921;
-        Mon, 23 Nov 2026 03:16:10 -0800 (PST)
-Received: from MaquinaLab.. ([2804:1b2:aa42:30d0:88c6:e1ab:a806:9c3d])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b4335e1sm10485066e0c.1.2026.11.23.03.16.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 03:16:10 -0800 (PST)
-From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DsCJf/R4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795432582; x=1826968582;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4k34Fr5FlxUz8r/biqU1Yem7YxcKuh3H79iZ7srFOYM=;
+  b=DsCJf/R4HI7nC7YzPa2GYksy0RE7+UHucUVOIERI6LKJmoPQeUNvbFQY
+   +c1JHFgaed+afpNO+WK6+OGA1SrcT2HH1I0KsvKJ1Ye22NiB/9sRsH3YK
+   aRun871D7yhs94n59pyhLZTh5+/BUSNKQ+qMRLqBB3kD4HQNKH6xNO4ZT
+   AdU+mUbxWDSX3bbThVXPl6/mcVWplJ0YclwNXMD33IIs0sCJcgwsUmB5k
+   4YbCn5f9nvMCToWJ3uVctkw5HBkYM1OW2jHnXHRYxGhdyA29JQWcFz6oc
+   MgzIMZqEMOESOGLx01xa0MrLs8YOdXfic/u1WB4r6zUjQyh3N+7f8dTpM
+   g==;
+X-CSE-ConnectionGUID: QAMjHKQlSamJcMIw2qqOFA==
+X-CSE-MsgGUID: rqxuwbZrSgSVL3E0iqHjoQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4287120"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4287120"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:16:21 -0800
+X-CSE-ConnectionGUID: Ee46gVDURNyKMbCdKm4FVQ==
+X-CSE-MsgGUID: cyxRiI6lQXuJYl05XeOFGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11172921"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:16:20 -0800
+Date: Mon, 23 Nov 2026 13:16:16 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Gwendal Grignou <gwendal@chromium.org>,
+	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] arm64: dts: allwinner: add Radxa Cubie A7Z support
-Date: Mon, 23 Nov 2026 08:15:47 -0300
-Message-ID: <20261123111547.24280-1-vinicius.eduardo.pedrosa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CAGb2v66nKWdF3AvXDfb07iYVQE5FC5yDkhuutShp+Z-EgFXEfg@mail.gmail.com>
-References: <20261111134919.90264-1-vinicius.eduardo.pedrosa@gmail.com> <CAGb2v66nKWdF3AvXDfb07iYVQE5FC5yDkhuutShp+Z-EgFXEfg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] iio: proximity: sx9324: fix proximity threshold
+ writes
+Message-ID: <awQggK7cKRKH3jUg@ashevche-desk.local>
+References: <20261122074649.239441-1-kapoorarnav43@gmail.com>
+ <20261122074649.239441-3-kapoorarnav43@gmail.com>
+ <awQfT6jSKo9pjxjU@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,41 +86,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awQfT6jSKo9pjxjU@ashevche-desk.local>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Sat, Nov 21, 2026 at 12:14 AM Chen-Yu Tsai <wens@kernel.org> wrote:
-> There seem to be 3 revisions of A7Z. Which one are you targeting? Or are
-> there no differences as far as the OS is concerned?
+On Mon, Nov 23, 2026 at 01:11:11PM +0200, Andy Shevchenko wrote:
+> On Sun, Nov 22, 2026 at 01:16:42PM +0530, Arnav Kapoor wrote:
 
-I'm targeting V1.11, which is the board I have and tested.
+...
 
-I compared the published schematics. V1.10 differs from V1.11 in two
-places relevant to this DT:
+> >  {
+> > -	unsigned int reg, val = _val;
+> > +	unsigned int reg, val;
+> > +
+> > +	if (_val < 0)
+> > +		return -EINVAL;
+> >  
+> >  	reg = SX9324_REG_PROX_CTRL6 + chan->channel / 2;
+> > +	val = _val;
+> 
+> 
+> Why not simply
+> 
+> 	val = _val;
+> 	if (val < 0)
+> 		return -EINVAL;
 
-On V1.10, BLDOIN comes from SWOUT2 and CLDOIN from PS. V1.11 uses a
-separate SY8089 step-down regulator at 2.4 V for both.
+Ah, see the comment I gave in the other patch.
 
-V1.11 adds a 10k external pull-up (R59) to the microSD card-detect line,
-which V1.10 doesn't have.
+> 	...
+> 	reg = SX9324_REG_PROX_CTRL6 + chan->channel / 2;
+> 
+> Note, reg might still be not used, we have more validations and with your
+> approach the reg assignment is in the middle, confusing...
 
-So the power supplies and card-detect configuration would need changes
-for V1.10.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-From the V2.00 schematic, the parts covered by this DT (PMIC, microSD,
-LED and UART) appear unchanged from V1.11. V2.00 adds MIPI DSI, a second
-CSI connector and a backlight driver, none of which are described here.
 
-Would you prefer keeping this DT for V1.11 (and V2.00), with a separate
-DT for V1.10 if needed, or splitting the revision-specific parts now?
-
-I also saw Andre's review of Enzo's v4 [1]. I'll apply the relevant
-changes to this DT, including removing the MMC alias and revisiting the
-regulator descriptions and constraints. I'll wait for Enzo's v5, test on
-my V1.11 board and send a v2 with those changes and the LED patch
-squashed into the board DT, as Krzysztof requested.
-
-[1] https://lore.kernel.org/all/20261122003932.568c099c@ryzen.lan/
-
-Thanks,
-Vinicius
