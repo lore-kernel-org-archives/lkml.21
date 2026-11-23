@@ -1,87 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795470794;
-	b=ULmX3Fz6fXDD9EwaJeLjDtMYrRUUEs43kscRjnaV5or0Ys8YaKjr1viW3kVLDu3ie1za
-	 MZxSnaR0m9kT/k5KWUp+5qXZPhisc9tiaO9rRsMWhE51xbFYqfTj8d0fDcgasGHy+JPWC
-	 6fBCaRDMXT4xfKUuWT6OKeIiF9B0fzjCDuRpZN7/r5zI9cvL2xymRhwb4V+mEgjOE1OZH
-	 s3d9VbXZCBkBIv2Qa2bqkHiTzu68qdiYI2lvhwVYL1WMB6kOOg7DJpxB33p9wz8YB27u6
-	 6zAbTP8AX8mccegL1LCVotXwmno0W7bXbyHLpQCveDUeH+pjn7x3pnC1Qh+zo46UsJw==
+	t=1795470960;
+	b=nqijnlhOGFd56xvqJTsOPMEpBxmzbCdevqGSqWZTNy07M2oP3shLYQzGH7zQbMXbakkD
+	 qmFm2lIIdbRNe3NBA64AXNE8UTss9Pmv+lysGFNHBKFdWM9EtruTqI1SWY2SRqw9H6/gO
+	 K8Mlzz9802kykvgAUACc6AYFzSIJp8giFMavXWCOeffP5K1vaHjIVDEIy8IHg1gkJC53Z
+	 IbxBaz2DdM4IqQEr57cY8NgDV64cOAQp3TT6YqM55ZXyzczqbTa3oz387JNInx97FChLH
+	 5ZsqAYvmmhz3BRuWYhI2tdEVkUgfu7NTJFxdYLrVOQKNfe7Se6bSRZkxUiSuswYoz/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470794;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470960;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=/gJsuCKqpHJ9TJHh5ijuLyBqzufsJ/gYOMhXSp5r3a4=;
-	b=hQxqwgpMdOnnOqG75Lbql1eFkwH8eDqwM/DS41bxrNMwj5y0ZwSYju2B8tBqcg3CdKE/
-	 Q4U1ggh3qSJboTxQTHyPIbPYLE+t+S4oJIJDcvRA6GBG/mNYAppM5Cxz3aWp5KOR3s8z0
-	 bt21yiaoa9aDN1mAZ2rkPlvwO0sU9v7hDwWy23Wryi9S6gF/EAJxnx4tI38JEKN8HPcir
-	 arP0rkFLONiN0Hae2T7nUuDXO1KdlU6dDflWWqxveYkvZ8G+I9rVh2oPIpl6Hugzv8CbK
-	 9VMx+rGEeh35lAEGL6YdNCpf9OQoQGu0lpysvW1xYSx48hsY+08pNeBc23nOr1i0fvQ==
+	bh=ltuEpeeCJZ0H8nUAa0Z2OFjeh8a+dq59B20UOPR5p7E=;
+	b=GOc2n7jOS3yTJJzKSzWvElydd5IpdMqGXoVACqN0WK2KgjLycdgx19SGbSE8xDmSyDBw
+	 S6Mm+1Nk+ewBihM/phat8EBVfXKPTOBkalqREPWpZCSKRVHKUAfsoGzcd9Ge8nIllr7CL
+	 e5xLjXoehc//J+Xw9fGRJKcb5dT9+F5KPEl+Py3S9RavMbNpEHhuj6hruGfek3Vz1Z9Dp
+	 T+4YTRv5JYkVcryZ2peaGBW6Z3iJEQNPxzA+xSdvyar/wrORgEzb6v/oDJW5krmOt30LY
+	 bGBAOme/YClNq+HOIyuZELJObS6Sr9wAnlF1wyQrvH5bPewqjLJQA6bxlR4Ti5l7WCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Auz2Tj6A;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iR+TY8EY;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Iu8fcBnI;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58764606A31E;
-	Mon, 23 Nov 2026 21:53:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58764606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D8A1606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:56:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D8A1606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Auz2Tj6A
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANK4UfR2945333;
-	Mon, 23 Nov 2026 21:53:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=/gJsuCKqpHJ9TJHh5ijuLyBqzufsJ/gYOMhXSp5r3
-	a4=; b=Auz2Tj6Apt/DR+tBnJig4X8l0iZ3OwDj3EQApK/xXiQLgOrFT99EReiui
-	s0yYMaJdAvcS4+mWmxdF+wo8Ag+nHzdQkwhsZdJCGXgVefEnEVAl9nivMSRkD6ht
-	MbFj34rCh9v8EDrrhwF9jFTR05L6gxCbkiZtIbwkE80rJQHPZtXSV+OCShcs15ky
-	DHBRZQleZ2jl+fDaXtV1us5ktNUBtqMeP6A3lCVuRB7ZtJJTXnopvrWm904iktsn
-	adFQydKfxb7w53NBLaZt5tEmf4RBnWWvP2MuZVRYDfQKd8dmtlwz+z8rzUG8dso/
-	U0uVt0g3IOfT6n07PHrHBb98zZVjg==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3559h-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 21:53:12 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANK4QgD1244336;
-	Mon, 23 Nov 2026 21:53:11 GMT
-Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3qufr5vh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 21:53:11 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
-	by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANLrASx33423962
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 21:53:10 GMT
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0FEEE58053;
-	Mon, 23 Nov 2026 21:53:10 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 151BC58043;
-	Mon, 23 Nov 2026 21:53:09 +0000 (GMT)
-Received: from IBM-D32RQW3.ibm.com (unknown [9.61.253.128])
-	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Nov 2026 21:53:08 +0000 (GMT)
-From: Farhan Ali <alifm@linux.ibm.com>
-To: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-        bhelgaas@google.com
-Cc: lukas@wunner.de, alifm@linux.ibm.com, mjrosato@linux.ibm.com,
-        gbayer@linux.ibm.com, schnelle@linux.ibm.com
-Subject: [PATCH v1] PCI: Ignore Immediate Readiness for Samsung a826 device
-Date: Mon, 23 Nov 2026 13:53:08 -0800
-Message-ID: <20261123215308.1285-1-alifm@linux.ibm.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iR+TY8EY;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Iu8fcBnI
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANLC9RJ188786
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:55:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ltuEpeeCJZ0H8nUAa0Z2OFjeh8a+dq59B20UOPR5p7E=; b=iR+TY8EYrJRphKgx
+	//NbEud+rO3GJvgvkVY6QxgnYpFaZU/Zju/pM4QStFIgC5X4wb8oKRklxKN02yKs
+	fEWocKFGXBjRP+kOkQLzQyoo0uWu4daFlg/hiP36RjyAWomMSmUVZZqQbdS1rVai
+	yNOFS+VQTKizQSFK+UqDh52FUwb0pvYXzWU6jpcNmNLlaYwUArZ4rOye+88OdmCr
+	JUbd9No4yTMH3MltAD8flN29FkdzzfdmEPjHk3ShyWLjaA/IACkEMPkLsoENgOP/
+	z0becPFmRRp2SmxQgonifx214vwUTxwfT9S8EsL2+G9VnZYJeYUfPKxdVBTzI7by
+	+ixikw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4w6sr4eb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:55:59 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f1f2fafeaso445837585a.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:55:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795470958; x=1796075758; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ltuEpeeCJZ0H8nUAa0Z2OFjeh8a+dq59B20UOPR5p7E=;
+        b=Iu8fcBnINm1s/7RhWcQtoLJmurJ5/O0gOVVrCAmU0LKpt/afonGkoBH/vSE2P6RqGI
+         4dmkqaIKcglofGzjioj3C2rfJQmmwzk0H69jO59Qm6fb7itNPua16yOe5OA5mnUo5gLs
+         uNCjJDAyCM2WFccvBihuGA/vPovRvkhTIa3r57X4CJ4D+7DziQFK8K+XCEa3g8jZiQUB
+         CQZSyo74suK8zBytpVo1jbiY1nhfvPQMN/e8g0Hriyr0zsGCgtfwt2pQ9Umf8ih3ZEdn
+         kmQIfB/pkryXH5raqkkM7vy1+ZR5FvVGW1CDvrYl0a1SnA443bmCnbPoRdDwc936zcsf
+         bJTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795470958; x=1796075758;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ltuEpeeCJZ0H8nUAa0Z2OFjeh8a+dq59B20UOPR5p7E=;
+        b=PHI+2+7i48Lbxzf/IABijmjkGbdsT0gPckToTeRHf0LpF6BDkVFKuL22xebRN5fRU/
+         2OGvDja/kby9h8EsIjG3ZCJH48yyYsPSkqSDvrUqT5A5HkGZx9tUTB2F4FxzYNRz94za
+         5xErz0zYum5e36CPtch0G/ZyziCk/9jhKg+cflm/Ad0nGHYDrN3gXHt3jgG3TeTJRhms
+         RiWCJwcjcK3fFxYdTPsJT7Y1UfWsXYpebm9/SZn8HFl3u9Q/mbCMjRaHLZBvz8uhEbnP
+         o9QMfGSCyC3yO4sRHjfgvwmqeCQRzqzplZGZ7r+/M/8sUcWyLWddVj6OLAWk9sU4EEBr
+         JrRQ==
+X-Forwarded-Encrypted: i=1; AL+hErG6qJyY159mJkjvvUc0MnZXtqJVMMVXl0/6G4gx5kKMibOSZiXTSaQodpWJLUUepWozzDMlukFPFUQJtdk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Pe0KU+O41E+URFUPOJuBf+ZXiaEZNQd42ymK8nSYp52w8vYxX
+	LNDYBx+Y4vRzzV0QbBeqCdzqCAtIbPtJg/u9+vTu2xsw3qaGPfLVYB/mzKAHE2+InsG1IPq+1s9
+	rGBZvrkrwwgUepvhUrVSN+nf+tbT4y/lbOBuKgw8JpDWrf0Ex7be4fVD0HWtJHbLfIZY=
+X-Gm-Gg: AZFdTZc7WckBcUAU8Id9go02rJDVGJxBcrtvbSh4IAhrvSW1OA7eAYPQ+AfbF6YTzgv
+	hSVzU+NDJhMPCTGhOSN4eJN1OaNGwiJ4WVGnnmvyCV+qAA+FzFOMN+kwhp+lGZu1ol7C1L/TgBQ
+	cEXOWSgb1h5eqGcgjV5hYcKLhbCS9s9UhbVo/J8b41K61QqwQZIp9dvf5dGqqvDv2DkRxYa236P
+	J+pB2odFJS6Lvwja46MU+G6ysuZuGE1WFPzcLev+oRUGnyesr9HBAQs1J245osgm+Zw+51rIX3C
+	u37bbzWDjWmpFEL74GIGKN+1MheGheFuZtDQ7G3UlT11+HyH9n7MaohPqm9rNvQSSQKw2i/4uS2
+	17odMAMgxJW8s7c6gg33Euo8kjvt6wBjfFD061JSertOm7i6hysNV1PkO6Owm4gV3xo82kgBX6t
+	U=
+X-Received: by 2002:a05:620a:600d:b0:93f:2635:b6f1 with SMTP id af79cd13be357-949ba7e3ac6mr1929197985a.8.1795470958020;
+        Mon, 23 Nov 2026 13:55:58 -0800 (PST)
+X-Received: by 2002:a05:620a:600d:b0:93f:2635:b6f1 with SMTP id af79cd13be357-949ba7e3ac6mr1929195785a.8.1795470957593;
+        Mon, 23 Nov 2026 13:55:57 -0800 (PST)
+Received: from [192.168.1.110] ([178.197.218.7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm24037890f8f.10.2026.11.23.13.55.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 13:55:55 -0800 (PST)
+Message-ID: <9640ba5c-a538-46f8-a80a-385c0631f9eb@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 22:55:53 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,68 +115,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b04b5c8 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=xYS-XvfxY5Lkmk89MPgA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfX3aoCSBJq0cHk
- 4Z5CCY6k+EsvXF6+2lxSmvQt56efTU05aAs74LjDe4kt5qrOJUAIXTYNA8GeF/TwVDXmL/zF2Vo
- GZ2Uey1/R5Td7MdNYgJp+hgncz0bUNc=
-X-Proofpoint-ORIG-GUID: WUFjfQp0ckMP72XsQpv2U0GkO6rD2cND
-X-Proofpoint-GUID: UTdVSLdNaXLhQroqfcEmFC44o0araxt0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA4NiBTYWx0ZWRfX1zjZOsfjiH3M
- pR9Nqr3ERJnOfZoSiOEYz5RZd223Xkvc8b+mvAAooo8q9fh5Qz/wjxJ9lVDdZA5TUm6P3lC+FLo
- DG0YBLYGgljNuwMBh6tOQjWwy90ZJjPRrxErKMcT7fW174U5ZOPHRA9mYlOnOjK4iipUDqosPef
- PVT+XkCqwrEMKPeON09DXL5OgjS3UOp+KXB1mnDQkgYeYS99eLbnpF1REy0RX+k1cIFIVFdsJ/x
- l7NPAUHh5yr19WrvAxn5z+Pr47iTe7oNOa28e/R9qCYbFWMJX98zb4fl5pP+yxlciYPL0MTdHKG
- /jOPCXh7G5WVlTmVfmy7wuChvthOVT6ffsH57FOOPJ3nAdRKE67O7+IFiUWV6RGyfuikiIjJVgL
- gns85dDGgMVU0OGZWwtqe1yJsGP+u08zLLayjC5roIQ78j621BtWNVro5I+yHhSlhQag4KIad5z
- udwlMqtl2DI6oTfPudw==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] soc: qcom: socinfo: Copy new SoC IDs from bindings
+To: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+        Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Ilia Lin <ilia.lin@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-clk@vger.kernel.org, linux-pm@vger.kernel.org
+References: <20261122-qcom-socinfo-id-dt-bindings-v1-0-eeee0ffa25da@oss.qualcomm.com>
+ <20261122-qcom-socinfo-id-dt-bindings-v1-1-eeee0ffa25da@oss.qualcomm.com>
+ <awQ_90R8_uGWm2Sz@QCOM-aGQu4IUr3Y>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <awQ_90R8_uGWm2Sz@QCOM-aGQu4IUr3Y>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 6Nm5anWJ4tOwPZDTJGT6bonePA_VNQEu
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA4NyBTYWx0ZWRfX7ouUErPw5qSt
+ aC0KbTon/fgIkFFlFHiX2LQRC9pL3GbZMFkVVZMp2gYPUfsN9xKCulKpGmAka0J9FN3/5yxpKUZ
+ 6XtXNz5AEUBUdpS8YqQ2WsViFLPnp7c=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA4NyBTYWx0ZWRfX8uSA+LjFAyEf
+ m67GJFO3o28UKqevRudYR0uGawVldX5JB7jhvEuviV7GbtEtn9BMguD368Oe/kBhK8Fgiy4AxQh
+ 3qsXsiH5VBeL8mzZuGNDEq6hW01NYhGBPG/fExsVQKnUioI1XqmqT4Oerm/3dejT8yJEex+XyQ/
+ tFkQ2QUSSArLtaY/7JJhZfwi2xW6YKqPjcFtqNsIjGcSlWNiL5GNWNR2mkTg00EaRnQP0mVRZxF
+ aynTxGD6BAMEIkPuxyDBC6YMFUYwM1ELSfBXWx5csfXudzuUiti36cPC+4AYY6d1L+Tvr9F11ES
+ xqy90SCjPDgzqODy4ROlctF49JsIwiSCZK2yM60tmvo+mNPZbphasHRoPna2a3haZZIzLL0Whou
+ oGCvhDidutIZVhZwR5SibNpBBx5BSTX8VLpk7jN7LzmNt34HRvdWwc4LFiKnZTObpJEpIFM3dL2
+ trm03zHOyIxjRsZjb8Q==
+X-Proofpoint-ORIG-GUID: 6Nm5anWJ4tOwPZDTJGT6bonePA_VNQEu
+X-Authority-Analysis: v=2.4 cv=V8DoQuni c=1 sm=1 tr=0 ts=6b04b66f cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=uyPgTw0bjBTS2cVxpiNm5w==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=EUspDBNiAAAA:8 a=2dp_lxLZj-RLOlf8FDYA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
- lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230086
+ clxscore=1015 suspectscore=0 bulkscore=0 spamscore=0 impostorscore=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611230087
 
-The Samsung NVMe SSD Controller PM174x [144d:a826] advertises Immediate
-Readiness, so pcie_flr() doesn't wait after FLR, but the device isn't ready
-yet and config reads return ~0 after the reset. This happens with
-firmware version SNA6SNA6 or older.
+On 23/11/2026 14:30, Shawn Guo wrote:
+> On Sun, Nov 22, 2026 at 06:46:20PM +0100, Krzysztof Kozlowski wrote:
+>> The IDs of newer Qualcomm SoCs, as reported by hardware or firmware, are
+>> currently used only in the socinfo.c driver.  There should no and there
+> 
+> s/should no/should be no/
+> 
+>> is no in-tree DTS user of these, so none of these constants are really
+>> proper Devicetree ABI.  IDs of older SoCs were being used in DTS, thus
+>> that part matches the concept behind DT bindings.
+> 
+> Not quite true for the start of the range. The constants themselves
 
-This was seen on s390x with the nvme driver bound, by resetting the device
-via the sysfs reset attribute:
+I did not perform global search and replace that time and not sure if I
+want now, but I can keep the few values if this makes sense.
 
-  # echo 1 > /sys/bus/pci/devices/200c:00:00.0/reset
+> are not referenced, but the values are used as raw numbers in
+> qcom,msm-id:
+> 
+>   qrb5165-rb5.dts:                    qcom,msm-id = <455 0x20001>;
+>   sm7225-fairphone-fp4.dts:           qcom,msm-id = <459 0x10000>;
+>   sm6350-sony-xperia-lena-pdx213.dts: qcom,msm-id = <434 0x10000>, <459 0x10000>;
 
-  nvme 200c:00:00.0: Unable to change power state from D3cold to D0, device inaccessible
-  nvme nvme0: Disabling device after reset failure: -19
+Indeed, these three are actually still allowed to use that property.
 
-Ignore Immediate Readiness on this device too, so pcie_flr() waits.
+> 
+> So QRB5165 and SM7225 are still consumed by bootloaders through DTS,
+> which is the same category as the older IDs you keep.
+> 
+>> Copy arbitrarily chosen newer SoC IDs from DT bindings to the regular
+>> header of socinfo driver and use it when needed, so later they could be
+>> removed from the bindings.
+> 
+> I would suggest converting the boards above to QCOM_ID_QRB5165 and
+> QCOM_ID_SM7225, and keeping those two IDs in the bindings. Then
+> the in-tree DTS users become visible, and the cut is no longer arbitrary:
 
-Fixes: 10baa9b4df40 ("PCI: Drop unnecessary retries when restoring BARs")
-Signed-off-by: Farhan Ali <alifm@linux.ibm.com>
----
- drivers/pci/quirks.c | 1 +
- 1 file changed, 1 insertion(+)
+Not sure if I want to add that dependency...
 
-diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 4a02fc80755d..11c3b45afe78 100644
---- a/drivers/pci/quirks.c
-+++ b/drivers/pci/quirks.c
-@@ -5790,6 +5790,7 @@ static void quirk_no_imm_ready(struct pci_dev *dev)
- DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SAMSUNG, 0xa80c, quirk_no_imm_ready);
- DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SAMSUNG, 0xa80d, quirk_no_imm_ready);
- DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SAMSUNG, 0xa80e, quirk_no_imm_ready);
-+DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SAMSUNG, 0xa826, quirk_no_imm_ready);
- 
- static void quirk_no_ext_tags(struct pci_dev *pdev)
- {
--- 
-2.43.0
+> everything left in qcom,ids.h is an ID actually used by DTS.
+> 
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>> ---
+>>  drivers/clk/qcom/apss-ipq6018.c      |  2 +-
+>>  drivers/cpufreq/qcom-cpufreq-nvmem.c |  1 +
+>>  include/linux/soc/qcom/socinfo.h     | 94 ++++++++++++++++++++++++++++++++++++
+>>  3 files changed, 96 insertions(+), 1 deletion(-)
+> 
+> [...]
+> 
+>> diff --git a/include/linux/soc/qcom/socinfo.h b/include/linux/soc/qcom/socinfo.h
+>> index ba823a0013c5..cd2e8eddf3b5 100644
+>> --- a/include/linux/soc/qcom/socinfo.h
+>> +++ b/include/linux/soc/qcom/socinfo.h
+>> @@ -112,4 +112,98 @@ enum qcom_socinfo_feature_code {
+>>  #define SOCINFO_PCn(n)			((n) + 1)
+>>  #define SOCINFO_PC_RESERVE		(BIT(31) - 1)
+>>  
+>> +/* SoC IDs */
+>> +#define QCOM_ID_QRB5165			455
+>> +#define QCOM_ID_SM8450			457
+>> +#define QCOM_ID_SM7225			459
+>> +#define QCOM_ID_SA8295P			460
+>> +#define QCOM_ID_SA8540P			461
+>> +#define QCOM_ID_QCM4290			469
+>> +#define QCOM_ID_QCS4290			470
+>> +#define QCOM_ID_SM7325			475
+> 
+> [...]
+> 
+>> +#define QCOM_ID_IPQ5404			671
+>> +#define QCOM_ID_QCS9100			667
+> 
+> Since the list is being moved anyway, this might be a good moment to
+> fix the ordering.
 
+Ack
+
+> 
+> Also, drivers/clk/qcom/apss-ipq5424.c includes qcom,ids.h without using
+
+Sure
+
+
+Best regards,
+Krzysztof
