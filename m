@@ -1,55 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.122
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434083;
-	b=HNuouklzNqm+pvDFFFKH7mdCit7hhopupiyaSb6zJhONn12/jD9M6uCwcij9ZLMkEzE3
-	 rA+ruMT28T5vCXAZrhMA4oiuHVmybw0EGKfZlzH2sC61JLbga7LaE39qnewvCiq17Mn1B
-	 Gv7oYK1imUcbMsBuIaPmqzPV0oEvGeDr9BIHmXyqC2kWtYbLKALDFEOgZLGPDQRgTdn5A
-	 /2mTlEDoVkMkRVXXPNxiaxIk+sH9xc2qcB0XL3RGc7CnT7tbKMcWy4asTMFiPiI0uxBh7
-	 K9QnjssJMPE3MdqUN2iYUmVIGGoFhzOAUrDgNePJjjmdzF3Mjua7y6d6j6motw8pn7g==
+	t=1795434097;
+	b=qXGFKQu6Ax2wmNpyEmA2EHRmOJJnOYCsLs2Yj1pub0iMzkLtY/ySF0r8VeZBAOaDcxkC
+	 t2ITXz8R8VltH0s+xb10dJMjRjTjdKjwCyiWqlFRxlCyL51giF2veuE2cp12zaP/7caLR
+	 sSLbOL7MGAFpzzdqY17nttyNyaZhkCFM2QZlTz03RO764gxU173uB9+XFi2z4VxPHl0YK
+	 Bc8oQsc/xygV4Rx90eziiyjCfKpfO0UGwI1R8OtnL8pMJqFyM1BC2VUcALYT/Km/TyZRt
+	 vnXwe7Q/K8v+oIJwIa9gdWLzCCtXOUX7d2R/UREV7EbAJXT4JTkdbJaw0hfOFtNFipw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434083;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ERFaHxCLVQsUUIsvcpXdMSBU19+5T7vopoqdvkj/H7U=;
-	b=bJEfrs34dNg3gtZGvZKPlRhPRUfCUO1boPzhF1bmitKeWN+7SZ1+Mbxtcfrf5XHhrn3A
-	 AhejgBZSRQ1ujQgfxVLHwQhwyGqjRqEwOht4ydP7jAaT0sKrR50qc0fPcfeL1B7PS2uh+
-	 8sa+cWwCTMIureQrulVcGcYYGOlnkl53WUU5PcyZymn11FT4fhiATUNQ1MvXv3lCSvrHi
-	 wFzliHxOpQLh+f0ec8Uguh9OO9qnW5UfrEoCjeC6JQM0+unKdQ+7z34+HMG6n875rQfrN
-	 cspTCdkhqb3QLnN4z02e/yo0LZNpqrxpQoegaz95aCOD0KEIQwSx0bQuMqA2Slz4o8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434097;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=hPH+xwQQ5YvRprFEfig6JwjI4JJt7gcVnXPnZvpsz58=;
+	b=qvy4DPtj9P2eS/37fjb2pQAeVns3f9n8Ht5vEYAASFDWUGrLyg4L8iDg+n10pJjaGx8E
+	 /kzv2lTSwiLEMGE3r3fAZYvLSQk8NXQSyoCwBtHiwVGhif96G2thhwzaFewxMzNPeAc25
+	 gygc+tzX4RzyAJne5LhKKCdjarLMhQRuYiRqXN0jRGfBrENI6O1F7KWB5iEDSZbdc5y3U
+	 jc3AJ0C6sXmvKcNH7ybX386rjiCwfz/ebbfVHW5gp54wQY7vYFdZfxkRSgfiYOVx3SYRK
+	 TiEsKGThCqzBYx3cdcvDmSvRa/AZfyTTTx3zQ7GGnqgECt5Srm++QN5uXEHlRGu/T5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D6hdlhgi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=AqvTCW5q;
+	arc=none smtp.remote-ip=109.224.244.122
+Received: from mail-244122.protonmail.ch (mail-244122.protonmail.ch [109.224.244.122])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FB9C606A330
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52C2B606A32A;
+	Mon, 23 Nov 2026 11:41:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52C2B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D6hdlhgi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D8811F000D1
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:41:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795434082;
-	bh=ERFaHxCLVQsUUIsvcpXdMSBU19+5T7vopoqdvkj/H7U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=D6hdlhgicMz7ZLUAPP3mohf8vx4wW8lsiyTvmuPZQi/mzRrxsis4xbD6R5D57deWM
-	 X/9SLMFd4pwMbx1+NC09TZQgBzIS2SqUstXfmjFTjSO9HKo5+1kplXGrQg+KHjGP2Q
-	 LXvhtkxzsVUM5ku3FaHmSsHvJFWUREVpmJ4leKlkp+gqsIRikViMC8kF+GDhdonhEN
-	 fkdHyiFeVekt3Fhb4wsu2/uuLMdmqs8eEoTxJidrqd67NLRMACtMbE3QyUJMQlxkWF
-	 v569u0NoO80dtDRJSINqTRQY5M6ZNPaPlOhR5y+cTNfAfKY1NCf9A49CYM/MToq8Eq
-	 P2YQPSdaVEhlA==
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-9905d61449cso753416241.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:41:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGSHAD9CbPuKr08R3RqAN9Hy5EsLBMxxLemW4HaF+7gWtqPJRl1/cJkx4HYBtg8OC1KiwcvEL3S8ZGOvjI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8MMpjD0Uk1uC3yjrT11MpR7NclxNFlqb3sD2vAql1wwYFXnSK3
-	Ulu576lPuXNs78DX5HxePS4wGKlro7Ml3ZaWTQCjttopiOvXeBeMkRsq83M3sByAU9S/YZN70Fp
-	I6Mb4NBJ7db8olmgzBVCQ0paX5YtuK50=
-X-Received: by 2002:a05:6102:c49:b0:7d2:d194:3dd7 with SMTP id
- ada2fe7eead31-7d7396744f4mr3650725137.36.1795434081708; Mon, 23 Nov 2026
- 03:41:21 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=AqvTCW5q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795434092; x=1795693292;
+	bh=hPH+xwQQ5YvRprFEfig6JwjI4JJt7gcVnXPnZvpsz58=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=AqvTCW5qPw2qcd8PAjH5z5PbIyHUU6oizOI+s+K7cDDXtV7PFmj9IPlnbrb215L2x
+	 m/RWi1veWIhSUlB/2yxBLWKrJ69FXS+kDOfxoOAtKdY0VGw8HX5V4CcN9NMqqdSUOO
+	 TkIY/hivq//dNMMUveqVLQH7TGTHMWrbAEWJz1WnXIp5tUbeopHRYv8Nald0kGqiD6
+	 +ZHfgxEipxsOUqfvrohVIY580xB1XNgjb6Uv0ukoGEnvbw3xOJCRhfzLNO0s80dZKr
+	 coDUkztBL3JK1cVGJ9a4XYR96VHe4UDIgcQUy1tcuYlBRkExLmlf0LDqW/KmalhSrC
+	 CcDxrCenLvhJw==
+Date: Mon, 23 Nov 2026 11:41:26 +0000
+To: Alexander Letuchiy <asalde.le1@gmail.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Mattijs Korpershoek <mkorpershoek@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-serial@vger.kernel.org, linux-input@vger.kernel.org, phone-devel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 0/7] arm64: mediatek: Add initial MT6895 and Xiaomi Poco X4 GT support
+Message-ID: <ckJZtdZ4-fPzsa3vkozNyEYYUbG9qd134hYb0hHEuq2nL8WMAR1PS87OpDfXrkU-E-85rsG1I4V99_M41j6-ewkD_41XPguDel3z8z0lmMk=@protonmail.com>
+In-Reply-To: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: c6b719aaffbb9f16cf86df1433c20e78eaceb862
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,122 +64,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-btrfs-link-unlink-fsync-v2-1-ed3f9f63fbd7@columbia.edu>
-In-Reply-To: <20261123-btrfs-link-unlink-fsync-v2-1-ed3f9f63fbd7@columbia.edu>
-From: Filipe Manana <fdmanana@kernel.org>
-Date: Mon, 23 Nov 2026 11:40:45 +0000
-X-Gmail-Original-Message-ID: <CAL3q7H74bjNuNn48FcgexyrN5okZQhhgVneJVfCYzD+McC_PcQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qxAiYf6pcKgdohKmPSKML04U9E8FbR4rrPYFuWsxhBQPiZtywlUYsDs-U
-Message-ID: <CAL3q7H74bjNuNn48FcgexyrN5okZQhhgVneJVfCYzD+McC_PcQ@mail.gmail.com>
-Subject: Re: [PATCH v2] btrfs: fix loss of fsynced file after link into new
- dir and unlink
-To: mt4022@columbia.edu
-Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, 
-	Filipe Manana <fdmanana@suse.com>, linux-btrfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, tz2294@columbia.edu, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 6:08=E2=80=AFAM Mani Tofigh via B4 Relay
-<devnull+mt4022.columbia.edu@kernel.org> wrote:
->
-> From: Mani Tofigh <mt4022@columbia.edu>
->
-> If we create a file, add a hard link to it in a new directory, remove
-> its old name and then fsync the file through a file descriptor opened
-> before the unlink, the file is gone after a power failure.  Example:
->
->   mkdir /mnt/A
->   fd =3D open("/mnt/A/foo", O_CREAT | O_WRONLY)
->   mkdir /mnt/A/B
->   ln /mnt/A/foo /mnt/A/B/bar
->   unlink /mnt/A/foo
->   fsync(fd)
->   <power fail>
->
-> After log replay, B and B/bar don't exist and the file is gone.
->
-> The fsync uses the file's dentry, which is still the unlinked A/foo.
-> The inode is new, so btrfs_log_all_parents() finds no parent in the
-> commit root, and log_all_new_ancestors() then takes the fast path for a
-> single link.  That path walks up from the dentry's parent A and never
-> logs B.  On log replay the inode ref for B/bar is skipped because B
-> doesn't exist, and the inode ends up with no links.
->
-> Fix this by not taking the fast path when the inode had a link, unlink
-> or rename in the current transaction.  The slow path finds the parents
-> from the inode refs in the subvolume tree and logs B and A.  Also return
-> early for an inode with a link count of 0, which has no parents to log.
->
-> The problem is old, e.g., v7.1 has it.  It was hidden by a transaction
-> commit fallback between commit 0f24ea456ae1 ("btrfs: tracepoints: add
-> trace event for btrfs_log_all_parents()") and
-> commit 36f9aafa46f5 ("btrfs: fix unnecessary transaction commit fallback
-> from btrfs_log_all_parents()").
->
-> With the fix, the file survives log replay.
->
-> CC: stable@vger.kernel.org
-> Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
-> ---
-> Changes in v2:
-> - Return early from log_all_new_ancestors() for an inode with a link
->   count of 0, to avoid a transaction commit (Filipe)
-> - Drop the fdatasync mention and the reproducer paragraph (Filipe)
-> - Rebase on btrfs for-next
-> - Link to v1: https://lore.kernel.org/r/20261111-btrfs-link-unlink-fsync-=
-v1-1-a817d4a890af@columbia.edu
+Hi,
 
-Reviewed-by: Filipe Manana <fdmanana@suse.com>
+On Monday, November 23rd, 2026 at 1:19 PM, Alexander Letuchiy <asalde.le1@g=
+mail.com> wrote:
 
-Looks good now, thanks.
+> This series adds initial support for the MediaTek MT6895 (Dimensity
+> 8000/8100) SoC and the Xiaomi xaga board, sold as Xiaomi Poco X4 GT, Redm=
+i
+> Note 11T Pro/Pro+ and Redmi K50i. It is enough to boot to an initramfs
+> with a serial console, CPU idle, the CPU and DSU PMUs and the volume down
+> key.
+>=20
+> Dependencies
+> ------------
+> The SoC DT describes the pin controller and the board DT uses its pinmux
+> macros, so this series depends on the MT6895 pinctrl series:
+> https://patch.msgid.link/20261118-pinctrl-mt6895-v2-0-0728c4eddcac@gmail.=
+com
+>=20
+> Bootloader dependency
+> ---------------------
+> This was tested with a modified LK bootloader that is not public.
 
-I'll leave some tests running and push it to the for-next branch on
-github either later today or tomorrow.
+How are other xaga users supposed to boot the kernel? You might want to
+port uniLoader instead, or if you're on an old enough security patch you
+can even replace stock LK with U-Boot. U-Boot chainloading is also
+possible.
 
-> ---
->  fs/btrfs/tree-log.c | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
->
-> diff --git a/fs/btrfs/tree-log.c b/fs/btrfs/tree-log.c
-> index 763487114f85..445374b06ee8 100644
-> --- a/fs/btrfs/tree-log.c
-> +++ b/fs/btrfs/tree-log.c
-> @@ -7541,11 +7541,19 @@ static int log_all_new_ancestors(struct btrfs_tra=
-ns_handle *trans,
->
->         trace_btrfs_log_all_new_ancestors_enter(trans, inode);
->
-> +       if (inode->vfs_inode.i_nlink =3D=3D 0) {
-> +               ret =3D 0;
-> +               goto out;
-> +       }
-> +
->         /*
->          * For a single hard link case, go through a fast path that does =
-not
-> -        * need to iterate the fs/subvolume tree.
-> +        * need to iterate the fs/subvolume tree. But not if the inode ha=
-d a
-> +        * link, unlink or rename in the current transaction, since the d=
-entry
-> +        * used for the fsync may then be an unlinked one.
->          */
-> -       if (inode->vfs_inode.i_nlink < 2) {
-> +       if (inode->vfs_inode.i_nlink < 2 &&
-> +           inode->last_unlink_trans < trans->transid) {
->                 ret =3D log_new_ancestors_fast(trans, inode, parent, ctx)=
-;
->                 goto out;
->         }
->
-> ---
-> base-commit: 845c6105edd82f5d0aa72377ef6eb8592ac4e00a
-> change-id: 20261123-btrfs-link-unlink-fsync-a3a915511369
->
-> Best regards,
-> --
-> Mani Tofigh <mt4022@columbia.edu>
->
->
->
+> The stock LK cannot boot this DT, as its Android fixups expect nodes
+> that are not present here.
+>=20
+> The DT relies on the bootloader to:
+>=20
+>  - update the /memory node
+>  - add all firmware carveouts to /reserved-memory
+>  - pass the command line from the boot image
+>=20
+> The carveout addresses are therefore not listed in the DT, as the
+> bootloader allocates some of them dynamically. I can describe the
+> fixed ones in the DT if that is preferred.
+>=20
+> Firmware behaviour
+> ------------------
+> Two things in the stock TF-A affect what the DT describes, but not the
+> DT itself:
+>=20
+>  - TF-A rejects CPU_SUSPEND for about the first 40 seconds after boot.
+>    The vendor kernel lifts this earlier with a SiP call, so with this
+>    series the idle states only start to be used after that time.
+
+It might be worth porting upstream TF-A too.
+
+Best regards,
+Roman
