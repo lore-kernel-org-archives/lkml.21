@@ -1,98 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795416655;
-	b=PmYZyOnTQQ58U8L8riPNjqgMgNox/YR2vTPpaPneIxP0aA4vJ7dZRQc6duhGOz8mV3Sc
-	 V5orvsUl6AHmxv5LdqEvq9mXqTVEBSpJ3XpaaRvCgTJQSrJK2b2TXLazWLJgsz8obyG3Z
-	 B+M9t3vpFDRWwvUiR1NeRuALwwcgN6m1pWTIWMBKG3w52Z8XT+CS7mg8s48E6uyh0iwD6
-	 fnhRwv02I9KJSqn+i/mjNzYcQPZ7eNIlbmpUI7qllU8Z2wiOtEoIkJxfwEWpZzPqfsZsq
-	 5brw0pL8HMCbpLDluwbYWtL4Mt+IrFJVE2roRz1BYt77U26y9mTjno9raB43QjEKtAw==
+	t=1795416654;
+	b=llhY0NeL4RwEeyu9vYJ5k6PTFuvDKY5lb/WCOGIUo0c7XZAK85O+lI0J6c0hyppwQoet
+	 /rRGVu5ChpuYc8qYLDt2JR+K6pKUfLqokPj8HNvFBsHADYkw0pBc/Nq96WoWLkt5v9wGp
+	 bjHXv4P0YKhNDGH48l4GzX9B+Xb0bJTyhK6f9O6IlCiIvjmaoJy41sdAUKi6tyx4BK4PL
+	 Y16fdztVKZQpZlWGqV7K/0QQYKvakxT9leYmSN425r12b/7r1F2fyzmaKhmulRjEKwdSQ
+	 spc1pRy+UjK4y4PLU1cFoowl6NKYKbW28qXOaxYOYE+KOUC8AqfLDJeEw39Lv2ePPbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795416655;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=RsghqF/m5W3+Sk6FDMeWBFDKibQsse7a2Bj9+KgEx1c=;
-	b=h+6HBC/qmgFNdvxyv3Am0jwrOQWwl2FHpljcKFwXAGeb+O8o60EnbRe/ry48aH76Q3+n
-	 HGhkkvPiP6xC5j3QYL7oT+c64DmNRX4ojmleALym7KVEBzbN5xWdjRiBjTaDz3JgGJydS
-	 vz+Hd4mQG9L2KvMz78tPm11heoqNdPe9P7Dzsaky/d8Ofu9nExoycsrXaWArtK0mjOxDM
-	 DB6t1skNjQCtf8LCAP9/5SDjNRlAWWxEhPz2wjiNkVdqhpcBoZrVzwdl2tzb8JwM2OPyZ
-	 8lETdEO0jqK+k9dBGOqJWZC6eJX59lu1c7RMauNRQp/QEZg4ruT+fpcSwYN4sIxKdJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416654;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=tHlnf2LKqk1x9hZynTXX0rVO585CVFuslk9OIJSwAIA=;
+	b=KsqRccynHzVczVFrWLEFqps7AKuDYx6O7EEg7v+yftRM0dXCcYjFILDXm+8dXkcVKvji
+	 itauWTJTCWj1lnwsuYvEiVydWPr9W/hDfEIeMBbj7cAcB11ks66tD5u7GnIh9yxspOcO5
+	 5AITBqWpHYnJku+Y93d8MQPmdnBHS91SvMSOS8dvsS9lTbEaGXCPn8Z+HSQZQwGO3gvxi
+	 ycdzX2bPX5NSaxhprYcAcHP8b4Gjs4D+c7CjubyhLRdUmXmJQ4Yrrg8/vDRHboO+Dztoe
+	 swlCnWLbOGx9SJiZIpthtyVGSiDyqlrUHZIPfflBudB5XFHAUy6jq8AZ7Mn+J/P1big==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OEE72Kfd;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=D751r6Q3;
+	arc=none smtp.remote-ip=220.197.31.4
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2AB5606A330
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:50:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2AB5606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20AA8606A31A;
+	Mon, 23 Nov 2026 06:50:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20AA8606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OEE72Kfd
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b413997581so2461306a91.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:50:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795416654; x=1796021454; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RsghqF/m5W3+Sk6FDMeWBFDKibQsse7a2Bj9+KgEx1c=;
-        b=OEE72Kfd+Obfg8FU0f9Bf+u8OMdyF8baJf2O5azWAUnPrPx7XI3CPaz1RAVW2h/vza
-         6Kd+aRUE3Sa3hJVDYGhr+tLFcd9Z9jC37/g6rrluW3PSOPQvMkYAmmEdAsHdS73c9DFK
-         eZj9eElKxaMZh8zBzNgD7zKAcwDb2hjLqWVvir52pqyhk9oWpPmuVD5vZ1gryD7Ow8Ve
-         1at8ctTxVFINOIwitHXCv58Py0mcgn/Sjh0eJv2ly8NQmpI8jWa3146YYA9s4Z3JGI1X
-         TeGDdvV0Sue9L20dz0aEW5w7wtFbekF3wJnkaCKEX8XDrAkzQVHw2SMhODtnCHW4npzb
-         QOCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795416654; x=1796021454;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RsghqF/m5W3+Sk6FDMeWBFDKibQsse7a2Bj9+KgEx1c=;
-        b=uovxiPTSzKVybI7CCd1whiLnTlnyhhwBoEjr3XS6h81zkr21C9xp3KvGjjmb32oWB0
-         tR3iPTAE9Nusg7Y8UN8tIGpLWNPv/arOZasbfX23WTOMT+JS73EjaHyaAkxxVU8L/FvF
-         m6wTo6GKzJq7ZitRMN5V6bRkYrre863jWhmdf6+RLspCK2I3QiyvdB6VqXQmpWDSoamK
-         Gft7ke2QXVmvkamO9+8Z6b7yT55HPNjd28PqqqTOdUuw+NvPaCp6cufluR4f09jDuj8+
-         rT+WpA/S4j64DXPGE2axhZ1wCf5ijQVsAhj7FxrVkkb8dmbS1w/yNTbXTrbtI0bVLvY5
-         nH7w==
-X-Forwarded-Encrypted: i=1; AL+hErHleNWnWxTlV0JF/UTAy66jAnSMzIuVsbWhuhx7OIgctHLsVYdh8ifMnY/n6AHqoW9PD3ZZpildBgc8Bck=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9gAT3kWWZGEXT4PSgC5GeIdd4lluIk9iKxJLp8QExqK7ScJWwY
-	SeZPW3ShcKaC9/zzQOw386Qi+W1n0zJSVMQPmqpN/BQbQA7JkbYrfmRh
-X-Gm-Gg: AZFdTZdQHa4TRx3+nZ8ccwWOBmcIxUDAY4DG7UhDoK83XviwT7CPZMSg5YK92YFQYe6
-	tg7yVPNVg1pc+2ugzh8b74XAKZr/aMU1sWejRxZfDogKM61WEoW1kt+zfzp6/k+dYooF2DQGXC1
-	/jdofOBkXAsonQYt/TScGLVvHa0vwnw/sbT4jZoycSg0sfB72F/3u1QOLp30F2W6pV4e2w9uxoz
-	V2kHHmE89NbLSam5nqFy5utc7FNk/OzUR+EG8tfdhFnWOIm0yyzPSCPQPJTdqK2yHVaOCesGYbO
-	xUXdKnXpwzfHSnGBE4eDvdIhUqKxmozIT53AbNTpUaatiLmzaax4Q2+kVIDIzIRZcQEYc8RC0Sx
-	TJF2F/FknmIRvesAWMml2Fy5oxI/8YjuQbtfZ31i6K7k8RKcE1u0kWBuTr3RjdOQe5QpTRaKuzr
-	btBsuQUPumJ7YyWTe3Bc2YGuAKLGkgbx/Q+Hke1sPfGH2n4yKIcpt+b0gCWhYlQJ9pnI1CeUBIx
-	LoriLbqdt648iKMbgVXTZ+M+zQFCdqf+2PtC95BhnKXkwiVI4q8zBhJpwLBPmhqjk6PaX3U6eP8
-	MMD4E89triLikR2fMvb0bHy8GxVDiwIDXjGKau7/wQzJtUpROeQoPTgvWcUSuBSNgf3W9DOw38v
-	kq6brf4acT2p8Jbk=
-X-Received: by 2002:a17:90b:55d0:b0:3b0:92be:ea4a with SMTP id 98e67ed59e1d1-3b41c9830demr9484321a91.45.1795416654083;
-        Sun, 22 Nov 2026 22:50:54 -0800 (PST)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b48b41928esm5224811a91.9.2026.11.22.22.50.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:50:53 -0800 (PST)
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-To: ukleinek@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	cwweng@nuvoton.com,
-	cwweng.linux@gmail.com
-Subject: [PATCH v7 0/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Date: Mon, 23 Nov 2026 14:50:04 +0800
-Message-Id: <20261123065006.28768-1-cwweng.linux@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=D751r6Q3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=tH
+	lnf2LKqk1x9hZynTXX0rVO585CVFuslk9OIJSwAIA=; b=D751r6Q3TtrOXCGLX8
+	3/AQ+Qfj+tI7R26aqwn/l+X3JeK/q06PtvCVkkg76WLbnHC+oBjpmQlbB4Z2TF7D
+	gZ6YSQBdT/XrNOpDP7opMPI85iHskLApqYEG27kveD8bWquKgreHEnBECg2/G1/v
+	qsdf67ASzh/w/BRKIC5uKQiKQ=
+Received: from leoqi-System-Product-Name.. (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id PCgvCgDnF4b_4QNrsN4_Gw--.61939S2;
+	Mon, 23 Nov 2026 14:49:42 +0800 (CST)
+From: Can Qi <qican5708@163.com>
+To: anup@brainfault.org
+Cc: atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] KVM: riscv: Allow rescheduling during G-stage unmap
+Date: Mon, 23 Nov 2026 14:49:35 +0800
+Message-Id: <20261123064935.1608890-1-qican5708@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261123055036.1554937-1-qican5708@163.com>
+References: <20261123055036.1554937-1-qican5708@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,141 +70,419 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PCgvCgDnF4b_4QNrsN4_Gw--.61939S2
+X-Coremail-Antispam: 1Uf129KBjvAXoWfGF4fGrWfKF13Ar4kJFy8uFg_yoW8XrW8uo
+	W0va1ruF48ury0yFy8Aw17tFyjqFW0krZxWF15XFWYgryjq348uryjkrZ8Ja47Wr1UuFyf
+	ZFWfXr17XF18G3Wfn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUrnmRDUUUU
+X-CM-SenderInfo: ptlft0avxqmqqrwthudrp/xtbCzQZVE2sD4gbMPgAA3z
 
-From: Chi-Wen Weng <cwweng@nuvoton.com>
+Removing a populated memslot or destroying a VM can require walking a
+large G-stage range while holding mmu_lock. Let these callers use the
+existing write-lock reschedule helper to bound the time spent holding
+the lock continuously.
 
-This series adds the device tree binding and PWM framework driver for the
-Nuvoton MA35D1 EPWM controller.
+Snapshot the shared root under mmu_lock and stop the walk if the root
+has been detached while the lock was dropped. Flush pending batches
+before yielding so a concurrent invalidation cannot miss PTEs cleared
+by the current walker. Finish memslot invalidation under the write
+lock and synchronize the VM before releasing a detached root.
+Return whether any cleared PTEs still need a flush at the end of the
+walk, so callers can skip a second flush when the batches have
+already been synchronized.
 
-The MA35D1 EPWM controller provides 6 PWM channels. The hardware supports
-up, down and up-down counter types, auto-reload and one-shot modes, and
-independent and complementary output modes.
+Free the VM-owned split-page cache in kvm_arch_destroy_vm(), after
+notifier callbacks have completed. Notifier release can be invoked
+by both address-space teardown and notifier unregister.
 
-The initial driver supports independent output mode only and configures a
-channel for up-counting and auto-reload operation when an explicit .apply()
-request is made. The waveform generator drives the output high at the zero
-point and low at the compare-up point.
+The first revision passed the QEMU KVM selftests, KASAN and lockdep
+runs, and tracing of rescheduling and remote TLB request handling.
+For v2, rebuild the kernel and modules and rerun the two-vCPU MMU
+stress selftest. Tracing confirms the full flush still runs on root
+detach even when the walker returns with no pending invalidations.
 
-In up-counting mode, the counter counts from 0 to PERIOD inclusive. With
-the selected waveform actions, CMPDAT = 0 generates a 0% duty cycle and
-CMPDAT > PERIOD generates a 100% duty cycle. The driver keeps PERIOD one
-count below the 16-bit field maximum so that CMPDAT can be programmed
-greater than PERIOD for the full-duty case.
+Codex assisted with implementation and validation. Sashiko identified
+the pending-flush ordering concern in an earlier revision.
 
-PERIOD and CMPDAT use the hardware period-loading buffers. Since the two
-registers are written separately, if a period boundary occurs between the
-writes, one transitional cycle can use the new PERIOD value with the
-previous CMPDAT value. The following period then uses both new values.
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Can Qi <qican5708@163.com>
+---
+Changes in v2
 
-The driver selects period loading mode by clearing IMMLDENn, WINLDENn and
-CTRLDn. When a PWM is disabled, POENn and CNTENn are cleared. Clearing
-POENn disables the output driver and puts the output pin into high
-impedance.
+- Return only pending TLB work from kvm_riscv_gstage_unmap_range(), so
+  callers can skip the final range flush if earlier batches already
+  synchronized all cleared PTEs. Keep the full flush on root detach.
 
-The driver does not modify the PWM controller during probe. This preserves
-PWM outputs that may have been configured and enabled by firmware, such as
-a display backlight. The counter and waveform configuration is changed
-only for the channel passed to .apply().
+ arch/riscv/include/asm/kvm_gstage.h | 11 ++++-
+ arch/riscv/kvm/gstage.c             | 31 +++++++++---
+ arch/riscv/kvm/mmu.c                | 95 ++++++++++++++++++-------------------
+ arch/riscv/kvm/vm.c                 |  3 ++
+ 4 files changed, 84 insertions(+), 56 deletions(-)
 
-Since the independent/complementary mode selection is shared by each pair
-of channels, the driver refuses to change an active complementary pair to
-independent mode when the paired channel is active.
+diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
+index aaf080ba1..ea57df965 100644
+--- a/arch/riscv/include/asm/kvm_gstage.h
++++ b/arch/riscv/include/asm/kvm_gstage.h
+@@ -77,6 +77,7 @@ enum kvm_riscv_gstage_op {
+ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
+ 			     pte_t *ptep, u32 ptep_level, enum kvm_riscv_gstage_op op);
+ 
++/* Returns true if cleared PTEs still need a TLB flush. */
+ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+ 				  gpa_t start, gpa_t size, bool may_block);
+ 
+@@ -104,13 +105,21 @@ static inline unsigned long kvm_riscv_gstage_mode(unsigned long pgd_levels)
+ 	}
+ }
+ 
+-static inline void kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
++/* The caller must hold mmu_lock while accessing the shared page tables. */
++static inline bool kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
+ {
++	lockdep_assert_held(&kvm->mmu_lock);
++
++	if (!kvm->arch.pgd)
++		return false;
++
+ 	gstage->kvm = kvm;
+ 	gstage->flags = 0;
+ 	gstage->vmid = READ_ONCE(kvm->arch.vmid.vmid);
+ 	gstage->pgd = kvm->arch.pgd;
+ 	gstage->pgd_levels = kvm->arch.pgd_levels;
++
++	return true;
+ }
+ 
+ #endif
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index be70607a3..47b906769 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -423,9 +423,19 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+ 	bool found_leaf;
+ 	unsigned long page_size;
+ 	gpa_t addr = start, end = start + size;
+-	bool flush = false;
++	gfn_t last_flush_gfn = start >> PAGE_SHIFT;
++	bool pending_flush = false;
++
++	if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL))
++		lockdep_assert_held_write(&gstage->kvm->mmu_lock);
+ 
+ 	while (addr < end) {
++		/* A concurrent teardown may have freed the root while unlocked. */
++		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) &&
++		    (!gstage->kvm->arch.pgd ||
++		     gstage->pgd != gstage->kvm->arch.pgd))
++			break;
++
+ 		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
+ 		ret = gstage_level_to_page_size(gstage, ptep_level, &page_size);
+ 		if (ret)
+@@ -434,10 +444,10 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+ 		if (!found_leaf) {
+ 			addr = ALIGN(addr + 1, page_size);
+ 		} else {
+-			if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
+-				flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
++			if (!(addr & (page_size - 1)) && ((end - addr) >= page_size)) {
++				pending_flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
+ 								 ptep_level, GSTAGE_OP_CLEAR);
+-			else {
++			} else {
+ 				WARN_ONCE(1, "Skip unmap range addr: %#llx, end: %#llx, page_size: %#lx\n",
+ 						addr, end, page_size);
+ 			}
+@@ -448,12 +458,21 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+ 		/*
+ 		 * If the range is too large, release the kvm->mmu_lock
+ 		 * to prevent starvation and lockup detector warnings.
++		 * Flush first so another invalidator cannot miss cleared PTEs.
+ 		 */
+-		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) && may_block && addr < end)
++		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) && may_block && addr < end &&
++		    (need_resched() || rwlock_needbreak(&gstage->kvm->mmu_lock))) {
++			if (pending_flush) {
++				kvm_flush_remote_tlbs_range(gstage->kvm, last_flush_gfn,
++							    (addr >> PAGE_SHIFT) - last_flush_gfn);
++				pending_flush = false;
++			}
++			last_flush_gfn = addr >> PAGE_SHIFT;
+ 			cond_resched_rwlock_write(&gstage->kvm->mmu_lock);
++		}
+ 	}
+ 
+-	return flush;
++	return pending_flush;
+ }
+ 
+ bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end)
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 738d9ee1e..0d0ab1127 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -26,12 +26,11 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
+ 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
+ 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
+ 	struct kvm_gstage gstage;
+-	bool flush;
+-
+-	kvm_riscv_gstage_init(&gstage, kvm);
++	bool flush = false;
+ 
+ 	write_lock(&kvm->mmu_lock);
+-	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
++	if (kvm_riscv_gstage_init(&gstage, kvm))
++		flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
+ 	write_unlock(&kvm->mmu_lock);
+ 	if (flush)
+ 		kvm_flush_remote_tlbs_memslot(kvm, memslot);
+@@ -44,7 +43,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+ 	pgprot_t prot;
+ 	unsigned long pfn;
+ 	phys_addr_t addr, end;
+-	unsigned long pgd_levels = kvm->arch.pgd_levels;
++	unsigned long pgd_levels = kvm_riscv_gstage_max_pgd_levels;
+ 	struct kvm_mmu_memory_cache pcache = {
+ 		.gfp_custom = (in_atomic) ? GFP_ATOMIC | __GFP_ACCOUNT : 0,
+ 		.gfp_zero = __GFP_ZERO,
+@@ -52,8 +51,6 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+ 	struct kvm_gstage_mapping map;
+ 	struct kvm_gstage gstage;
+ 
+-	kvm_riscv_gstage_init(&gstage, kvm);
+-
+ 	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
+ 	pfn = __phys_to_pfn(hpa);
+ 	prot = pgprot_noncached(PAGE_WRITE);
+@@ -72,7 +69,10 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+ 			goto out;
+ 
+ 		write_lock(&kvm->mmu_lock);
+-		ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
++		if (kvm_riscv_gstage_init(&gstage, kvm))
++			ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
++		else
++			ret = -EFAULT;
+ 		write_unlock(&kvm->mmu_lock);
+ 		if (ret)
+ 			goto out;
+@@ -88,12 +88,11 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+ void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
+ {
+ 	struct kvm_gstage gstage;
+-	bool flush;
+-
+-	kvm_riscv_gstage_init(&gstage, kvm);
++	bool flush = false;
+ 
+ 	write_lock(&kvm->mmu_lock);
+-	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
++	if (kvm_riscv_gstage_init(&gstage, kvm))
++		flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+ 	write_unlock(&kvm->mmu_lock);
+ 
+ 	if (flush)
+@@ -146,7 +145,7 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
+ 			write_lock(&kvm->mmu_lock);
+ 		}
+ 
+-		if (!kvm->arch.pgd)
++		if (!kvm->arch.pgd || gstage->pgd != kvm->arch.pgd)
+ 			return flush;
+ 
+ 		flush |= kvm_riscv_gstage_split_huge(gstage, pcache, addr, 0, false);
+@@ -167,7 +166,8 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+ 	struct kvm_gstage gstage;
+ 
+-	kvm_riscv_gstage_init(&gstage, kvm);
++	if (!kvm_riscv_gstage_init(&gstage, kvm))
++		return;
+ 
+ 	kvm_riscv_gstage_wp_pt_masked(&gstage, base_gfn, mask);
+ 
+@@ -205,16 +205,15 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+ 	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
+ 	phys_addr_t size = slot->npages << PAGE_SHIFT;
+ 	struct kvm_gstage gstage;
+-	bool flush;
+-
+-	kvm_riscv_gstage_init(&gstage, kvm);
++	bool flush = false;
+ 
+ 	write_lock(&kvm->mmu_lock);
+-	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+-	write_unlock(&kvm->mmu_lock);
++	if (kvm_riscv_gstage_init(&gstage, kvm))
++		flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, true);
+ 	if (flush)
+ 		kvm_flush_remote_tlbs_range(kvm, gpa >> PAGE_SHIFT,
+ 					    size >> PAGE_SHIFT);
++	write_unlock(&kvm->mmu_lock);
+ }
+ 
+ static void mmu_split_memory_region(struct kvm *kvm, int slot)
+@@ -224,12 +223,11 @@ static void mmu_split_memory_region(struct kvm *kvm, int slot)
+ 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
+ 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
+ 	struct kvm_gstage gstage;
+-	bool flush;
+-
+-	kvm_riscv_gstage_init(&gstage, kvm);
++	bool flush = false;
+ 
+ 	write_lock(&kvm->mmu_lock);
+-	flush = mmu_split_huge_pages(&gstage, start, end);
++	if (kvm_riscv_gstage_init(&gstage, kvm))
++		flush = mmu_split_huge_pages(&gstage, start, end);
+ 	write_unlock(&kvm->mmu_lock);
+ 
+ 	if (flush)
+@@ -334,12 +332,10 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	struct kvm_gstage gstage;
+ 	bool flush;
+ 
+-	if (!kvm->arch.pgd)
+-		return false;
+-
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+-	kvm_riscv_gstage_init(&gstage, kvm);
++	if (!kvm_riscv_gstage_init(&gstage, kvm))
++		return false;
+ 	flush = kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
+ 					     (range->end - range->start) << PAGE_SHIFT,
+ 					     range->may_block);
+@@ -356,12 +352,11 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	u64 size = (range->end - range->start) << PAGE_SHIFT;
+ 	struct kvm_gstage gstage;
+ 
+-	if (!kvm->arch.pgd)
++	if (!kvm_riscv_gstage_init(&gstage, kvm))
+ 		return false;
+ 
+ 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+ 
+-	kvm_riscv_gstage_init(&gstage, kvm);
+ 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
+ 				       &ptep, &ptep_level))
+ 		return false;
+@@ -376,12 +371,11 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	u64 size = (range->end - range->start) << PAGE_SHIFT;
+ 	struct kvm_gstage gstage;
+ 
+-	if (!kvm->arch.pgd)
++	if (!kvm_riscv_gstage_init(&gstage, kvm))
+ 		return false;
+ 
+ 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+ 
+-	kvm_riscv_gstage_init(&gstage, kvm);
+ 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
+ 				       &ptep, &ptep_level))
+ 		return false;
+@@ -563,12 +557,12 @@ static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
+ 	bool dirty_marked = false;
+ 	bool ret;
+ 
+-	kvm_riscv_gstage_init(&gstage, kvm);
+ 	mmu_seq = kvm->mmu_invalidate_seq;
+ 
+ 	read_lock(&kvm->mmu_lock);
+ 
+-	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
++	if (!kvm_riscv_gstage_init(&gstage, kvm) ||
++	    mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
+ 		ret = false;
+ 		goto out_unlock;
+ 	}
+@@ -640,8 +634,6 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	struct kvm_gstage gstage;
+ 	struct page *page;
+ 
+-	kvm_riscv_gstage_init(&gstage, kvm);
+-
+ 	/* Setup initial state of output mapping */
+ 	memset(out_map, 0, sizeof(*out_map));
+ 
+@@ -649,8 +641,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	    kvm_riscv_mmu_dirty_log_write_fault_fast(kvm, memslot, gpa, out_map))
+ 		return 0;
+ 
+-	/* We need minimum second+third level pages */
+-	ret = kvm_mmu_topup_memory_cache(pcache, kvm->arch.pgd_levels);
++	/* Size the cache before acquiring the shared root under mmu_lock. */
++	ret = kvm_mmu_topup_memory_cache(pcache, kvm_riscv_gstage_max_pgd_levels);
+ 	if (ret) {
+ 		kvm_err("Failed to topup G-stage cache\n");
+ 		return ret;
+@@ -722,6 +714,11 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 
+ 	write_lock(&kvm->mmu_lock);
+ 
++	if (!kvm_riscv_gstage_init(&gstage, kvm)) {
++		ret = -EFAULT;
++		goto out_unlock;
++	}
++
+ 	if (mmu_invalidate_retry(kvm, mmu_seq)) {
+ 		unused = true;
+ 		goto out_unlock;
+@@ -829,24 +826,24 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+ 	bool flush = false;
+ 
+ 	write_lock(&kvm->mmu_lock);
+-	if (kvm->arch.pgd) {
+-		kvm_riscv_gstage_init(&gstage, kvm);
++	if (kvm_riscv_gstage_init(&gstage, kvm)) {
+ 		flush = kvm_riscv_gstage_unmap_range(&gstage, 0UL,
+-			kvm_riscv_gstage_gpa_size(kvm->arch.pgd_levels), false);
+-		pgd = READ_ONCE(kvm->arch.pgd);
+-		kvm->arch.pgd = NULL;
+-		kvm->arch.pgd_phys = 0;
+-		kvm->arch.pgd_levels = 0;
++			kvm_riscv_gstage_gpa_size(gstage.pgd_levels), true);
++		/* Only the caller that still owns the root may detach it. */
++		if (gstage.pgd == kvm->arch.pgd) {
++			pgd = kvm->arch.pgd;
++			kvm->arch.pgd = NULL;
++			kvm->arch.pgd_phys = 0;
++			kvm->arch.pgd_levels = 0;
++		}
+ 	}
+-	write_unlock(&kvm->mmu_lock);
+-
+-	if (flush)
++	/* Synchronize before another invalidator can observe the detached root. */
++	if (flush || pgd)
+ 		kvm_flush_remote_tlbs(kvm);
++	write_unlock(&kvm->mmu_lock);
+ 
+ 	if (pgd)
+ 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
+-
+-	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
+ }
+ 
+ void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index 58500a19b..7d467b0c5 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -54,6 +54,9 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+ 	kvm_destroy_vcpus(kvm);
+ 
+ 	kvm_riscv_aia_destroy_vm(kvm);
++
++	/* MMU notifier callbacks have finished before VM destruction. */
++	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
+ }
+ 
+ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irql,
 
-Changes in v7:
-- Rename register macros to match the EPWM register names in the
-  reference manual.
-- Rename bitfield macros to use the corresponding register name
-  as a prefix.
-- Rename CNTTYPE and related CTL1 field macros to match the reference
-  manual naming.
-- Keep short register update calls on a single line.
-- No functional changes.
-
-Changes in v6:
-- Document that clearing POENn disables the output driver and puts the
-  output pin into high impedance.
-- Document that a period boundary between the PERIOD and CMPDAT writes can
-  result in one transitional cycle using the new period with the previous
-  duty cycle.
-- No functional changes.
-
-Changes in v5:
-- Remove the probe-time controller initialization to preserve PWM outputs
-  configured by firmware.
-- Configure the counter and waveform settings only for the channel passed to
-  .apply().
-- Keep the disable path limited to clearing POENn and CNTENn.
-- Check for an active paired channel before changing a complementary pair to
-  independent mode.
-- Return -EBUSY when changing the shared output mode would disturb an active
-  paired channel.
-- Document that the initial driver supports independent output mode only.
-- Remove the unnecessary <linux/mod_devicetable.h> include.
-- Simplify the WGCTL action field handling and remove the associated static
-  inline mask helpers.
-- Rename the PWM field and period limits to clarify their different
-  semantics.
-- Configure period loading mode explicitly in .apply().
-- Preserve the pair-shared clock prescaler and account for it in period and
-  duty-cycle calculations.
-- Limit the period to 0xffff counter cycles while reserving CMPDAT = 0xffff
-  for the full-duty case.
-
-Changes in v4:
-- Add a Limitations section to describe the hardware capabilities and driver
-  limitations.
-- Add a link to the MA35D1 reference manual.
-- Replace register address macros containing the base pointer with register
-  offset macros.
-- Add readl/writel/rmw helper functions.
-- Rename TOTAL_CHANNELS to NUM_CHANNELS.
-- Use unsigned long for the cached clock rate.
-- Use devm_clk_rate_exclusive_get().
-- Configure polarity before enabling the counter and output.
-- Add controller initialization for up-counting, auto-reload and independent
-  output mode.
-- Configure the waveform generator for zero-point-high and compare-up-low
-  output.
-- Fix the period conversion because the hardware period is PERIOD + 1 cycles.
-- Limit the maximum PERIOD value to 0xfffe so that CMPDAT = 0xffff can be used
-  to generate 100% duty cycle.
-- Use CNTEN and POEN bits to report the enabled state in .get_state().
-- Disable the PWM by clearing POENn and CNTENn.
-- Fix error message capitalization and trailing newlines.
-- Fix coding style issues reported by review/checkpatch-style tools.
-
-Changes in v3:
-- Update nuvoton,ma35d1-pwm.yaml:
-  - Add maintainers entry.
-  - Increase "#pwm-cells" to 3.
-- Update the MA35D1 PWM driver:
-  - Organize include headers and macro definitions.
-  - Rename REG_PWM_XXXX macros to MA35D1_REG_PWM_XXXX.
-  - Add register address macros.
-
-v2 resend:
-- Remove incorrect Reviewed-by tags.
-
-Changes in v2:
-- Update nuvoton,ma35d1-pwm.yaml:
-  - Fix maxItems of reg to 1.
-  - Remove unused label.
-- Update the MA35D1 PWM driver:
-  - Remove MODULE_ALIAS().
-  - Add chip->atomic = true.
-
-Chi-Wen Weng (2):
-  dt-bindings: pwm: Add Nuvoton MA35D1 PWM controller
-  pwm: Add Nuvoton MA35D1 PWM controller support
-
- .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      |  45 +++
- drivers/pwm/Kconfig                           |  10 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-ma35d1.c                      | 382 ++++++++++++++++++
- 4 files changed, 438 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
- create mode 100644 drivers/pwm/pwm-ma35d1.c
-
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
-2.25.1
+2.34.1
 
