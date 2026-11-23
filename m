@@ -1,104 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795448393;
-	b=nqDI3o8ry4n7x7y6S6bJXFeP9JGgCdf0DidFMZOAF6v3dn0O8n+zc+Mk6z5aNp9WRrIB
-	 xjMdkFoS/TAkvDTvLekhMCNX0X9P5o6uanROVdU1xoK/6rBNabo6TlC/MSmzol9qU/CHs
-	 PXyy07lJ4HjsSmp9SzM+yUCR9YJ/FMCP9ohI5IuDkFPMnM1khNWCrhQk9ISXdx6n6KcdR
-	 Q2Uj9Sc2XVw98x2XJJ54NGX6QwHo/gI4AqbG1jLpAsxt1KUWOmJZjePb1EYxar6JsVf0c
-	 tIMcQXld8kCQMqrEQu0t4oQtTRB0svSUM0Uh9TXyYdxgznDzhcIkDtQw6PLOuvTxpNg==
+	b=r5HVBOmSB07UcJVzfii6s1Za7EtjfQDkzPo57uDT+epDsQGyjH+RwfclY3Y0gOEoWoBz
+	 uyM6ynEVeEmjlJyeLHQctOuKfrtOHd5IxAZtf+3meIMTW/C+ry4BeAWfGf5HnhB0m5vc5
+	 vQypRHJV9qJMG9gdPg2QqyaWP18oa6PVb1Ijj8c7Kd2I7t0A6djL7bEoLYc9rIGGZeYGF
+	 3FipMG/2IKPbZdaA0j7PkWCIAFhSfJc1qnjCKiSDzYhCfMWU2QheXbLZAmGv02n0Us39c
+	 Jv04fupbAbIzclM2zqn+HL8Qx3CxYkprAd103FTFoVNT/Bmdy+FQyA76drgxi4qGNAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795448393;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Spamd-Result:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
-	 X-Rspamd-Queue-Id;
-	bh=2Q7CdRj+MCvFMxohcbN3zjaqZjL02AoaQHV5q/7P7x0=;
-	b=4ESQv+adSOfLhQ2LU63atJMngtXOolutEvEmwiuUPmwiFYwG84Z7Ef8KLF39v71+YQcX
-	 /WU/h1kd1Kr9BUo4YmVN/Qf6ATflG2GiM6eZN6AfrkBnDJY9B66MNXBZFNFSJTVApwpDP
-	 xKGdvqOn6+DN04hseFhrmbU7fsD2qP3VXxCiv/lzz2Lg9csACh6tOthrzu/iyKOROHgve
-	 G/zI4ujxvL83rhK8LSde4QoVmOCvQZEfiifbycw2BJDU4t7hCzRirN8vzn7TIJHwxBjuv
-	 M/smZKx7vBHjOX0MkeFTBxojhjQsPtj1A1scqOb9o8PmiXnUKdJySOw5AepkcTDq+wQ==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=rnFtEm3Izxz1UaZJoPtPCYt5FC5hB7rMwqRB7aaszpY=;
+	b=EKimn3jpQb7LbieP/fbEQwa4RmJsu5wA09EnbKswi41fIupBRoyCrkkTNpZddOjI2qFS
+	 QBlp1igbb2JOxurs/SwoMO6oobjN6yUMbCpqbSKuuCzEiAJp+4KvexRRcX2Vz/bOKV20R
+	 B9AnYo249uF96Jxvg3XP0hmZbfKjtWN/tQEh+iN0mFecX+KvHT40/lKBJbagQz/pG8WDH
+	 sS7VAor2Gq/1rlQ0JQEm8yFba0qBQuHWF1Wxq5ADJHzEUtppifWObCSyCKIlr2NOeHizp
+	 j/QW+KBLR0bqK+pgTm1JlNrPn8ACK6vzigBE4MEF7hIY8m3vnHrCSz5XFed7NWPvsqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Eo799los;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HxRGKCHN;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Eo799los;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HxRGKCHN;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ok5SYxjV;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78572606A6BC
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B253B606A6BE
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:39:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78572606A6BC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B253B606A6BE
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Eo799los;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HxRGKCHN;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Eo799los;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=HxRGKCHN
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id A29491F84B;
-	Mon, 23 Nov 2026 15:39:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795448390; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Q7CdRj+MCvFMxohcbN3zjaqZjL02AoaQHV5q/7P7x0=;
-	b=Eo799los/WG7AgHd5RxhJRtHLaKJ3337K8DDk/4oVdoGOKoSdS7aWAqndsWHs3ujMrLbU7
-	FbVnO4JLwwQJ+CTE8o79NF2655MnJuc0oeXGDUo3oNuePLjvNywCliRYjk02b+sxwY91OI
-	mjfbxbc6i6N5buSFKH0+Gd9a4hC0ca0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795448390;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Q7CdRj+MCvFMxohcbN3zjaqZjL02AoaQHV5q/7P7x0=;
-	b=HxRGKCHN57bPD6a2nu5pf5xoUrfPk7AGqt44WWk+o65E+PQ9yCw3OJ53GuG0eD3QSzJffu
-	Po0xyCI1mav2DoBw==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Eo799los;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=HxRGKCHN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795448390; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Q7CdRj+MCvFMxohcbN3zjaqZjL02AoaQHV5q/7P7x0=;
-	b=Eo799los/WG7AgHd5RxhJRtHLaKJ3337K8DDk/4oVdoGOKoSdS7aWAqndsWHs3ujMrLbU7
-	FbVnO4JLwwQJ+CTE8o79NF2655MnJuc0oeXGDUo3oNuePLjvNywCliRYjk02b+sxwY91OI
-	mjfbxbc6i6N5buSFKH0+Gd9a4hC0ca0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795448390;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Q7CdRj+MCvFMxohcbN3zjaqZjL02AoaQHV5q/7P7x0=;
-	b=HxRGKCHN57bPD6a2nu5pf5xoUrfPk7AGqt44WWk+o65E+PQ9yCw3OJ53GuG0eD3QSzJffu
-	Po0xyCI1mav2DoBw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 529791352B;
-	Mon, 23 Nov 2026 15:39:50 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 6OALC0ZeBGutJQAAD6G6ig
-	(envelope-from <hare@suse.de>); Mon, 23 Nov 2026 15:39:50 +0000
-Message-ID: <5f994e96-c662-48c5-82c8-7940e2c0a872@suse.de>
-Date: Mon, 23 Nov 2026 16:39:49 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ok5SYxjV
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-15ea896ddc8so5753024c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:39:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795448392; x=1796053192; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rnFtEm3Izxz1UaZJoPtPCYt5FC5hB7rMwqRB7aaszpY=;
+        b=ok5SYxjV6o8dq6DuX0zneZHfwHZjH8ALj/ltadv9dglVJX4zrQMhi1d+nSS6DDhxKq
+         FiXhxmJtgAQRaYKPyA3S3/vc9fmfFKvrMQF8ZDTbcpX14Gxzmzl+pKbG5oGcDtlj7vQ5
+         glScRIbIaP8sQlBqqtx39E6AUVB0oZ0h9+vB9tdFGyECbO45sKHKrZOFewP2P8s2b96r
+         QVb5JNQ2KETNfUUaUqkkGJEQB4AH9bOyj8w7PKaO7SVdvFglONOycMO3FBivnLhl5oUm
+         1lzYcACT1q76kH4Is+Oo8xpJbxKjTlGvHQqM0huRD7IlQmIXn6PGIEoDDXXKPETVHjTJ
+         MY6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795448392; x=1796053192;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rnFtEm3Izxz1UaZJoPtPCYt5FC5hB7rMwqRB7aaszpY=;
+        b=InRgDCMz07aGsbOvRsKH7eBEl949UFkbDnpxOIo15HUVhJU9r7Rsfdhr45hhZ/ejHF
+         S1jwUTAu/aanIC8LLwF0KhBvmDf2zpqvvf7E4ig33IEyMie0B0r5w6XAie3HSE3ZJ7gr
+         5A71MlRJk6IbDMrvysgXreepT6RLJ6tGnm6qcpiUH2XLiDOf4jbN7Qg/QE1F4dQ+x5TY
+         xrzKwe5dhUUEzb9R/kORauAzIYp5GwFviEhRFwvc7NGebIdD+xt0HNfJfPOfgpXjdhhy
+         3CQYztt1SCKdtKggMqZQaClxNeI/bU8VlkPo2uTnjlwoir9tF893je2Iun3mgKSY6a7j
+         1KwQ==
+X-Forwarded-Encrypted: i=1; AL+hErHSJmda9VVRRrh12u6VGin4wnm0IMfPSw67WhNAwcZznE6+T8YsvE2u3UfLktHzWI28hiKgOF8j9euTiao=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Y0duBYVczyRNa1zjxuYU/nRB6clJPndCFc0EXoqaDM06sqZ4m
+	r52RD/IFM4mmNRZAcO97PzPBzWyb6ImSReB5ZSZGA2SqpUZXAB4+F5mk
+X-Gm-Gg: AZFdTZdSwYXjykj+Qt/EpDbyIoVvSzEYdPK/EyEKLaFFts9lfij4nqCE3ZYT31XmAMa
+	4Hg3A7uBvotCKz9cRgL1/SKywZZn1XpyL+0LW9HMYE/nuEvb33+ip0wA16kwsFXYbOQL2m4ogDQ
+	9WBxHQ3gguANrKqPa2xUKmy4m1eP12ZbLc/+3DNTo7cosFBcez5Vs2TH5X49zDaqOqBvzQCA4uN
+	v50BXDgyk4Iqxn2kbrZa5D/hfFXAzMBI9cQZ7+nVGdOagEPjEPMGhJ/1gLcPAG246/+Yt/ZFeTJ
+	1NWKqzz6ODr9ceoApEdGqCtQdlG/pY2/xckW/o9oaeFuU0FR5pX9Umwe3sMQ/RdcPPrv6pXr34U
+	4dEp+hh7T2J0/mzXSKACqlrwk05tKKjbh5O7aqpsHZP0zE95Jy8nPiktS2/bh1nJhvLl5i9336+
+	PPv/uHD7VslovCe9+9RWwu9Sc1pQlgxANUIzLNt/WN0kkoXWJf6okBBe9YuIcLWtwuUpX+mlDib
+	L4Sjo2CIkibqnNTz+CusZqxBAD3R+6W3Z3ydHhuQNAB4qtYUxIJOd47t17J2VM4MOtoV/t8Vl58
+	aN8EYkAD/KzSHQQu1l3nQ+DZ01NxAAy6BBQ+KIhNr9Jh+ek=
+X-Received: by 2002:a05:7023:b12:b0:141:5281:8a41 with SMTP id a92af1059eb24-1b55687fbc9mr12426552c88.9.1795448391824;
+        Mon, 23 Nov 2026 07:39:51 -0800 (PST)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm33680067c88.7.2026.11.23.07.39.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:39:51 -0800 (PST)
+From: Cong Nguyen <congnt264@gmail.com>
+To: sakari.ailus@linux.intel.com
+Cc: linux-media@vger.kernel.org,
+	Cong Nguyen <congnt264@gmail.com>,
+	Arec Kao <arec.kao@intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 07/16] media: i2c: ov13b10: power off the sensor on remove
+Date: Mon, 23 Nov 2026 22:39:18 +0700
+Message-Id: <20261123153927.2547169-8-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261123153927.2547169-1-congnt264@gmail.com>
+References: <20261123153927.2547169-1-congnt264@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,102 +100,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/9] nvme-auth: switch to use the kernel keyring
-To: Martin Belanger <martin.nvme.dev@gmail.com>,
- Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>
-Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org>
- <5aa50b65-c502-4b87-8f09-23a456e2ca6a@gmail.com>
-Content-Language: en-US
-From: Hannes Reinecke <hare@suse.de>
-In-Reply-To: <5aa50b65-c502-4b87-8f09-23a456e2ca6a@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-12.00 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	XM_UA_NO_VERSION(0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[gmail.com,kernel.org,kernel.dk,lst.de,grimberg.me,nvidia.com];
-	MIME_TRACE(0.00)[0:+];
-	URIBL_BLOCKED(0.00)[suse.de:email,suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:dkim]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spam-Score: -12.00
-X-Spam-Level: 
-X-Rspamd-Queue-Id: A29491F84B
 
-On 11/23/26 1:59 PM, Martin Belanger wrote:
-> 
-> 
-> On 11/23/26 07:14, Hannes Reinecke wrote:
->> With this I have updated the dhchap arguments to 'nvme connect' and
->> the configfs interface to either be the keydata (ie the original
->> interface) _or_ a key description referring to a pre-populated dhchap
->> key in the kernel keyring.
-> 
-> Hi Hannes,
-> 
-> How should nvme-cli determine whether the kernel accepts a key
-> description for DH-HMAC-CHAP?
-> 
-> I will add DH-HMAC-CHAP support to nvme-keysd. It will import the
-> secrets into the .nvme keyring, the same way it imports TLS PSKs
-> today, and nvme-cli will pass the key description to 'nvme connect'.
-> On an older kernel, nvme-keysd must not import the secrets, and
-> nvme-cli must pass the key data instead. So both need to know what
-> the kernel supports.
-> 
-> I see these options:
-> 
-> 1. Check the kernel version. This does not cover backports.
-> 
-> 2. Use a separate option for the key description, for example
->     dhchap_key=%s and dhchap_ctrl_key=%s. nvme-cli would then detect
->     support through /dev/nvme-fabrics, as it does for the other
->     options. It also avoids having one string that can mean either a
->     description or key data.
-> 
-> 3. Something else. add_key() fails with ENODEV when the 'dhchap' key
->     type does not exist, but this does not show that the connect
->     options accept a description.
-> 
-I think option 2) is the easiest. We already have support for that
-selection mechanism in nvme-cli, and anyone backporting only parts
-of this series deserves no better.
+ov13b10_set_stream() takes a runtime PM reference with
+pm_runtime_resume_and_get() when streaming starts and drops it when
+streaming stops. ov13b10_remove() calls pm_runtime_disable() and
+pm_runtime_set_suspended() but never ov13b10_power_off(), so a device
+that is still runtime active when the driver is unbound can keep its clock
+and regulators enabled.
 
-Cheers,
+After disabling runtime PM, call ov13b10_power_off() if the device is
+not already runtime suspended, and only then set the runtime PM status
+to suspended. Avoid powering it off again when runtime suspend has
+already done so.
 
-Hannes
+This issue was found by auditing the driver with an LLM coding assistant.
+
+Fixes: 7ee850546822 ("media: Add sensor driver support for the ov13b10 camera.")
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/media/i2c/ov13b10.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/i2c/ov13b10.c b/drivers/media/i2c/ov13b10.c
+index f639a70f60dc..b4d67018c983 100644
+--- a/drivers/media/i2c/ov13b10.c
++++ b/drivers/media/i2c/ov13b10.c
+@@ -1689,7 +1689,10 @@ static void ov13b10_remove(struct i2c_client *client)
+ 	ov13b10_free_controls(ov13b);
+ 
+ 	pm_runtime_disable(ov13b->dev);
+-	pm_runtime_set_suspended(ov13b->dev);
++	if (!pm_runtime_status_suspended(ov13b->dev)) {
++		ov13b10_power_off(ov13b->dev);
++		pm_runtime_set_suspended(ov13b->dev);
++	}
+ }
+ 
+ static DEFINE_RUNTIME_DEV_PM_OPS(ov13b10_pm_ops, ov13b10_suspend,
 -- 
-Dr. Hannes Reinecke                  Kernel Storage Architect
-hare@suse.de                                +49 911 74053 688
-SUSE Software Solutions GmbH, Frankenstr. 146, 90461 Nürnberg
-HRB 36809 (AG Nürnberg), GF: I. Totev, A. McDonald, W. Knoblich
+2.25.1
+
