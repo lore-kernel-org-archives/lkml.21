@@ -1,70 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401827;
-	b=2RukMI6NkFMzeNYhy0CU/p/L6UznNpLygtK8u1geWvILD8Fs0Tmb5q0raY9ykTuf2MZl
-	 QW7ytLttCDh1aUgdvPlPPRNq+ysWEysrMf1kOLUkBHcxcpG6cC3sYSSMOIQRrUGImS0ST
-	 Y3hth2TMOuXaSgc5JI4QYR0ey8zEd2wu301apq2PByHioubEuqKxL4MSmwNVZIhWv3oNq
-	 QMG59ycuq8sJ02XKTMXsYIaarFtgJ/vsusr5y6QQVrQI+8FYAYcHn8+l4EqKNRoLCHSps
-	 gzuITziULtZfgaoICyTg4hBlBgefYM20nefJNYCDQtL/WSNOhIiY4nfwU6nxxmjyDnA==
+	t=1795401833;
+	b=pKUDFRII+E3ZUyW4Y6UoJdOJfT4he/SB48rBMZgyFa5dGpI3RkBPI3pZnSfrhyHBuGDj
+	 iWMu4O5+1WKUtAu8euMCgOXL4gFw28ssL81f6tcItyCT8l6fPSqFKLwj7G4G3uUwoz9aG
+	 emk1xgwVzEe+0e4fRVDiILvml2M6JpLceNtcGry2om06MRxDK+rhOXgw5C0c4BSBp3j6t
+	 crf2Ig81tWZUyuWtlaYEb32KuUvnNnzOoj4jZf2CwBeEeEeE5JqJHrTZec6qAPNdFXrIH
+	 Hy0yCRVuppQgr2Mlz2Rctgt/cvWnUALTjhZDUZd+hBRMlFaHOKugUamee24G/RGHZeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401827;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yd5fH2AProMUuE+LUBrS93lMr/XlRRxFbHWMpgM+ObM=;
-	b=Ug1RJdoabIAk5ebc3d/sPFOA9NthA9hI/SMcPwSDHXnCvEek7jHv1Dx5F/apWIt2rkLc
-	 tUg+RK5Ga5O5d5UvbfBKvmUDuWGuAk9Srf1jFal1HmtH2vK6BSjjf2X3oDi/XlWw23buw
-	 fhA1xDJ4vVdtMNqaK55jMt4iZjK+nHr14NI8mUoB1ytaWRPiZNDnacZV8WvVgUScoB0bW
-	 Z2eah2hLWfItkELFBJJcjW2Qof5mj9tRlwtIoN3LehGxnKYTyMZ0bxiqlhPkEUmD0tLqh
-	 LNxvZWeAAsLy4s0skmQvGmYAAvyW+YwnwHh/bCu2T2kMDM0AgVOFXRJfRYPrkHxNQmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401833;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=7h4fa7fAeNHm0gLiDYWKbggl8GPtg/qRasIhvm+V054=;
+	b=mY63A20GP3WDObgqAiMDMZfdzeA/5yhPrL5DP1jUabKCegQG4alsuWiGX96YSuFc078H
+	 JRyc7o8rLkiN1HWcYtzmn51xVXe44Erx+kEKSc4qBK+CVqrjGWoF035lLw7MtGvHNZqWu
+	 fB2i9IW550lfJP7KiLt6WlGt/JfHbG2pD7OjYrKg8QHlTtW4Jw3ruMXH/pkhYZfiKe5xD
+	 z2lcHb6w3b4kYJuty66UFxuz6qDHbR67h6EadeZRE/kzu1EsrTLC4jZbcAXHj7s7p5pLQ
+	 lPsQvkXtjs8FIhv3sPcWV2iZEca+L/HGw5UTmX/aX2F6R3CMLV8VM1wZy3B3gmkk/jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=mucse.com;
+	spf=pass smtp.mailfrom=mucse.com;
+	arc=none smtp.remote-ip=54.204.34.129
+Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67C30606A31E;
-	Mon, 23 Nov 2026 02:43:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67C30606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: abe03dece6e711f19a56ed5b684f684d-20261123
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:87b57ca8-9352-4006-9045-7befbe19131c,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:8ab76f97b73cc3ed65a6849a00b17523,BulkI
-	D:nil,BulkQuantity:0,SF:80|81|82|83|102|850|865|898,TC:nil,Content:0|15|50
-	|99,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
-	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: abe03dece6e711f19a56ed5b684f684d-20261123
-X-User: huangwei@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <huangwei@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1960239668; Mon, 23 Nov 2026 10:43:32 +0800
-From: Huang Wei <huangwei@kylinos.cn>
-To: Bertrand Jacquin <bertrand@jacquin.bzh>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Venkat Jayaraman <venkat.jayaraman@intel.com>,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	huangwei@kylinos.cn
-Subject: Re: [PATCH] usb: typec: ucsi: Fix NULL pointer dereference in power level debugfs
-Date: Mon, 23 Nov 2026 10:43:26 +0800
-Message-Id: <20261123024326.2693527-1-huangwei@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <awHB7a-zLM3GpC9C@lady-voodoo.lan>
-References: <20261010120357.4937-1-bertrand@jacquin.bzh> <2026112040-splashy-power-2d46@gregkh> <awHB7a-zLM3GpC9C@lady-voodoo.lan>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14719606A31A;
+	Mon, 23 Nov 2026 02:43:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14719606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
+X-QQ-mid: zesmtpsz3t1795401778tb72fd3fb
+X-QQ-Originating-IP: 0onMsQogQ/rLZXByQ9cnSDQaNbHDKF7EkBi9epid8h4=
+Received: from localhost ( [203.174.112.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 23 Nov 2026 10:42:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15827168950631735144
+EX-QQ-RecipientCnt: 10
+Date: Mon, 23 Nov 2026 10:42:56 +0800
+From: Yibo Dong <dong100@mucse.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	yaojun@mucse.com
+Subject: Re: [PATCH net-next v2 3/5] net: rnpgbe: Support copper link
+ configuration
+Message-ID: <AB584A545F47EE64+20261123024256.GB35839@nic-Precision-5820-Tower>
+References: <E783BBD6D9CACAEF+20261116031032.1330270-1-dong100@mucse.com>
+ <179510098578.3136.17685116330600350297@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,26 +61,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <179510098578.3136.17685116330600350297@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: OLyh31NAacGWvAILHPZyW4Nks+fdaoNZ9Q6dK8pr4Y7zJ7WapdSAEv7S
+	PnlkABDceCHnN3vqG549Q1JPAtv8t4Oc4F4afj1VsqCj9uGyJv428dKFL69DW5UgwEvFCJz
+	eyPxUOC6bTrJK9QEEWDePoyuIPiooCpHtSuNT7Em+77OQoGtvaGY4ycP3Iof0ASv2QKje8e
+	U9E8jQ1y8DgFUDUEV54XPGlTbpdmUX5xZqahWV0IH7HppTCzuhZvSq0Eoz3zPnHT4ujFkxs
+	aJ/qIVJ3OYPN/nGKQPesSXFwXsEDthrQY3nVlBu8UW19sGG5NKoO/o+dHQ4R6vqONsRm/sz
+	/eiobmq3Ars9w9cAVA1NXy2GhwMp8dFMHm7ND6eRJPxU7HbMI92PAW0eQVI5JF5A0Ss3elT
+	lxwU30E2D3IL2RJzyEHLplroI8duv6AafcsyEVD8qXb1KvktGnaPg1XtOBHGLKwZP/+Fwgo
+	bS+4l/IQSiI2pQQliDcpx0+3SMk2Lhgb6kDhBstNVkEqN991Js01+k6TeYNI/Zu8r0aD45S
+	wYpIkl0BIzkTn5iK+H67ma9phJHHQLqpGyEoSivEpjFyHWfD44HaW0sN/fbGTaUdPvTkkIN
+	+opfI+bTW+BiWkz+D5iT9HpngeSCGfmwRzDz8QG3jdVbeEpiXv7DGEMtOkkW5ujLNjunsEI
+	ZYwrUSNYlgo8dr3pgFTII/pIki5h47TuPUSkzuopQ+SJkWY9D4VMVPl+VeRJEOY9YpmzDBB
+	KTf7ExwmR6mEIpPF9Xl7CCDD+Xr7WFVglo64grIpQG71z7giyr5h7vUi2kpYKt/6vQU1X8D
+	GqLMiGp929JDw6mvim+yNtXKzCBTeWjurgygaSKYnGJ0oEtga1vAAA7yc7pnGUgk6dHlioF
+	eZIU0bHRziTtwMweYj+AtKQmiCVibyf73WsA34XhbcKlRYe2u/sm0H/UoWXfvV+zRMccPV4
+	YZ3sOFe67ZswvjSkk3oMsPzXDywV/JCMsRA4mbtyBi/HtAB0Men+8O78vZKXlKQiCbGpI6b
+	GJJZHCLOitGiUWCJ/8EwZNJLKWVSUW+LWmoFkjdlCF19MujY7/jgVtbADz209iZsGLraZQr
+	wLcp8xjngPlsbYXslHPWrjUkulbsKSMtv8IR/Mvc/ea
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
 
-On Sat, Nov 21, 2026 at 04:08:13PM +0000, Bertrand Jacquin wrote:
-> ucsi->connector never transitions back to NULL. only ucsi_init() writes to
-> it through ucsi->work where it's assigned only once, after all ports are
-> registered. Every failure path before that assignment leaves it NULL and
-> never cleared afterwards.
-
-I re-verified this in the current source and it checks out, including
-the -EPROBE_DEFER retry path: each ucsi_init() run works on a local
-allocation, and ucsi->connector is only assigned once all ports have
-registered, so a retry cannot leave a stale pointer either.
-
-> The only end of its lifetime is ucsi_unregister(), which calls
-> ucsi_debugfs_unregister() before kfree(ucsi->connector).
-
-Confirmed. ucsi_unregister() cancels the init work first, then calls
-ucsi_debugfs_unregister() before kfree(ucsi->connector), and the
-debugfs SRCU drain makes sure a show callback has either finished
-before the array is freed, or fails with -EIO afterwards.
-
-So the only transition a reader can race with is NULL -> valid, and
-for that direction the check is enough. My Reviewed-by stands.
+On Thu, Nov 19, 2026 at 03:09:45PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] rnpgbe_set_link_ksettings()
+>   (drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c) only updates its…
+> 
+> --
+> 
+> net: rnpgbe: Support copper link configuration
+> 
+> This adds set_link_ksettings support for copper ports, covering
+> autonegotiation, advertised link modes, forced 10/100 speed/duplex and
+> MDI/MDI-X selection. Requests to change the firmware-reported port type
+> are rejected. PHY_LINK_SET is also switched to the event-coalescing
+> mailbox transport.
+> 
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c
+> > index 0afeda19f4ea9..d856b970e5a50 100644
+> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c
+> 
+> [ ... ]
+> 
+> > +static int rnpgbe_set_link_ksettings(struct net_device *netdev,
+> > +				     const struct ethtool_link_ksettings *cmd)
+> > +{
+> 
+> [ ... ]
+> 
+> > +	if (!mdix)
+> > +		mdix = mucse->hw.mdix_ctrl;
+> > +	if (mdix != ETH_TP_MDI && mdix != ETH_TP_MDI_X &&
+> > +	    mdix != ETH_TP_MDI_AUTO)
+> > +		return -EINVAL;
+> 
+> [ ... ]
+> 
+> > +	err = mucse_mbx_set_link(&mucse->hw, advertising, autoneg,
+> > +				 autoneg ? 0 : cmd->base.speed,
+> > +				 autoneg ? 0 : cmd->base.duplex, mdix);
+> > +	if (!err) {
+> > +		mucse->hw.mdix_ctrl = mdix;
+> > +		mucse->hw.link_config.advertising = advertising;
+> > +		mucse->hw.link_config.speed = autoneg ?
+> > +			SPEED_UNKNOWN : cmd->base.speed;
+> > +		mucse->hw.link_config.duplex = autoneg ?
+> > +			DUPLEX_UNKNOWN : cmd->base.duplex;
+> > +		if (autoneg)
+> > +			mucse->hw.link_config.status |= MUCSE_LINK_AUTONEG;
+> > +		else
+> > +			mucse->hw.link_config.status &= ~MUCSE_LINK_AUTONEG;
+> > +	}
+> > +
+> > +	return err;
+> > +}
+> 
+> [Severity: Medium]
+> What happens to the cached link settings if mucse_mbx_set_link() fails
+> only because the ack poll timed out?
+> 
+> By the time the poll starts, the PHY_LINK_SET request has already been
+> written to shared memory and the doorbell rung:
+> 
+> mucse_write_mbx_pf_coalesce_event() {
+>     ...
+> 	for (int i = 0; i < size_in_words; i++)
+> 		mbx_data_wr32(mbx, MUCSE_MBX_FWPF_SHM + i * 4,
+> 			      le32_to_cpu(msg[i]));
+> 
+> 	hw->mbx.fw_ack = mucse_mbx_get_fwack(mbx);
+> 	mucse_mbx_inc_pf_req(hw);
+> 	mucse_release_mbx_lock_pf(hw, true);
+>     ...
+> }
+> 
+> After that, mucse_write_mbx_coalesce_event() calls mucse_poll_for_ack(),
+> which can time out after mbx->timeout_us. The error goes straight back to
+> the ethtool caller.
+> 
+> If firmware still applies the request late, the driver keeps the old
+> hw.mdix_ctrl, link_config.advertising/speed/duplex and the
+> MUCSE_LINK_AUTONEG bit. Would rnpgbe_get_link_ksettings() then report
+> settings that differ from what the PHY is running?
+> 
+> A later set call that leaves eth_tp_mdix_ctrl at ETH_TP_MDI_INVALID falls
+> back to the cached value:
+> 
+> 	if (!mdix)
+> 		mdix = mucse->hw.mdix_ctrl;
+> 
+> Could that send the stale MDI/MDI-X setting back to firmware?
+> 
+> Before this patch, mucse_mbx_set_link() was only called during probe,
+> where a failure aborts probe. This patch makes it a runtime ethtool
+> operation, so the mismatch can now be reached.
+> 
+> Would it make sense to invalidate or re-sync the cached configuration
+> when the command was sent but no ack came back?
+> 
+Firmware acknowledges the mailbox request when it consumes it, before
+applying the link settings. If the ACK wait times out, firmware has not
+consumed the request and will not process it later. The previous link
+settings therefore remain in effect, so the driver keeps the cached
+configuration.
+> -- 
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/BD205A7832D36E7D%2B20261116030917.1329989-1-dong100%40mucse.com
+> 
