@@ -1,138 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468663;
-	b=qk5vO7ohRKewNqJR4aVmE+4gDcdB6A6SEDrAwPF0iFxdAmYiFm08HtfaVBXS/McHBz3U
-	 TbTaxzdAwDIo9QJTTtZR1xYsgUgdH9HzI1a+nSgyMRq7EmqUN/7RzZQ1kWLBaN03jdeyN
-	 AbKyQw3ULD5wOBb1I3eggdlzvfljHLm68w4p9yaHXrlsE2hZ3qQtlhbk/xefzZvQw5C9O
-	 xtKhaQCIiDD281pOYoRN/B7WogPRh+DdesxWl+qkw05NC9+agqMylkZzlc7R5sI4TyN/F
-	 /lUkOwsgkaXry7iIdR1PIK92894BM13ZT2yKD1q5kOwzBB0Cp6N4g+8Xivs4oOO7M0w==
+	t=1795468695;
+	b=5jYqy2sMf51UYusRonrl4zA4a67WApA28erbStLXj0jmzb1D0iYTDqZSG+aht3b2All1
+	 yqd/lq4lIUibqFfvisn0PUVOTmCACokO8ORzkg5GQpoBShWWfveuA49VPYYd/UvFLnJJW
+	 NvpDe4vg9QBQmD8x+udrmjSapZkBjbd1+WoZ2i6UihY/y/qgVT1Rsnx+UL6dmZPLvNIrt
+	 4NFxjmPnFkisQ/5cbANRIu5PFi1K+AwANNhOjUAjiFPNQiZwRalPDfQnKuIHsSEtMDlOe
+	 Lf2c2v1pDeml7uZRthnYbJ5B1XoaWiEa8366WcGgldqBy41sMdpTexYBn4kcDwPjoqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468663;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468695;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=mEI2MWJHKjiB6vj3bpQygFD6VsBJJyxeJ4zAlBvCIuE=;
-	b=46LM5BWCkjmlwtsiVNF/RVjUzdxIajOPHniC7ScSGXUd9Qm+sjBKzn4+/GBTBm0GaR7k
-	 S9SQsz1Q7e8vpATqvuK33bda6w02++UsPsTUgIk8XQPbXa5RLFSyKGEbxBLfkpAdk9G4+
-	 lGE8IhbEorZ7ZrSLklFq22R1HSY0cCEz1E62ZpE5zBVcLuri2/YiY0oqcwfcwX1ks5LjQ
-	 qvRzrh2e0SMR2bC33RDXcR9C9wcmQ+eoXQnNFGpi4LwiHMK1XA96zrwyOY7B09G3OqDpx
-	 y6KvAtNoMgkfm10wgErVatvHaVvR8UmhfDAjEOD76On8rBdaSpPS2JOj1b2Tx+Rz/cg==
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
+	b=y9XGeQtEY/qMJSQyv5FpzFw/tmKybqTSXN/7fTQfR7gKUPqVyuNEdp2E34QLt5Z0r1WA
+	 uwToLrkSIxfVsY3dFL6Q3GLeDrTp96YF6CF7qdRVG+1mvJVEYHWY6JpNiryNSmuAH0FRG
+	 g1Wl7Pp7Dvz58BJZ7EFRZ9FSoTBRquehD49aDX38Nvx9sgbdRY6+J0K1ZOcdGtDyjt4xH
+	 JYEcEpNJgy2iCQnaSZ7QysMiIdmmx80tX3+I5flNEpX11qa3OtS0DG+1n7jUGgYIt7h/K
+	 Vmsw96oEXxXfRLzSAHCOm6GYbk5Flqt22jHWED1lebBjpneajijIWQFZ1HihRCTlcjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0fedjRZx;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZymQIMKI;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4151C606A339
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:17:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4151C606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F002D606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:18:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F002D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0fedjRZx
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a357b1c649so2251188f8f.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:17:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZymQIMKI
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cde84cb8803so690254a12.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:18:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795468662; x=1796073462; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mEI2MWJHKjiB6vj3bpQygFD6VsBJJyxeJ4zAlBvCIuE=;
-        b=0fedjRZx2RaPeNewDfT6kMMnjXVPl/B3fA1gPsEqLujR7kcW0NYtdJYVaByQandrUq
-         QJzBJ4uC9eS8a+ayksMogNxSExWs0eNFKItvTDKAx6NHc5x9hqv9RQlhAAzaAg7s5gs1
-         9sbtbyps4kPCKude8iZa2iiFH+utWXTUN8TCJqFX8mRmvPPMu6I8nAQcyMZ4i4mpzyX5
-         Cp154EF42lPno5OVkcDwnkP37Yni0BUszr0xLEoRsNB5R9GRF4fxmXOCy5ua5f8Nqhrg
-         4AybiECJ+X7fZBXujwbzZQ4s2TiblfJ29wOS+plEAwzRWxdPuG712xtYts3o3CIOU5fN
-         1RVQ==
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795468694; x=1796073494; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
+        b=ZymQIMKIHgtOZ3h9wmhuFq5N5VzASSfaGAbDi259xOEgfIO4rOR02KPHNqW4Nc3fXo
+         t7wnSaqOjx3x5bhq46oC8jr6gQ72wGLgXgWsV+yXRBZUDyFtHmSo3ZtYjPYnZJ6b2GGk
+         S/U36mI1ZS/r1tPJgHQzfRKtiBLXo5euSzmS2mSKhKg3asE9d6UX/0wD0+sTSe3tCzXn
+         baTAcHgaar3Y5Owzj97f7PZ+Le3hdxzHRVMadUOlzHfjm8hCshzX+qM5q2zVbvQ6T5mc
+         ZXwnBfIwhLyJRyANMre16nA3/fL9yPD9WmNTwYz7fxP7IpYkItPLcvxbebRRtOHoZJDr
+         pA8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795468662; x=1796073462;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mEI2MWJHKjiB6vj3bpQygFD6VsBJJyxeJ4zAlBvCIuE=;
-        b=Jc526dYcIxk1S1/maqxxWnvMEwN68ExVKcrxB7a9w9+ee0o3KauMA57SZ46C34zMi4
-         7k3KvPGx1tFFyNJaX1YFqQWeuowK1SibquJRNcpiIiLiwCBw8OcAwnsUcbQJTGtCEurk
-         Q2SXyIb4IU1F5P3Pfg4u0bNr/6dEMWhQja7676GXYcb2q2VUr/1h2qevlpZEKTvuFYs0
-         3dWIv0XtR/S/TohSjtko6Mu9FXywTpTv4uH1Do8PMz4T4CWCup6KfOeYil5A4znPtMaD
-         L2CEc22eMWU3TGDnk6cqNM8y/7bY2hddylPv0RXYRrJV8b/arlSu3EBzmtMrPvMx5Yut
-         hhHA==
-X-Forwarded-Encrypted: i=1; AL+hErEUp4oYO60VfaM3Er/ERcbYX4CYtopGlTWR5zqY13BRf75BOZHZSzbSVLkENUsxJ6cZ3VsoCfxDiFQ6dIw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/oANfQpwj+Fi/83iLxrhqniFt9Vu0JF0OnkSX2c2kFVOcGmB5j
-	5cvdyy9BM+QSXDiMW+S5eRUWBV+YGPdbm9L9vQJA6UvwNvIQ15lLO47w
-X-Gm-Gg: AZFdTZe9sPmeSghPInXJHQcQl6HpuFIpR2Hvu2vkVlzcAMULumbgpx61T+uxVBoI/pH
-	RiO0MTeOLOoB1uLVuQ8VDe9Nz7S9K1EY12Qr2aOohRNaS/Ddtte3Jgi1qOAoGBQd8/GICYdyHpe
-	Rw8Lk9RcOvy75JkI6PzmHiswDCscO3UbAJw5cokDMhUBt9VF0mYx/uv9i1g9F0A2D2Ks+0jZZSD
-	2tYNH1qPoLP08maO4KsCpYGHDFCXus6AVsF7mXGbX/HNYCDKnAxQoHcVIZzEzeeco1+49vtMkpR
-	3/nGhF8ZmuLXVlQ6jyzBAFWY6771R/wadCpOJRPxnk9ZRygN3jIPdSO+tnm78iCTTvtOFTHNO88
-	cgHCvGNpL3juROH4AP5iKn4lcWuwlwwuxqsdUaST5Z07JrqGy7n2NBCjnL0f10HJ7ZEWrnox2Yu
-	FoH7hBYjkclXmq6jTFFo/FsymNxYLfd2TvRz1iycSYpFFH/7bpzf2xi8GlYmv1VU1roTO0nGfD6
-	zBm2NvzECdpWDs9Z2pQ570Rm6mQDja6g555PCD9hLocVw7xwfkhOMn3f+l9mJBX3pilIUQJPwu5
-	0ZXiDwhBIDs/C3smlAX+ksC0lA4IMcLifPosDJY4D7RXXthb
-X-Received: by 2002:a5d:4605:0:b0:4a4:14db:2348 with SMTP id ffacd0b85a97d-4abb29105d1mr18698069f8f.35.1795468661504;
-        Mon, 23 Nov 2026 13:17:41 -0800 (PST)
-Received: from flare5 ([212.58.121.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2e6dsm24513121f8f.6.2026.11.23.13.17.35
+        d=1e100.net; s=20260707; t=1795468694; x=1796073494;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=rnFG97WXsa546bE2oe4nQaaoawSalj3YEF2bXMkelUo=;
+        b=yAbdRwSW4vLeHYNhkEibSsnQGQDfSg1RFAwZeT4qg4swyjEJhtJuhloc4Vx5QaCRoT
+         8YxKK7eosOGdwGh5s7yXjHyvAYLtTidHEYv3S3/WXd4c52/ZT+WZCPOd3jdAv9cHTy+S
+         g93aYtYCbubJnWt3cA/Qo5rEeipDHkqZtCKOlaA5EgDEBMqezMv/ZWlz7deq0ceWJu3g
+         r57+8l3/Kboa74unTMwkp46KQRa77gp2Vc31jugBth//9EqkEfPz0UrDmSpNtk9c0XAp
+         Ept4/jt9xr7kzCAqGdZpivODzw3vYjeeDc2xlCrjYYYXCLbZn59I7WUNCLOrlFpl/PRc
+         9NJA==
+X-Forwarded-Encrypted: i=1; AL+hErHrI9e3+fUtunDU9U22B072IkgEASoGj98muvIRawoHfXjKwPfRl+eFthCKh9zVOx1QuOT4cHBZQYsw/5Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qhKYZ86/8SZFwdMSKdf6unfpxt01FQonHc5C8Do6e8dWsRKV7
+	FBvQMOy3QT4eUFNNDI1QijxNdqRY+/yJ929Ad4ZN1+A0pCUHxY6Hat6omu7c24suNTo=
+X-Gm-Gg: AZFdTZdCBjA9fzH4wc2hUbPUofLRbE41Q8spYzm3989/AVgIo1vDv5C04MxVZxyogaY
+	XrWUUht2xUcv1SEqwWRZM5rn7zpDJsFaxSPgA20KlllNau8/qEUt0YwIN3j63q9m5dZu/k2+oXl
+	x0QPnTIUFCeL8e32Q6sBjZT6fyb+lQdrIwyDISnzzEFMiIiCBgfMIzAmU4xqhgqyVH4b7XsHJAf
+	pvQj7cp3tOweTVzLOV4ZuRNYgxAEXoQXUEz3Bwu15dLTVwYGykcpdnu7hMRFhhxdvGPIlILDaQR
+	xAPX+pyvVVMk6KZb7fHnjlSMeWTg4sUL5kou02CFgGARue0gquWvySFFZgppclUNU39xVpmLpZi
+	XIbMN5I3ag3bP+ALyVNrWyB8UJpv6S/5zG6nCiMsT3P2oUfMReYgIMYghEoxgMu9HB2Z3+ExgJG
+	usqGCkWY+K9Bp8vqhJXJcZ7ajTv4Lxt78AYJG/24FQ7xbEXS0tq29rbcpH5rfbJMnV2Z+i1Gc3G
+	gLPbFsVbqdlT555mhEPajm11SQLcU4CVhGT/5nvaUAuubUrmUzDdfH/XE/vT4l5Rr/bK3kgVVIz
+	J7xFeJl9XT7DAPkohel9ey+FWdV4rLZnte7gKYOlVA==
+X-Received: by 2002:a17:90b:5109:b0:3ac:9176:e837 with SMTP id 98e67ed59e1d1-3b41c956568mr11182393a91.50.1795468694116;
+        Mon, 23 Nov 2026 13:18:14 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:1::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b0f482bdsm3916508a91.14.2026.11.23.13.18.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 13:17:40 -0800 (PST)
-From: Stanislav Aleksandrov <lightofmysoul@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Robert Marko <robimarko@gmail.com>,
-	Guru Das Srinagesh <linux@gurudas.dev>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Lee Jones <lee@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Wesley Cheng <wesley.cheng@oss.qualcomm.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Bean Huo <beanhuo@micron.com>,
-	Stanley Jhu <stanleyjhu@google.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Amit Kucheria <amitk@kernel.org>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Georgi Djakov <djakov@kernel.org>,
-	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mfd@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-usb@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-scsi@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v2 13/16] dt-bindings: arm: qcom,ids: Add SoC ID for SXR2250P
-Date: Mon, 23 Nov 2026 21:17:23 +0000
-Message-ID: <20261123211723.1065310-1-lightofmysoul@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261123-pastel-barracuda-of-rain-bce8ac@quoll>
-References: <20261116-halliday-dts-v2-0-2c92438c6c46@gmail.com> <20261116-halliday-dts-v2-13-2c92438c6c46@gmail.com> <20261123-pastel-barracuda-of-rain-bce8ac@quoll>
+        Mon, 23 Nov 2026 13:18:12 -0800 (PST)
+Date: Mon, 23 Nov 2026 13:18:11 -0800
+From: Joe Damato <joe@dama.to>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
+	horms@kernel.org, selvin.xavier@broadcom.com,
+	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v6 1/5] bnxt_en: return the RING_FREE status to
+ callers
+Message-ID: <awStk4gPo+BvDDuQ@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org,
+	netdev@vger.kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
+	horms@kernel.org, selvin.xavier@broadcom.com,
+	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
+References: <20261120152830.699712-2-joe@dama.to>
+ <179545865792.3135.13782875077253506018@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -142,18 +111,228 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <179545865792.3135.13782875077253506018@kernel.org>
 
-On Mon, Nov 23, 2026 at 01:09:26PM +0100, Krzysztof Kozlowski wrote:
-> This should be rebased on my patch removing the IDs.
+On Mon, Nov 23, 2026 at 06:30:57PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The commit message describes an errno contract that
+>   hwrm_ring_free_send_msg() (drivers/net/ethernet/broadcom/bnxt/bnxt.c)…
+> - [Low] The commit message says 'No caller acts on it yet, so there is no
+>   functional change' but still carries `Fixes: 74608fc98d28`.
+> - [Low] In hwrm_ring_free_send_msg()
+>   (drivers/net/ethernet/broadcom/bnxt/bnxt.c), the `return -EIO;` left…
+> 
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but it is still
+>   present at the end of the series.
+> 
+> --
+> 
+> bnxt_en: return the RING_FREE status to callers
+> 
+> This patch makes hwrm_ring_free_send_msg() pass up the errno from the HWRM
+> layer on failure. Before, it always returned -EIO. It also changes
+> bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
+> bnxt_hwrm_rx_agg_ring_free() to return that status, though no caller uses
+> it yet.
+> 
+> > No caller acts on it yet, so there is no functional change.
+> >
+> > Fixes: 74608fc98d28 ("bnxt_en: Ring free response from close path should use completion ring")
+> 
+> [Severity: Low]
+> This isn't a bug, but is the Fixes tag meant to be here? The commit message
+> says there is no functional change. At this commit, every caller of the TX,
+> RX and AGG helpers still ignores the return value.
+> 
+> Later patches in the series carry the same Fixes tag and depend on these
+> return values, for example "bnxt_en: stop DMA before releasing rings the
+> firmware did not free". If the tag is there so stable takes this patch
+> together with them, could the commit message say so?
 
-Thanks for review. I will rebase it, but I am not sure about
-the order, could you please clarify?
+The fixed tag belongs there, yea, and I think it being there already explains
+to stable what the situation is. So, I'm going to pass on this feedback.
 
-1. Should I wait for sending v3 until your patch is applied?
-or
-2. Should I apply your patch locally and then send v3 based on it?
-(but if something changes in your patch a v4 might be needed)
+> > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > index e78cf7ad3cbc8..c3413354e7582 100644
+> > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > @@ -7673,55 +7673,62 @@ static int hwrm_ring_free_send_msg(struct bnxt *bp,
+> >  	if (rc || error_code) {
+> >  		netdev_err(bp->dev, "hwrm_ring_free type %d failed. rc:%x err:%x\n",
+> >  			   ring_type, rc, error_code);
+> > +		if (rc)
+> > +			return rc;
+> 
+> [Severity: Medium]
+> Does the errno returned here match what the commit message describes? The
+> message says:
+> 
+>     Return the errno from hwrm_req_send() instead. -EBUSY means no response
+>     arrived: the wait timed out, was abandoned, or the firmware channel is
+>     down.
+> 
+> If the channel is already down, the request never reaches __hwrm_send(),
+> because hwrm_ring_free_send_msg() returns success first:
 
-Best regards,
-Stanislav
+Yes, you are correct that the commit message could be adjusted. If there is a
+v7, I will fix the commit message but I am not sure it is worth respinning
+this if only the commit message is slightly imprecise.
+ 
+> 	if (BNXT_NO_FW_ACCESS(bp))
+> 		return 0;
+> 
+> So the only channel-down case that comes back as -EBUSY is a FW_FATAL_COND
+> that gets set during the wait.
+> 
+> Some cases where RING_FREE never reaches firmware return -ENOMEM, not
+> -EBUSY. The first is hwrm_req_init() failing in __hwrm_req_init():
+> 
+> 	req_addr = dma_pool_alloc(bp->hwrm_dma_pool, GFP_KERNEL | __GFP_ZERO,
+> 				  &dma_handle);
+> 	if (!req_addr)
+> 		return -ENOMEM;
+> 
+> The second is __hwrm_send() failing before it sends anything:
+> 
+> 	token = __hwrm_acquire_token(bp, dst);
+> 	if (!token) {
+> 		rc = -ENOMEM;
+> 		goto exit;
+> 	}
+> 
+> __hwrm_to_stderr() also maps a firmware HWRM_ERR_CODE_NO_BUFFER reply to
+> -ENOMEM. A caller therefore can't tell "never sent" from "firmware
+> rejected" for that errno. Also, the hwrm_req_init() error is returned here
+> as well, not only the errno from hwrm_req_send().
+> 
+> Later in the series, bnxt_hwrm_ring_free() counts a ring as stuck only
+> when the helper returns -EBUSY:
+> 
+> 	if (bnxt_hwrm_tx_ring_free(bp, &bp->tx_ring[i], close_path) == -EBUSY)
+> 		stuck++;
+> 
+> On the -ENOMEM path, would the ring then be released through
+> bnxt_free_mem() without bnxt_stop_dma()? Firmware never got the RING_FREE
+> and still owns the ring. The path would be:
+> 
+> __bnxt_close_nic()->bnxt_shutdown_nic()->bnxt_hwrm_resource_free()->
+>   bnxt_hwrm_ring_free()->bnxt_hwrm_tx_ring_free()->
+>     hwrm_ring_free_send_msg()->hwrm_req_init() returns -ENOMEM
+
+Yea, I don't buy this one.
+
+This would need a small allocation to fail on the close path. The driver
+already released the ring in that case before this series, so nothing gets
+worse with this change.
+
+Every RING_FREE failure in the production logs from the cover letter was a
+no-response (rc:fffffff0, -EBUSY).
+
+That is the case this series handles.
+
+> >  		return -EIO;
+> 
+> [Severity: Low]
+> Can this return -EIO still be reached?
+
+Probably not, but leaving it is harmless.
+
+> This isn't a bug, but rc is now the errno handed to callers, and the
+> netdev_err() above prints it as rc:%x (for example rc:fffffff0). Would %d
+> be clearer? The %x format predates this patch. After a timeout or abandon,
+> the err:%x value also comes from a response buffer that firmware never
+> wrote.
+
+The response buffer is zeroed before the request is sent, so err reads 0 in
+that case. That matches the logs (err:0).
+
+> >  	}
+> >  	return 0;
+> >  }
+> 
+> [ ... ]
+> 
+> > -static void bnxt_hwrm_rx_ring_free(struct bnxt *bp,
+> > -				   struct bnxt_rx_ring_info *rxr,
+> > -				   bool close_path)
+> > +static int bnxt_hwrm_rx_ring_free(struct bnxt *bp,
+> > +				  struct bnxt_rx_ring_info *rxr,
+> > +				  bool close_path)
+> >  {
+> 
+> [ ... ]
+> 
+> > -	hwrm_ring_free_send_msg(bp, ring,
+> > -				RING_FREE_REQ_RING_TYPE_RX,
+> > -				close_path ? cmpl_ring_id :
+> > -				INVALID_HW_RING_ID);
+> > +	rc = hwrm_ring_free_send_msg(bp, ring,
+> > +				     RING_FREE_REQ_RING_TYPE_RX,
+> > +				     close_path ? cmpl_ring_id :
+> > +				     INVALID_HW_RING_ID);
+> >  	ring->fw_ring_id = INVALID_HW_RING_ID;
+> >  	bp->grp_info[grp_idx].rx_fw_ring_id = INVALID_HW_RING_ID;
+> > +	return rc;
+> >  }
+> 
+> [Severity: High]
+> This is a pre-existing issue that this patch did not introduce, but it is
+> still there at the end of the series.
+> 
+> bnxt_hwrm_tx_ring_free(), bnxt_hwrm_rx_ring_free() and
+> bnxt_hwrm_rx_agg_ring_free() clear fw_ring_id on every path. The RX and AGG
+> helpers also clear the grp_info rx_fw_ring_id and agg_fw_ring_id. The queue
+> management callers ignore the status these helpers now return.
+> 
+> bnxt_queue_stop() does:
+> 
+> 	bnxt_hwrm_rx_ring_free(bp, rxr, false);
+> 	bnxt_hwrm_rx_agg_ring_free(bp, rxr, false);
+> 	page_pool_disable_direct_recycling(rxr->page_pool);
+> 
+> It then hands the old ring and page pool to qmem, and ndo_queue_mem_free
+> frees them later.
+> 
+> bnxt_tx_queue_stop() does:
+> 
+> 	bnxt_hwrm_tx_ring_free(bp, txr, true);
+> 	bnxt_hwrm_cp_ring_free(bp, txr->tx_cpr);
+> 	bnxt_free_one_tx_ring_skbs(bp, txr, txr->txq_index);
+> 
+> This unmaps and frees the TX buffers right after an -EBUSY that nobody
+> checks.
+> 
+> If firmware doesn't answer RING_FREE here, can the device keep writing into
+> freed RX pages, or keep reading from unmapped TX buffers?
+> 
+> The close path log in this series shows firmware can keep doing DMA after
+> an unanswered RING_FREE (AMD-Vi IO_PAGE_FAULT). However, only the close,
+> half-close and init-error paths through bnxt_hwrm_ring_free() were changed
+> to stop DMA.
+> 
+> The RX side is reachable through netdev_rx_queue_restart()->
+> bnxt_queue_stop(), for example from the TPH IRQ affinity notifier or from
+> binding a devmem or io_uring zcrx queue. The TX side is reachable through
+> bnxt_tx_queue_stop() when BNXT_FLAG_SHARED_RINGS or tph_mode is set.
+> 
+
+The above is the first item in the "leaving out" section of the cover letter.
+It is a real proble, but I haven't seen it in production. Every failure I've
+seen was on the close path.
+
+I think fixing the paths mentioned above are a separate series from this one
+which addresses an issue I observed.
