@@ -1,70 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795458123;
-	b=rbK+hz+J903Jmeu5/5LOFVsPYNCnRZh3TDzarYcEwZUvC7+YEQLWc8SRZDxv0dHg7vmt
-	 d2pKELnGjjmwitDivOEAeEdHr9V5mRj0AxlmYoUUJAvQunOwjYJ4I9NY4FYWBAEgwRhIC
-	 RKtMYTmAAQCO7Nh2OMu53FJF+RW8ic/V+cSqZ6k8upu16JXwp4Jbd2GlVqk0mJI3LtMKs
-	 y/eR4LdDoeO3W7+Vw8MElillZE5UcWMTqMHvP07X//5Sf5ApvPGws/GE7dP+C+zz60eif
-	 gPaR5NO8YRXa8vX+iESV4eVR3E6sd2SUQ4Z28z7CBiPeV1ufQGgVL6frotzfHKyuGfA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458123;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=gQaw9Vk9+tQPLXBi7VU6YjTxlhQ/2eyTFTJHqY1EySE=;
-	b=zxrx2rTZGYNZ9hjMn6auq9L1osC0awcKlU1yDCBfoVM8kZ8CXTJZPQvvr5bIESm4YV0U
-	 1G23Vy30+u6ZvZgwedSjj/6mdfa5rIkn9T12sDxfA+2bado2rpe4A6NBHRwo6UD+aomuL
-	 BEpFk+UBGBHefxgUV1XifXw3riMcr0zLt6P9tnY54W++pmU30kV0u6ZNPPcvOEkuGRxuW
-	 APzi2rv7Eo6Yy/WdW+zAp4n2CX6BbMP7YZht3wKefNu0Q3QGmL78cxCVDIcMrXtkYay6I
-	 52rNX6QoF1fec9+REncGeZ4GpACvFDO0WOqgVQFsehZ+CEyLjRdMzi3F3CLS9wOn9aQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=laveeshbansal.com;
-	spf=pass smtp.mailfrom=laveeshbansal.com;
-	dkim=pass header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b=NQCKQ6Re;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795458149;
+	b=IgGuspBi3dS0VXZHah7ZQWtvbWMTr68HtP0365VMkpgmVjVD+13AKMPoB9QmZ2MCb1Y7
+	 KsL864aPBbDzek5DPNJB+w9pf++5Wgxi/A7nf94vXGtW/xGhVSZZoBwjtEPOrDBX+8pot
+	 AC6MHo09OcJV+q8vfnz89VUYyeocPEnpeh5bnUMdgtpvCKEc/XycQTvvZVPaK7tKLUhpe
+	 hq03pTnfhPVIzkey3yMba/gvc9E5FadTdrQtnDAq/ttGceJ4PEFV1DBJ13ym+Ld55Y82n
+	 Ng5wUArIjpWP4fWISvDFTdY3yN7rx5hV3y9892OuNRm9PsbR3+HhZZlNrW7fE6LSPVQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458149;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=Xyjruwr4MbdArRquZ6WIyKlfzT3nVvOgUFaDrodez+0=;
+	b=5BLi4OoePanDvYUZ5LUAMgv5uxhkrM1l2OTgv4rtn0PYLlypK6z6PImu3zdmStW9xrK6
+	 1DhgY0sCpgIIq01UIha7nzo8kkH9NzuAVGaQK9O/we15fk2+FnWGZqDbszq1fDoXugcz6
+	 7YGEWoKNMaeiCw33YSWeghMzphK8bzMwIRc/B7whyxvt1ybNc6Kzdr8igZ4JYfICs4WqF
+	 bbfbTgip7XoAcpQ/LnZX5b25hwg2dGmTQbZ7grJc9hIN8iiN0+Bv9AARt+PKI7haOCnZc
+	 BOaVC3PB/Jy+Bgue85tfjwkE7jfEX8iqM5MvyB5ZG1K1yGh/zQEMM8Hxscn+e5VZBNQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AQxX/AnL";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 857EC606A31A;
-	Mon, 23 Nov 2026 18:22:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 857EC606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=laveeshbansal.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=laveeshbansal.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B877B606A331;
+	Mon, 23 Nov 2026 18:22:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b=NQCKQ6Re
-ARC-Seal: i=1; a=rsa-sha256; t=1795458104; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ZGtKsHgNSS/ZvE454aeZ4AE+SU6epq4GNeJPu7klKjDuRv3LiUCnhTXu1PkRi11JRd6vWNnWoYGe4mdLS0dDpxztXw23z/jCLdtitDKoXLNA8fmKa/zJ7hvPeO2wDQ+Xg5UJwTxrg7NtRLHHM5lqfDHlnb2M+KXFNipxrBAOXP8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795458104; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=gQaw9Vk9+tQPLXBi7VU6YjTxlhQ/2eyTFTJHqY1EySE=; 
-	b=mVe3qmonBAON3Sybd7Y2rbLUZm4fZ71en/kHkS6sMDponfrmdeGIq+g4enwAHTvTUrHmppBHdTmCSC636KC0Lol70c7dIrODsHXUlyFVAJ1dZeC2oEChSpUWa13RaU/Mfw11Ggr9Uaw+NQZg1vZkgnOJefqeYz1ZlnNi4A9M3LM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=laveeshbansal.com;
-	spf=pass  smtp.mailfrom=laveeshb@laveeshbansal.com;
-	dmarc=pass header.from=<laveeshb@laveeshbansal.com>
-DKIM-Signature: a=rsa-sha256; b=NQCKQ6Rex/xA5RTPVCehzSMw9tNJYBOBZANzW1pFmeU5Qd1fm/53Q6FGRcSMvNE3pMq+/m9bw4BYc7RRdFnlGCjUjrvFaOcaLm95ekTOWwsRgsMxOQY9jy0tN6eElJC3988gyYYMBE6lYIBE7SaMq4rj93IqoxusfYgYL5b3Gvs=; c=relaxed/relaxed; s=zoho; d=laveeshbansal.com; v=1; bh=gQaw9Vk9+tQPLXBi7VU6YjTxlhQ/2eyTFTJHqY1EySE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795458102373833.7656003546538;
-	Mon, 23 Nov 2026 10:21:42 -0800 (PST)
-From: Laveesh Bansal <laveeshb@laveeshbansal.com>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Jens Axboe <axboe@kernel.dk>,
-	Eric Biggers <ebiggers@kernel.org>,
-	"Theodore Y. Ts'o" <tytso@mit.edu>,
-	Jaegeuk Kim <jaegeuk@kernel.org>,
-	syzbot+20d60aafd9a0d1f2a380@syzkaller.appspotmail.com,
-	linux-block@vger.kernel.org,
-	linux-fscrypt@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] blk-crypto: avoid fs reclaim under profile->lock in the fallback
-Date: Mon, 23 Nov 2026 10:21:36 -0800
-Message-ID: <20261123182136.63256-1-laveeshb@laveeshbansal.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261123093134.GA23224@lst.de>
-References: <20261123093134.GA23224@lst.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AQxX/AnL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AC891F000C0;
+	Mon, 23 Nov 2026 18:22:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795458149;
+	bh=Xyjruwr4MbdArRquZ6WIyKlfzT3nVvOgUFaDrodez+0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AQxX/AnLStDMxL5foDTjuAU0YvowDPhbYNiM4u0Ez+PFpCCFxnor4LDWZ1P1f92Kw
+	 DRq6LG8wsyS+ubTHT+w+L4QpbRkBLdwpwyv7q8CDdEmf/CyENZihB4oXxDNSlJwCO+
+	 8l/OnpkSSdz18JDLpGDOg2R1SfddFaPZ2c6KAAn17sL6IlsNL2svG7Wlxi9nC7FdRG
+	 XWc+3azNkQ23MLYBPsSSxKvyRWjS5vjgOFwilwfRryO46Zyu/fPTbks8yiR7J223Hk
+	 arheGWRk8+Nm16unHOEsIevxyc7XHNgSTcG8Rg/xt9J4/aT0qdA+tgfHQD6hBA/48A
+	 0bqGwSI+xyzfA==
+Date: Mon, 23 Nov 2026 18:22:25 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Zhang Rui <rui.zhang@intel.com>,
+	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-next@vger.kernel.org
+Subject: Re: Missing signoff in the thermal tree
+Message-ID: <03320894-97d4-46bc-b11e-5fec18146963@sirena.org.uk>
+References: <au4SKRePRjYBItxx@sirena.co.uk>
+ <56328964-8d06-452a-adf5-ea37fede069e@sirena.org.uk>
+ <782a33af-566d-406e-9f4d-52d80cd3c756@sirena.org.uk>
+ <70a066cf-533e-45c8-9db7-e79727dc6c44@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,16 +61,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5vXsJeC3B2o6+2iQ"
+Content-Disposition: inline
+In-Reply-To: <70a066cf-533e-45c8-9db7-e79727dc6c44@sirena.org.uk>
+X-Cookie: Brain off-line, please wait.
 
-Hi Christoph
 
-Thanks for the review. v2 moves the NOIO scope into
-blk_crypto_hw_enter()/blk_crypto_hw_exit(), and into
-blk_crypto_reprogram_all_keys(), which takes the lock directly:
+--5vXsJeC3B2o6+2iQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-https://lore.kernel.org/r/20261123181408.62972-1-laveeshb@laveeshbansal.com
+On Mon, Nov 16, 2026 at 10:18:31PM +0000, Mark Brown wrote:
+> On Mon, Nov 16, 2026 at 10:17:14PM +0000, Mark Brown wrote:
+> > On Mon, Nov 16, 2026 at 09:51:27PM +0000, Mark Brown wrote:
+> > > On Fri, Nov 06, 2026 at 05:45:13PM +0000, Mark Brown wrote:
+> > > > Commit
+> > > >=20
+> > > >   115b4ff52cd35 ("dt-bindings: timer: renesas,tmu: Add SH7305 suppo=
+rt")
+> > > >=20
+> > > > is missing a Signed-off-by from its committer
+> > >=20
+> > > This issue is still present today.
+> >=20
+> > ...and you've not told me about your new email address so you've
+> > probably been missing some of these mails :(
+>=20
+> Found another address to try.
 
-Thanks
-Laveesh
+This issue is still present today.
+
+--5vXsJeC3B2o6+2iQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEhGAACgkQJNaLcl1U
+h9AClwf+NurXSsMQoSNylFUDI+GEjETnpyaNaKnRN7csrERbj3HGSsaqTt8kCdjA
+0zN+/zfrxwr+JbxG30mgE8cJ73IOfBiDmLXXEm214ZAEelEw+hbfP4x1DOsjT4Hs
+U3wy5t/8nVIx4p3KzwLn14gow/uPEdTwRlcV2f4Ul/pfu3gJgYiwwpc/ai9DAC2Z
+OtHsqPcsszATMtlvxmEwIIRtlMl+sPdyYbACYysyYb2aRHjZSSOQOMhtOSlbQUqm
+0qJlRWg4h8+AGt+Zf2r0GFdB2cJ0XszCBjiujcA6Spv/fr2O0UxJVkj5zQc1xNvZ
+vmHuPoE2I+vg9WSeD9RY2TntNLPkdg==
+=vt/+
+-----END PGP SIGNATURE-----
+
+--5vXsJeC3B2o6+2iQ--
