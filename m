@@ -1,92 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.50
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795458850;
-	b=c8rLMBsJHsSYdKVBb/9Wm6ccBLABC6/mDGYrxDfbIe/LOvOVFSRQ3RMrzjQ8GXsOQxDi
-	 +KDxsxQfxqhcUAok0dWAJDgKtUKifFnNzCsSvXL2fLydVWfU3/5eLh61v/s1zKclmgVyP
-	 upjSsi+MPBvXSrSoKuXLnFq3nbRWWVSct5m20MDmRx7kXGofcSv9m0xHj7TWh7T+LdNhU
-	 04VH+Mw5zXiNcmoyy6PA4fOHgLF64YVWWw31Zl0e2b2l/K8Rhgm3RtNVPT5DEyi0rTl60
-	 Fe6YN+ud9t6LfNxJP8nApHxGXkqPfZ37ioGH+RogwFMfUFrtHp+RTtXy0zI5nf98ksw==
+	t=1795458900;
+	b=qFyIV1tt7JEeuQfi+UQ6BmqlrhImFwPTK8xQU7TX2KMbPULn9xJQ7Kn6WEY9P9Ngx/Ux
+	 4TMcdk9XEqodWlfBz8DiyhZxlRb1y3cGrTA/BAxCn+osPSevHsUNvcoCOcllVbMTalwqC
+	 IoiFFuNFOVBW61HfS74UQSvGZyFRVWFLJ8WfJwMUnJhdJlmhxTnpvpILI+c0vXMoNI1sR
+	 LfyptZBqrT/Zn6OmZJ05vzUX7Q+kyptMV/0JG0J5Os6JI9gSrIAzlDqK97H8Fx03QT9Rr
+	 OeUyYZk4xarzh4tG2uqHZ3mLwCtn3t81P6oK4e88nvMb/TVBt3jigL/2bX0jNL07SOA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458850;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458900;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:Content-Language:To:CC:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=6WFmeBx9kIhFTSBruQeGbxaIwq1o/lRAPAcgeRM0qTM=;
-	b=XMNYln3+tXXbth49TnjefOk2e9uog8gSWiIq50U58tkCfj6bLJJ627bi+8z96QQ6UJNP
-	 CyCim+RYXhFyoAi5A100jW7rH0Hyxl3pqXE+yuzNtNQ+G3TQ9fD2Aeb8VvvhrgOCz00Tv
-	 AL4ua0i87WY9ZIS9NvHZhqMQ9ZvqY5KdqBgz9ubj3FNxGYA5/jxobyp8EYiWmaG/f8DP0
-	 o6e3HXEYPFdividrZy8C1stBCSFk+IlaeiV0w7gYo7uDu7m6SBBOvf6yb94nGLzCpyeAV
-	 AJegjHrho+HdMNnS5Nhfmbcn6StbHKMqiCc8m7ZIT0lIP0YcR1nehasNDcgUblG5yBQ==
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=+MlKR+VpGEdnJJ+CN8PRMzGEiabrfObGJYRtOmJO+N4=;
+	b=YE7+cxhjgFXRuBlX3kCrvh2xnTm+m2SjHigdK/ZMiWUApYuhErrEI4fhplzG0Au02BCP
+	 658RUuyore12FGvmSi7M+c7356W+Ist2zVvt94pnR8FH0MuMe0OMgcpCYsATsj3Lg0tzZ
+	 u4yZP4RDXXcJLwVGm/x+RyklRMl5LypxWXJOiw1Jtjz+WTcnL38cD8Ps9FA9xhyG2K3D+
+	 0R0J27HFPTKQQujjvSliaCDg6v92Bq3McwGEpN9hrPjq+Iz2/SHhbiIl5pXw5WlU5dChu
+	 hKZC16YUS1D2vYk7WPNOFyql24D5zQbj1vSrXNlsbC07rBC3RCOcNyfmEetbeUtIEJA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=DU6LXoMa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.50
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010050.outbound.protection.outlook.com [52.101.85.50])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnzeWpK8;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=MqGYeCxf;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72A11606A31E;
-	Mon, 23 Nov 2026 18:34:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72A11606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 213A3606A321;
+	Mon, 23 Nov 2026 18:34:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 213A3606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=DU6LXoMa
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bnzeWpK8;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=MqGYeCxf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795458900; x=1826994900;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=HWFV9LVoMvcZp5792xDsp64C4rhCJkd9iT3LJIoqUxE=;
+  b=bnzeWpK8Yh71OF1CemP1nnt6BU9rAnYyQIQhKRHVZOq43oeJ0dZTvViR
+   3XE+iR4BiGVSuzT6K900phJy9K6qXXl98buxJNbuGsmBCxfO1mr+gpNTh
+   mNYFjrlYwUftzzzwzghTI14qoME2U+i1bTDTbF0a3F7FX7GvkL3w4WkQm
+   LFV2JR68xp3WADE2rhZxNA1JFdqHfdHXLdw3u6Jmq1Fq3bi+Dqcf/iSRy
+   hTP4dYaf678NbIAhWSLi53T65V1iSfeAgCi4Ps7/HzL5HB3ifPQG713AH
+   bGdm300mvE/7v7344IY0UnziOctxw6eu5/nOLynthJmL/wZMXetETzbSy
+   w==;
+X-CSE-ConnectionGUID: 1EkcbcH6S7eec8OPSm1Q4A==
+X-CSE-MsgGUID: 0lZ8nxSoRE6R1DU8/iFOrg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4292377"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4292377"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:34:59 -0800
+X-CSE-ConnectionGUID: YuV1tijzQNqY9UxEEs7Sdg==
+X-CSE-MsgGUID: A9iJgX5aR22LNxWdiPw5Fw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11393831"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:34:59 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Mon, 23 Nov 2026 10:34:58 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Mon, 23 Nov 2026 10:34:58 -0800
+Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.26) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 10:34:58 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=leu7N8yJlWyNbtrvMw7+tid2bHflI5a8OTywu7y1fOlsgtNobwYXBtmyn+GHy9M4pN4JGl/P8LscmjW7iVTQtLiXW320Gbpy9IH+py0WGus/CNC1kEiSXvLiMsdNEcn1ZuCUReGzXQ/h7UNncVktMTx5ZwjNY1mB3L6rVUQvvCsma+MH2nH1KTA8dWdQcLVUegPNtR6+hUgROMDnAJ9IXiATyNAplyjVdcUG5YxBlHCncXB53GY9LeaHInusWZPspo06zjo46L/w7bw09cY1qIB3khQQ3pTgB4bTVcCNvWsRY2zJJ3DW1bh6KZ9X0JpaA8hwFLqJ7VQdJ/qF5JWNgA==
+ b=FgaPQxmx3dxQOfmnltwBOjgsBsZcv4aq4qL4U7u6JWNGZR4LPdHPwjckBH+7q8R08Z9m9ZzG/ZOD5gtoUiM/wP1K8eqDu7b0yCOKdKgtBFp9l0svomKhJdQUd8SJcnnuVUPLA54wNymrqO0vgn3Ec31h+JZFxLJGIgScmaK7q+TsczzPNl+BigheWiaovvogTvQWKt73418rKeUN29ZuxfMjeFhw6AbM5XIbWdupDyQLsyuLr8p8e2BxcRQlB3wlcZ99WlLIjvjOiA9qqOtUZmXth1HSqRJuhHQVBIlJ05ZzJ8kGcEJFEuFasSMaz1Auz3Ax2YkA6G4hNGxdILskFg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6WFmeBx9kIhFTSBruQeGbxaIwq1o/lRAPAcgeRM0qTM=;
- b=h7gNsoxkcQooeCbBh48ZSzdZH7aD1urhB+YIhOeps2XwGv8gZeCdkkW5nnVACZ/L21h/dXgaNS1JfUl9cfb9QK66ZlRGK+2gDo+i50ZUtGh4Eg9WN8fQclid7j1uZ2WCXIN2XNlemT0kW9D5O4PWJnUyGjNOZPPmwQeE82JDTYViuspUWdy7YK5kbnCNmlmzojTAVsDHXPKV9mHjMJtvR331JX2wtUg7Uq2w6ULCkvrK6PFKHejWIro8gZ8Lmtf27fh/IKy7waGDs6bb9CT+2dhK9d6gHz9H5UVLoCOWwdYAxGQH58hZGERZ+6iCYt1dWXqyCVlgla/ZRFg7gPQaOQ==
+ bh=+MlKR+VpGEdnJJ+CN8PRMzGEiabrfObGJYRtOmJO+N4=;
+ b=fZvFb91rx9FfS1fsYIxrfffw3duL7oIpNtLKi7yxuhuSQzXcEmLn/i719V6ubCNvstoWeFukt6c620LyLbE7RC4EP3BnQn3HQa3uoVW6HmXZin9dKvAYOAd3JCtMpTo9zgrOF1aDblxzdle7ob194BT/z0QrKtEKnhTa1NYtH5b7IyGUGOxW8MKNKr9bYYh5DDF3ehhpuABjgZ8hjSitO+eKtC6YqKvbonKmECo+5LQKGgK3HXxQ3Cs/uaoB+pKaFkxM7/s2wVwu8Z8C37PIff3zaH4r+Xwq1BISFcWMBesenNswqwmdTy/czyWg7LX8FP796BuPkUK6xbbJgbidTg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6WFmeBx9kIhFTSBruQeGbxaIwq1o/lRAPAcgeRM0qTM=;
- b=DU6LXoMa+gvgjAdi3g4wjR/jQHsIOwjPI1zg7wD26olizDn65tI/qMWkH8HZA0kwBglBKjqCj5ZC05ycROG5mlt7w7dmi19s8hLYLBIEUrXcF4Dfho29KHYkHo+3z1O0HgpOtuW1MtFPfft2V3/n6/DEjKYqo+Lm/kP8HLQE6xdhJbjSZiqKHt5pUGCU3rkATZh9bMysaglhcDyVXg7HAUTguX/wo8fEDmMvncjrYORt8QkxA5j23dDddSgetO6KCL8Y99AWhso5AqJcOmHFhB960N1/RxSo3GBPYw3Nl0nk0ayhFBx9iM/03FTzOg/X8Ynyko9ssJKTqBdiYXgFvw==
+ bh=+MlKR+VpGEdnJJ+CN8PRMzGEiabrfObGJYRtOmJO+N4=;
+ b=MqGYeCxfnavXn+ZD+RlVpYuOS+2F31BnRRzix+mNYWIMfGX6LM4Sfv50YsoMXoZn8VN6pK1BuAyHvt/f97kqW8Fv6OnVv7MkcBf5bueT4fEEYTajc2+o/9ZQM9MekV8gQHLzI7vyHJd0p1kEKg3JaQ11SXs5WJGrewISln/wfnc=
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by DM4PR12MB9072.namprd12.prod.outlook.com (2603:10b6:8:be::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.13; Mon, 23 Nov 2026 18:33:37 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 18:33:37 +0000
-Date: Mon, 23 Nov 2026 20:33:30 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: 18983559317@163.com, dsahern@kernel.org, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] igmp: use copy-on-write RCU updates in
- ip_mc_source()
-Message-ID: <20261123183330.GA3587849@shredder>
-References: <20261119125112.540125-1-18983559317@163.com>
- <179543961529.3135.8092538762905615997@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179543961529.3135.8092538762905615997@kernel.org>
-X-ClientProxiedBy: TLZP290CA0010.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:9::9)
- To LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CY8PR11MB7846.namprd11.prod.outlook.com (2603:10b6:930:79::14)
+ by DSVPR11MB9936.namprd11.prod.outlook.com (2603:10b6:8:3e1::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
+ 2026 18:34:55 +0000
+Received: from CY8PR11MB7846.namprd11.prod.outlook.com
+ ([fe80::cae0:d05c:b2fc:c395]) by CY8PR11MB7846.namprd11.prod.outlook.com
+ ([fe80::cae0:d05c:b2fc:c395%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 18:34:55 +0000
+Message-ID: <5cb0a2d8-d9bb-4464-848b-4e83d1ae2eda@intel.com>
+Date: Mon, 23 Nov 2026 10:34:51 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] x86/cea: Index exception stacks by the ordering enum
+Content-Language: en-US
+To: Dave Hansen <dave.hansen@intel.com>, Dave Hansen
+	<dave.hansen@linux.intel.com>, Borislav Petkov <bp@alien8.de>
+CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	<x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>, Xin Li <xin@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+	Binbin Wu <binbin.wu@linux.intel.com>, Tom Lendacky
+	<thomas.lendacky@amd.com>, "Chang S . Bae" <chang.seok.bae@intel.com>, "Chao
+ Gao" <chao.gao@intel.com>, Sean Christopherson <seanjc@google.com>, "Paolo
+ Bonzini" <pbonzini@redhat.com>, <kvm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261120235025.2809042-1-sohil.mehta@intel.com>
+ <20261120235025.2809042-3-sohil.mehta@intel.com>
+ <4c51d4e3-2628-4b51-94ef-60c941c09dd4@intel.com>
+From: Sohil Mehta <sohil.mehta@intel.com>
+In-Reply-To: <4c51d4e3-2628-4b51-94ef-60c941c09dd4@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR03CA0098.namprd03.prod.outlook.com
+ (2603:10b6:a03:333::13) To CY8PR11MB7846.namprd11.prod.outlook.com
+ (2603:10b6:930:79::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,214 +150,154 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|DM4PR12MB9072:EE_
-X-MS-Office365-Filtering-Correlation-Id: dfd63e20-1f92-45c7-be56-08df499049e8
+X-MS-TrafficTypeDiagnostic: CY8PR11MB7846:EE_|DSVPR11MB9936:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d67366d-7de0-43ca-3da4-08df499077f3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|261026140227099003|261026121527099003|261028144727099003|261021121427099003|261021123027099003|261022105027099003|261102123227099003|11063799006|4143699003|56012099006|10067099003|18002099003|22082099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	aTMJEXpusL76DKOscdJu0mKqOKkZIrp4aexoIfATXNf4AT+MF5WK38fwGSVUnqU4uDPuu0SVdtq/pW+Et2XjuwauLIcLu7UeETf/PCz2RL4U4j1siGeTlCZTWJuIT4yqEZY//04Dmu0q7RRj6bYR4to+3liFmiHzbHl9GxOGRr9Tr/psS8ItM+7ycxM+AfjLUmrg/aG4r2cBDvczyJZMukjz2q/5zGigB8cEPrGXqjG0W/grbAX4oKgRjCDyueJX/wE7dLsUfTvIx1qSaVVUrNLdCnbOesaoAUQcsBmbXZ6A1hSOaBo5mUFhwJLmsaWRrfbrYYRmrch5ZZB1F0oekZEB5uXyLGKyMC7OcJy/mMIegXcPb3mPKiFAZSwftXOsKdaBwsvPbUAyw31eszU2aZbAO7rOv4i0g0DU6wDtZ7y/gV28cuA+hdXZZIX652gMm9vwKaNJbXZHzdoZdPOb152Sd/l1wlGOJ4ctRRgYpqLvnnmRjPyTbSuqGTC/IJOp74UwegW9yrLmNlBWKg5pCvMTJRG3ywqQ4arKGNQ7GOERy/9boEbqbxp0rW/qa5oYsUnZlaIXAvQzmeQAqfQA1vAu3KOZAqAaTz6BWwMwFikDj38AsYu0Z6JxllQYniJOGWZ/YRN+BcA3/iv6L2xcHMQKdI2cLP3cElVYRpifZ8c=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(261026140227099003)(261026121527099003)(261028144727099003)(261021121427099003)(261021123027099003)(261022105027099003)(261102123227099003)(11063799006)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|10067099003|4143699003|11063799006|56012099006|261021121427099003|261102123227099003|261009223027099003|261028144727099003|261022105027099003|261026140227099003|261026121527099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: i6KEDDuiSPhwTJ+MvU2SRphNEe+WIEVtSI3/uPkWGqcrOwTSRKXLn4HgD4MCpGcQjrxrHQLXdJ/7xDTzEQ395AjiL38a3FLgIyVgkbNblfmC+zoXilDq03cwWSGeubACeCqHeC13o9/Nq+cAwMWG1gR4/NFmk4+nCudAYiXHv3SP1nehA9Y1scJjFBXXxYT2wl4kXQoFLnS1VvEfTLY/ib8y9qD9+rilyLe9vDttikL/7nIicmtGJUzt5t2AOutIIXacEvsNfzQ1WjsyJV8noC4ebexSAmaCfI6l6csMxVW+y6s02yUn1KPvia5gNZ9/rr+z5oS1pM6PE/oG3TSP4UnYvtp2xftZzwoLTJ81pXPdIqq618/8x+ZZiNObVwJ2ioohRPSh9KDGN2HmCp3oRm8OfzUaC4uB+dtWjarcjp7ptY6HCMrq9bwDkcwjQmFPFuq3HVMoi3NH64izEEBy6UiEHC1PyA4alroU77M9ji3NTSnKEvZCezGI2Ptjb1JUQ6e8vfyetCrnWiRc0Sd9SFa8YDdelg71AOJiLx8YKNWsJMiP261/IUrPBrQfBwau1SXkua3Sf2S5MfDzBwPwS/gTb3jF/7icHL0UlbkUJFuf6H9zZ8DTLkiez5UmN+BR
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR11MB7846.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(10067099003)(4143699003)(11063799006)(56012099006)(261021121427099003)(261102123227099003)(261009223027099003)(261028144727099003)(261022105027099003)(261026140227099003)(261026121527099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?3rKi4Y6x6e+mRLe9jvsu/bl9XZNdQS+doaiFTkOnuu77L1mSz3OXpf2VFMML?=
- =?us-ascii?Q?LoPzGegONDkf0v03P/UM38+1faLbiqeyxNmmeZkjxmNyMq2S6FzQdiMJh4cq?=
- =?us-ascii?Q?2Dy3TOHzNJzP1RlgB1TDLIYvL4HeKfaHO5nxa4hEEb/KvbJ+yZmK35gSbEP+?=
- =?us-ascii?Q?C+5Xpx3kcplXy0Ilbsovo/pX8F5SWNYjOx+UlGORnqtu3sIKNj/gqRPu8DrC?=
- =?us-ascii?Q?o+TZsDxuabIoH3w+BW4mR0o80zsA/WVXolkR7w+DiSevBLACNmdcHKqo/7cG?=
- =?us-ascii?Q?kCSiuy3+RKF6IuCDsVVweyBiyM7pO4brosA6mS3w4OfCS0QlEuxdL2Zq7N3e?=
- =?us-ascii?Q?LnoR3w1VhSw5/Dz25mRLkvvw3/cAb6aX68Vf34LRiFPK3FKRc+MXxAeHiTCI?=
- =?us-ascii?Q?siBTDcHmYUB47WkaYHIidgbVqvGX9htV/UsR8btPDSji5L/rnN5FVFvxBAcs?=
- =?us-ascii?Q?ZrLo71L39TILCXrgfJn/RCyg7t46KgIX49/ur7Thuhtxr6N/b0mUKuY196B+?=
- =?us-ascii?Q?5xd4M5W9Ygsf+vZRA6xsYshlOGtKtkNdTXuuJgBamUcKRMSFdKMsCC4qmBy4?=
- =?us-ascii?Q?MRCqWYFUT57VYFgvT0vOkSGEx4tCSOiIkj9w8ak3yM+biN/xGXanhWabGVKL?=
- =?us-ascii?Q?KQYFpKap0ehdcj0WVo1s1gDgkAdXWkmb5fM3yZ7Pun169oxoDXZgYtGUPD5M?=
- =?us-ascii?Q?PgLeq8siBkTxyVjSs9QN6HAslAKO1FI3NEp2s08VsHYQLHO2Q2A3NGy7npvB?=
- =?us-ascii?Q?XaIy0rEHIgfQwB2KqU1ct8AZb92yXEjSsZAsYg+6lfnzwkkMo1euPbmKnXoY?=
- =?us-ascii?Q?06l6Vglat2XQjJPddsNl9F3+J/ckk2vnsQhhW0bt2871tlbOM3iq2HVDL10u?=
- =?us-ascii?Q?ghnVJhRDuFMosGnlmfCk/uxQB1m8A1b0x3saNvuKedR5xOd7OKZVs1ps2xjl?=
- =?us-ascii?Q?2bZvpmLaBHt+CPwh5u2s5nyuRkbqZRgVJ4mcCNSLhDsyexnIPoMb7yRs6yXk?=
- =?us-ascii?Q?ibhDHW4OYNr959SvxPIuW8cpQ/2Q+JYzzo+Txfxf/07Yz9x6qnGqb3khgC8H?=
- =?us-ascii?Q?r8abZ2sDSCl17TGRiE+dUtM2ReGdkb/8cM1pGhzQj0HbpgdiVQgavIpJhZkk?=
- =?us-ascii?Q?7z5nf7hIZ5+xKvxgXBxoNkKxjLiMKEuEAAYuck4sHUoKe7affw8WTdoXDSBl?=
- =?us-ascii?Q?wMCcDKMMuAx9c9UtTBP0QquSxvOQV5nfXb+uDN6tTH0pRWDQiij1iVeCw1No?=
- =?us-ascii?Q?YAFcyvK6rTho0HOzHeYF/QhgDoL1y78YGIalVQT+9z8eU/hoh8GLg26HhjSn?=
- =?us-ascii?Q?H7B1MTOp216nOT3dCEPA06+OFxaKukmUbe7F0b9U4h5Srn/Oiev5+0i6poef?=
- =?us-ascii?Q?cc0GO1tZIsajgEIU/xvKCgYavCJUX02zotXj4XpW4T0rBs/qUWGoYN3DL5QV?=
- =?us-ascii?Q?lJ7Ibkz9ndWKv9qcM/kUpvDfbnpR3I0DzyLcBPCe2+dV5bddUld9QujkGVeX?=
- =?us-ascii?Q?KhMDLPI50cxB5LOaVjXidT2UFvzd1iV6Oy9hzLZdKpVCuBW9qR7Im3EBx7VS?=
- =?us-ascii?Q?+WqsNFyhzeENAX954u5mDoJZyi8gCWMvpMp+SwiaJPPKXhtsHGOTEcUH1gEY?=
- =?us-ascii?Q?MFPxq/bH1g5aIbWU1sjLELpbaEG/d5TBCi2KH9uSeeoLya20+NumFByejRJb?=
- =?us-ascii?Q?xLsZyCQ2fdfmPQxydaXxJG1lL++2KK4rP6SXoZtHhbtfatD3?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dfd63e20-1f92-45c7-be56-08df499049e8
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VXAvMFVVaVdRc25RbHlNTXN1dlpTSDV0dUs0WmpCb2dOaEFTY0lCMndsb1VS?=
+ =?utf-8?B?bEF1RXVkNEs1VEcvWHlnRmxMK1NHSTlieFpEYmx4RzNOUFZZa29RbzhMTGxG?=
+ =?utf-8?B?TC9XZFU4bHhuN1EzQTJ4TXlCWnJsUnFwM2NQUHA3aGxtQWZySWZ0YnNFb3Bx?=
+ =?utf-8?B?eUZkaVRWay9BRkVKcVl0WFplUy81aE1RRldmbHhlNHdIMWplYllQdDZjODlN?=
+ =?utf-8?B?OS9NaTNNczBvblJlcENwTitjanp1S2dWSUY2WUsrUFZuT3NMUndxOEQ0Z2pL?=
+ =?utf-8?B?QVc0eUtpTGJWd1hSeHM2K0VlQitzTmdyZDNobEQ5UXBJWlFaUzZ3UldQUmh2?=
+ =?utf-8?B?NkJSMmNoNTVVUW9JWHlHaXhhU3JsUC9uU3M2YVZqNmxCejZ5WE5KVHljMXFx?=
+ =?utf-8?B?ZDlVd2gwK2NFZGIvajRhZHArK25wek5CK0tERFJmVkpDQ2RDSmFqNWprdDZP?=
+ =?utf-8?B?QlN6S056SlZxbEZUSW0yaHRDQVBqa0hsMkhjUkp3TWNZNXBkaE00Tm52SE93?=
+ =?utf-8?B?cy9TUmZ3b1dxdDZGM3VPMHBXS2Z2azVwOEtsZVl2eTRwMmxzUkozWWRmYW5P?=
+ =?utf-8?B?Y1ZHVjhyRFlIS2I3QTBJYklPZW9wY0VXRFBaT2QyS1U1Mm9sRmFicE4zL0c4?=
+ =?utf-8?B?Y3Y1UEI1dmJlVnZHNS9WMm9WR1hUYjgvdHUyVERsaFEyRkd3SVNOWStVR1ky?=
+ =?utf-8?B?a09VNFNMcmlRTG1nUlFHblhiOXZuVCt5bGN4bjNuL1hnTTkxK2lsMzFORTMx?=
+ =?utf-8?B?c2lXMzFKRHRtS1YvMzFmWEltcEYvNGkyMTRKenB1WTlJNFI0TGx6T29Dbi90?=
+ =?utf-8?B?dHY5eUw5UkRqWTliZXBhTEsvdXBJSWxrOHhJUTlJaGZHRXI5SEZFY1NLSVQw?=
+ =?utf-8?B?M0IvSTFuYzBNcTJpclNMa1BDZGtxbzFRaUR4ZlVLSFRUWnc5VWE5K3dsdjJL?=
+ =?utf-8?B?Nk5wbHB0R0x0Tlg0YlpXbDBKalRwV3BHZnZOQUUwa3hNMjIvTFpySC9aVFpj?=
+ =?utf-8?B?dVVKYXdNODJiSXJNY1dTcjFERVd3a05WZy9DQ0F3c0RHM1VBSVc3Y29JOFlK?=
+ =?utf-8?B?dWpnUHhabU0rNzJnT1A0eFhYdm8wVnR0N0dSTXo1TStaS2dubXNTVnpvMFVa?=
+ =?utf-8?B?ejJwdjkxbmFRUnJoVm9WRU14eVNpbFZnd0FSZlM1WHFGNkU4WHpTQ0FZbTdQ?=
+ =?utf-8?B?UFhEdDNZUTl3a055UElUSjh5NjkraGVFcUVhUnhMWkY1dlF1czBOTmpWRlhU?=
+ =?utf-8?B?M2pxTWN3OUFBb1NlWVN4bjdxSUZubWpmR1BxRzdvZGRHUEZ3UWtnVXBub0RZ?=
+ =?utf-8?B?V3BGdmtIcGdqOE9GYzRCUFJTSFBMbEgvVmx4bDFFcURoZWNIQnR5NEhxWmNX?=
+ =?utf-8?B?b2pKdlRTaUV5d1RRRXBiODBRZkRYMmRydFVWMG1ENzkyNU1RMTRmK09LeDN4?=
+ =?utf-8?B?THR6anAvSkJwN2RJZytTajRuVFVOaWJ5L2NuTzFSdGVENlp3cHd2dFkyQXJj?=
+ =?utf-8?B?OWhzZTB5N3NDUm1vdU9EdHNqYjNIZWVBYlFUU2RpQ2EwU1Ywc0VhQXJ6QkQz?=
+ =?utf-8?B?TXgyWG53T2JLT0Q4Vm1MWDJyYmpSckxLczZEQkJZUFhCM0ZBOFJXRXBSOXpN?=
+ =?utf-8?B?N2xEWDV2dTkveWxHUmRwMW9SOGVka0xoUFVReVk5eWVNenNqQ2VVOHJ5RExZ?=
+ =?utf-8?B?eDRuN3B2YVhkOXJaK0ZZVkIyUUIza01XY29kcGZrdnQyendnMXMzemFpMm44?=
+ =?utf-8?B?UmtXWm1ybDNubTFFRC9SQnBwYnhMV0I4N1RlQzAvSGszcFdPRHVBYVRQTmpV?=
+ =?utf-8?B?U0FxVTFqRlVFNmpFdThHc2V1RU9IQnZMcjNuMDNSUGZBNTFsT2RkL1Q5ci9C?=
+ =?utf-8?B?V2wxZXNHaE5udnlWS3RHM3hsSUdGVFNSSkNnTEpWZGxJWVdhWElTRTRUUVBS?=
+ =?utf-8?B?dmNNMmM3MTRXUU1Eam1saFdqWGtVaGtSdE93dUZEb1lYL09XMC9xbmxHMEI5?=
+ =?utf-8?B?ZlJkWEFRRVhmTVZUNzNQVnFIZit1WSszNmhTSHBlOG1mY1htOHZYRUREb256?=
+ =?utf-8?B?NnU2b2lCdFozZ2tRbjRJeEZ0c1p1eThVaE5JTXVkeXBQVnkwNDczenVmSFMr?=
+ =?utf-8?B?TURZSHJSd0RJcHhzMnVSNUJZMnhZVjlSbzNLWVMzRC9rdENGdk5uWEQzaUhu?=
+ =?utf-8?B?UnNTbTNuTlpOOXlWQVFvTFlTaHROR0FiMmpMSjRnMjEyL1Qvb3lZV3JMMXoz?=
+ =?utf-8?B?OFJXMEhpWlp3ODJkeUdYY29zMUViYjJuWFI0V1lVUkpsRlQrbUNucVJ5bmdz?=
+ =?utf-8?B?UTVocFNvWVEvQmp3QmNWbWoxZVM3ZGgvelZGcWdCOEFDNUVuZC8zZz09?=
+X-Exchange-RoutingPolicyChecked: YiI3MuT+04CRgtDHNjh40KSCQx83XupWwnvsFqY9fOgHxGzyDZXQbeSZSPcZkJIUsYeyeOiog8IS24OZEQ6Nx05bDprZbNQQ95zrTC38hDtjNknIzlax9hG6EskSjWWYnYRO25VoLQoD3lC/RuIN27Df/yqVCnOuF7Den/ZMtJjTThTVRrSpdlwCP6IqC/0BuWqPF3QnRC4U00zjFQo7Mtw7/1m/SVVIHBES+ZyeQbH0+3Yi40SzdAn/NYAfmYf8dHzU+oD591eBKfH4TBWdEN+82wulW0jn1YwkH3MUkN1AVQ92hO6N9mte3ElPc2oBOEmNt+wcAgY7Jda8ekyxbg==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d67366d-7de0-43ca-3da4-08df499077f3
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR11MB7846.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:33:37.5751
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:34:54.8949
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K4iVJHAJgFKEffd7gyj6BB734h9cvnLuL15GWP/kA02DZZtPZ1XlhHZtM3hc/wm22bmfdfgplooki84A7mT+cA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB9072
+X-MS-Exchange-CrossTenant-UserPrincipalName: DSgNWOOzspFi7F95a2wMKOtQKzN996NEY3JuXyZRaYFSwuTCKPClY8RvYb7KDmt++t4OWjYuRp9xfgrn4kForg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR11MB9936
+X-OriginatorOrg: intel.com
 
-On Mon, Nov 23, 2026 at 01:13:35PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> > @@ -2556,13 +2556,33 @@ int ip_mc_source(int add, int omode, struct sock *sk, struct
-> >  			goto done;
-> >  		}
-> >  
-> > +		atomic_sub(struct_size(psl, sl_addr, psl->sl_max),
-> > +			&sk->sk_omem_alloc);
-> > +		if (psl->sl_count == 1) {
-> > +			newpsl = NULL;
+On 11/23/2026 8:19 AM, Dave Hansen wrote:
+> On 11/20/26 15:50, Sohil Mehta wrote:
+>> +/* The exception stacks' physical storage. No guard pages required */
+>> +struct exception_stacks {
+>> +	char ESTACK_DF_stack [EXCEPTION_STKSZ];
+>> +	char ESTACK_NMI_stack[EXCEPTION_STKSZ];
+>> +	char ESTACK_DB_stack [EXCEPTION_STKSZ];
+>> +	char ESTACK_MCE_stack[EXCEPTION_STKSZ];
+> 	/* The #VC stack storage is conditionally compiled out: */
+>> +	char ESTACK_VC_stack [VC_EXCEPTION_STKSZ];
+>> +	char ESTACK_VC2_stack[VC_EXCEPTION_STKSZ];
+>> +};
 > 
-> [Severity: Low]
-> Is this change in setsockopt behaviour intended? When the last source is
-> removed from an MCAST_EXCLUDE filter, this now publishes NULL into
-> pmc->sflist. The old code shifted the entries in place and left a non-NULL
-> list with sl_count == 0. The MCAST_INCLUDE case with one source becomes
-> leavegroup before it gets here.
-> 
-> The mode check at the top of ip_mc_source() only allows a mode switch
-> when sflist is NULL:
-> 
-> 	if (pmc->sflist) {
-> 		if (pmc->sfmode != omode) {
-> 			err = -EINVAL;
-> 			goto done;
-> 		}
-> 	} else if (pmc->sfmode != omode) {
-> 		/* allow mode switches for empty-set filters */
-> 
-> Take this sequence: IP_ADD_MEMBERSHIP, IP_BLOCK_SOURCE S,
-> IP_UNBLOCK_SOURCE S, then IP_ADD_SOURCE_MEMBERSHIP S2. The last call used
-> to fail with -EINVAL. It now succeeds and switches the group to
-> MCAST_INCLUDE with S2.
-> 
-> This matches what ip_mc_msfilter() and ip6_mc_source() already do.
-> ip_mc_sf_allow() also treats a NULL MCAST_EXCLUDE list and an empty one
-> the same way.
-> 
-> Since this is a Fixes: tagged data race fix, should the commit message
-> mention the change?
+> Please vertically align the [EXCEPTION_STKSZ] like I did ^. 
 
-No. The Fixes tag will be removed in v3 and there's no need to mention
-this. The change is fine and consistent with the IPv6 counterpart,
-ip6_mc_source().
+Sure, will do.
 
+> Also, please add some kind of comment about why the VC stacks need to
+> be different.
 > 
-> > +		} else {
-> > +			newpsl = sock_kmalloc(sk, struct_size(newpsl, sl_addr,
-> > +				psl->sl_count - 1), GFP_KERNEL);
-> > +			if (!newpsl) {
-> > +				atomic_add(struct_size(psl, sl_addr, psl->sl_max),
-> > +					&sk->sk_omem_alloc);
-> > +				err = -ENOBUFS;
-> > +				goto done;
-> > +			}
+> Honestly, though, looking at this, two #ifdefs would be perfectly
+> readable here.
 > 
-> [Severity: Low]
-> Can removing a source now fail with -ENOBUFS? Before this patch,
-> IP_DROP_SOURCE_MEMBERSHIP, IP_UNBLOCK_SOURCE, MCAST_LEAVE_SOURCE_GROUP and
-> MCAST_UNBLOCK_SOURCE always succeeded once the source was found.
-> 
-> The old list's charge is subtracted first, so the optmem check usually
-> passes. However, sock_kmalloc() reads optmem_max at call time:
-> 
-> 	int optmem_max = READ_ONCE(sock_net(sk)->core.sysctl_optmem_max);
-> 
-> 	if ((unsigned int)size <= optmem_max &&
-> 	    atomic_read(&sk->sk_omem_alloc) + size < optmem_max) {
-> 
-> This allocation can fail in two cases:
-> 
->   - optmem_max was lowered below the socket's other option memory use
->   - the GFP_KERNEL allocation fails for a large list
-> 
-> In either case userspace cannot drop a single source, and an
-> MCAST_EXCLUDE block stays in force.
-> 
-> The error path itself restores the accounting cleanly. The workarounds
-> are IP_MSFILTER with zero sources or leaving the group.
-> ip6_mc_source() can fail the same way.
 
-Noise.
+I think commit 541ac97186d9 ("x86/sev: Make the #VC exception stacks
+part of the default stacks storage") added the #ifdefs in the header
+file to avoid the #ifdefs in percpu_setup_exception_stacks().
 
+> struct exception_stacks {
+> 	char ESTACK_DF_stack [EXCEPTION_STKSZ];
+> 	char ESTACK_NMI_stack[EXCEPTION_STKSZ];
+> 	char ESTACK_DB_stack [EXCEPTION_STKSZ];
+> 	char ESTACK_MCE_stack[EXCEPTION_STKSZ];
+> #ifdef CONFIG_AMD_MEM_ENCRYPT
+> 	char ESTACK_VC_stack [EXCEPTION_STKSZ];
+> 	char ESTACK_VC2_stack[EXCEPTION_STKSZ];
+> #endif
+> };
 > 
-> > +			newpsl->sl_max = psl->sl_count - 1;
-> > +			newpsl->sl_count = psl->sl_count - 1;
+> Because, without it, we have to explain VC_EXCEPTION_STKSZ anyway.
 > 
-> [ ... ]
-> 
-> > @@ -2572,49 +2592,52 @@ int ip_mc_source(int add, int omode, struct sock *sk, struct
-> >  		err = -ENOBUFS;
-> >  		goto done;
-> >  	}
-> > -	if (!psl || psl->sl_count == psl->sl_max) {
-> > -		struct ip_sf_socklist *newpsl;
-> > -		int count = IP_SFBLOCK;
-> 
-> [ ... ]
-> 
-> > +	i = psl ? psl->sl_count + 1 : 1;
-> > +	count = IP_SFBLOCK;
-> > +	if (psl)
-> > +		count += psl->sl_max;
-> > +	newpsl = sock_kmalloc(sk, struct_size(newpsl, sl_addr, count),
-> > +		GFP_KERNEL);
-> > +	if (!newpsl) {
-> > +		err = -ENOBUFS;
-> > +		goto done;
-> > +	}
-> > +	newpsl->sl_max = count;
-> > +	newpsl->sl_count = i;
-> 
-> [Severity: Medium]
-> Does sl_max now grow by IP_SFBLOCK on every add? The old code only
-> reallocated when sl_count == sl_max, so the spare slots were filled
-> before the list grew.
-> 
-> Now a new list is allocated on every add, but it is still sized as the
-> old sl_max plus IP_SFBLOCK. The spare slots are never used:
-> 
->   add 1: sl_count = 1, sl_max = 10
->   add 2: sl_count = 2, sl_max = 20
->   add 3: sl_count = 3, sl_max = 30
-> 
-> After N adds the buffer has room for about 10*N entries instead of N.
-> 
-> The old list's charge is only removed after the new allocation succeeds:
-> 
-> 	if (psl) {
-> 		/* decrease mem now to avoid the memleak warning */
-> 		atomic_sub(struct_size(psl, sl_addr, psl->sl_max),
-> 			&sk->sk_omem_alloc);
-> 	}
-> 
-> So both oversized buffers have to fit under optmem_max in sock_kmalloc()
-> at the same time.
-> 
-> Assume the default optmem_max of 128 KiB and a raised igmp_max_msf. In
-> that case IP_ADD_SOURCE_MEMBERSHIP, IP_BLOCK_SOURCE and
-> MCAST_JOIN_SOURCE_GROUP start returning -ENOBUFS at about 1600 sources
-> per group, compared with about 16000 before. Large lists also become
-> high-order allocations.
-> 
-> With the default igmp_max_msf of 10, sl_max stays at or below 100.
-> 
-> The delete path in this patch and ip_mc_msfilter() size the new list
-> exactly. So does ip6_mc_source() in net/ipv6/mcast.c:
-> 
-> 	i = psl ? psl->sl_count + 1 : 1;
-> 	newpsl = sock_kmalloc(sk, struct_size(newpsl, sl_addr, i),
-> 			      GFP_KERNEL);
-> 	...
-> 	newpsl->sl_max = i;
-> 	newpsl->sl_count = i;
-> 
-> Should the IPv4 add path use struct_size(newpsl, sl_addr, i) and
-> sl_max = i as well?
 
-Already mentioned in my reply.
+
+I tried a few variations to get rid of VC_EXCEPTION_STKSZ but they all
+make the C files uglier. C code refers ESTACK_VC/VC2 unconditionally or
+under IS_ENABLED(). I am inclined to add the comment instead because it
+keeps those C functions cleaner.
+
+>> +/* The effective cpu entry area mapping with guard pages. */
+>> +struct cea_exception_stacks {
+>> +	struct {
+>> +		char stack_guard[PAGE_SIZE];
+>> +		char stack[EXCEPTION_STKSZ];
+>> +	} stacks[N_EXCEPTION_STACKS];
+>> +	char IST_top_guard[PAGE_SIZE];
+>> +};
+> 
+> I dislike the asymmetry here. I'd rather just have two explicit lists of
+> stacks. 
+
+This request seems to have originated from you to simplify the accessors :)
+
+https://lore.kernel.org/all/720bc7ac-7e81-4ad9-8cc5-29ac540be283@intel.com/
+
+It would have been ideal if we could move everything over to the enum as
+you requested below. But I can't figure out a clean way to do it without
+making other code worse.
+
+https://lore.kernel.org/all/ba8434fb-8bbd-4d4a-bd01-1bdb2219979b@intel.com/
+
+It is a trade-off between using name pasting vs array indexing. If we
+want to keep the symmetry then keeping the existing ESTACKS_MEMBERS()
+macro seems better. Should I drop this patch and create another one to
+fix the comments and add the VC_EXCEPTION_STKSZ explanation?
+
+
+> This also begs the question but doesn't offer an answer about
+> why it's OK to have EXCEPTION_STKSZ vs. VC_EXCEPTION_STKSZ in the
+> "exception_stacks" but have EXCEPTION_STKSZ for all in
+> "cea_exception_stacks".
+
+
+The exception_stacks tracks to real storage so it uses
+VC_EXCEPTION_STKSZ to save space in case CONFIG_AMD_MEM_ENCRYPT isn't
+enabled. The cea_exception_stacks only reserve a slot with no PTEs so
+they are using EXCEPTION_STKSZ for simplicity.
+
+Though, I agree, this should be explained properly if we decide to go
+ahead with this patch.
+
+
