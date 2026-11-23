@@ -1,57 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444647;
-	b=zYv19KFBHj/ljoOQ0rR5vnA3oGM2WQAgr5Ge2/qblYbdswjsFL6/Hg7UnUBupvvfr4RZ
-	 uNmh9bBB59p/WGkoJOf9n62U6j7U8vMty7X51hy1jkePNPjlIP78S917FG479RBQpv2PM
-	 WAcDKc/zS/m1d2tYypCmFxO2tWM4O+SZCt6gfYkYDGZsAYsf5jGWnhdeGyX4aWPsob9AW
-	 G5DcDWv0KrbA0IUGFCOl7ITsWiMhYdPabchb+WG8iNspMftg1h/xOA9cp0/1e+K6ZA1QT
-	 khfLqje4W827bV5FGLjTzPC4dieOQzrg6Vr5N7Qbflxpuc9q4xRx3IkJ6g1RUbmsw6A==
+	t=1795444717;
+	b=hwfAeNiziUAjJmA5llirMPSZAgaZtPwDWUbhHdekRmmTeQvU4TMGs8hT5ZUSOX2yoVeo
+	 j727QXZAqfkCbwzN6UIvUclEBm2AWN/ii+bpvDMERypbdD9ayyYLZ20LHiJIw29TRn37x
+	 DzLJaz1kSoc6dGDDsajZuq4MsrJmfYPuTMQmc38ix5APbUA4iPROFTuz6ZLK8qJgYHWiW
+	 f/olJJWNGXlxgfB2uFnl5G7MoPWfHHSwM4/eHXpFiV8VmIgtU+BsnmtIXaKiR4PNU0zZK
+	 atgVF3gBjTwtlEwg2avzRGaVfNllBoJFuCwTiXuvxycCq+CLaJn697LxuOnYbO6Dv9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444647;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=VspRcK8r/bAxbnrJk3ARH5ZGSzxCu7C2u9+3Jvhwp3w=;
-	b=rpt+2M+hYbEXYtE1X6hAncaJM+1HIzi3T6RKolLw5aL1FZzOZxqVzrRyrTyhTE7mhmPM
-	 cwimn9Sp1amDIbCKeJRxG3jko/2idywL9nmzXVnxwu8kCuLr0EkFS6UIy54cfTWnZdDHR
-	 qGl06Njo60uvdaXYSVAJ+lW8dyEwXNufzP0R7XzKPO91VKQI74H746bdarXaklgZ/7Vm5
-	 IJWsLWuxfI98WaZI4fNU5dx2r7pNLgtbkzJ3NKkWYec6hpqrGwv49y2Na52J7TnuSOWjW
-	 /BAhFnkLnIlvVqlToB6q0ugdHU2r3pgdsN3IedZLkfrnIQddXXxhhyuQtFGryc0MaIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444717;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=sg7tdXVTl6CBr93/kEJcagyPTR5mqpB+pSl9U13IANw=;
+	b=YnsT0GXD5XGUyoynoccN8bHOzkUM+oxgICaqvUXI2Yl4QdvSjdkPpy/vKNv4eFBycGiy
+	 8vRTx570ujVU40+d8KPdpQf4lh2/tKCddZtboGFSGKsH3LUrMw3OJebw224xMpSVimZtw
+	 S7DyoSZM+/MBNaQuLZLPnL3K6Vv/XH1u/3OPhX76lc1ELBi9fypWDOyU3ndTlcqiHtA0i
+	 yoSNpUSmLjJLwJ5b/JYq31ey/gC0oOqnT50nxRVewVQujRv5ZsU5M8+ooTJYOYXqou0vg
+	 +gBHT/IRkIhBM8YMYLMvG0ukjBzQE32Yb5e/9OkmWsW6IAlPSQ+15DYrtXpheiC71sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yw6bHTQc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QcnW+c9B;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACADC606A338;
-	Mon, 23 Nov 2026 14:37:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33CBD606A31A;
+	Mon, 23 Nov 2026 14:38:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yw6bHTQc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D35FF1F000CF;
-	Mon, 23 Nov 2026 14:37:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QcnW+c9B
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C447A1F000C0;
+	Mon, 23 Nov 2026 14:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795444647;
-	bh=VspRcK8r/bAxbnrJk3ARH5ZGSzxCu7C2u9+3Jvhwp3w=;
-	h=Date:From:To:Cc:Subject;
-	b=Yw6bHTQcHVgcqNULPpheAlLLu11BezjfsgfEgLVBzm5zcM0fZoaTVq0zvAQ21N5RW
-	 qOr1Aat1CtC7n/iUzNsntRPzMbkxUWM84tPYn2PbDDsazKdI7aYVmlDDRb+c6uufqJ
-	 UUALWSOO666PGKMB08kbQ3y2ZxJSsJAXALeebybRHDp6RKBQ5toRFb4FG1/aVz6P7/
-	 fg5X1wn8bZLFbNnx2Bmr6QMU2pehf8asEH6OsMSfCosbPecN2A59yHKK1EEdZf7fse
-	 1Oz3/acOKwckMfc40UYL3X2r9smAtzsFvCLqcEOXzFomIJXzIGoKsr9OP0iapoQNht
-	 ye87HQdx9fLNg==
-Date: Mon, 23 Nov 2026 14:37:23 +0000
+	s=k20260515; t=1795444716;
+	bh=sg7tdXVTl6CBr93/kEJcagyPTR5mqpB+pSl9U13IANw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=QcnW+c9BSbtwhDTvUNRVqGAbVeeg6J71gOqx9Vr9xBkxypM/qg3dKPC14X8fTW96p
+	 5TLkXTUJq3Z6ULTI/LvLd2NaWFcmXCsHix9/NG1LgvdaUJHVzwAas2Njfif8gxn7+o
+	 58EJRy7efQHSyidO3crIr3NL6qoesXoluYvHdDFTSxudyr6EpbzlC3NgUU5uLkMBMi
+	 VSGNmTqVYPZ/R7s8no/G+4EsMQ47iX2tiWgpaVyqWPy6C/dBTnjBH8kkuLdnxC6rl5
+	 st4pubhuIB2VHZiHzV8CG3SkCr9dnbgrbSSnwZHBW0ryDsCkb1OAtopHN4bZaYv3/U
+	 Qay15zQx3N0fw==
 From: Mark Brown <broonie@kernel.org>
-To: Jeff Johnson <jjohnson@kernel.org>,
-	Ath10k List <ath10k@lists.infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	Yu Zhang <yu.zhang@oss.qualcomm.com>
-Subject: linux-next: manual merge of the ath-next tree with the
- mm-nonmm-hotfixes-unstable tree
-Message-ID: <awRPo1T3BGWPYOG7@sirena.org.uk>
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Cc: lgirdwood@gmail.com, zhangyi@everest-semi.com, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261119075906.50214-1-zhujun2@cmss.chinamobile.com>
+References: <20261119075906.50214-1-zhujun2@cmss.chinamobile.com>
+Subject: Re: [PATCH] ASoC: es9356: Handle register cache sync failures on
+ resume
+Message-Id: <179544131326.25092.3924634854884572179.b4-ty@b4>
+Date: Mon, 23 Nov 2026 13:41:53 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,83 +59,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="BM+gsJGj69bNaxLO"
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1131; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=gNT1t9oj4bQoyXInP0nEW3505DKyxa8VFd0iMahsAwA=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZ/F+1785P5vqRGTt9/6rA6yEn7jcdO2z+UPO1toPEx
+ 9e/DVf/6ShlYRDjYpAVU2SJy+J+WV/yeg3fwYVtMHNYmUCGMHBxCsBEYo0Y/sod17HbpfTB2GJF
+ tlvMysAP/XOfTig/rsH0+kq3BPuNJVwM/9RL/wk3m84VuL1yLfOqaVsW+0p75Fz/ePnPqfX8mm7
+ p6/kB
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
+On Thu, 19 Nov 2026 15:59:06 +0800, Zhu Jun wrote:
+> ASoC: es9356: Handle register cache sync failures on resume
 
---BM+gsJGj69bNaxLO
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Applied to
 
-Hi all,
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-Today's linux-next merge of the ath-next tree got a conflict in:
+Thanks!
 
-  .mailmap
+[1/1] ASoC: es9356: Handle register cache sync failures on resume
+      https://git.kernel.org/broonie/sound/c/04573b260599
 
-between commit:
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-  7d72815bc36cc ("mailmap: add entry for Yuanfang Zhang")
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-=66rom the mm-nonmm-hotfixes-unstable tree and commit:
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-  92039549ef782 (".mailmap: add entry for Yu Zhang(Yuriy)")
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-=66rom the ath-next tree.
+Thanks,
+Mark
 
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc .mailmap
-index 2478b4943f8c1,da76f7b21654a..0000000000000
---- a/.mailmap
-+++ b/.mailmap
-@@@ -236,11 -225,8 +236,12 @@@ Christoph Paasch <cpaasch@openai.com> <
-  Chuck Lever <cel@kernel.org> <chuck.lever@oracle.com>
-  Chuck Lever <cel@kernel.org> <cel@netapp.com>
-  Chuck Lever <cel@kernel.org> <cel@citi.umich.edu>
-+ Chunkai Deng <chunkai.deng@oss.qualcomm.com> <quic_chunkaid@quicinc.com>
-  Claudiu Beznea <claudiu.beznea@tuxon.dev> <claudiu.beznea@microchip.com>
- +Cl=E9ment L=E9ger <clement.leger@linux.dev> <cleger@kalray.eu>
- +Cl=E9ment L=E9ger <clement.leger@linux.dev> <clement.leger@bootlin.com>
- +Cl=E9ment L=E9ger <clement.leger@linux.dev> <cleger@rivosinc.com>
- +Cl=E9ment L=E9ger <clement.leger@linux.dev> <cleger@meta.com>
-  Coiby Xu <coiby.xu@gmail.com> <coxu@redhat.com>
-  Colin Ian King <colin.i.king@gmail.com> <colin.king@canonical.com>
-  Corey Minyard <minyard@acm.org>
-@@@ -1047,8 -1025,8 +1064,9 @@@ Yixun Lan <dlan@kernel.org> <dlan@gento
-  Yixun Lan <dlan@kernel.org> <yixun.lan@amlogic.com>
-  Yosry Ahmed <yosry@kernel.org> <yosryahmed@google.com>
-  Yosry Ahmed <yosry@kernel.org> <yosry.ahmed@linux.dev>
-- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com> <quic_yuanfang@quicinc.c=
-om>
-+ Yu Zhang(Yuriy) <yu.zhang@oss.qualcomm.com> <quic_yuzha@quicinc.com>
-  Yu-Chun Lin <eleanor.lin@realtek.com> <eleanor15x@gmail.com>
-++Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com> <quic_yuanfang@quicinc.c=
-om>
-  Yusuke Goda <goda.yusuke@renesas.com>
-  Zack Rusin <zack.rusin@broadcom.com> <zackr@vmware.com>
-  Zhu Yanjun <zyjzyj2000@gmail.com> <yanjunz@nvidia.com>
-
---BM+gsJGj69bNaxLO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsET6IACgkQJNaLcl1U
-h9Dd9wf+O5W91KshoUHKP4qzhSd0UxTthn86Xa21MNViawNhbFGcQrv0hB6vKQhd
-VXzNc9c3z3hQNvukW+dSdqOhgLISHPkMszWM95bZ+ubcmQLqcKXkvVfUl0c/UY4D
-93wpnn8GeAhXoIsoEGEuEw8yLAY4RIbVuSg2EBjhC3ZynX6nCbC53Y5vvhRhv/rx
-Tf6JVFqp+RwW7GoXmQytNJ0Q+3rSKNfdhVuMhrII5cObRHn1wrohhxIMdIVh/5x2
-hOYjOQyIThKQxgeglz05eEn69P06XKWxOkNFfqHU6VAIZlCjagNnd3vPvzMEIUOV
-i7kWKpBrduB4bQugMmgWlRm47kh6NQ==
-=aqLS
------END PGP SIGNATURE-----
-
---BM+gsJGj69bNaxLO--
