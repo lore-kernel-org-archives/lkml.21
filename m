@@ -1,55 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396460;
-	b=TsKWAhAYOPC/+z527kwWKL/TuaWc2nI2uAyJ0JWjlsmkToUaDY78RAM5KvstQ/11bjmJ
-	 L2irhbGud8qqrrlOeGN9HVyubPGS7arTCrTzcZusl+7R9OMwqEmMjWKS7FQvrazHkR8AM
-	 IZdabooMG5cQn+XRVRGSdbeFZU0Q20qBKYsgphlUA3eAchSUS20T3pecRP4VwKBEC6vzy
-	 5JhDV+JmuiqXnSrpJMacl+ePL1rQSGG+8qC8DsKYS50q1jWqdMv5p5rjYKLgswX7R7D5L
-	 uomMLmup7KdlnMnLk4vrg955jKy1cMWBzVUjCi0TMVX4EPW1UMChM3Vwd0NAF5qnV2A==
+	t=1795396464;
+	b=QEQleL3c/pIVdXmWL/gjmPvCS1fUmNTGJlrMy8YC5FHjdSiyd1dxOdeZNHwGu6HknHWi
+	 ULLtNIQ6aB3sN4FOoWw5f0j1a6Z52yxFIm+cVf6xC5A5+MpB9+YaOOjpgPJ2KaGRwwLVX
+	 LADTfvK2749Pv733Rn0izB+4BxC3YbR5VcR3sufe9J52uyxGGx4rk4OaiHdJ/pXrfia7u
+	 cpAoW2rX9t524pg8PkvBM74aEJXcT2YUxNL87KVwfenP+p3MDKHHIYNBgn55JpJL1tQuZ
+	 z5KTHI5OSHeV0bMSVjeggdTx8nNsZCYeztwwG7qnf5BsCjeHiYRBpM31zGF9nbsR4yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396460;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=beRsURI87z7ePC5UgnVhljfRVtiAk+JGSK5Yp7RQ++w=;
-	b=sMZfTcFkwWJTnM0gJZTJ8Ewsn1/40BDre83FWPRsNM5E+2cYNy5MX9wnSWBj5LGhsEES
-	 Ia6HBq8/CxW4t0/OwztR1OVj8cz9HLRththfbAwHTuyGv8xzEg80iazx/6YV8usin5F3s
-	 nSvXPBZE0vboiToT5GeqnKDOrW/vhd2Faz3KkWL6r12WIh0g3FBJ8UtFvlnXDpdX9zMNd
-	 ysQYbk4IR+2dRmN4mRvm4SaFSQUo037JX/8PyMNiDkdLpnozOCEO+SygglitKdFgtS2GL
-	 6fB9qgiPFGYgVcR1yLfh4Lskx4QlOU11Ji31rzJtXJJXNezBHQL3yhh4+DnHO0ioTiw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396464;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CHXXmkVwlU35isuKQoqN5mwPu5Ltu0MHi54EypRJlu0=;
+	b=ne9aaRLhkvEFbJIpHhzOPaxEhY1XTadVLwyOylTvxj5/R8FOYfQi7Ym/kY/hzKPVT1+k
+	 pUrW4xgV6ayEGxKO3BrxFypel7Fdbv9NRkBIgCf/qTyKYYUI16K/yGxZ1BzAy/4HBMDJf
+	 ZaTswaf6laEbvj+7ndCt0csE5qBxG+ZBdSiDm3Mm7mS6lT8k0tJWo/lRcIMgjHeTJ+C+T
+	 K0av46LTgGZbqONVrXFriHJe72y5TrCp7VjSUtKEFky+g5JsTWaOfO2+wbfsLMDBxBhDE
+	 jN1rA/CzW6S1mq08PU13R11B7IGffevk1N/u1c/ofzm6XXWzXmnLaFAN+rhR7CUvSQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ys1yFoMi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lLYfZxYM;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DC34606A33F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:14:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F7DB606A33D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:14:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F7DB606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ys1yFoMi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 407F51F00A3E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:14:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795396460;
-	bh=beRsURI87z7ePC5UgnVhljfRVtiAk+JGSK5Yp7RQ++w=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Ys1yFoMi3EImki+984yKCe81INtZaQHTXOXdANgrHv9/I07zvlyD2nTpoYX/tGYqd
-	 yc6+SySpdaII+pw8XgsrTCpM3A66tynOC/z8F1MdwNB3kNHswhMNS41AJQhEFJWboD
-	 kiNSWkHXDArtd5kB8OIQ2CkeuPtd6BJI9R6GnvHBzCI9uDnu81zIxw13OUZ/mEDBWs
-	 ZuCk07qi0/QolXdTFeDPWAVBeP5vGK4IVAd16QuexIaRJjVoKX9uD5yUHroorHerxs
-	 ih8ab7EmuB5sbtxCgrx7uzM8MHnDn47aasBHwVh/E9KhwdGLxIAV2dlKcpxcdV+/9F
-	 FjfZHMSnH4gMw==
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-9495f083657so334590985a.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:14:20 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErH5VwC7TOcj9fPvXX5cWZU5JUFPetZPbJ/aq7eWXXG0HcdbFxvxFREiAtVEEJCPR9h7ozkiuPr0J8G/ZNg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8gKkoTGvnpsXxxpfSKoBiykTw79t3jt6aEItOKwSRYo0ldfWdT
-	Rczx03EFjOGJSJ/gQ/EkgRKXYOLNdoq9UY5CzDTc/mqmkKPkkDCOonMI7iIb00hzk5vuuNLirri
-	6bxUKtIKe+XtKGtsioz6EZcRStq/5H2o=
-X-Received: by 2002:a05:620a:450e:b0:949:5c62:e785 with SMTP id
- af79cd13be357-949ba9b7429mr1776786785a.21.1795396459175; Sun, 22 Nov 2026
- 17:14:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lLYfZxYM
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso1775975f8f.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:14:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795396462; x=1796001262; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CHXXmkVwlU35isuKQoqN5mwPu5Ltu0MHi54EypRJlu0=;
+        b=lLYfZxYMSWmA1kHYYVmuloqDhwWyKpx9LPpB+YnK6yqlB4mSQb+5Hcpwr3kS5Rhzbn
+         qISBeMDJC0bUkBW6N1b3qVISFlGRiAeSHrxg3qSnGKzIRAayoEFzuw6zw3z5SZ3IUZCO
+         Cxb7SEcv6Zbqy3KF1ctTkGA8MmIB3MgaNPZIflb+43G/b0jAblyNdwvWt7fW1ycS6OiC
+         cJ9ULSCo4wW8wmN2sE6o6CUVYbsUavY9pB3coDVMEHG4JIQw83wWyK1AqokgK6GqjtQz
+         ESRspAsHGyGiRCDu6cDyR1DV1JOs1wows42eauZ5Z7f5QToolN1t7kNBfNxfJTnUGPuM
+         hqmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795396462; x=1796001262;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CHXXmkVwlU35isuKQoqN5mwPu5Ltu0MHi54EypRJlu0=;
+        b=LbyqTw0euzpRBuRNDFIjJ+fRRLWGJ7QSigdITke8wkkxNEMCwZSOYQfDM8Wi0ov5mm
+         oO63vEVLnO2NNZybHIzFBVHfh9nqfkVBeCTDiv6gM8kJC1feBrWLvEQrct3G5VKMtHXo
+         MoaLylicNxcSjl9DWu0813wG3xNmTrVnudQxExCNQQzoA4jc6VEwf0DNh41ca8TpkxjW
+         l4Xfn568iQCU6Xo/5GHcXGU+Y0suR1/cl+MzMZ9mTByR9Cr0U4LvRM5a5gSWy6iT8hCg
+         9cCFlUlLxo0zqe7xpsJLuKkxvvXsI9xupPNZRjj/1zw/Fzu13WMifm/ZdRr9aoIs/b1a
+         bfrg==
+X-Forwarded-Encrypted: i=1; AL+hErHwjdV9aNgXWeMGScnYY42yKdPOuMXD4xSPIJITC/mnB5YVMGckiA1bAM77iSHD0rVQAsCDIy3J/gPqlvQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/h1wlxtALV08SgXbV0aK2Fglh8zn23YZdOLovOwRIm505scnLV
+	3PuSMYCar0efe/r1SQlHYnvCUS+3wR2TEC4BvRNJ7KhZINj5IqxkOq0S
+X-Gm-Gg: AZFdTZd6Fum2lYtPRNqcFOzZzPjg9qDCJ21RhX46oGkk4g/FeoUddd2lQ+aBk6dvods
+	OgK7CkNHPdjPvL2bf6176HuHhWCCD/P6SOpQaW3Wr0HHRy0oncJusA4UrFl+8VQdg0jKaI/M1yR
+	kZ8hPXHXCqV2SzenaS+hibFe/mpjIGGDl90X2DgPWMAJtCOqy1t503i2/LxEupzONBPu52RS8T/
+	yyBHQq/7RTVH1aSmDc8DdOeHwfL2FnTfGudXarfF8KS4Kxo6NQxVE3igQWfCdlPsMpRdSScpN2s
+	CnJ4+5rARqVOHAbqRHLtvst5kryYyz4BfpMdUyAMPs5Md8WK2H6lgXvly/CyMO7tksjD9b1w0f8
+	gap0LghuwZkgclvWADYqIuYdwNWF0KwL+Bhd5DdLva/Z6rDNj57vOhODv2YdNphLEgnNRCvJ/9v
+	+W4XVYhPFmyHyCVTk0hwUkVMGOki/lE6nbAatasXaHKqsUh6SM29Aip7X9uYaEveQS44sYD+euT
+	CBoM01zJC/BF9wGTkzS5lgVhodxClO0qqyIe/PV9z0CowFubvWgkh5V732D7D1KzmcsgvUmO3s+
+	KQkxtTR3cQ5JRv62Ly9d7NnmnHng3twxQQn4ig==
+X-Received: by 2002:adf:e009:0:10b0:4a9:2728:fdfc with SMTP id ffacd0b85a97d-4abb4c7af34mr12900963f8f.28.1795396462348;
+        Sun, 22 Nov 2026 17:14:22 -0800 (PST)
+Received: from unknown.m0rf30.ray ([2a02:b027:11:deba:33a1:e72c:924d:d172])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm18046903f8f.22.2026.11.22.17.14.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 17:14:21 -0800 (PST)
+From: Gianluca Boiano <morf3089@gmail.com>
+To: Takashi Iwai <tiwai@suse.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ALSA: usb-audio: Enable native DSD for Fosi Audio DS2
+Date: Mon, 23 Nov 2026 02:14:01 +0100
+Message-ID: <20261123011401.1545242-1-morf3089@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,111 +95,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
- <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org> <179537313704.412063.6683001223228002260.b4-reply@b4>
-In-Reply-To: <179537313704.412063.6683001223228002260.b4-reply@b4>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 23 Nov 2026 09:14:06 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4yEeORJw8dQEH0U-JjWih3+3ZVx=1Va5F_9qsVbPzCLvQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qG1iauJEScw2ktzAtei45vPodUuwGuthkS3X5FKVC_OPLT-7KU2cnzR8g
-Message-ID: <CAGsJ_4yEeORJw8dQEH0U-JjWih3+3ZVx=1Va5F_9qsVbPzCLvQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] mm/huge_memory: use NOFS when allocating while
- splitting folios
-To: "Gregory Price (Meta)" <gourry@gourry.net>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kiryl Shutsemau <kas@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, William Kucharski <william.kucharski@oracle.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Johannes Weiner <hannes@cmpxchg.org>, 
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Matthew Brost <matthew.brost@intel.com>, 
-	Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
-	Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Miklos Szeredi <miklos@szeredi.hu>, 
-	Joanne Koong <joannelkoong@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, stable@vger.kernel.org, 
-	Chris Mason <mason@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 2:46=E2=80=AFAM Gregory Price (Meta) <gourry@gourry=
-.net> wrote:
->
-> On 2026-11-22 13:42 +0100, David Hildenbrand (Arm) wrote:
-> > Various callers (migration, memory-failure, s390_wiggle_split_folio) sp=
-lit
-> > locked folios without holding a reference on the folio's inode.
-> >
-> > Splitting a file folio might allocate memory for the xarray and call
-> > filemap_release_folio(). If either ends up in direct reclaim with
-> > __GFP_FS, reclaim can evict the inode through the dcache shrinker, and
-> > wait in truncate_inode_pages_final() for the folio that we hold locked:
-> >
-> >     try_split_folio()
-> >       folio_lock(A)
-> >       split_folio_to_list(A)
-> >         xas_split_alloc()
-> >           try_to_free_pages()
-> >             super_cache_scan()
-> >               prune_dcache_sb()
-> >                 iput_final()
-> >                   evict()
-> >                     truncate_inode_pages_final()
-> >                       folio_lock(A)
-> >
-> > This requires that nothing else holds a reference on the inode, and can
-> > be triggered most easily with FUSE, which evicts inodes on the last
-> > reference.
-> >
-> > Further, xas_split_alloc() charges the XArray nodes to the memcg, and o=
-n
-> > cgroup v1, memcg reclaim waits for file folios under writeback if
-> > __GFP_FS is set. That can deadlock if writeback waits for a folio lock
-> > that we hold, for example with ext4.
-> >
-> > Let's fix it by splitting folios in a NOFS scope, so callers don't have
-> > to care. A NOFS scope also covers allocations that filesystems make wit=
-h
-> > their own gfp flags, for example in filemap_release_folio().
-> >
-> > On NFS, splitting folios with pending writes or ongoing writes to
-> > fscache might now fail slightly more often, until these writes have
-> > completed. On netfs, only folios that are being written to fscache are
-> > affected. All fairly irrelevant.
-> >
-> > This has medium urgency.
-> >
-> > Fixes: 6b24ca4a1a8d ("mm: Use multi-index entries in the page cache")
-> > Fixes: eef88fe45ac9 ("s390/uv: Split large folios in gmap_make_secure()=
-")
-> > Fixes: 789763523fb4 ("xarray: honor XA_FLAGS_ACCOUNT in xas_split_alloc=
-()")
-> > Cc: stable@vger.kernel.org
-> > Reported-by: Chris Mason <mason@kernel.org>
-> > Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
->
-> Reproduced the hang determnistically.
-> Base deadlocked.
-> With patch 1: -ENOMEM (safe)
+The Fosi Audio DS2 (USB ID 262a:0001, Savitech controller with a
+Cirrus Logic CS43131 DAC) exposes a UAC2 RAW_DATA playback altsetting
+(altset 4, bmFormats 0x80000000, 32-bit subslot), but ALSA reports it
+as SPECIAL without the DSD_RAW quirk, preventing native DSD playback.
 
-Hi Gregory,
+Add the device to the quirk flags table with QUIRK_FLAG_DSD_RAW, as
+already done for the ddHiFi TC44C (262a:9302) using the same vendor's
+controller. With the quirk enabled, altset 4 is exposed as DSD_U32_BE
+and stereo DSD64, DSD128 and DSD256 streams (88200, 176400 and 352800
+frames/s) play through it.
 
-Just curious how those -ENOMEM failures occur. With GFP_NOFS, we
-should still be able to reclaim anonymous folios (except in
-SWAP_OPS_F_REQUIRE_NOFS cases) and clean page cache folios, right?
+Tested using snd-usb-audio quirk_flags=262a:0001:DSD_RAW on
+Linux 7.3.5.
 
+Signed-off-by: Gianluca Boiano <morf3089@gmail.com>
+---
+ sound/usb/quirks.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> With patch 2: split succeeds
->
-> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
->
+diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
+index a4eb0d0cd..7b359a568 100644
+--- a/sound/usb/quirks.c
++++ b/sound/usb/quirks.c
+@@ -2801,6 +2801,8 @@ static const struct usb_audio_quirk_flags_table quirk_flags_table[] = {
+ 		   QUIRK_FLAG_SET_IFACE_FIRST),
+ 	DEVICE_FLG(0x25aa, 0x600b, /* TAE1159 */
+ 		   QUIRK_FLAG_FORCE_IFACE_RESET | QUIRK_FLAG_IFACE_DELAY),
++	DEVICE_FLG(0x262a, 0x0001, /* Fosi Audio DS2 */
++		   QUIRK_FLAG_DSD_RAW),
+ 	DEVICE_FLG(0x262a, 0x9302, /* ddHiFi TC44C */
+ 		   QUIRK_FLAG_DSD_RAW),
+ 	DEVICE_FLG(0x2772, 0x0502, /* Musical Fidelity M6s DAC */
+-- 
+2.56.1
 
-+1 for the patch itself.
-
-Reviewed-by: Barry Song <baohua@kernel.org>
-
-Thanks,
-Barry
