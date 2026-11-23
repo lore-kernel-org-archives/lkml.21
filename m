@@ -1,57 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436303;
-	b=Yr0lGeJKuv9WuaQmo2ADLVWxEzDtAf8X6FsZgQy0Xb6h/IE/6PL/PTCI1WuE8aWKaZG+
-	 USwkHiaO91WT6Y0brUUdqbPiotcOa5VRfzWTP+cmgVHD1SNzscm2kSb6e/2XPu3tWbNCr
-	 fkvS2u6OXL/7BGu6I8iCdI2okfN52vSHKIUz857SGa3mUaPhd+gwe58JeyWm/i4nKlMy/
-	 q+kfUnZwfG4AT4qTuaNVdm5nNGlh9gy9vThYeH+l+tkl/Ebo4zEUgBJzMGtBnVGpQYKgl
-	 yOGqgMp1DAhKnM+GEMQYWBOgPajm+KktjwtkkisXbG2P2Iw3tioQMGwYTJimgB6qOdg==
+	t=1795436321;
+	b=IHb45Vht83gyUEUyV2KhYbVvApTexX+4ynanTEL+iIaJHxhcjtW3qkwjJ9IudECYKxV5
+	 JZFM+jEuEYrraWPzegG7UwI3HmotSEPFjzypZaL+aRD/Uyo97IiTL3HYOIn2YKXDZ6VtE
+	 wkUgv9wjCAvIJn3+lM9FnRyKHgScc/4xHAFphqtvqflyPbzDlF8uQskfvrqIpwbRomlro
+	 JUEOiLEnbeYEA1G9xsRiXyx3vsADwcevDY0C7rIyfOiFjal4YYSkmrhHgNX4sb3ITuOFo
+	 47T70rFT4qF31BdDZBVvzlCRK8WLxL8+n6K8BirLOtaRwaNR0KCOuYs91zkzPRP1lCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436303;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=pGK0OBvYCJu1N8yu8PM9PisOzbkPNFWd36gKX1yw1zQ=;
-	b=Lg+SWRO304DsjGaA+CpEGZBLox7oSgAvzkTg+HmrQGWaajQ/26aYSkOTnKHDlWTQtXcT
-	 x9S+kW5kBfU6ClfUMSUd4FG1Bz8ZMwYgXUxXAvTehSgvALjiCKA9krthcGkqPo4TES99o
-	 DN8mvuzGt1UD46C9dsgqT+GSOmE0QNbUgkjEDiVoPgMDzCupn4r9PcPGyvaXblayxi0lK
-	 VQcsxv0GFlbRK8fKKKEjtc0Xi+dy1ARlH3+miPpWawAMjHEpXGFZ/QPNW/hWZEwJczFZZ
-	 evFVaX8+HtBfoJWZQC2iutxgVUav7UP8RNlGAYE6BvmnQnKVNpKfkKLJac4zku+FIYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436321;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=9UvAxivFiSEq0LyKR6ra3EBoI2lwxNjSzVoAx32rpNE=;
+	b=cAYycJ8EGaNQ+k76BxeIL1NRv169k+qe2EfRSGwR4SSatWHsirGl/iShwDbpW/3gSxAR
+	 VTeLrZWYfUk+s5lOQErJ4khGeJW9T13pNmjngI14X9QvHGdV/39yxLTpo3eONTupkj9Gz
+	 miSbI/Kgk1JuOVkCs9PdozHx5FxCSUzishqDXR6m81PPDP3xGHbWkZgxLfVtBfA6qbTQg
+	 1PDMcY6jDqbBNDZYXGq+hyGEEVAllYjdPK9SKEMtxOSf0WCQ9b3VUUn2D2eJJ0NHU7UZ0
+	 0VFjAEkaJJmP+8J87HM7wfp3BS4A6Wg/ENPf9y0TBp00Xrh2IVXaIHRfN4tL14pYZbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V9NAW4ty;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=paragon-software.com;
+	spf=pass smtp.mailfrom=paragon-software.com;
+	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=JEqYHYvc;
+	arc=none smtp.remote-ip=35.157.23.187
+Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5CD2606A31E;
-	Mon, 23 Nov 2026 12:18:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46F08606A33C;
+	Mon, 23 Nov 2026 12:18:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46F08606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V9NAW4ty
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F4351F000D0;
-	Mon, 23 Nov 2026 12:18:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795436302;
-	bh=pGK0OBvYCJu1N8yu8PM9PisOzbkPNFWd36gKX1yw1zQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V9NAW4tyQumdHU1SyR9DOiq0llWoBFUTtQXP60kSigWkq42r8PO68XCY5iiclGcow
-	 ZrmVXXNJ8ENvxSVAypk7u6dD+kSAx1SBK5/cE2FKqFxG9PAy7+wPceL5XdjH9nDok+
-	 T3QPfkXqvvn/+Rk8CD2PhMv8S1pqOeQmWvRmVDhJcUIi7XA8m/mzuiCeN1sMcv/E5+
-	 nM3MfpReM9bxGFuonrlrC9DR18Mq5exDoHDV3VTXr35AQI5wc6tqxqQapbXggZdbDy
-	 5qRv93H0KkVURKGItiB8Ma+jiDjwF5WcD8BNX7U7cBq/v5QLe8RQDSyqT9PMGl2qM6
-	 10XxwgsECfU9w==
-Date: Mon, 23 Nov 2026 13:18:19 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stanislav Aleksandrov <lightofmysoul@gmail.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: pinctrl: document the Halliday Top
- Level Mode Multiplexer
-Message-ID: <20261123-competent-pragmatic-cougar-4be6b3@quoll>
-References: <20261116-halliday-tlmm-v2-0-b4dd502ca142@gmail.com>
- <20261116-halliday-tlmm-v2-1-b4dd502ca142@gmail.com>
+	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=JEqYHYvc
+Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
+	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id D45201D1B;
+	Mon, 23 Nov 2026 12:19:17 +0000 (UTC)
+Authentication-Results: relayaws-01.paragon-software.com;
+	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=JEqYHYvc;
+	dkim-atps=neutral
+Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
+	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 6AAF2454;
+	Mon, 23 Nov 2026 12:18:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=paragon-software.com; s=mail; t=1795436315;
+	bh=9UvAxivFiSEq0LyKR6ra3EBoI2lwxNjSzVoAx32rpNE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=JEqYHYvcMAB3uyJPTO06nd2fyPz4RKx3mR06PccD6rASuaAovpH5RMkslkNrTbwz3
+	 UK6IL9YEaqfzLtpVhtqEFUSun/RIYYQau2NKmJL2U89ip0wKTUp4GGmr6MCUKkVnP7
+	 48xQWhxVX0Mp3UD5JRp2NfkJ7q+uBHOUng5i7+9I=
+Received: from [192.168.95.128] (172.30.20.204) by
+ vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.7; Mon, 23 Nov 2026 15:18:34 +0300
+Message-ID: <f831dbca-286b-4b33-9f37-69bc9388a026@paragon-software.com>
+Date: Mon, 23 Nov 2026 13:18:32 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,21 +64,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261116-halliday-tlmm-v2-1-b4dd502ca142@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] fs/ntfs3: Fix out-of-bounds write in resident insert
+ range
+To: Bruno Produit <bruno.produit@trailofbits.com>
+CC: <ntfs3@lists.linux.dev>, Kyle Zeng <kylebot@openai.com>,
+	<linux-kernel@vger.kernel.org>, Dominik Czarnota
+	<dominik.czarnota@trailofbits.com>, <stable@vger.kernel.org>
+References: <20260922114018.1829807-1-bruno.produit@trailofbits.com>
+Content-Language: en-US
+From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+In-Reply-To: <20260922114018.1829807-1-bruno.produit@trailofbits.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: vdlg-exch-02.paragon-software.com (172.30.1.105) To
+ vdlg-exch-02.paragon-software.com (172.30.1.105)
 
-On Mon, Nov 16, 2026 at 09:23:58PM +0000, Stanislav Aleksandrov wrote:
-> Document the Top Level Mode Multiplexer on the Qualcomm Halliday SoC
-> (SXR2250P).
-> 
-> Signed-off-by: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+On 9/22/26 13:40, Bruno Produit wrote:
+
+> From: Kyle Zeng <kylebot@openai.com>
+>
+> attr_insert_range() grows a resident value before shifting data at and
+> after the insertion offset.  The current copy instead moves @bytes bytes
+> from the start of the value, so both its source offset and length are
+> wrong.
+>
+> For example, inserting 2048 bytes at offset 512 in a 513-byte resident
+> value copies 2048 bytes to data + 2048 even though the tail is only one
+> byte long.  The resulting destination can extend beyond the MFT record
+> allocation.
+>
+> Move the original tail from the insertion offset to its new location,
+> then clear the inserted range.
+>
+> Fixes: aa30eccb24e5 ("fs/ntfs3: Fallocate (FALLOC_FL_INSERT_RANGE) implementation")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Codex:gpt-5.6-sol
+> Signed-off-by: Kyle Zeng <kylebot@openai.com>
+> Signed-off-by: Bruno Produit <bruno.produit@trailofbits.com>
 > ---
->  .../bindings/pinctrl/qcom,halliday-tlmm.yaml       | 146 +++++++++++++++++++++
->  1 file changed, 146 insertions(+)
+>   fs/ntfs3/attrib.c | 5 +++--
+>   1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/fs/ntfs3/attrib.c b/fs/ntfs3/attrib.c
+> index b1c315206..4bd758133 100644
+> --- a/fs/ntfs3/attrib.c
+> +++ b/fs/ntfs3/attrib.c
+> @@ -2610,8 +2610,9 @@ int attr_insert_range(struct ntfs_inode *ni, u64 vbo, u64 bytes)
+>                          char *data = Add2Ptr(attr_b,
+>                                               le16_to_cpu(attr_b->res.data_off));
+>
+> -                       memmove(data + bytes, data, bytes);
+> -                       memset(data, 0, bytes);
+> +                       memmove(data + vbo + bytes, data + vbo,
+> +                               data_size - vbo);
+> +                       memset(data + vbo, 0, bytes);
+>                          goto done;
+>                  }
+>
+> --
+> 2.53.0
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Hello,
 
-Best regards,
-Krzysztof
+Thanks for the patch. Alon Shakevsky previously submitted the same
+fix in "ntfs3: fix INSERT_RANGE for resident data".
+
+Regards,
+Konstantin
 
