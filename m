@@ -1,115 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448444;
-	b=N9grWtBOyYhxPLhoW+dM2AbntFAPpxA3XzIqrppbLnQBGbCU7M4r9f4hO8fk8+fKrQnW
-	 p+6j5qDlI/yI4yYKfCSEzSNIRkuxLP+0jPdD/1z4K8mk+B3mIaEaJ0YeZXGe8KyBF4lbS
-	 8dw8pRAb3hYJ3yygCvJpOD74nG4rw/q5TrAUUp3SHVAfwLhU9I8d7NR50+H5uGh4OW25X
-	 2XtbV3dOM9gbmFuTH68PxX1cWLbEeZfyoyAADx04Jux8UHGWFtO+z+AAoGgN11Co2OSwt
-	 Kc4QBPlCrNDItwyhYzYewLANoqYIxHy/rTRQ4ZJ5x6LKbt9yh+JUKWWYCXh8sRXt3KQ==
+	t=1795448488;
+	b=dq/4JKKIhmMQGzo4+31155SIgFslVK3poMm6k6OP8GhC6ngCZhhLGA2xhfThRH986YZv
+	 rKRlkIJUPKh/rehdWP9adGGBtxT2BMsSzdHuMihJZw1FbabAHnaM4MO0B4KeIx6Wshm8K
+	 lTVAzsnkAnAdWrgzzBnyBHmoqZyuSC3GILI0vk17qFE2DRJOHI0c7YmPpAAELl4OcIKhW
+	 8UpE+s+4iyp/mGXk2WG+kKam2rCuPy/blPxYccHpNNkvJOsuFtlOVbgPB9LsU6HSjC7je
+	 TCBE8CAgYPzJ4PEtfwUyIRAYk5jcB0qjw5Ss3njHU6FhKST6sgNERdDRghf+q1WD3Sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448444;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=YxzVyVE4ai8Ea+LyIq1A/L2q3uxrmhBKTxjVeIPKjac=;
-	b=PSNQxsuPXe1Y4NDhBDyD/XfULAdjf+oH2J0ARqVgDbxJY0i1H6PZwDdTaK5RR9L/mwV6
-	 hqlV35OfcEt7BHJrgN/E96NrhwpJqSMmeg/CeD8LF9RKyy9lC80jyF2hHtDrCTKxf1f9g
-	 oBui2GRO+zTIlFetnom8dOumCi5DHgyNGVpa/vc30n/7vYK/O1BoGk7ZZePRaRSwuh5lY
-	 BGXir8pc1ENhhh4P0AXzlDme48FzZSGAijg4k5OthnVvYRnOmIIYy2itZq3XU/JRhsPw4
-	 cfUGfKVY3hFIuR1pmZ+W4CcTtAt/Xfdky3QnsOATyP78VSdHOAjUz/98wGr6IZDjq+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448488;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Spam-Level:
+	 X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:
+	 X-Spam-Score;
+	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
+	b=tyP4d0D6ieVQGCCLATQBWuh058bDViv+/GdoZ0EUswPxONCHsMpFecv5cjbTx85gVJ/t
+	 BgOPFTpHv7V4xwmHRbZb/tw9/OsT7uxEuCi61L4S/CNASCk4Q9v/GvP7IVxGUILXIF5mw
+	 5LxLCF8fU3bkUubPMKVuOWoZ+B9YheMOrRp/kstX5bnwOsHhgyHDCqkGByMpgw9230Jc2
+	 bHktmZ+fW3cHNOTc+jMQBMlJaA4Tf8JPoYaxgP31wW81YaKmZDcq866KGNSXJMPz2tSgt
+	 +1nLisKMNPPSpK4t19AqiOI+aWxAhZGSqJCqYCyItz2PK357dKpicC7Zffo/eVGbwFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=DCWIajyU;
-	arc=none smtp.remote-ip=209.85.160.180
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AF9560A262C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:40:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AF9560A262C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EEE2606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:41:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EEE2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=DCWIajyU
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-5365d26ccbdso43397291cf.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:40:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795448443; x=1796053243; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YxzVyVE4ai8Ea+LyIq1A/L2q3uxrmhBKTxjVeIPKjac=;
-        b=DCWIajyUd2NrR5Rg5QH4BYrc18jOuaIFNK9krdfrMVuNBFHlfubE8POzOdp0A6zoio
-         BK3Jm8Da6025c7dLknh9DJk0+VZH9DV55cQrJ8yJnUw7oCdRMpIHTUv6YgHpYHhqIori
-         GGrUVou8pcQMhd9KQWvZXddio3gurupEp+aji/SeMFzVVqTC+CtP/te/WmUVmR+NlGSs
-         KmBOlJCgCk0+qX6nR0Aw5RMZqvS6VBJFSdaldgcPjsZr2AoWVUN5puz1Vgd90tEBLzpY
-         eAIRonSuZWxNolGYAuXxViEQpSYv2RNGlQkdAhBcBAeO1UcT99mpa3vZgxg4rC/bbjsA
-         7Wew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795448443; x=1796053243;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YxzVyVE4ai8Ea+LyIq1A/L2q3uxrmhBKTxjVeIPKjac=;
-        b=SHSvUF60opip2iIHDTcXy9YTRPbC5fkADGdXurrxmeG0Gz7tjXNeHi4V09C95v8A1r
-         ffRkTOO0s7Nc9/vhOuo+TIecMr4CaEEoChxMqzbmOSwrROJqvbGalDFMau/5Wsfy6j6p
-         NQ9xg/wG3QRt3k55oq60NjzPCgvcb5BSNHwtgQ70IpmL327TfCaol2BLI+/U5H85ZQnt
-         VTXJ6m01NMQioXPK16nuAhaRuwR8OzwOhN6ya4IpEUOv7MG5wkat3Tm4F9sZlhCD5jL2
-         Q8GjuwPwyqKujVC+QFSCEsUMfISCndOrBmTvhYkMocFq7mRqDcXBVRwnNx1RA0pzwCSX
-         6EUA==
-X-Forwarded-Encrypted: i=1; AL+hErEKwRjRQAae6VSYR24XxhR982SmoahWrbonFFItS/PtujegWjGaiclxOS+UFp0z+oqwfK3py3pksxohm5U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8MhU68nG+fbuykhEkFs0mmo6weOscHT17knHN9dFHK0gHsGUFm
-	VOsKaOk5I85VRjUfu01+K3QQP8miNWz1i3o1P2RuOrOrORmt3whRGDmx5BI7gX+4ccM=
-X-Gm-Gg: AZFdTZcLTSOQmIshfEyI79DrUnjV5SvNvKvMe3M6e0KoXUX1WERP3VekGXztIfL1XU6
-	YuRE7JMVOXEHgvF7xDoKNhKQ6L46E/EzLKBrdrHxeleM7xhJzvNbTjX6tEPtudPhQxDr/dUkIim
-	XFYHCsRqW3jySXaqKJgZtJAQu9wMmq0oNL7ReO8h4cO9Ly3nn10JExABVEc+0SMNfcBk66LF8qp
-	uglPpeA+KNVLJ9+aSk3NyaxRfEq4AdoiU1JMeAdFi28WGAHNMo8eZvwvS8yvvi6IFxhqiz+R7LH
-	JnjKu4xvqvFRK/Hxi1zFKEw/Pmhk4MEgfVqn5HC1XRQs4GPPm1/v86/BFufJA4njDQ7+7NvV/rd
-	XmDCEDtjQvBEnZ6BowPSkxbhG+YPnb6TXfGFyZ7XT+W1XBy04FUNkHlK5L1Lv3Ysqcay2AepFN+
-	mk5eF5Argwiy3KF3SOcvxjeHDGYm+kgi2ytphtW1SVQvn6KSqR1kWGrUpH7xcVqCR47yymtB2py
-	JXSLWvZDxHCXusA44rV4Yh44MCUTFXi3RhYUJy9yQQyM3NNNyeiCQyCeGMkpyDAqKz31mCXO1xg
-	42iAIj03ricTGs6+T45S//WAjMzsqGXOy00/p+SVeo1sL+oKjiSFPm6A/BzdU1Qf9whQ1bh4tK6
-	YMm8=
-X-Received: by 2002:ac8:570d:0:b0:55c:bc0:63cc with SMTP id d75a77b69052e-55d768a2916mr224280231cf.6.1795448443241;
-        Mon, 23 Nov 2026 07:40:43 -0800 (PST)
-Received: from ziepe.ca (stjhnbsu6iw-159-2-142-59.dhcp-dynamic.fibreop.nb.bellaliant.net. [159.2.142.59])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134796329sm107324056d6.2.2026.11.23.07.40.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:40:42 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xVW9q-00000000t9u-0g9S;
-	Mon, 23 Nov 2026 11:40:42 -0400
-Date: Mon, 23 Nov 2026 11:40:42 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jiri Pirko <jiri@resnulli.us>,
-	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-api@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, david.quigley@intel.com, lukas@wunner.de,
-	ksinyuk@kernel.org, rodrigo.vivi@intel.com, cedric.xing@intel.com,
-	sameo@meta.com, drdeeglaze@gmail.com,
-	James.Bottomley@hansenpartnership.com, aik@amd.com,
-	jpiotrowski@nvidia.com, qinkun@google.com, pgonda@google.com,
-	jic23@kernel.org, alistair.francis@wdc.com, ankita@nvidia.com,
-	suzuki.poulose@arm.com, kas@kernel.org, rick.p.edgecombe@intel.com,
-	elena.reshetova@intel.com, dave.hansen@linux.intel.com,
-	sathyanarayanan.kuppuswamy@linux.intel.com, peter.fang@intel.com,
-	zohar@linux.ibm.com, aneesh.kumar@kernel.org, dave.jiang@intel.com,
-	nik.borisov@suse.com, sergii.dmytruk@3mdeb.com
-Subject: Re: [PATCH RFC v2 9/9] attestation: Add the TDX family implementation
-Message-ID: <20261123154042.GI179082@ziepe.ca>
-References: <20261113160838.2512652-1-jiri@resnulli.us>
- <20261113160838.2512652-10-jiri@resnulli.us>
- <awQCrnD5CtEhKRWz@e129823.arm.com>
- <awQz1P6iXYrL8lv0@kernel.org>
- <20261123151128.GD179082@ziepe.ca>
- <awRYr7yB8IWj7S3G@kernel.org>
- <awRan8ZELzpTwduV@kernel.org>
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cPUAdIEI;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=MeRVOgbM
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 92E8E1F390;
+	Mon, 23 Nov 2026 15:41:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795448485; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
+	b=cPUAdIEIrqM1kE3D/wgLateAtVuXGul9Gi1xOsSPgQ1JLo4wgf89AjtTF1M47E0lBDUy85
+	JC3FpvCNHTPtevWbQ5xcW+etHvlEstYZSTrs1nu89l25yTNCm0bgUiF+bp6shIbSGz1G22
+	NVNsxAwD7u6hUIYS2ZZgN0arqYyuvfQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795448485;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
+	b=MeRVOgbMJEh/BOCD0ScBfVEUF9K5YqAqkyMRX/w/HHmCOcaa7rywBY9XW5vMRwS3JaHH+l
+	0oQL5eePSq3xnLAQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=cPUAdIEI;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=MeRVOgbM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795448485; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
+	b=cPUAdIEIrqM1kE3D/wgLateAtVuXGul9Gi1xOsSPgQ1JLo4wgf89AjtTF1M47E0lBDUy85
+	JC3FpvCNHTPtevWbQ5xcW+etHvlEstYZSTrs1nu89l25yTNCm0bgUiF+bp6shIbSGz1G22
+	NVNsxAwD7u6hUIYS2ZZgN0arqYyuvfQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795448485;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8+/2WoxFdpcQdUsqbaVip+amN1KRS8T5dllu47RLv5o=;
+	b=MeRVOgbMJEh/BOCD0ScBfVEUF9K5YqAqkyMRX/w/HHmCOcaa7rywBY9XW5vMRwS3JaHH+l
+	0oQL5eePSq3xnLAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 487CC1352B;
+	Mon, 23 Nov 2026 15:41:25 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id sULWCKVeBGvHJgAAD6G6ig
+	(envelope-from <hare@suse.de>); Mon, 23 Nov 2026 15:41:25 +0000
+Message-ID: <f9d90595-d2cc-4c24-99eb-9e924969aa1d@suse.de>
+Date: Mon, 23 Nov 2026 16:41:24 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,37 +108,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awRan8ZELzpTwduV@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/9] nvme-auth: switch to use the kernel keyring
+To: Martin Belanger <martin.nvme.dev@gmail.com>,
+ Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>
+Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org>
+ <5aa50b65-c502-4b87-8f09-23a456e2ca6a@gmail.com>
+ <463a55e8-c2ef-4d83-94ff-7599c7d931e6@gmail.com>
+Content-Language: en-US
+From: Hannes Reinecke <hare@suse.de>
+In-Reply-To: <463a55e8-c2ef-4d83-94ff-7599c7d931e6@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 92E8E1F390
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-12.00 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	XM_UA_NO_VERSION(0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_TO(0.00)[gmail.com,kernel.org,kernel.dk,lst.de,grimberg.me,nvidia.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email]
+X-Spam-Score: -12.00
 
-On Mon, Nov 23, 2026 at 05:24:15PM +0200, Jarkko Sakkinen wrote:
-> > > > As per the function, perhaps tpm2_calc_event_log_size() should be
-> > > > relocated to lib and have non-TPM name like firmware_event_log_size()
-> > > > or something.
-> > > 
-> > > Probably under drivers/attestation since that is where all the TCG
-> > > formatted logs should end up. It should be 'tcg_event_log_size()' or
-> > > something. Maybe a tiny module for it like we would have done in lib/
-> > 
-> > +1 for the name, as it is obviously more accurate prefix.
+On 11/23/26 4:32 PM, Martin Belanger wrote:
 > 
-> Location, I don't know. I was thinking something like "lib/tcg.c" with
-> routines that are plain calculations based on TCG/TPM data.
+> 
+> On 11/23/26 07:59, Martin Belanger wrote:
+>> How should nvme-cli determine whether the kernel accepts a key
+>> description for DH-HMAC-CHAP?
+> [...]
+>> 2. Use a separate option for the key description, for example
+>>     dhchap_key=%s and dhchap_ctrl_key=%s. nvme-cli would then detect
+>>     support through /dev/nvme-fabrics, as it does for the other
+>>     options. It also avoids having one string that can mean either a
+>>     description or key data.
+> 
+> Hi Hannes,
+> 
+> A follow-up with test results. I added DH-HMAC-CHAP support to
+> nvme-keysd and tested it with v5 in a VM, with nvmet over TCP and keys
+> in both directions. Import, connect by key description, a wrong key,
+> and a key replacement all work.
+> 
+Cool.
 
-I think we should not have new users outside attestation subsystem,
-but the legacy onces will still exist obviously..
+> For detection, nvme-keysd now uses add_key(): it fails with ENODEV
+> when the 'dhchap' key type does not exist. On an older kernel, the
+> connect fails with "Invalid DH-CHAP secret <name>", which is clear
+> enough. So nvme-cli does not need a new option for this. A separate
+> option would still avoid the ambiguity between a description and key
+> data, but that is your decision.
+> 
+> One finding: add_key() with the exact secret length, without a
+> trailing NUL, fails at random with EPERM. nvme_dhchap_psk_preparse()
+> treats the payload as a C string and reads past it (the bug Sashiko
+> reported), and base64_decode() returns -1. User space passes the
+> length without a NUL, keyctl(1) too. Could v6 parse exactly
+> prep->datalen bytes? For now nvme-keysd passes the NUL.
+> 
+Yeah, that should be addressed with v6.
 
-IDK either, but this is my guess..
+Cheers,
 
-> And perhaps for tpm_buf (both stack/heap allocatable), if Trenchboot
-> ever moves forward.
-
-DRTM users will route through attestation subsystem to do their
-extends so the tpm_buf user would be the TPM driver inside
-attestation. We definitely need this for ROT agility.
-
-We should be able to build the attestation TPM driver without any
-trenchboot stuff to motivate it.
-
-Jason
+Hannes
+-- 
+Dr. Hannes Reinecke                  Kernel Storage Architect
+hare@suse.de                                +49 911 74053 688
+SUSE Software Solutions GmbH, Frankenstr. 146, 90461 Nürnberg
+HRB 36809 (AG Nürnberg), GF: I. Totev, A. McDonald, W. Knoblich
