@@ -1,57 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.75
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438955;
-	b=awuACdhX8TpmrSYL5HGWLQRvmJYG2KYTAFBU57wiXiPbvWp3E45/OpOSJcSIDWs3cYDl
-	 hA3SYQoXIyJe3boAosRwlpgVuCA4rL1XEDlxS3FahivOKFB95y4f38O6Dqqv6/QkuNwlY
-	 7bCc0YDrAbugZuqa+NyFCrQr4vXP6cnABICc6DGJlhzz9ecbo9qPkm3XZ/r7iGCMCROm+
-	 VlFuwd09LBOg46OSsDP5yo6MO+RAoO4CY/3Stp4gvHzaRKHw9jJk33L5JccG8HBAsZWhs
-	 K+KSLarDn1TwsnaRviyh3YB+tVvGdN2bwQq2BJZOi20P3Rwz0s3I/0tBCVFmRYadv5A==
+	t=1795438980;
+	b=3H4QY1JsZtwH5YIDQEcVhkvRZFw+wKd8fHzxBl+x8sRgJsPqacHBFBlAn1oOl2MlMN5I
+	 URTTAYghpn6oSavCetXiz8G87fHtPKQkUWFRaN/VHUfgh20SnCkOTqvYkXHVqgHZWeaIp
+	 OvtLFqLw4WHES1u+oi9mbY/wgry7ntzGaDHNoBhNukpJpl/yEQLw7cTYvQJZMjHbFoXF1
+	 cU6QJpuTaL510haAu54P9jeuLMnRUpL1Njharq1hsM1F39qMeSoyxsE+m3uCvjPkwKcsk
+	 iyYLgWuxGAWOdSdRxa4vs+zErOeuOXLssS+VumdOFikpVVFhf7J5973vRZhgde0i5Rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438955;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 DKIM-Signature;
-	bh=3HYwWDF/VqUcDJRjXZfOKOtKJbiGPwfo7ligLpJcmFI=;
-	b=yoIavm/3ZqQGRbkXN37mgFEOmASEVuEnpDLDTYRqA0ObU48GevHkwDMm9Af4Ze2VQOAy
-	 6gNiCFVO3eTwfqfx+aONJ2wCGbrpGmKTR5XumSyzglLGaK45Iv4qVqR/w1RE4R5gjjhD9
-	 nHRsCbkB3kqPNJBHfV4v2XgH0Nz+/UGs6Jr0ILJJOdwFlemk5GxwVryecPqAVE3Det4sX
-	 Z5bmZyScll08h7a2cURMXk7WhlPdd+u0BNmW6AsIx4mvop1b/CQXw4oBSJmhoYv0bCHLN
-	 bTdwv2FNki/D79570D740fSIMZnszAZdzBWJ8SIT/71UKmZtUL725famCFWNbg6N6Ng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438980;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=sd6mG3Bx/nhwPBMmF+KUQNMT5XN0aCjqv/klBzEyo8I=;
+	b=Kq2MH06Tp3hVtWhK9fhflr/r8UTK0DayqUes/CX2B9xGdj+f6hjOQ5bf8GCwA3eInli2
+	 RfKb9RceIcZY5jOItwS4O3wxAWylBITmesp9TygGfKVjPIh/lBE8vlH4oLcl3MO1ej5mn
+	 GzgtzaFJ53ywRz0/HDcuisoih9BKykuTmj3VSgxeW5g1qLM9HtHdhRh5sA+s/hrU4yCxE
+	 edZ8ZXTkYw9mHmZVXGEiJhfijRWliF3COVmmp/+d9ud5CLGrJFtv8WiWP/j9GN7HgcwGl
+	 b0ePqg12eo8Nmg+rkNeShtAvq39ZCX20fJd8/Gm1fULKm5rMqkuSqNAuTR0QCZl9fcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=poczta.fm;
-	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=UgRGNNRM;
-	arc=none smtp.remote-ip=217.74.67.75
-Received: from smtpo75.interia.pl (smtpo75.interia.pl [217.74.67.75])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBCB2606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:02:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBCB2606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=UgRGNNRM
-Received: from nr200 (unknown [80.68.231.31])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JjbEU848;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Mon, 23 Nov 2026 14:02:28 +0100 (CET)
-Date: Mon, 23 Nov 2026 14:02:26 +0100
-From: Slawomir Stepien <sst@poczta.fm>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: jiashengjiangcool@gmail.com, yun.zhou@windriver.com,
-	zzzccc427@gmail.com, bigeasy@linutronix.de, nab@linux-iscsi.org,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	syzbot+2799146a53c356f8017d@syzkaller.appspotmail.com
-Subject: Re: [PATCH 1/3] usb: gadget: f_tcm: take the TPG in tcm_bind()
- instead of tcm_alloc()
-Message-ID: <awQ5Yn9kCtWRoxVM@nr200>
-References: <20261022134926.1125473-1-sst@poczta.fm>
- <2026112034-paralegal-democracy-b509@gregkh>
- <awQIkANAqLndeXxy@nr200>
- <2026112324-trailside-hanky-1986@gregkh>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63BB1606A31A;
+	Mon, 23 Nov 2026 13:03:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63BB1606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JjbEU848
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCZ57C1981609;
+	Mon, 23 Nov 2026 13:02:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=sd6mG3
+	Bx/nhwPBMmF+KUQNMT5XN0aCjqv/klBzEyo8I=; b=JjbEU848XKHwXgE655cL4z
+	aLv5wrCEyPTY5m/krZKfG0zAZpje36SbiMCNkiT2XrKw7Y1edrBz0EGKS0L9C52Y
+	lvcxgLSLvFkzjCiWVLVBVZCgpy9nhY+igqj1HPEGHptePaUEvW1sNxSyVNgSkJnn
+	yMa1fpJZ33b3AUwd4o+kkf2qCKo9uHA0J8K11kYWT4l0fXVo2evEARrWcEqg7xNI
+	RbTEGLQmj+RtJOERE4+iofxDcvZzYlYn6K5egBFXaejswxH8Xca/WmXmrAZWmaj7
+	wWxEAafb7LslT17MSsdh90ks9qEnAYsl+15gjX69nu2zYOzWXhkBIC5X3kRr8BbA
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g338kq-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 13:02:51 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCJRtr1819064;
+	Mon, 23 Nov 2026 13:02:51 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3nmqf23w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 13:02:50 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AND2leD31392464
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 13:02:47 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3553D2004E;
+	Mon, 23 Nov 2026 13:02:47 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CC3EE20043;
+	Mon, 23 Nov 2026 13:02:46 +0000 (GMT)
+Received: from [9.68.16.159] (unknown [9.68.16.159])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 23 Nov 2026 13:02:46 +0000 (GMT)
+Message-ID: <88ed21d7-deee-4be7-ae83-a3eec9da3e6e@linux.ibm.com>
+Date: Mon, 23 Nov 2026 14:02:46 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,122 +85,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2026112324-trailside-hanky-1986@gregkh>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795438950; bh=3HYwWDF/VqUcDJRjXZfOKOtKJbiGPwfo7ligLpJcmFI=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	b=UgRGNNRM+yVMRxEHDN1SEGum4x41TI7vEy34RTae+bdxwvMPDSRRlMiwILGLFDbUd
-	 n54ewmG5TeIBJCHD9Xmsr+i5ZjhZ7Scm0gRRxd5S3MF0jynbmQeafioxl3r7HcFBFO
-	 V5xwIAlnAiYIbI8puOcw19oAGjJwSgEWYrLrsb2E=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/2] KVM: s390: fix migration mode teardown in memslot
+ handling
+To: Gautam Gala <ggala@linux.ibm.com>, kvm@vger.kernel.org
+Cc: linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Marc Zyngier <maz@kernel.org>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>
+References: <20261120075345.116521-1-ggala@linux.ibm.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20261120075345.116521-1-ggala@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b04397b cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=LV0xR08TYvLYdXShQnMA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfX0BFX6BCOJLNN
+ 0B94/Z+Ymhe/dEjyexfY9OQh9YbmAqTm8LoWRgn9tQVG9vW5K0g+HDOfiGuUVfeoHU4r8jvhDAe
+ Aganm3yHyDV641SiyJ8pIulsNAXdsdU=
+X-Proofpoint-ORIG-GUID: 4JmKci6gwdefVd5US6YZG9z-msgTQKnv
+X-Proofpoint-GUID: 4JmKci6gwdefVd5US6YZG9z-msgTQKnv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfX7/4uWZj7RNoh
+ BhsCblQyUJtOjTeS6eQpoG6dgszHTqiG/bXlU0wmi7cCrXZmsR/8O6EBOCgPyxa+UVniV1JRdNP
+ SW3CdfhmMArNe87pvYWW4ACykEcsZKj+RveRgPrNbEDhihoa5m1yCMiRPp/xXcKcFBh0IxoK9hT
+ ejnU4xus/rnirbe/NwwLj23nJPdgp/wonxAKtWkCFAAosbRTmrRK4oVZnedERXAZqDKWpTW4mGO
+ 1o1qrinmyXWdi7OZM65BmO3/Bc32CM9sKK1In87pYkLuqSRwhxMT4uLImLga9NbAdz8oo3LkUEN
+ KIrI1zfvyNzdxS0saI+u5zI1MBF3yTouldJjT7G0DRsUkqCpFj46YzJ7G5wuhOd2uE/rXPLYWPf
+ mRg9OHezh35mkcVKYhi2fTJgngtft4wafaFMHYu1dloQbuTQDsklQUujIZqxdVv/xwVFJzxWsDY
+ YIM/fn0z7MWCha1xNDg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
+ lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230050
 
-On lis 23, 2026 13:18, Greg KH wrote:
-> On Mon, Nov 23, 2026 at 10:34:08AM +0100, Slawomir Stepien wrote:
-> > On lis 20, 2026 11:58, Greg KH wrote:
-> > > On Thu, Oct 22, 2026 at 03:49:24PM +0200, Slawomir Stepien wrote:
-> > > > tcm_alloc() runs when a TCM function is symlinked into a gadget
-> > > > configuration. It searches tpg_instances[] for the function instance
-> > > > and copies the TPG pointer into fu->tpg at that point, under
-> > > > tpg_instances_lock. This has two problems.
-> > > > 
-> > > > The function and the TPG can be set up in either order. If the
-> > > > function is linked into a configuration before the TPG directory is
-> > > > created, tpg_instances[i].tpg is still NULL and fu->tpg stays NULL.
-> > > > Creating and enabling the TPG afterwards sets can_attach, so
-> > > > tcm_bind() succeeds, and the first USB request that reaches the
-> > > > target code dereferences the NULL fu->tpg.
-> > > > 
-> > > > Removing a TPG also leaves can_attach set for configfs instances, so a
-> > > > later bind is not refused even though the TPG it would use is gone.
-> > > > 
-> > > > Store the TPG in struct f_tcm_opts instead: set it in usbg_make_tpg()
-> > > > and clear it in usbg_drop_tpg(), under opts->dep_lock. In tcm_bind(),
-> > > > refuse to bind unless both can_attach and opts->tpg are set, and copy
-> > > > opts->tpg into fu->tpg there. Also clear can_attach in usbg_drop_tpg()
-> > > > for configfs instances. The legacy g_target driver sets can_attach once
-> > > > at module load, and its attach callback does not set it again, so
-> > > > leave it alone in that case or g_target could never bind again after a
-> > > > TPG is recreated.
-> > > > 
-> > > > With fu->tpg no longer set in tcm_alloc(), the tpg_instances[] lookup
-> > > > there serves no purpose: f->fi already identifies the instance for the
-> > > > item's whole lifetime. Drop it, and with it the tpg_instances_lock
-> > > > acquisition. config_usb_cfg_link() calls tcm_alloc() with gi->lock
-> > > > held, so this also removes the gi->lock -> tpg_instances_lock edge
-> > > > from the following lockdep report:
-> > > > 
-> > > >   WARNING: possible circular locking dependency detected
-> > > >   task is trying to acquire lock:
-> > > >    (tpg_instances_lock){+.+.}-{4:4}, at: tcm_alloc
-> > > >   but task is already holding lock:
-> > > >    (&gi->lock){+.+.}-{4:4}, at: config_usb_cfg_link
-> > > > 
-> > > >   the existing dependency chain (in reverse order) is:
-> > > >   -> #2 (&gi->lock):
-> > > >          config_usb_cfg_link
-> > > >          configfs_symlink
-> > > >   -> #1 (&sb->s_type->i_mutex_key#24):
-> > > >          configfs_depend_item_unlocked
-> > > >          usbg_make_tpg
-> > > >          target_fabric_make_tpg
-> > > >          configfs_mkdir
-> > > >   -> #0 (tpg_instances_lock):
-> > > >          tcm_alloc
-> > > >          usb_get_function
-> > > >          config_usb_cfg_link
-> > > >          configfs_symlink
-> > > > 
-> > > > Fixes: 4bb8548df632 ("usb: gadget: f_tcm: add configfs support")
-> > > > Reported-by: syzbot+2799146a53c356f8017d@syzkaller.appspotmail.com
-> > > > Closes: https://syzkaller.appspot.com/bug?extid=2799146a53c356f8017d
-> > > > Link: https://syzkaller.appspot.com/ai_job?id=51e1f189-6d91-4321-a6ba-07d4eb3cd8cd
-> > > > Assisted-by: Gemini:gemini-4-argon Gemini:gemini-3.8-flash syzbot
-> > > > Signed-off-by: Slawomir Stepien <sst@poczta.fm>
-> > > > ---
-> > > >  drivers/usb/gadget/function/f_tcm.c | 29 +++++++++++------------------
-> > > >  drivers/usb/gadget/function/u_tcm.h |  4 ++++
-> > > >  2 files changed, 15 insertions(+), 18 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
-> > > > index 9e6d4f39900a..cc75d7e9792a 100644
-> > > > --- a/drivers/usb/gadget/function/f_tcm.c
-> > > > +++ b/drivers/usb/gadget/function/f_tcm.c
-> > > > @@ -1720,6 +1720,9 @@ static struct se_portal_group *usbg_make_tpg(struct se_wwn *wwn,
-> > > >  
-> > > >  	tpg_instances[i].tpg = tpg;
-> > > >  	tpg->fi = tpg_instances[i].func_inst;
-> > > > +	mutex_lock(&opts->dep_lock);
-> > > > +	opts->tpg = tpg;
-> > > > +	mutex_unlock(&opts->dep_lock);
-> > > 
-> > > Why is a lock needed to write one value?
-> > 
-> > Yeah it is not needed. I will drop it in v2 - can_attach (tcm_bind()) and tpg_instances_lock
-> > (usbg_drop_tpg()) protect it.
-> > I guess AI added it since in all the other places it is used.
-> > 
-> > > >  	mutex_unlock(&tpg_instances_lock);
-> > > >  	return &tpg->se_tpg;
-> > > >  
-> > > > @@ -1760,11 +1763,14 @@ static void usbg_drop_tpg(struct se_portal_group *se_tpg)
-> > > >  		opts = container_of(tpg_instances[i].func_inst,
-> > > >  			struct f_tcm_opts, func_inst);
-> > > >  		mutex_lock(&opts->dep_lock);
-> > > > -		if (opts->has_dep)
-> > > > +		opts->tpg = NULL;
-> > > > +		if (opts->has_dep) {
-> > > >  			module_put(opts->dependent);
-> > > 
-> > > The whole module_put() logic should probably just be removed, right?
-> > 
-> > I'm not sure what you mean here. This series does not touch the legacy path.
-> > Are you suggesting that we do not have legacy users and this whole legacy stuff can go?
+Am 20.11.26 um 08:53 schrieb Gautam Gala:
+> Two small fixes for migration mode handling in
+> s390_kvm_mmu_prepare_memory_region().
 > 
-> I would love to drop the legacy stuff, my point was that anyone doing
-> manual calls to module_get/put() is usually wrong.
+> Patch 1 fixes an error-path bug: if the mmu cache reservation fails
+> after migration mode was already stopped, the ioctl fails but the CMMA
+> state cleared by kvm_s390_vm_stop_migration() cannot be restored, so an
+> in-flight migration aborts over an unrelated allocation failure.
+> Reserving the cache first keeps both memslots and migration state
+> untouched on failure.
+> 
+> Patch 2 is a cleanup on top: kvm_s390_vm_stop_migration() cannot fail,
+> so it returns void and the always-false WARN() at its call site is
+> dropped.
+> 
+> Gautam Gala (2):
+>    KVM: s390: reserve mmu cache before stopping migration mode
+>    KVM: s390: make kvm_s390_vm_stop_migration() void
+> 
+>   arch/s390/kvm/arm64/arm.h    |  3 +--
+>   arch/s390/kvm/gmap/kvm_mmu.c | 18 ++++++++++--------
+>   arch/s390/kvm/s390/s390.c    | 10 +++++-----
+>   arch/s390/kvm/s390/s390.h    |  2 +-
+>   4 files changed, 17 insertions(+), 16 deletions(-)
 
-I can take a look at it, but in a separate series if that's OK with you.
+Thanks applied. 
 
--- 
-Slawomir Stepien
