@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795474867;
-	b=KeG1tdXH0d3rXgO9BmbTaA9v1dvayS7btApy61LzoBQQYvipnn2IbmjCZ1BjdX24LGzL
-	 CS2V++nGBpAlq6C2yeoNovUWLGXhu2M66oi7ZHgUsKjcMoR38dRPEzF8sBSmFjP6ZA9pb
-	 vqjcal9UfXXjWcOTJ0rET5q+n99cGhwXc0VsP6UTwEtI3d04q3EZgbyOUOnmprnpGHWfR
-	 mSmNPo8LDy/HrZSppJ/22Q57ce5wcaMqCB7qnXi1tjk7BH2/un3dr54DnbBi53PSmevBG
-	 VoUCm7QQjoDcIsMzFH6ioQWocIcTQTINi1tLdmjG/0xWX7gbiV7etbkwx0nJPKSI/zA==
+	t=1795474869;
+	b=OeLd8dR4wq9+NEQBI4jpSOqWBO1Y1Qp9i1y8105qLaTVUVZ5tyH9M7kdu95ZgXr6o30g
+	 o6qIAE79n2ddoYmyiy6AZqzKyS/yIsWdy9S2BF2YyBuT3sCEdFbtA4y42bCmQ0aZIe7/M
+	 dmtIVkOQhn4C/F5TNVJllsdrXTzWc6vSIf6i5JFrbynWabIi4km2TcGjs6ASHzYToSdzt
+	 iFHIcyOwjnCRFHqXaBg37iTxmZpJpeJdE26enKsvz0hyIagrxpVJ1Mezj5DUhdHIXruvZ
+	 9T3Q+zAxBwQ03iPalRo3AKBCa4OHfDhDg71bWscbcsKoZsqDu/N8B1Z7XlvZt1i9dLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795474867;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795474869;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=Aqohkn9z53SBY8rROqhjekaytCoqauZetpa7fBs5LxI=;
-	b=dzu1mBKPCd6S0Rfxw5Lw223gTxQkUrp+sYj1HMxgBuzqXDq4D1OIc+4+Zq7j7tWVS5hz
-	 OOuxkRRX+NwOZ/Z+k+fQW5fTKmpzlfJhUbciQYlAX0Gcb21Qf7dADpY3CCnzLIBQJCD/R
-	 yEaD81BRdyPSCXs4eeSNTBzfAR7OzVKQHhE99DvfCcprxbLRdLBosVQJK6mEvppF71zJC
-	 0ctVVpll0kV1lIUwfctYh3CWlakLjhhcKpSKKFI2C9Xz8MwRl3SDl+eatNCI6LLThPo/y
-	 jwchZQXVlgIA96sEvrUBKWjVHRRxJcnuGUW3pIe4N5Uwd+WUNlU3nKllAguf3NXKqlg==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=GNl5OQSsBr2T4ULhkBC7jgjCRs6CpsVbXafS/oZDDFw=;
+	b=C7y+vExKpOJe6TMaSjWgFZDmgwQfFwr0GfLS+KCQGlbqRncD9ulOv7o7y8fHbJHWCydZ
+	 7UKYRI2jbxZXni4JlThybtNO4azWJdADfVW2VxdGgxWwHQ0VPe4l1sI+kHEy3b+W9tJgk
+	 d6rWUnd3EtznAPTKzNah8SFLHqEmIs6nicoQKCiI+XANlUbcGfaWlKaRCoWKZeu9QjDJf
+	 ttm6z/2iRQEQTZJGNprgnG9uF9ZS7W96jQkwrKboSaeUzXj3ewU3Ny0ZzxOKmWlVe7JVn
+	 tj+rZNu2EsyN76okGG+E5Ufvh92vFaBpd+ckFbyYLlFu8WuSsc625HYo+TQX+oH7QvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sQfnVn7J;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=whpL5IW3;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E084606A322
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:01:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E084606A322
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F03F0606A337
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:01:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F03F0606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sQfnVn7J
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38644aedba1so5878433eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:01:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=whpL5IW3
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38699cf08dfso3985897eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:01:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795474866; x=1796079666; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Aqohkn9z53SBY8rROqhjekaytCoqauZetpa7fBs5LxI=;
-        b=sQfnVn7JE3591GjQcn8CgenIvgChnWf/Q7F+bGoyzL0ncjbVoQzLnS2v6tXf9eBQzp
-         EqdS7phfvIVpWwZ/K3PNphs+sY3bsBXWyHwD8SjQu229DAQ4V1mxGo4+kf/Kih3+dbO2
-         RPU63Ynw/46PZJhQsfzGRmIswyGPxz7MRcNiXlwdaViAjMoHsWLPBnEmtnvOkfKggI2J
-         7iW2a/i5rigD8R/5GPTBl72X7ln3Qzh/7hR9dm06q/aH3s+F349PkRxSin5zZrEmGPEd
-         pvyUo2X/wf8MGbeq5wkUiw8nGHBEgOGetGnnwugrC9EXPX0/wS0Q+fWwl1b4rYjrXoDI
-         DNbg==
+        d=gmail.com; s=20260707; t=1795474868; x=1796079668; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GNl5OQSsBr2T4ULhkBC7jgjCRs6CpsVbXafS/oZDDFw=;
+        b=whpL5IW3Zs3vC4CG3MMwDnWnT3I2WFh4saOBIoQ6s109kPaduelYYSoTUrPlz3AcdI
+         ILydNiktNR2Ll/78AwzR9/cDfWSKHXfHKiln6IzbfHqGezb9VwyQ1dyCnROazNQ1vYUG
+         7L9dHQkcmmH3FojY4ZHBO6ysmArgjXt6G79GfRLFWiZlc+HQdFZ4nBIozI8vEgxAwpRI
+         cK3GNv0BvEbPKfHKM1+JcezgkIjV4nWR5V53Opp/l1WwiYLXyldrJ7jDZnBPun4m05Gk
+         SFWrypGDaXvzgT19aM1OgJKflWfeAGBhXOAHyIy11rgTsw6Gqyj3eCBJDqZXZO5oF/J0
+         Vtnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795474866; x=1796079666;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Aqohkn9z53SBY8rROqhjekaytCoqauZetpa7fBs5LxI=;
-        b=sUroiRkmpRvL+carSUrJWbqNYeJRJUWQ9JMN2d7CzidkOUv8w4cr9MMxrUXQdqwGS1
-         jVa0DEEYIOEtdGPnkEZDs5SgPwXYCQ8XXw4YDinWX9olEZvDMfEbsjclH6FeCcD98fBp
-         DsVaRQsPtJLFRUH/ilrMACukOpn0GEyd5c8vKQ1I5W1YloCGdPm8qEeXKiouAgM65ww1
-         Nc+F1ZR3z/mH/xWcJTbcVWxHzAYNLAaCbxnMZLCcN2PwcqoggFp/33Xqilmu/F4IoUrC
-         Ij3kbirU/KlH3j3O4HysaLJYSBd43ilb2b6Gs1PfzfAiCUzVRJe4ak1vnKtzM+kg6O49
-         fevg==
-X-Forwarded-Encrypted: i=1; AL+hErG4ef6uCF6vAyxsTrHmAI/uwq5R614rR0CqltPSCx5VKkCGcnPanuTzcINqhrk2a0OAhZOQtRtWTzeQ0KA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/RNtuNcQM3NoC2GSGsKvWgd0dsTny0uOV/C58YpgmsRPZII3Mm
-	Tyzdio3YulCNdcXf/BBr9j8vSUqIOjBBL0C5GPYF/T4FLapYvYFEFuVM
-X-Gm-Gg: AZFdTZfq+HFv2dDdfvVMrDVQn9oBX26LcCNXs4Yhg9XV1ynMJn4mPnHF/+nGhU6S1TO
-	z9MQ89llVgAb+NE9TUsli5TQiuJagZwp8QdD5Ifrkvf1czIE6P30MkUTPo+pWhvcE1bxnJhFg73
-	GKStAWLNIiHEW3CfWPYX4nNORWKmDa4WoAWv4GE7pv4h3wnd7XA2tT2afItD/i/7atg2NNV/Kqi
-	psAIcun5uLyn7WsDBjqpFbjA6gPeyKQNOticEFExmvgIM7oAv1nR4LC0KV5ikxiEfBOckQBq8Do
-	laBgOCCfbs6l56Bq63prEn7CwboPcNrlhWtQKCJxKiUMZRtYT6SwZoOjOwaRfRMotHWUY59MsI9
-	Q4268n5mhbtpTk7xN1/qvAfgcpXqsuskNG8EVQKPxm0PneLbklG2XFHzfKAxHN5Lk3uWGmyKWMS
-	mw0n6yd7TlwKr5t/Io9pQ3MmHz/4/b+GTzc605PIepC8d9wUdl5Dh7MpBJ2IDvcAECZLZtsZkY5
-	xgVV4NMbfRZCYFT4VqqOpwVuYKv48PeOGz2vLNBeXIBkKdiwa8jdLjxLiUYnmAiJe77iVkUTqBS
-	PGnBVH5XJfMDF7CyKzT4sF2T5UrSGjv82BecGLm8wjy740OrvaHZzWOu/8DAdef7iA4SjtPndTz
-	yL9eniU8H9LG2pKz/kbwZwVYl1VPCRBkjkXz1zgA=
-X-Received: by 2002:a05:693c:42d1:b0:386:b0ea:327d with SMTP id 5a478bee46e88-386b0ea3549mr3926679eec.5.1795474865278;
-        Mon, 23 Nov 2026 15:01:05 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795474868; x=1796079668;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GNl5OQSsBr2T4ULhkBC7jgjCRs6CpsVbXafS/oZDDFw=;
+        b=Oyx/iBAM4ija4iveMp82fAYh227/SOuK/x3p7+8r8GuYYd3TNNAkdpqqkKI+rZFwdI
+         /Jt2+dKS2ru+TtT0I/7OP4CqFlm5VFBOM3PaUIgT7i/DzyYRJk/oz1LVqPdBhnk7ar2X
+         fK7ozWUAgUMHxRzJ8AZbjukW+S6yrICJCJrcv4pOLL4DmTcwfZQHl3TUfQxHlFeuWVLk
+         wLPmyju6BvxX0U0d7Xj2MKOnHYYv22bcDvz8t1ymX/pFpd3AhuoTvBMbb7bmgsI/l3Ie
+         nu88/W0BT3CBtjc6JPvISmWF9TOS0uSFgm0o5nzD8uC6OH9fISERMOY8GMnUFoW4qm76
+         G+FQ==
+X-Forwarded-Encrypted: i=1; AL+hErEFiPJJSgymUM60hrd3XJ99jr2PwHe+UkhYg/74+RhCeI8VOzJQC20vT/0kqqxeNvoKIjHMDwqq/QjzOrg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/1nwMAl3vR6jlIpHMvuZFltS/4Tw26NbF/Cb6FaEYpqvj8gF7n
+	ACavoYsL9Hl+6wYOU5xO/QM/ajMMTggvw+Xv+Z064J0Z6EW/SEk2UpcI
+X-Gm-Gg: AZFdTZecPwGy2jhuWg0bzstIcCnjPyUeS9x5EdLRjShBQF5jXMJhwYOiV4edwhwX1S4
+	MwmzD1XLDsJQ8E45UsfA7coF0Ap9HOcfdLZKDMD2F10jaIKUu5PaOaX/nXfC7ZjQ2BfUWHxdEcV
+	G5CgN8RNHv0Z2zsgaT6POon1Hdg/j5oeiCeRbK0OLEcN9PFqM4RF8aP/ORqL8aXltOcsxCGsGRR
+	hWAM6GRjm37sBcnKndD3O4zCvu6akcnUYtCnX2ZSAjaqtl0f8W4QGmeXU3xEuWFqJ8ai1rHMPuc
+	kNFlYyECNTBXqCuF1CA50n2l2FUjPul0tTtTrsO2Pt32CYSaBm0QRVn7v3N/HjvAKddYt2M9tzy
+	NtBtYws7fEknNR/rmk0r9rOzV0JkhLkGwvaKehqdR34EI7r9PDPqqCzgUuvCTPzXSHo4uXVqtkb
+	5g114mfhZOSlk3gqrWmn4qfjcfFstPZv6oRrfiBue6rpUVvVMs+qqvHToD4Fj/7f1uVfNYSZNQ6
+	U97u1YwmCGULjPsYTFKC7ys9yKza7jOLXWrh+j3wWp1vgQ6a3NKl3JUoGUtNqE6vYxEsLZbCpsI
+	60Gu4ZquzpuPzeRW5bcA1WcCGIGiGCJZtY2M9u46gQ3A+UKAz4rPmmw+ZVVaufbn5aiS4uNoUA7
+	MNZlJ+JmcMC2hC9AVhg==
+X-Received: by 2002:a05:7301:d183:b0:386:a728:6c11 with SMTP id 5a478bee46e88-386a72872d3mr6899216eec.17.1795474867633;
+        Mon, 23 Nov 2026 15:01:07 -0800 (PST)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm41359262eec.22.2026.11.23.15.01.01
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm41359262eec.22.2026.11.23.15.01.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:01:03 -0800 (PST)
+        Mon, 23 Nov 2026 15:01:06 -0800 (PST)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Subject: [PATCH v2 0/4] ASoC: arizona: switch to generic device properties
- and clean up
-Date: Mon, 23 Nov 2026 15:00:53 -0800
-Message-Id: <20261123-arizona-asoc-v2-0-6323d3c0961a@gmail.com>
+Date: Mon, 23 Nov 2026 15:00:54 -0800
+Subject: [PATCH v2 1/4] ASoC: arizona: convert audio pdata parsing to
+ generic device properties
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,11 +95,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKbFBGsC/3WNyw6CMBBFf4XM2hpaXsrK/zAspnWEMdKaFolK+
- u8WXLs8ybnnLhDIMwVoswU8zRzY2QRql4EZ0PYk+JIYVK5qKfNKoOePsygwOCMMHrXGBgutG0i
- Th6crv7bcuftxeOobmWltrMbAYXL+vf3NcvX+pGcpcqEqMk1RHMqyplM/It/3xo3QxRi/0LmrW
- roAAAA=
-X-Change-ID: 20261105-arizona-asoc-ca9bba7a3bb7
+Message-Id: <20261123-arizona-asoc-v2-1-6323d3c0961a@gmail.com>
+References: <20261123-arizona-asoc-v2-0-6323d3c0961a@gmail.com>
+In-Reply-To: <20261123-arizona-asoc-v2-0-6323d3c0961a@gmail.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
  Charles Keepax <ckeepax@opensource.cirrus.com>, 
@@ -109,53 +107,350 @@ Cc: patches@opensource.cirrus.com, linux-sound@vger.kernel.org,
  linux-kernel@vger.kernel.org, mfd@lists.linux.dev
 X-Mailer: b4 0.17-dev-dd645
 
-This series converts Arizona ASoC drivers to generic device properties
-and cleans up dead code and formatting issues:
+Switch audio platform data parsing in the shared Arizona ASoC helper
+from OF-only property APIs to generic device property APIs so audio
+parameters can be provided via software nodes or ACPI in addition to
+Device Tree.
 
-- Convert audio platform data parsing from OF-only APIs to generic
-  device property helpers and drop CONFIG_OF guards across the codec
-  drivers.
-- Parse device properties unconditionally in the jack detection and codec
-  drivers even when platform data is supplied, preserving existing
-  channel settings and boolean flags when properties are absent.
-- Drop unused hpdet_acc_id and hpdet_acc_id_line fields from struct
-  arizona_pdata along with the unreachable HPDET accessory ID logic in
-  the jack detection driver.
-- Clean up coding style and argument alignment in arizona-jack.c.
+Align the audio configuration array types in struct arizona_pdata with
+generic property types so properties can be read directly into platform
+data, using boolean storage for out-mono flags and bounded array reads
+that preserve unspecified trailing elements. Drop the CONFIG_OF guards
+and obsolete error checks around the audio property parsing calls in all
+Arizona codec drivers.
 
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
-Changes in v2:
-- Only parse and validate wlf,hpdet-channel when the property is present,
-  without clobbering existing platform data on absent or invalid values.
-- Default an unset (0) hpdet_channel to ARIZONA_ACCDET_MODE_HPL in
-  arizona_jack_codec_dev_probe() instead of using the GNU ?: extension
-  in arizona_extcon_device_get_pdata().
-- Link to v1: https://patch.msgid.link/20261105-arizona-asoc-v1-0-25ec7338446e@gmail.com
+ include/linux/mfd/arizona/pdata.h |  15 ++---
+ sound/soc/codecs/arizona.c        | 121 +++++++++++++++++++-------------------
+ sound/soc/codecs/arizona.h        |   2 +-
+ sound/soc/codecs/cs47l24.c        |   9 +--
+ sound/soc/codecs/wm5102.c         |   9 +--
+ sound/soc/codecs/wm5110.c         |   9 +--
+ sound/soc/codecs/wm8997.c         |   9 +--
+ sound/soc/codecs/wm8998.c         |   9 +--
+ 8 files changed, 79 insertions(+), 104 deletions(-)
 
----
-Dmitry Torokhov (4):
-      ASoC: arizona: convert audio pdata parsing to generic device properties
-      ASoC: arizona: always parse device properties regardless of platform data
-      ASoC: arizona: drop unused HPDET accessory ID support
-      ASoC: arizona: clean up coding style and formatting
-
- include/linux/mfd/arizona/pdata.h |  21 ++--
- sound/soc/codecs/arizona-jack.c   | 248 ++++++--------------------------------
- sound/soc/codecs/arizona.c        | 121 +++++++++----------
- sound/soc/codecs/arizona.h        |   8 +-
- sound/soc/codecs/cs47l24.c        |   8 +-
- sound/soc/codecs/wm5102.c         |   8 +-
- sound/soc/codecs/wm5110.c         |   8 +-
- sound/soc/codecs/wm8997.c         |   8 +-
- sound/soc/codecs/wm8998.c         |   8 +-
- 9 files changed, 113 insertions(+), 325 deletions(-)
----
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
-change-id: 20261105-arizona-asoc-ca9bba7a3bb7
-
-Thanks.
+diff --git a/include/linux/mfd/arizona/pdata.h b/include/linux/mfd/arizona/pdata.h
+index d465dcd8c90a..984b2edfec07 100644
+--- a/include/linux/mfd/arizona/pdata.h
++++ b/include/linux/mfd/arizona/pdata.h
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/mfd/arizona.h>
+ #include <linux/regulator/arizona-ldo1.h>
+ #include <linux/regulator/arizona-micsupp.h>
++#include <linux/types.h>
+ 
+ #define ARIZONA_GPN_DIR_MASK                     0x8000  /* GPN_DIR */
+ #define ARIZONA_GPN_DIR_SHIFT                        15  /* GPN_DIR */
+@@ -100,7 +101,7 @@ struct arizona_pdata {
+ 	 * useful for systems where and I2S bus with multiple data
+ 	 * lines is mastered.
+ 	 */
+-	unsigned int max_channels_clocked[ARIZONA_MAX_AIF];
++	u32 max_channels_clocked[ARIZONA_MAX_AIF];
+ 
+ 	/** GPIO5 is used for jack detection */
+ 	bool jd_gpio5;
+@@ -150,7 +151,7 @@ struct arizona_pdata {
+ 	int num_micd_configs;
+ 
+ 	/** Reference voltage for DMIC inputs */
+-	int dmic_ref[ARIZONA_MAX_INPUT];
++	u32 dmic_ref[ARIZONA_MAX_INPUT];
+ 
+ 	/** MICBIAS configurations */
+ 	struct arizona_micbias micbias[ARIZONA_MAX_MICBIAS];
+@@ -161,19 +162,19 @@ struct arizona_pdata {
+ 	 * wm5102/wm5110/wm8280/wm8997: [0]=IN1 [1]=IN2 [2]=IN3 [3]=IN4
+ 	 * wm8998: [0]=IN1A [1]=IN2A [2]=IN1B [3]=IN2B
+ 	 */
+-	int inmode[ARIZONA_MAX_INPUT];
++	u32 inmode[ARIZONA_MAX_INPUT];
+ 
+ 	/** Mode for outputs */
+-	int out_mono[ARIZONA_MAX_OUTPUT];
++	bool out_mono[ARIZONA_MAX_OUTPUT];
+ 
+ 	/** Limit output volumes */
+-	unsigned int out_vol_limit[2 * ARIZONA_MAX_OUTPUT];
++	u32 out_vol_limit[2 * ARIZONA_MAX_OUTPUT];
+ 
+ 	/** PDM speaker mute setting */
+-	unsigned int spk_mute[ARIZONA_MAX_PDM_SPK];
++	u32 spk_mute[ARIZONA_MAX_PDM_SPK];
+ 
+ 	/** PDM speaker format */
+-	unsigned int spk_fmt[ARIZONA_MAX_PDM_SPK];
++	u32 spk_fmt[ARIZONA_MAX_PDM_SPK];
+ 
+ 	/** Haptic actuator type */
+ 	unsigned int hap_act;
+diff --git a/sound/soc/codecs/arizona.c b/sound/soc/codecs/arizona.c
+index 7c296c5b24f7..46e2ca48e70f 100644
+--- a/sound/soc/codecs/arizona.c
++++ b/sound/soc/codecs/arizona.c
+@@ -11,8 +11,8 @@
+ #include <linux/delay.h>
+ #include <linux/gcd.h>
+ #include <linux/module.h>
+-#include <linux/of.h>
+ #include <linux/pm_runtime.h>
++#include <linux/property.h>
+ #include <sound/pcm.h>
+ #include <sound/pcm_params.h>
+ #include <sound/tlv.h>
+@@ -2799,77 +2799,76 @@ int arizona_lhpf_coeff_put(struct snd_kcontrol *kcontrol,
+ }
+ EXPORT_SYMBOL_GPL(arizona_lhpf_coeff_put);
+ 
+-int arizona_of_get_audio_pdata(struct arizona *arizona)
++static int arizona_get_variable_u32_array(struct device *dev,
++					  const char *propname,
++					  u32 *dest, size_t n_max)
+ {
+-	struct arizona_pdata *pdata = &arizona->pdata;
+-	struct device_node *np = arizona->dev->of_node;
+-	u32 val;
+-	u32 pdm_val[ARIZONA_MAX_PDM_SPK];
+-	int ret;
+-	int count = 0;
+-
+-	count = 0;
+-	of_property_for_each_u32(np, "wlf,inmode", val) {
+-		if (count == ARRAY_SIZE(pdata->inmode))
+-			break;
+-
+-		pdata->inmode[count] = val;
+-		count++;
+-	}
++	int n, ret;
+ 
+-	count = 0;
+-	of_property_for_each_u32(np, "wlf,dmic-ref", val) {
+-		if (count == ARRAY_SIZE(pdata->dmic_ref))
+-			break;
+-
+-		pdata->dmic_ref[count] = val;
+-		count++;
+-	}
++	n = device_property_count_u32(dev, propname);
++	if (n < 0) {
++		if (n == -EINVAL)
++			return 0;	/* missing, ignore */
+ 
+-	count = 0;
+-	of_property_for_each_u32(np, "wlf,out-mono", val) {
+-		if (count == ARRAY_SIZE(pdata->out_mono))
+-			break;
+-
+-		pdata->out_mono[count] = !!val;
+-		count++;
++		dev_warn(dev, "%s malformed (%d)\n", propname, n);
++		return n;
+ 	}
+ 
+-	count = 0;
+-	of_property_for_each_u32(np, "wlf,max-channels-clocked", val) {
+-		if (count == ARRAY_SIZE(pdata->max_channels_clocked))
+-			break;
+-
+-		pdata->max_channels_clocked[count] = val;
+-		count++;
+-	}
++	if (!n)
++		return 0;
+ 
+-	count = 0;
+-	of_property_for_each_u32(np, "wlf,out-volume-limit", val) {
+-		if (count == ARRAY_SIZE(pdata->out_vol_limit))
+-			break;
++	if (n > n_max)
++		n = n_max;
+ 
+-		pdata->out_vol_limit[count] = val;
+-		count++;
++	ret = device_property_read_u32_array(dev, propname, dest, n);
++	if (ret < 0) {
++		dev_warn(dev, "Failed to read %s (%d)\n", propname, ret);
++		return ret;
+ 	}
+ 
+-	ret = of_property_read_u32_array(np, "wlf,spk-fmt",
+-					 pdm_val, ARRAY_SIZE(pdm_val));
+-
+-	if (ret >= 0)
+-		for (count = 0; count < ARRAY_SIZE(pdata->spk_fmt); ++count)
+-			pdata->spk_fmt[count] = pdm_val[count];
+-
+-	ret = of_property_read_u32_array(np, "wlf,spk-mute",
+-					 pdm_val, ARRAY_SIZE(pdm_val));
+-
+-	if (ret >= 0)
+-		for (count = 0; count < ARRAY_SIZE(pdata->spk_mute); ++count)
+-			pdata->spk_mute[count] = pdm_val[count];
++	return n;
++}
+ 
+-	return 0;
++void arizona_get_audio_pdata(struct arizona *arizona)
++{
++	struct arizona_pdata *pdata = &arizona->pdata;
++	u32 out_mono[ARRAY_SIZE(pdata->out_mono)];
++	int i, n, ret;
++
++	arizona_get_variable_u32_array(arizona->dev, "wlf,inmode",
++				       pdata->inmode,
++				       ARRAY_SIZE(pdata->inmode));
++
++	arizona_get_variable_u32_array(arizona->dev, "wlf,dmic-ref",
++				       pdata->dmic_ref,
++				       ARRAY_SIZE(pdata->dmic_ref));
++
++	n = arizona_get_variable_u32_array(arizona->dev, "wlf,out-mono",
++					   out_mono, ARRAY_SIZE(out_mono));
++	for (i = 0; i < n; i++)
++		pdata->out_mono[i] = !!out_mono[i];
++
++	arizona_get_variable_u32_array(arizona->dev, "wlf,max-channels-clocked",
++				       pdata->max_channels_clocked,
++				       ARRAY_SIZE(pdata->max_channels_clocked));
++
++	arizona_get_variable_u32_array(arizona->dev, "wlf,out-volume-limit",
++				       pdata->out_vol_limit,
++				       ARRAY_SIZE(pdata->out_vol_limit));
++
++	ret = device_property_read_u32_array(arizona->dev, "wlf,spk-fmt",
++					     pdata->spk_fmt,
++					     ARRAY_SIZE(pdata->spk_fmt));
++	if (ret && ret != -EINVAL)
++		dev_warn(arizona->dev, "Failed to read wlf,spk-fmt (%d)\n", ret);
++
++	ret = device_property_read_u32_array(arizona->dev, "wlf,spk-mute",
++					     pdata->spk_mute,
++					     ARRAY_SIZE(pdata->spk_mute));
++	if (ret && ret != -EINVAL)
++		dev_warn(arizona->dev, "Failed to read wlf,spk-mute (%d)\n", ret);
+ }
+-EXPORT_SYMBOL_GPL(arizona_of_get_audio_pdata);
++EXPORT_SYMBOL_GPL(arizona_get_audio_pdata);
+ 
+ MODULE_DESCRIPTION("ASoC Wolfson Arizona class device support");
+ MODULE_AUTHOR("Mark Brown <broonie@opensource.wolfsonmicro.com>");
+diff --git a/sound/soc/codecs/arizona.h b/sound/soc/codecs/arizona.h
+index 0703182d87b3..499891e62183 100644
+--- a/sound/soc/codecs/arizona.h
++++ b/sound/soc/codecs/arizona.h
+@@ -388,7 +388,7 @@ static inline int arizona_unregister_notifier(struct snd_soc_component *componen
+ 	return blocking_notifier_chain_unregister(&arizona->notifier, nb);
+ }
+ 
+-int arizona_of_get_audio_pdata(struct arizona *arizona);
++void arizona_get_audio_pdata(struct arizona *arizona);
+ 
+ int arizona_jack_codec_dev_probe(struct arizona_priv *info, struct device *dev);
+ int arizona_jack_codec_dev_remove(struct arizona_priv *info);
+diff --git a/sound/soc/codecs/cs47l24.c b/sound/soc/codecs/cs47l24.c
+index fa2d01ead30b..4c09b476b77a 100644
+--- a/sound/soc/codecs/cs47l24.c
++++ b/sound/soc/codecs/cs47l24.c
+@@ -1221,13 +1221,8 @@ static int cs47l24_probe(struct platform_device *pdev)
+ 	if (!cs47l24)
+ 		return -ENOMEM;
+ 
+-	if (IS_ENABLED(CONFIG_OF)) {
+-		if (!dev_get_platdata(arizona->dev)) {
+-			ret = arizona_of_get_audio_pdata(arizona);
+-			if (ret < 0)
+-				return ret;
+-		}
+-	}
++	if (!dev_get_platdata(arizona->dev))
++		arizona_get_audio_pdata(arizona);
+ 
+ 	platform_set_drvdata(pdev, cs47l24);
+ 
+diff --git a/sound/soc/codecs/wm5102.c b/sound/soc/codecs/wm5102.c
+index 762e81979cb8..35b7c034b517 100644
+--- a/sound/soc/codecs/wm5102.c
++++ b/sound/soc/codecs/wm5102.c
+@@ -2040,13 +2040,8 @@ static int wm5102_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 	platform_set_drvdata(pdev, wm5102);
+ 
+-	if (IS_ENABLED(CONFIG_OF)) {
+-		if (!dev_get_platdata(arizona->dev)) {
+-			ret = arizona_of_get_audio_pdata(arizona);
+-			if (ret < 0)
+-				return ret;
+-		}
+-	}
++	if (!dev_get_platdata(arizona->dev))
++		arizona_get_audio_pdata(arizona);
+ 
+ 	mutex_init(&arizona->dac_comp_lock);
+ 
+diff --git a/sound/soc/codecs/wm5110.c b/sound/soc/codecs/wm5110.c
+index faa85d88a489..312c55ab7cd5 100644
+--- a/sound/soc/codecs/wm5110.c
++++ b/sound/soc/codecs/wm5110.c
+@@ -2402,13 +2402,8 @@ static int wm5110_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 	platform_set_drvdata(pdev, wm5110);
+ 
+-	if (IS_ENABLED(CONFIG_OF)) {
+-		if (!dev_get_platdata(arizona->dev)) {
+-			ret = arizona_of_get_audio_pdata(arizona);
+-			if (ret < 0)
+-				return ret;
+-		}
+-	}
++	if (!dev_get_platdata(arizona->dev))
++		arizona_get_audio_pdata(arizona);
+ 
+ 	wm5110->core.arizona = arizona;
+ 	wm5110->core.num_inputs = 8;
+diff --git a/sound/soc/codecs/wm8997.c b/sound/soc/codecs/wm8997.c
+index f041dfc905a4..4d0c3a54bd16 100644
+--- a/sound/soc/codecs/wm8997.c
++++ b/sound/soc/codecs/wm8997.c
+@@ -1118,13 +1118,8 @@ static int wm8997_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 	platform_set_drvdata(pdev, wm8997);
+ 
+-	if (IS_ENABLED(CONFIG_OF)) {
+-		if (!dev_get_platdata(arizona->dev)) {
+-			ret = arizona_of_get_audio_pdata(arizona);
+-			if (ret < 0)
+-				return ret;
+-		}
+-	}
++	if (!dev_get_platdata(arizona->dev))
++		arizona_get_audio_pdata(arizona);
+ 
+ 	wm8997->core.arizona = arizona;
+ 	wm8997->core.num_inputs = 4;
+diff --git a/sound/soc/codecs/wm8998.c b/sound/soc/codecs/wm8998.c
+index 1158e9ca40a1..3ae19f03f29a 100644
+--- a/sound/soc/codecs/wm8998.c
++++ b/sound/soc/codecs/wm8998.c
+@@ -1345,13 +1345,8 @@ static int wm8998_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 	platform_set_drvdata(pdev, wm8998);
+ 
+-	if (IS_ENABLED(CONFIG_OF)) {
+-		if (!dev_get_platdata(arizona->dev)) {
+-			ret = arizona_of_get_audio_pdata(arizona);
+-			if (ret < 0)
+-				return ret;
+-		}
+-	}
++	if (!dev_get_platdata(arizona->dev))
++		arizona_get_audio_pdata(arizona);
+ 
+ 	wm8998->core.arizona = arizona;
+ 	wm8998->core.num_inputs = 3;	/* IN1L, IN1R, IN2 */
 
 -- 
-Dmitry
+2.56.1.809.ga0b61035b5-goog
 
