@@ -1,123 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449509;
-	b=pPL9W1hbtjgugCnS8QG1vOK5uL2HNVfLYK0MsMnZO6thgWYYVBrTzDLszempTwmdufsN
-	 56dJl4kBcYxN4hp8gOvmuLGdzRLfDeFJGPNgj+XrVpmJM7h6QKVMbHyrUwZc7Pa7/XYkO
-	 /5q6Xrkxb5OwPrfvjfayDbdRVAP9U8rlhAPr1egVo4G3kw37Plb5XxMOMJ/nXZmysQsLA
-	 JaXgxyUCLndWV0lsEe7/JAaRJhkM+69tDhV5F3WIVVlCr1ZtAu/8j2G+20/JV6Kx13vqU
-	 /zFC0qiMwASeTIiwKXbigwDZdRGpmnBQ8oIIULcDN5rjzdaWQWge8FzSjgxxJUEMIJw==
+	t=1795449550;
+	b=IEiYm4CLyluWX/1q0ttsvE7aN+qoUMld4N73IJtFJrsx2A8GTLhVIdFN+2YfAr42qyBz
+	 i33Afv8ObuuwuBD7x+et47ljPJ9NjinkGX+AanTJP4iH8A25+yzlEWN3dxdrLZDEECPbR
+	 zJBOOzBSiiwDM/TppYPwTwilkcREA/7tF/gQhVEos/y8TcDcBt+PICq64UQJXUU9AhAC6
+	 CbHXrO34+mnHj2cH3YQ7ZEoSOgJGAfWYHdpClpfWAEeo5hme8j+BxCj9AQINxm9RRkx9N
+	 CNpa1hQibeifyluvMZfeV0WriHk8u+MuKWAprEHJNkQFm9Sv4QZUeOboAih+xXv6lww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449509;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=E7V1Mp8qcb2Pgn8vLfudKigHDe8jvtrjrih2NQ7mefs=;
-	b=fZc8pkx7F96myEzHRr4KvHeXfDWKjT8jeMPUkkzjqA6/TXavjfuryXzFAm/1avrdB9EY
-	 IzB1VTUxLe0GV/ne3wLq6Oe0Vm+DSyB+rZ2VO5bJzsOKgd0G18rPU4Ilp9m9C86vpLSAD
-	 /4FwfT6yCs0qTxeApCbrsWS8FTnQiNcp+2+rLYcxy+UWnf+dkmSKu4ga1P9prCW0DyaAc
-	 kOMgogKUByfEfzPfr7FGzSVpYfsTJJyNcC0k2V60nDBwCW53wemibvqA0PjSvRmyPE9J/
-	 Ki0MMKq+l2yCG3ukykNWwaRzYnPmdaIQRO9Oy9r5XW2ezSXVQ9F32aCBfFZ3BRqDqIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449550;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=5T3kLA/R/0xtFF9nFDh0Ria4cdzh2STsxbalTTV9D7U=;
+	b=QR1GbrXKIiDKbKV30rb2lGVziinX433lKRmw8vrj2S2vxlInlE2dqpKSiHfjI2r8Stiu
+	 VwrUFY516UFmLB0BrhdyokBjeKJpI56sNnLR7/NLcTns4KD1+7/b5Lh4VVHeo88ENM97b
+	 XnLcry3oAfKzjLwBKqlv/g6OaRV3fz42J0WjCIm80fq96vBpS9nzTMx8cyO9oz8sEd3Ta
+	 D5WCb1HeA8it39b4NKFBHYSJsS+39M4woblV3JzNRdWu4ALuuUay2SDTI3SbXj5mMlP1H
+	 +jFb2M+nJKA6CA4TDYN+8ISWWIoSgQnv53CGa2ZZXVsG/QgxjAti6UvBbPpi4Lrjp6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pPuJJBV4;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UI43AN56;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 182D9606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:58:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 182D9606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B1B7606A31A;
+	Mon, 23 Nov 2026 15:59:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pPuJJBV4
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-4ad6219f7d8so2778639f8f.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:58:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795449507; x=1796054307; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E7V1Mp8qcb2Pgn8vLfudKigHDe8jvtrjrih2NQ7mefs=;
-        b=pPuJJBV4k/NV/FpE0NEfi1sotg07S8b9f7yRjPUrhGmBoAdCgkPc4gwu6ZY5sDWQMX
-         OSy0AlaIMQecASC1Vv5ECirBLzUED3rPJbs2Td9gKDnQGdZvJPcmVz+2oI8raDLi7+C+
-         Xa1Hf5TVycK5LRLk8OmYWg3LtEZGFAHAe7Ns2JjUPmcKIzn4poXfMJ1raZrMoD7j0X9B
-         WjzX431T6IOP6LLO0fkU2Ozev48DKYrJwzIobPriLpGN81Y4gJ1m0JAtasQI/mFTyQMd
-         Mx+g4A+8diYSFif60jfVnE2FVdxFuPZKQVCQre0vWJJj9c4RzNmkIC41Hw/6Vir6KKN0
-         Zpsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795449507; x=1796054307;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=E7V1Mp8qcb2Pgn8vLfudKigHDe8jvtrjrih2NQ7mefs=;
-        b=R2wRKHGtdtrpmTxl21QQSZMYTnLTBzmP/zVAJ3XV4YUyJ0diju9TjzpmTUlcUZ3Bzy
-         fJQUGIssL0jo6q1kGthTyJsgILRN289GfQDhsm2GWwfzK5KHevWX0kiOWlHjpqctIApW
-         T5Q/rvGiWcw2h91UXK6oPahnCH0idq0xpou6gHWxNIqnvtcn/fZmxCNqWluMGd+3Usxf
-         6/QbhKFmh7EgZ0/CssPq+/Dlf0ith79C1ENRxq105VcmP2slO3LnTnMNtgSmPzw7cVEj
-         hrgnzDV4VWr/p0eDGJwg8v7ZgLm+BYg+VlQVYkOTBrFeYEe/sKubjigqjAUgNtsKVRT4
-         JZCA==
-X-Forwarded-Encrypted: i=1; AL+hErFpFKr+eUM7sUy7V5oVciZ+JEHuk5bS1BLti1QWqywoBjJXnLxFxtlTv12kBJNUVSVJfEAnH4yBM7mj12k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83/R7vviSPIZ5/68sihERZQk6oXnUXkM+AFUeX5R8s6VL5Tlst
-	ASUh/kM8NsMakXJC7jezXDXJRctPOa0ybYrrZ91g0GHt2aNj5yvSfsmj
-X-Gm-Gg: AZFdTZdyvY/Ja1apSXqG7ycJbXDbxXor94eCAuqHG8ZAl35M+8TR6nzhVOnCYCpACSN
-	NUpzgIAd9FX1aXqU7Bm5tZ9Og1IAbyzAD5uqQCUvOpazZfreY8QeK8R91eeLEmDJZZCWNgmR+RO
-	j8KTlW4QtPl9BYVsyEYZu8t8LbXFfz3dvm4vJ/V7OVoW13BKAiSd6rlIn9iEEeLnL6BHbZ/CnUR
-	jLK85GUAsaI1HrePkYbeVH//P0Z1OmQtSoR66SCWtEV8DUobyx3MNE9V8d3jRtK8AHD97H+5dGV
-	2M4tSpC+l1vx6dFSqtK5PpvWZDwA8BTuaOjZwRoWPFcddIPKcC1sJ+hTEMXPMxXZEr0u6EXS9kh
-	xRbAaSqNfFvJOMmsRJ+PQqed8WBJUHrcglr8ZBlT2MnmdZQrZrTP1UZxA+B+rvHNpq5oOva6WCh
-	hfDkvWe9mQC5J2MAAmjLA8TweNT9C1itaUIFLXTqpxrpCkdFtfKI5OWd9vsa3oWuZmIjqWsvCY5
-	wNxO3TYMM/asy1Zivz6QY3YS6xQ5WjRETNpqG5yuiAvPsRJfBk+j41CZImmsS9nNMH/3fZQACow
-	Wr1EQYe1V988OaJUw6WN1zpA4FKCxKOeU+LNE/zlyH1vt8K135kgAUg=
-X-Received: by 2002:a05:600c:5307:b0:4a3:d327:6ed with SMTP id 5b1f17b1804b1-4bb888283d8mr232622925e9.17.1795449507258;
-        Mon, 23 Nov 2026 07:58:27 -0800 (PST)
-Received: from ArchOarora ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906cdcc1sm175808205e9.2.2026.11.23.07.58.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:58:26 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v6 34/43] drm/vkms: Rename vkms_connector_init to vkms_connector_init_static
-Date: Mon, 23 Nov 2026 16:58:05 +0100
-Message-ID: <awRiOQv8H-nI8bpq@Oarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120-vkms-all-config-v6-34-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-34-78ace90f4fc1@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UI43AN56
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEA261F000C6;
+	Mon, 23 Nov 2026 15:59:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795449549;
+	bh=5T3kLA/R/0xtFF9nFDh0Ria4cdzh2STsxbalTTV9D7U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=UI43AN56Jrf+bRXL7nqszjrCRyxwb/xXhy/+ErQp6gKI8Z565GoghPhYsAwGsPG4F
+	 ik8zT3hvYqUF6Cnn+PMZyM16ROyVqkrqVSVbL2D4dmPkikLDKhuz3DkUTCWY5/Sado
+	 +TaIBoYEUHJ9CkhRkScAwxzeF/4eXlXQt4kA/cLMXitcheQHtjEbLMAamXuZ4Z+ZxH
+	 X8QKQYiqhXRqVemqyanRIFnQM165yHI4LgzN+99MPGitbLc95+VBjmH9Sd9nehwkDS
+	 ElCkgDWKkmN6jjFKsb66y+fbgRFtwj4jW/3rNQHF113lLsi1osBBmS8WUEIePjBj9B
+	 gCmA7hyvt/GSQ==
+Message-ID: <f513c601-ef8b-4524-9c56-d3d121c8df2a@kernel.org>
+Date: Mon, 23 Nov 2026 16:59:01 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,78 +51,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH ath-next v3 01/15] dt-bindings: net: wireless: add ath12k
+ wifi device QCN9575
+To: Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+ Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+Cc: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+ ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev
+References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
+ <20261118-wifi8_qcn9575_bringup-v3-1-9875d2a3953f@oss.qualcomm.com>
+ <20261121-lobster-of-unearthly-variation-e75ea9@quoll>
+ <f2f50403-fa42-4ee2-bb22-c78309590196@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <f2f50403-fa42-4ee2-bb22-c78309590196@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 06:59:16PM +0100, Louis Chauvet wrote:
-> With the introduction of dynamic connectors we will have two way of
-> initializing a VKMS connector. Rename the current function to clarify
-> the case.
+On 23/11/2026 16:54, Jeff Johnson wrote:
+> On 11/21/2026 4:37 AM, Krzysztof Kozlowski wrote:
+>> On Wed, Nov 18, 2026 at 01:45:24PM +0530, Madhavan Ganesan wrote:
+>>> -  The ath12k devices (QCN9274) feature WSI support. WSI stands for
+>>> -  WLAN Serial Interface. It is used for the exchange of specific
+>>> +  Some ath12k devices (QCN9274 and QCN9575) feature WSI support. WSI stands
+>>> +  for WLAN Serial Interface. It is used for the exchange of specific
+>>>    control information across radios based on the doorbell mechanism.
+>>>    This WSI connection is essential to exchange control information
+>>>    among these devices.
+>>> @@ -48,6 +48,7 @@ properties:
+>>>    compatible:
+>>>      enum:
+>>>        - pci17cb,1109  # QCN9274
+>>> +      - pci17cb,1113  # QCN9575
+>>
+>> I do not see any user of this (see submitting patches in DT directory
+>> for explanation).
 > 
-> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> ---
->  drivers/gpu/drm/vkms/vkms_connector.c | 5 ++---
->  drivers/gpu/drm/vkms/vkms_connector.h | 6 +++---
->  drivers/gpu/drm/vkms/vkms_output.c    | 2 +-
->  3 files changed, 6 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/vkms/vkms_connector.c b/drivers/gpu/drm/vkms/vkms_connector.c
-> index f5e99e77e84f..64d79b778551 100644
-> --- a/drivers/gpu/drm/vkms/vkms_connector.c
-> +++ b/drivers/gpu/drm/vkms/vkms_connector.c
-> @@ -75,9 +75,8 @@ static void vkms_connector_static_cfg_release(struct drm_device *dev, void *res)
->  	vkms_config_connector_put(connector->cfg);
->  }
->  
-> -
-> -struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
-> -					   struct vkms_config_connector *connector_cfg)
-> +struct vkms_connector *vkms_connector_init_static(struct vkms_device *vkmsdev,
-> +						  struct vkms_config_connector *connector_cfg)
->  {
->  	struct drm_device *dev = &vkmsdev->drm;
->  	struct vkms_connector *connector;
-> diff --git a/drivers/gpu/drm/vkms/vkms_connector.h b/drivers/gpu/drm/vkms/vkms_connector.h
-> index 89d7f3a15d6e..61a8dd55d7f7 100644
-> --- a/drivers/gpu/drm/vkms/vkms_connector.h
-> +++ b/drivers/gpu/drm/vkms/vkms_connector.h
-> @@ -23,15 +23,15 @@ struct vkms_connector {
->  };
->  
->  /**
-> - * vkms_connector_init() - Initialize a connector
-> + * vkms_connector_init_static() - Initialize a connector
->   * @vkmsdev: VKMS device containing the connector
->   * @connector_cfg: Connector's configuration
->   *
->   * Returns:
->   * The connector or an error on failure.
->   */
-> -struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
-> -					   struct vkms_config_connector *connector_cfg);
-> +struct vkms_connector *vkms_connector_init_static(struct vkms_device *vkmsdev,
-> +						  struct vkms_config_connector *connector_cfg);
->  
->  /**
->   * vkms_trigger_connector_hotplug() - Update the device's connectors status
-> diff --git a/drivers/gpu/drm/vkms/vkms_output.c b/drivers/gpu/drm/vkms/vkms_output.c
-> index 7783a2f6d343..2b0f7a8a80b5 100644
-> --- a/drivers/gpu/drm/vkms/vkms_output.c
-> +++ b/drivers/gpu/drm/vkms/vkms_output.c
-> @@ -97,7 +97,7 @@ int vkms_output_init(struct vkms_device *vkmsdev)
->  		struct vkms_config_encoder *possible_encoder;
->  		unsigned long idx = 0;
->  
-> -		connector_cfg->connector = vkms_connector_init(vkmsdev, connector_cfg);
-> +		connector_cfg->connector = vkms_connector_init_static(vkmsdev, connector_cfg);
->  		if (IS_ERR(connector_cfg->connector)) {
->  			DRM_ERROR("Failed to init connector\n");
->  			return PTR_ERR(connector_cfg->connector);
-> 
-> -- 
-> 2.56.0
->
+> For this and the other patches you had comments on, the cover letter describes
+> the approach being taken. What the cover letter is missing is the scope: The
 
-Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+No one reads cover letters :), but I skimmed it now and did not find the
+explanation for bindings without user.
+
+
+
+> QCN9575 device support plus all of the Wi-Fi 8 functionality is roughly 160
+> patches which have been split into 23 reviewable patchsets with 40K+ LOC. This
+> is just the first patchset in the series.
+> 
+> This is similar to the approach taken when refactoring the original ath12k
+> driver to create the wifi7 folder and wifi generation abstraction. That
+> refactoring was also done as a series of small patchset due to the large
+> number of code changes (102 patches, 20K+ LOC). This was requested by members
+> of the community who wanted to digest the code at a reviewable rate.
+> 
+> One key difference in the wifi8 approach is that for the wifi7 refactor we
+> used a separate branch, ath12k-ng, but for wifi8 we want to directly submit to
+> ath-next. The reason the development team wanted to take this approach is to
+> avoid the pain that was encountered where there was a "big bang" merge of the
+> ath12k-ng feature branch with the ath-next branch at the very end of the
+> development cycle which resulted in a large number of merge conflicts with
+> parallel development and bug fixing. Some of those conflicts were
+> unfortunately not initially resolved correctly, leading to instability in the
+> driver. The hope is that introducing the feature directly into the ath-next
+> branch in an ongoing manner will avoid those issues since each subject matter
+> expert will need to resolve their individual conflicts as their pieces land.
+> 
+> As ath12k maintainer, this approach to incrementally introduce the pieces
+> directly into ath-next, but only enabling them at the end, seems like a better
+> approach than the ath12k-ng approach.
+> 
+> Specifically for the DT issue, the original version of this series vetted
+> internally did have a patch to add the device in the PCI registration table,
+> but it was decided to drop it from this patchset when posting to public. We
+> can also drop the DT patch until the point the PCI registration comes.
+
+Still does not explain why do we want bindings without users...
+
+Best regards,
+Krzysztof
