@@ -1,84 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436858;
-	b=0JgXlGzfYVqvK63snLnrH1tza2EnJgeTLM3jkN+aBZ0WoRBmaBrG7idokd2W7gjATpLv
-	 jHwA47rqKlhceoQgZTpNxRcTN9FA7YD4dBHd9mQ2osPEL+Uf8BAYdvTsrBYGJ0INYf5rS
-	 5hLNnug/7oEERzifx9lTXNp9HceTLdTz2Rc1VgkZp+M/HnvVzHxtbY/Av5Dx6xmmje9yA
-	 MsNnVj09ylttOoJHRYLOz/Agc5Gq6KR9T3EN7sTELZPOll+t0cvVwLNJ4KLp17QOcFIX8
-	 QcROaDZ1Jxi4rAiH4p98/6YMdkG6anrXSdZthP37NVDqSV6fmLmxcO5N+oCRDjrezoA==
+	t=1795436865;
+	b=MHqKrcZGNnKnU6NHt5F7+TW3JhoKvZrbVyNmFGFkhbsKL/mCUsqf8t8mfdmiJjFvc9nB
+	 Dmm2LvuKumDcxUrDUMxFL18aU+4wHcwklHFB+WgMUfKoBfW6Exm0xUvcrBAvQINIbPbx2
+	 k+jwELsFHX1GGtmb0UT+73D6YfDHvz2zXDFJKfy0i4CJ3KlahRFXwqNtlaqWUjE+3RNEW
+	 yJlivsIprp87H0WjMwMzo4rP+ovlTm5pCcbKalDmybfOquZ3/VEIydsYq5uOc/+rkkYjI
+	 ifBULwd5+VX6FZkzTmETqIkwS3lMUgQ7kzxWZ6UprW1JVgROrCQ6HlraYEk7OmDoZFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436858;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=yX9CeG59OS8ilGsOns30C8i4+axcyTEG7TgTi3PMHLU=;
-	b=rSgFQEfGr9GTVDjn+/9NoWcOia1H8KW+rFw+uh9+KDTdb7BcWnIA0/sjtHBta5b15nxy
-	 O2HWD+5TVhzklPgQ+VoxEyneNN0IfWs8sg31zHFX0+FyNMQKi21Pl5hmShtmCchGCGET2
-	 XCxNNC4WwC9Wyyryn09J3IukdqKUw35X+ddHUtgSs2l20seBJIzVN4V+xVfD2dtCHwrkd
-	 uxJRtGP6Z3U2mFBpmyKSOuds6suOhrsMLOLyEyf4B5SMlyEBt0H69tsX8yBJfkKX1TGDw
-	 abVqdC/TBqVzj7FVpMtb1N8RIb0fm1bAL4A2Er/978QPeHtQEGa84YkEA54b5ssWhag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436865;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=VPJ4qxbI93bPzZzijKlNpT2z2hanGh/YCxc/VAqAnNU=;
+	b=TkYRO+iPXuXpUZPA9tSmMF3UHwAGs8dFm7LxGKZTOGbbZB6s2vSSxgLAIqE47Md862UJ
+	 q0IMEq8zpSCSKFVayKYDlxa4A3rMziVw7SUtsroBDe6TRuTjXN3K95idSRhyOyC181OtL
+	 nnVR6pLE+P7HWyS1RRmA7LRJTFb/PIhwxmh+mWczTqOx7fhNWWAhyu7aSR4U3C0fM4ov7
+	 2T+ygT3WqY3Z8EHIOMQyNT4Bp9MM/1iBQjTrcVt/4KemdtZvenygpmZpIJqHL8QkcKjh1
+	 Z8evh3N6gErBXn6vtQitPzHVx+kcQ6uSW3tk2uEpTerMhU9XcS2MNFKqTW5XzAvt0pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=7xz.dev;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Uh9SPbHH;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="YMM0r30/";
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4048606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:27:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4048606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=7xz.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-38190551625so6704309eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:27:37 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D468B606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:27:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D468B606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Uh9SPbHH;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=YMM0r30/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795436863;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VPJ4qxbI93bPzZzijKlNpT2z2hanGh/YCxc/VAqAnNU=;
+	b=Uh9SPbHHZiKlPzGCw/NjXzCM9ZsqSjejfqLoxRAzxJ6AChF7OPIFADigZVIPEVRNupXgva
+	Cfcf+Ndk/WwxVNhCzYTaYN10ja5EHKXhbzQDt2mificgZfmHPa7MHGT+qDlh3fJInauw7L
+	SChrQPxqhVUhilq4Z535MSd0igcdmzU=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-635-B7CT4EPuN-aITygQrGTu9A-1; Mon, 23 Nov 2026 12:27:42 +0000
+X-MC-Unique: B7CT4EPuN-aITygQrGTu9A-1
+X-Mimecast-MFC-AGG-ID: B7CT4EPuN-aITygQrGTu9A_1795436861
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48e0af48c18so1955205f8f.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:27:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795436861; x=1796041661; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VPJ4qxbI93bPzZzijKlNpT2z2hanGh/YCxc/VAqAnNU=;
+        b=YMM0r30/1FOYi0d5us+CD1V8yqGm8dAiU0V3hSguhGVgfBpBxxePLbrR49r3SbQE54
+         efGdwpdwwN8cz8+TjcyPH0G4B+4ARjNeP7Dxs6JVANgdFYEfvqYpkUt+pnw4L3YgnmHf
+         vDuYplafZglf5pzfmidinFQ5hX7QSKmANdeII1yZpGlZdo1/Av2zA/osHDKpD4oJmYIF
+         /9yNOkcWmO9MvnSH2vqjMapBT3c5JYFLvxVi1ZYZoc/8FeFvzjoSOds8J2u3YCOT07gp
+         N9x9RH84BtFQ55FgXqxKDA5s/WquJaG53+vw+QzpAx5wobVF2pRqsMShL+Rp7M+UZCNj
+         3npA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436857; x=1796041657;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795436861; x=1796041661;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yX9CeG59OS8ilGsOns30C8i4+axcyTEG7TgTi3PMHLU=;
-        b=l/qN5+stR89E5gnhTUgaTWVmQT9HuKTGmU1B6MFPm9My5YDn7hmPgyHl7oiR9KOPM/
-         cnbI5rWLl9zY9sNpUWyEZxh9icBpDsW7I2sV/dEUUheRjeyFCnLpVxiVGM19OYUGDh9L
-         31zHNgbC9e07J/dstqT8PI+LCk0/73csLUeO4oQuAdQtPtw3hpLtmpVjZMYcoAeH7ecL
-         36O9Dkp8wM5uW1LK3xJboXKk6YegEebv/NNj8ANdCXC/ZDCpgRbjhL3fTbV0DBiWpb3z
-         oX3CNWv0IS8Blyi66PFRuQGJVjT+7YXRdCde57liFj35kvWY6qdd0LHWN+uqMddOQ2Hx
-         SJYg==
-X-Forwarded-Encrypted: i=1; AL+hErGxXKXnVuTO5++F8bIIvQFVQgwNN6PvwTj0xIwCxt6LA5sWaqP6ZZvQ9SkVDR8RjDuBF5ka/d/gDRkZj9I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/N9zSrbPcExyYhXk78VvdDq5gt61EeYsfqpwbvN7pz9FxuZ22v
-	CPy2z/kTVI+wFHZJK+Jue82fYYXzRJBsA5M6aqm8mGm5dga1n9dBEJIS
-X-Gm-Gg: AZFdTZeHlX8YhP11UssqAnnfbedifpBiIFeuTqgq0j+v/Pux9TSKdp/ERrUMTZo1b1k
-	MMeioLyd0iiQkr/kfYxIYsmgZgYHgJemSF9yIuV6QYEqrULuwwoSE1Rjog/i3Kyt3X4shYrL/+p
-	Hd33mJVnG17bpnX9kcGub89FhPnaDWE451kRRGajwpsWgo1M34WBNVqTjfcK7QVoYxHDxLlTX5a
-	00iltZJE+RbNGbe0Uo0X74YSlblxL+9yan8yad6lDnXzq+IfczrSC37Ixhd5NI8t4cRQq+x3JCq
-	E7XJvhiT95N4mkrX9Lrjf9Qs3W2YBMSTQ4VPjBHG8zhimwWjPZMM6+DyHPG8DqueOUldnWKNvtS
-	nDlxXdnkDN3CcBksujAX7BiYfhQXT3YandJ1OLLagHrD/kB+L2W0VoIL+RXEAGfOVz2gaKVD6is
-	x8yW6rEiraoMg127Ka5okfEjEAahmelGZLwHaDo2w5jbCb0fWHCvFXjLqG/i+Cpmg6vD+DYM3Hr
-	JUL1c88XD4/vdRMeiuGrc4QbYSXX9RA34OVZD49cm3tEO+U/NVY93KhUJ/3sJqGwBKq/SIaOGRi
-	1kykhr5JZTUJo3dYBGXgjvqag76Gf6/2PeLJnlBOIrSgww==
-X-Received: by 2002:a05:7301:182d:b0:386:b801:cd06 with SMTP id 5a478bee46e88-386b801cd3bmr1163094eec.40.1795436856700;
-        Mon, 23 Nov 2026 04:27:36 -0800 (PST)
-Received: from DESKTOP-SA7O5VQ.tail87cff0.ts.net ([211.202.142.76])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm25212717eec.1.2026.11.23.04.27.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:27:36 -0800 (PST)
-From: Sihyeon Park <me@7xz.dev>
-To: sam@mendozajonas.com,
-	fercerpav@gmail.com
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	willemb@google.com,
-	delphine_cc_chiu@wiwynn.com,
-	Sihyeon Park <me@7xz.dev>
-Subject: [PATCH net v2] net/ncsi: bound channel walks by a valid Channel Count
-Date: Mon, 23 Nov 2026 21:27:32 +0900
-Message-ID: <20261123122732.2971-1-me@7xz.dev>
-X-Mailer: git-send-email 2.56.1
+        bh=VPJ4qxbI93bPzZzijKlNpT2z2hanGh/YCxc/VAqAnNU=;
+        b=MsgkmlETrXaATs71qyIcgXO48qbGSRa7aM/+8rtAukst1gwCyFCrEhH5dolt82ryyh
+         vqTYpK9BJO9WoQAlnvD2ezrQlBaVuHyNu1+dUan0Lt7XH9nkgFSJygYFnIiF42bOqLbs
+         YObnyMypmtv8qLmTGYOYvMZNGnX8/MhSFZukP6T74ixcdRtZ5bOCjkr/3uNdqEOY2Z2H
+         a01MAoAhhXtFeug0e1QwGoJQPpK16x3949ZagOTzc57rBp0blEzpPB6PRdLrl4oMkLz5
+         0IUnmFL/B3l6LzY4T6/R0JArn8oirNVJbZ5H8vs94y1gWUsfdilIbiSUQRYQtwKZ2Qqt
+         1l/Q==
+X-Forwarded-Encrypted: i=1; AL+hErE55LOMdCkoWR4yu1cD85TDpimd3X7Rtg1ExH5RCKwO4jhHy2pFPY4WXrDk7mMi8GSYsUTbFUA9zPlDG9Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Nroqvpc78D5Xl+yLbON/sDKdC+Y6gqEmnIBAIq97aBoM352gW
+	Yg6KfgjdAvum9fOVb8THVQTpwVYKwgZmM/05o9DxMFlQ35IUXqNmlzGmuASa565uVAB6NYvKkq7
+	6TafGs0GHUeLdPLoD4fpg5Ty+nSqMUd/4mjt4kcTcoZ5/zNRt3k39l/E3MXgnqNSi7Q==
+X-Gm-Gg: AZFdTZeWM07xoEZ56PSwBrdgGuw2KaKOWkL8bGd1eyvxtpJFOwU5WNIf1KkY576mcbs
+	TCz3nrkAjiAFHcM2ofiFlMl5iFuGxCQC7fKsyFBStBn+pQqf1fc5ejKdzWItiXTtOMFEWdk57Ei
+	csNES4W426VjN//22iEifeDNfLh8gq39EhPGKxF66ciDRfMn8D+Wg9rvkMaqaKwTJ13EjmxS6Wt
+	DFR9Lsj/5yOoSbP9jMpJdpwItRQaStBvOxaqthrNZCSKbJcsUGvPJ5bQqlNiW0mTDwUASeXdFnc
+	lEuEOR6ZW5AkYO5VMFXLwe1w2h8L162dCw+svqkDlrp1R+YUO/i4N61UEuEpBXbc9EZa1gY7c5K
+	g4oTnHOIKW7yuTPjb4WbMia38WuyBa4VYqFCBwdcHYSZV+osBfw8g05aj5mRpQQgSHsdM+qOTmU
+	SzWmaeDjL5/v7ZH+1Myhj7rKff8nszRRBVQaAo7BQe70j0
+X-Received: by 2002:a5d:4492:0:b0:4a8:1b63:215d with SMTP id ffacd0b85a97d-4abb6eed6e7mr16616464f8f.27.1795436860779;
+        Mon, 23 Nov 2026 04:27:40 -0800 (PST)
+X-Received: by 2002:a5d:4492:0:b0:4a8:1b63:215d with SMTP id ffacd0b85a97d-4abb6eed6e7mr16616425f8f.27.1795436860290;
+        Mon, 23 Nov 2026 04:27:40 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm20481994f8f.34.2026.11.23.04.27.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 04:27:39 -0800 (PST)
+Message-ID: <6aae7800-5306-4839-a4c8-56265a0fae45@redhat.com>
+Date: Mon, 23 Nov 2026 13:27:38 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,136 +112,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v7 1/4] net: hsr: keep GRO disabled on HSR/PRP ports
+To: Xin Xie <xiexinet@gmail.com>, netdev@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ horms@kernel.org, andrew+netdev@lunn.ch, shuah@kernel.org, kees@kernel.org,
+ petr.wozniak@gmail.com, qingfang.deng@linux.dev, fmaurer@redhat.com,
+ luka.gejak@linux.dev, bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com,
+ skhawaja@google.com, liuhangbin@gmail.com, stable@vger.kernel.org,
+ sdf.kernel@gmail.com
+References: <20261009201324.17-1-xiexinet@gmail.com>
+ <20261009201324.17-2-xiexinet@gmail.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261009201324.17-2-xiexinet@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-ncsi_probe_channel() and ncsi_suspend_channel() (state
-ncsi_dev_state_suspend_gls) walk the channels of a package by
-incrementing ndp->channel_probe_id until it equals ndp->channel_count.
-channel_count is a single device-wide value, copied unchecked from the
-Channel Count field of the most recent Get Capabilities response in
-ncsi_rsp_handler_gc(). A controller reporting a value outside the valid
-range breaks these walks:
+On 10/9/26 22:13, Xin Xie wrote:
+> HSR/PRP add tags and sequence numbers per wire frame. GRO can merge
+> plain interlink traffic before those fields are added, and userspace
+> can re-enable GRO after the port is attached.
+> 
+> Mark slave A/B and interlink devices with a kernel role bit. Filter
+> software GRO and configurable GRO_HW requests before ndo_fix_features()
+> without changing wanted_features. Filtering before the driver keeps
+> feature dependencies intact; fixed-on or driver-required GRO_HW is
+> left enabled.
+> 
+> Apply the policy before registering the RX handler and reject attach
+> if software GRO remains enabled. On failure or detach, unlink the
+> upper before clearing the role and recomputing features, restoring
+> the user's last request.
+> 
+> GSO skbs may still arrive. A later patch segments valid GSO before
+> HSR/PRP processing.
+> 
+> Fixes: 5055cccfc2d1 ("net: hsr: Provide RedBox support (HSR-SAN)")
+> Signed-off-by: Xin Xie <xiexinet@gmail.com>
+I don't agree with the goal of this patch. The kernel allows a very large
+number of bad configuration. Explicitly preventing one of them may
+lead to regressions and leaves the lower device in an inconsistent
+state.
 
-- Channel Count 0: in the suspend_gls state channel_probe_id is already
-  1 when it is first compared, so the walk never ends. The driver keeps
-  sending Get Link Status to channel IDs 0, 1, 2, ..., a single
-  link-down AEN never completes the reconfiguration, and NC-SI does not
-  recover when the link returns. A down/up/down flap in that window also
-  logs "Wrong NCSI state 0x100 in workqueue" and stops channel
-  monitoring. Because the value is not reset between packages, the next
-  package's probe also stops after Clear Initial State on channel 0,
-  so its version, capabilities and link state are never read.
+Please drop this patch.
 
-- Channel Count above NCSI_RESERVED_CHANNEL: the walks send commands to
-  channel IDs past the 5-bit channel field. NCSI_TO_CHANNEL() does not
-  mask the channel, so channel 31 becomes the reserved channel and
-  channel 32 on package 0 goes out as package 1, channel 0. If a second
-  package answers that Clear Initial State before it has been added by
-  the Select Package response, ncsi_rsp_handler_cis() calls
-  ncsi_add_channel() with a NULL package and the kernel oopses.
-
-DSP0222 defines Channel Count as the number of channels the controller
-supports, so a conforming controller reports a value from 1 to 31; these
-are robustness fixes for non-conforming controllers, firmware bugs and
-emulators (libslirp's NC-SI responder, used by QEMU user networking on
-the Aspeed machines, reports 0).
-
-Clamp the stored value to [1, NCSI_RESERVED_CHANNEL] and warn when the
-controller reports something else: a controller that answered on a
-channel has at least one, and channel IDs stop at 0x1e. Also terminate
-both walks with ">=" instead of "==", so that a later Get Capabilities
-response that lowers channel_count in the middle of a walk cannot make
-it run past the new bound.
-
-Tested on QEMU 11.1.3 romulus-bmc (aspeed_g5_defconfig; unpatched: net
-tree at e203d8a4751d, patched: af6737b90668, no net/ncsi changes in
-between) with a minimal initramfs and a loopback NC-SI controller
-emulator with one or two packages of one channel each (pN = Channel
-Count reported by package N):
-
-  kernel     count       event   result
-  unpatched  p0=33, p1=1  boot    oops: ncsi_add_channel(NULL package)
-  patched    p0=33, p1=1  boot    warning; p0 and p1 probed normally
-  unpatched  p0=0,  p1=1  boot    p1 channel 0 gets CIS only
-  patched    p0=0,  p1=1  boot    warning; p1 gets CIS, GVI, GC, GLS
-  unpatched  p0=0         A, B    no recovery (GLS to ch 0,1,2,...)
-  patched    p0=0         A, B    recovers; same commands as count 1
-  patched    p0=1         A, B    unchanged; ch0 GLS 58 per 60 s
-
-(A) link-down AEN, link-up 15 s later; (B) down, up, down 0.5 s apart,
-link-up 15 s later; measured 180 s after the final link-up.
-
-(CIS: Clear Initial State, GVI: Get Version ID, GC: Get Capabilities,
-GLS: Get Link Status)
-
-An AI coding assistant (Claude Code) was used to analyze the problem,
-reproduce it in QEMU and draft this patch; I reviewed the change and
-the test results.
-
-Fixes: e85e271dec02 ("net/ncsi: Fix the multi thread manner of NCSI driver")
-Signed-off-by: Sihyeon Park <me@7xz.dev>
----
-
-Notes:
-    v2:
-    - Clamp Channel Count to [1, NCSI_RESERVED_CHANNEL] in
-      ncsi_rsp_handler_gc() (Sashiko review). With only the ">=" change, a
-      count of 0 still cut the next package's probe short after CIS, and a
-      count above 31 aliased into package 1 and could oops in
-      ncsi_add_channel(); both are reproduced and fixed above.
-    - Drop the v1 claim that Channel Count 0 behaves like 1 with the loop
-      change alone; retitle accordingly.
-    - Link to v1: https://lore.kernel.org/r/20261119100625.72505-1-me@7xz.dev
-
- net/ncsi/ncsi-manage.c |  4 ++--
- net/ncsi/ncsi-rsp.c    | 12 +++++++++++-
- 2 files changed, 13 insertions(+), 3 deletions(-)
-
-diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
-index 1d63958c4429..c5cf2ca0385c 100644
---- a/net/ncsi/ncsi-manage.c
-+++ b/net/ncsi/ncsi-manage.c
-@@ -520,7 +520,7 @@ static void ncsi_suspend_channel(struct ncsi_dev_priv *ndp)
- 			goto error;
- 		ndp->channel_probe_id++;
- 
--		if (ndp->channel_probe_id == ndp->channel_count) {
-+		if (ndp->channel_probe_id >= ndp->channel_count) {
- 			ndp->channel_probe_id = 0;
- 			nd->state = ncsi_dev_state_suspend_dcnt;
- 		}
-@@ -1491,7 +1491,7 @@ static void ncsi_probe_channel(struct ncsi_dev_priv *ndp)
- 			ndp->channel_probe_id++;
- 		}
- 
--		if (ndp->channel_probe_id == ndp->channel_count) {
-+		if (ndp->channel_probe_id >= ndp->channel_count) {
- 			ndp->channel_probe_id = 0;
- 			nd->state = ncsi_dev_state_probe_dp;
- 		}
-diff --git a/net/ncsi/ncsi-rsp.c b/net/ncsi/ncsi-rsp.c
-index 33921dc169e3..84cc8ac0ca2f 100644
---- a/net/ncsi/ncsi-rsp.c
-+++ b/net/ncsi/ncsi-rsp.c
-@@ -829,7 +829,17 @@ static int ncsi_rsp_handler_gc(struct ncsi_request *nr)
- 	 */
- 	nc->vlan_filter.bitmap = U64_MAX;
- 	nc->vlan_filter.n_vids = rsp->vlan_cnt;
--	np->ndp->channel_count = rsp->channel_cnt;
-+	/* Channel Count bounds the per-channel walks in ncsi-manage.c, and
-+	 * the channel ID is only 5 bits wide with 0x1f reserved. A controller
-+	 * that answered on this channel has at least one channel, so keep
-+	 * the value in [1, NCSI_RESERVED_CHANNEL].
-+	 */
-+	if (!rsp->channel_cnt || rsp->channel_cnt > NCSI_RESERVED_CHANNEL)
-+		netdev_warn(ndp->ndev.dev,
-+			    "NCSI: Package %u reports invalid Channel Count %u\n",
-+			    np->id, rsp->channel_cnt);
-+	ndp->channel_count = clamp_t(unsigned char, rsp->channel_cnt, 1,
-+				     NCSI_RESERVED_CHANNEL);
- 
- 	return 0;
- }
--- 
-2.56.1
+/P
 
