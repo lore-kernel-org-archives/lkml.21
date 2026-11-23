@@ -1,94 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420252;
-	b=LfVkNTpBGK6AjcblBUTX72fJ2u1rchm3PCcHLU0+Vwy93NJba1Kj4RbZ4Cbss0TqH0sE
-	 jzj2vBy6pJUZhpxocUdTKq7r1FDm5eKQqa2fJ2GkztswR+olB9d5LRNSy2T9k0OFYHlU/
-	 7UiR1LPIB378YsFL744uG4kt/1NhF0JTE0B89NlyQu428eqD3D8ZJY0jf78GpfruY5k/c
-	 QOk7cI5TRUswvZkguTM/Z7DaQZ/qmpzmYJrpaXOAhRsXPBFN8Q3qTjtzEuCUQhMbAYVY3
-	 on/uV16Oap1NueHlrDC+mrv5qOU/1oNLW5TbVcVmsPrQnL++IhQlyuBKGioC1bgnZLg==
+	t=1795420278;
+	b=r9OYS7nNvKRoB1wVfEZqYv1E8c2YujGKptpafhCHmzR3EoD8omLrXOBNhgEXFrkd784W
+	 1POETbTotQQgRtNJnXgC6iNqmPpDQFHbSB0IZi3GfzBLPamLtbPKruiCKuoiCuW8fXTjY
+	 0CCqmmnifsRHuM+O1krjTxzKsrBsTThSSia/L0fn2eVLUMtiYHsl9eEGAryhyNHp2TPEj
+	 EdH4+7Nn8UJ2kSRzkbrJOMhzGOdxI/JguLvPW3z+La3G//aDy3NNhF7T2BcLwh1j+BeOp
+	 2RaU+5D1HFyqktJzH5WncO+NVyZ7k6Kfe70ntzAtJJn6TVM9cP8Eqf0A4lRkig1uqhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420252;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=v2Apz3ssdYuV5VnyxzTDD+Md8/ohbYbbEPHRSzngUIg=;
-	b=J1znZTbaLgXopl1neiifFaPD8ZpSlMVKow90yxb3alH/aQzSZNJc+4GIr2NDV9UIU1Ak
-	 0q3KrAtCg2HZJIYfMZu+ktqExAk4sxn0sDob6Ws+GtGWFKZv0dh+8xs/yCYkwdBSiz22I
-	 DqlGL27K3chgVJkqcoU479+BdeXfa9Fyy0UDSxn/RLKyEzR8zLZBcD41caN91XoBUNhYt
-	 BRz61oAHmcKKpSIBwpDd0i4hpsu1c1S+nSwbEDSNlB3kESmSU2EoWJKHBjdU5AfYCJ5uX
-	 rfgIk/G+EDDcKoUM/lRJ9YPjV1x2IHICm4wpVjO/FLB8nPAHXpaaNz3Vhj4z/WWxvDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420278;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:Sender:X-CM-SenderInfo;
+	bh=Wk+Kom02UwBWvecuJrVi4OGzYoOWFszWZtMQo9dw0Rs=;
+	b=WoEPE8WSiFCTh3pDaNum6n8NJ6LC4g9uuegJMchwC+Bp2GOi7TXF2lfs/kuDfKLha8TG
+	 q3RV1c6O4Lw9hm4GHxkdOlsxLbRQxxtO6ENK+ykOFMGJ+ijy8Nxp/7wlb6FktGEqkWmbG
+	 JsY5XY/lDLfcETzUjnki/Povlxqk4QmkbnhUiJRR5urBhmKOwmBsSBkSeE5yvoCEIOl9f
+	 yNo9WESHUqzVmrmIAnYOU2qZnT3ysMRNJXLDbHz/uxyrnYFi/Wd6q6MU2EZw6t2mWEqlh
+	 OUoCnTAL6miTQjQ7S5yftK38EJju/uo0TlT5T42YunA+cmg0qIoU5prxi85s1t0gAYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mwyyWKV2;
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=BCtPXayR;
+	arc=none smtp.remote-ip=117.135.210.5
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 386C5606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:50:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 386C5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 567CF606A31E;
+	Mon, 23 Nov 2026 07:51:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 567CF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mwyyWKV2
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so2212923f8f.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:50:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795420250; x=1796025050; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v2Apz3ssdYuV5VnyxzTDD+Md8/ohbYbbEPHRSzngUIg=;
-        b=mwyyWKV2bCwBrc44y03L97JcgWzABEopzoEnoI3rXn/nnCY1EEkbs8WE5c63whzE5Z
-         GJqDlJyyJT5HemU8N2X0TZQtNId6emRFUJyqZLuxCzB4wMuIzv8WI83WfANSZ92GqwEO
-         NVf8JjaUbrniYOTb2XhouBqWczBlk5DgKb0fEOo2R6NaVsbzCg7g2FKTc71vFUCymwKh
-         Wz5V+PVuqlDoiTd+GYEmGTgAQqTCqLdQsJpIEi1jz24wf/330fnU03MA3Px8azAZnHTP
-         4xlOtNihby2Gy7Y0b+JyUgTWwT5OdruRSFbAFGU869SFQ4kQAmWG9BTPZllN1G89RF8q
-         kZlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795420250; x=1796025050;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v2Apz3ssdYuV5VnyxzTDD+Md8/ohbYbbEPHRSzngUIg=;
-        b=lGtKxueov1X3iO1ASIO/3q/GLS0YrXFmsuUPR0mzqSjgPbrXjIMymOA+hmiYKyLebz
-         2MwoX4KDvMxOvx9OqdnWX57K5eVAdeE8S7ZBN8T6Q4YqB7spHDH8kdX2Nt4iDb156JB+
-         XzzwvXMvZkdusOKNP5hCcYEqiEjV6vSk3cIuACfe/X7pvwDz/2HrYsh/EUQqM9XqvWaZ
-         FTV9grwb7sVe2TNkn9t/c3QAJozUtIlrJH288xXwPQTxv9sKYsXCo1g1sPSdORbS5YYL
-         AGSGYmhCX0kEut6oKS4iEzcWqtmF32JGZj/OAuqFHtiVJux2yNqJ848PgPtdGp8HrT+Z
-         fIoQ==
-X-Forwarded-Encrypted: i=1; AL+hErHmbOjwmBE1cGn1+cGKjSPa+o31wJb4WUjvzyDT4Pk8diGbvcDDzsh0l6LHn5FSAOzHKVJaBC8lYfu/Jis=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UoRJjqLzVtrVNTGZdioJhUCa1ba2DU3hDtBvXqBrsj7EVgeLM
-	HVr1+j6hi2wjByc54YuKwNDguWUzDbt32McUR+uYcRqsR10zrD0GID6A
-X-Gm-Gg: AZFdTZfGuBICoRU5tDIdWI9EybiZxT6h6yFSLJLcY1e5SVa7bJcffXmJAoOLLHkKFl0
-	I3aZmw2Qzm0TlFoR8hQzGnDede3f11AAY7+ppsowFEYyNGFg5vbDKb1Ney39iBrtwA6cf4mTNLl
-	j/XKbfNb0BQgVvzraFNNHIBHnDGHcThzA+B4OqF9RnkxgK/50nBirnO2ICTnSvURRf50P4CypTc
-	YXppRcspQOJPPYnYjCDZL8w5zqOJ1kkXG+igpFJrI6kY5U3YWFmPkd46YH0G2MbznDWs9CzwO6K
-	6p9DZ0ZnBRGiOnzkhuClOijCd4I3Yo/MF9nIOqSNiiE+e89HVRlV5X8YBUafAxnppOLMlTpqFMs
-	2VZffGijpgCLscuabgJGVXeO5o2THWw41cTE7sydNGRFu23WtWoIVRb5o43kq2kVXw/aLKU1Psh
-	b+AxWpLzXnbsKIjYxXrcev75rW7Xe/SMYPiLrUsJ/FEs5pKHb4LWu1CGdWuay3IfBf2XL/ZVFlP
-	e4TfcLJ5S2mwF6gSm99M2rUssQgPGz85cr7SoZF1vDqiGi1JuLshn8b6rIOaqGvJiVEYSS2a14X
-	kesYto65QYaqCShM5T0EtMD+MXUD9wYLo2cFsrT0Ua82Pq3J9OHIRHk=
-X-Received: by 2002:a05:6000:481c:b0:4a5:ebcc:2260 with SMTP id ffacd0b85a97d-4abb2dda518mr20350879f8f.29.1795420250368;
-        Sun, 22 Nov 2026 23:50:50 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([37.111.157.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm17207033f8f.46.2026.11.22.23.50.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 23:50:49 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: Theodore Ts'o <tytso@mit.edu>
-Cc: Andreas Dilger <adilger.kernel@dilger.ca>,
-	Jan Kara <jack@suse.cz>,
-	linux-ext4@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=BCtPXayR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Wk
+	+Kom02UwBWvecuJrVi4OGzYoOWFszWZtMQo9dw0Rs=; b=BCtPXayRIaTkUHbUdi
+	RD25TcM8oiTOpJel1wTfq/1ldYeYrhTIW/sueARPq0yZfRzomJuXAVkii/kE2One
+	59WaRYNMUaK8mfI/DIYffgMAm0BreiQWVtAQuxnCDiWgTweaArFKhdj54/kt5Gli
+	rcILIR0yzTX/v9at6zl0dqjt0=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnr9JY8ANr8bKXJA--.6097S2;
+	Mon, 23 Nov 2026 15:50:48 +0800 (CST)
+From: Shida Zhang <zhangshida@kylinos.cn>
+To: Carlos Maiolino <cem@kernel.org>
+Cc: linux-xfs@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>
-Subject: [PATCH v2] ext4: avoid inline data conversion race when !EXT4_STATE_MAY_INLINE_DATA
-Date: Mon, 23 Nov 2026 12:48:26 +0500
-Message-ID: <20261123074825.63294-2-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	djwong@kernel.org
+Subject: [PATCH] xfs: optimize getfsmap by reusing and advancing the refcount cursor
+Date: Mon, 23 Nov 2026 15:50:48 +0800
+Message-Id: <20261123075048.3658960-1-zhangshida@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,131 +61,260 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnr9JY8ANr8bKXJA--.6097S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtrWftF4kAw4xJFyfZw4kXrb_yoW3tr18pF
+	ZrtasxKw48tF1xKrn7A34jqF4rX34rAw4rGr9xG34fZw17tw1aqrn5tFyF9FWUCrWfJrZF
+	qF45Cw1Fk3s2vaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jUSdkUUUUU=
+Sender: zhangshida2026@163.com
+X-CM-SenderInfo: x2kd0wxvklvtasqslqqrwthudrp/xtbC6Bnt+WsD8FnRKAAA3d
 
-Commit ef09ed5d37b8 ("ext4: fix bug_on in ext4_writepages") attempted to
-prevent ext4_convert_inline_data() from racing with delayed-allocation
-inline data conversion by calling filemap_flush() when
-EXT4_STATE_MAY_INLINE_DATA is already cleared.
+GETFSMAP sweeps the whole device: online fsck, dedup scanners and
+imaging tools walk thousands of records per call.
 
-However, filemap_flush() is asynchronous (WB_SYNC_NONE) and can return 0
-while folio 0 is locked by a concurrent buffered write and
-ext4_has_inline_data(inode) is still true.  ext4_convert_inline_data()
-then proceeds to ext4_convert_inline_data_nolock() even though
-EXT4_STATE_MAY_INLINE_DATA is already cleared (meaning
-ext4_da_convert_inline_data_to_extent() has already moved the data into
-dirty folio 0).  This causes multiple bugs:
+Every record pays two costs.  xfs_getfsmap_is_shared() allocates and
+frees a refcount btree cursor, and xfs_refcount_find_shared() searches
+the refcount btree from the root via xfs_btree_lookup().  A fresh cursor
+re-reads the root block each time; the search re-descends root to leaf
+even when the answer is the next slot.
 
-1. If ext4_convert_inline_data_nolock() succeeds, it copies stale
-   on-disk inline data into the newly allocated block instead of the
-   newer dirty data in folio 0.
-2. If ext4_map_blocks() fails (e.g. -ENOSPC or a corrupted block
-   bitmap), ext4_destroy_inline_data_nolock() has temporarily cleared
-   EXT4_INODE_INLINE_DATA and set EXT4_INODE_EXTENTS before
-   ext4_restore_inline_data() restores EXT4_INODE_INLINE_DATA and
-   unconditionally re-sets EXT4_STATE_MAY_INLINE_DATA.  This races with
-   ext4_do_writepages() and triggers:
+Keep one cursor per group and use its position: look up once, cache the
+record, then step forward with xfs_btree_increment() instead of
+re-searching from the root.  This gives the same answer as
+xfs_refcount_find_shared(), with O(1) memory.  The cursor is dropped when
+the group changes, before the AGF buffer is released.
 
-     kernel BUG at fs/ext4/inode.c:2949!
-     RIP: 0010:ext4_do_writepages+0x25c0/0x39a0
-     Call Trace:
-      ext4_writepages+0x285/0x500
-      do_writepages+0x205/0x520
-      filemap_writeback+0x1a6/0x250
-      file_write_and_wait_range+0x8c/0x150
-      ext4_sync_file+0x2cf/0x950
-      ext4_buffered_write_iter+0x428/0x5d0
-      ext4_file_write_iter+0x7cb/0x1450
+One GETFSMAP call asks is_shared() once per rmap record: thousands of
+questions per call, all about blocks, never files.
 
-3. A concurrent ext4_da_convert_inline_data_to_extent() can also clear
-   EXT4_STATE_MAY_INLINE_DATA between the initial check in
-   ext4_convert_inline_data() and acquiring ext4_write_lock_xattr().
+Small example: foo at blocks 10-19, bar a reflink copy of foo, baz alone
+at 20-29.  Shared blocks have one rmap record per owner, so one call
+walks three records:
 
-Fix this in ext4_convert_inline_data() by:
-- Using synchronous filemap_write_and_wait() instead of filemap_flush()
-  when !EXT4_STATE_MAY_INLINE_DATA.
-- Returning -EIO instead of proceeding to
-  ext4_convert_inline_data_nolock() if ext4_has_inline_data(inode) is
-  still true after writeback.
-- Re-checking EXT4_STATE_MAY_INLINE_DATA under ext4_write_lock_xattr()
-  (which serializes against ext4_da_convert_inline_data_to_extent()) and
-  retrying via filemap_write_and_wait() if it was cleared concurrently.
+  rmap record     answer   old code        new code
+  10-19 -> foo    yes      alloc + lookup  lookup once, cache
+  10-19 -> bar    yes      alloc + lookup  cache hit
+  20-29 -> baz    no       alloc + lookup  one step, EOF
 
-Tested locally in QEMU (x86_64, 4 CPUs, KASAN+UBSAN) using a concurrent
-mmap + O_SYNC write reproducer on an inline_data ext4 image: hit
-kernel BUG at fs/ext4/inode.c:2949 on mount #1 in <1s before the patch,
-and completed 32 fresh mount/race iterations in 10s with zero BUG,
-WARNING, or KASAN reports after the patch.
+The real workload: one call over 3000 reflinked files walks ~6000
+shareable records.  Old code: ~6000 cursor allocs and ~6000 root-to-leaf
+descents per call.  New code: one cursor per group, 4 descents (one per
+AG), and a cache hit or single forward step per question.
 
-Fixes: ef09ed5d37b8 ("ext4: fix bug_on in ext4_writepages")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
+Measured with a kernel-isolated FS_IOC_GETFSMAP loop over the whole data
+device (3000 reflinked 256KB files, mkfs -m rmapbt=1,reflink=1 -d
+agcount=4, Kunpeng 920 + NVMe), mean of three interleaved A/B runs:
+
+                      original    this patch
+  walk time           3048 us     331 us   (9.2x)
+  xfs_btree_lookup    8.2%        ~0%      (% of cycles)
+
+The cursor alloc/free and root-block get/put are gone too:
+_raw_spin_unlock_irqrestore 16.6% -> 0.8%, kmem_cache_alloc 5.6% -> 1.3%.
+The full fsmap output is byte-identical before and after (6217 records).
+
+Signed-off-by: Shida Zhang <zhangshida@kylinos.cn>
 ---
-Changes in v2:
-- Address Sashiko AI review feedback: instead of preserving
-  EXT4_STATE_MAY_INLINE_DATA on error in ext4_convert_inline_data_nolock(),
-  prevent ext4_convert_inline_data() from calling
-  ext4_convert_inline_data_nolock() at all when EXT4_STATE_MAY_INLINE_DATA
-  is already cleared (using filemap_write_and_wait(), returning -EIO if
-  inline data remains, and re-checking under xattr_sem).
-- Fix commit description inaccuracy regarding ext4_create_inline_data().
+ fs/xfs/xfs_fsmap.c | 120 ++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 103 insertions(+), 17 deletions(-)
 
- fs/ext4/inline.c | 23 +++++++++++++++++++----
- 1 file changed, 19 insertions(+), 4 deletions(-)
+Testing: xfstests with rmapbt=1,reflink=1 passes the fsmap/rmap/clone subset
+(xfs/271-274, 277, 114, 233, 234, 236, 517, 560, 600, generic/127, 129). The
+full fsmap record set is byte-identical before and after.
 
-diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
-index ceee69a66..f644b229e 100644
---- a/fs/ext4/inline.c
-+++ b/fs/ext4/inline.c
-@@ -1977,6 +1977,7 @@ int ext4_convert_inline_data(struct inode *inode)
- 	handle_t *handle;
- 	struct ext4_iloc iloc;
+Not tested: the rtrefcountbt advance path (no RT device on the test box).
+It uses the same logic via the rtrefcountbt cursor, and the rtrmap walk is
+also sorted.
+
+diff --git a/fs/xfs/xfs_fsmap.c b/fs/xfs/xfs_fsmap.c
+index 041bb2105ec..0a6a87c3a02 100644
+--- a/fs/xfs/xfs_fsmap.c
++++ b/fs/xfs/xfs_fsmap.c
+@@ -13,6 +13,8 @@
+ #include "xfs_inode.h"
+ #include "xfs_trans.h"
+ #include "xfs_btree.h"
++#include "xfs_error.h"
++#include "xfs_health.h"
+ #include "xfs_rmap_btree.h"
+ #include "xfs_trace.h"
+ #include "xfs_rmap.h"
+@@ -161,6 +163,10 @@ struct xfs_getfsmap_info {
+ 	struct xfs_fsmap_head	*head;
+ 	struct fsmap		*fsmap_recs;	/* mapping records */
+ 	struct xfs_buf		*agf_bp;	/* AGF, for refcount queries */
++	struct xfs_btree_cur	*refcount_cur;	/* cached refcountbt cursor */
++	struct xfs_refcount_irec	rc_cur;		/* current refcount record */
++	bool			rc_positioned;	/* refcount cursor positioned */
++	bool			rc_eof;		/* refcount cursor past end */
+ 	struct xfs_group	*group;		/* group info, if applicable */
+ 	xfs_daddr_t		next_daddr;	/* next daddr we expect */
+ 	/* daddr of low fsmap key when we're using the rtbitmap */
+@@ -202,7 +208,26 @@ xfs_getfsmap_dev_compare(
+ 	return d1->dev - d2->dev;
+ }
  
-+retry:
- 	if (!ext4_has_inline_data(inode)) {
- 		ext4_clear_inode_state(inode, EXT4_STATE_MAY_INLINE_DATA);
- 		return 0;
-@@ -1984,14 +1985,21 @@ int ext4_convert_inline_data(struct inode *inode)
- 		/*
- 		 * Inode has inline data but EXT4_STATE_MAY_INLINE_DATA is
- 		 * cleared. This means we are in the middle of moving of
--		 * inline data to delay allocated block. Just force writeout
--		 * here to finish conversion.
-+		 * inline data to delay allocated block. Force synchronous
-+		 * writeout here to finish conversion.
- 		 */
--		error = filemap_flush(inode->i_mapping);
-+		error = filemap_write_and_wait(inode->i_mapping);
- 		if (error)
- 			return error;
- 		if (!ext4_has_inline_data(inode))
- 			return 0;
-+		/*
-+		 * Writeback did not clear inline data (e.g. filesystem is in
-+		 * emergency state). Do not proceed to
-+		 * ext4_convert_inline_data_nolock(), which would read stale
-+		 * on-disk inline data or race with writeback.
-+		 */
-+		return -EIO;
- 	}
- 
- 	needed_blocks = ext4_chunk_trans_extent(inode, 1);
-@@ -2008,8 +2016,15 @@ int ext4_convert_inline_data(struct inode *inode)
- 	}
- 
- 	ext4_write_lock_xattr(inode, &no_expand);
--	if (ext4_has_inline_data(inode))
-+	if (ext4_has_inline_data(inode)) {
-+		if (!ext4_test_inode_state(inode, EXT4_STATE_MAY_INLINE_DATA)) {
-+			ext4_write_unlock_xattr(inode, &no_expand);
-+			ext4_journal_stop(handle);
-+			brelse(iloc.bh);
-+			goto retry;
-+		}
- 		error = ext4_convert_inline_data_nolock(handle, inode, &iloc);
+-/* Decide if this mapping is shared. */
++/* Drop the cached refcount btree cursor when leaving a group. */
++static void
++xfs_getfsmap_put_refcount_cur(
++	struct xfs_getfsmap_info	*info,
++	int				error)
++{
++	if (info->refcount_cur) {
++		xfs_btree_del_cursor(info->refcount_cur, error < 0 ?
++				XFS_BTREE_ERROR : XFS_BTREE_NOERROR);
++		info->refcount_cur = NULL;
 +	}
- 	ext4_write_unlock_xattr(inode, &no_expand);
- 	ext4_journal_stop(handle);
- out_free:
++}
++
++/*
++ * Decide if this mapping is shared.
++ *
++ * The refcount cursor is cached across calls and only advances forward, so
++ * this must be called with non-decreasing agbno (frec->rec_key).  The rmapbt
++ * walk visits records in increasing startblock order, which guarantees it.
++ */
+ STATIC int
+ xfs_getfsmap_is_shared(
+ 	struct xfs_trans		*tp,
+@@ -212,31 +237,88 @@ xfs_getfsmap_is_shared(
+ {
+ 	struct xfs_mount		*mp = tp->t_mountp;
+ 	struct xfs_btree_cur		*cur;
+-	xfs_agblock_t			fbno;
+-	xfs_extlen_t			flen = 0;
+-	int				error;
++	xfs_agblock_t			agbno = frec->rec_key;
++	xfs_extlen_t			aglen = XFS_BB_TO_FSBT(mp, frec->len_daddr);
++	int				have, i, error;
+ 
+ 	*stat = false;
+ 	if (!xfs_has_reflink(mp) || !info->group)
+ 		return 0;
+ 
+-	if (info->group->xg_type == XG_TYPE_RTG)
+-		cur = xfs_rtrefcountbt_init_cursor(tp, to_rtg(info->group));
+-	else
+-		cur = xfs_refcountbt_init_cursor(mp, tp, info->agf_bp,
+-				to_perag(info->group));
++	if (!info->refcount_cur) {
++		if (info->group->xg_type == XG_TYPE_RTG)
++			cur = xfs_rtrefcountbt_init_cursor(tp,
++					to_rtg(info->group));
++		else
++			cur = xfs_refcountbt_init_cursor(mp, tp, info->agf_bp,
++					to_perag(info->group));
++		info->refcount_cur = cur;
++		info->rc_positioned = false;
++		info->rc_eof = false;
++	}
++	cur = info->refcount_cur;
++	if (info->rc_eof)
++		return 0;
+ 
+-	/* Are there any shared blocks here? */
+-	error = xfs_refcount_find_shared(cur, frec->rec_key,
+-			XFS_BB_TO_FSBT(mp, frec->len_daddr), &fbno, &flen,
+-			false);
++	/*
++	 * The rmapbt walk visits records in increasing startblock order, so the
++	 * refcount cursor only ever advances forward.  Position it once with a
++	 * full lookup, then advance incrementally rather than re-descending the
++	 * btree from the root for every record.
++	 */
++	if (!info->rc_positioned) {
++		error = xfs_refcount_lookup_le(cur, XFS_REFC_DOMAIN_SHARED, agbno,
++				&have);
++		if (error)
++			goto out_error;
++		if (!have) {
++			error = xfs_btree_increment(cur, 0, &have);
++			if (error)
++				goto out_error;
++			if (!have) {
++				info->rc_eof = true;
++				return 0;
++			}
++		}
++		info->rc_positioned = true;
++		error = xfs_refcount_get_rec(cur, &info->rc_cur, &i);
++		if (error)
++			goto out_error;
++		if (XFS_IS_CORRUPT(mp, i != 1)) {
++			xfs_btree_mark_sick(cur);
++			error = -EFSCORRUPTED;
++			goto out_error;
++		}
++	}
+ 
+-	xfs_btree_del_cursor(cur, error);
+-	if (error)
+-		return error;
++	/* Advance to the first SHARED record that ends after agbno. */
++	while (info->rc_cur.rc_domain != XFS_REFC_DOMAIN_SHARED ||
++	       info->rc_cur.rc_startblock + info->rc_cur.rc_blockcount <= agbno) {
++		error = xfs_btree_increment(cur, 0, &have);
++		if (error)
++			goto out_error;
++		if (!have) {
++			info->rc_eof = true;
++			return 0;
++		}
++		error = xfs_refcount_get_rec(cur, &info->rc_cur, &i);
++		if (error)
++			goto out_error;
++		if (XFS_IS_CORRUPT(mp, i != 1)) {
++			xfs_btree_mark_sick(cur);
++			error = -EFSCORRUPTED;
++			goto out_error;
++		}
++	}
+ 
+-	*stat = flen > 0;
++	/* Shared iff this SHARED record overlaps [agbno, agbno + aglen). */
++	if (info->rc_cur.rc_startblock < agbno + aglen)
++		*stat = true;
+ 	return 0;
++
++out_error:
++	xfs_getfsmap_put_refcount_cur(info, error);
++	return error;
+ }
+ 
+ static inline void
+@@ -547,6 +629,7 @@ __xfs_getfsmap_datadev(
+ 		if (bt_cur) {
+ 			xfs_btree_del_cursor(bt_cur, XFS_BTREE_NOERROR);
+ 			bt_cur = NULL;
++			xfs_getfsmap_put_refcount_cur(info, 0);
+ 			xfs_trans_brelse(tp, info->agf_bp);
+ 			info->agf_bp = NULL;
+ 		}
+@@ -588,6 +671,7 @@ __xfs_getfsmap_datadev(
+ 	if (bt_cur)
+ 		xfs_btree_del_cursor(bt_cur, error < 0 ? XFS_BTREE_ERROR :
+ 							 XFS_BTREE_NOERROR);
++	xfs_getfsmap_put_refcount_cur(info, error);
+ 	if (info->agf_bp) {
+ 		xfs_trans_brelse(tp, info->agf_bp);
+ 		info->agf_bp = NULL;
+@@ -986,6 +1070,7 @@ xfs_getfsmap_rtdev_rmapbt(
+ 		}
+ 
+ 		if (bt_cur) {
++			xfs_getfsmap_put_refcount_cur(info, 0);
+ 			xfs_rtgroup_unlock(to_rtg(bt_cur->bc_group),
+ 					XFS_RTGLOCK_RMAP |
+ 					XFS_RTGLOCK_REFCOUNT);
+@@ -1025,6 +1110,7 @@ xfs_getfsmap_rtdev_rmapbt(
+ 	}
+ 
+ 	if (bt_cur) {
++		xfs_getfsmap_put_refcount_cur(info, error);
+ 		xfs_rtgroup_unlock(to_rtg(bt_cur->bc_group),
+ 				XFS_RTGLOCK_RMAP | XFS_RTGLOCK_REFCOUNT);
+ 		xfs_btree_del_cursor(bt_cur, error < 0 ? XFS_BTREE_ERROR :
 -- 
-2.53.0
+2.34.1
 
