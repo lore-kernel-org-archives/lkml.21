@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795440723;
-	b=QRRemA5aEaJWoe2QIrcnHBsgzx8PfV0E4BCEy2d304K5VuOFfFAXPFUHPsQ7WpKE4YPT
-	 +Kb0a2T+v3u1Rs21Jh2LH/ln4lV8DqG0UiVLEnUGGB4V373LR6IKhj2s5hy5MXTz811MA
-	 24o7uR6KLBKtSxiIQ/JIqPPy7F66U6/ddPNYfLPocqrtvqBW1kKz85K8Je1kT5s5mGSpk
-	 Wv9oYycFlG3hCsiJtc8f0HBC5VcsIJoBvrWux5ajEAbFdwpyIGADLcHO4WyB2zxXIuUIh
-	 NSn/SdTwcgd5SAzpDQWPbe/AJRef8j/b7wHPAXjhsJ61k3x7wIlwymkIK8ooiEtTP3g==
+	t=1795440733;
+	b=0fQSRVbp0VvTJoe/pcpCwGGeaqBcb/JSdnkUY0jcC9ondjivBYJKik8Zz6mUHajVZjWQ
+	 YbssvsZOEcsX9teC9Tc6XcuYcfHi446aykJ7d2ANeEFl6BRNlxxztSE93qyBd2MTkmT1p
+	 keLtggkr7pl0p8XAm98zq7aklCweCKT4apeXc5QwJbXOwGbIsUaRYDdPTXAjElZeZNr9h
+	 FN+JhEtrMZ2l433Oksr2gj8XvbQYPHKMc3D5NmDFBRq8CE4u81tP934VhyckpPlrxcrVB
+	 l21sbkLE4LaEq2dIOKnBf6qAld2ngdc+zCxaf10OL4cvNcQm4AM8IvTteSecs6tNr1w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440723;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=g1CW7c3pTtOr8mmmjYe30pIrbe4DRRxUC8YCS/6YhX8=;
-	b=fTYO1keQs5xFAexItTgdh2SyU8zMAAzQs3tdB/XZvXBR4AheS7hUb3o4pzsPbzlooWn7
-	 /TAfNCjzqpNk+D+EfrPPthsEC8ugdlYGFJL+xWWEqfGKVdj+wCZHhjU0qf6RiiDBUo4SM
-	 /8XpsJzzhjPNWjrWK77TE5ezZtR+8Px1vcJcR1/UBgkjAqFIvAVhO4waQZlSnzaUcVgNT
-	 Hk2PIPZjWRRAVBa0E309La5qFZgh44Ike8La3QnbXSu5mYX18Ye6wLwIfOayW9zZN4Xcd
-	 GszOCgd14B3UrU1EI6Z6QRNSkEzgP1ORQfJmOb8TQv45l9lhDBdfjekoo6tppvN6DNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440733;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=/ptu9eKd6CbNmjxebzPMpiJtVszjbsUASR3ibR5T8kw=;
+	b=DDOo752a7krgL+K0Ups7DCGid0WP8pedXHaAyMiknHcxPTrRII9JYRZgKpEnUQUlXUCY
+	 Tpep36dMltmptFdEt9b4FrJSsaPZXlkeBpnJpSOxNjTZ4o20kLZP2omUHTnAvJ4/leDK4
+	 BrDbCTZv47yUn4vUAogs3DaZB6MZ/hn1o5tUry4BRUV6jwu5jO8ckmbYjW/7QzE6UHkYB
+	 4001o1Lfyxd9LTTQz4WydajaSIGA3ZFPoOvmdiC6ZVF8xTzVHYSn8+q64M4uP5nI4c08D
+	 KA5exRbaZpvvasOYM7oa6z55LvltN1NA8GTe5HzNrnG1aNpjO84J/ztJ+TRRVr4e6gw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lEdirOts;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1BA6606A31A;
-	Mon, 23 Nov 2026 13:32:02 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lEdirOts
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795440721;
-	b=cIbLgxa87NkmEWFtvh1RYYIkV8zCaDO3tf35up4bhRwowsDtv/mhnjDL1qKmfEovFIcD
-	 sN5v24Ka0ZyQsstw+w4bCrXeaaGzBP0sFywD0vZl+Cd1wh12CDJgJ6RyQuoHRwiw5G8Y9
-	 dGCscMx3DH5IZ6wYwnb4rfM8wvf08uN6YEnNxOinPcYNCTuNtpC6x3QTsqOqAY6S/wFmT
-	 cgCgxDY4+d4XWyZrZSuG97zqVJ0gIXUods5wyczjB5GAXI9ZWb1ZeDCo5kPaIYmFKnw89
-	 3znnBTH76ATt5CvAqQHrt5EmO8qlQHGCVtU7AnokMpH49uOH2lTVyX8BjFcuyokskmw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795440721;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=g1CW7c3pTtOr8mmmjYe30pIrbe4DRRxUC8YCS/6YhX8=;
-	b=adT1xPcSo4ASx3Rt28rtTyiMgplvkuB37+IwHQ3Sq1ix+i8/u3x+MVtrRx2b+PrYE4aL
-	 Kv8zCGSj+GA0gwRHMeU+VPnqpX//GfP1BYu0Zc0BGqLb6BnJK8gbaAuY10+k8uubi1hr/
-	 mkD6IP/xDU6lMdraRZsIL9LRx9o7bPht5W5HUzje7ZMUUXj8taKv4gc0jjbAmel9kCioo
-	 zUOQh2ZfmSJpk0hQZMTOd5HSKtz071RA2KCnSb6ZDiGU4ruxMd6KH8fz+Bg/4LRK3ht6z
-	 KPCRP7vJP4MBbwuozPc0mUnguwoAPTZaxmJB3JlkNoB88a03uOIQyO+DkQpbI451jjA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=ionos.com;
+	spf=pass smtp.mailfrom=ionos.com;
+	dkim=pass header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b="iFO/EmQO";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4A32F1F000F0;
-	Mon, 23 Nov 2026 13:31:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440721;
-	bh=g1CW7c3pTtOr8mmmjYe30pIrbe4DRRxUC8YCS/6YhX8=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=lEdirOtsvCvnMJPG2B5gMKMUuROpavmQ5irWgY3/20XIAAlu/Ix+gKGFHTx+HFem9
-	 wgVNaYGqt9ggglTcNUDjEzbamzEGwrT7pGv9uBDefL0U1dTlU/zmeLmZ3F2GnqPeSY
-	 ci9byydjfN3n21AUBI2jBUSVbUZOucjpoFoyCoHRfaEOFBfOPjsCsJUnVVVq8l47FY
-	 yaxn3b9OZBfp+UkptXYUrcRA86/A4xkwk76hFVcZSNCkaRNgdZH7fcMm0vxTvYbpLT
-	 A/PGP8h7XK59W4rXgdEBm63GOtXW2+ULvNQc6kJZJMcYh9tJxxiCurIyDhg29o/qb0
-	 kAhjElLqwF/bQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A3A9F4C490;
-	Mon, 23 Nov 2026 13:31:46 +0000 (UTC)
-From: YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org>
-Date: Mon, 23 Nov 2026 21:31:27 +0800
-Subject: [PATCH net v3] net/sched: act_ife: return -EAGAIN after dropping
- rtnl_lock in load_metaops_and_vet()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF94A606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:32:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF94A606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ionos.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ionos.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=ionos.com header.i=@ionos.com header.a=rsa-sha256 header.s=google header.b=iFO/EmQO
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c515369b627so287178066b.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:32:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795440731; cv=none;
+        d=google.com; s=arc-20260327;
+        b=A9gjvLbbjHPnQRSd9HWV0+uiSnSMERfy5+0nhWEJ+KGTi67zkVWbf6CbAtMyMTYlu8
+         Mr9eQRH/o1XcIwplfMXL4VwFAjM598W2cGrNEHMSHAvuI0A/0w5NoTBOJcAP3oGBPYG4
+         HlJjLtx/mlAUTovwkIoFmPzLvnjYSXuAJj0DqL+/EWd6nazG9923Bap4P0NQul0Xfhd/
+         f8b82DyHP92RbyJ35xbB8W78btRopf3nibYwfqK6bEvlPvxSM6Qj2HZrzx5BE4ECwS3a
+         AZpoS+mw1bnQC5x7usaIF7U+f/ByjkpT33CMeE9DkuAr54dgkKBbiLUqVKcQaQ6JyWdh
+         86Nw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/ptu9eKd6CbNmjxebzPMpiJtVszjbsUASR3ibR5T8kw=;
+        fh=H3SXEnA4+HhA0ckdXEx/8sDB7As5XuhzvgRB5bZh6dI=;
+        b=CRcXQ4CUPPl+OscDphyPI3eQpqbfISPBu15WzwfXiR9UXnHQ0KO1iBcj247RYPEbZP
+         BT9p/rKCC83CaXdvDaZQtl9T0d0XdfZRfHjcTPVLwDqDnvDMJurmpppbI5sVfGi3ehh5
+         yu8ul9kRzg2twK9fuI/btQ3zsokbVdFsiONsvfkNNyPmsYDrx1k35dNFIICDxqbpPfcy
+         1dZLG+sQmmWAfmrMNhmJ64hxzn5lWZqxe4cbmATpwOvrlp2QA4CZrMJbTamqAZZndyqM
+         9lHjaWQGMuJpdI5PcpeZ99txsczS8N0o/tYZqvqUArHOETgqPEtCpiLl1I9FrC0I1Qk4
+         uiDA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ionos.com; s=google; t=1795440731; x=1796045531; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/ptu9eKd6CbNmjxebzPMpiJtVszjbsUASR3ibR5T8kw=;
+        b=iFO/EmQOcIGaPYtHOkDTqzdZT1Pa5L0tJ96qApHbhpaovnKIi3E47tWLG4E3f44rzW
+         xZqou/M4/dTRWtseRME16zqssDwxBpjL0q3Eh1QF20gD+vjeOBb/z1TuGDuST+r+YsvA
+         uJSI7uJ/TRRB7ezlmRzJG5X1dnOHM60JSU42QReRmrqDxtT+3JFW7ZdV0Z+dXXGnk08D
+         OJRGDQhGleTjuiwhwg+v0uy/bnbfO86nfOr81PLd4hMemK4D7I/snRJa1/XfxMOTCZNJ
+         4PexSQPsrMiU/eJWJzofUX4VC6HI0V2pgk317ONElrIqFAc3x1iLthXIAAM5m1NDw4jg
+         x+Qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795440731; x=1796045531;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/ptu9eKd6CbNmjxebzPMpiJtVszjbsUASR3ibR5T8kw=;
+        b=uDs1dx4YeMKNnlEsSwR/FeSJYEhherVuWq5RnQmSc0Dr74iK2Pki8JOvBbqrSufSE1
+         PU9X/xtG23saXGVACdpQV+25YgGI5A20xHhjVT7Nkl9KAa2qhgTI7Z/A3csny60m/vdV
+         3y5VK20G/VrQ6iqdLkdU2PqeyS+j+q6m/3IIUooZIpx8s077I833Tpi7E68bj0Zt4HyW
+         0MbVU1MHVBkz9puGjrkbjrRw8t6u06ehrtJptaV7VvXonpHOSMFzDYUSCuDSebm4j0j4
+         f17VPxDGdmH/3hNe0wgDRAR8C27/UbqCES43dE1jzr82HqDniIHfRiycSegvnl/Sqteq
+         1tWg==
+X-Forwarded-Encrypted: i=1; AL+hErH4i9ArbOqGgg36w0S2gJvv8EIaOi8HRNiR9Oxt4NzYLh6U6BPv2xIlO389tD04fax7aI+MvvFoOW2ski4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9JY1G1iqoR/5gVqxP7Kev+rUTNNLUuLf2ILfbNpjdceD8b4u5H
+	fmAh9T73HN9fwhcIQuEjqlZsCOvCp/KIMxT3B1jupekZge3I0KBCtZ2v3oN+9dNOWZ71wwwRt6W
+	JUMogDo0oJS6nlCn/7goJDh70zZzBwTtSCN4W3RW+hg==
+X-Gm-Gg: AZFdTZd9a811zAkgVA7CuxCX1oBTD5Pj0avw5z5ujHYV8Ol4efTRf4eSrVrKHTSPoM3
+	Nuo9zBkCJ606Haw0e+CWLF6hcmASrRWjIZ+XcTXWiHpfy/lysTbhfkJOuHnbu9SRLkAiDh77uQx
+	vRKV2lMAyU1v+MTRAVrV9+RoO2DT3Ebm2Yg9apBejT4MEQyfuKlLWcwIeyqXzhhJCnG1d6YADSC
+	Jky+u99A3dDvtlzJd+8FVqFPw+7/UmMpDHLT/RGiEPjR3kR0O0+zVH+5fE2XwlkrJb7BE52uJT/
+	kwocrhzUWOKgSs99Hk0xlwe1CkOcSnWsdIKP4X2U8rSE7poKDCnusTvQ8u63sN42fcZxO80eBP7
+	C8hZvH0FHzbX3Ed9EJUxCPFdq6KAjWjdoajfx5/6lHlBoBMTwkj8X7R9A7xiLZSuKnA==
+X-Received: by 2002:a17:906:694f:b0:c50:ff1c:22be with SMTP id
+ a640c23a62f3a-c513aace676mr685329866b.16.1795440731316; Mon, 23 Nov 2026
+ 05:32:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,137 +104,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-b4-02-act-ife-rtnl-uaf-v3-3e43796c4fc1-v3-1-93fa0f782cf4@pm.me>
-X-B4-Tracking: v=1; b=H4sIAC5ABGsC/yWNQQ4CIRAEv2Lm7EQYRkS/YjywMCjGoIHVaDb7d
- 1k9dqW7a4ImNUuDw2qCKq/c8r30YNYrCBdfzoI59gykyGpNBgdGRejDiDkJ1rHc8OkTvgwaYbP
- b28ApaHTbPhBxcU8R+tmjSsrvn+gIRUY4/WF7DlcJ46JYaoNvgkP1JVwWVOXmP7jATWDWipOxT
- NHvSGnLislStzpDzlgvKUYnMM9fUwmc+dUAAAA=
-X-Change-ID: 20261123-b4-02-act-ife-rtnl-uaf-v3-3e43796c4fc1-85026ee8d92d
-To: Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, 
- Stephen Hemminger <stephen@networkplumber.org>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795440705; l=4563;
- i=fadouse@pm.me; s=b4-relay-20261122; h=from:subject:message-id;
- bh=7DHuyrQLhOeh9C5+PXyUekYvXmy1gMXBow6B9d9EIpY=;
- b=1ARe0+Az5wJGRagyMXgOjGKai5/2m6h4b0FcYuzsb5AL2bAT0wVmNFWD69XnvNlEasGTz2Q9R
- WtpyrwXlWr2AbLDbshhL8ae16cOQ5oZEzijJhcxv7WbtP2mqpFp+3vy
-X-Developer-Key: i=fadouse@pm.me; a=ed25519;
- pk=b4DyzHJDRd8853IHUSKPA5wwzChj8eF4MTnZuyPz1PQ=
-X-Endpoint-Received: by B4 Relay for fadouse@pm.me/b4-relay-20261122 with
- auth_id=1597
-X-Original-From: YanXin Li <fadouse@pm.me>
-Reply-To: fadouse@pm.me
-Content-Transfer-Encoding: 7bit
+References: <20261116081403.216452-1-max.kellermann@ionos.com>
+ <20261116081403.216452-4-max.kellermann@ionos.com> <92bc11db-ef40-48e3-8768-9af36bfb5a7e@linux.alibaba.com>
+In-Reply-To: <92bc11db-ef40-48e3-8768-9af36bfb5a7e@linux.alibaba.com>
+From: Max Kellermann <max.kellermann@ionos.com>
+Date: Mon, 23 Nov 2026 14:31:59 +0100
+X-Gm-Features: Aa3M54rFMydpSO212ScIFwe64mMnhlUhUt1F_GHwaP5Pid0tLkWi9Npl8x_Do2s
+Message-ID: <CAKPOu+8vso58=3Z8ijpg+91q=BSmJ-M01KyNY=NwUH-9HV_ikA@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] mm/mglru: cache the last memcg node, make tail
+ insertion constant time
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: akpm@linux-foundation.org, kasong@tencent.com, qi.zheng@linux.dev, 
+	shakeel.butt@linux.dev, baohua@kernel.org, axelrasmussen@google.com, 
+	yuanchu@google.com, weixugc@google.com, baoquan.he@linux.dev, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, hannes@cmpxchg.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, rcu@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: YanXin Li <fadouse@pm.me>
+On Mon, Nov 23, 2026 at 11:00=E2=80=AFAM Baolin Wang
+<baolin.wang@linux.alibaba.com> wrote:
+> > Fixes: e4dde56cd208 ("mm: multi-gen LRU: per-node lru_gen_folio lists")
+>
+> I don't think this fixes anything, right?
 
-load_metaops_and_vet() unlocks rtnl_lock() to invoke request_module()
-when an IFE metadata provider module (such as act_meta_mark) is not
-yet loaded, re-acquires rtnl_lock(), validates the metadata attribute,
-and returns 0.
+Right.  It fixes a performance problem that leads to RCU stalls and
+soft lockups, but it's not a bug.  I added the "Fixes" tag for the
+commit that added the code responsible for the performance problem,
+because I thought that might be helpful and appropriate - is it not?
 
-Returning 0 after dropping rtnl_lock() breaks the RTNL serialization
-relied on by filter-replacement paths in classifiers such as cls_basic,
-cls_flow, cls_fw, cls_route, and cls_u32 (the existing-filter branch
-in u32_change()), which hold an unrefcounted filter pointer across
-tcf_exts_validate() -> tcf_ife_init().  In cls_basic, a concurrent
-RTM_DELTFILTER can delete and RCU-free fold during the unlocked
-request_module() window, after which basic_change() executes
-list_replace_rcu(&fold->link, &fnew->link) and queues a second
-deletion on the freed filter.  Generic KASAN reports:
+--=20
+Max Kellermann
+Principal Architect
+Hosting Technology
 
-  BUG: KASAN: slab-use-after-free in basic_change+0xf4c/0x1220
-  Read of size 8 at addr ffff88800e043c58 by task test_act_ife_rt/101
-  ...
-  Allocated by task 101:
-   basic_change+0x1e0/0x1220
-  Freed by task 57:
-   ...
-  Oops: general protection fault, probably for non-canonical address
-  KASAN: maybe wild-memory-access in range [0xdead000000000120-0xdead000000000127]
-
-Other TC module autoloaders that drop rtnl_lock() during filter
-updates (tc_action_load_ops(), tcf_em_validate(), and em_text_change())
-return -EAGAIN so tc_new_tfilter() and tcf_action_add() unwind and
-replay under a fresh RTNL critical section.  (In cls_u32's new-key
-path, the error unwind in u32_change() still accesses an unpinned
-non-root hash table in idr_remove(&ht->handle_idr, handle); that is a
-separate pre-existing cls_u32 issue also reachable via
-tc_action_load_ops() and is not fixed here.)
-
-Manipulating TC filters requires CAP_NET_ADMIN in the target network
-namespace, which is reachable by an unprivileged local user inside a
-user and network namespace when CONFIG_USER_NS=y, CONFIG_MODULES=y,
-CONFIG_NET_ACT_IFE is enabled, and an IFE metadata module is not yet
-loaded.
-
-When load_metaops_and_vet() drops rtnl_lock() and loads the requested
-metadata module, drop the module reference and return -EAGAIN so the
-caller unwinds instead of continuing on the success path with stale
-pointers.  With this change, the same concurrent RTM_NEWTFILTER and
-RTM_DELTFILTER sequence on cls_basic cleanly loads act_meta_mark,
-replays without touching the deleted filter, and completes with rc=0
-and no KASAN or lockdep reports.  A finite two-thread state-space
-interleaving model of the cls_basic filter-replacement scenario found
-the old use-after-free and no use-after-free, double-free, or deadlock
-in its reachable states after the change.
-
-The vulnerable code is present in upstream mainline v7.4-rc3.
-Runtime verification and fix validation were performed in an x86-64
-QEMU/KVM guest running mainline after v7.4-rc3 with Generic KASAN,
-UBSAN, and lockdep.
-
-This issue was discovered through LLM-assisted code audit and manual
-code inspection of net/sched/act_ife.c.
-
-Fixes: ef6980b6becb ("introduce IFE action")
-Cc: stable@vger.kernel.org
-Signed-off-by: YanXin Li <fadouse@pm.me>
----
-Changes in v3:
-- Remove the comment from the module-load retry path (Stephen Hemminger).
-- Clarify the scope in the commit message: note that cls_u32's new-key
-  error-unwind access to an unpinned non-root hash table in u32_change()
-  is a separate pre-existing cls_u32 issue also reachable via
-  tc_action_load_ops() and not fixed by this act_ife change.
-- Link to v2: https://lore.kernel.org/r/20261122-b4-02-act-ife-rtnl-uaf-v2-102eba468698-v2-1-67c413c45928@pm.me
-
-Changes in v2:
-- Resend via b4 because the archived v1 email has a corrupted diff and
-  cannot be applied.
-- State how the issue was discovered and clarify the finite model scope.
-- Link to v1: https://lore.kernel.org/r/20261122030728.9368-1-fadouse@pm.me
----
- net/sched/act_ife.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/net/sched/act_ife.c b/net/sched/act_ife.c
-index 5a527da0056..68a111c7f86 100644
---- a/net/sched/act_ife.c
-+++ b/net/sched/act_ife.c
-@@ -275,6 +275,10 @@ static int load_metaops_and_vet(u32 metaid, void *val, int len, bool rtnl_held)
- 		if (rtnl_held)
- 			rtnl_lock();
- 		ops = find_ife_oplist(metaid);
-+		if (ops && rtnl_held) {
-+			module_put(ops->owner);
-+			return -EAGAIN;
-+		}
- #endif
- 	}
- 
-
----
-base-commit: c44104f3642da720164042623e4832836aefdd8e
-change-id: 20261123-b4-02-act-ife-rtnl-uaf-v3-3e43796c4fc1-85026ee8d92d
-
-Best regards,
---  
-YanXin Li <fadouse@pm.me>
-
-
+cm4all | Im Mediapark 6a | 50670 K=C3=B6ln | Germany
+General information about the company can be found here:
+https://www.cm4all.com/impressum
+A member of the IONOS Group
