@@ -1,160 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.100
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795436807;
-	b=xQ70i08Vq69O1teGNZFX7/TJ65188/26lm94GWpFuMOyAFE0RPG3PKaetAzIfWQVkblK
-	 58oM1tJgOMvq+d0QPFn72KLQI8xiOa06vUxcML8gMkW5+P9VO7+ai1QwH/44aKPTi7v3z
-	 N9RJPQgGNu4sbsAIsz+9RXz7npTog+PJNaIbbBiUC4eA7QMRtrw1PTCbLGemg58fhQKPS
-	 eq7XjgZeV9poyPOjR/cUzOQpSKXespA50cbZr7cXzdxQG2bn3mAqPU3PXRfT9RRfjeaJS
-	 EARxO1VCOP4kgagS8Du244siLwmrWUgP/GpFSRccmzlGH9/ex+nl9cbO+d9o2iWGg7g==
+	t=1795436846;
+	b=fPKTFb+keYpoEkq7YBJ3innHnx2icGtSG/wAV4Rw4Av0eW2hwvckffYB2z/OhykR5QuZ
+	 e9ciF7Ab0y9Bk/72vCagjtVewUjh1cH6XZtbczAXj5n7PUGD+MMlKlahu8m2O7XHQILk0
+	 jc9eRzJJOE0/Ln35z32Iw27Ucx1Ad6tn7qzf446v/ffqimMRM4YtF6mISp44UrvP5RDh/
+	 Ljsd1nml8r0z44e5nKb+mfpdovMTGUvESbaHMrSMnKDl9WFqRm6GiRhlur+115SEuMt13
+	 hfuEpYxfybJoUuHdZvZTBuOFPnvCxcFEccKAn1L6LEeTVr7cqhmhAVWnGEQlmFA4y4Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436807;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=qeQp1wisiQ5PIuUYsIhyV3xmd5MuP/0N0dRhOhb/F8k=;
-	b=JtubKnz5upgDWygLxgQNd24gHCgFuMFOkLzaqADjnkvOEM+LGEop6iN+vDDCw1LrjZaq
-	 J9RANlrq3kj5mE4hhUDwztuWUv5p4p/krXzw2n/ozlOZ2nG+qW+V+OKJy7ffERQHOH8B9
-	 aZqa61f0Q2Vf2xyjoa/fLPaYis9fl+1TEqG5PnPUPd56saIgSmu+lz6ZcQ1CD2vvl4fVg
-	 HZxH8Ihg+4Ql230w+iNBarzC3/HQWirnQMcYNiOl7CTy4HpAZyEvSmmtyELdLxonnwux7
-	 28bifqtDW10cCnznDwHKnkZx4Mpd0nWr/auBqIQSQKo8cIWyFetwPrcNkQmbGwXXH7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436846;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
+	b=R4g2/qDhAfawfF38KzMP0pZF+QYiOOjriXEmZwiTFqc7Q8/Q07u4SP+pxNoTCLWuoSJi
+	 qE2RpHiRt+2XIKLEnaAW5BrpCRsb2Vlh7LNrIfnngTnWIUMAtLKe4Ro1dJOyQxRTLn40J
+	 pr40cZvTq6OWIP2nPxRNrbj4YIq92AUY0pjDpBl5l+sjSHnmCBSVaDjWuzIPDtBmrf6RH
+	 wohF1HHibcegK58Ti1A4bgdMmwb2f6dC3MJFjcVHt8iAS3aswvzwBzYEy+d29EjmkRvam
+	 e4mbo5Fr0SWhw/jadNHhN11KyA3yZsvDZxGDisi9r539QGYunxzTfrU55X/ADGWKUgQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=phytec.de;
-	spf=pass smtp.mailfrom=phytec.de;
-	dkim=pass header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=IrIp5JEl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.100
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11021100.outbound.protection.outlook.com [40.107.130.100])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=austTnm7;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=a86GKC8Z;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9C93606A331;
-	Mon, 23 Nov 2026 12:26:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9C93606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=phytec.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytec.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BEA9606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:27:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BEA9606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=IrIp5JEl
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bIljABagW/ihX8GavO5eGVx2cFPbGWi7169Q4bXcRN/QGnmiO+/Yn0Lr+tQRhcKklMULdpR1zeIUzAtjVirJa1ODifD3eqoGOxe9v8Wwt/t8ByzuRLLuh0kdJ1UK90VSKlwIfoUIRePJ7AbB6Houey5QV6k8hHoWVcdm7suDKqYcr/31aE05t0ftGQk5XkTStI2QIkYZGABF9bkw92Ah1YQGUyqEGWRM0m5/nLcW6cZl+yOFCVKUl3wiozkpqReNaWgiI5gpx/dKiR/Y8zLm5sfxEl+XcJQwPEAWOgS7ak7HlrqNjLAbYMRgk+6PwkuCu0gD7kCZWUuJJs5MIPm6nA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qeQp1wisiQ5PIuUYsIhyV3xmd5MuP/0N0dRhOhb/F8k=;
- b=cKpN1GIfqpJNFMNen+0VWAtWRyxbDwyH8YBY39IdSeqf340WkcrEk27oMdaCqS9Xs/lal+qwUAVRQvnhcb6IbopCEnNmqKILBaG8Tw1rkt8wkSi/EY6piVQkeIb/JKF+DK1efgxZAWJCYGoOKeZVgW55nXlfaAtt41yUokjQHtFbeMnBUzMzAXT1tT/QJm7hTdT0k6l8xHnRcaKmYOU+Q3opNw5yFtAs2J8AvS6u/6pqg1uTdEhsYuyNelHK6i7NWIBYofcCn+weNAvXFm6y3Mx2P2Hja0tf2kXHheDM6HBeP0/E4xAtxieNEeJfsSSwEnNHQeCvj3FYfKYRvUYD5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qeQp1wisiQ5PIuUYsIhyV3xmd5MuP/0N0dRhOhb/F8k=;
- b=IrIp5JElD1mo89WiCt/rhULN8bPVPfdhZvRFj8dDn7/dsn9vV6hx/NPMOdWu0XBV3r/Rr09lZxrpP3PQLac902A1o8CKfeZy8RAc6wb6G66OgzK7ij1ZkNiNxOFVZMQddVBtd/6C5XDTP2991U/Q4sbBye40xqs3VkrDQdZcI5L2e6q0Mb1cgjsYgOhwNsntDExQbKLRpL99WCJCQXXc3weTV69GebltZR5VCG2S5fmx9RVSWzsSZHQFn8Ll1w6tAk8Xmv4TJFfI7LufHQ3NTsgkxtW6oj+mGanyPMs2FrGxhoYhMZwIw3CmX818YUs5OesWLq0hF2IvHPb9rMmO9w==
-Received: from BESP195MB976599.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:b10:105::21) by DB8P195MB0710.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:10:155::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 12:26:42 +0000
-Received: from BESP195MB976599.EURP195.PROD.OUTLOOK.COM
- ([fe80::5d6e:6efe:9bc2:6893]) by BESP195MB976599.EURP195.PROD.OUTLOOK.COM
- ([fe80::5d6e:6efe:9bc2:6893%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 12:26:42 +0000
-From: Yannic Moog <Y.Moog@phytec.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li
-	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
- Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Benjamin
- Hahn <B.Hahn@phytec.de>, Christian Hemp <C.Hemp@phytec.de>, Jan Remmet
-	<J.Remmet@phytec.de>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "upstream@lists.phytec.de"
-	<upstream@lists.phytec.de>
-Subject: Re: [PATCH 1/5] dt-bindings: fsl: add phyFLEX-Libra i.MX 8M Plus FPSC
-Thread-Topic: [PATCH 1/5] dt-bindings: fsl: add phyFLEX-Libra i.MX 8M Plus
- FPSC
-Thread-Index: AQHddbkBN6rr+J+coEe4H0CDnunHyrc3DkAAgASSF4A=
-Date: Mon, 23 Nov 2026 12:26:41 +0000
-Message-ID: <ecec2b828550453f08e3b4900ad6149cecf5dae3.camel@phytec.de>
-References: <20261116-imx8mp-phyflex-v1-0-4adcf8b4d373@phytec.de>
-	 <20261116-imx8mp-phyflex-v1-1-4adcf8b4d373@phytec.de>
-	 <20261120-successful-amiable-porcupine-cef7ae@quoll>
-In-Reply-To: <20261120-successful-amiable-porcupine-cef7ae@quoll>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BESP195MB976599:EE_|DB8P195MB0710:EE_
-x-ms-office365-filtering-correlation-id: 70e3af5f-945a-4305-27c4-08df495d07ad
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|38070700021|10067099003|56012099006|11063799006|4143699003|261026121527099003|261022075727099003|261021123027099003|261021135927099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003;
-x-microsoft-antispam-message-info:
- rSQTAUoyOz5vmzaMyV2sDRCg0cbqL5e/vJoRAG+53lP54Qd1jREW4EA+KlKG4aWOZ5oZgr/en+lerE7YhYhS6QFFNKRY3DIbQK7POCpyQ80yBrjsSD3I/OfecWZBGddsXHcGStoCy34GTuP/mazSPRoUQMokt7RpGEJBoLdg2u2NYVoL8UbCCmYaD5nPEHeJl+M1jNTULbwbBEjtwz2jrPYU6avD8kfWPd4lQ/3hMMohfySrydyxnzCJe5j+yIKxvM9Qg8tY7MIM7YIv/wEPbeG06nxUFxHeu90ald8mXNPDdn2AH9IqDOboKtC+vqo88VKL+t+3ZQHUmBnN9ADaYSsDxJgNF1ZbFEDKfGbooL66XQXJ/jyxSTKTLY/g463KphPLvCeHEXM88c7T8weaC2Ev4FCXW46FLs996I1fFZUz28ZN4NmiMiy2a444LbNcAB+Vv+BxN5tNEc54X1ls8B2mh6k+dFz/mAtAT7WY99XC95JRmPLVsUu7ril0gyhbgsh9cojDNYSG+h6Wj1WbCgMxFxdBnjvANm/Wddu87mZOMA9qbO4IYu7FOD4sllUoNP2ZFLVVptTFYKS8IrIaos5baEnF1CFDe2h0HlVSmy89aCj/+qgsR/XcCbtaMUTrevlxKSH6q2BNq+CR8JoLs+tcD7CmlGgysYQtK0JFZG8=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BESP195MB976599.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(38070700021)(10067099003)(56012099006)(11063799006)(4143699003)(261026121527099003)(261022075727099003)(261021123027099003)(261021135927099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?Y1ZEV040T1NQSUVLeDJ2TkEzejdVYk5aZWdwU24rU2hRNHJkaFlINnNkR2pN?=
- =?utf-8?B?cmdheWtISDFCVDA2YzVGRG95UG01b3hQb1FwWmd3T0J1cTE2aUtReUhDeUww?=
- =?utf-8?B?dlhRTjBUczBYTXZaOWJvRURuNHZXc29QL0JBQ2xmcjE0TTBqNENRdkpLN0R3?=
- =?utf-8?B?UmRtcmdxK3lsYWh5ZGZrbGIveXZWWmw0MXdRRnJqbi9yUHEyY1AzZ1Rmbi9m?=
- =?utf-8?B?a3Mzd29GRFpsQ1lCdTgwdG5DNW01VnlSdk9oODFkaVI3aGpTNWk1anI0bWxx?=
- =?utf-8?B?d3dESGd2UmM4azgzYTFyQjFKRy9OakdPbHkzZ05XekRDd3Q1RUw4WGFiUFN6?=
- =?utf-8?B?Y2lxcUZFeXFTSXhCMzB4bTJQUnZzSlN2d1V3S1NCTndVdjkvaW9WanJ2T0M4?=
- =?utf-8?B?L0xUcm1RMEJoQUtSaWpXQXIxdmt1NktiZ3FIOWdqVG5nbHZZNUR0U3lrcnRI?=
- =?utf-8?B?emVYK2FpT24rMUI5KzE4V2I3bmUyRU1lKzlyNHlwSHd2bEVFZjJlVWx3Ym55?=
- =?utf-8?B?U0xRb1BuSjR5UGFUNEJHWmNYWjZIb3NWVVcvMU1STGFMdGxERDJ3dG41UXRx?=
- =?utf-8?B?b1NBaGpNdnozdG5nUUtqZFVyb1RsZVFQS09LblVKOFVpVm1EL1RiRlJvMll3?=
- =?utf-8?B?Q0JnNXpSb2pjMzJuTnRIUTF5Rmpzblo5aklqS08rNUtPbTBJRlFNN2prODVO?=
- =?utf-8?B?eVQ1R2V1S2Q2ZEthZG9vbHdNQVNSQXlhRkNMZXEzeC8yYXVIY0pVeGx0S3Jn?=
- =?utf-8?B?TGpNSmEyNnlXUXVxYkMvUnBaQnVXUldCUGx1RDlCTHUreCtoVDFJbGRBMEgy?=
- =?utf-8?B?MlhMaDVPeCtCSmlFR0V3TURLK2tPT3UvbFo3NUltTjMyTThTNjcwenFoZmFD?=
- =?utf-8?B?aUtqY2NsNWh0cHhiK1AvRk5EQUZWWmJMUTFaSUIxVEVnbTFPd2lUTEoxT1Bt?=
- =?utf-8?B?ajFkMnZPODUzR0RPWWRtK2JmRkNLc3hNQm41bHVJU0kvZVNPdm5xN0NXYjgy?=
- =?utf-8?B?MjBOWGFQM1U0TXluNVdiN3lGSHFWYWovS3hEMXMrcm9jUlhEdnVWV0crOElQ?=
- =?utf-8?B?VDRqL2Jhdm54QmMyOGFOcmdHVXlCWldSMzQyY1FoOXYxUmVDWVk1dCtMb1N0?=
- =?utf-8?B?RmZmYTBUWUltOUVrM29SbG5senVqOWcvemRpZlZEMWphd296NmlGZnlRSFBR?=
- =?utf-8?B?amZLYmxDek5QaW4veWRPNE12dmtZbFJmazdqb2dCajRDQlFZZU9SZTNSRU9G?=
- =?utf-8?B?Q1JNSjVzdk0xdGNCU0pEODhQOHBUMExkRmdkNHBrS0lKWFVodW8xTVJ0Qm1u?=
- =?utf-8?B?QTJXdXdFOXhYZ1VhaGphVDdkc08ydzdSQnVwcXMvZldxdnQ0Z2F1SC95VHRP?=
- =?utf-8?B?SVJBcmNqdWlHemZreFJMTVE3U1pENlZCZWQ2R3RBZ1Z4bU96RGM2VzZLQlR1?=
- =?utf-8?B?U0FnREQwVEx0NnhXV3ZFMVArdVRIS1h0UUV5TkcyMUlQUG9YRHNmem9CM0xQ?=
- =?utf-8?B?aDVPbStpZCthTWsvWWVSNmIwcUMzZ3I4OFJzUnVJWkJjb3NWWEgyd2xYVzN4?=
- =?utf-8?B?OWNpZHJyWndseDNqdmlpdkV6K1M0U3hpY0prS2tzYTY3NDZJM1F2S1BaLzc1?=
- =?utf-8?B?ODhaaDNYZDIwSDRDSXZFRkV0cm1WOGo3M2NIK0ZUTU9PR281RHJ3VmlHQ0J4?=
- =?utf-8?B?TlVaVlRnYmJ4VVdWRnRJR0FTT3h6ZlZTTmpQYXh3WnhaZk5mTTZUR3l4Rmdo?=
- =?utf-8?B?SFhqWEdCamJVY0FqK3dYSnE3YzVGbGI1UWxCb1pRVUZNajNUMkU5QnVjSHM4?=
- =?utf-8?B?WmZwWERWY1VqRXFETEc3Q3lMZnc5Rlp6eTV6aCtGU1I1Q1dzdHk3NmRUZU4w?=
- =?utf-8?B?T2NsWFpoYlF6MU5UTGtoVlFiV2pzRlliRTN6L3FiODd3N2lVeVBHckFWTnR0?=
- =?utf-8?B?cHp0ZG9tNG42ODhUZ0FKQTQ1TnZWSzJhUThDaXpYT2VwNDJMQWErbk93eUFt?=
- =?utf-8?B?THNCdDdldlZEUW1ycWRpanlXaEptaTl5ZkRleUpmN0pNT2c3RmJISFI4S1lu?=
- =?utf-8?B?cGxSSGcvNjdqZjY5OW5qcnhzUnJlb0hrTDgyd005VDNHZktMd0hQZi9tS3hI?=
- =?utf-8?B?U2pSOTlidTJpMmJNbDVXUUZveWlYSGR1aTYwWjJpRk5mNFRhYklmSVU0QVVB?=
- =?utf-8?B?WXc1Y2dlYUxtaVNMTDZod0ZvaDVqOEVmL3k4OWJ4Qk5xcEtiWmFnK1NqSnpD?=
- =?utf-8?B?Y2doTUU4UTFOdER3dkkzL3YwQzJSUFBSa1B4aU95Z3dRYjQzRlZmRlRYNHpJ?=
- =?utf-8?Q?6BAzh4i2SjkHZr757R?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <988C7A47A4E42044B57D28FF134810A7@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=austTnm7;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=a86GKC8Z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795436844;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
+	b=austTnm7GrXvKGBWWbH7EvCQRT/3bOSu4hhfoJ8Pnc9yCya1+YU0j6JMjuXyAder4h2uOh
+	szhZaW/9DV8y1eI0olivAEHPnDLG/tWAgMr297bwBRx1kGOtt5MPFKxZ6wxPF6wjnKPm3W
+	8v4G2N2GgOXhQ5LVO0ChNlIe4AvLjuI=
+Received: from mail-yx1-f72.google.com (mail-yx1-f72.google.com
+ [74.125.224.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-33-f_h86UsoOmiUdZ9XNC_J3g-1; Mon, 23 Nov 2026 12:27:22 +0000
+X-MC-Unique: f_h86UsoOmiUdZ9XNC_J3g-1
+X-Mimecast-MFC-AGG-ID: f_h86UsoOmiUdZ9XNC_J3g_1795436841
+Received: by mail-yx1-f72.google.com with SMTP id 956f58d0204a3-6756044f260so4944443d50.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:27:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795436841; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eucYT/Z5iflWcBHxHnbGdG60sIRardBeTu254qcXfT3eKXs7xq79OGuTtUAHL1ULuT
+         icKeb3dTD4YtAwfma+Uqq+YXBE9+4lpM57UHYnoCkZdIA5VDRDvZ/LMS0wFNH5Wmiq8p
+         jN2o19fPpfx3phj8IB7asKAbXHnxLiEXF5ithqX+g3RAIDt8ISP5Hp7G4aylqdwmhU2H
+         BsAOn+mZgVNHWWL29yIcyBu3CuTZjejOJTb3/wGVMSpW0eAzQOyX1nyLUtHTOau2L8KR
+         a+vCfhdGo8B5C8eZz+Mkbcavw5qyL20ZLwGv3mzYhXlEIXlQyW/HU7w00hlTE5Dha0U0
+         XhrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
+        fh=qmKcfK4oYQQgX6tQKBEyu9H+niP/pwkJeu26ZY1+8Ro=;
+        b=FChsemYQJR3QAuCASh5iPBR6sXGa5ILLI5SbQJ3qy9TVvaxAeSDYnpjF1msvfpLSfE
+         1QFHbft4VSVuJP1ia8CTDpQHeozuWV7BL3lSip8I1SVuRyDxHQR9TU+Wn42YPgMGgQOZ
+         aTgVMEexVNHmqD1fpItm3Qrq3q72IgtISl4roTmNofRNpdmNskR2k8WTOjj393SCcL5Q
+         A31BonHIKxYagMF/fUfCDAMzRKpFPin5riTmYyGEGlktI+4YeaoS7ObSSXzjM65RVoc2
+         qHrpbIxxfr3o8/igLCP98k47W1Hyq57wPcQRHTXlbgYK5FdUrepPwxGSunPSchpXriHj
+         tboA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795436841; x=1796041641; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
+        b=a86GKC8ZxMPKgJZBDZRTlBSk8eqs3NKGyoXvQZNXgJ2QG306KpoonkcXzpIHDWZTaV
+         acN/sK2jxtp6cPVd0LtowwY8x53KENScPGFKXPzytnNlXt+RPHUtfllQYvh/+tL7jtHe
+         sIuXfl+e4VLHOfmKFycq9kV4LPCofXNpeh5ORhbgfFraEcgHuwain8ZFZwtv/wdEC4iq
+         5K1lmjyGW9SCQAD2kGEG424KC7pj898Lt0Fp33UBL1/oS/1OY5FgYrIwd/d3ukH469ZH
+         /W0cfPFnw1XjRHf+Bonny1O02OW5XBum2khW1w65Sc8t54Y2pWObcF1r9hiwskMD5jHd
+         Kzeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795436841; x=1796041641;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
+        b=rR3ImDGlseNA7J8OJTePC0lvooAFY+0B5sKBjfDhHg6aOBL+PSaVTNE4zaOxsVNBN1
+         XCkakbiyrf1e5K4vtreqBCWIlYz7e+VFTzCGguvFxfcpo+v1qYUgDoetYssGiAeoa8t0
+         CxiAAANSqfbphM9V2GWo5ZU4TO6p4fQlt3IxPpXVS0MXhlqpdmxGjhFDyt1dmu5/3vb/
+         GioVz99EfiyGSEbnCKDix2BD5JSUTNbJeQi2G4D7NYNXilOuWPcWI+nJUPbu3RuelIMS
+         jBelN8jUevN9MxKjm8BJLXnbd7+YzSYTCTC8shMC/hDlVn9K1XqJO+oB6ZtdnlxbdiH0
+         Ybhg==
+X-Forwarded-Encrypted: i=1; AL+hErHCrAREhYE2vq4oORlSl50uMjXW4seh+61suP/Dv8f9hqkH3oTm9f3YZRWGYo7IXmNSfqXbQfZp70jnMv8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4uR5ZXjsR5ZEVO+STHDPc/FzneXFD8cRpeEM/Ycf6h1+DGxTl
+	BvSthswPh7N/3kMtHryaBVbkkF3Bt4Gfy4x5BE8sLkaRszYoEGZDRSlbMnKzCOD1aP7eQANaif+
+	W9zmZeaj6ZpsIiP8zPuiMBmtLjLodVOCFL0JaXNWEtmm5dSj/LiVcqQRjCZq4nm7LnBOIgdXKov
+	wMgZFJKrxuFvi3C9EAWOYsLPquupf3ef6GQnEUYNqg
+X-Gm-Gg: AZFdTZcWYSd+Iv1Sc5HSEgsmnUnuuqIA+5RO/fJ7z1r2siL5QNpX0HzodhNniVkNCMn
+	hYtsOH5sb/+AEDJagjnNJqd+UYi8Rk3rEmYRfUYkxPmIeGC3bixExKXD8OD8veRuAvTxv5F4LqR
+	F9/g+gIVVxbRCHVh58oYHQoyZ86kgQxhTWII2dUTHC6Mn4kr+ltOL9xysdcbe+f2zQNJHgDrTRZ
+	mSYSFnpXcS5EZkt2RUacjC9ULIsBW8cq5lt+6cPlaobZxwPX5M3TlE44YU=
+X-Received: by 2002:a05:690e:11c5:b0:67d:a3c2:c95 with SMTP id 956f58d0204a3-67dec2bd130mr4963374d50.3.1795436841518;
+        Mon, 23 Nov 2026 04:27:21 -0800 (PST)
+X-Received: by 2002:a05:690e:11c5:b0:67d:a3c2:c95 with SMTP id
+ 956f58d0204a3-67dec2bd130mr4963360d50.3.1795436840812; Mon, 23 Nov 2026
+ 04:27:20 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -164,52 +125,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BESP195MB976599.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70e3af5f-945a-4305-27c4-08df495d07ad
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 12:26:41.8872
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0Aw0sQRwRSJbVzsmCfwnqw2go/FDPneYOeG02mN6gr8LgTqYd4t6m9SsgeHH7J8FKvUXtx3CgPObN9QcqrN2/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8P195MB0710
+References: <20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-v1-1-fc1253d60351@pm.me>
+In-Reply-To: <20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-v1-1-fc1253d60351@pm.me>
+From: Eugenio Perez Martin <eperezma@redhat.com>
+Date: Mon, 23 Nov 2026 13:26:44 +0100
+X-Gm-Features: Aa3M54pt5PWY45sVKrMEfHYWn7Rl4h8pw_TEQAIUnc03qW3ChT2fpOFP_O-rkHg
+Message-ID: <CAJaqyWdOF3LVF+WHaGw8gimULaCunRkuLnKAhciB7HWpYhnm9w@mail.gmail.com>
+Subject: Re: [PATCH] vhost: mask the in-order used-ring log cursor
+To: fadouse@pm.me
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+	Linfeng Sun <linfeng.sun.dev@gmail.com>, Fang Xieyan <fangxy@xiaopeng.com>, kvm@vger.kernel.org, 
+	virtualization@lists.linux.dev, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-T24gRnJpLCAyMDI2LTExLTIwIGF0IDE1OjM4ICswMTAwLCBLcnp5c3p0b2YgS296bG93c2tpIHdy
-b3RlOgo+IE9uIE1vbiwgTm92IDE2LCAyMDI2IGF0IDExOjU0OjQwQU0gKzAxMDAsIFlhbm5pYyBN
-b29nIHdyb3RlOgo+ID4gQWRkIGJpbmRpbmdzIGZvciBwaHlGTEVYLWkuTVggOE0gUGx1cyBTeXN0
-ZW0tb24tTW9kdWxlIFsxXSBhbG9uZyB3aXRoIGEKPiA+IGNhcnJpZXIgYm9hcmQgKExpYnJhKSB0
-aGF0IGpvaW4gdG8gYW4gU0JDLgo+ID4gCj4gPiBbMV0gaHR0cHM6Ly93d3cucGh5dGVjLmV1L2Vu
-L3Byb2R1a3RlL3N5c3RlbS1vbi1tb2R1bGVzL3BoeWZsZXgtaW14LThtLXBsdXMtZnBzYy8KPiA+
-IAo+ID4gU2lnbmVkLW9mZi1ieTogWWFubmljIE1vb2cgPHkubW9vZ0BwaHl0ZWMuZGU+Cj4gPiAt
-LS0KPiA+IMKgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2FybS9mc2wueWFtbCB8
-IDE4ICsrKysrKysrKysrKy0tLS0tLQo+ID4gwqAxIGZpbGUgY2hhbmdlZCwgMTIgaW5zZXJ0aW9u
-cygrKSwgNiBkZWxldGlvbnMoLSkKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24v
-ZGV2aWNldHJlZS9iaW5kaW5ncy9hcm0vZnNsLnlhbWwKPiA+IGIvRG9jdW1lbnRhdGlvbi9kZXZp
-Y2V0cmVlL2JpbmRpbmdzL2FybS9mc2wueWFtbAo+ID4gaW5kZXggNjU2ZjI1OTZlMWQ1My4uMmQy
-MWExOTQ5ZDk0OSAxMDA2NDQKPiA+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
-aW5ncy9hcm0vZnNsLnlhbWwKPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
-aW5ncy9hcm0vZnNsLnlhbWwKPiA+IEBAIC0xMjI1LDEyICsxMjI1LDE4IEBAIHByb3BlcnRpZXM6
-Cj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBrb250cm9uLGlteDhtcC1vc20tc8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIyBLb250cm9uIGkuTVg4TVAgT1NNLVMgU29NCj4g
-PiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBmc2wsaW14OG1wCj4gPiDCoAo+ID4gLcKg
-wqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogUEhZVEVDIHBoeUNPUkUtaS5NWDhNUCBGUFNDIGJhc2Vk
-IGJvYXJkcwo+ID4gLcKgwqDCoMKgwqDCoMKgIGl0ZW1zOgo+ID4gLcKgwqDCoMKgwqDCoMKgwqDC
-oCAtIGVudW06Cj4gPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBwaHl0ZWMsaW14OG1w
-LWxpYnJhLXJkay1mcHNjwqAgIyBpLk1YIDhNIFBsdXMgTGlicmEgUkRLCj4gPiAtwqDCoMKgwqDC
-oMKgwqDCoMKgIC0gY29uc3Q6IHBoeXRlYyxpbXg4bXAtcGh5Y29yZS1mcHNjICMgcGh5Q09SRS1p
-Lk1YIDhNIFBsdXMgRlBTQwo+ID4gLcKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBmc2wsaW14
-OG1wCj4gPiArwqDCoMKgwqDCoCAtIGRlc2NyaXB0aW9uOiBQSFlURUMgaS5NWDhNUCBGUFNDIGJh
-c2VkIGJvYXJkcwo+ID4gK8KgwqDCoMKgwqDCoMKgIG9uZU9mOgo+ID4gK8KgwqDCoMKgwqDCoMKg
-wqDCoCAtIGl0ZW1zOgo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBlbnVtOgo+ID4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHBoeXRlYyxpbXg4bXAtbGlicmEtcmRrLWZw
-c2PCoCAjIGkuTVggOE0gUGx1cyBMaWJyYSBSREsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IC0gY29uc3Q6IHBoeXRlYyxpbXg4bXAtcGh5Y29yZS1mcHNjICMgcGh5Q09SRS1pLk1YIDhNIFBs
-dXMgRlBTQwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBjb25zdDogZnNsLGlteDhtcAo+
-IAo+IEV4Y2VwdCBsYWNrIG9mIHRlc3RpbmcsIGRvbid0IG5lc3Qgb25lT2YuCgpCb3RoIGVudHJp
-ZXMgcmVmZXIgdG8gdGhlIHNhbWUgYm9hcmQsIHRoYXQgaXMgd2h5IEkgdXNlZCBvbmVPZi4gSXMg
-dGhpcyBpbmNvcnJlY3QgdXNhZ2Ugb2YgdGhlCidvbmVPZicgcHJvcGVydHk/IEkgY2FuIHJlbW92
-ZSBpdCwgc2luY2UgbGF0ZXIgcGF0Y2ggcmVtb3ZlcyBvbmUgb2YgdGhlIG9wdGlvbnMgYW55d2F5
-LiBGb3Jnb3QgdG8KcmVtb3ZlIGl0IGluIHRoZSA1dGggcGF0Y2guCgpZYW5uaWMKCj4gCj4gQmVz
-dCByZWdhcmRzLAo+IEtyenlzenRvZgo=
+On Sun, Nov 22, 2026 at 2:20=E2=80=AFPM YanXin Li via B4 Relay
+<devnull+fadouse.pm.me@kernel.org> wrote:
+>
+> From: YanXin Li <fadouse@pm.me>
+>
+> vhost_add_used_n_in_order() plays the batch of used-ring writes back a
+> second time for dirty logging.  Commit e244725e86be ("vhost: fix used
+> ring index wrap in vhost_add_used_n_in_order") masked the index in the
+> descriptor-publishing loop.  The dirty-logging loop introduced by
+> bfcde6b64769 still uses the single-subtraction form
+>
+>     next =3D start + nheads[i];
+>     if (next >=3D vq->num)
+>         next -=3D vq->num;
+>
+> If the guest refills the available ring while get_rx_bufs() collects
+> one mergeable-RX packet, that packet can consume more heads than
+> vq->num.
+
+Although I'm ok with the proposed patch as hardening or optimization,
+this sounds more like a bug in get_rx_bufs. Where are the memory
+addresses for these pieces stored if there are no more buffers in the
+virtqueue? Or is it able to loop through the vq?
+
+> get_rx_bufs() permits up to UIO_MAXIOV =3D 1024 descriptor
+> chains in one call, so a single subtraction is not enough.  For
+> vq->num =3D 32, last_used_idx =3D 0 and nheads[0] =3D 64, next becomes
+> 64 - 32 =3D 32, which is still equal to vq->num and out of bounds.  The
+> next iteration then logs
+>
+>     used =3D vq->used->ring + 32;
+>     log_used(vq, 4 + 32 * 8, 8);
+>
+> which starts past the end of the 260-byte ring body (4 + 32 * 8).
+> For a used ring placed inside page 7 at guest address 0x7ef8 (so the
+> entire 262-byte ring occupies [0x7ef8, 0x7ffe) and
+> vq_log_used_access_ok() validates only log_base[0]), log_used()
+> marks [0x7ffc, 0x8004) as dirty.  log_write() then sets a bit in
+> log_base[1] for page 8, past the single validated byte.  On a
+> vhost-net RX queue configured with VIRTIO_F_IN_ORDER,
+> VIRTIO_NET_F_MRG_RXBUF,
+> VHOST_F_LOG_ALL, VHOST_VRING_F_LOG, vq->num =3D 32, and
+> log_guest_addr =3D 0x7ef8, delivering one 8 KiB frame consuming 64
+> mergeable buffers followed by one 1-buffer frame in the same
+> count =3D 2 flush writes
+>
+>     log_base[1] =3D 0x01
+>
+> where log_base[0] =3D 0x80 is the only byte the kernel was entitled to
+> touch.  A guest attached to a vhost-net backend with dirty-page
+> logging enabled (for example during live migration) and a small RX
+> ring can therefore corrupt dirty-log bitmap memory that the VMM owns
+> outside the region registered for this ring.
+>
+> Wrap the logging loop index the same way the first loop does:
+>
+>     next =3D (start + nheads[i]) & (vq->num - 1);
+>
+> vhost_vring_set_num() already enforces that vq->num is a nonzero
+> power of two, so this is well defined for every accepted ring size.
+> The coalescing invariant is preserved: if a run is not flushed,
+> next =3D=3D start + 1.  When start =3D=3D vq->num - 1, start + 1 =3D=3D v=
+q->num,
+> whereas the masked next is always less than vq->num.  The run is
+> therefore flushed before the cursor wraps.
+> With this change the same vhost-net configuration publishes
+> used->idx =3D 65 and confines the dirty log to log_base[0] =3D 0x80,
+> leaving log_base[1] =3D 0x00.  The mask keeps next in [0, vq->num) for
+> every accepted power-of-two ring size.  As a bounded cross-check of
+> the index arithmetic, a Z3 model over ring sizes {1, 2, 4, 8, 16, 32}
+> and buffer counts in [1, 64] finds an out-of-range result for the old
+> subtraction (vq->num =3D 16, start =3D 15, nheads =3D 17) and none for th=
+e
+> mask within those bounds.
+>
+> Runtime verification and fix validation were performed in an x86-64
+> QEMU/KVM guest running mainline after v7.4-rc3, with Generic KASAN,
+> UBSAN, lockdep, and DEBUG_OBJECTS.
+>
+
+Can you post the reproducer? Even better if it is integrated in
+tools/virtio/vhost_net_test.c.
+
+Thanks!
+
+> Fixes: bfcde6b64769 ("vhost: fix dirty logging for in-order used ring ent=
+ries")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: YanXin Li <fadouse@pm.me>
+> ---
+>  drivers/vhost/vhost.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/drivers/vhost/vhost.c b/drivers/vhost/vhost.c
+> index dc973287567..80b887e1511 100644
+> --- a/drivers/vhost/vhost.c
+> +++ b/drivers/vhost/vhost.c
+> @@ -3206,9 +3206,7 @@ static int vhost_add_used_n_in_order(struct vhost_v=
+irtqueue *vq,
+>                                 log_start =3D start;
+>                         log_count++;
+>
+> -                       next =3D start + nheads[i];
+> -                       if (next >=3D vq->num)
+> -                               next -=3D vq->num;
+> +                       next =3D (start + nheads[i]) & (vq->num - 1);
+>                         if (i + 1 =3D=3D count || next !=3D start + 1) {
+>                                 used =3D vq->used->ring + log_start;
+>                                 log_used(vq,
+>
+> ---
+> base-commit: c44104f3642da720164042623e4832836aefdd8e
+> change-id: 20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-43734ad1=
+0f0a
+>
+> Best regards,
+> --
+> YanXin Li <fadouse@pm.me>
+>
+>
+>
