@@ -1,61 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455533;
-	b=iElvBbnrhsQZ0pnMZ/McU697ymaicENmF5kt4uo5KHqRq66smgdW1sNtDzBPxPJ9ajrt
-	 AKzfjGntjHgxa+1r8jnEqCNRfzwTMASinJrSb+co0SbIs4tNM3z89kbMs8whDI9Fkata3
-	 RcQnzBJnpHslYUU5tnf4aMsP2ieuqblPtLgw70zPSQvRNs/QXYsVt4ZoZS53mYjFq5GK6
-	 hurSDx9tUCpXOrA7zCV0TrDkq7zYjK49qo8TXsLGDyss7ZURzkDgfjNSuhtoo2rPeHJBH
-	 DMOoM3faI6OltXWG9MBKqh4GDQ5JBxLA1rUJ+VZqlXbt09cNXRgqdiaD3RdiNSFHyhg==
+	t=1795455627;
+	b=puqJ5xPtdMtOdy3vSCq0+YSaxloIwPwAHwFHiBsDKQNk/GmRaoXV9bcQ5ZDTqK83zdjJ
+	 cjxRA1ebOpC2zrCy1kr2o9OwxK+LUKZCOf5sNPFGihu7S4BbqftraMdRsVPbMBaa5EoRH
+	 n+/Tl7j0x+w38abDR2tA6cqzjC/Gj48IGz4Wu/JbW9ZywG3uhUfFPMTm+w6D+xJg5zZoU
+	 dM6bizSKbIxiu/Aw7QS5MPbAcHIpB4paeovdIKrFW1vGEBm40OvXRT5Y7tyvcvMg82Df1
+	 3biZGR4GLe4Z1beMT61psIiHBPUKLxPvzBcikZ8pYM10hrIW/C4hjw/TA+xg7MYXukQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455533;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=M1jT+G0VMSaygnsbEE6grX37J+IeCer1lhkCNoYHZC0=;
-	b=N9HJ7vec1xQ2OSR+lBo9MPaghVRe2+1XTQUzt5VbF8YNKg3un/aOUoNSrJl8KvIsZc2t
-	 Rf66fWNSJiW2S9ArbBnmL4sb31Zk72wLLCQhLPCkjWzM/qo20eKd3JsSEDHClcS5rKR3N
-	 5Ml5SgEK7bPb0mnIYn1755T5SrNo3vSNYJPCKtrXzAKIi0mhsWKFEgcjDUFio98yeslJW
-	 Dr5SeDUHsYsmBI8N85WkRfF3oOW99GFzWbKW5M1rGmFKY4C5yssSJbCzWkxLTJCqdr6RE
-	 /InbltYstgPoJ6rNEsEHS3YFG25im0PoMQ1p2c5v7qjYicBFIigpTMI9lV+tQ/UuVSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455627;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=m7ZQkqoer6i6wo4vX9KRUxRB4qtv9xqBhVPgTvtWcdE=;
+	b=oeTgp+UbaxvFOIuS2PJL07LSBPFGYTRp8ItpYtX9c6jO9DPMj3SOwywgG1lVKon/C4ww
+	 8tQA1mvEUQJg69r0VJT4L23TN4GLrlc0pguCXZe9WFVpsMZrO1AM60qUv6SGrNib+S2VQ
+	 +0dGbPxmK0WKg6OWHS+2DoecuDCZBUeRZLOB+/s0DI2+mN8yPMNdBPIw8wcrlvjkKkPLL
+	 74ANSMpDW2r8Mdn17YoLVCka4sMaJM8+WfDGAphOh0pQA/acmjYbaZQU+yOrAla1fOhBt
+	 lvEqVhMyabGlCxu5Q90uoy8NZB3C8EHFkcRr52dC1WD9b2ux7fwMkF18LZeiQU3517w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hn5Guuht;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=P8TVAA6y;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C903606A31E;
-	Mon, 23 Nov 2026 17:38:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FE46606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:40:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FE46606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hn5Guuht
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1F81F000EF;
-	Mon, 23 Nov 2026 17:38:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795455533;
-	bh=M1jT+G0VMSaygnsbEE6grX37J+IeCer1lhkCNoYHZC0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hn5GuuhtF0Nvk2GInTT7DzQmBJO45Vi+1AfuM9SkeHqb+wIg6t/2Y1gu5EVJ5DvL7
-	 uJYxgTWAmJNOmvt2L+h9DX6+N0zCDfrVUAMWLD7woBg17IPPxfn4tBRfDc/7vQzk/M
-	 T56Cq7wGNnPyOFqAwk23oW0r+wkyPF8xlOCh3NpwnzwyDxoCUnpT2exnJSuevCw2QX
-	 1d3y+X0mw1Bphf9phmTDJUEwds0m8po7FxjRjjuBZ29QgQqUyjBBG1rpi/SqCcBFLo
-	 4iEkM89mLA3TTWVfAYW5nOGBCV44tNXHQD9oe8rkpCtBpTACr21GwubOjsdLiIhPnS
-	 5BjbIETev9FyQ==
-Subject: Re: [PATCH net] octeontx2-af: Fix uninitialized variables and bounds
- in MCS alloc handlers
-From: netdev-bot+sashiko@kernel.org
-To: irogers@google.com
-Cc: sgoutham@marvell.com, rkannoth@marvell.com, gakula@marvell.com,
- sbhatta@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- elkin@google.com
-Date: Mon, 23 Nov 2026 17:38:51 +0000
-Message-ID: <179545553181.3135.4354699424439095142@kernel.org>
-In-Reply-To: <20261119170550.1517634-1-irogers@google.com>
-References: <20261119170550.1517634-1-irogers@google.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=P8TVAA6y
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b8c60e0d39so4619591a12.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:40:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795455626; x=1796060426; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=m7ZQkqoer6i6wo4vX9KRUxRB4qtv9xqBhVPgTvtWcdE=;
+        b=P8TVAA6y9ItwwthzfwpqkPpkSVkzkSV4QChfpyp2Gwofxe12vzpt8mhiAXnKuP9SlM
+         GSbMe6YIM3tmj7ymCa8exPyYM/Q6nx1DyUtGSjFwY9OS4LgjJjSqajlNAH7X9wvjRLOE
+         29cgujohbkgG6IifnrVnXnt8eQoNa04VkngMMfCk+HmG9WDCOshLEPz5X9ZN0bWQXsMy
+         Lwxo4VswmpedMmX50WBhODC0EzHsL2Nk0HXqhOn6v0jOsN2+IsErlsMfHVdXIetHCIAe
+         oDKJAmL/oFvGlqF8KbI9puD1/kcOI5gVOYN3aJZUvAkV6lAOJjY9m29dUU5B8O263KMi
+         kI9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795455626; x=1796060426;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=m7ZQkqoer6i6wo4vX9KRUxRB4qtv9xqBhVPgTvtWcdE=;
+        b=1aYlWTlDwL7jVPRY6f/3T+7WUXTyK2eZfmc72TCqk193MGFNSQ1dRS68Ib0IrHOpwI
+         2MmK7/aKp/Fts4Vtg6MYQWGzxXn3c5iW8srRVRoyZ1kcwKIdah8AchQT8rwDapim3TxT
+         VAviOABZSWAa6C4pbwjLvzE0OMi1paQ1p6eMyMS9fb3TKgL3RNxxAx+hj+Dca05zN9ni
+         RQ1J1fbTSwIvipkpvPv5ChUgU46Er39m0hiXwtG3JNY5JYLCPLmZP3JZtmcRPKOQOq8L
+         MgMy2a3n9PR+t5cwyKBo2vDdyb7Zf5PkKPVdtutW2m1hQmCtXgteNwDwN2lxqlbZCOXR
+         HcfA==
+X-Forwarded-Encrypted: i=1; AL+hErHaf9tKAt/tl/IGP38Sxh31M0crvpMQB55QJrDro0z4AjtFI0VSBkpLpBLwRlOr//fi25F0Q4PTwUq+/UQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Sp4pHE9v9d3doMJlBxlS0Lot10tjWS+zHuD+pYnO/v0UB566m
+	vf6s68lvE4/iHX8c5WVUZGEovPBBuwmgm+jnwCKfwSvpjJwyWX004UaAU93ijl3L86I=
+X-Gm-Gg: AZFdTZfypEHK9BAXpx1n+IiPQcHQdqhR3tqTKeEDNBKecM1H9wz4kK9Z3sc03rlXyXG
+	HEG8RNcW2c6PcQ8t43VpU3Cr7uTdAga9FO6q3UtlhgWZ2XLXm9xQDMyeoSEd4FfvK1UlsYhbkrK
+	XO8p8j/WzGXVeIEPBkFjUbrnrVlFa2w1mlRp+jIY8yiaTnKs2fyt+HhfqsRftzSzJBwE4L1i3EU
+	zzpnS1iuk10OOmgwOIZKVK8bArum8unPRZCJbzPrwE5fMQiKPHqGUk7xrNxACyMbABBSK+S+lue
+	YvzQPGaVxXirnGDcYs9xBVAmlLyr/znUAdB8oDPzoDG90EKQgU3/Zhanf1pSbTQf1yy+07o7GUa
+	YHNaSO5mdI858OaGHGmlw+mz+aRvXPCw7HzTnrBZ/F2y/58iBd+EC8DU6aas0WMseI7k5jgmJYm
+	mE9kj4IhBREnU3RsUvKIv0Cgu6a1WijScYiFEBnCsWkdOHiWQ/FwkKhNjF6GYmVE3DjIYb12XXr
+	8ZZMVAyscwMVIlVHtB//p3aCLdVMGSBz6di5vyLJlOF20B7iHMB5vgJ0cZn65IqbxcGw+0xlG9b
+	tRevVJMWGXU8Eunk/qaqCO1hlEODYG396xTayethzCytZuYArLLJTouldHTh3YcX4W82Dkej5ZB
+	QDlFgSEScRvTbiPH7ktU=
+X-Received: by 2002:a05:6402:42c8:b0:6ba:a216:fe0b with SMTP id 4fb4d7f45d1cf-6baa21701bcmr3926014a12.42.1795455625781;
+        Mon, 23 Nov 2026 09:40:25 -0800 (PST)
+Received: from puffmais2.c.googlers.com (226.124.90.34.bc.googleusercontent.com. [34.90.124.226])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba854bed08sm3565504a12.30.2026.11.23.09.40.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 09:40:25 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Mon, 23 Nov 2026 17:40:24 +0000
+Subject: [PATCH] mfd: max77759: set zero DMA mask
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,204 +91,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261123-max77759-dma-mask-v1-1-6f5c8d52904f@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAId6BGsC/x3MTQqAIBBA4avErBMaS62uEi0spxqiHxRCCO+et
+ PwW770QyDMF6IsXPD0c+DozsCxg3uy5kmCXDbKSGlHW4rDRGKM64Q6bEXahVYNmajVaVUPubk8
+ Lx/85jCl96sDjk2MAAAA=
+X-Change-ID: 20261123-max77759-dma-mask-65417b861a53
+To: Lee Jones <lee@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Juan Yescas <jyescas@google.com>, kernel-team@android.com, 
+ linux-kernel@vger.kernel.org, mfd@lists.linux.dev, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.3
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+During probe of the DT-backed MFD child devices,
+platform_dma_configure() calls of_dma_configure() with force_dma=true.
+Since the parent I2C client device leaves dma_mask as NULL, both
+DT-backed children trigger warnings in the kernel log:
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
+    platform max77759-gpio.0.auto: DMA mask not set
+    platform max77759-nvmem.2.auto: DMA mask not set
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+MAX77759 and its child devices only communicate via I2C/regmap and do
+not perform DMA themselves (any I2C DMA uses the host controller
+device). Clear coherent_dma_mask and point dma_mask at it before
+registering the MFD children, so mfd_add_device() propagates a non-NULL
+zero DMA mask to all sub-devices.
 
-- [Medium] In rvu_mbox_handler_mcs_alloc_resources(), two of the new
-  rejection paths still report success over the mailbox.
-- [Low] The commit message presents the missing check of req->rsrc_cnt
-  against the 128-element rsp->flow_ids/secy_ids/sc_ids arrays in…
+Fixes: bb71e40db1b7 ("mfd: max77759: Add Maxim MAX77759 core driver")
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+ drivers/mfd/max77759.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the sibling
-  free handler in the same file has the bug class this patch fixes in…
+diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
+index 5818ee2811d1..e31af2c0d25a 100644
+--- a/drivers/mfd/max77759.c
++++ b/drivers/mfd/max77759.c
+@@ -693,6 +693,9 @@ static int max77759_probe(struct i2c_client *client)
+ 				     "failed to add IRQ chip '%s'\n",
+ 				     max77759_pmic_irq_chip.name);
+ 
++	client->dev.coherent_dma_mask = 0;
++	client->dev.dma_mask = &client->dev.coherent_dma_mask;
++
+ 	ret = max77759_add_chained_maxq(client, max77759, irq_chip_data_pmic);
+ 	if (ret)
+ 		return ret;
 
---
+---
+base-commit: 749a4de370409464cf8501ec5b2451df45c84eb4
+change-id: 20261123-max77759-dma-mask-65417b861a53
 
-octeontx2-af: Fix uninitialized variables and bounds in MCS alloc handlers
-
-This adds a default case to the rule_type switch in
-rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(), so an unknown rule_type no
-longer passes an uninitialized offset. In
-rvu_mbox_handler_mcs_alloc_resources() it initializes rsrc_id, rejects a
-zero rsrc_cnt and an unknown rsrc_type, and checks rsrc_cnt against the
-128-entry response arrays.
-
-> In rvu_mbox_handler_mcs_alloc_resources(), 'rsrc_id' is left uninitialized
-> when !req->all and either req->rsrc_cnt == 0 or req->rsrc_type is not one
-> of the four handled types. Moreover, req->rsrc_cnt (u8, 0..255) is not
-> checked against the 128-element rsp->flow_ids, rsp->secy_ids, and
-> rsp->sc_ids response arrays before writing into them.
-
-[Severity: Low]
-Can the response array overflow described here actually happen today?
-
-Each loop iteration calls mcs_alloc_rsrc()->rvu_alloc_rsrc(), which fails
-once the bitmap is full:
-
-rvu_alloc_rsrc() {
-    ...
-	id = find_first_zero_bit(rsrc->bmap, rsrc->max);
-	if (id >= rsrc->max)
-		return -ENOSPC;
-    ...
-}
-
-When that happens, the loop does goto exit before it writes rsp->*_ids[i].
-
-mcs_alloc_struct_mem() sets the bitmap sizes from the hardware:
-
-	res->flow_ids.max = hw->tcam_entries - MCS_RSRC_RSVD_CNT;
-	...
-	res->secy.max = hw->secy_entries - MCS_RSRC_RSVD_CNT;
-	...
-	res->sc.max = hw->sc_entries;
-
-That is 127/127/128 on CN10K and 63/63/64 on CNF10KB. These bitmaps are
-shared by all PF/VFs, so the index i never goes past 127.
-
-Given that, the new ARRAY_SIZE() checks look like hardening rather than a
-fix for an overflow someone can trigger. With the Fixes: tag on the patch,
-could the changelog say this more precisely?
-
-The changelog also leaves out a behaviour change. An oversized request
-(for example rsrc_cnt = 200) used to get every free entry as a partial
-allocation. Now it gets nothing.
-
-> diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
-> index cd9cca5a9cf5c..54c1d9809ae69 100644
-> --- a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
-> +++ b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
-> @@ -682,12 +682,15 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
->  {
->  	u16 pcifunc = req->hdr.pcifunc;
->  	struct mcs_rsrc_map *map;
-> +	int rsrc_id = -EINVAL, i;
->  	struct mcs *mcs;
-> -	int rsrc_id, i;
->  
->  	if (req->mcs_id >= rvu->mcs_blk_cnt)
->  		return MCS_AF_ERR_INVALID_MCSID;
->  
-> +	if (!req->all && !req->rsrc_cnt)
-> +		return -EINVAL;
-> +
->  	mcs = mcs_get_pdata(req->mcs_id);
->  
->  	if (req->dir == MCS_RX)
-> @@ -709,6 +712,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
->  
->  	switch (req->rsrc_type) {
->  	case MCS_RSRC_TYPE_FLOWID:
-> +		if (req->rsrc_cnt > ARRAY_SIZE(rsp->flow_ids))
-> +			goto exit;
->  		for (i = 0; i < req->rsrc_cnt; i++) {
->  			rsrc_id = mcs_alloc_rsrc(&map->flow_ids, map->flowid2pf_map, pcifunc);
->  			if (rsrc_id < 0)
-
-[ ... ]
-
-> @@ -744,6 +753,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
->  			rsp->rsrc_cnt++;
->  		}
->  		break;
-> +	default:
-> +		goto exit;
->  	}
-
-[Severity: Medium]
-Does the requester actually see these rejections as errors?
-
-This default case and the new rsrc_cnt > ARRAY_SIZE() checks both jump to
-the exit label, which always returns 0:
-
-exit:
-	if (rsrc_id < 0)
-		dev_err(rvu->dev, "Failed to allocate the mcs resources for PCIFUNC:%d\n", pcifunc);
-	mutex_unlock(&rvu->rsrc_lock);
-	return 0;
-
-The M() mbox dispatch macro in rvu.c sets rsp->hdr.rc only when the
-handler returns non-zero:
-
-		if (rsp && err)
-			rsp->hdr.rc = err;
-
-As a result, the PF/VF gets hdr.rc == 0, rsp->rsrc_cnt == 0, and zeroed
-rsrc_type/dir/mcs_id fields.
-
-The new zero-count check earlier in this function returns -EINVAL
-directly. The new default case in rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule()
-also returns -EINVAL. Should these paths return an error too, so that
-invalid input is reported the same way throughout?
-
-cn10k_mcs_alloc_rsrc() in nic/cn10k_macsec.c compares the response fields
-with its request, so it would catch this. A requester that checks only
-hdr.rc would treat the rejected request as a successful allocation.
-
-[ ... ]
-
-[Severity: High]
-This is a pre-existing issue and was not introduced by this patch. The
-free handler just above, rvu_mbox_handler_mcs_free_resources(), has the
-same kind of problem this patch addresses: a mailbox-supplied index into
-fixed-size arrays with no validation.
-
-The handler passes the PF/VF-supplied u8 req->rsrc_id (0..255) straight
-through:
-
-	case MCS_RSRC_TYPE_FLOWID:
-		rc = mcs_free_rsrc(&map->flow_ids, map->flowid2pf_map, req->rsrc_id, pcifunc);
-		mcs_ena_dis_flowid_entry(mcs, req->rsrc_id, req->dir, false);
-		break;
-
-mcs_free_rsrc() then indexes pf_map without checking against rsrc->max:
-
-int mcs_free_rsrc(struct rsrc_bmap *rsrc, u16 *pf_map, int rsrc_id, u16 pcifunc)
-{
-	/* Check if the rsrc_id is mapped to PF/VF */
-	if (pf_map[rsrc_id] != pcifunc)
-		return -EINVAL;
-
-	rvu_free_rsrc(rsrc, rsrc_id);
-	pf_map[rsrc_id] = 0;
-	return 0;
-}
-
-mcs_alloc_struct_mem() sizes the pf_map arrays from the hardware entry
-counts:
-
-	res->flowid2pf_map = alloc_mem(mcs, hw->tcam_entries);
-
-For flowid/secy/sc that is 128 entries on CN10K and 64 on CNF10KB. SA is
-128 entries on CNF10KB.
-
-Can a FLOWID/SECY/SC request with rsrc_id >= 128 (>= 64 on CNF10KB) read
-past the end of these allocations?
-
-If the out-of-bounds u16 happens to equal the requester's pcifunc,
-rvu_free_rsrc() clears a bit past the end of the bitmap. The
-pf_map[rsrc_id] = 0 store then writes past the end of pf_map. Could that
-corrupt neighbouring slab objects?
-
-There is also a separate problem. The handler calls
-mcs_ena_dis_flowid_entry(), mcs_clear_secy_plcy() and
-mcs_ena_dis_sc_cam_entry() no matter what rc is. Suppose mcs_free_rsrc()
-returns -EINVAL because the caller doesn't own the entry. Can the PF/VF
-still disable another function's flow TCAM entry, clear another
-function's SecY policy, or disable another function's RX SC CAM entry?
-
-VF requests reach this handler through otx2_forward_vf_mbox_msgs(), which
-only rewrites pcifunc.
-
+Best regards,
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119170550.1517634-1-irogers%40google.com
+André Draszik <andre.draszik@linaro.org>
+
