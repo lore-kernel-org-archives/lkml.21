@@ -1,104 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447401;
-	b=oHNULopczLEAKSywOY5LCyw2guSXRjgm2TuqoTjwDMMcgCNuDc8BqPt8B2TcMkgZHuvo
-	 AiR8bDusdrSTWJn7Fdez/sq9zr6PsmxPH3dzCsZTi9CSS7ML3xKa3+OPNwSWoNsCmHRi9
-	 dTEbgraGeBWZzSJW9Rfw4V4a6CDyC6a5MH5JWchKA19VruRoqcivA39l53mqU8mvELoJl
-	 92RbaDAZKzkmAuQ45BaCrIXazi+W9uEgSaqgnSaxQcS4c9GbVsZ7Ql6/+ndXFSosJY+WX
-	 Ha1bdED6IQTCPPppS9nR5aWlXzoiHzIxlwYBXTO6tqOQEHcslqz+YQpF7sem9PPJkzQ==
+	t=1795447403;
+	b=bIfgjmtAX3hTjwLbUlLCCgrnLmXB6vgLPa6em82H2HWnbSZL8AfSb/lzQYyPMEtijcya
+	 qMC3tIY5I/VVJzF91qzT4ECmpkdk3XQ7Q0FBECrYSGArOmvMwYRltr+lJOr7NHjmlt7vE
+	 Zm/VKPudRK/d4NRbL7Fwak1nbgjeB1rVHzH8il4wpGWP+rwtkgE5ee2Q4+i/c7dbeKF9l
+	 YMRtXzLp0kalKGAachV2/FZhifhQP67mxFVfHRLNdBVyn+KCai4H+aUsQD3wxCcL0CoHC
+	 E28cbDmKmEY5CPnB+69ur1q6Ms+yt7gl37rSZXr/UjDcpVJ9YRWnydzkTZWNlCkZ8bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447401;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=O52/z45+638cNdNcb3gm/OrMOWWSLJyJAuo7deVUGvc=;
-	b=IC5PTgerl3i68Q1Xjed8SNKrPrzOMuozmRJIvWjcQDU3S6r1+JXO075hX1+cMjHw9gG6
-	 T+BAYJ223NxiCvf2EB6EZkBQ/s6jV8yzTvnsNoulwLBNeFqOkTmHyyrEKSpkJZhBP89td
-	 6MuuHUjToTjtbfBMM24X/zH6cjs1TaI99i5AW/YicE/VAgh+5xtLLQ0kyqnKnxpItU+cZ
-	 xM2molhSXZYzIZeQWRM4DEeEboOFOk3rKeH2XDD/yAMoEx0bQZrwbf8uPgS6Ak6XQlpIS
-	 RFYjKLmMqsSC9d9GVmwzq2oEAQsv+6Sxj96qlf/f3dWr6KQIjsR4fNGBSL/r6UpdcIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447403;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=CtJ8QPl69xr6qwzO+D9Fc+PEvEQjDTNC11YGmKpdMN0=;
+	b=i+jUCRtqqDR4Sc1+BL8p1nIrePU8Y1lYBWRdfXq6Lsr/dse3nAo1kZa53mjbrGGtyUz8
+	 SOeH2Ox5e2mxeHKGH6GZ9MYidxmEPO5rK3WqB+SNRqBqRJuVrUOidmDJF7aCSKL8bXQUl
+	 B/bU2r+qOC0Epf9lHldy28AZIkdwd7wltkYJgkutLFJs5/fG6jIPMCnohLmCOnZb509EP
+	 qlvwoWIfBhhS4ZmpnJheTTTNXjuR+Yq5aCa/4E2KE65LLWasVJsGEcIY661LmGIl0FmAp
+	 jYLJ2tkBWraNhWux17KcIGcCuy37phLDy7XGXzfZfF+cuamP/vVgapKfmA92HMq9SIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KVL1GDfI;
-	arc=none smtp.remote-ip=209.85.216.45
-Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com [209.85.216.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XAwhOH09;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=FJ5e9WDU;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7A8F606A336
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:23:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7A8F606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A009606A337
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:23:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A009606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KVL1GDfI
-Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-3b3a42a4bcdso1417127a91.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:23:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XAwhOH09;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=FJ5e9WDU
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDKr8L693778
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:23:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	CtJ8QPl69xr6qwzO+D9Fc+PEvEQjDTNC11YGmKpdMN0=; b=XAwhOH09cSmZIyMZ
+	61SRbvucln4yT5LQR43vwwtqrg6gGUS9OmtV8TkI5NEXkzZ6XQ+aWc6UrT9959jT
+	/p2mtQs9rzMgULMUzgs1J3Ky1mD8SjzsEXjSYCZkkpg54W+1dqkicupzXFScFHKV
+	378KhdbXjJ3WyA02Z7JKHyyOb9ILPGKHiCmH6y+aHyEghPObUkY05P1hLcTOzEbK
+	4rejhDHzbNrQ2xMYOKKDDFiZ4ClrVRZyBi3xcccpDG93Flbmn6FoKTKChPcjcr3a
+	pjCWu17C69iKDJecE3z+bMH7BFTHAtHA5zumGQfOolHgWdQIhmRhpSbYk8vUhS2G
+	NNzfJQ==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4ma0ryaf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:23:22 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7d2c5352d1eso158261137.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:23:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795447400; x=1796052200; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=O52/z45+638cNdNcb3gm/OrMOWWSLJyJAuo7deVUGvc=;
-        b=KVL1GDfI18zdnOh+Yc6Bt+V11QXiheQG4r0JfdF8uyxyNkQOhPCOPBC5QszON25gqA
-         ieci3YNt0q+wQ+LR3C6O6u/Ww9XUp3ccAHaFrK5z1ZrB6FO1UJHUyQR/tPuSVrmL3iNe
-         RIyQdunp4pWPJ9IGKt6yzAjFy8ZjyVELQYQ3KQO5UCNLkfmbBcF19AiLQEPbFR9EM6qP
-         TapJR5nGcPRT8+GYM31Ime9hcJQoFirFh8lG9TUvwd8E0jGSOVRvu7Urk/O6FQqqypAl
-         1qS0A/+XHqVa68ix4TePYmwYkuYJ5yXcA1yGgBMCtTj2fj8aDMxb+MoNYL4v/KVukwDr
-         MBtA==
+        d=oss.qualcomm.com; s=google; t=1795447401; x=1796052201; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CtJ8QPl69xr6qwzO+D9Fc+PEvEQjDTNC11YGmKpdMN0=;
+        b=FJ5e9WDUFovDDsHKUhfVgJ8bwoMgKgj7CPVmypMye/O5vfOcpdoiX/My7eToFpl18X
+         DW2E4AbdEhRG5UlLvcFT/ODFKTgGiEQLnW1AZh10b9ERQzmTfBE7gO5VJW++iG5QtuKl
+         9uXU46tbHGrZG9ChaAmzrY+mvZPYdw0+QEjXIFhzQWBH7InrDxzHJpkxmLghux79SxkN
+         3u6KhHOKZjMk1nE3FY+l1zrJeciMZ1bTgF9wb5zdIb2LPCS0di0RBxJJ+vjFA3bj1y3Z
+         ejsVyxPDD74u8wxeiyFPXpRKp+lDnfn/hsCcSJxYEbIyseef2OL+Yq1uGpcDPqb6l8vS
+         /pFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447400; x=1796052200;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=O52/z45+638cNdNcb3gm/OrMOWWSLJyJAuo7deVUGvc=;
-        b=1W0lT1lH7qgLbnIemUpcQHVcv4KEf0oqVtlY6LHR5YlgPzaQpDRBVUSfAIRWVQA7tt
-         3rHZoUlQtMj3rQfEKwQYflpYWL3GvvtGImvy020KxkXU8K7cdA4hKnuPn/dRPe+1N8pa
-         A8KNSOfVjI3vaXNS5/xiwEHW6N36GBTBIRHQJXWoWsbCJEwUF2tNDdXdO1puxa1zj5N8
-         P8B7vVkA1S05LhuRMv3V2s+lsfkNqYB8aeNdzr6qPkTFkjM8zq2etZ6pdYVWx/1IiDAy
-         REaUYNvt2HYcV7MTAv4BY8kciG/PrdZ/O4Cqjd90pzQYucgRvmhdOSVaTQjSTwv4mezH
-         0PAg==
-X-Forwarded-Encrypted: i=1; AL+hErHId/eqWeyRhzehFpJv/asWVjRL7n2LZSHNLf2owtcvSI//kDSZR2XNkmJ1yfTQJ8eS/+IR2qCIKc4PdMk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/LPBK0YgN6WjEDzsZA+uEET+dS99JlvPThM+XGpm8wpg/AMeqg
-	4kcYrgeSnNQUOIoO2H1Q+3GJZWhWGG9bju9DPc99x/MAjR55CHY2erfN
-X-Gm-Gg: AZFdTZfP7fGb1QpfEpsXQj5+BV4a6wBwIxzQ3gDR9OE+7yZWdr/oOEkcB8og6kMUYsb
-	9xE9V9iLtLEWmCNxwGCM8p3iK9bcxktfZcac+1wMrV623M/TTWsJRa9+/kaVBpkIV1hQcy7+od/
-	kp/5A89n0XfmENz6F1z3SkCABNCEkpCgsPLO1OnepUgdeB4bG9kfuffsTZ9wzOU7cEhz5z/BRfh
-	qh0t4G6qN0t0EpKVxxaLXsOD4hmj3IGpozpU7ycV1EMzmSvjgUCaBkrdmCkRYGFCciQV0vDCTfX
-	hDP3Bng+mgoqPVhICNtlRNrg0atgn1ZlpTsneooG8Ab9upQrQb45L32Swpof9CP9jfuEPGqlw+l
-	XRCwLQ3HoO5Cj+DCXlQ6SC7LFCYMNobmxiyTjGDMAYYiWC9M/24G8Wka556ZEmze8qf/6ultiNW
-	spsgWruvj2cVj6YMX99NxxYgPxCft1ZiQZERBP0erHcvcAb8Nbi7EQLwTWfjubq6rEG2oOh3/mm
-	D3q2o/m/E4fN9l1TaeKLeCzBAXzu/RtgzFwD4nC4SMwtIYAKDYFku1GOWjRXDKKt58lmqflO0Ig
-	TfPoOxcfuT1nRMF0AdfRaNNshUH3g9A=
-X-Received: by 2002:a17:90b:3810:b0:3b1:bee2:223d with SMTP id 98e67ed59e1d1-3b41c9bc27emr10778729a91.53.1795447399920;
+        d=1e100.net; s=20260707; t=1795447401; x=1796052201;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CtJ8QPl69xr6qwzO+D9Fc+PEvEQjDTNC11YGmKpdMN0=;
+        b=Fw5xXE0cxtIs+LHlWmmohjXDerQOwesjIyjOdad14TuXh7ZREdf4i/KHCsJh+84U92
+         fvKw81/vr8iglvUqKH1NKP0tKVoIDY25DPOWTA4OnsYoTUvbRj4bHjWbVu86X4uVC7ZM
+         y0uB74L4l4Ug28VGgNNQy8TeBjFziFJqbRXD9M0XjNN3b7meilgS7m+1hG1xwPFmhFft
+         mHDkGTvur1KMmOFDubri6v9GyZKlv1Mmx+WkChd3lKAY/PU3EZdyuwvlD1QTHxwOvv3+
+         jDoV/gYnVxPS9RDk5Z2kcZyHqEw+pyr94Xp1YjLbJSpDd/QhjxfTwwtLxz37a4rs7dzW
+         IAxA==
+X-Forwarded-Encrypted: i=1; AL+hErEEzkWLlG4DVU51hH88ZnQd/IrMCfwKb4Vv3ZdneJint6pnN2M4TqHE2bvEHRpyoNPctOlZ4BIUDwCJFPQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9zPeUWkvsJlVWxetxocZWdfBIKaYXM/kVmjhyi6yttlBnooueP
+	pj7iLnk+L9703K/CzUN0ygFGK9YIdqTHRAjo0eoJiqVhhtpv6e0wddZRIRDwOIwQhiiGZESDGNu
+	zJrZFztVhvzbOj82UnLIUkk54v6lgRvEhOxD+kDKPfucfeNRemC2uNBffhrbqbTQyDBM=
+X-Gm-Gg: AZFdTZecmSP/5LDeKBYKZ0rwMAUtWZDKQ2J6TFhQv26n617Qac1sTqAMszuc7StpoWT
+	KpNp06Rx1xsaS4NK2rBMTFtxdp3uUanfivUtbeZnhX9TjBBjROR5HMj57q9ODkRhoAepROlqZKc
+	ydTh0ypyLevgjak/ielvVWe/8EsOioxpHKnoR0N5WLWwtMMKXNvcgd4Jv07gA5LqDyy7bX7dQ1B
+	f1X/Nash9hgbFWF4hcSRSSPyLiCdknylxezSP59kXE0SvpkqlTPyOLVROzB1HKn3FXRKkCkLHgD
+	ep1ELD/Yt62GS/0CKwjMu0WkkfnT9dmz3YREWFFMaBzGTQDKYjM8PoWOOk5XmwgMaSQW1IACrkf
+	JZtlhH+YL9Os+m2/FBC4BMzpJ2KxL/9jLWS7/DTW6BdXimho9ya6RzTqljs3DN6K0GL58n/s=
+X-Received: by 2002:a05:6122:2bcc:b0:5e0:2ba:5a06 with SMTP id 71dfb90a1353d-5ee8af63b72mr7094699e0c.4.1795447400875;
+        Mon, 23 Nov 2026 07:23:20 -0800 (PST)
+X-Received: by 2002:a05:6122:2bcc:b0:5e0:2ba:5a06 with SMTP id 71dfb90a1353d-5ee8af63b72mr7094655e0c.4.1795447400353;
+        Mon, 23 Nov 2026 07:23:20 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aeabdcbsm420368466b.46.2026.11.23.07.23.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
         Mon, 23 Nov 2026 07:23:19 -0800 (PST)
-Received: from thangnn-ASUS.. ([2a09:bac5:d452:16c8::245:e])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm19145548a91.1.2026.11.23.07.23.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:23:19 -0800 (PST)
-From: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-To: Vlastimil Babka <vbabka@kernel.org>,
-	Harry Yoo <harry@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Breno Leitao <leitao@debian.org>,
-	Hao Li <hao.li@linux.dev>,
-	Christoph Lameter <cl@gentwo.org>,
-	David Rientjes <rientjes@google.com>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Suren Baghdasaryan <surenb@google.com>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+527fed49e5b988882c9a@syzkaller.appspotmail.com,
-	syzbot+4d078516add5f4f12cea@syzkaller.appspotmail.com
-Subject: [PATCH v2] mm/slub: don't let kmemleak report rcu sheaves
-Date: Mon, 23 Nov 2026 22:23:13 +0700
-Message-ID: <20261123152313.359601-1-ngocthang2710.1999@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261113151837.123795-1-ngocthang2710.1999@gmail.com>
-References: <20261113151837.123795-1-ngocthang2710.1999@gmail.com>
+Message-ID: <57c90ea4-5521-484a-b829-e763fcf73cd8@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 16:23:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,107 +115,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: qcom: agatti: Mark RPM message RAM as
+ no-memory-wc
+To: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Raviteja Laggyshetty <raviteja.laggyshetty@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Xueyao An <xueyao.an@oss.qualcomm.com>,
+        Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+        Monish Chunara <quic_mchunara@quicinc.com>,
+        Abel Vesa <abelvesa@kernel.org>
+Cc: Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
+        Rakesh Kota <rakesh.kota@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Kumar Patro <bibek.patro@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261123-rpm-memory-non-wc-v2-0-3e868b4bfa48@oss.qualcomm.com>
+ <20261123-rpm-memory-non-wc-v2-2-3e868b4bfa48@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261123-rpm-memory-non-wc-v2-2-3e868b4bfa48@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: tr-e0GZy0FUkmYfWzcDLIW_dVjadYD8o
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2MSBTYWx0ZWRfX0a/L3yZVCRzQ
+ TfqUMyeSZGWO6VWQEAXfpz+460qTvq2F+uXhCTXD9B3omanj0ZIpfb4r3pO+cRml9Ss0n27CeDW
+ PeXfzcZ9vlAgpAktnwHoJtL2+9FM4mA=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2MSBTYWx0ZWRfX4uHVmGjNLSso
+ P7Nj9ZoNHBG67ugnXhg3Q1uTjVYyXmHp/MIcesIJqMvxxnkDc5TirM5erqIl7zJNTbYK6khMxHR
+ 40V2vxYZ3wSBjAmeQw160TvcLbiqBos8dA1rCJI8j+GQaiaccdDLm8xZZwmecydQsVU9Vf5Wiot
+ 4/aobSU6mE1qpUu4/Aa7LksGlVIYNHKwCj1My43SEeVQRAf8HYlRVW4g1otxi/F+/RMTze6Zghz
+ 9/TdfBUsMs2RACbrU9bHxqrsaj3ow5pGGjPGvjAcjtOtfIlRjC+ngqXgp2hYMJ0PpgE7PWDbb6O
+ JFyIzlEA2yyePfAzZn+NirVKw9d8FvhKKuY1GotamXb/jJV+RjILx6K6m/6sMiI9wPC1BU6i5Jm
+ MPtAE8j+u+T9XLWZzQMZUF8+v6ohLczLKI+2w9nSfOMfysM+UCIQhixbMx5LgT/oapdQCM+k8PK
+ z9aLwpArHyo8xoktmgQ==
+X-Authority-Analysis: v=2.4 cv=Yr+a1IYX c=1 sm=1 tr=0 ts=6b045a6a cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=948W2wBnRhwx5lWVa8gA:9 a=QEXdDO2ut3YA:10
+ a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-ORIG-GUID: tr-e0GZy0FUkmYfWzcDLIW_dVjadYD8o
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 impostorscore=0 malwarescore=0 suspectscore=0
+ clxscore=1015 phishscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230061
 
-kmemleak reports sheaves as leaked:
+On 11/23/26 7:18 AM, Vishnu Santhosh wrote:
+> The RPM message RAM is shared with other subsystems, and parts of it
+> are not accessible to the APSS. It is expected to be mapped as Device
+> memory.
+> 
+> The "mmio-sram" compatible makes the SRAM driver map the region as
+> write-combined (Normal Non-cacheable) memory instead, which allows
+> speculative reads into the protected parts.
+> 
+> When Linux runs at EL2 (KVM with VHE), there is no stage-2 translation
+> and the write-combined mapping takes effect, so such reads can result
+> in XPU violations. When Linux runs at EL1 under a hypervisor such as
+> Gunyah, a Device mapping of the region at stage-2 hides the issue, as
+> the stricter memory type applies.
+> 
+> Add no-memory-wc so the region is mapped as Device memory.
+> 
+> Fixes: e3f6a6994041 ("arm64: dts: qcom: qcm2290: Hook up MPM")
+> Signed-off-by: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
+> ---
 
-  unreferenced object 0xffff8881009d4e00 (size 512):
-    hex dump (first 32 bytes):
-      b0 7e 81 2d 81 88 ff ff 60 bd b3 81 ff ff ff ff
-      00 12 04 00 81 88 ff ff 3c 00 00 00 00 00 00 00
-    backtrace:
-      __alloc_empty_sheaf mm/slub.c:2854 [inline]
-      alloc_empty_sheaf mm/slub.c:2874 [inline]
-      __pcs_replace_full_main+0xf7/0x330 mm/slub.c:6094
-      free_to_pcs mm/slub.c:6147 [inline]
-      kfree+0x353/0x390 mm/slub.c:6923
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-The same happens for sheaves allocated by __pcs_replace_empty_main(),
-__kfree_rcu_sheaf() and kmem_cache_prefill_sheaf().
-
-The second word is rcu_free_sheaf: the sheaf was handed to call_rcu() by
-__kfree_rcu_sheaf() and is waiting for a grace period. Sheaves are
-recycled between the pcs, the barn and rcu, so any sheaf can end up
-there, no matter where it was allocated. While queued, the only
-reference to it is the ->next pointer of the previous callback.
-
-That callback often lives in memory kmemleak never scans. kmemleak
-itself frees every kmemleak_object with call_rcu(free_object_rcu), and
-those come from the SLAB_NOLEAKTRACE object_cache. struct slab of a
-SLAB_TYPESAFE_BY_RCU cache pending rcu_free_slab() is another case, as
-slab pages are frozen and skipped by scan_zone_pages(). The chain from
-rcu_data is cut, and the sheaf, typically old, looks unreferenced. Since
-it is then not scanned either, the objects it is about to free can be
-reported as well.
-
-Making kmemleak follow rcu callback lists would mean digging into rcu
-internals and would still break at any untracked callback. Sheaves are
-allocator metadata, always owned by a pcs, a barn or an rcu callback, so
-mark them with kmemleak_not_leak() instead: they are never reported but
-still scanned, so objects queued in them stay referenced. Allocations
-that can't spin are not tracked by kmemleak, so skip them, as
-alloc_slab_obj_exts() does.
-
-Fixes: ec66e0d59952 ("slab: add sheaf support for batching kfree_rcu() operations")
-Reported-by: syzbot+527fed49e5b988882c9a@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=527fed49e5b988882c9a
-Reported-by: syzbot+4d078516add5f4f12cea@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=4d078516add5f4f12cea
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
----
-v2:
-- Rewrite the explanation. v1 blamed struct slab, but in my reproducer
-  most reported sheaves are queued right behind kmemleak's own
-  free_object_rcu() callback, whose kmemleak_object comes from the
-  SLAB_NOLEAKTRACE object_cache and is never scanned. struct slab
-  remains another possible break, as Catalin pointed out.
-- Comment: "e.g. struct slab" -> "e.g. its own metadata".
-- Also fixes syzbot 4d078516add5f4f12cea (sheaves allocated by
-  __pcs_replace_full_main()), same root cause.
-- Rebased on v7.4-rc4; applies to next-20261120 as well. There,
-  sheaves of SLAB_NOLEAKTRACE caches are not tracked, and
-  kmemleak_not_leak() on them is a harmless no-op (paint_ptr() ignores
-  unknown objects).
-- Code unchanged otherwise, so I kept Catalin's Reviewed-by.
-
-v1: https://lore.kernel.org/all/20261113151837.123795-1-ngocthang2710.1999@gmail.com/
-
-Tested in QEMU (syzbot config, 2 vCPUs), stalling a grace period with a
-preempted reader on CPU0 while CPU1 queues rcu_free_slab() and
-rcu_free_sheaf() callbacks, then running kmemleak scans:
-
-  before (v7.4-rc3): 176 reports, 82 of them sheaves (allocated by
-          __kfree_rcu_sheaf, kmem_cache_prefill_sheaf,
-          __pcs_replace_full_main, __pcs_replace_empty_main), the rest
-          maple nodes held by them
-  after  (v7.4-rc4 + v2, 4 runs): no sheaf or maple node reports.
-          5-9 reports per run remain, all from a single exited task
-          (task_struct, pid, creds) waiting for its RCU callback. Same
-          kmemleak blind spot, not sheaf related.
-
- mm/slub.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/mm/slub.c b/mm/slub.c
-index 5c33d12470601..ed52c1c5d31da 100644
---- a/mm/slub.c
-+++ b/mm/slub.c
-@@ -2856,6 +2856,14 @@ static struct slab_sheaf *__alloc_empty_sheaf(struct kmem_cache *s, gfp_t gfp,
- 	if (unlikely(!sheaf))
- 		return NULL;
- 
-+	/*
-+	 * A queued rcu sheaf may only be referenced by an earlier rcu callback
-+	 * in memory kmemleak doesn't scan (e.g. its own metadata). Never
-+	 * report sheaves, but keep scanning the objects they hold.
-+	 */
-+	if (alloc_flags_allow_spinning(alloc_flags))
-+		kmemleak_not_leak(sheaf);
-+
- 	sheaf->cache = s;
- 
- 	stat(s, SHEAF_ALLOC);
--- 
-2.43.0
-
+Konrad
