@@ -1,98 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443368;
-	b=tf9XuZKSrOTWZl/c3cAeB89CMEMeEkE+S0QYCTFgStDtvwd+lBOhzEiliX/vE6nybtz6
-	 EQSJD982B3qZOOXlfqk6NITBLgF0YL6byjFpzC9AmcVn3vkJW4KJaiDvdAFZ4N0pjEGbJ
-	 huTHGPw6DWz5Su9+HqcHd90HjkrUtcRjjw5tYpC7sNboHOPM4f2LrRpN1uE8r/YBxeXLx
-	 o7H3l08hKog6+MUSzLtsFieG7AA2rvuFq9J9oS8/TWkb9qK05YJqU0hatFvToVfhAViFv
-	 DBstXBvlDTMQCU2pmfjQZbFy1cyg9M/Rib9O8Us7vBIHFgn4jGSiX+54pICKZWk+6Ew==
+	t=1795443372;
+	b=uRgLkwfFKyVedaKqiBl4QLD32ApoQlKg2lyElCNRJTajz5VZ6YeqDoTyYeSrKUPJ1i/h
+	 DkCAERGmamgtG3B3xsMHeL4D1k8BUw7Vtfqfwj2blB3Vgjc3DdpMF3t/TLHTg/NB4aCot
+	 BZ83go+XG9fIO3tqnqvR0KNTs0RL9jVSmRc2xllmlMx0kKDI3TH0SOKyPKZaox9VxYCUX
+	 EcsO1dWU9EKVvtDQKSNz8UDkjKyL5mfojoPDNco5ZgG9pIOV434RJYgOTUtNGlrWp/5X+
+	 hRZf8ZgGNeboF1965E7HJ07haKU59Z+diZJbcixE/ggYzKnfdbgXC2GtT501yg6khLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443368;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443372;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=Zfh0a6qWB7cgYhlh/JVDBYrhyvShnRR27oz/yTBM+wI=;
-	b=wRsmGzHukUCai+yKrviRGzxSm3HPcX5DNDhko2dDbrG/C1jykm7Ry9iK5iHEdDn11gE0
-	 XvbJyaav9WHDL50uZhQcmO2Xc/zxRmqgQM6aZspNoHcWUaS+62R620gO469LW6+6aqv/z
-	 M2bD1bqwViRnSpgla9BFqufwEUR5tEufmds22xUsYrkWtu2YautzmEZ73QSX750sX8+DY
-	 RUsz3O/JnQzmno2P+Fs4gtragitO5wK1XWZPd3F4lXzGc9Iy/3BbuswslNP3a3IU4oxdP
-	 hp6bQVo1+gMosEFSbnn4dke+hZG++K2kQv9tdJ5n9xuLx7VJrOUYzsOLoM82B8SWjYw==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=q0kaLBG9armAqyKqZcboCnoBFONiD+mZBC8cBIH32JQ=;
+	b=gt/jgQHQ3Qce+nurOTxhlgq5QE+az82sbskh6KScl7pZd5EFucGGS55YMmZPjihmBkaU
+	 BhW3PwV8U/lJfCpfKO1gnSYXZ+lQnAbSw4ZpiaPGLXII7p/JyzlyfNcmzGCzzR6YzjEYY
+	 Y9G8r+WEqGPUIWmNG/ixl7p7Q0c1CbSDB7xPN3Ui2pOLmS2P/hWb8oqRfWcnRQ5wM3tQA
+	 AWERY7zm4xhe+2iViD9ETvzTymMCqa0CF19lowiTl9vUebXfoEkI/X+Vlh6iknl0KB3Xy
+	 i4I0zMjbhyuZRQN0Fa+OTjOJy6Dt07j4UGb6CaU02vmxupeTVRfiQbLyL/Gmvc3AV5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=MzQ3w9nU;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tc5r9Zpu;
+	arc=none smtp.remote-ip=74.125.82.47
+Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A310606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:16:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A310606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 230EE606A33C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:16:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 230EE606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=MzQ3w9nU
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so2078813f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:16:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tc5r9Zpu
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-15dd124bbe7so2083208c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:16:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795443367; x=1796048167; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Zfh0a6qWB7cgYhlh/JVDBYrhyvShnRR27oz/yTBM+wI=;
-        b=MzQ3w9nUw2sUyJnn/xbL3lFnkOFDs10fQ939b1r9lh3GObb6YW0PbtbT/rdjeJ4rmx
-         WqEZhQyPqHwQC6iJ2D06RqjGMiDjPGz2ndgRMGNbdLktctaNAa+Vyj3hZv6GTYbcMIoL
-         9idjx98FhZGu2zcC/Xro2yLz7tAulmBVYILxyScBaaBn4fepRtuAXY3joaRDNfuHXkq3
-         Qtle4B4BdgjgO34ulYlM/LfdtfEiRrwIiytmyNcfZMbXLq3flUVQw49XdxkFS44h2lw+
-         /idJvNMYlizMxO+MngmekHSGiaLc5am23Jeu+LvaGV//bAcJTBCyb3o6XyKKYbFYqFLx
-         pBLg==
+        d=gmail.com; s=20260707; t=1795443371; x=1796048171; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=q0kaLBG9armAqyKqZcboCnoBFONiD+mZBC8cBIH32JQ=;
+        b=Tc5r9ZpuLoNZ1opGkx+WuPZYVISFpfhmuOmXh1fdY4qwY/bU0+dJxJl0OBFK6EJVLd
+         4rxirb/4eLe6U4ldYzhnc74jNh8kXeh8UVTRffQzO/2SuDgO4Uoo39xmT7I/1RS5/b6Y
+         kWc2ub/cL5QFYDNZZlNNDz1aDE/uU0XBdQzuAitfZEgKEy2jNkli27P9t/k+BZtrvWIJ
+         uJ10GffCWAmoGq7zrOn146R73b1TJsxQYm71WeLuvXvS93qgxjDxwhK3aKWE0ALe1ods
+         t616uj28B+sKZVa8XQWCN/dNNWky1tbT7yhOJeEsZ/SHSjpOO5+FlY3HD0guehyl9dC+
+         G6hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443367; x=1796048167;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Zfh0a6qWB7cgYhlh/JVDBYrhyvShnRR27oz/yTBM+wI=;
-        b=RkZnG3mWVkfJ7XIR80ArQu8eGQnR5xze4XBDGWkbzuklzg3+TkM+KX9iQA90QhoiEa
-         YNnP/PlQ6qfWbsm5jxLg//KBsHhmYcWhEz3KLgTbKWJNDvwl01DEucOTXlFHQCyEzCVq
-         z+aCdi47UB3dGEN8Z1rJwfmqMPe0xC0FvRe2TOiLVNqc1J26tS5PLzSBl9YqSm8KPQ+0
-         P8H3O1nwOr6M3MGwaSnlfCe9VmddSFKCFBPbqrfkVFBs7iFzFNtjVBMlHUeMDLRjQn/z
-         pQ0AFEDjan6yzXDJRQuXna0RBoS/BqxhiB4pNOQG9kDchWT1Ay5kM2XApGefe3QjXWfR
-         XeQQ==
-X-Forwarded-Encrypted: i=1; AL+hErH5gkHmzfztfRXXQG+tkawKGGf6pQqGvb6YrJ4Sb1XwX1vZdKJ8bhDdHRF7oYY+mg2Tqe1dFISw7aygy1I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/dIIXB9A3TmRnpFigrlMcju6k3EN4Ca4CT+6UZ/INn6A6ai5K4
-	p7bzOqRvPO6IgNwcwyGGZ6dhDtTBow3NVFw4l911FWn2F+9ExOCGizABvtOJJintw7I=
-X-Gm-Gg: AZFdTZeQq9xrfNYAGPSg1pk+3SchEbSKNMyP9zrA2eikyExflrih8kyz0NeRP0vPFAi
-	GqeKtpzUcY0KibKAOtjV530OXEh5HNSlL7bbhA4rRrJxboRsrkfolQuvoa7Zwqs2nKxEbXuYDTr
-	pgbBp5mBilliAxa4rmoyCXxhRTH3lMCytizBJxo/4p4MVJgpG4+nF3zmqIvIe51fWAyxARGHNzj
-	Ht/+zrf/Qz8Qf87ktT9e7S9TVAfoEy6zlPdlLqAE12hhGGUYWPqEng35jLWsXwsIknKtvxXL91L
-	f87ujwT2LCgCJw7TDJh+Iv5l4GBLYvhCh2BUDyh35NFCNUlioZN0RQ2N9Xdrnm2HC7FsXkdolhX
-	8oIU5VntLUpX/gPD8Y2j/ncyUEZfWEwtdjrRSeYrgp4i0qS6h03KQ/ioevD7GM882gfcOZlVLdO
-	FVwzjGfg1gDBOgyTg/j8AtJMDHAwb6rMiAi9isRFZ4QI9exrRe5149JEhAR1t+wUYnaTrMHgCpt
-	kaITruQGqNgGuIVA/k4LLGWyqF3CMyfv+4Q9QoYHPFLrn9vqclmm1fUT/RBhAKJE39tdPdmNsXR
-	hEixc1Yb37LfDZb8PtOXowU4cIgQoXc=
-X-Received: by 2002:a05:6000:298e:20b0:488:7496:15b5 with SMTP id ffacd0b85a97d-4abb4c7ab74mr15920212f8f.47.1795443366598;
-        Mon, 23 Nov 2026 06:16:06 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110d56sm21672571f8f.40.2026.11.23.06.16.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:16:06 -0800 (PST)
-Date: Mon, 23 Nov 2026 15:16:03 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
-	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
-	Marcos Paulo de Souza <mpdesouza@suse.com>,
-	Eva Kurchatova <eva.kurchatova@virtuozzo.com>,
-	Yafang Shao <laoar.shao@gmail.com>, Shuah Khan <shuah@kernel.org>,
-	live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/4] selftests/livepatch: build and run the tests
- outside the running kernel
-Message-ID: <awRKo4D-H2sHFfwR@pathway.suse.cz>
-References: <20261110161050.2451750-1-sashal@kernel.org>
+        d=1e100.net; s=20260707; t=1795443371; x=1796048171;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q0kaLBG9armAqyKqZcboCnoBFONiD+mZBC8cBIH32JQ=;
+        b=XZt3+mieX0xLcXReLVvvww59cyZzjuxPEg6vFKYHArt/lvSrGYo9FaYXL0juWB6nQS
+         v6SLZSXcznifEPoF3F/zswsDUGX64yFj+d9pQvGAoOgpFw7DQINIwq9prWHYOUXAHk3E
+         +xuBoUGsyBn4hBfI8lFJIC97MBLqRfIXSJZg5+qD3eAC5zrqz4OfqDmXnSFpIJ+UWKVM
+         u5xV5Sl2VAmoxFO7ph4hhiaRrdOtIhV0SBmGh5TlAj8NLigeWVqejm3Z4Nm1PhiDZuL6
+         pDcyRNXrdkxiuOLE0Bdln20/yjYQY3A6Ersl/qzL+yG0ap0c7igqEBKhO3DyE6LZAAh3
+         Qq/A==
+X-Gm-Message-State: APuU4Z/yaPDK2zUVYm+wPkfgzRsvvU8lI0UKZBdNN8kNbU8mVKFdnUs+
+	7DovltbYR83ehXx8lAO5HmbXhZYvIZxsaGPRR8O3kZNB9dMPAvdBIUcP
+X-Gm-Gg: AZFdTZda2uSlXIcrRbE0OZ4lQ5wpXzEizh9tR3rRtuvGsJTPxKCFRal82X92JH4zMBO
+	DeQIVsqzke2G616EGhLbOGZan2h2d6yEWVZ3P4tXyFXqAA4q5q6wI5OEUUCjIMpbx70Be8HPfnB
+	SgZOT9QZAz61iL+huc8CtSuXLS56hkeLlp9vdJv0LPr/e379Wae7+RGMGWDHCyKAmxhhiOlb4Gf
+	nms+8kPkNvRbsYOhV8oYpSuCzlHXoBg9balPcqmIC0422S6RhIrGFY0AEtS2ornRgbBjdErsfbK
+	lTyLAs8tiNRX0AInx6z0QtCbVp/q7ngK/s8+Pwy3drxTFVe7n6CK85w2EXtioSjyQ58zKx8DlVM
+	gvbtASObw46Re2MBhgXUg6DiIG0ar11VW4S+dkoj1MIYbX0l67ybf09MJe/L3dUmtg2JYNA8Spl
+	iPf6LMc4DKvyJMT71Nlx1gILNY3+wAtXWeXi/0tIomY3WE5YKyYQK7Duxspb2GI9isDGKXwkY+N
+	MVrNdk5GqunoJahaw+QhN1LL4Wwmgumu/AkVJQReEAAf3GNS91c/WxHAumpyn8hIHOULFvzjRmL
+	NfOfc1MiAdRf3vxi8xpeWE2205Cdh2R3J44JJ2JfISkfBQDZN8RWZQz6hHrUmCxspv21aw==
+X-Received: by 2002:a05:701b:4558:10b0:1b3:b4cf:8f18 with SMTP id a92af1059eb24-1b556926cfbmr12460036c88.41.1795443371191;
+        Mon, 23 Nov 2026 06:16:11 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm38348685eec.28.2026.11.23.06.16.04
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 06:16:10 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Chris Li <chrisl@kernel.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v5 01/19] mm/swap: remove unused parameter for reading swap header
+Date: Mon, 23 Nov 2026 22:16:00 +0800
+Message-ID: <9f3715ab29bc9ee4aaa1bb92bff47c7584b73ee7.1795439990.git.lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,39 +109,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110161050.2451750-1-sashal@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On Tue 2026-11-10 11:10:46, Sasha Levin wrote:
-> The livepatch selftests build their test modules against the running
-> kernel and skip every test without its devel files, so they do not
-> work when built for one kernel and run on another, as CI systems do.
-> In KernelCI, 36 of 69 kselftest builds of mainline fail to compile the
-> modules because the kernel lacks CONFIG_LIVEPATCH, and where the
-> modules do build, the installed tests skip themselves.
-> 
-> - Patch 1 skips the modules and tests when livepatch is not enabled.
-> - Patch 2 lets "make clean" remove the modules without a kernel build
->   directory.
-> - Patch 3 builds the modules against the kernel in O= or KBUILD_OUTPUT.
-> - Patch 4 runs the tests with the installed modules, without the devel
->   files.
-> 
-> Tested on x86_64 against kernels built with O= and in place, a kernel
-> without livepatch and the Debian headers. The modules build and clean
-> in every case, and the installed tests pass 8/8 in a VM without devel
-> files, where they were all skipped before.
+From: Kairui Song <kasong@tencent.com>
 
-My only open problem is the "O=<kernel> KDIR=<kernel>" parameters
-mentions in the commit message in the 2nd patch. They do not work
-for me.
+The swap_info_struct argument to read_swap_header() is unused. Remove it
+and update the swapon() call site.
 
-Otherwise, this patchset looks ready for linux-next.
+No functional change.
 
-I am going to push it (with removing the problematic parameters from
-the commit message) by the end of this week unless anyone complains
-in the meantime.
+Signed-off-by: Kairui Song <kasong@tencent.com>
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+---
+ mm/swapfile.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-Best Regards,
-Petr
+diff --git a/mm/swapfile.c b/mm/swapfile.c
+index d59fa8220862..c06f9f532e74 100644
+--- a/mm/swapfile.c
++++ b/mm/swapfile.c
+@@ -3630,9 +3630,8 @@ __weak unsigned long arch_max_swapfile_size(void)
+ 	return generic_max_swapfile_size();
+ }
+ 
+-static unsigned long read_swap_header(struct swap_info_struct *si,
+-					union swap_header *swap_header,
+-					struct inode *inode)
++static unsigned long read_swap_header(union swap_header *swap_header,
++				      struct inode *inode)
+ {
+ 	int i;
+ 	unsigned long maxpages;
+@@ -3863,7 +3862,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
+ 	}
+ 	swap_header = kmap_local_folio(folio, 0);
+ 
+-	maxpages = read_swap_header(si, swap_header, inode);
++	maxpages = read_swap_header(swap_header, inode);
+ 	if (unlikely(!maxpages)) {
+ 		error = -EINVAL;
+ 		goto bad_swap_unlock_inode;
