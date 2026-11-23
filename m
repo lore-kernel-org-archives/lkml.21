@@ -1,67 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468341;
-	b=D6i3bnueYtjJL6+yBti0krEHZl3bnp6HRllt7OypzNUGSReEzVDRhrfj1p4NhM1Sc38x
-	 6OT9Z4SrTkCAOnIYr3KAFqw3xBK0CS6vaAsDnDzwCePywrRG5b+0Qube3QMFyVwz44MRh
-	 W47f22jFR6jEHdU9DM7DLgptejbBSR2SnROf69mcj9Ziuybd30nvueSKS97lBSzyN85eq
-	 A/M6My00lE9ijGTDxjnlxRfx4Cs8gEYolIXkkhBlRf67cFiO7wGqH4ORwiQwpLBDAf9W3
-	 nadVuOamGFaUZIxl0SJ4yEQlkjNwmSY38om4x87/5uBoId10hx7J/K1YyBADVIpR4CQ==
+	t=1795468389;
+	b=47ahNWZ5S2f5RvBJa67t4sbFTstbcNXrhBQxUFyiTPgmC1iTER7nPcWDLu7c9No8XidM
+	 9eZb1iNdcOrErotf1jyGreKoDMNWQ/wO6gp6Q1LgbbhwOt1ZlW4ANQFYUifTzgmYwsFjk
+	 jv3nMAGxtLGHxQF3fb3bs/m3MMdgTlPLKbTlORXWqTZgGJtRGfqjsa6mNBCIO8YR+wxWb
+	 NYOqAEiKAC54ALP2VEJl0tFusSC+ng0Jii0wtDBVP7NOYyYJIi5QozT/nfwnV3zfFRol7
+	 gF067jTFEMR93hFBVoUmo5+kmPie7inl2jCoieLVGzWKG7XYkAVvshSgmN0MnGwK7vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468341;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=THwWWjucJLHrTSc8VPkQZeTqtfJVV5aJMHAoWWO0YH8=;
-	b=Tvoseqz5bebBoJ89y/09DxSN9SHg3IiG/UNsLW7LNprZND9rv4FuMI+z1uW3oFWAlf6G
-	 iGJQgmoT51TB9b+xTKRK2OOilp4z/wZVQq9tO/VoPg7llvEI0hxxSeg4NALEDMbRRs8h6
-	 5g375569qu6LTs0tOojz9g/UPGgXQE05Zw0vGduk/0IDbcZkT6gCjRXCv6RFY3IwByD/l
-	 ByTyiDBH2/4eYHT1A3UbdtTbYkx5vd6qjWmpgQ7ANq5NIwVSMw6w8izc26lRihRcBXUEy
-	 lYvz6ZslFyq0bMVqGidZ4da8DypHa9NPV5OxedNeRNDDBwm44Gxo2pq+gCXyTln6eQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468389;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=Z0C24pzM8Xx4iRU4E+5H2+km50LELSDvrxMawEqxDEs=;
+	b=sMthHAeRteaLn2BLiVoTzdaP4wDtddG9DimopTK4+D5HiQImoiKit0zIOHqouVmnOB3B
+	 nhFKdBNw+Nfxaw8j+BG1wlXL49OIovPZoGufojjODGnMuDbmoPtpF8nuN9RA0MlipolWc
+	 z5ovG8jRnwPux/iuOwdY+LM0Dh3TUeR/79wY6V3hYlkw78lXQace14fH8uG6D1IBRmKiZ
+	 QzVMP4NH/QqKvs5n6cPuTMtjLM5iEmL7tTyPhJBsBS8Kf9DDxx9sh+EIBEzBDC/VUbIW1
+	 4x6kOIl6xUOC5OWzndblWq2sDToFaWqysf/IFnHyNxzH5Xcjk9auhEuGwbUDqwqpaIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l3+VceWB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=WKfelPKb;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15BD8606A31E;
-	Mon, 23 Nov 2026 21:12:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19FBF606A331;
+	Mon, 23 Nov 2026 21:13:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19FBF606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l3+VceWB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0B0F1F000D2;
-	Mon, 23 Nov 2026 21:12:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795468340;
-	bh=THwWWjucJLHrTSc8VPkQZeTqtfJVV5aJMHAoWWO0YH8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=l3+VceWBOJiFskUO9JkxVGsiHVwM+MDBSm97ESFObDBCxEgMMH7Uhn0EyYibrrBdg
-	 7ooOcgsGL/aB3oAlUMZXet5io1Gwwl7Tlz9JB0LEU4qJWP7ENmZgEIxjxEswe/ws3i
-	 KJipkh2mLyBd9UTbPGPHKK++sbtYfFn37HRzY/bmFf4KO3IY5QJNHBKcgq/kOZdICH
-	 uEd465AFvpOrudbndobnTOjPbOIGTcgdIv3Q6h9PJ+V+IugqBPA0iNXDE4Cv0KkZ64
-	 hG+ByfUB1wHy48J2wDCtLWUuu3FbTKpJ6Nyny3BU2n923STfUrMB5KVowsn3b9CT2d
-	 ngMBZl+YLDctQ==
-From: Srinivas Kandagatla <srini@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
- Akhil P Oommen <akhilpo@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Demeter Barna <me@fromdisposition.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- freedreno@lists.freedesktop.org
-In-Reply-To: <20261105-b4-sm8350-gpu-v1-0-a7175cdd6512@fromdisposition.org>
-References: <20261105-b4-sm8350-gpu-v1-0-a7175cdd6512@fromdisposition.org>
-Subject: Re: (subset) [PATCH 0/5] SM8350 GPU: memory bandwidth vote and
- speed bins
-Message-Id: <179546833676.519617.18442308019433292321.b4-ty@kernel.org>
-Date: Mon, 23 Nov 2026 21:12:16 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=WKfelPKb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795468387;
+	bh=iu9XpwdJa26Z7o/BScxC2C2qx9clmv3hojJxBRLM6PM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=WKfelPKb613ib9VmkQX9i28SLZy0CqEYwko96dYB+PPaK9qoqvUgplmOpfTIRyb2P
+	 KbNFgVWSaNYd/oW0l2vFxpCq7+fGzFr3ujbWmuUsaB2GW5EmOWLaJIzKURfYsCDgPx
+	 MCY54+c2te/THmmhD++m90sO38KS0xSf1U7oS6q+5zrUkrZzr7e5VQ+nlpk5f1rQhQ
+	 7xWBD1TG6+eIoQ5w0FfZTNMGuZw+weGKKOeHIor8oEL8UQSiFrS7q1SvvdJ8muqLfw
+	 G55k3OK+KfkHQZHrq79OtJ3CzGZdO/UEYdL+ODFtA7E/a1qsAO/IskdgNbSV4/xX7t
+	 ebPJGVO/JMQCw==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8054B17E0DB6;
+	Mon, 23 Nov 2026 22:13:05 +0100 (CET)
+Message-ID: <859f39e1b7c0e9e91504a34c37cccb922ef0ec6b.camel@collabora.com>
+Subject: Re: [PATCH v2 2/3] media: verisilicon: program the H1 JPEG stream
+ limit in 64-bit words
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: shomenkow@gmail.com, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil
+	 <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Ezequiel Garcia
+	 <ezequiel@vanguardiasur.com.ar>, Chen-Yu Tsai <wenst@chromium.org>, Hugues
+ Fruchet <hugues.fruchet@foss.st.com>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Date: Mon, 23 Nov 2026 16:13:03 -0500
+In-Reply-To: <20261110-hantro-buflimit-v2-2-ff7790def9fc@gmail.com>
+References: <20261110-hantro-buflimit-v2-0-ff7790def9fc@gmail.com>
+	 <20261110-hantro-buflimit-v2-2-ff7790def9fc@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-/pZ7QRKaT58RrTydTrIs"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,31 +93,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+
+--=-/pZ7QRKaT58RrTydTrIs
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le mardi 10 novembre 2026 =C3=A0 15:41 +0300, Sergei Khomenkov via B4 Relay=
+ a =C3=A9crit=C2=A0:
+> From: Sergei Khomenkov <shomenkow@gmail.com>
+>=20
+> H1_REG_STR_BUF_LIMIT counts 64-bit words, but the driver writes the room
+> left in the CAPTURE plane in bytes. A stream that does not fit, such as
+> a quality 100 frame of noise in a default-sized buffer, is then written
+> past the end of the plane, up to eight times its size.
+>=20
+> Write the limit in 64-bit words, rounded down to whole 64-byte bursts:
+> the encoder finishes a burst it has started, so an unrounded limit lets
+> it write up to 56 bytes past it.
+>=20
+> Found with an LLM coding assistant while porting mainline Linux to a
+> Rockchip RK3026 board; the assistant also drafted this change. Tested
+> on that board: overflowing frames now stop at the programmed limit
+> without writing past the plane, and frames that fit are byte for byte
+> the same as before. Not tested on other SoCs, including the STM32MP25,
+> which shares this code.
+
+Move the paragraph after --, its not need in the commit and add an Assisted=
+-by:
+tag.
+
+>=20
+> Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
+> ---
+>  drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c b/dr=
+ivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
+> index 86cc1a07026f..665a87e9fe92 100644
+> --- a/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
+> +++ b/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
+> @@ -55,7 +55,12 @@ static void hantro_h1_jpeg_enc_set_buffers(struct hant=
+ro_dev *vpu,
+>  =09vepu_write_relaxed(vpu, vb2_dma_contig_plane_dma_addr(dst_buf, 0) +
+>  =09=09=09=09ctx->vpu_dst_fmt->header_size,
+>  =09=09=09   H1_REG_ADDR_OUTPUT_STREAM);
+> -=09vepu_write_relaxed(vpu, size_left, H1_REG_STR_BUF_LIMIT);
+> +=09/*
+> +=09 * The limit is in 64-bit words. The encoder finishes a 64-byte burst
+> +=09 * it has started (measured on the RK3026), so give it whole bursts.
+> +=09 */
+> +=09vepu_write_relaxed(vpu, round_down(size_left, 64) / 8,
+> +=09=09=09   H1_REG_STR_BUF_LIMIT);
+
+Its safe to apply to rockchip_vpu2_hw_mpeg2_dec.c, I'll test it for you.
+
+Nicolas
+
+> =20
+>  =09if (pix_fmt->num_planes =3D=3D 1) {
+>  =09=09src[0] =3D vb2_dma_contig_plane_dma_addr(src_buf, 0);
+
+--=-/pZ7QRKaT58RrTydTrIs
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
 
+-----BEGIN PGP SIGNATURE-----
 
-On Thu, 05 Nov 2026 13:29:59 +0000, Demeter Barna wrote:
-> Two things are missing for the SM8350 GPU in mainline.
-> 
-> First, the GPU never votes for DDR bandwidth (patch 1). This fix stands
-> alone and can be taken on its own.
-> 
-> Second, the GPU speed bins are not read, so every part runs up to
-> 840 MHz: parts validated only up to 738 MHz run above their rating, and
-> parts that support 900 MHz never get it (patches 2-5).
-> 
-> [...]
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawSsXwAKCRDZQZRRKWBy
+9HNIAQC1AkHZ6E5OyxDSWJREMVm1CeMIoPq3mhZfx4yRWXyUQQEA8Mtv0S6aS9JT
+HeguwlOq2Yfa54g5tPNoGKDwqB5fCw4=
+=eW1k
+-----END PGP SIGNATURE-----
 
-Applied, thanks!
-
-[2/5] dt-bindings: nvmem: qfprom: Add SM8350 compatible
-      commit: d19de535c5a8e041840e5399d0006a105e806fe1
-[3/5] nvmem: qfprom: Add the SM8350 keepout regions
-      commit: 7fa27a3057a750d30cfb1603d377cae38b146530
-
-Best regards,
--- 
-Srinivas Kandagatla <srini@kernel.org>
-
+--=-/pZ7QRKaT58RrTydTrIs--
