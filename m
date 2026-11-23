@@ -1,96 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441151;
-	b=vuIwG6M/pAEBbOAf/CkVCZmZGq4fgDHfW34RKUIbuXabI9s3PoD4cVlcHzlLgjcQF8W2
-	 eVUK+2ivJoRBWDec7sbusvf76y1AVvtdLkx+sx8hxcem3Pdy1IEwnWozZ4Hue+odv/ljg
-	 Y/EVFBkPqQq8l77s9za4nO3Vn7uiZLzxPod80Z/p0CSR2ZaS7IrlFHY+x0T9YRPAVcdKB
-	 TYA9mjWiSeo2YeBJ8tel0aScZYtk9Gz0UxbW221fzIe3agOUIsMR54Sd0I1kZD7eI1cUh
-	 VQSZhY74xdyfm26PPpbj23fRYz83zZi5WmhJBVhl4Al/D2eWgySCyi54LY1g/Kj6PNw==
+	t=1795441190;
+	b=c9GItQL1TjsOzYQNwKhX+Yq++fERLZbZjmuWYuZgIm2xpih8yoHdiTXZqVONZIuZhxQe
+	 O1ieJN4JMaCBMI6G0wlykFBOqpYi6SSeUS4o4DQhZ3DH8oyhx0hbneoexita5G1pweLtZ
+	 F5rMiRI5G49EXvz1L9QcdPQ3th783iGmH8fcijJ0L5HfyQV5BGJxLgAE+9jiSy8Hy39KG
+	 fNo4IWJfzz0C9He1nV3IsrcWU272ED3GF2chLK/xFGiNw3cqK0CKjIOA8Ol0h2A2PqRMF
+	 zBOAVYC+ATs0vOfP8RXy4ows4sx9fonQM25OI6gRmNFbes8ZYml/vP/r0lv4q/GErPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441151;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441190;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=p1jNW1rjDE4RVQgWXUS4Id/cdE6V8FcZptVFGKsk8Cw=;
-	b=opWdlMnbwLtJhjCFLibJNE52SCVnJdesmA2OI2BX9jKoHXQCRklAQInzDHzmK/blJ6Dm
-	 iNpvpuAljLGEev+efe82d9X64GTEKsTMtS1MNXlwtrHk6ZZ+V2xQS/SkzCAsArxUPQzEp
-	 nlXQciJSjQxIdCfTfEjhrBzqnHoqpd2hmEbt832LQdOHbS0F3qhNGgvV/Ncjz8kZ/bc9H
-	 bFhTnV/Hd3jArFGYd5cTghwer/2hb7zqnYk0/JmYIe82iv0ARteWclb0QfMevuX3M/4Kc
-	 uqostBfKJ44ydstT7iUx6AxefwuPU3ckhuycSVcz8mDa/3iDhi/9MflcnvldLr4ApLw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=bAL0t2TGrbFIeMgy/8ZLqGke+0HtmGCWss+5lXHsJKU=;
+	b=2ysFffJA4BS5L6lMELJKk//q5aApgbt8PRC4/8e3noBUZUbzCAg8nIVeCsfGE/yOMDIN
+	 VakusKW0osJ6C6Ez7OYcnf6dJGwxptQ7N+Se2PPZ4ygv9YGnnV8Z68k6RyJK/NgC+FqJX
+	 Kij1yNtm24in/xJSmMO6ALHoTXI55wP5baIwoRN6SJLpGTWel1rzfOAX57Mm0aWSZSiWP
+	 Muq+sQFYGbbpw9v8gtLLy4uLK9ZdWo6jkygwK0NwE3fcBAV8j8Qjk1NBd1Aba+L+2wxb+
+	 Gm2mDTkjRxOYGput6k9BCHAN2HBC86C9FH6YPb0uSU9X63fnvgCNlmxL5WYXb4vpc/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yyw5rvf7;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="D/rZn9iL";
+	arc=none smtp.remote-ip=209.85.208.48
+Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F9D5606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:39:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F9D5606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4104F606A33B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:39:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4104F606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Yyw5rvf7
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so32195195e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:39:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D/rZn9iL
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b8b20b2538so3820979a12.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:39:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795441149; x=1796045949; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=p1jNW1rjDE4RVQgWXUS4Id/cdE6V8FcZptVFGKsk8Cw=;
-        b=Yyw5rvf7f+bAqALPd4sMI5qDLzw72BOdC2A2a5jEk4B0hRawrslMbulwSrna+5f8EJ
-         e95rtxZg6tldoYNDRI4RDnjhUwxD57zVI0EmTKFlaN4CbJS4fTGRefsAfjDNtE2/Obsg
-         OMvtK3mSLgnDA09KawAyMagn3mAPVaWwn92JxvtyychGaK16SIuTZ4eZv4iGVG5MpEqr
-         3802UeOPays9wGEo+k2rJbXHiOVVSJPTV+41vUyZKM8MZs/KLFu/1Ji2OxCA4JXZ3HV+
-         05UPQDS2DMyWw3Wmv8k9I8MG8M5kCZ/U0Rmr/rpNVpx7zCATyWIu4pdhxB1e2CKAXkuJ
-         3Ulw==
+        d=gmail.com; s=20260707; t=1795441186; x=1796045986; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bAL0t2TGrbFIeMgy/8ZLqGke+0HtmGCWss+5lXHsJKU=;
+        b=D/rZn9iL7SvQLhKaIC13oOloWU3T6jk/laV5o+SF2tzXaGFCYDNQlE7/NaEDs8iqf1
+         7dYSobf+5CdcDfZ3xvm9tSKC4KgUWrVziU+kTiDtrWQjrmYF/GKeT+2ZDfW+rB3o8WKI
+         gujciW2akjcBxGAziH9CZjbxLR4QVaZbqDsgeNRBkyMeM3dGJIBcAiTYq/18t0oGOWs4
+         5Hl86Te9ihOqZ2ZYukXC+8PnVdMvPPlSZAmxhYPl17D96Hp1hxESJ8Xc8YhVeqd6yRiC
+         cxRINzCUB/qzQj5e4OyivB608aFwCvhWSzEKLeAmafS9S9gTYZZr5QoFOO12KO3RgA5P
+         DN2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441149; x=1796045949;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p1jNW1rjDE4RVQgWXUS4Id/cdE6V8FcZptVFGKsk8Cw=;
-        b=QkAQt4tbc0E1zxUhGnwsIsbHF2Bmdr9OJHwnzP/dFP5GPtfcJA+t3e7ho9YvQ/Kfop
-         YFMEVBQjZslToNoOcQm0a6Y1ApavvNhg4RyOVqpWbgO2wIDoXK25kVVP2UAQeO2K9dyv
-         cOHT/ATPrkiA23kA+r9sbThi6o8yoi5QpV9G+LmTuA+v/Ec7Vc+XlbnupHHDRMqURB+R
-         jDazM85/bpTQY5Kve84UAjMq044VCcbQRrtF3J1y9HkEuRJtdxI1keHCvw986f2LeovB
-         uLDn3jt9ytcr33pHUjYfpy95z4Z0kir7XWAYsk+fbSwbujVFG/oQ5MVoIzRVO35XIXdn
-         5IJQ==
-X-Forwarded-Encrypted: i=1; AL+hErEZKI+B8q3aT4g98XhHUZZ8Yj3mmc2T4lgiM/QDGDn7ZQ7soO/T4iJi5o7NM0UC7Nf4bXHwYndcxIIiP74=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9/Ztp5ZKsgn1R/4eWeXdxuGdqYdWaeRJef7/ZCekhb0sz/06CR
-	VrSaR3E3TNlMmwaYLi8DqJZWi2kEKG9TVusFZsLFRce4AkgzIiy+shsgLuD7yWe0
-X-Gm-Gg: AZFdTZccGUAh3tKp1gaxtz7bEI2v69zyKN59KriQqUxblYU2V2YXcGiIE9uQlLZ9trU
-	wv11zuiuQURPqfrAwLdyK04uabqkiZCbicYZ6bBY/Q2o29Ilxeuvmh2Jq9N60IPthDFuUaJJ+RV
-	rYpLSrmsytfhBGi/mOI6Vv6tAAivE9GYzNvbfy5Gz+TEHCMN0WJ9qhUTcRztR9oU03OzRSlirzQ
-	pXBKmAcOExnyn4MMTfIa41At3jlCdPsn7Ifssc6SoWb4ZdCFrbvrH4OAz6do8AOohHh34ifR99K
-	hRxVnBs+7UdZdE/+nV2jFBfVXu4aaTSUjmsEKmOLDJe9pA66+QoSIviqY3mBSuBluTLCoW1sXyx
-	+COfXHcqX/tsd5NTIk2DOWGNEj8rlsVUfnO7GzdZ48YbY4XJWQaaF+eaf7OInmfV2QDa2aHCKg3
-	NF/pYeul6J+77NWvJzh8OGa+donq170DQ3M82MHNuxJsqpDjrO+hBEfEO7xE4o8bWDNrMebpnGP
-	hsIq4YIg9/QE9vrFZNawCJXQ96W/Y5sP/AwLrZbmjV84NqMCij3dNgux+5sZNGbF2CD8w7jd3wp
-	hhsATTpv29sMWa6YkrVUJiFhMjBlhz79par1qLmCRwbbb8NaPnJCs39m2KlMRHdACg==
-X-Received: by 2002:a05:600d:8402:b0:4a3:5a91:5f61 with SMTP id 5b1f17b1804b1-4bb88806287mr178980595e9.14.1795441149273;
-        Mon, 23 Nov 2026 05:39:09 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm481592495e9.13.2026.11.23.05.39.08
+        d=1e100.net; s=20260707; t=1795441187; x=1796045987;
+        h=content-transfer-encoding:content-disposition:content-type
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=bAL0t2TGrbFIeMgy/8ZLqGke+0HtmGCWss+5lXHsJKU=;
+        b=Z77Q+QwAp7PJVOX85mSiC2YIwmbYYx8rRro8aAMF9jMJ11e+i8o/0nhcpg5i0BgXy/
+         Qyo2Wn+DT08Z61OarSzustDlZEd1zxKP3gSsjR2V8kVoVb9jjjJdvUzW7jS20dJVxspM
+         Aau4HS4VzhIp9884UK6dOpoiOwTp0GtcNbZpFPcDrvhQKFPAmQT/BH2lsRxEPSMPP9x2
+         TrifeEjzZjWESLN/9mHWa1XIJQ/k0HJ2UJWKz9d+toDmTnDIdpHb1c/76d403jqw5uR4
+         oREsKF7gnzHAQADmJc42iyX/xgTiV9LhR0lHJqM0CdkTG2lU0LiZxmQz86FJKJoLMqPf
+         fQQA==
+X-Forwarded-Encrypted: i=1; AL+hErFLZ+jtR4/tPBDJXW6NPDoRE5T6mVbJ3c5c20+fYewbXHsS7Z4FmEXYRiogP24K2Q1ZefKgjl0EyNuPIKU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+HidVNCPO2I5BjYgzoriQVPp+ncEsa0F3JvUBvTaZRZSkxqfoU
+	T8MxVYPgEayKHC3jtyBpdR8knwDvrId+/ybly+GtcLJ0aQuXm6ujvHL2
+X-Gm-Gg: AZFdTZdURDWfi2CNF+PkbQadCAAJ1O+L0/zOI4WFBfTdtuiPMsntNcWN/WnZmgOS5OY
+	IU8gTK2NJtQIuB4j0SNhufJzTiQHMeVAesTxQRwwlzRswd4g+PI0JEOn/SCicu/h+pI78enCC5A
+	lvj9DC9Ix5X5tIuiLWaH9hYWQq3PTMB3aNGaL0gQYE7QK7nBUlQcFBG5UInng+0812bDRHDoJVq
+	M9evRotWW7hBeSGndwmExyHtJ9Q3P655wL6lTTZHJDj9QZODFWs/06tfm+ko1xuDW07rMonib22
+	W8RBzIDs8WrFGwn97XXBF8bBvqkkYsI/UI2pANIedOJqtWedkVJ95FVFFGBVnYMRXiGnUH/88sV
+	2qkxoFq7UVzjSr3udS4AGJJO6B3fetRU2kCmNKmNJYtvObBf9bKwDf6XoSKr2PFcU3dLryd+h1f
+	m2tMv8TP6hszNA/chf4RkzTo4FTM7qqU1o8+zOUtH/pZjvh1Hl1spUA9VvBAB3HrFE6ozsT/7VW
+	KhjNvWF0337DM0cxOzZZuqgOgEyi6wc7xxgu/C176DP19f/ziswPwPN40d1yTvaQDOdwER9iyLM
+	vWJqqugHernhsLwgTlJxKL3IkvUZ6Y5eT1Rr92qSvjbuU1eoaIg/6Pk=
+X-Received: by 2002:aa7:d351:0:b0:6b4:86e1:cc67 with SMTP id 4fb4d7f45d1cf-6ba37ea0b91mr5687764a12.27.1795441186526;
+        Mon, 23 Nov 2026 05:39:46 -0800 (PST)
+Received: from ArchOarora ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e355easm5212663a12.3.2026.11.23.05.39.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:39:08 -0800 (PST)
-Date: Mon, 23 Nov 2026 13:39:07 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Phillip Lougher <phillip@squashfs.org.uk>
-Cc: akpm@linux-foundation.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 00/23] Squashfs: fix a lot of AI issues and AI style
- issues
-Message-ID: <20261123133907.110d5de3@pumpkin>
-In-Reply-To: <20261123100858.0d852be6d74342ed0f176cf6@squashfs.org.uk>
-References: <20261123034304.261742-1-phillip@squashfs.org.uk>
-	<20261123092331.0139648e@pumpkin>
-	<20261123100858.0d852be6d74342ed0f176cf6@squashfs.org.uk>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Mon, 23 Nov 2026 05:39:45 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	jose.exposito89@gmail.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Lucas De Marchi <demarchi@kernel.org>,
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	sebastian.wick@redhat.com,
+	victoria@system76.com,
+	thomas.petazzoni@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	llvm@lists.linux.dev,
+	=?utf-8?B?Sm9zw6kgRXhww7NzaXRv?= <jose.exposito@redhat.com>
+Subject: Re: [PATCH v6 17/43] drm/vkms: Use enabled/disabled instead of 1/0 for debug
+Date: Mon, 23 Nov 2026 14:39:25 +0100
+Message-ID: <awRBxApeQdS0tPZn@Oarora>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120-vkms-all-config-v6-17-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-17-78ace90f4fc1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,134 +128,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-On Mon, 23 Nov 2026 10:08:58 +0000
-Phillip Lougher <phillip@squashfs.org.uk> wrote:
+On Fri, Nov 20, 2026 at 06:58:59PM +0100, Louis Chauvet wrote:
+> Debug information are mainly read by human, so display human
+> readable values.
+> 
+> Reviewed-by: José Expósito <jose.exposito@redhat.com>
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+>  drivers/gpu/drm/vkms/vkms_config.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
+> index 44ded8a86a6e..4127fb176a87 100644
+> --- a/drivers/gpu/drm/vkms/vkms_config.c
+> +++ b/drivers/gpu/drm/vkms/vkms_config.c
+> @@ -1,6 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0+
+>  
+>  #include <linux/slab.h>
+> +#include <linux/string_choices.h>
+>  
+>  #include <drm/drm_connector.h>
+>  #include <drm/drm_print.h>
+> @@ -397,8 +398,8 @@ static int vkms_config_show(struct seq_file *m, void *data)
+>  
+>  	vkms_config_for_each_crtc(vkmsdev->config, crtc_cfg) {
+>  		seq_puts(m, "crtc:\n");
+> -		seq_printf(m, "\twriteback=%d\n",
+> -			   vkms_config_crtc_get_writeback(crtc_cfg));
+> +		seq_printf(m, "\twriteback=%s\n",
+> +			   str_enabled_disabled(vkms_config_crtc_get_writeback(crtc_cfg)));
+>  	}
+>  
+>  	vkms_config_for_each_encoder(vkmsdev->config, encoder_cfg)
+> 
+> -- 
+> 2.56.0
+>
 
-> On Mon, 23 Nov 2026 09:23:31 +0000
-> David Laight <david.laight.linux@gmail.com> wrote:
-> 
-> > On Mon, 23 Nov 2026 03:42:41 +0000
-> > Phillip Lougher <phillip@squashfs.org.uk> wrote:
-> >   
-> > > This large patch-set is inspired by the recent spate of AI generated
-> > > code reports.  Four of the patches directly fix AI reported issues, and
-> > > the rest have been found manually by a read-through and testing of the
-> > > code.
-> > > 
-> > > In all cases (except patches 1 - 8, 18 - 20) the patches deal with
-> > > over-sights relating to variable overflow, arithmetic overflow, variable
-> > > signedness or just lack of sanity checking of data read from disk.
-> > > These can cause the code to fail, and which could be used as a potential
-> > > exploit.  
-> > > 
-> > > Patches 18, 19, and 20 fix potential excessive memory use exploits.  The
-> > > code in question was written in the early days when Squashfs filesystems
-> > > were small, but with very large filesystems it could try to allocate
-> > > memory in excess of 4 MiB, and up to 64 MiB.   
-> > > 
-> > > The patches can be broken down as follows:
-> > > 
-> > > Patches 1 - 6 are preparatory patches.  They convert old fashioned
-> > > #define macros into inline functions.  These being typed make widths and
-> > > signedness explicit, and allow additional checking to be added in later
-> > > patches.  
-> > 
-> > Nope....
-> > Using 16bit sizes is a recipe for disaster.
-> > Remember every time the variable is accessed it is extended to 32 'int',
-> > the arithmetic done as 'int' (unless the other operand is 'unsigned int')
-> > and then truncated back to 16 bits.  
-> 
-> This is getting beyond stupid.
-> 
-> This patch-set is to shut up woefully stupid AI that been inflicted
-> on everyone over the last couple of months.
-> 
-> If I use a u32 then stupid AI will *believe* the value can be up to
-> u32 and then complain about arthmetic overflow.
-> 
-> If I deliberately use a u16/s16 I'm telling AI the value can't be
-> more than that, and it can't overflow.
-
-I've thought more.
-The best you can be doing is moving any overflow somewhere else.
-Reducing the sizes of the types can only increase the chance of overflow.
-
-David
-
-> 
-> At the moment, submitting patches to the kernel has become impossible,
-> necessary workarounds to fix the AI inflicting the submission trigger
-> complaints from humans.
-> 
-> Result: an endless cycle of changes which get nowhere.
-> 
-> > 
-> > I looked at a few, they are horrid beyond belief.
-> > 
-> > I can't believe some of those values can be negative - so don't use
-> > signed types.
-> > Use 'unsigned int' (or u32 if fixed size) so that the values don't
-> > get promoted to 'signed int' all time - which is what happens here.
-> > 
-> > David
-> >   
-> > > 
-> > > Patch 7 fixes an incorrect offset value in TRACE statements in
-> > > squashfs_read_inode().  This was new to the v2 patch-set.
-> > > 
-> > > Patch 8 is new to this v3 patch-set.  The patch is an attempt to stop
-> > > Sashiko from getting stuck in logical contradictions when some
-> > > sanity checks are introduced later.
-> > > 
-> > > Patches 9 - 17 fix various issues relating to variable overflow,
-> > > arithmetic overflow and add additional sanity checking to prevent these
-> > > issues from occurring.
-> > > 
-> > > Patches 18 - 20 remove the excessive allocation of memory by introducing
-> > > caches, which limit the maximum usage to 4 pages.
-> > > 
-> > > Patches 21 - 22 were new to the v2 patch-set.  They deal with some
-> > > issues Sashiko reported in the original patch-set.
-> > > 
-> > > Patch 23 was also new to the v2 patch-set.  It adds an additional belts
-> > > and braces sanity check.
-> > > 
-> > > Patches 9 - 21 have reproducers which show how the existing code faults
-> > > can be exploited, in some cases which can allow a Squashfs filesystem
-> > > to be tampered with to make files readable by unprivileged users.
-> > > 
-> > > BTW checkpatch.pl complains about the '#' lines in the BASH script
-> > > reproducers. Let me know if that will cause problems.
-> > > 
-> > >  fs/squashfs/block.c            |  20 ++-
-> > >  fs/squashfs/cache.c            |   8 +-
-> > >  fs/squashfs/dir.c              | 114 +++++++++----
-> > >  fs/squashfs/export.c           | 146 ++++++++++++-----
-> > >  fs/squashfs/file.c             |  93 +++++++----
-> > >  fs/squashfs/fragment.c         | 113 ++++++++++---
-> > >  fs/squashfs/id.c               |   9 +-
-> > >  fs/squashfs/inode.c            |  77 +++++----
-> > >  fs/squashfs/namei.c            | 137 +++++++++++-----
-> > >  fs/squashfs/squashfs.h         |   9 +-
-> > >  fs/squashfs/squashfs_fs.h      | 101 ------------
-> > >  fs/squashfs/squashfs_fs_i.h    |   2 +-
-> > >  fs/squashfs/squashfs_fs_sb.h   |  25 ++-
-> > >  fs/squashfs/squashfs_helpers.h | 362 +++++++++++++++++++++++++++++++++++++++++
-> > >  fs/squashfs/super.c            |  96 +++++++----
-> > >  fs/squashfs/xattr.c            |  49 ++++--
-> > >  fs/squashfs/xattr.h            |  21 ++-
-> > >  fs/squashfs/xattr_id.c         | 173 ++++++++++++++------
-> > >  18 files changed, 1133 insertions(+), 422 deletions(-)
-> > > 
-> > > Phillip
-> > > ---
-> > > Squashfs maintainer and author
-> > >   
-> >   
-> 
-> 
-
+Reviewed-by Oarora Etimis <oaroraetimis@gmail.com>
