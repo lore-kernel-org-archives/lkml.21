@@ -1,64 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.250.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425842;
-	b=EHPRwKVedUkeugAxjUyvGS6pd71iPtV/8XaOBJjJbSJWCkd4Z30rpKtVcS8zLU2aTxiZ
-	 NlyMrOawNtDGcXhg23nrubQNXa026ES+YK77KyY6268Dcul6gHJbUPmspbk1vYzyPazA4
-	 A90KYmB75RttCzMCtgLNL2Q/dl33nzfXr9qFQjCw45c3GMD2CZJ+Ukv6wyIQ/kDyLzHAa
-	 7Vulfs4ixhBQ13cD9XafKyiZs7tWO8tkT3HV8yty2ai5sTddMCUYnppQ0tyaDnnhM+4bX
-	 5c2MRR64F8KvVZXWUokMsbZIXgNrWxTbr7CjXKJT75HGrM9HROS+q1sJSFXIOUKE4tw==
+	t=1795425911;
+	b=2l5u+Awh7jwX02Qn5QXgKRyjGcoulcZkx6FCuYzHoRfnJ4AZmhSgmYlW7r/q8njyvWku
+	 ylQRnfRPts1zq0ub469T0gO+/ctUEp9wXh0u2ASFvNqjXlTD8sqyhQaYp0WXT31DbPZzd
+	 n9K/MpzIMtxhw167gNEllF/T8ovh9IX25uKm4z1YM+wWUJ+Tua9fqA+mccGcw4CnU7eAB
+	 xqwPbf+/BuvhOPRRinPZ0ZGmJU4trMAPaxuUUJdz2eiEoxncO4bbVuwGU6Z76hipySqjA
+	 E1sRdgHMvZ9B5tLL0n/x27jjzUWYnw2Acj9IAm6MitcZ4IeZ0pfnz/uD99gElUNDXJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425842;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=4SASklNkTeizD/6hspIoB2DzJc2sRiMDkEkS/nt+fz8=;
-	b=lybxBIe0GYcUUZ3mc+j9BKKGtQJKSaNm8OlrNR5CPJ9ixAgefz2xc0xERouwM8L6Kpti
-	 Rm3rBUywYIQm6XWw+WHNzbQdlsOygQyCU85bZcbm4pnJzq7dUU36jrqPTloDSRBkgJLIj
-	 Vst1ZifOgmFU5w8Ekc4cuS5BNcUBHfSydQ7ciwQzlHgXAj/ga+w3QUkgXS1BhFcJ7LCDC
-	 rQKu82m6NFc2dZxbBCJpdMjsyvxPjznUajoH5cI1MX2f/IZttabdumZoQqOHPzYNRM7/X
-	 FfbwSFHhvwjMOKirZ2CDjM+ouBd0opQyFc7YkJmvySQV+oi+LXoMFQ/+LgFcNYXOYMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425911;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=EGHXVFudJQgrigdJDc3r+sYIi6a6KP1wbs0YNcEORm0=;
+	b=xaO2cHZlSihEeobBKUckVLCFyCGdEOFQN73SeU1XlWEjCyN9admfUpE6QRGMblsWLyd/
+	 6y8WUdH37KkqioxiquCadYVkJE+QBeq0rlJaDsUp6gQ1LljEQQdvxGNMzXk3SeoeFtJcG
+	 qK1J0XXfHTXheaIyV2bWPtLvUYhURb7rPAhZcllSCVWlYRI6Wi4om4xyLo6nXHfGGBgE5
+	 LYYmKQebcXYDwdiPzTbTjQwQbEEUe+IkHqPlQFqlNkRBzVX6NYf7bsBjaXkbNX6kVSPaU
+	 OXSVBsyP5U1nujO4/4/fp66u0d107x34YnzyNrsDBhYVBOPJSsrwbwZtS8ld3ZMfuAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CAJGWU5M;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=8bytes.org;
+	spf=pass smtp.mailfrom=8bytes.org;
+	arc=none smtp.remote-ip=85.214.250.239
+Received: from mail.8bytes.org (mail.8bytes.org [85.214.250.239])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 12F98606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:25:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12F98606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=8bytes.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=8bytes.org
+Received: from 8bytes.org (p549216fa.dip0.t-ipconnect.de [84.146.22.250])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DB21606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:24:01 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CAJGWU5M
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B1A1F000C0;
-	Mon, 23 Nov 2026 09:23:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795425841;
-	bh=4SASklNkTeizD/6hspIoB2DzJc2sRiMDkEkS/nt+fz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CAJGWU5Mj8DNCGd1IqPkhWlrCz1pUjiEUVbLxxl8HYLdf07aesjbLu6k6ye1cYht6
-	 zqQNaVjbsjEsLR9fIJpDclLyDA/PGC71k4k+h5DwSKgZ+WDabaB5c94hiDmBxRHKKu
-	 ViPVuJ5OmKU20U8yl/zGf1e+d01ycrVpkZSWbbC3+igRrCgr1xs+zWfaYSX0qpAth5
-	 CmssC7VCkdqQu9RtjLKIFYQJPMvgX/1etsvL5ER4mXOEHnjqvsLL9mzHCqZnT6hRa+
-	 Vsju3S8tZVm+BCSKj+ysWbq+bsgIqRKzbqRj3dlFP9TLGFG4blS4mZfGhtPpZOspQK
-	 FK9nM5sJlBjPQ==
-Date: Mon, 23 Nov 2026 10:23:54 +0100
-From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Li Zhe <lizhe.67@bytedance.com>, Andrew Popple <apopple@nvidia.com>,
-	Balbir Singh <balbirs@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	James Houghton <jthoughton@google.com>,
-	Lance Yang <lance.yang@linux.dev>, Qi Zheng <qi.zheng@linux.dev>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 03/11] mm/mm_init: simplify zone device page
- initialization
-Message-ID: <awQGKjbQzKtuCgLO@localhost.localdomain>
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-4-songmuchun@bytedance.com>
+	by mail.8bytes.org (Postfix) with ESMTPSA id ECAAF244CA1;
+	Mon, 23 Nov 2026 10:25:09 +0100 (CET)
+Date: Mon, 23 Nov 2026 10:25:08 +0100
+From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
+To: fangyu.yu@linux.alibaba.com
+Cc: will@kernel.org, robin.murphy@arm.com, joerg.roedel@amd.com, 
+	jgg@ziepe.ca, jgg@nvidia.com, dan@reactivated.net, vasant.hegde@amd.com, 
+	kevin.tian@intel.com, Ankit.Soni@amd.com, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, guoren@kernel.org
+Subject: Re: [PATCH v2] iommupt/kunit: Skip the page-table leak check on SMP
+Message-ID: <awQGZIKqZOHcuTqP@8bytes.org>
+References: <20261031085536.18555-1-fangyu.yu@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,29 +53,10 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120100856.16929-4-songmuchun@bytedance.com>
+In-Reply-To: <20261031085536.18555-1-fangyu.yu@linux.alibaba.com>
 
-On Fri, Nov 20, 2026 at 06:08:48PM +0800, Muchun Song wrote:
-> memmap_init_zone_device() currently seeds its reusable head and tail
-> templates by fully initializing the first real struct page and copying
-> it back into a stack object. This keeps the first page outside the
-> common loops and leaves __init_zone_device_page() only for template
-> construction.
-> 
-> Build both templates directly from the PFN-independent state. Add the
-> head-specific pgmap and refcount state to the head template and the
-> compound metadata to the tail template, then initialize every page
-> through zone_device_page_init_from_template().
-> 
-> This removes the special handling for the first head and tail pages
-> without changing their final state.
-> 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+On Sat, Oct 31, 2026 at 04:55:36PM +0800, fangyu.yu@linux.alibaba.com wrote:
+>  drivers/iommu/generic_pt/kunit_iommu_pt.h | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 
-Reviewed-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
-
- 
-
--- 
-Oscar Salvador
-SUSE Labs
+Applied, thanks.
