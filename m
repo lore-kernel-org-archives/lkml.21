@@ -1,54 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437164;
-	b=x6SQKLF1QPTd/wZg6cgxmQCEmPJP5Q1Jn+IMnyQm3uG/2pZKmTB5n8hhxlqVjyg5h8eR
-	 nGzR/PLeO84n49ckkJdbwKrguyPd4XxPo5EaYK53HylObZC1KpE44OrIQ5XSPQbAbBe6B
-	 WzLWVfdHM+ukiRLISqf5ysSH3uc4a3hx8xV2vEkRJz+Xt3Jx2SCz/OoJkzYX4UDuE2Rlt
-	 akH5qMqCA4D3rNHGlZTwFxwUxm9zlCwRMZBV3koyR+kBcamy/N6O5S/cnazrCOqd6bCFr
-	 FsInuKpAGGcI4nMTdm/NwBMY57FgoFT0kQeAkngpVhcQHCB9xXgLbgH67owduILXhow==
+	t=1795437196;
+	b=CI4+9MVNc0CzKY2+D1gCNhWFarViSLO6mih+n3+cpi/q3UUNGIoQHfCEDn1Vhj/1J70v
+	 BOL37ryNfzsqvTynLnW9rZVfIRzK8ppJjvewtOkaNs5Cbp3ggmCGZn7SFtNdnPsq1U73a
+	 X9iYJam2mTec8XXMZ2h4bMH0WhR8qbV1z0SajIy5NPj9mb4IEUbDp93q+T7HYRot5Ugq1
+	 L9G4m9+ktg/9/fr5iWBqI+2ZEYWfUKHNR9qnYloQqqfHaWc8k1/xxC2sjX1Oavvdb+2HT
+	 +6Ry4w7LGRmDgmb8LDEGBKoezp53Nu0fJhhJIRorB8SnV4ENzSyKs8GKklp58Dl7esg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437164;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=e2RVQ3O8W1C8YW2wJ9aXaBh6gRelyzfxjUCFahQNfPU=;
-	b=nXsdKxAsli/y+DghMM9d67ZT2TxRmbju8j3OjOASOVXPOeWyrMBG34mwviGQXUn9antQ
-	 DLKtc1EpyOOgdkAU2oiHwFQP8Qd9q6STzrIsI3I4g4D14b8e49oBoVWisqhveJvk1Hgfj
-	 5M4jyVXg52e2HCMXX8oX6VYoD3YPbn4PGxtwGFR6CdKmrb1/UCrNSjLxNKO8wkHVRwXsi
-	 kptBmgZnCJU5SoR28CMNTM7OufO0T8ZqJyVQurzI5eqF1NQNadVTzh7DI4VtWgkSe+SAi
-	 dh4VWj5swmS2X6ry/U8kwSoViwR4wzhig4EHj+L7QckL32ykiHfEVU5p+5b3MusoydA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437196;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
+	b=2+DJcH/fOk5Qi9EmMuVnuIstNCPubnk7R29gL3/i7OcHvIlZeYgFoQ+8K7WTTIOITIOQ
+	 cpvJaXwbdmhflBeHAYdy9thyOXROKL9vbrAEMz+1T7oht0lapyuRmThN9bEgP+vH9Ynx5
+	 9MQVb4yfhke5ODFnbssASB0sTREDVI1sFzyk1eV3DzuuzeHMad6FfZ6p0kQy2dGVnoZIv
+	 BPboNfHUJMpuF0sV8ws4Yq9d3/IKq7U+4wqmqJnPXpfvyJq2W2vJGKXwxCULb0llZiD6w
+	 UzI98i4tBNyiIkSOMdKYpKYBFApd4d/p5AOgSbCcopROtP0M5hzQ3QyNijL8W3HXHZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g6yK4vC5;
-	arc=none smtp.remote-ip=95.215.58.5
-Received: from mta1.migadu.com (out-5.mta1.migadu.com [95.215.58.5])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w0sKEFMU;
+	arc=none smtp.remote-ip=74.125.227.133
+Received: from mail-pj2-f5.google.com (mail-pj2-f5.google.com [74.125.227.133])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59D38606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:32:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59D38606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15210606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:33:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15210606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g6yK4vC5
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=IaXfb5Hi/QpRbuwTQppmoutVL2pV2Zxy6b6NwmIDvTU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795437161; v=1; x=1796041961;
- b=g6yK4vC5n37WbsNdGMf0BkpnaNq+7uKBUXX15GD4SctWed5eePPBRCkJyQwRQZ4z/2o4XLKV
- YjmYuMufUFgSZOOqhTlUeP2HjKWGmRdRX2H20UrtpcOKL+huQpOCQUOCQ19bckPFv9Cpco69Ln0
- n04OISklYq56LohQvRYFpXuk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 6fa58fd50eb09120;
-	Mon, 23 Nov 2026 12:32:41 +0000
-X-Mizu-Trace-ID: 6fa58fd50eb09120
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w0sKEFMU
+Received: by mail-pj2-f5.google.com with SMTP id 98e67ed59e1d1-3b411059cd2so728577a91.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:33:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795437195; x=1796041995; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
+        b=w0sKEFMU+eaG9tWtdrJg66TGM2vOfSgYBXGN/RT18135qMoZytktIisMy13P9sdgdZ
+         MmnDhx6FBcBKvrXLWbIRrhrRP05nQj6TXfQ3A928lxHhbqYIY6w1XayAgPI0pwYJkvOF
+         j99uhIwSqxS2yvq/a8e1N0R1X7IySSi9XfN03R33ucwJGD5kUQyVu57yAv9bZ15ZuBbT
+         Pf1YZz296rAeJqDnJdPnQySNvePN3LpefZdTWU+dWREBerrB3Z930oUuJ2hmHRwhrUlW
+         EnScyeYoQ/i7vUwix4ZiZeYpFGyD5sWoIrEFnZLJ63hwMcbKnjJaVdMgDuSv0uwDNhh2
+         dchg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795437195; x=1796041995;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Hn7QLnatls3YJLh9hvARkpylGvnCInTwrPxLQjvpHck=;
+        b=B6OyWNYBiuc548/SXbpjZOZimvDAt38v2v93vgFJk+jqG7rmyp1nuVfjPNqGObxe0F
+         guzldsZ09DNTeA5lwXLfnGEX1b7eHCvhdjOSlgMeTnLB5xMHmdrQQnrzo+E92T7Cb7LG
+         IILFoRfqDSQwjI6IVBosHVIBkCuh5P8oGsNSqRABMVPwpOO7BkgO8tQpRmO9LfGKit1l
+         l81nw7p+KZ3Zm0mFxvq3JQHC3X6FUwSX8sJGBiia9RtHQiF06XHqe8q2D4bfnItcN/r2
+         nUEKQ6WP6QJG715INR0lq6IjJqI5LXg2PhG+hA1zfDRiijR+S0ovDOZtJQL5kcDqaijl
+         PQNA==
+X-Forwarded-Encrypted: i=1; AL+hErERbsekt77m5AVWWVb51VPUbniL2EKzl7GC+8TqNexR+074Tavkb+5/+x5hhCgCGlUL1TrWq8O69F11y5c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9OCsp5wjUyzKLjexQauiOHbl1vUQUq0z+FaBNFnNXYJ548GImQ
+	kSQcV0SHqqCOMWnfiSKzhJnGlrhgjNHbWbda8vPBpjoRbE846vmS3RpTaScEDKoPMiL4ulQOsdE
+	=
+X-Gm-Gg: AZFdTZdE58DPrCp4u0DNe1OMYakTSld0rn6zK4257ffRkj+E32avTd22k8Qf6ceapjx
+	OLHblP53VkCU4I+dHjA/SeLqyOGvf6turp3J0P/nKT+uBdcz9tVKYrwVsn0rVl46djjSUy7sF2X
+	GhA69OW9hEovzhxM63Oi9+Vb7dYuzwzF8+wndVzOnmVjeqK/HNMKN7oaiNL50hqb+blR06o/Rb1
+	NeJi/+1x0E5KGIleJ6ACtSWrwjbUGvLs/JKgjVMxTsQ3I32AKt1YSKwSOSLHrlhyGoZ54/6bOeb
+	uPwfKmlafmhcZrSDYDLNYz7oOapZcRWKUqyU1K3a89by2806bGorYEPjEiO9RrIKtqytxl5k4DO
+	s9Zk0WADjZt6ZIgS+16bvWgBb+FOEc+yeP/1xo9qiTcPs/FyYpQPVyqMGpXy0XKoQzraxg3/1b8
+	xoFQ7zis5wGReZmixDkQ9rtpbxVV5gLtNl91G+Xc6EDhnG+EdVjhFPT0evOI2yDuNmELuSeqD7S
+	7dtWiPQyXiNU5CDn/DkYd4laJiRaiznO5dmb3dYKu/Av0pGbrRCAAH585e72TDbCvprEIT87+N9
+	YDCGoCOsu3Z/0XJis9mFoVLUH73L0LRTqJ7hTssOD34lTih9
+X-Received: by 2002:a17:90b:268f:b0:3b3:afdc:2e5 with SMTP id 98e67ed59e1d1-3b41c9cf56bmr7964160a91.30.1795437195128;
+        Mon, 23 Nov 2026 04:33:15 -0800 (PST)
+Received: from [192.168.50.100] ([114.252.97.9])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b217a5bsm7472471a91.0.2026.11.23.04.33.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 04:33:14 -0800 (PST)
+Message-ID: <4ac66d3b-7343-4ff8-8ebe-d3bf9ab25da4@gmail.com>
+Date: Mon, 23 Nov 2026 20:33:04 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,192 +90,88 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v5 04/17] mm/memcg: add folio-based lruvec live helper
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <awMX9W-Ykjw4maRg@KASONG-MC4>
-Date: Mon, 23 Nov 2026 20:32:16 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- kasong@tencent.com,
- Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Qi Zheng <qi.zheng@linux.dev>,
- Ying Huang <ying.huang@linux.alibaba.com>,
- Chris Li <chrisl@kernel.org>,
- Baoquan He <baoquan.he@linux.dev>,
- Nico Pache <nico.pache@linux.dev>,
- Usama Arif <usama.arif@linux.dev>,
- Michal Hocko <mhocko@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>,
- David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>,
- Barry Song <baohua@kernel.org>,
- Axel Rasmussen <axelrasmussen@google.com>,
- Yuanchu Xie <yuanchu@google.com>,
- Wei Xu <weixugc@google.com>,
- Vlastimil Babka <vbabka@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>,
- linux-mm@kvack.org,
- Nhat Pham <nphamcs@gmail.com>,
- Youngjun Park <youngjun.park@lge.com>,
- Zi Yan <ziy@nvidia.com>,
- Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>,
- Lance Yang <lance.yang@linux.dev>,
- Hugh Dickins <hughd@google.com>,
- SJ Park <sj@kernel.org>,
- David Rientjes <rientjes@google.com>,
- Yu Zhao <yuzhao@google.com>,
- Vernon Yang <vernon2gm@gmail.com>,
- Zicheng Wang <wangzicheng@honor.com>,
- Chen Ridong <chenridong@xiaomi.com>,
- Tal Zussman <tz2294@columbia.edu>,
- Xiang Liu <liuxiang.277@bytedance.com>,
- Ehab Ababneh <ehab.ababneh@intel.com>,
- Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
- Lian Wang <lianux.mm@gmail.com>,
- Joanne Koong <joannelkoong@gmail.com>,
- Kunwu Chan <kunwu.chan@gmail.com>,
- Hui Zhu <hui.zhu@linux.dev>,
- linux-kernel@vger.kernel.org,
- cgroups@vger.kernel.org,
- damon@lists.linux.dev,
- linux-doc@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <71FD1E6D-6F79-42B7-AED8-FCFACAB541AB@linux.dev>
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
- <20261119-mglru-fg-v5-4-9eee2fe97a2d@tencent.com>
- <42207e26-ba7f-4df5-8c80-71fa1b84d26e@linux.dev>
- <awMX9W-Ykjw4maRg@KASONG-MC4>
-To: Kairui Song <ryncsn@gmail.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 05/10] iommu/riscv: Add nested domain allocation
+To: Andrew Jones <andrew.jones@linux.dev>,
+ Gong Shuai <gong.shuai@sanechips.com.cn>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Tomasz Jeznach <tomasz.jeznach@linux.dev>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kevin Tian <kevin.tian@intel.com>,
+ Andrew Jones <andrew.jones@oss.qualcomm.com>,
+ Fangyu Yu <fangyu.yu@linux.alibaba.com>, Tan Chi
+ <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>,
+ Zhao Qingye <zhao.qingye@sanechips.com.cn>
+References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
+ <20261119132744.396426-6-gong.shuai@sanechips.com.cn> <awGP5H2JdjxW8WXG@orel>
+From: Gong Shuai <gsh517025@gmail.com>
+In-Reply-To: <awGP5H2JdjxW8WXG@orel>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
+Hi Andrew,
 
+On 11/21/2026 8:37 PM, Andrew Jones wrote:
+> On Thu, Nov 19, 2026 at 09:27:39PM +0800, Gong Shuai wrote:
+>> From: Wu Fei <wu.fei9@sanechips.com.cn>
+>> 
+>> A nested domain describes two-stage translation through guest and
+>> host page tables. Iommufd exposes this domain as a nested hwpt.
+>> 
+>> User space needs to provide the guest stage 1 configuration when
+>> allocating a nested hwpt. Validate the configuration before storing
+>> it for use in a physical device context.
+>> 
+>> Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+>> Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+>> Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+>> ---
+>>  drivers/iommu/riscv/iommu.c | 153 ++++++++++++++++++++++++++++++++++++
+>>  1 file changed, 153 insertions(+)
+>> 
+>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>> index f2305b953f71..4f8ce579ef08 100644
+>> --- a/drivers/iommu/riscv/iommu.c
+>> +++ b/drivers/iommu/riscv/iommu.c
+>> @@ -1698,8 +1698,161 @@ static void riscv_viommu_destroy(struct iommufd_viommu *viommu)
+>>  	ida_free(&riscv_iommu_gscids, rv_viommu->gscid);
+>>  }
+>>  
+>> +struct riscv_iommu_nested_domain {
+>> +	struct iommu_domain domain;
+>> +	struct riscv_viommu *viommu;
+>> +
+>> +	u64 tc;
+>> +	u64 ta;
+>> +	u64 iosatp;
+>> +};
+>> +
+>> +#define to_riscv_iommu_nested_domain(domain) \
+>> +	container_of(domain, struct riscv_iommu_nested_domain, domain)
+>> +
+> 
+> Please rename the macro parameter so it doesn't collide with the domain
+> member name, otherwise macro expansion replaces the member name too.
 
-> On Nov 23, 2026, at 01:03, Kairui Song <ryncsn@gmail.com> wrote:
->=20
-> On Sun, Nov 22, 2026 at 03:53:44PM +0800, Muchun Song wrote:
->>=20
->>=20
->> On 2026/11/19 05:03, Kairui Song via B4 Relay wrote:
->>> From: Kairui Song <kasong@tencent.com>
->>>=20
->>> Add a helper that resolves a live lruvec for a folio under RCU
->>> without taking the lruvec lock.  It takes a folio directly so the
->>> lruvec lookup happens inside the RCU read-side critical section,
->>> which a lruvec-based interface cannot guarantee.  The first user is
->>> the lockless folio_inc_lru_refs() path later in the series.
->>>=20
->>> Factor the ancestor walk out of lruvec_live_lock_irq() into
->>> __lruvec_get_live(), so that both entry points share it, and spell
->>> out why the walk is enough while only the RCU read lock is held:
->>> reparenting of a memcg that starts dying waits for a grace period,
->>> so it cannot race with the caller until the lock is released.
->>>=20
->>> Move memcg_is_dying() up in memcontrol.h, next to the other memcg =
-state
->>> predicates, and use it for the walk rather than repeating the open =
-coded
->>> css_is_dying() test a few definitions away from where it is =
-explained.
->>>=20
->>> No functional change for existing callers.
->>>=20
->>> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
->>> Signed-off-by: Kairui Song <kasong@tencent.com>
->>=20
->> Reviewed-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
->>=20
->> Some nits bellow:
->>=20
->>> ---
->>>  include/linux/memcontrol.h | 71 =
-++++++++++++++++++++++++++++++++++++----------
->>>  1 file changed, 56 insertions(+), 15 deletions(-)
->>>=20
->>> diff --git a/include/linux/memcontrol.h b/include/linux/memcontrol.h
->>> index 980358bc6f49..441a5d57e723 100644
->>> --- a/include/linux/memcontrol.h
->>> +++ b/include/linux/memcontrol.h
->>> @@ -571,6 +571,11 @@ static inline bool mem_cgroup_disabled(void)
->>>   	return !cgroup_subsys_enabled(memory_cgrp_subsys);
->>>  }
->>> +static inline bool memcg_is_dying(struct mem_cgroup *memcg)
->>=20
->> Let's make it const for @memcg along the way.
->=20
-> Good idea, but css_is_dying isn't constified, maybe we can do it later =
-I think.
+Thanks for catching this, silly mistake on my part:)
+I'll rename it in the next version.
 
-Fine.
+Best regards,
+Shuai
 
->=20
->>> @@ -1510,28 +1520,41 @@ static inline void lruvec_lock_irq(struct =
-lruvec *lruvec)
->>>   spin_lock_irq(&lruvec->lru_lock);
->>>  }
->>> -static inline struct lruvec *lruvec_live_lock_irq(struct lruvec =
-*lruvec)
->>> +/*
->>> + * Reparenting moves a dying memcg's LRU state to its parent at any =
-time,
->>> + * so anything added to that LRU afterwards would be lost.  This =
-helper
->>> + * walks up to the nearest live ancestor while the caller must hold =
-the
->>> + * RCU read lock: reparenting of a memcg that starts dying waits =
-for a
->>> + * grace period, so it cannot race with the caller until the lock =
-is
->>> + * released.
->>> + */
->>> +static inline struct lruvec *__lruvec_get_live(struct lruvec =
-*lruvec)
->>=20
->> Cound @lruvec be const as well?
->=20
-> The argument is fine, but tricky for the return value: when nothing is =
-dying it
-> hands back @lruvec unchanged, so a const argument means a const return =
-(which
-> isn't right) or a cast dropping it again.
-
-A cast is not nice. Let's keep things as they are.
-
-Thanks,
-Muchun
-
->=20
->>> @@ -1561,6 +1584,34 @@ static inline bool folio_matches_lruvec(const =
-struct folio *folio,
->>>          lruvec_memcg(lruvec) =3D=3D folio_memcg(folio);
->>>  }
->>> +/**
->>> + * folio_lruvec_live_get - get a live lruvec for a folio under RCU
->>> + * @folio: the folio
->>> + *
->>> + * Same as folio_lruvec(), except that a folio whose memcg is dying =
-is
->>> + * accounted to the nearest live ancestor, which is where =
-reparenting
->>> + * would put it anyway.
->>> + *
->>> + * Return: the live lruvec, with rcu_read_lock() held.  Pair it =
-with
->>> + * folio_lruvec_live_put().
->>> + */
->>> +static inline struct lruvec *folio_lruvec_live_get(struct folio =
-*folio)
->>=20
->> const folio?
->=20
-> This is doable, will do!
->=20
-> Thanks for the review!
-
+> 
+> Thanks,
+> drew
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
