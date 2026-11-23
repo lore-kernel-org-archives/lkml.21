@@ -1,63 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795459028;
-	b=Y5DVp4mgbOpV+s4CGDKpHgdWUSXIooYH6m4l6mSXCaxlxqVPwmBfYemBlc5Ku0Y+NJPT
-	 k6naVj526wPgzdJVjC7SQbI7QNV/YhAx4qJ9Ijyu63/mn2fCg85TcoAjbFLYzGwbWzd3/
-	 X7Yg5gUz6nJ4seCVKC/t+HJanvIOdsf2flJ2qgTOr3qtSqD5Q13Y5r2XsI8sbzxqqnEi/
-	 w4hna8qZE89iBL+uxnoYXoKVxaQfVjeAdp9PrI9UDW+CydtsQeyW3wUKJUl5dosWJxld4
-	 YaWU9elSgcKlRprszP2NFLKTa7kxS7KwI/yG+VUaJzkQVxXgD0VuReZxLZvxti4BMUg==
+	t=1795459032;
+	b=a7HV63dSgLPxmo0UbcOAiCOnlIt2GEOp9sQ6/hqabzIaZ90+PJ0NmoeZIxRElM2dLmrx
+	 TBqVcDtCLGPkkUXlNykFioUslIYEnP2Sb9FMDhAprvAA7vOYb9amWD5ACOVWNJdoE/ML9
+	 6uaksHYi2f7B0d7TqOvZj0jFcrwABr2gXBMOiI3LElPWzfcXbAw5rTPZ5/MZECTaDowa5
+	 nYp7jgfSLRFfwCqHz3R1kUgEjmPm9ApQb07I6O5ysv4joJzHURolNGe/uMafPnlrQY1hd
+	 PSjKKpoOxKQWUAMz+4RFQZ23T7W9uehW820M5VWDx5B5WvXfEv0mlOlkyC67TrxHGjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459028;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=looxWG/+q5/Vw/t7DxJr6OInAYdJMZv4YPrI/xd5DsM=;
-	b=IVT40Fp/9AfuxZGl++2Vr83JbPBE+0iZs9mrg9M5D8mSOjE0lu6DF+0vIkv8zldecNSG
-	 BulFnJo5+VuSkwtGWODEZyZQt7xusS/B8Qjw3xtJfMj1cdTKNzcDcfJo6nEUjPfRCvNeG
-	 IfDeFK5hEi0Fh0uepozdhCbTS95TfxdxT/chDc0MlRt0lLQGf9q8rZ5A8850ptgU/+4wM
-	 HVllLo+6+UxMTdxJ27txBktvhGe5NVmppftVf+YPhhMROZyo8UOmxeZV3urA1U2TQApiV
-	 UJo4KB4WPsSxgJRX3coKQvKhwCN59muoBlh38EYI+MaeBnwUsNruSmcFIuLQrwYacqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459032;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=8xyeEM4ykdwPci+rPjGEp+xC7znx8Sw7brM4o0kn09Y=;
+	b=Kta7enilfpF7+qK1xSuMjMkZsXUmzZ9zWKOnz5EoLGmU4lom27+guWJ4IfOz38WAPcsX
+	 CUkk3HWTCcSNL7CkpAOEF/i1CHKXD4Eij3uzAPNbPjiSOvk5PouYK5WMURvmcBmFBI2K0
+	 W1Gz/bA37DSiPuqx6QrDJgFaIgLZ4gBl/4GkiFPhxFKxHrhlcsnpe2UijqAmO4akdGqR8
+	 xFKgA/5LBdOoMvuJJIe3GWhiuF6VP0BtiG9YZ3q6w+Lh+VRBpB82L8MMcdEohlxM+ghEN
+	 o71sY042Ocj6P70//NzLc0UwpcvkcU6Ku/op5o3Ot/xxy/t6SlgWFLftPow7opeenBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BtICSjZC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WqaRTNLx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 293F6606A31A;
-	Mon, 23 Nov 2026 18:37:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B876606A32A;
+	Mon, 23 Nov 2026 18:37:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BtICSjZC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C9E81F000C0;
-	Mon, 23 Nov 2026 18:37:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WqaRTNLx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0F5C1F000D1;
+	Mon, 23 Nov 2026 18:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459027;
-	bh=looxWG/+q5/Vw/t7DxJr6OInAYdJMZv4YPrI/xd5DsM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BtICSjZCnUxpVNbhjaiGsFc6azflAvQIYz3MxIpoCEKPJIQuMK2PkO7nnGRDAUJIi
-	 wSLPa8xGB5STGau4MD3W95LoeHR0WnM/vl0L7nRvR2NRqEx82KQpOZfYXDWzZHreAO
-	 vOFwO+6XRjXF8KE7M4flLAezMX4l8SW6dRCfEEpVYd4BX5Lx6t9NOkBXXcNQcZgHVM
-	 1485RTb/IL/rccnVtG457EM7rbHwHH1WDzp8fqJB7MnxzFo6h3GOsrDYgnkDB9kThA
-	 HV0uX/uGsQiQj/0FqprwH2l2mXf4YdQB9GdueUqygFczRkbO8KPToYLHBDjZAS2sSB
-	 cPQPO51xHVZxA==
-Date: Mon, 23 Nov 2026 18:37:02 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-phy@lists.infradead.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: Re: linux-next: build failure in the final build
-Message-ID: <b7fda918-8355-46da-b7f4-40e1a104279b@sirena.org.uk>
-References: <awR7nSOWkxRm-iP6@sirena.org.uk>
- <c631c19d-4fcc-4881-a6ec-9dad24419fe4@kernel.org>
+	s=k20260515; t=1795459031;
+	bh=8xyeEM4ykdwPci+rPjGEp+xC7znx8Sw7brM4o0kn09Y=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WqaRTNLxXdPxfWEE53ro5YiW3Xrin2037Hek9KJvPxyI81FdWDqWVsV5fr7zcJWAs
+	 tG5GoRuYM5Xmp2OpnaYNODHF6ED3f5vX21V6tEVRflNrV5w6ymqj7cI9U0mCuwrlmm
+	 3+sx3BIGh7SHwQoK1kA2PL5X9TRA7/6c3pMNL9+rvKxgAlZVe2qPF8uR5wJyBFiPtW
+	 WPuYZZonDttW0Xl4MsWwzduw9+cRbNq1XsGnnZ8isj0wg9D6RKx1kjCpNHE8bqOpEE
+	 c39h2Tf9Io+KfIURiWBNn4un4bcT56uNjoYuQwnG0WLSBYkSacUIlMYHgvz+1/x6y8
+	 fRz3ll/fBZs5A==
+Subject: Re: [PATCH net] niu: write back TXC_INT_MASK in niu_txc_set_imask()
+From: netdev-bot+sashiko@kernel.org
+To: irogers@google.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, elkin@google.com
+Date: Mon, 23 Nov 2026 18:37:10 +0000
+Message-ID: <179545903032.3135.12672409534586940438@kernel.org>
+In-Reply-To: <20261119170623.1519909-1-irogers@google.com>
+References: <20261119170623.1519909-1-irogers@google.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,53 +62,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lnXm83msk9DjZBfg"
-Content-Disposition: inline
-In-Reply-To: <c631c19d-4fcc-4881-a6ec-9dad24419fe4@kernel.org>
-X-Cookie: Brain off-line, please wait.
 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
---lnXm83msk9DjZBfg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-On Mon, Nov 23, 2026 at 07:29:57PM +0100, Krzysztof Kozlowski wrote:
-> On 23/11/2026 18:45, Mark Brown wrote:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> > I did not specifically identify the commit that triggered this, it will
-> > be some include file reorganisation which causes PHY_TYPE_PCIE from the
-> > DT headers to become visible to the driver, clearly there is a
-> > namespacing issue going on here.  I have ignored this for today.
+- [Medium] The patch makes niu_txc_set_imask() actually write
+  TXC_INT_MASK.
+- [Low] niu_init_hw() calls niu_txc_set_imask(np, 0) without first
+  clearing any TXC_INT_STAT bits already latched for that port.
 
-> Commit b28eecc89399e5371483f03fecded33a26a8e655 was not really built and
-> exposed all drivers to DT bindings headers. Referencing other headers,
-> including bindings, from kernel-wide headers is another suboptimal
-> choice here.
+--
 
-b28eecc89399e (include: linux: phy: Add phy attribute "type" and associated helpers)
+niu: write back TXC_INT_MASK in niu_txc_set_imask()
 
-> Greg, that's commit in your tree, how about dropping
-> b28eecc89399e5371483f03fecded33a26a8e655? Authors probably built only
-> defconfig and thought they are done...
+This patch adds the missing nw64(TXC_INT_MASK, val) to niu_txc_set_imask()
+so the per-port TXC interrupt mask that it computes is actually written to
+hardware. The only caller, niu_init_hw(), passes imask=0, so after this
+change all of the port's TXC error sources are unmasked.
 
-The PHY driver is bool and depends on ARCH_QCOM too which doesn't help,
-people would need to do a specifically arm/arm64 all*config to hit
-issues.
+> diff --git a/drivers/net/ethernet/sun/niu.c b/drivers/net/ethernet/sun/niu.c
+> index c74a97fe54641..b2da560edd827 100644
+> --- a/drivers/net/ethernet/sun/niu.c
+> +++ b/drivers/net/ethernet/sun/niu.c
+> @@ -4650,6 +4650,7 @@ static void niu_txc_set_imask(struct niu *np, u64 imask)
+>  	val = nr64(TXC_INT_MASK);
+>  	val &= ~TXC_INT_MASK_VAL(np->port);
+>  	val |= (imask << TXC_INT_MASK_VAL_SHIFT(np->port));
+> +	nw64(TXC_INT_MASK, val);
 
---lnXm83msk9DjZBfg
-Content-Type: application/pgp-signature; name="signature.asc"
+[Severity: Medium]
+With this write in place, niu_init_hw() now unmasks all six TXC sources
+for the port:
 
------BEGIN PGP SIGNATURE-----
+niu_init_hw()
+    niu_txc_set_imask(np, 0);
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEh80ACgkQJNaLcl1U
-h9Dl2gf9FCt7MFuVWqJ2QuA0uGRmg4tYheJXab2Tfeq/ssU9WbF9GWal1gKWxWIf
-8oPxsX90GwEkJkPRQpJ6UjmPkHH8rbv5WjCNj4lJJjohObVTgiwoqdhsyHLgRe5v
-qd3OfnJef1m9ZMMqPgSgwfzOCmsDPdDzOIirX7TLrJqfM7Xem4dcAJfS1yJcm0Xd
-IR5pH9o1DyTyAM/vOa/lGT7H1kbm/wVXq1AtwwPyfyx/WwGC3DXiOfXpoPn4POss
-tvr09T8051n/ZJzlHtFZ/rwjrTlFslhAGfDI532M1GUk0MI1Cjay5JB591LbnwwO
-Y0PVIelL30OBocbwkmUJC83Tn3U8NA==
-=c+yn
------END PGP SIGNATURE-----
+Those sources are SF_CE, SF_UE, RO_CE, RO_UE, REORDER_ERR and PKTASM_DEAD.
+niu.h defines TXC_INT_STAT and its per-port bits, but nothing in niu.c
+reads, decodes or acknowledges that register.
 
---lnXm83msk9DjZBfg--
+What happens when one of these sources fires? The only route seems to be
+the SYS_ERR_STAT_TXC summary on LDN_DEVICE_ERROR. niu_ldg_init() assigns
+that LDN only for port 0. From there:
+
+niu_interrupt()
+  niu_slowpath_interrupt()
+    if (v2 & 0x0210)
+        niu_device_error()     <- logs SYS_ERR_STAT, always returns -ENODEV
+    if (err)
+        niu_enable_interrupts(np, 0);
+  if (err)
+      goto out;                <- skips niu_ldg_rearm()
+
+Could one TXC event on any of the four ports turn off all of port 0's
+interrupts (RX/TX DMA, MAC, MIF) with no reset or recovery scheduled? That
+would also include correctable ECC events (SF_CE/RO_CE) that the hardware
+has already corrected.
+
+TXC_INT_STAT is never cleared. Could the same bit fire again as soon as
+port 0 is re-armed on the next open?
+
+Before this patch these sources had no effect. The commit message describes
+the change as restoring intended behaviour and says it was not tested on
+Neptune hardware. It also has a Fixes: tag, which makes it a stable
+candidate.
+
+Would it be better to keep the correctable bits masked, for example:
+
+    niu_txc_set_imask(np, TXC_INT_MASK_SF_CE | TXC_INT_MASK_RO_CE);
+
+or to add a TXC_INT_STAT handler that acknowledges events and treats CE as
+non-fatal?
+
+[Severity: Low]
+Should this port's TXC_INT_STAT be cleared before the mask is opened up?
+Elsewhere in this driver, status is cleared before the mask is programmed:
+
+niu_init_zcp() {
+    ...
+	nw64(ZCP_INT_STAT, ZCP_INT_STAT_ALL);
+	(void) nr64(ZCP_INT_STAT);
+	nw64(ZCP_INT_MASK, ZCP_INT_MASK_ALL);
+    ...
+}
+
+niu_init_ipp() {
+    ...
+	(void) nr64_ipp(IPP_INT_STAT);
+
+	nw64_ipp(IPP_MSK, ~IPP_MSK_ALL);
+    ...
+}
+
+The TXC mask was never written before this patch. Any TXC status latched
+earlier would still be present, whether from previous operation, an
+earlier kernel (kexec or module reload), or OBP/firmware use.
+
+Could that stale status assert LDN_DEVICE_ERROR as soon as port 0's LDGs
+are armed in niu_open(), and so lead into the niu_device_error() path
+described above?
+
+Also, niu_stop_hw() never re-masks the TXC sources, and
+niu_txc_enable_port(np, 0) is not called anywhere. IPP and ZCP are not
+re-masked on stop either. However, after ifdown of ports 1-3, their TXC
+sources would stay armed in the shared register. The latched status is
+never acknowledged, and the device error LDN is bound only to port 0.
+Could a downed port then keep disrupting port 0?
+
+>  	niu_unlock_parent(np, flags);
+>  }
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119170623.1519909-1-irogers%40google.com
