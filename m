@@ -1,50 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.105.33.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.105.52.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431529;
-	b=yHbXs07Ehgfnulfmb60QwzN63k/Ygz/z0afCKbM6Bblkoe4DJV5t4aWdNZbk+0s2Y17B
-	 yaLm4raR+7eY0XpfPxnixFOOPRjQxf4XqsrNrQkUcLy2LtL2TdtnxUd3A/3Pc8muzguyE
-	 ksX0O4txYeeTSu9AP+x9gF8AD8sBHeUKAgIJKUobaxyyadpfhqrpyljzJdgEE1avm+vvn
-	 PJlNFw57ulPJOhanq+zpcBQbXOi4Nh/JN/hQ3udpQj1x5Z2iDh8/VTfhHIEffyKxTIG9q
-	 WQm6HRy2tBn5+XDjScvrYlgVadY+oCC9JJ2GCu30sRpyRQTLeEyNdKrs4OfQcMEql7w==
+	t=1795431528;
+	b=zLL5Tug9boM0dPmj/mBRDWJkodSAscFmAPzQHnNwxEJFKilQDGghCcY08dEk1lAl+TRN
+	 mshqgy1XTGv2BaYylxSBekvTwtrYg9QiIZ1STrKK/YcMAGK3SPpZGYLCQmoEfOzhe2njl
+	 sH5O6Lhkjxuei2oDpwr/3HngL2f2FtjRdtyCRPIWlvEBRyotLRCxIUtxWIopCJ0uX5pp7
+	 X288j5qd8eR+PF1KJGRa57RJTttVxzXoaNg7DGo3P6pMrl59uIeT8iDaqRP3ALnaA2mPQ
+	 ezg4L12z0x5JA2JZDkVBb9RXxHVj4uYTyOmRIgAZeKvivQVoVuloolufl/RCzFs04FQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431529;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431528;
 	h=DMARC-Filter:Received:Received:Received:X-OVh-ClientIp:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:x-ovh-tracer-id:X-VR-SPAMSTATE:
 	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
-	bh=0gho2H7c9c060AZnIgfNrfz9s8r4MMmYNS2CJZLRFqA=;
-	b=MRn5h+/nv4YSPkzOnlip4IDxDfXmV8JI8/RMnhCGAtxPivAOXbHbXP/3t3tprkrtadPR
-	 TW9YpTF+KszEkkkKAakNI/8bGDr+Pb8zwlTThsHeSMl3Ues79CheRvo/yGC0fU0NoSpgZ
-	 tAejD4l9HvqVK0wYqPqFaj6Mn0suY5bZtXEMIoGy6TjS3lMggd5F3ifFGH+OAI88dioPY
-	 M5xik7PyaVedggrhuhozznPB+MBmHPqnOHhjUA1mnDcbgvFXCM1Lk+bGEl0LxDT3j4DNj
-	 rRkcF8O6F/qRx9D5NbWRFyh10sCis7Z5n3D7MUWLCfBT95UMXEuNB3fO+oxxGOf70TQ==
+	bh=KaTTHc3w8R6rF7gqqWlw2mFxpaUpNPS0l+rvQI9X3UA=;
+	b=dHilqbN/a8rT7aOvsCKplqDuHxJHoiCpz+NnZdIyzhHQAs6/7w1I5lwlw7kdp1Bsd47U
+	 qHSPP677ZfSM2/08/qGA36DhjfERr1/aLBwBTievjF7QALWfP8b9l1jG/gPj1rVM0hsfJ
+	 tGbdUpkC/YLHhqVvY5aPebTJwetaUy4GC3GWx7Q2LWcrK5FvBrxvQIMOhO8TWAxEFOnFP
+	 J65E3+0oKvInsRwPXJa+N8fLC8HNLfAt8q58vkHmirzJe9f3+t/LEHnFJewbSW5ZE35/J
+	 fL8mqCMhDe09ln5Nvp8Q3fRllnaio2z2MLiNOay7MxH9X1RNgf80eTudkWbNwcyJKmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=3mdeb.com;
 	spf=pass smtp.mailfrom=3mdeb.com;
-	dkim=pass header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=iChZwMsd;
-	arc=none smtp.remote-ip=46.105.33.73
-Received: from 20.mo584.mail-out.ovh.net (20.mo584.mail-out.ovh.net [46.105.33.73])
+	dkim=pass header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b="O/H1LJ0j";
+	arc=none smtp.remote-ip=46.105.52.148
+Received: from 10.mo583.mail-out.ovh.net (10.mo583.mail-out.ovh.net [46.105.52.148])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA9AE606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA9AE606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFBAD606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFBAD606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=3mdeb.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=3mdeb.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=iChZwMsd
-Received: from director3.ghost.mail-out.ovh.net (unknown [10.109.231.103])
-	by mo584.mail-out.ovh.net (Postfix) with ESMTP id 4jY2xF1bzdz8LQG
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:41 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=3mdeb.com header.i=@3mdeb.com header.a=rsa-sha256 header.s=ovhmo3617313-selector1 header.b=O/H1LJ0j
+Received: from director3.ghost.mail-out.ovh.net (unknown [10.109.254.91])
+	by mo583.mail-out.ovh.net (Postfix) with ESMTP id 4jY2xD0QJhz5x0M
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:58:40 +0000 (UTC)
 Received: from ghost-submission-7ccd8bbbb6-n2gw4 (unknown [10.110.168.167])
-	by director3.ghost.mail-out.ovh.net (Postfix) with ESMTPS id BA583C013A;
-	Mon, 23 Nov 2026 10:58:40 +0000 (UTC)
+	by director3.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 88CE7C0144;
+	Mon, 23 Nov 2026 10:58:39 +0000 (UTC)
 Received: from 3mdeb.com ([37.59.142.97])
 	by ghost-submission-7ccd8bbbb6-n2gw4 with ESMTPSA
-	id ObWlFF4cBGvNugsAptLdCg:T4
-	(envelope-from <filip.golas@3mdeb.com>); Mon, 23 Nov 2026 10:58:40 +0000
-Authentication-Results:garm.ovh; auth=pass (GARM-97G0020f2781da-6eb1-4bd0-834a-c08ec5051f9b,
+	id ObWlFF4cBGvNugsAptLdCg:T2
+	(envelope-from <filip.golas@3mdeb.com>); Mon, 23 Nov 2026 10:58:39 +0000
+Authentication-Results:garm.ovh; auth=pass (GARM-97G002f90511b7-fe43-4655-9d7e-26a1e09181b2,
                     0A512C1CF0928FB71961449F2A077E304137B0E5) smtp.auth=filip.golas@3mdeb.com
 X-OVh-ClientIp:213.192.77.249
 From: =?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
@@ -56,9 +56,9 @@ Cc: platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Guenter Roeck <linux@roeck-us.net>,
 	=?UTF-8?q?Filip=20Go=C5=82a=C5=9B?= <filip.golas@3mdeb.com>
-Subject: [PATCH v2 3/3] platform/x86: dasharo-acpi: Add EC fan curve support
-Date: Mon, 23 Nov 2026 11:58:21 +0100
-Message-ID: <20261123105821.305527-4-filip.golas@3mdeb.com>
+Subject: [PATCH v2 1/3] platform/x86: dasharo-acpi: Extract dasharo_call() from dasharo_read_channel()
+Date: Mon, 23 Nov 2026 11:58:19 +0100
+Message-ID: <20261123105821.305527-2-filip.golas@3mdeb.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261123105821.305527-1-filip.golas@3mdeb.com>
 References: <20261123105821.305527-1-filip.golas@3mdeb.com>
@@ -73,289 +73,100 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-x-ovh-tracer-id: 2044915706218934255
+x-ovh-tracer-id: 2044634231904923631
 X-VR-SPAMSTATE: OK
 X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTErAGWDIhDAmmUw5Dcw5mhi5B/4PFjYzh+FFWuHb4zQf5HTh4PWkjVfNbXyuhtFva7PORpTwu40kxu+I5Lb0yQmC6vrYcK7aq2p4pzn8s7P9wOSITwql5MSfAfKz8G46Q0kR9K4JlN+9f693ty0G4JU5FGasqyl0V0RwNLsfFK03KYDaH9PKxIlO+Lpd6NBwIiJx10ej/JdcRw9PexAyk7Vi1UC061pBqW6s/ZfL1m+MnI94eZR7QDzB1e2vYbUBHy1KMIswZ4Qny7ixpPQIcMY8QSKl0MtCfAUwNUmiNnwSIsoNo7zjGqtWT7HXSpsI88QrhrqL9Xke/1gKfHREY4aGIR1BHo8702U3zRv7M1elMlEugInbZ7s/AvEVRN5qAFRKu2m0H/6rcboDVzt+s3BwMYKM2Rc7NTXePlbhg8+TGZ6p8WzVVo9C9tib9A9dUe5u9mJMSLGDho87Orfkgf6SiEaL7PAbbnYbxuS2GS5d2zYm0Xh+j6Uf50tJI6D8CwQH+m4nQCalsNfWyFA1QZfThM6Mh2JgKnLbmYfpl4aHYn/lRmWvKJ56ATenuSZbJYHMQjH7/eOAP5uqRBOVN3UYORAUs+wGMd5zSAazRj3tsQg3gQHdnC7oe0cyEUFx7Jmacx+d1bcyeak/WS2iIsOlNv81FFtJiKpadZCMEaKCw
-DKIM-Signature: a=rsa-sha256; bh=0gho2H7c9c060AZnIgfNrfz9s8r4MMmYNS2CJZLRFqA=;
+X-VR-SPAMCAUSE: dmFkZTFDblFX0lx0QRW1JKa5GExgvRc8EfAmGpZCa+mczr64uGFbhOUDNDRjGumNpw1ewf38CiuDwcWBe2ksOTz2vgBG/OiQfIRySeImPlGnBaN/NhaVBJcI0R0wiJZ05v/JgVIK6iF8FdDs4paOTnHT0UKtcfyQnnoEHkbJplb8AAmbCQ9anws2PovtC1vetouu4esjSK9/7AKz4dEqFuZzYfu9hDntJhu7xuegqj+tPpuZ1RhtmyCUSIcP8LBva1zYL6sFArph+EvMDv9DjODHblGBXMhTfQmi0aTZNEufLRK0995CYUMgwFWztvqoKHu9U1DZt+zFLszdo6g6L37VIcSPnSAPTMrnT+EjnOY+fMBRMaVMJhscDLCK6dKL9vCUWTrrsB5fM8QcQMARxltzFqrwV26qbzBgezKQEFXqxmBH2v0pfJDyhOm+l9qdTwczupvLFGbDO+LwNJEkkNWlKtMc77WmM9gG3ncojwEFAXZp/nswzsMtQrxEsoL8z3FW6jmosmsJmK5+agErgOqUxFnrq7ARDmYTDhHsdqwWIfwzNkm2tjLJmGQfBHZ1LckTgPbOiTH2SDHc3V2u/cWyZTZxMD1IutwuHQWJtEi29r0bcNTRpueGJcdCVwwn34JqQalpINZ0MR4s92La2S6xem5wUlMZayV47omFSezQUITWjw
+DKIM-Signature: a=rsa-sha256; bh=KaTTHc3w8R6rF7gqqWlw2mFxpaUpNPS0l+rvQI9X3UA=;
  c=relaxed/relaxed; d=3mdeb.com; h=From; s=ovhmo3617313-selector1;
- t=1795431521; v=1;
- b=iChZwMsdJbgIQmRvXbMLB0cBzdIuAO6u5NO7xiK2J3LhTdqWCnZITu989fgBCjrSgYjv85/T
- 2XteIkpdSgRujsSe0O4p7KAo/7sK2qvWvsz3k7bSGB0hu8irOH6Oyn161a1yXXTV45WPdBmal1P
- FpUEiFNKkgZv7jxYU6Yrm2PiwRMk5M9toRFP/jc63hksIARmBzgmrW1rK+KKdaBvWMLyLADune8
- AA2J5esblPCsCIaVKk+DZ6pCP8dtjR5GfJTl14wfg1H35Ibjui+dPSgc23bJ/CAZXkRMK9L6A0r
- EceumhUyNYNVYfH15DhYm9d7pAa49xM+oBFWs9BtQtuZg==
+ t=1795431520; v=1;
+ b=O/H1LJ0jQ6smI/gQrsm4BZBFXJ3XJN0uCG7KhphGFBW008mGXIYoOHmKFXcQH9/H0Z8VDqm8
+ thG++IX3PbCLWyYAnF1sOFMKBGUJ6VIrBa105uw5kxnBfntSHaKCcJswIXYU04kI5nGQzTFtzez
+ MSi467cc4I0IJrb8EV5MVSVE/HPCD5fsktRv+i/7k5xTIjmJEwREKHsiCYsOuUbe9HdqaQgpUVe
+ sNuUWokfHVwaSq+H0LEe2J/EISh8N3krSi8QQZskM61EEIDTTZ1zXJbSGFExn7R7nyEMMhLbDk5
+ 3+APdR7gkt+SZgalAEeLG5/qEqUHo8Og+pvhWWe+JB4lg==
 
-Expose the four-point fan curve run by the EC as pwmN_auto_pointM_temp
-and pwmN_auto_pointM_pwm, so that userspace can read and change it.
-The EC validates the curve on every write and keeps running the
-previous one if the new curve is invalid.
+Move the ACPI method evaluation out of dasharo_read_channel() into a new
+dasharo_call() helper, which additionally accepts up to two extra integer
+arguments after the channel's group and index. This allows the upcoming
+write and fan curve support to reuse the same code path.
 
-On shutdown, ask the firmware to store the current curve, so that it is
-restored on the next boot.
-
-Fan curve control is only exposed for fans on which the firmware reports
-support for it.
+No functional change intended.
 
 Signed-off-by: Filip Gołaś <filip.golas@3mdeb.com>
 ---
-Changes in v2:
-- Make the curve point attributes static, so DASHARO_POINT_ATTRS()
-  does not define 16 global symbols.
-- Reject negative fan curve temperatures before converting them to
-  degrees, which can round to positive.
-- Use DIV_ROUND_CLOSEST_ULL() for showing curve PWM instead of
-  DIV_ROUND_CLOSEST(), so it links on 32-bit x86.
-- Setting a curve point stages it, applying it is a separate ACPI call.
-  Add a mutex to prevent staging more changes before the first set is
-  applied.
-- Use dasharo_fan_channel to find correct channel for DASHARO_FEATURE_FAN_POINTS.
-- SFCS now takes no arguments and saves all fans. The Dasharo dev
-  build previously was accepting and ignoring the argument.
----
- drivers/platform/x86/dasharo-acpi.c | 186 +++++++++++++++++++++++++++-
- 1 file changed, 185 insertions(+), 1 deletion(-)
+ drivers/platform/x86/dasharo-acpi.c | 40 +++++++++++++++++++++--------
+ 1 file changed, 30 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/platform/x86/dasharo-acpi.c b/drivers/platform/x86/dasharo-acpi.c
-index 85f88b11fcf9..38dd3fc8dcee 100644
+index dfea00cdde18..13d97eb43511 100644
 --- a/drivers/platform/x86/dasharo-acpi.c
 +++ b/drivers/platform/x86/dasharo-acpi.c
-@@ -6,7 +6,10 @@
- #include <linux/acpi.h>
- #include <linux/array_size.h>
- #include <linux/hwmon.h>
-+#include <linux/hwmon-sysfs.h>
-+#include <linux/kstrtox.h>
- #include <linux/module.h>
-+#include <linux/mutex.h>
- #include <linux/platform_device.h>
- #include <linux/types.h>
- #include <linux/units.h>
-@@ -78,6 +81,7 @@ struct dasharo_capability {
- 
- struct dasharo_data {
- 	struct platform_device *pdev;
-+	struct mutex curve_lock;
- 	int caps_found[DASHARO_FEATURE_MAX];
- 	struct dasharo_capability capabilities[DASHARO_FEATURE_MAX][MAX_CAPS_PER_FEAT];
- };
-@@ -407,6 +411,169 @@ static const struct hwmon_chip_info dasharo_hwmon_chip_info = {
- 	.info = dasharo_hwmon_info,
- };
- 
-+static int dasharo_curve_point_call(struct dasharo_data *data, int pwm_channel, const char *method,
-+				    const u64 *args, unsigned int n_args, u64 *ret)
-+{
-+	int channel = dasharo_fan_channel(data, DASHARO_FEATURE_FAN_POINTS, pwm_channel);
-+
-+	if (channel < 0)
-+		return channel;
-+
-+	return dasharo_call(data, method, DASHARO_FEATURE_FAN_POINTS, channel, args, n_args, ret);
-+}
-+
-+static int dasharo_curve_point_store(struct dasharo_data *data, int channel, const char *method,
-+				     unsigned int point, u64 value)
-+{
-+	u64 args[2] = { point, value };
-+	u64 ret;
-+	int err;
-+
-+	guard(mutex)(&data->curve_lock);
-+
-+	// set of temp/duty
-+	err = dasharo_curve_point_call(data, channel, method, args, 2, &ret);
-+	if (err)
-+		return err;
-+	if (ret)
-+		return -EPERM;
-+
-+	// commit
-+	err = dasharo_curve_point_call(data, channel, "CFCV", NULL, 0, &ret);
-+	if (err)
-+		return err;
-+
-+	// The EC rejected the curve
-+	return ret ? -EINVAL : 0;
-+}
-+
-+static ssize_t curve_point_temp_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	u64 point = sattr->index;
-+	u64 val;
-+	int err;
-+
-+	err = dasharo_curve_point_call(data, sattr->nr, "GFPT", &point, 1, &val);
-+	if (err)
-+		return err;
-+
-+	return sysfs_emit(buf, "%llu\n", val * MILLIDEGREE_PER_DEGREE);
-+}
-+
-+static ssize_t curve_point_temp_store(struct device *dev, struct device_attribute *attr,
-+				      const char *buf, size_t count)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	long val;
-+	int err;
-+
-+	err = kstrtol(buf, 10, &val);
-+	if (err)
-+		return err;
-+
-+	if (val < 0)
-+		return -EINVAL;
-+
-+	val /= MILLIDEGREE_PER_DEGREE;
-+	if (val > U8_MAX)
-+		return -EINVAL;
-+
-+	err = dasharo_curve_point_store(data, sattr->nr, "SFPT", sattr->index, val);
-+	return err ?: count;
-+}
-+
-+static ssize_t curve_point_pwm_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	u64 point = sattr->index;
-+	u64 val;
-+	int err;
-+
-+	err = dasharo_curve_point_call(data, sattr->nr, "GFPD", &point, 1, &val);
-+	if (err)
-+		return err;
-+
-+	return sysfs_emit(buf, "%llu\n", DIV_ROUND_CLOSEST_ULL(val * 255, 100));
-+}
-+
-+static ssize_t curve_point_pwm_store(struct device *dev, struct device_attribute *attr,
-+				     const char *buf, size_t count)
-+{
-+	struct sensor_device_attribute_2 *sattr = to_sensor_dev_attr_2(attr);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	long val;
-+	int err;
-+
-+	err = kstrtol(buf, 10, &val);
-+	if (err)
-+		return err;
-+
-+	if (val < 0 || val > 255)
-+		return -EINVAL;
-+
-+	err = dasharo_curve_point_store(data, sattr->nr, "SFPD", sattr->index,
-+				  DIV_ROUND_CLOSEST(val * 100, 255));
-+	return err ?: count;
-+}
-+
-+#define DASHARO_POINT_ATTRS(ch, pt) \
-+	static SENSOR_DEVICE_ATTR_2_RW(pwm##ch##_auto_point##pt##_temp, curve_point_temp, \
-+				       (ch) - 1, (pt) - 1); \
-+	static SENSOR_DEVICE_ATTR_2_RW(pwm##ch##_auto_point##pt##_pwm, curve_point_pwm, \
-+				       ch - 1, pt - 1)
-+
-+#define DASHARO_POINT_ATTR_PTRS(ch, pt) \
-+	&sensor_dev_attr_pwm##ch##_auto_point##pt##_temp.dev_attr.attr, \
-+	&sensor_dev_attr_pwm##ch##_auto_point##pt##_pwm.dev_attr.attr
-+
-+DASHARO_POINT_ATTRS(1, 1);
-+DASHARO_POINT_ATTRS(1, 2);
-+DASHARO_POINT_ATTRS(1, 3);
-+DASHARO_POINT_ATTRS(1, 4);
-+DASHARO_POINT_ATTRS(2, 1);
-+DASHARO_POINT_ATTRS(2, 2);
-+DASHARO_POINT_ATTRS(2, 3);
-+DASHARO_POINT_ATTRS(2, 4);
-+
-+static struct attribute *dasharo_point_attrs[] = {
-+	DASHARO_POINT_ATTR_PTRS(1, 1),
-+	DASHARO_POINT_ATTR_PTRS(1, 2),
-+	DASHARO_POINT_ATTR_PTRS(1, 3),
-+	DASHARO_POINT_ATTR_PTRS(1, 4),
-+	DASHARO_POINT_ATTR_PTRS(2, 1),
-+	DASHARO_POINT_ATTR_PTRS(2, 2),
-+	DASHARO_POINT_ATTR_PTRS(2, 3),
-+	DASHARO_POINT_ATTR_PTRS(2, 4),
-+	NULL
-+};
-+
-+static umode_t dasharo_curve_point_is_visible(struct kobject *kobj, struct attribute *attr, int n)
-+{
-+	struct device *dev = kobj_to_dev(kobj);
-+	struct dasharo_data *data = dev_get_drvdata(dev);
-+	struct device_attribute *dattr = container_of(attr, struct device_attribute, attr);
-+	int channel = to_sensor_dev_attr_2(dattr)->nr;
-+
-+	if (dasharo_fan_channel(data, DASHARO_FEATURE_FAN_POINTS, channel) < 0)
-+		return 0;
-+
-+	return attr->mode;
-+}
-+
-+static const struct attribute_group dasharo_point_group = {
-+	.attrs = dasharo_point_attrs,
-+	.is_visible = dasharo_curve_point_is_visible,
-+};
-+
-+static const struct attribute_group *dasharo_groups[] = {
-+	&dasharo_point_group,
-+	NULL
-+};
-+
- static void dasharo_fill_feature_caps(struct dasharo_data *data, enum dasharo_feature feat)
- {
- 	struct dasharo_capability *cap;
-@@ -437,21 +604,37 @@ static int dasharo_probe(struct platform_device *pdev)
- {
- 	struct dasharo_data *data;
- 	struct device *hwmon;
-+	int ret;
- 
- 	data = devm_kzalloc_obj(&pdev->dev, *data);
- 	if (!data)
- 		return -ENOMEM;
- 	data->pdev = pdev;
-+	platform_set_drvdata(pdev, data);
-+
-+	ret = devm_mutex_init(&pdev->dev, &data->curve_lock);
-+	if (ret)
-+		return ret;
- 
- 	for (unsigned int i = 0; i < DASHARO_FEATURE_MAX; ++i)
- 		dasharo_fill_feature_caps(data, i);
- 
- 	hwmon = devm_hwmon_device_register_with_info(&pdev->dev, "dasharo_acpi", data,
--						     &dasharo_hwmon_chip_info, NULL);
-+						     &dasharo_hwmon_chip_info, dasharo_groups);
- 
- 	return PTR_ERR_OR_ZERO(hwmon);
+@@ -93,13 +93,18 @@ static int dasharo_get_feature_cap_count(struct dasharo_data *data, enum dasharo
+ 	return count;
  }
  
-+static void dasharo_shutdown(struct platform_device *pdev)
-+{
-+	struct dasharo_data *data = platform_get_drvdata(pdev);
-+	u64 ret;
-+
-+	/* Let the firmware persist the fan curve the EC runs */
-+	if (data->caps_found[DASHARO_FEATURE_FAN_POINTS])
-+		acpi_evaluate_integer(ACPI_HANDLE(&pdev->dev), "SFCS", NULL, &ret);
-+}
-+
- static const struct acpi_device_id dasharo_device_ids[] = {
- 	{"DSHR0001", 0},
- 	{}
-@@ -464,6 +647,7 @@ static struct platform_driver dasharo_driver = {
- 		.acpi_match_table = dasharo_device_ids,
- 	},
- 	.probe = dasharo_probe,
-+	.shutdown = dasharo_shutdown,
- };
- module_platform_driver(dasharo_driver);
+-static int dasharo_read_channel(struct dasharo_data *data, char *method, enum dasharo_feature feat, int channel, long *value)
++/*
++ * Evaluate a DASH method taking the group and index of a channel, followed by
++ * up to two more integer arguments, and returning an integer.
++ */
++static int dasharo_call(struct dasharo_data *data, const char *method, enum dasharo_feature feat,
++			int channel, const u64 *args, unsigned int n_args, u64 *ret)
+ {
+ 	struct acpi_object_list obj_list;
+-	union acpi_object obj[2];
++	union acpi_object obj[4];
+ 	acpi_handle handle;
+ 	acpi_status status;
+-	u64 val;
++	unsigned int i;
  
+ 	if (feat >= ARRAY_SIZE(data->capabilities))
+ 		return -EINVAL;
+@@ -107,20 +112,35 @@ static int dasharo_read_channel(struct dasharo_data *data, char *method, enum da
+ 	if (channel >= data->caps_found[feat])
+ 		return -EINVAL;
+ 
++	if (n_args > ARRAY_SIZE(obj) - 2) // 2 fixed args always at obj[0] and obj[1]
++		return -EINVAL;
++
+ 	obj[0].type = ACPI_TYPE_INTEGER;
+ 	obj[0].integer.value = data->capabilities[feat][channel].group;
+ 	obj[1].type = ACPI_TYPE_INTEGER;
+ 	obj[1].integer.value = data->capabilities[feat][channel].index;
+-	obj_list.count = 2;
+-	obj_list.pointer = &obj[0];
++	for (i = 0; i < n_args; ++i) {
++		obj[2 + i].type = ACPI_TYPE_INTEGER;
++		obj[2 + i].integer.value = args[i];
++	}
++	obj_list.count = 2 + n_args;
++	obj_list.pointer = obj;
+ 
+ 	handle = ACPI_HANDLE(&data->pdev->dev);
+-	status = acpi_evaluate_integer(handle, method, &obj_list, &val);
+-	if (ACPI_FAILURE(status))
+-		return -ENODEV;
++	status = acpi_evaluate_integer(handle, (acpi_string)method, &obj_list, ret);
++	return ACPI_FAILURE(status) ? -ENODEV : 0;
++}
+ 
+-	*value = val;
+-	return 0;
++static int dasharo_read_channel(struct dasharo_data *data, const char *method,
++				enum dasharo_feature feat, int channel, long *value)
++{
++	u64 val;
++	int ret;
++
++	ret = dasharo_call(data, method, feat, channel, NULL, 0, &val);
++	if (!ret)
++		*value = val;
++	return ret;
+ }
+ 
+ static int dasharo_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
 -- 
 2.56.0
 
