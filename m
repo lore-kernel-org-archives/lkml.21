@@ -1,121 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795436846;
-	b=fPKTFb+keYpoEkq7YBJ3innHnx2icGtSG/wAV4Rw4Av0eW2hwvckffYB2z/OhykR5QuZ
-	 e9ciF7Ab0y9Bk/72vCagjtVewUjh1cH6XZtbczAXj5n7PUGD+MMlKlahu8m2O7XHQILk0
-	 jc9eRzJJOE0/Ln35z32Iw27Ucx1Ad6tn7qzf446v/ffqimMRM4YtF6mISp44UrvP5RDh/
-	 Ljsd1nml8r0z44e5nKb+mfpdovMTGUvESbaHMrSMnKDl9WFqRm6GiRhlur+115SEuMt13
-	 hfuEpYxfybJoUuHdZvZTBuOFPnvCxcFEccKAn1L6LEeTVr7cqhmhAVWnGEQlmFA4y4Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436846;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
-	b=R4g2/qDhAfawfF38KzMP0pZF+QYiOOjriXEmZwiTFqc7Q8/Q07u4SP+pxNoTCLWuoSJi
-	 qE2RpHiRt+2XIKLEnaAW5BrpCRsb2Vlh7LNrIfnngTnWIUMAtLKe4Ro1dJOyQxRTLn40J
-	 pr40cZvTq6OWIP2nPxRNrbj4YIq92AUY0pjDpBl5l+sjSHnmCBSVaDjWuzIPDtBmrf6RH
-	 wohF1HHibcegK58Ti1A4bgdMmwb2f6dC3MJFjcVHt8iAS3aswvzwBzYEy+d29EjmkRvam
-	 e4mbo5Fr0SWhw/jadNHhN11KyA3yZsvDZxGDisi9r539QGYunxzTfrU55X/ADGWKUgQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=austTnm7;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=a86GKC8Z;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795436858;
+	b=0JgXlGzfYVqvK63snLnrH1tza2EnJgeTLM3jkN+aBZ0WoRBmaBrG7idokd2W7gjATpLv
+	 jHwA47rqKlhceoQgZTpNxRcTN9FA7YD4dBHd9mQ2osPEL+Uf8BAYdvTsrBYGJ0INYf5rS
+	 5hLNnug/7oEERzifx9lTXNp9HceTLdTz2Rc1VgkZp+M/HnvVzHxtbY/Av5Dx6xmmje9yA
+	 MsNnVj09ylttOoJHRYLOz/Agc5Gq6KR9T3EN7sTELZPOll+t0cvVwLNJ4KLp17QOcFIX8
+	 QcROaDZ1Jxi4rAiH4p98/6YMdkG6anrXSdZthP37NVDqSV6fmLmxcO5N+oCRDjrezoA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436858;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=yX9CeG59OS8ilGsOns30C8i4+axcyTEG7TgTi3PMHLU=;
+	b=rSgFQEfGr9GTVDjn+/9NoWcOia1H8KW+rFw+uh9+KDTdb7BcWnIA0/sjtHBta5b15nxy
+	 O2HWD+5TVhzklPgQ+VoxEyneNN0IfWs8sg31zHFX0+FyNMQKi21Pl5hmShtmCchGCGET2
+	 XCxNNC4WwC9Wyyryn09J3IukdqKUw35X+ddHUtgSs2l20seBJIzVN4V+xVfD2dtCHwrkd
+	 uxJRtGP6Z3U2mFBpmyKSOuds6suOhrsMLOLyEyf4B5SMlyEBt0H69tsX8yBJfkKX1TGDw
+	 abVqdC/TBqVzj7FVpMtb1N8RIb0fm1bAL4A2Er/978QPeHtQEGa84YkEA54b5ssWhag==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=7xz.dev;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BEA9606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:27:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BEA9606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=austTnm7;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=a86GKC8Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795436844;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
-	b=austTnm7GrXvKGBWWbH7EvCQRT/3bOSu4hhfoJ8Pnc9yCya1+YU0j6JMjuXyAder4h2uOh
-	szhZaW/9DV8y1eI0olivAEHPnDLG/tWAgMr297bwBRx1kGOtt5MPFKxZ6wxPF6wjnKPm3W
-	8v4G2N2GgOXhQ5LVO0ChNlIe4AvLjuI=
-Received: from mail-yx1-f72.google.com (mail-yx1-f72.google.com
- [74.125.224.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-33-f_h86UsoOmiUdZ9XNC_J3g-1; Mon, 23 Nov 2026 12:27:22 +0000
-X-MC-Unique: f_h86UsoOmiUdZ9XNC_J3g-1
-X-Mimecast-MFC-AGG-ID: f_h86UsoOmiUdZ9XNC_J3g_1795436841
-Received: by mail-yx1-f72.google.com with SMTP id 956f58d0204a3-6756044f260so4944443d50.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:27:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795436841; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eucYT/Z5iflWcBHxHnbGdG60sIRardBeTu254qcXfT3eKXs7xq79OGuTtUAHL1ULuT
-         icKeb3dTD4YtAwfma+Uqq+YXBE9+4lpM57UHYnoCkZdIA5VDRDvZ/LMS0wFNH5Wmiq8p
-         jN2o19fPpfx3phj8IB7asKAbXHnxLiEXF5ithqX+g3RAIDt8ISP5Hp7G4aylqdwmhU2H
-         BsAOn+mZgVNHWWL29yIcyBu3CuTZjejOJTb3/wGVMSpW0eAzQOyX1nyLUtHTOau2L8KR
-         a+vCfhdGo8B5C8eZz+Mkbcavw5qyL20ZLwGv3mzYhXlEIXlQyW/HU7w00hlTE5Dha0U0
-         XhrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
-        fh=qmKcfK4oYQQgX6tQKBEyu9H+niP/pwkJeu26ZY1+8Ro=;
-        b=FChsemYQJR3QAuCASh5iPBR6sXGa5ILLI5SbQJ3qy9TVvaxAeSDYnpjF1msvfpLSfE
-         1QFHbft4VSVuJP1ia8CTDpQHeozuWV7BL3lSip8I1SVuRyDxHQR9TU+Wn42YPgMGgQOZ
-         aTgVMEexVNHmqD1fpItm3Qrq3q72IgtISl4roTmNofRNpdmNskR2k8WTOjj393SCcL5Q
-         A31BonHIKxYagMF/fUfCDAMzRKpFPin5riTmYyGEGlktI+4YeaoS7ObSSXzjM65RVoc2
-         qHrpbIxxfr3o8/igLCP98k47W1Hyq57wPcQRHTXlbgYK5FdUrepPwxGSunPSchpXriHj
-         tboA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795436841; x=1796041641; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
-        b=a86GKC8ZxMPKgJZBDZRTlBSk8eqs3NKGyoXvQZNXgJ2QG306KpoonkcXzpIHDWZTaV
-         acN/sK2jxtp6cPVd0LtowwY8x53KENScPGFKXPzytnNlXt+RPHUtfllQYvh/+tL7jtHe
-         sIuXfl+e4VLHOfmKFycq9kV4LPCofXNpeh5ORhbgfFraEcgHuwain8ZFZwtv/wdEC4iq
-         5K1lmjyGW9SCQAD2kGEG424KC7pj898Lt0Fp33UBL1/oS/1OY5FgYrIwd/d3ukH469ZH
-         /W0cfPFnw1XjRHf+Bonny1O02OW5XBum2khW1w65Sc8t54Y2pWObcF1r9hiwskMD5jHd
-         Kzeg==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4048606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:27:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4048606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=7xz.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-38190551625so6704309eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:27:37 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436841; x=1796041641;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YImJ/ALCtekb57+DaL5zQvBLKaVvYqpkrQRdHCmg3Uk=;
-        b=rR3ImDGlseNA7J8OJTePC0lvooAFY+0B5sKBjfDhHg6aOBL+PSaVTNE4zaOxsVNBN1
-         XCkakbiyrf1e5K4vtreqBCWIlYz7e+VFTzCGguvFxfcpo+v1qYUgDoetYssGiAeoa8t0
-         CxiAAANSqfbphM9V2GWo5ZU4TO6p4fQlt3IxPpXVS0MXhlqpdmxGjhFDyt1dmu5/3vb/
-         GioVz99EfiyGSEbnCKDix2BD5JSUTNbJeQi2G4D7NYNXilOuWPcWI+nJUPbu3RuelIMS
-         jBelN8jUevN9MxKjm8BJLXnbd7+YzSYTCTC8shMC/hDlVn9K1XqJO+oB6ZtdnlxbdiH0
-         Ybhg==
-X-Forwarded-Encrypted: i=1; AL+hErHCrAREhYE2vq4oORlSl50uMjXW4seh+61suP/Dv8f9hqkH3oTm9f3YZRWGYo7IXmNSfqXbQfZp70jnMv8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/4uR5ZXjsR5ZEVO+STHDPc/FzneXFD8cRpeEM/Ycf6h1+DGxTl
-	BvSthswPh7N/3kMtHryaBVbkkF3Bt4Gfy4x5BE8sLkaRszYoEGZDRSlbMnKzCOD1aP7eQANaif+
-	W9zmZeaj6ZpsIiP8zPuiMBmtLjLodVOCFL0JaXNWEtmm5dSj/LiVcqQRjCZq4nm7LnBOIgdXKov
-	wMgZFJKrxuFvi3C9EAWOYsLPquupf3ef6GQnEUYNqg
-X-Gm-Gg: AZFdTZcWYSd+Iv1Sc5HSEgsmnUnuuqIA+5RO/fJ7z1r2siL5QNpX0HzodhNniVkNCMn
-	hYtsOH5sb/+AEDJagjnNJqd+UYi8Rk3rEmYRfUYkxPmIeGC3bixExKXD8OD8veRuAvTxv5F4LqR
-	F9/g+gIVVxbRCHVh58oYHQoyZ86kgQxhTWII2dUTHC6Mn4kr+ltOL9xysdcbe+f2zQNJHgDrTRZ
-	mSYSFnpXcS5EZkt2RUacjC9ULIsBW8cq5lt+6cPlaobZxwPX5M3TlE44YU=
-X-Received: by 2002:a05:690e:11c5:b0:67d:a3c2:c95 with SMTP id 956f58d0204a3-67dec2bd130mr4963374d50.3.1795436841518;
-        Mon, 23 Nov 2026 04:27:21 -0800 (PST)
-X-Received: by 2002:a05:690e:11c5:b0:67d:a3c2:c95 with SMTP id
- 956f58d0204a3-67dec2bd130mr4963360d50.3.1795436840812; Mon, 23 Nov 2026
- 04:27:20 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795436857; x=1796041657;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yX9CeG59OS8ilGsOns30C8i4+axcyTEG7TgTi3PMHLU=;
+        b=l/qN5+stR89E5gnhTUgaTWVmQT9HuKTGmU1B6MFPm9My5YDn7hmPgyHl7oiR9KOPM/
+         cnbI5rWLl9zY9sNpUWyEZxh9icBpDsW7I2sV/dEUUheRjeyFCnLpVxiVGM19OYUGDh9L
+         31zHNgbC9e07J/dstqT8PI+LCk0/73csLUeO4oQuAdQtPtw3hpLtmpVjZMYcoAeH7ecL
+         36O9Dkp8wM5uW1LK3xJboXKk6YegEebv/NNj8ANdCXC/ZDCpgRbjhL3fTbV0DBiWpb3z
+         oX3CNWv0IS8Blyi66PFRuQGJVjT+7YXRdCde57liFj35kvWY6qdd0LHWN+uqMddOQ2Hx
+         SJYg==
+X-Forwarded-Encrypted: i=1; AL+hErGxXKXnVuTO5++F8bIIvQFVQgwNN6PvwTj0xIwCxt6LA5sWaqP6ZZvQ9SkVDR8RjDuBF5ka/d/gDRkZj9I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/N9zSrbPcExyYhXk78VvdDq5gt61EeYsfqpwbvN7pz9FxuZ22v
+	CPy2z/kTVI+wFHZJK+Jue82fYYXzRJBsA5M6aqm8mGm5dga1n9dBEJIS
+X-Gm-Gg: AZFdTZeHlX8YhP11UssqAnnfbedifpBiIFeuTqgq0j+v/Pux9TSKdp/ERrUMTZo1b1k
+	MMeioLyd0iiQkr/kfYxIYsmgZgYHgJemSF9yIuV6QYEqrULuwwoSE1Rjog/i3Kyt3X4shYrL/+p
+	Hd33mJVnG17bpnX9kcGub89FhPnaDWE451kRRGajwpsWgo1M34WBNVqTjfcK7QVoYxHDxLlTX5a
+	00iltZJE+RbNGbe0Uo0X74YSlblxL+9yan8yad6lDnXzq+IfczrSC37Ixhd5NI8t4cRQq+x3JCq
+	E7XJvhiT95N4mkrX9Lrjf9Qs3W2YBMSTQ4VPjBHG8zhimwWjPZMM6+DyHPG8DqueOUldnWKNvtS
+	nDlxXdnkDN3CcBksujAX7BiYfhQXT3YandJ1OLLagHrD/kB+L2W0VoIL+RXEAGfOVz2gaKVD6is
+	x8yW6rEiraoMg127Ka5okfEjEAahmelGZLwHaDo2w5jbCb0fWHCvFXjLqG/i+Cpmg6vD+DYM3Hr
+	JUL1c88XD4/vdRMeiuGrc4QbYSXX9RA34OVZD49cm3tEO+U/NVY93KhUJ/3sJqGwBKq/SIaOGRi
+	1kykhr5JZTUJo3dYBGXgjvqag76Gf6/2PeLJnlBOIrSgww==
+X-Received: by 2002:a05:7301:182d:b0:386:b801:cd06 with SMTP id 5a478bee46e88-386b801cd3bmr1163094eec.40.1795436856700;
+        Mon, 23 Nov 2026 04:27:36 -0800 (PST)
+Received: from DESKTOP-SA7O5VQ.tail87cff0.ts.net ([211.202.142.76])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm25212717eec.1.2026.11.23.04.27.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 04:27:36 -0800 (PST)
+From: Sihyeon Park <me@7xz.dev>
+To: sam@mendozajonas.com,
+	fercerpav@gmail.com
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	willemb@google.com,
+	delphine_cc_chiu@wiwynn.com,
+	Sihyeon Park <me@7xz.dev>
+Subject: [PATCH net v2] net/ncsi: bound channel walks by a valid Channel Count
+Date: Mon, 23 Nov 2026 21:27:32 +0900
+Message-ID: <20261123122732.2971-1-me@7xz.dev>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,139 +88,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-v1-1-fc1253d60351@pm.me>
-In-Reply-To: <20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-v1-1-fc1253d60351@pm.me>
-From: Eugenio Perez Martin <eperezma@redhat.com>
-Date: Mon, 23 Nov 2026 13:26:44 +0100
-X-Gm-Features: Aa3M54pt5PWY45sVKrMEfHYWn7Rl4h8pw_TEQAIUnc03qW3ChT2fpOFP_O-rkHg
-Message-ID: <CAJaqyWdOF3LVF+WHaGw8gimULaCunRkuLnKAhciB7HWpYhnm9w@mail.gmail.com>
-Subject: Re: [PATCH] vhost: mask the in-order used-ring log cursor
-To: fadouse@pm.me
-Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
-	Linfeng Sun <linfeng.sun.dev@gmail.com>, Fang Xieyan <fangxy@xiaopeng.com>, kvm@vger.kernel.org, 
-	virtualization@lists.linux.dev, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 22, 2026 at 2:20=E2=80=AFPM YanXin Li via B4 Relay
-<devnull+fadouse.pm.me@kernel.org> wrote:
->
-> From: YanXin Li <fadouse@pm.me>
->
-> vhost_add_used_n_in_order() plays the batch of used-ring writes back a
-> second time for dirty logging.  Commit e244725e86be ("vhost: fix used
-> ring index wrap in vhost_add_used_n_in_order") masked the index in the
-> descriptor-publishing loop.  The dirty-logging loop introduced by
-> bfcde6b64769 still uses the single-subtraction form
->
->     next =3D start + nheads[i];
->     if (next >=3D vq->num)
->         next -=3D vq->num;
->
-> If the guest refills the available ring while get_rx_bufs() collects
-> one mergeable-RX packet, that packet can consume more heads than
-> vq->num.
+ncsi_probe_channel() and ncsi_suspend_channel() (state
+ncsi_dev_state_suspend_gls) walk the channels of a package by
+incrementing ndp->channel_probe_id until it equals ndp->channel_count.
+channel_count is a single device-wide value, copied unchecked from the
+Channel Count field of the most recent Get Capabilities response in
+ncsi_rsp_handler_gc(). A controller reporting a value outside the valid
+range breaks these walks:
 
-Although I'm ok with the proposed patch as hardening or optimization,
-this sounds more like a bug in get_rx_bufs. Where are the memory
-addresses for these pieces stored if there are no more buffers in the
-virtqueue? Or is it able to loop through the vq?
+- Channel Count 0: in the suspend_gls state channel_probe_id is already
+  1 when it is first compared, so the walk never ends. The driver keeps
+  sending Get Link Status to channel IDs 0, 1, 2, ..., a single
+  link-down AEN never completes the reconfiguration, and NC-SI does not
+  recover when the link returns. A down/up/down flap in that window also
+  logs "Wrong NCSI state 0x100 in workqueue" and stops channel
+  monitoring. Because the value is not reset between packages, the next
+  package's probe also stops after Clear Initial State on channel 0,
+  so its version, capabilities and link state are never read.
 
-> get_rx_bufs() permits up to UIO_MAXIOV =3D 1024 descriptor
-> chains in one call, so a single subtraction is not enough.  For
-> vq->num =3D 32, last_used_idx =3D 0 and nheads[0] =3D 64, next becomes
-> 64 - 32 =3D 32, which is still equal to vq->num and out of bounds.  The
-> next iteration then logs
->
->     used =3D vq->used->ring + 32;
->     log_used(vq, 4 + 32 * 8, 8);
->
-> which starts past the end of the 260-byte ring body (4 + 32 * 8).
-> For a used ring placed inside page 7 at guest address 0x7ef8 (so the
-> entire 262-byte ring occupies [0x7ef8, 0x7ffe) and
-> vq_log_used_access_ok() validates only log_base[0]), log_used()
-> marks [0x7ffc, 0x8004) as dirty.  log_write() then sets a bit in
-> log_base[1] for page 8, past the single validated byte.  On a
-> vhost-net RX queue configured with VIRTIO_F_IN_ORDER,
-> VIRTIO_NET_F_MRG_RXBUF,
-> VHOST_F_LOG_ALL, VHOST_VRING_F_LOG, vq->num =3D 32, and
-> log_guest_addr =3D 0x7ef8, delivering one 8 KiB frame consuming 64
-> mergeable buffers followed by one 1-buffer frame in the same
-> count =3D 2 flush writes
->
->     log_base[1] =3D 0x01
->
-> where log_base[0] =3D 0x80 is the only byte the kernel was entitled to
-> touch.  A guest attached to a vhost-net backend with dirty-page
-> logging enabled (for example during live migration) and a small RX
-> ring can therefore corrupt dirty-log bitmap memory that the VMM owns
-> outside the region registered for this ring.
->
-> Wrap the logging loop index the same way the first loop does:
->
->     next =3D (start + nheads[i]) & (vq->num - 1);
->
-> vhost_vring_set_num() already enforces that vq->num is a nonzero
-> power of two, so this is well defined for every accepted ring size.
-> The coalescing invariant is preserved: if a run is not flushed,
-> next =3D=3D start + 1.  When start =3D=3D vq->num - 1, start + 1 =3D=3D v=
-q->num,
-> whereas the masked next is always less than vq->num.  The run is
-> therefore flushed before the cursor wraps.
-> With this change the same vhost-net configuration publishes
-> used->idx =3D 65 and confines the dirty log to log_base[0] =3D 0x80,
-> leaving log_base[1] =3D 0x00.  The mask keeps next in [0, vq->num) for
-> every accepted power-of-two ring size.  As a bounded cross-check of
-> the index arithmetic, a Z3 model over ring sizes {1, 2, 4, 8, 16, 32}
-> and buffer counts in [1, 64] finds an out-of-range result for the old
-> subtraction (vq->num =3D 16, start =3D 15, nheads =3D 17) and none for th=
-e
-> mask within those bounds.
->
-> Runtime verification and fix validation were performed in an x86-64
-> QEMU/KVM guest running mainline after v7.4-rc3, with Generic KASAN,
-> UBSAN, lockdep, and DEBUG_OBJECTS.
->
+- Channel Count above NCSI_RESERVED_CHANNEL: the walks send commands to
+  channel IDs past the 5-bit channel field. NCSI_TO_CHANNEL() does not
+  mask the channel, so channel 31 becomes the reserved channel and
+  channel 32 on package 0 goes out as package 1, channel 0. If a second
+  package answers that Clear Initial State before it has been added by
+  the Select Package response, ncsi_rsp_handler_cis() calls
+  ncsi_add_channel() with a NULL package and the kernel oopses.
 
-Can you post the reproducer? Even better if it is integrated in
-tools/virtio/vhost_net_test.c.
+DSP0222 defines Channel Count as the number of channels the controller
+supports, so a conforming controller reports a value from 1 to 31; these
+are robustness fixes for non-conforming controllers, firmware bugs and
+emulators (libslirp's NC-SI responder, used by QEMU user networking on
+the Aspeed machines, reports 0).
 
-Thanks!
+Clamp the stored value to [1, NCSI_RESERVED_CHANNEL] and warn when the
+controller reports something else: a controller that answered on a
+channel has at least one, and channel IDs stop at 0x1e. Also terminate
+both walks with ">=" instead of "==", so that a later Get Capabilities
+response that lowers channel_count in the middle of a walk cannot make
+it run past the new bound.
 
-> Fixes: bfcde6b64769 ("vhost: fix dirty logging for in-order used ring ent=
-ries")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: YanXin Li <fadouse@pm.me>
-> ---
->  drivers/vhost/vhost.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->
-> diff --git a/drivers/vhost/vhost.c b/drivers/vhost/vhost.c
-> index dc973287567..80b887e1511 100644
-> --- a/drivers/vhost/vhost.c
-> +++ b/drivers/vhost/vhost.c
-> @@ -3206,9 +3206,7 @@ static int vhost_add_used_n_in_order(struct vhost_v=
-irtqueue *vq,
->                                 log_start =3D start;
->                         log_count++;
->
-> -                       next =3D start + nheads[i];
-> -                       if (next >=3D vq->num)
-> -                               next -=3D vq->num;
-> +                       next =3D (start + nheads[i]) & (vq->num - 1);
->                         if (i + 1 =3D=3D count || next !=3D start + 1) {
->                                 used =3D vq->used->ring + log_start;
->                                 log_used(vq,
->
-> ---
-> base-commit: c44104f3642da720164042623e4832836aefdd8e
-> change-id: 20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-43734ad1=
-0f0a
->
-> Best regards,
-> --
-> YanXin Li <fadouse@pm.me>
->
->
->
+Tested on QEMU 11.1.3 romulus-bmc (aspeed_g5_defconfig; unpatched: net
+tree at e203d8a4751d, patched: af6737b90668, no net/ncsi changes in
+between) with a minimal initramfs and a loopback NC-SI controller
+emulator with one or two packages of one channel each (pN = Channel
+Count reported by package N):
+
+  kernel     count       event   result
+  unpatched  p0=33, p1=1  boot    oops: ncsi_add_channel(NULL package)
+  patched    p0=33, p1=1  boot    warning; p0 and p1 probed normally
+  unpatched  p0=0,  p1=1  boot    p1 channel 0 gets CIS only
+  patched    p0=0,  p1=1  boot    warning; p1 gets CIS, GVI, GC, GLS
+  unpatched  p0=0         A, B    no recovery (GLS to ch 0,1,2,...)
+  patched    p0=0         A, B    recovers; same commands as count 1
+  patched    p0=1         A, B    unchanged; ch0 GLS 58 per 60 s
+
+(A) link-down AEN, link-up 15 s later; (B) down, up, down 0.5 s apart,
+link-up 15 s later; measured 180 s after the final link-up.
+
+(CIS: Clear Initial State, GVI: Get Version ID, GC: Get Capabilities,
+GLS: Get Link Status)
+
+An AI coding assistant (Claude Code) was used to analyze the problem,
+reproduce it in QEMU and draft this patch; I reviewed the change and
+the test results.
+
+Fixes: e85e271dec02 ("net/ncsi: Fix the multi thread manner of NCSI driver")
+Signed-off-by: Sihyeon Park <me@7xz.dev>
+---
+
+Notes:
+    v2:
+    - Clamp Channel Count to [1, NCSI_RESERVED_CHANNEL] in
+      ncsi_rsp_handler_gc() (Sashiko review). With only the ">=" change, a
+      count of 0 still cut the next package's probe short after CIS, and a
+      count above 31 aliased into package 1 and could oops in
+      ncsi_add_channel(); both are reproduced and fixed above.
+    - Drop the v1 claim that Channel Count 0 behaves like 1 with the loop
+      change alone; retitle accordingly.
+    - Link to v1: https://lore.kernel.org/r/20261119100625.72505-1-me@7xz.dev
+
+ net/ncsi/ncsi-manage.c |  4 ++--
+ net/ncsi/ncsi-rsp.c    | 12 +++++++++++-
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+
+diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
+index 1d63958c4429..c5cf2ca0385c 100644
+--- a/net/ncsi/ncsi-manage.c
++++ b/net/ncsi/ncsi-manage.c
+@@ -520,7 +520,7 @@ static void ncsi_suspend_channel(struct ncsi_dev_priv *ndp)
+ 			goto error;
+ 		ndp->channel_probe_id++;
+ 
+-		if (ndp->channel_probe_id == ndp->channel_count) {
++		if (ndp->channel_probe_id >= ndp->channel_count) {
+ 			ndp->channel_probe_id = 0;
+ 			nd->state = ncsi_dev_state_suspend_dcnt;
+ 		}
+@@ -1491,7 +1491,7 @@ static void ncsi_probe_channel(struct ncsi_dev_priv *ndp)
+ 			ndp->channel_probe_id++;
+ 		}
+ 
+-		if (ndp->channel_probe_id == ndp->channel_count) {
++		if (ndp->channel_probe_id >= ndp->channel_count) {
+ 			ndp->channel_probe_id = 0;
+ 			nd->state = ncsi_dev_state_probe_dp;
+ 		}
+diff --git a/net/ncsi/ncsi-rsp.c b/net/ncsi/ncsi-rsp.c
+index 33921dc169e3..84cc8ac0ca2f 100644
+--- a/net/ncsi/ncsi-rsp.c
++++ b/net/ncsi/ncsi-rsp.c
+@@ -829,7 +829,17 @@ static int ncsi_rsp_handler_gc(struct ncsi_request *nr)
+ 	 */
+ 	nc->vlan_filter.bitmap = U64_MAX;
+ 	nc->vlan_filter.n_vids = rsp->vlan_cnt;
+-	np->ndp->channel_count = rsp->channel_cnt;
++	/* Channel Count bounds the per-channel walks in ncsi-manage.c, and
++	 * the channel ID is only 5 bits wide with 0x1f reserved. A controller
++	 * that answered on this channel has at least one channel, so keep
++	 * the value in [1, NCSI_RESERVED_CHANNEL].
++	 */
++	if (!rsp->channel_cnt || rsp->channel_cnt > NCSI_RESERVED_CHANNEL)
++		netdev_warn(ndp->ndev.dev,
++			    "NCSI: Package %u reports invalid Channel Count %u\n",
++			    np->id, rsp->channel_cnt);
++	ndp->channel_count = clamp_t(unsigned char, rsp->channel_cnt, 1,
++				     NCSI_RESERVED_CHANNEL);
+ 
+ 	return 0;
+ }
+-- 
+2.56.1
+
