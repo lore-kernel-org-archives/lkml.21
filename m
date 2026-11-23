@@ -1,75 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434987;
-	b=Oe9gtWdbYxLXqu3E5rXttx3nJHkd/pWgiZYGQpmfi9jP/hYA/Sf+amCE2oVaE3FT1Lmb
-	 qy0DUhf5GT6P7cOTwxI4dHbWxzsIMnWCWVisKQQRaY/wPdfDQqLnobCcXZUsnro40Ma8P
-	 WzGpA4l840cSYZAuSpS6NX1rSEvXHcgoQDexNw/Z/O1UD1oAiMVtcehJ78aayhGlOHvIj
-	 x/AUvcRHv8az/6xL2xiKQ1/RtxmTqm3eEP2VpO/RDegCMVuLqALgHszgjwvMNztsXZpIm
-	 YZc0zDJyk/ptrJtS8BleVHePrDldVCesUb+wcT/P1G2K4Y5MUhYnkrVLbZ7tsim2XeA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434987;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795435022;
+	b=gT/Wv4kl1T3gv0CreMpFSqYj+5d+2Za++Rwx21T1pfKbvoxIBZ1gxZcc3+bQbsu2+eLw
+	 2wu5hXLFN1YUS9QDOnqLIm/KWPEHuvtCs3OpEFhZHfYM3QxDA0xcu8++aUSxQhtWJWrnq
+	 y6+DwsCiRhmYmPjpsyo9rPgzPvFalKSEmTS+B/8TBeXrEOk2Hi+kEId/9qkB48HbJNEDo
+	 1BisonyO9zknC6e2+eFTNg6SFW8OeJbC4ibEzRogARGcG/HlM8bQ3xmw9GUuHkgnqvbDf
+	 tic7I6XdeKt2QDu99WPyxOtZl+01YR0zNwxXK8ueRt4IdPK7L4w2ah4lQIR2vHbzpRg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795435022;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=JWKnHCuSk7LneegfayxlFTdcSpVyKl2lOhT1vd5/dwY=;
-	b=syCXjt1TTL2PEcje0v8ge2Wtwmvl9oKlc1/JSlRqhB6yYY6d0AUvuHk0img7cH+ODwmA
-	 eN0PEeUF5BTizSi2+JJNF6BlzRFk/v8igmf7yjyFGOwOtOUphi1b01N9w+k4pmyOy5ybB
-	 N32zaUiP2RBPVYTJjf4ZAuk+IXckl73pBJIPYFlxLOtsFE50971UDt3lJCzJ4BORXGqga
-	 nvY0/3jbmTaUzbRwUgMWQiFHroeAbcu/g5XbJAiftUIRkL+M17rgL2HqI/Tx5awBerMEx
-	 PHEiudlyJbAZC6p1aqaKDFK05wPGbkYUEEA0MVljf/XGO5rbkHkTnA7wNxvA2Xa/ANQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=oqxTqGc37dwDnLjYZnqU54myhb23sMonqleeRzhUP+A=;
+	b=Aqj+9aplLW449dBIrmxV1oO+RRf5cFrM9z9S2rsgOKvbQfd9FGieEV56zC9+aajnc89d
+	 K21C+bhAxHeZ3droyuGBM0ACKmIsBa2wno02aIGJoHXOC13Y+3dZZ92zyiRFWgd19Id0l
+	 N1OOFhFMfQTXtjHIzWO71q0T1Y3U8hkOk80jxvoxl9jmwLBzXSUurQcO1B1QnzFU7xVjU
+	 WxuyROnZTB5C4beQGCvuWmRtzJ5zhRAfOwljJXJFnu0i5f7sJb1eBHnWGo3o20xEngcjR
+	 EwXTbauaUoQ8TTy6fk5VD2ZHjB0fAlOh2+tQeD2QJYvPiMCNNyP2IGHhxcSSoITmtqg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KvpC2MHH;
-	arc=none smtp.remote-ip=170.10.133.124
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=E+gRbUMk;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=uE3fBkPq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C73A606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:56:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C73A606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 418B6606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:57:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 418B6606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KvpC2MHH
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=E+gRbUMk;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=uE3fBkPq
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795434985;
+	s=mimecast20190719; t=1795435021;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=JWKnHCuSk7LneegfayxlFTdcSpVyKl2lOhT1vd5/dwY=;
-	b=KvpC2MHHkypZy6gXZCIY7Ta/Oe3hPmqtRqoHLLUOnx0AhghbUtlXsJGlHFoOGHafP2HN+6
-	QK7E8bBu67nzM2apA64QjiLVaKIwi83/oeGH1u2SnrdyQr9QBva8CNbsGFAIABAWmT69xo
-	1SCxWqcaTtz+UN5q3qefjrDnbJc6x+8=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-694-uMh-3LQANHe0guXSvQAUxQ-1; Mon,
- 23 Nov 2026 11:56:21 +0000
-X-MC-Unique: uMh-3LQANHe0guXSvQAUxQ-1
-X-Mimecast-MFC-AGG-ID: uMh-3LQANHe0guXSvQAUxQ_1795434979
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BCBFF195609D;
-	Mon, 23 Nov 2026 11:56:19 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 031EB18004FC;
-	Mon, 23 Nov 2026 11:56:17 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Mon, 23 Nov 2026 12:56:19 +0100 (CET)
-Date: Mon, 23 Nov 2026 12:56:16 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Christian Brauner <brauner@kernel.org>,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] signal: initialize k_sigaction in sys_signal()
-Message-ID: <awQp4FzrABb9s9Be@redhat.com>
-References: <20261123091329.3658965-1-bsdhenrymartin@gmail.com>
+	bh=oqxTqGc37dwDnLjYZnqU54myhb23sMonqleeRzhUP+A=;
+	b=E+gRbUMkXzr0ftgnphVyzjzHx4e5SigwzrZsgeRJCNybCOx25/aMeDa/5uK8JDEq0XaT8T
+	/GotI0hz8XNeEaCJySIHX7w0tJVAPDeoB3onXSvfuP5VncwyfmwP7YIzUrYUIH/3A0FxwR
+	7vcuuTbyVgva45tbdLQt4k2HsLFCp7w=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-674-NUlWkIBCNSqLP3q4Rvrxow-1; Mon, 23 Nov 2026 11:56:59 +0000
+X-MC-Unique: NUlWkIBCNSqLP3q4Rvrxow-1
+X-Mimecast-MFC-AGG-ID: NUlWkIBCNSqLP3q4Rvrxow_1795435019
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-8b501e92b97so30282377b3.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:56:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795435019; cv=none;
+        d=google.com; s=arc-20260327;
+        b=WuM0cPxsKv6f1aiZrBTnB0lyjWJRU65fb+V0a8Uab/lm4baBtsa2XaysBDohNuJl1S
+         8vCiAyG3Pusx1oCt7OURaxaAYWd63uysvDAAS+806zW6XWJqMcp1wTy630GHFYiA/7YC
+         RHTn4FF30Ij1YDgfqIV8mdVT+pQ3CypgIRw0jRHpL5rowSZl44n+F90yHuxCBgGWU2LN
+         1aELsklGOW1cMxmQkX5WvOcoCqt8ibBckxiTjGgeF7K5v++0QijTiz5dJv7GUigcFknq
+         GMEb753O8FXyLDx/h3CA3DdCGgBAV3STth9LZQcvAywwcGxreL3SCrt79H5nQ4OGA6br
+         htMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=oqxTqGc37dwDnLjYZnqU54myhb23sMonqleeRzhUP+A=;
+        fh=raU7aK6vSlAOZ79rmZ/IHXtNFGM+hpjLEeL1K9dk3UA=;
+        b=bjSDYLH/XjW57AfcdBxEqeoJwP1sDaVSudzG1La6kdFXsAV62blCuUSr65Q3wNgXfo
+         TalvGKxw/uBKchXi8zi3OdnuQlMVTKqxca60WToobR6Nb9u3/2V79qY0TT1xJCJe6Ocp
+         /A1Ff6htJS4eJR28PHpYiM3ITFmlxes7wCMj7jWkRLT6DvPX71KWggRv+LmQZ2WNnCSq
+         ddkNeagWGQR+8Yr0XOzkryHxRPau2chvIRH3fByNESJ15K32EtoYMo5Uyl8VR6nAuza0
+         xPUJuVz0HBW8nBdWruUv9zZQppnp0NrBRvfL4SK2iztvcQ9DlyBWLUNmO/x4xz3ftZ59
+         Q9/Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795435019; x=1796039819; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oqxTqGc37dwDnLjYZnqU54myhb23sMonqleeRzhUP+A=;
+        b=uE3fBkPqZHuiV0zspXRYOlAIWjlsHa1xBh411w5ZfvWMkXRNiiCke1/VIMPgMms1cw
+         emY44vAHwtWhEcy7QqtIcvwOEdAwbKkZT8gnb9pQg0GRhv+aCfl0/3pN6c2nOCFBkDar
+         iGBmarvx33bHtPnyd2m47JeR2vILjrFMW30NjMcE/im19C0YwNf7Uq+VbBh8Wk5nFQLx
+         yBFDMgB0Mwuu4r5ESKndz4VGkwJYcIa35a1H7nmRqItTsgjc2xx+eBvQ9LJx9KO0qV9n
+         z/pm0z3kBbliJnL+sIRkMzmJlO0XRf5FW2DcnXZseXLmODP/phiKBd4puY5oi/HQexhT
+         c+hQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795435019; x=1796039819;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oqxTqGc37dwDnLjYZnqU54myhb23sMonqleeRzhUP+A=;
+        b=t0Mm1C7EVeNFOOm2T3TrNKYY4JHVegmXyhf94paMzqn69+rP07lleuZyyuOkmhhqdt
+         PQTd6ZWoqq+JLT/1rc+uyq/vOLt+eS0RKfxwxePi2KI7DDOM0QTi+G5yhe3VJF97BhyV
+         d9RtM6RYrUjBJQv4xkgCiFMtYMLFoeBskghvg8jnwn0RBf9G/UGpj5LKO8uujDIJyKD8
+         9MgDBSRaEK3qX6EcMrImxDBfuKlHz1fAU0tSGTRbnJqqCu0DstLB2DHoroCUjXy1AQPn
+         NET/XTPlQknu+xcI60hwBF2QFcZa58B1pJASB3QZeREJRup2hWgWIFR86oXIuM6DBdBU
+         +OmA==
+X-Forwarded-Encrypted: i=1; AL+hErH2pZpEpsWDkr5ya/J97gRSSF7rcgqIwQJnN3Xj5unzFjXHjJI5A0q7CrFwcbK5MYniqi4eclidT7wa2IM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OV+NdwOdExq2PHIrrv/gcP+KEL5AY5N9eVgDBX/2YjvBmuft6
+	rztZVaFFLQeT6wTrQsQfsRsbIDy7fXIl+Vho2fyMk9jnXI0gowamDJfNWSXwizpuy4DSJB6FiN/
+	jUoN10mF9iBCaDJBVb232WTVSWwVuJRHSKWyNs8RUCYqzzapP5zl+3mqMcvSeKo93gsuBQA5Ytb
+	rf+Ig/u3BmT9kOUA4+O+dHN2b9roGJc5LWdN9cl9Rs
+X-Gm-Gg: AZFdTZfxS6thCb7AwX1mYaHXaRAH+jsQqgGbU62lbpG4St5CxAdriZ5MLnS1gPkvOhC
+	6hYZlzFUR9/W5fyQAJi9MO+EkR/hFXb/0Kc9Y7FN7Y5kzexa2UaKSDpVmp3WYgxcQfBSUvHSpWO
+	2KdnOWcPVcA1w6q4wIApejlmu/l0fHuo0saD4ucXAYnWprsDYkefHK7+KmgEjnoUuFCYON9KJKv
+	tgqGOiYmHNYQPsFsTBcpuH0/pAb4tXFqtPjKvAzBFpqIA==
+X-Received: by 2002:a05:690c:6b05:b0:8b3:ba8d:2f55 with SMTP id 00721157ae682-8b52043567emr39667117b3.33.1795435018733;
+        Mon, 23 Nov 2026 03:56:58 -0800 (PST)
+X-Received: by 2002:a05:690c:6b05:b0:8b3:ba8d:2f55 with SMTP id
+ 00721157ae682-8b52043567emr39667047b3.33.1795435018370; Mon, 23 Nov 2026
+ 03:56:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,23 +125,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123091329.3658965-1-bsdhenrymartin@gmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+References: <20261120031305.3561045-1-huangsj@hygon.cn> <20261120031305.3561045-2-huangsj@hygon.cn>
+ <CAHc6FU7VUBLg=gX-xspFfp4jPffdH7Pc4oVx5nRDo7A3aiVWug@mail.gmail.com> <awP5q_CmS3uIqfCw@hsj-2U-Workstation>
+In-Reply-To: <awP5q_CmS3uIqfCw@hsj-2U-Workstation>
+From: Andreas Gruenbacher <agruenba@redhat.com>
+Date: Mon, 23 Nov 2026 12:56:47 +0100
+X-Gm-Features: Aa3M54pdTCvZmmXjws9eztEBY-s6WsNxLh4ieFxp9T0N0Za24a02lla1XE5V3KA
+Message-ID: <CAHc6FU7rAr4Mbf3KssQdsxhdk7D+2SzxSydkyw7cgykGGJOi=A@mail.gmail.com>
+Subject: Re: [PATCH v3 01/11] vfs: add super_iter_inodes()
+To: Huang Shijie <huangsj@hygon.cn>
+Cc: viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz, 
+	hch@infradead.org, mic@digikod.net, axboe@kernel.dk, gnoack@google.com, 
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com, legion@kernel.org, 
+	aleksa@amutable.com, libaokun@linux.alibaba.com, ebiggers@kernel.org, 
+	djwong@kernel.org, sandeen@redhat.com, zhongyuan@hygon.cn, 
+	fangbaoshun@hygon.cn, yingzhiwei@hygon.cn, wujianyong@hygon.cn, 
+	shijie8@gmail.com, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
+	gfs2@lists.linux.dev, linux-security-module@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/23, Henry Martin wrote:
+On Mon, Nov 23, 2026 at 9:31=E2=80=AFAM Huang Shijie <huangsj@hygon.cn> wro=
+te:
+> =E5=9C=A8 Fri, Nov 20, 2026 at 03:56:23PM +0100=EF=BC=8CAndreas Gruenbach=
+er =E5=86=99=E9=81=93=EF=BC=9A
+> > > +
+> > > +int super_iter_inodes(struct super_block *sb, ino_iter_fn iter_fn,
+> > > +                     ino_iter_eligible_fn eligible, void *priv, int =
+flags);
+> > > +
+> > >  struct super_operations {
+> > >         struct inode *(*alloc_inode)(struct super_block *sb);
+> > >         void (*destroy_inode)(struct inode *inode);
+> > > --
+> > > 2.53.0
+> >
+> > Sorry to say, but this has gone quite a bit off course. Can you try a
+> > construct like iomap_iter() instead?
 >
-> Zero-initialize the whole struct so the fix also covers architectures
-> that keep the restorer in ka_restorer.
+> Christian had suggested to use the following methed:
+>   https://lore.kernel.org/all/20261120-mitverantwortlich-drehbaren-kantho=
+lz-241300d20168@brauner/
 
-...
+Yes, that's what I meant.
 
->  SYSCALL_DEFINE2(signal, int, sig, __sighandler_t, handler)
->  {
-> -	struct k_sigaction new_sa, old_sa;
-> +	struct k_sigaction new_sa = { }, old_sa;
->  	int ret;
-
-Acked-by: Oleg Nesterov <oleg@redhat.com>
+Thanks,
+Andreas
 
