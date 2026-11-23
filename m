@@ -1,62 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795456448;
-	b=H8vtdiC4bDoucobGg0Uth6nZ/B0guYNOfXciSE/5RO1Rzvn+hf01+cMxOCbIeE3RglRg
-	 Tl+4U5kulDPAKRTrjtTGi24wVaklNOn3+LRpnagLD9sMlSfxcSA5GnprkHqMiRvy3dyEf
-	 Iym5AcChGhOgtpSFnVtt61pCJDJoQ3u4cOqBNJ2OHcqEBOa9iERcp3R54ZVWxpkhfvBtZ
-	 t871+8RwnDMy/qKi1MQKj1nYKD3rAMxKFZeNz0cPsvrEsyTHx+z7hECj2vqbHWBmx/d4m
-	 /qtFjIjxfufA/w7hSpkNDH7LF7kPh+XD0V7hIWMxh3aNRN4wgtG20THjUuiDhqi9qhg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456448;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=QguODtbBfbYIOaHST7nmcCeE5a3zLdp+DRs/3g3p/90=;
-	b=cQmTfgr7M055+w8KNAgZ+b5qPwaeSz6XI3wNkxVRK4b6D69ksXh4f3Z3cxABnz72UMNx
-	 ebCfzUOzwAAxzYoclWs3jwplRABZgWxTxbXvmL0JQWiWNOMVaA+5z6DEbNC0fqUpJnYFG
-	 1YHieJhtmckK1umxewhlBvKIze6IQy9xhDLszETf6NQluRWIfZy+D9gBXb3K6s12gH4HQ
-	 65ck3s7om2dHzSUm9uJLztI5uY3DM8cZAy0ucrI74mIUjUsV9NEfmV74abhrPcbcd7d+W
-	 oFWzp0AE2fGXMB8eYVH8swZPmEaB3EsLiYplOWs45iVKLrXd/gQ2mX58+/XqX7I9BgA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jFC2A8og;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.4
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795456489;
+	b=1ItcJVggPGN15tfQ47gZBKaslBTpADQg2dvkRAnAm1L526hH0LMjTfcb6SfC/lCurQxB
+	 RVepsp5tWj5RrRa+PlFk8SEwgCdAqrtH3swH1hmIFi9Bw0RrZrLYLWLfLepGPro9UUJ+Q
+	 F59ahtO0uooPHgRtG34G2HK4jSaYTsHblywZ7LrwzOwZxTO0A1EQU7vSUM0gw9lYkkelU
+	 KE/jXVtOly/YkfieDAIMtZN1OdSbWMnKwBd5LMxNdl8edYKJLQ+7zyzNzhjTzYpk5+LHl
+	 Ap2xqTDx1YEKyu2Ck8w+XWT8BiC9IZz76e1a3R6wCg/TQETGXYEq0wY6yvKNl+xcDog==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456489;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:Date:
+	 From:To:Cc:Message-ID:In-Reply-To:References:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Correlation-ID:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-Source:
+	 X-Source-Args:X-Source-Dir:X-SGantispam-id:X-AntiAbuse:AntiSpam-DLS:
+	 AntiSpam-DLSP:AntiSpam-DLSRS:AntiSpam-TS:CFBL-Address:
+	 CFBL-Feedback-ID;
+	bh=hsHYRS9OInffpGq5oiUzbknaI7qM/TYlqpXmRUYxTj0=;
+	b=YTLtR50DaNvB6lmAYeJ/yuY+GDMbisqagZJTWJ4cH71TxLcRk1pdNNJfc2CgQrUmdOaT
+	 JdUCP9SWnQz6mrLJ1tsQj1c0Nq2ymKIh9PJ7k/60GwQcNNUW7wVE8Jk7JTU4e/h1yMlO7
+	 KtkmXqq9mtlh4zT2Eh5gzsFVT/JdFtTk0XbpU/kDcUucNdTRZsqtghYYu3p+7SVskUsnf
+	 +jraBCkhf7jSOp9M3EgFsezhTP5D2u0GWndHthCozTI6HdGWgGzQlXUwwbeSj3FvMGux1
+	 Q+5Dv6VPr3tQr8f481hv/aDqHq7JMtT7hMYJjXptB7VmjmVSI6yev6WU2qSGTUACRYQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=valla.it;
+	spf=pass smtp.mailfrom=valla.it;
+	dkim=pass header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=Hcqg+rtC;
+	dkim=pass header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=abC0vOow;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.4
+Received: from delivery.antispam.mailspamprotection.com (delivery.antispam.mailspamprotection.com [185.56.87.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 359FB606A32C;
-	Mon, 23 Nov 2026 17:54:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A7F6606A31A;
+	Mon, 23 Nov 2026 17:54:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A7F6606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valla.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valla.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jFC2A8og
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FCF1F000D4;
-	Mon, 23 Nov 2026 17:54:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795456448;
-	bh=QguODtbBfbYIOaHST7nmcCeE5a3zLdp+DRs/3g3p/90=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jFC2A8ogexFHV7NgJFfFecbR3hYuSJTwaIOihvq5yvDdPkodr9/lJSlbnC34+K8zD
-	 CPZpXHay9z3Ri0w2J9T4b4fij+IVNOzmQUtQameLGSYsTq8GOox+p+bGoK3vVZ2GGS
-	 23Q+1/9Wz4UYP/XLIwlXOaOJcfSZnL2M0Xqy18FE3/4keXj4p5UtYZIw17BGolIZaK
-	 d/qHQx3xGlBjPgFf0IyGCuHHtlNv+Hf5tLgh1MfzAUlyvuRruZwqtxTTqaP5KoMzOA
-	 Ow+mETWBBH+GoMBp66RDvQP+C5Fu7NRI4njfUQzvvaHqf49rpYqPoH8DWC/NDzjMfc
-	 iLhTQMdGt6/8g==
-Date: Mon, 23 Nov 2026 11:54:06 -0600
-From: Rob Herring <robh@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
+	dkim=pass (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=Hcqg+rtC;
+	dkim=pass (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=abC0vOow
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com; s=arckey; t=1795456487;
+	 b=YkxXisX8xqvr/aj6i0eS8W87R5x22gC9/jKmDp7VAuW7U+pTPMPHlYwpvnFz7iG0sdmlp8aDef
+	  7xwMUjkDOEPVO/PSArEAgaD1Xz39VUEKXNt0RrulYRfOyud9ePnGVZSfZ8Py36VftFL06ZIyLf
+	  8QNgyn7MDXd1R0OBAz9uTSWpntAmvbyHT6MRWqPRD/tA9Mxrkms+zaB6aHWiM6eLe+kXwUsgRC
+	  mnXYXVkcEQRwQvBA4BT5Zeanx3WjZsD8ZOer3sd+Yo9GadtuIQ4HoJDvB4cyemF+JPieg/DcKp
+	  pdbKgsrRYUfkVfVGnVJYs84FuxcjeiJ91HVbfzltcTh/6w==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com; s=arckey; t=1795456487;
+	bh=hsHYRS9OInffpGq5oiUzbknaI7qM/TYlqpXmRUYxTj0=;
+	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	  In-Reply-To:Message-ID:Cc:To:From:Date:DKIM-Signature:DKIM-Signature;
+	b=ePUwX89EZds4xc8EFWRDypuxGTsQJMkedWV2quJROpgr3RDQOlFDdbTX69qATYGt68+v397JKB
+	  7lHlInTD3yS+pFIQyE44c6tSfslJvrzbfbhC0ZmkCAyEeNKUtp7MpcrZ/lJRlUdpuyVKNcCpSp
+	  Cu+4Qs6FE/2RebQWYp+3Exfq2/+YdO502AZv9e2BjnzuNnzSGvdvyiKKJOXwNHIeHz9mDjE6mz
+	  c+XJhcUEq+FPOyJOf4ucfyNBraSIPxPRMVa4bprukpiKo6haw+S1sv7hMiBoqr+V0YZF2pjtWC
+	  MOyxp9kpkxtabYFTspmL3u0iIUwzMfYAGv2x+Vd9d8/G+w==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Message-ID:Cc:To
+	:From:Date:Reply-To:List-Unsubscribe;
+	bh=hsHYRS9OInffpGq5oiUzbknaI7qM/TYlqpXmRUYxTj0=; b=Hcqg+rtC0eoLrhGa0CkAp9DAaa
+	+sXaHHHLomz2M7HZbmBR/LEOAB0WSh1EFFX1KvGFrg7Yq/Ujp/n6p87cEe+TahEAlQ5wZTl2LtSis
+	KJ8j4ddzfzb7Fykn0N61zdsQBpxtlKQVT5rrf/U3ZQCSW43Vn1ZdmxaMDxIGqg8jmE0g=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xVYFU-00000008AWF-0C2G;
+	Mon, 23 Nov 2026 17:54:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=hsHYRS9OInffpGq5oiUzbknaI7qM/TYlqpXmRUYxTj0=; b=abC0vOow+Y9kNK3I2iSY1udxsr
+	xN6eFBjDut49jNx+dlWMJpl23X/I+cTMfsLv6yFpGTy+H+zR2yuG2JhoEHOtuzqQkD/9L9UlrJkai
+	kYWwUxD0dVNs30OdakX+87l3PgDLx9xf6l4797602jNVJAgKI5/pEFQSQ7gMKLgvgg7M=;
+Received: from [79.28.115.6] (port=60568 helo=dummy.faircode.eu)
+	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xVYFL-000000001L1-0AuF;
+	Mon, 23 Nov 2026 17:54:31 +0000
+Date: Mon, 23 Nov 2026 18:54:27 +0100
+From: Francesco Valla <francesco@valla.it>
+To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	openamp-rp@lists.openampproject.org,
 	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>, alchark@flipper.net,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: connector: Add PCIe M.2 Mechanical
- Key B connector
-Message-ID: <20261123175406.GB55094-robh@kernel.org>
-References: <20261122-pcie6_fix-v2-0-2e0fe615d90b@oss.qualcomm.com>
- <20261122-pcie6_fix-v2-1-2e0fe615d90b@oss.qualcomm.com>
+	Tanmay Shah <tanmay.shah@amd.com>, linux-remoteproc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Message-ID: <78b33a86-6637-47e3-8987-853076e6183b@valla.it>
+In-Reply-To: <1ad4d213-9494-4a46-8f4e-39efe8c8fa6c@foss.st.com>
+References: <20261101-rpmsg-config-size-v1-1-65686b445b22@valla.it> <au4QVFyk7Zzc6y2u@p14s> <av8V18TntRP2U6hQ@p14s> <4c542301-a80d-4f14-8651-1307ac783794@foss.st.com> <awDI4B8yYDB6h3H9@bywater> <1ad4d213-9494-4a46-8f4e-39efe8c8fa6c@foss.st.com>
+Subject: Re: [PATCH] virtio_rpmsg: fix config space alignment
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,283 +105,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122-pcie6_fix-v2-1-2e0fe615d90b@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Correlation-ID: <78b33a86-6637-47e3-8987-853076e6183b@valla.it>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: 2df38b731ae5c6e2a03bcb6d98b2c158
+X-AntiAbuse: ID - 2df38b731ae5c6e2a03bcb6d98b2c158
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xVYFU-00000008AWF-0C2G-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 
-On Sun, Nov 22, 2026 at 12:15:51PM +0530, Krishna Chaitanya Chundru wrote:
-> Add the devicetree binding for PCIe M.2 Mechanical Key B connector
-> defined in the PCI Express M.2 Specification, r4.2, sec 3.2.19.1. This
-> connector is used to attach WWAN Adapters to the host machine over
-> interfaces such as PCIe, USB3.1 Gen1, SSIC, or USB 2.0. The slot also
-> accepts SATA and PCIe SSD Adapters, which use the same pins.
-> 
-> Interfaces that share connector pins are described as one graph port
-> per pin group, with the endpoint number selecting between the mutually
-> exclusive interfaces.
-> 
-> The connector provides a primary power supply of 3.3V/VBAT, along with
-> optional GPIO signals: FULL_CARD_POWER_OFF#, RESET#, W_DISABLE1# and DPR
-> for WWAN Adapters, and DEVSLP, PLN# and SMBus ALERT# for SSD Adapters,
-> plus an I2C parent for the SSD SMBus.
-> 
-> The function of the GPIO_0..GPIO_11 pins depends on the Port
-> Configuration, so they are described by gpioN-gpios properties with the
-> function of each pin per configuration documented in the binding. The
-> Adapter configuration is either sensed through config-gpios
-> (CONFIG_0..3) or fixed with config-state, which defaults to WWAN PCIe.
-> 
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> ---
->  .../bindings/connector/pcie-m2-b-connector.yaml    | 332 +++++++++++++++++++++
->  MAINTAINERS                                        |   1 +
->  2 files changed, 333 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/connector/pcie-m2-b-connector.yaml b/Documentation/devicetree/bindings/connector/pcie-m2-b-connector.yaml
-> new file mode 100644
-> index 000000000000..4760863ff4f7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/connector/pcie-m2-b-connector.yaml
-> @@ -0,0 +1,332 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/connector/pcie-m2-b-connector.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: PCIe M.2 Mechanical Key B Connector
-> +
-> +maintainers:
-> +  - Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> +
-> +description:
-> +  A PCIe M.2 B connector node represents a physical PCIe M.2 Mechanical Key B
-> +  connector. Mechanical Key B connectors are used to connect WWAN devices to
-> +  the host machine over interfaces like PCIe, USB3.1 Gen1, SSIC, or USB 2.0,
-> +  selected by the Adapter's configuration pins. The slot also accepts SATA and
-> +  PCIe SSD Adapters, which use the same pins as the WWAN interfaces.
-> +
-> +properties:
-> +  compatible:
-> +    const: pcie-m2-b-connector
-> +
-> +  vpcie3v3-supply:
-> +    description: A phandle to the regulator for the 3.3v/VBAT supply.
-> +
-> +  full-card-power-off-gpios:
-> +    description: GPIO output to FULL_CARD_POWER_OFF# signal. This signal is
-> +      used by the host system to turn off the entire Adapter. Refer, PCI
-> +      Express M.2 Specification r4.0, sec 3.2.13.1 for more details.
-> +    maxItems: 1
-> +
-> +  reset-gpios:
-> +    description: GPIO output to RESET# signal. This signal is used by the
-> +      host system to place the WWAN Adapter into a power-on reset condition.
-> +      Refer, PCI Express M.2 Specification r4.0, sec 3.2.13.2 for more
-> +      details.
-> +    maxItems: 1
-> +
-> +  w-disable1-gpios:
-> +    description: GPIO output to W_DISABLE1# signal. This signal is used by
-> +      the host system to disable the WWAN radio on the Adapter. Refer, PCI
-> +      Express M.2 Specification r4.0, sec 3.1.12.3 for more details.
-> +    maxItems: 1
-> +
-> +  dpr-gpios:
-> +    description: GPIO output to the Dynamic Power Reduction (DPR) signal.
-> +      This signal is provided by a host system proximity sensor to the
-> +      Adapter to trigger a reduction in the radio transmit output power to
-> +      meet regulatory SAR requirements. Refer, PCI Express M.2 Specification
-> +      r4.0, sec 3.2.13.4 for more details.
-> +    maxItems: 1
-> +
-> +  alert-gpios:
-> +    description: GPIO input to the SMBus ALERT# signal (pin 44, shared with
-> +      GPIO_2). SSD Adapters assert this signal to indicate to the host that
-> +      the SMBus device requires attention. It is not present on WWAN
-> +      Adapters. Refer, PCI Express M.2 Specification r4.2, sec 3.2.14.2.1
-> +      for more details.
-> +    maxItems: 1
-> +
-> +  i2c-parent:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle to the host I2C controller connected to the SMBus
-> +      pins SMB_CLK and SMB_DATA (pins 40 and 42, shared with GPIO_0 and
-> +      GPIO_1). The SMBus is only present on SSD Adapters. Refer, PCI Express
-> +      M.2 Specification r4.2, sec 3.2.14.2 for more details.
-> +
-> +  devslp-gpios:
-> +    description: GPIO output to the DEVSLP signal (pin 38). The host asserts
-> +      this signal to tell a SATA SSD to enter the Device Sleep power state.
-> +      It is only present on SATA SSD Adapters. Refer, PCI Express M.2
-> +      Specification r4.2, sec 3.2.10.1 for more details.
-> +    maxItems: 1
-> +
-> +  pln-gpios:
-> +    description: GPIO output to the Power Loss Notification (PLN#) signal
-> +      (pin 8, shared with W_DISABLE1#). The host asserts this signal to
-> +      notify a PCIe SSD that a power loss event is about to occur. WWAN
-> +      boards use w-disable1-gpios for this pin instead. Refer, PCI Express
-> +      M.2 Specification r4.2, sec 3.2.18.1 for more details.
-> +    maxItems: 1
-> +
-> +  config-gpios:
-> +    description: |
-> +      GPIO inputs sensing the four CONFIG_0..3 pins (pins 21, 69, 75 and 1
-> +      respectively, listed in that order in this property). The Adapter
-> +      grounds or leaves unconnected (NC) each of these pins to tell the host
-> +      the Adapter type, the host interface in use and, for WWAN Adapters, the
-> +      active GPIO_0..11 Port Configuration. Boards that only ever use one
-> +      Adapter type should use config-state instead. If both properties are
-> +      present, config-gpios takes precedence. Refer, PCI Express M.2
-> +      Specification r4.2, sec 3.2.15 and Table 3-18 for more details.
-> +
-> +      Table 3-18. Socket 2 Add-in Card Configuration:
-> +
-> +        CONFIG_0 CONFIG_1 CONFIG_2 CONFIG_3  Adapter Type / Host Interface   Port Config
-> +        GND      GND      GND      GND       SSD - SATA                       N/A
-> +        GND      NC       GND      GND       SSD - PCIe                       N/A
-> +        GND      GND      NC       GND       WWAN - PCIe                      0
-> +        GND      NC       NC       GND       WWAN - PCIe                      1
-> +        GND      GND      GND      NC        WWAN - PCIe, USB3.1 Gen1         0
-> +        GND      NC       GND      NC        WWAN - PCIe, USB3.1 Gen1         1
-> +        GND      GND      NC       NC        WWAN - PCIe, USB3.1 Gen1         2
-> +        GND      NC       NC       NC        WWAN - PCIe, USB3.1 Gen1         3
-> +        NC       GND      GND      GND       WWAN - SSIC                      0
-> +        NC       NC       GND      GND       WWAN - SSIC                      1
-> +        NC       GND      NC       GND       WWAN - SSIC                      2
-> +        NC       NC       NC       GND       WWAN - SSIC                      3
-> +        NC       GND      GND      NC        WWAN - PCIe                      2
-> +        NC       NC       GND      NC        WWAN - PCIe                      3
-> +        NC       GND      NC       NC        WWAN - PCIe, USB3.1 Gen1         vendor-defined
-> +        NC       NC       NC       NC        No Add-in Card present           N/A
-> +    minItems: 4
-> +    maxItems: 4
-> +
-> +  config-state:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      Fixed Adapter configuration for boards that do not sense the CONFIG_0..3
-> +      pins, given as the state number (0-14) of Table 3-18 of the PCI Express
-> +      M.2 Specification r4.2. It selects the Adapter type, the host interface
-> +      and, for WWAN Adapters, the Port Configuration used to interpret the
-> +      gpioN-gpios properties. Ignored if config-gpios is present. If neither
-> +      property is present, state 2 (WWAN - PCIe, Port Config_0) is assumed.
-> +    minimum: 0
-> +    maximum: 14
-> +    default: 2
-> +
-> +  clocks:
-> +    description: 32.768 KHz Suspend Clock (SUSCLK) input from the host system to
-> +      the M.2 card. Refer, PCI Express M.2 Specification r4.0, sec 3.1.12.1 for
-> +      more details.
-> +    maxItems: 1
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +    description: OF graph bindings modeling the interfaces exposed on the
-> +      connector. Several interfaces share the same connector pins and are
-> +      selected by the CONFIG_0..3 pins, so each port describes one group of
-> +      pins and its endpoints describe the mutually exclusive interfaces that
-> +      can be present on that group.
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: |
-> +          Pins 41, 43, 47 and 49. The endpoint number selects the interface:
-> +            0 - PCIe lane 0
-> +            1 - SATA
-> +        patternProperties:
-> +          '^endpoint(@[0-9a-f]+)?$':
-> +            type: object
-> +            properties:
-> +              reg:
-> +                enum: [0, 1]
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: |
-> +          Pins 29, 31, 35 and 37. The endpoint number selects the interface:
-> +            0 - USB3.1 Gen1
-> +            1 - SSIC
-> +            2 - PCIe lane 1
-> +        patternProperties:
-> +          '^endpoint(@[0-9a-f]+)?$':
-> +            type: object
-> +            properties:
-> +              reg:
-> +                enum: [0, 1, 2]
-> +
-> +      port@2:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: USB 2.0 interface (pins 7 and 9)
-> +
-> +    anyOf:
-> +      - required:
-> +          - port@0
-> +      - required:
-> +          - port@1
-> +
-> +patternProperties:
-> +  '^gpio([0-9]|1[01])-gpios$':
-> +    description: |
-> +      GPIO connected to the GPIO_<N> pin of the connector, where N is the
-> +      number in the property name. The function of these pins depends on the
-> +      Port Configuration selected by config-gpios or config-state (Table 3-15
-> +      of the PCI Express M.2 Specification r4.2, sec 3.2.13.3):
-> +
-> +        GPIO  Pin  Config_0     Config_1     Config_2     Config_3
-> +        0     40   GNSS_SCL     GNSS_SCL     SIM_DETECT2  IPC_0
-> +        1     42   GNSS_SDA     GNSS_SDA     UIM_DATA2    IPC_1
-> +        2     44   GNSS_IRQ     GNSS_IRQ     UIM_CLK2     IPC_2
-> +        3     46   SYSCLK       GNSS_0       UIM_RESET2   IPC_3
-> +        4     48   TX_BLANKING  GNSS_1       UIM_PWR2     IPC_4
-> +        5     20   AUDIO_0      AUDIO_0      RFU          AUDIO_0
-> +        6     22   AUDIO_1      AUDIO_1      RFU          AUDIO_1
-> +        7     24   AUDIO_2      AUDIO_2      RFU          IPC_5/AUDIO_2
-> +        8     28   AUDIO_3      AUDIO_3      PLA_S2#      IPC_6/AUDIO_3
-> +        9     10   LED_1#       LED_1#       LED_1#       DAS/DSS/IPC_7
-> +        10    26   W_DISABLE2#  W_DISABLE2#  W_DISABLE2#  HSIC_STROBE
-> +        11    23   WoWWAN#      WoWWAN#      WoWWAN#      HSIC_DATA
-> +
-> +      The IPC_0..7 functions of Port Config_3 are vendor defined, as are all
-> +      functions in CONFIG state 14.
-> +
-> +      On SSD Adapters (CONFIG states 0 and 1) the same pins are SMB_CLK
-> +      (GPIO_0), SMB_DATA (GPIO_1), ALERT# (GPIO_2), PLA_S2# (GPIO_8), and
-> +      LED_1# or, on SATA, DAS/DSS (GPIO_9).
-> +
-> +      Only list the pins that are wired to a host GPIO. Pins used as a bus
-> +      signal in the selected Port Configuration (I2C, I2S/SLIMbus, HSIC) are
-> +      not GPIOs and are not described by these properties.
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - vpcie3v3-supply
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  # PCI M.2 Key B connector for WWAN with PCIe interface
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +
-> +    connector {
-> +        compatible = "pcie-m2-b-connector";
-> +        vpcie3v3-supply = <&vreg_wwan>;
-> +        full-card-power-off-gpios = <&tlmm 121 GPIO_ACTIVE_LOW>;
-> +        w-disable1-gpios = <&tlmm 122 GPIO_ACTIVE_LOW>;
-> +        gpio10-gpios = <&tlmm 123 GPIO_ACTIVE_LOW>;
-> +        gpio11-gpios = <&tlmm 128 GPIO_ACTIVE_LOW>;
-> +        /* A zero phandle marks a CONFIG pin that is not wired to a host GPIO */
+Hello Arnaud,
 
-How would that work exactly?
+23 Nov 2026 09:12:41 Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>:
 
-In any case, that is not supported in examples as the report gave.
+> Hello Francesco,
+>
+> On 11/20/26 23:29, Francesco Valla wrote:
+>> Hello Arnaud,
+>> On Fri, Nov 20, 2026 at 06:50:47PM +0100, Arnaud POULIQUEN wrote:
+>>> Hello,
+>>>
+>>> Sorry it goes out of my radar.
+>>>
+>>> On 11/19/26 16:29, Mathieu Poirier wrote:
+>>>> [Adding openAMP mailing list]
+>>>>
+>>>> Heads up OpenAMP people, I will merge this patch in a week.
+>>>>
+>>>> Thanks,
+>>>> Mathieu
+>>>>
+>>>> On Fri, Nov 06, 2026 at 11:37:24AM -0600, Mathieu Poirier wrote:
+>>>>> On Sun, Nov 01, 2026 at 02:54:03PM +0100, Francesco Valla wrote:
+>>>>>> The comment for virtio_rpmsg_config says that this structure is
+>>>>>> naturally aligned to 32 bits, and this is desirable by some
+>>>>>> architectures that don't get along with unaligned accesses.
+>>>>>> The content of the structure itself however isn't aligned, and the
+>>>>>> __packed attribute prevent the compiler to add this alignment.
+>>>>>>
+>>>>>> Fix this by adding a padding byte.
+>>>>>>
+>>>>>> Fixes: ca96ea25e51a ("rpmsg: virtio_rpmsg_bus: Get buffer size from =
+config space")
+>>>>>> Signed-off-by: Francesco Valla <francesco@valla.it>
+>>>>>> ---
+>>>>>> Hello,
+>>>>>>
+>>>>>> unfortunately I missed this when the original patch set was sent, bu=
+t I
+>>>>>> think it's worth fixing (or at least discussing) this now before it
+>>>>>> enters a stable kernel.
+>>>>>>
+>>>>>> The same support in open-amp has already been merged [1], but maybe =
+it
+>>>>>> can be fixed before the next release there too?
+>>>>>>
+>>>>>> Another, lower-impact solution would be to fix the comment, but that=
+ can
+>>>>>> then led to issues on architectures that does not support unaligned
+>>>>>> accesses (e.g.: AMR Cortex-M0).
+>>>>>>
+>>>>>
+>>>>> Thanks for bringing this to my attention.=C2=A0 I agree with this pat=
+ch.=C2=A0 I will give
+>>>>> Arnaud a couple of weeks to reply to this email though.
+>>>>>> Thank you
+>>>>>>
+>>>>>> Francesco
+>>>>>>
+>>>>>> [1] https://github.com/OpenAMP/open-amp/commit/744376f566c3ec7e06a7d=
+093d785295b78aa486f
+>>>>>> ---
+>>>>>> =C2=A0=C2=A0 include/linux/rpmsg/virtio_rpmsg.h | 2 ++
+>>>>>> =C2=A0=C2=A0 1 file changed, 2 insertions(+)
+>>>>>>
+>>>>>> diff --git a/include/linux/rpmsg/virtio_rpmsg.h b/include/linux/rpms=
+g/virtio_rpmsg.h
+>>>>>> index 0872cbca4593..d24fedb63023 100644
+>>>>>> --- a/include/linux/rpmsg/virtio_rpmsg.h
+>>>>>> +++ b/include/linux/rpmsg/virtio_rpmsg.h
+>>>>>> @@ -23,6 +23,7 @@
+>>>>>> =C2=A0=C2=A0=C2=A0 *
+>>>>>> =C2=A0=C2=A0=C2=A0 * @version: version of this structure, currently =
+%RPMSG_VDEV_CONFIG_V1.
+>>>>>> =C2=A0=C2=A0=C2=A0 * @size:=C2=A0=C2=A0=C2=A0 size of this structure=
+ in bytes.
+>>>>>> + * @reserved:=C2=A0 padding, reserved for future usage.
+>>>>>> =C2=A0=C2=A0=C2=A0 * @txbuf_size:=C2=A0 Tx buf size from remote's vi=
+ew. For Linux this is rx buf size.
+>>>>>> =C2=A0=C2=A0=C2=A0 * @rxbuf_size:=C2=A0 Rx buf size from remote's vi=
+ew. For Linux this is tx buf size.
+>>>>>> =C2=A0=C2=A0=C2=A0 *
+>>>>>> @@ -33,6 +34,7 @@
+>>>>>> =C2=A0=C2=A0 struct virtio_rpmsg_config {
+>>>>>> =C2=A0=C2=A0=C2=A0 u8 version;
+>>>>>> =C2=A0=C2=A0=C2=A0 __virtio16 size;
+>>>>>> +=C2=A0=C2=A0 u8 reserved;
+>>>>>> =C2=A0=C2=A0=C2=A0 /* The tx/rx individual buffer size (if VIRTIO_RP=
+MSG_F_BUFSZ) */
+>>>>>> =C2=A0=C2=A0=C2=A0 __virtio32 txbuf_size;
+>>>>>> =C2=A0=C2=A0=C2=A0 __virtio32 rxbuf_size;
+>>>
+>>>
+>>> What about using a u16 for the version instead?
+>>> Even if we never use the MSB of the field, it seems cleaner to me than
+>>> adding a reserved field.
+>>> Indeed, we can consider the config space header as containing the
+>>> version and the size. The rest is version-dependent, including the
+>>> reserved part.
+>>>
+>> Between the two options, I prefer the u16 version, to keep the
+>> version-dependent "payload" aligned to 32 bits. I'll send a V2 with this
+>> modification.
+>> Shall I send also the corresponding modification for open-amp, or you'll
+>> take care of that?
+>
+>
+> As you want, I have already sent a fix related to this structure in open-=
+amp [1],
+> so I can also add this update if/when it is applied by Mathieu
+>
+> [1] https://github.com/OpenAMP/open-amp/pull/714
+>
 
-> +        config-gpios = <&tlmm 124 GPIO_ACTIVE_HIGH>,
-> +                       <&tlmm 125 GPIO_ACTIVE_HIGH>,
-> +                       <0>,
-> +                       <&tlmm 127 GPIO_ACTIVE_HIGH>;
+Then I'll leave it to you, it's way more efficient.
+
+> Thanks,
+> Arnaud
+>
+
+
+Thank you!
+
+Regards,
+Francesco
