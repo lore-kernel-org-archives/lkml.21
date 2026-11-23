@@ -1,85 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795457114;
-	b=rBA/mgT6n9aRbFM2W8m7yl94lEfGEYdEhOnbaNDEeqlHMAVzF3VpwTrk34jpIvpc5Nth
-	 Hvc02n9hDoMUgbXoDFMug/at79yOhxgiiuZMNEKUIwC1YhuE49aVnXWp5PBzMRJN+pbVT
-	 3zmTXIm3mgnnlMMxLdRPtNAYiJbqfzIuLZRxrHmumCK1+thhzjo+kOe/oCzbXmVKphNTg
-	 Yuzk1smFOGxtGamW3IYuTbnlRtyZgq95DiJqbXosvH+lOkMlZ4HVWSeGpN/f4GVQf2aYl
-	 wfOTetBL2l0riYwCpfOs478tR4pVz/HxOKqXQMKilDpc/yIu2aKx5rVxulLnSmUBdVA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457114;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795457213;
+	b=U7wmserK7cXFff23oa7hGEX83AFcF17teV1EJXNrzATcQePxEm/vRsTiEBWDrM+sRH3b
+	 8x/Pf1/OlemYj+XbO+SgYeLljbI9/VOeV6Jx8bMgd3Jc01BZA5Q5CuKSWIQhEgTOY2412
+	 SWbsOAflODfUuuU4LgAo9C7PAJ5c5Yb46TtJwxPckMTK2pU0LMgjdquBgzFgFBOk7ABr7
+	 kzRjAVC8jXZ5pQhiWDR2JIdrIcCKJ5boMn9SOdhAffQSqYmCwSosB1IfJYSL3FgTvGIZS
+	 tj6fnIEwBfkeZ22vsxv1GfercoOlCoU/v3+1p/tw+q72WrmNlUuV5DbaVlrmstn510w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457213;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 From:To:Cc:Subject:X-Mailer:References:In-Reply-To;
-	bh=Jw8SilefRf5vO5k7eeVpHgnCi78conTEfmhaXVb/RAo=;
-	b=RpnS0zLvGrmeTFVSVXaZJS7midEUjaSzRNqFJ8RhAya0/wGs47sCJshLSzZb2jh9qYJX
-	 IavmOq5sPUhuW4vdiTI7lVp3yJZ/JktR33+qjnw7zzKfMcHRjXoUq/5VM5E23uv0Qg9o4
-	 Nm+m6Z2yJVuY1SBU+7DYPaBRh8U0XI6CerkU4YI7LCISSD/TuBy5/jJz6TWr6qiH5gu0S
-	 UmhkLBrXAeiTXrjCUbTVCktVvF5BuzXRMh3NCJ11rO/bfuEWyBLJ0ZQk94QN3dHYcygtz
-	 Vb6SFCdkHeyzCRIbCQeShoy/0IYIr3dWbWnKEP1kQ2gcPl1UUyVVUyJWwRuBzp0X2WA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Hpz7Nbsq;
-	arc=none smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
+	b=inBMPvROJcit89Cf+W6KYK0/ZXQrvdcxCECeLmtxOnMpx2uvdBbUegEMlDT1DF5Djxfu
+	 qvQYXaNrWxOCQj5F1vPdBJq8hgwAcmCRozY/3zBiW2HM2nr/buEQM/HSsN9PK51eaNsih
+	 RJZ1Ws+gLPGx1fVXtaW8s+gwJ/JVUOV3BhdmqOtnZhUeNB9Yue8Mc0DnQZXQcpUdNeCSh
+	 9qJmZTZlb2AVM4F+6d1oZatI8FC9DImVDoR9RdZANVIgRJuUZa0B0sNhqfYn7hGTiUCXu
+	 OhwBmUX4OPnBzcsjA+4O0rMLkcszWQUgI+IORN8IvfrI29U2IYYDe2pA4pktJbmOasA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ynGHK7uE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.43
+Received: from mail-yx1-f43.google.com (mail-yx1-f43.google.com [74.125.224.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 184BF606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:05:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 184BF606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 036ED606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:06:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 036ED606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Hpz7Nbsq
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso1413853a12.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:05:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ynGHK7uE
+Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-67be4f2f4d4so4091295d50.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:06:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795457212; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Z60qKByTJ1+vl9g3wbr4/5J46RqOvQ9tO6+gbg/zlJC41fYjgjnCtuxOIjpCMlx4Xu
+         0IX78YaMA/65V+Fw2s7xB/iioXu0ss/PCDKao1nv2WZ3huP6oWH6SVOU8j7GmgRZm4C3
+         o5OTtRyAsRF51b4WYq4JK/1YPFA6uFTTNPGnPqgXK+kXcZrOLg3ApAqFEM3KBsEtGt9r
+         ZVR+HnCPIYwIp5751y2u24hTeJO1FLL5R+/I8GFdekav3W5CSpfnRtIOxBn9FHsrZfFP
+         h4i5ELBR58JrL6lmbGAbd5fv4VCOIZQBD3C4N/45klLcwhGbFjnnbD34hB1Nxys+G+Eu
+         7/4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
+        fh=563nRlPXCe/ZjT/ZTwd/wvxJKRIG3SqTgrrKVbPWbpg=;
+        b=j62FLwnSkuUhAXh4JhgktGAmiQBEpAwo+s2KaywVwOMHo10gHTvgC56lyNFm1Z/I2B
+         lmIhweBaXkRtCQZK+7OZjBQsWUSEj0oU1aVy9t80CRLmghSryBjgKgg/plaeaapDv5yS
+         LUY8eUaCkKFqhpvJIxb6I+e/vGCs14bazgKyuN5+HXFQ49gZhS0iwza6zVz9xtSvDQis
+         JAeXaG8ZsEbl86U56UU9K6LCC7IixDLrs7+hCv1SY+h7Z7Kox1Bi6okXHUVQYVIM3FQN
+         BWv18xGBNtKbBlvfUarozOFQKAKwlM8vieI5NWEAfs9VWHC/3V+/wWenUBCB7e3v9B9m
+         oa5A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795457113; x=1796061913; darn=vger.kernel.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Jw8SilefRf5vO5k7eeVpHgnCi78conTEfmhaXVb/RAo=;
-        b=Hpz7NbsqTvn0QO5IqNcw2feT0b821er6TLvP0tMHcFy2s2RO6h4B7KLuBx9vHKKEMt
-         XPi6d6slnuO8vHJclR0sIh0igUwY7Pdl9ZfFMeRGeZ+SvSE+1WBVrZ400kCw5Z+IxexD
-         ijdL8ud41qDsI9X0qsGhnz6Qm9/0rexBUBtv+7iJcGW9UzZtPZCGmIjXKz2prQYhk6XR
-         QZYEi8i3PriRVOjedHIZ1YmV6WPywJAE3bZm+QBa2Wc/KgmPHGNDGB7JyWU0inbohZ+m
-         BUfKSka2ZXco7wmR+wHT+2mVB6yowLRmwFmM9Jb/9bI4Fh/IeRxophzoWqOqwKaJLb1h
-         U0KA==
+        d=gmail.com; s=20260707; t=1795457212; x=1796062012; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
+        b=ynGHK7uEvexHqw48hCg85zxO03l0VsE5U57hLmfl8nlbBwF68tlK9YYvxVRN1kOjF+
+         Cbka8q+ONjU3JwYA1L0RANsDs2irI3NaRWoI7Dpspzw37m38nwFmAiHEv4sZuKvhDawl
+         oDiAVcf4tLb3OhjvhyQ1xS9zval+bi/EMfItyd/aykMxzB2ZfNdre/eisMt2A51pA0yd
+         nFl0/q2Qd2KXdZnucHrhHZUO2D8HJzCfP+vwZLuaoaSeMerJ8Yg2hnYK7rmXrKQjwvrC
+         2nNOFZsDhXdOi6JDe0EbMkqMTDY+9m8n+IEOdp53olcPjsXqg9kIgrra/3JhH9jJeMWZ
+         3oWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795457113; x=1796061913;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795457212; x=1796062012;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Jw8SilefRf5vO5k7eeVpHgnCi78conTEfmhaXVb/RAo=;
-        b=cP0dlZz2a5gAtZRMgHevjk9MunP1o6KQ63MH6ON5YTxYa96R/QwPNPFUBYA5/rJ7JP
-         Ww0hOBqqx7+Sdtq4UWyOR4ZBVO1hNlAPdpkvm9Lm7RltYY98K5YRhWttweCAQVZ6ra3e
-         +WJt9yZjhRspXLgPsE94QMnzuOpRHVJ+9TZbbkERa8Q3sAwDlEiW6mAwQjvD9e7jGIXY
-         Yen6/X7MHWuvjGBiQ6rlTnU58f0wCL38vLdP1Dr1COCfUMVdUDx0qTHLjZMrbJgXKNjM
-         mD2O8RlxURYIsjPKy1l3J43NMGaVYRZQow+PnQG1ki1s03SS/gHiwNPoryyglTrhNkdG
-         To7g==
-X-Forwarded-Encrypted: i=1; AL+hErHLALCEmKvZUBf87d70HsupPkmhkA7TLogXUgv54hb35K8uU+ARbf1OjIpH2+ceG7tWfgTzRTPmh1PsdRo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SGdYR1Jm9wj23H2wZfT/aoINCg4DQUT8YObBnfkatJecJJArR
-	MifEWFe2yBI9wwW1qB+MrC/3j7LFhp84hbJQ6F20t4aHwmaPB9H1FjWwzolAWh15jafHPK7pXtk
-	6TV8dsZ9+
-X-Gm-Gg: AZFdTZfDT0+JQmXy6vgcFb820UMkz/Oc51mQKhjEQYvUAJyu6KTuvGCVQEDE9s3bYzt
-	hDrLzhck7jIBNgJ43hG38vmh8jz7KdzLed6+4sn5Y1FvLIx/bPzqpUxlGEP0x7QTmelovwtDwO7
-	0Sazu1Sxg1xh/TZZFHIVUgqG+wanxcqS2MPBNlelSdj0gum6FUAzbGDmDkxJWtlndpsIh1vVf4i
-	ufBEUiTkqnaxNs3F64o7nTgmqb+gsLSPfSw+Q8Iu74IAC6H5bPYMBVU7W1ZIagx9df9gNn3osPg
-	Oyi+3E3mBx9WL5YnPv++puK7EMh6osUoH+ND2R4NMT6fRflQJv04DYtGgFFimnF0AfVxUjXubkl
-	iEDhTsg5Mg08qT3fE8HQPKQu9hQCrA/s1pTh37wBe3zIGEWgpx7kMHdBLl2bp0R7yC+zivksXC6
-	f7aDnNtrdSJte1bF87QiuWtuRUMRtyoAFcxc5tHyUBkYT1+Lg7Na0mZCKqlDA0/JMsyjnGz/itc
-	EMWqjVyKrIC9+Iw4u9QXoL+CvkHewMqspupUM55znhgZNyPJCEFJ90QF6ZbtoUw2Jrir4AlDK8x
-	tgkAQGIhBe5eMzGA3loizTzmxu3T8AGuUdID1+vqe4iha2aeMszNgGjlsiqSLLAL
-X-Received: by 2002:a17:90b:1d4d:b0:3b4:ca86:8bc4 with SMTP id 98e67ed59e1d1-3b4ca868c1emr225054a91.46.1795457112373;
-        Mon, 23 Nov 2026 10:05:12 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad46ef5sm18802720a91.8.2026.11.23.10.05.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 10:05:11 -0800 (PST)
+        bh=K/gC1WzVIylwK716jBr23A7FWq/AYO9T9Wc9DElVC74=;
+        b=paY/9ujdAtrZ5ce2Vh3+8XdyzDsls7yzFkFuTR9CxhyzzOakNfTB2HmUuw8JQM1NNi
+         Nmg75abRUbhli68Y6WAC6WRPeFiOwYywQ4epEK6jcw0uGRAe1AA0392cgrVJ7a1Lp8DA
+         LXarr19PbkgpykyTK8WYPPwVUzR9fon8GPqtk8axSGXNCZVdR+2KqTfab0ZGxy9O2BK8
+         /JroTfn7YLCE276+7AWtJOXv5JfpOSJJtmsHdBsuAeNTr/D2iV6913T0xq5jsamLp12+
+         SGyDe/42+qlmXChxuyFWYjp6W+0SpWJtoHnZoDFDRGBVYOEuNy3iIVYsX2BpbXlwoi6c
+         BJWQ==
+X-Forwarded-Encrypted: i=1; AL+hErEWnuhj7EH2OtN4RwUoRl3I1/JpdkACl7KenyrwiN1lObfVgOCh2V8xhfftXBj/zDqJ7Ujl7gqio5D9XJc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qtDr+YI5QvjqAFGsMv46BHPdGrp47O7JBzdbTBM7Qn0PPr4Vo
+	l9q0M958VQzjpGjtgRrPMwt+7zMDGxJpmWFdG2ygCz8MOVVS9e1n9HjJbRlFovsc12IBP87Afje
+	EJjpODuyLCD/d55y2+hRav3Oh/YAUDDI=
+X-Gm-Gg: AZFdTZeHlJPwKNH83mTMVptYu1BNYkzAJFS19mzXN0a9jqsUkBmoQUFIA/7J7HH7K18
+	UlZommvzzEjuhEcy6vqiSx9CNaZJVpPfFHBMTKnLdnQv2T7Y3q/fD9h3sWErfUReVIWUPqTrLT3
+	vfZNTdBG/96dcl4ji8CeQ0T16QmdjOjBenVjujifihC0TyEMvCIfEMykFxTiH4Ccdn4RdRKSSZv
+	LLo6bzTv16qK0E0UUashwmwJ3ZZRCPVXVF1qFXatrfeHDf2OGMxan8ohn8xY4gfXDsl5v2ovzf2
+	KFpdtrDCCE1kIraYAhc+PJVOvsCohJ0FR4W/rqfSAHS8nMxO4fwZFSbbDvWXfstIlU0dJ4YUdRO
+	bazfnFLKHoDRxsp1WPyZ0LCNPM5is9BHiOGDIx3RruLx/hLk9pGXiCK2nliviB/VCAhI98i9ouH
+	/NSVFBZzCxszUSSBfJdPqxDPj1Nn3+nyU+18A9ObFhGOhDEcl5zw+5JbxV5oU=
+X-Received: by 2002:a05:690e:440f:b0:679:b5ef:a0e4 with SMTP id
+ 956f58d0204a3-67df44ff8cemr2520240d50.100.1795457211899; Mon, 23 Nov 2026
+ 10:06:51 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,69 +104,45 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
+MIME-Version: 1.0
+References: <pm-bluetooth-objects-candidate-0218-v8-da37c8a6b33c9d2d8efc-0@gmail.com>
+In-Reply-To: <pm-bluetooth-objects-candidate-0218-v8-da37c8a6b33c9d2d8efc-0@gmail.com>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Mon, 23 Nov 2026 13:06:40 -0500
+X-Gm-Features: Aa3M54oC2JPHwdLbrzUoRb6BHLhu1-ajOv4wUQhdYutOJfAao_ufgCkye0yzpeY
+Message-ID: <CABBYNZJMr848DGgcX-SUjf5UfcwYfrB12bGRc0ZVzLWsMhc_rw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] Bluetooth: RFCOMM: Protect sockets during teardown
+ and TTY handoff
+To: Cen Zhang <zzzccc427@gmail.com>
+Cc: marcel@holtmann.org, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, baijiaju1990@gmail.com, jjzuming@gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 10:05:11 -0800
-Message-Id: <DN2SFE0VTWYZ.30XIXLSZ0OQAQ@google.com>
-From: "David Matlack" <dmatlack@google.com>
-To: "Pratyush Yadav" <pratyush@kernel.org>, "Christian Brauner"
- <brauner@kernel.org>
-Cc: "David Matlack" <dmatlack@google.com>, <kexec@lists.infradead.org>,
- <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-kselftest@vger.kernel.org>, <linux-mm@kvack.org>, "Alexander Graf"
- <graf@amazon.com>, "Andrew Morton" <akpm@linux-foundation.org>, "Baolin
- Wang" <baolin.wang@linux.alibaba.com>, "David Hildenbrand"
- <david@kernel.org>, "Hugh Dickins" <hughd@google.com>, "Jonathan Corbet"
- <corbet@lwn.net>, "Liam R. Howlett" <liam@infradead.org>, "Lorenzo Stoakes"
- <ljs@kernel.org>, "Michal Hocko" <mhocko@suse.com>, "Mike Rapoport"
- <rppt@kernel.org>, "Pasha Tatashin" <pasha.tatashin@soleen.com>, "Randy
- Dunlap" <rdunlap@infradead.org>, "Samiullah Khawaja" <skhawaja@google.com>,
- "Shuah Khan" <skhan@linuxfoundation.org>, "Suren Baghdasaryan"
- <surenb@google.com>, "Vlastimil Babka" <vbabka@kernel.org>
-Subject: Re: [PATCH v4 08/19] liveupdate: Let file handlers retrieve into an
- existing file
-X-Mailer: aerc 0.21.0
-References: <20261111002358.1842967-1-dmatlack@google.com>
- <20261111002358.1842967-9-dmatlack@google.com>
- <20261120-gedulden-rausgeflogen-spruch-cea76174d5e2@brauner>
- <2vxz7bi73fby.fsf@kernel.org>
-In-Reply-To: <2vxz7bi73fby.fsf@kernel.org>
 
-On Fri Nov 20, 2026 at 3:36 AM PST, Pratyush Yadav wrote:
-> On Fri, Nov 20 2026, Christian Brauner wrote:
->
->> One thing: Please just install a new fd like for every other retrieve.
->> I think it's pretty meaningless to return the fd number the userspace
->> just passed to the ioctl.
->>
->> The fd number is also not useful as it's not tied to anything. The shmem
->> handler looks the fd up once and LUO keeps a reference to the struct
->> file:
->>
->> 	CLASS(fd, target)(arg->fd);
->> 	[...]
->> 	args->file =3D get_file(file);
->> 	args->fd =3D arg->fd;
->>
->> Which means, another thread can close() that fd or dup2() something else
->> over it before the ioctl returns and the fd you hand back refers to a
->> different file fucking over the caller (shared fdtable etc pp).
->>
->> That also gets rid of @fd in struct liveupdate_file_op_args and the
->> special case in luo_session_retrieve_fd(). And a retrieve into an
->> existing file then behaves exactly like retrieving the token again.
->
-> I suggested this approach because I found it odd to return a FD that
-> userspace already asked us to retrieve into. Any sane userspace would
-> just end up closing one of the two. I didn't think of this race though.
-> I reckon we could return -1 in the FD that LUO returns, and let
-> userspace use the FD it already has to work around this. If userspace
-> wants to close the FD in the meantime, that's their problem. They don't
-> get the file they asked for.
->
-> While I like this more, it's not a super strong preference. So if you
-> still insist on having a new FD, that's fine too I suppose.
+Hi Cen,
 
-Thanks both. I'll go back to installing a new fd in v5, like for any
-other retrieve.
+On Sat, Nov 21, 2026 at 2:03=E2=80=AFAM Cen Zhang <zzzccc427@gmail.com> wro=
+te:
+>
+> Socket notification and TTY handoff can outlive the object which made
+> the socket's borrowed pointers valid. Keep the listener alive across
+> child unlink and notification, and finish old socket users before the
+> TTY replaces its DLC callbacks.
+>
+> Cen Zhang (2):
+>   Bluetooth: RFCOMM: Hold the listener across child unlink
+>   Bluetooth: RFCOMM: Close the socket before transferring its DLC
+>
+>  net/bluetooth/rfcomm/sock.c | 17 ++++++++++++-----
+>  net/bluetooth/rfcomm/tty.c  | 20 ++++++++------------
+>  2 files changed, 20 insertions(+), 17 deletions(-)
+>
+> ---
+
+Netdev sashiko found a couple of problems:
+
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/pm-bluetooth-objects-ca=
+ndidate-0218-v8-da37c8a6b33c9d2d8efc-0%40gmail.com
+
+--=20
+Luiz Augusto von Dentz
