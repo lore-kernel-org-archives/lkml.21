@@ -1,63 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795446672;
-	b=lPHrunzUYbDRtN5Hizxg0HvmOuD3ixAza8txpd0axhxuY/bKhouzv6QT7lbCbNFmAwPo
-	 DkK13gndShlC2iL6D2ujDisXtmXrZUmSrDXoDK8RKI519fW4lWbCzy8ztpZ+X2mx3jo3X
-	 SCT3LNxjJ1u3HJqfkahfRPL+BXOpoFoMhAGpT1AvfWbwavoO7gMOj5XHAoUZRIbGMN9L6
-	 R0VT2CNTgQFlEBKJFraVocmRWsNPD9373bWpa8VL9e8P58phLB/NHgd/MGJPZ2F92k4vQ
-	 hdcNwQ8qezYA0Ya8SFSu3RCYJ1+8Jc77+T6Q/wXiMVQJY+SLC8IaWlV7fHtbkptYuMQ==
+	b=Gl5brT7JjbB/0DYRg4Hm2TY+Q+apKZKy2HyAW4izNcaYYOIxV6CpHKELZN+G7UCArSWm
+	 r1VkTeRqfMh3Z99HE6SS2B6zVaAgOiW+xMKWksZaWGeVUWOePHPDiHqL1Bb5xATNXv7U5
+	 pCisnGpbZ4O0utJSCTKwqpL+RXku5QHPcz9McE4ihwYvlvU0yyNkI220MnNx6zINRxxXD
+	 F1piskt2ZeQoekshfdkVvH1KNiuZuzdAJ9i5Ad3Rc072JgftA5jo2I8C6DWEVFjNZIzNN
+	 odUtoBD8cRKq7Uw6Wcz/ITIREY4XZUWla2dZcF9DfHygOIKa5EXq6KjZr+vbNKKpqmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795446672;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kfgJmV+pVAEQVJp9ltaL3JbqH5exKDQIhWk/uwdJAnI=;
-	b=UtxxeP5Po85fKGQwuaEjXppUSCnXTmeUdyLb8npK7RfPAPZ/hhMQV1g0GWtXI7euAx49
-	 VIYTmy06xC4MHZd5mypW4zfWyth21HpW+KL7UiljVxJs4oAh/YrbNGs/go1vFwFn9a+Kg
-	 r6iYxcTILeTgIeKEBGKXDa74lxiLXS1SC87zKfOjt3EtGuN2u4l9/v5RZPOS8D6bvL7xE
-	 9ZCEX3lRhx4ngIo6Zf0IG/4/j6pQFjGHkXVsylpNY9zN/Onix8XPpqPCEBkfTl+vuVqdJ
-	 VH3P1i0W6gosZ8SvcfqD93lIErG4I/vxfzWVjGYdeKUqQxH+pA33EX14an3az5ss+2w==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=owbHfGV2nQrGcsQaLy/RU2gfSzpR3q6745LexKCM6PA=;
+	b=n5ZPnaOw8IXCEvrGJygHMqlNdr19+V2wml5E6DRm54xRh4SRUYCLkECmnlgzIKJ3Rzbz
+	 IlNnNEiouyZDQA6uxLO9/Hh+wqypzziflk2xcj6J1J3la2+Jye8qUBor71NekSapOayuj
+	 mPaPn57o8ZxeEvfymw2QEvc/ZMxvRk8YpxO5XOfHVaPPBG/WSLugSJJNqWcFCqKEC5iC0
+	 OpCcRDyqmfKASctA4Hh8X80KiXHCyN9cEsEDUBl6KgWq/yc5rd6PH+njT9kLyFXb7na2x
+	 TvTFJ9y+FiDVg9kKew5VOjI3GbuIHEURzWl0LABHKaOF2bkNaGysChCxkMJ/bQpWtxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jip5JmIL;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 120D0606A31F;
-	Mon, 23 Nov 2026 15:11:12 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bXcDaqdt;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4E35F606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:11:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E35F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jip5JmIL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A8731F000EB;
-	Mon, 23 Nov 2026 15:11:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446671;
-	bh=kfgJmV+pVAEQVJp9ltaL3JbqH5exKDQIhWk/uwdJAnI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Jip5JmILioBfr5ZBHB9KzDeKzA4lb6jFEFkVlSulY9ZNNME113rOecjtLmI684k4q
-	 fyzqCYsYE/MXPCwIdXGyoeJ5t1HmzAB0I6GrA7DvlhJ2jvxX8cs/MdYOzO/LwcpRDm
-	 kOQyd+P/1WyjovTtUtiv9+YdQajCEpc5K7UaCljeITmwdRd941kMzi/sDjewfkBIdy
-	 YK5Z0DQBRXBq+UenMEn8fX1ysw1m4yuuziYjhU2urb/mtBClqX8+JDz1eggngwR63s
-	 LIcKVzyUhgg9QjioBERF9gQZ1CL5jQEyFkoJV9pvwzBnEEBY+Y/iRkw31ydWFcas0Q
-	 uys/Wmi1pEkWg==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	=?UTF-8?q?Horia=20Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Steffen Trumtrar <kernel@pengutronix.de>,
-	Meenakshi Aggarwal <meenakshi.aggarwal@nxp.com>,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 01/10] crypto: caam - Fix descriptor buffer overflow in caam_process_blob()
-Date: Mon, 23 Nov 2026 15:09:52 +0000
-Message-ID: <20261123151055.2533735-2-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123151055.2533735-1-lee@kernel.org>
-References: <20261123151055.2533735-1-lee@kernel.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bXcDaqdt
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C58181A25;
+	Mon, 23 Nov 2026 07:11:08 -0800 (PST)
+Received: from [10.57.63.212] (unknown [10.57.63.212])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 596863F632;
+	Mon, 23 Nov 2026 07:11:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795446671; bh=FAc9pImUO33JMG9YrQtXteaNuISbSIl7JA/bta2lbQk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bXcDaqdtO8I+YvAgu2FN+tvZNc1OP7xDVz7aC8X4tVnTlepQj08zWDDyUwKiUrTmW
+	 TQCNv9FzbCZDpJPQjKGNgW6uiTgNQEM578oWf0vzTCPTZJi3FamFZqff8+fpqmXZTm
+	 iFpWDGJ3Tzttt28RJcT/tnE0hM2Y4IaS1nn5Bwkw=
+Message-ID: <12001e7c-f9d9-4be1-a4b5-8225ff1e44f4@arm.com>
+Date: Mon, 23 Nov 2026 15:11:09 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,59 +53,258 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 6/8] drm/panthor: Implement sample handling
+To: Lukas Zapolskas <lukas.zapolskas@arm.com>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Alice Ryhl <aliceryhl@google.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Liviu Dudau <liviu.dudau@arm.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ nd@arm.com, =?UTF-8?Q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>
+References: <20261011-panthor-performance-counters-v7-0-12c32495062f@arm.com>
+ <20261011-panthor-performance-counters-v7-6-12c32495062f@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261011-panthor-performance-counters-v7-6-12c32495062f@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Commit a703a4c2a328 ("KEYS: trusted: caam based protected key") switched
-caam_process_blob() from append_seq_in_ptr_intlen() and
-append_seq_out_ptr_intlen() to append_seq_in_ptr() and
-append_seq_out_ptr(), each of which emits an extra 32-bit extended
-length word, and added append_key(), append_fifo_store(), and
-append_jump() when encapsulating a protected key.
+On 11/10/2026 18:36, Lukas Zapolskas wrote:
+> From: Adrián Larumbe <adrian.larumbe@collabora.com>
+> 
+> panthor_perf aggregates counter and set requests coming from userspace
+> and mediates interactions with the FW interface, to ensure that user
+> sessions cannot override the global configuration.
+> 
+> From the top-level interface, the two types of samples are supported:
+> clearing samples and regular samples. Clearing samples are
+> a special sample type that allow for the creation of a sampling
+> baseline, to ensure that a session does not obtain counter data from
+> before its creation.
+> 
+> Upon receipt of a relevant interrupt, corresponding to one of the
+> three relevant bits of the GLB_ACK register, panthor_perf takes any
+> samples that occurred, and, based on the insert and extract indices,
+> accumulates them to an internal storage buffer after zero-extending
+> the counters from the 32-bit counters emitted by the hardware to
+> 64-bit counters for internal accumulation.
+> 
+> When the performance counters are enabled, the FW ensures no counter
+> data is lost when entering and leaving non-counting regions by
+> producing automatic samples that do not correspond to a
+> GLB_REQ.PRFCNT_SAMPLE request. Such regions may be per hardware unit,
+> such as when a shader core powers down, or global. Most of these
+> events do not directly correspond to session sample requests, so any
+> intermediary counter data must be stored into a temporary
+> accumulation buffer.
+> 
+> If there are sessions waiting for a sample, this accumulated buffer
+> will be taken, and emitted for each waiting client. During this phase,
+> information like the timestamps of sample request and sample emission,
+> type of the counter block and block index annotations are added to the
+> sample header and block headers. If no sessions are waiting for
+> a sample, this accumulation buffer is kept until the next time a
+> sample is requested.
+> 
+> Special handling is needed for the PRFCNT_OVERFLOW interrupt, which is
+> an indication that the internal sample handling rate was insufficient.
+> 
+> A semi-static table maintains the mappings between the offsets from
+> the base of a FW sample to the corresponding block type. Since the
+> counter blocks themselves do not contain this information, this needs to
+> be done in the kernel.
+> 
+> This table also handles the sparseness of the shader cores,
+> wherein the physical core mask contains holes, but the memory allocated
+> for it is done based on the position of the most significant bit. In
+> cases with highly sparse core masks, this means that a lot of shader
+> counter blocks are empty, and must be skipped.
+> 
+> The number of ring buffer slots is configurable through module param
+> to allow for a lower memory footprint on memory constrained systems.
+> 
+> Signed-off-by: Adrián Larumbe <adrian.larumbe@collabora.com>
+> Co-developed-by: Lukas Zapolskas <lukas.zapolskas@arm.com>
+> Signed-off-by: Lukas Zapolskas <lukas.zapolskas@arm.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_fw.c   |    5 +
+>  drivers/gpu/drm/panthor/panthor_perf.c | 1075 +++++++++++++++++++++++++++++++-
+>  drivers/gpu/drm/panthor/panthor_perf.h |    2 +
+>  3 files changed, 1069 insertions(+), 13 deletions(-)
+> 
 
-However, CAAM_BLOB_DESC_BYTES_MAX was not updated and still reserves
-only 44 or 52 bytes (for 32-bit or 64-bit DMA addresses), whereas
-caam_process_blob() now writes up to 60 bytes for standard blobs on
-64-bit DMA platforms and up to 72 or 88 bytes when encapsulating a
-protected key, overflowing the kzalloc()-allocated job descriptor
-buffer into adjacent slab memory.
+[...]
 
-Update CAAM_BLOB_DESC_BYTES_MAX to account for the protected-key
-commands and the extended sequence pointer length words.
+> diff --git a/drivers/gpu/drm/panthor/panthor_perf.c b/drivers/gpu/drm/panthor/panthor_perf.c
+> index 76c346981150..c66ad658a95d 100644
+> --- a/drivers/gpu/drm/panthor/panthor_perf.c
+> +++ b/drivers/gpu/drm/panthor/panthor_perf.c
+[...]
 
-Fixes: a703a4c2a328 ("KEYS: trusted: caam based protected key")
-Closes: https://sashiko.dev/#/bug/linux-fd968875-61a8-4100-ba0c-b9cd164d86e8
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
- drivers/crypto/caam/blob_gen.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+>  /**
+>   * panthor_perf_init - Initialize the performance counter subsystem.
+>   * @ptdev: Panthor device
+> @@ -377,7 +1259,10 @@ static void session_set_state(struct panthor_perf_session *session,
+>  int panthor_perf_init(struct panthor_device *ptdev)
+>  {
+>  	struct panthor_perf *perf;
+> -	int ret = 0;
+> +	struct panthor_kernel_bo *bo;
+> +	struct panthor_perf_enable_masks *em;
+> +	u8 *sample;
+> +	int ret;
+>  
+>  	if (!ptdev)
+>  		return -EINVAL;
+> @@ -392,12 +1277,107 @@ int panthor_perf_init(struct panthor_device *ptdev)
+>  	if (ret)
+>  		return ret;
+>  
+> +	ret = drmm_mutex_init(&ptdev->base, &perf->session_lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	spin_lock_init(&perf->pend_lock);
+> +
+> +	ret = panthor_perf_setup_fw_buffer(ptdev, perf);
+> +	if (ret) {
+> +		drm_err(&ptdev->base,
+> +			"Failed to setup FW ring buffer, disabling perf.");
+> +		return -EOPNOTSUPP;
 
-diff --git a/drivers/crypto/caam/blob_gen.c b/drivers/crypto/caam/blob_gen.c
-index c18dbac56493..b4fdc15dd0b6 100644
---- a/drivers/crypto/caam/blob_gen.c
-+++ b/drivers/crypto/caam/blob_gen.c
-@@ -23,12 +23,16 @@
- #define CAAM_BLOB_DESC_BYTES_MAX					\
- 	/* Command to initialize & stating length of descriptor */	\
- 	(CAAM_CMD_SZ +							\
-+	/* Commands to load plain key, store protected key and jump */	\
-+	 CAAM_CMD_SZ + CAAM_PTR_SZ_MAX +				\
-+	 CAAM_CMD_SZ + CAAM_PTR_SZ_MAX +				\
-+	 CAAM_CMD_SZ +							\
- 	/* Command to append the key-modifier + key-modifier data */	\
- 	 CAAM_CMD_SZ + CAAM_BLOB_KEYMOD_LENGTH +			\
--	/* Command to include input key + pointer to the input key */	\
--	 CAAM_CMD_SZ + CAAM_PTR_SZ_MAX +				\
--	/* Command to include output key + pointer to the output key */	\
--	 CAAM_CMD_SZ + CAAM_PTR_SZ_MAX +				\
-+	/* Command to include input key + pointer and length */		\
-+	 2 * CAAM_CMD_SZ + CAAM_PTR_SZ_MAX +				\
-+	/* Command to include output key + pointer and length */	\
-+	 2 * CAAM_CMD_SZ + CAAM_PTR_SZ_MAX +				\
- 	/* Command describing the operation to perform */		\
- 	 CAAM_CMD_SZ)
- 
--- 
-2.56.1.750.gf70dc682cf-goog
+"disabling perf" isn't quite right - this fails the probe disabling the
+device. If we expect this to happen we should consider handling it more
+gracefully....
+
+> +	}
+> +
+> +	sample = drmm_kzalloc(&ptdev->base, ptdev->perf_info.sample_size, GFP_KERNEL);
+> +	if (!sample)
+> +		return -ENOMEM;
+> +
+> +	em = drmm_kzalloc(&ptdev->base, sizeof(*em), GFP_KERNEL);
+> +	if (!em)
+> +		return -ENOMEM;
+
+...but be aware that this is only ok because the probe fails and the
+"managed" allocations are cleaned up - otherwise we'd be leaking memory.
+
+> +
+> +	bo = panthor_kernel_bo_create(ptdev, panthor_fw_vm(ptdev),
+> +				      perf->fw_sample_size * perf_ringbuf_slots,
+> +				      DRM_PANTHOR_BO_NO_MMAP,
+> +				      DRM_PANTHOR_VM_BIND_OP_MAP_NOEXEC |
+> +				      DRM_PANTHOR_VM_BIND_OP_MAP_UNCACHED,
+> +				      PANTHOR_VM_KERNEL_AUTO_VA,
+> +				      "perf_ringbuf");
+> +
+> +	if (IS_ERR_OR_NULL(bo))
+> +		return IS_ERR(bo) ? PTR_ERR(bo) : -ENOMEM;
+> +
+> +	ret = panthor_kernel_bo_vmap(bo);
+> +	if (ret)
+> +		goto cleanup_bo;
+> +
+> +	perf->sample_workq = alloc_workqueue("panthor_perf_wq", WQ_HIGHPRI | WQ_UNBOUND, 1);
+> +	if (!perf->sample_workq) {
+> +		ret = -ENOMEM;
+> +		goto cleanup_vmap;
+> +	}
+> +
+> +	ret = drmm_add_action_or_reset(&ptdev->base, __drmm_workqueue_release,
+> +				       perf->sample_workq);
+> +	if (ret)
+> +		goto cleanup_vmap;
+> +
+> +	INIT_WORK(&perf->sample_work, panthor_perf_sample_worker);
+> +	perf->rb = bo;
+> +	perf->sample = sample;
+> +	perf->sample_slots = perf_ringbuf_slots;
+> +	perf->em = em;
+> +	perf->last_fw_sample_time = ktime_get_raw_ns();
+> +
+> +	INIT_LIST_HEAD(&perf->session_list);
+> +
+>  	drm_info(&ptdev->base, "Performance counter subsystem initialized");
+>  
+>  	perf->info = &ptdev->perf_info;
+> +	perf->ptdev = ptdev;
+>  	ptdev->perf = perf;
+>  
+>  	return ret;
+> +
+> +cleanup_vmap:
+> +	panthor_kernel_bo_vunmap(bo);
+> +
+> +cleanup_bo:
+> +	panthor_kernel_bo_destroy(bo);
+> +
+> +	return ret;
+> +}
+
+[...]
+
+>  void panthor_perf_unplug(struct panthor_device *ptdev)
+>  {
+> +	int ret;
+>  	struct panthor_perf *perf = ptdev->perf;
+>  
+>  	if (!perf)
+>  		return;
+>  
+> +	scoped_guard(mutex, &perf->op_lock)
+> +		ret = perf_disable(perf);
+> +	if (ret)
+> +		drm_err(&perf->ptdev->base, "Failed to disable performance counter sampling!");
+> +
+> +	disable_work_sync(&perf->sample_work);
+> +
+> +	panthor_kernel_bo_vunmap(perf->rb);
+> +	panthor_kernel_bo_destroy(perf->rb);
+> +
+>  	ptdev->perf = NULL;
+
+unplug sets ptdev->perf to NULL, but...
+
+>  }
+>  
+> @@ -809,9 +1853,14 @@ void panthor_perf_pool_destroy(struct panthor_file *pfile)
+>  	if (IS_ERR_OR_NULL(pool))
+>  		return;
+>  
+> +	if (!pfile->ptdev->perf)
+> +		return;
+> +
+
+...that means we don't clear up the sessions below. Including not
+performing the pm_runtime_put_sync().
+
+>  	xa_for_each(&pool->xa, handle, session) {
+>  		xa_erase(&pool->xa, handle);
+> +		panthor_perf_session_remove(pfile->ptdev->perf, session);
+>  		session_put(session);
+> +		pm_runtime_put_sync(pfile->ptdev->base.dev);
+>  	}
+>  
+>  	xa_destroy(&pool->xa);
+> diff --git a/drivers/gpu/drm/panthor/panthor_perf.h b/drivers/gpu/drm/panthor/panthor_perf.h
+> index 641a88edd75a..0e1172dbae39 100644
+> --- a/drivers/gpu/drm/panthor/panthor_perf.h
+> +++ b/drivers/gpu/drm/panthor/panthor_perf.h
+> @@ -28,5 +28,7 @@ int panthor_perf_session_start(struct panthor_file *pfile, u32 handle, u64 user_
+>  int panthor_perf_session_stop(struct panthor_file *pfile, unsigned int sid, u64 user_data);
+>  int panthor_perf_session_sample(struct panthor_file *pfile, unsigned int handle, u64 user_data);
+>  
+> +void panthor_perf_report_irq(struct panthor_device *ptdev, u32 status);
+> +
+>  #endif /* __PANTHOR_PERF_H__ */
+>  
+> 
+
+Thanks,
+Steve
 
