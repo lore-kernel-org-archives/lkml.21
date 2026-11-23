@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445616;
-	b=VmThWopiHqVgJtb4QJFSwyS+MDRBs2O4G1mua8w+qUxXGn1aB7V7ya8T5S01kYZBntc7
-	 eHct90dukkLdXhjrsPkpKMU7/ouGZXK58Eh+ZRVgClHdOBgjiR2OPNlQmEPVijMuMGYdl
-	 i4iuW7gkqwPepfgBDfeO9RWN7aH0ghMPEtuVqDu4m7kdAkZL2xFlgDmSWdZdGoYcH+/J3
-	 rlKvUxlWu8WDIxftZHgkShQRWBRqcs8V5tvvR9bw866pQhf3aJ1sWCZ+baAspAzXgOa1p
-	 2FPqIuuZZQ0u3VruAiO/EdV1GfyquJXI2UQaOj2XkbF3A8eEDmoXkS+V+8U0PmSHY0g==
+	t=1795445621;
+	b=1dJ7lGPdttAqNSxMEUrjmAgvgEFnB+ADMIUIY/gNRLsYTITIiZJzwFeSq3TiYaIO7l+Z
+	 DbjKPeLc/YwhXQAa5hmnw1UP5lWF50jifqDNuGh9i643KK1rcCxd2okAEYxQWIzMNvhss
+	 gf0y7UYRpQUSUrTBtcwmgZbZ7+Yadb3KuWGaXZP2BxwW8P9OZYDCvscD0w8CbVuob0O0H
+	 oTyQCCInQb04fcMbPQevqMjIb2E5qCS7USJd/amh5kDQAB3gSxDNCrFALB4WuL43MBP/7
+	 sN4dhCuslSVuhg/RQigwmp1q94RWT6mEYkSiMY9vXIfP7JVyLV5vmE+ClUdhHKEJBTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445616;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445621;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=GqH39ciBHiVFxAX6NEOYNJ4PuF/NMeDq3R9etuJCU9E=;
-	b=Juj5Eck+3f0ClzKSnD9PTHtttjlpyFh2GvEIxn+9dzKHcEisv7X1GnUGyF7uFn8JFoAB
-	 KWEdAza++3jyrBUB5zINlI94uXo2PB4rhGi+663ZVjn2iD9jEn4ZvWBXl284+oc93ce6a
-	 RkyJRteq1UMmZA1p8J3XiJ5EAeMudS4YdFkZZtp8i0/tEcWOICvjGfKVL5gJlbTsD6+um
-	 gTGRjTLxmey8GsF8KDwh4yLkHpY6lWH/qvXRpX77v2tFm1W+2aEyOEtTE2tK9ZkD/4sgv
-	 FUB2gwtL9Ux4H+haMERQUFQu+F5YBP3KdiZVlul71Z7I4Eehhh6YX4rd+LhyQiGP8CA==
+	bh=GrSoWjeoZdpdA2pLivwg9kOVjevNBkSDdhik7u3RWso=;
+	b=iNwSYrcKvb067hzEtVHzdhxLatZe8Vo4IaHKKC9civ0xKLImH583mdnsiQdfic9ySLiH
+	 aPvSoyGm1ppBSLqkBiIrnA8BUOyAs0nJpQ6UjDFdIQcyux4AC8Xe4csAUOanaUMmo4/Vv
+	 yL4sGMPn3Eox04DIxOX0zvflo27EL4O9j5z3cMfUZxNeRRfPKVjZexUdbv8ZOapzwVm8p
+	 I2q9isRrDNAV/r8zIOlGXOaeG4RxEMX7nAS3o4fRThpxJiwWVB/C18zrt7CtcdbMZt0aa
+	 BsRpRkopWgxfj/8dLPfSYpaYHW7BkIrlIqmAZgQjlmEgXzu/BMfZ8JEK3IqKHJUzhtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=JrqkCKEn;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=I7xfCsQW;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB8B5606A333
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:53:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB8B5606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F09C606A336
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:53:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F09C606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=JrqkCKEn
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so26690725e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:53:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=I7xfCsQW
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4ac109a8a12so1937289f8f.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:53:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795445614; x=1796050414; darn=vger.kernel.org;
+        d=suse.com; s=google; t=1795445620; x=1796050420; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GqH39ciBHiVFxAX6NEOYNJ4PuF/NMeDq3R9etuJCU9E=;
-        b=JrqkCKEnkboE7trA1ljoBOwv66EfFsfaLfuzP9kFUJ0a2RWgn9auRAHndx064yI5Lt
-         9FyhVR+oejJG+cN5VIb6BVA8f6Q5iObUE1aV/A84O1Oc24+y85FWUpxouczZBz6mlSIH
-         lt/ODrBQM98xBeLDzLIn5nLQdq1jjUOsmspX+l7AHGbZ+D8/XSmDsAxBx1nWq2dIJgQU
-         MROM3NaWlBGOfgmP+c6ciHbBhNDLIF05q1JNK1ttdYDf/kV+m1xmQj3OH/139UuMDxWB
-         2Hk43G9CCHdvSmLSJvipoKPZS2s54W64fpzV5YNd95nVgTQEQjnGwuxFSVhsYyuaV+0x
-         GSQQ==
+        bh=GrSoWjeoZdpdA2pLivwg9kOVjevNBkSDdhik7u3RWso=;
+        b=I7xfCsQWNGM6/3t3IFhuPig70szmaXPdWqHR4ICLd5EYf27TdS6LYX/3vN9VvL4QJq
+         QqTt1vGn6XcO09FmNlVlM2JCkUMdRmbbccEZWIv3QW4PiQGOOfvsBC4Huh69PxiFsupZ
+         iZvTlMvf53aouuFalLnWFe/2YWUwgPceGlafMd40ug/87CsMK3ysW12IfI5f44asr9iJ
+         hqxhK/ff/NNMlFEJeuoN9quCJHovzK0Z4WISwy2gAHdxvXzPHFnZFdqz3/V7QbKFu/k+
+         Tf4rGrfYp39AS7LxGmcc10xDf7/4WKW8h4xzNtxR1VD6M+konYD4HrgUbmpRBmnjyHTB
+         4Krw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445614; x=1796050414;
+        d=1e100.net; s=20260707; t=1795445620; x=1796050420;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GqH39ciBHiVFxAX6NEOYNJ4PuF/NMeDq3R9etuJCU9E=;
-        b=nsRLhvCckSKHS5jsp544dUMAqBo5b+Rlsz4qcQpHpCZnyELZSnpzyeNQ+P1HIeOhTS
-         PflW9vCehDcM+bCil6WREHyvbyic9QizSpr2Ymgu2lzGxD7lbawc/oZndAQ8wGK0YCBx
-         BOgmUI9rokxSBrDAUyNFdOS+PinCn9HtrrCMbns46dwIjxTfa6gtlH7kSyfeuzqGI22D
-         C/jH81RYMAnWy2urmA/XzUXV0+laRxOEc588e9kc2pTiuNhigiidido9n3a/xaDq3G0x
-         YN5oC5OaJRYdTalAAhv4u80z6BYA4Hl8IhMkomQQW1IAdI+W714v2pqBWiZZEV3eYqde
-         hH4g==
-X-Forwarded-Encrypted: i=1; AL+hErGTT33PO8FJREn1UuTxZ90b1sojp2lrUWUKn+pxf2mUhjUALN5BJyYj8gSvoI1q7VLNXPQ5D4M9QK296c4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/IIw8OpVf4qcrRIeGI99zahey3kzn3EhTQdklSrG/LvRs6LrWL
-	YhIri/d8SvkdXYa82NRkq4rM2BEZRMIn3bUqxBYnb8GSBMWF7QFlkG0IQ0fATuaz2F4=
-X-Gm-Gg: AZFdTZewy7svhDiegw1RkhHUIDB4PI6Lh+uxupjl/zlOm7d2GLx9GTcQX6UKFyXMAPX
-	uyXJ998RDrSEn0IcUgxjED7qr4b0yR1s39di81txG5X3zTKOTiSvTrcoKSiIP7fo+HmJV7XqX+y
-	wKvWXFY+IXk4CDWZI6SYkB8+S7RfJ6IVenoQQGtToEpqUxTiO0PBdZr/7hFE6jWDdoyj7Jy3rxq
-	6wifImjJZb3ZXPPLq7H/7VfMhPY1D27+IEGDpADMP92XawPsVR39uI0OvTqsQsU5ITpShY8OZE0
-	KWSpA4eMMQcg2kHueGfTAWCOkhni2Xyo7XyKQ7z+CMUekYRz3GLpPHX6+58ye0WCZKRaTKy399z
-	+wMuzPnxUwi7tT0u6+O41Fzs0O+oyJUWunYbaWIpuzlidS6g7Bxjbxt1GckrgFePmmFBUousFWD
-	sErRIj4ZPDJwpSotNfwjGdwLyulmGVCGg7uTY+A1J9jXIAd/MJfvDWXMXiSTkjcALRMCWCJP1p5
-	Shfnid4O4M1x8MfnQrtLYyIp+8iL6WEcN23NOCg95VDoHn1kRbwsTrFc+0dNwdI6a6MvjrH2vbo
-	SZ3B6jKSyxqCROq2/5xCUF7+Ibo=
-X-Received: by 2002:a05:600c:3b8a:b0:4a3:59c9:a754 with SMTP id 5b1f17b1804b1-4bb8892da25mr240714045e9.22.1795445614229;
-        Mon, 23 Nov 2026 06:53:34 -0800 (PST)
+        bh=GrSoWjeoZdpdA2pLivwg9kOVjevNBkSDdhik7u3RWso=;
+        b=XVfZ/8ZzpDc2/lSoIYEm+TxS0tq2rva+vwgs0r91Puw8eZ0X4Dbr4g01o7SqTLARho
+         gn3dt2+e/aPEDb7tb1KxhBZ+BPyBWNPk8eRq/dKfA0cW/J4Wcim/m6wdgfbiHVq0aYAc
+         dYp658CLyvXIDx3ZvT0bhoZLbK1+pUhvu1/kvqT4skXvhmryzzwkVXzHMhCLxqgHgncu
+         LMtiYlKXbI2M82PfQB+kECr2aYzXoVkBZzeVMCbQiTC+BqZ5tJNsOI0vSbM4QHwTq0yT
+         g8HS1UrfZhpGs2DSQ90D4ZaGpgbqZaxNKL5fokpJy8qW2hbCBpokBSuHvwvTqNEJvyBj
+         n6Pg==
+X-Forwarded-Encrypted: i=1; AL+hErHfHTKVVjwduL89mOSRT9TVx4DMktetURiHJrwP6N2WqrznBPAJNkJD2h8fBNqHNWR2tbL5b2kxiiGixZE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fRZDC6BgknHim8BUq6ycZs6Yv0TIGfRCMxun7KLL7cuw+Rv1x
+	zpWsjtI1AXVSPWMVAJJtOfcHhLV2Y0mokWv+fn/dkJHxTBGED2wUyRg3e4K+4wqdlsk=
+X-Gm-Gg: AZFdTZd0qaGWlAIPIrAuDGVIlxRfcX0AVGteIVSJ/DwByNVa61PR1jyLZ9XiWCs30Qw
+	pB3/LLdh7Tx9d6yDVz9kDfeh3dZLnEWNAGcPF9BfCUiScVdARbDlK59QT81HJ4QG3uGcWwbawz2
+	QMO5fFimPyl3lQqnGQLd4etJ7Pd38GM+277ABhnXPblWlpDJoVDTrrJzu4UTpoEXehkZHVS5hg/
+	po6IRjUtjeXyQ9Htz2CuArARajF0XEvOIunKYJb16XC6DJ+HA7UuU33rNbcBLa4ckkGTYUIJ5Of
+	uYx/MKsg82JLHVoXArhcdhHjL6NUFDLJxuWa9tQyActKNkMjJxPQkM3Z+SVMBIuL0nTbU+b82qE
+	HiwYFIP53w0MkjeaTtzvR1JDMr/gbNS8cKj0U+HRU1xGy/POj0ffi8TgYnltsZ+tPT2Gd1Frq6B
+	DoqJG/d7Uq+khRIrXf8I2ruqNRlcHzumUHXLHE2OYMUoNQ6HRrpvLWnVVnnCenKyT+5tLPH6Kox
+	nSMhbx8/m9dnTcKN0AACgxOTy+E7mijcgcNdzbueOlocyAbIr1gOboKN6NOTer6lQXNh3ESGEMT
+	F5/KjJbJl6CLacGwnFB4LHgXbS0=
+X-Received: by 2002:a05:600c:3e1a:b0:4bb:6814:7391 with SMTP id 5b1f17b1804b1-4bb8881921cmr233321345e9.25.1795445619780;
+        Mon, 23 Nov 2026 06:53:39 -0800 (PST)
 Received: from localhost ([82.192.120.76])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm421402265e9.11.2026.11.23.06.53.33
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm663224295e9.4.2026.11.23.06.53.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:53:33 -0800 (PST)
+        Mon, 23 Nov 2026 06:53:39 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Vinod Koul <vkoul@kernel.org>
 Cc: Frank Li <Frank.Li@kernel.org>,
@@ -101,9 +101,9 @@ Cc: Frank Li <Frank.Li@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v3 01/28] dmaengine: bcm2835: Fix coding style issues and a typo
-Date: Mon, 23 Nov 2026 15:56:39 +0100
-Message-ID: <20261123145728.29082-2-andrea.porta@suse.com>
+Subject: [PATCH v3 05/28] dmaengine: bcm2835: Fixes for dma_abort
+Date: Mon, 23 Nov 2026 15:56:43 +0100
+Message-ID: <20261123145728.29082-6-andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20261123145728.29082-1-andrea.porta@suse.com>
 References: <20261123145728.29082-1-andrea.porta@suse.com>
@@ -118,219 +118,83 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Fix the coding style issues reported by checkpatch: use u32 instead of
-uint32_t, add the missing parentheses around macro arguments, which
-could lead to operator precedence issues, drop superfluous parentheses
-and long int, and align the function arguments. Also fix a typo in a
-comment ('missmatch').
+From: Dom Cobley <popcornmix@gmail.com>
 
+There is a problem with the current abort scheme
+when dma is blocked on a DREQ which prevents halting.
+
+This is triggered by SPI driver which aborts dma
+in this state and so leads to a halt timeout.
+
+We attempt to abort the channel, which will work
+if there is no blocked DREQ.
+
+It it times out, we can assume there is no AXI
+transfer in progress and reset anyway.
+
+The length of the timeout is observed at ~20us.
+
+Signed-off-by: Dom Cobley <popcornmix@gmail.com>
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- drivers/dma/bcm2835-dma.c | 83 ++++++++++++++++++++-------------------
- 1 file changed, 42 insertions(+), 41 deletions(-)
+ drivers/dma/bcm2835-dma.c | 32 +++++++++++++++++++++++---------
+ 1 file changed, 23 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-index 06d830d36882..b19182c6e3df 100644
+index 063e1b2aabe3..51e3a40dbaec 100644
 --- a/drivers/dma/bcm2835-dma.c
 +++ b/drivers/dma/bcm2835-dma.c
-@@ -51,13 +51,13 @@ struct bcm2835_dmadev {
- };
- 
- struct bcm2835_dma_cb {
--	uint32_t info;
--	uint32_t src;
--	uint32_t dst;
--	uint32_t length;
--	uint32_t stride;
--	uint32_t next;
--	uint32_t pad[2];
-+	u32 info;
-+	u32 src;
-+	u32 dst;
-+	u32 length;
-+	u32 stride;
-+	u32 next;
-+	u32 pad[2];
- };
- 
- struct bcm2835_cb_entry {
-@@ -116,8 +116,8 @@ struct bcm2835_desc {
- 					       * AXI-write to ack
- 					       */
- #define BCM2835_DMA_ERR		BIT(8)
--#define BCM2835_DMA_PRIORITY(x) ((x & 15) << 16) /* AXI priority */
--#define BCM2835_DMA_PANIC_PRIORITY(x) ((x & 15) << 20) /* panic priority */
-+#define BCM2835_DMA_PRIORITY(x) (((x) & 15) << 16) /* AXI priority */
-+#define BCM2835_DMA_PANIC_PRIORITY(x) (((x) & 15) << 20) /* panic priority */
- /* current value of TI.BCM2835_DMA_WAIT_RESP */
- #define BCM2835_DMA_WAIT_FOR_WRITES BIT(28)
- #define BCM2835_DMA_DIS_DEBUG	BIT(29) /* disable debug pause signal */
-@@ -136,9 +136,9 @@ struct bcm2835_desc {
- #define BCM2835_DMA_S_WIDTH	BIT(9) /* 128bit writes if set */
- #define BCM2835_DMA_S_DREQ	BIT(10) /* enable SREQ for source */
- #define BCM2835_DMA_S_IGNORE	BIT(11) /* ignore source reads - read 0 */
--#define BCM2835_DMA_BURST_LENGTH(x) ((x & 15) << 12)
--#define BCM2835_DMA_PER_MAP(x)	((x & 31) << 16) /* REQ source */
--#define BCM2835_DMA_WAIT(x)	((x & 31) << 21) /* add DMA-wait cycles */
-+#define BCM2835_DMA_BURST_LENGTH(x) (((x) & 15) << 12)
-+#define BCM2835_DMA_PER_MAP(x)	(((x) & 31) << 16) /* REQ source */
-+#define BCM2835_DMA_WAIT(x)	(((x) & 31) << 21) /* add DMA-wait cycles */
- #define BCM2835_DMA_NO_WIDE_BURSTS BIT(26) /* no 2 beat write bursts */
- 
- /* debug register bits */
-@@ -214,17 +214,15 @@ static void bcm2835_dma_free_cb_chain(struct bcm2835_desc *desc)
- 
- static void bcm2835_dma_desc_free(struct virt_dma_desc *vd)
- {
--	bcm2835_dma_free_cb_chain(
--		container_of(vd, struct bcm2835_desc, vd));
-+	bcm2835_dma_free_cb_chain(container_of(vd, struct bcm2835_desc, vd));
- }
- 
--static void bcm2835_dma_create_cb_set_length(
--	struct bcm2835_chan *chan,
--	struct bcm2835_dma_cb *control_block,
--	size_t len,
--	size_t period_len,
--	size_t *total_len,
--	u32 finalextrainfo)
-+static void bcm2835_dma_create_cb_set_length(struct bcm2835_chan *chan,
-+					     struct bcm2835_dma_cb *control_block,
-+					     size_t len,
-+					     size_t period_len,
-+					     size_t *total_len,
-+					     u32 finalextrainfo)
- {
- 	size_t max_len = bcm2835_dma_max_frame_length(chan);
- 
-@@ -281,10 +279,13 @@ static void bcm2835_dma_create_cb_set_length(
-  * @gfp:            the GFP flag to use for allocation
-  */
- static struct bcm2835_desc *bcm2835_dma_create_cb_chain(
--	struct dma_chan *chan, enum dma_transfer_direction direction,
--	bool cyclic, u32 info, u32 finalextrainfo, size_t frames,
--	dma_addr_t src, dma_addr_t dst, size_t buf_len,
--	size_t period_len, gfp_t gfp)
-+					struct dma_chan *chan,
-+					enum dma_transfer_direction direction,
-+					bool cyclic, u32 info,
-+					u32 finalextrainfo,
-+					size_t frames, dma_addr_t src,
-+					dma_addr_t dst, size_t buf_len,
-+					size_t period_len, gfp_t gfp)
- {
- 	struct bcm2835_chan *c = to_bcm2835_dma_chan(chan);
- 	size_t len = buf_len, total_len;
-@@ -326,10 +327,10 @@ static struct bcm2835_desc *bcm2835_dma_create_cb_chain(
- 		/* set up length in control_block if requested */
- 		if (buf_len) {
- 			/* calculate length honoring period_length */
--			bcm2835_dma_create_cb_set_length(
--				c, control_block,
--				len, period_len, &total_len,
--				cyclic ? finalextrainfo : 0);
-+			bcm2835_dma_create_cb_set_length(c, control_block,
-+							 len, period_len,
-+							 &total_len,
-+							 cyclic ? finalextrainfo : 0);
- 
- 			/* calculate new remaining length */
- 			len -= control_block->length;
-@@ -353,7 +354,7 @@ static struct bcm2835_desc *bcm2835_dma_create_cb_chain(
- 	d->cb_list[d->frames - 1].cb->info |= finalextrainfo;
- 
- 	/* detect a size mismatch */
--	if (buf_len && (d->size != buf_len))
-+	if (buf_len && d->size != buf_len)
- 		goto error_cb;
- 
- 	return d;
-@@ -393,7 +394,7 @@ static void bcm2835_dma_fill_cb_chain_with_sg(
+@@ -419,7 +419,7 @@ static void bcm2835_dma_fill_cb_chain_with_sg(
  static void bcm2835_dma_abort(struct bcm2835_chan *c)
  {
  	void __iomem *chan_base = c->chan_base;
--	long int timeout = 10000;
-+	long timeout = 10000;
+-	long timeout = 10000;
++	long timeout = 100;
  
  	/*
  	 * A zero control block address means the channel is idle.
-@@ -421,7 +422,6 @@ static void bcm2835_dma_abort(struct bcm2835_chan *c)
- static void bcm2835_dma_start_desc(struct bcm2835_chan *c)
- {
- 	struct virt_dma_desc *vd = vchan_next_desc(&c->vc);
--	struct bcm2835_desc *d;
+@@ -428,19 +428,33 @@ static void bcm2835_dma_abort(struct bcm2835_chan *c)
+ 	if (!readl(chan_base + BCM2835_DMA_ADDR))
+ 		return;
  
- 	if (!vd) {
- 		c->desc = NULL;
-@@ -430,9 +430,9 @@ static void bcm2835_dma_start_desc(struct bcm2835_chan *c)
+-	/* Write 0 to the active bit - Pause the DMA */
+-	writel(0, chan_base + BCM2835_DMA_CS);
++	/* We need to clear the next DMA block pending */
++	writel(0, chan_base + BCM2835_DMA_NEXTCB);
++
++	/* Abort the DMA, which needs to be enabled to complete */
++	writel(readl(chan_base + BCM2835_DMA_CS) | BCM2835_DMA_ABORT | BCM2835_DMA_ACTIVE,
++	       chan_base + BCM2835_DMA_CS);
  
- 	list_del(&vd->node);
+-	/* Wait for any current AXI transfer to complete */
+-	while ((readl(chan_base + BCM2835_DMA_CS) &
+-		BCM2835_DMA_WAITING_FOR_WRITES) && --timeout)
++	/* wait for DMA to be aborted */
++	while ((readl(chan_base + BCM2835_DMA_CS) & BCM2835_DMA_ABORT) && --timeout)
+ 		cpu_relax();
  
--	c->desc = d = to_bcm2835_dma_desc(&vd->tx);
-+	c->desc = to_bcm2835_dma_desc(&vd->tx);
+-	/* Peripheral might be stuck and fail to signal AXI write responses */
+-	if (!timeout)
++	/* Write 0 to the active bit - Pause the DMA */
++	writel(readl(chan_base + BCM2835_DMA_CS) & ~BCM2835_DMA_ACTIVE,
++	       chan_base + BCM2835_DMA_CS);
++
++	/*
++	 * Peripheral might be stuck and fail to complete
++	 * This is expected when dreqs are enabled but not asserted
++	 * so only report error in non dreq case
++	 */
++	if (!timeout && !(readl(chan_base + BCM2835_DMA_TI) &
++	   (BCM2835_DMA_S_DREQ | BCM2835_DMA_D_DREQ)))
+ 		dev_err(c->vc.chan.device->dev,
+-			"failed to complete outstanding writes\n");
++			"failed to complete pause on dma %d (CS:%08x)\n", c->ch,
++			readl(chan_base + BCM2835_DMA_CS));
  
--	writel(d->cb_list[0].paddr, c->chan_base + BCM2835_DMA_ADDR);
-+	writel(c->desc->cb_list[0].paddr, c->chan_base + BCM2835_DMA_ADDR);
- 	writel(BCM2835_DMA_ACTIVE, c->chan_base + BCM2835_DMA_CS);
++	/* Set CS back to default state and reset the DMA */
+ 	writel(BCM2835_DMA_RESET, chan_base + BCM2835_DMA_CS);
  }
  
-@@ -543,7 +543,8 @@ static size_t bcm2835_dma_desc_size_pos(struct bcm2835_desc *d, dma_addr_t addr)
- }
- 
- static enum dma_status bcm2835_dma_tx_status(struct dma_chan *chan,
--	dma_cookie_t cookie, struct dma_tx_state *txstate)
-+					     dma_cookie_t cookie,
-+					     struct dma_tx_state *txstate)
- {
- 	struct bcm2835_chan *c = to_bcm2835_dma_chan(chan);
- 	struct virt_dma_desc *vd;
-@@ -843,7 +844,7 @@ static const struct of_device_id bcm2835_dma_of_match[] = {
- MODULE_DEVICE_TABLE(of, bcm2835_dma_of_match);
- 
- static struct dma_chan *bcm2835_dma_xlate(struct of_phandle_args *spec,
--					   struct of_dma *ofdma)
-+					  struct of_dma *ofdma)
- {
- 	struct bcm2835_dmadev *d = ofdma->of_dma_data;
- 	struct dma_chan *chan;
-@@ -887,7 +888,7 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
- 	int i, j;
- 	int irq[BCM2835_DMA_MAX_DMA_CHAN_SUPPORTED + 1];
- 	int irq_flags;
--	uint32_t chans_available;
-+	u32 chans_available;
- 	char chan_name[BCM2835_DMA_CHAN_NAME_SIZE];
- 
- 	if (!pdev->dev.dma_mask)
-@@ -946,8 +947,8 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
- 
- 	/* Request DMA channel mask from device tree */
- 	if (of_property_read_u32(pdev->dev.of_node,
--			"brcm,dma-channel-mask",
--			&chans_available)) {
-+				 "brcm,dma-channel-mask",
-+				 &chans_available)) {
- 		dev_err(&pdev->dev, "Failed to get channel mask\n");
- 		rc = -EINVAL;
- 		goto err_no_dma;
-@@ -986,7 +987,7 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
- 		/* check if there are other channels that also use this irq */
- 		irq_flags = 0;
- 		for (j = 0; j <= BCM2835_DMA_MAX_DMA_CHAN_SUPPORTED; j++)
--			if ((i != j) && (irq[j] == irq[i])) {
-+			if (i != j && irq[j] == irq[i]) {
- 				irq_flags = IRQF_SHARED;
- 				break;
- 			}
-@@ -1001,7 +1002,7 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
- 
- 	/* Device-tree DMA controller registration */
- 	rc = of_dma_controller_register(pdev->dev.of_node,
--			bcm2835_dma_xlate, od);
-+					bcm2835_dma_xlate, od);
- 	if (rc) {
- 		dev_err(&pdev->dev, "Failed to register DMA controller\n");
- 		goto err_no_dma;
 -- 
 2.51.0
 
