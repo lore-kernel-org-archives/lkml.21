@@ -1,66 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404348;
-	b=vXUgYTSebJonzBscrkSXl8cQLHpAmQwfY1QUfJY0hN9fCULH7E4nWgy+qPeJdQZ20Z3d
-	 VaeBPA45Yy2TYjuzfDXoZpKtEknIsQXZNlHytBMGdnIjTax5X7PHOwGGf3FcbJO2Zok3g
-	 LWPzRlNDQqsA/GutkoY2U5iY0u3JKEdJg7JSKIYANv3uKAYsTP1vvhamFMiVVB+1wYE+c
-	 +4NWwi+vhBpp4uR74n3a9QR431le742k6rushknpwjo3d+UgV2FOx39gaXcwOJ2Xn1Bo8
-	 ABuHXxoWV1ImvVzgHkf4yYbup+9jSkzAZzApJOgHafRqF2QLEs4KQNKPUon06WNzGgw==
+	t=1795404400;
+	b=W1D/Hc2/wN+U3tYkWcjGhmOO4zz8hBbelVI7UrigryF+jbS4WuSDz/b6Lv5Zk9Yavgfy
+	 mLuax3TDMhqxFPIglbZa7+xWXadf36gzmtct2tA+/B0h8BtHSCM53AFvRnn+iBvO1PAXj
+	 2Ij5OUDrgIuXE3ufHV9bh5mI50zOe/tsZPaCkMcf776MnytKZrGZJekzebu4wFkFhBlNi
+	 gODJ0KkzY5z5C3x4kVN0El/2XUKUaqj1dtFuiNIudcwi5ZlncFPjB/SHdvNzb2G1LjWOw
+	 H2XZ/5PGXykyZ/kFUKC6PtlsCYQ5RbzZeTf/j4ln4exYTgZCKCOP3kWMs93nUqxJ26A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404348;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404400;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=e3Yc6JAlwaTv2qXHFm4ZyG1PlJXC648rlgLKH7Ra6f4=;
-	b=UoL9snu9oWIqJ/8h9Z+9uUcPTluMlbQXyxQxA8CvCE1QAPK8JdM6FTYQG8A/wzl42wq5
-	 x9IV95Y9hrbM49L26rOM7IoCqTaF74vEUcZYgRtUP3UTkD/zwKFbaWI1D8uiCCOq9lFID
-	 F6zzvNvpEJ5hKpupeTu5g9B/0srDwzMuciGjdNfH1znCo3u+8DYIxwkiZ35FYHerDgr+v
-	 wS+x/N2KZOvvwSIhvXXS0wpewlHP79ceof/pc7DJpPinIhNSSkzWRpYvFpHFkdnO9a/Bk
-	 EZsmCbJnfCkCRyCnh1CTx3tQOj/qtgB50K/gPB0yJAtrJs44lmIQPSXhHsJ0iCn33iw==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=1+cegTBR/Mxg4hlkws6xLAzLLN9NMMKBynuAC4t3778=;
+	b=4PCJOKZ5I+XGXmltvSrBQm9WJ6CopMmAcvl8RUuY4JAN4Rx4nvrBHQb0JBRiwSwiwj3+
+	 G4jzU9Soa4z21QI9oUGsHHF04bTp+/NeRTQuGvZvu/HZCFiH8PWVTqy1TCq61lJ2OyWvA
+	 iE2AvguWUaCZvgpViZz4N9fJ6w1w+HOsG1ScfpJ0y0x8hYUV38qw+SCu05bg/TGgqqhSp
+	 x7FpjH1rS+qmDGlB3Dgq5D1e5l/l+aswhmzCCTjQ8XTFF4f8x4crcgJhefFCC7WiLhZ/r
+	 m0t/11nFKk0BqprUgiKm61Q54pEuv6i0fmZ0Y2kUoVq/cZhoukldglnmQ2PhPfasFgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LbRCt7No;
-	arc=none smtp.remote-ip=95.215.58.43
-Received: from mta1.migadu.com (out-43.mta1.migadu.com [95.215.58.43])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SGMR0g2y;
+	arc=none smtp.remote-ip=95.215.58.56
+Received: from mta1.migadu.com (out-56.mta1.migadu.com [95.215.58.56])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0E2B606A320
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:25:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0E2B606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE088606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:26:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE088606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LbRCt7No
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SGMR0g2y
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=J0WzD7xt978YmwyUOKWILnt4R9Sg7QENfh2/qnfkRQY=;
+DKIM-Signature: a=rsa-sha256; bh=TkbWYCa4MJQ1BBcXLO39QWi9ZKwMLeD/PRh+069eUio=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795404345; v=1; x=1796009145;
- b=LbRCt7NoOPix3FxjACX2+/qFdievgMjaPgNzbac7c4baB1s1S3uFC0kB7CdJlUVDsJPH7bHX
- Mhb0RHImcXsvBxeZdiHfRLHhzLHrBLRN+gw4XJfPrQpQnf/7PlKbuoFVZ/Wm+5gf7O+syUqoaTM
- MAijQNZfoVPX4Sz+CdKdUnvE=
+ t=1795404397; v=1; x=1796009197;
+ b=SGMR0g2ysyRhEClMqRQFseFUIrDyr0M4S+pk0yHCer23GYL8Lvu578d2pPzUlcnTeK9mJr+i
+ Xd1BziDVTP2R919tmNm966/at3n5YCHGBXAFsr2DJ5nFpLANzVzJxR+x/ypn2Y3eY9Jb1K2WD+J
+ glEVjcZZEcd3nsoOdHacvYag=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id f2f39b979a91e5d5;
-	Mon, 23 Nov 2026 03:25:45 +0000
-X-Mizu-Trace-ID: f2f39b979a91e5d5
+Received: by smtp.migadu.com with ESMTPS id 2ca7b3a68f8feb45;
+	Mon, 23 Nov 2026 03:26:37 +0000
+X-Mizu-Trace-ID: 2ca7b3a68f8feb45
 X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 11:25:37 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: netdev@vger.kernel.org, Jay Vosburgh <jv@jvosburgh.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Nikolay Aleksandrov <razor@blackwall.org>
-Subject: Re: [PATCH net v3 2/2] bonding: don't let an 802.3ad slave change
- its type
-Message-ID: <20261123032537.GE10218@Liu-laptop>
-References: <179535729502.2645501.5219010464870440@gmail.com>
- <179535729502.2645501.271186140389290426@gmail.com>
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,61 +57,166 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179535729502.2645501.271186140389290426@gmail.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH v3 12/19] arm64: Support hugetlb vmemmap optimization
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261122184453.2668189-13-jthoughton@google.com>
+Date: Mon, 23 Nov 2026 11:26:12 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Oscar Salvador <osalvador@suse.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Nikos Nikoleris <nikos.nikoleris@arm.com>,
+ Linu Cherian <linu.cherian@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ David Hildenbrand <david@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Nanyong Sun <sunnanyong@huawei.com>,
+ Yu Zhao <yuzhao@google.com>,
+ Frank van der Linden <fvdl@google.com>,
+ David Rientjes <rientjes@google.com>,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <64639588-CB39-4980-A9E3-8423AB0DF268@linux.dev>
+References: <20261122184453.2668189-1-jthoughton@google.com>
+ <20261122184453.2668189-13-jthoughton@google.com>
+To: James Houghton <jthoughton@google.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-On Sun, Nov 22, 2026 at 11:59:10PM +0900, Kyuwon Cho wrote:
-> A bond can be a slave of another bond. Enslaving a non-Ethernet device to
-> an empty inner bond changes the inner bond's type in bond_setup_by_slave()
-> after NETDEV_PRE_TYPE_CHANGE, and nothing refuses that while the inner
-> bond is a slave of an 802.3ad bond. The outer bond then adds the 8-byte
-> lacpdu_mcast_addr to a slave whose addr_len is 16, the same global
-> out-of-bounds read as when such a slave is enslaved directly:
-> 
->   BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
->   Read of size 16
->   Call Trace:
->    __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
->    dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
->    bond_open (drivers/net/bonding/bond_main.c:4405)
-> 
-> Refuse NETDEV_PRE_TYPE_CHANGE for a slave of an 802.3ad bond, as team
-> does for its ports. Other modes still allow it, as
-> bond-eth-type-change.sh expects.
-> 
-> Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+
+
+> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
+wrote:
+>=20
+> Support HVO if HW AF and BBML3 are supported. These are the required
+> features for the vmemmap to be modified in place.
+>=20
+> On arm64 systems that do not have the required hardware features to
+> support HVO, the HVO sysctl will not appear, and any attempts to =
+enable
+> HVO (either via the command line or via
+> CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON=3Dy) will have no =
+effect.
+>=20
+> Because HVO support is only known after the vmemmap has been =
+populated,
+> disable the section-based vmemmap optimization in vmemmap_populate(), =
+as
+> LoongArch and powerpc do. Boot-time HugeTLB folios are then optimized
+> when they are gathered.
+>=20
+> Signed-off-by: James Houghton <jthoughton@google.com>
 > ---
->  drivers/net/bonding/bond_main.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-> index bcc12ef34d9a..1a926b8d28b0 100644
-> --- a/drivers/net/bonding/bond_main.c
-> +++ b/drivers/net/bonding/bond_main.c
-> @@ -3981,6 +3981,10 @@ static int bond_slave_netdev_event(unsigned long event,
->  	slave_dbg(bond_dev, slave_dev, "%s called\n", __func__);
->  
->  	switch (event) {
-> +	case NETDEV_PRE_TYPE_CHANGE:
-> +		if (BOND_MODE(bond) == BOND_MODE_8023AD)
-> +			return NOTIFY_BAD;
-> +		break;
->  	case NETDEV_UNREGISTER:
->  		if (bond_dev->type != ARPHRD_ETHER)
->  			bond_release_and_destroy(bond_dev, slave_dev);
-> -- 
-> 2.43.0
-> 
+> arch/arm64/Kconfig               | 1 +
+> arch/arm64/include/asm/pgtable.h | 6 ++++++
+> arch/arm64/mm/mmu.c              | 9 +++++++++
+> mm/hugetlb_vmemmap.c             | 4 ++++
+> 4 files changed, 20 insertions(+)
+>=20
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 4cce60c2de66..b13618f0ace5 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -95,6 +95,7 @@ config ARM64
+> 	select ARCH_WANT_FRAME_POINTERS
+> 	select ARCH_WANT_HUGE_PMD_SHARE if ARM64_4K_PAGES || =
+(ARM64_16K_PAGES && !ARM64_VA_BITS_36)
+> 	select ARCH_WANT_LD_ORPHAN_WARN
+> +	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP if ARM64_HW_AFDBM
+> 	select ARCH_WANTS_EXECMEM_LATE
+> 	select ARCH_WANTS_NO_INSTR
+> 	select ARCH_WANTS_THP_SWAP if ARM64_4K_PAGES
+> diff --git a/arch/arm64/include/asm/pgtable.h =
+b/arch/arm64/include/asm/pgtable.h
+> index 7421c0a048ff..5dadaac54bef 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1931,6 +1931,12 @@ static inline void =
+clear_young_dirty_ptes(struct vm_area_struct *vma,
+>=20
+> #endif /* CONFIG_ARM64_CONTPTE */
+>=20
+> +#define arch_support_vmemmap_remap arch_support_vmemmap_remap
+> +static inline bool arch_support_vmemmap_remap(void)
+> +{
+> +	return system_supports_bbm_through_af();
+> +}
+> +
+> static inline int try_update_vmemmap_pte(unsigned long addr, pte_t =
+*ptep,
+> 					 const pte_t pte)
+> {
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index a61464cf7367..bc3eea16004c 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -30,6 +30,7 @@
+> #include <linux/mm_inline.h>
+> #include <linux/pagewalk.h>
+> #include <linux/stop_machine.h>
+> +#include <linux/vmemmap-optimization.h>
+>=20
+> #include <asm/barrier.h>
+> #include <asm/cputype.h>
+> @@ -1843,6 +1844,14 @@ int __meminit vmemmap_populate(unsigned long =
+start, unsigned long end, int node,
+> 	/* [start, end] should be within one section */
+> 	WARN_ON_ONCE(end - start > PAGES_PER_SECTION * sizeof(struct =
+page));
+>=20
+> +	/*
+> +	 * Whether HVO is supported is only known once the system-wide =
+CPU
+> +	 * features have been finalized, which is after the vmemmap has =
+been
+> +	 * populated, so the section-based vmemmap optimization =
+(pre-HVO) is
 
-Hmm, I personally prefer the approach used by vlan and team, which disallows
-changing the slave type after enslavement. If you think we should only disable
-the 802.3ad-specific part, this change should be merged with patch 1, as they
-address the same issue.
+It's better to avoid the term of "pre-HVO", It's an obsolete term. All =
+infrastructure
+of it are removed now.
 
-Cc Nikolay since he add the bond-eth-type-change.sh test.
+> +	 * not supported. Boot-time HugeTLB folios are optimized later =
+instead.
+> +	 */
+> +	section_vmemmap_optimization_disable(start, end);
+> +
+> 	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+> 	    (end - start < PAGES_PER_SECTION * sizeof(struct page)))
+> 		return vmemmap_populate_basepages(start, end, node, =
+altmap);
+> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+> index fb6da64bd80d..a01377c37c96 100644
+> --- a/mm/hugetlb_vmemmap.c
+> +++ b/mm/hugetlb_vmemmap.c
+> @@ -79,6 +79,10 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct =
+page *head, unsigned long start,
+>=20
+> 		/* Make pte visible before pmd. See comment in =
+pmd_install(). */
+> 		smp_wmb();
+> +		/*
+> +		 * On arm64, this requires BBML3. Its support has =
+already been
+> +		 * checked.
+> +		 */
 
-Thanks
-Hangbin
+Please don't add an architecture specific comment here. That is =
+something architecture
+itself needs to consider.
+
+Thanks,
+Muchun
+
+> 		pmd_populate_kernel(&init_mm, pmd, pgtable);
+> 		/*
+> 		 * Modern MMUs allow overlapping TLB entries with =
+different mapping
+> --=20
+> 2.56.1.809.ga0b61035b5-goog
+>=20
+
