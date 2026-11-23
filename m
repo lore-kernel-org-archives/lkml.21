@@ -1,131 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795451502;
-	b=QCp/B78eLrKrN0bjRRom5Z7rT3lVFjYCi9tJ2qhz0fvQStvWvymCJHvivpT411o0gVF8
-	 a5+lSjUa8rka4E29Riwc2PN34zGQ9cQs2AcbdCNn8iUwVw2KpV5v6YTH+YGvMb81RD0ij
-	 G8GRcJ01SxOjHnOyPm1rc3+Zxcj5gG7lsbsCdTI6+MNcQ0LFwOvCKRix2xOqpEgaS0Zwm
-	 PIBWcveX00f65MFbnmaJ6iMNoe3pSxKM8HYrS7eqsfnai+x4cCVaJy6H8JDaFwZbafIvv
-	 ddQp4FhL7TKibtK+aVMl7uGcVKy58qTGJL99w+ldxWe8u6toFgJlCTbYRKDQgYf1S0A==
+	t=1795451494;
+	b=WFq6kWUhliqxDxyyBlS3946Xhh2vySVFiPI6f2QclROiC/bcw0jUbk8m8k2V4Fp9wFW2
+	 ZJy+/zNGV83krdTZ8tP0GdnGfzQIdRjCHDbk7a49P6EAdhdgsO/FwpnQgNf3uE54p1D4Q
+	 R0l+W/G1ltxlPpGN7VBCIskLcvDPqqCDwHVtYVxw+600q+JE/ToRZTk1jsZRLgrGGC8mf
+	 8kBGhSdo7cX6vyILhmM54JQagN1kw1BF4qgpd+7JWlbImZc6gLXW1UNPWMmiC/ireafgr
+	 aX2Jc4VrVSf+5at1O7AM5THHGKjjQWuflwk6Qbhe0m86M/NQevcB8Ky+n0L8X/7PTig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795451502;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=7NOwNcsngTEaHkJEW3GErrX3AAbJGPw+NpkX8JQVxf8=;
-	b=NL/kGh2Eh+L/mPL22LIy7vg5fnXjSt3BYL9n0zS3+jQxr2N7aYYKwgaomKPHo+Ygq5qh
-	 0W4uiE19cjvsx4IGhwD15wZE2LigZT1YhXcdpdNjYmZYp1y/qGHSKFZrMihcCa+PNqyGJ
-	 4nvWlWDMOK7YURDJojPMKI+UxyRTYg+rYfW97C9EOrR9Jy5RP1nx+QiVBwJ2u2SR9a6um
-	 9d0zrqDC8NDuxkHTh2mDcTAas5amlZ0bTXb+qj5VBw1cJBemEudIreG1JW1o89kyKJwCg
-	 6cMgCZtRwdQu1DSaKTmAZdf+JXdjWMSCSAnRfhSg4r6Tymh+ATGYJKT4wbSDM0gNggw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795451494;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
+	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
+	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
+	bh=DxnbPIhU4sDA4neH8cD/WEhfAnHIOjfVHGtlQj27qUk=;
+	b=XICFhJ4cYHkxABhAoJNUF5ls/xrWZZU+aRIfJmOgccDwHBA26POboLVaAxlXZ9bIxhPA
+	 w3Q5c5z020LoTKsRuX3qGO9zThx+eqp8w1p/lxisUzqIhqLk+8F0d4/hdNpnfxOTeQMe4
+	 NVENywq6yoaUtSJNOzMl10JML9Bpq2FAMhjP+siVhgvkjoErIw1sv6q7ciLqeo3YNiVn+
+	 rLZHwIPAyT4ZSUWLeVYaPSUxrlRllKz72PVM/7GBuF7QZw/j40jcBojB7DFc9lKwu2XV8
+	 9Kk6Quq9ZKwWOgP4KBexQRDm0nKrtkQvNkD4dpjVABSUWpvVt3HwOLUdISMih3KV+Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QcKmy7MB;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="Eyqj0/3F";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=iIH94OWr;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=pbdWK9lt;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F51A606A339
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:31:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F51A606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAE9B606A31A;
+	Mon, 23 Nov 2026 16:31:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAE9B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QcKmy7MB;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Eyqj0/3F
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGGomt3730237
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:31:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=7NOwNcsngTEaHkJEW3GErrX3
-	AAbJGPw+NpkX8JQVxf8=; b=QcKmy7MBb97K0QSzDrScF+1C6T/GrGJV835J+s91
-	C3aEIhawydLZuwr+h4N6LczdTRoWzQz+uvMIzBc4v0L6FwFutC4oYF6ByQBxJ6++
-	ueIbk2J2rens3k5vfWYP+lpbm2HrnFRkiqROorhLEvZyhnZHY9e/g1prrWfEESvi
-	cMjR0e5miMOSPx1mk2CczH0PKj7kqkR0MFOomk+4VsGf0ff8s6tpkn0d2qn9r9jA
-	E6uMUEqEPbKwHhiKoqaiZIB3pjuEXks9yNzrw+ashRqA07qZ1gX6F6mRyowGcLmR
-	SgotwrH6LARog6V3X9CoGa8pWa/YEgdQl6mcKxXmkAW+aw==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyd2d1a-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:31:39 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-375bac6bd21so3931294eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:31:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795451499; x=1796056299; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7NOwNcsngTEaHkJEW3GErrX3AAbJGPw+NpkX8JQVxf8=;
-        b=Eyqj0/3FvIPMyrBKTVmQg2Hga2RoWIkPrfMJDxJ/Rj4fdLvrQQm7OLtNV4+eDTYU2i
-         mP5s6izCvtG5YkqEGqv54saYqJS4a8syZp7aeVrV58X26Nf+L4b8Kd+b0G6MgWY64OhK
-         phaZVhJ/PW5wt2F++4MTQkLZ7r+w3e8dwk70qCwJjijO6Yw6pQg9CKSa8GH5kUPTitjD
-         yAeGDbVR0Pk/ZWkKsK2jEu0/Qw5DRoTDzitUM0VUqhwsI0QNA4vAxRCqhNUgTXSFR9n6
-         YYBXe6imDVkKZeyb7wVZNtHU9HS06aZ7yo8kqKJCurSxlWgStBVukjP86JOvVsWyZFdn
-         qrOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795451499; x=1796056299;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7NOwNcsngTEaHkJEW3GErrX3AAbJGPw+NpkX8JQVxf8=;
-        b=ReKc9Ujl7tKjJrbXI3jBcOhr8v5CEXvAmCLkz7weDUtpkfY5AahZYwQBnwwTRawNn9
-         egOKdpDgeP1XMtYBNKT5X0dJ7XGBvWTM9Tw1zy+QUeb7TMJRty2DqIibRhUqyouemN50
-         eBE0LlVjTzHZ5ONRdmzf/iNDLduG3gSk1rYtLeBb1jQ1qLKvPbQoaqtWkOOuimQ8xBsQ
-         ox4q90eBmT3cTyNOSB0IKCtFSZ+ruN0E/aYJyX1JEFxl5f+Sd5ecez8l1v14S+8yAd78
-         E3xfXn7+rY88w5yJt7eS6kEx6hhO3nVW9dxkfk/DrDDCIE6yDHoKEa+lfaWZupNPcx2c
-         cmjQ==
-X-Forwarded-Encrypted: i=1; AL+hErEIO3ImjuoKk7jHKojaJaCJp1y2K6VSp7++W2Ss40XIXaChOP3c+/onhy5ASld4V+6/Q+HD6miBKF3Xicg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Ithd8lthgazdk5cwxp7Uda41Jm9HPiw0xGHkvfEtKmDzUUPqn
-	aShQRC07goInbHv27fMgdBJ1Nuvguswq4yO/kjKL1B23TmXNIo9MFUPIEA5af6+V/BLePMNlIn0
-	p601BHXTI8B5JXbh+yflDck/3yrDW2PgTlSKfeuBd7Moh1EPNyBzf0g+CtVQ0u8LgIQA=
-X-Gm-Gg: AZFdTZfujgjqosIPFhpsFo/aiwzFHj6riAxY3uL4SE15TbrMTmGv5/x35Y7sxcZHXjx
-	xl7kv2B55uCvNKcEyzdli38Hccn2kAyWhTYLlsOAuLXnyl0gfwTwVJKcfX2YFVHMcMsneHJV0rg
-	9Td/b6fiOk1bWB0mzUSHMvwgQs7WEt4Xi9ytbwySAobnUHzJIa6Y/utWh2ggT+IxdXyFxycoL+C
-	v1t40ZsaSab+rT/QnFbWwG1fBrqEmrbHHtXOWmVF3jfZ4eeEWpkW0FuguYuWTJ3fRIuzyPSlIW+
-	RFO6fO7aFo9nq7Q8MLvBlni44zmFUORRFGwxSTtbGv4UScFeS+NP+yFDCFepFvTJytk6902LZx2
-	veFKOb2aQtvcgMMX26BlrJXd1cTD+yVz/RQmPHFQNDhvqmzedyzY61pqimlaTUrNGfSEPBjiR3B
-	pO
-X-Received: by 2002:a05:7301:4283:b0:386:96fb:28c with SMTP id 5a478bee46e88-38696fb2022mr10557993eec.18.1795451498524;
-        Mon, 23 Nov 2026 08:31:38 -0800 (PST)
-X-Received: by 2002:a05:7301:4283:b0:386:96fb:28c with SMTP id 5a478bee46e88-38696fb2022mr10557970eec.18.1795451497840;
-        Mon, 23 Nov 2026 08:31:37 -0800 (PST)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd4efesm38685149eec.12.2026.11.23.08.31.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 08:31:37 -0800 (PST)
-Date: Mon, 23 Nov 2026 22:01:29 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Raviteja Laggyshetty <raviteja.laggyshetty@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Xueyao An <xueyao.an@oss.qualcomm.com>,
-        Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
-        Monish Chunara <quic_mchunara@quicinc.com>,
-        Abel Vesa <abelvesa@kernel.org>,
-        Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
-        Rakesh Kota <rakesh.kota@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Kumar Patro <bibek.patro@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] arm64: dts: qcom: agatti: Mark RPM message RAM as
- no-memory-wc
-Message-ID: <20261123163129.64fqkb5jniwitmwi@hu-mojha-hyd.qualcomm.com>
-References: <20261123-rpm-memory-non-wc-v2-0-3e868b4bfa48@oss.qualcomm.com>
- <20261123-rpm-memory-non-wc-v2-2-3e868b4bfa48@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=iIH94OWr;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=pbdWK9lt
+Date: Mon, 23 Nov 2026 16:31:27 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795451489;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DxnbPIhU4sDA4neH8cD/WEhfAnHIOjfVHGtlQj27qUk=;
+	b=iIH94OWrGHNvNf1ijq4hS1PmCXXpCHs+1FsZqYH7I023HSlBQvNYNnheoPI7C2T7nga88d
+	YRfamkC6E31XWDM8NXwsYXKNlpTDPj7EP5krj6cBJJWX56QUKDvL3K5fJcGmg5dIwrLF6Q
+	coHJdldSquxHaaZt56kLNjL9TJ81v8dfU2k8R2Hq+YqPNQI5nrazgrSvqIv60crsxloIXi
+	MvKoRSieL8n5GLCZprtKqG87rAaxLqUMMT0gsyHBs1nobb2WE9+s4VLVznWm9qXE4AE1K5
+	9SVKT8ra/d7uNIs0bmfDihPqXnm4xar874SkQW/aXfA/1w52v1N3+GUB40gJXw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795451489;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DxnbPIhU4sDA4neH8cD/WEhfAnHIOjfVHGtlQj27qUk=;
+	b=pbdWK9ltCj/e/kdToSozN2/cMjneaDPltpfQ2NOWY43oOndny+e8/esCpsI1QgUWaX4DrF
+	OCburY5vG/aJosDA==
+From: "tip-bot2 for Xin Li (Intel)" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: x86/entry] x86/cea: Prefix exception stack names with ESTACK_
+Cc: "Xin Li (Intel)" <xin@zytor.com>, Sohil Mehta <sohil.mehta@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Binbin Wu <binbin.wu@linux.intel.com>, x86@kernel.org,
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261120235025.2809042-2-sohil.mehta@intel.com>
+References: <20261120235025.2809042-2-sohil.mehta@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -135,58 +79,254 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-rpm-memory-non-wc-v2-2-3e868b4bfa48@oss.qualcomm.com>
-X-Proofpoint-ORIG-GUID: uY90dSmBcK0cdQBZJ3vW6B6wmfOk5av8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2NSBTYWx0ZWRfXw3YkCPDW5rlp
- tE6J+vroPIYDU/51gOrPJ8cfDh0NWZyC5dsltkwJfaSvzGAqhW9z9t9Ucyii0iv2DiarCMwUJ/L
- q5WBnP3YgspCkc9bC+38gAiEF9rp352NeecMF7jmfYVg7XfPdbKmfbD6P7IGRms5FmL7GTDO6ES
- 5slsYV3pAboTenGglmzcKuwkeM0wUxgMMuAOfBxzPPFT9yejI8SzdXAqd+d9yGVX6DBxbLb1dGl
- RmPXxaxAMD7nkKmNpkgj3mC2zd9N8aa+s7hVNba77q/L3715UoeeU4z/sLYtjXnxupVADmzGV2U
- M/wgUisbm47PKIJ6QMNLnxOglI64cGirlrhXjEA9KtK9eVEhqgzq4u08DwDoZeiHb8F9VHnNQ4W
- nraa+HKFw4SgBQL+5zGxqo9JB0pXk3mgMOT8R1f0DTsno5ajSwZGVnwCYKmvF61rdi2KdgKwOr7
- nMDSm8JDlKU9JLvUB2Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2NSBTYWx0ZWRfX1PZUjxFvGwkK
- Fh+PgVh0f8FXZkq3GTuI5rbWuOZj+i5ORvhKiHZ++FGK3Pp2CQlNYaPP39PQ7i2ULaW9td5Qkbs
- a6CPruDVJ1T6JwFIgdCtVj0LCoJXAD8=
-X-Proofpoint-GUID: uY90dSmBcK0cdQBZJ3vW6B6wmfOk5av8
-X-Authority-Analysis: v=2.4 cv=Aol7T+9P c=1 sm=1 tr=0 ts=6b046a6b cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=wLgbqfl3iQV84jYfjRYA:9 a=CjuIK1q_8ugA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- spamscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230065
+Message-ID: <179545148741.92412.5844266518161867015.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2@linutronix.de>
+Robot-Unsubscribe:
+ Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
+Precedence: bulk
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 11:48:57AM +0530, Vishnu Santhosh wrote:
-> The RPM message RAM is shared with other subsystems, and parts of it
-> are not accessible to the APSS. It is expected to be mapped as Device
-> memory.
-> 
-> The "mmio-sram" compatible makes the SRAM driver map the region as
-> write-combined (Normal Non-cacheable) memory instead, which allows
-> speculative reads into the protected parts.
-> 
-> When Linux runs at EL2 (KVM with VHE), there is no stage-2 translation
-> and the write-combined mapping takes effect, so such reads can result
-> in XPU violations. When Linux runs at EL1 under a hypervisor such as
-> Gunyah, a Device mapping of the region at stage-2 hides the issue, as
-> the stricter memory type applies.
-> 
-> Add no-memory-wc so the region is mapped as Device memory.
-> 
-> Fixes: e3f6a6994041 ("arm64: dts: qcom: qcm2290: Hook up MPM")
-> Signed-off-by: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
+The following commit has been merged into the x86/entry branch of tip:
 
-Reviewed-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Commit-ID:     135dbd0519cf7f72af120801ec7dbb79275a362d
+Gitweb:        https://git.kernel.org/tip/135dbd0519cf7f72af120801ec7dbb79275=
+a362d
+Author:        Xin Li (Intel) <xin@zytor.com>
+AuthorDate:    Fri, 20 Nov 2026 15:50:24 -08:00
+Committer:     Dave Hansen <dave.hansen@linux.intel.com>
+CommitterDate: Mon, 23 Nov 2026 08:23:40 -08:00
 
--- 
--Mukesh Ojha
+x86/cea: Prefix exception stack names with ESTACK_
+
+Add the ESTACK_ prefix to the exception stack names to improve clarity
+and readability. Without the prefix, names like DF, NMI, and DB are too
+brief and potentially ambiguous.
+
+This renaming also prepares for reaching the stacks by their enum
+exception_stack_ordering value instead of by name.
+
+Signed-off-by: Xin Li (Intel) <xin@zytor.com>
+Signed-off-by: Sohil Mehta <sohil.mehta@intel.com>
+Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
+Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+Link: https://patch.msgid.link/20261120235025.2809042-2-sohil.mehta@intel.com
+---
+ arch/x86/coco/sev/noinstr.c           |  5 +++--
+ arch/x86/coco/sev/vc-handle.c         |  3 ++-
+ arch/x86/include/asm/cpu_entry_area.h | 26 +++++++++++++-------------
+ arch/x86/kernel/cpu/common.c          | 10 +++++-----
+ arch/x86/kernel/dumpstack_64.c        | 14 +++++++-------
+ arch/x86/kernel/fred.c                |  6 +++---
+ arch/x86/kernel/traps.c               |  2 +-
+ arch/x86/mm/cpu_entry_area.c          | 12 ++++++------
+ arch/x86/mm/fault.c                   |  2 +-
+ 9 files changed, 41 insertions(+), 39 deletions(-)
+
+diff --git a/arch/x86/coco/sev/noinstr.c b/arch/x86/coco/sev/noinstr.c
+index e1e03f1..8ff556d 100644
+--- a/arch/x86/coco/sev/noinstr.c
++++ b/arch/x86/coco/sev/noinstr.c
+@@ -31,7 +31,8 @@ static __always_inline bool on_vc_stack(struct pt_regs *reg=
+s)
+ 	if (ip_within_syscall_gap(regs))
+ 		return false;
+=20
+-	return ((sp >=3D __this_cpu_ist_bottom_va(VC)) && (sp < __this_cpu_ist_top_=
+va(VC)));
++	return ((sp >=3D __this_cpu_ist_bottom_va(ESTACK_VC)) &&
++		(sp <  __this_cpu_ist_top_va(ESTACK_VC)));
+ }
+=20
+ /*
+@@ -83,7 +84,7 @@ void noinstr __sev_es_ist_exit(void)
+ 	/* Read IST entry */
+ 	ist =3D __this_cpu_read(cpu_tss_rw.x86_tss.ist[IST_INDEX_VC]);
+=20
+-	if (WARN_ON(ist =3D=3D __this_cpu_ist_top_va(VC)))
++	if (WARN_ON(ist =3D=3D __this_cpu_ist_top_va(ESTACK_VC)))
+ 		return;
+=20
+ 	/* Read back old IST entry and write it to the TSS */
+diff --git a/arch/x86/coco/sev/vc-handle.c b/arch/x86/coco/sev/vc-handle.c
+index f25d302..954df83 100644
+--- a/arch/x86/coco/sev/vc-handle.c
++++ b/arch/x86/coco/sev/vc-handle.c
+@@ -854,7 +854,8 @@ static enum es_result vc_handle_exitcode(struct es_em_ctx=
+t *ctxt,
+=20
+ static __always_inline bool is_vc2_stack(unsigned long sp)
+ {
+-	return (sp >=3D __this_cpu_ist_bottom_va(VC2) && sp < __this_cpu_ist_top_va=
+(VC2));
++	return (sp >=3D __this_cpu_ist_bottom_va(ESTACK_VC2) &&
++		sp <  __this_cpu_ist_top_va(ESTACK_VC2));
+ }
+=20
+ static __always_inline bool vc_from_invalid_context(struct pt_regs *regs)
+diff --git a/arch/x86/include/asm/cpu_entry_area.h b/arch/x86/include/asm/cpu=
+_entry_area.h
+index 462fc34..d0f884c 100644
+--- a/arch/x86/include/asm/cpu_entry_area.h
++++ b/arch/x86/include/asm/cpu_entry_area.h
+@@ -18,19 +18,19 @@
+=20
+ /* Macro to enforce the same ordering and stack sizes */
+ #define ESTACKS_MEMBERS(guardsize, optional_stack_size)		\
+-	char	DF_stack_guard[guardsize];			\
+-	char	DF_stack[EXCEPTION_STKSZ];			\
+-	char	NMI_stack_guard[guardsize];			\
+-	char	NMI_stack[EXCEPTION_STKSZ];			\
+-	char	DB_stack_guard[guardsize];			\
+-	char	DB_stack[EXCEPTION_STKSZ];			\
+-	char	MCE_stack_guard[guardsize];			\
+-	char	MCE_stack[EXCEPTION_STKSZ];			\
+-	char	VC_stack_guard[guardsize];			\
+-	char	VC_stack[optional_stack_size];			\
+-	char	VC2_stack_guard[guardsize];			\
+-	char	VC2_stack[optional_stack_size];			\
+-	char	IST_top_guard[guardsize];			\
++	char	ESTACK_DF_stack_guard[guardsize];		\
++	char	ESTACK_DF_stack[EXCEPTION_STKSZ];		\
++	char	ESTACK_NMI_stack_guard[guardsize];		\
++	char	ESTACK_NMI_stack[EXCEPTION_STKSZ];		\
++	char	ESTACK_DB_stack_guard[guardsize];		\
++	char	ESTACK_DB_stack[EXCEPTION_STKSZ];		\
++	char	ESTACK_MCE_stack_guard[guardsize];		\
++	char	ESTACK_MCE_stack[EXCEPTION_STKSZ];		\
++	char	ESTACK_VC_stack_guard[guardsize];		\
++	char	ESTACK_VC_stack[optional_stack_size];		\
++	char	ESTACK_VC2_stack_guard[guardsize];		\
++	char	ESTACK_VC2_stack[optional_stack_size];		\
++	char	ESTACK_IST_top_guard[guardsize];		\
+=20
+ /* The exception stacks' physical storage. No guard pages required */
+ struct exception_stacks {
+diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
+index 7e4eb70..b2a4138 100644
+--- a/arch/x86/kernel/cpu/common.c
++++ b/arch/x86/kernel/cpu/common.c
+@@ -2380,12 +2380,12 @@ static inline void setup_getcpu(int cpu)
+ static inline void tss_setup_ist(struct tss_struct *tss)
+ {
+ 	/* Set up the per-CPU TSS IST stacks */
+-	tss->x86_tss.ist[IST_INDEX_DF] =3D __this_cpu_ist_top_va(DF);
+-	tss->x86_tss.ist[IST_INDEX_NMI] =3D __this_cpu_ist_top_va(NMI);
+-	tss->x86_tss.ist[IST_INDEX_DB] =3D __this_cpu_ist_top_va(DB);
+-	tss->x86_tss.ist[IST_INDEX_MCE] =3D __this_cpu_ist_top_va(MCE);
++	tss->x86_tss.ist[IST_INDEX_DF]	=3D __this_cpu_ist_top_va(ESTACK_DF);
++	tss->x86_tss.ist[IST_INDEX_NMI]	=3D __this_cpu_ist_top_va(ESTACK_NMI);
++	tss->x86_tss.ist[IST_INDEX_DB]	=3D __this_cpu_ist_top_va(ESTACK_DB);
++	tss->x86_tss.ist[IST_INDEX_MCE]	=3D __this_cpu_ist_top_va(ESTACK_MCE);
+ 	/* Only mapped when SEV-ES is active */
+-	tss->x86_tss.ist[IST_INDEX_VC] =3D __this_cpu_ist_top_va(VC);
++	tss->x86_tss.ist[IST_INDEX_VC]	=3D __this_cpu_ist_top_va(ESTACK_VC);
+ }
+ #else /* CONFIG_X86_64 */
+ static inline void tss_setup_ist(struct tss_struct *tss) { }
+diff --git a/arch/x86/kernel/dumpstack_64.c b/arch/x86/kernel/dumpstack_64.c
+index 6c5defd..40f51e2 100644
+--- a/arch/x86/kernel/dumpstack_64.c
++++ b/arch/x86/kernel/dumpstack_64.c
+@@ -73,7 +73,7 @@ struct estack_pages {
+ 	 PFN_DOWN(CEA_ESTACK_OFFS(st) + CEA_ESTACK_SIZE(st) - 1)] =3D {	\
+ 		.offs	=3D CEA_ESTACK_OFFS(st),				\
+ 		.size	=3D CEA_ESTACK_SIZE(st),				\
+-		.type	=3D STACK_TYPE_EXCEPTION + ESTACK_ ##st, }
++		.type	=3D STACK_TYPE_EXCEPTION + st, }
+=20
+ /*
+  * Array of exception stack page descriptors. If the stack is larger than
+@@ -83,12 +83,12 @@ struct estack_pages {
+  */
+ static const
+ struct estack_pages estack_pages[CEA_ESTACK_PAGES] ____cacheline_aligned =3D=
+ {
+-	EPAGERANGE(DF),
+-	EPAGERANGE(NMI),
+-	EPAGERANGE(DB),
+-	EPAGERANGE(MCE),
+-	EPAGERANGE(VC),
+-	EPAGERANGE(VC2),
++	EPAGERANGE(ESTACK_DF),
++	EPAGERANGE(ESTACK_NMI),
++	EPAGERANGE(ESTACK_DB),
++	EPAGERANGE(ESTACK_MCE),
++	EPAGERANGE(ESTACK_VC),
++	EPAGERANGE(ESTACK_VC2),
+ };
+=20
+ static __always_inline bool in_exception_stack(unsigned long *stack, struct =
+stack_info *info)
+diff --git a/arch/x86/kernel/fred.c b/arch/x86/kernel/fred.c
+index 117aa06..1c452a3 100644
+--- a/arch/x86/kernel/fred.c
++++ b/arch/x86/kernel/fred.c
+@@ -84,7 +84,7 @@ void cpu_init_fred_rsps(void)
+ 	       FRED_STKLVL(X86_TRAP_DF,  FRED_DF_STACK_LEVEL));
+=20
+ 	/* The FRED equivalents to IST stacks... */
+-	wrmsrq(MSR_IA32_FRED_RSP1, __this_cpu_ist_top_va(DB));
+-	wrmsrq(MSR_IA32_FRED_RSP2, __this_cpu_ist_top_va(NMI));
+-	wrmsrq(MSR_IA32_FRED_RSP3, __this_cpu_ist_top_va(DF));
++	wrmsrq(MSR_IA32_FRED_RSP1, __this_cpu_ist_top_va(ESTACK_DB));
++	wrmsrq(MSR_IA32_FRED_RSP2, __this_cpu_ist_top_va(ESTACK_NMI));
++	wrmsrq(MSR_IA32_FRED_RSP3, __this_cpu_ist_top_va(ESTACK_DF));
+ }
+diff --git a/arch/x86/kernel/traps.c b/arch/x86/kernel/traps.c
+index 30aa836..8afd607 100644
+--- a/arch/x86/kernel/traps.c
++++ b/arch/x86/kernel/traps.c
+@@ -1075,7 +1075,7 @@ asmlinkage __visible noinstr struct pt_regs *vc_switch_=
+off_ist(struct pt_regs *r
+=20
+ 	if (!get_stack_info_noinstr(stack, current, &info) || info.type =3D=3D STAC=
+K_TYPE_ENTRY ||
+ 	    info.type > STACK_TYPE_EXCEPTION_LAST)
+-		sp =3D __this_cpu_ist_top_va(VC2);
++		sp =3D __this_cpu_ist_top_va(ESTACK_VC2);
+=20
+ sync:
+ 	/*
+diff --git a/arch/x86/mm/cpu_entry_area.c b/arch/x86/mm/cpu_entry_area.c
+index 575f863..9fa371a 100644
+--- a/arch/x86/mm/cpu_entry_area.c
++++ b/arch/x86/mm/cpu_entry_area.c
+@@ -151,15 +151,15 @@ static void __init percpu_setup_exception_stacks(unsign=
+ed int cpu)
+ 	 * by guard pages so each stack must be mapped separately. DB2 is
+ 	 * not mapped; it just exists to catch triple nesting of #DB.
+ 	 */
+-	cea_map_stack(DF);
+-	cea_map_stack(NMI);
+-	cea_map_stack(DB);
+-	cea_map_stack(MCE);
++	cea_map_stack(ESTACK_DF);
++	cea_map_stack(ESTACK_NMI);
++	cea_map_stack(ESTACK_DB);
++	cea_map_stack(ESTACK_MCE);
+=20
+ 	if (IS_ENABLED(CONFIG_AMD_MEM_ENCRYPT)) {
+ 		if (cc_platform_has(CC_ATTR_GUEST_STATE_ENCRYPT)) {
+-			cea_map_stack(VC);
+-			cea_map_stack(VC2);
++			cea_map_stack(ESTACK_VC);
++			cea_map_stack(ESTACK_VC2);
+ 		}
+ 	}
+ }
+diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+index aa88370..37f9729 100644
+--- a/arch/x86/mm/fault.c
++++ b/arch/x86/mm/fault.c
+@@ -677,7 +677,7 @@ page_fault_oops(struct pt_regs *regs, unsigned long error=
+_code,
+ 		 * and then double-fault, though, because we're likely to
+ 		 * break the console driver and lose most of the stack dump.
+ 		 */
+-		call_on_stack(__this_cpu_ist_top_va(DF) - sizeof(void*),
++		call_on_stack(__this_cpu_ist_top_va(ESTACK_DF) - sizeof(void *),
+ 			      handle_stack_overflow,
+ 			      ASM_CALL_ARG3,
+ 			      , [arg1] "r" (regs), [arg2] "r" (address), [arg3] "r" (&info));
