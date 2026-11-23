@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795398935;
-	b=c6M00XuhCN2Y3w3cNC4dT/OhgQiiAFa21lLsIq0rtRD4QrncnwFaEeId8E3cXF1L3Y3w
-	 edodvPaYjvXEjZX4TfZta9BehNm18mcn7JH/pCPdkmoCGHSwG3BM1X4h+CwponypT0hji
-	 EG14GPPk002Rr85RHst+XuQ7d+AcgQPDFGAGO4E76BxB+EPKXCUHRX94w4yS5wsmRcTR3
-	 anvSDirI+MrTals8lweCRSCjTxBCHKrnmABAxsqeo5nA7UIFMW9+n66mDhj+l1+jkkr2K
-	 d3B6oasEfQ2l/Gr92cL4GEX3WVyrudFiEVXajrs273TPiFr56c6LbywlnGdbqVSrxcA==
+	t=1795398988;
+	b=LYQRr8+lqkNOYFmeG7m1mc9DJRxp3cenKh8yRT6MqkLVDRK3IHIAQl3nOLF9ajg7cIPA
+	 Zf9TUsprt2y6O5+OrhjQK4Nb7Tg7eq+Vosb43ltMTH6JRejobfsFwsSzBnyQKTWjoyCwQ
+	 UYVrcSZIdV/TKDMePZyLicANkuk8N5gg1aB4gyMsOsenfcPHvaAZxj1D32YNubDVrwGqu
+	 lifpH9lkZFV8B8wOwp1SNWw7XbNzLYCuQEv35UwIuvifo4eNHxgDX250zs9cSKuMW77ub
+	 4VTKPH6yfuyXQGJ3SvAQNov3WgPsQV4EJ84YbF1KzaHVmE7Y29zfpXj0PZ47+2KgN0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795398935;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=ypTqzR0CAqZHoUFtIenNiUBMbByDWcX7WCNHsgy4Gm4=;
-	b=JSwxXqgMiS/ZrDbp4b/xTWOX55DAxaT0lD7t6tpGi073S6oh0TdvjhSIhPar45R1C55H
-	 H9oeBpO3vK3c1jAhwoqOW8nhDBq9Lz99h2lP4K19Aio9ODpT1UOpdp2lTqNdqJptaskzM
-	 US107ASenZApRRPR4YNyuFBvvnnaV/VoWE+fZFjTUtEa0pGbljhaEGVl8qeF9sge47sa+
-	 CxG2hGhMKF1Gp5fYxaAqfXnONX7PnvTPNyfkJ1PhUFhTU2OTMSqEgcQgXkfJqxUmBqL/W
-	 pyiyhilGWmHBn1A6lZi/WbbW488C6blzWX7visPlg9+MeRN4oW6+5jjIqq6TgOg8f8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795398988;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=SlyZxZgV2CPF6b52Gh9ylOu+uEyo7tAUBf4kSjBUq8w=;
+	b=FseyxUdU5DciYPAMT3or9v97PmXHlE+ao+jlZQMe6DKQ1YfaudshsClpKEVXGW6Aa5DV
+	 YRT1hy2Gyuu4LhGsfOFnGDGiXGRzW3vZ3CBDE0D2ycjU9nvFhksPsPHs5LDBmr3VjT5+A
+	 jQ+gFgL43RK31gsQFwgxa/W5r30AqhjHPVhFtONW5PhJRYO5d6rrDa6ocPp13B/+I31fG
+	 /TWbMaHYO/vzJ7Kxb9YfT8rbx4wxbkkSqi+fcOPghRBMJ68/nqkXrKEb9K5pV8l8lRvXi
+	 XjlEQpLLRp7v6nh+lrHOA95FLM1PK2DOxMbdcoevl/UCJXncZKd8kN6Tnb9HoszBosw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=JKhQPQZw;
-	arc=none smtp.remote-ip=113.46.200.225
-Received: from canpmsgout10.his.huawei.com (canpmsgout10.his.huawei.com [113.46.200.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.210.72
+Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52D27606A31A;
-	Mon, 23 Nov 2026 01:55:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52D27606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=JKhQPQZw
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ypTqzR0CAqZHoUFtIenNiUBMbByDWcX7WCNHsgy4Gm4=;
-	b=JKhQPQZwNJZgKtwKaRtC56O40Oe+dGTWUGEBfJyzaFP5sggNQ22xsMI4x64y1VfBvhrvYxnwf
-	+ULbt6JliENq3vb6ytp4JFg8wowY5p3XHdRC6OrxnW3pfWyUf8DuPS265Yn1vskoDtgO3B3yp/D
-	1/yULR0vBDgmpyWMrMo+rws=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jXpt43jDqz1K9Cn;
-	Mon, 23 Nov 2026 09:55:08 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0F3064056C;
-	Mon, 23 Nov 2026 09:55:25 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 23 Nov
- 2026 09:55:23 +0800
-Message-ID: <50143d02-b3a7-43dd-a2c8-bf9bf550f0ec@huawei.com>
-Date: Mon, 23 Nov 2026 09:55:23 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCC4A606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:56:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCC4A606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-862b2e1885cso3409793a34.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:56:27 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795398987; x=1796003787;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SlyZxZgV2CPF6b52Gh9ylOu+uEyo7tAUBf4kSjBUq8w=;
+        b=z7w7OwvvkpScO9kXHh0zl8pIHXKbjCNzVHWbgd8gkAvKJiqhgkGuTH4RIbgc59qFP0
+         aNeNu4Dn2UAWkJhI60meCu6WMfQkHl+Rv5dGGRY8VuzjADL4SFVKhQAaJysbAr972Plu
+         ltpCWgDTxxNcowpw9/UoKFr659Ln6+hNBCPnqJPLTOmb1q7OBH21CJH27TuMkx4WWDa+
+         I1kSlufH7HlQKzbUHqEJBA84YEUCPhu7JBUIxMb+p+4d5cyJ9geS/O7voMkw5pIIDC8t
+         vhBByly+vEBOG5+mj1ywCJcGCvCL4Yf4VDHjcI/Y/93pIAt/D2Ko02rRFS3AIYnWS0UZ
+         VdPg==
+X-Forwarded-Encrypted: i=1; AL+hErGoV64EWidurK8djKeg2Hr+pAlc3rkAjttm6fxTL7cRSed7RcH6GPWwhwXktQAClgyTLnXaNYZraKttrPE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ueePc1Je9uqpcLq/jZdyAbZvRhU56KQwoN7r+L6bG7pi0YJp9
+	lSnevsnk5haXqqDdRCXGGJM7TMaPO4kTELk4SHWmQJ/z9cXWKYTqFS0AhjDHnpI8am+3oAjUgHp
+	zbhmT/GfOmS2Ee20hSmXER656MknDrDiYsFmka5SVP0+eH1G+3/HqQh47OOI=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,116 +58,166 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/6] fs/resctrl: Clear the CDP state after the cleanup
-To: Ben Horgan <ben.horgan@arm.com>, <tony.luck@intel.com>,
-	<reinette.chatre@intel.com>, <Dave.Martin@arm.com>, <james.morse@arm.com>,
-	<babu.moger@amd.com>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
-	<rdunlap@infradead.org>, <bp@alien8.de>, <tan.shaopeng@fujitsu.com>,
-	<gshan@redhat.com>, <jic23@kernel.org>, <fenghuay@nvidia.com>,
-	<zengheng4@huawei.com>, <x86@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>
-References: <20261119094858.813874-1-ruanjinjie@huawei.com>
- <20261119094858.813874-4-ruanjinjie@huawei.com>
- <6b0ccb0d-487a-4985-ac7b-81808848fd0b@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <6b0ccb0d-487a-4985-ac7b-81808848fd0b@arm.com>
+X-Received: by 2002:a05:6808:130a:b0:573:7a6b:f32c with SMTP id
+ 5614622812f47-57a0c4b923bmr9672777b6e.50.1795398986911; Sun, 22 Nov 2026
+ 17:56:26 -0800 (PST)
+Date: Sun, 22 Nov 2026 17:56:26 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b039d4a.a481e175.27cf24.0013.GAE@google.com>
+Subject: [syzbot] [exfat?] KCSAN: data-race in copy_folio_from_iter_atomic /
+ fat12_ent_put (6)
+From: syzbot <syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com>
+To: exfat@lists.linux.dev, hirofumi@mail.parknet.co.jp, linkinjeon@kernel.org, 
+	linux-kernel@vger.kernel.org, sj1557.seo@samsung.com, 
+	syzkaller-bugs@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+
+Hello,
+
+syzbot found the following issue on:
+
+HEAD commit:    f802b6558eb8 Merge tag 'xfs-fixes-7.4-rc4' of git://git.ke..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=17d97cd5580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
+dashboard link: https://syzkaller.appspot.com/bug?extid=c1b4f0f31099fb2324e2
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+
+Unfortunately, I don't have any reproducer for this issue yet.
+
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/2b34daaac71e/disk-f802b655.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/1e58ec148c51/vmlinux-f802b655.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/465e72cdcb06/bzImage-f802b655.xz
+
+AI-generated root cause summary:
+fat12_ent_put() in fs/fat/fatent.c modifies FAT table buffer_head data
+(fatent->bhs[0]->b_data and, for block-spanning entries, fatent->bhs[1]->b_data)
+without acquiring lock_buffer(). Because block device writeback
+(blkdev_writepages() -> block_write_full_folio() / write_dirty_buffer()) relies
+on lock_buffer() to synchronize buffer modifications against in-flight write
+bios, fat12_ent_put() can overwrite bh->b_data concurrently while the block
+driver (here loop1 via lo_rw_aio() -> shmem_file_write_iter() ->
+copy_folio_from_iter_atomic()) is reading the buffer for an ongoing writeback
+I/O.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=c1b4f0f31099fb2324e2
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com
+
+==================================================================
+BUG: KCSAN: data-race in copy_folio_from_iter_atomic / fat12_ent_put
+
+write to 0xffff8881074bf418 of 1 bytes by task 4984 on cpu 0:
+ fat12_ent_put+0x74/0x180 fs/fat/fatent.c:168
+ __fat_alloc_clusters+0x571/0xdc0 fs/fat/fatent.c:542
+ fat_alloc_chain+0x25/0x30 fs/fat/fatent.c:610
+ fat_add_clusters fs/fat/inode.c:109 [inline]
+ __fat_get_block fs/fat/inode.c:156 [inline]
+ fat_get_block+0x276/0x650 fs/fat/inode.c:191
+ __block_write_begin_int+0x459/0x1070 fs/buffer.c:2043
+ block_write_begin fs/buffer.c:2157 [inline]
+ cont_write_begin+0x4af/0x6c0 fs/buffer.c:2519
+ fat_write_begin+0x52/0xf0 fs/fat/inode.c:233
+ generic_perform_write+0x198/0x510 mm/filemap.c:4407
+ __generic_file_write_iter+0x9e/0x120 mm/filemap.c:4524
+ generic_file_write_iter+0x77/0x1f0 mm/filemap.c:4550
+ new_sync_write fs/read_write.c:575 [inline]
+ vfs_write+0x57a/0x9b0 fs/read_write.c:667
+ ksys_write+0xdc/0x1a0 fs/read_write.c:719
+ __do_sys_write fs/read_write.c:730 [inline]
+ __se_sys_write fs/read_write.c:727 [inline]
+ __x64_sys_write+0x40/0x50 fs/read_write.c:727
+ x64_sys_call+0x154e/0x2550 arch/x86/include/generated/asm/syscalls_64.h:2
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+read to 0xffff8881074bf400 of 1024 bytes by task 33 on cpu 1:
+ memcpy_from_iter lib/iov_iter.c:85 [inline]
+ iterate_bvec include/linux/iov_iter.h:123 [inline]
+ iterate_and_advance2 include/linux/iov_iter.h:306 [inline]
+ iterate_and_advance include/linux/iov_iter.h:332 [inline]
+ __copy_from_iter lib/iov_iter.c:261 [inline]
+ copy_folio_from_iter_atomic+0x73a/0x1050 lib/iov_iter.c:491
+ generic_perform_write+0x34b/0x510 mm/filemap.c:4425
+ shmem_file_write_iter+0xc5/0xf0 mm/shmem.c:3701
+ lo_rw_aio+0x6e9/0x7a0 drivers/block/loop.c:-1
+ do_req_filebacked drivers/block/loop.c:-1 [inline]
+ loop_handle_cmd drivers/block/loop.c:1847 [inline]
+ loop_process_work+0x569/0xb00 drivers/block/loop.c:1882
+ loop_workfn+0x31/0x40 drivers/block/loop.c:1906
+ process_one_work kernel/workqueue.c:3495 [inline]
+ process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
+ worker_thread+0x56c/0x770 kernel/workqueue.c:3659
+ kthread+0x248/0x2a0 kernel/kthread.c:436
+ ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 1 UID: 0 PID: 33 Comm: kworker/u8:1 Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+Workqueue: loop1 loop_workfn
+==================================================================
+netdevsim netdevsim1 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+netdevsim netdevsim1 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+netdevsim netdevsim1 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+netdevsim netdevsim1 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+bond0 (unregistering): Released all slaves
+hsr_slave_0: left promiscuous mode
+hsr_slave_1: left promiscuous mode
+veth1_macvtap: left promiscuous mode
+veth0_macvtap: left promiscuous mode
+veth1_vlan: left promiscuous mode
+veth0_vlan: left promiscuous mode
+netdevsim netdevsim4 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+netdevsim netdevsim4 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+netdevsim netdevsim4 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+netdevsim netdevsim4 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+bridge_slave_1: left allmulticast mode
+bridge_slave_1: left promiscuous mode
+bridge0: port 2(bridge_slave_1) entered disabled state
+bridge_slave_0: left allmulticast mode
+bridge_slave_0: left promiscuous mode
+bridge0: port 1(bridge_slave_0) entered disabled state
+bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+bond_slave_0: left promiscuous mode
+bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+bond_slave_1: left promiscuous mode
+bond0 (unregistering): Released all slaves
+hsr_slave_0: left promiscuous mode
+hsr_slave_1: left promiscuous mode
+batman_adv: batadv0: Interface deactivated: batadv_slave_0
+batman_adv: batadv0: Removing interface: batadv_slave_0
+batman_adv: batadv0: Interface deactivated: batadv_slave_1
+batman_adv: batadv0: Removing interface: batadv_slave_1
+veth1_macvtap: left promiscuous mode
+veth0_macvtap: left promiscuous mode
+veth1_vlan: left promiscuous mode
+veth0_vlan: left promiscuous mode
+team0 (unregistering): Port device team_slave_1 removed
+team0 (unregistering): Port device team_slave_0 removed
 
 
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-在 2026/11/19 19:21, Ben Horgan 写道:
-> Hi Jinjie,
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
-Hi Ben,
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
 
-> 
-> On 19/11/2026 09:48, Jinjie Ruan wrote:
->> To support CDP, resctrl halves the number of CLOSIDs available to
->> resource groups and gives each remaining CLOSID two hardware
->> configurations instead of one, distinguished by index: 2 * CLOSID for
->> data and 2 * CLOSID + 1 for code. Without CDP a CLOSID has a single
->> configuration, at index CLOSID. Every architecture computes these
->> indices the same way.
->>
->> Unmounting clears the CDP state before it undoes what the groups were
->> given, so the cleanup computes index CLOSID where the group was set up
->> with 2 * CLOSID and 2 * CLOSID + 1. The group's two configurations are
->> left in place and index CLOSID is cleared instead, which with CDP
->> enabled is a configuration of a different CLOSID. The architecture may
->> keep this state for as long as the resource exists.
->>
->> Only MPAM can reach this today. Of everything the cleanup has to undo,
->> MPAM addresses only the MBM counter assignment by the translated CLOSID,
->> and it only began doing so when it implemented assignable counters. 
-> 
-> This is clearly not ideal but even in MPAM we get away without any usable visible effect. Or am I
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
 
-Should I update the commit message to reflect this?
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
 
-Such as:
-
-"This issue has no visible impact on users in mpam, but it is a silent
-logical error."
-
-Best regards,
-Jinjie
-
-> missing something? We are left with some assigned counters from the MPAM driver point of view but
-> the resctrl is in charge of the assignments and MPAM doesn't check if a counter is already assigned
-> when resctrl asks for a new assignment. The change looks good to me.
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
-> x86
->> addresses its counters by RMID alone.
->>
->> Clear the CDP state after the cleanup, so that the cleanup runs with the
->> CDP state the groups were set up under.
->>
->> Fixes: 6e0e538a75ce ("arm_mpam: resctrl: Add resctrl_arch_config_cntr() for ABMC use")
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> Cc: <stable@vger.kernel.org>
->> ---
->> v6:
->> - Describe the CDP indices as resctrl filesystem behavior that applies
->>   to every architecture, and the flow instead of the code (Reinette).
->> - Drop the stable version range, the Fixes tag already gives it.
->> ---
->>  fs/resctrl/rdtgroup.c | 10 ++++++++--
->>  1 file changed, 8 insertions(+), 2 deletions(-)
->>
->> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
->> index 5d0351453c2f..3312637fb514 100644
->> --- a/fs/resctrl/rdtgroup.c
->> +++ b/fs/resctrl/rdtgroup.c
->> @@ -3150,13 +3150,19 @@ static void resctrl_unmount(void)
->>  	cpus_read_lock();
->>  	mutex_lock(&rdtgroup_mutex);
->>  
->> -	rdt_disable_ctx();
->> -
->>  	/* Put everything back to default values. */
->>  	for_each_alloc_capable_rdt_resource(r)
->>  		resctrl_arch_reset_all_ctrls(r);
->>  
->>  	resctrl_fs_teardown();
->> +
->> +	/*
->> +	 * Clear the CDP state after the cleanup. The CDP state decides
->> +	 * which hardware configuration a CLOSID refers to, so the teardown
->> +	 * must run with the state the configuration was created under.
->> +	 */
->> +	rdt_disable_ctx();
->> +
->>  	if (resctrl_arch_alloc_capable())
->>  		resctrl_arch_disable_alloc();
->>  	if (resctrl_arch_mon_capable())
-> 
-
+If you want to undo deduplication, reply with:
+#syz undup
