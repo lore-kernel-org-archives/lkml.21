@@ -1,59 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795420592;
-	b=FamFSg54alKUzQDgxJ3PfZPzqTinm/dUtWT2h+O/4XspKMiLGHJColh3rbwcnj91Fbq/
-	 G2Xpgb9BdfMCdHG0RqPN51XVyAj8784cd39HgWf7y3n5RTWyyNaFmr3PO0yrNGmYRCNDQ
-	 otO7ogkyQBhddTxi3zPpdUrr5wdGUFKvTzFX/PvMbcmLstOC/Rw746JNPoiH+rqQh6UfP
-	 Lup/UsY/FpwOdL6NIQ1wB7GVtv6CW7nINBEkJJDREdwHj31wxNgdDoIeczqAqx2WAchYL
-	 haUOgFjaHSG4kHZKFPOjYFinOjoue+9i5Cda7Ow1w3lfBVgxz2ZkBB4xAH3FIV6/Jfw==
+	b=lWYyD76da6eWiOfnZAveU90BBHfmyaBDfti3Ynwus2c9czTz1N+tz/rlEf6KuEF4eFPP
+	 kYg80bXm7qgcFd3Wu5DuWxPYFfkbDUbCKgVkcL2uy32si3Qr0v2wialjWkXYWLxCjmGAs
+	 Zpo/X8Vz0eia7ubLxeiK6IYLQL0X4JnAI9F0cG1T0g/x4BUnbOwREiC59fpNlCLQi8teO
+	 mz1WjS+tH2w216c1InlMPJAWt/lasP1A5PBjlGUL+BcC8KGEdLh9oTmWLPCPatqZ4+wur
+	 ehtOPT1jIozAyPUK9OBMgXhsNqnCo2bTT2WnZbI9uzf/pJiQ1VGzqDd9xBa/ERn2HqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795420592;
-	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=45SnKidonl0igMhwvGCpmH47BH0cjr1RCjUuG6gYLho=;
-	b=yIFadMqp/BQmqWmQ0lhil0JHLFcCIeKjmt4AATlJYhBRJBmqA1Smp4hS7pEusjLTtwlJ
-	 DLq/ZHn/z2xvc5ygOP9UegWau7gtXhsRNUnQJ407sm+WfSWA19AFsALEe4aFLI8syj3nF
-	 opHB2DnEkNUMWHmdny9MbKdl2gY6PjNwLzJb6PnnVLPJl1Gem2x/GOwXItoq5cCI+jSBh
-	 jXELJCg/YvmfSZSi6Uc3U0oxH4GIaeviRlQFO1bf9yC92yGLq9tXHdUjlHzOcI5D0gTmr
-	 q5Deo/DvpwsCiupQbTyw5EyPgZgzK+z/FQ5ebwa86gAjvXbO8/6gvLon/tp2BSYlEPQ==
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=0t4b/Qrw4yRrOcM6IJZhKh0+8lcwSixNn61ToWP1MHc=;
+	b=TD2bbSGhYYdhffjQc7897IYGQEaH8K4kdqZNPzZlzM1z8hrJ0IxtYfF0Rx6s0MgXMxba
+	 gkpYTaEnsbS+6PDdjZeuTK+3OXachsah3h37kqDVhESPFI9cnp36FYeKXoqQXRelIkLyP
+	 7dI3VxK6HwX4+F9ArilbQEtYjkMhEDWyLL1EV9FGVvpC8H05oUU4ggK/Ku7o9A892V1ic
+	 kFzeHXK3YdNiJDnFZEbei4DvA0DnbNQfwagHduFb00pmRhKc6Jv0fuF7dVOR9DeqwhnJT
+	 xvw0wniM2zc9cu3k28esvJd62fRiGe10OCWG1XrCoWqA+0YwTIf/I09zdWPj5FE162w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZTSVIXjN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=EHtbTEXr;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF397606A693;
-	Mon, 23 Nov 2026 07:56:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67B26606A68E;
+	Mon, 23 Nov 2026 07:56:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67B26606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZTSVIXjN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 106771F000C6;
-	Mon, 23 Nov 2026 07:56:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795420591;
-	bh=45SnKidonl0igMhwvGCpmH47BH0cjr1RCjUuG6gYLho=;
-	h=From:To:Subject:Date:In-Reply-To:References;
-	b=ZTSVIXjNbrI0MemaScNUkiOPe7LoFMR//oncNd0FNlrOfh68YagLHkJL/BoHlqQfw
-	 FmUYVdHLdCCYS7QH2L15OZs4PxNf2QXQ5TbffopRrOiYT0DfVCd9f+FNtMuoBLQEP3
-	 N9O3GemqLlq3cZoxTTe182bNZLiC72vNDuS0EPxMUgdu6yrP7fFyGmxpJ1LuABWYa2
-	 LdjC+0vLMRaNa+thZA5PQOYko5xcTbwLwsxaXmjCOiDuhlUclkl9ZER0TvQ7cDM41i
-	 rTf29/E10xvUErhkCxVtMC9S9YErZtYX8L8XqveLLvsxNn3UXx5o0vAswYUfTtxcUF
-	 rDQbOCIGgi7DQ==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	linux-sound@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 09/10] soundwire: qcom: Serialise ctrl->intr_mask updates
-Date: Mon, 23 Nov 2026 07:54:30 +0000
-Message-ID: <20261123075522.405347-10-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123075522.405347-1-lee@kernel.org>
-References: <20261123075522.405347-1-lee@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=EHtbTEXr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795420593; x=1826956593;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aVHwpw/FD6pKxcpupPVa+nHhi8ImbmRxTL9k4y+v1VI=;
+  b=EHtbTEXraI3wdjsngGGIyWZTtduVU8101VWiZVHxseTjzW+RNjXWp//O
+   A+6WEiegxWHjyciUnJlsldmm81mtht9EvCq5hDtTzyyi/JfS4tLffVLVo
+   fSEkrjjTyh6l1RJdrQk+tzwnDrI+Mrq4eH+RZoGJgjuvpt5lLrJ12S81e
+   9jJaV0D61rUo33/XzbO8buaWXre4SW/CSIE3jtMEBK083/fd5At9vWIPf
+   NmKEYtKp2rE6yc3afApYKB36y6M7FAf3jiTiJGWvi6fUzAlJXD37FBuWs
+   PTPkKTpBxYBzZQiv1PJEKBBFHQr1tvZdhfUm4R/sXXhdqgXBajDRHkVkc
+   w==;
+X-CSE-ConnectionGUID: ritJ1AcqSF+GWKgCqeULuA==
+X-CSE-MsgGUID: 1v7AMAg7TiC5geIKHAp9mg==
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="66915052"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:56:27 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.56; Mon, 23 Nov 2026 00:56:25 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 23 Nov 2026 00:56:24 -0700
+Date: Mon, 23 Nov 2026 08:56:23 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+CC: Steen Hegelund <Steen.Hegelund@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, "Paolo
+ Abeni" <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v3] net: sparx5: check DT port reg against chip
+ port count
+Message-ID: <20261123075623.7pgmsdn32x4vselo@DEN-DL-M70577>
+References: <20261119094613.klyjRQ7HPrCZV7VwnhNzSf_Ev6wIWbyixM5FfrNrJS8@z>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,168 +83,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261119094613.klyjRQ7HPrCZV7VwnhNzSf_Ev6wIWbyixM5FfrNrJS8@z>
 
-qcom_swrm_irq_handler(), swrm_runtime_suspend(), and
-swrm_runtime_resume() concurrently read, modify, and write
-ctrl->intr_mask and program the interrupt enable registers without
-synchronisation.  Overlapping read-modify-write updates can clobber
-interrupt mask bits and leave the hardware interrupt mask out of sync.
+> From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+> 
+> mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
+> portno, which sparx5_create_port() later uses to index the fixed-size
+> sparx5->ports[] array:
+> 
+>     sparx5->ports[config->portno] = spx5_port;
+> 
+> The value is never validated, so an out-of-range 'reg' (runtime overlay,
+> corrupted or attacker-controlled DTB, kexec-supplied or bootloader
+> fixed-up DT) turns probe into an out-of-bounds write.
+> 
+> Skip port nodes with an out-of-range 'reg'.  lan966x_probe_port() has
+> the same bounds check but fails probe with -EINVAL; skipping here keeps
+> the remaining valid ports working.  The bound is the per-chip port count
+> from the match data (sparx5->data->consts->n_ports), so lan969x, which
+> shares this probe path and has only 30 ports, is bounded correctly as
+> well.
+> 
+> Found by a scripted scan of of_property_read_u32() call sites used to
+> index fixed-size arrays, followed by manual review. Verified at runtime
+> on a pristine v7.4-rc2 arm64 QEMU virt machine (inline KASAN,
+> CONFIG_SPARX5_SWITCH=m): an out-of-tree module supplies only a
+> malicious DT overlay, the unmodified in-tree driver performs the store.
+> reg = 15839 yields a KASAN use-after-free, reg = 0x20000000 a wild
+> write 4 GiB out (paging oops), and reg = 65 silent in-struct corruption
+> with a later NULL oops. With this patch all three are skipped. The PoC
+> and full logs are posted in the thread. Not tested on real hardware,
+> QEMU virt (cortex-a57) and compile testing only.
+> 
+> Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
+> Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+> ---
+> v2 -> v3:
+> - Fix the diff paths (a/a/ -> a/, b/b/ -> b/) so the patch applies
+>   (Daniel Machon).
+> - Restore the in-body From: line so the author matches the Signed-off-by
+>   (checkpatch author/Signed-off-by mismatch).
+> - Clarify that lan966x fails probe instead of skipping (Daniel Machon).
+> 
+> v1 -> v2:
+> - Check against sparx5->data->consts->n_ports instead of SPX5_PORTS,
+>   so that lan969x (30 ports), which goes through the same probe, is
+>   bounded correctly as well (Daniel Machon).
+> - Document how the issue was found, the runtime verification and the
+>   test setup, as requested by the patch bot.
+> 
+>  drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> index 08a398adf..164706745 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> @@ -845,6 +845,11 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+>  			dev_err(sparx5->dev, "port reg property error\n");
+>  			continue;
+>  		}
+> +		if (portno >= sparx5->data->consts->n_ports) {
+> +			dev_err(sparx5->dev, "port %u: reg out of range\n",
+> +				portno);
+> +			continue;
+> +		}
+>  		config = &configs[idx];
+>  		conf = &config->conf;
+>  		conf->speed = SPEED_UNKNOWN;
+>
 
-Add ctrl->intr_lock to serialise accesses to ctrl->intr_mask and its
-associated interrupt mask register updates.
+The patch looks good to me.
 
-Closes: https://sashiko.dev/#/bug/linux-ea523727-6467-42aa-850f-8f838e4b84a8
-Signed-off-by: Lee Jones <lee@kernel.org>
----
+However, the AI review flags a pre-existing issue, about two port nodes with the
+same 'reg' leak the first port's phylink. To me, that strengthens the argument
+that the device tree is considered trusted, as we would otherwise have to
+validate every DT property in the driver.
 
-v2 => v3:
- - No changes
+That said, this patch fixes an out-of-bounds write, and other drivers do the
+same check (lan966x in lan966x_probe_port(), and ocelot in ocelot_vsc7514.c,
+which also skips the port). So it might still be worth having.
 
-v1 => v2:
- - Drop Fixes and Stable tags
+I am unsure here, so I'll leave it to the maintainers to decide.
 
- drivers/soundwire/qcom.c | 25 +++++++++++++++++++++++--
- 1 file changed, 23 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/soundwire/qcom.c b/drivers/soundwire/qcom.c
-index 307be1ec3d68..648260a1dac6 100644
---- a/drivers/soundwire/qcom.c
-+++ b/drivers/soundwire/qcom.c
-@@ -202,6 +202,8 @@ struct qcom_swrm_ctrl {
- 	struct completion enumeration;
- 	/* Port alloc/free lock */
- 	struct mutex port_lock;
-+	/* Interrupt mask and broadcast completion lock */
-+	struct mutex intr_lock;
- 	struct clk *hclk;
- 	int irq;
- 	u32 ee;
-@@ -784,7 +786,9 @@ static irqreturn_t qcom_swrm_irq_handler(int irq, void *dev_id)
- 
- 	ctrl->reg_read(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_STATUS],
- 		       &intr_sts);
-+	mutex_lock(&ctrl->intr_lock);
- 	intr_sts_masked = intr_sts & ctrl->intr_mask;
-+	mutex_unlock(&ctrl->intr_lock);
- 
- 	do {
- 		for (i = 0; i < SWRM_INTERRUPT_MAX; i++) {
-@@ -820,10 +824,12 @@ static irqreturn_t qcom_swrm_irq_handler(int irq, void *dev_id)
- 				dev_err_ratelimited(ctrl->dev,
- 						"%s: SWR bus clsh detected\n",
- 						__func__);
-+				mutex_lock(&ctrl->intr_lock);
- 				ctrl->intr_mask &= ~SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET;
- 				ctrl->reg_write(ctrl,
- 						ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
- 						ctrl->intr_mask);
-+				mutex_unlock(&ctrl->intr_lock);
- 				break;
- 			case SWRM_INTERRUPT_STATUS_RD_FIFO_OVERFLOW:
- 				ctrl->reg_read(ctrl,
-@@ -863,20 +869,24 @@ static irqreturn_t qcom_swrm_irq_handler(int irq, void *dev_id)
- 				dev_err_ratelimited(ctrl->dev,
- 						"%s: SWR Port collision detected\n",
- 						__func__);
-+				mutex_lock(&ctrl->intr_lock);
- 				ctrl->intr_mask &= ~SWRM_INTERRUPT_STATUS_DOUT_PORT_COLLISION;
- 				ctrl->reg_write(ctrl,
- 						ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
- 						ctrl->intr_mask);
-+				mutex_unlock(&ctrl->intr_lock);
- 				break;
- 			case SWRM_INTERRUPT_STATUS_READ_EN_RD_VALID_MISMATCH:
- 				dev_err_ratelimited(ctrl->dev,
- 					"%s: SWR read enable valid mismatch\n",
- 					__func__);
-+				mutex_lock(&ctrl->intr_lock);
- 				ctrl->intr_mask &=
- 					~SWRM_INTERRUPT_STATUS_READ_EN_RD_VALID_MISMATCH;
- 				ctrl->reg_write(ctrl,
- 						ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
- 						ctrl->intr_mask);
-+				mutex_unlock(&ctrl->intr_lock);
- 				break;
- 			case SWRM_INTERRUPT_STATUS_SPECIAL_CMD_ID_FINISHED:
- 				complete(&ctrl->broadcast);
-@@ -910,7 +920,9 @@ static irqreturn_t qcom_swrm_irq_handler(int irq, void *dev_id)
- 				intr_sts);
- 		ctrl->reg_read(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_STATUS],
- 			       &intr_sts);
-+		mutex_lock(&ctrl->intr_lock);
- 		intr_sts_masked = intr_sts & ctrl->intr_mask;
-+		mutex_unlock(&ctrl->intr_lock);
- 	} while (intr_sts_masked);
- 
- 	clk_disable_unprepare(ctrl->hclk);
-@@ -952,11 +964,13 @@ static int qcom_swrm_init(struct qcom_swrm_ctrl *ctrl)
- 	/* Enable Auto enumeration */
- 	ctrl->reg_write(ctrl, SWRM_ENUMERATOR_CFG_ADDR, 1);
- 
-+	mutex_lock(&ctrl->intr_lock);
- 	ctrl->intr_mask = SWRM_INTERRUPT_STATUS_RMSK;
- 	/* Mask soundwire interrupts */
- 	if (ctrl->version < SWRM_VERSION_2_0_0)
- 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_MASK_ADDR],
--				SWRM_INTERRUPT_STATUS_RMSK);
-+				ctrl->intr_mask);
-+	mutex_unlock(&ctrl->intr_lock);
- 
- 	/* Configure No pings */
- 	ctrl->reg_read(ctrl, SWRM_MCP_CFG_ADDR, &val);
-@@ -997,8 +1011,10 @@ static int qcom_swrm_init(struct qcom_swrm_ctrl *ctrl)
- 			0xFFFFFFFF);
- 
- 	/* enable CPU IRQs for the selected EE window */
-+	mutex_lock(&ctrl->intr_lock);
- 	ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
--			SWRM_INTERRUPT_STATUS_RMSK);
-+			ctrl->intr_mask);
-+	mutex_unlock(&ctrl->intr_lock);
- 
- 	/* Set IRQ to PULSE */
- 	ctrl->reg_write(ctrl, SWRM_COMP_CFG_ADDR,
-@@ -1686,6 +1702,7 @@ static int qcom_swrm_probe(struct platform_device *pdev)
- 	ctrl->dev = dev;
- 	dev_set_drvdata(&pdev->dev, ctrl);
- 	mutex_init(&ctrl->port_lock);
-+	mutex_init(&ctrl->intr_lock);
- 	init_completion(&ctrl->broadcast);
- 	init_completion(&ctrl->enumeration);
- 
-@@ -1851,6 +1868,7 @@ static int __maybe_unused swrm_runtime_resume(struct device *dev)
- 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CLEAR],
- 			SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET);
- 
-+		mutex_lock(&ctrl->intr_lock);
- 		ctrl->intr_mask |= SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET;
- 		if (ctrl->version < SWRM_VERSION_2_0_0)
- 			ctrl->reg_write(ctrl,
-@@ -1858,6 +1876,7 @@ static int __maybe_unused swrm_runtime_resume(struct device *dev)
- 					ctrl->intr_mask);
- 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
- 				ctrl->intr_mask);
-+		mutex_unlock(&ctrl->intr_lock);
- 
- 		usleep_range(100, 105);
- 		if (!swrm_wait_for_frame_gen_enabled(ctrl))
-@@ -1879,6 +1898,7 @@ static int __maybe_unused swrm_runtime_suspend(struct device *dev)
- 	swrm_wait_for_wr_fifo_done(ctrl);
- 	if (!ctrl->clock_stop_not_supported) {
- 		/* Mask bus clash interrupt */
-+		mutex_lock(&ctrl->intr_lock);
- 		ctrl->intr_mask &= ~SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET;
- 		if (ctrl->version < SWRM_VERSION_2_0_0)
- 			ctrl->reg_write(ctrl,
-@@ -1886,6 +1906,7 @@ static int __maybe_unused swrm_runtime_suspend(struct device *dev)
- 					ctrl->intr_mask);
- 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
- 				ctrl->intr_mask);
-+		mutex_unlock(&ctrl->intr_lock);
- 		/* Prepare slaves for clock stop */
- 		ret = sdw_bus_prep_clk_stop(&ctrl->bus);
- 		if (ret < 0 && ret != -ENODATA) {
--- 
-2.56.1.750.gf70dc682cf-goog
-
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
