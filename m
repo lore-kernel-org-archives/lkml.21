@@ -1,44 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.79.60.76
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.77
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795398707;
-	b=PbSKW/nPXnZgYizTZ9pQGguGXsqomxFSt06i0NpSZjg75wAXOoRJI+0qdBoo3JfL3cJD
-	 a9ZEusc1mA6mwSdErv3U+4zfNkxi+89Gp/Gu0Ng9ZZwD+ubp6pmM2iII6t+y6CKpa2S2b
-	 FRr0SvKc9r3+36sX7O37U9wKgmbASdgL3fg8kEEaQAboM21vTGu2K+Wgkrf7Xhh0XrGja
-	 qqPSsH1uYPum+85KuJfSU64wvl4QXJRieJBdI7TwDR68s1hRC9Pq9R/wr6p+3cw1Kllbm
-	 U19q6a2OJla0SEUZ+ABRD5+Yd/NHo2rgli7jqEyKAOHjyOyeT9mlK3B0nLDjmjpVOeQ==
+	t=1795398721;
+	b=Am5MsBfaDdnEV2QB7qUaDs51pF90AJNX9a95bJVJEXhTfGh54G0T0k0woNAM1uk2Jox+
+	 11GtJ7mDMkWjoGT53xfkcvJc6rB3FNkXZSasMcHO17FfTceixuplu+6rheCjeZqNsm8iD
+	 Zd8grAHN8Np+3G1r2EhpGt5eORLg3rcMIv9+bk0GEvLZsu4PQp38lQU+NMC+zmUi410jw
+	 XMIWcs/JKPUd2nWk7P3cRpCBgp0Dz6vM6vo02G8VnBlo6bA085S20Z1DeqXGzcaP0aYBn
+	 qemrnZ0pQ02U2ZURd72nwVNApXIFqcbozXA51S2oZkhxHksk26Rar7dhKfXEAjpICxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795398707;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=Q9NunyhRXef+uYLUVcBJxPIw1fxbnbcm5osyb8TqXYc=;
-	b=QKsHkxh9PgYaOeSy15I6MtGYzYIdKm+Cmx2k5U70237sEmxSlpNpc8Omra7P+UL3dXrN
-	 OoAA5QqdYxpGseqKEkBfcLcRqE15wI8F1xgSLTx7PJfcHFIlExefUSlINGx9hy+uqyiUT
-	 HqmkcVfviia0ZlpPTRSwAp2w7HdDTGKhhvPiC9UmyMHbLaA91nA8iuVWF3S6JzsO1Smn+
-	 9+0UU1pBHXK4YIBCVteuvn+KLE+ilh/U2oBgGkpfRMlaTmNoMLSf/zISVISqCNAwYChwM
-	 UTYimqZdWBcIxWcv4KXZdw2lICRkEjpA4JlFIeaSPEhRPUALXhYtYOkavOxRQyJ9C/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795398721;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=YVtyufYB92pslMYc1cNPbAx48nCwMK6/elZbLI4VZ4c=;
+	b=P/m+EtjRBo908afJIA8rTnAUV0xEXi4ILTS21SEdH+jb4XnZv5L2JebmjaCalF3soVCs
+	 HENoTB7H7ErFpvSDzY4/NrI8Z64yM20I69TezdBgBy9h2badaqSEDop6f2Ogt8rC2Wtvk
+	 CvibkXmV+1ObYxEkFoEW0HH5xbPZwDpK9kzZH1VmpBrTpiLeczMsRtkgcPdC5PqT+rKHT
+	 pAS4atc9W9NASZwOubkr0131hAEy77g95rfMPl2hag6++Eo/Y+BJU4OSmJkQ6mJEZ4vn0
+	 +rT3gmy7QThWkN5KG7JIsyl4jmngKbMHy2dOzhf+dwyaujAt/+VWxeEWnfzo8Fnq8Jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="NJoD1TY/";
-	arc=none smtp.remote-ip=210.79.60.76
-Received: from mail-m6076.netease.com (mail-m6076.netease.com [210.79.60.76])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XJO+XIkm;
+	arc=none smtp.remote-ip=95.215.58.77
+Received: from mta1.migadu.com (out-77.mta1.migadu.com [95.215.58.77])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3693606A31A;
-	Mon, 23 Nov 2026 01:51:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3693606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C94606A320
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:52:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59C94606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=NJoD1TY/
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5595de3af;
-	Mon, 23 Nov 2026 09:51:34 +0800 (GMT+08:00)
-Message-ID: <5176e5e2-72f3-4175-8b29-1dbc64c4e418@rock-chips.com>
-Date: Mon, 23 Nov 2026 09:51:32 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XJO+XIkm
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=e+QHWbBPMWAeiyatS48Y4WE7Tii5hCDimKpeiM65Zg8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795398718; v=1; x=1796003518;
+ b=XJO+XIkm3rkM9nMrQaJ88DBU/SbDNDS8sX/2dIaj3cwmRrKirwqyb+I0+uhLyek6+NMpIzpi
+ feptrx/ngiR7GStYVclrJX2X302KeSUwM1np0LDwreiaO4CnEGlTK2BETzp5dn6xGe4YcTGokd9
+ xsy7UnLpMsmmUcjbVs0s4weY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1054823f21723493;
+	Mon, 23 Nov 2026 01:51:57 +0000
+X-Mizu-Trace-ID: 1054823f21723493
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <361c4312-f77b-495f-9ee4-e0b9612b4463@linux.dev>
+Date: Mon, 23 Nov 2026 09:51:41 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,107 +59,54 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/3] clk: rockchip: rk3506: Add the SAI MCLK output
- gate clocks
-To: Xiangyu Zhu <1194781887@qq.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <tencent_C2AD19EB4A6C91A75AD3DC4089CB875C4005@qq.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <tencent_C2AD19EB4A6C91A75AD3DC4089CB875C4005@qq.com>
+Subject: Re: [RFC PATCH v2 0/8] ext4: Add dma-buf read/write support
+To: Christoph Hellwig <hch@lst.de>, Anuj Gupta <anuj1072538@gmail.com>,
+ Nitesh Shetty <nj.shetty@samsung.com>, asml.silence@gmail.com
+Cc: Jens Axboe <axboe@kernel.dk>, Sumit Semwal <sumit.semwal@linaro.org>,
+ christian.koenig@amd.com, Philipp Stanner <phasta@kernel.org>,
+ Dan Williams <djbw@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Jan Kara <jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, tytso@mit.edu,
+ Andreas Dilger <adilger.kernel@dilger.ca>,
+ Baokun Li <libaokun@linux.alibaba.com>, Ojaswin Mujoo
+ <ojaswin@linux.ibm.com>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Zhang Yi <yi.zhang@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ nvdimm@lists.linux.dev, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org, Li Wang <liwang@kylinos.cn>,
+ Mengmeng Zhao <zhaomengmeng@kylinos.cn>
+References: <20261113070621.273953-1-mengmeng.zhao@linux.dev>
+ <20261120154153.GC28611@lst.de>
+From: Mengmeng Zhao <mengmeng.zhao@linux.dev>
+In-Reply-To: <20261120154153.GC28611@lst.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa20619f63c03a7kunm9ecc2466b555bb
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCQkwdVkNJH0hDQk9CTEIYGVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=NJoD1TY/x5HC+BNx2DhEsOexcaA3iF2SBwoYNe3h21uciMr+ZKulGD2CmX3tWEuWoWlx+JRbSnUoWMVVqTcm+C10FJTNIwn1lVOklkI9jXhJJ21KejXGgvp9IaaViHs4YFlyGtsfsu7MPnqwVfPKHG58LodKmT8Ysv35BcjRq/k=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=Q9NunyhRXef+uYLUVcBJxPIw1fxbnbcm5osyb8TqXYc=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
 
-Hi Xiangyu,
-
-On 11/23/2026 8:38 AM, Xiangyu Zhu wrote:
-> The RK3506 has four SAI MCLK output gates: SAI0 and SAI1 are controlled
-> by bits in the PMU GRF, SAI2 and SAI3 by bits in the system GRF.  Model
-> them as GRF gate clocks so the SAI MCLK pin direction can be controlled
-> through the clock framework.
+On 11/20/26 23:41, Christoph Hellwig wrote:
+> On Fri, Nov 13, 2026 at 03:06:13PM +0800, Mengmeng Zhao wrote:
+>> From: Mengmeng Zhao <zhaomengmeng@kylinos.cn>
+>>
+>> This series adds dma-buf read/write support for ext4. The dma-buf direct
+>> I/O infrastructure allows dma-buf to be handed to file I/O as an iov_iter,
+>> but currently it only supports raw block devices. To better serve the
+>> GPU-NVMe direct access through normal filesystems, prior work for XFS has
+>> been discussed at [1]. We are also interested in this field and working on
+>> it [2].
 > 
-> This is v4 of the earlier "rockchip,clk-out" binding/driver submission.
-> That one introduced a generic "rockchip,clk-out" compatible plus a
-> standalone driver, which is not acceptable: upstream already has generic
-> GRF gate support (branch_grf_gate together with rockchip_clk_add_grf()),
-> and RK3576 and RK3588 register their SAI/I2S MCLK output gates with it.
-> No device tree changes are included.
-
-Please slow down the pace at which you send patches so that people have
-time to read them. Don't send your patches within 24 hours.
-
-In addition, your Message-ID seems to have been modified by your email
-provider:
-
-Message-ID: <tencent_C4C715C962613597F98212938F8940633306@qq.com>
-
-Please try the downgrade the git version[0] you use for
-git send-email, or switch to a different email provider.
-
-[0]: https://lore.kernel.org/all/8771714B848C3A9F+9f64a309-ff70-466f-8d29-15950318b728@airkyi.com/
-
-> 
-> v2 registered all four gates from one branch table while only the PMU GRF
-> was added as an auxiliary GRF.  The two system GRF gates therefore came
-> right after two PMU GRF gates in the same table, and
-> rockchip_clk_register_branches() keeps using the regmap it picked for the
-> previous branch when it finds no entry for a branch's grf_type, so they
-> ended up toggling bits of the PMU GRF.  The SAI0/SAI1 gates are now
-> registered from their own table, and only once the PMU GRF was really
-> added, so no branch table mixes two GRF types and the PMU GRF gates can
-> no longer fall back to the system GRF.
-> 
-> The series now also documents the RK3506 GRF compatibles in the Rockchip
-> GRF binding, including the "rockchip,rk3506-pmu-grf" name used by the
-> clock driver.  The RK3506 DTS uses the same PMU GRF compatible; that
-> rename is part of the RK3506 DTS series.
-> 
-> Tested on a RK3506B board: the SAI0 MCLK output runs at 12.288 MHz and
-> drives the ES8388 codec, audio playback works, and the GRF gate bits were
-> read back from the registers to confirm that they get set.  Enabling the
-> SAI2/SAI3 gates sets bit 2 and bit 3 of the system GRF (0xff288004) and
-> leaves the PMU GRF alone.
-> 
-> Changes since v3:
->  - add the RK3506 GRF compatibles to the Rockchip GRF binding
->  - look up the PMU GRF using the documented "rockchip,rk3506-pmu-grf"
->    compatible instead of the vendor's "rockchip,rk3506-grf-pmu" name
-> 
-> Changes since v2:
->  - register the SAI0/SAI1 gates from a separate table that is only used
->    when the PMU GRF was added successfully
-> 
-> Changes since v1:
->  - drop the rockchip,clk-out binding and driver
->  - use the existing GATE_GRF support like RK3576 and RK3588 do
->  - limit the series to the clock driver and the dt-bindings IDs
-> 
-> Xiangyu Zhu (3):
->   dt-bindings: soc: rockchip: Add RK3506 GRF compatibles
->   dt-bindings: clock: rockchip,rk3506-cru: Add SAI MCLK output gate IDs
->   clk: rockchip: rk3506: Register the SAI MCLK output gates
-> 
->  .../devicetree/bindings/soc/rockchip/grf.yaml |  4 +++
->  drivers/clk/rockchip/clk-rk3506.c             | 27 +++++++++++++++++++
->  .../dt-bindings/clock/rockchip,rk3506-cru.h   |  4 +++
->  3 files changed, 35 insertions(+)
+> Can you an Anuj please work together and merge this into a single
+> series covering both XFS and ext4?
 > 
 
--- 
-Best, 
-Chaoyi
+Hi Christoph, sure, I'm glad to work with Anuj on this.
+
+Hi Anuj, I'd be happy to help pull our patches together into a single
+unified series and send it out for review, if you're okay with that—and
+would appreciate your review once it's posted as well. Please let me know how
+you'd like to coordinate, or if you have any updates in progress on your
+side before I put the series together.
+
+
