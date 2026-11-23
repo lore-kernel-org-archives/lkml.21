@@ -1,99 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.17
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795430928;
-	b=3VieBtmzPpCXiJbJXXz77D+YubMYZuD7VUUrq6XGblUs9/cgiv0oAUiUukiebSdR29Cj
-	 v2txkNi1F5YjuPa1HLt6y4nd2XMhnp7KFtxqt0T03oDenDG4iQyzCZN9Sy41FHLr3E9Vj
-	 jbXvstKQ4E+HN0cxCdM/Q8vPuuue5DnYFLGjsk9pXxmkmtRZ8r1SGqDgkWv6NpByTQvWS
-	 qUR0EVUt3n/UsowHgs3t9xKB7m+cBnRWoRdsXhbl89hE9rx5pNgm1q8+ncimh3nmc8U/y
-	 yMP8KBYHxGznsf4nv1VOhy2/SGa5NbVhu+0zdBa8uCUF2hoHWe4pSieQ+egIDyITc0g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430928;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=4i3oy5Kcr6Jwl5pZ2XVfYPO655s35Y+M6Z3SZL+FooE=;
-	b=IP4MzngFIxJoxz2LwgNEMQcsqvVl45xdvnUAHGnrIKjLGYXruN+6EV8S/DfSLsT6sbPU
-	 G0b7aFDsCWZvLXtERiVv85UiXv8h8qbYTjEx/69K0+iPmWvgMil9OurU4uOGddRv0E1kE
-	 lP8yKykMvXTQBmOciNWU2GSQkBs8xP8nV6nHguuJnHaAV682HjXBqHu63GI58cAG1Z/kx
-	 AocwhJDqB0WCi7flbA0SQBGs44Yv1qDP/WWpQdYJjCoz0PQnq/uk7IiBwceJOzJSbf26D
-	 TO3DI6oN81HQKvf0tjuFLQGh0vWeWNwIwEbkE6svHdxVSmWqiipbzz8mFhXGCmNQvdw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=g1YbKAr3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.17
-Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012017.outbound.protection.outlook.com [40.107.209.17])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.111
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795430932;
+	b=0axXBMLWB7gdYan820HBfPrNoSy+ctVYyyvePfkUkxc/+vRmrGCGYd3Fn26mqcmdoDhh
+	 zF/lR5PfDx4Yv4ctYlRpABRNqj+/pddXpyvE3hgeGQ16VZygigGLXmNQpRlXwLriUMwuX
+	 EMKqTQzJf4yl0emSBbOnUC9CCjUZJB+pILxOxifn+yGf7i+Xox3nEjopbur237/dPHKTV
+	 0D39GOd4qxFvlliaySlctCzPLCmsoMxBzqYiuJaM1OksVu46hgsy61N16+RfGf2ZWDWnF
+	 QTCMRadkp4LeaSqz973IRDcOk4bPsfnbG1be6MeflcnOZQcbG+aTSPUFPdbPXHpvS2A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430932;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=YA1xcvENssYl+lpJjqGf2E/8z4fK4t/nBmjo3N4n8g4=;
+	b=30EcnvNq+N5mp//DPTEABBTPL8oj2BCZOqxiZo5486Ud4MAfERsrYFT7AHIrCaM6+jy2
+	 1hhVG9nq7cScFTlCff2cU3IIIIuo6Bx2DDoHhBylOmrdh3PBGID71AvUloNael+RoW5nd
+	 fACmyt3jHDxAdowVKbok8JaFohzqd4r2d1FbTG6/khpR00GvP5mPjVOU4YSYEZYSXvCnh
+	 rHxXen5D+tP0kYaoz/oJRWyt7mAGxjRQEbwATRqESVsrjaapj4lV6CGvXMkIxQ51PysnA
+	 BSC22rx/ErSfMYVW/jqiE/mTf2rqMIwRetY5wecNqAmvTSNYV9+o3vnwF/mYyuR61Aw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=gt1NgZpB;
+	arc=none smtp.remote-ip=115.124.30.111
+Received: from out30-111.freemail.mail.aliyun.com (out30-111.freemail.mail.aliyun.com [115.124.30.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E32B0606A31F;
-	Mon, 23 Nov 2026 10:48:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E32B0606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B3B9606A697
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:48:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B3B9606A697
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=g1YbKAr3
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GYLAyMm7WuNmGmJJMgXPormezx1qaZth40dacYg5goEjTaHDPOSI6atsrM1v2Ioic92i6rL8bXyhuq18Bzi4FZ0h2XN4WRiiV2DSptRimfKFPX0c05ODyq6vP/g/Rr7das907Izm6WvS3W32KM5TiDWbqTGFq9zMxNzv5RIRZ7FSnYjtm5nCD+gXyasndXL3hdebi0SjlwAV6SdIn1MZHWrNuswqNi22ccvqEE45OVzrx+px/gRodewnCJz2OX++reArCHYIhMLej+LUC7hDC0N8pMe7EB6Hck7amqFZ3mL0m4mMkPcy5b+gUQkG7qUIDbtjy5ckWzMOfGkcWC66kw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4i3oy5Kcr6Jwl5pZ2XVfYPO655s35Y+M6Z3SZL+FooE=;
- b=qF7t6pA6qa8DSzuxBxsNb2QgLveaOoRYo7yhQy51cE19zISoxwJfQ2EOUyhG0zjjScg7/uv8lv9hjYs2hyVSg+CvHhU8W8plnOrq8ddmJGxPSLvaCbRqpOe4ieu42LIFnFtdNoeuOHTDLztoDtwTfH22Lws1HMsCq3vI8Yhg0VzKR2zC1t7lstTFD/jIvKHluyeYMxMoq7TOpV9Bl8AHeBIQ7T6UGJj72eJolELYJxciZirzKV11wfVaQhlm+BOQHrU+KPOUZh3NwyQ/34X5kCAPCkhkTGjn0s/2NjfAXho9BdQGPYCz7JjUFsEo7WoUR2DU2xsw7GZtHl6DS+FQUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4i3oy5Kcr6Jwl5pZ2XVfYPO655s35Y+M6Z3SZL+FooE=;
- b=g1YbKAr3U/QstvGqTSkfQ6Qnrpn+sKgUJJjDSZ87YPgitbybxh8Ok6ukL3+xrmStkEIG6R+tvmcwRKOmbemkDgADUq2LqTZe67xirvm6G4LC1iMqoXxAMMdPnX+n5WyLjvNg4UO5wYFj4FaYzGhBrjZAwjQau1S6FHRB6j1x8ag=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from IA1PR12MB292992.namprd12.prod.outlook.com
- (2603:10b6:208:5a1::21) by CY8PR12MB7491.namprd12.prod.outlook.com
- (2603:10b6:930:92::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 10:48:40 +0000
-Received: from IA1PR12MB292992.namprd12.prod.outlook.com
- ([fe80::4b88:460d:65c0:def1]) by IA1PR12MB292992.namprd12.prod.outlook.com
- ([fe80::4b88:460d:65c0:def1%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 10:48:40 +0000
-Message-ID: <69481084-2af7-4156-aeba-3c883a644f1a@amd.com>
-Date: Mon, 23 Nov 2026 16:18:33 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] platform/x86/amd: hfi: Stand down when amd-pstate CAS
- is active
-To: Mario Limonciello <mario.limonciello@amd.com>, ray.huang@amd.com,
- rafael@kernel.org, viresh.kumar@linaro.org, perry.yuan@amd.com,
- kprateek.nayak@amd.com, hansg@kernel.org, ilpo.jarvinen@linux.intel.com,
- platform-driver-x86@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: Krishnamoorthi M <krishnamoorthi.m@amd.com>
-References: <20261114150310.1377654-1-Vishal.Badole@amd.com>
- <20261114150310.1377654-3-Vishal.Badole@amd.com>
- <404553c5-60b3-464a-8d76-7850120f3d58@amd.com>
- <804443a9-b50c-4d22-bded-8c3d908ace08@amd.com>
-Content-Language: en-US
-From: "Badole, Vishal" <vishal.badole@amd.com>
-In-Reply-To: <804443a9-b50c-4d22-bded-8c3d908ace08@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5PR01CA0231.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f4::18) To IA1PR12MB292992.namprd12.prod.outlook.com
- (2603:10b6:208:5a1::21)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=gt1NgZpB
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795430927; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=YA1xcvENssYl+lpJjqGf2E/8z4fK4t/nBmjo3N4n8g4=;
+	b=gt1NgZpBswJzq3243wr3FsKge/6bqMLzppmsGQEHCsLaC2ZPKgSx1kBv1v5k0guXeCWdHpnBkTIEoMkRJf0Lt1XSIyTC0hyb1og2Hwug4OuHG1xs+IwH4tzy0CioctwP8SNMgSb5uQXneh6dmVAR9MaPXTH3PooVI+GeWSZdMak=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R221e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0XFHkyA._1795430926;
+Received: from 30.221.131.81(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFHkyA._1795430926 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 18:48:46 +0800
+Message-ID: <0a00183f-a770-4645-abe2-3a1acb34e46c@linux.alibaba.com>
+Date: Mon, 23 Nov 2026 18:48:45 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,137 +53,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR12MB292992:EE_|CY8PR12MB7491:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3ae256b3-ee5f-471c-f376-08df494f55e4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261009223027099003|261021121427099003|921020|261026140227099003|261026121527099003|261102123227099003|261022075727099003|261022105027099003|261028144727099003|4143699003|56012099006|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	wdwH67gtJj4pbbEEL5JVwPN9l5qMtzuYSSJq0sMV5q6y90KrgtXhROw+FwHq73+/dGKuvMb2vFCEVFRavCeYe/CeanHvTDhRSWbaD2pY4VPrUiTkmJss/qAq3AFbpR9spyKukaUdbPvWvtoW0BsnRTggWnTC6sj5DVcwwxOIgO3rCNGfNfGnkVf5LfIGY2wMM9aM1QOK1xypBSohwYJeWNlbLBnH8yisebUX0Cayk1jx07RQBNFi5HOZlBYF3qFXZQtqr9hqEkC0fMpwAnVzAoq8iC50a1hgUPD3xylaGO8l+o1V5pefIHaszqiMcBjhzhrMv9D1kcgXlEKLEJmMMpF7pGahymVtcK9GQOE5xtLvqMtinvQuBpJlJ9h5OjkMrVASp04pKgBcW52BG9cGXTMZXjPbbcn/15+IvJ3lQX2eff/sBiw7OVDSAePRN6rvFGHefj96x0fpLuVgGtCwshhA2DjdKxj+s75fsQhQGq+oT5Lvpx3V2vGf/KfHCdERyrXd/Ceu6mQea/a+acR52ovSnbOLxwBUrblOMYXtL4XA3np5pBmvkTSUaxiaVBxARDBunP2orfXoVET9gt2dk3XOKZgQSX42Jsh/0WPLdx3T8atC9PNd1ZHbG91fEOqgzPFRpk6kK4DZ40AxEz28Vg2uwOMRv5SD5U2rHVEZ0AHc16JlesiRaqvxML5AfTI2YN4nsQustuXW/ssiq3I57A==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB292992.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(921020)(261026140227099003)(261026121527099003)(261102123227099003)(261022075727099003)(261022105027099003)(261028144727099003)(4143699003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Z0hnYk14bGhNeGJPQ3lyMkR6TlhMWFZ3aXhNenY5Q25JVksraUJzVW9xU0VO?=
- =?utf-8?B?RVRPRGRvbnIyZ1J5bktuSVBWT09HcHoxVUllS1FXWnI5SWNOSmdIdExFWXBw?=
- =?utf-8?B?SWZRNy9OWHJFN0xmb3dtNkxlVE5qMTdIV0tkOVVPZUtZZytFQUVWVWJMWStW?=
- =?utf-8?B?UkVwWkpRQjlNa01HcHo3K0Y1TDFPVkNTWkRXTW1CZEpjSjFSNk8rN3NxOEJt?=
- =?utf-8?B?R0wvQWYxQkxBVUZFWElBQitmZndiTGpIMDdwUTlqMWlhdXA1cEY2cXRYbC9P?=
- =?utf-8?B?S01XS0p4M01DcFFGb0RMM1g3K1pzMlE3OTF3dG5kZnkyUnZSbkxNTFRzVVFO?=
- =?utf-8?B?NWc1TUxUUnZLTk1uSkhMdHhraXY5UVhIRmJnblBOSEZCZ0NLL1p3eENQUDJr?=
- =?utf-8?B?Z0Q4TTV3RUZ4bWUzTEtVSnJiYTBaRUsxYlk1bi9jUjkzRWdtbGx4U3NsaGUy?=
- =?utf-8?B?a2FkamVnWWR2OWl6ejNBcCt3MjJ0bHliayttRDV6aG41ekJuM282SkhMOWRa?=
- =?utf-8?B?dVFjaTluWmMzeTNxVDlvYWFiMCtwdmJ6NFNMZ3piSnE0VUp3cGh2azZFdVJR?=
- =?utf-8?B?V24wak9pMWMwRVNjQmxBeEdONERmMGc1cXhEMTR1WWJrMnVONXBCWHRJOG5Y?=
- =?utf-8?B?a1pMdThwYStVdGdnS3Z0bmxnOGhDSjgwdklQek9Db1hxQWV0bklxaEM2ZkpR?=
- =?utf-8?B?T0FiRUVLL1B1RXh0WTdwSUdRVU5FTmpBMUp1dGh2VnFZdklKaDZZdHk0dXNI?=
- =?utf-8?B?clBmOUhZQThJd093Z0daK0NpbkV4b1FBK3FhOFVCQVREODBsL3JIWEF3YTFh?=
- =?utf-8?B?TkxsR1lxcjRTampILytQWTU0UFp2dlFUbk5XL28xRnJhNzhSbWxzaDhnaG1z?=
- =?utf-8?B?YldBczRxdkhUYXJvaTZnM2FYdDRadTd0UG5ManpuMTFUVmVaMmRSQ2JIODNm?=
- =?utf-8?B?YXh0WkhNallRMmRMNXJRR3I0K3NqaWE0NjcyWmtpZ00xOHlCUmVjYitpS1hk?=
- =?utf-8?B?K0xSakpXYm5xbUFZcUJMUHo4U3dIQU9way9NVkYxNXdZVXJHaG16dkthcGlR?=
- =?utf-8?B?RUkvQ3V4RnJPUVZJTVc3MCsvSTh2UFptU0NDTXhGQ2gwYXM2SmdHZkFHTTJP?=
- =?utf-8?B?cDZNKzV4T2k1U1pJZ0JzeHROdTNyL3Fnekl6Z21CbVRGY0xySkVjblhsQThi?=
- =?utf-8?B?ZEtidHVMNVdxdU55OVdyWm1vNUhhbmhOelFrczZQVmNod0kxcWNISkxydFcr?=
- =?utf-8?B?S0l0YVlqcEgrTlg0dDFsT2tkR1F4eVdMeGZmOWpEbzd5LzUxK1hHMVlQd0M4?=
- =?utf-8?B?OEdqbnpTdnJEZ0ltTWYwNStOUTBtT1F5TjRGVU9meUE5U3IrZmFzbTVJNkVL?=
- =?utf-8?B?QWczTHlwb2NadDFhcWluaUdyVXlyellJR0pyQnZrM2RESHAvNTAwRU1NZFAw?=
- =?utf-8?B?VDZ1Z1hsMkdzd1RPT3piakFkUkZ2eVFROUhneHFYOTdra3NHbXRjUkRDNmdX?=
- =?utf-8?B?WXlEWUJUUEIzb0JrdGdJaXZCbi9YdUh4cHpFeWJvYzFNU1lVMWZ0M0I1WDRz?=
- =?utf-8?B?ekxYNDd6NmtqUHhSZ2N4U0VZSGFESDM2ZkYxMjc3VTdNNGFqbmtmdWE4Qjla?=
- =?utf-8?B?RFJERTNKVWNuRlNiUWN1MlI1cHkzZk0yakZQOWh4NXp5MzZQR3VBbjRXRkY3?=
- =?utf-8?B?K3lCd0xWN2QyMFh3UitoWWF2VHB1VjliNytxRlpFMlUzQTZjSzlVU2xtcm5w?=
- =?utf-8?B?eVZmdllBemJIV0U3SkxaRDhpclM2UVR2ZVBuMVJWRkkrYXpjZUJBbzlNMkVV?=
- =?utf-8?B?T3pHSUhuTUlkNGJxeTlpRVRiYWF0b1J1VG5aWnRQVm9QUnpsWFl6SEtmRWRV?=
- =?utf-8?B?OTdSWDhCQmJLUUY5U0lhQmx5VW5yT2F6b3VWd3R2ZjJvemtady9RcEo1eUpT?=
- =?utf-8?B?dTg2cWQwclJGSWoray95OHJDRVdoM0xkRW5sRTNxZ1IxVk55LzIycEZhNmgr?=
- =?utf-8?B?UGsvdzZOWDI4Z2JaYU5mK3pKbEpyRE9Xa05uS2svcHhrY3FrbVZMRGphVEsz?=
- =?utf-8?B?V2kyNnFrZW5JOS8wOXhNTXl5R01YeEthMHhmcW5NdjZ4dml0ZU5iTDZyVm84?=
- =?utf-8?B?N0VtNDhxN05vbE5wUnFDTHRHNWVDVVFPNzAvNG9TWTkwVzFiNzZuNVhnN3hI?=
- =?utf-8?B?ZVVUYmg2QTZTRUlHRU5PMmt5NWh4aDRiYldVYXdKTWdRcVFwYjVTUElxa1dS?=
- =?utf-8?B?TjdMa0VhR241WkM5WTUwMTlyRjdnTGxJZ1I4RnVrV1hLdXJETzZ4bmtIQVBB?=
- =?utf-8?Q?Upy9j+7Py84fOluh6Y?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3ae256b3-ee5f-471c-f376-08df494f55e4
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB292992.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 10:48:40.2869
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9YiVevC89n+pif1QoEIGiiOr3GzlkdYeoIpirGdjN8lbD8tiWHBIB4Yy7BOtr98hybxetYKyZxmVLGrmARKByw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7491
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ocfs2: don't destroy the jbd2 journal under
+ journal_shutdown_sem
+To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+Cc: Mark Fasheh <mark@fasheh.com>, Joel Becker <jlbec@evilplan.org>,
+ Heming Zhao <heming.zhao@suse.com>, Cen Zhang <zzzccc427@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, ocfs2-devel@lists.linux.dev,
+ linux-kernel@vger.kernel.org,
+ syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com
+References: <20261123091933.42057-1-ngocthang2710.1999@gmail.com>
+From: Joseph Qi <joseph.qi@linux.alibaba.com>
+In-Reply-To: <20261123091933.42057-1-ngocthang2710.1999@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+Hi,
+It has been fixed in thread:
+https://lore.kernel.org/ocfs2-devel/f946ba25-6454-4831-9d0a-83fc58721ee2@linux.alibaba.com/T/#t
 
+On 11/23/26 5:19 PM, Nguyen Ngoc Thang wrote:
+> ocfs2_journal_shutdown() holds journal_shutdown_sem for write across
+> jbd2_journal_destroy(), which frees the journal's shrinker and takes
+> shrinker_mutex. ocfs2_clear_inode() takes the same rwsem for read and
+> can run from reclaim via super_cache_scan(). Lockdep reports the cycle:
+> 
+>   journal_shutdown_sem -> shrinker_mutex -> fs_reclaim
+>     -> journal_shutdown_sem
+> 
+> The write side only has to keep the journal alive while
+> ocfs2_clear_inode() calls jbd2_journal_release_jbd_inode(). The journal
 
-On 11/15/2026 7:52 PM, Mario Limonciello wrote:
-> 
-> 
-> On 11/15/26 08:16, Mario Limonciello wrote:
->>
->>
->> On 11/14/26 09:03, Vishal Badole wrote:
->>> From: Krishnamoorthi M <krishnamoorthi.m@amd.com>
->>>
->>> When amd-pstate CAS is active, it takes ownership of per-CPU capacity
->>> values that the scheduler uses to distinguish performance and efficiency
->>> cores. amd-hfi manages the same scheduler state through its ranking
->>> mechanism. Running both simultaneously would cause them to overwrite
->>> each other's settings, leading to unpredictable task placement on hybrid
->>> platforms.
->>>
->>> Avoid loading amd-hfi if CAS is enabled.
->>>
->>> Signed-off-by: Krishnamoorthi M <krishnamoorthi.m@amd.com>
->>
->> When a patch is authored by another person and you send it on their 
->> behalf you need to add your own S-o-b as well.
->>
->> Think of it like a chain of custody.
->>
->>> ---
->>>   drivers/platform/x86/amd/hfi/hfi.c | 8 ++++++++
->>>   1 file changed, 8 insertions(+)
->>>
->>> diff --git a/drivers/platform/x86/amd/hfi/hfi.c b/drivers/platform/ 
->>> x86/amd/hfi/hfi.c
->>> index 86a7f4332c35..b6878614e2bc 100644
->>> --- a/drivers/platform/x86/amd/hfi/hfi.c
->>> +++ b/drivers/platform/x86/amd/hfi/hfi.c
->>> @@ -29,6 +29,8 @@
->>>   #include <asm/cpu_device_id.h>
->>> +#include <linux/amd-pstate.h>
->>> +
->>>   #include <acpi/pcc.h>
->>>   #include <acpi/cppc_acpi.h>
->>> @@ -536,6 +538,12 @@ static int __init amd_hfi_init(void)
->>>           !cpu_feature_enabled(X86_FEATURE_AMD_WORKLOAD_CLASS))
->>>           return -ENODEV;
->>> +    /* amd-pstate CAS owns heterogeneous core scheduling when 
->>> enabled. */
->>> +    if (amd_pstate_cas_active()) {
->>> +        pr_debug("amd-pstate CAS is active, not loading amd-hfi\n");
->>> +        return -ENODEV;
->>> +    }
->>> +
-> 
-> The load order happens to work; but AFAICT this is just by coincidence 
-> (link order).
-> 
-> If the link order was changed in the future this could break completely 
-> non-obviously.
-> 
-> I think it would be most ideal to add deferred probing support or 
-> forcing HFI into a later init call phase.
-> 
-Ack! I will add required changes to deffer the HFI driver probing.
+It also blocks ocfs2_clear_inode() from returning, which is what keeps the
+inode alive while destroy walks transaction->t_inode_list.
 
->>>       ret = platform_driver_register(&amd_hfi_driver);
->>>       if (ret)
->>>           pr_err("failed to register HFI driver\n");
->>
+Once the write side is dropped before destroy, ocfs2_clear_inode() takes the
+read side successfully, sees j_journal == NULL, skips the release, letting
+evict() free the inode while journal_submit_data_buffers() is mid-walk with
+JI_COMMIT_RUNNING set on that jinode. ocfs2_journal_submit_inode_data_buffers()
+then dereferences jinode->i_vfs_inode->i_mapping on freed memory.
+
+Thanks,
+Joseph
+
+> has been flushed by then, so inodes cleaned up afterwards have nothing to
+> release. Detach j_journal under the rwsem and destroy it outside, and
+> make ocfs2_clear_inode() skip the release once j_journal is gone. The
+> lock now only covers pointer updates and the final kfree().
 > 
+> Reported-by: syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=38fdbb551940270021f1
+> Fixes: f277230d002d ("ocfs2: serialize inode journal access with shutdown")
+> Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+> ---
+> Tested in QEMU (x86_64, syzbot config) with the syzbot C reproducer:
+> without this patch lockdep reports the circular dependency on the first
+> run; with it, 9 runs (3 boots x 3) are clean, debug_locks stays 1 and
+> journal_shutdown_sem no longer has shrinker_mutex or fs_reclaim among
+> its forward dependencies in /proc/lockdep.
+> 
+>  fs/ocfs2/inode.c   |  7 ++++---
+>  fs/ocfs2/journal.c | 17 ++++++++++-------
+>  2 files changed, 14 insertions(+), 10 deletions(-)
+> 
+> diff --git a/fs/ocfs2/inode.c b/fs/ocfs2/inode.c
+> index e225a96d37535..8a26964472521 100644
+> --- a/fs/ocfs2/inode.c
+> +++ b/fs/ocfs2/inode.c
+> @@ -1320,11 +1320,12 @@ static void ocfs2_clear_inode(struct inode *inode)
+>  	/*
+>  	 * ip_jinode is used to track txns against this inode. The journal is
+>  	 * flushed before it is shut down, so an inode cleaned up after that
+> -	 * has nothing left to release. Hold the shutdown lock so a journal
+> -	 * found here stays allocated until the release has finished.
+> +	 * has nothing left to release; shutdown detaches j_journal first.
+> +	 * Hold the shutdown lock so a journal found here stays allocated
+> +	 * until the release has finished.
+>  	 */
+>  	down_read(&osb->journal_shutdown_sem);
+> -	if (osb->journal)
+> +	if (osb->journal && osb->journal->j_journal)
+>  		jbd2_journal_release_jbd_inode(osb->journal->j_journal,
+>  					       &oi->ip_jinode);
+>  	up_read(&osb->journal_shutdown_sem);
+> diff --git a/fs/ocfs2/journal.c b/fs/ocfs2/journal.c
+> index 9c4a48887c9a3..2529138918bc1 100644
+> --- a/fs/ocfs2/journal.c
+> +++ b/fs/ocfs2/journal.c
+> @@ -1064,6 +1064,7 @@ static int ocfs2_journal_toggle_dirty(struct ocfs2_super *osb,
+>  void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+>  {
+>  	struct ocfs2_journal *journal = NULL;
+> +	journal_t *j_journal;
+>  	int status = 0;
+>  	struct inode *inode = NULL;
+>  	int num_running_trans = 0;
+> @@ -1076,10 +1077,8 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+>  
+>  	inode = journal->j_inode;
+>  
+> -	if (journal->j_state != OCFS2_JOURNAL_LOADED) {
+> -		down_write(&osb->journal_shutdown_sem);
+> +	if (journal->j_state != OCFS2_JOURNAL_LOADED)
+>  		goto free;
+> -	}
+>  
+>  	/* need to inc inode use count - jbd2_journal_destroy will iput. */
+>  	if (!igrab(inode))
+> @@ -1116,13 +1115,17 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+>  	}
+>  
+>  	/*
+> -	 * Exclude the final JBD2 inode cleanup in ocfs2_clear_inode() while
+> -	 * the journal is destroyed and freed.
+> +	 * The journal is flushed, so ocfs2_clear_inode() has nothing left to
+> +	 * release. Detach it under the lock but destroy it outside: freeing
+> +	 * its shrinker must not nest in a lock that reclaim takes.
+>  	 */
+>  	down_write(&osb->journal_shutdown_sem);
+> +	j_journal = journal->j_journal;
+> +	journal->j_journal = NULL;
+> +	up_write(&osb->journal_shutdown_sem);
+>  
+>  	/* Shutdown the kernel journal system */
+> -	if (!jbd2_journal_destroy(journal->j_journal) && !status) {
+> +	if (!jbd2_journal_destroy(j_journal) && !status) {
+>  		/*
+>  		 * Do not toggle if flush was unsuccessful otherwise
+>  		 * will leave dirty metadata in a "clean" journal
+> @@ -1131,7 +1134,6 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+>  		if (status < 0)
+>  			mlog_errno(status);
+>  	}
+> -	journal->j_journal = NULL;
+>  
+>  	OCFS2_I(inode)->ip_open_count--;
+>  
+> @@ -1144,6 +1146,7 @@ void ocfs2_journal_shutdown(struct ocfs2_super *osb)
+>  	journal->j_state = OCFS2_JOURNAL_FREE;
+>  
+>  free:
+> +	down_write(&osb->journal_shutdown_sem);
+>  	/* Serialize the removal with ocfs2_ci_fully_checkpointed(). */
+>  	spin_lock(&trans_inc_lock);
+>  	osb->journal = NULL;
 
