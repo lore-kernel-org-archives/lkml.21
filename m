@@ -1,81 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428587;
-	b=WLkmuDWGAG7BIbIIPw8IJDUPmGi94Qacll+rw0LlIVPyl3OXeYMnnAad7KSxq+57/JUz
-	 1rKXYHdJQ2PvafncthbS4KuKXY5b03cLaom8M8QtT4PDPOd/AcCKD4DZktmwGEaPrTMvz
-	 tvAwWmNZ8knRGtONp5vSj3k0I9D9dm1hdIwLj0UQdis7EIsohREu6DjUDukgR+59vowqf
-	 vlOd2FRzEnydWq1A4h980EpbEMu+eOXy6GZtOoBjZhce2hjUD9fZlRWqa3y0QoLi6l1gl
-	 XsEwmU2c7IRZduMzJTs1GacAETj+BNyLrIpBfeRR6CiwifMXpIbnxz/Vqa6Ntv4KjpQ==
+	t=1795428595;
+	b=QsDwJaZ8EUE1eQVlcTTFt4YG5YWIdTHAbCeB9QyhEpt/ql/ii7XFCWIKM7LJz8M8PvqI
+	 vX0f0RIaav6UXGQhE51q++wjERPPvGOgYvAB022ufTAH8uGeRc1+Ar5tpKUl3hONnXx9t
+	 7t1VHF8kKrLxnkQg1t39fRG+2GRTmVyT1QDzb68o7ULKORYEUSQfxZo9ZJKySR4TbCRfH
+	 dRmcoj06opAgTXyzm4cJNyyHwvIESF6z3HkqrmBC5P86lPkYLcGrzpLYNUnRQhkaE4R3P
+	 Yw3dmxm+rOpERsBOGI9vq5Mqi31TXxlemW+kTcVTDktvPcmlV7mw9X6+WMC1MzYyF4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428587;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=vKsqzQdgilZLKKpEMaxqc13Wz1I+Yp83P9O1X9VdybI=;
-	b=WRHiIWjCyDlvY5HacTzqvaDRenLK6F8+a0BWJNqYpozT/rq16Lrzbxb8vAV8dX5z7CkB
-	 e5rDyilNf+AhAJQAps2g9wO+DAddLdRfqeyzyZRlBbZV6pTU+BmwS/KkAY0zx9eau+NrH
-	 FAyO7tjNAXqu7M8meiiUlWf4Ewj9sj8WiwUjzShTR+9gLxY2rni1w1yoZgdDte19wAEdh
-	 AnsT/nwXv3G9j25iPtX9QZeQHSRgiXtEim/k1ey1n/R3YAGBjeLShxPHVlCetyQuhcpHc
-	 ifo0rlPqsdk5eCs47jabFkXVEnjgSjblaNuuF7hA8PwaIabRmOJi8Tzk9kXwMdVmYmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428595;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=QzNSZ0iFhRlTWtyDOwGZYClX/oRnKCvUibKarAhFQB8=;
+	b=s9c8VENuEHK3bHYPCVR8m1KVIYWXBpkkZCZIx0LGRBLGXhfrU7dZYHYMun0D/DlJEaw/
+	 tttgqHzTTEa8Mz4tCybJ4whu/76qETYQl1ivsifLAtv3KLiTqb9MZqxBckiS5mTqVQkdi
+	 xptB2ChzceeHvmv0sQmCYcJALuKrmKnrWdNafabX5f2XSRsIBCgQyVZ4xG++kkaSHMtY0
+	 svZbpD6u81wVoDczJkOXWV3J4qW+J+jQgN1N1u8t91pahygO8p86CBUAPSe62qS9J94ux
+	 CIp4aX/KIDzezRI4HSGXi1TXHX2RWP2r7iK+5u58ZbgE4VyLky8Y0xRuTJQ2JfC4lbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mS+q4Jld;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=BBePDjYT;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3788606A31A;
-	Mon, 23 Nov 2026 10:09:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3788606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F514606A31E;
+	Mon, 23 Nov 2026 10:09:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F514606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mS+q4Jld
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795428587; x=1826964587;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=umHwqwCgRH5NkFjHA77LT+2C8t4g3TBwxNLwFYUk57k=;
-  b=mS+q4JlddpAUrcoCYuRrlVxXV86RS5EBDcxu4PFyDUHCuD+GErIN2k6F
-   vIHpRLwUEHEHqFJbCeiSLeymOQp5gyCWiMZ+eavG+dwGKK3jNEkNldaPD
-   hsbcYC38cxanywjWlI6+mbWVMfuuCl9Mo7N3ErgE/s+xNSxI7AvVt8zsF
-   vB5TY/TooA1A6zBXW57QI4nM/bhoGQ8tX5PFkcCQ0lxlbU1YBE9If3h0T
-   2DRsA9JQkmCrLiuTy5QSERHhvpSCidY8BYGWUv6axYgXE/Lp/LK1AplKD
-   889TaG7WmupY4jCH6AkxhUA7H/8kbGeqdWAN/NzM61fSxn4QRCez9A++v
-   w==;
-X-CSE-ConnectionGUID: 0bJFFayvQbuR9Gi1yPfPRg==
-X-CSE-MsgGUID: aO6zrNhKTC6CdWIhMEflgw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4240052"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4240052"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:09:45 -0800
-X-CSE-ConnectionGUID: G5XU8j3BTUScGxPoZxYh7g==
-X-CSE-MsgGUID: 6rR+wzVNSxqNE8VnnNlTsA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11158962"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:09:43 -0800
-Date: Mon, 23 Nov 2026 12:09:40 +0200
-From: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
-To: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 1/4] PCI: Add pci_power_t helper functions
-Message-ID: <awQQ5Muf-IOOK9Hw@ashevche-desk.local>
-References: <20261121130936.53191-2-habilerenturker@hotmail.com>
- <20261121130936.53191-3-habilerenturker@hotmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=BBePDjYT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795428593;
+	bh=dNcePiAUgVfMdRA+1roMRiVaEzWyrtTb8Npu/FK/EqY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BBePDjYTm0dnzUEMQr71rXFyP6MEJNcQCEHXVkw+Y+2PQzAUn64znCBUpQ9mg6Mpu
+	 dhAobMTj0w62AYUcNRJt06xPjX65TlHXbUDYzBlBXTVrIkavKW2w4e+KiJ3PerXLuN
+	 Hb3qwOPAWaMKgfqUtPbw2yHYOsod19W46F8NOLQDZGoTamlm4gtKZ8Zybzsi8m2brb
+	 LCO24l9X5yzZZoFZsiz/B/FZQutp25a6WYXxTDEZivbrwlMeSnOHjHiV2FSVM1Nm1f
+	 O0b/2h9yaVSaxXm0MviW9R9SbPssuMWCixe/JZLTc+rdKeXlnkATT3FTgKkyrCRARN
+	 SiOj3NT1LKw+Q==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 274FC17E021B;
+	Mon, 23 Nov 2026 11:09:53 +0100 (CET)
+Message-ID: <05e5b03e-16f7-4e5b-b6ad-f946b2560ccf@collabora.com>
+Date: Mon, 23 Nov 2026 11:09:52 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,37 +61,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261121130936.53191-3-habilerenturker@hotmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] clk: mediatek: mt7629: move clock counts out of DT
+ bindings
+To: Chuanhong Guo <gch981213@gmail.com>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-clk@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20261120-b4-mt7629-rtc-v2-0-cd877cd496ae@gmail.com>
+ <20261120-b4-mt7629-rtc-v2-1-cd877cd496ae@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20261120-b4-mt7629-rtc-v2-1-cd877cd496ae@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 01:12:32PM +0000, Habil Eren Türker wrote:
-> Add helper functions to extract, set and compare PCI power
-> states in the Power Management Control/Status register.
+On 11/20/26 15:41, Chuanhong Guo wrote:
+> The clock counts used by clk-mt7629.c size the clock provider arrays.
+> They are driver implementation details rather than clock IDs used by
+> device tree consumers.
+> 
+> Move CLK_TOP_NR_CLK, CLK_INFRA_NR_CLK, CLK_PERI_NR_CLK and
+> CLK_APMIXED_NR_CLK into the driver. Keep their values and all clock IDs
+> unchanged.
+> 
+> Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
 
-...
+If you migrate clk-mt7629 to mtk_clk_simple_{probe,remove}, you will realize that
+the CLK_xxxx_NR_CLK definitions are completely useless, and you'll be able to
+remove those.
 
-> +++ b/include/linux/pci.h
-> @@ -40,6 +40,7 @@
->  #include <linux/io.h>
->  #include <linux/resource_ext.h>
->  #include <linux/msi_api.h>
-> +#include <linux/bitfield.h>
+Check other MediaTek clock drivers about how to migrate.
 
-Can we try to make some order here, please? Id est squeeze the new one to the
-above to make the longer (but yet sparse) ordered list.
+In any case, NR_CLK is always the same as ARRAY_SIZE(that_clock_array)....
 
->  #include <uapi/linux/pci.h>
+Cheers,
+Angelo
 
-...
-
-Otherwise LGTM.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> ---
+>   drivers/clk/mediatek/clk-mt7629.c      | 5 +++++
+>   include/dt-bindings/clock/mt7629-clk.h | 4 ----
+>   2 files changed, 5 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/clk/mediatek/clk-mt7629.c b/drivers/clk/mediatek/clk-mt7629.c
+> index e154771b1b8b..517c43b19f18 100644
+> --- a/drivers/clk/mediatek/clk-mt7629.c
+> +++ b/drivers/clk/mediatek/clk-mt7629.c
+> @@ -17,6 +17,11 @@
+>   
+>   #include <dt-bindings/clock/mt7629-clk.h>
+>   
+> +#define CLK_TOP_NR_CLK		108
+> +#define CLK_INFRA_NR_CLK		6
+> +#define CLK_PERI_NR_CLK		22
+> +#define CLK_APMIXED_NR_CLK		7
+> +
+>   #define MT7629_PLL_FMAX		(2500UL * MHZ)
+>   #define CON0_MT7629_RST_BAR	BIT(24)
+>   
+> diff --git a/include/dt-bindings/clock/mt7629-clk.h b/include/dt-bindings/clock/mt7629-clk.h
+> index ad8e6d7f0154..cff9a02e8302 100644
+> --- a/include/dt-bindings/clock/mt7629-clk.h
+> +++ b/include/dt-bindings/clock/mt7629-clk.h
+> @@ -115,7 +115,6 @@
+>   #define CLK_TOP_CRYPTO_SEL		105
+>   #define CLK_TOP_SGMII_REF_1_SEL		106
+>   #define CLK_TOP_10M_SEL			107
+> -#define CLK_TOP_NR_CLK			108
+>   
+>   /* INFRACFG */
+>   #define CLK_INFRA_MUX1_SEL		0
+> @@ -124,7 +123,6 @@
+>   #define CLK_INFRA_DEVAPC_PD		3
+>   #define CLK_INFRA_APXGPT_PD		4
+>   #define CLK_INFRA_SEJ_PD		5
+> -#define CLK_INFRA_NR_CLK		6
+>   
+>   /* PERICFG */
+>   #define CLK_PERIBUS_SEL			0
+> @@ -149,7 +147,6 @@
+>   #define CLK_PERI_NFI_PD			19
+>   #define CLK_PERI_NFIECC_PD		20
+>   #define CLK_PERI_FLASH_PD		21
+> -#define CLK_PERI_NR_CLK			22
+>   
+>   /* APMIXEDSYS */
+>   #define CLK_APMIXED_ARMPLL		0
+> @@ -159,7 +156,6 @@
+>   #define CLK_APMIXED_ETH2PLL		4
+>   #define CLK_APMIXED_SGMIPLL		5
+>   #define CLK_APMIXED_MAIN_CORE_EN	6
+> -#define CLK_APMIXED_NR_CLK		7
+>   
+>   /* SSUSBSYS */
+>   #define CLK_SSUSB_U2_PHY_1P_EN		0
+> 
