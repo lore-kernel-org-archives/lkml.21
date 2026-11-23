@@ -1,57 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449141;
-	b=NI34j1e6b9JLL29UTYk2j8/AiqSs0WboTJGrKSTEKuceFnzim2S/dBBDe24pk7gPMFDD
-	 3GmutTQCuXip8d6+2brfMQTcgEtcNnID7lMEMY/S66RcFUI/b8hdu/imRRACWCp4tPknG
-	 65RXEJDkWbpTktwt4YC3MrJEnFuDwJQyCWr40NxQ1Nguz69aOAy/UPCHdRq6RabJUxIUd
-	 9dz9maHafC2V/krulV0TxBGF6QzoC673KanyUA2hpNGRbqQzyH4GjXqteg4LhUs6GzSxY
-	 a1q0SNX2P9O+FCakAxTJBDDfdpaBQuXAaXxbolK2rxZfyc56jwJJ46DUTbK7j/E8JVw==
+	t=1795449149;
+	b=RUvE+tiPHEs4aRmqFMYyrpPG7mBQnWXj19IpkrTrthAgUAa+2x66VM0T9GpvCApjH5dM
+	 swh9EabUmSkyw8arvqqZBYYIGD67/o0ixp9RCNSSjwx8fXYbqm2Eurx2diZN/6fU/NmRh
+	 eVJDSeZlJ3wTM9RpxinJmuTP/l1CvjzWHVlLLcnEOvb9Pepk9YNdgwQD+/dVIgjacXFau
+	 rJO6o+KXypXpaDQUQ9SQ6DoVU76kGLpCKtCCJKefdGz8wTP61mIsbJAxDa7OIbF6DScCl
+	 H/ScVxrxQrKczPbFOJr+Tbcy74Nz74ocTq69aBpNcqsSKcm6xaoxRE0fDJ5hNHwOvEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449141;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Pl0MmwLaYcXNuQgS+eqZhBDyPWDIJ4EPbUXDkKt6W0M=;
-	b=yzUrXIlNvupX9jjpByz358OSqLI/R8AJHStdj08OUqExdXYKGOAC/VGPPF1hEkqo7hEd
-	 FltwSJfjS5mhRF9RpejrG1huSKZm9aURxXlSYgAWWJrAhisoaJSJglEnwJaJPDzesdtFg
-	 dG/lyrYWMJCkO8XDzQqXdGSP/ZqMwa2zpglnRb9YszgTkXayacpCO4B9nug0CoMYY0nwQ
-	 ke4Rq8jA4MqJBoa6XDfCk5U/BES0QW/1lpSuxdLi9FudifIDft5o/trQNntkbXvDQS2Pq
-	 f4WsumSYltxjMrHVFgy+P9Bk0C1luWDm8XL1EsK5RyJF2ee1TefzA2xnirAW6sFXTHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449149;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=T1eKsQdeP1W/szEmEQnzcI4fvm00qDmXu7Ua9kiN2Po=;
+	b=npz+99YuaJzhudk+Ytap6F67NFF7NNsCF/rh83JF5hEr3VWVZoouUUI3yerA6eMvp1nK
+	 F4KQwAEb2kxYJhnvCyNfFMtoeuFC3DdtHDX/eKWvoUx+d6a0UUWnPsftBkRUCBqpjngY4
+	 6wSRiRNEf4H9z3i3U/FIwLeAl/uaucnlTw5VzTDCnS6Bdn1FiXQCmVVnUGHU3gZS3FYY1
+	 iy7NbPLh5Oaw+hW35yk9Y0m7BIhch2iTXOUO+ouvdzplbSHek3Mw2m/ThvWpZ8+k5Ba3K
+	 QzF9mppFZVdSbvBP3lgO4IsD8KsbEGAhUSJ+rLHKGfy+BP/nFuyLFr6WcAiyrtTSW9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jWMoVAwa;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c4VnL3nZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61B08606A31F;
-	Mon, 23 Nov 2026 15:52:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B4E0606A33F;
+	Mon, 23 Nov 2026 15:52:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jWMoVAwa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC8981F000CA;
-	Mon, 23 Nov 2026 15:52:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c4VnL3nZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F08911F000D1;
+	Mon, 23 Nov 2026 15:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795449141;
-	bh=Pl0MmwLaYcXNuQgS+eqZhBDyPWDIJ4EPbUXDkKt6W0M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jWMoVAwat5TIKqc/PAdc9nhK8BLDCuz/FBYrkiMEZ1UXRhL4u7vzhiKmhxvzOI6IK
-	 BPX3C8mds5zlv/m6YzZDYusrpVdNwR6OXUurfrJuo9oukLOVWbR64lka1fudrjNJpU
-	 bi7Mr9tx0Mt9uXit9qcn+BgZ86J/NdAhUDrF4HX2iBT5i7VDP0xf3gmcKWkhc0KPCP
-	 QwwDgd9sFfkGPEujVNvZhmSvIWjWxlkbLYygFR8LMG+uer7vqYDNPG+TutOcdGwbP0
-	 ZFzN+RIVhvUsGnsV/iN6VQzu8S8rf8eJsVeXodhq1sNqinmWaBVxqMlKZDOkWSYcfu
-	 GhfF09IQN25nw==
-Date: Mon, 23 Nov 2026 16:52:18 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Helge Deller <deller@gmx.de>, Martin Bugge <marbugge@cisco.com>, 
-	Thierry Reding <treding@nvidia.com>, Hans Verkuil <hverkuil@kernel.org>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, kernel@collabora.com, linux-fbdev@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 15/25] drm/tests: edid: Add 4K@60Hz EDID with 600MHz TMDS
-Message-ID: <awRhHORNYR8MYT1R@houat>
-References: <20261114-drm-conn-hdmi-cleanup-v1-0-20e8a33a2286@collabora.com>
- <20261114-drm-conn-hdmi-cleanup-v1-15-20e8a33a2286@collabora.com>
+	s=k20260515; t=1795449149;
+	bh=T1eKsQdeP1W/szEmEQnzcI4fvm00qDmXu7Ua9kiN2Po=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=c4VnL3nZwcgtGvdfTgYTFfjks6zqU3FAAeAPV8cpQJHC4DfIbEH98PbMItYdLuIB1
+	 I07mA4gpa4s70zl0WEaTwu/lciNC+GTv2MsEk5wJoX0iLabisUaCuZRM71VAq3JCA3
+	 HCMnhWyvA6z2Jqi8+WvMmlZp+arSpkWeQtB71eP9OEy6wZIVNwWpXooZX6hgJ/PZ9K
+	 gmziNb4p2oQGrNqeaafpKbfYtIsfCijQfgwed0uqX8WRW4mW2V0f01Gk1BaC7MFlIC
+	 Xn0HZqAB3OR33et7+wxW1PzjMcqV+bS2t5W6Qke60M/BqQC1X3iLDw68uQnFO6wneZ
+	 63A6Lccq5KLlA==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	Michael Bommarito <michael.bommarito@gmail.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	linux-hyperv@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH 06/10] HID: hyperv: Validate VMBus packet and payload bounds on receive
+Date: Mon, 23 Nov 2026 15:50:50 +0000
+Message-ID: <20261123155138.2907049-7-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+In-Reply-To: <20261123155138.2907049-1-lee@kernel.org>
+References: <20261123155138.2907049-1-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,80 +68,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="mfmvcyhwaviogczo"
-Content-Disposition: inline
-In-Reply-To: <20261114-drm-conn-hdmi-cleanup-v1-15-20e8a33a2286@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+mousevsc_on_receive() dereferences pipe_msg and hid_msg_hdr without
+verifying hv_pkt_datalen(packet), passes the untrusted pipe_msg->size
+to mousevsc_on_receive_device_info() without checking that the VMBus
+packet actually contains pipe_msg->size bytes, and copies up to
+sizeof(input_dev->input_buf) (16 KiB) from input_report->buffer in
+SYNTH_HID_INPUT_REPORT without checking input_report->header.size
+against the received packet buffer.
 
---mfmvcyhwaviogczo
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 15/25] drm/tests: edid: Add 4K@60Hz EDID with 600MHz TMDS
-MIME-Version: 1.0
+Validate that hv_pkt_datalen(packet) covers the pipe and SynthHID
+headers, that pipe_msg->size fits within the received VMBus packet, and
+that input_report->header.size fits within pipe_msg->size.
 
-On Sat, Nov 14, 2026 at 08:03:39PM +0200, Cristian Ciocaltea wrote:
-> Add a new test EDID advertising the following capabilities:
->=20
-> Max resolution: 3840x2160@60Hz with RGB, YUV444, YUV422, YUV420
-> Max BPC:        16
-> Max TMDS clock: 600 MHz
->=20
-> This is needed to exercise the new HDMI infrastructure that decides
-> whether scrambling needs to be enabled for a given display mode and
-> to validate that high-rate modes are properly rejected/accepted
-> depending on the source/sink scrambling capability.
->=20
-> The EDID is derived from test_edid_hdmi_4k_rgb_yuv420_dc_max_340mhz
-> with the following changes:
->=20
-> - Upgraded the first DTD from 3840x2160@30 (297 MHz) to 3840x2160@60
->   (594 MHz).  The H/V totals (4400x2250) and porches already match the
->   HDMI 2.0 4K@60Hz standard timing, so only the pixel clock had to be
->   bumped.
-> - Widened Display Range Limits descriptor to cover the new timing, i.e.
->   24-140 kHz H, max dotclock 600 MHz.
-> - Updated CTA-861 Video Data Block to advertise VIC 97 (4K@60Hz) instead
->   of VIC 95 (4k30).
-> - Bumped HF-VSDB Max TMDS Character Rate to 600 MHz, keeping
->   SCDC_Present set so that the sink advertises scrambling support.
-> - Cleared HDMI VSDB Max TMDS clock byte, as required by HDMI 2.0 when
->   the HF-VSDB declares a Max TMDS Character Rate above 340 MHz.
-> - Provided a Video Capability Data Block advertising selectable RGB and
->   YCC quantization range plus underscan for IT/CE formats; also set the
->   'IT Video Formats Underscanned' bit in the CTA-861 extension header to
->   match.
-> - Aligned base block image size with the DTD (160x90 cm) and set the
->   Week of Manufacture to 0x00 instead of 0xff, since the Model Year
->   flag is not supported by EDID 1.3, so that the Model year field
->   becomes a regular Year of Manufacture.  Both fix inherited EDID
->   conformity failures.
-> - Dropped the empty YCbCr 4:2:0 Video Data Block inherited from the
->   parent EDID, which is flagged as a failure by edid-decode v1.33.0
->=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/tests/drm_kunit_edid.c | 129 +++++++++++++++++++++++++++=
-++++++
->  drivers/gpu/drm/tests/drm_kunit_edid.h |   1 +
->  2 files changed, 130 insertions(+)
+Fixes: b95f5bcb811e ("HID: Move the hid-hyperv driver out of staging")
+Fixes: 934b7778aa7b ("HID: hyperv: validate initial device info bounds")
+Closes: https://sashiko.dev/#/bug/linux-03d64dd2-820e-44e2-ba9e-b4a70f1e55ec
+Cc: stable@vger.kernel.org
+Signed-off-by: Lee Jones <lee@kernel.org>
+---
+ drivers/hid/hid-hyperv.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+diff --git a/drivers/hid/hid-hyperv.c b/drivers/hid/hid-hyperv.c
+index cfc061dbdd24..1de03e38f363 100644
+--- a/drivers/hid/hid-hyperv.c
++++ b/drivers/hid/hid-hyperv.c
+@@ -272,14 +272,22 @@ static void mousevsc_on_receive(struct hv_device *device,
+ 	struct synthhid_msg_hdr *hid_msg_hdr;
+ 	struct mousevsc_dev *input_dev = hv_get_drvdata(device);
+ 	struct synthhid_input_report *input_report;
++	u32 pkt_len = hv_pkt_datalen(packet);
+ 	size_t len;
+ 
++	if (pkt_len < sizeof(struct pipe_prt_msg) + sizeof(struct synthhid_msg_hdr))
++		return;
++
+ 	pipe_msg = (struct pipe_prt_msg *)((unsigned long)packet +
+ 						(packet->offset8 << 3));
+ 
+ 	if (pipe_msg->type != PIPE_MESSAGE_DATA)
+ 		return;
+ 
++	if (pipe_msg->size < sizeof(struct synthhid_msg_hdr) ||
++	    pipe_msg->size > pkt_len - sizeof(struct pipe_prt_msg))
++		return;
++
+ 	hid_msg_hdr = (struct synthhid_msg_hdr *)pipe_msg->data;
+ 
+ 	switch (hid_msg_hdr->type) {
+@@ -317,6 +325,10 @@ static void mousevsc_on_receive(struct hv_device *device,
+ 		if (!input_dev->init_complete)
+ 			break;
+ 
++		if (input_report->header.size >
++		    pipe_msg->size - sizeof(*input_report))
++			break;
++
+ 		len = min(input_report->header.size,
+ 			  (u32)sizeof(input_dev->input_buf));
+ 		memcpy(input_dev->input_buf, input_report->buffer, len);
+-- 
+2.56.1.750.gf70dc682cf-goog
 
-Having a sample for that one would be nice too
-Maxime
-
---mfmvcyhwaviogczo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawRhMgAKCRAnX84Zoj2+
-dsuzAX9eUHuod9rRrA9UBv1u0FRc0LXEgRaO1s73XLXMueRU0/hxIonKd82PEUwG
-pYJHerUBfRMG4wrWnQ14mxmOD4sR1RLymRxwUxN1pHlEPSQ2RpEwL2SJ4TEm1ZTz
-bVwXPmekKw==
-=qCsv
------END PGP SIGNATURE-----
-
---mfmvcyhwaviogczo--
