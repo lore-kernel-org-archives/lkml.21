@@ -1,60 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394589;
-	b=5b3lpykpyEq49xjdxptqwC3CVt4tyWZRFX5k9lon+0Pb9uD34VjADxUyQJ0VhLmsHKXm
-	 EnLlrwoAMdOc+24FF741whiOBG7kBCkB3HZfhcRi3yIdTB3Fv2yo/b/cNeU3vqIVN5NWZ
-	 uL+1Xc3R5B9V47RugQrOmGAvmdUUGaBDrUL0ejXoR5Ejiy66h1WFwXQPxDJPd+7MSbZxq
-	 GngRjNL5NDmCOAUDEmoLGORh/dnttDxh2oo8mFSXcOh2RRo67MbDKrt7020eUmQc8wfkS
-	 +tbscRs377UoJ5PSsGQQ8kctISQvEvpMelro1K/KL84SV0XEg4xW1iykWIMdhbg168Q==
+	t=1795394597;
+	b=dIqmkEmP0jC/51WqvB5v0C2FxveqFlAfkENtGb571NAzrdVMiJVZcEByOYNac+8obxwM
+	 bCrgl/O9SRwHSlIRNbsB/TEF/EwEwBxbf/ssbAa+xuFNjnT8GB9+THABqPIRvgQMMFR6U
+	 R2z34/8dbJ9Yt0kPm9S8AR7hPj38nheKBw3YVjahLVPK+Oyq4n+2+PlIxBZ1tM9+daUAT
+	 He9zn8zom+q+BAFuC9r4lQjfwI4nCwwF8MpXOl1ZM9rk4bAsLMRxJqCgwFWhcSeTS0VUs
+	 eBPqPol4agpY7KJPCmG4TamO2hUXbpFe/vq1aJVLibLqKIqkKd/4+xorIgHsgRlaGqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394589;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=j/8IZ0tYFhI/0yqSFfSy337P3mjZcrIvJ9lgLMTLLw0=;
-	b=kbO/Vfb1saIn2HteL5AJwyfr8+1iIdMYKEtQjWWZNMt33FbS/TtI/NH1eu3LqMH94oVY
-	 6jpPt4VaWNDhP36wHHAjcE8iiGvPjXQvMaeRsc6u2FDuNEkTXhO8gIN/mHBYL74NLYU1U
-	 xe71VqwPXXDxkodDNj9eAUaxHlWccR8DeFC4PFD3Uh0zZd9cKHwzD7fXKeiBLXCh0WvvR
-	 0A3EM/7wkoumvdmhm/aLo18K0Ey6yB3B3ruDQMufwjHLq93uWwN5eDO++CzybNADuO6tw
-	 gMynLJ7H8CSILQ4fqO6D8aBe+Vjc7KGp6IS/mV+j7cjhgDvM6VzYXVNIpPSbaH177zQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394597;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=TLXj3Fi8Kl5VNZ08p1Bk9+717X3RrFhG/5sffc1EOzM=;
+	b=Kts1F8uAftwV8Z5qviE03kvROAHT/DJ17gvUkJZWdarqsBG0VycisWfSHL0dm2mdDrBb
+	 HHuL5WV6v0VeTNZHiq1uJt5r6QqdONMHT5lm7qSrKi4keIahpejxq+2x4A5BpEWWP1OkU
+	 UqO/0u1ZtZTXVWEStfGXVtsnuwHQ7x6APbKdKy4lJ9I9T/VkIhrktSgvvdrZ2B3DxAUlf
+	 cYGWdTqC84qZmy/EOEPdVUaAQbrO9bQAhRXt+3OGh3AZcnhuqNDQi3xwjGPC/WMKSbaTu
+	 KUCg1rv4DLWddLnCGOCbK14Vw6bEFJqFoyXofA4CffdHJjn76zSoF9TJY6aHzwZlttQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kt13qt3B;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Op86zi+m;
+	arc=none smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA668606A31A;
-	Mon, 23 Nov 2026 00:43:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B472606A33C;
+	Mon, 23 Nov 2026 00:43:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B472606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kt13qt3B
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E81931F000C6;
-	Mon, 23 Nov 2026 00:43:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795394589;
-	bh=j/8IZ0tYFhI/0yqSFfSy337P3mjZcrIvJ9lgLMTLLw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kt13qt3BR/by4bd+C9eQsXWcl5keoqr/gYysx0DWkADXELpyLxrMzvZGAmpZFCLRC
-	 djbYhrFYaOczql8VfbYNkC+gfYQRCxo9BeF665KC8QwFhuCotqpYXJtYqyvAUd3vnW
-	 vc1EnFRQB2+SW+ZclN7vmipsPgUZzl26+xgnVy9pFAtDSqls+aR9GJFGAw1tnGHQWo
-	 1h+uOtN4z5nCDy4jy14xUBfusSV8Mh0cIgTRrsFfunKI861NFBllc4Nnq5GN97BX2T
-	 sgTVmOl6V1NnbJt8CAsCHD4FcAotLmqjL6PhVWPM+ApFSs2iNCUdXDL/3Hvrv0G6DI
-	 s5SXBbFPaOiiQ==
-Date: Sun, 22 Nov 2026 16:43:07 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Alireza Haghdoost <haghdoost@uber.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 4/7] perf symbols: Check the file before reading lazy
- symbol names
-Message-ID: <awOMG8xqEUl39vcW@google.com>
-References: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
- <20261121-perf-symbol-memory-send-v8-4-370561cbb5a7@uber.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Op86zi+m
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795394595; x=1826930595;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=iJ4+vs+nmNJDXv13dvpUiuHGj5q0As+YtfUP5iiyV5A=;
+  b=Op86zi+mR5dhHG+z/KwsvjqMy+VXBm8tV//ZWRvUVIrOhCSlyn6EKNCf
+   QzIZgbZ1OLTaAQDQ9EtlgfpGMNlICcBgLUIMQq+BXFGB7jfGIkV7/Fl0s
+   5jt0j6baO4ivtoF6uoY6zbN5zO+14rjDIp+9vXdj4X5oqtKCFD4jX89kE
+   ZfodtWhIX89CbiOl7qVM3RJ2EZpWfHJDr3vLuJz7gbc1fJrk86SBDLaFM
+   P4/tqx8lYC5aMSt8KuJZEb7/0bC6kfahZpKGYq6GRXZYkDud/VPbMSAo4
+   cQi3v4sNDKdaIHnPPYYU1RXJI1RNH2oCCw5h8Lr7scgm1AMiysiQYVokY
+   g==;
+X-CSE-ConnectionGUID: YWAvt++IRyy32qublHLk7Q==
+X-CSE-MsgGUID: Jdkl/GJ4TSCp7yrhWIQDKg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4279016"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4279016"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 16:43:14 -0800
+X-CSE-ConnectionGUID: ZkRECSoFTU6hGqtygMhgig==
+X-CSE-MsgGUID: 1bGPQQSXR5GrRHxZBsawWQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11073546"
+Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 16:43:12 -0800
+Date: Mon, 23 Nov 2026 08:43:08 +0800
+From: kernel test robot <yi1.lai@intel.com>
+To: Emil Tsalapatis <emil@etsalapatis.com>
+Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>, bpf@vger.kernel.org,
+	yi1.lai@intel.com
+Subject: [linus:master] [bpf]  bd59a58663:  stress-ng.seccomp.ops_per_sec
+ 59.6% regression
+Message-ID: <202611230821.f5107bac-lkp@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,73 +80,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20261121-perf-symbol-memory-send-v8-4-370561cbb5a7@uber.com>
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 08:41:04AM -0800, Alireza Haghdoost wrote:
-> This patch makes perf check that a file is still the one it loaded
-> before it reads lazy symbol names from it. A lazy name is read later
-> from a file that perf opens again by path, at the offset that its
-> string table had at load time. If the file was replaced in between,
-> for example by a deploy, perf would read names from the wrong file and
-> print wrong names without a warning. Eager loading rejects such a
-> file, since symsrc__init() checks its build ID.
-> 
-> perf checks the file each time it opens it again. dso__set_lazy_file()
-> records the file at load time. Nothing calls it yet: the next patch
-> makes the ELF loader call it when it creates lazy symbols.
-> 
-> If the DSO has a build ID, symsrc__init() matched the file with it at
-> load time, so accept a file with that build ID, such as a copy of the
-> same build. The build ID alone is not enough, since the offsets are
-> only valid if the string tables did not move: objcopy
-> --add-gnu-debuglink keeps the build ID but moves .strtab, and strip
-> --strip-debug removes sections. So perf also records the index, offset
-> and size of the .symtab and .dynsym string tables, and compares them.
 
-I think it's extremely rare that the symbol file is being modified while
-perf is running.
+Hello,
 
-> 
-> Reading the build ID each time is slow when most lookups load a name:
-> the parity test on a 524 MiB binary, which loads 260k names one at a
-> time, takes 9.3 seconds instead of 3.9. So perf also records the
-> device, inode, size, mtime and ctime of the file, and reads the build
-> ID only if they changed. The ctime changes when another file is copied
-> over this one in place, even if its size and mtime are kept, as with
-> cp -p. Then perf keeps the identity of the accepted file for later
-> reads. With this, the test takes 4.1 seconds. A DSO without a build ID
-> must keep the same identity.
+kernel test robot noticed a 59.6% regression of stress-ng.seccomp.ops_per_sec on:
 
-Is ctime really needed?  I think dev/inode will catch new file creation
-and mtime is for in-place mofifications.
+commit: bd59a58663895778da607fd02a8f17a93db97d16 ("bpf: Use dedicated workqueue for freeing BPF programs") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
 
-> 
-> If the file is not the one perf loaded, perf warns and shows the
-> remaining lazy symbols of that DSO as "[unknown]" rather than print
-> wrong names, without opening the file again. If the file cannot be
-> opened or checked, for example because perf ran out of file descriptors
-> or fstat() or a read of its ELF headers failed, perf warns once and
-> shows the symbols it was reading the names of as "[unknown]", but tries
-> again for later names, since the failure can be temporary. A file whose
-> build ID cannot be read counts as not checked, since perf cannot tell a
-> failed read from a missing build ID note; perf reads no names from it
-> either.
-> 
-> Like symsrc__init(), the check trusts the build ID: a file edited after
-> linking without a new build ID, and with its string tables in place,
-> gives the edited names.
+testcase: stress-ng
+config: x86_64-rhel-9.4
+compiler: gcc-14
+test machine: 224 threads 2 sockets Intel(R) Xeon(R) Platinum 8480CTDX (Sapphire Rapids) with 256G memory
+parameters:
 
-Right, but I don't think it's gonna be a problem in practice.
+	nr_threads: 100%
+	testtime: 60s
+	test: seccomp
+	cpufreq_governor: performance
 
-Thanks,
-Namhyung
 
-> 
-> The unit tests later in this series cover these cases.
-> 
-> No functional change, since no symbol has a lazy name yet.
-> 
-> Signed-off-by: Alireza Haghdoost <haghdoost@uber.com>
-> ---
+If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <yi1.lai@intel.com>
+| Closes: https://lore.kernel.org/oe-lkp/202611230821.f5107bac-lkp@intel.com
+
+
+Details are as below:
+-------------------------------------------------------------------------------------------------->
+
+
+The kernel config and materials to reproduce are available at:
+https://download.01.org/0day-ci/archive/20261123/202611230821.f5107bac-lkp@intel.com
+
+=========================================================================================
+compiler/cpufreq_governor/kconfig/nr_threads/rootfs/tbox_group/test/testcase/testtime:
+  gcc-14/performance/x86_64-rhel-9.4/100%/debian-13-x86_64-20250902.cgz/lkp-spr-r02/seccomp/stress-ng/60s
+
+commit: 
+  ef2cb4d4c5 ("Merge branch 'reject-writable-map-iterators-on-read-only-maps'")
+  bd59a58663 ("bpf: Use dedicated workqueue for freeing BPF programs")
+
+ef2cb4d4c59132b8 bd59a58663895778da607fd02a8
+---------------- --------------------------- 
+         %stddev     %change         %stddev
+             \          |                \  
+    613342           -59.6%     247980 ±  2%  stress-ng.seccomp.ops
+     10230           -59.6%       4134 ±  2%  stress-ng.seccomp.ops_per_sec
+    691777           -84.6%     106534        stress-ng.time.involuntary_context_switches
+  60318172           -59.8%   24270033 ±  2%  stress-ng.time.minor_page_faults
+      5077           +48.9%       7560        stress-ng.time.percent_of_cpu_this_job_got
+      3007           +50.6%       4527        stress-ng.time.system_time
+     44.78           -55.9%      19.74 ±  2%  stress-ng.time.user_time
+   1475619 ±  2%     -71.9%     415109 ±  2%  stress-ng.time.voluntary_context_switches
+
+
+Disclaimer:
+Results have been estimated based on internal Intel analysis and are provided
+for informational purposes only. Any difference in system hardware or software
+design or configuration may affect actual performance.
+
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+
