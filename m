@@ -1,57 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.247.164.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795464610;
-	b=b8BHVXEqXyEoUnjSSDm2neJj3WnWZW9cmpEIuRW1mZx1oqLMZmfirSns7H77xKmI70Jf
-	 WvVJAMfpNDI7HkZPQMyABlSmWseEHPB7ki6p9Zgr2QczoQPBvoHZkm9vzJA10p1tFWch9
-	 6OQmpLXx/+VyFy4fNogoNvAiVDtxoKfK2nbcVabbEt21PRqrV6na2UJovzgnnqxJHaX7M
-	 qsfuXaoa79hdjHifBz1no9Q1mSHfjWm423TrBghEa8+xKpMnGkGx/tRvzasTCq3+UqJB6
-	 9WmUNfXJAc844yTEA9m6Me85GT/Am+OQddwyf/Jt3ALiri+XnjTk6gCwHwbs1vo83pQ==
+	t=1795464679;
+	b=yq5B5HXCf7hROlclCuF1EMW6zyLmugjo7VY2Gm2VQX+53E0KUTAyraHkycc6MIWgQf63
+	 K3FabzUiK0WNwUJlsFkRkCC13PDoqBm2cZD4F957O+Rni+GCMMeUD30fP/bQOHZHoObr6
+	 cT8rMoTFBmvhU+nKkG1cD0w5v8HpFo6Fi4M3HzUrw7ZAqVZpJMFUr8dHN5g6QQqvntrif
+	 zZvPaim/gQRf9/Jnc5LSReEWh412qN9r+e6uIMTv6SOVLMxy32gmFVu9uyG2XR9mfwbOB
+	 vKtG9Ra8iqtxgEttR0uQdi9So3m74xKxCdPL7HNFXUm2QT/V7T6PIzYbyhSk1zGvA2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464610;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=U2e9p9Zu2nlVnVyFNep9yFbR1shK1d65RtzIIpMIIdo=;
-	b=Un3QC5mILNLA78fQis5XYkr6ACtPoqjGe9b5yTjqgvfbC5xCYeYFCZSsEs/HP44pqJ1m
-	 FJNU8ywdENlTmXcCcucF8l48Z/llV3Mz60lPp9U1R5c5xriRhJhGuu0LM5axDQHWRhuCk
-	 BSKtOTCGoST+lXOhgawrUg6vFlejG3L1tGekM2woACKydSU3j9hqFSAZ1gzUcxkgatppk
-	 H6B9fQEfGBJOzVi03tMfeyNXG7wUsP0ur8uLFygvuMWlCVO1+rEJqfwJeqJR9sJBpzLXd
-	 +9gspYrqfyjlyXsGtQ26VOkEhcIIvr5RFBXqMTNX2ofjCznuIqvSyIObuzAa3cjsI3A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464679;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=cUgS5Ez3DQQyfb/DT8KDvLNhCT4V2U9xukPp/9ulTh8=;
+	b=dCywXiopvSI4qcBkF0rENeUUYlUM7t8LzWbKA4UmD6qcMXSTKNRDpCqwYrA4d9BxcgRb
+	 n2Cu7WSXYv3WHquQAUfSv4DPEqN7bkPDsh7cDszTToumkHIu11YYNjLoE3KjtQVQMyi0P
+	 3d6JoMWrBgD7cKvtEPj302dTs6n+5L4J7MtAoGSapKzXb+PPfPDqLAmVbFwyX80qr2sPg
+	 sZnpAYO6lSeH0q7BxrtXhNzLIuWGKSp9bfGHKAEJ3uphF5EJv0j0BKVBECSq4w5pOv/nQ
+	 F9aJoVGH30XBh9oP1ewlVMDZE1Q7sU+InC4jFDMgXqv/ToyTakyFyt7gGvRIejj9NmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=koesling.info;
-	spf=none smtp.mailfrom=koesling.info;
-	dkim=pass header.d=koesling.info header.i=@koesling.info header.a=rsa-sha256 header.s=dkim header.b=klTIdqvQ;
-	arc=none smtp.remote-ip=84.247.164.36
-Received: from mail.koesling.network (mail.koesling.network [84.247.164.36])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ewTVt3Mg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23859606A31E;
-	Mon, 23 Nov 2026 20:10:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23859606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=koesling.info
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=koesling.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CEB7606A31E;
+	Mon, 23 Nov 2026 20:11:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=koesling.info header.i=@koesling.info header.a=rsa-sha256 header.s=dkim header.b=klTIdqvQ
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6E8251320FA5;
-	Mon, 23 Nov 2026 21:10:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=koesling.info;
-	s=dkim; t=1795464607; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=U2e9p9Zu2nlVnVyFNep9yFbR1shK1d65RtzIIpMIIdo=;
-	b=klTIdqvQapbuVOF0KW+jZQxGr94jFISNywTRBzh4U1KRcnuL2e1/9GdjRGE40GAEvLUpI8
-	qcR3Ln56Q67v0aQTgs5Azw5s9sBI/yuCqi3tX7tP/Byl2sI4OFAmiu9pDiWARikGWU+yCN
-	NIXyv++BHewv2lDc5aS4HcyWgXkqjo4bPY2i4u8g0hgeWcUL3JsUVRcihn+YueMedoACqj
-	5SoGsCcJBfZPJX53P3a0nigAnV4oRJUP4zGxZZ3WvgnOsyGWZ5iZrFEYNNffrIR2XO3J54
-	/QjibKbknCurtGJQP0SMpEzkcvidBw3BhL4BmFLnbI7Hud2a9GVu0xcaBJPVxw==
-From: Nikolas Koesling <nikolas@koesling.info>
-To: Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>
-Cc: linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] HID: pulsar: complete the list of supported devices
-Date: Mon, 23 Nov 2026 21:10:06 +0100
-Message-ID: <20261123201006.66163-1-nikolas@koesling.info>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ewTVt3Mg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCE9F1F000C0;
+	Mon, 23 Nov 2026 20:11:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795464679;
+	bh=cUgS5Ez3DQQyfb/DT8KDvLNhCT4V2U9xukPp/9ulTh8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ewTVt3MgXhmHQNiLQm8cgvN8qlk7/CYUuL3r2g5T5uW6YbrsIycxvcprlSIVJEqF0
+	 EDS8tWY+xp7m2W6BRW0HybIbAciGr2bBd2P86jM5QydeskRsg1vvT8WXAccoF74+cT
+	 vn5kboj1rFjlv2fLNV+N3bOnVs4Um6ZNc5Z0auVDiKxpnobv3f40YMoAEsMZI2k5/3
+	 pV2XjvQppiM0xqVJI0yj6Frn5WwtzK+AY5Cb/y7fMwUYokRdTdIXewXbc7r/htIxCD
+	 PtsQNgfbrR8dmsjRj7lqVktDCTWvJOIkw1ymavoJEtx55N76V45Ec0IbgMov6pLSAV
+	 Njgk69ttvSXbQ==
+Date: Tue, 24 Nov 2026 07:11:00 +1100
+From: Dave Chinner <dgc@kernel.org>
+To: Wayne Gao <Wayne.Gao1@solidigm.com>
+Cc: "cem@kernel.org" <cem@kernel.org>,
+	"linux-xfs@vger.kernel.org" <linux-xfs@vger.kernel.org>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
+Message-ID: <awSd1JEB0F4WeKt0@dread>
+References: <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,50 +58,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
 
-The Kysona M600 V2 and the VXE Dragonfly R1 Pro are supported by the
-driver but missing from the HID_PULSAR help text. Add both, list the
-M600 V2 in the header comment as well and fix the formatting of the
-M600 entry.
+On Sat, Nov 21, 2026 at 03:47:32PM +0000, Wayne Gao wrote:
+> 
+> 
+> Hardware-capable devices normally prefer hardware atomic writes, making
+> it difficult to exercise the software CoW path deterministically without
+> changing file layouts or affecting ordinary writes.
 
-Signed-off-by: Nikolas Koesling <nikolas@koesling.info>
----
- drivers/hid/Kconfig      | 3 ++-
- drivers/hid/hid-pulsar.c | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+Why would we want to do this at runtime on production systems?
 
-diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
-index 2481bc01c435..7442197f5760 100644
---- a/drivers/hid/Kconfig
-+++ b/drivers/hid/Kconfig
-@@ -1375,7 +1375,8 @@ config HID_PULSAR
- 	  Provides battery level, voltage, and charging status
- 	  monitoring via the power supply framework.
- 
--	  Additional supported devices: Kysona M600, ATK VXE R1 SE+
-+	  Additional supported devices: Kysona M600, Kysona M600 V2,
-+	  ATK VXE R1 SE+, VXE Dragonfly R1 Pro
- 
- config HID_WACOM
- 	tristate "Wacom Intuos/Graphire tablet support (USB)"
-diff --git a/drivers/hid/hid-pulsar.c b/drivers/hid/hid-pulsar.c
-index a1f0dcda92df..4046d6a5a845 100644
---- a/drivers/hid/hid-pulsar.c
-+++ b/drivers/hid/hid-pulsar.c
-@@ -9,7 +9,8 @@
-  *		- X2A
-  *		- Xlite V3
-  *	- Kysona
-- *		-M600
-+ *		- M600
-+ *		- M600 V2
-  *	- ATK
-  *		- VXE R1 SE+
-  *	- VXE
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+....
+
+> The intended use is a controlled comparison of hardware-backed and
+> software-backed RWF_ATOMIC writes on the same hardware, without having
+> to construct misaligned mappings to trigger fallback. The existing
+> DEBUG-only always_cow control also affects ordinary writes, which
+> changes the workload being compared.
+
+Ok, so you want it for your test/dev environment, not production?
+
+I thought we could already change the block device characteristics (i.e. support hw
+atomic wirite or not) at the block device level? If so, why do we
+need this at the fs level? If not, why isn't it the hardware atomic
+write behaviour configurable at the bdev level?
+
+i.e. I don't understand why 'unmount; change bdev setting; mount' is
+the obvious answer for back-to-back behavioural characterisation on
+the same hardware and filesystem with different configurations?
+
+Cheers,
+
+Dave.
 -- 
-2.56.1
-
+Dave Chinner
+dgc@kernel.org
