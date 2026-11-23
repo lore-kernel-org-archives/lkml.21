@@ -1,79 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795414086;
-	b=kiRO+XKHK1sgxIQOPdq0DJpUQ3iJvKoK2zhjoqTJg3vho9DNoPlJIMOetyGJCEmgs6NZ
-	 MA6H57s/5jtz7RrvdvmSFhsO7Xy9vdDhorSVpITjzuJPSGEHTkiNFfyAbzOv2pn6OYpiS
-	 nPCdhyhN0MhYiDJ+5fL3ytt1ee2dncoOUXUOcMW91ZEFNLHoZcwEP8PqUwOzuelnPGpwU
-	 v8Q8CXtXD+9JIIzSE77wxFigVYpnZEHKfyiX1o/ReeIeSKHBbajs4FgLoiUO99SvIPnPR
-	 pLCJqNvgoV0Q4nNmgH5kXok9SR/1lceJNtbR/10r9X/4BpSmC3EZaEMOf/fhtBwI5yw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795414086;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ReilvFzCgYhLXA7zjDQvMxQ2lWWe0sIwwMgvBSXISis=;
-	b=KCOH1NWTGk4+G4UBheoIevsHMEFv/VNbRkIz80lsjAItqi2KS1nLISI1lczGl7w79/vC
-	 k8BODAktXLm3AGZzB3UYTq1r4xgbgidZZg5P+B742o3IzL4slcd6TkDi0iCzj77+oeIhI
-	 4zXDNoqYU53hLm7sZw9DaoAkgAcgjCz87VCktovXHwsCblgUCaweALJe9haOxjWZwz+mN
-	 xOYpG/N2ZrLiQdG4D6XW4RgvZyReQ6MW4VGatfJW4mpEdgbnrNZ55FI1WWx3EeNGAhTGv
-	 dVmkzZfQEAIeVFL+F2H8sBIMvcpOL36xV1WmXFLAB6v0IBzWRq6PnHioWAyyiOAZF4g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=acX1GXXq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795414162;
+	b=j+80uumlQWUq4zmbYLFBE3N4hp1RdfiQbpDUBpBt1W2mJ94JJYDwuQCmJDU1e4wgkHk6
+	 NdOCF4a/zxvBdNI4pl6yF1vq35pUA1a1uFIVHbeGXoOoGMalTwonuCzJM8qECEfzvX/Bd
+	 9eUyiwdLnpjq0WQ+/wXeeKC61hXR7JVyBfZRD7X3onsma5ojIvk5eXK9ASiperCxOij6N
+	 LL4ojw/5aoDTOK+5y/mf+7cny45AXX5FHM/d/YfKI8eqtsQ1EC3wvD8zZjQXbzYD6OdLb
+	 ikvWJMt3ABOryrkxDnim4VWn10yy67LnhJrEmQvp/USrbKhhbK4DpHHlWTck8vMoelw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414162;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=t2KgnyE6y3G3qyTVuKd2f7Rb0fehrCr6u3Ubt8lKO9I=;
+	b=2eZnfpUeGA4UsxqgKcdUo31+NXqHdB+HQWgQCYRnVGNvaY0S35MyzIapHG7OFkrz8TUb
+	 jrMKHHMEL19BCC8Xf7JVDkf5XxDe3+VyNSdWmfY7+CaLAZ3XuT/BVWXCeoQAuMOPcSwtc
+	 +t4bqEp8bzJwf2navE1PPBXA3nrgFJX3HIp5xQ7zyqmzdnxUvCzbKl5rTkSke+qy1A/Sa
+	 r9JJpXXx4DskR0oawWDOsIh+7/oTBGdI5v2U1Ku9KKZ24njLbbmyoVV7pIwmeh6rEL93t
+	 cULaWYw7xMzjA5wJXxAMDavUZBOSRhZbAa9tNBYRXK2C2yl1OE8lswhwfdLxQ8Ivzwg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cYX2voKD;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 282E9606A31A;
-	Mon, 23 Nov 2026 06:08:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CE37606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:09:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CE37606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=acX1GXXq
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795414085;
-	b=PGXz+jXOMzN0/DjFziAUgIrfgu60yL25QHZHEg0tjBse036aRBK79FZuaBitK+tD6dE6
-	 MH2R94U9c6yGf+3FVQYOzQVVvbKWhauMAX19XF2abbHkvODdBIwLGFczMnS0s26oiIMDP
-	 Z9HE6y1WEYLY2NtY+tjQJ8kM0s625Oig7KRNc9edGKNUmOgf9XkHqdIavNrq7uk0QCItS
-	 hdIIg0l0z1J/IoxJvVpH1477YThtJG9exDZyxa34ylRFXXcrVg/tjEc/8Nw0ubXY6vPRN
-	 XVdBpqiihmt7GaDaLslglt+pEUr892MHr0ztwO80S1y9+AUhvxjUOgiWknxMfxyaWnw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795414085;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ReilvFzCgYhLXA7zjDQvMxQ2lWWe0sIwwMgvBSXISis=;
-	b=J52XuCkCrN4AAp+KBdcE9f+nxoNKEs+rY+S7fRCCSfkrsGIfGiq/hRJ/tWOTtOscm+FJ
-	 /pIHeYrzgvGe77nAvQffFYLoS4I5pjFVCm3T/DM+qOEuawsjvvZgJc5RavQkO1WDXGNOX
-	 y3m7mPlwwxEQFRhNNllB6SzSfpjRa36r6xEMIisti5o8xlFmYovdNe2V0phje7+j8O1vA
-	 0p+7qKf86bfNBnKaOpgovgHPSt84/AQ1dbaiOvi2+ELnXDtz64P+QkhgMda6epoEqJ5jJ
-	 W+kcd+P92+PXIOCC5ilYnDK/89Z7COstl0AlydrqopsPQjqKIOz63Jm+cPmRVB01rew==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6A67B1F000CA;
-	Mon, 23 Nov 2026 06:07:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795414085;
-	bh=ReilvFzCgYhLXA7zjDQvMxQ2lWWe0sIwwMgvBSXISis=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=acX1GXXqYktOxTs7tba0wJlXLba987VVTc02Y2bG4YJoNcPk8SF/LTDqjf7XQae/b
-	 JPY2ZbyOIb3eR7CHDwkLcNiDAszqnrS9ifSH+X6VfrKPryo0DlCoYZQy6qKIlv9py3
-	 37Egce38+16Eoh8wB3IZIDv4xe2SrzH8f5Zv08DCalNKlUifSysu6eN+ymR7p3N/Zr
-	 HGPh6207SAXvwD3CUlx4o9WhQ7YP8MzLvfeGBEVarW71KHN9amt87poS1PCumj7l5S
-	 AXZitnO/HE/DUYZ9b7CAVnMozrDwI9/ykOM3qrAgm/b9VahqpP4zq2a9+3MoVSEaN6
-	 yOf19OpAwBxBA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id EF2354C387;
-	Mon, 23 Nov 2026 06:07:55 +0000 (UTC)
-From: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>
-Date: Mon, 23 Nov 2026 01:07:56 -0500
-Subject: [PATCH v2] btrfs: fix loss of fsynced file after link into new dir
- and unlink
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cYX2voKD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795414161; x=1826950161;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oO1z+qLfKklXP/jagH6t3e+mlh1PTw5A48p+3J+/KwQ=;
+  b=cYX2voKDkifM4GrnvCinuFFVnLY+WSBoTtAvdEuJmQ4lWC6ccLckYIc7
+   G9pfxWOc40ttPLGAKEV12BPfIie9kGCKu7GkbXOjoiG0spupKZUowOh4M
+   f1rmPMaeiUqPVYr4qUPu1KVDdZ63EJiqL+TyOez8Ge5y3/Hb0GHN1DwAR
+   xYebBRyQOteuuBCmKQJyNsebOi7GbRvA1Z99UtoItFlgkjaJmbFUztkTm
+   DkkRDtzK8OyojPwKrPrzngxAC4c77KihvrAwqiYQhIWYkv5146QqijLNh
+   eKNptx0PicccO0L3XUIL02i5TreOpkiKKU1Xac/JNYKoTNpsOfizj6hTH
+   w==;
+X-CSE-ConnectionGUID: 7XSWhOPeRAqJUq1CtDV4kQ==
+X-CSE-MsgGUID: wf1Qt/aXT6uXay0GUc/j8g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4118770"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4118770"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 22:07:50 -0800
+X-CSE-ConnectionGUID: ffDSAAp4R5KonEcAWlKWPQ==
+X-CSE-MsgGUID: nkllJ/BDTZKNCsZJ7zkHaA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11420774"
+Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 22:07:46 -0800
+Date: Mon, 23 Nov 2026 14:07:42 +0800
+From: "Lai, Yi" <yi1.lai@intel.com>
+To: Fushuai Wang <fushuai.wang@linux.dev>
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
+	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
+	vschneid@redhat.com, kprateek.nayak@amd.com, sshegde@linux.ibm.com,
+	linux-kernel@vger.kernel.org, wangfushuai@baidu.com
+Subject: Re: [PATCH v3] sched/core: Fix a TOCTOU bug in
+ sched_non_preferred_cpu_push_stop()
+Message-ID: <awPYLifFxp2EnSHx@ly-workstation>
+References: <20261120051742.50358-1-fushuai.wang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,113 +82,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-btrfs-link-unlink-fsync-v2-1-ed3f9f63fbd7@columbia.edu>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CQAyF4auQrm1iZwIJXsW4GMYOVE01UyAQw
- t0dcfXyLd6/gXEWNrhUG2SexeStBe5UQRyC9oxyLwZ3dg2R89iNORm+RJ846THJVo0YfGiprol
- 800J5fzInWY7y9fa3Td2D4/jLwb5/AXziXF57AAAA
-X-Change-ID: 20261123-btrfs-link-unlink-fsync-a3a915511369
-To: David Sterba <dsterba@suse.com>
-Cc: Chris Mason <mason@kernel.org>, Filipe Manana <fdmanana@suse.com>, 
- linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- tz2294@columbia.edu, stable@vger.kernel.org, 
- Mani Tofigh <mt4022@columbia.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795414075; l=3112;
- i=mt4022@columbia.edu; s=20261026; h=from:subject:message-id;
- bh=Tc91JtfYmxCuiF0usK0qEfcZgYz3hGtDsKZfAKcD+5w=;
- b=M7IgzntfDd/wqtPf0wHciUSB5SEDcweEyRSuqVzvtgtZRBku0pV6oB/3gj7A9c0e+R8+QD24H
- +L4yLy5ZV6TDAbcEUoc727CvBKhH0JdCYH7tWSZvejEMSzKI+lyIgtq
-X-Developer-Key: i=mt4022@columbia.edu; a=ed25519;
- pk=gljCMQDuxyKPmd5y37CRpEJGSPXDV1MyAnHBhCgXl0I=
-X-Endpoint-Received: by B4 Relay for mt4022@columbia.edu/20261026 with
- auth_id=1322
-X-Original-From: Mani Tofigh <mt4022@columbia.edu>
-Reply-To: mt4022@columbia.edu
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120051742.50358-1-fushuai.wang@linux.dev>
 
-From: Mani Tofigh <mt4022@columbia.edu>
+On Fri, Nov 20, 2026 at 01:17:42PM +0800, Fushuai Wang wrote:
+> From: Fushuai Wang <wangfushuai@baidu.com>
+> 
+> sched_push_current_non_preferred_cpu() is called in irq context. It
+> checks is_migration_disabled() before queuing the stopper.
+> 
+> migrate_disable() sets p->migration_disabled in preempt_disable() section.
+> An irq can hit after preempt_disable() but before p->migration_disabled=1.
+> After the irq returns, the task cannot be preempted by stopper because
+> preemption is disabled, so it finishes setting p->migration_disabled=1
+> before the stopper runs.
+> 
+> It may be like:
+>     task context:                       irq context:
+>     migrate_disable()
+>         preempt_disable()
+>                                         is_migration_disabled()
+>         migration_disabled = 1
+>         preempt_enable()
+> 
+> So recheck is_migration_disabled() in sched_non_preferred_cpu_push_stop()
+> before calling __migrate_task().
+> 
+> The stack may be like:
+>    WARNING: kernel/sched/core.c:3432 at set_task_cpu+0x1b8/0xdf0, CPU#21: migration/21/152
+>    CPU: 21 UID: 0 PID: 152 Comm: migration/21 Tainted: G        W  O        7.4.0-rc1 #3 PREEMPT(lazy)
+>    Stopper: sched_non_preferred_cpu_push_stop+0x0/0xb10 <- sched_push_current_non_preferred_cpu+0x6a6/0x9a0
+>    RIP: 0010:set_task_cpu+0x1b8/0xdf0
+>    Call Trace:
+>     <TASK>
+>     ? set_task_cpu+0x5/0xdf0
+>     move_queued_task+0xfc/0x650
+>     ? is_cpu_allowed+0x341/0x820
+>     ? __this_cpu_preempt_check+0x13/0x20
+>     sched_non_preferred_cpu_push_stop+0x7b7/0xb10
+>     ? __this_cpu_preempt_check+0x13/0x20
+>     ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
+>     ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
+>     ? sched_non_preferred_cpu_push_stop+0x5/0xb10
+>     ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
+>     cpu_stopper_thread+0x205/0x410
+>     ? smpboot_thread_fn+0x307/0xa60
+>     ? __pfx_cpu_stopper_thread+0x10/0x10
+>     smpboot_thread_fn+0x352/0xa60
+>     ? __pfx_smpboot_thread_fn+0x10/0x10
+>     kthread+0x3a6/0x4d0
+>     ? __pfx_kthread+0x10/0x10
+>     ret_from_fork+0x68e/0xb40
+>     ? __pfx_ret_from_fork+0x10/0x10
+>     ? __kasan_check_read+0x11/0x20
+>     ? __switch_to+0x592/0x1210
+>     ? __pfx_kthread+0x10/0x10
+>     ret_from_fork_asm+0x1a/0x30
+>     </TASK>
+> 
+> Fixes: 74699f56ebcf ("sched/core: Push current task from non preferred CPU")
+> Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+> Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
+> ---
 
-If we create a file, add a hard link to it in a new directory, remove
-its old name and then fsync the file through a file descriptor opened
-before the unlink, the file is gone after a power failure.  Example:
+After this patch applied, the call trace cannot be reproduced.
 
-  mkdir /mnt/A
-  fd = open("/mnt/A/foo", O_CREAT | O_WRONLY)
-  mkdir /mnt/A/B
-  ln /mnt/A/foo /mnt/A/B/bar
-  unlink /mnt/A/foo
-  fsync(fd)
-  <power fail>
+Tested-by: kernel test robot <yi1.lai@intel.com>
 
-After log replay, B and B/bar don't exist and the file is gone.
-
-The fsync uses the file's dentry, which is still the unlinked A/foo.
-The inode is new, so btrfs_log_all_parents() finds no parent in the
-commit root, and log_all_new_ancestors() then takes the fast path for a
-single link.  That path walks up from the dentry's parent A and never
-logs B.  On log replay the inode ref for B/bar is skipped because B
-doesn't exist, and the inode ends up with no links.
-
-Fix this by not taking the fast path when the inode had a link, unlink
-or rename in the current transaction.  The slow path finds the parents
-from the inode refs in the subvolume tree and logs B and A.  Also return
-early for an inode with a link count of 0, which has no parents to log.
-
-The problem is old, e.g., v7.1 has it.  It was hidden by a transaction
-commit fallback between commit 0f24ea456ae1 ("btrfs: tracepoints: add
-trace event for btrfs_log_all_parents()") and
-commit 36f9aafa46f5 ("btrfs: fix unnecessary transaction commit fallback
-from btrfs_log_all_parents()").
-
-With the fix, the file survives log replay.
-
-CC: stable@vger.kernel.org
-Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
----
-Changes in v2:
-- Return early from log_all_new_ancestors() for an inode with a link
-  count of 0, to avoid a transaction commit (Filipe)
-- Drop the fdatasync mention and the reproducer paragraph (Filipe)
-- Rebase on btrfs for-next
-- Link to v1: https://lore.kernel.org/r/20261111-btrfs-link-unlink-fsync-v1-1-a817d4a890af@columbia.edu
----
- fs/btrfs/tree-log.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/fs/btrfs/tree-log.c b/fs/btrfs/tree-log.c
-index 763487114f85..445374b06ee8 100644
---- a/fs/btrfs/tree-log.c
-+++ b/fs/btrfs/tree-log.c
-@@ -7541,11 +7541,19 @@ static int log_all_new_ancestors(struct btrfs_trans_handle *trans,
- 
- 	trace_btrfs_log_all_new_ancestors_enter(trans, inode);
- 
-+	if (inode->vfs_inode.i_nlink == 0) {
-+		ret = 0;
-+		goto out;
-+	}
-+
- 	/*
- 	 * For a single hard link case, go through a fast path that does not
--	 * need to iterate the fs/subvolume tree.
-+	 * need to iterate the fs/subvolume tree. But not if the inode had a
-+	 * link, unlink or rename in the current transaction, since the dentry
-+	 * used for the fsync may then be an unlinked one.
- 	 */
--	if (inode->vfs_inode.i_nlink < 2) {
-+	if (inode->vfs_inode.i_nlink < 2 &&
-+	    inode->last_unlink_trans < trans->transid) {
- 		ret = log_new_ancestors_fast(trans, inode, parent, ctx);
- 		goto out;
- 	}
-
----
-base-commit: 845c6105edd82f5d0aa72377ef6eb8592ac4e00a
-change-id: 20261123-btrfs-link-unlink-fsync-a3a915511369
-
-Best regards,
---  
-Mani Tofigh <mt4022@columbia.edu>
-
-
+> v2->v3: No code changes, just add some comments.
+> v1->v2: No code changes, just improve the commit message.
+> 
+>  kernel/sched/core.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index 5ed660f099a5..c351d708aab3 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -11314,7 +11314,8 @@ static int sched_non_preferred_cpu_push_stop(void *arg)
+>  		rq->npc_push_work_pending = false;
+>  		update_rq_clock(rq);
+>  
+> -		if (task_rq(p) == rq && task_on_rq_queued(p)) {
+> +		if (task_rq(p) == rq && task_on_rq_queued(p) &&
+> +		    !is_migration_disabled(p)) {
+>  			struct rq *dest_rq = __migrate_task(rq, &rf, p, cpu);
+>  
+>  			if (rq != dest_rq)
+> @@ -11355,6 +11356,11 @@ void sched_push_current_non_preferred_cpu(struct rq *rq)
+>  		if (rq->npc_push_work_pending)
+>  			return;
+>  
+> +		/*
+> +		 * Racy: is_migration_disabled() isn't stable in IRQ
+> +		 * context and can race with migrate_disable(). The stopper
+> +		 * should recheck it.
+> +		 */
+>  		if (is_migration_disabled(push_task))
+>  			return;
+>  
+> -- 
+> 2.36.1
+> 
