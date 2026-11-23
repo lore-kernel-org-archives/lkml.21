@@ -1,89 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795469537;
-	b=smzTf/6egWiuTBMkCjAqfKW6lOIkBTlOuMd/aArUepFXb0ZDvjXqpPGmRH1UwAxFWGPg
-	 iBH0exkYUqg/pWoNWXvTf8WlM0bFzIqBUD0FSgvZBk/lu6w0j2AMIk31CD8v2kdGE/HDC
-	 /U/CWPjMD3v3WsAiyF+slfi6+FuYbG6xsW/9j9n6L6f11a5npTaJryLWPLPfv02Ji0MHI
-	 gAGsyW3aiCAfhwjvaDOKcUFcpcPpZcD8yEqY4/8MbEDnzVA31c61pgserQ6GLRYH1ZBEv
-	 AiCe9ngPRc9xBQfHD+8Qn6Alzl1Tkvt+KXyD4HbtinO6AhDrrsR+TiPMO/0GRVhkWiw==
+	t=1795469554;
+	b=ElrYSyN34JJKw+ZN93lqG8MuyL4UHeniFhFIFx15tB2NvzVHw1ZVDVRbRqa4y4vr4T1D
+	 msvVsHtwJgvQj73XzkbbdZm7p1z2Wmz5XtxXaDIYGeKF3Z8pqmgfFPdXP4w2ojhmSb3cR
+	 Zc6fs8L3JfJ35u5cAP5cDd0a6SWpxv3q9p62oTvabZc1I+cikjSCjNqbDwxa6fs71/wP7
+	 c798kU1h3lY8Taklp5cwLw4mHYdkkGZB2smkrC2NqIos2Zn2WiL5nnffUAlzJ8pOqDncO
+	 SN32dFtNv3qJDWNMFkPpSn9us0kYo+daWR1SQlNs0MGC8lguRzX6Ve4p5g9fjLjwPWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795469537;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=oMcHckr7xzBy87rdjUeibIDdjsNnDgKiiqf5JhMKkgA=;
-	b=l/JtFs1O1Qio2g2gw+HZU59dgo+UpRvKA0eU1FgPy5OM1T9dk7h5tQ/et3d3gH43G3ix
-	 QbuTowq885MokdpLUsp9ET0vZwiFNOb8YYWpOZpJozoqOgT2nUCyTH2ZZUkmAyJi/zZ+9
-	 cEirxmUmDg5dQX4gg1xjDuR4I7OUVlQenbdHO7oB3X/s7q+WknuWbVQEfc0g/S+sowDFK
-	 oO+BFTlYKkXeQhJsNVyE3mEHPicu0eRtb6o+ggYGVu7elmBIfbqCqS6TbsZGMNwcuRI29
-	 0rpneWy0m70ppUIy0BH87G0nMRHU+sWAc+SFC5AFAwCUepnc5cFyWG8aOD57xEorsxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795469554;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Provags-ID:
+	 X-Spam-Flag:UI-OutboundReport;
+	bh=gonwIiEtA58Dq5m49AUGorsOuHj8HMCAUzTMZMjB0vE=;
+	b=PdSCKXbGBfebFlwoW3tNQG5LP7AhaRiCXswj1yesjm7iiXvqIwe86E/comRh1aNN/Y5P
+	 elTKAyfBTj1zvdpkrl4S8pFeEt1p2z27dIl3nJ0Y3S0s8rcaUYbp/XwXT5DUxAMCCG9rV
+	 n3VfJpKGmWeahrR33n5eGJThwuMSorOSDCxiRlSFV39l2WMTTmdlp9KMTnOWjlHrGSWjH
+	 KkRioV95/sEY0HFv+4Lv6drd1dLcOhHd61yAuyYvHrcO393wy7ypeAPleBxkt7OAIdVcU
+	 L2HO+svBlo5BA4t4R+TzL6hG5aTcC/3+EVbcKbFcgHsAL3EqGk4RGR9YLHVpY8DVxDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QRqG1qpm;
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=paltian@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=HnX99wur;
+	arc=none smtp.remote-ip=212.227.17.21
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D15B606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:32:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D15B606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 346B2606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:32:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 346B2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QRqG1qpm
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48df4f7ccf4so270209f8f.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:32:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795469536; x=1796074336; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oMcHckr7xzBy87rdjUeibIDdjsNnDgKiiqf5JhMKkgA=;
-        b=QRqG1qpmNHm3CINMJEGFCZVUZIHELj4/YROVzdBghlrKedFgufnZAPMpY5qyvBwUhy
-         VXG2uzc4GCyrh29M6DVcTOeOk/X10AO0oLoqOrCTQcA6qOKkuY075ncIJotc5BqGxf3Q
-         SZ7LppdbEcXHlQbh5mziFtI17CPDvaCl3BZT/bkDeWMYHQccfYHLlCdzEFUcL6cB7UzC
-         oESAP7RI+3rqpO9C4nHf176roq6sbARwbEBk8D7PWNAbN6lLtTtUeQhKn3aIyO/EPoc3
-         AsKIkGUGvD7CBVf4nzTez+L1uItMEGA2xKKPPGHMGwdwJ6wV6RxrDczkSJrPv81VOlNg
-         TruQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795469536; x=1796074336;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oMcHckr7xzBy87rdjUeibIDdjsNnDgKiiqf5JhMKkgA=;
-        b=qjZZSURHmyIMmp7OxsAFrYm5UJNCWNGn1VgHX2UzIDTNLFYZ7U/nG8Mwzc+kIJP2OC
-         OacqHV2Rj2igbwzqjQE1rwsSCI4C1aDNejAtwpLoq7UNDxfCiYyOClQjXiR74QCLpHMx
-         OSbgaxaMnjwRSnYN1MsTl0Ij8yZzdQgVHt3GP+acSMC8y694PF3kWdytWk+NEGIJNGBh
-         n7BJu3kmyKrg4jh/q+KbYGYHEaNQxiyfgWVTjJ4GF80R3F1h2dPqCFkznhVuZCceZN7H
-         nuzPo5u3jJJm2AajhU0IHaF7KG8ikJ4yXqW+yxzH8hlTJsm+NxGqpJgmEcD8D5L2yRoU
-         zszw==
-X-Forwarded-Encrypted: i=1; AL+hErGa3XGrLmZ8a2GJR20ginzyWW0G/Ld6W89lBgL2oAZLQWwEqUZmsUF2h/1KmekTlHH3o6JFw8JjCXE8SvQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dge8mrhLl8kXxUZ1lKdP9dN7rEgNSEnZihiCrSh7DqPMnJhvq
-	sIpqgeAAG4iDWp2sxQoiW5LtznWmvNbD86RtbX1ZuUhga2GenHdsq/yX
-X-Gm-Gg: AZFdTZfCmkvruYl5Se65mm12Ep36eH2i0SrAmV50XPmpDkny+8QNpYfN6Q8F/CkyB3J
-	7vrbyF+83LFgvkhGDL740iL6potWpB8KN2TufEM7X2Bv0ftNJnK+r6MM2eanNiwuuLsxx/T8GyD
-	j+IjwWIykTm5BuGeV3U9ABAcuTLHyl0t1NWT0+RbagNJnSqAf9U1CbSkYY5znK/GUnPCzrEAmO+
-	yin/SxOAfdFZAvYlb5rOULHLodz+Dux6i+5jrp2ivVF+N3vBHnGd4dTpwt8RhUOUn/kdT4WTDep
-	cXxuAZxj8cBvENqwMHCloscv4JN0Jy5wioMEEXtvW9h8XbNLM+I8BkjAFlP9YUt+4leGUhe991C
-	mMb3UPUwX/dYmKABuiuRT/n4v9PrfLSjrGZhuldNK8KuDM1Sj/r9GHgk5utJ56Lcfx2+CnMLgnp
-	oez6JG8voJfGKjMlEdxpiPVMPyggrWdRI+nXC4OBRfZRmFSlNjC0ZJ49wUZCbCXnvmfvhWvE29b
-	qD+lJrhMWOLe7v4HzTVKyvKAaIj7jLa3EKnVuRcldtsC3Ze9jNHRZBL//oQF5ftFiadkSWxXAFd
-	xpQmfMOhCremh1a15k5bheUj242IYnAVZkk4f0ofDICxC4WS5X8kqBFEueabG2qvKRZP0zOszQe
-	GQgw1uy9nwWdEyv70T3AfNaI5IWBPGR81XZfmwrUVwhdBj76fVNKo1Z2T/6V9pTanCq0=
-X-Received: by 2002:a5d:5888:0:b0:4a6:d298:832b with SMTP id ffacd0b85a97d-4abb6095e39mr24438734f8f.6.1795469535507;
-        Mon, 23 Nov 2026 13:32:15 -0800 (PST)
-Received: from [172.172.2.5] (host-188-174-207-233.customer.m-online.net. [188.174.207.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4abbd84e661sm22833466f8f.18.2026.11.23.13.32.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 13:32:15 -0800 (PST)
-Message-ID: <43dba41e-092c-40f3-b92f-45c8ed063c48@gmail.com>
-Date: Mon, 23 Nov 2026 22:32:13 +0100
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=paltian@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=HnX99wur
+DKIM2-Signature:  i=1; m=1; t=1795469551;
+ mf=PHBhbHRpYW5AZ214LmRlPg==;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:Dm6qqkVzLcen3gjY/0/pbv+WRUg5
+   5KGjBAg2efgxqjInUbnDygMk2F6aYeGo0sZPwVSDnrrC4xckS0vV+2Hyb/ipQfHU9gxWFCMNIbY
+   KSszp/ebqaIRAOiKlh812IoWXULSP1ERLBK8lpWGt/5BnEGAkJUJo+pERLfTbCjrkZEJrmb4+z5
+   B23dIXU3skR4wM4uLcwSVbNu7bx1j4Um0OsiN+xTHKbk/oHEPQ3pTK8q6Q4u63Wt0sXwTRhTDGI
+   1NGRpvRElc3XiX5uy9V6bfEY2mVMUmq2Ia3NaecXgWMoUBRSZQP1Xeodq8v0Z5LX/Z3A5m5FuAa
+   gfMX3TNKfYUldA==;
+Message-Instance:  m=1;
+ h=sha256:
+   7Rht88oY2r6A3Vn20tp/RWBLWkRfxpbT1kpxOXHG6Xs=:
+   IrQQ3H2Mmr80KTKQj3NGz6g3bsFehEPlNi+B8XTD/sQ=,
+  sha512:
+   3fyJHNE1C/+Uw/1QF21kAT6MG9gUAIAitQhAnLbfFsuDC6sd3HUMY8O3eBegGoJBiZgScJHDrRYcAnJtLoqthQ==:
+   w25Unq5Vl7LMK4JUGdWhvYoYmH+4iW1hBcHxwjsn9lomCtKo6UBfmhT00ltoD9cFz3SRn2JkNGiNW9lxFbD9+w==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795469550; x=1796074350; i=paltian@gmx.de;
+	bh=gonwIiEtA58Dq5m49AUGorsOuHj8HMCAUzTMZMjB0vE=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=HnX99wur5KvA4GYw8vDmqUsbg/QRuK1J8JIdK18XFhpBTjM4KSKVN9tLPtaxMGbx
+	 2CAhuEchvoJdI2zR+SwaqcOucDrcx0EnuGiqyVKisyIQqp2NOOGyU/MCHG+Yjfhok
+	 7AraSdCzIGDypKuvu5TaHCnps2NrleX36smLOao0FrBZsN2+6md2RDV0bgwYTiaQT
+	 3CZ5uSbSexDQwEV7bGEPeY+pdwTzPbSluANeZF5CIQFOLXXTmon3mbhkNoBpoC8AY
+	 ZmhdcB7tqFSbLW4COL+aqCC7wTCj7zwp1P8Ht/CazWfnQsSVEBt/+L0D6M6HcObqF
+	 MbEt7wOYX7w/gEZ9Sw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1McpJq-1y5Da82762-00qix9; Mon, 23
+ Nov 2026 22:32:30 +0100
+From: Markus Paltian <paltian@gmx.de>
+To: Mark Brown <broonie@kernel.org>,
+	Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+Cc: Venkata Prasad Potturu <venkataprasad.potturu@amd.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Markus Paltian <paltian@gmx.de>
+Subject: [PATCH] ASoC: amd: acp: Add Lenovo IdeaPad Slim 5 16AKP10 to ACP70 override table
+Date: Mon, 23 Nov 2026 22:31:53 +0100
+Message-ID: <20261123213153.51026-1-paltian@gmx.de>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,80 +91,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v7 1/4] net: hsr: keep GRO disabled on HSR/PRP ports
-To: Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- horms@kernel.org, andrew+netdev@lunn.ch, shuah@kernel.org, kees@kernel.org,
- petr.wozniak@gmail.com, qingfang.deng@linux.dev, fmaurer@redhat.com,
- luka.gejak@linux.dev, bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com,
- skhawaja@google.com, liuhangbin@gmail.com, stable@vger.kernel.org,
- sdf.kernel@gmail.com
-References: <20261009201324.17-1-xiexinet@gmail.com>
- <20261009201324.17-2-xiexinet@gmail.com>
- <6aae7800-5306-4839-a4c8-56265a0fae45@redhat.com>
-Content-Language: en-GB
-From: Xin Xie <xiexinet@gmail.com>
-Autocrypt: addr=xiexinet@gmail.com; keydata=
- xsDNBGpiHugBDADJ5KuJaOYfUx7TGbRw0UE1km4dLnJomCSNtgq2T9BqgZ6TRPEy37soAmW3
- XxCPvhfL6CPLldzy6O6EkUD7/8zlbQP1DM6gUIQUyKxxkb8uR+oCogDKjsxt0QPycP/dR9fk
- SL4qKReprnkOOcGeLahLHzofVdn46mc5igCBsAA/PPSpo1GqsfGk+zYV97rSVa8zhnSXsqZ/
- 9DbUfQynZKVqYN4tm1B30JE5SEWDCko95Qw9fAORX2W356MOQJGr05z9qMSy7CkF7bAUkziG
- d6ZSPsGEsel5jYByP8ZvwQ2A8kdKpRy8+zQCaC+vEotTH7Fs7SIzE/Z5mEVIi1xQqEzN1rqG
- BW7KgzRDWjw8lKsoBbxv20nfhUzuZLan2HzUJ+LxZ18Os4zkWg9sxHgMi+AGqn/+0ppbDcOH
- 9Jm072/xA7O1MCXLgr4FOP+4PJH1vcqU+0EZVz7KCjrwkdz+l5Ojso2FLXq2MGoqWGShIsDV
- bF1JYpgm4spdPbnISkidUC0AEQEAAc0cWGluIFhpZSA8eGlleGluZXRAZ21haWwuY29tPsLB
- DQQTAQgANxYhBAHOahKZFnMu2n/CxrTrSufyPi3LBQJqYh7oBQkFo5qAAhsDBAsJCAcFFQgJ
- CgsFFgIDAQAACgkQtOtK5/I+LctmngwAlmrGPWnWxDW6PSJeR9SM0faqwuY33TWAE35nshm/
- EEkBgpVVhG4z4Cdy7L+6TG6NHVDnvl+IHLyyOZlL3LQPQIpiKVgo6jHmm9TF6mK+Vo3nsXAA
- uSJYu9iY9Aywmy2JVQ15ttQ0NfcoZ0sV14bT7pSr9zXB6D8p3XA4AQI6IBeLvj993Z1+tPyC
- 6BJ+2aWWLBx7xGpFo3X8dhjS/Lm8QoietKbI+ACefKKCDNiM2KG53P76wdXJp52u4dqP6eFc
- +Qv35QefnALoPkOGQEdd1qvUycyZhuaCj8h0AxDu7bL3G/IM8G2K8qsbSJuui8zCSZ9b/QZf
- H7u1nevPOgxyWC1Pep/TbRZ62ktn8lrmWA8PZjuaJJQGjahuK1GgTQZNG+7DB7NwjLr6aXIm
- JirtT4FeR+IUovvL/ll+VHzpGpFbgXz4GTsWsikQkT1huFSB8MRLlWMXdAKblL96L754j8Z5
- p/YV26YTppXI56uJ3XyOwZSrfrK1pfqNIp2Yr9vUzsDNBGpiHukBDACePM1YZ1FvAiFay/2v
- KVDNpuazmpVb1CBFy+rqM9HcuHe+5CuxLd4RI4hb0qmjlm5Vi5M8+AuNB/wi/f8oDuhJwlMn
- v9L0lfgpRRdShnB26hnt2wWwWFgOU3BwymSruxhEYq+eIjjxCAo6yW7Qm+ArZ+riETMI67sy
- ZyLx6o4yRiWxOrh1nhwV/f6PIOl+Iv4yLAG3eFXpU7/EZpim610bKMwcXEpiRkf3NjiflIha
- adoKHV0LCiVNrU7r8TICjjnugpl1tXAR2RlaRcSxmvOzrXY2O/xBLpwPr5erbdk8RCaxUzS0
- kK0hw+/On3Sr4Z4gtLl2xtDkjRh3KQ9ZqMPrFD/5XOs842ueNivwIyAf2kQJjKfJGWc771EM
- 0ZWo1r1AthbuM+IeN5QM74rMJxaf5WyDX3ZeqBA55fCJGJ3zrp7Tqeoq8DYufiNkppE9S71z
- Cvxva2f8mUWTlTUf8s33sRD7C87XpT0whKpn1I9/nJB9Kb0dKyRCdcsT4o1ynxUAEQEAAcLA
- /AQYAQgAJhYhBAHOahKZFnMu2n/CxrTrSufyPi3LBQJqYh7pBQkFo5qAAhsMAAoJELTrSufy
- Pi3L/iwL/3aoCeq19Pog3fqisRyEZeX8pXw2GYlrJWYoM0mQ1USaTpdsMwCXaoFMoSBqid0F
- VPrqlH4bSIEEAzVmFPX0NjGhREDMrQ9eR5S9yqSpBvX+hz+xgpt4NOPhbVQmV+9f4lX9TJT7
- GOO3EX2eeokg6ZAISycCAx7srXuc8oyRTJtnUQziH9GXrEeon88LHf1QHg0Z0sL/c7DfDqvW
- 9924M4ngQAZ8RgCBGZocoWuXCemSPkfQVLt5DzycSgSQODhbNSEmr+jb1V9Svf9D9k0CQfEY
- cB3uwOHWb6Z/yaEARbGZPSPn89YjXBncQTpgSvUM578b5x3pKi6PjZB/hwtUsRgrWGWoIwRi
- +ZmcHnCzsuo6uuNYX8VvmWqYsVajykjnpjdCGmU89QUsVmrtnDPBrfr8VVJcZPnCJhE595Pk
- LO29Oj0au9kr7kMW5Q+fBeHj5zz6VggAaRRU74/sgtwLODBWESPZ9LqUUdB5L/XbrSq2VDlD
- sNySbH3veZ/55EtlXA==
-In-Reply-To: <6aae7800-5306-4839-a4c8-56265a0fae45@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:hMXr040ciBNy+gVzVdVLIJN9vk2ZKLG11nyZOER/jByMOJq0ieE
+ 4mmCkb6JLnzDRhFZDQPbTqYCNezyI+1Xw2hzZaRJ7pFyBIejjajj7w1VNplkm18B8ZmsvS1
+ rMMqHhO/wsgEDVIDmxME7wIxYncW71SHiCyE9lx14DCbCeoVayq1EaMJw4oLm9R4YtUGwPj
+ 6F74h3QAGkToJCcAC9PPA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:RLfWVfSIOII=;b9po0nzj4Id31S94l9hsRb8W2X2
+ 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
 
-On 23/11/2026 13:27, Paolo Abeni wrote:
-> I don't agree with the goal of this patch. The kernel allows a very large
-> number of bad configuration. Explicitly preventing one of them may
-> lead to regressions and leaves the lower device in an inconsistent
-> state.
-> 
-> Please drop this patch.
-> 
-> /P
-> 
+The internal mic of the Lenovo IdeaPad Slim 5 16AKP10 (83HY) is wired to
+the Conexant SN6140 HDA codec, but the BIOS still sets the ACP ACPI config
+flag. Add 83HY to the override table, as for the Lenovo models 83W5, 83V9,
+83HN and 83Q6.
 
-Thanks, understood, and I agree. The patch is still 1/4 in v10; v11
-will not have it. The macvlan GRO check in v10 2/4 and the selftest
-cases for the GRO policy depend on it and go as well.
+Signed-off-by: Markus Paltian <paltian@gmx.de>
+=2D--
+Tested on an IdeaPad Slim 5 16AKP10 (83HY) by loading the patched
+snd-acp-config module on 7.2.12: snd_acp_pci no longer binds to the ACP,
+the dead acppdmmach card is gone and the internal microphone on the
+SN6140 codec works without blacklisting snd_acp_pci.
 
-The segmentation patch splits GSO input on every port, so aggregates
-from a port with GRO on are still forwarded frame by frame.
+ sound/soc/amd/acp-config.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Keeping GRO off on the ports is then a configuration matter. I am
-working on a userspace configuration tool for HSR/PRP setups, which
-can take care of settings like this one.
+diff --git a/sound/soc/amd/acp-config.c b/sound/soc/amd/acp-config.c
+index 93c9a11..e2cb6e6 100644
+=2D-- a/sound/soc/amd/acp-config.c
++++ b/sound/soc/amd/acp-config.c
+@@ -72,6 +72,13 @@ static const struct dmi_system_id acp70_acpi_flag_overr=
+ide_table[] =3D {
+ 			DMI_MATCH(DMI_PRODUCT_NAME, "83Q6"),
+ 		},
+ 	},
++	{
++		/* Lenovo IdeaPad Slim 5 16AKP10 (Krackan Point, ACP 7.0) */
++		.matches =3D {
++			DMI_MATCH(DMI_BOARD_VENDOR, "LENOVO"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "83HY"),
++		},
++	},
+ 	{
+ 		.matches =3D {
+ 			DMI_MATCH(DMI_BOARD_VENDOR, "ASUSTeK COMPUTER INC"),
+=2D-=20
+2.53.0
 
--- 
-Xin
