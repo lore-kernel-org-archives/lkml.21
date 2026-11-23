@@ -1,79 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795431341;
-	b=ukGp4dQzxVBxcFRHp0aYP2u2DJX5oHh/k3ni32RuwTq4BSP2MGJAkjoEHBZqQinSvue6
-	 NrqPF8zdnrx5+GphXOBEV5ExDsno7z2H9gLHF459LCB8ETYL9JM0upUKUnSZu80GNEvC+
-	 0TRtuSFBw3K3D+eJifmkrOnYmFHroHtnEqJz5obcsTjBlHLDqY46Q6BOSLRzeBWYeswUe
-	 UvxggEzxTDrsetAe0o9cWmVQBty8fWhpgrPo+UQNKKRkXG0n7FerdpanBhX7k+vVHhFZ6
-	 30vvbKFbg0iIVW2ZQ/CrfC5oGGLJml20bGtUTpzMLhCjniQ/qGSqlg18EH27s0PibkA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431341;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=OHPurr6k9FoQrxkS/sSnGfsG+S8cHXcbjJO/f1mmfMk=;
-	b=Cn4qs3hGVxtz65vuLCobfPXhvYlqOPkuy/qDUNmKfeVshERzUwh58cuHQVreZZorTnf6
-	 9E1uIEr5xWAOStOq6vsK7A4IJos8u0kgKwPVY24eR9z1w8reZ8Zaakgwff9U1QFkUpVRE
-	 0HtvecE6oLwjw6O4vTZxjsdBc03tR4j5y1Tr70/gLQ1HEhK32kjhsMFpXPoftd7TXNyme
-	 fW0ugsFPc0yx8RH9KJ3Oole+c6VsWL7ycA17uF7cudDjJ/e5GK7M64o7R70ECzd0lf8ql
-	 j4MjNJAGGeOlR0DoFDS5tqZZwDDzslx2RTPIWTcxV8XX4HSO1lIAF9inKJMOLB17b4g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BhhKTrwI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C216606A31A;
-	Mon, 23 Nov 2026 10:55:41 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BhhKTrwI
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795431340;
-	b=l3nck/fX1QHUqwlynsyQT088QiH99g1NU7vgCAMTCYFDSJqL9lKvo4Yxus5FdlDqvIC+
-	 XekX9YlZHFcQmnEVUNUMf7wQUgOEtF3jlNDSs7cR6QUw1kwuEjE+IvVkn4SyspeBKEF7l
-	 kQMRh64Ubq30qNNhiDqysiiNgSmNs8gJjY3SIj6YN9wkmtpagjbq8SZiT1dRMISwG9mJL
-	 6+bohoFuh/tGkUwPoQ/ka6Qdl66SBkaaOjrbBs+cTmWau+I8PBA4sIQBLuq2s3I3KJ/eV
-	 8aQ7lRs9QLB+JLsLzsMM/Me03Zs37CLpslGDaYZLCcuKvb84pMeauGFyKc7aJD5FQiw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795431340;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=OHPurr6k9FoQrxkS/sSnGfsG+S8cHXcbjJO/f1mmfMk=;
-	b=pNOlBGd6WwlF3EPl0JhIO0aajq53jqPGMFit85WQbRX4LPDXLyURlnMW/F18OolgIywR
-	 xqf0FKp5JSzS9l6mlWU8LnKKXfF0GdYb+54oelHAMFGfnAgmRsi4xR/Oyrgl7SyUOHgwC
-	 LSlI0byiag5yQY7wUe050F2BFMMcx+Qjs35FQgQzotDIZtair2WkIpjbju603n7JjDFMg
-	 ps6WM97ygQWAv4Ln0AciImSuHmyHFIds7lVcwyZbq8W+aZsLcEIJVOMZR6sPo+b61hAEI
-	 jQTPaKwaXNPBCjQCCsXlzRssbTa/SYkrPWjVaY6tB7ACviwbfbaBFbPvlspNY6yNfbQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795431414;
+	b=gW4qUqwrYvuMzfAnjYlsR1n9mqKa35ePqvsOJVC+7aG3vVUBlnIhgqclxo4CUutEg/Ve
+	 99peQk240Adfy3aO9k5jMKxt6mFWawS+YnfkDAEO+Ctomnv9GZ3ehfMWVr+tlGDTO4KYN
+	 r0jbiiNpnAmJevGQX0alEJG05KzFwFKoucem8tUsowzHV/AVm9u2UBIt2aTGkVqp+r7mO
+	 Wj91P3EuXhgEUt40t/tq9hECEKnq0ud9VjBUxpIPvpiTIDf7A7JcL3Rjj1+3HwmJbaeh8
+	 1Bayl/WwBIXNJ3vugx0zxfrZ8er79lo9zVF/ZPaVYVqFi7W0cg4A4e1dk5i7q3iLdEQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431414;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=oeGvWgXxnsakqLjZaSu5vhCkqx58HIdji8JzO2W8orU=;
+	b=e2vPTyMxVywKeO1jlPKQYE534mjCifObekk0nfCo7qeefDA1bPNcMI6nONciZIvYGlkA
+	 QUwxEqgWbHgLUYjss1Ctha+DiTmM2zh2UT4KqL0WUJCxRr3FQ2/qz1wUQW0urUXT28S7B
+	 WoDXMmv7qKgVIZ8/C3pxSCJMomlFhJZZjXmh1xyNGHfsnkroa+V2z+D7oyro90z2P1hn2
+	 BjPgmc2mjFbJpYmCq92BpOsVr12SufLH33FMH8WLaFM8RijpIKdI7IkQPy9Jt9jlfoXTa
+	 yJ7AlryLiAh83IepVQCkS6/wvY9oS9efzc3FgZRCmzYHCn8p3LJdunfVI5pbCigMBfA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="RE0/FWqa";
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7092D1F000CF;
-	Mon, 23 Nov 2026 10:55:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795431340;
-	bh=OHPurr6k9FoQrxkS/sSnGfsG+S8cHXcbjJO/f1mmfMk=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=BhhKTrwIz7AILx3MLCgPQ8PXicrbGGrKWZanOmkPNetq3e6QrVmHodDNtkyoy68QW
-	 H5tQ8XcCRZNoQNpAh+6H94VJyE17zkoeXE/hGmKSvGVlnR2noeeTXIdwA2tVwG9Saz
-	 s62qwFC+zWwXfUuFKm6/TpQxjxYIXgTQljWcA5r0NlAqdxxhuXnk0kMA3s3nVzkc/C
-	 ON9VBuxYw7N3ed/ZLDo7SueeNyksx7GaOruRW6Dur3LEpnMMpCcnKnlRgztU8QRPer
-	 ik7kqu3BYkhYRYNbz6Drdyh/QLDYQhKDZ8Z65RgP4EmV43U/yrUYPdJ6HBC/5/lwhM
-	 g1q9lJSrneQtA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F24CB4C423;
-	Mon, 23 Nov 2026 10:55:33 +0000 (UTC)
-From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
-Date: Mon, 23 Nov 2026 12:55:29 +0200
-Subject: [PATCH v2] EDAC/mc: Convert the poll period to jiffies when it is
- changed
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC4D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:56:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC4D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RE0/FWqa
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b3fb193c03so1307529a91.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:56:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795431412; x=1796036212; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=oeGvWgXxnsakqLjZaSu5vhCkqx58HIdji8JzO2W8orU=;
+        b=RE0/FWqa8e+4LcFnBBjpEH8cq8D6Y8Ckb9dUjDllHBBsSqauEWJJsptkVHe+vkQalH
+         pvx1/3p3+zjhN0XrqcuEsFakmXkZYN+E29CZFNcWz+mHwggKBDkrsnQ80OnkZkgckK8m
+         OKBYDKrUbiIvdUCuO+uTa0lRMpYRuh+0Xw/bwEAUCvDKwOfUKWtNBrH0Dh/yIQk0Znol
+         NIaOnBWO7yBSuVPDLlkGpjH/uNamuV973AVe0Z8vgQltV8iGHSikpL1I2zQiEgF+KXMg
+         M5lzATVOAGDwtlK4iQ4WaciK90nZY8uLiawlOJAdGINmPixZSEQ/xcmtRtU926xormyc
+         HYww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795431412; x=1796036212;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oeGvWgXxnsakqLjZaSu5vhCkqx58HIdji8JzO2W8orU=;
+        b=jKVkd4XsNYDIi6ppHH0Ja0T7PXqwO9CZsv+zglTEVXeiunzOozb1lQqLYYRypIeB/B
+         zKaDIIzmWBqRdOc1yK5R4QLRdbjv6r3pXr2PERDuPsV4rfdY83uEEGHgREXQ3yO4Hf2h
+         vpXrt8G3jX4LVKE6F7DEgSiXs9ui0HLiju4JDSZleE2299uCtq3fDpOzV9Ds8z6WPbE6
+         1HoNDqgHqFKO9sZGvu9pUO1rUE8psAvRJPlIqICgobfRD2BxRvGfLiLCSxJtzl3LvrWR
+         NWDkGSq9jGKZ5j7hL2zrPRxXU5ZjmoeauEy7n28NiJJ1vl6pT51QA2ohpeLsFa2TpIRk
+         he7g==
+X-Forwarded-Encrypted: i=1; AL+hErGmYpXbMVbXv5ynlyK6nuvF1+VZhtPBNkw3MwP+NXykrXccOneWnDIczCK/wjKHwVPhJXWA3na58h2JdFQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8s2kFQNK1cH3l+tFYaiNI5lCleHG5p0gc/Ndkh/NM/axtevKrt
+	MfekYEN3FRz9f94/pdse3gMcwufgZSocmvr3QoXWLZ7ncYnPYGss3N8p
+X-Gm-Gg: AZFdTZdnQEQohNX6OVwgpEzpxpR9rEYfahE1m6IHwbf/5rdQLn/VO2YADxXo08BRk8S
+	Z7TiTyLiZoVnTARsfz+6B5haIJK04Wlt4iItCa3dzmVsFj1kGYrijpWoyYPJ5hSUGufDl7Z5FHf
+	49X5Pxyf93lVJ2hrCk/waCNUeiJTdO4gj5/2R1EajMgYTetDmxwZvPagmDQfJc8oisgWpziKlVW
+	wWBS1CmlTNL+YLt/RS//GNGxZeS3oZ/BM39buqyHuVoCZp5uVl7AOMi5fOk1CZ+3f5n0v8/3MPq
+	+b0IkPJPuDMdyEfOp47YN++oj2TeJXXZmcZuaapBlpfdBxUMJhR5T4ihqgQnQqZP9tvn/iinLF+
+	PXnqQm3GmGbNwf/2sky38exd+eavpAZAdqQ9fqos1eGcAZnJ5bOD5abVdRdrvmzq71zQvEgFuNd
+	bUDtKL9CZ+eiKhXls60AfpStlivVjWWX3s3oU+2uTL99N4RdyUfDk4eMxvisggZHFLOntxMkNQy
+	OCC0Cz+oFHxb9uSTh7zUsFlFFSTKGbwR7xW43Fazqy9MXD0HoVoy302Un/t6s7qXo9DSCG6nUh1
+	UggbeJTEwKRENOlhEkixViacKV/3IaID/WtavOoeIa1q6tTOLQG2LmcDid/F
+X-Received: by 2002:a17:90a:e705:b0:3ad:3e8:12 with SMTP id 98e67ed59e1d1-3b41cb056e2mr7626761a91.48.1795431412150;
+        Mon, 23 Nov 2026 02:56:52 -0800 (PST)
+Received: from [192.168.255.10] ([43.132.141.21])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm20163761a91.16.2026.11.23.02.56.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 02:56:51 -0800 (PST)
+Message-ID: <776889e1-1ffe-40fd-834b-29b5aa474e5c@gmail.com>
+Date: Mon, 23 Nov 2026 18:56:48 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,161 +90,225 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-edac-mc-poll-msec-jiffies-v2-1-0407cc52556d@ahmedabdelfattah.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NTQ6CMBBGr0K6dgxTErSuvIdhUdoZKeEvbW00h
- Ltb8AIuX/K+960ikHcUxK1YhafkgpunDPJUCNPp6UngbGYhS1kjogKy2sBoYJmHAcZABnrHnBP
- A7YWVrBlRGpH3iyd276P9aH4cXm1PJu7B3ehciLP/HOcJd++fn4SAwFRJpaor61LddTdmvbU0s
- I5Rd2dLSTTbtn0BMlh3w98AAAA=
-X-Change-ID: 20261119-edac-mc-poll-msec-jiffies-fb7f926f112c
-To: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>
-Cc: Qiuxu Zhuo <qzhuo@nvidia.com>, linux-edac@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795431333; l=5584;
- i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
- bh=n19gK6o3sRSWNb0gfAuZ8xCRhx7uWKCKrQY4JcoU+gA=;
- b=0HNrLZac5Wok4Ed+BV8WQnGeuQmK9bBXzryHZYf+2dHsC0ouws/cJBZ719etCXuW5BnVk7XzW
- woVv7MJl0ncCEtBPGOjIprNAN3K6kA2LQ6F8oqENhFFuAKBFIzDHcIp
-X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
- pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
-X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
- auth_id=1438
-X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-Reply-To: me@ahmedabdelfattah.dev
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net/sched: sch_qfq: bound backward slot rotation
+To: netdev-bot+sashiko@kernel.org
+Cc: jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ paolo.valente@unimore.it, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, jiapenglin@tencent.com, corvus@tencent.com
+References: <20261116121710.77403-1-ljp1205831794@gmail.com>
+ <179500430179.3136.14921789097403556118@kernel.org>
+From: Lin Jiapeng <ljp1205831794@gmail.com>
+In-Reply-To: <179500430179.3136.14921789097403556118@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+On 2026-11-18 8:18 p.m., netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 1 · High: 1 · Medium: 0 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Critical] The clamp added to qfq_schedule_agg() is a fixed constant
+>    (33 on 64-bit, 1 on 32-bit).
+> - [High] On 64-bit, the new clamp in qfq_schedule_agg()
+>    (net/sched/sch_qfq.c:1321-1333) allows a backward rotation of…
+> - [Low] Two existing comments in net/sched/sch_qfq.c now contradict the
+>    new code in qfq_schedule_agg().
+> 
+> --
+> 
+> net/sched: sch_qfq: bound backward slot rotation
+> 
+> This patch caps the backward slot rotation in qfq_schedule_agg() at
+> BITS_PER_LONG - QFQ_MAX_SLOTS + 1 slots. If the start-time decrease is
+> larger than that, it first moves the activating aggregate's S, F and
+> roundedS forward by the excess and then calls qfq_slot_rotate(). The
+> goal is to stop qfq_slot_remove() from clearing bits beyond full_slots,
+> in the slot-list pointers that follow it.
+> 
+>> diff --git a/net/sched/sch_qfq.c b/net/sched/sch_qfq.c
+>> index e900890e9c544..e83105ce90156 100644
+>> --- a/net/sched/sch_qfq.c
+>> +++ b/net/sched/sch_qfq.c
+> 
+> [ ... ]
+> 
+>> @@ -1318,6 +1318,17 @@ static void qfq_schedule_agg(struct qfq_sched *q, struct qfq_aggregate *agg)
+>>   		if (!qfq_gt(grp->S, agg->S))
+>>   			goto skip_update;
+>>   
+>> +		slot = (grp->S - roundedS) >> grp->slot_shift;
+>> +		if (unlikely(slot > BITS_PER_LONG - QFQ_MAX_SLOTS + 1)) {
+> 
+> [Severity: High]
+> 
+> On 64-bit this allows a rotation of 33 slots. Is that bound safe when
+> grp->slots[] has only QFQ_MAX_SLOTS (32) entries?
+> 
+> Every user indexes the lists modulo 32. For example, in qfq_slot_insert():
+> 
+> 	i = (grp->front + slot) % QFQ_MAX_SLOTS;
+> 
+> 	hlist_add_head(&agg->next, &grp->slots[i]);
+> 	__set_bit(slot, &grp->full_slots);
+> 
+> After a 33-slot rotation the existing members sit at logical offsets
+> 33..63. These share physical hlists with offsets 1..31.
+> 
+> Suppose a later skip_update insertion lands at offset j (1..30). It joins
+> the list that already holds the member tracked by bit j+32, so two
+> full_slots bits now describe one list.
+> 
+> A possible sequence:
+> 
+>    X at bit 0, physical slot f
+>    stale B is capped and rotated by 33:
+>        X moves to bit 33 (still physical f)
+>        B goes to bit 0 (physical f-1)
+>    Y is inserted at offset 1, which is physical f, the list X is on
+>    B is served, then Y, then X
+> 
+> That leaves full_slots == {32} over an empty list. When the shared list
+> empties, qfq_front_slot_remove() clears only bit 0, so the aliased bit
+> stays set. qfq_slot_scan() then shifts by 32 and returns qfq_slot_head()
+> of the empty slots[f], which is NULL.
+> 
+>>From there, qfq_choose_next_agg() takes the NULL as "group is now
+> inactive" and clears the ER bit, even though grp->full_slots is still
+> nonzero:
+> 
+> 	new_front_agg = qfq_slot_scan(grp);
+> 
+> 	if (new_front_agg == NULL) /* group is now inactive, remove from ER */
+> 		__clear_bit(grp->index, &q->bitmaps[ER]);
+> 
+> Any later activation of this group with S >= grp->S takes skip_update
+> and is orphaned. Once the other aggregates drain, can qfq_dequeue() call
+> qfq_peek_skb() with a NULL in_serv_agg?
+> 
+> If the stale bit is reached from qfq_deactivate_agg() instead, this
+> dereferences NULL directly:
+> 
+> 	agg = qfq_slot_scan(grp);
+> 	roundedS = qfq_round_down(agg->S, grp->slot_shift);
+> 
+> If it is reached from qfq_front_slot_remove(), BUG_ON(!agg) fires.
+> Aliased lists also serve aggregates out of timestamp order.
+> 
+> The commit message says:
+> 
+>    "This preserves the timestamp and physical-slot mapping, keeps every
+>    removal offset inside full_slots"
+> 
+> Does that still hold once the bitmap and the physical lists no longer map
+> 1:1? Should the bound keep every occupied offset below QFQ_MAX_SLOTS
+> rather than below BITS_PER_LONG?
+> 
+>> +			u64 deltaS = grp->S - roundedS -
+>> +				((u64)(BITS_PER_LONG - QFQ_MAX_SLOTS + 1) <<
+>> +				 grp->slot_shift);
+>> +
+>> +			agg->S += deltaS;
+>> +			agg->F += deltaS;
+>> +			roundedS += deltaS;
+>> +		}
+> 
+> [Severity: Critical]
+> 
+> The clamp is a fixed constant (33 on 64-bit, 1 on 32-bit) and never
+> reads grp->full_slots. It is only safe if the highest set bit of
+> grp->full_slots is at most QFQ_MAX_SLOTS - 2 at rotation time. Can that
+> assumption be broken?
+> 
+> Two sequences seem to break it:
+> 
+> (a) qfq_slot_insert() puts a member at the capped offset 30, and an
+> ordinary 1-slot backward rotation moves it to bit 31. A later capped
+> 33-slot rotation moves it to bit 64. On 32-bit, any further 1-slot
+> rotation does the same.
+> 
+> (b) A capped rotation leaves old members at bits 33..63. A second stale
+> aggregate in the same group triggers another capped 33-slot rotation,
+> and bit 33 becomes bit 66.
+> 
+> In both cases qfq_slot_rotate() silently drops the bit:
+> 
+> 	grp->full_slots <<= i;
+> 
+> The aggregate stays linked on its slots[] hlist, though. When it is later
+> removed through qfq_deactivate_agg()->qfq_slot_remove():
+> 
+> 	offset = (roundedS - grp->S) >> grp->slot_shift;
+> 	...
+> 	if (hlist_empty(&grp->slots[i]))
+> 		__clear_bit(offset, &grp->full_slots);
+> 
+> offset is >= BITS_PER_LONG here. Doesn't __clear_bit() then write into
+> the grp->slots[] hlist_head pointers that follow full_slots in struct
+> qfq_group? Offsets of 71 and above would flip real pointer bits.
+> 
+> That looks like the same corruption the commit message describes:
+> 
+>    "a later qfq_slot_remove() clears a bit in the following slot-list
+>    pointers"
+> 
+> Even when the stray clear hits a bit that is already zero, the aggregate
+> no longer has a bit in full_slots, so qfq_slot_scan() never reaches it.
+> Once the other aggregates drain, qfq_choose_next_agg() returns NULL while
+> sch->q.qlen > 0, and qfq_dequeue() calls qfq_peek_skb(NULL, ...).
+> 
+> Should the bound use the highest occupied bit, for example
+> __fls(grp->full_slots), instead of assuming it is QFQ_MAX_SLOTS - 2?
+> 
+>> +
+>>   		/* create a slot for this agg->S */
+>>   		qfq_slot_rotate(grp, roundedS);
+> 
+> [Severity: Low]
+> 
+> This isn't a bug, but two existing comments in sch_qfq.c now contradict
+> this rotation bound. The comment above qfq_slot_insert() says:
+> 
+>   * and not a '-1' because the start time of the group may be moved
+>   * backward by one slot after the aggregate has been inserted, and
+> 
+> The comment above qfq_slot_rotate() says:
+> 
+>   * Here too we should make sure that i is less than 32
+> 
+> With this change, qfq_slot_rotate() can run with i == 33 on 64-bit, and
+> neither comment is updated. Since slots[] really has 32 entries, the
+> comments seem to state the correct constraint.
+> 
+> [ ... ]
+> 
 
-Writing edac_mc_poll_msec at run time re-arms every polled memory
-controller through edac_mc_reset_delay_period(), which passes the new
-value to edac_mod_work() as it is. mod_delayed_work() takes jiffies, so
-the first poll after the write comes that many jiffies later, not that
-many milliseconds: at HZ=300, writing 2000 puts the next poll 6.7 s
-out. edac_mc_workq_function() re-arms with msecs_to_jiffies(), so only
-that first poll is off.
+Thanks. I agree that the fixed rotation bound is insufficient.
 
-Before commit c4cf3b454eca ("EDAC: Rework workqueue handling") this
-path converted the value through edac_mc_workq_setup(), and
-edac_device_reset_delay_period() still does. Convert it here as well.
+ > [Critical] The clamp is a fixed constant and never reads full_slots.
 
-All other callers of edac_mod_work() and edac_queue_work() already pass
-jiffies. Name the arguments after the unit they are in: "jiffies" for
-the two workqueue helpers, and "msec" for edac_mc_reset_delay_period(),
-as edac_device_reset_delay_period() has it.
+It does not account for the highest occupied bit, so repeated
+rotations can still push an aggregate beyond full_slots. For v2, I will
+use __fls(grp->full_slots) to bound the actual rotation and adjust the
+activating aggregate's timestamps when necessary.
 
-Fixes: c4cf3b454eca ("EDAC: Rework workqueue handling")
-Reviewed-by: Qiuxu Zhuo <qzhuo@nvidia.com>
-Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
----
-I noticed this while timing ie31200_edac's polls in a KVM guest: the
-first poll after a write to edac_mc_poll_msec came late.
+ > [High] On 64-bit this allows a rotation of 33 slots.
 
-Tested on v7.4-rc3+ (4405c18c95d2) at HZ=300, with ie31200_edac bound
-to a QEMU model of the Kaby Lake host bridge (a local device model, not
-upstream QEMU), timing edac_mc_workq_function() with a kprobe. Without
-the patch the first poll came 6.76 s after writing 2000 and 3.51 s after
-writing 1000, with the polls after it every 2.13 s and 1.01 s. With the
-patch the first poll comes 2.11 s and 1.02 s after the write, in line
-with the ones after it. Writes below 1000 are still rejected.
----
-Changes in v2:
-- Went through the callers of edac_mod_work() and edac_queue_work(). The
-  others already pass jiffies: edac_device keeps msecs_to_jiffies(msec)
-  in edac_dev->delay, edac_pci and the other edac_mc callers convert at
-  the call. So the fix is the same as in v1.
-- Renamed the "delay" argument of both helpers to "jiffies" (Borislav).
-  The "value" in the v1 hunk is edac_mc_reset_delay_period()'s argument
-  and is in milliseconds, so that one is now "msec". As an argument name
-  "jiffies" shadows the global one, which only W=2 complains about; I
-  can call it something else if you prefer.
-- Added Qiuxu's Reviewed-by and retested.
-- Link to v1: https://patch.msgid.link/20261119-edac-mc-poll-msec-jiffies-v1-1-fe329938fa09@ahmedabdelfattah.dev
----
- drivers/edac/edac_mc.c     | 6 +++---
- drivers/edac/edac_module.h | 6 +++---
- drivers/edac/wq.c          | 8 ++++----
- 3 files changed, 10 insertions(+), 10 deletions(-)
+Offsets greater than or equal to QFQ_MAX_SLOTS can alias the
+same physical hlist. V2 will ensure that rotation plus the highest
+occupied offset remains below QFQ_MAX_SLOTS, rather than only within
+BITS_PER_LONG.
 
-diff --git a/drivers/edac/edac_mc.c b/drivers/edac/edac_mc.c
-index fd70caa85574..6feb0809a959 100644
---- a/drivers/edac/edac_mc.c
-+++ b/drivers/edac/edac_mc.c
-@@ -483,12 +483,12 @@ static void edac_mc_workq_function(struct work_struct *work_req)
- }
- 
- /*
-- * edac_mc_reset_delay_period(unsigned long value)
-+ * edac_mc_reset_delay_period(unsigned long msec)
-  *
-  *	user space has updated our poll period value, need to
-  *	reset our workq delays
-  */
--void edac_mc_reset_delay_period(unsigned long value)
-+void edac_mc_reset_delay_period(unsigned long msec)
- {
- 	struct mem_ctl_info *mci;
- 	struct list_head *item;
-@@ -499,7 +499,7 @@ void edac_mc_reset_delay_period(unsigned long value)
- 		mci = list_entry(item, struct mem_ctl_info, link);
- 
- 		if (mci->op_state == OP_RUNNING_POLL)
--			edac_mod_work(&mci->work, value);
-+			edac_mod_work(&mci->work, msecs_to_jiffies(msec));
- 	}
- 	mutex_unlock(&mem_ctls_mutex);
- }
-diff --git a/drivers/edac/edac_module.h b/drivers/edac/edac_module.h
-index eceef5539186..762a331a5708 100644
---- a/drivers/edac/edac_module.h
-+++ b/drivers/edac/edac_module.h
-@@ -48,12 +48,12 @@ extern void edac_device_remove_sysfs(struct edac_device_ctl_info *edac_dev);
- /* edac core workqueue: single CPU mode */
- int edac_workqueue_setup(void);
- void edac_workqueue_teardown(void);
--bool edac_queue_work(struct delayed_work *work, unsigned long delay);
-+bool edac_queue_work(struct delayed_work *work, unsigned long jiffies);
- bool edac_stop_work(struct delayed_work *work);
--bool edac_mod_work(struct delayed_work *work, unsigned long delay);
-+bool edac_mod_work(struct delayed_work *work, unsigned long jiffies);
- 
- extern void edac_device_reset_delay_period(struct edac_device_ctl_info *edac_dev, unsigned int msec);
--extern void edac_mc_reset_delay_period(unsigned long value);
-+extern void edac_mc_reset_delay_period(unsigned long msec);
- 
- /*
-  * EDAC debugfs functions
-diff --git a/drivers/edac/wq.c b/drivers/edac/wq.c
-index ad3f516627c5..edeb7bbd3d68 100644
---- a/drivers/edac/wq.c
-+++ b/drivers/edac/wq.c
-@@ -3,15 +3,15 @@
- 
- static struct workqueue_struct *wq;
- 
--bool edac_queue_work(struct delayed_work *work, unsigned long delay)
-+bool edac_queue_work(struct delayed_work *work, unsigned long jiffies)
- {
--	return queue_delayed_work(wq, work, delay);
-+	return queue_delayed_work(wq, work, jiffies);
- }
- EXPORT_SYMBOL_GPL(edac_queue_work);
- 
--bool edac_mod_work(struct delayed_work *work, unsigned long delay)
-+bool edac_mod_work(struct delayed_work *work, unsigned long jiffies)
- {
--	return mod_delayed_work(wq, work, delay);
-+	return mod_delayed_work(wq, work, jiffies);
- }
- EXPORT_SYMBOL_GPL(edac_mod_work);
- 
+I will also update both comments and the commit message, and validate
+these sequences on 32-bit and 64-bit KASAN kernels.
 
----
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-change-id: 20261119-edac-mc-poll-msec-jiffies-fb7f926f112c
-
-Best regards,
---  
-Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-
+pw-bot: cr
 
