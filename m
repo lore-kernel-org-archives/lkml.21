@@ -1,59 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411043;
-	b=opTiyLa3pvUWkNoUhlKgwPonDL8eqk5JuNFW6OljO5XDHSJQQbNtISeJ5bGRlnqJh2OH
-	 aVaUnzDJiApJ8UJL9MhCCOMWJCKSj9omBbyww+uK99NtpxgKcLctEbc5qZMaL/1xs6fkO
-	 gHO/rTusgFJ2gQgXfzhk0sEgySSFKOXQpbS8yEGxlpOuwImeJ9R4TEyp0aoAoYBpTOEL7
-	 L/XKyr41MLe7dm+L1LFXAx6W9/vN38coAq9WrHupZxSSQNDy9ZPK38K0Z7am5dWIAx0kw
-	 E/DAUGsRAbCEK2A2Nt+B9Y/Ai7iD/Ml9qn3fwPr2h+fGKM/FF6xUINM0bebMixsojvQ==
+	t=1795411072;
+	b=fgpl31Bsp8sxbiZel9maCKMYAjXbjLrpL4aLNnaMmhBKoTRIvgnXhSnGfENsgeRRif8G
+	 dJ7y4vrDpOhi47TYIpqx5CMQrsGEzn3Q48hsEafVsXUqk9u6/2NOEv3/vdbZrVFlwH1wE
+	 X8YYfWWQtC7qMIQ1JHFONapT/fyfRRLKDsAJPAU2W76AigemsC6iktV3uaWS7LW+Md1qo
+	 aSkQbTbpRx3EIb9MsV19h6u/7VUKTSVolxY/3MWXhXRu3xxRxqEHaoh3ktP3hiyXV2lCO
+	 4RPDsggj3/d7BqltRHpVFCt+SntEE6nbzD0z3uWreZxkNl1WrK4/lgnuuCR4NeyJwNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411043;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Mime-Version:Subject:Reply-To:Sender:From:To:CC:X-Priority:
-	 X-Content-Kind-Code:In-Reply-To:X-CPGS-Detection:X-Drm-Type:
-	 X-Msg-Generator:X-Msg-Type:X-Reply-Demand:Message-ID:Date:
-	 X-CMS-MailID:Content-Transfer-Encoding:Content-Type:X-Sendblock-Type:
-	 CMS-TYPE:X-CPGSPASS:X-CPGSPASS:cpgsPolicy:X-CFilter-Loop:
-	 X-CMS-RootMailID:References;
-	bh=XjwQogUsoyRFdgCnU0LIu5D/7i9Sr44fsqA27qpL1x0=;
-	b=24CGDAXp7xB6v5B9uXp4BBtKMqUp2Zi7BxDx7qLXIfzjso8cI2APYS/VQWgUJ+cxJZ9g
-	 089hszPVoElkfDx6T8NnrBcY/dIAsbK6sWI9qKJSqxsuB5O4LI/dwnl968onfI2iCDrTg
-	 ShalmdV/rDOtTpVwdQJFxSubY3oSTB7sx0AhKo94Iw0WpcAun6BNOQmzsfLLTqaHZ+q+9
-	 K08BuZdqkIkANX8th4GfuHZ2Sg7vk4tkY+vlKGORNoJX2ayDhFs4yh4pXBZvSDJf0kn4e
-	 pgC1yBvrnwreYNIJDwcZovmnt4s3APemIOqzQgvzxe88rLdw34HOPECQl3fgv3te1VQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411072;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=p4ilBBmu4wqkUrExqEeONwlOBor94s/7aXOC9EBEpWM=;
+	b=VDk5cPPgDYvwJtIxA0P8DREDBhGYcH9lKz9tBL7WdvEQCuNZuvt7xC6PnE53LABoIjpO
+	 m3SKi3z3xj3Pu03LysaQhIUbcNs0L5y8wNi4eJUkUBJaCCHXagIlhRCFUhXGvSzZ6vvPj
+	 OGj5XVIaSZKNTn4P9OjqcvtE4cSEMsKhUZw970O1qobXsQSDr+aLS9hvQxoyoxNKruWKO
+	 gkSRqwC/7exhG3ywx1rUwyKL2+4HxCxT6E8JjFic8WQihaSibiUtrS9N1WHdUaAU2X9FP
+	 +JQtU6DLfvSHA9g45ZgeU6Gr/B4526mDUdQQTMzrMrHku2pO7No66TEr18rGUTwgG/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=RHNTKPmd;
-	arc=none smtp.remote-ip=203.254.224.34
-Received: from mailout4.samsung.com (mailout4.samsung.com [203.254.224.34])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NHyDgflT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1320606A337
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:17:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1320606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21FC3606A336;
+	Mon, 23 Nov 2026 05:17:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=RHNTKPmd
-Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20261123051721epoutp048ba0f1e5ac0bcce31fcdc6a599e908ef~qlNRN_RSo2002620026epoutp04k
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:17:21 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20261123051721epoutp048ba0f1e5ac0bcce31fcdc6a599e908ef~qlNRN_RSo2002620026epoutp04k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795411041;
-	bh=XjwQogUsoyRFdgCnU0LIu5D/7i9Sr44fsqA27qpL1x0=;
-	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
-	b=RHNTKPmdW50IXV+FUQYJxDwPsMzWyiLFCg+luOmmn5qkr+szrS3IXQv8m//Bz39A2
-	 328TzfxZOfKkegrr3aMNmOnNuXfS2gJr212FaI0hBkWSHZSPn0n4XWfrtk7MXbIdVD
-	 brNr+8Jo/UCha1C1dORhf5QEDwKQc557+Dj4gH4c=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20261123051720epcas2p44130b112e7509ec140a11c1f9228a226~qlNQlzoHh0293602936epcas2p4J;
-	Mon, 23 Nov 2026 05:17:20 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.38.208]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4jXvMM75lqz6B9mL; Mon, 23 Nov
-	2026 05:17:19 +0000 (GMT)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NHyDgflT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39EE11F000D0;
+	Mon, 23 Nov 2026 05:17:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795411072;
+	bh=p4ilBBmu4wqkUrExqEeONwlOBor94s/7aXOC9EBEpWM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NHyDgflTwXBT0Xrs/2H7JNc/Ij6du99K29Hen2VvceONUtEVCZPe/gMDTEsACnoD4
+	 jQcXlEiqM+m7RpoJeRL89u+S/s5s/6/QORkAKrGQQ/llMbDTipUcndCyTtpgl+o5hE
+	 m6NlDdBns9q3ORCl73/RSZP2kwXAj3QkQbv847fno+hQ9iFANo54HZJmizfA/dqO97
+	 g36qpeo8TW6gjtLt7JaAimXuuhfr0hYRlBuxGj6Vwgq8UgjNfwG7esbQ4F2zQermt8
+	 QE8dORK7CE/EDGvx4SaK6yrruBuDBz0wMuh0pC2XAPB8vmqcdKbXLln7js4GcLW0Qf
+	 3hdJ+h1sHXZzw==
+Subject: Re: [PATCH net v2 2/2] net: wwan: iosm: fix S3 resume by re-binding
+ the driver around it
+From: netdev-bot+sashiko@kernel.org
+To: davidlwesten@gmail.com
+Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
+ ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ m.chetan.kumar@linux.intel.com, linux-kernel@vger.kernel.org,
+ mail@maciej.szmigiero.name, nihaal@cse.iitm.ac.in, stable@vger.kernel.org
+Date: Mon, 23 Nov 2026 05:17:50 +0000
+Message-ID: <179541107082.3135.11504382259893948340@kernel.org>
+In-Reply-To: <20261119042714.505405-2-davidlwesten@gmail.com>
+References: <20261119042714.505405-2-davidlwesten@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,173 +64,215 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Subject: [RFC PATCH RESEND 2/3] io_uring: add IORING_WRITE_STREAM_DEFAULT
- for explicit device-default placement
-Reply-To: suho.son@samsung.com
-Sender: Suho Son <suho.son@samsung.com>
-From: Suho Son <suho.son@samsung.com>
-To: "axboe@kernel.dk" <axboe@kernel.dk>, "linux-block@vger.kernel.org"
-	<linux-block@vger.kernel.org>
-CC: "tj@kernel.org" <tj@kernel.org>, "hannes@cmpxchg.org"
-	<hannes@cmpxchg.org>, "mkoutny@suse.com" <mkoutny@suse.com>,
-	"corbet@lwn.net" <corbet@lwn.net>, "skhan@linuxfoundation.org"
-	<skhan@linuxfoundation.org>, "rdunlap@infradead.org"
-	<rdunlap@infradead.org>, "viro@zeniv.linux.org.uk"
-	<viro@zeniv.linux.org.uk>, "brauner@kernel.org" <brauner@kernel.org>,
-	"jack@suse.cz" <jack@suse.cz>, "io-uring@vger.kernel.org"
-	<io-uring@vger.kernel.org>, "cgroups@vger.kernel.org"
-	<cgroups@vger.kernel.org>, "linux-fsdevel@vger.kernel.org"
-	<linux-fsdevel@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "ngeol564@gmail.com" <ngeol564@gmail.com>,
-	KiYoung Lee <kiyoung77.lee@samsung.com>, JinHeon Kim
-	<jinheon09.kim@samsung.com>, Suho Son <suho.son@samsung.com>
-X-Priority: 3
-X-Content-Kind-Code: NORMAL
-In-Reply-To: <20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e@epcms2p2>
-X-CPGS-Detection: blocking_info_exchange
-X-Drm-Type: N,general
-X-Msg-Generator: Mail
-X-Msg-Type: PERSONAL
-X-Reply-Demand: N
-Message-ID: <20261123051719epcms2p2273654d46ba1890e9ebc86e5a28a434f@epcms2p2>
-Date: Mon, 23 Nov 2026 14:17:19 +0900
-X-CMS-MailID: 20261123051719epcms2p2273654d46ba1890e9ebc86e5a28a434f
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-X-CPGSPASS: Y
-X-CPGSPASS: Y
-cpgsPolicy: CPGSC10-223,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e
-References: <20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e@epcms2p2>
-	<CGME20261123051521epcms2p2445107f926f3acaa2d51c5e12abea90e@epcms2p2>
+MIME-Version: 1.0
 
-From: Suho Son <suho.son@samsung.com>
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Add a reserved sqe->write_stream value, IORING_WRITE_STREAM_DEFAULT
-((__u8)-1), that explicitly requests the device-default stream for a
-write.  Unlike an omitted (zero) stream, which lets the kernel derive
-one from the inode write hint or, with the cgroup policy added later
-in this series, a per-cgroup io.stream value, the reserved value pins
-the write to the device default and suppresses both.
+Critical: 0 · High: 1 · Medium: 1 · Low: 2
 
-The value is translated once in __io_prep_rw() into a request flag
-(REQ_F_STREAM_DEFAULT); io_rw_init_file() then converts it into a
-concrete stream 0 plus IOCB_WRITE_STREAM_EXPLICIT.  Deciding at prep
-time is required for re-issues, where ki_write_stream has already
-been rewritten to zero, so the selection survives kiocb
-reinitialization and IOSQE_ASYNC deferral.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The reservation is visible in the UAPI: 255 previously failed
-validation with -EINVAL on any real device, so no working application
-regresses, but a hypothetical device advertising more than 254
-streams can no longer have its stream 255 selected through this
-interface.
+- [High] Use-after-free in the remove path, which this patch now runs on
+  every S3 suspend while the modem is live.
+- [Medium] When the card keeps power, the modem now goes into system
+  sleep fully awake.
+- [Low] The new PM_POST_SUSPEND branch in pm_notify() registers the
+  driver again based only on the global `pci_registered` flag, which…
+- [Low] The stable backport prerequisite is not declared.
 
-Signed-off-by: Suho Son <suho.son@samsung.com>
----
- include/linux/io_uring_types.h |  4 ++++
- include/uapi/linux/io_uring.h  | 26 ++++++++++++++++++++++++++
- io_uring/rw.c                  | 16 ++++++++++++++++
- 3 files changed, 46 insertions(+)
+--
 
-diff --git a/include/linux/io_uring_types.h b/include/linux/io_uring_types.h
-index 1468bcb028930..550928cd4ad95 100644
---- a/include/linux/io_uring_types.h
-+++ b/include/linux/io_uring_types.h
-@@ -622,6 +622,8 @@ enum {
- 	REQ_F_SQE_COPIED_BIT,
- 	REQ_F_IOPOLL_BIT,
- 	REQ_F_DMABUF_BIT,
-+	/* sqe->write_stream is IORING_WRITE_STREAM_DEFAULT */
-+	REQ_F_STREAM_DEFAULT_BIT,
- 
- 	/* not a real bit, just to check we're not overflowing the space */
- 	__REQ_F_LAST_BIT,
-@@ -719,6 +721,8 @@ enum {
- 	REQ_F_IOPOLL		= IO_REQ_FLAG(REQ_F_IOPOLL_BIT),
- 	/* there is a dma map attached to request that needs to be dropped */
- 	REQ_F_DMABUF		= IO_REQ_FLAG(REQ_F_DMABUF_BIT),
-+	/* sqe->write_stream was IORING_WRITE_STREAM_DEFAULT (see io_rw_init_file()) */
-+	REQ_F_STREAM_DEFAULT	= IO_REQ_FLAG(REQ_F_STREAM_DEFAULT_BIT),
- };
- 
- struct io_tw_req {
-diff --git a/include/uapi/linux/io_uring.h b/include/uapi/linux/io_uring.h
-index cf1afd11bb871..3ae504d9ec1a0 100644
---- a/include/uapi/linux/io_uring.h
-+++ b/include/uapi/linux/io_uring.h
-@@ -122,6 +122,32 @@ struct io_uring_sqe {
- /* sqe->attr_type_mask flags */
- #define IORING_RW_ATTR_FLAG_PI	(1U << 0)
- 
-+/*
-+ * sqe->write_stream reserved value for explicitly requesting the
-+ * device-default write stream.
-+ *
-+ * sqe->write_stream carries a per-I/O write stream identifier for write
-+ * requests to block devices that support write streams (e.g. NVMe FDP):
-+ *
-+ *   0			the issuer does not express a stream; the kernel may
-+ *			then derive one from the file's write lifetime hint
-+ *			or, if configured, from the cgroup's io.stream
-+ *			policy.
-+ *   1..max		an explicit stream identifier, validated against the
-+ *			device's max_write_streams.
-+ *   255 (below)	an explicit request for the device-default stream.
-+ *			This overrides both the inode write hint and any
-+ *			cgroup io.stream value: the I/O is placed as if no
-+ *			stream had been requested by anyone.
-+ *
-+ * Any other value above the device's max_write_streams is rejected with
-+ * -EINVAL, as before. Note that a value of 255 can therefore no longer
-+ * select stream 255 on a hypothetical device offering that many streams;
-+ * the bio-level write stream field uses 255 as its "unset" sentinel, so
-+ * stream identifiers are effectively limited to 1..254 through this
-+ * interface.
-+ */
-+#define IORING_WRITE_STREAM_DEFAULT	((__u8)-1)
- /* PI attribute information in sqe->attr_ptr for IORING_RW_ATTR_FLAG_PI: */
- struct io_uring_attr_pi {
- 	__u16	flags;
-diff --git a/io_uring/rw.c b/io_uring/rw.c
-index 3ecb842147a4d..d1d154533bf14 100644
---- a/io_uring/rw.c
-+++ b/io_uring/rw.c
-@@ -273,6 +273,8 @@ static int __io_prep_rw(struct io_kiocb *req, const struct io_uring_sqe *sqe,
- 	}
- 	rw->kiocb.ki_flags = 0;
- 	rw->kiocb.ki_write_stream = READ_ONCE(sqe->write_stream);
-+	if (rw->kiocb.ki_write_stream == IORING_WRITE_STREAM_DEFAULT)
-+		io_req_set_flags(req, REQ_F_STREAM_DEFAULT);
- 
- 	if (req->ctx->flags & IORING_SETUP_IOPOLL)
- 		rw->kiocb.ki_complete = io_complete_rw_iopoll;
-@@ -851,6 +853,20 @@ static int io_rw_init_file(struct io_kiocb *req, fmode_t mode, int rw_type)
- 	if (unlikely(ret))
- 		return ret;
- 
-+	/*
-+	 * IORING_WRITE_STREAM_DEFAULT is an explicit request for the
-+	 * device-default stream: carry it as a concrete stream 0 plus a
-+	 * marker, so neither the inode write hint nor a cgroup io.stream
-+	 * value can override the issuer's choice. The request flag is set
-+	 * once at prep time and survives the ki_flags reinitialization
-+	 * above as well as async re-issues, where ki_write_stream has
-+	 * already been rewritten to 0.
-+	 */
-+	if (req->flags & REQ_F_STREAM_DEFAULT) {
-+		kiocb->ki_write_stream = 0;
-+		kiocb->ki_flags |= IOCB_WRITE_STREAM_EXPLICIT;
-+	}
-+
- 	/*
- 	 * If the file is marked O_NONBLOCK, still allow retry for it if it
- 	 * supports async. Otherwise it's impossible to use O_NONBLOCK files
+net: wwan: iosm: fix S3 resume by re-binding the driver around it
+
+This patch extends the iosm PM notifier. It now unregisters the PCI driver
+on PM_SUSPEND_PREPARE, unless the default suspend mode is s2idle, and
+registers it again on PM_POST_SUSPEND. This reuses the hibernation
+mechanism from commit 0b6f6593aa8c, so the modem is probed again after it
+reboots during S3.
+
+> Fixes: 1f52d7b62285 ("net: wwan: iosm: Enable M.2 7360 WWAN card support")
+> Cc: stable@vger.kernel.org
+
+[Severity: Low]
+Will this apply to the stable trees that this Fixes: tag selects?
+
+Commit 0b6f6593aa8c ("net: wwan: iosm: Fix hibernation by re-binding the
+driver around it") added pm_notify(), pm_notifier and pci_registered. That
+commit has no Fixes: or Cc: stable tag. A tree that has 1f52d7b62285 but
+not 0b6f6593aa8c has no pm_notify() at all.
+
+Could the prerequisite be named, for example with
+"Cc: stable@vger.kernel.org # depends on 0b6f6593aa8c"?
+
+The dependency on the preceding ADB timer patch is only described below
+the --- line. That patch carries the same Fixes: and stable tags, so that
+part is less of a concern.
+
+> diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> index 49052eb511baa..13e81012d818c 100644
+> --- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> +++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
+> @@ -534,12 +534,17 @@ void ipc_pcie_kfree_skb(struct iosm_pcie *ipc_pcie, struct sk_buff *skb)
+>  
+>  static int pm_notify(struct notifier_block *nb, unsigned long mode, void *_unused)
+>  {
+> -	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE) {
+> +	/* The modem may lose power in S3 and S4 and boot again on resume,
+> +	 * which the suspend/resume callbacks can't handle, so probe it again.
+> +	 */
+> +	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE ||
+> +	    (mode == PM_SUSPEND_PREPARE && !pm_suspend_default_s2idle())) {
+>  		if (pci_registered) {
+>  			pci_unregister_driver(&iosm_ipc_driver);
+>  			pci_registered = false;
+>  		}
+
+[Severity: High]
+Can this expose a use-after-free of ipc_imem->ipc_task on every S3
+suspend?
+
+Here pci_unregister_driver() goes through ipc_pcie_remove() into
+ipc_pcie_cleanup(). That function frees the imem resources before it
+releases the MSI handlers:
+
+drivers/net/wwan/iosm/iosm_ipc_pcie.c:ipc_pcie_cleanup() {
+	/* Free the shared memory resources. */
+	ipc_imem_cleanup(ipc_pcie->imem);
+
+	ipc_pcie_resources_release(ipc_pcie);
+	...
+}
+
+Inside ipc_imem_cleanup(), the CP is told to go to IPC UNINIT. Then the
+tasklet and its container are freed, and the pointer is not cleared:
+
+drivers/net/wwan/iosm/iosm_ipc_imem.c:ipc_imem_cleanup() {
+	...
+	ipc_imem_device_ipc_uninit(ipc_imem);
+	ipc_imem_channel_reset(ipc_imem);
+
+	ipc_protocol_deinit(ipc_imem->ipc_protocol);
+	ipc_task_deinit(ipc_imem->ipc_task);
+
+	kfree(ipc_imem->ipc_task);
+	...
+}
+
+The threaded MSI handler is still registered at that point. Its only gate
+is the s2idle suspend bit, and this path never sets it:
+
+drivers/net/wwan/iosm/iosm_ipc_irq.c:ipc_msi_interrupt() {
+	...
+	if (!test_bit(0, &ipc_pcie->suspend))
+		ipc_imem_irq_process(ipc_pcie->imem, instance);
+	...
+}
+
+ipc_imem_irq_process() only checks ev_irq_pending[irq].
+ipc_imem_handle_irq() clears that flag before its IPC_P_OFF_REQ early
+return, so the flag doesn't block a new enqueue either.
+
+An MSI that arrives after tasklet_kill() in ipc_task_deinit() schedules
+the tasklet again just before it is kfree'd. An MSI that arrives after
+kfree(ipc_imem->ipc_task) makes ipc_task_queue_add_task() read and write
+the freed structure:
+
+	struct tasklet_struct *ipc_tasklet = ipc_imem->ipc_task->ipc_tasklet;
+	struct ipc_task_queue *ipc_task = &ipc_imem->ipc_task->ipc_queue;
+	...
+	spin_lock_irqsave(&ipc_task->q_lock, flags);
+	...
+	tasklet_schedule(ipc_tasklet);
+
+The softirq could then run that tasklet after ipc_pcie_deinit() has also
+freed imem and ipc_pcie.
+
+The unbind and hibernation paths already use this ordering. This patch
+puts it on the S3 path while the modem is running and has just been told
+to go to UNINIT. Could the MSIs be quiesced or freed before
+ipc_imem_cleanup() tears down the tasklet?
+
+[Severity: Medium]
+Does the modem now enter system sleep in D0 with its firmware still
+running? This applies when the card keeps power in S3, or when freeze or
+standby is entered while mem_sleep is deep.
+
+The driver is unbound at PM_SUSPEND_PREPARE, so ipc_pcie_suspend_cb() no
+longer runs and neither sleep handshake is sent:
+
+	switch (ipc_pcie->d3l2_support) {
+	case IPC_PCIE_D0L12:
+		ipc_pcie_suspend_s2idle(ipc_pcie);
+		break;
+	case IPC_PCIE_D3L2:
+		ipc_pcie_suspend(ipc_pcie);
+		break;
+	}
+
+This skips both the IPC_MEM_DEV_PM_FORCE_SLEEP doorbell and the
+ipc_imem_pm_suspend() host sleep message.
+
+The PCI core also stops putting the device into a low power state. With no
+driver bound, pci_pm_suspend_noirq() takes this branch and never reaches
+pci_prepare_to_sleep():
+
+drivers/pci/pci-driver.c:pci_pm_suspend_noirq() {
+	...
+	if (!pm) {
+		pci_save_state(pci_dev);
+		goto set_unknown;
+	}
+	...
+}
+
+Before suspend, the modem only gets IPC UNINIT from
+ipc_imem_device_ipc_uninit(), which is not a sleep request.
+
+Could this raise sleep power, or keep the platform out of S0ix during an
+explicit s2idle? The changelog lists lost data sessions for these cases,
+but it doesn't mention this.
+
+> -	} else if (mode == PM_POST_HIBERNATION || mode == PM_POST_RESTORE) {
+> +	} else if (mode == PM_POST_HIBERNATION || mode == PM_POST_RESTORE ||
+> +		   mode == PM_POST_SUSPEND) {
+>  		if (!pci_registered) {
+>  			int ret;
+
+[Severity: Low]
+Can this register the driver again in the middle of a uswsusp
+hibernation?
+
+The hibernation and suspend paths now share pci_registered.
+snapshot_open() sends PM_HIBERNATION_PREPARE, which unbinds iosm. It then
+drops system_transition_mutex while /dev/snapshot stays open:
+
+kernel/power/user.c:snapshot_open() {
+	...
+	error = pm_notifier_call_chain_robust(PM_HIBERNATION_PREPARE, PM_POST_HIBERNATION);
+	...
+ Unlock:
+	unlock_system_sleep(sleep_flags);
+	...
+}
+
+enter_state() only does a trylock on that mutex:
+
+	if (!mutex_trylock(&system_transition_mutex))
+		return -EBUSY;
+
+Suppose a suspend to RAM starts before SNAPSHOT_FREEZE. PM_SUSPEND_PREPARE
+does nothing because the driver is already unregistered. PM_POST_SUSPEND
+then calls pci_register_driver() and sets pci_registered = true.
+
+The hibernation image would then be created with iosm bound. The later
+PM_POST_HIBERNATION from snapshot_release() does nothing, so the unbind
+added by 0b6f6593aa8c is lost. Before this patch PM_POST_SUSPEND was
+ignored, so this couldn't happen.
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119042714.505405-1-davidlwesten%40gmail.com
