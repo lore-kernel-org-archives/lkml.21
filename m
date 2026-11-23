@@ -1,79 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795440342;
-	b=UA+5qErtRnUJ1Os8ejdbzRYRDkPUiR1vIlcaZjqXegIRBW8giDDaZh8cPbrn+2LKs865
-	 y0baozKjeTQrQdM0b+/7J87xiU3OATDBROdPYFDOuU2GI5fL52qCgpFXkmP6+enKVLigj
-	 wTBR0lxoLbvHlDjCDPOcKe6lGWGZeJHgV9BzG2OdQlzCq4J+f7SntnTIdKAQU9zZckfY+
-	 L6MVzccL/ikfDv4QqDaAc2SmFxMescjikYtgkhJvy5ixxndoGI5E3T0iZYJLHcrDpIPu5
-	 kL67nTALS/hj35moKKJUBWgb1aJcB8heYmJuJ/Mejzt4fSy9DabR3gyBDPLuauvb+fA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440342;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=47Roz2ShdMvtfYiACxcQoWz44mZIKFEeV52/Z6Eg1vA=;
-	b=3dBuTQWRMS81DgZo0CrZYnhXlJFbQyHIqDShHlkShwB13pgpAIh2ehjPde7WS22Xfz3u
-	 N/1xj6Me21G7sGejQPfAYL58gk+kykvGL3k2cO5TeponRvj0a41el5ccWtFe5y2gI+EXy
-	 E7kf/kPmRUHIt0V368yVvpzyT7Xgdhi2B40LzsMhMW0GvSNSVn28gKAgQ2BV71ugIP1Kv
-	 qUHonbbpvePRkvOOEsj14BZFsyUM66hs+3YVWps1T+w4yRRhhMEAFvg1J9Wg9A/FwScqD
-	 eJxMwEWuMYDmn1fZ5P0I0lFSrEBu0pH4kXSqjCR2UTMyHGr3R1E7P2q6QRfv2wfvSWQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BEDfAUWb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AA60606A692;
-	Mon, 23 Nov 2026 13:25:41 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BEDfAUWb
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795440341;
-	b=v53TafGdn05UqacfdXmldvqzIfHMXMIDfZlE1nHV3Jmj8ELBYkatxbnxw8KAjQjkxxjY
-	 BmWN6MrHakRe7b1M+UKFHAInyHX2yd0sQHmo4PqrRMS7UHw0j2qf2hfHgOq09uPh3ujOk
-	 uHQRHCRtqjCeAbgmgMl934FG5xQyFhKDetX5TbNkWXyqaPaEvBcO37vsz8w1rhE+X7xWH
-	 krHXdOv5f98m32ApOs7kA2iMe3w4dHKLG2Hi1I/qO6LPJbXriqatIiGUYQkZbndhnyCmt
-	 1IbZt7aH9SeK5G7PVSI0a2SX8jJceMHHcoysEhqyzZAGP33MCsWXEoMNpYIU9SY1rbg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795440341;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=47Roz2ShdMvtfYiACxcQoWz44mZIKFEeV52/Z6Eg1vA=;
-	b=cziApHUymXy/5/HysxrB4xoPm0GC+j3Xo2Ces+KuGCSsgKUBF/oxTizU3MVcFElOQvev
-	 uRlw2rRkpIm2mpNXH7wZZglfOO84Zd1A9kMjNa3TGHL264MkWZx65VdpVlrGftqygIPtB
-	 +dCsqpvSqoXQVPXaTb4aFAULJnjUzHEV2cmetAJg+5f/C7ooWK4hYzLgozL2565YvfNIZ
-	 9/lzF5iEgRwCeQWSJW2h/RceDuwXTqWZBk6LCCZKpcIfE4Z0bZNnXHYF8/q0kOJA/lybD
-	 E0TosMcgu03XdukFRc0tLLRTwFbsHGLMAxB+hh8iKWObYT1XJ3+N3KTVrI3lVFnHBUw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795440343;
+	b=N/Aad/mqRw+v0WEo3wzk0vuwUuvouEzZwy6vxn/o/oXY1Fot5Vl8eftAoUOiLeAPByJc
+	 LtPCTeqgX/0t32P7BSeBaKBVvFeF0c9XKSiz/g4KkPjMQWIUio0tyfP4ACQMBTMl4p/DC
+	 fzJFBmS4kIA8Ip6A4L9KHc/9MPTChN5nbDn75JReVPaeMHzXN4O7ToBC2Qzj/JX964Dna
+	 7PJjmttYhpH0inCnKt5qTugGPj0i1ekb27+ghFQvodI8dKnC9XuNPt7aVHkekmiSPHs3m
+	 WXeRQiyQoZLf6+GgeWMVamkic9we39HTrg1xAetxqdGC+64B4feUUHU0Z2Noiy0ho/Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440343;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
+	bh=g1I/14I95gydn2dsr7fK8aodqhToZt2zSccNpHE68WI=;
+	b=cywsIRyOXtq+L0CixL4RAYA9/fop1OZk35sEquvmOWMGojOpRnGJwdxIAIQwYZIkt4mL
+	 Qa4X3iufun8hwIgyQSNIOTk/Wql7U8rXPD0m1DyKTb/V4Z3daChJsivszQ1OIW7/1dO6v
+	 XiouuVM39x6/FkHIr+vGLk4TqsF6jdk1oXABZMpatSMdNZl8idPZqlUeG+jLmuGsE/SSC
+	 N+4KwcZckY7i9fRnaFG8KxAu2hsbiTJljJrcNOJ8jGTfwMbHFSUL4Q+0b/VxgAfdhvznD
+	 QhLK/K8AcPxihLzZLayPj4C067Pjn4dwx01QvdN8gGWQHAKQ8ETqyHFmsBuyZ8nDTVQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=0Ten48jQ;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 09D2D1F000D4;
-	Mon, 23 Nov 2026 13:25:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440341;
-	bh=47Roz2ShdMvtfYiACxcQoWz44mZIKFEeV52/Z6Eg1vA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=BEDfAUWbd/ApjNqNxQCALfOk3JkVZZ4BMl7o3VoUff2F3XFQxKMlHVzGBaHoOz3LE
-	 GQZhMPCRyIz2MiOV3hFjderLay9V9grU843lcryeGwkybhDrr7Kixs19NVmUKq86ZS
-	 Qlzv+LwcxX0x6ox0w/SmO1UrZDDM59Sn3PJSDQrJK9jz2jxfG8cDLaMp3izDnLcyAk
-	 tqvESO14mr9MyXKOtEfmw2XzdfqJmgjL2m4WbFUulocRy+VSntpwEsX8Kxfu1a/Bt/
-	 /SD6hC5GMXaQ2PoFU92bIly2ypWdKW9SLaVTInBY0V9+BN5InfptFNr882FgxpVGaY
-	 9cTg7Vjx+FY3A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8799E4C495;
-	Mon, 23 Nov 2026 13:25:28 +0000 (UTC)
-From: Radu Sabau via B4 Relay <devnull+radu.sabau.analog.com@kernel.org>
-Date: Mon, 23 Nov 2026 15:25:26 +0200
-Subject: [PATCH 2/7] iio: imu: adis: Add a kfifo buffer setup helper for
- FIFO devices
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DFA9606A6AB;
+	Mon, 23 Nov 2026 13:25:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DFA9606A6AB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=0Ten48jQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795440343; x=1826976343;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=e+8Xhx4BQbDDQ9GDqlEHqdz/O/IgLi3PflDvtChL4jM=;
+  b=0Ten48jQaGNr//W2J1pFTwTD+YyTQe8YjQxOfStZ0WiBG4SbcrgfwfN3
+   t1MKVwonm1BVSXt76dopT2IS8bG9npFSVo5NZn6vWrWfiiP9DHLb2iGns
+   PZ4k8MHMoy5IWJRu/70eLD8pdC3YAbVc3TxxuiZqUG05ahmBHufi8dRiv
+   cEPrfdYt/Ort6tXKyBn+QQ8P08cltE9ZTd2XICs+sZu9tMT9uHkq/2eUB
+   r/vpAm8V9khxwGD3FYrrCmqf+bmwDgIjyyYrhGjrt7lGOLCqgLm5dj8pN
+   kUGopt6QCxP/k5tbu8VtIs/lA8f+yEuFRIDDOLSMqExM35ETvIinYdELp
+   Q==;
+X-CSE-ConnectionGUID: EbIM8jCTQWia35G3SwVEmQ==
+X-CSE-MsgGUID: wikBMBMFRyCsuNeXIcE4nA==
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="67154003"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 06:25:42 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Mon, 23 Nov 2026 06:25:42 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Mon, 23 Nov 2026 06:25:39 -0700
+From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+Date: Mon, 23 Nov 2026 14:25:05 +0100
+Subject: [PATCH 1/4] mfd: ocelot: Select the chip through match data
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,252 +76,335 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-adis-fifo-v1-2-f6ad9e493e19@analog.com>
-References: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
-In-Reply-To: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
-To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Michael Hennerich <Michael.Hennerich@analog.com>, 
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- Andy Shevchenko <andy@kernel.org>, 
- Ramona Gradinariu <ramona.bolboaca13@gmail.com>, 
- Radu Sabau <radu.sabau@analog.com>
-Cc: linux-iio@vger.kernel.org, linux@analog.com, 
- linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795440327; l=8434;
- i=radu.sabau@analog.com; s=20261001; h=from:subject:message-id;
- bh=gsQHAC9QTe/dAmiHhtXzAdEosCoLWNzpLjvdYa7amHw=;
- b=5/Jr3WeuIC0narguV8H1Jyqs6VYr7pVcYOmkRto8Xj+9VK2/hKBPbinqfhyWSmLmRxCfpJDSh
- BIuiBx6MEp/D7xyREY9sA/N9mOu/V1Pjr9fNO2/Y2/ncnFV93mPCKPc
-X-Developer-Key: i=radu.sabau@analog.com; a=ed25519;
- pk=XOZSO/Ut8qfYw7khL8lUF65Pgl+VLihISyS+Iy9jY8c=
-X-Endpoint-Received: by B4 Relay for radu.sabau@analog.com/20261001 with
- auth_id=1094
-X-Original-From: Radu Sabau <radu.sabau@analog.com>
-Reply-To: radu.sabau@analog.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-1-567d811fe1de@microchip.com>
+References: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+In-Reply-To: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+To: Colin Foster <colin.foster@in-advantage.com>, Lee Jones <lee@kernel.org>,
+	<UNGLinuxDriver@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Richard
+ Cochran" <richardcochran@gmail.com>
+CC: <mfd@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+X-Mailer: b4 0.15-dev
 
-From: Radu Sabau <radu.sabau@analog.com>
+The SPI interface bootstrap, the chip reset and the child devices are
+hardcoded for the VSC7512. Describe the serial interface configuration
+target, its registers, the IF_CFGSTAT readback check and the padding
+byte calculation in SPI match data, and select the soft reset register
+and the child devices in the core by the chip it names. This prepares
+for adding the LAN9645x switch family.
 
-Devices with a hardware FIFO (has_fifo) currently go through the
-triggered buffer: the FIFO interrupt is requested with
-iio_trigger_generic_data_rdy_poll() as its thread function, which calls
-iio_trigger_poll() from the IRQ thread, and the samples are read from a
-trigger handler. iio_trigger_poll() is meant to be called from hard
-interrupt context, and the FIFO then depends on whatever trigger is
-selected.
+The VSC7512 soft reset defines get a VSC7512 prefix.
 
-Add devm_adis_setup_kfifo_buffer() for such devices. It sets up a kfifo
-buffer and requests the FIFO interrupt as a oneshot threaded IRQ running a
-handler supplied by the driver, which reads the FIFO and pushes the
-samples. The interrupt is requested disabled, and the driver enables and
-disables it with enable_irq() and disable_irq() from its buffer setup
-functions. This is done without the adis lock, which the handler takes.
+The probe now fails for a device bound without match data, otherwise
+there is no functional change.
 
-The trigger/current_trigger attribute is user visible on the existing FIFO
-devices, so add devm_adis_register_fifo_trigger() for them to keep it. It
-registers a trigger with the usual name and sets INDIO_HARDWARE_TRIGGERED
-so the attribute exists. The buffer runs in software mode, so the trigger
-has no effect on it: writing it is accepted and ignored, as
-hid-sensor-trigger does for the same reason. New drivers do not need it.
-
-No driver uses the helpers yet.
-
-Signed-off-by: Radu Sabau <radu.sabau@analog.com>
+Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 ---
- drivers/iio/imu/Kconfig        |  1 +
- drivers/iio/imu/adis_buffer.c  | 45 ++++++++++++++++++++++++++++++++++
- drivers/iio/imu/adis_trigger.c | 55 ++++++++++++++++++++++++++++++++++++++++++
- include/linux/iio/imu/adis.h   | 32 ++++++++++++++++++++++++
- 4 files changed, 133 insertions(+)
+ drivers/mfd/ocelot-core.c | 48 +++++++++++++++++++++++------
+ drivers/mfd/ocelot-spi.c  | 77 +++++++++++++++++++++++++++++++++--------------
+ drivers/mfd/ocelot.h      |  6 ++++
+ 3 files changed, 100 insertions(+), 31 deletions(-)
 
-diff --git a/drivers/iio/imu/Kconfig b/drivers/iio/imu/Kconfig
-index 8b91426f60d0..b00acccab061 100644
---- a/drivers/iio/imu/Kconfig
-+++ b/drivers/iio/imu/Kconfig
-@@ -151,6 +151,7 @@ config IIO_ADIS_LIB
+diff --git a/drivers/mfd/ocelot-core.c b/drivers/mfd/ocelot-core.c
+index 41aff2708854..2f53122fb964 100644
+--- a/drivers/mfd/ocelot-core.c
++++ b/drivers/mfd/ocelot-core.c
+@@ -28,9 +28,9 @@
  
- config IIO_ADIS_LIB_BUFFER
- 	bool
-+	select IIO_KFIFO_BUF
- 	select IIO_TRIGGERED_BUFFER
- 	help
- 	  A set of buffer helper functions for the Analog Devices ADIS* device
-diff --git a/drivers/iio/imu/adis_buffer.c b/drivers/iio/imu/adis_buffer.c
-index 501da4eaef69..e49e02adeda6 100644
---- a/drivers/iio/imu/adis_buffer.c
-+++ b/drivers/iio/imu/adis_buffer.c
-@@ -15,6 +15,7 @@
+ #include "ocelot.h"
  
- #include <linux/iio/iio.h>
- #include <linux/iio/buffer.h>
-+#include <linux/iio/kfifo_buf.h>
- #include <linux/iio/trigger_consumer.h>
- #include <linux/iio/triggered_buffer.h>
- #include <linux/iio/imu/adis.h>
-@@ -220,3 +221,47 @@ devm_adis_setup_buffer_and_trigger_with_attrs(struct adis *adis, struct iio_dev
- 					adis);
+-#define REG_GCB_SOFT_RST		0x0008
++#define VSC7512_GCB_SOFT_RST		0x0008
+ 
+-#define BIT_SOFT_CHIP_RST		BIT(0)
++#define VSC7512_SOFT_CHIP_RST		BIT(0)
+ 
+ #define VSC7512_MIIM0_RES_START		0x7107009c
+ #define VSC7512_MIIM1_RES_START		0x710700c0
+@@ -84,11 +84,23 @@
+ #define VSC7512_GCB_RST_SLEEP_US	100
+ #define VSC7512_GCB_RST_TIMEOUT_US	100000
+ 
++struct ocelot_soft_rst {
++	unsigned int reg;
++	u32 mask;
++};
++
++static const struct ocelot_soft_rst ocelot_soft_rst[] = {
++	[OCELOT_CHIP_VSC7512] = {
++		.reg = VSC7512_GCB_SOFT_RST,
++		.mask = VSC7512_SOFT_CHIP_RST,
++	},
++};
++
+ static int ocelot_gcb_chip_rst_status(struct ocelot_ddata *ddata)
+ {
+ 	int val, err;
+ 
+-	err = regmap_read(ddata->gcb_regmap, REG_GCB_SOFT_RST, &val);
++	err = regmap_read(ddata->gcb_regmap, ocelot_soft_rst[ddata->chip].reg, &val);
+ 	if (err)
+ 		return err;
+ 
+@@ -98,15 +110,18 @@ static int ocelot_gcb_chip_rst_status(struct ocelot_ddata *ddata)
+ int ocelot_chip_reset(struct device *dev)
+ {
+ 	struct ocelot_ddata *ddata = dev_get_drvdata(dev);
++	const struct ocelot_soft_rst *rst;
+ 	int ret, val;
+ 
++	rst = &ocelot_soft_rst[ddata->chip];
++
+ 	/*
+ 	 * Reset the entire chip here to put it into a completely known state.
+ 	 * Other drivers may want to reset their own subsystems. The register
+ 	 * self-clears, so one write is all that is needed and wait for it to
+ 	 * clear.
+ 	 */
+-	ret = regmap_write(ddata->gcb_regmap, REG_GCB_SOFT_RST, BIT_SOFT_CHIP_RST);
++	ret = regmap_write(ddata->gcb_regmap, rst->reg, rst->mask);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -197,6 +212,18 @@ static const struct mfd_cell vsc7512_devs[] = {
+ 	},
+ };
+ 
++struct ocelot_cells {
++	const struct mfd_cell *cells;
++	unsigned int num_cells;
++};
++
++static const struct ocelot_cells ocelot_cells[] = {
++	[OCELOT_CHIP_VSC7512] = {
++		.cells = vsc7512_devs,
++		.num_cells = ARRAY_SIZE(vsc7512_devs),
++	},
++};
++
+ static void ocelot_core_try_add_regmap(struct device *dev,
+ 				       const struct resource *res)
+ {
+@@ -217,14 +244,17 @@ static void ocelot_core_try_add_regmaps(struct device *dev,
+ 
+ int ocelot_core_init(struct device *dev)
+ {
+-	int i, ndevs;
++	struct ocelot_ddata *ddata = dev_get_drvdata(dev);
++	const struct ocelot_cells *c;
++	int i;
+ 
+-	ndevs = ARRAY_SIZE(vsc7512_devs);
++	c = &ocelot_cells[ddata->chip];
+ 
+-	for (i = 0; i < ndevs; i++)
+-		ocelot_core_try_add_regmaps(dev, &vsc7512_devs[i]);
++	for (i = 0; i < c->num_cells; i++)
++		ocelot_core_try_add_regmaps(dev, &c->cells[i]);
+ 
+-	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, vsc7512_devs, ndevs, NULL, 0, NULL);
++	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, c->cells, c->num_cells,
++				    NULL, 0, NULL);
  }
- EXPORT_SYMBOL_NS_GPL(devm_adis_setup_buffer_and_trigger_with_attrs, "IIO_ADISLIB");
+ EXPORT_SYMBOL_NS(ocelot_core_init, "MFD_OCELOT");
+ 
+diff --git a/drivers/mfd/ocelot-spi.c b/drivers/mfd/ocelot-spi.c
+index 52bde8d4daf3..e803d0363e62 100644
+--- a/drivers/mfd/ocelot-spi.c
++++ b/drivers/mfd/ocelot-spi.c
+@@ -50,7 +50,42 @@ static const struct resource vsc7512_gcb_resource =
+ 			     VSC7512_CHIP_REGS_RES_SIZE,
+ 			     "devcpu_gcb_chip_regs");
+ 
+-static int ocelot_spi_initialize(struct device *dev)
++struct ocelot_spi_data {
++	enum ocelot_chip chip;
++	const struct resource *cpuorg_res;
++	unsigned int if_ctrl;
++	unsigned int if_cfgstat;
++	u32 if_cfgstat_si;
++	const struct resource *gcb_res;
++	int (*padding_bytes)(u32 max_speed_hz);
++};
 +
-+/**
-+ * devm_adis_setup_kfifo_buffer() - Sets up a kfifo buffer for a FIFO adis device
-+ * @adis: The adis device
-+ * @indio_dev: The IIO device
-+ * @thread_fn: Threaded interrupt handler which reads the device FIFO and
-+ *	       pushes the samples to the buffer. It is called with @indio_dev
-+ *	       as dev_id.
-+ * @ops: Optional buffer setup functions, may be NULL.
-+ * @buffer_attrs: Extra buffer attributes.
-+ *
-+ * Returns 0 on success, a negative error code otherwise.
-+ *
-+ * Unlike devm_adis_setup_buffer_and_trigger_with_attrs(), the samples are not
-+ * captured from a trigger handler. The device FIFO interrupt is requested as a
-+ * threaded oneshot IRQ running @thread_fn, and the data goes straight to a
-+ * kfifo buffer. The IRQ is requested disabled and the driver enables and
-+ * disables it with enable_irq() and disable_irq() from its buffer setup
-+ * functions, without holding the adis lock. Devices which already had a
-+ * trigger/current_trigger attribute can keep it with
-+ * devm_adis_register_fifo_trigger().
-+ */
-+int devm_adis_setup_kfifo_buffer(struct adis *adis, struct iio_dev *indio_dev,
-+				 irq_handler_t thread_fn,
-+				 const struct iio_buffer_setup_ops *ops,
-+				 const struct iio_dev_attr **buffer_attrs)
++static int vsc7512_spi_padding_bytes(u32 max_speed_hz)
 +{
-+	int ret;
++	if (max_speed_hz <= 500000)
++		return 0;
 +
-+	ret = devm_iio_kfifo_buffer_setup_ext(&adis->spi->dev, indio_dev, ops,
-+					      buffer_attrs);
-+	if (ret)
-+		return ret;
-+
-+	if (adis->spi->irq) {
-+		ret = devm_adis_request_fifo_irq(adis, indio_dev, thread_fn);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return devm_add_action_or_reset(&adis->spi->dev, adis_buffer_cleanup,
-+					adis);
++	/*
++	 * Calculation taken from the manual for IF_CFGSTAT:IF_CFG. Register
++	 * access time is 1us, so we need to configure and send out enough
++	 * padding bytes between the read request and data transmission that
++	 * lasts at least 1 microsecond.
++	 */
++	return 1 + (max_speed_hz / HZ_PER_MHZ + 2) / 8;
 +}
-+EXPORT_SYMBOL_NS_GPL(devm_adis_setup_kfifo_buffer, "IIO_ADISLIB");
-diff --git a/drivers/iio/imu/adis_trigger.c b/drivers/iio/imu/adis_trigger.c
-index 3e6a7af6ab01..ea8661bff901 100644
---- a/drivers/iio/imu/adis_trigger.c
-+++ b/drivers/iio/imu/adis_trigger.c
-@@ -104,3 +104,58 @@ int devm_adis_probe_trigger(struct adis *adis, struct iio_dev *indio_dev)
++
++static const struct ocelot_spi_data vsc7512_spi_data = {
++	.chip = OCELOT_CHIP_VSC7512,
++	.cpuorg_res = &vsc7512_dev_cpuorg_resource,
++	.if_ctrl = REG_DEV_CPUORG_IF_CTRL,
++	.if_cfgstat = REG_DEV_CPUORG_IF_CFGSTAT,
++	.if_cfgstat_si = CFGSTAT_IF_NUM_SI,
++	.gcb_res = &vsc7512_gcb_resource,
++	.padding_bytes = vsc7512_spi_padding_bytes,
++};
++
++static int ocelot_spi_initialize(struct device *dev,
++				 const struct ocelot_spi_data *data)
+ {
+ 	struct ocelot_ddata *ddata = dev_get_drvdata(dev);
+ 	u32 val, check;
+@@ -80,7 +115,7 @@ static int ocelot_spi_initialize(struct device *dev)
+ 	 * | 22222233 | 11112222 |   111111 |          |
+ 	 * | 45678901 | 67890123 | 89012345 | 01234567 |
+ 	 */
+-	err = regmap_write(ddata->cpuorg_regmap, REG_DEV_CPUORG_IF_CTRL, val);
++	err = regmap_write(ddata->cpuorg_regmap, data->if_ctrl, val);
+ 	if (err)
+ 		return err;
+ 
+@@ -90,7 +125,7 @@ static int ocelot_spi_initialize(struct device *dev)
+ 	 * first payload bit is shifted out too quickly, the read will fail.
+ 	 */
+ 	val = ddata->spi_padding_bytes;
+-	err = regmap_write(ddata->cpuorg_regmap, REG_DEV_CPUORG_IF_CFGSTAT, val);
++	err = regmap_write(ddata->cpuorg_regmap, data->if_cfgstat, val);
+ 	if (err)
+ 		return err;
+ 
+@@ -109,9 +144,9 @@ static int ocelot_spi_initialize(struct device *dev)
+ 	 * the registers are being accessed. Since we're accessing them via the
+ 	 * serial interface, it must return IF_NUM_SI.
+ 	 */
+-	check = val | CFGSTAT_IF_NUM_SI;
++	check = val | data->if_cfgstat_si;
+ 
+-	err = regmap_read(ddata->cpuorg_regmap, REG_DEV_CPUORG_IF_CFGSTAT, &val);
++	err = regmap_read(ddata->cpuorg_regmap, data->if_cfgstat, &val);
+ 	if (err)
+ 		return err;
+ 
+@@ -196,28 +231,26 @@ EXPORT_SYMBOL_NS(ocelot_spi_init_regmap, "MFD_OCELOT_SPI");
+ 
+ static int ocelot_spi_probe(struct spi_device *spi)
+ {
++	const struct ocelot_spi_data *data;
+ 	struct device *dev = &spi->dev;
+ 	struct ocelot_ddata *ddata;
+ 	struct regmap *r;
+ 	int err;
+ 
++	data = spi_get_device_match_data(spi);
++	if (!data)
++		return -ENODEV;
++
+ 	ddata = devm_kzalloc_obj(dev, *ddata);
+ 	if (!ddata)
+ 		return -ENOMEM;
+ 
++	ddata->chip = data->chip;
++
+ 	spi_set_drvdata(spi, ddata);
+ 
+-	if (spi->max_speed_hz <= 500000) {
+-		ddata->spi_padding_bytes = 0;
+-	} else {
+-		/*
+-		 * Calculation taken from the manual for IF_CFGSTAT:IF_CFG.
+-		 * Register access time is 1us, so we need to configure and send
+-		 * out enough padding bytes between the read request and data
+-		 * transmission that lasts at least 1 microsecond.
+-		 */
+-		ddata->spi_padding_bytes = 1 + (spi->max_speed_hz / HZ_PER_MHZ + 2) / 8;
+-
++	ddata->spi_padding_bytes = data->padding_bytes(spi->max_speed_hz);
++	if (ddata->spi_padding_bytes) {
+ 		ddata->dummy_buf = devm_kzalloc(dev, ddata->spi_padding_bytes, GFP_KERNEL);
+ 		if (!ddata->dummy_buf)
+ 			return -ENOMEM;
+@@ -229,13 +262,13 @@ static int ocelot_spi_probe(struct spi_device *spi)
+ 	if (err)
+ 		return dev_err_probe(&spi->dev, err, "Error performing SPI setup\n");
+ 
+-	r = ocelot_spi_init_regmap(dev, &vsc7512_dev_cpuorg_resource);
++	r = ocelot_spi_init_regmap(dev, data->cpuorg_res);
+ 	if (IS_ERR(r))
+ 		return PTR_ERR(r);
+ 
+ 	ddata->cpuorg_regmap = r;
+ 
+-	r = ocelot_spi_init_regmap(dev, &vsc7512_gcb_resource);
++	r = ocelot_spi_init_regmap(dev, data->gcb_res);
+ 	if (IS_ERR(r))
+ 		return PTR_ERR(r);
+ 
+@@ -246,7 +279,7 @@ static int ocelot_spi_probe(struct spi_device *spi)
+ 	 * This must be done before calling init, and after a chip reset is
+ 	 * performed.
+ 	 */
+-	err = ocelot_spi_initialize(dev);
++	err = ocelot_spi_initialize(dev, data);
+ 	if (err)
+ 		return dev_err_probe(dev, err, "Error initializing SPI bus\n");
+ 
+@@ -258,7 +291,7 @@ static int ocelot_spi_probe(struct spi_device *spi)
+ 	 * A chip reset will clear the SPI configuration, so it needs to be done
+ 	 * again before we can access any registers.
+ 	 */
+-	err = ocelot_spi_initialize(dev);
++	err = ocelot_spi_initialize(dev, data);
+ 	if (err)
+ 		return dev_err_probe(dev, err, "Error initializing SPI bus after reset\n");
+ 
+@@ -270,13 +303,13 @@ static int ocelot_spi_probe(struct spi_device *spi)
  }
- EXPORT_SYMBOL_NS_GPL(devm_adis_probe_trigger, "IIO_ADISLIB");
  
-+/**
-+ * devm_adis_request_fifo_irq() - Requests the FIFO interrupt of an adis device
-+ * @adis: The adis device
-+ * @indio_dev: The IIO device
-+ * @thread_fn: Threaded interrupt handler, called with @indio_dev as dev_id
-+ *
-+ * Requests the (level triggered) FIFO interrupt as a oneshot threaded IRQ. The
-+ * IRQ is requested disabled: the driver enables it with enable_irq() once the
-+ * device FIFO is running and disables it with disable_irq() before stopping
-+ * it, without holding the adis lock as @thread_fn takes it.
-+ *
-+ * Returns 0 on success or a negative error code
-+ */
-+int devm_adis_request_fifo_irq(struct adis *adis, struct iio_dev *indio_dev,
-+			       irq_handler_t thread_fn)
-+{
-+	int ret;
-+
-+	ret = adis_validate_irq_flag(adis);
-+	if (ret)
-+		return ret;
-+
-+	adis->irq_flag |= IRQF_NO_AUTOEN;
-+
-+	return devm_request_threaded_irq(&adis->spi->dev, adis->spi->irq, NULL,
-+					 thread_fn, adis->irq_flag | IRQF_ONESHOT,
-+					 indio_dev->name, indio_dev);
-+}
-+EXPORT_SYMBOL_NS_GPL(devm_adis_request_fifo_irq, "IIO_ADISLIB");
-+
-+/**
-+ * devm_adis_register_fifo_trigger() - Registers the legacy trigger of a FIFO device
-+ * @adis: The adis device
-+ * @indio_dev: The IIO device
-+ *
-+ * Registers an IIO trigger named after the device. It is never used to push
-+ * samples, as the data goes to a kfifo buffer. It only keeps the
-+ * trigger/current_trigger interface of devices that always had it, so writing
-+ * it is accepted but has no effect. New drivers do not need it.
-+ *
-+ * Returns 0 on success or a negative error code
-+ */
-+int devm_adis_register_fifo_trigger(struct adis *adis, struct iio_dev *indio_dev)
-+{
-+	adis->trig = devm_iio_trigger_alloc(&adis->spi->dev, "%s-dev%d",
-+					    indio_dev->name,
-+					    iio_device_id(indio_dev));
-+	if (!adis->trig)
-+		return -ENOMEM;
-+
-+	indio_dev->modes |= INDIO_HARDWARE_TRIGGERED;
-+
-+	return devm_iio_trigger_register(&adis->spi->dev, adis->trig);
-+}
-+EXPORT_SYMBOL_NS_GPL(devm_adis_register_fifo_trigger, "IIO_ADISLIB");
-diff --git a/include/linux/iio/imu/adis.h b/include/linux/iio/imu/adis.h
-index c9016f636530..4f87321a2d5e 100644
---- a/include/linux/iio/imu/adis.h
-+++ b/include/linux/iio/imu/adis.h
-@@ -569,6 +569,16 @@ devm_adis_setup_buffer_and_trigger_with_attrs(struct adis *adis,
+ static const struct spi_device_id ocelot_spi_ids[] = {
+-	{ .name = "vsc7512" },
++	{ .name = "vsc7512", .driver_data = (kernel_ulong_t)&vsc7512_spi_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(spi, ocelot_spi_ids);
  
- int devm_adis_probe_trigger(struct adis *adis, struct iio_dev *indio_dev);
+ static const struct of_device_id ocelot_spi_of_match[] = {
+-	{ .compatible = "mscc,vsc7512" },
++	{ .compatible = "mscc,vsc7512", .data = &vsc7512_spi_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, ocelot_spi_of_match);
+diff --git a/drivers/mfd/ocelot.h b/drivers/mfd/ocelot.h
+index b8bc2f1486e2..92b5b893ff9b 100644
+--- a/drivers/mfd/ocelot.h
++++ b/drivers/mfd/ocelot.h
+@@ -10,8 +10,13 @@ struct device;
+ struct regmap;
+ struct resource;
  
-+int devm_adis_setup_kfifo_buffer(struct adis *adis, struct iio_dev *indio_dev,
-+				 irq_handler_t thread_fn,
-+				 const struct iio_buffer_setup_ops *ops,
-+				 const struct iio_dev_attr **buffer_attrs);
++enum ocelot_chip {
++	OCELOT_CHIP_VSC7512,
++};
 +
-+int devm_adis_request_fifo_irq(struct adis *adis, struct iio_dev *indio_dev,
-+			       irq_handler_t thread_fn);
-+
-+int devm_adis_register_fifo_trigger(struct adis *adis, struct iio_dev *indio_dev);
-+
- int adis_update_scan_mode(struct iio_dev *indio_dev,
- 			  const unsigned long *scan_mask);
- 
-@@ -590,6 +600,28 @@ static inline int devm_adis_probe_trigger(struct adis *adis,
- 	return 0;
- }
- 
-+static inline int
-+devm_adis_setup_kfifo_buffer(struct adis *adis, struct iio_dev *indio_dev,
-+			     irq_handler_t thread_fn,
-+			     const struct iio_buffer_setup_ops *ops,
-+			     const struct iio_dev_attr **buffer_attrs)
-+{
-+	return 0;
-+}
-+
-+static inline int
-+devm_adis_request_fifo_irq(struct adis *adis, struct iio_dev *indio_dev,
-+			   irq_handler_t thread_fn)
-+{
-+	return 0;
-+}
-+
-+static inline int
-+devm_adis_register_fifo_trigger(struct adis *adis, struct iio_dev *indio_dev)
-+{
-+	return 0;
-+}
-+
- #define adis_update_scan_mode NULL
- 
- #endif /* CONFIG_IIO_BUFFER */
+ /**
+  * struct ocelot_ddata - Private data for an external Ocelot chip
++ * @chip:		Chip family member.
+  * @gcb_regmap:		General Configuration Block regmap. Used for
+  *			operations like chip reset.
+  * @cpuorg_regmap:	CPU Device Origin Block regmap. Used for operations
+@@ -24,6 +29,7 @@ struct resource;
+  *			data of a SPI read operation.
+  */
+ struct ocelot_ddata {
++	enum ocelot_chip chip;
+ 	struct regmap *gcb_regmap;
+ 	struct regmap *cpuorg_regmap;
+ 	int spi_padding_bytes;
 
 -- 
-2.43.0
-
+2.52.0
 
