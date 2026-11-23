@@ -1,101 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795461386;
-	b=c/AQ3/sY4Bbj4lzcmITfDWNVgxFkTkXtLZXIP745Iwkbpw+WQ6QwcnjOIpmcBn8UB2SM
-	 s7ywgexufMgZ8PRdmwtKcVH/eleQfIkaMPj696X6+GgKZUE6aAXCbDUisFhqnDzUxGyKr
-	 Nvg+x232G8KStFltNc8uHxLOKUiiMPoGH2ihyqUf/aBTUBkP9BtohOIXS+Ob4fd7BDmoS
-	 G5VmGmPmgsonxYIxnAKkX9YJ5AsRzVMH0NxdPW6wKKJjtIAK9s7cC2ZCZnPfm41N0q/Z2
-	 VIiF33vdf15uejY2yT+eJVYpocl4V9E8Hw+6pd9FMxX9wUH1N1YCYnwuDht3ae7BWYA==
+	t=1795461437;
+	b=gELj2m5F9dQGS3hnc2Qmjw24j8wwemyER2qcwZhbDiM2sf8IpjTsjstZyMgV5jcAz+L6
+	 gQtGfnS7aEvrgkscDqF+v+PeoOQ2QXxL91m3uCYeYABca9xvLPUxLCpVjfyI0jkoncclW
+	 M/Lk+VdklL+ciPe+jtavrGDerQLqYrhTXnHoR8zZUmPWArDmBhgZTtbykB7+0bKDQPmRQ
+	 oYg4c4xRBiSaCzSU/08T/yvbOX+gNF1qW5772fCVb4Qbn1t+Mji39jxbnjwUNriR62x4C
+	 S1hYYWb7bHJer6vYRIF2Mw3kNixlnsTb+rFLjIffrHrcOxXp9836UJBoUgCVeh2Tsiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461386;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=bht87HU90ydQuqNwMWxnyUlGx5v3MiB0Rcrd/VnWTho=;
-	b=qPyNmurokI5zqSYgZBM7OQC8IXFX9230AEGZsk+ylxK0JfenQZQtbk3G6Wu7amG0yf7F
-	 wlHd+blocqF3XnezwEk4RylyuY3pKGJzo8zyW4eH16fQd44MNod0p1lb/UV+YSfkKH62h
-	 tMx9QAWHxz9/08yPhWY60auyj+WnsS0ZYaKlaleYTs7ujPTBvO4UqyMryO5/frd4hXYr2
-	 xte6zD8BXgXaZEc/PPhRmk56Qp8h2tpjQFgI38fCg68C8ArIhvgSTizehQukV7HELtjWs
-	 is7dORijhJb3mRP8rKpK5rtPZoT8eEflUvVGxhHpLDmOTL0J2s4V7TOGO+rbmXqr5Zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461437;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=UX6Zfd8/X0mtvuCH1KfRSlYqWCq9TgWX3+ywuOtFfk0=;
+	b=PomR/+QWI4+ncXCcO4z6Vx2bPG/yKp4AdsCmscrQmMFohB4/IpWdqnwlutPn2iPNJj8F
+	 CGTZgKLHvGeMiT1HFq0evodyd/n6sPJ0QN9LsZJJtfsunWR4S0tXrYXp5114xWNiNKAr5
+	 CICp0ZNG7Ii3W+JRBd6g9bM4mR6qiIESq+KAvQtb/iCrrcNdjbaKF5O6Kh0WYoxM+6hHs
+	 9EzGDSR+MPNUyEwxPuwv3Q8L5wbyQ+iTyatSV1+CLe6Nn28O4GMaRXw4o4T9B6H2jrYKS
+	 JHAmIFdqduqP4DNZT0fay2ih4sL8qRFxt2KEb90MJf4m0/r/0xSEFqkMpvQeMVwumaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=csail.mit.edu;
-	spf=pass smtp.mailfrom=csail.mit.edu;
-	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=Acw6sZ0+;
-	arc=none smtp.remote-ip=128.30.2.78
-Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cIFWTCOq;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C754606A31A;
-	Mon, 23 Nov 2026 19:16:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C754606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F19BA606A321;
+	Mon, 23 Nov 2026 19:17:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=Acw6sZ0+
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=bht87HU90ydQuqNwMWxnyUlGx5v3MiB0Rcrd/VnWTho=; t=1795461386; x=1796325386; 
-	b=Acw6sZ0+cO2Ay2bPeImF8UCrD7k4IaKB9SkFD4k3A5bqiEOtsQdw8szhOcuZkKLpdpkI9tyvf/O
-	sAjY509ctLaHfEO32Q72Z0RNxwhg/W+wzkyF9Swz3EU9/Ox873Jw/Tn7zUhX51YzAH2HXlUwaqsAl
-	U9KpwFRhA+UUiEChXmxBg+FU59UhoW8Bj94hwC5PKtzDXdLt7WxCU2om/kkgwKjM6VCFxfd/pu5+e
-	xv6OyjcQnSMzLg3dqX8W0y7648iYChADWoYkI3YREXuzE9nunpo+zrw6CZ6nJJig4j28x3uufHiJ1
-	Mi0Dl39OpU8/32w/3/tytRNeMZjvxCeuO4RA==;
-Received: from [49.207.211.146] (helo=csail.mit.edu)
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xVZVX-006Xqr-OR;
-	Mon, 23 Nov 2026 14:15:20 -0500
-Date: Tue, 24 Nov 2026 00:45:01 +0530
-From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>, Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, Rich Felker <dalias@libc.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Cong Wang <cwang@multikernel.io>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	WANG Xuerui <kernel@xen0n.name>, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH 1/2] MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
-Message-ID: <awSQtauit5QObOPQ@csail.mit.edu>
-References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
- <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cIFWTCOq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A28E41F000C4;
+	Mon, 23 Nov 2026 19:17:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795461436;
+	bh=UX6Zfd8/X0mtvuCH1KfRSlYqWCq9TgWX3+ywuOtFfk0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=cIFWTCOqU92m9L4cI4346egZ0KQDvCsAXX7NQ8fgpBRP4VdCz31oTZYJ1IlAfbYIT
+	 RD/Kf5D+nVGLmoZ1bnETQIeSRT2UzDFK0cJoG2n2cfVJtl5FL/bB94Scx8LrEOdrEn
+	 tGY17iAxGIm/4LC4OeeXZzu44MoBMBivd0lwyUlzYTETHnjSxaQQszrQNvpy/y9hZT
+	 IZRZ8i143MBrTYhSIKs7QDvzPIoPuZK8yK7fg+ErucoV3HpTbfXS2tewk2MYmBPgGB
+	 WNci+tgkXNyRPMiCW4xtzpx5xahTQJtFu3cIHDrvUP6YJpV8p9gMkDHYmkT+FTQyD8
+	 YZ7xp18T3AD2A==
+Subject: Re: [PATCH net] tg3: Propagate PHY reset retry failures in
+ tg3_phy_reset_5703_4_5()
+From: netdev-bot+sashiko@kernel.org
+To: irogers@google.com
+Cc: pavan.chebbi@broadcom.com, michael.chan@broadcom.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, elkin@google.com
+Date: Mon, 23 Nov 2026 19:17:15 +0000
+Message-ID: <179546143517.3135.4487906410015743312@kernel.org>
+In-Reply-To: <20261119171021.1535172-1-irogers@google.com>
+References: <20261119171021.1535172-1-irogers@google.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,26 +64,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
 
-On Thu, Nov 19, 2026 at 08:16:57AM +0200, Mike Rapoport (Microsoft) wrote:
-> kernel/Kconfig.kexec is not matched by the KEXEC entry, so
-> get_maintainer.pl does not report kexec maintainers for changes in that
-> file.
-> 
-> Add it to the KEXEC entry.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Reviewed-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-In the spirit of finding any other misses in listing out relevant
-files under the kexec and crash entries in MAINTAINERS, I found a few
-other files that need to be added (unrelated to the Kconfig.kexec
-which is the focus of your current patchset). I'm planning to send
-a follow-up series to address that.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Regards,
-Srivatsa
+- [High] In tg3_phy_reset_5703_4_5()
+  (drivers/net/ethernet/broadcom/tg3.c), the patch adds an `if (err)…
+- [Low] The commit message says the patch was prompted by Clang
+  -Wconditional-uninitialized on phy9_orig and was verified by building…
+
+--
+
+tg3: Propagate PHY reset retry failures in tg3_phy_reset_5703_4_5()
+
+This patch saves the return values of the two tg3_readphy() calls in the
+tg3_phy_reset_5703_4_5() retry loop. If the loop finishes with an error,
+the function now returns it. The goal is to avoid writing an uninitialized
+phy9_orig back to MII_CTRL1000, and to stop treating a failed test pattern
+as success.
+
+> Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+> build. Verified by building drivers/net/ethernet/broadcom/tg3.o with
+> LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized; not
+> runtime-tested on BCM5703/5704/5705 hardware.
+
+[Severity: Low]
+Will Clang still warn about phy9_orig with -Wconditional-uninitialized
+after this change?
+
+phy9_orig is still declared without an initializer:
+
+	u32 reg32, phy9_orig;
+
+There is still a path where every iteration takes the first continue
+(the MII_TG3_EXT_CTRL read fails) before &phy9_orig is ever passed to
+tg3_readphy().
+
+Clang's uninitialized-values analysis does not link err to phy9_orig. So
+the new "if (err) return err;" after the loop should not change what it
+reports for this later use:
+
+	tg3_writephy(tp, MII_CTRL1000, phy9_orig);
+
+At runtime the patch is correct here. err == 0 after the loop can only
+happen through the break, and that needs a successful MII_CTRL1000 read.
+
+Is an explicit initializer or a restructured loop needed to silence the
+warning? Or should the verification statement in the commit message be
+changed?
+
+> diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
+> index 95827df4cf6a1..be2410e718fd9 100644
+> --- a/drivers/net/ethernet/broadcom/tg3.c
+> +++ b/drivers/net/ethernet/broadcom/tg3.c
+
+[ ... ]
+
+> @@ -2587,6 +2589,9 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
+>  			break;
+>  	} while (--retries);
+>  
+> +	if (err)
+> +		return err;
+> +
+
+[Severity: High]
+Can this early return leave the PHY in its test configuration?
+
+By the time a pass reaches tg3_phy_write_and_check_testpat(), the loop
+has already done the following:
+
+- set EXT_CTRL |= 0x3000 (transmitter and interrupt disabled)
+- forced MII_BMCR to 1000/full duplex
+- forced MII_CTRL1000 to master
+- enabled SMDSP
+- blocked PHY control access:
+
+		/* Block the PHY control access.  */
+		tg3_phydsp_write(tp, 0x8005, 0x0800);
+
+When the test pattern does not match, tg3_phy_write_and_check_testpat()
+returns -EBUSY without setting *resetp. MDIO is still working at that
+point:
+
+			if (low != test_pat[chan][i] ||
+			    high != test_pat[chan][i+1]) {
+				tg3_writephy(tp, MII_TG3_DSP_ADDRESS, 0x000b);
+				tg3_writephy(tp, MII_TG3_DSP_RW_PORT, 0x4001);
+				tg3_writephy(tp, MII_TG3_DSP_RW_PORT, 0x4005);
+
+				return -EBUSY;
+			}
+
+If that happens on all 10 retries, err is -EBUSY when the loop exits.
+
+Before this patch, tg3_phy_reset_chanpat() overwrote err. When it
+succeeded, the function went on to undo the setup:
+
+	tg3_phydsp_write(tp, 0x8005, 0x0000);
+	...
+	tg3_phy_toggle_auxctl_smdsp(tp, false);
+
+	tg3_writephy(tp, MII_CTRL1000, phy9_orig);
+	...
+	reg32 &= ~0x3000;
+	tg3_writephy(tp, MII_TG3_EXT_CTRL, reg32);
+
+It then returned 0, so tg3_phy_reset() also applied its out: workarounds
+(ADC_BUG, 5704_A0_BUG, BER/JITTER_BUG, EXTPKTLEN, FIFO_ELASTIC, automdix,
+wirespeed).
+
+With the early return, tg3_phy_reset() now returns before it reaches the
+out: label:
+
+		err = tg3_phy_reset_5703_4_5(tp);
+		if (err)
+			return err;
+		goto out;
+
+Most callers ignore the return value of tg3_phy_reset(). One example is
+tg3_reset_hw():
+
+	if (reset_phy)
+		tg3_phy_reset(tp);
+
+tg3_setup_copper_phy(), the fiber and SGMII setup paths, the ethtool
+self-test and tg3_set_eee() also ignore it.
+
+Wouldn't those callers carry on with the transmitter disabled and DSP
+control access still blocked?
+
+tg3_phy_probe() does pass the error up. tg3_get_invariants() then calls
+tg3_mdio_fini() and returns err, and tg3_init_one() aborts the probe.
+
+Hardware that keeps hitting the mismatch used to be restored and keep
+working. Does it now fail to probe?
+
+Would a shared unwind path work better here? Before returning the error,
+it could:
+
+- unblock 0x8005
+- turn SMDSP off
+- clear EXT_CTRL 0x3000
+- restore MII_CTRL1000 only if it was actually read, or do a BMCR reset
+
+Should running out of test pattern retries be fatal at all? The commit
+message also doesn't mention this change in behavior.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119171021.1535172-1-irogers%40google.com
