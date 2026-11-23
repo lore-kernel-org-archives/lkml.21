@@ -1,65 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795439444;
-	b=uj5ACyw+V8htGbWb2SQBz78enli94x6+lPuMf6gYJ6mwNsB8IypiXZDI/w41XTuy00p2
-	 mIDGQDRlEZkjicD7CB/O/6KLleMspNHyF8fOglVJMKE0X+0bz9wnbCdJAqKGFwi+w5O6d
-	 9jgaD63DVZSA5ifzzlMsltbkDls5ZdqwoRnIhRt0TgJCC6irvfjnpU3WSgBVLfr6YPNe+
-	 ESfhHHqzCVC3YUXFf9+zxxtzhofyyyu33IaNjc+Oai0OFXDqquaEhhy+nYjsSe0O1SiVe
-	 SoyVJUl2ZcBaBsKaEWRlE6EQDwwtlbZV06W8qRmI4jGM88OV9bmlBjZrF3gOuSyL6DQ==
+	t=1795439458;
+	b=IYnFPikyHMRP9oTEKnMZlL/a5YC3QCZChC6+nowLqHomcSGyMzbl9ZWwlPLvY7Hadmu+
+	 ANT9WKmyYCS+0OQ3jxAa0Io9KrWdbipUbvb7qH2m/Om816M7H1svfdzCIFkqW1/lLT1R0
+	 nkICkn3OgtTjlQc8lryU6alufr2zEcfmUWH8Y/URhU4keeis1x7gVDTrRN5T0eXq4v655
+	 MNUUdxFgMGoJO9DEj+ZgfUBOjcq5z+R5s+4jOvvIwmHffgGGn3v6iQ1MbGlswq/zW4wSg
+	 s5vNKwiULVEs4d5E1bd7OxrIV+ubA53b+ezUyroSwy+7OrZYoPfYwq4a4zuVGgaMD7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795439444;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Or4wrQKnsP3R5qoKnKe6WrWsdLuS3fNNUOgd09GX0wo=;
-	b=C/9weaOiv1WdlNOqtz89OcWTYQfXcI1bjS0oT6lugs+pewnVgh+31+BGuBx/2jG6e63h
-	 7qOARxTYYyutSLjNTOY+ZNoZ5Uy/PXjydFPSY24l6i5KHdKaehd7iOdNJL+/6MoPhvX3/
-	 c3yWeLiHZtj+WVwA01jv2e0cF1wZb5SKPYnCFHHZfdzYdMZUsDg8HN0OdReBxH772PF7u
-	 Vp+L/3tnzHK85YHge68Y+2p8Dda+eEY/dSI7bz0qJqRgRVZNsyRFrA7NICnDxs/XUUNsl
-	 qZLxXVGnAVj0O9rTZp+fqqxJz/F8JYA7h+1tLc/8kRyUYVMgTz2bb8j4EJfGwAHKVdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795439458;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=iYTNCDdhiKPgMC3oUL4xKYF1Z1+fSJpoO0nf2r4oKIE=;
+	b=DDA1CepmF+XwevhuvRAFkaoQC/h6VyygTqjk4T4SawJ49Lr4St9JR35dUq+i1Wf94yZZ
+	 PBknO+3vPI76DobATsTZmVwO8R/PQALj8clYSFE0DWYiV7salBRmKeXKCRveVrOJedbwh
+	 /ncRdie4Cg+NrMwz9wGA0iVWe/2e56vdCKwYka5QYCRUNdJOv4upM3ZLYxHrVjT/Ktnya
+	 qmNh1rfj51m87Ln6pfuPv4kxJmIrrhQtSo3mudKiA+TmQUvGJhSCbLb53xXk0Y5+leXpK
+	 BYBVSuhRQu3k0p5D8qV1eBh0qG4YTqhgdkzMG0rZEFIRCdCjUTdzrcOG3Htof6Iz6Pg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o0d3y919;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1KAIw7x3;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17F0F606A31A;
-	Mon, 23 Nov 2026 13:10:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBCE6606A333
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:10:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBCE6606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o0d3y919
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C72D91F000CF;
-	Mon, 23 Nov 2026 13:10:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795439443;
-	bh=Or4wrQKnsP3R5qoKnKe6WrWsdLuS3fNNUOgd09GX0wo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=o0d3y91906Nl6/5zGUdpL0VRf92NQHUgE+88lr2/bPbIDhqlli/PkzXhYtCyXo6sB
-	 qwRegDFNn8kkHS2vGp8yZPWfeKYCykyUBgci9q0kuIXYs2ltyW0iptbu0ZTJOXYvb5
-	 YTmYmt0RwoJdvbthMvsCvkc/Y8kg0a7loCNMQJ+krK37buSANbR3BKLoFuJ4EgY0um
-	 UbxbPgZU4HeJf9F95aEN7h+T0keMo7kficKw0XbIaRDGi8x8ms9XY1VZJ8kyw8PM+8
-	 iRCrYnJrOVbIBenuw0Vy8wKi+n/5cBu8CubAisC1SUprfsjmTvdMxZ2EgjhHeqSOK6
-	 A91dCaH8Fz9Nw==
-Date: Mon, 23 Nov 2026 20:50:18 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 05/13] dt-bindings: soc: synaptics: add SL2610 system
- controllers
-Message-ID: <awQ2ipCw1mEx-wxu@xhacker>
-References: <20261115102401.3520-1-jszhang@kernel.org>
- <20261115102401.3520-6-jszhang@kernel.org>
- <20261123-bold-neat-albatross-e92a2b@quoll>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1KAIw7x3
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 407C11A1797;
+	Mon, 23 Nov 2026 13:10:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 13063601E1;
+	Mon, 23 Nov 2026 13:10:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A658D11E689D2;
+	Mon, 23 Nov 2026 14:10:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795439454; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=iYTNCDdhiKPgMC3oUL4xKYF1Z1+fSJpoO0nf2r4oKIE=;
+	b=1KAIw7x3WCOP+VMklmFO7H9LvbiZTkrdRWb9qNp49RSl+AScir3UsUK9/WvuRGVSZrFx/g
+	j15CsuSslue+kOdwUh7fzTRc5MpyYOFhdFsVlH2G7n38KNbp2BQOyjSF86x9ccgXBvUxX5
+	j4K+cMYTuP6Sy9aZ7Ipi+LbeJHcHDG4/k25O4VT3FKdsI3LKIaK0NxMJyUJ6sIE1MMOLZA
+	f5MiKCllX4OBXQhfCcMhNkYvXBcJfnoqiwpfTJwIeQf6FAlrmpqsxwEIdJxzRUP7ZQFBde
+	k1Mo1Wn/oYJBDHEk71QJ1zQdeyLSAY8uoKYMcBT/PkUUs7XrTTd1AIKyiZOMIw==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Sasha Finkelstein <k@chaosmail.tech>, Janne Grunau <j@jannau.net>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
+In-Reply-To: <20261106-drm-panel_bridge-remove-drmm_of_get_bridge-v1-0-c0ea3382b798@bootlin.com>
+References: <20261106-drm-panel_bridge-remove-drmm_of_get_bridge-v1-0-c0ea3382b798@bootlin.com>
+Subject: Re: [PATCH 0/3] drm: remove drmm_of_get_bridge()
+Message-Id: <179543943896.276287.6561955057050063323.b4-ty@b4>
+Date: Mon, 23 Nov 2026 14:10:38 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,81 +79,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261123-bold-neat-albatross-e92a2b@quoll>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon, Nov 23, 2026 at 11:28:23AM +0100, Krzysztof Kozlowski wrote:
-> On Sun, Nov 15, 2026 at 06:23:44PM +0800, Jisheng Zhang wrote:
-> > Describe the SoC, MCU, AVIO and CPU system control blocks, including their
-> > clock inputs, clock and reset providers, and pin configuration subnodes.
-> > The clock and reset providers share each register block node.
-> > 
-> > Add the clock and reset identifiers used by consumers of these blocks.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  .../soc/synaptics/syna,sl2610-soc-syscon.yaml | 178 ++++++++++++++++++
-> >  MAINTAINERS                                   |   3 +
-> >  include/dt-bindings/clock/syna,sl2610.h       | 131 +++++++++++++
-> >  include/dt-bindings/reset/syna,sl2610-reset.h |  80 ++++++++
-> >  4 files changed, 392 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/soc/synaptics/syna,sl2610-soc-syscon.yaml
-> >  create mode 100644 include/dt-bindings/clock/syna,sl2610.h
-> >  create mode 100644 include/dt-bindings/reset/syna,sl2610-reset.h
-> > 
-> > diff --git a/Documentation/devicetree/bindings/soc/synaptics/syna,sl2610-soc-syscon.yaml b/Documentation/devicetree/bindings/soc/synaptics/syna,sl2610-soc-syscon.yaml
-> > new file mode 100644
-> > index 000000000000..cdf947cb3e0f
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/soc/synaptics/syna,sl2610-soc-syscon.yaml
-> > @@ -0,0 +1,178 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/soc/synaptics/syna,sl2610-soc-syscon.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Synaptics SL2610 system control registers
-> > +
-> > +maintainers:
-> > +  - Jisheng Zhang <jszhang@kernel.org>
-> > +
-> > +description: |
-> > +  The SL2610 family has separate SoC, MCU, AVIO, and CPU system control
-> > +  register blocks. The SoC and MCU blocks provide clocks, resets, and pin
-> > +  control. The CPU block provides clocks. The AVIO block contains audio PLLs.
-> > +
-> > +  Clock and reset specifiers refer directly to the system control node.
-> > +  Pin group configurations are direct children of the SoC or MCU node.
-> > +  There are no separate clock, reset, or pin controller child nodes.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - enum:
-> > +          - syna,sl2610-soc-syscon
-> > +          - syna,sl2610-mcu-syscon
-> > +          - syna,sl2610-avio-syscon
-> > +          - syna,sl2610-cpu-syscon
-> > +      - const: syscon
+
+On Fri, 06 Nov 2026 17:17:03 +0100, Luca Ceresoli wrote:
+> drmm_of_get_bridge() is deprecated. By now it is just a complicated wrapper
+> to of_drm_get_bridge_by_endpoint(), and it does not implement bridge
+> refcounting. Replace the only user and remove it.
 > 
-> Split the binding file, you combined multiple different devices.
-
-sure, will do in next version
-
+> == Grand plan
 > 
-> Also, bindings should be placed in respective directories, not soc.
+> This is part of the work to support hotplug of DRM bridges.
+> 
+> [...]
 
-I try to follow existing examples:
-Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2044-top-syscon.yaml
-Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-and so on.
+Applied, thanks!
 
-Especially, the 2nd and the last one also document the bindings of a mfd
-for clk. It seems upstream accepts both soc and mfd. TBH, I have no
-preference, but these are recent examples, so I follow their style. So if
-you still prefer putting the bindings in mfd directory, kindly comment.
+[1/3] drm: adp: stop using deprecated drmm_of_get_bridge()
+      commit: 8c3eaa2149c1852a5701831bce07fac6cba98bf4
+[2/3] drm/panel: remove drmm_of_get_bridge()
+      commit: 01f2c4238fa101fd58696d0f0671d1edfaa247a3
+[3/3] drm/todo: remove drmm_of_get_bridge()
+      commit: 0bd6e1ffd6a85914092b110b08f5a19271f3dbd4
 
-Thanks
+Best regards,
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+
