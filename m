@@ -1,94 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.27
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795419999;
-	b=RtINcDQQdUuQy2V7FqT6rG0wekBIEz7jtuLrHn4uGkMEQ3yojgih9YrOyS0i9hX3XAAW
-	 VhtDLn7BhDvOmrAYHtBH9bI+TpOpbSSpNxxVQXxgl3mOlbnFlU12vKysBer2aFx5KQ8JG
-	 FtKSj3sAC5yISg7tkTQ+m8nTkcICj68mm7HU082nEiHVMOhheXXBDY60McaXUuoW3j2k9
-	 YZXxJxkW79ZLLPrQB7RsZMu73/EyLW8PrE91oaIVvAoho7LvZb9b3mitEKgFZCxPZa0cR
-	 8bUuGj/uqfv5GrFQ5r4RNSir417F7TsY2cZn9wvrzsdjlEqPia0WXRLOJW9Pw4pWBsg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795419999;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=RKohgNXBmmNn3Ev7J7dTvcE+DhI6RIeeoeE/tLerCKY=;
-	b=t+qRdWnNL32603XPxzvrqRQehL7ZPivLwAxDiuKPtk46klBe58oXMQNe/Rjw865VeKyd
-	 1tDAoWU77AjV/0VZfWzQ+1CD1fsBReDWaltgPJCFzY11BJ7Ji5uCd8UJFk485D6ISq0jl
-	 sbbQratUYMrrwzXc+KarSYpMv6pF+OOgZqqAbvj7IqGMqodyk8vC5GAYc939EfP3fac86
-	 +oLuXYGTUYYMw9iHQbjNZ2CaTQQ/2l9HzLTmZAVhOFObWCFm/2eDHX7pWMxdIe/fAy0kR
-	 NwXC9omn4/I961d8VaEtVkQhTE4MS+VXy42vZ20t3+jz4YVzDmzZXPEXG2HAhX2zKmg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=UpRzae1v;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.27
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013027.outbound.protection.outlook.com [40.107.162.27])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795420036;
+	b=hduAFfuBPWvztsiabPQtDEpcMNkGtnyYDOKf7UOh0O5jo/LiF40w9YPMmZ/GH/e9RgfB
+	 TAL9/E4c0adYn/kraOBaZRXqRvpFwq4fVTSkuXfITL+HpweXe5N9DwgEUbw5QFh4XZ4B8
+	 caXfhtXV07rUy6JkEI2jrXZY1kOs0UUieHw9hckkMHLDVtbMh2/ZzV0KNJhT/LCynXjpE
+	 qcuBCKhEIMTi+H2Nypd2If6FLyltIL3B+yGWshua3nrUhUwrGsNRz8heIm8JWUa6KCHL6
+	 4lTiF2VpRjvM+rxbQcmeVIIBM27V9n1GQWeCqqAGQWugBrM9iekFsWaGCWTyU7PM66Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420036;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=Dr1iKVrv9/eBqSO8/xSdTONwVVAExyf79+TG9olwstM=;
+	b=jW+6GHPOE/i7MzIkzHsFAEct3GZLjMj2Ux5SNYPrv+IIeumTfqcXOIeJGLsew0bLMxpX
+	 PhWThlHOyHhoANsbK0jtYJS6JxCmOmfiIiggM2yNm6PIUMB0xd0H1gOGV41DHxEbU6D/k
+	 pBvGg67PiLjMEi5I9a0ih739h6Vl9aRa7G4Atr7m5q4V2xT2D8L3G5Kcv7MQWX3+UcCTK
+	 0sSKIrF/027ZO63vIVx+7gAbrTpBN+g36tdXS+YN30HsRxF5eUZMGHIeCi1J91HOIXeE3
+	 YX+1pmaX7BRVBjM4OWySPRc5rRcoq6xNr9Rrfu2FWUAk+L1xzTFexIXt6ZfuIbDXuGg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=OdeLPQi7;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6FB1606A31A;
-	Mon, 23 Nov 2026 07:46:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6FB1606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5B08606A31A;
+	Mon, 23 Nov 2026 07:47:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5B08606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=UpRzae1v
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=supi1JoYVH0bIm00qDnYQNXC7NnAHIUePXj/exL4ZvpAXp768T0JRnUEhIINACWc//vfN8rVXWWP3N88IV1I5l/q4vaXOwWu9wQiuHvfogg7LThUpXmLghKnWWWSweieODBOXgjpGpdyGnk7FoPujXCQ1tMrnqg37rTTbtkSBnOM6XPspO8nr+EcGPv8g8uzsi8LoeNW3tj7Z9jW5SufbYhlD9zmiZfQiHmKjyBBtgmJrHx3vtiungFs6h/QFSslvadzVoLYq9993fGjWsajFM/Gz4nmjSKmvoHPSQWYSdLwaFRj76GQoEtXZ6sG4BPw1yKDCa6J7bf58VgFGJClpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RKohgNXBmmNn3Ev7J7dTvcE+DhI6RIeeoeE/tLerCKY=;
- b=vI5F+yEV+r499B8iGyGHoJDdJT+nR1TJComcteP950Pz0aq5TbqPIUywGdwMxgL3W/g+7b1vdlm0XNa7lguDbSKAH2B30tse8HR728NhBlisi84ZsRPn4d10VhWukUGClYhgYmunL4/x11KkeBtLcMQWZEic1czvYnTFUWFrIFeovq159DDlY/a2ACAr9jwGeW/BhshOyAccy/V76+whrgy4LJUUphZGrMOm02AziYJJBRIoZ7KQWKSuAKRdJF8WGvDh1w7gUsn6gwE+GiRJUtHdf3D4XdPc+48M6miwjpgwlgkq6wefvgXHP5WjVW2IE1oWvek0+eCa9GV/E0yXjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RKohgNXBmmNn3Ev7J7dTvcE+DhI6RIeeoeE/tLerCKY=;
- b=UpRzae1v3FJJn0G0rlbCGCZyeANTX9EElqQAg8iHcUGEnhrlkbFXF2nDnqrh2hZvJEAd0oQaoj+8b5WKPvyZdGMyVY2lv2tV6BMoNezyLFP7RSECoxeUZPFkSX7OdBVfam9DKBi8DwMXsPpJh6miQZ1Ola1ZtIuQjXoeESbkIlwGWwmkRdUOpHq5VMFTjFKUvcRhijnYe+yXpFNjJ9D/EUcwTf8y+jR9411NLImTdIM/DIMfnjrxRkDq42PXvp/V9EkrejwEKmJPMEptX+R5EpzN2OLdDfGznGtCxxa0kVghp/A4tANnMWojfKWilf2Y6x4ww5b3ApitPUUNtVdJQA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
- by ZR6PR04MB438545.eurprd04.prod.outlook.com (2603:10a6:910:e1::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 07:46:35 +0000
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d%3]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 07:46:35 +0000
-From: Xu Yang <xu.yang_2@oss.nxp.com>
-To: badhri@google.com,
-	heikki.krogerus@linux.intel.com,
-	gregkh@linuxfoundation.org
-Cc: linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	jun.li@nxp.com
-Subject: [PATCH v3] usb: typec: tcpm: advance vdm_discovery_state on Discover Identity Not_Supported
-Date: Mon, 23 Nov 2026 15:51:36 +0800
-Message-Id: <20261123075136.650549-1-xu.yang_2@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0046.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::14) To PAXPR04MB9422.eurprd04.prod.outlook.com
- (2603:10a6:102:2b4::21)
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=OdeLPQi7
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Dr1iKVrv9/eBqSO8/xSdTONwVVAExyf79+TG9olwstM=;
+	b=OdeLPQi7av4eFetgOW7gmJ2uA8HEKWdiGvd9Q4UyaU+RgjE8O6Bn7GlEaKy3v/fPucetd+0hJ
+	xx1KNV9uQthppb7212n3GNLBh4tWNY4LyDh84y6zB5CESKbopZMJRW7VTvtuEZ6HAl3YJ5k9FTk
+	zF113MK7P+qTA3m3BS6qRUY=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jXyh04vw2z1prKb;
+	Mon, 23 Nov 2026 15:46:56 +0800 (CST)
+Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
+	by mail.maildlp.com (Postfix) with ESMTPS id 817C34056D;
+	Mon, 23 Nov 2026 15:47:12 +0800 (CST)
+Received: from whupemq100006.china.huawei.com (7.152.184.206) by
+ dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Mon, 23 Nov 2026 15:47:12 +0800
+Received: from [10.67.110.154] (10.67.110.154) by
+ whupemq100006.china.huawei.com (7.152.184.206) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 15:47:10 +0800
+Message-ID: <6f594d21-f5c5-4224-b4ff-04ba3183a414@huawei.com>
+Date: Mon, 23 Nov 2026 15:46:56 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,128 +66,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|ZR6PR04MB438545:EE_
-X-MS-Office365-Filtering-Correlation-Id: dcf1bd28-13aa-421d-c34a-08df4935e5e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|19092799006|10067099003|11063799006|56012099006|261021121427099003|261021123027099003|261022105027099003|261022113327099003|261009223027099003|261026121527099003|261028144727099003|261026140227099003|261102123227099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	KTtCv7NPJRk93QLvrJshZXoaL6TVHt2OXex6RoVZV3BLFFo/Mt4Shks1ShtJU/FuLAGRQmfNNaWAB86r+uEq9e8IXOy5gn4ihLQ/h/GcgZCZzn+FxnTHqT7rKu5c8M4N8I1ApZ5q4k56FMpIXqdg1oZZFEchXJa8T+2AzrA8HvRNBZqNtYH1MGhSADHfNHm5Aq7Md94gf4SLbCTO1jKgwIUCddpOIuPw0vFLKOj9f9iQ6oysAh9z2MUmQ9bU7iajq5aSy28VIcV6iADrzALuT0wCw4rwVM+S4AnloYA6ooPAsQElsTzsI4w83Aljn43oH2zbvfFqD4jkvTPZouRyL9O3wAb3NM5+qoIjypSGRcjcJijVDLqhBroadtJssIL7MJQGYEy5xTFlajd4jv371rnp8otEqs4CNqfQiwMN/7xK8Cd2g6pmaiIfFaPd45uTSxu+Ie2Stf708mmwJ4hjEe68QAnxiryUQM7rAb+eU96/ykvWhQzoYvLBTQTLUZfQpHDy4IkYQ6eVwCDBYS4YRInmSqANhNToZz3QNzTXYSs/gJg7RVUXRRbVwe1zjfK1b2jglRHOX914hQ/LTwQ2pw1yelfVqlrcsU0gYxRZPYMAyZ9NpyUjBWS4WKDFL/of8WE0poVLkjiXZ0VPoJLVSNKUR3GmoHuD3eXrm0+2So8=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(19092799006)(10067099003)(11063799006)(56012099006)(261021121427099003)(261021123027099003)(261022105027099003)(261022113327099003)(261009223027099003)(261026121527099003)(261028144727099003)(261026140227099003)(261102123227099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?bxqUeUk8Huacqh8rj3qghwKxWB9BqYmltzWg97WWBGKaXW8/NmhMhE4HBh4R?=
- =?us-ascii?Q?8RdSms5L4Yxi0zLO9Yjo2uFBrIxEUcmaWrIfd3JD0RNIHOPYiQAPoIlcIHgS?=
- =?us-ascii?Q?Qk8y4oAti6PewsEWgtAxduhrANMwl2qVGPZ1hmbLGmxpljK6V9t2Ax5Lrvze?=
- =?us-ascii?Q?HWr7xiW//f900TUrGNWse4+O12abXWhe2ZhomweBARx5uhJZp/0DNxQ0Z5vL?=
- =?us-ascii?Q?A7icXusMd8SVA8kASf8xG/CSeoeDiU/807CdrOTPFe923Yym9UmYp73RgM3g?=
- =?us-ascii?Q?kvQ862YRMq90CNmLA25bCnPaI7IpZmaLIcPX0A7r07Haa8IiLseDmMhjKI0B?=
- =?us-ascii?Q?Hepoxa+sLt50Qmn1+3F2yGOY0rjRR0oqb89wMIhMHuezIrOPGF7zdxudXgCh?=
- =?us-ascii?Q?RipAudHYGzB+2vud7T2k6d4xv9K2u++KVAhs32JQWSHdBixvvjes90djjxxY?=
- =?us-ascii?Q?IZa7SzHE9NP+I2w7V//bRR/hFuOCApxIr/kvnGU+joQVPezPpSEyI6tirjVd?=
- =?us-ascii?Q?TT+meXZzJFHYWPOQm/x6+jTxJtYT6DHWUymSH1AvBrNtDcu1QQJtWuToI99G?=
- =?us-ascii?Q?2KpYrs9sutBYOcO1anB1i2a6gU3ybXQXER2tPW/pZY9+rEnvsSPwkVq/j5BX?=
- =?us-ascii?Q?kA3MRUxmwAa7J2tQnRaqiJ6A63abazq8I66fCaj5K+MdTDctsG4r5q+FwSYz?=
- =?us-ascii?Q?G99t8SkiK2c4ui5WB0gzg6ArZxRxFaPPAWeIGlPSNb4ZSiGKguLgWWLqTSNX?=
- =?us-ascii?Q?RVpxpPwlMC7IZ28DeOXNPB4tR1WfHluXYe3ChLPm3n1l+JnaOtJbINHuGTHl?=
- =?us-ascii?Q?XqA9RpNpGa+iA4miLH7UuxMFuf/WT+JDz4qv/2j/SvDOq8Q+tezz47rNe0Zi?=
- =?us-ascii?Q?Q6oHtYXjvLAKd9Yg8JiXViFjY+LClN/RzmPgCmHrdCQrk1upy5RYPNIBxxSz?=
- =?us-ascii?Q?g3Tbd82/a+s3ZzkGmlra/bCLBJucK5ip4VnJd7cn85VdFUIqkNuhxE3OPUoo?=
- =?us-ascii?Q?VQytRu75z0pPEpxUBKb2PXBOewoKGZpEXqdRxxNtNrWlBctHx5OqDZj1EZ7W?=
- =?us-ascii?Q?fF5kYnIshO6i345CAPOq7Pbzb46jE1ZBtJtfJ/kDroOAdvyZQQ3uBtVU6jfo?=
- =?us-ascii?Q?qz+5RxsHv6fDbwDeoUfJwZA4lGA2n/3x7Biz49FCL2Mk5gFW2xL9hCwJwx08?=
- =?us-ascii?Q?XjmwmuyKPahzcQclzG7N13CObvH8D4tdt7yXiuYvWDxtuUBCEaqttE0b5QD7?=
- =?us-ascii?Q?Te7AuhG1396BQs2w0hd2EZFBcRdKucCO2oQVkKXAOVISqhaPVBJl/yCb6B5n?=
- =?us-ascii?Q?9tCY3JkRK0oIPnfn9XQedg/XcE6H02qJJdsdHVdVqmfC04kixNnT2vEKAps/?=
- =?us-ascii?Q?k2Ecl0jfTIcxq/hgh/X6i+eV99O4QJ2yhxqUnxemZGjHC7KsVpQnOQnSbNXn?=
- =?us-ascii?Q?lGvueNSTjZAcniMcARjPBahZiFBludiRU4xvbgzLurEPmq+20DB/M6R4caDu?=
- =?us-ascii?Q?ewgw/8blZ4Cep4xXOwpRD7c092EGKpnCmaOlIKs+wjc+YPHgLSYMMzPeT+kx?=
- =?us-ascii?Q?qKqMHTnxpVwhwLaH5py+8AZK4GfWjenYk4t1tMB6ukhdO0N9le7nQoZ3/268?=
- =?us-ascii?Q?0mNwT5SdGkrbkoPtwulCdAcAZKOWIdtQkaJ9ZrBHaQ1JSkG4B4Jl9e8E6fge?=
- =?us-ascii?Q?WWHT4v5MxXI1VafHln/H1P4kasP1E2IN0izbSmilgc46+CoYMJEIfySCorL1?=
- =?us-ascii?Q?3aXIRlxL9GFfR+2ADFor/izq3kU4Kg0YPqKh+wGz3V6AzynKdEMo?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dcf1bd28-13aa-421d-c34a-08df4935e5e8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 07:46:35.5597
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dMV4n4j3XhKFLuvYJ3cZzvMaOt+F6Txe6X7gegk2kcMxf9UxmS4hh6npuztRKK3SdfsFRUOv4ikWwQO3ZoL0qJUJr8RMk4MOnaaqbTdG4/RN77DQYTtbkjzyytjCsWmL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB438545
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 bpf-next 0/3] riscv: bpf: Add BPF private stack support
+To: <ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>
+CC: Chen Pei <cp0613@linux.alibaba.com>, <memxor@gmail.com>,
+	<bjorn@kernel.org>, <puranjay@kernel.org>, <alexei.starovoitov@gmail.com>,
+	<eddyz87@gmail.com>, <martin.lau@linux.dev>, <song@kernel.org>,
+	<yonghong.song@linux.dev>, <jolsa@kernel.org>, <emil@etsalapatis.com>,
+	<ihor.solodrai@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <luke.r.nels@gmail.com>,
+	<xi.wang@gmail.com>, <shuah@kernel.org>, <rgbi3307@gmail.com>,
+	<guoren@kernel.org>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261106181558.1564-1-cp0613@linux.alibaba.com>
+Content-Language: en-US
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20261106181558.1564-1-cp0613@linux.alibaba.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ whupemq100006.china.huawei.com (7.152.184.206)
 
-From: Xu Yang <xu.yang_2@nxp.com>
+Hi Alexei, Daniel, Andrii,
 
-Commit Fixes: 205dc9cb39f5 ("usb: typec: tcpm: implement retry mechanism
-for Discover Identity VDMs") advances vdm_discovery_state to
-VDM_DISCOVERY_COMPLETE when a CMDT_RSP_NAK is received, but it does not
-advance the state when a non-modal port returns PD_CTRL_NOT_SUPP.
+Gentle ping on this series -- it looks good to me and bpf selftests pass 
+on RV64. Some upcoming patches will conflict with these changes, so it 
+would be helpful to get this applied first.
 
-This can re-arm another vdm_discovery_work if the port is going to
-respond with PD_CTRL_NOT_SUPP to the partner.
+Thanks,
+Lehui
 
-  tcpm_pd_handle_msg(port, PD_MSG_CTRL_NOT_SUPP, NONE_AMS);
-    tcpm_queue_message();
-      mod_tcpm_delayed_work();
-        tcpm_state_machine_work()
-          tcpm_send_queued_message()  -> send PD_MSG_CTRL_NOT_SUPP
-          run_state_machine()
-            case SRC_READY:
-            case SNK_READY:
-              mod_vdm_discovery_delayed_work(port, 0);
-
-If both the port and its partner do not support modal operation, they
-will send DISCOVER_IDENTITY to each other infinitely.
-
-Advance vdm_discovery_state to VDM_DISCOVERY_COMPLETE in this path as
-well. In particular, update the state to VDM_DISCOVERY_COMPLETE if it comes
-from the port partner, and to VDM_DISCOVERY_CABLE_IDENT if it comes from a
-cable.
-
-Fixes: 205dc9cb39f5 ("usb: typec: tcpm: implement retry mechanism for Discover Identity VDMs")
-Cc: stable@vger.kernel.org
-Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Reviewed-by: RD Babiera <rdbabiera@google.com>
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-
----
-Changes in v3:
- - cc stable mail list
- - add Rb and Ab tag
-Changes in v2:
- - cover a cable returns PD_CTRL_NOT_SUPP case reported by sashiko
- - kick off vdm_discovery work to continue working
- - correct previous wrong fix commit id
----
- drivers/usb/typec/tcpm/tcpm.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 51e5c72799f2..09bfa596bc5c 100644
---- a/drivers/usb/typec/tcpm/tcpm.c
-+++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -3909,6 +3909,16 @@ static void tcpm_pd_ctrl_request(struct tcpm_port *port,
- 		case SRC_READY:
- 		case SNK_READY:
- 			if (port->vdm_state > VDM_STATE_READY) {
-+				if (port->ams == DISCOVER_IDENTITY) {
-+					if (rx_sop_type == TCPC_TX_SOP) {
-+						tcpm_update_vdm_discovery_state(port,
-+								VDM_DISCOVERY_COMPLETE);
-+					} else if (rx_sop_type == TCPC_TX_SOP_PRIME) {
-+						tcpm_update_vdm_discovery_state(port,
-+								VDM_DISCOVERY_CABLE_IDENT);
-+						mod_vdm_discovery_delayed_work(port, 0);
-+					}
-+				}
- 				port->vdm_state = VDM_STATE_DONE;
- 				if (tcpm_vdm_ams(port))
- 					tcpm_ams_finish(port);
--- 
-2.34.1
-
+On 2026/11/7 2:15, Chen Pei wrote:
+> This series adds private-stack support to the RV64 BPF JIT.
+> 
+> The verifier rejects a struct_ops program that requests a private stack
+> with -EACCES when the JIT does not report
+> bpf_jit_supports_private_stack(), and sched_ext requests one for its
+> dispatch callback, so no sched_ext scheduler can load on riscv64 today.
+> 
+> Allocation, the guard value and the lifetime handling follow arm64,
+> x86-64 and powerpc64; the 16 byte two-copy guard layout follows arm64
+> and powerpc64, since x86-64 uses an 8 byte guard with a single copy.
+> What is specific to riscv64 is where the pointers end up:
+> 
+>   - Every BPF stack access goes through BPF_REG_FP (S5), so pointing S5
+>     at the top of the per-CPU area and leaving SP on the kernel stack is
+>     all the JIT has to do. S5 is callee-saved and each subprog derives
+>     its own, so bpf2bpf calls need no extra save and restore.
+>   - The outgoing stack argument area stays in the kernel frame: callers
+>     write it relative to SP while callees read it relative to RV_REG_FP.
+>     Unlike x86-64, no register here is shared with the private-stack
+>     frame pointer, so no verifier-side exclusion is needed and stack
+>     arguments keep working together with a private stack. arm64 already
+>     does the same, and patch 3 tests that combination.
+>   - The per-CPU lookup is emitted after the tail call entry point. A
+>     program using a private stack can still be entered as a tail call
+>     target, at RV_TAILCALL_OFFSET, so it has to set up its own S5 there;
+>     and since that offset is a constant added to the target's bpf_func,
+>     everything in front of it must be the same size in every program.
+> 
+> The base address is materialized with absolute moves, as on arm64,
+> x86-64 and powerpc64, which reach the per-CPU offset through gs:, TPIDR
+> or r13; riscv64 has no such register, so the address of __per_cpu_offset
+> is loaded too. Patch 1 has the detail, including why emit_imm() is a
+> choice there and why the prologue length stays fixed across passes.
+> 
+> RV32 does not declare support and keeps the existing behaviour; the
+> prologue signature is unchanged, so bpf_jit_comp32.c needs no edit.
+> 
+> Changes since v2:
+>   - Patch 1: PRIV_STACK_GUARD_VAL moved to bpf_jit.h.
+>   - Patch 3: The test redone as two asm programs in
+>     progs/verifier_stack_arg.c.
+> 
+> Changes since v1:
+>   - Patch 1 commit message: guard layout credited to arm64 and powerpc64,
+>     value alone to x86-64; __per_cpu_offset described as a choice.
+>   - Patch 3: test_private_stack_runtime() renamed to
+>     serial_test_private_stack_runtime(), and the stack argument skip
+>     prints a reason.
+> 
+> Testing
+> =======
+> QEMU virt rv64, an 8 vCPU SMP kernel and a 1 vCPU UP kernel, both built
+> on the base commit below, source tree clean at the head of this series,
+> selftests built from these patches. There are no private-stack related
+> failures, and the private-stack suites logged no BUG, WARNING, unknown
+> opcode or guard corruption. On UP, kfunc_call/subprog,
+> kfunc_call/subprog_lskel and scx_simple are not run: all three fail on
+> the unpatched base as well.
+> 
+>   - verifier_private_stack, struct_ops_private_stack.
+>   - tailcalls, stack_arg, subprogs, fentry_fexit, kfunc_call,
+>     percpu_alloc, async_stack_depth, arena_atomics, arena_ldsx.
+>   - verifier_stack_arg, stack_arg_precision.
+>   - may_goto_priv_stack, may_goto_far, verifier_may_goto_1,
+>     verifier_may_goto_2.
+>   - scx_simple.
+>   - sched_ext runner sweep on SMP: 40 cases, 39 pass. enable_cmask fails
+>     because its ops.enable() takes a struct scx_cmask __arena pointer and
+>     riscv64 does not implement bpf_jit_supports_arena_args().
+>   - patch 3's test again on x86-64 and arm64, so all three
+>     architectures it is gated on have run it.
+> 
+> Chen Pei (3):
+>    riscv: bpf: Add BPF private stack support
+>    selftests/bpf: Enable private stack tests for riscv64
+>    selftests/bpf: Test a private stack together with stack arguments
+> 
+>   arch/riscv/net/bpf_jit.h                      |  2 +
+>   arch/riscv/net/bpf_jit_comp64.c               | 42 +++++++++-
+>   arch/riscv/net/bpf_jit_core.c                 | 82 +++++++++++++++++--
+>   .../bpf/prog_tests/struct_ops_private_stack.c |  3 +-
+>   .../bpf/progs/verifier_private_stack.c        | 41 +++++++++-
+>   .../selftests/bpf/progs/verifier_stack_arg.c  | 49 +++++++++++
+>   6 files changed, 205 insertions(+), 14 deletions(-)
+> 
+> 
+> base-commit: a3c8813409f13779fec225468aba7d4067a66468
