@@ -1,97 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795465544;
-	b=UDEFXUND0UpgsbflZk9Jq2as3EixkjgvY+fmxq3MJgz3exBDIKsgmwMDtmeaf3VX9C6F
-	 IrVyLwjPLjyTGw4BQeIIYhxm3aKgOcGk5smOpg0q6agzW89dFfDgo5AbioHzKkWMuLMWe
-	 oeQ1P5J8ZhZ2yS6hrJepZt49tuqLiMZ1ZKMaRgpRqd+5/cLZoFEfxXSwXy2cRnlTVs5QM
-	 PhRnnXupPxL099rDDM67XxDPMbvcI7eIy+OpPAvJLy+03pAzbXhZ2KkSQHxGdqrTH0KqA
-	 Hu7a0dWo27FsmrIwvIwN3vVjkyDQguNaEpAB+8th3i1VeHLCUTBEyIGY3gQUKDvyYbw==
+	t=1795465549;
+	b=LT7WQDq63vHJTvAR/F/+f2+PkgUjvGZ2W7pw1FLR/PmR0V+cAyDep5CSir8Jcp9/aq8C
+	 3yTtbVPYa7x7bI/QdiuvByy+WB6Pzhb5X6DZ/n7Ym8/6Oq593nyptdW1amgelxU6NdMud
+	 sklFtoPm3peJEtQzRf+FZWi3JxujtEpvmk9uXojoicONfc7GkGa6wNTk7jY3zM3g+R8Bq
+	 Isq4FHmKEzPq21FjlzYR+SgwMsjvYUwbBka/1Yex418oufWw8nJxAMzuvr/8h0fzmGSFS
+	 Z6ECHspQSr9+v8x4m5HKmfGRabutexg5m82BSFd2/sIHRa+R/rduqAHMmArNY3elUdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795465544;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=htaRIjRweiLZjcs4Tzl0zEgyIU7UNaepRLCTi+oWXpM=;
-	b=psZFRKNbW5BO3djTuE5TA4jY72QjOqJrnDAsZh7vLnzLLoyHiytTB8Vdr3d79zUJ1o2U
-	 8rzaDS1/ZK6NldGtyLaj15gu3p7DMlld5PhZbm0TEKyV6vS68+F5y6N2VeEQlI956Wmxw
-	 VorYSapRW+g4vt+UlKfzbU8BWQDd1MdmFDvPy73pwmMTmliwQRXRh/1TK/DFrqMPROKU9
-	 qh6TAxk+ipbxke1El7Nvw/D5CfNCDRnK/xeEPwMIwjQzu886kPTaYgmnNgLGAJIIE8oLD
-	 aXwiv5+3uNHuVag/X+mrpoZlgCL0B1c60fbkf0HCA80hUyIMyxVUxlimu1jTe2L/XUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795465549;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=MQ2RrQtG1OM0LiBJp2KbHu85/ogHhtSJ39duNkPwNTM=;
+	b=Ps3qch0rIGPiNMkRDsif/1Ofchh2cpHg9Uzcub6qwkhv/gIyI2aagxUwOG/hWSnXwyeq
+	 Sbnahr3rKD7DGDzZqEeOpUf2jhu95DdWUVoRdD0idbBvBcSeS1bEUsN/RhFIFMWMseQMm
+	 H8gD1JD1u7rl+xr5MDzG6K6XjsdM8/8JcSw1RHPWBiDBRyhc6q3cKf79Z5ktlcmTPfY3D
+	 QOVNkDDzDvuvzVCyrdNdlLo++ttgmaqqBQ2nOk/YpBRsASsl884U4HoQYOd9XVFGwZ/Re
+	 z+TIS4Efiov7DhOrYcKBBmhhe1y7du8pW+PBgkx1Mh3j0gcDOCsM1s/ZIKpYfB0zT/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LGoQEP38;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gKiuorXW;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B14BC606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:25:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B14BC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03110606A31E;
+	Mon, 23 Nov 2026 20:25:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03110606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LGoQEP38
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-385d8a00598so5213892eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:25:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795465543; x=1796070343; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=htaRIjRweiLZjcs4Tzl0zEgyIU7UNaepRLCTi+oWXpM=;
-        b=LGoQEP38QC3mznKKpYLgQAySy0alTcR0n0d7eNlMT3FTZ1BpQLcmGokdl0DN0D4DEi
-         47ol5mg9dX4fE+VZWjDPKzH2w00w48XuQmGfvKWD30EwXq4wBxe2OswhF+w8cYXN8Yvh
-         GXWkJ4OuH/HOLmkq91vhcZdPy2oROb6p1SQsZzZC49xdJZVUd0doiVxlS2wNVTRB1Zf1
-         swaGUIsQ4cEvd35wpIMB3iECKpLwpiSKr8ymAleMNompx+7dgzkqhjVtbNdU7D1+KLbS
-         4UqVK2cEA/Gnqkl6pXK7FD3rEANBEflkhlpTtkxAXmeEQWmOIp72hjpMQ1KC9MFWoxje
-         HGZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795465543; x=1796070343;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=htaRIjRweiLZjcs4Tzl0zEgyIU7UNaepRLCTi+oWXpM=;
-        b=wwUWhANQclXcvn2mZ8izg19KBc1qI8EK9uEdTGPof6uuhChO3gEWVj0fXLuczKSzWP
-         rEN/7Pg5AJf4siiwDeR2K2wA7gwlzUIMuHz2mU4hw+4jSqCEFvX6J7k1zaYo7z+C/pnM
-         Wd3yFYLwC6GLaZED67fInvHvuPH0RYLT6KHAaaZU0ub6KSXNE+c7e3rilj8P7sO7Y26X
-         jsQNqj1wEDc/9dPPClo+e3tNm/gxZjK5sXPSTDtqXDjcUFO8mFySXvU4P3QiYjnABtip
-         tAbiIP6CbLCO8NdlinUT+/KI23YqIE3ejYZkIOYBNy2WSJEvINTX9QmxKsvtwzj+1DKH
-         I4GQ==
-X-Forwarded-Encrypted: i=1; AL+hErEAo7cRsnM2I6y1GCp7EG3iErYJooB+00OZ2huwcfrqAo1F1MRs9my3PXHGrXuwywHRwEV3GqaveX3/p8k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8P7GxqP6O0tHGHQvYGhLtgpRljQh8xLFDw1kSKlhsYok2ovGT/
-	TTlhQ7XGOD//NR5m89qW3XcGmfHYldj6ZSRxLXXQvdmYNYzsSCejG2oc
-X-Gm-Gg: AZFdTZeDO7amb5o/WYGDPgkHT9ymO+0dZhsRF38Ck9E3M9Z5SLrIsEgD/v9sYoH+AEf
-	eW4y9V6yzIkg7FIA0t4q5mzFZN76il+ZHcqdA6QAbdYCosqGcedfdXhip75rBi+tKcPUDvKATX3
-	OFNrAc+HjJ9GP0aBAdoIVBATc0LnRnxV8xx1kRopsvjE6jOmxanPb9nX1Xhw3CM/i/6QT+qDRfk
-	0ix+xkyPa4eLbVj1QFTbzRPPeJjG+eItZfHNyJsuusilM4tQPVJ1G03GYT4Wq6KyPs6x84Ya7E1
-	v218PegMB19W8x90U35zVyrnH4rWgErdvrAgsQsWA0yG7G2NLyQMJ8j91KWTx91uVwXYK5Um5I6
-	rwlfyToc9iDKWUM+Fd5XwNs84pAViNYpMjIBzk1VCRcac12fpfI0uijB6uEOUxR028FGsMQx07f
-	h8TPR5RDHMq9tEprXusq4P4u1goCP+R5dI7E+t1O3surpeMZnpOkDB7nEacAC6DE02bz7LCN8Pr
-	85Rb+pIdcwGc+KtoZrBaC7w+y5qwE3/g8st4MRELVQHS3q8eeu5uFkdELeAD9XkmmU/oQAE8TIz
-	x/QTowrWlXDAwuiRypsdOn+aLz5D/zXkdHE+xdlgLYaa27BGhYtflej1Bj4b4QKallaQr74LmmV
-	AfDTwtEOMTy9EZwHI
-X-Received: by 2002:a05:7301:211a:b0:373:5561:8d06 with SMTP id 5a478bee46e88-38570c36e7cmr11463927eec.37.1795465542635;
-        Mon, 23 Nov 2026 12:25:42 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm46389898eec.11.2026.11.23.12.25.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 12:25:40 -0800 (PST)
-Date: Mon, 23 Nov 2026 12:25:37 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Samuel Holland <samuel@sholland.org>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Takashi Sakamoto <o-takashi@sakamocchi.jp>, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 09/10] Input: pinephone-keyboard - request IRQ before
- registering input device
-Message-ID: <awShPfjuvVjlw-Kj@google.com>
-References: <20261123183200.3900004-1-lee@kernel.org>
- <20261123183200.3900004-10-lee@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gKiuorXW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795465547;
+	bh=MQ2RrQtG1OM0LiBJp2KbHu85/ogHhtSJ39duNkPwNTM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=gKiuorXWWGlvRFndCd/W8ewTB3EtABWyQ6+hc877mXzlUNbbP4XJIBBMTvCVB+v/d
+	 FFA3cvYHquUuQMM+nwqrclYAoq9XC+3Iov6VT/Xs6wpwBDT1fArFbYFwvhcUri2Mb7
+	 zJBVnBdPSalWeUtd1c/2EPHlNCZSoXBFG5pXjoL3v8rW2fRawmhr9BtkOS89qfT3cb
+	 wKSZbtFmJ+1mdXY4ngtB+hJjWgQsPWdDq6Ziw+qUmUjAgixAray1SiL3Su8RkHoakF
+	 vY/h01988YIziDCHUmmbZVaWxzC6gWIrTLLk2YbStXFwJjNovyEriSgQzDoEDpW56a
+	 FvBZeATeA93/w==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C701217E0CD7;
+	Mon, 23 Nov 2026 21:25:44 +0100 (CET)
+Message-ID: <8624fb6a39e5e13466882f01ea54842252f154af.camel@collabora.com>
+Subject: Re: [PATCH v8 09/11] media: chips-media: wave6: Add performance
+ profiling
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>, Frank Li <Frank.li@oss.nxp.com>, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+Cc: "mchehab@kernel.org" <mchehab@kernel.org>, "hverkuil@kernel.org"	
+ <hverkuil@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
+ "krzk+dt@kernel.org"	 <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+ <conor+dt@kernel.org>,  "Frank.Li@nxp.com"	 <Frank.Li@nxp.com>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+ "linux-media@vger.kernel.org"	 <linux-media@vger.kernel.org>,
+ "devicetree@vger.kernel.org"	 <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org"	 <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, "festevam@gmail.com"	
+ <festevam@gmail.com>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
+ "ming.qian@oss.nxp.com"	 <ming.qian@oss.nxp.com>, "marek.vasut@mailbox.org"
+ <marek.vasut@mailbox.org>,  "jackson.lee" <jackson.lee@chipsnmedia.com>,
+ "lafley.kim" <lafley.kim@chipsnmedia.com>
+Date: Mon, 23 Nov 2026 15:25:43 -0500
+In-Reply-To: <SL2P216MB244104B49860D6D6B3A92821FB452@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+References: <cover.1795075577.git.nas.chung@chipsnmedia.com>
+	 <5702baa6ed97eb30dec14bddba2919252ec8f3c8.1795075582.git.nas.chung@chipsnmedia.com>
+	 <av9iadpXveXGb0R0@SMW015318>
+	 <SL2P216MB244104B49860D6D6B3A92821FB452@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-hywlTlSbm67gmuaBuGD6"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,33 +103,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123183200.3900004-10-lee@kernel.org>
 
-On Mon, Nov 23, 2026 at 06:31:15PM +0000, Lee Jones wrote:
-> ppkb_probe() registers ppkb->input before installing its threaded
-> interrupt handler with devm_request_threaded_irq().
-> 
-> As soon as input_register_device() exposes the keyboard (including
-> synchronous open by the console keyboard handler), ppkb_open() enables
-> matrix scanning.  If a key is held during this window, the controller
-> asserts its level-triggered interrupt line before the handler is
-> registered, causing the kernel to disable the unhandled IRQ.  In
-> addition, devres unwinds in reverse order on unbind, freeing the IRQ
-> handler before input unregistration invokes ppkb_close() to disable
-> scanning.
-> 
-> Request the threaded IRQ before calling input_register_device() so the
-> handler is in place before scanning can be enabled and outlives input
-> unregistration on teardown.
-> 
-> Fixes: 17406967ec0f ("Input: pinephone-keyboard - add PinePhone keyboard driver")
-> Closes: https://sashiko.dev/#/bug/linux-f24d8390-cd48-42d7-a3ea-c075b69c127a
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
+--=-hywlTlSbm67gmuaBuGD6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Applied, thank you.
+Hi,
 
--- 
-Dmitry
+Le lundi 23 novembre 2026 =C3=A0 09:18 +0000, Nas Chung a =C3=A9crit=C2=A0:
+> Hi, Frank.
+>=20
+> > -----Original Message-----
+> > From: Frank Li <Frank.li@oss.nxp.com>
+> > Sent: Friday, November 20, 2026 5:56 AM
+> > To: Nas Chung <nas.chung@chipsnmedia.com>
+> > Cc: mchehab@kernel.org; hverkuil@kernel.org; robh@kernel.org;
+> > krzk+dt@kernel.org; conor+dt@kernel.org; Frank.Li@nxp.com;
+> > s.hauer@pengutronix.de; linux-media@vger.kernel.org;
+> > devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
+> > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
+> > festevam@gmail.com; kernel@pengutronix.de; nicolas.dufresne@collabora.c=
+om;
+> > ming.qian@oss.nxp.com; marek.vasut@mailbox.org; jackson.lee
+> > <jackson.lee@chipsnmedia.com>; lafley.kim <lafley.kim@chipsnmedia.com>
+> > Subject: Re: [PATCH v8 09/11] media: chips-media: wave6: Add performanc=
+e
+> > profiling
+> >=20
+> > On Thu, Nov 19, 2026 at 06:00:03PM +0900, Nas Chung wrote:
+> > > Add per-instance performance profiling to help identify whether a
+> > > throughput problem comes from the firmware or from the host side.
+> >=20
+> > why not register as perf interface?
+>=20
+> The numbers are kept per instance (per open file). Each instance has
+> its own fps, latency and min/max frame time, and they are updated each
+> time one of its frames is done.
+>=20
+> As far as I know, perf can only count per CPU or per task, and a device
+> PMU usually counts for the whole system. So perf would only show the
+> total of all instances, and we could not get the min/max frame time
+> from it.
+
+My preference would then go toward .fdinfo() then instead of custom debug f=
+s. It
+gives the FD owner the right to see the statistics and not just root. Here'=
+s an
+example of in progress attempt. The idea is that some key would be generali=
+zed
+and documented and some other key would be driver specific (e.g. wave6- pre=
+fix).
+
+https://lore.kernel.org/all/20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@coll=
+abora.com/
+
+Then once we've upstream v4l2top, one can track the performance live, and y=
+ou
+can even add driver specific metrics.
+
+Nicolas
+
+>=20
+> Thanks.
+> Nas.
+>=20
+> >=20
+> > Frank
+> >=20
+
+--=-hywlTlSbm67gmuaBuGD6
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawShRwAKCRDZQZRRKWBy
+9PT1APwIoRkl5PprFS3ATJ/OPwAb4iqJR1TdxwP7/noc44qDbAD+N7Yli8uqL8oV
+LEytlo3i71WPvgSfaRViB9O04fQiyQw=
+=qWVx
+-----END PGP SIGNATURE-----
+
+--=-hywlTlSbm67gmuaBuGD6--
