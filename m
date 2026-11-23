@@ -1,77 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.79
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795456527;
-	b=xFMUWIubCCgTTAgXrYbVyLTvo70CHY54yT3IjlHuvC8yl0n2Oy32rlOOXs+LIekOAdZ1
-	 S+x2i9e8R51zFE6Kejf6tmiCM5L+nIEuC0/crGl9Vf/VJncPYCkdbeHyAIVz6jTP61aay
-	 Z+doAFCGhNgfJk43l06abfafH9ZyL45PI32bFdCCZ0GWe273HzEJ+BxxtMCieb4x/tk+q
-	 NNg23hdRBQWWLooigHLfsW0JxCtatUqosQttEh9hANT3TWRkwrpTTl2SB5a3uspOjHxM7
-	 t2eabGREygfxixCiAnjqOGO7r9qu/KFSo3P7OTMo/snOP4ljOYMUlR6OyBG+4RZ2RXA==
+	t=1795456523;
+	b=4gUgH8frkCAjrpoW5jZZU1UfYU39uN6h7WWKby2BT+afy9DjLretL5S28kOOZVDDShqX
+	 T2CjaNp0yfIlpgclmqzPG6z/HFB1u/zF54/VwBsMjxNDWYp0kly10kSoPZxKORXEU5Dto
+	 lBPCzKB+blFW2HAAxqPvj8jdMqz6vO4IzVlGE5wx5tpbeTFLQOdAE4IB3UzuRH2MORS5V
+	 m7KZ0C3Fe2ffh+qTlslZtUuNQhhgR6Qftlo0jWWGNhkqItWKnAT0DiePVXrRlnjfgvxIu
+	 ugcBoVTzSC3zcYvJpC2Ys9MvrtNYkFqRcpRLzjmS6ojAJkxEJ+vW3uPPK63wwm4ijzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456527;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=pv8NxRRFoV2NHVLt/9H8W3sS+jPwZaBtaDG4xFEI9x4=;
-	b=pkY78TfQPGFEknWuKGfb92fcK6ue1gYm5zRpmw56AHMPJc+MuCPsRYjRaoVggiKiSLDJ
-	 Wl22snFxE4JAW5ovcq6QguEbpjQk2rFejO8+q4y8fk/U5Uqzd7g2PpIWLR9gGCOteRr0S
-	 utBGZP/L4j8lk6F3Fl7JwtGfBu1TvwQDW2sbRBmryL7aGZDVqr0Z1jhIJMHkDa1X6sG3S
-	 SKmJ6+0o5ShKDufhQL8CUFPis8lOXh26CPPJoxzVbsQd8rCj6ZthWM/NVuzLg+Lx1Yu94
-	 vQ5yagn/ohOjwtNAIFOIZf3nOBJXkoVYgNfdgL0/cFxnix3b3eOEWSj7Jw4x79UAzTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456523;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=xMHaM0uSgX3eSpN4mZEmyB3Lyh48q6GW6tOkCnfZECI=;
+	b=xq4GIuxIRrsxz1E/tk83KB0oMdqU4006EaR6/GjXPtnOR9R8VS6WkXj9NJlUs9XLAwAk
+	 A7tYtgvn0yVdaO8thruJcXwD/lQzN9XltuQjEVUQR+2WzEsTSzpBZHVpoU4V4Cg5Jv5+4
+	 YIaagGUm32xiic9sKOItINzweBN+0+z6by9P0MBLzjGCjx2//LyODMzQ71yWXL9tNVqMQ
+	 1tmRzDT15BZ/6YMliyN+PNb26VPMK/LOks/odQMX5mc6svIFCpSkC0RFtftqWURdzRZUr
+	 L7ZbqVeND0zq9H+HHxgFlgoTlbK39IFc1tSGsCm7JJLlGF3qxrUs/nMrY+fNm6QiyZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VnK+WI+a;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nAPVMx2m;
+	arc=none smtp.remote-ip=95.215.58.79
+Received: from mta1.migadu.com (out-79.mta1.migadu.com [95.215.58.79])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40A4E606A697
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:55:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40A4E606A697
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FC24606A331
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:55:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FC24606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VnK+WI+a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795456526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pv8NxRRFoV2NHVLt/9H8W3sS+jPwZaBtaDG4xFEI9x4=;
-	b=VnK+WI+axLFXef28d3DWDtqPUces3o0oEoxBvf5LZLjDvioPIOskVbGGe0sMITa5V5xMJI
-	G8Yv7k2kq3sixre5piZoRbKQGy3bWW9MU5wkbZza5B82P1Qqh8SbZ2HC/rjGi8tDbhhRqF
-	83Swkt8Hgzqhj6ZyDOncBvrOE/eo4ic=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-421-q9RBY17rMyuaLZ48rdjoXQ-1; Mon,
- 23 Nov 2026 17:55:22 +0000
-X-MC-Unique: q9RBY17rMyuaLZ48rdjoXQ-1
-X-Mimecast-MFC-AGG-ID: q9RBY17rMyuaLZ48rdjoXQ_1795456521
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 200D91954226;
-	Mon, 23 Nov 2026 17:55:21 +0000 (UTC)
-Received: from mlevitsk-thinkpadt14gen3.ibmmarkh.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2509F348;
-	Mon, 23 Nov 2026 17:55:20 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	x86@kernel.org,
-	Sean Christopherson <seanjc@google.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>
-Subject: [PATCH v3 5/5] KVM: x86: nVMX: fix races in delivery of nested posted interrupts
-Date: Mon, 23 Nov 2026 12:55:12 -0500
-Message-ID: <20261123175512.80438-6-mlevitsk@redhat.com>
-In-Reply-To: <20261123175512.80438-1-mlevitsk@redhat.com>
-References: <20261123175512.80438-1-mlevitsk@redhat.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nAPVMx2m
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=/8a5s3NnlmOS+o3OmDGmvQNljvm+stDs8p/PoHCQulk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795456520; v=1; x=1796061320;
+ b=nAPVMx2mzQQTQbJbg0Z4a11SsMepXBqjha69zs3FDfbtuGRPkWP1ni8+Rrj820a196YSt3Tl
+ sV1fP26pVukADIcJguZEuVdEWZNamVKifmfXXaa70LE/TjQBU7FEt7+mqC9hDqhrks7KckKI0pC
+ 2KBTh+s3+ooN7vphvD7KPThA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 9cef6277f6cdfc24;
+	Mon, 23 Nov 2026 17:55:19 +0000
+X-Mizu-Trace-ID: 9cef6277f6cdfc24
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <94a074f1-753c-4ed1-99e8-59d227f70ea3@linux.dev>
+Date: Mon, 23 Nov 2026 17:55:17 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,216 +58,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] fs/proc/task_mmu: read the PMD once in
+ smaps_pmd_entry()
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, apopple@nvidia.com,
+ byungchul@sk.com, david@kernel.org, gourry@gourry.net, jannh@google.com,
+ joshua.hahnjy@gmail.com, liam@infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, matthew.brost@intel.com,
+ mhocko@suse.com, pfalcato@suse.de, rppt@kernel.org, surenb@google.com,
+ vbabka@kernel.org, ying.huang@linux.alibaba.com, ziy@nvidia.com,
+ kas@kernel.org, hannes@cmpxchg.org, riel@surriel.com,
+ shakeel.butt@linux.dev, kernel-team@meta.com, baolin.wang@linux.alibaba.com,
+ Nico Pache <nico.pache@linux.dev>, ryan.roberts@arm.com, dev.jain@arm.com,
+ baohua@kernel.org, lance.yang@linux.dev
+References: <20261123163301.1568240-1-usama.arif@linux.dev>
+ <20261123163301.1568240-4-usama.arif@linux.dev> <awR2bZl4CvSuInmk@gremlin>
+Content-Language: en-US
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <awR2bZl4CvSuInmk@gremlin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-If a nested posted interrupt races with a L0 vm exit on a target vCPU,
-that is reflected to L1, then this nestedf posted interrupt is currently
-neither processed nor delivered to L1 as a regular interrupt.
 
-Since it is not possible to know if APICv hardware has processed
-the interrupt, opt to always process it a moment before nested VM exit.
-(call vmx_complete_nested_posted_interrupt)
 
-To ensure that vmx_deliver_nested_posted_interrupt and
-vmx_complete_nested_posted_interrupt don't race do the following:
+On 23/11/2026 09:24, Lorenzo Stoakes (ARM) wrote:
+> On Mon, Nov 23, 2026 at 08:32:09AM -0800, Usama Arif wrote:
+>> smaps_pmd_entry() dereferences the pmd pointer six times. Read it once
+>> into a local with pmdp_get(), the way smaps_pte_entry() already does
+>> with ptep_get(), so that every test sees the same value.
+>>
+>> No functional change intended.
+>>
+>> Suggested-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> 
+> LGTM so:
+> 
+> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Have a cmpxchg based loop in vmx_deliver_nested_posted_interrupt that
-atomically checks that target vCPU is in nested mode and has suitable
-posted interrupt configuration, and then set KVM_NESTED_PI_PENDING.
 
-If the above cmpxchg loop succeeds, this means that even if the target vCPU
-is in process of exiting the nested guest, it will notice this
-KVM_NESTED_PI_PENDING flag when it reaches its
-vmx_complete_nested_posted_interrupt, and then it will process it.
+Thanks for the reviews!!
 
-If it fails, it means that the target vCPU is no longer in the guest
-mode, and thus it is safe to deliver the interrupt as a normal interrupt.
+> 
+>> ---
+>>  fs/proc/task_mmu.c | 11 ++++++-----
+>>  1 file changed, 6 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+>> index 540c936aad4714..105c4998eef48f 100644
+>> --- a/fs/proc/task_mmu.c
+>> +++ b/fs/proc/task_mmu.c
+>> @@ -1022,14 +1022,15 @@ static void smaps_pmd_entry(pmd_t *pmd, unsigned long addr,
+>>  	struct page *page = NULL;
+>>  	bool present = false;
+>>  	struct folio *folio;
+>> +	pmd_t pmdval = pmdp_get(pmd);
+> 
+> NIT: Can this be const or are the helpers not safe for it?
 
-Apply a similar logic on the receiving side:
-Use xchg to snapshot the old value of guest state in leave_guest_mode,
-and by using this snapshot, determine if we need to process
-the posted interrupts.
+Ah yes, good point. Its good to have const here.
 
-Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- arch/x86/kvm/regs.h       |  5 ++--
- arch/x86/kvm/vmx/nested.c | 30 ++++++++++++++------
- arch/x86/kvm/vmx/vmx.c    | 60 +++++++++++++++++++--------------------
- 3 files changed, 54 insertions(+), 41 deletions(-)
+I think the rest of the series is good to merge. Should I wait
+a few days and send a new revision with the const change here?
 
-diff --git a/arch/x86/kvm/regs.h b/arch/x86/kvm/regs.h
-index 58950f7d4713..f8b66d85705b 100644
---- a/arch/x86/kvm/regs.h
-+++ b/arch/x86/kvm/regs.h
-@@ -461,9 +461,9 @@ static inline void enter_guest_mode(struct kvm_vcpu *vcpu)
- 	vcpu->stat.guest_mode = 1;
- }
- 
--static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
-+static inline int leave_guest_mode(struct kvm_vcpu *vcpu)
- {
--	atomic_set(&vcpu->arch.nested_guest_state, 0);
-+	int old_value = atomic_xchg(&vcpu->arch.nested_guest_state, 0);
- 
- 	if (vcpu->arch.load_eoi_exitmap_pending) {
- 		vcpu->arch.load_eoi_exitmap_pending = false;
-@@ -471,6 +471,7 @@ static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
- 	}
- 
- 	vcpu->stat.guest_mode = 0;
-+	return old_value;
- }
- 
- static inline bool is_guest_mode(struct kvm_vcpu *vcpu)
-diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index 8d242d46a245..9c2a411bb2bc 100644
---- a/arch/x86/kvm/vmx/nested.c
-+++ b/arch/x86/kvm/vmx/nested.c
-@@ -4025,23 +4025,16 @@ static void vmcs12_save_pending_event(struct kvm_vcpu *vcpu,
- 	}
- }
- 
--static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
-+static int __vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
- {
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
- 	int max_irr;
- 	void *vapic_page;
- 	u16 status;
- 
--	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
--
--	if (!(nested_state & KVM_NESTED_PI_PENDING))
--		return 0;
--
- 	if (!vmx->nested.pi_desc)
- 		goto mmio_needed;
- 
--	atomic_andnot(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
--
- 	/*
- 	 * Don't test the value of PID.ON.
- 	 * It is valid to trigger a posted interrupt without setting this bit
-@@ -4078,6 +4071,18 @@ static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
- 	return -ENXIO;
- }
- 
-+static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
-+{
-+	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
-+
-+	if (!(nested_state & KVM_NESTED_PI_PENDING))
-+		return 0;
-+
-+	atomic_andnot(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
-+
-+	return __vmx_complete_nested_posted_interrupt(vcpu);
-+}
-+
- static void nested_vmx_inject_exception_vmexit(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_queued_exception *ex = &vcpu->arch.exception_vmexit;
-@@ -5090,6 +5095,7 @@ void __nested_vmx_vmexit(struct kvm_vcpu *vcpu, u32 vm_exit_reason,
- {
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
- 	struct vmcs12 *vmcs12 = get_vmcs12(vcpu);
-+	int old_nested_state;
- 
- 	/* Pending MTF traps are discarded on VM-Exit. */
- 	vmx->nested.mtf_pending = false;
-@@ -5121,7 +5127,13 @@ void __nested_vmx_vmexit(struct kvm_vcpu *vcpu, u32 vm_exit_reason,
- 	if (enable_ept && is_pae_paging(vcpu))
- 		vmx_ept_load_pdptrs(vcpu);
- 
--	leave_guest_mode(vcpu);
-+	old_nested_state = leave_guest_mode(vcpu);
-+
-+	/* pairs with implicit memory barrier in vmx_deliver_nested_posted_interrupt */
-+	smp_mb__after_atomic();
-+
-+	if (old_nested_state & KVM_NESTED_PI_PENDING)
-+		__vmx_complete_nested_posted_interrupt(vcpu);
- 
- 	if (nested_cpu_has_preemption_timer(vmcs12))
- 		hrtimer_cancel(&to_vmx(vcpu)->nested.preemption_timer);
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index e6dd37a3ac44..4a5adb1507ce 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -4370,41 +4370,41 @@ void vmx_recalc_intercepts(struct kvm_vcpu *vcpu)
- static int vmx_deliver_nested_posted_interrupt(struct kvm_vcpu *vcpu,
- 						int vector)
- {
--	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
-+	int old = atomic_read(&vcpu->arch.nested_guest_state);
-+
-+	while (true) {
-+		if ((old & (KVM_NESTED_PI_ACTIVE | KVM_NESTED_PI_VECTOR_MASK)) !=
-+		    (KVM_NESTED_PI_ACTIVE | vector))
-+			return -1;
-+
-+		WARN_ON_ONCE(!(old & KVM_NESTED_IN_GUEST));
-+
-+		if (atomic_try_cmpxchg(&vcpu->arch.nested_guest_state,
-+		    &old, old | KVM_NESTED_PI_PENDING))
-+			break;
-+	}
- 
- 	/*
--	 * DO NOT query the vCPU's vmcs12, as vmcs12 is dynamically allocated
--	 * and freed, and must not be accessed outside of vcpu->mutex.  The
--	 * vCPU's cached PI NV is valid if and only if posted interrupts
--	 * enabled in its vmcs12, i.e. checking the vector also checks that
--	 * L1 has enabled posted interrupts for L2.
-+	 * If a posted intr is not recognized by hardware,
-+	 * we will accomplish it in the next vmentry.
- 	 */
--	if (is_guest_mode(vcpu) &&
--	    vector == (nested_state & KVM_NESTED_PI_VECTOR_MASK)) {
--		/*
--		 * If a posted intr is not recognized by hardware,
--		 * we will accomplish it in the next vmentry.
--		 */
--		atomic_or(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
--		kvm_make_request(KVM_REQ_EVENT, vcpu);
-+	kvm_make_request(KVM_REQ_EVENT, vcpu);
- 
--		/*
--		 * This pairs with the smp_mb_*() after setting vcpu->mode in
--		 * vcpu_enter_guest() to guarantee the vCPU sees the event
--		 * request if triggering a posted interrupt "fails" because
--		 * vcpu->mode != IN_GUEST_MODE.  The extra barrier is needed as
--		 * the smb_wmb() in kvm_make_request() only ensures everything
--		 * done before making the request is visible when the request
--		 * is visible, it doesn't ensure ordering between the store to
--		 * vcpu->requests and the load from vcpu->mode.
--		 */
--		smp_mb__after_atomic();
-+	/*
-+	 * This pairs with the smp_mb_*() after setting vcpu->mode in
-+	 * vcpu_enter_guest() to guarantee the vCPU sees the event
-+	 * request if triggering a posted interrupt "fails" because
-+	 * vcpu->mode != IN_GUEST_MODE.  The extra barrier is needed as
-+	 * the smb_wmb() in kvm_make_request() only ensures everything
-+	 * done before making the request is visible when the request
-+	 * is visible, it doesn't ensure ordering between the store to
-+	 * vcpu->requests and the load from vcpu->mode.
-+	 */
-+	smp_mb__after_atomic();
- 
--		/* the PIR and ON have been set by L1. */
--		kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_NESTED_VECTOR);
--		return 0;
--	}
--	return -1;
-+	/* the PIR and ON have been set by L1. */
-+	kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_NESTED_VECTOR);
-+	return 0;
- }
- /*
-  * Send interrupt to vcpu via posted interrupt way.
--- 
-2.56.1
+> 
+>>
+>> -	if (pmd_none(*pmd))
+>> +	if (pmd_none(pmdval))
+>>  		return;
+>> -	if (pmd_present(*pmd)) {
+>> -		page = vm_normal_page_pmd(vma, addr, *pmd);
+>> +	if (pmd_present(pmdval)) {
+>> +		page = vm_normal_page_pmd(vma, addr, pmdval);
+>>  		present = true;
+>>  	} else if (unlikely(thp_migration_supported())) {
+>> -		const softleaf_t entry = softleaf_from_pmd(*pmd);
+>> +		const softleaf_t entry = softleaf_from_pmd(pmdval);
+>>
+>>  		if (softleaf_has_pfn(entry))
+>>  			page = softleaf_to_page(entry);
+>> @@ -1046,7 +1047,7 @@ static void smaps_pmd_entry(pmd_t *pmd, unsigned long addr,
+>>  	else
+>>  		mss->file_thp += HPAGE_PMD_SIZE;
+>>
+>> -	smaps_account(mss, page, true, pmd_young(*pmd), pmd_dirty(*pmd),
+>> +	smaps_account(mss, page, true, pmd_young(pmdval), pmd_dirty(pmdval),
+>>  		      locked, present);
+>>  }
+>>  #else
+>> --
+>> 2.53.1-Meta
+>>
+> 
+> --
+> Cheers, Lorenzo
 
