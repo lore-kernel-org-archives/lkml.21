@@ -1,78 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795467177;
-	b=jnDe2Q4mX7GqXJHYX8E7BMXXC5tZMW306o7bC3IRlqo797qDcMxpwXHjGZrUdo1/03SF
-	 eKImpVQ1VgKjOfOppElYy8piU6UyVl+kg11koo0JW50+OxueJK+gerrH3IFbw1Jj4Y6Dr
-	 2UVOb8GsoksBIwUwZeweJRN/7dyNzKTDBZz/vCZ0yjnNQHiI0IQUlFc+88bDsUDPw95QL
-	 sdk//fXTT5atq4M2Y3IBqkOzTOr+VOOD2VA1r/kgQLxvwipBXC+7pB9gwZvqtkJi8EDPG
-	 mqO5QcbdzzoPC+19L00vkavyFejyBYJZMfKOtN+sa65FnDpGAJcchdYv5apCzQHtg0w==
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=52.101.69.74
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795467195;
+	b=cN/6+l5VYI+0QFgdinDrFnF73gHa9AjEcUzBdrkmVqXTWtP1RYG3KMtFMYrobJtno4U1
+	 7cEHux2zcaWZW3b5bXX44JtjxQjiP8w7mKAKD9wnF44sMKShFGFadvgjkGd/yTcGBAnu2
+	 +YUwb2bhCK7fpAjQQMoKiCzHqSSB0xU101D8tjk1Bi4sQPiTEg7CSpkZXOkB1JDzEoypn
+	 DXwQO2XaED78+9jM7iHueVtDpFE4zgr7+73kFRyD0TM7FfGZeuhPLR1ED+dvmSCTypCvc
+	 VRhrSGI9hY6uY3p5qGpf4Mlxb7AdF8/+ox9yy+Hkxfcudv/hAsvxdwnl5JbYx0Jg+hQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467177;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=wK+wIXjcAlTX5Hq8+BkCkD9G9YP95vK3PD6G0LiWqOA=;
-	b=DmBfid9oCwXrRp6Me8pa2pwCrWnAsFn4w1PcSCi0RTJHHk96BPLXMqoPOvJCb0OjH8r5
-	 kWe0lvoKzcE4I16WgnMXa0zkp6kfCa/vNwREMP33hVtjjHT1HWGUbkgoeVz+NI5xvNYn3
-	 5eGSt/fjjmOpvmiYNwLyi4UnUKtF40hDuRRlzWfzzS2U6WiaNETAEDv2S7d5rhIz5xTQC
-	 rEfu5Ea9LbV+Qo0frM93ACuNXjpVMiMGT7YM6HUqCYDgyr8pUY53Q0ucmuu4MG+PmLGgo
-	 2YDpnFYLpALXr4Vzf7/s/QnCbHel2H9K6Lb2GEg/6v/rhwq/xe1NW6er/696uAodwgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795467195;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=fxl9L+3HNA632eMlFsKvn8+iU+IZYlYl8FjyvLzrO+s=;
+	b=lMWgW/PgRTlw89qW+wsAMmPL2SJDGHx4N7I9PtZNYI64jKf0r0r65Pl85FICHvYnlR8I
+	 vKRalTSoHV5Es0N7vBfbPOVSheOiQhSoDrd7ZcmWpH8JcOPYGfcSc0X4C/Fbj9s0rius8
+	 70nnXarEbmd6rZsKxk/pR5p1benbmeA10aifbcPUTgNPcGfIxOGVzQor4RWJl/wjdZkWn
+	 mqLr58mlg/bpQJDOp+J1J3awbpV9En+jefTQgUOHNa2tbVF4p5aKfSWfGzYVGeGikDLav
+	 jY8SoUx9EG2MqzZOF3lKKESg2EzE0ybHJYiJg4v69Fvq64PXIW3d31KyzHRYY7vUfhQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gABVn3ar;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=kuleuven.be;
+	spf=pass smtp.mailfrom=kuleuven.be;
+	dkim=pass header.d=kuleuven.be header.i=@kuleuven.be header.a=rsa-sha256 header.s=selector1 header.b=OuQWrKHH;
+	arc=fail smtp.remote-ip=52.101.69.74
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11020074.outbound.protection.outlook.com [52.101.69.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3131606A335;
-	Mon, 23 Nov 2026 20:52:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F953606A31E;
+	Mon, 23 Nov 2026 20:53:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F953606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=kuleuven.be
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kuleuven.be
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gABVn3ar
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795467177;
-	b=hB0jJQWF135jvTWtDRe4AV379gVo8LK4T7UXXj14KvtvXXRIDH1JQUEfAtw+kP9l9uWT
-	 xQMDBy9TbO/xQZkisJ0UWqy6g77P4jsBdVju84UD8GNmgYmiY0lBPtUmQN3CIwPIcpZbD
-	 RvzL3TOfHg6a+6qTtzqlXmiFaynZONFnyajDuRZzBNWak/XuXGVxhbTYzpilH//LsLW8J
-	 GRqaa/6o2lmOZs4N/tIdPFbsqrzpu6VuSLr3ig9W4nxr+YZz3YQcAbAJHVGfq3Em9Semp
-	 KqX6+xjrovLXIto0EbWl+6Wa/6hkSjsgp2cQ3bVvqHF25mILfrmty17GR/5cL/m9jZA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795467177;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=wK+wIXjcAlTX5Hq8+BkCkD9G9YP95vK3PD6G0LiWqOA=;
-	b=EzFFWwaBP4RtkCJvscc7Ip3QWkz/UE83nmk3Za4upCrJsd4UQy1c5Vqu76KWGAlf4Tjn
-	 1AzICTbmtbY8OFVRyMqf9jh/9DL2mx/W+YZQvuC9lX9Ll7d1rnt2jymtxjHdAd0piU2dE
-	 LB5V+krJRp5u6mrxHeK2Otf3BcMC5v2zBodt3jbCvT2kjYzCRkPN4UQNqLMBQGXTAzwgZ
-	 Z65dNYLokrfoSXc+U73AshAlafSVi8QgN1sGkhRrJ3dDdMuO70mBIxC4xY+AGUmLSRPti
-	 zeevYLN/5ax5+h2Wzl4h5h9T4m+v94abooQ4TBQ6xCdY8GFNCAdC/KXE2wUMV+2nRZA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1F6A21F000CA;
-	Mon, 23 Nov 2026 20:52:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795467177;
-	bh=wK+wIXjcAlTX5Hq8+BkCkD9G9YP95vK3PD6G0LiWqOA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=gABVn3ary6p8qoDv/pfaymWCtXK13vx4D98z91ElfVO/fVbclzOrLE4Q4q+QZhb8Z
-	 BaR9j/8rbIJdzc3lz45br3y5MLCqdmpuTsgTK4KYZCpFpCXbsPoXw1l03IHjvFjytR
-	 7WiYV5RTs1cxGfAUqOjN4oECcbeC5hHttCESMBek2HPv5H3PP4jhA9CA3Fe5PKPyXd
-	 5TBrY94y4LyoSS9ArV1JDOAPjIfHMclbQJlJ1FuzOyolpN8VNG1WFJ6h/LvVxOWocG
-	 b4o4GvXyESUof64Yx+qk9ltsZ1KxgVGAlpRkLEYMmPdUfzK84x4LkSE5eHMTSvW4Pn
-	 +YRCX8R7pcKog==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A5B5A4C736;
-	Mon, 23 Nov 2026 20:52:43 +0000 (UTC)
-From: Binoy Ravindran via B4 Relay <devnull+binoy.vt.edu@kernel.org>
-Date: Mon, 23 Nov 2026 15:52:16 -0500
-Subject: [PATCH 2/2] livepatch: Include exiting tasks in the transition
+	dkim=pass (1024-bit key, unprotected) header.d=kuleuven.be header.i=@kuleuven.be header.a=rsa-sha256 header.s=selector1 header.b=OuQWrKHH
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P/NFcm+D1kOHJuAujdQQZfsGx7V8U2A6vY5pD2ntGE1ugpl52QvAYgAbm7sZcftvnxoG3fUPdNgX0KByAE8e0KXDelGyjfhOkGa7lPFe0059a6EAMsQPuvonpsszA/g5628L9fXVjkVLEzgOqZb901XfeW6G8JPIqqphq1/dUYRWK2ZEOgRhYzzcyBRrK8x+S0owluSqiUS780IpQ254POpsD1GfF2rMA1Tu8YEBBn3kl9yzG5AONQ0X1cv5F6yGLA1Op/b0QKPn576xkXBy34mHhvrMAJ9EPXjFThTm18rSUAr2nQ8xRfd4AmyI0W//yB3G0c99WoZLf2MxvBUxeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fxl9L+3HNA632eMlFsKvn8+iU+IZYlYl8FjyvLzrO+s=;
+ b=rfGd89QR2fRtRc0s9kGtBOMng+OWJYDB24/Q7/BtKZF8dEGKhsHb1oNhdR4Bf0Q612dfkgzAQxU3yJwubDat1tK93l02wzwndhKpt9vvtHQs/2Nm3ZWMgNQkZD/bgvUgqNVB0k3zjYDz+5xG8vu0KmGbHOGNwqCeN1jLRoPQxV0Kw6PMyol1afQZnfmIehQFHL4GTGvZBKnsORWPI1xhZ4R9cPNpUSYY+9esm6TbMtgOK1LuXLG5U7IRI8KfTApPi3iIH4U6CJLoA9FHrx+AwPA3noGMP4ix9Zwm6SvYBGPQL89VK+EQGOrQq/FFomwF3iT51HUJfP1leyP+E4T9QQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kuleuven.be; dmarc=pass action=none header.from=kuleuven.be;
+ dkim=pass header.d=kuleuven.be; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kuleuven.be;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fxl9L+3HNA632eMlFsKvn8+iU+IZYlYl8FjyvLzrO+s=;
+ b=OuQWrKHHJ970RvVgNttx/uHtiIma7ohbds8Ah3zjP7XLuENhPwHhqrdj2ICXnIh8+cOy4RJ5Kt++ExL7gkwfVolpf3/oVKRKwhcExk1TlOm2I0XbYWKSLhUSaUfjcArHLo72+wOXr7J31Rp0eymjUZPuw9558OeQgkNOPYlTX0Q=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kuleuven.be;
+Received: from AMDPR08MB999846.eurprd08.prod.outlook.com
+ (2603:10a6:20b:70a::22) by VI3PR08MB670600.eurprd08.prod.outlook.com
+ (2603:10a6:800:372::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 20:53:10 +0000
+Received: from AMDPR08MB999846.eurprd08.prod.outlook.com
+ ([fe80::a2f1:726a:58fb:8320]) by AMDPR08MB999846.eurprd08.prod.outlook.com
+ ([fe80::a2f1:726a:58fb:8320%5]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 20:53:10 +0000
+From: Shukai Ni <shukai.ni@kuleuven.be>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>
+Cc: Halil Pasic <pasic@linux.ibm.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Elena Reshetova <elena.reshetova@intel.com>,
+	Carlos Bilbao <carlos.bilbao@kernel.org>,
+	linux-coco@lists.linux.dev,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Shukai Ni <shukai.ni@kuleuven.be>,
+	Jo Van Bulck <jo.vanbulck@cs.kuleuven.be>
+Subject: [PATCH] swiotlb: clear read bounce buffers on confidential guests
+Date: Mon, 23 Nov 2026 21:53:02 +0100
+Message-ID: <20261123205302.1034348-1-shukai.ni@kuleuven.be>
+X-Mailer: git-send-email 2.53.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS9PR04CA0073.eurprd04.prod.outlook.com
+ (2603:10a6:20b:48b::27) To AMDPR08MB999846.eurprd08.prod.outlook.com
+ (2603:10a6:20b:70a::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,231 +107,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-klp-series-v3-v1-2-427c95811d9b@vt.edu>
-References: <20261123-klp-series-v3-v1-0-427c95811d9b@vt.edu>
-In-Reply-To: <20261123-klp-series-v3-v1-0-427c95811d9b@vt.edu>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
- Joel Fernandes <joelagnelf@nvidia.com>, 
- Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun@kernel.org>, 
- Uladzislau Rezki <urezki@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>, 
- Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
- Song Liu <song@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
- Jiri Kosina <jikos@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, 
- live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>, 
- Jaidev Shastri <jaidevshastri@vt.edu>, Binoy Ravindran <binoy@vt.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795467163; l=7421;
- i=binoy@vt.edu; s=20261123; h=from:subject:message-id;
- bh=DICXGKJPQRZsHdvzpkCU+AkCDTBnYgA2Bym/JeoST64=;
- b=9LGWfXDI3VkCdbrIIvoD5DE/NFNApyZ71G+KuUBj7IeOtCe8XzjaLAshZSLzWS+T7UZazhtu0
- XJ2+lklkdwYAMehFUge1IsU4p8IPgKK1S+g5KQAKDYugrJaA/uax4of
-X-Developer-Key: i=binoy@vt.edu; a=ed25519;
- pk=4cNdKPHP0InmhK/9bb7Tm2ZMUXUvLGfw1pmVt5b98fA=
-X-Endpoint-Received: by B4 Relay for binoy@vt.edu/20261123 with
- auth_id=1622
-X-Original-From: Binoy Ravindran <binoy@vt.edu>
-Reply-To: binoy@vt.edu
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMDPR08MB999846:EE_|VI3PR08MB670600:EE_
+X-MS-Office365-Filtering-Correlation-Id: 26a9b0c9-a60e-4a4c-1890-08df49a3c88f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|7416014|376014|786006|10070799003|23010399003|366016|6133799003|261009223027099003|18002099003|56012099006|11063799006|261102123227099003|261021123027099003|261022105027099003|261021121427099003|261022075727099003|261026121527099003|261026140227099003|261028144727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	D3Zo7Z4q2HG80RppVoMotlHlo0sEnvnQnkDgZabfMebxFaJOpD3J5wnBGkXUkWnzwA2ImgRLOa1/jWZc/RsN7t0+9vCmhG/Nz39tAvVaWEnuUu6WGoGxXGdpNdkAp0Ttnhno3nDo12NIGxG1nZzW/Kp67Ukftqim+LHUupCX73emTlSSAngEvuzHhnYNAFiQm3oQVKisg9Wetf0fJ5RyeY3HIdov0T8KTvPccwTZ5ZWsYykrNC8nqZQexdhgxslP792hYff8Xxttanb0DZj6iXrBP8U8ISfFXrI2GvcZKAAkpGoz1Lcm4XZoOkjKqdFMjbRAINv/NlPoGoh8WaDIbEfVM5zUWOp2X6979SXYNGbSjYPlMp9yrTOhChmuHcD/nCV8OLnOVNA7KSrJIFNHpE8vFq34rpIyjD0SHEA9w8fmXkCBx5NOJ8KqRGdUrtoB6O3Vet9pe8yYPnSARJjzA+YZAY5VJG2aFQw6Flqh2Kqm3VCkBLeHtpQFbnNfcT1IkUfx6R4KSI/9hd05vf3SNjyVgNewjenProtamIh7ogxZYP83H5R0LIu1eOVm0ME6flJQ+31LQA/+QYFhEUek0cnjqXvGcZXZbY2a+fdyNJHY4EpatewivtB+I9eDITGK0JbUd/DbgSuz/u5laP6w73xZ85GrkcUF625tBJYc3Lg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMDPR08MB999846.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(786006)(10070799003)(23010399003)(366016)(6133799003)(261009223027099003)(18002099003)(56012099006)(11063799006)(261102123227099003)(261021123027099003)(261022105027099003)(261021121427099003)(261022075727099003)(261026121527099003)(261026140227099003)(261028144727099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?95AwPYrWCC+fxoJ81PTXIu86pc3NQz/AD1AtQhLRpLz5TbgnWnKEcEV7R1Y5?=
+ =?us-ascii?Q?jMXEj+AEfOHVinSDs2ixYBRuUM/I+B5uAv6pt3u5xuGiODmWFzWbs8u7n9h3?=
+ =?us-ascii?Q?WbZLOLYgPC0dkN2DSubl4WCRNGC9aYRcu8FugIg7Q8KU6PBxoLhlJT4EVGs+?=
+ =?us-ascii?Q?RvRS1O7iAnDDc+7pOWg3RTLsiM1La9BruNqc/+8cQVBTFaNiIrqjaUkvmFg1?=
+ =?us-ascii?Q?TWPPqO75bn0lwkSWl+cRrIow2WQQ8T2rorNKo08Ilw6ac+D39h67VLNkLFP+?=
+ =?us-ascii?Q?rjRZdK/vx/VuP14V/arsvJVun0IjValg1pVaHeBp+F+DnWZWaXHc+OXETI7/?=
+ =?us-ascii?Q?5wJ5J8Ea0/bzRfB2b51Z8M69TqLSTFLs8ktE/1EEuT86nhjWNc4vmiLPARY1?=
+ =?us-ascii?Q?xHyrFjvetNRRxr4/J0km757IoeqotEFM4B2/DOutCAEZl7cKDH+zsvG3iWpP?=
+ =?us-ascii?Q?o9zwfB/JmFyXfmHd7fKGyQiuKoTeMMr/nbgZxwsb+MFPos5/tzBw9JiE0V67?=
+ =?us-ascii?Q?wvAnF17+f7agjJLJgSdGYzCKW6G/WdEUMqQjbKLmySdnRk4dC4wskZarZoao?=
+ =?us-ascii?Q?LsPDp3L5FYlyncZfsZLw8/VU/wn0cnUkbZu0Nyb/8n/Tf7ETTtpdKuhz8eR5?=
+ =?us-ascii?Q?i3QfuK+9C+HVro64avTreiVdmGXQNxvqeJOCOhMMyLIQ+jBM2GOXbyJo0zTl?=
+ =?us-ascii?Q?tqhktwX6e1bvDWoA2aGJsM/qlvp85N+tjq6MzMfL18Cssx8FAmiOseqs+2ky?=
+ =?us-ascii?Q?6uNZo+Q4YdGi4pJnisoeuDewMe+dm7uC1LEtTaVseRWaYz2giIRgLa7BZ0Cm?=
+ =?us-ascii?Q?NYSPLXWlgu1oVyXoC2zVhsDXRMVgAJJch3iPkonScs0Ha09nnmIfJHaTI0ix?=
+ =?us-ascii?Q?3MV2rseTqxMz9ixRIMDYYUSDGQ1P3W4Ym1CmGx1YPtMQfvukSWVQsjqWh2IE?=
+ =?us-ascii?Q?WkUiMEvEuC8nPMAYAkzbKEB8cytZRSVtuTU2w9xtfw/Nu7lDj6cyEV2lR6c3?=
+ =?us-ascii?Q?tFiescydmwVZgjHKE3fD9v6YlrdB0uKKT7JNLKSNo0Kf5SsaC2/LvSXxRtSD?=
+ =?us-ascii?Q?5CDi8DNbzh67jPgpCjx8GhgLUB5w5cZpv/42FYDCiDIu9yZu35HOxQdCr2Qj?=
+ =?us-ascii?Q?cz8XRTbXXCp/YD0iJyZ7HgjNpaiaUjJJBsXo/Ez//V1RarqRjWnY/t0yknzM?=
+ =?us-ascii?Q?SovorYh5Om69rixEBXZcuvsgshoKBs5mvpFoCgYy3d9qV/5r+lKLCP8R8A7i?=
+ =?us-ascii?Q?If06aEVOOP3btELJVSc08CazFix+/KlheJWCxPYZ+vBcZGeknPrpKhBI2dm7?=
+ =?us-ascii?Q?8coAOXQt+cV6Eopz75XR4ap2vU7MJuFlIBS1X0nQWiS1B5ggJkcYbeQ85+nK?=
+ =?us-ascii?Q?h8K92Pr/7Ju6ezmetmsXkmzow/DkPymNRrp18SvDPnwDLF1Nyo6hs1lN9jgf?=
+ =?us-ascii?Q?YTthhxz/FVJgwxt2am+Uw5UZRyI9pJtWFn2/O7ChrxqmIIKW8dKka60yjDgd?=
+ =?us-ascii?Q?yqHdMTtRKNjMoc7Ro5krEDaO4eguqH1sPA/wHSHl8FMPIEEA6jKqv2S2AXck?=
+ =?us-ascii?Q?F0p60jbV4LJSMEEQG5vPro2WjB0afMfMuEMMRkQ8Fukl0bZqF898MpmT+4+w?=
+ =?us-ascii?Q?e8yekScbs5Gg7163Xi6d/bfc56m2KmibFFroQSgW9jZ022Uw9ftIWyJMaNem?=
+ =?us-ascii?Q?zxZsfsy42CgCIBsTWME9KmxA4riuuYHVUInkMPMU8tgy8n/oQO95lo6zWesx?=
+ =?us-ascii?Q?5DzrziiOp4JehvVeYeSaOM9GQIvTxo339rbS9cuLU+G7juoFwsxW?=
+X-OriginatorOrg: kuleuven.be
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26a9b0c9-a60e-4a4c-1890-08df49a3c88f
+X-MS-Exchange-CrossTenant-AuthSource: AMDPR08MB999846.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 20:53:10.4186
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3973589b-9e40-4eb5-800e-b0b6383d1621
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nd+/R+QlH+62nP9v/RJn/zh5dqIvXsSp392NrVaDmWg0gZu1wIpjpTrxW2t0Upei7kWltemRp1pWQM1LCq4bww==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI3PR08MB670600
 
-From: Binoy Ravindran <binoy@vt.edu>
+On confidential guests (AMD SEV, Intel TDX) all device DMA is bounced
+through swiotlb, whose pool is shared with and readable by the untrusted
+host. swiotlb_tbl_map_single() copies the destination buffer's current
+contents into the bounce buffer at map time even for DMA_FROM_DEVICE. For
+a reused read buffer that still holds private data, the host can read
+that data from the bounce buffer before the device overwrites it.
 
-The transition walks tasks with for_each_process_thread(). A
-self-reaping task is unhashed in exit_notify() but keeps running the rest
-of do_exit(), so the walk never sees it. The transition can then
-complete, and with atomic replace the previous patch module can be
-freed, while that task is still executing, or about to return into, the
-previous module's copy of a patched function. This is the race discussed
-in the thread linked below.
+For DMA_FROM_DEVICE into a host-shared pool, zero the bounce buffer
+instead. Zeroing rather than skipping the copy keeps a short read from
+returning a previous transfer's data.
 
-Make every step of a transition also visit the tasks on the RCU-tasks
-exit lists, using the helpers from the previous patch.
-klp_init_transition(), klp_start_transition(), klp_complete_transition(),
-klp_reverse_transition() and klp_force_transition() only set fields and
-flags, so they walk the lists in place under the list locks and cannot
-fail. klp_try_complete_transition() may inspect a task's stack, so it
-takes a snapshot with a reference on each task. If the snapshot cannot
-be allocated, or more tasks start exiting than it has room for, the
-transition is treated as incomplete and retried. An exiting task must
-therefore switch, like any other task, before the transition can
-complete.
-
-Covering the initialization and completion steps matters as well:
-otherwise an exiting task keeps a stale patch_state from an earlier
-transition, which can equal the new target. Likewise, the reverse path
-clears TIF_PATCH_PENDING on exiting tasks and the force path updates
-their patch state, so neither leaves an exiting task behind.
-klp_send_signals() is not extended: a task that has passed exit_notify()
-never returns to user space, so a fake signal cannot help it switch.
-
-After exit_tasks_rcu_finish() the task runs with preemption disabled
-until its final switch, so it cannot sleep or be preempted while it is
-off both lists. Kernels without CONFIG_TASKS_RCU have no exit lists, so
-this change does not cover them.
-
-Testing was done on v6.12.1, x86-64, under QEMU/KVM; this posting is a
-forward port of that change. The test alternates two atomic-replace
-livepatches that both replace do_exit() while self-reaping tasks exit
-continuously, with a debug-only msleep() after exit_notify() to widen
-the window. Without this series, 11 of 12 runs crash in the removed
-module; with it, 0 of 12, and 0 of 12 for a control pair that does not
-patch do_exit(). With the series, there were also no crashes in 1,200
-replace cycles of a /proc mount/unmount stress test, or in 400 cycles
-with preempt=full, with and without a real-time task contending for the
-CPU of a busy-waiting exiting task. Without the delay, the series did
-not change transition time: the median was 0.29 s with it and 0.27 to
-0.31 s per run without it. The series does not change the exit path
-itself.
-
-Fixes: d83a7cb375ee ("livepatch: change to a per-task consistency model")
-Link: https://lore.kernel.org/all/20250127063526.76687-1-laoar.shao@gmail.com/
-Reviewed-by: Jaidev Shastri <jaidevshastri@vt.edu>
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Binoy Ravindran <binoy@vt.edu>
+Fixes: ddbd89deb7d3 ("swiotlb: fix info leak with DMA_FROM_DEVICE")
+Cc: stable@vger.kernel.org
+Co-developed-by: Jo Van Bulck <jo.vanbulck@cs.kuleuven.be>
+Signed-off-by: Jo Van Bulck <jo.vanbulck@cs.kuleuven.be>
+Signed-off-by: Shukai Ni <shukai.ni@kuleuven.be>
 ---
- kernel/livepatch/transition.c | 72 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 72 insertions(+)
 
-diff --git a/kernel/livepatch/transition.c b/kernel/livepatch/transition.c
-index 2351a19ac2a9..cab167417190 100644
---- a/kernel/livepatch/transition.c
-+++ b/kernel/livepatch/transition.c
-@@ -10,6 +10,7 @@
- #include <linux/cpu.h>
- #include <linux/stacktrace.h>
- #include <linux/static_call.h>
-+#include <linux/slab.h>
- #include "core.h"
- #include "patch.h"
- #include "transition.h"
-@@ -74,6 +75,70 @@ static void klp_synchronize_transition(void)
- 	schedule_on_each_cpu(klp_sync);
+Notes:
+    We are open to discussing a different approach: e.g. clearing the
+    residual when read back, scrubbing slots on free, or extending zeroing
+    for bidirectional DMA.
+
+ drivers/iommu/dma-iommu.c | 3 ++-
+ kernel/dma/swiotlb.c      | 7 ++++++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+index 78742aeba..42e0bfced 100644
+--- a/drivers/iommu/dma-iommu.c
++++ b/drivers/iommu/dma-iommu.c
+@@ -1187,7 +1187,8 @@ static phys_addr_t iommu_dma_map_swiotlb(struct device *dev, phys_addr_t phys,
+ 	 * Untrusted devices should not see padding areas with random leftover
+ 	 * kernel data, so zero the pre- and post-padding.
+ 	 * swiotlb_tbl_map_single() has initialized the bounce buffer proper to
+-	 * the contents of the original memory buffer.
++	 * the contents of the original memory buffer, or to zero for a read on
++	 * a confidential guest.
+ 	 */
+ 	if (phys != (phys_addr_t)DMA_MAPPING_ERROR && dev_is_untrusted(dev)) {
+ 		size_t start, virt = (size_t)phys_to_virt(phys);
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index 786954bc5..351bc7c54 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -1630,8 +1630,13 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
+ 	 * the original data, even if it's garbage, is necessary to match
+ 	 * hardware behavior.  Use of swiotlb is supposed to be transparent,
+ 	 * i.e. swiotlb must not corrupt memory by clobbering unwritten bytes.
++	 * Exception: on a confidential guest the bounce buffer is host-shared,
++	 * so for a read zero it before sharing.
+ 	 */
+-	swiotlb_bounce(dev, tlb_addr, mapping_size, DMA_TO_DEVICE, pool);
++	if (dir == DMA_FROM_DEVICE && mem->cc_shared)
++		memset(pool->vaddr + tlb_addr - pool->start, 0, mapping_size);
++	else
++		swiotlb_bounce(dev, tlb_addr, mapping_size, DMA_TO_DEVICE, pool);
+ 	return tlb_addr;
  }
  
-+static bool klp_try_switch_task(struct task_struct *task);
-+
-+/*
-+ * Tasks past exit_notify() are off the task list but still run do_exit() and its
-+ * callees, possibly from this patch's or a replaced patch's code, so the
-+ * transition must cover them too. The try step inspects stacks, which needs a
-+ * reference on each task, so it works on a snapshot of the exit lists.
-+ */
-+static bool klp_visit_exiting_tasks(rcu_tasks_exiting_fn_t fn, void *arg)
-+{
-+	struct task_struct **xt;
-+	int i, n, max;
-+
-+	/*
-+	 * Size the array from a count taken now, plus slack for tasks that
-+	 * start exiting before the copy is made. If even more arrive, report
-+	 * an incomplete walk: klp_try_complete_transition() runs again later.
-+	 */
-+	max = rcu_tasks_snapshot_exiting(NULL, 0) + 64;
-+	xt = kvmalloc_array(max, sizeof(*xt), GFP_KERNEL);
-+	if (!xt)
-+		return false;
-+	n = rcu_tasks_snapshot_exiting(xt, max);
-+	for (i = 0; i < min(n, max); i++) {
-+		fn(xt[i], arg);
-+		put_task_struct(xt[i]);
-+	}
-+	kvfree(xt);
-+	return n <= max;
-+}
-+
-+static void klp_exiting_init(struct task_struct *t, void *arg)
-+{
-+	t->patch_state = *(int *)arg;
-+}
-+
-+static void klp_exiting_start(struct task_struct *t, void *arg)
-+{
-+	if (t->patch_state != klp_target_state)
-+		set_tsk_thread_flag(t, TIF_PATCH_PENDING);
-+}
-+
-+static void klp_exiting_try(struct task_struct *t, void *arg)
-+{
-+	if (!klp_try_switch_task(t))
-+		*(bool *)arg = false;
-+}
-+
-+static void klp_exiting_complete(struct task_struct *t, void *arg)
-+{
-+	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
-+	t->patch_state = KLP_TRANSITION_IDLE;
-+}
-+
-+static void klp_exiting_clear_pending(struct task_struct *t, void *arg)
-+{
-+	clear_tsk_thread_flag(t, TIF_PATCH_PENDING);
-+}
-+
-+static void klp_exiting_force(struct task_struct *t, void *arg)
-+{
-+	klp_update_patch_state(t);
-+}
-+
- /*
-  * The transition to the target patch state is complete.  Clean up the data
-  * structures.
-@@ -124,6 +189,7 @@ static void klp_complete_transition(void)
- 		task->patch_state = KLP_TRANSITION_IDLE;
- 	}
- 	read_unlock(&tasklist_lock);
-+	rcu_tasks_visit_exiting(klp_exiting_complete, NULL);
- 
- 	for_each_possible_cpu(cpu) {
- 		task = idle_task(cpu);
-@@ -450,6 +516,8 @@ void klp_try_complete_transition(void)
- 		if (!klp_try_switch_task(task))
- 			complete = false;
- 	read_unlock(&tasklist_lock);
-+	if (!klp_visit_exiting_tasks(klp_exiting_try, &complete))
-+		complete = false;
- 
- 	/*
- 	 * Ditto for the idle "swapper" tasks.
-@@ -527,6 +595,7 @@ void klp_start_transition(void)
- 		if (task->patch_state != klp_target_state)
- 			set_tsk_thread_flag(task, TIF_PATCH_PENDING);
- 	read_unlock(&tasklist_lock);
-+	rcu_tasks_visit_exiting(klp_exiting_start, NULL);
- 
- 	/*
- 	 * Mark all idle tasks as needing a patch state update.  They'll switch
-@@ -580,6 +649,7 @@ void klp_init_transition(struct klp_patch *patch, int state)
- 		task->patch_state = initial_state;
- 	}
- 	read_unlock(&tasklist_lock);
-+	rcu_tasks_visit_exiting(klp_exiting_init, &initial_state);
- 
- 	/*
- 	 * Ditto for the idle "swapper" tasks.
-@@ -643,6 +713,7 @@ void klp_reverse_transition(void)
- 	for_each_process_thread(g, task)
- 		clear_tsk_thread_flag(task, TIF_PATCH_PENDING);
- 	read_unlock(&tasklist_lock);
-+	rcu_tasks_visit_exiting(klp_exiting_clear_pending, NULL);
- 
- 	for_each_possible_cpu(cpu)
- 		clear_tsk_thread_flag(idle_task(cpu), TIF_PATCH_PENDING);
-@@ -715,6 +786,7 @@ void klp_force_transition(void)
- 	for_each_process_thread(g, task)
- 		klp_update_patch_state(task);
- 	read_unlock(&tasklist_lock);
-+	rcu_tasks_visit_exiting(klp_exiting_force, NULL);
- 
- 	for_each_possible_cpu(cpu)
- 		klp_update_patch_state(idle_task(cpu));
-
 -- 
-2.39.5
-
+2.53.0
 
