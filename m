@@ -1,96 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.139.74
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795459913;
-	b=jup64O3ldTtGdGFIHep0LaaJh3enwwIsJfhZnHqZ3oCTNoYRwBXXJdqP2KsCJYFPEm1q
-	 zL/EVTIL8giZ+IAgy0AOZJcfAPgd7Tb3q1+q2Weus+kqHweqmeQJhRH7/RfnQ032bPs3C
-	 ZOm1RQmgd8DpziPKljLC/diWyfY1EUTxrycpm3TM2mReyNLe5VFeF452aokvw9REJPIKT
-	 ZSqS5w0IkNyvdQozKLl0mycSzw/YpEG/JMduYEGtNbG5mXQ5DtV/N8I+at5bHlOaLpLbE
-	 +MJn8/Y8G5saCuO2oXQn47GjIbweGpOB1ziPqJDt2vXqCWDHGKNQtIZMg/fbIJK178g==
+	t=1795459985;
+	b=PX8LxKwprdu/sME28D54+WpwKB0yedqLF6Kxy6Zs1Ii3ZDI1dPcj2UVMUZWS/5SXbWlX
+	 O2ECVuS+ojnXm9Kk1LKwW6GkRFdkfEoLtjHeSOsD36odmaZcswzh6j+e8PDrMcLVfa2o/
+	 nYs9vgj/ZX6sH8omKiPyLD4FL85YI5JbZHejvnf9ww0TTLsvqy1w1j9nyJ/L08MnNEKW4
+	 LO4iUGJ66Kp01m6rCz96GO289PL5gVv8MqzDZ21NT0hrqC+qzXI2c8NTZWUIqJo1T6k3Z
+	 xUu4Jcsnopy2Bv81IWdU6FdZpRLIPkuVJR53Y7oGmYM22GPzpCILnIYVXh/kxLL3Rjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459913;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=V3IR9keD6I92cN6dz0hkf/bvxjfGr8L+uZp++Dwjb5A=;
-	b=3vpzqzvpVEs4Mcs2MBZVQfWWJomGDnB2oEkWCrGj7SKvuGRKmhTGxO5FvEe/MUkw5uOx
-	 XMkQOpGkVYFeKHii3YASNO2ZpZETi5tjcboLAPH4mqB3Hcr1G6QiDjgqApO77aOw4qdgD
-	 R9k3lv7AhOtWjF2hUjyYgV5ztataJaRBA0AtYtvxhoidBmJbVF9cIVCaizWtjIsaxDlMc
-	 8+0rrAr0BCdWB8yHKhPbhNykcVYOgTpMzwhV9oTIwft8YaJwDLjYpjgUyv1l7Bap5+MBG
-	 8RXkxpemNoRPjnFVhFwjUfoCF6k20/G82IudP0dlVT2LAgViCZMD/CF5IRJ9wU9NVug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459985;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=P6R0QSCNbNk1SukQBtyG2ylmuRMbEBKxpRVoIoiV3uQ=;
+	b=Ym4DUD3DyUQzv2yT5bdXQEjrZtjXmsd80vBqLAf2/6W9Oh4+69zoEp2PveMuTlQyo3Ut
+	 CqPryTdGrhc63zHXrN1KNfwlFjEFw1FGeRRYJJM472sWPZ0FrlvEVQ7u/vWHSXAFlsxP5
+	 ar9LwxLlpqvt4nHfnfwdJslE9ZGjIYt8wuomRPxLLYsvZQBTBxVF1MBtcSz+uWL9Y0qBS
+	 vphDnkmIpqNLAogu3s9oLWcHbD/vCbUDD84F0QkHE4xjAj03LU1K1hGAx/CH4FnIsxlNV
+	 BZ+L26r7rH7o3994SdkaEk7FfBhmmkq3nxgcYVMtPOAYGaKqB6JnvRui0RRwU+twAJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=DjECTCpW;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	dmarc=pass header.from=columbia.edu;
+	spf=pass smtp.mailfrom=columbia.edu;
+	dkim=temperror header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=gzuXgMoA;
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=GaOzzKHE;
+	arc=none smtp.remote-ip=148.163.139.74
+Received: from mx0b-00364e01.pphosted.com (mx0b-00364e01.pphosted.com [148.163.139.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59A92606A31F;
-	Mon, 23 Nov 2026 18:51:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59A92606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F121606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:52:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F121606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=columbia.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=columbia.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=DjECTCpW
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id B1D3E40E0219;
-	Mon, 23 Nov 2026 18:51:49 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id XLowJlXBKQ6O; Mon, 23 Nov 2026 18:51:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795459906; bh=V3IR9keD6I92cN6dz0hkf/bvxjfGr8L+uZp++Dwjb5A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DjECTCpWYinvh2XCS8a+AaNBkS9Oo8wIC69nFE/UOv4VpvKF7PGnQh6Yb2quvSKcu
-	 lA6EATI44OBbzEUlV4TThh9SrsM2DqfpGGwD04AtclnkjmO0g4HY3wKnMLeMXndTOJ
-	 KKNYvA11TuSsWZxpkpwa7ta7n7t7vfGx8EmFrmXJzAOr7lujaRMKPtU/xjjsQpAnJE
-	 yXs4fFH7mycOFlh97sWcNc7i07ZDiYAU/vCEtVNE0dUhrrVRSu7mdlCHq2Vo9nwGAZ
-	 qJmRpK+lFvGk6F3LOW107vR1MPZj/0Fql25PwdZ0vWoi4tW3Krl/lY+8DltVlfCSEn
-	 y3kapItHqH2k5Wg8azV1UudECycjKsJhCIFpuApe8SL4cidWiO90P27nu7WWiHV9Wy
-	 nKoUh4XiLKmYMxi4vFomsSCEJN2dNnZfF+tMXyzTY9u6nxbUe1xMi4YGoEuIrOCzQf
-	 V8s8u+++y43/4Q0SGfaOwwyN4sY4pq+5chOtdb2PoScZgpvpJweYvkV6T9mPZMSZ5Z
-	 Vd1XkPeEb6Furu2JJozykp0ZWd+JYucGmq6X1RIDNndbtOLKuJEQTqDXwx/wM+cRxM
-	 y1aZuXrHo46zuuzkFf73IEa46d95E5H5ALinu4prEiN58Sd50Oj5pQdXFkY0Og8rlE
-	 Zfv8EpxYbrFFtv0ScJljl/i4=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id F1A9A40E0240;
-	Mon, 23 Nov 2026 18:51:27 +0000 (UTC)
-Date: Mon, 23 Nov 2026 10:51:24 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	kkd@meta.com, kernel-team@meta.com, x86@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
- user address faults under SMAP
-Message-ID: <20261123185124.GAawSLLMoWwJ71nq5j@fat_crate.local>
-References: <20261009024925.3169077-2-memxor@gmail.com>
- <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local>
- <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
- <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
- <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
- <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local>
- <CAP01T77EgbuyhP=zU9L1hwYL6rHaSbrqQZGJR_+9AQgSWLe7Nw@mail.gmail.com>
- <20261123025529.GDawOrIQcDOPhgWwF6@fat_crate.local>
- <CAP01T75Qps8bKFZAU2gN-3UJTB1aWw46NG5c-sm6K028rSc9sA@mail.gmail.com>
- <DN2E8Q9V38IF.3O738M7NGLSAL@gmail.com>
+	dkim=temperror header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=gzuXgMoA;
+	dkim=pass (2048-bit key, unprotected) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=GaOzzKHE
+Received: from pps.filterd (m0167074.ppops.net [127.0.0.1])
+	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANHXmQU3935691
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:52:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps01; bh=P6R0
+	QSCNbNk1SukQBtyG2ylmuRMbEBKxpRVoIoiV3uQ=; b=gzuXgMoA+uckMmlPIc5p
+	OHUQNFI2gJNlzZrc8oyiPkXdE2EiJ5o6d0vzLCVftfYXFPDrScbG7mSP1PZWXMku
+	arTqF0eLNWJC7iW31YXiJukQwX3XY04g2sgpmnBwMLr+1UwItPUtZkgDKLOe7OTP
+	ANkowItWbAYvWiZ/ON9u+XZkU2O0lqNtZaD+ea4p0vPJieNxB5L4kw3ruDkkyBzo
+	GnPT32C5khvaFGQ0m+YLlByja7KJU9OHfst03i8b2yzgEVz7FaikMZTx3iQwxfgd
+	s+yxwPXyflJ+bflynH1xsA5ab+QWEUQk91ZlJ+PliG4k5tzZAVzkicCHVSueY3X3
+	Xg==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4j4r51t26e-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:52:51 -0500 (EST)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-5363b06bcb2so73442771cf.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:52:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=columbia.edu; s=lionmail; t=1795459971; x=1796064771; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=P6R0QSCNbNk1SukQBtyG2ylmuRMbEBKxpRVoIoiV3uQ=;
+        b=GaOzzKHEwQxX0kp8JHsriAJ3PXU46myEtnkvBrRPHiFl3c8j6XG6/7X4qfpJZm85a3
+         uPb67ZIw/acO69+Alzo1dt5Ibolgub4fh0BlIJu6w51sHPopt7zIr+0jz4CMncvn1LZa
+         GXFGAn10qyvaF5fvKp5RwW9yPzeLxs9jKXavuONdoRgrcmUcF8DGjzadLB/0Rasrs0Oe
+         4VVpKX/Jr/B33dOikiu2sTp1ULPUGah5++fHoz/mB4/nPpiMfLFRFVKxU6O8f2ExCMWO
+         zuZ8+o2q0hPymqLm67NAGaeFkJpr2xBwmWQPLH9Vi8mqXtUGdXBJ6TeGnR5lYVFgYgzV
+         mT0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795459971; x=1796064771;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=P6R0QSCNbNk1SukQBtyG2ylmuRMbEBKxpRVoIoiV3uQ=;
+        b=DeCwuZgn++eamJov8IegeFpyRWRGIYmdQIXt/imC9SwcmFjCyjqTo1y945yCniZSje
+         0u7ZLPWg+HPVF8iTKGCMlhvPpDOyqgyAb+3ksdtKr7a/piZcMiR3Ez7GqtZSYzYOdpPh
+         vCsbLBc5T9BcZSCGfh34GKyi6NWb+S+uPCbhcRQKtBc6l1adIhP+jJ/wiYjhl3oo3Kwy
+         IzTIh+GNfCpGYaRq8+H6J7A5ElHcqnHZHmU2KsFrrf3WwozhYEbesMW/PBJFCRXgt9YU
+         fcooSBzOVJZ1ubsgmS4irKSgnxDsJRDCj2LRTo9NJx7JpQvthE4zlBnFldwCHLvzp1Qs
+         8Kjw==
+X-Forwarded-Encrypted: i=1; AL+hErE4msHgIHsco7LGeAVVlXLnBwYvCfQiLFGk29rjHwE4LmcX+xJBlxSEogSzm13SkTP8U4vivz6h8oTqU3A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8e4gws5+o7z4BHZJW2XaPfFDcvg9LmN8h0jeBwqOKkxH4WL3J/
+	iqTw98sYzI9wraxA9cXGSZ3rM5JRipJWwJyslN5TmB3bYpxYfVeQqn3lALupOrPlGUdvY2VmBL6
+	HW9TAAfL0Yiuv/9d8jPVxltBOSrt7YYZtmZSSQt5KEiOLSd98q4aXM8jBh0JEoA==
+X-Gm-Gg: AZFdTZc2GTCbND+ALmiyZcHTMnUoQpQgJGXe1OUZhw0k235Soyy/stTTB2ROQef0dhy
+	8h0i2KS+YZaZqVAPIpaBvLAPOGnxKdr1ta5F9hS2cDdvMEq8J6+I9qnb/CVt28SIcb1UDKa6xPK
+	qYf8jFfIwtGOOsC2r6AgQUmAI9HhsSYRdorwcV7YjQhxh+XIqz1pmnl7QCYpx/FkaQxIpa3Sl2z
+	8CI4h4ZmYq+aV7I73iM9+TeUgxbITwmC/IkLrpMWQWdH32OkDsrQMva3VuTOLDIQJ3Yx/eMqiOt
+	Z7ZLAPI3C3+mWkWGBTJJk624Vjmmp2Qrn59yRtev/7yARCVxZond+uQ2+KuDCUWCiwMvFq47bpd
+	0xF99lzCNr1VAUUKG7zSyUfwmyoadq4KzOAamx2Gz4WBdvFtZcb81AuSdp7t7e52a2d8mv8JDW8
+	LF9Q1Evc1AZ6dE4Okjm8UkjtnqUwakZgw4wKdEEmb913+fWPUhxL0WbIUwbjGHXlYB8vxj07tDw
+	vOGoxNJnrK4aa/C/M5yitROhd3UXT0opDWPOLEUFgACpV2hIYzgOvB2ljm0ihYMhoA=
+X-Received: by 2002:a05:622a:4d96:b0:535:232f:ca25 with SMTP id d75a77b69052e-55d7698efbemr222965731cf.7.1795459971439;
+        Mon, 23 Nov 2026 10:52:51 -0800 (PST)
+X-Received: by 2002:a05:622a:4d96:b0:535:232f:ca25 with SMTP id d75a77b69052e-55d7698efbemr222965501cf.7.1795459971100;
+        Mon, 23 Nov 2026 10:52:51 -0800 (PST)
+Received: from [10.206.149.246] ([129.236.230.139])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788116c9sm106773881cf.4.2026.11.23.10.52.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 10:52:50 -0800 (PST)
+Message-ID: <56de516a-c895-44a0-94f5-ea7bc5bd3ef9@columbia.edu>
+Date: Mon, 23 Nov 2026 13:52:50 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,26 +117,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <DN2E8Q9V38IF.3O738M7NGLSAL@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] mm/memory-failure: set PG_hwpoison of a non-hugetlb
+ page under hugetlb_lock
+To: Miaohe Lin <linmiaohe@huawei.com>
+Cc: David Hildenbrand <david@kernel.org>,
+        Naoya Horiguchi <nao.horiguchi@gmail.com>,
+        Kiryl Shutsemau <kas@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+        Mike Kravetz <mike.kravetz@oracle.com>,
+        Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, tz2294@columbia.edu,
+        stable@vger.kernel.org, Muchun Song <muchun.song@linux.dev>,
+        Oscar Salvador <osalvador@suse.de>,
+        Andrew Morton <akpm@linux-foundation.org>
+References: <20261106-hwpoison-hugetlb-ro-v3-1-c11186963647@columbia.edu>
+ <42a60f57-5323-f981-8ef3-2e5d67623902@huawei.com>
+ <a87cbd92-0e07-4f84-9a6f-8db0b1778fcf@columbia.edu>
+ <b0f30561-aabf-2bf5-2204-20907c40ef43@huawei.com>
+ <08b18b88-3ab4-4681-bec8-f4564fe9f1dc@columbia.edu>
+ <77680005-7178-cb1d-6e20-e23519839222@huawei.com>
+Content-Language: en-US
+From: Mani Tofigh <mt4022@columbia.edu>
+In-Reply-To: <77680005-7178-cb1d-6e20-e23519839222@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA3NSBTYWx0ZWRfX6keuRLCtBTzR
+ S4Fo8Cy//OS3q9sLJM8W+DWWoHk7YjwdC9KBKLxIFQ+9yrMaQhENiuaOp5+E89WpCE6XV4QiK1x
+ Kzk7bhIoE4JF+H91bNxIQr3AhXEHY2UPJHlBe+INcIxhCJKbckk84ywXgSsxCFB8649PMfHz+lv
+ L1nwDj1TN/TEQPZQVWT/MKBhr6jvO08xyL0ZHUTNbxID0qg9t9/+DeJNWUba0hyyW2913IucML0
+ R23lxzdCl0hjXcoU+EdOqvUPOKpoi+cpPAs/77PEr5uUmFqDTs6JVOb76+3SZ/JEzp7DTld4hde
+ yD0XaRieIS1K7JOtca6/Opchp+L9D8KuNmBX1MhFskKS8W6erWKivfcItJohDkNhAYpZxR8olxF
+ AlA1B3lnQvaTLfQ4jd9QMk04KokMbWYcSu5dkdYVzrzonvViC6ogia9bMvfIVZltKolPOIJezU4
+ TAk7+gElMwGxg20CKig==
+X-Proofpoint-ORIG-GUID: aikobB-3IYBgG5yJM_PnwA7WjEPUsy4c
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA3NSBTYWx0ZWRfX8Gp+Cm7ljkCn
+ gl+J945bF/fp91D91RFFzck+jtmVoM0xJ3Fib3WKby+rslpkciKbm9BcuLfYpOearv9RLTiJ/UG
+ +qdoDyCmhUOVamOXYK3r7qe+VNk4BaALFcZZnLo5OMZfCWPZSmJ0
+X-Proofpoint-GUID: aikobB-3IYBgG5yJM_PnwA7WjEPUsy4c
+X-Authority-Analysis: v=2.4 cv=Ve1ir1p9 c=1 sm=1 tr=0 ts=6b048b84 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=0AiHgshebfoioin7TVvpCA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=azVShVRs0zEubeQ0wG0L:22
+ a=_vlgSMKLg18XzmzXuwUA:9 a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11975
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=10 lowpriorityscore=10 phishscore=0 malwarescore=0
+ priorityscore=1501 adultscore=0 bulkscore=10 spamscore=0 suspectscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611230075
 
-Hi Alexei,
+On 11/23/26 2:26 AM, Miaohe Lin wrote:
+> If P's struct page is past the first vmemmap page, the hwpoison flag is lost. In this case,
+> do we need to do something? Now that hwpoison flag is already lost, I don't think so. And
+> TestClearPageHWPoison won't do anything in this case. Or do you mean TestClearPageHWPoison
+> will always write even if hwpoison flag is not set? If so, can test + clear do the work?
 
-On Mon, Nov 23, 2026 at 06:58:13AM +0000, Alexei Starovoitov wrote:
-> SMAP stays on. The SMAP branch in do_user_addr_fault() runs only with AC
-> clear, after the CPU refused the load.  A wrong answer from
-> is_bpf_text_address() can hide an oops, but it cannot expose user memory, so
-> your concerns are unsound.
 
-Look here, our mails crossed last night:
+Yup, that's what I meant. And good call, test + clear works too.
 
-https://lore.kernel.org/r/20261123043409.GFawPCQT2M-hz0mvZP@fat_crate.local
+> I think we can correctly clear the stale flag from the first round.
 
-Thx.
 
--- 
-Regards/Gruss,
-    Boris.
+Yes actually, so just this under Muchun's rwsem:
+if (PageHWPoison(p))
+   ClearPageHWPoison(p);
 
-https://people.kernel.org/tglx/notes-about-netiquette
+should be enough? I can do this for v5; sounds good?
+
+Thanks,
+Mani
+
