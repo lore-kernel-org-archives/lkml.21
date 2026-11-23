@@ -1,98 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454372;
-	b=XHC8OZLWSUY06e0AHqd7hBl0PK7GgyPskA0nom9tD+xhNWYDdzJR/+gnY4SPi8wKSGHf
-	 wc+oOEmLEof4j999H3J1ckCHRvzY9herq7DQ3WgOE8A59HAsz4iWxqb720AqQGmeUCOOB
-	 3d3y1EHr4Xf4IAUKx9wftuDSErbA9VScTchzrJcfRD+BOhXdsXdybHrp045jIlc4fnAFW
-	 5Jw/dBJcj0GW4+/Qq6tC7GraavY2DsiTLTPE9K01pQkbHoigN2JA7FyReHaz21lFo/OgU
-	 e5adReHBIP5lM5QvC2Jm1ROaIWPKjnFf1scpJNkepg+a/BBV3BMtYMBHJMUEboFNK0Q==
+	t=1795454382;
+	b=DxMdMSPhuszX0g8kKQ7aJifEknLJhomUrh24YWH2kNuZ8KIEDSHdibsbEmfoo8CeG5d8
+	 UGpB4SaJd6HMd0+o+kmkXWn30lqStM6cwIMhU1Se0sHqM5PK2tRMC1AbgPkL47s8gxDAy
+	 XF8FGt0Vsk8git4OBKbG5JuS0Qt02WWXW1Wu2UyRxw/WN/oTlZEW7W9yPNwgVoH+W02Hh
+	 zHJyu1L1KmnXJJZiyqAxnHVqXsjBi+IdFx0bUUUct2N67xR55deyih71AlTDbAHwKE9FV
+	 2UrCF0/q9PWsLUy8f8eSYR/4n6wqtm3qgg10yMOyRuBVCrkM/31oEB4U+08MkuofZWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454372;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Pl5LlU8oba1tB9cYFDtFrGCDtd6q3xDmJZtY4vUlwMQ=;
-	b=Btzig/Zch849ZCFhG+h++A+NR45mslPPjko0m2BrD4IyLCvgZ+KniYkHuuD7hLPO6UWt
-	 c/kC9sLcRNW8f5GwhUUYyM0QzG12Xv9Sdhld4zxM3s1otogz0abpDG7ePteyx9oRnOT12
-	 l0rXt6QveBgF0Yl6ZUy8dern3bXiL6rmvGM/U7kmBoc3mV28U00dfkv4kT/wPuOKVRDWu
-	 zT/FfnxQInWICh199RR1S/tKNcjCJ9AKGCDbWraxoOuLiLBG0mqiPVrS0moRiq0562DIh
-	 BzMRsk0i74rMvJg2R6KZAZtyYiNlzyxz1xEaRVgKbFW/GMedVYP3VqAfIS2v0b3jWGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454382;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=+FrBWwyWG2ofrr4+eX/hR4EQoleVZwLseOTkT4V6vlI=;
+	b=3vhUMx0w1ek6O3MqR9SL77wL54zt3NqES3KudcICUtNXB5hsDsl7bgsla6IVeWV8RtYY
+	 t3WuC3utdsceDNZ5ZzkJIOI+CgpJ2iRM0P8GB9f38N0FHrO3F8DuSNbTWpE4f5kC2pcHo
+	 7fHm9ib4vEoF+T4k5wnp1OW7MS8zXwmIkEGPMJkf9aKQBjNjfeqon1IyY1JD8y8NgJAwg
+	 Td6+tVMyAJhzMCmuC42ub3zC5aYSNmFAng3wPnVZMu0iPMHQS+dP4T11CcG20ZYA9aBBn
+	 jJM2t7Tr/29pyjWLDSRmtHKBZozg67QNQAModtA3/UAGQ6IexSbmlTinrxnq+dFCttA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="kP3i/so6";
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIwVVeNh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 408A4606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:19:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 408A4606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBB2A606A31F;
+	Mon, 23 Nov 2026 17:19:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kP3i/so6
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b5a6f2f27fso1439572b3a.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:19:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795454371; x=1796059171; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Pl5LlU8oba1tB9cYFDtFrGCDtd6q3xDmJZtY4vUlwMQ=;
-        b=kP3i/so6HH98uHbfHy+ALDtpP5nXVMLM+tkX6mX2FuuRG2PPFEXsbnhwy7f4NMgG7x
-         CLapE1dVyxNQ8t+4zs0kx/K+/3kRwXX3ylY85Dz5NmBXHYwcAzwiz6zVfabd3nK0545o
-         7gmyZ38HC0ocV/AUQgXuQmZVry0wRWSHGrDpQk2c/5O1NUoxKiiaTnADTiVIUBm2sbaz
-         +xofFwBJmmO3R8FBzZr9Cqdp8ginTinrei/cVKLvX/8cKvnvW2DvmarkTGGWqV5mfffL
-         +HFi6SFVtFC1lKD2Jb78hCG0d7qED13FzsWB9KAYn+l/KZOS/C3t0aoMrLDLNLjU0o2Y
-         Szxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795454371; x=1796059171;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Pl5LlU8oba1tB9cYFDtFrGCDtd6q3xDmJZtY4vUlwMQ=;
-        b=Qad2f8e0/Uf+IrTIFbchAhpEvXYG+SZapeh/StzsayBSSHw1e0/JgBSEAiaFX85pJq
-         99bEOBBWNeYnMigJ9L0/AuTnIk0xVPNaqVFg/YysRWFQKC2qhbmuSI/RnRfwznEX5+bH
-         X9sinlRr0FZBDflVM7Y6x4e6R1LALmG4wW/04yVieyh4mlILb8799cMc2GnVco88SDB8
-         Z3ruvDaco6fn83ZTEgoI+VoAw5Ot2ciJxToEY8CNpt15nVhc0PkG1KQsuBbl9cCRh4wy
-         ij0cWYOPSUN4mfCPBQpmIEvlxAMc6qgDP4LivrvdE+2gKAz9OrXGS1tXHBg4TR7eVB50
-         B/IQ==
-X-Forwarded-Encrypted: i=1; AL+hErF/lDlHDCerNTrU53wtQE84V9E1dkzYJ1h7dW1V6CCwUA+RGdYa9r7x5njgglATHfv4epDAtq8miBRaKsM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pZ00n4B/Gtd8coC7VCKCTP05+D2GYIXb72Hz8XN0hYa7LtLTP
-	RA7ouTIAv+oeqFD/DXxE3zzFabz9aOXDq/b4B5kuIF4e44L9pfUsYLg=
-X-Gm-Gg: AZFdTZdcfsHOvQR2NhBbKsNfCKIjx+9LJEB7Aw0m1Kig6VZ9MGns/hGzRDkpENkrFR7
-	0gzPX+roCHY+RfG8ikkQ1vgryBGiGaSdIJPEqlZeyXnTT3FS7fnf8cdS1CfOHWOS+k4UFTzw79N
-	Q/26Z3HTdgpXtzsjs6RzjhcEamgIe6yX2KncyVaeBhbkoH7Qhg9UsVsXRinoRAGCdytlsyqTeKV
-	LxrKxKtxstfuVuLr+AshChnp3LUlcFTAHzyFQJweeI+Z36g4cocxigAqQGkYsAN7ap0rG7tqxuA
-	cX9AJ1qrMg6n7AWexkT1JTAMHMSwPi1Od/FgNW+lyjBat2qsz1d9qdxO2wMINjXMHCb7sq2jT7c
-	6ffGCzW8SM3CubOEJs54hvk/g2/gn+IDfyEulNpl84mpIL2nzrambFpZcxoz3ZDGUAo1pc9qUEC
-	ZXdoBCudbWzaIUCU7lMLNiw5Q+IyEok+ZZwjCEHhfxZ1LCV7TAetbj7mu21j6P2ncV7R9OI1LFt
-	eYSNUJMDjdMpVdD/gNIaMbvV2b913Z29Dprn97E9O0lxNKBrpv3yjHky/qir1J+4rZN/Nfm0yms
-	0zpTcTXk5n+0MWcBtZ0vK3Ta2bsMAbNXcStaXX/dP0RO0VTzF83J48l/xxjI7m5uGjdH
-X-Received: by 2002:a05:6a00:844:b0:88b:76e3:cd8a with SMTP id d2e1a72fcca58-8c87cb4bc4dmr11130870b3a.38.1795454371512;
-        Mon, 23 Nov 2026 09:19:31 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:7883:5066:4773:c572])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873c1cf5bsm5985151b3a.52.2026.11.23.09.19.28
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 09:19:31 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: Ulf Hansson <ulfh@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH] pmdomain: imx: gpcv2: Take a reference to each PGC node
-Date: Tue, 24 Nov 2026 01:19:23 +0800
-Message-ID: <confirmed-20261105-18-6a8421e1b241@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIwVVeNh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 288E81F000ED;
+	Mon, 23 Nov 2026 17:19:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795454382;
+	bh=+FrBWwyWG2ofrr4+eX/hR4EQoleVZwLseOTkT4V6vlI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VIwVVeNhymyUQbQGqVW+YvmnbRNxn3o3mDgtXy2kVL1odzz+6vHr3rCL+goN9oazP
+	 xs4kvt2oTdgnqOqWqY2FkW723eDXl7qikinE6Guq8722FcmwaCF694l4SS7R8+2noh
+	 q+/8zFyWiI2pvGhVQgvCkQbVkvchKaeDHtHSIDkHR1oJoamLhwGxZrgnkHc7gN1h+s
+	 Uf5LnSW5vBIv369w4YmF2j1ZX139ZyOivzs34UdGX/m2OgpEVzFjG1CtHzEmx0/jk/
+	 FtuVbXaTY9r4923X4trQ7gXKaLBoalcTruyuAbtUUJZ7nyBctAuwnWwx14gN37jWiC
+	 A47d6bJ5Vs09Q==
+Date: Mon, 23 Nov 2026 17:19:30 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, apopple@nvidia.com, 
+	byungchul@sk.com, david@kernel.org, gourry@gourry.net, jannh@google.com, 
+	joshua.hahnjy@gmail.com, liam@infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, matthew.brost@intel.com, mhocko@suse.com, 
+	pfalcato@suse.de, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	ying.huang@linux.alibaba.com, ziy@nvidia.com, kas@kernel.org, hannes@cmpxchg.org, 
+	riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com, 
+	baolin.wang@linux.alibaba.com, Nico Pache <nico.pache@linux.dev>, ryan.roberts@arm.com, 
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] mm/migrate_device: avoid leaking folio references
+ during THP splitting
+Message-ID: <awR1nOpAuZ48BXFk@gremlin>
+References: <20261123163301.1568240-1-usama.arif@linux.dev>
+ <20261123163301.1568240-2-usama.arif@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,44 +65,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123163301.1568240-2-usama.arif@linux.dev>
 
-The child-node iterator owns the reference to each PGC node, but
-imx_gpcv2_probe() assigns the node to a newly allocated platform device
-without taking another reference. If platform_device_add() fails,
-platform_device_put() releases the node through platform_device_release(),
-and the iterator then drops the same reference again.
+On Mon, Nov 23, 2026 at 08:32:07AM -0800, Usama Arif wrote:
+> migrate_vma_split_unmapped_folio() takes an extra folio reference because
+> split_huge_pmd_address(..., true) drops one when it splits a PMD.
+>
+> However, migrate_vma only holds mmap_lock for reading. A concurrent
+> MADV_DONTNEED can clear the migration PMD, or split it into PTE migration
+> entries, before the split helper takes the PMD lock. The helper then does
+> nothing and leaves the extra reference behind. folio_split_unmapped()
+> fails with -EAGAIN due to the unexpected reference, and the reference is
+> never dropped, so the source THP is leaked.
+>
+> If a THP is faulted in at the same address inside that window it is
+> worse: freeze = true replaces the new folio's mappings with migration
+> entries that nothing will ever remove, and drops a reference the caller
+> never took.
+>
+> An existing migration PMD is expanded into PTE migration entries even
+> with freeze = false. Use that mode and remove the extra folio_get(). The
+> reference already held by migration keeps the source folio alive whether
+> or not its PMD migration entry still exists.
+>
+> Reported-by: Zi Yan <ziy@nvidia.com>
+> Closes: https://lore.kernel.org/all/DLZ48KMS7YG8.3BTM0UUU8CTU2@nvidia.com/
+> Fixes: 4265d67e405a ("mm/migrate_device: add THP splitting during migration")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 
-Use platform_device_set_of_node() to give the child device its own node
-reference, paired with the put in platform_device_release().
+LGTM so:
 
-Fixes: 03aa12629fc4 ("soc: imx: Add GPCv2 power gating driver")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/r/20260530004541.E04701F00898@smtp.kernel.org/
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-AI assistance was used for analysis and patch preparation.
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Based on next-20261104 (8b7179210b22).
-Compile-tested: arm64, GCC 14.2.0, W=1, drivers/pmdomain/imx/gpcv2.o;
-baseline and patched objects built with no warnings.
-Static source review; no hardware, boot, or KASAN test was performed.
+> ---
+>  mm/migrate_device.c | 7 +------
+>  1 file changed, 1 insertion(+), 6 deletions(-)
+>
+> diff --git a/mm/migrate_device.c b/mm/migrate_device.c
+> index 9e19fadfa65c67..3286bb8a4b73ee 100644
+> --- a/mm/migrate_device.c
+> +++ b/mm/migrate_device.c
+> @@ -920,12 +920,7 @@ static int migrate_vma_split_unmapped_folio(struct migrate_vma *migrate,
+>  	unsigned long flags;
+>  	int ret = 0;
+>
+> -	/*
+> -	 * take a reference, since split_huge_pmd_address() with freeze = true
+> -	 * drops a reference at the end.
+> -	 */
+> -	folio_get(folio);
+> -	split_huge_pmd_address(migrate->vma, addr, true);
+> +	split_huge_pmd_address(migrate->vma, addr, false);
+>  	ret = folio_split_unmapped(folio, 0);
+>  	if (ret)
+>  		return ret;
+> --
+> 2.53.1-Meta
+>
 
- drivers/pmdomain/imx/gpcv2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
-index 6a54ee734514645db7e0628bdddcf579d1f0d904..7b377bf0196491298e9e772b97d15a2bda9ff83a 100644
---- a/drivers/pmdomain/imx/gpcv2.c
-+++ b/drivers/pmdomain/imx/gpcv2.c
-@@ -1513,7 +1513,7 @@ static int imx_gpcv2_probe(struct platform_device *pdev)
- 		domain->genpd.power_off = imx_pgc_power_down;
- 
- 		pd_pdev->dev.parent = dev;
--		device_set_node(&pd_pdev->dev, of_fwnode_handle(np));
-+		platform_device_set_of_node(pd_pdev, np);
- 
- 		ret = platform_device_add(pd_pdev);
- 		if (ret) {
-
-base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
+--
+Cheers, Lorenzo
