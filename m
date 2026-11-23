@@ -1,59 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444949;
-	b=FChLFlc5ajhh8ljpwxsKFXDIpQIE9TZnjfXTCEOj0/8NXU8E43/ZJZ2cswpXpkQGwU2I
-	 yiL2/3dr4uZIImhSvxGdAYxFkAqjJeWDQOlocLL4vsvcyTGZtC4MjMTTwaaKfGfrGF0SQ
-	 goJmmnB6/948LdF5szty5t4SVESubmheZXEhuIs11QjFjXpLLdRti2cP0ODMZhI37fqPV
-	 GYryxVIeDjutUNLcid1JDA29beJMiWlOcYFVnVRKqSandDB6O6NPs8dd6RiBuZM0tj1px
-	 EgG+LksNeBrCumzWTKlEgpmT751lDT/JEXb3/3e/JWjlnFjQq95Wcw28QgChe6O3PeQ==
+	t=1795444999;
+	b=jnNSB/O891lsHqQdT/becKlTM4FpATGk1+X1LIFBuoynkeEdQkDI6gyTRmj5iPySV9c1
+	 sLszV1mUlbcCqzfKlizC1upnv9scO0yxdxF9WKYMgLJAuSRlmJmSjOlLSVNUHenrQgfiC
+	 QWb1ayOdWW2IcXyymvJTTe4IsYz4YDmKHPXmyE0YQbCikjrNg3fxEM1cHwfqx65pq3/tB
+	 JoZauaEB6x4tNrwcwqYhbitvjiuheOKzevGiZ3Jjyn7KHGlFYKbaxOT3fTSOBnkVFM8aC
+	 Eaxs9vilqod0avHqeQc0CMSjB3uhHEOgOKmPtH/EYiKoAZ3WKwVMuNplSu00NdxbA2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444949;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=k5OVr/LE9EGGJL7rLRP9VR5d8J1PKZ3ozrJ6azZxZTc=;
-	b=wSA+NFaCnt4F5Y0aj0F4jDtVjAW1iUg/oopAfVgeXgAWtfz56XAjr2uwqnYs9BP0eGsg
-	 TRXdUGAtPIeDhGzhfDB2piv40ndLoABVH98YRGdzkMp6YDnishT8jWiu6lhtNae74c0Ka
-	 Oy2tHcP6H+GvhZVThBhhbZmfQEbCV+oCajNKi417x3LDbK37WeBFxIs3W33tsROQynFHA
-	 QT4RB9RlelM52jwAA0kAYUbRHebTJbuOaioiVXL8wKQq0Mq33lkheDsknHNjuJdZBMTar
-	 03hZNoc8VM/1uQM5sKxGZSG6FV+0dpwp82zmIob2JEnYSu9BkEV14IeG4jdBlTeLO7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444999;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=K2ZBTu5FPEAc2aDNIGM3UHtvI9TE4pMe5TUNHjDZbP0=;
+	b=OYCX448oraqGekrggkI8h0KH+dxu2Kyx5HPlGbz592Xt1+/Ji+u61mBSbcFK5N+92g79
+	 UkrIeShwaO0zdReZzqSd/kTWvVOGl8ZOyzd/+4PeFCqOJmIX9/J6dVPVHLbPCG1OX5cxy
+	 XY7FPah5iY76w9kabMNFdYCpp+XlFozBS5hHWUTsHM5NJr2ug4wDbsdFokgw6o0V0QyYi
+	 DfR5ztE5BbpraHAKGEHSiUkMca3FBc05IDFlbAI402qiE2pJQETx80oMUMb6Ego2PHWwL
+	 amza9tVWRTByy8RpEHcT8G+pBXa1Fva+33Kx71Rr0gfK6cVJlNuKrsDH/1SYxmKs6Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D9fIoGGS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=z9oT49X9;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B75DE606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:42:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A99C606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:43:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A99C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D9fIoGGS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 440961F000C0;
-	Mon, 23 Nov 2026 14:42:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795444949;
-	bh=k5OVr/LE9EGGJL7rLRP9VR5d8J1PKZ3ozrJ6azZxZTc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=D9fIoGGSDIjpaWuyBUBVwNSF8+STi1eIryarFKELGbsAdKbkqXmQEhmkTlyihkiKC
-	 1flHmOhQGRQZzJd3a7Q59NwOLqpgPKqmAWXUeXZWxdpIt5Jkw0EQpFo1NY5rCjU31Y
-	 bKAn9b0KGJ43OAsrlSErTqFOfaSPrZbtTeXwgZgyI6pHLlefRKZ/Mb6b/8nBJmE9Kp
-	 phHqItmBc06/MOKx3TDETC7X89+qAr220hfOe9Tzreb4KZFCwSxImEaRdpCzgq9YNK
-	 Xnte78UT69CTH46Myp9YYwMBaJ5TXZOE1iuNJ7thUtbY9nE8dIdKYCPyYI6i9P+w9M
-	 BWJwYwXUxn6kA==
-Date: Mon, 23 Nov 2026 14:42:24 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 1/9] arm64: sysreg: Map MPAM1_EL12 to MPAM1_EL1
-Message-ID: <805ccf2d-025f-4ed2-85b8-f738bb931829@sirena.org.uk>
-References: <20261123075219.369042-1-fuad.tabba@linux.dev>
- <20261123075219.369042-2-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=z9oT49X9
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2805B1A1799;
+	Mon, 23 Nov 2026 14:43:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DF23B601E1;
+	Mon, 23 Nov 2026 14:43:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6F32911E6A573;
+	Mon, 23 Nov 2026 15:43:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795444992; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=K2ZBTu5FPEAc2aDNIGM3UHtvI9TE4pMe5TUNHjDZbP0=;
+	b=z9oT49X9XmE6aTc9yjc9P+kCRuzonn0YVsqXu9jffgdJa+BOlvuXcFP/F2UwLZ02B1cxip
+	y/VQD07mij/5JHEGyuKtrcJvIg73tB4Yi4oOGFQw/RD0SNOSnta5qOslkpU6g/WEWMj3gH
+	Hrc8tqmAJt+fteEU6q2HR5l8pxT1NUP+marovUsn73IAJGlsdvGWIsOHYy7VUKekW25TG6
+	stjpavVSuAULVJLOpIOGKYnGe/S3WRxZcsasVxhxGk2HhnKz/a2siDbUbIa9lczE0s4atc
+	qY/YhG/Ulz8BHAhdojPSJufV5AoxGZRaOhusN4PUnTGYn7zI3p6MKgIQFJWqLA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: =?utf-8?B?VsOtdCBLYXrDrWs=?= <vitkazik@vitkazik.cz>
+Cc: richard@nod.at,  vigneshr@ti.com,  tudor.ambarus@linaro.org,
+  linux-mtd@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  m.felsch@pengutronix.de,  sshivamurthy@micron.com
+Subject: Re: [PATCH] mtd: spinand: micron: add support for MT29F1G01AAADD
+In-Reply-To: <DF6A2762-566D-4A13-892A-AA18B9F987F0@vitkazik.cz>
+ (=?utf-8?Q?=22V=C3=ADt_Kaz=C3=ADk=22's?=
+	message of "Sun, 22 Nov 2026 00:26:20 +0000")
+References: <20261121234125.16093-1-vitkazik@vitkazik.cz>
+	<DF6A2762-566D-4A13-892A-AA18B9F987F0@vitkazik.cz>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 23 Nov 2026 15:43:08 +0100
+Message-ID: <87mrqztxqb.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,40 +74,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6xGYnJC2xPj9LFYw"
-Content-Disposition: inline
-In-Reply-To: <20261123075219.369042-2-fuad.tabba@linux.dev>
-X-Cookie: Truth is free, but information costs.
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
+On 22/11/2026 at 00:26:20 GMT, V=C3=ADt Kaz=C3=ADk <vitkazik@vitkazik.cz> w=
+rote:
 
---6xGYnJC2xPj9LFYw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> Hi,
+> I found Marco Felsch's earlier submission for this chip (2019/2020)
+> only after sending this patch, and have read that discussion now. My patc=
+h was written independently from the datasheet, and it already uses
+> 4-bit/512-byte ECC as agreed there.
+>
+> One difference is the free OOB area. I expose bytes 2-7 of each
+> section, following Table 11, while Marco's version
+> exposed bytes 4-7 so that the free area is always ECC-protected. I'm
+> happy to switch to 4-7 if that is preferred.
 
-On Mon, Nov 23, 2026 at 07:52:11AM +0000, Fuad Tabba wrote:
-> MPAM1_EL12 is the EL12 alias of MPAM1_EL1, but its entry in the sysreg
-> file is "Fields MPAM1_ELx", and the file doesn't have an MPAM1_ELx
-> block. Since commit 6ae7fab7d9d33 ("arm64: sysreg: Emit RESx/UNKN values
-> for Mapping/Fields definitions"), the generator's MPAM1_EL12_RES0, _RES1
-> and _UNKN expand to MPAM1_ELx_RES0 and the like, which aren't defined.
-> They aren't used yet, but the first user would fail to build.
+Yes please.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
-
---6xGYnJC2xPj9LFYw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEUM8ACgkQJNaLcl1U
-h9BRtAf/YDbNlEmdb6Yb5HPsoptakOfDJesH7NhOB17CeEIDEkdFHlhLGtA63raw
-26ZzTiIICz7W3KF6hD8iKjrlyMwLv7HCHQr2jVInZW1AOEZWADDIZaqMJYm9erc0
-QkX8RexdgTUMVSBLvUV9Zcua0CIoR+fHqPj8M+x4wkxdNChK5b7mTfRN5OWoYobW
-hKkz4ZLtGXVq7ISQRqdFzlI3aIUoh07iceQeZX0HBGhJDEH3Eot9pwIuKX4NgpqX
-T4WQwoTqSxH6VyVQ9YUn2WoTbMOh50vuQClFnfI9xwzrqoSHc4fn4NjwER5zk4aS
-3IXq8pcjbrrWK3ci5a9ZYeIwGMvElw==
-=bs+f
------END PGP SIGNATURE-----
-
---6xGYnJC2xPj9LFYw--
+Thanks,
+Miqu=C3=A8l
