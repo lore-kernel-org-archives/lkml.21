@@ -1,49 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.110
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795418335;
-	b=SyPwz7DeUYdDcsPG4f9QuEAc3U9Z7Q2TQS2ygI8+qyz4kucbL6Hv2DK9k3FkQ9IAVjmz
-	 F1hwTHvrCTSizwDjpFXThwA9hCHNgcqHcmoX06y695s0W2XNvTUl3DO3Fa2iWKk6mdqSM
-	 PhgTjoSxJJecdArTmPgYBs8ZrAzGQZhS1ESVxI2hEbKWNqQqXGTM4bp5J7PdqsdtJWF+S
-	 AxVQ4TDrCmAXQzwTOkgNJ3cqhRZ6m6qTj3b7UbIESVkoeT9oIZNEL38w0DKJKru7QgJDD
-	 6L9Y6UbZZoc9ewa7vw7rlvoY18jr+16FvGt/rq1r02OeNHEJaSBzHKxpcsm6eT8bcfg==
+	t=1795418364;
+	b=prnm6PhXM8H6QjRPbuYL0EtuQHHCsSG4eou0DrJohCMBw1IWJ85RhxvA8gGa9HNwxCxZ
+	 +R56p7cRsPju/9lZKk2jM5wFnATfLFIUulINwrILBfKWIyZIarsW/j6WwjgujUShIBWpM
+	 JcQuFlmTlfDAXPzt9iFOPMOGwWetzuge0z9R3on9ezb54F4sVdsTlzQC3Wc9Wg3bUumjF
+	 zqpFn2qyYBlNhqJJCOJuF502qp2kn1mHJZ0QPOyrZGD31JDGqucg/E1VFWo7FZf+HEIYy
+	 HV5cDzK1dEUwUXmMjHuBposM/GqjKvXgjT3n+vsABFJQWMVE6QTbM1wdPYj17/JLp0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795418335;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=Q8GYORsnAO82wSpPrzmShMv7mBPXyM/CZgLgnjki5vY=;
-	b=u1K4+4Fx4nNTIzD70N++t1iWek38ORCtKj93vexao5fQsEFwdT5dlnJUxQzCgJ592Qxh
-	 jWbGu2fvTd/5ZU/qGd6sNNo05FV5LAwaI2MJwo4HlzCluMnrmprnrnMeMHk33LtNiY44S
-	 7509jy2C7zZagxlKgmC5yJTz+R9xvnXKR0tOwco1tvd2wc6y8kpiammYfMzSbsqQE/0a3
-	 kYMX1XNUTp64H79C2WjMOguBACrf5oRRkq4slQGUvHL0flDO0Z+a+zBn7/Oo7JytaUNAl
-	 pRzjFi0pbXmAeHHdzFdGw8dSakq8hWTJF9QKW3nqcQx5Hfz7swekRU4t6idRY53lO2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795418364;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=InT91oisEFmdndrqcS8mrchaCKx4oa3ZvByTCs2ke2Y=;
+	b=HNoby8xpsqRAzetTS31VYUGBT/pXn9uuowjUIh7l3LpZaSWfOlW7ZLI5PPchPhihUJ1J
+	 QJ8gzrv6Ke/SPucrb1UuNMdWl6FFXXqoxo2ToRcTVco2+qb0jUq65Mu9LE27oFrQQhe3Z
+	 N2KZ05yFnivR/LMTogwWKEwg23IIJgf8G0MKFUA1rniyRKhmkX4mb6Id3ZFhM6pHoAaMs
+	 QgrXyyJzn66vkGLB8E47aTdRZnGYq0kldN+iDgZrxyHka0BayOPsSZJ/E0x23Hg7hZLcI
+	 O4zYlkfWg+rnp0rohnJjekQO9llXYcbaXBe2ETX6cbXVccEYmkNnd3JI24N5aI8vHAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=CfSP0pgN;
-	arc=none smtp.remote-ip=115.124.30.110
-Received: from out30-110.freemail.mail.aliyun.com (out30-110.freemail.mail.aliyun.com [115.124.30.110])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O6m2OMtp;
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8098606A31A;
-	Mon, 23 Nov 2026 07:18:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8098606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D608606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:19:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D608606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=CfSP0pgN
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795418330; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=Q8GYORsnAO82wSpPrzmShMv7mBPXyM/CZgLgnjki5vY=;
-	b=CfSP0pgNFJHmbvfQ6ctTaNSXuadCkkuitAA1+Ts93PuzWTButsQXSapnZw+raCF+9+4KGeSlNhcBRNn1YtfKWOJPI06ltrF+uGJKa/BfRLIvhJ8blQKeh3tVHKG74UYBtrsaEKiiOxmH4yeFipFQrwI8NSuSY/oeO1bySVxAOQ4=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R391e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0XFE82IO_1795418327;
-Received: from 30.74.144.153(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XFE82IO_1795418327 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 23 Nov 2026 15:18:49 +0800
-Message-ID: <4af8b7ef-8028-4b98-ad21-5620f8b92f42@linux.alibaba.com>
-Date: Mon, 23 Nov 2026 15:18:46 +0800
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O6m2OMtp
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4ab8b4887d4so2107776b6e.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:19:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795418363; x=1796023163; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=InT91oisEFmdndrqcS8mrchaCKx4oa3ZvByTCs2ke2Y=;
+        b=O6m2OMtpz7fQsxr4ivwMxIwnMaMjXc3+cgVm7Kr5GhOSUlPIg8EfxlAxO67Ar4sqtn
+         tMemnwowyVy2m1+6yaETzMXk18BMvEYnF8GnsuDtElGc95dirPeB9GgmUHBV1Jf27II+
+         s1+/XkNUeoqWz31JDImy29hYQomOdptctCfzgxEiOLPkCpYDTYeDbz2BbOQuFMqPvSh7
+         cY/04Rw96I7SUWfI04yE20lnfHQ690xntjfAfK9Cre9Jf58hKLYscUgxBght6K1Xd9Iy
+         wiUxU1XhIq9PNzyWAqt7sUwP8qBtl8cns4ZFi5o/2F5CuTI2nEwY1vM6wRjoKUjRg8AC
+         cb9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795418363; x=1796023163;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=InT91oisEFmdndrqcS8mrchaCKx4oa3ZvByTCs2ke2Y=;
+        b=IKhARuopK87tmXEg+qB44Gxba1J2TCY/PXESv2VNmLnu7pj+klVbbxagnSA1TO6Phn
+         mrhZraWt4MqlW2qNp/N4+FE1U3A9zNZ7ZPk1d+j9y67P+2hjwSMz87dpEJlg/jMmi/7u
+         cCrLH1e0ZIMcyKhf9P970tgVi2zu/Yi/4bt9qOtdrmnGRvHlO7X6RNdwRyuzCGAFXc20
+         JnKVPTXf0RKRKZ/iY+mafEtuNEZD82bCDQz+Axg0vxWPywCxXPLKeTiCh1Gr5bEnKtzp
+         0Fzqi8Hnq/+Tv7abJ7VHnnmpX00coFazWyYrs40NYGPC0Up/1f98Cgn/Kkh0Z/mXQ+iW
+         9oUg==
+X-Forwarded-Encrypted: i=1; AL+hErFEuD8+E/zlycXjKnlesdpeiYYHz/ylI+nvpWeBbEBbDFGIGgM2ct5eTaVcpNpkgrfUGYqV3PSkhSVypMk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NpwTHhUHW8npi+/v3By62NV0Mv7bUHEonk+Q0iqOeiop6Eem0
+	boYt7CJin9e5FtG63eQWXi5VxyhAlWFSAmv7HYKoVoxw8WnAkeBn76r07cxKb2p/HPTp7jAYuYb
+	Ne5oW3NCxsA==
+X-Received: from oapa41.prod.google.com ([2002:a05:6870:46a9:b0:494:a4d4:8e0b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:1384:b0:4ce:a4fc:a848
+ with SMTP id 5614622812f47-57a06a0da3amr13118058b6e.6.1795418362986; Sun, 22
+ Nov 2026 23:19:22 -0800 (PST)
+Date: Sun, 22 Nov 2026 23:19:00 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,204 +75,126 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/shmem: fix swapin livelock on a mismatched large swap
- cache folio
-To: "David Hildenbrand (Arm)" <david@kernel.org>, mt4022@columbia.edu,
- Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>,
- Kairui Song <kasong@tencent.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, tz2294@columbia.edu,
- Chris Li <chrisl@kernel.org>, Kemeng Shi <shikemeng@huaweicloud.com>,
- Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
- Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
- stable@vger.kernel.org
-References: <20261027-shmem-swapin-mismatch-v1-1-84e30aa3b9e5@columbia.edu>
- <3c61a49f-6a0d-49eb-8682-aece4e7e7226@kernel.org>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <3c61a49f-6a0d-49eb-8682-aece4e7e7226@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261123071913.653315-1-irogers@google.com>
+Subject: [PATCH v1 00/13] perf fixes: off-cpu, stat, tool PMU, bperf, and
+ bpf-filter fixes
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	James Clark <james.clark@linaro.org>
+Cc: Howard Chu <howardchu95@gmail.com>, Thomas Falcon <thomas.falcon@intel.com>, 
+	Song Liu <songliubraving@fb.com>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+This series collects standalone bug fixes across perf off-cpu, libperf
+evlist, perf stat, the tool PMU, bperf (--bpf-counters), and perf
+bpf-filter:
 
+1. 'perf off-cpu' fixes (patches 1-2):
+   - Zero the stack trace buffer before lookup and bound callchain
+     length by MAX_STACKS in off_cpu_write() so full 32-frame stacks do
+     not read and write past off_cpu_raw.
+   - Fix swapped PID and TID packing in direct off_cpu_dump() BPF
+     samples so multi-threaded direct off-CPU samples match
+     off_cpu_write() and __set_offcpu_sample().
 
-On 11/19/26 7:06 AM, David Hildenbrand (Arm) wrote:
-> On 10/27/26 21:33, Mani Tofigh via B4 Relay wrote:
->> From: Mani Tofigh <mt4022@columbia.edu>
->>
->> On a SWP_SYNCHRONOUS_IO swap device, a large shmem folio can be left in
->> the swap cache over swap slots that another file now uses.  Reading
->> that other file then loops forever in shmem_get_folio_gfp():
->> shmem_swapin_folio() finds the large folio, rounds the index and the
->> swap entry down to the folio's size, finds no matching entry in the
->> file and returns -EEXIST, and the retry finds the same folio again.
->> Since the task keeps the mapping locked, a munmap() of the same mapping
->> waits forever.
->>
->> The folio is left behind when the slots are freed and reused while the
->> swapin is still allocating it:
->>
->>    Task A (reads X)                      Task B
->>    ----------------                      ------
->>    shmem_swapin_folio()
->>      allocate a large folio
->>      for X's slots
->>                                          punch a hole in X
->>                                          /* X's slots freed */
->>                                          swap out file Y
->>                                          /* Y reuses those slots */
->>      add the folio to the swap
->>      cache over those slots
->>      shmem_confirm_swap() fails
->>      /* -EEXIST, the folio stays
->>         in the swap cache */
->>
->>    Task C (reads Y)
->>    ----------------
->>    shmem_swapin_folio()
->>      finds the large folio
->>      rounds down to its start,
->>      where Y has no entry
->>      /* -EEXIST, retried forever */
->>
->> Before commit c246d236b18b ("mm/shmem: never bypass the swap cache for
->> SWP_SYNCHRONOUS_IO"), a direct swapin that failed this way freed its
->> folio instead of leaving it in the swap cache.
->>
->> do_swap_page() already drops a large swap cache folio that does not
->> fit for anonymous memory.  Do the same in shmem_swapin_folio() and on
->> a -EEXIST, remove a large folio that is not
->> anonymous/dirty/under-writeback from the swap cache so that the retry
->> swaps in a folio that fits.
->>
->> The reproducer below fills a small brd swap device so that a 64K shmem
->> folio and the 4K pages of another file land in the same slots, and races
->> a read of the first file with a hole punch and a swapout of the second.
->> This bug was identified and confirmed with the help of a deterministic
->> hypervisor currently under development, but the non-deterministic C
->> reproducer can typically trigger it in the 2-4s time range.  With the
->> fix, nothing is triggered after 600 seconds.
->>
->> Fixes: c246d236b18b ("mm/shmem: never bypass the swap cache for SWP_SYNCHRONOUS_IO")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
->> ---
->> Two patches in David Hildenbrand's v2 shmem fixes series are related
->> to this one.  "mm/shmem: fix truncate hang in large swap entry" [1]
->> makes truncation retry -EEXIST directly, so it can also loop on such a
->> folio.  "mm/shmem: preserve allocation errors when swapping in large
->> entries" [2] fixes a different -EEXIST loop, where a failed allocation
->> is reported as -EEXIST.
->>
->> [1] https://lore.kernel.org/all/20261027-fixes_shmem-v2-10-86a00952acb9@kernel.org/
->> [2] https://lore.kernel.org/all/20261027-fixes_shmem-v2-11-86a00952acb9@kernel.org/
->>
->> Reproducer: https://github.com/manitofigh/files/blob/main/linux-repros/shmemloop.c
->> ---
->>   mm/shmem.c | 16 ++++++++++++++--
->>   1 file changed, 14 insertions(+), 2 deletions(-)
->>
->> diff --git a/mm/shmem.c b/mm/shmem.c
->> index 13e0786436cd..f1da8432d55c 100644
->> --- a/mm/shmem.c
->> +++ b/mm/shmem.c
->> @@ -2568,11 +2568,14 @@ static int shmem_swapin_folio(struct inode *inode, pgoff_t index,
->>   	 * and swap cache folios are never partially freed.
->>   	 */
->>   	folio_lock(folio);
->> -	if (!folio_matches_swap_entry(folio, swap) ||
->> -	    shmem_confirm_swap(mapping, index, swap) < 0) {
->> +	if (!folio_matches_swap_entry(folio, swap)) {
->>   		error = -EEXIST;
->>   		goto unlock;
->>   	}
->> +	if (shmem_confirm_swap(mapping, index, swap) < 0) {
->> +		error = -EEXIST;
->> +		goto failed;
->> +	}
->>   	if (!folio_test_uptodate(folio)) {
->>   		error = -EIO;
->>   		goto failed;
->> @@ -2613,6 +2616,15 @@ static int shmem_swapin_folio(struct inode *inode, pgoff_t index,
->>   		error = -EEXIST;
->>   	if (error == -EIO)
->>   		shmem_set_folio_swapin_error(inode, index, folio, swap);
->> +	/*
->> +	 * A large folio that does not fit the mapping, e.g. because its swap
->> +	 * entries were freed and reused, would be found again on every retry.
->> +	 * Drop it from the swap cache so the retry can swap in a fitting one.
->> +	 */
->> +	if (error == -EEXIST && folio && folio_test_large(folio) &&
->> +	    !folio_test_anon(folio) && !folio_test_dirty(folio) &&
->> +	    !folio_test_writeback(folio))
->> +		swap_cache_del_folio(folio);
->>   unlock:
->>   	if (folio)
->>   		folio_unlock(folio);
->>
->> ---
-> 
-> I have an AI fix here:
-> 
-> Author: Chris Mason <mason@kernel.org>
-> Date:   Wed Nov 11 18:44:55 2026 +0000
-> 
->      mm/shmem: don't drop a folio whose swap write failed
-> 
->      If the swap write of a large shmem folio fails while a swap-in of
->      another file finds that folio in the swap cache, its data can be
->      silently lost. A read of the file then returns whatever the swap device
->      holds.
-> 
->      "mm/shmem: fix swapin livelock on a mismatched large swap cache folio",
->      earlier in this series, lets shmem_swapin_folio() drop a large folio
->      from the swap cache, if the folio does not fit the file that is swapped
->      in and is neither dirty nor under writeback. A folio that does not fit
->      can belong to another file, with its swap write still in flight.
-> 
->      shmem_swapin_folio() holds the folio lock, but the code that completes a
->      write does not take that lock. And a failed write sets dirty before it
->      ends writeback. So the folio can look clean and written, although its
->      write has failed:
-> 
->          shmem_swapin_folio()              swap_write_end(), failed write
->          ====================              ==============================
->          folio_test_dirty() == false
->                                            folio_mark_dirty()
->                                            folio_end_writeback()
->          folio_test_writeback() == false
->          swap_cache_del_folio()
->            /* the only copy of the data */
-> 
->      The fix used here is to test writeback first, and dirty second.
-> 
->      Signed-off-by: Chris Mason <mason@kernel.org>
-> 
-> diff --git a/mm/shmem.c b/mm/shmem.c
-> index 915b312e14175..457a502353a9a 100644
-> --- a/mm/shmem.c
-> +++ b/mm/shmem.c
-> @@ -2809,10 +2809,13 @@ static int shmem_swapin_folio(struct inode *inode, pgoff_t index,
->           * A large folio that does not fit the mapping, e.g. because its swap
->           * entries were freed and reused, would be found again on every retry.
->           * Drop it from the swap cache so the retry can swap in a fitting one.
-> +        * A failed write sets dirty and then ends writeback, with no folio
-> +        * lock, so test writeback first. Both flags share folio->flags, so the
-> +        * order of the two loads holds.
->           */
->          if (error == -EEXIST && folio && folio_test_large(folio) &&
-> -           !folio_test_anon(folio) && !folio_test_dirty(folio) &&
-> -           !folio_test_writeback(folio))
-> +           !folio_test_anon(folio) && !folio_test_writeback(folio) &&
-> +           !folio_test_dirty(folio))
->                  swap_cache_del_folio(folio);
->   unlock:
->          if (folio)
-> 
-> 
-> @Mani, can you double check if that makes sense (can we actually trigger that), and
-> if so, send it out officially, with Fixes tag ?
-> 
-> Feel free to rework the patch as you please.
+2. 'libperf', 'perf stat', 'tool' PMU, and '--bpf-counters' fixes
+   (patches 3-9):
+   - Drop any existing per-evsel CPU map and re-propagate all evsels in
+     perf_evlist__go_system_wide() so evlist->all_cpus is rebuilt
+     without retaining the "any CPU" (-1) placeholder.
+   - Assign unique synthetic IDs to non-perf_event_open events (tool,
+     hwmon, drm, retire_lat) for 'perf stat record' so counts are not
+     all attributed to ID 0.
+   - Serialize and restore per-evsel 'cpus' (rather than 'pmu_cpus')
+     across 'perf stat record' and 'perf stat report', retaining
+     backward compatibility for older perf.data files.
+   - Return false for PERF_PMU_TYPE_TOOL in perf_pmu__is_software() and
+     guard group leader handling so grouping tool PMU events with kernel
+     PMU events does not hit BUG_ON() in get_group_fd() or fail in
+     evsel__read_group().
+   - Enable enable_on_exec tool PMU events in evlist__start_workload()
+     so workload runs do not report 0 for duration_time, user_time, or
+     system_time.
+   - Compute enabled time in the wait4 rusage fallback for exited
+     user_time and system_time events (e.g. with -D delay).
+   - Restrict bperf (--bpf-counters / :b) to compatible counters and fix
+     mixed, hybrid, cgroup, and repeat (-r) counter lifecycle bugs.
 
-That makes sense to me. If Mani has no time, I'll take care of this fix.
+3. 'perf bpf-filter' and tracepoint filter fixes (patches 10-13):
+   - Attach unpinned BPF sample filters via PERF_EVENT_IOC_SET_BPF
+     instead of bpf_program__attach_perf_event_opts() to fix the
+     bpf_link memory/FD leak reported by LeakSanitizer.
+   - Deep-copy evsel->bpf_filters in evsel__clone() (fixing
+     --for-each-cgroup) and release runtime BPF filter state in
+     evsel__close() (fixing 'perf stat -r' repeat runs).
+   - Add SEC("tracepoint") perf_tp_sample_filter for
+     PERF_TYPE_TRACEPOINT events (with !CONFIG_CGROUPS CO-RE guards and
+     selective pinning) so context-independent BPF filter terms (uid,
+     gid, tid, pid, cpu, time, cgroup) do not fail with -EINVAL.
+   - Route tracepoint --filter strings to BPF filters only when
+     referencing non-field BPF terms (with tracefs format fallback when
+     built with NO_LIBTRACEEVENT=1) and reject ambiguous mixed filters.
+
+Notes on prior postings:
+- Patch 3 was previously posted unchanged as patch 4/4 in
+  https://lore.kernel.org/linux-perf-users/20261027170415.2815859-4-irogers@google.com/
+  (patches 1-3 of that series were applied to perf-tools-next).
+- Patches 10, 12, and 13 are extracted from the front of the earlier
+  lock_held() v7 series, with patch 12/13 split into two commits and
+  updated with !CONFIG_CGROUPS CO-RE guards and NO_LIBTRACEEVENT=1
+  support.
+
+Ian Rogers (13):
+  perf off-cpu: Bound callchain length in off_cpu_write()
+  perf off-cpu: Fix swapped PID and TID in direct off_cpu_dump() samples
+  libperf evlist: Recompute CPU map when an evsel goes system wide
+  perf stat: Give non-perf_event_open events unique IDs for stat record
+  perf stat: Preserve per-evsel CPU maps across stat record and report
+  perf pmu: Don't treat tool PMU as a kernel software PMU for event
+    grouping
+  perf evlist: Enable tool PMU events when starting a workload
+  perf stat: Respect the enabled time of exited user_time/system_time
+    events
+  perf stat: Fix --bpf-counters with non-bperf, hybrid, and mixed events
+  perf bpf-filter: Fix bpf_link leak by using PERF_EVENT_IOC_SET_BPF
+  perf bpf-filter: Copy bpf_filters in evsel__clone() and close on
+    evsel__close()
+  perf bpf-filter: Support BPF sample filters on tracepoint events
+  perf parse-events: Route non-field tracepoint filter terms to BPF
+    filter
+
+ tools/lib/perf/evlist.c                      |  12 +-
+ tools/perf/Documentation/perf-record.txt     |  14 +-
+ tools/perf/builtin-stat.c                    |  37 ++-
+ tools/perf/tests/event_update.c              |  43 +++-
+ tools/perf/tests/shell/stat.sh               |  16 ++
+ tools/perf/util/bpf-filter.c                 | 225 ++++++++++++++++---
+ tools/perf/util/bpf-filter.h                 |  10 +
+ tools/perf/util/bpf_counter.c                | 115 +++++++---
+ tools/perf/util/bpf_counter.h                |  14 ++
+ tools/perf/util/bpf_counter_cgroup.c         | 145 ++++++++----
+ tools/perf/util/bpf_off_cpu.c                |   4 +-
+ tools/perf/util/bpf_skel/off_cpu.bpf.c       |   2 +-
+ tools/perf/util/bpf_skel/sample_filter.bpf.c | 101 +++++++++
+ tools/perf/util/evlist.c                     |  34 ++-
+ tools/perf/util/evsel.c                      | 150 ++++++++++---
+ tools/perf/util/evsel.h                      |   2 +-
+ tools/perf/util/header.c                     |   5 +
+ tools/perf/util/parse-events.c               | 179 +++++++++++++--
+ tools/perf/util/pmu.c                        |   2 +-
+ tools/perf/util/stat.c                       |  18 ++
+ tools/perf/util/synthetic-events.c           |   7 +-
+ tools/perf/util/tool_pmu.c                   |  30 ++-
+ tools/perf/util/tool_pmu.h                   |   2 +
+ tools/perf/util/tp_pmu.c                     |  55 +++++
+ tools/perf/util/tp_pmu.h                     |   1 +
+ 25 files changed, 1057 insertions(+), 166 deletions(-)
+
+-- 
+2.56.1.750.gf70dc682cf-goog
+
