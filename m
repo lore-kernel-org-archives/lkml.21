@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445894;
-	b=3AdMfcMUNbUO77pHhkCyBUHIYeDH+P7OjcP9OpiIbW+imUTk5KJRglMnkwWaXFGCs6LP
-	 8uVFx70RmLvz8gg5wkBJpem6OX/inxDp6nJeUYdX2TydsFK7Iz3sr7Bn36CUPGYj7IqKh
-	 +NLg+gSEKY71OPGzVJCxCrnVq9bggYeYr/jUOZeEO7ku63zFaXSXXF/19j+9wiqZkiKO4
-	 hHggIOack1ZiM6+rES+HRRi03MImQfF5Y1t8MZO0Hk8ltY1PxPhz98q10llBLriWk5i/1
-	 MCSNwcdUpluv32ufaMZjQuCPmKTJ7BWIgvLXcTshBFUXZW1tFpICj/xUyFbVqzUxT2w==
+	t=1795445899;
+	b=wAWkGuZV/X/u0IYpXGkCp/qKDFknIXNnzOCj4alL3Ix9fPp4rYh/J0JblCjt8EMyJCjs
+	 jX9uuqTUhZ261fRIpCs67hED7dsDCfeFA0Pffzzk+s8xZBB7RDpqu35yRQjEK8+ratzlP
+	 N4R4B568WX55Iq00kwyJBzP+rZbl2nkfu+zteAiRmI2N28eotTIU0yFHZ2kjUAMuXG3mV
+	 UfYzDbRp/KDSxrthnxIv7VVLTx0rlZsMiPdMyLiYtJyX70OWwiYahutc2lNRhyFa1DKpt
+	 yFhfHFRsbPOmS7j2llfXuF6v67fRVQFROBqqRsarBgLQQjlI6oUANvQZgnLAwwVn1kw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445894;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445899;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Lv7m7ONQl3ke0wjy2fX9hrSMmimqdwjd9vW/Uuoq++c=;
-	b=d0Wo7ieGqjt2SZ4zyhS860nbSTz/t5FSpdOCajx1wYWTN7COKGYMmnMC3E11Ny3Vf9ff
-	 bWW6I37TjoosneaOvlGFlDzgJgVaeJFhimvL2gXgnz4So84sgpu+HjS9gqXhA0o7OnxB5
-	 cen5w+BJCbb8eW52WvSSlvdJ33Uo0QIRYwNP5BGlnhXo6JV1VK2qC3UBzg0A9KExisZKj
-	 LVA3KITfLTKOrGXmuzie4LZJrX6ZYS3XiTFBGDlp6+iIXRSRiPIyzX7cqIKHWLC8L9oTB
-	 VEC9nsD54ybHgEr1lAPXUO3KvUsPOc71dTcAfs5LM2e4a1nAiUxNg3FjqS/wasiRIuw==
+	bh=0cancWVT+8KaS/bAE5+4QwQKl+0ryxVKBdgzf6jnrSE=;
+	b=ThDZU/f1IaIUSNwkatqyMSFOdXggJ8bSQAd5WRdaw8AG69kTSki/oGwflN7/xXCfZ39q
+	 1C1HzQ/NeR/b3KFUW3VkmlmwbgSBEe8uptxgTq0XwnG8VBS3OSuAM3h9AFr5Yx0BxKCAW
+	 0aL5H+vftiRZgn9io3TkICg6hEbwiMrYRKLCIW793y1Y9cWl3NRlJLv2mLTaGPQnSWdPD
+	 2SLEOytf94velVbfBLsIR/U7FccuLNYT7piMYbgFfvtXK2U4BBbIFjHVVE8ehB4A5rZpP
+	 LuB4w09GrqExCtJl7ant1uhcE++4XrPfPOtiaSm4B5fi3nT5o2oS10I3vI3ZySd9JKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jInkaQxG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IdVmis5V;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 025BC606A31A;
-	Mon, 23 Nov 2026 14:58:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37523606A32A;
+	Mon, 23 Nov 2026 14:58:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jInkaQxG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A2B31F000C6;
-	Mon, 23 Nov 2026 14:58:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IdVmis5V
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 234D91F000EC;
+	Mon, 23 Nov 2026 14:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795445893;
-	bh=Lv7m7ONQl3ke0wjy2fX9hrSMmimqdwjd9vW/Uuoq++c=;
+	s=k20260515; t=1795445899;
+	bh=0cancWVT+8KaS/bAE5+4QwQKl+0ryxVKBdgzf6jnrSE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jInkaQxG2+XYC5FL+Ce8kPf9N2+M4Pd7TK9oZ2O39StHVgu7TKPud73O5ZMxjqL8K
-	 XiEIqhG4wHoRje/ia/r6es/4eKWi3tc4IuT09npm6kHnY+F0GpJt03U7PxgfWmCbuB
-	 ujAId5BO1QP6YXJ1U6Jdhl6Q8DQVa91NNcV3ebeyHEl0t588KvIum5nMITI7njKQny
-	 wVcpwQNiT+8ITxq9Q538eeZff/yPjC4ODOsfwXh+kVdkE8HpGHKyPLcGFrc6S6YBAW
-	 r8yTY+qsz35GtYD4TugOfENdExCYuJo+YWUcec+MHUa+3TmlV6gv+xE7+YNKqwufxZ
-	 BW1AQt2eUsinA==
-Subject: Re: [PATCH net-next v3 1/9] net: sparx5/lan969x: stop the FDMA
- channels properly
+	b=IdVmis5Vsp/secoMshwP+eTS91mmFtdhGKevlqVBEtk4N6EZA3qIk/GJFXCTl99kY
+	 5NTkw8Qh53VmNJ5z55cCrbbwND6eS3jooVEc6KdxRlCGB24Cf5I2NS0Ac3YLljm503
+	 3z8erc7e2ck08sT94aIcjkm5SQ5ZFUPIWpp4+oIBEA47uNQ6oMyAtmTXhTYfhO6qsD
+	 1fk2MTCYMxj7sdBc0ySMPbmLvzmn8pi30EXnb6Mz15krCVWjyPAk654YMcRvPbW4sx
+	 le8zZg9/AVHXDI7HGgwCBINf93rDzdrpW6ChG/UEk7iEyiodYx2a4LwhTMnt/BuRd/
+	 RmaP+UHsgR3gQ==
+Subject: Re: [PATCH net-next v3 6/9] net: sparx5/lan969x: add support for
+ resizing the FDMA buffers
 From: netdev-bot+sashiko@kernel.org
 To: daniel.machon@microchip.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
@@ -51,11 +51,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  linux-kernel@vger.kernel.org, robert.marko@sartura.hr,
  horatiu.vultur@microchip.com, jensemil.schulzostergaard@microchip.com,
  horms@kernel.org
-Date: Mon, 23 Nov 2026 14:58:11 +0000
-Message-ID: <179544589189.3135.16381181122597988250@kernel.org>
-In-Reply-To: <20261120-sparx5-mtu-change-v3-1-55c272fe1acc@microchip.com>
-References: <20261120-sparx5-mtu-change-v3-1-55c272fe1acc@microchip.com>
-X-sashiko-severity: Medium
+Date: Mon, 23 Nov 2026 14:58:17 +0000
+Message-ID: <179544589770.3135.1560770547873397801@kernel.org>
+In-Reply-To: <20261120-sparx5-mtu-change-v3-6-55c272fe1acc@microchip.com>
+References: <20261120-sparx5-mtu-change-v3-6-55c272fe1acc@microchip.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -68,186 +68,156 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The new sparx5_fdma_stop() disables both channels
-  (FDMA_CH_DISABLE) and waits for FDMA_CH_ACTIVE to clear.
-- [Medium] sparx5_fdma_stop() now detects when the RX/TX channels fail to
-  go inactive within 10 ms (SPX5_FDMA_STOP_TIMEOUT_US).
-- [Low] This commit fixes bugs that already exist in sparx5_fdma_stop(),
-  but it is framed as preparation for a feature and carries no Fixes:…
+- [Low] After a resize, sparx5_fdma_resume() does not turn the injection
+  (TX) channel's DB interrupt back on.
+- [Low] The new runtime resize path fills the whole replacement RX ring
+  from sleepable process context, but it uses the NAPI refill callbacks,…
 
 --
 
-net: sparx5/lan969x: stop the FDMA channels properly
+net: sparx5/lan969x: add support for resizing the FDMA buffers
 
-This commit changes sparx5_fdma_stop() so that it disables the RX and TX
-channels through FDMA_CH_DISABLE and waits for FDMA_CH_ACTIVE to clear.
-The old code cleared bits in FDMA_CH_ACTIVATE, which has no effect. The
-commit also stops the injection port with INJ_STOP, fixes the inverted
-XTR_BUF_IS_EMPTY poll, and adds the FDMA_CH_ACTIVE register definition.
-
-> The stop sequence is used by the FDMA deinit, and by the FDMA buffer
-> resize added later in this series.
-
-[Severity: Low]
-The patch is presented as groundwork for the resize later in the series.
-But the commit message also says the current stop sequence never stops the
-channels, and that the XTR_BUF_IS_EMPTY wait always runs until it times
-out.
-
-Both of those problems seem to date back to:
-
-Fixes: 10615907e9b5 ("net: sparx5: switchdev: adding frame DMA functionality")
-
-The existing deinit paths free DMA memory right after the stop.
-sparx5_fdma_deinit() calls fdma_free_phys() on the DCBs, and
-lan969x_fdma_deinit() frees the coherent rings and the page_pool. So on
-current kernels, unbind or probe-failure teardown frees DCB memory while
-the channels are still active, and every stop stalls for 10 ms.
-
-Should this carry a Fixes: tag and go to net on its own, rather than as
-part of the net-next MTU series? Without the tag, stable kernels will not
-pick it up.
-
-Could the commit message also mention the risk of the device doing DMA
-into freed memory?
+This adds an fdma_resize operation for Sparx5 and lan969x. It allocates
+new FDMA buffers sized for a new MTU, then pauses the FDMA, swaps in the
+new buffers and resumes. Pausing stops the TX queues and CPU forwarding
+and drains the queues before stopping and resetting the FDMA. On lan969x
+only the RX buffers and page_pool are replaced.
 
 > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> index 8675702bf1504..8a847ec067de6 100644
+> index b92d249777f0b..6c6387cb8a505 100644
 > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
 > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
 
 [ ... ]
 
-> @@ -474,20 +477,39 @@ int sparx5_fdma_start(struct sparx5 *sparx5)
->  
->  int sparx5_fdma_stop(struct sparx5 *sparx5)
->  {
-> +	u32 channels = BIT(sparx5->rx.fdma.channel_id) |
-> +		       BIT(sparx5->tx.fdma.channel_id);
->  	struct sparx5_rx *rx = &sparx5->rx;
->  	struct sparx5_tx *tx = &sparx5->tx;
->  	u32 val;
->  
->  	napi_disable(&rx->napi);
->  
-> -	/* Stop the fdma and channel interrupts */
-> +	/* Disable the channels, and wait for them to finish the current DCB */
-> +	spx5_wr(FDMA_CH_DISABLE_CH_DISABLE_SET(channels), sparx5,
-> +		FDMA_CH_DISABLE);
+> @@ -564,3 +576,174 @@ int sparx5_fdma_stop(struct sparx5 *sparx5)
+
+[ ... ]
+
+> +void sparx5_fdma_pause(struct sparx5 *sparx5)
+> +{
+
+[ ... ]
+
+> +	sparx5_fdma_stop(sparx5);
 > +
-> +	if (read_poll_timeout(sparx5_fdma_ch_active,
-> +			      val,
-> +			      !(FDMA_CH_ACTIVE_CH_ACTIVE_GET(val) & channels),
-> +			      SPX5_FDMA_STOP_SLEEP_US,
-> +			      SPX5_FDMA_STOP_TIMEOUT_US,
-> +			      false,
-> +			      sparx5))
-> +		dev_warn(sparx5->dev, "Failed to stop FDMA channels\n");
+> +	/* Reset FDMA state */
+> +	spx5_wr(FDMA_CTRL_NRESET_SET(0), sparx5, FDMA_CTRL);
+> +	spx5_wr(FDMA_CTRL_NRESET_SET(1), sparx5, FDMA_CTRL);
+> +
+> +	/* Discard frames queued for the CPU, as they may not fit the new
+> +	 * buffers.
+> +	 */
+> +	sparx5_xtr_flush(sparx5, XTR_QUEUE);
+> +}
+> +
+> +/* Restart the FDMA and the port TX queues after sparx5_fdma_pause() */
+> +void sparx5_fdma_resume(struct sparx5 *sparx5)
+> +{
+> +	struct sparx5_rx *rx = &sparx5->rx;
+> +	struct sparx5_tx *tx = &sparx5->tx;
+> +
+> +	/* Enable NAPI before the RX interrupt is enabled, as the interrupt
+> +	 * handler schedules NAPI, as in sparx5_fdma_start().
+> +	 */
+> +	napi_enable(&rx->napi);
+> +
+> +	sparx5_fdma_rx_activate(sparx5, rx);
+> +	sparx5_fdma_tx_activate(sparx5, tx);
 
-[Severity: Medium]
-What happens to the DMA memory if this times out? The timeout only causes a
-dev_warn(), and sparx5_fdma_stop() still returns 0. The deinit callers then
-free everything without checking the result:
+[Severity: Low]
+On lan969x, does the injection channel's DB interrupt stay masked after
+a resize?
 
-sparx5_fdma_deinit() {
-	sparx5_fdma_stop(sparx5);
-	fdma_free_phys(&sparx5->rx.fdma);
-	fdma_free_phys(&sparx5->tx.fdma);
-	...
-}
+sparx5_fdma_pause() pulses FDMA_CTRL_NRESET after sparx5_fdma_stop() has
+already cleared the RX bit in FDMA_INTR_DB_ENA. Here,
+sparx5_fdma_rx_activate() only sets the XTR channel bit:
 
-lan969x_fdma_deinit() {
-	...
-	sparx5_fdma_stop(sparx5);
-	fdma_free_coherent(sparx5->dev, &tx->fdma);
-	fdma_free_coherent(sparx5->dev, &rx->fdma);
-	lan969x_fdma_free_pages(rx);
-	page_pool_destroy(rx->page_pool);
-	...
-}
+	spx5_rmw(BIT(fdma->channel_id),
+		 BIT(fdma->channel_id) & FDMA_INTR_DB_ENA_INTR_DB_ENA,
+		 sparx5, FDMA_INTR_DB_ENA);
 
-After the next patch in the series, sparx5_fdma_deinit() also calls
-consume_skb() on the RX skbs.
+sparx5_fdma_tx_activate() does not touch FDMA_INTR_DB_ENA at all.
 
-If a channel is still active after the 10 ms SPX5_FDMA_STOP_TIMEOUT_US,
-can the extraction engine write received frame data and DCB status words
-into freed and reused memory? Can the injection engine also keep reading
-freed memory?
+On lan969x, the TX channel bit is only enabled in
+lan969x_fdma_napi_poll(), which runs only after an interrupt has
+scheduled NAPI:
 
-For comparison, lan966x uses the same CH_DISABLE/CH_ACTIVE sequence with
-a READL_TIMEOUT_US of 100 s rather than 10 ms.
+	if (counter < weight && napi_complete_done(napi, counter))
+		spx5_wr(0xff, sparx5, FDMA_INTR_DB_ENA);
 
-Later in the series, sparx5_fdma_pause() follows this stop with an
-FDMA_CTRL_NRESET reset, which covers the resize path. At the end of the
-series, both deinit paths still have no reset and no error handling.
+lan969x reclaims TX buffers only from NAPI, in
+lan969x_fdma_tx_clear_buf(). lan969x_fdma_xmit() sets
+FDMA_DCB_STATUS_INTR on every TX DB and expects that interrupt.
 
-Would it work to reset the FDMA (FDMA_CTRL_NRESET 0 then 1) after the stop
-in the deinit paths? Another option is to return the timeout from
-sparx5_fdma_stop() and not free the DMA memory when it fails.
+Suppose the NRESET pulse puts FDMA_INTR_DB_ENA back to a cleared
+default. Could the TX DCBs then fill up, so that
+lan969x_fdma_get_next_dcb() returns -ENOSPC and sparx5_port_xmit_impl()
+keeps returning NETDEV_TX_BUSY? That would last until an RX frame
+raises the IRQ and NAPI writes 0xff again.
+
+This depends on whether NRESET actually clears FDMA_INTR_DB_ENA, which
+the code alone can't confirm. The state after resize would match the
+existing post-boot state, since sparx5_fdma_start() also enables only
+the RX bit. The behaviour is still present at the end of the series:
+"net: sparx5/lan969x: add support for changing the MTU" calls
+fdma_resize from ndo_change_mtu without changing sparx5_fdma_resume().
 
 > +
-> +	/* Stop the fdma and the RX channel interrupt */
->  	sparx5_fdma_rx_deactivate(sparx5, rx);
->  	sparx5_fdma_tx_deactivate(sparx5, tx);
->  
-> -	/* Wait for the RX channel to stop */
-> -	read_poll_timeout(sparx5_fdma_port_ctrl, val,
-> -			  FDMA_PORT_CTRL_XTR_BUF_IS_EMPTY_GET(val) == 0,
-> -			  500, 10000, 0, sparx5);
-> +	/* Wait for the extraction buffer to be empty */
-> +	read_poll_timeout(sparx5_fdma_port_ctrl,
-> +			  val,
-> +			  FDMA_PORT_CTRL_XTR_BUF_IS_EMPTY_GET(val),
-> +			  SPX5_FDMA_STOP_SLEEP_US,
-> +			  SPX5_FDMA_STOP_TIMEOUT_US,
-> +			  false,
-> +			  sparx5);
+> +	/* Forward frames to the CPU again, now the FDMA can extract them */
+> +	sparx5_fdma_cpu_fwd_set(sparx5, true);
 
-[Severity: Medium]
-Can this wait succeed if the extraction buffer is not already empty?
+[ ... ]
 
-Both channels, including the extraction channel, are disabled and polled
-until inactive first. Only after that does sparx5_fdma_rx_deactivate() set
-XTR_STOP:
+> +int sparx5_fdma_resize(struct sparx5 *sparx5, struct sparx5_port *port,
+> +		       int new_mtu)
+> +{
 
-sparx5_fdma_rx_deactivate() {
-	...
-	/* Stop RX fdma */
-	spx5_rmw(FDMA_PORT_CTRL_XTR_STOP_SET(1), FDMA_PORT_CTRL_XTR_STOP,
-		 sparx5, FDMA_PORT_CTRL(0));
-}
+[ ... ]
 
-During the disable window XTR_STOP is still 0, so the extraction port can
-keep moving frames into the FDMA extraction buffer. Once the extraction
-channel is inactive, nothing writes that buffer out to memory.
+> +	sparx5_fdma_rx_init(sparx5, rx_new, FDMA_XTR_CHANNEL, db_size);
+> +	sparx5_fdma_tx_init(sparx5, &tx_new, FDMA_INJ_CHANNEL, db_size);
+> +
+> +	err = sparx5_fdma_rx_alloc(rx_new);
 
-In that case the wait runs for the full 10 ms. Its return value is then
-dropped without a warning. FDMA_PORT_CTRL_XTR_BUF_RST is also never used.
+[Severity: Low]
+This runs from sleepable process context under RTNL. The caller is
+sparx5_port_change_mtu(), added later in the series. The whole ring is
+refilled through the NAPI dataptr callback, though:
 
-Would the expected order be to set XTR_STOP, wait for XTR_BUF_IS_EMPTY
-while the channel is still active, and then do CH_DISABLE and wait for
-CH_ACTIVE? Resetting the buffer with XTR_BUF_RST could be another option.
+sparx5_fdma_resize()
+  sparx5_fdma_rx_alloc(rx_new)
+    fdma_dcbs_init()
+      fdma_dcb_add()
+        __fdma_dcb_add()
+          sparx5_fdma_rx_dataptr_cb()
+            __netdev_alloc_skb(rx->ndev, fdma->db_size, GFP_ATOMIC);
 
-Later in the series, sparx5_fdma_pause() drains the CPU queues before
-calling this stop, and runs FDMA_CTRL_NRESET plus sparx5_xtr_flush() after
-it. That lowers the risk on the resize path. sparx5_fdma_stop() itself
-is unchanged at the end of the series, though, so this wait still does
-not do what the comment and the commit message describe.
+That is FDMA_DCB_MAX * FDMA_RX_DCB_MAX_DBS = 960 skbs. With a jumbo MTU,
+db_size is about 14 KB, so each data buffer becomes a 16 KB (order-2)
+allocation. That adds up to roughly 15 MB of GFP_ATOMIC allocations
+while the old ring of similar size is still allocated.
 
->  
->  	return 0;
->  }
+lan969x_fdma_resize() does the same thing.
+lan969x_fdma_rx_alloc(rx_new) fills 64 slots through
+lan969x_fdma_rx_dataptr_cb() and page_pool_dev_alloc_pages(), with pages
+of up to order 2.
+
+On a fragmented, long-running system, can an MTU increase fail with
+-ENOMEM when a GFP_KERNEL allocation, which can reclaim and compact,
+would have succeeded? Could the burst also use up the atomic reserves
+that other RX paths depend on?
+
+> +	if (err)
+> +		goto out;
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
