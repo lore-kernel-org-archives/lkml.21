@@ -1,58 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795470405;
-	b=smQufsYcIhZOw8IewkKCJTkM9yFhptMP/UVaDe7ASAWnBMfqNfcbChzUHZySpYUZH122
-	 YjfhTE/JLd9ecfyDRNoNb3gttReDcUtmnILQkj8ORc9tQ7Ae95RkPmMbJ1C80XYFz/U1d
-	 26YH610xlJ0U2DbGhbuJpj0ZCCDe7zDQZZ5uQaNKuoUrNJDhRLwz8MC0UQh6RM6rA7pIU
-	 B3vWJn61lSJ+LSJgdcBZn5dStawVBmUlkggvnJzAxIjd7ehb51zKfgAWVGcaDyIhlx4H4
-	 425RD6MVCy6I56Uil7hvJDPr0wfyntH/lrUz+3oRM04xg9+i2eQAK1lEfaRAeaMITnA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470405;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zTJutYqQiy5+Loxe2fukbllHCQvPBB5kBVDNquew1tk=;
-	b=b9JfcS5MlcB6VY4Edsihm9Pri9wrVrsV26/jYvpTZQLl5fx2mwBy3A/J98rAJML4lfoX
-	 jbdxWknBvZ0fA+u7eRKRaWoD/JcM4poXLvSd6Vl9GhEqO9VYAR+xBefxslHpCmnvPFTVz
-	 N8dVslmWf/lW9oKQKLQVUpK/C+7TCVtq0oBHm9t0r7XCzeFWSntQHKatz551O3g/O4ylR
-	 CJmnenXLu6XA9Z1t0a5kPGJuh13gqs2fhpGYNCnXx8vRoBnYHak8x8a0C/+tqaICOOGjv
-	 wWk1GxK6WTWupZ9XGinhunwAYyuGe+9jNcENKskCOQEmdL+Ytd4Q13Eyq/XtmuQwW4A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ASppbr1T;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795470539;
+	b=QDcj98VzvPFvRSNxUmy54aRCgxWUZwE4y5ILrQucZAaZCNsYS2yXpIMTf5CnCoe3s36K
+	 kouLOyvAiciXO3FzlKIy/G852kILuHdzWw4Bv3VMgGvMWFbZbdTP5JKSok7GDP7rMrUQr
+	 XMDDqJD9NyQsX7t5PEcBwVL7mKPrh91UgBPmtgXN/nJQRwerR76spKv/gtVrP95AqZj13
+	 +dPZFWy6pLS/RQuwFhLmFhMWu2owIcrJr9impT44hU92/bG0BauuoY7phXT3Dnq750j0h
+	 bUjURRP/2Kbd6FIG5ry6AD6bo1JOXRVPQUBo8YDJC3tWaWwxen/MAc1BQxfzcZwByhQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470539;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=evVeVx/L5RLM4XiqIAzHNl2mgkIKWAlxJ35sqnSJqq0=;
+	b=bfRy981WMeOmrhiGhs/nKgqvuZQ48dv5ioM219z29MPsjDIrt7vqRxmaK0+kCZ24Ct/A
+	 EoyGj4rtRg0SnKWcTyyX9o8nvYIJYFyAD3BaejRUHsUupd2LsxN2fj6Jl4aDQlv5xnLIt
+	 rsgX9TRwnwLrjNap9LA50JCxRhMz/0/DAz87iCv0iMnooTDeJfrxRfGErOYs0Rf0SzszA
+	 kv5taPknIW8F1CC9lKZnDedxXZg4KX4V5WwTqxjMRqPZRqc9ElZUdge8CTFYvnaLwdSN+
+	 q1EuSFahpv6fVbMh+Zd4yWFZXDX5Ti0I6ie/AQVGK8huMXlJbTTLskmtKlYvN0z2dhw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UwdK5OLe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10689606A31E;
-	Mon, 23 Nov 2026 21:46:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FD95606A31E;
+	Mon, 23 Nov 2026 21:48:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ASppbr1T
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7B91F000C0;
-	Mon, 23 Nov 2026 21:46:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UwdK5OLe
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795470538;
+	b=wZxFXIetRCFELoaVDqBvv8cT/TNvC/Ycct0cR2e4Ro+XAUyy4aqmiQiP5PfsAK+Eyjfg
+	 gVX9ZvnofdhXCN25r73pCDlexEaSiolP5Z1X1zteoV66TiTrk53GQO67IH6VdrRZTRP8B
+	 U7gFy6TJRyGhUrDZejiGZQDKVXEVwGuO8+A0rMLBplhcsQ1EiJXviCLMrY4NmOoFBooYc
+	 bJbVCmqxowbs3ZawXh3jo/jJ7/40lgv5v7w9oidbC+Xg+Zw5ytPfzSyvOQg6nN8+8vzez
+	 XYO79Ssql/q/KndP38odk8f10atsBbSXKTV+SryWj9zC2b54shpEWQRNyka1SP7L7EQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795470538;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=evVeVx/L5RLM4XiqIAzHNl2mgkIKWAlxJ35sqnSJqq0=;
+	b=lWQ6qB6KhGKj3AAxD6Nrmm4GHnUBOA+OH5V2xpknbuEpbuTpxpgnLZiwsWh0beEeVoRq
+	 0L8JEaSfuT5u+iJUUecacj37gJG/343Z69d0ywkm8fJBaCq64bwGYN7FcEzcJXXWHnx4y
+	 9KzzYOhCjhFpkaIDiwkpjxylGpX+i8FOxhuJyxUH1p2tTmP9AsHs5m9ZSZkeeddilBKFe
+	 cUkneXczA+KZHGsGBCXIAttgnG1NRJUxjH6dv+tbAPhAvWaWUQqFVaGX7r5pJnDOuz9Bq
+	 7UhC0hG/q/O3rt0uz7DzDuYCXzJKmPmJdreRGD7G+y4u0CASJe9bsGBOtCI6TxOcYKQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 655831F000C0;
+	Mon, 23 Nov 2026 21:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795470404;
-	bh=zTJutYqQiy5+Loxe2fukbllHCQvPBB5kBVDNquew1tk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ASppbr1T00OUJ3AGGxLSGRf2DZWyyQofa+KfFY856PPcYZw6TuhWcVPyHlz0F3E2A
-	 QgbT0yIGE3fQ4mgy5hPPec+VmOXiyvNdM4hUDOlZl7htIZKWHdh26CzyikVXyni68n
-	 1kbP/16TUnZW77imKc2Hk5tDX2BJnRX3zseoxc8t/5BKtGSz8WexC1bt7EU6bL0y1i
-	 6UNcXiM0Kj1kwr3M7wP/rtK0kzf2oAHzHwtVnAqUacFSOsRfvHIMhaMVFnSmU0GC6v
-	 S1ScqfOR63HyDzVz2yY39+Gvfj55LrYiJ7pyvUrZF82dmzP3r8vQKH5bOtE748q3JR
-	 L1V78sWuqrbfw==
-Date: Mon, 23 Nov 2026 13:46:42 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Alireza Haghdoost <haghdoost@uber.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 00/10] perf symbol: Sorted arrays, DSO-owned
- lifetimes, and memory shrinking
-Message-ID: <awS0QkL6JuMfC7Z0@google.com>
-References: <20261122050405.80335-1-irogers@google.com>
+	s=k20260515; t=1795470538;
+	bh=evVeVx/L5RLM4XiqIAzHNl2mgkIKWAlxJ35sqnSJqq0=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=UwdK5OLe7i0wlytFoEJZvhf4z7NRy0IjdP+AzaxPx6lbuH6W014XJ4izEqaq0TEy2
+	 rnY/yZED5fFnyoSLmPCWx+RtjH4bos0lVnqkOCD1DLAhnZ5+RxZQ9755YpmsbBO/8b
+	 j2/NCjP5nZiHxYb7LhI7KxKKG7wZUVDPMRD94POx6nzETxQe1BgdkREs7n2MeZlJ4u
+	 wkRWFxUZfI1iTmk3F6nRZzJrN7sjnSnI7XAGIpkAPdvqnOJrTVeqy7cseEj2XwRO3K
+	 GZ8hvBVxHWX1rhfEZwRLh70z50lstTj8WB+dWyoE2doTnJA1F985a52eaFJXg5VFvx
+	 KODG4QNfCcKPA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BE5934C774;
+	Mon, 23 Nov 2026 21:48:48 +0000 (UTC)
+From: Maximo Manriquez Lizarraga via B4 Relay <devnull+DelaySystem.tubot.lat@kernel.org>
+Date: Mon, 23 Nov 2026 13:47:16 -0800
+Subject: [PATCH v4] staging: iio: adc: ad7816: use dev_err_probe() for GPIO
+ lookups
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,204 +83,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261122050405.80335-1-irogers@google.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-batch1-s3-warn-v4-1-47cd8d7d4ce9@tubot.lat>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNQQ7CIBCF4asY1mKcAS268h7GBdCpxZjWAK2ap
+ ncX6qZqXL5kvn8GFsg7Cmy/GJin3gXXNmnI5YLZWjdn4q5Mm+EatwDrghsdbQ08CH7XvuGodna
+ nbGEAFEvo5qlyjyl4PL136MyFbMyVfFG7EFv/nD72kO/+xnvgwGVlhRISrBbqEDvTxtVVR5bjP
+ c44/HJMHIpK0kYCoDDfXMy5+uEi8WqLWCJgSfTBx3F8ASco9EI8AQAA
+X-Change-ID: 20261107-batch1-s3-warn-289c98c7b118
+To: andy@kernel.org, nuno.sa@analog.com, gregkh@linuxfoundation.org, 
+ dlechner@baylibre.com, jic23@kernel.org, Michael.Hennerich@analog.com
+Cc: linux-staging@lists.linux.dev, krzk@kernel.org, crofts@kernel.org, 
+ linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, linux@analog.com, 
+ Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3394;
+ i=DelaySystem@tubot.lat; h=from:subject:message-id;
+ bh=3qSIiHaUfGU0fUooR+d3SlhKg7lFwrjdgQuTuX1Jf34=;
+ b=owGbwMvMwCH2SNl4+SzWXm/G02pJDNksWw7sVfFuZHFZvGGavsr2VZEFSbd2hwu+tSie9zlNf
+ XHWl4zrHaUsDGIcDLJiiixiMjzv6+/rxFlbzTkBM4eVCWQIAxenAEzExZThn3HQ2peCYm/KOP52
+ 9HD3zxdoj3D6rvnSJGvd+fry1T78+xgZ/lQoGsfKn2Bccz2z4Ujw8eIlf0T2GKw/u5XBR9008cQ
+ 8TgA=
+X-Developer-Key: i=DelaySystem@tubot.lat; a=openpgp;
+ fpr=161C0CEF7FDF2C5E3B3A9CC8E22333A79A058D4B
+X-Endpoint-Received: by B4 Relay for DelaySystem@tubot.lat/default with
+ auth_id=1447
+X-Original-From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+Reply-To: DelaySystem@tubot.lat
+Content-Transfer-Encoding: 7bit
 
-Hi Ian,
+From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
 
-On Sat, Nov 21, 2026 at 09:03:55PM -0800, Ian Rogers wrote:
-> When profiling large binaries or long-running workloads with many DSOs and
-> threads, symbol and DSO tables frequently dominate perf's memory footprint
-> and startup latency. Currently `struct symbol` still has several structural
-> limitations:
-> 
-> 1. Every `struct symbol` embeds a 24-byte `struct rb_node` for the
->    `dso->symbols` address rbtree, scattering lookups across non-contiguous
->    heap nodes.
-> 2. `dso__symbols()` has no internal synchronization against concurrent
->    readers/writers, and unreferenced DSOs and auxiliary symbol/debuginfo
->    buffers cannot yet be reclaimed under memory pressure.
-> 3. Sorting `dso->symbols` with `qsort()` does not take advantage of
->    pre-ordered ascending runs in ELF symbol tables, and `first_ending_after()`
->    in `struct maps` runs a full binary search even for ascending
->    `/proc/pid/maps` synthesis.
-> 
-> Thirteen preparatory fixes, benchmarks, `dso_symbol` lifetime conversions,
-> `symbol_conf.priv_size` removal, and ELF header caching patches from v4-v6
-> have landed in `perf-tools-next`. The remaining 10 patches convert symbol
-> iteration to callbacks, replace the `dso->symbols` rbtree with a sorted
-> pointer array, stage natural-run merge sort and incremental symbol
-> insertion, and add memory shrinking APIs and unit tests:
+GPIO lookups can return -EPROBE_DEFER.  Convert the rdwr, convert,
+and busy GPIO lookup failures in ad7816_probe() to dev_err_probe(),
+which suppresses the error message on deferral and records the deferral
+reason.
 
-I've applied the first 6 patches to perf-tools-next.
+No functional change other than defer handling.
 
-The patch 7 was bigger than I expected.  Can you simplify it more?
+Signed-off-by: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+---
+Changes in v4:
+- Add struct device *dev at the top of probe and use it in the touched lines (Andy Shevchenko).
+- Link to v3: https://patch.msgid.link/20261118-batch1-s3-warn-v3-1-f622d212deeb@tubot.lat
 
-Also I don't plan to merge the rest patches as of now.  Let's wait for
-the lazy loading and try that for a while.
+Changes in v3:
+- Convert the missed busy-GPIO failure path to dev_err_probe() as well (Joshua Crofts).
+- Link to v2: https://patch.msgid.link/20261117-batch1-s3-warn-v2-1-17f4e541123b@tubot.lat
 
-Thanks,
-Namhyung
+Changes in v2:
+- Resend under my real name (From/Signed-off-by: Maximo Manriquez Lizarraga).
+- Apologies for the improper sign-off on v1; no code change.
+- Link to v1: https://patch.msgid.link/20261107-batch1-s3-warn-v1-1-4fc38341ca38@tubot.lat
+---
+ drivers/staging/iio/adc/ad7816.c | 34 +++++++++++++---------------------
+ 1 file changed, 13 insertions(+), 21 deletions(-)
 
-> 
-> - **Preparatory fix, `maps` tail fast-path, and symbol iteration (Patches 1-4)**:
->   - Patch 1 fixes an `alloc_func_regex` leak on error returns in
->     `builtin-kmem.c`'s `build_alloc_func_list()`.
->   - Patch 2 adds an O(1) tail fast-path check in `first_ending_after()` for
->     ascending map insertions.
->   - Patch 3 converts `symbols__for_each_entry()`, `dso__for_each_symbol()`,
->     and `map__for_each_symbol()` to callback-based iteration and updates
->     existing callers.
->   - Patch 4 converts open-coded `dso__first_symbol()` / `dso__next_symbol()`,
->     `rb_first_cached()`, and `dso__symbol_names()` loops to callback
->     helpers and removes `dso__{first,last,next}_symbol()`.
-> - **Sorted symbol arrays and staged sorting optimizations (Patches 5-7)**:
->   - Patch 5 replaces `dso->symbols` (`rb_root_cached`) and
->     `dso->symbol_names` with a `rw_semaphore`-protected `struct symbols`
->     container backed by sorted pointer arrays, removing `struct rb_node`
->     from `struct symbol` (shrinking `sizeof(struct symbol)` from 48 to 24
->     bytes, or 16 bytes net per symbol after accounting for the array
->     pointer).
->   - Patch 6 replaces `qsort()` on `struct symbols` with a stable
->     natural-run merge sort.
->   - Patch 7 optimizes incremental dynamic symbol insertions
->     (`dso__insert_symbol()`) and small appends using `@sorted_cnt` and a
->     sorted tail buffer with amortized `sqrt(N)` merge.
-> - **Memory shrinking APIs and unit tests (Patches 8-10)**:
->   - Patch 8 adds `symbols__shrink()`, `dso__shrink()`, `dsos__shrink()`,
->     `machine__shrink()`, `machines__shrink()`, and `perf_session__shrink()`
->     to reclaim `symbols_by_name`, excess array capacity, cached DSO file
->     descriptors/data/DWARF state, and unreferenced user DSOs (`refcnt == 1`
->     with no annotated symbols), with transparent on-demand reload via
->     `dso__load()`.
->   - Patch 9 adds `dso__session()` and `perf_session__malloc()` /
->     `zalloc()` / `calloc()` / `realloc()` / `strdup()` wrappers (leaving
->     production caller wiring for follow-up once lazy symbol loading is
->     evaluated).
->   - Patch 10 adds unit tests in `perf test symbols` covering sorted symbol
->     insertion, equal-start aliases, symbol/DSO shrinking, `dso_symbol`
->     lifetime pinning, inline frame/srcline cleanup ordering,
->     `symbols_by_name` on-demand rebuild, transparent DSO reload, and session
->     allocation wrappers.
-> 
-> Changes in v8:
-> - Rebase onto `tmp.perf-tools-next` (`eb79d2fbc230`), adopting
->   `<linux/compiler-context-analysis.h>` annotations (`__guarded_by(&lock)`,
->   `__acquires_shared(&symbols->lock)`, `__must_hold(&symbols->lock)`,
->   `__context_unsafe()`) on `struct symbols` and `dso` / `tests/symbols.c`
->   and adapting `dso__shrink()` / `dso__try_evict()` to `dso__data_open_lock`
->   and `close_dso()`.
-> - Pass `first_unsorted` (`m = symbols->sorted_cnt`) to
->   `symbols__insertion_sort_range()` in `symbols__sort_locked()` (`Patch 7`)
->   so the `k <= 8` small-append fast path and allocation-failure fallbacks
->   skip scanning the already-sorted prefix `[0 .. m)` (Sashiko).
-> 
-> Changes in v7:
-> - Rebase onto `perf-tools-next` (`bb27ddbaee56`), dropping the 3 patches
->   from v6 that have been applied upstream.
-> - Drop `nr_addr_sorted` and `nr_name_sorted` incremental partial-sort state
->   from `struct maps`, keeping only the `first_ending_after()` tail
->   fast-path check (`Patch 2`) (Namhyung Kim).
-> - Split out the `alloc_func_regex` leak fix in `builtin-kmem.c` (`Patch 1`),
->   the `map__for_each_symbol()` callback conversion (`Patch 3`), and the
->   conversion of open-coded symbol loops (`Patch 4`) ahead of the `rbtree`
->   to `struct symbols` array conversion (`Patch 5`) (Namhyung Kim).
-> - Split symbol sorting optimization into a simple natural-run merge sort
->   patch without galloping (`Patch 6`) followed by incremental dynamic
->   symbol insertion with a sorted tail (`Patch 7`) (Namhyung Kim).
-> 
-> Changes in v6:
-> - Fix `symbols__find()` when `sorted_cnt < cnt` so that if the slice
->   (sorted prefix or unmerged sorted tail) with the higher `start <= ip`
->   group ends before `ip`, `symbols__find()` returns `NULL` rather than
->   falling back to an earlier outer symbol in the other slice, matching
->   post-merge behavior, and add unmerged-vs-merged prefix/tail overlap and
->   equal-start alias unit tests (Sashiko).
-> - Use positive `ENOMEM` rather than `-ENOMEM` on `symbol__annotation()`
->   failure in `symbol__annotate()`, `symbol__annotate2()`, and
->   `__hist_entry__tui_annotate()` to match `symbol__strerror_disassemble()`,
->   check `symbol__annotate() != 0` in `hist_entry__get_data_type()`, and
->   guard against `NULL` `notes` / `notes->src` in `find_disasm_line()`
->   (Sashiko).
-> 
-> v7: https://lore.kernel.org/linux-perf-users/20261121071651.67118-1-irogers@google.com/
-> v6: https://lore.kernel.org/linux-perf-users/20261117185305.108003-1-irogers@google.com/
-> v5: https://lore.kernel.org/linux-perf-users/20261116063435.2817923-1-irogers@google.com/
-> v4: https://lore.kernel.org/linux-perf-users/20261113171734.2188066-1-irogers@google.com/
-> v3: https://lore.kernel.org/linux-perf-users/20261110220803.2503416-1-irogers@google.com/
-> v2: https://lore.kernel.org/linux-perf-users/20261027231513.816148-1-irogers@google.com/
-> v1: https://lore.kernel.org/lkml/20260928075237.3055101-1-irogers@google.com/
-> 
-> AI Assistance Disclosure (per Documentation/process/coding-assistants.rst
-> and Documentation/process/generated-content.rst):
-> - Tools used: Google Antigravity / Jetski coding assistant and Sashiko
->   automated patch review (sashiko.dev and internal Sashiko).
-> - Summary of prompts and assistance: Interactive pair-programming session to
->   replace per-symbol refcounting with `struct dso_symbol` DSO-borrowed
->   lifetimes, split symbol callback iteration and staged natural-run merge
->   sort / incremental insertion patches, rebase onto `tmp.perf-tools-next`
->   context-analysis annotations, and address LKML reviewer and Sashiko
->   feedback across `kmem`, `dso`, `map`, `maps`, `symbol`, and
->   `tests/symbols.c`.
-> - Testing performed: Built each commit (`[1/10]` through `[10/10]`) with
->   Clang (`-DWARN_CONTEXT_ANALYSIS -Wthread-safety -Wthread-safety-pointer
->   -Wthread-safety-beta`), AddressSanitizer, LeakSanitizer, and `DEBUG=1`
->   (`REFCNT_CHECKING=1`); ran `perf test` (including `Symbols`, `Maps`, `DSO
->   data`, `hists`, `thread`, and `annotate` suites), `perf bench internals`
->   (`symbols` and `maps`), and `scripts/checkpatch.pl`.
-> 
-> Ian Rogers (10):
->   perf kmem: Fix alloc_func_regex leak on error in
->     build_alloc_func_list()
->   perf maps: Add tail fast-path check in first_ending_after()
->   perf symbol: Convert map__for_each_symbol() to callback-based
->     iteration
->   perf symbol: Use callback iteration instead of open-coded symbol loops
->   perf symbol: Switch backing storage from rbtree to struct symbols
->     array
->   perf symbol: Replace qsort() with natural-run merge sort
->   perf symbol: Optimize incremental symbol insertion with sorted tail
->   perf symbol: Add memory shrinking for symbols, DSOs, and machines
->   perf session: Add dso__session() and session-scoped allocation
->     wrappers
->   perf test symbols: Add tests for symbol shrinking and session alloc
->     wrappers
-> 
->  tools/perf/arch/powerpc/util/sym-handling.c |   34 +-
->  tools/perf/builtin-annotate.c               |   11 -
->  tools/perf/builtin-kmem.c                   |   51 +-
->  tools/perf/tests/hists_common.c             |    5 +-
->  tools/perf/tests/maps.c                     |   46 +
->  tools/perf/tests/symbols.c                  |  851 ++++++++++++++-
->  tools/perf/tests/vmlinux-kallsyms.c         |  181 ++--
->  tools/perf/ui/browser.c                     |    3 +
->  tools/perf/ui/browsers/hists.c              |    3 +-
->  tools/perf/ui/browsers/map.c                |   62 +-
->  tools/perf/util/auxtrace.c                  |  109 +-
->  tools/perf/util/db-export.c                 |    4 +-
->  tools/perf/util/dso.c                       |  324 +++++-
->  tools/perf/util/dso.h                       |   90 +-
->  tools/perf/util/dsos.c                      |   51 +
->  tools/perf/util/dsos.h                      |    3 +
->  tools/perf/util/intel-pt.c                  |   74 +-
->  tools/perf/util/libbfd.c                    |    3 +-
->  tools/perf/util/machine.c                   |   60 +-
->  tools/perf/util/machine.h                   |    8 +
->  tools/perf/util/map.c                       |   36 +-
->  tools/perf/util/map.h                       |    8 +-
->  tools/perf/util/maps.c                      |    4 +
->  tools/perf/util/probe-event.c               |   98 +-
->  tools/perf/util/session.c                   |   78 ++
->  tools/perf/util/session.h                   |    8 +
->  tools/perf/util/symbol-elf.c                |   12 +-
->  tools/perf/util/symbol.c                    | 1042 +++++++++++++++----
->  tools/perf/util/symbol.h                    |   84 +-
->  tools/perf/util/symbol_fprintf.c            |   25 +-
->  30 files changed, 2706 insertions(+), 662 deletions(-)
-> 
-> 
-> base-commit: eb79d2fbc230d41b009e49f20671303c6efbd946
-> -- 
-> 2.56.1.750.gf70dc682cf-goog
-> 
+diff --git a/drivers/staging/iio/adc/ad7816.c b/drivers/staging/iio/adc/ad7816.c
+index 2a15d7598abb..2fd0c4658918 100644
+--- a/drivers/staging/iio/adc/ad7816.c
++++ b/drivers/staging/iio/adc/ad7816.c
+@@ -364,6 +364,7 @@ static int ad7816_probe(struct spi_device *spi_dev)
+ {
+ 	struct ad7816_chip_info *chip;
+ 	struct iio_dev *indio_dev;
++	struct device *dev = &spi_dev->dev;
+ 	int i, ret;
+ 
+ 	indio_dev = devm_iio_device_alloc(&spi_dev->dev, sizeof(*chip));
+@@ -380,30 +381,21 @@ static int ad7816_probe(struct spi_device *spi_dev)
+ 		chip->oti_data[i] = 203;
+ 
+ 	chip->id = spi_get_device_id(spi_dev)->driver_data;
+-	chip->rdwr_pin = devm_gpiod_get(&spi_dev->dev, "rdwr", GPIOD_OUT_HIGH);
+-	if (IS_ERR(chip->rdwr_pin)) {
+-		ret = PTR_ERR(chip->rdwr_pin);
+-		dev_err(&spi_dev->dev, "Failed to request rdwr GPIO: %d\n",
+-			ret);
+-		return ret;
+-	}
+-	chip->convert_pin = devm_gpiod_get(&spi_dev->dev, "convert",
++	chip->rdwr_pin = devm_gpiod_get(dev, "rdwr", GPIOD_OUT_HIGH);
++	if (IS_ERR(chip->rdwr_pin))
++		return dev_err_probe(dev, PTR_ERR(chip->rdwr_pin),
++				     "Failed to request rdwr GPIO\n");
++	chip->convert_pin = devm_gpiod_get(dev, "convert",
+ 					   GPIOD_OUT_HIGH);
+-	if (IS_ERR(chip->convert_pin)) {
+-		ret = PTR_ERR(chip->convert_pin);
+-		dev_err(&spi_dev->dev, "Failed to request convert GPIO: %d\n",
+-			ret);
+-		return ret;
+-	}
++	if (IS_ERR(chip->convert_pin))
++		return dev_err_probe(dev, PTR_ERR(chip->convert_pin),
++				     "Failed to request convert GPIO\n");
+ 	if (chip->id == ID_AD7816 || chip->id == ID_AD7817) {
+-		chip->busy_pin = devm_gpiod_get(&spi_dev->dev, "busy",
++		chip->busy_pin = devm_gpiod_get(dev, "busy",
+ 						GPIOD_IN);
+-		if (IS_ERR(chip->busy_pin)) {
+-			ret = PTR_ERR(chip->busy_pin);
+-			dev_err(&spi_dev->dev, "Failed to request busy GPIO: %d\n",
+-				ret);
+-			return ret;
+-		}
++		if (IS_ERR(chip->busy_pin))
++			return dev_err_probe(dev, PTR_ERR(chip->busy_pin),
++					     "Failed to request busy GPIO\n");
+ 	}
+ 
+ 	indio_dev->name = spi_get_device_id(spi_dev)->name;
+
+---
+base-commit: fa4ad798f6f681031775266044ba1b0cf3c670bd
+change-id: 20261107-batch1-s3-warn-289c98c7b118
+
+Best regards,
+--  
+Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+
+
