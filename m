@@ -1,95 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795464844;
-	b=z3NDwq4LVYY1cQQjO6DjH2HlsfcQqwPTAFYPg2jMwbYGkgupcYCDNJFfRGpuNqKo0s71
-	 ubhmyCBK4no3R3QHMC4OYlh3rPmoXnaqGfwXeACZtfm+wkF2Sg0r0uhRJGXEukcgkSBfq
-	 DcFIqMZgE4V+i7tJFfHxThH5jmB8AXnVem1phOCsS80b4uShaQpPqi8b/kqjK8VWINaBa
-	 Wj7PSskZKaQQv4QF06cM3u9lcrnInpIQQboY3SRPCzoomr1c+ee/bBc2pNhhczR2q6p+v
-	 gqCwWMIYBQAReSQekHS+ZC2v+bFIt4tSxpo/uVRpeyaiM9ezDXKxR9r2R3uOZB21DKA==
+	t=1795464862;
+	b=EpbFMcro/KhALa9/1FwfyJ/JugBOavSZaYgoegeQBpdGjqDfR6LtucPTLENx/cJ/tePI
+	 gOY7+IgXgSmbM6rde9ZFizq98VFyEPyof8UhHhzoppnLx2t+GBpNBS0YxkmgxLYgkVt2o
+	 ZxjL/gEe4EBjyxxf2tMB8cZKSdpgCyDUIbB1/If2vC1zfblKxYPx+au9Gnpt3cuBHh+lb
+	 L/bIA6huQq7ortBcxQKmv6bqegBhJxn4zaMe6+iWjf4bXNTTqhD9AglLxnsIxnklY1Q7C
+	 sxns4fe8ERh20Rmo83zxClkNRQtfJOD++N+g8mdY9d/vUlQSAoqLwCHlpkbxQbcIMNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795464844;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464862;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=dgeT5HSySDkjBdmipJm4ZLy1GjB1CH3yde0pguoA2Lg=;
-	b=WYIvbR7YfFz6AE436KwZhOp4Q3oYFDvmA3NRw4DIs+NDn+xzDi5oY1bhVNfou50FSIAW
-	 wNcj9j+PP8qLZrJd9ebhU6jCaMC8WD3GxrgLS2k42x80ndJ6xSQz32qTHbjqJXOS5jMIn
-	 5/spYGHAM5E6pwF7gTtvrB0nStTws4TArRtl3zaw76IterHj8CRXWl8Gq9iZWAGkzonA8
-	 45Q5gSCjrPfu/z2clTISzpEcghEPpMkJCWeiH/BKjuk+vmomzxfzy8sFO9syKW4G4MB/d
-	 C9tJHos0K/PYECtpCKVXIWSv7vJraJBVVn0JwzvlkZx+DyiXHcXVTkDZvupkcBcPQ1w==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=cPrfk6ONyb8N7CKSwNcuu5XHZjwnL6CQE/ckKsJyYbw=;
+	b=unFbKCqTeKFXs/sgIsGhy9mWdVfXGpd8CeVDpDsPJ/kIp6hhLCvWpDpTg9JSa9fIHURB
+	 MugizEsqUYXMyDdPe47U/XUXrGd+SaLypoTx3kUXKLhTT1WBFP372MgB7xPvgL0iiGDcq
+	 6mPy0OhEilP/HPlSjw9BY1G9az5+A31CL04ZT8si3sddfutfgT1cu3rLm0EbkOnZgWxqd
+	 zM03/mWS80ykNHnrNb5tJXGxMK5PJkWV+Zy6l83ruZLZVv9ZtIu5LAOqPBJZSrJLxiixk
+	 l81GBukMGpzvg6d/iH4fvPNvwFnMpDIRuc40V/F9Il4HzYYqd3WfBEtnhlVZEgb4ZgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="O/QYgvZm";
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JeV+denR;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FCC0606A326
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:14:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FCC0606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0319D606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:14:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0319D606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O/QYgvZm
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38587f3de36so4491769eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:14:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JeV+denR
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386177b0516so10005510eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:14:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795464843; x=1796069643; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=dgeT5HSySDkjBdmipJm4ZLy1GjB1CH3yde0pguoA2Lg=;
-        b=O/QYgvZmhabx3+D1Ox0nAqUklAwki5ts/e5ICD3coNuTFdwkbOEZN1+A7RpaXEaQwL
-         Mp4iBvaRVCxjPQ7fVMeTNRD8T8FoxT7n7oxKfV3t3J8vEdjJqUCAKqgmMab+Ay57xxB+
-         bcVpILohdXpSCjVMN7aXBpUyixQATBOkrAY8wSTNkf2jhPRN+Q1N5+TQTREXzogel4si
-         QW5sgjsw7YTrPRx/77ku31KCZRv/wLnBT0F18Vn/OdNghH4QCpBIP9G2+idR7IOZuGCS
-         itNt8FdcM5sVUtZT2ZP7qYHmDSK2KV8KeJFQXljcQIviEb/kursmQKvy6ypAemXGiOae
-         +Q2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795464843; x=1796069643;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795464861; x=1796069661; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=dgeT5HSySDkjBdmipJm4ZLy1GjB1CH3yde0pguoA2Lg=;
-        b=fhADiqfXtp511rKOcH57g9FLCfANVfe8yqH12WCAuVbpZ0nvB6+P4Vfxov4eoaeReg
-         /xZiEPm6CzB6QMyGQrDqUqMGPAQj5M+ofwSi/zOWQnc3vDwCrO40mh6wGa2HjZ2kaL4h
-         zllpzDvsuleCxRZuakQxWsm4bUSTlrBq/EvfZPcdYnhkSIkDYC7XHOqnDV/ia4VE+eH8
-         UgFNa/MC8KM4O9MIa1XAV7xybHgEeyTY2C0ZRa9s1pnBBYXIK5hp6Be3SgZUXpIamVVG
-         mftvrga5aPFb+gkkpY1EaMIuwBD00rJ4sMUB/YG+TuaT34ZVIFlBB6/JTsB4axrbIDcQ
-         yy2g==
-X-Forwarded-Encrypted: i=1; AL+hErElw5TfhK9k2CgndcKHu9UaaSLN3XT08f57lF6KUILXHSRlDtuExtjURUrjgMFyzzHmcrSCoSJ42ecjGkM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87xcfhtyg9m+tvqSoZKVeWPSC/10g/a7vEn1rev18qwhakDbGj
-	Pup0MJtO8fdHU+Ktxv7KgJBKHCjL0USz0ArVYqIZxltNYcG03J0iBahj
-X-Gm-Gg: AZFdTZePCOzV5lUU651g+6TprmxHaiprD4oGt2l1UwnQv93Nrj5crPgT5yXpRU6sqI0
-	924FqOffURzR9MHmZW8G6VbAFKoKLJlwHysu2zKYpMYJgyq84a8UI2S53hCCQeT32DS1nvAGVIX
-	fNU0qBLjb9FETH97W+NyekKVWmJVQ7F7L/6IpoT+L3j1XcAHOR375cSEHVh2ndwdWnsn5UQYW0O
-	KhXTt7xjFfmNOGKF/2SWSvbdG8Nj0q/8sNMlmNtcezUkjoKEHrQNQvpYu+A27kQHVdFv6NCv5LF
-	oH6IE4H17wlLpUFTxXWDexNZAkMH7qracABUTUKTpPQacfc45L2/5swsSCdpzF5rIzSU7e54m8q
-	zsYPVmMQWiuVHzTaU/QRUDPeVSrX2F3t994VlshtCN4kNW1dOf7c58iCp2edRzx360AdPGjIfAr
-	2mFiE2i6jdBkr6/wjxx6z2pBETE0cXYJTNvpJG1yZCCwVuWy9aCJPaZIa4Amg0SLz9Nk+RJNwAC
-	9TRJu5lf6xMlD0Uoch6e0pLxBDVLoSMPW2JBsiixwXx1iO7C2WyF40Jr5bvY0YjjGdJOtIGEwWS
-	KbFdg18EPcsGG6sKUb8dtmABLPd7WtPmrdZr0CybFEJV4gAyGF0Q3ge1YQqa5fpTzXxud58=
-X-Received: by 2002:a05:7301:259a:b0:36e:800a:71fe with SMTP id 5a478bee46e88-3856c4b844cmr12383687eec.1.1795464843155;
-        Mon, 23 Nov 2026 12:14:03 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm4836352eec.9.2026.11.23.12.14.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 12:14:02 -0800 (PST)
-Date: Mon, 23 Nov 2026 12:13:59 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>, 
-	Ronald =?utf-8?B?VHNjaGFsw6Ry?= <ronald@innovation.ch>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 03/10] Input: applespi - cancel touchpad registration
- work on removal
-Message-ID: <awSebEs9zEV7GDF8@google.com>
-References: <20261123183200.3900004-1-lee@kernel.org>
- <20261123183200.3900004-4-lee@kernel.org>
+        bh=cPrfk6ONyb8N7CKSwNcuu5XHZjwnL6CQE/ckKsJyYbw=;
+        b=JeV+denR+5MWRUHToxTFJvsyZ8ujMCOgwKYy+o+jl7EIKxx+bBL5XrDvz6e2cyVCaX
+         SnhZkQv3I+Krw5EzRl+89Y3QSLSGt9/ZESoRF+70TEywkQvSGPkogEoeGFNJbaHBiiU9
+         FtlOcadUp2OSkcri2qUgsuqT1CKhgn2piOTjpE2THBopgdX5PRvtPdu4SaK3H3irXcXl
+         jiZzGqBYvEYe6RlGPMj3GDA7AFZbCrcVl4ZHzmx66PMbzOnqfQUEcOlvvMVQO948Q7DZ
+         +IywqbUre79GDnHgQD4B2k+4pOWOeOGSTXEBm6cYk7PbOREmjDH4pNjVVNNGR9h14eRd
+         rK+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795464861; x=1796069661;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cPrfk6ONyb8N7CKSwNcuu5XHZjwnL6CQE/ckKsJyYbw=;
+        b=N53Cv2kSRVDFQquxz+PEYysF8yvDYOuRl9oE9VOKhRaWjkVJa5xyyJwiqrVMsGShHD
+         CKOUgdbhes++y6EN/28To6YDxwDbckhPW6IepmYupNZ40gT+pVXzP7B2PM4xvIxF2Iix
+         JsxMwJRSIMYfC7z4w820jhkiIBDJSBFtjZ0vuWICU7vQdeJbwudzsmQ/dMLziUh3PSyI
+         9B/dkhWIierfx3JXanaoVsXBlHomKztPfEvHIyYx140p3XJ9bxYxco3xzZWGo8Az3wec
+         nSNuuihSGImGUeOwRzqhrTQhPBdMuSUYDLzpxhcEpoXoiUfpwTmMbJp1tUTvEAsyReJe
+         OnVg==
+X-Forwarded-Encrypted: i=1; AL+hErF6UkOr8bA8Zfco6DdVh1VCKtFdFOhG2BQYU+OGgNrucWk37FYAspwZAB64+9qGNItliuZ+b5SCfsDLGhs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/syUKUiCyK91yEhBKLxgef6HySN5xm5AGJ/0AuY0rQIrBrueSm
+	sInQtMTP+TYYMyWDK7XCntJWVF7LF8ipGaQEXJGE4VReDIDjBIDl06J56ls9roWo4hMmSBT+Svu
+	65Zt7vy9VOTJRtEv9rA==
+X-Received: from dycai24.prod.google.com ([2002:a05:7300:fb18:b0:385:58ae:e3af])
+ (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:693c:87cc:20b0:358:3426:d601 with SMTP id 5a478bee46e88-3856c0d0961mr13564449eec.2.1795464860602;
+ Mon, 23 Nov 2026 12:14:20 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:14:20 -0800
+In-Reply-To: <CAKfTPtD17e-veL1QgrhO6i4nsKyA3QfOEm8jNinJ_zf+vc8RDw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,48 +78,49 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123183200.3900004-4-lee@kernel.org>
+Mime-Version: 1.0
+References: <20261122015729.2512645-1-penghuang@google.com>
+ <CAKfTPtCQpVhtVT7Mhqe1=Ukcmc1pX8Jgn9ypb64--8cJ-7G4BQ@mail.gmail.com>
+ <20261123160934.2289260-1-penghuang@google.com> <CAKfTPtD17e-veL1QgrhO6i4nsKyA3QfOEm8jNinJ_zf+vc8RDw@mail.gmail.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261123201420.3970775-1-penghuang@google.com>
+Subject: Re: [PATCH] sched/pelt: Skip dormant cfs util_sum under scx_switched_all
+From: Peng Huang <penghuang@google.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Peng Huang <penghuang@google.com>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Tejun Heo <tj@kernel.org>, 
+	David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
+	Changwoo Min <changwoo@igalia.com>, linux-kernel@vger.kernel.org, 
+	sched-ext@lists.linux.dev, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026 at 06:31:09PM +0000, Lee Jones wrote:
-> applespi_probe() allocates its driver state with devm_kzalloc_obj() and
-> initiates an asynchronous touchpad information query whose completion
-> schedules applespi->work to allocate and register the managed touchpad
-> input device in applespi_worker().
-> 
-> applespi_remove() disables the ACPI GPE and drains in-flight SPI writes
-> and reads, but never cancels applespi->work.  If a touchpad info
-> response scheduled applespi->work just before applespi_drain_reads()
-> completed, applespi_worker() can run during or after devres teardown,
-> corrupting the device resource list via devm_input_allocate_device() and
-> dereferencing freed driver data.
-> 
-> Cancel applespi->work synchronously after applespi_drain_reads(), once
-> no further SPI responses can schedule it.
-> 
-> Fixes: 038b1a05eae6 ("Input: add Apple SPI keyboard and trackpad driver")
-> Closes: https://sashiko.dev/#/bug/linux-bb2fd773-6c20-468c-a092-6814f008077f
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
-> ---
->  drivers/input/keyboard/applespi.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/input/keyboard/applespi.c b/drivers/input/keyboard/applespi.c
-> index 96c504f28495..d964cd3ee5af 100644
-> --- a/drivers/input/keyboard/applespi.c
-> +++ b/drivers/input/keyboard/applespi.c
-> @@ -1819,6 +1819,7 @@ static void applespi_remove(struct spi_device *spi)
->  	device_wakeup_disable(&spi->dev);
->  
->  	applespi_drain_reads(applespi);
-> +	cancel_work_sync(&applespi->work);
+On Mon, 23 Nov 2026 at 18:07, Vincent Guittot
+<vincent.guittot@linaro.org> wrote:
+>
+> Yes this seems a better solution but It would be good to reuse
+> __update_blocked_fair() which already does the work for pelt signal.
+> Regarding your issue with util_avg == 0 whereas we still have a
+> util_sum != 0, we can use delta_sum = gcfs_rq->avg.util_sum -
+> se->avg.util_sum; in update_tg_cfs_util() instead. When util_avg == 0
+> we will be sure to clear util_sum too
 
-Likely should be disable_work_sync() instead.
+Thanks for the suggestions, Vincent!
 
-Thanks.
+One small detail in update_tg_cfs_util(): under CONFIG_CFS_BANDWIDTH,
+gcfs_rq and its parent cfs_rq can have different period_contrib, so for
+non-zero util_avg we still want new_sum = se->avg.util_avg * divider
+using the parent cfs_rq's divider. Keeping that calculation while only
+skipping the update when gcfs_rq->avg.util_avg != 0 or
+se->avg.util_sum == 0 preserves period_contrib alignment and clears
+residual _sum whenever util_avg reaches 0 (and similarly in
+update_tg_cfs_{runnable,load}()).
 
--- 
-Dmitry
+I have sent out a 2-patch v2 series implementing this along with reusing
+__sched_balance_update_blocked_averages() in scx_enable():
+  [PATCH v2 0/2] sched_ext, sched/fair: Drain blocked fair load on scx_switched_all
+
+Thanks,
+Peng
