@@ -1,66 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443921;
-	b=J3P4zHjGNHQcnfBC7kobRFVVBUY37zDcTrp1i2CAJ/O1wRp/d1WGg3yJwiopdcRuJybc
-	 pFKIO5Jj/iTjFlHA1PLhWJP/iSD7a1pc2lBZ6QOHZ075dvl+77VRHKu33HoJmPp9EOK5H
-	 TXmsyw6tq4rxjVbx1g6F9Y1pikMzTZ7HLCAHjKZetq8A3rA7Qb9K2VxsUvgsmHonX/KeO
-	 PNC9d0LoGSjPzXc2GmU0HTka+nF16W7Nkt3aPmgT9K8yGSnT49MJrZoaxvf9Rh1WpdAn7
-	 egF/SBIvgAdidf8TbbTdVoXi01c3UnKm66tEtP7H0b8wGLr+WSksbq6aKg3g5OYvucg==
+	t=1795443935;
+	b=hFEfzWg1h1jG4qt1Qdn82F3EHvEamN8w+E1LOkVFwPlJVMubVZCN/sTO9PlcvHUM6wmS
+	 NLdRaJRE6/rkXf8j0HpW6G+hRGRlEYJAfbMEHD47dQKt6wmBOP7KiuHVqeBswS1h0giWQ
+	 suLOTjPHpLmyigzoZT5TZIcZLXQSDlzNr9ar0qnm67Ne7DzlznEpiuLKA8rhJNIhiUkqA
+	 WI7PRS3rs1x7iei8tTg8NlfYcdWUbC3T100u4HPocHEjRHpi4F41MEDpbfnOhZU5abQOd
+	 PkJuOkk+QIs5YrtxfsKCYanG6P8VEH1SCuGupFtLY1b2ekTsNCGjwOmkUJhvWC2XrWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443921;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=OqbI/RShFB8T0Zp0UOGmfW3WUkVldP/5W80D6kbadD8=;
-	b=QpBx7ljsRtujGhdT+Ig3/CeYaTqNLnSQc/fUuFXja3YPjBvEGf1fZjHGXF5gVoIAYoUe
-	 aSWsFUa3jXiCFir5tGyamQd/c1PEXjlLFPA6AiaeAFaHorzfYx2LxteptQWrVliRjfgVI
-	 Ocf8jcZrgmidTjKHV5YG/PyLAx0+ti1zDiJ1Li9t4plWC8hWHGZ7JwGbXmzmNtRjp71m2
-	 ERwI/gu/ZJegi5HfmHJr/fBZXbd6VoqCKNpKxqXa8jFVKdTmJk+1WiVckoIYmXbDV0TAj
-	 G14MehY0a2qvF9z56XSQNRZinnRMz3cPk2lYhBEvTxMVuCsYCjrKQEoL8QCIPaQGK4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443935;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 DKIM-Signature;
+	bh=7b33Jap8LbKbkO4Xoms8+UwJkMsmtqS+GX5xZmwtFzw=;
+	b=A9ubGSxGC9XeoqVpxv0E0bGV5FBq8SKpkQJv538r/CpFKOZ09nuKFYST6q+H07YXGw14
+	 99KBwrQkAClHgYl3Zz7YpZb+gnib0y5xeFH6H6pc/6PKMk0fv9SVlob59vBMxpz8d3Zf0
+	 38UK+ZpeDc6fB4zCi1sDEvJkvbhQ0gF7O+qOzHCwB2luvX9EhDySA6sKDAmP3CG9rY3Ig
+	 eV/4lwcByXRlLv9pqUpvHIjrFsM5swUv5hNA006FfNyUa4AN0/yATgd+CVxOMZzEmgJm+
+	 DiFbORfK1y+VijTwDTlt2lzZrJdX0ptLH0Yubxffmhiqvb/QzMse+Ol60PtogKkWyNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QMi1qS7k;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=poczta.fm;
+	spf=pass smtp.mailfrom=poczta.fm;
+	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=eImv0GLz;
+	arc=none smtp.remote-ip=217.74.67.75
+Received: from smtpo75.interia.pl (smtpo75.interia.pl [217.74.67.75])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 283C6606A31A;
-	Mon, 23 Nov 2026 14:25:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5843C606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:25:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5843C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QMi1qS7k
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F00771F000E0;
-	Mon, 23 Nov 2026 14:25:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795443920;
-	bh=OqbI/RShFB8T0Zp0UOGmfW3WUkVldP/5W80D6kbadD8=;
-	h=From:To:Cc:Subject:Date;
-	b=QMi1qS7ks8YHRdcH5cBWyPEwTEymkPBzm2gx/KB7qIaFcwjG4h0Tk8a9sYIcRg4FY
-	 4VI1fgp9vkGirB9imtfxrf99CEeDRR51pLZgddjoRgSOtvAyTvzBANbA47xMA7BX9y
-	 5ipESK9e6fyzrPOdOzRGtr0z+hKbttYbP4MkQJkpLJTtEXcOUqCl7NO0NVaE9teQSx
-	 5mjclgwWi4jEFaV/lZ3Bn5Gq6IShexQPkyUkwkmy9YqfXc7WtukN4XmCuhqSzD4Yfd
-	 rFHn533Yh+WTLxlbUglxrnWDGOKpxwsT4W6iQJYzryB0vb3I0MGaSbzeiBNguO2ome
-	 N177c3bDrOLdw==
-From: Thorsten Blum <blum@kernel.org>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>
-Cc: Thorsten Blum <blum@kernel.org>,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] lib/buildid: Prevent overflow when aligning ELF note sizes
-Date: Mon, 23 Nov 2026 15:25:10 +0100
-Message-ID: <20261123142510.51241-2-blum@kernel.org>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=eImv0GLz
+Received: from localhost (unknown [80.68.231.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
+	Mon, 23 Nov 2026 15:25:30 +0100 (CET)
+From: Slawomir Stepien <sst@poczta.fm>
+To: gregkh@linuxfoundation.org,
+	jiashengjiangcool@gmail.com,
+	yun.zhou@windriver.com,
+	zzzccc427@gmail.com,
+	bigeasy@linutronix.de,
+	nab@linux-iscsi.org
+Cc: Slawomir Stepien <sst@poczta.fm>,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+2799146a53c356f8017d@syzkaller.appspotmail.com,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/3] usb: gadget: f_tcm: don't hold dep_lock across unregister_gadget_item()
+Date: Mon, 23 Nov 2026 15:25:11 +0100
+Message-ID: <20261123142513.204652-2-sst@poczta.fm>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261123142513.204652-1-sst@poczta.fm>
+References: <20261123142513.204652-1-sst@poczta.fm>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,37 +65,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1187; i=blum@kernel.org; h=from:subject; bh=ubVwu/bFB5b3v5wG+1ppULwvc2EMn6ABkOWV2FeBRUc=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDNksPse02ybeZbSY8j1g5V1/7wP2ypsiTey7jV9oWbm4X Phtlfm/o5SFQYyLQVZMkeXBrB8zfEtrKjeZROyEmcPKBDKEgYtTACYy7QMjw/fpkns+7uG6zhdd +WDiohtlMh/3vI9aK9PPqfcgJmFJ6DqGf6anlSquMhfNNVZ7v6n28KpbHycIiWVdnmBhXptaxb5 qOQMA
-X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
+	t=1795443931; bh=7b33Jap8LbKbkO4Xoms8+UwJkMsmtqS+GX5xZmwtFzw=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=eImv0GLzOVl1GuwgT/+stU7op8F3SlOoXxrYXDhjCnGYRRRp7DTpCYZXKnlK+0mVZ
+	 wS3XCZqx0MLNPy7I7sTHo0xK4TQrEIXt6M6cpxOtbNgqF1ZT38a0VHYpeQiZXRYzQO
+	 s3reOYiLNW1L6B9nQRHCLKdwX5A69INe/EMeh34Q=
 
-Commit de3ec364c3c3 ("lib/buildid: add single folio-based file reader
-abstraction") changed name_sz and desc_sz from u64 to u32. As a result,
-ALIGN() could wrap malformed sizes near U32_MAX to 0, which would allow
-such values to bypass the overflow checks and parsing to continue with
-an incorrect note offset.
+tcm_unregister_callback() runs when a TPG is disabled and unbinds the
+configfs gadget via unregister_gadget_item() while holding
+opts->dep_lock. unregister_gadget_item() takes gi->lock.
 
-Restore u64 for name_sz and desc_sz to prevent alignment overflow. The
-existing check_add_overflow() calls then reject sums that do not fit in
-the u32 offset.
+The opposite order is taken when a UDC is assigned to the gadget:
+gadget_dev_desc_UDC_store() holds gi->lock across
+usb_gadget_register_driver(), which binds the configuration and ends
+up in tcm_bind(), which takes opts->dep_lock:
 
-Fixes: de3ec364c3c3 ("lib/buildid: add single folio-based file reader abstraction")
-Signed-off-by: Thorsten Blum <blum@kernel.org>
+  CPU0: echo 0 > .../tpgt_N/enable    CPU1: echo <udc> > .../UDC
+  tcm_unregister_callback()           gadget_dev_desc_UDC_store()
+    mutex_lock(&opts->dep_lock)         mutex_lock(&gi->lock)
+                                        ...
+                                          tcm_bind()
+                                            mutex_lock(&opts->dep_lock)
+    unregister_gadget_item()
+      mutex_lock(&gi->lock)
+
+Disabling a TPG while a UDC is being assigned can therefore deadlock.
+
+Here dep_lock only needs to cover the can_attach update, so clear
+can_attach under the lock and call unregister_gadget_item() after
+dropping it. Once can_attach is false, any later tcm_bind() fails with
+-ENODEV, and a bind that already passed the check is undone by the
+unregister that follows. The function item, and with it the gadget
+item reached via ci_parent, stays alive because the TPG still holds a
+configfs dependency on it.
+
+Fixes: 4bb8548df632 ("usb: gadget: f_tcm: add configfs support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Slawomir Stepien <sst@poczta.fm>
 ---
- lib/buildid.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/usb/gadget/function/f_tcm.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/lib/buildid.c b/lib/buildid.c
-index 995a327f46ae..767243f424d6 100644
---- a/lib/buildid.c
-+++ b/lib/buildid.c
-@@ -161,7 +161,8 @@ static int parse_build_id(struct freader *r, unsigned char *build_id, __u32 *siz
- {
- 	const char note_name[] = "GNU";
- 	const size_t note_name_sz = sizeof(note_name);
--	u32 build_id_off, new_off, note_end, name_sz, desc_sz;
-+	u32 build_id_off, new_off, note_end;
-+	u64 name_sz, desc_sz;
- 	const Elf32_Nhdr *nhdr;
- 	const char *data;
+diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
+index 9e6d4f39900a..110a7d334afa 100644
+--- a/drivers/usb/gadget/function/f_tcm.c
++++ b/drivers/usb/gadget/function/f_tcm.c
+@@ -2637,10 +2637,11 @@ static void tcm_unregister_callback(struct usb_function_instance *f)
+ 	struct f_tcm_opts *opts = container_of(f, struct f_tcm_opts, func_inst);
  
+ 	mutex_lock(&opts->dep_lock);
+-	unregister_gadget_item(opts->
+-		func_inst.group.cg_item.ci_parent->ci_parent);
+ 	opts->can_attach = false;
+ 	mutex_unlock(&opts->dep_lock);
++
++	/* Takes gi->lock; UDC_store holds gi->lock while tcm_bind() takes dep_lock. */
++	unregister_gadget_item(opts->func_inst.group.cg_item.ci_parent->ci_parent);
+ }
+ 
+ static int usbg_attach(struct usbg_tpg *tpg)
+-- 
+2.56.0
+
