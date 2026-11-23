@@ -1,74 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446630;
-	b=MuQb3SsjxBVwNFuDmGOHZMQA3sW9UMbbn4g3GFhmlf2WqdSnF9mLwRqSXXRfcV9hbhj8
-	 HWdbkDMd73bAOiTpAv39eexGeE0EwJvlPEhAbHFWE06MVg/OkXBTKt8F6/c26oOjjbL6k
-	 GFDOii+bDbXWoDv5sK1Y7aAwzFhAKZbxWr3eNQvmiZFfZK4ct399Mlgxjl1dg4X5Eb8ik
-	 7ZpN3ztww8Wdw3MddIwO/n0kMZKq242tUALO5azyFQYr/1G2smNN3dSh5YtI66S2pz2Go
-	 43Bb4z0M+hIG/+k1GoHB7qvuBJY2N8pmjvolyOqr6Oh3wdtSXTT7GsYcwjE9JC5oTzw==
+	t=1795446665;
+	b=Qito3PJJtqiHQJxkHeO97r4F0zlsp0pJ31kL/g3LJGRDwl2vBoQ5VwZUzqsrWIjhGEmB
+	 N3YBAWSJd7O5oaa142qHOQWAaAO+SZHRrXmSaTne/eu7IbaPULSI7ro6QyUGoc5cxPt6b
+	 T9POu6zHzxD784sFzbC5itfIvjFSOZy44bcyXgdF28rg/UQEVqolKiCAceLixcGdFvr57
+	 5XkJPcBNQ9MmmErFZKqV3dJNtFT/p0mRNybc9Pe1ZMF/QYEX85gR/qxpsqA2jAWjRUBeK
+	 wulHE6rWRNhHVSzoYZB3bE91TLUbYO7FxaFP8rQ2Z/iPUsIpgSojOWXUcTT1gjNMkoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446630;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=QD0nNj4E35Kis9XWNnLNRRy+zAstNQ9se2vTJvGkvqI=;
-	b=j1RpjSIA8jhI8I4iEydL+i5iL+gJJd+hGGPPIiiUlybUE1gK5kb5dY2CFhlVns99aZ6j
-	 XAFh71vqDdU/hzaLKYiQ7RGBcpTYDcLZbKkel4ZpK0jGQDH67ocr/CBlQrtQiVGRWirzy
-	 /Xuvp0BEqlnCMS1FeKm+sGcUqmlGPNIt/GQ88nKpF+lvnSEhVoL+4uxG6bjbOEQbOuk4f
-	 iCL3rp6Al6e3GONgq9ThoxA7epLrZiYYCGb5mX9E3Q+O+wgUJEtNqtlbBrauzRQiyQKZR
-	 OyxAWxYVKAR/G3K+XR958e/H3632P89pyNyN7BfAE1Zg7LSbUmtVMdGRotHw7aKlzcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446665;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=2rXwqdKcXils5ZX0aUJ4kLahSvMQRVDM5PZVEx1DXik=;
+	b=U3ovmN7HmPYhyQ/ncwi1k9KjWQOtVl1UHXeN3SHpHdBz2+WNCDHGSLjIA7fRvrbauftd
+	 2YO7A+9Eot8lo6xBa6BGWkHzPMoF9ybaEcAxb1rAX4c/z4YRNk6+jTKQLHIz3DyQBcOKL
+	 iG+zkUS28a2cyexzGyA6iLEKRXrINuirSMr2t+zG7ah+4MJ7W+rX3CmWmamH9fhZ+Hijr
+	 SvMaxeI0gI5QQL7ogk5iEoYylICyH3LI+STKDn0eBCRqFf620RkXNrIxRdXauNAmEOHsd
+	 K0vPnztjICpB85NNgPjr9G2+87f1oQJhgRip4so3BYWhh7xH6f4Fcj//PZ6Bym9g2Mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="OE2u4eg/";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B0BBE606A31F;
-	Mon, 23 Nov 2026 15:10:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0BBE606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vk93L+Dt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF4A8606A31A;
+	Mon, 23 Nov 2026 15:11:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OE2u4eg/
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25D0A176B;
-	Mon, 23 Nov 2026 07:10:26 -0800 (PST)
-Received: from entos-yitian-01.Arm.com (unknown [10.168.196.233])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D3EAF3F632;
-	Mon, 23 Nov 2026 07:10:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795446629; bh=KAV5zzw6aH2fqGdF4DX2/b+XyZ6zGL5MKFGisav5AaE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OE2u4eg/Mu7QwC9WS7aQnXK0x/7kz34F5Q6JK++tfMEDiigrh94zkDz1NQ1W3EsgA
-	 BhE0e9WOwq9h1s6bmDGBC5k+kVSGrGE6+7TZTZlLkSUYse36Qe8iQ0IWGt0qn8l+Iz
-	 N4A8iPh6zS+hYmtljF0FAOas2lG4UvQksiPU3UdQ=
-From: Jia He <justin.he@arm.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vk93L+Dt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5906A1F000D2;
+	Mon, 23 Nov 2026 15:10:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795446665;
+	bh=2rXwqdKcXils5ZX0aUJ4kLahSvMQRVDM5PZVEx1DXik=;
+	h=From:To:Cc:Subject:Date;
+	b=Vk93L+Dt9YLMBXzvXYfSpC+H3lffXA2iZOKJX2mWjUeIaeUHbBaqwNoa5LUcMB6lC
+	 JfWNJXpQxz1SBDTRWQGOikzJIMIbAB/RORvCqKOBB5G8dP0T7z/v8TERi9xkaGAtTP
+	 i/qTJZHV3ue2mzAkVJz6r0ecPZwLtyJNsWjW0ciNe8zX9EEQBVbnR4zAiGXI35M6Lc
+	 XPRdP/r12xXxidCz58UwmLi6cuT0gObPoQw96fM9tMr1jvlk+CL6VV44kNCS4nV8un
+	 ZhcPhVMQ5QpqHxKmRiROaRwQswAgRC1oWqN45oCedzrzy2erJ0kxIHoMmWX3AgLV8d
+	 mtMQtwbFYf9Mg==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	=?UTF-8?q?Horia=20Geant=C4=83?= <horia.geanta@nxp.com>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Aleksander Jan Bajkowski <olek2@wp.pl>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Antoine Tenart <atenart@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	bui duc phuc <phucduc.bui@gmail.com>,
+	Bulent Abali <abali@us.ibm.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Corentin Labbe <clabbe.montjoie@gmail.com>,
+	Dan Streetman <ddstreet@ieee.org>,
+	Evgeniy Polyakov <johnpol@2ka.mipt.ru>,
+	Haren Myneni <haren@us.ibm.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Kim Phillips <kim.phillips@freescale.com>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Jia He <justin.he@arm.com>
-Subject: [PATCH 3/3] KVM: selftests: arm64: Test KVM_PRE_FAULT_MEMORY before first KVM_RUN
-Date: Mon, 23 Nov 2026 15:09:17 +0000
-Message-Id: <20261123150917.2679600-4-justin.he@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123150917.2679600-1-justin.he@arm.com>
-References: <20261123150917.2679600-1-justin.he@arm.com>
+	linux-arm-msm@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	Longfang Liu <liulongfang@huawei.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Meenakshi Aggarwal <meenakshi.aggarwal@nxp.com>,
+	Meng Yu <yumeng18@huawei.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Nicolas Royer <nicolas@eukrea.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	Pascal van Leeuwen <pvanleeuwen@insidesecure.com>,
+	Paul Louvel <paul.louvel@bootlin.com>,
+	Robert Jennings <rcj@linux.vnet.ibm.com>,
+	Sahil Malhotra <sahil.malhotra@nxp.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Seth Jennings <sjenning@linux.vnet.ibm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Srujana Challa <schalla@marvell.com>,
+	Stanimir Varbanov <svarbanov@mm-sol.com>,
+	Steffen Trumtrar <kernel@pengutronix.de>,
+	Thorsten Blum <blum@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Weili Qian <qianweili@huawei.com>,
+	Zaibo Xu <xuzaibo@huawei.com>,
+	Zhiqi Song <songzhiqi1@huawei.com>
+Subject: [PATCH 00/10] crypto: Assorted bug fixes across crypto drivers
+Date: Mon, 23 Nov 2026 15:09:51 +0000
+Message-ID: <20261123151055.2533735-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,417 +104,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Extend nv_pre_fault_memory_test to exercise KVM_PRE_FAULT_MEMORY before
-the first KVM_RUN.
+These issues were reported by Sashiko.
 
-Without EL2, cover immediate_exit on the first KVM_RUN, retrying after a
-failed first KVM_RUN, and pre-faulting while the vCPU moves from the
-main thread to a worker thread for its first run and back to the main
-thread for its second run. The two threads are pinned to different CPUs
-when at least two are available.
+None of these changes have been tested on physical hardware.
 
-With EL2, additionally cover an EL2 vCPU with ID_AA64MMFR4_EL1.NV_frac
-cleared to 0 and HCR_EL2.NV=1 at EL1h (the NULL vncr_tlb reproducer), an
-EL2 vCPU with a vEL1 context and asymmetric HCR_EL2.IMO/FMO staged before
-the first run, and the same thread handoff. An unfixed kernel reports
-the staged context case only as a WARN in the kernel log; the test
-itself still passes.
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: "Horia Geantă" <horia.geanta@nxp.com>
+Cc: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Antoine Tenart <atenart@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Bharat Bhushan <bbhushan2@marvell.com>
+Cc: bui duc phuc <phucduc.bui@gmail.com>
+Cc: Bulent Abali <abali@us.ibm.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>
+Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Corentin Labbe <clabbe.montjoie@gmail.com>
+Cc: Dan Streetman <ddstreet@ieee.org>
+Cc: Evgeniy Polyakov <johnpol@2ka.mipt.ru>
+Cc: Haren Myneni <haren@us.ibm.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Kim Phillips <kim.phillips@freescale.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-crypto@vger.kernel.org
+Cc: linux-sunxi@lists.linux.dev
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: Longfang Liu <liulongfang@huawei.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Meenakshi Aggarwal <meenakshi.aggarwal@nxp.com>
+Cc: Meng Yu <yumeng18@huawei.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
+Cc: Nicolas Royer <nicolas@eukrea.com>
+Cc: Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: Pascal van Leeuwen <pvanleeuwen@insidesecure.com>
+Cc: Paul Louvel <paul.louvel@bootlin.com>
+Cc: Robert Jennings <rcj@linux.vnet.ibm.com>
+Cc: Sahil Malhotra <sahil.malhotra@nxp.com>
+Cc: Samuel Holland <samuel@sholland.org>
+Cc: Seth Jennings <sjenning@linux.vnet.ibm.com>
+Cc: Shrikanth Hegde <sshegde@linux.ibm.com>
+Cc: Srujana Challa <schalla@marvell.com>
+Cc: Stanimir Varbanov <svarbanov@mm-sol.com>
+Cc: Steffen Trumtrar <kernel@pengutronix.de>
+Cc: Thorsten Blum <blum@kernel.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Weili Qian <qianweili@huawei.com>
+Cc: Zaibo Xu <xuzaibo@huawei.com>
+Cc: Zhiqi Song <songzhiqi1@huawei.com>
 
-Signed-off-by: Jia He <justin.he@arm.com>
----
- .../kvm/arm64/nv_pre_fault_memory_test.c      | 335 ++++++++++++++++--
- 1 file changed, 298 insertions(+), 37 deletions(-)
+Lee Jones (10):
+  crypto: caam - Fix descriptor buffer overflow in caam_process_blob()
+  crypto: marvell - Fix AEAD key buffer overflow for SHA-384/512 HMAC
+  crypto: nx - Fix bounce buffer copy overflow in decompress()
+  crypto: sun8i-ss - Fix scatterlist array overflow for HMAC requests
+  crypto: hisilicon/hpre - Fix buffer overflow on odd ECDH input size
+  crypto: talitos - Remove duplicate IV unmap in AEAD encrypt path
+  crypto: safexcel - Check scatterlist errors before max() for in-place
+  crypto: qce - Pass mapped scatterlist count to qce_dma_prep_sgs()
+  crypto: qce - Terminate RX DMA channel if TX preparation fails
+  crypto: atmel-tdes - Update output IV before clearing busy flag
 
-diff --git a/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
-index 09c1db303856..6dbcf3b0ef13 100644
---- a/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
-+++ b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
-@@ -1,15 +1,13 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /*
-- * nv_pre_fault_memory_test - Test KVM_PRE_FAULT_MEMORY on a vCPU whose
-- * last-run context is nested.
-- *
-- * The guest enters vEL2, sets up its EL2 translation configuration into the
-- * real EL1 registers then ERETs to vEL1 and exits to userspace so its vCPU
-- * last-run context is nested backed by a shadow stage 2 MMU.
-- *
-- * Assert that pre-faulting ignores that and targets the canonical stage-2
-- * page tables only.
-+ * nv_pre_fault_memory_test - Test KVM_PRE_FAULT_MEMORY on arm64 before the
-+ * first KVM_RUN, across vCPU thread changes, and, with nested virtualisation,
-+ * from a live nested context.
-  */
-+#include <pthread.h>
-+#include <sched.h>
-+
-+#include "kvm_syscalls.h"
- #include "kvm_util.h"
- #include "processor.h"
- #include "test_util.h"
-@@ -22,6 +20,18 @@
- #define TEST_MEM_SIZE		SZ_2M
- #define TEST_MEM_GPA		SZ_1G
- 
-+static void guest_el1_touch_and_done(void)
-+{
-+	u64 offset;
-+
-+	GUEST_ASSERT_EQ(get_current_el(), 1);
-+
-+	for (offset = 0; offset < TEST_MEM_SIZE; offset += SZ_4K)
-+		READ_ONCE(*(u64 *)(TEST_MEM_GPA + offset));
-+
-+	GUEST_DONE();
-+}
-+
- static void guest_el1_code(void)
- {
- 	u64 offset;
-@@ -97,22 +107,56 @@ static void pre_fault(struct kvm_vcpu *vcpu, u64 gpa, u64 size)
- 	TEST_ASSERT_EQ(range.size, 0);
- }
- 
--int main(void)
-+static void expect_ucall_sync(struct kvm_vcpu *vcpu, u64 expected)
-+{
-+	struct ucall uc;
-+
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_SYNC:
-+		TEST_ASSERT_EQ(uc.args[1], expected);
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+		break;
-+	default:
-+		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-+	}
-+}
-+
-+static void expect_ucall_done(struct kvm_vcpu *vcpu)
-+{
-+	struct ucall uc;
-+
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_DONE:
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+		break;
-+	default:
-+		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-+	}
-+}
-+
-+static struct kvm_vm *setup_test_vm(bool has_el2, bool has_sve,
-+				    void *guest_fn, struct kvm_vcpu **vcpu_out)
- {
- 	struct kvm_vcpu_init init;
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
--	struct ucall uc;
- 	u64 npages;
- 
--	TEST_REQUIRE(test_supports_el2());
--	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
--
- 	vm = vm_create(1);
- 
- 	kvm_get_default_vcpu_target(vm, &init);
--	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
--	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-+	if (has_el2)
-+		init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-+	else
-+		init.features[0] &= ~BIT(KVM_ARM_VCPU_HAS_EL2);
-+	if (has_sve)
-+		init.features[0] |= BIT(KVM_ARM_VCPU_SVE);
-+
-+	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_fn);
- 	kvm_arch_vm_finalize_vcpus(vm);
- 
- 	npages = TEST_MEM_SIZE / vm->page_size;
-@@ -120,39 +164,256 @@ int main(void)
- 				    TEST_MEM_SLOT, npages, 0);
- 	virt_map(vm, TEST_MEM_GPA, TEST_MEM_GPA, npages);
- 
-+	*vcpu_out = vcpu;
-+	return vm;
-+}
-+
-+static void test_nested_post_run_pre_fault(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+
-+	pr_info("Testing post-run pre-fault from nested vEL1 context\n");
-+	vm = setup_test_vm(true, false, guest_code, &vcpu);
-+
- 	/* Run the guest until it has ERET'd from vEL2 to vEL1. */
- 	vcpu_run(vcpu);
--	switch (get_ucall(vcpu, &uc)) {
--	case UCALL_SYNC:
--		TEST_ASSERT_EQ(uc.args[1], 1);
--		break;
--	case UCALL_ABORT:
--		REPORT_GUEST_ASSERT(uc);
--		break;
--	default:
--		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
--	}
-+	expect_ucall_sync(vcpu, 1);
- 
- 	/*
- 	 * The vCPU's last-run context is vEL1, so its hw_mmu is a shadow
--	 * stage-2 MMU.
--	 *
--	 * Pre-faulting must ignore that and populate the canonical stage-2.
-+	 * stage-2 MMU. Pre-faulting must ignore that and populate the
-+	 * canonical stage-2.
- 	 */
- 	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE);
- 
- 	/* Resume at vEL1 and touch the prefaulted range. */
- 	vcpu_run(vcpu);
--	switch (get_ucall(vcpu, &uc)) {
--	case UCALL_DONE:
--		break;
--	case UCALL_ABORT:
--		REPORT_GUEST_ASSERT(uc);
--		break;
--	default:
--		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
-+	expect_ucall_done(vcpu);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+/*
-+ * Pre-fault before the first KVM_RUN with ID_AA64MMFR4_EL1.NV_frac == 0
-+ * (no vncr_tlb) and HCR_EL2.NV=1 at EL1h.
-+ */
-+static void test_pre_first_run_no_nv2(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	u64 val;
-+
-+	pr_info("Testing pre-first-run pre-fault with NV_frac=0 and HCR_EL2.NV=1\n");
-+	vm = setup_test_vm(true, false, guest_el1_touch_and_done, &vcpu);
-+
-+	/* Copy the EL2 S1 configuration into the EL1 sysregs for vEL1. */
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1),
-+		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL2)));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1),
-+		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL2)));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TTBR0_EL1),
-+		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TTBR0_EL2)));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MAIR_EL1),
-+		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MAIR_EL2)));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CPACR_EL1), 3ULL << 20);
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VBAR_EL1),
-+		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VBAR_EL2)));
-+	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1),
-+		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SP_EL2)));
-+
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR4_EL1));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR4_EL1),
-+		     val & ~ID_AA64MMFR4_EL1_NV_frac);
-+
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-+		     (val & ~HCR_EL2_TGE) | HCR_EL2_NV | HCR_EL2_RW);
-+	vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pstate),
-+		     PSR_MODE_EL1h | PSR_F_BIT | PSR_I_BIT | PSR_A_BIT | PSR_D_BIT);
-+
-+	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE);
-+
-+	vcpu_run(vcpu);
-+	expect_ucall_done(vcpu);
-+
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-+	TEST_ASSERT(!(val & HCR_EL2_NV),
-+		    "Expected HCR_EL2.NV to be masked RES0, got 0x%lx", val);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+/*
-+ * Stage a vEL1 context with asymmetric HCR_EL2.IMO/FMO before the first
-+ * KVM_RUN. If pre-faulting loads this context onto the CPU, the nested vGIC
-+ * code hits a WARN in the kernel log. The test itself still passes, so this
-+ * case needs a kernel log check.
-+ */
-+static void test_pre_first_run_nested_ctxt(void)
-+{
-+	u64 orig_hcr, orig_pstate;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+
-+	pr_info("Testing pre-first-run pre-fault with staged vEL1 context\n");
-+	vm = setup_test_vm(true, false, guest_code, &vcpu);
-+
-+	orig_hcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-+	orig_pstate = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pstate));
-+
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-+		     HCR_EL2_E2H | HCR_EL2_RW | HCR_EL2_VM | HCR_EL2_IMO);
-+	vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pstate),
-+		     PSR_MODE_EL1h | PSR_F_BIT | PSR_I_BIT | PSR_A_BIT | PSR_D_BIT);
-+
-+	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE);
-+
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), orig_hcr);
-+	vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pstate), orig_pstate);
-+
-+	vcpu_run(vcpu);
-+	expect_ucall_sync(vcpu, 1);
-+	vcpu_run(vcpu);
-+	expect_ucall_done(vcpu);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+struct handoff_args {
-+	struct kvm_vcpu *vcpu;
-+	int cpu;
-+};
-+
-+static void maybe_pin_self_to_cpu(int cpu)
-+{
-+	if (cpu >= 0)
-+		pin_self_to_cpu(cpu);
-+}
-+
-+static void *first_run_worker(void *arg)
-+{
-+	struct handoff_args *h = arg;
-+
-+	maybe_pin_self_to_cpu(h->cpu);
-+	pre_fault(h->vcpu, TEST_MEM_GPA + SZ_1M, TEST_MEM_SIZE - SZ_1M);
-+
-+	vcpu_run(h->vcpu);
-+	expect_ucall_sync(h->vcpu, 1);
-+	return NULL;
-+}
-+
-+/*
-+ * Pre-fault in the main thread, run the vCPU for the first time in a worker
-+ * thread, then pre-fault and run it again in the main thread. This changes
-+ * vcpu->pid both before and after the first run. If at least two CPUs are
-+ * available, the two threads are pinned to different CPUs.
-+ */
-+static void test_thread_handoff(bool has_el2)
-+{
-+	struct handoff_args h = { .cpu = -1 };
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	cpu_set_t allowed;
-+	int cpu, cpu0 = -1;
-+	pthread_t thr;
-+
-+	pr_info("Testing pre-fault across a thread handoff (%s vCPU)\n",
-+		has_el2 ? "EL2" : "EL1");
-+
-+	CPU_ZERO(&allowed);
-+	kvm_pthread_getaffinity(pthread_self(), &allowed);
-+	for (cpu = 0; cpu < CPU_SETSIZE; cpu++) {
-+		if (!CPU_ISSET(cpu, &allowed))
-+			continue;
-+		if (cpu0 < 0) {
-+			cpu0 = cpu;
-+		} else {
-+			h.cpu = cpu;
-+			break;
-+		}
-+	}
-+	if (h.cpu < 0)
-+		pr_info("Only one CPU available, not testing CPU migration\n");
-+
-+	maybe_pin_self_to_cpu(cpu0);
-+	vm = setup_test_vm(has_el2, false,
-+			   has_el2 ? guest_code : guest_el1_code, &vcpu);
-+	pre_fault(vcpu, TEST_MEM_GPA, SZ_1M);
-+
-+	h.vcpu = vcpu;
-+	kvm_pthread_create(&thr, NULL, first_run_worker, &h);
-+	kvm_pthread_join(thr, NULL);
-+
-+	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE);
-+	vcpu_run(vcpu);
-+	expect_ucall_done(vcpu);
-+
-+	kvm_pthread_setaffinity(pthread_self(), &allowed);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_pre_first_run_el1(void)
-+{
-+	int feature = KVM_ARM_VCPU_SVE;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	int ret;
-+
-+	pr_info("Testing pre-first-run pre-fault with immediate_exit\n");
-+	vm = setup_test_vm(false, false, guest_el1_touch_and_done, &vcpu);
-+	pre_fault(vcpu, TEST_MEM_GPA, vm->page_size);
-+
-+	vcpu->run->immediate_exit = 1;
-+	ret = __vcpu_run(vcpu);
-+	TEST_ASSERT(ret == -1 && errno == EINTR,
-+		    "Expected -EINTR on immediate_exit, got ret=%d errno=%d",
-+		    ret, errno);
-+	vcpu->run->immediate_exit = 0;
-+
-+	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE);
-+	vcpu_run(vcpu);
-+	expect_ucall_done(vcpu);
-+	kvm_vm_free(vm);
-+
-+	if (!kvm_check_cap(KVM_CAP_ARM_SVE)) {
-+		pr_info("SVE not supported, skipping failed first KVM_RUN test\n");
-+		return;
- 	}
- 
-+	pr_info("Testing pre-fault after a failed first KVM_RUN\n");
-+	vm = setup_test_vm(false, true, guest_el1_touch_and_done, &vcpu);
-+	pre_fault(vcpu, TEST_MEM_GPA, vm->page_size);
-+
-+	ret = __vcpu_run(vcpu);
-+	TEST_ASSERT(ret == -1 && errno == EPERM,
-+		    "Expected -EPERM before SVE finalisation, got ret=%d errno=%d",
-+		    ret, errno);
-+
-+	pre_fault(vcpu, TEST_MEM_GPA + vm->page_size, vm->page_size);
-+	vcpu_ioctl(vcpu, KVM_ARM_VCPU_FINALIZE, &feature);
-+	vcpu_run(vcpu);
-+	expect_ucall_done(vcpu);
- 	kvm_vm_free(vm);
-+}
-+
-+int main(void)
-+{
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
-+
-+	test_pre_first_run_el1();
-+	test_thread_handoff(false);
-+
-+	if (!test_supports_el2()) {
-+		pr_info("EL2 not supported, skipping nested tests\n");
-+		return 0;
-+	}
-+
-+	test_nested_post_run_pre_fault();
-+	test_pre_first_run_no_nv2();
-+	test_pre_first_run_nested_ctxt();
-+	test_thread_handoff(true);
-+
- 	return 0;
- }
+ drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c  |  7 +++++--
+ drivers/crypto/atmel-tdes.c                        |  7 +++++--
+ drivers/crypto/caam/blob_gen.c                     | 12 ++++++++----
+ drivers/crypto/hisilicon/hpre/hpre_crypto.c        |  5 +++--
+ drivers/crypto/inside-secure/safexcel_cipher.c     |  7 +++----
+ drivers/crypto/marvell/octeontx/otx_cptvf_algs.h   |  2 +-
+ drivers/crypto/marvell/octeontx2/otx2_cptvf_algs.h |  2 +-
+ drivers/crypto/nx/nx-842.c                         |  5 ++++-
+ drivers/crypto/qce/dma.c                           |  8 ++++++--
+ drivers/crypto/qce/sha.c                           |  9 +++++----
+ drivers/crypto/talitos.c                           |  4 ----
+ 11 files changed, 41 insertions(+), 27 deletions(-)
+
 -- 
-2.34.1
+2.56.1.750.gf70dc682cf-goog
 
