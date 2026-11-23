@@ -1,76 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.121.53.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.204.81.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795405427;
-	b=q2u6/ZVrIpVFG/aqjXINYtorN9c4772d5YFBbF2p3M0SoSMSbAalhtFC9QYpSmPxAHUa
-	 4/H7xkdREElSWc5tMu5qiI9a8bC+ZLvMMvlkpApR/kPcog0sDn8C1SFJcgMpwY59jw/+b
-	 TPNZGcj9nQtmaq87XmXAslCFZ5DG+HX8wMIuuCLde1UmBC5WU/GYnd0PJjm/mcWNidctg
-	 m0own6mzl0UEzIBs0LfOg+uX5mqPGKGhNNYElNG3Ia2BQQrX/Dr5yB6MyPqiAokqffQ43
-	 e7NDhOOSEWbdtZdO09pGD+Ax+eDFm4g+VxyEI+I6uQIy+U1TMxJ/yONJk5gPfSpFOrA==
+	b=tawtuZwsjs1Z1RTs1Yn6GztpvhYkhEF2oUMw6Wb0GM/rSQwgC4lFuNagfaPUdOMv12e6
+	 0EuexMzNvz4x3VxJIg5lG+vABmxMrDGjm4mEPywC6QW/X9etbmjH/1RNvutIWAll28RTu
+	 pES2H6Okku+DHQYQps/+HREExMchzLBB+JNO8aDgfZ8mDmme4Yhk28fWbSsYJVyKkxTEh
+	 Dm9W70yMaaFvJWfNdHH+HUawrLe6egnfC7dwfw8Zao9+bf7Z37EX8HYRO0nnzhi1coCQG
+	 LMDYR4eUDKqCtb5cddss022rmoVF13GZ0Cz5odpleiIvdCH0pxginPO8TLvejp37VKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795405427;
 	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:X-CMAE-Analysis:
 	 Feedback-ID:X-SECURESERVER-ACCT:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CMAE-Envelope;
-	bh=RTWmlxaQ2Ha8YBAMirwSslA1bBfEFfgbfyLjXOotjxc=;
-	b=zsZHqcipRULNR6BsjSFC0h6J4HTVigUxKq+7zV+GUzUFR8BMDSyTPEvN3cGAWaXGCUIu
-	 3WdmSS1zLC0AnkbrQA8LFynEFuwcAlKyWwfY89yJQ1h8GbAAYoEdlkOrRAajcKh3vj6SX
-	 pHdWJeq/mli0lvE9i/LoS4UAwNl6ooJsIj8nrZ/iHEwjrIm36LKSX6Z18VRpOTr0LJniG
-	 kKRuuoBgO3R/hVr6G91b7t4jM8YF5DRWgXEspIS8/pPgoDeKJJ/gIi4lzMlZmxJulh/8k
-	 FAdhMDf56dEnmYaKmnv8ziGj6GvZYP/dirEDEScKHrDnEBmfJ2Rv40ANO31iigXOnaA==
+	bh=iWtGlCsXyDg+0XDDQp42mfm/iFWlVjXTouLGzx7/hcs=;
+	b=awjoIoxs5VSrWPJmGI6OR+HqRUQym+JwxQfzmXI92XdawBPcaHBLXextNIAJyuf/UTFP
+	 yrT9k5UWqIorz2hgvX+F5CPZD/6+Y50pXDB/6ZYf8Yf4ChNroVe7AGQnHdj+Rb/XNfj1/
+	 lA5DSacasKvwaoq2rWaC8O9l0q42v/GjbuJho1gtGYWCz+OEvYXEhhSY9uu6/XOZwKFAY
+	 GhtDJpa0DE9SzoxlFYsvUWSyHfMqNveMYBBqI5jRspEhHNGhKrjMhuoNnr5m6LCrR0Tu8
+	 ORlzZ7UdBmBkQ+y1FvEzyV7dgYYFCjaKJefIv90mBSCXB/tBlUB1lr3CPyE0f8Mi4Yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=squashfs.org.uk;
 	spf=pass smtp.mailfrom=squashfs.org.uk;
-	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=IZOk6HF5;
-	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=bc33HOUI;
-	arc=none smtp.remote-ip=188.121.53.41
-Received: from sxplsmtpa04-04.prod.sxb1.secureserver.net (sxplsmtpa04-04.prod.sxb1.secureserver.net [188.121.53.41])
+	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=TAT6cuWI;
+	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=ZeE3YkLK;
+	arc=none smtp.remote-ip=92.204.81.43
+Received: from sxplsmtpa04-04.prod.sxb1.secureserver.net (sxplsmtpa04-04.prod.sxb1.secureserver.net [92.204.81.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C3EF606A6B1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1967606A6B4
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:43:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C3EF606A6B1
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1967606A6B4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=squashfs.org.uk
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squashfs.org.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=IZOk6HF5;
-	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=bc33HOUI
+	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=TAT6cuWI;
+	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=ZeE3YkLK
 Received: from avalon.fritz.box ([82.69.79.175])
 	by :SMTPAUTH: with ESMTPA
-	id VKxRxJoOeZuU3VKxoxiqQS; Mon, 23 Nov 2026 03:43:32 +0000
+	id VKxRxJoOeZuU3VKxtxiqQq; Mon, 23 Nov 2026 03:43:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secureserver.net;
-	s=secureserver2; t=1795405413;
-	bh=RTWmlxaQ2Ha8YBAMirwSslA1bBfEFfgbfyLjXOotjxc=;
+	s=secureserver2; t=1795405419;
+	bh=iWtGlCsXyDg+0XDDQp42mfm/iFWlVjXTouLGzx7/hcs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IZOk6HF5nBnOXcGI/0l4hYN7cEZjsYzlH6tvVwICZ08laZx9aNmdkfOe3dif/pbL9
-	 rMYufTgN+JtF+jX8T3krmn6Azx2pk8RxAtwdAmo8zjsIO0ndyOiCxNd19JBb9JWhym
-	 N6voP/D4Ku0BvFFW6KbSTDbP4Ar3lVW9o/rXLVddkReMGIzTHzrg/Bes2tB/qJN5Pz
-	 rrPZeuyKmHTgew9lWHqJ0oHGmTuT0i7Jak7/vap6aLnqm2lbjkko+4821AgXkaETAs
-	 REFGBOR4XeL1GdLItZwd6IqLk0pf3jvtzD589M3bwEt6sUfoVb3mnTfIE1TRd7PqCH
-	 zHkfCozGrjeHg==
+	b=TAT6cuWImdRmpZq2bnbdad+U6+Ttg2R1NYuySvc+ELUO5BazM3TZm9D6uTJOR29qG
+	 6wAt03bOSrAIozRf48Ma8TVNYQNWQ8Ew/BOp7BEOI7pyvrUD6rID1RTo+l8aU3X337
+	 ugbTkpq3r6rH5ONd3uyZzTsepfDS/7JwRb9GRh+b7U2ReNUhk9wmamzlPduoflcxyB
+	 vwpvG9ybL3GbH8SKo64gPrrQRH4ggCrNGb0EWvD41HllWjvRrG1RtVsBn4uhddxxBO
+	 rnuA0E7ph5F3xFQIbJJW5X7a8PYprXLzbUkntwdGvwwUd5QTqsWipbYIjwBK0XDhp6
+	 w1Y7ZEcu7y/3Q==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squashfs.org.uk;
-	s=secureserver1; t=1795405413;
-	bh=RTWmlxaQ2Ha8YBAMirwSslA1bBfEFfgbfyLjXOotjxc=;
+	s=secureserver1; t=1795405419;
+	bh=iWtGlCsXyDg+0XDDQp42mfm/iFWlVjXTouLGzx7/hcs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bc33HOUIS/DY6liz9f0VbRG2hmhEb6T8VqkA/EsO3cl5mHjtO6HwIp/G6jpu/0Aig
-	 7I8rnhE0MVS4dRNgBqe79YsLcG6jkevJhSvpdFr3rwRZI/yX4nfDHygGC8HirzKiZR
-	 n4U6Nna89CJCg588xr0VfpaOlNHxLii6AV12zTbhlcgQJhnJTFwZvoVa1fwaOLUifC
-	 UQV5Nero7dC4LmFYKIPOB+ZQ/l/OeTtkSCwLZ3jPmPkPSWb7T3skYII4AietFThJcW
-	 GbmiIselCpeRPdHLXUIrWQZbMR+bobLGVepazSRUdQxdj/t+diolRZUHC9OdkhDFlS
-	 et1NvVUkQ18pQ==
-X-CMAE-Analysis: v=2.4 cv=CvYq4X4D c=1 sm=1 tr=0 ts=6b03b665
+	b=ZeE3YkLK7dPf9Z4E/n995nyvWvCgsjM1CJLhSu4BMcQJhtX5UPppc8YqPPwM8uQKG
+	 HHt7AonsOryIz47S5RmzgsjVrEkdlm5XQJ/FCmbu09YHlHUbTIWkr9wUv7QjNWAklu
+	 EmuYbKhTEG/BqzgQmRRmvS1GCSJrZiUTXSZLg0VN9RMeSLL/DjI0qpWE0t91zVkVz7
+	 xQy7AOwxyMFzhJqwZB4kK/o8f5cahOuzHr2DFJXErjFumRUxjo/ZhbhossYVG/T58w
+	 kalTS6ZADqyxEsRkTz4LCvCZR6Oe856okLlZnNEeboxO498dnsijk5J7ZQOVo1qvPP
+	 /clHOzJa9EeqA==
+X-CMAE-Analysis: v=2.4 cv=CvYq4X4D c=1 sm=1 tr=0 ts=6b03b66a
  a=84ok6UeoqCVsigPHarzEiQ==:117 a=84ok6UeoqCVsigPHarzEiQ==:17 a=FXvPX3liAAAA:8
- a=_bInhHkTttLfAsG6xnIA:9 a=UObqyxdv-6Yh2QiB9mM_:22
-Feedback-ID: 8ff9135744a45be5530f50e4fbd2f054:squashfs.org.uk:ssnet
+ a=yKgdCBhA7QK4Y9OD5tEA:9 a=UObqyxdv-6Yh2QiB9mM_:22
+Feedback-ID: 31d0cd3480636aaf506d07518366b354:squashfs.org.uk:ssnet
 X-SECURESERVER-ACCT: phillip@squashfs.org.uk
 From: Phillip Lougher <phillip@squashfs.org.uk>
 To: akpm@linux-foundation.org,
 	linux-kernel@vger.kernel.org
 Cc: Phillip Lougher <phillip@squashfs.org.uk>
-Subject: [PATCH v3 05/23] Squashfs: convert SQUASHFS_ID_* to inline functions
-Date: Mon, 23 Nov 2026 03:42:46 +0000
-Message-ID: <20261123034304.261742-6-phillip@squashfs.org.uk>
+Subject: [PATCH v3 09/23] Squashfs: fix fragment bytes overflow on 32-bit architectures
+Date: Mon, 23 Nov 2026 03:42:50 +0000
+Message-ID: <20261123034304.261742-10-phillip@squashfs.org.uk>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261123034304.261742-1-phillip@squashfs.org.uk>
 References: <20261123034304.261742-1-phillip@squashfs.org.uk>
@@ -84,125 +84,134 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMAE-Envelope: MS4xfFfHxseJVKuDXxrgDWX5wY1epzGPA4uJlwFFMBKJtMjBhxXYxzT9dqOVYPxqjJlTM9f2Y/vlYiXPLtAvaP3U0Sh1DZRtAQgXqy4iRM+TtKrrem5vsWr3
- Swl0Wej5fZFlEL8lglUE8z0RQjr+B6FUDg+2IRrxfxLv0lJMTZLcyP4s+awDmBFF2+vLmdcuOgCN9+21qTcRf74Cb9mgTHvUo8T8IECpP3okfaECXASlzkll
- MErvNWSgYkJ5I05FvQs8W3Mupn8OYAiebggEHdtgn784FZ8ytOtQD4EHK77ucGCA
+X-CMAE-Envelope: MS4xfMvRkqa7/9hcfMy/+wfilAS0eUFQDqgPMP91GfgoxUGRdVzi2P3Nr3xVXG+ZkBrsIVQ8GIMAlbxJscrE/wzgK5HK9GXewxggjiPWScMwEL4zurMB/sDA
+ XHIicsgCt0BUFXGd5UVF08rZDW4FISd+KgwSnxu51Dkzpr2gzZzCu7ZmczAPlDRHRkOvaoI03R28A6nB4ycn/9VOGlJSTm3KGtCbhT1uGR4vP9SW3fF1hwDs
+ tm+TpxAkK/eRhFtxBLRKkKMdclhodJS+virLelzvClcabMJjMWpjb5AEhphnFD9o
 
-Convert old fashioned #define macros into inline functions.  This has
-the following improvements:
+In helper function squashfs_fragment_bytes() the u32 fragments
+variable is multiplied by sizeof(struct squashfs_fragment_enty).
 
-1. Inline functions are typed, which makes the width and signedness of
-   input and outputs explicit, which reduces errors.
+On a 32-bit architecture the type of sizeof() is a 32-bit unsigned
+integer, which means the computation will overflow for fragments
+values above 268435455.
 
-2. The inline functions enable more sanity checking to be added in
-   later commits.
+The knock-on effect is the size of the in memory fragment index
+table will be incorrectly computed, and a much smaller than expected
+index table will be allocated and read into memory.
 
-3. Inline functions are easier to read than #define macros, which
-   improves code comprehension.
+Later when a fragment index beyond this is looked up in this table,
+this will produce an out of bounds access.
 
+The fix is to explicitly widen the fragments variable to a long long
+in the squashfs_fragment_bytes() helper function.
+
+Reproducer
+=========
+
+The following script when run on a 32-bit x86 kernel (which lacks
+KASAN support) will produce an I/O error.  On a 32-bit ARM kernel
+with KASAN enabled, the out of bounds access will also produce a
+KASAN report.
+
+[  193.817260] ==================================================================
+[  193.818057] BUG: KASAN: slab-out-of-bounds in squashfs_frag_lookup+0x23c/0x264
+[  193.820408] Read of size 8 at addr cc126708 by task stat/357
+[  193.820720]
+[  193.821675] CPU: 3 UID: 0 PID: 357 Comm: stat Not tainted 7.2.0-13187-g66498c75b4f8 #113 VOLUNTARY
+
+=================================================================
+#!/bin/bash
+
+ARGS="-no-duplicates -no-sparse -no-hardlinks -quiet -no-progress"
+
+finish() {
+	popd 2>&1 > /dev/null
+	rm -rf $DIR
+	exit 1
+}
+
+# Create a Squashfs filesystem with 1026 files and 513 fragments.
+# This will create a two entry Squashfs fragment index table.
+#
+DIR=$(mktemp -d)
+
+pushd $DIR 2>&1 > /dev/null
+
+# Create a Squashfs pseudo file which is fed to Mksquashfs
+echo Create a Squashfs pseudo file which is fed to Mksquashfs
+
+dd if=/dev/urandom of=urandom bs=1024 count=50 status=none
+for i in $(seq 1 1026); do
+	echo "$i l urandom" >> pseudo
+done
+
+# Create the Squashfs filesystem
+echo Create the Squashfs filesystem
+
+if ! mksquashfs - img.sqsh -pf pseudo -p "/ d 0777 0 0" $ARGS; then
+	echo Failed to create Squashfs filesystem
+	finish
+
+fi
+
+# The fragments field (fragment count) in the superblock is at offset
+# 16 bytes.
+#
+# Over-write the fragments count with 268,435,457 little-endian.  On a
+# 32-bit architecture, this when multiplied by 16 will overflow, giving
+# the value 16.
+#
+# Ultimately this will cause the kernel code to create and read a single
+# entry index table (where in fact the table has two entries).
+#
+# Then stating file 999 which has a fragment id in the second index,
+# will cause an out of bounds access.
+
+# Write 268,435,457 in little-endian format to file
+/usr/bin/echo -en "\x01\x00\x00\x10" > file
+
+# Over-write the fragments count in the superblock
+echo Over-write the fragments count in the superblock
+
+dd bs=1 seek=16 if=file of=img.sqsh count=4 conv=notrunc status=none
+
+# Mount the filesystem to /mnt
+echo Mount the filesystem to /mnt
+
+if ! mount -t squashfs img.sqsh /mnt; then
+	echo Mount of Squashfs filesystem failed
+	finish
+fi
+
+# Stat file 999
+echo Stat file 999
+
+stat /mnt/999
+
+popd 2>&1 > /dev/null
+
+rm -rf $DIR
+=================================================================
+
+Fixes: ffae2cd73a9e ("Squashfs: header files")
 Signed-off-by: Phillip Lougher <phillip@squashfs.org.uk>
 ---
- fs/squashfs/id.c               |  9 +++++----
- fs/squashfs/squashfs_fs.h      | 15 ---------------
- fs/squashfs/squashfs_helpers.h | 27 +++++++++++++++++++++++++++
- 3 files changed, 32 insertions(+), 19 deletions(-)
+ fs/squashfs/squashfs_helpers.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/fs/squashfs/id.c b/fs/squashfs/id.c
-index ea5387679723..5630f5ec159a 100644
---- a/fs/squashfs/id.c
-+++ b/fs/squashfs/id.c
-@@ -24,6 +24,7 @@
- 
- #include "squashfs_fs.h"
- #include "squashfs_fs_sb.h"
-+#include "squashfs_helpers.h"
- #include "squashfs.h"
- 
- /*
-@@ -33,8 +34,8 @@ int squashfs_get_id(struct super_block *sb, unsigned int index,
- 					unsigned int *id)
- {
- 	struct squashfs_sb_info *msblk = sb->s_fs_info;
--	int block = SQUASHFS_ID_BLOCK(index);
--	int offset = SQUASHFS_ID_BLOCK_OFFSET(index);
-+	int block = squashfs_id_block(index);
-+	int offset = squashfs_id_block_offset(index);
- 	u64 start_block;
- 	__le32 disk_id;
- 	int err;
-@@ -60,8 +61,8 @@ int squashfs_get_id(struct super_block *sb, unsigned int index,
- __le64 *squashfs_read_id_index_table(struct super_block *sb,
- 		u64 id_table_start, u64 next_table, unsigned short no_ids)
- {
--	unsigned int length = SQUASHFS_ID_BLOCK_BYTES(no_ids);
--	unsigned int indexes = SQUASHFS_ID_BLOCKS(no_ids);
-+	unsigned int length = squashfs_id_block_bytes(no_ids);
-+	unsigned int indexes = squashfs_id_blocks(no_ids);
- 	int n;
- 	__le64 *table;
- 	u64 start, end;
-diff --git a/fs/squashfs/squashfs_fs.h b/fs/squashfs/squashfs_fs.h
-index 89b998f57a2b..25dd89a2c6ad 100644
---- a/fs/squashfs/squashfs_fs.h
-+++ b/fs/squashfs/squashfs_fs.h
-@@ -107,21 +107,6 @@ static inline int squashfs_block_size(__le32 raw)
- 	return (size >> 25) ? -EIO : size;
- }
- 
--/* uid/gid lookup table defines */
--#define SQUASHFS_ID_BYTES(A)		((A) * sizeof(unsigned int))
--
--#define SQUASHFS_ID_BLOCK(A)		(SQUASHFS_ID_BYTES(A) / \
--					SQUASHFS_METADATA_SIZE)
--
--#define SQUASHFS_ID_BLOCK_OFFSET(A)	(SQUASHFS_ID_BYTES(A) % \
--					SQUASHFS_METADATA_SIZE)
--
--#define SQUASHFS_ID_BLOCKS(A)		((SQUASHFS_ID_BYTES(A) + \
--					SQUASHFS_METADATA_SIZE - 1) / \
--					SQUASHFS_METADATA_SIZE)
--
--#define SQUASHFS_ID_BLOCK_BYTES(A)	(SQUASHFS_ID_BLOCKS(A) *\
--					sizeof(u64))
- /* xattr id lookup table defines */
- #define SQUASHFS_XATTR_BYTES(A)		(((u64) (A)) * sizeof(struct squashfs_xattr_id))
- 
 diff --git a/fs/squashfs/squashfs_helpers.h b/fs/squashfs/squashfs_helpers.h
-index aafc75a3a435..b9c517a50642 100644
+index 4088e598400f..524d4a77686d 100644
 --- a/fs/squashfs/squashfs_helpers.h
 +++ b/fs/squashfs/squashfs_helpers.h
-@@ -105,4 +105,31 @@ static inline s32 squashfs_lookup_block_bytes(u32 inodes)
+@@ -55,7 +55,7 @@ static inline s64 squashfs_mkinode(u32 start, u16 offset)
+ /* fragment and fragment table defines */
+ static inline s64 squashfs_fragment_bytes(u32 fragments)
  {
- 	return squashfs_lookup_blocks(inodes) * sizeof(long long);
+-	return fragments * sizeof(struct squashfs_fragment_entry);
++	return (s64) fragments * sizeof(struct squashfs_fragment_entry);
  }
-+
-+/* uid lookup table defines */
-+static inline s32 squashfs_id_bytes(u16 ids)
-+{
-+	return (s32) ids * sizeof(unsigned int);
-+}
-+
-+static inline s32 squashfs_id_block(u16 ids)
-+{
-+	return squashfs_id_bytes(ids) / SQUASHFS_METADATA_SIZE;
-+}
-+
-+static inline s16 squashfs_id_block_offset(u16 ids)
-+{
-+	return squashfs_id_bytes(ids) % SQUASHFS_METADATA_SIZE;
-+}
-+
-+static inline s8 squashfs_id_blocks(u16 ids)
-+{
-+	return (squashfs_id_bytes(ids) + (SQUASHFS_METADATA_SIZE - 1)) /
-+		SQUASHFS_METADATA_SIZE;
-+}
-+
-+static inline s16 squashfs_id_block_bytes(u16 ids)
-+{
-+	return squashfs_id_blocks(ids) * sizeof(long long);
-+}
- #endif
+ 
+ static inline s32 squashfs_fragment_index(u32 fragments)
 -- 
 2.47.3
 
