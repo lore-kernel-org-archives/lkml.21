@@ -1,49 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795435806;
-	b=gLCip39tkvDO/+6GSIrUxz3zkzshPv6ioGttzXwPWies9bYe3BGmEgQ2vST6tSyfy56C
-	 8zMo3jtLsIiw0iBrBB321umwQrI6VteXYy5+VASHkqOHwm/n9v98HcaFXUb7AOXYdO5rn
-	 PsWQougUF55I9XegLEHR1bZX/PE3UwsJUhAFJROK1n/6yjRWbJihaTMawWluXjXTqdgax
-	 vsFaDhBaANbmqwt6O956qBcPknS37qot4RB8DEy7Ebi0Q/l7mbyTuXPH65IBPILPyaHWK
-	 PAlSV2XlMFukBuoiHQI7y2I9dTDbcpCWciYDWkXZsrF9JQuqIVaVKoXQ2nSA1UAwDpQ==
+	t=1795435877;
+	b=dBmY9niqhfDRPyx1L3Y4lZgqzJvAFrbds8Z6mE6zPx0pZcDapuqwNYb33lR8ZZaktQtD
+	 1Q2lInaG5us+B90Pd3CKTpzBh4ZY4cU7vHDhz6KOeMmLF1ybq9zPUWm05Cl9U0ryYQKxr
+	 2klC39T/EyN33AbzgLUN/dFAst54o/xus+NsP0axTstpCwEgFpNCb0ct77/+rN/eXSt7W
+	 0mq+C5T8tKJ+mh0Nszo1RJDVUQ6geyak9qSkKZOvHEozb5SP8B0zCJ3VN1mmdL3ijeNec
+	 U4ZVCmYGe4mPzz4ePh4RyPYd3qHFrffWFfJl+Zbv8IeaKlptUbq5g99QQooM97YcRnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795435806;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=4VuFSntfCljx51xVr7ZgTt4+piYTB/31ijcvK7Rfmk4=;
-	b=JHmwauPas6Bi28nZVvXQTJ6RJuVWwwpMchya3g/B+VK1cnmYiDDqUPeogGbqXqI+NKRB
-	 rS6rWyX/V4uPJ51O2dxg5BbvGmQfCb0dvzPVYh/jeh/ecj7Soae4KvQ6WfOnLYQE9H9uX
-	 JBB7X4z/MzOpuGWsVRUyMFpo65Ej80FNlpcHads0BBtEuxVMqK8LAVmvm7WwIIRtkIEfr
-	 G3dwZS9Jkp639p6BRcW8kWea75sKYTNFpjrtTq51VPpmvMs9Gx4OhUqbiMolCljo1wuag
-	 EsI7iqP30D5NyS6OIeLKjQ7UyfvGaX4lSQisSbRqa8vfu/W+NFwER6/Rq06GAwq6Sig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795435877;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=3Eh7AtJFr/uR9z6jF6Gx5kvJFnPR9rDrn/UUs08sdns=;
+	b=L5nDFKkr8VCvUnLDom5iFLcJ4Q8hhin//+D1ZdOiq5El1gbLthqAuLZcQ8Fio8/1ski4
+	 dWXwVU1L/j7ik6TlypTSpIDz2G1BB9tS1iKlrGLOwMvsYEDYR5N5p4Sda3/jkZHIZ85uD
+	 Ej99uX54V87QyDNA67DULT4LUu/kRr5JymcsFHjxItDPlmiSBjPjDQZcAAFHyUusG5KBr
+	 SRC8/NkdDACfikJ5/dg0LGldhaNE7piJMdzuAZr0i5pi03mEM2cgI/kLh/oMtUPeHl8tz
+	 vLrjA/4cvph7lwbo0SiHqKnaZemT2ss6jGFK3TwdKlNTXOMZWI/VUB8HlUep81PDFZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VLkdNyIL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hQamuCjA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0634F606A31A;
-	Mon, 23 Nov 2026 12:10:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 68795606A31A;
+	Mon, 23 Nov 2026 12:11:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VLkdNyIL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81DE91F000CA;
-	Mon, 23 Nov 2026 12:10:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hQamuCjA
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2ACD51F000C4;
+	Mon, 23 Nov 2026 12:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795435805;
-	bh=4VuFSntfCljx51xVr7ZgTt4+piYTB/31ijcvK7Rfmk4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=VLkdNyIL0Ywxj+kTsBAUxrA/lkMe3ezbWSOkn26RnyYgMCVwFQBpeOyzjJBQ1pEq6
-	 88HYhhZmYQp5d23WpcUpCrXxXbkwPXgVQsUJUR0jVE/vRtLxPNzgKliENy6dunzrbJ
-	 3EPKQz7bc+iPXKxl9zwZwemIptdLivSK5FmAaaPX+bQJerpfcafoC2w6vaNYP3rmf4
-	 l2qSaOMJsR86qaGwIWQex0+Lir73rohTmfd1l44bsGCiV+fY+eXUcd0F8AMJJDaTlw
-	 d6rYvxpgY21UAO8oKlUl2CPT1d0JfzOkOVNnNRFgTkRbXGGAZtQXD/p9sWeV6O/lJv
-	 gTrIp92CIwU0w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7744B392ED9E;
-	Mon, 23 Nov 2026 12:10:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795435876;
+	bh=3Eh7AtJFr/uR9z6jF6Gx5kvJFnPR9rDrn/UUs08sdns=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hQamuCjAL00ho8wuAS/xxVYieoyQgKpz3vy0va43FUKk/hFwrbG6HzxETV4CPonrt
+	 k6jRu1ZOOtEWQhRCEvXtWxedbA8rH8OmH5G9Y+BVpuIHAGJk91cXf0mLNnnojRcdUj
+	 qSaXcxSIYXF49xIPCkBP8y3ijLUXYm9PmxXpVMjadfNtsJhik07hKDBj6ZsYokPsHx
+	 Rcc4cnD2AigMAxeskn6n0WGYBuUUq0kFKMe8Dt6a6ijFzvVBvp9CvR9Yd4LBFa/l1R
+	 qi5fkN6MIlAIbUe+StU8kBx84vegQRFf4wZ6C5FKplP1e/LEdlfU5TiCBE1BhkDXC4
+	 kA0JmqcFgg8tQ==
+Date: Mon, 23 Nov 2026 14:11:12 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>
+Cc: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>,
+	Jens Wiklander <jenswi@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>, Peter Huewe <peterhuewe@gmx.de>,
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-arm-msm@vger.kernel.org,
+	op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org
+Subject: Re: [PATCH v5 2/3] tpm: Introduce Qualcomm TPM driver
+Message-ID: <awQtYP7tFjTN1Mm0@kernel.org>
+References: <20261120-tpm_qcom_driver-v5-0-3d9321ace107@oss.qualcomm.com>
+ <20261120-tpm_qcom_driver-v5-2-3d9321ace107@oss.qualcomm.com>
+ <awGtGoxtker8a9kG@kernel.org>
+ <8aed0815-685d-41b3-af2e-0055bc6ad920@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,47 +63,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] vsock: only deliver taps to namespaces that can reach
- the device
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179543580428.2348707.16200731284263459418.git-patchwork-notify@kernel.org>
-Date: Mon, 23 Nov 2026 12:10:04 +0000
-References: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
-In-Reply-To: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
-To: Bobby Eshleman <bobbyeshleman@meta.com>
-Cc: stefanha@redhat.com, sgarzare@redhat.com, mst@redhat.com,
- jasowangio@gmail.com, eperezma@redhat.com, xuanzhuo@linux.alibaba.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, kvm@vger.kernel.org, virtualization@lists.linux.dev,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8aed0815-685d-41b3-af2e-0055bc6ad920@oss.qualcomm.com>
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Mon, 16 Nov 2026 15:46:49 -0800 you wrote:
-> vsock_deliver_tap() clones every packet to every vsockmon device on the
-> system. Creating one needs only CAP_NET_ADMIN in the owning user
-> namespace, so an unprivileged user can capture the traffic of local mode
-> namespaces.
+On Mon, Nov 23, 2026 at 02:48:17PM +0530, Kuldeep Singh wrote:
+> >> +module_tee_client_driver(tpm_qcom_driver);
+> >> +
+> >> +MODULE_DESCRIPTION("TPM driver for Qualcomm TPM TA");
+> >> +MODULE_AUTHOR("Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>");
+> > 
+> > MODULE_AUTHOR() field is not that useful and nobody keeps it up to
+> > date, so you never can rely on it. Not NAK, but just underlining
+> > how litte it is worth :-)
+> > 
+> > Copyright and authorship is anyhow recorded by Git and
+> > MAINTAINERS document.
 > 
-> Pass the packet's netns to vsock_deliver_tap() and only deliver to
-> devices that pass vsock_net_check_mode(), the same rule socket lookups
-> use. vhost passes the vhost_vsock netns, loopback the sending socket's
-> netns, and virtio-vsock NULL (global mode).
+> Ahh, I noticed couple of other drivers doing it so took it as reference
+> and adapted here. Seems MAINTAINERS is updated correctly so folks can
+> rightly reach out to me for any dsicussion/issues later on.
 > 
-> [...]
+> Btw thanks for mentioning. Will keep a note for the next time!!
 
-Here is the summary with links:
-  - [net] vsock: only deliver taps to namespaces that can reach the device
-    https://git.kernel.org/netdev/net-next/c/2388bb763e32
+Yeah, there could not be more copyright- and authorship-focus project
+than Linux. I mean even this discussion is recorded to lore, and can be
+used against me in court ;-) Probably most corporate-safe project in the
+world when you think of it.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Br, Jarkko
