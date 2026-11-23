@@ -1,59 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.79.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421007;
-	b=nuNvS4RZrIzKDw5Pq8KTw1uQslydsTldMSR3FWFkBgYk8ukjBd++y07htsMfrOEXXGp+
-	 ydjIl5mZGvFlgm4GqjweeCBhBAMKbOt4/V1iILE3ZQQ6rB4cpj22RPhSuD0bF0rvbtkZX
-	 krWvCYapk9RaL6kayN6JXJz+3ZwyKHxzjtPXxRtPnLfhY/JMbllKfQzYqGawALq0AeG6n
-	 4RH25042BkQEAE7D7W8dWu6NAz+7q99MjyMickR0QIYRsMprqFUs9bnqg+cZb5Je0RT9w
-	 Q6pG5ElACzlS/UndCRG3DwRLgy8d62Oq3umivN+zB6+KhruTLtFUdODkdFbODrx+FkQ==
+	t=1795421022;
+	b=kF2iYMNi+T35nwvtdA0EC9UwVFhOV5kF9BITJmioPzkIElTvcKtLhsuYHmBe0R9oewxD
+	 SBKGsut67CABzDr+fCJkIp2LuysJcf5TA1V3BsmN7jNX8bt48umZN1NkxvW7Id4hsx+5F
+	 KZlayBmKCtu20AcoP4X0gda9hdX60Ee81UmlLqv7Pp1tX8jtnBc1J8X4SDVLwKVDNcVy9
+	 aQtVc45sWXG+oSRxJJUEkMwg4m6Sx/GG++eFS8bqbVsmpFvc8ZzW4RVx1Z5hYNsL7CPt5
+	 JCVM+l33Z8Qou+g7LKtZVLPkMufBA11uy99YBhtAyJEE8GIFV2LBZC4RE7hH/LKRJxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421007;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=56qIsCsRYahPEGbFo42LTUf6UE/vtnz8sOVyn3tuhYw=;
-	b=43NiTfsROE013abvsStYdo/e/XTSk07eg7jy8COL2rq8eZqvJsmZ56bTvZGFY0HpoZ9N
-	 CLPESi2QEDb7fg58tWqPppjq8eDdR2khuV60viMzwH8/FbgM7DG796kcsZKWSikgj7J92
-	 uG49hYFY8mfpe6l+rXwikNifcyax9ZdloWugJk2O153TvkCq1Qzg3Fno9/+5LHyAlvF4N
-	 U0+ABv6F2IlHyqKyOsbeCI4aPLN3bzDNEAkSJ/yfGPGw3KSyYwYmDNt3c/OuCjKlDRRy/
-	 xsS87eho0PeEVekIoaQzeocWhSMxp6iHDdIm/+G2Q9uyol7Ax5e02Wa21rwl135s3cQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421022;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Authority-Info-Out:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-JNJ;
+	bh=JYvSvDfswO2l+IyLzWQJX1wneXOmcrOuIQ0XsfOmxLo=;
+	b=P2Vi6JvZV9nynxaPfNYDYhVhw5csFaKrjt8CFnTahZt3U3wPWuCLUpdTMj3IoWtoqzHo
+	 7sLgvLCgZ+j1AfRsioiDxl2o5whMlbAXYT3FMSQVXT0K/vrx8J+PMo7ZHHS6r/mcuTZBg
+	 RTnCl1LaWxDEdMPIb48NKb3yO27t2Ut+7IibzM+073r3fYPi5yijyHUhZYowXAL4tz6ZI
+	 UM05EnV3hgrkypgXz4dNccSHslQisiGY1WL+cdJaVUMBbtmZL7DC2Uqz3SE/1PZrOPNgD
+	 rjG5mRxvdefftpypuDeKYpmT9qYt3SNaZHCIg4ukxOq6nWa9fHKlzm/bwrkLRC4HNVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXDWdY2C;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=shuye.dev;
+	spf=pass smtp.mailfrom=shuye.dev;
+	dkim=pass header.d=shuye.dev header.i=@shuye.dev header.a=rsa-sha256 header.s=sig1 header.b=vpSzqAyK;
+	arc=none smtp.remote-ip=57.103.79.49
+Received: from outbound.st.icloud.com (st-2005c-snip4-6.eps.apple.com [57.103.79.49])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D28B606A692;
-	Mon, 23 Nov 2026 08:03:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CB9A606D16D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:03:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CB9A606D16D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=shuye.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shuye.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXDWdY2C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A661F000D0;
-	Mon, 23 Nov 2026 08:03:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795421006;
-	bh=56qIsCsRYahPEGbFo42LTUf6UE/vtnz8sOVyn3tuhYw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WXDWdY2CoEV4UWyZSScfG4er2dUyJViQN7Dm2bh3eR3n1mm1tpCKmjOlwb8hxLgLL
-	 y0N2cfQMeg+R7d+StHduLrTGUtxkYsJKNrTI33vpxy/8bN8WUWW3ioKHnMQ0JU7Flq
-	 vonuoACr2bT/s0vYmHuFhC2QXubxYSx32PP6yGwE/G2Rmqk23ZGJLR3rvrkYkSZeay
-	 LtF7HcgO04iPTtgk60TsfMPYoRWUWoDX0ylNypywXnNkB4HfziwURbm4w/8euODn/J
-	 TB/+9MpvI6cAtYAguCcNT+0zJag06mSTXgDh782vxnvBQ3Jr7bivTPPfGB7bKNNv2J
-	 XSRVEpjleKAGA==
-Date: Mon, 23 Nov 2026 09:03:22 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tapio Reijonen <tapio.reijonen@vaisala.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Markus Probst <markus.probst@posteo.de>, linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Lukas Wunner <lukas@wunner.de>, 
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
-	Lino Sanfilippo <l.sanfilippo@kunbus.com>, Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Subject: Re: [PATCH 2/7] dt-bindings: serial: Add the line transceiver enable
- GPIO
-Message-ID: <20261123-transparent-coucal-of-persistence-8cfbdd@quoll>
-References: <20261111-serial-transceiver-supply-v1-0-40bad0f912f2@vaisala.com>
- <20261111-serial-transceiver-supply-v1-2-40bad0f912f2@vaisala.com>
+	dkim=pass (2048-bit key, unprotected) header.d=shuye.dev header.i=@shuye.dev header.a=rsa-sha256 header.s=sig1 header.b=vpSzqAyK
+Received: from outbound.st.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-1a-100-percent-0 (Postfix) with ESMTPS id CFD851800218;
+	Mon, 23 Nov 2026 08:03:36 +0000 (UTC)
+X-ICL-RepId: 01a2076e-9277-7aed-a86f-ebaadef8294b
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shuye.dev; s=sig1; t=1795421021; x=1826957021; bh=JYvSvDfswO2l+IyLzWQJX1wneXOmcrOuIQ0XsfOmxLo=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=vpSzqAyKYN9JXypjsE1N4TUp9scJJooBDOprtbzu8ybgNoqq0JJ649kUKH8bNeoAZtcRF+YUTxi1gHC1YgTdD03kMAzwYvk3LWptgekTpaEBM2b4GHD79c0QCJmjBTnEkL88UZsP6AdNUqaWO+3qtdx+f4Iu48OISYhrOx8gePBUVDo0GxRvR8Eo9EBZzjdpKA1fBMkTYF1jtKuX3lMq+rz5kIQpLZj6DtVTz0ernGYTJC1M5l5qA3HYqcUoqPW4yZMIJJEqZ8hARTd8m30/ZJzxwyD3P9VYMRF9t5lKcBR9Q+nFZU5GgFTtJFr10ZG9OmvJgAVslXvYzH2dTH2DSw==
+mail-alias-created-date: 1658105457252
+Received: from shuye.dev (unknown [17.156.216.30])
+	by p00-icloudmta-asmtp-us-east-1a-100-percent-0 (Postfix) with ESMTPSA id 8A3EC1800208;
+	Mon, 23 Nov 2026 08:03:35 +0000 (UTC)
+From: Ye Shu <hello@shuye.dev>
+Date: Mon, 23 Nov 2026 00:02:33 -0800
+Subject: [PATCH iwl-net] e1000e: add HP ZBook 8 G2i 14 to disable K1 list
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,23 +57,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261111-serial-transceiver-supply-v1-2-40bad0f912f2@vaisala.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-e1000e-hp-zbook-k1-v1-1-468e3868229f@shuye.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MUQrCMAwG4KuE/3mBpCtOexXxYWp0YdKOVlQcu
+ 7vgd4BvRbPq1pBoRbWXNy8ZibQjXKYx3439ikQIEnaqIbCpiBhPC3/Ppcw8K0cb+l7iuD8MER1
+ hqXbzzz89wt8PzvbEadt+Vl9Bvm0AAAA=
+X-Change-ID: 20261122-e1000e-hp-zbook-k1-4e73304a8974
+To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>, 
+ Dima Ruinskiy <dima.ruinskiy@intel.com>, 
+ Vitaly Lifshits <vitaly.lifshits@intel.com>, 
+ intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Ye Shu <hello@shuye.dev>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1963; i=hello@shuye.dev;
+ h=from:subject:message-id; bh=Tk2kaEGBsjUU2+Xrzlzb0H/K/d1lZQi2yqEQQz5/qho=;
+ b=owEBbQKS/ZANAwAKAWrdZni68N7qAcsmYgBrA/NWcuNYDo8u4aF8qMy37Q7bnFL1jtPHc127Y
+ fSZwVz3epiJAjMEAAEKAB0WIQTaiAWzOwE7Z7uq/ZNq3WZ4uvDe6gUCawPzVgAKCRBq3WZ4uvDe
+ 6ta+D/9PwriDv8XRgFc/U/kIMVeThj7EebTpGu8kcFwMwPsYQfxspAmTPn0tKF3/vi0XHfE6PK8
+ IpTOaWsx2+7gJ9Z4wfQqJA41HgB7/DntHYjBI7IqtYRQFkuXX6D08mqwsCX4AIuVS9jLmXZBD3H
+ p343xw0GhxXgCBrkAHFvdWGQ1LesLZM6TMNyj9Jj0/9F/DwTRD62j9jyN2YbO/Si1+nzP4Y/Z1v
+ y94bHqEX8k4B/Ja37S9fkKXfur3hZj0ET7RQwcStQpBqKqE8UruMMOcgHb+/3dm6pIOT7ZCWg/3
+ n6Z0v7z3omLI/SQKT/XtWP8RhkibKKEbEadUtb4CEwm0qtrrrmivtHO7LOngxTDz4y0MQbdNoYq
+ Ij00FuanyDh2sSP3fWS5JkdEm008xZZVytCzZiyRkpP6QVa7806KG8TlTus9NswYDk+NtTNtoKU
+ cY/2aGuz/O91kYMJCoCC2ZUM2K46yjAmYCmvwUGnYkYs8CEv00VvPV7A/gYNCYPzjhi0uPDjbQW
+ KX0w7yYGblTk67HJCNWJwvjex91oBSxoFxPVhb0smawe/0g9mIoH9adAJDFXlUPqgxadj6kVJtM
+ HHnhmBPZrQSOdCNzJVtiQ/P6plZQQPfaTjhTzSUAHPilGlKiVm3gaqfVkX5nyAUf4f8brGQQu6Z
+ 7Q/kxBZbRey/D1A==
+X-Developer-Key: i=hello@shuye.dev; a=openpgp;
+ fpr=F021058172993F4D228EDB6972FF4E8B377057DE
+X-Authority-Info-Out: v=2.4 cv=PbNqFShd c=1 sm=1 tr=0 ts=6b03f35a
+ cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
+ a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=AZoGnDOZhPiq548KR6q9:22 a=oPt-bpzCUupNiBt5qcZk:22
+ a=VwQbUJbxAAAA:8 a=qnVDHuHs7DX7YdgB2tMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: HdjXjTci-5tB4pFkOoyDrfYGc9KzORrV
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfX4dEOGQjMgsGb
+ Lq8PiPHkbChVwAzgBEyVPOnoyjH9nfyS8wax6h9TF9w+4JE+1nDE5m6XBNVf8sHvC93EXM5zjJF
+ qTFSQbQDsLIDGr3GCIIit7o2WxNZ9V4=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzMSBTYWx0ZWRfXxvq+SjnGHP7y
+ 1v5u3GOhL+kM/QSiRiniwLbclc48zyT596Pz/Si4PvCO7XwsZsCNj3rlk/qsvwr9Y4kA3bziLB+
+ gBdVIt+5vTFBMKE0SW9mMW+DOOOA6YHSD8X1bmQhhayWubK8TCuAhEzbFG2toLFSHOQoJCO9/1m
+ IjiWLI1U8JXp/Mv6VZM9Um7BDMWMJYSC8Zq+gv0I139zl9czzG8bDWlVMpaUufQqcKA+V6kZS4i
+ stUZxOG9hVsgsJi2Nta6zOcq/8GaIm9+vRAc9LmrnQRDS+zT3nw+ueIdF1OyTtb6iaePnS3pkWn
+ vQQBPp8Vjw4osSYmVrDKdmdVln5x5qMru8iGwQrBP8SPDqNj6GFB3qsNi79vAs=
+X-Proofpoint-GUID: HdjXjTci-5tB4pFkOoyDrfYGc9KzORrV
+X-JNJ: AAAAAAABLlj2GXMfJgPS6ZL5RRkrN0+SR9VBuGsw3ND80RiAZpzRIEpF3Dlr9lyz/ynVjv
+ Woll1dMWwHn2JnSryo5B/riTWwepCRbUINaKzGdbvPQcwCZN6SbfbWpJHs+VKUJnub25Ju
+ 1TqG8so0rh2Y1cGCQezxCSGburtFMaicUlhIdu0+4wG716e01ONFDv/d/AGtHP1H075Ajq
+ lLcSnGpeSKw5NmbLzKFW5P50jgVsgXqD7pM6YUTOkXauYJfQKZXBuKPFxk7PKuNCu090qm
+ /cm730GZmSPqO8nBI4YOGujMY5MZPoyC7py6TtDMA8lBPnv870rvR2D8b9yr3vWSJP2u/i
+ ts0vQLlS+op+Jjdi4MZAqB9Mz4KRwB7xYRzJnGhyq4tKPIvMJQPzqrlYgbmnLVVcHUmnsw
+ OBsrTTEieovBFBN7yZ2bIjBW4an27t0TXj4g4OFbqMJAUSuLO0Vz/0ItV7oPur0cL4uMHF
+ +3V05bLAMHFvTaLMpLP9zk1xFcLiK3y4f+JTA+wpOrciFZykHtyqIEpNHCSc8+8gieZBZQ
+ zaBS/5XBcZiYqXkF2/rNsASE9HieRLIik+i/SawHxVVkmYjLMx8JjLIk0A+yxkTC8DA88W
+ CZC5DGnLQWLUObAhIxJQRPt0+F7djNQuuTueVyHBpcSw/9w9U5SqqAXvSQlwsVQVgb8BeD
+ NYMpVqDWlCNsRcRRcGaBU90sKslSF39d5/+YofUHbubxdsLoL1OkrNkhh0D4Jn1VzKCvQU
+ T2OgJO49U6BB9Rckz56in4r1oKpN7wlW3D41ymp8d6Xj4dhV/0a0sGPxkQbo+Ly78qPuLN
+ P2Vko0tHM4/nOFbtttlHgMSKkz8cpkJwAQ+FusSMJ7igDBAIeL9sTdqt32dmkOVHornKi3
+ jMYKyCGe8pMXUdU5zm5LukhNcgXqpDI6D0+D5VZLHPPmWWzbVDwDwP7Aa47DXV5lPzMOu3
+ c3mhHxrn7hFAvpMXq9SxPoVY0qmBwZZF2ZmMJvRkficN2bq6qnDVj/seezgHGlSDw4Y2VX
+ L4r71T9eJpKSdhU7dDniikf1mMKz17Q4qKwA46U8a9Vm7AxSyGZ21OnzMvBGR4rhlaU+Ap
+ eW2y4d7RmM59inRS/ti1bUVE17iKI2QYTaoXQIiZWqt43XpbWz60K0IU6DSuDiyNbUC7Ie
+ cIYRM8AqmCC2pgnnm4CHjzIxbpjk8uBDKnY4lb3UjJfFh/P+FnuS1rTfIyliRO36G4KMc+
+ 1qyXJsYEXAqBV8UxRo5csaxTFj1wQmgJnrwNHcY2ufDJHv88Ktsx2twHXzgviPQtHRedPO
+ pXrsF3qCHU6Ual4AREoRahTgsezTbGTHwA1h9hbRxIY2O/Enczai14Itl0M3BzBGUh1+jc
+ lX+MQZIDg9ogOXz5ZKmwTwGFmLhSnPmZms14YraQrz2SQoQv+ehYLg==
 
-On Wed, Nov 11, 2026 at 12:28:01PM +0000, Tapio Reijonen wrote:
-> A UART's line transceiver (RS-232, RS-485, an isolated or a
-> multiprotocol part) is a dumb device with no node of its own, yet on
-> many boards it is the largest consumer behind the port and can be
-> switched off, through a shutdown input of the part or a switch in its
-> supply. Device trees have no way to say so, and the transceiver stays
-> powered for as long as the system is up, whether or not the port is
-> open.
+On the HP ZBook 8 G2i 14 (Panther Lake, Intel I219 NIC [8086:57b3]),
+enabling K1 causes intermittent failures to enter S0ix during s2idle,
+despite CPU reaching package C10.
 
-To me transceiver is part of the UART device node, so this should be
-handled by device schema. Commit msg lacks actual hardware names
-justifying the change.
+Failed suspend reports:
+    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!!
+
+Disabling K1 through the ethtool private flag restores reliable S0ix
+entry:
+    sudo ethtool --set-priv-flags eno1 disable-k1 on
+
+An A/B/A test within a single boot, using 120-second suspend cycles,
+demonstrates the effectiveness:
+    disable-k1 on:   6/6 successful (~116-119 s in S0ix)
+    disable-k1 off:  1/4 successful (118, 0, 0, 0 s in S0ix)
+    disable-k1 on:   4/4 successful (~115-119 s in S0ix)
+
+This fix adds a DMI-specific exception to disable K1 by default on the
+system.
+
+Chia-Lin Kao reported a similar failure on a Dell system with the
+same NIC device ID.
+
+Cc: stable@vger.kernel.org
+Fixes: 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake")
+Link: https://lore.kernel.org/r/c4801ff7-7ff6-457e-b0a5-c2e633d35c59@shuye.dev
+Signed-off-by: Ye Shu <hello@shuye.dev>
+---
+ drivers/net/ethernet/intel/e1000e/netdev.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
+index 6f85dab5c..060a9bcdf 100644
+--- a/drivers/net/ethernet/intel/e1000e/netdev.c
++++ b/drivers/net/ethernet/intel/e1000e/netdev.c
+@@ -74,6 +74,14 @@ static const struct dmi_system_id disable_k1_list[] = {
+ 			DMI_MATCH(DMI_PRODUCT_VERSION, "ThinkPad P14s Gen 5"),
+ 		},
+ 	},
++	{
++		.ident = "HP ZBook 8 G2i 14",
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
++			DMI_MATCH(DMI_PRODUCT_NAME,
++				  "HP ZBook 8 G2i 14 inch Mobile Workstation PC"),
++		},
++	},
+ 	{}
+ };
+ 
+
+---
+base-commit: af6737b9066832a2017c281159950ba92385ce00
+change-id: 20261122-e1000e-hp-zbook-k1-4e73304a8974
 
 Best regards,
-Krzysztof
+-- 
+Ye Shu <hello@shuye.dev>
 
