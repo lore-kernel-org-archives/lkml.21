@@ -1,96 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795467969;
-	b=ZUVvXqFRSgtTXgNYeHMStu+VSapdFj7VOh30hcvFrELhmH4MEN5UTck3xEISYJHdPK5L
-	 ovclNxObuzG3yYmHFKoUoBc065ZsqOjW3rr5kSeKJlAlQtl6SPTS3YkKK7yReVzkKjxID
-	 eS/rsXc84luonN4vZsI2O8d6eDlnCIPvJZK6tPRh+oahGFOIXt6eI9dwi7rG6X76Yo3BR
-	 AZSXjD9sILCW9IHaycPachQGm9qIgMPWmAasduPNZV7TsaAcqPRvRs1HpBP6uHRxs+8D6
-	 wNG3MvKEPFKEu/E9bY4tgYWT+an0332Z1JSkQp62STH9XUr2L3BW6Pgc6c7HHQ1o05Q==
+	t=1795468113;
+	b=ueJ1f5maJQcvEooVQnUSZttBFYH081Z25fhyVRPTFaGYxgM6fFqlD+dcasFUFBT73fNT
+	 /mTrKFs7S8C5TEgLe6UnDOpnEhyQcm7w06ZhXNv/PJdSmvD14JNCUbbO4hZzWxiPtA7It
+	 V6G3Eg3ExV7BYkxsewizIyYbKPp8TjGenWCTXY99KbjqcGy06ZBvBrAdnoFbhSZzaGbU8
+	 kfa5jlYIcEs+IXkaInTXbd+vqQqCjtpvQxz3uHPXD4is/szwxFstIXA4G4HkusOBs74r6
+	 Mk4odJk0oLRXZk1n/CGUUBHmgXxbPBykx7tPC9rWL7/Z7Ih5SspQ1bGeZoknpDMdaGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467969;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=8JKTUUZIAz/Cut3RL8r2H2oCBi6ViU2LdrrZpCfbw2E=;
-	b=wbRJEYB9aN0+eCJECRcJrUMBumcRhv6uCtM79ddNCsZY9VzDrh4EGJS9k7mqlHZq5pLb
-	 fywbpuCi7/6fiWttGyAzyWVtlLd50emn+D17nEOemTrM06r69C6B1dpYW5M/YDtUMSs+C
-	 vZrahTGXaZcN8HIb/gDTbreUtDrLTv5V2xOtNC6UYMwO9hUBG59XhZoLhAwwf76/e0AzO
-	 GCHTa37DRSKlkYXRqup8uoLumATfpBUu6yLxulG6uMRp5FCAjTeTLtKbyd4UynJRdffoB
-	 LYdd+bJBX9kXXfSkXOVrXArJoxecEvOkV0SuQCHFx/irnb0XmZN6uPj3AlLPoedEcDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468113;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=EO4uQX/7/bcKRhbS3udTzj/oZQeNEQAhUDG89AzCYmg=;
+	b=J2VztNhsipZiCbVeQTuYED5clAj58gfigsLB6nsbdofFriqmuPVfOkksPhO4Tmi/QFEm
+	 0IBDyWrg7/DUNusfJhv7Z6GzknywcOptp51U/WA7RYxbkccXYJuMolEqbl35GJr5mna3Y
+	 egyfU0nE7Lwktr0sfOAk1hPsdx1xiz6SIaaEtGNZfbiuvwV+cE0/taODIe/wETghkjq2z
+	 VErF1+2pqku1n4BqEB798HLQDPPhJHCjygj0L+qN3JgH00a1aFhzEINQ9k7Y5mYutCyrw
+	 ceq3uSF2379eMJQDjsgyQCqq6eh0qMPk8TbEJGSGpNbMfNboNuVOrI+jyoKsb3thprQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zTEyIUva;
-	arc=none smtp.remote-ip=209.85.222.43
-Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com [209.85.222.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9dR51uW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B637E606A33A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:06:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B637E606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BE88606A321;
+	Mon, 23 Nov 2026 21:08:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zTEyIUva
-Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-99e1babd683so2126483241.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:06:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795467968; x=1796072768; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8JKTUUZIAz/Cut3RL8r2H2oCBi6ViU2LdrrZpCfbw2E=;
-        b=zTEyIUva6U7pvX91Q33j+FyFUCLSkg/KWl/kcKU3hLncciGM61XEYm6P+E/wKpsURh
-         C6+B57oEuOQD/h3FJnDkSbWkt9AmE68sWI8jKwn671/3ar4XGr7v9cHQ/75dP3o9fByo
-         iUv7e2NcAIi1lpGIdBLTq/PbvC99/oEzvOorPCLgjBFmK+QgWOZX4bwGJI4bwcyjRzoL
-         6ggewgdkDt4BXZTJ/VmmMxfbU1i/uS8JcsK9IeRnKhBTlP2K6Kd9BDqoKVJjMwTg45tI
-         kjz0iXz3Bav97xzvYgfUZb9dTYNGb2tS3EP4Ra67/gR4keCi+ljT1osAOQ3dSAqIn1g4
-         t+4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795467968; x=1796072768;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8JKTUUZIAz/Cut3RL8r2H2oCBi6ViU2LdrrZpCfbw2E=;
-        b=dCyJdoV+pUbWHgfFGkhClXUDGuPHTF4CdHTBjmPIXAK5DpJgAf/jz7YwoYmyxedPpt
-         I8uWBZ5sfrwvNOZEF4x3+qcLBwec8n2eZvuZyV7IXCe4gui+Sy5VZ06mQ4ZhDwiLxHbV
-         +fZij7Zeqno1apopervHFitbpXc+L1K5j0yeFa3taoCYC++/vX1df7Sr9hVoZIgIZ1QI
-         f4rgx1kp+0vfQIKheHaYcJ2y30lEtjE9AMqcwB//z7LF3nTzY8ASstsIj1fDp23z+BqK
-         rkSk2ct87V9ZIDiSwrLRlRSQNL/4h4VLwuAF8W6S3/UPq1V98EnM+/JSQgjQyda9Tt/x
-         KBsQ==
-X-Forwarded-Encrypted: i=1; AL+hErG+lTUKtD5s5IvDmgKRkh9p5s16w4YO/pbfu2bAloNVk4wF/Jpv4uaJwul1+/R8XbDAtl+spMG+q/PXo7Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+wZ4Nvefq6XWTpXHOCEDrv9IKnge5tCl07E1aMUTfeLb77RDf1
-	14qMLOypRG7GHH+0MDvDesCVdBujl+1u5nYzrrHzOseGPGLMTFCB1DgF
-X-Gm-Gg: AZFdTZcBBphuGIFiQGuBIMlOSexF9+qc0zi39RpIarLkTtgwwZ1PRuuA27QmvlfOzhx
-	13n8OZrga5QjXGCWjRHDZZs+Zvp1mOfI9yaajEy8v40PD32ypFaWO1ZNKggJAxkdJi28e1l/hRd
-	jklC2f/la/YrdkLLmvewrKzm1WnFXswzkGNLFPB8bSoXXcYnJriSQQyJmgxiGOSIm/Deu0ZN8Jm
-	uJyvth7trRm6LmT0VevuxGGbZQlN7LSxUJuU8OhIE5wC8nn+JT9JkMq6dRVMj7k/PgLu4VFzYAR
-	R64GGsCgl+PUoYbIbHxi7lBkQsc+GvKJy1Jf04s2gw8p/LqNJ7Q7pAkVK9vo+sEOLFa3/K7JvVJ
-	Gy9YO+NYaGoEJhrqnU/G9aIWUuWwm9L3q0U5KptpkvjY5uynPGBiRKpk9NF20HyiWH2KSe2xaRX
-	Js1pjcStvhV9tSv/Lqx+BBZpKjwccXGeCAuEo2LZUvyJ1k73ksoMPAXdZad2oWH+KA8TpVyAxX2
-	Ye8NY9eka14MyI4gqUODPx3Q+udeYK4/0bWMnJUohWhOtKP4aRWgWQLFKMjIjt+7IKKYFMxLNZz
-	4wAAlcnBBn/+8u0RS7LZ9Ju3
-X-Received: by 2002:a05:6102:5794:b0:7c1:62d2:e18a with SMTP id ada2fe7eead31-7d739461a80mr6614391137.16.1795467967755;
-        Mon, 23 Nov 2026 13:06:07 -0800 (PST)
-Received: from garuda ([187.114.10.31])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e8219b2esm13041769137.9.2026.11.23.13.06.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 13:06:07 -0800 (PST)
-From: Renan Biegelmeyer <renan.biegel@gmail.com>
-To: Armin Wolf <W_Armin@gmx.de>,
-	platform-driver-x86@vger.kernel.org
-Cc: Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9dR51uW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A4341F000C0;
+	Mon, 23 Nov 2026 21:08:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795468113;
+	bh=EO4uQX/7/bcKRhbS3udTzj/oZQeNEQAhUDG89AzCYmg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=B9dR51uWHHhVnYeoZ2b4EvD3DV6CDpRIaSZhavQoeKruWyn1VjlSYp3z0MeMmFXIz
+	 dnxJWN2Y0emDlLuOHTboMMkrbMYjxXnaq3k0REAyZI1OvKFPwA6db2/GxgbdlAzRm9
+	 ydq/AvG8zu+YusmwusMa1b4x17S9r3VNddXatiLNlvXjvPXCA2+KQGOkf3KS1DhOHv
+	 eLM9kyw1pTzMksWmMXLOoYMQFA8ElQIhN9JEwbYziCv28+U6Ems49iEwONKwXOcxaw
+	 QQOJhe4FhLpbrp7JTxw4M9Im4vjuRRgX7XZAd1K+qVE2EzQokJPT2rdhirXOJ6JtFd
+	 r5E2LY9yoMYAg==
+From: Danilo Krummrich <dakr@kernel.org>
+To: Tariq Toukan <tariqt@nvidia.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Johan Hovold <johan@kernel.org>,
+	driver-core@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Renan Biegelmeyer <renan.biegel@gmail.com>
-Subject: [PATCH 2/2] platform/x86: uniwill: document the WMI EC fallback
-Date: Mon, 23 Nov 2026 18:05:54 -0300
-Message-ID: <20261123210554.3357528-3-renan.biegel@gmail.com>
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Amir Tzin <amirtz@nvidia.com>,
+	Moshe Shemesh <moshe@nvidia.com>,
+	Shay Drory <shayd@nvidia.com>,
+	Parav Pandit <parav@nvidia.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Leon Romanovsky <leonro@nvidia.com>
+Subject: Re: [PATCH V3] driver core: auxiliary bus: Fix IRQ sysfs directory cleanup
+Date: Mon, 23 Nov 2026 22:08:26 +0100
+Message-ID: <20261123210826.1625426-1-dakr@kernel.org>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261123210554.3357528-1-renan.biegel@gmail.com>
-References: <20261123210554.3357528-1-renan.biegel@gmail.com>
+In-Reply-To: <20261112081319.3466442-1-tariqt@nvidia.com>
+References: <20261112081319.3466442-1-tariqt@nvidia.com>
+X-Patch-Reply: applied
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,35 +82,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Document that devices without the INOU0000 ACPI device use the
-AcpiTest_MULong WMI interface in read-only mode.
+On Thu, 12 Nov 2026 10:13:19 +0200, Tariq Toukan wrote:
+> [PATCH V3] driver core: auxiliary bus: Fix IRQ sysfs directory cleanup
 
-Signed-off-by: Renan Biegelmeyer <renan.biegel@gmail.com>
----
- Documentation/wmi/devices/uniwill-laptop.rst | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Applied, thanks!
 
-diff --git a/Documentation/wmi/devices/uniwill-laptop.rst b/Documentation/wmi/devices/uniwill-laptop.rst
-index 65583b239..36dad51d3 100644
---- a/Documentation/wmi/devices/uniwill-laptop.rst
-+++ b/Documentation/wmi/devices/uniwill-laptop.rst
-@@ -191,6 +191,14 @@ Indexed IO with IO ports with a granularity of a single byte can be performed us
- (read) and ``WIOP`` (write) ACPI control methods. Those ACPI methods are unused because they
- provide no benefit when compared to the native IO port access functions provided by the kernel.
- 
-+EC WMI fallback
-+---------------
-+
-+Some devices do not expose the ``INOU0000`` ACPI device. On those devices the driver falls back to
-+the EC WMI interface described in the previous sections (``GetSetULong``, method 4). Because this
-+interface is only used for read-only access, the driver exposes the CPU/GPU temperature, fan speed
-+and PWM sensors, but none of the features that require writing to the EC.
-+
- Special thanks go to github user `pobrn` which developed the
- `qc71_laptop <https://github.com/pobrn/qc71_laptop>`_ driver on which this driver is partly based.
- The same is true for Tuxedo Computers, which developed the
--- 
-2.56.1
+  Branch: driver-core-testing
+  Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver-core.git
 
+[1/1] driver core: auxiliary bus: Fix IRQ sysfs directory cleanup
+      commit: b0404f6af48d
+
+The patch will appear in the next linux-next integration (typically within 24
+hours on weekdays).
+
+The patch is in the driver-core-testing branch and will be promoted to
+driver-core-next after validation.
