@@ -1,68 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795407238;
-	b=jRWQf+P27cnCxvFnMhuim4gTi8FlzKNpIrEvPLNpd3lyVL56AUKmCUuK7gw/PqzRopUM
-	 OAdWSCSxMF/zxvOCctnOqIoVemaEOu62OngMf7lMiIo2isVhhRSGCh4fluHdbH3Qk0POU
-	 kLPryZpBh+HItnBcYO6c/NI6Q7do3imlfd77LCymW6MeqsUw2hO4a1ElFJ7S2RNW0to26
-	 M1Vwn5xTy6YmlZWq3V4LTQZHZMkYT2cSHz+fyKMr2vrKJUDkuL7oxdtF8RKNVSHDtjhbF
-	 u81gTc8OurBUghKgnW+JrmxBTmVWiRjRzR0DUQm1Jt5I81dgo28NhLv5CfQsGrWi61Q==
+	t=1795407308;
+	b=Kh2UXdV9u3LRKnhlHC2VG0uDIdlJuSc9eXN+SC9qQtar1b4kn2QxJcwg4dui+rSp7ZiQ
+	 SkdJB+gpIjlX3gNGBHd3r9mzCx9fpVaZ2NebGqTLr7KGvcX/b3sOACP+bvydu600bB8Tk
+	 m3adR4kad0/7SSP+ZPibwbEksG4etTXiSkz2GbiePS+U7aWMFiB3EYmvHHWRoispNB+Hn
+	 1ijq9Otha1LOHQd1i7YsAD6Uof0vXthLa13Kh/AllwQYJRku0bVOEh8qhreXg3t/pMhhS
+	 Q8Qml8PLMc3F+435GlFs/cH18woAbYq0jXTtTS2xCqY3qyqv2gk7p54nvZ6bfu/MPGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795407238;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:MIME-Version:Message-ID:Robot-ID:Robot-Unsubscribe:
-	 Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=7xIM2mR8FNeidxSfQ/YCxHs22kcFEEb+JDqR4SR/ZWg=;
-	b=nyGDQqltYiFDfpGT5ujpx4HfbwrhbUq6sSyF8EECIa1kUE037eP0uGfiaUfzdJyQ+Hrc
-	 1HgQiaGMGxTCPwpJNnefSiU7zxcHn3riUhH9qnd3NPDpDo/EDIKF5MldU6VFQCpnIyrsx
-	 entx5/5OISb/8N/rTgmAI2b8Wm+3wOwya7zfvGLDmjR+I/8DvxvW0s9Fe8Mi6f9UHJC6t
-	 BdfiXzBrRTZQacKpnbbH45u9kHNk9IdHMl4fOQ6vIzZFL/3FKPcP8oMTDTRSf4cuGDeUc
-	 usq67wzOPbZv9XxYrijRz//8J1lhFV4ZmlmuDb5wEXVTZwPLMh/jXZPaWhZ77roFtWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795407308;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=3QGxftQLxKTSOBvApzYyCE8MPukN07SFGrj9IZ2HX7c=;
+	b=VTKJ1g1QA0I57M+soSGviXpqjl+hcFyup+p98LX8f1oMPbE6sgWHclOAp1KeZI72W9/w
+	 R4dGaQnm7QZSaVup1DI/YzxN9aW66lP9vDqT1lwMfidOIoRNwr7o/z7Bqv/Zwwt64jxzq
+	 V6fGaMmbb/bqZSkrtcrncqpX1IMuQBvjS5/BdfvY30K/zzz7lwc8Z6mGMtRlbTAyR3rJh
+	 JC7J/Xqvp6Ob/fHVJhUlZQE1rVgpDp4oFYPy+fIPIrKsE5ExprzYf4FVZ5zXSSrVQ2mTf
+	 AE/7llYb+23SHS/tH1N8Ve8gUuVOFNx2gpAJZDwk1y3G2XymY9gV6Ew84xf3m1vVz2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="pGktV/+x";
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=MLid2z5k;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=ovn.org;
+	spf=pass smtp.mailfrom=fe-bounces.ovn.org;
+	dkim=pass header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=I8evzlW8;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=UF57ilPY;
+	arc=none smtp.remote-ip=121.127.44.73
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D899B606A31A;
-	Mon, 23 Nov 2026 04:13:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D899B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB049606A332
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:15:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB049606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ovn.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.ovn.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=pGktV/+x;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=MLid2z5k
-Date: Mon, 23 Nov 2026 04:13:53 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795407235;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:  content-transfer-encoding:content-transfer-encoding;
-	bh=7xIM2mR8FNeidxSfQ/YCxHs22kcFEEb+JDqR4SR/ZWg=;
-	b=pGktV/+xdRNnqAULMOZOyUFPN3EmALfLwW+e5fEj+ybAGj8c9cmoAl7kY72OO0wR9Ysf9w
-	TgWBDcX5K/BgBZ29RzQ73N3sEwYOLcZp+lEbkmoKvSoQHnAG1OWx2utLothmgo5cGEM3rs
-	JFwvr3DPGg3YQ2WSDAzune/x8XBVrDMnUgA0uut/2Cd4cUeQnpZtqdOK+vVnCxQGLDh/pe
-	c17NlWkjoYuEAXwHJZAzypAuds0QPyevDbxH+f7VdPEqLeIn8lnqCOryUyx7xVkmZnatl0
-	sg8EELAHeCDrTRirHm8GK3n3wNem+n108qEpDR21r1IIIzcHmblN/M1aiaAySQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795407235;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:  content-transfer-encoding:content-transfer-encoding;
-	bh=7xIM2mR8FNeidxSfQ/YCxHs22kcFEEb+JDqR4SR/ZWg=;
-	b=MLid2z5k/dyC1Lrm1YyZ36W1LCvxBKnXPf3OKnPbjLYs/ZHal6alwwJ/p2KGFKw5UIjm4X
-	VkA2QRUbh67CUpCg==
-From: "tip-bot2 for Atish Patra" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: x86/urgent] x86/entry: Make SafeRET robust also against NMIs
-Cc: Atish Patra <atishp@meta.com>, Thomas Gleixner <tglx@kernel.org>,
- "Borislav Petkov (AMD)" <bp@alien8.de>,  <stable@kernel.org>, x86@kernel.org,
- linux-kernel@vger.kernel.org
+	dkim=pass (1024-bit key) header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=I8evzlW8;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=UF57ilPY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ovn.org;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-13eddc7e57;
+ t=1795407307; bh=3QGxftQLxKTSOBvApzYyCE8MPukN07SFGrj9IZ2HX7c=;
+ b=I8evzlW8F6LHjaewHupTrqsLO+7DEGwHTuT5Rs7GKxkKJBphSIpJvuu2YrTVxBiOMG3FIR3RH
+ mcSsu91IGIK3y2mzEh3VZC07DjNJOvFe2uWlbj8AMEsJ0O07QG7Rpw9WH0EE4ZRRGLyjOcdVuyP
+ jNY3bbrVoZDotunT4FVyY1s=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
+ t=1795407307; bh=3QGxftQLxKTSOBvApzYyCE8MPukN07SFGrj9IZ2HX7c=;
+ b=UF57ilPYJXcH/4byHzSDtWIZ3tbg/jrEdesx2ADBOnM+OIEwLRKuyFx1zAn4or7e1jNll17xe
+ oqfz8EdzGHC0gbo3V1Asm30TW5+NCoIrWh8kwPNx5CV450egc81EakQtSVc2Of73Qf2ZyNrm0ry
+ o6IoTNHUSc0nCYVBHo+iLl0=
+CFBL-Feedback-ID: 6b03bdca9ac7a1bf66975566:d42d2194a37096a761e7117f94e43a90
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6b03bdca9ac7a1bf66975566
+X-Forward-Email-Sender: rfc822; i.maximets@ovn.org, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.19.37
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <fe3d59b0-d5cc-4b54-8339-35c30bb86036@ovn.org>
+Date: Mon, 23 Nov 2026 05:15:02 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,304 +75,151 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179540723375.92412.1041661720569219328.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 3/4] net: dropreason: use new __print_sym() in tracing
+To: Johannes Berg <johannes@sipsolutions.net>,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Ilya Maximets <i.maximets@ovn.org>, Matthieu Baerts <matttbe@kernel.org>,
+ Aaron Conole <aconole@redhat.com>, Eelco Chaudron <echaudro@redhat.com>,
+ dev@openvswitch.org, Adrian Moreno <amorenoz@redhat.com>,
+ Antoine Tenart <atenart@kernel.org>, Johannes Berg <johannes.berg@intel.com>
+References: <20261119155133.355849-6-johannes@sipsolutions.net>
+ <20261119155133.355849-9-johannes@sipsolutions.net>
+Content-Language: en-US
+From: Ilya Maximets <i.maximets@ovn.org>
+Autocrypt: addr=i.maximets@ovn.org; keydata=
+ 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
+In-Reply-To: <20261119155133.355849-9-johannes@sipsolutions.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The following commit has been merged into the x86/urgent branch of tip:
+On 11/19/26 4:48 PM, Johannes Berg wrote:
+> From: Johannes Berg <johannes.berg@intel.com>
+> 
+> The __print_symbolic() could only ever print the core
+> drop reasons, since that's the way the infrastructure
+> works. Now that we have __print_sym() with all the
+> advantages mentioned in that commit, convert to that
+> and get all the drop reasons from all subsystems. As
+> we already have a list of them, that's really easy.
+> 
+> This is a little bit of .text (~100 bytes in my build)
+> and saves a lot of .data (~17k).
+> 
+> Signed-off-by: Johannes Berg <johannes.berg@intel.com>
+> ---
+> v7: update the selftest accordingly
+> ---
+>  include/net/dropreason.h                      |  5 +++
+>  include/trace/events/skb.h                    | 13 ++----
+>  net/core/skbuff.c                             | 43 +++++++++++++++++++
+>  .../selftests/net/openvswitch/openvswitch.sh  | 17 ++------
+>  4 files changed, 55 insertions(+), 23 deletions(-)
 
-Commit-ID:     86d477c009ed7f3a24b420b7f4aa314fabe36be3
-Gitweb:        https://git.kernel.org/tip/86d477c009ed7f3a24b420b7f4aa314fabe=
-36be3
-Author:        Atish Patra <atishp@meta.com>
-AuthorDate:    Wed, 18 Nov 2026 19:19:17 -08:00
-Committer:     Borislav Petkov (AMD) <bp@alien8.de>
-CommitterDate: Sun, 22 Nov 2026 19:39:15 -08:00
+[...]
 
-x86/entry: Make SafeRET robust also against NMIs
+> diff --git a/tools/testing/selftests/net/openvswitch/openvswitch.sh b/tools/testing/selftests/net/openvswitch/openvswitch.sh
+> index 21444657a040..b5dbdfb29089 100755
+> --- a/tools/testing/selftests/net/openvswitch/openvswitch.sh
+> +++ b/tools/testing/selftests/net/openvswitch/openvswitch.sh
+> @@ -236,7 +236,7 @@ ovs_drop_reason_count()
+>  	local reason=$1
+>  
+>  	local perf_output=`perf script -i ${ovs_dir}/perf.data -F trace:event,trace`
+> -	local pattern="skb:kfree_skb:.*reason: $reason"
+> +	local pattern="skb:kfree_skb:.*reason: $reason$"
+>  
+>  	return `echo "$perf_output" | grep "$pattern" | wc -l`
+>  }
+> @@ -900,15 +900,6 @@ test_psample() {
+>  # - drop packets and verify the right drop reason is reported
+>  test_drop_reason() {
+>  	which perf >/dev/null 2>&1 || return $ksft_skip
+> -	which pahole >/dev/null 2>&1 || return $ksft_skip
+> -
+> -	ovs_drop_subsys=$(pahole -C skb_drop_reason_subsys |
+> -			      awk '/OPENVSWITCH/ { print $3; }' |
+> -			      tr -d ,)
+> -	if [ -z "$ovs_drop_subsys" ]; then
+> -		info "failed to get OVS drop subsys ID"
+> -		return $ksft_skip
+> -	fi
+>  
+>  	sbx_add "test_drop_reason" || return $?
+>  
+> @@ -952,7 +943,7 @@ test_drop_reason() {
+>  		"in_port(2),eth(),eth_type(0x0800),ipv4(src=172.31.110.20,proto=1),icmp()" 'drop'
+>  
+>  	ovs_drop_record_and_run "test_drop_reason" ip netns exec client ping -c 2 172.31.110.20
+> -	ovs_drop_reason_count 0x${ovs_drop_subsys}0001 # OVS_DROP_FLOW_ACTION
+> +	ovs_drop_reason_count OVS_DROP_LAST_ACTION
+>  	if [[ "$?" -ne "2" ]]; then
+>  		info "Did not detect expected drops: $?"
+>  		return 1
+> @@ -969,7 +960,7 @@ test_drop_reason() {
+>  
+>  	ovs_drop_record_and_run \
+>              "test_drop_reason" ip netns exec client nc -i 1 -zuv 172.31.110.20 6000
+> -	ovs_drop_reason_count 0x${ovs_drop_subsys}0004 # OVS_DROP_EXPLICIT_ACTION_ERROR
+> +	ovs_drop_reason_count OVS_DROP_EXPLICIT_WITH_ERROR
+>  	if [[ "$?" -ne "1" ]]; then
+>  		info "Did not detect expected explicit error drops: $?"
+>  		return 1
+> @@ -977,7 +968,7 @@ test_drop_reason() {
+>  
+>  	ovs_drop_record_and_run \
+>              "test_drop_reason" ip netns exec client nc -i 1 -zuv 172.31.110.20 7000
+> -	ovs_drop_reason_count 0x${ovs_drop_subsys}0003 # OVS_DROP_EXPLICIT_ACTION
+> +	ovs_drop_reason_count OVS_DROP_EXPLICIT
+>  	if [[ "$?" -ne "1" ]]; then
+>  		info "Did not detect expected explicit drops: $?"
+>  		return 1
 
-On NMI entry, the kernel copies three exception frames which are used in
-crazy ways in order to be able to handle nested NMIs.
+For the OVS test part:
 
-However, when that handler interrupts a SafeRET sequence of a #VC
-exception, it would copy the SafeRET-unfixed rSP and rIP into those
-frames.
-
-paranoid_entry() later will fix up the original frame but the IRET frame
-which is the one actually used to return from the NMI handler remains
-unfixed, leaving the two frames inconsistent.
-
-And because this is a #VC exception which gets to use
-__sev_es_ist_enter() to handle NMIs raised in the #VC exception entry
-code, that function will use the fixed up stack pointer from pt_regs.
-
-However, in doing so, it will overwrite the return address which the
-stale IRET frame still needs, leading up to the NMI returning to the
-old, now stale VC stack slot.
-
-Convert the SafeRET frame fixup code to asm and change it so that it
-can get a frame passed in and it can correct it before it gets worked on
-later.
-
-And because it is an asm macro, it doesn't need the LFENCE speculation
-stopper anymore.
-
-Fixes: 7e7f81cf6f5c ("x86/bugs: Make Safe-RET robust against interrupt inject=
-ion")
-Signed-off-by: Atish Patra <atishp@meta.com>
-Co-developed-by: Thomas Gleixner <tglx@kernel.org>
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
-Cc: <stable@kernel.org>
----
- arch/x86/entry/entry_64.S            |  7 +-
- arch/x86/include/asm/nospec-branch.h | 83 ++++++++++++++-------------
- arch/x86/kernel/cpu/bugs.c           | 39 +-------------
- arch/x86/lib/retpoline.S             |  6 +-
- 4 files changed, 54 insertions(+), 81 deletions(-)
-
-diff --git a/arch/x86/entry/entry_64.S b/arch/x86/entry/entry_64.S
-index 253f0a5..7cfc617 100644
---- a/arch/x86/entry/entry_64.S
-+++ b/arch/x86/entry/entry_64.S
-@@ -937,7 +937,7 @@ SYM_CODE_START(paranoid_entry)
- 	IBRS_ENTER save_reg=3D%r15
- 	UNTRAIN_RET_FROM_CALL
-=20
--	HANDLE_INTR_SAFERET 8(%rsp)
-+	FIXUP_INTR_SAFERET %rsp
-=20
- 	RET
- SYM_CODE_END(paranoid_entry)
-@@ -1044,7 +1044,7 @@ SYM_CODE_START(error_entry)
-=20
- 	VALIDATE_UNRET_END
-=20
--	HANDLE_INTR_SAFERET 8(%rsp)
-+	FIXUP_INTR_SAFERET %rsp
-=20
- 	cmpq	$.Lgs_change, RIP+8(%rsp)
- 	jne	.Lerror_entry_done_lfence
-@@ -1205,6 +1205,9 @@ SYM_CODE_START(asm_exc_nmi)
- 	jmp	swapgs_restore_regs_and_return_to_usermode
-=20
- .Lnmi_from_kernel:
-+	/* Repair the source frame before inspecting or copying it. */
-+	FIXUP_NMI_INTR_SAFERET %rsp
-+
- 	/*
- 	 * Here's what our stack frame will look like:
- 	 * +---------------------------------------------------------+
-diff --git a/arch/x86/include/asm/nospec-branch.h b/arch/x86/include/asm/nosp=
-ec-branch.h
-index 1abeb9a..6455443 100644
---- a/arch/x86/include/asm/nospec-branch.h
-+++ b/arch/x86/include/asm/nospec-branch.h
-@@ -185,42 +185,39 @@
-  *
-  * The Safe-RET sequence is:
-  *
-- * CALL
-- * LEA 8(%RSP), %RSP
-- * RET
-+ *	CALL	L1
-+ * L1:	LEA	8(%RSP), %RSP
-+ * L2:	RET
-  *
-- * The two CMPs below check whether RIP points to after the CALL or after the
-- * LEA.
-+ * The C equivalent of the ASM sequence below is:
-  *
-- * The LFENCE below is to address this particular speculation case:
-+ *	if (ptr->RIP > L2)	// After RET?
-+ *		goto done;
-+ *	if (ptr->RIP < L1)	// Before LEA ?
-+ *		goto done;
-+ *	if (ptr->RIP =3D=3D L1)	// At LEA ?
-+ *		ptr->RSP +=3D 8;	// Emulate LEA
-+ *	tmp =3D *ptr->RSP;	// Read original return IP
-+ *	ptr->RIP =3D tmp;		// Overwrite interrupt return IP
-+ *	ptr->RSP +=3D 8;		// Emulate RET
-  *
-- * 1. Userspace runs and poisons the BTB around the safe-RET routine
-- *
-- * 2. Userspace triggers some kind of exception
-- *
-- * 3. Kernel executes error_entry() and mis-speculates the branch into think=
-ing
-- *    it actually came from kernel space
-- *
-- * 4. The kernel then further mis-speculates that the exception occurred due
-- *    to an interrupted safe-RET
-- *
-- * 5. The handle_interrupted_saferet() routine speculatively executes and
-- *    speculatively does a safe-RET. But this is unsafe since it was never
-- *    untrained.
-- *
-- * The LFENCE fixes this by ensuring step 5 is never reached speculatively.
-- * Note that this LFENCE only occurs if safe-RET was actually interrupted (so
-- * it's outside of the normal path).
-+ * This ensures that this interrupt returns to the original return IP without
-+ * resuming the interrupted safe-RET sequence.
-  */
--#define __HANDLE_INTR_SAFERET(name, pt_regs)		\
--	cmpq	$(name), RIP+pt_regs;			\
--	jb	1f;					\
--	cmpq	$(name)+5, RIP+pt_regs;			\
--	ja	1f;					\
--	lfence;						\
--	leaq	pt_regs, %rdi;				\
--	call	handle_interrupted_saferet;		\
--	1:
-+#define __FIXUP_INTR_SAFERET(name, ptr, rip_offs, rsp_offs)	\
-+	cmpq	$(name)+5, rip_offs(ptr);			\
-+	ja	2f;						\
-+	cmpq	$(name), rip_offs(ptr);				\
-+	jb	2f;						\
-+	jne	1f;						\
-+	addq	$8, rsp_offs(ptr);				\
-+	1:;							\
-+	movq	rsp_offs(ptr), %rdx;				\
-+	movq	(%rdx), %rdx;					\
-+	movq	%rdx, rip_offs(ptr);				\
-+	addq	$8, rsp_offs(ptr);				\
-+	2:
-+
-=20
- #ifdef __ASSEMBLER__
-=20
-@@ -305,7 +302,7 @@
- .macro CALL_UNTRAIN_RET
- #if defined(CONFIG_MITIGATION_UNRET_ENTRY) || defined(CONFIG_MITIGATION_SRSO)
- 	ALTERNATIVE_2 "", "call entry_untrain_ret", X86_FEATURE_UNRET, \
--		          "call srso_alias_untrain_ret", X86_FEATURE_SRSO_ALIAS
-+			  "call srso_alias_untrain_ret", X86_FEATURE_SRSO_ALIAS
- #endif
- .endm
-=20
-@@ -339,12 +336,25 @@
- #define UNTRAIN_RET_FROM_CALL \
- 	__UNTRAIN_RET X86_FEATURE_ENTRY_IBPB, __stringify(RESET_CALL_DEPTH_FROM_CAL=
-L)
-=20
--.macro HANDLE_INTR_SAFERET pt_regs
-+.macro FIXUP_INTR_SAFERET pt_regs
- #ifdef CONFIG_MITIGATION_SRSO
- 	ALTERNATIVE_2 "", \
--	__stringify(__HANDLE_INTR_SAFERET(srso_safe_ret, \pt_regs)), X86_FEATURE_SR=
-SO, \
--	__stringify(__HANDLE_INTR_SAFERET(srso_alias_safe_ret, \pt_regs)), X86_FEAT=
-URE_SRSO_ALIAS
-+	__stringify(__FIXUP_INTR_SAFERET(srso_safe_ret, \pt_regs, RIP+8, RSP+8)), X=
-86_FEATURE_SRSO, \
-+	__stringify(__FIXUP_INTR_SAFERET(srso_alias_safe_ret, \pt_regs, RIP+8, RSP+=
-8)), X86_FEATURE_SRSO_ALIAS
-+#endif
-+.endm
-=20
-+/*
-+ * Note the offsets encoding below:
-+ *
-+ * The IRET frame at call site in asm_exc_nmi() starts at 8(%rsp) (NMI handl=
-er
-+ * users %rdx as a temp var so it pushes it on the stack on entry).
-+ */
-+.macro FIXUP_NMI_INTR_SAFERET fptr
-+#ifdef CONFIG_MITIGATION_SRSO
-+	ALTERNATIVE_2 "", \
-+	__stringify(__FIXUP_INTR_SAFERET(srso_safe_ret, \fptr, RIP-RIP+8, RSP-RIP+8=
-)), X86_FEATURE_SRSO, \
-+	__stringify(__FIXUP_INTR_SAFERET(srso_alias_safe_ret, \fptr, RIP-RIP+8, RSP=
--RIP+8)), X86_FEATURE_SRSO_ALIAS
- #endif
- .endm
-=20
-@@ -681,7 +691,6 @@ static __always_inline void x86_idle_clear_cpu_buffers(vo=
-id)
-=20
- void srso_safe_ret(void);
- void srso_alias_safe_ret(void);
--void handle_interrupted_saferet(struct pt_regs *regs);
-=20
- #endif /* __ASSEMBLER__ */
-=20
-diff --git a/arch/x86/kernel/cpu/bugs.c b/arch/x86/kernel/cpu/bugs.c
-index 4ced10c..8c2c831 100644
---- a/arch/x86/kernel/cpu/bugs.c
-+++ b/arch/x86/kernel/cpu/bugs.c
-@@ -3787,42 +3787,3 @@ void __warn_thunk(void)
- {
- 	WARN_ONCE(1, "Unpatched return thunk in use. This should not happen!\n");
- }
--
--#ifdef CONFIG_MITIGATION_SRSO
--/*
-- * Called during exception/interrupt entry if interrupted during the
-- * safe-RET sequence.  The safe-RET sequence consists of 3 instructions:
-- *
-- *	CALL
-- *	LEA 8(%RSP), %RSP
-- *	RET
-- *
-- * An interrupt after the CALL or after the LEA could potentially lead
-- * to branch predictor poisoning and results in the sequence not being
-- * able to be safely resumed.
-- *
-- * Therefore, modify the regs state as if the remaining part of the
-- * safe-RET sequence executed so the interrupt returns back to the
-- * desired return target, instead of the to the safe-RET sequence.
-- */
--void noinstr handle_interrupted_saferet(struct pt_regs *regs)
--{
--	unsigned long rip =3D regs->ip;
--
--	if (rip =3D=3D (unsigned long) srso_safe_ret ||
--	    rip =3D=3D (unsigned long) srso_alias_safe_ret) {
--	    /* Modify stack pointer as if LEA executed: */
--	    regs->sp +=3D 8;
--	}
--
--	/*
--	 * Adjust registers as if RET executed:
--	 *
--	 * 1. Read the return address off the stack and into rIP:
--	 */
--	regs->ip =3D *(unsigned long *)(regs->sp);
--
--	/* 2. Pop rIP off the stack: */
--	regs->sp +=3D 8;
--}
--#endif /* CONFIG_MITIGATION_SRSO */
-diff --git a/arch/x86/lib/retpoline.S b/arch/x86/lib/retpoline.S
-index f9ca1d8..376119f 100644
---- a/arch/x86/lib/retpoline.S
-+++ b/arch/x86/lib/retpoline.S
-@@ -210,13 +210,13 @@ SYM_CODE_START_NOALIGN(srso_alias_safe_ret)
-=20
- 	/*
- 	 * Tell objtool that those are not function pointers referenced by
--	 * __HANDLE_INTR_SAFERET(). Below too.
-+	 * FIXUP_[NMI_]INTR_SAFERET(). Below too.
- 	 */
- 	ANNOTATE_NOENDBR
-=20
- 	/*
- 	 * Safe-RET sequence. If you need to change it, adjust
--	 * handle_interrupted_saferet() too.
-+	 * FIXUP_[NMI_]INTR_SAFERET() too.
- 	 */
- 	lea 8(%_ASM_SP), %_ASM_SP
- 	UNWIND_HINT_FUNC
-@@ -261,7 +261,7 @@ SYM_CODE_START_LOCAL_NOALIGN(srso_untrain_ret)
- SYM_INNER_LABEL(srso_safe_ret, SYM_L_GLOBAL)
- 	/*
- 	 * Safe-RET sequence. If you need to change it, adjust
--	 * handle_interrupted_saferet() too.
-+	 * FIXUP_[NMI_]INTR_SAFERET() too.
- 	 */
- 	lea 8(%_ASM_SP), %_ASM_SP
- 	ret
+Reviewed-by: Ilya Maximets <i.maximets@ovn.org>
