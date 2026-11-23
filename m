@@ -1,61 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411070;
-	b=Lv3vKPNOYJW4M+ZSfZGJ41Ixb6rDrl7bII0XwN568p6LF1GBVae3yqEUalkFrdamCaCH
-	 4UkpZyAp7WZ3GAcaCzrNINhaRO0XnZFMfYVa/ei4MXGMmoTlVbHTPKJtS7ZexNzUYG64q
-	 p58Xa0WRFRXnmoir5V/GdcFLD0iJ/DK8Oo2AhFs7b6/x0+CLroINEThKPczTcE2M6cq+N
-	 Dl+LWLBJa6j5oCb1sRlBov6UytdIMElWzJkB3wY+E0Xk0ZqU7T6kjf9NaMZa8qa2UGq2S
-	 oPYWhuKPAyywcrQnUm42r0a/VRjWJvdDgBAxHFiJnrDo0c4Kgc4t/lFKH7SFcwZbCqw==
+	t=1795411175;
+	b=Ty17opDb9BXtGpIXLz26tXQIm1Dl5QBE/+jNuKeDH6phlnONS6SFSG/hR+5FQbaCp0B0
+	 a5uNDkXOtie2lcYGqDUyxUJnPq8YoMF6KM+hr46TnI5aTH8W0PvMGH70Em62FrlGRG1Wx
+	 31l8II8Tm2rXzDpLIyXK6qPX0axclnkGSop3kIPelafTBNpUkNb8fJksfBolm3VQ/oshm
+	 LziGgF+c2UKfbOvyt7hweB9FsHXB7RwJnnHxTq++h53uEGIcGTnSvev2Dp9lt+gRysXdv
+	 4RbmE6FnMpCtNd8M4d+R/1j3xrxH6rTn0PcJeckrXCv7VMJY/P9FstZyM66uRPINzLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411070;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=IMhTbm3P4pQBpn4x8bv/SjESH9+2ScPTvDd021i2bNg=;
-	b=4Vh6NFQ4DNR6QIFm2rVPk/zBslrQHXeb9YyuQ7HlmdpL2YNNaIvHNpCY262Yt8NKTeZ9
-	 dknHB/TnoCrdd6/hdKFgdoWvHLVkSh31tKegwGBLfH3eOS3LETR9B9sG2Pk9nv31ekYjI
-	 Zv0gtKHRSmiQhjlcBAruVuvvssICAuinRDvz9TI28FwmHHB31d1EVnyKfEMm+g6Iw/TgD
-	 aRxMaBAiE99lS2A11EKNVHzaT7C6wljtO0gaCYyJwFbr9OFKWmVDaPvA5n1ZlarMvGCmw
-	 nQMTSJ7VRaJNAEs3xatYhL6wK+3SsUJ3IYvTxEc3dQe8fBlKu2+Fx6DtiRZbCwuqlmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411175;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=FUqLDQXnSJ5sC0anYruumGCX75FgOtK3GjAUXxEI5pY=;
+	b=W8/+CY9TMnEyDcTmkPxdVTI6awP+ndC24CVgHA//RExVE6mNgJuOVLxoT3L5ji2PfCF7
+	 362Vb8FhCvE2QnN8lf0iFKl32Qpu66lIxwqwL05YsTMYAclF1AQIQo3F6kiVq2RcnLnps
+	 bx3bogocCGV0NOPrl9P8CRkCHJgkXMd+sRWiXCqNFSbPI18yLCJT4DUn0Hh9L0Ns9m/wG
+	 zRj57D3Q2KlVUxY/3z7zv30y5h4XYMzBoC+gO8xnAQQ9R0plinK3fN1ksDgfBPgbguuy5
+	 +wTTNrZv3LI94iaeo6dmTScZ7s6q5np3zYJ5r7gl8PHhRJ9mlyx+OxG00x2dxUCV2oQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMtyHkhT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="Iq2fGG/d";
+	arc=none smtp.remote-ip=209.85.222.178
+Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8B52606A32A;
-	Mon, 23 Nov 2026 05:17:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57184606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:19:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57184606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMtyHkhT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5B551F000C0;
-	Mon, 23 Nov 2026 05:17:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795411070;
-	bh=IMhTbm3P4pQBpn4x8bv/SjESH9+2ScPTvDd021i2bNg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fMtyHkhTeVLHcaEoeY8ndzMsYX09qfqHvS3b3kDhy1x7PWI8yEGyOqUNeqTfB+7S6
-	 lu2oryNAcfmkKI6WVsFfq/9Yai6tpOB4rmqHAE4UrOomijvcT4ASPQawffYDhP73zz
-	 ND1EpMpJBWHcLPlE0EAfWvw1x6VsVhN4+4Y7Bq3ji5ctpyf5Tq8BO77cUr035awrVf
-	 7DHc0hL4hjLKBaYQuoFJoSASV6KT9p2G0UkM9gjLXanFsePRzn/gVUqQjQkptYbUl3
-	 Z+zRR4SIT6SRsSur5uAxxc1Tzax3rIEg8pNaK6LVM32s81gh/3AGvFE8HDaKQDzb0S
-	 MKyV/UBssrHEQ==
-Subject:
- Re: [PATCH net v2 1/2] net: wwan: iosm: cancel the ADB timer on cleanup
-From: netdev-bot+sashiko@kernel.org
-To: davidlwesten@gmail.com
-Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- m.chetan.kumar@linux.intel.com, linux-kernel@vger.kernel.org,
- mail@maciej.szmigiero.name, nihaal@cse.iitm.ac.in, stable@vger.kernel.org
-Date: Mon, 23 Nov 2026 05:17:49 +0000
-Message-ID: <179541106939.3135.3810191786366936844@kernel.org>
-In-Reply-To: <20261119042714.505405-1-davidlwesten@gmail.com>
-References: <20261119042714.505405-1-davidlwesten@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Iq2fGG/d
+Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-949657a20d7so318731585a.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:19:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795411174; x=1796015974; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FUqLDQXnSJ5sC0anYruumGCX75FgOtK3GjAUXxEI5pY=;
+        b=Iq2fGG/dbOi6KnKOohKbryY/f+ENYLf64+rSOoj7mHE7vFCYd9QA6rVl+MIEJ9Uhye
+         1SCXQkTqMQVAYXgefuj6vlBLpVC71oobIEq4+F4qprcaeye+A4g8CK0frPKqrMQq8wUk
+         7owk7CRm3bq/R2SncGKu1mOSQj2JyIf8k5dQ98kKbGq1ST0/FR5bYYwjcKY81Khpbhef
+         VEYjEQ9cgmcvnWxI7bDbaQ3zAbo7zBmIo+oYyxdGcVDaRrVdLdyJU971B8H5yue40WFr
+         i9YPo+kh7uQS5Y23sK0qUOtFDATZg7ICZdiFtSblgW4qlA2RM2mc/4ssIhrAs2bDu8Rh
+         jcxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795411174; x=1796015974;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FUqLDQXnSJ5sC0anYruumGCX75FgOtK3GjAUXxEI5pY=;
+        b=KOkv3IwS4+ap/h87M2+0bh00YqTT3r1/ocm6Gm8yx2MG50CQWerTo17mm5jcMxgJ4b
+         +8d1+QetaliuMQTNh8/aRvMAL+RKOR/fAdyq6ZdD2OsfFHNf3Y8HCLp4eE6xZMiGgLi+
+         +pz4OWkFu3SxD/ldowAm/6Jeede6AMOtLd6i9vIbrrWO/OWr4jXRO7kT48lC39+f0sRX
+         Y99glhI2GLUsE10Fd9ao3dBXHbz8zanFwUUZKfQW75dodgklIerH4KqskPpgrTFRsUHp
+         PbxZklH1ZOPw73/Uho1fbjgGabIEIVZrOgfXgB3AYr5t8NSDVY/j9GojLqwO9uJapPDh
+         0Pfg==
+X-Forwarded-Encrypted: i=1; AL+hErHvDF1ArQYrBKo7PhYpIHXE3XkIPvOcb2b2+xoEz3+Jre6l/pLjIKXNwXxcgRR5Pij5hFLFu0kv4y7id0s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9588f5usk+zA00Jtub+BtpmbdDqix17kar5ydfAXrUULj9JVmF
+	xQfca4FpfAfWBx2TPSFrxhaJmKedssCHGu4ZzLRLYF4+6uu7/h3OqDDyPh5Eq6+X1KPyG1EVmoR
+	gTFYd
+X-Gm-Gg: AZFdTZeYA1aQR5H++ZRpFFGj5AMB6prtjluNEB73VfpfIpuT5o0JSFf34uP2a5xHwVF
+	oD6UdaLQ9PDLJ79bbYePauU3QVbk0GcBi0lH9kzj44k9SbYtW0Pm9GTZ2SccT23mZKQZlXp1m4m
+	8EPt7BBXJniRAWeWclBkRlcW/5dGfOcUIJSsLCqi7ebwx62+LJTiZTbZQXQBh12ehmY/iU0DJG/
+	bowAGwkq50zgClH7O9SmZXZ9QUM/YreLsMFgfoLY3kAm0OKPyinJ7OsiZ2bYvRp+aoUbnNu1670
+	5U7G5OW0ImKOO4VFwhUpzFgOPIOQ0lUCjVv1OSOAfPyNA9TzdtTOgh/fcX6hgDI9dMqaSLhqobM
+	/6FdecXsPfWxeOa+dQfsfnds6vrz6HJhvTuggSfRirWRusstjmHk9je/hgtF+up21TCNou1AUKM
+	SLjYsJEi3r6LbA3d2q5R/E5GaVeViqUOqvr07YWtkgOs9pIhVBzlOF2uTzSDnS0UhAiKO0WLPDn
+	QzJw4vt4HMZz1ouxWR3SBoBcP2SxSukdjsJlOA6DsywpXoF0r5AyCbfYEpCGIrc6WFrtc8w+vjC
+	T5u2W04/NXxQfFQTSILKugNWvABmUQ==
+X-Received: by 2002:a05:7301:4710:b0:378:314:4042 with SMTP id 5a478bee46e88-385702587c5mr10487392eec.14.1795410782709;
+        Sun, 22 Nov 2026 21:13:02 -0800 (PST)
+Received: from localhost ([122.172.83.36])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm28221624eec.13.2026.11.22.21.13.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 21:13:01 -0800 (PST)
+Date: Mon, 23 Nov 2026 10:42:59 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: michael.reeves077@gmail.com
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hector Martin <marcan@marcan.st>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: cpufreq: apple,cluster-cpufreq: Add
+ M3 family compatibles
+Message-ID: <awPLW-zURwW1dqZX@vireshk-B250M-D3H>
+References: <20261122-m3-cpufreq-opp-v2-0-3c19963f55ee@gmail.com>
+ <20261122-m3-cpufreq-opp-v2-1-3c19963f55ee@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,136 +106,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122-m3-cpufreq-opp-v2-1-3c19963f55ee@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 22-11-26, 00:18, Michael Reeves via B4 Relay wrote:
+> From: Michael Reeves <michael.reeves077@gmail.com>
+> 
+> Add compatible strings for the Apple M3 family cluster cpufreq
+> controllers:
+> 
+> - apple,t8122-cluster-cpufreq (M3)
+> - apple,t6030-cluster-cpufreq (M3 Pro)
+> - apple,t6031-cluster-cpufreq (M3 Max / M3 Ultra)
+> 
+> All three are compatible with the M2 (T8112) cluster cpufreq controller
+> and fall back to "apple,t8112-cluster-cpufreq".
+> 
+> Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+> ---
+>  .../devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml          | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml b/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+> index b51913a81791..516216cb6ad6 100644
+> --- a/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+> +++ b/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+> @@ -36,7 +36,11 @@ properties:
+>            - const: apple,s5l8960x-cluster-cpufreq
+>        - const: apple,s5l8960x-cluster-cpufreq
+>        - items:
+> -          - const: apple,t6020-cluster-cpufreq
+> +          - enum:
+> +              - apple,t6020-cluster-cpufreq
+> +              - apple,t6030-cluster-cpufreq
+> +              - apple,t6031-cluster-cpufreq
+> +              - apple,t8122-cluster-cpufreq
+>            - const: apple,t8112-cluster-cpufreq
+>  
+>    reg:
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The patch adds hrtimer_cancel(&ipc_imem->adb_timer) to
-  ipc_imem_cleanup() (drivers/net/wwan/iosm/iosm_ipc_imem.c:1242).
-
---
-
-net: wwan: iosm: cancel the ADB timer on cleanup
-
-This patch adds an hrtimer_cancel() for adb_timer to ipc_imem_cleanup(),
-next to the cancels for the other imem hrtimers. The aim is to stop a
-pending ADB timer from queueing a task that finishes the ADB on the freed
-MUX, and to keep the hrtimer from being freed with the imem while it is
-still enqueued.
-
-> diff --git a/drivers/net/wwan/iosm/iosm_ipc_imem.c b/drivers/net/wwan/iosm/iosm_ipc_imem.c
-> index 4405c85318880..20f8da53a3ea7 100644
-> --- a/drivers/net/wwan/iosm/iosm_ipc_imem.c
-> +++ b/drivers/net/wwan/iosm/iosm_ipc_imem.c
-> @@ -1239,6 +1239,7 @@ void ipc_imem_cleanup(struct iosm_imem *ipc_imem)
->  	hrtimer_cancel(&ipc_imem->tdupdate_timer);
->  	hrtimer_cancel(&ipc_imem->fast_update_timer);
->  	hrtimer_cancel(&ipc_imem->startup_timer);
-> +	hrtimer_cancel(&ipc_imem->adb_timer);
-
-[Severity: High]
-
-Does this cancel fully close the use-after-free that the commit message
-describes? When it runs, the netdev TX path, the IRQ handler and the
-ipc_task tasklet are all still live. Any of them can re-arm adb_timer
-before ipc_mux_deinit() frees the MUX.
-
-ipc_imem_adb_timer_start() only checks whether the timer is already
-active:
-
-void ipc_imem_adb_timer_start(struct iosm_imem *ipc_imem)
-{
-	if (!hrtimer_active(&ipc_imem->adb_timer)) {
-		...
-		hrtimer_start(&ipc_imem->adb_timer,
-			      ipc_imem->hrtimer_period,
-			      HRTIMER_MODE_REL);
-	}
-}
-
-The netdevs stay registered until ipc_wwan_deinit(), and the TX queues
-are only stopped inside ipc_mux_deinit(). So TX traffic during cleanup can
-still go through this path:
-
-ipc_mux_ul_trigger_encode()
-  ipc_task_queue_send_task(ipc_mux_tq_ul_trigger_encode)
-    ipc_mux_tq_ul_trigger_encode()
-      ipc_mux_ul_data_encode()    /* only checks MUX_S_ACTIVE */
-      ipc_imem_adb_timer_start()
-
-The mux state stays MUX_S_ACTIVE until ipc_mux_deinit(). That means the
-timer can be re-armed for 500 us at any point between this new cancel and
-ipc_mux_deinit(), including during
-cancel_work_sync(&ipc_imem->run_state_worker).
-
-ipc_imem_handle_irq() also calls ipc_imem_adb_timer_start(). Its only
-guard is an unsynchronized check of ipc_imem->phase at the top. The MSI
-IRQs stay requested until ipc_pcie_resources_release(), which runs after
-ipc_imem_cleanup() returns.
-
-Next, ipc_mux_deinit() calls kfree(ipc_mux) and leaves ipc_imem->mux
-pointing at freed memory. After that, ipc_imem_device_ipc_uninit() polls
-for up to 30 ms before ipc_task_deinit() is reached:
-
-	while ((ipc_state <= IPC_MEM_DEVICE_IPC_DONT_CARE) &&
-	       (ipc_state != IPC_MEM_DEVICE_IPC_UNINIT) &&
-	       (timeout > 0)) {
-		usleep_range(1000, 1250);
-		...
-	}
-
-Could a re-armed 500 us timer fire inside this window and run this?
-
-ipc_imem_adb_timer_cb()
-  ipc_task_queue_send_task(ipc_imem_tq_adb_timer_cb)
-    ipc_imem_tq_adb_timer_cb()
-      ipc_mux_ul_adb_finish(ipc_imem->mux)    /* freed MUX */
-
-ipc_mux_ul_adb_finish() writes through the MUX with no checks. It updates
-adbh->sequence_nr and adb_tx_sequence_nr, and it calls skb_put() on
-ul_adb->dest_skb, among other writes.
-
-If the timer is still pending later, its callback would use the ipc_task
-that ipc_imem_cleanup() has already freed. If it is still pending when
-ipc_pcie_deinit() calls kfree(ipc_pcie->imem), the hrtimer embedded in the
-imem is freed while it is still enqueued.
-
-There is also a second case. Suppose adb_timer fired just before this
-cancel. hrtimer_cancel() returns once the callback has finished, but the
-ipc_imem_tq_adb_timer_cb entry that the callback queued (wait=false) is
-still sitting in the ipc_task queue.
-
-Nothing flushes that queue before the MUX is freed:
-
-- cancel_work_sync() only covers the workqueue.
-- In IPC_P_OFF_REQ, ipc_imem_channel_close() skips the synchronous pipe
-  close messages, so ipc_mux_deinit() doesn't flush the tasklet either.
-- tasklet_kill() in ipc_task_deinit() waits for an already-scheduled
-  tasklet to run instead of dropping it, and it is only reached after
-  kfree(ipc_mux).
-
-If the tasklet is delayed (BH disabled, ksoftirqd, PREEMPT_RT), can that
-stale entry run ipc_mux_ul_adb_finish() on the freed MUX?
-
-The next patch in the series, "net: wwan: iosm: fix S3 resume by
-re-binding the driver around it", doesn't change ipc_imem_cleanup(). It
-does run this teardown from the PM_SUSPEND_PREPARE notifier on every
-non-s2idle suspend, and that happens before tasks are frozen. With that
-patch, live TX traffic during teardown becomes the normal case.
-
-Would it make sense to stop the producers (netif TX, the IRQ and the
-tasklet) before ipc_mux_deinit(), and cancel adb_timer after that point or
-add a second cancel there? Two other options would be to skip
-ipc_imem_adb_timer_start() once teardown has begun, and to keep
-ipc_imem_tq_adb_timer_cb() from using a stale ipc_imem->mux.
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119042714.505405-1-davidlwesten%40gmail.com
+viresh
