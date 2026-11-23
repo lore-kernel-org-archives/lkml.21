@@ -1,60 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.230
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436321;
-	b=IHb45Vht83gyUEUyV2KhYbVvApTexX+4ynanTEL+iIaJHxhcjtW3qkwjJ9IudECYKxV5
-	 JZFM+jEuEYrraWPzegG7UwI3HmotSEPFjzypZaL+aRD/Uyo97IiTL3HYOIn2YKXDZ6VtE
-	 wkUgv9wjCAvIJn3+lM9FnRyKHgScc/4xHAFphqtvqflyPbzDlF8uQskfvrqIpwbRomlro
-	 JUEOiLEnbeYEA1G9xsRiXyx3vsADwcevDY0C7rIyfOiFjal4YYSkmrhHgNX4sb3ITuOFo
-	 47T70rFT4qF31BdDZBVvzlCRK8WLxL8+n6K8BirLOtaRwaNR0KCOuYs91zkzPRP1lCg==
+	t=1795436341;
+	b=T9bdGOeTh+YK+aDAe5+v2BO1dqv0nFF40eIFgH2U78/U+wdXfJSdHEAuKN8BO9xTheZz
+	 ADaeXiov/YalY/TO+1MjwVt7QoJ+shb2nScZb35JFkEOk7N1iOe4EEdqO0aDbr5zPetge
+	 68bb0nouhdo/JuoaNijss7b8STkQwyuPZ+h8e5WFPRJU+pxl3//PCGFp2s0MEPNjkd28e
+	 zatQ/D19qFDCDYrNzW4pv1W/CC9Kqawl5r4MH57hVMzjSHgP/QE/Dl0SZx+ByHeajC92l
+	 4l4mPNt0Q2SdMhhLBgn13hOlSlz6JTjqRJehk8+lTd0giSbJDBkyZzTVJcvc+0zUS1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436321;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=9UvAxivFiSEq0LyKR6ra3EBoI2lwxNjSzVoAx32rpNE=;
-	b=cAYycJ8EGaNQ+k76BxeIL1NRv169k+qe2EfRSGwR4SSatWHsirGl/iShwDbpW/3gSxAR
-	 VTeLrZWYfUk+s5lOQErJ4khGeJW9T13pNmjngI14X9QvHGdV/39yxLTpo3eONTupkj9Gz
-	 miSbI/Kgk1JuOVkCs9PdozHx5FxCSUzishqDXR6m81PPDP3xGHbWkZgxLfVtBfA6qbTQg
-	 1PDMcY6jDqbBNDZYXGq+hyGEEVAllYjdPK9SKEMtxOSf0WCQ9b3VUUn2D2eJJ0NHU7UZ0
-	 0VFjAEkaJJmP+8J87HM7wfp3BS4A6Wg/ENPf9y0TBp00Xrh2IVXaIHRfN4tL14pYZbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436341;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=Umx7MqyJTMzSudUEtA+X42/QrmhwHdMbkOzHYe3yn10=;
+	b=kE3zWf3OggPPhjf/LSNhPq9t/DHhq2kOEgs1PkbadxLqwMHeVRxIlNhQq1/wXYMfi1jr
+	 hRRY8A8dcoBd6mp3/Z9CqRBdmnkfmXuJYnb1QvdRDthqKNCwYDBfQVsScLDn3LL9YN430
+	 rQKo0oN4SV3AA5IfZ6tRlxs7Nwp7+3JqUCaEYIiPu4+TZUood05+N0ZCEKo7hE87lq6Py
+	 yO20f0cZJpfVFmhl/SCUCmFfhFbMxgSzfBhHZj8e/JpkDv1LJQl/AuRK0S+TB9hBOt5kk
+	 tvQkfdFX9tBgAU5L4IUwLb1pNrvooLvhP+IFZzXEMmlnBOwm4BGkDH2/zugy5Mztj1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paragon-software.com;
-	spf=pass smtp.mailfrom=paragon-software.com;
-	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=JEqYHYvc;
-	arc=none smtp.remote-ip=35.157.23.187
-Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aqwbha+h;
+	arc=none smtp.remote-ip=95.215.58.230
+Received: from mta1.migadu.com (out-230.mta1.migadu.com [95.215.58.230])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46F08606A33C;
-	Mon, 23 Nov 2026 12:18:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46F08606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DFD0606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:18:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DFD0606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=JEqYHYvc
-Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
-	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id D45201D1B;
-	Mon, 23 Nov 2026 12:19:17 +0000 (UTC)
-Authentication-Results: relayaws-01.paragon-software.com;
-	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=JEqYHYvc;
-	dkim-atps=neutral
-Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
-	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id 6AAF2454;
-	Mon, 23 Nov 2026 12:18:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=paragon-software.com; s=mail; t=1795436315;
-	bh=9UvAxivFiSEq0LyKR6ra3EBoI2lwxNjSzVoAx32rpNE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=JEqYHYvcMAB3uyJPTO06nd2fyPz4RKx3mR06PccD6rASuaAovpH5RMkslkNrTbwz3
-	 UK6IL9YEaqfzLtpVhtqEFUSun/RIYYQau2NKmJL2U89ip0wKTUp4GGmr6MCUKkVnP7
-	 48xQWhxVX0Mp3UD5JRp2NfkJ7q+uBHOUng5i7+9I=
-Received: from [192.168.95.128] (172.30.20.204) by
- vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.7; Mon, 23 Nov 2026 15:18:34 +0300
-Message-ID: <f831dbca-286b-4b33-9f37-69bc9388a026@paragon-software.com>
-Date: Mon, 23 Nov 2026 13:18:32 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aqwbha+h
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=44aP29+UWm9Uwp23yiAW0fp/EtdX6KADHVMxQNJBNNk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795436337; v=1; x=1796041137;
+ b=aqwbha+hyfBDZhWUNqz4ZzFxa1xELUJbuhAClHTwlggj7XUGATKcJT2xL9PdrVKmHMbDMfyt
+ rAoFc52clIj5jZAEG+cCKA1mF7jcQu1j7vQw6pSA2DR8M0zPS+Ulbq8FQG2iNXd5lPTJVkEUcDW
+ U+bt/BXUV7L233IDPzaKJDEg=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id b23c8eacef55c129;
+	Mon, 23 Nov 2026 12:18:57 +0000
+X-Mizu-Trace-ID: b23c8eacef55c129
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=utf-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,73 +57,78 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] fs/ntfs3: Fix out-of-bounds write in resident insert
- range
-To: Bruno Produit <bruno.produit@trailofbits.com>
-CC: <ntfs3@lists.linux.dev>, Kyle Zeng <kylebot@openai.com>,
-	<linux-kernel@vger.kernel.org>, Dominik Czarnota
-	<dominik.czarnota@trailofbits.com>, <stable@vger.kernel.org>
-References: <20260922114018.1829807-1-bruno.produit@trailofbits.com>
-Content-Language: en-US
-From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-In-Reply-To: <20260922114018.1829807-1-bruno.produit@trailofbits.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: vdlg-exch-02.paragon-software.com (172.30.1.105) To
- vdlg-exch-02.paragon-software.com (172.30.1.105)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH v5 4/4] mm: zswap: mark the zswap shrinker
+ SHRINKER_NONSLAB
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261123105334.2524066-5-qinyuntan@linux.alibaba.com>
+Date: Mon, 23 Nov 2026 20:18:41 +0800
+Cc: Muchun Song <muchun.song@linux.dev>,
+ akpm@linux-foundation.org,
+ Johannes Weiner <hannes@cmpxchg.org>,
+ mhocko@kernel.org,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ mkoutny@suse.com,
+ David Hildenbrand <david@kernel.org>,
+ ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com,
+ usama.arif@linux.dev,
+ david@fromorbit.com,
+ Qi Zheng <qi.zheng@linux.dev>,
+ yosry@kernel.org,
+ nphamcs@gmail.com,
+ chengming.zhou@linux.dev,
+ xlpang@linux.alibaba.com,
+ Kairui Song <ryncsn@gmail.com>,
+ gourry@gourry.net,
+ cgroups@vger.kernel.org,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <89133112-E096-48ED-A4B0-E64EE319B53A@linux.dev>
+References: <20261123105334.2524066-1-qinyuntan@linux.alibaba.com>
+ <20261123105334.2524066-5-qinyuntan@linux.alibaba.com>
+To: Qinyun Tan <qinyuntan@linux.alibaba.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-On 9/22/26 13:40, Bruno Produit wrote:
 
-> From: Kyle Zeng <kylebot@openai.com>
->
-> attr_insert_range() grows a resident value before shifting data at and
-> after the insertion offset.  The current copy instead moves @bytes bytes
-> from the start of the value, so both its source offset and length are
-> wrong.
->
-> For example, inserting 2048 bytes at offset 512 in a 513-byte resident
-> value copies 2048 bytes to data + 2048 even though the tail is only one
-> byte long.  The resulting destination can extend beyond the MFT record
-> allocation.
->
-> Move the original tail from the insertion offset to its new location,
-> then clear the inserted range.
->
-> Fixes: aa30eccb24e5 ("fs/ntfs3: Fallocate (FALLOC_FL_INSERT_RANGE) implementation")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Kyle Zeng <kylebot@openai.com>
-> Signed-off-by: Bruno Produit <bruno.produit@trailofbits.com>
-> ---
->   fs/ntfs3/attrib.c | 5 +++--
->   1 file changed, 3 insertions(+), 2 deletions(-)
->
-> diff --git a/fs/ntfs3/attrib.c b/fs/ntfs3/attrib.c
-> index b1c315206..4bd758133 100644
-> --- a/fs/ntfs3/attrib.c
-> +++ b/fs/ntfs3/attrib.c
-> @@ -2610,8 +2610,9 @@ int attr_insert_range(struct ntfs_inode *ni, u64 vbo, u64 bytes)
->                          char *data = Add2Ptr(attr_b,
->                                               le16_to_cpu(attr_b->res.data_off));
->
-> -                       memmove(data + bytes, data, bytes);
-> -                       memset(data, 0, bytes);
-> +                       memmove(data + vbo + bytes, data + vbo,
-> +                               data_size - vbo);
-> +                       memset(data + vbo, 0, bytes);
->                          goto done;
->                  }
->
-> --
-> 2.53.0
 
-Hello,
+> On Nov 23, 2026, at 18:53, Qinyun Tan <qinyuntan@linux.alibaba.com> =
+wrote:
+>=20
+> With kmem accounting disabled (cgroup.memory=3Dnokmem), memcg reclaim
+> never invokes the zswap shrinker: a cgroup under memory pressure does
+> not write back its own zswapped pages to make room; they are only
+> written back by global reclaim or once the global pool limit kicks in.
+>=20
+> The zswap shrinker is registered memcg-aware but without
+> SHRINKER_NONSLAB, so under nokmem it is treated as a slab shrinker:
+> before commit 03375203e1da ("mm: do not allocate shrinker info with
+> cgroup.memory=3Dnokmem") it was skipped by the !memcg_kmem_online()
+> check in shrink_slab_memcg(); since that commit it is demoted to
+> non-memcg-aware at registration.  But the zswap shrinker is not a slab
+> shrinker: it tracks zswap entries and resolves the owning memcg from
+> the folio's objcg, independent of kmem accounting.
+>=20
+> This was noticed by Michal during review of the patch "mm/list_lru:
+> don't copy stale shrinker id from non-memcg-aware shrinkers".
+>=20
+> Mark it SHRINKER_NONSLAB so it keeps its memcg awareness and runs
+> under memcg reclaim with nokmem.
+>=20
+> Link: =
+https://lore.kernel.org/lkml/697713c4-0857-485b-aba7-c74f37a3c8b4@linux.al=
+ibaba.com/
+> Fixes: b5ba474f3f51 ("zswap: shrink zswap pool based on memory =
+pressure")
+> Suggested-by: Michal Koutn=C3=BD <mkoutny@suse.com>
+> Signed-off-by: Qinyun Tan <qinyuntan@linux.alibaba.com>
+> Acked-by: Usama Arif <usama.arif@linux.dev>
+> Acked-by: Nhat Pham <nphamcs@gmail.com>
+> Acked-by: Yosry Ahmed <yosry@kernel.org>
+> Reviewed-by: Johannes Weiner <hannes@cmpxchg.org>
 
-Thanks for the patch. Alon Shakevsky previously submitted the same
-fix in "ntfs3: fix INSERT_RANGE for resident data".
+Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
 
-Regards,
-Konstantin
 
