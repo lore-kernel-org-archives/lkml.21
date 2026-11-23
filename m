@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420571;
-	b=T0U4hmzfnqEabQQQaGeCpW2vvfRtQqa5Q6mFQqYmmPrFxcT8IsjCZvI/hyE5v20PefIF
-	 G0FmX7MdQkFDaTp2d06j00paSYm6waaZKewbF1VvlQmz++m610zTuUzwyINdVDlXZHjjl
-	 M+AR8mpjSsii7pIOYF4B7+LHFjjhcg6jIvhxHAIS6jN05tZdKtgbiDPrLtpL3NOXDliVp
-	 zakYsPKSTrjG7TDC9Wl/bYhFoE12WamuLlwJnA+sGCS5SgBAOd+ghQUV/dBHZu+pj50hJ
-	 QIxyq/4fDwjg3FYZqWguzUGJSpC4TAewnj5T0CNqZR6e2t0pbbadZ6WUNCkLXBFxdEQ==
+	t=1795420585;
+	b=2Asf4HP1scboAbCEp9D3ZMj+NtXYwIsJ+jl4nX4MfhZ1Gm5mFROoOebqILgqQtMfdGe7
+	 97SJ1jNWwjG5MT1+r1I8HwJ1WrMyhFX59gteSZ4fzztnU8jAAQYUU+b3LQeuLEzPo8DpH
+	 gzXlN9PORKHB0LK5uwl+sr7DVYb6BEEjnfOi3/qjilTQJnXCQq3gi+vP/iO7K6ydueJ4R
+	 G5wr/0mFcgpC6HVok80DtNLP/QDSdPeesDC5ypNPo3X8sZ++BTHWXDswbF4oZbFgFKTDS
+	 9pzZK+/JkelW8vI0ZjWPl9pHRrVdA9YzAJ1u+3diYxXwIoc0+mhW9JZ/XnKasYw666w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420571;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420585;
 	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=xIvWT2gnfP5T3OT4//6KuPbQPQynD1bwik32TvuqPnY=;
-	b=NRT9kkzuA+/1INl3UoAg90WpybghkNirkyiAZwuKcIwj9r5fCa4FKg9k3M6uyCi08erm
-	 pT/YWVndKcA7iHCvb6As9llSh4jCXWEQRi/wYtCJcT9c3nxoTQqg6ka7pWEHhitNzpILg
-	 S+kuaG8+I32SGesyvgPJ3tUw5uHz3HvbHGYREJoi+D6f3xw7uS99U/3QMzu7vrzUkTeIf
-	 9ReK0x3F4m7TtJXhxB+AiZ4GNvcNGRghCumQ4bU4vyPFyJaa1P7iFr6acEqgNGoof6z7I
-	 toWGne6B63sVeNJ8xHGATMN7hrHg4NhKUD+qqTlUkyS0WbJda6k4eYzWXhotVsZ1ZCg==
+	bh=NiYRB965QyMjahqN2h1lQRElGOPuwhMdnpU8Xt7TG2U=;
+	b=4mblYNPhZLZx4E8JWhBHb/KvLo18cKKyf0xLIw0FiVhOnGHoQF0LmzOEXlboXmIw/X9B
+	 yJbVuBEfC5wwTUPc4CsfaszjQahdjGj6pNwYFfYjzAvyp6V//GwSqezMjYS2PZv9jkkCS
+	 CxcaqGJGxyUXC+lrQTwChqnix1xGxfX/PxrEtd1X5H8c4xVe5HWN+DaNtSU4MMgPrws4D
+	 JgSt6/n0DKJLDgEYy6qZ7th7oMAnaeZIk9XwmnfVS6bsshhCKN+82yGv04zOLr2ycso3Q
+	 7fAXfd5XEH/zUgqHNaUnJEQgevE6RuHsMBQOY0ztpWx4ZEtytTwEmgBXHh5C7apVqUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaR6jJVS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nAqN5FFP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8E2D606A31A;
-	Mon, 23 Nov 2026 07:56:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01067606A31F;
+	Mon, 23 Nov 2026 07:56:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaR6jJVS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5A671F000C6;
-	Mon, 23 Nov 2026 07:56:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nAqN5FFP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D1161F000C6;
+	Mon, 23 Nov 2026 07:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795420571;
-	bh=xIvWT2gnfP5T3OT4//6KuPbQPQynD1bwik32TvuqPnY=;
+	s=k20260515; t=1795420584;
+	bh=NiYRB965QyMjahqN2h1lQRElGOPuwhMdnpU8Xt7TG2U=;
 	h=From:To:Subject:Date:In-Reply-To:References;
-	b=DaR6jJVSlhvlluCZ6HZ5F5Jbkd3To/Xw6Qp0fcm9VVGWVVPN4L+LmO71W6PGLNI3y
-	 dO1Kt0lM9d5ueKWesK+X0jfSQoayJy5hFKaHDn3Zwu/gGHoPYTbRQI5BeM6X8SUDfu
-	 ga84xD4VLghXV60REhiK/dqr1xndfkrGW5m16Vgf48fhnK94xFUAiYQFi39gI9Bl8/
-	 uottdR+MgQWMqVJYjIXUVHDMW1f5eo6bc0XwSBX9GhxrgfBwG4QFvK+TvOhaXBggcI
-	 0Pi+onJNBG1kf3YVd9olz1ve5OKbe2Fd1uKb5sMVjXnulJ2ytLDIdZgCrSeUAS9/ys
-	 wyl4bbFrZ+jvw==
+	b=nAqN5FFPZUeSNyPFGPJlQiZB6IhzuoA2HRqJyeWOVSn2w71SsiHJ2e/6nHwVYwsOp
+	 jUj2u6tm46+nERCwyC44mjwxCqPj2R1Y3iNPzq6wOCHej2Pe9SSmbCup8pxEtBqsxU
+	 XCfXLkKL3LvnbNq4LkwlOxxvr5KpoC3cy29jHCEydICYm/NyvCwaaKmquT62Yp9Wxc
+	 h0IUax4zkh5q9hzpachHQTArCQvh/DsP15NuY3T2y1HujgLVu1Qg7s64cbDnm3EIKg
+	 OjaaMfCGoWQzje15At0s/ZtN7zfzri1/hCHc8dPvydKWMEJRE1qgEGuHiVfVyyUnn7
+	 DHFQXrZPETUgA==
 From: Lee Jones <lee@kernel.org>
 To: lee@kernel.org,
 	Srinivas Kandagatla <srini@kernel.org>,
@@ -48,9 +48,9 @@ To: lee@kernel.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 06/10] soundwire: qcom: Prevent pconfig buffer overflow in qcom_swrm_stream_alloc_ports()
-Date: Mon, 23 Nov 2026 07:54:27 +0000
-Message-ID: <20261123075522.405347-7-lee@kernel.org>
+Subject: [PATCH v3 08/10] soundwire: qcom: Check clk_prepare_enable() return value
+Date: Mon, 23 Nov 2026 07:54:29 +0000
+Message-ID: <20261123075522.405347-9-lee@kernel.org>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
 In-Reply-To: <20261123075522.405347-1-lee@kernel.org>
 References: <20261123075522.405347-1-lee@kernel.org>
@@ -65,60 +65,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-qcom_swrm_stream_alloc_ports() allocates the pconfig array with
-ctrl->nports elements, but only checks that the assigned port number pn
-is below maxport.  When multiple slave ports map to the same master port
-via m_port_map or the stream requests more slave ports than
-ctrl->nports, nports increments past ctrl->nports and writes out of
-bounds of pconfig.
+qcom_swrm_probe(), qcom_swrm_irq_handler(), and swrm_runtime_resume()
+ignore the return value of clk_prepare_enable(ctrl->hclk) and proceed
+to access controller registers even when enabling the interface clock
+fails.  Also jump to err_clk when requesting the wake IRQ fails in
+qcom_swrm_probe() so ctrl->hclk is disabled on error.
 
-Verify that nports is less than maxport before writing to
-pconfig[nports], and clear only the port_mask bits newly allocated
-during the loop before returning -EBUSY.
+Check the return value of clk_prepare_enable() in all three callers and
+abort register access on failure.
 
-Closes: https://sashiko.dev/#/bug/linux-543ea0c0-a6e5-4b03-a041-ea0a760802c1
+Closes: https://sashiko.dev/#/bug/linux-f65cddc9-08ff-4531-9acf-76981d74d914
 Signed-off-by: Lee Jones <lee@kernel.org>
 ---
 
 v2 => v3:
- - Track newly allocated port_mask bits in a local bitmap so error
-   rollback never clears pre-existing ports
+ - No changes
 
 v1 => v2:
  - Drop Fixes and Stable tags
 
- drivers/soundwire/qcom.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/soundwire/qcom.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/soundwire/qcom.c b/drivers/soundwire/qcom.c
-index 6e0c5fb10efa..16ad86912e51 100644
+index 191f13a0bdc2..307be1ec3d68 100644
 --- a/drivers/soundwire/qcom.c
 +++ b/drivers/soundwire/qcom.c
-@@ -1306,7 +1306,7 @@ static int qcom_swrm_stream_alloc_ports(struct qcom_swrm_ctrl *ctrl,
- 	struct sdw_slave_runtime *s_rt;
- 	struct sdw_port_runtime *p_rt;
- 	struct sdw_slave *slave;
--	unsigned long *port_mask;
-+	unsigned long *port_mask, allocated = 0;
- 	int maxport, pn, nports = 0;
- 	unsigned int m_port;
- 	struct sdw_port_config *pconfig __free(kfree) = kzalloc_objs(*pconfig,
-@@ -1350,11 +1350,13 @@ static int qcom_swrm_stream_alloc_ports(struct qcom_swrm_ctrl *ctrl,
- 				else
- 					pn = find_first_zero_bit(port_mask, maxport);
+@@ -778,7 +778,9 @@ static irqreturn_t qcom_swrm_irq_handler(int irq, void *dev_id)
+ 	u32 i;
+ 	int devnum;
+ 	int ret = IRQ_HANDLED;
+-	clk_prepare_enable(ctrl->hclk);
++
++	if (clk_prepare_enable(ctrl->hclk))
++		return IRQ_NONE;
  
--				if (pn >= maxport) {
-+				if (pn >= maxport || nports >= maxport) {
- 					dev_err(ctrl->dev, "All ports busy\n");
-+					*port_mask &= ~allocated;
- 					return -EBUSY;
- 				}
--				set_bit(pn, port_mask);
-+				if (!test_and_set_bit(pn, port_mask))
-+					__set_bit(pn, &allocated);
- 				pconfig[nports].num = pn;
- 				pconfig[nports].ch_mask = p_rt->ch_mask;
- 				nports++;
+ 	ctrl->reg_read(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_STATUS],
+ 		       &intr_sts);
+@@ -1677,7 +1679,9 @@ static int qcom_swrm_probe(struct platform_device *pdev)
+ 		goto err_init;
+ 	}
+ 
+-	clk_prepare_enable(ctrl->hclk);
++	ret = clk_prepare_enable(ctrl->hclk);
++	if (ret)
++		goto err_init;
+ 
+ 	ctrl->dev = dev;
+ 	dev_set_drvdata(&pdev->dev, ctrl);
+@@ -1733,7 +1737,7 @@ static int qcom_swrm_probe(struct platform_device *pdev)
+ 						"swr_wake_irq", ctrl);
+ 		if (ret) {
+ 			dev_err(dev, "Failed to request soundwire wake irq\n");
+-			goto err_init;
++			goto err_clk;
+ 		}
+ 	}
+ 
+@@ -1802,13 +1806,15 @@ static int __maybe_unused swrm_runtime_resume(struct device *dev)
+ 	struct qcom_swrm_ctrl *ctrl = dev_get_drvdata(dev);
+ 	int ret;
+ 
++	ret = clk_prepare_enable(ctrl->hclk);
++	if (ret)
++		return ret;
++
+ 	if (ctrl->wake_irq > 0) {
+ 		if (!irqd_irq_disabled(irq_get_irq_data(ctrl->wake_irq)))
+ 			disable_irq_nosync(ctrl->wake_irq);
+ 	}
+ 
+-	clk_prepare_enable(ctrl->hclk);
+-
+ 	if (ctrl->clock_stop_not_supported) {
+ 		reinit_completion(&ctrl->enumeration);
+ 		ctrl->reg_write(ctrl, SWRM_COMP_SW_RESET, 0x01);
 -- 
 2.56.1.750.gf70dc682cf-goog
 
