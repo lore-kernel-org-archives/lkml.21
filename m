@@ -1,96 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795470701;
-	b=CM+r/cjL/lpIybPDXXw6/5RMIsdadJ90lI/7s5EKdamn6NdqFS2j5vJNuVp8TIJz4o0f
-	 hteZFOnIE2BUR1MD0TzTBzvw+zgyf72QOcDeU1LmP9mnQmblgM025ftoDiWqwTNpL+xop
-	 NmR8XM+lIkteTnntDihmSPvW1BxzzYNujPgyyNofEe+vm3a1jJCLb38/nwJ7+LzZ8YWlF
-	 WaJR/NCg5n9JmuHWIXbwrksf4c8LEqkFUB7hdh+Y2pbpPiGINXmEc5GnL5jn/5hD8q3E6
-	 AqwPi2Evg8cBk0+H+1a+GSP5m2IWigiYg7zUbXNHM78t+Vo1AUjuggbMqxx9e51iwfw==
+	t=1795470716;
+	b=Z65VAVa5kWAcDCWy6tIJdM0MmI9FtRgexLfOT3C07SGu566//4b3PwshS4oQlT/wwW2/
+	 l0ZBZ+pZRCK16vd8OH3EePClPpOftWiZ+y4SCxhFsOndeh6wZDG87DY7pUf3OBBl/dlQp
+	 bTO3xJy2s4mP5qnoy7Jc0wBcir14MISN75nV20ga12LUCvlfYcDagP1ldynp/s58cqGlW
+	 YmL6R2S2Cw7xedwko6g9DhOeAwYLkcmTKGDghDppafyTAKhAzt5cUvyOrkb5UokcBjfLU
+	 acPQ98stpeMipXqCeoteFA3SagzWSMV9XKXV5ZDf9mxO9+4Pxq/GfSc09UZMGi2x4IQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795470701;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795470716;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=2Hs8rCyGsw/DQ1uI+RqDlzXciGD3XvAd/zH1v+QjQxE=;
-	b=4qzYkw2fSNVTBR03I+pe1KjSNaIOVd99wPscwtgjaNLfKgFQkRqumMXKf9TEslDSId6v
-	 UgzFucVFc9TbIPtuLBvFEtYcjfho7fX2pQZPMMREfIqtbjHGAgBneV0E6TEbvbiXg8BCF
-	 7tm+Q++0w4sKqShAGooxgF0LZW41QYFFDGjnzj4Y52o/8kuBffobvGWxFHCHsx4TBMta4
-	 eRzf6N7ZQub4R9oa8KuWdwONNVHvODhI+/LAxNBIa6HTqn0JIG8iBom+HAd1fQWKz5XgV
-	 AuhKjIrd+IivGddYY0URWuJfQUOHlHuMZEzEK9JXwR4HCcuE1elaL9pok3N8Hr6m5eA==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2UGY/oTHLWmVAYjT8YaGDfb9jGbAf2o4kEDKWYab9wc=;
+	b=cdRxyp3PePRXKm9NwoCvRz4nBR4RYc/6oFV22jwI9X/c6HIV6TU0GfTwkLhi9Vke1c4l
+	 94TZiCvCMSwP4fcFY0qbOiyOQol9DLDj/0nNVq1Ym0KQG6qvBVWRnXelAgLSRQoBFpQG4
+	 pvazsVWqNNi2YJ/f000HRp93rlqq4y3zAxCrUVWGBeNtze05Crn9+OL3T6UrbFPRxE5F9
+	 Ib2IqD3PYsyrfDx2tUKYN4a2U5zG7Jbid10xL/5wkbygPWzGT1ktezIf6OTtHjWLvlJ9F
+	 0kAUpfHOjBnO4555I9ssTHcCOEcBkhOfTTlyX/AoQvXxejttFGxSspY9LVPq3GBLWWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=piCHQ0my;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cFcsjKfv;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BACAB606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:51:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BACAB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59F55606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:51:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59F55606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=piCHQ0my
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4acb44dcd7bso3194875f8f.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:51:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cFcsjKfv
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb609d9bf4so8623465e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:51:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795470699; x=1796075499; darn=vger.kernel.org;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=2Hs8rCyGsw/DQ1uI+RqDlzXciGD3XvAd/zH1v+QjQxE=;
-        b=piCHQ0myYf4CbDx9pBcTwF2BhbPVeA92N6bZ4QLuFa8KhORRfgJDbxWWP5rq4UEeuK
-         mzkuJ9RwE+MoyYZyKDTzRbfab2+hcxJP1VlKiSxh/4xZXs8G5hQ2lhJqMTtSHVy6/8mm
-         fWAqSh4nkvraOEQcqAoxwyJLVcGf8XhNfW2F8hBTo2ELMRJyQHZOWzhnQyi5XaooQDUZ
-         0UsZq6VXCIwv8bY7lIYDNjOmQf6H1r7m4a0HWvOL4K/Mx8GCLyZKEA+O9irkjhxkTsxB
-         nfAZ1HJ3+y5FSYIfLiqrs+v6HSJe2bdrHEiTP8+IEPZ5XebVFJiMYQ4FsGDOYkOkrtC6
-         +/Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795470699; x=1796075499;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795470715; x=1796075515; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2Hs8rCyGsw/DQ1uI+RqDlzXciGD3XvAd/zH1v+QjQxE=;
-        b=f+wc1B1ENwOMp7q41Xf3FCB0sosGihwmaylVWdybgWROge7PDrXQnzI7YJbH/NfuCE
-         WmkPmQNdj2AiHtf7t55tmectl7K4f0d4OE/+2s1QBsgdQSLifgdIoIZUDv+yhWxEVks0
-         0Pyo9ST/gPYTU/cSS8JaBgN/tmQ38x+BFAjvPHPvsbwwrIbLeFe6ubhasi4xZPdi27sw
-         tKbUELaRKXJ/i6BWuOaEhGQAoyNMwugZkflJM1JgmMgUam00kHDespELZCa4kIbRm0vc
-         NlephoYStvsZlK6z2PaNDjetZjzKf1O33rD0wq9VV8K1O8TY/0t4Tb1ommdI/DUbIddF
-         EEcg==
-X-Forwarded-Encrypted: i=1; AL+hErH3GMARBk3Jirl/tUiZY21nSXnjIA9aS5OYWOGtAykmovHGTMikyE74Bk22wabaVff4cDU26XBTT23BhUI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3Nim+pR0GJmAh4NZKqK8618VHez/bCqv+2afkh6N+w448os2W
-	8FbVVyJpJLtUPTbxIFPmNdiWq+d2ljatZDl2O7mhr2qPyOhZd47Lj7BfWvPy7BpKYg==
-X-Gm-Gg: AZFdTZeQcNE4FtYAirbWszDAg6/7ofuNOkqsNViB4rrGiUBJe0TpOQvy+cwqEvB9E/H
-	Rjj59ipR/TMBfENXEgTBZtkF9RwD3KEzLKZbCzyfwlFYJep14kk6MRBs+wiaZnNFXOhjFfC6zX7
-	F0X4FUVOoV1J8gsSxhhKBbcvBCbmzDaIIAzkTY0pKClWRTQQwaMO5ZTcTecX9yd11PiffQ9ODYi
-	03RJ2TxMjs/skAakedcrAFDe5xFoc5kenttlV8jJb8eTWbNHLppkjDD56Q0+x5mYdDnueqIGow9
-	z+5N8pTHZmDhMQiUdRlONogikQs9koOg5jeKFV5W+jXUPOX16DOj/KjjTxu4h5gndmaQBswJ8zB
-	C0/IYUFnA3DqQA5u3Y19FAKwup4veJBzFDidg/1i9NSOfxYzc9V2V+aZx4mC8UlTOa+R2RASFZ2
-	Tcp7h7LOGo130CPpQ3eEJiQoVdoyt3QalLuxTIRUw4Qlc2+x/xE7zWQjjvEY+8YfGQKiOADR0qu
-	4m4N/aR2tg//Y0zLpRTkBJxiIALekzvjsuxvcoAFp9L748SXUEuMqngR2vcYEC6FM8qG6dHIXlr
-	3AFkrK5t1XGFNLfVTuQQjhRqJyG86Qf9eKroWQC3bO6yaDQLtmj7J9L/lo7hH/LWi1yRAKjpW0w
-	=
-X-Received: by 2002:a05:600c:1c08:b0:4bb:7757:fe6d with SMTP id 5b1f17b1804b1-4bb88804c5fmr321884935e9.11.1795470698614;
-        Mon, 23 Nov 2026 13:51:38 -0800 (PST)
-Received: from elver.google.com (124.100.205.35.bc.googleusercontent.com. [35.205.100.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3882sm24254809f8f.49.2026.11.23.13.51.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 13:51:37 -0800 (PST)
-Date: Mon, 23 Nov 2026 21:51:33 +0000
-From: Marco Elver <elver@google.com>
-To: syzbot <syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, horms@kernel.org,
-	jhs@mojatatu.com, jiri@resnulli.us, kuba@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, syzkaller-bugs@googlegroups.com
-Subject: Re: [syzbot] [net?] KCSAN: data-race in fq_pie_reset /
- pie_calculate_probability
-Message-ID: <awS1ZXUKIPtEd4J-@elver.google.com>
-References: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
+        bh=2UGY/oTHLWmVAYjT8YaGDfb9jGbAf2o4kEDKWYab9wc=;
+        b=cFcsjKfv6H9NbIuMZZX7vTjnybJSP55lQ/PxodsxbdsBN7EPPVCukPjsOdQG1y5Swm
+         vAt3OTEuzeSgbrg+4u27MnR93ucW+/AsaF7XAUJ0T8kgemKdrcLcuuY5cvAo+1YDCNMq
+         Ho1TaYJg+Mue/Ykk64koPLvfAbnj1cR34lR0Da3uT6qj+mhmN0w74T4kGfo8TKGzZhaS
+         wxTVUnkDXAPBQVc1MT9D/fe2LNwWGNJIOlVeWwKhYTu4CHNOTRGuM/FJJ3nFEA7Ml/Hg
+         Mdm/efETk1APSp/NObZwp8Vqw09UFOiB5SUcMAQ6JJo5sapV+Q4cR/Ojg7DrgwUJxqkL
+         D7/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795470715; x=1796075515;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2UGY/oTHLWmVAYjT8YaGDfb9jGbAf2o4kEDKWYab9wc=;
+        b=1s0eDPagBYpd1b29kFLhWB4m0xkQG7QLGjgGOz5jAjBv9czuzTTalV25ZAd8nw2yya
+         vj159QNavM5TBWT3manMpT6xDJJyePEImUpL3yd/YwpQ5WPiSpJ/3s0TP+tpzoetP0n/
+         +49dzH1mP3hhPD1ELMHIZbdBqO+5YxyNnEL+FrScHgbq2BGuAb9J08AbOUJ4n+EOGExy
+         IYAnqmRH/cAkWIchMoq3qDSGfEz1FLagVyedRqoEg3ephMq9tz+ve9n19nZaWxIPOmm8
+         aPDAHBNDXfVMQqOymLxgZQb9BAO/W8B9yklbwhe+zOoAqHgxzcoCBXTOEj/gYgXKZpgI
+         cZig==
+X-Forwarded-Encrypted: i=1; AL+hErG31MmXiFhwEcyZySI+ipeQNgbphThTcA2iKebvher8WHDyxM3DsRZ4jLlfwWP/l0+jCwK62AluQqOotR0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fzKApwcd7NhZlOUHoOClkVDz/l4frCM16lZWdYevfNJeb7opZ
+	zSMlVBS3VASULOFSm0xefNoPiGWbDC9Mi++yn+clPLsPdTFO1w7Y4UCwpqH+EkRONrukFA==
+X-Gm-Gg: AZFdTZej/TiRkVsnooPY/HocKdoVWuvITR9NzMBIEtE2e3JazGTYsf1QFUZZk8YSJl4
+	/3iqCNilh0A0qsk2bBo2Ce9QK2d3nOj6ftDdrLGoCDpoQ4EIfGNxPa7RFJCB07LuH+tcSLk+mup
+	fVyGPZP+P84PsGBw2BPbjXB85jFEKCrPf+PKXJJucg2qyeO6LfR1vVYaaq15CL6Q3Vdf9T3yy0S
+	6dlhv2BwfGyRWYb9idGpqAZmkKuX6XbdK845nLSERX8UFjvyialHBgO0WOofNh8QIsASnVwmF/m
+	qggT9uNs7D9aXRAcZlBfXN+czeWR+WdXRlAElx4nc4mCk8q1ikwVQh8pC2mlzIlTf1Nr+XFOfa4
+	k7GVCdbKHnLIeowI/cnGLqAIwF4lRAd3nun74auLS613EcedlylpTiPEqeUC8pQClaKR3CpBPbU
+	6HPTRRL7OWGBmvT/WKO4wbTsevHER9jbbXt4dFX9rcS5cSHG/VQloKQf+j5RuLVqBShdBBxBxcl
+	3orRBN2Rvs9q4xRKrUypcW9lFX3U5gdSuilZQ5ZWQC18k9XRRxAE2L3Z6qyBIij0RyM/pTf9izS
+	w9XehoYtKrsSXwwdXVKbER5/8F++/lGu000uvebDNPFphezMWaSkBp91KbYw4Tr66nvPK0jPx4g
+	hPhIiiADJ80tc4jJFUh4yuJZgyO5Uv+bU1GqoqgTTWqeMrHNbFGP6p7rjjXJgemKTbVkZ
+X-Received: by 2002:a05:600c:8a18:b0:4bb:7ad9:301f with SMTP id 5b1f17b1804b1-4bb88806505mr189200245e9.2.1795470714642;
+        Mon, 23 Nov 2026 13:51:54 -0800 (PST)
+Received: from [172.172.2.5] (host-188-174-207-233.customer.m-online.net. [188.174.207.233])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88f643adsm170594995e9.1.2026.11.23.13.51.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 13:51:54 -0800 (PST)
+Message-ID: <f5984b2d-6886-458b-baca-43c76669d2fa@gmail.com>
+Date: Mon, 23 Nov 2026 22:51:52 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,168 +93,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
-User-Agent: Mutt/2.3.2 (2026-04-26)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v10 2/4] net: hsr: refuse forwarding devices as
+ HSR/PRP ports
+To: Paolo Abeni <pabeni@redhat.com>, netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, horms@kernel.org, andrew+netdev@lunn.ch, shuah@kernel.org,
+ kees@kernel.org, petr.wozniak@gmail.com, qingfang.deng@linux.dev,
+ fmaurer@redhat.com, luka.gejak@linux.dev, bigeasy@linutronix.de,
+ xiaoliang.yang_1@nxp.com, skhawaja@google.com, liuhangbin@gmail.com,
+ stable@vger.kernel.org, sdf.kernel@gmail.com, lukma@denx.de,
+ fmancera@suse.de, danishanwar@ti.com
+References: <20261117141922.20-3-xiexinet@gmail.com>
+ <179514132185.3136.17085396682149520983@kernel.org>
+ <1f2ccb87-9017-4053-b8c8-5b31a211bd21@gmail.com>
+ <923664db-2b04-4440-8b07-2965c1e97aa0@redhat.com>
+Content-Language: en-GB
+From: Xin Xie <xiexinet@gmail.com>
+Autocrypt: addr=xiexinet@gmail.com; keydata=
+ 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
+ sNySbH3veZ/55EtlXA==
+In-Reply-To: <923664db-2b04-4440-8b07-2965c1e97aa0@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 10:14AM -0800, syzbot wrote:
-> Hello,
-> 
-> syzbot found the following issue on:
-> 
-> HEAD commit:    b6a9fa34ce41 Linux 7.4-rc4
-> git tree:       upstream
-> console output: https://syzkaller.appspot.com/x/log.txt?x=118e58e9580000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
-> dashboard link: https://syzkaller.appspot.com/bug?extid=00f5a4ef4bcb8f4d19f1
-> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-> 
-> Unfortunately, I don't have any reproducer for this issue yet.
-> 
-> Downloadable assets:
-> disk image: https://storage.googleapis.com/syzbot-assets/1cd533522ae8/disk-b6a9fa34.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/19d6c1c369e3/vmlinux-b6a9fa34.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/dfb541770724/bzImage-b6a9fa34.xz
-> 
-> AI-generated root cause summary:
-> During qdisc teardown in `dev_shutdown()` -> `qdisc_put()` ->
-> `__qdisc_destroy()`, `qdisc_reset()` calls `fq_pie_reset()` without holding any
-> qdisc lock and before `fq_pie_destroy()` stops `q->adapt_timer`. Moreover,
-> `shutdown_scheduler_queue()` has already replaced `dev_queue->qdisc_sleeping`
-> with `&noop_qdisc`, so `fq_pie_timer()`'s call to
-> `qdisc_lock(qdisc_root_sleeping(sch))` acquires `noop_qdisc`'s lock rather than
-> `sch`'s lock. As a result, `fq_pie_timer()` -> `pie_calculate_probability()`
-> runs concurrently with `fq_pie_reset()`, racing on `pie_vars_init()` writes to
-> `flow->vars` (specifically `vars->accu_prob` and `vars->avg_dq_rate`).
-> 
-> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=00f5a4ef4bcb8f4d19f1
+On 23/11/2026 14:47, Paolo Abeni wrote:
+> What about explicitly detecting the AA deadlock maintaining a per cpu
+> status?
 
-|  CPU0 (kworker: cleanup_net)              CPU1 (timer softirq)
-|
-|                                           fq_pie_timer()
-|                                             // dev_queue->qdisc_sleeping is
-|                                             &noop_qdisc
-|                                             spin_lock(&noop_qdisc.q.lock)
-|                                             pie_calculate_probability()
-|                                               if (vars->avg_dq_rate > 0) // reads > 0
-|  dev_shutdown()
-|    qdisc_put()
-|      __qdisc_destroy()
-|        qdisc_reset()
-|          fq_pie_reset()
-|            pie_vars_init(&flow->vars)
-|              WRITE_ONCE(vars->avg_dq_rate, 0)
-|                                               // reloads vars->avg_dq_rate == 0
-|                                               qdelay = (backlog << PIE_SCALE) / vars->avg_dq_rate;
-|                                               // -> Divide-by-zero (#DE) crash!
+Thank you for the suggestion. I will add this check in v11. It catches
+a frame that comes back to the same HSR master, and the locking can
+stay as it is.
 
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
-> 
-> ==================================================================
-> BUG: KCSAN: data-race in fq_pie_reset / pie_calculate_probability
-> 
-> write to 0xffff88811d293640 of 8 bytes by task 13 on cpu 1:
->  pie_vars_init include/net/pie.h:103 [inline]
->  fq_pie_reset+0x11e/0x1d0 net/sched/sch_fq_pie.c:552
->  qdisc_reset+0x51/0x2e0 net/sched/sch_generic.c:1118
->  __qdisc_destroy+0x60/0x220 net/sched/sch_generic.c:1157
->  qdisc_put net/sched/sch_generic.c:1189 [inline]
->  dev_shutdown+0x2e0/0x390 net/sched/sch_generic.c:1558
->  unregister_netdevice_many_notify+0x999/0x15e0 net/core/dev.c:12761
->  unregister_netdevice_many+0x19/0x20 net/core/dev.c:12845
->  ops_exit_rtnl_list net/core/net_namespace.c:188 [inline]
->  ops_undo_list+0x21d/0x410 net/core/net_namespace.c:249
->  cleanup_net+0x38d/0x5e0 net/core/net_namespace.c:713
->  process_one_work kernel/workqueue.c:3495 [inline]
->  process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
->  worker_thread+0x56c/0x770 kernel/workqueue.c:3659
->  kthread+0x248/0x2a0 kernel/kthread.c:436
->  ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
->  ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-> 
-> write to 0xffff88811d293640 of 8 bytes by interrupt on cpu 0:
->  pie_vars_init include/net/pie.h:103 [inline]
->  pie_calculate_probability+0x425/0x4c0 net/sched/sch_pie.c:417
->  fq_pie_timer+0xf6/0x1d0 net/sched/sch_fq_pie.c:403
->  call_timer_fn+0x36/0x280 kernel/time/timer.c:1749
->  expire_timers kernel/time/timer.c:1800 [inline]
->  __run_timers kernel/time/timer.c:2375 [inline]
->  __run_timer_base+0x40c/0x610 kernel/time/timer.c:2387
->  run_timer_base kernel/time/timer.c:2396 [inline]
->  run_timer_softirq+0x31/0x70 kernel/time/timer.c:2406
->  handle_softirqs+0x109/0x310 kernel/softirq.c:669
->  __do_softirq kernel/softirq.c:703 [inline]
->  invoke_softirq kernel/softirq.c:542 [inline]
->  __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
->  instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
->  sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
->  asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
->  __preempt_count_dec_and_test arch/x86/include/asm/preempt.h:123 [inline]
->  __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inline]
->  _raw_spin_unlock_irqrestore+0x1a/0x30 kernel/locking/spinlock.c:221
->  free_frozen_page_commit+0x223/0x3a0 mm/page_alloc.c:2909
->  free_unref_folios+0x8c0/0x980 mm/page_alloc.c:3099
->  folios_put_refs+0x2cd/0x320 mm/folio.c:1065
->  folios_put include/linux/mm.h:2429 [inline]
->  __folio_batch_release+0x8e/0xb0 mm/folio.c:1125
->  folio_batch_release include/linux/folio_batch.h:101 [inline]
->  truncate_inode_pages_range+0x287/0x780 mm/truncate.c:452
->  truncate_inode_pages mm/truncate.c:530 [inline]
->  truncate_inode_pages_final+0x68/0x80 mm/truncate.c:565
->  ext4_evict_inode+0x459/0xea0 fs/ext4/inode.c:273
->  evict+0x301/0x570 fs/inode.c:829
->  iput_final fs/inode.c:2036 [inline]
->  iput+0x44f/0x5d0 fs/inode.c:2085
->  dentry_unlink_inode+0x29a/0x2b0 fs/dcache.c:510
->  dentry_kill+0x135/0x4f0 fs/dcache.c:857
->  finish_dput+0x16/0x1d0 fs/dcache.c:1032
->  dput+0x43/0x50 fs/dcache.c:1073
->  __fput+0x45c/0x660 fs/file_table.c:520
->  ____fput+0x1c/0x30 fs/file_table.c:541
->  task_work_run+0x145/0x1a0 kernel/task_work.c:233
->  exit_task_work include/linux/task_work.h:40 [inline]
->  do_exit+0x4a7/0x1530 kernel/exit.c:980
->  do_group_exit+0xfe/0x140 kernel/exit.c:1123
->  get_signal+0xc49/0xd30 kernel/signal.c:3113
->  arch_do_signal_or_restart+0x96/0x480 arch/x86/kernel/signal.c:337
->  __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
->  exit_to_user_mode_loop+0x161/0x940 kernel/entry/common.c:101
->  __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
->  syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
->  syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
->  do_syscall_64+0x23b/0x3a0 arch/x86/entry/syscall_64.c:107
->  entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> 
-> Reported by Kernel Concurrency Sanitizer on:
-> CPU: 0 UID: 0 PID: 6734 Comm: syz.1.1114 Not tainted syzkaller #0 PREEMPT(lazy) 
-> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-> ==================================================================
-> 
-> 
-> ---
-> This report is generated by a bot. It may contain errors.
-> See https://goo.gl/tpsmEJ for more information about syzbot.
-> syzbot engineers can be reached at syzkaller@googlegroups.com.
-> 
-> syzbot will keep track of this issue. See:
-> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-> 
-> If the report is already addressed, let syzbot know by replying with:
-> #syz fix: exact-commit-title
-> 
-> If you want to overwrite report's subsystems, reply with:
-> #syz set subsystems: new-subsystem
-> (See the list of subsystem names on the web dashboard)
-> 
-> If the report is a duplicate of another one, reply with:
-> #syz dup: exact-subject-of-another-report
-> 
-> If you want to undo deduplication, reply with:
-> #syz undup
-> 
-> -- 
-> You received this message because you are subscribed to the Google Groups "syzkaller-bugs" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to syzkaller-bugs+unsubscribe@googlegroups.com.
-> To view this discussion visit https://groups.google.com/d/msgid/syzkaller-bugs/6b04828d.71deaa98.2984e6.000b.GAE%40google.com.
+Interlink input and the supervision frames also send to the ports
+while seqnr_lock is held, so I will put the check there as well, not
+only in hsr_dev_xmit().
+
+A tc redirect back to the HSR device is enough to hit this, so it can
+be triggered from user space. For that reason I plan to use a
+rate-limited message instead of WARN_ON_ONCE(), like __dev_queue_xmit()
+does for "Dead loop on virtual device". Please let me know if you see
+it differently.
+
+I also plan to keep the port type check from this patch.
+
+-- 
+Xin
