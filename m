@@ -1,113 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423838;
-	b=xwWVeioVDBBE6iT7XQQ+afU8un7a51p6CqW9obhmmEttiGx/+rHOyzyKZU/7reKOJK4q
-	 fmCnhgnFBumTIjmY1C1drqNhib0hThRLV0GhBJ6ZES5nAoDhM8XWIt6YCN2Xg7sMDwdVU
-	 743b+M3gs8OTgGdkJy5GIMMoJRRgYZgmXjHe2SAtHqRTi2L+VXteNjSp7ur2XAna0VbbA
-	 wz0rC9EPb0+TOAAUwbA6WJwR3/kPjLwr71xVJQjC5qBmlpFCLs41SEs0bRBXc/iBSJBQe
-	 gEjggOsKadCsDPdnxJ8q8hnDkHNugu/gVB+D3YOxkHi0IUqCknp8LG5Hf0h0WOZ/95g==
+	t=1795423873;
+	b=3gCnHJyKVzkc8maUXwIpinkOfYKJtMIZGf+ZSBgEc/w03vFZnpKVEq0Y9VgBd6ojefrt
+	 5ENTrS41sOe2+hM//IcfzTnAIsGBlyyTXlONvQCtknelt+BQthW4cLkQh9y8jXvEvFRpE
+	 WIryanRnemwkMmA3pCHf5696tG1DTqiHHg2xB/6UTYqTyUkhxrfGROsDpe7tjips9dJzB
+	 AnRZMYEGW7Twdozl3hv7KjbBbChLQhZLSjVK2/a8+35ZDlLaOdqwF1IGpEoXnigghbPJc
+	 SfofIMc6YqgwFR0ujRyz2S0sdUW7R4NvtusR9BtpDhP9mgWdRRekiTyW4oJmTjebTzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423838;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
-	b=TI+yo6cKcxuTHbCqygwe1ULiEBOS6ojXDfqiYUnE+hocV4xD+cw0UdxZUHoNrJPAs/Lj
-	 bkP2fqA4dO/E+NYOuarVwbmr8z1FPCQtX3+h0KQzyvaftpxzBWJsehqkkrMYoMw+B4NS5
-	 JLtap+OfDxUjMPkbaxKNefQIC/847H7ZjViEyKAH5CsRnB6xFQYZR6t6b0SCDZneKwPd6
-	 1ZbVudtiYCxDPNpWNO42NW1sM4MjAE5GOGoamQd/gJbM0XkscpK7i4Q0hUG6PASpfAhbG
-	 GGxtTUfuoI4IRKe0xEvMw5f21TKNQYmPuSnz2T3sp7pAWzGDD9mJHYxEJHfHkTfLPkg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423873;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=JlRfmLgWn7AmM+uxcSphSyDAprZQ5oJb7FKHCp6Njgg=;
+	b=MLT2B8qVu0i0xQne7DNLVLqIrSnRXFJgdjAq6Klbin2WpQYKVhiAg+YBhOEr9iygTcM9
+	 SxSO9WJoUzn96OXCOnY2eG+pQxuLwAbvvDVShxYjRCvKFo6uChxbxAfbbUX1FDFItC484
+	 4Yt33I97GScIvWY5lSUO8HD3+PMnioQZvTAHPuDVIDgA7XQ+eqxTodhfOBDfrrgv9QWcK
+	 SIPCiOOjk+tiuVIBd9Rt+6yLaODlJk/OlqEt/CEv1L5DlZgjmhlaO5JBVMobj3MrLBCSm
+	 9cWW/BkfnlTiCyPd9bl+hjaHAri9ZkBMtMzKw7UXvDL9UbFP9M9cpTeLvtgeOMioUkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="FeDdu/CP";
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EQAxJECC;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="KAgxtTa/";
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Q09KDOS8;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vD34N8NN;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55555606A31A;
-	Mon, 23 Nov 2026 08:50:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55555606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0F79606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:51:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0F79606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=FeDdu/CP;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EQAxJECC;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=KAgxtTa/;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Q09KDOS8
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id DF17D1F7E2;
-	Mon, 23 Nov 2026 08:50:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795423830; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
-	b=FeDdu/CPq7vOyW6qWgZM8/zsi1XBiSOQl4sf6fj6p0WfRHjoTSaHANbNW5+Cgzhf/GPkIX
-	Z5rZw18hM4WRbT4cBxa1ROBgrOKzIatsMm69lvaI8u5kK3LWKQ85y0jTKGgXw34M1o7HIl
-	d1JVQcVAFAg5g/5OA5GTLysDU0xSWpY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795423830;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
-	b=EQAxJECCaU7sEPTQB5brc02NkR3UjP39dYiZ6sKegG5DMy607TRZwhDG3H1QqHO+duI0e+
-	VrPZt/CbiWYhZMCQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="KAgxtTa/";
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=Q09KDOS8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795423829; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
-	b=KAgxtTa/z9YofspAYPeqm6zW4tse8POl8i8uNwmQ9sdyqhGGWP+gwYYwnzct/fgR667e/N
-	30eGfCRroPUn3/l8+wLPBFnc2MkSDaaijZ8EE+KRmUuXQAdaHwtfxd+wZ0zZveoMXr+lZz
-	YFrJ6A53FlkWetPsGNtYCSjPXBHRUpI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795423829;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P/CKK7Mms0zJAA5i4gpb92rqvvEnBlN6jA564M5z92E=;
-	b=Q09KDOS84c9GfH2HDr66k9U8tCIyytWJlD8B6UX6F4gYekzDZ5k6kDRbSlVBfzGy4H0Eau
-	bwWDFSu6Wi0uWuBQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B4E081352B;
-	Mon, 23 Nov 2026 08:50:29 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id UmZ5JVX+A2uOegAAD6G6ig
-	(envelope-from <jack@suse.cz>); Mon, 23 Nov 2026 08:50:29 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 221E8275F1; Mon, 23 Nov 2026 09:50:21 +0100 (CET)
-Date: Mon, 23 Nov 2026 09:50:21 +0100
-From: Jan Kara <jack@suse.cz>
-To: Dave Chinner <dgc@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>, 
-	Christian Brauner <brauner@kernel.org>, Qing Zhang <diasyzhangqing@gmail.com>, viro@zeniv.linux.org.uk, 
-	jack@suse.cz, raven@themaw.net, djwong@kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] namei: revalidate the symlink dentry before invoking
- get_link in RCU-walk
-Message-ID: <d2w6jvflihqiyfbht3qv3mgjg3muuuvmhnss5j5dp4zh6axhn2@nsegavvnkpie>
-References: <20261118083945.1449264-1-diasyzhang@tencent.com>
- <20261120-desillusionieren-holzhammer-mieten-8ec8551ef2b0@brauner>
- <awB0RE6WN_v4YBbn@infradead.org>
- <awNlrO5A-kdDOYvO@dread>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vD34N8NN
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0BD8B1A179E;
+	Mon, 23 Nov 2026 08:51:11 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D598C5FAEB;
+	Mon, 23 Nov 2026 08:51:10 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7AD4A11E687B3;
+	Mon, 23 Nov 2026 09:51:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795423870; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=JlRfmLgWn7AmM+uxcSphSyDAprZQ5oJb7FKHCp6Njgg=;
+	b=vD34N8NNZOvQpxMi7rPbvVXa+z43STW/QmGGtdHUr4CPfE3JPiJueHz5FWIQAG/QdPcOe0
+	N33RVCdLH/HHZXcbei3gvVjJUynxb+AsH2w2eL0xz2qMTfdVxQ5E1cGifmOI7M0zyBRUxA
+	w7ilhZuL7XfGGI7O5NpKKB8GW4h4HZ9c82ubO6++68vZInhJv/OQ+NsL6yLH3DY8v8zm7g
+	P8p2qjyrh1DjToB3iktc+NnFSewx8fqCisQ3TCRj0tX7TjuLkKOC0voyvODAXE+N4+3QhT
+	aClcpgEnrjzkuZpQZNvQ1P8Et1Y628VqL+gjCc+sdH4IEeYIUsE/pL3Eb1K9kQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: linux-iio@vger.kernel.org,  David Lechner <dlechner@baylibre.com>,  Nuno
+ =?utf-8?Q?S=C3=A1?= <nuno.sa@analog.com>,  Andy Shevchenko
+ <andy@kernel.org>,
+  linux-kernel@vger.kernel.org,  Jonathan Cameron
+ <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH] iio: adc: max1027: complete the EOC wait when using an
+ external trigger
+In-Reply-To: <20261122195249.13ee9686@jic23-hlaptop> (Jonathan Cameron's
+	message of "Sun, 22 Nov 2026 19:52:49 +0000")
+References: <20261115204551.2783884-1-jic23@kernel.org>
+	<874idfn30h.fsf@bootlin.com> <20261122195249.13ee9686@jic23-hlaptop>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 23 Nov 2026 09:51:07 +0100
+Message-ID: <87mrr0ue10.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,137 +76,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awNlrO5A-kdDOYvO@dread>
-X-Rspamd-Queue-Id: DF17D1F7E2
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-13.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_COUNT_THREE(0.00)[3];
-	MIME_TRACE(0.00)[0:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	TO_DN_SOME(0.00)[];
-	ARC_NA(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_CC(0.00)[infradead.org,kernel.org,gmail.com,zeniv.linux.org.uk,suse.cz,themaw.net,vger.kernel.org];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -13.01
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon 23-11-26 08:59:08, Dave Chinner wrote:
-> On Fri, Nov 20, 2026 at 08:24:36AM -0800, Christoph Hellwig wrote:
-> > On Fri, Nov 20, 2026 at 02:59:42PM +0100, Christian Brauner wrote:
-> > > This only makes the window smaller.
-> > > 
-> > > XFS can still reinitialize the inode right after this check and while
-> > > get() is running. Then ->get_link() operates on an inode that is being
-> > > reset underneath it. And the !get check only catches the case where the
-> > > that re-init already finished before we loaded ->get_link.
-> > > 
-> > > RCU pathwalk relies on inode memory not being reused before a grace
-> > > period has passed. XFS itself frees inodes via call_rcu() but the
-> > > recycle path hands the same struct inode out again without waiting for
-> > > existing RCU walkers.
-> > > 
-> > > So that should be fixed in XFS, either by not recycling an inode in
-> > > place while RCU walkers can still see it or by keeping i_op and the link
-> > > state valid across a recycle.
-> > 
-> > Not recycling the inode really isn't an option, as that means there
-> > would cause duplicate inodes in the xfs inode cache.  Keeping i_op and
-> > state in place sounds a bit more feasibly, but could be iffy as well.
-> > 
-> > The best thing would be to find a way to keep the inode alive at the VFS
-> > level when XFS marks it reclaimable.  That would be a huge an invasive
-> > change, but it would solve this and many other problems as well.
-> 
-> I don't think that's feasible without a massive rework of the VFS
-> inode life cycle management and/or the way XFS tracks inode metadata
-> dirtiness for writeback purposes.
-> 
-> Background:
-> 
-> The xfs_iget_recycle() code exists because dirty XFS_IRECLAIMABLE
-> inodes are tied into the journal machinery and need writeback before
-> they can be reclaimed. This is all invisible to the VFS, and it is
-> done via lockless lookups and atomic state checks without the need
-> for reference counts within XFS itself.
-> 
-> The issue is that reclaiming such an inode generally requires a log
-> force to stabilise it in the journal before it can be written back,
-> and the act of writing it back requires access to the inode state.
-> Hence the journal requires the XFS inode to live in XFS_IRECLAIMABLE
-> state until metadata writeback is complete, regardless of any other
-> inode state changes.
-> 
-> xfs_ireclaim() can expedite the writeback portion of reclaim (by
-> running an inode flush) but it does not expedite the required
-> journal flush if the inode is still dirty in memory. On lookup
-> of an XFS_IRECLAIMABLE inode in RCU mode, we cannot directly reclaim
-> a dirty XFS_IRECLAIMABLE inode because it requires blocking on both
-> a log force and metadata writeback. That's why the inode is sitting
-> in the XFS_IRECLAIMABLE limbo in the first place...
-> 
-> That's where the xfs_iget_recycle() code stepped in - it
-> reinitialises the VFS portion of the inode without affecting the
-> internal journal state of the inode. This allows new modifications to
-> be added to the inode and the attached log item without any
-> discontinuities in journal state.
-> 
-> The reason it does a full initialisation of the VFS inode is that
-> the inode can change identity whilst in XFS_IRECLAIMABLE. i.e. it
-> could be unlinked and then reallocated as a different inode (same
-> number, different generation), and so the type can change (e.g. REG
-> -> DIR) and hence a full VFS init is required to recycle it.
-> 
-> And the reason that we've always done this recycle is for
-> performance reasons - the inode allocation algorithms can prefer to
-> allocate recently freed inodes (for locality reasons), and hence
-> recently unlinked inodes in the IRECLAIMABLE state can be
-> reallocated and need recycling because the final unlink state hasn't
-> reached stable media before they are recycled.
-> 
-> Doing things like forcing logs, instant reclaim, RCU
-> synchronisation, etc have all had significant performance impacts
-> due to the additional latency these operations add to common
-> workload patterns. Hence the rarity of this recycle issue hasn't
-> outweighed the cost of the "simple" fixes to everyday operation.
+On 22/11/2026 at 19:52:49 GMT, Jonathan Cameron <jic23@kernel.org> wrote:
 
-I'd just mention one possible solution which you didn't mention below (I
-don't know how complex it would get for XFS but we effectively do this in
-ext4) - make the VFS part of the inode and the journalled portion of the
-inode separate entities in memory (independently allocated & freed). Then
-you can free the VFS portion of the inode while still keeping the
-journalled portion allocated. If the inode location on disk gets
-reallocated, you allocate fresh VFS part and recycle the journalled part.
-In ext4 we have this natural separation between the buffer carrying the
-inode structure on disk which is part of the journalling process and the
-inode itself so this separation is easy there. For XFS I presume this is
-complex or you wouldn't bother with all the separate inode lifetime logic
-but I just wanted to toss this idea out.
+> On Tue, 17 Nov 2026 11:52:46 +0100
+> Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+>
+>> Hi Jonathan,
+>>=20
+>> On 15/11/2026 at 20:45:51 GMT, Jonathan Cameron <jic23@kernel.org> wrote:
+>>=20
+>> > From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+>> >
+>> > When an external trigger is in use, max1027_trigger_handler() starts t=
+he
+>> > conversion and then waits in max1027_wait_eoc() for the end of convers=
+ion
+>> > interrupt to complete(&st->complete). However max1027_handler() only
+>> > completes it when the buffer is disabled. With the buffer enabled it
+>> > instead polls the current trigger, which is the external trigger
+>> > that is still being handled, so the poll does nothing,
+>> > the wait times out and every sample fails with -ETIMEDOUT.
+>> >
+>> > Complete the wait when the buffer is enabled but the device's own
+>> > trigger is not in use, as the comment above the check already
+>> > describes.
+>> >
+>> > Fixes: 075d3280b4a1 ("iio: adc: max1027: Allow all kind of triggers to=
+ be used")
+>> > Signed-off-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+>> >
+>> > ---
+>> >
+>> > The comment clearly states that we should just complete for
+>> > triggers other than the one provided by this device, but the
+>> > code doesn't do this. Ideal would be if someone has the part and
+>> > can test this.=20=20
+>>=20
+>> I no longer have an easy way to run that code, but looking at it 5 years
+>> later, I agree with your description of the problem as well as your
+>> solution.
+>>=20
+>> > LLM spotted the issue whilst doing some other cleanup and
+>> > prepared the patch.
+>> >
+>> > I think the reason this got past testing was that the code was
+>> > fixed to actually return an error on timeout whereas a bug
+>> > previously meant it always dropped through and carried on.=20=20
+>>=20
+>> Ah, right, intersting, I guess you talk about
+>> 2021ef060900 ("iio: adc: max1027: fix error code in max1027_wait_eoc()")
+>>=20
+>> > ---
+>> >  drivers/iio/adc/max1027.c | 2 +-
+>> >  1 file changed, 1 insertion(+), 1 deletion(-)
+>> >
+>> > diff --git a/drivers/iio/adc/max1027.c b/drivers/iio/adc/max1027.c
+>> > index d475cc91108d..65a0e85faca9 100644
+>> > --- a/drivers/iio/adc/max1027.c
+>> > +++ b/drivers/iio/adc/max1027.c
+>> > @@ -478,7 +478,7 @@ static irqreturn_t max1027_handler(int irq, void *=
+private)
+>> >  	 * with another device. The core will then call the relevant handler=
+ to
+>> >  	 * perform the data processing step.
+>> >  	 */
+>> > -	if (!iio_buffer_enabled(indio_dev))
+>> > +	if (!iio_buffer_enabled(indio_dev) || !iio_trigger_using_own(indio_d=
+ev))
+>> >  		complete(&st->complete);
+>> >  	else
+>> >  		iio_trigger_poll(st->trig);=20=20
+>>=20
+>> In case you want to make it closer to what other drivers do, you may
+>> invert the condition to simplify the reading:
+>>=20
+>> 	if (iio_buffer_enabled(indio_dev) && iio_trigger_using_own(indio_dev))
+>>   		iio_trigger_poll(st->trig);
+>>   	else
+>>   		complete(&st->complete);
+> That is indeed more natural so done what you suggest and applied.
+> We are fairly late in the cycle so I'm not going to rush this in.
+>
+> Applied to the testing branch of iio.git, so targeting next merge
+> window.
 
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+At -rc4? There is still a month before the merge window, for such a
+small change located in a driver, I would not bother delaying it :-)
+
+Cheers,
+Miqu=C3=A8l
