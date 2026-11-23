@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445905;
-	b=T5UCvwfxbpICmun39M1IGem+/bMI/cpauB1xypV8v8RbyCN6Qr6AgsyNXpmp8YV5+wWG
-	 1WoSWJaF4v14rnPE34mwYHl7MrU1wg5S26eksZqjpQKR850gJ6mxtsFkFlPQz9a+4sXSP
-	 /U3r5T+93SHqnEv+LM9PxDbiF8LgZ3ot3EnvQtDp5LRxz24tsBnv56yrOV/UnN1sfk71q
-	 oqs+MxHth5/kiSQxZQNfgiwrPudoDfTU9vrErqlIbHnhFnNkEei003v6xWZnyKhH5fF6V
-	 OWCua4T0Cq6nWtTUVJeMi8694oWUtyZ+CQxDFDlwj5ShBVCRxEfU+fkU/M5AhPuGQFA==
+	t=1795445901;
+	b=1M/25s49FYdqVmpl9AI1Oro6oPLfu+YN/N9FmrbxvBfEMELmueXsnLPoU9dq7IoEv+MF
+	 RNXNzGYcDAZGEIe9JrDWp7AvvaRicQ1hGLwsR+YUhoVsTqP9+d1CiTqhxEMZAZkF04752
+	 c8ZG8mFStzVHnQH6hcAcbVz10581EGhpwpb7UwF2TeJdGBu96tQ8+/duQW0tAZ9FfnlHy
+	 s7NZIVOl0QPcBG5/5AM0LmKV2zgAuOFNDQN+QjRmPm34bTxCcM+y5qL7uzfZsv5d3+zwJ
+	 /YbPA3+twJW2SzYeooyOQdBj4t3z+OYtgLfnN6Ti+qBiZvtqN8o7l0Wz/8Gtczz/lMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445905;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445901;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=3sWubO4mm5soLCzqAXtMkw3CUF6YMqZxe+8i+1UeS6U=;
-	b=aMWSNCxUN6VCq0KZ80YeviigoXUwrz6uFb8hObyXhqJTuPDfUb4X66H3EbX8Vryhtilb
-	 yoDKN/0lWeMHIr+jDpZHBUVakgLlf27SCK8VJ9lfvhlRInLbrjCDWQsFaTiTGFkSgBIt/
-	 EF+YItaF12yA6aXdbhdS5inaxUr7i4FjbQEWmTWYsYujiqxu7/RgpHu/KACpISz9YtF5x
-	 oGEVQWDnJ+7FVJ7FZhDV49okv/rD93nwYCDeiHCjME7Xs2by0j/qa/AfEcgZkuNC2ImhW
-	 poP7Fc7WMpOLdBEFtx1DVGyt0UXPMoYC0uniH9XvIINWOMSxLXlXJ7mhV1nxjYD2rFA==
+	bh=os7fOfDtBzM5fGsJLR1+t01eUnVG/fiCJOyHPbpqHtA=;
+	b=r5dkZLs3g10L6SYpp3D0WFOyUEmoSBej8rE2lVV7fOEEu+7v9EJFTpRIdp9Ocb4JCcq/
+	 szK28Wyj7mYDK7DdeKc/U3Gx0q2jWw1Q7Ufm8S0U73JY8epHEPm9jCeY4hhmSOlz0qIUV
+	 cV4ruQEsVoGHmMasjbjPjyuNjA+P675XOx1dbGMSOa5VKcomspLtCWqpCiLwgCDwbhoQB
+	 rHhLcJf9dHVK7uygzFdHHR5xGfpKFSmyv18KU4oMmqrUpIqAZ432cIDF5qWrV//0r7jao
+	 WhtGgaaaUC/rw+xs74Ie3aVTrdzN8mEHmsIh9W7g8OMwYdhjgEc0x7p5ag1m3XCIi7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cjksiiov;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I1IgZrU4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1645E606A6B4;
-	Mon, 23 Nov 2026 14:58:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A32606A33D;
+	Mon, 23 Nov 2026 14:58:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cjksiiov
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF00E1F000ED;
-	Mon, 23 Nov 2026 14:58:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I1IgZrU4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0F3A1F0093C;
+	Mon, 23 Nov 2026 14:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795445904;
-	bh=3sWubO4mm5soLCzqAXtMkw3CUF6YMqZxe+8i+1UeS6U=;
+	s=k20260515; t=1795445900;
+	bh=os7fOfDtBzM5fGsJLR1+t01eUnVG/fiCJOyHPbpqHtA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CjksiiovS2BVTy4PbL/GBR/sUWVxL6KmKN31AgUVZElAmOvr5fIpfN04ieDalEbFO
-	 DPqt9/RM4/vHZ19Ej5kXZKT4k2oxLOkCVud+BncW2gLhl4ApjYJlof1OyYEOrilrwW
-	 br9pOTpJzI7zlCmCP4ydkLLUlrr/BxHuojBpMW72/FasQrxAvEVqinuo6h+kXeJ/g9
-	 u09QagxnYWZv8gHGE5+I2V9AFe5R30v22vc6g5rxPYh5g4TNvX58IP7vQOpKrVqKpr
-	 tfxNv87ZmZS3hzr8ZRCb0Wy2X6wZVhH2L+TZWBSUEqjv2Zyse7GIRn0K9L9wzw6Gg2
-	 LMP4yd+hKWc3A==
-Subject: Re: [PATCH net-next v3 9/9] net: sparx5/lan969x: add support for
- changing the MTU
+	b=I1IgZrU4sHU6197FiWiR9wAOGTGkqGbGOkkKlT4A6/zM+YQKtl20VeNQWcBUnwts5
+	 9L2gGgMlXq+pO0NPy3p4/YZ/zZHqGRNn9TEZDM9+Z2cKQdjM/hh0aoK21vz6gRxOjY
+	 yKo8hdw0HZ4zS09xyfVUZ3trjRM+dtYD8TfPM3ZU+PrX0/R2XGPTmBkJASy6zZAg1B
+	 pOt17DwFnrw10CSuwy8qaesl8dg4sLC6FuNxWuE2NdAdkm0H4IuiMsoQZSlXuSZnqv
+	 qAo/cm4Yd64/HgTwP+2tS0onlHps1ync7FBvOLX+1WgHTwIF9KwX59ulkDZw5K2yuc
+	 Ra989EHZ0io4w==
+Subject: Re: [PATCH net-next v3 7/9] net: sparx5/lan969x: scale the queue
+ watermarks with the MTU
 From: netdev-bot+sashiko@kernel.org
 To: daniel.machon@microchip.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
@@ -51,10 +51,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  linux-kernel@vger.kernel.org, robert.marko@sartura.hr,
  horatiu.vultur@microchip.com, jensemil.schulzostergaard@microchip.com,
  horms@kernel.org
-Date: Mon, 23 Nov 2026 14:58:23 +0000
-Message-ID: <179544590356.3135.2254557164224979869@kernel.org>
-In-Reply-To: <20261120-sparx5-mtu-change-v3-9-55c272fe1acc@microchip.com>
-References: <20261120-sparx5-mtu-change-v3-9-55c272fe1acc@microchip.com>
+Date: Mon, 23 Nov 2026 14:58:19 +0000
+Message-ID: <179544589953.3135.16152141389643791611@kernel.org>
+In-Reply-To: <20261120-sparx5-mtu-change-v3-7-55c272fe1acc@microchip.com>
+References: <20261120-sparx5-mtu-change-v3-7-55c272fe1acc@microchip.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -68,10 +68,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 (2) · Medium: 1 · Low: 3
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -79,301 +79,110 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] This patch raises max_mtu to 13982 in FDMA mode and adds the
-  first caller of ops->fdma_resize (sparx5_port_change_mtu, process…
-- [Low] The commit message says "The MTU of a port is currently fixed to
-  1500".
-- [Low] SPX5_MAX_FRAME_LEN (sparx5_main.h) is defined as 14000 with the
-  comment "Max frame length of the MACs", and the commit message says…
-- [Low] net: sparx5: sparx5_port_change_mtu() fails MTU increase on
-  failed buffer shrink
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but this patch
-  silently closes it without saying so.
-- [High] This problem wasn't introduced by this patch, but it is a crash.
+- [Medium] At this commit (and at the next one, "scale the TAS guard band
+  with the MTU"), sparx5_port_wm_set() in…
+- [Low] This commit adds sparx5_port_wm_update() (sparx5_port.c:717) as a
+  non-static function with a prototype in sparx5_port.h:94, but nothing…
 
 --
 
-net: sparx5/lan969x: add support for changing the MTU
+net: sparx5/lan969x: scale the queue watermarks with the MTU
 
-This adds an ndo_change_mtu callback for sparx5 and lan969x ports. The
-callback programs the MAC maximum frame length, resizes the shared FDMA
-buffers, and updates the queue watermarks and the TAS guard band. MTU
-changes are only allowed when the FDMA is used, in which case max_mtu is
-raised to 14000 - ETH_HLEN - ETH_FCS_LEN and the top RMON histogram bucket
-is extended.
+The commit now computes the QSYS PAUSE_START, PAUSE_STOP and ATOP
+watermarks from the port MTU, plus the Ethernet header, FCS and two VLAN
+tags, rounded up to whole buffer cells. Before, they were fixed multiples
+of a 1518 byte frame. The watermarks are programmed at port init and when
+pause is resolved. The commit also adds sparx5_port_wm_update() for MTU
+changes and a per-port wm_lock.
 
-> The MTU of a port is currently fixed to 1500, as the MAC maximum frame
-> length, the FDMA buffers, the queue watermarks and the TAS guard band
-> are all sized for a 1518 byte frame.
-
-[Severity: Low]
-Is this description accurate? The ports come from devm_alloc_etherdev_mqs()
--> ether_setup(), so min_mtu is ETH_MIN_MTU (68) and max_mtu is
-ETH_DATA_LEN (1500).
-
-Before this patch there was no ndo_change_mtu, so __netif_set_mtu() just
-did WRITE_ONCE(dev->mtu, new_mtu). Userspace could already lower the MTU.
-
-After this patch, sparx5_port_change_mtu() in sparx5_netdev.c returns
--EOPNOTSUPP for every MTU change when sparx5->fdma_irq <= 0. That includes
-decreases that used to succeed, for example on Sparx5 revision 0, where
-sparx5_frame_io_init() does not use the FDMA.
-
-In FDMA mode, a decrease now also lowers MAC_MAXLEN_CFG. The port then
-drops hardware forwarded frames larger than the new MTU + 18 that it used
-to accept.
-
-Rejecting the change in register mode looks correct, since lowering the
-MTU there was memory unsafe (see below). Could the commit message describe
-the previous behaviour, and mention that lowering the MTU in register mode
-now fails?
-
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
-> index 2c6a5d3bc2bc6..af1fd32c6cef7 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
-> @@ -809,7 +809,7 @@ static const struct ethtool_rmon_hist_range sparx5_rmon_ranges[] = {
->  	{  256,   511 },
->  	{  512,  1023 },
->  	{ 1024,  1518 },
-> -	{ 1519, 10239 },
-> +	{ 1519, SPX5_MAX_FRAME_LEN + 2 * VLAN_HLEN },
->  	{}
->  };
->  
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-> index 64ace5c3af5ab..a94c025ba3c0d 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-> @@ -111,6 +111,7 @@ enum sparx5_feature {
->  #define SPX5_BUFFER_MEMORY     4194280 /* 22795 words * 184 bytes */
->  #define SPX5_TAS_ENTRIES_PER_PORT 2 /* TAS lists per port */
->  #define SPX5_HW_MTU(mtu)       ((mtu) + ETH_HLEN + ETH_FCS_LEN)
-> +#define SPX5_MAX_FRAME_LEN     14000 /* Max frame length of the MACs */
-
-[Severity: Low]
-Does 14000 include VLAN tags or not? The comment calls it the max frame
-length of the MACs, and the commit message says the MACs "support frames
-of up to 14000 bytes".
-
-In sparx5_register_netdevs(), max_mtu becomes 14000 - ETH_HLEN -
-ETH_FCS_LEN = 13982, so sparx5_port_change_mtu() programs MAC_MAXLEN_CFG to
-14000.
-
-sparx5_port_max_tags_set() enables VLAN_LEN_AWR_ENA, which lets a tagged
-frame exceed MAXLEN by 4 bytes per tag. The new RMON bucket above also
-advertises { 1519, SPX5_MAX_FRAME_LEN + 2 * VLAN_HLEN }, which is 14008.
-
-If 14000 is a hard hardware limit, should max_mtu also subtract
-2 * VLAN_HLEN, and should the RMON range stop at 14000? If it is not,
-should the comment and the commit message be updated?
-
->  
->  #define XTR_QUEUE     0
->  #define INJ_QUEUE     0
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> index b3725cf2dd44c..095925752f5f6 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-> @@ -250,6 +250,44 @@ static int sparx5_port_hwtstamp_set(struct net_device *dev,
->  	return sparx5_ptp_hwtstamp_set(sparx5_port, cfg, extack);
->  }
->  
-> +static int sparx5_port_change_mtu(struct net_device *dev, int new_mtu)
-> +{
-> +	struct sparx5_port *port = netdev_priv(dev);
-> +	struct sparx5 *sparx5 = port->sparx5;
-> +	bool resize = new_mtu > dev->mtu;
-> +	int err;
-> +
-> +	/* Register based extraction sizes its skbs from the MTU at the time
-> +	 * a frame is read, so it cannot handle frames queued before an MTU
-> +	 * decrease.
-> +	 */
-> +	if (sparx5->fdma_irq <= 0)
-> +		return -EOPNOTSUPP;
-
-[Severity: Low]
-Can resize be true here while fdma_resize() is actually shrinking the
-buffers?
-
-resize only compares new_mtu against this port's own dev->mtu. The FDMA
-buffers, however, are shared and sized for the largest MTU of all
-ports. A failed shrink is allowed to leave them larger than needed.
-
-Consider a port lowered from 9000 to 1500 where the smaller ring cannot
-be allocated. The code warns, keeps the larger buffers and commits
-dev->mtu = 1500.
-
-If the port is later raised to an intermediate value such as 4000,
-resize is true. But sparx5_fdma_resize() only skips the reallocation
-when db_size == rx->fdma.db_size, and lan969x_fdma_resize() only when
-page_order == rx->page_order. Both will therefore try to shrink again.
-
-If that allocation also fails, sparx5_port_change_mtu() returns the
-error and the MTU stays at 1500. The currently allocated buffers
-already fit 4000, though.
-
-That contradicts the commit message, which says a failed shrink keeps
-the new MTU because the current buffers still fit all frames. No
-memory safety problem results, since the MAC max length is not touched
-on this path. It does make the increase fail for no real reason.
-
-Should the failure only be treated as fatal when the required buffer
-size actually grows? For example, fdma_resize() could tell the caller
-whether it was growing or shrinking. Alternatively, an increase could
-skip the reallocation when the current buffers are already large
-enough.
-
-[Severity: High]
-This isn't a bug introduced by this patch, but this check also closes a
-heap overflow in register based extraction. The commit message presents it
-only as a limitation.
-
-sparx5_xtr_grp() sizes the skb from the current MTU, then copies words
-until EOF with no bounds check:
-
-drivers/net/ethernet/microchip/sparx5/sparx5_packet.c:sparx5_xtr_grp() {
-    ...
-	skb = netdev_alloc_skb(netdev, netdev->mtu + ETH_HLEN);
-    ...
-	rxbuf = (u32 *)skb->data;
-
-	/* Now, pull frame data */
-	while (!eof_flag) {
-    ...
-		default:
-			*rxbuf = val;
-			byte_cnt += 4;
-			rxbuf++;
-		}
-    ...
-}
-
-Before this patch, MAC_MAXLEN_CFG stayed at ETH_MAXLEN (1518) from
-sparx5_port_init(), while the core allowed dev->mtu down to 68.
-
-After "ip link set ethX mtu 68" on a register mode system, a normal
-1518 byte frame from the wire would be written about 1.4 KB past the skb
-tailroom. That lands in skb_shared_info and adjacent heap memory, and
-skb_put() only checks the length after the copy.
-
-This has been reachable since commit f3cad2611a77 ("net: sparx5: add
-hostmode with phylink support"). Could it be fixed in a separate patch with
-a Fixes: tag, so stable kernels get the fix too?
-
-Bounding the copy loop in sparx5_xtr_grp() against the skb tailroom would
-also mean its safety no longer depends on the MTU being frozen in
-register mode.
-
-> +
-> +	/* Never let the MAC accept frames larger than the RX buffers */
-> +	if (!resize)
-> +		sparx5_port_max_len_set(sparx5, port, SPX5_HW_MTU(new_mtu));
-> +
-> +	err = sparx5->data->ops->fdma_resize(sparx5, port, new_mtu);
-
-[Severity: Medium]
-With max_mtu now at 13982, this can reach sparx5_fdma_resize() on Sparx5
-with db_size = ALIGN(SPX5_HW_MTU(13982) + IFH_LEN * 4 + 2 * VLAN_HLEN, 128),
-which is 14080. Is GFP_ATOMIC the right flag for the RX ring allocation on
-this path?
-
-sparx5_port_change_mtu()
-  sparx5_fdma_resize()
-    sparx5_fdma_rx_alloc(rx_new)
-      fdma_dcbs_init()
-        sparx5_fdma_rx_dataptr_cb()   /* 64 DCBs * 15 DBs = 960 calls */
-          __netdev_alloc_skb(rx->ndev, fdma->db_size, GFP_ATOMIC)
-
-This runs in process context under RTNL and is allowed to sleep. Even so,
-it makes about 960 order-2 allocations (roughly 15 MB) with __GFP_HIGH,
-while the old ring is still allocated.
-
-Can that drain the reserves needed by real atomic users, such as the NAPI
-RX refill?
-
-The TX side then does:
-
-sparx5_fdma_tx_alloc(&tx_new)
-  fdma_alloc_phys()
-    kzalloc(fdma->size, GFP_KERNEL)
-
-At the max MTU, fdma->size is around 904 KB. That is an order-8 physically
-contiguous allocation without __GFP_NOWARN.
-
-On a fragmented system, can jumbo MTU changes fail unpredictably, with an
-allocation failure splat? The failure is handled and the MTU is left
-unchanged.
-
-Would it help to pass a gfp argument down to the RX dataptr callback, so
-this path can use GFP_KERNEL?
-
-> +	if (err) {
-> +		if (resize)
-> +			return err;
-> +
-> +		/* The current, larger, buffers still fit all frames */
-> +		netdev_warn(dev, "Failed to resize FDMA buffers: %d\n", err);
-> +	}
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
+> index 701d310df0ba6..87aa0b7841359 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
 
 [ ... ]
 
-> @@ -306,7 +345,14 @@ int sparx5_register_netdevs(struct sparx5 *sparx5)
->  
->  	for (portno = 0; portno < sparx5->data->consts->n_ports; portno++)
->  		if (sparx5->ports[portno]) {
-> -			err = register_netdev(sparx5->ports[portno]->ndev);
-> +			struct net_device *ndev = sparx5->ports[portno]->ndev;
+> @@ -676,24 +679,53 @@ int sparx5_port_fwd_urg(struct sparx5 *sparx5, u32 speed)
+
+[ ... ]
+
+> +/* Pause start/stop and tail drop at 6/4/20 frames of the port MTU */
+> +static void sparx5_port_wm_set(struct sparx5 *sparx5, struct sparx5_port *port,
+> +			       u8 pause)
+> +{
+> +	u32 len = SPX5_HW_MTU(READ_ONCE(port->ndev->mtu)) + 2 * VLAN_HLEN;
+> +	u32 cells = DIV_ROUND_UP(len, SPX5_BUFFER_CELL_SZ);
+
+[Severity: Medium]
+At this commit, can port->ndev->mtu drift away from the MAC max frame
+length?
+
+sparx5_port_init() still programs a fixed max length:
+
+	sparx5_port_max_len_set(sparx5, port, ETH_MAXLEN);
+
+sparx5_port_netdev_ops has no .ndo_change_mtu. With the ether_setup()
+defaults (min_mtu 68, max_mtu 1500), the core writes dev->mtu directly
+and no hardware gets reconfigured.
+
+Suppose the MTU is lowered to 68 with ip link. The next link-up then runs:
+
+  sparx5_port_config()->sparx5_port_fc_setup()->sparx5_port_wm_set()
+
+That gives len = 94 and cells = 1. PAUSE_START becomes 6 cells,
+PAUSE_STOP 4 cells and ATOP 20 cells.
+
+The MAC still accepts 1518-byte frames, which take 9 cells each. With TX
+pause enabled, wouldn't one full-size frame go past PAUSE_START, so that
+a pause frame is sent for every received frame? ATOP would also drop to
+about two full-size frames, which means heavy tail drop. That is the
+problem the commit message describes, only triggered by a smaller MTU
+instead of a larger one.
+
+The problem is also present at the next patch, "scale the TAS guard band
+with the MTU". The final patch of the series, "net: sparx5/lan969x: add
+support for changing the MTU", fixes it. It adds
+sparx5_port_change_mtu(), which returns -EOPNOTSUPP when FDMA is not in
+use. Otherwise it calls sparx5_port_max_len_set() with
+SPX5_HW_MTU(new_mtu) and then sparx5_port_wm_update(). So this only
+affects the intermediate bisection points.
+
+Could the series be ordered so that the watermarks and the MAC max length
+stay in sync at every commit?
+
+> +	u32 pause_stop = 0xFFF - 1; /* FC gen disabled */
 > +
-> +			/* The MTU can only be changed when FDMA is used */
-> +			if (sparx5->fdma_irq > 0)
-> +				ndev->max_mtu = SPX5_MAX_FRAME_LEN - ETH_HLEN -
-> +						ETH_FCS_LEN;
+
+[ ... ]
+
+> +}
 > +
-> +			err = register_netdev(ndev);
->  			if (err) {
->  				dev_err(sparx5->dev,
->  					"port: %02u: netdev registration failed\n",
+> +void sparx5_port_wm_update(struct sparx5 *sparx5, struct sparx5_port *port)
+> +{
+> +	mutex_lock(&port->wm_lock);
+> +	sparx5_port_wm_set(sparx5, port, port->wm_pause);
+> +	mutex_unlock(&port->wm_lock);
+> +}
 
-[Severity: High]
-This is a pre-existing issue, but if register_netdev() fails after
-earlier ports were registered, this returns without unregistering them.
-mchp_sparx5_probe() then skips sparx5_unregister_netdevs():
+[Severity: Low]
+This isn't a bug, but sparx5_port_wm_update() is non-static and has a
+prototype in sparx5_port.h, yet nothing calls it at this commit.
+sparx5_port_netdev_ops has no .ndo_change_mtu yet, so the MTU-change part
+of this patch is not connected to anything.
 
-drivers/net/ethernet/microchip/sparx5/sparx5_main.c:mchp_sparx5_probe() {
-    ...
-	err = sparx5_register_netdevs(sparx5);
-	if (err) {
-		dev_err(sparx5->dev, "Failed to register net devices\n");
-		goto cleanup_ptp;
-	}
-    ...
-cleanup_netdevs:
-	sparx5_unregister_netdevs(sparx5);
-cleanup_ptp:
-	sparx5_ptp_deinit(sparx5);
-cleanup_frame_io:
-	sparx5_frame_io_deinit(sparx5);
-    ...
-}
+This comment in sparx5_port_disable() also refers to an MTU-change path
+that does not exist yet:
 
-sparx5_frame_io_deinit() frees the FDMA buffers while those ports are still
-registered. When devres later releases the netdevs, devm_free_netdev() ->
-free_netdev() hits BUG_ON(dev->reg_state != NETREG_UNREGISTERED).
+	/* 5: Disable Flowcontrol, and keep an MTU change from re-enabling it */
 
-This patch also adds ndo_change_mtu to those registered ports. During that
-window, sparx5_fdma_resize() can run under RTNL while the error path runs
-sparx5_frame_io_deinit() without RTNL.
+The first caller is sparx5_port_change_mtu(), added by the final patch of
+the series, "net: sparx5/lan969x: add support for changing the MTU". It
+calls sparx5_port_wm_update() after WRITE_ONCE(dev->mtu, new_mtu), so the
+READ_ONCE() in sparx5_port_wm_set() picks up the new MTU.
 
-Could both end up freeing and swapping the sparx5->rx/tx buffers at the
-same time? Once deinit sets fdma_irq to -ENXIO, the new callback returns
--EOPNOTSUPP, so the race is limited to that window.
+Could the helper be added in the same patch as its caller?
 
-Should sparx5_register_netdevs() unregister the ports it has already
-registered before returning the error?
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
