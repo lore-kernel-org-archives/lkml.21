@@ -1,70 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433937;
-	b=cW2FmQZvdNPZlDZHRLbw8WybUcJQSUiJ1kz5Oc6PuxNPLjfxcT7YT/9KU1yn9KT0ysqL
-	 Ng7jc+PxLm8/0o/c3o/5J5boHKnPX9neWUNPy8BQycgoaIgGExefZ3ixlzLyk6n6L1max
-	 cOpM/2PVSzJPI1n0JSdj5QOaez0eYO3QrIW1O/3hCgr6Kea7WfTyJXuQiQ48kU9xqx+RF
-	 SKtTl6t0EAYF07on17VltYkl29jnxXkyCDDdj2lJRHv/Br/eNy/hckkugF0ZZGLwsrQQS
-	 rCAtrpqWWDMXXEQfDMINB6pIwpLN/z+cMAdk0fK5as25GUnGJE6OQkGHGAPJk+x2m8A==
+	t=1795433999;
+	b=HiIYYDF36mm0niYkooSPuxj4PIo23cSV7QMp1IjMFm2XvRfhogNzOvyhu4nYs+42Bson
+	 P56tddC52Dt/KwW7Iby5CT15s0ucz6paxl76aducML0wifwH1WdW/Z7gg4MAEzOUnb+A1
+	 TOxH0fHhsykXcrRfqiknut70hBq62gTxfANhiv8TPJlpCbzB8s8Uug8CYHs3esmEDSzMG
+	 lOe1AjwCpXG7JoDufIWp+LyrJxHn3UKoMZnVbWMSDnIdMTPfc/Pd78NcCBl0Azmk/BUUl
+	 uemGw/QRYSBz0zixXVep95xp3/qa64QVgVxU5uLidwQ1nX1V76eHGpiAuvCUquiSEZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433937;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-Rspamd-Server:
-	 X-Rspamd-Queue-Id:X-NC-CID;
-	bh=DXr0pXHD3bRMuhs+z9S3qmz1LdcfanyjhhMk8486lYs=;
-	b=bpS5pbv5OuVGHPik8MITeNsM5xfMPdz25DeHXQD4jM8i4+KGXGYqhpOkQVFEEqRJR0rD
-	 8P4fxYtzcs/Q9ec7ohedjHQRraf5D/V7uu9PXvQ/xayUc9lB2IJOWM/492VkIOVOXd9wf
-	 u6HJfsBafWKRSpnq6y3Ww59vrECeCPMHLjyxcIahMrvRvgCC1HyDQTnozXZ3d62cpOE5/
-	 xooB35S/fYP5ryhG36oUM0+AStVOiFnKvYVNJGPmoNEoWEGs3dURVWt6lz98HrLch/29p
-	 D/JqbTV46y/vGN8RUOBTwR9ZcYjMcZptlYERlB+VgsnDHOhG17jWjGw3XQLD6Q75RIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433999;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=dzG3GXZhvfXV1CjH4z9JC/RUQc8XXCYXZlNff5428CY=;
+	b=ItGMr+a92ZeUxKND3I9dlFVbSKjYjSLoReL4Sc+TK24ZAykaEgdK2erCnuSH27IvhOQP
+	 OAGjUYurWULqLywrpWmhc/+QWglWDsRHoP0Mf0HB4P6GFmpBCrtvJa9hGxyuleYkbONPz
+	 D25DExs7Cz6gsCEto5m7nlD8aMb4OHcyaa/wj4hK5g4egSpyDY0DvDGO9F+uuY6SXs9Da
+	 LRlwz7hha9zDY0kJZaJAUvi8vgah3P0soPUDPsxcLF7C2IRML/QkFTENGL410sY+TSUdY
+	 jNyaS3AlQY7o8jY0d/PSaB3Y79a5yZa0SqAnOObGa6T1Sgfbe2/A+5f3tuuXBF3WmLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=hHxmnXfG;
-	arc=none smtp.remote-ip=188.68.63.102
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A2dH5veA;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17E45606A31E;
-	Mon, 23 Nov 2026 11:38:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17E45606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22E2D606A32D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:39:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22E2D606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=hHxmnXfG
-Received: from mors-relay-2502.netcup.net (localhost [127.0.0.1])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jY3qN4pFMz6Mv3;
-	Mon, 23 Nov 2026 12:38:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795433920;
-	bh=bpCvclBnqTFpGqJDi3k3TXF12kr9zYWAAPKnUQdM+Ys=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hHxmnXfGaV6gtwR1p/Y7UOMXqWyXPLF5fVG40GmvkkMHUIuPcB1obwxI3U/KCbsVa
-	 xjAQVl/w4bJWaZqfPDY754hKRxLgL2MtEiLX3gj4u7m/5PKSaBUzQFadwlEJxdgz0f
-	 5f5qSdKe6yOLF6XJyPa3AQKdcZmI5orisNMh8qsry09Y+R/q4nN3NoRT9YtcJLuvww
-	 bR3VzlvCHFE/8M+frvG2QBUXAG3qwMrPBB02hV0yb0ipcPxvTbzypwqjBjwyb/c+ki
-	 VeoECKG+4NK7dJhgyTPhC0MrfVa71l8oHmg3l8DziWeL87OOP+ZBANVDIz1SuRzg6Q
-	 l+EP9Z79oabWA==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jY3pS2P6Gz4yrS;
-	Mon, 23 Nov 2026 12:37:52 +0100 (CET)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jY3pQ3r1Qz8svX;
-	Mon, 23 Nov 2026 12:37:50 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 799775F837;
-	Mon, 23 Nov 2026 12:37:44 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <329cd215-d824-44be-a1dd-3ebbf5c0803a@leemhuis.info>
-Date: Mon, 23 Nov 2026 12:37:43 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A2dH5veA
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f0458cc9easo22383775ad.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:39:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795433998; x=1796038798; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dzG3GXZhvfXV1CjH4z9JC/RUQc8XXCYXZlNff5428CY=;
+        b=A2dH5veAYU9uoMnrxmCkRpQeZ0A/ZwDFNnDLQM4oCIdIkraVq13RcbOIFo5ogYHW34
+         yQEXCsWBQBd5Oi03QRr/O7Ge9qpd4RlbrSFDsGIEDcagzszpXiPvKQC/9tioZWqMapSx
+         CnZjg/qRD3DcZv0suqf0F6vnaXAyYJi2sv2CmvnHSziWmyD1ctOCJX9NM/wYuV8ZcFOD
+         u0QHblU1m6MXTIUlqb2N02flLxsbt1XVqP4Xa3q7GL21gplmPtn2NcmRpbggGx5lpZ2y
+         xkXavM2K+bb/WDFqfj2y+9AN4RRXWZHaaVUSq4ibjQBlOFIxzl/qBmAUY2V9lzOhBrZd
+         fFjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795433998; x=1796038798;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dzG3GXZhvfXV1CjH4z9JC/RUQc8XXCYXZlNff5428CY=;
+        b=IMmMGdMBsYu/c0TMAhBjH+0TYBK7HbLlpPOfmX17PEyJ0ZLgzpFZPQy0YmBqeYkqGz
+         Ni0wi5KtelMuMSNixVnWoUAnUvdGYcnNoi/ZcyIk+Hz6lnU98e7YLfeCqz0aDTFnlJoz
+         ximrMnwiq6xJM6gCWX34w7Z0BF7nHaBJWAwSDgTiJl9R03AN1il43CZEk8toXAd9BTzS
+         o7gj6QTxpkggPBGSa7uY22k2tgLsrkzYOIiI+erVhD67HTd4Xhnn7bqH9+rwKP2JHtFo
+         NOJAexZB39VX2U60N1A7VxIiaeAd/S9Y0L77rW1tvot4m25kQnyRIg5bPQ7HJt05PJIC
+         sXeQ==
+X-Forwarded-Encrypted: i=1; AL+hErGQAnzAN5ADleWXRpXgG4OACUwn8TouVB51gVkWbVp8Y5SQyP3I1Xymcgnn5CZ+ZtBQ3yGlkBYZXq5AZXc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+o4QhO/x6bHhV5BI/6ycsU2th1vTqL9uL7dzPByax8OUZK0BVB
+	PpfKsRETfQ45VMeccnaG0dCSKtOONX1iq7JLnxb1rP72uXWioYvsLtuWVXPqnnA/
+X-Gm-Gg: AZFdTZdDA5TmxFgXZIJsXZwMVnGTf0pnramg92HZNqcED4KGkdJemk4/5RSRwfu+pzO
+	kJ+LyeojzV7e4lSGcKcO67hdDm3WfRU/TgyPxtMcZhIoxoRMZBFJHqxvMGsg+YjpsSCde+1WCX0
+	6HvMRFbbgSsZPgDZNOrnLQDlrIMrffxkhhfMxEhn7k65PisaExSslDgU1EN145PSJkZDh9zTii4
+	RfsLtV3aahXkinfb/upkEEYPS8wjXkcqVM+U+rXmPh5ikJ5HhvEL7OZ6dpN9Zt2++uT6wu4OuMO
+	IHgy9qfVrrjJubcRLlxK+jXj5pDTgelNKKI7ThQQN6xsAC4eHCdxTCq/6F6dXBgu2MsWV4V9pqi
+	wgDhLqex8kCsi30DZ9fMYWK3nesxHdmFA/z0za860FkuD6y8N9O1lv7hdbIg0btr4g5+L0BnqiR
+	2BtI3LfOhpwK0HqxktJtFTFD+0pBZ7snZLHSJV0sED9p5DlI7uvGH8iyhQLTTFgq12omu7Qw/lK
+	idISSs7BqRMRtlzc9XjE0cXagj73ZhIDFJYW+S4zIlAelneyr/ov5bS0/T6wiB2guwKuzfCP8OJ
+	Xhng934NGL3PIWzYYafCeM1mpqJc5gtQLVVtH6JqpGen6A==
+X-Received: by 2002:a17:902:ebd2:b0:2e9:970c:2c9 with SMTP id d9443c01a7336-2f03f1c75bdmr133283195ad.42.1795433998310;
+        Mon, 23 Nov 2026 03:39:58 -0800 (PST)
+Received: from osman.mioffice.cn ([43.224.245.178])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1f42sm51601475ad.25.2026.11.23.03.39.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 03:39:57 -0800 (PST)
+From: Zhan Xusheng <zhanxusheng1024@gmail.com>
+To: tj@kernel.org,
+	mhocko@suse.com
+Cc: akpm@linux-foundation.org,
+	hannes@cmpxchg.org,
+	roman.gushchin@linux.dev,
+	shakeel.butt@linux.dev,
+	muchun.song@linux.dev,
+	penguin-kernel@i-love.sakura.ne.jp,
+	mkoutny@suse.com,
+	chris@chrisdown.name,
+	cui.tao@linux.dev,
+	cgroups@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	zhanxusheng@xiaomi.com
+Subject: Re: [PATCH v3] mm: memcontrol: don't miss processes whose leader has exited in OOM scans
+Date: Mon, 23 Nov 2026 19:39:51 +0800
+Message-ID: <20261123113951.1771223-1-zhanxusheng1024@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <305c5803b904a57c188b505d6ed9e1e4@kernel.org>
+References: <305c5803b904a57c188b505d6ed9e1e4@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,82 +109,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] usb: core: fix failed device driver probes, add
- pre_probe
-To: James Clark <jjc@jclark.com>, Alan Stern <stern@rowland.harvard.edu>
-Cc: Johan Hovold <johan@kernel.org>, Bastien Nocera <hadess@hadess.net>,
- Matthias Kaehlcke <mka@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Douglas Anderson <dianders@chromium.org>,
- Robert Nelson <robertcnelson@gmail.com>, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- regressions@lists.linux.dev
-References: <cover.1793669297.git.jjc@jclark.com>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <cover.1793669297.git.jjc@jclark.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: 
- <179543386507.1524621.15830580690752356180@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 799775F837
-X-NC-CID: t5w+dL6WwtxG3tWCMI8WeaTrlJSnO3BdmPMvXavSdnkLoYzMeOI=
+Content-Transfer-Encoding: 8bit
 
-On 11/3/26 04:34, James Clark wrote:
-> On a BeagleY-AI with BeagleBoard's device tree, kernels since commit
-> f918e3804498 ("arm64: enable HAVE_SHARED_GPIOS for all ARM64 platforms")
-> no longer boot to a usable system: the on-board USB hub is re-probed in
-> a loop. Patch 2 fixes this as Johan Hovold suggested, with a pre_probe
-> callback that lets onboard_usb_dev defer before the hub is configured.
+Hi Tejun,
 
-James, Alan, what happened to this? Looks like it feel through the
-cracks after Alan's "This is all starting to sound very complicated and
-fragile.  Isn't there any way to simplify it?" later in the thread,
-which was more than two weeks ago. Or was this regression fixed and I
-just missed it?
+On Mon, Nov 23, 2026 at 01:13:25AM -1000, Tejun Heo wrote:
+> Maybe the leader can pretend to be in the new cgroup instead.
 
-Side note: another regression bisected to the above mentioned culprit
-was reported recently:
+Thanks, I'll implement that and send it to cgroups.  The memcg scan can
+then stay on CSS_TASK_ITER_PROCS, so this patch is not needed.
 
-gpio: shared-proxy: open-drain regulators on ODROID-HC4 fail with -EPERM
-https://lore.kernel.org/all/20261115-hc4-gpio-shared-od-1@iav.lv/
-
-Doesn't look related from a quick look, but well, at the same time I
-wonder if there is some subtle connection.
-
-Ciao, Thorsten
-> Patch 1 fixes two pre-existing bugs found by a Sashiko review of v2.
-> 
-> Tested on the BeagleY-AI on top of v7.4-rc1: the board boots normally.
-> The -ENODEV fallback that patch 1 changes is not reached on this board.
-> 
-> I found this by booting commit 85b4bc79dde7 (net/main during the 7.4
-> merge window) on a BeagleY-AI with BeagleBoard's device tree. A coding
-> agent identified the problem, explained it to me and proposed an initial
-> fix, which was revised numerous times on the basis of comments on v1 and
-> v2, my feedback and local Sashiko reviews. I verified that the series
-> fixes the problem on top of v7.4-rc1.
-> 
-> v3:
-> - Add a patch to fix existing problems, as requested by Alan Stern.
-> - Patch 2: rebased on it, no other change.
-> v2: https://lore.kernel.org/all/20261030151919.3511106-1-jjc@jclark.com/
-> v1: https://lore.kernel.org/all/20261030114705.3159093-1-jjc@jclark.com/
-> 
-> #regzbot introduced: f918e3804498
-> 
-> James Clark (2):
->   usb: core: clean up before handing a device to the generic driver
->   usb: core: add a pre_probe callback for device drivers that may defer
-> 
->  drivers/usb/core/driver.c          | 42 ++++++++++++++++++++++++++----
->  drivers/usb/misc/onboard_usb_dev.c | 15 ++++++-----
->  include/linux/usb.h                | 14 ++++++++++
->  3 files changed, 59 insertions(+), 12 deletions(-)
-> 
-> 
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-
+Thanks,
+Zhan Xusheng
