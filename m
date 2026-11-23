@@ -1,101 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443363;
-	b=F0ggUXskPK5oxEg2mevixCC+UGRfLflx/iytxFG0aEGgAzgfs1qMn9DgSwNGoh4T/PJA
-	 6xeLSLBiSBdXGvLrWx2bSHp5GiXtk7HvKvIFGgU9WmV4jJ/9k8ygqD/iNKa0+wIJPkyV7
-	 CT7o4HnnLBnlR37gzmOKBmtYh63lHPdr0B3+f1DEvcdhjacfuWSnALkqe1PlJxNM8oFQK
-	 rb9QnU771ibigFFTcFeUDEecQtSUFedRJXt8Q+EdWMNf5u83xs590XiW7HgMwnpfipp1h
-	 aQF9SFpVbeinolKQbLVssyqvkFLz7BR2Tjv5sBxDkUPo/IUl5r5KmFskQYgOVPYTpog==
+	t=1795443368;
+	b=tf9XuZKSrOTWZl/c3cAeB89CMEMeEkE+S0QYCTFgStDtvwd+lBOhzEiliX/vE6nybtz6
+	 EQSJD982B3qZOOXlfqk6NITBLgF0YL6byjFpzC9AmcVn3vkJW4KJaiDvdAFZ4N0pjEGbJ
+	 huTHGPw6DWz5Su9+HqcHd90HjkrUtcRjjw5tYpC7sNboHOPM4f2LrRpN1uE8r/YBxeXLx
+	 o7H3l08hKog6+MUSzLtsFieG7AA2rvuFq9J9oS8/TWkb9qK05YJqU0hatFvToVfhAViFv
+	 DBstXBvlDTMQCU2pmfjQZbFy1cyg9M/Rib9O8Us7vBIHFgn4jGSiX+54pICKZWk+6Ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443363;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443368;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=PjRuNUOgfB3Fg1Fm9BbnbhhqY+ZgAzXM9O/HQJjsyY0=;
-	b=Ar0Q6olsLEPJk2E22n3kyR6Ua5e9Q/+w4tgCnDHeGiZadUtS3czO+fXBTUMLyi45HNbF
-	 49QLz0tQ08w5f/tqJqaSt31XxREK2i8kqI/jyOoyQDJhawpV1ETiveyaUT0ZPHXjpPNIb
-	 c4aFyppZpGva3W40/KgYxwnlkgpgWnMIqXlntsxLR0kOdBXNIRw+cjlAW6/RqYLKQkLN3
-	 MBLcRTEZXLG++LrfISbisHiYDXTQPv+Uegpkrr68BqmQyjbkfnTcnzyg+oCknKzsD0WzT
-	 Lz8MgfDPVi+72a4iJMloQZaEK0Zd8eGKyDTvayXt4SM1sWb5VxWwH57/3YU3ko6Wckw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=Zfh0a6qWB7cgYhlh/JVDBYrhyvShnRR27oz/yTBM+wI=;
+	b=wRsmGzHukUCai+yKrviRGzxSm3HPcX5DNDhko2dDbrG/C1jykm7Ry9iK5iHEdDn11gE0
+	 XvbJyaav9WHDL50uZhQcmO2Xc/zxRmqgQM6aZspNoHcWUaS+62R620gO469LW6+6aqv/z
+	 M2bD1bqwViRnSpgla9BFqufwEUR5tEufmds22xUsYrkWtu2YautzmEZ73QSX750sX8+DY
+	 RUsz3O/JnQzmno2P+Fs4gtragitO5wK1XWZPd3F4lXzGc9Iy/3BbuswslNP3a3IU4oxdP
+	 hp6bQVo1+gMosEFSbnn4dke+hZG++K2kQv9tdJ5n9xuLx7VJrOUYzsOLoM82B8SWjYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JSP+Znqb;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=MzQ3w9nU;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78036606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:16:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78036606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A310606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:16:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A310606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JSP+Znqb
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-14394530ec6so4848603c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:16:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=MzQ3w9nU
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so2078813f8f.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:16:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443360; x=1796048160; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PjRuNUOgfB3Fg1Fm9BbnbhhqY+ZgAzXM9O/HQJjsyY0=;
-        b=JSP+ZnqbcEb0ia/ONGPICfm4AQK9TPsrfUjvnKiYqWlKjXcl13cN5zJH23WVbFMG/C
-         W2PRjEze9BcTUJIZN6qyD6nAbIyDH2eGotrFkLL30X4BWuVewA40x1vHko4Wf07O2avA
-         ZP9FZa8oa4Crf/SlOb1v35TtukW1Qs68Ne8s0FQvkp6TbsxVKEq28YMMUIQ78R96rTDq
-         QSg72i5BTowgDycaDUjs/FHT3vYDbP7aEPJx6ywtLBJeK9g6It2W3gr/duKpLGk+Gc3M
-         2HJxA2zGLfszuE+DxpaBOHkEpCBNuv21A/zmhFZPSKbiluZl02wqOVYXEoJcOY4f4a7W
-         nZ6A==
+        d=suse.com; s=google; t=1795443367; x=1796048167; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Zfh0a6qWB7cgYhlh/JVDBYrhyvShnRR27oz/yTBM+wI=;
+        b=MzQ3w9nUw2sUyJnn/xbL3lFnkOFDs10fQ939b1r9lh3GObb6YW0PbtbT/rdjeJ4rmx
+         WqEZhQyPqHwQC6iJ2D06RqjGMiDjPGz2ndgRMGNbdLktctaNAa+Vyj3hZv6GTYbcMIoL
+         9idjx98FhZGu2zcC/Xro2yLz7tAulmBVYILxyScBaaBn4fepRtuAXY3joaRDNfuHXkq3
+         Qtle4B4BdgjgO34ulYlM/LfdtfEiRrwIiytmyNcfZMbXLq3flUVQw49XdxkFS44h2lw+
+         /idJvNMYlizMxO+MngmekHSGiaLc5am23Jeu+LvaGV//bAcJTBCyb3o6XyKKYbFYqFLx
+         pBLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443360; x=1796048160;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PjRuNUOgfB3Fg1Fm9BbnbhhqY+ZgAzXM9O/HQJjsyY0=;
-        b=xS0BN/bp4CyulFAXkZu/7UZlLGHcw1VeaIx8xeh+75sRKiixELwHlzM8aWGB37KDIm
-         51/rsNynhsKlzw2WFzNS7fDV9olniAeA2I1flVgIcVrhKgQ6f5oAcrhU2WQD8UAzAHyB
-         tgeSwNzfEFhV2ZVGz9llHcQhJo8VQyyirFItmV6N3ZeswITiRUCbYotEyKFsNoDGNQui
-         EHeF8JuUbMD19OFF0JI6Q2W67CGgS6k/58c+S1DKDVydR/Qz0ix5ADrdKiZ0WY69ZXpn
-         RWSfrPRYhpvqh9Rm9jbYHyd76+RL2aQ8iQRo3WiOpcyAwwe6llocl2cHKk0lPEqYzhd/
-         Ug/w==
-X-Gm-Message-State: APuU4Z+6VV9zr67bjLIEpEfiI8qtGkig4eomuZ6g7IG6X0rYHiRbthPf
-	7lnOpwPfVGVEOXXaJPdyGiRlLF9AvY9e/T0hdaKDTay3lUgZuIUS4Pia
-X-Gm-Gg: AZFdTZeJeEUTvddtdH+9iOzrQWTpvlNz+nPbzaUHWYJH7eSwXU3WaIdLDCwRp1IdAW9
-	Ak3sOuJ0uBkvK/c4nZ224nEy2BTjLL/6wPdq1yYvLSV+eysZ391cSYr1r9+nLtJrdbE8jPCt2Fi
-	g9qmWGEvOcz0RpkC2Q7Vu/vIpXUbBAM1++zbzLRNILul24DJtrXrUUejGoUsofgHHLZSNpnZ0dD
-	s3rkmlzVd4BHGi0PqNTIqPuU22+ye4gpHFsU8zY1fj15FSIAivugBxXO5guAansa9jbvuorn9X6
-	zMLdnpKEpUfEKbB1nb/ibMZ0aafZssgdfz/i+blredLCsxRjDF6/g2CCxXSNCSh/U/TVIfr/RuP
-	YqOyPAjG12Ll1b/J0lHbX8SlSC130Q3970Q3RY+WtVl7qR2l4KiV4G+PjZ8zVTRxR5GqbXool2D
-	KVqb9Y4iWAottVnqo4kYRcBIeZyyo2wmPLYVOcGHAT6cNKNX1sXejkWY8de99ADunNFO2i3SPtS
-	86C4POaleIAYnh7XIro1spWZwuqOIcTC0HG8RDC5BMe8yoACaLwd3fqCPRh9p849bMoNZSP7O+h
-	t4Qi3tPS+VN0n/3beP4XgY5LmLsTM5wGynXoPEW0lZ2NgT2hyY42RXQ4q3h88JAUnhgN
-X-Received: by 2002:a05:7022:f509:b0:1a4:4194:fc04 with SMTP id a92af1059eb24-1b5568e4322mr11657910c88.28.1795443360380;
-        Mon, 23 Nov 2026 06:16:00 -0800 (PST)
-Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm31101950c88.6.2026.11.23.06.15.54
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 06:16:00 -0800 (PST)
-From: Lian Wang <lianux.mm@gmail.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Chris Li <chrisl@kernel.org>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Kairui Song <kasong@tencent.com>,
-	Jihan LIN <linjh22s@gmail.com>,
-	Kunwu Chan <kunwu.chan@linux.dev>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v5 00/19] mm/swap: introduce priority queues for swap device allocation
-Date: Mon, 23 Nov 2026 22:15:50 +0800
-Message-ID: <cover.1795439990.git.lianux.mm@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        d=1e100.net; s=20260707; t=1795443367; x=1796048167;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Zfh0a6qWB7cgYhlh/JVDBYrhyvShnRR27oz/yTBM+wI=;
+        b=RkZnG3mWVkfJ7XIR80ArQu8eGQnR5xze4XBDGWkbzuklzg3+TkM+KX9iQA90QhoiEa
+         YNnP/PlQ6qfWbsm5jxLg//KBsHhmYcWhEz3KLgTbKWJNDvwl01DEucOTXlFHQCyEzCVq
+         z+aCdi47UB3dGEN8Z1rJwfmqMPe0xC0FvRe2TOiLVNqc1J26tS5PLzSBl9YqSm8KPQ+0
+         P8H3O1nwOr6M3MGwaSnlfCe9VmddSFKCFBPbqrfkVFBs7iFzFNtjVBMlHUeMDLRjQn/z
+         pQ0AFEDjan6yzXDJRQuXna0RBoS/BqxhiB4pNOQG9kDchWT1Ay5kM2XApGefe3QjXWfR
+         XeQQ==
+X-Forwarded-Encrypted: i=1; AL+hErH5gkHmzfztfRXXQG+tkawKGGf6pQqGvb6YrJ4Sb1XwX1vZdKJ8bhDdHRF7oYY+mg2Tqe1dFISw7aygy1I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/dIIXB9A3TmRnpFigrlMcju6k3EN4Ca4CT+6UZ/INn6A6ai5K4
+	p7bzOqRvPO6IgNwcwyGGZ6dhDtTBow3NVFw4l911FWn2F+9ExOCGizABvtOJJintw7I=
+X-Gm-Gg: AZFdTZeQq9xrfNYAGPSg1pk+3SchEbSKNMyP9zrA2eikyExflrih8kyz0NeRP0vPFAi
+	GqeKtpzUcY0KibKAOtjV530OXEh5HNSlL7bbhA4rRrJxboRsrkfolQuvoa7Zwqs2nKxEbXuYDTr
+	pgbBp5mBilliAxa4rmoyCXxhRTH3lMCytizBJxo/4p4MVJgpG4+nF3zmqIvIe51fWAyxARGHNzj
+	Ht/+zrf/Qz8Qf87ktT9e7S9TVAfoEy6zlPdlLqAE12hhGGUYWPqEng35jLWsXwsIknKtvxXL91L
+	f87ujwT2LCgCJw7TDJh+Iv5l4GBLYvhCh2BUDyh35NFCNUlioZN0RQ2N9Xdrnm2HC7FsXkdolhX
+	8oIU5VntLUpX/gPD8Y2j/ncyUEZfWEwtdjrRSeYrgp4i0qS6h03KQ/ioevD7GM882gfcOZlVLdO
+	FVwzjGfg1gDBOgyTg/j8AtJMDHAwb6rMiAi9isRFZ4QI9exrRe5149JEhAR1t+wUYnaTrMHgCpt
+	kaITruQGqNgGuIVA/k4LLGWyqF3CMyfv+4Q9QoYHPFLrn9vqclmm1fUT/RBhAKJE39tdPdmNsXR
+	hEixc1Yb37LfDZb8PtOXowU4cIgQoXc=
+X-Received: by 2002:a05:6000:298e:20b0:488:7496:15b5 with SMTP id ffacd0b85a97d-4abb4c7ab74mr15920212f8f.47.1795443366598;
+        Mon, 23 Nov 2026 06:16:06 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110d56sm21672571f8f.40.2026.11.23.06.16.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 06:16:06 -0800 (PST)
+Date: Mon, 23 Nov 2026 15:16:03 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+	Marcos Paulo de Souza <mpdesouza@suse.com>,
+	Eva Kurchatova <eva.kurchatova@virtuozzo.com>,
+	Yafang Shao <laoar.shao@gmail.com>, Shuah Khan <shuah@kernel.org>,
+	live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/4] selftests/livepatch: build and run the tests
+ outside the running kernel
+Message-ID: <awRKo4D-H2sHFfwR@pathway.suse.cz>
+References: <20261110161050.2451750-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,111 +102,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261110161050.2451750-1-sashal@kernel.org>
 
-Hi all,
+On Tue 2026-11-10 11:10:46, Sasha Levin wrote:
+> The livepatch selftests build their test modules against the running
+> kernel and skip every test without its devel files, so they do not
+> work when built for one kernel and run on another, as CI systems do.
+> In KernelCI, 36 of 69 kselftest builds of mainline fail to compile the
+> modules because the kernel lacks CONFIG_LIVEPATCH, and where the
+> modules do build, the installed tests skip themselves.
+> 
+> - Patch 1 skips the modules and tests when livepatch is not enabled.
+> - Patch 2 lets "make clean" remove the modules without a kernel build
+>   directory.
+> - Patch 3 builds the modules against the kernel in O= or KBUILD_OUTPUT.
+> - Patch 4 runs the tests with the installed modules, without the devel
+>   files.
+> 
+> Tested on x86_64 against kernels built with O= and in place, a kernel
+> without livepatch and the Debian headers. The modules build and clean
+> in every case, and the installed tests pass 8/8 in a VM without devel
+> files, where they were all skipped before.
 
-This is v5 of Kairui Song's swap priority queue series. Today, choosing
-among swap devices of equal priority means rotating a shared plist.
-With this series, each CPU advances its own position in a ring of
-equal-priority devices. The allocator selects a device before looking for
-slots on it. This keeps the existing global swap priorities and does not
-add a tier ABI or a per-memcg device-selection policy. Memcg swap
-accounting and limits are unchanged.
+My only open problem is the "O=<kernel> KDIR=<kernel>" parameters
+mentions in the commit message in the 2nd patch. They do not work
+for me.
 
-Thanks to Kairui and Kunwu Chan for reviewing v4. I'm dropping the RFC
-tag and submitting the series for review.
+Otherwise, this patchset looks ready for linux-next.
 
-Changes since v4:
+I am going to push it (with removing the problematic parameters from
+the commit message) by the end of this week unless anyone complains
+in the meantime.
 
-- Rebased onto mm-unstable at 7d1a16abe4cc (7.4-rc3), retaining the
-  upstream swap size reporting fix in swap_show() and swapon().
-- Following Kairui's review, renamed swap_ring_iterator to
-  swap_queue_reader_head and ring_only to no_fallback. A large folio
-  can still try other devices of the same priority after an allocation
-  failure, but not a lower priority.
-- Following Kunwu's review, retained READ_ONCE() in the availability
-  check, removed a misleading comment about slot reuse, and made both
-  /proc/swaps iterators check the published swap_file under the read
-  lock.
-- Split the off-list bit fix into patch 10, before the queue conversion.
-  The plist allocator also needs to mask that bit when checking whether
-  a swap device is full.
-- Revised patch 04 to distinguish all allocated descriptors from
-  writable devices. drain_mmlist() needs only the usage count and no
-  longer reads the flags. si_swapinfo() takes one flags snapshot when
-  accounting for devices being taken offline. I have not carried the
-  previous Reviewed-by on that patch.
-
-Testing:
-
-I ran Kairui's benchmarks on the 7.4-rc3 base (7d1a16abe4cc) before and
-after applying the then-current v5 patches.
-
-On one x86-64 host, both kernels built the same source (4dbe24720eb3)
-with make -j96 and eight 8-GiB ZRAM devices. Each build used a fresh
-output directory. The BRD test used twelve 8-GiB RAM disks, a 24-GiB
-memcg limit and one invocation per kernel:
-
-  usemem --init-time -O -y -x -n 32 1536M
-
-Times are in seconds (means for kbuild).
-
-  Workload        Runs/kernel   SYS: Before -> After      Wall: Before -> After
-  kbuild, 2 GiB        12       4193.23 -> 4271.06        167.80 -> 168.80
-  kbuild, 3 GiB        12       2257.60 -> 2299.63        136.29 -> 136.77
-  12-BRD                1        141.16 ->  131.44          6.61 ->   6.32
-
-Both kbuild cases used 1.86% more system CPU time; elapsed time rose by
-0.60% and 0.35%, respectively. In the single BRD run, throughput
-(48 GiB mapped divided by elapsed time) rose from 7436 to 7777 MiB/s
-(+4.59%). There was one boot per kernel and the baseline ran first.
-The BRD result alone does not establish a repeatable speedup.
-
-v4:
-https://lore.kernel.org/all/cover.1794666741.git.lianux.mm@gmail.com/
-v1 and original test method:
-https://lore.kernel.org/all/20260714-swap-pcp-priq-v1-0-de9b164ed419@tencent.com/
-Related swap tier work:
-https://lore.kernel.org/all/20260916183437.2946306-1-youngjun.park@lge.com/
-
-Best regards,
-Lian Wang
-
----
-
-Kairui Song (12):
-  mm/swap: remove unused parameter for reading swap header
-  mm/swap: clean up hibernation error handling
-  mm/swap: cleanup and document swap device availability flag usage
-  mm/swap: introduce swap device iteration helper
-  mm/swap: change the swapon lock into a percpu rwsem
-  mm/swap: serialize swap publication before removing swapon mutex
-  mm/swap: consolidate swap inuse accounting helpers
-  mm/swap: add priority queue for swap device allocation
-  mm/swap: remove available list
-  mm/swap: bound synchronous discard outside the allocation reader
-  mm/swap: drop swap active plist
-  lib/plist.c: remove requeue function
-
-Lian Wang (6):
-  mm/swap: avoid direct reclaim when populating swap cluster metadata
-  mm/swap: mask the off-list bit when checking whether swap is full
-  mm/swap: reuse per-CPU queue readers across priority changes
-  mm/swap: advance the global queue cursor directly between priority
-    rings
-  mm/swap: skip reader rotation for single-device priority rings
-  mm/swap: redistribute queue readers after membership changes
-
-Youngjun Park (1):
-  mm/swap: change back to use each swap device's percpu cluster
-
- include/linux/plist.h |    2 -
- include/linux/swap.h  |   45 +-
- lib/plist.c           |   71 --
- mm/swap.h             |   12 +-
- mm/swapfile.c         | 1446 ++++++++++++++++++++++++++---------------
- 5 files changed, 963 insertions(+), 613 deletions(-)
-
-
-base-commit: 7d1a16abe4cc5dccd21e3d6262e44433a5885d27
+Best Regards,
+Petr
