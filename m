@@ -1,123 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434263;
-	b=ZxRKqAl/20bb+o5MaNRXK85vflQDCT/iE7NKYPjy0UKIU4jVQz9yTj8uyojHHV2B7vgK
-	 Qmn8hT+vUdWL6ReK5ofCvvj/TEvAaLtvK7ozQPpVRuU79leojOUmE7O/xC/J4nXTcKjkZ
-	 dgSDVuVtx5EAdyJLPNM5xsXcxkrNroj7nbuW/O1SoLhxuGgCkZ3jCsTUIBPGqYX+irQXO
-	 TjrWoCVXZiJCLWrCFSses0kej0HAImMDpE7vSWcHmJ/HLWk4tl5yBAfiu/8bBV9Vj0+c/
-	 ZRr6N3eMAYslcMUziJTlaYWAue9OZPiW71pMULsd2HrI+LsJ/C+idgWcmprHhF9eN8w==
+	t=1795434265;
+	b=lQjOt+LNXOxjA3EFs3zWGmQpdTd+a6s72vYLNfnfjy6WSFvgW7qMhzBTvWDvild+KAxU
+	 vn5w3F9TKFhkfpi/muPsRY8rpc/ST9b9/dK48gY2jdTJ9UP7aW+quO85i0irX1uMrxcbS
+	 90RJ175kfJmjHnSh5cFRazasA8HXnNxl0lETVXBUNLUw0HUhqXVF7z6iY1URRqmU/pBnP
+	 3rD3yVtp+3xS6sn2Z4Cen4hHGaV812U4OAcmVR3GoZYCNWbAmxl9gHMVCSf200T6tIw0h
+	 xDMbrfUjz2R4nfu1Gc4CCuekLzsQ5hQK6py5qg5xBybW1TD5UjX3hwMbtIhihtq+mrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434263;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=hnvDig0dM1QComfuK2OvYInYk5xj0Tm4ODFeUP2YM9Y=;
-	b=heegMbNkPbsYZ+yYyM0FVG6pa8FaWprochmtWnzfZbd5ijrhiElN/dhi4FLTa0nEjcyO
-	 iR8I0JaHf01SuUn4bi54DVAzRWrX8r9CZv3rCs7Q4NIL18BosHMJ5piI1QQrj5eRvwjo5
-	 H/rR81H7FI1kNSUyZPAQysfVP3VjLDr/QrE+rRO58kfBZXN9KVbVzRz436i+zZvGfYKoW
-	 F34pIaWoYXuRguF6XnHiozLOUSg/u7ZUH84lVtpVdX7VmcS251vVfhPMjXhggvGwiMpT7
-	 e3GY3Z1vQR98ay330fwtVHV7Ubs5wh/xebgkYY94z4J2yy64Va125ySa4gqzNLQRINw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434265;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=KSPJpgxONTi5o9CF6eF74Es5Fdi/zpIXDquEucgCeQM=;
+	b=sPfe1pMFDcXcfTkaZfWslLDrzK80saPvV1letqrwNeCY8V4fK4GXXA5oJzmAXkkh3By0
+	 2N0YTUWpxcrBMIMHzq+swWult7qdADexWdY/2X7sq71JzwjarShT4DVpdhTlD+wwagVzN
+	 Yusdbnc8nisLW0si06XMbZuUSeu1FZVSJWbRTTO+yH7XJrlbGI7o48elWTxRxElJxpg0q
+	 41hUlcarwfnmljTENaOeJ0735gCpR4Q7t8We1lL+0fNA8CkHsUsylLJ4OczskzDZf7vI8
+	 by9W4/prwhmr9nWSHyOe2bce0Y21ASS2L2CkqdoZrtm4izgr/vw7lyes01eTHru7s0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=armoriq.io;
-	spf=pass smtp.mailfrom=armoriq.io;
-	dkim=pass header.d=armoriq-io.20260707.gappssmtp.com header.i=@armoriq-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="IZWKP/8w";
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IE09jNRr;
+	arc=none smtp.remote-ip=95.215.58.120
+Received: from mta1.migadu.com (out-120.mta1.migadu.com [95.215.58.120])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92D4F606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:44:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92D4F606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=armoriq.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=armoriq.io
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65AF9606A33C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:44:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65AF9606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=armoriq-io.20260707.gappssmtp.com header.i=@armoriq-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=IZWKP/8w
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3866a784546so3981054eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:44:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=armoriq-io.20260707.gappssmtp.com; s=20260707; t=1795434262; x=1796039062; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hnvDig0dM1QComfuK2OvYInYk5xj0Tm4ODFeUP2YM9Y=;
-        b=IZWKP/8wsfKGc9Ngyr4Xcvcz9AvMxdKJBZV9n5ZJSoCW9YkJzjT/uoXfA6Bj2zXcvL
-         zSKiPQ0YPN/1lQN1JVUzZwHCte2hXOeF+M/tWpXfuAQsO0op7+CHmHBsJlzzAdMM/pR5
-         1OpQTcmOZdIg8bUb859jLH1wGeDXFqz3jESVLR/AZ7BHRVjpekuxcplMgt3/NxLzgtqg
-         VgxQivYiCbo6ZfijoO5t9ZEvXqT45TE7yHRN3D2AK4CAqFgKZpMA/vYa8Upx0kOAPkS4
-         3gmr+Dpf+VIAEqqON9JEL5OjMP3T8jPlrr8/Pol8opHSyP/7Uv8JBDi1o86pUQLjrblH
-         GD/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795434262; x=1796039062;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hnvDig0dM1QComfuK2OvYInYk5xj0Tm4ODFeUP2YM9Y=;
-        b=ixL8xsJtuI06bkPcYQiMNPy6lkpip2LvYKNENkFlxPau3xA9+LbYfQATRQ6ZrEFzMj
-         dNYSr/e+zo/1GJ8hXyjvuFP7Vc2MqZI8dyTUhB4Uv0eQfRfCXp33GgmnTxdvNZ3BIcGF
-         B37EUFge29Zbstdv8x/88p2YN0G8418F4FT8oS+58M2t8Cwqj7NuSigSlpfG38dRL2Um
-         W3M6tS2sATdfAsQJkUuuYpIvNace1nJzMPYfwq7grGG9z5DHsWUA816lVyhnokIitVRl
-         I8vudxcd5ii/XRk035tuEojCzWVaWtBZp7wSzyZ7RPIAjaoqujFk2Fm/9u72rUv7+8nM
-         qxxA==
-X-Forwarded-Encrypted: i=1; AL+hErHhnNPAUSJMGGWcghxAVMaUlK1GKdYNmX0BhLnwX/rQxrtb5Pwtevln6Uaw/ApgWZAIp2T3CKhTEf57MsQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/S4IqXO8PiRqY0VTmcZ+PKNZMc268FGKGakxGk4KnI6FojXUWC
-	x6jc9BKCouAesvM+1MxtJj2X1r7XYzVgL2gAOPr6OcWGwgt5Xg0qMg/+cizl9oaVWhTH
-X-Gm-Gg: AZFdTZfS0DyF+Pxi3fnfEZSY59dhkQm6n+h4XrHadnzZ3Er/jX9ffuhxDfUP9psRVZC
-	wcwGFOYlmFil5GQaGalGXm64qDPA5+mUXt/xSQUcRaVuk1vzK+wQKqvY791x9rUy78LtZPbqQPL
-	fwkljgd5AgBAZjvaj9rJPb8ybHgeeUzcU/5JuDa/8CIZnigdC9yzQE0NDu7ziDp3+eZJWp5TmLf
-	iSsckh1cddP3hyGTfjVXqELOzLWmLRoFYWo33eQyEoW2xCAswRcd77hJr5sstKAq4PgEVy5ciio
-	9gMWrO3MQqFDJv4EBAVUkjsTNh0mFyYEOJzL/Niixc8PMvjIUHnIgXt8+YjBWn6lNfWMyqR/LtS
-	7fe1202NHQ+IrrT4btlfrmX2wdUNU/IbN4YSKaixQ5uEFVv+AcBD23T8XS2klkpw/ieEoaHmDbm
-	RuLoJ7TOUkXOv0abyr+PYSw1qN0p6yOENt1p9fDIQ+LPVDeWV7/quJJsSciPaR9g/pnTNULm+RH
-	V43Bqv/oViaZZdtuuk2pMmOf2DKcZKtslgdi5DJU11ZGX5RqP7oKuqt9OSaKPLIj1CcyuXzo/ml
-	7OK7+a8+uaHDmvQVb9VIwYZG4W8ZNocHaEDdVdH8/xFpOQeYxE1NgCM01aXv7lTahTvv1xcmu4+
-	yhZOW7m1wOnBmKIH7rV+8w/GEcyI2SaUvrMMNUew3pUYn6O9lQP/4Jw==
-X-Received: by 2002:a05:7300:50fa:b0:384:6487:b155 with SMTP id 5a478bee46e88-38570c359d3mr13394840eec.29.1795434261498;
-        Mon, 23 Nov 2026 03:44:21 -0800 (PST)
-Received: from localhost.localdomain ([2409:40f4:14e:94e0:654e:d7ff:13d2:447d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm41943583eec.10.2026.11.23.03.44.11
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 03:44:21 -0800 (PST)
-From: "HARIHARA SUDHAN. R" <harisudhan@armoriq.io>
-To: bpf@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org
-Cc: "HARIHARA SUDHAN. R" <harisudhan@armoriq.io>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ben Segall <bsegall@google.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Morris <jmorris@namei.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Kees Cook <kees@kernel.org>,
-	Ketan Bhardwaj <ketan@armoriq.io>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Mel Gorman <mgorman@suse.de>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Paul Moore <paul@paul-moore.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Vlastimil Babka <vbabka@kernel.org>
-Subject: [RFC PATCH v4 2/6] security: kap: add the LSM ID and internal headers
-Date: Mon, 23 Nov 2026 17:13:04 +0530
-Message-ID: <20261123114308.8103-3-harisudhan@armoriq.io>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123114308.8103-1-harisudhan@armoriq.io>
-References: <20261123114308.8103-1-harisudhan@armoriq.io>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IE09jNRr
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jrk2Zp++qPc8yb5VkZ39l/dhx6zbgkBDUoTuzM7KDdU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795434262; v=1; x=1796039062;
+ b=IE09jNRrYuJjiO12AN4fwvEZxwDgzU7rZslvtxsNlaYnrqcDEEEQ2vUuiZKD9oKFPDL2A/Mh
+ h5dDdOb/SGgHrU3V5ruU+eBwgF64cUjpqGAWHQ+YDOP51SfGHaEWTFAzScYUYT9qAMn+szqDeEg
+ xevhCcxbjHBVelCNjEmZ3KVI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 99e3707534fd8d1c;
+	Mon, 23 Nov 2026 11:44:22 +0000
+X-Mizu-Trace-ID: 99e3707534fd8d1c
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <1801b5bf-6cb2-40ee-b553-5bcba04875b4@linux.dev>
+Date: Mon, 23 Nov 2026 11:44:19 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,225 +58,249 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
+To: Wayne Gao <Wayne.Gao1@solidigm.com>, "cem@kernel.org" <cem@kernel.org>
+Cc: "linux-xfs@vger.kernel.org" <linux-xfs@vger.kernel.org>,
+ "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
+Content-Language: en-US
+From: John Garry <john.garry@linux.dev>
+In-Reply-To: <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Reserve an LSM ID for KAP and add the declarations its files share.
+On 11/21/26 15:47, Wayne Gao wrote:
+> 
 
-The ID is the next free value in the target tree. It is provisional
-and is for the LSM maintainers to confirm.
+Christoph was proposing something similar here:
 
-Assisted-by: Claude
-Co-developed-by: Ketan Bhardwaj <ketan@armoriq.io>
-Signed-off-by: Ketan Bhardwaj <ketan@armoriq.io>
-Signed-off-by: HARIHARA SUDHAN. R <harisudhan@armoriq.io>
----
- include/linux/kap.h      |  16 ++++
- include/uapi/linux/lsm.h |   1 +
- security/kap/kap.h       | 160 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 177 insertions(+)
- create mode 100644 include/linux/kap.h
- create mode 100644 security/kap/kap.h
+https://lore.kernel.org/linux-xfs/20250714131713.GA8742@lst.de/
 
-diff --git a/include/linux/kap.h b/include/linux/kap.h
-new file mode 100644
-index 000000000..8d11d20d8
---- /dev/null
-+++ b/include/linux/kap.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_KAP_H
-+#define _LINUX_KAP_H
-+
-+#include <linux/types.h>
-+
-+#ifdef CONFIG_SECURITY_KAP
-+int kap_check_namespace_flags(unsigned long flags, const char *operation);
-+#else
-+static inline int kap_check_namespace_flags(unsigned long flags, const char *operation)
-+{
-+	return 0;
-+}
-+#endif
-+
-+#endif /* _LINUX_KAP_H */
-diff --git a/include/uapi/linux/lsm.h b/include/uapi/linux/lsm.h
-index 938593dfd..7cb3d64e5 100644
---- a/include/uapi/linux/lsm.h
-+++ b/include/uapi/linux/lsm.h
-@@ -65,6 +65,7 @@ struct lsm_ctx {
- #define LSM_ID_IMA		111
- #define LSM_ID_EVM		112
- #define LSM_ID_IPE		113
-+#define LSM_ID_KAP		114
- 
- /*
-  * LSM_ATTR_XXX definitions identify different LSM attributes
-diff --git a/security/kap/kap.h b/security/kap/kap.h
-new file mode 100644
-index 000000000..bb71b1061
---- /dev/null
-+++ b/security/kap/kap.h
-@@ -0,0 +1,160 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _SECURITY_KAP_H
-+#define _SECURITY_KAP_H
-+
-+#include <linux/list.h>
-+#include <linux/spinlock.h>
-+#include <linux/types.h>
-+
-+#define KAP_TASK_IGROUP_NAME_LEN 64
-+
-+struct dentry;
-+struct task_struct;
-+
-+enum kap_hook_kind {
-+	KAP_HOOK_EXEC,
-+	KAP_HOOK_FILE,
-+	KAP_HOOK_SOCKET_CONNECT,
-+	KAP_HOOK_CRED,
-+	KAP_HOOK_IPC,
-+	KAP_HOOK_NAMESPACE,
-+	KAP_HOOK_DESCRIPTOR,
-+	KAP_HOOK_BPF,
-+	KAP_HOOK_PTRACE,
-+	KAP_HOOK_PROCFS,
-+	KAP_HOOK_EXECMEM,
-+	KAP_HOOK_IO_URING,
-+	KAP_HOOK_LAST = KAP_HOOK_IO_URING,
-+};
-+
-+struct kap_task_state {
-+	bool active;
-+	u64 epoch;
-+	char igroup_name[KAP_TASK_IGROUP_NAME_LEN];
-+};
-+
-+struct kap_task_state *kap_task_state(struct task_struct *task);
-+bool kap_fail_closed_kind(enum kap_hook_kind kind);
-+int kap_check_current_target_why(enum kap_hook_kind kind, const char *target,
-+				 const char **why);
-+int kap_check_current_emit(enum kap_hook_kind kind, const void *object,
-+			   const char *deny_reason, const char *allow_reason);
-+int kap_check_current_target_emit(enum kap_hook_kind kind, const char *target,
-+				  const char *deny_reason, const char *allow_reason);
-+void kap_emit_current_event_target(enum kap_hook_kind kind, int decision,
-+				   const char *reason, const char *target);
-+
-+/* Shared between the policy engine (igroup.c) and the control plane (kapfs.c). */
-+#define KAP_MAX_NAME_LEN 63
-+#define KAP_MAX_ROOT_LEN 64
-+#define KAP_MAX_PREDICATE_BYTES 65536
-+#define KAP_MAX_EVENTS_BYTES 65536
-+/* The install document is the authority plus a few short header lines. */
-+#define KAP_MAX_INSTALL_BYTES (KAP_MAX_PREDICATE_BYTES + 1024)
-+
-+enum kap_file_kind {
-+	KAP_FILE_PROCS,
-+	KAP_FILE_IGFD,
-+	KAP_FILE_LINEAGE_ROOT,
-+	KAP_FILE_AUTHORITY_EPOCH,
-+	KAP_FILE_AUTHORITY,
-+	KAP_FILE_TRANSITION,
-+	KAP_FILE_MODE,
-+	KAP_FILE_EVENTS,
-+	KAP_FILE_EXPIRES_AT,
-+	KAP_FILE_INSTALL,
-+	KAP_FILE_COUNT,
-+	/* Filesystem-wide, not created per igroup, so it sits past the count. */
-+	KAP_FILE_DEFAULT = KAP_FILE_COUNT,
-+};
-+
-+struct kap_igroup;
-+
-+struct kap_file_ctx {
-+	enum kap_file_kind kind;
-+	struct kap_igroup *igroup;
-+};
-+
-+struct kap_bound_pid {
-+	pid_t pid;
-+	struct list_head node;
-+};
-+
-+/*
-+ * Predicates are compiled once at install, so a decision only walks an array.
-+ * Patterns are interned into one pool and referenced by offset, so the whole
-+ * thing is a flat allocation and a decision allocates nothing.
-+ *
-+ * The pool is sized to the authority document itself, so any document that is
-+ * accepted can be compiled: a pattern costs strlen + 1 here and at least
-+ * strlen + 2 in the document because of its surrounding quotes. Each set's
-+ * patterns are laid out contiguously and walked by length, so there is no
-+ * per-set entry limit either.
-+ */
-+struct kap_pattern_set {
-+	u32 offset;
-+	u32 count;
-+};
-+
-+struct kap_compiled_authority {
-+	char pool[KAP_MAX_PREDICATE_BYTES];
-+	u32 pool_used;
-+	struct kap_pattern_set allow[KAP_HOOK_LAST + 1];
-+	struct kap_pattern_set deny[KAP_HOOK_LAST + 1];
-+};
-+
-+struct kap_igroup {
-+	char name[KAP_MAX_NAME_LEN + 1];
-+	u64 epoch;
-+	bool revoked;
-+	bool has_sequence;
-+	u64 last_sequence;
-+	char lineage_root[KAP_MAX_ROOT_LEN + 1];
-+	char authority[KAP_MAX_PREDICATE_BYTES];
-+	size_t authority_len;
-+	/* Expiry in Unix seconds, 0 for none. */
-+	u64 expires_at;
-+	/* Swapped wholesale on a successful install; NULL until the first one. */
-+	struct kap_compiled_authority *compiled;
-+	char events[KAP_MAX_EVENTS_BYTES];
-+	size_t events_len;
-+	struct kap_file_ctx files[KAP_FILE_COUNT];
-+	struct list_head pids;
-+	struct list_head node;
-+	struct dentry *dentry;
-+};
-+
-+struct kap_install_request {
-+	char lineage_root[KAP_MAX_ROOT_LEN + 1];
-+	u64 epoch;
-+	u64 expires_at;
-+	u64 sequence;
-+	/* Points into the caller's buffer, which outlives this request. */
-+	const char *authority;
-+	bool have_root;
-+	bool have_epoch;
-+	bool have_expires_at;
-+	bool have_transition;
-+	bool have_authority;
-+};
-+
-+extern struct list_head kap_igroups;
-+extern spinlock_t kap_lock;
-+extern bool kap_lsm_active;
-+extern bool kap_ready;
-+extern bool kap_default_closed;
-+
-+struct kap_igroup *kap_find_igroup_locked(const char *name);
-+int kap_bind_pid_locked(struct kap_igroup *igroup, pid_t pid,
-+			struct kap_bound_pid **entry);
-+int kap_parse_transition_sequence(const char *payload, u64 *sequence);
-+int kap_install_parse(char *payload, struct kap_install_request *req);
-+int kap_authority_prepare(const char *doc, struct kap_compiled_authority **out);
-+int kap_install_locked(struct kap_igroup *igroup,
-+		       const struct kap_install_request *req,
-+		       struct kap_compiled_authority **compiled);
-+void kap_trim_newline(char *value);
-+bool kap_valid_lineage_root(const char *value);
-+int kap_securityfs_init(void);
-+
-+#endif /* _SECURITY_KAP_H */
--- 
-2.43.0
+Plesse check it. But it is for a difference purpose to what you propose, 
+below. Actually, I am not sure on the motivation.
+
+> 
+> Hardware-capable devices normally prefer hardware atomic writes, making
+> it difficult to exercise the software CoW path deterministically without
+> changing file layouts or affecting ordinary writes.
+> 
+> Add a non-debug force_atomic_cow sysfs control for each filesystem.
+> When enabled, route RWF_ATOMIC writes directly to the existing software
+> CoW path regardless of hardware eligibility. Keep automatic selection
+> as the default and reject enabling the control without software atomic
+> write support.
+> 
+> Sample the setting once per I/O so in-flight requests retain their
+> selected path. Preserve existing validation, completion and error
+> handling, and leave non-atomic writes unchanged.
+> 
+> Report no separate optimized atomic write limit while CoW is forced
+> and document the control's runtime scope and lifetime.
+> 
+> Validation: strict checkpatch passed. Linux kernel build and mounted-XFS
+> runtime tests have not been run.
+> 
+
+Hmmm.. you are just describing what it does. Not why.
+
+> Signed-off-by: Wayne Gao <wayne.gao1@solidigm.com>
+> ---
+> Hi Carlos and XFS developers,
+> 
+> I would appreciate feedback on this proposed interface.
+> 
+> The intended use is a controlled comparison of hardware-backed and
+> software-backed RWF_ATOMIC writes on the same hardware, without having
+> to construct misaligned mappings to trigger fallback.
+
+Why do you want to compare?
+
+> The existing
+> DEBUG-only always_cow control also affects ordinary writes, which
+> changes the workload being compared.
+> 
+> In particular, I would welcome feedback on:
+> 
+> 1. Whether a non-debug, per-filesystem sysfs control is appropriate,
+>     or whether another existing testing mechanism should be extended.
+> 
+> 2. Whether reporting stx_atomic_write_unit_max_opt as zero while
+>     software CoW is forced is the right behavior.
+> 
+> 3. The expected fstests coverage for this control. Intended coverage
+>     includes off/on/off transitions on hardware-eligible writes,
+>     per-filesystem isolation, unchanged non-atomic write routing,
+>     rejection without software atomic write support, and concurrent
+>     toggling with in-flight I/O.
+> 
+> Linux build, mounted-XFS testing and fstests coverage remain outstanding.
+> This RFC is primarily requesting interface and semantic feedback, and
+> does not make runtime performance claims.
+> 
+> Thanks,
+> Wayne
+> 
+>   Documentation/ABI/testing/sysfs-fs-xfs | 42 ++++++++++++++++++++++++++
+>   fs/xfs/xfs_file.c                      |  7 +++--
+>   fs/xfs/xfs_iops.c                      |  4 +++
+>   fs/xfs/xfs_mount.h                     |  1 +
+>   fs/xfs/xfs_sysfs.c                     | 33 ++++++++++++++++++++
+>   5 files changed, 84 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-fs-xfs b/Documentation/ABI/testing/sysfs-fs-xfs
+> index 7da4de948..3d0c88df5 100644
+> --- a/Documentation/ABI/testing/sysfs-fs-xfs
+> +++ b/Documentation/ABI/testing/sysfs-fs-xfs
+> @@ -35,3 +35,45 @@ Description:
+>           outstanding transactions, including regrants due to
+>           rolling transactions in bytes.
+>   Users:         xfstests
+> +
+> +What:          /sys/fs/xfs/<disk>/force_atomic_cow
+> +Date:          November 2026
+> +Contact:       linux-xfs@vger.kernel.org
+> +Description:
+> +               Read-write boolean controlling the implementation of atomic
+> +               writes. The default is 0, which prefers hardware atomic writes
+> +               and falls back to software copy-on-write (CoW) when needed.
+> +               Setting this to 1 forces RWF_ATOMIC writes to use software CoW,
+> +               even when the request satisfies the hardware atomic write
+> +               limits. Writes without RWF_ATOMIC are unaffected.
+> +
+> +               This control is available without CONFIG_XFS_DEBUG and is
+> +               intended for testing and comparing the atomic write paths.
+> +               Enabling it requires software atomic write support (currently
+> +               the reflink feature); otherwise the write returns EOPNOTSUPP.
+> +               Invalid boolean input returns EINVAL. Failed updates leave
+> +               the setting unchanged.
+> +
+> +               The setting belongs to the filesystem instance and is shared
+> +               by all mounts of that instance, including bind mounts. Each
+> +               atomic write samples it once when selecting its I/O path.
+> +               Changing it affects subsequent path selections, including
+> +               writes through already open file descriptors, but does not
+> +               wait for or redirect I/O that has already selected a path.
+> +               Drain outstanding I/O before switching for comparisons that
+> +               require an unambiguous boundary between the two modes.
+> +
+> +               Existing atomic write size, alignment and direct I/O
+> +               requirements still apply. Forced CoW can fail for lack of
+> +               space even when overwriting allocated data, and RWF_NOWAIT
+> +               writes can return EAGAIN. Failures are not retried using
+> +               hardware atomic writes.
+> +
+> +               While enabled, statx reports stx_atomic_write_unit_max_opt
+> +               as 0, meaning that stx_atomic_write_unit_max is the optimized
+> +               limit, with no separate hardware-optimized size range. The
+> +               other atomic write limits are unchanged.
+> +
+> +               The setting survives remounts but is not stored on disk.
+> +               A newly mounted filesystem instance starts with it disabled.
+> +Users:         xfstests
+> diff --git a/fs/xfs/xfs_file.c b/fs/xfs/xfs_file.c
+> index 8070a07e6..6f45b22e3 100644
+> --- a/fs/xfs/xfs_file.c
+> +++ b/fs/xfs/xfs_file.c
+> @@ -787,10 +787,11 @@ xfs_file_dio_write_atomic(
+>       const struct iomap_ops     *dops;
+> 
+>       /*
+> -        * HW offload should be faster, so try that first if it is already
+> -        * known that the write length is not too large.
+> +        * Prefer HW offload unless software CoW is forced or the write length
+> +        * exceeds the hardware limit.
+>        */
+> -       if (ocount > xfs_inode_buftarg(ip)->bt_awu_max)
+> +       if (READ_ONCE(ip->i_mount->m_force_atomic_cow) ||
+> +           ocount > xfs_inode_buftarg(ip)->bt_awu_max)
+>           dops = &xfs_atomic_write_cow_iomap_ops;
+>       else
+>           dops = &xfs_direct_write_iomap_ops;
+> diff --git a/fs/xfs/xfs_iops.c b/fs/xfs/xfs_iops.c
+> index a84a4c1c3..c1720b2c9 100644
+> --- a/fs/xfs/xfs_iops.c
+> +++ b/fs/xfs/xfs_iops.c
+> @@ -664,6 +664,10 @@ xfs_get_atomic_write_max_opt(
+>       const unsigned int hw_awu_max = xfs_inode_buftarg(ip)->bt_awu_max;
+>       const xfs_fsize_t  hw_align_max = xfs_get_atomic_hw_write_align(ip);
+> 
+> +       /* Forced software writes have no separate hardware-optimized limit. */
+> +       if (READ_ONCE(mp->m_force_atomic_cow))
+> +               return 0;
+> +
+>       /* if the max is 1x block, then just keep behaviour that opt is 0 */
+>       if (sw_awu_max <= mp->m_sb.sb_blocksize)
+>           return 0;
+> diff --git a/fs/xfs/xfs_mount.h b/fs/xfs/xfs_mount.h
+> index cbcfb89c6..71f574c21 100644
+> --- a/fs/xfs/xfs_mount.h
+> +++ b/fs/xfs/xfs_mount.h
+> @@ -239,6 +239,7 @@ typedef struct xfs_mount {
+>                           /* low free space thresholds */
+>       unsigned long              m_opstate;      /* dynamic state flags */
+>       bool                       m_always_cow;
+> +       bool                    m_force_atomic_cow;
+>       bool                       m_fail_unmount;
+>       bool                       m_finobt_nores; /* no per-AG finobt resv. */
+>       bool                       m_update_sb;    /* sb needs update in mount */
+> diff --git a/fs/xfs/xfs_sysfs.c b/fs/xfs/xfs_sysfs.c
+> index 4a6a8c92c..b8fead80e 100644
+> --- a/fs/xfs/xfs_sysfs.c
+> +++ b/fs/xfs/xfs_sysfs.c
+> @@ -67,7 +67,40 @@ static const struct sysfs_ops xfs_sysfs_ops = {
+>       .store = xfs_sysfs_object_store,
+>   };
+> 
+> +static inline struct xfs_mount *to_xfs_mount(struct kobject *kobj)
+> +{
+> +       return container_of(to_kobj(kobj), struct xfs_mount, m_kobj);
+> +}
+> +
+> +static ssize_t
+> +force_atomic_cow_store(struct kobject *kobject, const char *buf, size_t count)
+> +{
+> +       struct xfs_mount        *mp = to_xfs_mount(kobject);
+> +       bool            enable;
+> +       int             ret;
+> +
+> +       ret = kstrtobool(buf, &enable);
+> +       if (ret)
+> +               return ret;
+> +
+> +       if (enable && !xfs_can_sw_atomic_write(mp))
+> +               return -EOPNOTSUPP;
+> +
+> +       WRITE_ONCE(mp->m_force_atomic_cow, enable);
+> +       return count;
+> +}
+> +
+> +static ssize_t
+> +force_atomic_cow_show(struct kobject *kobject, char *buf)
+> +{
+> +       struct xfs_mount        *mp = to_xfs_mount(kobject);
+> +
+> +       return sysfs_emit(buf, "%d\n", READ_ONCE(mp->m_force_atomic_cow));
+> +}
+> +XFS_SYSFS_ATTR_RW(force_atomic_cow);
+> +
+>   static struct attribute *xfs_mp_attrs[] = {
+> +       ATTR_LIST(force_atomic_cow),
+>       NULL,
+>   };
+>   ATTRIBUTE_GROUPS(xfs_mp);
+> 
+> base-commit: 5e7b6fe39324913f6416c854c6ed3a1793aaba8e
+> --
+> 2.54.0.windows.1
+> 
+> Wayne Gao
+> Principle Storage Solution Architect
+> wechat: 13636331364
+> solidigm.com
+> 
+> 
+> 
+> CONFIDENTIALITY NOTICE: This email and any files attached may contain confidential information and may be restricted from disclosure by corporate confidentiality guidelines, or applicable state and federal law. It is intended solely for the use of the person or entity to whom the email was addressed. If you are not the intended recipient of this message, be advised that any dissemination, distribution, or use of the contents of this message is strictly prohibited. Please delete this email from your system if you are not the intended recipient.
 
