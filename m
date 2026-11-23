@@ -1,86 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411369;
-	b=qEYJm/jfR8A2cFrXNqeHqCPohF5Vb97/UMbFjIjRRvpw43huH64tZMTmD3s2pyoMIU+H
-	 dV4zkNuSieN1PUkdWmhGwVbYrAyfwJDCzwXi/wnJgQ0hxt99LxWKetSHLKs91lmt2xKxO
-	 Uc4lI/JgayUI2ml97o2cKNakT9KtsscNTFfP8tcviNWRjVGRa4L+JEsitCaOxkMswOKcT
-	 YsREro2MIA8AnxfzfoyVghJCOpqigMN6Tb8H5OyJJNPT2KAzV2AacnUna/KGLucl99Lwr
-	 ioYFBTWfCRPOINtwYMiD/zN05Ql7dSo6MVRmZwg7NE87HNlhpGaRtCN1OTa+0LHV5iw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411369;
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795411393;
+	b=jFem3h0oaHpa3VMexO+wmR5/bqR5OldHyso0JYejs36v8VQXinP186Fh83bDZsVcBXBC
+	 1Ovk9eGCo0TfJ2PZzMXgtV4HYbfmX3+iWBg5T8o8I0f3epQpEj6KoeoujN4hiKegVDugT
+	 DjX5cqxfRywbjwMGsqFIJVot8HRIpXsqI2sZXY6jd45/F8dILXHikhQYnMREfhyBBQ0Fu
+	 S7m9/RnPZc6GgSwFPIe7efGn9ToLFov9TKfhTlCLwzTGIsMckhrZIbTN2eWGVZQ43ehOM
+	 aqG2ayFhKbg8mWFPII2IcyT5kCMBNuqteHin5lEpnA5/EF4iIzZr1lL119TZQ3sphVw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411393;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=3Mldy9DU+r/shbk+s4+9YUnzttoJhNXT94VNGbnnMOg=;
-	b=eOtz42ND3Mq0ezupjOhjtrdZLTTXsD6A8SPJA8hiFCW5lNOw9neA4IvflWWLVUw4l9bE
-	 zvju3z5KRvHZplrGoGnWcmoE/A/s8OyyYqBJUQ0rUAh8YFujBV+75Vd3a3L6c6NG7ghYI
-	 o9o1170n3eKu9zqpsYlYLkKl0L2fzyCfMCRw1Ol5/UUv0TL++WoPXtjs5KvWWqG0Outz8
-	 bb65IDHETDnCva97d+4SKkfIaRWuoQe+VrYOubUU8DO1f21RS+csXyotlTvC8XIzmpZ+C
-	 Ayjcr3Ng8kytlB5XImSTMLXmNcCoS1Ph3QvXSiV/0n2OLGDWwjQlhZx+S4LuXa8L9ag==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Y5ecd6Ig;
-	arc=none smtp.remote-ip=209.85.208.50
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+	b=U/v/7YzeqCE80K42H7pIZQCw5xv0kM+R7i9yOoI69Vp+aoFI5dNlBbr5wxBK+pEkdnyG
+	 WFDE6SLwu3oZoG8Lcxl/lr8xsw41qNdOmqSxcsWoZLJchVhHahbXg2P6SUNaItPXDguWY
+	 534qL3SXfh36sX0pl665Hdh2r0dD5/tiFPFvdlq7dzabvpJfSGHun9LPaKnaQP7a7hKL5
+	 YNsYxxe6ysYmxwnccpLw7AsAj36GFoppUhrrfUbtwV0zjKeiPrGIdTnRQ9iH9wUKr9DaB
+	 hvQtAlFy+44BQ52iDxYg1CYCWtTojDQQLhmz/k8sbZfxYwwuT+iUlspPfUjorPJF57A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mwj+h2QP;
+	arc=fail smtp.remote-ip=209.85.208.171
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75840606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:22:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75840606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6CB3606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:23:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6CB3606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Y5ecd6Ig
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6ba863fc3e7so34754a12.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:22:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mwj+h2QP
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3acd239776cso23995401fa.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:23:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795411391; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JLzoJlbG8Hh5Dn/EqQaGaZkHe8yXGp97qSiu53cnAYVxmccM8qVuBcLx01FKecEqYN
+         1YgQsfsNc11vUKoEf5YBeKDPALWbqWS829uxiMaHPwVHct+GtavQRohijeMRQWxdOst9
+         whMJvhJMgay5B8qNvpyk94jO6xkidHovOjDIwhyfkJzCn2ztG+O/KlwR8dIXGoaz168o
+         XMQSV6mxQ5VIBZyJF3uQD6mmkeQgJSaeB1TGKvWkIoQZ4MvV6hm32w6Z/l8Ua/LXxLed
+         /APAHhikGGI9HN+DqML3BHg1YNqVMje0gcPhNWpAK3XKwFoDsG3Clt1kE5pK4AjU8BpS
+         NKhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+        fh=XWPvn4cFsSv/Ir/rltVZ8vbZWEUqBuV+rSqM+Rh8e3A=;
+        b=JHQFgPpdx1zVgLvBF8OCATiPuZLCvJgEUBj/4qIJ/b3Ee6/1MJ/zopja/kzdqBy8RN
+         KEmKGj6CFolbymlfGfKuPzGqNmkSyKeDDk1kp50hEJqJ2oLxgtlqfVYTikmcnhi7u6Tv
+         SHioopsjqSb+huFjr2ne9LR4QGbm/FBhiGsNxo3V9sBeHzLWAlWV7cluMF9PrnovfxEB
+         M3X14agNKONGA2HKCdf0itHsj/0wRAssnK8JczV5Z12cDVwagHW16ODie4PVBAyx3SS6
+         Ut05M6Y6iAhOgrhRmK55eAtvTdW7htIzegHfIjenz/oxnxVdsLoq8OSitR2dAgIy8b19
+         WiZw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795411367; x=1796016167; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3Mldy9DU+r/shbk+s4+9YUnzttoJhNXT94VNGbnnMOg=;
-        b=Y5ecd6IgOORDYZiXDrRsUypNd+hLpT4rCC0ZcWtfk05oBsH8VwRKvXB7/pSNSJ0Ndu
-         6U+DW0Tm6Yi9UhIaEbL8BHtpz1fFTv4vNNbHj0/X/N76aaMOh06H3NQV2bGkxS1OOzY2
-         udtlVPyN8wZjNB3dlVIh0QfD4/R8KG2fIYtsaf1ON9qwlFAa+JdQZRAKQOFp1Jtu53On
-         qb95y7IyTFRODMXf9e0GLsexX/UtN9sWnZTy5q3oLMi5WjVg3YZQOFRk7PM5m6OaSkFw
-         zaT3gV8UKRpvHh/bRjB/IjN1n5F4peH+NeDnmyIgVH4VWd4j6B/+YfFbbiUtlFAOB94t
-         YUNw==
+        d=gmail.com; s=20260707; t=1795411391; x=1796016191; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+        b=Mwj+h2QPeqw6v8be7H58zceYRBdzZKvfvq6oyrHUkdqisW9TaJtZ0tgOg8vu8BUm+U
+         UGIgY+DOf/aBCpAuS7FdqHskAk5H7OoxMjs0C09FknECuTQpq94Vd5xm2Ym1rmF7rCbn
+         GNCHoF1hhDNLi4QT8By+TMCzderkFrpAUFR0LoI6wO8XBa7XsXwnhZ0zp7y/qUmu8GWN
+         6fMXid99IZUF7kVzgl7PkDVjCS0IDGbU+kdw/mwgLopOuFk1nIpQPLh4b0LOPHcZVJXC
+         VqObrIJYOOnc4980Dbz+DGtQ6h0LLXjARtrDzNddjPsUfP59MXLzpLp9r3SpjWB8jvPC
+         plpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795411367; x=1796016167;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3Mldy9DU+r/shbk+s4+9YUnzttoJhNXT94VNGbnnMOg=;
-        b=D3o0t1nx8KPEMn9+ZfNSyJeWddnUQH24pTIgCyyG0BHpmRvZn4z6IX7zRsOPH9CSkg
-         +9+DfENYJPxbimjJc1+Vw35WZqPeMYkqXtPX5UfyddAnKZZRY8LrnqZ7vd7mwKqa/fR+
-         A0Br4JuGe2qMT6lo/rlI5yVN50Kvd5HqHGLgsCphTBeq92pwTGs/N3kxSawrw38egRnk
-         MpBTXAtSBqMmvsgEWSIPdLLsAJbV/RE1DPPgpJXyLtCvy4CnZL30R31q17Ah1/eltmI7
-         P0TNM7JUfPvwECPQI4n5XVMSnw2kwTrUDEZozI32d3lLuwfLcJgMw6CaXVJlolUfmOvL
-         NNqA==
-X-Forwarded-Encrypted: i=1; AL+hErGOMobDw7pQO5Z5f37HBVzMQuQTqlFXV5kAm0n3sR/T+Tmz9QXJDoeXNLFyZgsBVuyATlJUuAC4QEqoYo0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Ffld7VZhnJyzVxf3cycnh74GFdWHbRuaXppTtEPyOBjh8Wzxx
-	kP8LTmEdCje/XxvqQU2fIe+kdX9ZRAHIP8T1GjTSVXjnFWzehN2dreq+ChyJeDQTv84=
-X-Gm-Gg: AZFdTZf7TYHFi8kcgPSiwx+7GwbhWPCqhPZr1LIJF31S/SLo6JWOPnGjfz8BxgT3diZ
-	/seKVC8ypWabQQ1CCCLmvC0qpZX2kK68YxQuOtxSMTK+J44tFNZO8tjeSgYATd14HePeKQqGb3E
-	rAQ8BnoE6IUODeKRKLrh4mup2jR6b9ETRURyN1Xl90SQ91S2DUuJZ2SChYlZeTYJeQViAA9ueh9
-	dU+soDn/x6o3pVoaradW1OyuuvKHKBxHwedQMxuEES4Rgx0GY8ynuol8JYUu0p5LHMjr5PkQYN4
-	a3NYbgSOvdwZg2jB2sOTM6cSRNpGTOEc06Qm9ZdGK2fUBBe8xGiWQPUkt+xGg3dTkMOJwtbzgK0
-	LzFqI94V59n294YTn2sCK4eO14/HvuXB0vwYIDptXmNQZggrVEh8nkU8LPFuodgmWfeV1fMA4fg
-	rqw8Hza961NLyycgSsknqonW/TNLkUL7R+w4pZSgCXBGFWfhnJ5l28NzVcgjy0zNn1KP5Q3zIFU
-	JMKvXQxFbpFO1b8aWO6JQo431kSdt8qRMfbwXDfLn7Ayq+uVEpgckyE3vcA+ujk0ELUlAv8iUSB
-	2IjDJFaBYnenXoF0rVTPM6ENbftZH0Nf63Y=
-X-Received: by 2002:a05:6402:90d:b0:6b7:dace:635d with SMTP id 4fb4d7f45d1cf-6ba37ac9214mr8144108a12.0.1795411366855;
-        Sun, 22 Nov 2026 21:22:46 -0800 (PST)
-Received: from [10.202.112.30] ([202.127.77.110])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1aa3sm45726785ad.21.2026.11.22.21.22.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 21:22:45 -0800 (PST)
-Message-ID: <d233c82d-4723-477e-b51b-4beaee503082@suse.com>
-Date: Mon, 23 Nov 2026 13:22:40 +0800
+        d=1e100.net; s=20260707; t=1795411391; x=1796016191;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zj1KMJVaKNaumg9rUcx+XITIlfu/2H9J2RhD6HuzcNQ=;
+        b=Egd1otGjNI1tvE0PJnfexL/UwsgZmitG4AGrCTV1R8ksV4D58eCjL03i3+g1uFPZ88
+         lJ2WGC3J5QyNuifUWLDLO9DZjL96MIWH0W/XqjlQ++4KLaLmA+j1qSx6nKMLtoeRjkyB
+         pEbMT28NIpxym5UTcVAJk0udUs4pgh8s1tEaDhGJ4AqfaS4+URTQ73tCE0RD10LqCUa/
+         T+HW6IiUYTg0hlsPVaDVhy08gvEUPH7jSrSE7G+PPQRnoFghbsqkKamTqo18hRcvKdBX
+         KCDKJywCcc9TdyhrIlcsnJD8e0wysoIkgfwC0VtKY1FfmEllXSI0e8IK7l9Mxh7YHXkJ
+         SX1Q==
+X-Forwarded-Encrypted: i=1; AL+hErH0+kvzX3E0OGdvCA0ejGnv7izDCF/DXwBAHe1YumQMfItByPxMXeAKDwMMHsluj7Yrt+Jo0oWuyWE4pwk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zyZTckjhehBZnNeeAXws236l94mUtkwjYRxpXAC4uBGT3yTQL
+	48/HCWPwBM3GBJJz3+Q7r5DfUGbr4GCeK1Xipxapt0+o2/B3aIsXDim+Y52SvKpvKyc5wOWi7Uh
+	aXkwTNDM1SRG34EkvAssxd6zK3QE7nkg=
+X-Gm-Gg: AZFdTZdcQm9wbMVyNLxelH0MuzAHPqlHU18RlOxnsHfxF1NDxEgFkJPRNB+IjQDVkbq
+	gEbnRf1iRpcM/liC/nHkI1QfTvkxIG7xXVJUkkhV781PugymL0tf9U2wL99k+e6iCzA4vdBzhel
+	S9Ca1VJuCWBTxMxHvFI/szaODnlXxH+LgDFsyfB1kL3AFSTjIyJ3cagc9qiVQCbtiHuvIQXleiM
+	ReqHKyudYX1PNGNF4fHqBKAuyn/bWuo6I2o2Q24i6r+HTR2t0rLeonSkx74QkGpcluM/UcA1zti
+	HZk+ky8qFQrlZPe6LmTYrTW8Zewb7nByEL5aUruN5Oy4t3mY0tZ0YPgvEqQG76uFFmETrQybSw0
+	5ebW71x96HMlkKk/yP3zWXEYUy9J2in0StKjZmeenMcNzkJ9D8xK5P+/Q0ow=
+X-Received: by 2002:a05:651c:4186:b0:3ac:efb1:6def with SMTP id
+ 38308e7fff4ca-3ae7f9f7df0mr23250971fa.12.1795411390729; Sun, 22 Nov 2026
+ 21:23:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,49 +103,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v9 1/3] ocfs2: Add new ocfs2_map_blocks() to introduce
- iomap feature
-To: Joseph Qi <joseph.qi@linux.alibaba.com>, Christoph Hellwig <hch@lst.de>
-Cc: mark@fasheh.com, jlbec@evilplan.org, ocfs2-devel@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261120060014.12087-1-heming.zhao@suse.com>
- <20261120060014.12087-2-heming.zhao@suse.com> <20261120183415.GA2450@lst.de>
- <85cd5f2f-5b08-4aa5-9b4d-7e271d021c1e@linux.alibaba.com>
-From: Heming Zhao <heming.zhao@suse.com>
-Content-Language: en-US
-In-Reply-To: <85cd5f2f-5b08-4aa5-9b4d-7e271d021c1e@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261106054811.281798-2-oss.patchbox@gmail.com> <add2bfe5-0d8a-4b64-a8dd-5e02be00e425@oracle.com>
+In-Reply-To: <add2bfe5-0d8a-4b64-a8dd-5e02be00e425@oracle.com>
+From: Yuho Choi <oss.patchbox@gmail.com>
+Date: Mon, 23 Nov 2026 00:22:57 -0500
+X-Gm-Features: Aa3M54o18bPzB_y6cN5ZyBXSDft40ObSb8CAiNsU_ZagFcTkH4vNqu9TTbhSp9U
+Message-ID: <CAGG=RgDLSueREjeeyw09oo8ttLHN2VYUC0qEDv+HYFUrSo0LdA@mail.gmail.com>
+Subject: Re: [PATCH v1] vhost-scsi: do not validate vrings during endpoint teardown
+To: Mike Christie <michael.christie@oracle.com>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Stefan Hajnoczi <stefanha@redhat.com>, 
+	=?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
+	virtualization@lists.linux.dev, kvm@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/22/26 22:29, Joseph Qi wrote:
-> 
-> 
-> On 11/21/26 2:34 AM, Christoph Hellwig wrote:
->> On Fri, Nov 20, 2026 at 02:00:11PM +0800, Heming Zhao wrote:
->>> As part of migrating OCFS2 DIO read/write code paths towards the modern
->>> and performant iomap framework, here introduces ocfs2_map_blocks() to
->>> replace the legacy, high-overhead buffer_head based block mapping
->>> routines.
->>
->> Do you have numbers to antiy the high overhead?  Or should this be toned
->> down a bit?
->>
->>> In addition, OCFS2_MAP_* flags are defined to gridge OCFS2 internal block
->>> mapping flags with the iomap API requirements.
->>
->> "gridge"?
->>
-> 
-> I think it is a typo for "bridge".
-> 
+Thanks for the review!
 
-Yes, bridge.
+On Sun, 8 Nov 2026 at 14:05, Mike Christie <michael.christie@oracle.com> wrote:
+>
+> Can you describe the bug a little more?
+>
+> If we have done vhost_scsi_set_endpoint successfully, are you saying a later
+> call to vhost_scsi_clear_endpoint could fail the. vhost_vq_access_ok check
+> and not teardown the endpoint?
 
->> Otherwise looks good:
->>
->> Reviewed-by: Christoph Hellwig <hch@lst.de>
-> 
-> Reviewed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
-> 
+Yes, the first case is what I meant. Sorry for not explaining the
+failure path in the commit message.
 
+Since a543346b96a1 ("vhost-scsi: reject delayed virtqueue setup"), I/O
+virtqueues that are not configured when SET_ENDPOINT is called remain
+without a backend.
+
+VHOST_SET_LOG_BASE validates the new log base only for virtqueues with
+a backend. Therefore, an invalid log base can be stored in an inactive
+virtqueue even when the ioctl returns -EFAULT. A subsequent
+CLEAR_ENDPOINT then fails vhost_vq_access_ok() and skips teardown.
+
+I reproduced this on current mainline (8dac6df92a2e) with KASAN, with
+the following sequence:
+
+  VHOST_SET_OWNER
+  VHOST_SET_FEATURES(VHOST_F_LOG_ALL)
+  VHOST_SET_MEM_TABLE
+  Set up vq 0, 1, and 2 only
+  VHOST_SCSI_SET_ENDPOINT             -> 0
+  VHOST_SET_LOG_BASE(kernel address)  -> -EFAULT
+  VHOST_SCSI_CLEAR_ENDPOINT           -> -EFAULT
+  close()
+
+After close(), tpg->vhost_scsi still points to the freed vs. Linking
+another LUN triggers a KASAN use-after-free in vhost_scsi_do_plug().
+
+I also reproduced the in-flight command UAF described in the commit
+message. A delayed READ completion after close() triggers KASAN in
+vhost_scsi_release_cmd(). The READ has to be queued after the
+VHOST_SET_LOG_BASE call, because device ioctls flush in-flight
+commands.
+
+With the patch applied, both reproductions complete without KASAN
+reports, and endpoint teardown succeeds.
+
+Without a successful SET_ENDPOINT, no command can start, so the second
+scenario you mentioned is not what I meant.
+
+I can share the reproducer and full KASAN reports if useful. I'll
+include the failure sequence in v2.
+
+Thanks
