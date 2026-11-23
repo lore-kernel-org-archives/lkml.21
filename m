@@ -1,77 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.107
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795457627;
-	b=pgYoS48fgpKXwZuQaXcohlwbu6DXEBOSC0wgNIDmxz+q89H4vVsebjMQfC9GVkbBXXH+
-	 BsgKBOtnrdLOFPso1Bqxi3eZZwaMMUHGrWjx2YJ/rA3MDllQUcXHgMbNXb1Dj6+tHp/cE
-	 aWUB63JBTU9F18stdgEKV5jkE1d7IQxbc3zQDziTm9OLlulLhvV94tSa2Q0PAVgyJvu3C
-	 OvX+GVxjrNprGEICynvsdXCUUVPBSrjMXA8qHOk13ZJuk9MRjfyZeOERnPjxd0+PWkvMq
-	 axZy+aFvAEtDve98WiacoxxyGSPOOB/dDQXJlzY+FSo9IKwAzvkBzYOoifql4YLC2og==
+	t=1795457679;
+	b=HGLfKSrnsvIX6YR08PKJkNdkwdJuFIXRlw2IP++a338mPqT1hhD/sswd/Wvhyl5PVyy8
+	 wXjRZoCBTcy+529rRJo1l/Sk8vL8MXqMANDXdFKgXTzkaYOLx98p8MiWPbj3ui40B17XA
+	 PKI73FVJmxgWJ6dDsqVBJ+rTo1wWXGgeiKDA0iIm4lcdBcCcMDBUiMvdMzAVF5JRsIyKL
+	 0ErdUQpXcoHWkdHn4aqoC2vefsAy7ZtNi0x04zxP+51I9UoVjJFYxHz15neRcGu/3luV0
+	 hGO0l4vhzOIjRZYPRg5xoi5fpjF1Ht3gX0Ojb2sLvO8W8ILk56AJ7fPslCL6Kw68KbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457627;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=x0kr1cDZLM2J/Od71XUbuvFQlM07AOKq8fnDsRaeOtU=;
-	b=OWnz5Xd/WCRrd5YD8/oTU1EQ2vZJtQl4DL2MHo+JsqC2F2J12mZWh76CAkw+9unrEws+
-	 bI0d0poqe/0mi9ifXDNebs7Ad0nuiAqUJ0USlbB3I++Sab6Q7PCci+/+H2ZcdZOdOoK4I
-	 GpREpwTHL5IoXTWX+6PaVpUT/+k6/ivo5dUDj+g3U5ZWJ+HjmyooZ0x2RlSLigLaTVy7u
-	 d9++q10Yek05QqBqUnPo6oETJ1/CG30YigqeS/2l4G5FWvEzoY42arqg3Iz5D7lXzX2qn
-	 JwK+U1ak2T9a17IEMa5G+YLwwZ51ZtJU2xJgMrgZqb5/lA1hwUFXwwl1UEfa1pdpvvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457679;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=KZh03sQcNOrqV7JEiw95hkpukQ6zvsmGeYXVI4FeVzw=;
+	b=VcnkKaYZKkFTuuKql0HyRMTUDp6Yd00PgPzb3y1Ft+PdqYkUXrCE22lGZTvrnY/0Uvvy
+	 N8yWQAU7J3Fo5ah2Gmd6Lf/oGfXiBCGJiJmCCAt8chpzIx09SRSprCRUActmZhNobP7jG
+	 IpIY16i1Ws0+a2eshsaSJzo5Pe+ONrguStEiprB3ZIOtRfG1p02HI+P+t3Zn/L2nPT/uD
+	 WE/LiUdJ7u3r9EoR7vGc/WFw2PywmeY0clmaca0JwtLXVtekTakStysPC3lH0daD0Vgp+
+	 +8KI2v0ar+yhlDa19hZOl7ygbALdJMLQ7EZ8xI6sUygh+HbBtUEYasP9HFAS9YQCX3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=onurozkan.dev;
-	spf=pass smtp.mailfrom=onurozkan.dev;
-	dkim=pass header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=gFPI4GSc;
-	arc=none smtp.remote-ip=109.224.244.107
-Received: from mail-244107.protonmail.ch (mail-244107.protonmail.ch [109.224.244.107])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.160.72
+Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78F72606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:13:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78F72606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=onurozkan.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=onurozkan.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=gFPI4GSc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onurozkan.dev;
-	s=protonmail2; t=1795457620; x=1795716820;
-	bh=x0kr1cDZLM2J/Od71XUbuvFQlM07AOKq8fnDsRaeOtU=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=gFPI4GSceUGJhtUhlapm287AolRPmbwLr5a1cW2eyfZonamk0YS4kTzo1GbwAYpq0
-	 E/ZrAClPeggrU84oX23s9ZvSte8XqnGyFJn1scVmTa1UMhPGQkGSGZhydEippq/C8c
-	 wcjdLmEUMC8XWPF24oxh7K30ERPqU17T6e+RVD0jd6wWHkTkStQ6mGCr5N2jW2dWb1
-	 4Htenj2vXj1CXO4PLfvx1OI1Dru0wdXCeyHnPVig1lDatGcqcdyptoH8MxiCSWhkWt
-	 qfd7hoxpPP5o4to0RA5Pw008DI8zMMjjDhecCntf12IV0yZb8Dh0tjnXf9EOfz/ioO
-	 pw+4dCB4ZwcXA==
-X-Pm-Submission-Id: 4jYDb42p0Qz1DDKY
-From: =?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>
-To: Laura Nao <laura.nao@collabora.com>
-Cc: Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	kernel@collabora.com,
-	Onur Ozkan <work@onurozkan.dev>
-Subject: Re: [PATCH v7 1/3] drm/tyr: add HwGate::try_access_atomic()
-Date: Mon, 23 Nov 2026 21:13:31 +0300
-Message-ID: <20261123181334.18856-1-work@onurozkan.dev>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20260728-tyr-irq-v2-v7-1-4e172e58e28c@collabora.com>
-References: <20260728-tyr-irq-v2-v7-0-4e172e58e28c@collabora.com> <20260728-tyr-irq-v2-v7-1-4e172e58e28c@collabora.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C8D606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:14:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90C8D606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-45e6091d8a1so2634876fac.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:14:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795457677; x=1796062477;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KZh03sQcNOrqV7JEiw95hkpukQ6zvsmGeYXVI4FeVzw=;
+        b=s3OrQMK8iEsdPPeS4jh6wv8DhRy5J6lpmxGUec3KWE0KgRpeNMhylZhe8cLgP3ScQw
+         7JH20dlDx1DSelBmyFSfoaiKAffXASX0Efqo0uHPi5j5V4TL7St4CK9NR4mPEufSVwbT
+         yRzdzKgaNcnkSgMKuAMg4rUqzOlwVEb2i+zgjuk4ZaPJLSe8MtMYtYKZI7u/9tvR8EgS
+         NvyzdPvKpMNOl963iBdCE7Zr7ctzm6mpox+u+GI/bv7cKd+hbR09Ghvd7EFHoSFJSPsx
+         irL++XRiN+pail9T2lwQDktGlGSd8IDLAXxgisN/Pg5mnrafzkdruW6KI+qmZ9tcSvS7
+         0LVQ==
+X-Forwarded-Encrypted: i=1; AL+hErHpybU2kuDjJDPR0SX1OUis4VDtKMIFYgQFfcjx2rjFTeaZUEm0LH4F3lOEa8JiCAr+G8IA6QHGsKWGEew=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++qUh2GBkMYyWDLlabIGvs1X7bwmma7DUHxH31k5iBF0sTkKeV
+	I8QUG/6YLi4VI130b9gDqsWNV0q6Fsa6f+8xrb0Vivo6gZ2Tfmr5TubH1JBeTIVCH74Z1cMIJQ+
+	5YSQFfr4wg6R6jgzg2ftGmY3kDtchpm61SYsQIBgJjZYUNKmQRy59CfWcRBQ=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,171 +58,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-Received: by 2002:a05:6808:11c4:b0:55c:8ee:a9c4 with SMTP id
+ 5614622812f47-57a0b6440efmr13263691b6e.43.1795457677642; Mon, 23 Nov 2026
+ 10:14:37 -0800 (PST)
+Date: Mon, 23 Nov 2026 10:14:37 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
+Subject: [syzbot] [net?] KCSAN: data-race in fq_pie_reset / pie_calculate_probability
+From: syzbot <syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com>
+To: davem@davemloft.net, edumazet@kernel.org, horms@kernel.org, 
+	jhs@mojatatu.com, jiri@resnulli.us, kuba@kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, 23 Nov 2026 15:58:45 +0100=0D
-Laura Nao <laura.nao@collabora.com> wrote:=0D
-=0D
-> From: Daniel Almeida <daniel.almeida@collabora.com>=0D
-> =0D
-> HwGate::access() takes gate_lock, which is a mutex, so it cannot be=0D
-> called from atomic context. IRQ handlers need to access the GPU=0D
-> registers, and those are only reachable through the gate.=0D
-> =0D
-> Add HwGate::try_access_atomic(). It enters SRCU without taking gate_lock=
-=0D
-> and returns None if the reset worker has closed the gate. close() now=0D
-> sets a closed flag before waiting for SRCU readers, and HwClosedGuard=0D
-> clears it when dropped. SRCU guarantees that a reader either sees the=0D
-> flag set or is waited for.=0D
-> =0D
-> An IRQ handler that gets None cannot acknowledge its interrupt, so its=0D
-> interrupt has to stay masked while the gate is closed. Document this on=0D
-> close(). No caller needs to do this yet: the only reset runs at probe,=0D
-> before any IRQ handler is registered.=0D
-> =0D
-> There are no users yet. The Job IRQ handler will be the first one.=0D
-> =0D
-> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>=0D
-=0D
-LGTM=0D
-=0D
-Reviewed-by: Onur Ozkan <work@onurozkan.dev>=0D
-=0D
-> ---=0D
->  drivers/gpu/drm/tyr/reset/hw_gate.rs | 55 ++++++++++++++++++++++++++++++=
-++++--=0D
->  1 file changed, 53 insertions(+), 2 deletions(-)=0D
-> =0D
-> diff --git a/drivers/gpu/drm/tyr/reset/hw_gate.rs b/drivers/gpu/drm/tyr/r=
-eset/hw_gate.rs=0D
-> index 201f8c953078..40b38f07c472 100644=0D
-> --- a/drivers/gpu/drm/tyr/reset/hw_gate.rs=0D
-> +++ b/drivers/gpu/drm/tyr/reset/hw_gate.rs=0D
-> @@ -6,10 +6,18 @@=0D
->  //! access with reset. Readers hold the mutex while entering SRCU, then =
-release=0D
->  //! it before accessing hardware. The reset worker holds the mutex while=
- waiting=0D
->  //! for admitted readers and resetting hardware.=0D
-> +//!=0D
-> +//! Readers that cannot sleep use [`HwGate::try_access_atomic`] instead.=
- It=0D
-> +//! enters SRCU without taking the mutex and fails if the reset worker h=
-as set=0D
-> +//! `closed`, which it does before waiting for readers.=0D
->  =0D
->  use kernel::{=0D
->      prelude::*,=0D
->      sync::{=0D
-> +        atomic::{=0D
-> +            Atomic,=0D
-> +            Relaxed, //=0D
-> +        },=0D
->          new_mutex,=0D
->          srcu,=0D
->          Mutex,=0D
-> @@ -32,6 +40,9 @@ pub(crate) struct HwGate<'hw> {=0D
->      /// Drains readers that entered before the reset worker acquired `ga=
-te_lock`.=0D
->      #[pin]=0D
->      srcu: Srcu,=0D
-> +    /// Set while the reset worker owns the hardware. Checked by readers=
- that=0D
-> +    /// cannot take `gate_lock`.=0D
-> +    closed: Atomic<bool>,=0D
->  }=0D
->  =0D
->  impl<'hw> HwGate<'hw> {=0D
-> @@ -41,6 +52,7 @@ pub(crate) fn new(iomem: IoMem<'hw>) -> impl PinInit<Se=
-lf, Error> {=0D
->              iomem,=0D
->              gate_lock <- new_mutex!(()),=0D
->              srcu <- kernel::new_srcu!(),=0D
-> +            closed: Atomic::new(false),=0D
->          })=0D
->      }=0D
->  =0D
-> @@ -60,15 +72,45 @@ pub(crate) fn access(&self) -> HwAccessGuard<'_, 'hw>=
- {=0D
->          }=0D
->      }=0D
->  =0D
-> +    /// Enters a reset-sensitive hardware-access section without sleepin=
-g.=0D
-> +    ///=0D
-> +    /// Returns `None` while the reset worker owns the hardware, in whic=
-h case=0D
-> +    /// the caller must skip its hardware access.=0D
-> +    #[expect(dead_code)]=0D
-> +    pub(crate) fn try_access_atomic(&self) -> Option<HwAccessGuard<'_, '=
-hw>> {=0D
-> +        let srcu =3D self.srcu.read_lock();=0D
-> +=0D
-> +        // `close()` sets `closed` before waiting for readers, so SRCU g=
-uarantees=0D
-> +        // that this reader either sees it set or is waited for.=0D
-> +        if self.closed.load(Relaxed) {=0D
-> +            return None;=0D
-> +        }=0D
-> +=0D
-> +        Some(HwAccessGuard {=0D
-> +            gate: self,=0D
-> +            _srcu: srcu,=0D
-> +        })=0D
-> +    }=0D
-> +=0D
->      /// Stops new readers and drains admitted readers for the reset work=
-er.=0D
->      ///=0D
->      /// Callers must serialize write-side access. The reset controller's=
- state=0D
->      /// machine provides that serialization.=0D
-> +    ///=0D
-> +    /// An IRQ handler that uses [`HwGate::try_access_atomic`] cannot ac=
-knowledge=0D
-> +    /// its interrupt while the gate is closed. Callers must mask such a=
-n=0D
-> +    /// interrupt before closing the gate and keep it masked until the g=
-ate=0D
-> +    /// reopens.=0D
->      pub(super) fn close(&self) -> HwClosedGuard<'_, 'hw> {=0D
->          let gate_lock =3D self.gate_lock.lock();=0D
->  =0D
-> -        // Holding `gate_lock` prevents new readers from entering SRCU. =
-Readers=0D
-> -        // admitted before us are enrolled, so wait for their read-side =
-work.=0D
-> +        // Stop `try_access_atomic()` readers. This must happen before w=
-aiting=0D
-> +        // for readers below.=0D
-> +        self.closed.store(true, Relaxed);=0D
-> +=0D
-> +        // Holding `gate_lock` prevents new readers from entering SRCU t=
-hrough=0D
-> +        // `access()`. Readers admitted before us are enrolled, so wait =
-for their=0D
-> +        // read-side work.=0D
->          self.srcu.synchronize();=0D
->  =0D
->          HwClosedGuard {=0D
-> @@ -104,3 +146,12 @@ pub(super) fn iomem(&self) -> &IoMem<'hw> {=0D
->          &self.gate.iomem=0D
->      }=0D
->  }=0D
-> +=0D
-> +impl Drop for HwClosedGuard<'_, '_> {=0D
-> +    fn drop(&mut self) {=0D
-> +        // Reopen for `try_access_atomic()`. A reader that races with th=
-is and=0D
-> +        // still sees `closed` set returns `None`, as it would have befo=
-re the=0D
-> +        // store.=0D
-> +        self.gate.closed.store(false, Relaxed);=0D
-> +    }=0D
-> +}=0D
-> =0D
-> -- =0D
-> 2.39.5=0D
-> =0D
+Hello,
+
+syzbot found the following issue on:
+
+HEAD commit:    b6a9fa34ce41 Linux 7.4-rc4
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=118e58e9580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
+dashboard link: https://syzkaller.appspot.com/bug?extid=00f5a4ef4bcb8f4d19f1
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+
+Unfortunately, I don't have any reproducer for this issue yet.
+
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/1cd533522ae8/disk-b6a9fa34.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/19d6c1c369e3/vmlinux-b6a9fa34.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/dfb541770724/bzImage-b6a9fa34.xz
+
+AI-generated root cause summary:
+During qdisc teardown in `dev_shutdown()` -> `qdisc_put()` ->
+`__qdisc_destroy()`, `qdisc_reset()` calls `fq_pie_reset()` without holding any
+qdisc lock and before `fq_pie_destroy()` stops `q->adapt_timer`. Moreover,
+`shutdown_scheduler_queue()` has already replaced `dev_queue->qdisc_sleeping`
+with `&noop_qdisc`, so `fq_pie_timer()`'s call to
+`qdisc_lock(qdisc_root_sleeping(sch))` acquires `noop_qdisc`'s lock rather than
+`sch`'s lock. As a result, `fq_pie_timer()` -> `pie_calculate_probability()`
+runs concurrently with `fq_pie_reset()`, racing on `pie_vars_init()` writes to
+`flow->vars` (specifically `vars->accu_prob` and `vars->avg_dq_rate`).
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=00f5a4ef4bcb8f4d19f1
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
+
+==================================================================
+BUG: KCSAN: data-race in fq_pie_reset / pie_calculate_probability
+
+write to 0xffff88811d293640 of 8 bytes by task 13 on cpu 1:
+ pie_vars_init include/net/pie.h:103 [inline]
+ fq_pie_reset+0x11e/0x1d0 net/sched/sch_fq_pie.c:552
+ qdisc_reset+0x51/0x2e0 net/sched/sch_generic.c:1118
+ __qdisc_destroy+0x60/0x220 net/sched/sch_generic.c:1157
+ qdisc_put net/sched/sch_generic.c:1189 [inline]
+ dev_shutdown+0x2e0/0x390 net/sched/sch_generic.c:1558
+ unregister_netdevice_many_notify+0x999/0x15e0 net/core/dev.c:12761
+ unregister_netdevice_many+0x19/0x20 net/core/dev.c:12845
+ ops_exit_rtnl_list net/core/net_namespace.c:188 [inline]
+ ops_undo_list+0x21d/0x410 net/core/net_namespace.c:249
+ cleanup_net+0x38d/0x5e0 net/core/net_namespace.c:713
+ process_one_work kernel/workqueue.c:3495 [inline]
+ process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
+ worker_thread+0x56c/0x770 kernel/workqueue.c:3659
+ kthread+0x248/0x2a0 kernel/kthread.c:436
+ ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+write to 0xffff88811d293640 of 8 bytes by interrupt on cpu 0:
+ pie_vars_init include/net/pie.h:103 [inline]
+ pie_calculate_probability+0x425/0x4c0 net/sched/sch_pie.c:417
+ fq_pie_timer+0xf6/0x1d0 net/sched/sch_fq_pie.c:403
+ call_timer_fn+0x36/0x280 kernel/time/timer.c:1749
+ expire_timers kernel/time/timer.c:1800 [inline]
+ __run_timers kernel/time/timer.c:2375 [inline]
+ __run_timer_base+0x40c/0x610 kernel/time/timer.c:2387
+ run_timer_base kernel/time/timer.c:2396 [inline]
+ run_timer_softirq+0x31/0x70 kernel/time/timer.c:2406
+ handle_softirqs+0x109/0x310 kernel/softirq.c:669
+ __do_softirq kernel/softirq.c:703 [inline]
+ invoke_softirq kernel/softirq.c:542 [inline]
+ __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
+ sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
+ __preempt_count_dec_and_test arch/x86/include/asm/preempt.h:123 [inline]
+ __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inline]
+ _raw_spin_unlock_irqrestore+0x1a/0x30 kernel/locking/spinlock.c:221
+ free_frozen_page_commit+0x223/0x3a0 mm/page_alloc.c:2909
+ free_unref_folios+0x8c0/0x980 mm/page_alloc.c:3099
+ folios_put_refs+0x2cd/0x320 mm/folio.c:1065
+ folios_put include/linux/mm.h:2429 [inline]
+ __folio_batch_release+0x8e/0xb0 mm/folio.c:1125
+ folio_batch_release include/linux/folio_batch.h:101 [inline]
+ truncate_inode_pages_range+0x287/0x780 mm/truncate.c:452
+ truncate_inode_pages mm/truncate.c:530 [inline]
+ truncate_inode_pages_final+0x68/0x80 mm/truncate.c:565
+ ext4_evict_inode+0x459/0xea0 fs/ext4/inode.c:273
+ evict+0x301/0x570 fs/inode.c:829
+ iput_final fs/inode.c:2036 [inline]
+ iput+0x44f/0x5d0 fs/inode.c:2085
+ dentry_unlink_inode+0x29a/0x2b0 fs/dcache.c:510
+ dentry_kill+0x135/0x4f0 fs/dcache.c:857
+ finish_dput+0x16/0x1d0 fs/dcache.c:1032
+ dput+0x43/0x50 fs/dcache.c:1073
+ __fput+0x45c/0x660 fs/file_table.c:520
+ ____fput+0x1c/0x30 fs/file_table.c:541
+ task_work_run+0x145/0x1a0 kernel/task_work.c:233
+ exit_task_work include/linux/task_work.h:40 [inline]
+ do_exit+0x4a7/0x1530 kernel/exit.c:980
+ do_group_exit+0xfe/0x140 kernel/exit.c:1123
+ get_signal+0xc49/0xd30 kernel/signal.c:3113
+ arch_do_signal_or_restart+0x96/0x480 arch/x86/kernel/signal.c:337
+ __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
+ exit_to_user_mode_loop+0x161/0x940 kernel/entry/common.c:101
+ __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
+ syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
+ syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
+ do_syscall_64+0x23b/0x3a0 arch/x86/entry/syscall_64.c:107
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 0 UID: 0 PID: 6734 Comm: syz.1.1114 Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+==================================================================
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
