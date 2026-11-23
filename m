@@ -1,73 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443670;
-	b=dd/o7fOUFC6w4lyJ2cNR6pCRhD1JJzxeRmfoLOo6lbWfgU5im284qKLVPm6Mo978keQM
-	 HC5tcNW5MTvGwfe+HP4LdLvDg4kMWNmkgRFalscjxEcVuusdPKGjMz9HiIixKGVcFJzMx
-	 YbzsguDVUa7zgeQGKsFivu8ttKFLoKdodNzS7xVlci3OplhD9az+9dxeFD97SvzmBRj87
-	 BLP7WCRBQR4BhgVvdIgUxR7QjtanNXMNbSwoS1yQ44RTSET/ZerU99fYbx/FrB2RNdaa3
-	 syYvefM9kZC2uBL/2KzR5DA0MQ+Dr9MPE9ksRbdm20jSo8Ul+AYzvbbwt/Sqohr2cKA==
+	t=1795443676;
+	b=mzrahvuRu8QEokEx20q+rcG9rLirTBrdDqMX+HD+XHUywJtDUAMtFs6aBG1QbFNOST1j
+	 SHmo4+ZbBQ0HRT/1N3HqBf33upcqygES4qd6TUxS4+BX7TZ39vNed3d3+yRI1it8Eyato
+	 PhltYtqJ7EFtgc+l+J7RHpVeZCgbSG/8MJs0LBK3XFnGkGr6C1/YkrAKwvBPCPDWcWoTI
+	 2reh6H6xk8BsLuK2fxWzyQImtZq7qHGB+UvQXXNciazr33vt+nZWDTGCMJoZvpYeEmTns
+	 boHBRHtpJm+SDdhBT2Tlqr6deuXDXnYjhpA5Svv4ykK2PguFTzhvSUeXjTYopxauWLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443670;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=FvuHniw7RrrhKeEtdqXkVtXzYPUDA+QCWRHb2+7rHRY=;
-	b=1nPCkdKCpPvlyyriQzzNNUJjRzHS6oKqWLuKHCpATLyi1wIz/Pze+WhMpiZdDIXfrKAQ
-	 bWctmY4ao6T8cJpl+nnljAvT9qhv/4dqjolLSb1BosvIRdGOi5wgGJKASEiIi9sifBF67
-	 A5uJOXJUPw7UhQlb81oEfHx6lqUfEeUcJjWq5owJAJyGk3suNyK4luQtrEJhmITVY4el5
-	 5nySedWDLu5dmHpDSU1KRT9zVGw/rOxWFJ2FU4Wa26mtKmg4qWme3YbOfyb+UwHeLEVV0
-	 05CP8tOmjBHvYFrjg0Tud6BT48VvCRajyns2zVVVtHzg0uktjVJ0cGpz0NQrhxzrVDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443676;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Subject:
+	 From:To:Cc:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=yiAShk857UHrziL4yG9wJZEirsFk53j6ZB0m2dkAIaE=;
+	b=bzQdWbO9ddC9Awh8gYm6X83ZhqUmhIChpK3cHWJnzRVuTdAeTgeSU2Gu6ot0AYzUvUpY
+	 9Uufkujq5NZQOyqmnAtffdMvSiZ2FtOoJ6xej7bP6X1dJFgNvaKJN2Du8KVvJDCkJDT3L
+	 nV4SNwB35/xqYtII/MoC7TBS68bwSx4I8Fw0pUkmse3EKgXyCoo7E84vi3xhgtLx4UTkj
+	 xX0lR/f6THDwc7d/JQM5lRKYtUZ4MFeBqeDmmgdj1qg+376uu3eWLiZBi9uMHgkVA0Yar
+	 iqUXacInoisQ67H7iT4S1VM15MWWIeu0R8fBZNvqJ30gXNadPgpUjpX4lRN4c+22upA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Fn1TG/qM";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="EsM9K/rh";
+	arc=none smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33468606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:21:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CC96606A31A;
+	Mon, 23 Nov 2026 14:21:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CC96606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fn1TG/qM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4589D1F000C0;
-	Mon, 23 Nov 2026 14:21:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795443669;
-	bh=FvuHniw7RrrhKeEtdqXkVtXzYPUDA+QCWRHb2+7rHRY=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=Fn1TG/qMU+JV6i0JnIL1S0UW+Hi/RF47HjDNbTZt2xh20E1s9YmgaxDkn/iMAHTfU
-	 Nd0+onObX6U72Sza/FVWuUKyjTLVLy4LIluG77un4pLMSBvJO4icG5Wk8Pnr+a0hsX
-	 Wfh9RROk51RafJAosqAbIXEdVRY3sYU0xgVfVAVLchCyE8AmXy22+3+D8tot1Zx3cf
-	 PJwZ5ojHLW6dbtFNKJzmBA03Q48NBUidlST+CNKGj0PUy3NvY9XpPW77WY/MiP6qWO
-	 EamlMyD/93dA+eChrwDBfngDca+3Ihz2mdmap6t+zVji2kg/YR/NrxZBfITS5ZpaV2
-	 pTL+H4+WU8MGg==
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 6EC06F40066;
-	Mon, 23 Nov 2026 09:21:08 -0500 (EST)
-Received: from phl-imap-15 ([10.202.2.104])
-  by phl-compute-10.internal (MEProxy); Mon, 23 Nov 2026 09:21:08 -0500
-X-ME-Sender: <xms:1EsEa7fFpfrhhQCpuEqIbEs6S0q1KfhLZ-yeou4zkS1Ve7GK9pXGzQ>
-    <xme:1EsEa8Bsenr77dMOCKdz3x2WY619IKVWY2yVs4lFPNDAaA69MIdVvcNv_CQZb4Llh
-    yPHPkArvqmsv1VujrCqaUMReqTSXZmuUpzYRg79sx6lpKX5PjfD1Q>
-X-ME-Proxy-Cause: dmFkZTFyETTFTmX5UBR/sVb9A3kRSCbgXkPQGt2uJMOAM7VkLGuakSEK+lWA2672iko7NM
-    1zyhCp1h7qmtyouVUKAKTfEKAGgJlO1Uk0V0XTjqVinFiKwysDww03EjYDk+rNHNgBBafJ
-    FPZq43KqdIzP9WXhsDPoC04ySUb3DLRpPPX/2qf+K5XjdJVWVBvocjINJ3k8H+/JQnufNu
-    7tpVb5OrO9dz9poq/Ig9QlN9NNHY/JBY23Q97OgF3pErAA1X3Qsd511t2zhQVWjIGLoKiW
-    stdZg2cyVm7B6GRBekN191lC3diAzZUFDm4++x/GdSvYSJLnIWAidlpCO6ow7XTIadmQnl
-    1sQKee9m76k5HTTjLUfcpqhyqXvREJB1Ykf2jyuSs2GZMa0fKM2ZE+qidveALieR9nYvsr
-    5upqHduqn5yyvMzM6x5jE7fCAQh1H/AIpQILS3u1p3UdX2HJlfXakqblg+4rAsnherznaN
-    itFldBFQFqOXXCOoWzPEFYRON2hMg5TRrvQD4WWoIRD9zYKxgHNALa/EpJj44aflTTBaBy
-    89GmPPVi4ToNmYh48aTN6H6EO/10al6szJ7k4B0LALlH5po0TLLe5B0tgl6RSjc15FIId7
-    1/CY+H5KJAehtoGNl9XxavlLG6B6FcrdiIV+cmNKxyeGhfv9p2Q908wuYVnw
-X-ME-Proxy: <xmx:1EsEa3DYBc8MjP0jEJ7g6S0ckin-TQIargOgsi-Qg4dvFJ6rqSz4oA>
-    <xmx:1EsEa9pIwxdTXuOjPRvR2vQBPznQQpAh483yd06X-2uYlBUl1BUhnQ>
-    <xmx:1EsEa6jqZDRuWAwb3sfx-EwMTWNBPN8KpdFTgdBFOQOUz2SJid883Q>
-    <xmx:1EsEayCa2V-OWGE6npvDmA03spOgNoZOzQ-tj1Hg_c97azU8Q2_9wQ>
-    <xmx:1EsEa3FtiZNcr_UyaPtjNMKvPmqAYqU6ZybL7o5Z5oQqFQACOXLiYomn>
-Feedback-ID: ifa6e4810:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4DF18780075; Mon, 23 Nov 2026 09:21:08 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EsM9K/rh
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795443676; x=1826979676;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=uOnAdYGAKwtdFMh1IEJyXNKhjlMEOwk9h1WPy3NE2PA=;
+  b=EsM9K/rhOpLCyIOdoG5beSZ+CmT7701XAm+jXZILIG6rkqfIE5iBojMJ
+   Lc7C6Jh+QCMKQtEdhuzfSKoA3NU1xCmFZ9AhpwCeUhISxvSQVoSCVICIy
+   esfyKB2po69V8k91B5Vis83nFkxCY4P9eWSGuwW56qavsp5sEO3jb4FlQ
+   Jrh57WtnjRIQeW0kYY9XNAU3iq4qWPYKuCmUH6l4Ye5f5JauHGqn/Y1SU
+   cSClSAmIhONyo+MkdhOGk0fA3+3QEOQ9GlRiaZ5F9+BcTr0KS6W9KwQve
+   73BleaDmfQMJKMLf/hwonwWmaCLmpRPlaoXl2RswaRSwRIM5qkR5wnmej
+   A==;
+X-CSE-ConnectionGUID: wKKOYWvRRP+K2PZbjcEePw==
+X-CSE-MsgGUID: 2zeC8cg3QjKLn/rgwmjD0A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4358102"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4358102"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 06:21:15 -0800
+X-CSE-ConnectionGUID: lh7kW8LBT06SblzEz/2FEQ==
+X-CSE-MsgGUID: fbT19V47RsSZhj8amLOedQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="13010864"
+Received: from spandruv-mobl5.amr.corp.intel.com (HELO [10.124.220.112]) ([10.124.220.112])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 06:21:13 -0800
+Message-ID: <3d83eafc370354cef4280fd70d1228191486a212.camel@linux.intel.com>
+Subject: Re: [PATCH v3] HID: hid-sensor-hub: avoid lock inversion in
+ sensor_hub_remove()
+From: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+To: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>, Jiri Kosina	
+ <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, Jonathan
+ Cameron	 <jic23@kernel.org>
+Cc: Zhang Lixu <lixu.zhang@intel.com>, Zheng Shuhao <viennaoffh@gmail.com>, 
+ Arnav Kapoor <kapoorarnav43@gmail.com>, Lee Jones <lee@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, 	linux-input@vger.kernel.org,
+ linux-iio@vger.kernel.org, 	linux-kernel@vger.kernel.org, 
+	syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
+Date: Mon, 23 Nov 2026 06:21:12 -0800
+In-Reply-To: <20261123124715.351511-1-ayaanmirzabaig85@gmail.com>
+References: <20261123124715.351511-1-ayaanmirzabaig85@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,76 +88,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AAoF7yJtL20o
-Date: Mon, 23 Nov 2026 09:20:48 -0500
-From: "Chuck Lever" <cel@kernel.org>
-To: "Fredrik Tolf" <fredrik@dolda2000.com>, linux-nfs@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Message-Id: <9f8f700f-a10f-4aff-a385-4300c8164f1b@app.fastmail.com>
-In-Reply-To: <20261123005648.29562-1-fredrik@dolda2000.com>
-References: <20261123005648.29562-1-fredrik@dolda2000.com>
-Subject: Re: [PATCH] SUNRPC: Make svcauth_gss sequence-number window size tunable
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+
+On Mon, 2026-11-23 at 18:17 +0530, Ayaan Mirza Baig wrote:
+> In sensor_hub_remove(), spin_lock_irqsave(&data->lock, flags) is held
+> while calling device_for_each_child(), which iterates child devices
+> via
+> klist_next() and acquires the driver core's &k->k_lock.
+>=20
+> Because &data->lock is acquired in softirq context by
+> sensor_hub_raw_event() while &k->k_lock is acquired elsewhere with
+> softirqs enabled, nesting &k->k_lock under &data->lock triggers a
+> SOFTIRQ-safe -> SOFTIRQ-unsafe lockdep warning and risks an ABBA
+> deadlock between process context and softirq context.
+>=20
+> Move spin_lock_irqsave()/spin_unlock_irqrestore() into
+> sensor_hub_finalize_pending_fn() and pass data through
+> device_for_each_child(), so &data->lock is only held while inspecting
+> and completing each child's pending state after klist_next() releases
+> &k->k_lock.
+>=20
+> Fixes: 8a5b38c3fd70 ("HID: hid-sensor-hub: don't use stale platform-
+> data on remove")
+> Reported-by: syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
+> Closes:
+> https://lore.kernel.org/all/6afddf21.a11fe2ad.1b4426.0003.GAE@google.com/=
+T/
+> Suggested-by: Zheng Shuhao <viennaoffh@gmail.com>
+> Signed-off-by: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
+> ---
+> Changes in v3:
+> =C2=A0- Actually pass 'data' instead of NULL to device_for_each_child()
+> =C2=A0=C2=A0 (missed in the v2 submission).
+
+Are you sending correct patch?
+
+=20
+-	spin_lock_irqsave(&data->lock, flags);
+ 	device_for_each_child(&hdev->dev, NULL,
+ 			      sensor_hub_finalize_pending_fn);
+-	spin_unlock_irqrestore(&data->lock, flags);
+=20
 
 
+Thanks,
+Srinivas
 
-On Sun, Nov 22, 2026, at 7:56 PM, Fredrik Tolf wrote:
-> The concrete problem that I seek to resolve with this is an issue where MIC
-> verification, due to being schedulable, may sometimes delay the checking of
-> sequence number so long that the sequence window in the meantime has drifted
-> beyond the sequence number being verified. This causes the NFS server to
-> disconnect the client in question despite it having done nothing wrong, making
-> the client do 15-second timeouts before reconnecting and retrying, killing
-> performance.
->
-> Now, I would of course like to fix this *properly*, since the client, indeed, is
-> doing nothing wrong, but as far as I can tell, I am not sure there is a way to
-> fix this properly in a TCP context without serializing the entire authentication
-> process, which in turn seems that it would require a full rewrite of the sunrpc
-> servicing threading model, since it seems made to be intrinsically asynchronous.
-> This makes sense given its past UDP primacy, where also the occasional dropping
-> of a packet due to transient authentication failures like these would not be an
-> issue since the request would just be treated as lost and retransmitted by the
-> client, but in a TCP context, clearly, retransmission is left to the network
-> layer and the client just terminates the whole connection on an authentication
-> failure instead.
->
-> Due to this difficulty in developing a proper fix, probably better done by
-> someone actually familiar with the NFS/sunrpc code, I'm just making the window
-> size tunable, so that I tune myself out of the problem. I considered a number of
-> other heuristics along the way, but since they weren't really technically more
-> correct, I figured this was the simplest and therefore best.
->
-> The default window size was also inreased from 128 to 1024, due to 128 being
-> clearly too small.
->
-> This also relates to <https://bugzilla.linux-nfs.org/show_bug.cgi?id=416>
->
-> Signed-off-by: Fredrik Tolf <fredrik@dolda2000.com>
-
-As you noted in the bugzilla, this is a long-standing problem that is
-difficult to address. Your sequence number misordering diagnosis is
-correct.
-
-However, just to be clear about the standing of the proposed fix: NACK
-
-o  Our usual upstream policy is to avoid adding tunables where the system
-   should be automatic. Tunables increase the size of the testing matrix,
-   add documentation requirements, and are difficult to remove when they
-   become outdated.
-
-o  Our usual upstream policy is to root-cause and fix the underlying
-   problem.
-
-o  Increasing the GSS sequence number window size does not actually make
-   this problem go away. It only makes it less frequent.
-
-I don't think this is a SunRPC scheduling problem. Rather it's that the
-crypto handling sometimes takes a while (and I don't know why that is)
-and that delays one RPC just enough to trigger the sequence number
-window check.
-
-
--- 
-Chuck Lever (Come to NFS bake-a-thon! https://nfsv4bat.org)
+> =C2=A0- Drop the NULL platform_data guard since hid/for-next already
+> checks
+> =C2=A0=C2=A0 dev_is_platform() and !hsdev.
+>=20
+> Changes in v2:
+> =C2=A0- Attempted to pass 'data' instead of NULL to
+> device_for_each_child().
+>=20
+> =C2=A0drivers/hid/hid-sensor-hub.c | 7 ++++---
+> =C2=A01 file changed, 4 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-
+> hub.c
+> index e9d6eb3b3831..090e5a232efa 100644
+> --- a/drivers/hid/hid-sensor-hub.c
+> +++ b/drivers/hid/hid-sensor-hub.c
+> @@ -808,6 +808,8 @@ static int sensor_hub_probe(struct hid_device
+> *hdev,
+> =C2=A0static int sensor_hub_finalize_pending_fn(struct device *dev, void
+> *data)
+> =C2=A0{
+> =C2=A0	struct hid_sensor_hub_device *hsdev;
+> +	struct sensor_hub_data *sd =3D data;
+> +	unsigned long flags;
+> =C2=A0
+> =C2=A0	if (!dev_is_platform(dev))
+> =C2=A0		return 0;
+> @@ -816,8 +818,10 @@ static int sensor_hub_finalize_pending_fn(struct
+> device *dev, void *data)
+> =C2=A0	if (!hsdev)
+> =C2=A0		return 0;
+> =C2=A0
+> +	spin_lock_irqsave(&sd->lock, flags);
+> =C2=A0	if (hsdev->pending.status)
+> =C2=A0		complete(&hsdev->pending.ready);
+> +	spin_unlock_irqrestore(&sd->lock, flags);
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0}
+> @@ -825,14 +829,11 @@ static int
+> sensor_hub_finalize_pending_fn(struct device *dev, void *data)
+> =C2=A0static void sensor_hub_remove(struct hid_device *hdev)
+> =C2=A0{
+> =C2=A0	struct sensor_hub_data *data =3D hid_get_drvdata(hdev);
+> -	unsigned long flags;
+> =C2=A0
+> =C2=A0	hid_dbg(hdev, " hardware removed\n");
+> =C2=A0
+> -	spin_lock_irqsave(&data->lock, flags);
+> =C2=A0	device_for_each_child(&hdev->dev, NULL,
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 sensor_hub_finalize_pending_fn);
+> -	spin_unlock_irqrestore(&data->lock, flags);
+> =C2=A0
+> =C2=A0	mfd_remove_devices(&hdev->dev);
+> =C2=A0	/* Clients share one HID open; release it if references
+> remain. */
