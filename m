@@ -1,86 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795414946;
-	b=oZh6yCpcnfV1tPoOSCgcPcdti6pch3rZHyVMellCM2hjDf5wEIpB/zOmI4cPUeQ04ZDe
-	 8QcI5rrWfuvwWY//xK5lvWCzYgDCTWlnQOBYvlvQSCy/umVCHImZ8eO52EXRb1BYDKUOt
-	 keT6oP8x29YNFbGRQpXRmKR0KvF+fy136I0kCPkEy412zOPUueN9VvG038wjZCT6K8KV0
-	 FDrj7S4gUCpnNo5ElcgWtZeOb7rfOmZG8H+77Un1JApl2R8/XfYJZMMXIqH31jCdMGuZu
-	 ++NWXMCtHxk3VfxHgx2ap/baIC+NXG8HxsGIB92yrgriWEBgRkwm/NXEok7GlFfb5PQ==
+	t=1795414991;
+	b=WFVP90OFOBLkGXYjE1Nokufa2e9x4bgHKm11ftSH17pydaLAi5z9PVxKBpV0lwIUxs3n
+	 DXYzWXAWYaYfwRqWPI2HFXp9MQgGWNsdrn1d5onjmKh1SpAamb4Rwp46zw57kJawqbef0
+	 NybBzz7XHEYLt/rQU4+KNNj2VOahj/HmwBnH4nsBF95rjFFl5DwWTu30uf3EP14kkOdp1
+	 OnP1Z9u5HvTWTP/nu46dyOZCtuCRzm30qvq0Z2XNCbCUdckYiwkf/PldjE6QTxDlOjbR1
+	 EOw/yx2N06JYB/Ka1fDr4+oX7KxhtyGts1lMJvECwz/exiOJuEYz1UgX0T3epTfzI/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795414946;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=Iuulysn4lb0jC1mnVffm2Qqxiyi30Og/058AoNcVATw=;
-	b=TbtU1WbXbPl2GvNb3zJ7Ym514QsJPUn2b9svll+UlZH8kuaFE17iLAs16u6qH36VZL9y
-	 1U+Uk49FxZDfHGmlJ5nO16ZScwLTCeSwQn1P6Y/IqNFgACSZ4sSMHzRTFEnG3w8QTItwd
-	 dNI3zrecwCbiw9aRCPi8+7D2t0u7e74w0cUuxSiXe5NFyHWmSNyJQYyE7J6GPTE8NB2LB
-	 aQWUPpsxl468ZOYeXU3G8i9uVjUnvcXpsHQWfMFEP4ih6lLwey3ewoS4mhj/FeXMVSxKL
-	 /B5WFUDkY+7I7VmLQYlUfvdpyirD1IKSlSErgNykT7Aa7/2FqUYvSlQyvs3rcdpGlyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414991;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=pgzjrQOGvack0Ux0RqI5gfXnGjGneOAYcUfumwqcad4=;
+	b=XBX6caFQ5Sf/NINxJVjpgZ3S9qygKdQ8+LmrzdYAmkFVjYTdjNkDZm3vUBrCRoHSGkt2
+	 ajKTTEN5w/nmoxeoAq2hTTdaoZGX/98+dQ3LmKe9apVC2cXdOGA32qY0uJ+2+Ul2xmNbP
+	 LzxpOXeuyb7o+ieVvMG0/o3raolXFmUwG+6efe3wI/67T0vRbflbXFqYCv1/lEcECj7ob
+	 guD//AjX8ipaVV8rTf/ZeZliUggG2UzQrO1aWgOhtc4nUyqbp2DxMNltQDA4k+YrCAo52
+	 l9pYa17M7RAyStDB0pUlfh9+PRwUZlS9w81yMz05CqI8fBTtJRwomQb3+ruGcZnHuJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=kfJXl7Yz;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fAqusSx9;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FE4F606A31A;
-	Mon, 23 Nov 2026 06:22:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FE4F606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BA30606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:23:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BA30606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=kfJXl7Yz
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AN6MLd441408909, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795414941; bh=Iuulysn4lb0jC1mnVffm2Qqxiyi30Og/058AoNcVATw=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=kfJXl7YzC/Q3C2Lag9IM0fsIBXKT5G/vXQiJ4DHGcgrUrKy1YO4UACBKRu+gisM6m
-	 co9dA1ceP/dnaM/AXftWQBZntUL+/PC1BH5CiLlj/OV1vQjmAAX4aIAfaVYSnr/6ir
-	 B7ix0sC0DTDdcjAd/ppreoGi4zpWkcVfdBJHXbhiX3KfAboom7vkDDXrVcr5N9wGyZ
-	 KAgTHXVcAMGpHCeKvSKPNvEPDsSeflH8Y+bbf4IvALYk5qbFQh/Ac0PchQ4to8uipW
-	 Np1pWWOMq6/oa8kBJ6EZ+FThWiOUk3uBAZyaRo8iOzSlC3DmsLJnw9ntPKA936xYBP
-	 gU1Om7A2SGdMA==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AN6MLd441408909
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 23 Nov 2026 14:22:21 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 14:22:21 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 14:22:21 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Mon, 23 Nov 2026 14:22:21 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Zhao Li <enderaoelyther@gmail.com>
-CC: Hemanth Selam <hemanth.selam@gmail.com>, Morning Star
-	<alexbestoso@gmail.com>, "linux-wireless@vger.kernel.org"
-	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH rtw-next 3/3] wifi: rtlwifi: rtl8192cu: don't mark
- undecrypted frames as decrypted
-Thread-Topic: [PATCH rtw-next 3/3] wifi: rtlwifi: rtl8192cu: don't mark
- undecrypted frames as decrypted
-Thread-Index: AQHdedZ/5R97SfqA40GuX9ytRsKsmLc7MDbA
-Date: Mon, 23 Nov 2026 06:22:21 +0000
-Message-ID: <8954a1c1913d4f1bbc8c5bb52acf8b1c@realtek.com>
-References: <20261121163547.37019-1-enderaoelyther@gmail.com>
- <20261121163547.37019-4-enderaoelyther@gmail.com>
-In-Reply-To: <20261121163547.37019-4-enderaoelyther@gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fAqusSx9
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-385c497bf94so1348417eec.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:23:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795414990; x=1796019790; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pgzjrQOGvack0Ux0RqI5gfXnGjGneOAYcUfumwqcad4=;
+        b=fAqusSx94ZatdptsvlDWJ2B/wjzk/fIcE/mov/H3R5d++wV2kTKv0YzNh0I8waeqa5
+         quCc5++8KLJimu10W5/pQgbNr0jvDI7N7buVdsLqXuWOLEKBLACMWlPIMrzJsbeyNOMT
+         yHHPspqd88M6Zjt5KvEuH0AsuCrFthmnXrrtFcakVukpfJc3tsDhCTQb5c7+nKRxeFdi
+         K9EK3cMfd/Wk2DGw7hBE/R19Pwse903FdS8su9cwHTCfwUwqbCaOrTvcptnefYRgklbw
+         TmKvwuhIryaveSF1VQoXDHfvqxBNsMG0i+/DRXAAJZ6MpfE3auzrSlgQpcV5xdk7fQ+/
+         HDtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795414990; x=1796019790;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pgzjrQOGvack0Ux0RqI5gfXnGjGneOAYcUfumwqcad4=;
+        b=ffV2dQdpcZ9bzr8/+xZOcRYubzvdLCRJyxlPyIUwlXYw/Ahwb+986U4ZlU/UbdiYvd
+         dk6dUy1prhJrmr2dkCHC1FVCTWVyrXxilwt/QzhyK/UhASgpyEuvQg2mJsMP2F89v4KM
+         1o/2pmql8fUpZZZj60XFjzSh8BHWJN+eRkt0dXm9yy8HqDUtpz/2xrcMiYTL09UkV7q7
+         5MQ4zgbkwlb9AXogeoZebGP6Cy82oXZM0Ehy3+rgDReF0LjHpI8cyFPhMQ2BH6UjNe7G
+         X2VtAPZSRhRDlNlkTB//0v0Xsuthr+3JLSB/bhtCAoeEK/YzG+9vaNE5W6IYBEFvJelX
+         i4Uw==
+X-Forwarded-Encrypted: i=1; AL+hErH9VFg5ZCYBKyHI8zqHAI0bHuAf0ni67c1ObMiVuOBd0u/aVnT6mJqFkvKNr3g+5PYyzKlI4nRl0/A/hGM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8HcrVphM+wjiwViY6LgbwBhqpMgWYbcUhhPQEFlA24jkpPoCkM
+	NpGfMsIJ9ZKdZBee+KHyJ9f8qDsy44iBgncyo5Ij5y2q1MwSfG/081A=
+X-Gm-Gg: AZFdTZflye0VONrZCu53Xh4yogjc5viO1X/RZYfprzf/MX5uRRf+5Mbb/Mzb0ZWYFke
+	lMx3rPR0uwTnZYCwUc+xvFJGVg8O1kB7AcWT51qJ7iy+C+o4I8V9r1SnNWnWOqK9zg9fWtPc5wE
+	6P7y80F9cecQXJyUirErqc9rf2AbLq1XQALwAookJHv22/xWqKQmAfq940EOFgPa2n2TFT3yUVv
+	3lBCXmLmtuengjsE8TZWYmtI+XLwKr5HGc+8eUwS5G6ihnI66tGYHX3udncDeXC5cDgeDomfezG
+	o3pf9udgQZOJzVTtr1gOXNl2B+1dq6nA0l5/Ps3IiTtYl2GuJwyR8aXjK6zPmsSGf5fDdLNao0s
+	vxlOw9enIZegW6NkIZRcOwKvEc2gCUVXmVJ9iLvskNB7hZSmycesvR35AUxeRtX8EigljAmy7WO
+	5B9J3vH/uNr9HMlE0qX/uj84aSl9JiYvoMfJReLDVqS+SH+O38OxOD6r3tmxu1cg0P1bPeWwvi3
+	bforc0BYmU8G7z3x/WqoMaFxMGKGoUAIsIpkA5kEOawkH1bPBmCPg4r9t9hN/gNcQBE23HKgaR2
+	5xYkF5yIgpR0J7wduHkAN/y4WgE8DBkRRALSin6UA6I+HDmE1I2lExNpnV1qtfbJslLVar4ilht
+	wExoYHrwpnMurdXRZcUpvVkd1QmnwbQ==
+X-Received: by 2002:a05:7300:c00f:10b0:384:bc32:fe6b with SMTP id 5a478bee46e88-3856e63b194mr13329612eec.13.1795414990426;
+        Sun, 22 Nov 2026 22:23:10 -0800 (PST)
+Received: from at-Standard-PC-Q35-ICH9-2009.tailbdca44.ts.net ([27.60.27.67])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm30844266eec.7.2026.11.22.22.23.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 22:23:10 -0800 (PST)
+From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: atharvatiwarilinuxdev@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org
+Subject: Re: [PATCH] usb: acpi: Get correct location data for Apple macs
+Date: Mon, 23 Nov 2026 01:23:04 -0500
+Message-ID: <20261123062304.11498-1-atharvatiwarilinuxdev@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <2026112349-gala-unrobed-637d@gregkh>
+References: <2026112349-gala-unrobed-637d@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,102 +99,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Zhao Li <enderaoelyther@gmail.com> wrote:
-> The receive descriptor's SWDEC bit is set when a frame still needs
-> software decryption. It is also clear for a frame that was never
-> encrypted, and for a protected robust management frame, which the
-> hardware leaves for software to decrypt. rtl92cu_rx_query_desc()
-> nevertheless sets RX_FLAG_DECRYPTED for every frame with SWDEC clear,
-> in two places.
->=20
-> mac80211 then accepts an unprotected unicast data frame although a
-> pairwise key is installed, and unprotected deauthentication and
-> disassociation frames on a connection that uses management frame
-> protection. For a protected robust management frame it skips software
-> decryption and MIC verification, so a forged frame is accepted and a
-> genuine encrypted one, such as an SA Query from the peer, reaches
-> mac80211 still encrypted. A station in radio range can therefore inject
-> plaintext data into an encrypted connection, or end a protected one, by
-> spoofing the peer's address.
->=20
-> Set the flag only for a protected frame that is not a robust management
-> frame, as the rtl8188ee, rtl8192ee, rtl8723ae, rtl8723be and rtl8821ae
-> drivers do. rtl8xxxu, which supports the same chip, stopped trusting
-> SWDEC alone in commit cbfbb4ddbc85 ("wifi: rtl8xxxu: enable MFP support
-> with security flag of RX descriptor"). The header is read before the
-> receive path strips the driver info, so test the Protected bit first,
-> which needs only the frame control field, and read that only when the
-> URB holds it. When Protected is set, _ieee80211_is_robust_mgmt_frame()
-> also reads only frame_control.
+> Sure, but again, you only check it once, why not just do the logic there
+> then and not have any local variables?
 
-Need to reduce commit message generated by LLM.=20
+I thought of that, but i did not do that because it creates a order dependency
+that being USB2.0 has to come before USB3.0 otherwise the code would not work.
 
->=20
-> Found by code review. Compile-tested with W=3D1.
->=20
-> Fixes: 29d00a3e46bb ("rtlwifi: rtl8192cu: Add routine trx")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
-> ---
-> No new W=3D1, sparse or smatch warnings.
->=20
-> AI assistance was used.
->=20
->  .../net/wireless/realtek/rtlwifi/rtl8192cu/trx.c   | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/trx.c
-> b/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/trx.c
-> index d6c35e8d02a5..aceedc37e5d2 100644
-> --- a/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/trx.c
-> +++ b/drivers/net/wireless/realtek/rtlwifi/rtl8192cu/trx.c
-> @@ -295,11 +295,14 @@ bool rtl92cu_rx_query_desc(struct ieee80211_hw *hw,
->         struct rx_desc_92c *p_desc =3D (struct rx_desc_92c *)pdesc8;
->         __le32 *pdesc =3D (__le32 *)pdesc8;
->         u32 phystatus =3D get_rx_desc_phy_status(pdesc);
-> +       struct ieee80211_hdr *hdr;
-> +       unsigned int hdr_off;
->=20
->         stats->length =3D (u16)get_rx_desc_pkt_len(pdesc);
->         stats->rx_drvinfo_size =3D (u8)get_rx_desc_drvinfo_size(pdesc) *
->                                  RX_DRV_INFO_SIZE_UNIT;
->         stats->rx_bufshift =3D (u8)(get_rx_desc_shift(pdesc) & 0x03);
-> +       hdr_off =3D stats->rx_drvinfo_size + stats->rx_bufshift;
->         stats->icv =3D (u16)get_rx_desc_icv(pdesc);
->         stats->crc =3D (u16)get_rx_desc_crc32(pdesc);
->         stats->hwerror =3D (stats->crc | stats->icv);
-> @@ -316,15 +319,18 @@ bool rtl92cu_rx_query_desc(struct ieee80211_hw *hw,
->         rx_status->band =3D hw->conf.chandef.chan->band;
->         if (get_rx_desc_crc32(pdesc))
->                 rx_status->flag |=3D RX_FLAG_FAILED_FCS_CRC;
-> -       if (!get_rx_desc_swdec(pdesc))
-> -               rx_status->flag |=3D RX_FLAG_DECRYPTED;
->         if (get_rx_desc_bw(pdesc))
->                 rx_status->bw =3D RATE_INFO_BW_40;
->         if (get_rx_desc_rx_ht(pdesc))
->                 rx_status->encoding =3D RX_ENC_HT;
->         rx_status->flag |=3D RX_FLAG_MACTIME_START;
-> -       if (stats->decrypted)
-> -               rx_status->flag |=3D RX_FLAG_DECRYPTED;
-> +       if (stats->decrypted &&
-> +           skb->len >=3D hdr_off + sizeof(hdr->frame_control)) {
-> +               hdr =3D (struct ieee80211_hdr *)(skb->data + hdr_off);
+> So how have these old systems been working so far with Linux?
 
-Use the same style as other:
+The feature itself is not that big, that systems would break without it just
+warns about it:
 
-	hdr =3D (struct ieee80211_hdr *)(skb->data + status->rx_drvinfo_size
-			+ status->rx_bufshift);
+usb: port power management may be unreliable
 
-> +               if (ieee80211_has_protected(hdr->frame_control) &&
-> +                   !_ieee80211_is_robust_mgmt_frame(hdr))
-> +                       rx_status->flag |=3D RX_FLAG_DECRYPTED;
-> +       }
->         rx_status->rate_idx =3D rtlwifi_rate_mapping(hw, stats->is_ht,
->                                                    false, stats->rate);
->         rx_status->mactime =3D get_rx_desc_tsfl(pdesc);
-> --
-> 2.56.1
-
-pw-bot: cr
-
+but new macs provide location info, so i thought to add support for it.
