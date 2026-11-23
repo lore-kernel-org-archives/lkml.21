@@ -1,84 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454867;
-	b=L5H+bQbOoyvDxLxWKJDemzYJBg+zE1tDapgB3TAuKw0u99ynhbgc354triccp88ZMsxz
-	 1sPFg9oQXamyEymOQaNOfnM5xNkbwR+hOqtMZmUli1ecwe6MltfgjcOzLXAUAgQTg4uOJ
-	 oMuWjiuYe9MJbWYHd4IMCJTE6zCVQy8jn0h5Y76TXo+iSuKcvvUEqIQ4PZ/RaxuzSigvK
-	 ObVqcuy0n5ly32vLI6gBPwqs54OZiuqw4hJj3Bcc4K/IKtdrsNsR0mXrh8s1HTB09gQop
-	 Jgv22zWUYOAQnqFsP5Z9bXR5OnHzvKB4G26Iv+W90l9POXlC12k70ZMUki2xl5PGjjA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454867;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=BGorJs6MAne/EhbfWhhLdgvrIugkfOpSJMie/q8kNWI=;
-	b=OxNwdHsctn0mX4qKHkctcLXVeOCmH3pr8tFxtFtO1tSR7Uvx4WBOlws0aAdAS8JP2Ab/
-	 CfZynS9LIUbMTw4oUdCkC8bthYaGQYmA5/FA1yYYI23OhUrGpG4CFJHB2RQT1gtR9zQTx
-	 H8/XU2WI1AZVkoYwnffpG8QI96kdT2EsaDPCRjiEyOc2YuAWBxCW9LTtWaLayqdN5DEVS
-	 G7ynUlkChaMmysjHSzfFXky9jUeGmAaUkwBLXgrcjUBroWYyaNnGFVJeufp79zqYBiAXK
-	 zNYjffpTF84AG9IuKJAicMXPsnpj2sZw7gMB7DCMKKGjgVRwQfnHxsKOlp/hjOHsqQw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eSbP3CbG;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.130
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795454911;
+	b=2CB4zBeAwcjPTqLzz7i0mJnyDQyoTJAAPAyeyRRRCvECPLlfpB4FwmueQMQqfLKzKu1g
+	 NVBdB5gK5VNZhIi97e5bnDoLEi2du0Jw3IrI+vNzwtLikvJvhug60tFNghWu9dFsXtHGu
+	 GD6biP+tFrPScaGymKmcnU1ew/pTFppV/a38tC8WNLpurWGKMjyaqIspYLrvhF8hIZg82
+	 kUyoG6DsQUV/U1DBCFabkBqByk+ZrdSfXanXwL2UxioKl79Gfvo2JzcgS+ehffVaEGVd0
+	 lGnOZI4DBAIiqMxrjDJTgSITudp2+ZiY4AqwDGri9q8kyjj6e7ltsJNRimW4y6TegIw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454911;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=fUTLM5WJXPLNS5+Y8pJq/Dz6CXEKl6FkzhodnqK0iXE=;
+	b=L683Ww3PIDkepzHzl2HY0fhR7nZRnT+AdsEWzPhuszq3eVFoxmu/6g87iYYBMdC1De82
+	 V9Lso8Uc98mbtO7UNTEBtLDTAJyrXGCsAQF/ePsk5gx6QeJLBeuYMySohAf5I4jXKiCGr
+	 1Z3wrtaUG8J9du9EMPiR/pG4CGK6TCV0S+Gm8/gmBXsO9FaKbWzmpcs6tutWyYUn231ty
+	 7l/eIuoGOSGlliawWgivHGcqWzD0A1lIzUo4rPtOkbxvK1bmdwErtMMRwNNTPIclFKD+1
+	 8ihbFk3RMQIV/EnV6KVOP5YBApcRrfXKfbcWRwV7+9YbtnuDRNK4iOIyL3jX6AinCvg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GS3NKWWJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.130
+Received: from mail-wm2-f2.google.com (mail-wm2-f2.google.com [74.125.225.130])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C288606A31E;
-	Mon, 23 Nov 2026 17:27:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C288606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF087606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:28:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF087606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eSbP3CbG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795454866; x=1826990866;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=BTSVDrbAJDTCXRKEQem0cmfMprjd3jaaHHt/48c53dI=;
-  b=eSbP3CbGHAnQHZFYGJLFyMshITGP5K/OCFtxZ5o6PUvkcVebZM5Sf4I+
-   gwE37CngAzVuwRK81pTywUbAtVwe5h5KZOalByCIvKUuqTYoSxgshkH96
-   UPiYRIQTInpd5rPZoqdniuBdRzWEZejPGg35nNhL8FOyszzyqqeCwOpg/
-   V5jMIiTGJpBMtp0XVbPCPsCV6Q1+vfmb50Xll9Wxf/tBJHVjNR48Il18j
-   n3vpMpxfwim9PUqqGFzhEmD8t0feXcxCotf5kNlrUFTI5EOrPpjI89dE3
-   gJDrkcMkgZPzvBIrmMRd2wcfh7/fn0aVOHhyZJ7TlwbpZkhkAR4WuwxSE
-   g==;
-X-CSE-ConnectionGUID: i07d+L4SQR6+vw8KNYfDSw==
-X-CSE-MsgGUID: ShDOCOK9Tn2poofhNAmPlA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4160034"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4160034"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 09:27:45 -0800
-X-CSE-ConnectionGUID: EJOu3Ye0QOiLP7SCRiYRsA==
-X-CSE-MsgGUID: Udz6c8q8TN+hoMFsvXLt0A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11714619"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 09:27:42 -0800
-Date: Mon, 23 Nov 2026 19:27:40 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: imx@lists.linux.dev, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Johan Hovold <johan@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	LKML <linux-kernel@vger.kernel.org>,
-	kernel-janitors@vger.kernel.org,
-	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH] spi: imx: Use devm_clk_get_enabled() calls in
- spi_imx_probe()
-Message-ID: <awR3jGcH97PrYNqc@ashevche-desk.local>
-References: <895d50a6-3a42-44d2-8625-3b8cba8fbfff@web.de>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GS3NKWWJ
+Received: by mail-wm2-f2.google.com with SMTP id 5b1f17b1804b1-4a21339d376so2024995e9.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:28:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795454909; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KMGvX3kusWask76eyiILUOt16EvPnmsmQwIHFgPaJasvhaZyanuRRfLrWyHd+vCraJ
+         WQqOTEW4V+8L4TkggdUQKAOUyJhyr/X7PYPJ8kuUXXHtMI1bTXILg7Jut7sIURKiv/Mj
+         2rp9aDabhGFw7S65W2a2+XX5jmz8m+kIushwX3j6dTFWwkfnpRztNYezrTKpNFmTAaZM
+         kinX/eqXdTKp6eRP0sTr+BPTW7UZpP3pcdfV8l0NIiYMLCaJM2rfWuu5E7UP9Sd/aQRW
+         XcmMyH1hoH4OLjOk5Dv9fhNniDXlUlxPdkLM9edZ3kxLWtOOWNwzTDW0L5q9tAWGtzRN
+         oyBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=fUTLM5WJXPLNS5+Y8pJq/Dz6CXEKl6FkzhodnqK0iXE=;
+        fh=hJeB2Vj5DDuQEtu2GYjPUr5kcvBq+/KiUeyLjWPQ7To=;
+        b=KELjoekR6uQ/gIbJ2mdA5YW1vvFVIPZVlaWUF9eZD4dDD8anYqYlqA9K2MMxNcbKPW
+         4lA9affYfaBfJfCeqyiOF+4Yoof38E4W6NS3S4UcL0AG+03UkitnqkWElpSEDTyIZdSF
+         4buYcZ8981pmKDamd/SP0DXVKLrSUA6qmkZTVJrZpZfyMP6XzKdv4KY1jG8nt9eEp/rw
+         l/RTwuzfGXDhwDAHYaCdbHsZxVQZCkI9MB4GRIHASNW+XUiuCExajorLmP+GPVl4weoE
+         T57ndfL17YA9Uh4BdpmlTIp2v254enTxV8tvncPwr4fKP5LFfj01r0Mk6+YcRLJm4TYz
+         uxcw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795454909; x=1796059709; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fUTLM5WJXPLNS5+Y8pJq/Dz6CXEKl6FkzhodnqK0iXE=;
+        b=GS3NKWWJfPDqc2UNc3jugC5XbOFW/zp1xuPTPQHkV0RXiniW8Y7TCiM7WhcOdCCwu4
+         Xe+O+QxQZafyvI2nRpFVdDor7OAeTXLHwfvYyeXbdilCL4yedPQK56vNiQFeQgthu+M9
+         TBUMrVCp82S5ik+t631L0zf0y42b4HK4uOyuPM1yNK9goNVOoSrWb4s1esSU7RBnT9rJ
+         Neo3wQpHH3ZstOPxm1aFirdm5AzUyxJyrIZkJZaikLy6IGILAAHRYl2cYayxZn3Gt8kS
+         NaGiG2a5bmye+Ki0o30OMVzQKQNpKd4zl2bhZRWj2umHx/jL4yAyU471fE8r2T634cN4
+         1rdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795454909; x=1796059709;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=fUTLM5WJXPLNS5+Y8pJq/Dz6CXEKl6FkzhodnqK0iXE=;
+        b=Djs4pnXrhC3dNPl1+R0gjnyWlt5foDkvsOdckN1VKZ+P0Vu00NRYfCj03j0JkMQijB
+         yzE6JsqzqDfp52TUxVC4DTIXeGajPy44ZBiDlMpJpk/6m0YGTGbVnm0V9M9EFyGsZacM
+         /lHYYZ8fxRvYuo64gaky0ux6oppX0G4FdLloGbCoIGTPxtJg7wM64HNdB3qNPLRZF3hd
+         targphzhNgwTqZulo+/WNHt+XmvQECsaspUApdQoxKvoTA+gGERsk1t/MAtilxVpGfcV
+         fsgIYA9eiYiMmnllADsz8pkwted3X8+GbRJ0mb04mm3ON8x6qUWYH9Rx1Wgy/ZHmvdh3
+         jZlw==
+X-Forwarded-Encrypted: i=1; AL+hErHWux7HvDIgCpp7CxfPJyn3kSJ9W/UH8DXfk4kaGbeoxMR/LmaKboWmIA8uE5XYM8oX/fRIJgEM6tpD+ps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GSh0KIPBTvLUc+Jf8Od4waEbeQF/BMVvEF0+GhwXQaBY0WGRn
+	Z++mjXBopIer1DWMDRz1xz/2NJN8kOHAUD9rSF8RtwigFnUNDbE6OnO8I1YNRsBCFGN147ECja+
+	OWFvOKGqTpx1P3FTsEGpUgrBNrzZCQK8=
+X-Gm-Gg: AZFdTZfp1jlQoH5Siwf9qD5QLy4gFE7Lq8hYcK45NmoV2F6oWPpCpO8sAjUZGxVo+M8
+	bams1LNnZiNpYgS821kRU4cC1+vsALnYHu/00/z7QAggWqvlWO4QDpWVuZegwPAz74UlL768piT
+	/K7NateXKhd9VjT7NpUR9DS86sZQGBxiB/gek0wpt9bOmzr85Z4NQ7p4fhG7zL4W6qiOOVfWuAJ
+	8669P/n79pwOuWVQt/Js/gk3usqsc3aKB/arnYbpKjzaSrRN+9yZJez3jj21YiiwR2E5sYnkwEq
+	3unBSxe5wGFQrmM3eGzG/O2VyeN04TPu150jgIWOUGOmKY9FTebYGutVIhJruqrK8K3MEfdTq+0
+	Ma6jCJ/z779DSrRncB7rdXLHQT9+TmCK6PdQVtu/XyGNLJDVU7x+8dhLc1PNoxPYpr8LZInryJN
+	1I+3t8KJnBHwdG/NEl7QZXHF214jkg3INRSW6EiJpcf9HtVpsCZZaQqPKtNbrjH+W+w9bvAFGJp
+	CNywpbTApcud8kr
+X-Received: by 2002:a05:600c:154c:b0:4bb:6a78:7c42 with SMTP id
+ 5b1f17b1804b1-4bb887c3428mr259862695e9.1.1795454908811; Mon, 23 Nov 2026
+ 09:28:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,29 +105,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <895d50a6-3a42-44d2-8625-3b8cba8fbfff@web.de>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com>
+ <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local> <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
+ <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local> <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
+ <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local> <CAP01T77EgbuyhP=zU9L1hwYL6rHaSbrqQZGJR_+9AQgSWLe7Nw@mail.gmail.com>
+ <20261123025529.GDawOrIQcDOPhgWwF6@fat_crate.local> <CAP01T75Qps8bKFZAU2gN-3UJTB1aWw46NG5c-sm6K028rSc9sA@mail.gmail.com>
+ <DN2E8Q9V38IF.3O738M7NGLSAL@gmail.com>
+In-Reply-To: <DN2E8Q9V38IF.3O738M7NGLSAL@gmail.com>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Mon, 23 Nov 2026 18:27:50 +0100
+X-Gm-Features: Aa3M54oRD3bvjk2K9lSlhPKXQEMcK417pjhjD1KAKu_5tFbn0tvXJL_H-YxjRDE
+Message-ID: <CAP01T74K7YG1mfQzKsHA-Qo4WzhFh41Zxs2VZOT7k4DMGPfsFQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
+ user address faults under SMAP
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Borislav Petkov <bp@alien8.de>, bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, kkd@meta.com, kernel-team@meta.com, 
+	x86@kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026 at 05:23:12PM +0100, Markus Elfring wrote:
-> 
-> * Reuse existing functionality from devm_clk_get_enabled() instead of
->   keeping duplicate source code.
-> 
-> * Delete clk_disable_unprepare() calls on error handling paths.
-> 
-> * Omit the label “out_put_per”.
-> 
-> This issue was detected by using the Coccinelle software.
+On Mon, 23 Nov 2026 at 07:58, Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
+>
+> On Sun, Nov 22, 2026 at 07:56 PM Kumar Kartikeya Dwivedi <memxor@gmail.com> wrote:
+> > On Mon, 23 Nov 2026 at 03:55, Borislav Petkov <bp@alien8.de> wrote:
+>
+> >> "the only line of defense is for is_bpf_text_address() to really DTRT."
+>
+> Boris,
+> SMAP stays on. The SMAP branch in do_user_addr_fault() runs only with
+> AC clear, after the CPU refused the load.
+> A wrong answer from is_bpf_text_address() can hide an oops,
+> but it cannot expose user memory, so your concerns are unsound.
+>
+> > In fact, for kernel address faults, we already invoke it for exception
+> > handling. This change would simply extend that to user address faults,
+> > optionally for BPF code; otherwise, we panic as usual.
+>
+> Not quite. See:
+>
+>   fixup_exception(regs)
+>     search_exception_tables(regs->ip)
+>       search_bpf_extables(ip)
+>         bpf_prog_ksym_find(ip)    progs only, no trampolines
+>         search_extable(ip)        exact match of the insn
+>
+> Here is the alternative
+>
+> diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+> index aa88370..9fe8705 100644
+> --- a/arch/x86/mm/fault.c
+> +++ b/arch/x86/mm/fault.c
+> @@ -1263,7 +1263,16 @@ void do_user_addr_fault(struct pt_regs *regs,
+>                      !(error_code & X86_PF_USER) &&
+>                      !(regs->flags & X86_EFLAGS_AC))) {
+>                 /*
+> -                * No extable entry here.  This was a kernel access to an
+> +                * The CPU refused the access. If the BPF JIT marked this load
+> +                * as one that may fault, skip it and zero the destination.
+> +                */
+> +               if (!user_mode(regs) && !(error_code & X86_PF_WRITE) &&
+> +                   ex_get_fixup_type(regs->ip) == EX_TYPE_BPF &&
+> +                   fixup_exception(regs, X86_TRAP_PF, error_code, address))
+> +                       return;
+> +
+> +               /*
+> +                * No other fixups here.  This was a kernel access to an
 
-This now messes up with the PM callbacks at remove stage.
-It's not trivial how to make it correct.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+I guess this is better in some ways than the is_bpf_text_address()
+predicate, since the condition is tighter, and since we rely on the
+exception table entry type itself. I am fine with reworking in this
+direction if others feel it is better.
