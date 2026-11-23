@@ -1,68 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434806;
-	b=YIHC0x311PrfBTrEAGLmcFYUxauRfcY0fBSOE4RkNofX1tYLQr6XxKxqtUlOOBzvpAnB
-	 FDLUk8I7QS47cN/ArD4b6PFPdmv+jwurtrq1R4dnDuLJ3W0zZWlVvgZW3LVUUyEIiejLz
-	 hHG9LkUPXeVrJihd/fZVqNfsJGAmvHomos52hFksDu1oUnNiLgQI9QnduQyt1hD4hrCv0
-	 z3tG8jCfpdx6v3obkhPVUsRGOK1eun6DEgenMVwJPQrZ6oigBnB2R7wq9AANNVA5Tisgl
-	 4013wycmrsWwS7AiAEnResvoERGkmGMk6gSHrPazR9r0GdWQdYM0xmRBC0OK/y8MYbA==
+	t=1795434836;
+	b=bjWhAYKhJrpPjsMComH0CJq2dpRMmK+e7oTohlkABQV1PCZ4r+wkaFILqbT92RpsycMG
+	 A4m6HLHAolZ/UaElL/+xmxsrawbdfOq2pp6wtqeik0p+1vNg54DXj2Vh07jAUpALv/RJf
+	 cFeWnbDBvSbC/mYM06L6+zofhtLihHYh9K5CcZ12dgKAijYliqERAdMK/g61o/Fao7Bl5
+	 EANMSNTePBobg/Qbix7zDv1LPJLCFLwmlTeztF+eFp41Lg+fMAWHy22B00T6vHJOuhfa5
+	 Ztk9H8bfFT7KgkiMIqMYDbti0UHfjH2S7qKDZ8tkeNkTxWP032wSSgQ0LweJu+uwojQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434806;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=XvzEmeTIxXyutq1PXClFF3+A3A4QaLFL8E1yjF/uOVM=;
-	b=KmccM61sJy3sNTjW8NKuhKcjFslikC7cg0RFuUdwCE/xUUYdp9aGxi2CwfZ0vq1yGgXB
-	 K8wQ7iw7uiUoIHTft+cw+yGWmklSYUhEx+YA7d6NbAlwnAcQ4jPc2DblZN/OLwWoK2bUl
-	 KKYLqNP1sXEwy+oScFMqQqB1c/6KRBKFSeTIscT+o3o1A03AbvwsIA28Q5VZysH4/gWRG
-	 w+POUTzPOQ0P9EJnkgKp1dTduC4255IHEW9mhVKiuJo0EvN33/VeqmBTvGSMQaI5Y/iGZ
-	 UoYfs5ESBJF5c2Rix5ajGKrWrWGhAxy7WDGODClukRKZOVorQnpQ3IDeQWMD2/Li3fw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434836;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=rtnqsqXHQKuDC8iW2zmEn4j43knd0EsHyQCpFt+z1m4=;
+	b=L1KbiwegfMIFTHwjia0ZJXjshjDEUKBE2jqK9M2xx2pnb9mhe4uiiDTEGjPdh4wFAdmL
+	 d25LxinTTMJ6BVgjhD75BAka5u5K+F4wJBsPSyAg6OBeouRbXXryFFh72GYWkdbyxMmr7
+	 8OA6AfN0PqUyP8jYTypiGB765xOJO+k7S2LvkCmZNuLxPXXOr+ULV6gWBOryPxbxNy17r
+	 0914a5evac+se8m44LtQ10+q0BngfNSrA3i5SfCQXtdz8quMSBhsPWRvziNim+slZn8ur
+	 6ctI7FpvMJaNY+96BzN6OVh+4Zp1M44ju8l8GBI8kRciq+zLyGcWdiX2d8xj/X7yDYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Qt75YU3b;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0D0F2606A31A;
-	Mon, 23 Nov 2026 11:53:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D0F2606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JIM0+eRo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D693D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:53:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Qt75YU3b
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32098143D;
-	Mon, 23 Nov 2026 03:53:22 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0AEC3F882;
-	Mon, 23 Nov 2026 03:53:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795434805; bh=RYiIfxkDaSmX84xLMRyq6/NcK2Xs3/5CbbES0suYhVc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qt75YU3b9IX1teTA93OzvDq6X7Oe3ZnyDyVLUjwaAHC4X7Nb36+f9OfXtVZiu6E8N
-	 QyrHjBzaMwPjmpSIc+kKHmbJ7YcOKGgyW8B0UiNQRSz6JKof8vAkU+dwT7fr04Xi78
-	 Q8GmkPvA7o5KPkoovCNy2agd85FsSuoCiSVEi2Vo=
-Date: Mon, 23 Nov 2026 11:53:22 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan Corbet <corbet@lwn.net>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	Ingo Molnar <mingo@kernel.org>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 04/25] coresight: perf: End AUX output when an event is
- throttled
-Message-ID: <20261123115322.GC9176@e132581.arm.com>
-References: <20260915-arm_cs_support_aux_sample-v1-0-35cf6f297d20@arm.com>
- <20260915-arm_cs_support_aux_sample-v1-4-35cf6f297d20@arm.com>
- <5b94b79b-8c4c-433d-8c9c-d92b4a8399c5@arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JIM0+eRo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB3C51F000C6;
+	Mon, 23 Nov 2026 11:53:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795434836;
+	bh=rtnqsqXHQKuDC8iW2zmEn4j43knd0EsHyQCpFt+z1m4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JIM0+eRoUDbIDakme8gpu8Dw9+Hw3XPCKCjTUoxiyGyWw4qFYt4lIvhSMKOihxx25
+	 U58hML0Fp6d/RR6M9hj4GjDKY2SRaynGZMNJS21V8u9QMhkaS9jKRQ1HqstRF4xNI0
+	 K8KaoEWXnH7BKtAcR+hUJ1xyGXFjUwltsRAj7Jx7aACtCnMo9TXzI0FZypxc29tofv
+	 r6IjYcYVjPLTQbvgdPXIIcJIvElblOueuZsrsyzehwoEhJyCmqnbwIIiMDti5JFVBm
+	 4zAXUpGx5KQwRjK02CGfjHL1ISOb8RExx95fCZZQXfNYsUIoUAmaICpNTouWn317Zu
+	 6PKo7++42ebOA==
+Date: Mon, 23 Nov 2026 11:53:50 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: David Hildenbrand <david@kernel.org>, Rik van Riel <riel@surriel.com>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
+	Andrew Morton <akpm@linux-foundation.org>, Matthew Wilcox <willy@infradead.org>, 
+	Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mm/rmap: flush the TLB once per mapping in
+ page_vma_mkclean_one()
+Message-ID: <awQo2tg9rzMJYCQe@gremlin>
+References: <20261123-feat-mm-mkclean-batch-flush-v1-1-7e998ad13251@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,44 +62,108 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5b94b79b-8c4c-433d-8c9c-d92b4a8399c5@arm.com>
+In-Reply-To: <20261123-feat-mm-mkclean-batch-flush-v1-1-7e998ad13251@linux.dev>
 
-On Mon, Nov 23, 2026 at 11:01:04AM +0000, Suzuki K Poulose wrote:
+On Mon, Nov 23, 2026 at 05:41:38AM -0500, Qiliang Yuan wrote:
+> Writeback calls folio_mkclean() on every folio it writes, which
+> write-protects and cleans each PTE that maps the folio, so that the
+> next store through the mapping faults and redirties it.
+>
+> page_vma_mkclean_one() does this with ptep_clear_flush(), one TLB flush
+> per PTE. A large folio mapped by PTEs thus costs as many flushes as it
+> has pages, each an IPI to the other CPUs the mm runs on. Writing an
+> 8 GiB file through a shared mapping on xfs flushes the TLB 2,097,152
+> times for 65,575 folios, and the writer spends about half of its time
+> in the IPIs and flushes.
+>
+> Write-protect and clean the PTEs with ptep_modify_prot_start() and
+> ptep_modify_prot_commit(), as change_protection() does, and flush the
+> range they cover once after the walk. The flush still happens before
+> folio_mkclean() returns: stores through a stale TLB entry complete
+> before writeback reads the folio, and later stores fault.
+>
+> Writing an 8 GiB checkpoint to brd through a shared mapping, one file
+> per writer, then msync(), median of 6 runs:
+>
+>   fs     writers   before (s)   after (s)   change
+>   xfs          1         5.57        2.98     -46%
+>   xfs          8         5.37        2.10     -61%
+>   ext4         1         7.88        3.90     -50%
+>   ext4         8         5.10        2.02     -60%
+>
+> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 
-[...]
+You are flooding the kernel with patches, 6 series across 4
+subsystems over 19 hrs:
 
-> > @@ -748,13 +748,16 @@ static void etm_event_stop(struct perf_event *event, int mode)
-> >   	 * handle due to lack of buffer space), we don't
-> >   	 * have to do anything here.
-> >   	 */
-> > -	if (handle->event && (mode & PERF_EF_UPDATE)) {
-> > +	if (!handle->event)
-> > +		goto out;
-> > +
-> > +	if (mode & PERF_EF_UPDATE) {
-> >   		if (WARN_ON_ONCE(handle->event != event))
-> > -			return;
-> > +			goto out;
-> 
-> We seem to be disabling the path in this case, which is a new side
-> effect ? Do we want this ?
+https://lore.kernel.org/all/?q=f%3Aqiliang.yuan%40linux.dev
 
-Yes, it is intentional to disable path for this case. By this point,
-the source has already been disabled and the event marked stopped,
-so I intend to complete teardown of the whole path.
+Please don't do that :)
 
-> Also, could we not move this out of the if condition ?
+Given the volume both recently and in the past I assume you are using an LLM to
+do this, so could you confirm your understanding of the problem (as well as
+those of patches sent to other subsystems) and what real-world task you were
+doing to identify this issue?
 
-I initially left the check in its existing position to keep the
-validation changes together in patch 05, which reworks the AUX-state
-checks with perf_get_aux().
+See https://docs.kernel.org/process/generated-content.html especially the
+paragraphs at the end.
 
-I can update condition check like:
+In general a core team member tends to take over stuff like this.
 
-  if (!handle->event || WARN_ON_ONCE(handle->event != event))
-      goto out;
+> ---
+>  mm/rmap.c | 16 ++++++++++++----
+>  1 file changed, 12 insertions(+), 4 deletions(-)
+>
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index 65646ed6fc453..4c3d9cb47e550 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -1127,6 +1127,7 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
+>  	struct vm_area_struct *vma = pvmw->vma;
+>  	struct mmu_notifier_range range;
+>  	unsigned long address = pvmw->address;
+> +	unsigned long flush_start = ULONG_MAX, flush_end = 0;
+>
+>  	/*
+>  	 * We have to assume the worse case ie pmd for invalidation. Note that
+> @@ -1156,10 +1157,11 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
+>  				continue;
+>
+>  			flush_cache_page(vma, address, pte_pfn(entry));
+> -			entry = ptep_clear_flush(vma, address, pte);
+> -			entry = pte_wrprotect(entry);
+> -			entry = pte_mkclean(entry);
+> -			set_pte_at(vma->vm_mm, address, pte, entry);
+> +			entry = ptep_modify_prot_start(vma, address, pte);
+> +			ptep_modify_prot_commit(vma, address, pte, entry,
+> +						pte_mkclean(pte_wrprotect(entry)));
+> +			flush_start = min(flush_start, address);
+> +			flush_end = max(flush_end, address + PAGE_SIZE);
+>  			ret = 1;
+>  		} else {
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> @@ -1193,6 +1195,12 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
+>  			cleaned++;
+>  	}
+>
+> +	/*
+> +	 * Flush the write-protected PTEs once rather than one by one, before
+> +	 * the caller writes the folio back, as change_protection() does.
+> +	 */
+> +	if (flush_end)
+> +		flush_tlb_range(vma, flush_start, flush_end);
+>  	mmu_notifier_invalidate_range_end(&range);
+>
+>  	return cleaned;
+>
+> ---
+> base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+> change-id: 20261123-feat-mm-mkclean-batch-flush-686d20219b52
+>
+> Best regards,
+> --
+> Qiliang Yuan <qiliang.yuan@linux.dev>
+>
 
-If this is okay for you, I will update patch and send out.
-
-Thanks,
-Leo
+--
+Cheers, Lorenzo
