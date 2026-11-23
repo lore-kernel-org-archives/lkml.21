@@ -1,69 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402225;
-	b=xZAQcDP2dF5004ZxAugjc6iIMcuv3EhD6S/A9q5ExtsgW+m7v+tcj4/TtGyPEFBAYLni
-	 Og5PCQlqKyMY7PUBaMQWCPlE+3F4gqJBH3RmMWBD1NZad16YfiQvqVP7g3JYceBm2WE7l
-	 5ALdMkkoFOLru/ndJRjS4eMrme1olqX8XYdoxxhQIcKO8fn5SGtPZ+tP4ezCgeIryJQmC
-	 0FqoWZ7UUPuqfe/xC/GsKrMbbQ7iXoleKn2OPaxr/9/o1l0uUIGLoM+voQIE0ifdt0oyU
-	 /SGGV7+vrA0uMcWGDDjB766ySg6t0O0xRiVmoprtqAvH92ktw5fPqYOHAJyUIqvXEmQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402225;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=PGUSO64aDmeiomTwHSqW1O+T0fU2bJipEwmEC3CjH5M=;
-	b=44Ce61v4oExXZuIi2UgQwvTOX1hS4OwsgSWb+2YFyHvG0qVBBK1wIlPkVeVQoMrWhi+0
-	 BzuCHqwodLTupUeGQbUTUAf5qzZZn/duwIiSs5L2o3aklNev48qXYit3qtnztXFHCZBu3
-	 NB0Jy1E3TAfXP0u+H7DAyHlWHgvOiBaAJV2eejWGvb2acuFFSfS5XCHIc6cpG9/DHge3T
-	 wYxbvynFh0YzxSodcTgvX6WILqrpe3Y6ziGMkyMyTtQyoUfKsYSeh/B8Tq18o7XQPMHly
-	 oMDHt4MSbdUYJfB7pg+/3BhBJZfQnKbv/Bd5Uw6+qy5Uh1oLNGqDPP0eZpCzKbvxx1Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=EzasSOUt;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D7BC2606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:50:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7BC2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.59
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795402293;
+	b=AJ+wByb2ixc3kaq5znZGJpb20xObMEQM4LEj185QcfUXg1kPCVfiQ7C5EKF0o/WlCcuV
+	 oHDWlmfBVih5Coq7cZxDTmZFfIO66Pwwzlc0KR2YA8soDhKnKGtGiOcBQd4Tzr3mo4kk0
+	 qVgdlr/bnTAZqidegZS+hlKLoq7xRU+b/GE3mnDsSDBTpUl5+H+C5emaB2LvmJWDvcQYY
+	 zq0mz9hXNMLaXxncwvVVnDVVjBjslSViEaREagMnxdZWJEYGU4IXZnZnhPr+B3Op8tzKi
+	 2/WrJ5wjjWZy1DeEGlIW0wHCFiH8vlpXAjUJ10tHh/JhG8OEi1MMPUthvS/ieY1YaEA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402293;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=jO4OjrwybHVgPGZAeksIgQTLzHs1YcoLGx+MT5zCWeM=;
+	b=q6ICBUhVfUuADomHTTfnx0K15Ve1yMbnvBX7JGBibPHzCwwI2jJXKERScqBwyoMFqssJ
+	 z4MJVuj1sc+BPlaL65IWPuysTrkveplMSYnW5FKiQnR3wYH+fCERVWqmGaiSfU2hYFf0t
+	 qLJ3yFIDC2RcchLCcQVDqmdwL34QJur0WCdhEL1LWvMis14TzwI8XlpZyf3Y30nISgKSZ
+	 vuY6wqlJyrJ4rW/TsJ5W83cGt9WFOLCRoHPEDyRtpEBORyQslvksPlThw8Eh9iMZDt8Y/
+	 Jf/kGbTijK6ql3hDyhKYXUwAavSvfX21Ci35c1ILl1GRkOKdQ/9zMpb5vZNZ2DLRcUA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=YKsAcq7s;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.59
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010059.outbound.protection.outlook.com [52.101.69.59])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61826606A31A;
+	Mon, 23 Nov 2026 02:51:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61826606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=EzasSOUt
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=EzasSOUt0qH4hDp9s9jqGeqmEXarED731bZ0ZO5vZjnWmTgpJjeS0lvti0YFtY9mxKN0ivMiYwVqF
-	 h+DYiSxSKWt7IlSr1Qh0Ydkgxld39lFbQX4zqs8vFdDm75Rz12TRXuWBtUPJ/+zO+cOdj+6wTzxhd/
-	 HRWsrhUWGdIAdm30=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b03a9edd40-38e98;
-	Mon, 23 Nov 2026 10:50:22 +0800 (CST)
-X-RM-TRANSID:2ee76b03a9edd40-38e98
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56b03a9ebdf3-83b5a;
-	Mon, 23 Nov 2026 10:50:21 +0800 (CST)
-X-RM-TRANSID:2ee56b03a9ebdf3-83b5a
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: bleung@chromium.org,
-	lee@kernel.org,
-	tzungbi@kernel.org
-Cc: groeck@chromium.org,
-	jthies@google.com,
-	chrome-platform@lists.linux.dev,
-	mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH v3] mfd: cros_ec: Drop OF node reference in ec_device_probe()
-Date: Mon, 23 Nov 2026 10:50:22 +0800
-Message-ID: <20261123025022.1761-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=YKsAcq7s
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jgy81jFPiHqM3Su2NKPXSuRDPQEe1HVS723IKnXqS+Y8g4vshW46fed7l+1T1NZihYyiMwOCAFgnDNYECrwvLqvaTZQ9QNpBVfv/YRkvlINlP82qFEil50SEbakYoEbHonXk9c5kgjunNJtCRWBSVbaVCgtVCMK1Rly1/M8wDOb3W0LpD/xcXWuUk9wvd1goD7MxMOGP2KKX1d7dqcKdpFk9PaikMEyNtACIRuAkaqhtDTCdftkkx+Nj/kuNCOaWzF7IhqmuzwmkGu0beMCZPBdqbn1NEGVjCrGEdSJkO2vjtWOMsvoCPtnHwAGfob9PPT403ifVqFcY/SDt0KoF5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jO4OjrwybHVgPGZAeksIgQTLzHs1YcoLGx+MT5zCWeM=;
+ b=DzKFja/j/mtxxEUAwXSKEiOm2LTFfR1nD0L+B8CrirKFr8r6/u/IX23UIKGECZFxHjp9CKo0cczTWG31gnarX635CcksaMpKyOJThGCtVuIByAfcZDkDzq27LMG9XwzaIgvCx2OI4kqoWYqYTr+La2IDrJNM6OHTSxTYkoL7Cdkue6kOucGf8xwPl/JmrkQrsI0mU4ZEA9QszhSN/xX3IoWxDxMP52GJ0lN8AM05s3VJDazgJonFPCd53jrmSrMI6CxsM2GeTX9UPueqWVw1teUSp5xFaLEMXhZLKkcF+3hKg0/YzdeIU6xYJBF/OZYIf3lj743XAUFRh/23qlWGZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jO4OjrwybHVgPGZAeksIgQTLzHs1YcoLGx+MT5zCWeM=;
+ b=YKsAcq7sqSkH9Iy5JK5BkPskuV8R8QZA0aiqXI0lG0ACuP8cKwtVHYoYdjtxwFburkVcZAqSChudWZIVZ27wAjSJU9sIppLENioYTLZ2hURgItlaUwW/bj+HjCAxP3OIE+RaUS8GQEtL+yJ25/YCz4xiHmPMpnS7XlO71gbAZv8MndMdVJHP8ubcQkuge8gAQbVpO+cJhzRTrLMpIrTomjEDC92+OwafvFpuiunu6zZh7JbUVEoFsqrxCMx94axUMrXH3lCZZxEJ54Bz9pOSnOTMKsjBCxNoJi+iuR9c4xF4KYIRLx6HK0iHxkiC8fjS/mTAkuRYg7h+QZtJxrX6bg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MRWPR04MB12117.eurprd04.prod.outlook.com (2603:10a6:501:97::14)
+ by AM7PR04MB6839.eurprd04.prod.outlook.com (2603:10a6:20b:103::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
+ 2026 02:51:28 +0000
+Received: from MRWPR04MB12117.eurprd04.prod.outlook.com
+ ([fe80::9a10:5b39:708:7f43]) by MRWPR04MB12117.eurprd04.prod.outlook.com
+ ([fe80::9a10:5b39:708:7f43%3]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 02:51:28 +0000
+Message-ID: <97c93f9f-0f53-4b47-8c6c-a2b056865e18@oss.nxp.com>
+Date: Mon, 23 Nov 2026 10:51:10 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] arm64: dts: freescale: imx93-11x11-frdm: Enable I2C
+ level shifter
+To: Freimut Diener <f.diener@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Marco Felsch <m.felsch@pengutronix.de>, Justin Jiang <justin.jiang@nxp.com>
+References: <20261120-imx93-frdm-fixes-v1-0-78dde22a56fe@pengutronix.de>
+ <20261120-imx93-frdm-fixes-v1-1-78dde22a56fe@pengutronix.de>
+ <MRWPR04MB12117B415189A3EC52A69934E94782@MRWPR04MB12117.eurprd04.prod.outlook.com>
+ <87cxrzbxy2.fsf@theta.mail-host-address-is-not-set>
+Content-Language: en-US
+From: Joseph Guo <qijian.guo@oss.nxp.com>
+In-Reply-To: <87cxrzbxy2.fsf@theta.mail-host-address-is-not-set>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR02CA0018.apcprd02.prod.outlook.com
+ (2603:1096:4:194::18) To MRWPR04MB12117.eurprd04.prod.outlook.com
+ (2603:10a6:501:97::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,81 +112,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MRWPR04MB12117:EE_|AM7PR04MB6839:EE_
+X-MS-Office365-Filtering-Correlation-Id: 91bd8edc-1199-4330-d83d-08df490cabf9
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|376014|7416014|366016|1800799024|23010399003|22082099003|18002099003|3023799007|11063799006|56012099006|4143699003|261028144727099003|261022105027099003|261026140227099003|261026121527099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	RK8Lmc63bSkc7ETxuG49FK1GSM7Skorj1w2TtPoMtGmLncuUa8NmN9NDIr4WTPXVurEjmCkf/heBNY54SlzlwWqwVreD0SBPEmBVKH34lRui6xFIIkx/7TRqNvKHJOmoxpRwC0gkmRNytMZLondLbHjhMpdAJKFDaNGn6M6R4vuR+AobqvjHRv4HqgVq1ilIlEEfBflEArLS4djP7VUbrXZA9lrB/znzXvref210iDuIShCQF+B0xcihIjnbKfD/OE2A4q1aUH9QWSD0yy7v3tIiAT5dEdvqgQEJthJdIHyXzwbnajTd7KAkWlxAaHHJAqBUIjpNy9CS7U2PrB4nSjXBakWhXOp2JyBhrYLLOZvakNIdNm+mv+wLahjgMSUbONC8zIMntehL3uc5n3NrR5t61SAR6/UJnH+lld1bbFZRKPsKRmyC/hSggR94RD9ljQZf7x0uhRqIq5KI1f6iwQabfNjmvHNcdIG2NdmoSXih3lUx2WiArQK+sIuKT1vwhq4aSA3a0JiGQAC4oDHJoc76FkFWtVvY0rWpc/qawxiZqAomzia01s/BV42fozIN76Yf3j1Etx2WHIxAMzEjuQl4w5XhwVaJZnyzZfE6Z9YwP/THH1HKIvxELRdqWiaunsr9mTmh5DDqptMLO4Zl3Codh3lffuf/S0y/sY/kzNw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12117.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(1800799024)(23010399003)(22082099003)(18002099003)(3023799007)(11063799006)(56012099006)(4143699003)(261028144727099003)(261022105027099003)(261026140227099003)(261026121527099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?TWRQbE51b1kxTjdvOHpEWkg0UjY0Uk9NTlh5ZVlSeVhmdTdNNFJ3cTA2MEV5?=
+ =?utf-8?B?L1hIbjBuMTdqODZFQVJGc05JaXRrblhtYUNvcTJuYmVJcHBPV2dKdTU1TDBh?=
+ =?utf-8?B?RWpRMmY3YkMzUVJtNkFud2UyQWNpWjd6OUI0R0VzQjF0OGlpYnRqMU1BVFRa?=
+ =?utf-8?B?dXd4cXFHRGFHTml2LzQ0WndOeFFrS3RqWjY4b2Z5UGgrdkloWGl5SE45Umdp?=
+ =?utf-8?B?Y1ZzRGFtQ0VndFpUajdWbUhvNW94NmdKTitRRzBBU1lUVFMzQTFOcllXQVpE?=
+ =?utf-8?B?NjdhODd0Z0x1NFRlalh1VStTSDE2OHdsbjVVSzdNV2hqbUxyd2hPT0lpRFNZ?=
+ =?utf-8?B?bzRVQWtiYXd0T3dRdlhJK09ZMGoyN283Y21hT1BIdWEzbDUwZW9jNG1lMEJZ?=
+ =?utf-8?B?a2tGVlhkbmRoNGoyYjdRaTJkdzhBS3pNZVJKbW8rTEpWUnI0YVdDeWpsUCtu?=
+ =?utf-8?B?cGMxUVdyYjU0dC9wd2VuTXQ2YzlQZmo5N2VGTUlxcis0WkdSL0pVMEhGWDYz?=
+ =?utf-8?B?RS9wTklUSnpXSlVzbkdzd2lEUnk5ekIxSUpXdDFubFBHeHgweWZnV2tWd3FV?=
+ =?utf-8?B?UDJ2SUtBWHRMUGNvZ3FheVk4aVk5RGJHa3VDdmMrMVRwSGZsTTNHQUlmK0xF?=
+ =?utf-8?B?Q2lwcit4ZnFrWElmZDNxR3hKU2xIZ2JkekV4R25tMUxEZzEzMUs4T243RlUr?=
+ =?utf-8?B?Y2lDZzlZL2t0ckV5c1RIU0pSV1pyMTRxb3VKOWlQOENnQXcva2lyTXcrdDVI?=
+ =?utf-8?B?VGplSU41c2tGdmdKOG9NV2JFL05aa1JON1Qzb1FOUmpOc3h2ZlZiVkg2dncr?=
+ =?utf-8?B?WUNVZ0MwZ1k3MGZGdTRVZHQyQWxnWHpxTVg3cHMvVjlCZEFER3RvbkpMNWQz?=
+ =?utf-8?B?cS9UamZOeVZEWXRxdzFCN3c2d3NZZzZzbDJGWUh0NjdjQWd3SGVManVpUW1E?=
+ =?utf-8?B?VFB2OFFwTFpET296WHRqTlRiVFJSa054MHdrTVBuTmR1dzNPZDF5aXZvTkd1?=
+ =?utf-8?B?OHI0MThiYVkyM3o4S243SE9vZVlNSkpoMDBDTG5hNWxNSmxhTGZUM2RMQmx0?=
+ =?utf-8?B?VzVzVHA3bStnclFBT1k5eW1INHFxWnlOQlJ5dlJiYU9ET2ZEeFZUS0tpWmFh?=
+ =?utf-8?B?SzBJLzh3YldKU3E0ZUtKYlRKbEhMaGFaVmdkQ1lLcllwSUEwb1lLT21jK1Zt?=
+ =?utf-8?B?VUxnclduVVJqNFhibmdzTVorWVZtMHN5S2hOWTVJMmR6Q2ZWSTRTaGliRzc3?=
+ =?utf-8?B?Q2wxWGRJcFYvWnd5UTIyN2pZUWlwYndzUWhiZ0duV0t6QkFsQU5IeE1BTWhj?=
+ =?utf-8?B?Uk0zV3N3eWlQZHQ5U2VJWW9LbjZoZElhVUdZNnE2YjErZlFickdrUVh5Zlg1?=
+ =?utf-8?B?VVZGemVjUlRQa0cyZ3RqYXpYTk5XVDRaMmcvbm5NUjRIRElDakRWRnV5UUJk?=
+ =?utf-8?B?NXViNUhrWGhaYmtmaHY3SHVvYjlEVUV2MGo4bWZRZGlvd21pcE9GNEVRNzd0?=
+ =?utf-8?B?UUNhbnpLOThxaU02MWY4K1FTZTNDZVB1eHRiM1VOUklWR0txdWhKMisvU1Nl?=
+ =?utf-8?B?S0pMaFpKYyt3d1ZwVk5zNzNqUFRqc2E5UlorellpaWZQTnNaVDlHNzBuSERl?=
+ =?utf-8?B?UlZNMTBJajd5SHpSbGxzKzl1aWpsY2Z0YnkzN25qVnZScFA4OHlZUy80djd0?=
+ =?utf-8?B?bEw3V1M3elArdmgxaHRVWVF1UndJZkNZZlQyVWlUMjZwTDNwL0d4SVYzaFRE?=
+ =?utf-8?B?dFBLQ3BqUVVZeGp2di9rKzB5UFU5a05HdVdaajdOUHNPNk1PREVjTUFYTDFM?=
+ =?utf-8?B?TTIzYnRJTHprQTdSdDcyOFErNlNNSHRTRVJsYkYxL3dDQ3drWUl0SXdpeHBY?=
+ =?utf-8?B?d2d5NGpnV0dnTHpzV0x5RWFqYnZ5ZFkvUmxzeng1eWZHa3ViQVpqdEo1WW1P?=
+ =?utf-8?B?U3dmOGlZMGdwR3ptQjBXbWo4dkdBd3RwV1pEYWtMQXowUFJIc0M1U2pMVERU?=
+ =?utf-8?B?UGpIV01CK3BMb29JYnN3bHgvdHhZdk1HR0F1R1UySHVYb2VBWGZ6TXp6TWJo?=
+ =?utf-8?B?eHJMTHprY0lrUVBkd1FORVh4dStra2ZhZ3dFLzRzeGZjL0FOYThPWG04VlFK?=
+ =?utf-8?B?TGIrR0wvelh6SnQ0bkx2c3MvaTRIUnp6WnllaTlQWkJSOGNsd3pyQVNvL1lz?=
+ =?utf-8?B?N3RCSjlOWlVPUk9kUjk1Q014c0pIN3BPa1ZTdldDaWloKzd3QTF6WUZaNHh1?=
+ =?utf-8?B?aFlZcFRqMm9WWWdUb2VWRktDcTdQRFJpZTRMYzdnQ2txZG9NVDl0ejk0SnF1?=
+ =?utf-8?B?VDlrSXJNUG9LQjdkOEp2aXlJVnFZQ0hCeEUvalh3TENHSDIxQTRoQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91bd8edc-1199-4330-d83d-08df490cabf9
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12117.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 02:51:28.6624
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: byHfUEVJsZgQTDuLvNWu73j/e/nm55YoZGiX/33REIZlOSwqUBasGvApHIr/1j5QoKIu2M96eNa0ZrpYBPnb4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6839
 
-ec_device_probe() calls of_find_compatible_node() only to check=0D
-whether a "google,cros-ec-ucsi" node exists in the device tree, but=0D
-the reference held by the returned node is never dropped.=0D
-=0D
-Scope the lookup to the UCSI block and mark the node pointer with=0D
-__free(device_node), so that the reference is released automatically=0D
-when the block is left.  Keeping the lookup inside the block also=0D
-preserves the short-circuit evaluation of the original condition:=0D
-the device tree is only walked when the EC_FEATURE_USB_PD,=0D
-EC_FEATURE_UCSI_PPM and ACPI checks already passed, instead of on=0D
-every probe of every cros_ec device.=0D
-=0D
-Fixes: 17f95281839d ("mfd: cros_ec: Don't add cros_ec_ucsi if it is defined=
- in OF or ACPI")=0D
-Suggested-by: Benson Leung <bleung@chromium.org>=0D
-Reviewed-by: Benson Leung <bleung@chromium.org>=0D
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>=0D
----=0D
-=0D
-Changes in v3:=0D
-- Add the missing <linux/cleanup.h> include for __free() and fix the=0D
-  continuation alignment of the mfd_add_hotplug_devices() call, as=0D
-  pointed out by Tzung-Bi Shih.  No functional change.=0D
-=0D
-Link: https://lore.kernel.org/r/20261118062949.1250-1-laixiangwu@cmss.china=
-mobile.com=0D
-=0D
- drivers/mfd/cros_ec_dev.c | 21 ++++++++++++++-------=0D
- 1 file changed, 14 insertions(+), 7 deletions(-)=0D
-=0D
-diff --git a/drivers/mfd/cros_ec_dev.c b/drivers/mfd/cros_ec_dev.c=0D
-index 529a23b80..cd1ce833a 100644=0D
---- a/drivers/mfd/cros_ec_dev.c=0D
-+++ b/drivers/mfd/cros_ec_dev.c=0D
-@@ -6,6 +6,7 @@=0D
-  */=0D
- =0D
- #include <linux/acpi.h>=0D
-+#include <linux/cleanup.h>=0D
- #include <linux/dmi.h>=0D
- #include <linux/kconfig.h>=0D
- #include <linux/mfd/core.h>=0D
-@@ -271,14 +272,20 @@ static int ec_device_probe(struct platform_device *pd=
-ev)=0D
- 	 */=0D
- 	if (cros_ec_check_features(ec, EC_FEATURE_USB_PD) &&=0D
- 	    cros_ec_check_features(ec, EC_FEATURE_UCSI_PPM) &&=0D
--	    !acpi_dev_found("GOOG0021") &&=0D
--	    !of_find_compatible_node(NULL, NULL, "google,cros-ec-ucsi")) {=0D
--		retval =3D mfd_add_hotplug_devices(ec->dev,=0D
--						 cros_ec_ucsi_cells,=0D
--						 ARRAY_SIZE(cros_ec_ucsi_cells));=0D
-+	    !acpi_dev_found("GOOG0021")) {=0D
-+		struct device_node *np __free(device_node) =3D=0D
-+			of_find_compatible_node(NULL, NULL, "google,cros-ec-ucsi");=0D
- =0D
--		if (retval)=0D
--			dev_warn(ec->dev, "failed to add cros_ec_ucsi: %d\n", retval);=0D
-+		if (!np) {=0D
-+			retval =3D mfd_add_hotplug_devices(ec->dev,=0D
-+							 cros_ec_ucsi_cells,=0D
-+							 ARRAY_SIZE(cros_ec_ucsi_cells));=0D
-+=0D
-+			if (retval)=0D
-+				dev_warn(ec->dev,=0D
-+					 "failed to add cros_ec_ucsi: %d\n",=0D
-+					 retval);=0D
-+		}=0D
- 	}=0D
- =0D
- 	/*=0D
--- =0D
-2.50.1.windows.1=0D
-=0D
 
+On 11/20/2026 6:26 PM, Freimut Diener wrote:
+> "Joseph Guo (OSS)" <qijian.guo@oss.nxp.com> writes:
+>
+>>> --- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+>>> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+>>> @@ -49,6 +49,12 @@ pcal6408: gpio@20 {
+>>>          };
+>>>   };
+>>>
+>>> +&lpi2c2 {
+>>> +       pmic@25 {
+>>> +               nxp,i2c-lt-enable;
+>>> +       };
+>>> +};
+>> [...]
+>> Can you please move this into imx93-11x11-frdm-common.dtsi?
+> I don't have access to the i.MX93 Wireless FRDM board.
+> Are its schematics publicly available?
+>
+> Have you verified that the I2C level shifter is also present on
+> the Wireless variant?
+>
+> I'll move the property into the common .dtsi in v2.
+>
+> Best,
+> Freimut
+
+
+The i.MX93 Wireless FRDM board have same design.
+
+So please move the property into common dtsi. Thanks.
+
+
+Regards,
+
+Joseph
 
