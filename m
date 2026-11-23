@@ -1,78 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428962;
-	b=YoASeKnsBnkzqPJYLBFg87vKD8+7GmFmVKjc7sq4d5abbpY6104nNkmE7YRfeZk3mTU6
-	 J953f5heJwq+0Z2zOp+WW3sucbJA3NAcfko+uky3f3l8Oj1BYx0xxVPW8DeeP8Q0U2jsF
-	 N4IPZsk+zvBzpCz7wDn6rPQbvvhzgQ2sajj7bN7ge0RfThvgXbiEDRgoqEYscRc57o0kX
-	 8LTJ1Je8Fc7DgA9NNzzcOxrNZyqOSjgNQY+B/rjpVeGNcmIaRhxctV224YNsoeL7Oi4m7
-	 aOUgaOHnOj+0zNUdFBVBDH0GsYoaJWJBjgYh1AZAf0oyIG2Cq5g9zzbKCSmIjr6qbqw==
+	t=1795429023;
+	b=votrbTF97yB14h1bINYgAaXSAXsqyh/7VMDIN4WMSCNAQSrKkx6Y0b8U2nkMWJzdpuvL
+	 aNB4PiK1CUP2X2fc8IjhYtXxFuK37uTzO5r/iSfu5JC+d7L5ziexQ6C/TFFcc4OK301ns
+	 rBDHhgFgThC/EOVvm1cmpwGu4R+imLwzP0LG4CoIVZ38hhf1B/73bSOK6Nl1HJT9Ssi1k
+	 HO1wzs+UPcw1AgV27UTCgkuNg2rYzzo8ZNmcl/PIktnE/xiTRWvBWynyhb21+W6cbNWG+
+	 mxvbgn/9SZhqfLMYRIcgFUGAxGdCFudem/pxrrGFhRbZUo3/dXKKSEG1SKMt0jL0XFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428962;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=0DxMPatdCEt9/VYUlPYYRHPra3qkaiERqTWnPhb3ioE=;
-	b=Nlw36JS+02PNj+WpLx/78poS/hS0MY5C4SM/faBS4U7jrJpWepgLbnOsLCudqpyocXeX
-	 azgnIvR4O55cAjUrPcHZOA4BzdRpl0DJZW5WD4H4sy+dPpoP7NObZU20FAn//WJqJ7iRZ
-	 z71T19X0Wp1jjjkAbQSHYdnzStKTEQk9zj8RjnyVoRgcbrv30KxAWB9dK2iclMOrAwTOq
-	 n3bF+ut4QDr/sKnG1h6UbRz8EHjfloAVDM4veVvSfCv+EHlOqXWBE6EVu2oZbDyNTUbTA
-	 lD9r63sGAh2yJLeICq9oGsU1jPrWEcIVctT5poOP3YcNDMY77MGAA+pbLpQyIECYZYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429023;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=LCEL5ZzIE6CqXobcR7VCKJa1aUMGK3bIhlWJxWwXyDE=;
+	b=P/7fR2+9CWb2UoKkXd4yQfahI44QiegQlr07wSMhvw1AEcdfqcHNOrICCczR8DYOg4Zj
+	 coicBv/h4g/EdBoZs2+SqPotFsbR6h+086zu6bGmt0hRbMdR/Xr4lmsrG6BeKteeNKIJP
+	 5byxuHkoq+pEcCHlRWGYkT5HbAvn97+YHLEJ0erFygOVdqlr+DTN2OK0ZlV8UK0ATI9Ch
+	 QLH1ls9Zuz0mtSCTbAj2HISTOk3xCfNR/yO1cuEXsbljUZkyVye4GBC9qmM54vX3kI188
+	 u9PIk6mNpwCnBRRKoIxpop06Rii395ouxtwXHmXCmTz7mqgPL25elMDQiFwGz5hdJaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lpxXboh5;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BDA5606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:16:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BDA5606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=rxoIeIO1;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 387F9606A31A;
+	Mon, 23 Nov 2026 10:17:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 387F9606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lpxXboh5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795428961; x=1826964961;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hp4GFFoZW+a6qMWtPZqjgSKmC8CMUxHdLaWQu+RTjjU=;
-  b=lpxXboh5wrJ8TAr26IvTGyHYXO92d5WwP12TqRSweWo9yWURSBZSXQE+
-   B+8Jmu2OXia+N/aGt9UXmvQPj423XDCFWJC6Xa6yFOXWNicMo6uusdiSm
-   amvhkmtCXIlAgqRNseUVNdqtzzvAEEDnVoRgzpFtTdOwXWEXKtM6S8woj
-   n/+b5T5iNXm0dHFgi0lHqrA+9e+D041D7cUh09kscNcFX/fF4swAN3e3J
-   zAOmklnLN+MQPWn6JxSU8C1bTDjuatp6cMrWzjcHMO5ZwbqDtdfUxqnzN
-   /hRJADxl8e1HjoQhUh9LtMU7w0gZdrnKMON57Cs+qTMjjefnmrXjR6ufS
-   A==;
-X-CSE-ConnectionGUID: xFBjNkIyTJGZbHtrGZ6Q+w==
-X-CSE-MsgGUID: B5KlRbGGRJq8otuLJs8DgQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4248238"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4248238"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:16:01 -0800
-X-CSE-ConnectionGUID: OLPJ2fQCQcyFBG8a1W+/Xg==
-X-CSE-MsgGUID: SiLegplNRSCR0yUUHTYpmg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11622989"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:15:59 -0800
-Date: Mon, 23 Nov 2026 12:15:56 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Luo Qiu <luoqiu@kylinsec.com.cn>
-Cc: Jianmin Lv <lvjianmin@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Yao Zi <ziyao@disroot.org>,
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
-	Zixing Liu <liushuyu@aosc.io>, loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] platform/loongarch: laptop: Fix backlight device
- lifetime on unload
-Message-ID: <awQSXIASqC_MdC5u@ashevche-desk.local>
-References: <9F3855F1130E2878+20261121131820.6759-1-luoqiu@kylinsec.com.cn>
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=rxoIeIO1
+Received: from [10.95.64.197] (unknown [52.172.102.187])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 2A89A20B7167;
+	Mon, 23 Nov 2026 02:16:52 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2A89A20B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795429018;
+	bh=LCEL5ZzIE6CqXobcR7VCKJa1aUMGK3bIhlWJxWwXyDE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rxoIeIO18TglfBjIcajTCoR/X8ML4F+WY3w+5OpD/PM3z4cS3F3Ko20AymxoYuSaI
+	 6Q1snFFRkujmbmsUHlk5xCRxuj0951U4mDhRcx4YH1rKTPUnW/j64kz6jYlAPbG1Cb
+	 uXBCaMUbovUpD09F5tWvQ0w78fn34KDkmcLOfMuQ=
+Message-ID: <102925b6-98c1-4535-bdbe-a682cc89e188@linux.microsoft.com>
+Date: Mon, 23 Nov 2026 15:46:53 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,76 +53,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9F3855F1130E2878+20261121131820.6759-1-luoqiu@kylinsec.com.cn>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] x86/hyperv: Filter TLB targets before building
+ hypercalls
+To: Sahil Chandna <sahilchandna@linux.microsoft.com>, haiyangz@microsoft.com,
+ wei.liu@kernel.org, decui@microsoft.com, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, luto@kernel.org,
+ peterz@infradead.org
+Cc: hpa@zytor.com, riel@surriel.com, mhklinux@outlook.com,
+ bigeasy@linutronix.de, zhouchuyi@bytedance.com, houwenlong.hwl@antgroup.com,
+ qq570070308@gmail.com, bastien.curutchet@bootlin.com, dianders@chromium.org,
+ jgross@suse.com, hawk@kernel.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261117091507.2088642-1-namjain@linux.microsoft.com>
+ <20261117091507.2088642-5-namjain@linux.microsoft.com>
+ <d2857fff-9289-4b60-ac97-6194dea2d040@linux.microsoft.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <d2857fff-9289-4b60-ac97-6194dea2d040@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 09:18:20PM +0800, Luo Qiu wrote:
-> The driver registers a platform backlight device during module init but
-> discards the returned pointer. Consequently, the device is never
-> unregistered when the module is removed, leaving its ops callbacks
-> pointing into freed module text. After module removal, reading the
-> backlight's actual_brightness attribute can call the stale callback and
-> crash the kernel. Registration failures are also silently ignored.
+
+
+On 11/23/2026 3:27 PM, Sahil Chandna wrote:
 > 
-> Store the returned pointer, use it for resume, and unregister it on
-> module exit. Check and report backlight registration failures.
+> 
+> On 17/11/2026 14:45, Naman Jain wrote:
+>> SuperBench's eight-GPU PyTorch LSTM training on Azure MI300X VMs 
+>> regressed
+>> between Linux 6.8 and 7.0. Recreating DataLoader workers each epoch 
+>> caused
+>> host-to-GPU copy stalls and timeouts. The reported bisection identified
+>> commit 209954cbc7d0 ("x86/mm/tlb: Update mm_cpumask lazily").
+>>
+>> That change leaves a CPU's bit set after it switches to another mm.
+>> Native flush callbacks remove these stale bits, but successful Hyper-V
+>> hypercalls do not run those callbacks. A CPU actively running another
+>> mm need not be in lazy TLB mode, so the existing lazy-TLB check does not
+>> exclude it. If the mask includes all present CPUs, the backend selects
+>> the all-processors shortcut before checking individual CPUs.
+>>
+>> Use the native predicate to build a per-CPU target mask before selecting
+>> the all-processors shortcut or either hypercall format. Keep the full
+>> candidate mask when freeing page tables. Retain the empty basic-mask
+>> check because filtering can leave no targets.
+>>
+>> This patch does not change when trimming is requested.
+>>
+>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+>> ---
+>>   arch/x86/hyperv/mmu.c | 40 ++++++++++++++++++++++++++--------------
+>>   1 file changed, 26 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/arch/x86/hyperv/mmu.c b/arch/x86/hyperv/mmu.c
+>> index 375f23b157ab3..833eaea1d3fa8 100644
+>> --- a/arch/x86/hyperv/mmu.c
+>> +++ b/arch/x86/hyperv/mmu.c
+>> @@ -1,6 +1,7 @@
+>>   #define pr_fmt(fmt)  "Hyper-V: " fmt
+>>   #include <linux/log2.h>
+>> +#include <linux/percpu.h>
+>>   #include <linux/slab.h>
+>>   #include <linux/types.h>
+>> @@ -16,6 +17,8 @@
+>>   /* Each gva in gva_list encodes up to 4096 pages to flush */
+>>   #define HV_TLB_FLUSH_UNIT (4096 * PAGE_SIZE)
+>> +static DEFINE_PER_CPU(struct cpumask, hyperv_tlb_flush_mask);
+>> +
+>>   static u64 hyperv_flush_tlb_others_ex(const struct cpumask *cpus,
+>>                         const struct flush_tlb_info *info);
+>> @@ -51,19 +54,14 @@ static inline int fill_gva_list(u64 gva_list[], 
+>> int offset,
+>>       return gva_n - offset;
+>>   }
+>> -static bool cpu_is_lazy(int cpu)
+>> -{
+>> -    return per_cpu(cpu_tlbstate_shared.is_lazy, cpu);
+>> -}
+>> -
+>>   static void hyperv_flush_tlb_multi(const struct cpumask *cpus,
+>>                      const struct flush_tlb_info *info)
+>>   {
+>>       int cpu, vcpu, gva_n, max_gvas;
+>>       struct hv_tlb_flush *flush;
+>> +    struct cpumask *flush_cpus;
+>>       u64 status;
+>>       unsigned long flags;
+>> -    bool do_lazy = !info->freed_tables;
+>>       trace_hyperv_mmu_flush_tlb_multi(cpus, info);
+>> @@ -87,6 +85,23 @@ static void hyperv_flush_tlb_multi(const struct 
+>> cpumask *cpus,
+>>           goto do_native;
+>>       }
+>> +    flush_cpus = this_cpu_ptr(&hyperv_tlb_flush_mask);
+>> +    /*
+>> +     * mm_cpumask() may retain CPUs that have switched to another mm.
+>> +     * Use the native predicate for its context-switch ordering and lazy
+>> +     * TLB exclusion. Page-table freeing must include lazy CPUs, so keep
+>> +     * the full candidate mask in that case.
+>> +     */
+>> +    if (info->freed_tables) {
+>> +        cpumask_copy(flush_cpus, cpus);
+> Hi Naman,
+> 
+> In VM, for a process that has ran lets say on multiple CPUs (worst case
+> - on all CPUS), and now running on a single cpu while other cpu run
+> different processes. Until the next trim, if this process calls munmap()
+> or any flush_tlb_range() which has freed_tables set to true, this would
+> copy all stale CPUs in flush_cpus and patch 5 will skip native path, and
+> can cause HV_FLUSH_ALL_PROCESSORS (for all cpu scenario) as in original
+> issue ?
+> 
+> Regards,
+> Sahil
 
-...
 
-> static int loongson_hotkey_resume(struct device *dev)
->  {
->  	int status = 0;
->  	struct key_entry ke;
-> -	struct backlight_device *bd;
->  
-> -	bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
-> -	if (bd) {
-> -		loongson_laptop_backlight_update(bd) ?
-> +	if (backlight_dev) {
-> +		loongson_laptop_backlight_update(backlight_dev) ?
->  		pr_warn("Loongson_backlight: resume brightness failed") :
-> -		pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
+Hi,
 
-> +		pr_info("Loongson_backlight: resume brightness %d\n",
-> +				backlight_dev->props.brightness);
+Yes, your understanding is correct. With freed_tables set, we keep the
+original CPU mask. If it contains all present CPUs, we can still select
+HV_FLUSH_ALL_PROCESSORS, and patch 5's no-remote-target cleanup will
+not run.
 
-Indentation is broken here.
+We keep the full mask because freeing page tables requires including
+lazy CPUs. The filter we reuse skips lazy CPUs, so we cannot safely
+apply it unchanged here. The native path also bypasses this filter
+when freed_tables is set.
 
->  	}
+This does not mean every stale CPU needs the flush. Safely excluding
+those CPUs while retaining the required lazy CPUs would need separate
+logic.
 
-...
+So this series improves ordinary flushes, but the overhead you describe
+can remain for page-table-freeing flushes until stale entries are
+removed by native cleanup.
 
-> static int laptop_backlight_register(void)
->  {
->  	int status = 0, ret;
->  	struct backlight_properties props;
-> +	struct backlight_device *bd;
->  
->  	memset(&props, 0, sizeof(props));
-
-
->  	props.power = BACKLIGHT_POWER_ON;
->  	props.type = BACKLIGHT_PLATFORM;
->  
-> -	backlight_device_register("loongson_laptop",
-> +	bd = backlight_device_register("loongson_laptop",
->  				NULL, NULL, &backlight_laptop_ops, &props);
-
-...and here.
-
-> +	if (IS_ERR(bd))
-> +		return PTR_ERR(bd);
->  
-> +	backlight_dev = bd;
->  
->  	return 0;
->  }
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Regards,
+Naman
