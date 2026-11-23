@@ -1,88 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795447302;
-	b=Z4/ehVjOeFIHHLiYw84XjRJJtXm/sHWcnlOWfcq5AwmoiXsg2BXPcwzXXRW/mSRHTNtU
-	 1UpzelLPVOJhbjabeW1rERpOIr/NEhfFxLu+56heYdksYI2AgBNVaWskp7YWF1gLD9iPM
-	 oGBesCGhJuq0T+uXjeiT91ic/Wrisw8mxz82ihNO4xUvB91CywoSY1vXCqubuPBAxTfHM
-	 eu1eIMnqEoTi8nj1dd5i8Mv+OyV1vyikpLqFs+ySXaM8jdzmQ1l0GKN62bPm121PkS3VY
-	 D7Ei+n8IdGQ38+MN0aB8u2aMCuaTohxp5W5cjIrx3TFLx8iYq5IxWhv5qwunUp/Bbfw==
+	b=WPTYYgmP788ARrsHH1HOMExltSvy8u0aaxbSDLK40G8fZLA2flf+kNGfafdqXqjD3W5M
+	 v0SNZX+Z1H8XnismF7bKIiQexZuW1Ip8+tWBrmE+G3L4GGZN/Ti2waFf6sNfxf4pMd/uw
+	 whqx6elLewZLvDmudRiz+WMmhOuJRHx86suzJsL10D/PhrzH0bDw2dcCl7ER5NKjxFaKI
+	 zpMnSctGUquFM13MKSt7eRxtE3moJ6MiqiJTttciP0804XU1ELSjsQ6LlluCiQShPFoIE
+	 HAyDrwbpdUj8gX3CvgT2tf2OzETMkBKBZ59PiMqBmnqz6KQ8RpaQz4u1c/NVmaLZ5MQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795447302;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=i9NMjvAfw7eusmnV0AZKfdwsVuRZv9qemPp30arLmJE=;
-	b=XcBZyJuU+L9lUyc2lcODSvv8W9LTpt4lmNYNWdLXEuP5sropw4xGWY9jnydTStB5Sdl2
-	 jrRHwwlcucxVLFRn/YmfHTEe8jjhWrJv76HpAlBOx92bnbGQXYuExIgZLUFc1DPWq+jUn
-	 9yDl2i9gvuWCV2K6lcAHL6/0AJRPedLprnslWDZt/dl4DBZuNkOXqKf6niNhQnnDYaBoM
-	 IvwT035v7aPet9DyuVSth7V0YsqywmJlKQNWOJg5tu3k00kfC7WKRvZ7DRcLHOMkTRlis
-	 eTXaYhaxfMXNpMFJIKirwc7FXe1rOJXRU9Y7lBjB/x+mzxpcEEprNYnndnKV8Wi+azQ==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=9R9+S3mSuWLZBPvNUC6+4d4WMHKTLlAs7ugZ9p09fy4=;
+	b=0mEmkZ7HxgIpbHGQfkpdxxrP/D8YNWcN6sY8g0S34BBHMp0mUnDU9JGSU1FlTgS+NmsD
+	 xUH2AGpgYJ3EtbZOsxFcFmHHfVZ97dPQwOFFSOK/GojuchEObLDtaDGRcBnQYvQVHF1Xt
+	 UVj2MF0lU+MXTectNaYuDtognUo02gimJLSf5aONgIArF2NtMhPzb33LLMcH06QM19wUq
+	 A6lzCojFfXRz+j6X+MIgBu78mUEcEFUpPHLB9a22rQDDDwM1RhBf7IWEmua4/EDvtziP+
+	 KW2IPkdJeIx7FHy6vjS23QMdMzaWrDbiS/Hxb7KKFmiZiaedhqPfjDasw6bnhWAeusg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=p0n77Wx4;
-	arc=none smtp.remote-ip=209.85.208.42
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63531606A6A1
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:21:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63531606A6A1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oRhiKpFz;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8D6EE60A2621;
+	Mon, 23 Nov 2026 15:21:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D6EE60A2621
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=p0n77Wx4
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6a642495d81so5494601a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:21:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795447299; x=1796052099; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i9NMjvAfw7eusmnV0AZKfdwsVuRZv9qemPp30arLmJE=;
-        b=p0n77Wx4SqlI35wj3vSW5/a4xAdd4wNUNkh6YbMnzBVQ54OiVYdXwuDS9gjnUHkZJO
-         113Ix9RduNcBVNZhUsvmmaAQszrFfW10LvTEOpHUVO68WLndMwTMBR8QxmKc1q9/4HXl
-         TYgwU3FMu2fAABoP7Ggd9CHuD3hEOlsymAC0F8NBRefLojQKEJqNrBa2etf2kwTwisFz
-         042NXBX18mrhZ6KVHLQQTEKrIiFws5bdZrfumK2QmX5qqN3O+VHtMQW7uRaJ8QGZqb9B
-         Sss/h2R8j1cWU9e0qjKAJoAIn7t1nww74JCdAIdkMTzlzZE/l6j4r8U61jNwpUWqsH6L
-         dG9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447299; x=1796052099;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=i9NMjvAfw7eusmnV0AZKfdwsVuRZv9qemPp30arLmJE=;
-        b=Ffr3VsrwIsh6Wr4wGb6hkDomjaYKtAmyGvZM6ftOp2UNGMR6qX4amDtDVqQ/aXmss4
-         dAxsBc3i4sHiCce5vZy8YokuGneDFOBHz7lx8ZmReBfXmOBPPCkfYHLzJbFpY5r0Yzxh
-         /+b/4rdH2TyPRFzdhjf2mfBNmc72VnTYxkInP/MPgFeNtjzQvGoAt0Qp59tj5UJe6U8d
-         XoPOOEfKesM4KmzPqX47M2WXkQex/nMQKHBeAQ6DN0et8RVN/U0p5MOp3Gcs364nwtYW
-         0UFkqfoX4ZF5ivuYhDrpBZCh7bon3KOPi+CQ8qRbkQ0LrOI/Ezg5tQKba5PqKSpxY5PJ
-         4LRg==
-X-Forwarded-Encrypted: i=1; AL+hErHUQNmCYpZzlJ2luFAAXtV2OdXXtySB0Nlhp03sMAle7SDx4P5LvYZTqIt8pGHnN7A5U9Z2v8bps8AOVqI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/+nxFM0UV5DquyD/gNfpbYl2Eb0y6zkULajFG5O4Fq0UP+HWH6
-	mRcVeq7aQN3NtAXZWiilvnl5Fp0ff0y4wd0MjMYW3+qwSdu/IUNu7Lkgg/nUsZF6XXo=
-X-Gm-Gg: AZFdTZcQ4GRkgDAdpIvktRWtljGdSr/TxfwkMd0ccDasUHPkYTkJ9snZJxI+ucOLEWX
-	CWW6Lw0ZVR2V6y5j/RmdKZlRVh7uEFuGcwDVvwcsDhxz8mdUPnt3VEU25Lg+L+sZWanDuTFXwap
-	DEzTtQUqCpgPUHN/epUpeu//SXytDCtXFqJW8JMA+kkyYpA1x1VNDxfrWxJc+abxIGPeb9GooQl
-	X0/j2VngWiXT+j+HBOig0Gl8yyFfnHPTgCj2BT7HaLEXKuek+7mADJJmRGUJo+VWAql6c1qBRCN
-	Iba8PJ7FxdEX5yudHvL5t/AWfOmFKiEVa5JTg3VuMf0Z5S5xeXj7nOLuSv7J4ZfV5Dbhssoz/mU
-	N00jnLENchCIBrH1bCx6+kmC/9Kx840wf/4xBiTqZHQfLby89OtsBlA/uCVqqtvGSwqlYVAl50Z
-	0ee0ZDRjwy76EntQefgl03UN4ZiptJZGTITP4Zb9TWcwIQjFhm8YawWNIbSJvquEMvz86irvXQG
-	RqEn8z9co3dt7xDAqd8Od8xo359sieHHhlBXTayRFfroBcM0QAMQrqvgb0ngOAYm8PaEe0Np546
-	xbYmO7rxcJugZjBiPfiGixp9yNrXRWWz7QMbJL9pqjMtClQqA6E=
-X-Received: by 2002:a05:6402:4004:b0:6b5:8719:6d51 with SMTP id 4fb4d7f45d1cf-6ba37e6f76amr9086912a12.32.1795447298876;
-        Mon, 23 Nov 2026 07:21:38 -0800 (PST)
-Received: from localhost (140.30.66.37.rev.sfr.net. [37.66.30.140])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm22884229f8f.50.2026.11.23.07.21.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:21:38 -0800 (PST)
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
-Date: Mon, 23 Nov 2026 16:21:31 +0100
-Subject: [PATCH v3 09/10] firmware: arm_scmi: add an operation to set the
- function of a single pin
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oRhiKpFz
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADCF7143D;
+	Mon, 23 Nov 2026 07:21:37 -0800 (PST)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2972B3F632;
+	Mon, 23 Nov 2026 07:21:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795447300; bh=fpRq0XHe3KXaJk7U24ztuGm8cRIyiBoN98OpPRJxQVI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oRhiKpFzp3maAFyufuRgNdMWX7MnGYvG95nb2qZeu1KKbv2Prt2yC4yCyizqHQoi3
+	 HdX3NOcnZ2OX45WSw7uiWaFpjrc7HY+ficNi3i15HO33UbOgM5wODU9AcywxKDLiV9
+	 lrzUr+R5+0fMp9hTq17+Hld1pS6GcDbBDGiTSDdY=
+Date: Mon, 23 Nov 2026 15:21:38 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Yabin Cui <yabinc@google.com>
+Cc: Dev Jain <dev.jain@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tamas Petz <tamas.petz@arm.com>,
+	Tamas Zsoldos <tamas.zsoldos@arm.com>,
+	Michiel van Tol <michiel.vantol@arm.com>,
+	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Revert "perf/aux: Allocate non-contiguous AUX pages by
+ default"
+Message-ID: <20261123152138.GD9176@e132581.arm.com>
+References: <20261025-perf_revert_prefer_large_alloc-v1-1-5fb431bbd624@arm.com>
+ <57c34e26-3048-474d-8e74-f65799e32ff4@arm.com>
+ <CALJ9ZPNWcDtajO+Luhxe1K3af64mPRFQSjvfvNornyFFkam-+g@mail.gmail.com>
+ <CALJ9ZPO9XxF-kz5K67Jg8RtpiEmK7XFU3e+xDak6LyV_We7yBQ@mail.gmail.com>
+ <307b4d48-00f2-40dc-bf3f-ffa0f2f58d33@arm.com>
+ <20261118165702.GX9176@e132581.arm.com>
+ <5909a504-0534-4f6a-8925-bb18f24eca0e@arm.com>
+ <CALJ9ZPObeFj0mm8ahwCa-ePYHXU2nE=hvPW97bStH2mX7RvqnA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,77 +85,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261123-clegoffic-pinctrl-scmi-gpio-v3-9-d61f039be008@baylibre.com>
-References: <20261123-clegoffic-pinctrl-scmi-gpio-v3-0-d61f039be008@baylibre.com>
-In-Reply-To: <20261123-clegoffic-pinctrl-scmi-gpio-v3-0-d61f039be008@baylibre.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Linus Walleij <linusw@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Oleksii Moisieiev <oleksii_moisieiev@epam.com>, 
- Andy Shevchenko <andy@kernel.org>, Dhruva Gole <d-gole@ti.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.17-dev
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CALJ9ZPObeFj0mm8ahwCa-ePYHXU2nE=hvPW97bStH2mX7RvqnA@mail.gmail.com>
 
-Add pin_mux_set, which selects a function on a single pin. mux_set only
-works on groups.
+On Thu, Nov 19, 2026 at 01:00:03PM -0800, Yabin Cui wrote:
 
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Clément Le Goffic <clegoffic@baylibre.com>
----
- drivers/firmware/arm_scmi/pinctrl.c | 6 ++++++
- include/linux/scmi_protocol.h       | 2 ++
- 2 files changed, 8 insertions(+)
+[...]
 
-diff --git a/drivers/firmware/arm_scmi/pinctrl.c b/drivers/firmware/arm_scmi/pinctrl.c
-index 1bc4bca4c48f..4e3968fbc5ec 100644
---- a/drivers/firmware/arm_scmi/pinctrl.c
-+++ b/drivers/firmware/arm_scmi/pinctrl.c
-@@ -790,6 +790,11 @@ static int scmi_pinctrl_mux_set(const struct scmi_protocol_handle *ph,
- 	return scmi_pinctrl_function_select(ph, group, GROUP_TYPE, selector);
- }
- 
-+static int scmi_pinctrl_pin_mux_set(const struct scmi_protocol_handle *ph, u32 selector, u32 pin)
-+{
-+	return scmi_pinctrl_function_select(ph, pin, PIN_TYPE, selector);
-+}
-+
- static int scmi_pinctrl_get_pin_info(const struct scmi_protocol_handle *ph,
- 				     u32 selector)
- {
-@@ -854,6 +859,7 @@ static const struct scmi_pinctrl_proto_ops pinctrl_proto_ops = {
- 	.function_groups_get = scmi_pinctrl_function_groups_get,
- 	.function_flags_get = scmi_pinctrl_function_flags_get,
- 	.mux_set = scmi_pinctrl_mux_set,
-+	.pin_mux_set = scmi_pinctrl_pin_mux_set,
- 	.settings_get_one = scmi_pinctrl_settings_get_one,
- 	.settings_get_all = scmi_pinctrl_settings_get_all,
- 	.settings_conf = scmi_pinctrl_settings_conf,
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 072190e89064..5cea4ee14a3e 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -789,6 +789,7 @@ enum scmi_pinctrl_conf_type {
-  * @function_flags_get: tells whether the specified function is pin-only and
-  *	whether it is a GPIO function
-  * @mux_set: set muxing function for groups of pins
-+ * @pin_mux_set: set muxing function for a single pin
-  * @settings_get_one: returns one configuration parameter for pin or group
-  *	specified by config_type
-  * @settings_get_all: returns all configuration parameters for pin or group
-@@ -812,6 +813,7 @@ struct scmi_pinctrl_proto_ops {
- 				  u32 selector, bool *pin_only, bool *gpio);
- 	int (*mux_set)(const struct scmi_protocol_handle *ph, u32 selector,
- 		       u32 group);
-+	int (*pin_mux_set)(const struct scmi_protocol_handle *ph, u32 selector, u32 pin);
- 	int (*settings_get_one)(const struct scmi_protocol_handle *ph,
- 				u32 selector,
- 				enum scmi_pinctrl_selector_type type,
+> Hi Leo, Dev,
+> 
+> I tested on an arm64 Android Pixel device (4 KiB pages, 12 GiB RAM +
+> 6 GiB zram, TRBE & SPE) using an Android kernel patched locally to match
+> v7.4-rc3's rb_alloc_aux() / __alloc_pages_slowpath() behavior
+> (526d945ad9c0, 669872181549, 53a9b4646f67, 0e05a469c294).
+> 
+> v7.4-rc3 alone still causes heavy PSI and compaction/reclaim stalls on
+> Android, while patch [1] keeping __GFP_NORETRY fixes it completely.
+> 
+> compact-bench (90/95/99%, 10 runs each = 30 runs, 4 MiB/CPU TRBE AUX,
+> 0 allocation failures; system-wide PSI since Android sets
+> cgroup_disable=pressure):
+> 
+>   Config             PSI some(ms)  cmp_stall  allocstall  daemon_wake  sp_kswapd_wk
+>   order-0                  297.76          0           0            0             0
+>   revert                 2,578.00      3,957       1,984           17            28
+>   v7.4-rc3-sim           1,840.29        522         161           14            21
+>   rc3 + [1]                270.77          0           0            0             0
+>   rc3 + [1]-noretry         41.78          0           0            0             1
 
--- 
-2.56.1
+It's good to see no allocation failures and much lower PSI with
+rc3 + [1]-noretry.
 
+> Even when order-3 pages are still plentiful (e.g. 95%, where order-3
+> never failed and cmp_stall/allocstall were 0), v7.4-rc3-sim still
+> woke kswapd/kcompactd for failed orders 4..9 on 10/10 runs (7
+> kcompactd wakes), producing 895.48 ms PSI vs. 2.87 ms with
+> [1]-noretry.
+> 
+> When order-3 does run out (99% Run 1), v7.4-rc3-sim bypasses
+> 0e05a469c294 and hits 521 direct compactions / 161 direct reclaims
+> (Runs 2..10 dropped to 1/0 by reusing freed AUX pages; that only
+> helps when traces run back-to-back in a short window, which doesn't
+> match our use case on Android).
+
+I see that v7.4-rc3-sim (or with equivalent mainline kernel) can still
+show increased PSI.
+
+> Under a realistic Android fragmentation test (incompressible zram
+> pages, unmovable pages, re-fragmented between runs), v7.4-rc3-sim also
+> triggered an lmkd kill (TRBE) and direct compaction/reclaim stalls
+> (SPE), all 0 with [1]-noretry.
+> 
+> When unfragmented, [1]-noretry still allocates 100% order-9 (2 MiB)
+> chunks for both TRBE and SPE.
+> 
+> So I agree with Dev to drop __GFP_RETRY_MAYFAIL and keep __GFP_NORETRY
+>   (0 allocation failures and lower PSI). Please proceed with v2 of [1]
+> keeping __GFP_NORETRY (and avoid backporting 526d945ad9c0 to
+> stable without it).
+
+I don't expect 526d945ad9c0 to be backported to stable kernels, as it
+has no Fixes tag. We just need to ensure that mainline and future LTS
+kernels (and ACK) avoid PSI regressions..
+
+I'll send v2 with keeping __GFP_NORETRY as you and Dev suggested.
+
+Thanks a lot, Yabin and Dev!
+
+Leo
