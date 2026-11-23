@@ -1,103 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415779;
-	b=ehqo9stJ9dpFvF+KocdRnX8h5IwcjHgbb9UPLtNgIlGZ8GKdm3hJ0g0LyCYhAsEEAEOG
-	 tA5ltwE7mekggYrtEQgjE45VObI1/dUSsDofTWXq0nF0wYhkPm1kAfkNxUB8o54W3C5Fu
-	 UVZHEu58jPlGS6bZCZrNCkbPhhnm2Mi3phLGEFC+1X2yEpsI3bFBh0s/85ZdBf0gv5sYV
-	 93xuO29qoX+psVkUgarka62ZO70Zoenbt8dp0aLinil9xl7gSMSBdx4KqDR9+dMEICC+F
-	 lQ/YFNngB3juzHTdMzz5GUAWf9zG1awbSRFUTFCWdKK0bMTW3jLEFPE7ivDUTJBsfdw==
+	t=1795415879;
+	b=ACSjX/a4V/GySY18uq34u7GPghifuzbVx9WrZ28L1KG+ZQbFeoCRKx0qezdZvOz/Id2z
+	 Rv1aIfYjhaqFMZEFPXy0BdsBlFJH2/GtP1bsDBq32MamYGsu/Pys3Nxz2hNWQwnaJ2yQ0
+	 zW2THrG3TMhVpCUDkncWy/5GoDWzJwoOlAYv7b8zJY+svZbnJ6g1LZQW2pZz4y9eYfR1e
+	 5hhH+9xWU2geVAj6ry12XgMBADLCwcvkKsjUrTqmfbLhzrbCBYqJWIvOZRsg9kgop0/8A
+	 htJQoUmyqE2+3SIvduEXXUIMQ+y/gU9LP/8gHegtd9Nq3EA16TVd9Pu8lc6AIBE2Q8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415779;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415879;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=QhvI4EcrcVWaHsYhZmDudDFBhnWCIbKlWCXMmkXssF4=;
-	b=L8y2lF1N9gFZem1vTX50vfPvR/vMKEULppVXxNJ9vORY1x5CJzhk9j270I/qBzPi1jtG
-	 kPVYmXRCHfNNReOt4S+PmhTzzH48lxQVtlaAUg1mIGgIk/Js1aSbwrEaeEmpLXN+oBgkg
-	 lgYHVfp19toh56hTMgpVkkrBFdAzn5Anr50+5h/rsZS4AMBnEe3LifFAT99xPSzvOEq1v
-	 83DBq0+WnsaX8KXt2G5ynZKAVfUvDmNIVm/sGipkOsgPx9mCRe2CBRARyXdCaARL5PtP9
-	 X+8fOqRMHGX6l42di8kTiDPpSS9gR2gOAzLRXFDygZCqY26hHfj/37xI6irMfAH9Uyw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=afbt2rmomwUI+307ATY0ZNant7Tutup0OxSCpoe3UL8=;
+	b=W5y+swyD3CaQByLID8J9IO1sOa5eccUJjHh6h38ua3orzP22LpXa6xtxb7EXiAjTQZx+
+	 ueH9jHZguABLlM8sPCu580XFSE/dn4os8mHuNjroKGCyBGoj8Y4x/CBsXeVtF2dkvsvM8
+	 tuI6SXqLDQnm2R62rt5wQXfmv2bLT8Gztyee4CC1H6EsxZM0BPB9PfuApapXDq/t3FzPM
+	 p7JuWkbEcXp47IEtKIjzylfgWr57JPQNIwjyAYJSROfcikUFpJvQOL4Zv38u0nT1/a6Kn
+	 8c1yWvpxcP3cV4Q0ZIeCFSFoQtkV0IqzhPb6WJpFC9JAmJFJmVeUL8C3DjUWvLae+rA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hhm0AkSU;
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HF8ETJgy;
+	arc=none smtp.remote-ip=74.125.82.51
+Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8327606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:36:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8327606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66614606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:37:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66614606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hhm0AkSU
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8b5e147f101so257127b3a.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:36:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HF8ETJgy
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so3549700c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:37:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795415778; x=1796020578; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QhvI4EcrcVWaHsYhZmDudDFBhnWCIbKlWCXMmkXssF4=;
-        b=Hhm0AkSUUa+Z/fHjxiMfsCHJXzOyXPfkaLLLIfSST7VLKaAWLPm7Hpiq1C1/k7IS4T
-         4DI7WG/V0FJut0sFk0hARo6tSTpwlSXNlRkVbe+3FLm72R/dmivobmzTC5y0W7NjvYh4
-         bkeLcp0b6ucPMFYKAog51kVYCbugTIirC5Vha6tNjsSLpNuABv/3halzbyo7EFqPugUr
-         rJuBvSBOekQKA5Oc495UW17RrC/dBnyuSwlW5NbWfRqieoRw0OwoxEQHpu7gDbERGt2a
-         uf6FvcsjtplNqoaor55/vU2lZWSUwWlgNd84nxKlUDWQWq7gn+uQwuwcfItDMH+kRK1G
-         rdeQ==
+        d=gmail.com; s=20260707; t=1795415877; x=1796020677; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=afbt2rmomwUI+307ATY0ZNant7Tutup0OxSCpoe3UL8=;
+        b=HF8ETJgy3K3P7rv90VlZFwWi6J86eea2v2fnG0piKVB5kjIpj0a0AQ9G7cHH7YngGz
+         KXfKEwtvjrnuQZtt/HZ54IUDoUm0nwhMjsgTAn8+A7vUYiARe/zVs0WCd2Cb4JAb9k2T
+         k8fgvsLynXsXqE2U/hGr5zmeZHCRiuHHDIPJPEOQh4D7Fus3hMMwWdKx8mOUqvuquXFI
+         iP8TvCgSp+qnE00Vx/he9GuRfMQYyzGxumdM0f+DWb3gilrBstStbjI0qyMZHq4wsm26
+         HGvDecJuiGSpyMatqkkTWh2l4vN5DBG3rPGGlQB3nxr3P7+4+7kUKgqAAuBLLny2pJoi
+         xJYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795415778; x=1796020578;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QhvI4EcrcVWaHsYhZmDudDFBhnWCIbKlWCXMmkXssF4=;
-        b=XBcE/zsX3xPu3IfsimwBzSKG0U7mT5DnqSgHzI13JPEx6gWYGi3Yu8v23hLZFkEWFk
-         DnlrdXbvHeZxfk/01GqGdJyJltxqmxSxYB6RfOGk/yd6ojPupJxpzbVCE/dqPBYQO44s
-         HHyV1mnAk8/zw9h3iEuHKW7KZaFsrTNaxTZSYxsVQOYQZ2G5XLCPXcP30jedFNI+db/b
-         3F0+caDUr9m4qliE2xvb5AN26gGlXwYHN4sPMAVZ8VQkf31HgMb3SfIph0mABuQX/3YC
-         RizeTWDusc5/7YVBizDh27gF1XiUByHsM9r+Nh95IsaXpRm72ea5d2n1KTP6kplDe/4k
-         5FBw==
-X-Forwarded-Encrypted: i=1; AL+hErEXoTqfrRJVrPb1WG+XtvyA25wFojpCqdlx2yhOEKg4eBF7ctZf6mqMl0bnri6MneE1GihdWc+l4tiDp1E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pQNRgSEtFEvsPSvh8fhok1rWIzIEQSFGqOcKmKZ+yawTWA1hK
-	HRS7PSjLDDapOGJhHzcv19OThKYhNURDXWgyMhiGlP/1cE9IHws2i91V
-X-Gm-Gg: AZFdTZeqJGnVJLa5foCMnILiXNO48jaRw0bySHfEAcLaj2jPHWYj7ME/VKClCdF33Aa
-	gB6HvTEoqinEQkM8ziHnVC8NssB1HulnRGu6NUsgGAYRmRpkjiBR7PpvdPGYi+Hfy6uo0PsbwRs
-	6lFHlbuxHRbFJ9BTOKAFwC8gnbZv6Afyx6aFDnSsagSYzPuPLfwVbeGdGQV9gWGRKReatrnCUlk
-	xX/1QmHTtNnCqpWZeVP6iRHW8Ic7O9iVZmJcFJ+SKRYh6tF51Xuzpn+6sJHwAfD5Po35CeN1FJu
-	KnjYrs7EngYa0SpClNtHVlGmQslXNuT3DGTzIZmLJaS3X8gSJXAQ92U6copKRT5l0CS8dMsgjKo
-	3GKn5qiBvmxG4dOOWLcm10CaggQfBqMnMWuMIMHE1Dxe0BlMxZVHQ5NpZvNH1gCfs04iukexcYW
-	ATnhGNtJKvMpOk+QSoVGdVTs0nKOlSPk3fLgGRY1NB+iOjfIkg1k3J/4zF1IzHrdjDr8urJc81S
-	r7rU50B4GbCunr6dhuAmMugeE6S6vrhSEs28SBzv4nAn0EHWOnywL8JD4U9zK+KTMEi9QGQQGAf
-	06962F+y1e1FzOCPoIPS/FOJqxO1pGTwEAEF0lPSj1F8V5lIMLQ0Kxa/K8ddlMHAlEUJui92rVH
-	HyWp8uCwiVL9pY3aH
-X-Received: by 2002:a17:902:e38b:b0:2f0:7707:227c with SMTP id d9443c01a7336-2f0770728c8mr46065645ad.4.1795415777889;
-        Sun, 22 Nov 2026 22:36:17 -0800 (PST)
-Received: from localhost.localdomain ([139.159.170.71])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f118c88sm47430695ad.56.2026.11.22.22.36.14
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 22:36:17 -0800 (PST)
-From: Qihang <q.h.hack.winter@gmail.com>
-To: Li Wang <liwang@kylinos.cn>
-Cc: German Maglione <gmaglione@redhat.com>,
-	Vivek Goyal <vgoyal@redhat.com>,
-	Stefan Hajnoczi <stefanha@redhat.com>,
-	Miklos Szeredi <miklos@szeredi.hu>,
-	Eugenio Perez <eperezma@redhat.com>,
-	virtualization@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	fuse-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	virtio-fs@lists.linux.dev,
-	Qihang <q.h.hack.winter@gmail.com>
-Subject: [PATCH v5] fuse: virtio-fs: fix lost wakeup on a full virtqueue
-Date: Mon, 23 Nov 2026 14:36:09 +0800
-Message-ID: <20261123063609.82014-1-q.h.hack.winter@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <6c6cea56-1af2-4a37-b081-83244d5e09cd@kylinos.cn>
-References: <6c6cea56-1af2-4a37-b081-83244d5e09cd@kylinos.cn>
+        d=1e100.net; s=20260707; t=1795415877; x=1796020677;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=afbt2rmomwUI+307ATY0ZNant7Tutup0OxSCpoe3UL8=;
+        b=aqUTFve42DS+hUYAsycyJGZuKR0flrlTxk2DMhc7V4dS08KtrablOcxWmTRr6HjjES
+         1rTgVJjGqeuGaz/bBzcyrJd8Zd1WpY72SbpIp8VadqWX1y871MWQeB+CNqRpeqYaQKQN
+         8bNHNFdHimwEojGqdCn44GykQM23phtq1qEjS2E4CXbvjRxS+Big9eMMBgziog1OVdX4
+         tRPH3OVkmkwnrGdWUWVLcR7cpLknHHg6JqSvI5fXgra9HG7vA7HXPE5D7TB1aKcSYPXj
+         K9PeCSUXyJqu4KHmWQTjtyOF3XZMvFh7DwYOjRoF6nw5NcgswQB1dtq6pvwCnJOqTkdr
+         JOjQ==
+X-Forwarded-Encrypted: i=1; AL+hErHF+IcUtz0AWDRlru1aFw1mE7RUhCUAGfhCIhRSAVQ9CF/8QjH5NdA/PZEp3b7zRQWpqzHyUFl/bq+/KWE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8nkhyeaIV4+OHS9D89xEE69JF89OnVcUa7IID/OcE2WmXPZdV0
+	1BovjJWsaddI516i+RiS8PNZCvra860psijpSUXO5rz16sVXPecbXPMU
+X-Gm-Gg: AZFdTZeeN1lYTn3mL0InUvRy680+R8sqsMrIIq1WmVAiKnGjM0uCO9SwEmyEcStlCV/
+	qEezeiS67Cs/CIudXOjxoqDBZDf4aRgECTDcgOQMBoHPMId1lzQg9XSX9lRLPMRNgZFTBqnqJ3K
+	qKDGU6HBv+EUfDUAkIbHxvx1IwwLdm2A5PzQoWynZRMXvSjk6BKHcEu3gf2RZalG1WJT3uv/oeA
+	sVao3Npx/2CUDl6r9pSBZxAasM3w0E9epKFWKyeLHYS/dNc/m1wByj/N1aADHxGTenvaoLjm5z0
+	eOR1qsxDADNOE7DBhR6R8q438k2oDDFkq+PNeeQLJG47Hxk88iyJEfTPhv8/8bvWlYxeAwTXUAq
+	i+HnWEzyJlWKdrdmCPw0iVVMT/ImyGF+T0i2wcIwCQ8TLYrewqerlxrRsilFkCBOiB+W4VW3kQN
+	Rp5p9eHQmz8hri7t2bsVV++LLvO5FmiDyHRgOJyNIquQ5mtcmR3yobPe5m5NYgCo5OML6D9owjo
+	cKtpoET7esjhaJXq/Qv1vckakD388pirycE7+3y1By8r0y601Nnp2sZi4vbnTTxjlQm6m8dXkr9
+	5iOoEHavZa/HT/1ZYag8WgHD6oS5jmwyKMFy+izFPh0BKFjqYsp7z1c2H8gMW6hQXfraJw9XKAB
+	Lfj0HL6fL1xYQhujd46txSEvTfr24MyxMPQO5GGPFtAaz
+X-Received: by 2002:a05:7022:f106:b0:1b3:afa2:2d7e with SMTP id a92af1059eb24-1b5567dab3cmr9096340c88.1.1795415877349;
+        Sun, 22 Nov 2026 22:37:57 -0800 (PST)
+Received: from acemagic-m1.tail4fb79.ts.net ([2401:7400:c804:b668:a7dc:f03c:3f60:caaf])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm35934568c88.14.2026.11.22.22.37.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 22:37:57 -0800 (PST)
+From: Ho Jie Feng <hjf3108@gmail.com>
+To: linux-media@vger.kernel.org,
+	Sean Young <sean@mess.org>
+Cc: Ho Jie Feng <hjf3108@gmail.com>,
+	stable@vger.kernel.org,
+	Ho Jie Feng <hj3108@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] media: dvb-usb: do not clear the raw IR change_protocol
+Date: Mon, 23 Nov 2026 14:37:31 +0800
+Message-ID: <20261123063732.1615570-1-hjf3108@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,117 +101,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-virtio_fs_enqueue_req() drops fsvq->lock when virtqueue_add_sgs() fails
-with -ENOSPC, and the caller requeues the request in a second critical
-section.  Completion processing can run in between: it reaps a
-completion, finds queued_reqs empty, and does not schedule dispatch.  If
-the queue then goes idle, the request can remain on queued_reqs and keep
-in_flight above zero.  A subsequent virtio_fs_drain_queue() can wait
-indefinitely.
+Since commit ec7cb49871e5 ("media: rc: Fix race condition during
+rc_register_device()"), rc_allocate_device() prepares raw IR handling,
+which sets dev->change_protocol for RC_DRIVER_IR_RAW devices.
 
-On -ENOSPC, add the request to queued_reqs before releasing fsvq->lock,
-as send_forget_request() does.  This prevents
-virtio_fs_requests_done_work() from checking queued_reqs between the
-failed submission and the insertion.  Both callers can then return
-immediately on -ENOSPC.
+dvb-usb and dvb-usb-v2 then overwrite dev->change_protocol with the
+callback from the device properties, which is NULL for raw IR devices
+such as rtl28xxu. Without it, rc-core enables no protocol decoder
+when the device is registered, so keys are no longer decoded.
 
-Free req->argbuf before adding the request to queued_reqs.  Once
-fsvq->lock is released, the dispatch worker may already have taken the
-request, so the -ENOSPC return path must skip any further access to req.
+Only set change_protocol when the device provides one.
 
-Count the request in in_flight on its first submission.  A retry keeps
-the existing count.
+Tested with a rtl28xxu device.
 
-Fixes: 106e4df1206b ("virtio-fs: improved request latencies when Virtio queue is full")
-Cc: stable@vger.kernel.org # 6.11+
-Link: https://lore.kernel.org/all/sashiko-outbox-204365@kernel.org/
-Signed-off-by: Qihang <q.h.hack.winter@gmail.com>
+Fixes: ec7cb49871e5 ("media: rc: Fix race condition during rc_register_device()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ho Jie Feng <hj3108@gmail.com>
 ---
+ drivers/media/usb/dvb-usb-v2/dvb_usb_core.c | 3 ++-
+ drivers/media/usb/dvb-usb/dvb-usb-remote.c  | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-Since v4, queue the request under fsvq->lock on -ENOSPC, as Li Wang
-suggested, and drop completion_seq.
-
- fs/fuse/virtio_fs.c | 37 ++++++++++++++++++++++++-------------
- 1 file changed, 24 insertions(+), 13 deletions(-)
-
-diff --git a/fs/fuse/virtio_fs.c b/fs/fuse/virtio_fs.c
-index d247a02..4d4f2e3 100644
---- a/fs/fuse/virtio_fs.c
-+++ b/fs/fuse/virtio_fs.c
-@@ -596,12 +596,8 @@ static void virtio_fs_request_dispatch_work(struct work_struct *work)
- 		ret = virtio_fs_enqueue_req(fsvq, req, true, GFP_KERNEL);
- 		memalloc_nofs_restore(flags);
- 		if (ret < 0) {
--			if (ret == -ENOSPC) {
--				spin_lock(&fsvq->lock);
--				list_add_tail(&req->list, &fsvq->queued_reqs);
--				spin_unlock(&fsvq->lock);
-+			if (ret == -ENOSPC)
- 				return;
--			}
- 			req->out.h.error = ret;
- 			spin_lock(&fsvq->lock);
- 			dec_in_flight_req(fsvq);
-@@ -1433,7 +1429,11 @@ static unsigned int sg_init_fuse_args(struct scatterlist *sg,
- 	return total_sgs;
- }
+diff --git a/drivers/media/usb/dvb-usb-v2/dvb_usb_core.c b/drivers/media/usb/dvb-usb-v2/dvb_usb_core.c
+index bd86d25043..218397cc68 100644
+--- a/drivers/media/usb/dvb-usb-v2/dvb_usb_core.c
++++ b/drivers/media/usb/dvb-usb-v2/dvb_usb_core.c
+@@ -149,7 +149,8 @@ static int dvb_usbv2_remote_init(struct dvb_usb_device *d)
+ 	dev->driver_name = d->props->driver_name;
+ 	dev->map_name = d->rc.map_name;
+ 	dev->allowed_protocols = d->rc.allowed_protos;
+-	dev->change_protocol = d->rc.change_protocol;
++	if (d->rc.change_protocol)
++		dev->change_protocol = d->rc.change_protocol;
+ 	dev->timeout = d->rc.timeout;
+ 	dev->priv = d;
  
--/* Add a request to a virtqueue and kick the device */
-+/*
-+ * Add a request to a virtqueue and kick the device.  If the virtqueue is
-+ * full, queue the request on fsvq->queued_reqs for the dispatch worker and
-+ * return -ENOSPC; the caller must not queue it a second time.
-+ */
- static int virtio_fs_enqueue_req(struct virtio_fs_vq *fsvq,
- 				 struct fuse_req *req, bool in_flight,
- 				 gfp_t gfp)
-@@ -1503,6 +1503,20 @@ static int virtio_fs_enqueue_req(struct virtio_fs_vq *fsvq,
- 	vq = fsvq->vq;
- 	ret = virtqueue_add_sgs(vq, sgs, out_sgs, in_sgs, req, GFP_ATOMIC);
- 	if (ret < 0) {
-+		if (ret == -ENOSPC) {
-+			/*
-+			 * Queue the request before dropping fsvq->lock, so
-+			 * virtio_fs_requests_done_work() cannot check
-+			 * queued_reqs between the failed add and the
-+			 * insertion.  Release argbuf first, as dispatch may
-+			 * retry the request as soon as the lock is dropped.
-+			 */
-+			kfree(req->argbuf);
-+			req->argbuf = NULL;
-+			list_add_tail(&req->list, &fsvq->queued_reqs);
-+			if (!in_flight)
-+				inc_in_flight_req(fsvq);
-+		}
- 		spin_unlock(&fsvq->lock);
- 		goto out;
- 	}
-@@ -1527,7 +1541,8 @@ static int virtio_fs_enqueue_req(struct virtio_fs_vq *fsvq,
- 		virtqueue_notify(vq);
+diff --git a/drivers/media/usb/dvb-usb/dvb-usb-remote.c b/drivers/media/usb/dvb-usb/dvb-usb-remote.c
+index 6dc11718df..f5f30d714e 100644
+--- a/drivers/media/usb/dvb-usb/dvb-usb-remote.c
++++ b/drivers/media/usb/dvb-usb/dvb-usb-remote.c
+@@ -277,7 +277,8 @@ static int rc_core_dvb_usb_remote_init(struct dvb_usb_device *d)
  
- out:
--	if (ret < 0 && req->argbuf) {
-+	/* On -ENOSPC, dispatch may already have taken req. */
-+	if (ret < 0 && ret != -ENOSPC && req->argbuf) {
- 		kfree(req->argbuf);
- 		req->argbuf = NULL;
- 	}
-@@ -1564,13 +1579,9 @@ static void virtio_fs_send_req(struct fuse_iqueue *fiq, struct fuse_req *req)
- 	if (ret < 0) {
- 		if (ret == -ENOSPC) {
- 			/*
--			 * Virtqueue full. Retry submission from worker
--			 * context as we might be holding fc->chan->bg_lock.
-+			 * Retry from worker context: we might be holding
-+			 * fc->chan->bg_lock here.
- 			 */
--			spin_lock(&fsvq->lock);
--			list_add_tail(&req->list, &fsvq->queued_reqs);
--			inc_in_flight_req(fsvq);
--			spin_unlock(&fsvq->lock);
- 			return;
- 		}
- 		req->out.h.error = ret;
+ 	dev->driver_name = d->props.rc.core.module_name;
+ 	dev->map_name = d->props.rc.core.rc_codes;
+-	dev->change_protocol = d->props.rc.core.change_protocol;
++	if (d->props.rc.core.change_protocol)
++		dev->change_protocol = d->props.rc.core.change_protocol;
+ 	dev->allowed_protocols = d->props.rc.core.allowed_protos;
+ 	usb_to_input_id(d->udev, &dev->input_id);
+ 	dev->device_name = d->desc->name;
+
+base-commit: b7ac871daee981f1963f632586ff9b9d898ce5dd
 -- 
-2.54.0 (Apple Git-157)
+2.53.0
 
