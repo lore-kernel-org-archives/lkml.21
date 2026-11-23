@@ -1,101 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795430848;
-	b=U7MKpkk5zrCqXu031TbR0zfLPBDYkoMdqrYT/sn/j2o4DRfji6sVCMo4gygbo1cau1SQ
-	 P3N0WnJOlrU21mJXe0oZ8h129PoCSBr+zDtJwSGB4HPmIQIBvMHeNFI4EYO7A63PsJG9i
-	 +TlVbq+DTOb05THZKEJwP5UfQtMy2HD/aG8PFnn7kSHwQGH6Gmr3nXDjYrd8gDWsHEWcP
-	 t7qE9STwvL7yrAQlTxXj4eMQxJxtRpRcXNhcNERxd6DGUGIuwjYk5obVFQQr5pJ2UthDB
-	 HQeHgiv61LCSJ0oAO6qRZq6r5BB/QqX1zwe/GKlOX/0ygcLKwcF6u9/K4r2smW6wb8g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430848;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=zyPgU+0dBWL7BXreM1FRldzhzHUZdzcLgwKTYre8N3A=;
-	b=LyqYI9BXrR51cQCE42/Uj+cpPeBMT3WmXmpWuZRqYqWsZSX/9UPNOReJcuf4FJcMI4hJ
-	 WZpWKopN7G/yEB9SLpXQM+U5AABKsmkU/Wsz8IOfjptzRZWQy9nVF7qB+iErDqnFHHyeV
-	 HAe7GE7ikjtADYdcrhyQB5El9+M+ONbfkTJ1IKwcNBe3NU4a/45AUf7IrSG0C63LFQX4I
-	 x+2grtBL7/QkZ3Q31xkstiAHdtFZj2T3Xxq1HY/Jg/YYxuO+rr1nQv1o7NUVv7EdoWUTv
-	 /eI4q+FkWngtP/q3dF1W0C5vw7Mlgl3FusJwc1gwUQZZcI/9PsxSQSCItrPx5D+FIJA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h8FO+b7s;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795430860;
+	b=04JvSsftuTqPTan6krKBILvcZliuMXXtQ0zRr98usXoQA+6u9F3qqZbTM5pZbtjvKIS+
+	 UaLwA1b1JAkNRZsyqbXBlYRrAUUW7JZeXts3xj6hhvEomI7g7xHBSiF6HTDdsUnX1stac
+	 6lsIM5la6TtgovMFUAZ1QC504koAtetPu74+E8psCTd3c6NzTKKHwb2zZKGHQAQvz5Oml
+	 1c8qpyyOBB2Ih07ej2o6VK7H2nyeURornm/2IcdruLAaDsfBJRg6BK6nfxLHCExAFmhf1
+	 CP9O3L7LKY6M9PZ80rmxPHVthEKNLcP71FRr6U/0W8Bp7yLacC/dI75AzbHWSmhuNAQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430860;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=xBnnVmjA8Cg9PME5T36nhN/EQKIWgapeJussjXAgCSU=;
+	b=tdq9MU538pLPkF7EnYxmw67mY0sgWXec2VST+N4IwvHbvPwGjEFaoTMu7cdE11UOguxr
+	 WW0zMiu9Pz1QW6a0Q2LuxgQdj/SIAMGyEaN1Qi/dWS9GHkqK6lYEUSDlnYhTb7OTm4J/9
+	 XaObON6rwE486GR1kr72msrrpGfZnZcXP5NaAQiW1/JI9tNnNQ0XJLpW7BAw9xSkyUZUT
+	 FZlLnej+cZqeYLWs+ZX8R6pmXNNBuVhaJa5k8JcYSoTMlH8KY5k44Qsp1fMuOXB9Jby/i
+	 R66yUTSwMXxmBXzuveJZ/v7X3uWJOb4xO9GqinTGT6CPwW/0Dr7xL+e9mpFQeLaa54A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YrWl6Yo7;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cmvibWAe;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 554B4606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:47:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 554B4606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB751606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:47:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB751606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h8FO+b7s
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so1662282f8f.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:47:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795430847; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b97DuF2oEaqxgLrEyVrt1M0qin+gTKPlwhrYjSlGRIwMhS/Xl+hKD+Q7oTNtJRQf28
-         OCgW37o8UjVu0mlKb8mooYkafBt6TgvtM1I5wWUB1QrCUsRBHdlwKYsbfuhrDI19+qoA
-         cDwGbtuZUkHhvxdmSEg+yCzyhgg9G/1/TXZs4KXETLXcU7lOyzWZrwKpkEol171Z3mAv
-         +F0RaB+HRc6amVIUTPACRMmuMno2F1Lh9w0q9mv7DeCPe9sSiJH2lUgbB3FU9XQ70c4O
-         0Wu1QUTYywnU4/8dnkmIcBnXbUKvrAyHFMMXIC3ITZakpsay64PKun3vgySFZLSpMWK4
-         kxQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=zyPgU+0dBWL7BXreM1FRldzhzHUZdzcLgwKTYre8N3A=;
-        fh=ZzpDT0Zci1CqlV4qjH2haTy6r3k+RQMfEvyw85ZdvAI=;
-        b=RXJDHtMd1uWydMSEp20BIjCtePDVN9fcKAyE4nE+A9/v5oItmu3Qg6FcwECMF0ZoaW
-         ONzQFMz14cj+6Is46+dkPAJRk06Fjy8tfXedqzH2fuJ6W8FPoOAwrIceXWqORyiOurZY
-         hoW48NobpYV6Kh+xaqBiV72W0JtJf+eVBWqzN7csC/s1MQyV2+hFJz8FvLiBeixDnQaQ
-         u/jEzJgKpKkonIjqbTDiK/KiwEAEoqXinPJCV3DxtpqS5P+WncXN1KNvcHbLjlaKrXd9
-         /HksWsITqBmm551e+px7tOa3rmOdopx9h03DSczCoySYmSYZRik+3BnnQiaMbMrYJr/l
-         S/8w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YrWl6Yo7;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cmvibWAe
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9Fof32785433
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:47:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=xBnnVmjA8Cg9PME5T36nhN/EQKIWgapeJus
+	sjXAgCSU=; b=YrWl6Yo7IOsbV7yQQ43LN8BuOG8SZjI/L0JUPEwmSRpH1gcWxVE
+	oqzWy8Kj+y9IqBgHe1HBY9OmJ26Gg0JBNU2ODdR8RgnyCP4liTaxlsqh/Xn1aVX+
+	HHQl1SEjOtG0e1Raq3Iv22Le1dr6HHUitmiQoeymsuPlvcidupag3YWIE13+DHoo
+	+qR2D4kIcmP/o9SsZR1/nZp2LhY/4V9VWqj8de/Qg6mH/j2TZWxAToOJEc5QPuV8
+	gkDijhtGobciQbe0K/eqBcfpzosl8dwYNGT+4XsB1bv36rNK4EsIqIw0v7KEONK7
+	3q2WjdXaZw0zvJjW8hrwTgYvfKLck37KYqg==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyd110n-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:47:37 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cdb96533adfso1872412a12.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:47:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795430847; x=1796035647; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zyPgU+0dBWL7BXreM1FRldzhzHUZdzcLgwKTYre8N3A=;
-        b=h8FO+b7sXKrfh+RneWspU4V5nRSeaoetymr2SbANy4D40BexeOkka7zwiD8hsTrw1i
-         0Rdtfv80jpKNfbf/FB8w9iK++OqF0B/ag89CqSaqiSfQ72HPkY4QRGZ8sJoDSuNjp8Qr
-         otlvsK8aF6zNDii8iH0VDGWjh0ZD7iiLMoxICiv/+cS20uKHKqc5mwUyr26Jn1ZqCf+C
-         qOP3YBA+dRVoqPoPPjIKYymkcIn1nCDSMDVSC4XeS6JiRNHWAGqy/ihltvupi87jDdcp
-         5Mm+7gBjD+Jy4yLpDuYn5pyanHiPh+IQG1uRgK6U95KBd/pMzBwOJcYcYPUuTKeWwru0
-         +qgg==
+        d=oss.qualcomm.com; s=google; t=1795430857; x=1796035657; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xBnnVmjA8Cg9PME5T36nhN/EQKIWgapeJussjXAgCSU=;
+        b=cmvibWAeCjHsxyJTkW7OQUICgGCST1YMzAd8kza/JWJODVeVBJUh67DGWJGNMO1IVU
+         WV5mJcYRrxekmMdnmMGs5DY3gKA1Ays94MBABNTiR7cV62bJ8pjs0g0atFT1m4HB8NjM
+         j0fpGsO1gEShcqEYiquSTUfyyAHwfYW4gv1VPHmj2UPWz1kkHyCxi3OAexo1oMkc9kzh
+         P/2yUlwZ4JUwMnwAZUBCThznYbe3j5xG0BbQfaJNsF23fi2CAcMIrt1/ovL12M42b5qE
+         M03toZ8ZbO/dsDFMfL1SGP/ctPAs/UTuWanWNinlA4XsPzl0igGabVI8rx4KpwAq6QeE
+         QG8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795430847; x=1796035647;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zyPgU+0dBWL7BXreM1FRldzhzHUZdzcLgwKTYre8N3A=;
-        b=J3lQ6rmt8e6Kdz7VWAg6M4D6B2IT4xeIMR8pizTY9Q65YpXFRxWVwrgXTK3p1V/5oa
-         9XUULAC6YrcdRbmshqSWUe6Zckbru4o1pVUMO5Ko5MQ+5TpBKoPjkXB0brdeelgwqIwR
-         Tb7spiAnOnYNLVDoY0bGmqmeSEig4evA+XyZ3nOZVKLBz5MFhdSZlsDMIJUw2hPt7Jy7
-         XhRx0tMCuabzEhN91sLHLNzds7End+5vM6MB9T2sTDUThQpRiAofECRVz1jVGFTqnqi+
-         mwVI9gIZfW5Ql4n8lG00sRwld3Eq/QmZ8E/P2pnAqQzlYfBWrpbGaKJppCNG3Jn1QfCx
-         j0qw==
-X-Forwarded-Encrypted: i=1; AL+hErFBBrZbXX5r4hRh1rbf6OPIhai4K/2sl2N3pHADEi32bSKqx/EZYYZ+j12qne/srb+Mjn+CUIKgPFQluyc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/A5RBPOsfjpfr2m+Kj+bcNrzZ9L4j2o8Dh3qiYzsJSHEbt52i9
-	fDCmkORrMl6VoUrfL/ZkmBIs6CjGdxM6uPP3etzdvE+pP4A9lsZ+F9JHGbT/v+pnPPvJF9o6exR
-	oML/6a3O+IK9AmzwAaEfC8T2EWbkZthw=
-X-Gm-Gg: AZFdTZdoztfFL/vWKhj00RtqeseJY0H/1EXgukivPHgWetm7NNkqjPF1noFFe3KJK7j
-	SlPuLFvU8lTJj6/SYHU4AYMiaCeV2mMtp3nu2/Mc4lZHGoSAjEyClIVSh7RlJwnWqxq8EkqufIa
-	hg93svoqYU3DMHNZkrFk6Rj1GWlmveXrIZ9pPMZjx9AYfp6XLe3ZvC6AAcvqTJISXzkB6uunoam
-	YSPDzFwU786bWVlhCBMoUFDTC4WGbkoGS0nPIfLiSaIJubNc9+Ky88rzuTyJch6ryUvCSI3RqhX
-	Jxpuk7hLyIZoURR2frr74SCA+dQF66HwyTINgilItwKquUcXX+BCzHkUlORw6WdDfjPVxhZ64nk
-	QcpvlKLjDwwyE8kcjX2pJaWNWCt+Wm86j/rA1YOmUZ03tTKCKRhtZsQh882YMv5BzO1MuD56m7A
-	O+xXLJV+TQ75tNHbVQzZMD2yZ9tmuAU8V8HFR5qnrJpmqCoi7uozIC/Q==
-X-Received: by 2002:a05:6000:200e:b0:4aa:76ce:4b9f with SMTP id
- ffacd0b85a97d-4abb6746af3mr21461877f8f.56.1795430846438; Mon, 23 Nov 2026
- 02:47:26 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795430857; x=1796035657;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xBnnVmjA8Cg9PME5T36nhN/EQKIWgapeJussjXAgCSU=;
+        b=l21HZXkLAsEEBxpBn/atQibEq1vm/bbYBqP0R1NmQt8AGYp43bP9Vbhkqv8FDfqvyg
+         QEtfDrTIm5x8z9qLDTfbY9JFiZB6SCsRxx5VEr+kFznBGVsHK3OPqueip8HFpcPZQkFi
+         tktziLf1xoeQr3Z1ekLwo7Xpzwp2yIp55afR0LE9HwzdqyXgtWJKJsuVz8fjOqajLVwY
+         gy/GoSMGVqcr3e0AORxyKrjnE2frWaX322xNfzVgQwHMBlBrp9A8bL6DpVGuQf4ru/oZ
+         BxR/YrZ6R2qCtz/E8q4UFg+rB+Wbwrg6uaK1P52pO5RlULy4S6kFV8CZ2spNwTnhYk9+
+         0PtA==
+X-Forwarded-Encrypted: i=1; AL+hErEjM1VppQYqJbUJyH9dTyr7DLTHBeH2GWnSN/k4ivOdGFdd4MYAE56pOBtCrP9jt5BMXl+JU6A727W0JI4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/mYby/ASMAhe9MnyD2/h8aiz50+Y7TrQ4O1yGyjD9mKLks7zD/
+	PgDOTfQm9wTzgYs+yIjOY63yfpPD9UWoZIMW4WgKCnG2YAwQcJ8Eu4XxdnqbijcqgfiQLVRgM8q
+	0cYclrwInmOuGOhqrsxlu/DT5+nKUBJbz4+lwVBmFImUHRF4gRmA9CthwhGMQ+8xVny8=
+X-Gm-Gg: AZFdTZeoniSMuzH9h3IGpP94mfdzZaXUNAO96x9k/l2psfastQQ/kohVLj9utUoXGbW
+	jsn8NoW2bG5BcaIvDWMShBMb+Hxebs56FzEkq96mqncm2e+57d/I5x2tUQRmkYXyL8Atf18PA9F
+	GK8VoL2zYKkamKZzqUNiJFC/GzUuEqkF+AvlHfOQCJHQpHbKXCYOUs2N9LahmrNKNcD0r9A1hVW
+	jZL2YPLft++7rhPh0wjElBbOGAkTbchsGHKFr3eycQoK5MM92hjPLZPyvh4e/F/y+sOFGM3tJx1
+	q41Fq6BepnGvyK9VsgP6cLVG0k65q97T40o1KzF2osFQF+L5taFh8Fptd8uDlVhx2TrG+19bcUL
+	MpP4bjLdv/xPjzhH9HEt4thYZxO87vBto5OfCRW9ngV/u7wSytbE7D5EohxrzlpYJieRXcOEohr
+	4FOKdkVA==
+X-Received: by 2002:a05:6372:a705:b0:3e2:7c10:d465 with SMTP id adf61e73a8af0-4014e358b53mr7569171637.83.1795430857074;
+        Mon, 23 Nov 2026 02:47:37 -0800 (PST)
+X-Received: by 2002:a05:6372:a705:b0:3e2:7c10:d465 with SMTP id adf61e73a8af0-4014e358b53mr7569154637.83.1795430856464;
+        Mon, 23 Nov 2026 02:47:36 -0800 (PST)
+Received: from hu-faisalh-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873442863sm5413467b3a.43.2026.11.23.02.47.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 02:47:36 -0800 (PST)
+From: Faisal Hassan <faisal.hassan@oss.qualcomm.com>
+To: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org
+Cc: linux-usb@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        krishna.kurapati@oss.qualcomm.com, peter.chen@oss.qualcomm.com,
+        krzysztof.kozlowski@oss.qualcomm.com,
+        Faisal Hassan <faisal.hassan@oss.qualcomm.com>
+Subject: [PATCH v5 00/11] usb: dwc3: qcom: Add firmware-managed resource support for SA8255P
+Date: Mon, 23 Nov 2026 16:17:15 +0530
+Message-Id: <20261123104727.1539149-1-faisal.hassan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,72 +120,280 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-dma-chancnt-v2-0-241b1672883e@gmail.com>
- <20261123-dma-chancnt-v2-2-241b1672883e@gmail.com> <awQMCxhy6BurLowU@ashevche-desk.local>
-In-Reply-To: <awQMCxhy6BurLowU@ashevche-desk.local>
-From: Wong Steve <shyckless@gmail.com>
-Date: Mon, 23 Nov 2026 18:47:14 +0800
-X-Gm-Features: Aa3M54oppWHvQUNnUqJl7rdU_k7WIXS2zavZqioNamwXEqP2RCrMovzITl6Zh_c
-Message-ID: <CA+X8Sdj8OygFXHMMs8mTj5RF5WuBW1uvsGcaMff92X6k_4U=qQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] dmaengine: idma64: Kill the channel tasklets in
- remove again
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: ludovic.desroches@microchip.com, vkoul@kernel.org, Frank.Li@kernel.org, 
-	dave.jiang@intel.com, linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, 
-	allen.lkml@gmail.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: bGT-ENdtW9zam7IMztjhhan9amH2XNxq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfX38jy2tInRGqu
+ /uegLw/3cL7c+dDGOhkkxEqHdpPHuca8bY+Ez+8n/itE5kkTndY6C76as5aIilcTn+r7fTonlVd
+ SkSJAHi0jT0Ljauc+zcXC/am/QH2e4O2PHPhk9AqK0HSEbr4YR0htUB4BBjfEKtKMF0rOXKlwnO
+ lkzPv1yEFNjJG/cist9tLguU7Ov/tcEmGDI1wt5+0VNC/LHXWIIVRwHJrc6QKoyr28vEFSAX9E/
+ 0iUQozpo+NC8QhI+CzRFSWiAVvTThPxvO0NcPeNtlZ7BPGjSpgGKD2IOX4MTNZ37WjIWXuApCEc
+ FrsjWI9MGmQD8mYiJhLpiNcl3VTFT8wInqkq+Dsm9LTs2usnHZeyjYD2vs5ktgnadEjVymLww6z
+ PoE4slLnx+e4nQDwQE6t7RWMSTyxeYMaTuROeysXP2Z4NkspdmsUpWgFTyQhlK2AbUCdLdgGiRr
+ VuVZOE5RtUUTimBut6g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfX1+bAcCfkQDDB
+ JnxcqvVO7QFmZIQKdL6sAtdx2vCa2bqhnHEP0+phBdw/5MLwC0OuN6ZrHmZYuOVvci4agzsjFPe
+ SQUf7HOmk1JtZGfV5l7aa3QNAtwMnCk=
+X-Proofpoint-GUID: bGT-ENdtW9zam7IMztjhhan9amH2XNxq
+X-Authority-Analysis: v=2.4 cv=Aol7T+9P c=1 sm=1 tr=0 ts=6b0419c9 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=pGLkceISAAAA:8 a=KySitE5FWxHOadyUSu4A:9
+ a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
+ spamscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230042
 
-> You have to wait a sensible time before resubmission.
-> Look at the v1 and act accordingly.
+On Qualcomm automotive SoCs such as SA8255P, the USB controller runs in
+a Linux VM while the platform resources that the controller depends on
+(clocks, interconnects, resets, regulators and the GDSC) are owned and
+sequenced by firmware running in a separate VM:
 
-Sorry, I sent v2 too quickly. Sashiko found a real problem in the
-at_xdmac patch (1/2), and I resent the series without waiting for other
-replies, so your Acked-by on v1 is missing.
+    +----------------+          SCMI          +------------------+
+    |    Linux VM    |  <------------------>  |    Firmware VM   |
+    |                |                        |                  |
+    | dwc3-qcom.c    |                        | clocks           |
+    |  "power" PD    |----------------------->| interconnects    |
+    |  "bus"   PD    |----------------------->| resets           |
+    |                |                        | regulators/GDSC  |
+    +----------------+                        +------------------+
 
-This idma64 patch (2/2) is the same in v1 and v2. Vinod, could you take
-Andy's tag from v1 when applying:
+Linux has no direct access to these resources; it can only vote for
+two abstracted power domains exposed over the SCMI power-domain
+protocol:
 
-Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+  - "power": gates the power supply (GDSC) to the USB controller
+  - "bus":   gates the clocks and interconnects used for data transfer
 
-About marking chancnt __private: that makes sense to me, but it is a
-change to the dmaengine core, so I'd keep it out of this fix.
+Register accesses through the controller require "power" to be voted
+on; "bus" additionally requires "power". The vote policy implemented
+in this series is:
 
-I'll wait for more review before sending anything else.
+  - Enable order: power, then bus
+  - Disable order: bus, then power
+  - Runtime suspend/resume vote only "bus" -- "power" stays on so that
+    accesses that can legitimately happen while runtime suspended
+    keep working.
+  - System suspend/resume vote both domains.
 
-Thanks,
-Suyuan
+The two domains are attached with PD_FLAG_NO_DEV_LINK because runtime
+suspend and system suspend require different supplier states for the
+same consumer, which a plain device-link cannot express; the driver
+manages the runtime PM references for each attached domain explicitly
+instead.
 
-Andy Shevchenko <andriy.shevchenko@linux.intel.com> =E4=BA=8E2026=E5=B9=B41=
-1=E6=9C=8823=E6=97=A5=E5=91=A8=E4=B8=80 17:49=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Mon, Nov 23, 2026 at 01:17:38AM +0000, Suyuan Wang via B4 Relay wrote:
-> >
-> > idma64_remove() frees the IRQ and then kills the channel tasklets, as
-> > the comment there says, so that no tasklet scheduled by the interrupt
-> > runs after removal:
-> >
-> >       for (i =3D 0; i < idma64->dma.chancnt; i++) {
-> >               ...
-> >               tasklet_kill(&idma64c->vchan.task);
-> >       }
-> >
-> > Since commit e81274cd6b52 ("dmaengine: add support to dynamic
-> > register/unregister of channels"), dma_async_device_unregister()
-> > unregisters each channel and decrements dma.chancnt for it, so the
-> > count is 0 when this loop runs and no tasklet is killed. A tasklet
-> > scheduled by an interrupt can then run after the devm-allocated idma64
-> > and its channels have been freed.
-> >
-> > Read the channel count before unregistering the device.
-> >
-> > Found with a static analysis tool and checked by hand.
->
-> You have to wait a sensible time before resubmission.
-> Look at the v1 and act accordingly.
->
-> --
-> With Best Regards,
-> Andy Shevchenko
->
->
+SA8255P also needs platform-specific handling on top of this. Automotive
+platform requirements call for powering down the controller's GDSC and
+entering VDDmin on the APPS side during system suspend, so the
+controller loses all of its state, including the Qscratch programming,
+regardless of whether wakeup is enabled. Runtime suspend does not remove
+power. System resume therefore has to:
+
+  - reset the controller and have dwc3 core reinitialize it
+    (needs_full_reinit),
+  - reset the xHC, using the existing XHCI_RESET_ON_RESUME quirk, which
+    dwc3 can now request through a device property, and
+  - restore the VBUS override when the controller is not in host mode.
+
+Dependencies: this series is based on usb-next plus
+"usb: dwc3: qcom: Add support to skip phy management by USB core" [2]
+from Krishna Kurapati (Acked-by: Thinh Nguyen, not yet applied), which
+introduces the skip_phy_init property and the property array size used
+here, so that patch needs to be applied first.
+
+The PIPE_UTMI_CLK_SEL restore that earlier versions carried is dropped
+in favour of "usb: dwc3: qcom: Restore UTMI PIPE clock on resume" [3]
+from Filippo Falezza, which is still under review. That restore has to
+run after the controller reset added in patch 7, as the reset returns
+Qscratch to its defaults.
+
+Patch overview:
+
+  Patch 1: Refactor dwc3_qcom_suspend()/dwc3_qcom_resume() to take a
+           pm_message_t instead of a bool, so the runtime-PM vs
+           system-PM path can be told apart with PMSG_IS_AUTO(), which
+           later patches rely on.
+  Patch 2: Disarm the wakeup interrupts when system suspend runs
+           without wakeup on a runtime-suspended host, as they would
+           otherwise stay armed as wakeup sources.
+  Patch 3: Track whether the wakeup interrupts are armed so enable and
+           disable stay balanced across runtime and system PM, and
+           stay disarmed if resume fails.
+  Patch 4: New devicetree binding, qcom,sa8255p-dwc3.yaml, requiring
+           "power"/"bus" power-domains and the USB PHYs for
+           firmware-managed platforms.
+  Patch 5: Teach xhci-plat to set XHCI_RESET_ON_RESUME from a device
+           property.
+  Patch 6: Add xhci_reset_on_resume to struct dwc3_properties and
+           forward it to xhci-plat.
+  Patch 7: Recover the controller after power loss in system suspend:
+           reset it on system resume, set needs_full_reinit and
+           xhci_reset_on_resume, and skip direct_complete so the
+           resume callback always runs. Replaces broken_suspend with
+           power_lost_in_suspend.
+  Patch 8: Restore the VBUS override after system resume.
+  Patch 9: Assert the controller reset on remove and probe failure.
+  Patch 10: Firmware-managed "power"/"bus" domain voting for SA8255P,
+           wired into probe/remove/suspend/resume, with the probe
+           error paths and the system-suspend-after-runtime-suspend
+           case keeping the votes balanced.
+  Patch 11: Enable the VBUS override at probe when the default role is
+           peripheral.
+
+Testing:
+
+  Tested on SA8255P Ride, with usb_0 in peripheral mode and usb_1 in
+  host mode:
+  - usb_1: runtime suspend on device disconnect and resume on connect,
+    system suspend and resume with the controller active and while
+    runtime suspended, and 20x system suspend/resume
+  - usb_0: runtime suspend after unbinding the UDC, system suspend and
+    resume with the gadget bound and while runtime suspended (the host
+    re-enumerates the gadget), and 15x UDC unbind/bind
+
+  System suspend was run with pm_test=platform, so the SoC did not lose
+  power. Recovery after a real power loss and remote wakeup from system
+  suspend were not tested.
+
+Changes in v5:
+  - Patch 1: moved to the start of the series; carries Acked-by from
+    Thinh and Reviewed-by from Krishna.
+  - Patch 2: new; disarm the wakeup interrupts in system suspend when
+    the device is not wakeup capable. [Peter]
+  - Patch 3: now follows patches 1 and 2. [Peter]
+  - Patch 4: no change; added Reviewed-by from Krzysztof.
+  - Patch 5: no change; added Reviewed-by from Peter.
+  - Patches 6-8: the v4 broken-suspend patch is split into the dwc3
+    xHCI-reset plumbing, the power-loss recovery (broken_suspend is
+    renamed power_lost_in_suspend, and the PIPE_UTMI_CLK_SEL restore is
+    dropped, see above) and the VBUS override restore. [Peter]
+  - Patch 9: new. The controller reset on remove and probe failure was
+    part of the firmware-managed patch and now applies to all
+    platforms. [Peter]
+  - Patch 10: attach the domains with devm_pm_domain_attach_list(), hide
+    the firmware-managed handling behind the resource enable/disable
+    helpers, return early from dwc3_qcom_interconnect_init(), and index
+    the domains with an enum. [Peter]
+  - Patch 11: program the VBUS override once, after the initial role
+    has been determined, instead of from the role-specific branches.
+    [Peter]
+  - Link to v4: https://lore.kernel.org/all/cover.1793212717.git.faisal.hassan@oss.qualcomm.com/
+
+Changes in v4:
+  - Patch 3: addressed Krzysztof's review of the binding. [Krzysztof]
+    - Fixed the interrupts to exactly six, with the names listed in the
+      schema, instead of a variable count.
+    - Fixed phys to two entries, named usb2-phy and usb3-phy, and made
+      phys and phy-names required.
+    - Dropped the redundant minItems from power-domains and the
+      explicit "clocks/interconnects: false" properties.
+    - Kept "bus" as the second power domain name. Unlike the "perf"
+      domains used by other sa8255 bindings, which are SCMI performance
+      protocol domains with OPP levels, it is a plain SCMI power domain
+      that is only switched on and off. Noted this in the description.
+  - Updated the patch 3 commit message to match the binding. Rebased on
+    the latest usb-next; no other changes.
+  - Link to v3: https://lore.kernel.org/all/20261010053246.2991984-1-faisal.hassan@oss.qualcomm.com/
+
+Changes in v3:
+  - Dropped the software node used to pass xhci-reset-on-resume from
+    dwc3-qcom to the dwc3 core, together with its probe/remove
+    handling. The flag is now a field in struct dwc3_properties
+    (xhci_reset_on_resume), set through the glue driver's probe data
+    and forwarded to xhci-plat by dwc3 host.c. This avoids the software
+    node lifetime problems that led to the revert of the earlier
+    approach. The old patch 5 is merged into the broken-suspend patch.
+    [Thinh]
+  - Renamed the flag to xhci_reset_on_resume and placed it with the
+    other quirk bits in struct dwc3. [Thinh]
+  - Depend on Krishna's skip-phy patch [2]; the property array in dwc3
+    host.c now has 9 slots (8 properties plus the terminator) to cover
+    all quirks that can be set together.
+  - Patch 1: changed approach. Instead of re-enabling the wakeup
+    interrupts when resume fails, track whether they are armed
+    (wakeup_irqs_armed) so enable/disable are idempotent, and always
+    disarm them on resume, not only for host mode with wakeup enabled.
+    On a failed resume they stay disarmed, since a level-triggered
+    wakeup line could otherwise keep firing.
+  - Patch 2: dropped the wakeup value derived from the PM message in
+    the resume path, as patch 1 now disarms the interrupts
+    unconditionally.
+  - Patch 3: interrupts were minItems 1/maxItems 6 and are now
+    minItems 5 with the names listed in the schema; added dma-coherent;
+    dropped the free-form descriptions of power-domains,
+    power-domain-names and resets.
+  - Patch 5: also set needs_full_reinit so dwc3 core re-initializes the
+    controller on system resume even in host mode with wakeup enabled;
+    restore Qscratch (PIPE_UTMI_CLK_SEL, VBUS_VALID) on every system
+    resume rather than depending on wakeup, only forcing VBUS_VALID
+    outside host mode, and never on runtime resume; skip
+    dwc3_pm_prepare() so the resume callback always runs.
+  - Patch 6: dwc3_qcom_domains_put() no longer returns an error: the
+    runtime PM usage count is dropped even when put_sync() fails, so
+    failures are only warned about and cannot unbalance the next vote.
+    System suspend of a runtime-suspended device now also drops the
+    "power" vote that runtime suspend keeps, so system resume stays
+    balanced. Probe error paths now assert the reset again. The
+    remove path is simplified accordingly.
+  - Patch 7: new.
+  - Link to v2: https://lore.kernel.org/all/20260903153827.3463313-1-faisal.hassan@oss.qualcomm.com/
+
+Changes in v2:
+  - Reworked the resource model from OPP-based performance-state
+    voting to plain power-domain ON/OFF voting via "power" and "bus"
+    domains, addressing Bjorn's objection that OPP levels conflate
+    performance-state selection with power-state signaling. [Bjorn]
+  - Documented the PD_FLAG_NO_DEV_LINK rationale (asymmetric runtime
+    suspend vs system suspend supplier state) in the firmware-managed
+    patch.
+  - Validate the number of attached domains against what was
+    requested instead of assuming attach always returns exactly two.
+  - Fixed an unwind bug where a "bus" domain enable failure during
+    probe would return without dropping the "power" domain vote.
+  - Added the new qcom,sa8255p-dwc3.yaml binding.
+  - Terminated the broken-suspend software node's property array and
+    fixed a bug where the software-property walk in dwc3 core did not
+    continue past the first match.
+  - Fixed dwc3_qcom_resume()'s broken-suspend reset to only fire on
+    system resume, not runtime resume.
+  - Link to v1: https://lore.kernel.org/r/20251127-controller_scmi_upstream-v1-0-38bcca513c28@oss.qualcomm.com
+
+[1] v2: https://lore.kernel.org/all/20260903153827.3463313-1-faisal.hassan@oss.qualcomm.com/
+[2] https://lore.kernel.org/all/20260914-xhci-skip-phy-init-v1-1-9c46b31a5a39@oss.qualcomm.com/
+[3] https://lore.kernel.org/all/20261027-dwc3-utmi-resume-v1-1-ca9f0aa65783@gmail.com/
+
+Faisal Hassan (11):
+  usb: dwc3: qcom: Distinguish PM and runtime suspend/resume paths
+  usb: dwc3: qcom: Disarm wakeup IRQs on system suspend without wakeup
+  usb: dwc3: qcom: Keep wakeup IRQ enable/disable balanced on failed
+    resume
+  dt-bindings: usb: Add qcom,sa8255p-dwc3 for firmware-managed resources
+  usb: host: xhci-plat: Support XHCI_RESET_ON_RESUME via device property
+  usb: dwc3: Support resetting the xHCI host on system resume
+  usb: dwc3: qcom: Recover controller state after power loss in system
+    suspend
+  usb: dwc3: qcom: Restore VBUS override after system resume
+  usb: dwc3: qcom: Assert controller reset on remove and probe failure
+  usb: dwc3: qcom: Support firmware-managed resource states for power
+    management
+  usb: dwc3: qcom: Enable VBUS override at probe for default peripheral
+    role
+
+ .../bindings/usb/qcom,sa8255p-dwc3.yaml       | 114 ++++++
+ drivers/usb/dwc3/core.c                       |   3 +
+ drivers/usb/dwc3/core.h                       |   3 +
+ drivers/usb/dwc3/dwc3-qcom.c                  | 355 ++++++++++++++++--
+ drivers/usb/dwc3/glue.h                       |   2 +
+ drivers/usb/dwc3/host.c                       |   5 +-
+ drivers/usb/host/xhci-plat.c                  |   3 +
+ 7 files changed, 453 insertions(+), 32 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/usb/qcom,sa8255p-dwc3.yaml
+
+-- 
+2.34.1
+
