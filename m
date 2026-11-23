@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795440341;
-	b=MO/owrKXJq8tIn2xXBbBdrZbsZelRyXQBWWIqCRfamTYQiHxoPO0VfUOQ+KTycAMKs2r
-	 iV1MYlccwwwDp/kKMpNypITuSDnrrTczHlJO5AlQoBMGDDS0fO76UsW1nYZ8ZI8VikUTD
-	 CIhHrhPSgvnfFvdcfhNRPKKNuk4m9s0RaHR9TTMnU3RFIUdXhHzCYCZtB2wgjEI/j/M1C
-	 EtYiq6yQ3SvtzHNSlris+lsa18fkUnoIFqHip6emGTTFIXk7Ih7kEGidZC2Axxy3HNOQw
-	 xGy0lTjUAC2SZI+QLk/poltyooSf/N/jc4Kdok9k4WzPyAD3jYeqQsUaIBEAX664YHg==
+	t=1795440342;
+	b=UA+5qErtRnUJ1Os8ejdbzRYRDkPUiR1vIlcaZjqXegIRBW8giDDaZh8cPbrn+2LKs865
+	 y0baozKjeTQrQdM0b+/7J87xiU3OATDBROdPYFDOuU2GI5fL52qCgpFXkmP6+enKVLigj
+	 wTBR0lxoLbvHlDjCDPOcKe6lGWGZeJHgV9BzG2OdQlzCq4J+f7SntnTIdKAQU9zZckfY+
+	 L6MVzccL/ikfDv4QqDaAc2SmFxMescjikYtgkhJvy5ixxndoGI5E3T0iZYJLHcrDpIPu5
+	 kL67nTALS/hj35moKKJUBWgb1aJcB8heYmJuJ/Mejzt4fSy9DabR3gyBDPLuauvb+fA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440341;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440342;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zztcXn05wIUkS3ZMZmgNy/x1mUVakpxeGhULnaIa73w=;
-	b=mdVbITUOlfnjxDIIDIlnuC6hNpRHa/ZPZvotxSMrngsVVeU3B/y2R+VixFAxw5PxNEwK
-	 +Omr3VHW88fZAxPs2k5VtYuYLzQobyc/vxejh8WHf367b68mbSW5nPmVKRTM0PPjXK82s
-	 kpdjDRKtbqlQ1tYfLoirRmrK5FfVoHFFJnga4QHFjfAzUlBEmkktr1mFeFOgStgtOGaTP
-	 oYf5zuCSJ5amhdL/+Hycv4FDRMrfN6hjKmgV7/9AeLDirey1HfqmKiZAxeyDJModctR6E
-	 Q4URGcYsNqDE3vrCAQhkN75v47zrxbEO9FulS+cPIi4AwcT9Om6m7ydahYtn6nA3/IA==
+	bh=47Roz2ShdMvtfYiACxcQoWz44mZIKFEeV52/Z6Eg1vA=;
+	b=3dBuTQWRMS81DgZo0CrZYnhXlJFbQyHIqDShHlkShwB13pgpAIh2ehjPde7WS22Xfz3u
+	 N/1xj6Me21G7sGejQPfAYL58gk+kykvGL3k2cO5TeponRvj0a41el5ccWtFe5y2gI+EXy
+	 E7kf/kPmRUHIt0V368yVvpzyT7Xgdhi2B40LzsMhMW0GvSNSVn28gKAgQ2BV71ugIP1Kv
+	 qUHonbbpvePRkvOOEsj14BZFsyUM66hs+3YVWps1T+w4yRRhhMEAFvg1J9Wg9A/FwScqD
+	 eJxMwEWuMYDmn1fZ5P0I0lFSrEBu0pH4kXSqjCR2UTMyHGr3R1E7P2q6QRfv2wfvSWQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZnkie4m;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BEDfAUWb;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 125A1606A32D;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AA60606A692;
 	Mon, 23 Nov 2026 13:25:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZnkie4m
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BEDfAUWb
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795440340;
-	b=ssRJIGLDUYq+ZKQHybNKKaQmYrVrf50KxLscW7JX/zNVIwowgMM3CXh4c2nwwncHJtQ3
-	 DEADo91EVtlrDYEP5EBQcLhzPmqgt0Wtac/BNCyQyJSexI+l7syej5Xp3t+yEE+DYO406
-	 fj24mVa66cdx+vLaVpbiP4yydQTwvSyphs/08AnWkmbtgvDixq5gFG7reF4qNW5DSuiWh
-	 PpklDZ59M7ZOwFFt6s+43VjOaqCW+Xops0k0g74ilRiFKO+lJJXaEiLzfM8U+1TzfIDVo
-	 oob5MJRBCbT9azMNWCLsVnv04vAh3ssjG5YaSb7XBShntiMc7CauAOgcILhBlpIA27g==
+	t=1795440341;
+	b=v53TafGdn05UqacfdXmldvqzIfHMXMIDfZlE1nHV3Jmj8ELBYkatxbnxw8KAjQjkxxjY
+	 BmWN6MrHakRe7b1M+UKFHAInyHX2yd0sQHmo4PqrRMS7UHw0j2qf2hfHgOq09uPh3ujOk
+	 uHQRHCRtqjCeAbgmgMl934FG5xQyFhKDetX5TbNkWXyqaPaEvBcO37vsz8w1rhE+X7xWH
+	 krHXdOv5f98m32ApOs7kA2iMe3w4dHKLG2Hi1I/qO6LPJbXriqatIiGUYQkZbndhnyCmt
+	 1IbZt7aH9SeK5G7PVSI0a2SX8jJceMHHcoysEhqyzZAGP33MCsWXEoMNpYIU9SY1rbg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795440340;
+	c=relaxed/relaxed; t=1795440341;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zztcXn05wIUkS3ZMZmgNy/x1mUVakpxeGhULnaIa73w=;
-	b=VWzHggXWDRe2HrD8mEmW4zKsB73lfRb4yr5ZZxWBuTDITGGfd1rH8kHrf3Uy/aU769fg
-	 a2IuMSb888LTXwjgz3krzRdARhEJGoC27l9JfeBSKLxod0MlQgSPBCVAkxEO2wJsLvnEx
-	 NeEKgJFk7h6wLxTLOO46Due6YYHTMRoifMeRgAx+SrQ2swZJSxw/ORiMnMbMp2qQH5BC8
-	 cEIal1EUkTpWcdxy+ETmAuypTBj4oJaZytjuysSDRQE0TbFHiJ5U7uJsI66k8vw5P5bJ7
-	 66qY6+sGC6tsZkI5UadI4kp4RZgQaht8G4x/NT6S0bnr8P2fNZjadzZQXL7qvQVOQ2A==
+	bh=47Roz2ShdMvtfYiACxcQoWz44mZIKFEeV52/Z6Eg1vA=;
+	b=cziApHUymXy/5/HysxrB4xoPm0GC+j3Xo2Ces+KuGCSsgKUBF/oxTizU3MVcFElOQvev
+	 uRlw2rRkpIm2mpNXH7wZZglfOO84Zd1A9kMjNa3TGHL264MkWZx65VdpVlrGftqygIPtB
+	 +dCsqpvSqoXQVPXaTb4aFAULJnjUzHEV2cmetAJg+5f/C7ooWK4hYzLgozL2565YvfNIZ
+	 9/lzF5iEgRwCeQWSJW2h/RceDuwXTqWZBk6LCCZKpcIfE4Z0bZNnXHYF8/q0kOJA/lybD
+	 E0TosMcgu03XdukFRc0tLLRTwFbsHGLMAxB+hh8iKWObYT1XJ3+N3KTVrI3lVFnHBUw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 254C01F000EE;
+	by smtp.kernel.org (Postfix) with ESMTPS id 09D2D1F000D4;
 	Mon, 23 Nov 2026 13:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440340;
-	bh=zztcXn05wIUkS3ZMZmgNy/x1mUVakpxeGhULnaIa73w=;
+	s=k20260515; t=1795440341;
+	bh=47Roz2ShdMvtfYiACxcQoWz44mZIKFEeV52/Z6Eg1vA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=fZnkie4mTON040KIDvp6W9Ip+S2vX9ymzV50TAcK/DJCrSz2MCZcbkVOmvfoG3WmS
-	 UNJ1hiPgyWhuoX3JH6G1GAaVlpcsfEw8sBkF2fAEGLtwsphyDvJVzAilHhBUBTaYG4
-	 WJMB7PboMBAEoszs7ED8kpiyQVJOUu4VIYO1s/nE1VPOKFg72b8c0+wMON7YDWQ+GG
-	 IXG8f7RjpeOQ34+OrhcAAKG0eA52lohQs++ergaWty+k4qqcfdbrqQTyhPF28T6PKF
-	 sCL28bX1WiyojsKBiGrRxG3AxWIvR2DTYcv0orL2WKeiNDYB2G8qNcGbvnTYfGyJYC
-	 Hi6zJrKi8mGAA==
+	b=BEDfAUWbd/ApjNqNxQCALfOk3JkVZZ4BMl7o3VoUff2F3XFQxKMlHVzGBaHoOz3LE
+	 GQZhMPCRyIz2MiOV3hFjderLay9V9grU843lcryeGwkybhDrr7Kixs19NVmUKq86ZS
+	 Qlzv+LwcxX0x6ox0w/SmO1UrZDDM59Sn3PJSDQrJK9jz2jxfG8cDLaMp3izDnLcyAk
+	 tqvESO14mr9MyXKOtEfmw2XzdfqJmgjL2m4WbFUulocRy+VSntpwEsX8Kxfu1a/Bt/
+	 /SD6hC5GMXaQ2PoFU92bIly2ypWdKW9SLaVTInBY0V9+BN5InfptFNr882FgxpVGaY
+	 9cTg7Vjx+FY3A==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A387F4C499;
+	by lkml.kernel.org (Postfix) with ESMTP id 8799E4C495;
 	Mon, 23 Nov 2026 13:25:28 +0000 (UTC)
 From: Radu Sabau via B4 Relay <devnull+radu.sabau.analog.com@kernel.org>
-Date: Mon, 23 Nov 2026 15:25:27 +0200
-Subject: [PATCH 3/7] iio: imu: adis16475: Pass the device and timestamp to
- the sample helpers
+Date: Mon, 23 Nov 2026 15:25:26 +0200
+Subject: [PATCH 2/7] iio: imu: adis: Add a kfifo buffer setup helper for
+ FIFO devices
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-adis-fifo-v1-3-f6ad9e493e19@analog.com>
+Message-Id: <20261123-adis-fifo-v1-2-f6ad9e493e19@analog.com>
 References: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
 In-Reply-To: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
 To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -96,11 +96,11 @@ To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
 Cc: linux-iio@vger.kernel.org, linux@analog.com, 
  linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795440327; l=3328;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795440327; l=8434;
  i=radu.sabau@analog.com; s=20261001; h=from:subject:message-id;
- bh=5BQh5nF/fg8PKi8MMyTgUuL98vgwuiTzBq54Q+UqpWE=;
- b=q2YFzwSQWfu2gHQwKBpHl5wuv4anAQhOy+JEIIRBzIuzaEN2C83xXwkjK/xthkSrgiid9zMyF
- PHzStZfAEqkAgwwpcHm1AnowuvJqGuYXbv+Ew+oJJCu28GShbFSiNSa
+ bh=gsQHAC9QTe/dAmiHhtXzAdEosCoLWNzpLjvdYa7amHw=;
+ b=5/Jr3WeuIC0narguV8H1Jyqs6VYr7pVcYOmkRto8Xj+9VK2/hKBPbinqfhyWSmLmRxCfpJDSh
+ BIuiBx6MEp/D7xyREY9sA/N9mOu/V1Pjr9fNO2/Y2/ncnFV93mPCKPc
 X-Developer-Key: i=radu.sabau@analog.com; a=ed25519;
  pk=XOZSO/Ut8qfYw7khL8lUF65Pgl+VLihISyS+Iy9jY8c=
 X-Endpoint-Received: by B4 Relay for radu.sabau@analog.com/20261001 with
@@ -111,95 +111,223 @@ Content-Transfer-Encoding: 7bit
 
 From: Radu Sabau <radu.sabau@analog.com>
 
-adis16475_push_single_sample() and adis16575_custom_burst_read() take the
-struct iio_poll_func only to get the IIO device and the timestamp from it.
-Pass those two instead, so the helpers don't depend on being called from a
-trigger handler.
+Devices with a hardware FIFO (has_fifo) currently go through the
+triggered buffer: the FIFO interrupt is requested with
+iio_trigger_generic_data_rdy_poll() as its thread function, which calls
+iio_trigger_poll() from the IRQ thread, and the samples are read from a
+trigger handler. iio_trigger_poll() is meant to be called from hard
+interrupt context, and the FIFO then depends on whatever trigger is
+selected.
 
-No functional change.
+Add devm_adis_setup_kfifo_buffer() for such devices. It sets up a kfifo
+buffer and requests the FIFO interrupt as a oneshot threaded IRQ running a
+handler supplied by the driver, which reads the FIFO and pushes the
+samples. The interrupt is requested disabled, and the driver enables and
+disables it with enable_irq() and disable_irq() from its buffer setup
+functions. This is done without the adis lock, which the handler takes.
+
+The trigger/current_trigger attribute is user visible on the existing FIFO
+devices, so add devm_adis_register_fifo_trigger() for them to keep it. It
+registers a trigger with the usual name and sets INDIO_HARDWARE_TRIGGERED
+so the attribute exists. The buffer runs in software mode, so the trigger
+has no effect on it: writing it is accepted and ignored, as
+hid-sensor-trigger does for the same reason. New drivers do not need it.
+
+No driver uses the helpers yet.
 
 Signed-off-by: Radu Sabau <radu.sabau@analog.com>
 ---
- drivers/iio/imu/adis16475.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+ drivers/iio/imu/Kconfig        |  1 +
+ drivers/iio/imu/adis_buffer.c  | 45 ++++++++++++++++++++++++++++++++++
+ drivers/iio/imu/adis_trigger.c | 55 ++++++++++++++++++++++++++++++++++++++++++
+ include/linux/iio/imu/adis.h   | 32 ++++++++++++++++++++++++
+ 4 files changed, 133 insertions(+)
 
-diff --git a/drivers/iio/imu/adis16475.c b/drivers/iio/imu/adis16475.c
-index 44520d9216a2..6922ffb48516 100644
---- a/drivers/iio/imu/adis16475.c
-+++ b/drivers/iio/imu/adis16475.c
-@@ -1561,9 +1561,8 @@ static void adis16475_burst32_check(struct adis16475 *st)
- 	}
+diff --git a/drivers/iio/imu/Kconfig b/drivers/iio/imu/Kconfig
+index 8b91426f60d0..b00acccab061 100644
+--- a/drivers/iio/imu/Kconfig
++++ b/drivers/iio/imu/Kconfig
+@@ -151,6 +151,7 @@ config IIO_ADIS_LIB
+ 
+ config IIO_ADIS_LIB_BUFFER
+ 	bool
++	select IIO_KFIFO_BUF
+ 	select IIO_TRIGGERED_BUFFER
+ 	help
+ 	  A set of buffer helper functions for the Analog Devices ADIS* device
+diff --git a/drivers/iio/imu/adis_buffer.c b/drivers/iio/imu/adis_buffer.c
+index 501da4eaef69..e49e02adeda6 100644
+--- a/drivers/iio/imu/adis_buffer.c
++++ b/drivers/iio/imu/adis_buffer.c
+@@ -15,6 +15,7 @@
+ 
+ #include <linux/iio/iio.h>
+ #include <linux/iio/buffer.h>
++#include <linux/iio/kfifo_buf.h>
+ #include <linux/iio/trigger_consumer.h>
+ #include <linux/iio/triggered_buffer.h>
+ #include <linux/iio/imu/adis.h>
+@@ -220,3 +221,47 @@ devm_adis_setup_buffer_and_trigger_with_attrs(struct adis *adis, struct iio_dev
+ 					adis);
  }
+ EXPORT_SYMBOL_NS_GPL(devm_adis_setup_buffer_and_trigger_with_attrs, "IIO_ADISLIB");
++
++/**
++ * devm_adis_setup_kfifo_buffer() - Sets up a kfifo buffer for a FIFO adis device
++ * @adis: The adis device
++ * @indio_dev: The IIO device
++ * @thread_fn: Threaded interrupt handler which reads the device FIFO and
++ *	       pushes the samples to the buffer. It is called with @indio_dev
++ *	       as dev_id.
++ * @ops: Optional buffer setup functions, may be NULL.
++ * @buffer_attrs: Extra buffer attributes.
++ *
++ * Returns 0 on success, a negative error code otherwise.
++ *
++ * Unlike devm_adis_setup_buffer_and_trigger_with_attrs(), the samples are not
++ * captured from a trigger handler. The device FIFO interrupt is requested as a
++ * threaded oneshot IRQ running @thread_fn, and the data goes straight to a
++ * kfifo buffer. The IRQ is requested disabled and the driver enables and
++ * disables it with enable_irq() and disable_irq() from its buffer setup
++ * functions, without holding the adis lock. Devices which already had a
++ * trigger/current_trigger attribute can keep it with
++ * devm_adis_register_fifo_trigger().
++ */
++int devm_adis_setup_kfifo_buffer(struct adis *adis, struct iio_dev *indio_dev,
++				 irq_handler_t thread_fn,
++				 const struct iio_buffer_setup_ops *ops,
++				 const struct iio_dev_attr **buffer_attrs)
++{
++	int ret;
++
++	ret = devm_iio_kfifo_buffer_setup_ext(&adis->spi->dev, indio_dev, ops,
++					      buffer_attrs);
++	if (ret)
++		return ret;
++
++	if (adis->spi->irq) {
++		ret = devm_adis_request_fifo_irq(adis, indio_dev, thread_fn);
++		if (ret)
++			return ret;
++	}
++
++	return devm_add_action_or_reset(&adis->spi->dev, adis_buffer_cleanup,
++					adis);
++}
++EXPORT_SYMBOL_NS_GPL(devm_adis_setup_kfifo_buffer, "IIO_ADISLIB");
+diff --git a/drivers/iio/imu/adis_trigger.c b/drivers/iio/imu/adis_trigger.c
+index 3e6a7af6ab01..ea8661bff901 100644
+--- a/drivers/iio/imu/adis_trigger.c
++++ b/drivers/iio/imu/adis_trigger.c
+@@ -104,3 +104,58 @@ int devm_adis_probe_trigger(struct adis *adis, struct iio_dev *indio_dev)
+ }
+ EXPORT_SYMBOL_NS_GPL(devm_adis_probe_trigger, "IIO_ADISLIB");
  
--static int adis16475_push_single_sample(struct iio_poll_func *pf)
-+static int adis16475_push_single_sample(struct iio_dev *indio_dev, s64 timestamp)
- {
--	struct iio_dev *indio_dev = pf->indio_dev;
- 	struct adis16475 *st = iio_priv(indio_dev);
- 	struct adis *adis = &st->adis;
- 	int ret, bit, buff_offset = 0, i = 0;
-@@ -1652,7 +1651,7 @@ static int adis16475_push_single_sample(struct iio_poll_func *pf)
- 	}
++/**
++ * devm_adis_request_fifo_irq() - Requests the FIFO interrupt of an adis device
++ * @adis: The adis device
++ * @indio_dev: The IIO device
++ * @thread_fn: Threaded interrupt handler, called with @indio_dev as dev_id
++ *
++ * Requests the (level triggered) FIFO interrupt as a oneshot threaded IRQ. The
++ * IRQ is requested disabled: the driver enables it with enable_irq() once the
++ * device FIFO is running and disables it with disable_irq() before stopping
++ * it, without holding the adis lock as @thread_fn takes it.
++ *
++ * Returns 0 on success or a negative error code
++ */
++int devm_adis_request_fifo_irq(struct adis *adis, struct iio_dev *indio_dev,
++			       irq_handler_t thread_fn)
++{
++	int ret;
++
++	ret = adis_validate_irq_flag(adis);
++	if (ret)
++		return ret;
++
++	adis->irq_flag |= IRQF_NO_AUTOEN;
++
++	return devm_request_threaded_irq(&adis->spi->dev, adis->spi->irq, NULL,
++					 thread_fn, adis->irq_flag | IRQF_ONESHOT,
++					 indio_dev->name, indio_dev);
++}
++EXPORT_SYMBOL_NS_GPL(devm_adis_request_fifo_irq, "IIO_ADISLIB");
++
++/**
++ * devm_adis_register_fifo_trigger() - Registers the legacy trigger of a FIFO device
++ * @adis: The adis device
++ * @indio_dev: The IIO device
++ *
++ * Registers an IIO trigger named after the device. It is never used to push
++ * samples, as the data goes to a kfifo buffer. It only keeps the
++ * trigger/current_trigger interface of devices that always had it, so writing
++ * it is accepted but has no effect. New drivers do not need it.
++ *
++ * Returns 0 on success or a negative error code
++ */
++int devm_adis_register_fifo_trigger(struct adis *adis, struct iio_dev *indio_dev)
++{
++	adis->trig = devm_iio_trigger_alloc(&adis->spi->dev, "%s-dev%d",
++					    indio_dev->name,
++					    iio_device_id(indio_dev));
++	if (!adis->trig)
++		return -ENOMEM;
++
++	indio_dev->modes |= INDIO_HARDWARE_TRIGGERED;
++
++	return devm_iio_trigger_register(&adis->spi->dev, adis->trig);
++}
++EXPORT_SYMBOL_NS_GPL(devm_adis_register_fifo_trigger, "IIO_ADISLIB");
+diff --git a/include/linux/iio/imu/adis.h b/include/linux/iio/imu/adis.h
+index c9016f636530..4f87321a2d5e 100644
+--- a/include/linux/iio/imu/adis.h
++++ b/include/linux/iio/imu/adis.h
+@@ -569,6 +569,16 @@ devm_adis_setup_buffer_and_trigger_with_attrs(struct adis *adis,
  
- 	/* There might not be a timestamp option for some devices. */
--	iio_push_to_buffers_with_timestamp(indio_dev, st->data, pf->timestamp);
-+	iio_push_to_buffers_with_timestamp(indio_dev, st->data, timestamp);
+ int devm_adis_probe_trigger(struct adis *adis, struct iio_dev *indio_dev);
  
++int devm_adis_setup_kfifo_buffer(struct adis *adis, struct iio_dev *indio_dev,
++				 irq_handler_t thread_fn,
++				 const struct iio_buffer_setup_ops *ops,
++				 const struct iio_dev_attr **buffer_attrs);
++
++int devm_adis_request_fifo_irq(struct adis *adis, struct iio_dev *indio_dev,
++			       irq_handler_t thread_fn);
++
++int devm_adis_register_fifo_trigger(struct adis *adis, struct iio_dev *indio_dev);
++
+ int adis_update_scan_mode(struct iio_dev *indio_dev,
+ 			  const unsigned long *scan_mask);
+ 
+@@ -590,6 +600,28 @@ static inline int devm_adis_probe_trigger(struct adis *adis,
  	return 0;
  }
-@@ -1663,7 +1662,7 @@ static irqreturn_t adis16475_trigger_handler(int irq, void *p)
- 	struct iio_dev *indio_dev = pf->indio_dev;
- 	struct adis16475 *st = iio_priv(indio_dev);
  
--	adis16475_push_single_sample(pf);
-+	adis16475_push_single_sample(indio_dev, pf->timestamp);
- 	/*
- 	 * We only check the burst mode at the end of the current capture since
- 	 * it takes a full data ready cycle for the device to update the burst
-@@ -1694,9 +1693,9 @@ static void adis16575_update_msg_for_burst(struct adis *adis, u8 burst_req)
- 	tx[0] = ADIS_READ_REG(burst_req);
- }
++static inline int
++devm_adis_setup_kfifo_buffer(struct adis *adis, struct iio_dev *indio_dev,
++			     irq_handler_t thread_fn,
++			     const struct iio_buffer_setup_ops *ops,
++			     const struct iio_dev_attr **buffer_attrs)
++{
++	return 0;
++}
++
++static inline int
++devm_adis_request_fifo_irq(struct adis *adis, struct iio_dev *indio_dev,
++			   irq_handler_t thread_fn)
++{
++	return 0;
++}
++
++static inline int
++devm_adis_register_fifo_trigger(struct adis *adis, struct iio_dev *indio_dev)
++{
++	return 0;
++}
++
+ #define adis_update_scan_mode NULL
  
--static int adis16575_custom_burst_read(struct iio_poll_func *pf, u8 burst_req)
-+static int adis16575_custom_burst_read(struct iio_dev *indio_dev, u8 burst_req,
-+				       s64 timestamp)
- {
--	struct iio_dev *indio_dev = pf->indio_dev;
- 	struct adis16475 *st = iio_priv(indio_dev);
- 	struct adis *adis = &st->adis;
- 
-@@ -1705,7 +1704,7 @@ static int adis16575_custom_burst_read(struct iio_poll_func *pf, u8 burst_req)
- 	if (burst_req)
- 		return spi_sync(adis->spi, &adis->msg);
- 
--	return adis16475_push_single_sample(pf);
-+	return adis16475_push_single_sample(indio_dev, timestamp);
- }
- 
- /*
-@@ -1748,18 +1747,19 @@ static irqreturn_t adis16475_trigger_handler_with_fifo(int irq, void *p)
- 	 * First burst request - FIFO pop: popped data will be returned in the
- 	 * next burst request.
- 	 */
--	ret = adis16575_custom_burst_read(pf, adis->data->burst_reg_cmd);
-+	ret = adis16575_custom_burst_read(indio_dev, adis->data->burst_reg_cmd,
-+					  pf->timestamp);
- 	if (ret)
- 		goto unlock;
- 
- 	for (i = 0; i < fifo_cnt - 1; i++) {
--		ret = adis16475_push_single_sample(pf);
-+		ret = adis16475_push_single_sample(indio_dev, pf->timestamp);
- 		if (ret)
- 			goto unlock;
- 	}
- 
- 	/* FIFO read without popping */
--	ret = adis16575_custom_burst_read(pf, 0);
-+	ret = adis16575_custom_burst_read(indio_dev, 0, pf->timestamp);
- 
- unlock:
- 	/*
+ #endif /* CONFIG_IIO_BUFFER */
 
 -- 
 2.43.0
