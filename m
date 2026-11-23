@@ -1,101 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795406950;
-	b=jzaHSv8OaZsYgXX8ZxG9NuIN8OtTZPNW/LGpwrjgHylyfZSbXn1jHLiDgQU09OVuzuYS
-	 iYZ9nvLnNwC8Q8hrrBj0ZjQor1bzEpfTVrrswwlJuZkNcTmFjPcfthH+7dV0HgJ95Plmj
-	 uvjkVcXzRe5GeJwnvGLUqCzstIKC6gwR3y9b7PNglfcMxYjPw+NQLSGtzDb4UwoaFxuCW
-	 P3ELHmm8Z6Urpf9vZYu/BDfsmI2VJtiDDjd4b9nlMCG9x/u0OTuTJOjgnweVMqMBzdJTu
-	 6cwS8FGdJatudwHuY9nj4nhk6ia3YbPsJsAzod02vb4tBAAhP6yy/GC7lpRMo7pVKxA==
+	t=1795406985;
+	b=kDMbfVBnzOJKFmtAG1Qx+HOxUJ8w6LdimSxOrjaYJOZdtMFY1aCZG86YVJu6nvlaZwQn
+	 vb2N2JC8asHFfwYBkQP/fZlkxORUvq+oyw/nZRsoDgwzuo0969ES5XUjKJ+q2hfbra0r2
+	 98c6XV62O/Tz8tAhJu1LGCFnmIRo2umQPjtf9Kg2nYkgRKSIn+9Q7FLfXyaXSOsmlAAve
+	 8cUhcT5emC4vNqMt55wEcOrzgQhINEiNH1dCZ9YQcl/YCRFKRwRSiysV4ykTqW0Lrr0hh
+	 ev4df9EvCWqkjjmGQXqDwnDFH+xqhKwzvdwtRGAFgXWFRRa3GYdHAnN5Q1UBjF64aUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795406950;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=0ozgnlts1k6aHVWDS0U58M4CpqFB+e+83aS7nu4uq/U=;
-	b=UYktCXbmUcFPwUY75CQOSY3zMZeY0E+YyspQpzPtbD61QJwExwLNtaa+WXjqBHmIdUIN
-	 +Gyy5OSZEr4/yDAL7tN4ZK1gMvvWLxb2UE8E/PtwKQUogSAq2CRE7Y6j+8X76aP5WE4/w
-	 fGMjidTg7l7pvRMDAiy27cZTpNrnhwJTlk/O18WwNROJXSDgYKlLfHfTgXRbWJ4KmQxBC
-	 prD5UnDeLV4Y7GauPGHm7WmyKri+EzBJioHwDn7EuyvpmULskWiIYckPhQV6EDDfDA+cU
-	 ow3InjxuPlZe+07xmQxm55BCAL/qtaYa1X7t365GEmGZ5GTh1AnJNlPfYXTiY0aekCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795406985;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=YLKmTz9mXxZ44RenvTwUZJjRcB/29lTMpfzoB+6Aoqs=;
+	b=kEb7A5IMM0IOxPD8we3kXyN4LKSt5jhWiWBM/SSgYATeneWovHbifpl0M4IN7b4JHWta
+	 v8H9hMLfH58LQkn5vx4fbod5HUSQgw1yGba7w8a5S2GUeCC11EbmK/c9jCq4O6zLvWDp7
+	 swPaY7e4A9CrSGBb76Td0yD3TmmhDrKIs5pTpLqZcjJMlrxHunW2uikZ3eYm8JJDmRIk3
+	 ILax3VrUSfMoWImr8tf5hEWrID1kAHPqHFy1hwmdJMqzkrNLycrBSkmuL/50fVwUnypp9
+	 tbKmpP9g8NGuWKGCVvBo3BmNA9ciFTakeFqHQT2OBJ17coVynp4MMhiGz/uNUxQ7alg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="f/feW676";
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=FWIRLrFU;
+	arc=none smtp.remote-ip=185.125.188.123
+Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F031606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:09:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F031606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2180606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:09:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2180606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f/feW676
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-385d8a00598so3871949eec.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:09:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795406948; x=1796011748; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0ozgnlts1k6aHVWDS0U58M4CpqFB+e+83aS7nu4uq/U=;
-        b=f/feW676kYcNLohQrSt9t33eRTFRAHP7p89OYGFI07b8sAo1pE6G1FmaTxhlUEl5YY
-         g4nhePLzBmIeh3nfKRv9Lwnwva4ZZEQ5Le4Ldcd07LWcw28zYqEzKUAwEB0nr1jz6im7
-         60x+EcLa7V+qTzq29bcZEpSePWWAx7yP041SqeDc8eHv80LjfKm/u2m62nihImZn79Oo
-         gelQrzpiNSjcVqecuhqdrGNk2s9wKZc2KNG/7Qguf2AFGWexspMMhQOOuvFUElvOcpaG
-         LrhXwuxwL2sYJoCu+dFAothWGwRGQ3fzhpBoNspdhK9Bo7SoPszxFXjjpvkNyKiu5I/I
-         Fkow==
+	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=FWIRLrFU
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AB7753F1C0
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:09:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795406976;
+	bh=YLKmTz9mXxZ44RenvTwUZJjRcB/29lTMpfzoB+6Aoqs=;
+	h=Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:In-Reply-To;
+	b=FWIRLrFU3W6V26zT9JCOpa890FckjHuHrqktJd33bVkNKYfXLRNpBqqTBGNS0gSnh
+	 ZH5ctvkaRwikIhv018gQWyGjMAS3ZDdiUSUKdtgOO3tf10RyKwAoRZokveyqlCFcZd
+	 dWp+UWlHTQ/bRhSQq2fN+wt+P3DIBx70WA+BU1Q1vSt/Dpm25Y9cpctCrW4tp8kaTX
+	 V01QedYjvtX7zy04UdWkt8EwdChUef/4Dgsa1lJPedjRsHWJiNZ9AmibYmT9zxJ9k8
+	 t1lbwBf5khySFXKRT1Ib87oZQs2hOmaM6d8YL/O6VclwoONmV5XSg0gqD/9cRZz90R
+	 cMGZefUkOUDr0F1Vza5kfMobDfSRhMYoP8rDH6wmmOtzjsuHy5KzLOItqL/YabsXW2
+	 UhOt3/Ymgrf7pHYWf8zhgaBUCKRxQkxdRk2BVDIFY0qZf/NEbLI5eEjbkW+BOhUjo3
+	 5rb6yK0mnOrrEYfA6H1T4LF3M/a72sZR9PGCEHoI9XfD7CL4WZPxmjF1fnlm192C51
+	 SeYp1cAV52jeEaLlzccqeSpGbAmxEaNoXeJvTUofNraSkj5ToTxAnq3J6kPvtBPazE
+	 NCpEzCksXU/7+Wkpl/6ZuqgGTetQoLtfNl3ukhGBUPf3v7e+yn2EBTVYfjNu33Z4OX
+	 uMIQgMIvxGddGok+ni0cq0Nc=
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2f05b674e3eso16142885ad.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:09:36 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795406948; x=1796011748;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0ozgnlts1k6aHVWDS0U58M4CpqFB+e+83aS7nu4uq/U=;
-        b=Dr8HC5R8dHvTja1/rjoRLVC4DwNDl2YjxxWOKOKox9Kpjvb5iEX0OTsSvmnvBT02CD
-         ajzPajb/s256v3P5i6wNvNHaTj+w4rgd6itAc5hx6sOP3gUklNLyPz9NjitQQnxxXCXx
-         CUDT0UA5MHz6yi6vGMaEko+ICKo5c8ZCPWxGV4Fel2YoO/lHEdFmZNrQU4N2RW/gBViY
-         l1E8hR0eFiUfqKnsaqBu+hnIezmM1OUAqvupot9mn75ovCOAt/v6x0i+uUC+0o0HffrA
-         yeQohD59D1rkUHOS63QlDQNYGWGX5N57Sp8Aaw+DDWIq0qRL7dNyvxofRHiQjuaxvVqy
-         RQew==
-X-Forwarded-Encrypted: i=1; AL+hErFBuQ0dFdGifQjwuOw2DfQ8CPt7rtH5yr5acITE8tEY+NplEzvnquU1BW/vpVnxyi0EjEQMxGqMB1KefjA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+87N+ZJGAZGhrQgU1eM7b5hxndI7UHr0D5h9XewQYPgomJjKDX
-	Bf5uPikTxd4fOdHQ/j9dPRo0qiEzufpb7udz5RKgC+HE4s3YLoL7ltv9
-X-Gm-Gg: AZFdTZdAjFYOf65cEbLOjvvhjd/hMi+AlcMu2WbiMe8LQjCLlkvl/Nm197TJw2qutje
-	Y9rktsPUI/n9AGUajktOHC6gUSTQqZrfMEDyk2sPU35SeOGauTY8kKsO6NkpbFKeOAEJI7dKgot
-	7MGIlOd4m9oOGDUo8BI7PTl0Jd1WeB23kHl8FdgCWD/Dy7TC01ZpA98ay5r1tbhiMd2fOq1jhx9
-	IsMrHXKB2OwychBhD1BZ2d6/AFJPg6V4uZ1BE1UCEReyTbUSj8McHImhtVsvZrr2EfH7DCPZF8D
-	JRM+omeQ7SzsJCY6IENjgFugQeyQPPHNKbmtwYzlR3v/H0j2SIoAdIL6RvEpwffHB3tlerfz4SV
-	7/avuSbqxs1Bgv+VSdaV3HHJrWOFXPi/jLm0ELHphP86uFs0k3JvQdDv5sa6Y/xtokfZLADT7jp
-	DKkbG9/M7dglAT6Qj+IK8db19RhJPA4jMgJ+qpkvIvFbmTz8Iy1jxPdaNFXCh4q+AAc1qpggnXU
-	Adu9WodNXT1P3sSz4tJ0FwVN9A3n7Ta57pM8dxyCiddcxAvW4+xVUOiJPTYGMTAPfEbX1VIXx1A
-	uosgxT/wrRgqXD4yM8rgE1gP+C/XItJgItBP0H5+ws6lkHXfwqMxMsA9xMADKLs9pHQ=
-X-Received: by 2002:a05:7301:6184:10b0:386:a9d3:6ce8 with SMTP id 5a478bee46e88-386a9d36dafmr3264927eec.7.1795406948364;
-        Sun, 22 Nov 2026 20:09:08 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm33451547eec.21.2026.11.22.20.09.05
+        d=1e100.net; s=20260707; t=1795406975; x=1796011775;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=YLKmTz9mXxZ44RenvTwUZJjRcB/29lTMpfzoB+6Aoqs=;
+        b=pjjbZ8NErGJeu+zUBNtvUJFz0ovvdKfEujBaF+U7uHIEaR5RZWcvNa51LUGccKiUj2
+         In8TTuL4cscOakCTlyJkrs2A7ZB1DsUnM4XrU8ZDXuh/Ury+4RhLOnk3TBE7UIDMB0ew
+         4dEGPegqfPyN0XV3Mc1YhB43pzB451pKA4Bjc9U6lnypzYouTLZ6+kJ7q1nTg5FTOMcb
+         gWb37N0UATyCRNW0qXK+trq/4N0PcU8H8VFW928MSsONpmr4nKHwmCNIoLOGtcEc30ee
+         dMW+y4J9T2z3EuDI1JXhPR10bNJIAgeTaAJGvCv95qPgV6JRPNiLP6as0bjpKjWusXZY
+         1nuA==
+X-Forwarded-Encrypted: i=1; AL+hErFBSpEG4VZM/1eXWrcaVmWFCBPDTE06yLEteuCnjX/CeoHhIHFOe6BnsjirWNPCbe9KNaIpNi2sEnl4DeA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87N+c7xoYKODyV8nr3jHh0Z4h6uFHuuq6ixsZIpnNxTjoIpHkw
+	9+l3IV020WZff9DWQwht6qYA7a3KJGSrlbhTKU4PNex2kePPZG/UEBOkshkacgdtG4cNgJNHjBb
+	OafLRQaZ6AXM3V6iRI/v3w7mJU+XNa+ubFJ7yF3WUc2TsrqrA+InnCBP+iWk5jIY1kS6mGzu/Ms
+	rfEeFQYw==
+X-Gm-Gg: AZFdTZdlMAep8DeRShZOvHxPtYTXFrA+Hk4cP/19MYtH3DrZb4a/aRYrbd6WEXLVd20
+	Fyrc5FOh9JoswFvh5iUEf/Sp46urrpfNHsbTHnGh99VqXPHmYSsCODpE5S/BwuiM6uU2GmJJM4T
+	faMDeUmzwyhoEZLFyvq0NvnValjlIbvw7hL/IlLifjRZQdx0rleX7N+uckCyVhniOYoma9t1goR
+	9QyVaxXyCV4PFC8wFz0kLJ7kofoYMIEefQH2eKEc4HWPRg91bXO45Dz+6NQLjDJunboxO5mLg3x
+	fNcopDX3t1OLMBPrdcq0HHLROLR12B3XQogn+b43my4WL5FBaomq4NXdS9vE/3UIzBCfISrfHki
+	E7fTgxYK/NvSUe4iLtdw2v5G5rNZHtzhZ3MG3rPyO4e2iB8tuIpD0WjtN5AgRO+FNGnafBze6pW
+	QHtxTgN+rczciyJ69PE/lx/FLDnnWw
+X-Received: by 2002:a17:903:2283:b0:2f0:7707:228e with SMTP id d9443c01a7336-2f077072aeamr39456395ad.32.1795406975000;
+        Sun, 22 Nov 2026 20:09:35 -0800 (PST)
+X-Received: by 2002:a17:903:2283:b0:2f0:7707:228e with SMTP id d9443c01a7336-2f077072aeamr39456135ad.32.1795406974561;
+        Sun, 22 Nov 2026 20:09:34 -0800 (PST)
+Received: from acelan-Precision-5480 (211-75-139-220.hinet-ip.hinet.net. [211.75.139.220])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f118c88sm45431965ad.56.2026.11.22.20.09.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 20:09:08 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Xin Long <lucien.xin@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Jun Yang <junvyyang@tencent.com>,
-	linux-sctp@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 1/1] sctp: fail the association when the INIT-ACK cannot be processed
-Date: Mon, 23 Nov 2026 13:09:00 +0900
-Message-ID: <179539544818.3016044.18009252996572506068@gmail.com>
-In-Reply-To: <179539544818.3016044.13738712075053349592@gmail.com>
-References: <179539544818.3016044.13738712075053349592@gmail.com>
+        Sun, 22 Nov 2026 20:09:34 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:09:27 +0800
+From: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>
+To: Ye Shu <hello@shuye.dev>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>, 
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Dima Ruinskiy <dima.ruinskiy@intel.com>, Vitaly Lifshits <vitaly.lifshits@intel.com>, 
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] e1000e: add Dell Pro 5 Micro P5M1260 to disable K1 list
+Message-ID: <awO7PG_bzIjHuq4O@acelan-Precision-5480>
+Mail-Followup-To: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>, 
+	Ye Shu <hello@shuye.dev>, Tony Nguyen <anthony.l.nguyen@intel.com>, 
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Dima Ruinskiy <dima.ruinskiy@intel.com>, Vitaly Lifshits <vitaly.lifshits@intel.com>, 
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119001818.513503-1-acelan.kao@canonical.com>
+ <c4801ff7-7ff6-457e-b0a5-c2e633d35c59@shuye.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,168 +121,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c4801ff7-7ff6-457e-b0a5-c2e633d35c59@shuye.dev>
 
-sctp_sf_do_5_1C_ack() queues SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
-If either fails to allocate memory, sctp_cmd_interpreter() stops there,
-but the association stays: with the peer marked AUTH capable and
-asoc->shkey still NULL, a chunk that the peer wants authenticated, such
-as the ABORT built by close() with SO_LINGER {1, 0}, takes a reference
-on the NULL key:
+On Thu, Nov 19, 2026 at 05:54:50PM -0800, Ye Shu wrote:
+> Hi Chia-Lin and others,
+>
+> On 11/18/26 4:18 PM, Chia-Lin Kao (AceLan) wrote:
+> > K1 was re-enabled on MTL and later platforms by
+> > commit 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake").
+> > Since then, the Dell Pro 5 Micro P5M1260 (Panther Lake, I219
+> > [8086:57b3]) no longer enters S0ix during s2idle.
+>
+> I have independently reproduced a similar S0ix issue on a different
+> machine, an HP ZBook 8 G2i 14 (also Panther Lake, with Intel I219 NIC
+> [8086:57b3] using the e1000e driver).
+Cool, I think you can try submit the patch for your machine.
 
-  BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113)
-  Write of size 4 at addr 0000000000000018
-  Call Trace:
-   sctp_auth_shkey_hold (net/sctp/auth.c:113)
-   sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
-   sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
-   sctp_close (net/sctp/socket.c:1564)
+I also verified on another bunch of machines and found another 25
+affected machines.
+The impact of enabling K1 is huge, I'm not sure how Intel will handle
+this. But for now, there is no harm for sending out the patch.
 
-Process the INIT-ACK and set up the association key directly in
-sctp_sf_do_5_1C_ack(), and fail the association if either step fails.
-SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY have no other users, so
-remove them.
-
-Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
-Suggested-by: Xin Long <lucien.xin@gmail.com>
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
- include/net/sctp/command.h |  4 ----
- net/sctp/sm_sideeffect.c   | 40 --------------------------------------
- net/sctp/sm_statefuns.c    | 15 +++++++++++---
- 3 files changed, 12 insertions(+), 47 deletions(-)
-
-diff --git a/include/net/sctp/command.h b/include/net/sctp/command.h
-index 2058fabffbf6..8596e96c321a 100644
---- a/include/net/sctp/command.h
-+++ b/include/net/sctp/command.h
-@@ -34,7 +34,6 @@ enum sctp_verb {
- 	SCTP_CMD_GEN_SACK,	/* Send a Selective ACK (maybe).  */
- 	SCTP_CMD_PROCESS_SACK,	/* Process an inbound SACK.  */
- 	SCTP_CMD_GEN_INIT_ACK,	/* Generate an INIT ACK chunk.  */
--	SCTP_CMD_PEER_INIT,	/* Process a INIT from the peer.  */
- 	SCTP_CMD_GEN_COOKIE_ECHO, /* Generate a COOKIE ECHO chunk. */
- 	SCTP_CMD_CHUNK_ULP,	/* Send a chunk to the sockets layer.  */
- 	SCTP_CMD_EVENT_ULP,	/* Send a notification to the sockets layer. */
-@@ -86,7 +85,6 @@ enum sctp_verb {
- 	SCTP_CMD_ASSOC_CHANGE,	 /* generate and send assoc_change event */
- 	SCTP_CMD_ADAPTATION_IND, /* generate and send adaptation event */
- 	SCTP_CMD_PEER_NO_AUTH,   /* generate and send authentication event */
--	SCTP_CMD_ASSOC_SHKEY,    /* generate the association shared keys */
- 	SCTP_CMD_T1_RETRAN,	 /* Mark for retransmission after T1 timeout  */
- 	SCTP_CMD_UPDATE_INITTAG, /* Update peer inittag */
- 	SCTP_CMD_SEND_MSG,	 /* Send the whole use message */
-@@ -117,7 +115,6 @@ union sctp_arg {
- 	struct sctp_association *asoc;
- 	struct sctp_transport *transport;
- 	struct sctp_bind_addr *bp;
--	struct sctp_init_chunk *init;
- 	struct sctp_ulpevent *ulpevent;
- 	struct sctp_packet *packet;
- 	struct sctp_sackhdr *sackh;
-@@ -158,7 +155,6 @@ SCTP_ARG_CONSTRUCTOR(CHUNK,	struct sctp_chunk *, chunk)
- SCTP_ARG_CONSTRUCTOR(ASOC,	struct sctp_association *, asoc)
- SCTP_ARG_CONSTRUCTOR(TRANSPORT,	struct sctp_transport *, transport)
- SCTP_ARG_CONSTRUCTOR(BA,	struct sctp_bind_addr *, bp)
--SCTP_ARG_CONSTRUCTOR(PEER_INIT,	struct sctp_init_chunk *, init)
- SCTP_ARG_CONSTRUCTOR(ULPEVENT,  struct sctp_ulpevent *, ulpevent)
- SCTP_ARG_CONSTRUCTOR(PACKET,	struct sctp_packet *, packet)
- SCTP_ARG_CONSTRUCTOR(SACKH,	struct sctp_sackhdr *, sackh)
-diff --git a/net/sctp/sm_sideeffect.c b/net/sctp/sm_sideeffect.c
-index 35f540fb15fc..a95bf10b852b 100644
---- a/net/sctp/sm_sideeffect.c
-+++ b/net/sctp/sm_sideeffect.c
-@@ -698,32 +698,6 @@ static void sctp_cmd_assoc_failed(struct sctp_cmd_seq *commands,
- 	sctp_add_cmd_sf(commands, SCTP_CMD_DELETE_TCB, SCTP_NULL());
- }
- 
--/* Process an init chunk (may be real INIT/INIT-ACK or an embedded INIT
-- * inside the cookie.  In reality, this is only used for INIT-ACK processing
-- * since all other cases use "temporary" associations and can do all
-- * their work in statefuns directly.
-- */
--static int sctp_cmd_process_init(struct sctp_cmd_seq *commands,
--				 struct sctp_association *asoc,
--				 struct sctp_chunk *chunk,
--				 struct sctp_init_chunk *peer_init,
--				 gfp_t gfp)
--{
--	int error;
--
--	/* We only process the init as a sideeffect in a single
--	 * case.   This is when we process the INIT-ACK.   If we
--	 * fail during INIT processing (due to malloc problems),
--	 * just return the error and stop processing the stack.
--	 */
--	if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init, gfp))
--		error = -ENOMEM;
--	else
--		error = 0;
--
--	return error;
--}
--
- /* Helper function to break out starting up of heartbeat timers.  */
- static void sctp_cmd_hb_timers_start(struct sctp_cmd_seq *cmds,
- 				     struct sctp_association *asoc)
-@@ -1397,16 +1371,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
- 					SCTP_CHUNK(new_obj));
- 			break;
- 
--		case SCTP_CMD_PEER_INIT:
--			/* Process a unified INIT from the peer.
--			 * Note: Only used during INIT-ACK processing.  If
--			 * there is an error just return to the outter
--			 * layer which will bail.
--			 */
--			error = sctp_cmd_process_init(commands, asoc, chunk,
--						      cmd->obj.init, gfp);
--			break;
--
- 		case SCTP_CMD_GEN_COOKIE_ECHO:
- 			/* Generate a COOKIE ECHO chunk.  */
- 			new_obj = sctp_make_cookie_echo(asoc, chunk);
-@@ -1772,10 +1736,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
- 			sctp_cmd_peer_no_auth(commands, asoc);
- 			break;
- 
--		case SCTP_CMD_ASSOC_SHKEY:
--			error = sctp_auth_asoc_init_active_key(asoc,
--						GFP_ATOMIC);
--			break;
- 		case SCTP_CMD_UPDATE_INITTAG:
- 			asoc->peer.i.init_tag = cmd->obj.u32;
- 			break;
-diff --git a/net/sctp/sm_statefuns.c b/net/sctp/sm_statefuns.c
-index 6a4205de0aa6..fd9f94c12d42 100644
---- a/net/sctp/sm_statefuns.c
-+++ b/net/sctp/sm_statefuns.c
-@@ -603,13 +603,22 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct net *net,
- 
- 	initchunk = (struct sctp_init_chunk *)chunk->chunk_hdr;
- 
--	sctp_add_cmd_sf(commands, SCTP_CMD_PEER_INIT,
--			SCTP_PEER_INIT(initchunk));
-+	if (!sctp_process_init((struct sctp_association *)asoc, chunk,
-+			       sctp_source(chunk), initchunk, GFP_ATOMIC)) {
-+		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-+				SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
-+		return SCTP_DISPOSITION_CONSUME;
-+	}
- 
- 	/* SCTP-AUTH: generate the association shared keys so that
- 	 * we can potentially sign the COOKIE-ECHO.
- 	 */
--	sctp_add_cmd_sf(commands, SCTP_CMD_ASSOC_SHKEY, SCTP_NULL());
-+	if (sctp_auth_asoc_init_active_key((struct sctp_association *)asoc,
-+					   GFP_ATOMIC)) {
-+		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-+				SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
-+		return SCTP_DISPOSITION_CONSUME;
-+	}
- 
- 	/* Reset init error count upon receipt of INIT-ACK.  */
- 	sctp_add_cmd_sf(commands, SCTP_CMD_INIT_COUNTER_RESET, SCTP_NULL());
--- 
-2.43.0
-
+>
+> Machine tested:
+> - Model: HP ZBook 8 G2i 14
+> - DMI system vendor: HP
+> - DMI product name: HP ZBook 8 G2i 14 inch Mobile Workstation PC
+> - DMI base board product name: 8ED9
+> - NIC: Intel I219-LM [8086:57b3], subsystem Hewlett-Packard Company
+>   Device [103c:8ed9], driver e1000e
+> - Distribution: Fedora 45
+> - Kernel: 7.3.4-300.fc45.x86_64
+> - BIOS: Y70 Ver. 01.01.07
+>
+> With K1 enabled by default (disable-k1: off), S0ix entry is
+> intermittent. Some suspend go into S0ix while others do not, even with
+> CPU reaching Package C10.
+>
+> > Every suspend ends with:
+> >
+> >    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!! (S0ix cnt=0)
+>
+> Failed suspend produces the same message:
+>    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!!
+>
+> > The PMC low power mode status dump shows the GbE IP is never power
+> > gated (GBE_PGD0_PG_STS, GBE_D3_STS and GBE_VNN_REQ_STS all 0), while
+> > the CPU itself reaches C10.
+>
+> The PMC dump shows the following:
+>    CPU_C10_REQ_STS     1
+>    GBE_PGD0_PG_STS     0
+>    GBE_D3_STS          1
+>    GBE_VNN_REQ_STS     0
+>
+> > Disabling K1 at runtime restores S0ix on the same unit, kernel and
+> > BIOS:
+> >
+> >    # ethtool --set-priv-flags enp0s31f6 disable-k1 on
+>
+> Disabling K1 using the same command appears to resolve the problem. I
+> performed the following A/B/A test within a single boot, using 120
+> second rtcwake -m mem cycles and measuring slp_s0_residency_usec before
+> and after each cycle:
+>
+> disable-k1 on:   6/6 successful (~116-119 s in S0ix)
+> disable-k1 off:  1/4 successful (118, 0, 0, 0 s in S0ix)
+> disable-k1 on:   4/4 successful (~115-119 s in S0ix)
+>
+> Since this issue also reproduces on a different machine with the same
+> PCI device ID for NIC, would you prefer adding another HP-specific DMI
+> entry to disable_k1_list, or do you think that disabling K1 for all NICs
+> with PCI ID [8086:57b3] would be more appropriate?
+>
+> I'm happy to submit a separate disable_k1_list patch or test any
+> proposed changes.
+>
+> Thank you!
+> Ye
