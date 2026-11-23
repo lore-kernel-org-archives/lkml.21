@@ -1,55 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.34.181.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450823;
-	b=gTQ26GLQ/b/OFq9t3e4Tw32OStxpMYr+yGiyX/2HLnjEqfpw/juG58O4R4mOtLiYUoXI
-	 K6rcvjY6NTjeQHYj7NuIwaO6syJzNbr6/czqZSv1B0TGd7Y+1WeiFVK+OvMM2g1Uj9Tfp
-	 wJwjwlkYUvr0i/R9r6tLpNWqeT0eeCti4ypIzz/qnpmUVOu1GXXjqtO+So2JcPY1YWWgX
-	 kKMkTKEkoLzkYYPysyY9edHzewin/5rLBHRvvgMViWGaZP5Y9UvW11PK552kh0i83FNH9
-	 +l+c5+KL9wcvGnllRFPemvFnPO/g8CEj29nZvSq3VHxWI+y8zghLbOJF8t5t5cCGWjA==
+	t=1795450845;
+	b=NUOZ3B2hlc86sn58MJAnejbIshDqhQDm0Dil6rQT9Hyp+KMFVPJCj/o8Z9johzOWV+fz
+	 KhoXAhJ778UoiRVmt588agXhr2WewvEKE997v9uuDx1/FVP4ejKn6Xz6bTvbW6W6xNipU
+	 ZJZSnwgZRV7tfy5pzeWtvAtWjlmwbH11ozEZeky9PdbMAvOrT0pGbNbCm3JC/Ho78G3lg
+	 zRXQN2vWGz4B5qfk/W+8s/F5QxFdj2lsofqUZ24Gin83lIwDJXhBxZ1jU/hvvbZClqzAd
+	 8V2e70WRG2zI5jqbsqLz6kfmCNX9ssxHQi3ana61kKV6TCU69eOFS1Oxbgl7/A91KkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450823;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=VMHCwMuWqOW4JKKsOO+FUuvLN27CPePpxu9ZaOnKa9E=;
-	b=JZZlXLN1/hsygV8iwaKv1aLEpnRkBL52/usC+XXqvs0sEnmmnWb3NZR4/2FvdFe5tb/o
-	 3DffHE7WtB7mw4cyS0VzK1coP72Hu/qpFXp4uDfQkvDlRg4wuI/YfUiE75TZb3qyzDv67
-	 27z8UGxwhoHm9EI/wRX98W6TF/j3ZMlN9kqkaZ7HNIfMh44j1ce0F8OHKMv5JTt6GI9Lm
-	 AUEBv03mWx+bOE6mUU/QMw2SO9+f+IK4HdviWXu6v4qn9jIWAjA6h/r45OXw/gORe7rnT
-	 kuDe8jsJp+ca3SXpSmxWEqcsY7aMWNkydam2JvHlFtySq2wqSfAGYZfJZMOXpG9vLbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450845;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=jiorvTbex8xNRbSFcyEOA9X1zMLKOWcfRbigdWAcml8=;
+	b=OKD4CxG1ZNDNHyF+zKkPjDbwxNQI0t0rGwMe0BNZwKFm9Bee9RTXpvJLP49s3iyOURE5
+	 H3I4KpsdciZH6Qw/1kKxsJofu5toneHFAEh+DBwZG3lv4xh/Ylcg12wFD9yChod5kAtKT
+	 vQIp/0OLKQ+FOc4SVOGV3QNXutsVXk9B/N2IBlcodG94goLWoOhhryeU39GDaondeZ9e+
+	 BhgKXtkLmplJeQXvjQ1Or6S6jXYTKvWoShATVw2xYmmTEcs9AduP5Agq8vcoPkv/8IIdy
+	 cL7YllMTO5dQg9U/VLQO/GBiMQGr4F/6oVM4SS8HzUwQL3c+6HlkNREDC5qhvM1+m1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GDGEYtL7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=amazon.de;
+	spf=pass smtp.mailfrom=amazon.de;
+	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b="Cw/mhI+q";
+	arc=none smtp.remote-ip=52.34.181.151
+Received: from pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.34.181.151])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE889606A333
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:20:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 134EF606A31A;
+	Mon, 23 Nov 2026 16:20:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 134EF606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GDGEYtL7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 729851F000EE
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:20:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795450822;
-	bh=VMHCwMuWqOW4JKKsOO+FUuvLN27CPePpxu9ZaOnKa9E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=GDGEYtL7lELpnekg2dZtA0noURTy7b8Qqb2t8Aco6KI9yGEey4fOdVST0kDaZmm9D
-	 qC2767n5fEM+SF/OXeH1t9cTXTP/JKvCy756skEqRJ7Eg4CN972uwQAZN5ovDno7CI
-	 mUXd5gPHzP9IfCpfhvbG4S17C48Rz5PdKk+55UH3coS0CP5YCH3+3lbgoDbVUytG7b
-	 qm18Tkjao+EplItC6lP/zxbj2jul7amNgqUtJk95OK+gQNITt1B7pUJsqIpJnLfwWb
-	 8zyOFDaA2eQUm1tuXM8bC0l8uJdybFb3+6sKhiu/fmashydUuDYBl8Tu6PI7ZP4QsG
-	 sm3I0pw9V8XpA==
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c51373ae637so531183866b.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:20:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHap3wp0BPo3SjNasVDY8YiFiJbTZpRTKxfipzApwa6WpWNlyapMvnvSAyMqbKqTfkBtcuT062uW/oRLdo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fUHoTYAEW9QnFqicm+sgjad3eQLvBGuold9rQ5LvKxuaAXyvo
-	qeSf+x+tfw/ExQlOTtfBC8VD01MI/FiCu5k/cVjKKjhchEomOXb7wutkvX7f0xxmGEBpDhQvKA5
-	4i5p87PmEjZ3/BrKMmzX0Mp3S2eHYmkk=
-X-Received: by 2002:a17:906:7b48:b0:c26:1648:a062 with SMTP id
- a640c23a62f3a-c513a9ae0d9mr693411966b.29.1795450821212; Mon, 23 Nov 2026
- 08:20:21 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=Cw/mhI+q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1795450845; x=1826986845;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=jiorvTbex8xNRbSFcyEOA9X1zMLKOWcfRbigdWAcml8=;
+  b=Cw/mhI+qydV0Gr6fvUZkeGdNgp535PvKqc5EYMC+thD49Giv+nqQIc7H
+   QjSy5TTi0Y42YHtEjd7VmR/nKqICqKe5zDZY/ye3tAFAZlY8Skrb3zKMS
+   e4xSOjvQ0MYSmWmpcueTeLfG/9n99iM1Z76MowXl5xD7mkqDs/ykYaMog
+   +q7NTKt9IgkWwR0zeLekZY6B8Ep8laDu5BUN7lZ9eZlmvDj/hOIhkTJjc
+   +SVrIlWdoELhRMB1/z8Crx0smnYIhc4pDEJhlNrUF1iSeU+wrKBIS1jy9
+   izS3cGxD1XB2hkCTH3+/cvCZiNgIMo7zjZ+3S5fds83cCuY+ZuABbtSOt
+   w==;
+X-CSE-ConnectionGUID: r3z+BnVhQbCxqPU18iWaCw==
+X-CSE-MsgGUID: LURIAL1kTsepXAyWHka9Tw==
+X-IronPort-AV: E=Sophos;i="6.27,229,1787011200"; 
+   d="scan'208";a="34899596"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 16:20:42 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.48:9902]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.8.86:2525] with esmtp (Farcaster)
+ id e03af4a5-e137-45d7-8311-8c7b2037f87c; Mon, 23 Nov 2026 16:20:42 +0000 (UTC)
+X-Farcaster-Flow-ID: e03af4a5-e137-45d7-8311-8c7b2037f87c
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Mon, 23 Nov 2026 16:20:42 +0000
+Received: from dev-dsk-machaujo-1c-d6b511e2.eu-west-1.amazon.com
+ (10.253.100.8) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Mon, 23 Nov 2026
+ 16:20:40 +0000
+From: Joshua Machauer <machaujo@amazon.de>
+To: Bjorn Helgaas <bhelgaas@google.com>
+CC: Dave Jiang <dave.jiang@intel.com>, Richard Cheng <icheng@nvidia.com>,
+	<linux-pci@vger.kernel.org>, <linux-cxl@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>
+Subject: [PATCH v2] PCI: Skip the CXL state update for a VF
+Date: Mon, 23 Nov 2026 16:20:35 +0000
+Message-ID: <20261123162035.79133-1-machaujo@amazon.de>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,56 +84,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123032512.6119-1-raizudeen.kerneldev@gmail.com>
-In-Reply-To: <20261123032512.6119-1-raizudeen.kerneldev@gmail.com>
-From: Yosry Ahmed <yosry@kernel.org>
-Date: Mon, 23 Nov 2026 08:20:09 -0800
-X-Gmail-Original-Message-ID: <CAO9r8zMhvpiD6JXBfd=KCVfHxQ3=VgmsVpcoydC89Kyj37thJQ@mail.gmail.com>
-X-Gm-Features: Aa3M54pyWRX5QSV5IVnMsgXQsdYhEWxByyxSD0tUw2dlim72dadxdTz936Q7lRk
-Message-ID: <CAO9r8zMhvpiD6JXBfd=KCVfHxQ3=VgmsVpcoydC89Kyj37thJQ@mail.gmail.com>
-Subject: Re: [PATCH] mm: zswap: remove dead length check in zswap_store_page()
-To: Mohamad Raizudeen <raizudeen.kerneldev@gmail.com>
-Cc: chengming.zhou@linux.dev, hannes@cmpxchg.org, nphamcs@gmail.com, 
-	akpm@linux-foundation.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWC004.ant.amazon.com (10.13.139.246) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-On Sun, Nov 22, 2026 at 7:25=E2=80=AFPM Mohamad Raizudeen
-<raizudeen.kerneldev@gmail.com> wrote:
->
-> zswap_compress() never succeeds with entry->length =3D=3D 0, so the
-> condition is always true. Remove it.
+set_pcie_cxl() runs for every added device. It first refreshes the CXL
+state of the upstream bridge, which walks that bridge's extended
+capabilities and recurses up to the Root Port, and then searches the
+device's own extended capabilities for the Flex Bus Port DVSEC.
 
-It's probably a remnant of same-filled pages that was not dropped in
-commit 20a5532ffa53 ("mm: remove code to handle same filled pages").
+For a VF neither step changes anything. A CXL device exposes its Flex
+Bus Port DVSEC through Function 0 (CXL r4.0, sec 8.1.8), so the search
+in a VF finds nothing and the VF's is_cxl stays false. The bridges
+above a VF are the ones above its PF, which were already refreshed when
+the PF was added. Because enabling SR-IOV adds the VFs one after
+another, each add repeats both walks without effect.
 
->
-> Signed-off-by: Mohamad Raizudeen <raizudeen.kerneldev@gmail.com>
+Return early for a VF. Every device keeps the is_cxl value it has
+today, and the bridges above the PF are no longer refreshed during a
+VF add.
 
-Acked-by: Yosry Ahmed <yosry@kernel.org>
+Reviewed-by: Dave Jiang <dave.jiang@intel.com>
+Signed-off-by: Joshua Machauer <machaujo@amazon.de>
+---
+v2:
+- Shorten the commit log (Dave)
+- State that VF adds no longer refresh the bridges above the PF, and
+  cite the spec section in the comment (Richard)
 
-> ---
->  mm/zswap.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
->
-> diff --git a/mm/zswap.c b/mm/zswap.c
-> index ae19e301fced..9590f333d83f 100644
-> --- a/mm/zswap.c
-> +++ b/mm/zswap.c
-> @@ -1509,10 +1509,8 @@ static bool zswap_store_page(struct folio *folio, =
-long index,
->         entry->swpentry =3D page_swpentry;
->         entry->objcg =3D objcg;
->         entry->referenced =3D true;
-> -       if (entry->length) {
-> -               INIT_LIST_HEAD(&entry->lru);
-> -               zswap_lru_add(entry);
-> -       }
-> +       INIT_LIST_HEAD(&entry->lru);
-> +       zswap_lru_add(entry);
->
->         return true;
->
-> --
-> 2.53.0
->
+v1: https://lore.kernel.org/all/20261119164219.51540-1-machaujo@amazon.de/
+
+ drivers/pci/probe.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 9a178e0e5f7f..e302f9dabddd 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -1717,6 +1717,15 @@ static void set_pcie_cxl(struct pci_dev *dev)
+ 	if (!pci_is_pcie(dev))
+ 		return;
+ 
++	/*
++	 * A CXL device exposes its Flex Bus Port DVSEC through Function 0
++	 * (CXL r4.0, sec 8.1.8 "PCIe DVSEC for Flex Bus Port"), so a VF has
++	 * none. Its upstream bridges are the PF's, which were updated when
++	 * the PF was added.
++	 */
++	if (dev->is_virtfn)
++		return;
++
+ 	/*
+ 	 * Update parent's CXL state because alternate protocol training
+ 	 * may have changed
+-- 
+2.47.3
+
