@@ -1,57 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442183;
-	b=mO6bIJWDAxoeDwrjHEjkaSHYxap3VkA6mKV1U6IOPZqxO6r8aGvVbQzcNpBqUyesu2Ac
-	 KtLoTvp/WgCGeeFBFq2xSiN0ltvl3YpYTc29/7ZxSZZ3lWqlzaYchDve0o7PGi2+1H7R7
-	 X8xQOS7l68nF4hJrOTiM4NmONZEEGiXPMoF9DdSq1xIdVanFyiwBZXBW+LuK0LyTq/Own
-	 H2JmhXPPeJSv/+2vKgInB/91nOKBoT6ixqYUKXokXIsZibCIbZT89HAevx9ZjjQq9k1N8
-	 2Ve7PP7PmYKyKEZaIJDHPmWUc+9ptJa9ogoA3d9zJJcWn2FbwuXZi+cgHFfih9ifYJA==
+	t=1795442189;
+	b=gsE4bYsb50LlaPQ7HWQmrsWs6BhgeizCU6Xj82/dXBRD73b+IZNRdpDiZ5IEQAGjJ3SB
+	 +w78J7PTNjyRv6TIjwUlJlS+rF2WlBUoY+ARdBhlzPfSogtuqwk3HHVV+7U7Lf8qo+wyb
+	 lvFFX8mAprhqI+svBWhLGYVTPDd1YstquD/iujk8j0ZZb2SJHqIWpwpsuwe6VpZledpLt
+	 fve/ivloyhZyHErZOYbKnWkGSpdNbOgwMAzPMr32HGf3sm5+QmACE+fWtUc8y521X6STD
+	 HFsCGy/ervAxhWuh8a4eKJcf/QVZjKDfiQjEQnnV5vNClcMROdMKmQIHUYd+j0HVagg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442183;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=elXleLjGMgaKjWSrc09mBM5vLGTodPWNVJvKoRwMpAE=;
-	b=0nGv87JzgPWWf/EyJ3ZmLqUbfMAFzZJ9aQrytiPGynzEbXxo5RzfKjFby9ABGzHIrhzA
-	 zm56AgOeYs/QWT/Th9m1ZskSXa3B0c7PFkCEwXipx4GLXFuYmVR35bUutU9xG0Oq3hKvn
-	 M2TiL2bfFIk1rY+b8tdkY8ZzVcNgoFHuP5CqFOM9me1y5HzjQiSKIKYJqDQBLnJ0Q1cgE
-	 Ngy09mCCmYZDYC9UDnn7gNf4HMLkytE9pbmKige/MPgYR9C/wKeLPvEQ16QonN+/c0iRb
-	 S0i3sm1ln65Jhaz13Dk98fZc2DNPtYquM06SgZG/G9UqWPt+XVsGkOwfIi7s7YyPGmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442189;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=;
+	b=xG0BmSzmZdXED+eLMokteBQf4MQvCOpR3xscnp9dKKuKqV/kO4LCsNz1dh5VZoU6hqGY
+	 kAreMIfK3UYzwMaVaqMXLseq+49+eVlThAf26E2OfhJCEJdLCtpe3EeRK9pRLgZn8C7i1
+	 aR3kMHMzfQj7RbooGLNiEj9YapXJiJ6j3X2yGs1Y63KYBSo8iKFkdoZ2LHau+Q+apfsH6
+	 gK6O3ukvEl3UlWIH9gcXjhqwbCh4K3Ndb3UQshL05yVraeSF3/fK2rNO9TLKm0JzHi6dJ
+	 CTdXnnKRC8zCy8kWTXc7Hyqr6CF5GVRhUkQv/6lwLBs9amWbqiOtsHryvpfCO+7MOdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NRz5uADo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XU6bWoIR;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PduUGB8g;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DB8D606A336;
-	Mon, 23 Nov 2026 13:56:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CCEE60A2609
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CCEE60A2609
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NRz5uADo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E6A1F000F4;
-	Mon, 23 Nov 2026 13:56:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795442183;
-	bh=elXleLjGMgaKjWSrc09mBM5vLGTodPWNVJvKoRwMpAE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NRz5uADo/hFVviKJ6Ainl8m8Nr/ocsHLBaxwTwYWjmusvoc6QGcuzDHjYar9q4qW9
-	 7ZRlQZlZMbrSue5xTcqv7pJMUO2SZvaKAoPhRR1Qm+LiWNJcA3MO6/coG2l5kKU0Pg
-	 Y7zsazseshdglOKajxNSfhBXKj3md7Qzs0BZ6C6C3gNw9xc7Ngx9mPEKu/S2XcI0dd
-	 TRgHj3LdR2gJoC5DL30C9HjpzeBlQ3QEDIbT6FWA8VYmINieGjBwaHsp/9H2aNDMaE
-	 Hm7EYIQY+uc4ROb4Qql2TyNHPq63OTcOWqBWVL37Rbd3mVvxaF+UNoCaxVK2jS2Tz3
-	 jVlGtmN3GhxeA==
-Subject: Re: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
-From: netdev-bot+sashiko@kernel.org
-To: linma@zju.edu.cn
-Cc: dhowells@redhat.com, marc.dionne@auristor.com, netdev@vger.kernel.org,
- linux-afs@lists.infradead.org, linux-kernel@vger.kernel.org, kuba@kernel.org
-Date: Mon, 23 Nov 2026 13:56:22 +0000
-Message-ID: <179544218224.3135.17101952241323509354@kernel.org>
-In-Reply-To: <20261122135515.3989708-1-linma@zju.edu.cn>
-References: <20261122135515.3989708-1-linma@zju.edu.cn>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XU6bWoIR;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PduUGB8g
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDKxuo2442774
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=; b=XU6bWoIRNoP/hn/X
+	/1yyiYzYxgc+ZrU4eTUh67MIg+w7+VEbkPRbtAqBZi4gb2bkXZAMej6aDoqHoMNg
+	wNJmfgkORkyQghNOTxO1Bz7clI450BguHS6qRBPLhaZuPH133rUs6BTJl7CHPO3j
+	kD4HoxQKBSnPDUSQ5uw+TzkSlq6aCL70qLl9hSZhpkXUNKYagYNpaF9k6D0aXTYH
+	RkrniMdgILlRqrYxFMvqII9sRcblCjFR6ov+kHuZiJFpsq28FfEbVUb8KTq9jLJP
+	oDH88enNzRWcA60+zXhVFikQHrQ5OwlJuhNz3mhBVVSzdw4zQSrQCMRYhzQ8aPz2
+	y7pgHw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g1k1nnf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:28 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-946038e22f5so681725985a.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795442187; x=1796046987; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=;
+        b=PduUGB8gi9U4YVrDNo4fys1U68+xUVSE9UgLVYPmSQD6FnMggjiyfOttyMb4toYkbT
+         WnVtV/yNsuGcUG6Rm4mxt/RGStPCsxFHOS4FcmTusmE7cZsTt3QuST/vpra6x0KxHeSR
+         lqpY1lSwNCg7mGyfHW7cxBHU2fXgx1RP0drFXKxQ5wNd6LNzLEWsBILp9FIiiKOSnd+D
+         mEPAoaLSPw7XqOzVnbCtIhsBbe2Mv1iYyeBsGe3JvRelldQJtQl4imYBU99YoFbu4zWk
+         HQHZuZVX0PaDmpI4ao91w9WRZXO7gzblnKMsUX7fyd6g9Ys6K6yE71IBAZxerzAXCyPc
+         nEUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795442187; x=1796046987;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6muZlLM33J+DBa+9pVOmRUzmFBVv5+7rsnUWPmNF+7o=;
+        b=Ewf0woUkr9YhTx61Kqj2ZeUMbEI2q4rjf67ZJN/NzpcEPoBg1QHN9Y9G3OsIYUyfHa
+         hrUXeklSLUGXecll1oNrtcZpgqaQWYFrooFhUhMDaG1OKqMHISjzyTP4IVj5G/kb192u
+         A2vxT7oqId+ZI/o8VO3H40qDAm4wu57iWqKkXK4+Uqdcp5j1b5wUXdt8yChx6vWgdGUN
+         EVKlQduts5T26bTsRbjsnZTOhNpFqh60ivBfc7RGvpVaTtxMnUIcg7nqBH3G0g2jnQnz
+         FGrJJI/8b0wIPhZqO08i2ISYiAq5FLbJ8jySaKM0ZV2uGDWksGMbt5ivpoH0NuK9cdLa
+         EPBg==
+X-Forwarded-Encrypted: i=1; AL+hErEPHWnpzjuu0lYZLNGvfNyZt8pQQxKOlCL5/8+AVa6mhmND1v6z9ptVK96vHSwNOUrazv3ibAfHhXcPvT0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4jFsxAko/I05mZaJsSkOG2wnxAtpfGq2QTQ8T6cjZPSCPhgVj
+	4OBjrzzHyHFVC9Q9OqRJ2ZGgDlPli1fRZTAJxl352QspqmC070lg3aaa+699HHvnx4VSXcIL7WV
+	lyP7DCBiOOa0Dk3DGa+k1taNE8Fcq7NW7WV6sjzWfhzv3A9HTGuY5Y25VTIQciZhSg8o=
+X-Gm-Gg: AZFdTZdx4Y6MstiRA8+xYkXkr53rScexZIzpAAFZT4eGiigsqC9aDnbE+muadkUqmXa
+	SLvkNURPBG9H6an7MgtSKVCGs8RNBkHNM0GNh4+cAfvRLKm6HYQ1M+ITT7yuk63XOkmGnFJRkPY
+	8lx02tIW0fT7dL+/4zPh2TMfbpV0OJzbGEqv9sgrEBQnxG9NilwTCww5YUnpuhfrhOrjWkYA2TN
+	nRiSYtsn1TVEGCcn0R6MZUoGQzzewBrhRcHZWJXvO2bgiln+pBjjZAV8XUUzZd6QRWFg8IkV6JF
+	GiT3xMKIkLrkju/3ZxIkR+4wfKaZMsrd938DX6QXea8mrU9bq8OF3IvUCVEdYdgWW8U1wTeYdbr
+	fsbDFWMhRtIW6lehZP48XU/JbTSU4pTeclxFPx3im4LUjzJ3Xc4i+zb1nwEyvfldPkw4bzayCNn
+	83lHxmDc9PZJDlSVBaLIevAfZh6mfipFUyvP+ww2MMdbeVVlNq/NuM/KJ6sxVCdzx3VUF/ngKQK
+	cNm96HSZsCLUKPXuoNnMqyz80Cq
+X-Received: by 2002:a05:620a:2995:b0:93c:7040:bf7b with SMTP id af79cd13be357-949ba827c54mr1899040585a.9.1795442187392;
+        Mon, 23 Nov 2026 05:56:27 -0800 (PST)
+X-Received: by 2002:a05:620a:2995:b0:93c:7040:bf7b with SMTP id af79cd13be357-949ba827c54mr1899036685a.9.1795442186934;
+        Mon, 23 Nov 2026 05:56:26 -0800 (PST)
+Received: from QCOM-eG0v1AUPpu.na.qualcomm.com ([2a01:e0a:830:450:6c6b:1e5a:79dd:a527])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm21724625f8f.56.2026.11.23.05.56.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 05:56:26 -0800 (PST)
+From: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 14:56:15 +0100
+Subject: [PATCH v9 8/8] arm64: dts: qcom: monaco-arduino-monza: Add QCA2066
+ M.2 WiFi/BT support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,167 +118,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-monza-wireless-v9-8-450d7d764aea@oss.qualcomm.com>
+References: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
+In-Reply-To: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
+To: Manivannan Sadhasivam <mani@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Marcel Holtmann <marcel@holtmann.org>,
+        Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-bluetooth@vger.kernel.org, devicetree@vger.kernel.org,
+        Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1NSBTYWx0ZWRfXwrz+IrbQVjBX
+ ktFYCVIFwQLXEn4Bm6Yf1OWrhhRDImek5zie1fbuFObFGnL/DrmLl3tBOo88bpVZZfSYatweOVy
+ MusSalqP9ozqArfSLtMbYgNlMtFbOCo=
+X-Proofpoint-GUID: v-LHjTv9lC11ScJGeQo0YOo43cGypAED
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1NSBTYWx0ZWRfX8uoC7dhY5xNY
+ DzQwiRHdpHTqLBIBlrg6eLsZuDUjfo3RfuDcjjQwWEsNSoZnlfILln0fpKYDdJfSIkTkuty1dAz
+ aEuygqQMtmPTaeybgAEIr6qxp6PmQ55wTRwbhINZya9eJPXZrgWUMXKR9uZPBo6Prgirmu73ZMT
+ vCj8VbrWVNjdYG/JvqcwwsW7jRUKGs+qRmB5IOAfypqP5LEBEYfaYiFlrdpe+0g8qHMxWoePTh6
+ mDOwUT7NjKUrA/4yiW6Mow6MnkXwnCRXn9oC9sw5cqVpxHoUz67C/5NmWWJyiGGh03cNCkpDrT1
+ BkcAKLVITKQTkGe5QMXdySUuFAEunqeZppZmt6T0h97Op1gg7uU18S0e8LeoNmzikTpyjuI0Dey
+ 3yzy0T4r1DlB3Ufa9u6vFd716Z162YE0iyKYAulbGBMjS3npBX7y1fQ2wGv/m+WE/jtw9eQMkfH
+ zoQXrpEJvOvSq5PqUeg==
+X-Proofpoint-ORIG-GUID: v-LHjTv9lC11ScJGeQo0YOo43cGypAED
+X-Authority-Analysis: v=2.4 cv=cpIOAF4i c=1 sm=1 tr=0 ts=6b04460c cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
+ a=VwQbUJbxAAAA:8 a=EzCDy3pf2FPqfMyO2-oA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 adultscore=0 impostorscore=0 suspectscore=0
+ bulkscore=0 spamscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230055
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Add support for the QCA2066 (QCNFA765) WiFi/Bluetooth module on the
+Arduino VENTUNO Q board. The module is interfaced via LGA and is
+compatible with the M.2 Key E.
 
-Critical: 0 (1) · High: 1 · Medium: 0 · Low: 0
+Add wireless-lga-connector node using pcie-m2-e-connector binding,
+connecting PCIe port 0 to the WiFi interface and UART10 port 3 to
+the Bluetooth interface.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Add pcie@1,0 downstream port node with pciclass,0604 compatible so
+the pci-pwrctrl driver can acquire the power sequencer and enable
+the M.2 slot before PCIe enumeration.
 
-- [High] The fix is incomplete.
+Add nfa725b_default_state pinctrl for the W_DISABLE1/2 GPIOs
+(gpio56/gpio55) used by the power sequencer.
 
-Pre-existing issues:
-- [Critical] This problem wasn't introduced by this patch, but
-  rxrpc_resend_tlp() can still pass a freed (NULL) txbuf slot to…
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+---
+ arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts | 64 +++++++++++++++++++++--
+ 1 file changed, 60 insertions(+), 4 deletions(-)
 
---
-
-rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
-
-This adds a lower-bound check on the tail Tx queue segment in the fast
-path of rxrpc_resend_tlp(), so that it matches the slower queue walk.
-According to the commit message, the bad state comes from
-rxrpc_send_data_packet() failing to allocate its wire header. By then
-rxrpc_transmit_fresh_data() has advanced tx_qtail and tx_top, but
-tx_transmitted has not been updated.
-
-> diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
-> index 21be9c86d7a74..e5578779b3f74 100644
-> --- a/net/rxrpc/call_event.c
-> +++ b/net/rxrpc/call_event.c
-> @@ -141,6 +141,7 @@ void rxrpc_resend_tlp(struct rxrpc_call *call)
->  	/* There's a chance it'll be on the tail segment of the queue. */
->  	req.tq = READ_ONCE(call->tx_qtail);
->  	if (req.tq &&
-> +	    after_eq(call->tx_transmitted, req.tq->qbase) &&
->  	    before(call->tx_transmitted, req.tq->qbase + RXRPC_NR_TXQUEUE)) {
->  		rxrpc_retransmit_data(call, &req);
->  		return;
-
-[Severity: High]
-Does this fix the inconsistent state itself, or only one of the places that
-consume it?
-
-The commit message names the wire header allocation failure in
-rxrpc_send_data_packet() as the trigger. rxrpc_transmit_fresh_data()
-commits the new tail before it sends:
-
-net/rxrpc/call_event.c:rxrpc_transmit_fresh_data() {
-    ...
-		call->tx_qtail = tq;
-		call->tx_top = seq;
-
-		space -= req.n;
-		rxrpc_send_data_packet(call, &req);
-    ...
-}
-
-rxrpc_send_data_packet() then returns before tx_transmitted is advanced:
-
-net/rxrpc/output.c:rxrpc_send_data_packet() {
-    ...
-	whdr = page_frag_alloc(&call->local->tx_alloc, sizeof(*whdr), GFP_NOFS);
-	if (!whdr)
-		return; /* Drop the packet if no memory. */
-    ...
-	if (seq == call->tx_transmitted + 1)
-		call->tx_transmitted = seq + req->n - 1;
-    ...
-}
-
-Nothing appears to bring tx_transmitted back in line with tx_top later, so
-tx_top stays ahead of tx_transmitted.
-
-On the next pass of the while (space > 0) loop in
-rxrpc_transmit_fresh_data(), req.seq is still built from tx_transmitted:
-
-		struct rxrpc_send_data_req req = {
-			.now	= ktime_get_real(),
-			.seq	= call->tx_transmitted + 1,
-
-But req.tq is taken from the segment holding tx_top + 1.
-rxrpc_prepare_data_packet() then indexes that segment with the stale seq:
-
-		struct rxrpc_txbuf *txb = tq->bufs[seq & RXRPC_TXQ_MASK];
-
-Here is an example with RXRPC_NR_TXQUEUE=64 and a jumbo limit of 4,
-starting from tx_transmitted = tx_top = 60 and send_top = 70:
-
-  - batch 61..64 sets tx_qtail to segment B (qbase 64) and tx_top to 64,
-    then the wire header allocation fails
-  - the next pass uses req.seq = 61 with req.tq = B
-  - txb = B->bufs[61] is the slot for seq 125, which was never filled, so
-    it is NULL
-  - B's segment_lost, segment_xmit_ts[61] and segment_serial[61] are
-    updated for the wrong slot
-  - rxrpc_prepare_data_subpacket() then does
-    txb->data - sizeof(*jumbo) on the NULL txb
-
-If the wrong slot happens to be filled, does another packet's payload
-go out under this header's seq instead?
-
-There also seems to be a case where the call stalls. The loop breaks
-once tx_top reaches send_top. If the LAST txbuf was in the skipped range,
-rxrpc_close_tx_phase() has already run and tx_qtail is NULL. Packets
-tx_transmitted+1..send_top would then never be sent, because
-rxrpc_resend() and TLP only look up to tx_transmitted.
-
-Would it be better to keep tx_transmitted, tx_top and tx_qtail
-consistent on the allocation failure path? One option is to not commit
-tx_top and tx_qtail until the send succeeds, another is to roll them
-back. Either would make this bounds check in a single consumer
-unnecessary.
-
-[Severity: Critical]
-This isn't a bug introduced by this patch, but can rxrpc_resend_tlp()
-still pass a freed txbuf slot to rxrpc_retransmit_data() even with the
-new check?
-
-A peer can send an ACKALL during the send phase. That is
-CLIENT_SEND_REQUEST or SERVER_SEND_REPLY, before the LAST packet has
-been queued (e.g. sendmsg with MSG_MORE):
-
-net/rxrpc/input.c:rxrpc_input_ackall() {
-    ...
-	if (rxrpc_rotate_tx_window(call, call->tx_transmitted, &summary))
-		rxrpc_end_tx_phase(call, false, rxrpc_eproto_unexpected_ackall);
-}
-
-rxrpc_rotate_tx_window() puts each txbuf up to tx_transmitted and sets
-tq->bufs[ix] = NULL. It keeps the tail segment, so tx_qtail still covers
-tx_transmitted.
-
-Since rot_last is false, rxrpc_end_tx_phase() isn't called.
-rack_timer_mode stays at RXRPC_CALL_RACKTIMER_TLP_PTO, rack_timo_at stays
-armed, and acks_hard_ack isn't updated.
-
-When the PTO fires, rxrpc_tlp_send_probe() checks the stale
-acks_hard_ack:
-
-	if (after_eq(call->acks_hard_ack, call->tx_transmitted))
-		return; /* Everything we transmitted has been acked. */
-
-tlp_serial is 0. tlp_rtt_taken never seems to be assigned, so it differs
-from rtt_taken once an RTT sample has been taken. If send_top equals
-tx_transmitted, or there is no window space, the else branch calls
-rxrpc_resend_tlp().
-
-In rxrpc_resend_tlp() both bounds checks pass, because the slot index
-is correct and only the txbuf has been freed. rxrpc_retransmit_data()
-then does this with txb == NULL:
-
-	struct rxrpc_txbuf *txb = tq->bufs[ix];
-	...
-	txb->flags |= RXRPC_TXBUF_RESENT;
-
-Could the TLP guard check tx_bottom instead? Alternatively, the ACKALL
-path could update acks_hard_ack and stop the RACK timer. A NULL txb check
-in rxrpc_retransmit_data() would also cover this.
+diff --git a/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts b/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
+index 940a03732eefc49280b4182101cf3fb9ee951053..f24a87bd7cbf63bda803161f3659b0538a5ee35a 100644
+--- a/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
++++ b/arch/arm64/boot/dts/qcom/monaco-arduino-monza.dts
+@@ -178,6 +178,40 @@ vreg_nvme: regulator-3p3-m2 {
+ 		enable-active-high;
+ 		startup-delay-us = <20000>;
+ 	};
++
++	wireless-lga-connector {
++		compatible = "qcom,pcie-m2-1418-lga-connector",
++			     "pcie-m2-e-connector";
++		vpcie3v3-supply = <&vdc_3v3>;
++		vpcie1v8-supply = <&vdc_1v8>;
++		w-disable1-gpios = <&tlmm 56 GPIO_ACTIVE_LOW>;
++		w-disable2-gpios = <&tlmm 55 GPIO_ACTIVE_LOW>;
++		pinctrl-0 = <&nfa725b_default_state>;
++		pinctrl-names = "default";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			/* WiFi/PCIe */
++			port@0 {
++				reg = <0>;
++
++				lga_pcie_ep: endpoint {
++					remote-endpoint = <&pcie_ep>;
++				};
++			};
++
++			/* Bluetooth/UART */
++			port@3 {
++				reg = <3>;
++
++				lga_uart_ep: endpoint {
++					remote-endpoint = <&uart10_ep>;
++				};
++			};
++		};
++	};
+ };
+ 
+ &cci1 {
+@@ -541,6 +575,22 @@ pcie@0,0 {
+ 		ranges;
+ 		reg = <0x010000 0x00 0x00 0x00 0x00>;
+ 
++		pcie@1,0 {
++			#address-cells = <3>;
++			#size-cells = <2>;
++			device_type = "pci";
++			compatible = "pciclass,0604";
++			bus-range = <0x00 0xff>;
++			ranges;
++			reg = <0x020800 0x00 0x00 0x00 0x00>;
++
++			port {
++				pcie_ep: endpoint {
++					remote-endpoint = <&lga_pcie_ep>;
++				};
++			};
++		};
++
+ 		pcie@2,0 {
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+@@ -694,6 +744,12 @@ max98091_default: max98091-default-state {
+ 		bias-pull-up;
+ 	};
+ 
++	nfa725b_default_state: nfa725b-default-state {
++		pins = "gpio55", "gpio56";
++		function = "gpio";
++		bias-disable;
++	};
++
+ 	pcie1_default_state: pcie1-default-state {
+ 		wake-pins {
+ 			pins = "gpio21";
+@@ -745,10 +801,10 @@ &uart7 {
+ &uart10 {
+ 	status = "okay";
+ 
+-	bluetooth: bluetooth {
+-		compatible = "qcom,qca2066-bt";
+-		enable-gpios = <&tlmm 55 GPIO_ACTIVE_HIGH>;
+-		clocks = <&sleep_clk>;
++	port {
++		uart10_ep: endpoint {
++			remote-endpoint = <&lga_uart_ep>;
++		};
+ 	};
+ };
+ 
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122135515.3989708-1-linma%40zju.edu.cn
+2.34.1
+
