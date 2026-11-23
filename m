@@ -1,99 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.35
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795427559;
-	b=t3h9WahfEZa5yaO1p4PX5j4TTSmdNlaK9RNm7UQzzQXUmvsDQfHX7qwIymEo1WlnVyVB
-	 YbAReRrUXSxxTBy+NOspKHilzDSL17GyWqDPvgARdIofV49qUE6Zcyg4csVvQxVo7woNl
-	 n6I7Yp4Xc8mb5lu+I6kJjmZAa1aDxPYSVXxjSe3TYT7xUTrYgU1z43cpzo2l7fFzQNhQX
-	 cHQiBOgFcai2tIBiQnr7wooJnf+lMHX5LoWHjMpw1D+QKGvtWeMeoV3BRVzYKSIweUN2O
-	 wogW0U+bXh+oaEAsnXlo1oz4d1JbOessXtEpyxDYjTFFnINkjZhuQnHtlYp+3B3c80g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427559;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=lMMUO+QDnrRuV1tnG9JLulKsn9gn6QPnjETDwI5o6vw=;
-	b=jIhJqasbBq02AP7RJl3fH4tRnXVsaDY+smpGKRK38+TlicM8I8mt1zWep9g3XGkyhRAH
-	 xnYU+8n055t1XeOvrv1iynJO1M7XTjT5B8Dbq1TnWTHIBn2fzuDiYTjt+YdTXYPZzzZha
-	 GhIqT2OELDlL21dcP5G4pWNKXgYCRWYXNyh7ZLKHgW66ZjoiCHRG76duSnFgU6y71GX5r
-	 sJjfBX42fRFhwrDl0GXNWu/S9OubOyuCDkQG+hNoLfp2gn5Eue5N4gaVgX5jyPdoXXpcd
-	 2d9su0slx0SM2hSfTIgiIKLAsK0AyvDcGJJUdQ/Z4fluc8w2HFh5ubZBRowPf8Zq6Dg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mhkwV0pc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.35
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012035.outbound.protection.outlook.com [52.101.43.35])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 792FA606A31A;
-	Mon, 23 Nov 2026 09:52:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 792FA606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795427608;
+	b=SoaffUCDGLkePurSbCM7LSX0I7sNRbctH1eehPcwD27MLiWE1RaOfqMW2xfSlAZS774u
+	 /ftL81Ly/bTRLsx6h2yGDjnetMRTkR1V9x+qki2EokjwKguO/q9QY1xxuNYycx+Oi6P67
+	 FPwvSJ5CWpBv3D3eetXF7Enk4GpKU4j/dhM4gnloNZBxAyV4vahKP+VwZDcKfMN1Yrhaj
+	 EJAMihL2BOis+Rhl9Pn52K8lSWrD53uxviXE9Nu21AP14yX9wAkyycvrUN8xEUoHYcEIm
+	 0EqdnutG98q8SvP80qD1BDuTvfkRV4QozNWoMQr+AUArdhsDy3FhgaGMs+pLG4Qqnkw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427608;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=uMxDvwsfRcmKMcL3ZZzOBU7hJ1mhHdDwh44B3M6UKCI=;
+	b=Rp0+iQayJtsl032u0pgkr9GVk3c7aXCfRtKn+xSvVByOWYblJPS+m5c2dXPw7VZlvwQu
+	 mrjIqMlcpnAknoaqLHDhiWY7GYzu7KnC5UyZQvuIUXVStAEJ9oyLJMaEz/Sb/1ulWzHus
+	 /DM8zPtXqOqO+SnkmHVMLsJ/accVNiSKs85h/y0Fqd0PU9eQWkmjDRmi4iOpEMQAQuxGd
+	 Bf7f6+mGR48GQbYX5CeP17LTVI0xQMcWG2R54JaoptrpgONqHJwfYKKmE6xDDTLURiRb0
+	 F8HZvuciZXmnWJJY59//TkFM2xThPguuaaesG7sAkO69LGKzozTikJVFFQtCKNX/OBQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mail.ustc.edu.cn;
+	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=vhkzNFaF;
+	arc=none smtp.remote-ip=202.38.64.46
+Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9CBF4606A31A;
+	Mon, 23 Nov 2026 09:53:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CBF4606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mhkwV0pc
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vKPxU3EI3LNqySUs7IAdzbRflKMkGVYAd1Tb65+fdnsxf2Y1CkM+D34K3ZdeybA28nf+HOpLCUSHOMNecRyNWbG7xjNpJygGQxHQmwCwdzdLPkpl8xguBFwcuhInMRK76bv5T+ZIhXkNA1ht7uU0sxhiM96R/4LPNkanCfi9DxXkNARLX3MnCGOkWhyTVG6s6pN8uVWaWZ2oJynWc6FcdXFsVgS3Q0D4+kCeLTlMYL/zvBQHVGzEYSBRdZgaBzrMLyrIxsSmjh6dP2Xfn8lj6/FihbZJcwkCZQOKKpW9he22/fz4aCbi8ENgbaExiuW0QLAPBXjEP/T8IboIn42qTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lMMUO+QDnrRuV1tnG9JLulKsn9gn6QPnjETDwI5o6vw=;
- b=jl2jXpTXxc8XaIc2XCl7E+iJLwpe5Vzv7H6CdnrN4n24QsebX/wp6/mjmIHbLlGyl4qtNPorI47u0/dYBCx4MP/2wJuv4/Z6MszSYTig1rJ40WKQ4LNfezoWYeK49baOf4xNlu6GRi09qcS20CUn16ptU/1FRxWakSgW+WuloQ9ECBAE/5sNDBPOWof+KK5YioWWRMkoGUPUZh0iJsws2Dp53XM2Ic7NjbjlzWm0ufkS9tu5eyAb2F9Q+J8LmSD2Tv3j8ligJCYwXdN2n/ij8jy2UCdTl+KzNrTsqGPhFYAC+inzEkCr2lpNSdhbFdsMbuXYHC8/XQomuIu9KXd6pg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lMMUO+QDnrRuV1tnG9JLulKsn9gn6QPnjETDwI5o6vw=;
- b=mhkwV0pc7MlbN16aHfAY0Pq6ThBuuWTnvq2zc49tOMOoeE5WQWvcFC1fMod6fHGTM4CvKh+iFBsuEUP0Ji2bleGhdsphAELMbCaAqLbKT0qCPeqBD9VF3tG5kPrzH37XyneZfK9W1ubJRAfCYb0t76tYE4NKHjLBUynJ1O5GgT/E/gQbMBW0jmmmo4rbwsOmpjKzfyJGQl43oEccU8AzASpBPohpBnp7IDLAT6rkpuRHr3Ee0tRjDTBPU8VhmW/W2lRSdy928fkIVMbyZ1NDew6PhVo48IyMB+Qf+5bmcCa2hXRt240BBoVT25Z2GrZCPJktdudJReNoevgqC4kgpg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV2PR12MB903269.namprd12.prod.outlook.com
- (2603:10b6:408:40f::22) by SJ2PR12MB8927.namprd12.prod.outlook.com
- (2603:10b6:a03:547::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 09:52:33 +0000
-Received: from LV2PR12MB903269.namprd12.prod.outlook.com
- ([fe80::29c8:652e:e2b0:4dd1]) by LV2PR12MB903269.namprd12.prod.outlook.com
- ([fe80::29c8:652e:e2b0:4dd1%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 09:52:32 +0000
-Date: Mon, 23 Nov 2026 17:52:25 +0800
-From: Richard Cheng <icheng@nvidia.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: dave@stgolabs.net, jic23@kernel.org, dave.jiang@intel.com, 
-	alison.schofield@intel.com, vishal.l.verma@intel.com, helgaas@google.com, iweiny@kernel.org, 
-	ming.li@zohomail.com, linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, tglx@kernel.org, wangruikang@iscas.ac.cn, alifm@linux.ibm.com, 
-	shawn.lin@rock-chips.com, lihaoxiang@isrc.iscas.ac.cn, 18255117159@163.com, 
-	xiangzao@linux.alibaba.com, vidyas@nvidia.com, kaihengf@nvidia.com, kobak@nvidia.com, 
-	newtonl@nvidia.com, kristinc@nvidia.com, 
-	Benjamin Cheatham <benjamin.cheatham@amd.com>, Alex Williamson <alex@shazbot.org>
-Subject: Re: [PATCH v3 1/2] PCI/MSI: Skip MSI/MSI-X restoration when config
- space is inaccessible
-Message-ID: <awQJGfWYyqYCmL09@MWDK4CY14F>
-References: <av_8-NLyjXUQC0lK@MWDK4CY14F>
- <20261120163909.GA878361@bhelgaas>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120163909.GA878361@bhelgaas>
-X-ClientProxiedBy: SI2PR02CA0028.apcprd02.prod.outlook.com
- (2603:1096:4:195::8) To LV2PR12MB903269.namprd12.prod.outlook.com
- (2603:10b6:408:40f::22)
+	dkim=pass (1024-bit key, unprotected) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=vhkzNFaF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=uMxDvwsfRc
+	mKMcL3ZZzOBU7hJ1mhHdDwh44B3M6UKCI=; b=vhkzNFaF95Gs35KBm05vLEp0hg
+	pbe8LiK6ItBfF5n6p9j0bief+vA1Gt9HJ+Ol2/C7B2AqrowzJdaeUo4ikKRbjwKX
+	z8pqz61WG7gmIemvQdprMLPw12s/mjtiNi4IwG/8x3N+NUpZ0yKlHOz+jWDoUdhb
+	NZCydFKUuK5HdlNw0=
+Received: from xuqianhui.tail7a2807.ts.net (unknown [114.214.185.179])
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgC3KzAGDQRrr9vrAA--.766S2;
+	Mon, 23 Nov 2026 17:53:10 +0800 (CST)
+From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: Thinh.Nguyen@synopsys.com
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	gregkh@linuxfoundation.org,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v12 0/3] usb: dwc3: support two connectors sharing one HS data bus
+Date: Mon, 23 Nov 2026 17:53:06 +0800
+Message-ID: <20261123095310.154352-1-xiaqinghuan@mail.ustc.edu.cn>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,248 +62,199 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR12MB903269:EE_|SJ2PR12MB8927:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6af4a2ab-b773-4919-83d8-08df49477e13
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|261102130727099003|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261021123027099003|261022113327099003|261022075727099003|261022105027099003|261028144727099003|11063799006|4143699003|5023799004|56012099006|10067099003|18002099003|22082099003|261009223027099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	wCz75BQ/L52MjxFzkVn55DMVMqojvqa+lzEcoTuoRESKiEBBY+O0i+PYTclfq/LS/q/+jz8RnmKTDB9xwGN2w9YEUr5jkt4yjXtJkB2K24aOQTeAjpFtt3nXI+zL5kDwYkVo+nDqkeCQo70RxDJpyoLzRiciYo5h26kW9vvYfbLkCWCt5tOq+dZiLbta+l8oexWSQPWVqgaARAl/ZBSE+L7betNlDPznBpnx/JkvQna/KOWM3H+n+CJnE7UDeBTdTXB3JpcaBREOSXUd42OuQ5mXUlHBwcdW/a1ypvsp+Jwq1P1Lvqb8hLTqH9MqW7KFMeffEQah640GRWYqbr5CAn8qSn53AGoPfJ+1E0v9lcEsw67Ezx2Eed/efy6mnvDxlb3dikdYRny5qOVmSbCZSIQOW1kWRm7l8zHITLtwoHa5nmy0k98qMS7yVO1VEJursaA6nHOYCOX2K8us3vEIWZActA7l7Lvs67GneE8JOrJSiI83KluUI01ojFT35d7n4z3a0xagVRNsFsNH7RIfJnADl8DsHVou85Erd7a2ao/tKrUewmueCLqaDvxaAi99A/rEnJnf/sWboy2xDvsdo5+MifyZQ+yB4L70ec8FgkSWM+L0Y7hIVAPczIW3CbBuOJuqvJt4InKWXYLA9bOS+JuVJ11gSQA0B/mTjdJvd7Y=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB903269.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(261102130727099003)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261021123027099003)(261022113327099003)(261022075727099003)(261022105027099003)(261028144727099003)(11063799006)(4143699003)(5023799004)(56012099006)(10067099003)(18002099003)(22082099003)(261009223027099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?PkzDjxFNju/V7QnLQreuYL0az0RA4GHPH+AZfyc0rcT5WoA4TfvY60v42D+A?=
- =?us-ascii?Q?EyIsbOzG5C7QvRJZjUkyzNCoVzkzIkbVADJ78/daCzlcxJ4c0Zin7jj5rjAL?=
- =?us-ascii?Q?K5xEylC3Chu6Wu2K7atddnz0UbHcYYNFoCTnYdmvgxXact1Cv6Vbau7m57+j?=
- =?us-ascii?Q?xBN+arhHg+pEmssdfy4a3RGeANrzdI3vzGSFsaC9Q00hzXoUkD0DAORPk8Ya?=
- =?us-ascii?Q?FeyPa38r2qECgEMIJJaSMftNSMlH8KvBdeOrZiPQ+nZjLqMbQqlqyRNbNX3U?=
- =?us-ascii?Q?ecM3DyZA6kP0yhMpXqgF+VcFaM5utewfiL2afYg9cgvpnRPFtjpUjuoSkUM0?=
- =?us-ascii?Q?PBli/xus1gXl1m6XBcCTyL7UOZQONkVYQbAPKrYwsMUaMzb930wrtZAR6VfP?=
- =?us-ascii?Q?7oSIxfbh2mJ6HXFSdoAXpls88g8CYO4Gy2hEbN94TF41SvzP6YngTyyMH2id?=
- =?us-ascii?Q?YFljQ0JG9mByv417I9Ok620ZU54sYY4Mj30stvzoPLa1aQWdwJKOzsrhoATm?=
- =?us-ascii?Q?Hjo77U0F/oag0mYdaWsLeAZlI7/nq9xSoWJLar0QJ43NiH9b5dD2QXZCM5uM?=
- =?us-ascii?Q?dpVbganmm5GOOvm4UoMjR4vNM4HNKmoyYH7DmmiWEw4YRXzlHARPereGyXi6?=
- =?us-ascii?Q?+XfZq/Qot/C6yONfZU8CL1T01NFM/dbgpAAK/H1EvfGxq397dOUHJsYfD/mE?=
- =?us-ascii?Q?dA5BQXMdrMg/DesOZmbSNzks2AoTlCZAsYt8XCrg7HZexlXB53q2wPR8EyIi?=
- =?us-ascii?Q?WeUK5kypIR/OZ/pWqvqPX3pYcptAityDIUIPbsF3pSesYOyPRatw0c4cu6SY?=
- =?us-ascii?Q?ldrDU2/jhVGZ8EyUeKhpr2mDG9b7pd0us8p7U+AnVp7BqFoptKH6yJqWEN94?=
- =?us-ascii?Q?rdICSf/0oTDsOa/PrZnQQ55xLMaV57v7awztCX8B4YCMbtx5O9HqGC771ccd?=
- =?us-ascii?Q?TAJSBoAIQasQff8umZWCsYMctR97HpxLjNYXB24LK/HG678/lEpP8BuwvgCL?=
- =?us-ascii?Q?7QZOnpZdWHxaydB25xavSehDg74IAPakp7pR2sY2Enob93CriHJ99/n4/Zn7?=
- =?us-ascii?Q?Hn9b5jcTJ+a/zJ03VFVUnNDfzzf++CV2MpUb6r1Zv+v901dqxe44UTOYI94Y?=
- =?us-ascii?Q?/kp3K1Psp9VWybPPHYtLBKz0Z8kvA5CwCXZcmQYGwTAB0PFlSGXPyvWyzbyq?=
- =?us-ascii?Q?pUTuqfT+PHYXTmRiq6SLethjtapIEtNItvSKPdn1qn7C9keqPQ+yx8J+pv4b?=
- =?us-ascii?Q?yJ7JY+YW/QavqeP/WGeU3wxBtFEbDsviQPmG79jp/9Xu68OMzLsZq03ygrz0?=
- =?us-ascii?Q?BGhNBQjoWoE/5Y+mB92mZpIidCA8yU5RrB71PeSK84Mnjo84aAwEPl2HzJ2h?=
- =?us-ascii?Q?Nt+vf85CPACxPJnmh8oMfvFDifBoTkoRjf5YN+Z6yQBTD9IFkWankdSj4m0E?=
- =?us-ascii?Q?9ZYlPo4PPwZuZ/xxujoUQAAAUlIO7sROCOtclA9SrOdX/trQqyAUg9esctTE?=
- =?us-ascii?Q?UIBpKBxFxEDMO/5EphnkviQgocmqmfpbyegwN3KAl0JKsrGwyp6cAI4betwj?=
- =?us-ascii?Q?SDrvEayUEvidP3rJveHX8DTeIahOgkH72u/jJT9TYqyuDuBbAQ4ml/j5eIQH?=
- =?us-ascii?Q?RxELnk+dJTBaYvwFZl7EEXhLV2nvm2KJ3aR53cQsQU+cXq3ohj9gAqH5WctS?=
- =?us-ascii?Q?porWGZPJyhN697xRA99TFUlhXmaKNqeWaIoyOey8qjdv1xZdKMIssjudVDdE?=
- =?us-ascii?Q?pNrF9rJFwg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6af4a2ab-b773-4919-83d8-08df49477e13
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB903269.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 09:52:32.0711
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Syez3odP38BQl9aFzzF7thTzqvBqa1033vHSpyts16cVwqwKAUYhYLCTWBlMQfeQMPnxWOFyxlXDm/0Cxllutw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8927
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:3pYKCgC3KzAGDQRrr9vrAA--.766S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3JrWxXFW5XF1xWr1UKw4kZwb_yoW3KryDpF
+	Z8tw1SyF4kJryfAryxA3WUG34ruan3GrZxtFyUK34UAanxuayfXrZ3K3y5XFyUGr93Xa4a
+	vFyDG34UCFsrZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv2b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1D
+	MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s
+	026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_
+	Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20x
+	vEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE
+	14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa
+	7IU5XVyDUUUUU==
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREAB2sDQttJXQBQsi
 
-On Fri, Nov 20, 2026 at 10:39:09AM +0800, Bjorn Helgaas wrote:
-> [+cc Ben, Alex]
-> 
-> On Fri, Nov 20, 2026 at 04:09:13PM +0800, Richard Cheng wrote:
-> > On Mon, Nov 16, 2026 at 01:09:39PM +0800, Bjorn Helgaas wrote:
-> > > On Mon, Nov 16, 2026 at 02:52:28PM +0800, Richard Cheng wrote:
-> > > > PCI state restoration runs even when a reset fails. If the device's
-> > > > config space remains inaccessible, MSI-X restoration still writes the
-> > > > MSI-X table. The table lives in device memory space, and these MMIO
-> > > > accesses can trigger additional errors, including DPC.
-> > > > 
-> > > > MSI is programmed entirely through config space, so it doesn't issue
-> > > > such MMIO accesses. Restoring it is still pointless when config space is
-> > > > inaccessible: reads return all ones and the restore path writes back
-> > > > values derived from them.
-> > > > 
-> > > > Check whether config space of pci device is accessible or not at the
-> > > > start of both MSI and MSI-X path, after msi_enabled/msix_enabled test
-> > > > and before any config access, and skip the restoration if the device is
-> > > > inaccessible.
-> > > > Make the helper non-static and declare it in pci.h so the MSI code can
-> > > > use it, too.
-> > > > 
-> > > > Signed-off-by: Richard Cheng <icheng@nvidia.com>
-> > > > ---
-> > > > Changelog:
-> > > > 
-> > > > v2 -> v3:
-> > > > - Cover MSI restoration path as well (Farhan)
-> > > > - Use pci_dev_config_accessible() instead of open-coding the check, and
-> > > >   make it non-static (Farhan)
-> > > > - Move the check before any config space access in the restore
-> > > >   functions (Farhan)
-> > > > - The return value of the PCI Command read is no longer checked, since
-> > > >   the helper only tests for an all-ones value.
-> > > > - Update the subject and commit message accordingly
-> > > > ---
-> > > >  drivers/pci/msi/msi.c | 6 ++++++
-> > > >  drivers/pci/pci.c     | 2 +-
-> > > >  drivers/pci/pci.h     | 1 +
-> > > >  3 files changed, 8 insertions(+), 1 deletion(-)
-> > > > 
-> > > > diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> > > > index 8a0133a6a286..2865f73f5ead 100644
-> > > > --- a/drivers/pci/msi/msi.c
-> > > > +++ b/drivers/pci/msi/msi.c
-> > > > @@ -524,6 +524,9 @@ void __pci_restore_msi_state(struct pci_dev *dev)
-> > > >  	if (!dev->msi_enabled)
-> > > >  		return;
-> > > >  
-> > > > +	if (!pci_dev_config_accessible(dev, "restore MSI state"))
-> > > > +		return;
-> > > 
-> > > Sigh.  I hate the fact that pci_dev_config_accessible() is
-> > > proliferating even though it's obviously racy.  Maybe it's the best we
-> > > can do, but I just feel like we're digging this hole deeper.
-> > >
-> > Hmm I agree this is racy even though we're holding the device lock
-> > throughout the reset/restore process.
-> > 
-> > I assume you mean something like a separate sources DPC happened and
-> > make the device inaccessible , some scenario like that ?
-> 
-> Yes.  A PCI device can stop responding at any time, e.g., it got
-> physically removed from a slot, a cable was removed, its internal
-> firmware crashed, power failed, etc.
-> 
-> > > Also, this is called in the pci_restore_state() path, which is full of
-> > > other things that also write to config space and will also fail in
-> > > this situation.
-> > 
-> > Actually I was trying to cover the whole pci_restore_state() in v1 [1],
-> > and Benjamin raise the concern about the drivers may depen on PCI state
-> > having been restored by the time reset_done() runs.
-> 
-> I think you're referring specifically to Ben's comment [2] that driver
-> .reset_done() handlers expect that pci_restore_state() has already
-> been completed, and your "[PATCH 3/4] PCI: Skip state restoration when
-> configuration is inaccessible" patch calls .reset_done() without any
-> restoration if the device was inaccessible:
-> 
->   static void pci_dev_restore(struct pci_dev *dev)
->   {
->         const struct pci_error_handlers *err_handler =
->                         dev->driver ? dev->driver->err_handler : NULL;
-> 
->  -      pci_restore_state(dev);
->  +      /* MSI-X restoration may access device MMIO. */
->  +      if (pci_dev_config_accessible(dev, "restore state"))
->  +              pci_restore_state(dev);
-> 
->         /*
->          * dev->driver->err_handler->reset_done() is protected against
->          * races with ->remove() by the device lock, which must be held by
->          * the caller.
->          */
->         if (err_handler && err_handler->reset_done)
->                 err_handler->reset_done(dev);
-> 
-> I think Ben is absolutely right that .reset_done() handlers expect the
-> device to be accessible and config state to have been restored, and I
-> don't think it's reasonable to expect every driver's .reset_done() to
-> handle that generic problem.
-> 
-> I think pci_restore_state() needs to return failure and callers need
-> to figure out how to deal with that.  There are a lot of callers, so
-> it's messy, but we should recognize that it can fail.
->
+Two USB Type-C receptacles can share one High Speed D+/D- pair if a
+multiplexer selects which of them drives the controller.  This series
+describes that in the DWC3 binding, adds the endpoint-scoped role-switch
+lookup the connectors need, and drives the shared data path from the DWC3
+mode worker through the mux controller API.
 
-Hi Bjorn,
+No runtime testing is claimed for this version: the mux path has not been
+exercised on hardware.  The series was reviewed statically and through the
+gates listed below.
 
-Thanks for the suggestion, that makes sense.
-I'm thinking the following for v4 since I got a clearer picture now.
+*** AI-assistance disclosure ***
+This series was prepared with the help of an LLM coding assistant.  The
+author reviewed every line, checked every quoted claim against the tree,
+and ran the gates quoted below; the design decisions and any errors are the
+author's.  Each patch carries the same disclosure below its "---"
+separator.
 
-- Drop MSI/MSI-X specific check and make pci_restore_state() return errno,
-  check whether the device is accessible at the top so we can cover all
-  capabilities
-- Keep calling .reset_done(), and return the restore failure from
-  pci_reset_function(), etc. Driver that touch the device in .reset_done()
-  need their own check
+Changes since v10
 
-I am thinking about for .reset_done(), since the core can't just skip it,
-like you said the drivers part can be messy, maybe changing signature to
+1) [Medium, on 3/3] "Should dwc3_role_mux_deselect() be called after the
+   switch (dwc->current_dr_role) block tears down the active host or gadget
+   instance?"
 
-void (*reset_done)(struct pci_dev *dev, int status);
+   Accepted.  Deselecting first moves the shared High Speed lines back to
+   the mux' idle state while the host or gadget instance that owns them is
+   still running.  dwc3_role_mux_deselect() is now called after that switch
+   block, i.e. in the same order as __dwc3_set_mode() (host/gadget exit
+   first, then the data path switch), and still after
+   cancel_work_sync(&dwc->drd_work).
 
-Passing the status from driver side to PCI core and let the core handle it
-generically will be more elegant ?
+2) [Medium, on 1/3] "Does applying $ref: '#/$defs/hs-port'
+   unconditionally to port@0 cause a dtbs_check regression for
+   single-connector DWC3 nodes without mux-controls?"
 
-Once we decide the approach I can send v4.
+   Accepted, for the shape that v10 posted.  Reproduced with the v10 schema
+   bundle: a single-connector node that numbers its endpoint
+   ("port@0/endpoint@0" with "reg" only) was rejected with
+   "'usb-role-switch' is a required property" and "'mux-state' is a required
+   property".  "port@0" keeps the generic graph port at the top level now;
+   the two endpoints, their "usb-role-switch"/"mux-state" and the
+   address/size cells are required by the "mux-controls" branch of "allOf"
+   only, so single-connector controllers are described exactly as before.
 
-Best regards,
-Richard Cheng.
+   One half of the report did not reproduce: an unnumbered
+   "port@0/endpoint" of a non-mux controller was not rejected by the v10
+   schema either, because graph.yaml#/$defs/port-base does declare
+   "endpoint".  Only the numbered-endpoint shape regressed; both shapes pass
+   now.
 
- 
-> > What my bug actually hit was MSI-X table write triggered DPC, I can't
-> > justify for all kinds of driver, so I limited the scope.
-> > 
-> > If you think a broader check in pci_dev_restore() is a better place to
-> > handle this, I'm happy to give a deeper research and revisit it.
-> > 
-> > Best regards,
-> > Richard Cheng.
-> > 
-> > [1]: https://lore.kernel.org/all/20260929020405.9724-1-icheng@nvidia.com/
-> 
-> [2] https://lore.kernel.org/all/8a19d63c-db9a-40ab-a811-5d761252638f@amd.com/
-> 
-> > > >  	entry = irq_get_msi_desc(dev->irq);
-> > > >  
-> > > >  	pci_intx_for_msi(dev, 0);
-> > > > @@ -877,6 +880,9 @@ void __pci_restore_msix_state(struct pci_dev *dev)
-> > > >  	if (!dev->msix_enabled)
-> > > >  		return;
-> > > >  
-> > > > +	if (!pci_dev_config_accessible(dev, "restore MSI-X state"))
-> > > > +		return;
-> > > > +
-> > > >  	/* route the table */
-> > > >  	pci_intx_for_msi(dev, 0);
-> > > >  	pci_msix_clear_and_set_ctrl(dev, 0,
-> > > > diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> > > > index 7c6f2aba8144..671ffe4da1c8 100644
-> > > > --- a/drivers/pci/pci.c
-> > > > +++ b/drivers/pci/pci.c
-> > > > @@ -714,7 +714,7 @@ u16 pci_find_dvsec_capability(struct pci_dev *dev, u16 vendor, u16 dvsec)
-> > > >  }
-> > > >  EXPORT_SYMBOL_GPL(pci_find_dvsec_capability);
-> > > >  
-> > > > -static bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
-> > > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
-> > > >  {
-> > > >  	u32 val;
-> > > >  
-> > > > diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> > > > index 77efa4c5c960..98dd3dbd5edb 100644
-> > > > --- a/drivers/pci/pci.h
-> > > > +++ b/drivers/pci/pci.h
-> > > > @@ -240,6 +240,7 @@ enum pci_mmap_api {
-> > > >  int pci_mmap_fits(struct pci_dev *pdev, int resno, struct vm_area_struct *vmai,
-> > > >  		  enum pci_mmap_api mmap_api);
-> > > >  
-> > > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg);
-> > > >  bool pci_reset_supported(struct pci_dev *dev);
-> > > >  void pci_init_reset_methods(struct pci_dev *dev);
-> > > >  int pci_bridge_secondary_bus_reset(struct pci_dev *dev);
-> > > > -- 
-> > > > 2.43.0
-> > > > 
-> > > 
+3) [Low, on 1/3] "should the local $defs be dropped in favor of defining
+   the endpoint schema under patternProperties for '^endpoint@[01]$', and
+   can the Linux driver implementation details be removed from the
+   binding?"
+
+   Accepted.  The endpoint schema is inlined under "port@0" through
+   patternProperties, the local "$defs" section and the "$ref" to it are
+   gone, and the "mux-controls" branch no longer names driver functions: it
+   only states what the device tree must contain.
+
+4) [Low, on 1/3] "Does listing dr_mode in required reject DWC3 nodes with
+   mux-controls that omit dr_mode to rely on the default 'otg' mode from
+   usb-drd.yaml?"
+
+   Accepted, and reproduced against the v10 schema bundle ("'dr_mode' is a
+   required property").  "dr_mode" is no longer listed in "required"; it
+   stays "const: otg" when present, so "host" and "peripheral" are still
+   rejected.
+
+5) Unchanged: 2/3 (usb: roles: look up role switches attached to a graph
+   endpoint).  It got no review comment and is byte-identical to v10.
+
+Changes since v11
+
+Posting fixes only.  The three patches are byte-identical to v11: the
+"diff --git" section of each of 1/3, 2/3 and 3/3 compared with "diff -u"
+against the v11 file gives empty output, and applying this series on the
+same base (v7.4-rc3 = aebb727447) yields the same file blobs as v11
+(snps,dwc3-common.yaml = 7a9cb5a115a6, drd.c = 906cac4f3e6e).
+
+6) [Krzysztof Kozlowski, on v10 1/3, 2026-11-21] "This does not go to
+   commit msg, but changelog."
+
+   Adopted.  The AI-assistance disclosure paragraphs no longer sit in the
+   commit messages; each of 1/3, 2/3 and 3/3 now carries its disclosure
+   below the "---" separator, next to the changelog.  sashiko's [Low] on
+   v11 1/3 ("transient AI disclosure left in commit message") is the same
+   item; sashiko reported patches 2/3 and 3/3 of v11 with no issues.
+
+7) [Krzysztof Kozlowski, same mail] "...this one even threaded to other
+   posting..."
+
+   Adopted.  This series starts a new thread: no In-Reply-To or
+   References to the v9/v10 postings.  The v9/v10 Message-IDs for
+   reference: v10 cover <20261121022104.1507987-1-xiaqinghuan@mail.ustc.edu.cn>,
+   v11 cover <20261121132029.2379449-1-xiaqinghuan@mail.ustc.edu.cn>.
+
+Known gaps (stated so that nobody has to guess)
+
+- Which physical receptacle corresponds to mux state 0 and which to 1 is not
+  proven on hardware yet; the board DTS therefore names them "Receptacle A"
+  and "Receptacle B" and does not claim long/short edge.
+- "gpio-mux" drives the select lines low in probe
+  (devm_gpiod_get_array(dev, "mux", GPIOD_OUT_LOW)), so the level left by
+  the firmware is not preserved.  "idle-state" is deliberately omitted: a
+  non-AS_IS idle state would drive the wrong state between
+  mux_control_deselect() and the following mux_control_select().  Making the
+  probe keep the pin as is (GPIOD_ASIS) is a change to drivers/mux/gpio.c and
+  affects the ~70 existing gpio-mux users, so it does not belong in this
+  series; it needs a separate discussion with the mux maintainer.
+- dtbs_check cannot see "idle-state" values: gpio-mux.yaml declares it
+  without a type or bounds, so an out-of-range value is only rejected at
+  probe time.  The gate below therefore does not claim coverage for it.
+- The board DTS is not part of this posting: the Lenovo Legion Y700 Gen 4
+  file is not upstream yet and is posted with its own board series.
+
+Gate results (base: v7.4-rc3 = aebb7274476403040d582c61478df8f4a7bf9cd3)
+
+  G1 apply       git apply --check + apply on a pristine check-out of the
+                 base above: 3/3 clean, rc=0, no offset/fuzz; resulting
+                 blobs snps,dwc3-common.yaml = 7a9cb5a115a6,
+                 drd.c = 906cac4f3e6e
+  G2 checkpatch  perl scripts/checkpatch.pl --strict --no-signoff --no-tree
+                 1/3 0E/0W/0C (115 lines) ; 2/3 0E/0W/0C (63 lines)
+                 3/3 0E/0W/0C (624 lines)
+  G3 build       make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- W=1
+                 drivers/usb/dwc3/ drivers/usb/roles/
+                 (CONFIG_MULTIPLEXER=y, CONFIG_USB_ROLE_SWITCH=y)
+                 rc=0, 0 warnings, 22 objects (21 dwc3 + 1 roles), all
+                 aarch64 relocatables
+  G4 binding     make ARCH=arm64 dt_binding_check   (no DT_SCHEMA_FILES)
+                 rc=0, no diagnostics; 5420 example DTC [C]
+  G5 dtbs_check  make ARCH=arm64 CHECK_DTBS=1 qcom/sm8250-mtp.dtb
+                 qcom/sm8650-mtp.dtb qcom/sm8750-mtp.dtb qcom/sm8750-qrd.dtb
+                 (no DT_SCHEMA_FILES)
+                 patched: 4/4 DTC [C], 0 diagnostics
+                 base:    4/4 DTC [C], 0 diagnostics  => 0 new
+  G6 samples     dt-validate on the rebuilt schema bundle
+                 positive, 0 complaints each:
+                   two endpoints, opposite mux-state, dr_mode = "otg"
+                   same, with dr_mode omitted (usb-drd.yaml default)
+                   single connector, plain "port@0/endpoint", no mux
+                   single connector, "port@0/endpoint@0" without role props
+                 negatives, all rejected:
+                   same mux-state on both endpoints
+                   endpoint@1 missing
+                   endpoint@1 without usb-role-switch/mux-state
+                   mux-controls with dr_mode = "host"
+                 control: the v10 schema bundle rejects the two shapes of
+                 items 2 and 4 above, the v11 bundle accepts them.
+  G7 hardware    not run
+
+  On the command shapes: DT_SCHEMA_FILES is intentionally not used for
+  dtbs_check.  It is passed to dt-validate as "-l", which only keeps schemas
+  whose $id matches and that still select a node themselves;
+  snps,dwc3-common.yaml is a fragment without "select:", so the run reports
+  nothing and looks green.  The dtbs_check rule also ends with "|| true", so
+  the result is read from the diagnostics in the output, not from the exit
+  status.
+
+Qianhui Xu (3):
+  dt-bindings: usb: snps,dwc3: describe two connectors on one HS data
+    bus
+  usb: roles: look up role switches attached to a graph endpoint
+  usb: dwc3: select the shared HS data bus with a mux controller
+
+ .../devicetree/bindings/usb/snps,dwc3-common.yaml  |  99 ++++++
+ drivers/usb/roles/class.c                          |  45 +++
+ drivers/usb/dwc3/core.c                            | 116 +++++++
+ drivers/usb/dwc3/core.h                            |  43 +++
+ drivers/usb/dwc3/debugfs.c                         |   4 
+ drivers/usb/dwc3/drd.c                             | 329 ++++++++++++++++++++
+ 6 files changed, 632 insertions(+), 4 deletions(-)
+
+-- 
+2.53.0
+
