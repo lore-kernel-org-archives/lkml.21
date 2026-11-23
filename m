@@ -1,86 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795463693;
-	b=lGPhCaD9jJei4ry3zV3Iqlk/Cqb6rE6njxXMuc2AikPyjFwCdmHh1es1OksKsidNZLAn
-	 NdxpXS1o/K2mYE7/z3LsoYgY4TdtHYATGWOdLmLH2fijg5fPn0+qwplso9TpwJENbDfzo
-	 JtU9XMXrCgjsdf5csu2SnmmoFH6pcpjIO7faqLmlL3vzhuNbfopce4V3J2+AufTBYU6jG
-	 6NmB76iGqj51LIv4rvybHpIIoKzF6tqPYdo49tDsyfRsbcEHyxsuUSLpq1rOfT5KTxTZi
-	 N2wl+2c1WQl7dIPCnzkWo64CqMapj6eay8ZoFJVUPAUaQ0+zM7lZb4byKKiRqi7ly2g==
+	t=1795463702;
+	b=ylc6pRpjfmyojy0A7IoLNNXoqzsB2lp4XRZhFYxlW/2y6FzF63UG2VLS4vaKaVk5yP0x
+	 vGMyOeJ5K99Y1jvq+ymRvuPhMJeJPEJn9KuEobsZYPm0PaAFXQcMdktfW4Nh1cdoAcafx
+	 LqzmJ1V2OQayt8LiweI2QvmKZzt1JrowSBr6+tPGaVB6UCucd18tFtwE7I+HEO6RVIV49
+	 kPtNuTWQAUbJalPV1yymDlrEU68ppFYwMW/rkgEgZ5Q89xF4335YGt0du0NVCX7pcrAKP
+	 dkvZ7NhR52GDij8eWcEC2gpZN0Auzma0RCXBRI0uGvM8YtTE+YO+wMQ1967bG2rXD3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795463693;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=g1rj9K1ufUbqZ3+8WDd2PDC8BQGGeQNY2GgcRNsqjYE=;
-	b=leKLKYYkipDka9wS6wDdd/fgIPz+zEsFFXxMAB4opjEYY+Ku7pzWjZ32gOB4TXSxpzrG
-	 aIUcjmCHgGjD9JvFUDyjpPwkiVaNjdNwuS6zyjiOYUGP6iXWj9E0fLzK6f88PoudI2l9Z
-	 +F8q6I6BOPD0mmOTchG7Bsbc+jMLznxnW7hIq2G39ddNHOBHNdR1RUGW+IMrE7FLSHnrZ
-	 JCKyHaet88KQ+gL2LLRCdY/8CJPVzjcA3+mydEgGt0RwKKpfQv6jglBLNhlPKgLhXRrvW
-	 FBzAqCpHqKiAAPX2JrurEr8OAVPM1uFBqQvirqoEKNDTyC8VBBogY3QQGUUGisibbjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795463702;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer;
+	bh=b5xkBqtOz/cxSYio3ZQFvWPZV907+8EypMB85HFz3iM=;
+	b=mDo8LNOzlIq/G9i9K9aY516/QMKxrZgGCyBG256Ct1YsW8sLM152BCHc9zVfUyQFdm8/
+	 IBvshUcIzqyyumZY/HEFQNl2+fRjJqf1QSqh0be9t0WiyBUm9keFhEsNaxlV3CZr120f9
+	 tQekeSePRef58H1tWKTL1HsNZas8ZO4j7kvu1O8AO2gBOTKeXjmRKbUzhpW0cPjObxaAp
+	 ezbCJK/7mal6mGAJOGMA3lkexEJaLoY2nz15Z7DrB7qKNst24NqTOjLGybsUadgg5tbTm
+	 VMitwljU5jxZcmCSvkkl6n7dcHIi+hfjA+Y2qbJQk90OB4T7YcdY+gefrRxVB/IFtZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="JK7/mi4I";
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fme3Kdwb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8660A606A31E;
-	Mon, 23 Nov 2026 19:54:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8660A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0896D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:55:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JK7/mi4I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795463693; x=1826999693;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=hJ0ZM2NdatffL7YZHnsJQmee+2FJa+oE3AW+dkQdS/c=;
-  b=JK7/mi4Ivsw0hw1mLhT4BOxixPIGPNKNnz4z7IgwFzadWrprql5jb6ca
-   gqgMGv041wyqgcbtO40Ii3rt/v4lC7o8GOxjv4xFKnYLyCIyoXAIn/y37
-   bqr+9Nugx9mvUUScoWELCulR2bKtbXBAQu0yc13SxYkNOzCNuCGgxEGpf
-   YD1QxStjTO6u4n6XVEOmwfRFiuAzjhdl3jWeEjgVmHdo96dWOU6t7Syfe
-   s7GAE8mTVshmzPUMLzzdaE9tZW6RrnDqRvL4jwcD9UAVFrLlm8DSuAemC
-   bztqwYDDz7iMcV6cZlAl1L5KvORTiPUMNV45Qg5uE8Jqw0zWAImL678by
-   w==;
-X-CSE-ConnectionGUID: NwQFqlksTXyuUsPffEmVkA==
-X-CSE-MsgGUID: ZFTC/8GORmaEPLTfNRhdsQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4126994"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4126994"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:54:52 -0800
-X-CSE-ConnectionGUID: i1f/k3zJTZukNtVuCbIc0g==
-X-CSE-MsgGUID: jsiAp24fSkOALl6yvnT1MQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11719541"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:54:48 -0800
-Date: Mon, 23 Nov 2026 21:54:46 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Lee Jones <lee@kernel.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-iio@vger.kernel.org, mfd@lists.linux.dev
-Subject: Re: [PATCH v3 3/4] iio: adc: Add support for MAX8907 ADC cell
-Message-ID: <awSaBqLabqZ68ak9@ashevche-desk.local>
-References: <20261123150725.212836-1-clamor95@gmail.com>
- <20261123150725.212836-4-clamor95@gmail.com>
- <awSNc2piI26LgyAU@ashevche-desk.local>
- <CAPVz0n2yBtFh-TJ13cH8WXtiyzR3tOrbhACyq8MThi_6+7DOYg@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fme3Kdwb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF9681F000CF;
+	Mon, 23 Nov 2026 19:54:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795463701;
+	bh=b5xkBqtOz/cxSYio3ZQFvWPZV907+8EypMB85HFz3iM=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=Fme3Kdwb7X9HKaSgS+tsMCzmvD6INAAinoHdB/9i0GwoDs+wAXAYOx4tdn8N9UumG
+	 UbDEJGtnucVzivH4BB9Cf2sRXCnDcsIeEMSFiDWXqkv2Z9hu+mbZevKMOp8KC9k1fd
+	 5p69kp3Xb9NzBE2f5lEI+OQn8Grh1ysEMoG9GljgeTUzKZkwoOOPTfrYCxrtwjsxHU
+	 6f4IO7jhFHat9GvLp4EDpEp6ENj1GEN7bwctGQA4ZLrdfCD0eetKk7kCT4BEP4mpm3
+	 FLCYSyf6wQMq6IgiAGTwkOUzXvDnHcAwkz5lZQzsn8N6hP92ldF/tXT7bgjOQ1chNj
+	 TSIWaVj+tsQqg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,149 +49,227 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPVz0n2yBtFh-TJ13cH8WXtiyzR3tOrbhACyq8MThi_6+7DOYg@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3] mm/memfd_luo: don't use memfd_pin_folios()
+From: Mike Rapoport <rppt@kernel.org>
+To: Pratyush Yadav <pratyush@kernel.org>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, 
+ Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ kexec@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org
+In-Reply-To: <20261123130115.4021199-1-pratyush@kernel.org>
+References: <20261123130115.4021199-1-pratyush@kernel.org>
+Date: Mon, 23 Nov 2026 21:54:56 +0200
+Message-Id: <179546369651.425130.14155931836758567682.b4-review@b4>
+X-Mailer: b4 0.16.1-dev
 
-On Mon, Nov 23, 2026 at 09:24:30PM +0200, Svyatoslav Ryhel wrote:
-> пн, 23 лист. 2026 р. о 21:01 Andy Shevchenko <andriy.shevchenko@intel.com> пише:
-> > On Mon, Nov 23, 2026 at 05:07:24PM +0200, Svyatoslav Ryhel wrote:
+Hi,
 
-...
-
-> > > +#define MAX8907_CHAN(_type, _idname, _datasheet_name) {              \
-> > > +     .type = (_type),                                        \
-> > > +     .address = MAX8907_REG_##_idname##_MSB |                \
-> > > +                MAX8907_REG_##_idname##_MEASURE << 8,        \
-> > > +     .indexed = 1,                                           \
-> > > +     .channel = (_idname),                                   \
-> > > +     .info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |          \
-> > > +                           BIT(IIO_CHAN_INFO_SCALE),         \
-> > > +     .scan_index = (_idname),                                \
-> >
-> > Using () means that you expect an expression as a possible input. In such
-> > a case the macro is buggy as it will evaluate it twice for _idname. The
-> > simple solution is to drop these parentheses and expect that this macro
-> > won't ever be used with the expressions in the parameters.
-
-> You have a point but current state should not cause issues as well.
-
-I know, but I saw Sashiko's complain somewhere else on a similar situation.
-It might or might not complain, better to be prepared.
-
-> > > +     .scan_type = {                                          \
-> > > +             .format = IIO_SCAN_FORMAT_UNSIGNED_INT,         \
-> > > +             .realbits = 12,                                 \
-> > > +             .storagebits = 16,                              \
-> > > +             .endianness = IIO_CPU,                          \
-> > > +     },                                                      \
-> > > +     .datasheet_name = (_datasheet_name),                    \
-> > > +}
-
-...
-
-> > > +     struct regmap **regmap = iio_priv(indio_dev);
-> >
-> > Then logically better to go further and have
-> >
-> >         struct regmap *map = *regmap;
+> memfd_luo takes a snapshot of the folios in the file's mapping. To make
+> sure the snapshot does not go out of sync, it pins the folios in the
+> file via memfd_pin_folios(). The pinning also migrates the folios out of
+> MIGRATE_MOVABLE to make sure doesn't land in KHO boot memory or in a CMA
+> region.
 > 
-> This is matter of taste, I was inspired by MAX77541 ADC which uses
-> exactly this approach.
-
-Not really, however it's very unlikely to happen IRL. When you dereference
-something the compiler is in its right to do it as many times as you used in
-the code. Hence theoretically (in this driver) somebody might replace the
-pointer and two consequent regmap calls will get different regmap.
-
-...
-
-> > > +             ret = regmap_bulk_read(*regmap, MAX8907_TO_REG(chan->address), &data, sizeof(data));
-> >
-> > This is a bit too long.
+> memfd_pin_folios() does not lock the folios. So it can race with
+> shmem_writeout(). A folio returned by memfd_pin_folios() might already
+> be in swap cache. This happens to work but is fragile. memfd_luo looks
+> at folio flags and index on a folio that isn't in the memfd's page
+> cache.
 > 
-> 101 char, yeah 1 char too long, though maybe it is not wort resending
-> for a single char too long?
-
-IIO is tending to follow documentation in majority of the drivers and cases
-which is 80 limit.
-
-> >                 ret = regmap_bulk_read(map, MAX8907_TO_REG(chan->address),
-> >                                        &data, sizeof(data));
-
-...
-
-> > > +static int max8907_adc_init(struct regmap *regmap)
-> >
-> > Why not name it 'map'?
+> In addition, memfd_pin_folios() needs the caller to allocate an array of
+> folios. memfd_luo does not really need that since it will vmalloc
+> folios_ser and store the information there anyway. The folios array is
+> unnecessary overhead.
 > 
-> Because regmap is more explicit and is used consistently across the driver.
-
-And messes with the data type name :-)
-
-...
-
-> >         ret = regmap_update_bits(map, MAX8907_REG_TSC_CNFG1, GENMASK(1, 0), BIT(1));
+> Finally, memfd_pin_folios() fills in holes in the memfd. This makes
+> preserving sparse memfds very expensive in both compute and memory.
+> While this patch doesn't yet stop filling in the holes, it sets up the
+> infrastructure to make it simpler.
 > 
-> which map? bitmap? statemap? or maybe geographical map?
-
-Read the name of the call. This is really silly question here.
-
-> > > +     if (ret)
-> > > +             return ret;
-
-...
-
-> > > +     /* Check for internal reference IRQ */
-> >
-> > Please, make style of one-line comments consistent ("all or none" are with or
-> > without period, same for the first letter — capital or small).
+> Fix all this by walking the page cache directly using shmem_get_folio()
+> with SGP_CACHE. This returns a locked folio with an elevated refcount.
+> memfd_luo holds that reference until the memfd is unpreserved. This
+> blocks compaction, migration, etc.
 > 
-> First comment has 2 sentences, that is why it has periods. Second only
-> one, so it does not need period.  "same for the first letter — capital
-> or small" - have you even checked the patch?
-
-Then make the style equal. Two sentences can be written differently.
-
-And please, stop being rude. Yes, I read the patch, The second part is
-unrelated, I am sorry for mentioning it.
-
-...
-
-> > > +     ret = regmap_read_poll_timeout(regmap, MAX8907_REG_TSC_STA_INT, value,
-> > > +                                    !(value & MAX8907_MASK_NREF_OK), 10, 1000);
-> >
-> >         ret = regmap_read_poll_timeout(map, MAX8907_REG_TSC_STA_INT, value,
-> >                                        !(value & MAX8907_MASK_NREF_OK),
-> >                                        10, 1 * USEC_PER_MSEC);
-> >
+> There is still a need to migrate folios out of MIGRATE_MOVABLE page
+> blocks. This is because those might be CMA or KHO scratch. memfd_luo
+> will hold a longterm reference to the folios so it will block migration
+> in that pageblock. Introduce memfd_luo_migrate_folio() to do this.
 > 
-> hmm, replace 1000 (4 chars, pretty readable) with USEC_PER_MSEC (12
-> chars and twice wrapped line and needs tinkering or looking into
-> units.h), I don't think so.
+> Also factor out folio unpreservation logic into memfd_luo_put_folios()
+> and use it from memfd_luo_unpreserve_folios() and from error paths in
+> memfd_luo_preserve_folios().
+> 
+> Since shmem_get_folio() always returns uptodate folios, drop the folio
+> zeroing logic.
+> 
+> This change also improves preservation performance, shown in the table
+> below.
+> 
+> |------------------+----------+------------+-------|
+> | memfd            | baseline | this patch | delta |
+> |------------------+----------+------------+-------|
+> | 4K pages, 32 GiB | 748 ms   | 600 ms     |  -20% |
+> | THP, 4 GiB       | 0.59 ms  | 0.59 ms    |    0% |
+> | THP, 16 GiB      | 2.99 ms  | 2.61 ms    |  -13% |
+> | THP, 32 GiB      | 4.83 ms  | 5.21 ms    |   +8% |
+> | sparse, 32 GiB   | 8695 ms  | 7269 ms    |  -16% |
+> |------------------+----------+------------+-------|
+> 
+> Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Pratyush Yadav (Google) <pratyush@kernel.org>
+> ---
+> The diff is unfortunately hard to read. It would be easier to review the
+> patch by applying it and looking at the final code.
+> 
+> This patch is picked from a separate series I sent [0]. It is more or
+> less an independent change. It fixed a race for that series so I added
+> it there, but since that series might take longer to go through, I think
+> it is useful to take this patch separately.
+> 
+> [0] https://lore.kernel.org/all/20261027173031.763213-2-pratyush@kernel.org/
+> 
+> Changes since v2:
+> 
+> - Reword the comments on memfd_luo_migrate_folio(), memfd_luo_get_folio()
+>   and the allocation comment in memfd_luo_preserve_folios() so they no
+>   longer say folios are "held until the next kernel". Instead, say that
+>   preservation holds a longterm reference on them.
+> - Use a bounded for loop in memfd_luo_get_folio() instead of an open
+>   ended one with a separate busy retry counter.
+> - Collect tags.
+> 
+> Changes since v1:
+> 
+> - Add memfd_luo_get_folio() which combines shmem_get_folio() and the
+>   migration logic.
+> - Collect tags.
+> - Rebase to v7.4-rc1.
+> 
+> ---
+>  mm/memfd_luo.c | 306 ++++++++++++++++++++++++++++++-------------------
+>  1 file changed, 190 insertions(+), 116 deletions(-)
+>
+> diff --git a/mm/memfd_luo.c b/mm/memfd_luo.c
+> index 6b68220275ebe..c963bc3522e61 100644
+> --- a/mm/memfd_luo.c
+> +++ b/mm/memfd_luo.c
+> @@ -77,26 +77,161 @@
+>  #include <linux/kexec_handover.h>
+>  #include <linux/kho/abi/memfd.h>
+>  #include <linux/liveupdate.h>
+> +#include <linux/migrate.h>
+> +#include <linux/sched/mm.h>
+> +#include <linux/sched/signal.h>
+>  #include <linux/shmem_fs.h>
+> +#include <linux/swap.h>
+>  #include <linux/vmalloc.h>
+>  #include <linux/memfd.h>
+>  #include <uapi/linux/memfd.h>
+>  
+>  #include "internal.h"
+>  
+> +static void memfd_luo_put_folios(const struct memfd_luo_folio_ser *folios_ser,
+> +				 u64 nr_folios)
+> +{
+> +	u64 i;
+> +
+> +	for (i = 0; i < nr_folios; i++) {
+> +		const struct memfd_luo_folio_ser *pfolio = &folios_ser[i];
+> +		struct folio *folio;
+> +
+> +		if (!pfolio->pfn)
+> +			continue;
+> +
+> +		folio = pfn_folio(pfolio->pfn);
+> +
+> +		kho_unpreserve_folio(folio);
+> +		folio_put(folio);
+> +	}
+> +}
+> +
+> +/* How many times to try migrating a folio that is not longterm pinnable. */
+> +#define MEMFD_LUO_MIGRATE_RETRIES	3
+> +
+> +/*
+> + * Preservation holds a longterm reference on the folio. This would block
+> + * migration in ZONE_MOVABLE or CMA. Move it out.
+> + *
+> + * Must be called with folio unlocked. Drops the reference to folio. The caller
+> + * must look it up again.
+> + *
+> + * Returns 0 on success, -EBUSY if the folio could not be isolated (e.g.
+> + * because someone else has it isolated right now), or -ENOMEM if migration
+> + * failed.
+> + */
+> +static int memfd_luo_migrate_folio(struct folio *folio)
+> +{
+> +	struct migration_target_control mtc = {
+> +		.nid = NUMA_NO_NODE,
+> +		/* Not movable, so the target is neither in ZONE_MOVABLE nor CMA. */
+> +		.gfp_mask = GFP_USER | __GFP_NOWARN,
+> +		.reason = MR_LONGTERM_PIN,
+> +	};
+> +	LIST_HEAD(source);
+> +	bool isolated;
+> +
+> +	/* Flush per-CPU LRU batches holding the folio so isolation works. */
+> +	lru_cache_drain_for_folio(folio, 1, NULL);
+> +	isolated = isolate_folio_to_list(folio, &source);
+> +	/* Isolation holds its own reference. */
+> +	folio_put(folio);
+> +	if (!isolated)
+> +		return -EBUSY;
+> +
+> +	if (migrate_pages(&source, alloc_migration_target, NULL,
+> +			  (unsigned long)&mtc, MIGRATE_SYNC, MR_LONGTERM_PIN,
+> +			  NULL)) {
+> +		putback_movable_pages(&source);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Look up the folio at @index, allocating it if needed. Preservation holds a
+> + * longterm reference on the folio, so folios that are not longterm pinnable are
+> + * migrated out first, retrying a few times if someone else has them isolated.
+> + *
+> + * On success, returns 0 with *@foliop locked and holding a reference.
+> + */
+> +static int memfd_luo_get_folio(struct inode *inode, pgoff_t index,
+> +			       struct folio **foliop)
+> +{
+> +	struct folio *folio;
+> +	int err, retry;
+> +
+> +	for (retry = 0; retry < MEMFD_LUO_MIGRATE_RETRIES; retry++) {
+> +		err = shmem_get_folio(inode, index, 0, &folio, SGP_CACHE);
+> +		if (err)
+> +			return err;
+> +
+> +		if (likely(folio_is_longterm_pinnable(folio))) {
+> +			*foliop = folio;
+> +			return 0;
+> +		}
+> +
+> +		folio_unlock(folio);
+> +		err = memfd_luo_migrate_folio(folio);
+> +		/* Someone else might have it isolated, retry a bit. */
+> +		if (err && err != -EBUSY)
+> +			return err;
+> +	}
+> +
+> +	return -EBUSY;
 
-Because the point is missed? We have tons of much longer multipliers that kill
-two birds with one stone:
-- avoiding possible typos when many 0:s are in them (one can be missed or too many)
-- hinting reader of the units of the used values without even looking into the docs
-- (and reading 1...MSEC is quite natural, without counting 0:s and thinking how
-   many of them and what 1000 microseconds, after spending time on the
-   documentation, means in practice)
-
-Please, use multipliers where it's makes code better to understand for
-unprepared reader.
-
-...
-
-> I would like to hear what Jonathan has to say.
-
-OK.
+In v2 we did another shmem_get_folio() after a successfull migration,
+now even if the last iteration migrates successfully we still return
+-EBUSY and don't update *foloip.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+Sincerely yours,
+Mike.
 
