@@ -1,111 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.145
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421401;
-	b=fn7MsqZllCODGy4/1OTYZ1e9+NW0EbJYzcrUok3giDe8hz4uuHIEb4lW73VYixJl2vrX
-	 JHHxrucoCeFZ5Ss/K0h0IIjSgUMGqzjYoOF+uk0owkZ7VrvJwVx+hkPEwQ+cViGorREnR
-	 YLE1X9ZToseCCefUm0Q91UYQ3AvGmUrmKvTDvIOBJknZFIkQ2kuffJhjyFjVel2Wx8AJ5
-	 bLz320qq8DZzCXkHQxKj8vt0+4/H9kMjlOP9DOOUEa9mIfuUtvcwtSODyPk1XesaQwX0r
-	 2eOoxbb27q9pSzvqWF8AQVHFvYZLpBbxgzto5nT8WiNd8P/bIt206DNAT52goHC78sg==
+	t=1795421421;
+	b=Kpod//K9QvBEhj5+czFvkbtFoxEFv5CitPEM6IT7qydlq4gVMv8AD4eSuWmSGmaJbap2
+	 vZC8ymdtmsB3rOHaplvIV0MFTNMzRVwFiaEaruyLGScUvpiosqKjOzFs5vuCXbJJ4kdqF
+	 qckUmr9RghHexE17L8hz5A7o2BKeP94X5NOH0r7lFvhaz7J0jLTt0jRhEwiCAov0e45wG
+	 T05qnxLIsl90OKcuwqA31Q24qJJvOx7+ObcYHY3GgnbX1VyM0gz3pLqUDcrPFGTXqc8TZ
+	 z0aqypwC+cbGExTVj03B2XKP+F8QwqR8icCxE7xH0WwfbtgldxQMvy/yfJAekkVHcGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421401;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=DXAyCJHoqpd7VVu9zCdoKyDE7YEOeTBsqV4rhJ4wDfA=;
-	b=fSJ/W50bPXkyZgHn2hs9pR/ShAlJ6AirYsihyHr6FoSK6wNDf8O7L7YiqklxI7RWaJ9D
-	 cYhUBCNE/sXkcZysJP9LKlTf1WuohxnfFfo0jvIhCoYViob41vCJd7qiVi4HMgC0+LU5n
-	 GSmuYUo1VPOgyryHckFHPvLDy2G01QaL74IHhsG4BWWkZpyVzq5II28GOx+hD6BNnSlA5
-	 4mEgtGI6QyyJlnZGvG11l6xZ/0evqww7Gx2oooVXacrREaW0Z4Y6RPJk0fS8VgucIXYpO
-	 /SMBrBVfLPe+KAr1KncmJJyIkfEtv8JJGKcC7TcRr6n4wi6R7ZEVKbD+FwyGkMkAvnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421421;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=v5GWduFGID+XPcjZcpomhvmCUBYklqEgNOXrwIWDao8=;
+	b=NB0EGbTWv1T71ET31ev968KmMIPd9OxLTZhWej63hb4zgzqITiAIlY/vwBKi8zJ0WpYi
+	 +N5Julfuc6qM365xWucVctPQkP9ecsuAMxgjtPHLG/4HfqQHu5hmPARhFznwAJkgneYTM
+	 +izFv9luVDKWr8554guw17Jn0qaaOH8JhZIxAWCw7CLeR4Db/sNTFgQMi52ENHt4L7yIk
+	 TPdXRRo6GKcBu/B53jU/j9dBGOhyzXAtmzPC7Wc2/udHmXuIyNDz3fp1eWbeGqLcbHSUe
+	 Ie4VgIjGH+xGFV1bElv29H/7K9ymhpm3LFO2EZkMe86gb/3Ug6dGQ7/wp+BQ+t19aKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=lPRRkpKl;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=mG+ib2r2;
-	arc=none smtp.remote-ip=103.168.172.145
-Received: from fout-a2-smtp.messagingengine.com (fout-a2-smtp.messagingengine.com [103.168.172.145])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dNjdvnPp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD2C4606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:10:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD2C4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0726C606A686
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:10:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=lPRRkpKl;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=mG+ib2r2
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id F0097EC0ADB
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:09:59 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 03:10:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795421398;
-	 x=1795507798; bh=DXAyCJHoqpd7VVu9zCdoKyDE7YEOeTBsqV4rhJ4wDfA=; b=
-	lPRRkpKlFKq83Jamzk9X4/Df7pnrWo/IJ/xtUes03zSRdwJo1segbFPanqNo2qo4
-	P64NKFIGXChovTYATzDXS+6HZW9sOXvVqyFnFEYce+OeMR+Koal7x9V4ARiaKEHn
-	cpiTlQkGS9pxBNMUpEOibeNiIjO+DxqZoSCtKupu6SIRq9+GiCRyamPjSiuVnYGZ
-	zbF1BexSDj9wCS8TYfh6oPxj8kOLI5V2kfncq3Y+0nHSF0a9T2zoBcrxBLkAYD77
-	Gee8FJtVnyMtDVlLPCxWzY932euoXSt7MjsDd09BR9Ho4+tdXHkm2hA4qfvNiMox
-	4dNi5yvLtvrj+pc7y3fCRA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795421398; x=
-	1795507798; bh=DXAyCJHoqpd7VVu9zCdoKyDE7YEOeTBsqV4rhJ4wDfA=; b=m
-	G+ib2r2ulVh/SuEODyW6iQI6+ecv5AaSazGoT3Gh1ts/U7FSVx/E8rtULq7Zd0We
-	Td9KCU8BWTZcR36fRTzz31Yp1sPZujOlEdXH7U9IBZhFG6F+8qGE6SD1IkVmuUhw
-	pNSDPChULtXAAd6L4QQE31yn/ZoS7cpCQulfGlpIwsPct77L0wEoNBIMEnM/p6Zx
-	akLACW0ASn5RAMcOyeoppp/MNKx4Q1IB4GUii/fMqG6NWsCeC0o3AP9a+xwNdOWz
-	fKNLkjgeTG5Aq4fXo2NCoitbPqSF39ciLG91tyqGt77R7xC4ZsBQLK4NlJJBAJmX
-	K/+htk+Lz4aKkrD/gVZkA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795421398; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:Kpdn9RLbSDj9SfmwsqV+A695gZMxdo3gC6bvo+Vt5xq5hxt
-	OmURJkbmIuK+HAtAVbc8dKUneOQ+XnNU/L2CDlIO/3bmnlhffk6UucSPklMCHn81
-	4HxePNzkZKEfZLe5F3llGFJBxGKGMamT3R8DdYlxIlPmRezJ0XIwksVv1QvClXa8
-	VLPWqQdVR3GJT7yW/cQGAQ0TuTNzUfcZPVABXaoFGesddGnZwjACdLFds0SAI5Mm
-	w1Ek0/gV8BXn+wQOHUvdY5MPU+RPJfPK38Y5Jdnw6rO71FzXoiR/f+7XEgI9KL9l
-	15yAgoim4/1i2vnWCzNP7SPI3WTsxnku+djO8og==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:grlJwVnba3gqjUqUX7aVNCd1zkOWofYmeFpKttnzwyE=:jV1zjdHIqi/aczzkcsWrt0GVHwRxvf3JsPMWbYOic4o=;
-X-ME-Sender: <xms:0_QDa5i2tYp5TIhibFyA1SuJ19LS1urtbxQcClYlXqxUnGWIMetP1w>
-    <xme:0_QDa40iGlGEWOb6kBzs2cA7GRqBR4m7o8LLkSy4GDUn2l91jhkZxufugMUfQy417
-    MYupiX8lKCQnXxLdZJTewAKRPwk6LnqWM87TjzQ4ACyF8yjCsTRkU7O>
-X-ME-Proxy-Cause: dmFkZTGzMCPMWZZSopTfIQNPjqAoVr2afyNiJo/Cl+08OxPdOZHuAigQb0qVAUWJibca+8
-    v4pKOhF9qMg3NptmPBeqJpXRKqy0zveoT1wbxMy3I9iRuHJPPfVsmCP+EzGBsETfpkCrMA
-    LwPyPz2evOP3HTFP2K4kcZZNSl5sy89dEUpvnA/Agm+w/psiC562xv/QPN5COIp6Jlctky
-    xxQqgX2xpvGNaWm1U9bTWLNfKErNqFnuOXZxxzwkQC8VK88cO0LMF1qDHIfTiU05NicLrJ
-    jSEuaJxLi3svgEh+cvkrMPmUW1oLryW1JbbFsuM17FL+DcYuYxN15u/xcHGuoKKz1DTIk7
-    mCFTbBeLrw+EaFgPIX2lk21ejiJm/IE5Lqe+nLjsGXXxGqqqbNEgh8OJRbddrKSJjZYkTZ
-    +oecu//5XvlPJiGckWZnUgAw7fpL5/V/q8uVSujUhI3EjSJ+lF/8Yih2qdiBngRz1xrkLC
-    S5+gD/KW8Thn49H/D6pHFgTOlFV5zNxudX31sVwRHxB2TDaybDgXcSv7SO4mEWM+Xbi5TO
-    +/WYWOHJR7l8GSsjFiZHA7x+gyEx7ykdM/Ex3FsXFlxvRqV6FvBOY3skQuVlwLmEoB84og
-    QYYMOfgCpmf0Ve8/rk23ZDfJClr4dT8bhLHc1V2yeYisSl+964tePENSTf4Q
-X-ME-Proxy: <xmx:1PQDa3L9gpjfPI-R5gMo8DKzvCk5iKwu0HjWSwlsBy50a_pm1rbt_Q>
-    <xmx:1PQDa2mjKG-QCIOqeo6iMFzXSpO2_8q3V8LJWpV9bC_4zR5apQvwaw>
-    <xmx:1PQDazP91BHTQ18tARjlag0jwveQqfz8BELK6jKHHPQwRQ4JJ_DXng>
-    <xmx:1PQDa02HXLMokXzIWtKpLasoICLPw4hXjZj6sDcPfTwGI6WwXLJj2Q>
-    <xmx:1vQDa798Mfq86pczELsGDvSZWe7rQUfzu4nulvqYVQetlGvOKfF7iUmL>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 4F78832A009C; Mon, 23 Nov 2026 03:09:55 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dNjdvnPp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33A1E1F000C0;
+	Mon, 23 Nov 2026 08:10:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795421420;
+	bh=v5GWduFGID+XPcjZcpomhvmCUBYklqEgNOXrwIWDao8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dNjdvnPpwjdmcjISaoQjFXL2w8UxVYHTleyaAVlQXmLzTb5vlljO/EZI7cZrNM+dF
+	 nzgf6wS0dpFGMgDRkISJjDkuL+xsHaTxjDTzJt+/8YpYLWg2SkrG7/CNW/jP2xXV7P
+	 QIWRpnbJeod9ssDw6cp2ebUsxbVz2I7mqnm2Qc5sI/G+vNR1IT+ktmFB5gqZLIqaoL
+	 VzRd+xA2s9ShJOStIFvk9rifnQe2Jgw10DHP0Fov7gX5w0HiD7oiJYWhLNEVD6INE6
+	 0pww18WmqM9xGjJ5aAsmSyFIWdWAmObLR5PuUZJNwHnt4+6KSFe4PVF78HXadJ+OyS
+	 irdqyxohANIVg==
+Date: Mon, 23 Nov 2026 09:10:17 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>
+Cc: Mario Limonciello <mario.limonciello@amd.com>, 
+	Alex Deucher <alexander.deucher@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Javier Martinez Canillas <javierm@redhat.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>, 
+	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, 
+	Mario Limonciello <superm1@kernel.org>, Xaver Hugl <xaver.hugl@gmail.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+Message-ID: <awP0nasqAc4pAeMR@houat>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+ <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
+ <awB4Qe83u0l0XPKA@intel.com>
+ <8713bae1-9782-41d4-b09c-f14031203e88@amd.com>
+ <awPvoLCDeq1YFLE_@houat>
+ <awPzsMWZ7e0i6i54@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,27 +68,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AUwtRUbRNqlg
-Date: Mon, 23 Nov 2026 09:08:18 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Fang Xieyan" <fangxy@xiaopeng.com>
-Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Message-Id: <423ac235-513e-4850-ba1c-5fe98eb2b294@app.fastmail.com>
-In-Reply-To: <20261121140444.57953-1-fangxy@xiaopeng.com>
-References: <20261121140444.57953-1-fangxy@xiaopeng.com>
-Subject: Re: [PATCH] asm-generic: bitsperlong: Remove the disabled BITS_PER_LONG check
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="dwr325mwgufdlyuf"
+Content-Disposition: inline
+In-Reply-To: <awPzsMWZ7e0i6i54@intel.com>
 
-On Sat, Nov 21, 2026, at 15:04, Fang Xieyan wrote:
-> A FIXME in this header asks to fix x86-64 and reenable the check
-> between BITS_PER_LONG and __BITS_PER_LONG. However, this check
-> cannot be enabled because the two values can legitimately differ
-> when building the compat vDSO.
 
-I think the correct fix would be to stop the x86 vdso from including
-this header. The general rule is that any VDSO code should only
-include headers from include/vdso/, but not include/linux or include/asm.
+--dwr325mwgufdlyuf
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+MIME-Version: 1.0
 
-     Arnd
+On Mon, Nov 23, 2026 at 10:05:04AM +0200, Ville Syrj=E4l=E4 wrote:
+> On Mon, Nov 23, 2026 at 08:50:29AM +0100, Maxime Ripard wrote:
+> > On Fri, Nov 20, 2026 at 11:19:13AM -0600, Mario Limonciello wrote:
+> > >=20
+> > >=20
+> > > On 11/20/26 10:41, Ville Syrj=E4l=E4 wrote:
+> > > > On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello wrote:
+> > > > > Panel brightness is a property of a display, and thus of a DRM
+> > > > > connector. Add an atomic per-connector LUMINANCE range property so
+> > > > > compositors can manage relative panel luminance together with the=
+ rest
+> > > > > of the display state.
+> > > > >=20
+> > > > > Keep the core backend-agnostic. Drivers create the property with =
+their
+> > > > > hardware range and implement connector helper callbacks to set lu=
+minance
+> > > > > or disable panel emission. The atomic helpers sequence those call=
+backs
+> > > > > around pipeline enable and disable, including luminance-only comm=
+its.
+> > > > > The panel is left lit when the pipeline enters self refresh, and =
+the
+> > > > > luminance is only reprogrammed when it changes or a modeset enabl=
+es the
+> > > > > pipeline.
+> > > > >=20
+> > > > > The stored property value is independent of display power. A comm=
+it made
+> > > > > while the connector is inactive is retained and applied on the ne=
+xt
+> > > > > enable; disabling the pipeline does not overwrite it.
+> > > > >=20
+> > > > > LUMINANCE values are relative, driver-defined levels rather than
+> > > > > absolute luminance in cd/m^2. The interface supports emissive pan=
+els as
+> > > > > well as panels with a separate backlight.
+> > > > >=20
+> > > > > Keep the interface behind a default-off DRM_LUMINANCE option. Mig=
+rated
+> > > > > drivers retain their legacy backlight class ABI unless the new in=
+terface
+> > > > > is explicitly selected, allowing the DRM UAPI and legacy compatib=
+ility
+> > > > > policy to remain separate.
+> > > > >=20
+> > > > > Acked-by: Javier Martinez Canillas <javierm@redhat.com>
+> > > > > Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
+> > > > > ---
+> > > > > v11:
+> > > > >   * Don't call .disable_luminance when the CRTC enters self refre=
+sh (Sashiko)
+> > > > >   * Only call .set_luminance when the luminance changes or on a m=
+odeset
+> > > > >     that isn't a self refresh exit (Leo Li, Sashiko)
+> > > > >   * Fix the .set_luminance self refresh documentation
+> > > > > v10:
+> > > > >   * Add tag
+> > > > > ---
+> > > > >   drivers/gpu/drm/Kconfig                    | 14 +++++
+> > > > >   drivers/gpu/drm/drm_atomic_helper.c        | 98 +++++++++++++++=
+++++++++++++++-
+> > > > >   drivers/gpu/drm/drm_atomic_state_helper.c  |  7 +++
+> > > > >   drivers/gpu/drm/drm_atomic_uapi.c          |  5 ++
+> > > > >   drivers/gpu/drm/drm_connector.c            | 57 +++++++++++++++=
+++
+> > > > >   drivers/gpu/drm/tests/drm_connector_test.c | 28 +++++++++
+> > > > >   include/drm/drm_atomic_helper.h            |  3 +
+> > > > >   include/drm/drm_connector.h                | 16 +++++
+> > > > >   include/drm/drm_modeset_helper_vtables.h   | 28 +++++++++
+> > > > >   9 files changed, 255 insertions(+), 1 deletion(-)
+> > > > >=20
+> > > > > diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
+> > > > > index 61111d50b1c65..1bbe2c2d7c76f 100644
+> > > > > --- a/drivers/gpu/drm/Kconfig
+> > > > > +++ b/drivers/gpu/drm/Kconfig
+> > > > > @@ -33,6 +33,20 @@ endmenu
+> > > > >   if DRM
+> > > > > +config DRM_LUMINANCE
+> > > > > +	bool "DRM connector luminance support"
+> > > > > +	help
+> > > > > +	  Expose relative luminance as an atomic DRM connector property=
+=2E Values
+> > > > > +	  are driver-defined levels rather than absolute luminance in c=
+d/m^2.
+> > > > > +	  Drivers provide connector helper callbacks to program their h=
+ardware;
+> > > > > +	  the DRM core does not depend on a particular backend.
+> > > > > +
+> > > > > +	  Drivers migrated to this interface will use it instead of reg=
+istering
+> > > > > +	  a legacy backlight class device. Leave this disabled to prese=
+rve the
+> > > > > +	  de-facto userspace ABI in /sys/class/backlight.
+> > > >=20
+> > > > I don't think this will fly if it breaks the backlight class interf=
+ace.
+> > > > No one can actually enable this outside of some niche embedded use
+> > > > cases where backwards compatibility is not an issue. I think what
+> > > > you need is a generic backlight class implementation on top of this.
+> > > >=20
+> > >=20
+> > > The idea with this was:
+> > > 1) to get the series landed
+> > > 2) let compositors merge solutions around it.
+> > > 3) Then add backwards compatibility to kernel so we can flip the Kcon=
+fig
+> > > default.
+> >=20
+> > I said this a few times already, but we keep having those discussions
+> > while the backlight sysfs handling is far from being the main point. You
+> > should *really* consider adding support for the luminance property for
+> > something that isn't tied to that interface (like DDC/CI for HDMI), and
+> > treat the sysfs API as a sysfs series.
+> >=20
+> > It looks like people just have conflicting opinions on this particular
+> > part that isn't going to solve itself easily. You should not treat this
+> > sysfs discussion as a blocker for the infrastructure work.
+>=20
+> You want to be sure backwards compatibility with the backlight
+> class is a solvable problem before you land *anything*. Otherwise
+> you might just paint yourself into a corner with no way out.
+
+I disagree. The luminance property is more useful than *just* for
+backlights but is also useful for HDMI, DP, and MIPI-DSI that would all
+use it.
+
+If that's the corner we paint ourselves into, it's still a pretty nice
+corner.
+
+Maxime
+
+--dwr325mwgufdlyuf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawP06QAKCRAnX84Zoj2+
+dirlAYCaLJUdSt6csq7+6ZBW3alomOCJf+HmDo3pMuq+3WWMHrPsn7h9AGYUA8Ep
+foPjziwBfRuxWHnha3bp3vUm0RB95VfNQikyfGT5zDueZnd9cCI2Budw3etjGq6K
+zg6OFg9zrA==
+=bk0X
+-----END PGP SIGNATURE-----
+
+--dwr325mwgufdlyuf--
