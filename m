@@ -1,77 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795393574;
-	b=n2o/OFk77fcUGA46Sc0QZ9o6CMcVH0jmTSkY7IhLC5tjTsAEc+jUW8HWH/rn2JNsUHwA
-	 brubhQM4D7W1Nqpew5fu7ukUs43VVPoEDkuaR1McI6x6o6m1Q7jfRaDRzT3nbilh89Cab
-	 BpWowLSzhuJkTgNKX0vZEBzaTWPFLMz8/JqI235LrfA58turEUKsJUpZ2nB7Z3/WbMPe0
-	 n+Un2EYMp2jGxx42EkHxek3AD/+spn1Ggu2+WaG1wVXRhbuxsppGOdpd0NGay1Tu/J/10
-	 PJjjsiVzZojwMCFkW4E4pTiCP8SjlMTZcCEilnWlscyVqDtsfrd5br2W8WKa8CDwpmw==
+	t=1795393734;
+	b=jYqelRX6Do3UTpXPZEWYFnnHNnXQJ+nQ4JL5qOJ388AD5Pv+tCLOsl5eF/nl9qbywPbb
+	 9WpL0psIv2LEAXC4vuGRyG9Hb1St9MJopu5j+ScDzyPsvfxt2crS8B17uW+Io0fz7pKfD
+	 kRlVw2zE15buSsUE4gENam5I4t8g28pU0Hp2cYgiib4UaScY60Qgr43YIDyVeo39olEnI
+	 aL/cf2/5EIMDIKGEds3/RG7GHq6ED4Dj56MAj3bWcmOO7ztzg8/JjnBir47wib2+vs+jo
+	 uX/tay4JkIAoG/mYOqAb4eAATpxexQWFJ38aTfK6e8SUA7ji5ZNoyL17lJ9k7NHu0Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795393574;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Np7fZSYURVKo0ykLKnKN/e1CFyZ5GmziW7UTv6oqkBg=;
-	b=JPghQysTF/xfVx2xM+qwIFL0XwQDHoxXDFpZzxpqnLidbstXL90Y3ncwVfZh1FZcvt4o
-	 7bELXuB08zd3HEn6+3TmsQOZ5J02UGQ1C606Q5EUTawcgMQ8K6HqAeg3UqIDTxmnsn33x
-	 0EHaj4NZr8mr/vh6Ekf/uy4i03+bDetjnLL/PNXMggbfANql4oc9p4cVau0QmzsrqYjeD
-	 GFVkM9npoZwPx9jHL2Z6FyuVZMSSfcqm/XLExYJoemBXDlYkHl/IcCir9KI+K7BdeiKr/
-	 dXAnFFX5yWUDopjQFppchNCIsBcEccr1gNwLm7dWU3S6kFUVwwIxd/P0Jg6V4In8gyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393734;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=U+HLN1k8lco5bdQT0KCTCsJjmlrsMySjcezfIG6VGqg=;
+	b=YXYbXCu8yJe837wmJ73cQMaHwnDxCjNk/p6MvJKKBZciaDBH2xDQJC+iXD3aPq87/C+F
+	 tMlQu2YgyIHjjMsoF+5N1zDPNG6Hjf0f3Sctg6o65o9OAkbCTABXzeiqov77iowdny595
+	 LG1HeWLlni10mNsK58M66F5CnEkYXnjA01UK0c5Ne+hrYHoeE7Rdo6CHXwQMeM/XMfIWm
+	 n+5uH7t5ptr7+2eH9LbxJigoWps1DTPxJdNu5rgGSUcpnRYUZdgeVklCfLeDGp670zASG
+	 9UbydaJyhicXUvkDygaf4pRtiRj2ZKhQbM2GlasOmome9C5NHINoISY+jrxLq1Rt8dQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XTTYuAtT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=meQNc0ro;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 92486606A320;
-	Mon, 23 Nov 2026 00:26:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDAC4606A31A;
+	Mon, 23 Nov 2026 00:28:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XTTYuAtT
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 77F411F000C6;
-	Mon, 23 Nov 2026 00:26:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=meQNc0ro
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A7471F000CF;
+	Mon, 23 Nov 2026 00:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795393574;
-	bh=Np7fZSYURVKo0ykLKnKN/e1CFyZ5GmziW7UTv6oqkBg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XTTYuAtTfAlg0WH9XZNPNM7S+HLBop3wyxrt6AZb8BiQ/Gcs79kUj59MMdnE7zjKQ
-	 6xk0zPvaGdlG8o9ZUMGLAaOiaoDh4dLG6WNkRYPhuhQSyEsvPBz3KMQjuS6m7xd5dG
-	 Ot9O95tbcPRy9IHFMgYR0M5uFEZsIn+69FEAQlQR3rWR6ymXF88kwRbDdIo+Jw4lgY
-	 YKAHH8A25VOQvWrywy5q8chM2R+ortwz1L4AYTL89LZ/Swh1LO/3fuwj1dPvoYQS1e
-	 rxcdFPD4rGTTlycsU6r7F/Z5zD9ej6TCW+7qcXWzVmur1oME5eDf3FDMxcpULj0bY5
-	 LbOIMT1N38+0Q==
-Date: Mon, 23 Nov 2026 02:26:10 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: linux-fsdevel@vger.kernel.org, Andy Lutomirski <luto@amacapital.net>
-Cc: bpf@vger.kernel.org, containers@lists.linux.dev,
-	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Aleksa Sarai <aleksa@amutable.com>,
-	Alexander Mikhalitsyn <alex@amutable.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Giuseppe Scrivano <giuseppe@scrivano.org>,
-	Hugh Dickins <hughd@google.com>, Jan Kara <jack@suse.cz>,
-	Jeff Layton <jlayton@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
-	KP Singh <kpsingh@kernel.org>,
-	Lennart Poettering <lennart@poettering.net>,
-	Neal Gompa <neal@gompa.dev>, Oleg Nesterov <oleg@redhat.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-Message-ID: <awOIIuoNvNLZ_scF@kernel.org>
-References: <20261122193539.3334213-1-jarkko@kernel.org>
- <awOEa303zNUDrzA3@kernel.org>
- <awOFGIWekH9-vlhM@kernel.org>
- <awOHVCpztLQv4Uwv@kernel.org>
+	s=k20260515; t=1795393734;
+	bh=U+HLN1k8lco5bdQT0KCTCsJjmlrsMySjcezfIG6VGqg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=meQNc0roy9IBNOVc+GZSaqQzt10PHUrvXHSjkaBJymAAglslM1DJrxqgzHLW1alQR
+	 rbNygEMoXeb/uLZ8q6dEv8aQiraCbrjByuqaxJWbuWXbreVOHXaXVeULMjg5ooYmqF
+	 dFdblTBt61n3VAeAaH7scPVqZqZOtEGvVbrMTz/cGEaUMMNLUsV/0XvaZDax+k9++B
+	 pvBHYc1Nmy7/mUPvmhhr0ld5IodXbsHslKTCO+xkqrgoWEFzp4vwnogo7bi4UQwZy/
+	 IRy4OfBSwH9m3Kc4nRFOSQ26yFDTxyVKy08sw0V52i9StM/zs5+DJ5VuoYUt3mXaaU
+	 jtLgEi80DtAJw==
+Subject: Re: [PATCH v2 net 1/4] net: enetc: let core segment GSO skb when TSO
+ would not fit the TX ring
+From: netdev-bot+sashiko@kernel.org
+To: vladimir.oltean@nxp.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ claudiu.manoil@nxp.com, wei.fang@nxp.com, xiaoning.wang@nxp.com,
+ ioana.ciornei@nxp.com, willemdebruijn.kernel@gmail.com, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 00:28:52 +0000
+Message-ID: <179539373276.3135.4544992671951430926@kernel.org>
+In-Reply-To: <20261118235055.1225115-2-vladimir.oltean@nxp.com>
+References: <20261118235055.1225115-2-vladimir.oltean@nxp.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,47 +65,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awOHVCpztLQv4Uwv@kernel.org>
 
-On Mon, Nov 23, 2026 at 02:22:49AM +0200, Jarkko Sakkinen wrote:
-> On Mon, Nov 23, 2026 at 02:13:16AM +0200, Jarkko Sakkinen wrote:
-> > On Mon, Nov 23, 2026 at 02:10:23AM +0200, Jarkko Sakkinen wrote:
-> > > On Sun, Nov 22, 2026 at 09:35:13PM +0200, Jarkko Sakkinen wrote:
-> > > > SYSCALLS
-> > > > ========
-> > > > 
-> > > > Two new system calls are proposed:
-> > > > 
-> > > > 1. userland_open(): open an opaque staircase-initialized container
-> > > >    object (modeled on Intel SGX enclave initialization with separate
-> > > >    build and live states) with no embryonic state, opting selected
-> > > >    shared namespaces in via an allow-list instead of unshare semantics.
-> > > > 2. userns_set_idmap(): configure all UID, GID, and project ID map
-> > > >    extents for a container user namespace in a single atomic system
-> > > >    call.
-> > > 
-> > > Andy, perhaps a bit too far of the box idea but I'll just throw this out.
-> > > 
-> > > An alternative to userland_open() would a file e.g., virtual device
-> > > file, and necessary wiring for open().
-> > > 
-> > > Then the added syscall surface would reduce only to userns_set_idmap(),
-> > > and it adds more robustness to access control (e.g. who can create
-> > > containers).
-> > > 
-> > > What do you think of this?
-> > 
-> > Also, easy way to detect the feature. This does make sense to me.
-> 
-> This as a side-effect would enable LKM compilation, and reorganization
-> of the beef of the core feature as a driver. Not sure what would be
-> the best location for the driver tho, perhaps just drivers/userland.
-> 
-> I.e., full decoupling from the syscalls.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Right, and LKMs are great for live patching. This has enough quantative
-weight.
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-Br, Jarkko
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] enetc_features_check()
+  (drivers/net/ethernet/freescale/enetc/enetc.c:1106-1122) decides…
+
+--
+
+net: enetc: let core segment GSO skb when TSO would not fit the TX ring
+
+This patch adds an ndo_features_check() to enetc. For skbs that take the
+software TSO path, it clears the GSO features when the descriptor estimate
+is at least the TX ring size, so the core segments those skbs before
+ndo_start_xmit(). The goal is to stop the TX queue from stalling on skbs
+that could never fit in the ring.
+
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
+> index c6571b5cc8425..1606ac57016f3 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc.c
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
+
+[ ... ]
+
+> @@ -1098,6 +1103,24 @@ netdev_tx_t enetc_xmit(struct sk_buff *skb, struct net_device *ndev)
+>  }
+>  EXPORT_SYMBOL_GPL(enetc_xmit);
+>  
+> +netdev_features_t enetc_features_check(struct sk_buff *skb,
+> +				       struct net_device *ndev,
+> +				       netdev_features_t features)
+> +{
+> +	struct enetc_ndev_priv *priv = netdev_priv(ndev);
+> +
+> +	features = vlan_features_check(skb, features);
+> +
+> +	if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
+> +		return features;
+> +
+> +	if (tso_count_descs(skb) >= priv->tx_bd_count)
+> +		features &= ~NETIF_F_GSO_MASK;
+
+[Severity: High]
+Can SKB_GSO_DODGY skbs get past this check, given that their gso_segs is
+still 0 when enetc_features_check() runs?
+
+tso_count_descs() is computed from skb_shinfo(skb)->gso_segs.
+virtio_net_hdr_to_skb() clears that field for untrusted skbs, for example
+those sent by af_packet with PACKET_VNET_HDR:
+
+include/linux/virtio_net.h:virtio_net_hdr_to_skb() {
+    ...
+			shinfo->gso_type |= SKB_GSO_DODGY;
+			shinfo->gso_segs = 0;
+    ...
+}
+
+With PACKET_QDISC_BYPASS, nothing recomputes gso_segs before the features
+check. qdisc_pkt_len_segs_init() is only called from __dev_queue_xmit():
+
+packet_xmit()
+  dev_direct_xmit()
+    __dev_direct_xmit()
+      validate_xmit_skb_list()
+        validate_xmit_skb()
+          enetc_features_check()   <- gso_segs == 0, GSO features kept
+
+The estimate is therefore just nr_frags, and NETIF_F_GSO_MASK stays set.
+enetc does not advertise NETIF_F_GSO_ROBUST, so the skb goes through
+__skb_gso_segment(), and tcp_gso_segment() takes this branch:
+
+net/ipv4/tcp_offload.c:tcp_gso_segment() {
+    ...
+	if (skb_gso_ok(skb, features | NETIF_F_GSO_ROBUST)) {
+		/* Packet is from an untrusted source, reset gso_segs. */
+
+		skb_shinfo(skb)->gso_segs = DIV_ROUND_UP(skb->len, mss);
+    ...
+}
+
+This returns NULL, so the original unsegmented skb is passed on, now with
+its real gso_segs. With gso_size as small as 8 and a ~64KB payload, that
+is roughly 8000 segments, or about 16000 BDs for a 2048-entry ring.
+
+enetc_bd_unused() is at most bd_count - 1, so this check in
+enetc_start_xmit() can never become false:
+
+		} else {
+			if (enetc_bd_unused(tx_ring) < tso_count_descs(skb)) {
+				netif_stop_subqueue(ndev, tx_ring->index);
+				return NETDEV_TX_BUSY;
+			}
+
+dev_direct_xmit() frees the skb, but the subqueue stays stopped. The only
+place that wakes it is enetc_clean_tx_ring(), and that needs completed
+frames:
+
+	if (unlikely(tx_frm_cnt && netif_carrier_ok(ndev) &&
+		     __netif_subqueue_stopped(ndev, tx_ring->index) &&
+		     ...
+		netif_wake_subqueue(ndev, tx_ring->index);
+
+If the ring is idle when this happens, and with no ndo_tx_timeout, does
+that TX queue stay stopped until the interface is bounced? That would be
+the same stall the commit message describes as triggerable "from any
+source that can craft gso_segs".
+
+A tc egress BPF program can probably reach the same state as well.
+bpf_skb_adjust_room() and similar helpers set gso_segs = 0 together with
+SKB_GSO_DODGY, and sch_handle_egress() runs after
+qdisc_pkt_len_segs_init().
+
+The af_packet UDP_L4 case does not seem to trigger this, because
+virtio_net_hdr_to_skb() caps it at UDP_MAX_SEGMENTS. The TCP case does
+trigger it.
+
+Later patches in the series do not appear to change this. At the end of
+the series, enetc_features_check() still goes through
+enetc_tso_count_descs(), which reads skb_shinfo(skb)->gso_segs.
+
+Would it work to derive the segment count from skb->len, the header length
+and gso_size here, at least for SKB_GSO_DODGY skbs? Another option would be
+for enetc_start_xmit() to drop, instead of returning NETDEV_TX_BUSY for,
+any skb whose estimate is >= tx_ring->bd_count.
+
+> +
+> +	return features;
+> +}
+> +EXPORT_SYMBOL_GPL(enetc_features_check);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118235055.1225115-1-vladimir.oltean%40nxp.com
