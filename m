@@ -1,78 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795415576;
-	b=aRB5HlML8Cs0a4OO47s4VORLFpoY5J3tqyiTr1rVQ5QCBkutsmVK6DHgs4SO8rKqX1mt
-	 xEUoSspXdqkn/YTNOnedVwPG0De+KpK96z/IopBWCld9wgRcGhpLw7QabZtmrwG4aylBL
-	 jK0AHhp39BLK+7P7EC6q/FTnA7EHPpruCs1qHeF4nNVuBbOEUNg9L8kXvqsklUKHp4LZ3
-	 10zTlb116uDM9PsHekP97S3WFQeXlAPNnr5hjp4mQbc7bywtAGl6Sz5oGKK9Ydsi+tmkb
-	 AfRXrq3Eyf0Y8iJFUvlkI9/FfVRDkNJrVRJto03LfrqZ7QgmQPV2emBWpcbMFwry5nw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415576;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jJ5HTt6plunxin31vtC4rDMiI3PR3fN6iuRHRpNNp8k=;
-	b=TaD/J3VjknLbTP9MLY8LJKVCqM8Os5fdmhYetIUq3YHU2SrQ4f1WGNLvFnIjCYTGhA3A
-	 RpeE2Hgsjmb/j4kr6c8i7EWoBOiJ8Ln7HoLArGUNegUYccj5bizBN801HxN3z0SVRxQhJ
-	 w40Q9N1uIdsPit3k8E0sfx53G17f/yVjPvJzX/abBE2BJGHZ+QoAk8pTqxkJvMmgMBZQ/
-	 wAUlNJx/yyGOZwppBtleiyeDO2cj2vBm4LxL80sL/D4wYOMD+rroZjWs1xVRTRd7dmztI
-	 Wll9KfBgztKdwmlK64XFGMcGA2xhQ6SiZAmRlJ7wSFqm+hKVOPiubhe4VyZYecWsNOA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mO4UuqUH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC77606A31A;
-	Mon, 23 Nov 2026 06:32:56 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mO4UuqUH
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795415576;
-	b=v+wDBH3k6afTKz7auXzC1E2PhpSZNF13SLI0fO8iRuSdDQJLTeG6uOarnQ6wR8hM2XGd
-	 S658toaYmIByvkFUA5OKpSl8+KD1urv3ijvNQgeLDFaPa67kOzkC+7qOZxBR0U16Dk1Mb
-	 U3teCoRPcetyZ0z026l1PuWu/kM26+ZpFT0LTLP3VB27FOaFdeyyPER/0b7oo4LRHIlUE
-	 GfGlWIo1b24KRLybdWDCrAJxrw1RtodVW1Cerdpi3o1XF2U6eXNBG/kxJKNMt4k/2styY
-	 Ri3jIxjYVZaxuP5x/I1ErveiFVlEoZCS1W9FTjh0xo3w9T3YEROOccz2L7Sh54eNWQg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795415576;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jJ5HTt6plunxin31vtC4rDMiI3PR3fN6iuRHRpNNp8k=;
-	b=u1IhZPFzwmUuNNdkgRTiy0WvdHRi11B8jBUCnbnDnIGQzb/sdg1dQPfmLu+kX2tM7bQV
-	 1stEgfCCzhH4cjTlIaUW7uRewnh1Dqt5Xxrc21HeMPA8hZbQAQ/cl0KO1V4SB9HTZdTXJ
-	 /6HPz804n22ACQ/jKhhUa7FFne2c3vp2TEWVBTuSvp8tSSSPjZevRrxVjQLdOGTDHqOLv
-	 FVQ8NtTnwj48+2UGl+ZvDfLjblbdxkizyZA2fmShjj5DnJjATz/LQj0WxLk+NyRxIwNTm
-	 HUJ6E9VvXYBwCHr8X7QJtegX/REYSrnADnn/bemt1t0VVHKUPBXY0XsJnHy1UtApg4g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.223
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795415587;
+	b=xQl584jhnLZIwiATyjAOH+8H94BCtDNF+ZOGHwu3kq80dNpy08ur+6BzuELmlKFs6f5F
+	 L0dcdgtZD0h+98kDZbdSfX9bhzHiOzIujisthPhshJNv6bdw030XzZVb/PE1unwavGaSl
+	 OJ/XxTUMBwfjUimm+V74iDwzcAMM+VScSqaDW4eBzp0iShPx8wMqjuYpwSKq4CIDCZU8k
+	 Fv8Z0paYszNk4Yf6vhAJweq0xJ8CcaN1i9Qex0JBCSpe0jaESB0zdxv6N7VtJmiu/3bmK
+	 kJDqOAWiiizr7UcMpPihh6y/vT2HNLl1CiYZJDi9zibw6kzAlo5OyPY6smF5nHjPyQA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415587;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=ht97CK2F6lXhrybpSQlJXorF4sNM+WP3fFW0RZw919Y=;
+	b=B/qdD4gIr4QARMRoypNpuVvvhnr5RPfoeTQYSWIEifK1nLLuHLueYSk29yJMghoXtNRN
+	 iNIqRKmMFdwu0TgASZ3qdIkPvRZQrR4iewnfGveFkOCK5Y1WpINOw5Z6f8KhKReFCI9aB
+	 GewSUYnLO6G4Vzykh6QU0wVbW/L9IxhcHHGxj1C9l7YgnGAdVVDLWLUTqVbyXqfnDdvi2
+	 mnu7S9x6Bzs8yBM/n4QOUeriJE3I3vz6XgmUzX5aSsFP25ZBDWKICuWKq036Dwl/QNhQO
+	 vtLsoGZfuBdjJU048200ogAZhJk0mMTVMvclxsQTyyEbAEEGKnaEnZY91ifgO6QFJeQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=1hlQBxSg;
+	arc=none smtp.remote-ip=113.46.200.223
+Received: from canpmsgout08.his.huawei.com (canpmsgout08.his.huawei.com [113.46.200.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2FCEB1F000CA;
-	Mon, 23 Nov 2026 06:32:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795415575;
-	bh=jJ5HTt6plunxin31vtC4rDMiI3PR3fN6iuRHRpNNp8k=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=mO4UuqUHklj3xa2LjzYeh5smm+9jQgMuQ7AkfEqt6jFk+DhFTuKbYagt1YvjPUdob
-	 +jE4jmmMMz6kLRKj4sWOxVRI3nt6+aZdr2P3qmOwNmdMVs+Oe/cfwhwbTR9lRd0SGL
-	 0/CQAM4Tw5JPbVOLl3X9NyGHDQwXHtszfKR2tlw1BBzgQ4cNfDeQjF9RuTcVVXDZwn
-	 n7fJWN3ekBPu8quGHK0DCEwQKuYI5jg6jnGlvRnVwtYBU98Eqt1FqEM3dLpZZy9i9a
-	 BW3X6+D7RqsJFqC/cXzhNdky5aybvsfWjiB796nn+r+PG3OX2mclWzwli2ZUD5cwGF
-	 et4gx/rCyhrJQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 42DB04C38F;
-	Mon, 23 Nov 2026 06:32:45 +0000 (UTC)
-From: Markus Haberlander via B4 Relay <devnull+markus.haberlander.rosenberger.com@kernel.org>
-Date: Mon, 23 Nov 2026 07:32:28 +0100
-Subject: [PATCH] mfd: cgbc-core: Add support for conga-PA7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 443F1606A31A;
+	Mon, 23 Nov 2026 06:33:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 443F1606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=1hlQBxSg
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=ht97CK2F6lXhrybpSQlJXorF4sNM+WP3fFW0RZw919Y=;
+	b=1hlQBxSg0hgA2lTNac2LPI6yYs+xEGGV4y8H6OvP8i4rWpbVEjLWxNAoFdQsI9njVgxSs/Z1e
+	7Y3gT7Ko+CF9ri1PwtjLUYvDhDnSOt9x5bCKZYxP/IYFpq1VV5Ciar/LzqyyMr0lgHHd2+5n1m0
+	BYo0Ne+6kARuHr81lHRcFdY=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jXx295s3QzmVYV;
+	Mon, 23 Nov 2026 14:32:33 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 47B4440588;
+	Mon, 23 Nov 2026 14:32:56 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 23 Nov
+ 2026 14:32:55 +0800
+Message-ID: <0e15bc66-3737-4e6e-92dd-3b54e95e224c@huawei.com>
+Date: Mon, 23 Nov 2026 14:32:54 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,79 +62,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-cgbc-conga-pa7-v1-1-f3d17fb02e43@rosenberger.com>
-X-B4-Tracking: v=1; b=H4sIAPvdA2sC/yXMQQrDIBBA0auEWWegKhjoVUoXZpza6UJFkxCQ3
- D0mXb7F/w0qF+EKz6FB4U2qpNihxgHo62JgFN8N+qGtUtoghZmQUgwOs5vQk528Yc3eWOhRLvy
- R/R6+3n/Xdf4xLdcFjuMEGVKK8HIAAAA=
-X-Change-ID: 20261123-cgbc-conga-pa7-dc67d3e2ed36
-To: Thomas Richard <thomas.richard@bootlin.com>, Lee Jones <lee@kernel.org>
-Cc: mfd@lists.linux.dev, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, 
- Markus Haberlander <markus.haberlander@rosenberger.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795415564; l=1513;
- i=markus.haberlander@rosenberger.com; s=20261123;
- h=from:subject:message-id;
- bh=v1CPWN/2XkF2f1MoPpYxZuyNZds9qyQfrKK/LTczYvU=;
- b=Y2uothSjoELTvG4Mb6hN5yuCH4QqU5F6vr3ENRqv1VUiWrYP30Km46XE/zr7onLPqOz4YGiws
- 1b2VGJMzJ4cCHecyB24R07WlKZv9zD5RwgXp7oSmw/ppYxk8Rz8iFC9
-X-Developer-Key: i=markus.haberlander@rosenberger.com; a=ed25519;
- pk=baNIWlZCf58g17gE2FS6ir0ymNwyBXguoQENSJkXdeQ=
-X-Endpoint-Received: by B4 Relay for
- markus.haberlander@rosenberger.com/20261123 with auth_id=1612
-X-Original-From: Markus Haberlander <markus.haberlander@rosenberger.com>
-Reply-To: markus.haberlander@rosenberger.com
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: hinic: Don't fail probe when firmware lacks
+ rx-vlan-filter
+To: <cai.huoqing@linux.dev>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@kernel.org>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20261116021858.273519-1-ruanjinjie@huawei.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20261116021858.273519-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-From: Markus Haberlander <markus.haberlander@rosenberger.com>
+Ping.
 
-The conga-PA7 is a Pico-ITX board with an Intel Elkhart Lake SoC, like
-the conga-SA7 SMARC module. Its board controller is of the same
-generation and is accessed through the same I/O ports, so the existing
-driver works with it once the board is matched.
-
-Match the board vendor and name, as for the other boards: the system
-vendor and product name are empty on this board.
-
-Tested on a conga-PA7 (board revision A.2, BIOS PA70R026): the core
-driver loads through its DMI alias and adds its GPIO, I2C and hwmon
-cells.
-
-The patch and this changelog were drafted with the help of Claude
-Opus 5.5 and reviewed and tested by me.
-
-Cc: stable@vger.kernel.org # 6.13.x
-Signed-off-by: Markus Haberlander <markus.haberlander@rosenberger.com>
----
- drivers/mfd/cgbc-core.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/mfd/cgbc-core.c b/drivers/mfd/cgbc-core.c
-index 8a63923d1..cd68d396d 100644
---- a/drivers/mfd/cgbc-core.c
-+++ b/drivers/mfd/cgbc-core.c
-@@ -379,6 +379,13 @@ static struct platform_driver cgbc_driver = {
- };
- 
- static const struct dmi_system_id cgbc_dmi_table[] __initconst = {
-+	{
-+		.ident = "PA7",
-+		.matches = {
-+			DMI_MATCH(DMI_BOARD_VENDOR, "congatec"),
-+			DMI_MATCH(DMI_BOARD_NAME, "conga-PA7"),
-+		},
-+	},
- 	{
- 		.ident = "SA7",
- 		.matches = {
-
----
-base-commit: 1cb7268b6638c411fc32f373e965eb8ba9e9b2b4
-change-id: 20261123-cgbc-conga-pa7-dc67d3e2ed36
-
-Best regards,
---  
-Markus Haberlander <markus.haberlander@rosenberger.com>
-
+在 2026/11/16 10:18, Jinjie Ruan 写道:
+> nic_dev_init() calls set_features() with force_change set, so it
+> unconditionally sends HINIC_PORT_CMD_SET_VLAN_FILTER once
+> NETIF_F_HW_VLAN_CTAG_FILTER is advertised.  Firmware that predates
+> rx-vlan-filter support answers with HINIC_MGMT_CMD_UNSUPPORTED (0xff).
+> 
+> hinic_set_vlan_fliter() already distinguishes that status and returns it
+> without a message, but set_features() treats any non-zero return as
+> fatal: it folds it into err and returns -EIO, and nic_dev_init() then
+> bails out without printing a sub-error either.  The only visible symptom
+> is
+> 
+> 	hinic 0000:29:00.0: Failed to initialize NIC device
+> 	hinic 0000:29:00.0: probe with driver hinic failed with error -5
+> 
+> and the device stays unusable although nothing is actually broken.
+> 
+> Treat HINIC_MGMT_CMD_UNSUPPORTED as "feature not available": keep probing
+> and drop the feature from the advertised set.  Write netdev->features
+> back whenever failed_features is non-empty, not only on the fatal path,
+> so the cleared bit really takes effect.
+> 
+> Fixes: 2acf960e3be6 ("net: hinic: Add support for configuration of rx-vlan-filter by ethtool")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  drivers/net/ethernet/huawei/hinic/hinic_main.c | 16 +++++++++++++---
+>  1 file changed, 13 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/huawei/hinic/hinic_main.c b/drivers/net/ethernet/huawei/hinic/hinic_main.c
+> index 34ed5ea9e46e..e837140f7c17 100644
+> --- a/drivers/net/ethernet/huawei/hinic/hinic_main.c
+> +++ b/drivers/net/ethernet/huawei/hinic/hinic_main.c
+> @@ -1098,16 +1098,26 @@ static int set_features(struct hinic_dev *nic_dev,
+>  		ret = hinic_set_vlan_fliter(nic_dev,
+>  					    !!(features &
+>  					       NETIF_F_HW_VLAN_CTAG_FILTER));
+> -		if (ret) {
+> +		if (ret == HINIC_MGMT_CMD_UNSUPPORTED) {
+> +			dev_info(&nic_dev->hwdev->hwif->pdev->dev,
+> +				 "Firmware does not support rx-vlan-filter, feature disabled\n");
+> +			failed_features |= NETIF_F_HW_VLAN_CTAG_FILTER;
+> +		} else if (ret) {
+>  			err = ret;
+>  			failed_features |= NETIF_F_HW_VLAN_CTAG_FILTER;
+>  		}
+>  	}
+>  
+> -	if (err) {
+> +	/*
+> +	 * A feature the firmware rejects is dropped from the advertised set,
+> +	 * whether it was rejected fatally or not (e.g. rx-vlan-filter on
+> +	 * firmware that predates it).
+> +	 */
+> +	if (failed_features)
+>  		nic_dev->netdev->features = features ^ failed_features;
+> +
+> +	if (err)
+>  		return -EIO;
+> -	}
+>  
+>  	return 0;
+>  }
 
