@@ -1,76 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443271;
-	b=NDAmetX4kqIp3YNGz+JQha8WbmhANV9Wa4iQaC4GZFtQHTpTr7H5jL014fTPb0r9YyLo
-	 ppGTj3ye2IoQG68+bkBBfa6COFkSHdCn6Wc3CQdG4jkph2yLVsi/khWtyDCtD7glF9w77
-	 +J+TtQ9HBTsMP4Lm3DDHGAT0A6LV2BBOHliOIbi/Md52VGLTLE2Lux5Er/n4SvEWS7mlA
-	 GPBlnLV15Fr1UAED5f9Lx8VMdrMP5ugrm/H1NS5bsiwbZ2wrp+GQwyjyQQdJDcvpgGZQN
-	 osV5JBRhMiGzSSXv8vdV7CvClnDgDoTZHfWlrW395YzclHY6od0LYtJle0OMyRx+OkA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443271;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=YFuuXMnMJsjCk7IZEU6QZfVyQzHNOrTyxoyMyX8RSv4=;
-	b=YTLJOkk5jfKg6l4awDy+b7DutJA2o7yBxOnT9lyWB1z8C5rScX9WEQ8V/ppoZB7U9lKU
-	 Nr0V0qeHcVg1scYSQC9P0LdQgBflV7Z48gZ61rvvKChqFI/FwDDl9lVxl6nYVJjUer1po
-	 Lte/LXms1aV4unTIUFqtuQmrcty7dqAy+jIdjwzdflw6uaRnCT4RpI/iE+kFukGB6HXTT
-	 ujJRB32DFFJANgiFoXt2uvJ13R3PflgjiUQe/KkGNFnb1SSLYJkNDImZxU2BlZXPmRfjT
-	 SVEkERnumRuz9fqYGWwjJW4VqMKrY9ma2mkgJnDoUqz31dbtDbagfUuXNiBboV0tIlg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=PEVEkdtw;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.172
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795443276;
+	b=VUGePWUmyy2SHnhjPeQQAvFrEDiAF5Zx4BFCy9uJXanSFW3KTBiO7e7zuvIcU1uMr6fp
+	 hsw4z4BMGcBYD9jeStK9aA/XSN29RQUOZSz8DbN82SXyTbISmoDXcNr1zHwNk0AfhNpSA
+	 oTp4nyNpPRvbyHe+F0+zCVEh2AhWF1spfwJ42b/1fkkv/FPIll6RBqtisXaw+iAh0LGyE
+	 zBwnJQIaWZUmqWh2vq0Odi8TKrW8hsMFlo3KO92+Czp9xYnpGBjwHG/8gZYZmSoLQ+aZi
+	 Hu5P8bMCwOb9R4z1VS50l7AIwu5sUbk0Ifz/CDFjMpJwZFMG7kspSSEGLGBwxIqSAeA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443276;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
+	b=D+MLY0RKebc8qVCPkpMdrDRDKRk1qB9Ao6ElS8HSfzcbualaB2paqZzTDGy3M63j9hPe
+	 NyVDBTaW6qkkx3v3efDykQ9IolVxvVAWKFZXufQnus1qJJuwEi2hy6AQeD+cTVXSuK/Qt
+	 ErZr91q+YCoNMF4rKweMTplhG4bxH2zw8DmIhIkRmsLOE0Ngvo/gTG3k23F0zJtQPv9dE
+	 yH2Ai3KmzcKGuKxvfUBOJ5fpjcNo+Kr/tUBflN/sQfjEUqcks0tXtyQTgaB08vp9EYSUs
+	 b0jCfFkiyLG/SYMR4ZoeDBOPkLaAd7kqtVr/ni3bOVHZgZEZ/v3D5sExjGJTVBec8+A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pVQ7UJlC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.172
+Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com [209.85.222.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32E23606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:14:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32E23606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FAD606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:14:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1FAD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=PEVEkdtw
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id DFBAF4E4126E;
-	Mon, 23 Nov 2026 14:14:29 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B5FC3601E1;
-	Mon, 23 Nov 2026 14:14:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BCC3E11E6A4E0;
-	Mon, 23 Nov 2026 15:14:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795443268; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=YFuuXMnMJsjCk7IZEU6QZfVyQzHNOrTyxoyMyX8RSv4=;
-	b=PEVEkdtwJ3ypvl2uVYdoLWPkC7VS8oVuBbq+e5nfvuYY3hNkl6Nv+x0wezwbYtwIOyw+mb
-	Oteg8KFs5zKYzRMc77Go5nbInAbCL4r2VE8HvpudxzQjLnUzF4GLsjnZX2no2HmCOEkNRV
-	G6k+xXLkkBlQTLN8SEGQsR1JGlqreIEl5jewc+92j8mBUcfmoW2Jxalfu0TDEny8SS1aUr
-	mTWVCdP14qBSW69oddfAuV2LAlTdD1E7s1aZ8u2y+nVprzrEiW2uUs2pQ4RJX6zOqDqzx1
-	YbJGL52HoVJvjCecE6NEwLZiScqUxWdsKMvXRJ5g1TfimfHUuYnjyy3KlWsZLA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Paul Cercueil <paul.cercueil@bootlin.com>
-Cc: Pratyush Yadav <pratyush@kernel.org>,  Michael Walle
- <mwalle@kernel.org>,  Takahiro Kuwano <takahiro.kuwano@infineon.com>,
-  Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Mark Brown <broonie@kernel.org>,  Kees Cook
- <kees@kernel.org>,  Tony Luck <tony.luck@intel.com>,  "Guilherme G .
- Piccoli" <gpiccoli@igalia.com>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-spi@vger.kernel.org,  Bharat Bhushan
- <bbhushan2@marvell.com>,  Sunil Kovvuri Goutham <sgoutham@marvell.com>,
-  Tanmay Jagdale <tanmay@marvell.com>
-Subject: Re: [PATCH v4 3/7] mtd: spi-nor: Add support for panic writes
-In-Reply-To: <20261016102917.171095-4-paul.cercueil@bootlin.com> (Paul
-	Cercueil's message of "Fri, 16 Oct 2026 12:29:13 +0200")
-References: <20261016102917.171095-1-paul.cercueil@bootlin.com>
-	<20261016102917.171095-4-paul.cercueil@bootlin.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Mon, 23 Nov 2026 15:14:25 +0100
-Message-ID: <87y0ajtz26.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pVQ7UJlC
+Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-943e8d35f74so341608485a.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:14:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795443275; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UzPgQO5GgrLyvPr2cCNPmYfFcfKdasUydp5vWZp+cm1jbljDH190+9I6Ckr96XRYXg
+         v8wkLAmK/g1Tdy4uUBn1/2vcCocmIDzpH9T/bkhC+xqpIOdRJp1eH/2kCJmYE6TVf7Dr
+         erJDWofQndGyEOkmQeRtwaQp2F43VOoEFXW4f5yGQgHVbECqnudB3WWSK8VMu68QAfPF
+         8ayVndR+BHM54cso154+Kkq+GXQq7cpLwPDSjPV2OdarBvOmQgUVR+F3mjnr4x/SG588
+         4wnLIhbDMEO/twJqeHv9gjWmZ09s9caH+0CPOwnRihSj+YBSW6KLVP0lLXmg6/1gJb4D
+         V+QQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
+        fh=9TyK4pObYzd2/48GDW4QcB1U0SrQFkc21et9psc63Jk=;
+        b=nDURUcxQw3nVRup/Dq3OVXOUt7CWITTOci2bp3B4blQi6kbKhsfjxnyrD+8o96A9ul
+         /yvNbjsd1tTssrueTJtFg65xhObCdG3dpLEzCeKv0hxDOBmJW70fwpa8Uc+/7ldt/PMI
+         wSeKwY1PdGM9vTHTGExNO8z5ENeQ4wpvwgR6cZ1fdOqq8uTAbWb2kP85RrS9IADhO9FR
+         Jd0BeYeuRGJxEHUY4p32zLuwtnkVaX8uUe6q6c1N0gz74KLCi2o0Vcv+CJJrZam+pSGD
+         y5fiWpY3jWV0BMJ23m/c647wuerZHYQyGQ6z1BCeXAGMqnzaNl7zaeN78fim0GwRNqnR
+         NYcQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795443275; x=1796048075; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
+        b=pVQ7UJlCgo/i8qIJ5r+TI0bhFO9M/AHBAsMBkclyd5JPDNPNAC1ive6ihMUYtf0gRC
+         CcJfFPetUu3bIvXWV/40l1p0yytvFY30H42Yb03nKB0vGILT3FB/1j3mHuAFV+J0eeWz
+         rNRCsh2lN2uPcOsLWiLnaBH3E1IgfopAAWEJSXAIYCe7POy9dcsSCE1WetJUJKPEiym9
+         ZwJERfMKAxexTWdeRfkv8O6zjjhRzUYWsy2m4kQzXSx7RUqby1pwlA9GziUzQePoRCNv
+         qlAQpICwDt3FK6zq/XcNFg4oOSdqC+R86t/m0s/mCJ5ub+GpvrLuDaQyyQg7BHu3EQ/I
+         nkyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795443275; x=1796048075;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8IRkRbzaMpbwELBdc3WayrNv0eqStaY6Oo07xiTVssU=;
+        b=AKLCOSoPZy9UxP6e98e61JM6/Jr3/kcV0/fFJ+mxYLN7gUjCqcc5O0PXpVUKxtfYhj
+         Q0foQ5oAHDGLLx7FkXvoXf+S03md+4VtVyG1a9lblLiWrN578Y+juPqiTrKHOg/bDyB5
+         12sOpJj4LzqhRPnMfJtQhvAmmKZdZH5C1tJuHlDVHCQ48xuMl/R6ZgH2Gb4Z37FOqH7l
+         N0SdGhERssp2UgLJFyHBVh13kboxAxfSmQZnN0qRp2A1hJz3zGWXOQt/xyUJU4F+YZ6E
+         Lmyfodw9PbHU3B9uRaFnqlVENbM4vGG2IMmwDaMFuX08z2qdkA+p022kHXESLSZmVRNu
+         +uow==
+X-Forwarded-Encrypted: i=1; AL+hErGXAZf8TRKB4V3nYQ6FG6BaFN7JMVpSGQ4szGqkIZs7fiSiNCW4uHs2mV0RrEosMkiWLBN/w01CWUAVKLs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8soM8OZspCIA7asgMzaqiWEx6eBfxgt3KKXOnbULPWqYrmD5CC
+	InJFwLvs6YrB1dKHtVc9a9YgksaAr0FJn2s2HjSazHWQAg9CY0QmfonAfkJxzE8lMMleIsP7Tue
+	XsvRNyc2AI3U/g+a+jVBDVvjImzRivcs=
+X-Gm-Gg: AZFdTZeJXST6p98x+SEhpSgh3r4LQiVyy7PkZ3ZpxjtZtsPxXKBCGB7/4a1PuCOBE1o
+	WHWO6q1nuFEDmUcyYF4Axd/E9sUcv4ic8XUjsEmJXYf6MxPmzah7Nk5VzpQ7CEx8+5L6Fi//mzI
+	BVjZ3k7CzdpRomsfT4W/GRXtokGcZ2fCHfPyBv3NnEgr2rad0kkXQuN3r5J8pIuogwv7KbEBRLw
+	S0jDNHZWQzZqtAfhEs6nCRmWPtGOg2nwZ6qJWB6cJjxWi0/LWdCKZduJmUJJq7QN0/BCujjHN0I
+	loL+F3R22+FCvFDQwxsWMn5HBIPlUSO1LBQ/2ZNP0eZJbxwDY9LpjBvnajBHtjeP2tspUeZy8Kv
+	alDsK8B4GZa4uiUD72EULcuP24g4/sMHHFH5W1p0SQXR4bYYDN/1eSQkI6scSNxxCfD4=
+X-Received: by 2002:a05:620a:4041:b0:949:8307:664d with SMTP id
+ af79cd13be357-949ba8239a7mr1762779285a.2.1795443274706; Mon, 23 Nov 2026
+ 06:14:34 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,34 +104,318 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+References: <20261123110805.119610-1-hikmahgumelar@gmail.com>
+ <20261123123546.152162-1-hikmahgumelar@gmail.com> <20261123123546.152162-4-hikmahgumelar@gmail.com>
+ <awRDMjtMC74v5zQq@monoceros>
+In-Reply-To: <awRDMjtMC74v5zQq@monoceros>
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+Date: Mon, 23 Nov 2026 21:14:22 +0700
+X-Gm-Features: Aa3M54qIm1JJMDMAkwJOVERPLiDKCTfKydQ0A71fCUKBRcUDp_3D9SJp6eBsw4g
+Message-ID: <CADA=zOOYzywVAHhSbYQXyfS3m8SRx4x=S4wNi7vSoQBB6GVRUA@mail.gmail.com>
+Subject: Re: [PATCH v2 3/7] media: i2c: add s5k5e8 image sensor driver
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
 
-On 16/10/2026 at 12:29:13 +02, Paul Cercueil <paul.cercueil@bootlin.com> wr=
-ote:
+Hi Uwe,
+Thanks for the review! I had just sent out v3 right before seeing your
+feedback; I will drop <linux/mod_devicetable.h> from both s5k5e8.c and
+ov12a10.c in v4 along with any further review comments on v3.
+Best regards,
+Hikmah
 
-> From: Tanmay Jagdale <tanmay@marvell.com>
+
+Pada Sen, 23 Nov 2026 pukul 20.56 Uwe Kleine-K=C3=B6nig
+<u.kleine-koenig@baylibre.com> menulis:
 >
-> If the SPI controller supports it, provide the functionality of doing a
-> panic write.
+> Hello,
 >
-> Update the spi-nor core code and controllers to make sure they won't try
-> to grab locked mutexes or sleep when doing a panic write, as preemption
-> and IRQs are disabled.
+> On Mon, Nov 23, 2026 at 07:35:42PM +0700, Hikmah Gumelar wrote:
+> > diff --git a/drivers/media/i2c/s5k5e8.c b/drivers/media/i2c/s5k5e8.c
+> > new file mode 100644
+> > index 000000000000..80931e5a1c6b
+> > --- /dev/null
+> > +++ b/drivers/media/i2c/s5k5e8.c
+> > @@ -0,0 +1,500 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +#include <linux/clk.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/gpio/consumer.h>
+> > +#include <linux/i2c.h>
+> > +#include <linux/mod_devicetable.h>
 >
-> The information is carried down to the SPI controller driver through the
-> spi_mem_op structure. If the corresponding flag is set there, and the
-> SPI driver does support panic writes, it then has to respect the same
-> rules.
+> <linux/i2c.h> already provides of_device_id, so please drop
+> <linux/mod_devicetable.h> (which adds a lot of unneeded dependencies).
 >
-> Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
-> Co-developed-by: Paul Cercueil <paul.cercueil@bootlin.com>
-> Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
+> > +#include <linux/module.h>
+> > +#include <linux/pm_runtime.h>
+> > +#include <linux/regulator/consumer.h>
+> > +#include <linux/unaligned.h>
+> > +#include <media/v4l2-ctrls.h>
+> > +#include <media/v4l2-device.h>
+> > +#include <media/v4l2-fwnode.h>
+> > +
+> > +#define S5K5E8_CHIP_ID_REG           0x0000
+> > +#define S5K5E8_CHIP_ID                       0x5e80
+> > +#define S5K5E8_REG_MODE_SELECT               0x0100
+> > +#define S5K5E8_MODE_STANDBY          0x00
+> > +#define S5K5E8_MODE_STREAMING                0x01
+> > +#define S5K5E8_REG_VTS                       0x0340
+> > +#define S5K5E8_REG_EXPOSURE          0x0202
+> > +#define S5K5E8_REG_ANALOG_GAIN               0x0204
+> > +#define S5K5E8_REG_TEST_PATTERN              0x0600
+> > +#define S5K5E8_XVCLK_FREQ            24000000
+> > +#define S5K5E8_LINK_FREQ_418MHZ              418000000ULL
+> > +#define S5K5E8_PIXEL_RATE            167200000ULL
+> > +
+> > +struct s5k5e8_reg { u16 address;
+> > +u8 val;
+> > +};
+> > +struct s5k5e8_mode {
+> > +     u32 width, height, hts_def, vts_def, vts_min, num_regs;
+> > +     const struct s5k5e8_reg *regs;
+> > +};
+> > +
+> > +static const char * const s5k5e8_supply_names[] =3D { "avdd", "dvdd", =
+"dovdd" };
+> > +#define S5K5E8_NUM_SUPPLIES ARRAY_SIZE(s5k5e8_supply_names)
+> > +
+> > +static const struct s5k5e8_reg s5k5e8_common_regs[] =3D {
+> > +     { 0x0100, 0x00 }, { 0x3906, 0x7e }, { 0x3c01, 0x0f }, { 0x3c14, 0=
+x00 },
+> > +     { 0x3235, 0x08 }, { 0x3063, 0x2e }, { 0x307a, 0x10 }, { 0x307b, 0=
+x0e },
+> > +     { 0x3079, 0x20 }, { 0x3070, 0x05 }, { 0x3067, 0x06 }, { 0x3071, 0=
+x62 },
+> > +     { 0x3072, 0x16 }, { 0x3203, 0x43 }, { 0x3205, 0x43 }, { 0x320b, 0=
+x42 },
+> > +     { 0x3007, 0x00 }, { 0x3008, 0x14 }, { 0x3020, 0x58 }, { 0x300d, 0=
+x34 },
+> > +     { 0x300e, 0x17 }, { 0x3021, 0x02 }, { 0x3010, 0x59 }, { 0x3002, 0=
+x01 },
+> > +     { 0x3005, 0x01 }, { 0x3008, 0x04 }, { 0x300f, 0x70 }, { 0x3010, 0=
+x69 },
+> > +     { 0x3017, 0x10 }, { 0x3019, 0x19 }, { 0x300c, 0x62 }, { 0x3064, 0=
+x10 },
+> > +     { 0x3c08, 0x0e }, { 0x3c09, 0x10 }, { 0x3c31, 0x0d }, { 0x3c32, 0=
+xac },
+> > +};
+> > +
+> > +static const struct s5k5e8_reg s5k5e8_2592x1944_regs[] =3D {
+> > +     { 0x0100, 0x00 }, { 0x0136, 0x18 }, { 0x0137, 0x00 }, { 0x0305, 0=
+x06 },
+> > +     { 0x0306, 0x18 }, { 0x0307, 0xa8 }, { 0x0308, 0x34 }, { 0x0309, 0=
+x42 },
+> > +     { 0x3c1f, 0x00 }, { 0x3c17, 0x00 }, { 0x3c0b, 0x04 }, { 0x3c1c, 0=
+x47 },
+> > +     { 0x3c1d, 0x15 }, { 0x3c14, 0x04 }, { 0x3c16, 0x00 }, { 0x0820, 0=
+x03 },
+> > +     { 0x0821, 0x44 }, { 0x0114, 0x01 }, { 0x0344, 0x00 }, { 0x0345, 0=
+x08 },
+> > +     { 0x0346, 0x00 }, { 0x0347, 0x08 }, { 0x0348, 0x0a }, { 0x0349, 0=
+x27 },
+> > +     { 0x034a, 0x07 }, { 0x034b, 0x9f }, { 0x034c, 0x0a }, { 0x034d, 0=
+x20 },
+> > +     { 0x034e, 0x07 }, { 0x034f, 0x98 }, { 0x0900, 0x00 }, { 0x0901, 0=
+x00 },
+> > +     { 0x0381, 0x01 }, { 0x0383, 0x01 }, { 0x0385, 0x01 }, { 0x0387, 0=
+x01 },
+> > +     { 0x0340, 0x07 }, { 0x0341, 0xb0 }, { 0x0342, 0x0b }, { 0x0343, 0=
+x28 },
+> > +     { 0x0200, 0x00 }, { 0x0201, 0x00 }, { 0x0202, 0x03 }, { 0x0203, 0=
+xde },
+> > +     { 0x3303, 0x02 }, { 0x3400, 0x00 }, { 0x323b, 0x02 }, { 0x3301, 0=
+x00 },
+> > +     { 0x3321, 0x04 }, { 0x3306, 0x00 }, { 0x3307, 0x08 }, { 0x3308, 0=
+x0a },
+> > +     { 0x3309, 0x27 }, { 0x330a, 0x01 }, { 0x330b, 0x01 }, { 0x330e, 0=
+x00 },
+> > +     { 0x330f, 0x08 }, { 0x3310, 0x07 }, { 0x3311, 0x9f }, { 0x3312, 0=
+x01 },
+> > +     { 0x3313, 0x01 },
+> > +};
+>
+> Is this a reverse engineered table of initial register values? A comment
+> would be awesome.
+>
+> > +static const struct s5k5e8_mode supported_modes[] =3D {
+> > +     {
+> > +             .width =3D 2592, .height =3D 1944, .hts_def =3D 2856,
+> > +             .vts_def =3D 1968, .vts_min =3D 1968,
+> > +             .num_regs =3D ARRAY_SIZE(s5k5e8_2592x1944_regs),
+> > +             .regs =3D s5k5e8_2592x1944_regs,
+> > +     },
+> > +};
+> > +
+> > [...]
+> > +static int s5k5e8_enum_frame_size(struct v4l2_subdev *sd, struct v4l2_=
+subdev_state *sd_state,
+> > +             struct v4l2_subdev_frame_size_enum *fse)
+> > +{
+> > +     if (fse->index >=3D ARRAY_SIZE(supported_modes) ||
+> > +         fse->code !=3D MEDIA_BUS_FMT_SGRBG10_1X10)
+> > +             return -EINVAL;
+>
+> ARRAY_SIZE(supported_modes) is one. Does supported_modes really need to
+> be an array?
+>
+> > +     fse->min_width =3D fse->max_width =3D supported_modes[fse->index]=
+.width;
+> > +     fse->min_height =3D fse->max_height =3D supported_modes[fse->inde=
+x].height;
+> > +     return 0;
+> > +}
+> > +
+> > [...]
+> > +static int s5k5e8_probe(struct i2c_client *client)
+> > +{
+> > +     struct device *dev =3D &client->dev;
+> > +     struct s5k5e8 *s5k5e8;
+> > +     u32 val =3D 0;
+> > +     unsigned int i;
+> > +     int ret;
+> > +
+> > +     s5k5e8 =3D devm_kzalloc(dev, sizeof(*s5k5e8), GFP_KERNEL);
+> > +     if (!s5k5e8)
+> > +             return -ENOMEM;
+> > +     s5k5e8->dev =3D dev;
+> > +     v4l2_i2c_subdev_init(&s5k5e8->sd, client, &s5k5e8_subdev_ops);
+> > +     s5k5e8->xvclk =3D devm_v4l2_sensor_clk_get(dev, NULL);
+> > +     if (IS_ERR(s5k5e8->xvclk))
+> > +             return dev_err_probe(dev, PTR_ERR(s5k5e8->xvclk), "xvclk\=
+n");
+> > +     clk_set_rate(s5k5e8->xvclk, S5K5E8_XVCLK_FREQ);
+> > +     s5k5e8->reset_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIO=
+D_OUT_HIGH);
+> > +     if (IS_ERR(s5k5e8->reset_gpio))
+> > +             return dev_err_probe(dev, PTR_ERR(s5k5e8->reset_gpio), "r=
+eset\n");
+> > +     for (i =3D 0; i < S5K5E8_NUM_SUPPLIES; i++)
+> > +             s5k5e8->supplies[i].supply =3D s5k5e8_supply_names[i];
+> > +     ret =3D devm_regulator_bulk_get(dev, S5K5E8_NUM_SUPPLIES, s5k5e8-=
+>supplies);
+> > +     if (ret)
+> > +             return dev_err_probe(dev, ret, "regulators\n");
+> > +     ret =3D s5k5e8_power_on(dev);
+> > +     if (ret)
+> > +             return ret;
+> > +     ret =3D s5k5e8_read_reg(s5k5e8, S5K5E8_CHIP_ID_REG, 2, &val);
+> > +     if (ret || val !=3D S5K5E8_CHIP_ID) {
+> > +             dev_err(dev, "failed to identify s5k5e8 (ret=3D%d, id=3D0=
+x%x)\n", ret, val);
+>
+> Use dev_err_probe() for error messages in the probe function.
+>
+> > +             ret =3D ret ? ret : -ENXIO;
+> > +             goto err_power;
+> > +     }
+> > +     dev_info(dev, "identified Samsung S5K5E8 sensor (0x%04x)\n", val)=
+;
+>
+> Degrade to dev_dbg() or drop. Once the driver is considered ok, messages
+> of this kind only clutter the kernel log with very little value and add
+> to the boot time.
+>
+> > +     mutex_init(&s5k5e8->mutex);
+> > +     s5k5e8->cur_mode =3D &supported_modes[0];
+> > +     ret =3D s5k5e8_init_controls(s5k5e8);
+> > +     if (ret)
+> > +             goto err_mutex;
+> > +     s5k5e8->sd.internal_ops =3D &s5k5e8_internal_ops;
+> > +     s5k5e8->sd.flags |=3D V4L2_SUBDEV_FL_HAS_DEVNODE;
+> > +     s5k5e8->sd.entity.ops =3D &s5k5e8_entity_ops;
+> > +     s5k5e8->sd.entity.function =3D MEDIA_ENT_F_CAM_SENSOR;
+> > +     s5k5e8->pad.flags =3D MEDIA_PAD_FL_SOURCE;
+> > +     ret =3D media_entity_pads_init(&s5k5e8->sd.entity, 1, &s5k5e8->pa=
+d);
+> > +     if (ret)
+> > +             goto err_ctrl;
+>
+> Use newlines to separate function call + its error handling from the
+> other code.
+>
+> > +     s5k5e8->sd.state_lock =3D &s5k5e8->mutex;
+> > +     ret =3D v4l2_subdev_init_finalize(&s5k5e8->sd);
+> > +     if (ret)
+> > +             goto err_media;
+> > +     ret =3D v4l2_async_register_subdev_sensor(&s5k5e8->sd);
+> > +     if (ret)
+> > +             goto err_media;
+> > +     pm_runtime_set_active(dev);
+> > +     pm_runtime_enable(dev);
+> > +     pm_runtime_idle(dev);
+> > +     return 0;
+> > +err_media: media_entity_cleanup(&s5k5e8->sd.entity);
+> > +err_ctrl: v4l2_ctrl_handler_free(s5k5e8->sd.ctrl_handler);
+> > +err_mutex: mutex_destroy(&s5k5e8->mutex);
+> > +err_power: s5k5e8_power_off(dev);
+>
+> A label should be on its own line.
+>
+> > +     return ret;
+> > +}
+> > +
+> > +static void s5k5e8_remove(struct i2c_client *client)
+> > +{
+> > +     struct v4l2_subdev *sd =3D i2c_get_clientdata(client);
+> > +     struct s5k5e8 *s5k5e8 =3D to_s5k5e8(sd);
+> > +
+> > +     v4l2_async_unregister_subdev(sd);
+> > +     media_entity_cleanup(&sd->entity);
+> > +     v4l2_ctrl_handler_free(sd->ctrl_handler);
+> > +     mutex_destroy(&s5k5e8->mutex);
+> > +     pm_runtime_disable(&client->dev);
+> > +     if (!pm_runtime_status_suspended(&client->dev))
+> > +             s5k5e8_power_off(&client->dev);
+> > +     pm_runtime_set_suspended(&client->dev);
+> > +}
+> > +
+> > +static const struct dev_pm_ops s5k5e8_pm_ops =3D { SET_RUNTIME_PM_OPS(=
+s5k5e8_power_off,
+> > +             s5k5e8_power_on, NULL) };
+>
+> This looks strange. I'd add a \n before SET_RUNTIME_PM_OPS. In general
+> align continuation lines to the previous opening brace or parenthesis.
+>
+> > +static const struct of_device_id s5k5e8_of_match[] =3D { { .compatible=
+ =3D "samsung,s5k5e8" }, { } };
+>
+> Please fix the layout of this struct. It should look like:
+>
+> static const struct of_device_id s5k5e8_of_match[] =3D {
+>         { .compatible =3D "samsung,s5k5e8" },
+>         { }
+> };
+>
+>
+> > +MODULE_DEVICE_TABLE(of, s5k5e8_of_match);
+> > +static struct i2c_driver s5k5e8_i2c_driver =3D {
+> > +     .driver =3D { .name =3D "s5k5e8", .pm =3D &s5k5e8_pm_ops, .of_mat=
+ch_table =3D s5k5e8_of_match },
+> > +     .probe =3D s5k5e8_probe, .remove =3D s5k5e8_remove,
+>
+> This also lacks newlines.
+>
+> > +};
+> > +module_i2c_driver(s5k5e8_i2c_driver);
+> > +MODULE_DESCRIPTION("Samsung S5K5E8 5MP sensor driver");
+> > +MODULE_LICENSE("GPL");
+>
+> The same critics apply to (at least) patch #5, too.
+>
+> Best regards
+> Uwe
 
-That's reasonably close to the NAND version.
 
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-Thanks,
-Miqu=C3=A8l
+--=20
+Best regards,
+Hikmah Gumelar
