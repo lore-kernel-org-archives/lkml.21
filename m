@@ -1,118 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.135.77
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795435149;
-	b=lnhlZxRVJqU4nelWiDrJo8dsNdhctbG1Z0yvBggmDmPzNthOKSJIKOd2eLj1gIxbaEVX
-	 mN9cq1o9Y1eXsrWetGO33wPTkqvibtLFvPbn06ZeT6uaZb4dgKubcI39EJKMw1s6DFRwK
-	 6TiMgNfzkhU6OVxzxqiqkTmW3JndMC4d7GGvEAJVENcNjCQut9yPypCdSp2yTmQ/pPsRL
-	 XRoQ9feG+Emx9tfz98imlm7bNcOgwWMjUL1StfNBlqJq2BVehfMEgFAqAgOtqp6OfLINu
-	 h2YL204ybR9zr3qU8mu2shmt9osguoEIZdtLqIENusgK5YjO34NtoukosF3+AvgKITg==
+	t=1795435159;
+	b=EBD5YRNktLaUwLTGx4eRsk8qBc4T1hKncTGvDz3Z7KHwIfwJYSR/N3HR3cOUDVrlnHzQ
+	 PFrunCc7WEstMN7Edyt5xMNE/zMhbqPU9dZdJhUQeXXpg6FQsHy4iQfMoLUi0On6WCfQm
+	 FOUytiE4P/GDjSWLKZ5Z186aC7Zk1o9367EOJak0xZua7O4qC/qTevhURplhtPmcVjLCq
+	 Q+fILazCqNDuskX5VqY9NOMJEZ++Djn2/r7gQa1jS3Z3Bm7Mvh3Qeqk5rAYdsYMC0OWDd
+	 zP753OU8wCKpRyMxMLqWvPr5O8/ILdXvMI/RXtz8uxr0iIMadtv4TRr6YekuAHZ4bcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795435149;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:Received:Received:Received:From:To:CC:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-ADIRuleOP-NewSCL:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=j8Ocqsew3LJLs03VzYc/+R3Ds++ZKzhowKP5Ae2QpZE=;
-	b=uUksvYb2AZbhzCeY4OVOaS2YRBpYb3bEnsxisqhQgLp3uxAcFUWkwAix+pUwgiKyYIqn
-	 7XdnFof89BxglJVtw7d0mxU9/QHxuDmOWA/m5CwjOxfzA68zUnkEFI35/s3ugvrxvfqyP
-	 cHO3b6WKCJTPMHx2F5Ei5bkYenqiqrqRdP81pUN6atXAJgozfNIWjxRwg3rL33NKt/wxr
-	 SGgPd1XqTbU+zWN0YOpwFcMiqCY69YtElUNJtt0tBLjf/dGHMaqifTjTv6d2Fr2K1+sWs
-	 OIZJqqdt4SKtD70HE2SAVei3Ee+UCb1eFjYbDPEqbwmQ/7as4Y6GTPznKkfM3oB72dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795435159;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=1jrfyM8AKRsXsQr/mDzcRHfpMeGCqxxnp8QiMrGkGyA=;
+	b=C0u1AEAwkZT0Z189bJoo6mze71FmI+ah7BZFF/sSdP5AW7M/4hkNLh6fGLnTGdpOtK3h
+	 +xev0aGs0h9Tn+UDR//a7cov9vSD3UtbuicMMw4lQKXjK7D0NpbAwouWL0FlDL/DXIw+A
+	 DFbaMZKrgGaZWU+KoL0l/OOr2UxEofTM2GaVoT/2r+9sQaBL0Rg7RlyYuspucjeAHtOif
+	 zsYJcl3Rzm+HH+nBO0a8jiIxS3+6wAJownxjOKnY2qYaYOzgz3aTz96KXqNBPKWtUbfQK
+	 aS0mlt9rvrxOtJi5rnqQ7QNdxNLqH3jOPdUDVcrzEmlPwbwV3Gi9DOhGttFHz9/m8bQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=analog.com;
-	spf=pass smtp.mailfrom=analog.com;
-	dkim=pass header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=cj7DjJ44;
-	dkim=pass header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b=MNlCFOoB;
-	arc=none smtp.remote-ip=148.163.135.77
-Received: from mx0a-00128a01.pphosted.com (mx0a-00128a01.pphosted.com [148.163.135.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nnv4Ewzs;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 630C2606A31E;
-	Mon, 23 Nov 2026 11:59:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 630C2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=analog.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=analog.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EE2A606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:59:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EE2A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=cj7DjJ44;
-	dkim=pass (2048-bit key) header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b=MNlCFOoB
-Received: from pps.filterd (m0167089.ppops.net [127.0.0.1])
-	by mx0a-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9I3Ib2458483;
-	Mon, 23 Nov 2026 06:58:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vtelectron.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	DKIM; bh=j8Ocqsew3LJLs03VzYc/+R3Ds++ZKzhowKP5Ae2QpZE=; b=cj7DjJ4
-	4PyjMBIGdv+yWejnn1lOSnI/z7VOVqSWVwOtPQoF6vPM4j0xv55fqTsu8KP0Kzur
-	oStGqoLvJEdw212aXo7z/L9wt/Nur4BnQNT4mH+HW4lMbii0Vl4RbjVSYUFYuyeu
-	HRNIi+U8BQEEJR9bxKnvyOzLmpRFvi5W96p4r7MOdo8vWX8k2Q0YcQKSHkOnai41
-	/rXXTouWdlwzP/+7MMJRev7fGbdECJWEx0Ry0VmGjPBVPnbYyDJwM/FqyFgQ1aCA
-	PwSCwnd3yo81dFl2GBCDcNdrq81ZEfsSS+g78dvJTkVu3cyZMbtimVFQQuELsK5Q
-	4c8vesVnuHUrlpQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=DKIM; bh=j8Ocq
-	sew3LJLs03VzYc/+R3Ds++ZKzhowKP5Ae2QpZE=; b=MNlCFOoB2e0U4so/cQzts
-	/jjcpYJW9q8zer8GVcR5DxAvA1jgZvw0EAIASxGVKRcpjovFV2TB+x5dQlNtozIh
-	ogXi6lOCWJQAc+U3nUlxsZns+NFo/cUNmt0BUO7ur2ivAMSGoIZtFcVHfMkQvM9A
-	hn852Mw/CwpldzL4trDObgkUTe+5azYkinZf22Zb6OfcCxgiwwZhdOvHssbZiBn3
-	k8xnykAtVCGKPE9x4ILL4XVgsIQxSgVy1pRrG8yv3VIwGGaBJumtPsVh1Y4/njbe
-	yJ9ULB6zsYA53lsx+f/K0HsG5SYgx4N1GUVdfiqGSLZP77J4uFVOresnhmoaPwk8
-	g==
-Received: from nwd2mta4.analog.com ([137.71.173.58])
-	by mx0a-00128a01.pphosted.com (PPS) with ESMTPS id 4j4hfh8vug-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 06:58:54 -0500 (EST)
-Received: from ASHBMBX8.ad.analog.com (ASHBMBX8.ad.analog.com [10.64.17.5])
-	by nwd2mta4.analog.com (8.14.7/8.14.7) with ESMTP id 6ANBwrU4040201
-	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 23 Nov 2026 06:58:53 -0500
-Received: from ASHBMBX8.ad.analog.com (10.64.17.5) by ASHBMBX8.ad.analog.com
- (10.64.17.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 23 Nov
- 2026 06:58:53 -0500
-Received: from zeus.spd.analog.com (10.66.68.11) by ashbmbx8.ad.analog.com
- (10.64.17.5) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Mon, 23 Nov 2026 06:58:53 -0500
-Received: from HYB-6AVb5If9qTU.ad.analog.com (HYB-6AVb5If9qTU.ad.analog.com [10.135.4.40])
-	by zeus.spd.analog.com (8.15.1/8.15.1) with ESMTP id 6ANBviVU015057;
-	Mon, 23 Nov 2026 06:58:41 -0500
-From: Iustin Stolniceanu <iustin.stolniceanu@analog.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Parthiban Veerasooran
-	<parthiban.veerasooran@microchip.com>,
-        Heiner Kallweit
-	<hkallweit1@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Marcelo Schmitt
-	<marcelo.schmitt@analog.com>
-CC: =?UTF-8?q?Alvin=20=C5=A0ipraga?= <alvin.sipraga@analog.com>,
-        Ciprian Regus
-	<ciprian.regus@analog.com>,
-        Selvamani Rajagopal
-	<Selvamani.Rajagopal@onsemi.com>,
-        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Iustin
- Stolniceanu <iustin.stolniceanu@analog.com>
-Subject: [PATCH net-next v3 1/7] net: ethernet: oa_tc6: Forward declare struct mii_bus
-Date: Mon, 23 Nov 2026 13:57:37 +0200
-Message-ID: <20261123115743.29523-2-iustin.stolniceanu@analog.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123115743.29523-1-iustin.stolniceanu@analog.com>
-References: <20261123115743.29523-1-iustin.stolniceanu@analog.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nnv4Ewzs
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c5133831027so450737066b.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:59:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795435157; x=1796039957; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=1jrfyM8AKRsXsQr/mDzcRHfpMeGCqxxnp8QiMrGkGyA=;
+        b=Nnv4Ewzsl0zbK9WqomGclwh/k39KgQeQgXBNc/AzfBbUyum1Jwvd/YbXnXg9n29OEj
+         K9Ij0DC8CzyeIq0tVeeaApk4UfsTam5BGxnvw6s/ZKMk3jvL2FWONroxYavWmgOtsFl/
+         pCH33OTHEcBp5Asq6l2vD3q6q2VMRCWAkBXRC3EjS07hdKBCdtwczs0pFbPIeKRuIxID
+         xUNzibHvqo+wSbbF6Xz8MLTQWy4Q05WSCpzEyqo7+RmGC8MEsJ5zTaYWtaSTJqfEMPJ+
+         ja4H8aB9k1bYTHo3T4iVJsVZEdnn8ZEPeUwM/HyD1ISEGSLI8D0lV/EVTsvmkC8x4VQw
+         QwwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795435157; x=1796039957;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1jrfyM8AKRsXsQr/mDzcRHfpMeGCqxxnp8QiMrGkGyA=;
+        b=x4NtnMGUB/FwvRMNB5HOwISN1Mg+7Y6FP+quzREGAjlYFNWlQbjb4iF6JzjBbkdBdB
+         Pyk+N/JNfn3ipFOpgcj+1kq7+4HAbxsMYJyddIZG6MdWcOM9Cb1KvDiX7B844LdqpK6J
+         PZNyq/Az/VlJlzqMvFHcrKRVG2GrWDYEw0cqF09E8piraMoiY8NMHPem4QNkqkAT/FQl
+         1DwZEArMcXaR8RN7cJR5b6g8uxofkR6ffTr6vsBSWPauNrLUd24lPL2GA/gMrIGu18fR
+         9IAJPs8X5kcnJF0+su/3XxwDd11A2sDdGflA0ICb2Lv+9iPPxSEnNKs8Lc4X/qEpPRTG
+         Nezw==
+X-Forwarded-Encrypted: i=1; AL+hErGC/hXD9fhRn6piTp3SV/xsQqHn8BfXLI2i6A/U2wtKIv315e7tklyX7xmn8ZoRr19h1hF+C1Te9ui6Js0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80k8mSQfVxgD+oA3+XZWq57ORSpE5P48ITTB1qiBr/tu966blZ
+	T06lDODtS2yzXc2lNPZKiyUD6JlCaYCf1FeFeHzIN6Wcg0j9gGuB5kPC
+X-Gm-Gg: AZFdTZfI7DoIIEYJ7TuxwH5KjbD8FHwujlpXxvkNXiXOFMxRXgSTYUVDgifwOddFFnn
+	wBRDe2/pH7c7Sa+eSOJwZCWZvrCRTkfwStBSBRR1rjhwYP/9U2ogLcTnxYWo3gxNN87+IPx0eoE
+	ABZLhFkKTCwOMecY6SoVYK+EN7kAVT2SoqkewYcZIqAKUlA1+I9a/lj10qWsq/oNW1SZWiXn3QI
+	ww708KNlvTE4zLQT9xHXsWCw3OtKIsPnvJuK4qL/fhW6Ox8M2dVCj5ZF5bo0CATYNCleKm0qcrU
+	QzYj0Oi3ptH8U90qpkLP6Q1yHfRyGrmlfRXs6/hEWAZqizwlaBhZEdGCoZ80yTLg+qsTJG72UcW
+	lwAzrbZQp39v90mFlAGUiMJ1D6T1k9LIKMg4t0jE2d/KuuSXqbJXYBECjyzIdNiW/RgMa60X34q
+	PU7KX20xSjYylyWy5fZbekdbaUKCunCIrCmP9UqYvs6DhOMrUm/RI4oWKwwR9HeR4v9cqubZa7G
+	a4GKPjJTJHflPt97IgLxmGF055n6VgRLyQNy+EojG8jV9RYKQDLVvmOYCwu/f1XrZYF9Fztoyyr
+	pb/eMNdfquB+MyrNTNHaHz+I1XCk0ilW6R2pm4zyTNX8Ut5SqRLdJ6ck
+X-Received: by 2002:a17:907:9306:b0:c3e:e677:5608 with SMTP id a640c23a62f3a-c513a5da8d0mr870341966b.12.1795435157410;
+        Mon, 23 Nov 2026 03:59:17 -0800 (PST)
+Received: from localhost ([50.7.123.82])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae68a9asm395946466b.30.2026.11.23.03.59.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 03:59:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,64 +87,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ADIRuleOP-NewSCL: Rule Triggered
-X-Proofpoint-GUID: R9SOHJGfVAlEWlyCFDOmeyNUptYEGduu
-X-Authority-Analysis: v=2.4 cv=W6StxhWk c=1 sm=1 tr=0 ts=6b042a7e cx=c_pps
- a=3WNzaoukacrqR9RwcOSAdA==:117 a=3WNzaoukacrqR9RwcOSAdA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=0sLvza09kfJOxVLZPwjg:22 a=Z0pTeXoby7EwIRygza74:22 a=gAnH3GRIAAAA:8
- a=rm3cWVSmaQPXSYzvH3IA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: R9SOHJGfVAlEWlyCFDOmeyNUptYEGduu
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0NyBTYWx0ZWRfX2xJP8sERJqzG
- uydygVA7xlyKOBN36mEqxGYZHM0SNcqKIuXsuBCcGc+jthltWxEF8jS7JG1k8wz2ZZb37L+L2pj
- mEJNxgrSVnhBE4V9nB6O5/ripySbA+f5f4Gt1ie0wpZqKSwSNhHACeyYnIImDzdOLO/2hNczfxA
- 4zmEo4Y1QQGy2EJOeirKySWuTo3TaihtFHTZxrokldku5WfLSX/DHmpPaEf5QFzTvNeBsUkFvZn
- MwlekBdsdLZpaf9enMAcxIo6ePBi3wdR0BKyAvP6R7JyvuuqmIiZPlBDF/aRQtHnOLFoF7RYxab
- bghxWtRw1WVRKE1u+kTJY6bkO0xaJ4dEQm4odqDvtdZLVP1S21SpwEZkYyyvRNg4UL+02iOaE7b
- F9TYfLVh4eicr3M84VfQIRUXrgTgBH6y6mxCjfyu4UCHIaYvcyyzIQaSHcrHMqaJcyinIbxL+Co
- fo+ZLKcpGqeex+KTE1A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0NyBTYWx0ZWRfX/AR0OLrlc56I
- LUlA8eShhuTjzrScVwZHbQMtdWx0gXqESx4SH0Hyf8gt841ggSEvPm5+JlJmadIe4hViZGMhc+F
- T99c9obSTbtFYvbx+X04qd/glAi59gdsKfb9uN05xPkhcKNVf+yj
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
- phishscore=0 impostorscore=0 suspectscore=0 clxscore=1011 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230047
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 14:59:13 +0300
+Message-Id: <DN2KN6PFHOXG.1EWK1XUHY7IKK@gmail.com>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>, "Sean Wang"
+ <sean.wang@mediatek.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Jiri Slaby" <jirislaby@kernel.org>, "Daniel
+ Lezcano" <daniel.lezcano@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Mattijs Korpershoek" <mkorpershoek@kernel.org>, "Dmitry Torokhov"
+ <dmitry.torokhov@gmail.com>, "Kees Cook" <kees@kernel.org>, "Tony Luck"
+ <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, <linux-serial@vger.kernel.org>,
+ <linux-input@vger.kernel.org>, <phone-devel@vger.kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>, "Conor Dooley"
+ <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 0/7] arm64: mediatek: Add initial MT6895 and Xiaomi
+ Poco X4 GT support
+From: "Alexander Letuchiy" <asalde.le1@gmail.com>
+To: "Roman Vivchar" <rva333@protonmail.com>, "Alexander Letuchiy"
+ <asalde.le1@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
+ <ckJZtdZ4-fPzsa3vkozNyEYYUbG9qd134hYb0hHEuq2nL8WMAR1PS87OpDfXrkU-E-85rsG1I4V99_M41j6-ewkD_41XPguDel3z8z0lmMk=@protonmail.com>
+In-Reply-To: <ckJZtdZ4-fPzsa3vkozNyEYYUbG9qd134hYb0hHEuq2nL8WMAR1PS87OpDfXrkU-E-85rsG1I4V99_M41j6-ewkD_41XPguDel3z8z0lmMk=@protonmail.com>
 
-The Clause 45 MDIO accessors in oa_tc6.h take a struct mii_bus pointer,
-but the header does not declare the type. A file that includes oa_tc6.h
-before linux/phy.h or linux/mdio.h gets a "'struct mii_bus' declared
-inside parameter list" warning, which is an error with CONFIG_WERROR.
+Hi Roman,
 
-lan865x and adin1140 are not affected, as they include one of those
-first. The adin1110 driver, which gets OA TC6 support later in this
-series, does not, and hits the warning.
+On Mon Nov 23, 2026 at 2:41 PM MSK, Roman Vivchar wrote:
+> > Bootloader dependency
+> > ---------------------
+> > This was tested with a modified LK bootloader that is not public.
+>=20
+> How are other xaga users supposed to boot the kernel? You might want to
+> port uniLoader instead, or if you're on an old enough security patch you
+> can even replace stock LK with U-Boot. U-Boot chainloading is also
+> possible.
 
-Signed-off-by: Iustin Stolniceanu <iustin.stolniceanu@analog.com>
-Reviewed-by: Alvin Šipraga <alvin.sipraga@analog.com>
----
- include/linux/oa_tc6.h | 1 +
- 1 file changed, 1 insertion(+)
+Right now I am replacing the stock LK with a modified one that knows
+how to handle mainline DTs without expecting downstream Android nodes.
 
-diff --git a/include/linux/oa_tc6.h b/include/linux/oa_tc6.h
-index 27f652d4920b..6eac6b842156 100644
---- a/include/linux/oa_tc6.h
-+++ b/include/linux/oa_tc6.h
-@@ -64,6 +64,7 @@
- #define OA_TC6_PHY_C45_AUTO_NEG_MMS5		5	/* MMD 7 */
- #define OA_TC6_PHY_C45_POWER_UNIT_MMS6		6	/* MMD 13 */
- 
-+struct mii_bus;
- struct oa_tc6;
- 
- enum oa_tc6_quirk_flag {
--- 
-2.43.0
+In an ideal world, I would like to replace LK directly with U-Boot as
+you suggested, though U-Boot chainloading or uniLoader are also valid
+options. Luckily, the security patch level isn't really a concern here =E2=
+=80=94
+xaga is already EOL and hasn't received official firmware updates for a
+while, so LK replacement works across the final stock builds. I
+definitely plan to look into a proper open bootloader setup for other
+users in the future.
 
+> > Firmware behaviour
+> > ------------------
+> > Two things in the stock TF-A affect what the DT describes, but not the
+> > DT itself:
+> >=20
+> >  - TF-A rejects CPU_SUSPEND for about the first 40 seconds after boot.
+> >    The vendor kernel lifts this earlier with a SiP call, so with this
+> >    series the idle states only start to be used after that time.
+>=20
+> It might be worth porting upstream TF-A too.
+
+Agreed, upstreaming TF-A support for MT6895 is also something I plan to
+look into eventually, which would let us drop the reliance on the stock
+TF-A quirks altogether.
+
+Best regards,
+Alexander
