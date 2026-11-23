@@ -1,94 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795402557;
-	b=eZ72Z+m7hE0R4jQCBqqwCmUiJx/OQrv823wfn9uDg1QwWfeWwOBTOIpYyt0EJAKZ7A3T
-	 WAbykD5J8yYJ2APQ7JVbgCy/7BipCKrVMj3Aw0+wjiB6HRaW9QIISYKSBYbX03SbNeIvb
-	 6O2IGl3EcXRgg8gm1DcJO5rIY2muTKV1zK/Qcin2E4CJb65VdTw6gdiRF1aunpX45uxSj
-	 BWU5o/RvK+TURG3hIAv1uzt7SqvVWexLKElcwu5SdWp++vJQfJrCbQa095s50HthbL5Yh
-	 zdGd97AQ0fjfCbnEriQKek5sxDBRdB+Zw5BcjLc6oMeHjQJhdytskMX+DjW7hSQYk1w==
+	t=1795402564;
+	b=TYd1H0Rbxb6VStjCAnh8TUoa8fMG3IP6WqudMcSjoOW3b3JEqmHQC7VixmLe8spYjxO6
+	 L0g5SMT9Yyen0PHkFX3H7/wGcxjiSQOp+TY4V5C+YKoXWUmTxJXWePhRgeL9F+tOAxeM+
+	 VxWZg7WytLKEFTa34rzyVdHk9IhW+F94HQ7vypLuFdZ+dTtjEG14TNC1uIVbui7P6D6ZQ
+	 g+pv1lI7cO8ey74bXhhX5TaIwFj+/ct2pvLqELCL6inxxh1dPdgBNKy0HkLbE00PkO4O6
+	 AF3HEOsiCnqVTpnp8Pu83sX/EFLEeHJ7i4NzJ6smgZd7qGOZLKXlXr26kcagkpHJPzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795402557;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=EqIOeSS4maIZYOpQoaKUyGKVvkKQ3ikaek+A4bdInE8=;
-	b=BYNFVsnbPjWV+UkavUPb3y0VvLlY/QsslfGw/w6ZvkVNSF4iM6BE6DS9PIOIAdzxKHuJ
-	 pw+KnYJhpG2b696P6rG3ZAmLEAfTrasKnRDhA/McChXvTX6aAHVXOTjExvoTJWg+Gxrsb
-	 7dYRuL+Z6aEcakcKYNsqHgh/izNc83MG9Jjaa6/LBmZAZyi1pXmP7XLo2IcltMX62FCjf
-	 dwmfckYwO7mmu0aBQeiRNP4Jh6BbJx0WoL64Mxge2yGY7cyQJnyWrrXjJlNg8/kdyEu8n
-	 mzHZl6v0yeCNAtq9eWsTSY/zmFjy8B/rvJGj4dggOewcdVHW7J4jK+cXYO5u8AiBxrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795402564;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=YFSznwul4THjiRPoamb1lX23kbVJJNs3MzKLdDW2q64=;
+	b=x16a0f9DRvI/tLVOKoimtOdovr3T8Gjs0awBP+r0GnnP78d0y8ivuLte5V64C0hW2mcw
+	 laJiUEQ9J0Y07f4rbIV1KqMcUCr3MaVfBVEtJg1NqwzabkjpBlV8tlNWNnKzirWUgZAsY
+	 wnxABGTCvYqpr+ER1/3kVZfxDd/Bmd7aWX2sZ+c54DqXPzxoaYp0Jqb0LdZDZQ0Wy6Xn6
+	 jZe1MXQGw9ggRUVWzunGxlDNn5+cshGzPhhCmqTjXtI5CMNKUrc/ZtJ3PcqzvRPsfFHkP
+	 t0N2IhykAY3lAMIbrjjyvYOhWBImqGhqSFsOxDPululCXK7mkNlsT2nrkn7tr+NqIgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=TfGLRmUd;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=thnyPV7n;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 656EF606A320;
-	Mon, 23 Nov 2026 02:55:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 656EF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4092F606A32D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:56:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4092F606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=TfGLRmUd
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 1E31040E0219;
-	Mon, 23 Nov 2026 02:55:54 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id gFa_PkNtywMx; Mon, 23 Nov 2026 02:55:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795402551; bh=EqIOeSS4maIZYOpQoaKUyGKVvkKQ3ikaek+A4bdInE8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TfGLRmUdtzJnW/la6ViMQTiSwsoL3R0A1zfTDHeSvfANolurh0+sxxj5KxR5WFpaC
-	 KW5hVzOm4QsNKoaJutroDVXQIO+wH4NhfKPoKme+rNgCR8YNCU3dINxIunsq3sFUYZ
-	 WjwDX5aospN/W6+SWH8ULNnGWT1iHgPPmZ7o9pkJ96SyRK/4aCqvBkDwFdjZsgQ4XE
-	 AzAdLT+dVvOlc31X7ofEpdbmjEOMMsuSET96FpMjcZmOPX2bHuNLSaMIWLUGmje6YA
-	 13kkrGqdyun1KyeNs2Ual1cV/454cpkJYrgJmXhwoMClxsDUI7ftGh+jv8E1OZdgeP
-	 NFjH2TK6nAhnvEPyiz/c/c5zH76ckDIi0sDQAXTxyYEKihMhAtJEXUrbo96Qt4y9La
-	 3RGyzBwdx9s7aNYDIv/UuowNUthUHbUvM7qoqp5SXI+6eCytBg5A4SLP7OHbkYFGty
-	 wWJ+RgnKc3iK34rUNVLu4LWUD8PzgrdQC6MEsxUsJN5TyGASFXicWSRhV5nwjAU5sA
-	 5IaD1EtkIMm28NHomPDDu5rCunoyhssYwgVJL8LpibAz3D6hXpBleIpp834IeLOjiv
-	 61hfZjgMLdhKX+47aMfRqi+zl8c6DDTQLC4D0/Hka6y3XeAnIcuvAM0GZL2mqVWRCa
-	 YqAaVeyZWX4UUtBdaCFL6C0s=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 5C0BE40E0240;
-	Mon, 23 Nov 2026 02:55:32 +0000 (UTC)
-Date: Sun, 22 Nov 2026 18:55:29 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	kkd@meta.com, kernel-team@meta.com, x86@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
- user address faults under SMAP
-Message-ID: <20261123025529.GDawOrIQcDOPhgWwF6@fat_crate.local>
-References: <20261009024925.3169077-1-memxor@gmail.com>
- <20261009024925.3169077-2-memxor@gmail.com>
- <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local>
- <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
- <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
- <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
- <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local>
- <CAP01T77EgbuyhP=zU9L1hwYL6rHaSbrqQZGJR_+9AQgSWLe7Nw@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=thnyPV7n
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN057hI708047;
+	Mon, 23 Nov 2026 02:55:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=YFSznw
+	ul4THjiRPoamb1lX23kbVJJNs3MzKLdDW2q64=; b=thnyPV7n4lxnB53k1W+8k7
+	Zh22DgL2x4kpzxCU4n8h98ZgdUTT29ZQmvugRgrBJyAhwCUcM0zbThhlmlyIGMwt
+	QPUwTHUQJ6FFEdmZLFe6Piluw2FA/AFJ4L/au6ss3mI3hImP+J2AoI0uPNaDnCEw
+	skH4qxzysDaTmomtULCPY8Bay2b72tqjyLZdGtBxM+seX7+flerMI0U9nCfxu6yM
+	biXemCw1/kVFJXwMCyJFKIZaYL7SaMxRYcFwy2FVQCHnYnd+7vqwVyt3xm5QshjF
+	Hvj7pzsZKWeTfz9pn3kKZjwnaj22FmsRTwiFKfKEVQi+2BBmBrczhjpt6UZF2kZQ
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p48y12-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 02:55:53 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN04Ier2492322;
+	Mon, 23 Nov 2026 02:55:52 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmjw4mq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 02:55:52 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN2toC148890356
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 02:55:50 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B181F2004E;
+	Mon, 23 Nov 2026 02:55:50 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B92552004B;
+	Mon, 23 Nov 2026 02:55:48 +0000 (GMT)
+Received: from [9.124.222.251] (unknown [9.124.222.251])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 23 Nov 2026 02:55:48 +0000 (GMT)
+Message-ID: <7446f558-5cbe-4efc-b6bb-686d0dca9f42@linux.ibm.com>
+Date: Mon, 23 Nov 2026 08:25:47 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,49 +86,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAP01T77EgbuyhP=zU9L1hwYL6rHaSbrqQZGJR_+9AQgSWLe7Nw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [linus:master] [virt/steal_governor] 1fb28c664a:
+ WARNING:at_kernel/sched/core.c:#set_task_cpu
+To: kernel test robot <yi1.lai@intel.com>
+Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
+        Peter Zijlstra <peterz@infradead.org>,
+        Yury Norov <yury.norov@gmail.com>, Ingo Molnar <mingo@redhat.com>,
+        Vincent Guittot <vincent.guittot@linaro.org>
+References: <202611230353.1fedceba-lkp@intel.com>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <202611230353.1fedceba-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAxMCBTYWx0ZWRfX0v3I1rnqiqPT
+ LarYbEp5VfXMe+9g001tqkysy95On7woTE0Byy6R2DDoOwGCOSTDH0C0D9v8hknZgyPIMQ+gVrR
+ JmyZUwR3mFy2oWztfNN/RcHscro6yFI=
+X-Proofpoint-GUID: bD7wYORhpYACfIPFGE1PpanjkWif1fc2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAxMCBTYWx0ZWRfX9NXgGu5yiOgc
+ TQV/LHUT1oBfLhkVz9t5A/glICSohW5RUA8mbwV7t4RzGPHP0txAA9fzKGoD5qBDA5a+JWK06x1
+ Yo1ymvxCnwwfgXVnA6HoH3vPSrZkpCNMJvVDY6P2JpBcCXstwfZ6p6PE+ePE33/2utmuk8FbgAB
+ SwpP8MEPHQuMxxtpORslFd5OgGt/tQ2pJpeou+Z/eXDS2uW4lfaZIFcNpw5U2Rw9A3DYvg7R/Ub
+ FrlNizbg6wc4K0D0gCplBVJbzo/n9BZeuMj96MrBE4enPpmvbf44XLf3bKRjfxdtwahfrid+0AP
+ +jzRzGlwgM2weQp6jA7PPbVYP9S11w8moTnMEKa3zWPDJcACdYMz5Q+oI9oL9DHm3VTcUBQ1yoy
+ x/YGgWF1HUCsCGwihdqSh/cy7RLNxIarCvRDUSOtsQCyw9Dqft29uLetYJorwGJDVNnoqlJskdP
+ fnmqY6p6NPvm2fv9uiQ==
+X-Proofpoint-ORIG-GUID: HnhvroMrt56rqqaZH5zbMCxsznf6p5so
+X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b03ab39 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
+ a=QyXUC8HyAAAA:8 a=i3X5FwGiAAAA:8 a=NEAV23lmAAAA:8 a=fFnH5_pNhh8L5P8pgyUA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=mmqRlSCDY2ywfjPLJ4af:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-22_06,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ bulkscore=0 priorityscore=1501 clxscore=1011 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230010
 
-On Mon, Nov 23, 2026 at 01:59:32AM +0100, Kumar Kartikeya Dwivedi wrote:
-> I also don't understand your security concern. 
+Hi.
 
-Was:
-
-"the only line of defense is for is_bpf_text_address() to really DTRT."
-
-not clear?
-
-Do you want me to elaborate?
-
-> Thus far, I've tried to provide reasonable explanations for this
-> change and clarified how it impacts nothing other than BPF's own
-> behavior. At that point in the fault handler, without this exception
-> handling fixup, the kernel will panic.
+On 11/23/26 8:17 AM, kernel test robot wrote:
 > 
-> Instead of paying instrumentation overhead to get to that point, we'd
-> like to shift that cost to that path, that is already otherwise going
-> to lead to a panic, to instead continue the BPF program.
+> Hello,
 > 
-> I don't think being dismissive, telling us to "go back to the drawing
-> board" without understanding how BPF works, or arguing "BPF people
-> will do bad things to the kernel if we accept this" leads to a
-> productive discussion.
+> kernel test robot noticed "WARNING:at_kernel/sched/core.c:#set_task_cpu" on:
+> 
+> commit: 1fb28c664a19df8d45a6afa04d28d102b04ea680 ("virt/steal_governor: Enable the driver") https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
+> 
+> [test failed on linux-next/master 909ef7a9a30fa139e69e555e3606680f5cca7726]
+> 
+> in testcase: trinity
+> version: trinity-i386-abe9de86-1_20230429 with following parameters:
+> 
+> 	runtime: 300s
+> 	group: group-00
+> 	nr_groups: 5
+> 
+> 
+> config: i386-randconfig-2105-20261109
+> compiler: gcc-14
+> test machine: qemu-system-i386 -enable-kvm -cpu Haswell-noTSX,enforce,lm=off -smp 4 -m 4G
+> 
+> Additional analysis by LLM: This commit only adds Kconfig/Makefile wiring for the STEAL_GOVERNOR driver. It contains no scheduler logic changes. Its effect is to flip on CONFIG_PREFERRED_CPU for the first time in the series, which activates a block of previously-dead code under #ifdef CONFIG_PREFERRED_CPU in core.c that had been unreachable until now. The commit to be blamed should be 74699f56ebcf — "sched/core: Push current task from non preferred CPU".
+> 
+> (please refer to attached dmesg/kmsg for entire log/backtrace)
+> 
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <yi1.lai@intel.com>
+> | Closes: https://lore.kernel.org/oe-lkp/202611230353.1fedceba-lkp@intel.com
+> 
+> 
+> [   61.829095][   T33] ------------[ cut here ]------------
+> [   61.830984][   T33] is_migration_disabled(p)
+> [   61.830988][   T33] WARNING: kernel/sched/core.c:3422 at set_task_cpu+0xb7/0x180, CPU#3: migration/3/33
+> [   61.834561][   T33] Modules linked in:
+> [   61.835867][   T33] CPU: 3 UID: 0 PID: 33 Comm: migration/3 Not tainted 7.3.0-rc1-00053-g1fb28c664a19 #1 PREEMPT(full)
+> [   61.838952][   T33] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+> [   61.852825][   T33] Stopper: sched_non_preferred_cpu_push_stop+0x0/0x120 <- sched_push_current_non_preferred_cpu (sched/core.c:11340)
+> [   61.859715][   T33] EIP: set_task_cpu (sched/core.c:3422 (discriminator 2))
+> [   61.861346][   T33] Code: 6c 08 00 00 83 c0 28 83 c0 10 e8 a4 a9 ff ff 85 c0 75 02 0f 0b 0f a3 35 5c 65 60 b4 72 02 0f 0b 66 83 bb 5c 02 00 00 00 74 02 <0f> 0b 3e 8d 74 26 00 eb 32 64 a1 14 50 7e b4 0f a3 05 5c 65 60 b4
+> All code
+> ========
+>     0:	6c                   	insb   (%dx),%es:(%rdi)
+>     1:	08 00                	or     %al,(%rax)
+>     3:	00 83 c0 28 83 c0    	add    %al,-0x3f7cd740(%rbx)
+>     9:	10 e8                	adc    %ch,%al
+>     b:	a4                   	movsb  %ds:(%rsi),%es:(%rdi)
+>     c:	a9 ff ff 85 c0       	test   $0xc085ffff,%eax
+>    11:	75 02                	jne    0x15
+>    13:	0f 0b                	ud2
+>    15:	0f a3 35 5c 65 60 b4 	bt     %esi,-0x4b9f9aa4(%rip)        # 0xffffffffb4606578
+>    1c:	72 02                	jb     0x20
+>    1e:	0f 0b                	ud2
+>    20:	66 83 bb 5c 02 00 00 	cmpw   $0x0,0x25c(%rbx)
+>    27:	00
+>    28:	74 02                	je     0x2c
+>    2a:*	0f 0b                	ud2		<-- trapping instruction
+>    2c:	3e 8d 74 26 00       	ds lea 0x0(%rsi,%riz,1),%esi
+>    31:	eb 32                	jmp    0x65
+>    33:	64 a1 14 50 7e b4 0f 	movabs %fs:0x5c05a30fb47e5014,%eax
+>    3a:	a3 05 5c
+>    3d:	65 60                	gs (bad)
+>    3f:	b4                   	.byte 0xb4
+> 
+> Code starting with the faulting instruction ===========================================
+>     0:	0f 0b                	ud2
+>     2:	3e 8d 74 26 00       	ds lea 0x0(%rsi,%riz,1),%esi
+>     7:	eb 32                	jmp    0x3b
+>     9:	64 a1 14 50 7e b4 0f 	movabs %fs:0x5c05a30fb47e5014,%eax
+>    10:	a3 05 5c
+>    13:	65 60                	gs (bad)
+>    15:	b4                   	.byte 0xb4
+> [   61.870903][   T33] EAX: 00000002 EBX: f5381300 ECX: 00000000 EDX: 00000003
+> [   61.873346][   T33] ESI: 00000003 EDI: b614bf00 EBP: b614bebc ESP: b614beac
+> [   61.875803][   T33] DS: 007b ES: 007b FS: 00d8 GS: 0000 SS: 0068 EFLAGS: 00010002
+> [   61.882493][   T33] CR0: 80050033 CR2: a6af0000 CR3: 45267000 CR4: 001506d0
+> [   61.884849][   T33] Call Trace:
+> [   61.889217][   T33]  move_queued_task (sched/core.c:2596)
+> [   61.890818][   T33]  __migrate_task (sched/core.c:2644)
+> [   61.892297][   T33]  sched_non_preferred_cpu_push_stop (sched/core.c:11292)
+> [   61.897538][   T33]  ? tracer_preempt_off (trace/trace_irqsoff.c:692 (discriminator 1))
+> [   61.899325][   T33]  ? trace_preempt_off (trace/trace_preemptirq.c:127)
+> [   61.901048][   T33]  ? preempt_count_add (sched/core.c:6056)
+> [   61.906016][   T33]  ? __balance_push_cpu_stop (sched/core.c:8397)
+> [   61.907819][   T33]  ? preempt_latency_start (sched/core.c:6030 (discriminator 1) sched/core.c:6023 (discriminator 1))
+> [   61.909635][   T33]  ? __balance_push_cpu_stop (sched/core.c:8397)
+> [   61.911466][   T33]  cpu_stopper_thread (stop_machine.c:510)
+> [   61.913093][   T33]  smpboot_thread_fn (smpboot.c:160)
+> [   61.917838][   T33]  kthread (kthread.c:436)
+> [   61.919260][   T33]  ? sort_range (??:?)
+> [   61.920703][   T33]  ? kthread_affine_node (kthread.c:378)
+> [   61.925663][   T33]  ret_from_fork (x86/kernel/process.c:158)
+> [   61.927228][   T33]  ? kthread_affine_node (kthread.c:378)
+> [   61.928980][   T33]  ret_from_fork_asm (x86/entry/entry_32.S:736)
+> [   61.933831][   T33]  entry_INT80_32 (x86/entry/entry_32.S:940)
+> [   61.935410][   T33] irq event stamp: 108
+> [   61.936744][   T33] hardirqs last  enabled at (107): _raw_spin_unlock_irqrestore (linux/spinlock_api_smp.h:210 (discriminator 1) locking/spinlock.c:221 (discriminator 1))
+> [   61.943224][   T33] hardirqs last disabled at (108): __schedule (sched/core.c:7225 (discriminator 1))
+> [   61.946108][   T33] softirqs last  enabled at (0): copy_process (fork.c:2239 (discriminator 1))
+> [   61.948970][   T33] softirqs last disabled at (0): 0x0
+> [   61.955261][   T33] ---[ end trace 0000000000000000 ]---
+> 
+> 
+> The kernel config and materials to reproduce are available at:
+> https://download.01.org/0day-ci/archive/20261123/202611230353.1fedceba-lkp@intel.com
+> 
+> 
+> --
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
+> 
+> 
 
-Lemme try to parse what you're saying: I don't understand BPF, I should not
-question the BPF "design" and I should simply shut up and accept your change
-because you keep repeating the same argument over and over again - performance
-- and that is absolutely very important and the page fault handler should be
-changed to special-case bpf programs.
 
-Right?
+Could you please try with below patch included?
+Symptoms seems to be similar.
 
-Anything else I am missing?
-
-In any case, here's my answer: NAK to that patch.
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+https://lore.kernel.org/all/179538776083.92412.4311246927428883759.tip-bot2@tip-bot2/
