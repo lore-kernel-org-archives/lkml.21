@@ -1,113 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442187;
-	b=Teye9QPMWMaXE4/04MD2xRJVVr4OnaBtF6FDzdjBE+t7qRrt0X+3Iulqio/jFdDMYrzD
-	 wv68asRO07fiYTulmZ8TbTKhNl215C8+ECrtk8nEktBTKeoOz5IKXUCXuGLyFV3zP5W2r
-	 dnMoLMjGynTGQbCNGQ6a+ukpfA7Q3K/l+9Vt/avrSxitPP3/tkIUI1dYBPT7AV7zSc9QO
-	 6oFmyqTRZyfCnkzTEo+V6/krxe/nO/GgP05mW/lBsp+pDSdh00TFQ5N6DsLi56EMntGOl
-	 Pm3AS4UMnieEnQrmdBcGOqCogm4N+vUUutDSDgL2h17OzkKCruJYzsmWWcZy/c7y6bQ==
+	t=1795442183;
+	b=mO6bIJWDAxoeDwrjHEjkaSHYxap3VkA6mKV1U6IOPZqxO6r8aGvVbQzcNpBqUyesu2Ac
+	 KtLoTvp/WgCGeeFBFq2xSiN0ltvl3YpYTc29/7ZxSZZ3lWqlzaYchDve0o7PGi2+1H7R7
+	 X8xQOS7l68nF4hJrOTiM4NmONZEEGiXPMoF9DdSq1xIdVanFyiwBZXBW+LuK0LyTq/Own
+	 H2JmhXPPeJSv/+2vKgInB/91nOKBoT6ixqYUKXokXIsZibCIbZT89HAevx9ZjjQq9k1N8
+	 2Ve7PP7PmYKyKEZaIJDHPmWUc+9ptJa9ogoA3d9zJJcWn2FbwuXZi+cgHFfih9ifYJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442187;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=fdPleMKS2IC93aynK6NEkJ3p446vokYhvbwvmK8b/Kk=;
-	b=S7GNglniLtp4PCenLPvUmoj+JF67ReMya07xuns+nSpekvOALn7QuFoWcys3MPPBg2CS
-	 buU1bVCUJiTBNgJjQbfzfxv70Ulmhk664VKw+np0/UGK4PuPNimE8EMqhESQqmPRwGq8y
-	 jlKihPUp8qhHx+a3ug3Q7fYUT7rSNIRGUsd3OAxTOITIo2RigxJvJL8UyeduNmkiUbwTo
-	 muwPgLpvcFCF/L2lJVZkvK5Zn9C6k0pGTdPoMg5dh2ALKaPQ6bqNGxrApyQKUDRyM1Qbt
-	 3+g22HiEox5VA+eITPbfAffhXT63s9jH5GOtMyD49SeyhKRy7xCalMiBavF3Jzr+qxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442183;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=elXleLjGMgaKjWSrc09mBM5vLGTodPWNVJvKoRwMpAE=;
+	b=0nGv87JzgPWWf/EyJ3ZmLqUbfMAFzZJ9aQrytiPGynzEbXxo5RzfKjFby9ABGzHIrhzA
+	 zm56AgOeYs/QWT/Th9m1ZskSXa3B0c7PFkCEwXipx4GLXFuYmVR35bUutU9xG0Oq3hKvn
+	 M2TiL2bfFIk1rY+b8tdkY8ZzVcNgoFHuP5CqFOM9me1y5HzjQiSKIKYJqDQBLnJ0Q1cgE
+	 Ngy09mCCmYZDYC9UDnn7gNf4HMLkytE9pbmKige/MPgYR9C/wKeLPvEQ16QonN+/c0iRb
+	 S0i3sm1ln65Jhaz13Dk98fZc2DNPtYquM06SgZG/G9UqWPt+XVsGkOwfIi7s7YyPGmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=abTfYYKd;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DmpkH3NC;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NRz5uADo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F321606A699
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F321606A699
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DB8D606A336;
+	Mon, 23 Nov 2026 13:56:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=abTfYYKd;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DmpkH3NC
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDL0aq3072381
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fdPleMKS2IC93aynK6NEkJ3p446vokYhvbwvmK8b/Kk=; b=abTfYYKdVVxr89hG
-	gG7xas1cvb2O9ZkTi3giz7uXwF+Wl/+Sa0ez4lSmOqUee6+Ouh+3ZhMPOYSoFL5H
-	NnZTTBtSE15Gxh6LGjXJDDTw7TF5FNfsXC/Uy3ufbPn/PZ6bqQiXyoFqCeJDo44M
-	4GJVH05GJvJS0KACNC4YSisoic9I2dpZKVEsxEiMztK3gNtCHXhELui7pQzOuLNI
-	A4wnVzBtjZQnOMF4F18mDhRPKtbEMqS6rvmellhk6GMgL4qZmNz5HQphOUUd+IbY
-	+S6cp1fIcIG9Gm8UembnMBIog2Kz+J4gLllY7nVXw6xBEtRxGLm3sAlfkS6OxGVN
-	RMDvww==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4hn7s9sm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:56:26 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-9213237a52eso63620846d6.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795442186; x=1796046986; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fdPleMKS2IC93aynK6NEkJ3p446vokYhvbwvmK8b/Kk=;
-        b=DmpkH3NCBuuRUnlyNwToYClpWU8Fij3c4cxS9TEoMctX6+TJPycE368lwVpDZS++IL
-         lTuPhzwR71zgAE+NMzHh9utJh265CjYOqTjCOVgahIuoQkltX7BZBZzCrGJK3RePKr1i
-         f9/05QAV6CKVAcQjygXZr3rBqd5k9V4cFSHOys6G33G/nMiHrwfM6SZSQb0oPiH6PPxB
-         El7PslY+/s95FZlEYR+cW/asEj8VqS38D69+UJbLluh6uiyQJwFJJmwmm27HZ4jZ7pGl
-         1h3ykO3MQGBmaPszg2wavS0j3u6Dj7Nz6otnSW3GYfo+ntw1Or0Z8JeU8Huv1oEgET98
-         vTsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795442186; x=1796046986;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fdPleMKS2IC93aynK6NEkJ3p446vokYhvbwvmK8b/Kk=;
-        b=oiV3iwMa1L9ZTTYdKeiYcW7AD/l5SFmsP6UsqnyCpgDnB0vAveR6DEMm1OtOqyq3MH
-         o055FGDnCNba/AZ2c7ThYpRUEPo1A5wFn1txrLScRzQzPEPqw96iKnundjJ5BEKVMcQ1
-         LjuxH+iM3yNlfaKJGtufl/6hhcOI6dCsMvbelajah8S28SYI2N+HK1DohIqcsozIL8Jb
-         2pQq6S3d81DZpO/Awo+vjSAe3RoWkjTtC92U9JJqgOm2TUhFpHX0uAYiRtCvqUmI6SFb
-         qIif22+BmAEb5M7s7AGp1lK23Y4eHdlG/YX3gxtcuvC7kdahtFeJeIVDRAe71yOHDc/P
-         xliA==
-X-Forwarded-Encrypted: i=1; AL+hErFbltULEUZ1R5tzDsG6YljTiTmhLFq8BdWSGfvvtf7GCjvgnzm3y8b6w8FSLcABHyTVx9LsJ2VYiXmUl4I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+uZ11LmXjccoYo+vfS1bMpNijrG0AZJaecdPj+MpzgSpD84oC4
-	t3W0JoxKVfGVQuzO7LIfXZN6vB4y8UjtxNoveENGbJJ4hsuet18bTo+ZHCImiF8mLpxW6M3lVID
-	VUFQJsYrUGZ0TeusKnnafXmAKe0ChSkHk9MIPzwNOyPcgQLNaI+2F0omYYj6bQRl86lg=
-X-Gm-Gg: AZFdTZc4OJ5cnHoz0GCigx3t+RoQ3nK7jzwULMj6gFB6+IleUxLTeqYaPcITH8DhFl2
-	FkN9nYk2+N718BaO4iswZH+UNVUTEZbNbseYGnJBRGHtzkfcejeKZrQ4cPKPUkaO52llkfhAz+o
-	T29RDiSFBBX/kcpw+iHTdJPMaqhRIlDJ5oLfMUNakCzcjaScH2MooSJAFJ7kf0ZPk0IE1vdMTH1
-	F1Z0fQkRP3moPv+Sff2kQIqy7llkXDVYSxR0gbt3YKpzWULY+fjqNzD8r3Ttjma8oDgoW045apb
-	g3QxyqkP/trZ8pyDsKuiULZFq5m9a5i583ucTV5wfqV3vWNC0SeN2EeTY2+Zvokmpblw37+7Ezz
-	Ya3kfl23kW6RXj/2X5cZigieW/Nb5Z4u1U5gAkWm2hr5MFfPhL4kRggd4sekySRMoe/Z04mFEYz
-	ldv3uo909p2+f31EMnwvRsV8hJ5rdW/+OM7NvY2A5Zb8rJlSPq9A63WMTxSby4A1wvFPGNRzIuB
-	2/ZN0EaZcNYRTHGUMf2x3x1yrK3
-X-Received: by 2002:a05:620a:4688:b0:949:b7e9:5d18 with SMTP id af79cd13be357-949ba9c4c88mr2022362685a.16.1795442185744;
-        Mon, 23 Nov 2026 05:56:25 -0800 (PST)
-X-Received: by 2002:a05:620a:4688:b0:949:b7e9:5d18 with SMTP id af79cd13be357-949ba9c4c88mr2022355285a.16.1795442185001;
-        Mon, 23 Nov 2026 05:56:25 -0800 (PST)
-Received: from QCOM-eG0v1AUPpu.na.qualcomm.com ([2a01:e0a:830:450:6c6b:1e5a:79dd:a527])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm21724625f8f.56.2026.11.23.05.56.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:56:24 -0800 (PST)
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 14:56:14 +0100
-Subject: [PATCH v9 7/8] dt-bindings: connector: pcie-m2-e: Add vendor LGA
- connector compatible
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NRz5uADo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E6A1F000F4;
+	Mon, 23 Nov 2026 13:56:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795442183;
+	bh=elXleLjGMgaKjWSrc09mBM5vLGTodPWNVJvKoRwMpAE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NRz5uADo/hFVviKJ6Ainl8m8Nr/ocsHLBaxwTwYWjmusvoc6QGcuzDHjYar9q4qW9
+	 7ZRlQZlZMbrSue5xTcqv7pJMUO2SZvaKAoPhRR1Qm+LiWNJcA3MO6/coG2l5kKU0Pg
+	 Y7zsazseshdglOKajxNSfhBXKj3md7Qzs0BZ6C6C3gNw9xc7Ngx9mPEKu/S2XcI0dd
+	 TRgHj3LdR2gJoC5DL30C9HjpzeBlQ3QEDIbT6FWA8VYmINieGjBwaHsp/9H2aNDMaE
+	 Hm7EYIQY+uc4ROb4Qql2TyNHPq63OTcOWqBWVL37Rbd3mVvxaF+UNoCaxVK2jS2Tz3
+	 jVlGtmN3GhxeA==
+Subject: Re: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
+From: netdev-bot+sashiko@kernel.org
+To: linma@zju.edu.cn
+Cc: dhowells@redhat.com, marc.dionne@auristor.com, netdev@vger.kernel.org,
+ linux-afs@lists.infradead.org, linux-kernel@vger.kernel.org, kuba@kernel.org
+Date: Mon, 23 Nov 2026 13:56:22 +0000
+Message-ID: <179544218224.3135.17101952241323509354@kernel.org>
+In-Reply-To: <20261122135515.3989708-1-linma@zju.edu.cn>
+References: <20261122135515.3989708-1-linma@zju.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,97 +61,167 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-monza-wireless-v9-7-450d7d764aea@oss.qualcomm.com>
-References: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
-In-Reply-To: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
-To: Manivannan Sadhasivam <mani@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Marcel Holtmann <marcel@holtmann.org>,
-        Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-bluetooth@vger.kernel.org, devicetree@vger.kernel.org,
-        Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Authority-Analysis: v=2.4 cv=Ls0HWXdc c=1 sm=1 tr=0 ts=6b04460a cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=VwQbUJbxAAAA:8 a=M8sXMW5dAYDte-7YvdsA:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1NSBTYWx0ZWRfXzczyKdfB7KIG
- IFU3tPjsZpnlLMmbYtGMtLAP1jP+4UJLAnwqfRxLvhoUm4BIkS4f4oKlzVZU4d66BoEftlnKgZn
- qTiTjGpcY7F4bdT0EhmFa+i175GXD3e4BS0UipjGDOw26QwUFmlPvRgZXdCtFmdCoPMUIa/wBHH
- joTHcXNRDVtKDWDOqr8IuMwL7r52HOvNLd9BjNC7E6Kno44Xtsi4Y1ZLmoxWIT76v+kTp40xzUl
- v7yqRQRk6AvPxjwaTFEyO80V7cq/9Ew+Az3vqyKimF2B5wbhkQFmi48Avmt3D7hQRVR5MEmSM4f
- VWNtNdHyCOls7MZh66SfSM5iYFVv94OInVsPFnwooriw8VAOpyovmMTv20CR2Afcml8Q4UYLVsL
- BT3VKUwzrs6C05kAAL76aOJPVIhyFUoU3xSZLKArwIYJ6RodGi0EvwaWoRHwqL0QFRsS8RYU2re
- hzLEd2sZ0mER6yIIX6w==
-X-Proofpoint-GUID: lgWUZtKBZqUPvh1pOOVX7wKqtQHFWmk9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1NSBTYWx0ZWRfX+PSyDenuoyg5
- MmkpboR1mdPqnybICTl8d4z1VUymqVxG6zLYFy3QhJP3i4KvGd0JMrdKR6fu1K6WurUdwVFCRqo
- uV0EIYxMJy6dv9FeyDAyE/msscf6iJs=
-X-Proofpoint-ORIG-GUID: lgWUZtKBZqUPvh1pOOVX7wKqtQHFWmk9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230055
 
-Some modules (e.g. the Qualcomm QCA2066/QCNFA765) expose the same M.2
-Key E interface signals but are physically soldered as an LGA package
-rather than plugged into a real M.2 Key E connector socket. Such designs
-are not actual M.2 Key E connectors, so describe them with a dedicated
-vendor-specific compatible while keeping "pcie-m2-e-connector" as a
-fallback for the shared signal semantics.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Add "qcom,pcie-m2-1418-lga-connector" for the M.2 LGA 1418 found on
-Arduino Ventuno Q (Monaco Monza).
+Critical: 0 (1) · High: 1 · Medium: 0 · Low: 0
 
-Add "qcom,pcie-m2-1620-lga-connector" for the M.2 LGA 1620 found on
-The Lenovo Thinkpad T14s.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
----
- .../devicetree/bindings/connector/pcie-m2-e-connector.yaml        | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+- [High] The fix is incomplete.
 
-diff --git a/Documentation/devicetree/bindings/connector/pcie-m2-e-connector.yaml b/Documentation/devicetree/bindings/connector/pcie-m2-e-connector.yaml
-index f7859aa9b63469cb43919c0b5719c18694c5364d..ce6173a0ec41cfe8ab4a5780940999c18674ab7e 100644
---- a/Documentation/devicetree/bindings/connector/pcie-m2-e-connector.yaml
-+++ b/Documentation/devicetree/bindings/connector/pcie-m2-e-connector.yaml
-@@ -17,7 +17,13 @@ description:
- 
- properties:
-   compatible:
--    const: pcie-m2-e-connector
-+    oneOf:
-+      - const: pcie-m2-e-connector
-+      - items:
-+          - enum:
-+              - qcom,pcie-m2-1418-lga-connector
-+              - qcom,pcie-m2-1620-lga-connector
-+          - const: pcie-m2-e-connector
- 
-   vpcie3v3-supply:
-     description: A phandle to the regulator for 3.3v supply.
+Pre-existing issues:
+- [Critical] This problem wasn't introduced by this patch, but
+  rxrpc_resend_tlp() can still pass a freed (NULL) txbuf slot to…
+
+--
+
+rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
+
+This adds a lower-bound check on the tail Tx queue segment in the fast
+path of rxrpc_resend_tlp(), so that it matches the slower queue walk.
+According to the commit message, the bad state comes from
+rxrpc_send_data_packet() failing to allocate its wire header. By then
+rxrpc_transmit_fresh_data() has advanced tx_qtail and tx_top, but
+tx_transmitted has not been updated.
+
+> diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
+> index 21be9c86d7a74..e5578779b3f74 100644
+> --- a/net/rxrpc/call_event.c
+> +++ b/net/rxrpc/call_event.c
+> @@ -141,6 +141,7 @@ void rxrpc_resend_tlp(struct rxrpc_call *call)
+>  	/* There's a chance it'll be on the tail segment of the queue. */
+>  	req.tq = READ_ONCE(call->tx_qtail);
+>  	if (req.tq &&
+> +	    after_eq(call->tx_transmitted, req.tq->qbase) &&
+>  	    before(call->tx_transmitted, req.tq->qbase + RXRPC_NR_TXQUEUE)) {
+>  		rxrpc_retransmit_data(call, &req);
+>  		return;
+
+[Severity: High]
+Does this fix the inconsistent state itself, or only one of the places that
+consume it?
+
+The commit message names the wire header allocation failure in
+rxrpc_send_data_packet() as the trigger. rxrpc_transmit_fresh_data()
+commits the new tail before it sends:
+
+net/rxrpc/call_event.c:rxrpc_transmit_fresh_data() {
+    ...
+		call->tx_qtail = tq;
+		call->tx_top = seq;
+
+		space -= req.n;
+		rxrpc_send_data_packet(call, &req);
+    ...
+}
+
+rxrpc_send_data_packet() then returns before tx_transmitted is advanced:
+
+net/rxrpc/output.c:rxrpc_send_data_packet() {
+    ...
+	whdr = page_frag_alloc(&call->local->tx_alloc, sizeof(*whdr), GFP_NOFS);
+	if (!whdr)
+		return; /* Drop the packet if no memory. */
+    ...
+	if (seq == call->tx_transmitted + 1)
+		call->tx_transmitted = seq + req->n - 1;
+    ...
+}
+
+Nothing appears to bring tx_transmitted back in line with tx_top later, so
+tx_top stays ahead of tx_transmitted.
+
+On the next pass of the while (space > 0) loop in
+rxrpc_transmit_fresh_data(), req.seq is still built from tx_transmitted:
+
+		struct rxrpc_send_data_req req = {
+			.now	= ktime_get_real(),
+			.seq	= call->tx_transmitted + 1,
+
+But req.tq is taken from the segment holding tx_top + 1.
+rxrpc_prepare_data_packet() then indexes that segment with the stale seq:
+
+		struct rxrpc_txbuf *txb = tq->bufs[seq & RXRPC_TXQ_MASK];
+
+Here is an example with RXRPC_NR_TXQUEUE=64 and a jumbo limit of 4,
+starting from tx_transmitted = tx_top = 60 and send_top = 70:
+
+  - batch 61..64 sets tx_qtail to segment B (qbase 64) and tx_top to 64,
+    then the wire header allocation fails
+  - the next pass uses req.seq = 61 with req.tq = B
+  - txb = B->bufs[61] is the slot for seq 125, which was never filled, so
+    it is NULL
+  - B's segment_lost, segment_xmit_ts[61] and segment_serial[61] are
+    updated for the wrong slot
+  - rxrpc_prepare_data_subpacket() then does
+    txb->data - sizeof(*jumbo) on the NULL txb
+
+If the wrong slot happens to be filled, does another packet's payload
+go out under this header's seq instead?
+
+There also seems to be a case where the call stalls. The loop breaks
+once tx_top reaches send_top. If the LAST txbuf was in the skipped range,
+rxrpc_close_tx_phase() has already run and tx_qtail is NULL. Packets
+tx_transmitted+1..send_top would then never be sent, because
+rxrpc_resend() and TLP only look up to tx_transmitted.
+
+Would it be better to keep tx_transmitted, tx_top and tx_qtail
+consistent on the allocation failure path? One option is to not commit
+tx_top and tx_qtail until the send succeeds, another is to roll them
+back. Either would make this bounds check in a single consumer
+unnecessary.
+
+[Severity: Critical]
+This isn't a bug introduced by this patch, but can rxrpc_resend_tlp()
+still pass a freed txbuf slot to rxrpc_retransmit_data() even with the
+new check?
+
+A peer can send an ACKALL during the send phase. That is
+CLIENT_SEND_REQUEST or SERVER_SEND_REPLY, before the LAST packet has
+been queued (e.g. sendmsg with MSG_MORE):
+
+net/rxrpc/input.c:rxrpc_input_ackall() {
+    ...
+	if (rxrpc_rotate_tx_window(call, call->tx_transmitted, &summary))
+		rxrpc_end_tx_phase(call, false, rxrpc_eproto_unexpected_ackall);
+}
+
+rxrpc_rotate_tx_window() puts each txbuf up to tx_transmitted and sets
+tq->bufs[ix] = NULL. It keeps the tail segment, so tx_qtail still covers
+tx_transmitted.
+
+Since rot_last is false, rxrpc_end_tx_phase() isn't called.
+rack_timer_mode stays at RXRPC_CALL_RACKTIMER_TLP_PTO, rack_timo_at stays
+armed, and acks_hard_ack isn't updated.
+
+When the PTO fires, rxrpc_tlp_send_probe() checks the stale
+acks_hard_ack:
+
+	if (after_eq(call->acks_hard_ack, call->tx_transmitted))
+		return; /* Everything we transmitted has been acked. */
+
+tlp_serial is 0. tlp_rtt_taken never seems to be assigned, so it differs
+from rtt_taken once an RTT sample has been taken. If send_top equals
+tx_transmitted, or there is no window space, the else branch calls
+rxrpc_resend_tlp().
+
+In rxrpc_resend_tlp() both bounds checks pass, because the slot index
+is correct and only the txbuf has been freed. rxrpc_retransmit_data()
+then does this with txb == NULL:
+
+	struct rxrpc_txbuf *txb = tq->bufs[ix];
+	...
+	txb->flags |= RXRPC_TXBUF_RESENT;
+
+Could the TLP guard check tx_bottom instead? Alternatively, the ACKALL
+path could update acks_hard_ack and stop the RACK timer. A NULL txb check
+in rxrpc_retransmit_data() would also cover this.
 
 -- 
-2.34.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122135515.3989708-1-linma%40zju.edu.cn
