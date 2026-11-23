@@ -1,95 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795420914;
-	b=c1YtfGHE2o8PbT7j2HXGT5Ephdfdtt1ZMzu3MwRX/x66oOjbyXnhy0qBPBR6fWEYf/LG
-	 CY3fSDT15l43mil/VR3ur400GUvtmAQqU3G8l13uE2vBglnAvqOo9c/lefeKSekn34Frr
-	 sBoCT+N8z6yy7xcE3olU7hEAZXJeA2NCfxLMta1hTuQyNlnns/+ypIxUeCpPJZvufbVKe
-	 VpQTbp1X3KTgQTTfqc5V1qZigtPqFln0qbUgVCSChOryyJx3Fz++Q+CgikKMeLsp1Wg68
-	 mBnSYgx5xAB18UTFj/X3ev2varEAyKjHb9cXr5pI4V01tXzcTA1kRC59K559JD+mlDA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420914;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=2Oe8xtm7pow8VC4d7i9frDEEloTRb4wcG8wd5PhVyJc=;
-	b=HoK8sAf882sjLP1V22uikKZ56z+4hbeUwVrbzCTRqrFj8SqFMNb0eUa1vrwCMZztZSir
-	 uX5D7GDV9QMYTJWZ1GEcNpqTa/T98nq4Y8ObreVODr/KuV9dzza11r5lxIylpnv07kMNr
-	 08qclzZNaCupR5W5R67qJsb3BYTnAr9nF7QLW+Ja9GrNDlyrfJpjmbRWi37pQvvqg/RQt
-	 3daCSrIs4J3omjNkCwN1G2JGEo+OD3ePnRVBtiNg7RorHEwY+svMxx3j8KWoXaO+dTo0a
-	 8qLylVs4qKAIpghbSSTmLK9Qv97QlLL25kUCIBu4oOEdGpgMspp+TmFAPpPY6DFuJTQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Ni5u3a1q;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795420945;
+	b=ab51vdNFQqnyOmWgXJYT0i9s/+vHox/tdyj8dctuw5KxJ35asMS2iI6nPhvpXc/PLbDt
+	 y+wteLhJ1rPdkZT4FFTdG2k8C3fd521cMOxK7Imbml4UboGa1uHf1kCweLP5av7rOQQ6H
+	 MAk6ixrGNMeP7luPK7fYLgpvzYdHl8SbpSYvSMrxKohhB0kO2x6S+rMtctRNRhc8IIhy2
+	 eqI/x4j7LI7hK8dQOSz+3kj1aacx5ssvyTK1ebGHrnLcLxC6sGLML3xpn20utaDU0cBLn
+	 A8bOq06R+2ij95RBlKdoEZldA4ctQEFhg+kYill8mO4iYc+JcPPMggJD/8OxKQEd2fQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420945;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=9MO+FscP0oLuSA6HQ1IcEy1QVZX1vKoTYNCXPCvUOQw=;
+	b=Y5cMbh5kwb7T2aF3xs+feYEMJlqZLCRHfjH+1vKKbZuhQUFjNyv8YHYP9QNLYC1dDMFe
+	 13H2q34VVWp5ljFXYoqKmloVfmzywlJcXqmyBnXJ7IdHEhtl22xZwKZixfBMTffSGS+uA
+	 72cCdkrGQEJM4oWnT+W6888+ewX1BLxhtg+X8SDQHlzLKcEVxfWpuQk+KI/0karTyuxpg
+	 RFSNXBucuZ/iC2afFsbQQ0Azp1JhL71l8S+BTeqIecsUAe5DvPK8wCUuVH25qYnUZlWTi
+	 GwUl7sxUHPX8HSpFReA2IfP7R8fXIMsCxHFOODobEZhj0eWf17fFxJpYU/vBChUSB4Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0eJ0Gge;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B92D606A31F;
-	Mon, 23 Nov 2026 08:01:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B92D606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29857606A68D;
+	Mon, 23 Nov 2026 08:02:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Ni5u3a1q
-Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
-	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id D119C2007F9;
-	Mon, 23 Nov 2026 09:01:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795420909;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Oe8xtm7pow8VC4d7i9frDEEloTRb4wcG8wd5PhVyJc=;
-	b=Ni5u3a1qu5ZXUsOLAA04P6YF4iV+WrFmKIrAxYNoRmbYZ8ojo8wDRVjmTXpISJjeDKO7TX
-	yIdFBYAxWcVPq50Un1UDnwrASe9DL4K7PH2qN9p4LZ6Q20Zilf9qGhVUUrOga+L5Tn9FVj
-	Z04t0EBjLpSHkNYLr3khzTbQR79sHuZMpc9soVbzlIXdEVtw2G5NvDzwNt02GVrPdIAUAK
-	3b4M40b6/morAcjISryarB3BH6Qun19FgUocetZwQxTFj19QbB8YcOmWVljgXhkRmZwJ/M
-	bOT6OC9EDwVhOxBo1VGmETXibOXq41qMJiPLqbFFMXOXHPXxT5Hgjq7pw4ctRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795420909;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Oe8xtm7pow8VC4d7i9frDEEloTRb4wcG8wd5PhVyJc=;
-	b=JINlDwnJTFRSn72f4PG5V0rxB+TBsAMVkudQj3NBAno57mfjTd7pPmitaW9y+/xqj9YDjT
-	LkBF5zQhVbMuqmES4sHZFpl20jA4sAtTN3Mdd5FML4TpcT/nXtPe6u5tMtiwSC5NT2D6Lf
-	gZIu3RHUcct36i+hqoMo2LJOrDNuD3zfaIxfhsy38UYSfQW2yCewVdFM/qKnHtOMCXTxJh
-	GouvqM60wjCjJjlUTMiU8ef89DSjAjqkbXkgxIkVtq+gTSOifCO3YTCyCDAzNZvapKIvQV
-	f2iXVfGZKg9a48NY6Q9YrkvckKYIkdQ937/BVxFJQI6EsxVVH+iicL7H/Ak8OA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795420909; a=rsa-sha256;
-	cv=none;
-	b=QlWyuq/LbLFrnDOxziWgNExz5muwm19RuRrEUL8GkksVkQ3RDSRH5TwhLEr/htfSE7hs9k
-	GAP3VXOugmpAa9q19RsFsbiaB/CaZ/735OO7ZMyZg7Pa/1AxbOSuxzKSnh5iGGFjXrONHK
-	kXU9ZZoyyc8JHi7k5oHTjHqB9Wg5MDU7iq0oSQ/4qnAphIywBiKOR2JKBsymcwYrM3WFu6
-	hbuH/q7ceay2BuuSscBCZTEcHukNrcGdgV2QkgwH8qcq5HGvbh5IxG7x3TwObk3aaEbuMe
-	YmIDpf1mu4E9Mp+9zB1MJCaut2URTMFXCucPYi7sS0/VMZ2FNpSj5cFxGkPSXw==
-Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
-	id B8B301BF7B8; Mon, 23 Nov 2026 09:01:49 +0100 (CET)
-Date: Mon, 23 Nov 2026 09:01:49 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Gustavo Foletto Mora <gusfmora@gmail.com>
-Cc: Mieczyslaw Nalewaj <namiltd@yahoo.com>, linusw@kernel.org,
-	andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
-	linux@armlinux.org.uk, luizluca@gmail.com,
-	maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, alvin.sipraga@analog.com,
-	kuncy7@gmail.com, fabianotassotti@gmail.com,
-	gabonpivovich@gmail.com, contact@c127.dev
-Subject: Re: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add
- support for RTL8367S-VB
-Message-ID: <awPy7Wxq-_ukUNfG@pengutronix.de>
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
- <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
- <CAK+kzgzzcGPWVoXQ=VKFeojk+-=9S_mWBhMdcN44M9QXkihn-g@mail.gmail.com>
- <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
- <CAK+kzgxmgdFoBhzNhfxB29yS_Hz13LOm7rZvKb6fpyVKb8kwdw@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0eJ0Gge
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D37F01F000D0;
+	Mon, 23 Nov 2026 08:02:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795420944;
+	bh=9MO+FscP0oLuSA6HQ1IcEy1QVZX1vKoTYNCXPCvUOQw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=c0eJ0GgezLjfSBiuvX+K/2pdMbAnzKg7QxaZcK8XLFDDRu19ri0tLhDrzQyDl1g73
+	 On690aa1xcMhTJifi+zykOBWdp440jat40bkrqD94/djB2t87EPBTkPDQjhjuws50V
+	 iYut90gqtgBh+mB5/isPqw/KLsMRL5XCreGaQJit9nyn0CfbOXa/uiP0VUyqGss0Yd
+	 gUxD9BFRICQHpvE14uipfccpBBkSsKoWyrGamSYiY2rsk2oZK9cn8ioBZcz5avJbBr
+	 yNcdNefKr3Bd/pzfzRwNJw+ibY/WuVWLdofOOOPoBvhvDjEGVarm1roz8a0BTnk81/
+	 4SqkW6XKlVg8A==
+Message-ID: <ec05443a-a61a-4eb1-947a-c044faf9206c@kernel.org>
+Date: Mon, 23 Nov 2026 09:02:21 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,40 +51,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAK+kzgxmgdFoBhzNhfxB29yS_Hz13LOm7rZvKb6fpyVKb8kwdw@mail.gmail.com>
+Subject: Re: [PATCH v5 4/8] iio: adc: at91_adc: convert to device_property_*()
+ APIs
+To: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>, jic23@kernel.org,
+ linux-iio@vger.kernel.org
+Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, giorgitchankvetadze1997@gmail.com,
+ amin.gattout@gmail.com, antoniu.miclaus@analog.com,
+ gregkh@linuxfoundation.org, mripard@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261123070101.53868-1-abdelnasserhussein11@gmail.com>
+ <20261123070101.53868-5-abdelnasserhussein11@gmail.com>
+Content-Language: en-US
+From: Joshua Crofts <crofts@kernel.org>
+In-Reply-To: <20261123070101.53868-5-abdelnasserhussein11@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Gustavo, Mieczyslaw,
+On 23-Nov-26 8:00, Abdelnasser Hussein wrote:
+> Use the firmware-agnostic device_property_*() helpers instead of the
+> OF-specific property readers, so the driver does not depend on a device
+> node being available in probe.
+> 
+> Update at91_adc_probe_dt_ts() to take a struct device and read its
+> properties through device_property_read_u32() as well.  Since the helper
+> no longer uses DT-specific APIs, rename it from at91_adc_probe_dt_ts() to
+> at91_adc_probe_ts().  This removes the need for a struct device_node
+> pointer in at91_adc_probe(); as a result, at91_adc_probe_ts() now logs
+> against dev (&pdev->dev) instead of &idev->dev.
+> 
+> Drop the " in the DT" suffix from the missing property messages to match
+> the firmware-agnostic property APIs.
+> 
+> With no OF APIs or struct device_node left in the file, drop the
+> <linux/of.h> include and add <linux/mod_devicetable.h> for struct
+> of_device_id.
+> 
+> Signed-off-by: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>
+> ---
+>  drivers/iio/adc/at91_adc.c | 34 +++++++++++++++++-----------------
+>  1 file changed, 17 insertions(+), 17 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/at91_adc.c b/drivers/iio/adc/at91_adc.c
+> index 2a378540837d..b6e6fa77c782 100644
+> --- a/drivers/iio/adc/at91_adc.c
+> +++ b/drivers/iio/adc/at91_adc.c
+> @@ -15,8 +15,8 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/jiffies.h>
+>  #include <linux/kernel.h>
+> +#include <linux/mod_devicetable.h>
 
-thank you. I have no family D hardware, so only some pointers from
-family C.
+Remove this, The corresponding device table is pulled from platform_device.h.
 
-On 21/11/2026 Gustavo Foletto Mora wrote:
-> On 21/11/2026 Mieczyslaw Nalewaj wrote:
->> 1. Does a non-zero value written to 0x0851 on your board change
->>    anything (PCP of untagged frames, or the register reading back)?
->
-> Not yet answered: on my test image the switch registers are read-only
+-- 
+Kind regards,
+Joshua Crofts
 
-On family C the added tag takes its PCP from 0x0851/0x0852. If family
-D ignores that field, the tag probably carries the internal priority
-unconverted.
-
-Other places that can set this PCP on family C, in case they matter
-on family D:
-
-- remarking, bit 12 of 0x000e + 0x20 * port (off after reset)
-- 0x093a bit 0: when set, an untagged IPv4 frame takes its PCP from
-  the DSCP table
-
-> [...] so an inverse table would also turn tagged PCP 5 into PCP 0
-
-Agreed, without PCP trust that table would change tagged frames too.
-
-Family D is not merged, so the DCB code has no bug in net-next and
-needs no Fixes: tag. I think the family D part belongs behind a hook
-in rtl8365mb_family_info, like VLAN, PVID and L2 in v12.
-
-Regards,
-Oleksij
