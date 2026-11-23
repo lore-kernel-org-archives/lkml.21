@@ -1,61 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795420346;
-	b=u0ZWoUaMm8XDWQJ20uucaeabmXtOBCFaV96zmY9S2Mho88+Sj75u92OVbW+XNa5AUyp0
-	 a3bCk41f3/Vx2DEyaCZhkVfoCWtxljVM61Ikxa7SYojeOBkQRXevooesjSbk+jGrtQIls
-	 9mt41GH4PHbUTzy2PG2SXbDI2IhXgU2IvoDd0nUUS5yvqrSbYpDoP4Iffq2o8x2F6uP7Q
-	 5GbCmU3ZrULbA3jEur3GHNDRtzj7IXcC677AMISOaKqEQrLWmMk6W85CtIhoKqTdTHZ+Y
-	 ARsI/hjGgvZ2Z0SoDj/ZPUEuUzRMpqto2eX+uOjwvNz1wCLKnLcEZJV3dW5HLoHb1fw==
+	b=GodhJuXzHZuZJ9mtSntiw/XC9KT+fZv2O+4tCQWax4CMhzuCBYGSzkY6rs15cpYVqZkn
+	 QGYBbmSJUlgtqL7qofeHoW4PntaCXK0njd2PD5KdVFqlzN+fgqb5mNnSRFaXFV5AemBdm
+	 3TU4q/HkPBBmf6VPt38TsdziO/GrmfRbK5i3taalA0idUdIhjUYJ6/whO3tzr2Lj33MQ2
+	 qBrPIjnGR4DFjIhskTpEoxv7+Me9YExvvY1vDL60WdV8f7ilILz8pIP3CAAKL65O30nYE
+	 /Wk5QNs0D8LUfJyxI32Jkg9D8v1edArCcwv4U3Mw9Lwy9Kzw3b5kCfTLuhDZm204S5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795420346;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=pzBruCLqcjTUf993fFO1zsE6F8+uGYlxYUHOWN/SV4U=;
-	b=l4qTaN+UJ7krpWEml4yvrxSKi5hj+nAayB7sy8tPUydSMdEBrBhhZ/kMG8A37QGUwNKN
-	 D7unE/CSldC2JUafH+8gWmw/CcAgXUOmcnQz/aOVwla+U2g1SwDFCpispFklXscNFBKja
-	 T64yTSa00eox0T+q8dKkfMqEQILgE+Qz7HV8elap45gILSZGbNiWbF/mxxrAtuD3zCCEA
-	 jPbb3JVBeugs/1hJy6WnVPRVdTClQq0Xb5rr28P4/prQohFu4W94LRbcfBy+Jl9/dqBQ1
-	 +9ABTz/N4qCgbbX5c5cdW1mI8O9S/HLM9E6o/KmzZb19aaewyKJ5ptRTtw9a+YJxvtw==
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=vAXJFlo+YYwGzNbnzUk9I8X1XTMxTImLMqWG90QFCAQ=;
+	b=5Yio7UNe/D2Lo2l6FK9W0ThnVp1rqfHDT2nm7Ks9U8+oVagRF2A4w6Pj7VOGRfZkf8XH
+	 97CqTrlo1Y+WMvaTXrKCQyF8eZkK15GQ8/zZfGYqfhv9KaUJMfM0zFnULVDngRBGreNs2
+	 UnvDz9mTUWDOwhuQP9XmSL2T4Bqs//3wDT1q7b2Hp4blbnqAanNoFrET2zXjvEYqF47BG
+	 I4dcdJtet++znm2Oa+9kgJiQ2uIhbU7ZxulV1xHmX6tcdSD6Hdgg0RNovJvATAInQ6VAQ
+	 7BaCNmM+OAqRm6dR59xq4nO01wlz7ZV8ma0aPi2b7H5ucRUbtWRNX6LoJteff3HQFsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T8WAQKBS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=cBPZwIo8;
+	arc=none smtp.remote-ip=95.215.58.131
+Received: from mta1.migadu.com (out-131.mta1.migadu.com [95.215.58.131])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 725FC606A688;
-	Mon, 23 Nov 2026 07:52:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BE45606A685
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:52:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BE45606A685
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T8WAQKBS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC7F1F000D0;
-	Mon, 23 Nov 2026 07:52:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795420346;
-	bh=pzBruCLqcjTUf993fFO1zsE6F8+uGYlxYUHOWN/SV4U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=T8WAQKBSFSa+AYF4ma/3QxzVEqIGxhTDeaBYC5fDApUW6Q2MnCu8CQ8g0alJZ/FsG
-	 8EEYKMcowfWLHZ86+Md4g7SXs3auULNQWpi+vTU5+UZTEiHzYXYmk7VbxUZ4e5jK4D
-	 2YP04mQQp00xj1ZIFKESyZbmRiRLdwXs6rPXSWszuYU6Pt0r2qsKJ9xCuoklgl5mCo
-	 8R6xeF98wltDir9AcX4DZ0LdVKco+nhMiYm0NSqNpBY+8KqsREbkKEY93iln0rvOsR
-	 byYRTJX4jFA8xCUGB5kWpAYj5Och0Pqn/HOUX4mfDlI7CWMvKcEShCr4r/gpE40Y1k
-	 8G2d6d6K81v4Q==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2 6/7] iio: adc: qcom-spmi-adc5-gen3: Reject empty reg property in probe
-Date: Mon, 23 Nov 2026 07:50:32 +0000
-Message-ID: <20261123075122.373060-7-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123075122.373060-1-lee@kernel.org>
-References: <20261123075122.373060-1-lee@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=cBPZwIo8
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=JBWy6UtAH7XEsQk9PT5UbS91XMRAaxx+pdJcqZHmb3Y=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795420344; v=1; x=1796025144;
+ b=cBPZwIo8ozSLewwyQleEX0006BiDI+kpFJ2r9MBZJx+kjXoOVw2RpJ2hNuUG28jdnyW+pOe+
+ vxRGEg4j7VlTXVmtlfMzkCbc63QpAZyYI/1PgfruLZ3ob4b5fWG+Y9cwu6FJa83DKyU4+0t5fyL
+ +CgmhIedo5iS9yMlRimoPXBY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 4922f193c2d48cd4;
+	Mon, 23 Nov 2026 07:52:23 +0000
+X-Mizu-Trace-ID: 4922f193c2d48cd4
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH 0/9] arm64: sysreg: More input checks in the sysreg generator
+Date: Mon, 23 Nov 2026 07:52:10 +0000
+Message-ID: <20261123075219.369042-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,40 +73,53 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-If a firmware node supplies an empty reg property,
-device_property_count_u32() returns 0, which passes the negative error
-check in adc5_gen3_probe() and leaves num_sdams set to 0.  Subsequent
-zero-length allocations return ZERO_SIZE_PTR, which is then dereferenced
-when requesting the VADC SDAM interrupt, and num_sdams * 8 - 1 wraps in
-unsigned comparisons when counting TM channels.
+Hi folks,
 
-Return -ENOENT when device_property_count_u32() reports zero elements.
+After finding yet another bug in the sysreg file, I think it's time to
+stop filling potholes and have the generator reject them instead.
 
-Fixes: baff45179e90 ("iio: adc: Add support for QCOM PMIC5 Gen3 ADC")
-Closes: https://sashiko.dev/#/bug/linux-d8ad5868-82f5-4c97-bc67-84ceebb10a1a
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
+The bug is in MPAM1_EL12. Its Fields line refers to a SysregFields
+block that doesn't exist, so its RES0, RES1 and UNKN masks expand to
+undefined names. The masks aren't used yet. Patch 1 fixes it.
 
-v1 => v2:
- - Return -ENOENT instead of -EINVAL when reg is empty (Andy)
+The rest of the series adds checks to gen-sysreg.awk for input it
+accepts while the kernel still builds: a Sysreg and a SysregFields with
+the same name (Mark's suggestion [1]), a Fields or Mapping target that
+isn't defined, an enum value not written at its field's width, a macro
+defined twice, and an encoding or a bit position that's out of range or
+has a leading zero. Two patches prepare for them. One removes a range
+check that can never fail, and the other stops the end-of-file checks
+from running after an error.
 
- drivers/iio/adc/qcom-spmi-adc5-gen3.c | 2 ++
- 1 file changed, 2 insertions(+)
+With gawk, mawk and busybox awk, the generated header is the same
+before and after the series, apart from the MPAM1_EL12 lines and the
+number of digits in the TRFCR_ELx.TS values.
 
-diff --git a/drivers/iio/adc/qcom-spmi-adc5-gen3.c b/drivers/iio/adc/qcom-spmi-adc5-gen3.c
-index 85450aa37e65..8e316aa88f48 100644
---- a/drivers/iio/adc/qcom-spmi-adc5-gen3.c
-+++ b/drivers/iio/adc/qcom-spmi-adc5-gen3.c
-@@ -736,6 +736,8 @@ static int adc5_gen3_probe(struct platform_device *pdev)
- 	ret = device_property_count_u32(dev, "reg");
- 	if (ret < 0)
- 		return ret;
-+	if (!ret)
-+		return -ENOENT;
- 
- 	adc->dev_data.num_sdams = ret;
- 
+Based on Linux 7.4-rc3 (aebb727447640).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/aLF9mSCs1B2gk8BU@J2N7QTR9R3/
+
+Fuad Tabba (9):
+  arm64: sysreg: Map MPAM1_EL12 to MPAM1_EL1
+  arm64: sysreg: Remove the dead range check from parse_bitdef()
+  arm64: sysreg: Reject a Sysreg and a SysregFields with the same name
+  arm64: sysreg: Don't run the end-of-file checks after an error
+  arm64: sysreg: Reject a Fields or Mapping line with an undefined
+    target
+  arm64: sysreg: Reject an enum value not written at its field's width
+  arm64: sysreg: Reject a macro name defined twice
+  arm64: sysreg: Reject an out-of-range register encoding
+  arm64: sysreg: Reject a bit position written with a leading zero
+
+ arch/arm64/tools/gen-sysreg.awk | 48 ++++++++++++++++++++++++++-------
+ arch/arm64/tools/sysreg         | 16 +++++------
+ 2 files changed, 47 insertions(+), 17 deletions(-)
+
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
-2.56.1.750.gf70dc682cf-goog
+2.47.3
 
