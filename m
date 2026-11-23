@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795445265;
-	b=DJBnCxiWFWsS41BHf20g51IQMfpB1kf1LkjmI2VtmoFIBtTpsUuowfU4WZz0iIUyF/JY
-	 V2h/jhOBbkDhFDAtmchRWYj/xuU8NIOJFprXPDmefS73DYPw92HIUE2mn1MCazAJKPud3
-	 7Gy/UtBsGdG8wWwWmPiAKtOpZAOtzUHiqn//TK0ctnGYkijj6uN9SDLeK2XkdVZcLPcUg
-	 0F7PR2hHj0NTOk0D+t0tjeY7dbu+SvPWsxY+NnJCAy/6+KNIDJczuZo2d9pE+0rtt9ywI
-	 BPedq+X+mELtjtSbsx0qC3kLRgpoOZeECUuIjxYYrh2ZHBOdktdQlZDZb1spZOfDKJw==
+	t=1795445276;
+	b=oD2UBRqP6pTnBkCgHXT9rjZjc/bWjtbitw/SEqufpIg1kQnqjl/xaGfPkbM/xbtTjl1U
+	 LZF/sRkz2e71j7aeqEiW6nS+ZKMz3QA0S1eWhWrIhpjgUiLz9AGio4HPyDriUp0Pm8KZG
+	 JMWHroBN0hGvn0YkzH4xg3GzPBYPPu1bTaNpWpOG+XWS7o9buPMHZeVCoNgY+7txJR8Dk
+	 EIrh+jvxP+8A16kEAHfIS42pCEaW9yn05ca1jb/9wMEpcd9eYpHvmjVZPcC8BHxps7eLJ
+	 C+ZONr7iiNwGiUCmWf1bVhwrvfggfmLrup3oUmkfN5Vdxx+LuVEX68Evrk6FtGXRXAw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445265;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445276;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+u/LMR+68R3fgeGC3uXOoW103LA72nPToZD+CrKv7lY=;
-	b=0ymX+ZXc4kOB48TRUahiopP32uiSytDZE3SSkyI8EcOdlobLTxk+p0Y9lUw2bvfk67ZJ
-	 OYknCi+QzC9hmWVjQsmAW5aopjRacAd11ENjRIqgPb/zwpL5w/ZyPmDCXEl+1eEOho+6O
-	 lAcano0AjkzvlNjO380MLy5+QrOhx0RmHycscSe7Bnby43K6em36xrHn9ucGAj06w227+
-	 8E++XikjdmkKeDSwOYMapDwD5EUg6tkHGMqpFSREq9sPEc6BCI2E1H6W1crI8Q/+hBxe/
-	 yCvB6GeHCbbZGiYxKqrlqfagOpIikzpyFxl347sWjoKNT+lKuQeBAxyEGR9vzVMYWCg==
+	bh=nSKsB4jxpm4xyyNflDDqZwB6al7srQ4yYCsAAvWGnvI=;
+	b=N+j0OQEQPOM0XUF4Ruhind0KTABAQ7F2YUI632UflrnhsLIf8W9i4XZE2U3ioZPQSvbC
+	 jNRPhVX/KHOCBeOk8cdyp4vOnX5EEoE+6ZSURTcx7PyHS37y+LBtuVnsPFi9zBSRRk0E5
+	 0nsuY8peHvbdq/IKWEvcEtGCTkrjdZ+sDgU7Srp/MbcOP1IgLnPNMtiBWYs6nL4LnjiT/
+	 kaXMdjSSMVDmd2kKOgxwpjvJ//MiKe3G42Juc/mxpNXH/QRvHvtlLYlMFpqpGcUj0W+4+
+	 e8CmRNOfOV5y3NQcnfPkX2WVNbRomMw7i0ks3wlRGExo2JLxWzl4iyf62jrD09yVh4A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m9r8ZEFK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VZfR2kwV;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90E72606A688;
-	Mon, 23 Nov 2026 14:47:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36179606A6A0;
+	Mon, 23 Nov 2026 14:47:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m9r8ZEFK
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VZfR2kwV
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795445265;
-	b=JXpjAw4YUeZ00n2mfyZJKhLBZKOqf7k5jp3aUQft0+lEghS7GIPJawwqUyJJTMaYkRDn
-	 /qq0zVrW0DH8hZuX7W1PNyq7QQ8tABmPcsm2AlBPz+t+AYv1n5Nku3XwyJWKIwi2adNnl
-	 rTc1r6SFyyljOgl/RpmQZ5ZdG/lSe7LGENcIWbSU83zoc0W73QCJo9Nsx9s5rxjLvpNJs
-	 YHA/QYe/5s44cEvceHn6nKaqYPDSzD9GFiAXN4Kbfpd1P5xNMEY+8Tjnw4cqUg2WXYtBs
-	 E6YolsEV/7lx48Y+cUWGiiBj5vhCs5J8HDnl0Lnmgd6cjCE6ZP8MpTdEv2NP/zX9nzg==
+	t=1795445275;
+	b=Hil4emKvoibOYhDBjtYEDyH4khS0yaqKEns3rReepOYSUj9igxYe5p6pid37L8mHYz+i
+	 HMNVxurlaP+47hrM8PJa7vxWppqDBJEtFGwj2MjH0GnbHW8r+OBHq1V+Jqm6sWLhpZIr3
+	 xfN78p5kyXIDtfWTX0o+MkAAmiqDAcpxsso6CwJNlnMxHaSts4QrQQpkpyINHf+Pb0IVH
+	 CytZfQMwwJit6oBhvJiu8/OPaDgCgKcmEiX446DiCbzz8+letFgtFxq7YdKHNlAL00+p9
+	 G3HzBFJcVknH7W3XF4swaDvqLs34ICi+UTis2pR7r0rEyOU9lckiQpekWeBLThJ2DLg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795445265;
+	c=relaxed/relaxed; t=1795445275;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+u/LMR+68R3fgeGC3uXOoW103LA72nPToZD+CrKv7lY=;
-	b=jag2OwF7ilvZGfErpmsXcRi8VS0eHwkKGoMq/d8yFcEqoupN7H6Jd0NsqqrKV8+bhC/Q
-	 3sYU0HGXK8RQV1qYPJAkc0jNB6iyH3Ine1iwh3aTMv/qGBdHCpsPc9swXt5w8jTLz35yC
-	 OgFmsKL4UVDGyBhe/X4S2a31/bqS7jrzz3uduIj9PCYCnDAkjRFUuREGWuCPjiRGv/tQB
-	 0lLqo7ygunk7+gqdrOVzU6+EfzvJNXPoEMheYJHvOMEpBcqdVmkmz5v5vN5nATydT0r2H
-	 maGvSePR++LRh/lg6Hbx1keKPQcHQiW146p5M8Zkpho4EC8XGVdsV8jZVRTiefrmOzw==
+	bh=nSKsB4jxpm4xyyNflDDqZwB6al7srQ4yYCsAAvWGnvI=;
+	b=ddqAV3GNayolGPgsCKiLLvLvfQRJjaeHxr+Ijh5zDgT3VMna/7qvBdjkT1euGSgaKyLo
+	 SFIODnhmBH4hCVggVDOE6fY6lm+VOX49kVu2Po6BclJoB3uSMoXIKm7D2wTEy8UaiMQCW
+	 VuI/YHE9DTSTPlU5oqqnRna4dt42w9/meyPqJ1ut2RtXBVtdQqTvC3wYp7LehdiVjc+05
+	 9LnXNU+BQOxpS128USVCw8v5XIml+fKuEq4ssV4CYXq4Sdbh6wWIU+UZNpEevj1otiKNN
+	 thJ6xkpxDzQW3YpvdH6Ot5jghVqyyBQQCWxtZv8gna58aGmjVHQuoKUqziDMU20tLjA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A6AA61F00A3C;
-	Mon, 23 Nov 2026 14:47:24 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id BB16F1F000E0;
+	Mon, 23 Nov 2026 14:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795445265;
-	bh=+u/LMR+68R3fgeGC3uXOoW103LA72nPToZD+CrKv7lY=;
+	s=k20260515; t=1795445275;
+	bh=nSKsB4jxpm4xyyNflDDqZwB6al7srQ4yYCsAAvWGnvI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=m9r8ZEFKyT3Vi97uEWbui4P03j7YDApDKBJBmQdWWVerv0FLyp5ipbCDqHOXJyDog
-	 fX+gbIL3VJjK5Cf4Ds8pnSqa7mwgIuozsmXbPyJ4GjaV3Gs/q+pY0M3VK/5yJQq0s8
-	 VgmJc8fofJ3HZEN9gtbl4RbSc05aZGu0dqomFU+hlPJS9zlPODGIbCiZYe+fX/2q6g
-	 3kLyKNsLP2eUUI4XPTn6t+sL3mTFIvltuGBVBs89HIaA4Ouxh3pLul49YO334s8Rog
-	 MFoPwQ22V+20V/a3Kq8Cdw8kLgzbZ5nwDqdvmD1tPKjtHaCgoRTr73Cj7t7IBjnise
-	 Pmn8vD4to164Q==
+	b=VZfR2kwVnS7csaHmWsCp7jm+Ygya82STtDTj9IwoVR0N++/b5lMc0pEr7wRdbuKt6
+	 o1DR+VulFYfy0rOh9SjQTbw7i6w+naYY1+ofDU4NG2sHNCYXilXyC2pIOFE0+bOZxq
+	 q7Lg69oxrAioY9qhdVoEAXUkzmUg8XgZq2g6DbqfD9Z0crIbD/zt963Y6u35J7YqxF
+	 1vXYc62VA9ZnSmxlmwcvQeYHyuDuWVN+7l0i8Q+Zwfo5ULo5sbr/cn4/GeyfNzCkdA
+	 s236/1dW05aiVaoAHhzKeuPXiiOztuKEpnlY5a4/3yS/jhcXJ8GacXP87+wb6B1XSB
+	 YH0F73moSXzDA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 36C864C4FF;
+	by lkml.kernel.org (Postfix) with ESMTP id C21A74C513;
 	Mon, 23 Nov 2026 14:47:24 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 23 Nov 2026 15:46:57 +0100
-Subject: [PATCH v4 2/8] dt-bindings: riscv: Add MIPS Boston board
- compatible
+Date: Mon, 23 Nov 2026 15:47:02 +0100
+Subject: [PATCH v4 7/8] MAINTAINERS: Add entry for MIPS RISC-V SoC support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-p8700-dts-v4-2-60bb7bf8a7a1@htecgroup.com>
+Message-Id: <20261123-p8700-dts-v4-7-60bb7bf8a7a1@htecgroup.com>
 References: <20261123-p8700-dts-v4-0-60bb7bf8a7a1@htecgroup.com>
 In-Reply-To: <20261123-p8700-dts-v4-0-60bb7bf8a7a1@htecgroup.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -101,14 +100,13 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@sifive.com>, Joel Stanley <joel@jms.id.au>, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795445243; l=1692;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795445243; l=913;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=5xVOseiOua96OFvJrDMkH+ySfMmO2vu4mBB4SPO9IZo=;
- b=beu1kx1zKl18h0EM+fq8lWG1IBvVARKUqB5fnJ4/KvZ8Dd19XQZHg2hqyXGcTasrrRWlbRVLa
- 6s9VCWcogCyCq5agIynAI/agtMmuDflGBqQ+CE6josvuVgypr6Wq61U
+ bh=ZJvf49si5KqHQv1isXMeLQqxt/Hhb8/bQsfjW00EDHE=;
+ b=wDSQhjRNNSKODF9urr4mkpjxL6kTtPOw+fAEqjfTUN/fClgZGbCqxzcDiXJZb6QuNTMRv0XGf
+ YvR+C4NOJaPBKAnewg2+fq2W5MBc4vOLX4yB049dZzRxkssFfNJ5KuM
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
@@ -119,55 +117,33 @@ Content-Transfer-Encoding: 7bit
 
 From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
-Document the MIPS Boston board compatible with a P8700 bitfile.
+Add a MAINTAINERS entry covering the MIPS RISC-V devicetree sources
+and the board binding.
 
-Co-developed-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- Documentation/devicetree/bindings/riscv/mips.yaml | 33 +++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ MAINTAINERS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/mips.yaml b/Documentation/devicetree/bindings/riscv/mips.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..bb251a7b1bcc762876fb94f0b636415774024183
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/mips.yaml
-@@ -0,0 +1,33 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/mips.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c2414447892c24d58595059ca27b18775919ac12..7b6cd49a4fe2626a946a9153f1ca545d6ad28960 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23542,6 +23542,14 @@ F:	drivers/spi/spi-mpfs.c
+ F:	drivers/usb/musb/mpfs.c
+ F:	include/soc/microchip/mpfs.h
+ 
++RISC-V MIPS SoC SUPPORT
++M:	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
++L:	linux-riscv@lists.infradead.org
++S:	Supported
++T:	git https://github.com/aleksapaunovic-htec/linux.git
++F:	Documentation/devicetree/bindings/riscv/mips.yaml
++F:	arch/riscv/boot/dts/mips/
 +
-+title: MIPS SoC-based boards
-+
-+maintainers:
-+  - Djordje Todorovic <djordje.todorovic@htecgroup.com>
-+  - Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-+
-+description:
-+  MIPS SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - description: |
-+          Boston FPGA development board with a MIPS P8700 bitfile
-+
-+          The Boston board carries a Xilinx XC7V2000T FPGA and fixed
-+          peripherals: a Xilinx AXI PCIe root port, an Intel EG20T PCH,
-+          a UART and an ASCII LCD.
-+        items:
-+          - const: mips,p8700-boston-rtl-5057225-202410011144
-+          - const: mips,p8700-boston
-+
-+additionalProperties: true
-+
-+...
+ RISC-V MISC SOC SUPPORT
+ M:	Conor Dooley <conor@kernel.org>
+ L:	linux-riscv@lists.infradead.org
 
 -- 
 2.43.0
