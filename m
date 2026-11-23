@@ -1,61 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795400021;
-	b=KQmmSbU4V7/++l9KIUR+qPY1CLHl3bq5k6a3dV+BXZvx9d4vhTyGsAad+CKHOCHFZ9xX
-	 kpTgU2Cq0KrcNkxjzvd1wIGAVarx2ptsEkkPyP3kNrwi9ac523EAuLqSUR1DUc0lKnNny
-	 1RcOX4S3Fs1a5pGlImmIl94H9BXiFx4kIgOR80WYdrkwsNecZyWr258PEEtxqQiOnVbYp
-	 DjsU+El5hOpRiERFw9yyvsz0lxoVyRFKVCba+L2qhOF3OWyuPVXxb0EMOfhrUNSFEIT2L
-	 4lwNw+hu5N3wZlWpNoj4g8o/PnCFZ3M6GiRDU2iZ5DyulOTm/rdBwExSlkkaTwr1SOw==
+	t=1795400127;
+	b=F606OaeqjYZ0EhVmJNDe1HbpbS3G2EiB2twWZ7psqKeZiL2Pi8oEOjDsmeOc25v+cXAe
+	 UOO5G9oRkZIpqbAyqhRWQyKilwDxBEpRu6i+VCtjOBWVMeU5tYpcgmSWrFyhs/bI9qW79
+	 k+1OjFX8ICJsBtHFHqWSJEqvET0r7qzBHe4fLI5+P9HgkSfluxCxghYGdJqfZAO7H4fMu
+	 n4I0CC3iat2U48mV/LCBqhp74+r32znBds03ww8bHJELYBS2pY7XEdPxR0IaoiCSeFkOQ
+	 cRfmPHMnzP/cP5XOfTThHHft44KqpjLu1XQwOlBZpo12XeVRQq9G5cSOGa5MBIVXoSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400021;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795400127;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Subject:From:To:Cc:Date:Message-Id:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=w0qcFHuhOxRFhzy+XALtHsGtZc6YwmNn3t9p0bTe8Ek=;
-	b=KxihsPMJU1PrqviMQS6w6tfHSoMw2lqvm5fIFqz15ydluDgXdhR2fft0KYussOt3n0OR
-	 k25KoBzr7U2YtsMYihG7+E1H5S3TQxlxqarK2IoVCdJjd/fmsMl1nOW+3SBQ4Yh3x1fD3
-	 WMDshIrF6CvG2FAIxl/Z6e5pP5tgvtZId865aIXO56wvyRG2eZ6lyJfZ+bhC5COQJuNSi
-	 oZpe60AEVGzFRNWjP9oriXfEILIfa5nEt8dp5y7ICZLl1VSThf9ziFhRzPlfElJZ41xFZ
-	 RegmK3aU3sNvsD+A/3aMBOt1jFgBOCFJ5kQfGl9bwhMcBrGrZkjGNMEtT/CXKehzzMQ==
+	bh=Rkyx+AAwBDqEzfOhBV88iO5QEcgZ4mRADs3tiKBytS8=;
+	b=Lvg/6T6SzbTXmBJhUq4ntt2ycwt/03ytcnFo3I+1LaDWuAz2RO71fjM3B2GYIWNCaDa9
+	 wTUxq18V4ps90XNJolbHPQITMoe+56pkXwrUuaavkZt+5lA1f89rFbGVbAyrrUU5bU1Kb
+	 GDzDoWzSQf4P43AKP5a/pt4WpriVamJ0Mg/DJsmCkJxh0VaNloHDy0+PGiFQ2cCximU7p
+	 RxXyQt+2tmVxbj0RiIjsHNceXbcRCvDQ0g5EhAiWBsevcDcGdsh8UzfeQJGQUrpior/Zi
+	 EXiaurUbtzJPbLOlJBnDqsjWmSLadUQ+iAgQve76pyLgpjludTbRq0jV9rm61y/LgIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cRPPexqY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=abCqdR9U;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E30EC606A33C;
-	Mon, 23 Nov 2026 02:13:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E38D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:15:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E38D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cRPPexqY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8481F000C6;
-	Mon, 23 Nov 2026 02:13:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795400019;
-	bh=w0qcFHuhOxRFhzy+XALtHsGtZc6YwmNn3t9p0bTe8Ek=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cRPPexqYtX4gt98SVt8GN3oQ0ogmZgyPAGRoQo3ek9jc/awTUFDn2vFTuhR10E8sN
-	 h9iS/vYQKqZ6sdWCbaI6Ex7NQKmvjT3n6S1V4hLqQwxTnOPU6pEGKb5E7P77byfb7H
-	 3KNPtRgBO1MAdtWsqJfsUHe6dlAEmCZNDSdc8AZl7Eo8xsMhVYlIjYijZEDt9LFLOo
-	 pWMDMbzFGkxv2ppepByqp9p03A5RBN9NZGOkklK4pxSCCfOBKJji/+md9n037KG0zt
-	 Ty+7jPmIEvPdKiXRDJ5CKziZtsnwMMEAMorMghAlV7egPP6yZXmLBnYu7fOe9d9qoi
-	 tovYqz40/H8xQ==
-Subject: Re: [PATCH net v2] tls: fix send() returning success after the TCP
- send failed
-From: netdev-bot+sashiko@kernel.org
-To: hengyul@cs.unc.edu
-Cc: john.fastabend@gmail.com, kuba@kernel.org, sd@queasysnail.net,
- davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
- bcodding@redhat.com, ben.coddington@hammerspace.com,
- rjethwani@purestorage.com, netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 02:13:38 +0000
-Message-ID: <179540001873.3135.1838308128939252702@kernel.org>
-In-Reply-To: <20261119141106.840038-1-hengyul@cs.unc.edu>
-References: <20261119141106.840038-1-hengyul@cs.unc.edu>
-X-sashiko-severity: High
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=abCqdR9U
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-3863db981d4so3636963eec.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:15:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795400125; x=1796004925; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:message-id:date
+         :cc:to:from:subject:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Rkyx+AAwBDqEzfOhBV88iO5QEcgZ4mRADs3tiKBytS8=;
+        b=abCqdR9UPPu9WY9DzxZFcTfTk8cu5u7Kk2hp9TCsZBerGhLkZeHdZVlv7dJUuMK8on
+         1TKSeBD9FTQAQTGaRoTXMYnmJSSAGLMmPzaFtzdGveMXnvZmVG4mtlODk/35Q1bTWiJl
+         kpv3GH7HwCaOcfugh05QI3Cb44uesQRBU6lbiy70C+pq6RNJWMczXScBuksEmc8Yaq2F
+         a1PFp0Peee77Ytw6NJ2bo4gEJVwUvCE1sjDJlP5ply5aoafrzuAkgWPeehdfh8d6dCr+
+         GDv7NgEjQr2Uqqn11ilp/dzG0Qq22UTk0LX/JvkSCTj2LfN3lbC/tT4dLVZ4VPYvUZhp
+         2TpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795400125; x=1796004925;
+        h=mime-version:content-transfer-encoding:content-type:message-id:date
+         :cc:to:from:subject:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Rkyx+AAwBDqEzfOhBV88iO5QEcgZ4mRADs3tiKBytS8=;
+        b=KS6PeAh1qR2h0Kz6OmnTPF0ZBu7unxR6FQ4jKiBHbJRtQlPalEkktq6/LC8ymeQMRY
+         hU24ZO6dj8rnalaP7VgklMr3OMHtQY1MAUaKLimVwkksBLQqbY7Ok3A2X+6tJrYfL1zS
+         PDyvS2tmHsspr0jKyDT3ZBZAfRxLUwF/73718vRlVCiXGT/Hp4/zdMAT3Sq+jBmyyzrt
+         1GeDPLu3IqJ9Cvdy5Gy3pplSc7ZgGzhC6NQn8QoHhjtzSI8a1f94/tIFtcZuXnBF+Bxa
+         o4oGwP/sNQfmJXKiqBBDE9A7MZtCEo1nZWris38oAzHylsogpRPa9Cp8YZX7njvXMSLq
+         7MbA==
+X-Forwarded-Encrypted: i=1; AL+hErFgfIyHgmiRRuJZHDhhHnVo0OfE3P768xK9BmTAmOuy/o3pXVEae2Neo2FW+NNMb1J+7XWybm+McW92JDM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z83ZCU2Cn5LTp6S9av+fUcks04hxir7joQ5e6dMfydE0fIzDPVr
+	jmLrUnmS12pgk3GYNgHcfBALYdn9xmO5Rr5VIFdccgsU1QcKeMQfzpnz
+X-Gm-Gg: AZFdTZdPiFeh1z4eCHx0MHt85LtYaDIIdo9IWUYzHJyyoDPufgkpRHkCIMAbpsDAjYe
+	gt+v5WSUuGwSyB1UMlotxaC+29R0Kg/RsqRPWJK6MZLq8u9BYrj78qaXhG1llmI8ybWI/F08fPe
+	mZbLg3NYF65tnVsu4eXSb22vlHGrBghR6WecIwP1M7SBhacSXZ4M/0wRzTrgdstv+MhnMtPYWe1
+	YBvftFLRbbDVE60gU7GCqBe1g6kXXctCVJkNrgqrxmumjEV2x0ppkEbGcVmIlFfS1Pa3feISTFG
+	pqFMeikKHuDQym5ZufjTIS5wOT3zspx8Vr9pp1Q2rwvnSdQqZK/gVyCoBoCAO2tCJuephYIXnLm
+	wfKHP/djr7ILGspFEo/WlqLHGD3aFCQgglOLbmQn9AlT7H0QHAlYMgCbyieAvlcdxZx3+6tz67j
+	BnDBR+ptFWCfaxI+aEIe60JWqN8JItQARMmzHy8N02PwNOe+vxNMHouh7zD8mQ2sk0m9pCb9MIv
+	90GwTMu5dLou4C0be+ksmapxFKVV2qS4ONp/UhEXKMFJ3M/Qeiole8eQFTPgemvnqCVjzUl+WOQ
+	kKgiKOiyFwWD/mqzI52L1k2jolMZQj701MO6DOi1K8KCbojnpAOfSow/61+rY8QtGlQxn4iod1O
+	NFKhMl7ejwPN4l9hPUKf/62M8vmg=
+X-Received: by 2002:a05:7300:f68e:b0:386:240c:19d6 with SMTP id 5a478bee46e88-386241b6d72mr8613390eec.6.1795400125325;
+        Sun, 22 Nov 2026 18:15:25 -0800 (PST)
+Received: from runnervm0hi8g.vld3mfsqhe1uncfgcs4bzya0gb.phxx.internal.cloudapp.net ([172.182.243.48])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm3021818eec.27.2026.11.22.18.15.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 18:15:24 -0800 (PST)
+Subject: [PATCH v2] dm-integrity: reject recalculation when recalc_wq was
+ never allocated
+From: Yang Luohan <ylh440104@gmail.com>
+To: Mikulas Patocka <mpatocka@redhat.com>
+Cc: dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Mike Snitzer <snitzer@kernel.org>, Benjamin Marzinski <bmarzins@redhat.com>
+Date: Mon, 23 Nov 2026 02:15:24 +0000
+Message-Id: <179540012414.2174.4959926607245086522@gmail.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,126 +99,130 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+dm_integrity_resume() re-reads the superblock from the underlying device
+so that it picks up the flags and the recalculation position.  The
+constructor refuses a superblock that carries SB_FLAG_RECALCULATING when
+no internal hash is configured, because recalculation needs
+ic->recalc_work and ic->recalc_wq is only allocated when
+ic->internal_hash is set:
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+	} else {
+		if (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)) {
+			ti->error =3D "Recalculate can only be specified with internal_hash";
+			r =3D -EINVAL;
+			goto bad;
+		}
+	}
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The superblock that is read back on resume is not subject to that check.
+superblock_changed() only compares magic, log2_interleave_sectors,
+integrity_tag_size, journal_sections, log2_sectors_per_block, the salt
+and the SB_FLAG_HAVE_JOURNAL_MAC, SB_FLAG_FIXED_PADDING,
+SB_FLAG_FIXED_HMAC and SB_FLAG_INLINE flags, so SB_FLAG_RECALCULATING
+can be added to the on-disk superblock while the device is suspended.
+Resume then reaches
 
-- [High] With async encryption, send() still returns success when the TCP
-  send fails during that same call.
+	if (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)) {
+		__u64 recalc_pos =3D le64_to_cpu(ic->sb->recalc_sector);
 
---
+		if (recalc_pos < ic->provided_data_sectors) {
+			queue_work(ic->recalc_wq, &ic->recalc_work);
 
-tls: fix send() returning success after the TCP send failed
+with ic->recalc_wq =3D=3D NULL and dereferences a null pointer.
 
-The patch adds an abort_err field to struct tls_sw_context_tx. It is set
-when tls_tx_records() aborts the connection after a failed TCP send. The
-field is checked in tls_tx_records(), tls_push_record() and the
-tls_sw_sendmsg_locked() loop, and bpf_exec_tx_verdict() uses it to tell
-that the record was not sent and to take it out of copied.
+When the recalculation support was introduced, the call was guarded:
 
-> diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
-> index 226e0f176fdc8..795cbfe5fb2a1 100644
-> --- a/net/tls/tls_sw.c
-> +++ b/net/tls/tls_sw.c
+	if (ic->recalc_wq && ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING))
 
-[ ... ]
+commit 468dfca38b1a ("dm integrity: add a bitmap mode") dropped the
+ic->recalc_wq part of the condition while restructuring the surrounding
+code, so the null dereference has been reachable since that commit.
 
-> @@ -708,13 +717,15 @@ static int tls_push_record(struct sock *sk, int flags,
->  static int bpf_exec_tx_verdict(struct sk_msg *msg, struct sock *sk,
->  			       u8 record_type, ssize_t *copied, int flags)
->  {
-> +	struct tls_sw_context_tx *ctx = tls_sw_ctx_tx(tls_get_ctx(sk));
->  	int err;
->
->  	err = tls_push_record(sk, flags, record_type);
-> -	if (err && err != -EINPROGRESS && sk->sk_err == EBADMSG) {
-> +	if (err && err != -EINPROGRESS &&
-> +	    (ctx->abort_err || sk->sk_err == EBADMSG)) {
->  		*copied -= sk_msg_free(sk, msg);
->  		tls_free_open_rec(sk);
-> -		err = -sk->sk_err;
-> +		err = ctx->abort_err ?: -EBADMSG;
->  	}
->  	return err;
->  }
+commit 875a7161fe15 ("dm-integrity: don't recalculate with HMAC because
+of a dirty bitmap") re-applied the constructor's policy inside the
+SB_FLAG_DIRTY_BITMAP branch, which avoids the null dereference for a
+superblock that gets SB_FLAG_RECALCULATING set by resume itself, but the
+standalone SB_FLAG_RECALCULATING branch further down in the same function
+still queues the work unconditionally.
 
-[Severity: High]
-When encryption completes asynchronously, can send() still return success
-after the TCP send fails in that same call?
+Reject the superblock next to superblock_changed() instead, before the
+journal is replayed and before any superblock write, and restore the copy
+that the constructor validated.  Checking it at the point where the work
+is queued would leave SB_FLAG_RECALCULATING in the in-memory superblock,
+so dm_integrity_status() would report recalculation as enabled on a
+device that has no internal hash, and a later resume would take the
+stale flag from ic->sb and write it back to the device.
 
-With an async AEAD, or on the MAY_BACKLOG -EBUSY path that ends up as
--EINPROGRESS, tls_push_record() returns before it reaches
-tls_tx_records():
+No path inside dm_integrity_resume() sets SB_FLAG_RECALCULATING without
+an internal hash: the bitmap mode branch requires internal_hash in the
+constructor, dm_integrity_may_recalc_dirty_bitmap() rejects it, and
+reset_recalculate is rejected by the constructor as well.  The flag can
+therefore only arrive from the device, and rejecting it after the read
+is enough to keep the work queue call safe.
 
-    rc = tls_do_encryption(sk, tls_ctx, ctx, req, ...);
-    if (rc < 0) {
-        if (rc != -EINPROGRESS)
-            tls_err_abort(sk, -EBADMSG);
-        ctx->async_capable = 1;
-        return rc;
-    }
+Reproduced on 7.3.0 by loading a dm-integrity target in J mode without
+internal_hash, suspending it, writing SB_FLAG_RECALCULATING with
+recalc_sector =3D 0 into the on-disk superblock of the backing device, and
+resuming:
 
-That makes err == -EINPROGRESS here, so the new branch is skipped and
-nothing is subtracted from *copied.
+	Oops: general protection fault, probably for non-canonical address 0xdffffc0=
+000000020
+	KASAN: null-ptr-deref in range [0x0000000000000100-0x0000000000000107]
+	RIP: 0010:__queue_work+0x95/0x1030
+	Call Trace:
+	 queue_work_on
+	 dm_integrity_resume
+	 dm_table_resume_targets
+	 __dm_resume
+	 dm_resume
+	 dev_suspend
+	 ctl_ioctl
+	Kernel panic - not syncing: Fatal exception
 
-The record then goes to TCP later in the same sendmsg() call, from the
-send_end block of tls_sw_sendmsg_locked():
+Fixes: 468dfca38b1a ("dm integrity: add a bitmap mode")
+Cc: stable@vger.kernel.org
+Reported-by: Yang Luohan <ylh440104@gmail.com>
+Signed-off-by: Yang Luohan <ylh440104@gmail.com>
+---
+Changed in v2:
+- reject the superblock right after it is read, next to
+  superblock_changed(), and restore ic->sb from ic->sb_copy, instead of
+  only checking ic->recalc_wq where the work is queued
 
-    /* Transmit if any encryptions have completed */
-    if (test_and_clear_bit(BIT_TX_SCHEDULED, &ctx->tx_bitmask)) {
-        cancel_delayed_work(&ctx->tx_work.work);
-        tls_tx_records(sk, msg->msg_flags);
-    }
+drivers/md/dm-integrity.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-end:
-    ret = sk_stream_error(sk, msg->msg_flags, ret);
-    return copied > 0 ? copied : ret;
+--- a/drivers/md/dm-integrity.c
++++ b/drivers/md/dm-integrity.c
+@@ -3941,6 +3941,14 @@ static void dm_integrity_resume(struct dm_target *ti)
+ 		goto skip_writes;
+ 	}
+=20
++	if (unlikely(!ic->recalc_wq &&
++		     (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)))) {
++		memcpy(ic->sb, ic->sb_copy, sizeof(struct superblock));
++		DMERR("Recalculate requested, but internal_hash is not used");
++		dm_integrity_io_error(ic, "inconsistent superblock", -EINVAL);
++		goto skip_writes;
++	}
++
+ 	if (ic->mode =3D=3D 'R')
+ 		goto skip_writes;
 
-Say tcp_sendmsg_locked() fails there with -EPIPE after shutdown(SHUT_WR)
-or a reset. tls_tx_records() sets ctx->abort_err, but its return value
-is dropped. ret is still 0 and copied is positive, so the caller is told
-that the record was sent.
-
-The two in-loop "Transmit if any encryptions have completed" blocks, on
-the zerocopy and copy paths, follow the same pattern. The next iteration
-hits the new abort_err check and jumps to send_end, but copied still
-counts the failed records.
-
-Take the reproducer from the commit message on a system where gcm(aes)
-completes asynchronously. The first send has async_capable == 0 and
-eor == true, so it takes the zerocopy path. Then:
-
-tls_sw_sendmsg_locked()
-  bpf_exec_tx_verdict() returns -EINPROGRESS, num_async++
-  send_end: tls_encrypt_async_wait() returns 0
-  tls_tx_records()
-    tls_push_sg()
-      tcp_sendmsg_locked() returns -EPIPE
-  return copied
-
-So it looks like send() would still print 5. Later sends do now fail with
-EPIPE because of the new check at the top of the loop.
-
-tx_work_handler() also ignores the result of tls_tx_records(). There,
-though, the send that queued the record has usually returned already.
-
-The commit message says "Do not count the record as sent" and "The send()
-above then fails with EPIPE". Should the tls_tx_records() error from the
-send_end and in-loop transmits be propagated, or ctx->abort_err be checked
-after them, so that the failed records are not counted in copied?
-
-This first-send behaviour on the async path also existed before
-b341ca51d267. Since this patch targets this class of bug, would it make
-sense to cover the async path too?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119141106.840038-1-hengyul%40cs.unc.edu
+--- a/drivers/md/dm-integrity.c
++++ b/drivers/md/dm-integrity.c
+@@ -3941,6 +3941,14 @@ static void dm_integrity_resume(struct dm_target *ti)
+ 		goto skip_writes;
+ 	}
+=20
++	if (unlikely(!ic->recalc_wq &&
++		     (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)))) {
++		memcpy(ic->sb, ic->sb_copy, sizeof(struct superblock));
++		DMERR("Recalculate requested, but internal_hash is not used");
++		dm_integrity_io_error(ic, "inconsistent superblock", -EINVAL);
++		goto skip_writes;
++	}
++
+ 	if (ic->mode =3D=3D 'R')
+ 		goto skip_writes;
+=20
