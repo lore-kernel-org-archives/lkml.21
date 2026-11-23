@@ -1,68 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437494;
-	b=qIzQ6DTYDEZsJdg4vpwU+Y/LU4Ua9VLArAsyDr3MYw+EmoZTK3nkklhXkUt2aCJOG2XO
-	 /EAoJYQ+Y/NqD0jNxn+PSSIxayAO6GeTrc43RXnFLSZzPHvbT0FowPSzEv3Zsi4j1+4a0
-	 y4x/LjGAHilMMaBNC5t5YIXdd24t2FzOueh9ZFydrxztDCdcvOky2bK9JZVCNQPMl3+M5
-	 /BxAHQTFQMX1VRhnn3L9Q2cRK3i4FzuCUmlbyxbjC+zjEg0j3tbjgAEHSmNL3hqoN+/08
-	 kXPP8GXVxLPJbZBatmLSfFoeeoDKc4V4XZv/zwxrlLqu/1mBjJszeGATuGGbbW13cGw==
+	t=1795437528;
+	b=wVxPkYpsEjlTBf0mRudkITk4kUnTqyj7lbTj20sH2EyzARIfo7BYOO1/BsCYgj7HhXej
+	 4RRDKIiVwz1OBwGFUsC6KAPaUu7AzFm+m08+oAswzdChceU15FmKQZ4CStiny+RZ4A/YR
+	 ZCVYTwoMuUvV61NILtJxri3vGhySi12ad0C1eXvGc9P+83WzpGx3lTgJED7sMTmp73vMU
+	 iAChR95rq23kg6u2BvSLO2MzgvCVLv1xnP6+VmbyhpewbMc9axcOOyoUfcYqAegrGB02N
+	 /EdpU2dVz14B8ZuO5krHH7xxOppndqsqy0LDyGNLgMFVnDyB+KyvOaasFSBOjrx1K0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437494;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=gyeIde0avqusqT9a3dBuxFK7Sej2s1ySii6jTsMJ9Xo=;
-	b=zJip896D6DSUHC82wybniDoTB56u4/YdqUFnaM0qUCDMljt/DPoc1rZTilhscqVJcoEq
-	 xwAkCLhf/0nYQBYxf/qc0GP0u+JTKQQeucGmkouU5/Sc5ss7WjbYzwiJIC7k5i6EdTd/s
-	 XpwlkIb+3hkAt1nESuB06+ynnAXVBY1RcGHhqyzKNbYGjT5lZ6Qljd0rzrkDooHji0q+s
-	 pbC45+yg7jtTxj5/m+GfylmnqwE3x+9/0wlJb3NRwTjNd39QxNOJospypJt0lDSlFseMi
-	 9qhacONFTTDtD+i3m8VkUVTP/21Hjm3Ui0UkikzP7ZFJ8methATHikdyDy5XQfqxNhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437528;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wgdw9pPnqudyZcHtC7gRmtcks/LYJQ7P/2uuTiaSpCE=;
+	b=vGOBZvEthuTrkMwrMAqpPlJZjgfeu7zAiEfFnlUxfwos7guufNgfxMNZGi3me9kqpgtC
+	 FzPQ1Hc4hmbd/0WTfR1d47goDSFMCjmeuoFRhoO//ZTZYZXwswT1cBcl+moF9qNMV37AH
+	 GbmHni5YTmZmmnhP89SnolhOo0JqVyTXJ0XO3+2a1zOxngYnMTen1VFYeyQu8lntYle0g
+	 p8KLY4XN2xeAs1ETS2xjddWVIz4FzJL27D3bZJBl85g92j9IlCkYeuGd7Eei9EgMaKI1+
+	 sp3AuUhnq1lFNljhSR7lmnR5Yixys6R+nHRzR/a0+n6o6HM1MS+tHxIGpefjA4zn4KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NxaAZuj4;
-	arc=none smtp.remote-ip=198.175.65.11
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O7HwZ9ed;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC5F7606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:38:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC5F7606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 761BC606A31A;
+	Mon, 23 Nov 2026 12:38:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NxaAZuj4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795437494; x=1826973494;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=noXsiV34IzHrnUGMjWMJk9K0TE4u0xXSkekc5W2Cx7U=;
-  b=NxaAZuj4zofRryDmdfOjOflh7rmEtix/+O+CpIbq9Zzf5IXaHInA9N+A
-   LBoFb1Jvh4fBAF2dQz1/++uoN8WwgOx90imgLMI2MM1AK7U1NfofZtCpk
-   ZEp+y6v56b9+ck445JdCM07rKYn+r8r8QqZ/ENKHette4YPKnujxm2EDz
-   Jqz+061INAHFr4sod7kSdFlQPmVXfl8cV1O3v02nmz5iozZxQuhJ6bEIj
-   J8gUh0ApwA3qa11kk1QV9fGjkhhbzQAqoA5f8sFghHYVbOpmK7rWPYIUo
-   cVFqw+rrfHooXneA2mtVx2p7iRumJ1DcQFuFdNYdltNJOQLM/t1hLIBhI
-   g==;
-X-CSE-ConnectionGUID: KivRZhekQTSw/8G6w2kAbw==
-X-CSE-MsgGUID: UE0l2WQZRJm539zBt5iD2Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4141054"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4141054"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:38:13 -0800
-X-CSE-ConnectionGUID: VkO5xzvHQgerGP59zkgMEQ==
-X-CSE-MsgGUID: 9FKoM4l4T/ak9kNjYPh1EQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11649063"
-Received: from soc-pf6038af.clients.intel.com (HELO [10.217.180.38]) ([10.217.180.38])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:38:12 -0800
-Message-ID: <d9b91e95-243d-4e3c-92b0-0355dca59a63@linux.intel.com>
-Date: Mon, 23 Nov 2026 13:38:09 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O7HwZ9ed
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 3869C1F000C4;
+	Mon, 23 Nov 2026 12:38:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795437527;
+	bh=wgdw9pPnqudyZcHtC7gRmtcks/LYJQ7P/2uuTiaSpCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=O7HwZ9ed0qjYQGF+5m/LM7lsw9NNNpVO+v17o9k4r29ALiKw8N3+95VwUb1/W1MXm
+	 uGX8o4caIIHC5itax3bCc6GPpKSPb5AxTQPCPeK13+axXc3B8fEpbZ0yYCRAm2Xv1W
+	 dpgQXMFsEHbkPnmffPmlzCrKg8sTkbl038FJ6Kwp+vcIJWZ85dEb3uqAzJ2e/67VGO
+	 BvZkfrUx9RwT20o2VE0VRxQhTTQI1adBVfD8/7jjGZeKsIE2JI2TQXqJzapWKUUbLY
+	 IGoZOWG3CokgqlxdmKg6OwRBFgD6Up7WeWaxtwfNF5HEAPQ8q8yLJLr0SG2BpCLpmp
+	 05HU5IQQ8VeTg==
+Date: Mon, 23 Nov 2026 14:38:44 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Jiri Pirko <jiri@resnulli.us>, linux-coco@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-api@vger.kernel.org,
+	x86@kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	jgg@ziepe.ca, david.quigley@intel.com, lukas@wunner.de,
+	ksinyuk@kernel.org, rodrigo.vivi@intel.com, cedric.xing@intel.com,
+	sameo@meta.com, drdeeglaze@gmail.com,
+	James.Bottomley@hansenpartnership.com, aik@amd.com,
+	jpiotrowski@nvidia.com, qinkun@google.com, pgonda@google.com,
+	jic23@kernel.org, alistair.francis@wdc.com, ankita@nvidia.com,
+	suzuki.poulose@arm.com, kas@kernel.org, rick.p.edgecombe@intel.com,
+	elena.reshetova@intel.com, dave.hansen@linux.intel.com,
+	sathyanarayanan.kuppuswamy@linux.intel.com, peter.fang@intel.com,
+	zohar@linux.ibm.com, aneesh.kumar@kernel.org, dave.jiang@intel.com,
+	nik.borisov@suse.com, sergii.dmytruk@3mdeb.com
+Subject: Re: [PATCH RFC v2 9/9] attestation: Add the TDX family implementation
+Message-ID: <awQz1P6iXYrL8lv0@kernel.org>
+References: <20261113160838.2512652-1-jiri@resnulli.us>
+ <20261113160838.2512652-10-jiri@resnulli.us>
+ <awQCrnD5CtEhKRWz@e129823.arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,38 +70,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] MAINTAINERS: Add Dawid Osuchowski as Intel VPU maintainer
-To: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>,
- dri-devel@lists.freedesktop.org
-Cc: oded.gabbay@gmail.com, jeff.hugo@oss.qualcomm.com, lizhi.hou@amd.com,
- andrzej.kacprowski@linux.intel.com, linux-kernel@vger.kernel.org
-References: <20261123122007.2580451-1-dawid.osuchowski@linux.intel.com>
-Content-Language: en-US
-From: Karol Wachowski <karol.wachowski@linux.intel.com>
-In-Reply-To: <20261123122007.2580451-1-dawid.osuchowski@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awQCrnD5CtEhKRWz@e129823.arm.com>
 
-On 23-Nov-26 13:20, Dawid Osuchowski wrote:
-> Add myself as a new accel/ivpu driver maintainer.
+On Mon, Nov 23, 2026 at 09:09:02AM +0000, Yeoreum Yun wrote:
+> Hi Jiri,
 > 
-> Signed-off-by: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
-> ---
->   MAINTAINERS | 1 +
->   1 file changed, 1 insertion(+)
+> [...]
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index bcade5bfbafe..0afa391498d0 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -8198,6 +8198,7 @@ F:	include/linux/power/smartreflex.h
->   DRM ACCEL DRIVERS FOR INTEL VPU
->   M:	Karol Wachowski <karol.wachowski@linux.intel.com>
->   M:	Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
-> +M:	Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
->   L:	dri-devel@lists.freedesktop.org
->   S:	Supported
->   T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+> > +static void __iomem *tdx_attestation_log_map(size_t *length)
+> > +{
+> > +	struct acpi_table_header *header;
+> > +	struct acpi_table_ccel *ccel;
+> > +	void __iomem *log = NULL;
+> > +
+> > +	if (ACPI_FAILURE(acpi_get_table(ACPI_SIG_CCEL, 0, &header)))
+> > +		return NULL;
+> > +	ccel = container_of(header, struct acpi_table_ccel, header);
+> > +	if (header->length >= sizeof(*ccel) && ccel->log_area_start_address &&
+> > +	    ccel->log_area_minimum_length &&
+> > +	    ccel->log_area_minimum_length <= UINT_MAX)
+> > +		log = acpi_os_map_iomem(ccel->log_area_start_address,
+> > +					ccel->log_area_minimum_length);
+> > +	if (log)
+> > +		*length = ccel->log_area_minimum_length;
+> > +	acpi_put_table(header);
+> > +	return log;
+> > +}
+> > +
+> 
+> I think we don't need to dump log area with the log_area_minimum_length
+> since the area would include none-event otherwise, pre-exist tool (i.e.
+> tpm2_eventlog) reports error for them like:
+> 
+>   ...
+>   - EventNum: 21
+>     PCRIndex: 2
+>     EventType: EV_EFI_ACTION
+>     DigestCount: 1
+>     Digests:
+>     - AlgorithmId: sha256
+>       Digest: "b54f7542cbd872a81a9d9dea839b2b8d747c7ebd5ea6615c40f42f44a6dbeba0"
+>     EventSize: 40
+>     Event: |-
+>       Exit Boot Services Returned with Success
+>   ERROR: corrupted log, insufficient size for event header: 3
+>   ERROR: failed to parse tpm2 eventlog
+>   ERROR: Unable to run tpm2_eventlog
+> 
+> 
+> So, what about export *real size* of eventlog like
+> tpm2_calc_event_log_size()?
 
-Reviewed-by: Karol Wachowski <karol.wachowski@linux.intel.com>
+Nothing in the patch (neither commit message nor any comment in code)
+says that TDX attestion registers share the same format as TPM2 even
+log.
+
+I was just trying to understand where does this derive from but since
+there is no reference, I'm confused.
+
+As per the function, perhaps tpm2_calc_event_log_size() should be
+relocated to lib and have non-TPM name like firmware_event_log_size()
+or something.
+
+> 
+> 
+> Otherwise, look good to me.
+> 
+> [...]
+> 
+> 
+> Thanks!
+> 
+> -- 
+> Sincerely,
+> Yeoreum Yun
+
+Br, Jarkko
