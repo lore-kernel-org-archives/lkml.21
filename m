@@ -1,79 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795462707;
-	b=AkerpbvyEBNBRnPxhHRbhIAsqrzb+od5Zk7275q9HFBFN3fPwM5vS9PGqYDJRL3ESQmj
-	 gPtpRIQ6VV6wylCs0TaoWrcxpE1xJ9yjUh1dGbboLeNFrRSpoD0NCnSAAT6zar/wlFHY9
-	 rjjNylOPqMhWHdLGwTJrpMbSRC6PGhLwRcZ+EqvCiigjmVKS4LC33Pdm7vxGwe6OBZLtL
-	 7a05aDKY/F3YFwog5MQUMiojliTtmM8VP2e1vV3q1hEWw89eLDUpaq/cCX5uPzgRFpWfj
-	 6hyaorTG7iAAb5Yel5dCVEAsFShC4C4HhpCKbMW3LAhNMQmau2S77vOiBbMUHq5FRYg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795462707;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rAgcqIqOw6zcaQD0GaowJvtaNg3/b1Y5Y23WzFleRQ4=;
-	b=LgRKGuBzmFpy30XzhgsTtZHvSTNchkm0a/v6vv2MyJ/AgVVI7RSxEdGXrh7ge4+KSW+m
-	 0ICd/Ie6uE8HpvuORF8rWpHoOrTQW56rVlBYdxKFni43VK4Kk/cw2GTHDQIJv7zM1yVio
-	 M0objrA95CfhrhJppzhP1N1x736H8RuXvEHkkxTHf1b6oIyOvJyir/T6uVW+Ka2RFVp0P
-	 hA13CJWSdwRwMGF2uzVitynwEBml8vwnFlBFPoYNjg5VUovTVvXnfXq0w3I3vP/KOxQth
-	 u+V8b+n0Q21H/ZcrnTXjvwdJ48yaT2xciWUJf5C1LON78wysmdPR+EFF++uMr9KB+oQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HmW73Ara;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795462721;
+	b=CWYF9HeIrWkBVUIjwbkb8IkEtZN14nziO29rNYbMFY/0tCZcnGI7O+6WHCiQmNisYJDf
+	 0BZtTaEs62nBVHSMCbDhGJ9R26v50YLE1WYiKfQXWoNkoE5+kloUQavXgqgxdJI4grapm
+	 I5adrKrXGcI0IOD2SfTOqSa3+LB08mLWBI1nPUQr4u4oJv3+nzJTs/7CXwa4TP81ghMFT
+	 0jCt2z2GiLjsHiYEBI/2/ASq3eNr69H95HPjNhUMhRYGgBZdaNMHZ/+xW2x+hiSk1n6zG
+	 j206dPe7USkK+oriuu9xyVEmFUWDnCTTpBuWQLe6hJsgdBIyFoOetOT0boJkP2G/+eQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795462721;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0DaLrAjJERB9nEFU7eyItkBxKjBtjK0prxAqaKWShPw=;
+	b=K1Zh4xzK75myUZLt5Z/TIOvoYLPXkKOQx4+qLM0dyXrwG1OZ1zI3S5IklTJruuaUYQA7
+	 5GC9sNhSAC9H3sYlrInu5kMkT755WOvp2eAhtW39YHKaC5iviuzEbKzJDuEkpjLI0XqMb
+	 Cl49exqlo6rXWlfzSdTPBxLM5N7bVeZLmGobBqOp2CPfdz7P3Mms/vFF3nYAukpUOgY3s
+	 aFTyxIcPQMvnYGGWJKzzL+WjHiI4ewQRPAeS98vT8rU8dkUp27gbvi7dBQK8xgWc64/We
+	 jmHjGuMoi63Cl+JuskmoU3R1iffeJlqRxt2/l3RkMqpeksVFgqvdtgJX82BQjVy1M6Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LsR2Wh+5;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D48460A2604;
-	Mon, 23 Nov 2026 19:38:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16FBB606A692;
+	Mon, 23 Nov 2026 19:38:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HmW73Ara
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795462706;
-	b=2rN2uAjze3pp5fF0gYAwHE+8UrApq6fXslvuW+uSA7LNEZGBPZD/d/JIYPbB9srgKyDq
-	 8EvdG1b/EUDP2VLZT+hZxl4k1yVdepbWYL6SpJkaTM6Mcuh0oNSd54qfJJb481ORvwCOr
-	 Qh6yazgqoSr4G1bmCqzEH3ajh0DgtyJiR4nE+tC45bdLNFl4dbwXUlSF5JdPMh0gDciPk
-	 qQRiOdfej71eT0m2vL8wryPtdt9lGGiNQoN9ZXnCe/9O7sXwv4jw3a7mY8bSuMALMXGA+
-	 hQao/be+7xIIa2+wk1OjX2gF+cYNfWWHNMWgA9ob21UNnQqpQ590PdfR0PDqfPNgzpA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795462706;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rAgcqIqOw6zcaQD0GaowJvtaNg3/b1Y5Y23WzFleRQ4=;
-	b=QyFoRdH+1dhFbxwDFLdV0gS8E80X5nRhUQ1F4PEVzne26eG1nTqZ+JxVZpBAFe98MLqp
-	 C8lnYbpWngwiyx5Sho+/gAJe6Lcg5hBTMJZ0wEVvhn3A/oEbND+DWjoudzk7GOu4juDUY
-	 FTUmHAgxHOYTkiELKYMb+ORKBIxbrHGCoTEUoVbk1ibH6+e0zClPr1Ri4Ayu6Jx7TRVRM
-	 aDnsjaGYt2wiJJqFF4l49Sxfw73Gpek68aoF55fU3rU6Fab2fHoN5TgSAhGLWNI6QafcT
-	 K+Ylw+A0/naW2kJFf0vaklubWWpqiHFmC0egAEtsiZlFHHzaKpN9lIfuUGpOxGz7A5Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 205291F000EF;
-	Mon, 23 Nov 2026 19:38:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LsR2Wh+5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 019511F000D0;
+	Mon, 23 Nov 2026 19:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795462706;
-	bh=rAgcqIqOw6zcaQD0GaowJvtaNg3/b1Y5Y23WzFleRQ4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=HmW73AraiiBadW4DbSF9YJFTGAESKyalCrmoUim1vH6mVoHwhoSBkNSiEkBzLDris
-	 UxJfiBTTx3qqrjCRAqrA8UCO6Kd6xxOfxwc/xuqh+Xm2aPT71qs+jYo1HK9tRLdkCx
-	 FcVMaqjO1KUP30/BOrAfMFQzSmXSJFO2b6P+66vwOnWTzGmxBJ71911QIxaWVyzkQd
-	 8+YmUzegY+bHipPYdmmYK6v5dj3ow/Hnc7vS4SHT9xLRDHIM+5kIuQ60ochzYn/Gzl
-	 Qd2Uae4SiwVHELIhS4gRhKVC4vt8IhpL0/DRyIjvWimU+Zfq46LB7JfRDUSluxYs6F
-	 bUshH96kufdyA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 542904C6A1;
-	Mon, 23 Nov 2026 19:38:01 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Mon, 23 Nov 2026 20:37:38 +0100
-Subject: [PATCH v4 06/11] pmdomain: amlogic: meson-ee-pwrc: power up
- memories for boot-enabled domains
+	s=k20260515; t=1795462720;
+	bh=0DaLrAjJERB9nEFU7eyItkBxKjBtjK0prxAqaKWShPw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=LsR2Wh+5JU4k7rgs/Pxd+WRv7lmJ7zsASZ+wbZcpBeBuS2ShH+1SXGW2ZVCuSv7Za
+	 +m63aZ1smrwrwk/ajOfbjQs3Knr136/sZ9XM7brd+DHdevDn/rONMER1Tk54o0MSM+
+	 ZsBG3yS0AzDvZhImULsg9eFVbw9hddxVBGSYS9TySyA++XoKrQJbMSYPbvO5GgUNWF
+	 ueumWEOw7W9d3EZlZhikorcZqydHztD/F/0K33LA7lBQhZ7k6cdX+0PQMh4oabAFVK
+	 ZOt46kv/GnuUx2JAsIMNV1oLlG002sm3xGPZfKQOYCsSppBkj7dORmhmFL8ROPFF8L
+	 P+FaWNW7Cn2aA==
+Message-ID: <98acd21e-a97e-4299-a206-639ed9fd29d8@kernel.org>
+Date: Mon, 23 Nov 2026 20:38:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,113 +51,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-meson-drm-create-hdmitx-phy-v4-6-3fb94f5534ca@aliel.fr>
-References: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr>
-In-Reply-To: <20261123-meson-drm-create-hdmitx-phy-v4-0-3fb94f5534ca@aliel.fr>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Ulf Hansson <ulfh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2681;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=2pSroicxmn87L6WpeMI1TQ71NJdXRXfygd9gmAxHGRQ=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbLNL5sQ++6hzY5B5+Z/bsWLnPZw+y4ppPqnWyGbClfv
- s+zErU7SlkYxLgYZMUUWfrnWp54d/noma971FNg5rAygQxh4OIUgIkItTH8jzincSxhz4q5twuX
- X9r7263C0aH5T5X3rMO7Pm3v4VVifMzI8M080Kmb9bSV5dqwPqn5dx3e3PrKt7Lzk2+a0NGHcys
- 2sAMA
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Reply-To: linux-kernel-dev@aliel.fr
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/shmem: don't drop a folio whose swap write failed
+To: mt4022@columbia.edu, Andrew Morton <akpm@linux-foundation.org>,
+ Hugh Dickins <hughd@google.com>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Kairui Song <kasong@tencent.com>
+Cc: Chris Mason <mason@kernel.org>, Chris Li <chrisl@kernel.org>,
+ Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
+ Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
+ Youngjun Park <youngjun.park@lge.com>, Tal Zussman <tz2294@columbia.edu>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261123-shmem-swap-write-failed-v1-1-41a0115dfbf1@columbia.edu>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261123-shmem-swap-write-failed-v1-1-41a0115dfbf1@columbia.edu>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On 11/23/26 18:21, Mani Tofigh via B4 Relay wrote:
+> From: Mani Tofigh <mt4022@columbia.edu>
+> 
+> shmem_swapin_folio() drops a large folio that does not fit the mapping
+> from the swap cache if the folio is neither dirty nor under writeback.
+> The folio can belong to another file and be under swap writeback, when
+> the swap entry was freed and reused before the swap cache lookup.
+> 
+> Swap write completion does not take the folio lock.  On a failed write,
+> swap_write_end() marks the folio dirty and then ends writeback.  Since
+> dirty is tested first, the folio can look clean and written:
+> 
+>   CPU0 (swapin of file Y)             CPU1 (swapout of file X)
+>   -----------------------             ------------------------
+>   shmem_swapin_folio()
+>     folio_test_dirty() == false
+>                                       swap_write_end(), failed write
+>                                         folio_mark_dirty()
+>                                         folio_end_writeback()
+>     folio_test_writeback() == false
+>     swap_cache_del_folio()
+>     /* X's data is lost */
+> 
+> The next swapin of X reads the slot whose write failed.
+> 
+> Test writeback first.  Both flags are in folio->flags.  If the
+> writeback test sees the write ended, the dirty test then sees the dirty
+> bit set before it.
+> 
+> With the fix, a folio whose swap write failed stays in the swap cache.
+> 
+> Fixes: fc2c19648d68 ("mm/shmem: fix swapin livelock on a mismatched large swap cache folio")
+> Suggested-by: Chris Mason <mason@kernel.org>
 
-When a power domain is found already powered on at probe time (typically
-the VPU domain left enabled by the bootloader), the driver registers the
-genpd in the ON state with GENPD_FLAG_ALWAYS_ON and never calls
-meson_ee_pwrc_on(). As a result, the memory power-down bits of the domain
-are not touched.
+Nest to make that a Reported-by:
 
-pwrc_ee_is_powered_off() only checks the top-level sleep bit, so a
-bootloader that enabled the VPU without waking every memory block
-leaves those memories powered down, and nothing in the genpd framework
-will wake them since pm_runtime_resume_and_get() is a no-op for an
-always-on domain.
-
-This is a preparatory change: a following patch drops the explicit
-HHI_MEM_PD_REG0 write from the meson_dw_hdmi driver, which relies on the
-power domain to power the HDMITX memory.
-
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- drivers/pmdomain/amlogic/meson-ee-pwrc.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/pmdomain/amlogic/meson-ee-pwrc.c b/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-index 338f70d77bf0..b3ae5cd7bea8 100644
---- a/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-+++ b/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-@@ -392,11 +392,21 @@ static int meson_ee_pwrc_off(struct generic_pm_domain *domain)
- 	return 0;
- }
- 
-+static void meson_ee_pwrc_mem_power_up(struct meson_ee_pwrc_domain *dom)
-+{
-+	int i;
-+
-+	for (i = 0; i < dom->desc.mem_pd_count; i++)
-+		regmap_update_bits(dom->pwrc->regmap_hhi,
-+				   dom->desc.mem_pd[i].reg,
-+				   dom->desc.mem_pd[i].mask, 0);
-+}
-+
- static int meson_ee_pwrc_on(struct generic_pm_domain *domain)
- {
- 	struct meson_ee_pwrc_domain *pwrc_domain =
- 		container_of(domain, struct meson_ee_pwrc_domain, base);
--	int i, ret;
-+	int ret;
- 
- 	if (pwrc_domain->desc.top_pd)
- 		regmap_update_bits(pwrc_domain->pwrc->regmap_ao,
-@@ -404,10 +414,7 @@ static int meson_ee_pwrc_on(struct generic_pm_domain *domain)
- 				   pwrc_domain->desc.top_pd->sleep_mask, 0);
- 	udelay(20);
- 
--	for (i = 0 ; i < pwrc_domain->desc.mem_pd_count ; ++i)
--		regmap_update_bits(pwrc_domain->pwrc->regmap_hhi,
--				   pwrc_domain->desc.mem_pd[i].reg,
--				   pwrc_domain->desc.mem_pd[i].mask, 0);
-+	meson_ee_pwrc_mem_power_up(pwrc_domain);
- 
- 	udelay(20);
- 
-@@ -478,6 +485,8 @@ static int meson_ee_pwrc_init_domain(struct platform_device *pdev,
-          * prepare/enable counters won't be in sync.
-          */
- 	if (dom->num_clks && dom->desc.is_powered_off && !dom->desc.is_powered_off(dom)) {
-+		meson_ee_pwrc_mem_power_up(dom);
-+
- 		ret = clk_bulk_prepare_enable(dom->num_clks, dom->clks);
- 		if (ret)
- 			return ret;
+I'll wait a bit before I pick that up. But it will be a v7.4 hotfix.
 
 -- 
-2.56.1
+Cheers,
 
-
+David
