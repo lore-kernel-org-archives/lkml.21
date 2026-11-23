@@ -1,71 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795407308;
-	b=Kh2UXdV9u3LRKnhlHC2VG0uDIdlJuSc9eXN+SC9qQtar1b4kn2QxJcwg4dui+rSp7ZiQ
-	 SkdJB+gpIjlX3gNGBHd3r9mzCx9fpVaZ2NebGqTLr7KGvcX/b3sOACP+bvydu600bB8Tk
-	 m3adR4kad0/7SSP+ZPibwbEksG4etTXiSkz2GbiePS+U7aWMFiB3EYmvHHWRoispNB+Hn
-	 1ijq9Otha1LOHQd1i7YsAD6Uof0vXthLa13Kh/AllwQYJRku0bVOEh8qhreXg3t/pMhhS
-	 Q8Qml8PLMc3F+435GlFs/cH18woAbYq0jXTtTS2xCqY3qyqv2gk7p54nvZ6bfu/MPGA==
+	t=1795407424;
+	b=hBJHuZ+ZzePCB7Tp2+YVtpisMB+asdHZ0FOguJ5E9q4NQ6zcykdwITg3LL6+dVXjB25e
+	 w9jRNETKd/GCmOzEMovZLgqwUKedOe14n6VjTvYUQoGXLO5g/dLXlRJWSHCnr9leP5Szc
+	 itZydizR3/v/1/UX7coS/mxNgw9YjgGjDxBUcAE+Ngpmu5NSdnUTlyX0Fw3kl6sPsTJfg
+	 gCrtGYGapNhA8WUXP8Xd+lXeSoduSALCuSsCy0AmH1t6kk+Y1Ubs1TvtvaHlU0dMzeWQf
+	 RZZsypIev0lcFwzcsuYBoJP7gNxzgOoRYg5oCnVZ6P8Ifv3G3t6yuJ3f3i7B2yt7ksQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795407308;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=3QGxftQLxKTSOBvApzYyCE8MPukN07SFGrj9IZ2HX7c=;
-	b=VTKJ1g1QA0I57M+soSGviXpqjl+hcFyup+p98LX8f1oMPbE6sgWHclOAp1KeZI72W9/w
-	 R4dGaQnm7QZSaVup1DI/YzxN9aW66lP9vDqT1lwMfidOIoRNwr7o/z7Bqv/Zwwt64jxzq
-	 V6fGaMmbb/bqZSkrtcrncqpX1IMuQBvjS5/BdfvY30K/zzz7lwc8Z6mGMtRlbTAyR3rJh
-	 JC7J/Xqvp6Ob/fHVJhUlZQE1rVgpDp4oFYPy+fIPIrKsE5ExprzYf4FVZ5zXSSrVQ2mTf
-	 AE/7llYb+23SHS/tH1N8Ve8gUuVOFNx2gpAJZDwk1y3G2XymY9gV6Ew84xf3m1vVz2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795407424;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Content-Disposition;
+	bh=YzRt0aFNigfIjuZzIG9Q1L3c5RdrENe2mSuQa2UuzMM=;
+	b=XVIcc2fxA7KlJIrFeMhyBjc2alQ8kjxeGk6uamocPWHPBKPe6NAXQ9wAB0fhdbONpYTd
+	 2iW3gosDUD1s4M/jYkl8vdPrIvhLQDf2NFcbVh25im+bPXv44Q0hJUXi1XD2ZA/noTWZK
+	 UENAGeCREKaviPvsE/2DYGarEOwho4gvhLj+QznGCemJWVbTbr36o60rLx5V7YW9zHX9u
+	 /Pg0QtDb3rodOUD3IjihPtIHmVsx9gffe1w0kVXXnoa4F5IGvq/I8bgEAyvJ6qgPPMmCQ
+	 762rvqh0JUvbo+hn0eCLqU6nnhoVOkkKed+9ZxglQTAKMaxA+he0sMYkFCL/bQ5DQnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ovn.org;
-	spf=pass smtp.mailfrom=fe-bounces.ovn.org;
-	dkim=pass header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=I8evzlW8;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=UF57ilPY;
-	arc=none smtp.remote-ip=121.127.44.73
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="pC2/5JIL";
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB049606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:15:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB049606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ovn.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.ovn.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AD90606A320
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:17:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AD90606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=I8evzlW8;
-	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=UF57ilPY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ovn.org;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-13eddc7e57;
- t=1795407307; bh=3QGxftQLxKTSOBvApzYyCE8MPukN07SFGrj9IZ2HX7c=;
- b=I8evzlW8F6LHjaewHupTrqsLO+7DEGwHTuT5Rs7GKxkKJBphSIpJvuu2YrTVxBiOMG3FIR3RH
- mcSsu91IGIK3y2mzEh3VZC07DjNJOvFe2uWlbj8AMEsJ0O07QG7Rpw9WH0EE4ZRRGLyjOcdVuyP
- jNY3bbrVoZDotunT4FVyY1s=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1795407307; bh=3QGxftQLxKTSOBvApzYyCE8MPukN07SFGrj9IZ2HX7c=;
- b=UF57ilPYJXcH/4byHzSDtWIZ3tbg/jrEdesx2ADBOnM+OIEwLRKuyFx1zAn4or7e1jNll17xe
- oqfz8EdzGHC0gbo3V1Asm30TW5+NCoIrWh8kwPNx5CV450egc81EakQtSVc2Of73Qf2ZyNrm0ry
- o6IoTNHUSc0nCYVBHo+iLl0=
-CFBL-Feedback-ID: 6b03bdca9ac7a1bf66975566:d42d2194a37096a761e7117f94e43a90
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6b03bdca9ac7a1bf66975566
-X-Forward-Email-Sender: rfc822; i.maximets@ovn.org, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.19.37
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <fe3d59b0-d5cc-4b54-8339-35c30bb86036@ovn.org>
-Date: Mon, 23 Nov 2026 05:15:02 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pC2/5JIL
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38431138772so3660882eec.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:17:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795407422; x=1796012222; darn=vger.kernel.org;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YzRt0aFNigfIjuZzIG9Q1L3c5RdrENe2mSuQa2UuzMM=;
+        b=pC2/5JILDWebNKIS7WN40P1R2+FeLvLjKLTsXNuBIfgFm0owzGiwJKpdD14U39sQOQ
+         XuTPTSr0Ph0zRijincIqGnZi6Bjy6kn4hKD1fvqd5r0kS4vQcJbYyYbsnSrs5dvoDgGt
+         iebo8pA1t8/TBtJtQivVLj/3OmYHOeLf2toFeUn2GC61WeAwnzt8wsES6gp+N0Npmyso
+         7Jy03PsCWIYIdLO+XR8SNMB4KBos0yk+UCLcb/11dyssMoziSJE4uGm2ZwHu+PZ/F7a8
+         2hHIvz92sdpvuvvFCBjBaxslbsZqE50x20YWSbIpGnYUv5dLq9xyOukpLFDW7Zu1q7l2
+         aTxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795407422; x=1796012222;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=YzRt0aFNigfIjuZzIG9Q1L3c5RdrENe2mSuQa2UuzMM=;
+        b=mdOd0Kg1093LgVxFCyYNfX/iemK914WtRU+OEoydGPz39zUGZreDx84fcTDTvn0pxM
+         JgPLXdkphURtLWGn8F++idEABptPh3QtDjVapvtncjn0wSVwIbaTIbCp3zC7yRYH0Hn2
+         CYui5146sjCNmR10tJ3/MJzLlsCWVMklXihuF3a9vd4XNYyHOhCDZJICO00vRExh61r7
+         sBbuoY4XlG5PEoQSAodJK+YdW2HnoXIyrVdlNCCvP1zTLON/pkdm6ulfoBjrf8Te7m4Z
+         NHG2O9mBfWHzBd7cLTgVkvlrbe8EuvT0OklWxc+r827Ai1c1zwHlyPrHk2OMm78w2QFS
+         foDQ==
+X-Forwarded-Encrypted: i=1; AL+hErGc0GNarXhdibSBbe6VOHB19m9PVLLcRgTIRWFj3JuV/A/zdzqD5OxKEWaTYmGMhUicM/fF2WSFK7aiXY0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kLgGSjxxZnSBTmVAsWhjCI+C0+oEnKAKYIpQCIFsHnrzEa9Iv
+	xZ5cS15zJeB2SrEmV+KkDIunnUppFavvbSs1lsmd/M4Uyp2/MnB6nSku
+X-Gm-Gg: AZFdTZcYd5crnJUTQq17VTTQT+AVx7F90+FSbGcGUGy+KddZ2XQs63HCrKCEbO+J8Z8
+	A0CUw9CegF+tFnkKinHijGeS+o/C1ca5TmwGogpvxIzfQxgscFMCnzdeOFX6NzHf2lpFqsEqMiE
+	cBACWd/XNcqaJ1BAh1byFJxleRg/pvI3asIjnI/ZqM3m+85IynTCOT6T64zOqY29K6l9uOD8osF
+	GtQxqouhAmzV7kVY44ZLeABryxYUcq50IC04um5pwPDGcbMKl0yP6JfO1wM0VpRYPw0ntXz25WZ
+	fa2YggI3u388xNp/paMyb2Ivxwhn6JXPiSF/Agv4W+wKtnB38Tfvm0xYSVc/pUobpp+tutEvTnu
+	qGqprUCpo4wD+l01zyC0CJdq1Q7XOSdkNJFMttSdKNqrg+cafQv99beM7tUiPLXD1ot9v5spyhK
+	jIYudVi2ONGjaad6g80JNUnFiScOwzKgUbq2mbt2yi8P18NYhVBtu+5BtEnF3AFYSaIztOu85XA
+	kEA8Eb0lMS6K8PenaLpq3qYII8j555EavZsTRUCBQfrVy9XmGCUzQNFaNTrfkkFIUdsMRD1Nw5X
+	tuwrXFzklWvKd2MmzTNav+Dt1SD+kT7R8s7/n3MZZveCfLRaVy0vViQ1+2Nb7aROpEK9SQ==
+X-Received: by 2002:a05:7301:1703:b0:386:319b:fb0f with SMTP id 5a478bee46e88-386319bfc98mr9614430eec.38.1795407422015;
+        Sun, 22 Nov 2026 20:17:02 -0800 (PST)
+Received: from localhost ([2a00:79e0:2ebe:8:f002:4621:aeeb:e0e7])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm36065292eec.10.2026.11.22.20.17.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 20:17:01 -0800 (PST)
+Date: Sun, 22 Nov 2026 20:17:00 -0800
+Message-ID: <847ed9034c9869373a150d43d352b2b9@gmail.com>
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Michael Auer <mick@yoxcu.de>
+Cc: linux-input@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Input: pm8941-pwrkey - report wakeup events
+In-Reply-To: <20261121204112.847960-1-mick@yoxcu.de>
+References: <20261121204112.847960-1-mick@yoxcu.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,151 +99,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 3/4] net: dropreason: use new __print_sym() in tracing
-To: Johannes Berg <johannes@sipsolutions.net>,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org
-Cc: Steven Rostedt <rostedt@goodmis.org>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Ilya Maximets <i.maximets@ovn.org>, Matthieu Baerts <matttbe@kernel.org>,
- Aaron Conole <aconole@redhat.com>, Eelco Chaudron <echaudro@redhat.com>,
- dev@openvswitch.org, Adrian Moreno <amorenoz@redhat.com>,
- Antoine Tenart <atenart@kernel.org>, Johannes Berg <johannes.berg@intel.com>
-References: <20261119155133.355849-6-johannes@sipsolutions.net>
- <20261119155133.355849-9-johannes@sipsolutions.net>
-Content-Language: en-US
-From: Ilya Maximets <i.maximets@ovn.org>
-Autocrypt: addr=i.maximets@ovn.org; keydata=
- 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
-In-Reply-To: <20261119155133.355849-9-johannes@sipsolutions.net>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-On 11/19/26 4:48 PM, Johannes Berg wrote:
-> From: Johannes Berg <johannes.berg@intel.com>
-> 
-> The __print_symbolic() could only ever print the core
-> drop reasons, since that's the way the infrastructure
-> works. Now that we have __print_sym() with all the
-> advantages mentioned in that commit, convert to that
-> and get all the drop reasons from all subsystems. As
-> we already have a list of them, that's really easy.
-> 
-> This is a little bit of .text (~100 bytes in my build)
-> and saves a lot of .data (~17k).
-> 
-> Signed-off-by: Johannes Berg <johannes.berg@intel.com>
-> ---
-> v7: update the selftest accordingly
-> ---
->  include/net/dropreason.h                      |  5 +++
->  include/trace/events/skb.h                    | 13 ++----
->  net/core/skbuff.c                             | 43 +++++++++++++++++++
->  .../selftests/net/openvswitch/openvswitch.sh  | 17 ++------
->  4 files changed, 55 insertions(+), 23 deletions(-)
+Hi Michael,
 
-[...]
+On Sat, Nov 21, 2026 at 09:41:12PM +0100, Michael Auer wrote:
+> The power key (and resin, with "wakeup-source") is a wakeup source, but
+> the driver never reports a wakeup event. Its wakeup_count in
+> /sys/class/wakeup stays 0 even after it woke the system, so user space
+> cannot tell a key press from other wakeups. PowerDevil, for example,
+> uses the wakeup counts to decide whether to turn the display on after
+> resume.
+>
+> Report a wakeup event from the interrupt handler, as other power key
+> drivers do.
+>
+> Signed-off-by: Michael Auer <mick@yoxcu.de>
+...
+> @@ -161,6 +161,9 @@ static irqreturn_t pm8941_pwrkey_irq(int irq, void *_data)
+>  		}
+>  	}
+>  
+> +	/* Let user space see that the key woke the system */
+> +	pm_wakeup_event(pwrkey->dev, 0);
+> +
+>  	err = regmap_read(pwrkey->regmap, pwrkey->baseaddr + PON_RT_STS, &sts);
+>  	if (err)
+>  		return IRQ_HANDLED;
 
-> diff --git a/tools/testing/selftests/net/openvswitch/openvswitch.sh b/tools/testing/selftests/net/openvswitch/openvswitch.sh
-> index 21444657a040..b5dbdfb29089 100755
-> --- a/tools/testing/selftests/net/openvswitch/openvswitch.sh
-> +++ b/tools/testing/selftests/net/openvswitch/openvswitch.sh
-> @@ -236,7 +236,7 @@ ovs_drop_reason_count()
->  	local reason=$1
->  
->  	local perf_output=`perf script -i ${ovs_dir}/perf.data -F trace:event,trace`
-> -	local pattern="skb:kfree_skb:.*reason: $reason"
-> +	local pattern="skb:kfree_skb:.*reason: $reason$"
->  
->  	return `echo "$perf_output" | grep "$pattern" | wc -l`
->  }
-> @@ -900,15 +900,6 @@ test_psample() {
->  # - drop packets and verify the right drop reason is reported
->  test_drop_reason() {
->  	which perf >/dev/null 2>&1 || return $ksft_skip
-> -	which pahole >/dev/null 2>&1 || return $ksft_skip
-> -
-> -	ovs_drop_subsys=$(pahole -C skb_drop_reason_subsys |
-> -			      awk '/OPENVSWITCH/ { print $3; }' |
-> -			      tr -d ,)
-> -	if [ -z "$ovs_drop_subsys" ]; then
-> -		info "failed to get OVS drop subsys ID"
-> -		return $ksft_skip
-> -	fi
->  
->  	sbx_add "test_drop_reason" || return $?
->  
-> @@ -952,7 +943,7 @@ test_drop_reason() {
->  		"in_port(2),eth(),eth_type(0x0800),ipv4(src=172.31.110.20,proto=1),icmp()" 'drop'
->  
->  	ovs_drop_record_and_run "test_drop_reason" ip netns exec client ping -c 2 172.31.110.20
-> -	ovs_drop_reason_count 0x${ovs_drop_subsys}0001 # OVS_DROP_FLOW_ACTION
-> +	ovs_drop_reason_count OVS_DROP_LAST_ACTION
->  	if [[ "$?" -ne "2" ]]; then
->  		info "Did not detect expected drops: $?"
->  		return 1
-> @@ -969,7 +960,7 @@ test_drop_reason() {
->  
->  	ovs_drop_record_and_run \
->              "test_drop_reason" ip netns exec client nc -i 1 -zuv 172.31.110.20 6000
-> -	ovs_drop_reason_count 0x${ovs_drop_subsys}0004 # OVS_DROP_EXPLICIT_ACTION_ERROR
-> +	ovs_drop_reason_count OVS_DROP_EXPLICIT_WITH_ERROR
->  	if [[ "$?" -ne "1" ]]; then
->  		info "Did not detect expected explicit error drops: $?"
->  		return 1
-> @@ -977,7 +968,7 @@ test_drop_reason() {
->  
->  	ovs_drop_record_and_run \
->              "test_drop_reason" ip netns exec client nc -i 1 -zuv 172.31.110.20 7000
-> -	ovs_drop_reason_count 0x${ovs_drop_subsys}0003 # OVS_DROP_EXPLICIT_ACTION
-> +	ovs_drop_reason_count OVS_DROP_EXPLICIT
->  	if [[ "$?" -ne "1" ]]; then
->  		info "Did not detect expected explicit drops: $?"
->  		return 1
+Could you please move pm_wakeup_event() below regmap_read() (after the
+error check, or right before reporting the key event) so that we do not
+report a wakeup event when reading the status register fails?
 
-For the OVS test part:
+Thanks.
 
-Reviewed-by: Ilya Maximets <i.maximets@ovn.org>
+-- 
+Dmitry
