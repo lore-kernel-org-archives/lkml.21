@@ -1,80 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.133.224.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433482;
-	b=Q9PFGWlSH43AHdIElp5zfZVarCb6Iwf9405wEjJtv3FUprbh7Ni1M57Dd42hGRvDhV/s
-	 UU6jW/oNHydKtgUFRqi4PIypF52Yi4xraVZGKVNg/sBx/DzJa1ieL0fJrXBZnGFXK5U0t
-	 wop3wG0BihRJDGjb4ZmiWyb+U3ac5wWjuC0kNW0xoCjZnik1wsLkpUL42/3O90f92DKM3
-	 c5D/nwgQ+hZOlRi4skqioFKmzmACpevu1OQwEtm7+gKe6+BPfep6sSBxCzSyeayYQ2p3q
-	 LfxeO0DkwmrAY55F7mSeEXH9Ys0vdMidFO8SZXLuRal5pI3GzYOg3nQDNnNZo/lAXwA==
+	t=1795433534;
+	b=1kTY7hpeWbL3HasAuNRfF3YCdW73OdEmpBFr8QB2Rp2FleZLYGOYhudYiYehVJEuNXY/
+	 j7DJhN6JFVNCtvIolfS8ErDlTmh+AXomunMekkTuXTiNzb/WrRnZyMkJIE4uBwZVzJNR5
+	 WVmwz2VDDTDFNPffwxqS+6rNosSmZW6Axdy4H8swWX2ONV73WxHBKGPxnAOYHwgW8HEIo
+	 0MWlAkO+21X9BX0Ybr4c6YNsEccimFGgA45AuxYPxv/eOYGerfR4Ebrfv9WRMX4O+dByB
+	 HzrsybnQSF5JArtQlJazM7Jl6HuzJWDIZQTx4HPXkX5EGBjSW2SvaM74ziag4fPbVkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433482;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=yfrlej6qyd4zr3J56wD+mtwsn9dmfEHw/O0sbFEMubM=;
-	b=0x0G+Mych96kO4YuQvwiTudJ0JSlWHXVPCg/N1VHCrSuYKnAb1gUWSCeHf+3I2RIQShS
-	 Ful4/gZ9vyRh/Q7mqr6P82AQVV3uAX6SpGfYE4BThgvsL1M26pXSM+76l+YwMJAJ+1ZHE
-	 92zd+d6e4YlGF9YOOcTrD6xsOqEv838vDCx1DrqwS5owJgJXnbrkwPjYEOYGMUNTs67BC
-	 yJ07s5NR6YFo9zoaXKLpTy8dg1XKn4eg2eJ7BO98qBP+nZH+cPDTzleazhJDUNG9U41Aa
-	 0283tEubAvw3HgeBz0be+60iNpA5Z2njKMbr/PsUsw6FcrSGk5+sGucp3hix+3diiGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433534;
+	h=DMARC-Filter:Received:Received:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:User-Agent:MIME-Version:Content-Type;
+	bh=vfzFJWaw7PJvBRx+8xQqvVVl0Wwzfhc/VvgCroXjFb4=;
+	b=kRSWA8O/tebUGvL74vFPn5BTS9AV69OZi6myMU3Xm4wM1kG4DbaxmkYjcxSEpjjOYl5a
+	 z87iVg7/xq6ldu0SyyZ1YZJwOnTVGTZoiyYYd7zSuyZJBcq/bWNZPXuxVxTt5+0CL1oTI
+	 A2btVXf4eIdAdKDXrwfcOcS28QRwyTkaIFaUj+a+yDoHv0YgRG1A48RvYTF3bcYiogPO/
+	 RCBZKTbeud6fKT8CwTqqyk1mGSwmrYwayZIaxK3mZk6awv3IZwHwffhiFeccjdmFzlLcy
+	 M/PzLVb3pVM5A65yWvHDYd+nRP++2UPrLbXeIHzMGQEU9WAtiZEANXUJYmJhi3lf9Ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mBzJ9ssv;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 073A6606A31A;
-	Mon, 23 Nov 2026 11:31:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 073A6606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mBzJ9ssv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795433483; x=1826969483;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=buSJuJMS4qx78LvNp3wcNBjX6N049hlAhRKf7lhMUi0=;
-  b=mBzJ9ssvBzpDhoqszFCNS5sCrhq1rmkFUWdeWXIV0Imi+kEYWMWb8RWs
-   867FfEkYAnP+KCUcZ06tNG29ncjFZBm5V+LuT4UdLX6mTNcpdxkdcHkKU
-   1OtbQyrYEOBq4XaraZ9DXbW3mXBapw9YMNBrjNBy/LEu7WFd0OC/wrqDt
-   PEf6UADjdRMtER85Q0YJebd/nn9I3PilrslW6bt7pK/qkUcxnpWQu7QPg
-   /6oa3VPDzgLfb2geNxLQ3dMaTlWWirKCWnS2R3LRTV4JOyNXftphU+g32
-   RA3ImHYDuJaEM5RIPXN6ptc2z7fTbBJafJfQWcb46yYyMqHjFq/gqV07U
-   w==;
-X-CSE-ConnectionGUID: MN8xuuXsRZOv9PkqbQtikg==
-X-CSE-MsgGUID: D6AIdkSCQta8wF9I889DqA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4324865"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4324865"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:31:22 -0800
-X-CSE-ConnectionGUID: NQ79MQVYQL+tyEKxworH9g==
-X-CSE-MsgGUID: acwzS4tyRFWTrLBXkeTjTA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11612293"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:31:19 -0800
-Date: Mon, 23 Nov 2026 13:31:16 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Mathieu Othacehe <othacehe@gnu.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 7/7] iio: proximity: isl29501: Fix division by zero
- and overflow in isl29501_set_freq()
-Message-ID: <awQkBAEaRuPqR3vb@ashevche-desk.local>
-References: <20261123075122.373060-1-lee@kernel.org>
- <20261123075122.373060-8-lee@kernel.org>
+	dmarc=none header.from=orcam.me.uk;
+	spf=none smtp.mailfrom=orcam.me.uk;
+	arc=none smtp.remote-ip=78.133.224.34
+Received: from angie.orcam.me.uk (angie.orcam.me.uk [78.133.224.34])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 372A7606A31A;
+	Mon, 23 Nov 2026 11:32:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 372A7606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=orcam.me.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=orcam.me.uk
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id 28B609200B3; Mon, 23 Nov 2026 12:32:05 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id 2397592009D;
+	Mon, 23 Nov 2026 11:32:05 +0000 (GMT)
+Date: Mon, 23 Nov 2026 11:32:05 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Tzu-Ching Yang <shingekinocore@gmail.com>
+cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    linux-mips@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+    Yury Norov <yury.norov@gmail.com>, 
+    Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org, 
+    Gregory CLEMENT <gregory.clement@bootlin.com>, 
+    =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+    =?UTF-8?Q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+    Jiaxun Yang <jiaxun.yang@flygoat.com>
+Subject: Re: [PATCH] MIPS: Make cpu_has_mips64r6 constant on 64-bit r6
+ kernels
+In-Reply-To: <20261123035732.728281-1-shingekinocore@gmail.com>
+Message-ID: <alpine.DEB.2.21.2611231038330.54328@angie.orcam.me.uk>
+References: <20261030140430.1857741-1-shingekinocore@gmail.com> <alpine.DEB.2.21.2610301515350.42255@angie.orcam.me.uk> <20261123035732.728281-1-shingekinocore@gmail.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,54 +57,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123075122.373060-8-lee@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=US-ASCII
 
-On Mon, Nov 23, 2026 at 07:50:33AM +0000, Lee Jones wrote:
-> isl29501_set_freq() computes freq = val * 1000000 + val2 % 1000000 in a
-> signed 32-bit int and passes it directly to do_div() without checking
-> for zero or negative inputs.  Writing 0 to the sampling_frequency
-> attribute triggers a division by zero in the kernel, while valid
-> frequencies above 2147 Hz up to the sensor's 2222 Hz limit overflow
-> signed int.
+On Mon, 23 Nov 2026, Tzu-Ching Yang wrote:
+
+> >  Umm, the wrong fix.  You want __isa_ge_or_flag() instead, plus obviously
+> > `cpu_has_64bits' is also needed (and __isa_ge_and_flag() can be discarded;
+> > I guess it was meant to take care of what `cpu_has_64bits' does and broke
+> > the whole idea by mistake).
 > 
-> Validate that val and val2 are non-negative, compute freq using
-> HZ_PER_MHZ as an unsigned int within [1, 2222 * HZ_PER_MHZ], and return
-> -ERANGE otherwise.
+> Your form and v1 differ only on pre-r6 kernels. I built both on
 
-...
+ Then you're doing something wrong; with __isa_ge_or_flag() I get:
 
-> -	int freq;
->  	unsigned long long sample_time;
-> +	unsigned int freq;
-> +
-> +	if (val < 0 || val > 2222 || val2 < 0)
-> +		return -ERANGE;
->  
->  	/* sample_freq = 1 / (0.000450 * (sample_time + 1) * 10^-6) */
-> -	freq = val * 1000000 + val2 % 1000000;
-> -	sample_time = 2222ULL * 1000000ULL;
-> +	freq = val * HZ_PER_MHZ + val2 % HZ_PER_MHZ;
-> +	if (!freq || freq > 2222U * HZ_PER_MHZ)
+$ file vmlinux-*
+vmlinux-base:         ELF 64-bit LSB executable, MIPS, MIPS64 rel6 version 1 (SYSV), statically linked, BuildID[sha1]=10726d48319f6e095188c715586014d94687e241, with debug_info, not stripped
+vmlinux-has-mips64r6: ELF 64-bit LSB executable, MIPS, MIPS64 rel6 version 1 (SYSV), statically linked, BuildID[sha1]=01be340ec78999c55ac60d8f51c0a4a5fdfcbb2e, with debug_info, not stripped
+$ size --format=gnu vmlinux-*
+      text       data        bss      total filename
+  11145180    3682690     301824   15129694 vmlinux-base
+  11072380    3686698     301824   15060902 vmlinux-has-mips64r6
+$ objdump -d vmlinux-base | grep -c dclz
+18
+$ objdump -d vmlinux-has-mips64r6 | grep -c dclz
+1430
+$ 
 
-But the second one is implied already by the val validation above, no?
+(the former figure being nonzero is owing to the compiler being able to 
+produce DCLZ from RTL; the rest is our inline assembly stuff).
 
-> +		return -ERANGE;
-> +
-> +	sample_time = 2222ULL * HZ_PER_MHZ;
+> > Your proposal precludes the use of R6 stuff
+> > with pre-R6 compilations -- not sure if that makes sense, but let's stay
+> > consistent with these macro definitions.
+> 
+> In mainline cpu_has_mips64r6 is already 0 on pre-r6 kernels, and I do
+> not think a pre-r6 kernel gets as far as cpu_probe() on an r6 CPU.
 
-Taking this into consideration, perhaps not to touch these lines at all?
-Just add a check for 0 above?
+ That's what we do for MIPS32r6 though, so doing the same for MIPS64r6 
+will be consistent.
 
-	if (val < 0 || val > 2222 || val2 < 0 || (val == 0 && val2 == 0))
+> The comment above __isa_ge_and_ase() in cpu-features.h says that
+> "a kernel built for an older ISA cannot run on a MIPSr6 CPU", and
+> under QEMU -cpu I6400 (an r6 CPU) a 64-bit malta kernel built for r2
+> takes a Reserved Instruction exception at the first jr in head.S.
 
-?
+ Regrettable, but even more so __isa_ge_and_flag() doesn't make sense, 
+since ISA will always match FLAG at run time.
 
--- 
-With Best Regards,
-Andy Shevchenko
+ FWIW an early check for the ISA mismatch might be worth having if at all 
+feasible, reporting the issue via a firmware printf()-like callback where 
+available.  Said JR instruction could be recoded as JALR $0, ... if this 
+turns out feasible.  Not a requirement for your change of course.
 
+> That leaves three ways, and I will send whichever you prefer as v2:
+> 
+> 1. v1 with the unused __isa_ge_and_flag() removed, and in the same
+>    series a patch that defines cpu_has_mips32r6 as (MIPS_ISA_REV >= 6)
+>    to match, like cpu_has_mips_1 (MIPS_ISA_REV < 6) in that header.
+>    cpu_has_mips_r6 is then 0 on pre-r6 kernels and the code that it
+>    guards is dropped: in bloat-o-meter -t, -11524 bytes for
+>    64r2el_defconfig and -11156 for 32r2el_defconfig with GCC 16.2,
+>    -18704 and -14140 with Clang 23, with no new W=1 warnings in these
+>    vmlinux builds. r6 kernels stay byte-identical to v1.
+> 2. v1 with __isa_ge_and_flag() removed: pre-r6 kernels do not change.
+> 3. Your form, with the sizes above.
 
+ I maintain that __isa_ge_or_flag() is the correct approach.
+
+  Maciej
