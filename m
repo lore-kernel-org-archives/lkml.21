@@ -1,54 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795409416;
-	b=Ao9+suIoQPqEMa7bpp9PW9cU1wjvJoWYMGbpkz+7+LHrKiUL9MC+cSOu0ZUmDxCRgtJH
-	 nDHiC0j8N70ILkfSBOWwR/uVP/McYLR/pLiQjvWmMfX0NY3nRtg8DBjjE3y8Fs2rPNdCu
-	 yyI3rOhv70+i88Hb1J2wmt/ur+JEWgWQjLHoq6kDkmKoqIgRNKsm7xaAC0zegIewQ8Qqm
-	 SePaUIF1iGb/sNNhNrM1SAbZdxMOr9B4yLis34ow6KeqbtpEUb5JPSC3KLvZWNU0AbD9F
-	 7e/76c3qTj+vatkr/U9qucG821D4KkAI8mll22QLPat2u1y0p8kFS7gdi8c/CriCvtg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795409416;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
-	 X-Coremail-Antispam;
-	bh=YyXLF78KCettZXiSKq1HR6wyzPidcEExzxdLrgHUJkw=;
-	b=tiHrd99fF7e7dEla03eFQDdbZQ+FHpJy2TclANwzUgIZWVy7Z+6w2BNQjU704ubI/Z4m
-	 OjEDxEONuhOZhieKHhn/IunoCIgungbdpCwMpvMMRXSsGA5OuMLCc6pBmjfMulcLmajTy
-	 pLp8SulTqBur6YRuo0F8aE3i8xY7FToROBH3ACeLe7tvAn9P+V34h5w7A9nYSp7oQmgXH
-	 xfpIh9zq6eR4LPsusQeQv4WyBZGXOZOew+k7R7SAYH1bYOn+AzSX8/M5N+tK2fuxZXLkT
-	 HDB9CSW+U7+OSN9nAAwn5ohU0lSYeQQ0JsR/XB54MBFoAwPMrAJ2z1SUVXkRfckzbCA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=loongson.cn;
-	spf=pass smtp.mailfrom=loongson.cn;
-	arc=none smtp.remote-ip=114.242.206.163
-Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E2CC4606AE3F;
-	Mon, 23 Nov 2026 04:50:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2CC4606AE3F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
-Received: from loongson.cn (unknown [123.138.236.242])
-	by gateway (Coremail) with SMTP id _____8BxuLUCxgNr7R0iAA--.3878S3;
-	Mon, 23 Nov 2026 12:50:10 +0800 (CST)
-Received: from linux.localdomain (unknown [123.138.236.242])
-	by front1 (Coremail) with SMTP id qMiowJAxX88AxgNrIsw2AA--.43924S3;
-	Mon, 23 Nov 2026 12:50:10 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v1 1/3] selftests/bpf: Enable instruction array test for LoongArch
-Date: Mon, 23 Nov 2026 12:50:06 +0800
-Message-ID: <20261123045008.23691-2-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
-In-Reply-To: <20261123045008.23691-1-yangtiezhu@loongson.cn>
-References: <20261123045008.23691-1-yangtiezhu@loongson.cn>
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795409494;
+	b=5rYF2MUvJqn/UMRJ2+E1z4vmgmE7kZdq5OMMiyqUmWFqnEjpxIzdCPj8L7TQ7M1i3ZjJ
+	 7lp9W+SZ4USKcXjABHQJ8m3PR1kVMtD2PetB4y49AWa1jCNEkW6dAQhu+0PMnUVY44euQ
+	 lsPLUzAGilbHcUWXBjNQMndVo2QohAfwL4MAU3dqWJTd9LYx+viI4SWHX9fwXhKOAJFLF
+	 AOZAWztaKk8+bPRCWuiQ3H820uOoN5ptL0f4t2z3Mr51xqS7JFYvcPg3Clz0Ekf2D99s4
+	 xHUWJyWFOD/KvrwDxbxbGigle30aO5JcflhdV0VkeJg6ZZcVVylmrgu7hq9TpfFS6ZQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795409494;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=XLg2hjZC1G2djzwWn8oQA+kDooRHaA9EI+qF4JhV/eM=;
+	b=p8nZxdAlf+QGRs+TSOmbU6HCIzpS9y3zjwrvb8Oyd2NLpr1yS6K/VlQxeiXS+6oc3hXy
+	 JvQtIa10cAWSTjT5zv1i663uxIy+DsENcDTS4Zl70BUt81ZuqrxkWUzgIle5TxnU8hDx8
+	 5C1uWKEkMzmTQp28G7b+uk5TMu98f4wbZNZVgG0tvU6c12BVbKG5QHU++XzWqvsBHWlZO
+	 ni2EG4LBzfj7C/l4IBKAH1WQUmVYC6NHdl6nN30+NuZN7ci9WaR8BwPAhgXxxkdQaFQ/1
+	 gqV1sNnyGDLebbt3HOwbdC4SzUDfLnimyGbVEp6IOtyUk7TRokv6yYTZXocjT8VYaHA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U6QGKoug;
+	arc=fail smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5125F606A32C;
+	Mon, 23 Nov 2026 04:51:34 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U6QGKoug
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795409493;
+	b=1cRfAzti2ELit5mO7vK78g/JPJCoAV9RJGANFlCToM3KSayfKUXD99LP1v65DifS3EzX
+	 3YCQ+4iXvSVsWESsehlxyBCKSBua50uTP2BlFaFBPT54oilHzynF2ODDJiEKPBTm7IFzl
+	 jiEoHIsjX53Yllba4HaAazauCX3e7bdm0AZVhRM2+TXPliPuCkjHn8Sti4CqnUoSnb3zN
+	 A3qzmt/2x7bIQYPfr3I4S91gPlBvh6Ks40rf5j4mxTPO5CFNXnD/r+VRNH9LMgsHnsI/S
+	 3hRWQ0q3r4G+FvhaWXTxOe5Kdwl6V1OxkjZfQ9lv+SmnMWwLli+r2e+I0RW/o4busTA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795409493;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=XLg2hjZC1G2djzwWn8oQA+kDooRHaA9EI+qF4JhV/eM=;
+	b=gV/n7PizDthgESwR1bdEUTIZnq9k5+v9vxVUb4anXRPWrRO2RWO1u+j3rCPrD1KWlr/M
+	 5NpnbT5tlSWTu9yI1QXp+Lie30LN+IofoNnTkZtPFTsUmZsXP7FDy5JRkGChuPHiYGwXX
+	 CLC7mVHs1LGad36/ZY5uxP3NbaaJEiHwjDb648/xB6I+bcHBUYdqlAjmJ/wvUgdMKvVFa
+	 W/9lBkt/Lr/5/OH2QsBfjKHPEMpPEg9p7K0ZnJc6R+JjLY0xOirArsW41uHZ4hGfC64pG
+	 brZZg36jcr5oFj+EH+TwkjB6x7hTbQy8IJITpgynXCXJm4dI/NbM62JwwvqCf1J2n5Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id E92BE1F000CF;
+	Mon, 23 Nov 2026 04:51:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795409493;
+	bh=XLg2hjZC1G2djzwWn8oQA+kDooRHaA9EI+qF4JhV/eM=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=U6QGKougkOIYc0Ud81ynvLsQGfDr4UvwirSSpb/9fSJWI2J7Wn3bIjPFoLfbnLFpC
+	 k4euLqz3dih8VfuLswRt7zOxa1EGT2st8Nbh6aexxuAED5N30RFE3FD4wqdo2owrd4
+	 lgPJOX4zUn4tfGFYJOKiwcmNRnLakAEaG9p8L2xdoM3hgqeQ6riWDTS7i02Y+nQYTS
+	 NIHdH+jQy+2GEyPj77h0Pb8G4ZBpoIlBFNPsqZeZGHF5njbGuZYSN37ZsqJkSXVbS5
+	 jm40oW3MlfOtVzmLlja1C9I1HvOhjubKK0Y74YLRiQCBJGhF/BRSaBT7ou9HvKhopV
+	 9haOIPCdzyJ0g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 4B38C4C34E;
+	Mon, 23 Nov 2026 04:51:25 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Subject: [PATCH v6 0/2] i2c: Add Cortina Systems CS75xx I2C controller
+ driver
+Date: Mon, 23 Nov 2026 07:51:07 +0300
+Message-Id: <20261123-cs75xx-i2c-v6-0-2504375e4342@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,52 +84,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:qMiowJAxX88AxgNrIsw2AA--.43924S3
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj9xXoWrtr1fWw17CFykCFWftr43Jwc_yoWkXFX_Ka
-	12qrs7ZFWkCFyqq3W8uFySgFW8ur4rurs7Crn8Wry7J3WYgay5WFs5C3s8Aas8W39xJFW3
-	tF4kX3y3Cr4rCosvyTuYvTs0mTUanT9S1TB71UUUUUJqnTZGkaVYY2UrUUUUj1kv1TuYvT
-	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
-	cSsGvfJTRUUUb3AYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
-	vaj40_Wr0E3s1l1IIY67AEw4v_JF0_JFyl8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6r4UJVWxJr1ln4kS14v26r1Y6r17M2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12
-	xvs2x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q
-	6rW5McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64
-	vIr41l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_
-	Jrv_JF1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1V
-	AY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Xr0_Ar1lIxAI
-	cVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
-	IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
-	Ja73UjIFyTuYvjxU4OzVUUUUU
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/1WNyw6DIBQFf8WwLg0g+Oiq/9F0AXirt2m1AUtsj
+ P9e0I0uJzkzZyYeHIInl2wmDgJ6HPoIxSkjttN9CxSbyEQwUXDGFbW+VNNEUVhaS9mIUuTcSEu
+ i8HHwwGmN3e4b+695gh1TIS069OPgfutbkGm3hfkxHCRlVBpeAOi60mV1bd8aX2c7vEkKB7VTB
+ TuoKqosN2CFFFrJeq8uy/IH5mddb/EAAAA=
+X-Change-ID: 20261015-cs75xx-i2c-944d27231b4c
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795409484; l=4600;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=GEyKhMRI/2+fxUWiuafhtbmysPTdFZ5xY723G1kKjF8=;
+ b=7CSkes5p7tI36RifhQtdxRs7zr5ZzH0dCSmV0IruhuWCJuItknRbbk52rJEe7JM4wxcq8K9g7
+ R/M4Hm0cqMXCH71XgwC/Eg+l9XQuKnr0aIMctaRd5cgrfnT0l1Xx7sF
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
 
-As the LoongArch JIT supports instruction array (gotox jump tables),
-enable the corresponding BPF selftest for LoongArch.
+The I2C ("Bi-Wire") controller of the Cortina Systems CS75xx
+("Goldengate G2") SoCs transfers one byte per command, with a command
+register much like the OpenCores one, and raises an interrupt when a
+command has completed. This series adds the binding and a driver for
+plain I2C and emulated SMBus, without quick commands (every message
+carries at least one data byte) and without 10-bit addresses.
 
-With this patch:
-  $ sudo ./test_progs -t bpf_insn_array | tail -1
-  Summary: 1/20 PASSED, 0 SKIPPED, 0/0 FAILED
+The driver used to be part of a series with the interrupt controller,
+GPIO and watchdog drivers and the device tree changes. That series is
+now split per subsystem. The driver depends on OF and HAS_IOMEM and has
+no dependency on the platform series [1], which is under review
+separately. The device tree nodes will follow with the other CS75xx dts
+changes once the platform is merged.
 
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+There is no public documentation; the register layout comes from the GPL
+vendor kernels. Tested on a Securifi Almond+ (CS7542) with the SX8650
+touchscreen controller at 0x48: reads are ACKed, an empty address returns
+-ENXIO without timeouts. The v5 late-interrupt change was checked with a
+host regression test of the transfer state machine; it has not been
+exercised on the board. Repeated START between messages has not been
+exercised on the board.
+
+[1] https://lore.kernel.org/all/20261122-b4-cs75xx-v9-0-1fc1b90bd097@gmail.com/
+
 ---
- tools/testing/selftests/bpf/prog_tests/bpf_insn_array.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v6:
+- refresh the link to the independently posted platform series (v9)
+- remove the unused CS75XX_I2C_CTRL_DONE definition (sashiko-bot)
+- document that IRQ acknowledgement uses CTRL read/writeback, as in the
+  vendor driver; keep that tested sequence without a functional change
+- Link to v5: https://patch.msgid.link/20261120-cs75xx-i2c-v5-0-03bec242a549@gmail.com
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/bpf_insn_array.c b/tools/testing/selftests/bpf/prog_tests/bpf_insn_array.c
-index 4ffe4fe6b78e..6b1a426aa4cd 100644
---- a/tools/testing/selftests/bpf/prog_tests/bpf_insn_array.c
-+++ b/tools/testing/selftests/bpf/prog_tests/bpf_insn_array.c
-@@ -5,7 +5,7 @@
- #include <test_progs.h>
- 
- #if defined(__x86_64__) || defined(__powerpc__) || defined(__aarch64__) || \
--	(defined(__riscv) && __riscv_xlen == 64)
-+	(defined(__riscv) && __riscv_xlen == 64) || defined(__loongarch__)
- static int map_create(__u32 map_type, __u32 max_entries)
- {
- 	const char *map_name = "insn_array";
--- 
-2.42.0
+Changes in v5:
+- replace the dependency on ARCH_CORTINA_ACCESS || COMPILE_TEST with OF,
+  retaining HAS_IOMEM, so the driver can be merged without the platform
+- build built-in and modular on ARM and x86-64 with COMPILE_TEST=n,
+  without the platform series
+- ignore a late interrupt of a timed out transfer before looking at the
+  arbitration lost bit (sashiko-bot)
+- Link to v4: https://patch.msgid.link/20261115-cs75xx-i2c-v4-0-4b16eea98a78@gmail.com
+
+Changes in v4:
+- rebase on v7.4-rc1
+- split out of "Cortina Systems CS75xx: interrupt controller, GPIO, I2C
+  and TWD watchdog" so that each driver can go through its own tree; no
+  longer based on the platform series
+- binding: limit clock-frequency to 400 kHz instead of listing 100 and
+  400 kHz, which is what the driver accepts; I kept Rob's Reviewed-by
+  from v3 for this one-line change
+- collect Reviewed-by tags
+- use fsleep() and device_set_node(); sort the Kconfig and Makefile
+  entries
+- Link to v3: https://patch.msgid.link/20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com
+
+Changes in v3:
+- rebase on v6 of the platform series
+- reset the controller with its interrupt disabled, check the prescaler
+  against the field width exactly, wait for a bus held by another master
+  up to the adapter timeout (sashiko-bot)
+- Link to v2: https://patch.msgid.link/20261013-b4-cs75xx-s2-v2-0-94f8c0a90cda@gmail.com
+
+Changes in v2:
+- rebase on v5 of the platform series
+- do not include <linux/mod_devicetable.h> (Uwe)
+- complete a failed transfer only once its stop condition is done, so
+  that the stop interrupt cannot race with the next transfer; take the
+  lock over the whole interrupt handler; report a NACK of the last byte
+  of a write; enable the interrupt again after a reset on timeout; fail
+  with -EBUSY when the bus stays busy (sashiko-bot)
+- Link to v1: https://patch.msgid.link/20261012-b4-cs75xx-s2-v1-0-8a7641b7b79c@gmail.com
+
+To: Andi Shyti <andi.shyti@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+Cc: linux-i2c@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+
+---
+Fil Dunsky (2):
+      dt-bindings: i2c: Add Cortina Systems CS7542 I2C controller
+      i2c: Add Cortina Systems CS75xx I2C controller driver
+
+ .../bindings/i2c/cortina,cs7542-i2c.yaml           |  56 +++
+ drivers/i2c/busses/Kconfig                         |  11 +
+ drivers/i2c/busses/Makefile                        |   1 +
+ drivers/i2c/busses/i2c-cs75xx.c                    | 393 +++++++++++++++++++++
+ 4 files changed, 461 insertions(+)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261015-cs75xx-i2c-944d27231b4c
+
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
+
 
