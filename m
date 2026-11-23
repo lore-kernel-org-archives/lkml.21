@@ -1,56 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.135.77
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795434836;
-	b=bjWhAYKhJrpPjsMComH0CJq2dpRMmK+e7oTohlkABQV1PCZ4r+wkaFILqbT92RpsycMG
-	 A4m6HLHAolZ/UaElL/+xmxsrawbdfOq2pp6wtqeik0p+1vNg54DXj2Vh07jAUpALv/RJf
-	 cFeWnbDBvSbC/mYM06L6+zofhtLihHYh9K5CcZ12dgKAijYliqERAdMK/g61o/Fao7Bl5
-	 EANMSNTePBobg/Qbix7zDv1LPJLCFLwmlTeztF+eFp41Lg+fMAWHy22B00T6vHJOuhfa5
-	 Ztk9H8bfFT7KgkiMIqMYDbti0UHfjH2S7qKDZ8tkeNkTxWP032wSSgQ0LweJu+uwojQ==
+	t=1795434849;
+	b=rCl+VkjOm2cDgvO8+ZSb7qnQH5E7kQl0Bv31cw0g4KK9rU4LT8prbDlVkOAkgRv11y1s
+	 4hnyt7XatlEf7UR+iZIrveRsAf8slX7L0TSIorY36aMneS8RpHRCo9XROkQy/Hv/gJeN7
+	 XypyqGoxw6i4XDV019k4JrJz7g8aHEFL7xvCXUbJU6L4zqnhlfTP7qg65W29kX9L9oIWi
+	 4GsFlaLeU97VTaVoie5a9CV6AkKihuL+phIutY7p9DU2hru69Eu1oK4PdctKxX30SEhDQ
+	 B8/NxGGiBs+BmhrPRBeqilDFh0/nZujG+qa5o3zhCWuLmrAJfRd5my/M9GeUnUFl5Gw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795434836;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=rtnqsqXHQKuDC8iW2zmEn4j43knd0EsHyQCpFt+z1m4=;
-	b=L1KbiwegfMIFTHwjia0ZJXjshjDEUKBE2jqK9M2xx2pnb9mhe4uiiDTEGjPdh4wFAdmL
-	 d25LxinTTMJ6BVgjhD75BAka5u5K+F4wJBsPSyAg6OBeouRbXXryFFh72GYWkdbyxMmr7
-	 8OA6AfN0PqUyP8jYTypiGB765xOJO+k7S2LvkCmZNuLxPXXOr+ULV6gWBOryPxbxNy17r
-	 0914a5evac+se8m44LtQ10+q0BngfNSrA3i5SfCQXtdz8quMSBhsPWRvziNim+slZn8ur
-	 6ctI7FpvMJaNY+96BzN6OVh+4Zp1M44ju8l8GBI8kRciq+zLyGcWdiX2d8xj/X7yDYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795434849;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
+	 Received:Received:Received:Received:Received:From:To:CC:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-ADIRuleOP-NewSCL:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=cedkFQJ2zx9OoH69W4XimXIkNVKsnwy5H9O/ZQ2+5cI=;
+	b=3O6mvRS1VwCh1EtgwLtxVb02YRK1NHBnE8yr62xBfqS70TfyomrmKdzQuMEdQSrMBD3U
+	 6txZqiCW96M49Ntbze1XtFgC8MGkbVX7sRHHqR+NPMEvyEhum8v0yc3vBzkyl5xnU0mbE
+	 TEjDq/hqJOFy4tNJF3/HkF/OfQ/0pWSo76lOZ5YC0Hy0/kX+JA3tR4G4QmvcTz/HlcQ3r
+	 MOlJ0n/E09hAJl/eXBo5rh00yIA3p82Sg/iAco3h4/j9sgzB+q63DzHCUwFfSmqRNssUR
+	 q3TaM/qa9iK+vFcXgYLyFKmS8ydvjunW9tpHz5usm6oQQlHIJwEyt4iBwxiwpJR7wzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JIM0+eRo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=analog.com;
+	spf=pass smtp.mailfrom=analog.com;
+	dkim=pass header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=ZZhurIpY;
+	dkim=pass header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b="u79/PYwC";
+	arc=none smtp.remote-ip=148.163.135.77
+Received: from mx0a-00128a01.pphosted.com (mx0a-00128a01.pphosted.com [148.163.135.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D693D606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:53:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93BA4606A31E;
+	Mon, 23 Nov 2026 11:54:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93BA4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=analog.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=analog.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JIM0+eRo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB3C51F000C6;
-	Mon, 23 Nov 2026 11:53:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795434836;
-	bh=rtnqsqXHQKuDC8iW2zmEn4j43knd0EsHyQCpFt+z1m4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JIM0+eRoUDbIDakme8gpu8Dw9+Hw3XPCKCjTUoxiyGyWw4qFYt4lIvhSMKOihxx25
-	 U58hML0Fp6d/RR6M9hj4GjDKY2SRaynGZMNJS21V8u9QMhkaS9jKRQ1HqstRF4xNI0
-	 K8KaoEWXnH7BKtAcR+hUJ1xyGXFjUwltsRAj7Jx7aACtCnMo9TXzI0FZypxc29tofv
-	 r6IjYcYVjPLTQbvgdPXIIcJIvElblOueuZsrsyzehwoEhJyCmqnbwIIiMDti5JFVBm
-	 4zAXUpGx5KQwRjK02CGfjHL1ISOb8RExx95fCZZQXfNYsUIoUAmaICpNTouWn317Zu
-	 6PKo7++42ebOA==
-Date: Mon, 23 Nov 2026 11:53:50 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Qiliang Yuan <qiliang.yuan@linux.dev>
-Cc: David Hildenbrand <david@kernel.org>, Rik van Riel <riel@surriel.com>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
-	Andrew Morton <akpm@linux-foundation.org>, Matthew Wilcox <willy@infradead.org>, 
-	Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/rmap: flush the TLB once per mapping in
- page_vma_mkclean_one()
-Message-ID: <awQo2tg9rzMJYCQe@gremlin>
-References: <20261123-feat-mm-mkclean-batch-flush-v1-1-7e998ad13251@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=ZZhurIpY;
+	dkim=pass (2048-bit key, unprotected) header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b=u79/PYwC
+Received: from pps.filterd (m0516787.ppops.net [127.0.0.1])
+	by mx0a-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9HbrK260835;
+	Mon, 23 Nov 2026 06:53:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vtelectron.com;
+	 h=cc:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	DKIM; bh=cedkFQJ2zx9OoH69W4XimXIkNVKsnwy5H9O/ZQ2+5cI=; b=ZZhurIp
+	YEJ0hocKZzh99kjeVNauUgONrn2fvH04JZooep70a1KZsDBMQITBsUITUcX2uKbk
+	w/iBHQORAZzGw2Eu1i4cVNbJs74WErwVn1oYiu2jyOgNypCLrf9GayHpcJJlgBvN
+	MI40we2PhspEv40Wyour1feYNnK9fdDHccNlPpHcUdMXv1pk5x82M6lvSuL+VBsb
+	AcSkA3VlCHEwu6MpnaornhGjEVNKkTQOrZOgQtYPmpEzF8buNOuGFM6XdFxpPG8V
+	0z37lDCoALGu1Zz1l7Qru3Je8vcAaC58fESkxbSVY7xxhQfNNpfHwrh2IIgySang
+	MI4E87VxmwalR7g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=cedkF
+	QJ2zx9OoH69W4XimXIkNVKsnwy5H9O/ZQ2+5cI=; b=u79/PYwCa3RZiHZgNkPmc
+	3GgBCmFwTTzCEfX1RMoQAO0rw6tXURz4tYEJWdwk4icDLUpo0S8GCWytbBmrEksY
+	6owgiFIOmxItUUMSrXCXlqoPg1mkbD1I/11TXGpjfFH6gVPEHXo0MKypapOwn6Na
+	ouesYkLwpoX5ZaJwIquYhv9QYbcxOc1y9gUcs/eY4SyTWzt1XgbRqD2OSUqidmVr
+	Vvs7wIveWHo0AYCZbx1aDW/vTx6y6w+/30PzKEGeaGwboIAudCM+pvxg6av/rokc
+	4JEU/tYYXSCSs4RztphRTI+41U81SbunefGukIrQ8gw3D8bJtzuZYnMuYUIU8nyR
+	A==
+Received: from nwd2mta3.analog.com ([137.71.173.56])
+	by mx0a-00128a01.pphosted.com (PPS) with ESMTPS id 4j3wgm5w5e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 06:53:59 -0500 (EST)
+Received: from ASHBMBX9.ad.analog.com (ASHBMBX9.ad.analog.com [10.64.17.10])
+	by nwd2mta3.analog.com (8.14.7/8.14.7) with ESMTP id 6ANBrwec026112
+	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 23 Nov 2026 06:53:58 -0500
+Received: from ASHBCASHYB4.ad.analog.com (10.64.17.132) by
+ ASHBMBX9.ad.analog.com (10.64.17.10) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 06:53:57 -0500
+Received: from ASHBMBX9.ad.analog.com (10.64.17.10) by
+ ASHBCASHYB4.ad.analog.com (10.64.17.132) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 06:53:57 -0500
+Received: from zeus.spd.analog.com (10.66.68.11) by ashbmbx9.ad.analog.com
+ (10.64.17.10) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
+ Transport; Mon, 23 Nov 2026 06:53:57 -0500
+Received: from arch.ad.analog.com ([10.135.2.95])
+	by zeus.spd.analog.com (8.15.1/8.15.1) with ESMTP id 6ANBrkb1014981;
+	Mon, 23 Nov 2026 06:53:48 -0500
+From: Nicolae-Daniel Deaconescu <Nicolae-daniel.Deaconescu@analog.com>
+To: Jonathan Cameron <jic23@kernel.org>
+CC: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>, David Lechner <dlechner@baylibre.com>,
+        =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+        Andy Shevchenko
+	<andy@kernel.org>,
+        Michael Hennerich <michael.hennerich@analog.com>,
+        "Trevor
+ Gamblin" <tgamblin@baylibre.com>,
+        Joshua Crofts <crofts@kernel.org>,
+        "Sergiu
+ Cuciurean" <sergiu.cuciurean@analog.com>,
+        <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-pwm@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 6/6] iio: adc: ad7625: add LTC2387 and ADAQ2387x support
+Date: Mon, 23 Nov 2026 13:53:46 +0200
+Message-ID: <20261123115346.33745-1-Nicolae-daniel.Deaconescu@analog.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261121234834.2f6cc9bf@jic23-hlaptop>
+References: <20261121234834.2f6cc9bf@jic23-hlaptop>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,110 +119,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-feat-mm-mkclean-batch-flush-v1-1-7e998ad13251@linux.dev>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ADIRuleOP-NewSCL: Rule Triggered
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0NyBTYWx0ZWRfX5Xg0dEbalrxQ
+ /wCLt/2gtXBQ5i58LFEE+oVF2CTrWe0sxrhv5ynvVRgZcwVNM6BhyIKnL2uDEgpgRuwyTCHRMZK
+ hMWwiunZ3Gyiu2Txad+8DqDNXIapwFgv/DQg0ecf6LG4qstpFo+75xJAUWXWsoNr4g5YiKUsKin
+ J3T8HgRWdl5SRy9wbLjucXV8fhDaT+M1dLpIQ+qX0zYb55DgD+CMABHYnlXjgX7xw32+GMGGSDo
+ PNopvv3fk9XB0gi9TsjI0AnDxBSGbCo6wqa88ZMnos0dv+WyY1wtRbPQ/XaQTngnFmzhE/f//QK
+ i6PRDDmCTxvY/Nhag7CSfg3it/defPp5eKZci2AgLNYiQSnNQM8BUjSVo3kSTyli2jY7mU94Ocw
+ VwRGW4M7mZi5lhkILlYpvDGdrklDmGT6oy3bELJoPCDNp/LiCzo3ERCRfhGnoEI+hV+CqlTVSsa
+ Vrs239wgjijzwznmdRw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0NyBTYWx0ZWRfX+NuFvQ+4L64e
+ cjPZNCVpwQMV4dsYxgn/rrUbNCvbGTJTm5u9DeSc7bgl7dr2lrox3XNMQb+cED16ZiezEzGK47z
+ XdtU/K6kWZ5hxceclwoOnogGtCq/UuPYerQf9IODpXjTt1IYE8Ad
+X-Authority-Analysis: v=2.4 cv=FeGiV5+6 c=1 sm=1 tr=0 ts=6b042957 cx=c_pps
+ a=PpDZqlmH/M8setHirZLBMw==:117 a=PpDZqlmH/M8setHirZLBMw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22
+ a=OmVn7CZJonkx5R5zMQLL:22 a=kzxX2B-xVtcOn5nVaEcA:9
+X-Proofpoint-ORIG-GUID: 1zjBW-m5To-4VQ0lxCQTyiqiXPQsbSG8
+X-Proofpoint-GUID: 1zjBW-m5To-4VQ0lxCQTyiqiXPQsbSG8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 bulkscore=0 clxscore=1015 suspectscore=0
+ spamscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230047
 
-On Mon, Nov 23, 2026 at 05:41:38AM -0500, Qiliang Yuan wrote:
-> Writeback calls folio_mkclean() on every folio it writes, which
-> write-protects and cleans each PTE that maps the folio, so that the
-> next store through the mapping faults and redirties it.
->
-> page_vma_mkclean_one() does this with ptep_clear_flush(), one TLB flush
-> per PTE. A large folio mapped by PTEs thus costs as many flushes as it
-> has pages, each an IPI to the other CPUs the mm runs on. Writing an
-> 8 GiB file through a shared mapping on xfs flushes the TLB 2,097,152
-> times for 65,575 folios, and the writer spends about half of its time
-> in the IPIs and flushes.
->
-> Write-protect and clean the PTEs with ptep_modify_prot_start() and
-> ptep_modify_prot_commit(), as change_protection() does, and flush the
-> range they cover once after the walk. The flush still happens before
-> folio_mkclean() returns: stores through a stale TLB entry complete
-> before writeback reads the folio, and later stores fault.
->
-> Writing an 8 GiB checkpoint to brd through a shared mapping, one file
-> per writer, then msync(), median of 6 runs:
->
->   fs     writers   before (s)   after (s)   change
->   xfs          1         5.57        2.98     -46%
->   xfs          8         5.37        2.10     -61%
->   ext4         1         7.88        3.90     -50%
->   ext4         8         5.10        2.02     -60%
->
-> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+> > +	/* VS- of the ADAQ modules is left out if it is tied to ground. */
+> > +	ret = devm_regulator_get_enable_optional(dev, "vs-n");
+> Does it hurt to just a non optional call here?
 
-You are flooding the kernel with patches, 6 series across 4
-subsystems over 19 hrs:
+regulator_get() prints "supply vs-n not found, using dummy regulator" at
+dev_warn() level. That would show on every probe if VS- is tied to ground.
+I'd keep the optional call so that case stays quiet, unless you prefer the
+warning.
 
-https://lore.kernel.org/all/?q=f%3Aqiliang.yuan%40linux.dev
-
-Please don't do that :)
-
-Given the volume both recently and in the past I assume you are using an LLM to
-do this, so could you confirm your understanding of the problem (as well as
-those of patches sent to other subsystems) and what real-world task you were
-doing to identify this issue?
-
-See https://docs.kernel.org/process/generated-content.html especially the
-paragraphs at the end.
-
-In general a core team member tends to take over stuff like this.
-
-> ---
->  mm/rmap.c | 16 ++++++++++++----
->  1 file changed, 12 insertions(+), 4 deletions(-)
->
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index 65646ed6fc453..4c3d9cb47e550 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -1127,6 +1127,7 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
->  	struct vm_area_struct *vma = pvmw->vma;
->  	struct mmu_notifier_range range;
->  	unsigned long address = pvmw->address;
-> +	unsigned long flush_start = ULONG_MAX, flush_end = 0;
->
->  	/*
->  	 * We have to assume the worse case ie pmd for invalidation. Note that
-> @@ -1156,10 +1157,11 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
->  				continue;
->
->  			flush_cache_page(vma, address, pte_pfn(entry));
-> -			entry = ptep_clear_flush(vma, address, pte);
-> -			entry = pte_wrprotect(entry);
-> -			entry = pte_mkclean(entry);
-> -			set_pte_at(vma->vm_mm, address, pte, entry);
-> +			entry = ptep_modify_prot_start(vma, address, pte);
-> +			ptep_modify_prot_commit(vma, address, pte, entry,
-> +						pte_mkclean(pte_wrprotect(entry)));
-> +			flush_start = min(flush_start, address);
-> +			flush_end = max(flush_end, address + PAGE_SIZE);
->  			ret = 1;
->  		} else {
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> @@ -1193,6 +1195,12 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
->  			cleaned++;
->  	}
->
-> +	/*
-> +	 * Flush the write-protected PTEs once rather than one by one, before
-> +	 * the caller writes the folio back, as change_protection() does.
-> +	 */
-> +	if (flush_end)
-> +		flush_tlb_range(vma, flush_start, flush_end);
->  	mmu_notifier_invalidate_range_end(&range);
->
->  	return cleaned;
->
-> ---
-> base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-> change-id: 20261123-feat-mm-mkclean-batch-flush-686d20219b52
->
-> Best regards,
-> --
-> Qiliang Yuan <qiliang.yuan@linux.dev>
->
-
---
-Cheers, Lorenzo
+Thanks,
+Daniel
