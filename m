@@ -1,54 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447428;
-	b=GjSksSPNHzbQHC8+jgbO6CRirytmPPk6tGaugvC5FeF+IkRsfm7vM3wnmeO1Gw0QQmT3
-	 jtKTNagXezB+07BzDDXsZE252Ud0eDNTCUeoVDwUhsaT7e+oBHUpfTnT9Na4wVjGuRwh1
-	 G33sK5YuHtf5f7+3xxOphz3GhxtzqAps2I+cmYvr0joiWLC9+0ZJt7X+28kT0hoP96SBw
-	 bErC3vieOZbKJEknultPkbGwNSyAW8PUqU9ziG03m1kctAyxcBTn/DWO9OpGlZ18AubZ7
-	 FKRf6x4GeZYiGkMbxec02XaPzXqDApJYaLmfq0Bc/W/oGk27ZZhfkYe6c8jH4K3XWbA==
+	t=1795447459;
+	b=nmfoIVOkiwcfa3suZosEPSWXwespzkdlJzpA89N2lVHSyuJ7NF8QWaNOqDg/FWtD4gBS
+	 YexyroShe0nmGw+FYXzLZI9WaIqKedvfp84iKY2aQnPSqkhzqDJAB8YnmNvwr4FisoZJ/
+	 SPicHAJLTBNJddtBU98EAETjxhXtHylKdkNCywxGt9p08ediyf2xLz/pSWm0dpqhixx0+
+	 XcPTwlMPZTilzLlT+oFwadKn2sof7MUVuxso4TW6M4FMPYiZcarEQLgOv7dGBky9CcCQ0
+	 Ygvq1/5KzI6+qju8inbLucszzeHyv1zXrzC3cZ73WPSm7lwoAqoDDElrNa7B32RwCwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447428;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=Frm43ufNh8qqB/Bw6xfF1sMT8C8/aL6tF6RXXphvCaI=;
-	b=chBNHlCG+fhW/4lvGd/QV6hwiIe0vtni/tYQU0pQCZL3j+yblk8Eju//yHcKLjlPVYg1
-	 gk4PrMjTGDF8tgqr10wMDFyAXwobtmLxzYA9h24RwCBFoaYxCF/Q9xtq05H+Z7eauExr2
-	 puFdnv0qutnDoaW3PpwIfPe4YdWTqHu3/kt8XGoQx7S3TLwNo1j2Yg11yUt+WutqUu8SU
-	 Ud71h/kxbbwKpqlFfbcm3fkYg7iaQQec2e4n9IFILAqoo9pK04JM0dxGCrRViHWrGIKtW
-	 5Bj6rmRPQhXfeyi6UVV8dcPikMsquK31SN7rnWbu/WO5jLMknciBglISLos89/lBekw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447459;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=M3HAjFNlwx7z6g9It9QuhbqqGPo2GJiNWLpRDmJL0P0=;
+	b=Gj8I90WgBi5hI2UDpc5+VSpRHfnjzz+1zRKiXMC0mN1tny87+peVtBRw8ZsWYQxkd/z9
+	 B6ZxZbm4egoXr4mBjoSzpXOFh6fOXqQWXHkgTYx7fMCBiEubWQoAi4tE3FvcKrg+nOFPe
+	 ml9Nh2v4LKnDME6Y47zK4OajfZ6Raf8/DXUEFZppp1Udd/NAvR8WIzyXkTt/srbJ5Rwrs
+	 xatz8hDdtMIqCeWgho24fx6eH/8eyfYnBJFWnv5MQfz8mSQD/qq9+NBj7Ytv4OFNEeWDb
+	 /vE9KGEPHafpj7a6ujdBWgbHErLjPmHlSqlPFL80952xdOwfiu046gqQ5kEDEPpGdwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.200
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFR2K9uj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7492606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:23:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7492606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4cc89e86e9eso4137534b6e.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:23:47 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447426; x=1796052226;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Frm43ufNh8qqB/Bw6xfF1sMT8C8/aL6tF6RXXphvCaI=;
-        b=RmC0cgd4RkKsUimx4YbnRmtDhg+H7tQLnnByX0O5O4QBpAxMZYzei7OYtrSqJ9SZZM
-         YnaoZEnrsb0qWzYr4tH41DQSr/w8bNQmsmaz2/uJkdO7cv9A/z8cebPa4EWbOcqkR37v
-         k0tVJ4uBw74V9AkXT4wdVh2+xw1EwgryrMuDKPE/b18jt/GeL899L8XBStOYqRa1D97N
-         J+rJknhs8ezgtEXc7UMDEgUnD+wQgPtx/QRwjFFoYKx4/oY3xKfghkGqI3KswOZ0SCba
-         QhhVny4g9KgUiIhCpZtwmZx52VP5To/RjtNha17yT523xqk/oXrqGRu2WFIB5mdHVvpe
-         OE2g==
-X-Forwarded-Encrypted: i=1; AL+hErGj3URtoPU7JIH5QpTEGJBNAgrp0ciMJuM87XCgZElab7CnE3VQuZYj8usZ1huHDxX3PCvQoQZuQGktvoA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8NiwwUK9B/VOVboI3IVoO6PwBZ9r8znxZtt3GiwoIF8JWKS+eh
-	e3UEPgLXcET80HjIPI5i4imTzopz0eSjIb3/Z7+4v7BWdElfzwwUxbuN84Ex/vdQxi7CeADp3hl
-	janSDb+ZtlqNzSi4z3+RN8hEwipZ7eHtKdvjBwUWCYI6UAhXKHOEmv91gUy0=
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id AA03D606A31F;
+	Mon, 23 Nov 2026 15:24:19 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFR2K9uj
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 686891F000D8;
+	Mon, 23 Nov 2026 15:24:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795447459;
+	bh=M3HAjFNlwx7z6g9It9QuhbqqGPo2GJiNWLpRDmJL0P0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aFR2K9uj/o0x5mlMVxST4dpO4UgDPH9B8KWE3ndx7RLODC+xrIPHEK+VEJrdDofVG
+	 JGMNkl+2kVBKOHomRU77Z1BZVzZiLKBk4He4eBlutf1YQ5DC8rol7U6sxlaR4K1zMb
+	 5j6OdysBTOc2+L9rms8iMV62ScC0q8fKMCcHx+nJfcvYD+X5A7FvXlkA5oPv5VtjFG
+	 PMPByfcu0MU0cPyEDPkjj/yzokkO/uFzEbchk4QdqhUQbv4YnqBBLNxrNJXAcUe4/S
+	 SIMkuLyrWPkzqczbpb9VU1r+mv6pHsVJtw/H/DBxK81TS1oNcpCHQFKQWmL2v/+Uec
+	 3n4mqmKwxT+Kw==
+Date: Mon, 23 Nov 2026 17:24:15 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-api@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, david.quigley@intel.com, lukas@wunner.de,
+	ksinyuk@kernel.org, rodrigo.vivi@intel.com, cedric.xing@intel.com,
+	sameo@meta.com, drdeeglaze@gmail.com,
+	James.Bottomley@hansenpartnership.com, aik@amd.com,
+	jpiotrowski@nvidia.com, qinkun@google.com, pgonda@google.com,
+	jic23@kernel.org, alistair.francis@wdc.com, ankita@nvidia.com,
+	suzuki.poulose@arm.com, kas@kernel.org, rick.p.edgecombe@intel.com,
+	elena.reshetova@intel.com, dave.hansen@linux.intel.com,
+	sathyanarayanan.kuppuswamy@linux.intel.com, peter.fang@intel.com,
+	zohar@linux.ibm.com, aneesh.kumar@kernel.org, dave.jiang@intel.com,
+	nik.borisov@suse.com, sergii.dmytruk@3mdeb.com
+Subject: Re: [PATCH RFC v2 9/9] attestation: Add the TDX family implementation
+Message-ID: <awRan8ZELzpTwduV@kernel.org>
+References: <20261113160838.2512652-1-jiri@resnulli.us>
+ <20261113160838.2512652-10-jiri@resnulli.us>
+ <awQCrnD5CtEhKRWz@e129823.arm.com>
+ <awQz1P6iXYrL8lv0@kernel.org>
+ <20261123151128.GD179082@ziepe.ca>
+ <awRYr7yB8IWj7S3G@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,49 +73,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:c3d2:b0:564:4d77:7051 with SMTP id
- 5614622812f47-57a0a71b742mr13759393b6e.26.1795447426504; Mon, 23 Nov 2026
- 07:23:46 -0800 (PST)
-Date: Mon, 23 Nov 2026 07:23:46 -0800
-In-Reply-To: <00000000000034ae0f05e9f94c79@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b045a82.9a2182b0.37b108.0030.GAE@google.com>
-Subject: Re: [syzbot] KASAN: use-after-free Read in jfs_lazycommit
-From: syzbot <syzbot+885a4f3281b8d99c48d8@syzkaller.appspotmail.com>
-To: dave.kleikamp@oracle.com, jfs-discussion@lists.sourceforge.net, 
-	kapoorarnav43@gmail.com, linux-kernel@vger.kernel.org, qianqiang.liu@163.com, 
-	shaggy@kernel.org, syzkaller-bugs@googlegroups.com, tristmd@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awRYr7yB8IWj7S3G@kernel.org>
 
-This bug is marked as fixed by commit:
-From 7e1a0b91e9efa8bec40fc5397ba6c4e683d72df0 Mon Sep 17 00:00:00 2001
+On Mon, Nov 23, 2026 at 05:16:05PM +0200, Jarkko Sakkinen wrote:
+> On Mon, Nov 23, 2026 at 11:11:28AM -0400, Jason Gunthorpe wrote:
+> > On Mon, Nov 23, 2026 at 02:38:44PM +0200, Jarkko Sakkinen wrote:
+> > > On Mon, Nov 23, 2026 at 09:09:02AM +0000, Yeoreum Yun wrote:
+> > > > Hi Jiri,
+> > > > 
+> > > > [...]
+> > > > 
+> > > > > +static void __iomem *tdx_attestation_log_map(size_t *length)
+> > > > > +{
+> > > > > +	struct acpi_table_header *header;
+> > > > > +	struct acpi_table_ccel *ccel;
+> > > > > +	void __iomem *log = NULL;
+> > > > > +
+> > > > > +	if (ACPI_FAILURE(acpi_get_table(ACPI_SIG_CCEL, 0, &header)))
+> > > > > +		return NULL;
+> > > > > +	ccel = container_of(header, struct acpi_table_ccel, header);
+> > > > > +	if (header->length >= sizeof(*ccel) && ccel->log_area_start_address &&
+> > > > > +	    ccel->log_area_minimum_length &&
+> > > > > +	    ccel->log_area_minimum_length <= UINT_MAX)
+> > > > > +		log = acpi_os_map_iomem(ccel->log_area_start_address,
+> > > > > +					ccel->log_area_minimum_length);
+> > > > > +	if (log)
+> > > > > +		*length = ccel->log_area_minimum_length;
+> > > > > +	acpi_put_table(header);
+> > > > > +	return log;
+> > > > > +}
+> > > > > +
+> > > > 
+> > > > I think we don't need to dump log area with the log_area_minimum_length
+> > > > since the area would include none-event otherwise, pre-exist tool (i.e.
+> > > > tpm2_eventlog) reports error for them like:
+> > > > 
+> > > >   ...
+> > > >   - EventNum: 21
+> > > >     PCRIndex: 2
+> > > >     EventType: EV_EFI_ACTION
+> > > >     DigestCount: 1
+> > > >     Digests:
+> > > >     - AlgorithmId: sha256
+> > > >       Digest: "b54f7542cbd872a81a9d9dea839b2b8d747c7ebd5ea6615c40f42f44a6dbeba0"
+> > > >     EventSize: 40
+> > > >     Event: |-
+> > > >       Exit Boot Services Returned with Success
+> > > >   ERROR: corrupted log, insufficient size for event header: 3
+> > > >   ERROR: failed to parse tpm2 eventlog
+> > > >   ERROR: Unable to run tpm2_eventlog
+> > > > 
+> > > > 
+> > > > So, what about export *real size* of eventlog like
+> > > > tpm2_calc_event_log_size()?
+> > > 
+> > > Nothing in the patch (neither commit message nor any comment in code)
+> > > says that TDX attestion registers share the same format as TPM2 even
+> > > log.
+> > 
+> > It comes from the UEFI spec's definition of CCEL:
+> > 
+> >  38.1 Virtual Platform CC Event Log
+> > 
+> >  If a virtual firmware with confidential computing (CC) capability
+> >  supports measurement and an event is created, virtual firmware should
+> >  report the event log with the same data structure in TCG Platform
+> >  Firmware Profile (PFP) specification with
+> >  EFI_TCG2_EVENT_LOG_FORMAT_TCG_2 format. The index created by the
+> >  virtual firmware in the event log should be the index for the
+> >  confidential computing (CC) measurement register. It is CC vendor
+> >  specific.
+> > 
+> > It makes sense that the kernel would size it correctly.
+> > 
+> > > As per the function, perhaps tpm2_calc_event_log_size() should be
+> > > relocated to lib and have non-TPM name like firmware_event_log_size()
+> > > or something.
+> > 
+> > Probably under drivers/attestation since that is where all the TCG
+> > formatted logs should end up. It should be 'tcg_event_log_size()' or
+> > something. Maybe a tiny module for it like we would have done in lib/
+> 
+> +1 for the name, as it is obviously more accurate prefix.
 
-But I can't find it in the tested trees[1] for more than 90 days.
-Is it a correct commit? Please update it by replying:
+Location, I don't know. I was thinking something like "lib/tcg.c" with
+routines that are plain calculations based on TCG/TPM data. And perhaps
+for tpm_buf (both stack/heap allocatable), if Trenchboot ever moves
+forward.
 
-#syz fix: exact-commit-title
-
-Until then the bug is still considered open and new crashes with
-the same signature are ignored.
-
-Kernel: Linux
-Dashboard link: https://syzkaller.appspot.com/bug?extid=885a4f3281b8d99c48d8
-
----
-[1] I expect the commit to be present in:
-
-1. for-kernelci branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-
-2. master branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
-
-3. master branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
-
-4. main branch of
-git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git
-
-The full list of 11 trees can be found at
-https://syzkaller.appspot.com/upstream/repos
+Br, Jarkko
