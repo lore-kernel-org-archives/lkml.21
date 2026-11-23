@@ -1,50 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795459146;
-	b=X9ziZChf21RhnapEpYTvID447eh0+wXB+RZlzVtNf2WvwqKNRGgGW9ZeX98ey1x1Krqc
-	 6wcPcZSAwyRF5sWLwKNpyro1AnVhw3CPXdlNskWINEZqohkgyuiQq/ZdubN9Sa3Ge0B14
-	 hZAZwHsa27q7cMYLZWkpymlwtQ6U/hptLoRmsc/oT1ssfqpGNiYC6ka2fHro1sXZai4T3
-	 N05lxztEtw8N8dHT37KBAu2lZxRwFgo3ud3IF5J1yi1ahYwRp1k0cwtlRqIbB9klgPbHa
-	 xLv4bT0Vkt//rCUXigtv44Yam2mU7MzYbmBIwabtq7FWOs7EQI+Fvz3lrfLsKWvGttw==
+	t=1795459225;
+	b=KgGHcWJJDlutanKnA8yFGiw7Yf21NhmGtukVHn/1D8lp/Vqo7HbXDAuHFf/GWkwZMb9F
+	 +bYscWK7MQ+LDSooXafU8A1enyaTwaGbtoN2ZBma90GlicLdN4rnSc+WTZWHsB3lB93t0
+	 6+QSBUkPSVZjpuDEUYfSZGvd5QjBQlBpdc4Fpr3StFyU5gCJk9MCR13Xdm1weNhXglryk
+	 b3i+hkiHHI+UJ/oQKYx2fxHu72twLK7MSLH1+SMU8z2lqNU/2LAnUfke1OJ0/y4O58bZN
+	 Yml9O9og5d8ZAQFsADRC7yrQpdHZY1W38C5rQgQrpfVB0K9oxHnspKlK3TD462VbrLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459146;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459225;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:X-Cookie;
-	bh=l/coXYN92zNNYhXdaeU823Es/cADMbebwIixDeYrc8A=;
-	b=AYSf/HE16jeMlXcdJthVPHjs49/XXLjjnrJlwnXFPbhpgHbblIURPTEb3xm/skFZbWte
-	 qtrDE9n67izEzRHnLGSUHDowC8A+ovGReHk6ob680xj5YSQ/kzanjA/AWIT3BExZskL1S
-	 J8gFQS9JAwx+ZgYSzm2I1Gi667fpvMU80OCNdW+Ahpjo4epWkc4tW6bY68HQdtWgIHWea
-	 guXgztwB158YHCap0YX/AuXuG2Q6rl+ICZNkxP8HhUKrxavt2jkFDMd0w8A+j9FnY0/vY
-	 kW7EaBW9gb9ZkfSqZfSno0mR5KDsvVKvxObT4FKWBhh8Esep0IwNFAGJ6Kj9m3TUtrw==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=zbWiMuLWEtC6VF7ymn7U7/1PFk3dFO6xySrPg9JcUPk=;
+	b=xZdRs1XeQQamys4S8W0cW9MZTXOp5vcEGLrTrERxws4ai+IrtIBKkhjIYKxDjGKCw+Da
+	 +QUltfIvTd9Kkjtc68Cbehyi7dhqLQBAzOsnDaOCxHHEhGwqBJhQVEZTim5zP3LiHvAq1
+	 wz2+OYiQkS7pxCIFDn/t8mZ4sbPXkLzQzgw8x3I/Wvz9Q3OrKiewlzNG+zhJMcmwY9PQa
+	 lhlrnfMQ85G8iH+InK7D5Lsg3qRmrEE1KjYO9r90WA+dC810jWmp4zGgJrKByJoQfxJ3C
+	 IX4+NWJ36eW9u5M1jwCDhArjMBxBygpl4EARiGMbrEOgqvBg8m4UWwSohF5xL7m3rNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DxmcYWYH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TvXhpuIu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2147F606A31A;
-	Mon, 23 Nov 2026 18:39:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 265BB606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:40:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DxmcYWYH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A5831F000C0;
-	Mon, 23 Nov 2026 18:39:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TvXhpuIu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 192BC1F000C0;
+	Mon, 23 Nov 2026 18:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459145;
-	bh=l/coXYN92zNNYhXdaeU823Es/cADMbebwIixDeYrc8A=;
-	h=Date:From:To:Cc:Subject;
-	b=DxmcYWYHHJgIwSfF+2SPN3AybAwx6cGMwgedzHn4rRQ//suII8jExsarE+JrI/kTv
-	 7fxkX8tESGdL6GShjiyComSy7qCPreqAykycSubyCKrRIiSBoUNJU58zOqs3DfQ4T2
-	 rzX0JGeAaqrKVxX8DX2HOuReD8hLtTO5zhV8w1KfwsXLm9Dwel0xlLkNMDwCshm96I
-	 opmV6xzBQh+I//OGPEzlGpXMxsnJUDYZeiEY+F/KU4CMQwC5I9CmoZlN8vcave4/bB
-	 //QVYwTSU2egi59zjHQZqIolFyNoUlSm33kiU/NIXHAXh40dJgrvOkxapbrMCaobJL
-	 pjXj0XmonpWGA==
-Date: Mon, 23 Nov 2026 18:39:02 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-next@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: -next status as at v7.4-rc4
-Message-ID: <ab61988b-1cfb-4563-8e77-9e997c1f33a6@sirena.org.uk>
+	s=k20260515; t=1795459224;
+	bh=zbWiMuLWEtC6VF7ymn7U7/1PFk3dFO6xySrPg9JcUPk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TvXhpuIu7BmJs0KnVfb0hIS5nE4sSxgXUTwRIhck7dpblkXbMRn1qe0Ud8K9Nh6rH
+	 Bjc7dJoT87mNgjLSEZKPow8dj/FxeQAhU6ArJxzeWiLPhh+3I83QhViQB8GeDuepxn
+	 EKgpuiMZ/F13mnvOUJHJjB45LS+No/7cbyBnVVRQ2Qg7Rh+EEETR9bXb3yvNxB66eS
+	 hZBH9y3wrf5OXFfMmgjawpkf8IDMvQXQo/F71/P19KbgN20gE4bJguQTSk0+m5XVHx
+	 rsCm5UvxIR3MBwmSQZGl69GI/F+hmZL2bEIvhf9com2ZLq7nlhzx0CtSntiKAiUnLD
+	 iMF3d5z8iqwdg==
+Date: Mon, 23 Nov 2026 18:40:22 +0000
+From: Harry Yoo <harry@kernel.org>
+To: Joshua Hahn <joshua.hahnjy@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Dev Jain <dev.jain@arm.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH v4 2/2] mm/vmscan: consolidate promo vs. high watermark
+ checks
+Message-ID: <awSHRi4nS1evi27Z@thinkstation>
+References: <20261123181829.4065581-1-joshua.hahnjy@gmail.com>
+ <20261123181829.4065581-3-joshua.hahnjy@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,78 +64,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aZ9w3iVnmuJELrHc"
-Content-Disposition: inline
-X-Cookie: Truth is free, but information costs.
-
-
---aZ9w3iVnmuJELrHc
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20261123181829.4065581-3-joshua.hahnjy@gmail.com>
 
-Hi Linus,
+On Mon, Nov 23, 2026 at 10:18:28AM -0800, Joshua Hahn wrote:
+> There are three sites which all check the watermark that kswapd reclaims
+> zones up to, which is the promo watermark when NUMA balancing memory
+> tiering is enabled, and the high watermark otherwise.
+> 
+> Consolidate the pattern into an inline helper and move the dependency
+> on the sysctl.h header into page_alloc.h.
+> 
+> No functional changes intended.
+> 
+> Reviewed-by: SJ Park <sj@kernel.org>
+> Reviewed-by: Chris Down <chris@chrisdown.name>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> Reviewed-by: Gregory Price <gourry@gourry.net>
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
+> Tested-by: Chris Down <chris@chrisdown.name>
+> Signed-off-by: Joshua Hahn <joshua.hahnjy@gmail.com>
+> ---
 
-There was a bit of entertainment earlier with the filesystems following
-the trend of introducing API changes after -rc1 which I don't think will
-end up reaching you, but otherwise things have been relatively routine.
-There's been quite a few conflicts coming, plus a few build failures,
-but where there's been something at all complicated people have been
-syncing up sensibly.
+Looks good to me,
+Reviewed-by: Harry Yoo (Meta) <harry@kernel.org>
 
-No trees are held at old versions
-
-Trees with signoff problems:
-
-  ext4		(missing committer)
-  mediatek	(missing committer)
-  mtd-fixes	(missing committer, new today)
-  thermal	(missing committer)
-  workqueues	(missing author, new today)
-
-Non-merge commits relative to Linus' tree: 9557
- 9652 files changed, 488596 insertions(+), 194526 deletions(-)
-
-Top trees adding commits to -next:
-
-  1151	drm
-  639	net-next
-  421	mm
-  390	bpf-next
-  388	vfs-brauner
-  349	sound-asoc
-  349	qcom
-  309	iio
-  227	hwmon-staging
-  194	v4l-dvb
-
-Trees adding duplicate commits to -next:
-
-   73 drm
-   35 amdgpu
-   13 btrfs
-   12 btrfs-fixes
-   11 drm-intel
-    3 perf
-    2 leds-lj
-    2 drm-intel
-
-Thanks,
-Mark
-
---aZ9w3iVnmuJELrHc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEiEUACgkQJNaLcl1U
-h9Cn3Af8DiS8Z2+2nlDnFl0gReduHCUptwIMhpVddaKNYgxwkq9GIQGExWSUpQvm
-2XUVcM9wqDgsEvu76cZ7if7shUCVZXftfnhefmGbOka5QzSjCPgo0iKTSx0xntMB
-iG7ywy+Ltb3vf5ayKTXkegm5ZRt7eeutU+zKCPlXburXNiotpm9EUJp5WnpcCB4I
-TvjIKJxW1PKo7nevGzIQ2ixI8ZhqLet19jC1NhhmwLtjoZezqY1U2Hvi4Hn4wSkp
-afGFbNPALU5JYh/BEa9cZV8sbFCivmiYtjX78MWvW+V9mVCwG2Ljgshck/hLlTRg
-lmpouDbGUmJICvRoPUD0Qjd/qksHzg==
-=3ymm
------END PGP SIGNATURE-----
-
---aZ9w3iVnmuJELrHc--
+-- 
+Cheers,
+Harry / Hyeonggon
