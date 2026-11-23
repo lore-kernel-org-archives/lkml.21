@@ -1,96 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.89
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795442225;
-	b=VXKXZZKlQt1H2z6rsm4sFRF+B7dxfo8M97w66VWHpnUP1wci5nEibW9TAyy/0rEjAAg8
-	 71JSXYd7Und5lp4toxX+YXQNznceKpeSTW5OFBudRXg068cgGseeTrcNgHrLhVQX/r9mW
-	 lGCLA5X+2AmujLMwQ1unR5HWY+ODXGmBwo/m060GeuMsl3PAk3AjLVQ3yrGheUIjTAeYq
-	 KoONYcIvFcR8i7cMXUizUMO0J3LBjugxkJdqxaKaaK4l05wq0kS25OKYwgOrNgLOGHA1m
-	 1HOvT5D7Gw+zXUt6+T2prtgpVBLZRcv1dgE4am3kcrYJ1lAJPh+IWzFKMBT/uHGMvqQ==
+	t=1795442237;
+	b=E3Je+zUQNccIiHgiN0ZKtSwsWNnsrfpSIs0060bVfzIOHB1DSpMEMUWhHn9WrvAByao3
+	 T55yNYV+MxsGARTX27TBX2Znx6RK5Y2OmIIporh9KhAa4Nc+8J/rTZv39RRthsc40xlpf
+	 P8T92JJf/CUrBa8tQkjsg9+XGdY/60M1qTCZBHMooi7rtNLspDqKlLuUAb+hiivEOLJX7
+	 UKlGZA+xvbHA1F2W6LZK8/PICAxRUDFfTV7dwqz7riXT/Y541BkXaRu4kcmzTaRozuXKW
+	 ka0TjX+gda1xtvC4cmakQCV9xRK6GtvwLIZDzhAisxzrZqYOW53m8uJusihlBdjKrwg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442225;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=CCEv+Vr2WxA8JFcA/JlvCcugBlYDsyQuHHAwp3uOVFM=;
-	b=ISIoyKYbOXJl98IUaY951SdWKNLvKL6DqGpyn7sQzNLLVZ1xDXawvhY04RNgkzoMRbkM
-	 Ocmo5pzDk34FTTwnDu+u8x1GdS1YhgJsnpnuTRZuS1UTJwoFQMJT4kDtI3Rt3/rRfP62k
-	 yWkUUqpXCwZQY9j2jCoaPFxxmFp+eL5hiSiXChdEIIL1kwk0ce2I7qgeGA3x4jkNTDkyp
-	 E+LaTEkuhPl7hiR/ntt0oVJj3O3juhxRvKqwZGLDtaYkBWf7pcHZwlyzbThJn1wj/jPVz
-	 JiV/VfWsuIB/LFV6qqgNV7FXlTW4G0yPuibzikYw+Mlus2xR7wIEn6JavFVr5wHsXtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442237;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=fIFE99SJxvrMOnbve93aKwvIDcZ7r+s9YfSn7JHUaMI=;
+	b=euub91M4FyIBaQ1tOTP5e3NXxntF0d+Xq/YQX1WzCs1zYVgaJYGD5gQ0dFs5jIgW1OsF
+	 rXwxYMFKjUz5fUU0bRPOk/UfRPNJgm8NO+IGm93KCeS3D7UsMO49euZOwrVS1sVcLXOJZ
+	 wc9aH76tZf8gmjZo9OCS0pTnfCLEUsAjGNX2QbCGE58mzxbt7/cFoXZNCzOux4X3rirM0
+	 V5POsnKMab+gvSa/l3sqp17VnrmJitCKrR7hhmDdXx1X554tgMtiUBHP+S2xct1VgZbsW
+	 0DFc5/gNyrw8RiOGud+XKsgzHJqeoA6P2thg6wZ3uRUQ3b6D5YEH6LIt/aqH0cRTOmw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=jyTs+VEO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.89
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022089.outbound.protection.outlook.com [40.107.193.89])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MBKxhBpz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A52CB606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:57:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A52CB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C263606A31A;
+	Mon, 23 Nov 2026 13:57:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=jyTs+VEO
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F/y25aHHahI0dHS/AG8ozDRi708blssqHcDTLqb4zS2ctv1e7mwDRyE1lq4wQpeMptq3nsCb58yOPeUy1Bcfb3Ru38aGvgENqOfLS4iW4lgRW1Vstwz2OUDqSGdrMkb64YasuHH+NlRWSi+1lHyTv183IBzesi3PrYlt5qrOJL1/0kMomew5YM17ivcWq0vkz6up1GWYNoO674xz7S4kMwFqbmeZZCSY2vaTuqyZNPHEy3HF1sz4sXq7rhFJ5qz5hsfRYX/xntebe2YjS+T8Ebk4WK7/ZQywEgVQM4bu2fPdoLEIC3W8m37HrakX6mfSKJrSjJzsWvXPRNLSTQBf+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CCEv+Vr2WxA8JFcA/JlvCcugBlYDsyQuHHAwp3uOVFM=;
- b=P+GjjJ3u3sAe1U9hPHLNkzMi8isRFBLVGmcEpluhptUw+hl8WrFT8uQECKBOdSAFc0bryWDcGX7svcgkCbpRfvGXDK5xjkroUNgVO12bOCh7HX5Av2H9FZQzSD429GUkKofHFD3pTKn71Bof9RCApWE7zFlOADt6Nf+fpPyK7gbiSa022YuHjadcG4CyvjuG6CVSBpee+xafplg4vM9goX74JHJ/VpIg3J+OFrO7IrNLEs/6pVZ1/X/JH83DB48O4YfymzMLc1Fc3pJ1b74/utauyS54mqRMPoOM6PWqHQlX7dQOPhJULZTDQ7JLgFPoz+cGUS55jdIXOCfwtrcqpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CCEv+Vr2WxA8JFcA/JlvCcugBlYDsyQuHHAwp3uOVFM=;
- b=jyTs+VEO8b4r1RLl99L9A4Dolq4r4UPSr9WnZro72jXcnqGk8KiluDTFPxLFiJuibZPqmvZcvnZokdrerp6Vt9D83cAy/4weOp9GIMyOzHP6oECORYQMpaCvj+dX+vXCNtYGwN6u5Qo5vSeAnd63ckOd35LfSKkwueL6NR26AiEQg2cGnVyuGjTwForZAiA7RlMb/yag0juLfSYmTruBP8wZPERC+GJ6Y5DPu9+KrKY9HulzPB8yWU5puzGq29/hPrsxyo8T6yknXaQw7Mp9qzWj9MkS05W1aQWVkiFbghS8QFU8PcX4QqhyWymjt3iiWFGzxxqAElNwUqBoEJCFUw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT3PR01MB798411.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:193::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 13:57:01 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 13:57:01 +0000
-Message-ID: <aa2537ec-c6f1-4b54-8212-c9c18f10fa93@efficios.com>
-Date: Mon, 23 Nov 2026 08:57:00 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 05/40] selftests/sched: Test SCHED_DEADLINE bandwidth
- across a root domain rebuild
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
- <4bfaa652a0e1e4c92a628472be5bc3cefd29484d.1795207232.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-226141@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-226141@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0130.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:5::33) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MBKxhBpz
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795442237;
+	b=C204vHoLhQVIqElowp6evDHbglK+mrbnxEQdui8ZmhVc/PaGEWN21GHYahCEiusp7H1c
+	 9cIhF/hKA4/L5TJ8PX5SjDlOUvEQS5w07ASFvyJwN/DzMfKtC8kUQmDOvRueNtVT6CgJg
+	 n4hKSzvTciF5US8Q3f7OwNNb9U3EzSQmCjZSZ/+TbOKW01fSBAefZdnbQXfsMiadUJQQv
+	 TwQjRjRal3G8NRlivpi6n74sB+mMNE9Hr8dEncm4n1GoocvmdwdQYJJK1S9xRxPuDwL3s
+	 lcZ2GZtpHSa0Eh+0QTFouw/H/e+qvWkWsb3Hr7mkgn23Ty4U92rQ7PnrjdIN4h955ZQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795442237;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=fIFE99SJxvrMOnbve93aKwvIDcZ7r+s9YfSn7JHUaMI=;
+	b=oR5J4QRvdBVSmqggJY/bvzJtnJJRBk23fasxqAdZLzz98zvLeJjkJ3JlJ81w2kpTX9wa
+	 r6L0O7AHfyPWadKUTRY7SltOsemmc4GDzb5lhf7qeP3smENVhTS5cPhdD98oEO2ZcJRUQ
+	 19Xd83y688FT8nyaVzDFmcn0oks2neoAr2bmfXNqLWLKCp7Cx/YjlC9rBuudR9jxOqaNa
+	 eyhhKzRpdo9eDb552MDRFN/KWxHQaQOto5qVUFqEaNMk9VegDnn1kcBz6bgRFq5HeB7ZH
+	 v20p3tfMoViNSufdlhX8ucZkn/wbssf/lNxY+MqvYAnfTs/B1adfg48hlHyQPgM/GHA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id A7A8A1F000ED;
+	Mon, 23 Nov 2026 13:56:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795442237;
+	bh=fIFE99SJxvrMOnbve93aKwvIDcZ7r+s9YfSn7JHUaMI=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=MBKxhBpzbsXiFlSqN6cWfecmW9zkIy+eLhc6eVKnlII7siR2m1orOhPA77Mj+N8bU
+	 WE99jmcIxXqA+UjzT3Bmkl/azmN6Lo+XeBwq965dSYOXP+Pr5+bXKeSkP0q3zVYM0P
+	 jjZ6xwITzpvIFc0otTs+6A4b1wVnB3FEgDzZlDfJTP5/hoYATDMjSrJwcSfm3LEmF3
+	 XWZ6givQI2qY1vCopDhQ8n0YJOXmdfiLyCBb/R0lrrzbrj1tFQQzHOGZ1kHVHZybnn
+	 rkfZjfKWMoazsTOBAB3YvpTFyFO1bIz+W32Gg0S5Prt4OLgQrFymX0NQ/BlpDJ0MY+
+	 VFpv2vZhVi9qQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 340084C4C0;
+	Mon, 23 Nov 2026 13:56:52 +0000 (UTC)
+From: Ziqiang Xia via B4 Relay <devnull+xiazq123666.gmail.com@kernel.org>
+Subject: [PATCH v2 0/2] platform/x86: Add Emdoor Intel EWMI platform driver
+Date: Mon, 23 Nov 2026 05:56:50 -0800
+Message-Id: <20261123-emdoor-intel-wmi-rfc-v2-0-3f4a03095f2e@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,82 +83,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT3PR01MB798411:EE_
-X-MS-Office365-Filtering-Correlation-Id: af89feba-cb7a-4f51-ca4c-08df4969a5d1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|261022105027099003|261026121527099003|261026140227099003|261028144727099003|56012099006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	XjpxT52DI705laRb+gChgmruKBltiGM1yyAloffit3UfqSzsQcQ7eiZxws8SOImtOYGG2cJxZaMN6IckIYADD94v9VzsdnHsVRTnK/uUpynXEGlFFX9+6c/JPSeuq6ZrNLuYISfTyW/XNbtI5oDDniFg0psPVPlB/rRIWZR28D/d4+ynwpZV57IdmL/V+5y3QpBfS1Xyd0yU4gXneWst4LirxZD0jBJKeAl+wlg5sdVF+EOob0wEiYvGufezVpOuX0kNuAmrRDk1o2Olz6+YC+aAadirbXHelquY3Wly/UgwEJUref/ewHxJXYd7+GcqNVr+pnoUFelriMhnC3rx0WdcQFIRKTD6HBVkH8nTEOOTSKhQsafBTXfeuHrBJZ63XcgW1GNRKqsRGvFJMxO7JvHILVFUwEhxF+bWjiHEHIfYpcu7Rnl9k71s2Hb7PQ5F9zZfXbJFoWPLSj5wB9SiHI301UEdmnzTfHIpPmsuKly06yZYF8grjGdm+j6AJ8z95wXFWkY/hp1bTqFCYB+kFQg/AfKYJ2sybp4qYOS924m8YN+2lKn51tntr/2h+eMighC/KZgkjGykkCCCxa4gBnTaIsMpxd07PkSrPU8e1H8=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Zlp6NW1kMzF1K2UxbXpnbkVNTmNJMU93TjNlWFpJZjF6YlBIWkV5MFNaeEs1?=
- =?utf-8?B?RTh2Z1FwWVdrWGRqTEdoSVRmRDFPckR6cWFRU0pYRTZXMlUxU3VaQU5udUYr?=
- =?utf-8?B?K3JMdDNueHRnQndyUndsSnNOaisyZXlYNitRY1RvdzJIQ3M1Yi83UjBRM0p3?=
- =?utf-8?B?Vkd1QXQzc0lCbmgzMjFUbE5vc25wMGpJVXJZUDF2RjM3dW9sMi80TG9hYVBl?=
- =?utf-8?B?UlBOeE5vdXEvNm9tS0hSK0JlSmxuYnRrK3RXTkx5K2J1eWxnandpY3ZITHR1?=
- =?utf-8?B?SStTc0JWNFVRZkZENUlCb1JES2VRYnM2MDhsM2hyZ2UyQ3VLYSszZjdYczd1?=
- =?utf-8?B?QUo1aE9tWjgvcGJCY0dPUUI0dlZQM0Q3UXRrVzluUkJBUHEvbXNiZ0FBcTMr?=
- =?utf-8?B?L09kOHRmaFRVcWp6OCs2bzRNeUlnd2d6M3BDL3Jxd20xQnAyTmluczhReWVp?=
- =?utf-8?B?RndGMTRKbzhZNGtvYVhzbWpjWklFL29FVjV5TU1QNTRnQUF1K1JaOTN2NDJ5?=
- =?utf-8?B?UDNhRVE0aE5laXNUZlFVVFBhRk1MZEg1QkMwM3k5emJsY2dvUEVKcThNVlBr?=
- =?utf-8?B?cFFJTm9zanpldVdiOWV2MzVRNVdjUHdZdjZNSFB2WU9VS2t3YWJacDh3VjJm?=
- =?utf-8?B?Um8yelJwNjc5YW5raE9rdWR4cFQwak0zamVMR3VGbXpQY1pDK2NDWDRJNXlL?=
- =?utf-8?B?aDUwbGFtVzAxV0pOMldsU1VCYTR6NmNNdzh5enowY3VpWklzYUZKczMvdzY4?=
- =?utf-8?B?ZHpLeWQ3U25tcVRrNUNGaXdFU0w4dGE4M2h1ZTM5L3htVUtpeC9Hb25kRmpq?=
- =?utf-8?B?RDlabTlpS2IvdS8yMGxWR1BBTUl5ZTAyRVh0OWVudlZzNDhQTzdJbTJWMUo4?=
- =?utf-8?B?YmNuVUxaaGpXN0J5ZGQrRGlqRnloSVJvdmVvbGFodUI4Tnl1MmNsQnUwMWs2?=
- =?utf-8?B?cy83T0xWZDJCYXpMV0lRMyt1SmdsSXVkaDdHVDhDNHphS2VrN0t5cGVSUTdY?=
- =?utf-8?B?TCtzK0dyVWhYbWtDem9XZ0tTeXY2QVhEUmJvSnBjbFdWK1JDeW1FUHpVTWlt?=
- =?utf-8?B?bThpdzc3NTkwU3Z0by9MWWQzVXd2S1pPVHBQd25tSGJTOVJ2NjRrU29zWjBM?=
- =?utf-8?B?OXpaUStjTjVWaDJxbExGM1ppbEZ0QXovNDErUW1NM3lCcTNFRHhneER2Q0l4?=
- =?utf-8?B?RllRZ2M1WFNpcmg2RUEwY2JzQXBjWVJqNCsxRTBoVzhHc09Ub1NRL0lNVVNz?=
- =?utf-8?B?UkIvanNTUXp4RDRTVkJyODRnUGNXUDJPV1dHbmFEM0Z6cU5iVjNWZzBua1Bj?=
- =?utf-8?B?THY1UTd4cUZPSUI3TnhwTXFFZTkrQWdQenV2am9ENFY4Y3AzYmUzbDczdWd1?=
- =?utf-8?B?UFBWSFlZcGlURjBDK2llcytrWXMybGQrcDc1czFqVUdPM1JnbWxBUnBiRmZi?=
- =?utf-8?B?a2pJdHk2VUFENUdYc0ZFYlNNV1RuYjlwY3Y4eXZxdUlKQ1RvZ0xUN3NuZERa?=
- =?utf-8?B?eCsvL2lRNk53SVNEVFVyWkFiZ3lmaXlsVWxhZFFTb3JWVlNXb1U3RUVVRFJX?=
- =?utf-8?B?TFUvTFlidFJKL0t0aldTMGJKNmxna1N3bjVMNmk5d0YvS3lwbmlNTERoVlFD?=
- =?utf-8?B?dTJWenRQOEE1azIzdzFIN1FDK3cvWFhiZkJobThXVzR0QTU3SDBna1g2cXFY?=
- =?utf-8?B?eGpHRXBUZzV3T3NueGN4R1h3cjd2RVNIcUVyYVFsbldXazdHU0hKUC83YXFI?=
- =?utf-8?B?WlpYQTFYVXFncnlrQnNwYmlIZnM0YzhxSFBmZWtCQWhZSHZ1TUdpbXd6dFhK?=
- =?utf-8?B?TE9Qeis2NFFYRlpxZzFqbmRhREhLbUp3MDI1eVhOZXFRVXh4Wi83blk2MHJL?=
- =?utf-8?B?YnhjenUvamg3WHdnL0JkN1Aweno5d3RJTG1sdyt2UDJ4SDEvNHdUdmpEUnZJ?=
- =?utf-8?B?eVZ6MDJleVExSDV3d280REoxdis1T1JjdWgreWZ1eTZLOXRVVG1qUlM3RGRy?=
- =?utf-8?B?ZFdqZkF2dnZSVy93aURKamxIMCtjNTJnVUU0cGhibzdyMTJacVpFc2NGOGUv?=
- =?utf-8?B?NVZWeGFtekhFcUhuMlFnUllNcFZrWTdhNW5ybElDSXcrT2VMSFVaZ3REWWdR?=
- =?utf-8?B?STg4Ujh4d0tZbHBzMHlJSTVBL3F5MjRqQ25XWkxDM2hURkJ2cHMweWNEYUdy?=
- =?utf-8?B?NVBQa0lTdmpYMDlpbGc0VFRCU3JwWmlkaHdlSXl3OEExU00wdXZKa3FFUjl4?=
- =?utf-8?B?VzYrNkI0M1ZsY2pmUENERGNtSUtaRXgzZDJtTnZJQmxRY1ZidkcwMDVWbzdT?=
- =?utf-8?B?QitkaVRGNGtZZVJsU296UlFhb0hMVjVHRkVpS0o3ZFJaZnN1em9nVkYyKy9F?=
- =?utf-8?Q?JpjJMupc1S2/hWHc=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: af89feba-cb7a-4f51-ca4c-08df4969a5d1
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 13:57:01.3482
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rpC5SC/GOm7uLHI2pdqKCeND4XRiC+m/tBcvbOGGMEfyg1wDBRdfgj9Z/9wQS1cQsYALpNbJCAWt5/8P4kI8+6vCfhXThBIKY9ayKl7y6xo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB798411
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0Jm7RjaRhpdeQ/DAtopjKGtaRE1h
+ LsLeACXL3n//RkyJaYMl2KGRBNnjmEFeSjA9E3oCNmuDLKUlRBCIXkbY0IOIw348ozJGZRCq5M
+ qW2VdBev0kcjxe8/e6h/nZ3snM26tzeg5jzF99t9JbN6fi0lgiVZrMk6q6qzaa+cbHo4meqiXZ
+ fkClestIcoAAAA=
+X-Change-ID: 20261113-emdoor-intel-wmi-rfc-2173530b3df6
+To: Armin Wolf <W_Armin@gmx.de>, Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Guenter Roeck <linux@roeck-us.net>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-hwmon@vger.kernel.org, Ziqiang Xia <xiazq123666@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795442211; l=3702;
+ i=xiazq123666@gmail.com; s=20261113; h=from:subject:message-id;
+ bh=Dtj6FFXmz6jNRcgW4ATc31osqTiaO6dYT0JZQJpSMtg=;
+ b=i7wM0m/u5DzKyBAKO4hmfWsYGNakAU9rti0pSc9jjv18rAyze0seYpgX8THUNqrRzba3hGokE
+ MJwdAXcGvg/BLGITGi7UAl8QCbI1wx4eF1wcO7yIPpyX4povREimYag
+X-Developer-Key: i=xiazq123666@gmail.com; a=ed25519;
+ pk=mrJQOUoyemvqamFAwqXZF59Z8eZnI11ZI+BEtDNxq7Q=
+X-Endpoint-Received: by B4 Relay for xiazq123666@gmail.com/20261113 with
+ auth_id=1513
+X-Original-From: Ziqiang Xia <xiazq123666@gmail.com>
+Reply-To: xiazq123666@gmail.com
 
-> Should pick_cpus() or main() also call sched_setaffinity() to pin the test
-> process to the non-isolated online CPUs, as deadline_bw_test does?
+This series adds a pure-WMI Linux platform driver for the Intel EWMI
+(\_SB.EWMI) interface found on Emdoor-based Intel laptops, verified on
+the MECHREVO Wujie 14 2026 (WUJIE Series-Lark4-LNL, Intel Core Ultra 5
+226V Lunar Lake, BIOS EM_LNL326_V1.0.19).
 
-Yes. In v11, deadline_rebuild_test will run on the online CPUs that are
-not isolated.
+In response to review feedback on RFC v1 regarding direct EC register
+access, v2 removes every ec_read() call and every board/BIOS-specific EC
+offset so the driver operates strictly through standard ACPI WMI methods
+(WMCD and _WED(0xD0)) using wmi_driver / wmidev_invoke_method(), gated
+by WMI GUID and WMCD GVER protocol version 1.0.1.0:
+- Dual fan tachometers (fan1_input, fan2_input) via hwmon (WMCD GFNS)
+- Platform profile (balanced / performance) via WMCD GPFM / SPFM,
+  synced with Fn+X hardware profile-switch events
+- Read-only touchpad_enabled sysfs attribute via WMCD GTPS (0x03/0x07)
+- Sparse keymap input reporting for _WED(0xD0) hotkey events
 
-Thanks,
+Notes on firmware quirks and dropped RFC v1 features:
+- Legacy WMAA-WMCB methods on this DSDT allocate an 8-byte Local0 inside
+  AML and define CreateField(Local0, 0x20, 0x3F, RES3), aborting with
+  AE_AML_BUFFER_LIMIT regardless of input buffer size; they are unused.
+- EC temperature sensors (TSR1..TSR4) are dropped because TSR2..TSR4 are
+  already exposed via int3403_thermal (SEN2..SEN4 under \_SB.IETM) and
+  CPU temperature is already covered by coretemp / x86_pkg_temp / TCPU.
+- fn_lock / win_lock (EC5D 20 ms mailbox race) and auto_power_on (WMCC
+  write-only with EC 0xF5 readback) are dropped so v2 has zero direct EC
+  access and zero per-BIOS DMI tables.
+- SPFM (0x03/0x0a) arms ZZTT/TIZZ before Notify(IETM, 0x88) and before
+  writing EC5F, so an EC scan during the notify can consume a stale EC5F
+  and return RTNC=0 without updating PPMD (or return RTNC=1). The driver
+  verifies WMCD 0x03/0x09 readback and reissues the absolute mode up to
+  3 times using pure WMI calls.
+- Sanitized ACPI tables (DSDT + SSDT1..SSDT28, Windows licensing table
+  omitted) and decoded ewmi.mof are available at:
+  https://gist.github.com/winddd666/8f739d1cab5beb503f606093ade10d65
 
-Mathieu
+Signed-off-by: Ziqiang Xia <xiazq123666@gmail.com>
+---
+Changes in v2:
+- Drop RFC prefix.
+- Remove all direct ec_read() calls, ACPI_EC dependency, and per-BIOS
+  DMI/EC offset tables (drop temp_regs, fn_lock, win_lock, and
+  auto_power_on / WMCC driver).
+- Keep the driver strictly pure WMI (WMCD + _WED(0xD0)) using WMI GUID
+  matching and WMCD GVER (1.0.1.0) protocol version validation.
+- Update ABI documentation, Kconfig, and commit descriptions accordingly.
+- Link to v1: https://patch.msgid.link/20261113-emdoor-intel-wmi-rfc-v1-0-d77ecf23693b@gmail.com
 
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+To: Armin Wolf <W_Armin@gmx.de>
+To: Ziqiang Xia <xiazq123666@gmail.com>
+To: Hans de Goede <hansg@kernel.org>
+To: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: platform-driver-x86@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-hwmon@vger.kernel.org
+
+---
+Ziqiang Xia (2):
+      Documentation: ABI: testing: Add emdoor-intel-wmi sysfs ABI
+      platform/x86: Add Emdoor Intel EWMI platform driver
+
+ .../ABI/testing/sysfs-bus-wmi-devices-emdoor-ewmi  |   7 +
+ MAINTAINERS                                        |   7 +
+ drivers/platform/x86/Kconfig                       |  16 +
+ drivers/platform/x86/Makefile                      |   1 +
+ drivers/platform/x86/emdoor-intel-wmi.c            | 494 +++++++++++++++++++++
+ 5 files changed, 525 insertions(+)
+---
+base-commit: 5680519168f65666d2c03cc6ed8fe2b7052aee12
+change-id: 20261113-emdoor-intel-wmi-rfc-2173530b3df6
+
+Best regards,
+--  
+Ziqiang Xia <xiazq123666@gmail.com>
+
+
