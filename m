@@ -1,83 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448410;
-	b=ONqCeVhyihQWJOZdEYQmGJg5zGhuDn7B2fqb4RmVCXqNSwx7NCPcR6iyPkdQDy65wmNP
-	 RQD/siReD/aKybC47wyAzqO1zH7tTSFm8NOL4JUl5lMyOMFjSwGG45/qDuWMGuwfLNRiZ
-	 7YjLcjB8M/ZtwBZkzy+561xaRw7ZeXCSLMwVBbBXnoVoZq+JNlwoBlrMp/ULFwFCZXzcD
-	 XwDSZQzmBetzVQeCZcdfFWpL3NjZkLU18aWAFhx0htR3WTFhuL47dtokagkcDh+C1TyxN
-	 3oRvgHJrgDtpi7xdavd7n+R+uEG0oxPY0y1+Un2K8sMau6nwIXEBgpfrJpaSNLHn6lw==
+	t=1795448413;
+	b=wzlXmogm2JqfHcF64JS9ZPXlcXhIB3zlqFbxPxoBarm0R7cZ5i6RrDTM0crrrn18RMzP
+	 K/AA5HCAtG4Wzac8kCx3NsPpH+BPA9x6OrdzOj+UKhrl3t1jmZm7m1CFzvUIv0bbb1ig6
+	 Bg61o3b7i0gIrvS55wlGeiBigZOqmQqzv50jxiSfWu9dEsYIHCNtMuMcByij4jfMH2yv0
+	 HLgYROxTP4/kyB8bu2qJ/GtZJ1AYl84XadTSxRv5dX6ESqw2nWRndfaig6Q3ZfHSckMJQ
+	 Vw5g82k/CO1kLmI4xP5j4ecdHhuGgXHlYz2L8Wb/ZvnbZI0OLqcSKzOtW6Cs1b4Sbow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448410;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448413;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=mAatwWMGIQD8sSjbJ0d+bFjPR7YE2b8DjJZg25l4fP0=;
-	b=culK3P8mxZv0npmv8FtQVr4Nz/f9iarxl/h1u6rBRH9x60dqR7HX3mwQ8MnCr1DUg4WQ
-	 NG1jcUBBqRSa00NheOsQNAFkKT2LcZ2Wfx4hj+TxjiVMA426G8UD7FO+efWqywp8yGEiV
-	 lTaTgG2QuQrH5Nu388LOfBLkgLWAWSBv8tfX2DSGxDbc+LbXvk8Fh5hL6IhwIQtByi26B
-	 zgX9nTD6NKVS9XjjzoZZUDrCTuDOfZrjq3uGIjeZG9Sz62Hxv2zjHS9PReZK9+C397LKX
-	 5V2QTBVQdixKToQ3R8CzqO7blvpqTUp+CsfRRDID/ZmPVaCfIz8kfAHFValvGRusxsA==
+	bh=hPklCA6iPSfMecleTfh/hEh9Vrxq/JnkDe6aLo0pdFI=;
+	b=iGvI/tl9Q3WvuDJ0FxwQ7+eA/VpX1WXR4rIL3kVbO/wD6w6SbvidG4gROLpr2s40Cemc
+	 BxyeYOdMuUmcq+is0MXFhPHQ2wYLW8asV7St4FQmMtgxhLzmMz/ldbGIBiOlnZ8wzfuiS
+	 hyoSx7/5ijxaiUSy/nxDvOycFlBT8YG1g//8u1JbAELjqWHm8V6JnvYaFrUGI0ILU/LjT
+	 pjM/v9d9iVRT9OR4ma18WfewiqjLt3n0GvAeXWO1gzPzbyU5+U0dxF16QDxpSBXHjdeR9
+	 V+1S7nyGh0WivB01sdVnhvJjXEingLV2ZCO37c56LjEAR8PFgzkK4k+qAGIf2ZHewLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vXjLzPTM;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lh8nLdxa;
 	arc=none smtp.remote-ip=74.125.82.52
 Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD52A60A382A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:40:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD52A60A382A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7529606A6A9
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:40:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7529606A6A9
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vXjLzPTM
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1b3ada81853so3900782c88.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:40:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lh8nLdxa
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-15ea896ddc8so5753707c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:40:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795448409; x=1796053209; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795448412; x=1796053212; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mAatwWMGIQD8sSjbJ0d+bFjPR7YE2b8DjJZg25l4fP0=;
-        b=vXjLzPTMO6S0nyXMvFcJhaevneyow9/u+al1JNDbgukfsaI96vj3mlZm4iAWYnsbX7
-         /T0cYO/zGRL/02ZkBaMoU4U9MJSl+TH1dN/BMtOSYfGyy+m4qGmm/YqBfC6HvXhCttVh
-         qWIj95d7DSWXz9DyTupEF4SVGZ8+RphJZVGbED8OB8wiClqSgT+BMjUkfE+jnoZv1KYF
-         cKchXYdqa70tSPmIfohI8CycGdpdk0E5GOm0fknaOVWYxbTOemcHk1RK1sOxpbgQazmS
-         8oLbcMualvjErfgiGlkWsBSZlVkp57yDs+xj25jy7lLftKl9if2gAb/m7Kqw8KWu4aAC
-         8X8g==
+        bh=hPklCA6iPSfMecleTfh/hEh9Vrxq/JnkDe6aLo0pdFI=;
+        b=lh8nLdxaaz5IPSaPxBgKthGrYFF+g07VR5Xbe8JOogSuTG9I91qcwvzqF3gHVDohGW
+         8fzq93MogKOG9LrnRLKPLvA25ZTCz+IZ7nsCycngBlhOrYqmSHxc5RgXwVJ3QAKQ9m15
+         XE32ME2GqMNnS8rOqZtV1jv28+/8f4dY2ESbFK3Dwcfd3JPqgDDC4PE3PiMajKYPEUHn
+         GaCWPyIztklySfwyG4iSaUfopPkyFNlpFeHbG8fI39CNBfAwCrO5zlVHMbhjzT+PBBhU
+         YU8KnCIviJisPYt19Ihaqk2cAI+emls03ofGD93ZNTSEvARnF7XKh3llza+/ULcluthx
+         /gsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795448409; x=1796053209;
+        d=1e100.net; s=20260707; t=1795448412; x=1796053212;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mAatwWMGIQD8sSjbJ0d+bFjPR7YE2b8DjJZg25l4fP0=;
-        b=dsYQ4WBMn7ThTXOZQ5oSGkeW6MGvSzVaDAVZREdnKTRtHjIVwfsgbUzukfckmtUrR8
-         uBhJ0CJfASBmS6GFLlp40tc671bj0XbayTLdpoebWDED2Pkx3cf3O3tcG8XFtETWPGh/
-         JZJSOBubImO6QIf8zL2lI50xe7ZZDyJ4R2CPwtBhnsZQZ/mFdcMjLnbUrbIV3LKFcjaH
-         zeRXiI2+3X/0JFdyH/6PzkngC5MlR6ez9liWL842HKFt5qTw+mXN2v10KwVckfjIu4a9
-         MvTuHhRnNkkdvMIkZGdA0QK+zAasq88xL82LFmpxYmVWr58c7p5mQwuDFCKOqosV4SUs
-         0p6g==
-X-Forwarded-Encrypted: i=1; AL+hErHv2BQVNSc8xgMNWJ8T3b3+RkpU/rOPC/VSPFWGCmU7VlhGK0bsA7YTyZ22oYCZwszhVuZdNlLNm2I+0NM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+E1gL+MUNJr9q+UWjvsplqOh3msKdQ1cd6+AMGPYMEVLoml2pF
-	r7Je3l9Y/vrc0Lw3pmuAIzErSvyZtL1N8UBGm8F0OIsn82R01wqihH5+
-X-Gm-Gg: AZFdTZdOOSWOBhl7d2ro8u0kcJAnRw6lxsXbVOSwdovI70mTbOHwkMkqBKfem+jfNaA
-	GoigbTPZ8zfe/pzN702oMI08kbu3joZOqxU0paG9E+C/0wfw9jta4svI09skKa/anQMJrQZ/MMQ
-	mB0pWsS3IongujGZS3HNXiwAR6kObcj/8RsYv4138o8hH28Wf+xDq/s4eMt9mwmCA+ErA4m6vCI
-	mMWEhkONJAyUtkqUtQeS9SKGZpGpSnogk0VA+F32QL0ucSm7CfpCJMp0xSC3FID27uihAHhY8aw
-	a0Grww5SP9aaRI2zZSIrtIneg2FJISYsacCfi17Bohju7I2+Jep3N2Unjuz2zrv6Lzt6uTJ1j51
-	4/HYkcXnboGLIJtJcyszYKBZx8beAvWan2y6rnHEzp/d4RVgFqGMydpvAwSn+vq5AplMnWCeAWs
-	GjDl67lVunouGTZGcLEFgGPeTjEdfOp7f7WOBr9gFBP32iU2uhc1xL4f+acsRqxdl0D71Zpn+fO
-	80yUT0b9yMNd/olDmfGdOz3vyiD1FdCiGHewM9z05lO5Gc8b0pBnvm8K/ZGKQQdXo8lQUlgWRFZ
-	aF7p9ELQCHMbSsU40OhSd3qwL6N6RXN9sgEIU8Xg0KR1UzqJ
-X-Received: by 2002:a05:7022:3a8b:b0:15a:4155:3d9d with SMTP id a92af1059eb24-1b5568d6db3mr14898522c88.31.1795448408705;
-        Mon, 23 Nov 2026 07:40:08 -0800 (PST)
+        bh=hPklCA6iPSfMecleTfh/hEh9Vrxq/JnkDe6aLo0pdFI=;
+        b=PhYDd6R9n3YVKdM/3NrA1towrQYKSokJFhJe1TCm4h1Te1hp7W6C6BrAatJvGAxktk
+         GkhxwnAL6jKO0R/t4VHBj7vavWP7DHXp6Kst31N5GBRc6nRZk+Rs0tXZe3NfHN8AJFmS
+         vVwBTJBt2SB1h7jf6X4yoqaCZwEA/YYdM2W0wG7+wuQsVVjCoAbVcSVjgyIDC1YcGyH2
+         Xm7ajX3TtySHw0z13N9ePPj0gAWUvLaAlNh5iASXXz1lt7AIb+5GcwJL9D3M+ZxQOAPw
+         cV1yBIdoPDPWPWDbFLBhUeDiuLiUrZ/Jddt3Js2M4lkq7SminSpgf/QDhw48YOg5jCBt
+         jwwg==
+X-Forwarded-Encrypted: i=1; AL+hErFStd/kw4CmjiLNIQW4TqdwnCFtF84mZXj7FS+gp87GRcOw5PvniUWvlMlnz3PJ2zOYMjZJ6aB1hw6Lc8w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/QtUZOjMzXOkSEX2xWhC5Kb2ZfbuT/S1XEdUq8UpshUVIyauqz
+	jfxUGVrhIQHaSi8KT/oEcl2h0+m48jB+q7AvlpTpG3Cfl9TwsFVYcP9k
+X-Gm-Gg: AZFdTZfL+o4OHZxwaWyMlUbbpK7ohk0sDFKEVjlS2hsHprN4sXBZ0gPzUSWiXdhcQwF
+	gaAAfV4eTR/KORru8n45o7NMBFeQsuesDXZxHTnnoquVdeJvUhQY0Wb4Z7jKQ46uuHIuA+xpX92
+	RWkF1HcBBawrWD0JPQrr9H3dJju58MsL1HKztqPQxQYI/GUA017jojhyCyg14kUKHFNb7N1X8FG
+	cI1PKV4BtqGn4CuVWxJlxhiWZBDVLtIFAQ7ur0xAvwa0hVdwyieRGNSXEBBCABXU61S2/frz57C
+	BNnRxxxX1Wf4xlTEvDjYbQMCjZ1rnKT3bqBhMcoGQcDmT2Kvihtsosui6SXKRgp/s5mAJvcZGmD
+	tJXK7XGB39yb0W/7hDIAjND1mTEmCGynnXOA7/JOMnkja2yP9tGC9IsTwMa/zgcbVsZNtwgTvLK
+	MGiwQBw5xjqj6PhkVgOtpAhNSKr5ui5OUV8sMSdUNtHKO3HwEd3xxpc7Wj4ESI0qc6VpWrV8csM
+	EVCDNtcbOuhbrZ7We1bC0NiIYAjvcWRDfQAa0C1BOcqbvuXtkHYv1oqjJF69avgEC1UdbnJcOSM
+	LT1hJ3IxZKQXoiWWNbxUE3kNkbxXAyzcI0/XvY/1sXcS5ug=
+X-Received: by 2002:a05:701b:4516:10b0:1b1:251f:d732 with SMTP id a92af1059eb24-1b5568e1e20mr12125028c88.31.1795448411933;
+        Mon, 23 Nov 2026 07:40:11 -0800 (PST)
 Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm33680067c88.7.2026.11.23.07.40.06
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm33680067c88.7.2026.11.23.07.40.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:40:08 -0800 (PST)
+        Mon, 23 Nov 2026 07:40:11 -0800 (PST)
 From: Cong Nguyen <congnt264@gmail.com>
 To: sakari.ailus@linux.intel.com
 Cc: linux-media@vger.kernel.org,
@@ -85,10 +85,12 @@ Cc: linux-media@vger.kernel.org,
 	Michael Tretter <m.tretter@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Marek Vasut <marex@denx.de>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 13/16] media: i2c: isl7998x: move remove() after the PM callbacks
-Date: Mon, 23 Nov 2026 22:39:24 +0700
-Message-Id: <20261123153927.2547169-14-congnt264@gmail.com>
+Subject: [PATCH v2 14/16] media: i2c: isl7998x: power down the decoder on remove
+Date: Mon, 23 Nov 2026 22:39:25 +0700
+Message-Id: <20261123153927.2547169-15-congnt264@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261123153927.2547169-1-congnt264@gmail.com>
 References: <20261123153927.2547169-1-congnt264@gmail.com>
@@ -103,55 +105,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Move isl7998x_remove() below the runtime PM callbacks so that the following
-patch ("media: i2c: isl7998x: power down the decoder on remove") can call
-them from it without a forward declaration.
+isl7998x_pre_streamon() takes a runtime PM reference with
+pm_runtime_resume_and_get(), which isl7998x_post_streamoff() drops.
+isl7998x_remove() only calls pm_runtime_disable(), which does not run
+the runtime suspend callback, so a device that is still runtime active
+when the driver is unbound can be left with its power-down GPIO deasserted.
 
-No functional change.
+After disabling runtime PM, call isl7998x_runtime_suspend() if the
+device is not runtime suspended, and set the runtime PM status to
+suspended.
 
+This issue was found by auditing the driver with an LLM coding assistant.
+
+Fixes: 51ef2be546e2 ("media: i2c: isl7998x: Add driver for Intersil ISL7998x")
 Signed-off-by: Cong Nguyen <congnt264@gmail.com>
 ---
- drivers/media/i2c/isl7998x.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+ drivers/media/i2c/isl7998x.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/media/i2c/isl7998x.c b/drivers/media/i2c/isl7998x.c
-index e36fb355133e..42387bd310fb 100644
+index 42387bd310fb..48fb131c9e45 100644
 --- a/drivers/media/i2c/isl7998x.c
 +++ b/drivers/media/i2c/isl7998x.c
-@@ -1544,16 +1544,6 @@ static int isl7998x_probe(struct i2c_client *client)
- 	return ret;
- }
+@@ -1597,6 +1597,10 @@ static void isl7998x_remove(struct i2c_client *client)
+ 	struct isl7998x *isl7998x = i2c_to_isl7998x(client);
  
--static void isl7998x_remove(struct i2c_client *client)
--{
--	struct isl7998x *isl7998x = i2c_to_isl7998x(client);
--
--	pm_runtime_disable(&client->dev);
--	v4l2_async_unregister_subdev(&isl7998x->subdev);
--	isl7998x_remove_controls(isl7998x);
--	media_entity_cleanup(&isl7998x->subdev.entity);
--}
--
- static const struct of_device_id isl7998x_of_match[] = {
- 	{ .compatible = "isil,isl79987", },
- 	{ /* sentinel */ },
-@@ -1602,6 +1592,16 @@ static int __maybe_unused isl7998x_runtime_suspend(struct device *dev)
- 	return 0;
- }
- 
-+static void isl7998x_remove(struct i2c_client *client)
-+{
-+	struct isl7998x *isl7998x = i2c_to_isl7998x(client);
-+
-+	pm_runtime_disable(&client->dev);
-+	v4l2_async_unregister_subdev(&isl7998x->subdev);
-+	isl7998x_remove_controls(isl7998x);
-+	media_entity_cleanup(&isl7998x->subdev.entity);
-+}
-+
- static const struct dev_pm_ops isl7998x_pm_ops = {
- 	SET_RUNTIME_PM_OPS(isl7998x_runtime_suspend,
- 			   isl7998x_runtime_resume,
+ 	pm_runtime_disable(&client->dev);
++	if (!pm_runtime_status_suspended(&client->dev)) {
++		isl7998x_runtime_suspend(&client->dev);
++		pm_runtime_set_suspended(&client->dev);
++	}
+ 	v4l2_async_unregister_subdev(&isl7998x->subdev);
+ 	isl7998x_remove_controls(isl7998x);
+ 	media_entity_cleanup(&isl7998x->subdev.entity);
 -- 
 2.25.1
 
