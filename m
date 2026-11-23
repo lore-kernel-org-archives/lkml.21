@@ -1,112 +1,112 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795472069;
-	b=DOPd+URVpa6/UfMVDebRS/dYopch60d3ShqNwz+tMc32rTmuyy/72qR5YUJriiLV+rnG
-	 6cST7F7CFvXpyMV7pOjpstyKFvr/BLdr6oToXIQvmBRzF1Yv6YtBsB49QJcKm4Y1kDBX4
-	 miLohVn/d+zF4bsuPpljK0GrygYfi2w7ZMty3wd5Lmv0m08yJRJ3Nb8ibGAjE8znKH6xy
-	 dfBdN5qXII4SOk5/UiutyiqFxvS6jiPnEWbHcTgdB1NdHBsqHmxn+kszJcw/uXfE7BWiU
-	 OgahqhGj/7iEwtk8WAoOJo1jreCcFV/kPP77TysHEwgwjy2L9W46nfIh/PUftFZvK2Q==
+	t=1795472079;
+	b=LpaAxFVm0vcMgA99HmqzMAIl33nWG4EI81iwSYLcN3Oc3MT9lYN8MpSA88PU2MGaNKLB
+	 fmB5p3OlfA04ckC898nW6KcSxsiAMz/vizy0fmsblch/506xSMxkXQzQ8jR42j47AygXJ
+	 7pzEP6TbPUZrg+jTee3CKKU4saniU2oBQKfhunYc51q929iTikXlauk9QhwaASUbHhMCK
+	 N+OrUgfOtejjbYS+X13WY4ADXyjZwgNPWJK4utIKkAj5vEQbVcKzDYjQiwBgaVodWjCSz
+	 exiA6/Zdf0HGaGvZ2G93x4lrsJxxc8rKA0YXxGzTfihuKnlR0vihcLj1Z1ABf1w7QGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795472069;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472079;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
 	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
 	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
-	bh=s6DObuQJ2ExYR59EsZUV6WpA0yuT9SiqoJwGzpOoQeE=;
-	b=d/ibIaTcsvETPssGPtIwsylMBW/+8uQYn44PpkmGSJyIVVP4cDMwfd6rmDMdfuoyXxv0
-	 x6DFHomjYOASu9kxfQW8blppo6WVwzgMzdc7R0tVCeJQAo/h6VLShI0qfP0xOpFDq7a3R
-	 ASXdwHqJVQBplKh4rIcfigPzkhkNwuDgzZIWI8mM+Ihng6KkHlBDi8ppr6MddsXJZ5rYs
-	 sUK/T6GRlo1q9o+AS7I8lEve/kJYzyWLJVgYTWXoDL8HG6I2+oiF3/HbV1o46Sa2sTehR
-	 pgR8/uzKE4qxgaqSMnNkFBzRY2k/+5Z2EYyxKUwKbvKfdsFvr7M+ezychzzMDL9nKwQ==
+	bh=axu4NhpAbAHSQzsFIZa7XWjTqg7HIr5RJucx1ETsiAM=;
+	b=mI3AkmEgxQ26/FIkXk7yHJkrXTOyw7uhyz5L1VIv9IameXBDWa0ONnlE07w3tr2VYaxe
+	 2tI3GcWrH0WIcAZiRoyzxSrnKXQuDsz/u6GvtnCnXCjEAfiFRgbYKJhMY2zR3O9FnlkjV
+	 gbR5IuNV0LimyCXIF122QkbXaHnYz9j9RGYRhO9Y/bS1I4fwqo25RRmvnJTL0xiD3LpkH
+	 z6CyzBQ88VW4V72pMY0tyUbvi80MeAUShKte83/Hi9tYYoZLFYGjHtXbr4FY4iK1TJH37
+	 EPtfCDa+Lu4sCMIR9tidBrJ1ykMOkrjFTOYjpPKOCV8oXlKkCvUaBD/+UMIL3SN0leQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=ownmail.net;
 	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=q3XI8UKA;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=bgy3icnl;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=EIhEunO+;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xXuWPpJ3;
 	arc=none smtp.remote-ip=103.168.172.154
 Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97031606A33A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:14:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97031606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBD17606A68B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:14:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBD17606A68B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=q3XI8UKA;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=bgy3icnl
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id CEF921400334
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:14:27 -0500 (EST)
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=EIhEunO+;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xXuWPpJ3
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 10EA31400330
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:14:38 -0500 (EST)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Mon, 23 Nov 2026 17:14:27 -0500
+  by phl-compute-01.internal (MEProxy); Mon, 23 Nov 2026 17:14:38 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
 	cc:cc:content-transfer-encoding:content-type:date:date:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795472067;
-	 x=1795558467; bh=s6DObuQJ2ExYR59EsZUV6WpA0yuT9SiqoJwGzpOoQeE=; b=
-	q3XI8UKAt5OA/VZSbFQIzKsJGdG42UUsThQ6x80VEsP9SxFMEwbNAFi+tlxaMq3U
-	dnoXSaeVMVCulaSemrTilnwk4e7Az7vnl8q5s+nTQg1wE4OfT6F8BnbFARnFTgOo
-	ye3iUGMQ+m1+pHV7vQz70kiksZ34HQFBQvDHJr4Zv9fECJ2WyNd6oXWwGfVrdk+w
-	t1UDIQFa8qujKOWEqG13Tbfe5Cw3Sb1cgeiVTixqGvmttPOh3xkrXfcV0vf9+BJ/
-	FVr/v4W0RZwQnW7k3uu0G75g93jJPwryf+OA0hdKYvIeRB+3Dp64lQ3zQySJGoHO
-	RM3MA/n+v35JJGMktxwe8Q==
+	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795472078;
+	 x=1795558478; bh=axu4NhpAbAHSQzsFIZa7XWjTqg7HIr5RJucx1ETsiAM=; b=
+	EIhEunO+ZAAdRHVZiHApSkspdVLuftPVad3NepPtn48msk9UcbnPXfLmkQSMVfhV
+	KpGitpAupv37rBOOolPtC1gDw3eI9BkL7RaT518F/hwFIQdUm9Ntv9xgHzgeh/uo
+	I+Pyx10ddhyFv07TyaLDHHMnVe7LgSQdQv7y2l/vVusFf1W+5S1tW2ELhK0zt4HM
+	Tik7Ywh4Vt7Fy97yjsrSU87Bms+E6r3Mo6dWccn1QJt63Sw+iS4Shr56iDJEo39p
+	RLFZ4Oc0XqtMvU7Ad7ICcK1v6tTfklXWRZUKwbRJKWc6gRw2w827qeQyEaZc33bG
+	rmwnv70SikcZuQ0YHdm90A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795472067; x=1795558467; bh=s
-	6DObuQJ2ExYR59EsZUV6WpA0yuT9SiqoJwGzpOoQeE=; b=bgy3icnlEPMLLYZVn
-	aSLLdoL1xv3chSLzp/u9HPfXykqRaTfCW7hhRMY968mHCDaCB3Qoe3fT2Mzj5aim
-	/YNIjuD+uNiqYMGSmiUra99V4N/ImuQrzRsQ9IfEbjZPy9aB9rPULnSaEQvdsVPX
-	+Prc29TrMRajcavEm6V5alsLhLi2JyhjN6xGttn4bpLPSraIVAVYtpD1dId771n6
-	4j7h3bvUvpbenzISkFRTsdYGhfXUrQDZg8OM1+17s1VxLsnysxstnVRDEnaJ7eR9
-	/vL8UcUcVFWN+X/Z8H6sNGSdNkQgPUz7C1Bke0GKcddcUFEfKWME04vgL96ZLfb1
-	iReEQ==
+	:x-me-sender:x-sasl-enc; s=fm3; t=1795472078; x=1795558478; bh=a
+	xu4NhpAbAHSQzsFIZa7XWjTqg7HIr5RJucx1ETsiAM=; b=xXuWPpJ3SwbYNGkHK
+	+m8hGh+dYr5I8nYmd3EGuvpAjIOHoEyt1m78yzrXj5fBcgepQ2tggkm/oFmXDMKW
+	2dteKJMSb+TbNtosfkE9qHC58rf0Jl8q9317Hl7468XlJ1Rh23lF0dUUvyMYggsV
+	ZphBVhL+M82BBGYbMkpIApwfNehVhO6rEEt6YLvyyjNKFArx2pxYjC2ShYKnbU0S
+	ScVxrchSCpdqTdhesBYvsOuw9OX2kNM1LRd2VCMKeWoNCmWtoEzqOmMMEqW+Yv8u
+	q1uYEH55X5j5ChtLvAB/icv8pgr7H85kVQvL/29l2cQNwL200+2bPiKL+HXT5Vrw
+	s5wYA==
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
 	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795472067; d=ownmail.net;
+DKIM2-Signature: i=1; m=1; t=1795472078; d=ownmail.net;
 	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
 	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:rQnRwcOnyBl4jjSFiioMDnQGGrwGv301CfpaS3aF9n4zVyK
-	R12+970kuRby4aQCT+1WvvCB+aK7dKqjeub2SBweKAhoy7Vh58MIyGqb02K+MBYB
-	VP2RBfidAlh2tONSsWKBIucpJcKufUIMuSxp8Ms7Tav9ceItubH3+RnnvXHMBcDh
-	2UMTSu8fl4hazZ0k5Pm0wxLJYMvCm9IBRgSkUjT9RCGZ+DglzQyYSCHRisLKCndc
-	aMgSCJHfXTos3s8C5BgONbstdD4HSrSExk/brXpyAAkF7lqQxy9Sw3pmro9QX61I
-	1kPhVOV6dPLMewaLd0TDCII1jMh//YvM8spYhbA==;
+	s=fm3:rsa-sha256:C59ByHlRXdJaI67ndyRte3CLJZzEfseLWnc+uA8anMW+Wlp
+	2pZat35s7bAeuIrInbAW1mGVR3+RxWsJZ+BF2CcBPQp8qiso+cEKJ5MtoLSPkWpJ
+	EZu7Rq6z3dsdG97JvsO2OxQ9T+0Hz5bIpsLmvxRhb4qpZr1aLzSQHzdovBoZmk3V
+	BLWWCYAw7hL0XH5KleuCiVqMF0Iao4M9jlM29oIJEmAOjLUb1d9FvXo/04CanrDq
+	79RVtnJoNB3P00JRf7c2hM7ZecA+pB8hm7bfAxMaLc/FsvftFbfQ7sy0kAzo6zqP
+	l7aPDHgsq3Y5SUFJwN+tNRwOLMaEkdgz1A2BjVA==;
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
 	action=mi-m=1; hc=12;
 	hn=cc,content-transfer-encoding,date,feedback-id,from,
 	in-reply-to,message-id,mime-version,references,reply-to,subject,
 	to;
-Message-Instance: m=1; h=sha256:UjHQiu2vZAxldpI4fABmlluFgrAs8xCVyuILCDMlEPk=:fnFZLNe/EByDdwYSXFb9zsAmZrkBiEHF0UujhKp73eQ=;
-X-ME-Sender: <xms:w7oEa-sVjj41wux8420SIpIlcdTNOw6Shga4BBvKjltW288-t_KNkA>
-    <xme:w7oEa2BXiHvD05Lv2FelUMlcGkcA7edN_bRUVNi2butkrM0cP1JDMacbKfdttT_JX
-    NLN6Cp5p6Axdrjl3pysQvZDzTSjhvhjedS4C83ZsI1NNF6-sxQ>
-X-ME-Received: <xmr:w7oEa9ZIK2vm5--L-Muj8iLlx-hoWYHp15yi5IAdQu-SFmH8XBYoaMUzgdPKlbmvH9v3VWpw8sfbGdiSuFiKhxNneokxrsY>
-X-ME-Proxy-Cause: dmFkZTGeQG7+oCOtWDmnSz98fLIuNC1Tk8Z7XhHnobbOLI6WuBDQNaBEthwlGmH0h5XYyv
-    0zPeMFN0KvFixQfoLN/F8Pe6ZzfsHR+Kg8vVy/LgMZpCOkrPq1SA+pGTOaQ5yTZO8fc79n
-    A2L/J/o36VD6hfC9y7Q4sde4+12Vj4pQbWP2Lg9xXCiYljmRQNBVpnttUkbX+pu+xZSZCF
-    kUmG2slBnnvm/CELMbc8Xa/tUuKDNnkZeYFjxev+ul/+31HCgi9yBJeWdoIviQPtKuVMlG
-    T9d10deUqy6gKqdbte8CCyn97qEbnmG2FnKkTrvzQo0xRFptMooysaG8wEdixEIo4XcqGW
-    GRr4zBzZiRj5q2I63YsnDv7g6fnsANuFOYPyKOrcWwHyI923OXOZKn8GH7KwPJg95DVgRg
-    2krpa5GL1XLvdxu6/V5Ujbi559WyHaspoCWdDNgpSjMMwPIl+bbQGaYPBtR/PoAwxiV5NB
-    tb7YAhxMNr2fhEGXmqjo+mTk4EY4cslGLp4An8VtDjk3X8WqTX7UoQyFqOcRVrKyMAhIlQ
-    Z6StD/XnQqK89wIMeNKXTa7aq9fDVjVBnE8fKGLp5MK+WwRSClh/PDDLJ3Sz+Bh3BVpExC
-    BdljhfdnlU+xZHbOPVBkSBlxnDS1Ah9nb7mPnqnT7JqcQ1OwfG3juAhCMgSg
-X-ME-Proxy: <xmx:w7oEa5X8sksqMW_aHPDIAxU4ZC9scCQgTHW67O47CQvsmrO8CdsA9g>
-    <xmx:w7oEa0OZ_5qk9AHPAcqeKrAY_uXwpaz-zKI9zJagztHlHNemfsUpcA>
-    <xmx:w7oEa7Yp7BcfS9AGp8xgPk392DIppnKK-N1gR2Kq5sn4vGYuQiPYew>
-    <xmx:w7oEa79C1m0SOvmxH9pRXFS0dzqSqwAqgxjdLUjBFCGy5_IybvYn7Q>
-    <xmx:w7oEa-cSGCpkMWkFjB8newr0f-tl-DRnpLn6Te2YFmSXdxrOcHvegzzh>
+Message-Instance: m=1; h=sha256:gSDyBVNVdzQJjq25yJe/Zbt0uStlw6r99EgqDNsy/N4=:qA+h1JAr6sTCmgF5ZTWE9gcliziF2aqrqd46R/tV3sg=;
+X-ME-Sender: <xms:zboEa8Fl95azdpACC8tVxdI8fL7cpoQi7hIw9rWRuvb4BBsUKl85HA>
+    <xme:zboEa36ZYesNXzmszFLl9mgHobkUdexPev8FdCXR1pcqECOadqBPSiwXJsoODP-Nv
+    nD3UoFUUX6fVp2kdUUqjMAeRvM47u7QE-SURPqNVmiwrDUXJgE>
+X-ME-Received: <xmr:zboEa5xjuzMj694sISoVOd1X4t9IlVfmS91qgDr53l1Av32vRBjZwzRQ6RCVfu2BroY7IDbukc13LK8HZjCFXd4rvP14hWE>
+X-ME-Proxy-Cause: dmFkZTGttFfPwKsmFjKQRzL9pxFUG6QuC0CVDfqpysvgThy8eJxKJL7hWOg3EE86ufAGZQ
+    6nnc8U4KhBAHlFOJnKSjCF/WIuMaZFNPa8szZixMnsFylovzrjHp3WhRptClIGFtdpoJKl
+    xhgu0M+oVCmLMh6tXx/ugYpmDN1p4mPZw6qI8Qjq9VVjVX+lE8HNkhOv7c9eZLA92DNNsS
+    16z3Qo61bIoVUtIj/KYV5uWb/+6EgCVZzfYa0XmhF3ERxddT9CRxrU/B4Gwf3E6u3P848m
+    igz4DPi2oe6J9lrl7/rIxlmyDAycZB8s+s7uRN3a1dT1eAkapzcFhk8X/l/XTTpJNFZcaH
+    REXmdPmt+ut/yq8SU0rhQqf3Z+OwRpu2A0wBfrKseQTIxZgUfhnGfQjTSlNRlvu+MMYmUL
+    gdR7rO9xsEvlqaiT/avqjLFCNzoYeNqtBIEz95/a17eUSeZDGDY3jq5dr2pH6+zBxDzA2Y
+    huYFRh0HAeaNUnzBnd3xbGnrbvuaUSqOHz8kDPbMt13Z+J46ZbGuj9jlch4pKUQPu5BDVy
+    S/tkCtk9XQ9MXFHitU2CUf6MP3reGyPHJM8arnfjYlkUF55L2S/HMuiNuFR4rfyX6YExzH
+    0BwZqJ5zloM2sSTFkCRFh28Jur6zoxEsaW8W/2OU2Il3KZDvzWXwdVBOTstA
+X-ME-Proxy: <xmx:zboEa-NGpIuW_alIZr6gkEyGTmRkAdUMsvvQkRI4vPr8zmuOfqHwIw>
+    <xmx:zboEa3lQZsH4T2K6FfpojjUk3j1wiefWWLhV066mgtMVC1q89eSlCw>
+    <xmx:zboEa7SvCnROmPkIQ3BHysou-JF3gksO5uV7Tok0Y471vIPvgzP7cQ>
+    <xmx:zboEa-WDX90yI2PyIuu1-_qqSPNObIUToNLlQ-YQNO8EgOqaFac6lQ>
+    <xmx:zroEa62ZrER1MyUW9rmapnhgETAfpOrnG42iYSxBsNz8aSxB6fnGqDB9>
 Feedback-ID: i9d664b8f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 23 Nov 2026 17:14:24 -0500 (EST)
+ 23 Nov 2026 17:14:35 -0500 (EST)
 From: NeilBrown <neilb@ownmail.net>
 To: Alexander Viro <viro@zeniv.linux.org.uk>,
 	Christian Brauner <brauner@kernel.org>,
@@ -116,9 +116,9 @@ Cc: linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Ian Kent <raven@themaw.net>,
 	Jake Edge <jake@lwn.net>
-Subject: [PATCH v6 1/5] VFS: don't count references through ->d_parent
-Date: Tue, 24 Nov 2026 09:12:38 +1100
-Message-ID: <20261123221410.3328780-2-neilb@ownmail.net>
+Subject: [PATCH v6 3/5] fsnotify: don't hold i_lock while walking d_children in  fsnotify_set_children_dentry_flags()
+Date: Tue, 24 Nov 2026 09:12:40 +1100
+Message-ID: <20261123221410.3328780-4-neilb@ownmail.net>
 X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
 In-Reply-To: <20261123221410.3328780-1-neilb@ownmail.net>
 References: <20261123221410.3328780-1-neilb@ownmail.net>
@@ -136,385 +136,76 @@ Content-Transfer-Encoding: 8bit
 
 From: NeilBrown <neil@brown.name>
 
-The number of negative child dentries that a given dentry can have is
-effectively unbounded, so counting the references through ->d_parent can
-overflow ->d_lockref.count.
+Rather than hold i_lock across a d_children walk, dget() a reference to
+the dentry and drop the i_lock before the walk.  This is easily done
+with d_find_alias().
 
-We only use this count so that we can know when there are no remaining
-references including from children.  However most children appear on the
-->d_children list and the few remaining children (inactive
-DCACHE_DENTRY_CURSORs) only exist in a context were a separate reference
-is held on the parent.
+This requires that we dput() which can sleep.  Now that no locks are
+held across calls to fsnotify_set_children_dentry_flags(), this is safe.
 
-So if we count whether d_children is nonempty (i.e.  dget() when it
-becomes non-empty, dput() when it comes empty) and require children not
-on ->d_children to have a reference on the parent some other way (which
-they already do), then ->d_lockref.count will not overflow and we can
-still know exactly when all references, including through ->d_parent,
-are gone.
-
-__d_move() allows that dentries might not be on any d_children list as
-is the case for IS_ROOT() dentries.  Rather than track when this is the
-case we dget() either parent if they have an empty d_children before
-children are moved around, then dput() if they turn out to be empty
-afterwards.  This will increment dentry if it IS_ROOT(), and then
-decrement it afterwards, and will decrement the refcount on old_parent
-if its ->d_children becomes empty.
-
-To help with this, dput_dlock() is added which warns rather than
-decrementing to zero (which should never happen).
-
-When a DCACHE_CURSOR dentry is added to d_children, it is only ever
-added "before" or "behind" an existing child, so it will never be the
-first child added, and so never needs to adjust the refcount on the
-parent.  If it remains on the list until dput() it could be the last
-child to be removed, in which case normal handling applies in
-dentry_unlist() (where it has been moved from dentry_kill().  When a
-cursor is deliberately removed from the d_children list the refcount
-must be decremented if that leaves the list empty.
-
-hlist_move_behind() and hlist_move_before() are added to simplify moving
-a cursor within the d_children list.  This results in some duplicate code
-as they share a common prefix with d_detach_cursor() (hlist_del)
-which is currently factored out.  We can expect the compiler to optimise
-this away and don't need to clutter the C code with it.
-
-autofs compares d_count() with the number of known children of a dentry
-to detect if there are any concurrent references to a dentry.  These
-comparisons must be changed to reflect that we now only count "one" for
-any children rather than "one" for each child.  This can be done without
-using ino->count but simply by looking at ->d_children.  So a new
-static-inline "extra_references()" is added which performs the
-check and is told how many unusual references to expect.
-
+Reviewed-by: Jan Kara <jack@suse.cz>
 Signed-off-by: NeilBrown <neil@brown.name>
 ---
- fs/autofs/expire.c     | 33 ++++++++++++++++----------------
- fs/dcache.c            | 43 ++++++++++++++++++++++++++++++++++--------
- fs/internal.h          | 10 ++++++++++
- fs/libfs.c             | 14 +++++++-------
- include/linux/dcache.h | 17 ++++++++++++++++-
- include/linux/list.h   | 30 +++++++++++++++++++++++++++++
- 6 files changed, 114 insertions(+), 33 deletions(-)
+ fs/notify/fsnotify.c | 40 ++++++++++++++++++++--------------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
 
-diff --git a/fs/autofs/expire.c b/fs/autofs/expire.c
-index 5c2d459e1e48..4a9f72c8c072 100644
---- a/fs/autofs/expire.c
-+++ b/fs/autofs/expire.c
-@@ -7,6 +7,18 @@
- 
- #include "autofs_i.h"
- 
-+static inline bool extra_references(struct dentry *d, int expected)
-+{
-+	/* a ref is always held on 'd' */
-+	expected += 1;
-+	/* DCACHE_PERSISTENT is always set */
-+	expected += 1;
-+	if (!hlist_empty(&d->d_children))
-+		/* expect children to be counted */
-+		expected += 1;
-+	return d_count(d) > expected;
-+}
-+
- /* Check if a dentry can be expired */
- static inline int autofs_can_expire(struct dentry *dentry,
- 				    unsigned long timeout, unsigned int how)
-@@ -207,16 +219,8 @@ static int autofs_tree_busy(struct vfsmount *mnt,
- 				return 1;
- 			}
- 		} else {
--			struct autofs_info *ino = autofs_dentry_ino(p);
--			unsigned int ino_count = READ_ONCE(ino->count);
--
--			/* allow for dget above and top is already dgot */
--			if (p == top)
--				ino_count += 2;
--			else
--				ino_count++;
--
--			if (d_count(p) > ino_count) {
-+			/* top has an extra reference */
-+			if (extra_references(p, (p==top))) {
- 				top_ino->last_used = jiffies;
- 				dput(p);
- 				return 1;
-@@ -321,7 +325,6 @@ static struct dentry *should_expire(struct dentry *dentry,
- 				    unsigned int how)
- {
- 	struct autofs_info *ino = autofs_dentry_ino(dentry);
--	unsigned int ino_count;
- 
- 	/* No point expiring a pending mount */
- 	if (ino->flags & AUTOFS_INF_PENDING)
-@@ -375,9 +378,7 @@ static struct dentry *should_expire(struct dentry *dentry,
- 	if (!(how & AUTOFS_EXP_LEAVES)) {
- 		/* Not a forced expire? */
- 		if (!(how & AUTOFS_EXP_FORCED)) {
--			/* ref-walk currently on this dentry? */
--			ino_count = READ_ONCE(ino->count) + 1;
--			if (d_count(dentry) > ino_count)
-+			if (extra_references(dentry, 0))
- 				return NULL;
- 		}
- 
-@@ -392,9 +393,7 @@ static struct dentry *should_expire(struct dentry *dentry,
- 
- 		/* Not a forced expire? */
- 		if (!(how & AUTOFS_EXP_FORCED)) {
--			/* ref-walk currently on this dentry? */
--			ino_count = READ_ONCE(ino->count) + 1;
--			if (d_count(dentry) > ino_count)
-+			if (extra_references(dentry, 0))
- 				return NULL;
- 		}
- 
-diff --git a/fs/dcache.c b/fs/dcache.c
-index ba17f49f8a63..b09988d01c55 100644
---- a/fs/dcache.c
-+++ b/fs/dcache.c
-@@ -701,6 +701,8 @@ static inline void dentry_unlist(struct dentry *dentry)
- 		return;
- 	}
- 	__hlist_del(&dentry->d_sib);
-+	if (hlist_empty(&dentry->d_parent->d_children))
-+		dentry->d_parent->d_lockref.count--;
- 	/*
- 	 * Cursors can move around the list of children.  While we'd been
- 	 * a normal list member, it didn't matter - ->d_sib.next would've
-@@ -874,7 +876,7 @@ static struct dentry *dentry_kill(struct dentry *dentry)
- 	spin_unlock(&dentry->d_lock);
- 	if (likely(can_free))
- 		dentry_free(dentry);
--	if (parent && --parent->d_lockref.count) {
-+	if (parent && parent->d_lockref.count) {
- 		spin_unlock(&parent->d_lock);
- 		return NULL;
- 	}
-@@ -2058,7 +2060,9 @@ struct dentry *d_alloc(struct dentry * parent, const struct qstr *name)
- 	 * don't need child lock because it is not subject
- 	 * to concurrency here
- 	 */
--	dentry->d_parent = dget_dlock(parent);
-+	dentry->d_parent = parent;
-+	if (hlist_empty(&parent->d_children))
-+		dget_dlock(parent);
- 	hlist_add_head(&dentry->d_sib, &parent->d_children);
- 	spin_unlock(&parent->d_lock);
- 
-@@ -2106,7 +2110,8 @@ struct dentry *d_duplicate(struct dentry *dentry)
- 	new->d_flags |= DCACHE_PAR_LOOKUP;
- 	lock_map_acquire_try(&new->dep_map);
- 	spin_lock(&parent->d_lock);
--	new->d_parent = dget_dlock(parent);
-+	if (hlist_empty(&parent->d_children))
-+		dget_dlock(parent);
- 	hlist_add_head(&new->d_sib, &parent->d_children);
- 	if (parent->d_flags & DCACHE_DISCONNECTED)
- 		new->d_flags |= DCACHE_DISCONNECTED;
-@@ -2130,7 +2135,7 @@ struct dentry *d_alloc_cursor(struct dentry * parent)
- 	struct dentry *dentry = d_alloc_anon(parent->d_sb);
- 	if (dentry) {
- 		dentry->d_flags |= DCACHE_DENTRY_CURSOR | DCACHE_NORCU;
--		dentry->d_parent = dget(parent);
-+		dentry->d_parent = parent;
- 	}
- 	return dentry;
- }
-@@ -2907,7 +2912,9 @@ struct dentry *__d_alloc_parallel(struct dentry *parent,
- 
- 	new->d_flags |= DCACHE_PAR_LOOKUP;
- 	spin_lock(&parent->d_lock);
--	new->d_parent = dget_dlock(parent);
-+	new->d_parent = parent;
-+	if (hlist_empty(&parent->d_children))
-+		dget_dlock(parent);
- 	hlist_add_head(&new->d_sib, &parent->d_children);
- 	if (parent->d_flags & DCACHE_DISCONNECTED)
- 		new->d_flags |= DCACHE_DISCONNECTED;
-@@ -3300,12 +3307,21 @@ static void __d_move(struct dentry *dentry, struct dentry *target,
- 
- 	/* ... and switch them in the tree */
- 	dentry->d_parent = target->d_parent;
-+
-+	/*
-+	 * Ensure ref count on parents reflect d_children being non-empty,
-+	 * which they almost certainly are.  If either end up being empty,
-+	 * this is handled below after the moves.
-+	 */
-+	if (hlist_empty(&old_parent->d_children))
-+		dget_dlock(old_parent);
-+	if (dentry->d_parent != old_parent &&
-+	    hlist_empty(&dentry->d_parent->d_children))
-+		dget_dlock(dentry->d_parent);
-+
- 	if (!exchange) {
- 		copy_name(dentry, target);
- 		target->d_hash.pprev = NULL;
--		dentry->d_parent->d_lockref.count++;
--		if (dentry != old_parent) /* wasn't IS_ROOT */
--			WARN_ON(!--old_parent->d_lockref.count);
- 	} else {
- 		target->d_parent = old_parent;
- 		swap_names(dentry, target);
-@@ -3318,6 +3334,17 @@ static void __d_move(struct dentry *dentry, struct dentry *target,
- 	if (!hlist_unhashed(&dentry->d_sib))
- 		__hlist_del(&dentry->d_sib);
- 	hlist_add_head(&dentry->d_sib, &dentry->d_parent->d_children);
-+
-+	/*
-+	 * Adjust parent refcounts if either d_children ended up empty.
-+	 * This should only ever be old_parent.
-+	 */
-+	if (hlist_empty(&old_parent->d_children))
-+		dput_dlock(old_parent);
-+	if (dentry->d_parent != old_parent &&
-+	    hlist_empty(&dentry->d_parent->d_children))
-+		dput_dlock(dentry->d_parent);
-+
- 	__d_rehash(dentry);
- 	fsnotify_update_flags(dentry);
- 	fscrypt_handle_d_move(dentry);
-diff --git a/fs/internal.h b/fs/internal.h
-index 3f2fbac40f8e..22e018429759 100644
---- a/fs/internal.h
-+++ b/fs/internal.h
-@@ -235,6 +235,16 @@ extern struct dentry *__d_lookup(const struct dentry *, const struct qstr *);
- extern struct dentry *__d_lookup_rcu(const struct dentry *parent,
- 				const struct qstr *name, unsigned *seq);
- 
-+static inline void d_detach_cursor(struct dentry *cursor)
-+{
-+	if (hlist_unhashed(&cursor->d_sib))
-+		return;
-+	hlist_del_init(&cursor->d_sib);
-+	if (hlist_empty(&cursor->d_parent->d_children))
-+		/* That was the last child, must drop implied reference */
-+		dput_dlock(cursor->d_parent);
-+}
-+
- /*
-  * pipe.c
+diff --git a/fs/notify/fsnotify.c b/fs/notify/fsnotify.c
+index 8657bb94dfa8..58566e6b9679 100644
+--- a/fs/notify/fsnotify.c
++++ b/fs/notify/fsnotify.c
+@@ -71,32 +71,32 @@ void fsnotify_sb_free(struct super_block *sb)
   */
-diff --git a/fs/libfs.c b/fs/libfs.c
-index 46e0205154e7..9f7f6bf5666a 100644
---- a/fs/libfs.c
-+++ b/fs/libfs.c
-@@ -128,9 +128,7 @@ static struct dentry *scan_positives(struct dentry *cursor,
- 			count = 1;
- 		}
- 		if (need_resched()) {
--			if (!hlist_unhashed(&cursor->d_sib))
--				__hlist_del(&cursor->d_sib);
--			hlist_add_behind(&cursor->d_sib, &d->d_sib);
-+			hlist_move_behind(&cursor->d_sib, &d->d_sib);
- 			p = &cursor->d_sib.next;
- 			spin_unlock(&dentry->d_lock);
- 			cond_resched();
-@@ -166,9 +164,10 @@ loff_t dcache_dir_lseek(struct file *file, loff_t offset, int whence)
- 			to = scan_positives(cursor, &dentry->d_children.first,
- 					    offset - 2, NULL);
- 		spin_lock(&dentry->d_lock);
--		hlist_del_init(&cursor->d_sib);
- 		if (to)
--			hlist_add_behind(&cursor->d_sib, &to->d_sib);
-+			hlist_move_behind(&cursor->d_sib, &to->d_sib);
-+		else
-+			d_detach_cursor(cursor);
- 		spin_unlock(&dentry->d_lock);
- 		dput(to);
+ void fsnotify_set_children_dentry_flags(struct inode *inode)
+ {
+-	struct dentry *alias;
++	struct dentry *alias, *child;
  
-@@ -210,9 +209,10 @@ int dcache_readdir(struct file *file, struct dir_context *ctx)
- 		p = &next->d_sib.next;
+ 	if (!S_ISDIR(inode->i_mode))
+ 		return;
+ 
+-	spin_lock(&inode->i_lock);
+-	/* run all of the dentries associated with this inode.  Since this is a
+-	 * directory, there damn well better only be one item on this list */
+-	for_each_alias(alias, inode) {
+-		struct dentry *child;
+-
+-		/* run all of the children of the original inode and fix their
+-		 * d_flags to indicate parental interest (their parent is the
+-		 * original inode) */
+-		spin_lock(&alias->d_lock);
+-		hlist_for_each_entry(child, &alias->d_children, d_sib) {
+-			if (!child->d_inode)
+-				continue;
++	/* Find the dentry for inode - there can only be one */
++	alias = d_find_alias(inode);
++	if (!alias)
++		return;
+ 
+-			spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
+-			child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
+-			spin_unlock(&child->d_lock);
+-		}
+-		spin_unlock(&alias->d_lock);
++	/*
++	 * run through all of the children of the original inode and fix
++	 * their d_flags to indicate parental interest (their parent is
++	 * the original inode)
++	 */
++	spin_lock(&alias->d_lock);
++	hlist_for_each_entry(child, &alias->d_children, d_sib) {
++		if (!child->d_inode)
++			continue;
++
++		spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
++		child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
++		spin_unlock(&child->d_lock);
  	}
- 	spin_lock(&dentry->d_lock);
--	hlist_del_init(&cursor->d_sib);
- 	if (next)
--		hlist_add_before(&cursor->d_sib, &next->d_sib);
-+		hlist_move_before(&cursor->d_sib, &next->d_sib);
-+	else
-+		d_detach_cursor(cursor);
- 	spin_unlock(&dentry->d_lock);
- 	dput(next);
- 
-diff --git a/include/linux/dcache.h b/include/linux/dcache.h
-index aaa4ba7a1299..fff8393ec06b 100644
---- a/include/linux/dcache.h
-+++ b/include/linux/dcache.h
-@@ -330,7 +330,7 @@ extern char *dentry_path(const struct dentry *, char *, int);
- /* Allocation counts.. */
- 
- /**
-- * dget_dlock -	get a reference to a dentry
-+ * dget_dlock -	get a reference to a dentry while locked
-  * @dentry: dentry to get a reference to
-  *
-  * Given a live dentry, increment the reference count and return the dentry.
-@@ -345,6 +345,21 @@ static inline struct dentry *dget_dlock(struct dentry *dentry)
- 	return dentry;
+-	spin_unlock(&inode->i_lock);
++	spin_unlock(&alias->d_lock);
++	dput(alias);
  }
  
-+/**
-+ * dput_dlock -	put a reference to a dentry while locked
-+ * @dentry: dentry to get a reference to
-+ *
-+ * Given a live dentry, decrement the reference count and return the dentry.
-+ * Caller must hold @dentry->d_lock.  The dentry must still have
-+ * a reference after the decrement.  This can be used when two
-+ * references are held and one must be dropped.
-+ */
-+static inline struct dentry *dput_dlock(struct dentry *dentry)
-+{
-+	if (!WARN_ON(dentry->d_lockref.count <= 1))
-+		dentry->d_lockref.count--;
-+	return dentry;
-+}
- 
- /**
-  * dget - get a reference to a dentry
-diff --git a/include/linux/list.h b/include/linux/list.h
-index e3753695e76c..ab8ad0d18d09 100644
---- a/include/linux/list.h
-+++ b/include/linux/list.h
-@@ -1123,6 +1123,36 @@ static inline void hlist_add_behind(struct hlist_node *n,
- 		WRITE_ONCE(n->next->pprev, &n->next);
- }
- 
-+/**
-+ * hlist_move_behind - move an hlist node to a new location in list
-+ * @n: hlist node to be moved
-+ * @prev: hlist node after which @n should be added.
-+ *
-+ * @n may be on the list or unhashed but must not be @prev.
-+ * It is removed if necessary and re-added after @prev.
-+ */
-+static inline void hlist_move_behind(struct hlist_node *n,
-+				     struct hlist_node *prev)
-+{
-+	hlist_del_init(n);
-+	hlist_add_behind(n, prev);
-+}
-+
-+/**
-+ * hlist_move_before - move an hlist node to a new location in list
-+ * @n: hlist node to be moved
-+ * @next: hlist node before which @n should be added.
-+ *
-+ * @n may be on the list or unhashed but must not be @next.
-+ * It is removed if necessary and re-added before @next.
-+ */
-+static inline void hlist_move_before(struct hlist_node *n,
-+				     struct hlist_node *next)
-+{
-+	hlist_del_init(n);
-+	hlist_add_before(n, next);
-+}
-+
- /**
-  * hlist_add_fake - create a fake hlist consisting of a single headless node
-  * @n: Node to make a fake list out of
-
-base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+ /*
 -- 
 2.50.0.107.gf914562f5916.dirty
 
