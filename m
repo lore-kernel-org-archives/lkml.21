@@ -1,71 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795458003;
-	b=lIFMyLQEh5eksnuKWulA/FI60MspN5gCW8K/dw4OqbsMeb0W2paYrHr/8D1ucEUEMWMt
-	 8MxCd7MgqJIPI5h/NXYfI0wkqU4zg1bmW0CsyDciH54/z8U5Xd8QMn5EFilweoNhPLYKT
-	 kmC82nc+ait7i+GpWO4Q1MH0N6blPiLiD1gXRt/4b+PgdAwKEWW1K4TcIdjC+IpgvXJse
-	 ntAOSYJJLC13tND3cJnmMdPvyK1CR0DuBKDjFIuUMAh2n4f0cEk2/HVVGxqmSGaj/mQS+
-	 +/GuzW5241+jc5YW8xSUPbjVFBl7GyDv3Z7nMOj5AvAMe+2aoxjTiyh26/nLQC8yOxA==
+	t=1795458010;
+	b=a/Sld4NqU4fy7KAee/Sle/QaPKILN2pc9n3Sh28Amy+6RZDqnoFdPyzyavrr6kwErPRC
+	 FG90uS7hPtoJ4N4bxvaNl1Kn6wAVZge9ebzUPSgGMxUzFfEGEsNcUJAqcmKnBD928q/+R
+	 h9ZeUadmfhLVQ4xKYn5d8C48+yI8Dh7OY5iNBpeyF751LfWB466OJrDEkPKFrVDMBWAd8
+	 O8u+JD+vD+Xh+FjjEfjk8XtFVDqZaKXjL3LAniXFssFC+XxiJsVSmBB6zq651Xe1GB1BY
+	 kA1qvQR9tPQc1bsv77u0m+vj60vYwlCkLcSTU6Rrlivm8R3zyf4EAeH7UpVXv4W11oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458003;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=EO8eu0bYnAh1GOQsDCl+dlLUeJkRh0/Dt8ojn8au+KU=;
-	b=DJD3HIxSZ9wXnmOkxTxZgndh+LqU685J6cps5NEg7pI42iupqn71l83MRpqyz0cQn2Os
-	 xrOHIR2FatfheXf3wFH/QH4LVuwKjXjhL3Y8bwEuWjBgIMI9jx1qKGxRrhFBcN2pHg5+4
-	 JVarmVmL3qeCiW9LDHdck9wNuWCf5J/0q8X4fVVlqwP1ePUzjQd2H+Bx+JMv0MQ7yQ0el
-	 TLOV3XQ5fhWZ5Ed62hu61PpzZ1hYH3XXXdPmPjPTyc/mjXCH+bOWVbjeddrJCAeL94vLb
-	 JWW61AT6ZSPWKhdxERbowb/Oqs7dsSTxk/Dy8HYWFt/zfUtp4KbZzaXWxv15vTZbIkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458010;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=SHzpos9BCvUtPcGDS10MgZ4zdV6luyprh2vZQd1l8gY=;
+	b=Jk6aWEdCQAhjAmfqGxXEZy8MA3ivjprsvahA/j9Niw/QT/oHUXDpsbTE0vPvQLZbn0Fz
+	 Dk0hyJSnXGsIvsdbgeWhVb5tBEh3mUfxHixp1V10NSByqxJJuWcI8MwhiHkBa8DTByu4W
+	 hpLKxvS2I6qQKwl6ZOXe/u/rmX8MrX/G6H1v82gr/b/chuA00+h9WovqV41DLKemyubll
+	 1xOQh3BstRLovF1oQU7g1RA/X0dUkNwRN3ejY0HgigZ6u5Qj343eAW6zdqTWaqrYKH3Ie
+	 VnHfu+mWvJrLXGo6zlltO9bdDmMOlLZEWTXh541oeC7jUpD7QVtvPNkLEtVJflL02fg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fqKijzK5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=D3KQaJJ5;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29ADD606A32C;
-	Mon, 23 Nov 2026 18:20:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED3AF606A334;
+	Mon, 23 Nov 2026 18:20:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED3AF606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fqKijzK5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B0E1F000D0;
-	Mon, 23 Nov 2026 18:20:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795458002;
-	bh=EO8eu0bYnAh1GOQsDCl+dlLUeJkRh0/Dt8ojn8au+KU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fqKijzK5AXg4g1a8qc8syLJ3Jrh8hBZ5e/ujXw4qjoFMmoybocWgPyekz2Uk0wsdn
-	 2RcF7wa6u94aqjFfYfh47DR1rMd+yVYCCiz0iOh4tlFCFPJPx2p1AD8XbS6dZgdLqs
-	 CJhQRlaqE75vJ9KmjE05hlDTw8Mr/8KvgQBSzYvJPqmtiO85uf3byZiV+rERmn7FyD
-	 xZFxb391h8nx0WPxlqwUNIOWQ5c+/XI4d9Y4j9RbR2nC91XMejAd0U7eA5A9rAEpHa
-	 GI9QDUe6z3RGw8zp+y39UsLKGvtZjq7QDTE/MRPtxHT/HaUCZ0tFgkmodqOXsO92bM
-	 Tt+3EW6pr8UeA==
-From: Sasha Levin <sashal@kernel.org>
-To: Nicolas Schier <nsc@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	linux-kbuild@vger.kernel.org,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	Thorsten Leemhuis <linux@leemhuis.info>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/7] kbuild: build the userspace tools in tools/ with the kernel
-Date: Mon, 23 Nov 2026 13:19:58 -0500
-Message-ID: <20261123181958.2032855-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <awCzNfN-OMesd12z@levanger>
-References: <20261112195427.3411746-1-sashal@kernel.org> <20261112122347.dbb972627dc856c50eb01cd0@linux-foundation.org> <awCzNfN-OMesd12z@levanger>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=D3KQaJJ5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795458010; x=1826994010;
+  h=from:to:cc:in-reply-to:references:subject:message-id:
+   date:mime-version:content-transfer-encoding;
+  bh=1hQ8dMoP2+1VXTjbUnjRBGQtJQDzoIw40kzcpmLVXpo=;
+  b=D3KQaJJ5/gm0HnCFKAv82RJwvZcXy4EkHTfiMF9GqODJpVUslkmTKS9k
+   1YsuGOIDA62lTijIuNCDvrAoQVpJ5wJCQyKeHDmi+AvBnK7V8C+ZxyuGe
+   ojJUsnc8Poz043rRuBkkd525UZWeMlkhTIg/kg8G81Ma0ZFXy8A59Yavw
+   JC3kM3p2jF+h7PDLFWQgStRwaIzfT9RdwPloao5AR8PPsf4Vl1gtC7uJM
+   KeHwyihpywol60hbNGo96MdBcC2j+JZORkW/xg0nVYOKSDlanjTLkstPW
+   Em2RIM2ajbLDXxl3oBC1qtwET4Qse+L42Q+5oz62VOynSuCZFeXZtu9Gb
+   g==;
+X-CSE-ConnectionGUID: deFP0zeZQXmVhIDm/5H7yQ==
+X-CSE-MsgGUID: HakKjt2cQhS+dq8VcNmjcg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4165852"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4165852"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:20:09 -0800
+X-CSE-ConnectionGUID: pmKRzBo8QVCGaowaIfmEdw==
+X-CSE-MsgGUID: qHSegYdwT0Oraluo/T9KbA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11442719"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.225])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 10:20:07 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: platform-driver-x86@vger.kernel.org, Alex Yeo <alexyeo362@gmail.com>
+Cc: Kenneth Chan <kenneth.t.chan@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, linux-kernel@vger.kernel.org
+In-Reply-To: <20261027020954.92205-1-alexyeo362@gmail.com>
+References: <20261027020954.92205-1-alexyeo362@gmail.com>
+Subject: Re: [PATCH] platform/x86: panasonic-laptop: add pr_fmt
+Message-Id: <179545800191.12968.9993492573550834945.b4-ty@b4>
+Date: Mon, 23 Nov 2026 20:20:01 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,40 +79,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 
-On Fri, Nov 20, 2026 at 09:53:09PM +0100, Nicolas Schier wrote:
->As mentioned above, the tools/ tree is not part of Kbuild but
->re-implements some of its features in its own way, cp.  commit
->6e6ef2da3a28 ("Makefile: add comment to discourage tools/* addition for
->kernel builds").
->
->I am sceptical about integration (up to) the whole tools/ tree into the
->regular kernel build, even though I like your motivation.  I try to
->review the patches within the next week.
+On Tue, 27 Oct 2026 10:09:53 +0800, Alex Yeo wrote:
 
-Thanks, I'd appreciate the review.
+> Kernel messages originating from panasonic-laptop on dmesg do not
+> specify its origin.
+> 
+> ex:
+> [  +6.009811] Unknown hotkey event: 0x0030
+> [  +0.229942] Unknown hotkey event: 0x0031
+> 
+> [...]
 
-The series doesn't change that. Every tool is still built by its own
-makefile, and tools_build only runs "make -C tools/<dir>" for the
-directories enabled in Kconfig. Nothing in the kernel build uses the
-result, unlike objtool or resolve_btfids.
+Thank you for your contribution, it has been applied to my local
+review-ilpo-next branch. Note it will show up in the public
+platform-drivers-x86/review-ilpo-next branch only once I've pushed my
+local branch there, which might take a while.
 
-I'm just trying to create a bridge between the two.
+FYI [if applicable to your patch], as per Linus' policy change, also
+fixes are mostly routed through for-next unless the fix is for a
+commit introduced in the most recent cycle or is clearly a regression
+fix.
 
->Why _are_ the selftest modules built as out-of-tree modules?  Might it
->make things easier to build them in-tree instead, or is there a good
->reason to keep it the way it is?
+The list of commits applied:
+[1/1] platform/x86: panasonic-laptop: add pr_fmt
+      commit: 223a4a492428926382b833f3029d05238e2351e5
 
-Some are in tree: lib/test_firmware.c, lib/test_static_keys.c and others
-are built with the kernel and only loaded by their selftests. The
-livepatch ones were too, until c4bbe83d27c2 ("livepatch: Move tests from
-lib/livepatch to selftests/livepatch") moved them out so that they can
-be rebuilt and packaged together with the tests.
+--
+ i.
 
-Building the modules in tree would fix the trimming, but for livepatch
-it would undo that move.
-
--- 
-Thanks,
-Sasha
