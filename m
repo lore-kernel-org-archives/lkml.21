@@ -1,54 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438870;
-	b=WpGPmab1XX/+nK8qor0UoKmiH4fEG7grnjQ/DchGFgmQLFoCdbDa/6iMLC8hMNY1xaI1
-	 Pb4klfTOfUNkR68C87B+XKR4xxm9yo8EpRlqHV85yHtRC7QkT79mES4Y5KCkHsY7qaCZY
-	 tip4CGAT1E5U+hmBN1M1c9Dte7jXUaOVytYOA5kdl0SfWwOs5t3ry2+v9jt/RUtGn4k77
-	 p2S9V62QvVpcaO2+SC9mvRFbQkC5P/JwXcIZfPIRu0EElhRVLhAvrJT1BYpR9Jyu2yjh6
-	 wKLBdFmcMceTnfPMfcrl8IRLQ9KhIIVpCUb/lzk+/97u2DoTxF7/kqfCSjOpfV5jsLg==
+	t=1795438883;
+	b=G2yQ7JCB2DF0OrBKAvk6dX1/fW6QxeIUl/UzbSGA75TvvqKnA9D85E3kLd8yTYv295IF
+	 suXPhjjJBpoGk+E/hiIblTa2WXpaSnMPgrOyLjb7yT2lSAug3btwBfOr+h529RoIYA8LM
+	 3SVczBXq2cVFoiveY1T4fEB/6qkYP76Az0T3lNcexoinQfVg6ec6oZRmfR40r1mt6d7Me
+	 JItk8frKFEgMMkfRsQO9V4nNO+uDyvquC1isSg7nJlaI5MN6yTLGjuEAnwkl8Is3c9k3r
+	 SpfTEcsFbt/TgCl3s6m7ydPaMtIcO0DYA7otxqLb1btuK5fYOwuKcy199hdYmdnFrXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438870;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438883;
 	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
 	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
 	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
 	 X-SA-Exim-Scanned;
-	bh=VgITBY6EwF9OFHR1C0hfN30+VILA9ZQQQVdvEbJozUU=;
-	b=uZpa5eUjkdtLNoh/OeX/l85DW+t9+rp5t35u7uAA4RqTTNW+kP6jOVXGa5JIs+Eb6a9i
-	 +QSGRFpkODAVmfhDLsab0z6dv/2WhUhNCKnxgx8OLEmhOVMnENCkRkGg5AFx9e8t7162v
-	 4f+KU7Te7BqxapxVWTSIhWgocYaZ5GlnhjZerDFCRcefQOQD0EOOrV9BgW5sNbX6/QHY4
-	 /5jnL/unMsNFTuo3AxHZqF+gAj6BkIEKkcRRVQV5K4mPgN81curyvsKNaS3EBrp8EpxuG
-	 KrFZmdqLZ5FGrf789RILSxtQ6YntXUuRYcK+ukwpKrQsajB7HQy3q4s6eWP5FNio7eA==
+	bh=f/CLwrc5waSKUo+/4figVP/7jz8OonesKXu7+E62yJ8=;
+	b=RMHzYYyth7EP2DksQd3Bo1nSc+5YOMOQUcn0BJhZPPQ1Y627kkrDEEKdHnvz9iPWl9FO
+	 JFFvbKmdjESV9opon6jVit/KKx+YXTbzLCO5FdLLAdmaZIK29kaTjQ8h+E3jvr9fSQwWj
+	 G6Og4LClWQZ8s29lQnKdWeCZ/6N6eUtI+Uj4jgAPlppLKBvHKXIRGwUSEgEXp4Mvjnwnf
+	 lj8KTSyWS5tUt3GuJ3F/pBbTIhbMGNMl6Pyf9qAe5So/T3BE1E+1cNYHIV9v6jNiiFMFA
+	 dlFOl4z2Et7/23phwE2u6G+mIpH2Hpf50kTcrtC+aGhjOCumHHiTKZSJx5FiiwU5zXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lZaajkeL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lrgz+gK2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A36D606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:01:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADBE4606A333
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:01:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lZaajkeL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D78451F000C6;
-	Mon, 23 Nov 2026 13:01:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lrgz+gK2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D62371F000E0;
+	Mon, 23 Nov 2026 13:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795438869;
-	bh=VgITBY6EwF9OFHR1C0hfN30+VILA9ZQQQVdvEbJozUU=;
+	s=k20260515; t=1795438882;
+	bh=f/CLwrc5waSKUo+/4figVP/7jz8OonesKXu7+E62yJ8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=lZaajkeLjXmQo8y/X9KOfWsmXDd51xl+hEF69z+EhaEIB3WEscwK+yG1sPsXX8nQe
-	 GQscynCIQxNUrg5TiIiXW4xjlVErbLyAzl77LmVoKfJm/Pa20Gsq2flAGojqGZqqwm
-	 fmodlYuc9heERz/MDMV4bPWh2bQGALKwefNzwAIyFdD5viJBo3U2X+VG8dp+FhSEm6
-	 fzxUXO+DZVpCOKYxtQMoIP5YYpktpb10hqtdgqm0OyEtiEs8f8mGHVFaGtoq6UoBPf
-	 5JXC8YCLiv9Le2ZrnIPu7TUlP6qyYnRm1ZknMHc+5OnkXln5ndWmJpD8nRXe5CyLTs
-	 HuEKuoQLchIQQ==
+	b=Lrgz+gK28QFkC5sArMrEjtdBx9R3KwdMYv02P7IrD1uL/w4RGnzN0Cbtzt9HkdvOv
+	 fh/PzLK6dMVoxGDNyFDtjrw9GbG7unClsKRhVNtWc3CNnzbRhVJ5M0wVImfQnKWMKL
+	 RmLvxepPnh4cFz1mQVBRNfDZRq+otywXEM6JsXmKeg/OKBziw2hyKPevrYpd9iUE2I
+	 Q4njtfCZdMekRtPdQBSlkaJKxQMtxrvqbV2zje+ynWGFtNBXhQ6qV/aGje0q3EcLQF
+	 JLEuyJY0jywiJBuk6FlBNSN2ngzbwiSvoSlu6ceFpwzsOOKEfFoAbsbQ12ydQJ0K43
+	 DTBRrDsIrUlVw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xVTfP-00000001ypv-3LZO;
-	Mon, 23 Nov 2026 13:01:07 +0000
-Date: Mon, 23 Nov 2026 13:01:07 +0000
-Message-ID: <86jym3zoq4.wl-maz@kernel.org>
+	id 1xVTfd-00000001yqX-0MTk;
+	Mon, 23 Nov 2026 13:01:21 +0000
+Date: Mon, 23 Nov 2026 13:01:20 +0000
+Message-ID: <86ik1nzopr.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Fuad Tabba <fuad.tabba@linux.dev>
 Cc: Thomas Gleixner <tglx@kernel.org>,
@@ -62,10 +62,10 @@ Cc: Thomas Gleixner <tglx@kernel.org>,
 	Fuad Tabba <tabba@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/5] irqchip/gic-v3-its: Zero ITTs reused from the ITT pool
-In-Reply-To: <20261116192933.3266502-5-fuad.tabba@linux.dev>
+Subject: Re: [PATCH v2 3/5] irqchip/gic-v3-its: Align sub-page ITTs to 256 bytes
+In-Reply-To: <20261116192933.3266502-4-fuad.tabba@linux.dev>
 References: <20261116192933.3266502-1-fuad.tabba@linux.dev>
-	<20261116192933.3266502-5-fuad.tabba@linux.dev>
+	<20261116192933.3266502-4-fuad.tabba@linux.dev>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -84,45 +84,45 @@ X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, tglx@kernel.org, radu@rendec.net, yuzen
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 
-On Mon, 16 Nov 2026 19:29:32 +0000,
+On Mon, 16 Nov 2026 19:29:31 +0000,
 Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> Commit b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a
-> non-trusted hypervisor") moved sub-page ITTs from kzalloc_node() to a
-> genpool. The pages added to the pool are zeroed, but an ITT freed back
-> to it goes to the next device as the previous one left it. MAPD is then
-> UNPREDICTABLE: "When V == 1, the specified ITT does not contain all
-> zeros" (IHI 0069H.b, 5.3.10).
+> Commit e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
+> dropped the ALIGN() of the ITT address in MAPD, on the premise that the
+> ITT pool returns 256-byte aligned blocks. However, the pool's minimum
+> allocation order is get_order(ITS_ITT_ALIGN), which is 0, so its
+> granule is a single byte. An ITT whose size is not a multiple of 256
+> leaves the next device's ITT misaligned. MAPD drops the low bits of its
+> address, so that device's ITEs land on the previous device's ITT.
+> QEMU's emulated ITS has 12-byte ITEs, so two devices with 32 vectors
+> each are enough to hit it.
 > 
-> Zero every ITT that comes from the pool.
+> Create the pool with a granule of ITS_ITT_ALIGN.
 > 
-> Fixes: b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
+> Fixes: e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
 > Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
->  drivers/irqchip/irq-gic-v3-its.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>  drivers/irqchip/irq-gic-v3-its.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index 5756ffe4ec13e..33aa8a355ec65 100644
+> index 6932dd0a02c42..5756ffe4ec13e 100644
 > --- a/drivers/irqchip/irq-gic-v3-its.c
 > +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -270,8 +270,10 @@ static void *itt_alloc_pool(int node, int size)
+> @@ -5854,7 +5854,7 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
+>  	bool has_v4_1 = false;
+>  	int err;
 >  
->  	do {
->  		addr = gen_pool_alloc(itt_pool, size);
-> -		if (addr)
-> +		if (addr) {
-> +			memset((void *)addr, 0, size);
->  			break;
-> +		}
+> -	itt_pool = gen_pool_create(get_order(ITS_ITT_ALIGN), -1);
+> +	itt_pool = gen_pool_create(ilog2(ITS_ITT_ALIGN), -1);
+>  	if (!itt_pool)
+>  		return -ENOMEM;
 >  
->  		page = its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
->  		if (!page)
 
-If we are going to zero every ITT that is dished out to the driver,
-then there is no point in asking for the page to be zeroed the first
-place, is it?
+This one really wants a
+
+Cc: stable@vger.kernel.org
 
 Thanks,
 
