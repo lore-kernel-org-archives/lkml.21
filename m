@@ -1,63 +1,138 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468657;
-	b=WjEaesJmkT3QbR6XoTHPuEJDSf0+uZl0hb/S58RZHJ1I4Coh4zooTVT4zs6NWhngxKVq
-	 i/igLKE0vF5jM0DfWh6CCbLxn5eVTf/lb6EjfW7bAc4Ad9YWuJnkhcGqlcAd85QRfGFkL
-	 KVyFVmYomCvrQUIB1rLqM9F5dwTnMxARrWMu2wCJb0iqOiRfiBfAXpavwWXkHVZTM5q9Y
-	 86k2O+4UM5yec8HvkDRBCa9twJNCTk4JzyGZBRWworCsD+3ylGPtoxAzH8aIswfGkNWwp
-	 ZcUR2RPSBbQmSU6s9Sxj7vX18Wyyh4sUqMEyUPuYg5X5YIjcwy9Etp+R3oUX2xEGLRg==
+	t=1795468663;
+	b=qk5vO7ohRKewNqJR4aVmE+4gDcdB6A6SEDrAwPF0iFxdAmYiFm08HtfaVBXS/McHBz3U
+	 TbTaxzdAwDIo9QJTTtZR1xYsgUgdH9HzI1a+nSgyMRq7EmqUN/7RzZQ1kWLBaN03jdeyN
+	 AbKyQw3ULD5wOBb1I3eggdlzvfljHLm68w4p9yaHXrlsE2hZ3qQtlhbk/xefzZvQw5C9O
+	 xtKhaQCIiDD281pOYoRN/B7WogPRh+DdesxWl+qkw05NC9+agqMylkZzlc7R5sI4TyN/F
+	 /lUkOwsgkaXry7iIdR1PIK92894BM13ZT2yKD1q5kOwzBB0Cp6N4g+8Xivs4oOO7M0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468657;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Stat-Signature:
-	 X-Spam-Status:X-Rspamd-Server:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=a6zCvKM+K6mK6mpjxjnM+krnyMuiiKGUND5cLXKnmmg=;
-	b=gv3Js5VHts8OMjKAJ/1Qwuzm1tksu/dNK8CAfT2tBg9UIG2UqiCIVqFytAi1d80RcvXH
-	 jIyS8VL2D7fW1zSVa5rPAw/MZBorkq7Un3nCk6lyXnJHsFJ1nWxHiCmpb9eQWR6wjPe/B
-	 gsN+fLAAYNQbrJAhKFQYNUZRA6Zg9ahUMmpdWNjI8BRz94g2yfNc3Yq8YClFn7WywAFb8
-	 mHHCtN8dmrDfsgRxrH02sCEnlEhJCTv4KW1fCKD1Rj7fo3lF0icKX+t0rO9aZ6GuUPdmj
-	 S/Yg+eVoeBvhZ9XMVGlNLH3oUxAJB1scGEkGwQZTNgdoGVl48TZXeqAWCvdLaFgVbKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468663;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=mEI2MWJHKjiB6vj3bpQygFD6VsBJJyxeJ4zAlBvCIuE=;
+	b=46LM5BWCkjmlwtsiVNF/RVjUzdxIajOPHniC7ScSGXUd9Qm+sjBKzn4+/GBTBm0GaR7k
+	 S9SQsz1Q7e8vpATqvuK33bda6w02++UsPsTUgIk8XQPbXa5RLFSyKGEbxBLfkpAdk9G4+
+	 lGE8IhbEorZ7ZrSLklFq22R1HSY0cCEz1E62ZpE5zBVcLuri2/YiY0oqcwfcwX1ks5LjQ
+	 qvRzrh2e0SMR2bC33RDXcR9C9wcmQ+eoXQnNFGpi4LwiHMK1XA96zrwyOY7B09G3OqDpx
+	 y6KvAtNoMgkfm10wgErVatvHaVvR8UmhfDAjEOD76On8rBdaSpPS2JOj1b2Tx+Rz/cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=t4frZ2xX;
-	arc=none smtp.remote-ip=216.40.44.15
-Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0fedjRZx;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7B53606A31E;
-	Mon, 23 Nov 2026 21:17:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7B53606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4151C606A339
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:17:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4151C606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=t4frZ2xX
-Received: from omf12.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id 912721C4414;
-	Mon, 23 Nov 2026 21:17:34 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf12.hostedemail.com (Postfix) with ESMTPA id 227CE17;
-	Mon, 23 Nov 2026 21:17:31 +0000 (UTC)
-Date: Mon, 23 Nov 2026 16:17:29 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Lawrence Lin via B4 Relay <devnull+deduce.gmail.com@kernel.org>
-Cc: deduce@gmail.com, Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>,
- Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen
- <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, Stanislaw
- Gruszka <stf_xl@wp.pl>, David Laight <david.laight.linux@gmail.com>,
- Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
- linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: Re: [PATCH v2 1/2] module: Add module_kallsyms_on_each_addr()
-Message-ID: <20261123161729.4763c2af@gandalf.local.home>
-In-Reply-To: <20261004-ftrace-mod-bsearch-v2-1-c1de73e72e73@gmail.com>
-References: <20261004-ftrace-mod-bsearch-v2-0-c1de73e72e73@gmail.com>
-	<20261004-ftrace-mod-bsearch-v2-1-c1de73e72e73@gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0fedjRZx
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a357b1c649so2251188f8f.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:17:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795468662; x=1796073462; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mEI2MWJHKjiB6vj3bpQygFD6VsBJJyxeJ4zAlBvCIuE=;
+        b=0fedjRZx2RaPeNewDfT6kMMnjXVPl/B3fA1gPsEqLujR7kcW0NYtdJYVaByQandrUq
+         QJzBJ4uC9eS8a+ayksMogNxSExWs0eNFKItvTDKAx6NHc5x9hqv9RQlhAAzaAg7s5gs1
+         9sbtbyps4kPCKude8iZa2iiFH+utWXTUN8TCJqFX8mRmvPPMu6I8nAQcyMZ4i4mpzyX5
+         Cp154EF42lPno5OVkcDwnkP37Yni0BUszr0xLEoRsNB5R9GRF4fxmXOCy5ua5f8Nqhrg
+         4AybiECJ+X7fZBXujwbzZQ4s2TiblfJ29wOS+plEAwzRWxdPuG712xtYts3o3CIOU5fN
+         1RVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795468662; x=1796073462;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mEI2MWJHKjiB6vj3bpQygFD6VsBJJyxeJ4zAlBvCIuE=;
+        b=Jc526dYcIxk1S1/maqxxWnvMEwN68ExVKcrxB7a9w9+ee0o3KauMA57SZ46C34zMi4
+         7k3KvPGx1tFFyNJaX1YFqQWeuowK1SibquJRNcpiIiLiwCBw8OcAwnsUcbQJTGtCEurk
+         Q2SXyIb4IU1F5P3Pfg4u0bNr/6dEMWhQja7676GXYcb2q2VUr/1h2qevlpZEKTvuFYs0
+         3dWIv0XtR/S/TohSjtko6Mu9FXywTpTv4uH1Do8PMz4T4CWCup6KfOeYil5A4znPtMaD
+         L2CEc22eMWU3TGDnk6cqNM8y/7bY2hddylPv0RXYRrJV8b/arlSu3EBzmtMrPvMx5Yut
+         hhHA==
+X-Forwarded-Encrypted: i=1; AL+hErEUp4oYO60VfaM3Er/ERcbYX4CYtopGlTWR5zqY13BRf75BOZHZSzbSVLkENUsxJ6cZ3VsoCfxDiFQ6dIw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/oANfQpwj+Fi/83iLxrhqniFt9Vu0JF0OnkSX2c2kFVOcGmB5j
+	5cvdyy9BM+QSXDiMW+S5eRUWBV+YGPdbm9L9vQJA6UvwNvIQ15lLO47w
+X-Gm-Gg: AZFdTZe9sPmeSghPInXJHQcQl6HpuFIpR2Hvu2vkVlzcAMULumbgpx61T+uxVBoI/pH
+	RiO0MTeOLOoB1uLVuQ8VDe9Nz7S9K1EY12Qr2aOohRNaS/Ddtte3Jgi1qOAoGBQd8/GICYdyHpe
+	Rw8Lk9RcOvy75JkI6PzmHiswDCscO3UbAJw5cokDMhUBt9VF0mYx/uv9i1g9F0A2D2Ks+0jZZSD
+	2tYNH1qPoLP08maO4KsCpYGHDFCXus6AVsF7mXGbX/HNYCDKnAxQoHcVIZzEzeeco1+49vtMkpR
+	3/nGhF8ZmuLXVlQ6jyzBAFWY6771R/wadCpOJRPxnk9ZRygN3jIPdSO+tnm78iCTTvtOFTHNO88
+	cgHCvGNpL3juROH4AP5iKn4lcWuwlwwuxqsdUaST5Z07JrqGy7n2NBCjnL0f10HJ7ZEWrnox2Yu
+	FoH7hBYjkclXmq6jTFFo/FsymNxYLfd2TvRz1iycSYpFFH/7bpzf2xi8GlYmv1VU1roTO0nGfD6
+	zBm2NvzECdpWDs9Z2pQ570Rm6mQDja6g555PCD9hLocVw7xwfkhOMn3f+l9mJBX3pilIUQJPwu5
+	0ZXiDwhBIDs/C3smlAX+ksC0lA4IMcLifPosDJY4D7RXXthb
+X-Received: by 2002:a5d:4605:0:b0:4a4:14db:2348 with SMTP id ffacd0b85a97d-4abb29105d1mr18698069f8f.35.1795468661504;
+        Mon, 23 Nov 2026 13:17:41 -0800 (PST)
+Received: from flare5 ([212.58.121.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2e6dsm24513121f8f.6.2026.11.23.13.17.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 13:17:40 -0800 (PST)
+From: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Robert Marko <robimarko@gmail.com>,
+	Guru Das Srinagesh <linux@gurudas.dev>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Lee Jones <lee@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Wesley Cheng <wesley.cheng@oss.qualcomm.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Bean Huo <beanhuo@micron.com>,
+	Stanley Jhu <stanleyjhu@google.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Amit Kucheria <amitk@kernel.org>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Georgi Djakov <djakov@kernel.org>,
+	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mfd@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-usb@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-scsi@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v2 13/16] dt-bindings: arm: qcom,ids: Add SoC ID for SXR2250P
+Date: Mon, 23 Nov 2026 21:17:23 +0000
+Message-ID: <20261123211723.1065310-1-lightofmysoul@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261123-pastel-barracuda-of-rain-bce8ac@quoll>
+References: <20261116-halliday-dts-v2-0-2c92438c6c46@gmail.com> <20261116-halliday-dts-v2-13-2c92438c6c46@gmail.com> <20261123-pastel-barracuda-of-rain-bce8ac@quoll>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,73 +142,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 227CE17
-X-Stat-Signature: 5su5xkzc45x77d8at9gk5z3i8okaq7jx
-X-Rspamd-Server: rspamout02
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19HZ770PR0wTdHmsbcBpWwldlRmgOLS2Mo=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=a6zCvKM+K6mK6mpjxjnM+krnyMuiiKGUND5cLXKnmmg=; b=t4frZ2xXt8aXFUVr2MsHJe+cJH3s0cRp83zXtrg8hIynowMMMn8S2Us5S/OaqJwR9IN5x4fvtuD/eQnutA8gxvl6jp3y9uxs2j+a1q5OgCwdwF3Iuaz/ONHeg9ZO2lv79mjzi118641vERSGgTegyoIszTqEkuZj8He6oyvpaIw=
-X-HE-Tag: 1795468651-835848
-X-HE-Meta: U2FsdGVkX1+eoyM2NM3ZPDqAD/MqBsRXZQbIEsaKry+Vm3bJ86U2S9cPnta/wAtFJZr4VsC+3wtwogvsgMfHARQGoeWfa400O3aLXm/xL9uHVYMFSDjdo4vgyVNHieSlDpu7/FjoW1t92cq0qQyrjEQFEpMXUnELcfRKARJ2bdkhrGK6j8QDEc1qA6pQ5vj9Kedhw25ifwJk5/0vjVxHzS3xHNUtXIRlpuuP0NzuaapKRonRZeVKU0JX9rXIZNP/pOCc/mTrJkWv8j5GduuKhDqWrg74t8B9oSk46vIYkmsgu2u7XmLDqAX+nDh3ZqUkY0sZinqVXHNUFx7QcfD5iWCV2kRTH9nc
+Content-Transfer-Encoding: 8bit
 
-On Sun, 04 Oct 2026 14:51:00 -0500
-Lawrence Lin via B4 Relay <devnull+deduce.gmail.com@kernel.org> wrote:
+On Mon, Nov 23, 2026 at 01:09:26PM +0100, Krzysztof Kozlowski wrote:
+> This should be rebased on my patch removing the IDs.
 
-> @@ -286,15 +298,7 @@ static const char *find_kallsyms_symbol(struct module *mod,
->  		const Elf_Sym *sym = &kallsyms->symtab[i];
->  		unsigned long thisval = kallsyms_symbol_value(sym);
->  
-> -		if (sym->st_shndx == SHN_UNDEF)
-> -			continue;
-> -
-> -		/*
-> -		 * We ignore unnamed symbols: they're uninformative
-> -		 * and inserted at a whim.
-> -		 */
-> -		if (*kallsyms_symbol_name(kallsyms, i) == '\0' ||
-> -		    is_mapping_symbol(kallsyms_symbol_name(kallsyms, i)))
+Thanks for review. I will rebase it, but I am not sure about
+the order, could you please clarify?
 
-Can you rebase to v7.4-rc4? The above function name was changed by:
+1. Should I wait for sending v3 until your patch is applied?
+or
+2. Should I apply your patch locally and then send v3 based on it?
+(but if something changes in your patch a v4 might be needed)
 
-  db91da8f05185 ("module/kallsyms: Rename is_mapping_symbol() to is_ignored_kernel_symbol()")
-
-Thanks,
-
--- Steve
-
-> +		if (!is_lookup_symbol(kallsyms, i))
->  			continue;
->  
->  		if (thisval <= addr && thisval > bestval) {
-> @@ -458,6 +462,28 @@ unsigned long find_kallsyms_symbol_value(struct module *mod, const char *name)
->  	return __find_kallsyms_symbol_value(mod, name);
->  }
->  
-> +/*
-> + * Call @fn with the address of each symbol of @mod that find_kallsyms_symbol()
-> + * may resolve an address to. Unlike module_kallsyms_on_each_symbol(), this
-> + * also works while @mod is still being loaded.
-> + */
-> +void module_kallsyms_on_each_addr(struct module *mod,
-> +				  void (*fn)(void *, unsigned long),
-> +				  void *data)
-> +{
-> +	struct mod_kallsyms *kallsyms;
-> +	unsigned int i;
-> +
-> +	guard(rcu)();
-> +	kallsyms = rcu_dereference(mod->kallsyms);
-> +
-> +	/* ELF starts real symbols at 1. */
-> +	for (i = 1; i < kallsyms->num_symtab; i++) {
-> +		if (is_lookup_symbol(kallsyms, i))
-> +			fn(data, kallsyms_symbol_value(&kallsyms->symtab[i]));
-> +	}
-> +}
-> +
->  int module_kallsyms_on_each_symbol(const char *modname,
->  				   int (*fn)(void *, const char *, unsigned long),
->  				   void *data)
-
+Best regards,
+Stanislav
