@@ -1,101 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795461572;
-	b=Sk0F4qSYfJ1KACov1EblYmnRptIrSI18L5HiCX8+/nJGxd/mjVoDAaFkNLCg4UzM/Peb
-	 HWhi3vhABVo71W10nrWrZbCk4FyUpFJjrOeos/Wvfd/zwAVREHY7mn6mU3qu8PoQWnx97
-	 xT+QbPoLQU8MZLMU0gBiC7hToI4yafZK7sp9jpJr/B3wzVyeP3iybJiT7dOP1yInCYZmn
-	 8Jq7Vph0K5+VFcbCTsCbGGkkziFjjWHU9xS+aAIGTC0TAJmfpq2fcm9g9eaTl35pCKi5c
-	 rU9/EWMm4K0sb3IbXOBfIzTl0AqAUDJQvOcRQwckRJQ5eoylu1i92kbSepa0ATSziww==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461572;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=GdtdaLJVx2Ec9NjVpEtYoWbDg7RmNeMLfPas0G2BTrk=;
-	b=w4WM/baEzWhn0D+5sOeUUqU00tEqMuSKRaP2gFAvgf6mzx/Wz3eBubbMmyjfV9eya9nK
-	 3aEBrxUzun7Hg1DECWQac7Exl6k51dlPZQzxjXSwQ/YXxiCewKRHTdGSKOS3KL/5YB9sC
-	 TwCo8kEBTkOo1PGWwxO5si4aqBYyHBOoVA63hF26YxTx44JLDUSxA9J+s570lfnp+D3EO
-	 JgwnuJrYVebK2pm2e4/9kC0rfS84ikmevyGkSR1P+ZIBktKGgLzbJT9xtSTDJiFPZLIO+
-	 0M7o85G/P+CmA25aRnkaBL7biJEd1LymBJpDwixmX1kWuqCmCGzC4upeGSMchLKcWDg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=n28HukaN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795461599;
+	b=VwvO6LTfrCX7L/ZiGrRUUOGLT0AkQybZ4ufSxUCAkZEsjNPa88NL/BOf/PwzgNTvaK8k
+	 c/c1oTzcOD7C+MDhg+cbzWQjUV5aErkSQUfyaCLRUDT7Cvim57fbPja2dWwNcLDF5cW44
+	 iDTrf3zMVykOl6ljolYES3cBKNC3C564tyXyt+XdE+6Xvec953eyIio1wzVJDt5WNVdL8
+	 mOXbyjy3V+hjJx2vSID3mTV5pm42ML3lvCHGfCRPq2oatFjznXn7U9QRhiAgGTVSPCe+e
+	 pmtjxnak6MF15ytIM567hhUMECeDAjZb6mBTT592hIGwOo1diB4ARuCRD4k1UPAureg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461599;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=YbFSS6dJsC7jMPW/wNXp8H44yQ2FcFRYnsa9hFAzYJM=;
+	b=QZbJJKXe3Oohb5FQ8y8RW9+KopFLsctbP7y2sLghS2tqmbpBjZp3gsJFuDFd9NZJ1Jx8
+	 fSZH52SBK4iUP2ZE8d2ICHNGYWqllGGa0bvLYvNjMQ9I1YIT1VjvWnmBY164c5uJ6vAiv
+	 fcjX70QzXZyavb+vNqKDFxPS9uFUPluVPeSRI2hrTu/yHzPVwCumeeIPgWU8dVYB4hi+q
+	 suz7IUXayVvVjODwtYkOOBS0GDV6cwLSJk2R8Bft250URolVx5UDm6Q6H3kaGPnPGWj2T
+	 oYLlZCZj37WlapDkUhjKh8LNq+xaC8dLn12l0Bok+q/xmfwNoop/oAyqyalWsWIxudQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=csail.mit.edu;
+	spf=pass smtp.mailfrom=csail.mit.edu;
+	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=z5VxCKWt;
+	arc=none smtp.remote-ip=128.30.2.78
+Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CC88606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:19:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CC88606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ED53606A31A;
+	Mon, 23 Nov 2026 19:19:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9ED53606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=n28HukaN
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-498f5fa5103so2206469f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795461570; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cxbrQR88fwA//gziQSNFJT5cKB3aM6LuB8T4IGHbZBMRTiGmU7UKlviTrAkpHhQ2en
-         gUnxSjlASRzyx2ZAwGozKq+MBjSp8UyK4V19ThWL6bM0mcUYgARERxEZyVGp1WPcEd0s
-         7JSGxMLzR/a7MUtXoKQHc91pVxpIVf8DLb9+ytKPxiujlXaDYEnbJA4Zfla5z7RPNsov
-         BZmoNWmELqefdrtXCj5mOKV3Mw92E14f+XCcJ3Q/NInaAti9qVVZc9BYvcV2WxmePzkL
-         jiQQgNzJnfGvbEdrtMIYsM4vNlKPhMFFtbab8DTzVxdDBrviE/j5SIMVCrfG64KgJyiZ
-         /oIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GdtdaLJVx2Ec9NjVpEtYoWbDg7RmNeMLfPas0G2BTrk=;
-        fh=hdFRlbnxxkjS9tDxbo6Fpszunuktg8QIBrSh2pK7cJ0=;
-        b=kKnXm87iK/dwQHKeTwB7TwsNJUuTGBFXSJ5utlfXu1NaTlvS1DA1ho2DH242PGoVrF
-         ufcGgV0Dw6VFrD8ef7olOe0mRIyxqL8suZNJnBEdHdEzWhR+MigFMJ3QLm2C+K9HXrll
-         RXrB7Nqo5h7Kuk23gID2Q1oULevwzonyqb6xVw8r8T+/K2OoyfjZ8yBKKKXezz/pIyJT
-         wtTTbH7b0URDC0TVeu+mqIx0ZLQ+Gn6hsSUH+piAHg5FsDe4E4LhthbTLs5nE/4GHNay
-         XA6pnJfXVB6pfvPTG0EkEX9wKfNhSBwj/ByA0pbLQ9GxK8WyapqtWltyUXXRm3d19jCT
-         3l6g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795461570; x=1796066370; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GdtdaLJVx2Ec9NjVpEtYoWbDg7RmNeMLfPas0G2BTrk=;
-        b=n28HukaNFQCqTup6fVHYT40skAr9jxtckFALMAx6WUj+mJ5l45U5RpQflHWBZMi4/7
-         V72w2Cv+yveelniQyXQw/XLDXFPUmTUrMI5LHqE3EsXP0CMzmEHOXoQ+6yaLWMIv5I8t
-         mr2IwwfWePTMA2BQ4VXJHC5PTeOSWl9uthPvRmrY0f+qfFsdyRVz0yb0ckEmYp7f6p/w
-         Uvhslk/c6mUVInGxuuKVO6t7qbYB0aYh13h/QpQyya5vQ2K9pHm45orQHtnOr9s9OsMc
-         NXLgeFS8ntNlIDzCDOR0pXe8ZyYelObCSl4hutpt8+/8mPkcnk/mlzF4mdlR4/xAIG2f
-         bm/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795461570; x=1796066370;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GdtdaLJVx2Ec9NjVpEtYoWbDg7RmNeMLfPas0G2BTrk=;
-        b=LfzPjzn92pq7dmYNE08QMgzE/3oNKvmnp3a0U15uLb1x0muTqic+W/vk99MCLgcyjc
-         qY4wBHq6Hp/8/pWdjmLkljdDHCqZwZt0IFYFCUJ4cJ5KaeKAjw1WdzWTmEjQoDzAphUO
-         9446G0FQFsd0ebRV6pTBYOwthDrQtTXaeTdUbrrl2b6fZo9McUCiHyGG3Er1JKYSjJ1a
-         6WwGDXZJkpV8CyT0ldy0bPhR9SZir6Gl5P8RcGy4+Yvugiu1SuXFNvBniVeEh/t5sTQ5
-         2Qq/itEWZEEOK+DSC7e0p7Jrsi15RPr7TO9hsPGG87JBZbIsWWOA1cf78WyIWluyVDCX
-         B7jw==
-X-Gm-Message-State: APuU4Z+nJCvu+oAPqmTkWQ29HpKVkhPGTpAfKA1tZjR/3PPcz7iE6AnD
-	rCNh7V1s2poM6E0wydW2qyhr8wdIJn1QbXYzbnGhN83qlEKcYrtuOM2z1AAJW3b3/Gq16z4YdBD
-	4bTdJFlFdnXiE3ae8WBXTYnUc6hv+vIqZOdv3W5EZ
-X-Gm-Gg: AZFdTZeeWkwlFoaBnu7PneK8lpf7DeMdChL9O/oIU2CT+aoZdvF7gd61ZAzYI8mbBvL
-	GXthu5yviwL1cWD6j/rk5Oa0q8cKsQyOr4IS5XT5o7xI4oMYLhLeB87liCvfy4lBvUBs+kwLmWr
-	ntc8lzefqBOwgwwKXDel/S7FpZsienN4kIHkNSubMmXIGp8OBF9vICdswTsKy4TMz3derA5MWPf
-	0GQiooZYCOzlXh8+Wrlc1kjSdd6fpfnMazBXbNrIrrU+0xIiv6H08RMFVAxzbrJx57Ol8MU0dW7
-	uctXfvL+JuPgq4PIi0mwFtDuxPb04OsUp1ct3X91ljYrUOP9ua245DSnw4pl4hzq8MZwJJJgeav
-	5ksgZXtK99U/SJKg5PVu2ehNquIqmOj3Dd7r3A8dFcbLZWb51p8CX3yScyH5PSnBbyPxxyNbgai
-	zaAPiMAlli61u9VtbmFaAkSAEK6XFOtKIO3Po7b1ecB1vOvKYO2dcmByJu95VxsK7WivhLej1Ys
-	URWxonb6eV+wn9cl1hhu97IdApUf67a4K5uPQ==
-X-Received: by 2002:a05:6000:2c04:b0:48e:7470:9e98 with SMTP id
- ffacd0b85a97d-4abb683b5edmr27126763f8f.39.1795461569942; Mon, 23 Nov 2026
- 11:19:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=z5VxCKWt
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=YbFSS6dJsC7jMPW/wNXp8H44yQ2FcFRYnsa9hFAzYJM=; t=1795461598; x=1796325598; 
+	b=z5VxCKWtGCXsqdV3G5o7mzM4/ElDJ0LDR2Uaw/We/hWQ6iZt0YL4OYPh+Cfu5RskK5qKXCk+6QS
+	sVOri+nUP4EPq5EIxrf+sUiOxqdYh+rQUuFSDYJFC6T0R3fhk9pfS+gKa+w+vEM2aObWZ3N92YcbP
+	jygaybtAIrkA/tPUQAc/jssn7+k+dbjp/OEFRu8OFG91CPNHwd9JEXvcBcrN5dQDqZjzfUVicdWPQ
+	outbdoCcrMPdCPurg9cXjt6p83wI5fIgDwJFJ1ltq1qdad51JLZymQiHopsGxOhhCvTtsO3kkCcOC
+	FdZcgi8zYN0H1yr4vffjNaznGmIkzETpAyzw==;
+Received: from [49.207.211.146] (helo=csail.mit.edu)
+	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <srivatsa@csail.mit.edu>)
+	id 1xVZZR-006Yni-DK;
+	Mon, 23 Nov 2026 14:19:21 -0500
+Date: Tue, 24 Nov 2026 00:49:07 +0530
+From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <baoquan.he@linux.dev>, Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Pratyush Yadav <pratyush@kernel.org>, Rich Felker <dalias@libc.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Cong Wang <cwang@multikernel.io>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	WANG Xuerui <kernel@xen0n.name>, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
+Subject: Re: [PATCH 2/2] arch, kexec: declare kexec and crash capabilities in
+ Kconfig.kexec
+Message-ID: <awSRq5Cn84BHelio@csail.mit.edu>
+References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
+ <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,41 +106,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122105646.2223131-2-ardb+git@google.com> <CAKwvOdkOjGkGajGMKtqcHpRSrpXC9UZrH9XPsiv5Rpcdte5tJQ@mail.gmail.com>
-In-Reply-To: <CAKwvOdkOjGkGajGMKtqcHpRSrpXC9UZrH9XPsiv5Rpcdte5tJQ@mail.gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Mon, 23 Nov 2026 11:19:18 -0800
-X-Gm-Features: Aa3M54oD0fqb0QzJ1JxemEFVbLUl9eeKO0PJLFfAF9BIgQm0rAlM82UhzRRGwNw
-Message-ID: <CAKwvOdnoH+dunhAeK0y8T-qYyJrLCwHP56DzaLEAkbZEpKU8Ng@mail.gmail.com>
-Subject: Re: [PATCH] locking/local_lock: Don't evaluate the per-CPU lock
- pointer if unused
-To: Ard Biesheuvel <ardb+git@google.com>, Bill Wendling <morbo@google.com>
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Waiman Long <longman@redhat.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
 
-On Mon, Nov 23, 2026 at 11:12=E2=80=AFAM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> Ah, a week after that commit was authored, the same author filed
-> https://github.com/llvm/llvm-project/issues/93449
->
-> (currently assigned to Bill; Bill, can you PTAL?)
->
-> They also filed
-> https://github.com/llvm/llvm-project/issues/93449
->
-> https://github.com/llvm/llvm-project/issues/187893 looks like possible
-> a dup of one of the above.  Bill, can you please take a look at those
-> 3?
+On Thu, Nov 19, 2026 at 08:16:58AM +0200, Mike Rapoport (Microsoft) wrote:
+> The options that let an architecture opt in to kexec and crash dump
+> features, like ARCH_SUPPORTS_KEXEC or ARCH_SUPPORTS_CRASH_DUMP, are
+> defined in each architecture's Kconfig as def_bool, and most of them are
+> copied over several architectures.
+> 
+> Declare these options once in kernel/Kconfig.kexec next to the options
+> that depend on them, similarly to how mm/Kconfig does it, and make the
+> architectures select them instead.
+> 
+> Selection conditions are preserved, so there is no functional change.
+> 
+> Acked-by: Baoquan He <baoquan.he@linux.dev>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-2! 2 bugs.  I was up until 2am with a screaming 2yo who has an ear
-infection. I think I'm seeing double...
+Reviewed each code movement for correctness and also reasoned through
+why the ARCH_SELECTS_* entries were left untouched in this series (as
+they don't yield any consolidation benefits towards Kconfig.kexec).
 
---=20
-Thanks,
-~Nick Desaulniers
+Reviewed-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
+
+Regards,
+Srivatsa
