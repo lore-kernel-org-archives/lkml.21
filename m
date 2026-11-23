@@ -1,83 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443599;
-	b=aOB4KanLvSqdLVHIm9nn9u+pMhuaOnTtgI4jq53V58HHHbMUelui3HidDNwxnoWMlJpj
-	 aXfTK+7hnScMaQJ/ChjgBQuWFn97Uub6PuxReFNB1mqg4GFYweVMrigbO510cQq8xKLoN
-	 3/0qTp7IpFszg6hkZj+o0UMFMgCeD/Tjj23jZp92QDFOhJiQTCcPQOVmPiqkx2t+r3kUG
-	 LJcWNk+NfqaVFdJsko9GkTxrehiLVk0qz1ut46l+CjmASNYh0CX13Y0qKdkijqNNgq829
-	 afkRktyrwsmvI7k1sHWn13gaH1ThRC6QK3vgEOe3x7RMxLCUuX+LiagQioqeV6DaVhw==
+	t=1795443616;
+	b=RpBDSOBYbB0D6YRrBjy/Gpp7b08P95kMmX4SSxPSbW0OslRoNqpglkJRjeFuwzCm3l0Z
+	 OHplY+XYiLSghjyA+xe4mhY+ZM7pB345r1CQfWVYY6I0Mv/1d01uZMtHz00jD6Jz0OmnL
+	 ZDwrZ24e31g0hlcDGZR3pG9uMbU3zoOA3rHRHFx7HYxhwk48RoHoPF+tYJvAoq9lrw9xf
+	 EjyH4BbMj1AgcfyXMiae+CZp4Z726qH+nDJv5mUQZ+z3LOX1C2nqTc8449yHtPsyroFbI
+	 vhsWfhquSAbtfPFsedNj2FoosJGPPPp1YCP22iQyv0hmemdLk6aWC2GInOH/OvPb1Dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443599;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443616;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=y226DZkwLHV/0wLned+bdA2tSEyU1JvBKnaVWIVUoR8=;
-	b=4PxSw1WNzrNr8I3zvFevvaZBFRwGEmN7T0rCZpOjoHHOE+5FA9+zKvyfeYfNNNIDTp8z
-	 m3j99ZM6tPZDie4Qha9yEhhQxRufen2KxD0SqdJdszlV13UKHSdaPKYqbvgSGWHmA026Y
-	 eArSb7VKJ6eBFoDaA7qFMq9anz2SlrwZjOuZa33qJs91ySW8AmdozjwR5QbP/jkoHF0UL
-	 CqIhj5bnEC//oY1qgABCf/C1dZtqhIKLDC/OvLBgD/i4vWKUjJ3pN6rxw3Vm9GqNh495a
-	 KiiNwKe2NABzpwrA0zxYh7hiug+i3hvkKc+5c/YLZ7B4NB9Llg7hAwfMkPU89oLu4Ow==
+	bh=mXV6+GG0z8PCuL6UAZBUPBZ1GbikKdS6r0oEptKGfNs=;
+	b=wGv4C3cwjMoCvD65K3J4s5rFrfg2iFsAKH5XWU8LReqf9TnTFPWRPTveCoAQpbC+QN7k
+	 JNalAs2j/aQZJ5kMwxRm8eDc4NRTgLbvwlfzjEtyZUGcHh/B7idC4N4IOak1Ba5aIp5Xj
+	 5TvlmgpaR4jjjiiWwNPUAN5mvT4AIgylvRGcmaOhlUH3xuDbsMjVF14TwRJCXMH8AtRTw
+	 rV38I2A5dfaWuraalP4HVbMLf9hzaEVA3Twe0zjgIc1v8NEP+X2r0Dr5DvF74PzHbfD3f
+	 mnmbslcjdHg1z5q9uWop9qeI6Vx5WdUsruwkqGFaoosEM9iOLZY9w6xRrng+/oZgqLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="BkREXJ/B";
-	arc=none smtp.remote-ip=74.125.82.52
-Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="f/1w/QGj";
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72DCA606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:19:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72DCA606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 103F9606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:20:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 103F9606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BkREXJ/B
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so4079945c88.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:19:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f/1w/QGj
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-38644aedba1so4957683eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:20:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795443598; x=1796048398; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795443614; x=1796048414; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=y226DZkwLHV/0wLned+bdA2tSEyU1JvBKnaVWIVUoR8=;
-        b=BkREXJ/BXiDHJyUVu9BXVhXdtOTtx2gQC44oDHvVkAnLsroA70wEVDpoiTzJkhjAbD
-         hQV5IlaaajhaDZiA/u41gVg0720axesf4RBXB0p4P66LmSjkszkkT3kkJYqWQ7p7sw32
-         rDWX6hpEeTUw4/JUkLhIRrTEPHpqp0xjxRsw2qRU1UK9vOTeYzHXtMjo4Jg/FiHILvNu
-         d4upBmFwjoFVgR4ZRGusk0HTg/0FiJeCw+HCSUqt7DYgXc/iMhGX61CXNGGc0kOae3xk
-         ZIaeHM9/tFZUezu4yLK0RJC82OXvnmgAIyEdKyGgPjn9nywBSJbw+MwDcFXsupwH5v/i
-         OJjQ==
+        bh=mXV6+GG0z8PCuL6UAZBUPBZ1GbikKdS6r0oEptKGfNs=;
+        b=f/1w/QGjFccaJiFG3HZ+rpDXw8L2xJoQ59v3syiXQZY4NsO2GBB5fCINp1CyVmMYVF
+         E9mRDiMfjxXdSkoOkf31pz0pJ4TxvwcSoDtkhvk6Qvl+yZe+u8JVB9mW6ybge9moTFE6
+         RppaxbBG5SuEGZm/X7BWDXr0w3ewh7diGkdvyp6O3LZZO64Lg8pMYB80TI8mMSavlKWj
+         R6d4YdSKvDxLHn73RWCVywKgKVQHiAHLH/IVtVvoS1wEAhKPEj6b612KuELFS2sttqdx
+         dfKBjN3hoL4uDPPb1NyELWshyIDzXmci4MqwL3adOt/e0UzHzLY+nfzRAVgttazdZFa9
+         Y6Lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443598; x=1796048398;
+        d=1e100.net; s=20260707; t=1795443614; x=1796048414;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=y226DZkwLHV/0wLned+bdA2tSEyU1JvBKnaVWIVUoR8=;
-        b=AMfTlQ9kg+iEq5SS3wJTJEKtXEfXgmRquIAs+PpgastfmFujKW67n+uautAS/FhKOG
-         8w3ScM7eVgLAnVRhyCVYO5Ucy0UaG9PUisPFTjH44832e36tbOGliJed7jlZ/CDbxDjQ
-         hwx5Ke3wLzsukc7zDGrZjJXPAf8MGxit5aT+P12s1O2EMyE0UlP1gFa4QMEUTidtvtLd
-         ubXwm6c998PkdsRZlPM94CkfD9yxFB7qjivD3k/IYR37czzf2Lf0DHrZ/DUw6cMLi/8c
-         s+hOYzF7peFILyJt9eVnh3Jnu6seU96wvH5bCg5SEbJOhrDl7HUeucKaXM2Rm88TP1P2
-         P7Vw==
-X-Gm-Message-State: APuU4Z8xSfFkoR/fhTirhr+Zp0022FTA2XwzIRwU5lfTvTkhwF4OBm/m
-	DvQVAXlQUjNMH3+tNXfhDXUZveE5fwoxjNIFKuZRv2aGRL3c4fgF6ivQ
-X-Gm-Gg: AZFdTZcEBV0cp0AqqutW4H39g0PxKKfH2tu35dsbPM3HxQU2/UO1A9UVgbe7sMH+cHB
-	okHBZIAmbzrmUCbMWhCyL+T1kCX/OvlILcgfPHURfOMzLYm52qCGQmv3JZER1YkBC5zsFHWR61x
-	i+IPJx81ibdwN/Jugbo15iSeTBLGj5Nui2H/AK5qPguT++uq0rk+1G0hA0i3W3DoxQtCpGXao2J
-	1VPWuyBGKmrNZzNrkMzxVkqGmQx0N2aFojf5u6e785qU7mi54Ii9kkl2N3Az8oA6KQ2tJW2z7Rf
-	VaIvLl3UkfJvFC3DGvNSWdUesJvJdeS1lBtfj+0i0eVekUxj1/XP9yeEznNF/jMyb0sA/B1HX7+
-	hXVjJ1dmYUdDmfZ31zboZIiGkFTb4p3MbhtA/KDDY+wFDn7BTVDbeP90Xac2SG7cH9WvKBqTgsq
-	FSzyezWpWjrNAZphif4+I/j+Iu9ZUUquMy9OABmUIc7iUBOvncbZVRlxMTEaOpLZtT12fExbu6P
-	zxU7Uu1wIZ27wGH+NwdxS8goVpeFvKQ4Qy2HBQRiKiGeNTOnF3myb1QAT7H2ppI03ePMNZjk2wj
-	QSH9vBXZRyGsZqQp7R0E9MHl8DwfuvTNY5uqeHn2eDrJmNogLsho+fjzx1DpXH8blnevrPbIRhN
-	vQlPQNC6S2UOlUUg=
-X-Received: by 2002:a05:7022:1586:b0:199:e38c:29a0 with SMTP id a92af1059eb24-1b55690e6e8mr13031567c88.31.1795443598397;
-        Mon, 23 Nov 2026 06:19:58 -0800 (PST)
+        bh=mXV6+GG0z8PCuL6UAZBUPBZ1GbikKdS6r0oEptKGfNs=;
+        b=i08yVu3zl7EB1tcItZpCGyHr2KAhgZvwt5XYsoecTFqTbSH4tcb0kH4FT4LHvoxLVg
+         Bwd64DQ6Fph3W54FcYqkwW0oUskZ+ETKL6uLi0t1/hlDOCbWiLj59B/BEPJUx2kuNdPD
+         WXLKs+MCoVt2UzB83FiRCE3GEYGx5jFQFvM4kV3SAgBAiA40vVkaorNKZruf3Tz7IAaz
+         i7A8+e1Av2PLFsjUR28Fz6S8Yk1VwHYs8KoMhrTbhVF4Hmhn5A6f1ZDwnjlz1PPmje2E
+         /RILP2hqsKI/5oJAipKUJQjoA5E/Ts5qBf7EoOPfrondWhe2nB7J2kbBwzlupgAAIzLo
+         hNhw==
+X-Gm-Message-State: APuU4Z/zB5loH5Ed1WtDyReK1zD1XeCrhFcoB0PF1xTnv8DXoIdqu/Pv
+	cJQSFcPONKJCDo+kfFAD1vXadC/V9KkwCluNKkgGPng60Mz9Kqr+c5ng
+X-Gm-Gg: AZFdTZdycbLfp5TvJvA9ZysP2GPdPMGSqyhCQDbAhPGqeOgeFtBQkSnaWroDrhqbVdd
+	dCvY1YE4JcUHW3nUgynuytSa/qrxeMPhB90vv12Vi8S51XdL/wr8NMpJCwDQRyGo6AXcJAzrBYf
+	F/z69mPyNTUgVe3Qkya6abxU8bmBIOKDC1K5WQ1eo9hIi7dDaNMpc3oYOpv5y8pOJuwKLFUHl3i
+	zFVDGYfJpZgwiTkaMdbTp5iTG9uANaIhlBzxo3Z0/wYZLBOqaKVxohfM80Uev1Tj3J9tiBrY8y8
+	D+WMQERpAA2CA+LwYNgF6p9LjChGF/tkeNsTBEEg/ARKdLt4qiYi4bRWLeEMVr53IpFgMPCZe9C
+	MwiVT8cQJLGEzA5Pv7nJ81H4Fx7BSCQWV+4CBFJTXpqpj/Sei3NkQe53n1J7BTpzjqJGfY1HdzB
+	ojCh88mfWrPA2EWuBjCfz0HQb57FYIFXFFdYgh9e+Ln+jgggLETOVsVg0tsTjHgeHuefbTZ3DqF
+	UBqS/KMmLFUXnFdUm70N17RKhvjRXbv8DD6QEvGS3LKltqsOejIlIz8wkbo0GhhergUIXEG+NSe
+	qY5qMvvvQWbgPC6QEvo5znJNufX1N1OBS5Lt0mCh/ic98swDc1pseYdclB3HvnZrU05f
+X-Received: by 2002:a05:7300:8282:b0:385:af7b:d788 with SMTP id 5a478bee46e88-385af7bda3emr10643390eec.2.1795443614142;
+        Mon, 23 Nov 2026 06:20:14 -0800 (PST)
 Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm29427377c88.12.2026.11.23.06.19.51
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38577214c2dsm35579857eec.17.2026.11.23.06.20.05
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 06:19:58 -0800 (PST)
+        Mon, 23 Nov 2026 06:20:13 -0800 (PST)
 From: Lian Wang <lianux.mm@gmail.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -95,9 +94,9 @@ Cc: linux-kernel@vger.kernel.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v5 17/19] mm/swap: advance the global queue cursor directly between priority rings
-Date: Mon, 23 Nov 2026 22:19:47 +0800
-Message-ID: <7d2e42d489849716d6a4a3b906673959e6d9a28d.1795439990.git.lianux.mm@gmail.com>
+Subject: [PATCH v5 18/19] mm/swap: skip reader rotation for single-device priority rings
+Date: Mon, 23 Nov 2026 22:19:59 +0800
+Message-ID: <e2a77e8a6c81c5cf56694b18f8e27b038055ddd4.1795439990.git.lianux.mm@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
 References: <cover.1795439990.git.lianux.mm@gmail.com>
@@ -112,142 +111,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The allocation walk previously passed a total retry index to the selector.
-Each retry translated it back to a priority ring by scanning from the
-beginning of swap_queue. Keep the ring index and the number of attempted
-peers in the task-local cursor instead.
+A priority ring with one device cannot benefit from rotating its starting
+offset or maintaining a quota. Read its only entry directly while the
+caller continues to hold the topology read lock and migration protection.
 
-Snapshot the starting device only on the first visit to each ring and
-advance each peer exactly once, including masked entries. Preserve the
-large-folio same-ring boundary and the stale reader-offset correction.
-The selector's complete walk is linear in the devices and priority groups;
-device cluster scanning and availability updates have their own costs.
+Consume the cursor attempt and check the full/disabled pointer tag through
+the common path. A masked singleton therefore terminates or falls through
+with the same bounded behavior as a multi-device ring. Keep the existing
+large-folio same-priority failure boundary.
 
-Keep the topology read lock and CPU migration protection across the walk.
-The global selector uses only existing priorities and adds no per-memcg
-device-selection state or ABI. Existing swap charging and limits remain
-in folio_alloc_swap(), whose failure path classifies allocation errors.
-
-The walk no longer returns an ignored internal error to that caller.
+This removes reader-local state updates for the common single-device case
+without bypassing device lifetime or availability checks.
 
 Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 Signed-off-by: Lian Wang <lianux.mm@gmail.com>
 ---
- mm/swapfile.c | 51 ++++++++++++++++++++++++---------------------------
- 1 file changed, 24 insertions(+), 27 deletions(-)
+ mm/swapfile.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/mm/swapfile.c b/mm/swapfile.c
-index 0c4452fa53ae..5a8663e9f954 100644
+index 5a8663e9f954..91de93043500 100644
 --- a/mm/swapfile.c
 +++ b/mm/swapfile.c
-@@ -194,10 +194,10 @@ struct swap_queue_reader {
- };
+@@ -333,6 +333,11 @@ swap_queue_get_device(long nr_alloc, struct swap_queue_cursor *cursor)
  
- struct swap_queue_cursor {
--	bool valid;
- 	bool no_fallback; /* Do not descend to a lower priority ring. */
- 	unsigned int ring_idx;
- 	unsigned int offset;
-+	unsigned int nr_iter;
- };
- 
- static __percpu struct swap_queue_reader *swap_queue_readers;
-@@ -307,37 +307,39 @@ static void swap_queue_install_readers(struct swap_queue_reader __percpu *reader
- 	swap_queue_reset_readers();
- }
- 
--static struct swap_info_struct *swap_queue_get_device(long nr_alloc, int nr_iter,
--						      struct swap_queue_cursor *cursor)
-+static struct swap_info_struct *
-+swap_queue_get_device(long nr_alloc, struct swap_queue_cursor *cursor)
- {
- 	bool rotate = false;
- 	struct swap_info_struct *si;
- 	struct swap_queue_reader_head *head;
- 	struct swap_prio_ring *ring;
--	unsigned int dev_idx, queue_idx;
-+	unsigned int dev_idx, queue_idx, nr_iter;
- 
--	if (!swap_queue_len)
-+	queue_idx = cursor->ring_idx;
-+	if (queue_idx >= swap_queue_len)
- 		return ERR_PTR(-ENOENT);
- 
--	queue_idx = 0;
--	while (nr_iter >= swap_queue[queue_idx]->size) {
--		nr_iter -= swap_queue[queue_idx]->size;
--		if (++queue_idx >= swap_queue_len)
--			return ERR_PTR(cursor->no_fallback ? -E2BIG : -ENOENT);
--	}
--	if (cursor->no_fallback && cursor->ring_idx != queue_idx)
--		return ERR_PTR(-E2BIG);
--
- 	ring = swap_queue[queue_idx];
-+	if (cursor->nr_iter >= ring->size) {
-+		if (cursor->no_fallback)
-+			return ERR_PTR(-E2BIG);
-+		queue_idx = ++cursor->ring_idx;
-+		if (queue_idx >= swap_queue_len)
-+			return ERR_PTR(-ENOENT);
-+		cursor->nr_iter = 0;
-+		ring = swap_queue[queue_idx];
+ 	/* Consume masked peers too, so every walk remains bounded. */
+ 	nr_iter = cursor->nr_iter++;
++	if (ring->size == 1) {
++		si = READ_ONCE(ring->dev[0]);
++		goto check_device;
 +	}
 +
-+	/* Consume masked peers too, so every walk remains bounded. */
-+	nr_iter = cursor->nr_iter++;
  	local_lock(&swap_queue_readers->lock);
  	head = this_cpu_ptr(&swap_queue_readers->heads[queue_idx]);
  	/*
- 	 * Snapshot the starting offset for this walk. Other allocations on
- 	 * this CPU can move the shared head between retries.
- 	 */
--	if (!cursor->valid || cursor->ring_idx != queue_idx) {
--		cursor->valid = true;
--		cursor->ring_idx = queue_idx;
-+	if (!nr_iter) {
- 		if (head->rr_counter < nr_alloc)
- 			rotate = true;
- 		else if (head->offset >= ring->size)
-@@ -1845,29 +1847,25 @@ static bool get_swap_device_info(struct swap_info_struct *si)
- 	return true;
- }
+@@ -361,6 +366,7 @@ swap_queue_get_device(long nr_alloc, struct swap_queue_cursor *cursor)
+ 	si = READ_ONCE(ring->dev[dev_idx]);
+ 	local_unlock(&swap_queue_readers->lock);
  
--static int swap_alloc_entry(struct folio *folio)
-+static void swap_alloc_entry(struct folio *folio)
- {
- 	struct swap_queue_cursor cursor = {};
- 	long nr_pages = folio_nr_pages(folio);
- 	struct swap_info_struct *si;
--	int nr_iter, ret;
++check_device:
+ 	if (swap_device_masked(si))
+ 		return ERR_PTR(-EBUSY);
  
- 	percpu_down_read(&swapon_rwsem);
- 	migrate_disable();
--	for (nr_iter = 0;; nr_iter++) {
--		si = swap_queue_get_device(nr_pages, nr_iter, &cursor);
-+	for (;;) {
-+		si = swap_queue_get_device(nr_pages, &cursor);
- 		if (IS_ERR(si)) {
--			ret = PTR_ERR(si);
--			if (ret == -EBUSY)
-+			if (PTR_ERR(si) == -EBUSY)
- 				continue;
- 			break;
- 		}
- 		cluster_alloc_swap_entry(si, folio);
- 
--		if (folio_test_swapcache(folio)) {
--			ret = 0;
-+		if (folio_test_swapcache(folio))
- 			break;
--		}
- 
- 		/*
- 		 * For large allocations, try every device at the same priority,
-@@ -1882,7 +1880,6 @@ static int swap_alloc_entry(struct folio *folio)
- 
- 	migrate_enable();
- 	percpu_up_read(&swapon_rwsem);
--	return ret;
- }
- 
- /*
