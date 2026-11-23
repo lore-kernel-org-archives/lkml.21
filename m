@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445901;
-	b=1M/25s49FYdqVmpl9AI1Oro6oPLfu+YN/N9FmrbxvBfEMELmueXsnLPoU9dq7IoEv+MF
-	 RNXNzGYcDAZGEIe9JrDWp7AvvaRicQ1hGLwsR+YUhoVsTqP9+d1CiTqhxEMZAZkF04752
-	 c8ZG8mFStzVHnQH6hcAcbVz10581EGhpwpb7UwF2TeJdGBu96tQ8+/duQW0tAZ9FfnlHy
-	 s7NZIVOl0QPcBG5/5AM0LmKV2zgAuOFNDQN+QjRmPm34bTxCcM+y5qL7uzfZsv5d3+zwJ
-	 /YbPA3+twJW2SzYeooyOQdBj4t3z+OYtgLfnN6Ti+qBiZvtqN8o7l0Wz/8Gtczz/lMA==
+	t=1795445897;
+	b=VRMt+UNAYisSckHz7TBrJGNsR6CZzgX8kOx3QH93YBUVIXJHZTG1NFL7PNZMZC8Abixa
+	 Y5b+dopTtAA66SD/whO71IGFiYrzQJujPVQfBVVgFnj1/0Opu++hFZfIO5e9mngi+fDHv
+	 V0n3SSJeYqUDsRlRF2Ym9iSWg68IMBBP0gh9P7JEl8L2sj+MaZITXz8B1kLj+Z7RFaJxE
+	 ESjcbylalocI8g8ugNYY5dYwRXbabCKRI0JLmSRnBgQBiwXkOwZJYlg8juoYef0ZrPKn8
+	 Zl2jJvWltjYIn19BVIBAzwc8OTwQN2GJUv/TiCyEu0nf1WByBXfxYYHdCOzzvdaIp/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445901;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445897;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=os7fOfDtBzM5fGsJLR1+t01eUnVG/fiCJOyHPbpqHtA=;
-	b=r5dkZLs3g10L6SYpp3D0WFOyUEmoSBej8rE2lVV7fOEEu+7v9EJFTpRIdp9Ocb4JCcq/
-	 szK28Wyj7mYDK7DdeKc/U3Gx0q2jWw1Q7Ufm8S0U73JY8epHEPm9jCeY4hhmSOlz0qIUV
-	 cV4ruQEsVoGHmMasjbjPjyuNjA+P675XOx1dbGMSOa5VKcomspLtCWqpCiLwgCDwbhoQB
-	 rHhLcJf9dHVK7uygzFdHHR5xGfpKFSmyv18KU4oMmqrUpIqAZ432cIDF5qWrV//0r7jao
-	 WhtGgaaaUC/rw+xs74Ie3aVTrdzN8mEHmsIh9W7g8OMwYdhjgEc0x7p5ag1m3XCIi7g==
+	bh=FPZIAOyVkBpe9724KFBEseTEXrvfOC8DdMEfIRc3mW0=;
+	b=bQDDgIySMofO7Lda1zpVeGd/zhOv2BsZO4H6KYgBvtEa97h/X2i2JbOQIjpzyZm+4HJ+
+	 X/zpynKFEexf57DQnl/CWZXBeeF9donWNp3tVOV0WXaf5Hp0O2SIgpExQRtQTRnVlveWH
+	 mFp9Syd/gAVE2zI1C4K9FaxrIkvJX7HeIHjotWUvSqgipwhxeGHML9kucQVXSNTDzgyNX
+	 KhSX8ICyowFLd59GEwYQCINcFzDY/MlM1oO19PQ0ZYViwCKO9vv3YkIEiKAcpAJQaOxdy
+	 xPu8QD45IA2vrGRVgHgFeT00NJRm/84cWtyRHoRRidQOC/iKBtcL6XuboN5LRxQKxeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I1IgZrU4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="V/8w1HJy";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A32606A33D;
-	Mon, 23 Nov 2026 14:58:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94261606A686;
+	Mon, 23 Nov 2026 14:58:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I1IgZrU4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0F3A1F0093C;
-	Mon, 23 Nov 2026 14:58:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V/8w1HJy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27E101F000E0;
+	Mon, 23 Nov 2026 14:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795445900;
-	bh=os7fOfDtBzM5fGsJLR1+t01eUnVG/fiCJOyHPbpqHtA=;
+	s=k20260515; t=1795445897;
+	bh=FPZIAOyVkBpe9724KFBEseTEXrvfOC8DdMEfIRc3mW0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I1IgZrU4sHU6197FiWiR9wAOGTGkqGbGOkkKlT4A6/zM+YQKtl20VeNQWcBUnwts5
-	 9L2gGgMlXq+pO0NPy3p4/YZ/zZHqGRNn9TEZDM9+Z2cKQdjM/hh0aoK21vz6gRxOjY
-	 yKo8hdw0HZ4zS09xyfVUZ3trjRM+dtYD8TfPM3ZU+PrX0/R2XGPTmBkJASy6zZAg1B
-	 pOt17DwFnrw10CSuwy8qaesl8dg4sLC6FuNxWuE2NdAdkm0H4IuiMsoQZSlXuSZnqv
-	 qAo/cm4Yd64/HgTwP+2tS0onlHps1ync7FBvOLX+1WgHTwIF9KwX59ulkDZw5K2yuc
-	 Ra989EHZ0io4w==
-Subject: Re: [PATCH net-next v3 7/9] net: sparx5/lan969x: scale the queue
- watermarks with the MTU
+	b=V/8w1HJyKKGk5SG83M1yFhF2ndXhArzdL3D75APUkUnKLwRit1vAWVeOUcwQ4kJ+J
+	 92c8Gn/1JCZi+6EtsvYV3dJbUAYzwx1ZxjxHQAZP5RDXokul3bNbYjnOQ7jHZBJedQ
+	 ZJKWNVD7cqHjfYzE+KAccOtGFGOFoBIx8BP9lPOZOg834/UaxFYQC0Uuu/O0ircNum
+	 E2GM966N6bXdZXh1va5IjDdnOh95Q7w81l4Qhks+1dB1anJMYEsGi65GGH4m2UedNY
+	 POlyTNXLYMl2a/Y+2B/pz+TgcoxajLuB6upGoQjds1TRCO4c1rj4fXTwsDgMqEqcCk
+	 +PQ1HA+lmDGCg==
+Subject: Re: [PATCH net-next v3 5/9] net: sparx5/lan969x: size the FDMA
+ buffers from the port MTUs
 From: netdev-bot+sashiko@kernel.org
 To: daniel.machon@microchip.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
@@ -51,11 +51,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  linux-kernel@vger.kernel.org, robert.marko@sartura.hr,
  horatiu.vultur@microchip.com, jensemil.schulzostergaard@microchip.com,
  horms@kernel.org
-Date: Mon, 23 Nov 2026 14:58:19 +0000
-Message-ID: <179544589953.3135.16152141389643791611@kernel.org>
-In-Reply-To: <20261120-sparx5-mtu-change-v3-7-55c272fe1acc@microchip.com>
-References: <20261120-sparx5-mtu-change-v3-7-55c272fe1acc@microchip.com>
-X-sashiko-severity: Medium
+Date: Mon, 23 Nov 2026 14:58:15 +0000
+Message-ID: <179544589573.3135.16010204842375196022@kernel.org>
+In-Reply-To: <20261120-sparx5-mtu-change-v3-5-55c272fe1acc@microchip.com>
+References: <20261120-sparx5-mtu-change-v3-5-55c272fe1acc@microchip.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -68,10 +68,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 (1) · High: 1 · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -79,110 +79,153 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] At this commit (and at the next one, "scale the TAS guard band
-  with the MTU"), sparx5_port_wm_set() in…
-- [Low] This commit adds sparx5_port_wm_update() (sparx5_port.c:717) as a
-  non-static function with a prototype in sparx5_port.h:94, but nothing…
+- [High] net: sparx5: UAF of two-step PTP skb on TX drop in
+  sparx5_port_xmit_impl()
+
+Pre-existing issues:
+- [Critical] Use-after-free and double free of two-step PTP skbs on the
+  Sparx5 TX drop path.
 
 --
 
-net: sparx5/lan969x: scale the queue watermarks with the MTU
+net: sparx5/lan969x: size the FDMA buffers from the port MTUs
 
-The commit now computes the QSYS PAUSE_START, PAUSE_STOP and ATOP
-watermarks from the port MTU, plus the Ethernet header, FCS and two VLAN
-tags, rounded up to whole buffer cells. Before, they were fixed multiples
-of a 1518 byte frame. The watermarks are programmed at port init and when
-pause is resolved. The commit also adds sparx5_port_wm_update() for MTU
-changes and a per-port wm_lock.
+This commit sizes the Sparx5 and lan969x FDMA buffers from the largest port
+MTU plus the Ethernet header, FCS, IFH and two VLAN tags, rather than a
+fixed single page. On Sparx5 the RX and TX DB size is that length rounded
+up to 128 bytes, and sparx5_fdma_xmit() now drops frames that do not fit.
+On lan969x the page_pool page order is derived from the max frame size.
 
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-> index 701d310df0ba6..87aa0b7841359 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-
-[ ... ]
-
-> @@ -676,24 +679,53 @@ int sparx5_port_fwd_urg(struct sparx5 *sparx5, u32 speed)
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> index 537c945409bba..b92d249777f0b 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
 
 [ ... ]
 
-> +/* Pause start/stop and tail drop at 6/4/20 frames of the port MTU */
-> +static void sparx5_port_wm_set(struct sparx5 *sparx5, struct sparx5_port *port,
-> +			       u8 pause)
-> +{
-> +	u32 len = SPX5_HW_MTU(READ_ONCE(port->ndev->mtu)) + 2 * VLAN_HLEN;
-> +	u32 cells = DIV_ROUND_UP(len, SPX5_BUFFER_CELL_SZ);
-
-[Severity: Medium]
-At this commit, can port->ndev->mtu drift away from the MAC max frame
-length?
-
-sparx5_port_init() still programs a fixed max length:
-
-	sparx5_port_max_len_set(sparx5, port, ETH_MAXLEN);
-
-sparx5_port_netdev_ops has no .ndo_change_mtu. With the ether_setup()
-defaults (min_mtu 68, max_mtu 1500), the core writes dev->mtu directly
-and no hardware gets reconfigured.
-
-Suppose the MTU is lowered to 68 with ip link. The next link-up then runs:
-
-  sparx5_port_config()->sparx5_port_fc_setup()->sparx5_port_wm_set()
-
-That gives len = 94 and cells = 1. PAUSE_START becomes 6 cells,
-PAUSE_STOP 4 cells and ATOP 20 cells.
-
-The MAC still accepts 1518-byte frames, which take 9 cells each. With TX
-pause enabled, wouldn't one full-size frame go past PAUSE_START, so that
-a pause frame is sent for every received frame? ATOP would also drop to
-about two full-size frames, which means heavy tail drop. That is the
-problem the commit message describes, only triggered by a smaller MTU
-instead of a larger one.
-
-The problem is also present at the next patch, "scale the TAS guard band
-with the MTU". The final patch of the series, "net: sparx5/lan969x: add
-support for changing the MTU", fixes it. It adds
-sparx5_port_change_mtu(), which returns -EOPNOTSUPP when FDMA is not in
-use. Otherwise it calls sparx5_port_max_len_set() with
-SPX5_HW_MTU(new_mtu) and then sparx5_port_wm_update(). So this only
-affects the intermediate bisection points.
-
-Could the series be ordered so that the watermarks and the MAC max length
-stay in sync at every commit?
-
-> +	u32 pause_stop = 0xFFF - 1; /* FC gen disabled */
+> @@ -224,6 +223,10 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
+>  	struct fdma *fdma = &tx->fdma;
+>  	void *virt_addr;
+>  
+> +	/* Drop frames that do not fit in the TX buffers */
+> +	if (unlikely(IFH_LEN * 4 + skb->len + ETH_FCS_LEN > fdma->db_size))
+> +		return -EMSGSIZE;
 > +
 
-[ ... ]
+[Severity: High]
+This is a pre-existing problem in sparx5_port_xmit_impl(), but the
+new -EMSGSIZE return makes it much easier to hit. What happens to a
+two-step PTP skb that fails here?
 
-> +}
-> +
-> +void sparx5_port_wm_update(struct sparx5 *sparx5, struct sparx5_port *port)
-> +{
-> +	mutex_lock(&port->wm_lock);
-> +	sparx5_port_wm_set(sparx5, port, port->wm_pause);
-> +	mutex_unlock(&port->wm_lock);
-> +}
+sparx5_port_xmit_impl() calls sparx5_ptp_txtstamp_request() before
+ops->fdma_xmit(). For two-step PTP, that puts the skb on
+port->tx_skbs with skb_queue_tail() without taking an extra
+reference. It also increments sparx5->ptp_skbs and port->ts_id.
 
-[Severity: Low]
-This isn't a bug, but sparx5_port_wm_update() is non-static and has a
-prototype in sparx5_port.h, yet nothing calls it at this commit.
-sparx5_port_netdev_ops has no .ndo_change_mtu yet, so the MTU-change part
-of this patch is not connected to anything.
+If fdma_xmit() then returns anything other than -EBUSY, the code
+jumps to the drop label, which only calls dev_kfree_skb_any(skb).
+Only the busy label calls sparx5_ptp_txtstamp_release(port, skb). The
+freed skb is therefore still linked on port->tx_skbs.
 
-This comment in sparx5_port_disable() also refers to an MTU-change path
-that does not exist yet:
+Later walks of port->tx_skbs happen in
+sparx5_ptp_txtstamp_old_release(), in the sparx5 and lan969x PTP IRQ
+handlers, and in sparx5_ptp_deinit(). These read SPARX5_SKB_CB() from
+freed memory, call __skb_unlink() through stale list pointers, and
+call dev_kfree_skb_any() on the same skb again. Isn't that a
+use-after-free and a double free?
 
-	/* 5: Disable Flowcontrol, and keep an MTU change from re-enabling it */
+sparx5->ptp_skbs is also never decremented for these skbs. After
+SPARX5_MAX_PTP_ID such drops, sparx5_ptp_txtstamp_request() returns
+-EBUSY forever, and two-step TX timestamping on the switch stalls.
 
-The first caller is sparx5_port_change_mtu(), added by the final patch of
-the series, "net: sparx5/lan969x: add support for changing the MTU". It
-calls sparx5_port_wm_update() after WRITE_ONCE(dev->mtu, new_mtu), so the
-READ_ONCE() in sparx5_port_wm_set() picks up the new MTU.
+Before this patch the Sparx5 TX DB was PAGE_SIZE. The drop path could
+only be reached through the -EINVAL ring-full return here, or through
+the -ENOMEM DMA mapping failure in lan969x_fdma_xmit(). With the
+default MTU of 1500, db_size is now
+ALIGN(1518 + 36 + 8, 128) = 1664. Any two-step frame with skb->len
+above 1624 now takes the drop path every time.
 
-Could the helper be added in the same patch as its caller?
+Such frames can still reach a 1500 MTU port, for example through tc
+mirred or bpf_redirect from a device with a larger MTU. They can also
+arrive when the MTU is lowered while larger skbs are already queued,
+which becomes possible later in this series.
 
-[ ... ]
+The commit message relies on this drop path. Should the drop label in
+sparx5_port_xmit_impl() release two-step PTP skbs the same way the
+busy label does? Or would you rather check the length before
+sparx5_ptp_txtstamp_request() is called?
+
+[Severity: Critical]
+This is a pre-existing issue, but this new return gives a second,
+deterministic way to hit it. What happens to a two-step PTP skb that gets
+-EMSGSIZE here?
+
+By this point, sparx5_port_xmit_impl()->sparx5_ptp_txtstamp_request() has
+already put the skb on port->tx_skbs without taking a reference:
+
+sparx5_ptp.c:sparx5_ptp_txtstamp_request() {
+    ...
+	skb_queue_tail(&port->tx_skbs, skb);
+	SPARX5_SKB_CB(skb)->ts_id = port->ts_id;
+	SPARX5_SKB_CB(skb)->jiffies = jiffies;
+
+	sparx5->ptp_skbs++;
+	port->ts_id++;
+    ...
+}
+
+Back in sparx5_port_xmit_impl(), only -EBUSY goes through
+sparx5_ptp_txtstamp_release(). Any other negative return frees the skb
+while it is still on the list:
+
+sparx5_packet.c:sparx5_port_xmit_impl() {
+    ...
+	if (ret == -EBUSY)
+		goto busy;
+	if (ret < 0)
+		goto drop;
+    ...
+drop:
+	stats->tx_dropped++;
+	sparx5->tx.dropped++;
+	dev_kfree_skb_any(skb);
+	return NETDEV_TX_OK;
+busy:
+	if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&
+	    SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)
+		sparx5_ptp_txtstamp_release(port, skb);
+	return NETDEV_TX_BUSY;
+}
+
+The next two-step request then walks the list in
+sparx5_ptp_txtstamp_old_release():
+
+	skb_queue_walk_safe(&port->tx_skbs, skb, skb_tmp) {
+		if time_after(SPARX5_SKB_CB(skb)->jiffies + SPARX5_PTP_TIMEOUT,
+			      jiffies)
+			break;
+
+		__skb_unlink(skb, &port->tx_skbs);
+		dev_kfree_skb_any(skb);
+
+Does this read the cb of the freed skb and then free it again? The TX
+timestamp IRQ handler can also find the stale entry. ptp_skbs and ts_id
+also stay incremented, so can the PTP ID pool run out?
+
+This path could already be reached through the -EINVAL return when the
+next TX DB is not done, i.e. when the TX ring is full.
+
+With this patch and the default MTU of 1500, db_size goes from 4096 to
+ALIGN(1518 + 36 + 8, 128) = 1664. A two-step timestamped frame longer
+than 1624 bytes used to be sent, but now it always takes the drop path.
+Such frames can still reach a 1500 MTU port, for example through tc
+mirred or bpf_redirect from a device with a larger MTU.
+
+The commit message says it will "make sparx5_fdma_xmit() drop frames that
+do not fit", so it depends on this drop path. Should the drop label in
+sparx5_port_xmit_impl() call sparx5_ptp_txtstamp_release() for two-step
+PTP skbs, the same way the busy label does? sparx5_port_xmit_impl() is
+still unchanged at the end of the series.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
