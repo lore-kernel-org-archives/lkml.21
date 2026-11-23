@@ -1,114 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.157
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795399734;
-	b=QGNS+4Kkc3Dvtv41l3TUOPaECqMAKEk0Z1/JN97hl8siVuIwDmW386Gn9uzb7ND2Xe9S
-	 iAAfFc8B1yrigVsN1pILJwfvDDg58sfhwRRR26Q5ps8BXTWEeZ6YM3buozWp/5K1ksvRS
-	 v1cPiZA3trg3VQOtq9ONxzqC0r7cegQEf9wjOovc+lacm70LqX3sgMsR+j/g+SNCx8DIK
-	 E9MA2EpBtLDeQjyp/DapXRGMHkC2Pkg6a7k096Gqs9yrX70UGZx4zgDMduyfcY9v6CkjD
-	 dLswpC5Eup9VdZFBxMH4kWgW7ikjKje51DC+6ch5hcYp8wYSUjRNA/7u8kWW3/W6jSg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795399734;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
-	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
-	bh=ooxMvdZXMju3msGTAmKvtfVxQuizzxh7ftVHrTzzQ/c=;
-	b=kdGy7Uu/Q/BtMSVC5i+6nmz6sGLTp1xkYVtipITLXs4a9/COPbkpz9RUY5jIXCOTyIT0
-	 htUaIHO8alChTxI6gdwlu9+rap0zKwR/zVTvQn8hXS/fJ3zAFqIxZRrdskXpOdadOBLs8
-	 gtN7yMgoE16R/2veC7lo19geWTwHH+gJk5y1B+V46iIhdAVq+Qr1B05IABmLHF2lxXwUs
-	 9iHiY/zWg3YjsLmHnlZ19AM9cWuiKCuhN1+77hvTCyj2q/4M1tqvB8Wep3nLRvY5QB3G7
-	 /R+GBsO4osjJGD+4JPqpw2qYPK06t/bEMXgnoOsogcRSl4IVA4sia4Rhi2MosmGLcww==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=n9gueB8s;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=czXj2zpV;
-	arc=none smtp.remote-ip=202.12.124.157
-Received: from fhigh-b6-smtp.messagingengine.com (fhigh-b6-smtp.messagingengine.com [202.12.124.157])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.35
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795399809;
+	b=bOs3zbJsX0VI7rcRexby2V8nqkf4Rd5Del7v0CxLTRMSyxJDi8kC6quQhcNNecKo/lvJ
+	 nUkHxUdxeWHqArpaYXBlgMfgDoeQTPpouY3ddR8qU59vrspCm48Sh53z0tztTKAiX3GeN
+	 E2xpQdb8kVY8tP3pgXedMZ2nr2DN3J13IvEM9oZSA6btav818WAinBlR+NKovpAx+NMpy
+	 f2lx4a4kCKZcCTDZTDrimpu707S7v4q33c/ouL0yagJ9IeX1MzH5U0pauR7c+5uZIGEEG
+	 KVYSjvpSr4/UjEdnDP+qU5eA9PhQewFfxNYUxZ2aocFwxvE0sYg7uHo7e1uAAhLkRug==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795399809;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=VH925w7kfPGgKZNc3IozKt6lC0v4s7yTNNHwbQ8PpuI=;
+	b=p9N2CIY4YbdBlMK2i7mm1K3T+nLOuTA+tfX4FAywi3oLVqM2IcDgz+g7LVJPfq8Yl3X4
+	 mN9+CjvYE3r415quBK0LLMPIycwV0REVx5eDYwpLAF4VB6kXj9kwPNiehMYBZHzUB/2Ms
+	 h+u+W/J+0k/l+wVc6eeEZRIumH3gHFDUZIDIbSZ5RwLtNBjjgUiOW+1RWFndmcDMsb3lY
+	 +UnOTF6fGOG8bBmhneVrRs9Zx5HWXsmgkcN0M+FDCpSiHk1y1a34LBpuxr2m4XRyhjzBe
+	 g0h8rj9LMuH5OQsN6uqKr9RDy20P2uscjIju0rwhkmtqNplvOumM1asZpClk9B5n4Dw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=iregM1w4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.35
+Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013035.outbound.protection.outlook.com [40.107.162.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48CFB606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:08:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48CFB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B24F606A31A;
+	Mon, 23 Nov 2026 02:10:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B24F606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=n9gueB8s;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=czXj2zpV
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 8E2B77A03A8
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:08:52 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Sun, 22 Nov 2026 21:08:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
-	1795399732; x=1795486132; bh=ooxMvdZXMju3msGTAmKvtfVxQuizzxh7ftV
-	HrTzzQ/c=; b=n9gueB8s+iA5PrAg5jMelWY8XRukOio5KrRUwwI9Ud2G7rTSwpo
-	RzczQNwexLuZmOEYHUpEsasseI9sgfLWd8ZrRICcDI6tISgtbQzoQCMlAm9R+I7B
-	bipBFkGKektYI8X7qh1Nu5TmuYIx0/BOsevC/0/err2z2LqFwP6mk8wQ2sXgm4bQ
-	NBa5FjMZEPogS5RWH9va/sHX5QOVVFbunyIn2BmybaFfuP5LDqUOKFaH4PK1bwnj
-	JOgefS4JVDZEc0lDCpxTrBIOnN3gI4QR+znrbVUb5drUxwR9KEGZDplCPpI2ELnP
-	ENZQmWoTKIEve0hU4/MVZWfcEFDRoaN3IWw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795399732; x=
-	1795486132; bh=ooxMvdZXMju3msGTAmKvtfVxQuizzxh7ftVHrTzzQ/c=; b=c
-	zXj2zpVAFo7XiFvd7wg3JGx1iWKro9ncdau6Eboa/p44ZNV2lZYai0Jyv2qVztNq
-	DTr5Qg4ClFTNVrpB7LYxeHI3jh9EuGNnljzbLcFJnJQdJWrFdcMXG5IsWM6wjYFD
-	m0pF0Nkf7hmfpmW9PmAIZm7OBWopX4VMKmu3aTStpTNxPvcGTPnnublfrCOSTIos
-	Bd7A94a2vdaV6qLrmSfxv+yF88kqkq6Qas6ANx+o1M4wyu55G88RcyfIFz2C9ds7
-	iWPo8FowLbszC1nPoRxJ+muXRvozZ60sMP+1F53Ma9SqCheCv8mXlCxKVfVRYsXY
-	Cck0Nnl58LhoDBsk/X85A==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795399732; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:HkH5KfldejueMWnsWXXkbATM+GZYDjw0wGrjX6gvlztHlJ1
-	9DWD7BeQZiVDMRaAiSIpBwRPPsyI8mBaBQbd0pIcXyr+2AjT3hMRQJDZUNdqLFwQ
-	NTNTPGoENKun6TwTdBh5RPfCiejq8Sb+vHXl2ya5mH0L0CO74yQ6/RaTN708wMKy
-	oY5mahOrS8qBsqg+yNGF2EsQHppD7nfGQRbLYY1HWAvZ6qsxsvJZT07ClupwLs/s
-	gRFe9zm0fUVEYrvQoCOrZqLHKHMlWtycreWIpKMxSRCbjLVOUQG7j6BpY5iLfII2
-	uZZnRAIfrygfqCq+ucU1JnhVZI2C/RZWT/lSSgQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,reply-to,
-	subject,to;
-Message-Instance: m=1; h=sha256:fSkPfXsYE/29bpqoux9Sb00xe2WdRT5y5ocHkmMVaDY=:0B0R4a0Uxs8mO8xU1NS2W7JyQlf1V5qQb/qqBvheRXY=;
-X-ME-Sender: <xms:M6ADaz-D_um56qWNVRdxKN30k79sV_iKSs-NFcJpaZrKh_4_yDsEqQ>
-    <xme:M6ADayRcEB6m7TXohpNNDK3sUgGxN8r2VnqZBm__lEhBRDtSTcq3MYl9ViU7HOMm8
-    7pKs43jwLB54StrpVYxainx1l2BsIWnctgLErqx_AG2XJrXklQ>
-X-ME-Received: <xmr:M6ADa0poDTA0vo-yeUGL-WEteC_sQ_1GQYVEADdtGb-mRH9XxjXZrF_zGTAe69ZgiSBuVeKDvgUGC5bxnyEx5dv6a2k3bTQ>
-X-ME-Proxy-Cause: dmFkZTGZpma1LXTEdkMh92n9ALRzM3tfBPhC16pjSbsHa8ntcNq6/iu1QYyKVgIRZnL8AQ
-    9FPgZC5un1n7N8IyLHFWo4O0ZY0vUbzbSVAuOYxyM8uZzPGSqW+z+pedlPQJ6dFOUtjcT7
-    MmNPrfqwhsPqiAO9I6CZ5EzdkBqbcZz8lGd5d9pDzEqVuYBDSLcuM8GXMDEcvHWbJ75zCa
-    RoT9dMREvK9wYnKfls6MmDH/BaiIr76vcpSIR5zvpQkc3Hy5zXXn5+lC/s8tQIcOr/GwUb
-    WGQxO1f4FpGKQfxWQ+pN7AI4mLv/R0txYCiy7H1U/smXSpicCMZh+xVLNsVyMvx3GG0sXL
-    tdMu5rXD82dAUcZaQrkJYmBcKOYxu2tFl2J4Hid/z1BXGg6kAPEtk2ZPGiMgraEyWtBns6
-    V94C3evkxsuL4BI/TVI6RpYPH6JNH/1f8UDKNGak9syxmYnHU/PaY0JDaV7Vl2zpmzN05x
-    K7/tDVpp7YP/LYG0pireBRmhM3MeiYQuqQXFSxMHAHcIjazhQgjdtspBmSl7oqclQoX1d6
-    475BCn0cgteeYJoMKSJ3NAnfuUyvPCKzIO3MsH1o1Fe82OUVLNLcUfu8TJlIIctLf+iNqv
-    G1CSZs55B47/GVbvmuAWzfB1u37eycJcE2DyZ7OHJeA8kHTv+DDsgsDwuIhA
-X-ME-Proxy: <xmx:M6ADa_mYLN_N7btLPMlFZYMGnEFqqz7FFBnGjSLYS3kRvBYBpBdktg>
-    <xmx:M6ADa9cHeYwanuJr2aFP98v2Ot2rcUX6dYKkfcKzu6ndUdBGiA6hlw>
-    <xmx:M6ADa7o2aUoM_craC8bz0ilazehW-VPwZdl2Zq2ajzl9CUrH01H63A>
-    <xmx:M6ADa3Nldr6lsNU12PlGlFXnXljmOeHcFXiIF63ITP21g6FuzBiX2A>
-    <xmx:NKADa1taq4Wj8x2Evp11SNBmAnzr4JPTi2wJbltVwb40xFGMfPFnq6zf>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 22 Nov 2026 21:08:49 -0500 (EST)
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=iregM1w4
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ME4dp/Jejg4dkWNb9hlWW9IaqnraYaGak2Z/HHjI6IKulg0JOCpl9fnDwsgHADYRXndzLIY9BPhDjcA4xA2eS5GRZuAxmACQEay//TWAvN8IY+tYms9fXMZ3KU0qoHRIkScnhYAqp4axMdEx8UtYvR+6p0C21xKPvwgCE3Sp9WZxNR8LtBb/6bLfDCH3D6+KOzS7ERVdIk/Q7mZiGzp9+GBONGjD84DQ+reM4GVVfM0FD1EbUpYWe4yEAxIQF0Z0ywfBQgYAzLb/bayty86a7Z/Bx5R8a+qhP+A4YHq72V42rDYgX6lEmpz/tKrO4TQlPMey8OHS8YQ5ZfmHmteeaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VH925w7kfPGgKZNc3IozKt6lC0v4s7yTNNHwbQ8PpuI=;
+ b=TdgkwOb4/NzHhF1C8mgQn4NhWvkCFwaQQoKqGc1KDp2A+pRFZ5aGORXy1NoRZf3/LU2sKAaNtpDwvA8qe01h9TPz1k8CC9g3OV6WrcCnYczTzg1Pom/7lSJdRLGS7p9O8ds3ZNxapHWmWsuj1ItGOMio8jWfSVznaW0H8zbvR8ba2qts4Nvq5FfgPGN/lawIWcyx9MQh1ypT47y2AhhR24tdRtENHwdDTNt9nlKs6E031N66qs7dx92uS7wdZ+XUItdUSeqdZ/1jU88kgfptaYyGV6RenWNRooXLuzs3j6mPffYSzVjmjw4F4HenWBHU6MKWADXbdwjILh9posMG0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VH925w7kfPGgKZNc3IozKt6lC0v4s7yTNNHwbQ8PpuI=;
+ b=iregM1w4bCW8n2seu8q4RRbsf1QXQNMNDkSj7mTmDJ/AaW77N2RIOc+8nW5HHK9nH67q9hyNV3qHJPTMCoSELMHeyBn04LlBMGvQvhbpMPvxaw2VhUBcjBsmSo61GxVGg8otFEVTAja9saqLUdld9iUCfwSDCIWWVWhyRDVsJy8dUQG3x5eQ+5x/gBvaDycOU6f3kjpuikypifjNj9IO5o2QW3ZID96y+axKbSPzUMB1mk0aFduFbI3PNTtNJco02fTvKY60MhzoYpJ0t+hRpzvf6mqJvnoy/p8XwQca5yXo7VemqnckHkCLKGxlMvfTh1DZalnSplUuNzYrxFrUGA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::22) by DB8PR04MB6828.eurprd04.prod.outlook.com
+ (2603:10a6:10:113::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 02:10:06 +0000
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 02:10:06 +0000
+Date: Mon, 23 Nov 2026 10:15:08 +0800
+From: Bough Chen <haibo.chen@oss.nxp.com>
+To: Joy Zou <joy.zou@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] arm64: dts: imx952-frdm: model CAN/GPIO selector
+ as gpio-mux
+Message-ID: <20261123021508.c2s6kxcev2b557no@shlinux89>
+References: <20261120-b4-imx937-frdm-v2-0-5e27ceec02df@oss.nxp.com>
+ <20261120-b4-imx937-frdm-v2-2-5e27ceec02df@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120-b4-imx937-frdm-v2-2-5e27ceec02df@oss.nxp.com>
+X-ClientProxiedBy: JH0PR01CA0133.apcprd01.prod.exchangelabs.com
+ (2603:1096:990:54::14) To PA6PR04MB11909.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,109 +103,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: NeilBrown <neilb@ownmail.net>
-To: "Jan Kara" <jack@suse.cz>
-Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Christian Brauner" <brauner@kernel.org>, "Jan Kara" <jack@suse.cz>,
- "Amir Goldstein" <amir73il@gmail.com>, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, "Ian Kent" <raven@themaw.net>,
- "Jake Edge" <jake@lwn.net>
-Subject:
- Re: [PATCH v5 2/5] fsnotify: update children flags only when adding mask bits
-In-reply-to: <mk7u4brorzgbyol7x4nyolufk3s3piqwqd5hnya3nhoq43d5ui@x5sdqeyrhde6>
-References: <20261119025942.2848130-1-neilb@ownmail.net>
-  <20261119025942.2848130-3-neilb@ownmail.net>
-  <mk7u4brorzgbyol7x4nyolufk3s3piqwqd5hnya3nhoq43d5ui@x5sdqeyrhde6>
-Date: Mon, 23 Nov 2026 13:08:45 +1100
-Message-id: <179539972541.1728055.8282722306710793371@noble.neil.brown.name>
-Reply-To: NeilBrown <neil@brown.name>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|DB8PR04MB6828:EE_
+X-MS-Office365-Filtering-Correlation-Id: 241ea47d-843c-4341-e5f4-08df4906e42c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|23010399003|22082099003|18002099003|3023799007|11063799006|56012099006|4143699003|261026121527099003|261026140227099003|261102123227099003|261028144727099003|261021123027099003|261022105027099003|261021121427099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	AxExdeUGkHvX6eQCiZptr11fKO0YqH5BsmtO+BIPRkKbEV9Me9lDA2dnihSf8bMjrVBTPi7pgXWFaow3FStWMT1vBP2Yo9jJRv7phBRXxG0mgfjIVkm6RI1SlqNp4JgLxPglOtrazYBIfRYKz2m1xPCSNvYoq/0lVGXxSrb79a3gy0YsxZ1xZ+VTKKflqrEGxsXI5VSkbIuLF4d1eUSpZxMoOF/CPlGMSt6s6en3p0hsgR15gfaI7MOx7b3x1QxfXCGdqU8ZkkmzECiAfDRaMGVRF0/5D4tqyX7YihoUmbVVuUCipg1hJuSgvqrO8b+tVCZ0bCiYItm8AzG4gemjtoErrQmntj5T9FTEbsugIB/pmZR6IGXLPO1cALf6Is+E2rFlnipCb8fkt/1/MfzLP13nLjBWfaXGnWK2NxQVJHiZb6aSfSMNcyCkmRpPSZTZq+dF2m1WHWIXNooqmpgbPIG+wGUL2GSwjyvJwJct0N4AOD1vkpZqr8GoA954y38AuTifK42h0GpZbwxsexPyw2KMQZfm1hiSccVgXMdlcufDendktpSFeoSDgwguzC1h50WTx1XGecoguFFUELBWBjAvqIVau7wVxIXvn92R04NfaHcYeWQileKhZWMpYdhufDxmzaN/HqHA8uNhENZPOcNfYki3Hqs4CeApWVUPKVY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(23010399003)(22082099003)(18002099003)(3023799007)(11063799006)(56012099006)(4143699003)(261026121527099003)(261026140227099003)(261102123227099003)(261028144727099003)(261021123027099003)(261022105027099003)(261021121427099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?0YDBxJdYtlcNrOK9QMsrPf48D4dU1aoSQg4A+ZhkotiKnhF8qxQhhvXnUung?=
+ =?us-ascii?Q?+YGKtQY1uJqC+pvV3gveF6DgLihjfK2Fqu4vAOFwMj62vdabTo/5/spGggdX?=
+ =?us-ascii?Q?g2Vgtmi86pekRLJT8yc5DJ2iRHX4floBdS1WLR+C6RKGKD+isYMJwRCtQ1Ql?=
+ =?us-ascii?Q?2TZgzC32yE5Rd/Mr4lAsMqSWUvOiDOTth/CLIoZsuOrasG8DekdAnmZB0FtG?=
+ =?us-ascii?Q?gUTr3/Lo0XPB3jZ8zov/9TJGqLUl5z0w4QylzskPqJuDQcSzQY4P3/eYQVIj?=
+ =?us-ascii?Q?YK6dCTHs6tdQsuAalTZWpqJH2fPNw4SiYRR5kgh2mW8bnMKfH/iqrcSbykN3?=
+ =?us-ascii?Q?aW93si/vbFLbo1eh6s07lipbiAeJhoECmoPYzs1XD9faTMJN1+prUqtdy5MY?=
+ =?us-ascii?Q?L77bi8vLmunLBhbVeY42u1/eqgG4lbWwY/FXBYV/Rfm9tHMkv0C3A5sIhmig?=
+ =?us-ascii?Q?FQelU3FM5nr7fbZs/xvMvHXVvCwMgFekeWLD8fC8mWOyAHZ2XutCAzCqfxMp?=
+ =?us-ascii?Q?Jl2NXLGWWL0UPc6cbX3IbbotdD6HrFrHftgey5p7icThUsb4X73UDL7lLPk8?=
+ =?us-ascii?Q?df18sMfveVJje50NZcuBt5ap3BbYqbhB3iGZ9qbErFNhGdcPad8rezdWsHZp?=
+ =?us-ascii?Q?ozRNgJa9BiG2SAu1Fy4jca1jTeyy389YGbYWqGPJk2kyyM6K5emDOyOxlTPZ?=
+ =?us-ascii?Q?LUYTiNCvPInHQWZnxdO+iJ2YDP0DpmzQvZeZZP+oXa1/ksoxSAnWXOzCFSpP?=
+ =?us-ascii?Q?GB2o/xLVMI8Vqc3mbreQVwQFupJXnIIVeJuWmcMM1TSsR9v6kgPUSYNmCllg?=
+ =?us-ascii?Q?kpxT+RJU5RehwZrD6AhfaUmJtzZ2UNA3OkkEjneWDcpzQpPKBNAUGq/GRewu?=
+ =?us-ascii?Q?W01QCLMwYGCP4eKV+q2z8bqvlmz32Qh6bbnCjbXaD9zgoNrYVVX1OLLp5iQ9?=
+ =?us-ascii?Q?Scb0Mm1QmAnqOK7hUNBVeQrdrIQPy1E2M2yF8DKCYroidzGS1gvAn6A2Hu0m?=
+ =?us-ascii?Q?vZOJGycQlu9l/65SomKV06w1RhDw2iN3rnKSnZHCz87qGvYdNkKF+jS5hBmP?=
+ =?us-ascii?Q?0JTdwas4h+NGUuN6xKHGTIHeS5k/kzt20yHZdANFIc/nvYHNqDhzmcnUF16f?=
+ =?us-ascii?Q?U0LkTfgbw/Jph1hoo2F0I6TN25fj9cm+4T7iWjm0AbZWgEViLyr1p/ScmXcF?=
+ =?us-ascii?Q?e+dieEaCGO82gk77F/5yRMDkcesdpdQTAcUvNY4g44dDss2hR9ktRjjJoG1l?=
+ =?us-ascii?Q?QsTSsfAxw1CBUvyoNRAqIuzx58Fe8nBXIPiTgxF3WWHsuYzX6xTHcElMnNVm?=
+ =?us-ascii?Q?WtDeDosswLY38kMmEwDmnXal7cXDXbzQYK/7e0dI7ilmWdrVwVHaWM5QOmui?=
+ =?us-ascii?Q?OKVpWGLe0EVHYpawctmb2ShqaV9VN6GRsSOwkl9GNBMjKbTGWMGIpXwcgSFP?=
+ =?us-ascii?Q?CBFaU5STKv9niOqM7/fT8Jx6uNOP/xSfyxBrGKvSD4WD9YfD5VDFevf6IMyR?=
+ =?us-ascii?Q?i9Hwn97TENUh5yNISc3S0bgCzXd8/a1fpmR0UYjRiKd5gYQsU4KUTMA4Nq6U?=
+ =?us-ascii?Q?lfB6CzTWd+4JZWxeynIMBgNUQS5rLaNsjxLXCDIuv90uldhJ08/IrwfAI/U3?=
+ =?us-ascii?Q?h8lZSy636ieZqs6qu8r6Q4jNJcNmelVEdwggFoLsMfIfWqxKW0+pzNq4w0Wh?=
+ =?us-ascii?Q?pMETVNJjOlsidI5V2ggpgXV0H5g7POWwJRiCi5DhSUhBQ3s7N6fN+WVkhC0x?=
+ =?us-ascii?Q?6rp1pDkj73YMsXGhjHPEkZxzZu50W4VG6bE3vQ98KEYD6HLwe2f3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 241ea47d-843c-4341-e5f4-08df4906e42c
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 02:10:06.1120
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wr2BMTeixXRiQ8CGGrso1Mi5OaK8onBOJPc9fCQcVbV8Lmlx/o8LPflzD3aKi32bBaCUPJjNU8GVtVVS/2OCVxCq8Lsizqt+pHbd9ziXxjlv2seSkDIwTNLECVLUbNAJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6828
 
-On Fri, 20 Nov 2026, Jan Kara wrote:
-> On Thu 19-11-26 13:57:02, NeilBrown wrote:
-> > From: Amir Goldstein <amir73il@gmail.com>
-> >=20
-> > Since we only ever set the PARENT_WATCHED flag from
-> > fsnotify_recalc_mask(), there is never a need to update children flags
-> > when removing mark mask bits only when adding them.
-> >=20
-> > Add a helper fsnotify_recalc_mask_and_update_children() to be called
-> > in cases where updating children flags may be needed (i.e. add mark).
-> >=20
-> > Also avoid update children walk with mark spinlock held.
-> > This was only done by dnotify and can be easily avoided.
-> >=20
-> > neilb: added update_children flag in fcntl_dirnotify() so we only
-> >   do the update when needed.
-> >=20
-> > Fixes: 172e422ffea20 ("fsnotify: clear PARENT_WATCHED flags lazily")
-> > Signed-off-by: Amir Goldstein <amir73il@gmail.com>
-> > Signed-off-by: NeilBrown <neil@brown.name>
->=20
-> One question to Amir below. Otherwise I like it.
->=20
-> > +/*
-> > + * Recalculate mask and update children dentry PARENT_WATCHED flags if t=
-he
-> > + * connector started watching children.  When parent stops watching, we
-> > + * clear false positive PARENT_WATCHED flags lazily in __fsnotify_parent=
-().
-> > + *
-> > + * The caller must make sure connector and connector->obj cannot disappe=
-ar
-> > + * under us.  This is achieved by holding mark->group->mark_mutex for a
-> > + * mark on this list.  mark->lock must not be held by the caller.
-> > + */
-> > +void fsnotify_recalc_mask_and_update_children(
-> > +					struct fsnotify_mark_connector *conn)
-> > +{
-> > +	if (fsnotify_recalc_mask(conn))
-> >  		fsnotify_conn_set_children_dentry_flags(conn);
-> >  }
-> > =20
-> > @@ -367,8 +383,8 @@ void fsnotify_modify_mark_mask(struct fsnotify_mark *=
-mark, u32 set, u32 clear)
-> >  		recalc =3D true;
-> >  	spin_unlock(&mark->lock);
-> > =20
-> > -	if (recalc)
-> > -		fsnotify_recalc_mask(mark->connector);
-> > +	if (recalc && fsnotify_recalc_mask(mark->connector) && set)
->=20
-> Amir, why is the '&& set' check here? Under normal circumstances if
-> fsnotify_recalc_mask() return's true, 'set' is true as well. We can be
-> racing with other updates to the connector list of marks and in that case o=
-ur
-> fsnotify_recalc_mask() call could be the first one that noticed the marks
-> attached to the inode are now watching children and is thus resposible for
-> setting children dentry flags even if 'set' was false. So I think it can do
-> only harm...
->=20
-> And for similar reasons I believe fsnotify_recalc_mask() call in
-> fanotify_remove_mark() needs to be updated to
-> fsnotify_recalc_mask_and_update_children() as well. Standalone
-> fsnotify_recalc_mask() is simply never safe unless it is followed by the
-> update children later - perhaps make it __must_check?
+On Fri, Nov 20, 2026 at 07:09:49PM +0800, Joy Zou wrote:
+> Replace the gpio-hog used for CAN/GPIO selection with a gpio-mux
+> controller and pinctrl-multiplexer states.
+> 
+> The board provides a GPIO-controlled mux between CAN and GPIO.
+> Describe it explicitly instead of relying on a fixed GPIO state.
+> 
+> Signed-off-by: Joy Zou <joy.zou@oss.nxp.com>
 
-Hmmm.... I had thought that the group lock would prevent these races but
-I guess not.  Maybe one mark can be in multiple groups???
+Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
 
-Given that, I don't think I can form a sensible opinion on Amir's
-revised patch.  It looks OK and I think I can see what it is trying to
-achieve and how it achieves it, but I'm less confident that I can see if
-that is the thing that needs to be achieved.
-
-So Jan - if you could review that so I can add your reviewed-by when I
-repost, that would be great.
-
-Thanks,
-NeilBrown
-
-
->=20
-> 								Honza
->=20
-> --=20
-> Jan Kara <jack@suse.com>
-> SUSE Labs, CR
->=20
-
+Regards
+Haibo Chen
+> ---
+> Changes in v2:
+> 1. add a new patch to replace gpio-hog with gpio-mux in preparation for
+>    i.MX937 code reuse.
+> ---
+>  arch/arm64/boot/dts/freescale/imx952-frdm.dtsi | 28 ++++++++++++++++++--------
+>  1 file changed, 20 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi b/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
+> index 4d325e848aa8..88e77d6e9c45 100644
+> --- a/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx952-frdm.dtsi
+> @@ -39,6 +39,25 @@ bt_sco_codec: audio-codec-bt-sco {
+>  		#sound-dai-cells = <1>;
+>  	};
+>  
+> +	can_mux: mux-controller-0 {
+> +		compatible = "gpio-mux";
+> +		#mux-control-cells = <0>;
+> +		#mux-state-cells = <1>;
+> +		mux-gpios = <&pcal6416 4 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	can_mux_pinctrl: pinctrl-gpiomux {
+> +		compatible = "pinctrl-multiplexer";
+> +
+> +		can2_fun: can-grp {
+> +			mux-states = <&can_mux 0>;
+> +		};
+> +
+> +		gpio_fun: gpio-grp {
+> +			mux-states = <&can_mux 1>;
+> +		};
+> +	};
+> +
+>  	chosen {
+>  		stdout-path = &lpuart1;
+>  	};
+> @@ -274,7 +293,7 @@ &asrc2 {
+>  
+>  &flexcan2 {
+>  	pinctrl-names = "default";
+> -	pinctrl-0 = <&pinctrl_flexcan2>;
+> +	pinctrl-0 = <&pinctrl_flexcan2>, <&can2_fun>;
+>  	phys = <&flexcan2_phy>;
+>  	status = "okay";
+>  };
+> @@ -304,13 +323,6 @@ pcal6416: gpio@20 {
+>  		pinctrl-0 = <&pinctrl_pcal6416>;
+>  		pinctrl-names = "default";
+>  		vcc-supply = <&reg_3p3v>;
+> -
+> -		/* When low, select CAN; When high, select gpio. */
+> -		can-gpio-sel-hog {
+> -			gpios = <4 GPIO_ACTIVE_HIGH>;
+> -			gpio-hog;
+> -			output-low;
+> -		};
+>  	};
+>  };
+>  
+> 
+> -- 
+> 2.34.1
+> 
