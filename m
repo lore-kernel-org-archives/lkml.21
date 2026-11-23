@@ -1,64 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477593;
-	b=lqvDk7KRhSNnSOxHWEPZ/PwAg4mQlsZD4uoCN1vaPY6NwIiGnB9xZA0d1cKD4dj9OeOH
-	 CWJyJniim8iuFKn0sJgesGk0ToFzj5i6g9sRZ3MQ+ZXCInFwg8QA4PMkVafa61kWsw5cY
-	 kVBE+XiM/Lt0inT0RjqWnElk/JQK/9uEfbA6Eh6s7NsmXhCbps0Sbsui4wEZkzk4JU3MI
-	 p5Hrj/ltmbNOkJ+nr69H6pBmUm9bpt0lY69Nm84J9/G8OWpZy0IeCVN+S7AaWQDGiBcMI
-	 6PqYH41ZzbnkMkjTDm7X2J4MBvfoH0fOkzK5RmFcn0oLrTgLNSQovRJR3SvSccDDn1A==
+	t=1795477726;
+	b=JV4T9NU087TtJl0D0o5pCOCR/7qNmmCcL8zKYvbZ8VNuVMkPTKoanyHiOEPvvpDbqXWh
+	 ypzw0X5lzoTXMDC4e+Zd+ZEr4qvsHZVsChi1sROJ3ZIzRX+8y0OkKoiTaBGUcvtVSH9/G
+	 IgfQ4MmC6ouW4BKbyQx6vAOgJUCY+kvkd/d6gZkZhbVojXqN10USidjE9l9xIA7Khbzlx
+	 sSLksX3qUD65fgc0AJrHfDx950SKXCgVInnub5/BryWkEJWOZXW1zDs725DTHnXn9VVlL
+	 ZDtP2b+09mCBqRz0EJNQq/Tiy/Zz7nroVmgtWF/6JjvyibvUnAPIxrB+yjqwC6577Ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477593;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=vP+ADNOiSpoNKhzRfreKdcuyfRb2mBj2cg+6BGIcmWA=;
-	b=UYdsEqJg170mA9eG3BPQR2C9P3726lc0tnneumezikKB8TxiaH9N6hzpRXQAsne417xU
-	 wS3cvPpmJv/RmQTXheLaN5AfO4lNmAD2iUFkVVEDl7WbNYraH32je0cW3HknbfmMWjV14
-	 os4ntM0QhdcnU1qCXzhyGWykGMVr4KqhTdbpMRnrgTY+kspUnCRw5LhwyJZB8FYn7sbDB
-	 cZCUWIEOWObh+FgGxvuAnOtR+mYj8zkzXYGLsTTz+lNos10a1frcKQnpGwPSlNedxH2RC
-	 vze8AEFb03SFEpj5iwQCJ0IW+uAB0rJNZ8XNstkpUIBsUAEUfrbFIoKZMYiQuTfWDHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477726;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ylKTuNgUblLqNxL717J4Osbex/tTFtCBiDG2Kicf2sU=;
+	b=5F8cueCsNkvWTmNZ168w7ol8vlaaxgiMHD+VOiHoci9B1q/punUEaJfMpMogPtiz6WX4
+	 Zx2XPyi0Y1qwcRSDkCkN+5jigxXLMHMOfheeFHhsqa8SzLww/g1Eo3xV6okwX1R6l3B8G
+	 mc0frn8UAH6Xor653xPLLO7UP6ltXri/fYzeJysGT00ihIY5Z5qSoYzescrULm2uAcJm0
+	 U4dRWwgbe3sXHjbChH5HgVgiw1j5sRJoa9OdWgEbeO31LLk1VCbfqOsV7YEAg5VcJrIfY
+	 fHWMqjR+9NBmO9KBO1t6uYFsPcKuRvrc1p7PmEMdmAuguOdZtQNNHYSYktMo2lNeTzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JTCO8u41;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Ri0xaxb/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DDFF606A321;
-	Mon, 23 Nov 2026 23:46:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3553B606A31E;
+	Mon, 23 Nov 2026 23:48:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JTCO8u41
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B20F1F000C4;
-	Mon, 23 Nov 2026 23:46:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ri0xaxb/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 567051F000D0;
+	Mon, 23 Nov 2026 23:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795477592;
-	bh=vP+ADNOiSpoNKhzRfreKdcuyfRb2mBj2cg+6BGIcmWA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JTCO8u41i5Bb63hP2HzKMLTu5crJT75CuGJBKjDW9CVzdAiH9b/q2NiyQXnq06ysN
-	 H+JC5kMU8GuxnJ13S18qOoAnHU+W0zg3nRvfMTddR1TdBCNVZ/Qg4n0rER/VhxFdm/
-	 HQf5Yhwa2mg7d6Og6Q/qFQ5aSPq7zLM59V6HaoPxRYHT+0IlngnLoDArP+WU78u6eX
-	 kt7gVcGOG9jlHpyo7ic1sxFDh6uSkWfAN4eYOLfVdl7fBy6XxoxPFnAnpYBoqbWDIL
-	 y14H4zJnW30ARhaWfLhc+B4cWyq62UHAQ/7OZrkMRb+dd6c/TnjmBr0M76L5mn36da
-	 I/UK0uuJKoQPQ==
-Date: Mon, 23 Nov 2026 15:46:31 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-Cc: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: dts: thead: Enable bluetooth on
- BeagleV-Ahead
-Message-ID: <awTQV54SY8-p0rCx@thelio>
-References: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
- <20261020132604.90708-3-thomas.gerner@muenchen-mail.de>
- <awDZBiX1VoSkO6F3@x1>
- <a1b47af8-72bf-4f3e-9ece-e2ceeb97a682@muenchen-mail.de>
+	s=k20260515; t=1795477725;
+	bh=ylKTuNgUblLqNxL717J4Osbex/tTFtCBiDG2Kicf2sU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Ri0xaxb/mXM+T7KSjkcttZNPnjkWTBK6w8vvma+CjUcU8xw6CqThdGemhLy8Jgj2E
+	 3mYsNjyzcnKM2YfybsyC1YyXLxGxOqYd4KgQ3uN8N6f3QSgo+Syu9QM33wW38fwQ6G
+	 n5gTZTGDk/dO9nfl7KP2lnsu2TWDobZ9x/wdKUQSKzCwdgChnDIudTUEBjncZu+OgP
+	 Q0WjJh6mpl91uYxGDYuhydkXqlpXunX9l9U0lnoMe47X7fumngbd77cmTy6/yzLaKe
+	 lYRYMrAQir1ourDpSKXROx9LdW3DapCQpZFeNrNZHJZuqbCeAvf9pbAxGmlrQ5ikDi
+	 6cngnGwzHrwVw==
+Date: Mon, 23 Nov 2026 13:48:44 -1000
+Message-ID: <861e8b931f99acf9c44cff722d5e94e7@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Peng Huang <penghuang@google.com>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>, Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH] sched/pelt: Skip dormant cfs util_sum under scx_switched_all
+In-Reply-To: <20261123160934.2289260-1-penghuang@google.com>
+References: <20261122015729.2512645-1-penghuang@google.com> <CAKfTPtCQpVhtVT7Mhqe1=Ukcmc1pX8Jgn9ypb64--8cJ-7G4BQ@mail.gmail.com> <20261123160934.2289260-1-penghuang@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,75 +58,36 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a1b47af8-72bf-4f3e-9ece-e2ceeb97a682@muenchen-mail.de>
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 12:09:29PM +0100, Thomas Gerner wrote:
-> Am 21.11.26 um 00:34 schrieb Drew Fustini:
-> > On Tue, Oct 20, 2026 at 03:26:04PM +0200, Thomas Gerner wrote:
-> > > On the BeagleV-Ahead the bluetooth module of the Ampak AP6203BM is
-> > > identified by the btbcm driver as BCM4362A2. The module is connected by
-> > > UART4, several gpio pins and an I2S interface. The I2S is currently not
-> > > used as there is currently no driver.
-> > > 
-> > > Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-> > > ---
-> > > Changes in v2:
-> > > 	- use default pinctrl definition for bluetooth in and out pins
-> > Thanks for sending v2. Sorry for the delay in review.
-> > 
-> > > 	
-> > >   .../boot/dts/thead/th1520-beaglev-ahead.dts   | 85 +++++++++++++++++++
-> > >   1 file changed, 85 insertions(+)
-> > > 
-> > > diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > > index e16484a47653..7161a9d4c61f 100644
-> > > --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > > @@ -76,6 +76,23 @@ led-5 {
-> > >   		};
-> > >   	};
-> > > +	reg_vbat_1v8: regulator-vbat-1v8 {
-> > > +		compatible = "regulator-fixed";
-> > > +		regulator-boot-on;
-> > > +		regulator-max-microvolt = <1800000>;
-> > > +		regulator-min-microvolt = <1800000>;
-> > > +		regulator-name = "vbat-1v8";
-> > > +	};
-> > > +
-> > > +	reg_vbat_3v3: regulator-vbat-3v3 {
-> > > +		compatible = "regulator-fixed";
-> > > +		enable-active-high;
-> > enable-active-high has no effect without a gpio.
-> > 
-> > > +		regulator-boot-on;
-> > > +		regulator-max-microvolt = <3300000>;
-> > > +		regulator-min-microvolt = <3300000>;
-> > > +		regulator-name = "vbat-3v3";
-> > > +	};
-> > Nothing can switch these two rails so regulator-always-on describes them
-> > better than regulator-boot-on.
-> 
-> 
-> I see. With the next version I will consider this. The regulator
-> definitions are here only to prevent the hci driver form printing a
-> message about missing regulator. Once we have the final regulators for
-> the AON subsystem we should check this definitions and replace them if
-> appropriate.
+Hello, Peng.
 
-I looked at the schematic. VBAT is fed from VDD_3V3 and VDDIO from
-DVDD18_AP, so I think the two regulators should be named after those
-nets, something like this:
+On Mon, Nov 23, 2026 at 08:09:34AM -0800, Peng Huang wrote:
+> For v2, rather than touching update_idle_rq_clock_pelt(), how about
+> adding a fair helper (similar in spirit to rq_offline_fair() ->
+> clear_tg_offline_cfs_rqs()) and calling it from scx_enable() in the
+> existing per-CPU scx_switched_all() loop (where rq->lock is held,
+> rq->clock is updated, and rq->cfs.h_nr_queued == 0)? Specifically, it
+> would walk leaf_cfs_rq_list bottom-up (plus &rq->cfs) to:
+> - flush cfs_rq->removed,
+> - clear load/runnable/util _sum and _avg on the empty cfs_rqs and
+>   their tg_ses while preserving last_update_time and period_contrib,
+> - clear tg contributions via clear_tg_load_avg(), remove the empty
+>   cfs_rqs from leaf_cfs_rq_list, and update rq->has_blocked_load.
 
-    reg_dvdd18_ap: regulator-dvdd18-ap {
-            [..]
-            regulator-name = "dvdd18_ap";
-    };
+I'm not familiar with this code, so I may be missing something, but
+doesn't __update_blocked_fair() already do most of this? It walks
+leaf_cfs_rq_list bottom-up, flushes cfs_rq->removed and propagates the
+result to the parent. It just stops running once scx_switched_all() is
+set. Maybe the helper can run the blocked load update once on each rq
+from that loop instead of open-coding the clearing? If I'm reading it
+right, one pass after all the tasks have switched would take care of #1.
 
-    reg_vdd_3v3: regulator-vdd-3v3 {
-            [..]
-            regulator-name = "vdd_3v3";
-    };
+As for #2, are the leftover sums big enough to matter for
+update_idle_rq_clock_pelt()? It looks like fair can leave similar
+leftovers behind once the avgs reach zero.
 
-Thanks,
-Drew
+Thanks.
+
+--
+tejun
