@@ -1,59 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478265;
-	b=CpptuiKlASRgSl4HKxKO8dI6oW+71y0eUt+iBmBYfZ+i3czg0Y0cb6GP7Q5EpSkRN217
-	 l2FDGj6P2a5TSsqUfA+JmK3BdNh/qsYyw+FvDnEWwbJXhgtjpcDexAy/4UfebnZMCTGmO
-	 ZkOkirX56yrsHY4iG/jyTWD1pHaNesJd5cphoJSY1qWSbC1cTebliiu/c7/n+Ztn/RIt7
-	 KKaNgrHB9i5b/pw0JhMsKg5ZrN8Q76o6kg4tsxc7gmB2wg9GKjUgN6Dx2oKX+yMBX3zS0
-	 i+SW44N7v2yiu/4swOrJyz04Ov3EzF9nYUHNJhlENh4X3qyUx6nTCrIxoQCmvBCk/9w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478265;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=2pNP0xtV5aWCIviAsDqRtjaXnEC3csJaqGq9fEWnUoQ=;
-	b=vPiQV2/BBlyp+tILopDOYBCYL+/zaSAEv/0/5a0NaD5knmwSWZFgbqu/MWWesCenGors
-	 n5Ik5vOwemItJfKpnStl/GVejCzLrWkK4aCgrMN3+uJwQckhFb/OPZIoM52XqoHZqGjKP
-	 5+4f5nIgAfVDEpfGhLcMGCuRamqBDhyhTmFn9JWMkR//h9o4x/FvOusQ4bqxrsUDgmue3
-	 QC82BR7Bq5ZOlD32oYR2FVJl9lolXuTVtdtxbujKBqk0VxPrFaQFYupgimFNp3gJHtMwt
-	 gawJk6IVm+MWxviBpHTyPnJzN3AZwN8dv1W3ccHPIyWQlAL7plbYG+QKarVoWmpQYpg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HiIOp2m9;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795478343;
+	b=iebKBIoyE2qpy4F5xyuTNiKZTGm+Bu8X7GMpymdrFBzBeBS1MobP4c0hR1a6xh6xhkGd
+	 YDIcEbw6o97LabtrfuSyyWYtcccvX1adBNdEShSB4YKqLNs3m2KQoJxlesk+o4kyAeRin
+	 JT2HGrtyyKfFHFZ/Og3MeAqpOqmmdE9dnAhFMdugYavdEvxShUrtdq48eK46ViQcZWk8m
+	 qBSRz8ED8fSeTasbWFCLCjFW3IFSK75tuG1JCdW/rFkfGNc3PuvZcKM0801WsyzohZeUx
+	 0DSSYsakX3R4BcbMxjoYMENQPhpgpiuxgw348+axI+V0sjWe4LgOAfXnvz1yR+HsBYA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478343;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Hwii7vj0qMB50+PolmP4b2hhHOl1mk2HpN/JxsVpo4s=;
+	b=CfArPpiZLFqRthmUXS5brxjTQKX/lz4fgvLtoEZl/52zDHjzNxUOvn816Ni6lV/FrWUo
+	 ci9RKA2q2N5VBUNC7QiO49c4w+K18ujwsbTqTW/hR/3HBtSg/GEwyIJbt2OOPdwpcrYg6
+	 wBOoDROtN/pfTv4nAhX1+dALUnQTl10LtBka5t+buuuhlWyFr/1cksxfifstK7Zo9XAfS
+	 4Gh5aXOF+nFHPQ/nbhxDNWlVBz1TTVaAZfBxD8JmUruDcnQLKo7kXDNGiHmXWRW9d9PuZ
+	 s1twU+8OiDeNbmPc4rLqPEqgMrg5Kf1TX7+n22Qwz7TG//V9sDldRwpt+mcr4x8yBDg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YlpsnZCn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B71DF606A32D;
-	Mon, 23 Nov 2026 23:57:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E094606A326;
+	Mon, 23 Nov 2026 23:59:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HiIOp2m9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C21151F000CF;
-	Mon, 23 Nov 2026 23:57:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YlpsnZCn
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795478342;
+	b=s0tbTPdR+jWQhQlrAz3b4dE4ZENRC3wbNwE64JedaM5vKUKUctXnEn/dmIgFRP19UENl
+	 IlNfKuUTsZK5lEdhtSDEJ2S83mr/tMbge0Ef6jP0KuNmKc3Nmi0hVGSkOR4E0deP51NH2
+	 DYiXl6ppTKRuK8pprZfQulhCdzHumqSmdI6pmjsvEzqQ+w+ONSlm4/J26Ia02/zpBgQT/
+	 4jU+13HLJ8pix5M/qK5DvWLkPMlxGqxAattu4Tj7ClJ0pVUWr3sP5TiNTruXz5PuvbZA/
+	 1pe0U0DRnmBQ3v/JUabY5pr69315/fr0p8ACXfTRljBIUzeszZY8qhO9zw57VqwyQ7A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795478342;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Hwii7vj0qMB50+PolmP4b2hhHOl1mk2HpN/JxsVpo4s=;
+	b=XYInjS1GxG7qiFVEf7LmpRchml6NeSMQqrXU1yTBdpF1bu6K32cHznHtmV9+s5+klrb0
+	 MUik16lg93JnDhPGjc1ql+hpC+CQQK1cCjd38iUz7LYGHnkjDbOkFC3Y2YgNNhIRz6NLM
+	 iAZxcvYHWr1dFN3U6HLJQYwQyYSY8hIoiy5bWySFd3bDNRzIf8vf67u5JvLSXOM4khN9n
+	 ZKqqakOpmTQ3tbjE0VbvUAd2V2ngg2yHHKs0g58k3eI5e/TOKDQb7kUEeIqAr/BF9Iva/
+	 RKxnqXMsCb+52l1x9n7PQUfzz4b9151tG9Pq8xTzfc1ue2c4Cp0nh9G+5JmaFHC8gKA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id ABA141F000C0;
+	Mon, 23 Nov 2026 23:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795478265;
-	bh=2pNP0xtV5aWCIviAsDqRtjaXnEC3csJaqGq9fEWnUoQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HiIOp2m92zZVi8i8k0xVdMxuWNaLj5PDR3caWsrVbY+wpIblim7VYqGBfCFaJIf2e
-	 lsidAgvvbq74a06buReUuU+ssF5FIMh1Pb/NE8yArkTNjVvigamA28wYXZSwz/BR9U
-	 WlkUfed8Sz731n/7RRGItqs9i3EwbUwqhi/BGmSTMOYLnNWK6v3TkWXxNRt6mNJpgx
-	 MY98XuwQ5eA7Jaxn8bi3r+ptKr1rXQ9BVZhahi7fvdT0HSJjn6o50KkMj2QGC9G3E+
-	 pYgZJ95iCSMt/8BJxgNMLm3q597hc/rWr6m0+MWscHvhgPX3EONND5pj8A0/gPrzl6
-	 dDPiMoI2GzU+w==
-Subject: Re: [PATCH net-next v3 3/3] amt: make the per-tunnel group and source
- limits configurable
-From: netdev-bot+sashiko@kernel.org
-To: omar@blockcast.net
-Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, horms@kernel.org
-Date: Mon, 23 Nov 2026 23:57:44 +0000
-Message-ID: <179547826432.3135.16263442399696125291@kernel.org>
-In-Reply-To: <20261122235724.2898320-4-omar@blockcast.net>
-References: <20261122235724.2898320-4-omar@blockcast.net>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795478342;
+	bh=Hwii7vj0qMB50+PolmP4b2hhHOl1mk2HpN/JxsVpo4s=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=YlpsnZCnDYM5Y0Efu8Qa1tc5iLxAkr65MLam+itVHAxa2cstPu6J+PD9Ih1ZSyL1z
+	 sMVeBZ35Aw24mZS5rtIK+DvMvr71FSOzWaQMmMvKbhHfTi/2KaGDmlDwKbpOnn/zm/
+	 D8USCp6ArjhEw9PeN60I07WfDX3rCAGz5zO/wQKpZ4PTPzDSmIwEeGseTXhQ8yO9xk
+	 myTtx1y5VEhbH1oAL9EaUShQaY1zVcTEtw7HKKZ4cwq5l4PxPyZwCh5x5BVgQ76Bwo
+	 hkByU1MUQcc1itm9smeQpBCnRUMlrGBS+uEvsZABU4B/84er93dXaLZe1bTrl348Q8
+	 9mzkR8XUkaFkQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 0F7B44C7CC;
+	Mon, 23 Nov 2026 23:58:57 +0000 (UTC)
+From: Arina Kharlamova via B4 Relay <devnull+arina.kharlamova.mbzuai.ac.ae@kernel.org>
+Date: Tue, 24 Nov 2026 03:58:53 +0400
+Subject: [PATCH] slab: fix the kernel-doc of kmalloc_flex() on counter
+ overflow
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,176 +83,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-slab-doc-v1-1-9f14dfce47c8@mbzuai.ac.ae>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM3QpAQBCG4VvRHNva3TbhVuRgfwYjoR2k5N4tD
+ p96v+8CxkjIUGcXRDyIaZkTVJ6BH+zco6CQDFrqQiltBE/WibB4ocrKeCtNkLKAlK8ROzq/q6b
+ 9zbsb0W/vHu77Aa5/koJsAAAA
+X-Change-ID: 20261124-slab-doc-1894ca04d006
+To: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
+ Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
+ David Rientjes <rientjes@google.com>, 
+ Roman Gushchin <roman.gushchin@linux.dev>
+Cc: workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ linux-mm@kvack.org, Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795478335; l=6300;
+ i=arina.kharlamova@mbzuai.ac.ae; s=20261123; h=from:subject:message-id;
+ bh=5QShQXRZX54gNTgo0Gx3CJ2jzLByJpRHbpnqHOcnA1Q=;
+ b=1eSZpwSTpC+3FeEXiCh//wqMlujfe0v75aaKlaNcdfpPcrsBt+RFLknIU+B407OxXm5P23JDj
+ 87e/QpMtB2lBBq4wxtsV6OJt5sc0ya3E/trBJjv9gwM1F/sPOy9RgXc
+X-Developer-Key: i=arina.kharlamova@mbzuai.ac.ae; a=ed25519;
+ pk=DzQWwMpUtJvSDuzprqvRdbrC72n4Sq8dW6cq3NRt2Mk=
+X-Endpoint-Received: by B4 Relay for arina.kharlamova@mbzuai.ac.ae/20261123
+ with auth_id=1625
+X-Original-From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+Reply-To: arina.kharlamova@mbzuai.ac.ae
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Commit fa5c82f4d2bb ("slab.h: disable completely broken overflow handling
+in flex allocations") removed the overflows_flex_counter_type() check from
+__alloc_flex(), but left the kernel-doc of __alloc_flex() and
+kmalloc_flex(), and the text in deprecated.rst, saying that the
+allocation fails when COUNT cannot be represented by the __counted_by()
+counter.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The code instead allocates COUNT elements and stores COUNT into the
+counter, truncated to the counter's type. With a u8 counter,
+kmalloc_flex(*p, array, 256) returns a 256-element object whose counter
+is 0. With compilers that lack __builtin_counted_by_ref() the counter is
+not written at all.
 
-- [Medium] The new IFLA_AMT_MAX_GROUPS/IFLA_AMT_MAX_SOURCES ceilings,
-  together with the automatic growth of hash_buckets from max_sources in…
-- [Medium] When max_sources > 2048, amt_newlink() sets hash_buckets to
-  AMT_HSIZE_MAX (512).
+A caller that relies on the documented check and does not bound COUNT
+itself gets an object whose __counted_by() size is smaller than the
+allocation. Accesses inside the allocation are then reported by
+UBSAN_BOUNDS, and readers that loop up to the counter see fewer elements.
 
---
+Make the documentation describe what the code does, and fix the
+Returns: text of overflows_flex_counter_type(), which still describes
+the inverted logic that the same commit corrected.
 
-amt: make the per-tunnel group and source limits configurable
+Returning NULL, as the old text described, is not done here. Some
+callers allocate one element more than the counter can hold and then set
+the counter themselves: ext4_htree_store_dirent() calls kzalloc_flex()
+with ent_name->len + 1 elements for a struct whose name_len is a __u8,
+so a 255-byte name would then fail with -ENOMEM.
 
-This adds IFLA_AMT_MAX_GROUPS and IFLA_AMT_MAX_SOURCES so a relay operator
-can raise the per-tunnel group and source limits, capped at 512 and 4096.
-It also sizes the group and source hashes from max_sources, growing
-hash_buckets from 256 up to 512, and reports both limits in
-amt_fill_info().
+Found while checking a summary of the kmalloc_obj() family against the
+v7.0 to v7.4-rc2 text of slab.h with a battery of inputs compiled by
+GCC 15.2, with the help of an AI coding assistant (Claude); I reviewed
+the analysis and the patch. A KUnit case (not part of this patch) that
+calls kmalloc_flex() with a u8 counter and COUNT 256 gets a non-NULL
+object with the counter 0 on v7.4-rc2 (UML, GCC 15.2.0); with
+UBSAN_BOUNDS, writing element 255 of that object reports "index 255 is
+out of range for type 'u32 [*]'". This patch changes comments only;
+scripts/kernel-doc -Wall reports the same warnings for slab.h and
+overflow.h before and after it.
 
-> diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-> index 177bc0b7cb1fd..01b3a8cabef37 100644
-> --- a/drivers/net/amt.c
-> +++ b/drivers/net/amt.c
+Fixes: fa5c82f4d2bb ("slab.h: disable completely broken overflow handling in flex allocations")
+Signed-off-by: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+---
+ Documentation/process/deprecated.rst |  8 ++++----
+ include/linux/overflow.h             |  5 +++--
+ include/linux/slab.h                 | 15 +++++++++------
+ 3 files changed, 16 insertions(+), 12 deletions(-)
 
-[ ... ]
+diff --git a/Documentation/process/deprecated.rst b/Documentation/process/deprecated.rst
+index 22a5e62c92ea..f8b7fb6f9629 100644
+--- a/Documentation/process/deprecated.rst
++++ b/Documentation/process/deprecated.rst
+@@ -405,7 +405,7 @@ become, respectively::
+ 	__auto_type ptr = kmalloc_obj(struct foo [, gfp] );
+ 
+ The argument gfp is optional, the default value is GFP_KERNEL.
+-If `ptr->flex_member` is annotated with __counted_by(), the allocation
+-will automatically fail if `count` is larger than the maximum
+-representable value that can be stored in the counter member associated
+-with `flex_member`.
++If `ptr->flex_member` is annotated with __counted_by(), the counter
++member associated with `flex_member` is set to `count` on compilers that
++support it. `count` is not checked against the type of the counter, so
++the caller must make sure it fits.
+diff --git a/include/linux/overflow.h b/include/linux/overflow.h
+index d0f04436343e..6ce610dbc12e 100644
+--- a/include/linux/overflow.h
++++ b/include/linux/overflow.h
+@@ -566,8 +566,9 @@ static __always_inline size_t __must_check size_sub(size_t minuend, size_t subtr
+  * @FAM: Member name of the FAM within @TYPE.
+  * @COUNT: Value to check against the __counted_by annotated @FAM's counter.
+  *
+- * Returns: true if @COUNT can be represented in the @FAM's counter. When
+- * @FAM is not annotated with __counted_by(), always returns true.
++ * Returns: true if @COUNT cannot be represented in the @FAM's counter.
++ * When @FAM is not annotated with __counted_by(), or the compiler cannot
++ * resolve the counter, @COUNT is checked against size_t.
+  */
+ #define overflows_flex_counter_type(TYPE, FAM, COUNT)		\
+ 	(overflows_type(COUNT, typeof_flex_counter(((TYPE *)NULL)->FAM)))
+diff --git a/include/linux/slab.h b/include/linux/slab.h
+index ad645967a3ee..69fa9066137f 100644
+--- a/include/linux/slab.h
++++ b/include/linux/slab.h
+@@ -1091,10 +1091,13 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
+  * @FAM: The name of the flexible array member of @TYPE structure.
+  * @COUNT: how many @FAM elements to allocate space for.
+  *
++ * If @FAM is annotated with __counted_by() and the compiler supports
++ * __builtin_counted_by_ref(), the counter member is set to @COUNT. @COUNT
++ * is not checked against the type of that member: a value it cannot
++ * represent is stored truncated, so the caller must bound @COUNT.
++ *
+  * Returns: Newly allocated pointer to @TYPE with @COUNT-many trailing
+- * @FAM elements, or NULL on failure or if @COUNT cannot be represented
+- * by the member of @TYPE that counts the @FAM elements (annotated via
+- * __counted_by()).
++ * @FAM elements, or NULL on failure.
+  */
+ #define __alloc_flex(KMALLOC, GFP, TYPE, FAM, COUNT)			\
+ ({									\
+@@ -1137,9 +1140,9 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
+  * @...: optional GFP flags for the allocation (GFP_KERNEL when not specified).
+  *
+  * Returns: newly allocated pointer to @VAR_OR_TYPE on success, NULL on
+- * failure. If @FAM has been annotated with __counted_by(), the allocation
+- * will immediately fail if @COUNT is larger than what the type of the
+- * struct's counter variable can represent.
++ * failure. If @FAM has been annotated with __counted_by(), the struct's
++ * counter variable is set to @COUNT when the compiler supports it. @COUNT
++ * must fit in the type of that variable; it is not checked.
+  */
+ #define kmalloc_flex(VAR_OR_TYPE, FAM, COUNT, ...) \
+ 	__alloc_flex(kmalloc, default_gfp(__VA_ARGS__), typeof(VAR_OR_TYPE), FAM, COUNT)
 
-> @@ -3657,9 +3660,15 @@ static int amt_newlink(struct net_device *dev,
->  
->  	spin_lock_init(&amt->lock);
->  	seqcount_spinlock_init(&amt->key_seq, &amt->lock);
-> -	amt->max_groups = AMT_MAX_GROUP;
-> -	amt->max_sources = AMT_MAX_SOURCE;
-> -	amt->hash_buckets = AMT_HSIZE;
-> +	amt->max_groups = nla_get_u32_default(data[IFLA_AMT_MAX_GROUPS], 0) ?:
-> +			  AMT_MAX_GROUP;
-> +	amt->max_sources = nla_get_u32_default(data[IFLA_AMT_MAX_SOURCES], 0) ?:
-> +			   AMT_MAX_SOURCE;
-> +	/* Keep source chains short when one group holds every source:
-> +	 * at most eight sources per bucket up to AMT_MAX_SOURCE_LIMIT.
-> +	 */
-> +	amt->hash_buckets = clamp_t(u32, roundup_pow_of_two(amt->max_sources) / 8,
-> +				    AMT_HSIZE, AMT_HSIZE_MAX);
+---
+base-commit: 9b95c9eeec894e969d590f45f9b760e88ba92876
+change-id: 20261124-slab-doc-1894ca04d006
 
-[Severity: Medium]
-Do these new ceilings also raise the per-packet work a remote gateway can
-cause under tunnel->lock by roughly 32x?
+Best regards,
+--  
+Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
 
-amt_report_budget() scales with max_groups * hash_buckets:
 
-static u64 amt_report_budget(const struct amt_dev *amt)
-{
-	return 2 * ((u64)AMT_REC_WALKS *
-		    ((u64)amt->max_groups * amt->hash_buckets +
-		     2 * amt->max_sources) +
-		    (u64)AMT_REC_LOOKUPS * amt->max_sources);
-}
-
-At the defaults (32 groups, 128 sources, 256 buckets) this comes to
-120,320 units. At the new ceilings (512 groups, 4096 sources,
-hash_buckets clamped to AMT_HSIZE_MAX) it comes to 3,850,240.
-
-The charge from amt_rec_cost() matches real work. Every record, even one
-for an empty group, pays AMT_REC_WALKS * hash_buckets. amt_cleanup_srcs()
-walks every bucket of gnode->sources twice, and the UNI/SUB paths of
-amt_lookup_act_srcs() walk them again.
-
-All of this runs in softirq with the tunnel lock held:
-
-amt_rcv()
-  amt_update_handler()
-    amt_update_tunnel()
-      spin_lock_bh(&tunnel->lock)
-      amt_igmp_report_handler() / amt_mld_report_handler()
-
-Once a relay is created with limits near 512/4096, any remote host that
-completes the Request/Query/Update handshake can send Membership Updates
-whose records keep naming existing, even empty, groups. Each such packet
-can then use the whole budget walking bucket heads.
-
-Could that hold the BH-disabled lock for milliseconds per packet? While
-it is held, amt_source_work, amt_group_work, amt_tunnel_expire and
-amt_dev_stop would spin on it.
-
-Teardown grows the same way. amt_clear_groups() is called from
-amt_tunnel_expire() with amt->lock held. Through amt_del_group() it walks
-about max_groups * hash_buckets = 262,144 bucket heads under
-spin_lock_bh(&tunnel->lock).
-
-The AMT_MAX_GROUP_LIMIT comment and the commit message justify the caps
-only by memory ("keep one tunnel's worst case to a few MiB"). Should
-these ceilings also account for the CPU and lock-hold bound that
-amt_report_budget() is meant to limit?
-
->  	amt->nr_tunnels = 0;
->  	get_random_bytes(&amt->hash_seed, sizeof(amt->hash_seed));
->  	amt->stream_dev = dev_get_by_index(link_net,
-
-[ ... ]
-
-> diff --git a/include/net/amt.h b/include/net/amt.h
-> index 96357b3e32fc9..296570feccef9 100644
-> --- a/include/net/amt.h
-> +++ b/include/net/amt.h
-> @@ -392,6 +392,11 @@ struct amt_dev {
->  #define AMT_GC_KICK		2048
->  #define AMT_MAX_GROUP		32
->  #define AMT_MAX_SOURCE		128
-> +/* Upper bounds for IFLA_AMT_MAX_GROUPS and IFLA_AMT_MAX_SOURCES. Gateways
-> + * drive these allocations, so keep one tunnel's worst case to a few MiB.
-> + */
-> +#define AMT_MAX_GROUP_LIMIT	512
-> +#define AMT_MAX_SOURCE_LIMIT	4096
-
-[ ... ]
-
-> @@ -400,6 +405,8 @@ struct amt_dev {
->  #define AMT_REC_LOOKUPS		8
->  #define AMT_HSIZE_SHIFT		8
->  #define AMT_HSIZE		(1 << AMT_HSIZE_SHIFT)
-> +/* hash_buckets grows with max_sources up to this, see amt_newlink(). */
-> +#define AMT_HSIZE_MAX		512
-
-[Severity: Medium]
-With hash_buckets at AMT_HSIZE_MAX, do the per-group and per-tunnel
-allocations end up just over 4 KiB?
-
-amt_add_group() allocates:
-
-	gnode = kzalloc(sizeof(*gnode) +
-			(sizeof(struct hlist_head) * amt->hash_buckets),
-			GFP_ATOMIC);
-
-struct amt_group_node is about 200 bytes on 64-bit. With 512 buckets
-the request is about 4296 bytes and comes from kmalloc-8k. With 256
-buckets it was about 2248 bytes and fit in kmalloc-4k.
-amt_tunnel_get_or_create() uses the same layout for the tunnel and rounds
-up the same way.
-
-So once max_sources is above 2048, the bucket scaling alone doubles
-per-group slab memory: 512 groups * 8 KiB = 4 MiB per tunnel, against
-2 MiB. Every group's source table is sized from the tunnel-wide
-max_sources, so a group holding a single source still gets 512 heads.
-
-reciprocal_scale() does not need a power of two. Would a bucket count of
-around 480, which keeps the node within 4 KiB, work here instead?
-
-These GFP_ATOMIC allocations are driven by remote gateways in softirq,
-are not memcg charged, and are bounded per device only by max_tunnels.
-max_tunnels defaults to 128 and is an unbounded NLA_U32.
-
-The worst case is roughly 128 * (4 MiB of groups + about 0.75 MiB of
-sources), around 600 MiB per AMT device. Nodes parked on the GC lists
-are not counted against max_groups/max_sources, so transient use can be
-higher.
-
-kmalloc-8k objects also need at least an order-1 page, while kmalloc-4k
-can fall back to order-0. Under fragmentation these atomic allocations,
-and the joins that depend on them, are therefore a bit more likely to
-fail.
-
-Is "a few MiB" in the comment above still accurate once slab rounding
-and the number of tunnels per device are counted?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122235724.2898320-1-omar%40blockcast.net
