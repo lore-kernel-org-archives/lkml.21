@@ -1,75 +1,75 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795425221;
-	b=M49G+Wru9nY3jQahq7EbMmPTtmiIPa30CAadP1aOzxmXu2WjTOnE4J47R6gbY/TmPn/I
-	 36xbjIfeMT4QoOUmQ6sWxM3UFk6BvXyLEqDMCnQ4fD7F68g6lDXE5NY5taT9IqrqlyqoO
-	 zlt87jknGnjHZSYBIOX9IQIAjGZp9b62GT5o88qwx1Fj0yl527C8hrlPkvBfExrrLMVRb
-	 889fwUvbCLUsegAJRyBIVtwfDMXAatrdLz6ujQO0OpJYN9+wUQjXhcyc+T6suQmakM4UA
-	 8l8L4juLizcyXGMwbEDJcvLmhiqzjaAwY5TEzAPJgtOzxJmvR0WXsUAbx4gKHT2YQsA==
+	b=ugioRR65GvBXM9odI4UuBHJQDhrnpR5x9cVkTMHpRq2bKSCNkBKqnV/+znD44jzlshvn
+	 GPUxw5NU1F7BvGyar1saIyYi6gymVpm1QmUyK6q31PJ/wIKrCjDcxYkK4Gv4yJfGqCsHf
+	 AegreugrJNpSybsBKGGULI/+0BMzUNn1/TB1klOM4Gq6mMRoe88ki1aWq3LJW2DcpB9Qf
+	 okRJPa2RIvl85MrOMjhpxfiDVztC28LTANcDqOHYd2HI/FML7JbocSt0znLEvPLfkAQhB
+	 V5FmAgedWa4FrHcgh2icocR/XPxOwLt9Le25i8PD9K7AG/C7+gdL1hucQnQ0GKgG3tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795425221;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
 	 Cc:Subject:Message-ID:User-Agent;
-	bh=h43HayRorqqO1tmgSJQ4KnIz9spwbSbWnF7Jm3iF0E8=;
-	b=E7iI8rZ2FqcIkTZ0s03ZNyLv0y32fqt1GAbcG8Qgc1jZj1EB8RCMndh1bE6VZidFn3tk
-	 zWyHoH/FaXjYUNi0o49N7nouT0BKaekXtgLhqyH36Dipo7XAE0mTjbDGbzHYR149yNhrn
-	 eqoCOheTHLErGRDrx81jNzMCXbhHEXarui9368bulZDLJ2j/u9+KcXND7h3mdrnGll3rw
-	 4oR2v8EnTr6gn48LGM1IDCb33DDOprc6+3ukgCnj8iFKGAwTXLD2EYeHe9uX6NR2VWSjA
-	 oVSXHEWmrGgXIGwLArgC9bYEQz1emgqN4m3wsuY6t5MQ7mnAtjXvnLlKbjd4lIGn8HA==
+	bh=qHd9Q1Vxjc/p1hB44GhQVmKwkwxaargGG27nsVY3ArI=;
+	b=AeRxB/p1hEPoEotTxJzyv0sQcGpOHAhpqC9ZDpwHgzBdBju/r64KiKKfTc7UqSzY1Q6U
+	 wnU8tMKLOab1eGgHLavrjb5Y6HzK8yqthNwZAoJKtaX9I5SR/YHMjA89GjqAYjWNZxG0L
+	 SWSQCKxL52/P0UidUP8Zd81516UzAZFA6VRgpxstV1+6xhIdh81dg0iYLw3UdqTKR4od7
+	 gFEmWD6C9hzTO72m/8EOy15OYWQGnI1BB0IkxyQCC3IJ2ppOSo4qstIlOIMBIqfRvjf4U
+	 sjWlrN3hU4H/2PC7k8njc06dwA8AQCQoenks0EhvffutlswKwhjmIfLV3EyltjBs1GQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WYBSQxHc;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=R6hPfClT;
 	arc=none smtp.remote-ip=192.198.163.10
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E085606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:13:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E085606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 236E0606A334
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:13:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 236E0606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WYBSQxHc
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=R6hPfClT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795425220; x=1826961220;
+  t=1795425221; x=1826961221;
   h=date:from:to:cc:subject:message-id;
-  bh=2DM76HuP4PRafqlAQm7ISb8yJEoFcIF1ZA4CUkze5d4=;
-  b=WYBSQxHcfukTK25gxDDRZLyPYUibPjzrRtGjLI8zLtui0G3ofXyW86tI
-   yu8RSGs4QxJUzJM8kZFIUBydbLCpon1txYf7p1jQF2SdexzrAp4HhfUvq
-   aE7ED8erPAnSEoKDpJBljXSgLYjEioWgxIqrdBL+K9c4I8WbBAknrU8J0
-   QxVCs8irxRGnWnt/uHWiPHj6GCvxKiaC6398McP5mqGAT52BXWbDW9gFB
-   en1Gf9LPeYnx1P7e1qKWlWYiqEng2foUj/tqD31Twr9rh1qx/sNcgSt7z
-   yZHJcb4jHZbU0IgSB+Rda3xzbHccR83uaWdo3/+V5w7V5A0OVoIwdqmfr
+  bh=8pO3iNEDwQQvC+OcQJIrXS3tUmwLPOukWU0GLGrD5RM=;
+  b=R6hPfClTueBbQemrmlmOjmp6oU7xvVUphvShUXIBdiPFkWCyNfBBZLcT
+   xM0cCipgiv90be0dpdQGOPvr0BHZggG4rc/N31KeQZDLiVdI5La3gq+W8
+   r2QKnHjicIAqIfPpniB69/4+FW3ZGXemzO0sN9Kqrqk2Y+ojK5DR3ZJWf
+   /SKYxwcfFt9MS3OpQFeNh3YukYU2/YB/WWRwbnL/gG59eliG9s7Eiwo0s
+   v5IbPkJZYoYURMfCf9FvI8U6n+GhCe2+pds2EOO97l6i+/RL3Umx8YqYr
+   V1AP13E9zsxfBVD0IoHbCjOucnfMd+f5gcf4oGMb2slYI6duksLZVaRRF
    A==;
-X-CSE-ConnectionGUID: TjsSBf0NRYmGXm0k7my91w==
-X-CSE-MsgGUID: S2aEECggRs24ZuB2W+8szQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4097664"
+X-CSE-ConnectionGUID: O7R5crRlQYeuu4L3u3L2Ww==
+X-CSE-MsgGUID: hZ8sItZVR7qJSnit39mI6Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4097662"
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4097664"
+   d="scan'208";a="4097662"
 Received: from fmviesa002.fm.intel.com ([10.60.135.142])
   by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 01:13:40 -0800
-X-CSE-ConnectionGUID: hoYdVBONQu2CdP95xJl8SQ==
-X-CSE-MsgGUID: ksOOCbMYRPWZUH9IyK3IWg==
+X-CSE-ConnectionGUID: 753s7W4KTom/JnLr0KFqYQ==
+X-CSE-MsgGUID: 8kd7GvZGTZeNFy9h8246kw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11456096"
+   d="scan'208";a="11456094"
 Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
   by fmviesa002.fm.intel.com with ESMTP; 23 Nov 2026 01:13:38 -0800
 Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1xVQ7D-00000001Mua-2mzv;
+	id 1xVQ7D-00000001MuY-2hmh;
 	Mon, 23 Nov 2026 09:13:35 +0000
-Date: Mon, 23 Nov 2026 17:12:59 +0800
+Date: Mon, 23 Nov 2026 17:12:44 +0800
 From: kernel test robot <lkp@intel.com>
 To: "x86-ml" <x86@kernel.org>
 Cc: linux-kernel@vger.kernel.org
-Subject: [tip:tip:urgent] BUILD SUCCESS
- 8ff8f7605e2e630d6db695de3766ea3d44c88f9f
-Message-ID: <20261123171259.IAWzxqE8-lkp@intel.com>
+Subject: [tip:master] BUILD SUCCESS
+ 6de8747b04ff8ab5e1dd465acd1d5d4733332f1d
+Message-ID: <20261123171244.26gdHk9r-lkp@intel.com>
 User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -80,12 +80,12 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git tip/urgent
-branch HEAD: 8ff8f7605e2e630d6db695de3766ea3d44c88f9f  Merge branch into tip/master: 'x86/mm'
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git master
+branch HEAD: 6de8747b04ff8ab5e1dd465acd1d5d4733332f1d  Merge branch into tip/master: 'x86/sev'
 
 elapsed time: 951m
 
-configs tested: 429
+configs tested: 437
 configs skipped: 7
 
 The following configs have been built successfully.
@@ -336,6 +336,7 @@ powerpc                     mvme5100_defconfig    clang-24
 powerpc               randconfig-1000-20261123    clang-24
 powerpc               randconfig-1001-20261123    clang-24
 powerpc               randconfig-2000-20261122    clang-24
+powerpc               randconfig-2000-20261122    gcc-14.4.0
 powerpc               randconfig-2001-20261122    clang-24
 powerpc               randconfig-2002-20261122    clang-24
 powerpc               randconfig-2200-20261122    gcc-16.2.0 smatch
@@ -345,7 +346,9 @@ powerpc64             randconfig-1000-20261123    clang-24
 powerpc64             randconfig-1001-20261123    clang-24
 powerpc64             randconfig-2000-20261122    clang-24
 powerpc64             randconfig-2001-20261122    clang-24
+powerpc64             randconfig-2001-20261122    gcc-14.4.0
 powerpc64             randconfig-2002-20261122    clang-24
+powerpc64             randconfig-2002-20261122    gcc-8.5.0
 powerpc64             randconfig-2200-20261122    clang-24   smatch
 powerpc64             randconfig-2200-20261123    gcc-15.3.0 smatch
 powerpc64            randconfig-r2100-20261122    gcc-14.4.0 cocci
@@ -360,10 +363,15 @@ riscv                 randconfig-1000-20261123    clang-17
 riscv                 randconfig-1001-20261123    clang-17
 riscv                 randconfig-2000-20261122    gcc-14.4.0
 riscv                 randconfig-2001-20261122    gcc-14.4.0
+riscv                 randconfig-2001-20261122    gcc-8.5.0
 riscv                 randconfig-2002-20261122    gcc-14.4.0
+riscv                 randconfig-2002-20261122    gcc-8.5.0
 riscv                 randconfig-2003-20261122    gcc-14.4.0
+riscv                 randconfig-2003-20261122    gcc-8.5.0
+riscv                 randconfig-2004-20261122    clang-18
 riscv                 randconfig-2004-20261122    gcc-14.4.0
 riscv                 randconfig-2005-20261122    gcc-14.4.0
+riscv                 randconfig-2005-20261122    gcc-8.5.0
 riscv                 randconfig-2200-20261122    gcc-8.5.0  smatch
 riscv                randconfig-r2106-20261122    gcc-8.5.0  cocci
 riscv                randconfig-r2108-20261122    clang-22   cocci
