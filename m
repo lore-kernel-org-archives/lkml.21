@@ -1,143 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.21
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795401486;
-	b=DfwlEp+dnPzafRiCCX46EnICub6rIGl0+jwwHhyd1abqn9z6nvQQwI1BY06rBOB0ArH7
-	 97icCir5BkndylpJpPeaLfpS2jPBWAV4OzMfi/bUVNxAbL4UfhtF3P7WE9wI/0NRw2CJM
-	 DelBN9XSZikDVFuxYjjolbLJYsLsbLVvrWvg8UvxVNBPsI1i7oZ7tcPfVQpMCxFJ8Pk3A
-	 qFSSZOeXS0/HdTLebtfz6AiAe8uWZBpTBhpPP8KJNnIORJic+DXh/ljlzKJLZh0/6uXiR
-	 2Jdu+a8dltixiNfLjkv4w7zuCYCZD33zyKzpFhhbdvbh7/0d4nUjcNaLkMusHifRm9Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401486;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=txVnAByyQVKjlThZ3PzZthm0N/TrgCmOwmUxRsQNhVE=;
-	b=FL7j86DmNlbsQiqe84UJE+EkHCXkMzlc3cbCp5xNRMAQ1BzCcgRdTKL3m4tTyCz1VfJp
-	 RqgQkivLG5BwBuIzMBOxbOLIpboeeWy41Sgy2hvpd9cIWLPFHPZ5ML0GWjgOt4AK1Kc9i
-	 UAVNzEwXDdzXO4r8da3YueER2xvHsML6J5BPFMH2NN68K064uBZTQaIui1ZIWYmMeY43H
-	 YVaxhj6q90rGDvw6QXJdWMlzl8Kjiy1CGB6CCZy4J+VcqgAQRSal7UIDrgQpV+XZ1e5/J
-	 TpNufeIbn8nnGL9vlsP0FmVys/g887cFzbWSn+b+zo/wdwxscS28KS5tUkMktfxX+rA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=est.tech;
-	spf=pass smtp.mailfrom=est.tech;
-	dkim=pass header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=TA2sAEx5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.21
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011021.outbound.protection.outlook.com [52.101.70.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.70
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795401528;
+	b=c+Brc7C63OY8YRevK0nCDI5kbbVk0YuY6TxPDeLAVvO/UZuziSa9FqRIwtMfn9nBdlhQ
+	 kmHRBVkWRwqDoUcZkbd3tcm5wqSIILaFhyI4Rqtjy3fo9qPzvRT0rvQh8mVNcuIGAZDqx
+	 E/3iMeIpmwROPtMSUTLNiRZ5+kNcjVW+MZwHrAVrZvV+U0OSxQlh42AsANuoFG3s7ck5i
+	 UxKMoyeupc+/QC5K+4YTrUF6n9vTDfB7yz/9wMLvJbKXI/HhZltgcV1ZducIrL1b9GBE2
+	 KglpFj5Zpp+Uraj1guPc0mGyTGNCavAVRyJtV/JaF88pbg9mUnhap21sbg1NXYG0Lsw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401528;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=r+NOcmmbW7rtw5ts41xsWNc/iGPBCitC+rKmnfKq7Cs=;
+	b=CJStVfN0rCg4U38XLWoQhcw7o42knIgLL0sh670Q6AKwdMc6vtMc48/WZELaeRBa/Xbt
+	 6KyFqHgSlm0/bW0WN+6LPUZs8IZdm1WRdc+4fG8aZuE5aZHPOPM2iNHiDoW+/Ak5ukg8M
+	 55sA/l9kBWNTHf0aTqlR5ErYvBfy9OlCA07OMho9bcBMbLfnrfca+XYx6NdGw8pDHQ3o9
+	 LkVQNfm46cmpt8NJCnjHwMTiIZJpkY5pu+OSuhj2sm4if7y2qDKAaw43ReOYZnp3Yn+qu
+	 Ebucq5+Bg76wwXssbx1ZV2cSOFiYqAL14r2J227Rqcx0reyuqNYxnXFNbQIqUHf3duQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.160.70
+Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AB3B606A31A;
-	Mon, 23 Nov 2026 02:38:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AB3B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=est.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=est.tech
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=est.tech header.i=@est.tech header.a=rsa-sha256 header.s=selector1 header.b=TA2sAEx5
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v45RCJJDtTTOLrFKRKEez6Ov46947D9WNC3jytaZxqNILZjEUO7Ob4vSjKTNcw+h7IKCB/0MYSNaPJE6NXNe+ieaJ48KxZnGNAm+t00X7o6NNRGfYLj/ygrEznxQQs++w02cwYywyXhqRHYaIwSCf7cqPo8mWzPOf+BDsYovNb/x96sx3dEAADpVNgi39kYCnBMZmRpGDF2qi1dAm/c94tO6DBbrCn190js8dCyGn+Y7U49odIR8LsaCRXFxk1qzzGH3zJDHCEukayKctIp9HU7l6wYPAdqcagEAW6M5oAPRn3ThrLcb5jfXFwox1yOMghudtKaGEBXqL8dKK2xIuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=txVnAByyQVKjlThZ3PzZthm0N/TrgCmOwmUxRsQNhVE=;
- b=BWPR0mfw9HZlfQBSfbl+tyMNGo7B9foRsvmYjGdbbipM0nagGspSN0X6ERZefyhVEjSM3XRKWzIsyu7nHXuu8UdY1HndTkMUfo4MngspGDGvkmwSKvqKnJCJ6+4g/vw+Ayl0F0qX/VTigqjTtBuDoX3Tt3pfsXW6OAvJYaCi+Uxz3bNamKTUrTKDTbevb4pZ7t8f1dRF3d4fZN7tyfPcy4DY1kB1AFBsYaW+pLjzmbsXyTdCie0N0lo226cuux7QxMJppDRNT4njsKMhAF3C7YVAN9EigIYtburJ5SLvbwNibmW3zCXKflbXMH8TKcHn198i5O1NQeCb3W5IDZAKDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=est.tech; dmarc=pass action=none header.from=est.tech;
- dkim=pass header.d=est.tech; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=est.tech; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=txVnAByyQVKjlThZ3PzZthm0N/TrgCmOwmUxRsQNhVE=;
- b=TA2sAEx52xW+4EQ4sTT9EYJ02Pcmn3b4Sp9bcAhv/0p5dEa4ck9V0jUHKFaVpgAw4KOea+70w6mLe9Mny8/YGwxOLcIO0Ur/L5rcEnV6xJ8Z8NXNfacxc6E2++Hd5KCDV5WH8y2ztztIhfayyJnvvHwtBbYnnnSLnZNstyXoQGDPivRnihkLN32qya3ubYm9D6J9wG816c9jpGjK5Y792+TLFLrjMhKx1UPLfdyLcrR7ImMmVUBpme6ASmaGkMMho4klR7cuwAZHJ4HNRlFo901My9mK/s6SP6u3jcJjPqe8dnPbNocsyjfMlroz6UyEJrmvEQlf1TsH1WcWWvDwUw==
-Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:17e::23)
- by GVXP189MB3386.EURP189.PROD.OUTLOOK.COM (2603:10a6:150:2ac::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 02:37:59 +0000
-Received: from AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
- ([fe80::86f0:8ce1:a437:b2d5]) by AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
- ([fe80::86f0:8ce1:a437:b2d5%6]) with mapi id 15.21.0615.013; Mon, 23 Nov 2026
- 02:37:59 +0000
-From: Tung Quang Nguyen <tung.quang.nguyen@est.tech>
-To: Andrew Stellman <astellman@stellman-greene.com>
-CC: "David S. Miller" <davem@davemloft.net>, Jon Maloy <jmaloy@redhat.com>,
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"tipc-discussion@lists.sourceforge.net"
-	<tipc-discussion@lists.sourceforge.net>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH net] tipc: zero the pad bytes between bundled messages
-Thread-Topic: [PATCH net] tipc: zero the pad bytes between bundled messages
-Thread-Index: AQHdeFWhT+A+mLk8JE+y4QvaRqRCCLc69jKg
-Date: Mon, 23 Nov 2026 02:37:59 +0000
-Message-ID:
- <AM7P189MB11376459A3A6F49643AC25AEC6452@AM7P189MB1137.EURP189.PROD.OUTLOOK.COM>
-References: <20261119184127.24931-1-astellman@stellman-greene.com>
-In-Reply-To: <20261119184127.24931-1-astellman@stellman-greene.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=est.tech;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM7P189MB1137:EE_|GVXP189MB3386:EE_
-x-ms-office365-filtering-correlation-id: 2102c75d-1433-491c-2a9f-08df490ac9df
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261026121527099003|261026140227099003|261022105027099003|261022075727099003|261028144727099003|261021121427099003|261021123027099003|261102123227099003|38070700021|11063799006|56012099006|10067099003|261009223027099003|18002099003|22082099003|3023799007;
-x-microsoft-antispam-message-info:
- J+/Psp+WNiArsqrPU/N+euICzdMaXd97YBedNcltjVfBnfUjc5zqe9ttUuaSu9jANCkwdhS/g1htghaEXrGLukTo4nbH7J1Olq+Z2giUCMwPZbjMXJwvx21nmC6OPuJXFT53MjWiZYLOx01kbKeIfetKPR4rzaCnESx+TOA32C7fH/U1VYIwtKUXS5zGyVOBsM/tSN0zPUoWchmZA+Zp93t7p2b3ArzQ2vqHY/0wAxfnbKtm1FnBT8+dTWgEShIXvRyJ0oivFCN+MqWSwDE7fE8DIxKtaDzWn4BSpBdO+kRCRBclCJ+05k/sAdGMqK6d4ThCejm94JNc19LxtW4qQbZrbOM9w2Kg23u/Kqj23IMhRjJfvY1jXXjW5YYUkmd/7uT/dPA8mFaVoqw0gOlO5zHqF9dfEVEZqbGEXaaYoaADgHUgvFjwTo619KeR5M5Hm/U0ECWpEZqIH2kriJADnqXbkhqs6m/yM1RH/PAtah93xmdFFGHc14F3FMkjMss56A6myZH5K6dhouDWE16GHpm2lBD3C6ICWVLhxM7a5LuEOwTCt/Ppvn0sMYAie3OHrMG797+XBgU/maVnq1kX4fvZhdOXZjLXSsNHsqv2atf+HPMUa/XLoD2IcHIJlZhY6fbvMz9wGJT1Nq4C8aI6xcUIejIY+yAHQkCieLWj+4dhMvVzV1fD9EjQ5YD2Xnd6jybteNppIjLjNqTJpaVuS3nV8CKz9ZRDtB/VeNR2/HM=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7P189MB1137.EURP189.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261026121527099003)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003)(261021121427099003)(261021123027099003)(261102123227099003)(38070700021)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?V5ZcpIO3k5cEurp9hd5hJSAmNqjgonr0iiUK+6pvbdOJ/Qza/WqSoNHB5Tze?=
- =?us-ascii?Q?+u5/DIu85F/D42c35iAkGhrpo6OflQc/ASbRnRsAJfVSCcLYfzTC+le2lxRc?=
- =?us-ascii?Q?dKdRsUeadizoBUGZQUf9W7KkkjpoJngO1yrOwt4OsyWvZ1CS3EfAETLUhlBz?=
- =?us-ascii?Q?iuHlA4ZL7nUI7e6+vQg2+q9x0lefwRaCi7ZEipUZryxhb4czeDCus3RBWgfG?=
- =?us-ascii?Q?3miHz7cpFBcd5VYXguRZEynqFC7WjVwNJwD39i6PVbr2t4IhKGbiYMt+kqKl?=
- =?us-ascii?Q?cpYD0+FCFX/dkR/DITu6ZZj1rDC4PTTIXncg3dRKKV8swyh31h2I2v4dd5DM?=
- =?us-ascii?Q?9TtzeiK829+vKmiVjyQOvYqD4KJ/O5HwwqY6o1poTksH64YZHB6gGqQVXhJu?=
- =?us-ascii?Q?3uaihhxI9UYGUxCHv8RHNOka0WvcJBZmlcQTI7/uyZK+sCeuFc8diN4RRXo6?=
- =?us-ascii?Q?WAfU0YCGFW5IW3eNEO1JZvxRCAQeZyyxR/00GZFwI/9eftSHhiJvH48zPlwL?=
- =?us-ascii?Q?WK5X0UP/xIlIZurjIr9jrREyjxkBi3L9V/yxUyodtqDlFvu9gy0bfFNJ39Og?=
- =?us-ascii?Q?L2xoR8H7D7PGc+rUPHzgPucJXfaHJE+Xxx63Q7JuJp21qNS3BmJHV29NMq0Z?=
- =?us-ascii?Q?+uE1SBrXTNRdztcIo3zhrzLQToG+Oo1hpOnDhF/L2jvnUt2w0wsZr4yZ9FB4?=
- =?us-ascii?Q?suyZ9OjzDgnO+LkCJzibRVnMaOyCekhUNH3ba3PE5uHIKcVcF5oAZRGAIycK?=
- =?us-ascii?Q?xb8/xVAm9SxDSwfOGeYurGF59gUpmZQbtrApHQE10K6c2GLxW+/Sk2ouS8R3?=
- =?us-ascii?Q?dD6Oq3LANh/FBAEwVKXGXFGoKrJ7fn3xmfeaduCfajNr+uXgNdTUMO0KL8LE?=
- =?us-ascii?Q?6xWVamOzZsk/Phj+NeXeYXUEZhivC5atm9ien4C8LhfkYXkxgTmPqf6KtxFQ?=
- =?us-ascii?Q?CIzefQNeONyfyEehEHQZrb4hddxPlfmrWRP+vaGtTElwlpYt4a0OpDtHeODp?=
- =?us-ascii?Q?4C0d9ywk4zSS7gXmvMe5jY0nW8dM7ri5V/C32GkReKR1iz+5Sujemq2n3o7n?=
- =?us-ascii?Q?5B98mgNEfVkZgJzQ4uiQ0NYmQFCac6GduliWLP/5GLMqqL3rhshTH8KJjDM2?=
- =?us-ascii?Q?jGVzPctTv2bOXkZsOYdNDWNT33c7mHMo/sODEGZQDXNsMUG68oocH5qN7HGP?=
- =?us-ascii?Q?eQZ28fVh/k01k0bmiFy2qWtwdUcgrOanlx/H0ooWu6KBz0J0q7gw+ldv1QDz?=
- =?us-ascii?Q?XNh9ZcNB8NUukru5tQXG7qqFaOi3J1JWMHn7k1Jw5pYNwxOOOamnoBEu7zLP?=
- =?us-ascii?Q?DdZFN1zNxhUQEnhZGyf6x+ARQuyEKHYxlwuRe/J896VwRlhE3bc82QAhrOd9?=
- =?us-ascii?Q?yczI13jG+tEQxxdqGpVCdsswataX4MCy5F7tlji/ph0Zho+eZZMZjKtloXOt?=
- =?us-ascii?Q?rp9wxBSyyUIIrZLjUBn+ONqwVyMCBonhMKV8CLGqRI69B/Hew1CfnH+cRURs?=
- =?us-ascii?Q?19WfKlK4MctU1vrt+FDdt3AgUwsT8fmfUQP/zLCc5J6TZALdPWQZvbMCaSMo?=
- =?us-ascii?Q?mrfahPHZ5bX9h8R7eSBMSfuCN0T71TWchP8BGcjI5IHrC2PnGWxddhNGeJaJ?=
- =?us-ascii?Q?BuYU68berliJd8gP4nNr5LiaAEygNPIv7Y7EjoDPUsmw86m1lQ6nYbN40tNe?=
- =?us-ascii?Q?6D835tAukaIClQGbwau+fsDw2Gkl1MvF6nQ/+HST8ohg7KBPdUz00kqaGLYP?=
- =?us-ascii?Q?GB/FfUEj0g=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 658F9606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:38:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 658F9606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-448d51840c4so1813453fac.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:38:48 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795401527; x=1796006327;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=r+NOcmmbW7rtw5ts41xsWNc/iGPBCitC+rKmnfKq7Cs=;
+        b=PU1Y5qyQUCfp9+aNNKM25pm9v67CVDwNiZK/ccJJwEXU1b7zKcLwcWYvpcTXs2MEPk
+         CebCoO27/5e7fp2Kt0oWAdikFHGZNQcpm//DpimbTIlZypNXes1BXOde6aGERPSVianj
+         VyaSiNP6xL0Qzc99Mq2+mCk713mMxaCygpQC0k9Z3gpiu3ObXPXK7roPtTd4FcaDqyov
+         KA4DBRdf3vlfsoAwoBdwUr2jM8QGa18LlbUbwmU5+/5w7PngWLpfwTKgplnAVbUg2+Om
+         bY2CBDycq8IN1NWDtytXQQLrheNeY9nsQDpdOvaOUlpGAW0wmVqCwsQZy71fPeFe1TfY
+         lIvw==
+X-Forwarded-Encrypted: i=1; AL+hErFS6eEU+28AD+Y97LjPr/egVC+kFE28o0rvC5AVW329YGGgvXSRDuPxfBT00phDo3k7UM5M3cB/PfGdP5s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9sa6+xOj5A/K04hoePdncpdqcuK7kf+6bcVfiPE4+E7NLVK1p1
+	m32NZ4hGtKZKirJbG6wMzXl49/P2SLO5bCNZsaGy0MCGECBmYWu0ifG1+9TuqujduI0bH4xFQem
+	7ky9yX2pl7DeAlC2oodQr9cN5e74ie8bR3m5QtYh+tlu9byRhcmEn0shMyyA=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -147,73 +58,242 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: est.tech
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1137.EURP189.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2102c75d-1433-491c-2a9f-08df490ac9df
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 02:37:59.4640
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: d2585e63-66b9-44b6-a76e-4f4b217d97fd
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: aQ6MrMguRSLG+ZgqOwbKt8i/031qgI6iIE9nox7ZpYi8TI5/7pCMQcT4pxGKCyfwMRH8ozy3eeEscp2CqFUIZVLwuHPoyav1iWyRXyoSugM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXP189MB3386
+X-Received: by 2002:a05:6808:244e:b0:568:c71:5338 with SMTP id
+ 5614622812f47-57a0a10954bmr9734535b6e.18.1795401527348; Sun, 22 Nov 2026
+ 18:38:47 -0800 (PST)
+Date: Sun, 22 Nov 2026 18:38:47 -0800
+In-Reply-To: <6afc5031.8f566acc.2517be.0001.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b03a737.44b41460.34b83f.0025.GAE@google.com>
+Subject: Re: [syzbot] [netfs?] possible deadlock in vfs_iocb_iter_write
+From: syzbot <syzbot+deb8af81d91415fabac1@syzkaller.appspotmail.com>
+To: dhowells@redhat.com, dmitry.kasatkin@gmail.com, dmitry.kasatkin@huawei.com, 
+	linux-kernel@vger.kernel.org, netfs@lists.linux.dev, 
+	syzkaller-bugs@googlegroups.com, zohar@linux.vnet.ibm.com
+Content-Type: text/plain; charset="UTF-8"
 
->Subject: [PATCH net] tipc: zero the pad bytes between bundled messages
->
->tipc_msg_bundle() places each message in a bundle at a 4-byte aligned offs=
-et.
->It extends the bundle with skb_put() to cover both the padding and the
->message, but copies only the message, so the 0 to 3 pad bytes before it ke=
-ep
->whatever was in the skb's tailroom, and they are sent to the peer node.
->
->Zero the pad bytes. Commit 81c600c26302 ("tipc: Dont send random pad bytes
->in RESET/ACTIVATE messages") fixed the same kind of leak in link protocol
->messages.
->
->Reproduced on v7.4-rc3 with two QEMU guests as TIPC nodes, booted with
->slub_debug=3DP, which fills free slab objects with 0x6b. One guest sends
->60,000 SOCK_RDM messages with 41, 45 and 37 bytes of data to the other.
->That fills the link window, so some are bundled, and a packet socket on th=
-e
->sender captures the outgoing frames. Without this patch every captured pad
->byte was 0x6b; with it they are all zero and every message is still delive=
-red. No
->other kernel changes, debug code or error injection were needed, and there=
- is
->no TIPC selftest to run.
->
->The issue was found by Claude Opus 5.5 running Quality Playbook, an LLM-
->driven code review tool:
->https://github.com/andrewstellman/quality-playbook
->The fix and this changelog were drafted with the same tool and reviewed by
->me.
->
->Fixes: b97bf3fd8f6a ("[TIPC] Initial merge")
->Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
->---
->A reproducer is available on request.
->
-> net/tipc/msg.c | 3 ++-
-> 1 file changed, 2 insertions(+), 1 deletion(-)
->
->diff --git a/net/tipc/msg.c b/net/tipc/msg.c index 39dfd33c8eec..b0d52609b=
-03d
->100644
->--- a/net/tipc/msg.c
->+++ b/net/tipc/msg.c
->@@ -509,7 +509,8 @@ static bool tipc_msg_bundle(struct sk_buff *bskb,
->struct tipc_msg *msg,
-> 	if (unlikely(max < (offset + msz)))
-> 		return false;
->
->-	skb_put(bskb, pad + msz);
->+	skb_put_zero(bskb, pad);
->+	skb_put(bskb, msz);
-> 	skb_copy_to_linear_data_offset(bskb, offset, msg, msz);
-> 	msg_set_size(bmsg, offset + msz);
-> 	msg_set_msgcnt(bmsg, msg_msgcnt(bmsg) + 1);
->
+syzbot has found a reproducer for the following issue on:
 
-Reviewed-by: Tung Nguyen <tung.quang.nguyen@est.tech>
+HEAD commit:    4843f6873f7c Merge tag 'sysctl-7.04-fixes-rc4' of git://gi..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=11ee66bd580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=3cc6a7ee2d24d208
+dashboard link: https://syzkaller.appspot.com/bug?extid=deb8af81d91415fabac1
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1118446d580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=17c512bc580000
+
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/98fce4d0b21b/non_bootable_disk-4843f687.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/86db8b334894/vmlinux-4843f687.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/94ea4dad441a/bzImage-4843f687.xz
+mounted in repro #1: https://storage.googleapis.com/syzbot-assets/b2622425ced2/mount_0.gz
+  fsck result: failed (log: https://syzkaller.appspot.com/x/fsck.log?x=13c512bc580000)
+mounted in repro #2: https://storage.googleapis.com/syzbot-assets/0089353ceb53/mount_8.gz
+  fsck result: failed (log: https://syzkaller.appspot.com/x/fsck.log?x=16ee66bd580000)
+
+The issue was bisected by AI to:
+
+commit 0d73a55208e94fc9fb6deaeea61438cd3280d4c0
+Author: Dmitry Kasatkin <dmitry.kasatkin@gmail.com>
+Date:   Tue Dec 5 19:06:34 2017 +0000
+
+    ima: re-introduce own integrity cache lock
+
+AI reasoning:   https://syzkaller.appspot.com/ai_job?id=1dffa081-8679-4b43-b77c-809761df2cb7
+
+AI-generated root cause summary:
+In `security/integrity/ima/ima_iint.c`, `ima_iint_lockdep_annotate()` assigns
+`iint->mutex` to a static lockdep class array
+`ima_iint_mutex_key[IMA_MAX_NESTING]` indexed solely by
+`inode->i_sb->s_stack_depth`. When a network filesystem using netfs/fscache
+(such as 9p) caches data on a local backing filesystem (such as XFS via
+cachefiles), both filesystems have `s_stack_depth == 0`, causing their
+`iint->mutex` instances to share the same lockdep key `ima_iint_mutex_key[0]`.
+This collapses distinct locking tiers into one class, causing lockdep to flag a
+false circular locking dependency among `sb_writers` (acquired during
+`do_open(O_TRUNC)`), `ima_iint_mutex_key[0]`, and `inode->i_rwsem` (acquired
+during `netfs_buffered_read_iter()` when IMA measures a file).
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=deb8af81d91415fabac1
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+deb8af81d91415fabac1@syzkaller.appspotmail.com
+
+The cause commit was identified by AI and may be wrong.
+If you agree with it, please also add:
+Fixes: 0d73a55208e9 ("ima: re-introduce own integrity cache lock")
+
+XFS (loop0): Ending clean mount
+netfs: Cache "CacheFiles" added (type cachefiles)
+CacheFiles: File cache on CacheFiles registered
+======================================================
+WARNING: possible circular locking dependency detected
+syzkaller #0 Not tainted
+------------------------------------------------------
+syz.0.18/5600 is trying to acquire lock:
+ffff888014340478 (sb_writers#12){.+.+}-{0:0}, at: kiocb_start_write include/linux/fs.h:2799 [inline]
+ffff888014340478 (sb_writers#12){.+.+}-{0:0}, at: vfs_iocb_iter_write+0x1cb/0x5e0 fs/read_write.c:929
+
+but task is already holding lock:
+ffff88804381b620 (&sb->s_type->i_mutex_key#25){++++}-{4:4}, at: inode_lock_killable include/linux/fs.h:1032 [inline]
+ffff88804381b620 (&sb->s_type->i_mutex_key#25){++++}-{4:4}, at: do_truncate+0x18f/0x250 fs/open.c:63
+
+which lock already depends on the new lock.
+
+
+the existing dependency chain (in reverse order) is:
+
+-> #2 (&sb->s_type->i_mutex_key#25){++++}-{4:4}:
+       down_read_interruptible+0x4b/0x3b0 kernel/locking/rwsem.c:1584
+       netfs_start_io_read+0x25/0x180 fs/netfs/locking.c:67
+       netfs_buffered_read_iter+0xd6/0x160 fs/netfs/buffered_read.c:940
+       __kernel_read+0x4ca/0x960 fs/read_write.c:512
+       integrity_kernel_read+0x89/0xd0 security/integrity/iint.c:28
+       ima_calc_file_hash_tfm security/integrity/ima/ima_crypto.c:222 [inline]
+       ima_calc_file_hash+0x451/0x890 security/integrity/ima/ima_crypto.c:280
+       ima_collect_measurement+0x51b/0xa00 security/integrity/ima/ima_api.c:300
+       process_measurement+0x1272/0x1c10 security/integrity/ima/ima_main.c:425
+       ima_file_check+0xdc/0x130 security/integrity/ima/ima_main.c:686
+       security_file_post_open+0xb3/0x260 security/security.c:2777
+       do_open fs/namei.c:4853 [inline]
+       path_openat+0x1748/0x20f0 fs/namei.c:5016
+       do_file_open+0x23e/0x4a0 fs/namei.c:5045
+       do_sys_openat2+0x115/0x200 fs/open.c:1443
+       do_sys_open fs/open.c:1449 [inline]
+       __do_sys_openat fs/open.c:1465 [inline]
+       __se_sys_openat fs/open.c:1460 [inline]
+       __x64_sys_openat+0x138/0x170 fs/open.c:1460
+       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #1 (&ima_iint_mutex_key[depth]){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
+       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
+       process_measurement+0x7d0/0x1c10 security/integrity/ima/ima_main.c:319
+       ima_file_check+0xdc/0x130 security/integrity/ima/ima_main.c:686
+       security_file_post_open+0xb3/0x260 security/security.c:2777
+       do_open fs/namei.c:4853 [inline]
+       path_openat+0x1748/0x20f0 fs/namei.c:5016
+       do_file_open+0x23e/0x4a0 fs/namei.c:5045
+       do_sys_openat2+0x115/0x200 fs/open.c:1443
+       do_sys_open fs/open.c:1449 [inline]
+       __do_sys_openat fs/open.c:1465 [inline]
+       __se_sys_openat fs/open.c:1460 [inline]
+       __x64_sys_openat+0x138/0x170 fs/open.c:1460
+       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #0 (sb_writers#12){.+.+}-{0:0}:
+       check_prev_add kernel/locking/lockdep.c:3209 [inline]
+       check_prevs_add kernel/locking/lockdep.c:3328 [inline]
+       validate_chain kernel/locking/lockdep.c:3952 [inline]
+       __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
+       lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
+       percpu_down_read_internal include/linux/percpu-rwsem.h:53 [inline]
+       percpu_down_read_freezable include/linux/percpu-rwsem.h:83 [inline]
+       __sb_start_write include/linux/fs/super.h:19 [inline]
+       sb_start_write+0x48/0x1c0 include/linux/fs/super.h:125
+       kiocb_start_write include/linux/fs.h:2799 [inline]
+       vfs_iocb_iter_write+0x1cb/0x5e0 fs/read_write.c:929
+       __cachefiles_write+0x6c9/0xbd0 fs/cachefiles/io.c:355
+       netfs_issue_write fs/netfs/write_issue.c:290 [inline]
+       netfs_advance_write+0x328/0x4b0 fs/netfs/write_issue.c:331
+       netfs_write_folio fs/netfs/write_issue.c:510 [inline]
+       netfs_writepages+0x12d3/0x22b0 fs/netfs/write_issue.c:600
+       do_writepages+0x338/0x560 mm/page-writeback.c:2562
+       filemap_writeback mm/filemap.c:386 [inline]
+       filemap_fdatawrite_range mm/filemap.c:411 [inline]
+       filemap_fdatawrite+0x1e9/0x2f0 mm/filemap.c:417
+       v9fs_vfs_setattr_dotl+0x4dc/0xab0 fs/9p/vfs_inode_dotl.c:585
+       notify_change+0xbba/0xea0 fs/attr.c:556
+       do_truncate+0x1c2/0x250 fs/open.c:68
+       handle_truncate fs/namei.c:4306 [inline]
+       do_open fs/namei.c:4855 [inline]
+       path_openat+0x18a6/0x20f0 fs/namei.c:5016
+       do_file_open+0x23e/0x4a0 fs/namei.c:5045
+       do_sys_openat2+0x115/0x200 fs/open.c:1443
+       do_sys_open fs/open.c:1449 [inline]
+       __do_sys_openat fs/open.c:1465 [inline]
+       __se_sys_openat fs/open.c:1460 [inline]
+       __x64_sys_openat+0x138/0x170 fs/open.c:1460
+       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+other info that might help us debug this:
+
+Chain exists of:
+  sb_writers#12 --> &ima_iint_mutex_key[depth] --> &sb->s_type->i_mutex_key#25
+
+ Possible unsafe locking scenario:
+
+       CPU0                    CPU1
+       ----                    ----
+  lock(&sb->s_type->i_mutex_key#25);
+                               lock(&ima_iint_mutex_key[depth]);
+                               lock(&sb->s_type->i_mutex_key#25);
+  rlock(sb_writers#12);
+
+ *** DEADLOCK ***
+
+locks held by syz.0.18/5600: 2, on CPU#0:
+ #0: ffff888043d40478 (sb_writers#13){.+.+}-{0:0}, at: mnt_want_write+0x41/0x90 fs/namespace.c:531
+ #1: ffff88804381b620 (&sb->s_type->i_mutex_key#25){++++}-{4:4}, at: inode_lock_killable include/linux/fs.h:1032 [inline]
+ #1: ffff88804381b620 (&sb->s_type->i_mutex_key#25){++++}-{4:4}, at: do_truncate+0x18f/0x250 fs/open.c:63
+
+stack backtrace:
+CPU: 0 UID: 0 PID: 5600 Comm: syz.0.18 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+ print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
+ check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
+ check_prev_add kernel/locking/lockdep.c:3209 [inline]
+ check_prevs_add kernel/locking/lockdep.c:3328 [inline]
+ validate_chain kernel/locking/lockdep.c:3952 [inline]
+ __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
+ lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
+ percpu_down_read_internal include/linux/percpu-rwsem.h:53 [inline]
+ percpu_down_read_freezable include/linux/percpu-rwsem.h:83 [inline]
+ __sb_start_write include/linux/fs/super.h:19 [inline]
+ sb_start_write+0x48/0x1c0 include/linux/fs/super.h:125
+ kiocb_start_write include/linux/fs.h:2799 [inline]
+ vfs_iocb_iter_write+0x1cb/0x5e0 fs/read_write.c:929
+ __cachefiles_write+0x6c9/0xbd0 fs/cachefiles/io.c:355
+ netfs_issue_write fs/netfs/write_issue.c:290 [inline]
+ netfs_advance_write+0x328/0x4b0 fs/netfs/write_issue.c:331
+ netfs_write_folio fs/netfs/write_issue.c:510 [inline]
+ netfs_writepages+0x12d3/0x22b0 fs/netfs/write_issue.c:600
+ do_writepages+0x338/0x560 mm/page-writeback.c:2562
+ filemap_writeback mm/filemap.c:386 [inline]
+ filemap_fdatawrite_range mm/filemap.c:411 [inline]
+ filemap_fdatawrite+0x1e9/0x2f0 mm/filemap.c:417
+ v9fs_vfs_setattr_dotl+0x4dc/0xab0 fs/9p/vfs_inode_dotl.c:585
+ notify_change+0xbba/0xea0 fs/attr.c:556
+ do_truncate+0x1c2/0x250 fs/open.c:68
+ handle_truncate fs/namei.c:4306 [inline]
+ do_open fs/namei.c:4855 [inline]
+ path_openat+0x18a6/0x20f0 fs/namei.c:5016
+ do_file_open+0x23e/0x4a0 fs/namei.c:5045
+ do_sys_openat2+0x115/0x200 fs/open.c:1443
+ do_sys_open fs/open.c:1449 [inline]
+ __do_sys_openat fs/open.c:1465 [inline]
+ __se_sys_openat fs/open.c:1460 [inline]
+ __x64_sys_openat+0x138/0x170 fs/open.c:1460
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7db21a9559
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f7db17fe028 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007f7db2425fa0 RCX: 00007f7db21a9559
+RDX: 0000000000000300 RSI: 0000200000009b80 RDI: 0000000000000005
+RBP: 00007f7db2238136 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f7db2426038 R14: 00007f7db2425fa0 R15: 00007fff21afb1f8
+ </TASK>
