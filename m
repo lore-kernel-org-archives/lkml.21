@@ -1,78 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427345;
-	b=4AxuxL0HKSHp3t3xgWJ0zISsEXO8L16L/l3dSn59/hBBpBYP5qoM8c1bJyNXxABhKBdJ
-	 EOgR4o5UZHgeZ0Bf9NdBZQ4tYAycSN3Iun2rchxiU6cwr1LMjecWt532/T5AcoDyC+hI6
-	 0YpBCGIBnP6bFAM1cAeVbiGbAaUz5BOOaKofVHt4ySZitH9ilEhu/diahmEvhE1UyYKtv
-	 nhmMepRU5pgNtC4Kp93jgq0SKwnI+o6aDkHhPoOK8bbulz6urh+NuTwtsQ4OVUtxOu1Jv
-	 C5HMzLZpkbVIyEWpe/hHiFmktWB+GpntU4FSseZQvJOd4k8scrhUSqg5OfS29abNlbw==
+	t=1795427353;
+	b=fX9vRk8g+q6uPmFl9ixvUqP4jlfu+RV1IMRbIWGzWQnlwLvqIk9JKzCjfeklydTxhAzO
+	 TKEIfazqGjTdYS8koGPPE4t/a9XA+yd5YsiUFgWmXNSehSQqoXKQxLHdlaRqZYp3Wm0Me
+	 rznxl+29GQ27BvZJSuyLYqptsbQIy3ciwNr/v7ErkfnYMLzJQ1AtZmuCZqE+RJpWagyZ/
+	 C/Ub/Fl/J0oaYgM+kg91g30eNL2Pdbv12B/yS0c7tNWp1xbgLGturvHfD7CTxpTdyF48F
+	 Gc2khp+YfoAnZA3zzT9bJJEsFBL8pJr3OgBKwseFAi/jCY7mp0g1vp9BU+EsNcTSU+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427345;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=FUV/UoOBr/J6VY5krtiDaidQIeLgBTXxPj1B21P7IyY=;
-	b=2Jx+ngfdH3kqXq1oAtrjlb8PdVqJGRdU/NndJRiatn52JlghlwNX4lgWTzQww5nO7S5J
-	 HHLE9MHX+ZnQD+6aaVCLzNbF41sIsZTLHsQEKSaJT3D8uAKLQVritJ/RHe8TFyqkTbqrb
-	 gT0jOnBTdnXGsguoPbvQr9F9xlKoXrppxkJCmqxaGVC9pNNmq+bKTTmvGvwMI+LDFav6W
-	 BFFRL7GvqeYbv/WRya/FYsRA4AKYROmI4ywLuBodQKtIV+d45cmlQfGOiqE+7hzYIHai1
-	 2GKTwnRCBhQUzzOQ3Fp0beSrOmsbDvSqkhDivkRCEDcZ8FitJwB7WH+bmr8h4kdKyTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427353;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=5g6rxDcE+XSPvTO4IYmwgvIS3I7HcVTmR8Q7VnCTKgE=;
+	b=UllOt44NtXscDmOQql7sgAuspGVLaFaTr4HmR1D7hHfxZllrB+BZubkLS64I3un8ns5v
+	 AHSiuG76r7Aqa1FASIlxev1jI6UQLuKlD1mPb+t5hDfA0iLR03p5PEEuWN8TilyWLpiZZ
+	 VhIHakZAjmMLriTZxwxkDgdbB/xjHjgRZ6RVkeyWRR1HjzZ1ZcpYSglrHmLSX6PC++UKZ
+	 LQfpoefc+Zx0qFoxNEE3RA0DGwr1czK7YU02K1TWoixzO89FOh+ue5nmUuaO35GhtARPn
+	 NdZtDyFizuXb6kjUJxb0YoHq6sdXAMRGp7bGKb/ZcfxQJzx+JmNNFfjvn7EOZVCredg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FrA9Wssl;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--mmol.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y+PTMQJb;
+	arc=none smtp.remote-ip=209.85.218.72
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9338D606A31A;
-	Mon, 23 Nov 2026 09:49:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9338D606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E944606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:49:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E944606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--mmol.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FrA9Wssl
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795427345; x=1826963345;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mKeY8d2xWdIsSGaHzmL0LiD0HoPYA5papgqXVJCBlWI=;
-  b=FrA9Wssla9ukfgCDmPjFFjsuMc55eNP1UEdT1Y2Jtjahe7U4UBBWQ66B
-   S6/mUG8J/IAjPbVMAsCVrYHdcZ7j7JyN+qj7UiU0EyJBCuVVy2diLhIaT
-   QQL2drCToljoDLOIO1W/IhkX7MdsgaDkmx7DOtJrW/81TajCtfYicgbbJ
-   F2TQKj1daO6eJt793BJcmyWJisIF02xHxOEDfygKG/EmnrI7Z++2vZ2j5
-   z8/Ul1PrgOymOMErU4lQqPWofbTvGIyRfdesv+pigbjyJLtCBJT/v+Z24
-   NEScVZY6O/aqeGY95Q/GlpSyKhvTbflVuJ0I7B1QffuwM7+wkdPDVYfe7
-   A==;
-X-CSE-ConnectionGUID: qMSGyxuiQ6aSrWSyRK3BNg==
-X-CSE-MsgGUID: xcaDzy08SlWBUZntmdCfOg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4121839"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4121839"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 01:49:04 -0800
-X-CSE-ConnectionGUID: 7sJ0TC2JQa2OxIi6kqHNlw==
-X-CSE-MsgGUID: D7r8MFobSSCJb+ypfE4Rsg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="13240187"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 01:49:02 -0800
-Date: Mon, 23 Nov 2026 11:48:59 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: shyckless@gmail.com
-Cc: ludovic.desroches@microchip.com, vkoul@kernel.org, Frank.Li@kernel.org,
-	dave.jiang@intel.com, linux-kernel@vger.kernel.org,
-	dmaengine@vger.kernel.org, allen.lkml@gmail.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] dmaengine: idma64: Kill the channel tasklets in
- remove again
-Message-ID: <awQMCxhy6BurLowU@ashevche-desk.local>
-References: <20261123-dma-chancnt-v2-0-241b1672883e@gmail.com>
- <20261123-dma-chancnt-v2-2-241b1672883e@gmail.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y+PTMQJb
+Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-c40aa03ded8so293516266b.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:49:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795427351; x=1796032151; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5g6rxDcE+XSPvTO4IYmwgvIS3I7HcVTmR8Q7VnCTKgE=;
+        b=Y+PTMQJb2NRM0EXrjo7lt8ZaSyhMbJA8qNIirzqo3mXE6aqQ5VeSkZl0JLv2NWzIwq
+         n69UfG0nqzoW1Ewaq1KEdXYUw9aHZ0jMi7Xrl7Gdca9X8xJ/xJvDYvk6CuKJ2KqHausp
+         EYKkB1kwgJxi6hKiyi0DM8sAo1nNLLmqlBIsyrcFhkPzI/i6H/7+qL5mj9f9j9860DAm
+         87FHPI4XSenuRV3YQ8d2VXDp5NfDC8U7bW+uwL14FSmKU/St4BOt1ZBcPQJUg/EJXNaf
+         U7TzDJfHsEnFjkZEG2lrVOoKSEidQ9RbrJVApJBCZDf/d2jZkeGmpKQCiYiVO2rXP1V/
+         SlaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795427351; x=1796032151;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5g6rxDcE+XSPvTO4IYmwgvIS3I7HcVTmR8Q7VnCTKgE=;
+        b=FBW9segaZurVX6ElYFs1H37K56sw/geD52O4mO7nfask9c/SjzR5mlshN/GEyT3NSf
+         CuGUTjL5KURwfaG4bGcY8GbhQ/5+T3t739uW++Z4He/X3eDluLxeVmp2rJKdbYzAg1/1
+         0sS2jN8rp2gluCzMqaC6tc7FOL4j02Grpq8tVh9tMWkwKxuj6o1g8EM4YVpulye3RqrA
+         qgtnNOFKdxSaQ7VRg3RJrnlNHnChVi+3BaT2OaPYBYpraQr9dnJ6luVUJpjS8piV9kLO
+         oExo1iTd9BRDZlfDjqv/fUwbcLrZVlmRbxqJsQ87llDX9Tq5rxLznUtLCNghrpG2w/ir
+         9tFw==
+X-Forwarded-Encrypted: i=1; AL+hErFjFbydywIBC4ze4DNup3L23z5uqfkqAdM2s5gBtDYl/SN6+6rZOA3yMHsCfXdsMIBTv6/XbHtgMdCb7Io=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+UOAEeKh3uFMKHxYh4AsKMftJiPAq5arc9VtfjTNIvYyPTbrp
+	Ql6dSfZY++sKFBmG6UWHAzU1Q6xUqhwzBz2hD29LqOJT4fB7E7qXYDRCUCdqZSUb1ojeCeBpTg=
+	=
+X-Received: from edtg7.prod.google.com ([2002:aa7:c847:0:b0:6b8:98f6:dcc5])
+ (user=mmol job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:46d3:b0:6b6:f429:4802
+ with SMTP id 4fb4d7f45d1cf-6ba37ea3508mr5728784a12.25.1795427350480; Mon, 23
+ Nov 2026 01:49:10 -0800 (PST)
+Date: Mon, 23 Nov 2026 09:48:52 +0000
+In-Reply-To: <20261109084854.840576-1-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,40 +78,33 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-dma-chancnt-v2-2-241b1672883e@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Mime-Version: 1.0
+References: <20261109084854.840576-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261123094852.2435494-1-mmol@google.com>
+Subject: Re: [PATCH v2 00/19] KVM: arm64: selftests: Tests for protected VMs
+From: Mihai Moldovanu <mmol@google.com>
+To: fuad.tabba@linux.dev
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org, pbonzini@redhat.com, 
+	qperret@google.com, seanjc@google.com, seiden@linux.ibm.com, shuah@kernel.org, 
+	suzuki.poulose@arm.com, tabba@google.com, vdonnefort@google.com, 
+	will@kernel.org, yuzenghui@huawei.com, Mihai Moldovanu <mmol@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026 at 01:17:38AM +0000, Suyuan Wang via B4 Relay wrote:
-> 
-> idma64_remove() frees the IRQ and then kills the channel tasklets, as
-> the comment there says, so that no tasklet scheduled by the interrupt
-> runs after removal:
-> 
-> 	for (i = 0; i < idma64->dma.chancnt; i++) {
-> 		...
-> 		tasklet_kill(&idma64c->vchan.task);
-> 	}
-> 
-> Since commit e81274cd6b52 ("dmaengine: add support to dynamic
-> register/unregister of channels"), dma_async_device_unregister()
-> unregisters each channel and decrements dma.chancnt for it, so the
-> count is 0 when this loop runs and no tasklet is killed. A tasklet
-> scheduled by an interrupt can then run after the devm-allocated idma64
-> and its channels have been freed.
-> 
-> Read the channel count before unregistering the device.
-> 
-> Found with a static analysis tool and checked by hand.
+Hi Fuad,
 
-You have to wait a sensible time before resubmission.
-Look at the v1 and act accordingly.
+I have tested this series based on v7.4-rc1 in QEMU
+with gic-version=3, -cpu max, pauth=off, -smp 4, -m 8G
 
--- 
-With Best Regards,
-Andy Shevchenko
+All pkvm_* selftests pass. I confirmed that the skips you mentioned are
+features that pKVM doesn't expose to protected guests.
+pkvm_id_regs fails with patch 1 reverted and passes with it applied.
+Each patch builds individually (tested with git rebase --exec).
 
+Tested-by: Mihai Moldovanu <mmol@google.com>
 
+Thanks,
+Mihai
