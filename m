@@ -1,49 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449445;
-	b=Gm7QiQiAauX1mLkITZYnjqz78Gv/SM5pOqiFGeWenYJblB+NVH98Mbq9D5NWGOsaJ+wr
-	 Rx54tTl6OkZcFl9T/j6bDF21eC5fu/fhBdWdj/Nf2p08MNf0TX95dMUuSZOK0SEzWuayo
-	 +XdT/jzTGembKkWZLp8NyNY0Ika+H360VfvmJftxfoNGguLjtTrBtkwiIzQ2Df3gg7oEk
-	 BgHSOXsys81T2PbVYmLSKvAc4jZUMolCBRlk797xk9sm2cEUbABkz9gIQ5r6EHpRyO/N4
-	 JLX4ZTH8RlOfb6ERAu4IFIAekvnq/1BcdewNqDF8CADavEHrPErEbVTRSJUx/sgCbLg==
+	t=1795449454;
+	b=mRS+2fapcH75dD/HieNdRugBSr/zvYohDiKkcSIxwxnUVpfCoqQBLm4+xe+FCW8oP2ue
+	 6aTobQx5OA2tt4Aj3LfSrNsNkMGABLLJBdX0DFod7SlHMnbw9gXMpAZfaZ9IZlaufAmfU
+	 b8lYFsM+p7tzfn6KFtiAgdKu2cVHV5R8k5lDttWFhG3IJCN/DdOqP3I3IgZkj9E/2oxgB
+	 bDtZfmC2cTHUyp9LLZDNYrw3NcPb9MtMpxbho2t6f+oMZKOofA7KG1J+KkCPykXSK0pyL
+	 ZVJPMNHCTE74NDb6NFSbU1Ik9/W2FmGdGWHNBWNJ7UOnV5efA1CJVKOUyBRaSexiSfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449445;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=XnC/zvaqz+BP2xABSYK5DwvAXqfcSU67vbMlsSlT42A=;
-	b=sbvIkYrghUJRw/0R19B5My0Ij5dJbOdZEKkeWs5WoBrIDa2uAc/ZqvttSuSDZ4REtdFt
-	 dlJRj/V5N9cm2kkPicFAZlMoIHTrps2QYaCJ+IEPB2nS1lTDd8FfxynzjKmJuHNqSD3TT
-	 4+qM1DoWilZ9pAxfnH/1jZp1/w0rHo5S9abauxSt5lemUQberZUyns4YwAfSib94t1Byq
-	 z2zb9tmtCVWsnrAqcLWezqPwsEvSKZ0OnmbPHx6ryLxZwu4A+7fwPcj6qCCMip4Hwe4Dw
-	 5GQXn+5x14eZGn8dRodj3Gmklr0bSY30UXhiRagEWg19A1bNFyQAykAUdpC9Wo/Vv5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449454;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=8tlyN40+7Qkubt+Fz9S4uHt3fLqvkl8zPBbV6YJWTAo=;
+	b=4Cm4elVf9ldEBsVbpbd9qz/EhZb5dtHbOhSlN8mDOV1IPnaBS3V5OanfdyQobuE3O/gk
+	 f3hvUvYxt2VvcvbHrQdmlJVMbzCbjI2su5BukVhh3fSvnEgw9sUo62lmmKaVuHrBkM9TZ
+	 6kPlIa5im3kuG6ACLZLPJR2rsiOx7ErmUWw9TbfHsifN2bdYjwQJBKiuXrBHJ7MKa6lVH
+	 NZT0dsDP/e5/hmJaBPX7jJh57vsBmhuxeVYyR4IOOuzcpPMZJKkRt24L/gL5GeiuusKcL
+	 oC9oSVUxKNzVBUe4gEeWosVLfQc4dIHzuXtijKE2qEFupoj2MHXiI4COdy/1+T/yGZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="D3F/skQp";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A38DD606A31A;
-	Mon, 23 Nov 2026 15:57:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A38DD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UTb1u+Nm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB8C9606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:57:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=D3F/skQp
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A12C143D;
-	Mon, 23 Nov 2026 07:57:21 -0800 (PST)
-Received: from [10.2.201.43] (e140322.arm.com [10.2.201.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 008ED3F632;
-	Mon, 23 Nov 2026 07:57:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795449444; bh=ZCGRnUE04Krh/+ZqT5Qg4nFGw6DpXnRPMANbf+wNcCk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=D3F/skQp6kGWVf8vzSozuocGOAVW8NkAbIG3aJ4v3auXwZU0kd4aQ0DQkB8F2Fzo4
-	 n2gZ/Kt5RAlvlxZKA/yy/muQxwahl91QpWeDv1e3efEygku4d5pWuSxfM7tQWyTsMa
-	 z/OimbKVIe0YO/nrn5rfnbeOmDw95S5TzR+rFZ9o=
-Message-ID: <9a643f44-3143-410a-ae0e-21bc27cb1be0@arm.com>
-Date: Mon, 23 Nov 2026 15:57:20 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UTb1u+Nm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C0071F008B2;
+	Mon, 23 Nov 2026 15:57:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795449454;
+	bh=8tlyN40+7Qkubt+Fz9S4uHt3fLqvkl8zPBbV6YJWTAo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UTb1u+Nmrdi5Yh8tOqyRuQfy/U1vNrfIzK093DF4CmwWZJYfM4yTJ5E3GRnlpArCG
+	 UKGrU9Sbmep1TMn93hhi180d9nH+DFlUR4cLaBE2fY2MNUgK8Q500JD1B5QuACTVV6
+	 7Lh3+zv8IndoNEYYahvhuzjlOuowvTjpF1pPz+zsby+eyC32UQm9R5sjwnrFwULFwo
+	 FHg1q1SjCXwJ38lzD51LpLBizCTi3PH0kBmqRz0WTxV4hHwME9r2anHp4zeqjGGETh
+	 I+5hy9LtJWP514Fq1HNg+yBa+gCq9osa+Ll1nXBq8TW+BX1N2q91OX3n6GWL/CEeG0
+	 2BC5bzQ9XFNIQ==
+Date: Mon, 23 Nov 2026 15:57:29 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 6/9] arm64: sysreg: Reject an enum value not written at
+ its field's width
+Message-ID: <aabfdc59-8f37-4573-9956-14f077274d3f@sirena.org.uk>
+References: <20261123075219.369042-1-fuad.tabba@linux.dev>
+ <20261123075219.369042-7-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,73 +64,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/28] media: add arm Mali-V76 video decoder driver
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
- Shobhit Pandey <shobhit.pandey@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
- <fe3f3912af33f1afed3459671fdf93a5a6764c27.camel@ndufresne.ca>
-Content-Language: en-US
-From: Charvi Mehta <charvi.mehta@arm.com>
-In-Reply-To: <fe3f3912af33f1afed3459671fdf93a5a6764c27.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-
-Hi Nicolas,
-
-Thanks for reviewing the series.
-
-On 11/19/26 19:44, Nicolas Dufresne wrote:
->> [5] Fluster was run with
->>
->> GStreamer-H.264-V4L2 decoder:
->>
->> Running test suite JVT-AVC_V1 with decoder GStreamer-H.264-V4L2
->> Ran 78/135 tests successfully.
->>
->> The failing tests:
->>
->> 52 test vectors fail as they are interlaced clips which mali-vpu does not
->> support.
-> Is that a real hardware limitation, or you are just skipping it in firmware or
-> even in this driver? Its not like you have a compliant decoder without it. I've
-> recently asked Amlogic to not cut corner also, and they accepted to fix their
-> new driver.
-
-V76 supports interlaced decoding, but it was not exposed in the initial 
-driver
-submission because the capability is being phased out in later hardware
-generations. In v2, I’ll enable it through a variant-specific capability 
-flag,
-allowing it to be disabled for future hardware generations that do not 
-support it.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7/fkz7ZJG6AWevJ1"
+Content-Disposition: inline
+In-Reply-To: <20261123075219.369042-7-fuad.tabba@linux.dev>
+X-Cookie: Truth is free, but information costs.
 
 
->> 1 additional test vector, CVFC1_Sony_C completes decoding but fails checksum
->> verification due to a stride-handling issue in GStreamer 1.24.13. GStreamer
->> replaces the driver-reported 150-byte planar chroma stride with 152 bytes,
->> causing the decoded chroma planes to be read incorrectly.
-> 1.24 is very old by now, but I think this specific file needs more work. One
-> part of the fix has been made recently:
->
-> https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/13059
-Thanks for the pointer. I retested CVFC1_Sony_C with GStreamer 1.28.9 and
-the 1.29.2 development snapshot, both with that fix backported. The Fluster
-GStreamer backend still reports a checksum mismatch in both cases.
+--7/fkz7ZJG6AWevJ1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Decoding CVFC1_Sony_C with our V4L2 test application produces all 50 frames
-and matches Fluster’s expected checksum. This points to a remaining issue in
-the GStreamer path in this setup. I'll update the v2 cover letter to 
-describe
-these results.
+On Mon, Nov 23, 2026 at 07:52:16AM +0000, Fuad Tabba wrote:
+> The generator emits each enum value as written and doesn't check it
+> against the width of its field, so a value wider than the field defines
+> a constant the field can't hold. The duplicate value check compares the
+> strings as written, so 0b01 and 0b001 in the same field pass as distinct
+> values, and the rule's pattern, an unanchored /0b[01]+/, accepts 0b12
+> too.
+>=20
+> Require each value to be 0b followed by exactly as many binary digits as
+> its field has bits. The one enum written otherwise is TS, a two-bit
+> field of TRFCR_EL1 and TRFCR_EL2 whose values have four digits. Write
+> them with two digits, which leaves the numbers unchanged.
+>=20
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-Regards,
-Charvi
+--7/fkz7ZJG6AWevJ1
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEYmgACgkQJNaLcl1U
+h9CNFwf/YNeLN46QZ/8fTDBpDox7PAhAxy/YFSdH0aX5xpsxry/XZ3zcL4wXBwk4
+4yz10kSaD4fxpPK4sSLhtF2JIJs9k8HllEjxbbsu3SHnxbgH6nQyO2zI9sooeL3a
+3C7PFlpifQ1pMj+NWN7ecK+a+Nwj/oqILFcRHBEeBNDRpK2ueRvCBdA5LjDIxWEe
+ddRIQnMKZe3AaZ/hOW69CW6rZ/MFZMJyXkoVV5t2UBgubA1kVh5+WK5cZds9xEB4
+WHEFGiuo1N42Mbjk3KrGN+NFXZBzqjSVNiek4XWAOfFX1081bzJGY+Xp9dKN0rSx
+fO5SsapAeGWrnohmXacu6LdpJJHjug==
+=YhFc
+-----END PGP SIGNATURE-----
+
+--7/fkz7ZJG6AWevJ1--
