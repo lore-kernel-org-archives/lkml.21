@@ -1,70 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=183.62.165.209
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423889;
-	b=cyhVDMgpVCMLtBKQBX+2mhbHxf0xIdqk8wCUXZl3XOwFWVggSnbpX6hKHg1Y6s3PEcUS
-	 nwxHdj46B0friGSPyGQsKXOfa4GTmyg5Zyc58j0GjH0zbx4fBjjWdtIUIB/AviIAvLuQh
-	 ZLnh+SicP2r1HLDN6YdOM4wr8qtdmbLYIfLIgxNrspVl5op2RLW3TDPOUt+rkbxoExidq
-	 rDYOEK+HahLvJJo1ur/HI8rey73DtY9oVczUJLg5rSnZvygokWP5BUTCQFyAklGgy+U4G
-	 KCdazJRdEnCVutzzf2QlYER9EbrFYiHxPMBdFi54n0lsxo3iTZNvH0I6vsgN5ufvgow==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423889;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Message-Id:Received:
-	 Received:X-Zmail-TransId:X-Mailer:Date:Mime-Version:From:To:Cc:
-	 Subject:Content-Type:X-MAIL:X-MSS:X-TLS:X-ENVELOPE-SENDER:X-SOURCE-IP:
-	 X-CLEAN:X-Fangmail-Anti-Spam-Filtered:X-Fangmail-MID-QID;
-	bh=fpMnrjeY3CBP7QOeCEWZf+xXHJZqk25BVg5i//F7Edw=;
-	b=X8Ke16t+s3/N8efFY6yalTv5uzxFvxylMJHF+B1Bd2SrfrO4r4pQLIpCbKJ4iSwywOyH
-	 gjCFRDWFXNaK8xdYJleZ36oGWlGUtEqVfvRnX8Rooa3CcYf28yrYY7EWPRvryrbGnN0Fb
-	 cuxi+lfcNKuPSL92NMJA1zNoJFrLVhiiAxNluo+k+lWhzoJA57wxUBTvVGv4KJCCLoQw/
-	 B7fcaEzbuzA+nUksOiqe3PGY6wZ6ERHrFX83rrbROU/PWqN4nvYApBWC5MqijHQbaL/NA
-	 3zKDZKTpjgWytHWTZlFQgws+6DuSijFNWHlI9/XTklAxdELczmHs8WSZ740QsN2hqvg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zte.com.cn;
-	spf=pass smtp.mailfrom=zte.com.cn;
-	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=rcxxw4Af;
-	arc=none smtp.remote-ip=183.62.165.209
-Received: from mxct.zte.com.cn (mxct.zte.com.cn [183.62.165.209])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.27
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795423993;
+	b=yZPEgJwGHhmgxgCKqx7zeoarXtye6N5SgYvhCYGfLjITfg7Yz9LM6jJyRTx8rNaPHPWU
+	 QZUDn4zTUuenG38Hcg6LyjnOaSyEg9nopR+HSOlhZTEKatq+cT418BBaLUptVkD6iHrXU
+	 dYRvnO/yleioI1cg9pua+pOhkGl8iJldBrk4JkvSvK/UKYf7JXPhcjfy0Xj9O6xytrmH7
+	 t5oxJgRZqnbF4g9kaUE7GVul3Dw4JcfR5LBJWRE7E+Is79sEqTBe9YsvfCm2mj+SSzFzL
+	 e6Rcau47xHv5kPLjwBlcDaNX+9gC6iXkPZUCXm9RcNJ4H3+du22pIs2K0iOck5ovctQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423993;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Y+I3nqTuSVcP1MqEnmiXMVzx7Y/hAtndfzaEFDl2t1M=;
+	b=NUICqX3mkDnAJT5SB0+9ONBo3txAMv6quL7fqZbIuBVNUYb+IrkI8heHCyVioQPROhBK
+	 vw32mH1oSsKrLo6KHThZn4VPnZZdPEcEikrSmn7akyvi00q0cSsF8QvaV+vJk1Z2cKRoR
+	 Au+plRnjrgZVW2XrHFZLctiROlbm6bsLljudMbvn3fWlStL6Vfz1c5W4oxk3xOiRPf4Aj
+	 kuLwuuiDH0FpKAorgrFRYiCPnXrpO9pidI1070CaDtO0prjY2HQaON35YjtQjeOOuqnNa
+	 JYoRdnvR0TIxdVpjXMEIXxvmRkJ+b6+35/J4Xva3pWRCsa4BbPdF0afR7Al6upjexkA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ADoKEDrF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.27
+Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012027.outbound.protection.outlook.com [40.107.200.27])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D2BB606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:51:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D2BB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zte.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zte.com.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFD14606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:53:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFD14606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=rcxxw4Af
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4jY06C6Qnfz5B7RB;
-	Mon, 23 Nov 2026 16:51:15 +0800 (CST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
-	s=z202610; t=1795423876;
-	bh=cVG2XoK0ElJXi5aZovzr665A2Cep3ko3KkzHGkB5Ikk=;
-	h=Date:From:To:Cc:Subject;
-	b=rcxxw4AfncxsHVJ0HXC25OV2DcV4UaiLgYXBLt7TVvyXThhSFyFtqjqDyMbHFFLEW
-	 IHWKczxIrUCKBFAi5Y/yjJWWLyS74WZrjEdMBTRxszKTcah3Jsxl3/XjP656XGK/8f
-	 N5QCBoVRDQNpNBtJeV2avhW29sTmEju0Dzf2V0xuyv6/bSC9hw/RAFCGgvpKKTjdnl
-	 sjjKYqvdR0Bn9Q7M9FUcB0a5N4M1bRrt59yAUHd3LJ1lhE7phS00MjeOUHKjRKDolx
-	 J8QckCEUvuC1AZAWco76sw9d9Wxx+T9rGZ/SwUnf/7ss9v+Q9D8SZIrzG2la8nUY5b
-	 NHaQyRubQceOQ==
-Received: (from root@localhost)
-	by mse-fl1.zte.com.cn id 6AN8pFDD065900;
-	Mon, 23 Nov 2026 16:51:15 +0800 (+08)
-	(envelope-from li.hanting@zte.com.cn)
-Message-Id: <202611230851.6AN8pFDD065900@mse-fl1.zte.com.cn>
-Received: from njy2app08.zte.com.cn ([10.40.13.206])
-	by mse-fl2.zte.com.cn with SMTP id 6AN7vv0x060409;
-	Mon, 23 Nov 2026 15:57:57 +0800 (+08)
-	(envelope-from li.hanting@zte.com.cn)
-Received: from mapi (njy2app08[null])
-	by mapi (Zmail) with MAPI id mid203;
-	Mon, 23 Nov 2026 15:57:59 +0800 (CST)
-X-Zmail-TransId: 2b006b03f20744a-c5a8d
-X-Mailer: Zmail v1.0
-Date: Mon, 23 Nov 2026 15:57:59 +0800 (CST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ADoKEDrF
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ipb6rZBZggVRpRoCdL6y8RBBVfqx7tmXHrve2NhO9wtqX5KVft1KhD/UFpWc3GM7LRGrMFb8InT5f4Mgm7GFd7rHkDHvEvxX8cZI87h7ITovW0IeI/XZQjCQJRvCmFSsXGMuEdFnTiAHTV5zlCcJO8Lsyg66pOWY8e7QsvxQ1jvqZo+h/3pRAd8dsfa/BV3UJA7R+fj/yK53LJJ3uP5c9TxCHHD+qBpAAQ8PTBkfwGRkIWOBVDX/TdXZn/EengQuDqxctF0JEIZmH05yVwMBRbX/NjczMuMthMzQkVO+BP606iOEZIsn4zI3q9OzK0vi425L6ExiDqf/N7t5DUcMRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y+I3nqTuSVcP1MqEnmiXMVzx7Y/hAtndfzaEFDl2t1M=;
+ b=u2wyBjHDLA1TAn7l1sCEskgscW8W1fFOowAw2y5XXB+La/o5pp+Eq3Jp+DbiK9plnnz+aPQk17OZlOn9WMkPQpucr96CmJ3CHuc7VSvu5hP1dmkLRze429KLexceMXBKlxnlfTLBWnOxUeF3KKRoH8QPkYemalqVlFRxN2NDOLpmHg1FAos17h1NZWnNszfXkA4wBGO6Zga5/7MxuoFXLcTdxOs3ghbyZh3kkp1YNyv1/7kvO1dSzZO3cuAZWHrZknk3HIUCi8rWDsye5XvA5Qt0at6m8rJwA5DbESFIthxHs2AiH5hw5HeGOhow3a3pnrnmX10BRrd8whR+1Q+yvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y+I3nqTuSVcP1MqEnmiXMVzx7Y/hAtndfzaEFDl2t1M=;
+ b=ADoKEDrFKJvMly4zdNl8TfkN3oYtNECtKL+W2ymI9tQP0CWf4Y4yMzR3NMarD5GxOROmbEWsMWaz143a/LrI/vii7U24tXRfSYzxR5f7SIrtYloPHqmmy7hP1GDs++QI0bFAAiXrFreYBS/mxBB22CmeLuDHeo8vnneki0lshxg=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by SA6PR12MB999202.namprd12.prod.outlook.com (2603:10b6:806:450::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 08:53:09 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 08:53:09 +0000
+Message-ID: <b59cd917-4709-4f9c-8cd8-afdc24138d85@amd.com>
+Date: Mon, 23 Nov 2026 09:53:01 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V1] accel/amdxdna: Reject a zero sized buffer in
+ amdxdna_gem_prime_import()
+To: Lizhi Hou <lizhi.hou@amd.com>, ogabbay@kernel.org,
+ quic_jhugo@quicinc.com, dri-devel@lists.freedesktop.org,
+ mario.limonciello@amd.com, karol.wachowski@linux.intel.com,
+ max.zhen@amd.com, linaro-mm-sig@lists.linaro.org
+Cc: linux-kernel@vger.kernel.org, sonal.santan@amd.com
+References: <20261120023540.888381-1-lizhi.hou@amd.com>
+ <48d1dd13-9ec6-402f-8a72-ce417f331332@amd.com>
+ <a94437f4-f0e0-dccf-3dac-1bc1f0dda835@amd.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <a94437f4-f0e0-dccf-3dac-1bc1f0dda835@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR0P281CA0132.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:97::14) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,226 +100,142 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-From: <li.hanting@zte.com.cn>
-To: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>,
-        <alex@ghiti.fr>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-mm@kvack.org>, <akpm@linux-foundation.org>, <rppt@kernel.org>,
-        <songmuchun@bytedance.com>
-Subject: =?UTF-8?B?W1BBVENIIHYyXSByaXNjdjogbW06IGFsbG9jYXRlIHNwbGl0IGxpbmVhciBtYXBwaW5nIHBhZ2UgdGFibGVzIHZpYSB0aGUgc3RhbmRhcmQgcGFnZSB0YWJsZSBhbGxvY2F0aW9uIEFQSXM=?=
-Content-Type: text/plain;
-	charset="UTF-8"
-X-MAIL:mse-fl1.zte.com.cn 6AN8pFDD065900
-X-MSS: AUDITRELEASE@mse-fl1.zte.com.cn
-X-TLS: YES
-X-ENVELOPE-SENDER: li.hanting@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Mon, 23 Nov 2026 16:51:16 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6B03FE83.000/4jY06C6Qnfz5B7RB
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|SA6PR12MB999202:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0499b21-1ec8-4b75-6b5e-08df493f3285
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|18002099003|22082099003|261009223027099003|4143699003|10067099003|11063799006|56012099006|261102130727099003|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261021121427099003|261022105027099003|261022075727099003;
+X-Microsoft-Antispam-Message-Info:
+	6ovdjS5VippqV4FHmwGYUndwcco7WQOuV3tHtfig/EJAldfAnNtG59jWnn0c4w5o7bpMNXU+/VZV0zajR5pieMrVs9m8oRukLnEBgLrZRXyc82TJGrKeNSyZfblX5hCX/g+8dNWpcFeitMZC+qUvkukTtN8bcXN4l3xdq6eH32kUH8rvfFG9xYQGV+IKFQenpeTkmmUbp+13TjvRM79QXPQ+7m8+aEI5+C3jTWJP4bCrC78tpkRXSxc5fPUSCGeKl1joQB799UxQ7B62c76cdQVpEYT89mEIp2tWL3WXYG0W4jnGvsINqU7g8cPtm+huyXx6HlAC4RivCWAzU4c2C5R+koCpspOIAezPMVNmEH/07dqh52Hj17RoWcLTc+goXPt0ldvlvymYsRKPbM5ScqUY1Uf1QYobmFmGiv2Yjadd5DgZ/EAyzmut/0CuOISfEL3iCzAVfD4uEE4zltCJ8V179zg0RVnAl3rRun5ew5r3g/cxYljYXv+lxV2jtLbNAlQwXt+HK6ZwytV2I9iE1cvzJ8bW6jRwc3V4jG0HAh17Yn4gNV5r4f04iqXWRXpZpjcAY7BWA+xqtrz50H+InU9c4UH+OHLlKm33W9s+TqRnt/4I+TjUamSFuLzMDiV4+WX/JJLxouBuvDjZAaSCRuJQiqX307YljL4GRr+TIAE=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(18002099003)(22082099003)(261009223027099003)(4143699003)(10067099003)(11063799006)(56012099006)(261102130727099003)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261022105027099003)(261022075727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?SHAwM0FCUWM1bkN2UVdPUHlCbHhtdXBHWlFwYytsMXptT0tKdTh3VHIzRHRW?=
+ =?utf-8?B?c2F5RlNGUkZqYVkzNFNYRjhaZ2hYUEtYVGF5WFhHcW02L1JMd3R5Q2NramdF?=
+ =?utf-8?B?S3djMEhTWStQaElXd1VsNmRFZDNyelk4N3JGVWNKZkRZUnRIUFBNdDA0d3ph?=
+ =?utf-8?B?QkRSQm5IRHdPUm5RZWxreVc4WGl0b2tkSnoxa05GcGtUeko0dDhzc2FqR0FB?=
+ =?utf-8?B?UlBycnZTWEVWMGVHOGlXd3dCdlFsWmFBbUR1Z1NzMlI0eTl3ZmFlUGFuQ3Fi?=
+ =?utf-8?B?SnVncTUwTzZvQXFORlBhZ1FlMG1UR3JhN2FmcmZkTnJxenpwMWU4aGxGWGs4?=
+ =?utf-8?B?S1dyWDNHV1IxUDdzZGdGdGpSZHRZOEk0T3B4SDNwejdFWG9XQTRrRWxkZytH?=
+ =?utf-8?B?Tlh1NEZpWU9xbzdNSldwaU5GM2ppbm92elVqMjhsaEVpZURFajRxUlhqdmpa?=
+ =?utf-8?B?S1haa0padjJ1QWdBYU9hdXN3VDBSSFR1SlJCRDhHK0ZnaTNGaXpCSGMzKzhG?=
+ =?utf-8?B?cmhUVFNmSjdwSGQzYkNlNzhOc2VvVkdybnZVOFdKbHByR1g4MFcwQ0FHMUsy?=
+ =?utf-8?B?WnZLZ0xXdW1BVElSZEYxRVB0bks0d0c5M1NCZGVKeXFvL01OZVNTRW56d0pZ?=
+ =?utf-8?B?eXJXSllVSVN4U2trbjVKcExTZ1BPaTYvUFNzWGdud3daRFVvblpBWHpxV1Q2?=
+ =?utf-8?B?azc5bURJTUZINi9vNDQvK2hrVEJRaU8rbThIRTFJYjBMNmVkc0NIQUJ4Rjlo?=
+ =?utf-8?B?b2xOQzI4SDdVOVlUb3dsU282R2FVbzVCRFMrWUFlb2JRVTBCcGgvc0xQazgw?=
+ =?utf-8?B?aXhZRTBuQ3VXZzRnM01PMjZPSUFFRkQwMVFJSTE3SCtVNXR3N1AycXJFSXY1?=
+ =?utf-8?B?cXgxUUhhOFJJREdlZnQxd0lCL21wdDNlQ1JIZjRoZS94cURxaTRiQkVoSDlo?=
+ =?utf-8?B?eFZSM1laZjBuT1Y3R1JEVnk4Y0pQQTFJdTd2T2x3SlpCY3htOFYyK2lOWVl1?=
+ =?utf-8?B?S0lRaVB4cThacjR1aUZFdzBTWm0xajFFRXAwTlNueGxtUFZEWHpIYnppTVJW?=
+ =?utf-8?B?bThvTmlQWUg3ZFZmMktXUThOcHNpYjdZR3VGR0JiNGF1OExuQWU1a1NnQlFM?=
+ =?utf-8?B?R05BcjY2S2JFZDh3a1QzMmt4bUhPN1o1Zk9ob3h6T1F3QkhTTXBtc1AzelpG?=
+ =?utf-8?B?WUhZQkxTY3pHd1J5cnVnYlhPNDhRL2dsVmpYWVFqdmFQdndiQlpPaTlyb2xM?=
+ =?utf-8?B?eWFWU24yQ3cyc1hHcDRnV2x2UTdaUmlKQ1R0NjU3cGFYMWkrQXlGNDZuNXpX?=
+ =?utf-8?B?UjN3dWxiQVpmVzAvcHlrSytJbDlMMHhCZElsZXhBOUFVQTF1TWYyRWNaNC9Z?=
+ =?utf-8?B?a2tIclZTdkNGaDVFS2lEeGx0d2hYYlRJd0hZeHdsb3RIdktqZDJUcXUrSWc1?=
+ =?utf-8?B?V25JTjk3YlZnUmxoZmx3MnpWUmxlZHA4WWI4L1YzVG5zTXNpQWlrYUlTM2lo?=
+ =?utf-8?B?emtyV3F4cVlRMkx0cUFoZFd2V0d3U0pCaEFna1pkWVhZdXdkTEJMKy9qb0Fo?=
+ =?utf-8?B?bWpLWlJ5aDczYWtpVFl5Mzg5YWtsZEY4MXEwM2hWd29XRDlmenVia2NDMVRT?=
+ =?utf-8?B?aVJIcDVuUkVMN1N3UUZkekE4ZjQvcG0yTDV4dm51aDlmT29VTGRJV3JrNWVw?=
+ =?utf-8?B?NUpBOXdMbFpqU0x4WWpLdkUwNUVxTkVNQnMyaml4dFF3ZWhlYndFeWZmTTIy?=
+ =?utf-8?B?dStnb2pxaXVXVGF2Q1NQamdSSmpCdkE4U1lDUmd5L1I4SklPWGVmTm1IWVpv?=
+ =?utf-8?B?TURjNDZ4dmZKSHZkaVQvQkJFQUFIUlZ3VjN5aXFrQ01xc3l6TkJyLzROeHc5?=
+ =?utf-8?B?QnB3N1BoTXJPSXpNR1BDUHBuNmxSc1E1dmhJc3BGNHViUkZzQWx0YUNyYUhJ?=
+ =?utf-8?B?MUt5MnJlc3BYY1NVTTlQVkpzdkVxTEYwNmVwNjBSdWxJRGlNZzZWTXhPb3RQ?=
+ =?utf-8?B?UUl1MG1LWU5mUUpxQ2c1cUpTQXh0M2RBZnA3ajVKVEI1Z2IxZEt4WUxFYzJ1?=
+ =?utf-8?B?K3BEQXdBdHhuS3FNbnh6VFRIcXVrSit5N3FGNklRRU9QMHZtZWNyeGpHWXVY?=
+ =?utf-8?B?alJISmd0YmcrRWJkdW5sU290OGtxNEU3YlhzcDlzQlZYNHVNWEZaUGFvdTkw?=
+ =?utf-8?B?VE5xYVZ4MnlnNWtzenhFdnVBMHRTREhyN0JROWRMbWRXS3JyQ2FNYlFZNEV1?=
+ =?utf-8?B?VWZQVXBzY0xzcDZzYWl1UWRHZVdXcWVKV2g2NklydGlVRCt1TFRHeVNFQkkv?=
+ =?utf-8?Q?BMhQ8Qs8ZlCuCRCx1t?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0499b21-1ec8-4b75-6b5e-08df493f3285
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:53:09.3114
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZlZxvMbnqyx0B6pKC8eIScmFbp7xBIruUsZm3cQxjyACJT8Ydn1iD811//w7EqMB
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR12MB999202
 
-Hi,
+On 11/20/26 19:44, Lizhi Hou wrote:
+> 
+> On 11/20/26 04:32, Christian König wrote:
+>> On 11/20/26 03:35, Lizhi Hou wrote:
+>>> Zero sized buffer is not supported. Check the buffer size and return
+>>> -EINVAL if the size is zero.
+>> Oh that is surprising a zero sized buffer shouldn't be supported by DMA-buf in the first place.
+>>
+>> Doesn't DMA-buf check that somewhere?
+> 
+> No. I built a local test to reproduce.  The test driver calls dma_buf_export() with exp_info.size=0, and it successes. Then, import that buffer and get the stack.
+> 
+> It looks other drm drivers check the size as well, e.g. drivers/accel/qaic/qaic_data.c, qaic_gem_prime_import().
+> 
+> Maybe it is better to add the check to dma_buf_attach()? Or I can use the check in amdxdna for now?
 
-Commit 9e4a3ec3411b ("x86/mm/pat: Allocate split page tables as kernel
-page tables") recently fixed a latent inconsistency in the x86 CPA code
-(assigned CVE-2026-97525): __split_large_page() allocated the new PTE
-page with a bare pagetable_alloc(), bypassing pte_alloc_one_kernel(), so
-the page table constructor never ran and the resulting page was neither
-flagged PG_table, nor accounted in NR_PAGETABLE, nor marked as a kernel
-page table.
+Yeah, I think attaching to a zero sized DMA-buf doesn't make any sense at all.
 
-RISC-V open-codes the same pattern when splitting the linear mapping on
-behalf of set_memory_*(): __split_linear_mapping_{pmd,pud,p4d}()
-allocate the new page table pages with bare alloc_page(GFP_KERNEL) -
-three call sites in arch/riscv/mm/pageattr.c, introduced by
-commit 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX()
-by splitting huge linear mappings").
+Alternatively the the check could be in dma_buf_export() prevent even creation of zero sized DMA-bufs, but it is remotely possible that somebody uses this for driver internal buffers so I'm not 100% sure if that doesn't regress anything.
 
-As on pre-fix x86, the resulting pages live in init_mm without the
-PG_table flag, without NR_PAGETABLE accounting and without the kernel
-ptdesc marking. Under CONFIG_MEMORY_HOTPLUG, hot-removing memory tears
-down the linear mapping of the removed range via arch_remove_memory()
--> remove_linear_mapping() -> free_p*d_table(), which releases these
-page tables through pagetable_dtor() even though the constructor never
-ran, underflowing NR_PAGETABLE on current mainline. Muchun Song's
-series "mm: Fix page-table teardown during memory hot-remove" [2]
-fixes the freeing side by skipping the destructor for pages without
-the PG_table flag, but the root cause remains: the allocation side
-still bypasses the page-table constructors, so these tables are
-unflagged and unaccounted for their entire lifetime.
+But the check should definitely be in DMA-buf, otherwise you can do very naughty things with drivers who doesn't check that.
 
-Align the three sites with the standard allocation paths:
+Regards,
+Christian.
 
- - the PTE level switches to pte_alloc_one_kernel(&init_mm), exactly
-   like the x86 fix;
+> 
+> [89432.394897] RIP: 0010:amdxdna_gem_prime_import+0xb/0x120 [amdxdna]
+> [89432.394905] Code: a2 29 c1 5d 31 f6 31 ff c3 cc cc cc cc 66 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 48 83 3e 00 75 14 <0f> 0b 48 c7 c0 ea ff ff ff 31 d2 31 f6 31 ff c3 cc cc cc cc 55 b8
+> [89432.394908] RSP: 0018:ffffd04344fd79d8 EFLAGS: 00010246
+> [89432.394911] RAX: ffffffffc10b4bb0 RBX: ffff8ddb05863a00 RCX: 0000000000000000
+> [89432.394912] RDX: 0000000000000000 RSI: ffff8ddb084ebc00 RDI: ffff8dd94b17f000
+> [89432.394914] RBP: ffffd04344fd7a10 R08: 0000000000000000 R09: 0000000000000000
+> [89432.394915] R10: 000000000000000c R11: 0000000000000000 R12: ffff8dd94b17f000
+> [89432.394916] R13: ffffd04344fd7ad0 R14: ffff8ddb05863b20 R15: ffff8ddb084ebc00
+> [89432.394917] FS:  00007f8216e08740(0000) GS:ffff8de0c09bd000(0000) knlGS:0000000000000000
+> [89432.394919] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> [89432.394921] CR2: 000055c3644b51e9 CR3: 000000011237f000 CR4: 0000000000750ef0
+> [89432.394923] PKRU: 55555554
+> [89432.394924] Call Trace:
+> [89432.394926]  <TASK>
+> [89432.394929]  ? drm_gem_prime_fd_to_handle+0xdb/0x220 [drm]
+> [89432.394974]  ? __pfx_drm_prime_fd_to_handle_ioctl+0x10/0x10 [drm]
+> [89432.395003]  drm_prime_fd_to_handle_ioctl+0x37/0x50 [drm]
+> [89432.395029]  drm_ioctl_kernel+0xb0/0x110 [drm]
+> [89432.395069]  drm_ioctl+0x2d6/0x580 [drm]
+> 
+> 
+> Thanks,
+> 
+> Lizhi
+> 
+>>
+>> Regards,
+>> Christian.
+>>
+>>> Fixes: e486147c912f ("accel/amdxdna: Add BO import and export")
+>>> Signed-off-by: Lizhi Hou <lizhi.hou@amd.com>
+>>> ---
+>>>   drivers/accel/amdxdna/amdxdna_gem.c | 3 +++
+>>>   1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/drivers/accel/amdxdna/amdxdna_gem.c b/drivers/accel/amdxdna/amdxdna_gem.c
+>>> index ffe12a722dfe..4d7f3de88cd3 100644
+>>> --- a/drivers/accel/amdxdna/amdxdna_gem.c
+>>> +++ b/drivers/accel/amdxdna/amdxdna_gem.c
+>>> @@ -1133,6 +1133,9 @@ amdxdna_gem_prime_import(struct drm_device *dev, struct dma_buf *dma_buf)
+>>>       struct sg_table *sgt;
+>>>       int ret;
+>>>   +    if (!dma_buf->size)
+>>> +        return ERR_PTR(-EINVAL);
+>>> +
+>>>       get_dma_buf(dma_buf);
+>>>         attach = dma_buf_attach(dma_buf, dev->dev);
 
- - the PMD and PUD levels switch to the generic pmd_alloc_one() and
-   pud_alloc_one(), which already handle the init_mm case by selecting
-   GFP_PGTABLE_KERNEL, running the level constructors and marking the
-   ptdesc as a kernel page table.
-
-No functional change is intended; the observable difference is that
-split linear mapping page tables are now properly flagged and
-accounted, so /proc/vmstat:nr_page_table_pages no longer under-counts.
-
-Fixes: 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings")
-Signed-off-by: Hanting Li <li.hanting@zte.com.cn>
-
----
-Changes since v1 [1]:
-
-- Switch the PMD and PUD levels to the generic pmd_alloc_one() /
-  pud_alloc_one() instead of a local helper, as suggested by the
-  Sashiko automated review. The generic versions already handle
-  init_mm correctly, which also resolves the first open question of
-  v1.
-
-- Correct the severity discussion. v1 claimed these page tables are
-  never freed; that is wrong under CONFIG_MEMORY_HOTPLUG, where memory
-  hot-removal frees them through remove_linear_mapping() ->
-  free_p*d_table() -> pagetable_dtor(), so the ctor/dtor mismatch can
-  actually underflow NR_PAGETABLE. Also pointed out by the automated
-  review.
-
-- Add the Fixes: tag and move the discussion notes below the tear
-  line.
-
-[1] https://lore.kernel.org/r/202611091101.6A9B1Nf3015337@mse-db.zte.com.cn
-[2] https://lore.kernel.org/r/20261008073021.2512665-3-songmuchun@bytedance.com
-
-Hello,
-
-One discussion point from v1 remains open:
-
-Since RISC-V never collapses the split linear mapping back, one could
-argue for deferring this change until free-path work actually lands.
-My preference is to take it now: with CONFIG_MEMORY_HOTPLUG the free
-path already exists today, and taking this now removes a trap for any
-future work on the linear mapping.
-
-(Note: the generic CPA rework series "[PATCH RFC 00/18] arch, mm:
-create a generic set_memory/change_page_attr core" would eventually
-replace this code entirely; this patch is intended as a small fix in
-the meantime. The series author has said he is waiting for such fixes
-to settle before posting a non-RFC version.)
-
-Comments welcome.
-
- arch/riscv/mm/pageattr.c | 41 +++++++++++++++++------------------
- 1 file changed, 20 insertions(+), 21 deletions(-)
-
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -3,9 +3,11 @@
-  * Copyright (C) 2019 SiFive
-  */
-
-+#include <linux/mm.h>
- #include <linux/pagewalk.h>
- #include <linux/pgtable.h>
- #include <linux/vmalloc.h>
-+#include <asm/pgalloc.h>
- #include <asm/tlbflush.h>
- #include <asm/bitops.h>
- #include <asm/set_memory.h>
-@@ -109,23 +111,22 @@ static int __split_linear_mapping_pmd(pud_t *pudp,
- 			continue;
-
- 		if (pmd_leaf(pmdp_get(pmdp))) {
--			struct page *pte_page;
- 			unsigned long pfn = _pmd_pfn(pmdp_get(pmdp));
- 			pgprot_t prot = __pgprot(pmd_val(pmdp_get(pmdp)) & ~_PAGE_PFN_MASK);
- 			pte_t *ptep_new;
- 			int i;
-
--			pte_page = alloc_page(GFP_KERNEL);
--			if (!pte_page)
-+			ptep_new = pte_alloc_one_kernel(&init_mm);
-+			if (!ptep_new)
- 				return -ENOMEM;
-
--			ptep_new = (pte_t *)page_address(pte_page);
--			for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
--				set_pte(ptep_new, pfn_pte(pfn + i, prot));
-+			for (i = 0; i < PTRS_PER_PTE; ++i)
-+				set_pte(ptep_new + i, pfn_pte(pfn + i, prot));
-
- 			smp_wmb();
-
--			set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
-+			set_pmd(pmdp, pfn_pmd(page_to_pfn(virt_to_page(ptep_new)),
-+					      PAGE_TABLE));
- 		}
- 	} while (pmdp++, vaddr = next, vaddr != end);
-
-@@ -149,24 +150,23 @@ static int __split_linear_mapping_pud(p4d_t *p4dp,
- 			continue;
-
- 		if (pud_leaf(pudp_get(pudp))) {
--			struct page *pmd_page;
- 			unsigned long pfn = _pud_pfn(pudp_get(pudp));
- 			pgprot_t prot = __pgprot(pud_val(pudp_get(pudp)) & ~_PAGE_PFN_MASK);
- 			pmd_t *pmdp_new;
- 			int i;
-
--			pmd_page = alloc_page(GFP_KERNEL);
--			if (!pmd_page)
-+			pmdp_new = pmd_alloc_one(&init_mm, vaddr);
-+			if (!pmdp_new)
- 				return -ENOMEM;
-
--			pmdp_new = (pmd_t *)page_address(pmd_page);
--			for (i = 0; i < PTRS_PER_PMD; ++i, ++pmdp_new)
--				set_pmd(pmdp_new,
-+			for (i = 0; i < PTRS_PER_PMD; ++i)
-+				set_pmd(pmdp_new + i,
- 					pfn_pmd(pfn + ((i * PMD_SIZE) >> PAGE_SHIFT), prot));
-
- 			smp_wmb();
-
--			set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
-+			set_pud(pudp, pfn_pud(page_to_pfn(virt_to_page(pmdp_new)),
-+					      PAGE_TABLE));
- 		}
-
- 		ret = __split_linear_mapping_pmd(pudp, vaddr, next);
-@@ -198,23 +198,21 @@ static int __split_linear_mapping_p4d(pgd_t *pgdp,
- 			continue;
-
- 		if (p4d_leaf(p4dp_get(p4dp))) {
--			struct page *pud_page;
- 			unsigned long pfn = _p4d_pfn(p4dp_get(p4dp));
- 			pgprot_t prot = __pgprot(p4d_val(p4dp_get(p4dp)) & ~_PAGE_PFN_MASK);
- 			pud_t *pudp_new;
- 			int i;
-
--			pud_page = alloc_page(GFP_KERNEL);
--			if (!pud_page)
-+			pudp_new = pud_alloc_one(&init_mm, vaddr);
-+			if (!pudp_new)
- 				return -ENOMEM;
-
- 			/*
- 			 * Fill the pud level with leaf puds that have the same
- 			 * protections as the leaf p4d.
- 			 */
--			pudp_new = (pud_t *)page_address(pud_page);
--			for (i = 0; i < PTRS_PER_PUD; ++i, ++pudp_new)
--				set_pud(pudp_new,
-+			for (i = 0; i < PTRS_PER_PUD; ++i)
-+				set_pud(pudp_new + i,
- 					pfn_pud(pfn + ((i * PUD_SIZE) >> PAGE_SHIFT), prot));
-
- 			/*
-@@ -224,7 +222,8 @@ static int __split_linear_mapping_p4d(pgd_t *pgdp,
- 			 */
- 			smp_wmb();
-
--			set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
-+			set_p4d(p4dp, pfn_p4d(page_to_pfn(virt_to_page(pudp_new)),
-+					      PAGE_TABLE));
- 		}
-
- 		ret = __split_linear_mapping_pud(p4dp, vaddr, next);
