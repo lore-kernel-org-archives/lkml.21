@@ -1,95 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795463766;
-	b=ct1n95AXxu3h2KFQo3fPbd4gH7Sdu1gMLuA0lq6dJOYQKnNUMpwRRNXlv4YhOZmlw/7g
-	 5Mo5eooWtI5zbAWGJi8hqkqkVbYhZq+eBgVtD4Mfyt2qyFO0OzQIn7AICEk28OWTJBlpR
-	 ZKq5ns+DmbjhXP+eq173cYOOvjrJijZAbxBIOw/GZhtj/Mzd/R/S6OwHGWA1PJ/zFVcer
-	 EEqJCE5c3EgdcWB9heCqnNAk4eLV2P8gP0JtmySKFEQo9yI8UyTK4ppYXFhYeWiTozbU2
-	 CJNUouEiirQ01zPWwIVCBIDqghB/aBDEB0nG425omwtN3tk3vPaf9G/QlPQ9o/m9NMg==
+	t=1795463767;
+	b=g/Wbm7bEOrqk5ml8Zbg0+PI4ts9t402/cJnbZkrpTM6FZ82m6OD6T9EzSJ56Rz46t9Mm
+	 i5EJR7EOy3efHVMplRotgPuSwy0aUYQ/7OimTixOsHXjWuxHr6YLlkRZyFi5Fjq8YdCd5
+	 tw1IrB1KFAkKa9m1IXbu7fqbPVCRjhZQa573rgo8EyclM06t09aSNghuH02jocXP8Ak7M
+	 hIu2FIkoPht8H3uz7uyI+IJvr0WqbzddyRURXkmMsyttN6zb7QdtxLiicCmUXEz//CcVj
+	 HUYpCQP9iBveXWGGDIHDIpNpMC1i83ootqhF7o78tVaV0TQdXxqmjfOUZpUyGFTkjzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795463766;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=1MbpLLQj1VpGSo6dlmyla02LckOZ3odw3KGGh5M7V2Y=;
-	b=eYCwNe/aCqhaoI8pk7BJ9sqhSTbRViG5TgPPh/1fjQHQhy2dbERfhzFQA+uCCQzPgP59
-	 gxGtlQPMM68yVfxF+VGbtPjcKpxhaBEFWE+sbDjluP+fF6ZdyMVMOQwXmbQ1jGseCe3bo
-	 tIlqXn/sD3ZJ70zl1EdLAE3eOYclxiq6RGxvqvcG00B425Pip1mdISyK/uyxlA+wWZ6/6
-	 eUpyD1NOpyxWb38BOqyqgSv/NetCqGAMzY2xscj8UrQNGPhzR20FMsB73oqyylKJLqW+e
-	 C7/VOxPApnWMBtTlrxKChzGf5/ROLVgiw96hylCKMsX/FGY0PVNZo3tkUSoTrDGc/ew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795463767;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=Lny4behPT6icoCVAkyq71pF7Sa0197S234mEpHRXxu4=;
+	b=5C40iEWCHeeJKlLlo99Xz91Dy9jOiQlE0q0ebqPbY9oMt9nDX1FtQFkeIf1dQXMXw7q8
+	 xoqOwRRt8y2xoU7ja3vuQDrbh6xQFogj78Pkv1kFg2rcp0HttGNil1gBAqyCPSgco6aCN
+	 FRvhTjrC9YLGH1bn6BcmU4sIDlv1v31VVyoJS6lr5lLqjZ/eIVlhHV8ooy5keUQyl13DQ
+	 5+Q+QBqYVpjvgvbp+kQ5KTL4DjEbyRVDClFc0mggu1zsJhtIgSdk0aWRjYqRilLYhgJrB
+	 sDUCnR/wG73jw4JVVDST7ujzOqZKhBaw2swhgkrAJbXt+pKwH1mxRDNM3h90vOea+fQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ILRa8rMf;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=i4Y825zs;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7546A606A33C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:56:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7546A606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56B76606A31F;
+	Mon, 23 Nov 2026 19:56:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56B76606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ILRa8rMf
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso35901325e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:56:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795463761; x=1796068561; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1MbpLLQj1VpGSo6dlmyla02LckOZ3odw3KGGh5M7V2Y=;
-        b=ILRa8rMfEQRXX8PcvtS2W7TKDKsM/DcDJL5LU18Pte2U3PaLYKSECik2nz2JiQebGB
-         h8U3yV6/FiIFQ2ZDOyRMyEX+8hp3azU5Girn+v8Y2xGN9J2Z2eVmV3Tq/PwodzA+8cfD
-         w8ReIPvGA0X+f6F0X2YkV7fIkV3M7BgT+20Nw8w/o2zGFYbHApXNxHMEf+s3Ry9Ptf01
-         u3ctDnm6bVmTmpv/ngofyCrsB2nhuyJfhkUoT2h1TGQblcjuPDkKDkopCxBxnpZYDdn7
-         XI0GrpacwDINdZe30tCByNNsUhEC5sXD8qUQ5v+TUmA7KhsksF5KZR9hdFHNtPGKhK90
-         hUmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795463761; x=1796068561;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1MbpLLQj1VpGSo6dlmyla02LckOZ3odw3KGGh5M7V2Y=;
-        b=yE8uaGJvRyK0v/B8lj8aAQmkpx65OoymSgVEYJ1FtLpm1mzll77xXbXuOn3KF6VfZy
-         TxqSnyF2/znKi3nn0BjrJIsKjnhO7i1dlx6HA9oJDtVtajLMuEuzDDSPTXcUH4TFgudK
-         fa1TQT2RozbTc6pjSMZQCjyaTPIv+uixgDQpaslEDu7LgeJOlHd4ZXsJJZGsG30H3oJF
-         Uezv5IUJh6th2mCuHwiVT77rSP9KTCRz9N0VQPW+HVN6LelCbhupKVdjD+/0KXYoZInA
-         A0qB+P4UxKLZ9+0hJExxhBaKdwtYmudol6s56GC9PeCdxkj+CfHyhl8MLHfc6YHrSnIQ
-         sQMQ==
-X-Forwarded-Encrypted: i=1; AL+hErE5yKoRkKnxHzhbUMb/mV4RkUWF2a4CMg3In9eVtUGyG9+tGjDGpJZLoX/e/ilbmAIzjc1ksCG41nMKoII=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9HYgaJkvLMl6RxKVITzjNwxYcOxG7ev8IT4l7SplRuqvvU37Vb
-	l/zmvIyNogO0CTTMr1CrVfsKJzBBfzAmrSHe2LDO5MJV3XBHLnfBItND7Wv0Bg==
-X-Gm-Gg: AZFdTZfVgxauFZXAmfhVE95arhW9lroMkClFsonAZ1ZcWDlyGrzp+MUqXvwtKtNOiiU
-	+eYhvEJscF2zJHIPqzfci0fyy6zj6hNGezk/pokc4Y+dW+i66TRyVm14IeaVHEpEkiRCmohAuW+
-	V/VPPjQc8dFPmtRxiS7IBT9bacGlufCciZisO/lq9oxYA836HZBZfUNy5lD84kC6IV9qch/lWPv
-	nd08AmE+XFb5S99tkDCA0e5wsIhjs+r53lr32KChdpGjKLBiOQoZF4j7mJiYWdfJDy+ZQIYfwyN
-	4LlqAdyBzVh1NWaBKHVdS8gvmhw+QHSKjsZ3ofX3ywtOiZ8m1orh/cz1a+K3homg6KcOfMIDkw/
-	ZpMKZUFgDF183IEUduJCn3iaMUDEmerJdjpXQ3wTXRMi5LqxqHphpZO7+6ls1J2vPW7k6RvugAZ
-	wItCC7Q6KbRgU1i9UkE36jcYby36aX2RaPeXX6h+EMz9wtjRHlf/mIeVU5J/GER8dlOamIKkOdX
-	pJ3cDabdK3qh3K1KfQ09sOxyOf0bCh8dzN3qADWuxPGTY1PX5kvSN+yRpd0w+E4IBSI8mmBVPyZ
-	KnPbkK63e0a3Ru5fdXH/0JOh+FZZUYkXCZE0Yu/O
-X-Received: by 2002:a05:600c:828e:b0:4a1:e6a9:4086 with SMTP id 5b1f17b1804b1-4bb88785a99mr241947155e9.0.1795463761275;
-        Mon, 23 Nov 2026 11:56:01 -0800 (PST)
-Received: from foxbook (bfh118.neoplus.adsl.tpnet.pl. [83.28.45.118])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm445229305e9.6.2026.11.23.11.56.00
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Mon, 23 Nov 2026 11:56:01 -0800 (PST)
-Date: Mon, 23 Nov 2026 20:56:04 +0100
-From: Michal Pecio <michal.pecio@gmail.com>
-To: Alex Kononov via B4 Relay <devnull+alex.albefly.com@kernel.org>
-Cc: alex@albefly.com, Mathias Nyman <mathias.nyman@intel.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] usb: xhci: Demote isoch buffer overrun message to debug
- level
-Message-ID: <20261123205604.5bf490f0.michal.pecio@gmail.com>
-In-Reply-To: <20261123-xhci-overrun-dbg-v1-1-4e5a2f11740d@albefly.com>
-References: <20261123-xhci-overrun-dbg-v1-1-4e5a2f11740d@albefly.com>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=i4Y825zs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795463764;
+	bh=ej1A2i9QZRafCNfeT6JWyFzOuIrzj4KPCVhaGpxwfXk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=i4Y825zsyQV02ClJ7aP4vIcOI+J5pyZvmyHpYV2d2BjSn36TKXmQTm/xsRtFXreTA
+	 Lm8Rk7sHpRpehKcbXV31fXsB776xyOPwxqVhCMT14sqbjsRP5ZiqIYvspLnrKQe9QR
+	 aKjMOox2qWHUiK48Nw81CKsmdvWjWBH3nr2saKbUcGCF1ExXsCTwhG7OUVIYTNneP5
+	 05GSeOyFFuMXUfN3EJnTwmR1OocHPHFOsfjhfhka4RZwF85EhDiOpfmq6q0B6xaf1h
+	 mNsMoIN1WUbqr99SP/fWOwg2ct6RR4REEs/aGhgFOJu0+jRVUija8g0zD5PXtUFVoo
+	 pAo4rN4f8y8Eg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D89F417E0883;
+	Mon, 23 Nov 2026 20:56:02 +0100 (CET)
+Message-ID: <3bcac49dbe7d0510e2cbab0d56f319b14c0f5ca9.camel@collabora.com>
+Subject: Re: [PATCH] media: verisilicon: suspend the device before
+ unregistering it on remove
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: shomenkow@gmail.com, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil
+	 <hverkuil+cisco@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Frank Li
+	 <Frank.Li@nxp.com>, Tharit Tangkijwanichakul <tharitt97@gmail.com>, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Date: Mon, 23 Nov 2026 14:56:01 -0500
+In-Reply-To: <20261106-hantro-remove-v1-1-d0a4678886d7@gmail.com>
+References: <20261106-hantro-remove-v1-1-d0a4678886d7@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-Z+d3cBSs+hNXNcM5M5wA"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,50 +91,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+
+--=-Z+d3cBSs+hNXNcM5M5wA
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+ack on your previous feedback.
+
+Le vendredi 06 novembre 2026 =C3=A0 12:04 +0300, Sergei Khomenkov via B4 Re=
+lay a
+=C3=A9crit=C2=A0:
+> From: Sergei Khomenkov <shomenkow@gmail.com>
+>=20
+> The clocks are enabled and disabled by the runtime PM callbacks.
+> hantro_remove() calls v4l2_device_unregister() and clk_bulk_unprepare()
+> first and only then pm_runtime_dont_use_autosuspend(), which suspends
+> an active device right away. By then v4l2_device_unregister() has
+> cleared the driver data (it points to the v4l2_device, the first member
+> of struct hantro_dev), so hantro_runtime_suspend() dereferences NULL.
+>=20
+> The device is always active at that point: the driver core resumes it
+> before calling remove(), and its put only starts the 100 ms autosuspend
+> timer. So every unbind and every module unload, with or without a
+> decode before it, gives an "Unpreparing enabled" warning for each clock
+> and then that oops.
+>=20
+> Stop runtime PM before the unregister and the unprepare. If runtime PM
+> is forbidden through sysfs (power/control set to "on"), the device is
+> still active after that, so disable its clocks and mark it suspended by
+> hand.
+>=20
+> The probe error path unwinds in the same order. It can only hit this if
+> a job runs between the encoder node registration and a later probe
+> failure, so it is left for a follow-up.
+>=20
+> Found with an LLM coding assistant while porting mainline Linux to a
+> Rockchip RK3026 board (G1, ID 0x6731); the assistant also drafted this
+> change. Tested on that board. Without this change, unloading the idle
+> module (runtime status "suspended") gives the warnings and the oops.
+> With it, the idle module unloads with no warning or oops, and so it does
+> right after an H.264 or VP8 decode with the autosuspend delay raised to
+> 10 s through sysfs; the clock enable and prepare counts are back to
+> their values before the load. The same holds with power/control set to
+> "on", over three load, decode and unload cycles on one boot. kmemleak
+> reports nothing after five load, decode and unload cycles. Built with
+> W=3D1 with and without CONFIG_PM. Not tested on other SoCs or with a
+> power domain.
+
+I'll drop that paragraph.
+
+>=20
+> Fixes: 556ab0b2741d ("media: hantro: release runtime resources when devic=
+e_run fails")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
+> ---
+>  drivers/media/platform/verisilicon/hantro_drv.c | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/me=
+dia/platform/verisilicon/hantro_drv.c
+> index 26e5d5547466..8af47375d471 100644
+> --- a/drivers/media/platform/verisilicon/hantro_drv.c
+> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
+> @@ -1286,10 +1286,16 @@ static void hantro_remove(struct platform_device =
+*pdev)
+>  =09hantro_remove_enc_func(vpu);
+>  =09media_device_cleanup(&vpu->mdev);
+>  =09v4l2_m2m_put(vpu->m2m_dev);
+> -=09v4l2_device_unregister(&vpu->v4l2_dev);
+> -=09clk_bulk_unprepare(vpu->variant->num_clocks, vpu->clocks);
+> +=09/* Suspend first: v4l2_device_unregister() clears the driver data. */
+>  =09pm_runtime_dont_use_autosuspend(vpu->dev);
+>  =09pm_runtime_disable(vpu->dev);
+> +=09/* Runtime PM forbidden through sysfs: the device is still active. */
+> +=09if (IS_ENABLED(CONFIG_PM) && !pm_runtime_status_suspended(vpu->dev)) =
+{
+> +=09=09clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+> +=09=09pm_runtime_set_suspended(vpu->dev);
+
+I will edit to:
+=09=09hantro_runtime_suspend(vpu->dev);
+
+Its exactly the same, it just keep the implementation in one place, its mor=
+e
+future proof.
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+> +=09}
+> +=09v4l2_device_unregister(&vpu->v4l2_dev);
+> +=09clk_bulk_unprepare(vpu->variant->num_clocks, vpu->clocks);
+>  =09reset_control_assert(vpu->resets);
+>  }
+> =20
+>=20
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261106-hantro-remove-9afbc9b601f9
+>=20
+> Best regards,
+
+--=-Z+d3cBSs+hNXNcM5M5wA
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
-On Mon, 23 Nov 2026 13:26:32 -0500, Alex Kononov via B4 Relay wrote:
-> From: Alex Kononov <alex@albefly.com>
-> 
-> An isochronous Buffer Overrun event means the device sent more
-> data than the TD could hold.
-> This is triggered by the device, not by a driver bug, and the
-> error is already reported to the class driver as
-> -EOVERFLOW in iso_frame_desc[].status.
-> 
-> Logging it with xhci_warn() can flood the kernel log.
-> A USB S/PDIF adapter (262a:9123) whose S/PDIF input loses its
-> signal produces this event on nearly every microframe,
-> about 7,200 messages per second, keeping systemd-journald
-> busy at 100% of a CPU.
-> 
-> Use xhci_dbg() like the other device-triggerable completion codes.
-> 
-> Suggested-by: Michal Pecio <michal.pecio@gmail.com>
-> Signed-off-by: Alex Kononov <alex@albefly.com>
-> ---
-> As suggested by Michal and agreed by Mathias in the discussion:
-> https://lore.kernel.org/linux-usb/2ffafaa3-bdea-4d67-b224-2f18d76134be@linux.intel.com/T/
-> 
-> COMP_BANDWIDTH_OVERRUN_ERROR is arguably device-triggerable as well and
-> has been reported to flood logs (https://bugs.debian.org/1035939);
-> I left it alone here. Happy to send a separate patch if you think
-> it should get the same treatment.
+-----BEGIN PGP SIGNATURE-----
 
-That's not device triggerable, it means URB size exceeded bandwidth
-allocation. Such URBs shouldn't pass validation by usb_submit_urb().
-Only a buggy host controller can produce this warning without any
-fault of the kernel.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawSaUQAKCRDZQZRRKWBy
+9P+6AP9+UQyJTJdWEo+S5hFOtmylc/lWN2MktaCaDIIh1an/vQD9G3k8P9NpNa0W
+If8ZNN1ia4f/BFOVW2M6501nL1Jn8gs=
+=fTte
+-----END PGP SIGNATURE-----
 
-My Etron does, when multi-TRB isochronous TDs are used. Apparently
-it doesn't support those, maybe it needs some ludicrous out-of-spec
-workaround. Sadly, patching qemu-xhci to pretend being Etron makes
-Windows bluescreen at boot, so IDK how / if Windows deals with the
-numerous bugs in those chips.
-
-If somebody sees this warning on current kernel releases with spec-
-compliant xHCI controllers, we would be curious to hear about it.
-
-Regards,
-Michal
+--=-Z+d3cBSs+hNXNcM5M5wA--
