@@ -1,78 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795455529;
-	b=p2VOBuPBmmRQxVyU/tUQLG3oZAlcEg1OdPyA4yePwO2o7hU+C73Xi72XeyBFAucEdsfK
-	 azcQ2VKy1+HvpsJo/pVmUsPfKODun2e5VhuxOzTTWCF5P5ZUCZXPKzu/d9NrztddRvq4J
-	 goeONhJm7T5fhx9gqCTs2aKnHqtQZq07Ml5pg2DGA3ZNi/++avHrlNhXdJnnnfq1EGPdH
-	 MNwchZ2nq/ELdJ8OtHLv2ulxWALKwskI4h5INr3e6DcUw4uc1ldei+Z9Qn1WEndVjlibc
-	 UkNUc22QPDv4vdsnvDVAC4bp9O77qOzt1VVz9EXegypkBGaLnkaIZZtcCq54elMm9SQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455529;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=1W7N1PhPc80jkc8eGaHBSvyza5g9MSJLsxW4eqOHd5A=;
-	b=ySWTR1oKe1TJTxN2/FM02m9wmwQIGXUPj+uF4UKiWzo5aZpz3gw9fQjxk5Eu7v0qhlRs
-	 7HotoXHVb9jSPRNTteIY4Bdvi0Kmt8GSmiXVg/uN53mVzui2oEPbR6YdLxFKXIUScPvTx
-	 +wnmnJu+phFs2ryA6zBk64QuqP0/tFZpAZPiKQMcrUKdXRsP6LbGzwzv1KSLsuUh5UI19
-	 P+6npoJTXM5NkJFmCGkzu/KsboQu62NV05GT/f3k4FG0325rLI0zkiphTJ6qvJbxBE3+c
-	 5T+ETe2fQia4gWIzkCuQx3UmK82cQQEaJz9P5fVcd5hTYOJPWREEl/inyYKWmXLitpg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZSeJi5A2;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795455533;
+	b=iElvBbnrhsQZ0pnMZ/McU697ymaicENmF5kt4uo5KHqRq66smgdW1sNtDzBPxPJ9ajrt
+	 AKzfjGntjHgxa+1r8jnEqCNRfzwTMASinJrSb+co0SbIs4tNM3z89kbMs8whDI9Fkata3
+	 RcQnzBJnpHslYUU5tnf4aMsP2ieuqblPtLgw70zPSQvRNs/QXYsVt4ZoZS53mYjFq5GK6
+	 hurSDx9tUCpXOrA7zCV0TrDkq7zYjK49qo8TXsLGDyss7ZURzkDgfjNSuhtoo2rPeHJBH
+	 DMOoM3faI6OltXWG9MBKqh4GDQ5JBxLA1rUJ+VZqlXbt09cNXRgqdiaD3RdiNSFHyhg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455533;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=M1jT+G0VMSaygnsbEE6grX37J+IeCer1lhkCNoYHZC0=;
+	b=N9HJ7vec1xQ2OSR+lBo9MPaghVRe2+1XTQUzt5VbF8YNKg3un/aOUoNSrJl8KvIsZc2t
+	 Rf66fWNSJiW2S9ArbBnmL4sb31Zk72wLLCQhLPCkjWzM/qo20eKd3JsSEDHClcS5rKR3N
+	 5Ml5SgEK7bPb0mnIYn1755T5SrNo3vSNYJPCKtrXzAKIi0mhsWKFEgcjDUFio98yeslJW
+	 Dr5SeDUHsYsmBI8N85WkRfF3oOW99GFzWbKW5M1rGmFKY4C5yssSJbCzWkxLTJCqdr6RE
+	 /InbltYstgPoJ6rNEsEHS3YFG25im0PoMQ1p2c5v7qjYicBFIigpTMI9lV+tQ/UuVSQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hn5Guuht;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CD1D606A31A;
-	Mon, 23 Nov 2026 17:38:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C903606A31E;
+	Mon, 23 Nov 2026 17:38:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZSeJi5A2
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795455528;
-	b=ukX7lm0A+Gc0gW91oxAZhDewSbNlRcn4lPLxFXozlNSHW/7qKAQXXCFvVgIMgKm1CeMQ
-	 XYtyyl2S6A1Y9oCe0JhcFLNvGNSJfAxR6bbwFhp32sCITNxlQhx7MFAzbqxw2sOTVLSA7
-	 h0PmsJRQbsZXO4NuGDoBaGe2IrVL177eIdQeblWAskEBa/z49ZThx1oqBCTDKzjjNaaH9
-	 AjSnQeppPShrzWZhnrZcFFiMKxh7hrU2eqCVsaqPC8uQkM4w6ZQ7iud7Nw4JT5oJCYpn6
-	 p0nP3rt4GinlBmMWj4yDESHU/i8uibEXMA2lgNOhfozUr0T/Hg+mld/dA+g469C2FEw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795455528;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=1W7N1PhPc80jkc8eGaHBSvyza5g9MSJLsxW4eqOHd5A=;
-	b=KMu0byPgqC6M/6It5HhiZXW+ZPxoTrgj6SqKcsQSKqTuU4ja97JV4xJ2GQnBsVtntwnr
-	 a4xyTlf3Et0qIQ9wVNrJ4sNOo75TDEh8A9ji0666nh0UHtzvywhKGZZ3MRNzttYJhKRN4
-	 /JG0ionGBsWPf1bP9DMpdb6nqCTWSeZuSfmvnUfq5TWvIJDW20pjDcE5rGOwcVKb3jNOz
-	 kgW6jW07Xm4iHy+W/CX9kht9DbwGKaiGpr7le+hTOYlH7YtgX2vNGnMa9ops13/VqQhJw
-	 y7eslMItt19dgjJCpOtPJN9eFkIpXWf4c0e8l6Qz++PZTnwYTKBmI6pKsTwFJk6fRpg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 811C71F000F2;
-	Mon, 23 Nov 2026 17:38:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hn5Guuht
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1F81F000EF;
+	Mon, 23 Nov 2026 17:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795455528;
-	bh=1W7N1PhPc80jkc8eGaHBSvyza5g9MSJLsxW4eqOHd5A=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=ZSeJi5A2Vk4PddvzM+qa/JpmyxWkgcQA44o07rNvXywAx/cCBMZMCyHMibP68mdmK
-	 38LLpubJBbgUDBnoDgzx93wxh+28CnQZlrA8EGcydUKRxOrDkjBtbxz8nLeMXQws9I
-	 asInJlYjlSUu4V/402beZVAIvGkEaEI0YAgsmXSCCzo59Zk2GQwNyoJjOXoeKUbXuT
-	 ydyskQfQXAWro3pPHv16BHuAkiLDAGo4+x6gjTHDZjv2tZFein3t4oqBujOY2HCzlL
-	 l/lyaKsLEXvMSjWAsOI9XkPmtO8+E6b9s3M+U4IBxYqZJLiDFv1hzv3+h1VGyWMHoa
-	 OoFpt2pBa7Mmg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D898E4C58E;
-	Mon, 23 Nov 2026 17:38:34 +0000 (UTC)
-From: Erlend Jacobsen via B4 Relay <devnull+erlendjacobsen.pm.me@kernel.org>
-Date: Mon, 23 Nov 2026 18:38:35 +0100
-Subject: [PATCH v3] HID: rdmctmzt: add RDMCTMZT keyboard battery driver
+	s=k20260515; t=1795455533;
+	bh=M1jT+G0VMSaygnsbEE6grX37J+IeCer1lhkCNoYHZC0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hn5GuuhtF0Nvk2GInTT7DzQmBJO45Vi+1AfuM9SkeHqb+wIg6t/2Y1gu5EVJ5DvL7
+	 uJYxgTWAmJNOmvt2L+h9DX6+N0zCDfrVUAMWLD7woBg17IPPxfn4tBRfDc/7vQzk/M
+	 T56Cq7wGNnPyOFqAwk23oW0r+wkyPF8xlOCh3NpwnzwyDxoCUnpT2exnJSuevCw2QX
+	 1d3y+X0mw1Bphf9phmTDJUEwds0m8po7FxjRjjuBZ29QgQqUyjBBG1rpi/SqCcBFLo
+	 4iEkM89mLA3TTWVfAYW5nOGBCV44tNXHQD9oe8rkpCtBpTACr21GwubOjsdLiIhPnS
+	 5BjbIETev9FyQ==
+Subject: Re: [PATCH net] octeontx2-af: Fix uninitialized variables and bounds
+ in MCS alloc handlers
+From: netdev-bot+sashiko@kernel.org
+To: irogers@google.com
+Cc: sgoutham@marvell.com, rkannoth@marvell.com, gakula@marvell.com,
+ sbhatta@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+ elkin@google.com
+Date: Mon, 23 Nov 2026 17:38:51 +0000
+Message-ID: <179545553181.3135.4354699424439095142@kernel.org>
+In-Reply-To: <20261119170550.1517634-1-irogers@google.com>
+References: <20261119170550.1517634-1-irogers@google.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,833 +65,204 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-b4-rdmctmzt-v3-1-5ce2359df0aa@pm.me>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/22NwQrCMBAFfyXs2Yib1Jr25H+IhzbZ2ghpSxKDW
- vrvkoqg4PHBzLwZAnlLAWo2g6dkgx0HqJncMNB9M1yIWwM1A7ETJaIQvC24N05H94y8xKqSjTG
- COgEbBpOnzt7X2un83uHWXknHnMhEb0Mc/WO9S5i5/+WEHLkp9kpJwo6kPE5u6whyNYlvT/56g
- iNXGpU5mEYXrf54y7K8APTSQsnsAAAA
-X-Change-ID: 20261122-b4-rdmctmzt-61993add2ef2
-To: linux-input@vger.kernel.org
-Cc: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- linux-kernel@vger.kernel.org, Erlend Jacobsen <erlendjacobsen@pm.me>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795455514; l=25819;
- i=erlendjacobsen@pm.me; s=20261122; h=from:subject:message-id;
- bh=UvCS/tPE8yf77QLHShVN/oTd2Qi5K/liSEctEMnZ9sw=;
- b=zmrWLz7+kbWQFtbgd26SNqfxFue6ok6yybnqhj27xXTSD8W7dJixHDY5hr0bj3J4srlxPTGlD
- oNZXhCiLqiMDTm8rnBsPRevpDRSVNBuxHJSh/1o8WKCWkasOUxmW4E5
-X-Developer-Key: i=erlendjacobsen@pm.me; a=ed25519;
- pk=SkKXYooGBruZNtA629wl2v9ZJA3VdxTcmrehQAecfrc=
-X-Endpoint-Received: by B4 Relay for erlendjacobsen@pm.me/20261122 with
- auth_id=1609
-X-Original-From: Erlend Jacobsen <erlendjacobsen@pm.me>
-Reply-To: erlendjacobsen@pm.me
-Content-Transfer-Encoding: 7bit
 
-From: Erlend Jacobsen <erlendjacobsen@pm.me>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Keyboards with the USB vendor ID 0x36b0 (manufacturer string
-"RDMCTMZT"), such as the Focus Lab CTRL87, report their battery level
-only on a vendor channel: the HID interface with the raw-HID application
-collection (usage page 0xff60, usage 0x61). The 2.4 GHz dongle (0x2002)
-forwards the query to the keyboard over the air; the keyboard (0x2009)
-answers it directly over USB. The query is a request/response session,
-so neither hid-input's battery strength usage nor a report descriptor
-fixup can expose it.
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
 
-Query the battery once a minute (session start 0xaa 0x10, battery status
-0xaa 0x30, session end 0xaa 0x11) and register a device-scope
-power_supply once the keyboard has answered, so that user space does not
-see a battery whose capacity cannot be read. A lost answer is retried
-after 5 s; the battery is marked not present after three polls in a row
-without the battery status, or at once when the dongle reports no link.
-The battery is named after the USB product ID and serial number, as
-hid-asus does, so that its name survives a replug; the keyboard and its
-dongle share a serial number.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-On the dongle, also read its link status (0xaa 0xd0), which it sends by
-itself on each link change, and report the link as the USB interface's
-wireless_status, as hid-logitech-hidpp and hid-corsair-void do. Byte 13
-of that report is 0x02 while the dongle has no link, but no other value
-proves an active link (the dongle with bcdDevice 0x0102 reports 0x00
-both when connected and when no connection has succeeded since
-power-up), so the link is taken as up only once the keyboard answers.
+- [Medium] In rvu_mbox_handler_mcs_alloc_resources(), two of the new
+  rejection paths still report success over the mailbox.
+- [Low] The commit message presents the missing check of req->rsrc_cnt
+  against the 128-element rsp->flow_ids/secy_ids/sc_ids arrays in…
 
-All other interfaces are handled as by hid-generic.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the sibling
+  free handler in the same file has the bug class this patch fixes in…
 
-Tested with keyboard firmware 1.13 over USB and through the dongle
-(bcdDevice 0x0102 and 0x0105), including a switch between the two and
-the vendor's WebHID configurator in use on the same interface; and
-through the dongle with an open-source keyboard firmware: module reload,
-replug and system suspend/resume.
+--
 
-Signed-off-by: Erlend Jacobsen <erlendjacobsen@pm.me>
----
-Known dongle issue, not handled by the driver: a USB reset while the dongle
-(bcdDevice 0x0102 and 0x0105) holds an unread report on its vendor
-interface stops that interface until the dongle is replugged; keys still
-work.
----
-Changes in v3:
-- Reset the poll counters also when a keyboard taken as gone answers
-  again, so it is retried after 5 s, not 60 s (Sashiko review).
-- Link to v2: https://patch.msgid.link/20261123-b4-rdmctmzt-v2-1-8c18d7dac4bc@pm.me
+octeontx2-af: Fix uninitialized variables and bounds in MCS alloc handlers
 
-Changes in v2:
-- End the polling only on the driver's own stop (-ESHUTDOWN); any
-  transport error, -ENODEV included, is a lost poll (Sashiko review).
-- Reset the poll counters while the dongle reports no link, so a
-  reconnected keyboard is retried after 5 s, not 60 s (Sashiko review).
-- Link to v1: https://patch.msgid.link/20261122-b4-rdmctmzt-v1-1-d45883e1fe33@pm.me
----
- MAINTAINERS                |   6 +
- drivers/hid/Kconfig        |  12 +
- drivers/hid/Makefile       |   1 +
- drivers/hid/hid-ids.h      |   4 +
- drivers/hid/hid-rdmctmzt.c | 660 +++++++++++++++++++++++++++++++++++++++++++++
- 5 files changed, 683 insertions(+)
+This adds a default case to the rule_type switch in
+rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(), so an unknown rule_type no
+longer passes an uninitialized offset. In
+rvu_mbox_handler_mcs_alloc_resources() it initializes rsrc_id, rejects a
+zero rsrc_cnt and an unknown rsrc_type, and checks rsrc_cnt against the
+128-entry response arrays.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4a69da715c58..d3adacc5053f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -11703,6 +11703,12 @@ L:	linux-input@vger.kernel.org
- S:	Maintained
- F:	drivers/hid/hid-pulsar.c
- 
-+HID RDMCTMZT DRIVER
-+M:	Erlend Jacobsen <erlendjacobsen@pm.me>
-+L:	linux-input@vger.kernel.org
-+S:	Maintained
-+F:	drivers/hid/hid-rdmctmzt.c
-+
- HID SENSOR HUB DRIVERS
- M:	Jiri Kosina <jikos@kernel.org>
- M:	Jonathan Cameron <jic23@kernel.org>
-diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
-index d17d960ab5e2..c3aeee7e71db 100644
---- a/drivers/hid/Kconfig
-+++ b/drivers/hid/Kconfig
-@@ -1105,6 +1105,18 @@ config HID_RAZER
- 	Support for Razer devices that are not fully compliant with the
- 	HID standard.
- 
-+config HID_RDMCTMZT
-+	tristate "RDMCTMZT keyboards and 2.4 GHz dongles"
-+	depends on USB_HID
-+	select POWER_SUPPLY
-+	help
-+	  Support for the battery level and wireless link status of RDMCTMZT
-+	  keyboards (USB vendor ID 0x36b0), such as the Focus Lab CTRL87,
-+	  over USB and through their 2.4 GHz dongle.
-+
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called hid-rdmctmzt.
-+
- config HID_PRIMAX
- 	tristate "Primax non-fully HID-compliant devices"
- 	help
-diff --git a/drivers/hid/Makefile b/drivers/hid/Makefile
-index dc30faaac969..d0ca9933eb95 100644
---- a/drivers/hid/Makefile
-+++ b/drivers/hid/Makefile
-@@ -123,6 +123,7 @@ obj-$(CONFIG_HID_PXRC)		+= hid-pxrc.o
- obj-$(CONFIG_HID_RAKK)		+= hid-rakk.o
- obj-$(CONFIG_HID_RAPOO) += hid-rapoo.o
- obj-$(CONFIG_HID_RAZER)	+= hid-razer.o
-+obj-$(CONFIG_HID_RDMCTMZT)	+= hid-rdmctmzt.o
- obj-$(CONFIG_HID_REDRAGON)	+= hid-redragon.o
- obj-$(CONFIG_HID_RETRODE)	+= hid-retrode.o
- obj-$(CONFIG_HID_ROCCAT)	+= hid-roccat.o hid-roccat-common.o \
-diff --git a/drivers/hid/hid-ids.h b/drivers/hid/hid-ids.h
-index c40d818417a2..59549ff57583 100644
---- a/drivers/hid/hid-ids.h
-+++ b/drivers/hid/hid-ids.h
-@@ -1275,6 +1275,10 @@
- #define USB_DEVICE_ID_RAZER_BLACKWIDOW_CLASSIC    0x011b
- #define USB_DEVICE_ID_RAZER_BLADE_14   0x011D
- 
-+#define USB_VENDOR_ID_RDMCTMZT			0x36b0
-+#define USB_DEVICE_ID_RDMCTMZT_DONGLE		0x2002
-+#define USB_DEVICE_ID_RDMCTMZT_CTRL87		0x2009
-+
- #define USB_VENDOR_ID_REALTEK		0x0bda
- #define USB_DEVICE_ID_REALTEK_READER	0x0152
- 
-diff --git a/drivers/hid/hid-rdmctmzt.c b/drivers/hid/hid-rdmctmzt.c
-new file mode 100644
-index 000000000000..fc740c7a4e48
---- /dev/null
-+++ b/drivers/hid/hid-rdmctmzt.c
-@@ -0,0 +1,660 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * HID driver for RDMCTMZT keyboards and their 2.4 GHz dongles (USB vendor
-+ * ID 0x36b0): the battery level.
-+ *
-+ * The keyboard firmware answers a battery query on its vendor channel, the
-+ * HID interface with the raw-HID application collection (usage page 0xff60,
-+ * usage 0x61, no report IDs): 32-byte reports on the dongle, 64-byte reports
-+ * on the keyboard over USB. The dongle passes the query to the keyboard over
-+ * the air and the answer back.
-+ *
-+ * Every request and answer starts with 0xaa and the command byte:
-+ *   0x10  start a session; other commands are only answered within one
-+ *   0x30  battery status
-+ *   0x11  end the session
-+ * Byte 4 of a request is the report size. An answer repeats the request up to
-+ * byte 6; byte 7 is 0x55 when the command was carried out (0x0f when it was
-+ * refused, for instance before the keyboard has measured its battery). The
-+ * battery status has the charge (0-100 %) in byte 8 and the charger state in
-+ * byte 9 (0 on battery, 1 charging, 2 full).
-+ *
-+ * The dongle answers 0xd0 itself, and sends one by itself when its link state
-+ * changes: byte 13 is 0x02 while it has no link to the keyboard (keyboard off,
-+ * or on USB). Any other value does not prove a link: dongle firmware 0x0102
-+ * reports 0x00 when connected, after a failed reconnect, and when the keyboard
-+ * has never connected since power-up. So the driver takes the link as up only
-+ * once the keyboard answers, and as down when byte 13 is 0x02 or after
-+ * RDM_MAX_FAILS polls without any answer. It reports this as the USB
-+ * interface's wireless_status, so user space hides the battery of a keyboard
-+ * that is not connected.
-+ *
-+ * A lost answer does not hide the battery: it is retried after RDM_RETRY_MS,
-+ * and the battery is marked not present only after RDM_MAX_FAILS polls in a
-+ * row without the battery status, or at once when the dongle reports no link.
-+ */
-+
-+#include <linux/cleanup.h>
-+#include <linux/completion.h>
-+#include <linux/device.h>
-+#include <linux/hid.h>
-+#include <linux/jiffies.h>
-+#include <linux/limits.h>
-+#include <linux/minmax.h>
-+#include <linux/module.h>
-+#include <linux/power_supply.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/string.h>
-+#include <linux/usb.h>
-+#include <linux/workqueue.h>
-+
-+#include "hid-ids.h"
-+
-+#define RDM_VENDOR_USAGE		0xff600061
-+#define RDM_VENDOR_PREFIX		"RDMCTMZT "
-+
-+#define RDM_PREFIX			0xaa
-+#define RDM_CMD_START			0x10
-+#define RDM_CMD_STOP			0x11
-+#define RDM_CMD_BATTERY			0x30
-+/* The dongle's own link status, sent when the link changes */
-+#define RDM_DONGLE_STATUS		0xd0
-+
-+#define RDM_PREFIX_BYTE			0
-+#define RDM_CMD_BYTE			1
-+#define RDM_SIZE_BYTE			4
-+#define RDM_STATUS_BYTE			7
-+#define RDM_CAPACITY_BYTE		8
-+#define RDM_CHARGE_BYTE			9
-+#define RDM_LINK_BYTE			13
-+#define RDM_ANSWER_LEN			(RDM_LINK_BYTE + 1)
-+
-+#define RDM_STATUS_OK			0x55
-+#define RDM_MAX_CAPACITY		100
-+
-+#define RDM_LINK_NONE			0x02
-+#define RDM_LINK_UNKNOWN		0xff
-+
-+enum rdm_charge_state {
-+	RDM_CHARGE_DISCHARGING	= 0,
-+	RDM_CHARGE_CHARGING	= 1,
-+	RDM_CHARGE_FULL		= 2,
-+};
-+
-+/* Over the air an answer takes up to two connection events of 100 ms */
-+#define RDM_TIMEOUT_MS			1000
-+#define RDM_FIRST_POLL_MS		2000
-+/* After a poll without the battery status */
-+#define RDM_RETRY_MS			5000
-+/* While the dongle's link byte allows a link, but the keyboard is silent */
-+#define RDM_SEARCH_MS			10000
-+#define RDM_POLL_MS			60000
-+#define RDM_MAX_FAILS			3
-+
-+struct rdm_device {
-+	struct hid_device *hdev;
-+	const char *model_name;
-+	/* Registered once the keyboard first answers */
-+	struct power_supply *battery;
-+	struct power_supply_desc battery_desc;
-+	struct delayed_work work;
-+	struct completion done;
-+	/* The dongle: report the radio link as wireless_status */
-+	bool dongle;
-+	/*
-+	 * Protects expect, answer, link, present, status, capacity,
-+	 * and stopping.
-+	 */
-+	spinlock_t lock;
-+	u8 *buf;
-+	size_t len;
-+	u8 expect;
-+	u8 answer[RDM_ANSWER_LEN];
-+	/* Byte 13 of the dongle's last 0xd0 */
-+	u8 link;
-+	bool present;
-+	int status;
-+	u8 capacity;
-+	bool stopping;
-+	/* Only used by the work; both count only polls with a link */
-+	unsigned int fails;	/* polls in a row without the battery status */
-+	unsigned int silent;	/* polls in a row without any answer */
-+	enum usb_wireless_status wireless;
-+};
-+
-+static const enum power_supply_property rdm_battery_props[] = {
-+	POWER_SUPPLY_PROP_PRESENT,
-+	POWER_SUPPLY_PROP_STATUS,
-+	POWER_SUPPLY_PROP_CAPACITY,
-+	POWER_SUPPLY_PROP_SCOPE,
-+	POWER_SUPPLY_PROP_MODEL_NAME,
-+	POWER_SUPPLY_PROP_MANUFACTURER,
-+};
-+
-+static int rdm_battery_get_property(struct power_supply *psy,
-+				    enum power_supply_property psp,
-+				    union power_supply_propval *val)
-+{
-+	struct rdm_device *rdm = power_supply_get_drvdata(psy);
-+
-+	switch (psp) {
-+	case POWER_SUPPLY_PROP_PRESENT:
-+		scoped_guard(spinlock_irqsave, &rdm->lock)
-+			val->intval = rdm->present;
-+		return 0;
-+	case POWER_SUPPLY_PROP_STATUS:
-+		scoped_guard(spinlock_irqsave, &rdm->lock)
-+			val->intval = rdm->present ? rdm->status :
-+						     POWER_SUPPLY_STATUS_UNKNOWN;
-+		return 0;
-+	case POWER_SUPPLY_PROP_CAPACITY:
-+		scoped_guard(spinlock_irqsave, &rdm->lock) {
-+			if (!rdm->present)
-+				return -ENODATA;
-+			val->intval = rdm->capacity;
-+		}
-+		return 0;
-+	case POWER_SUPPLY_PROP_SCOPE:
-+		val->intval = POWER_SUPPLY_SCOPE_DEVICE;
-+		return 0;
-+	case POWER_SUPPLY_PROP_MODEL_NAME:
-+		val->strval = rdm->model_name;
-+		return 0;
-+	case POWER_SUPPLY_PROP_MANUFACTURER:
-+		val->strval = "RDMCTMZT";
-+		return 0;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+/* Only 0x02 rules out a link; the keyboard's answers decide the rest */
-+static bool rdm_link_may_be_up(u8 link)
-+{
-+	return link != RDM_LINK_NONE && link != RDM_LINK_UNKNOWN;
-+}
-+
-+static int rdm_decode_status(struct rdm_device *rdm, u8 charge)
-+{
-+	switch (charge) {
-+	case RDM_CHARGE_DISCHARGING:
-+		return POWER_SUPPLY_STATUS_DISCHARGING;
-+	case RDM_CHARGE_CHARGING:
-+		return POWER_SUPPLY_STATUS_CHARGING;
-+	case RDM_CHARGE_FULL:
-+		return POWER_SUPPLY_STATUS_FULL;
-+	default:
-+		hid_dbg(rdm->hdev, "unknown charger state: %u\n", charge);
-+		return POWER_SUPPLY_STATUS_UNKNOWN;
-+	}
-+}
-+
-+/* Send one command; its answer arrives in rdm_raw_event() */
-+static int rdm_send(struct rdm_device *rdm, u8 cmd)
-+{
-+	size_t raw_len = rdm->len + 1;
-+	int ret;
-+
-+	memset(rdm->buf, 0, raw_len);
-+	rdm->buf[0] = 0x00; /* unnumbered report ID */
-+	rdm->buf[1 + RDM_PREFIX_BYTE] = RDM_PREFIX;
-+	rdm->buf[1 + RDM_CMD_BYTE] = cmd;
-+	rdm->buf[1 + RDM_SIZE_BYTE] = rdm->len;
-+
-+	ret = hid_hw_output_report(rdm->hdev, rdm->buf, raw_len);
-+	/*
-+	 * -ESHUTDOWN from the transport (an endpoint flushed by a USB reset)
-+	 * is a lost poll; only rdm->stopping may end the polling.
-+	 */
-+	if (ret == -ESHUTDOWN)
-+		return -EIO;
-+	if (ret < 0)
-+		return ret;
-+	if (ret != raw_len)
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+/*
-+ * Send one command and wait for its answer: 0 once it is copied into @reply
-+ * (carried out or refused, checked via RDM_STATUS_BYTE).
-+ */
-+static int rdm_command(struct rdm_device *rdm, u8 cmd, u8 *reply)
-+{
-+	long time_left;
-+	int ret;
-+
-+	scoped_guard(spinlock_irqsave, &rdm->lock) {
-+		if (rdm->stopping)
-+			return -ESHUTDOWN;
-+		rdm->expect = cmd;
-+		rdm->answer[RDM_CMD_BYTE] = 0;
-+		reinit_completion(&rdm->done);
-+	}
-+
-+	ret = rdm_send(rdm, cmd);
-+	if (ret)
-+		goto out_clear;
-+
-+	time_left = wait_for_completion_interruptible_timeout(&rdm->done,
-+							      msecs_to_jiffies(RDM_TIMEOUT_MS));
-+	if (time_left <= 0) {
-+		ret = time_left ? (int)time_left : -ETIMEDOUT;
-+		goto out_clear;
-+	}
-+
-+	scoped_guard(spinlock_irqsave, &rdm->lock) {
-+		rdm->expect = 0;
-+		if (rdm->stopping)
-+			return -ESHUTDOWN;
-+		if (rdm->answer[RDM_CMD_BYTE] != cmd)
-+			return -ENOLINK;
-+		memcpy(reply, rdm->answer, RDM_ANSWER_LEN);
-+	}
-+	return 0;
-+
-+out_clear:
-+	scoped_guard(spinlock_irqsave, &rdm->lock) {
-+		rdm->expect = 0;
-+		if (rdm->stopping)
-+			ret = -ESHUTDOWN;
-+	}
-+	return ret;
-+}
-+
-+/*
-+ * Register the battery once the keyboard has answered: user space (UPower)
-+ * ignores a device battery whose capacity cannot be read when it appears.
-+ * Without an answer (the dongle with the keyboard on USB) there is none.
-+ */
-+static void rdm_battery_register(struct rdm_device *rdm)
-+{
-+	struct power_supply_config cfg = { .drv_data = rdm };
-+	struct power_supply *battery;
-+	int ret;
-+
-+	battery = devm_power_supply_register(&rdm->hdev->dev,
-+					     &rdm->battery_desc, &cfg);
-+	if (IS_ERR(battery)) {
-+		hid_err_ratelimited(rdm->hdev,
-+				    "cannot register the battery: %pe\n",
-+				    battery);
-+		return;
-+	}
-+
-+	ret = power_supply_powers(battery, &rdm->hdev->dev);
-+	if (ret)
-+		hid_warn(rdm->hdev, "cannot link battery to device: %d\n", ret);
-+
-+	rdm->battery = battery;
-+}
-+
-+/* The dongle's link byte, asked for now: an 0xd0 may have been missed */
-+static int rdm_dongle_linked(struct rdm_device *rdm, bool *linked)
-+{
-+	u8 reply[RDM_ANSWER_LEN];
-+	int ret;
-+
-+	ret = rdm_command(rdm, RDM_DONGLE_STATUS, reply);
-+	if (ret == -ESHUTDOWN)
-+		return ret;
-+
-+	scoped_guard(spinlock_irqsave, &rdm->lock) {
-+		if (!ret)
-+			rdm->link = reply[RDM_LINK_BYTE];
-+		*linked = rdm_link_may_be_up(rdm->link);
-+	}
-+	if (ret)
-+		hid_dbg(rdm->hdev, "no link status: %d\n", ret);
-+	return 0;
-+}
-+
-+static int rdm_poll_keyboard(struct rdm_device *rdm, bool *linked,
-+			     bool *answered, bool *got, u8 *capacity,
-+			     int *status)
-+{
-+	u8 reply[RDM_ANSWER_LEN];
-+	int ret;
-+
-+	ret = rdm_command(rdm, RDM_CMD_START, reply);
-+	if (ret == -ESHUTDOWN)
-+		return ret;
-+	if (ret == -ENOLINK) {
-+		*linked = false;
-+		return 0;
-+	}
-+	if (ret)
-+		return 0;
-+
-+	/* Any answer, even a refusal, shows that the keyboard is linked */
-+	*answered = true;
-+	if (reply[RDM_STATUS_BYTE] == RDM_STATUS_OK) {
-+		ret = rdm_command(rdm, RDM_CMD_BATTERY, reply);
-+		if (ret == -ESHUTDOWN)
-+			return ret;
-+		if (ret == -ENOLINK) {
-+			*linked = false;
-+			return 0;
-+		}
-+		if (!ret && reply[RDM_STATUS_BYTE] == RDM_STATUS_OK) {
-+			*got = true;
-+			*capacity = min_t(u8, reply[RDM_CAPACITY_BYTE],
-+					  RDM_MAX_CAPACITY);
-+			*status = rdm_decode_status(rdm, reply[RDM_CHARGE_BYTE]);
-+		}
-+	}
-+
-+	ret = rdm_command(rdm, RDM_CMD_STOP, reply);
-+	if (ret == -ESHUTDOWN)
-+		return ret;
-+	if (ret == -ENOLINK)
-+		*linked = false;
-+
-+	return 0;
-+}
-+
-+static void rdm_battery_work(struct work_struct *work)
-+{
-+	struct rdm_device *rdm = container_of(to_delayed_work(work),
-+					      struct rdm_device, work);
-+	enum usb_wireless_status wireless = rdm->wireless;
-+	bool linked = true, answered = false, got = false;
-+	bool changed, present;
-+	unsigned int delay;
-+	u8 capacity = 0;
-+	int status = 0;
-+
-+	if (rdm->dongle && rdm_dongle_linked(rdm, &linked))
-+		return;
-+
-+	if (linked && rdm_poll_keyboard(rdm, &linked, &answered, &got,
-+					&capacity, &status))
-+		return;
-+
-+	if (!got)
-+		hid_dbg(rdm->hdev, "no battery status (linked %d, answered %d)\n",
-+			linked, answered);
-+
-+	if (!linked) {
-+		/* A keyboard that comes back starts with fresh counts */
-+		rdm->silent = 0;
-+		rdm->fails = 0;
-+		wireless = USB_WIRELESS_STATUS_DISCONNECTED;
-+	} else {
-+		/* So does one that answers after being taken as gone */
-+		if (answered && rdm->silent >= RDM_MAX_FAILS)
-+			rdm->fails = 0;
-+		rdm->silent = answered ? 0 : min(rdm->silent + 1, RDM_MAX_FAILS);
-+		rdm->fails = got ? 0 : min(rdm->fails + 1, RDM_MAX_FAILS);
-+		if (answered)
-+			wireless = USB_WIRELESS_STATUS_CONNECTED;
-+		else if (rdm->silent >= RDM_MAX_FAILS ||
-+			 rdm->wireless == USB_WIRELESS_STATUS_NA)
-+			wireless = USB_WIRELESS_STATUS_DISCONNECTED;
-+	}
-+
-+	/* Without a link the dongle reports when it comes back */
-+	if (got || !linked)
-+		delay = RDM_POLL_MS;
-+	else if (rdm->fails < RDM_MAX_FAILS)
-+		delay = RDM_RETRY_MS;
-+	else if (rdm->dongle && rdm->silent >= RDM_MAX_FAILS)
-+		delay = RDM_SEARCH_MS;
-+	else
-+		delay = RDM_POLL_MS;
-+
-+	scoped_guard(spinlock_irqsave, &rdm->lock) {
-+		if (rdm->stopping)
-+			return;
-+		present = linked &&
-+			  (got || (rdm->present && rdm->fails < RDM_MAX_FAILS));
-+		changed = rdm->present != present ||
-+			  (got && (rdm->capacity != capacity ||
-+				   rdm->status != status));
-+		rdm->present = present;
-+		if (got) {
-+			rdm->capacity = capacity;
-+			rdm->status = status;
-+		}
-+		queue_delayed_work(system_dfl_wq, &rdm->work,
-+				   msecs_to_jiffies(delay));
-+	}
-+
-+	if (rdm->dongle && wireless != rdm->wireless) {
-+		rdm->wireless = wireless;
-+		usb_set_wireless_status(to_usb_interface(rdm->hdev->dev.parent),
-+					wireless);
-+	}
-+
-+	if (present && got && !rdm->battery)
-+		rdm_battery_register(rdm);
-+	else if (changed && rdm->battery)
-+		power_supply_changed(rdm->battery);
-+}
-+
-+static int rdm_raw_event(struct hid_device *hdev, struct hid_report *report,
-+			 u8 *data, int size)
-+{
-+	struct rdm_device *rdm = hid_get_drvdata(hdev);
-+
-+	if (!rdm || size < RDM_ANSWER_LEN || data[RDM_PREFIX_BYTE] != RDM_PREFIX)
-+		return 0;
-+
-+	guard(spinlock_irqsave)(&rdm->lock);
-+	if (rdm->expect && data[RDM_CMD_BYTE] == rdm->expect) {
-+		memcpy(rdm->answer, data, RDM_ANSWER_LEN);
-+		rdm->expect = 0;
-+		complete(&rdm->done);
-+	} else if (data[RDM_CMD_BYTE] == RDM_DONGLE_STATUS && rdm->dongle &&
-+		   data[RDM_LINK_BYTE] != rdm->link) {
-+		/* The link to the keyboard came or went: ask now */
-+		rdm->link = data[RDM_LINK_BYTE];
-+		if (rdm->expect && !rdm_link_may_be_up(rdm->link)) {
-+			rdm->expect = 0;
-+			complete(&rdm->done);
-+		}
-+		if (!rdm->stopping)
-+			mod_delayed_work(system_dfl_wq, &rdm->work, 0);
-+	}
-+	return 0;
-+}
-+
-+static bool rdm_is_vendor_interface(struct hid_device *hdev)
-+{
-+	for (unsigned int i = 0; i < hdev->maxcollection; i++) {
-+		if (hdev->collection[i].type == HID_COLLECTION_APPLICATION &&
-+		    hdev->collection[i].usage == RDM_VENDOR_USAGE)
-+			return true;
-+	}
-+	return false;
-+}
-+
-+/* End the work and any wait; rdm_resume_common() restarts it */
-+static void rdm_stop_polling(struct rdm_device *rdm)
-+{
-+	scoped_guard(spinlock_irqsave, &rdm->lock) {
-+		rdm->stopping = true;
-+		complete_all(&rdm->done);
-+	}
-+	cancel_delayed_work_sync(&rdm->work);
-+}
-+
-+static int rdm_probe(struct hid_device *hdev, const struct hid_device_id *id)
-+{
-+	struct hid_report *report_in, *report_out;
-+	struct rdm_device *rdm;
-+	size_t prefix_len;
-+	u32 report_len;
-+	int ret;
-+
-+	hdev->quirks |= HID_QUIRK_INPUT_PER_APP;
-+
-+	ret = hid_parse(hdev);
-+	if (ret)
-+		return ret;
-+
-+	/* Only the vendor interface has the query; the others work as usual */
-+	if (!rdm_is_vendor_interface(hdev))
-+		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
-+
-+	report_in = hdev->report_enum[HID_INPUT_REPORT].report_id_hash[0];
-+	report_out = hdev->report_enum[HID_OUTPUT_REPORT].report_id_hash[0];
-+	if (!report_in || !report_out ||
-+	    hdev->report_enum[HID_INPUT_REPORT].numbered ||
-+	    hdev->report_enum[HID_OUTPUT_REPORT].numbered) {
-+		hid_warn(hdev, "missing unnumbered vendor reports\n");
-+		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
-+	}
-+
-+	report_len = hid_report_len(report_out);
-+	if (hid_report_len(report_in) < RDM_ANSWER_LEN ||
-+	    report_len < RDM_ANSWER_LEN || report_len > U8_MAX) {
-+		hid_warn(hdev, "unexpected vendor report length\n");
-+		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
-+	}
-+
-+	rdm = devm_kzalloc(&hdev->dev, sizeof(*rdm), GFP_KERNEL);
-+	if (!rdm)
-+		return -ENOMEM;
-+
-+	rdm->len = report_len;
-+	/* Leading byte 0 holds the unnumbered report ID (0x00) */
-+	rdm->buf = devm_kzalloc(&hdev->dev, rdm->len + 1, GFP_KERNEL);
-+	if (!rdm->buf)
-+		return -ENOMEM;
-+
-+	rdm->hdev = hdev;
-+	prefix_len = str_has_prefix(hdev->name, RDM_VENDOR_PREFIX);
-+	rdm->model_name = hdev->name[prefix_len] ? hdev->name + prefix_len :
-+						   hdev->name;
-+	rdm->dongle = hid_is_usb(hdev) &&
-+		      hdev->product == USB_DEVICE_ID_RDMCTMZT_DONGLE;
-+	rdm->link = RDM_LINK_UNKNOWN;
-+	rdm->wireless = USB_WIRELESS_STATUS_NA;
-+	spin_lock_init(&rdm->lock);
-+	init_completion(&rdm->done);
-+	INIT_DELAYED_WORK(&rdm->work, rdm_battery_work);
-+
-+	/*
-+	 * Name the battery after the USB product ID and serial number, as
-+	 * hid-asus does: the HID device name changes with every replug, and
-+	 * user space keeps per-battery settings by name. The keyboard and its
-+	 * dongle share a serial number, so the product ID keeps them apart.
-+	 */
-+	if (hdev->uniq[0])
-+		rdm->battery_desc.name = devm_kasprintf(&hdev->dev, GFP_KERNEL,
-+							"rdmctmzt-%04x-%s-battery",
-+							hdev->product, hdev->uniq);
-+	else
-+		rdm->battery_desc.name = devm_kasprintf(&hdev->dev, GFP_KERNEL,
-+							"rdmctmzt-%s-battery",
-+							dev_name(&hdev->dev));
-+	if (!rdm->battery_desc.name)
-+		return -ENOMEM;
-+
-+	rdm->battery_desc.type = POWER_SUPPLY_TYPE_BATTERY;
-+	rdm->battery_desc.properties = rdm_battery_props;
-+	rdm->battery_desc.num_properties = ARRAY_SIZE(rdm_battery_props);
-+	rdm->battery_desc.get_property = rdm_battery_get_property;
-+
-+	hid_set_drvdata(hdev, rdm);
-+
-+	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT);
-+	if (ret)
-+		goto err_clear_drvdata;
-+
-+	/* Answers arrive as input reports, so keep the interface open */
-+	ret = hid_hw_open(hdev);
-+	if (ret)
-+		goto err_stop;
-+
-+	queue_delayed_work(system_dfl_wq, &rdm->work,
-+			   msecs_to_jiffies(RDM_FIRST_POLL_MS));
-+	return 0;
-+
-+err_stop:
-+	/* A dongle status may already have queued the work */
-+	rdm_stop_polling(rdm);
-+	hid_hw_stop(hdev);
-+err_clear_drvdata:
-+	hid_set_drvdata(hdev, NULL);
-+	return ret;
-+}
-+
-+static void rdm_remove(struct hid_device *hdev)
-+{
-+	struct rdm_device *rdm = hid_get_drvdata(hdev);
-+
-+	if (rdm) {
-+		rdm_stop_polling(rdm);
-+		if (rdm->dongle && rdm->wireless != USB_WIRELESS_STATUS_NA)
-+			usb_set_wireless_status(to_usb_interface(hdev->dev.parent),
-+						USB_WIRELESS_STATUS_NA);
-+		hid_hw_close(hdev);
-+	}
-+	hid_hw_stop(hdev);
-+}
-+
-+static int rdm_suspend(struct hid_device *hdev, pm_message_t message)
-+{
-+	struct rdm_device *rdm = hid_get_drvdata(hdev);
-+
-+	if (rdm)
-+		rdm_stop_polling(rdm);
-+	return 0;
-+}
-+
-+static int rdm_resume_common(struct hid_device *hdev, bool reset)
-+{
-+	struct rdm_device *rdm = hid_get_drvdata(hdev);
-+
-+	if (!rdm)
-+		return 0;
-+
-+	scoped_guard(spinlock_irqsave, &rdm->lock) {
-+		rdm->stopping = false;
-+		if (reset)
-+			rdm->link = RDM_LINK_UNKNOWN;
-+		queue_delayed_work(system_dfl_wq, &rdm->work, 0);
-+	}
-+	return 0;
-+}
-+
-+static int rdm_resume(struct hid_device *hdev)
-+{
-+	return rdm_resume_common(hdev, false);
-+}
-+
-+static int rdm_reset_resume(struct hid_device *hdev)
-+{
-+	if (hdev->claimed & HID_CLAIMED_INPUT)
-+		hidinput_reset_resume(hdev);
-+
-+	return rdm_resume_common(hdev, true);
-+}
-+
-+static const struct hid_device_id rdm_devices[] = {
-+	{ HID_USB_DEVICE(USB_VENDOR_ID_RDMCTMZT,
-+			 USB_DEVICE_ID_RDMCTMZT_DONGLE) },
-+	{ HID_USB_DEVICE(USB_VENDOR_ID_RDMCTMZT,
-+			 USB_DEVICE_ID_RDMCTMZT_CTRL87) },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(hid, rdm_devices);
-+
-+static struct hid_driver rdm_driver = {
-+	.name = "rdmctmzt",
-+	.id_table = rdm_devices,
-+	.probe = rdm_probe,
-+	.remove = rdm_remove,
-+	.raw_event = rdm_raw_event,
-+	.suspend = pm_ptr(rdm_suspend),
-+	.resume = pm_ptr(rdm_resume),
-+	.reset_resume = pm_ptr(rdm_reset_resume),
-+};
-+module_hid_driver(rdm_driver);
-+
-+MODULE_DESCRIPTION("HID driver for RDMCTMZT keyboards: battery level and link status");
-+MODULE_LICENSE("GPL");
+> In rvu_mbox_handler_mcs_alloc_resources(), 'rsrc_id' is left uninitialized
+> when !req->all and either req->rsrc_cnt == 0 or req->rsrc_type is not one
+> of the four handled types. Moreover, req->rsrc_cnt (u8, 0..255) is not
+> checked against the 128-element rsp->flow_ids, rsp->secy_ids, and
+> rsp->sc_ids response arrays before writing into them.
 
----
-base-commit: 4a30b295fc34467e0468a0c8aeef73ecbe876d07
-change-id: 20261122-b4-rdmctmzt-61993add2ef2
+[Severity: Low]
+Can the response array overflow described here actually happen today?
 
-Best regards,
---  
-Erlend Jacobsen <erlendjacobsen@pm.me>
+Each loop iteration calls mcs_alloc_rsrc()->rvu_alloc_rsrc(), which fails
+once the bitmap is full:
 
+rvu_alloc_rsrc() {
+    ...
+	id = find_first_zero_bit(rsrc->bmap, rsrc->max);
+	if (id >= rsrc->max)
+		return -ENOSPC;
+    ...
+}
 
+When that happens, the loop does goto exit before it writes rsp->*_ids[i].
+
+mcs_alloc_struct_mem() sets the bitmap sizes from the hardware:
+
+	res->flow_ids.max = hw->tcam_entries - MCS_RSRC_RSVD_CNT;
+	...
+	res->secy.max = hw->secy_entries - MCS_RSRC_RSVD_CNT;
+	...
+	res->sc.max = hw->sc_entries;
+
+That is 127/127/128 on CN10K and 63/63/64 on CNF10KB. These bitmaps are
+shared by all PF/VFs, so the index i never goes past 127.
+
+Given that, the new ARRAY_SIZE() checks look like hardening rather than a
+fix for an overflow someone can trigger. With the Fixes: tag on the patch,
+could the changelog say this more precisely?
+
+The changelog also leaves out a behaviour change. An oversized request
+(for example rsrc_cnt = 200) used to get every free entry as a partial
+allocation. Now it gets nothing.
+
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> index cd9cca5a9cf5c..54c1d9809ae69 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> @@ -682,12 +682,15 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+>  {
+>  	u16 pcifunc = req->hdr.pcifunc;
+>  	struct mcs_rsrc_map *map;
+> +	int rsrc_id = -EINVAL, i;
+>  	struct mcs *mcs;
+> -	int rsrc_id, i;
+>  
+>  	if (req->mcs_id >= rvu->mcs_blk_cnt)
+>  		return MCS_AF_ERR_INVALID_MCSID;
+>  
+> +	if (!req->all && !req->rsrc_cnt)
+> +		return -EINVAL;
+> +
+>  	mcs = mcs_get_pdata(req->mcs_id);
+>  
+>  	if (req->dir == MCS_RX)
+> @@ -709,6 +712,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+>  
+>  	switch (req->rsrc_type) {
+>  	case MCS_RSRC_TYPE_FLOWID:
+> +		if (req->rsrc_cnt > ARRAY_SIZE(rsp->flow_ids))
+> +			goto exit;
+>  		for (i = 0; i < req->rsrc_cnt; i++) {
+>  			rsrc_id = mcs_alloc_rsrc(&map->flow_ids, map->flowid2pf_map, pcifunc);
+>  			if (rsrc_id < 0)
+
+[ ... ]
+
+> @@ -744,6 +753,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+>  			rsp->rsrc_cnt++;
+>  		}
+>  		break;
+> +	default:
+> +		goto exit;
+>  	}
+
+[Severity: Medium]
+Does the requester actually see these rejections as errors?
+
+This default case and the new rsrc_cnt > ARRAY_SIZE() checks both jump to
+the exit label, which always returns 0:
+
+exit:
+	if (rsrc_id < 0)
+		dev_err(rvu->dev, "Failed to allocate the mcs resources for PCIFUNC:%d\n", pcifunc);
+	mutex_unlock(&rvu->rsrc_lock);
+	return 0;
+
+The M() mbox dispatch macro in rvu.c sets rsp->hdr.rc only when the
+handler returns non-zero:
+
+		if (rsp && err)
+			rsp->hdr.rc = err;
+
+As a result, the PF/VF gets hdr.rc == 0, rsp->rsrc_cnt == 0, and zeroed
+rsrc_type/dir/mcs_id fields.
+
+The new zero-count check earlier in this function returns -EINVAL
+directly. The new default case in rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule()
+also returns -EINVAL. Should these paths return an error too, so that
+invalid input is reported the same way throughout?
+
+cn10k_mcs_alloc_rsrc() in nic/cn10k_macsec.c compares the response fields
+with its request, so it would catch this. A requester that checks only
+hdr.rc would treat the rejected request as a successful allocation.
+
+[ ... ]
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. The
+free handler just above, rvu_mbox_handler_mcs_free_resources(), has the
+same kind of problem this patch addresses: a mailbox-supplied index into
+fixed-size arrays with no validation.
+
+The handler passes the PF/VF-supplied u8 req->rsrc_id (0..255) straight
+through:
+
+	case MCS_RSRC_TYPE_FLOWID:
+		rc = mcs_free_rsrc(&map->flow_ids, map->flowid2pf_map, req->rsrc_id, pcifunc);
+		mcs_ena_dis_flowid_entry(mcs, req->rsrc_id, req->dir, false);
+		break;
+
+mcs_free_rsrc() then indexes pf_map without checking against rsrc->max:
+
+int mcs_free_rsrc(struct rsrc_bmap *rsrc, u16 *pf_map, int rsrc_id, u16 pcifunc)
+{
+	/* Check if the rsrc_id is mapped to PF/VF */
+	if (pf_map[rsrc_id] != pcifunc)
+		return -EINVAL;
+
+	rvu_free_rsrc(rsrc, rsrc_id);
+	pf_map[rsrc_id] = 0;
+	return 0;
+}
+
+mcs_alloc_struct_mem() sizes the pf_map arrays from the hardware entry
+counts:
+
+	res->flowid2pf_map = alloc_mem(mcs, hw->tcam_entries);
+
+For flowid/secy/sc that is 128 entries on CN10K and 64 on CNF10KB. SA is
+128 entries on CNF10KB.
+
+Can a FLOWID/SECY/SC request with rsrc_id >= 128 (>= 64 on CNF10KB) read
+past the end of these allocations?
+
+If the out-of-bounds u16 happens to equal the requester's pcifunc,
+rvu_free_rsrc() clears a bit past the end of the bitmap. The
+pf_map[rsrc_id] = 0 store then writes past the end of pf_map. Could that
+corrupt neighbouring slab objects?
+
+There is also a separate problem. The handler calls
+mcs_ena_dis_flowid_entry(), mcs_clear_secy_plcy() and
+mcs_ena_dis_sc_cam_entry() no matter what rc is. Suppose mcs_free_rsrc()
+returns -EINVAL because the caller doesn't own the entry. Can the PF/VF
+still disable another function's flow TCAM entry, clear another
+function's SecY policy, or disable another function's RX SC CAM entry?
+
+VF requests reach this handler through otx2_forward_vf_mbox_msgs(), which
+only rewrites pcifunc.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119170550.1517634-1-irogers%40google.com
