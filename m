@@ -1,69 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422685;
-	b=vzUZ42aua7bcoA0p9n4w69lKCAuy31Q/IPiC6CzKL1oqvI3DyU2rW2wudIA68tsfdcW+
-	 2vpaJTFrs5g2kGFWD2dVuC/REymEJ72m500RefkC4W7B2gR1YYqM4CA+K82MLig1vt7xI
-	 B5hXx3T5gmjr8QRNSDHdc26Gc2Q4rxq5Q5V6eus5U0aRZN0Z+oGOwC41+zS0JDBj/d3jj
-	 dJqv9FlW4yvJQP1iZ1RP5uwdPwN+yg1O9FgVbA457MH3QhwtDMLYPown1HVWlozDsWSwu
-	 Qe0r20T9Gp0V70vvL2WlzRz8FC5aRo9iO4eMkxfHzNn1QzOmpXgJUw47LWYTO3GJhlQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422685;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=huZFMXPlEFAERYY4QoxHcKSDEDN3CIy/5c365Kws/FY=;
-	b=t4NxsZyAPMq/DTEqgz+4shtlVUjsoeNQ5KyIasfGoCmm5e6xcyUcpaQ3W7KkXjnhAFFh
-	 BSEBmubC6KyFXR6m+rLr1+KqQqEs1AO2KfjI/s22cMUVIvVGTZa3CTjwIafynZMH8wIUp
-	 ljBKnbD4fxIwlaTGaJOaBbLvcCSp+uGsybNYYeXJBgzalBhRwyELDqCpGVn2ownm98TJB
-	 IMq+r/5bIjUqL6PdC05/zRp54DXxypdeh8ERHxSRgazXkt47/55sq+KH55nhxLFb95i/V
-	 pvNNtHCWjmxJfx3sFpOBRPIX/Q1f+RCZQAphAG7JhDVz4eglm+q3Bbfmnt5elFLsrNw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OMKkUOxD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.30
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795422727;
+	b=kHQ7WLSeMGQrnQlBrtJHO4FtUg3y+XStSw9euEoNueNZWSTuLHXgpMO57FBSwonw/+7O
+	 mHdUyg9AFGRwprlG2vaAKcc++37fGqbCWpTspn5RvfQLqlx5DNZJSCGYlEuRJx69alQaZ
+	 bumeRCy43kmnBOce45O60GOxtGjMg8Y5RDi73ijB4JXN8fcNCWjR54AAeexJS0DxQX4kZ
+	 jslQDOTeFAWFW0xNrKKB8d8+GaEDkfrx8ansTJ68yXI5oY3GuitD+VgirE410O4vJFlqN
+	 pSoE4AcXlEcRJ+4FTo3G7DKJKfRTYeNAC85j1CxTQ/20JwtpRJaId9JRut3iRIRbejQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422727;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=cxsL6ud8vrRVDfsymBuhS87Zyb8EaiHiwgkbgVvufNk=;
+	b=oJr6EsSHLTVbLLxj3uwf2C4R/1yzWw3p8H0hi1wUVsQhBBRHXMS3n9t+6BpAxOcwVKgV
+	 Khv3Mr1KQBXIwkHbdighjpUmRUIgFX3aHubpwd9N/s7HQ21O5DHDu5efL82jlvwuZjG3E
+	 6Ye/YT6Df0YCWlKOqSn2W79E2bUDPN4OIJjAflUqlLw1nZCqcDMY77TvEO1j23Yy+xF3R
+	 P2xFtWXgvdLjCslYv3TLEmqlyzR0W1McM8AoV7iRL3s4Va81nxERF2vnRgNbna1AHnAb+
+	 TEk36xpP4rVMA9Do7mC87A1W2LS7OH7EK2nLEHXAmbxYmoiz4NK2qQWVkj2cuYx4k8A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=rPcCTRPZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.30
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012030.outbound.protection.outlook.com [52.101.43.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1A22606A330;
-	Mon, 23 Nov 2026 08:31:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBAAC606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:32:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBAAC606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OMKkUOxD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D97181F000C4;
-	Mon, 23 Nov 2026 08:31:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795422684;
-	bh=huZFMXPlEFAERYY4QoxHcKSDEDN3CIy/5c365Kws/FY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OMKkUOxD7Y5XB3+u8VLbDvgi8U7JMR+kKyCuaSmaHfKq5qoOT+vdjceWw9LsjgjNN
-	 Xbr634gBhOrkwggxpzc394B4yECU9qLC33jsoMQwAOH4pbcojAeKUl32OCWSyvKO3U
-	 SlthnkpBRHRXWBdiEG/DeGCDiITsB8ugk3V46pltXxMOkDKn0ipazTD0jdgvv7Krzn
-	 uoFx8axdEYPNIBMMZl4B6bBCOtaRGJjLiH+v0Y9UqK4YmvczDwameo6D4LbQZBdcO3
-	 Ybl19dC0yVTy/3R7ROGrHrHUTZ6IYD35n3FkgGjFAOQFCW3CcFWZ/B9z0LnjPQ6DpR
-	 jH6nOivqj0lyA==
-Received: from johan by xi.lan with local (Exim 4.100.1)
-	(envelope-from <johan@kernel.org>)
-	id 1xVPSL-00000007bVd-3SGf;
-	Mon, 23 Nov 2026 09:31:21 +0100
-Date: Mon, 23 Nov 2026 09:31:21 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/8] software node: ignore primary nodes in
- device_remove_software_node()
-Message-ID: <awP52WO7xlzhOMf6@hovoldconsulting.com>
-References: <20261117101336.980216-1-johan@kernel.org>
- <20261117101336.980216-5-johan@kernel.org>
- <avxeTnaEG_FnBhck@ashevche-desk.local>
- <av1xsrv8zNIEOtxg@hovoldconsulting.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=rPcCTRPZ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V3XFeKts36L6VbUN4j90ieQbJ/EKdbaAJkHv6nB4NeoSiOylhe8ZeuRuUJBNOs+pOSkM8ZaE9OXyU1Rhnujhju5EXEbptcGtSb/ti+McFUO+6G8e/zzjNX6aPQL2jVzpBvvsETq+Xy54bh0giVbe3+uIJiKH9x9GcIptTPj2zu7zHYg5a+Mdh6z2ki9p5e5ugQRNSyTkkAK5eEDgxTHL2pMa9+Im1LsOAOGf4zEYoJCpc5855xfpGjSdQ6rhx6zmLLSEc57j6HsqFlgTSetSqmbtd1ljtLUipQOrLo6eGBRqlkRLdnswggjvMUotUbxGmeHyOaSfdhmetcO0TzaEbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cxsL6ud8vrRVDfsymBuhS87Zyb8EaiHiwgkbgVvufNk=;
+ b=u5XEYWa5aBTajIddeFZwMOzVcYat/bi6duEmgzLmuLu1EK5/AQV3k1tqSGvANFe7uec6DfDrAw7WWTHPWltO2gl+4bR143RNw30H/f31oUP+TrUlEtq/Dtp/f1cd349XyMI6qwjJmeHTorP7BI4F0n8IKGxz8WWsJBH0QzP0WcAYiDnc5L0myHW+LqPzqrwcrJ8AjK3rcbVipWmIfRqfPAqP4IQOqZiuixLPYxgN82XrNoAtWURSqynkLeBheBJCUbJznbpZxmKDTCHl+f0p/Vh36aav5/bCG7SvuKfE4MdvyuGQJKujwBcmO7vvR885HjbVD/kVDPx5iQ6fmXn5SQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cxsL6ud8vrRVDfsymBuhS87Zyb8EaiHiwgkbgVvufNk=;
+ b=rPcCTRPZ2n+t9uWwuQA4dtUUl9afYdhfwbVJ8X/ZvL2OTiuPxL3Vxtp0ARGjRG/jQRC5zRxK3tmepOl+j3NcPzSUFnY3afos/cHVOBDKH3Oh1euPAxRdyWUFp9Ry4SCboRclYwC9sAFQbqLN45wi+fT6wgV/Tso1oFtEQORF7tA=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com (2603:10b6:208:591::16)
+ by SA1PR12MB6749.namprd12.prod.outlook.com (2603:10b6:806:255::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 08:32:04 +0000
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83]) by BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83%5]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
+ 08:32:04 +0000
+Message-ID: <943d0fd8-22a0-4f68-a9fe-a2f27d8a3bd3@amd.com>
+Date: Mon, 23 Nov 2026 14:01:57 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/amd: Enhance "Command buffer timeout" error message
+To: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com>,
+ joro@8bytes.org, suravee.suthikulpanit@amd.com, will@kernel.org,
+ robin.murphy@arm.com, iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261018124113.910-1-dheerajkumar.srivastava@amd.com>
+Content-Language: en-US
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <20261018124113.910-1-dheerajkumar.srivastava@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0205.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ab::14) To BL4PR12MB9505.namprd12.prod.outlook.com
+ (2603:10b6:208:591::16)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,48 +96,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av1xsrv8zNIEOtxg@hovoldconsulting.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL4PR12MB9505:EE_|SA1PR12MB6749:EE_
+X-MS-Office365-Filtering-Correlation-Id: 40486641-7df3-420a-8f23-08df493c407b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021121427099003|261102123227099003|11063799006|56012099006|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	D0brRvwVK76w7oKxKiIE8HjZBsb7A2o/q/pgXlPeg745T1hXKNfum8VWC9N6/ma84HB+sldGKargsznj8lRBDs8YJxY1hvkexlgAhZ0LBRbwbEzTyVIyq0utkMKZHZTgNGYgHdGAlz3t62FwekOP+J9hAmEWXRC4iCUef5m62rsCqh8m/KSIqAz76guKhBoHQvvNn78rfgTTvrQnqSNe/WbJXtGH9A7Kw93umS6YN3fKRJn2zTJY2EIyhj9Kjgz+Upu7AOF4QXR7hNSLq60nU2KsNZt+O4JrXrUcsOI7coiRThZNydoqF3XxQPk1SfVI9z/1pfBladlZLmgy3ioO7Pl5KoaF1LF6EfIKaVxC3DYFi/fqq/3E8tkf/23XPjjD5c6hvKt90KuXwIKeRMo+XU+aL/yl4OSlh5wHrlryPYEJqP0pJ2wnSoqlzZE+nAtpwz+O/o0nKty5YIesr5KMXYOm5iK/pUJqQ01yXqPrw8oc9YJ5p2s6+f6MmkETSftUB5pmYjjJfwxWDsAPKz/QKnzeTzd47KjSjG02fDWiLHzHneTHXv0m+XYZSkMJiDiTNRepkaDvR3WR91pneBjyLGEpnWk/8bcBnvnoFFPAsZ+2YU43f7mbR16shpcHU6aXSNJJJBnfRVQ2oZsfxiWBQzdlFkSYEdN6eFUqigi5OFo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR12MB9505.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021121427099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ditxQTBXN01qZHpENVNpcXU1czFrbFZqVFpoeUhqTG10a1ZZa050cFUxT1Np?=
+ =?utf-8?B?RWpLWkJnamY0eFNjaFFhUU9Ud284bm9mOFh1QWd1cXFJTU56dC9SUkJnQkcx?=
+ =?utf-8?B?TWlDSkU5SlBQNnU3VlB3Qkh3aXN2S1FDQzg0MXdDb1J6Wm92WFQ0eE1XZ0J5?=
+ =?utf-8?B?VkpYdHV4SGFzUlFucTJwdGo1WWp1Y0hzMGppYTBMZmVLQ3JFdG1RTHI0RGNx?=
+ =?utf-8?B?M0NQUUZJRXV4N2Npa0FBTytOVWJzaUdjVVVKNzYwM1Rrd3g3empwV3RBeGVp?=
+ =?utf-8?B?eEpCTU5aVUhwU2xwSm9xcE9INEl6R0s4U1M3U1VQL2V2MGZWY0lzY1p3a2ND?=
+ =?utf-8?B?OCtkMTVyU3Q2eTRSQm1Wdno3UTF2d1NEOHA3b2o3VjRKejhFRnB5VzVEWFBU?=
+ =?utf-8?B?SkttRE1LcjZWSTczd3VxSlFJd2JuNktOVlhrVXNXUG95Ylc0TTc2TjR5Qkkz?=
+ =?utf-8?B?bHNrRVJYQjBEUnA0anJxa1d1TFpLRkdKMnlDZTk5UHJHV2lyUjZLZU5kN1Uv?=
+ =?utf-8?B?c2o4UHUzN0pkV3ZGQ0xESnZLaWw2T2NpcmVBOVFHSlFPd0dIZm0zajlHM3lJ?=
+ =?utf-8?B?NWZMT1g2QVFwNGpDNjBmWFRpZFZPb3kyeHFOdUJLSFZuMloyNlNCbEk5WHQy?=
+ =?utf-8?B?U3pjRWdadkFlL1FNQ2tkRmFob3JaakIxSm5DOWNkY1FFbGd1Mmd2b0dBU1NR?=
+ =?utf-8?B?Mk9lREhIamFLa0VtYVJ2cnpTS3M1Q3RFQVc2cy9hNUxiOXREYk5WOUJmV1lq?=
+ =?utf-8?B?OTVrUFVGTzJkVzAzRGNDTEtBb1o0Zko1ZGNMTGhSZ2RYcU9NZUJ6OTFBRmNq?=
+ =?utf-8?B?T1phektuKzZzdlgyR0lLMElPTWQxSnY3RlQ5OG1JUjdoZ3l4MnZBZEZPaEo0?=
+ =?utf-8?B?akN6dVN0OHAyblpycThZTG5jMGtUUmdZWGRZSjRFZEgzd3BERS9nb0tPWlE2?=
+ =?utf-8?B?U2lCSkkrWnFTZEZXNG1UTVBsd1Vxb0ZaSytTR0ovMTBsNGFrSy96Ni9DVm9r?=
+ =?utf-8?B?RVIrRTFZTkpkV2lZZS9GV0lVZ2ZsRlVrbW1DT0hyYUVSMDFJSzBQYkZEM21r?=
+ =?utf-8?B?MDFmaWxnNTFVL3lKcGZRVFI3SXYwVUVia2F1WVpmNWNlbjUzUDJsWjV2aTNZ?=
+ =?utf-8?B?OGVWaEJqNWw4ZEZTSHB5SlExM3pxUlY3OHZ4cGFjQS9KNnV4UnJmbmppY1pR?=
+ =?utf-8?B?b284M2VodWU1cnBHcExRUlRQZjBUNGFuT0h0ZEExTUxhb1hMemh4Nmwra1Jo?=
+ =?utf-8?B?cVNRVTQrd1lSMG9sZjcxVU1hRVFVRlg1Zm9WN3doWHBpS3k0ZGFMdyt1d1lU?=
+ =?utf-8?B?YU4yY3lYNEs4NFFDTDJzWlNyc3BJS25LQlpBS2ZmR0hyMmtTMHJSWHRMaUg2?=
+ =?utf-8?B?bytuSit6eHR1cXFQMVE4S3N3YWhITElqa3QwYXQzYUhySGVqUUlTWXBhdEpE?=
+ =?utf-8?B?a0dOTmJLQ2hmclJHa0hwc0xFeTZINGR6UmorUmVwSlZ1UUZzdXdyWFkzWnM2?=
+ =?utf-8?B?azdpQUV3K1phd3lGaW1OamRNdGhDTWFMWXNxc1luNU00NTZFRjA1QmpVS1hE?=
+ =?utf-8?B?aDRTa2hPRDREQUhPdU9MaElnVm1jbEM1bksvNjRQdUJXVGg3ZWpoZkk0V1Y2?=
+ =?utf-8?B?WVlWdkxqTUFubVBhTHNZd3Y2aDNTOEhrVzFiaFFBOEFzTHZFczZjWTY4Z2pi?=
+ =?utf-8?B?bHJXK0l1SVhVVWpKZ1k4R0U0b2hBQzlFdnoyN1ZTbkdRWXRSRXpNajE5TCtX?=
+ =?utf-8?B?eWJITVd1dnNUVkgyclNBQ3RnYTFnODNGc3NvVmtRbXZYZjRONnBKZkt5ZzFK?=
+ =?utf-8?B?SzhZVmEwMGpHTWtPQThwa2FvU3E3KzdseWhvL013d3VwSG45UVlFRUo3V2FS?=
+ =?utf-8?B?clU0Rk95OTZkekplcS9uUVhncVFJSWdaTmdmSE0xdTdsTDJDMFJ5RUl0aTBu?=
+ =?utf-8?B?M2tSWjdWSkdYTFpLUVFXaU8zTTFXWE0ram1XOE1tZGpTR1JwN3FCa0pvcC9M?=
+ =?utf-8?B?T2hiWXB2dzl5ZXRaTGtKVDVMampSdlpncHRzT0FCOHhESEhEM09nOW1wUHFh?=
+ =?utf-8?B?OTZGaWFyNmJmb1VrOVhYdy9rM1prM0d5YVJOZzRhTjdYRG9GcGNYbUNFQTdj?=
+ =?utf-8?B?VHVFcFVJeTVwblZpVjEvZ0NwTlpzWDZKMVY4aktVYjZhK2lrYkZxOWZCb0hn?=
+ =?utf-8?B?aXUxclZIYjlnM1FjUEhZWFVGUmtHeFpRY2l1akttSEljM1lqSTFpRDFuakc5?=
+ =?utf-8?B?VVRKWU9NY3pzd0VueFlZVngwZXRQNjNUdVoxQmEwMS9kb1BGaGM1K3RMdDBz?=
+ =?utf-8?Q?aks+jtpNTePJ9kaW35?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40486641-7df3-420a-8f23-08df493c407b
+X-MS-Exchange-CrossTenant-AuthSource: BL4PR12MB9505.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:32:03.9724
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tCTZxLZK3W3tTAtvE4u1hJVC9e2EiiYSiQTqup7kNDKEeHj1AdYW2I8cAuGyXmeLduOlWfhLnT24dhhw7ybZEg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6749
 
-On Wed, Nov 18, 2026 at 10:36:50AM +0100, Johan Hovold wrote:
-> On Tue, Nov 17, 2026 at 04:01:50PM +0200, Andy Shevchenko wrote:
-> > On Tue, Nov 17, 2026 at 11:13:32AM +0100, Johan Hovold wrote:
 
-> > >  void i2c_unregister_device(struct i2c_client *client)
-> > >  {
-> > >  	struct fwnode_handle *fwnode;
-> > > -	bool fwnode_is_software_node;
-> > >  
-> > >  	if (IS_ERR_OR_NULL(client))
-> > >  		return;
-> > 
-> > > -	fwnode_is_software_node = is_software_node(fwnode);
-> > >  	device_remove_software_node(&client->dev);
-> > >  	/*
-> > > -	 * If the firmware node is a software node, its reference count
-> > > -	 * was decremented by device_remove_software_node().
-> > > +	 * Must be done after device_remove_software_node() which may have
-> > > +	 * freed a secondary firmware node and cleared the fwnode pointer.
-> > >  	 */
-> > > -	if (!fwnode_is_software_node)
-> > > -		fwnode_handle_put(fwnode);
-> > > +	fwnode_handle_put(client->dev.fwnode);
-> > 
-> > We have fwnode getter, so better use it
-> > 
-> > 	fwnode_handle_put(dev_fwnode(&client->dev));
+
+On 10/18/2026 6:11 PM, Dheeraj Kumar Srivastava wrote:
+> Current IOMMU driver prints "Command buffer timeout" error message with
+> insufficient information to further debug the issue.
 > 
-> I used the fwnode pointer directly here on purpose since that is the
-> pointer that gets cleared by device_remove_software_node() and which the
-> comment refers to.
+> Enhance the error message as follows:
+> 1. Log the IOMMU PCI device ID in the error message.
+> 2. With the "amd_iommu_dump=1" kernel command line option, dump the
+>    entire command buffer entries, including the Head and Tail offsets.
 > 
-> This hopefully also reduces the risk of anyone introducing a UAF by
-> reusing the fwnode variable (or the compiler doing something silly since
-> dev_fwnode() returns the dev->of_node->fwnode when CONFIG_OF is
-> enabled).
+> Consolidate the timeout logging and the command buffer dump into a
+> single helper and use DO_ONCE_LITE() to dump the command buffer only
+> once to avoid dmesg spam. While at it, apply the same reporting to the
+> completion-wait timeout path as well.
+> 
+> Signed-off-by: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com>
 
-I've convinced myself that the compiler can't mess this up so I'll
-switch to dev_fwnode() in both places when applying.
+Applied, thanks!
 
-Johan
+-Vasant
+
