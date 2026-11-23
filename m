@@ -1,59 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449142;
-	b=zIgFj8xXTGBPamPmjC7a9Sbw+YNE26k49PbKAI+zOWG6s1gWQZZtmzIx+GlNv6oUlm1O
-	 J1cNn08GeyaiURwPoiqc9sazLOLWzIOns5TjtwnCBfgqujgq588KF1bIpZkodRt7d/7Ho
-	 tlI8J8d7LCJF5hurP7tZyvu7mhYugUKlnY/Sh3X33kKPt0sj7n8HsmodD3zfPKvLT/6YV
-	 3Oo3nZif2tSKl1BoFktzBS2HgAESKj18LavMTNW8F3mlaxseeXA6m6W8NuFfwJLmMbo+b
-	 cKFYo3BI6vTl4mspOzdINMUVVjBvnn+ZcM8uetHPL8ZC/2DoLlW9TMqGCYa4wfxb0Zg==
+	t=1795449141;
+	b=NI34j1e6b9JLL29UTYk2j8/AiqSs0WboTJGrKSTEKuceFnzim2S/dBBDe24pk7gPMFDD
+	 3GmutTQCuXip8d6+2brfMQTcgEtcNnID7lMEMY/S66RcFUI/b8hdu/imRRACWCp4tPknG
+	 65RXEJDkWbpTktwt4YC3MrJEnFuDwJQyCWr40NxQ1Nguz69aOAy/UPCHdRq6RabJUxIUd
+	 9dz9maHafC2V/krulV0TxBGF6QzoC673KanyUA2hpNGRbqQzyH4GjXqteg4LhUs6GzSxY
+	 a1q0SNX2P9O+FCakAxTJBDDfdpaBQuXAaXxbolK2rxZfyc56jwJJ46DUTbK7j/E8JVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449142;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=IpSm7gOHg0rNx/0QtKvP1UgAt2DgutkaebtGQXjDEnI=;
-	b=yIMnF0LdK0xSpZEP4/Ba4I5seJpEJD//GmODthVVbRJ+BOyXeGPOXqoYwPi0bRWA4ofy
-	 2Mx57YAwLVgeaaSrSDW3DakJIxpDFOlHwxl3xuRW2G8OjIaiGUnGcyM6C7/PZpktz7F3P
-	 xY6PoB9lBJwQY+fRyTSYIsjURS3108DDpYTFBMy53Jfy4DAHzFhsYvSvdMQiHz1ui1lHF
-	 payhlhRrjjRdCeF1Bnl3Bgiz2mWVDE65WC4ugD/2R9avYUCjRrYWPOukQ9dff2ng13Iwe
-	 Swi07WVKxSiksZIhAa5n+yz9HKxrxUSWRqYvWozpn2QfpDyZyNrAQj4eCn3kQMWzDdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449141;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Pl0MmwLaYcXNuQgS+eqZhBDyPWDIJ4EPbUXDkKt6W0M=;
+	b=yzUrXIlNvupX9jjpByz358OSqLI/R8AJHStdj08OUqExdXYKGOAC/VGPPF1hEkqo7hEd
+	 FltwSJfjS5mhRF9RpejrG1huSKZm9aURxXlSYgAWWJrAhisoaJSJglEnwJaJPDzesdtFg
+	 dG/lyrYWMJCkO8XDzQqXdGSP/ZqMwa2zpglnRb9YszgTkXayacpCO4B9nug0CoMYY0nwQ
+	 ke4Rq8jA4MqJBoa6XDfCk5U/BES0QW/1lpSuxdLi9FudifIDft5o/trQNntkbXvDQS2Pq
+	 f4WsumSYltxjMrHVFgy+P9Bk0C1luWDm8XL1EsK5RyJF2ee1TefzA2xnirAW6sFXTHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MjSARLuD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jWMoVAwa;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35A9606A335;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61B08606A31F;
 	Mon, 23 Nov 2026 15:52:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MjSARLuD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 631EC1F000E0;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jWMoVAwa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC8981F000CA;
 	Mon, 23 Nov 2026 15:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795449141;
-	bh=IpSm7gOHg0rNx/0QtKvP1UgAt2DgutkaebtGQXjDEnI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MjSARLuDpOWnssQ7Q4QsoT0v/JfKvzLept0SQMDEeUesN51NPfwcE4XdLWvVfLMQ/
-	 V9nXN1xk2i5HoJJqV5ou7jnYIfCgbEJ4znoTYjdb0JMDuAR3iq+F+75RB3fMDpafUW
-	 zjQ2zx5aX/C5i+uC2L4UICJgDhZWBGqfYQ/EjA2uy+6+sVWCY7e/UjXQ8d9azKlFCO
-	 jcQiYXW6AxTkSI3NRyU+AcYIQzB3OJrSP0pNRt6SoxRgA3henQ6btdl4JglFDXvRMI
-	 8lCeCv0vZ+uCP8Wgt0kGi1gokWqAvg6RZJzTOeLDpVt6hPG5PKlBCbDj+tM2p1yqUI
-	 h0Li7KbiIZGgA==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Stefan Achatz <erazor_de@users.sourceforge.net>,
-	Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>,
-	linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 05/10] HID: roccat: pyra: Resolve USB device from parent in actual_profile
-Date: Mon, 23 Nov 2026 15:50:49 +0000
-Message-ID: <20261123155138.2907049-6-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123155138.2907049-1-lee@kernel.org>
-References: <20261123155138.2907049-1-lee@kernel.org>
+	bh=Pl0MmwLaYcXNuQgS+eqZhBDyPWDIJ4EPbUXDkKt6W0M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jWMoVAwat5TIKqc/PAdc9nhK8BLDCuz/FBYrkiMEZ1UXRhL4u7vzhiKmhxvzOI6IK
+	 BPX3C8mds5zlv/m6YzZDYusrpVdNwR6OXUurfrJuo9oukLOVWbR64lka1fudrjNJpU
+	 bi7Mr9tx0Mt9uXit9qcn+BgZ86J/NdAhUDrF4HX2iBT5i7VDP0xf3gmcKWkhc0KPCP
+	 QwwDgd9sFfkGPEujVNvZhmSvIWjWxlkbLYygFR8LMG+uer7vqYDNPG+TutOcdGwbP0
+	 ZFzN+RIVhvUsGnsV/iN6VQzu8S8rf8eJsVeXodhq1sNqinmWaBVxqMlKZDOkWSYcfu
+	 GhfF09IQN25nw==
+Date: Mon, 23 Nov 2026 16:52:18 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Helge Deller <deller@gmx.de>, Martin Bugge <marbugge@cisco.com>, 
+	Thierry Reding <treding@nvidia.com>, Hans Verkuil <hverkuil@kernel.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, kernel@collabora.com, linux-fbdev@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 15/25] drm/tests: edid: Add 4K@60Hz EDID with 600MHz TMDS
+Message-ID: <awRhHORNYR8MYT1R@houat>
+References: <20261114-drm-conn-hdmi-cleanup-v1-0-20e8a33a2286@collabora.com>
+ <20261114-drm-conn-hdmi-cleanup-v1-15-20e8a33a2286@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,49 +61,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mfmvcyhwaviogczo"
+Content-Disposition: inline
+In-Reply-To: <20261114-drm-conn-hdmi-cleanup-v1-15-20e8a33a2286@collabora.com>
 
-pyra_sysfs_show_actual_profile() is a sysfs attribute callback on the
-roccat pyra class device, whose parent is the HID device and
-grandparent is the USB interface.  While it resolves pyra via
-dev->parent->parent, it passes dev directly to to_usb_interface(),
-casting the HID device to a USB device and passing the corrupted
-pointer into roccat_common2_receive() and usb_control_msg().
 
-Walk up to dev->parent->parent first, matching
-pyra_sysfs_show_firmware_version().
+--mfmvcyhwaviogczo
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 15/25] drm/tests: edid: Add 4K@60Hz EDID with 600MHz TMDS
+MIME-Version: 1.0
 
-Fixes: be34380ef818 ("HID: roccat: cleanup of pyra module")
-Closes: https://sashiko.dev/#/bug/linux-070d5d7b-29ab-4451-90bf-175ada0a81e9
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
- drivers/hid/hid-roccat-pyra.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+On Sat, Nov 14, 2026 at 08:03:39PM +0200, Cristian Ciocaltea wrote:
+> Add a new test EDID advertising the following capabilities:
+>=20
+> Max resolution: 3840x2160@60Hz with RGB, YUV444, YUV422, YUV420
+> Max BPC:        16
+> Max TMDS clock: 600 MHz
+>=20
+> This is needed to exercise the new HDMI infrastructure that decides
+> whether scrambling needs to be enabled for a given display mode and
+> to validate that high-rate modes are properly rejected/accepted
+> depending on the source/sink scrambling capability.
+>=20
+> The EDID is derived from test_edid_hdmi_4k_rgb_yuv420_dc_max_340mhz
+> with the following changes:
+>=20
+> - Upgraded the first DTD from 3840x2160@30 (297 MHz) to 3840x2160@60
+>   (594 MHz).  The H/V totals (4400x2250) and porches already match the
+>   HDMI 2.0 4K@60Hz standard timing, so only the pixel clock had to be
+>   bumped.
+> - Widened Display Range Limits descriptor to cover the new timing, i.e.
+>   24-140 kHz H, max dotclock 600 MHz.
+> - Updated CTA-861 Video Data Block to advertise VIC 97 (4K@60Hz) instead
+>   of VIC 95 (4k30).
+> - Bumped HF-VSDB Max TMDS Character Rate to 600 MHz, keeping
+>   SCDC_Present set so that the sink advertises scrambling support.
+> - Cleared HDMI VSDB Max TMDS clock byte, as required by HDMI 2.0 when
+>   the HF-VSDB declares a Max TMDS Character Rate above 340 MHz.
+> - Provided a Video Capability Data Block advertising selectable RGB and
+>   YCC quantization range plus underscan for IT/CE formats; also set the
+>   'IT Video Formats Underscanned' bit in the CTA-861 extension header to
+>   match.
+> - Aligned base block image size with the DTD (160x90 cm) and set the
+>   Week of Manufacture to 0x00 instead of 0xff, since the Model Year
+>   flag is not supported by EDID 1.3, so that the Model year field
+>   becomes a regular Year of Manufacture.  Both fix inherited EDID
+>   conformity failures.
+> - Dropped the empty YCbCr 4:2:0 Video Data Block inherited from the
+>   parent EDID, which is flagged as a failure by edid-decode v1.33.0
+>=20
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  drivers/gpu/drm/tests/drm_kunit_edid.c | 129 +++++++++++++++++++++++++++=
+++++++
+>  drivers/gpu/drm/tests/drm_kunit_edid.h |   1 +
+>  2 files changed, 130 insertions(+)
 
-diff --git a/drivers/hid/hid-roccat-pyra.c b/drivers/hid/hid-roccat-pyra.c
-index 44c2b416f2db..b3dde2998850 100644
---- a/drivers/hid/hid-roccat-pyra.c
-+++ b/drivers/hid/hid-roccat-pyra.c
-@@ -290,11 +290,14 @@ static DEVICE_ATTR(actual_cpi, 0440, pyra_sysfs_show_actual_cpi, NULL);
- static ssize_t pyra_sysfs_show_actual_profile(struct device *dev,
- 		struct device_attribute *attr, char *buf)
- {
--	struct pyra_device *pyra =
--			hid_get_drvdata(dev_get_drvdata(dev->parent->parent));
--	struct usb_device *usb_dev = interface_to_usbdev(to_usb_interface(dev));
-+	struct pyra_device *pyra;
-+	struct usb_device *usb_dev;
- 	struct pyra_settings settings;
- 
-+	dev = dev->parent->parent;
-+	pyra = hid_get_drvdata(dev_get_drvdata(dev));
-+	usb_dev = interface_to_usbdev(to_usb_interface(dev));
-+
- 	mutex_lock(&pyra->pyra_lock);
- 	roccat_common2_receive(usb_dev, PYRA_COMMAND_SETTINGS,
- 			&settings, PYRA_SIZE_SETTINGS);
--- 
-2.56.1.750.gf70dc682cf-goog
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
+Having a sample for that one would be nice too
+Maxime
+
+--mfmvcyhwaviogczo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawRhMgAKCRAnX84Zoj2+
+dsuzAX9eUHuod9rRrA9UBv1u0FRc0LXEgRaO1s73XLXMueRU0/hxIonKd82PEUwG
+pYJHerUBfRMG4wrWnQ14mxmOD4sR1RLymRxwUxN1pHlEPSQ2RpEwL2SJ4TEm1ZTz
+bVwXPmekKw==
+=qCsv
+-----END PGP SIGNATURE-----
+
+--mfmvcyhwaviogczo--
