@@ -1,65 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446697;
-	b=PnFrvo8v6C4Qe97VrT3tb1FZBGeTJYFNutmnaxwn1iCGa++bnBDv4Jix82DQIvhsTiOn
-	 252aO/3ZJzXgG70cXBcRdD/M3v8uJ8LZAtKinMIzp20HfInw4eACL4+l4jUl1sDAhUEyh
-	 1OQFNtScsS8BiB6oQTmOQmH4PBERAKDjHcBctcCZvP9qTfPLF7BkzulPi2LiQMs+sWd6Y
-	 aJWYgJTn2Y8/D/qV9s1JDm/owAA8NS2/G/vMM9RLsVpqe7Oxa4IIiHNZ126xHGfTgyHps
-	 iDqQ3CsPASH16gXBYHP1ydGtCXd/Ge/TSxoLstgklkGgXthjGzX1gU3tRRuxTlgsPKg==
+	t=1795446702;
+	b=2Tai4jv/EsZT9QHEPanw+TIYetQAZXpD8qXSOfXPL8exCgS4zyOJ7vKK3W3ukEuLkGAk
+	 wrJWeTZNdFUmj3E89aAHbp94skBX393wyj8exK7meTazZxID1M6a81KPRpM4zqHzaPbWW
+	 xagHxWHWJFG1KhXZcfMuuqQpe+AbIFJAhiRz01Gb1vT5D6Me5M9AOLnFPlE4e5djmZ6PQ
+	 dTj+Bih34sB2O1EgpcbICQzxZBuaW2SMGQhP78mN8E7jbuyCwlxpZEjHlwIKLRDNp+Nyx
+	 k+5msawMJ0/ZKs1RQw8s6xomfyn/d1uoDedRISCToP+JRDBEIq/00j61et2cR7Q4U6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446697;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=STeVH55BBeBKM6xcTx+69M7sUEKnUAjtUBsUatOVMGw=;
-	b=bNT7CdbpJbcNfA6mdeOEl1gRGOXAPj1UUIG9DajsqDuZowBX7BMoErxLal2L8nz8k7EP
-	 VO62ebH9mjtIakpmviG63sK34Oi8mJXBQKFZk1dPwPGjipAlwDzrFihEzDrBEAEDPJAxn
-	 CjPptvXyWY61Ux2iMhGHMYrQ180+2B5H55vU2Bh/tn/uVNpcpgkecmDL6UOAblloZ82ND
-	 U3cPspJJjTQjw2vANRxSXXFSr3+3b/dWSE61XmPq2l4H1NRlq9jkP6Y1kzQe/ucZ7i0a4
-	 K+wQPImXkpAoTZX0vpGgHWN5Rq5Ojcc8TgXrbeUsFlG6/7VXb36VXUy2McUJN2UnqZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446702;
+	h=Received:DKIM-Signature:Date:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version:From:Cc:To:In-Reply-To:References:Message-Id:Subject;
+	bh=QCzRfh4M2xi2pXwv4ABbYym7LuD9ue+4jUDWszr2SaE=;
+	b=qo8NPELnp008dC4vigMdMp0CibCkTwD6qe9vYj/THfVUTtO2k8YEVWF2FgTbzTiwXlOC
+	 coL63HU4JcmZnGhcmCQXVBMjGeoyOEoRkibSPIQJ/5f6+Q7rcc5TPbq2vMLowECafBIRf
+	 PpeEc87IpX0GcUbl2T5Utq8LuAop6VZEHT6AjRY38KmfdibbjPqSzXNQ+vLFU3lVAt1/h
+	 dg1BXJ0NW4ZA0C9idsjp2lWVaoIvmH+U6qQJWYp1DlKqLVubp/zACDva8R/sGzZlOUQQO
+	 dk499i4m3G0EIE2KkiFR76n9o7szTTLLPFmYlm+9F5lx6R58EYFbFMF3CDwG1rKc20A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iQuxI9z5;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KJjmS6LV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A87C7606A32C;
-	Mon, 23 Nov 2026 15:11:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8B8F606A31A;
+	Mon, 23 Nov 2026 15:11:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iQuxI9z5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 282D31F000CF;
-	Mon, 23 Nov 2026 15:11:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KJjmS6LV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 754A31F0156B;
+	Mon, 23 Nov 2026 15:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795446697;
-	bh=STeVH55BBeBKM6xcTx+69M7sUEKnUAjtUBsUatOVMGw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iQuxI9z5WzUZZyvlumpBl7lcu5ipk202NNdsZPnzmCgWGAvZa1ay60Fxq64Rp5KCp
-	 rHfctmjrETxSiuULSIL7i3VOpXh35crvqibh3btRqwuRLzMrSHbul92HPic8ircLfH
-	 bsBKfrFNI6SwINufuwPRKS98uTt0xnRuI8hfm40Khn+C+Od/orlQuiEyBHGUz2RUzQ
-	 R5nMiXWOcIHzT7NwxLinqSHvkCdZYQeJRzl/w1gyX1j7qQsXTtr6mqzkCDfJnRulc7
-	 66NyzfOQZY98dQ23iYtSbhtTGi+T+R3x0cP4LkbwXIyWS31Yiok+k7lUWRtO3iCOt8
-	 74cstbe/A8PZg==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Corentin Labbe <clabbe.montjoie@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 04/10] crypto: sun8i-ss - Fix scatterlist array overflow for HMAC requests
-Date: Mon, 23 Nov 2026 15:09:55 +0000
-Message-ID: <20261123151055.2533735-5-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123151055.2533735-1-lee@kernel.org>
-References: <20261123151055.2533735-1-lee@kernel.org>
+	s=k20260515; t=1795446701;
+	bh=QCzRfh4M2xi2pXwv4ABbYym7LuD9ue+4jUDWszr2SaE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=KJjmS6LVz7sMP6X9D8FAmNG6oJ1mhVTWDzknPUP72QyBgmIEc0EcJDFblFYjrR3wf
+	 NE3BDqpT7hog6Vz8q9/xjrofdnAsDl1xpM86/ML9wsRPlTYTUsngTfj0uiYbHdoGRR
+	 ON9zOr7chqR3l32Lr06L4iX5DZEyoM+abt/nshg5wfp73xC7oelNmiO2n+ir1i1M0M
+	 4vZN5Zgkdr9PedqJIHzuOsfjt6ehR/3od1ktVFPPBsHuw+L0JByopp9cqrPXLo1aKU
+	 eFd9T+szQ85SDxoweyH+L5U+Slu7Sb1xo/c38Gqm2mJ4TU8k3V8yl8vrGEVoT93IK1
+	 Rpo6H2Fcs572g==
+Date: Mon, 23 Nov 2026 09:11:39 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,61 +51,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, Abel Vesa <abelvesa@kernel.org>, 
+ linux-pci@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, alchark@flipper.net, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+In-Reply-To: <20261122-pcie6_fix-v2-1-2e0fe615d90b@oss.qualcomm.com>
+References: <20261122-pcie6_fix-v2-0-2e0fe615d90b@oss.qualcomm.com>
+ <20261122-pcie6_fix-v2-1-2e0fe615d90b@oss.qualcomm.com>
+Message-Id: <179544616248.2477523.14949102413448950913.robh@kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: connector: Add PCIe M.2 Mechanical
+ Key B connector
 
-sun8i_ss_hash_need_fallback() reserves one hardware scatterlist slot
-out of MAX_SG (8) for the trailing hash padding buffer, allowing up to
-7 input scatterlist entries.
 
-However, for HMAC requests (tfmctx->keylen > 0), sun8i_ss_hash_run()
-also shifts the mapped source array up by one slot to insert the inner
-pad at index 0 and increments i before writing the trailing padding
-entry at rctx->t_src[i] and rctx->t_dst[i].  When an HMAC request
-contains 7 block-aligned scatterlist entries, i reaches 8 (MAX_SG),
-writing past the end of rctx->t_src and rctx->t_dst, corrupting
-rctx->method and rctx->flow, and indexing out of bounds into ss->flows.
+On Sun, 22 Nov 2026 12:15:51 +0530, Krishna Chaitanya Chundru wrote:
+> Add the devicetree binding for PCIe M.2 Mechanical Key B connector
+> defined in the PCI Express M.2 Specification, r4.2, sec 3.2.19.1. This
+> connector is used to attach WWAN Adapters to the host machine over
+> interfaces such as PCIe, USB3.1 Gen1, SSIC, or USB 2.0. The slot also
+> accepts SATA and PCIe SSD Adapters, which use the same pins.
+> 
+> Interfaces that share connector pins are described as one graph port
+> per pin group, with the endpoint number selecting between the mutually
+> exclusive interfaces.
+> 
+> The connector provides a primary power supply of 3.3V/VBAT, along with
+> optional GPIO signals: FULL_CARD_POWER_OFF#, RESET#, W_DISABLE1# and DPR
+> for WWAN Adapters, and DEVSLP, PLN# and SMBus ALERT# for SSD Adapters,
+> plus an I2C parent for the SSD SMBus.
+> 
+> The function of the GPIO_0..GPIO_11 pins depends on the Port
+> Configuration, so they are described by gpioN-gpios properties with the
+> function of each pin per configuration documented in the binding. The
+> Adapter configuration is either sensed through config-gpios
+> (CONFIG_0..3) or fixed with config-state, which defaults to WWAN PCIe.
+> 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+>  .../bindings/connector/pcie-m2-b-connector.yaml    | 332 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 333 insertions(+)
+> 
 
-Reserve an extra scatterlist slot in sun8i_ss_hash_need_fallback() when
-tfmctx->keylen is non-zero so 7-entry HMAC requests use the software
-fallback.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Fixes: 801b7d572c0a ("crypto: sun8i-ss - add hmac(sha1)")
-Closes: https://sashiko.dev/#/bug/linux-93388c71-507c-42fd-9c86-8076b06fc7c0
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
- drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+yamllint warnings/errors:
 
-diff --git a/drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c b/drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c
-index 56ba4ff6d5ff..c2e0c6520f84 100644
---- a/drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c
-+++ b/drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c
-@@ -344,9 +344,11 @@ static int sun8i_ss_run_hash_task(struct sun8i_ss_dev *ss,
- static bool sun8i_ss_hash_need_fallback(struct ahash_request *areq)
- {
- 	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
-+	struct sun8i_ss_hash_tfm_ctx *tfmctx = crypto_ahash_ctx(tfm);
- 	struct ahash_alg *alg = crypto_ahash_alg(tfm);
- 	struct sun8i_ss_alg_template *algt;
- 	struct scatterlist *sg;
-+	int max_sg;
- 
- 	algt = container_of(alg, struct sun8i_ss_alg_template, alg.hash.base);
- 
-@@ -360,8 +362,9 @@ static bool sun8i_ss_hash_need_fallback(struct ahash_request *areq)
- 		return true;
- 	}
- 
--	/* we need to reserve one SG for the padding one */
--	if (sg_nents(areq->src) > MAX_SG - 1) {
-+	/* Reserve one SG for padding and, for HMAC, one for ipad */
-+	max_sg = tfmctx->keylen ? MAX_SG - 2 : MAX_SG - 1;
-+	if (sg_nents(areq->src) > max_sg) {
- 		algt->stat_fb_sgnum++;
- 		return true;
- 	}
--- 
-2.56.1.750.gf70dc682cf-goog
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/connector/pcie-m2-b-connector.example.dtb: connector (pcie-m2-b-connector): config-gpios: [[4294967295,124,0],[4294967295,125,0,0],[4294967295,127,0]] has less than 4 items
+	from schema $id: http://devicetree.org/schemas/connector/pcie-m2-b-connector.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20261122-pcie6_fix-v2-1-2e0fe615d90b@oss.qualcomm.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
