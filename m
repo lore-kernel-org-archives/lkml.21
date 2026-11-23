@@ -1,54 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.31
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454143;
-	b=xOPZ36dAbvp00RGHF+Rh5KO91odiGoO9GciHZqdmsol2uG1wpPR1u2fqHfXpB2gmTdBm
-	 8ylUf9vHK08TJZ9Ib6m1EZnElrEdD8QNju4iyFqLUv6cI7tli86K+knvmPrwPkbLnSoCu
-	 Q8WbwKeiJCp5O9/ZNiB3mpN2CZbXhuYF1SCZLyXfgmcEUrFWOEvNe1o9sG+2DjV/aPo9c
-	 EGSc1IfConC7k6bNVsWS0G7FOIibqhonpOd2o6EniKIqM4YjB7g7AirxjXcvZIAcVMVWI
-	 B0s3YeVmS2A1d/9tbucMy1cZq6ymCilnW5xoCRFxQqDUSWQ4EgRIcFNPQ1IhkPGVtag==
+	t=1795454167;
+	b=H8w5SsuiVxSMqZRUaEm2ePi7c7kpUUpoJ2RSfb2k6eCnUJ50bAauYmd+1C+4rLYZYOK1
+	 yz/kqIn2G1SLDKmCLCA9aHqIsHLWUTr7v/heNNracyDjuT1ku5Ld/Kkd2Dwk9H4x3xIoe
+	 oi9N+ZsJYiYnWigmQSYR+A+S2Iy/gOBlvnBUBqvCL21v5tR9lijKWcevslNktUI0bROhn
+	 cIjPSQSb7IHD013wrjUyWbzuTv+6XY8XfdR3m/I0YITeiC1XGb20JJZ2jvqy5hkKrZ2Os
+	 ZGgOYhVMF+qN2yoynX+yFneJgqsDQmXv236R4JBwXM6DVgthnQceEMy7yTrX5/WC0aA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454143;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=PITGhazHaoDO3YT2izy4iM0YntQzWkgZ3YK2dN09pI8=;
-	b=pRydMbLG5Hl1D4AX0+ADhg64p2aQ0m5MwHpx/Hmx3in2HXLs9vA7p6GBfo/mAaMvNWK+
-	 nKRhBVrO5RO83nCO0FJe8xVxIxWKuPs0dElPakn4DjZj3slYr/uX6128mF5T9idfcTWpx
-	 IPYJR1II6CcG9rGzQ64zjIFYi661knvad91OniL1sCs9NaMLT0hTuCnansTJ26CFxok5y
-	 mTtg6AHzOzQitYVyhjl2BrmbsANO4EwSVm1v/pGdfoUIC8mNNG5DYxdq2tk85dTIQvMdU
-	 rAgZjFDtrK5cPhq9fYjOzy6ZsyOHuXc942vkdzMtLRGucFnyJuzDnjKFtNRk+riNtjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454167;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=n9Vi6fXV2kLrma4jnlJMeItulhA2U5CH2EzMknqFkBM=;
+	b=IlpsCaVs14qa/3Z3cRuRCFwXli04wXX9fieZTjKX0yNu3ch1S9l7hID59wHmxPFvf3sS
+	 pgM6Hl+1PkuXZ7OSealqkhjat1Ofgbeos7CwPiFGiXBmVJbn7EccFKJGLFwExCtOplP6g
+	 rsfcxDdeVatwBHqhUeQjCslQskTSWjYYKmIv7MYDL5vCPAnD64rgnzLE0dP28BIUTLfXU
+	 l/vhSGeJJDvkw4G1WUbReP6V0DtwrK5r4uRUkQFXVGx1sOPeqUAJqASqs5KCwOK/sSBLv
+	 QwRF1FcfYPlQZWAMGA0eTx+Y57pCxqhn3FLDEtVj17g/HmLyly0TjFDfSgk+25S7Kzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	arc=none smtp.remote-ip=79.135.106.31
-Received: from mail-10631.protonmail.ch (mail-10631.protonmail.ch [79.135.106.31])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D29C9606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:15:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D29C9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=25dmbq7bpzavbgtopbw5vfp47y.protonmail2; t=1795454139;
-	x=1795713339; bh=PITGhazHaoDO3YT2izy4iM0YntQzWkgZ3YK2dN09pI8=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=JlbDNWdmFWeHXQweISJrRAStoF26zZx24VC/WvCYGp6luquvjei8uvOkB/bxV43W/
-	 WvX9uVHN3zo8CugONqtQts7C6ryarGVRaX6ksEArqGrZak/YmcYbh7/QHLCmchFWOG
-	 yrKzw09rAdzWxbj9jyeUX8WeTSy0O+bGFzdap/2ATcbR7jxWpe5KVSdlmfgM5PNJk+
-	 vJbmZ49x6I7d7Xp69W8FEO1ULZE3skfhtxwkQFRymElDul/ZxaoGTQ367ekaVji5/H
-	 Ed/io1T9WzCmTf8akCaNPg0Il8RJYZQLStN8MuRfnCC1Ms5/zX3+27guGrK8SwGepa
-	 Silp7YAtKFI9A==
-Date: Mon, 23 Nov 2026 17:15:28 +0000
-To: Mike Rapoport <rppt@kernel.org>
-From: Norman Herms <dockseed@proton.me>
-Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: mm/memtest: the reserved-region array is reallocated inside the range under test
-Message-ID: <vMVJLf0yL6RHmJWxcxQ7lNvjqBtYE1RxWk6wBUnmhLH5gDbJc1d_b0q5AA6Nz6VJcnNkIw8gStVV925IyeYEvNYiiIChUiaYhMRao8V8zps=@proton.me>
-Feedback-ID: 144388465:user:proton
-X-Pm-Message-ID: b6844be21a8c1d299c6de324ff64d0d3244400aa
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Pb2lYs+Y;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91E84606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:16:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91E84606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Pb2lYs+Y
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5621F143D;
+	Mon, 23 Nov 2026 09:16:02 -0800 (PST)
+Received: from e137867.cambridge.arm.com (unknown [10.2.213.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A8EF43F763;
+	Mon, 23 Nov 2026 09:16:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795454165; bh=PLmix3wUMZznq30E+gdl5v2UeGWepbJeohyBg07iSZo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Pb2lYs+YvRXVt6HKquDn6jX9yH3snAt20GK6LCJEq2uxGmYmUBH6R18hrUssoeJdW
+	 ApZLc4tGLYO9IoUhWBlje3ir8as4A5LPUMxaMwcmLfS9BDni3XN8bLdYv0tMjXbCq3
+	 Ag6srrcD4KOh/Qqu6injoweRNZIj80v7R/deJnTc=
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Marc Zyngier <maz@kernel.org>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Doug Anderson <dianders@chromium.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Huth <thuth@redhat.com>,
+	Dawei Li <dawei.li@linux.dev>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	kernel-team@meta.com,
+	linux-kernel@vger.kernel.org,
+	Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Subject: [PATCH v3 0/3] arm64: sdei: fix entry edge cases, pseudo-NMI
+Date: Mon, 23 Nov 2026 17:15:54 +0000
+Message-ID: <20261123171557.140944-1-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,30 +75,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi Mike,
+Hi,
 
-On a board whose DRAM fails one word in every 256 bytes, memtest()
-reserves every failing word on its own, 512 reservations over 1.6 MiB.
-Past the 128 static entries, memblock_double_array() allocates the new
-reserved array from free memory inside the range memtest() is still
-reading back, and the array's own entries then fail the compare:
-another 42 KiB at the top of RAM (0x1bf3c2000-0x1bf3cc800 here, inside
-the tested range 0x60100000-0x1bf3cd040) is reserved as bad, in runs
-of 16 bytes every 24 bytes, the size of struct memblock_region.
+This v3 has a few small fixes and commit message clarifications.
+More details in the [v1] cover.
 
-With memtest=3D4 the next pattern is written over the live array, and
-the board resets during that pattern; we have not separated that from
-a 16 s boot watchdog.
+As discussed in [0], SDEI entry has a number of remaining issues.
+This small series aims to fix the biggest potential issues :
+ - Patch 1 : with KVM in VHE, VBAR_EL1 might not be correct
+ - Patch 2 : PMR was not handled at all when using pseudo-NMI
+ - Patch 3 : very early SDEI interrupt on non-boot hotplugged CPU
+     might end up with `current == NULL`
 
-Coalescing nearby bad words, or reserving only after a range's verify
-pass, would avoid it. Seen on 6.18.54 (arm64, Allwinner A733, 6 GiB);
-mm/memtest.c is unchanged in linux-next.
+I spent most of my time digging into the details of boot and
+CPU bringup so I still do not have an SDEI test setup, so any testing
+especially with `CONFIG_ARM64_PSEUDO_NMI=y` and
+`irqchip.gicv3_pseudo_nmi=1` would be appreciated !
 
-Measured on my board by AI agents, analysis with an AI assistant;
-a report, not a Tested-by.
+After some discussion and digging in the code, it looks like the issue
+patch 3 fixes should be incredibly rare, so we might be OK without pulling
+this patch at all. (Though the comment change for `__entry_task`
+remains a relevant clarification.)
 
-Norman
+Thanks in advance
+Ada
+
+Changes in v3:
+ - Clean up comment that an SDEI interrupt during KVM world switch
+   would always hyp panic as patch 1 should avoid it (Kiryl)
+ - Reword the commit message to detail the specifics in which the SDEI
+   handler might get a NULL `__entry_task`
+Changes in [v2] (patch 2 only):
+ - Properly use pt_regs to save/restore the PMR in `__sdei_handler()`
+   (Vladimir)
+ - Update commit message accordingly
+
+[0]: https://lore.kernel.org/r/20261105120835.3321912-1-kirill@shutemov.name
+[v2]: https://lore.kernel.org/r/20261118154233.83599-1-ada.coupriediaz@arm.com
+[v1]: https://lore.kernel.org/r/20261117174814.95936-1-ada.coupriediaz@arm.com
+
+Ada Couprie Diaz (3):
+  arm64: entry: sdei: always set VBAR_EL1 on SDEI entry
+  arm64: entry: sdei: save and restore PMR for pseudo-NMI
+  arm64: head: set __entry_task along with task setup
+
+ arch/arm64/kernel/entry-common.c | 38 +++++++++++++++++++++++---------
+ arch/arm64/kernel/head.S         |  3 +++
+ arch/arm64/kernel/process.c      |  3 ---
+ arch/arm64/kernel/sdei.c         |  3 ---
+ 4 files changed, 30 insertions(+), 17 deletions(-)
+
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.43.0
 
