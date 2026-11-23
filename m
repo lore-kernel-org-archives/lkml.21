@@ -1,60 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.66
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468717;
-	b=Fjtcm1waWEKRSd27WJSWWi2vDQ/yRS6qtyrTpQBwa69vwFLZoy7vXWzyG9OfB+xotIgk
-	 VcrJ0CWH3IsVsoMVEHhm3I9la3bRr6FFyTlJscjLAZt73RgbU6Eka0JQAOtNrRZwx/ZY6
-	 on/PLssCnKkByTTKG4JokDr6X2LpX0RmJ9YltsaMlgXo0OfQLCKiKzc4aiH1RPuhsfcOD
-	 +DF6DBfl3I50F5UOBe6euZVLR9m7u45+3qQXhexwXXzePTn3U3xHrEdgjYOTKZvgZGhKO
-	 0fFFE5JFGyYpoa7jxAzHf/tfO5rk1Zm39LMKYx/uPY6ZYSc1icZQKGRISjuwhIVPfKw==
+	t=1795468733;
+	b=oSt29Y7cQj0yuX+HcQL4BZs+bV5POvsCAlP2pi03V99h8Qbd++Ft+0qYoNM/BIuOwSod
+	 +y2vD0wlrsQOEqLs0F10lDf71EmnClFnLzrLP4aL7lAR56M23RF3crEqL0nj3k/YJ14Bn
+	 Lz7engoSUPSpXOxhw8dR1sXTtRKxDG7CCdSZZ0TBtXjo0IYaeTpijzWmfGWBjAZQc/Ds8
+	 wKNiio5N75sVEGSEmyfxQ7R5XCO8OnlTaLHsSmFGIWw8wAj+gnab6DpRz0Tp9nTa44eDd
+	 IUA4ATOXO4OSFLihCLmt9wCsaKWWTGbCYG4v1aWKQv02RQFIc3k+KjqnBcGlhGcuXFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468717;
-	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=8G4GZjGmMFiG3zP5v2+6POGraE5Twcn3L3/M6fwbB4A=;
-	b=EUNI4B/j/TOifIDbwP7ff+vn90sdWMeE2vz5alNtXAVgJ6tpDAxKmP1sYxO+t+mqqD4K
-	 o37xx7j/D07Cp6d76yZq8QwOlVzufC08UEZzmmMgX7vlXq6r4fj3uB2aYq2c0IaUN4QtR
-	 f1hmTF0TevDrVr6s/M619HyHXLRZBCw1dAeOdWw899fatzRjB8N4xM3ffDMnErVraovgO
-	 Mas0hlCJHUJtv5qm0CLeFBvPOg5ivN10/HfGtfdO+YDJeNCZWzVYX6+d7GSF9An1RLuGZ
-	 iC1TV/hXzlPNTjdGpG/MJix3lMc+BjjPubKzQCvjQheBvNzxIBvTjdfL9g1Z9j2bHKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468733;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 To:Cc:Subject:From:X-Mailer:References:In-Reply-To;
+	bh=UdbWtdWbnHAnBe9m59yDmsAfmbDCGbDO/F2rxx+Kr/w=;
+	b=LYjbZM6FvlWnhaGQkrmuk4JU1/ZfeAxV5DiamwUjg/OerWDrnNpS5v17yU9E1/KXzqpK
+	 ewIsYheCBA1jAEecWN2MLVrbSpuBA/d6t2TOIv+66tK8ZR23HYKzvYsFH+0Uc5XvNld4V
+	 YH+YWda4TrtdhcfWqyRY9S0kfNYzor+vTUVG+B3TaIHrPBtIQWU5prIEexRQJtYu+8BdD
+	 5KHBe10H4zxT6IJjtbC4LM8ZK6O6dGSF5p3aRk26JQocGliAfJe5t44SJxRSG8U+Zo3jC
+	 TgOR67QLGsGKnQvZUXXBE8dvwDTdxuoAtiTXqsUEY5W0y0vQp20RHGQN5J0ijTCWR4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mqOeeJPw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MQBhbA9a;
+	arc=none smtp.remote-ip=209.85.210.66
+Received: from mail-ot1-f66.google.com (mail-ot1-f66.google.com [209.85.210.66])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82062606A31E;
-	Mon, 23 Nov 2026 21:18:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 476D6606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:18:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 476D6606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mqOeeJPw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BDBF1F000C6;
-	Mon, 23 Nov 2026 21:18:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795468716;
-	bh=8G4GZjGmMFiG3zP5v2+6POGraE5Twcn3L3/M6fwbB4A=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mqOeeJPwLBqMKm98JMnVr8DWbn/OgaBO4efRVnZZ7bLvU31pktVHPrNooLSuEFaKE
-	 lCEjAz+cTFu4aaMNsTo5NGugSG2fYDUOFZjliqFkKGl1tbHamknQF/5dcYGlCv0Uuz
-	 yoVsmgxEdgdnfFRdzrpAzpMB9T4BcALW4VFydKA8vTd0Qh/5RSjeZ5xYnOpSdhYlf/
-	 Eu62+iXChQm289y8C28nndk6im5FW0Xvpwogn3LpZCcNQ6Yf4IXCHyhKAlLG8pI4HE
-	 ZzcGN6cKQHvkPSrtvn1Y9fe/QcET6cuwu7mm7KuuOuj3LMxyMLyXfngyOti/Jjudyn
-	 Uu9+/swrUpCoA==
-Message-ID: <185ae981c8250143bc519151d3d4f937a76b9a92.camel@kernel.org>
-Subject: Re: [PATCH RFC] NFS: don't wait for writeback on close() with a
- write delegation
-From: Trond Myklebust <trondmy@kernel.org>
-To: Jeff Layton <jlayton@kernel.org>, Anna Schumaker <anna@kernel.org>
-Cc: Chuck Lever <cel@kernel.org>, linux-nfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 16:18:35 -0500
-In-Reply-To: <7c31f905f202512fb0ef1cb63f0714fffa24640f.camel@kernel.org>
-References: <20261116-nfs-space-limit-v1-1-fcc1335169a7@kernel.org>
-		 <c9d7a4bf79247d7cfcd23460d351412c343d546c.camel@kernel.org>
-	 <7c31f905f202512fb0ef1cb63f0714fffa24640f.camel@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MQBhbA9a
+Received: by mail-ot1-f66.google.com with SMTP id 46e09a7af769-862df509d48so3043685a34.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:18:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795468732; x=1796073532; darn=vger.kernel.org;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=UdbWtdWbnHAnBe9m59yDmsAfmbDCGbDO/F2rxx+Kr/w=;
+        b=MQBhbA9abCEm2W4n2Sav0twyTWtHL9dlzCuGMe+dGXr+Bmgsqse/NRFIyOVfR6kdc4
+         UX5Vlwam3jCbCoRj3cJmsGOZzo9BU8ufbFW+1KzByk1lTtB6Lu8kgr6C2z6452t4fG18
+         SnRWJUAMIpb8EuBZxehw6staapYIft8RHTa50htw8vH/dTmOhZDUlI7Hc2e7BQjEM6Fb
+         Q8IhVefAvcdWnpYWzYomK1MWevYD6eIHXQnODB39jOrXmnT77+/SyIMNi/1qHwME2J5Z
+         HkR4ho/r/3wjX6fZPuCOxcVdG25oAMq8Iiuvw2lACgNuqpxPZ+SEjg/LiAMsUMVs/7UY
+         tZMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795468732; x=1796073532;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UdbWtdWbnHAnBe9m59yDmsAfmbDCGbDO/F2rxx+Kr/w=;
+        b=gNgSDn5hU6iXXPnrKpROfboUyolATKKk1lqRipiRYZG3lvBDsKWYbNtIauYhMK8oOk
+         Z4kosJJn40i71cKXt1gK0T8V6MTVODJ0Tx1+dIKqjQ+VUQdgdyY0eRmlhCKM4OM/ikZ5
+         TCTbjdyaVkiXCuGFGaTxzaRNsNX34XqR+L7/elwjtPq0kyPgp5U6i5YKV8GiBGzqW5T8
+         aSeGiKqsgaIX9odyBeiejOPrQOYm4VDJCdweorodMJa+HkEWcezcqKn8oHYdIWemOEf1
+         joNCJ5Yo29FoN/q0msIxJ1mgPxfOg0dboFaPpbxzt7H3/HadmRMDm03SiIEzLzC7bWff
+         Whdg==
+X-Forwarded-Encrypted: i=1; AL+hErHhudwaa0wjDd50+Uokwxug+gQ92oM3Ynz6hfGRMiC6J+LDKbMgjbt49a7NRu1xrouWB9UtIZJz8E9n4zI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qvI0dKrNs9cvylIXkDZx/LOORFLqLcryjCU4wD/n79wOB2aWf
+	MCYQGPHTJdx9xGiojHHPFOVYttRl5Xtnvs9MQRW8LWiCO+D57Q8KEtTc
+X-Gm-Gg: AZFdTZfJgeNJd9QfbeiSZ7eNkFnxoNTJHOvmRexcbWDKlyBIfp4esGTy7dcK9Qtu2tT
+	0yjTiNs6jfpo9tDqm/bRgrM6lEjb8RM2EsKn2m3pBhfEH3tOd+iumpT2OmxTJkQIYXofHQYomU1
+	E5yHhg0j9g7r9h7TTprUDcO5Tpxmcz4TXXW/kVe1TuRMwBh6dKJBWbnTYskeEDaAtSCUfwyWDWS
+	wDLb2GGxkkdDjWb/gAbGcZ08jjsXfBoS3jLowXPz2PFQEgHMssqzUZDDwv5Q9+7KpiGn4VSQg8S
+	up6CjsHz40fwmH43PEqkTTYrd0V7qWjR1Y1/ToRgU3WCTE9ZB5GBguVvNFWsthuxfV5c/wyNoH9
+	kzv0FHA7kyBVLQsRYBYXQCtRY/704Ik4vDiZcDVSsjG1wFB0AKREuIIQCRkYM+YPC8mEtKQVzuW
+	YIlU07+pwJIbi4i++9gCBmt7SGkaJiXYJLcwQGwCut/4FULs0m3YZb86j8mrqUo5yvZXPk7UiFZ
+	ch1+6iFxWfHQO6p+ARPc57ndKOmZe2seK1klj7gCPUnSMsdzRs/9wCNB96nCUQzgNgcD2Uho6Xs
+	6qG75xdWYgy+hm3FVNZmslDMZpTujlWmBncw1r/4hFfVsafCGkj4lL6VnVOZAsPUziTJTm5epWP
+	njhFgTBgmRkOYUqHSxoLPG25PY0k//htBMr8=
+X-Received: by 2002:a05:6830:82ee:b0:85b:895:a015 with SMTP id 46e09a7af769-86309065b5amr10471283a34.4.1795468732137;
+        Mon, 23 Nov 2026 13:18:52 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:5::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692d9f7sm9734033a34.24.2026.11.23.13.18.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 13:18:51 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,201 +88,66 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 22:18:48 +0100
+Message-Id: <DN2WJMWD5G0R.27OOI2IBOXA6M@gmail.com>
+To: "Tamir Duberstein" <tamird@kernel.org>, "Alexei Starovoitov"
+ <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
+ Nakryiko" <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>,
+ "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
+ "Emil Tsalapatis" <emil@etsalapatis.com>, "Shuah Khan" <shuah@kernel.org>,
+ "Andrea Righi" <arighi@nvidia.com>, "Xu Kuohai" <xukuohai@huawei.com>,
+ "Andrea Righi" <andrea.righi@canonical.com>, "Bing-Jhong Billy Jheng"
+ <billy@starlabs.sg>, "David Vernet" <void@manifault.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>
+Cc: <bpf@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "Andrew Werner" <awerner32@gmail.com>, "Zvi
+ Effron" <zeffron@riotgames.com>, "Andrii Nakryiko" <andriin@fb.com>
+Subject: Re: [PATCH bpf-next v3 4/8] libbpf: ringbuf: Add a caller-owned
+ iterator
+From: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>
+X-Mailer: aerc 0.22.0
+References: <20261120-bpf-ringbuf-fixes-v3-0-ff7ca15d6c37@kernel.org>
+ <20261120-bpf-ringbuf-fixes-v3-4-ff7ca15d6c37@kernel.org>
+In-Reply-To: <20261120-bpf-ringbuf-fixes-v3-4-ff7ca15d6c37@kernel.org>
 
-On Mon, 2026-11-23 at 14:43 -0500, Jeff Layton wrote:
-> On Fri, 2026-11-20 at 10:04 -0800, Trond Myklebust wrote:
-> > On Mon, 2026-11-16 at 15:55 -0500, Jeff Layton wrote:
-> > > Commit 5445b1fbd123 ("NFSv4: Respect the server imposed limit on
-> > > how
-> > > many changes we may cache") made close() write back, COMMIT and
-> > > wait
-> > > whenever outstanding requests exceed the write delegation's
-> > > space_limit. Servers that send a limit of 0, knfsd included,
-> > > therefore
-> > > get no close() benefit from write delegations, which knfsd now
-> > > grants
-> > > even on write-only opens.
-> > >=20
-> > > That flush buys nothing:
-> > >=20
-> > > - CTO: no other client can open the file until the delegation is
-> > > =C2=A0 recalled, and the recall writes back our dirty data first.
-> > > - Error reporting is all that's left, and it's pointless. close()
-> > > is
-> > > =C2=A0 not required to flush, and most filesystems don't, so checking
-> > > for
-> > > =C2=A0 writeback errors there is unreliable at best: the failing
-> > > writeback
-> > > =C2=A0 may not have happened yet. Applications that care must fsync()=
-,
-> > > =C2=A0 which this doesn't change; errors are still recorded in the
-> > > mapping
-> > > =C2=A0 and reported there.
-> > > - RFC 8881 says only that the client "should" abide by
-> > > space_limit;
-> > > =C2=A0 exceeding it leaves the server's behavior undefined, and knfsd
-> > > just
-> > > =C2=A0 returns NFS4ERR_NOSPC/NFS4ERR_DQUOT on WRITE or COMMIT.
-> > >=20
-> > > Go back to just starting writeback on close() whenever we hold a
-> > > write
-> > > delegation. In testing against a knfsd patched to send a nonzero
-> > > space_limit, single-threaded create/write/close went from ~92 to
-> > > ~1,500 files/s.
-> > >=20
-> > > User-visible change: ENOSPC/EDQUOT for data written just before
-> > > close()
-> > > now shows up only via fsync(), not close().
-> > >=20
-> > > For now, the pagemod_limit is still decoded but unused.
-> > >=20
-> > > Signed-off-by: Jeff Layton <jlayton@kernel.org>
-> > > ---
-> > > I started looking at wiring up space_limit for nfsd's write
-> > > delegations,
-> > > but afrer looking at how the client uses it, I think we're best
-> > > off
-> > > just
-> > > not bothering to respect it at all. Thoughts?
-> > > ---
-> > > =C2=A0fs/nfs/delegation.c | 25 -------------------------
-> > > =C2=A0fs/nfs/delegation.h |=C2=A0 1 -
-> > > =C2=A0fs/nfs/nfs4file.c=C2=A0=C2=A0 |=C2=A0 7 ++++---
-> > > =C2=A03 files changed, 4 insertions(+), 29 deletions(-)
-> > >=20
-> > > diff --git a/fs/nfs/delegation.c b/fs/nfs/delegation.c
-> > > index ad774316f716..3a141d5ee0bd 100644
-> > > --- a/fs/nfs/delegation.c
-> > > +++ b/fs/nfs/delegation.c
-> > > @@ -1587,31 +1587,6 @@ bool nfs4_copy_delegation_stateid(struct
-> > > inode
-> > > *inode, fmode_t flags,
-> > > =C2=A0=09return ret;
-> > > =C2=A0}
-> > > =C2=A0
-> > > -/**
-> > > - * nfs4_delegation_flush_on_close - Check if we must flush file
-> > > on
-> > > close
-> > > - * @inode: inode to check
-> > > - *
-> > > - * This function checks the number of outstanding writes to the
-> > > file
-> > > - * against the delegation 'space_limit' field to see if
-> > > - * the spec requires us to flush the file on close.
-> > > - */
-> > > -bool nfs4_delegation_flush_on_close(const struct inode *inode)
-> > > -{
-> > > -=09struct nfs_inode *nfsi =3D NFS_I(inode);
-> > > -=09struct nfs_delegation *delegation;
-> > > -=09bool ret =3D true;
-> > > -
-> > > -=09rcu_read_lock();
-> > > -=09delegation =3D rcu_dereference(nfsi->delegation);
-> > > -=09if (delegation =3D=3D NULL || !(delegation->type &
-> > > FMODE_WRITE))
-> > > -=09=09goto out;
-> > > -=09if (atomic_long_read(&nfsi->nrequests) < delegation-
-> > > > pagemod_limit)
-> > > -=09=09ret =3D false;
-> > > -out:
-> > > -=09rcu_read_unlock();
-> > > -=09return ret;
-> > > -}
-> > > -
-> > > =C2=A0int nfs4_delegation_hash_alloc(struct nfs_server *server)
-> > > =C2=A0{
-> > > =C2=A0=09int delegation_buckets, i;
-> > > diff --git a/fs/nfs/delegation.h b/fs/nfs/delegation.h
-> > > index fba4699952b8..75f0edde65ea 100644
-> > > --- a/fs/nfs/delegation.h
-> > > +++ b/fs/nfs/delegation.h
-> > > @@ -83,7 +83,6 @@ void nfs_put_delegation(struct nfs_delegation
-> > > *delegation);
-> > > =C2=A0void nfs_mark_delegation_referenced(struct nfs_delegation
-> > > *delegation);
-> > > =C2=A0int nfs4_have_delegation(struct inode *inode, fmode_t type, int
-> > > flags);
-> > > =C2=A0int nfs4_check_delegation(struct inode *inode, fmode_t type);
-> > > -bool nfs4_delegation_flush_on_close(const struct inode *inode);
-> > > =C2=A0void nfs_inode_find_delegation_state_and_recover(struct inode
-> > > *inode,
-> > > =C2=A0=09=09const nfs4_stateid *stateid);
-> > > =C2=A0void nfs4_inode_make_writeable(struct inode *inode);
-> > > diff --git a/fs/nfs/nfs4file.c b/fs/nfs/nfs4file.c
-> > > index 9a434f5dda8d..04f4d8967e5b 100644
-> > > --- a/fs/nfs/nfs4file.c
-> > > +++ b/fs/nfs/nfs4file.c
-> > > @@ -122,10 +122,11 @@ nfs4_file_flush(struct file *file,
-> > > fl_owner_t
-> > > id)
-> > > =C2=A0=09=09return 0;
-> > > =C2=A0
-> > > =C2=A0=09/*
-> > > -=09 * If we're holding a write delegation, then check if
-> > > we're
-> > > required
-> > > -=09 * to flush the i/o on close. If not, then just start
-> > > the
-> > > i/o now.
-> > > +=09 * A write delegation already provides close-to-open
-> > > consistency:
-> > > +=09 * no other client can open the file until it is
-> > > recalled,
-> > > and the
-> > > +=09 * recall writes back our dirty data. Just start the
-> > > i/o.
-> > > =C2=A0=09 */
-> > > -=09if (!nfs4_delegation_flush_on_close(inode))
-> > > +=09if (nfs_have_write_delegation(inode))
-> > > =C2=A0=09=09return filemap_fdatawrite(file->f_mapping);
-> > > =C2=A0
-> > > =C2=A0=09/* Flush writes to the server and return any errors */
-> > >=20
-> > > ---
-> > > base-commit: 9d66f26fefacebfeed15de31c1123451a17ff119
-> > > change-id: 20261113-nfs-space-limit-025199334e52
-> > >=20
-> > > Best regards,
-> >=20
-> > Maybe we can call filemap_flush() in order to kick off non-blocking
-> > writes in this situation?
->=20
-> This sounds like a good idea, but agentic review came up with this,
-> and
-> it seems to be valid, AFAICT:
->=20
-> ------------8<-------------
-> - filemap_flush() =E2=86=92 WB_SYNC_NONE: it skips folios already in flig=
-ht,
-> but it can block on server-wide congestion caused by other files.
->=20
-> - filemap_fdatawrite() =E2=86=92 WB_SYNC_ALL: it may wait on this file's =
-own
-> rewritten in-flight folios, which a create/write/close workload
-> rarely
-> hits. It never waits on congestion, and a small file gets a FILE_SYNC
-> WRITE with no COMMIT.
-> ------------8<-------------
->=20
-> I think we may want to switch this code back to using
-> filemap_fdatawrite()
-> like it did before. Thoughts?
+On Fri Nov 20, 2026 at 9:33 PM CET, Tamir Duberstein wrote:
+> Ring buffer records are exposed only through callbacks. Callers that
+> need to stop at an operation-specific condition have no non-error way to
+> end consumption early.
+>
+> Add a caller-owned iterator that returns borrowed records one at a time.
+> Each next call ends the borrow and can publish consumed records before
+> inspecting another one, allowing callers to batch consumer updates.
+> Implement callback consumption on the same internal iterator core so
+> both paths share the record traversal and publication protocol. Allow
+> iterator-only rings to omit the setup callback.
+>
+> Preserve callback validation, so callback-based consumption of an
+> iterator-only ring still returns -EINVAL. Keep the consumer-publication
+> barrier on early destruction, including bounded and callback-error
+> returns.
+>
+> Keep overwrite maps out of the public iterator; handling a stale
+> consumer position requires a separate resynchronization protocol.
+> Require iterator users to observe exhaustion before waiting for another
+> readiness notification.
+>
+> Signed-off-by: Tamir Duberstein <tamird@kernel.org>
+> ---
 
-Urgh...
+Hi Tamir,
+I had a similar patch set in flight, to ressurect your older changes (which
+explains why I sent out some your fixes which were landable).
 
-OK, I've got to stop and ask why commit 2f1f31042ef0 ("nfs: Block on
-write congestion") only applies congestion control to the WB_SYNC_NONE
-case?
+We can compare notes on the API design and decide on the path forward here.
+Feel free to provide feedback on [0], I have put you in the Cc list.
 
-Also, why does it not re-check for congestion in the loops further down
-in nfs_writepages where it's adding fuel to the congestion fire?
+Thanks.
 
-Put differently: If we're going to apply congestion control, then why
-are we not doing so consistently here?
+  [0]: https://lore.kernel.org/bpf/cover.1795467315.git.memxor@gmail.com
 
---=20
-Trond Myklebust
-Linux NFS client maintainer, Hammerspace
-trondmy@kernel.org, trond.myklebust@hammerspace.com
+> [...]
