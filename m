@@ -1,105 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446467;
-	b=dHjI3xumS7Ej161aKmBLRpQi8+VXXsUxi/2E3D3Ca4vCzlN+7hepbTZqvRrQTnsyg3UP
-	 He61IDoX5ZoLkDG2gbQK6ofvxaTBeWnGbUc5O/5fcbpJMa9MNSZ1wedmNCJCzoodJrWoQ
-	 LVuBMpzwS1cN3P6EEZDguY7N14bOKEB9Z4nrA0x0M8+WIX1SnaOJphCrZo1iJa/LlKPeA
-	 ilMoBz6/nPfIqW+ygAv0gAzWcrzOSP7HXr3wEMMKRY7exAR5BDotvJPDxcFOQlpTZG8Qe
-	 YtXpDSPGdrECTkbk2X2RPOVGliJjWA8aHi6UbGqke5uA51IxpAAPEqTMXfWNjVTT/WQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446467;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xh8JlClPQjIKYSMwaXks/N+gTEcs+PhZFyDS0fpX7rw=;
-	b=kCq4MfkIFiMFYxo0UdLGPTjV9VdbY2E4SbPBOXn9Prq0N6bZ30G6Zk3+1MkDg5dbZ19R
-	 ljU4ptCk1GDOp2aVZd5HCJXp14ED3kyHFaMSoVMbOjU89t87ugqMhc3B+lqk/FJD0+66Q
-	 izuwxPf2Vg+XYMar/KFhuZY9NJ0wPdce7nSoeDg5Yp3paBxW7ScxCVjYdAZyQ2Iiqdw1m
-	 IN6p+Zc/7GFwPtarVhFz29r/qLIqtZ8kSKf21z2Vqi+Z1F0Y0RCwiteZviRJD+xgaYSjw
-	 /Qv5qT3m/o3h3UOMr71Swq+Nb9sgHeydBuHZ3i6LgRoO2JhGis+P+RIiaUwRd88qbgw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z3xcFD0X;
-	arc=none smtp.remote-ip=209.85.208.51
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795446470;
+	b=k1gx0sjG99dS8hMK+Udbp9g0tO89/4zoFX2QEx/ILAytK8STsx9QS5wWIopigRgLU4ck
+	 c/oT+nbVWj/+5Jd/AZaC6LVcObH3IDrJY7Yhe6SCK25Hdt8XorC3+a3Jyx2Zgy2LF0bN1
+	 LHtNYVt8rAWZ6fYLaD5XqEssBZXIotV5xbFnpuFKurehH2IirpGr4TYZ4voc+6+LxjVxn
+	 srcSt6q0eB5rnYxWIP9qDFGeCInumtLMIskrcg8c7JsNcDNRtQVOMJm17aOvnsUy/AoJB
+	 vGCA2QotCwiFQbJKan+7c2cs8exyCy8j3pi008wu8IVwQ9DWHfH1UfZOnXC7A4NBqeQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446470;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=asoXMPMNvjoeTqlgLoucGjPdqO+L2q9h7XtQEksccjc=;
+	b=1fLEaDm3ZQR8ZSGy9s1jEPRUVoJXl60rV3PGAVBeectqjaCvvCa7rmrFMalIdqzbN6kE
+	 TQOWUT4cWjkk0EX5rnAkXUlZMpmdYDfphx/aRdl3TDeZIohT38SrWazKh/IKkrEyxyNKA
+	 9cUOwE3FMacQ9Xf3XUvcZl3LTJObBblocxHVrcPZ0w9RPUyyUxasB5Oo9Z33TZ9kM6+cc
+	 4/Duu4+B4SqdF+cLLfqGQYU7htv17sd5xe/C44cidh5GhDlZJKDrNadl6cPWiBNLQqSAa
+	 /wRkWuFYf1v+TlftZ68+3CRYESp3oUZNQPhIMKjqGwJSMwK496kA6ym7KNkzJMFeC0w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ctfbiD89;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E73E1606A332;
+	Mon, 23 Nov 2026 15:07:49 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ctfbiD89
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795446469;
+	b=AnC+qB0r+olFhYYIiNIyr3kyaCRkgEDCaGfRXjDHhbNpaq0IiwrStjWruO+vIfdXKNWg
+	 UM7P6xhcrqmLw49TRm5KKpXcBJIREcOOIc4GXPjfuVkIZS9JHF9Cihv6+d3N8YQBmxLoL
+	 T7Imz38yhIeTbbcemZRCMojT+jUZenR8EfI61QvUnLli+s6WuHzbkns1IZUEkj9+2OSqd
+	 kvQzhaRL9kyhrcL4Z5MCg4EpdrE7pRwO7hOqK8dbYXHqd0E4fboxGmILTubKR9VugKdYZ
+	 8Hqs8nKibBwPMJBQk247qRloivf3DqKRQ+h4nwfAj4VStEsZCgVnmROVws/xDDI/JDQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795446469;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=asoXMPMNvjoeTqlgLoucGjPdqO+L2q9h7XtQEksccjc=;
+	b=eTHFKoyyE/LzEb7gwF+EWEdoiigp8T3jZADwoo7tcmS+0+9xkXLRm2qAm7isTkCRqZiC
+	 2eNmNTaT06ec4OnJh7B+aMXD/t4ZFxCJf9n92VNF/emY+61JApuHW2i7yU1QUngeixFXt
+	 5egqpeyLjALiNd9heG/uHDkSWa9glMRey0bsJl1GgS8HD8TlPbp7hH7uQfTdynWdHjibz
+	 +QXqQyxix+/9jftePopkovZlCxEQF/Enjna6VDWGkc2OOijz24ZfP9N9W6B4vPZzcKBJZ
+	 tzR/x2u62BKK1MT38nCZCQzkFUF9YvBf9Ie1CHOOuVCnx9oAp1rRrB5fACXW1FVMhVA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8ED59606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:07:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8ED59606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z3xcFD0X
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b876afbb86so4285110a12.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:07:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795446466; x=1796051266; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xh8JlClPQjIKYSMwaXks/N+gTEcs+PhZFyDS0fpX7rw=;
-        b=z3xcFD0X6rjc7qxVPfx4nIHKdcQsvmgdw6i5mi7HnD139rzKT/gw0Ape8OiNUGzE/v
-         P7uRLfxSHx6KSzuIQNTBC5PoLU7MAjxqXEcF7DfP63UQFYM4UBAbWCCFCfJpOvIG+3uD
-         nvqhggWkw4NdXLJ4moVlaOHGCPXRKyjt0/eN8+zGWKWnhc6dryG1WL9CiuD3QR9zy7cp
-         1sXPYwLR7Q7Hk5zFm7rfKmURIARmWP3CklIaRV+mjCUWrVBOyapv4eWRpo1kK2FnTEln
-         AE+VkbAp3ZpJjiZqBajcU7QrBdsRotLMClMthu5BWOvnLez9hQNtLNdBPmQH2nXBi+Fv
-         Tt7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795446466; x=1796051266;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xh8JlClPQjIKYSMwaXks/N+gTEcs+PhZFyDS0fpX7rw=;
-        b=YczFh1woKMc0lISKVLzIDHuxbxC4NZAzT6Hi7g0CDlyllH04mdjc2NoDDYUsoAD14B
-         /vU5QNUQeKvpwXs73nKLnZswODCeJozi0X4YpO6AGLSTmWVIVXXDHBfn3AO/kN5rB7bw
-         SFTvzl1hIerJougDe087t3nOaeiy28Ed3Hhi6xjLVwJRjejhC0sP22CWh9SK2lNxaAsk
-         t67dg2YykWN3nWcUOL5Hs5OH/w+ve4WCl22PpbkPvCmCKgK7V3bWPnyeUhb7hfPYAORI
-         AKtlatOf2NTDkJ1etC9ZLOX+A8UZRdG6QFIJD5Eywv5gtZ8mnFgcyxNnlRUfyYlEkA5d
-         cIbA==
-X-Gm-Message-State: APuU4Z854qcn1lPY8o5Q7TtYFiyUFGY9iWt0rJT9bSxMZdZmbyCLkuPQ
-	CtsejBfAAlOMNyA3CdgP6w1Pp7WRJhHELTykJUYFG2U8oftNmZ7Go6F3gyVZCQ==
-X-Gm-Gg: AZFdTZcyj9TvbzWkCUchAVM+Z9dpwPlWstx0hiqcHrivNF75Q0ce2fs5Omys6hDcTsh
-	pPR+Lzs6pwdVjJhfcurntpFGKL6X3xlqfhigS98BkIh1mLcvJyFhXsppCNf61AMV91k9AM1RBhQ
-	qC/pOV5ur1xKqhyyoFY3mfwTeHDrf+Wj/NQU7z7js/YLGsi7qjqWnr111NhHlg8m8tM6wsDHGeU
-	CEZhHVjHkR+x4eHLlop2cbJOeRA7xM8qXQfMJC2xQgFJXe973by7q51vhGG+bXgzh1OJLkzg3jG
-	TE++TVvKWcBfoYnR1GG/MT2R15xvKUhh/UV1y9K5sGt3lFs+v5IVkTgRM7qzdYGaOY37GqfLuG2
-	ohlXMP8+8Nl3cayZ5UZLXYikzlxFyqN8eKoiC2uvOQ0qUB+CufLk7tHvNerjf3Lq7BOGqwsxn/+
-	+YhHFVDEx1xFCi+b3Qyk5szbpRF+aTTXkT6Yx4B5Lf9wmG8gvFS0r6rvNdbxf6NnDGnciheFCCy
-	Y4Dkre1knMZoomKlQyIxzshe2XDnWB+MxCJzPx7PuG52OFHK41ZG15k5qyB5uexLsSK1wluGQeh
-	JqRRd0LVdXOOjlvul+zsyIxWUEs8yN224SN4ljqzplM5UDY8bbJVI5ByGeoSPJvsmnYBrhDq3Iq
-	gE/c3wxl1YQ==
-X-Received: by 2002:aa7:d789:0:b0:6b7:6c8:70d5 with SMTP id 4fb4d7f45d1cf-6ba37c76e5bmr5952130a12.3.1795446465996;
-        Mon, 23 Nov 2026 07:07:45 -0800 (PST)
-Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fc020sm5446279a12.25.2026.11.23.07.07.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:07:44 -0800 (PST)
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	mfd@lists.linux.dev
-Subject: [PATCH v3 4/4] mfd: max8907: Add ADC cell
-Date: Mon, 23 Nov 2026 17:07:25 +0200
-Message-ID: <20261123150725.212836-5-clamor95@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123150725.212836-1-clamor95@gmail.com>
-References: <20261123150725.212836-1-clamor95@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 4A13D1F000F4;
+	Mon, 23 Nov 2026 15:07:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795446469;
+	bh=asoXMPMNvjoeTqlgLoucGjPdqO+L2q9h7XtQEksccjc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=ctfbiD89wSPMm1gC2JwrbGTEqCvE6wihoVnYhcJv5K8p2hHhb3wz6H/PMRxa038sv
+	 xK+kiVOXhTk8snf1DyVDpZOJgxbq1M07bFFYgFQ8TqRzCgQoK82HOQytpZaljiloWN
+	 1pOivsj+MJ3EYJVB5/U+Ddq2DJwEbrwm+QEHSEUGJC8nw5NbcdvDMjvXypGXPgiWFu
+	 aVfos2iy3qjMkI+sfXYglv2pTrUIEhbtUtsVrr3EUi1EjcR5vPl8YuVhswwq2TtYk3
+	 FxXPh5qRqtYo2jUfJzvOPm01RzUnCGHNei1vQW8rhPhw8tqSE3rT6F0oYWfBlCNcxc
+	 ORlAavwZOn8CQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C8D014C522;
+	Mon, 23 Nov 2026 15:07:37 +0000 (UTC)
+From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
+Date: Mon, 23 Nov 2026 16:07:27 +0100
+Subject: [PATCH v2 2/3] dt-bindings: arm: rockchip: Add Mekotronics
+ R58X-Pro
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,27 +83,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-rk3588-mekotronics-r58x-pro-v2-2-2a3430cf5f88@pardini.net>
+References: <20261123-rk3588-mekotronics-r58x-pro-v2-0-2a3430cf5f88@pardini.net>
+In-Reply-To: <20261123-rk3588-mekotronics-r58x-pro-v2-0-2a3430cf5f88@pardini.net>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Ricardo Pardini <ricardo@pardini.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=909; i=ricardo@pardini.net;
+ h=from:subject:message-id;
+ bh=5tvM2v/b/zAV6i3N+Q541Ucn1iSwSgwcNGoUzeuHrDY=;
+ b=owEBbQGS/pANAwAKATteP+Oex+3pAcsmYgBrBFa4T7h3xDYAGt7U028mkQDIYNCB6XGbMwBqY
+ OOVPpqmQFmJATMEAAEKAB0WIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCawRWuAAKCRA7Xj/jnsft
+ 6ZJDB/47TCHhmYrhrRHjpapvAGNrJ6mfW83UpP5N+ScNANgPQkOz5pGDsFLxFSgUeeUS471ODaH
+ 6/MLTG8Os2ucJXb7tcS1wBzSOdUJgXZs2vEcizGqHaKMQZiBOJuFoaBbC50qJBnKjrAhtdYB9zG
+ SovI0aWvZnyyJvoS81ER3wcUul/W+dJDlfkEvum98GwIIIBrzD+dpqMwKalCw1sY3lgkp9kf4Ln
+ 6nuJJGiZyNTADJc9HQGtg9bizAMqVEZx6AZq4X1OqMCeULfVhB8bj7WDAxBLKrkYI34ItMZ05SH
+ uoG4yPS1si5lJxII80hnj1TY1YA5Nx8Q2BenbQvvdeQTFS3x
+X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
+ fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
+X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
+ auth_id=588
+X-Original-From: Ricardo Pardini <ricardo@pardini.net>
+Reply-To: ricardo@pardini.net
+Content-Transfer-Encoding: 7bit
 
-Add the ADC cell name to the list of MAX8907 cells.
+From: Ricardo Pardini <ricardo@pardini.net>
 
-Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+Add the compatible for the Mekotronics R58X-Pro, an industrial mini PC
+based on the Rockchip RK3588 SoC.
+
+Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
 ---
- drivers/mfd/max8907.c | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/mfd/max8907.c b/drivers/mfd/max8907.c
-index 103294c76b97d..ac7b41ad400ed 100644
---- a/drivers/mfd/max8907.c
-+++ b/drivers/mfd/max8907.c
-@@ -20,6 +20,7 @@
- #include <linux/slab.h>
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index a24949b163cff..e8817cebdba9c 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -864,6 +864,11 @@ properties:
+           - const: widora,mangopi-m28k
+           - const: rockchip,rk3528
  
- static const struct mfd_cell max8907_cells[] = {
-+	{ .name = "max8907-adc", },
- 	{ .name = "max8907-leds", },
- 	{ .name = "max8907-regulator", },
- 	{ .name = "max8907-rtc", },
++      - description: Mekotronics R58X-Pro
++        items:
++          - const: mekotronics,r58x-pro
++          - const: rockchip,rk3588
++
+       - description: mqmaker MiQi
+         items:
+           - const: mqmaker,miqi
+
 -- 
-2.53.0
+2.47.3
+
 
