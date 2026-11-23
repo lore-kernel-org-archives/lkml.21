@@ -1,99 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401044;
-	b=a4o6GJ3qiGmIbmP1RmcRkiDoT0z0NWCkFYvRzuj4igNBdaLCtkIQd9ma09IcdEXoqp7G
-	 YjEw+E07ZwkdasDWThsSUbm1+0uTfbYaIoS9dZRhFFu7Qnx2qYpBI4FLegFzQ2/RULf43
-	 1RncPqpi4xnoaud0Rnfvl694DyKCrRwxZ52ibnZ1Ks3foTpIsT2G6bku6/cAL3Z5fSipB
-	 ImYzAne26Jqjdb5cgNhlLmJZTNrLhxdGQu3a7RpxktlnFa2iu0eP/hNoEZL7f/HGIBO7g
-	 NH88M167gveVSX1SWd8jBYNt0+XqKTYoEDRXO1+4NK0Etxto9afcx2P7hYaFiDfA9eg==
+	t=1795401110;
+	b=zRbLC/wRmj2km/B20AjoUkzqP1y0gj53BGbqqDlK1PhlwZJtuhsd90xfgQAwyYfSsuEo
+	 EWakmeT+2Vn0XL5nmOyS2p5ROsxlf9j+uWHPXOfs5BftJXaPnGvKsV7k784escaOkJCsy
+	 eB+K3lofgMAkfBoyeJr8RQTZhX8DYuVEE6W98gVQ/OM2rtYZMa7qrh5F0jjD/8uriy9Sy
+	 2Y0QbfwYYwE8kD+UERKQu4Z5iF323Hj9TWYJyhp8z0YQfcMxNcWcxFaW+EU3s1PDipDKX
+	 TFHdPopBnJ7K/5Ovx88Y4WWNVTyRuVOtR8hRwzQoUJot+3PCmGNQpX4bLCmNwMwHPkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401044;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=glbFFS+aXGpCoXPzQsQfZyiNK3IdL0vGW5/m3ogOzuE=;
-	b=1q2KL1bRRbgCWOuDCE7EONZmcGJysGtJFJwonaN4KzZa6JiZaBYt3pknDY5hrmvX7gRf
-	 gwZVftuC3XrstRG8mnVMRHEdBbFJx9YeeWQg7Bsz+iXgrqFpHH8le5k8hFYOGCRQ31CR3
-	 68gG/rewVnXuI0JKNe6jE3Fi1rEBLydxxgO6oMe/TQaFO1qf1zUfEufOciKpbeohykS2c
-	 wX0142RScPxIANT7qXJxaiCqJ0G1MYKJQTxWnZ4CAC5tLNNocLoZ+vBhsMrrAg7Gk1A8u
-	 rsmYbPUvBigwEBSv9bnKIZh4AljRzzZ1eKJzkoibFsFDvtNER/P002WxmBfVOtzNVYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401110;
+	h=DMARC-Filter:Received:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Originating-IP:X-ClientProxiedBy;
+	bh=DubBYw11u39hDCHP507B0e3hI2K38GChIQfRTnxdD6k=;
+	b=VSstbkwALkaobamdDa3lJtNZO9oGXsTgC5UCPpfKda7m8RCna9R+9w6jFDsaKRMGsYjj
+	 KN0xmhbPEosTn6DErdBk/Q/epBkKsmqJ9UqzeaJFEkXomlX9YD3RDTF4sHRNMKcKwb4uY
+	 QCtwfmL1gGClQISnSj1XS6XT8pEqzwZN44a10q7LXhRsLiv+IQAs9ak5KdsdlcntUgjZR
+	 oNwPqWimARBQb1lzcji1Ul70yRNlIF3T26gC9L2NR4nfEXYVBNtrGnJGLHG8REglTJBIO
+	 pZ5PdBbO0cUPQmlBqkiN6g87U7i04Z0ePZ0cNiaEANEFXHKjMrs4in5/5hYFyE7yxhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=suY6Eqvf;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 242BC606A32C
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:30:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 242BC606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=suY6Eqvf
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3282db206d3so8536906eec.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:30:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795401043; x=1796005843; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=glbFFS+aXGpCoXPzQsQfZyiNK3IdL0vGW5/m3ogOzuE=;
-        b=suY6Eqvf8YS4cgAPHyjGGg/8HZlfk7ma3mdfGUqeG6njl02vO/IEU9cYa9mLpKLbcg
-         YK9T6x3PRtsv0Fjhrgcucl+BEObjHPIpUpjPefVOT7ByclehITj1YSMWV1glG/3qvgAC
-         m/ThWNYBY8CBSfE5SIONUastTwM3zu0Rc79DbohO15WpXMf974IMx7/uudO+wAl9g02w
-         MZwHOYe32l3bK3jL1I3EtQHeqrYLJe/pkzjcTDGH/Bp651+OOcsewztG4wlI7XvatUWY
-         1wX0dMqUR2DT66s6U1NskkDPgMFMeNgEWBofw8D92dfow3+IQQRBrGxlbTeMkLSrQbF/
-         zHmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795401043; x=1796005843;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=glbFFS+aXGpCoXPzQsQfZyiNK3IdL0vGW5/m3ogOzuE=;
-        b=vCM7l+jnr751EaavtOp8etTm4Lee9awK3mnDnVAk//dMGunpblAK7wkSPcwCu8Dz7r
-         c4Ih5EJmZREFIFCz6+Smg3AfghgxZ5ek+wPp3qCrXLt2SWhLUmc5CAqdv32NWzQ9Jk+X
-         cBxDMLgg9QR+AWR1CSNFe/ChvpS4xDd2WCyiCNDqz+o5YhbJ+uWTcB4CS/wuSH5ywAPs
-         KZ4T3FBCT5FqI3inOIdTLYmaJ5ItXqVCADqSJpY3MlU9akiBMCggCUr3cK42MXspGftP
-         0SxQWffkdm+XUM0aaWyDEX3PMs2TIOog8kyJvY8PHe1a6CjtIq45jE6njoX9/kdsEOxA
-         2JVA==
-X-Forwarded-Encrypted: i=1; AL+hErGA5EZsXCz++YH9fhrZT+/Jaog6G8glivM6LuY8wveDckXSimhFoPixRrUSS5POUlZuiUghgYtCyvah8IE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+eGABKJk1yQ078NXQ5rIaGVp6vc/kvOSl8DoKhHu8yy2H2Mnr8
-	7m39JoGSnLspYKNZoUn/LqD7Cdl1keBBzhlhFMy6xUxGBFsGqDh93d86
-X-Gm-Gg: AZFdTZfkpAFOts3DXQ52Ffy04orDy4YQ4F3fS8tk5GIMoV9upZ0ZySwm/TGnF1GGEIs
-	VHF8OuzO2qWc7HmXDj53FLTRCA+SF0INZmlwdscmoaz0e/eShjho/HJ9jNYLX8BV/HLwwJ7Rr0D
-	A/cI59oMbNL8B92jHujjtSmZkMJWZahapGvPyZWd+H8XDxGIv3YiNtLG39GLXkxeZ2sneEYcEee
-	D0VEDmrFWiG8A8DYqvL0nuubnp+ATYvjvDwiohd3yj508a1Kw9gF0AMIjh7YIDpBIds2ADI/pGd
-	ypZEvtbLTc6XYqili8g/6ln2xeEBExkhlFZ6U2cFgps4n56MCC6Couum5XPfw17WTM03Oa9v/jG
-	yKajQD6kO29LUWBwEvOiHtGsw0NSA6vrZM0fRa+Z6pGQ1Gu8D0cZKF+nFcglHcMuZeEYbl0qo6U
-	Nv7+m48Lek9jFwdi13yLg/9PW2nrEKwQGn2ynl0ZpxmqMqXGULGWydbjrLTYAzMZ4m2cjndZ/lm
-	FRMS9ln1gPqKh3P60pz7iTC95Ni1PwgBncDKaTYuLY2k8PaJFJ9bU5GqNLUMVpCChWYnv4yC9Le
-	eepznckOsLRWU09ovg7qgUB8uQe0xeK4BhfDUE0wjLF+8ksm+/hjfc1A+9IDwn5tYPXo2LKMvKh
-	scRut0F5uICKz73MjVNnv7rAoRmZeWxdxunSRpYWxWV/QeS9u+aUlnRWR0s35foWH6FXJvC8i+o
-	MiHfCiXRNYih7O4jXLdTdasVmJjVrY629b5n5BRhjhuoYVD2a6WWZYoKI6oUCioeDqc8MmFB+MF
-	o5vfFyC6eWRsP5sK1eK1vb8jDb2BaGKuA==
-X-Received: by 2002:a05:7022:4398:b0:1b2:610b:878 with SMTP id a92af1059eb24-1b556877921mr13816034c88.6.1795401043135;
-        Sun, 22 Nov 2026 18:30:43 -0800 (PST)
-Received: from FT6N242TWK ([223.181.117.48])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm25943813c88.6.2026.11.22.18.30.39
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 18:30:42 -0800 (PST)
-From: Shashank Mohan Jain <jain.sm@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Justin Iurman <justin.iurman@gmail.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Joel Granados <joel.granados@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3] ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
-Date: Mon, 23 Nov 2026 08:00:36 +0530
-Message-ID: <20261123023036.88754-1-jain.sm@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	dmarc=pass header.from=hygon.cn;
+	spf=pass smtp.mailfrom=hygon.cn;
+	arc=none smtp.remote-ip=101.204.27.37
+Received: from spam01.hygon.cn (unknown [101.204.27.37])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 87528606A31A;
+	Mon, 23 Nov 2026 02:31:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87528606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
+Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jXqh34zJCzVcB5;
+	Mon, 23 Nov 2026 10:31:31 +0800 (CST)
+Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jXqh073qvzVcB9;
+	Mon, 23 Nov 2026 10:31:28 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp1.hygon.cn (Postfix) with ESMTPS id 95C6216DB;
+	Mon, 23 Nov 2026 10:31:26 +0800 (CST)
+Received: from hsj-2U-Workstation (172.19.24.226) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 23 Nov
+ 2026 10:31:26 +0800
+Date: Mon, 23 Nov 2026 10:31:24 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: Andreas Gruenbacher <agruenba@redhat.com>
+CC: <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>,
+	<hch@infradead.org>, <mic@digikod.net>, <axboe@kernel.dk>,
+	<gnoack@google.com>, <paul@paul-moore.com>, <jmorris@namei.org>,
+	<serge@hallyn.com>, <legion@kernel.org>, <aleksa@amutable.com>,
+	<libaokun@linux.alibaba.com>, <ebiggers@kernel.org>, <djwong@kernel.org>,
+	<sandeen@redhat.com>, <zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>,
+	<yingzhiwei@hygon.cn>, <wujianyong@hygon.cn>, <shijie8@gmail.com>,
+	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-block@vger.kernel.org>, <gfs2@lists.linux.dev>,
+	<linux-security-module@vger.kernel.org>
+Subject: Re: [PATCH v3 0/11] vfs: add inode iteration methods
+Message-ID: <awOlfBGNgQoassIt@hsj-2U-Workstation>
+References: <20261120031305.3561045-1-huangsj@hygon.cn>
+ <CAHc6FU7URHetBU9XgP0DSEGjWQfq0tX+ohK8xRVZLEYzgJBeEw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,150 +67,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHc6FU7URHetBU9XgP0DSEGjWQfq0tX+ohK8xRVZLEYzgJBeEw@mail.gmail.com>
+X-ClientProxiedBy: cncheex06.Hygon.cn (172.23.18.116) To cncheex04.Hygon.cn
+ (172.23.18.114)
 
-net.ipv6.ioam6_id_wide stores a u64 (netns_sysctl_ipv6.ioam6_id_wide),
-but its table entry uses proc_doulongvec_minmax() with .maxlen =
-sizeof(u64) and .extra2 pointing at a u64. On 32-bit, unsigned long is
-4 bytes, so the handler treats the field as a vector of two 32-bit
-values and reads the u64 max through an unsigned long pointer:
+在 Fri, Nov 20, 2026 at 03:59:10PM +0100，Andreas Gruenbacher 写道：
+> On Fri, Nov 20, 2026 at 4:13 AM Huang Shijie <huangsj@hygon.cn> wrote:
+> > This series adds two superblock inode iteration helpers,
+> > super_iter_inodes() and super_iter_inodes_locked(), and converts the
+> > open-coded sb->s_inodes walks in the VFS to them.  The design is based on
+> > Dave Chinner's patch set:
+> >   "vfs: improving inode cache iteration scalability"
+> >   https://lore.kernel.org/all/20241002014017.3801899-1-david@fromorbit.com/
+> >
+> > About the two helpers:
+> >
+> >   int super_iter_inodes(struct super_block *sb, ino_iter_fn iter_fn,
+> >                         ino_iter_eligible_fn eligible, void *priv,
+> >                         int flags);
+> >
+> >   static inline int super_iter_inodes_locked(struct super_block *sb,
+> >                                              ino_iter_fn iter_fn,
+> >                                              void *priv);
+> >
+> >   - super_iter_inodes() runs @iter_fn with a referenced inode and with
+> >     sb->s_inode_list_lock __dropped__, so the callback is free to block and
+> >     to do whatever it wants with the inode except drop the reference the
+> >     iterator holds.  The iterator releases that one reference per inode
+> >     itself, so the callback cannot leave a dangling inode behind.
+> >     It is exported because GFS2 can be built as a module.
+> >
+> >   - super_iter_inodes_locked() keeps sb->s_inode_list_lock held for the
+> >     whole walk and takes no inode references at all.  Its callback
+> >     therefore only has an existence guarantee: it must not block and
+> >     must do its own inode state checks and its own reference handling.
+> >     It is internal to the VFS, being declared in fs/internal.h.
+> >
+> >   - The callback is separate from the caller's data, so a caller keeps
+> >     its state in its own structure instead of filling in a shared
+> >     context:
+> >
+> >       typedef int (*ino_iter_fn)(struct inode *inode, void *priv);
+> >
+> >   - %INO_ITER_F_REFERENCED restricts the safe iterator to inodes that
+> >     still have a reference.  It preserves the "only handle referenced
+> >     inodes" rule of landlock's sb-delete walk.
+> >
+> >   - %INO_ITER_F_NOREF does the opposite: only inodes whose reference
+> >     count has already reached zero are handed out.  %INO_ITER_F_NOIGET
+> >     suppresses the reference.  Neither keeps the inode alive, so the
+> >     caller must make it unclaimable itself.
+> >
+> >    Patch 1 adds super_iter_inodes().
+> >    Patch 2 adds super_iter_inodes_locked().
+> >    Patch 3-5 convert the callers which cannot use referenced inodes
+> >            (dquot removal, nr_blockdev_pages() and the
+> >            generic_shutdown_super() poisoning loop).
+> >    Patch 6-11 convert the remaining callers (inode eviction, sync_bdevs,
+> >            drop_pagecache_sb, add_dquot_ref, landlock's hook_sb_delete
+> >            and gfs2_evict_inodes()).
+> >
+> >
+> > BTW:
+> >   This patch set depends a small patch:
+> >   "fs/drop_caches: skip filesystems without fs writeback"
+> >   https://lkml.org/lkml/2026/9/23/675
+> 
+> That link doesn't work for me. When referring to other postings, can
+> you please use lore links?
+Okay. No problem.
 
- - reading prints two numbers ("4294967295 16777215" by default on
-   little-endian);
- - writing one value only replaces one half of the u64: on
-   little-endian "echo 5 >" leaves 0x00ffffff00000005; on big-endian it
-   sets the upper half, and the range check uses the upper word of
-   ioam6_id_wide_max (0x00ffffff).
+> 
+> There also is no posting of a patch with that title from that day on
+> https://lore.kernel.org/linux-fsdevel/. You may be referring to
+> https://lore.kernel.org/linux-fsdevel/20260920072811.2064247-2-huangsj@hygon.cn/,
+> but that patch queue no longer applies. So please post patch queues in
+> a state that applies and optionally, make a git branch available.
+> 
+I will add the kernel version in next version.
 
-The wide namespace ID emitted in IOAM trace data is then not the
-configured value. Same class of issue as commit 162cf592b577
-("net/smc: fix limit_smc_hs sysctl on big-endian architecture").
-
-There is no u64 variant of proc_doulongvec_minmax(), so add a small
-local handler. On 64-bit it calls proc_doulongvec_minmax() as before,
-so nothing changes there. On 32-bit it goes through proc_dostring() and
-kstrtou64(): it reads and writes one value, parses it with base 0
-(decimal, hex or octal), accepts surrounding white space, and returns
--EINVAL for a value above IOAM6_DEFAULT_ID_WIDE, for a write of only
-"\n", and for a write of 24 bytes or more. A generic u64 helper in
-kernel/sysctl.c would be a larger change for net and stable; it can
-follow in net-next.
-
-The 32-bit parser is not identical to proc_doulongvec_minmax() for
-unusual input: a second value after a space is rejected rather than
-ignored, and a leading "+" is accepted. As the sysctl did not work on
-32-bit before, this only affects input that was already broken there.
-
-The bug was discovered by an AI coding agent (Claude Code) reading the
-code. It was confirmed and the fix tested on i386 and x86_64 kernels
-under QEMU, with a small static test program as init: before the fix,
-i386 reads "4294967295 16777215", and after "echo 5" it reads
-"5 16777215". With the fix, i386 reads and writes a single 64-bit value,
-and x86_64 behaves exactly as before. No kernel change was needed to
-reproduce it.
-
-Fixes: 9ee11f0fff20 ("ipv6: ioam: Data plane support for Pre-allocated Trace")
-Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
----
-v3:
- - Keep proc_doulongvec_minmax() on 64-bit, so 64-bit parsing does not
-   change at all; the string based parser is used on 32-bit only
-   (Sashiko review of v2 listed several 64-bit parsing differences).
- - Set .procname in the temporary table, so the sysctl write warning
-   names ioam6_id_wide (Sashiko review of v2).
-v2: https://lore.kernel.org/netdev/20261122013848.14287-1-jain.sm@gmail.com/
- - Keep -EINVAL for a write of only "\n", as before; a continued write
-   at a non-zero offset in strict mode is still ignored (Justin Iurman).
- - Changelog: describe how the bug was found and how the fix was tested
-   in plain English, instead of an Assisted-by tag.
- - Cc the sysctl maintainers.
-v1: https://lore.kernel.org/netdev/20261118042958.83243-1-jain.sm@gmail.com/
-
-Prepared with Claude Code (Anthropic), model Claude Opus 5.5
-(claude-opus-5-5).
-
-Tested on net.git main af6737b90668: x86_64 and i386 defconfig builds,
-plus a build-only 32-bit big-endian powerpc (pmac32_defconfig). W=1
-shows no warnings for sysctl_net_ipv6.o before or after.
-Under QEMU (TCG) with a small static test program as init, x86_64 gives
-exactly the same output as the unpatched kernel for every case. i386
-reads and writes one 64-bit value, with the same results as v2. With
-sysctl_writes_strict=0, the "file position was not 0" warning names
-ioam6_id_wide on i386, as it does on x86_64.
-The big-endian kernel was built only, not run.
-
-I did not add Cc: stable; please add it if you think it fits.
-
- net/ipv6/sysctl_net_ipv6.c | 49 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 48 insertions(+), 1 deletion(-)
-
-diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
-index 1a0a36dcda..c93ccf7e98 100644
---- a/net/ipv6/sysctl_net_ipv6.c
-+++ b/net/ipv6/sysctl_net_ipv6.c
-@@ -30,6 +30,53 @@ static u32 rt6_multipath_hash_fields_all_mask =
- static u32 ioam6_id_max = IOAM6_DEFAULT_ID;
- static u64 ioam6_id_wide_max = IOAM6_DEFAULT_ID_WIDE;
- 
-+/* unsigned long is 32-bit on some arches, so handle the u64 here */
-+static int proc_ioam6_id_wide(const struct ctl_table *table, int write,
-+			      void *buffer, size_t *lenp, loff_t *ppos)
-+{
-+	u64 *valp = table->data;
-+	char buf[24] = "";
-+	const struct ctl_table tmp = {
-+		.procname	= table->procname,
-+		.data		= buf,
-+		.maxlen		= sizeof(buf),
-+	};
-+	loff_t pos = *ppos;
-+	u64 val;
-+	int ret;
-+
-+	/* on 64-bit, unsigned long is a u64: keep the generic handler */
-+	if (IS_ENABLED(CONFIG_64BIT))
-+		return proc_doulongvec_minmax(table, write, buffer, lenp, ppos);
-+
-+	if (!write) {
-+		snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
-+		return proc_dostring(&tmp, write, buffer, lenp, ppos);
-+	}
-+
-+	/* an empty write changes nothing, as with proc_doulongvec_minmax() */
-+	if (!*lenp)
-+		return 0;
-+
-+	/* reject what may not fit in buf, proc_dostring() would truncate it */
-+	if (*lenp >= sizeof(buf))
-+		return -EINVAL;
-+
-+	ret = proc_dostring(&tmp, write, buffer, lenp, ppos);
-+	if (ret)
-+		return ret;
-+
-+	/* a lone "\n" is invalid, a continued write in strict mode is ignored */
-+	if (!buf[0])
-+		return pos ? 0 : -EINVAL;
-+
-+	if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
-+		return -EINVAL;
-+
-+	WRITE_ONCE(*valp, val);
-+	return 0;
-+}
-+
- static int proc_rt6_multipath_hash_policy(const struct ctl_table *table, int write,
- 					  void *buffer, size_t *lenp, loff_t *ppos)
- {
-@@ -210,7 +257,7 @@ static const struct ctl_table ipv6_table_template[] = {
- 		.data		= &init_net.ipv6.sysctl.ioam6_id_wide,
- 		.maxlen		= sizeof(u64),
- 		.mode		= 0644,
--		.proc_handler	= proc_doulongvec_minmax,
-+		.proc_handler	= proc_ioam6_id_wide,
- 		.extra2		= &ioam6_id_wide_max,
- 	},
- };
--- 
-2.54.0 (Apple Git-157)
+Thanks
+Huang Shijie
 
