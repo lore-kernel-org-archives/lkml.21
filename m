@@ -1,79 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795394793;
-	b=B3UMaqh8zn4ixpuJXO92Q+S449jgxZx/gIEAXEZQrzomUn6tjX256GEGRu1GFULthZ4W
-	 10czId4J5oNWdik7I7OSwXYU2GLqXxAfQB5lRd+1hrc1KuN02GZBiTjXvBZ3V4/VkvKDN
-	 oTc2qVb4uGElFl8Wd17GUThryjUkQ/FoQJlKOI7I1dEep/UtUbRHMJ1/tBYAbDeleEUdo
-	 b9EVD3fW4rPJ7OzcAMqc3rGWeautJQtzaEyDAUBTKjUxH5hf6qkflr2gspZm+pG7Fjz3x
-	 t9AxzS9OK7wTMFsBM0FCK+Knn3jE6jfL3M2SMHcgCK5ntDfcEWuIMdQaBJpGrRq8ZXw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394793;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cwtYdg7Ff/aGghpLaQ6sVil8yrw30S9ZwzKbTVNyIbs=;
-	b=5hZnh74MQD+C2kLNvDzZPaRBPEuv3STENWpLzSCJXO0aTTwI36Dt2V9TvyvJAwYVGu/q
-	 2T9nH8LWTez4QybRNUOV/CmTXSDeUj1b0CmakfSxpMqnmRbAui4fsPyb5fT/W7pzh4j3i
-	 rMgB3TqE8j4Wj05OIM3WiC3K63ImwbdDkiVXY0X2mbg8bqL96zMGlEgiTizv5udlJlvee
-	 qag2dD+gPlJmeQ89YT3KFPExQ8qp7UB1aIope62n1YBM+ZJODboQkfX7awi7J4kjbhbEm
-	 AJElZcwZoJ2+rcdKpl8zpQ7yLBqbVqlgy7/pSCSH0jlgmiWr+F1F8FMVp4BRh81Unig==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lEYA2aED;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D12A8606A6B4;
-	Mon, 23 Nov 2026 00:46:33 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lEYA2aED
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795394793;
-	b=1rWInvMIkd0Cm9N8UranfPJk0O1MTRuX56zJp6lVL4VOQkyX2d1tPA6WruI0IDTHZFP3
-	 t7P1DlXX4dBUV/PDnct+00o8+zURWPL8ZuT1ws640kQoh+qegPhKnXAksKMZhuOzOelZY
-	 uagBKECcZ/bKEdrWDz0dC/GC26dtO6gbyddTONrCdRoXIVHvUBwQpWAqW0orRXrZ+bdsO
-	 szRu3n9ROnwpjR7bKl9B3cvPrn2XzIAKLRoZAsCVShnAKR3liqgexRad8jFWFJeDqeUzZ
-	 gTN0b8WhMArIlsvhjpDHkT6SjRpa5FnesqZiKVfDEsQio9Uk6hMAPABLi6XLxojdUBg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795394793;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cwtYdg7Ff/aGghpLaQ6sVil8yrw30S9ZwzKbTVNyIbs=;
-	b=cBVr0jU7sBkp5lDggSG1416hgqkdMvIhAqiljnYyZhA8hl8wcGD7P5N/jXF4wSdZB9vg
-	 HOu68fyvxSB1xCFTnHZGWowAR4/TI/sFlUwPaeyv0ShfQuxS7+Kg+pb1YCKeZBXkXF0JB
-	 P2HYa6rWSqifiBaOii605Su1YAmJCsHxT5LTouFJFJCi9qWEz1kxlntyvXj55k6BIK3Pa
-	 Hu/Sa9ui/H/H26GP7X0wLgmbsJivMSTadbnVRxsj8pOfWZgMrR8LTROOqbRPDv5MQoG3k
-	 rDw1mo78O8rk+xXJ2y17rDhiYFDWfzokrzT8CdFm24SBIgA9EWsTUtx34FHrf0RarHg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795394838;
+	b=Itz2A94EWVxrbyHWakxyi0yLPwbR54cQdaz7l+7Ih1GyLs80zh4ufZiibQ4s95/TQwGZ
+	 8mmCAuUYGZdv6FXmjg78f6vNtvnI012RQMG1JuGs0nnz3Nna84208ra9D40mi1PWjmrPh
+	 utyT2QFnw2/MlZaywxeHiXF7wZe4cT0O3wwusmWuoBYCk7mzugarAHDlPXanYTOIrwtqB
+	 i5RQnE1C1eS1ufEq1tXDfXvfYE4/0+KbO+BHs5N6CZdfoZ7+4znC7vN3z3G6hVw0EcWwL
+	 viYFrYG/y/kC2l9rtmLzK4OUwKnixWK0tOM6erl2EuXYtBw0G721DG1p+FTgmySuvYQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394838;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:From:To:Cc:Subject:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=p7B3c6D/X11fLUAKKmi13BRTcfCArxOmxqQgFnPzAxg=;
+	b=OcJwVBoOf0HoKNBlRoeqRAnJrYyedsrSki1XcHNrlJeQkqHQ1A6LfOmiH3KDTnHRZOX0
+	 R9GKWixqiZrXwx1jjIAXZeeRJvI0j66/DK7GYJjw9vpJBcGZB/9RPnIurNg67O5tuRSoZ
+	 4eJhfkmIufitNwe7+zwJxu7ZiRy4Muu+EeLzsaHj4kVRXgftNRzw2y+ZVJ1UDPsGzj8S1
+	 VGdwwZ0z7YqzyltuezKtGH3H/P7MCdjQ6MhYx3/o79zubMxABzRtbVwbZXKL1lMUcutn1
+	 lf/j42y7jrU32YNKZV8wwCIqwlmhYSzC2Q0LWLYZ97bwPQBQE5k7mdXZ1xYNxNFpODw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wfmQXoun;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CA3111F000D1;
-	Mon, 23 Nov 2026 00:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795394793;
-	bh=cwtYdg7Ff/aGghpLaQ6sVil8yrw30S9ZwzKbTVNyIbs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=lEYA2aED4l+8+lLkXoVdvsmdZDeso0ZgAYlP8Z6aILUYUTWNMEjyERFRyZiTKEEaQ
-	 VNioBWrGZe3O9o3IOiL9ZVQBzUI5dlyRcCdJ62thFpaORAnmbDRRCoBDk/T03r6qz+
-	 AMRqnMVAt8QBeko6Ax0Mc3uqbLY6aepIX/qo/AhlYvi1omIOZbPUfXKZlieOhQr37E
-	 oZFiWo+HrEPoiyjPuc5jaJMyvxqWacuiZC47FpQZqjXqG40PG9yFX6NCtOGwyoDOmH
-	 /Q0ZCcI0p1I/sR0wS8Z/zJav8PERiFJpOo6DHVYr8xlHm0NV4AcAMMs5RsQDLY6LGs
-	 adIapMlLBghBQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 5AD434C27C;
-	Mon, 23 Nov 2026 00:46:19 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Mon, 23 Nov 2026 00:46:13 +0000
-Subject: [PATCH net v8 1/5] net: phy: move irq_suspended and irq_rerun out
- of the bitfield
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E3D8606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:47:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E3D8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wfmQXoun
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f03920c477so23921215ad.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:47:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795394837; x=1795999637; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to
+         :subject:cc:to:from:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=p7B3c6D/X11fLUAKKmi13BRTcfCArxOmxqQgFnPzAxg=;
+        b=wfmQXounwgi2H0Qxd61oGE737FXdx3pXDGCOw5wqSvHmhLwHbMYTvLOPgZ1H4nzjgD
+         9xZkG+9qJCwNtxDlgINthLE2KrlkMUMLdkTfkRrxDnHg2/rRF6WcXNrtFZn/qVjya7pj
+         GmPnzJlTLY18Bw6jiB9/PWzaufJ/EuY1zR/bDY4BNg5qVHJ4zAEf5u4OYbZwir3oJJ5z
+         bWrI5gRmMuSG8UZAQ3EXEX981myLRid+1mc7xa3vIvUo30DDFi2XIQe6l+1+d/QDmIr1
+         g8buEHoa1fy3Al0T/O3pbPGiy5AkuwlrIPoraLH1Sm1u/V9h97CJmibvWCcdVsbF+KQD
+         Rxiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795394837; x=1795999637;
+        h=mime-version:content-transfer-encoding:references:in-reply-to
+         :subject:cc:to:from:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=p7B3c6D/X11fLUAKKmi13BRTcfCArxOmxqQgFnPzAxg=;
+        b=jnLRV+9F54QpGFQhcjZPXje1rl95QTfa753UvdXLldJzI6T72VU4nZLv3GIfuhYuwO
+         oS7gKKPr6TWlR5kWbJ5vv+Z2OaV10lagABC08bBimHodHOAKgADB1ihPlHiSzcTYkttz
+         hDJDwdC3TkGrVbCFxrE5SSSANmvir67qouZRA6rWFpzpTnc0gGsjLDfHyOVtDTuP6T8v
+         QatvXB/NyI+DpBXfCUuw9kdJY1U7Dq7fMXVGdobDjBgHFutO2akk/KK255VITg6vGdWE
+         pHGdYPykLaxGttvWSuTiQcAB121k3SQ6StRwO6eZgmyVXlEZYtjWn2pWm1PpSbxaQT3M
+         ZCWg==
+X-Forwarded-Encrypted: i=1; AL+hErFk/D7VdMHozzntVGFXcNQMwSx4UASGKn53WbWRUq2eW6VZwr8zAhJPbeeMUGuPbbMYnGaUAKLHUlALX6E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QBn9EaBJe6xQ4mlN6Vjt2oY46yNGseNOC6i245tIzCQGI0Bq0
+	1d9H7EAxNDiD3ZOTKEtLROSPXAoxWNahZLoYwwQP0XMCE/htMUPNRFHL
+X-Gm-Gg: AZFdTZcWk4m1zTrTm0YxBmtkkyOuVv/7jaZK76bie0pUlCOwD8uyweyxOFi7Pah63xp
+	wteB5aML9aKg4L8N7ndc2wRyXNCPPIx9MGaCY+ZIgRJqe6/nNrrQ9nHVgKN6piD3kfH+YNPRPS0
+	jZIvOUpeHOg0ZyQhjy3mp4HrjrhYX5YRPTgCQl4AEkEokjkBwLbzRY/QgEf2OdH7MPqBdhlTbFu
+	g4q7vxCe81WBy1FZSfzreXYpwgRxbYlu5nC3s7Zc9uj6YuLgu1oTgeErRYydlzXH801tvZCDY7Q
+	Znyjys7FmhuISvLAKglbP0n4lY5T8fVa4ZYh2/t4Dk6J5APp41StqCgmwljF62v07U3rOgnxqRv
+	wr20rdb1rccJNQpxuwMrswYZ+x8Tij16RVaWsHaa1CTydUTYD4eiiKeXVaIyipVV+X4mBFIxL7i
+	vHRYDWhyUHlPkhbN/Xmszr31aWxh/gLcp2Fo0DFvBJYFT9xq9nB9lTecxQkZbdFAjNKCZlbGtXx
+	tfZt5el2143uLM5aZ+sAlBsozDCxBbjvXCwZ6x3iVGiuL7lvRSNXhm0u9FRApwRU/2sXQXj2J+J
+	kz23rcYuxZYViH4DboYv7GtBuCosdeSfE6lk9+80Wp1bUamweIX6gUpmnc2v0Md//84ZldBr4C+
+	O1ptk8qu59UBVHm7I5KQWeUlMxDAJkAMAaA==
+X-Received: by 2002:a17:90b:288e:b0:3b3:ec88:72a6 with SMTP id 98e67ed59e1d1-3b41c85284amr8792429a91.3.1795394836739;
+        Sun, 22 Nov 2026 16:47:16 -0800 (PST)
+Received: from localhost ([153.61.198.253])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm15471631a91.1.2026.11.22.16.47.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 16:47:16 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 00:47:15 +0000
+Message-Id: <DN26CP5BB6O7.23ALW6CZUBYSD@gmail.com>
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>, <bpf@vger.kernel.org>
+Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
+ Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, "Shuah Khan" <shuah@kernel.org>, "Tejun Heo"
+ <tj@kernel.org>, "Johannes Weiner" <hannes@cmpxchg.org>,
+ =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, "Shakeel Butt"
+ <shakeel.butt@linux.dev>, "Waiman Long" <longman@redhat.com>, "Jiayuan
+ Chen" <jiayuan.chen@linux.dev>, "Puranjay Mohan" <puranjay@kernel.org>,
+ <cgroups@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-kselftest@vger.kernel.org>, <linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH bpf-next] selftests/bpf: Disable preemption around
+ css_rstat_updated()
+In-Reply-To: <20261121082843.44614-1-kmehltretter@gmail.com>
+References: <20261121082843.44614-1-kmehltretter@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,138 +112,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-b4-phylib-mac-pm-irq-v3-v8-1-e9f706e79614@iav.lv>
-References: <20261123-b4-phylib-mac-pm-irq-v3-v8-0-e9f706e79614@iav.lv>
-In-Reply-To: <20261123-b4-phylib-mac-pm-irq-v3-v8-0-e9f706e79614@iav.lv>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, linux-pm@vger.kernel.org, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Lukas Wunner <lukas@wunner.de>, 
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
- Wei Fang <wei.fang@nxp.com>, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- Paul Barker <paul@pbarker.dev>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Doug Berger <opendmb@gmail.com>, 
- Thangaraj Samynathan <Thangaraj.S@microchip.com>, 
- Shenwei Wang <shenwei.wang@nxp.com>, 
- Haoning Cheng <Haoning.CHENG@cn.bosch.com>, netdev@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3375; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=Qlv4+bRQfcVjpy/H1IULOONZkAOElJ21mxexa2OAmIQ=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDNnMPTdE2as3+Wz1+snBbVkw3d149aXaP6y310zd4fZb6
- 8PplCMdHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BeAiXYwMPe86jaxZMwWt7kaY
- KDy6Kndg4sdes84CicKb0w6kiWWxMPwPSeXYYC8f/ik+yHjeQWcOu1fHFwetX+1hcb3IfHrIi0u
- sAA==
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Reply-To: iav@iav.lv
-Content-Transfer-Encoding: 7bit
 
-From: Igor Velkov <iav@iav.lv>
+On Sat, Nov 21, 2026 at 12:28 AM Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> trace_cgroup_path_lock. On PREEMPT_RT this leaves preemption and
+> interrupts enabled. On non-RT it masks interrupts, satisfying the
+> assertion.
 
-irq_suspended and irq_rerun share a word with link, autoneg_complete
-and interrupts. phy_interrupt() sets irq_rerun from the IRQ thread
-without phydev->lock, while the state machine writes link and
-autoneg_complete under it and phy_request_interrupt()/
-phy_free_interrupt() write interrupts, so one read-modify-write can
-undo another. A lost irq_rerun leaves the PHY interrupt disabled after
-resume, as phy_interrupt() has already disabled the line.
+let's fix the kfunc instead
 
-The last patch of this series sets irq_suspended for PHYs whose MAC
-driver manages PHY PM; with stmmac that happens before the MAC stops
-the PHY, which widens the window.
-
-Taking phydev->lock in phy_interrupt() alone does not close it:
-phy_suspend() stores suspended in the same word and cannot hold the
-lock across phy_may_wakeup(), which may take it, and phy_init_hw() and
-mdio_bus_phy_suspend() write the word unlocked too. Locking every
-writer, MAC drivers included, is a wide audit, and one missed now or
-added later reopens the race.
-
-Make both flags bools.
-
-Fixes: 1758bde2e4aa ("net: phy: Don't trigger state machine while in suspend")
-Tested-by: Haoning Cheng <Haoning.CHENG@cn.bosch.com>
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
- drivers/net/phy/phy.c        | 2 +-
- drivers/net/phy/phy_device.c | 6 +++---
- include/linux/phy.h          | 7 +++++--
- 3 files changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
-index fce9bc7be330..9af303d60bd6 100644
---- a/drivers/net/phy/phy.c
-+++ b/drivers/net/phy/phy.c
-@@ -1430,7 +1430,7 @@ static irqreturn_t phy_interrupt(int irq, void *phy_dat)
- 				pm_wakeup_dev_event(parent, 0, true);
- 		}
+diff --git a/kernel/cgroup/rstat.c b/kernel/cgroup/rstat.c
+index de816a4..d72fe72 100644
+--- a/kernel/cgroup/rstat.c
++++ b/kernel/cgroup/rstat.c
+@@ -131,6 +131,7 @@ __bpf_kfunc void css_rstat_updated(struct cgroup_subsys_state *css, int cpu)
+ 	if (unlikely(cpu < 0 || cpu >= nr_cpu_ids || !cpu_possible(cpu)))
+ 		return;
  
--		phydev->irq_rerun = 1;
-+		phydev->irq_rerun = true;
- 		disable_irq_nosync(irq);
- 		return IRQ_HANDLED;
- 	}
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index b39e945cebd7..1791d578f4dd 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -344,7 +344,7 @@ static __maybe_unused int mdio_bus_phy_suspend(struct device *dev)
- 	 * has resumed. Wait for concurrent interrupt handler to complete.
- 	 */
- 	if (phy_interrupt_is_valid(phydev)) {
--		phydev->irq_suspended = 1;
-+		phydev->irq_suspended = true;
- 		synchronize_irq(phydev->irq);
- 	}
- 
-@@ -394,14 +394,14 @@ static __maybe_unused int mdio_bus_phy_resume(struct device *dev)
- 		return ret;
- no_resume:
- 	if (phy_interrupt_is_valid(phydev)) {
--		phydev->irq_suspended = 0;
-+		phydev->irq_suspended = false;
- 		synchronize_irq(phydev->irq);
- 
- 		/* Rerun interrupts which were postponed by phy_interrupt()
- 		 * because they occurred during the system sleep transition.
- 		 */
- 		if (phydev->irq_rerun) {
--			phydev->irq_rerun = 0;
-+			phydev->irq_rerun = false;
- 			enable_irq(phydev->irq);
- 			irq_wake_thread(phydev->irq, phydev);
- 		}
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 21afc2082b17..59c75296d535 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -726,8 +726,11 @@ struct phy_device {
- 
- 	/* Interrupts are enabled */
- 	unsigned interrupts:1;
--	unsigned irq_suspended:1;
--	unsigned irq_rerun:1;
-+	/* Not bitfields: phy_interrupt() and the PM callbacks write them
-+	 * without phydev->lock
-+	 */
-+	bool irq_suspended;
-+	bool irq_rerun;
- 
- 	unsigned default_timestamp:1;
++	guard(preempt)();
+ 	__css_rstat_updated(css, cpu);
+ }
  
 
--- 
-2.43.0
-
-
+pw-bot: cr
