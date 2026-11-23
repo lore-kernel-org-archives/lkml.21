@@ -1,59 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=157.90.84.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437403;
-	b=xkrgqB4CEweaK3OfPotSgEXClQC/cdiGhpSXQwoWTlysiq6zkNuaGUzw0Nnk5RXl6f4O
-	 eUx3xyc4wKuYV4e8QZEy87Zegk/k7yvtUOoEZb/vnWkUQn0lT/Kicn1ZIQqKp1POiESTs
-	 qQsh3SSye3b4BHo8NjH5/WiZ0fIPb9HIe0JVBNsidtskR4EjY6e9kbDRcafjib0mforhU
-	 O6tey/cUaT/keQk4Qk6kl9kph0xf8WpJ++iHQmMQyNYm7VpVPG8i6lWvBGlyTlD6dR4ZG
-	 jdutvF42Cd9b7v/lYwkJmk39tyBuRbhMcM4aliDlsyZWag/eB5l9xQkcoEzF0t4Sc7Q==
+	t=1795437409;
+	b=w2CwNJdcFlChC3iGnFxQkrgNHDVbZ1u+B6j7QNHTTB33CgkgUJeEUmgQb4bqe6mPrGCK
+	 Oroksnes0Z5Lcslyq7y8buSAgyqlmOHZGFF9O1j8A2nMfUeeQK7VrvlnFigaPKqlBGpJK
+	 znWBCEG2fNVI5cy1RhM7aCVZsCG22gXX6mS8DMyf5YWthwTliZKnY5+ACafgEtWFSwSc5
+	 pWMkI6HdPaKbsGx20eoP+zY4hPELqXLG9PwT8otTUvISelzlrpZ/gR7+D03Qxc7aUXA3j
+	 OXJ9xC7lNLYyczOw+KC3RShMSW7AsnNKo934bkMI9kLeloDwZZwcUF19P23b6sJwEkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437403;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=RcfCnrZOkRa2FxDbd/xz35KCsZvIVfnVJFvLRnPvNAs=;
-	b=0ARIINaB7Wifh/Hsbb4LA2DXvyJlAywpzRB42azHj4Y6fD7Gb8FYJApWx3kgzCXvpB+y
-	 B47nHYDgnwn1CEDkpOlLDsZhYMY8/0VHo+AzIEim/4Y41NyJrZZQ18sGijszjkTW2lc+W
-	 sdDqgNHQRm7I8O0snw+ZuEesqrdWF/R5pev32mDkL3B5KjBHM/3Ks0K8BsdUmQ+gReOzN
-	 FKsJv9GET2aTbxsB7OSIRJztAxz/I5MuNK/oRYu4EfCq82ka7iefuNEn9ZJe/PyzrHJD+
-	 aS6WpJ29VHfXk+BJHf6CHImkNetb6cBJvQXnIhRtd+pQQuPU7WP/mjNwQ5jaS1W8TbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437409;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=aZULuFGfR20WLnUBRKpi0zNnosUrXLsUQp77Bob/cn0=;
+	b=UHnNQdN4q4+G1sRbyfoa/+VHdf6Zkcd0Cokxd+BApr3J5cjXj72X/Opgjv+vi+yXNo6/
+	 nMX6yvknjmULKn8Z7Ue+is8XbbtKgN20vI2wZdFMJcGC8PF/l7ofDbzRV/CKC4R48xGWX
+	 x6cUAEfsiU/7nfs4XBPQqqb9vpvothVhEb9QREEKZ36CdphP/p8+zjLCJfPlB33C/z47Q
+	 RdmepG1j0BEExBJUpYFX50UvGuM8P1X1XWzTALtIQ/oM89l/aykBiQW++A8oV85VMF/Tl
+	 vLWW/d5t0nbhVJH8cnEi+69WFBZExNuTZls+OFZWI9SK8PJWKjOz9iAxtM1gYea08Zg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A0BPR2u+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=tuxedocomputers.com;
+	spf=pass smtp.mailfrom=tuxedocomputers.com;
+	dkim=pass header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=j0WVyS9X;
+	arc=none smtp.remote-ip=157.90.84.7
+Received: from mail.tuxedocomputers.com (mail.tuxedocomputers.com [157.90.84.7])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EA66606A32C;
-	Mon, 23 Nov 2026 12:36:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FA25606A6BC;
+	Mon, 23 Nov 2026 12:36:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FA25606A6BC
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tuxedocomputers.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tuxedocomputers.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A0BPR2u+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B435C1F000D3;
-	Mon, 23 Nov 2026 12:36:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795437403;
-	bh=RcfCnrZOkRa2FxDbd/xz35KCsZvIVfnVJFvLRnPvNAs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=A0BPR2u+dDWQ54Ewu6NpAaXhhhC13gRsvUJvNNvLtY07mLj+zxKE8v4WoiFSYuPWM
-	 Qya2srnj82fluEsenjpnv17VJmne35JAefie7mjDqCUAxvGmmPGA37yWrwwevx23aV
-	 +9wgldEMW7wkgxcgqlbJlFpA7vhpOw4Tq0lCAwdyHiUcr86wlE5AdurPtGvoPLwewM
-	 Ujnmxwuft/58Rfq/zncCO/9u0AR1hHqDCOH0/SL5L1M/z9Ai/SVvu8/etkEZic5HgI
-	 8X+WEp64S3xgILiB3OfRwhi984pqBX5xBMj+STXqHQUxp28Qd+6oaKZgyZ0kd1BghN
-	 6/0mys/xebscw==
-Subject: Re: [PATCH net] phonet: do not autobind a socket to port 0
-From: netdev-bot+sashiko@kernel.org
-To: amisiurov@cloudlinux.com
-Cc: courmisch@gmail.com, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- zhangdandan@uniontech.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 12:36:42 +0000
-Message-ID: <179543740229.3135.7763014717205061989@kernel.org>
-In-Reply-To: <20261119122127.1708071-1-amisiurov@cloudlinux.com>
-References: <20261119122127.1708071-1-amisiurov@cloudlinux.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=j0WVyS9X
+Received: from [10.10.12.8] (business-024-134-105-141.24.134.pools.vodafone-ip.de [24.134.105.141])
+	(Authenticated sender: wse@tuxedocomputers.com)
+	by mail.tuxedocomputers.com (Postfix) with ESMTPSA id 171152FC0049;
+	Mon, 23 Nov 2026 13:36:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tuxedocomputers.com;
+	s=default; t=1795437406;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aZULuFGfR20WLnUBRKpi0zNnosUrXLsUQp77Bob/cn0=;
+	b=j0WVyS9XNEwULcbxeyO2qiAWSEe5ARR88HvjfXkm7nFR0LQS+4JwcfZkZ9tOjs3N7cD0V4
+	iunF5PjyQRNmZUDKN7KTSuxfzxWnqkaahx3qAOz+vqHliSP2d0aofz5HxmL4OwegzRTgEz
+	UKLxLGSmOtAq6VN/tXxzSZQPFYZq07o=
+Authentication-Results: mail.tuxedocomputers.com;
+	auth=pass smtp.auth=wse@tuxedocomputers.com smtp.mailfrom=wse@tuxedocomputers.com
+Message-ID: <5b1f2805-e1a1-4f06-a5b3-b0644daff5cd@tuxedocomputers.com>
+Date: Mon, 23 Nov 2026 13:36:45 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,148 +60,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] platform/x86: uniwill-laptop: Remove cTGP control from
+ unsupported devices
+To: Armin Wolf <W_Armin@gmx.de>, Hans de Goede <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261113144749.59958-1-wse@tuxedocomputers.com>
+Content-Language: en-US
+From: Werner Sembach <wse@tuxedocomputers.com>
+In-Reply-To: <20261113144749.59958-1-wse@tuxedocomputers.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The Fixes: tag points to the wrong commit.
-- [Medium] The commit message says the crash is "deterministic and
-  triggerable by an unprivileged socket".
-- [Low] After this patch the sysctl and the allocator disagree about port
-  0.
-
---
-
-phonet: do not autobind a socket to port 0
-
-This patch makes pn_sock_get_port() skip port 0 when it searches for a
-free port during autobind. Without it, a net.phonet.local_port_range that
-starts at 0 lets a socket be hashed with sobject == 0. The next walk of
-hash bucket 0 then hits BUG_ON(!pn->sobject) in pn_find_sock_by_sa().
-
-> It is deterministic and triggerable by an unprivileged socket. Skip port 0
-> when searching for a free port; 0 is reserved for the unbound state and must
-> never be handed out.
-
-[Severity: Medium]
-
-Is the "unprivileged" part accurate? pn_socket_create() refuses to create
-any AF_PHONET socket without CAP_SYS_ADMIN in the initial user namespace:
-
-net/phonet/af_phonet.c:pn_socket_create() {
-    ...
-	if (!capable(CAP_SYS_ADMIN))
-		return -EPERM;
-    ...
-}
-
-Port 0 is also only a candidate after a range starting at 0 is written to
-net.phonet.local_port_range. That sysctl is registered only in init_net,
-with mode 0644:
-
-net/phonet/sysctl.c:phonet_sysctl_init() {
-	phonet_table_hrd = register_net_sysctl(&init_net, "net/phonet", phonet_table);
-    ...
-}
-
-The default range is DYNAMIC_PORT_MIN..DYNAMIC_PORT_MAX (0x40..0x7f), which
-does not include 0.
-
-The incoming packet path in the commit message also needs a socket already
-hashed with sobject 0, so it needs the same setup.
-
-So the crash seems to need init namespace root to set the range, plus a
-process with CAP_SYS_ADMIN. This commit message came out of a CVE backport
-review. Could it state the privilege requirements more precisely?
-
-> Fixes: 5b0c911bcdbd ("net: phonet: do not BUG_ON() in pn_socket_autobind() on failed bind")
-
-[Severity: Medium]
-
-Is this the right commit for the Fixes tag? 5b0c911bcdbd only changed the
--EINVAL handling in pn_socket_autobind():
-
-	if (err != -EINVAL || unlikely(!pn_port(pn_sk(sock->sk)->sobject)))
-		return err;
-
-The port 0 crash described here never takes that branch. With
-local_port_range set to "0 0", the first autobind succeeds:
-
-pn_socket_autobind()
-  pn_socket_bind()
-    pn_sock_get_port()    port_cur == 0, nothing found in bucket 0
-    pn->sobject = pn_object(0, 0) == 0
-    sk->sk_prot->hash()   socket hashed into bucket 0
-  returns 0
-
-On the next autobind, this check in pn_socket_bind() still passes, because
-pn_port(pn->sobject) is 0:
-
-	if (sk->sk_state != TCP_CLOSE || pn_port(pn->sobject)) {
-		err = -EINVAL; /* attempt to rebind */
-		goto out;
-	}
-
-get_port() then walks bucket 0 again and hits BUG_ON(!pn->sobject) in
-pn_find_sock_by_sa(). The code before 5b0c911bcdbd takes exactly the same
-path.
-
-The search loop and the BUG_ON() go back to ba113a94b750 ("Phonet: common
-socket glue"). The configurable pmin/pmax in pn_sock_get_port() and the
-local_port_range_min of {0, 0} come from 87ab4e20b445 ("Phonet: proc
-interface for port range"). Both are from 2008.
-
-Should this be the following instead?
-
-Fixes: 87ab4e20b445 ("Phonet: proc interface for port range")
-
-The current tag suggests only kernels with 5b0c911bcdbd are affected. That
-matters for stable routing.
-
-> diff --git a/net/phonet/socket.c b/net/phonet/socket.c
-> index ad12b746d4fca..eaa7d6a228f25 100644
-> --- a/net/phonet/socket.c
-> +++ b/net/phonet/socket.c
-> @@ -490,6 +490,8 @@ int pn_sock_get_port(struct sock *sk, unsigned short sport)
->  			port_cur++;
->  			if (port_cur < pmin || port_cur > pmax)
->  				port_cur = pmin;
-> +			if (!port_cur)
-> +				continue;
-
-[Severity: Low]
-
-This isn't a bug, but the sysctl and the allocator now disagree about
-port 0. net/phonet/sysctl.c still allows 0 as the lower bound:
-
-static int local_port_range_min[2] = {0, 0};
-
-proc_local_port_range() passes that as .extra1 to proc_dointvec_minmax().
-Its only other check is range[1] < range[0], so writing "0 0" still
-succeeds.
-
-After this change, that range has no usable ports. The loop runs once,
-skips 0, and pn_sock_get_port() returns -EADDRINUSE. sendmsg, connect and
-listen on unbound sockets then fail through pn_socket_autobind(), with
-nothing pointing at the configuration. A range of "0 N" quietly behaves
-like "1 N".
-
-The commit message says 0 "must never be handed out". Would it make sense
-to raise local_port_range_min to {1, 1}, so the write is rejected, and keep
-this skip as a backstop? That would make writes of "0 N" return -EINVAL,
-so it may be a call for the maintainers.
-
->  
->  			pn_sockaddr_set_port(&try_sa, port_cur);
->  			tmpsk = pn_find_sock_by_sa(net, &try_sa);
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119122127.1708071-1-amisiurov%40cloudlinux.com
+Am 13.11.26 um 15:47 schrieb Werner Sembach:
+> Some devices like the InfinityBook Pro series have Dynamic Boost support,
+> but the cTGP setting is actually ignored.
+>
+> This commit adds the ability to still initialize DB, but hide the noop cTGP
+> sysfs attribute and applies this to the respective devices.
+>
+> Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+> ---
+>   drivers/platform/x86/uniwill/uniwill-acpi.c | 26 ++++++++++++++-------
+>   1 file changed, 17 insertions(+), 9 deletions(-)
+>
+> diff --git a/drivers/platform/x86/uniwill/uniwill-acpi.c b/drivers/platform/x86/uniwill/uniwill-acpi.c
+> index e2a6a704e942e..c0a75bc6e66db 100644
+> --- a/drivers/platform/x86/uniwill/uniwill-acpi.c
+> +++ b/drivers/platform/x86/uniwill/uniwill-acpi.c
+> @@ -366,10 +366,12 @@
+>   #define UNIWILL_FEATURE_PRIMARY_FAN		BIT(8)
+>   #define UNIWILL_FEATURE_SECONDARY_FAN		BIT(9)
+>   #define UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL	BIT(10)
+> -#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(11)
+> -#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(12)
+> -#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(13)
+> -#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(14)
+> +/* Mutually exclusive with the cTGP control feature */
+> +#define UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY	BIT(11)
+just realized something i forgot: this mutual exclusivity must be added to the 
+force parameter. v2 incomming
+> +#define UNIWILL_FEATURE_USB_C_POWER_PRIORITY	BIT(12)
+> +#define UNIWILL_FEATURE_KEYBOARD_BACKLIGHT	BIT(13)
+> +#define UNIWILL_FEATURE_AC_AUTO_BOOT		BIT(14)
+> +#define UNIWILL_FEATURE_USB_POWERSHARE		BIT(15)
+>   
+>   enum usb_c_power_priority_options {
+>   	USB_C_POWER_PRIORITY_CHARGING = 0,
+> @@ -1004,7 +1006,9 @@ static int uniwill_nvidia_ctgp_init(struct uniwill_data *data)
+>   {
+>   	int ret;
+>   
+> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
+> +	if (!uniwill_device_supports_any(data,
+> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
+> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
+>   		return 0;
+>   
+>   	ret = regmap_write(data->regmap, EC_ADDR_CTGP_DB_CTGP_OFFSET, 0);
+> @@ -2577,7 +2581,9 @@ static int uniwill_suspend_usb_powershare(struct uniwill_data *data)
+>   
+>   static int uniwill_suspend_nvidia_ctgp(struct uniwill_data *data)
+>   {
+> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
+> +	if (!uniwill_device_supports_any(data,
+> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
+> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
+>   		return 0;
+>   
+>   	return regmap_clear_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
+> @@ -2686,7 +2692,9 @@ static int uniwill_resume_usb_powershare(struct uniwill_data *data)
+>   
+>   static int uniwill_resume_nvidia_ctgp(struct uniwill_data *data)
+>   {
+> -	if (!uniwill_device_supports(data, UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL))
+> +	if (!uniwill_device_supports_any(data,
+> +					 UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
+> +					 UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY))
+>   		return 0;
+>   
+>   	return regmap_set_bits(data->regmap, EC_ADDR_CTGP_DB_CTRL,
+> @@ -2910,7 +2918,7 @@ static struct uniwill_device_descriptor phxtqxx_phxagxx_phxaqxx_phxpgxx_descript
+>   		    UNIWILL_FEATURE_GPU_TEMP |
+>   		    UNIWILL_FEATURE_PRIMARY_FAN |
+>   		    UNIWILL_FEATURE_SECONDARY_FAN |
+> -		    UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL |
+> +		    UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY |
+>   		    UNIWILL_FEATURE_USB_C_POWER_PRIORITY |
+>   		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT,
+>   	.kbd_led_single_color = true,
+> @@ -3106,7 +3114,7 @@ static int phxarxx_phxaqxx_probe(struct uniwill_data *data)
+>   
+>   	if (value & HAS_GPU)
+>   		data->features |= UNIWILL_FEATURE_GPU_TEMP |
+> -				  UNIWILL_FEATURE_NVIDIA_CTGP_CONTROL;
+> +				  UNIWILL_FEATURE_NVIDIA_DB_SUPPORT_ONLY;
+>   
+>   	return 0;
+>   };
