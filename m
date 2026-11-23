@@ -1,107 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.72
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795443543;
-	b=wobuxwrN95w1hpwevrjj6TOJB+fjSx3lbiLSP/WeE0uLDKglqWJTDurc9W7oqKmvCrtI
-	 OVu2170lveMqkrdIzJlBxnVK5SO3X1D4c0ZFJufRF8OsjuedRytwig5HHWVCS3NGe5zSl
-	 3SYrK+eCAZbpmSwp2vJ+MGsiP/Kxn/2HZuDlQcO9ybvPV2bLbPVcJi+mdnszqy5pDr3iG
-	 KsQdSAA2RCBMi5RW07gYpXmRsB281L2uDeTkrtDxQT3QxkQsmVp3xtpZLsJxPQMBnBdNW
-	 xOlMDb1eDo0NKLZnOQ+EzFZ8RXtO1kZ45zNS+i1ruKkoFlDTYPD/KyLdybJHzGTR2gw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443543;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:X-Mailer:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=q34xX59zX1LaQiAeWW/cxKkFi9xJPHaqUREKMIKSeh0=;
-	b=NhYIM1aKrYxZCIvLhvJDBomNuqD8B0nqyIX6xX7RIhijzPwCZQuizrlq7egBdT76kxRG
-	 cfcIoXv7v3cydoi8WTbaNcQ5r59c0m7Kyc3Fq1nSklZznZR+SPjH1js55Vm1Q6iOPtMTD
-	 rSDS07CG10c1FyU1rRhyR5EPiQBOrRwe5CFEHRy7/GiIGr6jkg1dMCaZYA2DJ2s4K7rWT
-	 lj4pJnEiOHSkD6Sv7Nh6QNZM5y921Qx0veRykRd/xB6U2xJoEYbzxCUYqLQN7bRHQ/6IH
-	 o9zYnz2DvVOSFQx3rgOw+sNmrmQbidLOvTphrt+W+VvYUWjJIINsigNmb4+lmN3EgQw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=santannapisa.it;
-	spf=pass smtp.mailfrom=santannapisa.it;
-	dkim=pass header.d=santannapisa.it header.i=@santannapisa.it header.a=rsa-sha256 header.s=selector1 header.b=0AJbl+fq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.72
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11021072.outbound.protection.outlook.com [40.107.130.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795443551;
+	b=lC418r/3KXEqN6UlQZObR+1nWoZwfWnfwcJuXdUTHZtneXnDWfz7WqQnBiUozCxDFbge
+	 7qt89YxF0vnE/Y95F+s2WmGacNvA4ZnD5Xcjc4QGkSZESUTGD4ZgCmAJGukDAP5MBNQ+I
+	 mp0h09rzhYQrdImd3OlErj815bEsdvL4nrdsQq5/Yeg7mrFb0qsdrmz18WcunquBq9zBD
+	 mjU9yFw0moVnpT/Hl5xVLWVX/TLoIynrOFAgm/eF54BhZBiOZbvZ4mKQSHfkgG4gVJgg/
+	 4FrDBLZpN4d5j5RzncbDkulTnOLiPel5HrhsoBoexQXN4R8knrLt4A5A1o1V+PiMK0Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443551;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=77msjR0dRhdtgIkE1HozDHoWzLE9oPsBqEtLLPC0LPg=;
+	b=tlvYMv7/N3NEvknx/vIfZN9ZZ/MQczF5hSG7TO7c+JFLlqi7iEZl+gWPS7ipahR0CiZk
+	 ovNoYLi0tvUbL2wDEl47mZkcR1TNtcDpp+AlAccPCo5VYbz8bZmD1l2WqDJZX6pOOIrya
+	 Tz4FUB4w60cGLZ1R6118DWJS75ojua+LxWI16W+rutgldW1bKF0PQ7wXiJi4P6dXEDgpy
+	 /kBLGlBySjezC7ZsYR3dxMl11laoQqPPf4Uj0jaKMPXHOvqe4GlDv6OrT2AXeQDTynQc9
+	 P6yfO5BR606t9bNRDfxW6Rkbkui52I8MoiH24xDMdNmPDlRCm7zeWjmqmFzkkvlepYw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Aiz3ba6N;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D750606A689;
-	Mon, 23 Nov 2026 14:19:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D750606A689
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=santannapisa.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=santannapisa.it
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79857606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:19:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79857606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=santannapisa.it header.i=@santannapisa.it header.a=rsa-sha256 header.s=selector1 header.b=0AJbl+fq
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ItnoK8AHhwC4/JRr/N5wdra/wfojF1WVGocF2JgVubQOv1NAV6c7umRz1VBTwWTBfCnSu1TteSi9uphGptEsz9bKGS5AhZCGJH8gtBf6K9mdk4SUi9fy3AiTHPDtSFelF2uL7k9b6SWSPjTodPx7PcoSB5f08tq/UxfriRyBiSVi2hoULUVXwJY762lX1GhuB0NmdfPsXkjqWXufBTqORD4vsGPbACw3ZlJE/dUND2nalrN8/7TS7ExuZXcmQTl5HaSXs1RHK7J/Xf/TPBZ/SSy4Vb9Gv+2lXVD5pzKAjTjLzEze9pXYDp3MerhGIFCtfBcmpajYTUV6mb/Secja8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q34xX59zX1LaQiAeWW/cxKkFi9xJPHaqUREKMIKSeh0=;
- b=m6cdc02wk6jL0dAU0GxcB+aSq6ldbp0o5Nh/spFVfR8ttsbuw/gRxojA5Qa7HkdCtzm1P+HjEVPMxFr0iiSophd0FwJ41dQIVNDki+TwIks3rxByCMKCKaneMvDZJxmnZmZXKAhupSj94DMSvz6tRy/6ZqGAe3Tl0tR3YLVaz2n4fWCScFBZ/9IrCA8Ch8wJqjYfCxReL9t2/Xp5lSpeoKEzlzeZ3aUt0elkGa056L1XJk73wuZgNBQm9VpvGwM/cQEP71VBmOTFq1ekqr7ldMvOcNWcQDHSGMijZPTPMZWlqnG5L48bzx5oLVZgfFWolfbGD8w0QOdtHUHSWYNqHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=santannapisa.it; dmarc=pass action=none
- header.from=santannapisa.it; dkim=pass header.d=santannapisa.it; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=santannapisa.it;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q34xX59zX1LaQiAeWW/cxKkFi9xJPHaqUREKMIKSeh0=;
- b=0AJbl+fqVdaisrt/lQBhYGE4Kgb4UotASFvcGqKm8r0P6gFigpPp3THzv7vmYZm2+f2fuVVoUIZNda27OtY8g1NnwYzb6omSpUtPkgSkNl4jOT9q4o8xsbuZ+zAz3bm3K0JCgOCn0hqIQHXUYngc4HcO+XPDD0pTmZpaB616Sa8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=santannapisa.it;
-Received: from DU0PR03MB8960.eurprd03.prod.outlook.com (2603:10a6:10:477::11)
- by AS2PR03MB9073.eurprd03.prod.outlook.com (2603:10a6:20b:5f8::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 14:18:51 +0000
-Received: from DU0PR03MB8960.eurprd03.prod.outlook.com
- ([fe80::ffcf:20ef:45eb:6668]) by DU0PR03MB8960.eurprd03.prod.outlook.com
- ([fe80::ffcf:20ef:45eb:6668%5]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 14:18:51 +0000
-Date: Mon, 23 Nov 2026 15:18:46 +0100
-From: luca abeni <luca.abeni@santannapisa.it>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: Tejun Heo <tj@kernel.org>, Yuri Andriaccio <yurand2000@gmail.com>,
- bsegall@google.com, cgroups@vger.kernel.org, dietmar.eggemann@arm.com,
- hannes@cmpxchg.org, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org,
- mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com, peterz@infradead.org,
- rostedt@goodmis.org, vincent.guittot@linaro.org, vschneid@redhat.com,
- yuri.andriaccio@santannapisa.it
-Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
-Message-ID: <20261123151846.3fdcbf4e@linux.fritz.box>
-In-Reply-To: <awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
-References: <212c244d534ee1fdb0538a980789e16c@kernel.org>
-	<20261111175657.250354-1-yurand2000@gmail.com>
-	<58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
-	<20261119151416.33f90a64@linux.fritz.box>
-	<471bf8d446becabfca00041fb2a78067@kernel.org>
-	<20261120120659.2e902463@linux.fritz.box>
-	<6fef47e08a37079c08806b3c57994778@kernel.org>
-	<20261120212418.10221f2e@linux.fritz.box>
-	<06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
-	<20261123084345.4e24e3ca@luca64>
-	<awQTy09VbrDn9RpA@jlelli-thinkpadt14gen4.remote.csb>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.53; x86_64-suse-linux-gnu)
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MI3PEPF00008C05.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:298:1::467) To DU0PR03MB8960.eurprd03.prod.outlook.com
- (2603:10a6:10:477::11)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Aiz3ba6N
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3869b68caecso4373156eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:19:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795443550; x=1796048350; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=77msjR0dRhdtgIkE1HozDHoWzLE9oPsBqEtLLPC0LPg=;
+        b=Aiz3ba6NsmaeRbQcZ6/Q1I0oHuDrwWVVieSVGHRkcO0r9jA8e0BL3y6yZ8hhS2ddhR
+         f25FWw34JxqBwfF4bBgM8tlog1DJJ6bMg1ZkWQNy4eSOXllpr1w3//P7+y1Oh6hSukR+
+         NJXu3/OMF+AaU6kwGbRT10e4PcJcjWTxtdpgDL6/Qr3EhID+l6/EFf7nzIEN4UfnwDwd
+         kP18OG6Cc3dsQYL5i0wP3OYd3peFhHuyb1kVQkHp9GxOWLsHO3GhcaH0AaNlVCm2469/
+         pO7xOd4Eq9x6OI6ltcyQii4n/OkbISgcjVfOER/1vAU2EiWVhliUF/7XS5ZrhdvClRCu
+         pECg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795443550; x=1796048350;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=77msjR0dRhdtgIkE1HozDHoWzLE9oPsBqEtLLPC0LPg=;
+        b=Rn4N1r7LpmIxU0vnfB/i7A2He13o4vxrn+/82K00jmz3zGsfuwsGvHgafcgsai/whO
+         2tJoy+iqagGJHuNyqlolg3YXmRypiDDq5lOTNffFP41LuoOV284ULLkVglTqywSmtpz2
+         vDFgzk9IhvnA6fG1GCo6/EmPFewlJI08+p3m2a6audVcjc/jPG6XoxgaSwvDodCQrmm8
+         L/uwYxRpG8d2VpzQUs823dhB6GEg5JkMcS4ZCoHzTPyGyq6JtRFg75wB1iO2q1vkPtMs
+         KdEzGK/jFzt4oGYAgMI8zWFtZk5ofU04DXnzBzC4gpag+zPUlISJcN1E3zK3AT91ja+X
+         fjTw==
+X-Gm-Message-State: APuU4Z9n3JF+nRjDozbNZJCMOQ74Dk815N6ddmf692ozXgaWj3TXjpfY
+	8r/iK298m/JfI2vC5IhwsTg9GbgqxcYaOJxLPW1IJyA3VhT8zeYlnVlk
+X-Gm-Gg: AZFdTZdMvNwMbl4H1l7oLMWF/tEO4gmOyVguLynFaYcKc07SBD3R1tPA1mjzm2wkdhe
+	vfGBpoXrqUGNaD5JtvrS8LalCxckdI1OOoSpOem2H6FOWz9N2pYX/EuhmWwhHqkjdVcI9TGJNKj
+	lkEsxu5HLaf1jB3G9u/N9g3w+oZv1w1Vwds58mzTLEY4vJOf3qIUHHBr+HE+lzNIhgw+SFy6KI0
+	CTm6p6GRRr3fyvl0ZaGny/PBdAWTomaPsGEHM1FUQvDsuLz81fbP53IsiprcfInD0P+zZE+7ru8
+	YrT1d/4kXPhymELWJYHCWBvrtqNxmFG8gFvsXZZN+pVvzdxTnsux+M2FHPFiLrtmJM1Q3YE7V6p
+	YyPKQHdFmy0Nqq9Bl/TsZjJCfHoqqdEZsQKcSDWMhkeWySx4pz5v9kpzmzmyoE0S+bXNL5TyZBo
+	hOQoI/oM8Iqa821QjTr7/wMzX5Tp2dlN2ZYoCg2lmcNDHhaG0yLsrjWkKYom2fuWhLzt0SLg6/Y
+	1X0wD33s6Nev88oZlL++QiAA3Yxvsu9/zp1hjkB/rG7QT6pqxnsJZwaO85kRzxjkJVO7g+ML9Vi
+	kYYl629FJz/57JDM0yhuZGz+aq91bEur0E9+LL9hcY7SupYplkQTPM7MUv90xKrPzlpy
+X-Received: by 2002:a05:7300:6da7:b0:384:5885:2f81 with SMTP id 5a478bee46e88-3856c0c7c05mr16726108eec.5.1795443550374;
+        Mon, 23 Nov 2026 06:19:10 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm40230786eec.24.2026.11.23.06.19.02
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 06:19:09 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Chris Li <chrisl@kernel.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v5 13/19] mm/swap: bound synchronous discard outside the allocation reader
+Date: Mon, 23 Nov 2026 22:18:58 +0800
+Message-ID: <ed722bf572f44133ee44f5b2c3d90f53b99f38e2.1795439990.git.lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,154 +109,313 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR03MB8960:EE_|AS2PR03MB9073:EE_
-X-MS-Office365-Filtering-Correlation-Id: d3665c22-74dd-4816-2b7a-08df496cb25f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|10070799003|1800799024|7416014|786006|376014|366016|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021121427099003|261102123227099003|11063799006|5023799004|4143699003|56012099006|10067099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	io5U3xHAqisc/JRmtboqpJZY6lR+cx8OLNdWntQpynF6I3FR+CDIlvUWR21G4srrbhkaMSmmppUrNFqzzoccb5pnoKG7+KnNCBRPe/bG4f0cQW6KZnihFbAPtW01zChe+zkN8/Xdy83wBDxltxvnEaWcMo18/nZgduMbfboJohkc2DJnqQTAQu/X4pP4sbVuQjzdfoIkZP+LFW05RvcoFpp8xaQvvrm5IUTxdPgucaOCnffJZbXFLX+RcjuHEjd6tWYBckmKWPt9mAve83gI6YHQ5/QTIM1jSD2Q/QCe2UAA33pIpBgoxKxjQXXUfG4LAw/VzPY9U1p+dVnm5Ruyjz4FonjKxNO3xn9rwouSD9gpY5+IrCxZeSX2th8oIfksS+MRkcUJ4lpcngET66XjX0FC/A+2kwzN0abtlu3OjdYOP0Z5CR2rQ5EKt195HwLlW84xy5mojHjRU06WPlFyDn+X5tC7D4WyxSaYSk8QmnywwQ1B4EzZLzIuJvWEI1n8iZG3AVmNMuf+wXKPCKcrRC0waqgw/Eeeg01oAOVc2gE+swYLKffUXwd0Wvf1reMiONsVcmpJAI1H5Y46IDMGFlxow0d2fY0zntXufdtT1xhnPdS9G9sy0a3ZNj/Tj+V6
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR03MB8960.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(7416014)(786006)(376014)(366016)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021121427099003)(261102123227099003)(11063799006)(5023799004)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?SeAaKM8wytAp9pDrR3JQExofTJL4Q+cRzL4ln/xeuw7rtZBdpP44b3U8B1vj?=
- =?us-ascii?Q?GClzbYN1ka6vndKCB2vHzdFk7ILyLn6fd2aNcipt55G5xEl1BLXdj5XV7HQ7?=
- =?us-ascii?Q?lK+diEC7um43uUGN+sGMow5b4lQedIm/zWtwBzSjSTNUdt8tKNoumFGT2DXn?=
- =?us-ascii?Q?BF8GHU6saH8rH5CS+1Wvjq2HKvYIgcLUDqCFuiEYiOqN/VDAc2IkIw0XXQMS?=
- =?us-ascii?Q?aHkEVxR6ooJ26I6dZpiLMZS/feLS9nSW1kcIB9oWrl7i7ZgCswYsSeTgaeNJ?=
- =?us-ascii?Q?QBrLlfiYi1y4K8ZBGaG60a3V0nrUdlfvK6SnMpz3Raoor6OY4ZZKojGhvbhl?=
- =?us-ascii?Q?Xa6QaoxYSdGRCj8OlvSBU7KYfWDypMnfVFsdWcd6/qQKp7hBOnba+9IuGyxc?=
- =?us-ascii?Q?osKChJ4wXkn/iprJfepjqdziNf/FlGm0ReFjjTwI6Gqhjt5YSRSmPM6moWes?=
- =?us-ascii?Q?L0wUskpw42xSLN1t+WmL3qrQc6iYzbrohPwWFUwwHcOoo+4a0rSY5ZUs0E07?=
- =?us-ascii?Q?8fy8atkjx5dHwALjItUhHfbgM1WqLimjja//8pfoAqa+8HWuzBIgInpuKeDk?=
- =?us-ascii?Q?3aopAAmWWIm45Fb56/ngGpAIaRIffpab3MElWZLsuT9mWtbnjvnGDbz+mNUD?=
- =?us-ascii?Q?dcC5bzTCUj01cx9GIKPWVcFGslGNRiL0fbVkzothepKpYU9wd4o/FSm2QIE+?=
- =?us-ascii?Q?Gk93mORqxWGu8LsvqHvI54un1uAvorOiV1MO3yJxogyCbUaiHYZlnSc3N/Py?=
- =?us-ascii?Q?1QBLX83h8ZUu3sE6iTZvo+V+aeUEolbA9O8jtuLXG6IGXbTiPUgYHGLpWX+U?=
- =?us-ascii?Q?EuydAyv4wMdXNetaA9rhT2CKjufqXrraDoAgj/AtAVTgGGaltL8Xw8iVTTKJ?=
- =?us-ascii?Q?fOPhWohqPz/sHQdJTTXzJOl/OCZMLwLqL6zYhT1W4eBYCPHt3ZDcL2zCoT4O?=
- =?us-ascii?Q?PEJbeBHKCgk23gPxsnXBWSkEleKjJ+44TZN7YQRC8PN0p9ZA9WEJOY5ruQKg?=
- =?us-ascii?Q?6nTIPHYIYEnx26p1mDIaHdBvH3uJ22tuXDwi8i6qGLF5fOnqGcETeO+as2qe?=
- =?us-ascii?Q?/+m3CfkxN/8oTLs4lbBA2nC2gmxJzweAYRppVAnfhi2T3SltDmLkPA4hLmGA?=
- =?us-ascii?Q?guGKRJ16Yh/AdmeGkFYXdHBVaM2N6NBfqp0xeWKlMq4Ax6dobfhvdH337BWO?=
- =?us-ascii?Q?ARk/3MR0bXuBD+S48UPipJVAOvDoFpOsXNkfxKG8JZVv7EGXN1xJP8FbRhsv?=
- =?us-ascii?Q?vmMXqaKvgCLCdvqaWK2oDxBUsustbB8EAqvR7+DXFQK8FBqj95UXi3k9DZve?=
- =?us-ascii?Q?nsnKhgQbhNxT+MFX8PUJpx1/os10uUHfq4yiM0qwpgdC4LljKUbXMqyDM2X5?=
- =?us-ascii?Q?aOK488aJem3chKNc4zr3lIAfQTdwA++CqUt4mabjred1M+68GWOvCM2JCove?=
- =?us-ascii?Q?Y62XKiy4JbIvEdC5b0vQc/bbTVr8zxoR/8EpiBoCNHFzMuGAvU9tYUtMoeeY?=
- =?us-ascii?Q?LCISfdjMXw4ALxQgU3v61OnEfGe5OlD0GCyugXKwv4aSeEvsfGmFHx5C4GSq?=
- =?us-ascii?Q?F18CrzkB5EFuDPSv/lR0sot1JDNWDZzWybxuEJpfv/iRsAYGk4QtUadQyDFP?=
- =?us-ascii?Q?5fvXtgg/QRgKA3k4WrkycmxkU2GAxSf83m2NeG16LTqslUS8OLyyRGH0VmfR?=
- =?us-ascii?Q?YcAi41RtaOw2y+l8ugle+/bOz2ehHeO8wdgzsdCohQTK7zIX3PJS+79MO8vF?=
- =?us-ascii?Q?RGJo+ZZGx9CwAbmh8yyXH1UDXTj9rn8oK4JtwM9sASRYWei41j2zz26mTbqq?=
-X-MS-Exchange-AntiSpam-MessageData-1: UWZRba12Xzt7Eg==
-X-OriginatorOrg: santannapisa.it
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3665c22-74dd-4816-2b7a-08df496cb25f
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR03MB8960.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 14:18:51.4555
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: d97360e3-138d-4b5f-956f-a646c364a01e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ESNGOkpvXfGO+HpKSrzLpxsUNRfDZf5dhVRwDy0dGro98QIHuxGzbjb+YsJGMvw3MnKHlta+Ob5DeZReMb8TwIEaRG5WxO8g2vxWYkXguO0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR03MB9073
+Content-Transfer-Encoding: 8bit
 
-On Mon, 23 Nov 2026 11:22:03 +0100
-Juri Lelli <juri.lelli@redhat.com> wrote:
+From: Kairui Song <kasong@tencent.com>
 
-> Hello!
-> 
-> Me again interjecting, please bear with me, but I think we want to get
-> this as right as we can. :)
-> 
-> On 23/11/26 08:43, luca abeni wrote:
-> > Hi Tejun,
-> > 
-> > On Sat, 21 Nov 2026 07:24:36 -1000
-> > Tejun Heo <tj@kernel.org> wrote:
-> >   
-> > > Hello, Luca.
-> > > 
-> > > On Fri, Nov 20, 2026 at 09:24:18PM +0100, luca abeni wrote:  
-> > > > But the deadline entities serving the real-time tasks in a
-> > > > cgroup are pinned to cores (one dl entity serves the cgroup's
-> > > > RT rq for a core). So, they cannot just be added to the sum
-> > > > mentioned above (which works for dl entities which are free to
-> > > > migrate). This issue was solved by reserving a fraction of the
-> > > > CPU time (and the root cgroup parameters indicated this
-> > > > fraction) to RT cgropus, so that the SCHED_DEADLINE admission
-> > > > control is still the same (we just decrease "limit" by the
-> > > > fraction reserved to RT cgroups).    
-> > > 
-> > > I see. Can the fraction be the maximum across the CPUs then? With
-> > > the root at "max", the kernel knows how much the cgroup servers
-> > > have reserved on each CPU. If "limit" is decreased by the largest
-> > > of those on all CPUs, every CPU has at least what its servers
-> > > need set aside and the admission control for tasks stays the same.
-> > > 
-> > > I'm not familiar with the admission test, so I may be missing
-> > > something.  
-> > 
-> > Uhm... I think this can increase the code complexity, but yes, I
-> > guess it can work.  
-> 
-> What about a slightly different approach? Instead of reserving a
-> fraction up front (or the max across CPUs), cgroup servers could be
-> accounted like fair/ext servers already are: each server adds its
-> bandwidth to total_bw of its root domain, and on top of the global
-> test we check, per CPU, that pinned bandwidth (cgroup servers plus
-> fair/ext servers) stays within the limit.
+The synchronous discard fallback drains a list that freeing paths can
+keep replenishing. Limit each foreground step to one cluster, retaining
+CLUSTER_FLAG_DISCARD while I/O is in flight and returning the cluster to
+the free list only after completion. The background worker continues to
+process the remaining list.
 
-I am not sure about the SP theory, but if this solution is fine with
-kernel maintainers, I think this will work, too (it is even better, as
-it reduces work for Yuri :)
+Keep synchronous discard outside the topology reader. Enter this fallback
+only after a complete normal order-0 allocation walk fails. A higher-
+priority device with only pending discard work does not force synchronous
+I/O if a lower-priority device satisfies that walk.
 
+Find a writable discard-capable device under the reader and take its live
+reference, then release the reader before issuing I/O. Drop the reference
+after completion and restart allocation with a fresh cursor, so a
+concurrent topology change cannot leave stale ring state. This also sees
+discard work produced by the preceding reclaim scans.
 
+Track the swap types already processed during this folio allocation and
+check each candidate at most once per fallback search. An empty check
+does not consume the I/O budget. Each swap type can complete at most one
+synchronous cluster discard, bounding successful retries by MAX_SWAPFILES
+even if membership changes. Do not keep discarding until this task wins
+a free cluster from a peer.
 
-				Luca
+Large folios retain the existing same-priority retry and split boundary;
+their reader-held cluster walk does not issue synchronous discard. The
+budget bounds work count, not device I/O completion latency.
 
+Link: https://lore.kernel.org/all/CAMgjq7CsYhEjvtN85XGkrONYAJxve7gG593TFeOGV-oax++kWA@mail.gmail.com/
+Signed-off-by: Kairui Song <kasong@tencent.com>
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+Co-developed-by: Lian Wang <lianux.mm@gmail.com>
+Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+---
+ mm/swapfile.c | 175 ++++++++++++++++++++++++++++----------------------
+ 1 file changed, 100 insertions(+), 75 deletions(-)
 
-> 
-> IIUC reading your RTNS'21 paper with Stephen and Jim [1] right, those
-> are its conditions (1) and (2) for semi-partitioned systems, and
-> together they keep the system feasible. Did I get that right? The
-> catch is that the paper also needs changes to the migration logic (no
-> throttle bypass for tardy tasks, and the pushed task not counted in
-> cpudl when looking for a target) for tardiness to stay bounded, and
-> AFAIK we don't yet have that in mainline.
-> 
-> So today's DL isn't "pinned aware", but we already live with that:
-> fair/ext servers are pinned and simply added to total_bw. I don't
-> think this series should fix that too. What I'd suggest instead is:
-> 
->  1. keep the interface per-CPU as Tejun proposed, and do admission as
->     above (sum into total_bw plus per-CPU check). When a config is
->     symmetric across the CPUs of a root domain, this is the same as
->     today's uniform reservation, so it works with the current DL
->     implementation with the same guarantees we have now;
-> 
->  2. accept asymmetric configs too, but document that, until DL becomes
->     aware of pinned bandwidth, they come with no tardiness guarantees
->     for DL tasks (as with non-default fair server settings today).
->     Once the migration side is fixed (the paper's changes, or
->     something similar), they get the guarantees without any interface
->     change.
-> 
-> This also avoids the cost of the max approach, where 50% on one CPU
-> takes 50% of DL capacity on all CPUs of the root domain, and it should
-> be less code, since cgroup servers would just follow the dl_server
-> accounting paths (dl_server_apply_params(), dl_server_add_bw() on
-> root domain rebuilds), but Yuri should keep me honest here. :)
-> 
-> The root entry would then just limit what cgroups can reserve per CPU,
-> on top of the above, which I think is what Tejun described.
-> 
-> Thoughts?
-> 
-> 1 - https://www.cs.unc.edu/~anderson/papers/rtns21a.pdf
-> 
-
+diff --git a/mm/swapfile.c b/mm/swapfile.c
+index 1f31a3ae75d6..d28dd10c92cc 100644
+--- a/mm/swapfile.c
++++ b/mm/swapfile.c
+@@ -6,6 +6,7 @@
+  *  Swap reorganised 29.12.95, Stephen Tweedie
+  */
+ 
++#include <linux/bitmap.h>
+ #include <linux/blkdev.h>
+ #include <linux/mm.h>
+ #include <linux/sched/mm.h>
+@@ -583,6 +584,26 @@ static long swap_usage_in_pages(struct swap_info_struct *si)
+ 	return atomic_long_read(&si->inuse_pages) & SWAP_USAGE_COUNTER_MASK;
+ }
+ 
++/*
++ * Serialize the allocation on single CPU or globally to avoid
++ * fragmentation and make the workflow easier to follow.
++ */
++static void swap_alloc_lock_device(struct swap_info_struct *si)
++{
++	if (si->flags & SWP_SOLIDSTATE)
++		local_lock(&si->percpu_cluster->lock);
++	else
++		spin_lock(&si->global_cluster->lock);
++}
++
++static void swap_alloc_unlock_device(struct swap_info_struct *si)
++{
++	if (si->flags & SWP_SOLIDSTATE)
++		local_unlock(&si->percpu_cluster->lock);
++	else
++		spin_unlock(&si->global_cluster->lock);
++}
++
+ /* Reclaim the swap entry anyway if possible */
+ #define TTRS_ANYWAY		0x1
+ /*
+@@ -914,12 +935,8 @@ static int swap_cluster_alloc_table(struct swap_info_struct *si,
+ 
+ lock:
+ 	if (!locked) {
+-		if (si) {
+-			if (si->flags & SWP_SOLIDSTATE)
+-				local_lock(&si->percpu_cluster->lock);
+-			else
+-				spin_lock(&si->global_cluster->lock);
+-		}
++		if (si)
++			swap_alloc_lock_device(si);
+ 		spin_lock(&ci->lock);
+ 	}
+ 	lockdep_assert_held(&ci->lock);
+@@ -1022,10 +1039,7 @@ swap_cluster_populate(struct swap_info_struct *si,
+ 	 * which could give allocator hooks and failure cleanup reserve access.
+ 	 */
+ 	spin_unlock(&ci->lock);
+-	if (si->flags & SWP_SOLIDSTATE)
+-		local_unlock(&si->percpu_cluster->lock);
+-	else
+-		spin_unlock(&si->global_cluster->lock);
++	swap_alloc_unlock_device(si);
+ 
+ 	gfp = (GFP_KERNEL | __GFP_HIGH | __GFP_NOMEMALLOC) &
+ 		~__GFP_DIRECT_RECLAIM;
+@@ -1132,44 +1146,40 @@ static struct swap_cluster_info *isolate_lock_cluster(
+ }
+ 
+ /*
+- * Doing discard actually. After a cluster discard is finished, the cluster
+- * will be added to free cluster list. Discard cluster is a bit special as
+- * they don't participate in allocation or reclaim, so clusters marked as
+- * CLUSTER_FLAG_DISCARD must remain off-list or on discard list.
++ * Discard one cluster. After the discard is finished, the cluster will be
++ * added to the free cluster list. Discard clusters are special because they
++ * don't participate in allocation or reclaim, so CLUSTER_FLAG_DISCARD must
++ * remain set while a cluster is either queued or being discarded.
+  */
+-static bool swap_do_scheduled_discard(struct swap_info_struct *si)
++static bool swap_discard_one_cluster(struct swap_info_struct *si)
+ {
+ 	struct swap_cluster_info *ci;
+-	bool ret = false;
+ 	unsigned int idx;
+ 
+ 	spin_lock(&si->lock);
+-	while (!list_empty(&si->discard_clusters)) {
+-		ci = list_first_entry(&si->discard_clusters, struct swap_cluster_info, list);
+-		/*
+-		 * Delete the cluster from list to prepare for discard, but keep
+-		 * the CLUSTER_FLAG_DISCARD flag, there could be percpu_cluster
+-		 * pointing to it, or ran into by relocate_cluster.
+-		 */
+-		list_del(&ci->list);
+-		idx = cluster_index(si, ci);
++	if (list_empty(&si->discard_clusters)) {
+ 		spin_unlock(&si->lock);
+-		discard_swap_cluster(si, idx * SWAPFILE_CLUSTER,
+-				SWAPFILE_CLUSTER);
+-
+-		spin_lock(&ci->lock);
+-		/*
+-		 * Discard is done, clear its flags as it's off-list, then
+-		 * return the cluster to allocation list.
+-		 */
+-		ci->flags = CLUSTER_FLAG_NONE;
+-		__free_cluster(si, ci);
+-		spin_unlock(&ci->lock);
+-		ret = true;
+-		spin_lock(&si->lock);
++		return false;
+ 	}
++
++	ci = list_first_entry(&si->discard_clusters,
++			      struct swap_cluster_info, list);
++	/*
++	 * Delete the cluster from the list, but keep CLUSTER_FLAG_DISCARD
++	 * set while the discard is in flight. A percpu cluster may still
++	 * point to it, or relocate_cluster() may encounter it.
++	 */
++	list_del(&ci->list);
++	idx = cluster_index(si, ci);
+ 	spin_unlock(&si->lock);
+-	return ret;
++
++	discard_swap_cluster(si, idx * SWAPFILE_CLUSTER, SWAPFILE_CLUSTER);
++
++	spin_lock(&ci->lock);
++	ci->flags = CLUSTER_FLAG_NONE;
++	__free_cluster(si, ci);
++	spin_unlock(&ci->lock);
++	return true;
+ }
+ 
+ static void swap_discard_work(struct work_struct *work)
+@@ -1178,7 +1188,8 @@ static void swap_discard_work(struct work_struct *work)
+ 
+ 	si = container_of(work, struct swap_info_struct, discard_work);
+ 
+-	swap_do_scheduled_discard(si);
++	while (swap_discard_one_cluster(si))
++		cond_resched();
+ }
+ 
+ static void swap_users_ref_free(struct percpu_ref *ref)
+@@ -1607,15 +1618,11 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
+ 	if (order && !(si->flags & SWP_BLKDEV))
+ 		return 0;
+ 
+-	if (si->flags & SWP_SOLIDSTATE) {
+-		/* Fast path using per CPU cluster */
+-		local_lock(&si->percpu_cluster->lock);
++	swap_alloc_lock_device(si);
++	if (si->flags & SWP_SOLIDSTATE)
+ 		offset = __this_cpu_read(si->percpu_cluster->next[order]);
+-	} else {
+-		/* Serialize HDD SWAP allocation for each device. */
+-		spin_lock(&si->global_cluster->lock);
++	else
+ 		offset = si->global_cluster->next[order];
+-	}
+ 
+ 	if (offset != SWAP_ENTRY_INVALID) {
+ 		ci = swap_cluster_lock(si, offset);
+@@ -1683,10 +1690,7 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
+ 			goto done;
+ 	}
+ done:
+-	if (si->flags & SWP_SOLIDSTATE)
+-		local_unlock(&si->percpu_cluster->lock);
+-	else
+-		spin_unlock(&si->global_cluster->lock);
++	swap_alloc_unlock_device(si);
+ 
+ 	return found;
+ }
+@@ -1881,33 +1885,50 @@ static int swap_alloc_entry(struct folio *folio)
+ }
+ 
+ /*
+- * Discard pending clusters in a synchronized way when under high pressure.
+- * Return: true if any cluster is discarded.
++ * Discard outside the topology reader, holding only the selected device's
++ * live reference across I/O. Each successful retry starts a fresh queue walk.
+  */
+-static bool swap_sync_discard(void)
++static bool swap_discard_for_alloc(unsigned long *discarded)
+ {
+-	bool ret = false;
+-	struct swap_info_struct *si, *next;
++	DECLARE_BITMAP(checked, MAX_SWAPFILES) = {};
++	struct swap_info_struct *si, *candidate;
++	unsigned int i, j;
++	bool done;
++	int type;
+ 
+-	percpu_down_read(&swapon_rwsem);
+-start_over:
+-	plist_for_each_entry_safe(si, next, &swap_active_head, list) {
+-		percpu_up_read(&swapon_rwsem);
+-		if (get_swap_device_info(si)) {
+-			if (si->flags & SWP_PAGE_DISCARD)
+-				ret = swap_do_scheduled_discard(si);
+-			put_swap_device(si);
++	for (;;) {
++		candidate = NULL;
++		percpu_down_read(&swapon_rwsem);
++		for (i = 0; i < swap_queue_len && !candidate; i++) {
++			struct swap_prio_ring *ring = swap_queue[i];
++
++			for (j = 0; j < ring->size; j++) {
++				si = swap_device_unmask_ptr(READ_ONCE(ring->dev[j]));
++				type = si->type;
++				if (test_bit(type, discarded) || test_bit(type, checked))
++					continue;
++				__set_bit(type, checked);
++				if ((READ_ONCE(si->flags) & (SWP_WRITEOK | SWP_PAGE_DISCARD)) !=
++				    (SWP_WRITEOK | SWP_PAGE_DISCARD))
++					continue;
++				if (get_swap_device_info(si)) {
++					candidate = si;
++					break;
++				}
++			}
+ 		}
+-		if (ret)
+-			return true;
++		percpu_up_read(&swapon_rwsem);
++		if (!candidate)
++			return false;
+ 
+-		percpu_down_read(&swapon_rwsem);
+-		if (plist_node_empty(&next->list))
+-			goto start_over;
++		type = candidate->type;
++		done = swap_discard_one_cluster(candidate);
++		if (done)
++			__set_bit(type, discarded);
++		put_swap_device(candidate);
++		if (done)
++			return true;
+ 	}
+-	percpu_up_read(&swapon_rwsem);
+-
+-	return false;
+ }
+ 
+ static int swap_extend_table_alloc(struct swap_info_struct *si,
+@@ -2211,12 +2232,16 @@ int folio_alloc_swap(struct folio *folio)
+ 		}
+ 	}
+ 
+-again:
+ 	swap_alloc_entry(folio);
+ 
+ 	if (!order && unlikely(!folio_test_swapcache(folio))) {
+-		if (swap_sync_discard())
+-			goto again;
++		DECLARE_BITMAP(discarded, MAX_SWAPFILES) = {};
++
++		while (swap_discard_for_alloc(discarded)) {
++			swap_alloc_entry(folio);
++			if (folio_test_swapcache(folio))
++				break;
++		}
+ 	}
+ 
+ 	/* Need to call this even if allocation failed, for MEMCG_SWAP_FAIL. */
