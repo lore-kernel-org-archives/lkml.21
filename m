@@ -1,85 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795433145;
-	b=s5Gw/z8R4yEJqDk+qDNqq3zak6NjpOQfRn6LsWVAQKiZg9jtRf4Jdc3huiJ5pc4gemyY
-	 KKlDFYsiT7ecuQopJc4ONo1Hhjn+nrNrNzUBclpKGzsBduriTjWZ1PFYZ0zyS8OMbf3Ir
-	 WHAx4h8jnRf0vNgzN2WZlITUqVna/+wN7IHPkXLjfPK45pob1AEGPW5tlp1EWV1GtWI9Z
-	 s0Q9t29zL5XiVZMlkqs2k1z1cq8koHPITnSR895vnsrlbo3kS1fG2ckq8Z/Hr8mWHZenn
-	 DQHPj7nM4aVmdPBGodPya4QZWuYBsqdwiyguiPmsVf840h8vaqfU4/iOQCO/tLgIplg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433145;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=ZtisJYhM86UyOxDcysd9jBL2fDZTQgOga1PJnW60c8w=;
-	b=OQAJjh7B6GKKmXDQg5br4f2Gw/HCy1ya/OIcbVs/OYySuV1hxaUVjGrH1rA9WeFoLWIM
-	 PsE/ZSMBkE0yTHVyLt2olhqINaKIxt4za7sqEnUKDW8WS+K9WD+9J8tnPO0Msp1jOm2SN
-	 gYVNFzxKiUDhwJYU45krhTtyDgM63qsrJTVYo/ky39M4iSjHO01WESaMmuq8ElJ3GslC7
-	 E6NAeh9jcFXX85nS1/ijkQcegfHs1t+TS0kkfcC2OIj9wO5opbzoDKLWlijM6CxsZbM1k
-	 k4oXLQZS8DvgwY2kma6MsEnmm1S3mPIrdVyHT6isL1/b+OC0uAJcckCtg56JiPgAthw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=g5Gh9NCS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795433163;
+	b=Pl93RtmluEwoiqMNkd6Z/qeE0dhO+o1ZMwTBxuHAosjQFDjoYXXS02xJKlFdzwUEgbUT
+	 /noH9w5PT6bBzPmC39LLqmJBLfPB4fkh588GBf9EN4tDMsRtplHSpN/Tn1eGT58j9g7K1
+	 W50pmWVSNSkqo/RGs8Kas/w6xUQZJDPqCiOSeeODnalu8i3crpQfDCmF6BOn0V0Ix/L1r
+	 U/xuygO+HTODl7SvgUxqaRxwXw2TCuf2sTE61aUyfhUkKE2Qmi/LkH/VFdGcFw8k8dQdL
+	 k63Pa6iImTGAi0r+O7Sbmf2+Bu+OyfsN0KI3t0OpyO0Npo27UvxxMHsPKBCe7OHnPpQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433163;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=Js9pC7jeiLo17zQaZ18MlpnQNslFBrPydnPaVDBRGVs=;
+	b=CQgkpwxSZoiX+VqGn3CRi+2oXKd/Yr8FvU92kPZcRtyogKkTMm117jEL9W9c93ZotDYc
+	 UHXIYFgbSEm3JkepXPTbMXe72MZpGBmLYEJgECIzEnMD6BBs2NnW4nD1QTOx54rNYWVwf
+	 VCmRljxaLBwcP6V8yksw2DF2AP+d4WNI1BOM2C8zGKmqRIvqjYFCHHcaW5scSl5Wau9iU
+	 EQTsMLr9xpd1dmfY9R3BKysu9hpHWvraWzFtrIjPoGAQtRI4S4nVNFQ0dTW0SQ2icZANO
+	 8L87Z9bAiOUrD2qY6WmM35lyHiwLyf7cofBAbvpyDLeAwBzHy0T5fuRbeGsFq+52auQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=H45jtW3r;
+	arc=none smtp.remote-ip=91.218.175.171
+Received: from mta0.migadu.com (out-171.mta0.migadu.com [91.218.175.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53FBC606A330;
-	Mon, 23 Nov 2026 11:25:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53FBC606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CFC1606A32D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:26:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CFC1606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=g5Gh9NCS
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A1B792020DC;
-	Mon, 23 Nov 2026 12:25:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795433142;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZtisJYhM86UyOxDcysd9jBL2fDZTQgOga1PJnW60c8w=;
-	b=g5Gh9NCS8DCn5Zb41igXrUOwh8oxz2zAv0RbRFLEz1NvXCerXMjFEpkf9lW4Uarl9cCkW7
-	HGLp1Bjk9YlmoWQ9KEFsTJ4Ts9F56PuL6m88ZhTvMMTQMe55iq6BcQDEV4d/5+cwFdfSPU
-	WJszExLZKzZ9KLJqwaNB/jafPBFAoZkNtdlA/kyklxifF5UO8Gy/ZkKwgaqDG2wz2oUsFN
-	uuW6ggS+/F3TA3pW4hHQMxRjAQHViKV8KcWYG6kS/bkW79w2uzJ7vF4lVmV7iPJbGnV9cX
-	9zba42NdkoibfZaaGsZqutWlr0XHkOPT7jzXRtJ3DZ4Osuko65U0z9Anp6lF8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795433142;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZtisJYhM86UyOxDcysd9jBL2fDZTQgOga1PJnW60c8w=;
-	b=LwHN8qNjxymoJMW1tf2KTkiiPY9oG162Skwh8Hz9GSGg885POEkhutS1WfZuCPKBD4a6I5
-	AoXFanX+Aepq1hkbgNEGaE0G4tbjyPjS2qvqGDuJkNBbFZbaGL62pMXBYr8TUs0zY4ZqJd
-	ED6TiPtNQAUeRmcxtKgw4Mum0uQ4gJZCGZowrEChs4q5Oi5gMuan28tPQDeUR5q52nTuz6
-	BDRHVyZdPvv38MjccPv9d4PTUhdLwPZ18awhNvtEZead6r6UB3VJqlDLxp3G7GqAWx0du8
-	bgy2MrZafzwZcMWru0Y1un6DfLOYb3YsuTbsBAhMJ+nDHWZkFgCTEC0kyauJ1g==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=f.diener@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795433142; a=rsa-sha256;
-	cv=none;
-	b=T7olXURK/CaoHX7hbUynCoN1Lh4/GbF22pfbO3CDfgWfVSqw/ESGupcpdaJ6zhhkEEllxb
-	JJxZglSj4fl8M2aGzK7OJMlZRAyGnb2ROFPT9uxCdtWI1b/msn5wQr+5goUnzMvzlQok+5
-	AWpcS3heFASXaXDdxOUX1dmKpa6MKvxCZH7D8bjPJ+ptfoVVaeQF7exZL0RX5PHT2e2Oj6
-	ipTex6R/rGu5WZJla4dBmw4Ti9XJocWLYmqMYaKXKSFkiGxJemM/T8bbqJj0JtnKVSeQ0X
-	C6JPRN27l1monEJ2xZy1KnPT26dgyn7ZMElLpnUiZvyvQgGNpC3agi3sJK9y8g==
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.2])
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <f.diener@pengutronix.de>)
-	id 1xVSB4-0016XI-0C;
-	Mon, 23 Nov 2026 12:25:42 +0100
-From: Freimut Diener <f.diener@pengutronix.de>
-Date: Mon, 23 Nov 2026 12:25:17 +0100
-Subject: [PATCH v2 3/5] arm64: dts: freescale: imx93-11x11-frdm: restrict
- USDHC3 to SDIO
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=H45jtW3r
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ZxLBiXZ1NUZ1MFmbtMflV0tJeuN9FWz7PunWy9rzBsg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795433160; v=1; x=1796037960;
+ b=H45jtW3rYn7rPc5Iit1kUFEZr9zVTgns6IKVlrltNxyMdr4qyp2jit3RmiRuvEYbvSOf49CK
+ Pa0O7ZwjCCgfFbmI1qnveghqMzV01KFrpiyfkxa9pxqys6/JaT/8Jk+vjDi8G0oEZ2UJEtukLVS
+ GPp/2cRwZTgGjoI0xy+ZFa60=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 10ddb6a54804c209;
+	Mon, 23 Nov 2026 11:25:56 +0000
+X-Mizu-Trace-ID: 10ddb6a54804c209
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be58ad9600so9913e87.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:25:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErExYez3AKJ+TpANKGLLaBfUSqwUUYOvXwOLJVwLRfqmX+edhcLXkr49awI0iCgytjTCW8AGLNbqEf2yaXk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+wDq4ATGcyr2Prp/1jEzCnWKcOVAppaIl0wra3xUR2paElCMIE
+	Vrkn7vUd0COX6DtBrKDRvrFMsI6iFGHki0XfX9GZBH+UoNwcEwBoTaOdr9aRzWUMO2qW4K374uC
+	amTQTd+Q52/JeTXOdTX/yJeB/ElkG/qeRP0yEyWA4
+X-Received: by 2002:a05:6512:3502:b0:5c1:488e:a067 with SMTP id
+ 2adb3069b0e04-5c200ba538amr163953e87.16.1795433155472; Mon, 23 Nov 2026
+ 03:25:55 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,49 +66,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-imx93-frdm-fixes-v2-3-dd97c7fca4b1@pengutronix.de>
-References: <20261123-imx93-frdm-fixes-v2-0-dd97c7fca4b1@pengutronix.de>
-In-Reply-To: <20261123-imx93-frdm-fixes-v2-0-dd97c7fca4b1@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@pengutronix.de, Freimut Diener <f.diener@pengutronix.de>
-X-Mailer: b4 0.15.2
+References: <20261123075219.369042-1-fuad.tabba@linux.dev> <20261123075219.369042-10-fuad.tabba@linux.dev>
+ <20261123112218.20959-I-seiden@linux.ibm.com>
+In-Reply-To: <20261123112218.20959-I-seiden@linux.ibm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 23 Nov 2026 11:25:19 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTx1AYw7SzWpv=k8ahrKnovaftP8rC7_GHx2g+PZ-cjXew@mail.gmail.com>
+X-Gm-Features: Aa3M54q04K4Vkb_xge3irgDfROZAKGCFM3lbfFzE09aj0suM-WV_djSD8CzF7iU
+Message-ID: <CA+EHjTx1AYw7SzWpv=k8ahrKnovaftP8rC7_GHx2g+PZ-cjXew@mail.gmail.com>
+Subject: Re: [PATCH 9/9] arm64: sysreg: Reject a bit position written with a
+ leading zero
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Mark Brown <broonie@kernel.org>, Sascha Bischoff <Sascha.Bischoff@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-USDHC3 is connected to the onboard Wi-Fi module by default and can
-alternatively be routed to the M.2 Key E connector. Both interfaces
-provide a 4-bit SDIO connection.
+On Mon, 23 Nov 2026 at 11:22, Steffen Eiden <seiden@linux.ibm.com> wrote:
+[...]
+> > diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+> > index 057dc98082b5e..01b463e271cef 100755
+> > --- a/arch/arm64/tools/gen-sysreg.awk
+> > +++ b/arch/arm64/tools/gen-sysreg.awk
+> > @@ -102,7 +102,8 @@ function parse_bitdef(reg, field, bitdef, _bits)
+> >               fatal("invalid bit-range definition '" bitdef "'")
+> >       }
+> >
+> > -
+> > +     if (msb !~ /^(0|[1-9][0-9]*)$/ || lsb !~ /^(0|[1-9][0-9]*)$/)
+> > +             fatal(reg "." field " invalid bit-range '" bitdef "'")
+>
+> The test is good but IMO the error message should be more precise to
+> what you are actually checking. sth like:
+>
+> fatal(reg "." field " non-decimal bit-range '" bitdef "'")
 
-Add no-sd and no-mmc to skip unnecessary card detection and avoid
-the HS400 warning from mmc_validate_host_caps():
+Ack.
 
-     sdhci-esdhc-imx 428b0000.mmc: drop HS400 support since no 8-bit bus
-
-Signed-off-by: Freimut Diener <f.diener@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-index 6e8351d120160..40997115e4a26 100644
---- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-@@ -73,6 +73,8 @@ &usdhc3 {
- 	keep-power-in-suspend;
- 	mmc-pwrseq = <&usdhc3_pwrseq>;
- 	non-removable;
-+	no-mmc;
-+	no-sd;
- 	pinctrl-0 = <&pinctrl_usdhc3>;
- 	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
- 	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-
--- 
-2.56.0
-
+Thanks again,
+/fuad
