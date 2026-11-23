@@ -1,62 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795454565;
-	b=eUggj9/ZXJbe9EP8stL4P3mVSJStR4bXdmaeLf/Tn8V3Tvj+HvZjOsqxzPYJJ+z2lY4j
-	 ou4MGsIxoyw8KFfJhvMNizMPVm64LUByQfGzsgevOBGLXJrnOBX+086yxG8Wyxhaa0aLH
-	 /juBk6DRwmrDoBUaFwRFjsZug5YDe4amfmI/K4xEUGLG11auG0sxk5hKKmqdnfM2a+3l1
-	 zxure9FSNKh0kyuFLLTFdm0pq1CNXHr4lAE8WIcuTzo6LSzCvQ0IfPvhs0TfFXwNiYAAf
-	 EwT4pOg+j3CwrbBSkeFhxCmiA57jifXPcTlAsVfTvjtLvlSzr/LxRa1fsScmyhItiiw==
+	t=1795454571;
+	b=z2DEjnMFXET5RFj3Y0M6yBAHVTw3HXvo83bJ2lJj961Dh/t/NVTgTPkZSjeoY0jaBwoy
+	 42LdfTWLvrh4rDgRl7GxYFxoqNG4W7Cq9czjqFVvYmY8OnwMMi1dPg9mEZzts/E+AENOt
+	 +YyjITd4yiBkBKe2o0NbCb5aJ1iJJL6QkAHFV9tUF1X8z07zs62r6x+rKz8c2p7wzxIN2
+	 zEm7vn7Vl/mSq/BKeiAy7nfqRWSLKCRPVrxqKm7M+1ZVnrPJ3oQ2ODiK3Uzyy+lxq1CTF
+	 d7jsomYy/3nSWMgQ69OKhRD8ZBolXbu0aqs8rQxI1fl23vSPpa1V/6J3TUmCmv+VGZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795454565;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+FacmnW79BHpI/Pgb5t1bHZuNRzQeNjr2JRVjl65ihs=;
-	b=t8gI4QUtLhHmeJwJIyWydIeWHVlPBJi+DsTlgCmjyZ/08dCzuRgfg8hCFkYolGuxeKQ3
-	 VzkupFeLo49BMDUueH8M7R4lWQMrd9yOkV/ssuEOxoHduM1XlmSuF0pw91kGniQJq292s
-	 5/lNqebV/8DVwreWxpGLXGUqSWLifRm3PZjV6xCTGmeTF+O34vc+tXuNScLamlec2+ezx
-	 zciq9bwnfHxIKi3hsoNZbZvgHWF9baNGr6zv9JoImdQtWEGkl/ckKNeMBOe3BRjmCZMbB
-	 aVeVuNdCcBvTz4t9D/nq+9O3g1OaXpqxODLyJza1GOVFIyC76TocRuB0tb5aAOMarOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795454571;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=To0SY0PCUEWNtp8vKtDr3U/74vnYOoZDCurwJNOsb+E=;
+	b=UXgw+ZQJPB3Po/l+YlJXwRHz9lMUMMaHE0NmO9zozaceKC06Vp186Yfxmzm7KhxxFP/G
+	 rVtKZfL8Vf3vjPBMKONixSdGGBSpl505NrTH3M/onyATVyvhweZ7HAYE1ql/TrJOtX/WA
+	 +ZUj/Nbq9TyiHrh905XsEv9/keXM/dhbHUJ6eXzqptH6jAVQTbA2NqtkmsgAr8jtWnek1
+	 YdMyBoR0H3A32o8EPgLszd8xykaCBMs0P7QYNbOVqCou4fK0MJ0BMOM5ubxwIf4Xw62k6
+	 lrLSqjEfVqsJSh3/ZHzo7bThbYqLq9+HtskMot4zabpQeXph5pOQnekOpcbDN5eSoRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HafcotNC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n5Sn69Fn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB38D606A33C;
-	Mon, 23 Nov 2026 17:22:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48B0D606A327;
+	Mon, 23 Nov 2026 17:22:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HafcotNC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86F11F000EB;
-	Mon, 23 Nov 2026 17:22:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n5Sn69Fn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 925541F000D4;
+	Mon, 23 Nov 2026 17:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795454565;
-	bh=+FacmnW79BHpI/Pgb5t1bHZuNRzQeNjr2JRVjl65ihs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HafcotNC8GFbgMCUkU1mSSZIcsiLRm9vJZoRujOni1mS9wmJNtk9b3wZAiDP6SGic
-	 /ucs5zSjv2Y92VUcBGTZwG2g/00qWvHz/Kc2uY16cwvzX5o9PeA5na3nnKPAYzbFLH
-	 0be2/z0KFFm4SGI23Wvnl1UtKN6HQrh3HgDgjh/uuAAIM1J6t6Kn4vQO/779bpPbdw
-	 7NvJiJuK85/Ccf9LYZWchSZQ3HBNBiADNwVizNa6/zjj+AcjUF78yC9bZJyBFRbcMy
-	 xROPWHpxJylXBpKifTG8T6wlOtUPddLZYd+MTsWC75uhM0QQ0rztzm6M7GNBoC6P9i
-	 xe4IMMnqXKeAw==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rishabh Bhatnagar <rishabhb@codeaurora.org>,
-	Siddharth Gupta <sidgup@codeaurora.org>,
-	Alex Elder <elder@kernel.org>,
-	linux-arm-msm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH 08/10] remoteproc: qcom: Skip unregistering uninitialised SSR subdevice
-Date: Mon, 23 Nov 2026 17:20:52 +0000
-Message-ID: <20261123172140.3547896-9-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-In-Reply-To: <20261123172140.3547896-1-lee@kernel.org>
-References: <20261123172140.3547896-1-lee@kernel.org>
+	s=k20260515; t=1795454570;
+	bh=To0SY0PCUEWNtp8vKtDr3U/74vnYOoZDCurwJNOsb+E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=n5Sn69FnkbmU1o8ob6qHPrFVakoc4kcL4qpkMfrY/+3Y1/f+Sw7Fc5fu4dh41Ot2C
+	 64dkif6Mq6BcbFGiFgMJdacI08ek1oXrMssJaTiBcw/6crWDJi4yR12jw6RxOqDyHR
+	 2dUnxbO1y8tnHa7psNzkdLmA5feI1gh5N8MUJr4QUIO+jN0laEfTjURaG/s752YUT3
+	 SuBbR2h05X2nHRzGYEAq3PK/AdrbsyNaOAY9RQjAN9Iv57GuVzbiNHOhUb2rcyzt//
+	 4/dCe8OnmtECessrTMLBz5WLv3GH9Od66vtm0y+rQC/wH3Mh7cAbx5zOhDeDBaljV8
+	 ojFHMGmiNRaIw==
+Date: Mon, 23 Nov 2026 11:22:49 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Lu Baolu <baolu.lu@linux.intel.com>
+Cc: iommu@lists.linux.dev, Kevin Tian <kevin.tian@intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-kernel@vger.kernel.org,
+	Danny Gonzalez <digonzal@google.com>,
+	David Decotigny <decot@google.com>,
+	Sheena Mohan <sheenamo@google.com>,
+	Pranjal Shrivastava <praan@google.com>
+Subject: Re: [PATCH 1/1] iommu/vt-d: Avoid relying on pci_ats_supported() for
+ rbtree removal
+Message-ID: <20261123172249.GA1095219@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,41 +60,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123003805.2828580-1-baolu.lu@linux.intel.com>
 
-If qcom_ssr_get_subsys() fails in qcom_add_ssr_subdev(), the function
-logs an error and returns early without calling rproc_add_subdev(),
-leaving ssr->info NULL and ssr->subdev.node uninitialised.  When driver
-probe unwinds or the device is later removed, qcom_remove_ssr_subdev()
-unconditionally calls rproc_remove_subdev(), dereferencing a NULL list
-pointer in list_del().
+[+cc Danny, David, Sheena, Pranjal]
 
-Guard qcom_remove_ssr_subdev() on ssr->info being non-NULL, matching the
-GLINK and SMD subdevice teardown helpers.
+On Mon, Nov 23, 2026 at 08:38:05AM +0800, Lu Baolu wrote:
+> Commit 89436f4f5412 ("iommu/vt-d: Fix WARN_ON in iommu probe path") made
+> the device rbtree insertion in intel_iommu_probe_device() conditional on
+> pci_ats_supported(). To match, intel_iommu_release_device() only removes
+> the device from the rbtree if pci_ats_supported() is still true.
+> 
+> That relies on pci_ats_supported() returning the same result at release
+> as it did at probe. If it changes in between, the rbtree can retain an
+> entry after its device_domain_info has been freed, resulting in a
+> use-after-free during a later lookup.
+> 
+> Checking RB_EMPTY_NODE() to track rbtree membership is common in the
+> iommu subsystem. Since device_rbtree_remove() safely handles an empty
+> node, call it unconditionally in the release path. This makes removal
+> depend on the device's actual rbtree membership.
+> 
+> Fixes: 89436f4f5412 ("iommu/vt-d: Fix WARN_ON in iommu probe path")
+> Signed-off-by: Lu Baolu <baolu.lu@linux.intel.com>
 
-Fixes: 5abfe5cf0b83 ("remoteproc: qcom: Add per subsystem SSR notification")
-Closes: https://sashiko.dev/#/bug/linux-5594c348-0c41-4482-b001-481878256d30
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
- drivers/remoteproc/qcom_common.c | 3 +++
- 1 file changed, 3 insertions(+)
+Looks good to me, thanks!
 
-diff --git a/drivers/remoteproc/qcom_common.c b/drivers/remoteproc/qcom_common.c
-index c53190f0c537..6fd92c33392b 100644
---- a/drivers/remoteproc/qcom_common.c
-+++ b/drivers/remoteproc/qcom_common.c
-@@ -537,6 +537,9 @@ EXPORT_SYMBOL_GPL(qcom_add_ssr_subdev);
-  */
- void qcom_remove_ssr_subdev(struct rproc *rproc, struct qcom_rproc_ssr *ssr)
- {
-+	if (!ssr->info)
-+		return;
-+
- 	rproc_remove_subdev(rproc, &ssr->subdev);
- 	ssr->info = NULL;
- }
--- 
-2.56.1.750.gf70dc682cf-goog
-
+> ---
+>  drivers/iommu/intel/iommu.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
+> index 5a2e705a2f2e..82f7bd8ecadf 100644
+> --- a/drivers/iommu/intel/iommu.c
+> +++ b/drivers/iommu/intel/iommu.c
+> @@ -3393,6 +3393,7 @@ static struct iommu_device *intel_iommu_probe_device(struct device *dev)
+>  
+>  	info->dev = dev;
+>  	info->iommu = iommu;
+> +	/* An empty node marks the device as not in the rbtree. */
+>  	RB_CLEAR_NODE(&info->node);
+>  	if (dev_is_pci(dev)) {
+>  		if (ecap_dev_iotlb_support(iommu->ecap) &&
+> @@ -3508,8 +3509,7 @@ static void intel_iommu_release_device(struct device *dev)
+>  	}
+>  
+>  	mutex_lock(&iommu->iopf_lock);
+> -	if (dev_is_pci(dev) && pci_ats_supported(to_pci_dev(dev)))
+> -		device_rbtree_remove(info);
+> +	device_rbtree_remove(info);
+>  	mutex_unlock(&iommu->iopf_lock);
+>  
+>  	if (sm_supported(iommu) && !dev_is_real_dma_subdevice(dev) &&
+> -- 
+> 2.43.0
+> 
