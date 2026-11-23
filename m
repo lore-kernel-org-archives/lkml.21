@@ -1,62 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447922;
-	b=LQ82fJ3oqMtm1fJsX1zP2o2SYQ2eSj0hJwHMfxi6xNagK0bidaJjFgbICaiiToTg62PH
-	 R21uo1E4Pq4+QcUge2zwI1anJk1VCmHMe71jwt8oQgUoIuh9Qu3DesKes6hsYsETHLizL
-	 37SOdIgdxwV+rVtlWCli0XgO5Td2+4luCzQGXYiahetFF54NcsBxHsD6fi/ONFMpEvSlo
-	 dZ7Ko7mH+XPxluxvFRjfshjUmLzwoNBnyM8EedgTh694waivM8DGv96TJ30bpBlqnoqwe
-	 71TvmP+clSZk1AU9IwLrP68p1zuCPi9kZUeuEWpdQx4NZJR9xwFTGuYuQ3llfPMdLow==
+	t=1795447939;
+	b=pL6rhBxdMCJQqdW75Y6Jvrg+1ZNfow6HYpNoatFNFrXXB80Ufbliou7T2LYSV8plCrmZ
+	 hAZiabQra/QAbO66LuyigPBBSmwrjjDaY7GXMYX8X7aTvO02IX3PWEql2mYaEPHer1Mhg
+	 cIqx5lZAyhWg4qf6T4B31CB5C4j8VyHzo+n0vPxQs+Q2v1nAXSyU3yNq6mHNyG3NNkcBX
+	 eBB7FsRgDvzmiMmqpc1XUT5aS5qNQi2BZxORyzKbQmZlXTfGxt8bW3jmNRG3hcLpHF675
+	 r0nVJ1eMNoOuaU+wlQTXedMJaa431paFxihSxrZ4fpcO0jXAL0UbKj8XfOe3FCnC4/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447922;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=IcrKa5wszJlz7KzbvkJ6LYVb8H5e9hHDr4RZJLHWMyM=;
-	b=zw4FjeolIBYEgBI/fGD8Fn8d4EFNPE46ORQons1GjpGJMzWtvU+9DbzVFm6TGah7mDRa
-	 10atLbTc+XvRgXx9dcwxluuthPZlxDfJdEfqbY1IK6M5+tG+zVOXBqZNfGmoT3T6Rlf9L
-	 4JpKoVm+vOLOZdwztd6L4tj7/cEs6fYf58Ip+5/gIeBFPlmZU3dBsTyXgZMvPrUEXAQz0
-	 d22ByA93M1u8NPPEouylruIV+1ojuBdYVK8+TEkIMv4lUtXjOPgiqSV/3CJu3QbG3czIN
-	 5SEEOmDI8w2yl2P9/+7a47Ey9WS/7iVVQvYbSRXOhRO8Ci2ajJoUZmnzL0GLmgafggg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447939;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=/iuEShb+SCbUmAuhOf/JItulqcNTWtm6fApHRcV/K00=;
+	b=NtTxW/JWJsEAvzSqE5+qxY/V2puiEPGuWlA/DDfk/AIGOwc2ZHvQHcLAJRiEglhdWcNW
+	 FLK7b95IVptwN5VIADL3hfUS04fBuo3IIiUTTcYf/5REoVpzB7+KXHzdRJmWSPmmxhfTq
+	 DUlaVEQfXSgTTXMpGq5ICznwbrXuTFle8OsQlWXEQuoA+t+8mJx2Gp7cFa4lxa28Yj5UC
+	 HcS7hgJwfffCBPPBdexvAOjQzf0CWLkT3kyOWbE0eAhmFtWvHRefrvfqPqD/iy9Phu52p
+	 k3kpLB0tKXyDCYbyCLKB/z3GiVl+75UCb+RlhxsxrUltjr+vXtoum0katF5scHUmH+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="FTdZLh/o";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V486gEZ4;
+	arc=none smtp.remote-ip=74.125.224.138
+Received: from mail-yx2-f10.google.com (mail-yx2-f10.google.com [74.125.224.138])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4F45606A31A;
-	Mon, 23 Nov 2026 15:32:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE68D606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:32:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE68D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FTdZLh/o
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D83C61F000CF;
-	Mon, 23 Nov 2026 15:31:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795447922;
-	bh=IcrKa5wszJlz7KzbvkJ6LYVb8H5e9hHDr4RZJLHWMyM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FTdZLh/oKelhDZHb27a8Rjnsbjd5T8QMS1HZ8GXSbzFfWDBRtRlPqH4ej2BHiOxGp
-	 WYaG6MaU2vMTrbJ2jSAAcXK9hewWa08MSj8aSICWcGhhEsVOS7vtEyJuqDySVj2hk2
-	 Dkbnv40jW4fYWr27uMMqSLIBFptb63TGD5lwieU/2Yct6tGqap3hZNpP0fJ8syioa/
-	 Bcv7nFUbzMX561fxkGAC1Fjoy5qVB1c4rTAaAEm4FZQKOlm8aqCDLyYqU9w5h9LWcw
-	 0CHylaAYpxeKP3qe2jsGkle32VHGhSGNKBQ2rXU8WUrZTF9cqIvapDfYcuIc2A7kih
-	 sWlm3f0Xg74pw==
-Date: Mon, 23 Nov 2026 15:31:54 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	Wei-Lin Chang <weilin.chang@arm.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atish.patra@linux.dev>, kvm-riscv@lists.infradead.org, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v3 2/3] KVM: Warn userspace against ioctls while an exit
- is pending
-Message-ID: <awRcDlU6vFaL3uKt@gremlin>
-References: <20261123113435.1170711-1-fuad.tabba@linux.dev>
- <20261123113435.1170711-3-fuad.tabba@linux.dev>
- <awRKhCne0gG1gKZN@gremlin>
- <CA+EHjTyM4_P5v0cHEiarq5XAb2A0Esshb762BLuuKnyBvH=y+w@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V486gEZ4
+Received: by mail-yx2-f10.google.com with SMTP id 00721157ae682-8b507dc8215so2704257b3.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:32:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795447938; x=1796052738; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/iuEShb+SCbUmAuhOf/JItulqcNTWtm6fApHRcV/K00=;
+        b=V486gEZ4artJNDxunTCoey+MkjvDwWG5yIkxswECUBHtLwO9FvanMo2nWGIPOcfc+D
+         ZR6sf3+pv1R8xn/dqdRMpqiV3QuX3MOpigP5A+mc2dPnHVX7tuxfRnH/1eey6c1qmu1v
+         8jjuN1nepfIs9kC4E/S2f4S8bXMnDSTc0dXgr8Kofhfh4lCSD4pWY5xmeOxHSd/Emg/L
+         jUjO8pErg6PA3+6THevpE5LnCflOr7HAkZPnG9galMMRI3SY4doWS8DmtCVFXKu7J8CB
+         NR53sSVnvGmo36cg5c+y4dtVs9j3E6/lMC3XNUhUzPcEjqFOMFbB02BFHHW8Z93XMxlP
+         Gn6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795447938; x=1796052738;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/iuEShb+SCbUmAuhOf/JItulqcNTWtm6fApHRcV/K00=;
+        b=yxIuQwjUXHTxeKlElRL4CPdqWkhFB5r6A/eLH2j4PnIU2LgUD1M3VgtsYdiDZ6KKDL
+         Z+9TXk2RIP0WhgGHcbQS68MTUcRyxyxGEhMflLccZgeCvRDxfwk2q+p98HBaTejfALhE
+         3ur79o2+S95IHWtJQDXynEuEe52ScDd5jzyuy1B9d8MCO+BsH81Yizy2mx2Nw3X3cTGw
+         Loha4GrCqPelSIWoEnIzIVHeI1RjIBtri1cMPCMOzJM9Azll2HPt60gCDiF0RkrDTFcs
+         CPkRozexSbcHOrR2ejyZ9ACxycL6RtGXQSM6N0ZELP0PGJXQk5H2mlQIhpvgaryoKSWj
+         /ubw==
+X-Forwarded-Encrypted: i=1; AL+hErGYUZfoOhSwOeC1xMszmEhmaFmaVz0NDDMypmpGBCAGIMnAjTVY451oq5SkcgP9AmGGs4C2UuYuP1FwSAA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9P51BabnfkUL7WG07EZroGVIUOJjK0oH6aYLN64C04sgROolj2
+	Tnk3lUg8KYd4UApVpLrI8UEkk9aIDkeDbR1cUvyeMs8ZXmnLHo/Gyoi5
+X-Gm-Gg: AZFdTZcWuJGOXcV6W8Pk58ORwVk6Mx2sRQOdaJvaXdEACBhw++vgnBFkt8n/8Sn6+kp
+	ukdKLHBpsFq4z6KPy1hc96Ctk+6rvyHGTGs3nDh/d8OsGg8uRvboAsjuQXf1jY22BH1ieUm9GdT
+	qIEG5Ak0v9SxliOPimks4naB7Ih5dmi0vLoaXbCopbVnwQzyEDRKhawZUxZ2QqoTwA0VtZL+j4g
+	6qzM/G1tmloNWoxoIZgF44tql0+RJ1dv3xxyv40hB1ccjJxH4w1jvsD10v/vR/TyVrxacEL0LPb
+	hdQPRhm8S1HkWVgM8HD6nCJHhPgfuD/tCcx0VHlqV4eD8v1MDqFCkViJqAXbaG7HhZZWjlOkVTt
+	WlT/K1qYNvraXdHAMayu+uCkidQWQaU37NnhQvgTUtCGYxjQc4iMKXq+i8XJrH/GfexGWyvEThp
+	evHhdquNrb+6UD7PTRw2YYd2v5eHE5e8g5L8XELdRRpmW+cX8cIC3kutRmw+GDrc/LhX07/fBkH
+	3v48+jgXSVqT7j8UnJWCgmHWWfwB7G7j9UPJMTFPW9Ei5CyQBCfw/NOlaUkKk60fZw5JkocU5RQ
+	zaQ6pcJwuyytZ0CDm9qX6XaO1sfdjq8n0Uk=
+X-Received: by 2002:a05:690c:e908:b0:8b3:3956:6f7e with SMTP id 00721157ae682-8b52043cdd0mr44199647b3.12.1795447937296;
+        Mon, 23 Nov 2026 07:32:17 -0800 (PST)
+Received: from [10.0.0.48] ([71.69.222.122])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b520c5b6f7sm45871217b3.9.2026.11.23.07.32.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 07:32:16 -0800 (PST)
+Message-ID: <463a55e8-c2ef-4d83-94ff-7599c7d931e6@gmail.com>
+Date: Mon, 23 Nov 2026 10:32:16 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,78 +90,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTyM4_P5v0cHEiarq5XAb2A0Esshb762BLuuKnyBvH=y+w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/9] nvme-auth: switch to use the kernel keyring
+From: Martin Belanger <martin.nvme.dev@gmail.com>
+To: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>,
+ Chaitanya Kulkarni <kch@nvidia.com>
+Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org>
+ <5aa50b65-c502-4b87-8f09-23a456e2ca6a@gmail.com>
+Content-Language: en-US
+In-Reply-To: <5aa50b65-c502-4b87-8f09-23a456e2ca6a@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 03:23:58PM +0000, Fuad Tabba wrote:
-> On Mon, 23 Nov 2026 at 15:09, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
-> [...]
-> > Very much agree with Sean's take here that we should instil sufficient fear in
-> > users at doing silly things (also in general not only KVM :).
-> >
-> > I wonder if we could add some specific examples or broad description of why it's
-> > unwise for better effect, though? Comments below.
-> >
-> > In general though:
-> >
-> > Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
->
-> Thanks!
->
-> > > ---
-> > >  Documentation/virt/kvm/api.rst | 11 +++++++----
-> > >  1 file changed, 7 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> > > index 89eb6be9bc6e3..980ef0cdc1c91 100644
-> > > --- a/Documentation/virt/kvm/api.rst
-> > > +++ b/Documentation/virt/kvm/api.rst
-> > > @@ -6974,10 +6974,13 @@ to the byte array.
-> > >
-> > >        The pending state of the operation is not preserved in state which is
-> > >        visible to userspace, thus userspace should ensure that the operation is
-> > > -      completed before performing a live migration.  Userspace can re-enter the
-> > > -      guest with an unmasked signal pending or with the immediate_exit field set
-> > > -      to complete pending operations without allowing any further instructions
-> > > -      to be executed.
-> > > +      completed before performing a live migration.  In general, userspace should
-> > > +      exercise extreme caution when invoking ioctls other than KVM_RUN prior to
-> > > +      completing the original operation.
-> >
-> > Perhaps worth saying why? E.g. (as I understand it) that for these exits the
-> > operation is only completed on the next KVM_RUN, and that KVM relies on state
-> > left over from the exit (including parts of struct kvm_run such as exit_reason)
-> > to do so, so any ioctl invoked in between might clobber that state?
-> >
-> > I see you intentionally avoided documenting the pre-fault case on its own, but
-> > with the above stated I think a concrete example might be example here, like
-> > e.g.:
-> >
-> > "For example, if you were to ... that would result in ... which would absolutely
-> > ruin your day because ..."
-> >
-> > Kinda thing :)
->
-> :)
->
-> I'm not sure it would help, tbh. I think a reason or an example would
-> have the effect Sean wanted to avoid [1], where a reader takes an
-> ioctl that doesn't match it to be safe.
 
-Ah fair enough, I missed the bit about purposeful fear-inducing vagueness :)
 
-I guess the retort to my suggestion is that a user may think 'oh well I'm not
-doing that so it's fine'.
+On 11/23/26 07:59, Martin Belanger wrote:
+> How should nvme-cli determine whether the kernel accepts a key
+> description for DH-HMAC-CHAP?
+[...]
+> 2. Use a separate option for the key description, for example
+>    dhchap_key=%s and dhchap_ctrl_key=%s. nvme-cli would then detect
+>    support through /dev/nvme-fabrics, as it does for the other
+>    options. It also avoids having one string that can mean either a
+>    description or key data.
 
-Fine line to tread I guess!
+Hi Hannes,
 
->
-> Cheers,
-> /fuad
->
-> [1] https://lore.kernel.org/all/av5CBjbeidUUWiLq@seanjc-mac.roam.internal/
->
+A follow-up with test results. I added DH-HMAC-CHAP support to
+nvme-keysd and tested it with v5 in a VM, with nvmet over TCP and keys
+in both directions. Import, connect by key description, a wrong key,
+and a key replacement all work.
 
---
-Cheers, Lorenzo
+For detection, nvme-keysd now uses add_key(): it fails with ENODEV
+when the 'dhchap' key type does not exist. On an older kernel, the
+connect fails with "Invalid DH-CHAP secret <name>", which is clear
+enough. So nvme-cli does not need a new option for this. A separate
+option would still avoid the ambiguity between a description and key
+data, but that is your decision.
+
+One finding: add_key() with the exact secret length, without a
+trailing NUL, fails at random with EPERM. nvme_dhchap_psk_preparse()
+treats the payload as a C string and reads past it (the bug Sashiko
+reported), and base64_decode() returns -1. User space passes the
+length without a NUL, keyctl(1) too. Could v6 parse exactly
+prep->datalen bytes? For now nvme-keysd passes the NUL.
+
+Martin
+
