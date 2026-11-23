@@ -1,56 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.68
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430508;
-	b=M3AD8fi5dYUCGMNBKv3PHt7ogQmvGAAaVJSKaDHHv+uLezAnKUtgk4RJEzARJM+NS3vM
-	 HaoYIs/RfUZGWedgbg5IM3BqhHmKugueyES5LkDs68coCxLlFCtr0hjUvv6TvIqXXtz8I
-	 DXhAteDdMolEoZnriBNKFIGk58OITSOCCRxJ+vGneQlZyZ2WiLV0D4sZqjeapg+bXGmub
-	 ni/n/++9DctnZJ+/5bz9VjE/v4ambD59Zqxst9/0FieM1KkfasqfiHh8djMDLa4DvbhSg
-	 Da9Lsk9sC2RV53WYoqI3j4D8g/rFq26W3UvnKOrMVH/I1ORINrJYwGKHDoTJGBV72Wg==
+	t=1795430510;
+	b=pcOXy5avBvbDmuXJUyl12J0CsGb8NY1kQjpYSnro+dd7fxPQy6V7J/kjp4cnz9AbHWCn
+	 y/wtj91EXMUoUqdFefETWz8ll1bkXwDU1XfQX721KUUnv6J9JKuly52jRjzXQsK7maRo3
+	 WFUd21yIDLr4zZnXKj0hQlePowckzDAiW0zDx0FJvO6Xu0RATTeIptcuRp2KBsiyP2UUT
+	 DA6Y031wDmKR+IrAEvwTnJ67NFzSO8J8lMy7OIqfb4TRlktYPGDl/HV0XZHWuKnwjbHy3
+	 m6+DNc/SbEC+/IM4jzCkF9bSGlI09/8lITRIIwqfLmTvZPhscSkaZfs2JAw/ABT7AsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430508;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:To:Cc:
-	 X-Mailer;
-	bh=MND2gXWBxhr8dXIEz1K7tu3YQTgZtUI14WVbyk/Hlmc=;
-	b=zB9wJJrMnU1CfGOUpT85B3PUbYEvxWUbVoN/g31/gwemHbbPpKF5Ck9eJMP1TVkDP2/y
-	 dQrWZ4lDSglg0jFiONlw99q2KrpsLtXe04Fmt0ZfAsQxUu3PhSxa7LT18XIAV1qcBU+uP
-	 ELl0KGozRp3VEvBJ1V12r825dK8jeG479oA3R1Xz1G1g2RyoZax9U/OJ5RXG5lC3u/PP/
-	 yA/eJk7xND11u6mZs8JlFGmZj8/P95yasQVC5woKZXpMBTpe7bXsTgjm/3dLFBftdqC2O
-	 OdG19vFDjBIplfwGJudfwmfEJ1Vj7gq5WNGLZr53YWA9hqi7QyPomps0lhdJahfmpxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430510;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=jpGiLd/SR0KkHuW916oaPvPankpE2lAPzBwsA+0eEUo=;
+	b=glYjUztMdb/7TYBlz860tWDW5YExyb+lOxH49AgPwEzp0HbAWTMDzjdgb+giyDMmUIMe
+	 Ms5NFHh777UDRH0KVFEwRiK1Z8CYNxu2BZvjkRaYYSQo157C5WTjaEVOr8IiQEXWsJdkb
+	 77ZKsPw+kkHU8q9f4Z2F2ZOOgSjMbt/QAyIedBEgRtMhwU//RhI/Gt1sQwgiM+UJoZYtb
+	 jZMqt5Ojhy/px7HOfaphDZm7kDyF/EF0kUVqirziZ+uqKuDQyhLeHHR7L2F8ETfCUJ5af
+	 DZWgB0I0jXbCRcOdCIJUtnnORwf5+RJqvDFxreZ0aIyvpZRmQIafeMGjPhr39mcZx5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NJBBIlCN;
-	arc=none smtp.remote-ip=91.218.175.68
-Received: from mta0.migadu.com (out-68.mta0.migadu.com [91.218.175.68])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AD56606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:41:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AD56606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fS944Ga+;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id EF204606A330
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:41:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF204606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NJBBIlCN
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=y+2aFOJdNqO3B426W22gxsYpUvD57l9xFa8AYlK0V6o=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795430506; v=1; x=1796035306;
- b=NJBBIlCN4zr5XONfKo8IG+8jqyMiCzgxWPvoKUa1N6AfhSYsLbmIJUcJk/pJ97xW5oq6biCU
- FM9kfFA16CndOiI2OYDD9ghqEWuWd9lgX1Srn4DC7aU0GPxvZyw2quv561fH0o6VD0M5R976BIp
- KlrLZNq5jHxCprmrD5A4nXnk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 100b1cd08c6c74a4;
-	Mon, 23 Nov 2026 10:41:46 +0000
-X-Mizu-Trace-ID: 100b1cd08c6c74a4
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Date: Mon, 23 Nov 2026 05:41:38 -0500
-Subject: [PATCH] mm/rmap: flush the TLB once per mapping in
- page_vma_mkclean_one()
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fS944Ga+
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36CC4143D;
+	Mon, 23 Nov 2026 02:41:46 -0800 (PST)
+Received: from [10.163.157.54] (unknown [10.163.157.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02EBC3F632;
+	Mon, 23 Nov 2026 02:41:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795430509; bh=+Uc9s5vRzOrMEMBjecGU+IR5j76w9s/5x+FEreLson4=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=fS944Ga+GVS89oCilc07YUDOHzrGxgD/x1uVGnqJPQlpAGss8pw0pHiDOiZIOeWQT
+	 /bUJ+Dz9KlLvnnf+AxCR5wLpoKa86/bSdeSIp2SyRQa7yXtBjiiz6XgfCcLJUrvglk
+	 eCzLfNKth+PIlOteVECJ7r5T5WTKzYyMqAdUfp80=
+Message-ID: <38d06816-e138-4edc-b26d-499617870506@arm.com>
+Date: Mon, 23 Nov 2026 16:11:37 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,100 +53,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Dev Jain <dev.jain@arm.com>
+Subject: Re: [PATCH v3 2/3] mm: page_alloc: make the high-order watermark
+ check honour ALLOC_NOFRAGMENT
+To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+ David Hildenbrand <david@kernel.org>, Harry Yoo <harry@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Mike Rapoport <rppt@kernel.org>, Qi Zheng <qi.zheng@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Kairui Song <kasong@tencent.com>,
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Baoquan He <baoquan.he@linux.dev>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Usama Arif <usama.arif@linux.dev>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, kernel-team@meta.com
+References: <20261116125103.2894162-1-kas@kernel.org>
+ <20261116125103.2894162-3-kas@kernel.org>
+ <a066d403-1608-4c0b-b06b-0b786e71b12d@arm.com>
+ <av7_n5llADUbJI-r@shutemov.name>
+Content-Language: en-US
+In-Reply-To: <av7_n5llADUbJI-r@shutemov.name>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-feat-mm-mkclean-batch-flush-v1-1-7e998ad13251@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAGEYBGsC/x3M3QoCIRBA4VeRuW4gjZXqVaILf8Z1SC10i0B89
- 5W9/OBwOjSqTA3uokOlHzd+lwl5EuCiKSsh+2lQZ6WlVBcMZDbMGfPLJTIFrdlcxJC+LaK+aj9
- DebOLgnn4VAr8P+6P5xg7LR5e6m0AAAA=
-To: David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
- Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Matthew Wilcox <willy@infradead.org>, Kiryl Shutsemau <kas@kernel.org>, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- Qiliang Yuan <qiliang.yuan@linux.dev>
-X-Mailer: b4 0.13.0
 
-Writeback calls folio_mkclean() on every folio it writes, which
-write-protects and cleans each PTE that maps the folio, so that the
-next store through the mapping faults and redirties it.
 
-page_vma_mkclean_one() does this with ptep_clear_flush(), one TLB flush
-per PTE. A large folio mapped by PTEs thus costs as many flushes as it
-has pages, each an IPI to the other CPUs the mm runs on. Writing an
-8 GiB file through a shared mapping on xfs flushes the TLB 2,097,152
-times for 65,575 folios, and the writer spends about half of its time
-in the IPIs and flushes.
 
-Write-protect and clean the PTEs with ptep_modify_prot_start() and
-ptep_modify_prot_commit(), as change_protection() does, and flush the
-range they cover once after the walk. The flush still happens before
-folio_mkclean() returns: stores through a stale TLB entry complete
-before writeback reads the folio, and later stores fault.
+On 19/11/26 7:32 pm, Kiryl Shutsemau (Meta) wrote:
+> On Wed, Nov 18, 2026 at 01:40:17PM +0530, Dev Jain wrote:
+>> So let us do something like: we have zone_watermark_ok_for_alloc. It will call
+>> zone_watermark_ok, which will only handle the watermark computation (so this is a
+>> refactor for the code ending at if (!order) line in current zone_watermark_ok).
+>> Then it will also scan the freelists for the correct order, correct migratetype etc.
 
-Writing an 8 GiB checkpoint to brd through a shared mapping, one file
-per writer, then msync(), median of 6 runs:
+I think my wording was unclear. By "correct migratetype etc." I did not mean
+"only the requested migratetype". I meant the same rules being enforced
+below the if (!order) check in current __zone_watermark_ok(), in relation
+to the migratetypes and orders while scanning the freelists.
 
-  fs     writers   before (s)   after (s)   change
-  xfs          1         5.57        2.98     -46%
-  xfs          8         5.37        2.10     -61%
-  ext4         1         7.88        3.90     -50%
-  ext4         8         5.10        2.02     -60%
+> 
+> A count-only zone_watermark_ok() does not work for three callers that
+> pass a high order: kswapd's pgdat_balanced(), kcompactd's
+> __compact_finished() under defrag_mode, and should_reclaim_retry(). They
+> ask whether the zone has a free page of that order regardless of
+> migratetype. They need the free list scan without the migratetype
+> filter, so neither of your two helpers fits them.
+> 
+> So the split is not count vs scan. It is the zone as a whole vs one
+> request, as the comment above __zone_watermark_ok() says. The _mt variant
+> is the one that takes the request's migratetype. Callers that only want
+> the count already pass order 0.
 
-Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
----
- mm/rmap.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+Although I thought a lot last week and my approach would cause more churn due
+to changing lots of places to _for_alloc, so I am fine with your approach for
+now. But read on.
 
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 65646ed6fc453..4c3d9cb47e550 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1127,6 +1127,7 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
- 	struct vm_area_struct *vma = pvmw->vma;
- 	struct mmu_notifier_range range;
- 	unsigned long address = pvmw->address;
-+	unsigned long flush_start = ULONG_MAX, flush_end = 0;
- 
- 	/*
- 	 * We have to assume the worse case ie pmd for invalidation. Note that
-@@ -1156,10 +1157,11 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
- 				continue;
- 
- 			flush_cache_page(vma, address, pte_pfn(entry));
--			entry = ptep_clear_flush(vma, address, pte);
--			entry = pte_wrprotect(entry);
--			entry = pte_mkclean(entry);
--			set_pte_at(vma->vm_mm, address, pte, entry);
-+			entry = ptep_modify_prot_start(vma, address, pte);
-+			ptep_modify_prot_commit(vma, address, pte, entry,
-+						pte_mkclean(pte_wrprotect(entry)));
-+			flush_start = min(flush_start, address);
-+			flush_end = max(flush_end, address + PAGE_SIZE);
- 			ret = 1;
- 		} else {
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-@@ -1193,6 +1195,12 @@ static int page_vma_mkclean_one(struct page_vma_mapped_walk *pvmw)
- 			cleaned++;
- 	}
- 
-+	/*
-+	 * Flush the write-protected PTEs once rather than one by one, before
-+	 * the caller writes the folio back, as change_protection() does.
-+	 */
-+	if (flush_end)
-+		flush_tlb_range(vma, flush_start, flush_end);
- 	mmu_notifier_invalidate_range_end(&range);
- 
- 	return cleaned;
+Currently you pass migratetype and you say in the comment in patch 1:
 
----
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-change-id: 20261123-feat-mm-mkclean-batch-flush-686d20219b52
+"Use __zone_watermark_ok_mt() instead to check whether a particular allocation
+can be served."
 
-Best regards,
--- 
-Qiliang Yuan <qiliang.yuan@linux.dev>
+But, for the existing callers who pass order > 0 , aren't they also checking
+whether the allocation can be served? It is confusing me that both alloc_flags
+and migratetype are logically part of the "allocation context" but some
+callers are doing alloc_flags & ~ALLOC_NOFRAGMENT ... I am not sure whether
+the below Sashiko report is related to that, I didn't check in detail:
+
+https://sashiko.dev/#/patchset/20261116125103.2894162-1-kas%40kernel.org
+
+
+
+> 
+> I am not particularly tied to the _mt() name, but _for_alloc() is a
+> mouthful.
+> 
 
