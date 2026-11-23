@@ -1,83 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.204.81.208
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.57
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404260;
-	b=G8a/oSU69WsBH+RO1/m+GBFM4qLcvUjxld3K98e39AsVnXK1FPszuRNXOIQWK/CD8053
-	 Y7WE04ZT1xyE3yW32+AecbyQ4IshhGrhALFNobUEaWPKTU/tOip2K3mblI9J3ezhXUvOn
-	 VhnQErMFKZ1agaiNJX7lYAF15lXceqw3kgMW+a3GiGjGEdJeKrSB8hFblMGWmcJGjYXmr
-	 6wBSKNXj4IM73+Mn/viBQMUI1Gup1+2qxJnN8IAQfksU8NkIQ2Cg8h2vNVUYkkwvcuSZT
-	 76FVI9d3yg8KFV8HK3cmamIebXaAlzne2uDQVAvJuRjPFx1JPo3wdbqDwcQkHktAVAA==
+	t=1795404300;
+	b=RnyTZZFyTmHhrcxwFQ2ZHKrKkMIjzal2F7RbJQ7G1c6aAjKwcwHMybFL1sYbgAonh4Nz
+	 ybPgyYZdwM9I/iEsCO2iOsAKeH0Jxmgnz0r8COFXtN+Z/RS/7sRcgaLfQ5mSfs9LPGoCi
+	 vPM4vhFFXeC8M7nXVU9B4MjLjYeGHAfKYQnO6smdbPjmkYCuGjUFt/pKVge2cCUI3e0Ji
+	 WlOB37T+YxvKQkrA5eEm8TiuOgQZxP37epm8DNM9HZIJOT9yNktWIgFPs3ja1gGZ0P9y7
+	 4KyYKtKFJvhAhaUdG6BFIQjgEjc2ejGxttx3M8e23qoYr/Ag9X73I5m2sEQW7r5yZ4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404260;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:X-CMAE-Analysis:
-	 Feedback-ID:X-SECURESERVER-ACCT:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CMAE-Envelope;
-	bh=fb5F1+HV0OZbPTxdQ7/3f15ugGB/LMdBqtkFJnN7Nm8=;
-	b=Zbse3zA74BsXdVhRSnAv2XnAalIUeMyJAJxLN74eTOyK6E1tPGK+hW2gnM83Og4yK2bj
-	 2S4JWN/8/pUCS1Nlj4cOKvdQj88p8tpGpd5/k6eyFX0CwhzNZEaby27aPEzkngOe5IhFQ
-	 ZyA9RIergg0TO6uOi+L63fTObD+7F+cgueR1gbE7RtdoOuokSBhjq3ISlBXQvo0Kp4tQi
-	 L9afM0blmJpZ8mv99sHlvZUYM8w/LUfcU2OmRKegA+Th9t25AkbxYrMrTsdAFtykIH61X
-	 HnCy7x0azcHNMMMSms3vVyX9RnIr3HYAE3e6jfTHnikOtAJZa4/MKOfEWRKkufg80ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404300;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Y4gpNl/F4g8MqNcRxKUr6EkppEWS08hp4eUzFz257Wg=;
+	b=Ipxr6bCOhsWx0P7PH6Qoj5GZ3eoHisS+L/r76sllpgvXBzAQp/DUWe7bdze7VYNB2tBY
+	 ZYI3ZQw5q++lrO22SFrplCXrX6Q3J2QrMvuIiJ7Kv0N69vP8i3VKQPYsj2NOzM6MCKcDQ
+	 VQMbJE92UABl/ZixRsmMvhCZsk3XnspHWsy4btHhrHeoebXls0IIkEXS48UEi9a+JXERE
+	 JwXNkHR/0qdxh3Q8kqZAED6zc9fp6EjkAKLmP1x5EYFHECJTUDhF7N5XDcYIFxTyK3Txt
+	 LeCIkmYpmQm1oPawZhvG1ISYpqDhSO0IB5ayV1dWE5IWspL3Ni69T3ZQ9l+15XHxmrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squashfs.org.uk;
-	spf=pass smtp.mailfrom=squashfs.org.uk;
-	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=IqzxPLnf;
-	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=VBdxXJQj;
-	arc=none smtp.remote-ip=92.204.81.208
-Received: from sxplsmtpa04-06.prod.sxb1.secureserver.net (sxplsmtpa04-06.prod.sxb1.secureserver.net [92.204.81.208])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WXpgajDD;
+	arc=none smtp.remote-ip=91.218.175.57
+Received: from mta0.migadu.com (out-57.mta0.migadu.com [91.218.175.57])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE1C9606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:24:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE1C9606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=squashfs.org.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squashfs.org.uk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0F81606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:24:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0F81606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=IqzxPLnf;
-	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=VBdxXJQj
-Received: from ravalox ([82.69.79.175])
-	by :SMTPAUTH: with ESMTPSA
-	id VKewx1zMZpVcJVKeyxeBLr; Mon, 23 Nov 2026 03:24:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secureserver.net;
-	s=secureserver2; t=1795404246;
-	bh=fb5F1+HV0OZbPTxdQ7/3f15ugGB/LMdBqtkFJnN7Nm8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IqzxPLnfYggvmqvmgLzhq/FzVr5nMJsqFSZnyLq6x46UD6/7MVXa/Hl7rErhqx4hZ
-	 EPJvGcOejfRZQwXrhjVXgkB0flxCviiauWQ/wwvTVtTLrcpDg6YxV9qBh72PHR2RTX
-	 99E1mOTUDqSQJnrMJF1jHfvL7Lta5FebpsOghOHBMozjeDIYiMeak3vdMoQ1wrOCfZ
-	 iVx3UntBM8IFNLupbEKyfP1buoOXtdeM+2QMDEdDnbqVnDAjwpeCVmCZ2QJwo+sP8m
-	 svKTtsyw8KU8aQLJ/snr6xyuQpnVeYnWypclG40m4WyAS8i138eOJ9x2mRuL6fyUkP
-	 chghFlENBMtkA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squashfs.org.uk;
-	s=secureserver1; t=1795404246;
-	bh=fb5F1+HV0OZbPTxdQ7/3f15ugGB/LMdBqtkFJnN7Nm8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=VBdxXJQjrwgcvVF37/rAknxuPMbxxB1xKNr+g5scrRKFnxGDAngFc+pb3lJuIWYpY
-	 zUKw5q4yYOINMO7EBCgPi3YOvCQWn9bVa6jzW9q16uYVMtMD8YduBQIWkfDFslAD9+
-	 YrPOxryswsCOHmUCJQpLwkpT+IjRSmaEgcisjhqYYyiQOLkZXhkvpXUfmUhYjCTOHT
-	 78YytrikBdrS697gmsNvErzmsXCp2ofYY/FVQRV5TrrJ050HQRZuraMOWCmNHIo90j
-	 E9wJw5DbnWfusWZFFN95xWs4IOu0jDNJL6uMKNj3NLiqNMtupcRc2ncM5s0Rhi4x7b
-	 L8T540VfX9/nQ==
-X-CMAE-Analysis: v=2.4 cv=D7/SufRj c=1 sm=1 tr=0 ts=6b03b1d5
- a=84ok6UeoqCVsigPHarzEiQ==:117 a=84ok6UeoqCVsigPHarzEiQ==:17
- a=kj9zAlcOel0A:10 a=Z4Rwk6OoAAAA:8 a=FXvPX3liAAAA:8 a=OM4U-40VTx3VScZtlVYA:9
- a=CjuIK1q_8ugA:10 a=HkZW87K1Qel5hWWM3VKY:22 a=UObqyxdv-6Yh2QiB9mM_:22
-Feedback-ID: ddafcf7f7eb0c3020a2d92e6b9fb169e:squashfs.org.uk:ssnet
-X-SECURESERVER-ACCT: phillip@squashfs.org.uk
-Date: Mon, 23 Nov 2026 03:24:02 +0000
-From: Phillip Lougher <phillip@squashfs.org.uk>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, Christian
- Loehle <christian.loehle@arm.com>
-Subject: Re: [PATCH v2 17/22] Squashfs: don't store large export table
- indexes in memory
-Message-Id: <20261123032402.2ef0f237cbc3fd677b048a11@squashfs.org.uk>
-In-Reply-To: <20261112110927.6add17b0552922c5b6b93515@linux-foundation.org>
-References: <20261111234402.252354-1-phillip@squashfs.org.uk>
-	<20261111234402.252354-18-phillip@squashfs.org.uk>
-	<20261112110927.6add17b0552922c5b6b93515@linux-foundation.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; aarch64-unknown-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WXpgajDD
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=tJ210l8N53qwzKcff1TWVBhMVy3G/e0ZEpZqauOTgio=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795404297; v=1; x=1796009097;
+ b=WXpgajDDpkPWT4hK6JMHBEpDO73iQqjMVH8AVheeatJXUmH57hySzGuBheYhb+1XnJrVsrTU
+ g7//hZ9mKYH3YjJcyrBvpTk+AbNHpi5GiMoN11+NFEmA82M5Azh8ZwPR0wsyVghceEKJv6VlBJ5
+ 9vk2RzV0XuEYBZXysLtkM1vc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7762aa3ab8bb87af;
+	Mon, 23 Nov 2026 03:24:57 +0000
+X-Mizu-Trace-ID: 7762aa3ab8bb87af
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <4299d682-8f93-4351-a651-2e7fa51b64ed@linux.dev>
+Date: Sun, 22 Nov 2026 19:24:50 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,46 +57,112 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CMAE-Envelope: MS4xfBN1rCv2VaseG8nBDIX9nmiVQAAWYxNtgqza7MtGnU7b7zCjwTr1DNXfRjlbmPDUoORJz0frV/y7bHWvtH1+Xlg1Fw+zGPaWBeb4T2K/zx+GuAI2ZyYA
- nioFcL38IcE1tpSbdhFZn4DgOlP607Dc6slOlGRWa2RhRpTfQ7uOQaRx3wmJYSV4rZccyRp04jqo5t4Fdbeo6xJPPUi+YtQLOvxFycnOc5U0amj02V37BmCK
- 6Pse1p0Snl0qLbIcIkSnpleqjRSt65hWEJYYjDiGcDF7gQ9lAeaANsbGtwWgEjzfK1B2u6R5kPvhu11y03jG7w==
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rdma-next v2] RDMA/rxe: Mask the SQ producer index read
+ from user space
+To: Shuai Liu <847807867@qq.com>, linux-rdma@vger.kernel.org,
+ "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
+Cc: zyjzyj2000@gmail.com, jgg@ziepe.ca, leon@kernel.org,
+ rpearsonhpe@gmail.com,
+ syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com,
+ syzkaller-bugs@googlegroups.com, linux-kernel@vger.kernel.org,
+ sashiko-reviews@lists.linux.dev
+References: <tencent_5B9FB1BCC8EF36C5E2128B7D4D54B867480A@qq.com>
+ <tencent_BEE58D9BBE7109C47C2796DDF5A4B958F609@qq.com>
+From: Zhu Yanjun <yanjun.zhu@linux.dev>
+In-Reply-To: <tencent_BEE58D9BBE7109C47C2796DDF5A4B958F609@qq.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Thu, 12 Nov 2026 11:09:27 -0800
-Andrew Morton <akpm@linux-foundation.org> wrote:
 
-> On Wed, 11 Nov 2026 23:43:57 +0000 Phillip Lougher <phillip@squashfs.org.uk> wrote:
-> 
-> > When mounting a Squashfs filesystem, the code reads the entire
-> > export table indexes into memory.  Their size is determined by the
-> > number of inodes in the filesystem.  For the maximum inode
-> > count of 2^32, this will allocate and read 32 MiB.
-> > 
-> > This is an excessive and unnecessary amount of memory because the
-> > indexes do not need to be read into memory in their entirety.  In
-> > addition kmalloc() is used to allocate memory, and this can fail when
-> > large amounts of memory are requested.  Kmalloc() on modern kernels is
-> > usually limited to 4096 KiB.  If panic-on-warn is set, then failure to
-> > allocate memory will result in a kernel panic.
-> > 
-> > This commit uses a 4 page cache if the size of the export table indexes
-> > are 4 pages in size or larger.  A simple and fast lookup array is
-> > retained where the total index size is less than 4 pages in size, which
-> > is the vast majority of Squashfs filesystems.
-> 
-> Thanks.  This patch didn't anticipate the presence of Christian's
-> "squashfs: identify device in mount errors".  To make life easier I've
-> staged Christian's patch behind this 22-patch series.
-> 
-> This required a bit of rework of Christian's patch.  While in there I
-> filled in a few more places which needed Christian's treatment and I
-> made the whole thing more 80-column friendly where that made sense.
-> 
-> Please check:
+在 2026/11/20 19:46, Shuai Liu 写道:
+> The send queue producer index of a user space QP is stored in the
+> queue buffer which is shared with and written by user space. The
+> requester reads it without any validation in req_retry() and
+> __req_next_wqe() and compares it against its own local index which
+> is always masked.
+>
+> The requester stops processing WQEs when its local WQE index equals
+> the producer index. If user space writes an out of range producer
+> index into the queue buffer, that comparison can never become true.
+> Once the QP is put into the error state, rxe_requester() then keeps
+> flushing WQEs forever: the flush path advances the WQE index with the
+> masked queue_next_index() but the producer index stays out of range,
+> and each pass calls rxe_qp_error() which reschedules the send task,
+> so the loop never converges. The send task holds a reference to the
+> QP for as long as this lasts, so ib_destroy_qp() waits for the QP
+> reference to drop until it times out after 50 seconds and the
+> WARN_ON(!ret) fires in __rxe_cleanup():
+>
+>    WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup
+>    Call Trace:
+>     __rxe_cleanup
+>     rxe_destroy_qp
+>     ...
+>    rxe0: qp#17 rxe_destroy_qp: cleanup failed, err = -110
+>
+> Fix this by masking the producer index with q->index_mask when reading
+> it in queue_get_producer() for QUEUE_TYPE_FROM_CLIENT. This restores
+> what producer_index() did before commit ae6e843fe08d ("RDMA/rxe: Add memory
+> barriers to kernel queues") replaced it with queue_get_producer() and
+> dropped the mask, and keeps the requester, the completer and the queue
+> helpers, which all compare the difference of the two indices modulo
+> index_mask, consistent. rxe_qp_init_req() also initializes
+> qp->req.wqe_index from this value so it gets validated as well.
+>
+> Masking the index in queue_get_producer() instead of checking it at
+> the two requester call sites was suggested by the Sashiko AI review of
+> v1 of this patch.
+>
+> Verified with the syzbot reproducer in QEMU: without this patch every
+> destroy_qp hangs for 50 seconds and hits the WARNING above; with this
+> patch the reproducer runs cleanly.
+>
+> Reported-by: syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=fef38133c495aeb48297
+> Fixes: ae6e843fe08d ("RDMA/rxe: Add memory barriers to kernel queues")
+> Signed-off-by: Shuai Liu <847807867@qq.com>
 
-Thanks.  It looks good to me.
+Thanks a lot.
 
-Phillip
+Reviewed-by: Zhu Yanjun <yanjun.zhu@linux.dev>
+
+Zhu Yanjun
+
+> ---
+> Changes since v1:
+> - Mask the producer index in queue_get_producer() for
+>    QUEUE_TYPE_FROM_CLIENT instead of checking it at the two requester
+>    call sites, as suggested by the Sashiko AI review of v1. This also
+>    covers rxe_qp_init_req(), which initializes qp->req.wqe_index from
+>    the same value, and keeps the requester, the completer and the queue
+>    helpers consistent with each other.
+> - Point Fixes at commit ae6e843fe08d, which dropped the mask that
+>    producer_index() had, instead of commit 5bcf5a59c41e.
+> - Reword the commit message: the flush loop never converges because
+>    the WQE index is advanced with the masked queue_next_index() while
+>    the producer index stays out of range; the req_retry() reset detail
+>    in the v1 description was inaccurate.
+> - Update the subject to describe the actual mechanism.
+>
+>   drivers/infiniband/sw/rxe/rxe_queue.h | 1 +
+>   1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/infiniband/sw/rxe/rxe_queue.h b/drivers/infiniband/sw/rxe/rxe_queue.h
+> index c711cb98b9496..fe65aecc60464 100644
+> --- a/drivers/infiniband/sw/rxe/rxe_queue.h
+> +++ b/drivers/infiniband/sw/rxe/rxe_queue.h
+> @@ -106,6 +106,7 @@ static inline u32 queue_get_producer(const struct rxe_queue *q,
+>   	case QUEUE_TYPE_FROM_CLIENT:
+>   		/* used by rxe, client owns the index */
+>   		prod = smp_load_acquire(&q->buf->producer_index);
+> +		prod &= q->index_mask;
+>   		break;
+>   	case QUEUE_TYPE_TO_CLIENT:
+>   		/* used by rxe which owns the index */
+
+-- 
+Best Regards,
+Yanjun.Zhu
 
