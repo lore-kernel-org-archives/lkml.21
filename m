@@ -1,79 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795443512;
-	b=IE6yuKbVIs86GjaCyRNJJ/5rIMqYGkGipKhO4IyMwy4B8ChoU54SLsloCOHP2kRnFseE
-	 rDbNAdJJHhgkEwjBaW+plbTjSLnIpP2ejr+NxdGtqUuYqbTyf9txDRvxUc6ibwlieXDMc
-	 rE58E+h4CmYaMVAxXLTPX0IB+t6rnA0FLu2lpYrULKYNM3CUSYuhIQrR7l1Ux4JUwZtre
-	 PhgoyfDI43T8scL5nOv8RRjJIxNc5vzHlLa28YNvG1/PV+k7mGGAXfd26eN+g+B+033YF
-	 RojDbPAmMF6UQHbv8Gg9LcwU513IyFUWRa+4Mb3qjFlmbeL57ONB03ciUgiztPpSVAA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443512;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=p038IxcP1LIpPQwiIMGTCY2lVaAX4hwB1WZdznpqdbk=;
-	b=dfyT9OWdErCLrNvYsW6ycCu5A4QoyrZP9/+Kbwr1dRPVKSgmrS+A6Hebg0UccDMLcbTX
-	 OxqO2QD+hAdXLKoEIZwzSuqrRlxf2+Ri0MzwSp1uGbSRS8TlcTHYAZiL7/bW3dBodNKjD
-	 DGnzcG6q5Y61Oqz4tKkWnrGZon/CSHGJwpNrJywvZ/BoXEShsQlbyEeCQueJlgIIa0/oi
-	 u9b0OOwv6TB6i9IuksTfWHeFU2/OibEYg/t+mGBlq1Alo7SyJYy9rb30m5YQVoFdzGVwi
-	 svymqHIz83Dpmn9kR1CQ7BdGUnXkffT5RUCWSmA6MbyAWL9mbnhV581Cx+sFp0hex8w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kzQCQe2K;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E57D2606A31E;
-	Mon, 23 Nov 2026 14:18:31 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kzQCQe2K
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795443511;
-	b=nohEL4wH59/hQb78zNVpixLTz88KVIUEkCItcxK+NUT+z528sD41/vJwlyO5ER89OodP
-	 iD8LOYsi3e64/GBgyDfshpGR4NCv3YHgLyMVVAG8+01d8oGnRMsrPNjSAk/u4dlVUxFpQ
-	 E20XJWtgEgPQjbkoaUX8WLL/aCLXs5tLE/SN1X3TKsR/ntYC3V57oOM3F5gnHHMw5JR4V
-	 0uLBJbtZYctvjWbXO0TdP4HgZ9Az1UYASVg+/LDGPllAgbXtFua5/5ittRQbt2TCkZVfj
-	 2Uqd3e7KIqukooUW/k6vXgdvXVx+vzw2GAlIsR0BvurtgjX0ZexPtuMOoMVYfZykK3g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795443511;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=p038IxcP1LIpPQwiIMGTCY2lVaAX4hwB1WZdznpqdbk=;
-	b=hJ1Of2ZS/4LrORbmx9T4ssokg2+GWtkdi4TXvKyxeRSRaYL8UVpOuDSMANcVmVT32GQC
-	 2B1wWEgbLL7BW7w/y7MVi6Vk9FNJc56a53nYdrBrsIR6e24EFMB58WZZ75LPzFWOYgZuO
-	 yCOHAczEU0Kw3UQK1KDBAZdSipO8MH8tQAi3fwvw6wVgRDE5wDV31b/UW2jbyC5ooR4Bb
-	 5Cymm8FcEWRa/IpxJeqRXFrAysp96nJhqhK7IFh+eU4P3dmzxLlJAUkZqTkd1EJRepA/k
-	 CTP53eLlgHldkvMm7CdMaekho/se1o9deSOwF0b53Q1fLn3nsqeyLD9MvOnJ7FhcLxA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795443514;
+	b=s7f8sUIyJ9CdqSSdZ4a0LOPUdlRSjnDYaaSRLO8R+IVToW5ZYhZbEhUTWddGlDFB4Cbb
+	 aSM45IF2Y63bDdKA7FOBVCNHU6qNj+3PJNCeTBlJeWXk0PLBEzkk9OU20k2IG7F9RGqqt
+	 pIZ4pNGBAn26bxEJIKwbmfAYAqzDJRy29nRaUHTZtfNpjffEJIqPiEGAZlBKbgMSGL85L
+	 xd8oHlGzo9D77GhaQpWggWwmYYxiDt7hmn9zsgQjpcrCysxrMjEkcBt5QCM72LZvcNYwy
+	 MgR7u/R1hLjyOcrJ2tGbQ0X98HNVRsXVlo8GbZEH9hab01G/m6tT1QpFzm8D6E/bnJQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443514;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=phsdk8t17LQ5zdqcOPOzFghmL6S8vOZKS0iyfCAYlN8=;
+	b=XK7NtrNAwNrKyfJ88eNt40fJ0hCJF8vrqO2G8ktqx6BxpMmJC539JLrqPQ42dkRXF6UQ
+	 3J5Cc1MAyzIfOA4A1Ue05QAI7kXRoNB0MvrGFZvZ/0gBcAgOn5VPesXoYp0WgTvwUJnz8
+	 ubxGjlDcLCwVq2mYnlhV/LndXg3Ii+Mhaam/mObiOxULPf844Ksc5fnZIsFdlGOQc9C7L
+	 xScUkLP+ok/0othnHti8ezsjFpQX2Qf2tARdWWYVQQMIPysCCNBy1Tg33RxWGameZCCMz
+	 mKiGYtL9T4EC5ei7VQGPe2Uq04AJDDF4RsG1HbzL3aWBop1KxYpBR7haFeGY84P1NGA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uPhPqT63;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 05DCC1F00A3C;
-	Mon, 23 Nov 2026 14:18:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795443511;
-	bh=p038IxcP1LIpPQwiIMGTCY2lVaAX4hwB1WZdznpqdbk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=kzQCQe2KC6EFuSGrhtQLNA2bqn8lhkd9AK/8GJhC2lJLL5O0pyeZxcYwSGC05k9f+
-	 y49BmKI03nf0bqQvwbgvw+q0JHDRMLEmQjJu16bWtKnKwbLwDMHPi0uTF49kRVK73X
-	 2pBg0xtkQEMUHdCxB4VXvTB7mbyWCzPL35xgmV0zt3aFMak6FiVT+ct9nUqdKOeFqe
-	 8m6US2biNdlPdiyS5PaIEI9ziPQyuqPVH3M7jYt4gFnCKJ8pQiUN79oStxmDEf7uTq
-	 0Ijp9bJb4aInyDdqLXuWXUDReOMuMV87ZOcLPpEghIPBEUaN44ADe3Ll7mVlv/3Xp7
-	 wpH193M4h/z+Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 9045A4C4CC;
-	Mon, 23 Nov 2026 14:18:25 +0000 (UTC)
-From: Shigeaki Asai via B4 Relay <devnull+y-asai.0816.docomonet.jp@kernel.org>
-Date: Mon, 23 Nov 2026 23:18:23 +0900
-Subject: [PATCH RFC 1/2] clk: samsung: exynos-audss: defer probe until
- pll_in is available
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E45606A33A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:18:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5E45606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uPhPqT63
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-15dd124bbe7so2089232c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:18:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795443513; x=1796048313; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=phsdk8t17LQ5zdqcOPOzFghmL6S8vOZKS0iyfCAYlN8=;
+        b=uPhPqT63Z/kUYm8RI/n60+78ArvChL11wK+GFtxUOEX/BSQuNGGOHPyfuOb9mAi0R9
+         D7lOrzDGCsdNetndXtDYOFOzJuNKFFT8Wx00r0XrV4SjfiQaXQtjFvVA2+7WjEJhZTew
+         5LhIySPP0b6jH+QAZl7wUjwSijlSp04dd8dKfvdX7Bbb5TpWKMEUfhIXNsZRTFIvR+pF
+         FEspgWp5zJ4coo51Q6wKDSXKJ19xL5z1cbT+MRmT8/H1/jG3rcXMiODHpwai9gf+aCvC
+         F9CCrXaT+nrxgsgJM9BiO5TnvF+gB0oNbVq86H9/3G38LC7Tk6qYPcxZjhRdMx80FiO9
+         Om/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795443513; x=1796048313;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=phsdk8t17LQ5zdqcOPOzFghmL6S8vOZKS0iyfCAYlN8=;
+        b=gqby7ADKR79qMHnwK13nAPh62bX7Pp+3Mun2Qd5EXJxvA3pbaLshgLrpswim2zV8Py
+         o8G8PojYSQKn0jiKD1hhqrPLj3aiVvbCMsTO3R3N3aRrP70lPPn1OHstJfEF1ZB+UecD
+         fG4ZBZX62a94HZUz/W+NUwzCIJM7hL++trhHYGTU7QbD46PXxWyP+Hy7fpsn3jhZvBes
+         NuTBaD5skBpOfp7luUZwJo5p3Jf3JvPqyU1YcOrSyXTLQDy0TK7kGVFkQVg4Eiqe6QT1
+         zrzyuKWUHnyES/U2IhySfgNtkh7M14tz4+bO/5si9Rgdbh+CAUn7u34b1dBR2J4hFyzF
+         rFaw==
+X-Gm-Message-State: APuU4Z+p26qHVBvHKJpbMpx0nDGVIRttG7n/0vLD5SO3WNvdN6PEdsrD
+	J9w9O4UlwMKkYQsvtPzO8Aa0oYDGWBG3Cq84zLX3/CXXgxrLhnS07khc
+X-Gm-Gg: AZFdTZdTyrh/R1ywtfCJ2I5jp/KS+Ga2M/f3/TGHhOfKS1tj5xo2+OHNI9TNLt3hli3
+	PtZ1IJlFnVmSiGJjFvi7qVvlOsB9zaN75q7I6djOEQyep2Xk7bcXe5HpSdQt/2f4zZXKAe5oZOz
+	Msh8GSGRYUK6xvi4DjVLQkCCuJ5rOMKbw+vDUqAV4uRO8t8hAOyg2VX0pV05FkP+DYQQL9oiWOi
+	nJ3latmh8O56r0xKxHh7kJfbFw0Y+ZX9UaDfhmqsyEYs1i6NUWlfOvuZJ5+5XhI3iFJXcqWFJd6
+	Pp3U/VmEX8xoRXDNsN/OINhRbA1i9NMV02U+P0Eo6YfG5TQz6Un06OU0bAlLHnlVG/4/N5blNQP
+	QVgO8r/c7rAgEy5kCOCYhLZ87A0yWJQ+f5eX+DUhZ2Eo08Cx6s1TJxPB33PFWws0Re5ISD88dm9
+	HCVU0WVc/GYRm172u37oAMdMX1184EZtDP0l6cLL3pvRyROJL2/FN80JDxOqfsc0ODNYHzafqpu
+	A7HWQnTX2zX9VHo1ltXs39RA7OlBxZpxMs31FUKfW1yYA9Z5Cum5qhHiBzgrLudYII5aZ5ZlK5p
+	/cvIPxv9wu3c2lce8PVPx391DtTNgwsxxT/B17AMNWp8Qhl7J1ZjSQGdTX5tmnTzSIq1
+X-Received: by 2002:a05:701b:450f:10b0:1a7:78a3:bda8 with SMTP id a92af1059eb24-1b56f87ae87mr4467587c88.27.1795443512936;
+        Mon, 23 Nov 2026 06:18:32 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567e2bd1sm27824408c88.3.2026.11.23.06.18.22
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 06:18:32 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Chris Li <chrisl@kernel.org>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Kairui Song <kasong@tencent.com>,
+	Jihan LIN <linjh22s@gmail.com>,
+	Kunwu Chan <kunwu.chan@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v5 10/19] mm/swap: mask the off-list bit when checking whether swap is full
+Date: Mon, 23 Nov 2026 22:18:17 +0800
+Message-ID: <0d61898075921b05c626accfa34a60e16472b556.1795439990.git.lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1795439990.git.lianux.mm@gmail.com>
+References: <cover.1795439990.git.lianux.mm@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,72 +109,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-exynos5-subcmu-defer-v1-1-43aef47d4f2b@docomonet.jp>
-References: <20261123-exynos5-subcmu-defer-v1-0-43aef47d4f2b@docomonet.jp>
-In-Reply-To: <20261123-exynos5-subcmu-defer-v1-0-43aef47d4f2b@docomonet.jp>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Shigeaki Asai <y-asai.0816@docomonet.jp>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795443504; l=1456;
- i=y-asai.0816@docomonet.jp; s=20261004; h=from:subject:message-id;
- bh=0WAaBWSTBR/BaFm9s6nACS8IfkOWalo+FbjaB+ytfE0=;
- b=ojdX6lEvfEj1MUJHgjI6r7HyjtQLZpgqI5HQW1eBkBLcHCNLBocqjpoWJlXr0HFqQp4hJI2QZ
- O/BlN2Pwov+CIyNi8aS4+xZmIwXyf2TU4dDIhFaVg2uQoiU88ETYC6S
-X-Developer-Key: i=y-asai.0816@docomonet.jp; a=ed25519;
- pk=jkd95ViSn8i/X3oPMHYG1A8mae8IOwOKGE64kzLqC5c=
-X-Endpoint-Received: by B4 Relay for y-asai.0816@docomonet.jp/20261004 with
- auth_id=1110
-X-Original-From: Shigeaki Asai <y-asai.0816@docomonet.jp>
-Reply-To: y-asai.0816@docomonet.jp
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Shigeaki Asai <y-asai.0816@docomonet.jp>
+add_to_avail_list() clears SWAP_USAGE_OFFLIST_BIT with an atomic
+fetch-and. The returned value is the old count, including the bit.
+If a freed slot has already been allocated again, comparing that
+value directly with si->pages misses a full device.
 
-The "pll_in" clock is optional, so a failed devm_clk_get() is silently
-ignored and mout_audss is registered with pll_ref as its only parent.
+Mask the state bit for the comparison. Keep the cmpxchg on the live
+counter so that a concurrent free can still make the device
+available. This also applies to the existing plist allocator.
 
-On Exynos5800 (and Exynos5422) "pll_in" is CLK_MAU_EPLL, a gate clock
-of the MAU sub-CMU. If the sub-CMU registration is deferred until the
-power domains are available, this clock is not registered yet when the
-audss clock controller probes. Audio then runs from the 24 MHz pll_ref
-and 48 kHz playback is about twice as fast as it should be
-("failed to reparent mout_audss to mau_epll: -22").
-
-Defer the probe when "pll_in" returns -EPROBE_DEFER.
-
-This patch was written with the help of Claude (claude-opus-5-5).
-
-Signed-off-by: Shigeaki Asai <y-asai.0816@docomonet.jp>
+Fixes: b228386cf237 ("mm, swap: clean up plist removal and adding")
+Link: https://lore.kernel.org/all/f53b388e1bcf6840457fe5041e989a3c0d0cc4df@linux.dev/
+Signed-off-by: Lian Wang <lianux.mm@gmail.com>
 ---
- drivers/clk/samsung/clk-exynos-audss.c | 3 +++
- 1 file changed, 3 insertions(+)
+ mm/swapfile.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/clk/samsung/clk-exynos-audss.c b/drivers/clk/samsung/clk-exynos-audss.c
-index e11ac67819ef..7c06350111ed 100644
---- a/drivers/clk/samsung/clk-exynos-audss.c
-+++ b/drivers/clk/samsung/clk-exynos-audss.c
-@@ -153,6 +153,9 @@ static int exynos_audss_clk_probe(struct platform_device *pdev)
- 
- 	pll_ref = devm_clk_get(dev, "pll_ref");
- 	pll_in = devm_clk_get(dev, "pll_in");
-+	if (pll_in == ERR_PTR(-EPROBE_DEFER))
-+		return dev_err_probe(dev, -EPROBE_DEFER,
-+				     "pll_in clock not ready\n");
- 	if (!IS_ERR(pll_ref))
- 		mout_audss_p[0] = __clk_get_name(pll_ref);
- 	if (!IS_ERR(pll_in)) {
-
--- 
-2.43.0
-
-
+diff --git a/mm/swapfile.c b/mm/swapfile.c
+index 70913402a265..1ef5f1ead656 100644
+--- a/mm/swapfile.c
++++ b/mm/swapfile.c
+@@ -1347,7 +1347,7 @@ static void add_to_avail_list(struct swap_info_struct *si)
+ 	 * that updater happen to be here, just skip adding.
+ 	 */
+ 	pages = si->pages;
+-	if (val == pages) {
++	if ((val & SWAP_USAGE_COUNTER_MASK) == pages) {
+ 		/* Just like the cmpxchg in del_from_avail_list */
+ 		if (atomic_long_try_cmpxchg(&si->inuse_pages, &pages,
+ 					    pages | SWAP_USAGE_OFFLIST_BIT))
