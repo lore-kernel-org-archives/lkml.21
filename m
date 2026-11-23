@@ -1,100 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795426313;
-	b=ldE/tjFurnzweVhr8pYYXsKn5Y7Pwc0b59IiAL65mENWsR59R5hCnMwVyGT/1+cNe9N8
-	 8wPzLBVoPrcUn3K+FjiWw9uek+m1ES1P8bKFwhMt1pTUmwWcw5vTvPrEs7Tbw9ptwe9DO
-	 rYcTCUo6UQLNXGcVw/Z8HHNAnwoGqzdq5na/Wox6ZUEZqAlm4JEw7zKqxv3SNFM/JdObD
-	 OkF+SN+3Y3PldJ4CetiamlWU0i4aM7nkqgVwtj539mAYpH+CQoPbd8jWJu1kOAvwMnqIn
-	 aYWMnnWwlwvBgGem3To3jCVcNEsjAKGzGBEzz39ZsUA767Rg55ad3tJK+jy+jx7acvA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426313;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=sA6A+HVLCaq1WHRrrdPMSMYH1omsgOJBkasA2HvpXv0=;
-	b=zk22EozUW3Ipb04hI/9yMEnFEHdseOVfyBs7dCiL3GQATdfOoMC26uxYKgdKZcYg80vn
-	 4lT3skjnbT1HaffXG9eL+Jfpdz97QHr7ACxf0POPA88s9kKZo5tEsaFqXxRObHsYcYScO
-	 ipba6PnkRjQdO+icMknVLy4vcKi7YYJKECKojbHG0eEebDXpEEdPycb6cAJ+QYyqjwSnm
-	 xWK9DFmaZyqShhTXuuSPn51V2KOguUhD3Za0NvYVtaY11RZqwFYRWY+NgodaGjulJB5Lz
-	 oDCDVr7Z6j/BfvG4u7axXagCllqQWvDCOzm1QhzWJjekMIjmFe90YFYeRRzUyHecyQA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7MPJj+N;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
-Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795426308;
+	b=zw7VmZ18g17Qh8MFWmDdnBydo3OISeiohhdSKrBsQPJ1M1CCRyjcsVOgozjmmygcm1Lk
+	 nPCFrNY3xhwBjrLpz1mBkmVr3UcKtvD/rHhjlbFM4vbopA5QChBRGHr3VclhxicRJYIYJ
+	 V67egu8BYkRwOagY3F+CJW4620h9Mh9+CmbomQZgeaNiljGW8Cd9bA95hv/aJqf/r9/jA
+	 JYl19+ZnyzeDMvigDuBVssbbiVe0p1PFymCbTHkQipLSZjr6wHGgun80sTOW4DscFnzhH
+	 ytj3NWutsTkhpbLJzIWfDCSemZd5tGvTR7OUontN0M0sExDVv0aBVET8BvUtqDsitdA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426308;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=o4c3gw5ayTeVyj4tzoPmy8cMt5RLKRl7oVUcToc0K6g=;
+	b=PPbiNonhKc6szZSpXbAsqQhhtRM0Ms9XMXIKT9aq6E/3DzBoBJl3DDNryHlk+7mcL9Yy
+	 fQZAqWOOslHRb0u3Ga12DDVXL1fY35Fxq8NHFcasL3QGBCuKSOgXBj8AVGpGzsC2FFkmo
+	 MLuFuMHrMQZVEzV1fbWLY34ExTuaM3voXr3JrdWb6DZHJwLGs6xgROvBe+42jVqM0dUnE
+	 FE75VNYrarT8/x4glwO0ZGEuF0kkLLKKKKLXG2qMp0QvchsbmI0kR8b+cAVoiS1wT7fC9
+	 JW+u7eEVocvKWPdt3VM8hGwNjgrZStYp6+tY+PD1VYBolMb3Tg8LJbamvZa7fQ/HLaw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AJZSowtr;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53D8D606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:31:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53D8D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F0EF606A327;
+	Mon, 23 Nov 2026 09:31:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F0EF606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f7MPJj+N
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-67c24619b19so2279906d50.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:31:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795426312; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b6CPO6s/9SEYLhsclYAxqJYp6vU/zxQCzO+wCf+3YwK1WzPXkmVKZ/4nVwxpSshzIK
-         IcXX38RjBxYBFja2mbnZFaJbnv7awk/fZ2inWzi9DCm7SbulznZ6JqRkiDomw7Qek2Xh
-         Jn1zoxh4DlGEf5ddMOtQBSjJYKhoWZrgri1xw517rxEJKvjTaOuM7L/qcNeFYoRL+8yk
-         WCGPsyU8QKRMkB6Xqwh0KtsVTW+rOiu00sEyq4lUiR9B9pECtzvRHSpKG9jFRB53ObXS
-         QPNnrMCTKdKkyj6lvsRYyUdWI2uoEknisYUpreWTM5+OoNf2uxZbUZIH9UzrZolF2DER
-         7R2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=sA6A+HVLCaq1WHRrrdPMSMYH1omsgOJBkasA2HvpXv0=;
-        fh=nSC6viCDym0asIKSQ0Dna4iCR7sgKNC9uOSQYqBfwu0=;
-        b=gc+hkORbaXtS90X3TzHsoEsWcvEBjGxjsNMMWMzH3n+8/mdnBrvEhfM1gD/a36z2vX
-         ugY4KEfT7NDQkxJhxm29un6G++6v5MUWhy4RpDoHpA2awaBqrUsIkASHsGcKbBX/i7Ef
-         JHmuBPlgtWcYsS/becD/+WGbaU9R3PV51vkB5FiGHzryZfgJOGlDZzUi0a8FQKBdAXUZ
-         /l+ni9Xs5ozXd7UsMvox58EeJ0vb8IW/EtUS2hqgbJmGby1D4mno1jjaIQ5OPqUardld
-         1tsVyLhd6m3ZFqdf6SZ/ZfilaReGcYTStMmkPdx9vweM4b1LvFItwC9+4T1io0Y6RgdF
-         AlKA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795426312; x=1796031112; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=sA6A+HVLCaq1WHRrrdPMSMYH1omsgOJBkasA2HvpXv0=;
-        b=f7MPJj+NtY97fe/TNdFmQRQ+ehXIA6C8YkM83rRQ3IeYxJX3qOe/lH5lYbc+J29V4i
-         zoul3btWBn767LPYBnenMzcVsfsWOZGx7GadyaGVGYz+gn19PgnE8qCHX4x5sj2+WuJ+
-         lS/fUzoauxfO6CfBMYC/vO7hfrm/Y+NYkeld2cOg6ZUPJgVaDXWNzW8RK2PHhCszZ961
-         vTN3CpNTGRsZ/SgjRAtE2zUQFgAYmtzN3Luf4rPC2CwZX8xnK5CzZLITl3ZVfFhdh0EG
-         HgZgLMeu0X8mcVPOmBxj9ku5mnVTa1s2S3xoO9RN0msF/QQENJggjg16YFFvsCcUPrCe
-         8f2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795426312; x=1796031112;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sA6A+HVLCaq1WHRrrdPMSMYH1omsgOJBkasA2HvpXv0=;
-        b=KyuD6cIS+j/eG3HO6nrTJ+ACbCo1evA9gf55PWoaGk16Z50B55z/wgSG2yNRs3MIXU
-         8uC3cRLexJ3DJ+cl0xaFOyC2YAA99tX01yxFiDF76VJlXjYZk9U33JnZVYN48/XyoInl
-         XkG9nDZpj6FOxgir+f41q1Wa9/vBHC6QPAOYunRiZSLw6VzYHgISQWZNXC7GP4Q8t8pw
-         yY8W0gcLWnpTEduDynHIVjV4bl1LG5BuErVZcuJEQLpRjWLpg/ATQ1FjaBm6Vgm4TgKI
-         joHuJ9bCNLDPHBje6SO2xdQUSeRVLOpzL+ry3LKL9RliGaSDpLqpMtNAd5jFymsep14l
-         bKtQ==
-X-Forwarded-Encrypted: i=1; AL+hErHV22xO9lbzuFLJxIOfZyn8+XuOSL7VHVfrPFDiD6yOkz8s9UsGvuI/sGqZd/wFRWQFK4AHwYIHZNMlMHU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PTtdcwvxHjvQp9e/BMK9aNE+ND3EGwKuGtmTYWomLV+5hWnqh
-	G6aKY7O4egsPwTi9MeXCYtxy58W4F6pYym7c6cus2NZnWWb+y2/bivoVUid0M2WTYi7hDFfhajA
-	kLXaT17ig2aBZBxFGtTihke72wlBaFcI=
-X-Gm-Gg: AZFdTZd8zzGmBStDIShkHgVJktxlAKFIes4sVMOsyEzpbP10CJaxwAN5XCkXqWJblsT
-	v44qcjajoYfatS9lTSro1p7OKjU2iQLHPycwMCoKarIga5fFdqgJnG9yma4jYC1ALuktX2gWKQZ
-	ERxWKVKI+1kdShwvU/dA689rqvmGMHj1gofhOurC9zml8mKFj8R6hJaiblUm9kmIu689SWGs0p/
-	Kzcte5Rt2Cy0NBXxBwPawZ/J180230K6ybpWaTAAQLEhbx8s8Jm3fRyKTE7XXWW3gJNEKPD0+q9
-	+qsFvuDaFjhH51qAAT53cdVdJ7EHlbhdb6pTcZYCvY1XSirYShhOh/ng1Oe08pofTjCGppCEL/J
-	zFHfMrhaTFsq3Gl4rJCrbVS+UwWYjD8Tvhm+14w==
-X-Received: by 2002:a05:690e:438c:b0:67d:a6fc:6ba9 with SMTP id
- 956f58d0204a3-67df4508943mr2085122d50.106.1795426312499; Mon, 23 Nov 2026
- 01:31:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AJZSowtr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795426308; x=1826962308;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=E2y5GFJ9BPlcQ4pbbpDmSkF+0dOWl7ZmiyJDcKj96mg=;
+  b=AJZSowtr/9VCS0aDc+pyEZGRGl4utw1R+tSFbhFKMc9jA6RNnq6IOq2Z
+   1CMyCriltoB/sVvlwSijPe9pjYQvIyVqF3U4q8HEd5OwqFZWrZGfKmMVe
+   YHWOL7fIwU+uSc+yeDkG1TnzE+XkvAYPAjGuT1CoeNDT1retzmU3mxiAk
+   mGLAEWhHciayfdannTW1vRXih3SqqQoUYJz4PLbnwuAuqGCXfKqOOiJco
+   9YFlslAeUok8aF8UXfkK6jdvdmEvnJmjqhh3wjwxIsuJiukssUDnJKUKb
+   rjxodsZdXovSCJ/s1npuXeXEw6BDLq9c3T4nMqR5TdKPDtrzOcCENcvno
+   g==;
+X-CSE-ConnectionGUID: GRk/r0QPTXSiLxc/BY4nBA==
+X-CSE-MsgGUID: 9LXH+dplSYihqewB592l+w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4236411"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4236411"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 01:31:48 -0800
+X-CSE-ConnectionGUID: RalA61qXRWWn9SmkXAgNwA==
+X-CSE-MsgGUID: O9rcS9HvTJGEA/JvnhVvbg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11133388"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 01:31:44 -0800
+Date: Mon, 23 Nov 2026 11:31:41 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>,
+	linux-iio@vger.kernel.org, dlechner@baylibre.com,
+	nuno.sa@analog.com, andy@kernel.org, nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+	giorgitchankvetadze1997@gmail.com, amin.gattout@gmail.com,
+	antoniu.miclaus@analog.com, gregkh@linuxfoundation.org,
+	mripard@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] iio: adc: at91_adc: fix NULL pointer dereference
+ on trigger remove
+Message-ID: <awQH_Rr8b_Eu0Vew@ashevche-desk.local>
+References: <20261117140510.391907-1-abdelnasserhussein11@gmail.com>
+ <20261117140510.391907-2-abdelnasserhussein11@gmail.com>
+ <avyEb9La1tqS90Cp@ashevche-desk.local>
+ <avyEqQEL3A_YNcgg@ashevche-desk.local>
+ <20261122002118.723b23b3@jic23-hlaptop>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,46 +89,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121034053.39878-1-prasanth.padarthi10@gmail.com>
- <20261121034053.39878-3-prasanth.padarthi10@gmail.com> <awQDxB-09pHSgfJ_@monoceros>
-In-Reply-To: <awQDxB-09pHSgfJ_@monoceros>
-From: Prasanth <prasanth.padarthi10@gmail.com>
-Date: Mon, 23 Nov 2026 15:01:41 +0530
-X-Gm-Features: Aa3M54on3hjaWixdom-MZvFvoY_Ect6i0Ad8JpXIU33APeKTiBCUcj1JKRPJeMs
-Message-ID: <CAMFFDGh=7CtLR5bOyzP0SuSXVaXY=5H2UajaFx6pcescqfYjYQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] nvmem: aspeed: Add read-only AST2600 OTP support
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joel@jms.id.au, andrew@codeconstruct.com.au, ryan_chen@aspeedtech.com, 
-	billy_tsai@aspeedtech.com, neal_liu@aspeedtech.com, tan.siewert@9elements.com, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122002118.723b23b3@jic23-hlaptop>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Thanks, Uwe. I=E2=80=99ll drop the linux/mod_devicetable.h include in the n=
-ext revision.
+On Sun, Nov 22, 2026 at 12:21:18AM +0000, Jonathan Cameron wrote:
+> On Tue, 17 Nov 2026 18:45:29 +0200
+> Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+> > On Tue, Nov 17, 2026 at 06:44:37PM +0200, Andy Shevchenko wrote:
+> > > On Tue, Nov 17, 2026 at 04:05:08PM +0200, Abdelnasser Hussein wrote:  
 
-On Mon, Nov 23, 2026 at 2:45=E2=80=AFPM Uwe Kleine-K=C3=B6nig
-<u.kleine-koenig@baylibre.com> wrote:
->
-> Hello,
->
-> On Sat, Nov 21, 2026 at 09:10:53AM +0530, Prasanth Kumar Padarthi wrote:
-> > +#include <linux/bitfield.h>
-> > +#include <linux/cleanup.h>
-> > +#include <linux/io.h>
-> > +#include <linux/iopoll.h>
-> > +#include <linux/mod_devicetable.h>
-> > +#include <linux/module.h>
-> > +#include <linux/mutex.h>
-> > +#include <linux/nvmem-provider.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/unaligned.h>
->
-> <linux/platform_device.h> already provides of_device_id without all the
-> dependencies that are implied by using <linux/mod_devicetable.h>. So
-> please drop the latter.
->
-> Best regards
-> Uwe
+...
+
+> > > >  	for (i = 0; i < st->caps->trigger_number; i++) {
+> > > > +		if (!st->trig[i])
+> > > > +			continue;
+> > > >  		iio_trigger_unregister(st->trig[i]);
+> > > >  		iio_trigger_free(st->trig[i]);
+> > > >  	}  
+> > > 
+> > > Yes, but no. Please, rather fix the above mentioned IIO trigger APIs to be
+> > > NULL-aware.  
+> > 
+> > Actually the iio_trigger_free() is already NULL-aware, so make it only for
+> > iio_trigger_unregister().
+> 
+> I'd rather we didn't.  Any code that is unregistering a trigger
+> that it didn't register is probably really very very buggy.
+> I'd like them to crash or at least guarantee that sashiko
+> flags it.  We could add a warn if it is called on NULL I suppose
+> but that is ugly.
+
+Can we add a comment there to avoid making such a change explaining
+why we won't iio_trigger_unregister() be NULL-aware?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
