@@ -1,53 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795477726;
-	b=JV4T9NU087TtJl0D0o5pCOCR/7qNmmCcL8zKYvbZ8VNuVMkPTKoanyHiOEPvvpDbqXWh
-	 ypzw0X5lzoTXMDC4e+Zd+ZEr4qvsHZVsChi1sROJ3ZIzRX+8y0OkKoiTaBGUcvtVSH9/G
-	 IgfQ4MmC6ouW4BKbyQx6vAOgJUCY+kvkd/d6gZkZhbVojXqN10USidjE9l9xIA7Khbzlx
-	 sSLksX3qUD65fgc0AJrHfDx950SKXCgVInnub5/BryWkEJWOZXW1zDs725DTHnXn9VVlL
-	 ZDtP2b+09mCBqRz0EJNQq/Tiy/Zz7nroVmgtWF/6JjvyibvUnAPIxrB+yjqwC6577Ng==
+	t=1795477749;
+	b=C5jQsx3vr7mQ3nxy9u3clmgqVfb66Mc2N2USIC6tqPyw750MriVLzYbwBG0ogWc2QrZA
+	 WNI/prEDV/mnK+4D3ythzfzxcYywW+49SbpVxzy9ntHxVElqrbIRoh1IbhOCYpM/ef8Ac
+	 98Pn9LQG6cG4GxCHG8o3Ep5WyoRkOacYKiTr/z5i4nNiEIOutu4Xyjtd6ADb3IP2ozqkq
+	 pjv/wN87aHHqruoXHnr2n7IzVO9VfhPJJJjGn7vJGVTIMhtJYAP/PQsEvO5T17K8J0ItC
+	 eZeVIQq2VGRcObCjU7G/BUNCAevQpjP0yFwrQVumoRAX0zQ2LrY3avW9voS7XgUXMeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795477726;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477749;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=ylKTuNgUblLqNxL717J4Osbex/tTFtCBiDG2Kicf2sU=;
-	b=5F8cueCsNkvWTmNZ168w7ol8vlaaxgiMHD+VOiHoci9B1q/punUEaJfMpMogPtiz6WX4
-	 Zx2XPyi0Y1qwcRSDkCkN+5jigxXLMHMOfheeFHhsqa8SzLww/g1Eo3xV6okwX1R6l3B8G
-	 mc0frn8UAH6Xor653xPLLO7UP6ltXri/fYzeJysGT00ihIY5Z5qSoYzescrULm2uAcJm0
-	 U4dRWwgbe3sXHjbChH5HgVgiw1j5sRJoa9OdWgEbeO31LLk1VCbfqOsV7YEAg5VcJrIfY
-	 fHWMqjR+9NBmO9KBO1t6uYFsPcKuRvrc1p7PmEMdmAuguOdZtQNNHYSYktMo2lNeTzQ==
+	bh=XvAgZF6CkwRKo3VMFZxbR36QgXiqw9zi2A6dGkoweNA=;
+	b=k7Ryw1+mRBXUMnZXqSOkpAGiMPaOY1DP7aIAi7DNeAJli8P6JTKHxDiRKVchlpWzmGsL
+	 wIH93BGblEUXGMEYibdXdsZJOIWj+0Vy4wzQJMARRiAmUEdrBKU91gDRwF2Crv9duCpaC
+	 h3SU86gYmVqOJ9PPuL3/GUNZiPwmcBWj/veXv4GYca6pfBbkuRVQn4PTSZ1iSbHE1bGMf
+	 o2PoXqgs2UlP31VuDPqtAWo+CuPd57i2Md/AqH9LIlKD5udzSnz8b9I+nssWtJXDIObMc
+	 a/3WExj6oDuRCDbU1V0uq/v2a+wEqy+ZWLHIjuhsuP7t7AOs/Hq2l9mU1SY9vheJC4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Ri0xaxb/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=foft4ovj;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3553B606A31E;
-	Mon, 23 Nov 2026 23:48:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE9C7606A31E;
+	Mon, 23 Nov 2026 23:49:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ri0xaxb/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 567051F000D0;
-	Mon, 23 Nov 2026 23:48:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=foft4ovj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03F301F000C6;
+	Mon, 23 Nov 2026 23:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795477725;
-	bh=ylKTuNgUblLqNxL717J4Osbex/tTFtCBiDG2Kicf2sU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Ri0xaxb/mXM+T7KSjkcttZNPnjkWTBK6w8vvma+CjUcU8xw6CqThdGemhLy8Jgj2E
-	 3mYsNjyzcnKM2YfybsyC1YyXLxGxOqYd4KgQ3uN8N6f3QSgo+Syu9QM33wW38fwQ6G
-	 n5gTZTGDk/dO9nfl7KP2lnsu2TWDobZ9x/wdKUQSKzCwdgChnDIudTUEBjncZu+OgP
-	 Q0WjJh6mpl91uYxGDYuhydkXqlpXunX9l9U0lnoMe47X7fumngbd77cmTy6/yzLaKe
-	 lYRYMrAQir1ourDpSKXROx9LdW3DapCQpZFeNrNZHJZuqbCeAvf9pbAxGmlrQ5ikDi
-	 6cngnGwzHrwVw==
-Date: Mon, 23 Nov 2026 13:48:44 -1000
-Message-ID: <861e8b931f99acf9c44cff722d5e94e7@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Peng Huang <penghuang@google.com>
-Cc: Vincent Guittot <vincent.guittot@linaro.org>, Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] sched/pelt: Skip dormant cfs util_sum under scx_switched_all
-In-Reply-To: <20261123160934.2289260-1-penghuang@google.com>
-References: <20261122015729.2512645-1-penghuang@google.com> <CAKfTPtCQpVhtVT7Mhqe1=Ukcmc1pX8Jgn9ypb64--8cJ-7G4BQ@mail.gmail.com> <20261123160934.2289260-1-penghuang@google.com>
+	s=k20260515; t=1795477749;
+	bh=XvAgZF6CkwRKo3VMFZxbR36QgXiqw9zi2A6dGkoweNA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=foft4ovjFmNERzm+RAv+xWpfSO5wFzXeA0DrrAVZ6tOR7ovm78/E5KWERujlMYq/X
+	 Y8arbrbGoK90ZC3t4uMkSgIy7+xxwHOsgRctIsGR9k45sa+s9uOFBk46OaPeiFvtF8
+	 v/Z/qWFAZCm6slfIfs7Z1PfCyTNJoYUxXHj1Radbk6nsWF9pgI4iRNtRtYXpH2sAkv
+	 6q9U8MYJfG1fy01Ux6Jna7v5iOoK/xKb7DjC88fvr7VKgY4kIbft8UwvEgUzRaf9KV
+	 7G9tkA+3hZOb2WsHOT0qrjdjIZwZOutEUsGIwXGncft595bJUDJbVyXa4kTwgX6qSu
+	 Ohe9HrrUdGX8w==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Jiri Olsa <jolsa@kernel.org>
+Cc: Naveen N Rao <naveen@kernel.org>, "David S. Miller" <davem@davemloft.net>, Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>, x86@kernel.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCHv2 1/2] kprobes: Increase the kprobe hash table size
+Date: Tue, 24 Nov 2026 08:49:05 +0900
+Message-ID: <undine-1795477745290490698-99e2fcc5c9b45beb@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <20261122200239.1481088-2-jolsa@kernel.org>
+References: <20261122200239.1481088-1-jolsa@kernel.org> <20261122200239.1481088-2-jolsa@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,37 +58,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-Hello, Peng.
+On Sun, 22 Nov 2026 21:02:38 +0100, Jiri Olsa <jolsa@kernel.org> wrote:
+> The kprobe hash table has 64 buckets, so with many probes registered
+> each get_kprobe() call walks a long chain. With 20000 probes that is
+> more than 300 entries per bucket on average, and every entry is a
+> separate struct kprobe, so the walk is mostly cache misses.
+> 
+> get_kprobe() is not called just once per registered probe. On x86 the
+> registration path calls it for each address it has to check around
+> the new probe: get_optimized_kprobe(), __recover_probed_insn(),
+> __recover_optprobed_insn() and arch_check_optimized_kprobe() all do
+> one lookup per byte or per decoded instruction, and most of these
+> lookups miss, which means walking the whole chain. It is also called
+> from the breakpoint and ftrace handlers on every probe hit.
+> 
+> Increase KPROBE_HASH_BITS from 6 to 12, which gives 4096 buckets and
+> cuts the chains to about 5 entries for 20000 probes and about 12
+> entries for 50000 probes.
+> 
+> Time to register the probes with the kprobe_many_example sample
+> module [1] (insmod with nr_functions=20000 and nr_functions=50000)
+> in a KVM guest, mean of 5 runs, for different KPROBE_HASH_BITS
+> values. The table memory is the size of the static kprobe_table on
+> 64-bit:
+> 
+>   bits   buckets   table memory   20000 probes   50000 probes
+>      6        64          512 B         4.71 s        29.99 s
+>      8       256           2 KB         2.05 s         9.90 s
+>     10      1024           8 KB         1.39 s         4.63 s
+>     12      4096          32 KB         1.30 s         3.64 s
+>     14     16384         128 KB         1.28 s         3.41 s
+>     16     65536         512 KB         1.28 s         3.38 s
+> 
 
-On Mon, Nov 23, 2026 at 08:09:34AM -0800, Peng Huang wrote:
-> For v2, rather than touching update_idle_rq_clock_pelt(), how about
-> adding a fair helper (similar in spirit to rq_offline_fair() ->
-> clear_tg_offline_cfs_rqs()) and calling it from scx_enable() in the
-> existing per-CPU scx_switched_all() loop (where rq->lock is held,
-> rq->clock is updated, and rq->cfs.h_nr_queued == 0)? Specifically, it
-> would walk leaf_cfs_rq_list bottom-up (plus &rq->cfs) to:
-> - flush cfs_rq->removed,
-> - clear load/runnable/util _sum and _avg on the empty cfs_rqs and
->   their tg_ses while preserving last_update_time and period_contrib,
-> - clear tg contributions via clear_tg_load_avg(), remove the empty
->   cfs_rqs from leaf_cfs_rq_list, and update rq->has_blocked_load.
+Thank you for conducting the testing and evaluation. The results show
+a trend similar to that of a study I previously carried out[1].
 
-I'm not familiar with this code, so I may be missing something, but
-doesn't __update_blocked_fair() already do most of this? It walks
-leaf_cfs_rq_list bottom-up, flushes cfs_rq->removed and propagates the
-result to the parent. It just stops running once scx_switched_all() is
-set. Maybe the helper can run the blocked load update once on each rq
-from that loop instead of open-coding the clearing? If I'm reading it
-right, one pass after all the tasks have switched would take care of #1.
+[1] https://qiita.com/mhiramat/items/1bbeb309ee5dfbc979ce (Japanese
+article)
 
-As for #2, are the leftover sums big enough to matter for
-update_idle_rq_clock_pelt()? It looks like fair can leave similar
-leftovers behind once the avgs reach zero.
+> With 12 bits the registration of 20000 probes is 3.6 times faster
+> and the registration of 50000 probes is 8.2 times faster than with
+> the current 6 bits. 12 bits is where the curve flattens: compared
+> to 10 bits it is still 21% faster for 50000 probes (6% for 20000),
+> while going further to 16 bits gains only 1.5% for 20000 probes and
+> 7% for 50000 probes, for a table 16 times bigger (512KB vs 32KB).
+> 
 
-Thanks.
+I personally think 6 bits is too small, maybe up until 9 bits (4KB)
+will be OK.
 
---
-tejun
+> The cost is the size of the static table, which grows from 64 to
+> 4096 hlist heads, that is from 512 bytes to 32KB on 64-bit. The
+> functions that walk the whole table (module notifier, arming or
+> optimizing all probes, the debugfs list) are slow paths that take
+> kprobe_mutex and now scan 4096 buckets.
+
+What I still fail to understand is the use case for employing such a large
+number of Kprobes simultaneously. If the goal is to trace individual
+functions, Fprobes are already available and offer better scalability.
+Personally, while I might occasionally deploy around 100 probes, I cannot
+conceive of a scenario requiring 1,000 or more. Would you have actual
+usecase maybe from eBPF?
+
+If this change is intended solely to improve performance for an extremely
+unlikely use case, I would, at the very least, make the size configurable
+via Kconfig.
+
+Since this change affects all architectures, those working with small,
+embedded-system chips might be reluctant to "pay" 32 KB for a use case
+that is highly unlikely to ever occur.
+
+Thank you,
+
+> 
+> The sample module was posted as the last patch of the kprobes
+> lookup cost series [1] only to demonstrate the testing, it is not
+> merged and is not going to be.
+> 
+> [1] https://lore.kernel.org/bpf/20261109195827.1091410-1-jolsa@kernel.org/
+> 
+> Suggested-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+> ---
+>  kernel/kprobes.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+> index f14f7ff45961..47ce0bfb7298 100644
+> --- a/kernel/kprobes.c
+> +++ b/kernel/kprobes.c
+> @@ -50,7 +50,7 @@
+>  #include <asm/errno.h>
+>  #include <linux/uaccess.h>
+>  
+> -#define KPROBE_HASH_BITS 6
+> +#define KPROBE_HASH_BITS 12
+>  #define KPROBE_TABLE_SIZE (1 << KPROBE_HASH_BITS)
+>  
+>  #if !defined(CONFIG_OPTPROBES) || !defined(CONFIG_SYSCTL)
+> -- 
+> 2.56.1
+> 
+>
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
