@@ -1,112 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445652;
-	b=YuzEUxzy++wSyvLCrviCEIETqr+xyrlqU4ER2OoYAQx6kYzBYIMZQCh16EJRJku1BccC
-	 ut7J1jRvVyVZfafx0UUkx9I4ka40KEVKLkIxqW37idho5WQIzA2A/vjY8QYjQzVWdaft7
-	 YOQ4QXSKKDrwD3ihDsEfaC8TsDQaWcBZWf875gRhKJj5E62f338S7HvQ/b9gE2wv9OxHT
-	 2PYbTzqQEcxCIcSjbzyDHUVWv7VvoqXc27G+drINvvmTpToa8iYzYmmIORI2HsEuuUAui
-	 ZVgQKdf6EEytf4eD8ZSsMjj9VYVg/BEaJie2a9i6r/mf9hgT8+tDtfZLWf63XVzgbJA==
+	t=1795445658;
+	b=phsf3R9BpGHQdfULgpoBYN1of/OotShnb8VZ9ujBSwWeicHrWfdWTTmEPjDS2pahw27o
+	 X76HazfFVLkaPud6AzR8VE7AT5SDxPupICDATyVK6Krxq5HP9G+yPda55df3wIMmPHaIl
+	 ncq6VQMPGiAOSLPNwDCIaQwcTPHezdF5Mgk13AFcQ1Juj+GoXyXvLw6N9m4KSnB/ACk2Z
+	 ZbL0ESP83YQnOcaz9S/NWTPwO6HYfUljnqlAtHnNfLQVCS/z7xRH62Qoqpb7Anxfpd205
+	 8WWH+AHtKOLkVZCQmXIgmZmVkcO6gi/lytaX/kWSPPVt9hMg1KdEr7ppSucZGzFCkuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445652;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=4LzrFFR+hhT71ELT3fY+ftWxMDxLj5bwX900H4igILI=;
-	b=EMKNJeud6Asxx7HeEl7uui9D7t3C6WooMu/HVTU4iK4kA0WG3o6SUxwAi8uV7Gk9pQjq
-	 hLRCsxDHogvH/HLwkTfr4sge5XjUlUGO+HApySkaVRlJQT8CtLsk7vqFHrUeMg1PUxfO/
-	 tgOVCQskmPvB4bszKjycPwVRtMp13bviiGdSg3aVPT+/uBTM5hgHF4mV4mILclozdxXsy
-	 j4EiY43L6kKeWVmQRdJnaLVjkKD22PB5t344phttpM2dZqquxyd+nmmJl9cLXw5OaYY3Z
-	 XScOsIZ4j9QoPZXMoo2p7b2VFIjT9OItSUtArxsxWPBIyLK4Gv9pg+QKqgp8VsxqOqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445658;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
+	bh=nbCRcJ3CZPxOULxWfeRq0Sbbd2T3nRGZ+rn7/jTnOUQ=;
+	b=rx4KAQ2HoY3mcFWWLiev3fgaCClH5YMURb4W9ZoZIqF6eImNaPBZEpSSKa7eevTKpBx3
+	 wWaoIkmL+okaM9TCMiKUU0xK7APEge4hdTnLQvxpLRX8og7rZ7j0JzUwxMnMZ5pkY523v
+	 Wireztyjgw+fdY1VXcga4K2ZwW07pCjYRE1BkJhnOYxmnylTIUilhYnaVJJOQnNEja3BB
+	 /2U7WrpNtkIjg11XF9hQrdgRdrqlSOO2LqbG7hA3HnX0SgKYvIYXOOWLlz+FmogssTbjz
+	 c7Ku1F07ZtgXh6DI1qP2Xc0nt00NYRQAihMWUalbn2vcpNcLwxmZVfLZKdOzc0rLnjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DzYTfl6c;
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBA26606D15E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:54:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBA26606D15E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=XdaP+3fg;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 531D160A3807;
+	Mon, 23 Nov 2026 14:54:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 531D160A3807
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DzYTfl6c
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4aa5833c263so3229484f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:54:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795445650; x=1796050450; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4LzrFFR+hhT71ELT3fY+ftWxMDxLj5bwX900H4igILI=;
-        b=DzYTfl6cD/WSjpjEKM0f8QXZw/9LFLq5s47ekiK01Yb5jiZqNHvITc49zeK2FSdF1J
-         rVH3+eQsQwvlCYZ2dtdeKfeeZKpjDjPs2eXrzgF2J0UxoD1gg5TQQtGsnvtoIQ2rCpVO
-         7VvVhInqYDtvDnlXFHkj4b94cB5JXane+2fX/FMXtbQQiVIaajFxeFoDbTF0KnK5pi/D
-         hiunvss/Zi/G+8nGPGyosqf21CgmcPIctwjs1vqKcwdZuc1B4bxEFwc9UKJ4C7mhBJVX
-         SMmwBg095gqDY09thmHMFZLgkJMI6eYhPTZZSKk6styZ32Ihicvo8zaIfuz3qSakP62b
-         tQTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795445650; x=1796050450;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4LzrFFR+hhT71ELT3fY+ftWxMDxLj5bwX900H4igILI=;
-        b=Gfh9sCuZzmA/Zz6I1FryPm+GzY4c/OmX3I7dEV9EAj+xp/Mof0kq2fQPTDDA0BZ5G4
-         weWInO4sUjCqjhsmii6ecu9/wRGdhAQ5gjfP17NLie6LEbE0hV59UbGmgnypdFBC2fyy
-         jX27sN9RohjaNfzeaZHP+cSf0MBwv1e0iG4RozIg42z2TeLfMxr26brA/pTi2yOcmd7I
-         1lqT6emTl63+fgth2cb+TPvwAlGDmwSLvIKblSxvC33nIfwarzkVHgNnI4+RJiKQaNXx
-         I4bWf0ZtjDq99BFkSOta5PS8EgjLvooieUVo/LnqmVw2pv5/yRM8EIWb4gHB+FiBb7Co
-         rBuQ==
-X-Forwarded-Encrypted: i=1; AL+hErGS3wrF2PNlTTbbwZzjbN3vXbvdXjA2fV3wcsFOvB9md/jOZZVEpDw6kI/Va4t5L8/5hQ2RZaqaHnRxFX0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9No1CFd0Yy3mjcUwsROfiQV/urYXqg2NmfiAPVqVvoRjVUPele
-	UbJdf86zOvkQQN9UYLUyQBCPyihOgujlNJoB3iZPm7jxFpJQGtppEuA946CF1vRVBMg=
-X-Gm-Gg: AZFdTZcjCHk8Fv43rGZVZDOdd5wukUahvLDBY6CZ4vAG6b3ka20dzKAQ8Mkyd141ldm
-	JT+8zSkCw/Zm6JDomc88CF+yjKmJLFh0//pZQ0rz/mfQNbPGMZXvHGvZGFOoh4gflrOu82psjdZ
-	fP5I9xkwlbiol07LHi4bpeBfL0SyHBWEMANIdPPm+z5d+KeoBI/VukyroXKOjkcdPqT1TthQIpd
-	DR/3h+z2LBeNr5lU9dX0uV9XtE+HHRcYl29F+oBJNdFfZyIGzJpOXI8GajCl/53sqNbgvAf3i1W
-	3jkLWlmviXVM3GOJ1w3VpxSP6LAfvhjlPsY2fVFUf2fP4eWVxwtos795bjwR72cvNzU79rmk2EX
-	l2rnKKD1z2i3eu68SKS+Z1j0+XIqfrijq5hRjoY2GkWZbUo0ldyLgLxb81zvbr+jEPPGTGt3zM9
-	QI8wxdgdTfWSO2SiZy95hHzuEW+jTgXXXyhgfnAubMEcXmK7tVUXmqXXi1c56PYI4V01ZPqWLSb
-	h95GOulIKsb/usmQyhDndeLaKXbrgikx+OywzpSOwmmzUZpKBnEWlejjpZ4pJGpKdpdbDXWG0Em
-	VkhJjtmUP+a4P4cST4XVZU4V/jg=
-X-Received: by 2002:a05:6000:299c:10b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4abb47b2043mr16463654f8f.47.1795445650449;
-        Mon, 23 Nov 2026 06:54:10 -0800 (PST)
-Received: from localhost ([82.192.120.76])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm23615057f8f.31.2026.11.23.06.54.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:54:10 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Saenz Julienne <nsaenz@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dom Cobley <popcornmix@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=XdaP+3fg
+Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 05E1420B7168;
+	Mon, 23 Nov 2026 06:54:12 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 05E1420B7168
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795445654;
+	bh=nbCRcJ3CZPxOULxWfeRq0Sbbd2T3nRGZ+rn7/jTnOUQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XdaP+3fgC4CahbgZMIYBjKu9m7/wRsXZ/HvmjTm1FDppHsza/DmgnbgSvHPHkd+YT
+	 HvgjiVqhj+O48c6taDabJ00qf0kueVbzeapgR7ucurVQU8HDi2VnKiXPr+WbYzsM6t
+	 RcDhUv1k6IcOa+SEvbKxgQiNY3qu9qHvw8a+iktA=
+From: Wei Hu <weh@linux.microsoft.com>
+To: leon@kernel.org
+Cc: longli@kernel.org,
+	kotaranov@microsoft.com,
+	kuba@kernel.org,
+	davem@davemloft.net,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	andrew+netdev@lunn.ch,
+	jgg@ziepe.ca,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	shradhagupta@linux.microsoft.com,
+	horms@kernel.org,
+	ernis@linux.microsoft.com,
+	stephen@networkplumber.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v3 28/28] arm64: dts: broadcom: bcm2712: Enable HDMI audio
-Date: Mon, 23 Nov 2026 15:57:06 +0100
-Message-ID: <20261123145728.29082-29-andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20261123145728.29082-1-andrea.porta@suse.com>
-References: <20261123145728.29082-1-andrea.porta@suse.com>
+	gargaditya@linux.microsoft.com,
+	kees+treewide@kernel.org,
+	kees@kernel.org,
+	mawasthi@linux.microsoft.com,
+	weh@microsoft.com,
+	edumazet@kernel.org
+Subject: Re: [PATCH net-next v11 4/4] net: mana: add dynamic HWC queue depth with reinit path
+Date: Mon, 23 Nov 2026 14:54:00 +0000
+Message-ID: <20261122064231.hwc-v11-leon-p4.weh@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117180931.GE162713@unreal>
+References: <cover.1794751992.git.weh@linux.microsoft.com> <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com> <20261117180931.GE162713@unreal>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,65 +85,18 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The HDMI controllers of BCM2712 feed their MAI FIFO through the 40-bit
-DMA channels. Describe them, so that vc4 registers the HDMI audio
-devices.
+On Tue, Nov 17, 2026, Leon Romanovsky wrote:
+> No. Make sure you also call mana_ib_gd_create_dma_region() with valid
+> parameters.
 
-The DREQ lines of the HDMI audio changed between the C1 and D0 steppings
-(10/17 and 12/13 respectively), while the flags request multi-beat
-bursts, wide source reads and the AXI priorities used by the downstream
-Raspberry Pi device trees, where these values come from.
+Both callers already reject unsupported page sizes. The guard you
+quoted checks the HWC's capacity, not an argument from either caller.
+Before RDMA probe, the channel has already carried a 640-byte version
+request. With one page address, CREATE needs 72 bytes and ADD_PAGES
+needs 64.
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 9 +++++++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 6 ++++++
- 2 files changed, 15 insertions(+)
+I dropped the redundant guard and its debug message in v12. Both
+commands still limit their batch size to what the channel negotiated.
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-index ae4b7c587dbc..97a4b819c01a 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-@@ -8,6 +8,15 @@ / {
- 	model = "Raspberry Pi 5 d0 Stepping";
- };
- 
-+/* The HDMI audio DREQs changed on D0 */
-+&hdmi0 {
-+	dmas = <&dma40 (12 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
-+};
-+
-+&hdmi1 {
-+	dmas = <&dma40 (13 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
-+};
-+
- &gio_aon {
- 	brcm,gpio-bank-widths = <15 6>;
- 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 7ba0fc540257..b7d7623ee9c8 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -483,6 +483,9 @@ hdmi0: hdmi@7c701400 {
- 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
- 					  "hpd-connected", "hpd-removed";
- 			ddc = <&ddc0>;
-+			/* DREQ 10, burst, wide source reads, priority 10, panic 15 */
-+			dmas = <&dma40 (10 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
-+			dma-names = "audio-rx";
- 			status = "disabled";
- 		};
- 
-@@ -513,6 +516,9 @@ hdmi1: hdmi@7c706400 {
- 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
- 					  "hpd-connected", "hpd-removed";
- 			ddc = <&ddc1>;
-+			/* DREQ 17, burst, wide source reads, priority 10, panic 15 */
-+			dmas = <&dma40 (17 | (1 << 30) | (1 << 24) | (10 << 16) | (15 << 20))>;
-+			dma-names = "audio-rx";
- 			status = "disabled";
- 		};
- 
--- 
-2.51.0
-
+Thanks,
+Wei
