@@ -1,79 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795416920;
-	b=ecOs5k5w3C66eAo/zbcIgkFQT7hdzFDaP2f46HgyhkLzorRxcy82DtvWWHBmFsgJlIFG
-	 jw7RGwy6HPamncMoF0yU36zjkAr3Baad/L9Uh0Tqj7GgHb/FBagWTlu7PpsIi00GEDRxL
-	 GbexwmpZpmBpcG7/cxMH+QEaSWV2S0gsvUX8whUG1n5jYHPr1SNFmuenYwrl5s1vs5PV8
-	 lzjUcn6temOYoG99JMyaTy4gNnVCVyCM6SeC8+P6jfJvcj3rxgmb5ySr3UGUU838JP7iB
-	 HcgPDN93zfAFtZOI1847Xdufik/m+pbjyVh6nT6ldYiN35r3FTUYVnFi/9plKqmzfEQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795416920;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=V9g41AZBQFHbOuAM+06YZ0QtqPzmAZRcOA80iSLCawU=;
-	b=p5SHz3R/iw+iuCPca5zu4E2gSHNBk2nDEDhv6LcjO9QpvVPZgMo0Ky4DW1r5M7YPZz8d
-	 PexE7Wg6y6sN7B2zDJc9PmxP9h/T15Pn18+P+Htc+0eOrRKgwgUxZGb7BKoBB4kH0fL0K
-	 9FqBozsIKPI6ICcBfGzj85pYNjqP1AGJh6hRXMtBfWTjHqWHD3q7oBAHjngkcfUqZnu9o
-	 lHK7eNe1xd2u3mQfutwjIfC+1NNnNRO/kffxplNZOOw3SOjG64VVjy45Cj2sa7jovJlwD
-	 Jjof8HuAKSfcguuorLXnoK7ZkTR9LuHy57wpHIe6k4ogylo417V2o34e5pqUp9kmoXQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0LNfi1+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAFFD606A31A;
-	Mon, 23 Nov 2026 06:55:19 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0LNfi1+
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795416919;
-	b=A3IDQad2YTcwfy7VnrxxtEwt0XCzQdisAeu7p2jgwr7QbMWO4gX3EP1Dd93sXL6s4wAY
-	 1XvHw5JIJ7PEzLMcw6n6hp8CMWXu/vR04THTJPB4kSJLWhZWM6nkGbqzRXkcttQ4sBX/4
-	 XKqQq3p8SjUusilgEFheU3LNRp6x2SFwCCl8vqQf4EEUtoOXw3VXUpcQ50IO0zz+bK9Pv
-	 h9BM9gL9hjFveqs6c3/llsy5hwapHB62iGYRMUh5yOSHT6eLy+12hqJxm7TSIL5aZynaf
-	 aUIqbckyT3bVdknKJMDHtDQDBDhep6Me9T/fPDula+ru4/ikExzY7UBkBX7im8bF7xA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795416919;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=V9g41AZBQFHbOuAM+06YZ0QtqPzmAZRcOA80iSLCawU=;
-	b=icd8tf6NOC3eciAbQZz9ioxfDTC/ArMjJnb2y1/l4EktwVunNCIYee9N45F7GmCRR3eo
-	 2doTODcqzsoJVn/znSnzU1TU5PghvjMgUe4MRmbnkIzcSXygeRJAKm4ujvQl4zSKXDQ+F
-	 vYsST0uODSWdaEb6FdnZJwQOUykirYQKL/4U1hVvVGSaMcuMEx51AH4kX3fN5dlBzkxbz
-	 jIqW+CyKZKmjgYk0V1kXpk9xMNY5F5GfhddFhIKAPhth62K2zPYSBSu5PXDZ+VstN5Is7
-	 ImqCskco5cRJanNCAVpMVKSeebxrImzaOWVdIrAHfnOPZelzmCi51mMhggm2uVpHysw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795416927;
+	b=b0NGDiOqDKxE7Di0NG1mOliEOGiFIshpKA4uD1IxPteK5yQe6CYk3Aym8nyMAtcX0VQp
+	 aakx5MGcYxHdiXiAMxGFu+eY2MZ4cUza+kb6xkXt+Kef8QJ3Hp8Ac2aJd4grykqmvFAX2
+	 YZ4dzADYB6K7QATW3mi6tWvkcfAAd5GboCGcOKGY8B1e4VJFnleVxvQdYK6JZv02eQyyi
+	 llh8MEjlNGNOtpZUs4oy0o0byq8nVWETX+aq+85SrOCtxcKz1tg2dZhbag+4jJcKAMf9i
+	 C4IH0R8+/yJxdFY7xO+xjA9+G6YuY18g6CNMvbzyku33TkWF7f0G0g3/M+BXUIV3kiA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416927;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Sw0yGZEZQlVpTyvtRZOPIDwQKkA+/+G9V7rnQKUJs00=;
+	b=V11izaHLsMio2R8AmOuuSKxwqHNUujOVGAPNpBdnHizJYBJ6f2/6Ca2sNsMh0M/PLJl5
+	 LZoWt3I4tG3RgSRUYLL43fKVRDw6mT9yWkiyEV53LlvY0TzTidmmeaeSaxECr2jTF01fz
+	 uNmL/d7SInIiwg92iZaexdJ53z54EwATHHTemBVsMkccGmhO7iljBxwuOrukfVYmgQa3C
+	 i9yRJTJeo9jyylvsuv6WZlc8UYuXzFJBnPthIqtZ40TmT3JTi3aSy1kGGhNFPlnpMtAOJ
+	 jNswbTCOUTd3fmjxgflc1nLCIWmBvDnLgn1/RQAcVugfwfhoZn4vPxnJm8azbjW8rNw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zxTI65F0;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7DBFA1F000C6;
-	Mon, 23 Nov 2026 06:55:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795416919;
-	bh=V9g41AZBQFHbOuAM+06YZ0QtqPzmAZRcOA80iSLCawU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=j0LNfi1+FOuOEq76N21MIcQCYbVfqcQZfKZT9tp9qD6KeLSN6koXzYTNPAY6+MihY
-	 MzvIeiCue2LfawPLQJi8fvm+U+J+H/mBwlJXgShP7JHL1cNBmhh0EFGXarZzCWfsqx
-	 eUXqWDqFvaIZcrYEwsefcd9jXhDSxK8hlYhoKkR60uabyu9nLk0OjIwmAcJsH+xJwq
-	 IC07BLtWVcplD4Imv7EVRC/hX53g9Qm9VO4xtBzqFYc1/We2T4sznGEt0GhDjFrSFh
-	 Kw2I6tzgZkY6OJrY0O0P+hMXoHomiP1agaPUuQC23HMBXh4Ih8Tf33SdC4FyHAm+cj
-	 M/9L3wt0hI7NQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 016AD4C39F;
-	Mon, 23 Nov 2026 06:55:16 +0000 (UTC)
-From: Bobek Brzeczyszczykiewicz via B4 Relay <devnull+admin.roadbobek.com@kernel.org>
-Date: Mon, 23 Nov 2026 06:54:07 +0000
-Subject: [PATCH v2 1/3] usb: musb: sunxi: Assert reset before deasserting
- on init
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ADCB606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:55:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4ADCB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zxTI65F0
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso26426455e9.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:55:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795416925; x=1796021725; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Sw0yGZEZQlVpTyvtRZOPIDwQKkA+/+G9V7rnQKUJs00=;
+        b=zxTI65F0z0G+SdjQh4XAnUVy4FDqLLVtBcXkxpo+xWF0fnYrLgcbdSjtZWltCxZgWd
+         nsECxVhOXssve+Yp6Avsi0TD4k4jJDZx2IiBFddPuzrQRHYaaADIGKyUftplAiAPDQ8T
+         CzlmZmfrWQnqdnHN+meCttMqlS/i1zpmRQPW+dfV9eh1TdEBDjKP0NX6/BG3EXw/BTSl
+         KBcWcB3Y0aCd7PYLkUkIsmGUfjSZIMiHprJJylm2f7ooTcj+CKg3173RgZEz2c6X3aNT
+         Y6VmeAz3s5gKNBlbV/xUo13vm4jcaw+2icRPAbo8saTdVGATcXkiQAGKZx69/8l4dy4F
+         k4xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795416925; x=1796021725;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Sw0yGZEZQlVpTyvtRZOPIDwQKkA+/+G9V7rnQKUJs00=;
+        b=pL+yCCIfNG3hsm5V9DrzADRUSKZFSYppnkaH8hQD/Sbi5K2o4AypeRDHK7J1fAkUcK
+         3UXZwQeszm7CevUPvHOwxu/bQIixwxeHYbjzJ6X9uYvC91PiFhwt6xzJIM+63WrXeFHJ
+         Ix0NQllsWYxofZO8oBvhtpRFDepNbO1KseUzJAZnXgp2kzZaST52BQakhzmKmyY1n4yJ
+         6S5iqOoBrxoyJR2YOwhUXClUZCLlc8AEWIeU/KR0AxpD7WFjswFznwGDCRE1WCca/6Yx
+         ai74Z1U2xIVRdIEAAXQavbxHBoPVjqih7FSIXfRzE0UVvrJ004IXSF+B2etJQFa0Z8lM
+         clZw==
+X-Forwarded-Encrypted: i=1; AL+hErGepeSoPK6z0PLqUHDuL6CFps55a1lrUO+Evw9FXr4ky6jEFu3mPaPcQgX/Xygf2N1U00VaACHeKBf82XU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+y5WQTgmK6CmlJCQgKDj6HFQFnv8DM2hZewveKy4WF/eCvBkLa
+	hvHaD36Qz+dvBAvV0EBT+Y9BtkfnrwLs2+HD7oHOeewx/EWa3uWmI4yF
+X-Gm-Gg: AZFdTZeiMta9j4xaHhP0XFfI+tlkxLBatSXegLW9AHlB7x7XtDAI5xd2NTX3+FQmPbO
+	ZmRtpnvx20UTVFc1M3576IbghhWYMnBiG5/smNKXBrQ5mUos18+b3h+0NA88wBuY3okHR4OaEBD
+	lAdpSPoZQOcXqLaNnodzNFzCeUpMdQ4Yp/PIWpHvyKWWCORd2kv49UbiiwtjLmSztW4MCeArjNN
+	ZZ24ygPOOYk/hKr2ZoF2ipaTsbxruhq9TFlgYvjFwnnvTpkzt5LaBL1Wjxo3w41JL2lugdCZ+yG
+	nZDPI5jQECGvVk9NyrAZ3d68klXjD0lhyOOudpsrBTwGkNn8IxGdpw+GC5vhTAYXWGAnY7sZSQu
+	7SwTyV/Snz61//+RvLO+xn/kprT4BMG/1pRyGvQEgeiOehEk4JR9hJfCLDWBzjo0Z4R1Y15e38+
+	gRPP+yMIMalkHQ2shHAC3r9S4ecmp9OInGSPaEqRPHFr7fmlaOaOkd2BSOCmTLd3oQns/woMH0q
+	7lpFVYzhPHtP4OXp/YXUlNJX2Wraxb0Lw/JqEKURJmW9jabNqZluxUJKHfA4d4FDIZWplB+SfS6
+	U4WSZoU1c7RO2BxmbFcX9zmJsDKcv4KNW669FLKhV6Z6/HRh2/K0Klia
+X-Received: by 2002:a05:600c:a085:b0:4a2:a9:ed87 with SMTP id 5b1f17b1804b1-4bb88811c75mr236581345e9.19.1795416925315;
+        Sun, 22 Nov 2026 22:55:25 -0800 (PST)
+Received: from DESKTOP-V28CTA4.localdomain ([37.111.157.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2e6dsm20601212f8f.6.2026.11.22.22.55.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 22:55:24 -0800 (PST)
+From: Arbab Haider <arbabhaider649@gmail.com>
+To: Theodore Ts'o <tytso@mit.edu>
+Cc: Andreas Dilger <adilger.kernel@dilger.ca>,
+	Jan Kara <jack@suse.cz>,
+	linux-ext4@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Arbab Haider <arbabhaider649@gmail.com>
+Subject: [PATCH] ext4: preserve EXT4_STATE_MAY_INLINE_DATA on failed inline data conversion
+Date: Mon, 23 Nov 2026 11:54:49 +0500
+Message-ID: <20261123065448.60742-2-arbabhaider649@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,92 +98,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-usb-sunxi-reset-fix-v2-1-4e51d3a64964@roadbobek.com>
-References: <20261123-usb-sunxi-reset-fix-v2-0-4e51d3a64964@roadbobek.com>
-In-Reply-To: <20261123-usb-sunxi-reset-fix-v2-0-4e51d3a64964@roadbobek.com>
-To: Bin Liu <b-liu@ti.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Hans de Goede <hansg@kernel.org>, 
- Felipe Balbi <balbi@ti.com>, Kishon Vijay Abraham I <kishon@kernel.org>, 
- Maxime Ripard <mripard@kernel.org>, Andre Przywara <andre.przywara@arm.com>
-Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, 
- Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795416949; l=2005;
- i=admin@roadbobek.com; s=20261117; h=from:subject:message-id;
- bh=4U8ofcJ5CaE3LjdH1VHfvFhhqtxQkjH9SyoARmkLRfM=;
- b=fsb4YhStcZrL24l9lIdisnCkVahY3Uch2BAXtPeUtkG0+AyVTcJv286JSJ3tnvBbfEerDKshU
- U8beRALeh26CoXmaqZtmU2Yv1jNwVek4mRLcGTpA7vS38jcbYYHzssS
-X-Developer-Key: i=admin@roadbobek.com; a=ed25519;
- pk=TcWSTwITMylwCZLYbw80sv2LQx1zButqiT90TFVvhas=
-X-Endpoint-Received: by B4 Relay for admin@roadbobek.com/20261117 with
- auth_id=1548
-X-Original-From: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
-Reply-To: admin@roadbobek.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
+Commit ef09ed5d37b8 ("ext4: fix bug_on in ext4_writepages") attempted to
+prevent ext4_convert_inline_data() from racing with delayed-allocation
+inline data conversion by calling filemap_flush() when
+EXT4_STATE_MAY_INLINE_DATA is already cleared.
 
-When a bootloader such as U-Boot (for example with
-CONFIG_USB_MUSB_HOST=y) initializes MUSB and boots Linux without
-stopping USB first, the controller reset line is already deasserted at
-probe time.
+However, filemap_flush() is asynchronous (WB_SYNC_NONE) and can return 0
+while folio 0 is locked by a concurrent buffered write and
+ext4_has_inline_data(inode) is still true.  ext4_convert_inline_data()
+then falls through to ext4_convert_inline_data_nolock() with
+EXT4_STATE_MAY_INLINE_DATA cleared.  If ext4_map_blocks() fails (for
+example due to -ENOSPC or a corrupted block bitmap), the out_restore
+path calls ext4_restore_inline_data(), which unconditionally re-sets
+EXT4_STATE_MAY_INLINE_DATA (both inside ext4_create_inline_data() and
+directly).
 
-In that case reset_control_deassert() in sunxi_musb_init() is a no-op
-and stale MUSB register state persists across boot. On Allwinner A33,
-MUSB stays wedged in a_wait_bcon with DevCtl=0x99, Power=0xf0, and a
-frozen Frame counter even across hot-unplug and replug.
+When ext4_do_writepages() subsequently runs (e.g. via O_SYNC
+ext4_sync_file()), it finds both ext4_has_inline_data(inode) and
+EXT4_STATE_MAY_INLINE_DATA set and triggers:
 
-Request exclusive reset control via devm_reset_control_get_exclusive()
-and assert glue->rst briefly before deasserting it when
-SUNXI_MUSB_FL_HAS_RESET is set so MUSB starts cleanly.
+  kernel BUG at fs/ext4/inode.c:2949!
+  RIP: 0010:ext4_do_writepages+0x25c0/0x39a0
+  Call Trace:
+   ext4_writepages+0x285/0x500
+   do_writepages+0x205/0x520
+   filemap_writeback+0x1a6/0x250
+   file_write_and_wait_range+0x8c/0x150
+   ext4_sync_file+0x2cf/0x950
+   ext4_buffered_write_iter+0x428/0x5d0
+   ext4_file_write_iter+0x7cb/0x1450
 
-Tested on an Allwinner A33 Q8 tablet (Laser MID-786).
+Fix this in ext4_convert_inline_data_nolock() (called under xattr_sem,
+which serializes against ext4_da_convert_inline_data_to_extent()) by
+saving EXT4_STATE_MAY_INLINE_DATA before destroying inline data and
+clearing it again after ext4_restore_inline_data() if it was not set
+originally.
 
-Fixes: 132e23775779 ("usb: musb: sunxi: Add support for musb controller in A31 SoC")
-Signed-off-by: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
+Tested locally in QEMU (x86_64, 4 CPUs, KASAN+UBSAN) using a concurrent
+mmap + O_SYNC write reproducer on an inline_data ext4 image: hit
+kernel BUG at fs/ext4/inode.c:2949 on mount #1 in <1s before the patch,
+and completed 32 fresh mount/race iterations in 10s with zero BUG,
+WARNING, or KASAN reports after the patch.
+
+Fixes: ef09ed5d37b8 ("ext4: fix bug_on in ext4_writepages")
+Cc: stable@vger.kernel.org
+Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
 ---
- drivers/usb/musb/sunxi.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ fs/ext4/inline.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/usb/musb/sunxi.c b/drivers/usb/musb/sunxi.c
-index a17b1c150626..5f63d519237b 100644
---- a/drivers/usb/musb/sunxi.c
-+++ b/drivers/usb/musb/sunxi.c
-@@ -9,6 +9,7 @@
-  */
+diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
+index ceee69a66..c4ef91cd3 100644
+--- a/fs/ext4/inline.c
++++ b/fs/ext4/inline.c
+@@ -1105,6 +1105,8 @@ static int ext4_convert_inline_data_nolock(handle_t *handle,
+ 	struct buffer_head *data_bh = NULL;
+ 	struct ext4_map_blocks map;
+ 	int inline_size;
++	bool may_inline = ext4_test_inode_state(inode,
++						EXT4_STATE_MAY_INLINE_DATA);
  
- #include <linux/clk.h>
-+#include <linux/delay.h>
- #include <linux/err.h>
- #include <linux/extcon.h>
- #include <linux/io.h>
-@@ -239,6 +240,8 @@ static int sunxi_musb_init(struct musb *musb)
- 		goto error_sram_release;
- 
- 	if (test_bit(SUNXI_MUSB_FL_HAS_RESET, &glue->flags)) {
-+		reset_control_assert(glue->rst);
-+		usleep_range(10, 20);
- 		ret = reset_control_deassert(glue->rst);
- 		if (ret)
- 			goto error_clk_disable;
-@@ -745,7 +748,7 @@ static int sunxi_musb_probe(struct platform_device *pdev)
+ 	inline_size = ext4_get_inline_size(inode);
+ 	buf = kmalloc(inline_size, GFP_NOFS);
+@@ -1181,8 +1183,12 @@ static int ext4_convert_inline_data_nolock(handle_t *handle,
  	}
  
- 	if (test_bit(SUNXI_MUSB_FL_HAS_RESET, &glue->flags)) {
--		glue->rst = devm_reset_control_get(&pdev->dev, NULL);
-+		glue->rst = devm_reset_control_get_exclusive(&pdev->dev, NULL);
- 		if (IS_ERR(glue->rst))
- 			return dev_err_probe(&pdev->dev, PTR_ERR(glue->rst),
- 					     "Error getting reset\n");
-
+ out_restore:
+-	if (error)
++	if (error) {
+ 		ext4_restore_inline_data(handle, inode, iloc, buf, inline_size);
++		if (!may_inline)
++			ext4_clear_inode_state(inode,
++					       EXT4_STATE_MAY_INLINE_DATA);
++	}
+ 
+ out:
+ 	brelse(data_bh);
 -- 
 2.53.0
-
 
