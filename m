@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795468868;
-	b=Wo40W56qrHg++kbcZeR5OcwOOxfcdLzyu2LKiKnhh1u4xQsbd/e97Fs8jux7dNK9YLPs
-	 OPvTJMg1OTMBde9psuQdr3Hzpw2V7+CRU9DA8aDRn+Pg7lw9bj3/FIlQxTZ/4qstI+4n0
-	 hgeu5tK9NoVNQ7ILE2rVxZki1pCgVomB0g62NJ4B1LhwmyEwTs/Xiv0L6jbxdHPKJIZ4r
-	 omFdjJNLKvTQov16cMkLGuXDY5f8xVQ1EucW1YWg5iKMD1grM21ch11Ka5dGyIIRD4/x/
-	 SSSuW1OTIQD74MADyW0eXtC5Naq7rJSdqqMepsXVBSPzCWlZo3t5RCfuBCsdk0hNI0w==
+	t=1795468969;
+	b=4ISUKDpt9Xn5JMAiLgf/3uOweN6SK44llXm3NG9G6fPHQWsXjMh0J3FbtClnaKhLHloO
+	 6VmQX0ytpcp9ExayYVu2P+c4DGfCnxx0jqAu7p1tlCFnDHu/NE3qaR6tIQ9UAtVYgwLyp
+	 L3gSiP7SPr563m03NdUWLcbQK/+Aw2O8loDIgytOcmgw6Whky18L41f65IOztVaZPms0I
+	 ySKk9hVFQkiuQHrWYAigkzFO/RFBwA9JAGszR2yxxO4z10Vx/YNQZErKOO5+LUuIC4Cpc
+	 iMJbvl/MJFwtH9Wu+l7WvZEQeM1vtsrPuRcvEE1l9tLoWoP7RxMvk72deJS5GUgnJLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795468868;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=oK69RON+lsCt00ViP4o69fvdYWZ6O8Adv4O6ypLAgdk=;
-	b=lABq96HKZW2ujy4Xd2BQdD+AF7CdtiUqLi7iNyNJ2A6ykfUuV3zbCKjdOasXkkykLB//
-	 EAiwLwiU/M86wVy/8Touk4R1EEPVa2jjYxuF4vclLGf49KvwLW8ulDPY85qNjFdtnRZDM
-	 LAXQGsnogKoCFrqhQVvjHhMa8YZ/cniOWjznTT47P8dqyCHZtnHWCxYhP7lqPuho6lSRU
-	 Kb9+/pfNLCwjcms0M2kZjnXVX3BXvJ5dDySONAY9VGglmlLUj5PMqbkAW3pBA6EUe8rVh
-	 elkERidE4rFsWCkrml5mTTw+x2hUiQ5oq43y5RM2Z4C/focm6LBL3e4C4n5f6E+fwGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795468969;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=eU+6TDE9yV82imn9cftyUyCCED7xbfUv9FoTzNU9AxQ=;
+	b=Skg3ihbE3orv2oRPEbrQqR8mtwJtIoF8mvU008TmTgCw7yNEZ/BeZXXiJODzVdApijIs
+	 v4Z/cNKuzwKNK9l6877Wqi5tx+9QNOvZeSjMPDhHeRgXO+KMtbMBg9POtHPXQkMZxkZGg
+	 mMRLsAa19xl2uAO9SfuZpr0Orym+8D8BF4gWSn9rPLZ8vkmuP1Wwr2pKhR5QfuiaGnin6
+	 428bCBLMz83QaXCF27yPWSIwwxEdxlsuPP9WfC5dRxWnJZ8Xxg7oz4ppaMoluYHL4kdpE
+	 Z3fAhGgCY0Dy0O7Ppdxx5c8qvgsMrLtfZ+LFNzy3SyDF3qVKcQQ2480kNAZ+RFZgr3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H7v5HFrd;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXzdykSl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E359606A31E;
-	Mon, 23 Nov 2026 21:21:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABE63606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:22:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H7v5HFrd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26A1E1F000C0;
-	Mon, 23 Nov 2026 21:21:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXzdykSl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CD211F000E6
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795468867;
-	bh=oK69RON+lsCt00ViP4o69fvdYWZ6O8Adv4O6ypLAgdk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=H7v5HFrdX453GUoX1AkV9s3bworAQ4Z9Vz8MM83NcgW9jAZyG2cPfzrke4f65hOjr
-	 nMXfvS8nwJiRG7/buZ5j4im7v4vHTk2K77zB6brcTxvdaI+gnyj+c7GQd7zMRINk6H
-	 F8pZX0S+0I2pmcsiMsTd7s+Nw7Dc6iZjUZAaXBrmIXYMmQHdAN4Ru+ybK1pM/l3Am3
-	 VpBqNmU996R7gqDAvBdo5M0qTYVDe9GMVXfYPAugt5QsvIj3S6EryKXE1jGJsBt+B6
-	 jCobdoJsrc27tfktCHbxurRDhXcieLMgp/xlukYErj7DqFIPf1/PvWzT5crlZ6i2kl
-	 eeolWwu2pFrfg==
-Date: Mon, 23 Nov 2026 21:21:05 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Hannes Reinecke <hare@kernel.org>
-Cc: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	Hannes Reinecke <hare@suse.de>, Chaitanya Kulkarni <kch@nvidia.com>,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
-	keyrings@vger.kernel.org
-Subject: Re: [PATCH v6 0/9] nvme-auth: switch to use the kernel keyring
-Message-ID: <20261123212105.GA18468@google.com>
-References: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
+	s=k20260515; t=1795468969;
+	bh=eU+6TDE9yV82imn9cftyUyCCED7xbfUv9FoTzNU9AxQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=AXzdykSlrixB4Ol5/wwg5LVbxAPTVXT0ydB610Pgq4ImciJ5PIhsl/680uPtvZGc9
+	 cejHShoviTPVdjoG3+p+4tkgDeIDWJvad/73fG1eXA063UDMPN2k/vBgrK5pkAzVXA
+	 HRjdFT1Pb7N93/TJBYkm/LFKdtj+zURr1AqwI395pEC0+1IbHyo4hUqk1vlTfAUQf3
+	 xUXCHaYFL8knlVLhmvHtlDuUExEblqY0e67oMfxj0CivH40qgApR90Vt3dM1PXt9GV
+	 FA2IjnQd/1Yv9T8cVB9M197ijLgwhaPwXozGmxSnhrUFvRfcXYxj8WGhnQvYVWDMOl
+	 NbD/TlN3JxK1Q==
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-949589c1495so344666985a.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:22:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHce+ziSqXSotk8Bfl6QO6E0d7+k5OV4wlQQiSKEzR52Id0ntTHXO3tTKlBmYBxXMQcYQh/Dw/ttKKCNZ0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Ce2AMUhSGpzmvBqJrgfNLsIb+pH9ANT4t/EQuoupkbwBho069
+	zbd5jXRN+fxA07vSBtPRyZDQNzRDOyanG+uvoRYBIjs+1zVO76pin6z4zvnwyXmU5xAuLcKllTG
+	bzLrPS1Q2iVv8c5LZAmaw0v2H25wHesw=
+X-Received: by 2002:a05:620a:29ce:b0:93e:d854:4b83 with SMTP id
+ af79cd13be357-949ba9b3e16mr2296045385a.22.1795468968646; Mon, 23 Nov 2026
+ 13:22:48 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,100 +59,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
+References: <20261123135200.4086519-1-max.kellermann@ionos.com> <20261123135200.4086519-3-max.kellermann@ionos.com>
+In-Reply-To: <20261123135200.4086519-3-max.kellermann@ionos.com>
+From: Barry Song <baohua@kernel.org>
+Date: Tue, 24 Nov 2026 05:22:37 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4y8Meart6rfQ1i1oAm4NoM6YpPx+s-jgdrqgf_VPrs10Q@mail.gmail.com>
+X-Gm-Features: Aa3M54rk1a4eAkP-XOuFBhkZSsK_OaOxvXCeyMlLajAigxVYkkkbNjKxH6OqKJU
+Message-ID: <CAGsJ_4y8Meart6rfQ1i1oAm4NoM6YpPx+s-jgdrqgf_VPrs10Q@mail.gmail.com>
+Subject: Re: [PATCH v4 2/5] mm/vmscan: move code to lru_gen_{add,del}_memcg()
+To: Max Kellermann <max.kellermann@ionos.com>
+Cc: akpm@linux-foundation.org, kasong@tencent.com, qi.zheng@linux.dev, 
+	shakeel.butt@linux.dev, axelrasmussen@google.com, yuanchu@google.com, 
+	weixugc@google.com, baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, hannes@cmpxchg.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, rcu@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-[ +Cc keyrings@vger.kernel.org ]
+On Mon, Nov 23, 2026 at 9:52=E2=80=AFPM Max Kellermann <max.kellermann@iono=
+s.com> wrote:
+>
+> Preparation for the following patch that adds tail caching.
+>
+> For simplicity, hlist_nulls_del_init_rcu() is now always used, which
+> is also valid during rotation, because the entry is immediately
+> reinserted under `memcg_lru.lock`.
+>
+> Signed-off-by: Max Kellermann <max.kellermann@ionos.com>
+> Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> ---
 
-On Mon, Nov 23, 2026 at 06:10:00PM +0100, Hannes Reinecke wrote:
-> Hey all,
-> 
-> the current NVMe authentication code is using a hand-crafted key
-> structure; idea was to have the initial implementation with a minimal
-> set of dependencies.
-> (And me not having a good grasp on how to use the kernel keyring :-)
-> That had the drawback that keys always had to be specified on the
-> nvme-cli commandline, which is far from ideal from a security standpoint.
-> 
-> So this patchset switches the authentication code over to use the
-> kernel keyring. User-facing interface (namely argument to 'nvme
-> connect') remain the same, but the key data is converted into keys
-> which are stored as a new key type 'dhchap' with a random UUID as
-> description in the kernel keyring.
-> 
-> With this I have updated the dhchap arguments to 'nvme connect' and
-> the configfs interface to either be the keydata (ie the original
-> interface) _or_ a key description referring to a pre-populated dhchap
-> key in the kernel keyring. This allows for easier provisioning of keys
-> and avoids the security risk from having to specify the key data on
-> the kernel commandline.
-[...]
->  16 files changed, 1140 insertions(+), 386 deletions(-)
+It looks like you missed collecting the tags[1] again:
 
-This should have been Cc'ed to the keyrings mailing list.  I found it
-via lore search.
+Reviewed-by: Barry Song <baohua@kernel.org>
 
-As far as I can tell, this series is trying to do two main things:
+In the future, you can use `b4 am` to collect the tags automatically.
 
-    (1) parse secrets up front instead of keeping raw "DHHC-1:..."
-    strings around in 'opts' and 'nvmet_host'; and
-
-    (2) let userspace reference pre-loaded keys in a keyring so
-    cleartext secrets don't have to live in config files or
-    sysfs/configfs 'show' output.
-
-(Patch 7's flush_work() change looks independent of the rest.)
-
-Neither of those requires replacing 'struct nvme_dhchap_key' with
-'struct key' at runtime, or synthesizing random-UUID keys in ".nvme"
-when raw secrets are passed.  Doing that adds a lot of complexity and
-opportunity for bugs (as Sashiko's review already seems to show), for no
-real gain.  Note that 'user_key_payload' still lives in slab memory just
-like 'struct nvme_dhchap_key' does.
-
-The semantics of the keyrings subsystem just don't match storage very
-well, and it's quite hard to integrate with correctly.  In fscrypt, I
-had to deal with a lot of bugs before moving away from the keyrings
-subsystem almost entirely, due to issues with per-process keyring
-scoping, delayed key destruction, locking, and LSM checks.
-
-This series already runs into the first of these: patches 8-9 use
-request_key(), which only searches the caller's process keyrings and
-won't even find ".nvme".  And keys are no longer wiped synchronously
-with kfree_sensitive(), but rather whenever the last reference is
-dropped and the garbage collector gets around to it.
-
-Note that NVMe-TCP TLS isn't a relevant precedent here, either.  TLS
-handshakes run in userspace (tlshd), which needs to read the PSK via
-keyctl, whereas DH-HMAC-CHAP is done entirely in-kernel.
-
-This series also gives the 'dhchap' key type a ->read() method, so even
-pre-populated keys remain readable from userspace via keyctl_read() (by
-default, by any possessor).
-
-And inserting raw secrets into ".nvme" with KEY_USR_READ makes them
-readable via keyctl_read() by any process running as uid 0, even without
-CAP_SYS_ADMIN and without access to sysfs or configfs.  Due to the
-KEY_USR_* permissions on ".nvme" and the keys, such processes can also
-invalidate or revoke in-use keys, breaking authentication.  (Separately,
-the existing nvmet dhchap_key and dhchap_ctrl_key configfs attributes
-are 0644 world-readable, which should be fixed regardless.)
-
-How about keeping 'struct nvme_dhchap_key' as the runtime
-representation, and just parsing into it up front in 'opts' and
-'nvmet_host'?  The sysfs/configfs 'show' methods could re-encode the
-secret if really needed, though not exposing it at all would be better.
-
-Then if keyring-based provisioning is still wanted so config files don't
-need raw secrets, it could work like "fscrypt-provisioning" keys: define
-a write-only key type (no ->read(), ->update(), or ->revoke()), look up
-the key by serial number with lookup_user_key() once when the
-option/attribute is written, copy the decoded key (and description, if
-needed for 'show') into 'struct nvme_dhchap_key', and immediately
-key_put() it.
-
-Raw secrets wouldn't touch keyrings at all, and the keyrings subsystem
-would stay out of the runtime path.
-
-- Eric
+[1] https://lore.kernel.org/linux-mm/CAGsJ_4wit5jKGn4L-NDTqzxDRNS8s8-FV3g0m=
+5e6BOcG2Gx2Eg@mail.gmail.com/
