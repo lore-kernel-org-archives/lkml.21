@@ -1,92 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.76.5.236
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424147;
-	b=EAc7LSipWM4eyvMs4w2iX2UFmq6KypokJRCCqapHt3xuDaQQaxSmgNLGbMtjmkJWgraC
-	 Rdnrqz5P9AhkDdEIKM8n+faF8PnsHmS/dZZqWJzAzc9iwinI8eB+w96S4/cFkPyGIbWje
-	 YvnMc+1IHmWRjgC9zXZDeI2QgKaCm2YPBPn8LYkS3fFDOIdR/kaQTrEhmnyFJorO3bW+T
-	 IOa1uDr2XYxdN8QV1mNwbQevRRyv4FFiND8Hg/WE9pFN5/INj53VceqiWPWvd+eOECDzO
-	 ZPMNb8624lnXTfLx6Vdme67ByjOkfZkC+mrK5C0/1Ujqp5eiujP0srKfbYbOFK5M0TQ==
+	t=1795424159;
+	b=KBznP5zAQ8MhONnVkLxismBNMWJM9CHITQBovGlbmQCQNVQqrYAUwNtpSPENPEy4W8yu
+	 ItotI2dZo4nkRYqwmqDfgHCJ5cKeins5sXeci7/ESjfu3pLwqPakKZH5PKtuEUHFLgPG0
+	 pQ1nPRViMySftoslTMbfVktX+98zU/JxkbD2gsrkWnXiFiSU7Er51dfpx8Q0oHXGrMeE8
+	 swj+1mPiggm6S2J+jeoL78XrH3wYUZzDCxrRqpO+pwc0a1V23jiweb3anLIZGSRucBDLk
+	 B1ejmA8aP3hENFeglALbJLtBZqkrWZ4NH3kEnw/FD0+QJ/J+MJcU4EUx2pNfWt8gxWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424147;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=blot85h4FTwfSQn0FLKdi/Aa22snUat5BCH5SdoPrNQ=;
-	b=EmPlV3/4I0rDjVhw4XJucDfKzDzXFIDhD+aKIJmMC/+sBQmxXEPNdubBREsnB339QCzr
-	 z2EYRba+jICgb+2AiYcRfVeqcxEl2gb2LM3I+HEZ28jNIUJDvm0jcncEHREqWxM9vIFWW
-	 E1px3gEBEWNj38aeUyew1OTQEgXu2I7wIsLLeozbaARdulJ8yzYyznmSa9qjwanFtc9qh
-	 GVMCtgitJfzCB+hB86h3eN1jgWKX38oFu3zmqxetwP6Dmk9U+xaqymjJRv2EwUyknHHVg
-	 eAeR9A6N3xZNsWbyvuDDLVr5XDa+DYwmU8ZW24dHYBYgsdTBOgKmjErwqcFYKwgnk1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424159;
+	h=DMARC-Filter:X-MD-Sfrom:X-MD-SrcIP:From:To:Subject:Thread-Topic:
+	 Thread-Index:Date:Message-ID:References:In-Reply-To:Accept-Language:
+	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version:
+	 DKIM-Signature;
+	bh=pdCSnO3vFDLEtKHfqKwTbrDh775Mc8mkkHWJ0WsIDsg=;
+	b=V9q0zztOAptkKtKvbxlOewS+EObeiQrta4YxOuBmq2hghrZ/UVaD/SvD9l53F3aKL4gS
+	 /wiPTkTSoO8r8eByiCZjt6jqMkrG55gxlzZJG9MXQRILrOmHQLNGNkbrDq9fMCPoo74J/
+	 GLMNLbVuv3s5aC0+Jn15GCFe9wpR2ByNkhBYwe9g2LBv88KJc6OI2DnO5Y0tpks6LSUZC
+	 pRNdddIdtRF4bSWqoQkNBHjVlrP/VY1F+c7CdjQu85rreAyhzwcrtwif7L8gP412t1fIE
+	 onS43lckd5SuckS6fpXT/yvqv/WyfRDuw4TUsDzXCYXxjGfkv8BTqZaQxcFdhk78EfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=qOcIAU2g;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91B3F606A33B
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:55:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91B3F606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	dmarc=pass header.from=baidu.com;
+	spf=pass smtp.mailfrom=baidu.com;
+	dkim=pass header.d=baidu.com header.i=@baidu.com header.a=rsa-sha256 header.s=selector1 header.b=Tqs2eo2c;
+	arc=none smtp.remote-ip=180.76.5.236
+Received: from outbound.baidu.com (outbound.baidu.com [180.76.5.236])
+	by smtp.subspace.kernel.org (Postfix) with SMTP id 38E78606A31A;
+	Mon, 23 Nov 2026 08:55:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38E78606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=baidu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baidu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=qOcIAU2g
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54iHO2622583;
-	Mon, 23 Nov 2026 08:55:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=blot85h4FTwfSQn0FLKdi/Aa22snUa
-	t5BCH5SdoPrNQ=; b=qOcIAU2gtepLYgLfbJ98jQ8TcFJrzKSHsQIP9UGtJ+Lx+z
-	C1zFgDbKjkcE4oPYcwpEGEUjs8JE4mTi3u3H/s9SD8NLMJ3UcB4TVbeHU3Gt5gn9
-	74YiQXEWRQHGF1rdZfqliKD5fJG/9rwysZPDiTl3yp7/1uR8XcR78MYAEVNxpTDb
-	x73U/W1Mbp4BPuBjfQgL9nkBC/aP7rQpKACsJqOeYjnzRJg8FNSt8qbFmWsBcJz/
-	jtrbuUxeW++85P9noyLYYrdI/9GDHl4YPEyCiw0ib6tRXRoxbzZLjxRrCgiOio4A
-	CcYlFmZi0PCdaGg+4Pbrp14adjTyQhhIeRlb2Vag==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fkaaf7-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 08:55:09 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54Snb1436617;
-	Mon, 23 Nov 2026 08:55:08 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3raydq66-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 08:55:08 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN8t6Jd54591754
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 08:55:06 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5B3D92004D;
-	Mon, 23 Nov 2026 08:55:06 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EC13F2004B;
-	Mon, 23 Nov 2026 08:55:05 +0000 (GMT)
-Received: from osiris (unknown [9.87.148.25])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 23 Nov 2026 08:55:05 +0000 (GMT)
-Date: Mon, 23 Nov 2026 09:55:04 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Sascha Bischoff <Sascha.Bischoff@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 2/9] arm64: sysreg: Remove the dead range check from
- parse_bitdef()
-Message-ID: <20261123085504.20959-B-seiden@linux.ibm.com>
-References: <20261123075219.369042-1-fuad.tabba@linux.dev>
- <20261123075219.369042-3-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=baidu.com header.i=@baidu.com header.a=rsa-sha256 header.s=selector1 header.b=Tqs2eo2c
+X-MD-Sfrom: lirongqing@baidu.com
+X-MD-SrcIP: 172.31.3.11
+From: "Li,Rongqing" <lirongqing@baidu.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
+	<namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>, Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, Atish Patra <atishp@rivosinc.com>, Anup Patel
+	<anup@brainfault.org>, Shenlin Liang <liangshenlin@eswincomputing.com>,
+	"linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: =?gb2312?B?tPC4tDogW1BBVENIXSBwZXJmIGt2bTogRml4IFJJU0MtViBWTS1leGl0IGR1?=
+ =?gb2312?Q?ration_accounting?=
+Thread-Topic: [PATCH] perf kvm: Fix RISC-V VM-exit duration accounting
+Thread-Index: AQHdaqsYju6/93onaUCoF9GUXgxXLbc7e2zQ
+Date: Mon, 23 Nov 2026 08:55:43 +0000
+Message-ID: <10d466045b764b7590abaef251df06c1@baidu.com>
+References: <20261102091809.2215-1-lirongqing@baidu.com>
+In-Reply-To: <20261102091809.2215-1-lirongqing@baidu.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,49 +70,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123075219.369042-3-fuad.tabba@linux.dev>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzNCBTYWx0ZWRfXz4eoKD+96ZGI
- +Ft+L+CH5JFWXRxaKmq55nTM9hFGoFOI7xvVSbvbGBjMzaSKgICpPaEsyunKOw9ABbWJuWeD3gq
- rH+BLwtjI90O0MKSPvMiE1WE4+rAmHJ5Y1/4qJeTDP+2dvxsS5nZ6YyrqjXWPL2TcFVjvzcEe6A
- fGGMJ65OJheNgaFRgzVZFByN8Hr5aPN1T/XSc1uzNP7Bh20wdRawGOMR/HzS78McBL/b5QEb+86
- nRgR4WY/Lh4Npim5fAaqLYHcgYKYPCz0s5jrDXZxaw8ffD1imvMmyqezuWCfi4rJIsUWX/1AozZ
- pZb1A30zfVr2zY4jpGqD36zwWWjGkGoFZVTRgh82Qg8IogqTTHaQaFQpyLMqH3a4A1pzp4yrNbP
- aroKdED0wHkrU8tmXFT3ENB5u3OHUHLrknwImz4gmTAYTb85662RHXFn9saAf5YbaRupEiftiCA
- RttovEob/ATOkimP6nA==
-X-Proofpoint-ORIG-GUID: Vsde5VhrwxKgUxdtipmkSSyiCyN8Z4HK
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzNCBTYWx0ZWRfX6ix2YiqYMjT0
- BSGKk6+LPwZSWHRVkLDufUwB8pcWn9yH+flQeNM96p12SUQ5N7tTaAvl/PRJx9LLCflBQgPY13t
- VAhPtkYbNHNI0rRQ1UJ5CgY4mcBvruo=
-X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b03ff6d cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=9VelDpYHchpW-k45WfsA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: 3KYqQyQzyg9QPHMMFgqHI7dC8L1NfRUI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
- bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230034
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baidu.com;
+	s=selector1; t=1795424150;
+	bh=pdCSnO3vFDLEtKHfqKwTbrDh775Mc8mkkHWJ0WsIDsg=;
+	h=From:To:Subject:Date:Message-ID:Content-Type;
+	b=Tqs2eo2cJ2gC0XqUpwyJOq2mvUT1Cw5+v3HAQtFQr4y2GS0FL9s8vGvMfovqaQPIE
+	 fpEFdvaeQLe4Xc+xNNq03CJUt/nqDB7RctPshWzgtUmawnb4rLi2G4ZDCdKYBYEO7t
+	 3sxUiIcs4ErMJFU6y2HbzyctchFaibvysDAUKpExcPsEZWcYV4PDeGV4+dkHN/3L+6
+	 ywpnoVUd3CvV5rk8/x4H+YiE4qkEV1SC1K83XM/aXaJSeHIA8+jT4TILecNTDAH5eK
+	 DQvlWgIh4+6TA3mwFa11CB7sbpg8T1vmIUG6cRumpMALlsKYHAkwNHbeTKBsRPsyx1
+	 IboryRSl74vZw==
 
-On Mon, Nov 23, 2026 at 07:52:12AM +0000, Fuad Tabba wrote:
-> parse_bitdef() ends by testing "low > high", but the script doesn't
-> assign either variable, so the test compares two empty values and never
-> fires. The "msb < lsb" test just above it already rejects an inverted
-> range.
-> 
-> Remove the dead test.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
- 
+PiANCj4gRnJvbTogTGkgUm9uZ1FpbmcgPGxpcm9uZ3FpbmdAYmFpZHUuY29tPg0KPiANCj4gVXNl
+IGt2bV9leGl0IGFzIHRoZSBzdGFydCBldmVudCBhbmQgdGhlIGZvbGxvd2luZyBrdm1fZW50cnkg
+YXMgdGhlIGVuZA0KPiBldmVudCBmb3IgUklTQy1WIFZNLWV4aXQgc3RhdGlzdGljcy4gS2VlcCBk
+ZWNvZGluZyBzY2F1c2UgZnJvbSB0aGUgZXhpdA0KPiBzYW1wbGUuDQo+IA0KPiBCZWZvcmUgdGhp
+cyBjaGFuZ2UsIFJJU0MtViBtZWFzdXJlZCBndWVzdCBydW50aW1lIGFzIFZNLWV4aXQgdGltZS4N
+Cj4gDQo+IEZpeGVzOiBkYTdiMWI1MjVlOTcgKCJwZXJmIGt2bS9yaXNjdjogUG9ydCBwZXJmIGt2
+bSBzdGF0IHRvIFJJU0MtViIpDQo+IFNpZ25lZC1vZmYtYnk6IExpIFJvbmdRaW5nIDxsaXJvbmdx
+aW5nQGJhaWR1LmNvbT4NCg0KcGluZyANCg0KW0xpLFJvbmdxaW5nXSANCg0KDQo+IC0tLQ0KPiAg
+dG9vbHMvcGVyZi91dGlsL2t2bS1zdGF0LWFyY2gva3ZtLXN0YXQtcmlzY3YuYyB8IDE0ICsrKysr
+KystLS0tLS0tDQo+ICAxIGZpbGUgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCA3IGRlbGV0aW9u
+cygtKQ0KPiANCj4gZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvdXRpbC9rdm0tc3RhdC1hcmNoL2t2
+bS1zdGF0LXJpc2N2LmMNCj4gYi90b29scy9wZXJmL3V0aWwva3ZtLXN0YXQtYXJjaC9rdm0tc3Rh
+dC1yaXNjdi5jDQo+IGluZGV4IDk2N2JiYTIuLjA5YzljN2QgMTAwNjQ0DQo+IC0tLSBhL3Rvb2xz
+L3BlcmYvdXRpbC9rdm0tc3RhdC1hcmNoL2t2bS1zdGF0LXJpc2N2LmMNCj4gKysrIGIvdG9vbHMv
+cGVyZi91dGlsL2t2bS1zdGF0LWFyY2gva3ZtLXN0YXQtcmlzY3YuYw0KPiBAQCAtMzEsMTMgKzMx
+LDcgQEAgc3RhdGljIHZvaWQgZXZlbnRfZ2V0X2tleShzdHJ1Y3QgcGVyZl9zYW1wbGUNCj4gKnNh
+bXBsZSwgIH0NCj4gDQo+ICBzdGF0aWMgYm9vbCBldmVudF9iZWdpbihzdHJ1Y3QgcGVyZl9zYW1w
+bGUgKnNhbXBsZSwNCj4gLQkJCXN0cnVjdCBldmVudF9rZXkgKmtleSBfX21heWJlX3VudXNlZCkN
+Cj4gLXsNCj4gLQlyZXR1cm4gZXZzZWxfX25hbWVfaXMoc2FtcGxlLT5ldnNlbCwga3ZtX2VudHJ5
+X3RyYWNlKEVNX1JJU0NWKSk7DQo+IC19DQo+IC0NCj4gLXN0YXRpYyBib29sIGV2ZW50X2VuZChz
+dHJ1Y3QgcGVyZl9zYW1wbGUgKnNhbXBsZSwNCj4gLQkJICAgICAgc3RydWN0IGV2ZW50X2tleSAq
+a2V5KQ0KPiArCQkJc3RydWN0IGV2ZW50X2tleSAqa2V5KQ0KPiAgew0KPiAgCWlmIChldnNlbF9f
+bmFtZV9pcyhzYW1wbGUtPmV2c2VsLCBrdm1fZXhpdF90cmFjZShFTV9SSVNDVikpKSB7DQo+ICAJ
+CWV2ZW50X2dldF9rZXkoc2FtcGxlLCBrZXkpOw0KPiBAQCAtNDYsNiArNDAsMTIgQEAgc3RhdGlj
+IGJvb2wgZXZlbnRfZW5kKHN0cnVjdCBwZXJmX3NhbXBsZSAqc2FtcGxlLA0KPiAgCXJldHVybiBm
+YWxzZTsNCj4gIH0NCj4gDQo+ICtzdGF0aWMgYm9vbCBldmVudF9lbmQoc3RydWN0IHBlcmZfc2Ft
+cGxlICpzYW1wbGUsDQo+ICsJCSAgICAgIHN0cnVjdCBldmVudF9rZXkgKmtleSBfX21heWJlX3Vu
+dXNlZCkgew0KPiArCXJldHVybiBldnNlbF9fbmFtZV9pcyhzYW1wbGUtPmV2c2VsLCBrdm1fZW50
+cnlfdHJhY2UoRU1fUklTQ1YpKTsgfQ0KPiArDQo+ICBzdGF0aWMgY29uc3Qgc3RydWN0IGt2bV9l
+dmVudHNfb3BzIGV4aXRfZXZlbnRzID0gew0KPiAgCS5pc19iZWdpbl9ldmVudCA9IGV2ZW50X2Jl
+Z2luLA0KPiAgCS5pc19lbmRfZXZlbnQJPSBldmVudF9lbmQsDQo+IC0tDQo+IDIuOS40DQoNCg==
