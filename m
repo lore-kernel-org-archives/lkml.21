@@ -1,99 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795430103;
-	b=WK8glr58cum43mhMW3miV39lHPHl3CnK13rtT8N32VtniT+tXDrIIts1Vm13/2gTpIlX
-	 wmQDYyqYmVolpD8ZHOnovOJqu7sw4/ZPqSpFrCvm24pwdBJTxIRWOPNXHQ9NiLa/JWWn+
-	 cQIlXzgatylznNRSc176G2scF/lVOphRTmBJqKhcniHkbJgRLlEPOXxoifZEt4dwlOviL
-	 0XfapEGENntWZ0qs53zX4kKvumUhR8ntX876yaNEsz9L0ZkvfbR1sIodoF/WkTxPCKD/I
-	 u3FjO5FQSlK4dXklJigStixd30FxCowSlke6qJ5N2yvfp8eAl7Hzy6QhLcnefmPSk4w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430103;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=FkLm2QDvo0RLh/Me+j1f+/tll97oLAwEndJ2bmbVDp8=;
-	b=Hu3q1Z7UBqPUehJlmcQGKmlgjoZ00ykERR8cMyfQ5CJvbYL1AOLnVmf1Xwceum9ZlXAy
-	 r6jsAc24DePSFA/5em2Yez0u4jaPBD6+VmtJrt37RJmiIjtB/xI+MIqPO0p+NK9Z4kxFT
-	 NXWNq2t1tHLPCSpPcjB3bACnNsgXzKFrj1NFe1yBjOjoUDEC6n/DKG8eUYYPm7mMppuKI
-	 cTADiss+R5AhQfrSAglXyXGAZi1SXFTEiMhTRSYtHWVtWqmR3Tgf0YNVL/eP4dvawuk+z
-	 1fajDy/ALCYzbL3Q+LJ5T1vaY69CuUgD5zgolcXRFYo5J8GJptMoJpdQpC0BYfyV6UQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=txsdnX0h;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795430112;
+	b=XxNkywbNjTrmiE1J5OJacWnXDf2Y+Hm5dLZf65EikQK1t8uCqUnCByHObniXgCH0AFyx
+	 AeJ8Sby9UVthtMeFH6q5CD4mI2D8kzYMHDTAvvXG1dgHqJqdpDckL49eizAIN6FT5K6ex
+	 NTBwSNha8VkvNILVX4y+5EOP6WTtIbh/7tS/3w3suJQ94ctjmkjdtBgMl7PFB+F3OHg4i
+	 HAVVNP8Yrg44cPd6jLvgVi+7/BPEqKbbhioNenPJ0LE6DkHF1mVfUh4FWy8OImofKVd1F
+	 /DQ1ykvVbua0DsSIexttCyDG9GWv/gQhqQHiK6Lu+Z4vz/qDtfGi7UHwdjOM+9YaLeg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430112;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=i3MzbPidfDG/rjrcBIfelpXh/DBIpMthv6i7dnSWlog=;
+	b=W5BRJoP4RX1tyNDzzrzVxOQHy+LvskHgj06JybKfokcmM2lBadAp5c6TtVPSZ8jy6UDy
+	 bPrJrWjonl1wxRsafazQw1rQNbZsx6GMZKak+lbuEHWph64AQ9+XowwCzB6m3H4Z1cGIF
+	 1w7M4tnaj23+G3Xqpz49dlD8R61XDubTlAwAU1p/gVX9grgTUMzZvSeMq7EibczM5Xf+t
+	 ORf2XmnCop1N8SIL+eGr6GxfGrzc3Bp05JmcGN2gG+icE4RkY5tXoshn/uuAqYx4nZGXi
+	 8nK+Ta+q9SQ3QFUECNSpxtSAfc4jLedp1S2y1J+uLzJ/LyuYvjw3hCANcX7AE4nFZaQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Va6ZtEvD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FEAC606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:35:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FEAC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 827F2606A321;
+	Mon, 23 Nov 2026 10:35:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=txsdnX0h
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6bab10842f8so1454451a12.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:35:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795430101; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pOmHWpMqkCxOnbRRLamuzC5yfae3iC59sdznTmHG6Ru1PRE7iq+0eN0bhFhQvED2p4
-         vn3Ddkcc9yE1UpRuCg2hL5oVO2+I9wFZt/gmzXHO40qz0sQQPhM5Rptwhj+5NAGULW8i
-         JK34ousoF/zX+xBQ/qFidT1xDK819Kk7hWBLMpnS5WDPjQskM02xbRlaKzA+YPD0NJrg
-         SRV1trjzanbdDp4I6weN3E0v8mRKIXoXS9GrDMrlTui/iOWYHNuFt4p+g7KMit7dXqWm
-         wazWUgbUG8x4fcssG5JlhcG1tBKYkju9MXm8S8I5sxscncrmAIo6L9EqG9pKgTnxVmuG
-         YbHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=FkLm2QDvo0RLh/Me+j1f+/tll97oLAwEndJ2bmbVDp8=;
-        fh=c0aCPdZjpXjM16NCW8oDWy5/UwyvBy6UPRCA4hDAa74=;
-        b=PGrb1KO3r+9KmLDhH9VhhzrejHUyLNX7yUFjtZs9fsqwz5aEvwWVCMLa/GQvGcD2hT
-         8RBdhsKTbJvWz8+dZxAKBTsGsHMkcry1qX/33Usny2d02piPcZRr+10goh8MGIm+7Rc4
-         M/tQU/r9Y6ZG3drkyMIAGYzUBCr995YQuhsIB1WDG0vTh6GQyAJWWKUKtybNUneZVMOD
-         YzathXLABlfmq6NfB5thKa1ofqEuAwSwuSuZqIE2qWkgn0OWsMLWVUNOMoUfjszeCLdc
-         zCFEBSqeaDytYPEwW7j03jaUDFLi0DHBf1MGgGcrDS4FLar7QFjy/yWC9XCRn8y2wLZn
-         aMqA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795430101; x=1796034901; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FkLm2QDvo0RLh/Me+j1f+/tll97oLAwEndJ2bmbVDp8=;
-        b=txsdnX0hfzGgNixMYHE+ihZu7dkT3JrucEg0QinC6WjgH5wN/LOHJxJH6KugPzAkAa
-         mKVBg78VzMNap4miyybduSRVIurJPFPXLLcom00Af6TMIZiLfwvlb7jJ2iSb6UvblCdA
-         S2n5SioU9P0kYsYgY9Bfl+CzHL5zv2E4ZSe2MPklS/BV8sGxlzO/E+Je789hI2ws861g
-         jlM+4dNXMLCK/W3h2mOxmC9w4y923FNKXJx1Aev/1wbB/RpYVvSHCbL+8E2yaUBCvbQH
-         mBOfmoYdVy4zTYuYodUdKaFgKyzBEo1cGeszzSTaRHPH0D/v/+k3LLdDHbovRusdmilY
-         zD4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795430101; x=1796034901;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=FkLm2QDvo0RLh/Me+j1f+/tll97oLAwEndJ2bmbVDp8=;
-        b=2K9ylJQ1eOGrkvn5gMSehYAbyMAzsZGa5f3IlJBP5XHiVPn/E1n1IMZywUtEfPyReg
-         77PcKfBD+9EOIntlwWyco32lDVsFD5XCP8XD0RMZkN8plYgiFg61d3kwYCEHc3DJ5FdT
-         dFaz36fVjEp6NxZPvMQSr0VofMqifVUq+xvckWv2ckXDAiUsfDFWYLhMSofqmvXR9Qvv
-         dc3mFCZZGRHFVNSXZDx7THTDMcL7zwwUx3xj1zdxDDcsem/NDJ5usaXjZ1VF29wY27fP
-         mTsNOF0G2ZLH2OocNdrjePeq2t/tBXB7Np80eULoC98rl5v2hWfGKAcRHdkbfI9uUd37
-         2s+g==
-X-Forwarded-Encrypted: i=1; AL+hErHqt/ph7KswqBhW0I1+zS8+pXHuYOkDtMlyItuiv1bQjP8WCE09/Qcc23gwCVH9MjKOT5WSfow7zxX4rCE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z93tuzKLHEAbdRAw0dxiJpD234F8nZE26Nn+U5j+m7H7QtGDTI6
-	+mkjgZsG3wQTGYsGdHBt/6yAJmj+F+aNwGyKHpA4Ib0LxvUVqmXqKk5jqxOV47N8tBPCGs/mVHw
-	yuW8btYwkxJJNBcXY56D+amDT4f4PLgTIAngzCpP1fQ==
-X-Gm-Gg: AZFdTZf402OIrwKAPFKpdUKX/bZYDog6gJU2kb0wMDZudobarwqDxByQR9JfPcljwzm
-	IE0L9rKx8YtHSrk5/34OUtzSYUF7iwutSh5eYqo5W7w/8Qq13tJHxLWJxcaTu5gn/UQ9YbGsI79
-	O5/QID7X+faRQVKedlZQSfpT9Sfd9GuLB8PGJ1ImDKGJUnnhjLT9Cf80JR9QNSvVsY2AiOl6CAW
-	rUxu7CaiqTZaLitb4lg7tI3PMhwVQiHTzWaudsylBLZrCKsOOubSqMQf4202a5/CF4F8CcSqnDC
-	vrTy7hGCNXqCMI8ATiS+KAbHrJfJxlWOVgvT5sdC4wRaM0VYhzl9p2wZjw9VqXbSqLtyoix4pOw
-	29peSrL29WK7VD2Ah/2OOygJo0SsCbTm2CpHi9tjCqvqZikft90gNvclEBd1tvTaGMXCeNQ==
-X-Received: by 2002:aa7:db47:0:b0:6b7:aca7:2264 with SMTP id
- 4fb4d7f45d1cf-6ba37e6980dmr5721448a12.9.1795430100790; Mon, 23 Nov 2026
- 02:35:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Va6ZtEvD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABBC31F000C6;
+	Mon, 23 Nov 2026 10:35:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795430111;
+	bh=i3MzbPidfDG/rjrcBIfelpXh/DBIpMthv6i7dnSWlog=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Va6ZtEvDlTvYtjj1YNjK7xNoTVJVh0Y/RAsRQEpFFiOZKLvESai/4iNhDf4+R7V9C
+	 ELYYIOeKUslx/uevHFFmUOa+ybosLAf+klOjQN8sm0qH7fwENosPMkhrPRxd0pV430
+	 lUSDBrs4KPK1M5IyXIpxo34u1B+liENE6ktgyHWx8fEdKkSm7rto093fWZF7vE7ZVI
+	 NFA/DIX2Hm1pKuPfXNo5reMBGK8bOkLUqfsZR1GSzQnxZvEpa49TE2CyXUQr6R4oah
+	 GRLbZvHgBKMP2EvVGv1CwqZl22nKepg49hWbuhAvt9b62pptvhFFfKIHiTT9AhetqS
+	 tGewm1yhT/fxw==
+Date: Mon, 23 Nov 2026 11:35:07 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Linus Walleij <linusw@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v2 12/13] arm64: dts: synaptics: add SL2610 family SoCs
+Message-ID: <20261123-petite-oarfish-of-merriment-dd7e79@quoll>
+References: <20261115102401.3520-1-jszhang@kernel.org>
+ <20261115102401.3520-13-jszhang@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,75 +63,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122015729.2512645-1-penghuang@google.com>
-In-Reply-To: <20261122015729.2512645-1-penghuang@google.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Mon, 23 Nov 2026 11:34:48 +0100
-X-Gm-Features: Aa3M54pS5nfq3tiUm_gWyIlrBynlKLIymvZi5sxhT7ewjNFDS4BdqeJJrs3PYqU
-Message-ID: <CAKfTPtCQpVhtVT7Mhqe1=Ukcmc1pX8Jgn9ypb64--8cJ-7G4BQ@mail.gmail.com>
-Subject: Re: [PATCH] sched/pelt: Skip dormant cfs util_sum under scx_switched_all
-To: Peng Huang <penghuang@google.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Tejun Heo <tj@kernel.org>, 
-	David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
-	Changwoo Min <changwoo@igalia.com>, linux-kernel@vger.kernel.org, 
-	sched-ext@lists.linux.dev, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261115102401.3520-13-jszhang@kernel.org>
 
-On Sun, 22 Nov 2026 at 02:57, Peng Huang <penghuang@google.com> wrote:
->
-> When scx_switched_all() is enabled, all fair-class tasks move to
-> sched_ext, scheduler_tick() skips sched_balance_trigger(), and fair_rq
-> scheduling is bypassed. As a result, rq->cfs.avg.util_sum stops updating
-> and retains whatever stale load was present prior to switching to SCX.
-
-When all tasks are moved to sched_ext, fair utilization should be 0
-
->
-> When a CPU later goes idle, update_idle_rq_clock_pelt() still adds this
-> dormant rq->cfs.avg.util_sum. If stale cfs.avg.util_sum plus active RT
-> and DL util_sum reaches divider, update_idle_rq_clock_pelt() treats the
-> rq as overutilized, continuously increments rq->lost_idle_time, and
-> stalls rq_clock_pelt(), which in turn freezes RT and DL PELT updates.
->
-> Exclude rq->cfs.avg.util_sum in update_idle_rq_clock_pelt() while
-> scx_switched_all() is active so dormant CFS load cannot stall idle
-> rq_clock_pelt().
-
-This is not the right solution but a bandaid to hide the issue. When
-there is not fair task,  rq->cfs.avg.util_sum shoudl become null.
-Please look at why it is not null.
-It could be that the update stops before everything has been
-propagated correctly in the task group tree
-
->
-> Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Peng Huang <penghuang@google.com>
+On Sun, Nov 15, 2026 at 06:23:51PM +0800, Jisheng Zhang wrote:
+> Describe the CPUs, interrupt controller, system controllers and supported
+> serial, I2C, I3C, SPI and GPIO peripherals for the SL2610 family.
+> 
+> Use the SL2610 peripheral compatibles already documented in the upstream
+> bindings and share clock, reset and pin configuration providers through
+> the system controller nodes.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  kernel/sched/pelt.h | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
->
-> diff --git a/kernel/sched/pelt.h b/kernel/sched/pelt.h
-> index f921302dc40f..6d31e1fbd094 100644
-> --- a/kernel/sched/pelt.h
-> +++ b/kernel/sched/pelt.h
-> @@ -138,7 +138,12 @@ static inline void update_rq_clock_pelt(struct rq *rq, s64 delta)
->  static inline void update_idle_rq_clock_pelt(struct rq *rq)
->  {
->         u32 divider = ((LOAD_AVG_MAX - 1024) << SCHED_CAPACITY_SHIFT) - LOAD_AVG_MAX;
-> -       u32 util_sum = rq->cfs.avg.util_sum;
-> +       /*
-> +        * Under scx_switched_all(), CFS PELT is dormant and may stay stale;
-> +        * exclude it so idle CPUs do not trip lost_idle_time and freeze RT
-> +        * PELT.
-> +        */
-> +       u32 util_sum = scx_switched_all() ? 0 : rq->cfs.avg.util_sum;
->         util_sum += rq->avg_rt.util_sum;
->         util_sum += rq->avg_dl.util_sum;
->
-> --
-> 2.56.1.750.gf70dc682cf-goog
->
+>  arch/arm64/boot/dts/synaptics/sl2611.dtsi | 457 ++++++++++++++++++++++
+>  arch/arm64/boot/dts/synaptics/sl2613.dtsi |  12 +
+>  arch/arm64/boot/dts/synaptics/sl2615.dtsi |  46 +++
+>  arch/arm64/boot/dts/synaptics/sl2617.dtsi |  46 +++
+>  arch/arm64/boot/dts/synaptics/sl2619.dtsi |  44 +++
+>  5 files changed, 605 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/synaptics/sl2611.dtsi
+>  create mode 100644 arch/arm64/boot/dts/synaptics/sl2613.dtsi
+>  create mode 100644 arch/arm64/boot/dts/synaptics/sl2615.dtsi
+>  create mode 100644 arch/arm64/boot/dts/synaptics/sl2617.dtsi
+>  create mode 100644 arch/arm64/boot/dts/synaptics/sl2619.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2611.dtsi b/arch/arm64/boot/dts/synaptics/sl2611.dtsi
+> new file mode 100644
+> index 000000000000..663fe6034ba0
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2611.dtsi
+> @@ -0,0 +1,457 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2024 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +#include <dt-bindings/clock/syna,sl2610.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/reset/syna,sl2610-reset.h>
+> +
+> +/ {
+> +	compatible = "syna,sl2611";
+> +	interrupt-parent = <&gic>;
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0";
+> +		method = "smc";
+> +	};
+> +
+> +	optee {
+> +		compatible = "linaro,optee-tz";
+> +		method = "smc";
+> +	};
+> +
+> +	cpus {
+
+Messed order of nodes. Please run dt-check-style.
+
+
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			compatible = "arm,cortex-a55";
+> +			device_type = "cpu";
+> +			reg = <0x0>;
+> +			enable-method = "psci";
+> +			cpu-idle-states = <&CPU_SLEEP_0>;
+> +			i-cache-size = <32768>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <128>;
+> +			d-cache-size = <32768>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&L2_0>;
+> +
+> +			L2_0: l2-cache {
+
+Labels should be lowercase rather.
+
+> +				compatible = "cache";
+> +				cache-size = <65536>;
+> +				cache-line-size = <64>;
+> +				cache-sets = <256>;
+> +				cache-level = <2>;
+> +				cache-unified;
+> +				next-level-cache = <&L3>;
+> +			};
+> +		};
+> +
+> +		L3: l3-cache0 {
+> +			compatible = "cache";
+> +			cache-level = <3>;
+> +			cache-unified;
+> +			cache-size = <262144>;
+> +			cache-line-size = <64>;
+> +			cache-sets = <256>;
+> +		};
+> +
+> +		idle-states {
+> +			entry-method = "psci";
+> +			CPU_SLEEP_0: cpu-sleep-0 {
+> +				compatible = "arm,idle-state";
+> +				local-timer-stop;
+> +				arm,psci-suspend-param = <0x0010000>;
+> +				entry-latency-us = <75>;
+> +				exit-latency-us = <155>;
+> +				min-residency-us = <50000>;
+> +			};
+> +		};
+> +	};
+> +
+> +	osc: osc {
+
+Please use name for all fixed clocks which matches current format
+recommendation: 'clock-<freq>' (see also the pattern in the binding for
+any other options).
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
+
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+
+...
+
+> +		cpuclk: cpu_wrap: syscon@f7e30000 {
+> +			compatible = "syna,sl2610-cpu-syscon", "syscon";
+> +			reg = <0xf7e30000 0x4000>;
+> +			#clock-cells = <1>;
+> +			clocks = <&osc>;
+> +			syna,gbl-syscon = <&chip>;
+> +		};
+> +
+> +		gic: interrupt-controller@f7e59000 {
+> +			compatible = "arm,gic-400";
+> +			#interrupt-cells = <3>;
+> +			interrupt-controller;
+> +			reg = <0xf7e59000 0x1000>,
+> +			      <0xf7e5a000 0x2000>,
+> +			      <0xf7e5c000 0x2000>,
+> +			      <0xf7e5e000 0x2000>;
+
+Please follow DTS coding style in ordering properties.
+
+> +			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+
+...
+
+> +		soc_spi0: spi@f7f04000 {
+> +			compatible = "syna,sl2610-spi", "snps,dw-apb-ssi";
+> +			reg = <0xf7f04000 0x100>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			num-cs = <4>;
+> +			clocks = <&clk CLK_APBSPI0>;
+> +			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+> +		};
+> +
+> +		soc_i2c0: i2c@f7f05000 {
+> +			compatible = "syna,sl2610-i2c", "snps,designware-i2c";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <0xf7f05000 0x100>;
+> +			clocks = <&clk CLK_APBI2C0>;
+> +			i2c-sda-hold-time-ns = <449>;
+> +			i2c-sda-falling-time-ns = <425>;
+> +			i2c-scl-falling-time-ns = <205>;
+
+If these are here, then they are implied by compatible, no?
+
+Best regards,
+Krzysztof
+
