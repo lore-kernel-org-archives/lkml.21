@@ -1,76 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795458314;
-	b=bZAdvTmFRV1E5pD1eAyvWTkkIJKyJMkQAYeCicPxS9fgGIeLEG+xCHsSMTOq95Tvv0dg
-	 DLqlFLP5gornFEUQADoSz3bjzV9YKoFMzvL2xahQUmauitVW5b1/xARif33tM3Uxh+jGB
-	 gXlW/QcSS0ROsqpn1hL6mqi7LIKguK65AuulsYFsEOmG4ErIOncIKm737rOlMULLZtaFQ
-	 cwoy/F5+21rVdz6zg2i9C+hSELySUKOP6TQBiGTBxnny2r1PuN1/BwyAe0JjbMRiITrVP
-	 GphRptUxR70zeRGl0YRYyZNtN0HnpUnjBlUiiV5K2BJpXfkPfSFBu13iCCJw4QYF5nQ==
+	t=1795458358;
+	b=zrYqsMZWVwZWet8KuvTmaDqTr8EV5rXfV+WppzWofoc1Wdjtonpohf9eOqlcGZksc1OA
+	 tSfwnUsBR95yIJMCO8ZjLt3DTMPbHcfqgRef/QG0a6R4qtG5NXRyVMYEdnhBQVoHCp2s/
+	 gd6PFt0AA5vmtUbCJ2hGinEV2RkFou3gjf1oI/5H7Dnr+Ma1C34Tsd4a6z0DMDgT0boMr
+	 hvmyZP4OisB+dy4Rin/e2HDSzneN+E0qrNedGRAkFcuaYkbPza8UF+Z3NQcwZiwnsbSVI
+	 3TZ5Tdc6Hqe+hrFl/IIFuZJsm0WM/jP15rR51DLXaX12nHwSrKcVIIgFLWHgWvugd6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795458314;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:Cc:References:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=Q9M1f4MOumbTQ0WzVzvoqs4QXcgTsmE14YZcpKo2y4o=;
-	b=vUR/wRqLsqzZVGo92taO7Q3W+waWthkepEKmqgkaqVBlgtH19CYe2hZ/n8VefEl4fSCO
-	 n3quiVVE3tStoGIaqsrSBM1Zi499VndfgS+vViEHvSKHy1M9cP4NoNGtf+ffZujUtfvV9
-	 xUpHO6UuAVLqawLM7iRyf+o21D9Fx/2xTmThMfq+eShyDE683Z+520HwB26n4KaVBAiHG
-	 adF86YP9I8ySPHoJeko4ySrgoj74uNC7GBd/RA3k1X6LHbzuMNVslDgHKMxEnA44g/+AI
-	 9VdtHHdsjBS2cH9K0Y/DQnkHY21TuReZX5SV5Z+qsHyeEc06ibRDjQIAqg2jGDzEu2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795458358;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=SaDWoOqIit5U64rjLHqniDWftXA6W7O7+XmPs7S3MZE=;
+	b=EaDukPCsJqacSq7z39587JC9dJTAbWRh5L/tnBdQKiOuozXp19XM9mpiXLxngtIxxiF4
+	 NIPeQLb9yXDcIHMWszphNBsWPP3MqJN4pyG5tnRWEld/gcNzT+ECgA7aLUSJpBvB3Y63O
+	 Bm0Qve/gD8JPa5AvXaGd+BFAwFUgPi7YdnhD/Uh95XkmAbGSFIv16oy/7gxyFPeInc+H3
+	 fXjs2c9+4YbNbUEg9TNsZUvlCg22AI511Og8+jdMdfmS6dCBj0+zRuL2lX9EVI5QK2CAw
+	 c89ROq0Q77EF8hyXYenJFtG0t9UaeUkr8loY+QZ8gx6Nt8aj9ZcqkVukSyd33/D1wHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.net;
-	spf=pass smtp.mailfrom=gmx.net;
-	dkim=pass header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b="Zjr/9fsU";
-	arc=none smtp.remote-ip=212.227.15.15
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.15])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lT/ng6uR";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD730606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:25:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD730606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 737E9606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:25:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b=Zjr/9fsU
-DKIM2-Signature:  i=1; m=1; t=1795458311;
- mf=PHdhaHJlbnN0QGdteC5uZXQ+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.net;
- s=s31663417:rsa-sha256:WtTNB+TgFcVZ+mvERnxNoWQMjYgg
-   vr4RlTe/+wQt1N2U6+doEyAaGtRl8/RKMxgkuQRaQmgcT7o6+irGJQ/xjVzNMd0X6BNXIYMEoo1
-   2xuuIzMkqJ7Qijqwz+Ba5vKZz9RC69QUmQTfsS86gwKVPmpdJvnwAN46cBPQiVFuKLhgwpnyN/U
-   j1QVKV9dV0ZPSduP5XsT5BDS68jVI/kQQebvZYljoynInHqtHbt1Dhs41NixfQ8L6ThifVtL+AD
-   2bJUcrq0Ux3o4XALFe4+wp8Dy1f6iy4GO2Yib7JlXQlMWXAhUz+cwwd2eMMc0m9ZJQN4l7K4VP0
-   EnFWJXGJY+LZ6w==;
-Message-Instance:  m=1;
- h=sha256:
-   I4Oyd0z7TzBrDr72TIxrhMTOd/IJD4lr0f9i0LzAh4M=:
-   Q9M1f4MOumbTQ0WzVzvoqs4QXcgTsmE14YZcpKo2y4o=,
-  sha512:
-   W6ffUuY4raHM97QPhrJ8eUPnb5uGCkwg725g+3bhEvVJzb026x3b3+DJCe/XVZyZcoFvs5SS6N/GjEeuAJRT+g==:
-   7ilgF1oE7QchF1bYeNW4e7/ZZ4RMOhLURgrJ4+COnxAHyFjXIihVAo1XjKRCG1mXL0vq03xtuRneON1lFDIZZg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1795458311; x=1796063111; i=wahrenst@gmx.net;
-	bh=Q9M1f4MOumbTQ0WzVzvoqs4QXcgTsmE14YZcpKo2y4o=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:From:To:
-	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Zjr/9fsU1t7mxVdTw7w0s3ws6Id/J43wbquSyFz1Vw27HKTVytt1unMwWvBF6g8q
-	 u3UCf+w4mgeQlUMDB7ga7OnPF5L5+VvFR7lDG1XoKP1vc7TtlQAwa1mnZtt38ZLOC
-	 Inhs/Iid0rhDkqCgQLrrWXQEQ5cOqk+xuecLiwj4jNkV0N7LTqiAp0J1WeIgjDWxC
-	 isz7nt68h8/bc0BCkNkdG0/sLUiu8uSIduM+down2iyeALk90oj+sM+OkglfLz5nd
-	 X3z7b6EBrU6vEDM7Z8X9SUPlaIl6MfbN7vj/mXYPpDrPdlqEvDtU7GeMrYACU5DD7
-	 zl+paC1dL+VjT4aX6Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MbRfv-1y76P02p7R-00fAyi; Mon, 23
- Nov 2026 19:25:11 +0100
-Message-ID: <10f02aec-cb1c-48d4-ac1d-3644a9d1e54a@gmx.net>
-Date: Mon, 23 Nov 2026 19:25:10 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lT/ng6uR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD5261F000E6
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:25:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795458357;
+	bh=SaDWoOqIit5U64rjLHqniDWftXA6W7O7+XmPs7S3MZE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=lT/ng6uRnKsrw/yRVhG+89TcZIyE/GaACWEZ7JByvbOJuqxX4QbCfrFc/+GFxFbJr
+	 bgnmu+Fi/qkj7iAPjOvIQ+whzIMs+vXmDhlfs9+o0p4lq+tKcCu3Jakft9YcSfiuHo
+	 VHYSsDZTVVki7+ElTJJD0h863pn8xK9lrD037jSsHLzGgOfx3EkbXn2Eq2dhf27hg7
+	 IqfgmMNaVNuuiSP16dXI1p/VzwRR/edaCHMAISlogZwLQqABSibBaKg6bNo4uLkQgY
+	 P7agpyc0uyBZocO2taJcY4HDrlmrtx8ZCKUVJM6I2N2IKkk8F4lFGb7e6N1qkOWQTQ
+	 9vwx29BEqTmLw==
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-716c0217635so4369415eaf.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:25:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErF6W7zekSt/Fs0UxATQjZhHssVtTKeCXIle/Q82afJ/Sf5ZzdDGwECiQlkDDQpz9DZ6dQmUCidFj4kqS1s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z97X7LOO2L+goiqkRxAbzhfZcq1o4nlhyzEfHBTiVwb/5+bgQK7
+	Tj6xqeIkNxJyv58JrPylUvvCe/o5XxaFIILY8HXAwoxm6CtZ7LkCIUZpai9XuWas9+oQmdfafop
+	TA5uwlrlQUhMk5dWoVN2PmB9JWJS/e2c=
+X-Received: by 2002:a05:6820:1628:b0:713:d536:1d33 with SMTP id
+ 006d021491bc7-71b3277f48fmr9431007eaf.46.1795458357018; Mon, 23 Nov 2026
+ 10:25:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,163 +59,213 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pwm: gpio: unregister the chip on driver unbind
-From: Stefan Wahren <wahrenst@gmx.net>
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, linux-pwm@vger.kernel.org,
- linux-kernel@vger.kernel.org, Yu Zhang <yuz08559@gmail.com>,
- stable@vger.kernel.org
-References: <20261101032646.11397-1-yuz08559@gmail.com>
- <1d732b5f-7966-4abb-b2f5-54e26cbf14dc@gmx.net>
-Content-Language: en-US
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <1d732b5f-7966-4abb-b2f5-54e26cbf14dc@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:U6VLW6GPgENX+VnqzhERrNHh45YDmmvp2ReWfwNLlJkvrytMiiF
- aNFHG5vqhj6pj4jGCnL5AF77OiTJU4AW6EOcu5cGEzvIof63lzJRpW36soQY9ZKER7+XLka
- cNixgbuC9tdyo3L/pq1Iq6T/EuzowDGFI3Ld6PP/99jcDVMldBFLUzO3T4s1OsJoceqCBEK
- l+YQiO7D3jk7OG4U4mHuQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:sQVKpTEmeG8=;rp1IAEQfqIpfWT2jn8FAUxsNlKC
- 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
+References: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
+In-Reply-To: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Mon, 23 Nov 2026 19:25:46 +0100
+X-Gmail-Original-Message-ID: <CAL4WiipqqqU8KsqRDNOdzEenn+qWABu19xVqo4Fgmhfc9cf+7w@mail.gmail.com>
+X-Gm-Features: Aa3M54qLtcxbFytXkPCthlQOB8VMAE863mdyrjJmdDkmUghBpqICfuldWFtu2H0
+Message-ID: <CAL4WiipqqqU8KsqRDNOdzEenn+qWABu19xVqo4Fgmhfc9cf+7w@mail.gmail.com>
+Subject: Re: [syzbot] [net?] KCSAN: data-race in fq_pie_reset / pie_calculate_probability
+To: syzbot <syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com>, 
+	Kyle Zeng <kylebot@openai.com>
+Cc: davem@davemloft.net, horms@kernel.org, jhs@mojatatu.com, jiri@resnulli.us, 
+	kuba@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	pabeni@redhat.com, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Uwe,
+Le lun. 23 nov. 2026 =C3=A0 19:14, syzbot
+<syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com> a =C3=A9crit :
+>
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    b6a9fa34ce41 Linux 7.4-rc4
+> git tree:       upstream
+> console output: https://syzkaller.appspot.com/x/log.txt?x=3D118e58e958000=
+0
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=3D886d2ddd2d6b6=
+64e
+> dashboard link: https://syzkaller.appspot.com/bug?extid=3D00f5a4ef4bcb8f4=
+d19f1
+> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.=
+8
+>
+> Unfortunately, I don't have any reproducer for this issue yet.
+>
+> Downloadable assets:
+> disk image: https://storage.googleapis.com/syzbot-assets/1cd533522ae8/dis=
+k-b6a9fa34.raw.xz
+> vmlinux: https://storage.googleapis.com/syzbot-assets/19d6c1c369e3/vmlinu=
+x-b6a9fa34.xz
+> kernel image: https://storage.googleapis.com/syzbot-assets/dfb541770724/b=
+zImage-b6a9fa34.xz
+>
+> AI-generated root cause summary:
+> During qdisc teardown in `dev_shutdown()` -> `qdisc_put()` ->
+> `__qdisc_destroy()`, `qdisc_reset()` calls `fq_pie_reset()` without holdi=
+ng any
+> qdisc lock and before `fq_pie_destroy()` stops `q->adapt_timer`. Moreover=
+,
+> `shutdown_scheduler_queue()` has already replaced `dev_queue->qdisc_sleep=
+ing`
+> with `&noop_qdisc`, so `fq_pie_timer()`'s call to
+> `qdisc_lock(qdisc_root_sleeping(sch))` acquires `noop_qdisc`'s lock rathe=
+r than
+> `sch`'s lock. As a result, `fq_pie_timer()` -> `pie_calculate_probability=
+()`
+> runs concurrently with `fq_pie_reset()`, racing on `pie_vars_init()` writ=
+es to
+> `flow->vars` (specifically `vars->accu_prob` and `vars->avg_dq_rate`).
+>
 
-Am 01.11.26 um 13:55 schrieb Stefan Wahren:
-> Am 01.11.26 um 04:26 schrieb Yu Zhang:
->> pwm_gpio_probe() registers the chip with pwmchip_add(), but the driver
->> has neither a remove callback nor a devm action calling
->> pwmchip_remove(). On unbind the devres callbacks release the GPIO
->> descriptor, cancel the hrtimer and drop the reference taken by
->> devm_pwmchip_alloc(), while the chip stays registered: it is still in
->> the pwm_chips idr, its sysfs attributes and character device are still
->> there and chip->operational is still true.
->>
->> The chip can therefore still be reached through sysfs export, the
->> character device, debugfs and pwm_get() from a consumer. Those paths
->> call into chip->ops, which point into unloaded module text once the
->> module is gone, and pwm_gpio_apply() re-arms the cancelled hrtimer and
->> drives a GPIO descriptor the driver no longer owns.
->>
->> Use devm_pwmchip_add() so that the chip is removed before the hrtimer
->> is cancelled and the GPIO is released.
->>
->> Fixes: 7f61257cd6e1 ("pwm: Add GPIO PWM driver")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Yu Zhang <yuz08559@gmail.com>
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-any concerns with this patch?
+This analysis is correct.
+
+For fq_pie this particular race is harmless: the qdisc is being
+destroyed, flow->vars is not read again, and q->flows is freed only
+after timer_delete_sync() in fq_pie_destroy().
+
+It is however one instance of a more general problem: __qdisc_destroy()
+calls qdisc_reset() without the lock that the sfq, red, pie, fq_pie and
+dualpi2 timers take, and these timers are only stopped later in
+->destroy(). With sfq this is a real use-after-free since commit
+47e8dbb6e763 ("net/sched: do not reset queues in graft operations").
+
+This was discussed in:
+
+https://lore.kernel.org/netdev/20261106161455.2412769-1-edumazet@kernel.org=
+/
+https://lore.kernel.org/netdev/20261110044450.51921-1-kylebot@openai.com/
+
+Kyle's v2 takes the tree lock around the final qdisc_reset() and routes
+shutdown_scheduler_queue() through dev_graft_qdisc(), which should cover
+this report. It needs a respin, as Jakub requested.
+
+Kyle, when you repost, please add:
+
+Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
+
+Thanks.
+
+
+> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3D00f5a4e=
+f4bcb8f4d19f1
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the comm=
+it:
+> Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
+>
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> BUG: KCSAN: data-race in fq_pie_reset / pie_calculate_probability
+>
+> write to 0xffff88811d293640 of 8 bytes by task 13 on cpu 1:
+>  pie_vars_init include/net/pie.h:103 [inline]
+>  fq_pie_reset+0x11e/0x1d0 net/sched/sch_fq_pie.c:552
+>  qdisc_reset+0x51/0x2e0 net/sched/sch_generic.c:1118
+>  __qdisc_destroy+0x60/0x220 net/sched/sch_generic.c:1157
+>  qdisc_put net/sched/sch_generic.c:1189 [inline]
+>  dev_shutdown+0x2e0/0x390 net/sched/sch_generic.c:1558
+>  unregister_netdevice_many_notify+0x999/0x15e0 net/core/dev.c:12761
+>  unregister_netdevice_many+0x19/0x20 net/core/dev.c:12845
+>  ops_exit_rtnl_list net/core/net_namespace.c:188 [inline]
+>  ops_undo_list+0x21d/0x410 net/core/net_namespace.c:249
+>  cleanup_net+0x38d/0x5e0 net/core/net_namespace.c:713
+>  process_one_work kernel/workqueue.c:3495 [inline]
+>  process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
+>  worker_thread+0x56c/0x770 kernel/workqueue.c:3659
+>  kthread+0x248/0x2a0 kernel/kthread.c:436
+>  ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
+>  ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+>
+> write to 0xffff88811d293640 of 8 bytes by interrupt on cpu 0:
+>  pie_vars_init include/net/pie.h:103 [inline]
+>  pie_calculate_probability+0x425/0x4c0 net/sched/sch_pie.c:417
+>  fq_pie_timer+0xf6/0x1d0 net/sched/sch_fq_pie.c:403
+>  call_timer_fn+0x36/0x280 kernel/time/timer.c:1749
+>  expire_timers kernel/time/timer.c:1800 [inline]
+>  __run_timers kernel/time/timer.c:2375 [inline]
+>  __run_timer_base+0x40c/0x610 kernel/time/timer.c:2387
+>  run_timer_base kernel/time/timer.c:2396 [inline]
+>  run_timer_softirq+0x31/0x70 kernel/time/timer.c:2406
+>  handle_softirqs+0x109/0x310 kernel/softirq.c:669
+>  __do_softirq kernel/softirq.c:703 [inline]
+>  invoke_softirq kernel/softirq.c:542 [inline]
+>  __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
+>  instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inli=
+ne]
+>  sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
+>  asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.=
+h:674
+>  __preempt_count_dec_and_test arch/x86/include/asm/preempt.h:123 [inline]
+>  __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inlin=
+e]
+>  _raw_spin_unlock_irqrestore+0x1a/0x30 kernel/locking/spinlock.c:221
+>  free_frozen_page_commit+0x223/0x3a0 mm/page_alloc.c:2909
+>  free_unref_folios+0x8c0/0x980 mm/page_alloc.c:3099
+>  folios_put_refs+0x2cd/0x320 mm/folio.c:1065
+>  folios_put include/linux/mm.h:2429 [inline]
+>  __folio_batch_release+0x8e/0xb0 mm/folio.c:1125
+>  folio_batch_release include/linux/folio_batch.h:101 [inline]
+>  truncate_inode_pages_range+0x287/0x780 mm/truncate.c:452
+>  truncate_inode_pages mm/truncate.c:530 [inline]
+>  truncate_inode_pages_final+0x68/0x80 mm/truncate.c:565
+>  ext4_evict_inode+0x459/0xea0 fs/ext4/inode.c:273
+>  evict+0x301/0x570 fs/inode.c:829
+>  iput_final fs/inode.c:2036 [inline]
+>  iput+0x44f/0x5d0 fs/inode.c:2085
+>  dentry_unlink_inode+0x29a/0x2b0 fs/dcache.c:510
+>  dentry_kill+0x135/0x4f0 fs/dcache.c:857
+>  finish_dput+0x16/0x1d0 fs/dcache.c:1032
+>  dput+0x43/0x50 fs/dcache.c:1073
+>  __fput+0x45c/0x660 fs/file_table.c:520
+>  ____fput+0x1c/0x30 fs/file_table.c:541
+>  task_work_run+0x145/0x1a0 kernel/task_work.c:233
+>  exit_task_work include/linux/task_work.h:40 [inline]
+>  do_exit+0x4a7/0x1530 kernel/exit.c:980
+>  do_group_exit+0xfe/0x140 kernel/exit.c:1123
+>  get_signal+0xc49/0xd30 kernel/signal.c:3113
+>  arch_do_signal_or_restart+0x96/0x480 arch/x86/kernel/signal.c:337
+>  __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
+>  exit_to_user_mode_loop+0x161/0x940 kernel/entry/common.c:101
+>  __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline=
+]
+>  syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [=
+inline]
+>  syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
+>  do_syscall_64+0x23b/0x3a0 arch/x86/entry/syscall_64.c:107
+>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>
+> Reported by Kernel Concurrency Sanitizer on:
+> CPU: 0 UID: 0 PID: 6734 Comm: syz.1.1114 Not tainted syzkaller #0 PREEMPT=
+(lazy)
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS G=
+oogle 11/06/2026
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> See https://goo.gl/tpsmEJ for more information about syzbot.
+> syzbot engineers can be reached at syzkaller@googlegroups.com.
+>
+> syzbot will keep track of this issue. See:
+> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+>
+> If the report is already addressed, let syzbot know by replying with:
+> #syz fix: exact-commit-title
+>
+> If you want to overwrite report's subsystems, reply with:
+> #syz set subsystems: new-subsystem
+> (See the list of subsystem names on the web dashboard)
+>
+> If the report is a duplicate of another one, reply with:
+> #syz dup: exact-subject-of-another-report
+>
+> If you want to undo deduplication, reply with:
+> #syz undup
