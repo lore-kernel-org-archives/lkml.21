@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427498;
-	b=GEj4aPQE8fZJpGzTFq3kkKG/NVvlP79GHD6E+6HcpRvAyv8uIoXcarhA1UYjP4Hirxzh
-	 p/hlPbYe1+xsV1Hg2MzmdbusHEeG2hSTU4JdPDCz8Dxq6aSEz6czYLrMUiSf0ktGU+ZEj
-	 50GWymsM8ibiDzDTKskrn+kRgTkGAvRFE6Tq+My94oFeFQsvn/y618SDxlonSErEEM6op
-	 z567jfx6A+Lsce0C2PBi5td0sz3aM8oBzNSLTFW+4Lm3JhXVX0rDMownBtvKUJkNNJe/L
-	 RIVp19oFZDkw0Vj8GDHIPG4eAhtamgcs9IUvqL2AZ/AFQUIK71tm+MEWkd3zfSSgqJA==
+	t=1795427502;
+	b=aTU1SiQfCLedlLD7u7khU36VIX/DnL/mo8OoPJCj0+4EZ0+tT1V05Gut2T7iK6mgyIxi
+	 V/3FN/DFhL/NOiCOCaKzCEvuDZObMXKPy8xJ8PhXBqAYufegJaVGD8ek26s9+o4qYMC+W
+	 q8peKcNYqzQ/ByNa4BOxlk0XhtcEk4A3uJcjOhLQL9Sk+q2ZmWHHF+uXxNWF+xs390r3q
+	 R8cl9dIBDJFW9pVP8IIHTFi1m0GBSXXYKLjfimjgb475OatAQ6AcQ9cwI6MeI5NKBIoGM
+	 OZzBTACNbyc9/9UxiEbmLM+fivq69Q5Y+o7oQDuPGzKN01JnY12SDFX6vF0gReMccVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427498;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427502;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=cKIHxdrVgTvPN1YdjFiUNGAh+m3glGXVecaHibF7T1I=;
-	b=4k0GDNwUMSdxB1f6NElX4AbbdBE1Be9HljyKHnR3lxYvLAHh9kbVVxprpfM1yrQUrosa
-	 0wA5NTkwJMBL7mIwaDxM985N/36VJSfXBEEDMC1FvlEpLodUslmfxXbkJMnxuShkZptPZ
-	 UwBBzVKzxe78fVFtNLRwum+zGvHXB9vywB69yYipZ/73Jt5NJf1CJw6dRRnDtZOYSbFjp
-	 jBNrh+i99HMLVmUQqTn4T8WfQAOz/ywsoYbO9l336pKiCmmzPWp7gNPZWYjwZk/QaFrOe
-	 HXkq8379mV6gvMkTiPAAsA/ru06w4VY9ZGaaFs7olxrwIT7Lt6w13Mbor1KMuy8vd/g==
+	bh=EWLH4/KgFJL5xsg0WV/YVksEmEhqZi3FriwXVjKfdUo=;
+	b=SDk9RATq1rXcpcG3iLmX4Qfovw5kV8XloO33eK83KSx8pmmX9lNzvwYgJ1YFD5wAC2Wj
+	 hPS5MYxp0c9PCxCLr+qGaVrIVRW6kkB8YtdJNurRiNxlT9AefAPThfd0EOL8ytMTmT32L
+	 RXfxaAczGecgQfT55YARzme1AHEazKaOWk9yuIMggG7DByG77Qsv8YrQYN15x4Vurfrbn
+	 w88QuXBq8Sz6aUqz9s4j3+UhdpUAsCVvPuGdt6Syxt7vhhdFYwUU7YHP1bOnUueNvi4MA
+	 JcCV9FQfOTcTiKvqtvX66kUA8XJkDN3zzxhyS1lH+yDKZgcW70JaoMfnKoZptxvvBGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mf7IqGwo;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzM+9Dz8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E95F606A32C;
-	Mon, 23 Nov 2026 09:51:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 144EA606A33C;
+	Mon, 23 Nov 2026 09:51:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mf7IqGwo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D801F000CA;
-	Mon, 23 Nov 2026 09:51:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzM+9Dz8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E78961F000F2;
+	Mon, 23 Nov 2026 09:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795427497;
-	bh=cKIHxdrVgTvPN1YdjFiUNGAh+m3glGXVecaHibF7T1I=;
+	s=k20260515; t=1795427501;
+	bh=EWLH4/KgFJL5xsg0WV/YVksEmEhqZi3FriwXVjKfdUo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Mf7IqGwoZFH4KTeo+3mXxA4tUI0oIDT84h1oOQnE/QBBzSyn8+UfyEYacnZWY4g2i
-	 n6rD/ilpa12Ou6s/RmXlRzDl0kfXl3iVLvug/h7bKYlR06taHR5h6N1IpCRh+utbHm
-	 BNVzTs5OLqpeDXtk/0v2DyRCqmyEPingC244XUMGmqugh9iXF2YJqKbjgpBm7RcVE3
-	 x9WVNHRZxaP8RI5WDF+6AWUKIvrE2m4fDQ4tUUEVxt/wdUwCxDHxQe5Pm5Noyk+3Rf
-	 3hf2SJ89maoBBZ/F5UI8kfF1fCYfpWUECTqCJ6kDclqEXNNhH9Qg3y1KklaqGfffWc
-	 Bcl+WeBPIYjJA==
-Subject: Re: [PATCH net-next v13 07/14] net: dsa: realtek: rtl8365mb: set and
- get vlan 4k for family D
+	b=WzM+9Dz87j3Eh6xCaJIW36vj/ZFXP9pttIH9pZVsxVLSYyBaLw47MJT7aGdT7m678
+	 ZJXP3bD5Xf+CUFJqKSa6wW1/UPZ7d+uscwtqTOmlvVSu8nZZbAwp70c4L7zRpetxqC
+	 EfIcJLyWDyDrgTAXitRVLHnkhRERPrCojrD9ymXyA7Iox0dvcQIuzKDVrmyH2L4cV8
+	 eL7dOarrW+L2zfsJUj9FXJTdCD8L6CiGXYV2d66NtQIHn/jcnczvCc4OW1CIL2j2t5
+	 9oMbRRPXKMRbLOZbajXca1cfW2ENcSn4vapwpjgYTWrI2TzrcfUT/Ze67k7srOg17g
+	 V/ZNuDQraimnA==
+Subject: Re: [PATCH net-next v13 12/14] net: dsa: realtek: rtl8365mb: make
+ L2/LUT access work on family D
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -50,10 +50,10 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Mon, 23 Nov 2026 09:51:36 +0000
-Message-ID: <179542749608.3135.8744349482532821261@kernel.org>
-In-Reply-To: <0552fff4-ac3d-4e2b-8d66-610d0e661e11@yahoo.com>
-References: <0552fff4-ac3d-4e2b-8d66-610d0e661e11@yahoo.com>
+Date: Mon, 23 Nov 2026 09:51:40 +0000
+Message-ID: <179542750052.3135.1136880861185485174@kernel.org>
+In-Reply-To: <d5bc7f31-9189-4017-9e1b-79e71813dfa7@yahoo.com>
+References: <d5bc7f31-9189-4017-9e1b-79e71813dfa7@yahoo.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,159 +78,154 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In rtl8365mb_d_vlan_4k_set_ivl()
-  (drivers/net/dsa/realtek/rtl8365mb_vlan.c), the rollback loop skips…
-- [Low] The new field vlan_4k_used is added to struct realtek_priv in
-  drivers/net/dsa/realtek/realtek.h.
+- [Medium] On family D (RTL8367S-VB), every offloaded VLAN-unaware bridge
+  port is put in the same port-based FID 1, whatever its bridge number.
+- [Low] When VLAN filtering is enabled on a bridged family D port,
+  rtl8365mb_port_vlan_filtering() writes PBFID[port] = 0 first and…
 
 --
 
-net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
+net: dsa: realtek: rtl8365mb: make L2/LUT access work on family D
 
-This adds two-word CVLAN pack/unpack helpers for family D. On family D,
-IVL_EN now follows the switch-wide VLAN filtering state. A vlan_4k_used
-bitmap in struct realtek_priv lets a filtering flip rewrite only the 4K
-entries in use.
+This patch teaches the rtl8365mb table and L2 code about the family D
+(RTL8367S-VB) LUT layout and its table access interface, which has no
+EFID. On family D it puts the ports of an offloaded VLAN-unaware bridge
+in port-based FID 1, enables the lookup-hit isolation fallback, adds a
+LUT init step and limits the switch to a single offloaded bridge.
 
-> diff --git a/drivers/net/dsa/realtek/realtek.h b/drivers/net/dsa/realtek/realtek.h
-> index cfe56d30f5cb1..a3ecc13ec561e 100644
-> --- a/drivers/net/dsa/realtek/realtek.h
-> +++ b/drivers/net/dsa/realtek/realtek.h
+Closes: https://github.com/openwrt/openwrt/pull/19644#issuecomment-6708118180
+
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> index b83e39314708f..75d9c6120e7ff 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
 
 [ ... ]
 
-> @@ -65,6 +67,11 @@ struct realtek_priv {
->  	 * deleting port VLAN memberships and PVID configurations.
->  	 */
->  	struct mutex		vlan_lock;
-> +	/* VIDs with a non-empty 4K VLAN entry, protected by vlan_lock. Lets
-> +	 * a switch-wide update visit only the entries in use instead of
-> +	 * reading all 4094 over the slow management bus.
-> +	 */
-> +	DECLARE_BITMAP(vlan_4k_used, VLAN_N_VID);
+> @@ -2469,8 +2496,46 @@ static int rtl8365mb_port_vlan_filtering(struct dsa_switch *ds, int port,
+>  			goto undo_egress_mode;
+>  	}
+>  
+> +	if (rtl8365mb_is_d(priv) &&
+> +	    dsa_port_bridge_dev_get(dsa_to_port(ds, port))) {
+> +		u8 fid = vlan_filtering ? 0 : RTL8365MB_D_UNAWARE_BRIDGE_FID;
+> +
+> +		ret = regmap_update_bits(priv->map,
+> +					 RTL8365MB_D_PORT_PBFID_REG(port),
+> +					 RTL8365MB_D_PORT_PBFID_MASK, fid);
+> +		if (ret)
+> +			goto undo_refresh_ivl;
+> +
+> +		ret = regmap_update_bits(priv->map,
+> +					 RTL8365MB_D_PORT_PBFIDEN_REG,
+> +					 BIT(port),
+> +					 vlan_filtering ? 0 : BIT(port));
+> +		if (ret)
+> +			goto undo_pbfid;
+> +	}
 
 [Severity: Low]
-Does this comment describe more than the code maintains?
+When VLAN filtering is enabled on a bridged family D port, this writes
+PBFID to 0 before it clears PBFIDEN. Between the two MDIO writes the
+port has PBFIDEN set with FID 0, and learning is still on from
+rtl83xx_port_bridge_join().
 
-struct realtek_priv is shared by the rtl8365mb and rtl8366rb/rtl8366-core
-drivers. The only place that updates the bitmap is
-rtl8365mb_vlan_4k_port_set(), and only on family D:
+Can source MACs received in that window be learned as dynamic SVL
+entries in FID 0, the standalone port FID, and then stay in the LUT
+for up to the 300 s aging time programmed by rtl8365mb_d_lut_init()?
 
-	if (rtl8365mb_is_d(priv)) {
-		if (vlan4k.member)
-			set_bit(vlan->vid, priv->vlan_4k_used);
-		else
-			clear_bit(vlan->vid, priv->vlan_4k_used);
-	}
+rtl8365mb_port_set_efid() writes the same register pair in the opposite
+order when disabling, and its comment explains why:
 
-On rtl8365mb family C, and in rtl8366rb/rtl8366-core (which write 4K
-entries through priv->ops->set_vlan_4k), the bitmap stays empty even when
-4K entries are populated. As the commit message notes, it also never holds
-entries that were in the table before the driver loaded.
+	/* PBFID is ignored while PBFIDEN is clear, so write them in
+	 * the order that leaves the port usable if the second write
+	 * fails: PBFID first when enabling, PBFIDEN first when
+	 * disabling.
+	 */
 
-Should the comment say that this is rtl8365mb family D only and covers only
-entries written by this driver? Or would the field fit better in struct
-rtl8365mb (chip_data), since it adds 512 bytes to every realtek_priv?
+Should the vlan_filtering == true case clear PBFIDEN first too, with
+the undo_pbfid path reordered to match?
 
-This is unchanged at the end of the series.
-
-[ ... ]
-
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-> index 566c6bc1449af..b80783502884b 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-
-[ ... ]
-
-> @@ -277,6 +324,124 @@ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
-
-[ ... ]
-
-> +int rtl8365mb_d_vlan_4k_set_ivl(struct dsa_switch *ds, bool want_ivl)
-> +{
-
-[ ... ]
-
-> +	for_each_set_bit(vid, priv->vlan_4k_used, VLAN_N_VID) {
-> +		ret = fi->vlan_4k_read(priv, vid, &vlan4k);
-> +		if (ret)
-> +			goto rollback;
-> +		if (!vlan4k.member || vlan4k.ivl_en == want_ivl)
-> +			continue;
 > +
-> +		vlan4k.ivl_en = want_ivl;
-> +		ret = fi->vlan_4k_write(priv, &vlan4k);
-> +		if (ret)
-> +			goto rollback;
+>  	return ret;
+>  
+> +undo_pbfid:
+> +	(void)regmap_update_bits(priv->map, RTL8365MB_D_PORT_PBFID_REG(port),
+> +				 RTL8365MB_D_PORT_PBFID_MASK,
+> +				 vlan_filtering ? RTL8365MB_D_UNAWARE_BRIDGE_FID : 0);
+
+[ ... ]
+
+> @@ -3672,9 +3826,22 @@ static int rtl8365mb_setup(struct dsa_switch *ds)
+>  		goto out_teardown_irq;
+>  
+>  	ds->assisted_learning_on_cpu_port = true;
+> -	ds->fdb_isolation = true;
+> -	/* The EFID is 3 bits, but EFID 0 is reserved for standalone ports */
+> -	ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
+> +	if (!rtl8365mb_is_d(priv)) {
+> +		ds->fdb_isolation = true;
+> +		/* The EFID is 3 bits, but EFID 0 is reserved for standalone */
+> +		ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
+> +	} else {
+> +		/* No EFID; FID 0 is used by standalone ports and FID 1 by the
+> +		 * offloaded VLAN-unaware bridge via port-based FID, so allow
+> +		 * at most one offloaded bridge. The bridge number it gets is
+> +		 * what rtl8365mb_port_set_efid() takes as "offloaded" to
+> +		 * enable port-based FID, so max_num_bridges must not be 0.
+> +		 * Bridge numbers are allocated system-wide by DSA, so this
+> +		 * does not stop a bridge that already has a number from
+> +		 * another switch from being offloaded here as well.
+> +		 */
+> +		ds->max_num_bridges = 1;
 > +	}
-> +
-> +	return 0;
-> +
-> +rollback:
-> +	/* Best effort: restore the entries rewritten so far. IVL_EN is
-> +	 * switch-wide, so before the scan every entry in use had the old
-> +	 * value (!want_ivl) and every entry below @failed that now has
-> +	 * want_ivl was rewritten above.
-> +	 */
-> +	failed = vid;
-> +	for_each_set_bit(vid, priv->vlan_4k_used, failed) {
 
 [Severity: Medium]
-Can this rollback skip the one VID most likely to be half-changed?
+The comment says a bridge that already has a number from another switch
+can still be offloaded here. Should the driver reject that case?
 
-Say fi->vlan_4k_write() fails for some VID X in the forward loop. The code
-then jumps here with vid == X. The bound given to for_each_set_bit() is
-exclusive, so X itself is never re-read or restored.
+dsa_bridge_num_get() only checks max when it allocates a new number:
 
-The write can fail after the chip has already taken the new value.
-rtl8365mb_d_vlan_4k_write()->rtl8365mb_table_query() issues the command
-before it polls for completion:
-
-rtl8365mb_table_query() {
-    ...
-	/* Execute */
-	ret = regmap_write(priv->map_nolock, RTL8365MB_TABLE_CTRL_REG, cmd);
-	if (ret)
-		goto out;
-
-	/* Poll for completion */
-	ret = rtl8365mb_table_poll_busy(priv);
-	if (ret)
-		goto out;
-    ...
+net/dsa/dsa.c:dsa_bridge_num_get() {
+	unsigned int bridge_num = dsa_bridge_num_find(bridge_dev);
+	...
+	if (!bridge_num) {
+		bridge_num = find_next_zero_bit(&dsa_fwd_offloading_bridges,
+						DSA_MAX_NUM_OFFLOADING_BRIDGES,
+						1);
+		if (bridge_num > max)
+			return 0;
+	...
+	return bridge_num;
 }
 
-The entry may already hold want_ivl in two cases: the busy poll times out,
-or the bus reports an error after the command write has reached the chip.
+rtl83xx_port_bridge_join() then passes bridge.num to
+rtl8365mb_port_set_efid(), which maps any non-zero number to the same
+FID:
 
-rtl8365mb_port_vlan_filtering() then returns the error, and DSA keeps the
-old dp->vlan_filtering. So rtl8365mb_d_want_ivl(ds, -1, false) still
-reports the old mode while VLAN X may be in the other learning mode (IVL vs
-SVL). X stays like that until a later flip to that target succeeds or
-rtl8365mb_vlan_4k_port_set() rewrites that VID.
+	bool enable = efid && !dsa_port_is_vlan_filtering(dp);
+	u8 fid = enable ? RTL8365MB_D_UNAWARE_BRIDGE_FID : 0;
 
-The commit message says the rewrite is a separate function "so that an
-error path can restore the previous state", but the entry that failed is
-not restored.
+rtl8365mb_d_l2_uc_to_data() and rtl8365mb_d_l2_mc_to_data() also drop
+efid and turn VID 0 into FID 1.
 
-Would failed = vid + 1 be safe here? The rollback re-reads each entry and
-only changes entries that hold want_ivl, so an unmodified X would be left
-alone.
+Take a system with more than one DSA tree. Could bridge A (number 1,
+local to this switch) and bridge B (number 2, already spanning another
+tree) both be offloaded on the family D switch and share one SVL FDB in
+FID 1?
 
-This code is unchanged at the end of the series.
+If so, static entries from the two bridges for the same MAC would
+overwrite each other through the OP_WRITE in rtl8365mb_l2_add_uc().
+rtl8365mb_l2_del_uc() would then skip the delete because
+found.port != port, so DSA and the hardware LUT would disagree.
 
-> +		if (fi->vlan_4k_read(priv, vid, &vlan4k))
-> +			continue;
-> +		if (!vlan4k.member || vlan4k.ivl_en != want_ivl)
-> +			continue;
-> +		vlan4k.ivl_en = !want_ivl;
-> +		fi->vlan_4k_write(priv, &vlan4k);
-> +	}
-> +	return ret;
-> +}
+Hardware learning in the shared FID could also let a host in one bridge
+take over the other bridge's MAC entries by sending with those source
+MACs. Unicast to those MACs would then be flooded within the victim's
+bridge through LOOKUP_HIT_ISO_ACT.
 
-[ ... ]
+Would it work to record which bridge owns FID 1 in the port_bridge_join
+path and return -EOPNOTSUPP for any other bridge?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/3f1826f8-3096-40dd-a278-c70fce4852c8%40yahoo.com
