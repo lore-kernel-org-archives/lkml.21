@@ -1,61 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795393738;
-	b=sBJhxGuks82pymA8ZVztJxFOU0TNT4U0QOpPmXNZum7TaymUJUO0n6B8DXYMFtTDIWLf
-	 npf/ufpaHMTMU5nWRg6UX9s9bDzT/ItfU/nfrri1aTiJWoK7U50egJuRG2qN7Q0GEhITb
-	 OMguNo6sqiD23fYoNd1B6prC9WVBVZ7WBULjofurkHPAOw3DOHcMY5FgWgphTwMFonqqB
-	 LTQTirt2G1sPAJRa1I0RQI/Zex0ethLwZYekotnNBo0sxEaKbdZSwjsAhx66CnfGzH4Yo
-	 p84JGNCESg53c5Y61VVqcsaIH5IDO6BmatSqwofzEKk4TsiLyyaBTYblN/JNGqSN2mA==
+	t=1795393864;
+	b=MQB2f703rNi+1kOEb3xIjU2YJYqX4JlhUugyNfaqt3QRh2oBSjGW3fN7P4gwBreIJHMe
+	 s3GjSNm2uG0a4ncNJ9dSGZpeu5Aaik6CncppviVGQA87gpGWptYpGgOC8yEWqsn2x5p4W
+	 /skwBMRKPy79F5gr5DURJSUIn4KA2ciLWttIYkcMu7+hdQ62Av1N6iF3zW7AZKMPHSmoJ
+	 ZXNyZoJE132UeQTe8MjiepOsptP3Px1TBn/ee/HmoJ7orBYZfZYv8bLSIOceZ1OLgGuMu
+	 Bgc+uGF8b1QiWHsqd8Q1IxpQrXDbI1joprlFjd56YfUNVgdp9q/hu7pqtt65yiMnNgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795393738;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=PvZyFq1FELK1bfFHKWCx7YRvHf8V/OFifY6nZbW7s3c=;
-	b=iGB9rwDicUK+0KfGnjYe8tp1sVwCvL0rYJTnk7z336scFPW3Htadub1yAJPqsmo2601y
-	 ehH3xdMvngyOdHiy4wtLLLsPgEmJYgPgO/JQvR84LYy9arYGUVUqzjVh8cjjPQjprXKnc
-	 6j8GumkHHqh7DkVZLfpzzMpehKJpZgXfYcWq+CwfY7pi9wyvGmeXD3Jnl2YTtSC+9u2ga
-	 2a770VWM4LUjgcknIEivkj13EBLLlBqGTEF/1/cbbfJwwauD3Qrp7nMak+wFliPaD0CmN
-	 aiCbvpTBHkCz/MBS7TP7lRpOKjHttxMcjzS/8frswYJzFghyxeF/cnCV9AKKLw+qHUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393864;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=xeQmcAZxQUTWqI1wKM3X0FAeTjCnZYEkIZfRrsQaagk=;
+	b=Ecyuh10bL9C0ow1eLP+cNjD/8qH72STsty48qBIi2vGY+t7W9TzXZJHtaC0WfvkUMSWz
+	 pK+WP7/bPbpmUlyOjtUFkAvQnnxr5sgwXkDKfGaFyr8h9xICTbmt8E46igLOswOcgZT5z
+	 L2UPqqKoVvfYLSa0tPOzWW+CMSi1bBalffK2lc1JgMYsD6mWzTwsPunCjc45rYpVy+Byd
+	 M3gPYqPvia9Em0Wg2Lmi8NK4Qx+14fUW3E1i441m4AJcGn4faOFBQ5uJzvpNdcq+LC7wH
+	 pO58rTgP96kAtVoBBBwmL+r0Ju1Ac6MwetzBDoqSlqrdJ9lqXDZKgfo13PWLPRr2yyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NQV5qUjb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=OBUmdcPt;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27ACF606A330;
-	Mon, 23 Nov 2026 00:28:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC66606A320;
+	Mon, 23 Nov 2026 00:31:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC66606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NQV5qUjb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E62751F000D3;
-	Mon, 23 Nov 2026 00:28:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795393737;
-	bh=PvZyFq1FELK1bfFHKWCx7YRvHf8V/OFifY6nZbW7s3c=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NQV5qUjbk33dtvk82psm/YvnecirlnGdsOF/IhOEenfFIfEe6Q4MAvK5qdtyJEMID
-	 os5kXTibrb0gjY9XGZJh9yWa3fUySSoUIl99Aw51oTPQYuTsuhVnWHiBMMqxmbmT+q
-	 1PXruLDhO7nBKyzFDCjW/+NHwJMD0WnSuHweBph8ivG6grQFXl1o4VRbzqGTI0JPPB
-	 RZKaKK0lVydefk5pY62Vwx+sXx4CxUF2KGqTyjw0z76C8jr6Wk0pnmCean5rHoDr5C
-	 W9tnd7+bF6Kw+4toD2mLgyXj0K2t0v/uI0Xx3OubnHgHdVDA2kmUIAXe8AGpS9Uxm4
-	 oHijgx1IIustA==
-Subject: Re: [PATCH v2 net 3/4] net: enetc: fall back to software TX csum for
- too long L3 headers
-From: netdev-bot+sashiko@kernel.org
-To: vladimir.oltean@nxp.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- claudiu.manoil@nxp.com, wei.fang@nxp.com, xiaoning.wang@nxp.com,
- ioana.ciornei@nxp.com, willemdebruijn.kernel@gmail.com, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 00:28:56 +0000
-Message-ID: <179539373648.3135.13870830196856644441@kernel.org>
-In-Reply-To: <20261118235055.1225115-4-vladimir.oltean@nxp.com>
-References: <20261118235055.1225115-4-vladimir.oltean@nxp.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=OBUmdcPt
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id BF7B340E021D;
+	Mon, 23 Nov 2026 00:31:01 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id MsE8HQ7xTj5Y; Mon, 23 Nov 2026 00:30:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795393858; bh=xeQmcAZxQUTWqI1wKM3X0FAeTjCnZYEkIZfRrsQaagk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OBUmdcPt/vi1t+PbVbpO09tSAcJ/gINEFuY00drnFzREjFXPPj5xyjURBbx7xHQAM
+	 9/VhlvdKtBElxjOEJYmXNAZAJXTtVUykQy9VW/WQU9t2OtL4bJUh6UjbojcZi9Jtr6
+	 /ZKb3K3W+EOznrdkjYHeCqjo3oJ1c8g9YMJTsVv7hMUTSdq4/9nWUeArhx8p4c1JL9
+	 59FnF6FNySZaIulKH5/TXDllVkyFDvbF+i7RDWwybiQgIUK5BidMSV8j/Tw63OWzcy
+	 fM9h7ZAe2XGqOlQOwYx2cl6ZT4UVowMkm4RnWOXuguCKPkvFFpOdFbWuvxHrt+lbqd
+	 6g9jP0bg1HIKpEUpT8ihgpTonZ7hyVlPyx0PRMHdHt1UG2At6Rm1d79PqUosbR0LJO
+	 QO0LgyeAr6f77jxFkp3RkVLkcAN0/2k+UBo1+q+JE2XnF3w3Eo+AxuU37erO8pWoXg
+	 WJKiszjPZoUBpyq/BTWgrdvxmjHhIIwsvI7xKauiwGIs/DIm0AXG052AYnUd2rxGdn
+	 jt4R4eQHn1G0VvzPB2AqPT9nKXfwjtYhKeDds8Yf7jr3h9Tc1znFWXPOvJlVS0DZqN
+	 xomlTsMJ6ZsNQJxVy9xN+feJnT6eFgvFP9jSxhLkpKrYrTUPjwgUnSomV52srzGnV9
+	 ZT5YXXsodcJ6OQK6zwYYqQ7k=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id E9BD240E0219;
+	Mon, 23 Nov 2026 00:30:39 +0000 (UTC)
+Date: Sun, 22 Nov 2026 16:30:36 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	kkd@meta.com, kernel-team@meta.com, x86@kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
+ user address faults under SMAP
+Message-ID: <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local>
+References: <20261009024925.3169077-1-memxor@gmail.com>
+ <20261009024925.3169077-2-memxor@gmail.com>
+ <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local>
+ <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
+ <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
+ <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,173 +96,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Sun, Nov 22, 2026 at 10:59:33PM +0100, Kumar Kartikeya Dwivedi wrote:
+> So I am not sure I see how this risks making things worse for anyone
+> else. It's not about saving some bytes, if you look at the cover
+> letter, we reduce significant amount of code and associated overhead
+> from programs running in hot paths.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Lemme summarize our "discussion":
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Boris: you're subverting SMAP security.
 
-- [Medium] net: enetc: L4 offset check in enetc_features_check() misses
-  CHECKSUM_NONE GSO
-- [Low] The commit "net: enetc: fall back to software TX csum for too
-  long L3 headers" has no Fixes: tag, but it fixes a real bug.
-- [Low] The macro's name says inclusive maximum, but its only user treats
-  it as an exclusive bound.
+Kumar: but but, performance. And we're special.
 
---
+Nope, not good enough.
 
-net: enetc: fall back to software TX csum for too long L3 headers
+You need to go back to the drawing board and massage your bpf program until it
+doesn't need any hackery like that.
 
-This patch makes enetc_features_check() strip the checksum and GSO
-features from CHECKSUM_PARTIAL skbs when the hardware TX checksum engine
-is in use and the L4 offset (plus any hwaccel VLAN tag) reaches 127 bytes.
-The i.MX95 hardware rejects such frames as a programming error, but the
-driver still counts them as sent.
+I dunno, tag the pointer, massage it so that it causes a "normal" page fault
+like it would happen for any other userspace program, whatever. Just not this.
 
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
-> index 7f089a84d9a65..6cc519eea5bd3 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc.c
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-> @@ -1114,6 +1114,16 @@ netdev_tx_t enetc_xmit(struct sk_buff *skb, struct net_device *ndev)
->  }
->  EXPORT_SYMBOL_GPL(enetc_xmit);
->  
-> +static bool enetc_skb_l4_too_deep(const struct sk_buff *skb)
-> +{
-> +	unsigned int l4_offset = skb_checksum_start_offset(skb);
-> +
-> +	if (skb_vlan_tag_present(skb))
-> +		l4_offset += VLAN_HLEN;
-> +
-> +	return l4_offset >= ENETC_TX_CSUM_MAX_L4_OFFSET;
-
-[Severity: Low]
-This isn't a bug, but is the name ENETC_TX_CSUM_MAX_L4_OFFSET a bit
-misleading? enetc.h defines it as:
-
-#define ENETC_TX_CSUM_MAX_L4_OFFSET	127
-
-This comparison treats it as an exclusive bound, so the largest L4 offset
-actually allowed is 126. The ">=" matches the RM text ("must be smaller
-than 127 bytes"). The "MAX" in the name, though, suggests that 127 itself
-is allowed.
-
-Someone reusing the macro could reasonably write
-"> ENETC_TX_CSUM_MAX_L4_OFFSET" and let a 127 byte offset through, which
-the hardware would reject. Would a name like
-ENETC_TX_CSUM_L4_OFFSET_LIMIT, or a value of 126 compared with ">", make
-the definition and its use agree?
-
-The mismatch is still there at the end of the series. The later patch
-"net: enetc: let core segment GSO skb when headers exceed TSO_HEADER_SIZE"
-also cites this macro in its commit message.
-
-> +}
-> +
->  netdev_features_t enetc_features_check(struct sk_buff *skb,
->  				       struct net_device *ndev,
->  				       netdev_features_t features)
-> @@ -1122,6 +1132,12 @@ netdev_features_t enetc_features_check(struct sk_buff *skb,
->  
->  	features = vlan_features_check(skb, features);
->  
-> +	if (priv->active_offloads & ENETC_F_TXCSUM &&
-> +	    skb->ip_summed == CHECKSUM_PARTIAL && enetc_skb_l4_too_deep(skb)) {
-> +		features &= ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);
-> +		return features;
-> +	}
-> +
-
-[Severity: Medium]
-Does this check catch GSO skbs that reach enetc_features_check() with
-skb->ip_summed set to something other than CHECKSUM_PARTIAL?
-
-There are at least two ways to get such an skb here:
-
-- validate_xmit_skb() changes a non-fraglist GSO skb marked
-  CHECKSUM_UNNECESSARY into CHECKSUM_NONE before it calls
-  netif_skb_features(). One example is a TCPv6 skb with an SRH that
-  GRO coalesced and that is then forwarded or bridged out of the
-  ENETC port.
-- __virtio_net_hdr_to_skb() builds CHECKSUM_NONE GSO skbs when
-  VIRTIO_NET_HDR_F_NEEDS_CSUM is not set. Local users of tun/tap,
-  macvtap, vhost-net or AF_PACKET can trigger this.
-
-For those skbs the ip_summed test fails and enetc_skb_l4_too_deep() is
-never called. NETIF_F_TSO6 and NETIF_F_HW_CSUM stay set in features.
-
-netif_needs_gso() is then true because the skb is not
-CHECKSUM_PARTIAL. validate_xmit_skb() goes through __skb_gso_segment()
-into tcp6_gso_segment(), which switches the skb to CHECKSUM_PARTIAL
-via __tcp_v6_send_check(). tcp_gso_segment() then returns NULL without
-segmenting, because skb_gso_ok() still sees NETIF_F_TSO6 in features.
-
-The skb reaches enetc_start_xmit() and enetc_lso_hw_offload() whole.
-enetc_lso_map_hdr() then sets ENETC_TXBD_FLAGS_CSUM_LSO,
-ENETC_TXBD_FLAGS_LSO and ENETC_TXBD_FLAGS_L4CS with an L4 offset of
-127 bytes or more. Wouldn't the hardware reject that with the same
-programming error described in the commit message? The frame would be
-dropped while tx_ring->stats still counts it as sent.
-
-At this point in the series nothing bounds the GSO header length
-either. Headers of 256 bytes or more on this path also wrap the u8
-lso->hdr_len and lso->l3_hdr_len fields that enetc_lso_start() fills
-in.
-
-The TSO_HEADER_SIZE - VLAN_HLEN check added later by "net: enetc: let
-core segment GSO skb when headers exceed TSO_HEADER_SIZE" removes the
-wrap. It does not close this hole, though. A GSO skb with an L4 offset
-between 127 and 232 bytes and no more than 252 bytes of headers still
-keeps NETIF_F_TSO6 at the end of the series.
-
-csum_start is only meaningful for CHECKSUM_PARTIAL, so the ip_summed
-test is needed as long as enetc_skb_l4_too_deep() uses
-skb_checksum_start_offset(). Would it work to use
-skb_transport_offset() for GSO skbs regardless of ip_summed, and keep
-the csum_start based check for non-GSO CHECKSUM_PARTIAL skbs?
-
-[Severity: Low]
-Should this patch have a Fixes: tag? The other three patches in the
-series each carry "Fixes: fb8629e2cbfc", but this one has none.
-
-The L3_START/L3_HDR_LEN programming in enetc_map_tx_buffs() that this
-check guards came from commit d9a093d2d12a ("net: enetc: add Tx checksum
-offload for i.MX95 ENETC"):
-
-	temp_bd.l3_aux0 = FIELD_PREP(ENETC_TX_BD_L3_START,
-				     skb_network_offset(skb));
-	temp_bd.l3_aux1 = FIELD_PREP(ENETC_TX_BD_L3_HDR_LEN,
-				     skb_network_header_len(skb) / 4);
-
-enetc_lso_map_hdr() has the same unbounded programming. It came from
-commit 69797ff888d3 ("net: enetc: add LSO support for i.MX95 ENETC PF"),
-and LSO depends on the same checksum engine:
-
-	txbd_tmp.l3_aux0 = FIELD_PREP(ENETC_TX_BD_L3_START, lso->l3_start);
-	/* l3_hdr_size in 32-bits (4 bytes) */
-	txbd_tmp.l3_aux1 = FIELD_PREP(ENETC_TX_BD_L3_HDR_LEN,
-				      lso->l3_hdr_len / 4);
-
-Without a tag, stable trees that contain d9a093d2d12a (December 2024 and
-later) may not get this fix. Frames such as IPv6 with a 5 SID SRH would
-then still be dropped silently by the hardware while being counted as
-sent.
-
-Would something like this be appropriate?
-
-Fixes: d9a093d2d12a ("net: enetc: add Tx checksum offload for i.MX95 ENETC")
-
->  	if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
->  		return features;
->  
-
-[ ... ]
+HTH.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118235055.1225115-1-vladimir.oltean%40nxp.com
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
