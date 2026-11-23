@@ -1,68 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795430741;
-	b=wJ+3a6RkXcyAc2Li2ww5hxISSG0/CcGXGai8TTzPZGmaSZcd+Gm7ZElXslhXlZIWeFTq
-	 ABGs95rXhJ8cYQbxZR7DzSH3MpV2PY13Jo0DTbyZbReszrcO00TP4jEcw1gDcWxmsrkeb
-	 F13FSYLpI2jIBFfyGfdFWUooy87Nxyz12BxWoM5l0e9GCwPcSqel2Q9qPQK5DMMDdzJJo
-	 6VxgPdRTGwSc5tSN0M17D2ix8DTPQXhxxxqLxBFhHCifWLa4cUv3C+lNAEkBTUrGmMs3n
-	 BorB6ZyMR4zkX3Kr+vFW33CxDkNUm5z6bmTgiC6swclvZ67PJA9rESS5FsrizAUuELQ==
+	t=1795430772;
+	b=S+fF0w4nnueT9FwULPhb5pLBBpOwNaFijS7Rr0pCbLnH2wvj2ppiMVZMPU8HCkXVVHXN
+	 XCo4EBLRFfpAQ7tUAia7CDYxTCfLpe6jLvl9Mp8znqNEW98Zi8japyN9WYOznZRiylN67
+	 oz7YigAY0irtfrCRZ06aM+gt73AmXoTTCHsLuBYVhhg7n1FTzA94ZKlf8R92TWx55wd9U
+	 hIdtBaXp+/mUpjlaqS5DyzXXs1sHjkJYFV8EcK5X3cE/qPNbsYU/DrsGDPaZgE6X/XNpa
+	 7eylEo4a/60WxjSWYrM8uh4c/WNv/Dhg1DFEb+E626BrZ7OXPbhwypAxnNnyAvRIUVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795430741;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:From:
-	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=e1hoLMpVB/6Fc8t6CXBq1NQZwa15njiuWxrZ+EliSqM=;
-	b=uYJnBshmhq8dYCRbU32OB7P/BKHeH7oBXW7qTjFlgkUC+RrW7JO3lIyamYT29i6QXu7m
-	 UhPzfua8tQaiiWcFkWUR80kY1g1O4JrhAXqvFEr4IFKIZ6eR1psEGe6kViVdod4HvQRn9
-	 nlNHWAVujmHUcy6ZBiY+LN8VhZIA/CBeA+hc/pnN19WOkXwXwfZnew3NOavtGd+ymN8oU
-	 /Ns4qx6BzDtceXu3yKyb6cRGRN4mD1FEtBQlXRm68rzxZUa8yL79sNVCCXwDRmhevG3K3
-	 4J0LbKosLk+BQbmY2I7OgIyNDkXzQaSXBv8bG0NLWlEA78JiwLkODt0XrBhbcA13UtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795430772;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=xIqRuuyi3s4SC841Ot37hEBBxupspYSo1v4iRKPGuWo=;
+	b=oGdhlBEBHYSlHQaQkHd09RL1TvNIYWfGVUCD2QTnL6qb0r/GDre0fjiGQSa7qo/XXwiw
+	 dbxgHM9g/RjSNXsAmZKL2OsyHtV70PVfOnjiARjwHEzUPnfaFx5cMeoW8zfp9GT42blMW
+	 nTXYV3MCTc77UTUkK/EdJOKv+n03gkiYNfq0dndQNS82Hdn1h9ghugA5ue1uzhuj+wWrX
+	 oh2jSpako+Vc4CLpQ4UkTwlm3pGToWWWFe+RScubVzfnP68mtNw0dmuZ6DmQRXv/RiXhj
+	 5dgyjOcHOvZEyzE2zN1lT/pH1hewG363xGY3NsZDgSIhzTMXgAxSDs3+gEEVtbhKnnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hyx2uZ4d;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=T8eNMmJw;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32ACA606A332;
-	Mon, 23 Nov 2026 10:45:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32ACA606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4683606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:46:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4683606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hyx2uZ4d
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9FtFG2785551;
-	Mon, 23 Nov 2026 10:45:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	e1hoLMpVB/6Fc8t6CXBq1NQZwa15njiuWxrZ+EliSqM=; b=hyx2uZ4dwv8ryuOs
-	r+DTSUJm8kwhVVvCTmnVXPM6MFo7fAz1n6jYt2D6FC0Agr3+23J83tOQRM5U1GTD
-	CuG1sguRPzJq/V9WvfQxWlmo/5zMmQmYHNMZsI1NYsOUkI7bTrPI4FyZUs452pxW
-	3fvdaapepd1DXUtq0ZglofPYcXGBtl5pKtE2sQ4LYdiqAmgtL72IuqYNMdU526kF
-	gw3O2N3tiOt17u8wmdhJZt8Ocr17J5icfsU25NTdUo7wJoVfMTYOvgIf/Frgk5GX
-	/awfcci4/En+YXMVrT43hMdXHsqWKZbRZJMdNlcNjq5xmI1ZBtQ4fATaPCfu3B/V
-	NswneQ==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyd10qs-1
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=T8eNMmJw
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9YX1c3194393;
+	Mon, 23 Nov 2026 10:45:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=xIqRuuyi3s4SC841Ot37hEBBxupspY
+	So1v4iRKPGuWo=; b=T8eNMmJwE9RlUSpm4gPa94j3iz/6gi6WujSrHaOSFq7ieH
+	sS4BWpaXmVv8kNkas+sGuO7cNQmfEzknjTMWBaRl1st/48UQXMAtNhbsYRPBE+CQ
+	vlYuShTODi1aqhonxZTtysMCPmszg3PEFI0tLOeF7W7GgGtkak/F1BtZbe77fs4v
+	k54Tqmtn1LonaX/WP3VWYfK7iI5auix64hGQIAyvX4Bb26MIxm+bA0nLpF4wQ45s
+	RaTlZMOKfuflMnYbKMDzCdij/QD6AHeAau56h0G+cciHmGBN/j7yxFtRs6EnddS9
+	i6ZvpE7aXxrlu5YH0xtMvzj0SoGUbwe3GwdxA5ew==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gv2gaa-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 10:45:25 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANAjMnU321126;
-	Mon, 23 Nov 2026 10:45:23 GMT
-Received: from hu-ffaruque-hyd.qualcomm.com (hu-ffaruque-hyd.qualcomm.com [10.147.245.31])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTP id 6ANAjLpS321114;
-	Mon, 23 Nov 2026 10:45:23 +0000 (GMT)
-From: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 16:15:13 +0530
-Subject: [PATCH v2 2/3] arm64: dts: qcom: add Monaco Draco AC SoM
+	Mon, 23 Nov 2026 10:45:58 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN9JHxB1708408;
+	Mon, 23 Nov 2026 10:45:57 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3raye62q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 10:45:57 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANAjtRi32506604
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 10:45:55 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id ABC9720040;
+	Mon, 23 Nov 2026 10:45:55 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2E9AC20043;
+	Mon, 23 Nov 2026 10:45:55 +0000 (GMT)
+Received: from osiris (unknown [9.87.148.25])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 23 Nov 2026 10:45:55 +0000 (GMT)
+Date: Mon, 23 Nov 2026 11:45:53 +0100
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Sascha Bischoff <Sascha.Bischoff@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 6/9] arm64: sysreg: Reject an enum value not written at
+ its field's width
+Message-ID: <20261123104553.20959-F-seiden@linux.ibm.com>
+References: <20261123075219.369042-1-fuad.tabba@linux.dev>
+ <20261123075219.369042-7-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,410 +96,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-monaco-draco-v2-2-3ee3b2375f16@oss.qualcomm.com>
-References: <20261123-monaco-draco-v2-0-3ee3b2375f16@oss.qualcomm.com>
-In-Reply-To: <20261123-monaco-draco-v2-0-3ee3b2375f16@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-        Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
-        Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
-        Dipa Mantre <dipa.mantre@oss.qualcomm.com>,
-        Sravani Tella <tella@hu-tella-hyd.qualcomm.com>,
-        Monish Chunara <monish.chunara@oss.qualcomm.com>,
-        Ajinkya Inchure <ainchure@qti.qualcomm.com>,
-        Faruque Ansari <faruque.ansari@oss.qualcomm.com>,
-        Kishor Buchi <kbuchi@qti.qualcomm.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123075219.369042-7-fuad.tabba@linux.dev>
+X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-ORIG-GUID: hHUidjqQzusklRgShyz6Iz9rdNvxJlME
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfX/lTTNLv1JlCv
- iayexBWMkCnTr5L4vOV0J33lnd4JJNRhRkR52fv/oAvyqMNhWc4QJQCVb/ZIrkvnvcb5ZzzJ1bS
- aIRBGb88t99aC4mJAqbjPk5CNhWwaCQry7BGcR7OcIBFqmz4RU2nKzaFW0MXtBdTGJhy9SEU3wM
- Ddpju31tE9lSLBNbCdkIgLR8GUAMh5xs1d0+kvPvdV4XgSDjw0WCifiNzGFE/LyI01yn0+IN6W/
- ab7wpWePifteiIffIQ9ihHy2yQg4I3oHIbCjXmlwP574C6yk2TkghQ7akIp6An49jEM/O2wqSXZ
- KoQaBLcQuVw0JdhcPXHP4poZltw82/T9qxJVFt/K7P+kVWNVh7jW3VpdgRlr1IUkKQh7J+Ipvmx
- i58n6zy1+xIvkHil1xQDbGVvp8FI6L4L+a9hrQXl/lNbHMm8oLQvjq7pfHnVKJTebwoBVLlT/CA
- GTzjBZi/IUa5AouIW4A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfXxBDU+OtDpCCw
- +NOk/g4Vp0KRm8kwTaLOsSKLfEiiEO05RscmGJjQAxfn5m2Dx5zXs9xYZ3wxwhY6ifYaYUutu9x
- dYaEsHz21NOEzT6XLjSfqpPRCSASAbo=
-X-Proofpoint-GUID: hHUidjqQzusklRgShyz6Iz9rdNvxJlME
-X-Authority-Analysis: v=2.4 cv=Aol7T+9P c=1 sm=1 tr=0 ts=6b041945 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=YecoAyRWaEMobBTNqMMA:9 a=QEXdDO2ut3YA:10
+X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b041966 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=IEvGn1zUL_vtJd7OkNwA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfX2roCqqfTqkw8
+ YEROHFQZ88IvlrCijNa5miUOeg4EVxim4+TWlmYUoVkjcbrShgur+68IB8xIYpznvYd3iorjuUp
+ 2HQRU4PRh4zrlr1Ue32xFdaMUkIoLCY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA0MiBTYWx0ZWRfX2FPRqvNF3h9r
+ KChK8u5v17NX6EmnrQK+2oQMkLb3cEm2E0YXQzzNnRnff5pDAuswZYx6yHr4XbQGW2lYSmoxFvQ
+ bH/rSu89Y86ggNF1opMZ4HWP9m7mTPIaSJDSUew9XvahLS7xQZ9L1k6c4LXOrVeWQmuF9iiAfc+
+ Tp5J5OZpIqXMxFn9WGTRStsfDcGml51+2Uxm96QAloGG3dOYtuiYUth4Ob9QdYUZiDQKkN7eIji
+ 35QoEXxvCve/P7hIKN0+zCQbWMTsjbS/+w9QZYwz/CD1TKCpH/nciTbLEr3Nv/7jlEe4ivQtUq5
+ ezEfVYSlIZzUmdicQ21aofr4zToRIXtlrDCAbZghTDiyQsgsKIvej5O8qFi1gBOA2y2/634Xyjt
+ OK7foVdUYOIf4DY6LNhx6zJ0aJXjihT5TT397rcp6c7I+m9Ku2awncg4sOIuCvCYQzkwHo8EGin
+ BE+C8CqjVOaDrgEbZag==
+X-Proofpoint-ORIG-GUID: xvXmXRxewmVX3uEZMer83MfDNwFp9XZn
+X-Proofpoint-GUID: 49DySJUMN-cKB_jeklQg8KakNNn62Xjj
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_02,2026-11-22_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- spamscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230042
+ phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611230042
 
-Introduce the device tree for the QCS8300-based Monaco Draco AC
-SoM. The Monaco Draco AC SoM is a compact compute module integrating
-the QCS8300 SoC, two PMM8654AU PMICs, eMMC, UFS storage, an Adreno
-623 GPU, USB and UART interfaces, designed to mount on carrier
-boards.
+On Mon, Nov 23, 2026 at 07:52:16AM +0000, Fuad Tabba wrote:
+> The generator emits each enum value as written and doesn't check it
+> against the width of its field, so a value wider than the field defines
+> a constant the field can't hold. The duplicate value check compares the
+> strings as written, so 0b01 and 0b001 in the same field pass as distinct
+> values, and the rule's pattern, an unanchored /0b[01]+/, accepts 0b12
+> too.
+> 
+> Require each value to be 0b followed by exactly as many binary digits as
+> its field has bits. The one enum written otherwise is TS, a two-bit
+> field of TRFCR_EL1 and TRFCR_EL2 whose values have four digits. Write
+> them with two digits, which leaves the numbers unchanged.
+> 
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/tools/gen-sysreg.awk |  3 +++
+>  arch/arm64/tools/sysreg         | 14 +++++++-------
+>  2 files changed, 10 insertions(+), 7 deletions(-)
+> 
 
-The initial SoM device tree includes basic support for:
+Lets split this patch into two: 
 
- - RPMH regulators for two PMM8654AU PMICs
- - QUP firmware paths (qupv3_id_0/1)
- - Remoteproc instances (ADSP, CDSP, GPDSP) with firmware paths
- - Console UART (uart7, serial0) and secondary UART (uart6, serial2)
- - eMMC storage
- - UFS storage
- - USB1 in peripheral mode with HS PHY and QMP SuperSpeed PHY, and USB2
-   with HS PHY
- - GPU (Adreno 623) with ZAP shader firmware
+1. Fix the bitwidth of the Enums
+2. Add the new check to the awk script
 
-Co-developed-by: Kishor Buchi <kbuchi@qti.qualcomm.com>
-Signed-off-by: Kishor Buchi <kbuchi@qti.qualcomm.com>
-Signed-off-by: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/monaco-draco-ac-som.dtsi | 320 ++++++++++++++++++++++
- 1 file changed, 320 insertions(+)
+Then the fix is split apart from the enforcement.
 
-diff --git a/arch/arm64/boot/dts/qcom/monaco-draco-ac-som.dtsi b/arch/arm64/boot/dts/qcom/monaco-draco-ac-som.dtsi
-new file mode 100644
-index 000000000000..85ca83ecfc9e
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/monaco-draco-ac-som.dtsi
-@@ -0,0 +1,320 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
-+#include <dt-bindings/sound/qcom,q6afe.h>
-+
-+#include "monaco.dtsi"
-+#include "monaco-pmics.dtsi"
-+
-+/ {
-+	aliases {
-+		serial0 = &uart7;
-+		serial2 = &uart6;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	/* This comes from a PMIC handled within the SAIL domain */
-+	vreg_s2s: vreg-s2s {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vreg_s2s";
-+
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+};
-+
-+&apps_rsc {
-+	regulators-0 {
-+		compatible = "qcom,pmm8654au-rpmh-regulators";
-+		qcom,pmic-id = "a";
-+
-+		vreg_l3a: ldo3 {
-+			regulator-name = "vreg_l3a";
-+			regulator-min-microvolt = <1200000>;
-+			regulator-max-microvolt = <1200000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l4a: ldo4 {
-+			regulator-name = "vreg_l4a";
-+			regulator-min-microvolt = <880000>;
-+			regulator-max-microvolt = <912000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l5a: ldo5 {
-+			regulator-name = "vreg_l5a";
-+			regulator-min-microvolt = <1200000>;
-+			regulator-max-microvolt = <1200000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l6a: ldo6 {
-+			regulator-name = "vreg_l6a";
-+			regulator-min-microvolt = <880000>;
-+			regulator-max-microvolt = <912000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l7a: ldo7 {
-+			regulator-name = "vreg_l7a";
-+			regulator-min-microvolt = <880000>;
-+			regulator-max-microvolt = <912000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l8a: ldo8 {
-+			regulator-name = "vreg_l8a";
-+			regulator-min-microvolt = <2504000>;
-+			regulator-max-microvolt = <2960000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l9a: ldo9 {
-+			regulator-name = "vreg_l9a";
-+			regulator-min-microvolt = <2970000>;
-+			regulator-max-microvolt = <3072000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_s4a: smps4 {
-+			regulator-name = "vreg_s4a";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1800000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_s9a: smps9 {
-+			regulator-name = "vreg_s9a";
-+			regulator-min-microvolt = <1352000>;
-+			regulator-max-microvolt = <1352000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+	};
-+
-+	regulators-1 {
-+		compatible = "qcom,pmm8654au-rpmh-regulators";
-+		qcom,pmic-id = "c";
-+
-+		vreg_l1c: ldo1 {
-+			regulator-name = "vreg_l1c";
-+			regulator-min-microvolt = <300000>;
-+			regulator-max-microvolt = <512000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l2c: ldo2 {
-+			regulator-name = "vreg_l2c";
-+			regulator-min-microvolt = <900000>;
-+			regulator-max-microvolt = <904000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l4c: ldo4 {
-+			regulator-name = "vreg_l4c";
-+			regulator-min-microvolt = <1200000>;
-+			regulator-max-microvolt = <1200000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l7c: ldo7 {
-+			regulator-name = "vreg_l7c";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1800000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l8c: ldo8 {
-+			regulator-name = "vreg_l8c";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1800000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l9c: ldo9 {
-+			regulator-name = "vreg_l9c";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1800000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_s5c: smps5 {
-+			regulator-name = "vreg_s5c";
-+			regulator-min-microvolt = <1104000>;
-+			regulator-max-microvolt = <1104000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+	};
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&gpu_zap_shader {
-+	firmware-name = "qcom/qcs8300/a623_zap.mbn";
-+};
-+
-+&mdss_dp0_phy {
-+	vdda-phy-supply = <&vreg_l5a>;
-+	vdda-pll-supply = <&vreg_l4a>;
-+
-+	status = "okay";
-+};
-+
-+&pcie0_phy {
-+	vdda-phy-supply = <&vreg_l6a>;
-+	vdda-pll-supply = <&vreg_l5a>;
-+	vdda-qref-supply = <&vreg_l4a>;
-+	vdda-refgen-supply = <&vreg_l7a>;
-+
-+	status = "okay";
-+};
-+
-+&pcie1_phy {
-+	vdda-phy-supply = <&vreg_l6a>;
-+	vdda-pll-supply = <&vreg_l5a>;
-+	vdda-qref-supply = <&vreg_l4a>;
-+	vdda-refgen-supply = <&vreg_l7a>;
-+
-+	status = "okay";
-+};
-+
-+&qupv3_id_0 {
-+	firmware-name = "qcom/qcs8300/qupv3fw.elf";
-+
-+	status = "okay";
-+};
-+
-+&qupv3_id_1 {
-+	firmware-name = "qcom/qcs8300/qupv3fw.elf";
-+
-+	status = "okay";
-+};
-+
-+&remoteproc_adsp {
-+	firmware-name = "qcom/qcs8300/adsp.mbn";
-+
-+	status = "okay";
-+};
-+
-+&remoteproc_cdsp {
-+	firmware-name = "qcom/qcs8300/cdsp0.mbn";
-+
-+	status = "okay";
-+};
-+
-+&remoteproc_gpdsp {
-+	firmware-name = "qcom/qcs8300/gpdsp0.mbn";
-+
-+	status = "okay";
-+};
-+
-+&sdhc_1 {
-+	vmmc-supply = <&vreg_l8a>;
-+	vqmmc-supply = <&vreg_s2s>;
-+
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+
-+	status = "okay";
-+};
-+
-+&serdes0 {
-+	vdda-0p9-supply = <&vreg_l4a>;
-+	vdda-1p2-supply = <&vreg_l5a>;
-+
-+	status = "okay";
-+};
-+
-+&uart6 {
-+	status = "okay";
-+};
-+
-+&uart7 {
-+	status = "okay";
-+};
-+
-+&ufs_mem_hc {
-+	reset-gpios = <&tlmm 133 GPIO_ACTIVE_LOW>;
-+	vcc-supply = <&vreg_l8a>;
-+	vcc-max-microamp = <1100000>;
-+	vccq-supply = <&vreg_l4c>;
-+	vccq-max-microamp = <1200000>;
-+
-+	status = "okay";
-+};
-+
-+&ufs_mem_phy {
-+	vdda-phy-supply = <&vreg_l4a>;
-+	vdda-pll-supply = <&vreg_l5a>;
-+
-+	status = "okay";
-+};
-+
-+&usb_1 {
-+	dr_mode = "peripheral";
-+
-+	status = "okay";
-+};
-+
-+&usb_1_hsphy {
-+	vdda-pll-supply = <&vreg_l7a>;
-+	vdda18-supply = <&vreg_l7c>;
-+	vdda33-supply = <&vreg_l9a>;
-+
-+	status = "okay";
-+};
-+
-+&usb_qmpphy {
-+	vdda-phy-supply = <&vreg_l7a>;
-+	vdda-pll-supply = <&vreg_l5a>;
-+
-+	status = "okay";
-+};
-+
-+&usb_2 {
-+	status = "okay";
-+};
-+
-+&usb_2_hsphy {
-+	vdda-pll-supply = <&vreg_l7a>;
-+	vdda18-supply = <&vreg_l7c>;
-+	vdda33-supply = <&vreg_l9a>;
-+
-+	status = "okay";
-+};
+The actual changes LGTM.
 
--- 
-2.34.1
+	Steffen
 
+
+> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+> index 1843d283192d2..cde526896ed96 100755
+> --- a/arch/arm64/tools/gen-sysreg.awk
+> +++ b/arch/arm64/tools/gen-sysreg.awk
+> @@ -367,6 +367,9 @@ $1 == "EndEnum" && block_current() == "Enum" {
+>  	val = $1
+>  	name = $2
+>  
+> +	if (val !~ /^0b[01]+$/ || length(val) - 2 != msb - lsb + 1)
+> +		fatal("Enum value " val " for " name " is not " (msb - lsb + 1) " binary digits")
+> +
+>  	if (val in seen_enum_vals)
+>  		fatal("Duplicate Enum value " val " for " name)
+>  	seen_enum_vals[val] = 1
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index ebe5c5bd6fef6..5b587a7544e40 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2919,9 +2919,9 @@ EndSysreg
+>  Sysreg	TRFCR_EL1	3	0	1	2	1
+>  Res0	63:7
+>  UnsignedEnum	6:5	TS
+> -	0b0001	VIRTUAL
+> -	0b0010	GUEST_PHYSICAL
+> -	0b0011	PHYSICAL
+> +	0b01	VIRTUAL
+> +	0b10	GUEST_PHYSICAL
+> +	0b11	PHYSICAL
+>  EndEnum
+>  Res0	4:2
+>  Field	1	ExTRE
+> @@ -4300,10 +4300,10 @@ EndSysreg
+>  Sysreg TRFCR_EL2	3	4	1	2	1
+>  Res0	63:7
+>  UnsignedEnum	6:5	TS
+> -	0b0000	USE_TRFCR_EL1_TS
+> -	0b0001	VIRTUAL
+> -	0b0010	GUEST_PHYSICAL
+> -	0b0011	PHYSICAL
+> +	0b00	USE_TRFCR_EL1_TS
+> +	0b01	VIRTUAL
+> +	0b10	GUEST_PHYSICAL
+> +	0b11	PHYSICAL
+>  EndEnum
+>  Res0	4
+>  Field	3	CX
+> -- 
+> 2.47.3
+> 
