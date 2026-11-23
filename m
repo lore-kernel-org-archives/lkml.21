@@ -1,64 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421163;
-	b=0Cw7TNih2yRRYRPyGvhimToJ9PQq/DPbjU2R/+EbeTVJUMZHW4rChVW2fswuP8YaxGlf
-	 LsQz4hueXmhL08pIdAj0xOHyqVnFFPn8TKFm+hNieFrcxbtsVYaJTUiWh8pUxsT2rz3/n
-	 fLBM5urHCOpHQUE6y/A+RTbjQwVabfF+rIJ4MKrzsHQuGUtp3pEdx9Y2540SANK7UN5Y5
-	 5hDLKMt1Yo8i/nZUrZ7vDkApPQZgs8BvxoJ3yZSkUua4Y1NYKewfKe6MUji22cGh1KR21
-	 hyUpOzj/EEYFeqW1Q+MfRQvBDlatNl2IqBpVhrzr8NJJOXqDH+XRq2cOMk2gBKNUUBw==
+	t=1795421220;
+	b=IuxXf9Ck9QvmnzaaJ30CGpNxadC/rNBS5CLidgbfQpSqnyWbFmiJH59Yqv5zyXys+8vR
+	 yViUur+RogLFaAikY+sk0zT6joikqjgJd/tZZizdM3kcSqjJgYmTgmftw55FAEpo4DrR4
+	 C7rmcrqSa78GVbdMwMh8D+gEEL2xihxnJCnc1qwvLhQhuPrAcEr/bUICssS02aRHqG9Hi
+	 zkaivJpq0G7PxvHyGqGMbkkuwA4NudRA79xYCXKZSMV2I/2Eynfzmct0ynsF/JDzyQZxr
+	 w2vLcmjC7w/qWFuboh9ezLaSSY0ZHtBJLhoVPsRk4PM6Oewvq3yW01ZIh/gEHSaX8VA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421163;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Developer-Signature:X-Developer-Key;
-	bh=saRGmW0YdaPOf9B38hsjs9ddd9rhpPBqExqDY8kvRlk=;
-	b=tqxVf8ZKI45taJwZzVQuXY4/lYGcPkMt4Bo1AtRS/i0Bxlyk8ruRkzn4wrZ+CbShR306
-	 SRARgadMrWZd49vafIueeQJ+osgZE/Yw3FrVwXX8rWqBcueedRNvHFSKmP8O+hJOjUfyr
-	 +NXVYyJ+yl1xUn4UKfmqKjRPkBPLtYgmf7pGG9GaRcw48c2qHqqrxNemgeiCbjRKC89PH
-	 lqooLur+0XIrk8ddOtnjvFN6UeP9IDiMC19RE+swoXtTxms9SGNtF+MaOJf0Zh+iZjwQ0
-	 29tRNvsonM+p42oqpBw1eFANwoaQkbYaGYCCNqIFTC6lSlvtl5vcepMfQnMPm6lnZ/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421220;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=GdWbto/GYuZDXyTvm+7T3nEGrjgUlN0uIoNMYNUd3jo=;
+	b=5Di0Pewb6+DYv3aZVcFO4hWPVN6AJ0xH55jxmyFdgfninCQv9Ve9oNOGde82HVEjUZNh
+	 hCYchdaJBGpUm+eXWhVfSo/Xegpa7QTlle08LGrHA/iGdwYYxXdURdflSJxz7CsJpS61l
+	 oZ0xYMbBsmGfJSR5BP3QCP/xLwgoT3srTeI9P3Ts8naoX4nod9hGg7ANTNJ51U6cKBaUR
+	 UFfxa5WYh8AwCa9J2T4qHZvpQTH09kTFr/dvi6duN7oKeoMtsnaPS3hyEoZLqLtvfe8Be
+	 d7ReFEU1tXXJ7IFI+KirTeSDzIIeWRl2qAKxL8n6mh7rn/HGCMIaMo+Rg2Xt3F/Iz1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=pL0IIQpG;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="MX0MH/kJ";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=gourry.net;
+	spf=pass smtp.mailfrom=gourry.net;
+	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=UbEDloij;
+	arc=none smtp.remote-ip=209.85.222.179
+Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EC1F6070A0C;
-	Mon, 23 Nov 2026 08:06:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EC1F6070A0C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EC6B6071512
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:06:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EC6B6071512
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=pL0IIQpG;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=MX0MH/kJ
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=28Schneider_Electric=29?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795421160;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=saRGmW0YdaPOf9B38hsjs9ddd9rhpPBqExqDY8kvRlk=;
-	b=pL0IIQpGW6RGKxvEjbj559GaC+94KefHpITKEKpOSHIHOmeAmIRwlGm4u1MtF3YLgP+PFv
-	f0f54JhTrjLep4dK2ozpgi4TW2UtoNqM8LFM9miMPFbuuf0knH8NyRv/2Nf6mxAymfLICY
-	WryEk4NMYLD5TSMgLsELmALOuTsSlWKxuJCsLjIWIYrTl7jXq/W6vlvJIxxtjh8TeycE1h
-	79MoQqMkCwnrtc3bo/QnKXJwmhYP+afhRXFBR/6hK200NAXBKpbGwjWvyrMqCR0MApPY6s
-	fNSSOyBMtsIK2+azCZcErzk7HGXVUcDHXJeY8DaXuC1qunnfV351FL3RJEsjjg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795421160;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=saRGmW0YdaPOf9B38hsjs9ddd9rhpPBqExqDY8kvRlk=;
-	b=MX0MH/kJWzPwwpekIHeTeOTlfSas/vdKILMvnnId8WsY7f6kuMiNyTHSHPFRL+Sx7DY/pL
-	ETKkQ/nmWppDmpBg==
-Date: Mon, 23 Nov 2026 09:05:12 +0100
-Subject: [PATCH v2 4/4] rtc: test: Remove test_rtc_lib.c
+	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=UbEDloij
+Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-93a40a9a01aso502447085a.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:06:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gourry.net; s=google; t=1795421218; x=1796026018; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=GdWbto/GYuZDXyTvm+7T3nEGrjgUlN0uIoNMYNUd3jo=;
+        b=UbEDloij11O9wu6jNn+7P7+RZvZz4DV6AR9vzS0fBzrCehXkVi8FOnGNXNLIlq3OFN
+         rCOsnG3X3QGQiYNFwNBZQvVWlmIntqs5/WJfYWYXfHntN863rJIHHZTTX2sLk9DadYAh
+         X7mwrYku1mJRpu7QCeTz76l1LWFiNv9wX+8lJ+dyFLhh7T7coDHq+YmCQpQmF0KSfLAE
+         9axnyb0s2etYFlHigdYQlixa19gpIFF4IlLkDUP/DJBpH2LsHFTuoxzst9SFQAkBwo3W
+         CxDF/n/80StXZi/eyfYksm+TAH6RyPX3cmBYA54kpqV7TFm36nQo/8FDZjHvtxTROyuE
+         REoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795421218; x=1796026018;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GdWbto/GYuZDXyTvm+7T3nEGrjgUlN0uIoNMYNUd3jo=;
+        b=VaGh9l0o5kLyAec0BlL2DHQRgQ+qOjnPFAQ6X6x37X3MH3KYZHwTHNPWoBOw2z+g9R
+         +U8TRMyAOnAC7nJdZYjkp1AGCjhHv0UnFoGOFLAmwKinaDQGaZlklGbOP4EYJHSsO9t+
+         Uz8zJGfMOKMdb4MFYa6UpaTiHFRewC35WRIH8y6ZyUnYbxVl/1hQM4SgJ+TYOkEc/7LH
+         N21I4FdRy+THD4mvBoPjJCfFudyMbj6pqpG3liuM/UkkM50zRIgbIoFv4uB2By6euQm2
+         W3qTt4x4QJuz4M/pPxdgJekuBu9qaAJ9udubmp74CwvR/I0dDMncwkOD3GJTU6SJ/VVR
+         EV/g==
+X-Forwarded-Encrypted: i=1; AL+hErESSntO1pPVVLCuyG7HtVEZV3FRWThQrVAnYY6a8g4sDGN+zO4VbPwBIbmT7PjSUl+Yjry3DBuZ7LiF+D4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9atdPMi8LkYdLKDzo2lAl79sllp0ADnr4qrm6zUq2FMeY/tPMS
+	rg2RUdq2lYgOzGdr6xj9MUrplj7qA5SVyqMqGgR9VyFs7mx3+06n0lAwq5Gcs2EQ830=
+X-Gm-Gg: AZFdTZeePJr9nfPJFHKLT8FLCarTOYBjpYqv3wLVxrsYl4usF6laeTS0NCeUYWux7B/
+	Kab5qNaNSzcQnmjvjFEQZUaqJ6SFjLV68yrxLdJr6ATiMbYBWDliee0HKQ25EUUWvxmVTRw0SPV
+	4AQbu7bjRum3caHigQTO5QeAVWf/W0rruxQhwgVuA4cJa8A+7n8OvrFfImz6jNK6artOXFsqLtH
+	CMNeaRNxRRiG2YQ89ejwI66QWahvy+9gktsNAbO8BiPklp577205jXjtsMtwtadZ8S4G103tf0B
+	3HqhrP/Yj8l2PLWYAx882zeBqUY6AfdJGY5pkfmV86kHfU3Xm0XkEY4kUy/rn8cICx7aCFBrdck
+	7gEPoqsgL48vZUu7YRjEWBGB9hJp8Bo1nEh2Bdq/0LFUrbVfWG+PxJjI6d49fg3Aj2g70T4VAKk
+	CBKxqYiJqb64A4nJq7xc9SCsq0g0KtQc29gBWuvKnnemDUjkWYq0u6bV1Ash2rTUYCVLZyqQ6sR
+	2oh50ETaFKFdDtqHbb5xADEFzJq5qG2pDD9KxEFzIUXEGvGvm65K8nPSuKYpDaOWVeniZxulkgH
+	Uaat1h/4/3C5aPbJxTdqivi1yB+c1dxRbicvg5KWwcWjkvpjHKLsnRpE5ptSKmneY4jViwks3cQ
+	r2uNdHr1HeE37UjkhRO+VqKA8brL+
+X-Received: by 2002:a05:620a:4481:b0:93f:2571:bb6d with SMTP id af79cd13be357-949bab32ff9mr1727268685a.39.1795421218145;
+        Mon, 23 Nov 2026 00:06:58 -0800 (PST)
+Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb349db3sm745619285a.7.2026.11.23.00.06.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:06:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,183 +90,163 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261123-time-time64-to-tm-v2-4-117cf8afebce@linutronix.de>
-References: <20261123-time-time64-to-tm-v2-0-117cf8afebce@linutronix.de>
-In-Reply-To: <20261123-time-time64-to-tm-v2-0-117cf8afebce@linutronix.de>
-To: John Stultz <jstultz@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Stephen Boyd <sboyd@kernel.org>, Miroslav Lichvar <mlichvar@redhat.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Cassio Neri <cassio.neri@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795421157; l=4664;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=lpLdoqurV8Q9KUZahlozvSDnmTawZdmVljIkY0BOJYU=;
- b=1wACDgoJITvKsWM2M4Ud8BBPebJ/N9M++3W6fCKobHLXpa6s1FSoQDYIll81cvWbSBGKFzoT8
- 9X3UC9hDGmvDojh08WaEnJlhFkRMDHHDTk355+96ddBrJY8Gi9XKQkp
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 00/60] Private NUMA nodes
+From: "Gregory Price (Meta)" <gourry@gourry.net>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: "Gregory Price (Meta)" <gourry@gourry.net>, 
+ Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Oscar Salvador <osalvador@suse.de>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Johan Hovold <johan@kernel.org>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
+ Rakie Kim <rakie.kim@sk.com>, Ying Huang <ying.huang@linux.alibaba.com>, 
+ Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
+ Alistair Popple <apopple@nvidia.com>, SJ Park <sj@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, 
+ Kairui Song <kasong@tencent.com>, Barry Song <baohua@kernel.org>, 
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Michal Hocko <mhocko@kernel.org>, David Rientjes <rientjes@google.com>, 
+ Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
+ Lorenzo Stoakes <ljs@kernel.org>, Pedro Falcato <pfalcato@suse.de>, 
+ Jann Horn <jannh@google.com>, Chris Li <chrisl@kernel.org>, 
+ Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, 
+ Youngjun Park <youngjun.park@lge.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Waiman Long <longman@redhat.com>, Ridong Chen <ridong.chen@linux.dev>, 
+ Tejun Heo <tj@kernel.org>, 
+ =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
+ Dan Williams <djbw@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>, 
+ Dave Jiang <dave.jiang@intel.com>, 
+ Alison Schofield <alison.schofield@intel.com>, 
+ Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, 
+ driver-core@lists.linux.dev, damon@lists.linux.dev, 
+ linux-pm@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ cgroups@vger.kernel.org, nvdimm@lists.linux.dev, 
+ linux-kselftest@vger.kernel.org
+In-Reply-To: <awNavE8dAGr-amfQ@yury>
+References: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
+ <awMdeK8O-5mffg2m@yury>
+ <179537469194.412063.13456998694958645706.b4-reply@b4>
+ <awNavE8dAGr-amfQ@yury>
+Date: Mon, 23 Nov 2026 03:06:55 -0500
+Message-Id: <179542121527.412063.3452837736734095837.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-Now that rtc_time64_to_tm() is only a thin wrapper around time64_to_tm()
-the dedicated test is not necessary anymore. time64_to_tm() is already
-tested with a similar test in kernel/time/time_test.c
+On 2026-11-22 16:12 -0500, Yury Norov wrote:
+> On Sun, Nov 22, 2026 at 02:11:31PM -0500, Gregory Price (Meta) wrote:
+> > On 2026-11-22 11:51 -0500, Yury Norov wrote:
+> > > On Fri, Nov 20, 2026 at 01:08:51PM -0500, Gregory Price via B4 Relay wrote:
+> > > > This is v6 of the Private NUMA node series. The series falls into four
+> > > > parts, each building on the one before:
+> > > > 
+> > > >    1-18  mm: introduce N_MEMORY_COMMON
+> > > 
+> > > I walked through this part, mostly. It looks like you can substantially
+> > > decrease the patch count if you keep N_MEMORY meaning unchanged, and
+> > > add another type, like N_MEMORY_NOALLOC.
+> > > 
+> > 
+> > I don't see how this would reduce the patch count substatially, you
+> > still need to convert existing N_MEMORY users and need to differentiate
+> > between general purpose memory nodes and private memory nodes.
+> 
+> Please check this quick attempt with my codex. The patch count is reduced
+> to 52:
+> 
+> https://github.com/norov/linux/tree/private-nodes-v6-n-memory-folded
+> 
+... snip ...
 
-Remove it.
+Patch count is not what we want to be optimizing for here.
 
-Signed-off-by: Thomas Weißschuh (Schneider Electric) <thomas.weissschuh@linutronix.de>
----
- drivers/rtc/Kconfig        |   9 ----
- drivers/rtc/Makefile       |   2 -
- drivers/rtc/test_rtc_lib.c | 106 ---------------------------------------------
- 3 files changed, 117 deletions(-)
+Your branch carries the same code (+3 lines net actually).
 
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 73ec9230edfd..3fd586aef1ec 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -96,15 +96,6 @@ config RTC_DEBUG
- 	  Say yes here to enable debugging support in the RTC framework
- 	  and individual RTC drivers.
- 
--config RTC_LIB_KUNIT_TEST
--	tristate "KUnit test for RTC lib functions" if !KUNIT_ALL_TESTS
--	depends on KUNIT
--	default KUNIT_ALL_TESTS
--	help
--	  Enable this option to test RTC library functions.
--
--	  If unsure, say N.
--
- config RTC_NVMEM
- 	bool "RTC non volatile storage support"
- 	select NVMEM
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 46f1a0fc2416..51e2ca2d2a57 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -15,8 +15,6 @@ rtc-core-$(CONFIG_RTC_INTF_DEV)		+= dev.o
- rtc-core-$(CONFIG_RTC_INTF_PROC)	+= proc.o
- rtc-core-$(CONFIG_RTC_INTF_SYSFS)	+= sysfs.o
- 
--obj-$(CONFIG_RTC_LIB_KUNIT_TEST)	+= test_rtc_lib.o
--
- # Keep the list ordered.
- 
- obj-$(CONFIG_RTC_DRV_88PM80X)	+= rtc-88pm80x.o
-diff --git a/drivers/rtc/test_rtc_lib.c b/drivers/rtc/test_rtc_lib.c
-deleted file mode 100644
-index 0eebad1fe2a0..000000000000
---- a/drivers/rtc/test_rtc_lib.c
-+++ /dev/null
-@@ -1,106 +0,0 @@
--// SPDX-License-Identifier: LGPL-2.1+
--
--#include <kunit/test.h>
--#include <linux/rtc.h>
--
--/*
-- * Advance a date by one day.
-- */
--static void advance_date(int *year, int *month, int *mday, int *yday, int *wday)
--{
--	*wday = (*wday + 1) % 7;
--
--	if (*mday != rtc_month_days(*month - 1, *year)) {
--		++*mday;
--		++*yday;
--		return;
--	}
--
--	*mday = 1;
--	if (*month != 12) {
--		++*month;
--		++*yday;
--		return;
--	}
--
--	*month = 1;
--	*yday  = 1;
--	++*year;
--}
--
--/*
-- * Check every day in specified number of years interval starting on 1970-01-01
-- * against the expected result.
-- */
--static void rtc_time64_to_tm_test_date_range(struct kunit *test, int years)
--{
--	/*
--	 * years	= (years / 400) * 400 years
--	 *		= (years / 400) * 146097 days
--	 *		= (years / 400) * 146097 * 86400 seconds
--	 */
--	time64_t total_secs = ((time64_t)years) / 400 * 146097 * 86400;
--
--	int year	= 1900;
--	int month	= 1;
--	int mday	= 1;
--	int yday	= 1;
--	int wday	= 1; /* Jan 1st 1900 was a Monday */
--
--	struct rtc_time result;
--	time64_t secs;
--	const time64_t sec_offset = RTC_TIMESTAMP_BEGIN_1900 + ((1 * 60) + 2) * 60 + 3;
--
--	for (secs = 0; secs <= total_secs; secs += 86400) {
--
--		rtc_time64_to_tm(secs + sec_offset, &result);
--
--		#define FAIL_MSG "%d/%02d/%02d (%2d, %d) : %lld", \
--			year, month, mday, yday, wday, secs + sec_offset
--
--		KUNIT_ASSERT_EQ_MSG(test, year - 1900, result.tm_year, FAIL_MSG);
--		KUNIT_ASSERT_EQ_MSG(test, month - 1, result.tm_mon, FAIL_MSG);
--		KUNIT_ASSERT_EQ_MSG(test, mday, result.tm_mday, FAIL_MSG);
--		KUNIT_ASSERT_EQ_MSG(test, yday, result.tm_yday, FAIL_MSG);
--		KUNIT_ASSERT_EQ_MSG(test, 1, result.tm_hour, FAIL_MSG);
--		KUNIT_ASSERT_EQ_MSG(test, 2, result.tm_min, FAIL_MSG);
--		KUNIT_ASSERT_EQ_MSG(test, 3, result.tm_sec, FAIL_MSG);
--		KUNIT_ASSERT_EQ_MSG(test, wday, result.tm_wday, FAIL_MSG);
--
--		advance_date(&year, &month, &mday, &yday, &wday);
--	}
--}
--
--/*
-- * Checks every day in a 160000 years interval starting on 1900-01-01
-- * against the expected result.
-- */
--static void rtc_time64_to_tm_test_date_range_160000(struct kunit *test)
--{
--	rtc_time64_to_tm_test_date_range(test, 160000);
--}
--
--/*
-- * Checks every day in a 1000 years interval starting on 1900-01-01
-- * against the expected result.
-- */
--static void rtc_time64_to_tm_test_date_range_1000(struct kunit *test)
--{
--	rtc_time64_to_tm_test_date_range(test, 1000);
--}
--
--static struct kunit_case rtc_lib_test_cases[] = {
--	KUNIT_CASE(rtc_time64_to_tm_test_date_range_1000),
--	KUNIT_CASE_SLOW(rtc_time64_to_tm_test_date_range_160000),
--	{}
--};
--
--static struct kunit_suite rtc_lib_test_suite = {
--	.name = "rtc_lib_test_cases",
--	.test_cases = rtc_lib_test_cases,
--};
--
--kunit_test_suite(rtc_lib_test_suite);
--
--MODULE_DESCRIPTION("KUnit test for RTC lib functions");
--MODULE_LICENSE("GPL");
+The patch reduction comes from squashing the per-subsystem conversions
+into one 16-file commit.
+
+It also broke get_mempolicy(MPOL_F_MEMS_ALLOWED) - it now returns
+memoryless nodes even if the system doesn't have a private node.
+
+> The more important thing is that N_MEMORY and the proposed N_MEMORY_NOALLOC
+> is a disjoint, contrary to N_MEMORY and N_MEMORY_COMMON.
+
+The proposal here is not novel - version 5 was also disjoint:
+https://lore.kernel.org/linux-mm/20260720193431.3841992-5-gourry@gourry.net/
+
+   N_MEMORY and N_MEMORY_PRIVATE are mutually exclusive states.
+
+I moved away from that because it changes the definition of N_MEMORY.
+
+The subset model is easy to understand
+
+N_MEMORY               - a node has memory
+ -> N_HIGH_MEMORY      - subset of N_MEMORY
+ -> N_NORMAL_MEMORY    - subset of N_MEMORY
+ -> N_MEMORY_COMMON    - subset of N_MEMORY
+ -> N_MEMORY_PRIVATE   - subset of N_MEMORY
+                         (COMMON and PRIVATE partition N_MEMORY)
+ -> N_MEMORY_<FEATURE> - subset of N_MEMORY
+                         all N_MEMORY_COMMON
+			 some N_MEMORY_PRIVATE
+
+It's additive. Users pick the set of nodes they want for their purpose
+and don't have to cobble sets together or remember special helpers.
+Users don't even need to know about private nodes most of the time
+(mempolicy being the one major exception here).
+
+In the disjoint model, N_MEMORY no longer means "has memory". Recovering
+that set requires new helpers, and the meaning changes silently for
+every in-tree and out-of-tree user. Anything that wanted "has memory"
+quietly misses private nodes.
+
+Either way you have to audit each N_MEMORY reference and decide whether
+it wants that state or a feature variant (N_MEMORY_RECLAIM, COMPACTION).
+
+The difference is how a missed site fails. In the joint model the
+zonelist and the common-memory folio checks backstop allocation and
+access, so a missed placement site costs some additional work.
+
+In the disjoint model a missed site silently drops a node from stats
+and accounting - or worse fails to allocate per-node meta data.
+
+So no, I do not think we should go back to the disjoint model.
+
+> > And N_MEMORY_NOALLOC is not a good name.
+> 
+> Sure, I'm not attached to any particular name. Although,
+> N_MEMORY_COMMON nothing better to me. It answers the question
+> 'what for this thing' even worse.
+> 
+
+happy to wordsmith the names here.
+
+N_MEMORY_GENERAL? _DEFAULT?  _COMMON felt intuitive but I am happy
+to rename it whatever.
 
 -- 
-2.56.1
+~Gregory
 
