@@ -1,111 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443156;
-	b=DJDRxrEoNohr0Lv6gZHOoB6japxZOi8H+uBKw22boWbpHlAllm22YQdMo7Gc7QNN41QQ
-	 CbTe6xWltqI/btHGn3Ys6XJAmydJXZku3YDezN9u9Y3FQ+GGgfa0hMPQJCJeg2067+jVX
-	 fjt6i6ewwEjHQcenoALM7CkeCJnNAWjoZHntaNsnwT0UwGO9hycEvDUQSYN7EzPv1mrk3
-	 1r7qCFxJNaXWDcUd371PYdVlJXCRwJ4/be4Ds/hsD3wtypSkc3COBoTiETQe2XRUoThTX
-	 +j+INUdsSOobnt7Hk2QKM65/fzJzimb0f7zTuGT7NhfyMCmK27qiEkFiQpq050ip9WA==
+	t=1795443163;
+	b=SxOy+ihj/ZOrjwo4tBAx8A/gNIpG4BA5rR98FGrrqxiaSGSD92G2UVAM+5ueLsEZRtX7
+	 a4EnSyGT/etoesawO1GTv4dZepcLOvD+rP6pipqAkgTMmai4FzdyThuXz9Q//ezZ497Y4
+	 KN15eveDzTo2k+otRwZCJJrJQnaO6gyB83p5Tz5BE8avrn50DbpxxY2KscZ2gqw0mSmSL
+	 fg7dFfIsfoFw03ug9vpN5Rv5vne/ymB5aL3A3F25l7a7IaLxFrKn/bEpJy41GwagRw81A
+	 oKSfqlydcDxa6aiD7BLdaDo2PSbGihPxsUfVHrm1QetTWj+R/+6g8IKkmaFyvfwGyOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443156;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=;
-	b=xkc04sZKtTi2hEmJgU8mcBPaEVspVmF/eApmxZeScmELMYICAkvKSYLTaoGWToUpO64s
-	 D0nww/hagcD+GcsSUemSBSYblIVZh2oVR+oEpfY7XBHM1nirJ1X9uXweyvsq0TGS5OD1m
-	 fmi6zYtuODhqRh0fLVi09t5A0HYCR2Uj9CVgnvDO/jqU4VCSEa6CUaDQdimPKMwonMCQc
-	 0NJTDlQiWY0bNHjlGgzxdgNfbtelYEVVVJ1uGk3BIBrYL5KZRVWQri6RNweJ6Pw6ypj4R
-	 EwDSict3UCkQ0U/UI3cj09oCdXTf/VcSsUnSOdGpqcNfIabh4kPI+N+yMnC4Sq4yDUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443163;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FpQteIPOJ7jso2isVNK/FXoPVqd5TxYTuttF9zGO1yA=;
+	b=KnMY162s8g7dmVWlNJpokbV5IJOFPn1CFtfmmrk+5XcXIEeL4yNsrWb7crD+5+rysLMf
+	 me4meLt4jaKmbPWQo+2OodR5gJ7lPT2gGTIdnA315295FMvJNTG1gowGJKn8RvfJWc7/l
+	 MGV0AbN/edHidlK8pw1rKKh9YTFjlQu4FukUxQEc5xo8b3PDEGxhTvBWWC1mwdhS9//K2
+	 LiRZ5ddYzHU12FrJWCtkwK3GphXhuUh41wEeesgp73qIRfOfkbtaxwYgX0vvI0qa80pHx
+	 6pxQilQvvXoifEcZk5grFouqkjHX34P7qoSMUbc2Au57TeeCtGe9nOhZukv3L5X1K3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZKocMOYx;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SHMSnGwT;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="HSDIN/qx";
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4075606A332
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4075606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 792FA606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 792FA606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZKocMOYx;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SHMSnGwT
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDL2dF2442981
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=; b=ZKocMOYxmja2LYus
-	uJysaQFVhq0gXn7bdilgo+wb7nKzGltb5swiYoYEic8DI71pOM33oYFP+/wwYi6E
-	xQjcf8zNZ/cm5Y1Ncfnb0GnnsHdHoQ9m9vZwJTpO4RM/z7NLrquIjRREQf0G/c48
-	AKV8Frjrale8Z1dHRie5em5v+Cyb4aZTMarxhNG7sd+pUoGuG5eSGCLDqkhbPcAX
-	4legnvQlpS/6/IPix8KBRzNPjWLSLZE5faBMbKsyYrzQhq24hWa8WSaRNd1EpQlt
-	b3hIL5Umt9GsLT1tx4Q2PIgeVLj17rgEqAPvbSWIY92FoAZZ4lT+WnxzZkTwLBYt
-	OE+YQg==
-Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g1k1r1u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:12:34 +0000 (GMT)
-Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5ee4ca14454so83747e0c.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:12:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HSDIN/qx
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b50a4bd2f3so4923894c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:12:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795443154; x=1796047954; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=;
-        b=SHMSnGwTOnxggiRKitcgnBYeAevLrf8cxCOiDJdVwq02PZDCKZr1VUW6BynTpvosNi
-         eSiuhBHAPF22cTQgeD13FsONftVknHPz0sWH8o8tYAx2m+HWWf0nczPvGZDURpc+F1VO
-         ggkVgMPuQYKM04e+bmNSr7O2WLZXzjmziqwF7kGRqsklxU18rN9bv1tPRl5tll0NdyGj
-         AuxMtNyoyjHJmBybiIZ833YQXaYPQySxe4kSHhXKOcM4fiM5cDS9R0Q6o5+In7h07BVF
-         1DU7ldH6FdQrwTfjjIPvL5PisnfI/APB0EgTb1ChtXEayrntmv5THyCVR/puKqN/DWXt
-         cSFg==
+        d=gmail.com; s=20260707; t=1795443161; x=1796047961; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FpQteIPOJ7jso2isVNK/FXoPVqd5TxYTuttF9zGO1yA=;
+        b=HSDIN/qxhXjIe8cpCe89tmnGrEkq/g67ziZZmU9iYOrYOh8IF5sUmzhBx+5YJP1wDM
+         f6Ut/vhOK71Vib7hIAvZxFVaDViu80YZrsA9EZJJEnW3+YaEJPT2ContZLY24lpR2SxN
+         QTvzTWO8r1i3mMO8SzY41qYfMuhHGnX+LxVi63vXhkJSCeBixtwQylAyvfS6zpmPxMO+
+         h3h1ALkFm5mP1ylfVejUswRjCOD+Flu8f+wcxbPSV00bKOYKZDznMCpsfwxmn3HVe/B9
+         53/KwBCt/xCPmR7d6yQsPCiSGcVyVstJNVCqsKCFJ9vZ9KB1jpjFBTOmr5rRTxRd0R9B
+         6gqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795443154; x=1796047954;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795443161; x=1796047961;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fq75inYXxrYikV0Ezj7Q8lFn8dabO3zvGhweT2/V8MA=;
-        b=kEAZieK5VUxJZmALIhon0cKlU4KpJ44lXdLg+a88C2CeRuaGc+xSHhAhiTsNxpDx8N
-         QpCEpEwix/hK3zHWUZVksVoRufeW1GVX9CWBxvbMW7NGv4iz3Dq13MH2pfgA5Jj+foiT
-         Tl7YYG8O1kf/Xb0U8Lb3tvKp6DeLut4TwRhM+dB3V9WpaM5OhCArn5QgZY1RK5zElzJg
-         coJNxG2HWLKI1rA/DePHiaInIczR7eGJCPgjtiOXATD/Q+nbsPULd6ER4pUGcto/jUFB
-         tmT8luZKh8U0q+XUhUjmSzYzfasm6VzZu0UZoWRAq9euEqvOXiS//+AWYdc4yIs1hR5f
-         NNAg==
-X-Forwarded-Encrypted: i=1; AL+hErGt1Pn6iTHMQm0DZzuHhBSv7/Y5I1eGbu+U2CkaJvqq2ZZsRqY2xQBKkBO9Nr6fYShJi1uYfYcxJO5vOjc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9C/yQ+ajlC6XsibKI6gS4RpI6LT4enp42RzzEBBvVH9+EzPucL
-	CX+j3vk50979g/fWgA7M7i+F8+rP4yicYbNbQr4ETtIGqfbI2SV4NtpfMNguUMPehF3VJz8cyPz
-	sKFZCMxeZitfJS6/vOnI6FFh6mSv1WUueMycvELwygsaCSuvgWMCqo90z9zencXBkb+o=
-X-Gm-Gg: AZFdTZfVFjxe9XJXBHo/TxxSQ1SyhCo4EP5mUZWXHZUANzT786+IT1Q/NCq5+S+EQsN
-	npFgTa3auOdtNkgPx7Ec2gs2jwPQJGtvuhytKiYxXqtBHYeQMOejYPsC/hzfYMoAoFwetSAJ34W
-	+lMUxeHJ4gye9w/HioHnNeIfQY1VeWmhu11s3ITNcK/9xKx0r9pOThW1vnAFstvlTalmgMdV+Kz
-	9SL76rEKmWH+ChDonKnBEFbxE25Ga7eebxUVzcEfw5A5/V0o1mrKgRFgC93kNtvAveNHffy/ks1
-	7j6obp8ZLvW/Er+CjrZGKGbzr4AMvINwtvs/DcMTlXy05pMGcqTsEQMXrIO9EPIV67kYINz5I4c
-	z2kZP/MOYTwPBgi9bxcK86EdEnnEYpV6+U0DFPcjPpH0zb1LYD1czu6Wb+/NH+jTyZNju3MY=
-X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr6901113e0c.4.1795443154228;
-        Mon, 23 Nov 2026 06:12:34 -0800 (PST)
-X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr6901052e0c.4.1795443153673;
-        Mon, 23 Nov 2026 06:12:33 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc73d3sm409929066b.64.2026.11.23.06.12.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 06:12:32 -0800 (PST)
-Message-ID: <f151aad4-4642-4e71-aa25-3811d29052cb@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 15:12:31 +0100
+        bh=FpQteIPOJ7jso2isVNK/FXoPVqd5TxYTuttF9zGO1yA=;
+        b=WOboRW1RwT0TkfYLnBy5UpGqirAXbZq8r7k+D2zarpunAEGHbhPAKCCGd+hyzv7B6b
+         CRtlWSYqIMCy9PJjwHCA8fTnO+hMK2knjb2ZN9CAFhMXv4JPmQGkxP+91NqXj3jAf3SO
+         2tJTa6nOBlqcQElNYSDx/TrCO5xlUmRn81tRmpRIwayMzG9ZNbjC/6FJQTDj+40zNxJb
+         no1ZGPe8koyzmDlZsELKWlNCBNVOGFQBCs1Je8+Oar+39IWVQ7HK/sVSfI80KU0el8rr
+         /iquW5w3IK9SssD/PgU8Br4Jh67zMBHS0XAVKBoWqrvY46i652G8ZQ4QaQ1OfMghaGSp
+         TbWA==
+X-Forwarded-Encrypted: i=1; AL+hErGt20QaPSIce3ZMX3XYewL86UqEfVZ/P5eXSBIaBKR1JKpvisnTDhX8alvo5E0w1ntZfRZValPyNv8WN30=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PFdIqPdrrs1FFZMW+NSka6Gq60cCPgk/x1X5kxIAwUxkYnmRz
+	i2Nn0LyL4UiBshTi0Vugkz10dtq4kAocE/HL+87LWzjrJxPtxtM5GO1A
+X-Gm-Gg: AZFdTZcD76/RljrdxdqOyYqcGn9itBhLCartDj8fNO4faXcAcmJ5zFvUrwGjbqigtry
+	FZ+/ghi/S1L5w8R76UYaAf3W29TSS9jmkGpupw7xmJbuy2ikSfwdtMG8eZMHQ3g2tueTz24qZBg
+	OGVDZgz62z2jTL/ttQZT2GGhNZuo/pgi3rWQqIgQgmTzVc/ffTV60TkSYYyKfGMSbTpUjIzy/ir
+	X+0AKnkET4nMuQ7lYNskw2PTtD5/tfCDhB9LOUYnuG3g+e4HBL1F5n8Iz0H+aHLtNcPSpLlc1+H
+	MV3rklaZt95ELEQPdj965STUCevIWD4QkCaBO9OYB29dBOQP7iHmYVHfi3/1hoWSnR/kNLjaVSI
+	YFxbbw1DJZ8jmznaSyoodfySvOLGFE83FoZg4xXYsblaEt6xpSDhNAKpdhUk1/i6sdve6d4HJcg
+	qqsvC9aYgKutLo1qCES2pkiU+9sW1OHuMr3KQqCoGhuYMcm1/r6H4OCLIwHpJwsuXiwmo5Y4puk
+	Z8COB8mjemWSU8diwh0GFHcDd/dQl0eBsuWpiyj3/aIJ4pJxGW6cFqMsR/gbHXU6T2pDx4VerE/
+	RMI7qwdBt054ITcpV5pjxXowzdEH6U6nKOf5pOpwODTl8kdJKw==
+X-Received: by 2002:a05:701b:42d1:20b0:1af:d88f:fc51 with SMTP id a92af1059eb24-1b5568edb1dmr12692628c88.30.1795443161493;
+        Mon, 23 Nov 2026 06:12:41 -0800 (PST)
+Received: from localhost.localdomain ([112.170.44.210])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm35997230eec.15.2026.11.23.06.12.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 06:12:40 -0800 (PST)
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+To: Miklos Szeredi <miklos@szeredi.hu>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>,
+	Joanne Koong <joannelkoong@gmail.com>,
+	Bernd Schubert <bernd@bsbernd.com>,
+	Dharmendra Singh <dsingh@ddn.com>,
+	Amir Goldstein <amir73il@gmail.com>,
+	fuse-devel@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH 6.12.y] fuse: fix fuse_set_nowrite() race with parallel direct writes
+Date: Mon, 23 Nov 2026 23:12:34 +0900
+Message-ID: <20261123141235.2477526-1-graypanda.inzag@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,55 +102,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] MAINTAINERS: Drop David as Qualcomm SPMI PMIC Arbiter
- co-maintainer
-To: Abel Vesa <abel.vesa@oss.qualcomm.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: David Collins <david.collins@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261123-spmi-pmic-arb-drop-david-v1-1-c6be14d9d22d@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261123-spmi-pmic-arb-drop-david-v1-1-c6be14d9d22d@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1NiBTYWx0ZWRfX5vEAXS5MLn+b
- Ris0HVjd3/LMGrTiIOumgASar46VDc6S+2zw0R/NtermJWH8daS55vfSc+nAgQkPFQyzYeEhI0X
- T5aCxRRY/YbsbyfZQtbWj0A+fIeu0rU=
-X-Proofpoint-GUID: Fy2p7bTZryXOfoQyM5qGZPtghb1NYQrg
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1NiBTYWx0ZWRfX946kkec6BsPM
- 0AeoWpRpOct1eIn4bckI0vv4drsE5iwBVt3OTREEy9kReU8AFWv6jjPPxaoWShoyf7dIHY4Ee0K
- HdySxgtkFUn35s8lQKaHts+YyRHeUsR0o0EXDnxvaIivRpwCl0Cn4Nxra+cPqXJZZqnmYvebo0y
- B3BX0/H2XnL8l0Y/q0oUdcN3TIHPcvaQ3EJE0nKQ+wyX1umn3+hngHSykUquz7HGCRIRCCIXK9O
- o561StJkyCyzBoUdb/zfZbLapj6dBLBW85cF8P/4iRH+GWNVxDrFZ03BcN+KHJ4kr/NsjVOrWJF
- ehcgsBxLoIjyt3AzqQkuEurkBugFBDdU4Fw7VYfvy42VrhCQsVyxUBgqj7eVJ85VpUj4gwakaoP
- ELFxCkZ/pZWYCgw5QsRUt6MeMOm3wji5vTRW2m0BiNuObMYTLZGC/FpjzPdLrjjnwQ0nLPvi2LO
- N5aGGGHz+0exJQ6X9FA==
-X-Proofpoint-ORIG-GUID: Fy2p7bTZryXOfoQyM5qGZPtghb1NYQrg
-X-Authority-Analysis: v=2.4 cv=cpIOAF4i c=1 sm=1 tr=0 ts=6b0449d2 cx=c_pps
- a=wuOIiItHwq1biOnFUQQHKA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=q1OLuhYBDE6bPA1skz0A:9 a=QEXdDO2ut3YA:10
- a=XD7yVLdPMpWraOa8Un9W:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 adultscore=0 impostorscore=0 suspectscore=0
- bulkscore=0 spamscore=0 clxscore=1015 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230056
+Content-Transfer-Encoding: 8bit
 
-On 11/23/26 9:37 AM, Abel Vesa wrote:
-> David has expressed his intention of stepping down as co-maintainer of
-> the Qualcomm SPMI PMIC Arbiter driver.
-> 
-> Remove his email from the entry.
-> 
-> Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> ---
+In 6.12.y, queuing a FUSE_WRITE_CACHE request clears folio writeback
+immediately while keeping the request in fi->writepages until the
+daemon replies. Cached writepage requests can outlive the cached file
+handle in two ways: if write_inode_now() fails in fuse_flush(), it
+returns early before calling fuse_sync_writes(); and if a file is
+mapped with mmap() and closed while clean, final unmapping drops the
+last file reference via fuse_release() without calling fuse_flush().
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Once the cached file is released, FOPEN_PARALLEL_DIRECT_WRITES allows
+concurrent direct writes under inode_lock_shared(). If a request is
+still pending in fi->writepages, two direct writers can both enter
+fuse_set_nowrite(). The first sets FUSE_NOWRITE (making fi->writectr
+negative) and waits on fi->page_waitq; the second sees fi->writectr < 0
+and hits BUG_ON(fi->writectr < 0).
 
-Konrad
+Fix this by waiting on fi->page_waitq in fuse_set_nowrite() while
+fi->writectr < 0 before setting FUSE_NOWRITE, and waking waiters in
+fuse_release_nowrite(). Also still run fuse_sync_writes() in
+fuse_flush() when write_inode_now() returns an error so close() drains
+in-flight writes before returning the error.
+
+Mainline is unaffected since commit 0c58a97f919c ("fuse: remove tmp
+folio for writebacks and internal rb tree") removed fi->writepages and
+keeps folio writeback active until the daemon replies. Fix the ordering
+directly in 6.12.y rather than backporting that larger rework.
+
+This bug was found with an in-house LLM-based tool, and the root cause,
+reproducers, and fix were manually verified by the authors.
+
+Fixes: 153524053bbb ("fuse: allow non-extending parallel direct writes on the same file")
+Cc: stable@vger.kernel.org
+Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+---
+Tested on v6.12.116 with KASAN in a 2-vCPU QEMU guest using an
+unprivileged FUSE daemon (UID 1000 via fusermount3). Verified against
+both C reproducers (FUSE_SETATTR -EIO on close, and dirty mmap
+followed by munmap after clean close), which previously triggered
+BUG_ON(fi->writectr < 0) and now complete cleanly without BUG or KASAN
+reports. Standalone reproducers are available on request.
+
+The patch also applies cleanly to linux-6.6.y (5139929c698c), though
+6.6.y was not runtime-tested.
+
+ fs/fuse/dir.c  | 10 ++++++++--
+ fs/fuse/file.c |  5 +++--
+ 2 files changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/fs/fuse/dir.c b/fs/fuse/dir.c
+index 45cbe0cb2..54b9138fa 100644
+--- a/fs/fuse/dir.c
++++ b/fs/fuse/dir.c
+@@ -1821,8 +1821,13 @@ void fuse_set_nowrite(struct inode *inode)
+ 
+ 	BUG_ON(!inode_is_locked(inode));
+ 
+-	spin_lock(&fi->lock);
+-	BUG_ON(fi->writectr < 0);
++	for (;;) {
++		spin_lock(&fi->lock);
++		if (fi->writectr >= 0)
++			break;
++		spin_unlock(&fi->lock);
++		wait_event(fi->page_waitq, READ_ONCE(fi->writectr) >= 0);
++	}
+ 	fi->writectr += FUSE_NOWRITE;
+ 	spin_unlock(&fi->lock);
+ 	wait_event(fi->page_waitq, fi->writectr == FUSE_NOWRITE);
+@@ -1850,6 +1855,7 @@ void fuse_release_nowrite(struct inode *inode)
+ 	spin_lock(&fi->lock);
+ 	__fuse_release_nowrite(inode);
+ 	spin_unlock(&fi->lock);
++	wake_up(&fi->page_waitq);
+ }
+ 
+ static void fuse_setattr_fill(struct fuse_conn *fc, struct fuse_args *args,
+diff --git a/fs/fuse/file.c b/fs/fuse/file.c
+index 33ba8ae3b..5e01dd2b7 100644
+--- a/fs/fuse/file.c
++++ b/fs/fuse/file.c
+@@ -538,13 +538,14 @@ static int fuse_flush(struct file *file, fl_owner_t id)
+ 		return 0;
+ 
+ 	err = write_inode_now(inode, 1);
+-	if (err)
+-		return err;
+ 
+ 	inode_lock(inode);
+ 	fuse_sync_writes(inode);
+ 	inode_unlock(inode);
+ 
++	if (err)
++		return err;
++
+ 	err = filemap_check_errors(file->f_mapping);
+ 	if (err)
+ 		return err;
+
+base-commit: 5c40a1750f44dd6c7292d8c8d0b4ffff1734576e
+-- 
+2.43.0
+
