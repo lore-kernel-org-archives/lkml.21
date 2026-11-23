@@ -1,113 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.58
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795428560;
-	b=E70JATNb6QPjMA1niKshxSpziV4otwsJwVwQDGI6DZWy5wXOZ2xoZ8idNa+QhWERvSsk
-	 hb/taXFw8qJavGQrFe08/I0re+FOkJ6c2X/HI26CJSZaZ3u2iZAprf2P2hZaG37ToXrbz
-	 ceeyIYMtLUif5rVLy8FugGjSTvVAdE3buLArBylcBqtoZ/bNkdJXE2HgHl19XfHGdqKVt
-	 oMNRTTSTMsVdBOfi4yq7lO8A2L5DApHqx2+yST2fLNspgjo3SvyBqSR/89mPMDDgzdCwI
-	 91mo78skqxguK09Puc5a/stKolGOIFG9VnhAfQpYF3Mr5YpDlwNjfb3kUfS88ck9tbQ==
+	b=xKeXcKBXj6hExiCg3eqvoTKN0zkmLeE4FNpfycjXuUeCmgH3kOKrV/4Nx0A5KufrI5oH
+	 KaIgMQZofoBRK8yEGXmxj3ZmTlCCsQLqPSeM4hU8Vtbyy7HPZ3tbL9l6pE6okiuVLY9Uo
+	 lB4cpeCZNOhqHaAHcpVrJMnfdPxEREH0ot5yhT2WH/MKPFoqRLU3tzDtFcDQWrxnEkPOp
+	 Kxc/KxV0k7VTXXA/++i1g+uAZuNIjAcLomEVBeKXyhh6r9lMy5i8/QSgo4BhmvZdDgOLw
+	 AcHNY6a7aUMwXqs3pZIircgPQk7I28hg4GXtihO47qYbtPAvDBGntGf4ZS4W+6yxCdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795428560;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Spam-Flag:X-Spam-Level:
-	 X-Spamd-Result:X-Spam-Score;
-	bh=z5RA0mOOGtppCNR+TVlNNlu921LghCrTQ8okbAGwxMs=;
-	b=B7DjYtAvSWGube2p6ceGV5hPPB5lHmvBqoKZPEop+h9yBKTdiW1eb2S3cfMX99B45HZF
-	 6HE1f/Nm40YVwx+fqCk+H7tIb+35toTniV+FeIJ4OcZ7PWA/qAmV9tNieNmWWn/ldeM8j
-	 TK9K5fbNhDAsihilRphBzahijKBbvhUU2eG9lCtu0+uQtq2kEKRkv1mv4P3i2o8hftxJB
-	 mrvPb7p70blaDyrkwO5ioF/HFsrE7IcCLIOh6vg6p4sIq1T+CzG6Q4YWYl2OPfihzEVq0
-	 FQ5Xo2791qqbHKlgi8nDPBNliOANeI5L2qKm5AJHkgYcCYUQRtPg+SEiGw9Tw+/2rsQ==
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=UzDd0SmU9JGmt2OnzA2QPSIsnM/OhlSQ1LdpomQPeVc=;
+	b=uI4yzOSVWuKrEG6z2ANO1NNqlRvmrrvwKMqeOP0jgSwCl4EE1WuEYMqCWZNibt6BnYwU
+	 Nw9Jeh289js0tOu/cRdI5+yJMm4sb8t9Aurz47tw38vqfSGhuAT4D2Nr3q5lmpYLbKmdH
+	 /Y2U6SzJraBQHus7rTmCoWvf2IQjWuE8a+jCCCkB+mt6/qt8NiUYMRLR0a6LRGPRpb2DI
+	 nuLNaiDN2OH0knJ90K9zbe4vEg7GC8NLh8wsVo+ISH3C4edGDcj3fS8SU43w4iVzca6T/
+	 uTlEJUT7k487Rmfq+PK+VcEEQP/6sr1CoD/VFSpcl2OeCNDKBYOXyG/XkkRDioX1e2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=XCZYujhF;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZDOJqc8S;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=XCZYujhF;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZDOJqc8S;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="Jru3OlO/";
+	arc=none smtp.remote-ip=95.215.58.58
+Received: from mta1.migadu.com (out-58.mta1.migadu.com [95.215.58.58])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FBDA606A332;
-	Mon, 23 Nov 2026 10:09:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FBDA606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06554606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:09:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06554606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=XCZYujhF;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZDOJqc8S;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=XCZYujhF;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ZDOJqc8S
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 476CC21A56;
-	Mon, 23 Nov 2026 10:09:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795428557; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z5RA0mOOGtppCNR+TVlNNlu921LghCrTQ8okbAGwxMs=;
-	b=XCZYujhF1/u67sD75nsaLlMVWT1O5wvOlA75vztF+a/XZPD49OmUe0BVR8BtcUwLAHZJ49
-	mCclSK/7nyMAkLtcTRRT5YUiQvTRhUHfAAzJoHg5vKvbBb40W71PSXS2SUsaGmr3KMkBNk
-	FJiLdjmhXGMakfPFhnQEtD9QhOOFhpo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795428557;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z5RA0mOOGtppCNR+TVlNNlu921LghCrTQ8okbAGwxMs=;
-	b=ZDOJqc8SXIRtuXDPii/vNDDzkoa7Yfhc47xbAPRlYJ6Z7sSy1mweM8uqhbh+V8bFawqs7c
-	ilbI8geG9h7+6yCg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795428557; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z5RA0mOOGtppCNR+TVlNNlu921LghCrTQ8okbAGwxMs=;
-	b=XCZYujhF1/u67sD75nsaLlMVWT1O5wvOlA75vztF+a/XZPD49OmUe0BVR8BtcUwLAHZJ49
-	mCclSK/7nyMAkLtcTRRT5YUiQvTRhUHfAAzJoHg5vKvbBb40W71PSXS2SUsaGmr3KMkBNk
-	FJiLdjmhXGMakfPFhnQEtD9QhOOFhpo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795428557;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z5RA0mOOGtppCNR+TVlNNlu921LghCrTQ8okbAGwxMs=;
-	b=ZDOJqc8SXIRtuXDPii/vNDDzkoa7Yfhc47xbAPRlYJ6Z7sSy1mweM8uqhbh+V8bFawqs7c
-	ilbI8geG9h7+6yCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2199313510;
-	Mon, 23 Nov 2026 10:09:17 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id jXBqO8wQBGuwTAAAD6G6ig
-	(envelope-from <jack@suse.cz>); Mon, 23 Nov 2026 10:09:17 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id A214E2763B; Mon, 23 Nov 2026 11:09:12 +0100 (CET)
-Date: Mon, 23 Nov 2026 11:09:12 +0100
-From: Jan Kara <jack@suse.cz>
-To: =?utf-8?B?VG9tw6Fz?= Senart <ts@perfloop.ai>
-Cc: Theodore Ts'o <tytso@mit.edu>, Jan Kara <jack@suse.cz>, 
-	Harshad Shirwadkar <harshadshirwadkar@gmail.com>, linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] jbd2: fix fast commit recovery failure when the FC
- area is full
-Message-ID: <m3st5t7s3xzuuphid6lcd22mazxt6ibxp44by27qdog7qbdcd7@775azrq2yohj>
-References: <CAEEBa3XJt0XU+5pXNQz_tjZyPEeEnY67i_QGupOnHLnXB=BVDw@mail.gmail.com>
- <CAEEBa3Un8x208Ox=20TTmGgcmdMSTCC41fB7SWP7uuY1N3xLPw@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Jru3OlO/
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=GRIGe4MYSmcamc/GomLgN/fYZ1+yWn5x99Cm2Hh0m+E=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795428558; v=1; x=1796033358;
+ b=Jru3OlO/z+R3NejBwXkr8hkRHB/BKWS+1U+OwgEUdUccyR+NNCQrAo5cKRrXmxf5fVrn6S+z
+ aZyqB/fGRe5IVaEJrGmvujjodfRBnM86rYUW2Dx6IgmmkMRsHo48ZG6TcpRYv6GvXhJ+CEhfGPg
+ rtg8C2CDk1Lyh1NOhVTguV8c=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 7fd23bef945703c4;
+	Mon, 23 Nov 2026 10:09:17 +0000
+X-Mizu-Trace-ID: 7fd23bef945703c4
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 18:09:08 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Andrea Mayer <andrea.mayer@uniroma2.it>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Hangbin Liu <liuhangbin@kylinos.cn>,
+	Stefano Salsano <stefano.salsano@uniroma2.it>,
+	Justin Iurman <justin.iurman@gmail.com>,
+	Andrea Mayer <andrea@common-net.org>
+Subject: Re: [PATCH net-next v4 5/5] selftests: seg6: add PSP flavor testing
+ for SRv6 End.X
+Message-ID: <20261123100908.GA11364@Liu-laptop>
+References: <20261119-srv6_flavors_endx-v4-0-284cdb484eee@kylinos.cn>
+ <20261119-srv6_flavors_endx-v4-5-284cdb484eee@kylinos.cn>
+ <20261123050952.21dc46abdf5fe4fa235bb68d@uniroma2.it>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,145 +74,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEEBa3Un8x208Ox=20TTmGgcmdMSTCC41fB7SWP7uuY1N3xLPw@mail.gmail.com>
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_THREE(0.00)[3];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[mit.edu,suse.cz,gmail.com,vger.kernel.org];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.80
+In-Reply-To: <20261123050952.21dc46abdf5fe4fa235bb68d@uniroma2.it>
 
-On Sat 21-11-26 04:14:05, Tomás Senart wrote:
-> jbd2_journal_load() sets j_fc_last to s_maxlen, which is the first block
-> past the end of the journal, and jbd2_fc_get_buf() never hands out a
-> block at or beyond j_fc_last.  The recovery loop in fc_do_one_pass()
-> nevertheless runs while next_fc_block <= j_fc_last.  If ordinary fsync
-> use has filled every usable fast commit block before the next full
-> commit, recovery reads one block past the journal and jread() fails
-> with -EFSCORRUPTED ("JBD2: corrupted journal superblock").  The
-> filesystem then fails to mount after a crash until e2fsck is run.
-> 
-> Stop the loop at j_fc_last.
-> 
-> That alone is not enough.  ext4_fc_replay() calls
-> ext4_fc_set_bitmaps_and_counters() only when it is called again after
-> fc_replay_num_tags has reached zero.  A TAIL tag always ends its block,
-> so the call that handles the last tag returns JBD2_FC_REPLAY_CONTINUE
-> and the finishing call used to come from the next block.  When the last
-> fast commit block is the last block of the journal there is no next
-> call, ext4_fc_replay_inode() has already cleared the inode's blocks in
-> the bitmap and e2fsck reports a block bitmap difference.  Do the
-> finishing step in the same call that consumes the last tag, and drop
-> the in-loop copy, which would otherwise run it twice.
-> 
-> Reproduced in User-Mode Linux with 1 KiB blocks (mke2fs -J size=8,
-> 63 usable fast commit blocks) and 4 KiB blocks (default journal, 15
-> usable blocks): with the fast commit area exactly full the unpatched
-> kernel fails the mount, and with one block fewer it recovers.  With this
-> patch mount succeeds, the file has all fast committed data, and
-> e2fsck -fn exits 0 with no differences after recovery, for the full,
-> one-block-short and three-fast-commit cases at both block sizes.
-> 
-> This bug was found with Perfloop, an automated code analysis tool. The
-> fix, this message and the reproducer were written with AI assistance and
-> reviewed by me.
-> 
-> Fixes: 5b849b5f96b4 ("jbd2: fast commit recovery path")
-> Fixes: 8016e29f4362 ("ext4: fast commit recovery path")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Tomás Senart <ts@perfloop.ai>
+Hi Andrea,
 
-Looks good. Feel free to add:
+Thanks a lot for you detailed review. I will fix all of them in next version.
+I just have some questions about a few comments.
 
-Reviewed-by: Jan Kara <jack@suse.cz>
+On Mon, Nov 23, 2026 at 05:09:52AM +0100, Andrea Mayer wrote:
+> > [snip]
+> > +# Given the description of a router as an input, the function returns its
+> > +# adjacent route id, or 0 if a host adjacent.
+> > +# i.e. input: "1", output: ""
+> > +#      input: "1>2", output: "2"
+> > +#      input: "1>h", output: "0"
+> > +__get_srv6_adjacent_id()
+> > +{
+> > +	local adjacent="${1#*>}"
+> > +
+> > +	[[ "${adjacent}" == "${1}" ]] && return
+> > +	[[ "${adjacent}" == "h" ]] && adjacent=0
+> 
+> Nit, a style preference: I would use if blocks here, as in the rest
+> of the selftest. With cut -s -d'>' -f2, this function could also read
+> the ">" as you already do in __get_srv6_node_id().
 
-								Honza
+I plan to use
 
-> ---
-> v2:
-> - Please do not apply v1. v1 only changed the loop bound. As the
->   Sashiko review pointed out, a full fast commit area then mounts but
->   skips ext4_fc_set_bitmaps_and_counters(), and e2fsck -fn reports
->   "Block bitmap differences: +2113" (4 KiB) and "+32769" (1 KiB) after
->   recovery. ext4_fc_replay() now finishes the replay in the call that
->   consumes the last tag.
-> - The reproducer now runs e2fsck -fn after recovery.
+	echo "${element}" | cut -s -d'>' -f2 | sed 's/h/0/'
+
 > 
-> Tested on torvalds master 65e4fd942f72a9dba0e4e257290c4fa1aa756854,
-> under User-Mode Linux only, with one journal size per block size, and
-> only with INODE fast commit tags (no create, link or range tags).
+> > [snip]
+> > @@ -819,33 +964,44 @@ __setup_rt_policy()
+> >  	local function
+> >  	local op_type
+> >  	local node
+> > +	local act
+> > +	local sid
+> >  	local n
+> >  
+> >  	in_nsname="$(get_rtname "${encap_rt}")"
+> >  
+> >  	for n in ${policy_rts}; do
+> > +		# Abort if policy format is incorrect:
+> > +		# 1. "1>h:psp" that has ">" but not "End.X"
+> > +		# 2. "1:psp:End.X" that has "End.X" but no ">"
+> > +		if [[ "${n}" == *">"* && "${n}" != *"End.X"* ]] || \
+> > +			[[ "${n}" != *">"* && "${n}" == *"End.X"* ]]; then
+> > +			echo "Incorrect operation format: ${n}" && false
+> > +		fi
 > 
->  fs/ext4/fast_commit.c | 9 +++++----
->  fs/jbd2/recovery.c    | 2 +-
->  2 files changed, 6 insertions(+), 5 deletions(-)
+> The check is there, but ret is not set. With "1>h:psp", the End tests
+> pass and then the run ends as SKIP:
 > 
-> diff --git a/fs/ext4/fast_commit.c b/fs/ext4/fast_commit.c
-> index 0cac890cf370..5d9b95817ac6 100644
-> --- a/fs/ext4/fast_commit.c
-> +++ b/fs/ext4/fast_commit.c
-> @@ -2608,11 +2608,8 @@ static int ext4_fc_replay(journal_t *journal,
-> struct buffer_head *bh,
->  		ext4_fc_get_tl(&tl, cur);
->  		val = cur + EXT4_FC_TAG_BASE_LEN;
+>     Incorrect operation format: 1>h:psp
+>     SKIP: Setting up the testing environment failed
 > 
-> -		if (state->fc_replay_num_tags == 0) {
-> -			ret = JBD2_FC_REPLAY_STOP;
-> -			ext4_fc_set_bitmaps_and_counters(sb);
-> +		if (state->fc_replay_num_tags == 0)
->  			break;
-> -		}
+> Could it set ret to ksft_fail? Also, the check looks at the element as
+> a whole, while the parameter and the nh6 are computed for each node.
+> For example, "4>2,2:next-csid,psp:End.X" passes it although the node
+> "2" has no adjacency, and the setup then fails in ip, on the nh6. A
+> function that checks each node, called in place of this check, would
+> cover both:
 > 
->  		ext4_debug("Replay phase, tag:%s\n", tag2str(tl.fc_tag));
->  		state->fc_replay_num_tags--;
-> @@ -2656,6 +2653,10 @@ static int ext4_fc_replay(journal_t *journal,
-> struct buffer_head *bh,
->  			break;
->  		ret = JBD2_FC_REPLAY_CONTINUE;
->  	}
-> +	if (ret >= 0 && state->fc_replay_num_tags == 0) {
-> +		ext4_fc_set_bitmaps_and_counters(sb);
-> +		ret = JBD2_FC_REPLAY_STOP;
-> +	}
->  	return ret;
->  }
+> 	if ! __check_srv6_rtcfg "${n}"; then
+> 		ret="${ksft_fail}"
+> 		return 1
+> 	fi
 > 
-> diff --git a/fs/jbd2/recovery.c b/fs/jbd2/recovery.c
-> index cac8c2cd4a92..a59de33a2a4a 100644
-> --- a/fs/jbd2/recovery.c
-> +++ b/fs/jbd2/recovery.c
-> @@ -242,7 +242,7 @@ static int fc_do_one_pass(journal_t *journal,
->  	if (!journal->j_fc_replay_callback)
->  		return 0;
+> It would take the nodes and the behavior from the parsers that
+> __setup_rt_policy() already uses, not from the text of the element.
+> Just as an idea, something like this in __check_srv6_rtcfg():
 > 
-> -	while (next_fc_block <= journal->j_fc_last) {
-> +	while (next_fc_block < journal->j_fc_last) {
->  		jbd2_debug(3, "Fast commit replay: next block %ld\n",
->  			  next_fc_block);
->  		err = jread(&bh, journal, next_fc_block);
-> -- 
-> 2.55.0
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+> 	nodes="$(__get_srv6_rtcfg_id "${element}")"
+> 	op_type="$(__get_srv6_rtcfg_op "${element}")"
+> 	act="$(__get_srv6_rtcfg_act "${element}")"
+> 
+> 	if ! op_has_next_csid "${op_type}" && \
+> 	   echo "${nodes}" | grep -q ","; then
+> 		echo "${element}: only NEXT-C-SID takes more than one node"
+> 		return 1
+> 	fi
+> 
+> 	for node in $(echo "${nodes}" | sed 's/,/ /g'); do
+> 		rt="$(__get_srv6_node_id "${node}")"
+> 		param="$(__get_srv6_param "${act}" "${node}")"
+> 
+> 		case "${act}" in
+> 		"End")
+> 			if [ "${node}" != "${rt}" ]; then
+> 				echo "${element}: End takes no parameter"
+> 				return 1
+> 			fi
+> 			;;
+> 		"End.X")
+> 			if [ -z "${param}" ]; then
+> 				echo "${element}: End.X needs an adjacency"
+> 				return 1
+> 			fi
+> 			;;
+
+This check seems not enough with error config like "4>2h:psp:End.X".
+Should we limit the param to 0-4?
+
+> 		esac
+> 	done
+> 
+> IMO a case per behavior would also make End.T easier to add, both for
+> the flavor core that your 1/5 mentions for End.X/T and for NEXT-C-SID,
+> which I am working on.
+> 
+> > [snip]
+> > @@ -1031,6 +1187,25 @@ setup_end_flv_psp()
+> >  	SETUP_ERR=0
+> >  }
+> >  
+> > +setup_endx_flv_psp()
+> > +{
+> > +	SETUP_ERR=1
+> > +
+> > +	setup_hs_lo_addr 1 1 "${ENDX_CSID_PSP_FUNC}"
+> > +	setup_hs_lo_addr 2 2 "${ENDX_CSID_PSP_FUNC}"
+> > +
+> > +	# The same SRv6 policies with setup_end_flv_psp except using End.X
+> > +	setup_rt_policy_ipv6 2 1 "3>4:noflv:End.X 4>2:psp:End.X 2>h:psp:End.X"
+> > +	setup_rt_policy_ipv6 1 2 "1>h:psp:End.X"
+> > +
+> > +	setup_rt_policy_ipv6 "2:${ENDX_CSID_PSP_FUNC}" 1 \
+> > +		"3>4:next-csid,psp:End.X 4>2,2>h:next-csid,psp:End.X"
+> > +	setup_rt_policy_ipv6 "1:${ENDX_CSID_PSP_FUNC}" 2 \
+> > +		"4>3,3>1,1>h:next-csid,psp:End.X"
+> > +
+> > +	SETUP_ERR=0
+> > +}
+> 
+> On v3, Sashiko asked whether the End.X tests would pass with End.X
+> working as End. In this topology, the nh6 of each End.X is also the
+> next hop that a lookup of the new DA gives, and the tests pass in both
+> cases. An unreachable route in table 90 for the next SID, on rt-4 for
+> (i.a) and on rt-3 for (i.c), would make End fail and leave End.X
+> working. This is close to what Sashiko suggested on v3. What do you
+> think about adding these two routes to the End.X scenario, each with
+> its defer?
+
+Hmm, we add the SIDs with End.X action, and the address also has parameters.
+e.g. for (1.a) we add fcff:4::2af1, which unreachable route should we add
+then? Cause we don't use fcff:2::ef1 at all.
+
+BTW, is there any reason we add the unreachable route on rt-4 for (i.a) and on
+rt-3 for (i.c)? In the consumed SRH testing, we can only add the extra on
+ingress route. e.g.
+
+#   (i.a) hs-1 -> hs-2: on the packets with DA=fcff:3::400a, rt-1 inserts the   
+#         extra SRH with SID List=fcff:4::e,fcff:3::400a, and rt-4 consumes
+#         it. 
+#         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2        
+#   (i.c) hs-1 -> hs-2: on the packets with DA=fcbb:0:34a9::, rt-1 inserts the  
+#         extra SRH with SID List=fcff:4::e,fcbb:0:34a9::, and rt-4 consumes
+#         it.
+#         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2  
+
+Which means we need the end action on rt-4.
+
+> 
+> > [snip]
+> >  test_kernel_supp_or_ksft_skip()
+> > [snip]
+> >  	if ! ip -netns "${test_netns}" -6 route \
+> >  		add "${IPv6_TESTS_ADDR}" encap seg6local \
+> > -		action End flavors "${flavor}" dev "${DUMMY_DEVNAME}"; then
+> > -		echo "SKIP: ${flavor} flavor not supported in kernel"
+> > +		"${policy[@]}" dev "${DUMMY_DEVNAME}"; then
+> > +		echo "SKIP: ${action} flavor ${flavor} not supported in kernel"
+> 
+> A note on this probe. On older kernels this add can succeed without
+> the flavor, and the tests then fail instead of being skipped. This
+> happens with End.X on v6.5, and with End on v6.0. I was thinking of
+> sending a separate patch that reads the route back, for the End and
+> the End.X probe. There is no need to wait for it. Does it work for
+> you?
+
+OK, I will add a checking for the added route.
+
+> 
+> > [snip]
+> > +if test_kernel_supp_or_ksft_skip End.X psp; then
+> > +	test_endx_flv
+> > +fi
+> 
+> When the probe finds no End.X PSP, the End.X tests do not show up in
+> the summary. The v4 skips only that scenario, as suggested on v3,
+> which is good. On my patch that added the consumed SRH tests, you
+> suggested to return at once when the srh match is missing. I kept the
+> check in each test because log_test_skipped() then logs each test and
+> counts it in "Tests skipped". IMHO the End.X scenario could do the
+> same, to be consistent. Does it sound reasonable to you?
+
+Sorry, I didn't get what you mean here. Do you want to run
+the check before each end.x testing and report skip one by one?
+
+e.g.
+
+	if test_kernel_supp_or_ksft_skip End.X psp; then
+        	host_srv6_end_flv_psp_tests "End.X"
+	else
+		echo "SKIP..."
+	fi
+
+	if test_kernel_supp_or_ksft_skip End.X psp; then
+	        host_srv6_end_flv_next_csid_psp_tests "End.X"
+	else
+		echo "SKIP..."
+	fi
+
+	if test_kernel_supp_or_ksft_skip End.X psp; then
+	        host_srv6_endx_flv_consumed_srh_tests
+	else
+		echo "SKIP..."
+	fi
+
+Thanks
+Hangbin
