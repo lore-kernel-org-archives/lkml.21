@@ -1,100 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.216.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795465298;
-	b=U/Fa7uHeTIGaBvUcL9Ca4Wv0ZUwy5JVhZyjFGzdKMRd9LeuE0hiY6GTUxX68r4L5C354
-	 MPdfFAI+7V+kLUsh1l59TE2nuTeY4bIbV6NvdBUMoJiCJUjj5FZjdWrgjIpi51tPKh32s
-	 QbSk5+W+WrcLvYOJi1ScoupZ/Gl14YHpFncez5GHn/XzDceTp9aGJAOe+ctLmaxvi7k2w
-	 DCpNymMRvPnBufIiQ+4D1QqSWDvAmnPBoCh3OjNNtWv5UQQsCJyjTGPyQwbiLOpJ3dkQd
-	 b7N46kJu/MjPyz586wDWWJaa29EOd8drymsO48RmMbiPCp/oOnt0hv216Giwl595W2A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795465298;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=LEUZIAOLddGL7x7aQvXVvqPgmEr8lXGuohw1ryERaEI=;
-	b=yxCVRhvWV9X+rUG20tAx+CMInOUzRQPvhnXxtRAPJxF67XbHZLVI6yPl77EqUxSEsnLf
-	 4kG0laoDam/Fsf//6VIp3r2i641Tf0A8+tP3GbmGhD0bgpV2bWBEcKuzDzay28oEqAL2i
-	 XXE50Hyho2cP20TDi1o4gmq681p4TEkrpjIil3eKLq42Vd8+2y1By3t+5wDMWSoD8tzzc
-	 AmvhEyyXQx/KX7AoQFnoHiY5MfhvsAwU5OAYae4H1ayry2Uppq4U44MO9xCblv3Fvqx0E
-	 DtG7JPWPGVCO7Gj4ZPUSLq6eC1i+Pj2Eh5Ta1mprIruaLKLNZZs3/5zCWnNIh0Ogq6A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paul-moore.com;
-	spf=pass smtp.mailfrom=paul-moore.com;
-	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=c2gq+laq;
-	arc=fail smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B954D606A326
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:21:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B954D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795465319;
+	b=IuQAQXPt4e5BWTPPLo1JD1RmYRfRf6mhA+R9PHvJqGexrFcBYGOlMMJjf710ZGod4ycA
+	 8S+5c6sgiJ3jpeEoaYYgovJ6y8pM1rlYXvxuxpnQjWj0AGeM6RTX/s20AoPBrREgyjOoa
+	 ctpRmnMaRTWkBZ1d6VmJKekRnr6W9GXgUFP40qCDQ/z7y5/3is9G41YXNO796DbJBKngC
+	 Pi+aOuSCRRLD/FxpNV9qDFiJR1nwWCs1Ls2U8ISLVTFJ5QPCHd2YX0CHhMbO9i9JSRVuv
+	 MisYkXDqNxWURyeGomw5W3ojirchBxeToPr6DNFflNLw3gx68TaNA0PPjWPjaOLXElQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795465319;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:Content-Language:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=h4UxKbAQLojN/KVPOr1a1a945ZltOlk934StUGkos6E=;
+	b=o50+fEdy53NV83vzOA+BlGkauQShxHrf/gJl051i9yRAPN5xvFh5dGYlK03pfOYw6RZg
+	 s87Yv5W4hk6XLF2KKh5KD0WWL5HhWEw/RwXDU6AaMtBH+fVu/Uo4m27/U6slTHeGoRS/e
+	 Zh16eL/9tiZUUwgHv7BKMda/5NIZRLs6lvjd6cp0ZBpuFhCVbmUiUprg/hPLQ4JO3Qic0
+	 QlO44qb3fMY5q7cb6KdxxZBmfm19gpyvwarQakewnsIuvl42gtBMurtiMCvYGran+HwHn
+	 PDtlVd6vdrZPtX9/3JsYVSA7jG6fIrxP2GVFuQtoiiPFKffwZBSsp1AMQEvyIz70YLw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HbwdiBoR;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9FABC606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:21:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FABC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=c2gq+laq
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b49a6e8212so745919a91.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:21:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795465297; cv=none;
-        d=google.com; s=arc-20260327;
-        b=M+1bGRpi//Rudjl+gYsY2hghUHHprWBVRSBbQFRmBz8AF7A5zYyYth/NdNeybefDs8
-         AR0tnczQ4I5g/h4nrszKkYjG4bjU0/S/WFHEJ9PT25kFNk3DiS/rbKjIkEG0JPeZQS88
-         qgj9ogJYymStI2+3rWHTTM1OUwKMOYvxuldSHeT57rp9MPwGgU8zQu7+Ot2lnbEQnVhu
-         AYOH7NoX4d8Z+FZrPOW2CrCv592Fu2xjkt1U/NLvYjo+80pJFilQHnQKYtVMGalX/peu
-         3EUVPUhahYNP7HA3/oeCs1dibgF5Xb2VxFS3xtiicz0GefcZFkIh2TNnr3TzmOrk3HGL
-         PKpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=LEUZIAOLddGL7x7aQvXVvqPgmEr8lXGuohw1ryERaEI=;
-        fh=py5fHI/JwDNaN8GWjcSChdZwTqGGv8A2tVDzYOHx+BU=;
-        b=fOtQEXaoZit3qvmDVilChzlE3pBaz4lJM52Gvp8E6RY1Sb1w583F9c0OLvgGPRMCtd
-         lArCoD5R12puioNzc4FjQw3YMhh3DebvJEHSGY0EN8GNlHPjrlHpGolgTTCh5GfS94s9
-         0xwTkb/a0wKZ9rHW6quouAdaOUnApXAFVX4UcRBR4eIeAQJUQ0zz+ohkFDfok+rpJS0W
-         CjVfW+hd6iRCsiG1xUFyAWx2dJ0h/C3WvRcuIpM877DR8EUJQc0W13VhJveMY2hBisZf
-         PEYhe83ac9GkAhVNNbRZteJQRHG6doHVYRwqUFX463shiBQO1YuHUBNw+XxjQvHIKoli
-         BRQQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1795465297; x=1796070097; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=LEUZIAOLddGL7x7aQvXVvqPgmEr8lXGuohw1ryERaEI=;
-        b=c2gq+laq0yhqp6FF1Vf947qPiE0Z5VfoHe+mggi5Ga9ubu4f4hV81J96iQAbuIZq1L
-         3JHWBPlWzOPhLjMRN+Q168fHx8VZQwUSN20XWFGjhVlrtlDFTQpPy/JQOmNK6mqkCM4b
-         4xerMMl5+iUABeqLcepD5C/uOmfg/WsJbin9q5Oo3YZv/Y50wEt74u2cZmcPrw1UpOEJ
-         GvJ6MU5HF0KnwUevXCTb0SqNtPCuLh53gxMDkKmycj2psn1X6Z/3dxtC3DRm8Q/+eqYm
-         WQZCzYcpGWw9wMUrBdZgmMmYcAW3hURjuvmeUGtZnNtaDQaLQoATrhyDTFpjwjrcMA5c
-         ZOvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795465297; x=1796070097;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LEUZIAOLddGL7x7aQvXVvqPgmEr8lXGuohw1ryERaEI=;
-        b=YsdpRluEsw3DaR7/nn/V7OboucatH+hTblrGkDCpSpxYGIEJ5IZtOWvJ44KTcPNnhU
-         5EZYMO+VpDB0JvzNSfkqg+GGVppl9C0P8BuoLZptbGpaRCbRLBrsLR0D0gan2Zrba5En
-         6G7orbEVDjjQL/8PT0DvGMUaa21jfNcATDQDcoRD/9IdSKh3ez6bi9/Y1VhLJHAk4Mw6
-         m7q/9QDkPUwKa87nvKnK62xc6FB4fwjjZQtakKPgAupBEvAvvZeJTeOHqji2adHnPDDP
-         lUiWeT98j2rnEPOHlVZH6SCaj7f0ptP8Ut+7xdt+Sr0DNqXQww4PqAmbI0AmRQDQgKmc
-         zpyQ==
-X-Forwarded-Encrypted: i=1; AL+hErH1KYVs/ApTldW+0LABDEQn//bcBwHd6Mt/X1hrI2YsWVvxohjh7+USPk7tQYc3j/99LLVX3GADerILim0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z954TTpKehB+W3VueZXaiBO6Zf+l5f2rdcs5G2A3uA9qji7p8aK
-	tLEmWdLPhoE9GCN/rHdOm2/crb7Wb6N93znjzLK0NqvKcShnKE9tArWyVyYaugrzbV7CbmJQjPU
-	IIICRC3Rzq/C/T4q1DG+r5tMLniFmyQz/xcpCHBz4zi4U3z3Yqxiw7g==
-X-Gm-Gg: AZFdTZdDvdRjPrxTW8v15+5H3QzXPnXK9C8CKCUbqwO/shClCekINvLhPOPEnBsqoJm
-	dI1OOB5jeK5ndNgxxWTBN2e4yH0ZLCDgiESbmIf3PRPF+TzP5L3mdW+Cync+xfSCqsIaWQpjzy2
-	qRb2jpzNf+ddL4ivAfEp4MFhwCNEJiGD6X9DEGvO30aI7lsaSMPdrD6iIc5XZ8yTFzML9vSjmrH
-	SylJV1FgMmfrAynvK6lkoPgMBCulc+nSG919dy849FMFDkLwZkGhbeED3pKnWNS90i1gNiiqp9O
-	gaagd7Jt3NCgwVqFAduKhcbEUxhpjGtgeKoMtz+JhNShW6S0zkxSXnPVOW+k1VjlfQBtj7/b+gH
-	gfqq2dJ/XLa+UhRSCAddI20daPEF320Aw8Hu5ZJ9SfPOpubBTd7rc/uCkeCc9XsppY0kSsw==
-X-Received: by 2002:a17:90b:2e8c:b0:3b3:b373:6a6a with SMTP id
- 98e67ed59e1d1-3b41c9e45c3mr11852486a91.28.1795465297053; Mon, 23 Nov 2026
- 12:21:37 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HbwdiBoR
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5E32143D;
+	Mon, 23 Nov 2026 12:21:54 -0800 (PST)
+Received: from [10.211.55.3] (unknown [10.57.19.170])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAA053F632;
+	Mon, 23 Nov 2026 12:21:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795465317; bh=WYq9hPNOLFnUwi6TOejCG/q+T0euvSMO9vvBMMulIio=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=HbwdiBoRnPXC3RuAmk+wthDjaEsAQ0B71zl1qvjT/5Iacm3lBZdMX+VuseH4nJypF
+	 bZNFHPB3dZhud0mkcAs3Y6ALmOdKOuQMXhsU4+LvYHfXB5P+ZfQ3sABXDGKiF0YhD7
+	 yBPhBIbwwRMbVVwFibgxqsWy2RgaxA3CEehsxoLE=
+Message-ID: <b0cd49ed-65ad-4a6d-9845-0ee9060a478d@arm.com>
+Date: Mon, 23 Nov 2026 20:21:34 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,104 +53,227 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <d85ece6e-27f9-4d9f-83af-4101bc76fef6@app.fastmail.com>
- <356db94e-f5d6-4fb2-839a-b97aef72256b@app.fastmail.com> <CAHC9VhR9sjunJRnM9gy-BkBZkapQTrr8a8FtmaK7JkAmUqTrLA@mail.gmail.com>
- <CAEf4BzZKmn6g0SK8OddjKFj_vAmZFvpZv32Hs_S+GHgT7VNfrg@mail.gmail.com>
- <9d6bdc31-e57c-4187-be78-29d82471f710@app.fastmail.com> <9695ec3d-7b81-488d-989f-0bd411d673f2@linux.dev>
- <CAPa8sAh6b5xn4rZzPfM0nZ+_kkywWj22fy8deLq+6qYews0rdQ@mail.gmail.com>
- <MRYP264MB7057096D13282544720793F2E67A2@MRYP264MB7057.FRAP264.PROD.OUTLOOK.COM>
- <CAEf4BzZWEU24+ZC0W_20hc3t+qnEHncQA1ztTF7ZPPOf3DDPVA@mail.gmail.com>
- <CAHC9VhSFvOiP5Tyt=rOFMwg=Ro1jRw+hfcw4AdCkEyftZJHQCQ@mail.gmail.com> <CAEf4BzZqjiWR4EzBFdV-czH-GnxqOeOAsMLgXtQ6TwN2ZiiT8w@mail.gmail.com>
-In-Reply-To: <CAEf4BzZqjiWR4EzBFdV-czH-GnxqOeOAsMLgXtQ6TwN2ZiiT8w@mail.gmail.com>
-From: Paul Moore <paul@paul-moore.com>
-Date: Mon, 23 Nov 2026 15:21:24 -0500
-X-Gm-Features: Aa3M54qJwPl-ABfK7B5B7-sJCPY_acwvpvVOTnL9PsRVe-QdqJj1wCPpuoy-tHw
-Message-ID: <CAHC9VhSOz-ThxXL+5MkScd6Yj2thCqE565zXg80K_cWHkViH0g@mail.gmail.com>
-Subject: Re: [BUG] bpf, lsm: new first argument in 7.4 inode hooks silently
- breaks BPF LSMs
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Paul Mabileau <paul.mabileau@harfanglab.fr>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Daan De Meyer <daan@amutable.com>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, roblabla <linux@roblab.la>, 
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>, 
-	"linux-security-module@vger.kernel.org" <linux-security-module@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Andrii Nakryiko <andrii@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v3] arm_mpam: resctrl: Use the domain's counter ID
+To: Jinjie Ruan <ruanjinjie@huawei.com>, james.morse@arm.com,
+ reinette.chatre@intel.com, fenghuay@nvidia.com, will@kernel.org,
+ jic23@kernel.org, gshan@redhat.com, tan.shaopeng@jp.fujitsu.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261118125417.671859-1-ruanjinjie@huawei.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261118125417.671859-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 2:55=E2=80=AFPM Andrii Nakryiko
-<andrii.nakryiko@gmail.com> wrote:
-> On Thu, Nov 19, 2026 at 11:37=E2=80=AFAM Paul Moore <paul@paul-moore.com>=
- wrote:
-> >
-> > On Thu, Nov 19, 2026 at 12:59=E2=80=AFPM Andrii Nakryiko
-> > <andrii.nakryiko@gmail.com> wrote:
-> > > On Wed, Nov 18, 2026 at 7:14=E2=80=AFAM Paul Mabileau
-> > > <paul.mabileau@harfanglab.fr> wrote:
-> > > >
-> > > > Hello,
-> > > >
-> > > > On our end, we also have already merged code to adapt our eBPFs to =
-the argument order change. However, we would still prefer if this easily-av=
-oidable breakage could be fixed by moving the argument to the end, even if =
-it means having to revert our fix.
-> > > >
-> > > > This is motivated by the fact that such a change is not made in pla=
-ce on our end because we ship our software to environments we don't control=
-, meaning that any and potentially all versions ranging from 4.11 to the ve=
-ry latest should be supported, so the change is made by compiling and shipp=
-ing a new variant of the concerned eBPFs for the version interval it is val=
-id for (7.4+ in this case). And that has to be done every time there is an =
-upstream change like this, so the total installation size and overall compl=
-exity grows accordingly.
-> > > >
-> > > > If we could avoid that, especially for such trivial root causes, it=
- would be nice.
-> > > >
-> > >
-> > > I agree, and that's why I'm asking Paul to accept the patch reorderin=
-g
-> > > the newly added argument before 7.4 final is released.
-> > >
-> > > I do not think that the maintainer's personal preference for argument
-> > > ordering beats real user pain.
-> >
-> > As stated several times in the past, the problem lies not with the LSM
-> > framework but with the lack of an abstraction layer in the BPF LSM
-> > providing a stable API.  As far as I can tell the lack of an
->
-> I think the problem lies neither in the LSM framework itself nor in
-> the BPF LSM in particular. Neither have any abstractions built on top
-> of LSM hook prototypes to guard against argument reshuffling. And
-> that's fine and basically inevitable. If you change LSM hook
-> prototype, you'd need to adjust source code of all LSM frameworks
-> relying on that LSM hook (which is easy for in-tree source code, of
-> course). For BPF LSM, if argument is added at the end, that pain can
-> be avoided completely.
+Hi Jinjie,
 
-We're both repeating ourselves at this point, so I'll refer you back
-to my previous comments about the LSM framework not being a stable
-API.  If there is an expectation of API stability or specific
-extensibility in an individual LSM it is up to that LSM to provide
-those guarantees, not the LSM framework.  Considering the current
-design of the BPF LSM, any breakage caused by this change with
-existing BPF LSM programs is solely the BPF LSM's responsibility, as
-far as I'm concerned.
+On 18/11/2026 12:54, Jinjie Ruan wrote:
+> resctrl assigns MBM counters per domain: mbm_L3_assignments takes a
+> domain ID, a group can have a counter in one domain and none in
+> another, and resctrl_arch_cntr_read() and resctrl_arch_reset_cntr()
+> are given the counter to use.
+> 
+> The driver ignores that counter and looks the monitor up in
+> mbwu_idx_to_mon[], indexed by CLOSID and RMID.
+> resctrl_arch_config_cntr() fills that array without looking at the
+> domain, so each group has one monitor for the whole resource.
+> Whichever assignment is written last selects the monitor the group
+> reads in every domain.
+> 
+> For example, with the counter ID each group uses for mbm_total_bytes
+> on each domain and "_" for none:
+> 
+>                                 domain 0         domain 1
+>   mount, mkdir g1               default=0 g1=1   default=0 g1=1
+>   unassign both on domain 1     default=0 g1=1   default=_ g1=_
+>   assign g1 on domain 1         default=0 g1=1   default=_ g1=0
+> 
+> g1 is assigned the lowest free counter on domain 1, counter 0. That
+> assignment is the last one written for g1, so it selects the monitor
+> g1 reads in every domain. On domain 0, g1 uses counter 1, but reads
+> the monitor of counter 0:
+> 
+>                       counter whose monitor is read on domain 0
+>                       default      g1
+>   expected            0            1
+>   actual              0            0
+> 
+> That is the default group's monitor.
+> 
+> Translate the counter ID with assigned_counters[], which maps a counter
+> ID to a monitor of the class and is valid in every domain.
+> 
+> mbwu_idx_to_mon[] is left alone: resctrl_arch_config_cntr() still fills
+> it, but the read and reset paths no longer consult it, and a future
+> default mbm_assign_mode may use the array, so removing it can be
+> considered separately. Unassigning a counter now resets its monitor,
+> where before the lookup made the reset a no-op; the monitor is reset
+> again when the counter is next assigned.
+> 
+> Fixes: a5ff6ef2d73e ("arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()")
+> Suggested-by: Ben Horgan <ben.horgan@arm.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: <stable@vger.kernel.org>
+> ---
+> v3:
+> - Keep mbwu_idx_to_mon[] and remove the cleanup. (Ben)
+> - Split out as a mpam seperate patch.
+> - Remove unnessary stable version.
+> - v2: https://lore.kernel.org/all/20261113083506.4129060-2-ruanjinjie@huawei.com/
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 50 ++++++++++++++++++++++++++++------
+>  1 file changed, 42 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 8e9d5c68c2c1..0d290962ef62 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -463,6 +463,15 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
+>  	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
+>  }
+>  
+> +/* The monitor resctrl's counter @cntr_id uses for @cdp_type. */
+> +static int mon_for_cntr(struct mpam_resctrl_mon *mon, int cntr_id,
+> +			enum resctrl_conf_type cdp_type)
 
-> > abstraction layer in the BPF LSM is by design, and while that does
-> > provide some advantages, one of the notable disadvantages is that the
-> > API is unstable.  If you want to be upset at anyone, direct your
-> > frustrations towards the design and current implementation of the BPF
-> > LSM.
->
-> What upsets me is that your personal grudges against BPF community
-> (or, perhaps, just particular members of it, doesn't matter) gets in
-> the way of doing the right thing as a maintainer and putting Linux
-> users' pain above your personal preferences and/or dislikes. And
-> hiding this behind "I like this specific order of arguments" or "BPF
-> LSM should have better architecture" is just petty.
+I think we can drop the comment but improve a bit on the naming. How about calling this helper mon_idx_from_cntr_id()?
 
-What upsets me is your assumptions.  Try to be better next time Andrii.
+> +{
+> +	u32 idx = resctrl_get_config_index(cntr_id, cdp_type);
+> +
+> +	return mon->assigned_counters[idx];
+> +}
+> +
+>  static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+>  		      enum mpam_device_features mon_type,
+>  		      int mon_idx,
+> @@ -558,7 +567,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+>  
+>  /* MBWU counters when in ABMC mode */
+>  int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+> -			   u32 closid, u32 rmid, int mon_idx,
+> +			   u32 closid, u32 rmid, int cntr_id,
+>  			   enum resctrl_event_id eventid, u64 *val)
+>  {
+>  	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
+> @@ -574,8 +583,30 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+>  	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+>  	mon_comp = l3_dom->mon_comp[eventid];
+>  
+> -	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
+> -				 USE_PRE_ALLOCATED, closid, rmid, val);
+> +	/* A counter ID maps to one monitor per CDP configuration. */
+> +	if (cdp_enabled) {
+> +		u64 code_val = 0, data_val = 0;
+> +		int err;
+> +
+> +		err = __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
+> +				 mon_for_cntr(mon, cntr_id, CDP_CODE),
+> +				 CDP_CODE, closid, rmid, &code_val);
+> +		if (err)
+> +			return err;
+> +
+> +		err = __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
+> +				 mon_for_cntr(mon, cntr_id, CDP_DATA),
+> +				 CDP_DATA, closid, rmid, &data_val);
+> +		if (err)
+> +			return err;
+> +
+> +		*val = code_val + data_val;
+> +		return 0;
+> +	}
+> +
+> +	return __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
+> +			  mon_for_cntr(mon, cntr_id, CDP_NONE),
+> +			  CDP_NONE, closid, rmid, val);
+>  }
+>  
+>  static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+> @@ -603,13 +634,16 @@ static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon
+>  }
+>  
+>  static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+> -			       int mon_idx, u32 closid, u32 rmid)
+> +			       int cntr_id, u32 closid, u32 rmid)
 
---=20
-paul-moore.com
+This leaves us with reset_mon_cdp_safe() which uses counter id and
+read_mon_cdp_safe() which uses monitor index. Having these two similarly
+named handlers not follow the same pattern is confusing. It seems best
+if they support both. How about something like the below for
+read_mon_cdp_safe() and the same pattern for reset_mon_cdp_safe()?
+
+ static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+-                            enum mpam_device_features mon_type,
++                            enum mpam_device_features mon_type, bool is_cntr,
+                             int mon_idx, u32 closid, u32 rmid, u64 *val)
+ {
+        if (cdp_enabled) {
++               int code_idx = mon_idx, data_idx = mon_idx;
+                u64 code_val = 0, data_val = 0;
+                int err;
+
+-               err = __read_mon(mon, mon_comp, mon_type, mon_idx,
++               if (is_cntr) {
++                       code_idx = mon_idx_from_cntr_id(mon_idx, CDP_CODE);
++                       data_idx = mon_idx_from_cntr_id(mon_idx, CDP_DATA);
++               }
++
++               err = __read_mon(mon, mon_comp, mon_type, code_idx,
+                                 CDP_CODE, closid, rmid, &code_val);
+                if (err)
+                        return err;
+
+-               err = __read_mon(mon, mon_comp, mon_type, mon_idx,
++               err = __read_mon(mon, mon_comp, mon_type, data_idx,
+                                 CDP_DATA, closid, rmid, &data_val);
+                if (err)
+                        return err;
+@@ -506,6 +520,9 @@ static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component
+                return 0;
+        }
+
++       if (is_cntr)
++               mon_idx = mon_idx_from_cntr_id(mon_idx, CDP_NONE);
++
+        return __read_mon(mon, mon_comp, mon_type, mon_idx,
+                          CDP_NONE, closid, rmid, val);
+ }
+@@ -537,13 +554,13 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+
+        mon_type = mpam_feat_msmon_csu;
+
+-       return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
++       return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx, false,
+                                 closid, rmid, val);
+ }
+
+Thanks,
+
+Ben
+
+>  {
+>  	if (cdp_enabled) {
+> -		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
+> -		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
+> +		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_CODE),
+> +			    CDP_CODE, closid, rmid);
+> +		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_DATA),
+> +			    CDP_DATA, closid, rmid);
+>  	} else {
+> -		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
+> +		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_NONE),
+> +			    CDP_NONE, closid, rmid);
+>  	}
+>  }
+>  
+> @@ -631,7 +665,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+>  	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+>  	mon_comp = l3_dom->mon_comp[eventid];
+>  
+> -	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
+> +	reset_mon_cdp_safe(mon, mon_comp, cntr_id, closid, rmid);
+>  }
+>  
+>  /*
+
