@@ -1,56 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423746;
-	b=GQF9l5H6F824K4RlmYyR8/PTvMeEINetKqQUFsg1EG8CM5uxYbEy6sH1ufgfRqxTnuRv
-	 T2vlw7Sla0PUJ4l4jA8CAzDRZ+cgbar0xhb1kLKRP4dmpilm17gCwFnfdSf5cjDRtKxGk
-	 59hbc9NnqkUba65GoqdLhA/YCJ8gguFZrG62nNOHd2BJEraUvG61lgC16U5DJPlj3l+GM
-	 9mulIjTTYI73IOvVBKORVep32aifP3u51wm+BiZF57de5HXZU0l89sGGooG1CS9rYBSda
-	 VEOEUB21rVGM7+tRQacN9GgQAKkB8b/+VBaY15bthkc8m3cqMTdnUGBpIGkr/g6TTCQ==
+	t=1795423760;
+	b=NkK2LyGZ0g3Bt8W/w0nhoC+vVUeS9I8Ndv6B5BRnIg0aqY7cONcar7vDoCVO+gw2CQWc
+	 Im1m4luUTcK24cEiq7RTADCJz96OjZl7YXnavGiQ5xrTWN7gSiLdM5v2mcnGJtCC7Fx0T
+	 Ef7ike2BunIFWFJYkBDjHeq0puqw8M0qouYAkWwQwffrvAz9uy6mIUH4D9yUJYbHesKLG
+	 mjttKDBBES2iqhnwsqjhqMjacXQJUlbQctMN4XRy6V/abq/Gjeu2Cmil0AMzpQG8vlyLS
+	 Tw55JSxkXmiNvARXWsKE43JJFHQmMPYLKnnzb3u4QgJW3ZMbCzTIDtWDxq257TH/TBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423746;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=tLrluSW3jrZY00az6/oW0bRer7Zth3LKmMHtAQlRENU=;
-	b=qZSNnJpAHy2yZaFsVX5dVnppt5FOZIq8rlPJthRVdV3iuWu2AGO4FJoVdSrvjfQhdWca
-	 wNZmZahpdrrRUBZjmeefBwYJjqvdoZ+YWraJGE6yw1TaYWH+Th4OAThIXitIkbSi4fmLA
-	 zvRBiA/nBQFoxMxrqA1fwAzIT2HOnwlbXeriAhb1MOR1TecAkM+qCNyfZCJavGAAIHfdb
-	 MvSQ68W1Ihrw7JfTOb7VZ5/XRn2P716c/mKT3qFfwmHWaDD/6TK36ksUV6wJmzyWIq0ne
-	 IGUMWZA098ZsMT+3JAjN9/8B8nKiX5VZ1QP4lcV5HSWMKfa7hH09i7BkkFUT9EOmmFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423760;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Content-Type:
+	 MIME-Version:Content-Transfer-Encoding:In-Reply-To:References:Subject:
+	 From:Cc:To:Date:Message-ID:User-Agent;
+	bh=7bArORR+Sc910cfoLgXZsZ7HS3c7e2HSv+CH5UD+b08=;
+	b=132x9VMjcHhNSUM/lbQK8cR0dLVP1IAPBmmjwSyinaoJpknucR/5C+MTPtor6hEhmLwD
+	 gz2FB0wN5Oni8kkbiTuCUmsfr2pTSaxMULK8yQgiIl9ILlIlEqVKRcgvuemH7+SJ5v7e7
+	 wzQ4npVdHJcgsSXo/tiao72N/os5v5FV/FK4opnZFTTtw91sfPHb/oEDnq+YFw+nxXPRT
+	 B6dr/gLXP8iF2y80ABOao9frvN14f41kXAgnHzgDTLBeTunr75RXcAxHECA7VWlfelIBt
+	 FoZ67c4kT3bebJb5wtkh22tl8b8QrgNL5ysHh+Ys9ReB3Q4Sm8A8jJt54p8uCxS83Wg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A1A66606A331;
-	Mon, 23 Nov 2026 08:49:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1A66606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=tLrluSW3jrZY00az6/oW0bRer7Zth3LKmM
-	HtAQlRENU=; b=4wEVsDc3QDMG8EiqDcDIwhsyDnJfDpxkGvaUcf4EwO1H/eH4Rw
-	RV1CqD+Dn1s1z7dV3mi76Ey1zDJ8/tbSpeejo2pG7ATkhD3HVBfKhXFoOedb3g3u
-	pN83/hzSNo7ChvEEefOSwwYperBrqqeDX+RSvIqCfe0SJtvfMgSQRiYjs=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.33])
-	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkC2ufzv_QNrKK0aAg--.14474S3;
-	Mon, 23 Nov 2026 16:48:53 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Takashi Iwai <tiwai@suse.de>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH 1/2] ALSA: 6fire: Don't resubmit an active MIDI URB
-Date: Mon, 23 Nov 2026 16:48:45 +0800
-Message-Id: <20261123084846.7700-2-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123084846.7700-1-25031212351@stu.xidian.edu.cn>
-References: <20261123084846.7700-1-25031212351@stu.xidian.edu.cn>
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=InUpxntz;
+	arc=none smtp.remote-ip=192.198.163.11
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C24606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:49:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68C24606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=InUpxntz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795423760; x=1826959760;
+  h=mime-version:content-transfer-encoding:in-reply-to:
+   references:subject:from:cc:to:date:message-id;
+  bh=VDqfNAPy2JKnA+2i2Uf52316VUmvieSrk/qcFA0i+U0=;
+  b=InUpxntzV1tWt/iCZDQdq1tPR+GmYE4sW/+MBcaEQ1ghiSLYgWbCVkFU
+   0JA+/4/S3w7vbEgJzPsy/oxd9KWcwsf1+tUwDCJOwpBYtBnouN/p8m5F0
+   iN+0Z4bTuxDqPgXNUHma3EEHn1Xx4EOYgNZvOfIMGS/962+LujDbnkcB1
+   VR7qpXUvUY+ZU+uQ0OFiMpZu4CitCcWjQQbek893zuKmz7eNrmry5jzih
+   slOknBYq4ase1CrQNrpP1m9cU6tgsz2kiXZlHls1zqbu2A5FrjeMx9jmJ
+   1u+/bTMUR7vfxE5B8D3FAJWCWvQpKEuF05Sjiv9mwb9J1Ca9sBELM1b38
+   g==;
+X-CSE-ConnectionGUID: KU1QQvZTRcyGcnpIuVfYiA==
+X-CSE-MsgGUID: BcmUJe/uSpKHplZjBawnxA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4124628"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4124628"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:49:19 -0800
+X-CSE-ConnectionGUID: 53nR6vN8RIOQLC9WAMKPyQ==
+X-CSE-MsgGUID: M+4leTqeQEeILi+di3OUFw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11582492"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.224])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:49:16 -0800
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,129 +71,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BbQMCkC2ufzv_QNrKK0aAg--.14474S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxAr47WF47uFyxZryDZr4xZwb_yoW5uFWxpF
-	ZYg3Z8KFZrJFn8Z3y7JF1rZFyFk3Z3Gay8CayI93s0yr45Jw1qqa1DKan8KrWrJFyF9FyU
-	ZrWYvrZxGr45Gw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPlb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_JFI_Gr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv
-	6xkF7I0E14v26r4UJVWxJr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcV
-	AaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0E
-	x4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x
-	0262kKe7AKxVWUAVWUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC2
-	0s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI
-	0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv2
-	0xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2js
-	IE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZF
-	pf9x07jrL0nUUUUU=
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUFD2sDBVgdigAGsq
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261121071713.335337-1-haoxiang_li2024@163.com>
+References: <20261121071713.335337-1-haoxiang_li2024@163.com>
+Subject: Re: [PATCH v2] drm/i915/vma: Fix a memory leak in i915_vma_pin_ww()
+From: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
+Cc: intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, Haoxiang Li <haoxiang_li2024@163.com>, Andi Shyti <andi.shyti@linux.intel.com>
+To: Haoxiang Li <haoxiang_li2024@163.com>, airlied@gmail.com, andi.shyti@kernel.org, jani.nikula@linux.intel.com, rodrigo.vivi@intel.com, simona@ffwll.ch, tursulin@ursulin.net
+Date: Mon, 23 Nov 2026 10:49:12 +0200
+Message-ID: <179542375283.27957.3540837456636790784@jlahtine-mobl>
+User-Agent: alot/0.13.dev2+g40c57d620
 
-The MIDI output keeps the transmission state in rt->out and submits
-rt->out_urb from the rawmidi trigger callback.  Stopping the stream,
-for example through the SNDRV_RAWMIDI_IOCTL_DROP ioctl, only clears
-rt->out; the URB itself stays queued until the device has accepted the
-pending data, which can take a while when the device delays the
-transfer.
+Quoting Haoxiang Li (2026-11-21 09:17:13)
+> The memory allocated by i915_vma_work() is not freed if
+> i915_gem_object_get_moving_fence() fails. Change the
+> goto label to do so.
 
-If the stream is started again before that happens, the trigger callback
-passes the still-active URB to usb_submit_urb() a second time.  The USB
-core rejects it and the new data is not sent:
+That's better.
 
-  URB 00000000c6cd6557 submitted while active
-  WARNING: drivers/usb/core/urb.c:379 at usb_submit_urb
-  ...
-  usb6fire_midi_out_trigger
-  snd_rawmidi_kernel_write1
-  ...
-  usb 1-1: midi out urb submit failed: -16
+You still did not touch the title of the patch, however.
+If feedback is given to you, do not submit a new version
+without confirming that you addressed all parts of it.
+Consider this the last notice before getting ignored.
 
-Track whether the URB is queued separately from the substream that owns
-it, and let the completion handler send the data queued by a restart
-while the URB is still in flight.
+What you have is a memory leak on error path without any
+assessment about if that error path is possible to hit.
 
-Fixes: c6d43ba816d1 ("ALSA: usb/6fire - Driver for TerraTec DMX 6Fire USB")
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
- sound/usb/6fire/midi.c | 21 +++++++++++++++++----
- sound/usb/6fire/midi.h |  1 +
- 2 files changed, 18 insertions(+), 4 deletions(-)
+Please realize your LLM is very eager to over-state
+the impact of any findings. It's your responsibility to
+understand the impact and write the commit description
+and title accordingly.
 
-diff --git a/sound/usb/6fire/midi.c b/sound/usb/6fire/midi.c
-index 279b449936e7..ae8a0d48eb41 100644
---- a/sound/usb/6fire/midi.c
-+++ b/sound/usb/6fire/midi.c
-@@ -25,6 +25,7 @@ static void usb6fire_midi_out_handler(struct urb *urb)
- 	int ret;
- 
- 	guard(spinlock_irqsave)(&rt->out_lock);
-+	rt->out_urb_active = false;
- 
- 	if (rt->out) {
- 		ret = snd_rawmidi_transmit(rt->out, rt->out_buffer + 4,
-@@ -39,6 +40,8 @@ static void usb6fire_midi_out_handler(struct urb *urb)
- 				dev_err(&urb->dev->dev,
- 					"midi out urb submit failed: %d\n",
- 					ret);
-+			else
-+				rt->out_urb_active = true;
- 		} else /* no more data to transmit */
- 			rt->out = NULL;
- 	}
-@@ -74,6 +77,14 @@ static void usb6fire_midi_out_trigger(
- 		if (rt->out) /* we are already transmitting so just return */
- 			return;
- 
-+		rt->out = alsa_sub;
-+		/*
-+		 * The urb is still in flight from the previous transmission;
-+		 * the completion handler sends the queued data instead.
-+		 */
-+		if (rt->out_urb_active)
-+			return;
-+
- 		ret = snd_rawmidi_transmit(alsa_sub, rt->out_buffer + 4,
- 				MIDI_BUFSIZE - 4);
- 		if (ret > 0) {
-@@ -82,13 +93,15 @@ static void usb6fire_midi_out_trigger(
- 			urb->transfer_buffer_length = ret + 4;
- 
- 			ret = usb_submit_urb(urb, GFP_ATOMIC);
--			if (ret < 0)
-+			if (ret < 0) {
-+				rt->out = NULL;
- 				dev_err(&urb->dev->dev,
- 					"midi out urb submit failed: %d\n",
- 					ret);
--			else
--				rt->out = alsa_sub;
--		}
-+			} else
-+				rt->out_urb_active = true;
-+		} else
-+			rt->out = NULL;
- 	} else if (rt->out == alsa_sub)
- 		rt->out = NULL;
- }
-diff --git a/sound/usb/6fire/midi.h b/sound/usb/6fire/midi.h
-index 8716ab8a863a..221361442435 100644
---- a/sound/usb/6fire/midi.h
-+++ b/sound/usb/6fire/midi.h
-@@ -23,6 +23,7 @@ struct midi_runtime {
- 	spinlock_t out_lock;
- 	struct snd_rawmidi_substream *out;
- 	struct urb *out_urb;
-+	bool out_urb_active; /* out urb is still queued in the HCD */
- 	u8 out_serial; /* serial number of out packet */
- 	u8 *out_buffer;
- 	int buffer_offset;
--- 
-2.34.1
+> Fixes: 8ec5c0006c50 ("Merge tag 'drm-intel-next-2022-05-20' of git://anon=
+git.freedesktop.org/drm/drm-intel into drm-intel-gt-next")
 
+You should just re-create the merge conflict and check which
+two patches conflicted. While it's within possibility that
+the merge commit itself summoned the error handling code
+from thin air as a trivial 'git blame' might show. It's not
+very likely, so needs to be looked into.
+
+Regards, Joonas
+
+> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+> Reviewed-by: Andi Shyti <andi.shyti@linux.intel.com>
+> ---
+> Changes in v2:
+>  - Modify the commit message. Thanks, Andi!
+> ---
+>  drivers/gpu/drm/i915/i915_vma.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/i915/i915_vma.c b/drivers/gpu/drm/i915/i915_=
+vma.c
+> index 16782d8579a8..4ba1c9ea5ecb 100644
+> --- a/drivers/gpu/drm/i915/i915_vma.c
+> +++ b/drivers/gpu/drm/i915/i915_vma.c
+> @@ -1470,7 +1470,7 @@ int i915_vma_pin_ww(struct i915_vma *vma, struct i9=
+15_gem_ww_ctx *ww,
+> =20
+>                 err =3D i915_gem_object_get_moving_fence(vma->obj, &movin=
+g);
+>                 if (err)
+> -                       goto err_rpm;
+> +                       goto err_fence;
+> =20
+>                 dma_fence_work_chain(&work->base, moving);
+> =20
+> --=20
+> 2.25.1
+>
