@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795418835;
-	b=YMySYItHh3aW/tOn1xpemS4qoZ7HBh08Khwqm65nz3Af0KwyEi28aSVcclTjvVVwsmIl
-	 tuE2TqL7NiCSljpqLskE5FwlT2GH/+etF7SrHXmIBCSZuxduPRJvKBD/vHxoWhqrrVLpa
-	 VZ1VfBOxnWtBkCo5Jk0Z0Jm28YLc4MYQk6HYEfXZXkC6FFpxZ0DIeWyIhaQ2zrVFjpEMA
-	 H40ymF2+NAJFucS/Okdn362nIjD7qJja+nnBOMvUD9QnodJEStOvH6vil/pF4KuBr6p3t
-	 ZrlkrX7Cye9fvWk9QTMX3WT6C2TFAMnaQ4QGVq7TsWamY9AUPeS89QBncCYHsptOVIA==
+	t=1795418841;
+	b=uOQGnQcb5R23q+imsgzeqPEYlYf+IJnBZ5yr+w+iLtsYAJc5z9SL5k0vX6GSIBPQ3mgD
+	 JNBjghVZecruwYz37HDZWbk+s4z5GBiA3cH7oCwEEZ11v0hNZcnJ+ErVFUcF/acDUV6W1
+	 uRFqjHu5FbJDFnyBSi2S0cbMj7AfvyECXbhoF3taDpJH+BtJeyzgfH8ohdPcLKHx8JP0E
+	 XpoD9Od4CHHg5+WHhsyEao08U8XoByxG9ys4jdex9VNNX8l3oHpCQIhjQPyxPRZLVtcmJ
+	 gaQZCau4G9a6jWLUCWkP1GPMBPClUacq59VGD74OoSnJWm9HehLnrx/+R6t0lAxCg1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795418835;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BdgF1xKuYu4ni+LZr6mvba7jnkWGZBA/HLKCnKO9gOM=;
-	b=uPOk+au9OsXdspxuB6ANm4TZsg+vrg5xKmj7+u0OpzLcGQ4Jsf7jkbLf3IiW1EPgbETB
-	 3v7TU1HwctrLNHpFEzIDCNSeHNuuzYqkH8SOfAJAYhGBuiOC8XKVUvEW7t0d+dS1Lb0RQ
-	 CTOQPAupiuzCwrI+QTJkqTXKUtMtcwB5hiL3wZ8bJt3cjSE9WiB/Iq40ZB/VdTHHyo1Yw
-	 ITxMD/vXJN+PSYsNwMBJE+5jezowrkZXljtEYwiPvcGMxOiP6aaiskZ3N+DAZUnil6OMC
-	 8FhRgszwjQ1UZOfsR+m8KSbm5T9W+6gWK5gTICK2Wc0g3M8lpoBIEPbD4zsD/4gFu0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795418841;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WgehDg6pcaH9Fwnyu9osCErYzzR7cI1YfyGC9vqBeEE=;
+	b=BEo3O+bY0n7A6OOkfwecRi3OmLaGzXX9Zh8LKdi9n/692zdKPhTxqRqsJkmU1W0VDpQr
+	 MFocSla99vk/Ns50EkVe/Wv3X9DFW6grbBmyjACX/n40x0DJ0i0lSlJKGFsf1obnwpZZv
+	 OxzgEP2kHFLnIRajytfFaSQHuKxgxIcitNIv8oIzq2UGlYpgfFNBSW804gVk3bYtJsdtX
+	 54GwrDW2QmV/O//eRJZ6SYfJGC9aNumvBlQVnqAA0MTp2cDH8N7oT5FkmtlRIjRzgLMBo
+	 m9sIDgSW4sj2tdw+3EEObeqzD68qozdVcoZ3XAfsu2qKjSynRggDv9Klrtlu6C45LBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=YFO3CfRh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o8OnsbjB;
+	arc=none smtp.remote-ip=91.218.175.45
+Received: from mta0.migadu.com (out-45.mta0.migadu.com [91.218.175.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F8C0606A31A;
-	Mon, 23 Nov 2026 07:27:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1AB3606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:27:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1AB3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=YFO3CfRh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F25C41F000C0;
-	Mon, 23 Nov 2026 07:27:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795418834;
-	bh=BdgF1xKuYu4ni+LZr6mvba7jnkWGZBA/HLKCnKO9gOM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YFO3CfRhHOkovGAv/QnJOgVJWPcrceNkYFIyBASQAXeZ3wGyVeJr1R2PnrnnWV55s
-	 4sIHIzVgzZqPq4+XogMKqBup8N5fmwC3k6/D0G0Rj0xbmVvFEuv1U8F/AIq+FJXEbz
-	 ySaNUp7yD/U7AGQDF7C5qAFZyXs3mYxNJTP0x6EQ=
-Date: Mon, 23 Nov 2026 08:27:11 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Dust Li <dust.li@linux.alibaba.com>
-Cc: stable@vger.kernel.org, Breno Leitao <leitao@debian.org>,
-	Sasha Levin <sashal@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6.6.y] net: free_netdev: exit earlier if dummy
-Message-ID: <2026112357-twister-activity-1181@gregkh>
-References: <20261107161415.1917665-1-dust.li@linux.alibaba.com>
- <avK7XqLvdaeWlp8o@linux.alibaba.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o8OnsbjB
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=82ciyE0YI3UBAfRF/D8QcRgrNL2qnfQIx+kCfemew/4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795418837; v=1; x=1796023637;
+ b=o8OnsbjBENvlOPircJWSJjeWz4aEo33MiMhV7zlMs8EdkrlvyuBREWEgAueyoLwRS6XYPwkE
+ nwAM6O/DvSTM9DROdGe6izAyVCrADEOEl9iO4MpMCvneA8A/t9LA+K2FotubuRCL/epPgeDtaBF
+ 5PwLr/z+gkAdyqpn7jeI47uU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id f250bcde65441288;
+	Mon, 23 Nov 2026 07:27:17 +0000
+X-Mizu-Trace-ID: f250bcde65441288
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <1d164f38-5c0f-4ea4-9c0c-9ce225498596@linux.dev>
+Date: Mon, 23 Nov 2026 15:27:12 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,45 +58,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <avK7XqLvdaeWlp8o@linux.alibaba.com>
-
-On Tue, Nov 10, 2026 at 02:36:14PM +0800, Dust Li wrote:
-> On 2026-11-08 00:14:15, Dust Li wrote:
-> 
-> Hi Greg, Sasha
-> 
-> Can you pick up this patch for 6.6 ?
-> 
-> This is a prerequisite that was missed when 6.6.y picked up the
-> dummy-net_device conversion of the mediatek driver.
-> 
-> 6.6.158 took b209bd6d0bff ("net: mediatek: mtk_eth_sock: allocate dummy
-> net_device dynamically") as d5d57501f543, followed by 16f3a28cf5f8
-> (as 81e82340170ae) and "allocate dummy netdev sooner" (efc91ab1d97bd).
-> 
-> alloc_netdev_dummy() -> init_dummy_netdev_core() sets
-> dev->reg_state = NETREG_DUMMY, but 6.6.y free_netdev() only special
-> cases NETREG_UNREGISTERING and NETREG_UNINITIALIZED.  So every
-> free_netdev(eth->dummy_dev) -- mtk_remove() at
-> drivers/net/ethernet/mediatek/mtk_eth_soc.c and the probe error
-> path -- walks into
-> 
->     BUG_ON(dev->reg_state != NETREG_UNREGISTERED);
-> 
-> Upstream f8d05679fb3f and b209bd6d0bff both landed in v6.10-rc1, so
-> mainline was never broken.
-> 
-> 5.10.y / 5.15.y / 6.1.y - alloc_netdev_dummy() does not exist and no
->                           driver creates a dynamically allocated
->                           dummy net_device
-> 
-> So only 6.6.y need this.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/11] mm/hugetlb: initialize all struct pages for
+ bootmem hugepages
+To: Muchun Song <songmuchun@bytedance.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
+ Mike Rapoport <rppt@kernel.org>
+Cc: "Liam R . Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Muchun Song <muchun.song@linux.dev>, Li Zhe <lizhe.67@bytedance.com>,
+ Andrew Popple <apopple@nvidia.com>, Balbir Singh <balbirs@nvidia.com>,
+ Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261120100856.16929-1-songmuchun@bytedance.com>
+ <20261120100856.16929-7-songmuchun@bytedance.com>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <20261120100856.16929-7-songmuchun@bytedance.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
 
-But what commit id is "this"?
 
-thanks,
+On 11/20/26 6:08 PM, Muchun Song wrote:
+> Boot-time gigantic hugepages currently leave the head struct page to
+> the generic memmap initialization path while the HugeTLB code
+> initializes the remaining struct pages itself.
+> 
+> Mark the full hugepage noinit and initialize the head struct page in
+> hugetlb_folio_init_vmemmap() as well, so the whole compound-page setup
+> is handled in one place.
+> 
+> This can also reduce memblock metadata overhead when many boot-time
+> HugeTLB pages are reserved, because physically contiguous hugepages
+> can be covered by fewer noinit regions.
+> 
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> ---
+> v3:
+> - Defer the HugeTLB template-copy optimization to the common helper
+>    switch after integrating the series (suggested by Mike Rapoport)
+> ---
+>   mm/hugetlb.c | 27 ++++++++++-----------------
+>   1 file changed, 10 insertions(+), 17 deletions(-)
+> 
 
-greg k-h
+LGTM, so:
+
+Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+
+Thanks,
+Qi
+
