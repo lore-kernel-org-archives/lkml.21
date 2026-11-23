@@ -1,79 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424853;
-	b=p2SHl/0U55njvZDdJ99IneXMkmYB8s4ZiPiY1Ab2XuQFi/amk3zekKTiAjRjcJuxAgTl
-	 mvJaev7ehDsvrzeP/InxNu4yiBvPYir/hv4apzd6b0ZeHncWyBHun0ho0ZC+LhlULq3UO
-	 sdB16f01MFKxL7agm4fzZILk0h3BnPbYmxCkbSU/jm0W8lOjrfq3oNJKi+yK6uvrlJ/Kc
-	 WczJAPF83aPYd11VodmxnBaszEMxUdMRV98FS2CI3gSGySdziDGY93ZqMIqf9H8j0Uuok
-	 Dd7ZBXDc9iysSix6BIc9Y78acpKI1SeO7YXBk8RbWgTNM3ET2WKOqtKWeSN0UhSZ1Cw==
+	t=1795424859;
+	b=zs77JG7c195l9RIIqcFt1CwEgysSwawRxY/nIyWIYywYywbxN7cux4lv9xHv9XXLHHLF
+	 B+dAlB14Hs9YvrcArknBtuoiCqU2VoqXMYxH+BsYGoN1qLPZ+ABCp/9l70n1dLhGvTecF
+	 3Jf8DiR25EBFu3rbKAspKwLLvAaGqM9n/ZrbEG9H5dK9QTWCKqaPeouPMZsL78DpngFH2
+	 Pjyrdaqb9PM0X6KDIhdU59nXi/Zceh2mUiVSfCQ5rASjeJPg7eQ1oSdU5qq7+fwsUO3qb
+	 d7+qSYA/z7palU3doJT2NfuWXSVObtuKgrtvhxdLGLMzuBEMF38QvPC8hV1cwMxxm6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424853;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=s1+xyywWJx875swgmqI1rAMPqceEFht+o+5gfJd4QUM=;
-	b=ZI4XMbTL7QU76nnyOlr//dSqu95uW7OgM6OZrbVUjlFxuRWJR1PkwacZK7MdAEa/E8MF
-	 hBeOm6stiWHf6ksY2IQwUuskcKWb6l/W8q8TQauBb1e6ihkYAfF3pJrIpLlAjyqgXcapi
-	 8R00W/4E4UV/8mcr1CIys7B6DKppmsNDiNhJTI0WsMUinXbYuO5Cv7G7hAk0Xu1wv3sIv
-	 A9p9SubVTwlQrnTygNsF1g2GD97ZfwJfvjc3PK17aObv0xmvl/kDnNk3AqO1954TDoIo2
-	 DYO1rCcDF6koouZPGpJ0UE/k6gyGIz2FHx7NRtBuWKuvIqAURZJiKMuh3DYkY82NyqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424859;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=jLIPT02dVVv6qszhT2W4/G5KPBa16vNIGlRpw6ARLT0=;
+	b=twEZSnr5JM/gqHwjH7e5ospZjAJhMnrKbAiHLp+1n6pxxpa9G/7AHGRLzIKAFKhWvwLu
+	 5yyNNKBAc0J5pg3WLTtKOP0wEohe0THZaR+x+k4dA9wb6HGdMMSeafvmY9fMowPXZyvYH
+	 BQ77IA+SO6NlVY984ejghOh1MRrhlDOU/DHGZUvkc3T7ctf/u7pwDxCYWqT6HdUshoH7E
+	 Vr/uKDvyBLYj1nmpP30opDZfOjfi7d1N7sDh9Zh4nDYqoT7sIL4SFt0+Qy6JR5Cd7AnXS
+	 vR1LJoC4R2xMaSn/eXfDw91MMHKO25pGs34Lq+US5K6MU0VBkAa2pF8CkBEyuMf+DZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=RcjqURFP;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kYW7ZfgB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9585A606A31A;
-	Mon, 23 Nov 2026 09:07:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9585A606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 502F3606A321;
+	Mon, 23 Nov 2026 09:07:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=RcjqURFP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795424852; x=1826960852;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jEkDjgkAKC9Fxc3XQnLgmWRwUmXMEQRyG6rRR1lxVSc=;
-  b=RcjqURFPswTnh1SeQJmJ6wKQNCb7vsaE25aTgXUw9t2kszXiht7dBdeE
-   FGJ57R7H+WVH9CpMtpar4m3aLjGi4prpB5sf5O4r0g3T6XpwtyPmmL2BF
-   F+Qtk9dK6fw2CWOTvRN8Lw6eMFxYH6TLnYEtl5j6SOlXeTROnZO+c76RE
-   jWlc1VLT0ThP2VH+bE7YGMXfsWczJgfMplmIFapj1m60X/KYn7BiMpD78
-   avcB1yRdkMTl/ZaxKvH1V8tAq9S0JsKr5NvEGz0NMpCX1VdibGqve5gcU
-   wJf2OM2N+tcApYw8UH5LSI9CmqYeMGrLQ88xrOLb8Qg5KVFU2fcC832nY
-   A==;
-X-CSE-ConnectionGUID: 9QKuukfETJaxYQzdaDaMIg==
-X-CSE-MsgGUID: EC7/SU8YTS6mUc72DBytEw==
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="65939751"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:07:25 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Mon, 23 Nov 2026 02:07:25 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Nov 2026 02:07:23 -0700
-Date: Mon, 23 Nov 2026 10:07:22 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Ian Rogers <irogers@google.com>
-CC: Dimitris Michailidis <dmichail@fungible.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, Elkin Cruz
-	<elkin@google.com>
-Subject: Re: [PATCH net] eth: funeth: Include FEC stats in
- fun_free_stats_area() DMA free size
-Message-ID: <20261123090722.z5xcxwwdelnnjifq@DEN-DL-M70577>
-References: <20261119170613.1519353-1-irogers@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kYW7ZfgB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62FCD1F000D8;
+	Mon, 23 Nov 2026 09:07:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795424858;
+	bh=jLIPT02dVVv6qszhT2W4/G5KPBa16vNIGlRpw6ARLT0=;
+	h=From:Subject:Date:To:Cc;
+	b=kYW7ZfgBSvpg8KfKNVpDYkG5LXZZ9zcSkLwhJrrDQZ1NBk5pKWgcD3RgjhOTCeOyv
+	 odFFw0v0DWmrKvfMmFRtO1icOKyTr7f+68iQ2bMnJOSdkEqie3qffCIIpJStNpx0uP
+	 WT2L5l7jprUtCBXjJ8qVKgOm1o56x8wdOLchN/1qtOtat8DlID4CfEZnRXochJ/6Xy
+	 y5q2XK1Aix6AOJWUMlmlddAcRhjywx5/10nSfvUyrQtk4kFrYzCajIZ29EdHNb2G4M
+	 2HbtGUwU3torm+LUezSy0mZIeo7OJxnLQtQ9tcIIYEqJ54g4g/LKCCy3ZCl7olWoZI
+	 OSk6XFEXIVIPg==
+From: Joshua Crofts <crofts@kernel.org>
+Subject: [PATCH v3 0/2] PM: runtime: add new runtime metrics and summary
+Date: Mon, 23 Nov 2026 10:06:53 +0100
+Message-Id: <20261123-pm-runtime-summary-v3-0-81a966953a81@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,91 +53,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261119170613.1519353-1-irogers@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAC0CBGsC/33NQQ7CIBCF4as0rMUU0IquvIdxAWVoiUKboSU2T
+ e8u7UoT4/J/yXwzkwjoIJJLMROE5KLrQg6xK0jdqtAAdSY34SWvGGMl7T3FMQzOA42j9wonKo3
+ hZ8WEFLom+bBHsO61obd77tbFocNp+5HYuv7lEqMlZRy05VIYfZLXB2CA577Dhqxe4p9G9dPg2
+ VDCyOp40MpK+2Usy/IG0IOyBfkAAAA=
+X-Change-ID: 20261110-pm-runtime-summary-8dd29a1383bc
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Pavel Machek <pavel@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, 
+ Samuel Wu <wusamuel@google.com>
+Cc: linux-pm@vger.kernel.org, driver-core@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Joshua Crofts <crofts@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795424856; l=4098;
+ i=crofts@kernel.org; s=20260422; h=from:subject:message-id;
+ bh=OtDsCHXwWD+Ufbu1uwi7CcAIu2+RlIScZzvgxk6ftQg=;
+ b=kLr1WSPWI7eZxcI6jLCNGqF/iv0BwCUxTkm1NbmxA9jWehzuL2FNVHScLyhUk7LjXahqXEnie
+ jkKSpxyElxzCaZPzx3/S7Z4RX/2O8qzJroRcQ7QSuBzr5IwLIoQHB8l
+X-Developer-Key: i=crofts@kernel.org; a=ed25519;
+ pk=Xd+UVoRPiiI0K3LHQ2XIcXmO0jvVuFTv9eTx3lgBphI=
 
-> fun_init_stats_area() allocates coherent DMA memory for
-> (PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX)
-> 64-bit counters (632 bytes), whereas fun_free_stats_area() omits
-> PORT_MAC_FEC_STATS_MAX and passes 616 bytes to dma_free_coherent(),
-> triggering DMA-API debug size-mismatch warnings on teardown.
-> 
-> Extract a shared fun_stats_area_size() helper used by both allocation and
-> deallocation paths, and cast the leading enum constant to unsigned int to
-> avoid cross-enum arithmetic.
-> 
-> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
-> -Wenum-enum-conversion enabled; fix and changelog drafted with an AI
-> coding assistant. Build-tested under LLVM=1 W=1 and
-> -Wenum-enum-conversion; not tested on Fungible Ethernet hardware.
-> 
-> Fixes: ee6373ddf3a9 ("net/funeth: probing and netdev ops")
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  .../ethernet/fungible/funeth/funeth_main.c    | 20 +++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/fungible/funeth/funeth_main.c b/drivers/net/ethernet/fungible/funeth/funeth_main.c
-> index bad8276d26b0..e0d4e69abfa4 100644
-> --- a/drivers/net/ethernet/fungible/funeth/funeth_main.c
-> +++ b/drivers/net/ethernet/fungible/funeth/funeth_main.c
-> @@ -1457,17 +1457,20 @@ void fun_set_ring_count(struct net_device *netdev, unsigned int ntx,
->  	}
->  }
->  
-> -static int fun_init_stats_area(struct funeth_priv *fp)
-> +static size_t fun_stats_area_size(void)
->  {
-> -	unsigned int nstats;
-> +	unsigned int nstats = (unsigned int)PORT_MAC_RX_STATS_MAX +
-> +			      PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX;
-> +
-> +	return nstats * sizeof(u64);
-> +}
->  
-> +static int fun_init_stats_area(struct funeth_priv *fp)
-> +{
->  	if (!(fp->port_caps & FUN_PORT_CAP_STATS))
->  		return 0;
->  
-> -	nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX +
-> -		 PORT_MAC_FEC_STATS_MAX;
-> -
-> -	fp->stats = dma_alloc_coherent(&fp->pdev->dev, nstats * sizeof(u64),
-> +	fp->stats = dma_alloc_coherent(&fp->pdev->dev, fun_stats_area_size(),
->  				       &fp->stats_dma_addr, GFP_KERNEL);
->  	if (!fp->stats)
->  		return -ENOMEM;
-> @@ -1476,11 +1479,8 @@ static int fun_init_stats_area(struct funeth_priv *fp)
->  
->  static void fun_free_stats_area(struct funeth_priv *fp)
->  {
-> -	unsigned int nstats;
-> -
->  	if (fp->stats) {
-> -		nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX;
-> -		dma_free_coherent(&fp->pdev->dev, nstats * sizeof(u64),
-> +		dma_free_coherent(&fp->pdev->dev, fun_stats_area_size(),
->  				  fp->stats, fp->stats_dma_addr);
->  		fp->stats = NULL;
->  	}
-> -- 
-> 2.56.1.708.g77570a6a1d-goog
->
+Add a new set additional PM runtime metrics to improve power management
+debugging and reporting (these metrics may be useful to userspace utilities
+such as Powertop).
 
-Fix looks good to me.
+MOTIVATION:
+The current implementation only measures the duration a device spends in
+suspended or active mode, which is very limiting. We can't find out how many
+times a device changed state or what its shortest suspend cycle was.
 
-Although, I think it's more common with a compile time constant for a fixed size
-used for alloc and free. Something like:
+This overview would be useful for detecting power "thrashing" and tuning
+autosuspend delays. Currently, sysfs only shows the total time a device spent
+in active and suspended mode; from an energy standpoint, a continuous 50
+second suspension is different from a device cycling 1000 times for 50ms each
+(these transitions can be pretty power-hungry). This could help userspace
+utilities like PowerTOP to more effectively determine what is causing an
+increased power consumption.
 
-#define FUN_PORT_NSTATS ((unsigned int)PORT_MAC_RX_STATS_MAX + \
-                         PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX)
+NEW FEATURES:
+This series introduces the following new metrics:
+- resume_count : number of successful transitions to active
+- suspend_count: number of successful transitions to suspended
+- last_suspended_time: duration of the most recent sleep cycle (ns)
+- min_suspended_time / max_suspended_time: shortest and longest sleep
+  cycle durations to help detect power thrashing (ns)
 
-        fp->stats = dma_alloc_coherent(&fp->pdev->dev,
-                                       FUN_PORT_NSTATS * sizeof(u64),
-                                       &fp->stats_dma_addr, GFP_KERNEL);
+By reading the debugfs file /sys/kernel/debug/pm_runtime_summary, you get
+the following table describing the power stats of each device with
+runtime PM enabled:
 
-Not a big deal though.
+Device                           Status        Resumes Suspends   Active(ms)  Suspend(ms)   Last(ms)    Min(ms)    Max(ms)
+--------------------------------------------------------------------------------------------------------------------------
+0000:00:02.0                     active              1        0        45688            0          0          0          0
+0000:00:1f.0                     active              1        0        45687            0          0          0          0
+0000:00:1f.2                     active              1        0        45686            0          0          0          0
+0000:00:1f.3                     suspended           1        1         1658        44028          0          0          0
+00:03:0                          active             15       14        19627        25899         42          5      14811
+00:03:0.0                        active             14       13        19626        25900         42          5      14811
 
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+TESTING:
+Tested with an x86_64 defconfig kernel and QEMU.
+
+AI ASSISTANCE:
+Gemini was used to prepare this series.
+
+Signed-off-by: Joshua Crofts <crofts@kernel.org>
+---
+Changes in v3:
+- Guard new metrics with #ifdef CONFIG_DEBUG_FS to reduce overhead on
+  non-debugfs enabled systems (Rafael)
+- Fix runtime status transition fixes flagged by Sashiko
+- Link to v2: https://lore.kernel.org/r/20261116-pm-runtime-summary-v2-0-a3d8654baf8f@kernel.org
+
+Changes in v2:
+- Drop sysfs patch as it would have a non-negligible impact on boot times and
+  the debugfs summary is enough (Samuel Wu)
+- Expand cover letter
+- Fix Sashiko findings - typo in commit message, race condition, duplicate
+  function call
+- Link to v1: https://lore.kernel.org/r/20261110-pm-runtime-summary-v1-0-12ebf283db78@kernel.org
+
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Pavel Machek <pavel@kernel.org>
+To: Len Brown <lenb@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Danilo Krummrich <dakr@kernel.org>
+To: Johan Hovold <johan@kernel.org>
+Cc: linux-pm@vger.kernel.org
+Cc: driver-core@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
+
+---
+Joshua Crofts (2):
+      PM: runtime: add additional suspend/resume metrics
+      PM: runtime: add debugfs entry for pm_runtime_summary
+
+ drivers/base/power/runtime.c | 179 +++++++++++++++++++++++++++++++++++++++++--
+ include/linux/pm.h           |  16 +++-
+ 2 files changed, 189 insertions(+), 6 deletions(-)
+---
+base-commit: d40cb8a12ed25789f39404c5f7968a65e98d89c3
+change-id: 20261110-pm-runtime-summary-8dd29a1383bc
+
+Best regards,
+--  
+Joshua Crofts <crofts@kernel.org>
+
