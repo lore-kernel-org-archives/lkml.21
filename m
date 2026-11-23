@@ -1,73 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795456947;
-	b=L45fNkANkxGKazVcEc6ZwVVx4xHCIfYZWgdlthE5uPFJMeo3t5K1TgsbQox8OOnUqDrh
-	 tums7JOF8h8bfQjfPamMXqxPo9EjC3pwRQMK9Xfu4lI2o/dUoS1d1oab1qWVOSNeD1XqX
-	 87twGCvNeuHOUsAe3iqhxzmispJO91acdVS1mgEIfKWAlPTlb6nzQot5QQbROOGD511nT
-	 hmjBmWKxyYe//xHQ3uc74VP7AzEAsJ4+ronHJqDpgJmpTJX36C69fQXG4zSlCV9kwWo0x
-	 8s4Z/o3OirG4EdqL14CVldTNLStqj5RiQmGXzfRCrxUyaYqL+NkcQ5eY8IXmgDVr7SQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456947;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=vDttuoLtThpmrLHDgUDrvKFHZsebodC8mQspl8DHMwU=;
-	b=ac8hCdvEEsbH1LAA9ayxkBsSiU4LvkS+3le7eUfN7CooKpCc8EmGyZcHJYI/5o4Dh/HC
-	 lHWw1b2dbgMiERXmo31ooDu0oKfwrQ5HeEGMd3BuU3jKXYWpa+oKASb48/s3SqyRo08pD
-	 Ih0/YUJ885RwQsFBzOJ/BhkMT7FpdGorSIj2ixMHgNqXw5NRc8SHVt8BKRBlHrQsbdS02
-	 HTNL0T6kKMJRCuNlYugvPS04PS0vSVzy5gDPBigiQl+qq69ufwKOBMSeJ5993qaZh937Y
-	 UgvBkJt6K9DGnk8sGII79ZX0OoeH3731Nwtd4C/KvAuoKUjK4ffOnROqufzVezhT5nQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iav.lv;
-	spf=pass smtp.mailfrom=iav.lv;
-	dkim=pass header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=Kxg01mX9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
-Received: from sender-op-o15.zoho.eu (sender-op-o15.zoho.eu [136.143.169.15])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795457072;
+	b=UfbQfUABfdfGlLstW0syHp/3bILkEAtbnmC89CIZEm0yVyaV332C/JoZCXmhGAvTtiJM
+	 bRD8TBxi/i0UsFby6D/av0hAKkAwuqOU24y2acvaN3hxHf2JPkVl5s5j7qeO4/29MhROS
+	 xccubqV8OHzOVVHHCavzHL10wkr3CgVJ9cqHqD2KIRb8WBK30RNaC9UIW+GSP2ZnNquHp
+	 aHO21smiiLqn+0CnKIaph/J3X+veWK12ZbeS8BdaP6AU3FUwJK1qCWQYMIuo8VvjhmDSw
+	 NOjaTUaVWwJ/AwyRwLGFHKzSYxH2trZoKV3r9WnOHgzDxxCqfP+FO4SsfXP+RYv9XRA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457072;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=L11swEeJ1ew2lZyx0Wb6tGFYANDYS1G/jL/Lf64CdLo=;
+	b=Q65RpH34nCxQmYj3sb+ZybosqyFX9vJ1E8A+Ws8Ew2jEgt9rjyrCZWBrkApp5u0ucAIC
+	 loAruJ1+x4QuV17TDww7BecrLlvKyQEOj4W3EifwZ8OD2vSu1EuM0MfcPQh1sXmh7fdUN
+	 u2PIhCS52JERRxJ6/Ue/kuh6UyUNRciQoMFNl5M1Pioz2bVjFQpghKajwe//b2IFIiW4/
+	 2TbIGoeSZSf1q6WWyFTVUcjK+3sSDiHsvmd4r2AqbdeHD2H6UeTnbob9diecZhXc7G0b3
+	 cl9SK2UmhqthlAqfZhiBgDRieCDiz9HHejFB3lYzC/pRzh9kIUjp5o09I5fpbRTwuRA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GhOzJrXN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78751606A31A;
-	Mon, 23 Nov 2026 18:02:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78751606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iav.lv
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iav.lv
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBE39606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:04:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=Kxg01mX9
-ARC-Seal: i=1; a=rsa-sha256; t=1795456903; cv=none; 
-	d=zohomail.eu; s=zohoarc; 
-	b=PaEyfUHI9/dg2Kik0zoccRrZZeS8oCPNzXKct42xtmbfG1sZf7ENSKszKndKxPpppPLUn9jqDFg1bMH9/oECr2KyOwTObfomSzwWZ4D5sH4318qx8fIWKN8RE6fUo3iDG/W6c4hO46lmxUvgx7NbZQXR3hLJoih8q84cPvfK5Bs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
-	t=1795456903; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vDttuoLtThpmrLHDgUDrvKFHZsebodC8mQspl8DHMwU=; 
-	b=T6Q6yKHs69OGVVqU6pq4IQfdJlyAI81yHIBcuFVGB2FzftKh4QkUVkdHQ9z4phc4x2tAABLy+883RnzDGlWi+dHJVMF5gMplguY1xktpz/223/o/HcTEMlRKZz/HokdeKhuptkMZMTPVlxpBUx+gP5LKkpve/z0R/NYEFHO/LS8=
-ARC-Authentication-Results: i=1; mx.zohomail.eu;
-	dkim=pass  header.i=iav.lv;
-	spf=pass  smtp.mailfrom=iav@iav.lv;
-	dmarc=pass header.from=<iav@iav.lv>
-DKIM-Signature: a=rsa-sha256; b=Kxg01mX9YeAZiV9Qs1JStftSmBv4b9pv3eCwsQZnx6ouWvP6EME1GmujpM84Ok9QbXQ4jTAhqMNTzGJngNoNRimp5oO8GLtL6PioAdtuBLELn2YMO8nFZJCN4ca5kRomt+2K+qdlqw757oHQWVVWso1aOQ2ekav8bMiNO4CGiLY=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=vDttuoLtThpmrLHDgUDrvKFHZsebodC8mQspl8DHMwU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zoho.eu with SMTPS id 1795456902105430.43361214454706;
-	Mon, 23 Nov 2026 19:01:42 +0100 (CET)
-From: Igor Velkov <iav@iav.lv>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: John Stultz <jstultz@google.com>, Thomas Gleixner <tglx@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Miroslav Lichvar <mlichvar@redhat.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 6/8] dt-bindings: rtc: Add linux,wakeup-states
-Date: Mon, 23 Nov 2026 20:01:12 +0200
-Message-ID: <20261123-alarmtimer-rtc-priority-v2-krzk-reply-1@iav.lv>
-In-Reply-To: <20261123-literate-significant-wildcat-dcfffa@quoll>
-References: <20261116-b4-alarmtimer-rtc-priority-v2-0-b2c69721e489@iav.lv>
- <20261116-b4-alarmtimer-rtc-priority-v2-6-b2c69721e489@iav.lv>
- <20261123-literate-significant-wildcat-dcfffa@quoll>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GhOzJrXN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B42B1F00A00
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:04:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795457072;
+	bh=L11swEeJ1ew2lZyx0Wb6tGFYANDYS1G/jL/Lf64CdLo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=GhOzJrXNGsU8hDynlqn3CUBYZv6ZoubPJCZhHoORLW4DVgH0wfkA59gLLfclxOjII
+	 vBQdW7xfClRHGR0Kt0R6c4NY/jCDXT7OtyfaWD8eMJAag41ke3hIBUAGJ5wh3zJ5FW
+	 7UtvbDXkU9fO8+ock2XRyVy9tYVUG3TGnnSUoYRxLU6EMsWVU8JurkHbdZYGTMDnms
+	 6ccd/EIUZ6ZljD0GIgQBLaC/nCLmgUICmNozIRugDdcVEVHMgid6Sycu1695Dua5Vx
+	 SgPE/FXGGEjlSgxkM3ctXmTKnGT3kkU+xLPPnCxLye0k3mLsLNUuIMyJr/4zM93iEg
+	 dYHU9qRsb8pkA==
+Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-71af0656bedso2264871eaf.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:04:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFgiEnoXpRb84K3efiD5hv1nHlZV34yT/bN6XREpHzMVRMCWfwDSSQrdnHPQ3O+73krG0oFrp3dlln1MA4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/TeDGwRqCxhfefN4X5h3CygbPEL/C16UBlLVp5ynBB4YgDsjaU
+	zaUNDoIZxJl4K/ARNS3mFzgeIEX2XycSQKpbZahtBzw4Es6M6HvlsviwviP0C0PcGjWrDQ8QYne
+	thJcRv3U40sR/X8WL7MO/exf/PqSr/1c=
+X-Received: by 2002:a05:6820:55da:10b0:71a:f794:49c2 with SMTP id
+ 006d021491bc7-71b39501d54mr6792362eaf.55.1795457071843; Mon, 23 Nov 2026
+ 10:04:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,22 +59,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261123122432.297135-1-jiayuan.chen@linux.dev>
+In-Reply-To: <20261123122432.297135-1-jiayuan.chen@linux.dev>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Mon, 23 Nov 2026 19:04:20 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqMpfQr_m8O+=nSM=0f=UwktPVZaizs9Q0mCm_7ceZfeA@mail.gmail.com>
+X-Gm-Features: Aa3M54pBQ5tMrvyFxMT1C74KMmB0wbelc_7xhsKqHOGLaFEDly8f9a5KtMvXsdw
+Message-ID: <CAL4WiiqMpfQr_m8O+=nSM=0f=UwktPVZaizs9Q0mCm_7ceZfeA@mail.gmail.com>
+Subject: Re: [PATCH net v3] tcp: fix negative sk_forward_alloc after
+ MSG_ZEROCOPY append
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, Neal Cardwell <ncardwell@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Wei Wang <weiwan@google.com>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	Soheil Hassas Yeganeh <soheil@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 11:48:11AM +0100, Krzysztof Kozlowski wrote:
-> This looks exactly like re-implementing system-idle-states.yaml and wakeup-source.
+Le lun. 23 nov. 2026 =C3=A0 13:24, Jiayuan Chen <jiayuan.chen@linux.dev> a =
+=C3=A9crit :
+>
+> Our local syzbot reported the following warning:
+>
+>
+>
+> The problem is here:
+>
+>   if (!skb_zcopy_pure(skb)) {
+>           copy =3D tcp_wmem_schedule(sk, copy);
+>           if (!copy)
+>                   goto wait_for_space;
+>   }
+>
+> When MSG_ZEROCOPY data is appended to a skb that already holds copied
+> data, only the user length is scheduled, but the pinned pages are then
+> charged by their truesize:
+>
+>  skb_zerocopy_iter_stream
+>    __zerocopy_sg_from_iter
+>     zerocopy_fill_skb_from_iter  //truesize +=3D PAGE_ALIGN(copied + star=
+t)
+>     sk_mem_charge(sk, truesize)  //sk_forward_alloc goes negative
+>
+> For example, sending 8 iovecs of 1 byte each schedules 8 bytes and
+> charges 32768 with 4K pages.
+>
+> On a later sendmsg() without MSG_ZEROCOPY, if sk_wmem_schedule() fails
+> (e.g. tcp_mem hard limit is reached), tcp_wmem_schedule() returns
+> min(copy, sk->sk_forward_alloc), which is negative. The negative copy
+> is passed to skb_copy_to_page_nocache() and triggers the warning, and
+> sendmsg() fails with -EFAULT.
+>
+> A few options were considered:
+>
+> 1) Schedule the truesize up front. It is not known before the pages
+>    are pinned, it depends on the iovec layout.
+> 2) Do not append zerocopy data to a non pure skb. This splits a small
+>    header and its zerocopy payload into two skbs.
+> 3) Schedule the missing part right after the pages are charged. They
+>    are already in the skb at this point, so this can not fail.
+>
+> Go with 3).
+>
+> Fixes: 849b425cd091 ("tcp: fix possible freeze in tx path under memory pr=
+essure")
+> Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
 
-Right, thanks. v3 will use wakeup-source with phandles to
-system-idle-states.
-
-Two questions before I rework it:
-- alarmtimer needs a suspend state for each phandle. Is mapping
-  standby to s2idle and shallow, and the mem* states to deep, acceptable?
-- linux,wakeup-states = "none" covered an RTC that wakes the system from
-  no state, e.g. meson-vrtc, which enables wakeup unconditionally, on a
-  board whose firmware ignores it. How should a board describe that
-  with wakeup-source?
-
---
-Igor Velkov
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
