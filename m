@@ -1,83 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401330;
-	b=t/6CFpNP3dqWcGDrNKWUg8lbcyS/xGs2v+O0le7UOOHLGEORzRQ+5WFVxdsPFJvaOkl5
-	 utoe0cQ4Jkk0TQlR7HXeZjztiYsMyDQrfAYuSYM7pFr28jLBv5Px63QLvgG84XDV97IDn
-	 9FhG6kw0wJ0KXezOjkUPZJ53vw7xxGUypbKnZZ0nj9LQdE7lprVxIQE74+vNdsfXPt57/
-	 6J1ebmBc9o7AbhinEnxqAw17qYa+vjlklBbgyVr87j3NXMnrWlUi8f8TNeOhz0pO/6tOk
-	 KXfnpqbtO4BmX1daqECEo+uCaMoBugxgUWHTb3V2yKrCapYYZRr+FVQCN95nPZNtkMw==
+	t=1795401358;
+	b=xYXqcT7Z5vKkBQ+67E5/yuOV1H4kgG3LeSp4ZPu0IIAwVOFndw+5DcsPheHHrUEk5vp8
+	 7+jvBWVDh6vHBxEY+gyjP3KEuntL+6KpJHhWA/n79NljKKwQnZ8keWCvwpUvbp9iBUo9n
+	 FO9O8WC83D00GOEySMpidnzWIxsajB2WKErNV140W48G2pZg8I0dYumqqAwElZsIlUeKy
+	 5mWHFMSwd3NgOn450eUAfPGj+jms4grqzYW8yS5hVgA+hnqpH4GGncES8fJH4I3yPeu/P
+	 76C0D+t0nvqwQWix85YF31WjaZnUWMXjsGNCgg4LdejhFLVQAtMCWwy+AHJWLyMH0aA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401330;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401358;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=V9tZJEHgi9zuzkPjoAHZgtifbl5VP5I7TzEdZTDXpvA=;
-	b=cM4rBIDSAxVCYhwJBdicsA85hR6CNaTQLPHawOPCmcnFC6EXg06yiODIJG8fPpiFDXx2
-	 qGvV4L3qlnbbMtIwWom+YR0w4btTkFJApTjOOkKtECn/+kLXkfyN4E+LAK5GWN5nVA8Zj
-	 rHD+I8MXFYneuJKYxPe25iFYiSCvCoCQaC9inSOSP3bry3iTA7KpL6rW+tTnjUIez9oHV
-	 FuhRvtnsM1VX5KjXFpQXYmzWvdq0cnvc5GTDZrKu3zj4RbtzOrX7Zx7KKLqQUhT+hj/qD
-	 eL5NtUtoQ1bQwt0+TqlwWim+5RoBZwdus00xQmWAbGLEvmjpOEazDOps5h6j78tbMeg==
+	bh=st5pGIMSSsdG331Dh3ZbAxiLCbZswNCMENZiPvwdzYI=;
+	b=L5TCLmegKPV1GTGCEbkSVYm2uBiEnuSzREZNGDqPb9HqXHK4qdZj0dB3aZBYZ4HD3jyZ
+	 jJf5fjoFgA/Xask517V/8gWkyWoR/8t0ql20a8Au7gfVRHnatL1qcIqWdUIZ2w/sYnIcR
+	 HZUQTWLWOwrBb95BUdY4WrCOXI4Ow99ExQxXAGnlECg7uDourmEz3FYo/WOl/3zDfxeCB
+	 gHyUpuDuc6Qq2jO8zkZxf2tylrdbKTDs2WwafSWHZ48OSR0nA7/78LtY3u3kpP5OIZIL1
+	 k5ei+l8jESspVmcUiAn0NWV52cn6fX8z8IOtnFxbU1PtqUajiVqEstCjJApXLUQQnyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=iiitd.ac.in;
 	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b="VvB/gHVf";
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Pw8PEnm0;
+	arc=none smtp.remote-ip=209.85.214.180
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB7DD606A32E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:35:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB7DD606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B109F606A320
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:35:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B109F606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=VvB/gHVf
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f0464dd6b6so14777545ad.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:35:28 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Pw8PEnm0
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f02ee04378so22143785ad.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:35:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795401328; x=1796006128; darn=vger.kernel.org;
+        d=iiitd.ac.in; s=google; t=1795401357; x=1796006157; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=V9tZJEHgi9zuzkPjoAHZgtifbl5VP5I7TzEdZTDXpvA=;
-        b=VvB/gHVfJLWn6n5wEIFsFijRGKd7mKTFlb2ToYtj8fFMD51k7tp2A48f3VANoQ07mZ
-         qkdVQuiIdId4E/jI9cpMSUeTbqqsxUpcRscDfxi1b8GbGBsheFytaVRYCqPNTCzAUSiH
-         PzLCLsWBU7/Um0FX04qV7WyQl/abRPSo3MzGI=
+        bh=st5pGIMSSsdG331Dh3ZbAxiLCbZswNCMENZiPvwdzYI=;
+        b=Pw8PEnm0wUjRCQLP0HEtvFtvQLfUyDMiAdPXJOvN6sHBNf5HMrHgvDqJGIlYs1mVJF
+         vfSgeNVWvHXvrK6UjZ9r4ydWowzg5zlqLVEjrom9370KYwmJgRnrBLNEV2mRuM0ReQik
+         q4qrr9yQboX1xPDqycGtlMWXD8bqR1ej2xzXQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795401328; x=1796006128;
+        d=1e100.net; s=20260707; t=1795401357; x=1796006157;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=V9tZJEHgi9zuzkPjoAHZgtifbl5VP5I7TzEdZTDXpvA=;
-        b=WCSV6sr2QPDjrhy9MDhoOuMucIX7b3Urxkp+47Cr2kiDnncJnVzcUtxAnR9H5lRrLe
-         FzLdA8bprSvswABV7yFp7VBAFcY+3ZfvI+PYzkvDAXn772QFdQ6+1CVrB7q8gg6bZLVG
-         ChMnyJjhtJN1DAto6Kw96OQqXKI0KrD0dW/CQlLCA+NCIzagBBbcxnB794egElHVcUle
-         R0fd5O2YKGJGj30/LaJUMHFlLdSN33FpRo+HffG+TRaWIrSEyyxQ7x2+I/CBfOtfMAjO
-         WP+P1Mjb2kSGCRCvcIuwS+efXnwxTP8GyKu6aiyrnT9vXU0+Q2jzxyeuS7vJh67iKlxP
-         0SKg==
-X-Forwarded-Encrypted: i=1; AL+hErHIcY2Q20vavUpsqmcGL4pjVhFF1jJ/GzjBpG5k/Z2p7rqfRGlFRUD4V/J3l/uuje9PQyN0STxNz4tzLZI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8dE9wOiQjk6JqpxSNe3hd391UC8NC7tFcOjEFftw+VxHLdN7L2
-	36aF8G5C+/xPLPeO11nf7hQUr0MfX8cb+ltN2Y41W92fS4FgVtmfc+V4tdF4X7/ks4WuXCXwV1G
-	vqFda
-X-Gm-Gg: AZFdTZeRPty3Qc/mnzMx7Fy2AdlHcaT97HF0eDJUxo/q7LlIFGHR2v/k/5UAeP+MRep
-	H/1ccSvq4bsuX63pm7OE1xzmopZHah5b9/MV2VPRqZR8qVF/UqCzfQnzJuFBqL+BbL7OE/SnQHt
-	JUPJ6WiBLjK71WVoDmTIR1XbXESelt0Q4tc15o5dxsKlc/kurO+o/b0c23FjohcpFlVew2Dl7E9
-	iWi38XY3r2t0Xfp9Rkb3Mm7iV6D6UX+nbOnEXgcMkgPf+gm5rCcE7iK5Id18/5cnqWvegvQtNMn
-	Q3GT4RsWEfOrQHbmM2fobbLpU0zp3FPu1XaLwxzGPemiEoW9XZEfFFl8ymRGvFF0sbyFB8DDu4U
-	aTIZ6Y/bLEsoz4wRIamOe0LnNR8SVQ8aLRLUneNY0pZUH+Tx+0zNxj9XnIz8i4BRFnU/aI41CHz
-	NqLmwpcneOyf9DT7qkWJODhwxYJ+VeJnJbDSSAf9eacErW3JDdb+SzBuO9qfH6bp6/cPGwWUeM6
-	/O+/A5FiqKr8L/Q8bVjo8lnjokwD2zXJN3ebO2wDvm/EWRuIKtlZos9aYnef4O+Fe3bQkrBi4Fr
-	yrHliZXY05deQo4mcvTMIMBq6b/o2uJGWccjBY2e65sgCGjfF7KFeXisSsH4CP9GHw9l563z74I
-	UtstzYih0BXQbo924AkALGO3gbU6+ztDla6/f5BnDKbylqiSS10ZjB/YQNAkv84BfpqPhVKdueP
-	eXLmNVsAZ5FQ==
-X-Received: by 2002:a17:902:d2c6:b0:2ef:f312:b842 with SMTP id d9443c01a7336-2f03f1b426emr100861095ad.46.1795401328203;
-        Sun, 22 Nov 2026 18:35:28 -0800 (PST)
+        bh=st5pGIMSSsdG331Dh3ZbAxiLCbZswNCMENZiPvwdzYI=;
+        b=bGYg7DTMCl2aSCi4apR0o7LxYYUi514qu6Lp6dB2wfaEVt0hVkDdQaLH1xM7vdbcA/
+         WXFtPEbAk5Ul2n/gpihe97mu1NoVJBKgJfGCeS9dsmcMlBnOGkyUdWzqiQYHsj8tXYwc
+         RNYrroqKiQlHVAWoqSWy/W28s9lOjPhMzTug7JQf+tOL5DZLqNGamLhFaZHCUWoEl72i
+         HLDQki9ErHijzrCkkzKhud4P6d45dU81TnWprisJjXoDufd4J66zLBJpVUQGdq7vp9Qi
+         33kG3kFqYNvROiZOjNh/GAPYwp8Tj32MyXOJI6RANL02EyG+ZcEXmTdHG+O8DpfYyAFz
+         s++Q==
+X-Forwarded-Encrypted: i=1; AL+hErGmr05lYVtLbBt8KFAYx4l1t3NPrtvfGlhL1lp/WFDWjyk3+f3oSGC7dzTyJ4u5LlAfGGn7srheHGev0V0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z90WF8Dl8IrDRDV0iWV2/dOkIZaT8oKmigSm+Zuf4i+YLt5iqGq
+	iyUZqYU1Hh2wMDmwsBwwGC72oMt3oeo9wy684wK/HrOHk/q9vhobCeYhxUHUC5kwl0s=
+X-Gm-Gg: AZFdTZdPQFgpNs5GGAlOwL8bBu1Dyrum8coynm/prCKZL/p1RXu2gPaMKhvsoSE8HX+
+	+m2/e/QbC2rhZPm2+lEaQAh+O6f1FT8cHud7vFO1VKIKWin4jCj7qs5v+1X5r0ILOwng4tmydhA
+	Fg2DzKeqTkD4jAQaSAoBYx7YwTAk0LvizwQ85urcw/dXyr5xNF5RqqlMDx2hIfqW7UFIZcg5gR1
+	yAC9YmY/ejUouxC6ijNReO/pIaazH7zI6DD+szAa2OoH3zMp1LLCDzc0ctJg+x8uRwZtabM47mi
+	WZywl5khGPilp1Tje9x7OcwwaSchZfPczwwqb5b4N17JpdOO7W5kzUyVj1UrD9JRz1uGsi/NKvW
+	6t8WrNYfFEtjDBdnly9OTiiWJqYtYrnoCTbUkg9mqsgxTwLtooRGaEuRuwvIlKQQXC6QKzHmKPo
+	4S6+S3FRlkLwq6cLXPmabYXqKebjynGZK8ifOwTPK6lBeH5sUaChuip3evKM2HNuS1fbtaDEfW+
+	IClhLMY+VphV+E42Dz9gC+H7p1HdPeqeggWmNqCUp2NeqsJGDr98sVSu68wv9H170uWHZEQXLB0
+	VOlkUvQx4uYQzC1PvBJY3Z06CMEt/7lDB5MSlqHE7PwQNFLqUnK3u6mEXRCnve4Acs6MJP2IYTo
+	SRe7r2G0gjzlKzJQ6uVMbFcSnqJBTMIq1H1UDwuv7wc9LTN+sv/2YeutBFaSqkdPv
+X-Received: by 2002:a17:903:32cc:b0:2e9:4175:3079 with SMTP id d9443c01a7336-2f03f1cf4b6mr119824125ad.21.1795401357008;
+        Sun, 22 Nov 2026 18:35:57 -0800 (PST)
 Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm44320685ad.63.2026.11.22.18.35.25
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120282sm43609925ad.59.2026.11.22.18.35.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 18:35:27 -0800 (PST)
+        Sun, 22 Nov 2026 18:35:56 -0800 (PST)
 From: Piyus Kedia <piyus@iiitd.ac.in>
 To: David Heidelberg <david@ixit.cz>,
 	netdev@vger.kernel.org
@@ -85,12 +83,12 @@ Cc: oe-linux-nfc@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Kapil Vaswani <kapil@presceralabs.ai>,
 	Piyus Kedia <piyus@iiitd.ac.in>
-Subject: [PATCH net 2/3] net/nfc: llcp: take the skb reference before queueing it to the socket
-Date: Mon, 23 Nov 2026 08:05:19 +0530
-Message-Id: <20261123023519.3350997-2-piyus@iiitd.ac.in>
+Subject: [PATCH net 1/3] net/nfc: llcp: fix the 16-bit truncation that overruns the SNL response skb
+Date: Mon, 23 Nov 2026 08:05:48 +0530
+Message-Id: <20261123023548.3351531-2-piyus@iiitd.ac.in>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123023519.3350997-1-piyus@iiitd.ac.in>
-References: <20261123023519.3350997-1-piyus@iiitd.ac.in>
+In-Reply-To: <20261123023548.3351531-1-piyus@iiitd.ac.in>
+References: <20261123023548.3351531-1-piyus@iiitd.ac.in>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,49 +100,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-nfc_llcp_recv_ui() and nfc_llcp_recv_hdlc() queue a received frame to an
-LLCP socket and only then take the reference meant to keep it alive:
+nfc_llcp_allocate_snl() accumulates the allocation size in a u16 while the
+length it is given is a size_t:
 
-	if (!sock_queue_rcv_skb(&llcp_sock->sk, skb)) {
-		/*
-		 * UI frames will be freed from the socket layer, so we
-		 * need to keep them alive until someone receives them.
-		 */
-		skb_get(skb);
-	} else {
-		pr_err("Receive queue is full\n");
-	}
+	u16 size = 0;
+	...
+	size += tlv_length;
 
-sock_queue_rcv_skb() takes over the caller's reference and publishes the
-skb on sk_receive_queue at refcount one, so a concurrent recvmsg() - or
-the socket's own teardown - can dequeue and free it before the skb_get()
-runs.
-The increment then lands in freed memory:
+	skb = alloc_skb(size, GFP_KERNEL);
 
-  refcount_t: addition on 0; use-after-free.
-   __refcount_add
-   skb_get
-   nfc_llcp_recv_hdlc
-   nfc_llcp_rx_skb
-   nfc_llcp_recv_agf
+nfc_llcp_recv_snl() builds one SDRES TLV for every SDREQ TLV of a received
+SNL PDU and passes the total as tlv_length.  Each inbound SDREQ costs three
+bytes - type, length, tid - and each SDRES it produces is four, so the
+total
+is four thirds of the PDU and about 48 KiB of SDREQs drives it past 65535.
+The sum then wraps, alloc_skb() reserves a fraction of what is needed, and
+nfc_llcp_send_snl_sdres() puts every entry of the list into it anyway:
+
+	hlist_for_each_entry_safe(sdp, n, tlv_list, node) {
+		skb_put_data(skb, sdp->tlv, sdp->tlv_len);
+
+skb_put() runs out of tailroom and trips skb_over_panic().  With 16400
+SDREQs the accumulated length is 65600, which truncates to 64:
+
+  skbuff: skb_over_panic: text:... len:382 put:4 head:... data:... tail:0
+  kernel BUG at net/core/skbuff.c:215!
+  RIP: 0010:skb_over_panic+0xcd/0xd0
+   skb_put
+   skb_put_data
+   nfc_llcp_send_snl_sdres
+   nfc_llcp_recv_snl
    nfc_llcp_rx_skb
    nfc_llcp_rx_work
+   process_scheduled_works
 
-  BUG: KASAN: slab-use-after-free in nfc_llcp_rx_skb
-  Write of size 4 at addr ffff888055abe5e4 by task kworker/1:2/56
-
-Both handlers are reached from nfc_llcp_rx_skb(), and the aggregated-frame
-path widens the window by dispatching sub-frames through it in a loop.
-
-Take the reference before queueing and release it again when the queueing
-fails.  That is the ownership rule the rest of the tree follows, including
-the raw-socket copy in this same file:
-
-	if (sock_queue_rcv_skb(sk, nskb))
-		kfree_skb(nskb);
-
-sock_queue_rcv_skb() does not free the skb on any of its failure paths, so
-the explicit kfree_skb() balances only the reference taken here.
+Hold the size in a size_t so the value that reaches alloc_skb() is the one
+the caller computed.  A request that large may now fail the allocation
+instead, which the existing IS_ERR() path in both callers already handles.
 
 How this was found: by AI-driven fuzzing built on top of syzkaller.  Its
 analysis was then checked by hand against the code, the fault was
@@ -155,62 +147,22 @@ reproducer with ordinary NFC LLCP traffic unaffected.
 Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
 Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
 ---
- net/nfc/llcp_core.c | 33 +++++++++++++++++++--------------
- 1 file changed, 19 insertions(+), 14 deletions(-)
+ net/nfc/llcp_commands.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/net/nfc/llcp_core.c b/net/nfc/llcp_core.c
-index 74bf81700..e988c95cc 100644
---- a/net/nfc/llcp_core.c
-+++ b/net/nfc/llcp_core.c
-@@ -922,14 +922,16 @@ static void nfc_llcp_recv_ui(struct nfc_llcp_local *local,
+diff --git a/net/nfc/llcp_commands.c b/net/nfc/llcp_commands.c
+index 80a00938c..0a3d66e6c 100644
+--- a/net/nfc/llcp_commands.c
++++ b/net/nfc/llcp_commands.c
+@@ -542,7 +542,7 @@ static struct sk_buff *nfc_llcp_allocate_snl(struct nfc_llcp_local *local,
+ {
+ 	struct sk_buff *skb;
+ 	struct nfc_dev *dev;
+-	u16 size = 0;
++	size_t size = 0;
  
- 	/* There is no sequence with UI frames */
- 	skb_pull(skb, LLCP_HEADER_SIZE);
--	if (!sock_queue_rcv_skb(&llcp_sock->sk, skb)) {
--		/*
--		 * UI frames will be freed from the socket layer, so we
--		 * need to keep them alive until someone receives them.
--		 */
--		skb_get(skb);
--	} else {
-+	/*
-+	 * UI frames will be freed from the socket layer, so we need to keep
-+	 * them alive until someone receives them.  Take the reference before
-+	 * the skb is queued: once it is on the receive queue a concurrent
-+	 * recvmsg() may already have freed it.
-+	 */
-+	skb_get(skb);
-+	if (sock_queue_rcv_skb(&llcp_sock->sk, skb)) {
- 		pr_err("Receive queue is full\n");
-+		kfree_skb(skb);
- 	}
- 
- 	nfc_llcp_sock_put(llcp_sock);
-@@ -1136,14 +1138,17 @@ static void nfc_llcp_recv_hdlc(struct nfc_llcp_local *local,
- 			pr_err("Received out of sequence I PDU\n");
- 
- 		skb_pull(skb, LLCP_HEADER_SIZE + LLCP_SEQUENCE_SIZE);
--		if (!sock_queue_rcv_skb(&llcp_sock->sk, skb)) {
--			/*
--			 * I frames will be freed from the socket layer, so we
--			 * need to keep them alive until someone receives them.
--			 */
--			skb_get(skb);
--		} else {
-+		/*
-+		 * I frames will be freed from the socket layer, so we need to
-+		 * keep them alive until someone receives them.  Take the
-+		 * reference before the skb is queued: once it is on the
-+		 * receive queue a concurrent recvmsg() may already have freed
-+		 * it.
-+		 */
-+		skb_get(skb);
-+		if (sock_queue_rcv_skb(&llcp_sock->sk, skb)) {
- 			pr_err("Receive queue is full\n");
-+			kfree_skb(skb);
- 		}
- 	}
- 
+ 	if (local == NULL)
+ 		return ERR_PTR(-ENODEV);
 -- 
 2.34.1
 
