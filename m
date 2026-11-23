@@ -1,60 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.121
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795471961;
-	b=ys5GqNIp8anlPDrGGBercDYjPQo/n/8PrtF5/OyDl0MJysi6gJ0JjRSncoXIMoPH16DJ
-	 a5N2najInQ8KHLHnBc7CQVNdX1317RjKNJQVhCakjjkDU2NpWBS18NSATiI0MxhaNhuxi
-	 FGOLet0AQtFTdFDZDi/kJzt7X4to7bu9UaJi6IRbGv41HhIX2hbnawngTHJ3cE2U8Cnqa
-	 2JDy4V7Dxk2N+KFHfutK64JUfJewVni3pKNGlN+KAEYBSlVMYvI0j5W8B05TvepJCT7qq
-	 YV+KkQEy2pFyGZnSqamOMsfq+8OwiBlKR1cFExAlDLoTcWti90AzMJxm7jUc53ayWwQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795471961;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=EoUAkHlkPWrbFcfVkFGABpxquYoMskuMcC6gsYkiFA4=;
-	b=LM3c0OQ1tdX89oweMjYuqxe4i3+yXDiwggeX38RCnfhib0llD4bK3udIwxLwvQgfK4VH
-	 U6MOn0WxWa3oj3lMPmtj3YxzR5iywrJwbRF0clJH6n2IBNS4lWv9Sw0ThI8sPJHoH2cVx
-	 a0X4kR5iboKk7NtG1rhJlHkE9GkMxgCBOW/rInkMmzkTp5kZcM4vxbk2bz3SJS3t98buy
-	 /AZbSQPPo8THLbnJM2TR+9LfEIh8LD2e8r5lHK+UGhRNODFoZSFiI5arflj0zuFhHnOAH
-	 Otz+YmOBy1daAm8SLdQJeHnOyT7nOzYDsIXZL8TdSdM192JlzeCbX04s9i/5D78enTw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=XdBktN39;
-	arc=none smtp.remote-ip=79.135.106.121
-Received: from mail-106121.protonmail.ch (mail-106121.protonmail.ch [79.135.106.121])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795472067;
+	b=MhoUZc5IhHFYpRAK9VQTH34ciXtIbyip6dzaHHD3jFrv/xSvnXd+1/GdGUGLqSWRwgte
+	 qmF8FSNZKWtCXuIG0gHZN/9oV0vkPxU890dOKyzVtrRVAbH+amYKgG0aJkUu3q96ISn1k
+	 ctrelJd8NdoR/m9im9lA+JZ8sdCEpmboZf2kIBFPzIDAkLRPJw+fIiFNCBr8yiBZEIRqq
+	 uRqf7pOtwa1Tj4qOWwwd0fX3VxmcDh2FjRkJoyP+LEexUhZYap4QbpxLEd937ETMvAkjw
+	 2cqmldo4ZqApSVknWtM8Nk7WoUYy+NcgjpUQTuFWlcitnE+gVxvW2G6kxgWBx9ZpWXQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795472067;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=TDf7aXbavQtYipmJpbHGNJeBpT+O4uVmMPhFsSMbBBo=;
+	b=mbZ7a6j4zCqBuUkYjIvg7QKe4QG1OazRnmIT3JOooHuUEd6+HsFTSZ8MGSUy0vwZ1BQm
+	 /lKGBDJAMsP+3KWyn1JiCn4fMjyLytoOl3cUGLCZ87PXTj9BKJMq3YhGtQM23TEcfwfFP
+	 krDnhfYv+ZuS7vLckM/HExOKsjpox294neA2BqDf6/wYuf+ZMAH1FyRny7H8zzGigz/JQ
+	 xvsL48Xi+vyq2QUai1hSMbKMM5LJwXZkDe4QMGw8qqRG6WtuvgYp+M2SCifdcekMCeDyU
+	 /XRRpUD0HmjsvlspHjsg5mRm8yBnWXsIRJLVS9l6sWbgFISLEuC2vGzK2GqN16Fs6/g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=eBgWMezh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.50
+Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013050.outbound.protection.outlook.com [52.101.72.50])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C2A606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:12:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59C2A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA0F7606A32A;
+	Mon, 23 Nov 2026 22:14:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA0F7606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=XdBktN39
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795471958; x=1795731158;
-	bh=EoUAkHlkPWrbFcfVkFGABpxquYoMskuMcC6gsYkiFA4=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=XdBktN39ddyd3DFNpaloFn4CJYg6xMtGy0plg8t/oXHFD22tkQHlnYDQBYZKLD+1G
-	 rKU4ZrHEi6oGTCDr7k+MHzMU/selkooRrEZLInqzE9pRQvlRvIr7/hyC3M7KpWBjk+
-	 TBXbHZffomFCP4+ea7Ue58oxRUnckM1TtvBo6m1z7QMOvi19ilxP7X2mfTt1YLEZba
-	 rovjJ9pYyuRwNceriP1BqYd32eD8kycQPskOLctszcAexAkb+7y06J0nq4z04xRBnN
-	 VTqY5tJP2qqv9BXp/Q0i6ralp/4pNogljaNDScGOwkKmKejD1yCRHZgtAz+m8fZep4
-	 Vuys/XVf2ly8A==
-Date: Mon, 23 Nov 2026 22:12:33 +0000
-To: linux-bluetooth@vger.kernel.org
-From: Kyle Pepper <cochcoder@proton.me>
-Cc: luiz.dentz@gmail.com, marcel@holtmann.org, sean.wang@mediatek.com, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2] Bluetooth: request LE data length for MT7922
-Message-ID: <20261123221218.215154-1-cochcoder@proton.me>
-In-Reply-To: <20261016170122.27119-1-cochcoder@proton.me>
-References: <20261016170122.27119-1-cochcoder@proton.me>
-Feedback-ID: 97716137:user:proton
-X-Pm-Message-ID: 943ecc765d5ae44366246513eba7e6e3b93db50b
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=eBgWMezh
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gq2lZL5XKJIBx4vXxqiE30eTFugH4ewALnBqqs7AqiuyshA/socYtdHQwEX9Dpmjw+CHV/l+3ThhcPvqDVm7IxJCrvbyyt0octyIslNGNNZGJIcHELngE+iG1MmVIC51x9fLBgOyEIXo06MXCspgby0XkSD/yOffj7j+p76oUPETV2+jwmCuWIpOs4Y3rxsx963//5DzPaX7Csc3j149xTRI2nh5UgS58B67Jf099x2aYmqJtkibyA3uesZ88s2dVHcCshFpTJazaSKFk7O+5qR58UuSlG9a2uSEZUm/YZhX440+J24yFSShlXUZAkFHQ4YF9hnd9aHfw6LDbS5Y+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TDf7aXbavQtYipmJpbHGNJeBpT+O4uVmMPhFsSMbBBo=;
+ b=Toi/+rl303PCg1c0yGXtpfX1Dkbn7CZihP4ChQm1GMxn+gE3C0ODWbGrsYxKkeTNOIWyCLx2b4Yz0oNr2c5bJTXV1a51SJXepsD9rzy2VGXYyezywC1NrU5AV5zCK+xgsIREmM/NN5QPfNcQrtlgyA769XbQiM86vvI9vSftyfYWlp4dMmlRCK1QqozcyXEOXoJ6MQ69cPHVT+UlSMzApfW3iR/2K/hauGU3Kkp7OwcD/6Ii78F0Wt65VvhMidbeWICqg3+xO1m13j3Dmi7WUnXYjGMKVIsG7o5LKBnNVp/9WLKel41AU3xFclYUJaMmZ/BitmeBmwSRQJrqOBLgmw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TDf7aXbavQtYipmJpbHGNJeBpT+O4uVmMPhFsSMbBBo=;
+ b=eBgWMezh+1DWrLw08HaqppJZUaKJqG5PEQL9OlqsdZV2cu57HSTXuhFxLopXJjDlwaDaQlxpodMRUbz3yuQfx7VSinJ1VmEokjEs/cuTFLD0rUzWn8BvP9T9GPdvl/cgfPth5mqiPowgtOVzkpOVA9TJdQoiKIfYu+2s1im4o6tpmFxNfS/39jnn2BbksqIO+PlWrSV1WJiRu6QWQUoThP8m9vBW/G7fNth4vWWXNqZybDFvNqqhYY/UhwCtiUBvxeA5UV8kEKgXxOjZmEd0/EZ+D6VzlQp/hR9betigmEUz35ZPmvIgvmNSm9pYf1d/9fX+3BIj7YWTpFo05uzobw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DBAPR04MB7398.eurprd04.prod.outlook.com (2603:10a6:10:1a0::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 22:14:24 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 22:14:24 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-kernel@vger.kernel.org,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	michael@amarulasolutions.com,
+	linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Joseph Guo <qijian.guo@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/5] arm64: support Engicam i.Core MX8M Plus FE C.TOUCH 2.0 board
+Date: Mon, 23 Nov 2026 17:14:15 -0500
+Message-ID: <179547204936.3036195.15781860181086275991.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261030163547.2682583-1-dario.binacchi@amarulasolutions.com>
+References: <20261030163547.2682583-1-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH7P220CA0168.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::19) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,226 +119,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DBAPR04MB7398:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9661c777-f1a4-4d7f-1037-08df49af216d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|19092799006|1800799024|376014|7416014|366016|261026121527099003|10067099003|11063799006|56012099006|260925021911599003|260925022911599003|260925021311599003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	Hk+fdqNjPExJoL5QXRqgTOiLhg+Dsr9vBlDbPfdGiEoQVlnGxeeQiiAy9WUFLC3XA9oDe7s+cdKYZ91Rz11U+nSkh4ERTkoC8VYZZuRG2qgUOs7NXj1/peTP5fg+enoZwvsoe1qG1nwyqMVELF3au73nYWb3cYNEPsmsJXgzijd7v6UBaZGd63dqscHT5IcbnGeheLfSdz6uP6TGd9hltGfTEZGTOpu0ifLmtdw8tq30X2zpxnC7seFicJtiR12/h2TIIFUgxJY/M8eOfP2e78ahaVIvLHAkeoWNAD6b+3hiXY+ID6uU8gBZl0iDfD3j6LAqPJXSbCrfe+WybLIXx0lYKggoB/VFXMWuMARk+EWoqgi8nsplQIZMvnDxDh0NUQ9E7ash7QWoSiEWhYTHwUmWuEjQ5YZf/y8HOvmUzO0oCkD9HLO8lGwrctFIylh5j+RWT8F9YDP5SjuamoT0vLfWdHTBgzY71K7LrpQFs85RYPsNfGSsd4LJ3na9DLgjqF/FEVLc2QGsoYPWRCQw9sxu1zt/XHkmS7P5A8WxXLGkl8tCsZPMhvZhXuQZz9moS/2+ujXYoW/t70M5rH/5KDFuAEd7zeHkSZjmDqVm3F+YtjW/zO9orTJx9Ps9BnmqtP8KlhBdiGhrf5vWtHTrF1W3dRwyzTfHnclCe3M0CIc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(376014)(7416014)(366016)(261026121527099003)(10067099003)(11063799006)(56012099006)(260925021911599003)(260925022911599003)(260925021311599003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?SjlxdlFjUEZVWmJ2SUk4UXdxdVVHcFRPOE9sVmlXY0wvUmtFcndhSEFnamc5?=
+ =?utf-8?B?UUdXZUh5NTZHaFppaEdhS25xNWxVSWRIR29zc2o3SlRhYVRPbWhVRFNoVW1B?=
+ =?utf-8?B?a1BJR293empDVEp2RGdrdlNoQktGcGFzdjlJNlF0cm8xbGFiS0pWc1JOMnVk?=
+ =?utf-8?B?NlBxYUkvbktUWXM3VHBYbDFUOGJkTC9ySTA4RGtVYWRXeUd0NXNMZUkwRjRa?=
+ =?utf-8?B?dlhwSnlPeldReTVheE5HanJPc3h2NWRPeEphdStlZm9XbzBCQ2tLdzkyaHVM?=
+ =?utf-8?B?dnFwTFpYTS9xOGduQS9XMHJwMU9zRG1EQnc4U1NQdnBCSGRacFo5OHdIY1Jk?=
+ =?utf-8?B?b0QyZkMwS2Z3T2ZlTUswbGVPSFNVbExxamN5WmpxeEh5VXg1bG8xUytuRFFs?=
+ =?utf-8?B?aC93ampDbzFhTzZ5Uk15dGp0clB3ZWlJVmRDMlhOc0RBakoyc204RlNGSVYx?=
+ =?utf-8?B?Nmp0b2pESEplZno5Z2NHTXQ3b0pJd2llYmFMc2FSb3Y5KzIrb3dMRVd2VEts?=
+ =?utf-8?B?UTV6VE51WDRqZ1BTRXhyUnpQeXBTUmVOT0x4RmNiZTc0NVRjdnpldWorVE5h?=
+ =?utf-8?B?RXhHb2NuR01TL3JMME9nRWI4WkhpN3MvZ0Z1cTBldDBDL0lTdTV0TzF0c2hm?=
+ =?utf-8?B?K2xoOUh4cWVsY0dkZ2V1OC9aaFdvYVRqdG96ZGFYNGplcEFGYnRxNUNNWXpH?=
+ =?utf-8?B?NTByaGt0d09udVh4YzNxMmRJTVVRR1hFV3dPUy9xTlZOY2tYTUIrVGJycWJF?=
+ =?utf-8?B?ZG9oQ0l5SExuWXRSS0o2RnBMKzdHaVlGR1hsSFhZcTZ1SWZDRmo3dkFXT0tQ?=
+ =?utf-8?B?eTJEWHNxejg5VU5GYUs5aElyaUlLSXIzbnZZd2srSVl3WHFaWmtXbTNjdlZW?=
+ =?utf-8?B?aEZqL2x6UFBXSnA2UkQ1VkcvNjhpUmdsSVZhd1hGT3F4SjFSamVoQU9jTEFL?=
+ =?utf-8?B?NjJqcHpDWjJqS1I1TEk1ZlZ6SGhUakNlaGdKUUZTNVl5OUtOckRkYm5mWk1R?=
+ =?utf-8?B?cVFKall5cCtPMVFzVzdxZm04N0hxRC8wa1RXN2NvN1JOd2pzNmZuSlk3VzBD?=
+ =?utf-8?B?M284Z21nK3lhaTZMMVd5bGhzamloRVJyeGFJUGdDN0MycDVPTmhpRDhHS3Vo?=
+ =?utf-8?B?RzdBUUhLcXh2TDcvNXJ3c1kvVXdrWkRCWUx2NzhhcWk1ZmlwbUpFQ0Vkc1hD?=
+ =?utf-8?B?aVVpcE8xY1BzUTR3VFJqNStLS0pQNmFXYlBHZm5UVzdETDZiUWliMFQ2Zzdm?=
+ =?utf-8?B?ZS9VNWdoRTBvUnljaUo2Z0FQeVBMcUgvV0M5SnRpQmpnOGJqY0V2QU9acUU0?=
+ =?utf-8?B?dWduZFIxa09Pei85cWVkTms0NnhaN2N0N2pBZG0xOXpsMzUxTm1TOTJxNEQ5?=
+ =?utf-8?B?eGhxeDNhQ294Nm9NTkR0THhOeWFqNUM0eHExR1V5OU5mVTYxeUZBUytVL2xZ?=
+ =?utf-8?B?VzFFWDFOaDJ1YUJFN3YwakNya0VXTEk1OThzYnpJWUQ4TlNqN1NoSFBxMm1O?=
+ =?utf-8?B?U0FIWDAxcVhxQXBydHNMZ3MxLzE3am1ISTRUMXcwaXorNnlGVlIrT1BZeU9X?=
+ =?utf-8?B?bzJmOTRENUdWWXdlTHIrMXVncVVxaGs4Nm55WHJhOTQ0byttckJlSGRzU0dE?=
+ =?utf-8?B?anBnR2ZvVlE3RWJUL1llWTFEMHBIb1BBcVJ2ZlVlSEhNRTRsa25XWEFITkVv?=
+ =?utf-8?B?YnhKTTVjMVNhRXhOOWFNbTBPRkIrb3N5U003STBxZVFSam5VSUZDMVdHbmVp?=
+ =?utf-8?B?UnBNckFTaVJZZUdVV0loS0p2blJoeUdOM3lPQmRpOHpTTmZGY204UVpOK0xh?=
+ =?utf-8?B?R3NReCtpeG1ZYzZWc1g4L2puUnI0ZE9UdGJ4ZzZYa3VZOExFV2hCY0h3QUdu?=
+ =?utf-8?B?UTByT1FHdVovSlgvOEFHekNRd2ZCOG00VDVGVUJaam1LVG1nam5OVklBZ3pE?=
+ =?utf-8?B?T3dkblVIL0FMYkZxSzNIRHJ3bExmOEFydXE3dmRwZk9Xdnh4OHY3aHNXSmZ0?=
+ =?utf-8?B?M2Vjbjh1OUdzRXhLNHF1ZGxHSC9KYldNN0FoTkNnNEFaaG5iT3RQNDA5Tk41?=
+ =?utf-8?B?OHVITStvV3hETWZ2bVdBNkNFSitnVUpZM0dkaUErM2w1YWttS3VJeGRvVjdY?=
+ =?utf-8?B?K1JOY0dNQ0RaVjVMSmdOVFI5OE1pZE01MDYyVlZFZnBTL3gzRnY4Nk5RMEEw?=
+ =?utf-8?B?UHNCUmNoQWxpUUhnUWpWSUl3UVhWR0oyUkhsTU9uQiszNkFobmtUMkVsRDc4?=
+ =?utf-8?B?S3VqS1lLUm5lS1VQeVBNS3IyWXk2UGlOZDJDdmZFTm9KaTF3Ylc0eTlmbFE3?=
+ =?utf-8?B?YXpaYXZIckdMWnJERWhBZENic25ySmFFeVYycWZYckQ2ZUNDMUxLL1hPOGkx?=
+ =?utf-8?Q?AP0ewjGbGZlIctrrnp/0tJLXTlUSW45C54JuX?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9661c777-f1a4-4d7f-1037-08df49af216d
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 22:14:23.9735
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zk3sbKRCzD+Pp/VTunnuGnPMkaHMWW5SkAUFcWkPGJIZj7KT5LqG96owl80Isjy/PuDZKazaX6Iy1PB+0GcX+CXgTpC9anh3cbdsRrcCB9PNhXMnHUjMONHzEAzqATUb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7398
 
-Hi Luiz,=20
-Since there hasn't been a response from
-the MediaTek folks in over 5 weeks I've gone
-ahead and prepared this v2 quirk patch that=20
-will work for USB MT7922 controllers.
-Thanks,=20
-Kyle Pepper
+From: Frank Li <Frank.Li@nxp.com>
 
-MT7922 USB firmware can accept maximum LE suggested default data lengths
-without negotiating a larger transmit data length on a new connection.
-On an ASUS G614PR with USB ID 0489:e0f6 and firmware 20260724143815,
-ASHA playback remains choppy until an explicit LE Set Data Length request.
-A request on the same Cochlear Nucleus 8 connection raises delivery from
-21.5 to 50 audio SDUs/s and reduces peak outstanding packets from 32 to 3.
 
-Set a quirk for MT7922 in USB setup and request the current suggested
-defaults after successful remote feature exchange on central-role links.
-Require local and remote DLE support and the LE Set Data Length command.
-Keep suggested-default initialization and PHY negotiation unchanged.
+On Fri, 30 Oct 2026 17:35:39 +0100, Dario Binacchi wrote:
+> This series adds initial support for the Engicam i.Core MX8M Plus Fast
+> Ethernet C.TOUCH 2.0 board, based on the i.Core MX8M Plus Fast Ethernet
+> SoM.
+> 
+> The support includes device tree descriptions for the SoM and for the
+> C.TOUCH 2.0 carrier board, together with an overlay for the 10.1"
+> LVDS display (C.TOUCH 2.0 10.1" Open Frame).
+> 
+> [...]
 
-Do not restrict the workaround to the tested firmware build or OEM USB
-ID: the affected firmware range has not been confirmed. Other MediaTek
-chips do not enable the quirk. The request also applies to 1M peers that
-support DLE, and ordinary link-layer negotiation determines the result.
+Applied, thanks!
 
-Hold a connection reference while queued and revalidate its membership,
-state, role and capabilities before sending. Release the reference on
-completion, cancellation or queue failure. A failed optional request
-does not reject connection setup.
+[1/5] arm64: dts: imx8mp-icore-mx8mp: enable the watchdog
+      commit: f28b6d3dc72d4091bc68e39c195c962b8833f34f
+[2/5] dt-bindings: arm: fsl: support Engicam i.Core MX8M Plus FE C.TOUCH 2.0 board
+      commit: 859f7c51c7c6092bbb4855550ddff3e95b5b69a3
+[3/5] arm64: dts: freescale: support Engicam i.Core MX8M Plus FE SoM
+      commit: 06e9ff6252cdf646f61c9e0aa2c0700259aedd2b
+[4/5] arm64: dts: freescale: support Engicam i.Core MX8M Plus FE C.TOUCH 2.0 board
+      commit: 22af6825efb8c1986860828a2937aa42a0c0ae65
+[5/5] arm64: dts: freescale: add Engicam C.TOUCH 2.0 LVDS display overlay
+      commit: 65f8b4684f2bb651f3e5168da9b237a31fed25b5
 
-Assisted-by: OpenCode:gpt-6.1-sol
-Assisted-by: Codex
-
-Signed-off-by: Kyle Pepper <cochcoder@proton.me>
----
-Contingency revision: MediaTek has been asked about a firmware fix and its
-affected scope. No reply has been received as of November 23. This does
-not establish that a firmware fix is unavailable or that every MT7922
-firmware release is affected. A firmware fix remains preferable.
-
-Changes in v2:
-- Match MT7922 in USB setup, without a firmware-build or OEM USB-ID gate.
-- Remove firmware-header matching and its setup-time clear/recheck logic.
-- Rebase on current bluetooth-next; retain guarded referenced queue work.
-
-Previous patch:
-https://lore.kernel.org/linux-bluetooth/20261016170122.27119-1-cochcoder@pr=
-oton.me/
-Luiz requested checking firmware-fix plans and avoiding a single-build
-gate unless MediaTek confirms an image-specific regression. This v2 is
-prepared in case a validated firmware fix is not forthcoming; his reply
-is conditional guidance, not an Acked-by or approval of this revision.
-
-Historical evidence: manual same-link request on 0489:e0f6 with firmware
-20260724143815 gave 21.5 -> 50 SDUs/s. Automatic requests worked in the
-local patched 7.2.9 stack. No new hardware result is claimed for v2, for
-other firmware/OEM boards, or for vanilla upstream. Suspend/resume,
-other profiles, native concurrency and power regressions remain untested.
-
-Local validation on base ffb95458a0f7: GCC and Clang baseline/candidate
-builds each compile four Bluetooth objects with W=3D1 and zero warnings.
-82 source-extracted ASan/UBSan controls pass; the baseline and five
-mutation controls detect missing behavior and guards. LeakSanitizer is
-disabled because the command runner uses ptrace; these are model tests.
-Source-only strict checkpatch is clean. Stock full-mail checkpatch flags
-the retained Assisted-by trailers as BAD_SIGN_OFF. No checker is changed
-or attribution removed; remote CI and human-signed mail remain unchecked.
-
-No introducing kernel commit has been established for this firmware bug,
-so no Fixes or stable tag is inferred. No extra patch/MR dependency.
-Human review and DCO sign-off are required before publication.
-
-AI assistance: the retained request/queue implementation originated with
-OpenCode:gpt-6.1-sol. Codex adapted matching, rebased it, and prepared this
-message, review notes and offline validation in response to Luiz's review.
-
- drivers/bluetooth/btmtk.c        |  4 +++
- include/net/bluetooth/hci.h      |  5 +++
- include/net/bluetooth/hci_sync.h |  1 +
- net/bluetooth/hci_event.c        |  8 +++++
- net/bluetooth/hci_sync.c         | 58 ++++++++++++++++++++++++++++++++
- 5 files changed, 76 insertions(+)
-
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index 1b3dab0d1..1869815cc 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -1858,6 +1858,10 @@ int btmtk_usb_setup(struct hci_dev *hdev)
-=20
- =09btmtk_data->dev_id =3D dev_id;
-=20
-+=09/* MT7922 needs per-link requests despite suggested defaults. */
-+=09if (dev_id =3D=3D 0x7922)
-+=09=09hci_set_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN);
-+
- =09err =3D btmtk_register_coredump(hdev, btmtk_data->drv_name, fw_version)=
-;
- =09if (err < 0)
- =09=09bt_dev_err(hdev, "Failed to register coredump (%d)", err);
-diff --git a/include/net/bluetooth/hci.h b/include/net/bluetooth/hci.h
-index efb85c781..85a4931e5 100644
---- a/include/net/bluetooth/hci.h
-+++ b/include/net/bluetooth/hci.h
-@@ -348,6 +348,11 @@ enum {
- =09 */
- =09HCI_QUIRK_BROKEN_READ_ENC_KEY_SIZE,
-=20
-+=09/* The controller needs an explicit LE Set Data Length request for
-+=09 * each central-role connection despite accepting suggested defaults.
-+=09 */
-+=09HCI_QUIRK_NEEDS_LE_SET_DATA_LEN,
-+
- =09/*
- =09 * When this quirk is set, the reserved bits of Primary/Secondary_PHY
- =09 * inside the LE Extended Advertising Report events are discarded.
-diff --git a/include/net/bluetooth/hci_sync.h b/include/net/bluetooth/hci_s=
-ync.h
-index 509ec4161..eab827dfa 100644
---- a/include/net/bluetooth/hci_sync.h
-+++ b/include/net/bluetooth/hci_sync.h
-@@ -195,6 +195,7 @@ int hci_le_read_remote_features(struct hci_conn *conn);
-=20
- int hci_acl_change_pkt_type(struct hci_conn *conn, u16 pkt_type);
- int hci_le_set_phy(struct hci_conn *conn, u8 tx_phys, u8 rx_phys, u16 phy_=
-opts);
-+int hci_le_set_data_len(struct hci_conn *conn);
- int hci_le_set_cig_params_sync(struct hci_dev *hdev, u8 cig_id);
- int hci_le_create_big_sync(struct hci_conn *conn, struct bt_iso_qos_ext *q=
-os,
- =09=09=09   u8 num_bis);
-diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
-index b6c7f9a9f..7ef2c4d19 100644
---- a/net/bluetooth/hci_event.c
-+++ b/net/bluetooth/hci_event.c
-@@ -7436,6 +7436,14 @@ static void hci_le_remote_feat_complete_evt(struct h=
-ci_dev *hdev, void *data,
- =09=09=09 */
- =09=09=09conn->le_tx_def_phys &=3D ~HCI_LE_SET_PHY_HDT;
- =09=09=09conn->le_rx_def_phys &=3D ~HCI_LE_SET_PHY_HDT;
-+
-+=09=09=09if (hci_test_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN) &&
-+=09=09=09    conn->role =3D=3D HCI_ROLE_MASTER &&
-+=09=09=09    (hdev->commands[33] & BIT(6)) &&
-+=09=09=09    (hdev->le_features[0] & HCI_LE_DATA_LEN_EXT) &&
-+=09=09=09    (conn->le_features[0] & HCI_LE_DATA_LEN_EXT) &&
-+=09=09=09    hdev->le_def_tx_len > 27)
-+=09=09=09=09hci_le_set_data_len(conn);
- =09=09}
-=20
- =09=09if (conn->state =3D=3D BT_CONFIG) {
-diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
-index 2e88af51b..ac82aa085 100644
---- a/net/bluetooth/hci_sync.c
-+++ b/net/bluetooth/hci_sync.c
-@@ -9286,3 +9286,61 @@ int hci_le_eks_oppt_encrypt(struct hci_conn *conn)
-=20
- =09return err;
- }
-+
-+static void le_set_data_len_complete(struct hci_dev *hdev, void *data, int=
- err)
-+{
-+=09struct hci_conn *conn =3D data;
-+
-+=09bt_dev_dbg(hdev, "err %d", err);
-+=09if (err && err !=3D -ECANCELED && err !=3D -ENODEV)
-+=09=09bt_dev_warn(hdev, "Failed to set LE data length (%d)", err);
-+=09hci_conn_put(conn);
-+}
-+
-+static int hci_le_set_data_len_sync(struct hci_dev *hdev, void *data)
-+{
-+=09struct hci_conn *conn =3D data;
-+=09struct hci_cp_le_set_data_len cp;
-+
-+=09hci_dev_lock(hdev);
-+
-+=09if (!hci_conn_valid(hdev, conn) || conn->type !=3D LE_LINK ||
-+=09    conn->role !=3D HCI_ROLE_MASTER ||
-+=09    (conn->state !=3D BT_CONNECTED && conn->state !=3D BT_CONFIG)) {
-+=09=09hci_dev_unlock(hdev);
-+=09=09return -ECANCELED;
-+=09}
-+
-+=09/* Use the current suggested defaults, including later host changes. */
-+=09if (!hci_test_quirk(hdev, HCI_QUIRK_NEEDS_LE_SET_DATA_LEN) ||
-+=09    !(hdev->commands[33] & BIT(6)) ||
-+=09    !(hdev->le_features[0] & HCI_LE_DATA_LEN_EXT) ||
-+=09    !(conn->le_features[0] & HCI_LE_DATA_LEN_EXT) ||
-+=09    hdev->le_def_tx_len <=3D 27) {
-+=09=09hci_dev_unlock(hdev);
-+=09=09return 0;
-+=09}
-+
-+=09cp.handle =3D cpu_to_le16(conn->handle);
-+=09cp.tx_len =3D cpu_to_le16(hdev->le_def_tx_len);
-+=09cp.tx_time =3D cpu_to_le16(hdev->le_def_tx_time);
-+
-+=09hci_dev_unlock(hdev);
-+
-+=09return __hci_cmd_sync_status(hdev, HCI_OP_LE_SET_DATA_LEN,
-+=09=09=09=09     sizeof(cp), &cp, HCI_CMD_TIMEOUT);
-+}
-+
-+int hci_le_set_data_len(struct hci_conn *conn)
-+{
-+=09struct hci_dev *hdev =3D conn->hdev;
-+=09int err;
-+
-+=09err =3D hci_cmd_sync_queue_once(hdev, hci_le_set_data_len_sync,
-+=09=09=09=09      hci_conn_get(conn),
-+=09=09=09=09      le_set_data_len_complete);
-+=09if (err)
-+=09=09hci_conn_put(conn);
-+
-+=09return (err =3D=3D -EEXIST) ? 0 : err;
-+}
-
-base-commit: ffb95458a0f70dcab620eee0ecf5ef7750971b2f
-
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
