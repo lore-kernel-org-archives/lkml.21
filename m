@@ -1,55 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795449868;
-	b=FNUoMlXTJO1rAfRWB1beYLxLqBCO3GP7lQP5WWUzIqTYnSR8DxQv5JNxKRfaE96biVbe
-	 Pj99+uDCvQoZYG3y8IAH4D+znnhfxNJEmMRGS5eyAs0uDEE/6ZbmL9vhADI/k6Kfk6LsS
-	 EllOJP0Cg0iJqgJtbCGPk0VxpwpZNA47TI/tIHxigUzOsF6jd7U/IWSKmvAnKM7pxaFt5
-	 gwF4UVchhuvsqId/7QXIRYQcu0ASJml9rBW4+Y7OkeNNfLya200xOjycprhDaN/aDa2zZ
-	 eWWxwRdsJlH5nGi6eXGUc8zwcULANUuGc3geyreBgXXmbjxWCV3Chyq6KQhEhiFaLvQ==
+	t=1795449876;
+	b=SktyNDV73wLHIC6pC9rM4tzs0EZccwZ9fUPPMmrGbxYXvKNjJhk1EDwMrQhvMWFgQjfy
+	 eHgitYXkDlVYs651PS6SWDTxZRhrexAVhmHRNeVb1VoWrCPWx5RkR3N5sIHk+rwEXbsZk
+	 eg5bdp82Yqqbd2Ensepqua3Kvi9HH+1GhShYBfs6WuQL7s84MOFg0+izQACqPGQnDg2Vs
+	 1hXuOQfLScbqwoNmuEjV5WeHY2wOC2DEKKchuHxPQ+3U1BJTRF20oveTHUYyELZHUizLA
+	 gBjd23i2uVcxRHtcB20I4ox6r5d7AzrCGmlWpJPTbC2LlKUJoZxx5AhqfclkGbVYquQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795449868;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
-	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=LwN3fDmMgmrTxD3q1KoPz3VI89oxMTQsPO4gySpZ9os=;
-	b=GIq7aZ0Xxl4eaXKDQ8Pq/yUA/H/8pKU4nLx7TPO0xD0J2UkLVYX6eQfHPey75ZmtVaYS
-	 5h0daWCAbBcFHdSecjrOKNyq52EYNh5O24eYW4/PNcGtxJl4Kp4X0dXd1S+IZH8dJnimr
-	 oiMLgmYQ+mOwKwIMbh4yTryL+v00W+jQPhRtefXnlfgX8m/6pms3gzianYIWfCGJuajBb
-	 01VSD1qDtWmJLHz70z92FvQPYOX7pRm+EAxOqXmdsYObXilKvj6WVlGZqaFWSnScHWh5b
-	 YsGSknN64P8lSxuYY5ii34pX+vffS/kolEFDT+XCiNz7qVkctFRWoUG7joJUWwprrfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795449876;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
+	bh=BM0F8B0uZIrlmAuRI2NRKM/dmk5YstSmP3No9fJQH38=;
+	b=nnnSxPMVjCh0U2M1xZdRO/3ybyzd/4qnJ7ZSm2USBivT7YXkPttWQUyc4TKqbF7E3RYm
+	 JC2RCxqsJdPEqA8gjFmGfuLi1EGQT49M1kMrMsYBf/ht09yj0LIJ602f5DM2Au7PHOAih
+	 CcO67g5HHM3KOpegDNW+qbLINE/WkoTiteoGRZYTlLFd/nB4gpQgiGyCKhhw032+c13um
+	 KzjGugUvN5C7dNYgbXpYaNpvmIy4HkFOUv4oCBkNiGyJ/yAMmug/rWhj43bLcBhWJbdmk
+	 NWaz0Jc2FPBRqVCjDtJDYxQMlkcNRh2VtUGFcBS+EoybncR6fsEBgp672F/r7rRW2Tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X4tIIP5i;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=CRgINeFt;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F5D7606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:04:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F5D7606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C760606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:04:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C760606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X4tIIP5i
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id BC404C69149;
-	Mon, 23 Nov 2026 16:04:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9C05A601E1;
-	Mon, 23 Nov 2026 16:04:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7DD5711E68E6C;
-	Mon, 23 Nov 2026 17:04:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795449859; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=LwN3fDmMgmrTxD3q1KoPz3VI89oxMTQsPO4gySpZ9os=;
-	b=X4tIIP5iygtUvgvo4MLBe8xMaYOVznmQU+DhBI1yCvQ3ErNnGNeN6YCNkhB8t8R+iJYDFP
-	KgtpS4QQNO9ZmE8W+AwIaokXUf+CURl1t+Og5k/8ixy7a6oGpIS7HQ0MVb+fJbOAIeWAGJ
-	abRa3uGR5+Yrw5akspjsPWaw6R5vsX2F/cs3e6njJc7+FmYNVYaMAkQIjkCBad5gEGQO60
-	4GD5IYBdipJuxAL7fPKJaUQXL72Su6wN5a7aWAgSewXsiFvdOnCC/Wmgtbm227XVQHk+SV
-	zi4AcLc8ENZTeVJGMPbpNHQfGlGyCBrGAx1/jFzma5E57tC31WnZQu9MEJr2aQ==
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=CRgINeFt
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4b52fcb410dso414239f8f.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:04:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795449873; x=1796054673; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BM0F8B0uZIrlmAuRI2NRKM/dmk5YstSmP3No9fJQH38=;
+        b=CRgINeFtTNyJjNzMEc/ZPidK0JDlgQ2Gop9JkOGy5T4j3s74xzjmgs9FPYA5JNumNV
+         aFf6gT/Ffz0AfUgtSVPQEnWxFc9memHb+rSXFlGqyKcaYUu1qqWOCcUP/qSmbEKcxeOf
+         R+PUp1u2lSFgLTyzjIW46aeQi9gZcL9Wa3onKH3lVQ+i1NTUVhzwt3rNsQ4bjDlKEHfi
+         zRgVKEzMG7B3Z2JMLbsVXOsWDeSIAk3q57lXYRMaz0Q0MZqU+bR9d1PHx7Pjc9B2Ut3e
+         CJQbXrjsLP+0OyrmIgdnWTchBZOxibYA3kU53CSH+R0FpFnZPdCbHlQjt4Jq9YgoU0DD
+         x97g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795449873; x=1796054673;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BM0F8B0uZIrlmAuRI2NRKM/dmk5YstSmP3No9fJQH38=;
+        b=H76Gejdx1iNaBxoTtCQVNd5FGeerLu+dLajfh4SOjMiJFLVMj0aL+j1IpBfJxpB5ms
+         ObTeaoKFBonpkCbbjumFe8+wObKv8C5JyaO8qFATWcE7qYbhYQOFKA+QT6p0WytKjR7n
+         c/rEy065ulFXBNkuxwaaaW4uIZ10+iRhh+4TMmBC3lVeskGXPGykGIzu2sezNFWkT1M4
+         4KdMoBFS+T+cT0GqES2PzCeNUbO2m4RJ+1R1D4lOeHt9vmJPp1GAwH31TIE4hQpMuSlA
+         VBPoyGQR345cZnOG+SfWZWf2qE2e3QvN5yZAYGYvAwMv3/RI0AYRELYjPXG6T8kxyWMs
+         BY0A==
+X-Forwarded-Encrypted: i=1; AL+hErHONYXkuxM7S+JNRgBA9G9XINJ30DNey4VQjyRh9VS0t4kStnMg9FOs2pwTB2GhNkrXwg2+6zdbRFUJ+G8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BNI5YwGHjk8Pd6627548LpJNZfTYm7jLQPCaSlismfAdiwg+B
+	fCAKfbOOXQGFuT2PTwkTBjtC7tcH5Pt7YgIAeHNNrGEzcEDWYAHF+eckTbGSRjiezIk=
+X-Gm-Gg: AZFdTZeQ9JiIm8pLzlctVEnvyx+2Cr+FOuyCUArg9fw/wf7bEjksqO7TB8N2ghGDb1d
+	DC3EfxqX4d3V8M3rjqRr0CV0awV6jKvEsqmyymyGnKnS7xJt+gTg2UPWiuqfT7OiYds1xxfpUoO
+	p2l09YWWdCxNZ8EAen2Gr5bI6LMau9Q/ZENZW+wsm4kEfoQA+lMp+bMpMd26LuOuhhdQoce7IJf
+	QE9gucK370wx0XjGknCZ+kyu3HzYAxDTaR80UOapGhFc+idopLgRjza0FBYyCYFMY60fqsX6Xwm
+	Gwr8MDcFOu0Dtd6NCi3Dk7msbW26KcjrhfLnXdt/pV16Ec0+nOwsX8F+lv+04WI0WWD3JaFXcA4
+	KAHL+AsA/e1V9LaTy88xqsA73Jk3fWh9QVPivKva/9GHoQZmZXAcJcoC6F/XuEy5Gfhemjx55Se
+	TlynI3YkJVYhLwPJTZOmMGL8A4kfJ//h8XdEQoLpA75UPboaCci1zLrv4TE/8dfdMhLhGBeoy/Q
+	oYtOFBkIAGN9KlY15UMV8Ed+OwWU9ZWEc+jNwjyDrhe5aPnF8lJjYaUuw2mX2VBHvAHIQFYX/kV
+	/gmIcbE06ATEafEX3omn21jzLZ8xEYRwuc6QUnohOPmHxeVWraC0DsacsnxJvp50Dke0Do4ZUwC
+	2yl8M171W0/kTPtBF
+X-Received: by 2002:a05:6000:4310:b0:4a9:6c58:178a with SMTP id ffacd0b85a97d-4aa55bfeb43mr30234907f8f.12.1795449873436;
+        Mon, 23 Nov 2026 08:04:33 -0800 (PST)
+Received: from localhost (p200300f65f19a90445515a0bd0762d9c.dip0.t-ipconnect.de. [2003:f6:5f19:a904:4551:5a0b:d076:2d9c])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6c340df4sm26507719f8f.55.2026.11.23.08.04.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 08:04:32 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: Neal Gompa <neal@gompa.dev>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] Bluetooth: hci_bcm4377: Use named initializers for pci_device_id array
+Date: Mon, 23 Nov 2026 17:04:21 +0100
+Message-ID: <20261123160421.3227994-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.56.0.rc1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,280 +101,63 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 17:04:08 +0100
-Message-Id: <DN2PUPUBWLIS.XU99VSML8U14@bootlin.com>
-Subject: Re: [PATCH net-next v7 2/3] net: macb: implement
- ethtool_ops.get|set_channels()
-Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
- <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
- <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
- <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
- <thomas.petazzoni@bootlin.com>
-To: <netdev-bot+sashiko@kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261118-macb-set-channels-v7-2-2dbc00f686af@bootlin.com>
- <179537769318.3135.17791912110495668142@kernel.org>
-In-Reply-To: <179537769318.3135.17791912110495668142@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2285; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=oBOBpE2L2GptXbojrM0cYbgWlJFm1d0CC7BXFv6hEeo=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBGQF87UbSoNY7tEf7OIpBMP8e7ER1F3nxV2e5 /rXR5oY4lqJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawRkBQAKCRCPgPtYfRL+ TsNtB/9VbcpdzRp2saBCj7NASZGY7gQVockWHmQ2ik42IgaMyheB2m3F2iJvDHu66R8Vo52mTjs DiDGZuGAxkt1AVME1/0+H9ol8iZ9PxLZu3K8lXElNfiHuiVOG03YQwrAjVgEf9nzKVKugZaf6Th Bby5V63KB0yw3wO5GlvBxuOt2y7m+cu30Pw0RG9+Rw9+f/lbzi76ozzNRPjlzLmxE6JnH26LPjn pSgJ1bw6gSOBiZIxwOMLgX1Qwi4FsN4b4GN4s6hdhniV6bi+yJnzuwxIgp0H6UyOQVD7PB+qopi 70N+dlezC+ptpqzmmG7SgoDKO1oub3JyNF4zngG11HWyz/AA
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 
-Hello netdev-bot+sashiko,
+Initializing a struct using list initializers is hard to read, compared
+to that using named initializers is more ideomatic. Convert the macro
+used to assign values in the driver's pci_device_id array accordingly.
 
-On Sun Nov 22, 2026 at 9:01 PM CET,  wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 1
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] When TX queues are disabled, their BQL/DQL state is never
->   reset, so they can stall after a later regrow.
-> - [Medium] The new rollback path in macb_set_channels() restarts TX on
->   the old rings without realigning the hardware queue pointer.
-> - [Low] The new comment in macb_init_buffers() (line 514) says that
->   "macb_set_channels(), which is the only way of writing to=E2=80=A6
->
-> --
->
-> net: macb: implement ethtool_ops.get|set_channels()
->
-> This commit moves num_queues from struct macb into struct macb_context an=
-d
-> adds bp->max_num_queues and bp->configured_num_queues. It then implements
-> the ethtool get_channels/set_channels operations, using the existing
-> context swap window to reallocate rings when the interface is running.
-> Queues beyond the active count are disabled by writing QUEUE_DISABLE to
-> their RBQP/TBQP registers.
->
->> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
-rnet/cadence/macb_main.c
->> index 1e06666921160..180da5d62f09a 100644
->> --- a/drivers/net/ethernet/cadence/macb_main.c
->> +++ b/drivers/net/ethernet/cadence/macb_main.c
->> @@ -504,11 +504,25 @@ static void macb_init_buffers(struct macb *bp)
->>  		macb_writel(bp, TBQPH, upper_32_bits(txq->ring_dma));
->>  	}
->> =20
->> -	for (q =3D 0, queue =3D bp->queues; q < bp->num_queues; ++q, ++queue) =
-{
->> -		rxq =3D &bp->ctx->rxq[q];
->> -		txq =3D &bp->ctx->txq[q];
->> -		queue_writel(queue, RBQP, lower_32_bits(rxq->ring_dma));
->> -		queue_writel(queue, TBQP, lower_32_bits(txq->ring_dma));
->> +	for (q =3D 0, queue =3D bp->queues; q < bp->max_num_queues; ++q, ++que=
-ue) {
->> +		if (q < bp->ctx->num_queues) {
->> +			rxq =3D &bp->ctx->rxq[q];
->> +			txq =3D &bp->ctx->txq[q];
->> +			queue_writel(queue, RBQP, lower_32_bits(rxq->ring_dma));
->> +			queue_writel(queue, TBQP, lower_32_bits(txq->ring_dma));
->> +		} else {
->> +			/* macb_set_channels(), which is the only way of writing
->> +			 * to bp->configured_num_queues, is only allowed if
->> +			 * MACB_CAPS_QUEUE_DISABLE.
->> +			 */
->
-> [Severity: Low]
-> This isn't a bug, but is this comment accurate? macb_probe() also writes
-> bp->configured_num_queues:
->
-> 	bp->max_num_queues =3D num_queues;
-> 	bp->configured_num_queues =3D num_queues;
->
-> The else branch is still only reached on QUEUE_DISABLE hardware, because
-> macb_set_channels() is the only path that can lower the count below
-> bp->max_num_queues.
->
-> Could the comment say that instead?
+This change doesn't introduce any changes to the compiled array on an
+x86 and an arm64 build.
 
-Yes but that's nitpicking. Of course we init bp->configured_num_queues
-to the hardware's queue count. By saying
+Acked-by: Sven Peter <sven@kernel.org>
+Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-   macb_set_channels is the only way of writing to configured_num_queues
+this patch was send before back in July (available at
+https://lore.kernel.org/linux-bluetooth/20260718172513.986134-2-u.kleine-koenig@baylibre.com)
+and before that in May (available at
+https://lore.kernel.org/linux-bluetooth/20260504160940.2168650-2-u.kleine-koenig@baylibre.com)
 
-we mean that macb_set_channels() is the only way to make
+The feedback on that was a linter error due to a trailing whitespace in
+the cover text that doesn't make it into git and an Acked-by by Sven
+that I added above. I rebased trivially to next-20261120.
 
-   bp->configured_num_queues < bp->max_num_queues
+Best regards
+Uwe
 
->> @@ -3359,10 +3385,6 @@ static void macb_context_swap_start(struct macb *=
-bp)
->>  	 */
->>  	netif_tx_disable(bp->netdev);
->> =20
->> -	/* Now that everything is stopped, clear DQL. */
->> -	for (q =3D 0; q < bp->num_queues; ++q)
->> -		netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev, q));
->> -
->>  	/* Safe to call outside bp->lock because bp->irq_quiesced ensures the =
-IRQ
->
-> [ ... ]
->
->> @@ -3399,16 +3421,26 @@ static void macb_context_swap_end(struct macb *b=
-p,
->> =20
->>  	lockdep_assert_held(&bp->mac_cfg_lock);
->> =20
->> -	/* Swap contexts & give buffer pointers to HW. */
->> +	/* Swap contexts & give buffer pointers to HW.
->> +	 * !new_ctx means that the swap failed and we keep the old context.
->> +	 */
->> =20
->> -	old_ctx =3D bp->ctx;
->> -	WRITE_ONCE(bp->ctx, new_ctx);
->> -	wmb(); /* ensure IRQ enabled below read the new context */
->> -	macb_init_buffers(bp);
->> +	if (new_ctx) {
->> +		old_ctx =3D bp->ctx;
->> +		WRITE_ONCE(bp->ctx, new_ctx);
->> +		wmb(); /* ensure IRQ enabled below read the new context */
->> +
->> +		macb_init_buffers(bp);
->> +
->> +		/* Clear DQL (only on successful context swap). */
->> +		for (q =3D 0; q < bp->ctx->num_queues; ++q)
->> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
->> +								  q));
->> +	}
->
-> [Severity: Medium]
-> This reset runs after bp->ctx has been switched to new_ctx, so it only
-> covers the new, smaller queue count. Take a running shrink such as
-> "ethtool -L eth0 combined 2" on a 4-queue GEM. What resets the DQL state
-> of queues 2 and 3?
->
-> macb_free(old_ctx) at the end of this function frees the in-flight skbs o=
-n
-> all 4 old queues. netdev_tx_completed_queue() is never called for those
-> bytes, so num_queued - num_completed stays non-zero on queues 2-3. If BQL
-> had already stopped those queues, __QUEUE_STATE_STACK_XOFF also stays set=
-.
->
-> macb_close() only resets the active context's queues:
->
-> 	for (q =3D 0; q < bp->ctx->num_queues; ++q)
-> 		netdev_tx_reset_queue(netdev_get_tx_queue(netdev, q));
->
-> macb_open() has no reset. netif_set_real_num_tx_queues() does nothing
-> with DQL when queues are re-enabled. So consider this sequence:
->
->   ethtool -L eth0 combined 2   (running, TX in flight on queues 2-3)
->   ip link set eth0 down        (resets queues 0-1 only)
->   ethtool -L eth0 combined 4   (down, no swap, no reset)
->   ip link set eth0 up          (no reset)
->
-> Can queues 2-3 come back with stale in-flight bytes and STACK_XOFF still
-> set? The hardware ring would have nothing to complete, and
-> macb_tx_timeout()->macb_tx_restart() doesn't touch DQL. Flows hashed to
-> those queues would stall. Even after a completion, the stale bytes keep
-> dql_completed() from growing the limit.
->
-> Before this patch, macb_context_swap_start() and macb_close() both reset
-> every hardware queue. Should these resets cover the old context's queue
-> count, or bp->max_num_queues?
+ drivers/bluetooth/hci_bcm4377.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-Yes, that is correct. Nicolai, a human, already reported that! [0]
+diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
+index efd3a6424301..ab5a593ec0ad 100644
+--- a/drivers/bluetooth/hci_bcm4377.c
++++ b/drivers/bluetooth/hci_bcm4377.c
+@@ -2525,11 +2525,12 @@ static const struct bcm4377_hw bcm4377_hw_variants[] = {
+ 	},
+ };
+ 
+-#define BCM4377_DEVID_ENTRY(id)                                             \
+-	{                                                                   \
+-		PCI_VENDOR_ID_BROADCOM, BCM##id##_DEVICE_ID, PCI_ANY_ID,    \
+-			PCI_ANY_ID, PCI_CLASS_NETWORK_OTHER << 8, 0xffff00, \
+-			BCM##id                                             \
++#define BCM4377_DEVID_ENTRY(id)                                                 \
++	{                                                                       \
++		PCI_DEVICE(PCI_VENDOR_ID_BROADCOM, BCM ## id ## _DEVICE_ID),    \
++		.class = PCI_CLASS_NETWORK_OTHER << 8,                          \
++		.class_mask = 0xffff00,                                         \
++		.driver_data = BCM ## id,                                       \
+ 	}
+ 
+ static const struct pci_device_id bcm4377_devid_table[] = {
 
-V7 resets BQL on the new context queues (ie those that will be active
-soon) when we should be resetting the old context queues (ie those that
-were active until now).
-
-To be safe, let's reset all queues here and at close. This will be a
-in-depth defense barrier if we ever reintroduce such a bug. Otherwise
-we risk queues that are stalled forever.
-
-[0]: https://lore.kernel.org/all/cc50263bc4f161b2fff96e04306868cc@tipi-net.=
-de/
-
->> @@ -4618,6 +4658,75 @@ static int gem_set_rxnfc(struct net_device *netde=
-v, struct ethtool_rxnfc *cmd)
->> +	if (running) {
->> +		new_ctx =3D macb_context_alloc(bp, num_queues, netdev->mtu,
->> +					     bp->configured_rx_ring_size,
->> +					     bp->configured_tx_ring_size);
->> +		if (IS_ERR(new_ctx))
->> +			return PTR_ERR(new_ctx);
->> +
->> +		macb_context_swap_start(bp);
->> +	}
->> +
->> +	ret =3D netif_set_real_num_queues(bp->netdev, num_queues, num_queues);
->> +	if (ret) {
->> +		if (running) {
->> +			macb_free(new_ctx);
->> +			kfree(new_ctx);
->> +			macb_context_swap_end(bp, NULL);
->> +		}
->> +		return ret;
->> +	}
->
-> [Severity: Medium]
-> Is it safe to restart TX on the old rings here? By this point
-> macb_context_swap_start() has already cleared NCR.TE:
->
-> 	ctrl =3D macb_readl(bp, NCR);
-> 	macb_writel(bp, NCR, ctrl & ~(MACB_BIT(RE) | MACB_BIT(TE)));
->
-> On GEM, clearing TE resets the transmit queue pointer to the TBQP base,
-> i.e. descriptor 0. Commit 881a0263d502 ("net: macb: Shuffle the tx ring
-> before enabling tx") relies on this, which is why macb_mac_link_up() call=
-s
-> gem_shuffle_tx_rings() before it sets TE again.
->
-> With new_ctx =3D=3D NULL, macb_context_swap_end() skips macb_init_buffers=
-()
-> and doesn't rotate the rings. If bp->link_up is set, it goes straight to:
->
-> 		ctrl =3D macb_readl(bp, NCR);
-> 		macb_writel(bp, NCR, ctrl | MACB_BIT(RE) | MACB_BIT(TE));
->
-> The link never went down, so macb_mac_link_up() and its shuffle don't run=
-.
->
-> Would the hardware then restart at descriptor 0 while txq->tail points
-> somewhere else?
->
-> If descriptor 0 has TX_USED set, TX stops with TXUBR. macb_tx_restart()
-> then keeps issuing TSTART because TBQP !=3D head, and TX stalls for good.
->
-> If descriptor 0 is a middle descriptor of an earlier multi-descriptor
-> (SG/TSO) frame, TX_USED is clear. The DMA would then fetch a buffer that
-> macb_tx_unmap() has already unmapped.
->
-> This path is reached when channels are grown on a running, link-up
-> interface and netif_set_real_num_queues() fails with -ENOMEM while
-> allocating the queue kobjects. Does the !new_ctx path in
-> macb_context_swap_end() need the same gem_shuffle_tx_rings() handling as
-> macb_mac_link_up()?
-
-Yes. Again, Nicolai the human had caught that in his review! [0]
-
-The short summary: stopping the MAC TX engine resets the hardware ring
-cursors. That means our TX SKBs are at some slot in the ring (like 42).
-When we restart the MAC TX engine, it will work on slot 0 and not 42.
-
-We already have a solution for this: gem_shuffle_tx_rings(). So that is
-what's missing from the successful context swap end.
-
-[0]: https://lore.kernel.org/all/cc50263bc4f161b2fff96e04306868cc@tipi-net.=
-de/
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+-- 
+2.56.0.rc1
 
