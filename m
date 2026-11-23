@@ -1,97 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438293;
-	b=Hk0vvXpPm3tm93VMqgANtO7I7uPLO0celYVsmPeWSZNVzauvzqLCdN4VbZdOLL/nS9dV
-	 9IE/aY4fHqbiH0w6Rt7PR28h9v4N4m2dAsTXJcunbNljA2RVrpklPWMc3qo5Se2AQCQCN
-	 0Tt8QyVY8nLAlYtXSXqrywms/SF6m0YB5Bm42yYqnq13kBw+0ASx7w2XAWohDAJbvvFJb
-	 Frz3Vyo83B80nMRqb/DmEDKQiaYOuz/RqiQHP2A6+vwT9oBtYUph9wmyLWTwEQ7/noUro
-	 EupT9LdC6zu9U+43MMhAj7erDJp1PyZedu/f59JABbRaGwPepq2hMSbHguEDGcYPsow==
+	t=1795438322;
+	b=OSLa/aeGThBV5ierxhc5ROL9ZDHmk+XobGK93GI9TkcAwQI9MF6jJxa4iGvusMDdFbzp
+	 OgEHm5kgEz7+HAW4gDwhfaPOefkahNllCvbFip5BGAmBJ+TrgH/tOVxm/Nk3YvHq3mZEq
+	 TgDX3162LjVqqwyEoK6rPO2x5RemTlJzlnYcj5tRj1GbV8I1qid0G/xdqEZHbPsLHc+Bc
+	 pcjUlGudGW4AgYK5+pVHSCLhoyIiQaLSZEbNGwCX0D33vK1psVbhTNrJDY77S9cfuvWrd
+	 0K8/p4jjTySV7tdcFjVTa8ULOYpIZyDqfc1uDXRBr4cepX6HBts+rlPsMmPSIlmfUmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438293;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=9jX0RW6LaoLCUoJWieDzex2x/0egSw3B2iYNY4JlEL4=;
-	b=PZSgZneKNWaW1avpVQMh2E5JvrBJV6p14BHXDERHGJLRCd3sjR4LcmskVOoavj1a5BrB
-	 khiv8GGtOIF7wX1171r8YhtecFGLO9thkAEvtNNNOio7u8u3x3O4RXqZtRt3ZSz+pU9/6
-	 A8qpHd1evXloKPYM+4fWGETXkRd//IQn73vyk2ZQhrEfEHjmil+ddBrYboUBZDTWL/eVW
-	 PHB0+wpS2iECYZfBPzudcX6MpzK1/metBLXWuKoy+OS2beAGHnkL00gJi000K9AUbI5pP
-	 PXVz76q4y9v1+sLbDLqyHrVUJCeQh1pYyCDO647NQp01mJRgTRbm7NO/ygrVigzbhqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438322;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=p2IWpjpm56FZDYL2J6E/8Z+eeikvXsCr0/LAHQK5bkI=;
+	b=h0fpuylPh3Mh0xJw/wSyA3BN7dPYaI5lVhx6rGw+lSTqi57i9TNcBZFKZBB0dvhI9ja5
+	 XU8ii1Usq7S2dBRrms0klfM+GECL9oRotD6CLIk1AduvKGSvzfbzqh3ANlWYIDMsZufdF
+	 AyGA/7mvh0NXTul8tY+B+ApoNzBap7nGXHNC9qwXy6Osm8rkygsarD80HHFN5gPz/PkEV
+	 XDjlmgsJwgBcPkvUh3nvzRK45w6PqBW3jzOsYqSPjYfJ8dfquVI+HPrIMhZfmODpNWdYs
+	 FP9svOwrWvUA7drknMjsdLKVdQv5+XLxfTkMz4XnzRFDxSn+RVc2DMkYPB09KFIfL5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d6VTcj3V;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KEyiJbLf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D43CD606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:51:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D43CD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99183606A334;
+	Mon, 23 Nov 2026 12:52:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d6VTcj3V
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8a07078200fso1599471b3a.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:51:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795438292; x=1796043092; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9jX0RW6LaoLCUoJWieDzex2x/0egSw3B2iYNY4JlEL4=;
-        b=d6VTcj3VPhbe/Bp/iuiT6bbw5v5i+m9rleAG8nZ2PJSHGwmidNc6ba493zMejMWoYM
-         P27a3RA1r1q5DsOXd9a9YcYXbEVwjSAdPXyghycMwUxdCFSPi0OqeWVU9QDfrTzhAqQo
-         K3hKa/dXh+Pb7k5R6e93PC99lkPB46rUh8iinK9PqPRUmHYQb0E68yNlF473t1UXecBQ
-         MYUYNld6f3sH9jmjVv9vu4X51ZhYFyj+irkKdSzBLRI0oDt6upnDvWFRXQE6eDu4b1E8
-         z64nF1TcXJ2M5LvBLskZZDNUpx0Kv3YV+qaql8vkfOiFUuZeqDEt8CaXgeT1BAOUllUw
-         83kA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795438292; x=1796043092;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9jX0RW6LaoLCUoJWieDzex2x/0egSw3B2iYNY4JlEL4=;
-        b=Ido9Z22nOxrEhDDRvUMQLIGQjFsJxF8Jg4/2xDb0SHXPmr5nSc9QU5YpR7XzyEuOEn
-         0lVzVsrcRxRMXYCRmLJGh1DM4ktLEpzNTfXtBPauHyn8aLf8/nLAxbOxUU2KvhSOagqD
-         CeHbEsC/z8rxrYdxi3TUjS1kd8rt6lT4fMqiOYGWIeQXZcI0RluKUMJp7XWro36iAD4V
-         zTfKAZR2XGGOIHp57i05jTdKT7W9Q2YBxz5w/ASTaqeueuE+JB2L+exHHJoFsgTrDWcC
-         vc9dHtrtmw8jOxZ2yerpTn5mN/yqpVr8EM5RfHI125MUKNs7++QIDTSkYxPYaLPri5CJ
-         6b3Q==
-X-Forwarded-Encrypted: i=1; AL+hErHB+4zyEmUURTAsxh3L10Xajhaa9KwlGqIyAjqOr1wQpZTvM1SIZVYoCm80n68RHuewqLc6tg30KJ/Bew0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/4ZI4l7KecZfx7LFL+x7cMjCShKqYuUwaqxMUl4tEIukQ2OBXx
-	CqwtQeSGUuc/LMWlrBeqhNaByrS7stNLWIMTPZFfBc/a5ts3kZL4/mNv
-X-Gm-Gg: AZFdTZcVHVIMX8UiPaVfxKBILcs8/+pnvBu8wdCYG+RhRyDlWP55eEBybOeFET2LCz9
-	/xQCkapH2dpmiMOAKH8J0sVPc5B7O2TP6gOcAgveeIaO6JNu26jlg5aHtriqSyUWVYopiX+ixEj
-	Ar1xAyQil2UmXPXZY/1d8Au7jGabLbD217c5gVmx1B0zfCgGk1au8h0whYviaLOG1wV/+G8EAH7
-	FOOcGWKs8MeL52GVSnwLJJX+93ne9U0IThOkERiy6gOMO3qTFkcSLAF+m1mINJ+Soz0IqCMkXGT
-	Cq6EddG5WU9ixHDW+bF24f0rvWUy/E8dGbanI0d8UiHIEjLYR54rmyI81mtaiqXeKK3kG6mZHL5
-	pxc+gX9bbJ+iaCUskGt8hZeRFBg7w/Tulb67044GcuoOSTL6jnBWdndvw2PyjF+uG80IH+haQDw
-	8d2nnTzaFodcdeVyWs0nbZj2/ybbToGhfUbIhrJTtOz+ZT+rm5+S61rsU5PFAVVozsROiET2po2
-	8mlxuNnbvlhb4u1IlPwOG6haDGOIHPq0/Y+M6CuSqAcba9GC4B4k/G19HRMX7DB4iKxcmUOa61g
-	+pXNKReTNkbOhtl163jM
-X-Received: by 2002:a05:6a21:328e:b0:3eb:a7ca:4d78 with SMTP id adf61e73a8af0-4014a276af7mr11920730637.8.1795438292088;
-        Mon, 23 Nov 2026 04:51:32 -0800 (PST)
-Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87334890csm5587126b3a.33.2026.11.23.04.51.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:51:31 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: dri-devel@lists.freedesktop.org,
-	Matthew Brost <matthew.brost@intel.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Cc: =?UTF-8?q?Thomas=20Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
-	Himal Prasad Ghimiray <himal.prasad.ghimiray@intel.com>,
-	Honglei Huang <honghuan@amd.com>,
-	TAKANO Mitsuhiro <takano32@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] drm/pagemap_util: Drop the kernel-doc for a member that does not exist
-Date: Mon, 23 Nov 2026 12:51:27 +0000
-Message-ID: <20261123125127.4114196-1-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KEyiJbLf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B24F1F000C4;
+	Mon, 23 Nov 2026 12:52:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795438322;
+	bh=p2IWpjpm56FZDYL2J6E/8Z+eeikvXsCr0/LAHQK5bkI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=KEyiJbLfUDmsEJfa1Kx/wZf9FzRuBcw9SnMx6X/r0k/X0spu68I7dygL0JCwYiJKh
+	 eNcqEI+kKP7ihvrND/GSFYfWRGr9VwVGWa/qGPz6rGUR8FruTfUHko0l4Bww8stA/a
+	 /JPdAHt9y0Lkc08FputF9Y4puMnCcfik0wTll5OxW79iwDDGt47r7dvaTb+9Hn6Taf
+	 6I7RxaCWCy5EZNfPED2PCI/rNlG84I+cvDWvC1pHS7m0AStNksuJQ8pBMgE7fJU2N8
+	 DWTbLLeZnpAMV0XidiIo3lpjCEbnsC5yS5RUom6JWBScIt7dG1T/B+sg8yYX46aVOr
+	 ev1jZdef4GztQ==
+Subject: Re: [PATCH v35 net-next 2/8] net/nebula-matrix: add common resource
+ implementation
+From: netdev-bot+sashiko@kernel.org
+To: illusion.wang@nebula-matrix.com
+Cc: dimon.zhao@nebula-matrix.com, alvin.wang@nebula-matrix.com,
+ sam.chen@nebula-matrix.com, netdev@vger.kernel.org, kuba@kernel.org,
+ andrew+netdev@lunn.ch, pabeni@redhat.com, edumazet@google.com,
+ horms@kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 12:52:01 +0000
+Message-ID: <179543832118.3135.18073760250615993889@kernel.org>
+In-Reply-To: <20261119113530.32107-3-illusion.wang@nebula-matrix.com>
+References: <20261119113530.32107-3-illusion.wang@nebula-matrix.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,52 +64,212 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-kernel-doc reports, with or without -Wall:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-  Warning: include/drm/drm_pagemap_util.h:45 Excess struct member 'peer'
-  description in 'drm_pagemap_owner_list' (did you mean one of: 'peers')
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-The struct holds one list member, @peers, documented on the member itself.
-The @peer line was added with the struct and refers to no member, so drop
-it.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-After:
+- [Medium] The control-PF probe reads firmware-written board
+  configuration from the mailbox BAR exactly once: the DW3 port…
+- [Low] net/nebula-matrix: single-implementation hw_ops and commit
+  message mismatch
 
-  $ scripts/kernel-doc -Wall -none include/drm/drm_pagemap_util.h
-  (no output)
+--
 
-The warning is not cosmetic in a -Werror build: kernel-doc exits with
-status 3 on the file before this change, so a headercheck run with
-CONFIG_WERROR=y fails on it.
+net/nebula-matrix: add common resource implementation
 
-The other DRM pagemap and gpusvm headers are clean with -Wall as well.
+This adds a chip-agnostic resource layer for the Nebula Matrix driver. On
+the control PF it reads the PF topology, per-PF BDF, Ethernet port and VSI
+mappings from hardware and firmware registers once at probe time. It also
+adds plain lookup helpers that convert between VSI, PF and Ethernet IDs.
 
-The change and this changelog were written with Hermes Agent
-(deepseek-v4.1-flash); I reviewed the change and ran kernel-doc -Wall on
-the file before and after.  No build was run, as only a comment changes.
+> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
+> index f363ab1fd4168..fa5b88e8c70fc 100644
+> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
+> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
 
-Fixes: e44f47a9bf51 ("drm/pagemap_util: Add a utility to assign an owner to a set of interconnected gpus")
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
- include/drm/drm_pagemap_util.h | 1 -
- 1 file changed, 1 deletion(-)
+[ ... ]
 
-diff --git a/include/drm/drm_pagemap_util.h b/include/drm/drm_pagemap_util.h
-index 19169b42b891..34fa879505d2 100644
---- a/include/drm/drm_pagemap_util.h
-+++ b/include/drm/drm_pagemap_util.h
-@@ -32,7 +32,6 @@ struct drm_pagemap_peer {
- 
- /**
-  * struct drm_pagemap_owner_list - Keeping track of peers and owners
-- * @peer: List of peers.
-  *
-  * The owner list defines the scope where we identify peers having fast interconnects
-  * and a common owner. Typically a driver has a single global owner list to
+> +/*
+> + * Registers reset to zero after cold boot / FLR / bus reset. Firmware
+> + * programs valid values before driver probe, so zero is only seen on
+> + * hardware fault or register read failure. Initialize data=0 to guard
+> + * against nbl_hw_read_mbx_regs() early-return on bounds-check failure.
+> + */
+> +static void nbl_hw_get_fw_eth_map(struct nbl_hw_mgt *hw_mgt, u32 *eth_map)
+> +{
+> +	u32 data = 0;
+> +
+> +	nbl_hw_read_mbx_regs(hw_mgt, NBL_FW_BOARD_DW6_OFFSET, &data,
+> +			     sizeof(data));
+> +	*eth_map = FIELD_GET(NBL_FW_BOARD_DW6_ETH_BITMAP_MASK, data);
+> +}
 
-base-commit: c44104f3642da720164042623e4832836aefdd8e
+[ ... ]
+
+> +static void nbl_hw_get_board_info(struct nbl_hw_mgt *hw_mgt,
+> +				  struct nbl_board_port_info *board_info)
+> +{
+> +	u32 data = 0;
+> +
+> +	nbl_hw_read_mbx_regs(hw_mgt, NBL_FW_BOARD_DW3_OFFSET, &data,
+> +			     sizeof(data));
+> +	board_info->eth_num = FIELD_GET(NBL_FW_BOARD_DW3_PORT_NUM_MASK, data);
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
+> new file mode 100644
+> index 0000000000000..b96ac999ec82f
+> --- /dev/null
+> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
+
+[ ... ]
+
+> +static int nbl_res_ctrl_dev_setup_eth_info(struct nbl_resource_mgt *res_mgt)
+> +{
+
+[ ... ]
+
+> +	fw_port_num = res_mgt->resource_info->board_info.eth_num;
+> +
+> +	hw_ops->get_fw_eth_map(res_mgt->hw_ops_tbl->priv, &eth_bitmap);
+> +	if (eth_bitmap & ~((1 << NBL_MAX_ETHERNET) - 1)) {
+> +		dev_err(dev, "FW reported invalid eth_bitmap 0x%x\n",
+> +			eth_bitmap);
+> +		return -EINVAL;
+> +	}
+> +	if (fw_port_num != hweight32(eth_bitmap)) {
+> +		dev_err(dev, "FW inconsistency: port_num=%u, bitmap=0x%x\n",
+> +			fw_port_num, eth_bitmap);
+> +		return -EINVAL;
+> +	}
+> +	/*
+> +	 * Firmware is ready before probe. Valid port counts are 1/2/4;
+> +	 * 0 (invalid config), 3 (unsupported topology), and >4 (exceeds
+> +	 * hardware max) are all rejected with -EINVAL.
+> +	 */
+> +	if (fw_port_num == 0 || fw_port_num == 3 ||
+> +	    fw_port_num > NBL_MAX_ETHERNET) {
+> +		dev_err(dev, "FW reports %u Ethernet ports, unsupported (valid: 1/2/4)\n",
+> +			fw_port_num);
+> +		return -EINVAL;
+> +	}
+
+[Severity: Medium]
+What happens if the control PF is probed before firmware has rewritten the
+DW3 and DW6 board words?
+
+The comment above nbl_hw_get_fw_eth_map() and nbl_hw_get_board_info() says
+these registers reset to zero after cold boot, FLR or bus reset. It relies on
+firmware programming them before probe.
+
+The probe path doesn't seem to check that this has happened. There is no
+ready bit, poll or -EPROBE_DEFER between nbl_hw_init_leonis() and these
+single reads:
+
+nbl_probe()->nbl_core_init()->nbl_res_init_leonis()->nbl_res_start()
+    ->nbl_res_init_board_info()
+    ->nbl_res_ctrl_dev_setup_eth_info()
+
+If PF0 is bound shortly after an FLR or secondary bus reset, for example a
+sysfs reset followed by a bind, both reads could return 0. Then:
+
+    eth_bitmap == 0       passes the check for bits above NBL_MAX_ETHERNET
+    fw_port_num == 0      passes fw_port_num != hweight32(eth_bitmap)
+    fw_port_num == 0      returns -EINVAL
+
+The control PF probe would then fail for good. Later in the series the
+sibling PFs wait on function 0 via nbl_probe_chip_deps(). Would they stay in
+-EPROBE_DEFER until the management PF is rebound by hand?
+
+Could the all-zero case be treated as "firmware not ready yet" instead of an
+invalid configuration? A bounded readiness poll in nbl_res_start(), or
+returning -EPROBE_DEFER for that case, would do it.
+
+> +	eth_info->eth_num = fw_port_num;
+
+[ ... ]
+
+> +static int nbl_res_start(struct nbl_resource_mgt *res_mgt)
+> +{
+> +	struct nbl_common_info *common = res_mgt->common;
+> +	int ret = 0;
+> +
+> +	if (common->has_ctrl) {
+> +		nbl_res_init_board_info(res_mgt);
+> +
+> +		ret = nbl_res_init_pf_num(res_mgt);
+> +		if (ret)
+> +			return ret;
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
+> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
+> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
+> @@ -44,9 +57,22 @@ struct nbl_hw_ops {
+>  	 * PFs starting at PF0.
+>  	 */
+>  	void (*get_host_pf_mask)(struct nbl_hw_mgt *hw_mgt, u32 *pf_mask);
+> +	void (*get_real_bus)(struct nbl_hw_mgt *hw_mgt, u8 *bus);
+>  
+>  	void (*cfg_mailbox_qinfo)(struct nbl_hw_mgt *hw_mgt, u16 func_id,
+>  				  u8 bus, u8 devid, u8 function);
+> +	void (*get_fw_eth_map)(struct nbl_hw_mgt *hw_mgt, u32 *eth_map);
+> +	/**
+> +	 * get_board_info - Fetch board info from firmware
+> +	 * @hw_mgt: hardware management context
+> +	 * @board_info: output pointer for board info structure
+> +	 *
+> +	 * Firmware contract: board_info.eth_num MUST equal the number of
+> +	 * unmasked PFs from get_host_pf_mask(). See get_host_pf_mask for
+> +	 * details.
+> +	 */
+> +	void (*get_board_info)(struct nbl_hw_mgt *hw_mgt,
+> +			       struct nbl_board_port_info *board_info);
+>  };
+>  
+>  struct nbl_hw_ops_tbl {
+
+[Severity: Low]
+This patch adds four more callbacks to struct nbl_hw_ops (flush_write,
+get_real_bus, get_fw_eth_map and get_board_info), and nbl_hw_ops still
+has only one implementation, the static hw_ops in nbl_hw_leonis.c.
+v35 dropped nbl_resource_ops after the earlier request not to add ops
+tables until a second implementation exists. Does the same reasoning
+apply to nbl_hw_ops?
+
+The callers in nbl_res_init_pf_num(), nbl_res_ctrl_dev_pf_info_init(),
+nbl_res_ctrl_dev_setup_eth_info() and nbl_res_init_board_info() are all
+in nbl_hw_leonis/nbl_resource_leonis.c, so this is Leonis code calling
+Leonis helpers through res_mgt->hw_ops_tbl->ops. nbl_hw_setup_ops()
+also devm-allocates a wrapper whose only job is to point at a static
+table. Could these be direct calls until draco actually lands?
+
+The commit message also doesn't seem to match the code. It says
+nbl_hw_ops_tbl is the only remaining ops table, but struct
+nbl_channel_ops_tbl is already in struct nbl_interface, and a later
+patch in the series adds struct nbl_dispatch_ops_tbl. It also says the
+PF mask validation and the BDF/Eth/VSI table construction are shared
+between the two chip families. Those are static functions in
+nbl_resource_leonis.c, called only from nbl_res_init_leonis(). Only the
+ID conversion helpers in nbl_resource.c are chip-agnostic. Can the
+description be updated, or the shared code moved where the message
+says it is?
+
+Finally, this patch removes the NULL checks on the static hw_ops
+members in nbl_hw_setup_ops() that the channel layer patch earlier in
+this series added. Those checks could never fire. Could they be left
+out of the patch that introduces nbl_hw_setup_ops(), so this one does
+not have to delete them?
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119113530.32107-1-illusion.wang%40nebula-matrix.com
