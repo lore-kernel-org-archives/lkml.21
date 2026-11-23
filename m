@@ -1,77 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.58.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411486;
-	b=z2OgJZoAW7qLPHSUP3CZw/hZt+BV4t3Gw1saG4+D4q9TW6M8GXptNgc/NpbFCyOPJWmG
-	 4IvYlrYs8iK8vqy+wnsPvdmvlf3SFF9cPeNAZupEAXR3K7GSlf6Kq0NC5F9c3gbseAO2H
-	 CcHRiPst/fbxXTn08s8Tjhcnj7Z9lkbZtvuSzpbwD52tSQWxtpW8L5T72ju4DgYPQdZuo
-	 sm5g/wq6eGMvx2EEUumM4BcLvjYgOBs/8bnArYscyBE1n4y7JNBccFjQ6ylAy9me2Stlr
-	 tqRuqxVoZJmXtMmMQXfC+oomrFJmbY3x1EvoWE21FzrmXQkxcZzQN1QL/juos4dBakg==
+	t=1795411604;
+	b=iWCDdcPI6TWfERsoVE0FCjOSPhJhgfcuRxBSOCiq7EjXGE8x1mI0p8D9LTY2CVAB65O5
+	 ttKDs1iRXgFBi5NuL6fT/Wr424gfIpU1AeKDOWZvHd1gqAPgUzat/dUR2myxFcrKfxeJs
+	 ZgopcGisiP1oAYynLHrOW1epzr6aRhfjetoe/92lh+KoIKmlQMK/RPtIXUG2tMvytFSo/
+	 DCUFTLcJxHXQjfGRnsCL8zXGGGPxpk1WQxCNBoTI7sd1/kA/EkQJyZG+m+LH8pM9WnI5W
+	 lkbC3okfjCL9nB/i0dF+JOqM7UcR/X93re44PaKhiZ/Ky2x8SJ/aZFVAEDED5YIBohg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411486;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=gpoGDk8txb07hMaGxfF0IDZNLe/tiUuwVHL2F331wag=;
-	b=R7Yb8d20v1vXXTXJdntk3yGhjeew6NDT146AdQtLVegzQq356gkQ5BB9s+ZB7YlqNclo
-	 sPMliZTV079Td/XwDjfYFEeM0pgg9fU8klJVYaWWW1il8iZUBCb4DTwizqlEAm0/rHM6T
-	 ZLy0Ynk/4QIdXIWQyk/onNXgjYpGnii7bIa6rPFt7Zicloz/iN2Jy65xTkUp08X+wxsnS
-	 WPrwgaAJ4zLI63ZPJ7xo3L/oFCcsVRs0KV+gUZDGDzcfrvbGkqyRo5poAuDES7lOWYroI
-	 Yzv2AZcoAX5OWT2Bz11d9V/vnYxO8rA3GJS6zXglHB69VggRHRoFn9fHaBqiZAdezxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411604;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=uOn8zdpKhoiEr4LfwPlbQlbGhchooXKwDyef2Q+wxQE=;
+	b=Qw0LZfKBJTwjSuxjUDB31zwJvFNKusGOYl3GP1a20lEzw7rB/6SOyNXwTQtGGvpVj/e5
+	 TVbwdwsVaj4bkzygCDp7PnIIkb1BEoO9fUv1JY6Q1k3CnenFunMXorJo6G4DOJP8kkqNb
+	 bC5yC5SebOcXLMDy/H8YTKvj5UvFB3IUP0X3eH9w1z8XxkZ++aDALdHseJPFa6RMob1a8
+	 X5+DsB4OmVtak0vqP1XEW3Tbg2Q74iltNWhQn6Fh449MqnwKAdb5nOIF++GKBH9Oow9E5
+	 l7Sm3hVPZ4k4eCGmBQb2lMi0p+pK1KIwYnoEqZpPbVaO890uF6Cg6ivpysNBVxJnHmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=fDRljxkA;
-	arc=none smtp.remote-ip=162.62.58.211
-Received: from out162-62-58-211.mail.qq.com (out162-62-58-211.mail.qq.com [162.62.58.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VFdjkQVC;
+	arc=none smtp.remote-ip=209.85.208.52
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9398A606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:24:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9398A606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA501606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:26:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA501606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=fDRljxkA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795411479; bh=gpoGDk8txb07hMaGxfF0IDZNLe/tiUuwVHL2F331wag=;
-	h=From:To:Cc:Subject:Date;
-	b=fDRljxkAWmyPNfEtNMyArMPjFhZXm2LUJL0Vcj8J+Uz+5L62lfkWQ98S61Bbm9/N3
-	 zg52dpJbLio4PuLJVFawC3khzuiRPTJjJeauIYcgpIFFWv1m4qMkk4NYwgfUfx5Uq6
-	 YFZnzIt3+HLU9y1jO1lOl0RO/6WC5qQ0VLkEYTb8=
-Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id 6258823F; Mon, 23 Nov 2026 13:24:37 +0800
-X-QQ-mid: xmsmtpt1795411477tnjo7hiq4
-Message-ID: <tencent_9AD2892CFBF2854D36B81A626F13ADEE0508@qq.com>
-X-QQ-XMAILINFO: MaaIYtAFx2QD48NbgGn2T/jvXIHz0SyAtFPce0EXBR1uh3G9k0t9p2pa62xfjw
-	 OU20/CwlJejk0fNtBZK8ZWp1yow/a/pARbfDXyXz5zYfZdbey/xc4n+Z6HKlc+aVqcwdaiTAMS38
-	 u3ud7IrGN0WeJDopxP/XysJjVI4xYwLeLRNCO2AC7Sa1OeTR2J2jTfWSY7jTGBQuCilzbnS8Admg
-	 iOcU/QqupVuOzFP6G+GzoxnCrVunNovzjy7bQLujgQp3VEwWxXO6e1IKrfH7FoePad5IG8VsFL5w
-	 5Ef8KnhXbMtJeE1kyupPrp4/wQdeVz0q44beX6dWtNWsbn845KHDOSfjbTLZHfCE784PuTVa3QJD
-	 QZKSyNlFIeIiQVyeH6xlUkEhSqCQSGicNdsj4QFcbDwQvj8IOmZucquo7xXWIougfrujD1SMT2gu
-	 2aC10+IEZqkRgGCVPBBCZ1XVR/Sw9qIBogiNOigRoAoPLlfERX0v6Ixuy/U1tzZRxlAJ7wG/RVqo
-	 sYrT0xKegfpNjKR/gsy9BgtQAdrX01mmfT7/F3CEhQwuKW5J+C6bYgDh4XO1kqkD2lD+OGjlq793
-	 g222OH1B0RDYOi3wgjfquwwwvSZac8XewGaEcUtDAoMx1YOQoE1XX5aQ4i1KsqwIO0WANnm5HseA
-	 t9k94YOp2FdRnw2c1XHLCcwJJ9EFx11phhnjNcFgu346NOnmxBsoNbZ2T/G3sCDN5quChlPRQUFO
-	 ofo6YhDch6NC39dvgqpjc0orgiX7zFcaSqmK0xtLAL5/i+1DLHAG7TaKSNmn/lTsaYmVkHAzcN2+
-	 S4H+YbzLb+Re2pnhOHzFrrI2r+NVUBDw2x0taSx3fiDwci7XZkq425HNWO7leIsWY+5lmId91bb4
-	 KTjOwV+wWn7ijb1YIViksUY524yREd4cEVaDn9qPnsgx5/OGuNJq4qd+WPS6qLyYO3KxhwXQtnWc
-	 8mjsfYHQnX9RbbbHV28kPWfql6ngdWQ6TKtsA4NBMxUPHLq5ayN21h7blExRcoFuo08w29oi4XbM
-	 YAqf6MMKpj96rKr/h5458FDaM8snqzsxiyqv4UV0jXL5ol/OSSlo9geGsHEZte8vjE4ubfKauT44
-	 kYiRRe6nRqnXeJAHzPJI1DcpWpGOTmMqBlOTiv
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-From: Shuai Liu <847807867@qq.com>
-To: jfs-discussion@lists.sourceforge.net
-Cc: shaggy@kernel.org,
-	yun.zhou@windriver.com,
-	syzbot+ab18fa9c959320611727@syzkaller.appspotmail.com,
-	syzbot+a67911c5a11315aa55a8@syzkaller.appspotmail.com,
-	linux-kernel@vger.kernel.org,
-	Shuai Liu <847807867@qq.com>
-Subject: [PATCH v2] jfs: add dmap integrity check to prevent out-of-bounds tree access
-Date: Mon, 23 Nov 2026 13:24:37 +0800
-X-OQ-MSGID: <20261123052437.1322377-1-847807867@qq.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VFdjkQVC
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b87040a20bso267814a12.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:26:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795411602; x=1796016402; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uOn8zdpKhoiEr4LfwPlbQlbGhchooXKwDyef2Q+wxQE=;
+        b=VFdjkQVCTr+2rGCs2sPvK1f+KLVE2dcqaD/LsNJLxOtuO2Njt3w0jrBjxQY+fhYMFB
+         RKGA3950hmwSqq2cyUp3tlJvu44WfKuwYTYuVIFpEs9XOfVeGOEitXQ8ZKUDl2T4c5yp
+         L+Q9LuddDGjRtFqBAwsacmvTqKKfcZ8GRKMrLwL9OVnNajLBn+ITjdmTOPnMyYf8dstL
+         TfcpM27Jj8i1rUs7b47/zjlVnlQl14XDBSmrHoHtfNYT10rBs3qzEZEeXeK6wiXX/eqo
+         fmDx1AqNzJTJs6B178qlRcUN2UmbZ+BjycLflJ4sTxqKtLqhygL68C9oGyYHaAGV5jMq
+         pGJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795411602; x=1796016402;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uOn8zdpKhoiEr4LfwPlbQlbGhchooXKwDyef2Q+wxQE=;
+        b=Z6+HthjJiX36r8t0HArm/pRP1H4ny2/PKy379AasrHrsw0FRKEFSD9AiTWQ8eSMZkL
+         NAVACe433+1tZ73D2WuuMJIXsTj4ZJRNq79sOx3uGjsSRagy/QMkfAWpVWd6z+ZBlL8P
+         MEvFTd4O9iGJPkIGXqFlYVwo9UR3khTNfx/DMgJgoJIJGl/QfMtlnUJIaXCbk0Oee4ZI
+         clNknge0tNQionOOw/T3joCh8qPu1f2037Dzn1gpv26wtHRMU3nP/Fk8Qc1piO5PStVR
+         /umlptEbAJQy1CI1ksaYx94ks+PCCnO8JX7MWx6oOatMyby01xnbnJxzVhOqZBCAYmvT
+         gLCA==
+X-Forwarded-Encrypted: i=1; AL+hErHoAF//qIOpk17Vrbiye+qNOoo0JU10zibx4xeOluxSYEe2+ZVrS/r2okuFPMIw5tvPaQvE1wZHbS9VGWA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/LjWIITkells01CoQdbJ/U3OIWMHq7p0HeS09TC8Wht4C630sA
+	Ydeb2bmLrWD1z7z5lG5aWiqisVLbT80xHexKMCZo+xIOetqt18OScE04SKhLQ031alI=
+X-Gm-Gg: AZFdTZd9+vCwrtrZWDj9ef9OQGSBXXz/i+N133I9lc1BQg61A4PEioJan+IeKxtuJNK
+	6DORx4LD0EG41ZxqBy9we3GDCys2meiKpcdVhpbU26DGAsXICuIog71/br9X3nEIqABeMyTQuHJ
+	VU9Dmg+HiMRN2TC0PEE8eY7IIA6vGCrCk0/Akcm8IQREOB1ZB/sDAgHujtIv06UPQaJJ3A7iL06
+	U7l5Q3rYEDm48HepKQaK2/RUt2uu70M2wgmBE+lG9mkS4c0h/BDqO2xn8Y0O9/6HXSbMVt9zKNf
+	rqNFkiwhtCV13RB20SfE+j20ee/P2TdMaKWgdXAJqg8a62j8HFadxL46/zpVba1Sq87ecp+rcn8
+	ZfOm7sJzwGMug2OP9BVWnSBgn7fm/qW+ovehhQpEpxnHziCN4mvaMitHeCBgdV0KX4/d1RjDBNd
+	caNFZUjUKokaqoXMvdgB1xbvev8eEHl10mPml9vHXw1uckp11NNCW/tZVr3N7vqLzagrG3PwdFz
+	aW/+anpo2pSetZeId6OBhICbtGEXgDtZlK0CnK3QZbRv0yY6hJP1TCjIEDqtvmQhgGmFzrXF+Rx
+	WhlUWwIYAyrcCIJP/yM3jt72+bCgR5H2nxc=
+X-Received: by 2002:a17:906:fcb7:b0:c50:d900:8536 with SMTP id a640c23a62f3a-c513a3a33dcmr799689966b.1.1795411602207;
+        Sun, 22 Nov 2026 21:26:42 -0800 (PST)
+Received: from [10.202.112.30] ([202.127.77.110])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe23sm15945748a91.15.2026.11.22.21.26.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 21:26:41 -0800 (PST)
+Message-ID: <595a50d5-b2d7-4162-bbb7-03bbba129ac8@suse.com>
+Date: Mon, 23 Nov 2026 13:26:36 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,180 +90,354 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v9 2/3] ocfs2: switch DIO read path from buffer_head
+ to iomap
+To: Joseph Qi <joseph.qi@linux.alibaba.com>
+Cc: mark@fasheh.com, jlbec@evilplan.org, hch@lst.de,
+ ocfs2-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261120060014.12087-1-heming.zhao@suse.com>
+ <20261120060014.12087-3-heming.zhao@suse.com>
+ <77d9e06a-9111-44d8-b09d-c91bab908327@linux.alibaba.com>
+From: Heming Zhao <heming.zhao@suse.com>
+Content-Language: en-US
+In-Reply-To: <77d9e06a-9111-44d8-b09d-c91bab908327@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Add check_dmap() to validate dmap structure integrity, mirroring
-check_dmapctl() which already guards the dmapctl pages.
+Hi Joseph,
 
-A corrupted on-disk dmap page (e.g. a fuzzed filesystem image) carries a
-garbage dmaptree header.  The free path does not validate it before use:
-dbFreeBits() -> dbJoin() reads tp->dmt_leafidx straight from the on-disk
-tree header to locate the leaves, and dbAdjTree() then computes
-lp = leafno + dmt_leafidx into the stree[] array.  With the observed
-corruption leafidx = 0x5ff20055 (expected LEAFIND = 85) the computed
-index reaches 0x5ff20056, far beyond TREESIZE (341), triggering the
-WARN_ON_ONCE added to dbAdjTree() by commit a174706ba4da ("jfs: add a
-check to prevent array-index-out-of-bounds in dbAdjTree") -- a
-mitigation, not a fix.  The alloc path got a leafidx sanity check in
-dbFindLeaf() by commit d64ff0d23067 ("jfs: check if leafidx greater
-than num leaves per dmap tree") and the dmapctl pages are verified by
-check_dmapctl() from commit cce219b203c4 ("jfs: add dmapctl integrity
-check to prevent invalid operations"), but the dmap leaf pages
-themselves are still trusted.
+On 11/22/26 22:41, Joseph Qi wrote:
+> 
+> 
+> On 11/20/26 2:00 PM, Heming Zhao wrote:
+>> Migrates the DIO read path from the legacy buffer_head infrastructure
+>> to the modern and more efficient iomap framework.
+>>
+>> Under the current code, ocfs2 holds a cluster lock during DIO via
+>> ocfs2_iocb_set_rw_locked(), and releases the cluster lock in
+>> ocfs2_dio_end_io() via ocfs2_iocb_clear_rw_locked(). The lock level is
+>> stashed in iocb->private.
+>>
+>> However, iomap DIO owns that field (it stores a bio there for polled I/O
+>> and unconditionally clears it before calling ->end_io). Any side-channel
+>> state packed into iocb->private is corrupted, which trips the end_io
+>> lock-state check.
+>>
+>> Instead, encode the unlock level by passing distinct iomap_dio_ops methods
+>> (ocfs2_iomap_dio_ops_pr for PRMODE or ocfs2_iomap_dio_ops_ex for EXMODE).
+> 
+> The code only defines ocfs2_iomap_dio_ops_r_pr, and ocfs2_iomap_dio_ops_w_pr /
+> ocfs2_iomap_dio_ops_w_ex are defined in next commit.
+> 
+>> Additionally, the *_iter() functions use the split __iomap_dio_rw() +
+>> iomap_dio_complete() API so they can determine unambiguously, from the
+>> return value, whether the completion handler already dropped the lock
+>> (real I/O, sync or -EIOCBQUEUED) or whether the caller must drop it
+>> (no I/O issued, or buffered fallback).
+>>
+>> The new function ocfs2_iomap_begin() performs a similar role to
+>> ocfs2_get_block(). While ocfs2_get_block() retrieves only one block per
+>> call, ocfs2_iomap_begin() can handle multiple blocks at once. Limit the
+>> map offset and length in ocfs2_iomap_begin() to OCFS2_MAX_LOGICAL_BLOCK
+>> to avoid overflow issues.
+>>
+> It seems OCFS2_MAX_LOGICAL_BLOCK not defined.
+> 
 
-Validate the dmap tree header (nleafs, l2nleafs, leafidx, height,
-budmin and the leaf values) in check_dmap() and call it when a dmap
-page is about to be modified: dbAllocDmap(), dbFreeDmap() and
-dbAllocDmapBU().  Return -EIO on corruption so the caller aborts the
-map update instead of operating on a bogus tree.
+Do I need to send v10 to fix the mistakes above?
 
-Verified with the syzbot reproducer under QEMU (x86_64_defconfig +
-CONFIG_JFS_FS=y): without the fix the jfsCommit thread reliably
-triggers
+Thanks for the careful review.
+Heming
 
-    WARNING: fs/jfs/jfs_dmap.c:2962 at dbAdjTree+0x2fa/0x3f0, CPU#1: jfsCommit
-      dbJoin+0x24b/0x2b0
-      dbFreeBits+0x170/0x8d0
-      dbFreeDmap+0x62/0x1c0
-      dbFree+0x266/0x550
-      txFreeMap+0x2d3/0xe10
-      xtTruncate+0x24fe/0x2e20
-      jfs_free_zero_link+0x262/0x4c0
-      jfs_evict_inode+0x40a/0x4a0
-
-with R12 = 0x5ff20056 (= 1 + corrupted dmt_leafidx), reproducing on
-every run; with the check in place three consecutive runs complete the
-mount and file operations with no WARNING, Oops or jfs_error report.
-
-The same missing-validation hole is hit by a second still-active syzbot
-report (WARNING in dbJoin, prio:high, last crash 2026-11-23), where the
-computed index lands exactly at TREESIZE (lp = leafno + leafidx = 341).
-
-Reported-by: syzbot+ab18fa9c959320611727@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=ab18fa9c959320611727
-Reported-by: syzbot+a67911c5a11315aa55a8@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=a67911c5a11315aa55a8
-Signed-off-by: Shuai Liu <847807867@qq.com>
----
-Changes in v2:
- - Add Reported-by/Closes for the second syzbot report hit by the same
-   missing dmap validation (WARNING in dbJoin, prio:high), which computes
-   lp = leafno + leafidx = 341 = TREESIZE on the crafted image.
-
- fs/jfs/jfs_dmap.c | 77 +++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 77 insertions(+)
-
-diff --git a/fs/jfs/jfs_dmap.c b/fs/jfs/jfs_dmap.c
-index a841cf21da7de..4616ded254ba6 100644
---- a/fs/jfs/jfs_dmap.c
-+++ b/fs/jfs/jfs_dmap.c
-@@ -220,6 +220,74 @@ static bool check_dmapctl(struct dmapctl *dcp)
- 	return true;
- }
- 
-+/*
-+ * check_dmap - Validate integrity of a dmap structure
-+ * @dp: Pointer to the dmap structure to check
-+ *
-+ * Return: true if valid, false if corrupted
-+ */
-+static bool check_dmap(struct dmap *dp)
-+{
-+	s8 budmin = dp->tree.budmin;
-+	u32 nleafs, l2nleafs, leafidx, height;
-+	int i;
-+
-+	nleafs = le32_to_cpu(dp->tree.nleafs);
-+	/* A dmap tree always covers LPERDMAP leaves */
-+	if (unlikely(nleafs != LPERDMAP)) {
-+		jfs_err("dmap: invalid nleafs %u (expected %u)",
-+			nleafs, LPERDMAP);
-+		return false;
-+	}
-+
-+	l2nleafs = le32_to_cpu(dp->tree.l2nleafs);
-+	if (unlikely(l2nleafs != L2LPERDMAP)) {
-+		jfs_err("dmap: invalid l2nleafs %u (expected %u)",
-+			l2nleafs, L2LPERDMAP);
-+		return false;
-+	}
-+
-+	leafidx = le32_to_cpu(dp->tree.leafidx);
-+	/* Check leaf index matches expected position */
-+	if (unlikely(leafidx != LEAFIND)) {
-+		jfs_err("dmap: invalid leafidx %u (expected %u)",
-+			leafidx, LEAFIND);
-+		return false;
-+	}
-+
-+	height = le32_to_cpu(dp->tree.height);
-+	/* Check tree height is within valid range */
-+	if (unlikely(height > (L2LPERDMAP >> 1))) {
-+		jfs_err("dmap: invalid height %u (max %u)",
-+			height, L2LPERDMAP >> 1);
-+		return false;
-+	}
-+
-+	/* Check budmin is valid (cannot be NOFREE for a full tree) */
-+	if (unlikely(budmin < BUDMIN)) {
-+		jfs_err("dmap: invalid budmin %d (min %d)",
-+			budmin, BUDMIN);
-+		return false;
-+	}
-+
-+	/* Check leaf nodes have valid values */
-+	for (i = leafidx; i < leafidx + nleafs; i++) {
-+		s8 val = dp->tree.stree[i];
-+
-+		if (unlikely(val < NOFREE)) {
-+			jfs_err("dmap: invalid leaf value %d at index %d",
-+				val, i);
-+			return false;
-+		} else if (unlikely(val > 31)) {
-+			jfs_err("dmap: leaf value %d too large at index %d",
-+				val, i);
-+			return false;
-+		}
-+	}
-+
-+	return true;
-+}
-+
- /*
-  * NAME:	dbMount()
-  *
-@@ -2112,6 +2180,9 @@ static int dbAllocDmap(struct bmap * bmp, struct dmap * dp, s64 blkno,
- 	s8 oldroot;
- 	int rc;
- 
-+	if (unlikely(!check_dmap(dp)))
-+		return -EIO;
-+
- 	/* save the current value of the root (i.e. maximum free string)
- 	 * of the dmap tree.
- 	 */
-@@ -2167,6 +2238,9 @@ static int dbFreeDmap(struct bmap * bmp, struct dmap * dp, s64 blkno,
- 	s8 oldroot;
- 	int rc = 0, word;
- 
-+	if (unlikely(!check_dmap(dp)))
-+		return -EIO;
-+
- 	/* save the current value of the root (i.e. maximum free string)
- 	 * of the dmap tree.
- 	 */
-@@ -3338,6 +3412,9 @@ static int dbAllocDmapBU(struct bmap * bmp, struct dmap * dp, s64 blkno,
- 	s8 oldroot;
- 	struct dmaptree *tp = (struct dmaptree *) & dp->tree;
- 
-+	if (unlikely(!check_dmap(dp)))
-+		return -EIO;
-+
- 	/* save the current value of the root (i.e. maximum free string)
- 	 * of the dmap tree.
- 	 */
-
-base-commit: c41a6b8d553d977c7a6b996feab3150f1b5797e8
--- 
-2.43.0
+>> Co-developed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+>> Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+>> Signed-off-by: Heming Zhao <heming.zhao@suse.com>
+>> ---
+>>   fs/ocfs2/Kconfig |   1 +
+>>   fs/ocfs2/aops.c  | 107 +++++++++++++++++++++++++++++++++++++++++++++--
+>>   fs/ocfs2/aops.h  |   5 +++
+>>   fs/ocfs2/file.c  |  60 ++++++++++++++++++++++----
+>>   4 files changed, 161 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/fs/ocfs2/Kconfig b/fs/ocfs2/Kconfig
+>> index 2514d36cbe01..bf1678a5eb01 100644
+>> --- a/fs/ocfs2/Kconfig
+>> +++ b/fs/ocfs2/Kconfig
+>> @@ -7,6 +7,7 @@ config OCFS2_FS
+>>   	select CRC32
+>>   	select QUOTA
+>>   	select QUOTA_TREE
+>> +	select FS_IOMAP
+>>   	select FS_POSIX_ACL
+>>   	select LEGACY_DIRECT_IO
+>>   	help
+>> diff --git a/fs/ocfs2/aops.c b/fs/ocfs2/aops.c
+>> index 64fcf6eb3d89..21cdc5c29331 100644
+>> --- a/fs/ocfs2/aops.c
+>> +++ b/fs/ocfs2/aops.c
+>> @@ -4,6 +4,7 @@
+>>    */
+>>   
+>>   #include <linux/fs.h>
+>> +#include <linux/iomap.h>
+>>   #include <linux/slab.h>
+>>   #include <linux/highmem.h>
+>>   #include <linux/pagemap.h>
+>> @@ -126,6 +127,19 @@ static int ocfs2_lock_get_block(struct inode *inode, sector_t iblock,
+>>   	return ret;
+>>   }
+>>   
+>> +static int ocfs2_lock_map_blocks(struct inode *inode,
+>> +				 struct ocfs2_map_block *map, int flags)
+>> +{
+>> +	int ret = 0;
+>> +	struct ocfs2_inode_info *oi = OCFS2_I(inode);
+>> +
+>> +	down_read(&oi->ip_alloc_sem);
+>> +	ret = ocfs2_map_blocks(inode, map, flags);
+>> +	up_read(&oi->ip_alloc_sem);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>>   /* ocfs2 never allocates in this function */
+>>   int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
+>>   		    int flags)
+>> @@ -171,8 +185,11 @@ int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
+>>   			map->flags |= OCFS2_MAP_MAPPED;
+>>   	}
+>>   
+>> +	past_eof = ocfs2_blocks_for_bytes(inode->i_sb, i_size_read(inode));
+>> +
+>>   	if (!ocfs2_sparse_alloc(osb)) {
+>> -		if (map->pblk == 0) {
+>> +		/* detected a hole (unallocated extent) in a file */
+>> +		if (map->pblk == 0 && map->lblk < past_eof) {
+>>   			err = -EIO;
+>>   			mlog(ML_ERROR,
+>>   			     "iblock = %llu p_blkno = %llu blkno=(%llu)\n",
+>> @@ -187,8 +204,6 @@ int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
+>>   		}
+>>   	}
+>>   
+>> -	past_eof = ocfs2_blocks_for_bytes(inode->i_sb, i_size_read(inode));
+>> -
+>>   	if (create && (map->lblk >= past_eof))
+>>   		map->flags |= OCFS2_MAP_NEW;
+>>   
+>> @@ -2532,6 +2547,92 @@ static ssize_t ocfs2_direct_IO(struct kiocb *iocb, struct iov_iter *iter)
+>>   				    ocfs2_dio_end_io, 0);
+>>   }
+>>   
+>> +static int ocfs2_iomap_begin(struct inode *inode, loff_t offset, loff_t length,
+>> +		unsigned int flags, struct iomap *iomap, struct iomap *srcmap)
+>> +{
+>> +	int ret;
+>> +	struct ocfs2_map_block map;
+>> +	u8 blkbits = inode->i_blkbits;
+>> +	u64 max_lblk = (inode->i_sb->s_maxbytes - 1) >> blkbits;
+>> +
+>> +	if ((offset >> blkbits) > max_lblk)
+>> +		return -EINVAL;
+>> +
+>> +	/*
+>> +	 * Calculate the first and last logical blocks respectively.
+>> +	 */
+>> +	map.lblk = offset >> blkbits;
+>> +	map.len = min_t(loff_t, (offset + length - 1) >> blkbits,
+>> +			max_lblk) - map.lblk + 1;
+>> +	map.flags = 0;
+>> +
+>> +	if (flags & IOMAP_WRITE) {
+>> +		return -EOPNOTSUPP;
+>> +	}
+>> +
+>> +	ret = ocfs2_lock_map_blocks(inode, &map, 0);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +
+>> +	iomap->bdev = inode->i_sb->s_bdev;
+>> +	iomap->offset = (u64)map.lblk << blkbits;
+>> +	iomap->length = (u64)map.len << blkbits;
+>> +
+>> +	if (map.pblk == 0) {
+>> +		iomap->type = IOMAP_HOLE;
+>> +		iomap->addr = IOMAP_NULL_ADDR;
+>> +	} else {
+>> +		if (map.flags & OCFS2_MAP_UNWRITTEN) {
+>> +			iomap->type = IOMAP_UNWRITTEN;
+>> +		} else if (map.flags & OCFS2_MAP_MAPPED) {
+>> +			iomap->type = IOMAP_MAPPED;
+>> +		} else {
+>> +			WARN_ON_ONCE(1);
+>> +			return -EIO;
+>> +		}
+>> +		iomap->addr = (sector_t)map.pblk << blkbits;
+>> +	}
+>> +
+>> +	if (map.flags & OCFS2_MAP_NEW)
+>> +		iomap->flags |= IOMAP_F_NEW;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +int ocfs2_iomap_next(const struct iomap_iter *iter, struct iomap *iomap,
+>> +			    struct iomap *srcmap)
+>> +{
+>> +	int ret;
+>> +
+>> +	if (iomap->length) {
+>> +		ret = iomap_iter_continue(iter, iomap, srcmap, 0);
+>> +		if (ret <= 0)
+>> +			return ret;
+>> +	}
+>> +
+>> +	ret = ocfs2_iomap_begin(iter->inode, iter->pos, iter->len, iter->flags,
+>> +				iomap, srcmap);
+>> +	return ret < 0 ? ret : 1;
+>> +}
+>> +
+>> +static int ocfs2_dio_end_io_r_pr(struct kiocb *iocb, ssize_t size,
+>> +				int error, unsigned int flags)
+>> +{
+>> +	struct inode *inode = file_inode(iocb->ki_filp);
+>> +
+>> +	if (error)
+>> +		mlog_ratelimited(ML_ERROR, "Direct IO failed, bytes = %lld errno:%d",
+>> +				 (long long)size, error);
+>> +
+>> +	ocfs2_rw_unlock(inode, 0);
+>> +
+>> +	return error;
+>> +}
+>> +
+>> +const struct iomap_dio_ops ocfs2_iomap_dio_ops_r_pr = {
+>> +	.end_io = ocfs2_dio_end_io_r_pr,
+>> +};
+>> +
+>>   const struct address_space_operations ocfs2_aops = {
+>>   	.dirty_folio		= block_dirty_folio,
+>>   	.read_folio		= ocfs2_read_folio,
+>> diff --git a/fs/ocfs2/aops.h b/fs/ocfs2/aops.h
+>> index 8dd6edd7c1a1..72de1e764a57 100644
+>> --- a/fs/ocfs2/aops.h
+>> +++ b/fs/ocfs2/aops.h
+>> @@ -7,6 +7,11 @@
+>>   #define OCFS2_AOPS_H
+>>   
+>>   #include <linux/fs.h>
+>> +#include <linux/iomap.h>
+>> +
+>> +extern const struct iomap_dio_ops ocfs2_iomap_dio_ops_r_pr;
+>> +int ocfs2_iomap_next(const struct iomap_iter *iter, struct iomap *iomap,
+>> +			    struct iomap *srcmap);
+>>   
+>>   int ocfs2_map_folio_blocks(struct folio *folio, u64 *p_blkno,
+>>   			  struct inode *inode, unsigned int from,
+>> diff --git a/fs/ocfs2/file.c b/fs/ocfs2/file.c
+>> index 82c88fa8e98f..e309ff9a56e5 100644
+>> --- a/fs/ocfs2/file.c
+>> +++ b/fs/ocfs2/file.c
+>> @@ -9,6 +9,7 @@
+>>   
+>>   #include <linux/capability.h>
+>>   #include <linux/fs.h>
+>> +#include <linux/iomap.h>
+>>   #include <linux/types.h>
+>>   #include <linux/slab.h>
+>>   #include <linux/highmem.h>
+>> @@ -2399,6 +2400,26 @@ static int ocfs2_prepare_inode_for_write(struct file *file,
+>>   	return ret;
+>>   }
+>>   
+>> +static bool ocfs2_should_use_dio(struct kiocb *iocb, struct iov_iter *iter,
+>> +				struct inode *inode)
+>> +{
+>> +	struct ocfs2_super *osb = OCFS2_SB(inode->i_sb);
+>> +
+>> +	/*
+>> +	 * Fallback to buffered I/O if we see an inode without
+>> +	 * extents.
+>> +	 */
+>> +	if (OCFS2_I(inode)->ip_dyn_features & OCFS2_INLINE_DATA_FL)
+>> +		return false;
+>> +
+>> +	/* Fallback to buffered I/O if we do not support append dio. */
+>> +	if (iocb->ki_pos + iter->count > i_size_read(inode) &&
+>> +	    !ocfs2_supports_append_dio(osb))
+>> +		return false;
+>> +
+>> +	return true;
+>> +}
+>> +
+>>   static ssize_t ocfs2_file_write_iter(struct kiocb *iocb,
+>>   				    struct iov_iter *from)
+>>   {
+>> @@ -2588,7 +2609,8 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
+>>   	if (!direct_io && nowait)
+>>   		return -EOPNOTSUPP;
+>>   
+>> -	ocfs2_iocb_init_rw_locked(iocb);
+>> +	if (!iov_iter_count(to))
+>> +		return 0; /* skip atime */
+>>   
+>>   	/*
+>>   	 * buffered reads protect themselves in ->read_folio().  O_DIRECT reads
+>> @@ -2606,8 +2628,6 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
+>>   			goto bail;
+>>   		}
+>>   		rw_level = 0;
+>> -		/* communicate with ocfs2_dio_end_io */
+>> -		ocfs2_iocb_set_rw_locked(iocb, rw_level);
+>>   	}
+>>   
+>>   	/*
+>> @@ -2628,17 +2648,39 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
+>>   	}
+>>   	ocfs2_inode_unlock(inode, lock_level);
+>>   
+>> -	ret = generic_file_read_iter(iocb, to);
+>> +	if (direct_io && ocfs2_should_use_dio(iocb, to, inode)) {
+>> +		/*
+>> +		 * Use the split iomap DIO API so we can tell who owns the
+>> +		 * rw_lock on return; reads always hold it at PR level, dropped
+>> +		 * by ocfs2_iomap_dio_ops_r_pr(). Call it directly rather than
+>> +		 * through generic_file_read_iter(): iomap advances iocb->ki_pos
+>> +		 * itself, so the generic helper would advance ki_pos twice.
+>> +		 */
+>> +		struct iomap_dio *dio;
+>> +
+>> +		dio = __iomap_dio_rw(iocb, to, ocfs2_iomap_next,
+>> +				&ocfs2_iomap_dio_ops_r_pr, 0, NULL, 0);
+>> +		if (dio == NULL) {
+>> +			/* No I/O issued; rw_lock still held. */
+>> +			ret = 0;
+>> +		} else if (IS_ERR(dio)) {
+>> +			ret = PTR_ERR(dio);
+>> +			if (ret == -EIOCBQUEUED)
+>> +				rw_level = -1;
+>> +		} else {
+>> +			ret = iomap_dio_complete(dio);
+>> +			rw_level = -1;
+>> +		}
+>> +		/* never fall back to buffered read */
+>> +	} else {
+>> +		iocb->ki_flags &= ~IOCB_DIRECT;
+>> +		ret = generic_file_read_iter(iocb, to);
+>> +	}
+>>   	trace_generic_file_read_iter_ret(ret);
+>>   
+>>   	/* buffered aio wouldn't have proper lock coverage today */
+>>   	BUG_ON(ret == -EIOCBQUEUED && !direct_io);
+>>   
+>> -	/* see ocfs2_file_write_iter */
+>> -	if (ret == -EIOCBQUEUED || !ocfs2_iocb_is_rw_locked(iocb)) {
+>> -		rw_level = -1;
+>> -	}
+>> -
+>>   bail:
+>>   	if (rw_level != -1)
+>>   		ocfs2_rw_unlock(inode, rw_level);
+> 
 
