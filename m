@@ -1,104 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795460053;
-	b=vai1+8qBM1w0Cu4Toz9flgpweWUq3ZDwngFEnvZUTTXQoM4ffjb9ef1mybQ8PjK2dz4o
-	 J3f5/6VdeotNaozu+Q2JbehGD39ii7qGVgma9+oM+7XqAVi4XVnQujb/1lAZfUtBA3DRi
-	 kdmjCI3oyCLwbo5wFVPeboXn9Qoa7afbuiGkJuYTgw21GmFJjZghh1rm4P4/sGEjKmOjv
-	 llDz8JQYGQesHIDfRFYcRx46wbKTaNUitbJ9EfWhw3Nlz0jUaKIvbm4ciDWU8m95gEpnn
-	 /qchRaLxu5nZCKFQULA+FMdz9s7LIDh8L0X7WlaHkjHIxnpD11ZqEq3aAmBe7Fe8TfA==
+	t=1795460084;
+	b=jL9iR0eQGO+amFQy5NuG9MakXZ5k55skkJCzwqwyRdZWUjJdFHU2kMGO/pJprbnMSW1n
+	 4nDIFiqtae2Bv87Xel3qatezDNWG7BFjJUYvTIrYlylWorl1gauvXtcrM2GujBnQq1+Od
+	 YlazPPd98MkY+0jj+u4riaeSL3Ikkq9dpRzY2Gtc+N1qVJEAS+1JxMBe/f6xFcxs7rgys
+	 fIhAwcmsrebSDNRsoS5TEhT61rsLz5jCHYeFQowvHx3Zh+HRLeatpMsaveMyIxlmbSnt4
+	 e6hC5wuIKUHIjY3uWt8Z87nV3QdyAdkzN8Th0yt2ZPhPmEZ5xQHsbKOkgRzdldTkYuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795460053;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Content-Disposition;
-	bh=Un0k2zq/NBWK8TpOG7W4o6jrkmU6EU/STMy7oHRK2yo=;
-	b=I6zxEpBE+FQZNTBMMcVtUEsYbxMkl+jbl/vUKYNxVRpHivjVJLwioMyXMCp79LEQbcQp
-	 sUXkUUL7FHtXWxJqCUVkARq9m6nrywOKJbrIuEi6NN7pRne6eJMHnbne/fpfX3TgojEKq
-	 A4hxZcVCLUUiSiA68i3Sj4rdBxaMTAsKg2F9C7EL3DYZ6TDn6STNwicSny5Onb+u2lJ6i
-	 COb2gAbffVUtNPq5ZVYTt1aeTwi98F0jRLgOenzS/kPUwA1OfFUzP7kd9kdCi8F77kCvL
-	 8jr5QljHMDtaTHS3z8QqB3wg7r4IePEeJ7e/eoxLzemyCyCHPM4L12Nvcs3GeocUNlw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795460084;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=4hKfDKhS/y0v7LwYfVdwmNntrIbkTnTWq8HGysu213g=;
+	b=gikTOJ68wjxh3i82HL4yfSRXyD9FXR8EDLY/T67ZQ4bh0rFNDnFFGc/BVXtjQhomJSut
+	 v9TfscTEpJ7onOPCY6Sfu8Qp2puLavxcN+Wmqyh2TqsoskQEYaOWoXQYwPS6sV4NTGCwg
+	 DGnjdU+5guZfYpHs3YF9nJH0wyyo3Lb3GdMnwaV3aMM7gppXJja/PZmcuMGDss9rMT0Af
+	 nok2Q/k3gQM3SdNgXQh7gr1KbGybQGsrYCo7+W6i7O4OnAaF1p0syy+JBGWQkB55AO1Kw
+	 7W7H8qkWu3ae97+IbcewcRK9x99l82QmT2Hrz0JXc2mLB73VQTQe0vc9f67lEJhpGvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OIpW11g2;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D1ED606A335
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:54:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D1ED606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DpOMEAqL;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D20C2606A31A;
+	Mon, 23 Nov 2026 18:54:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D20C2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OIpW11g2
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38699cf08dfso3650493eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:54:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795460052; x=1796064852; darn=vger.kernel.org;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Un0k2zq/NBWK8TpOG7W4o6jrkmU6EU/STMy7oHRK2yo=;
-        b=OIpW11g2gVzbasg136CCV/9dpq6CgBph+I2MQdPv4F2/U18tMPOXDpzI1VvMXYhx3e
-         J6e9yGfIHO44UVaB0+NpVZ/A5Xd43MoKbGyvRA2zHncMw0PDdz1iEXjrT8TLCrUAr8yb
-         j2NUHT2PcgPvZ2pYu+oXu7wizkHr8cq9dOQSenVNCzvFyMHr6ksUz43v1s7w1IwRVzI9
-         JNVAVyZePccb8JKjgRLnP9yIo8zeM7YocIwJ1GX/q05OybH2sq9lIflcq1gHcma4V1c9
-         gHVlx/x+u2+DKpJfupkcfAa07gE1Jo4IHLqpSuqWFG47SfMC3k3+tTvh2WgstdTXADeV
-         yOgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795460052; x=1796064852;
-        h=content-disposition:content-transfer-encoding:content-type
-         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Un0k2zq/NBWK8TpOG7W4o6jrkmU6EU/STMy7oHRK2yo=;
-        b=zQV2Nl03gPvXLWBZeQPIiCsyQXKDVSMz1V4co9WW9pOoVLJ2qB/xv54+3CEezWhw7L
-         V/EPplYQNdbSZvjfoKpIGfqJV8rPqQHLhmHnJAJUO5bpKQ3yTj/hs6wiCWrPs+cxPF9Q
-         OCmcyzhfPPJVnV/KWI0plOddd66WxVKywFJ8+L6TmbsiYV8gLxKWS7GJFDlNMQYLXtJG
-         n9+AmKD7A0aauBrlU+1UuMhyOC3OSTB0GYGn9zhgOUIMgtV2WFBv/fpHnnRD9pgVCFi4
-         t9uQk98YEgjW2/soLZ4/JAF/YQNbLPc9kUm5wPWncNe8Q0GT9mODEJzMj8wsTdRoznlk
-         anFg==
-X-Forwarded-Encrypted: i=1; AL+hErF8zfo+fvONGkOwxkCIlNQSuKRrh4TxGUepAjiBraV51LGO2EXY/IbiKrjIQ0wB1GcMUqz3MDHK8LwLZvU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/o3MBeBLVvzQObdmT13ajwBiED2/zRqhBkOLQFgF3r3ZtAXAIn
-	2Lep/QkESE8HY6Asd7CtenjHW6LsnaZI2Tf6oZedLPB/R0/QeNkSsmNJ
-X-Gm-Gg: AZFdTZcsXtDsygDVA4jCvbpedULq4zB0sab21WWpS3rrEj8Gji9lnkYEJAMm/VYB78q
-	yI9wlzVCe459IHZbN60NuHvtZKSqVT+Q1To4JGmJ0E0cHFD7FKEC/XmP1cs179dAmWbSEbw1RF4
-	h+NeXPrJ/deQ5Sscj6/HS88l8qS/ktkxm3bQWKvUd2xNcJuvs+/49Wba0bIk0S0edFnzZ3Lj2JX
-	xAeBvPx0T6fcO+cJ7LvfgUZnZRVyDOVH0bY4sm1ETXQnkwVNPH00oL/yUz0U8fPJghSiZd3FwOA
-	FQ8l+NM2WH/x+uTIs99N+8dnYwJ7J7rSm4nSTh5MXA1WrVhhepRBeo/JZ33J7I/G2N3fNVRxjas
-	FVrgipHAGETAQ9pomZp+2646nd/uNeyZPghp4fMpULmrVUwmj9c05/8Xn+Pl9Ft88Rcg3fhrEra
-	rVPaRvsRuZaUeIfwiLGOcKl+2gdzjHJ6JI3riTkKKN8eq1EynXsgSpg99b/5JgsSVxvrs5zB/3m
-	ypXxl9EYMI95xkOtFFXbld822727B899DCc8tKIeh+wjWhRPm4Y61mAiO6OtYadYyPQnGHrGS5I
-	+TKWSFri3+HYVPtZP+ewq3ejYsFWRUlEG5HBRtMwZZC28E0jrv8gXhT4h98ng6zY8Hu7rg==
-X-Received: by 2002:a05:7301:d813:b0:386:8bd2:da35 with SMTP id 5a478bee46e88-3868bd2dbe9mr10377444eec.5.1795460052262;
-        Mon, 23 Nov 2026 10:54:12 -0800 (PST)
-Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567ea2cc5sm35609839eec.29.2026.11.23.10.54.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 10:54:11 -0800 (PST)
-Date: Mon, 23 Nov 2026 10:54:10 -0800
-Message-ID: <78d3f2f7715e3b66c06dcc7268966964@gmail.com>
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Wei Jie Law <98lawweijie@gmail.com>
-Cc: andrew.smirnov@gmail.com,
-	bentiss@kernel.org,
-	e.velds@gmail.com,
-	gideonheinz02@gmail.com,
-	hadess@hadess.net,
-	hansg@kernel.org,
-	jikos@kernel.org,
-	lains@riseup.net,
-	linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stuart.a.hayhurst@gmail.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 22/33] HID: logitech-hidpp: shut down G920 force feedback on input unregister
-In-Reply-To: <20261119064303.274901-1-98lawweijie@gmail.com>
-References: <20261110-hid-logitech-hidpp-v2-22-30743e91d83b@gmail.com> <20261119064303.274901-1-98lawweijie@gmail.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DpOMEAqL
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 196F7143D;
+	Mon, 23 Nov 2026 10:54:40 -0800 (PST)
+Received: from [10.57.91.245] (unknown [10.57.91.245])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF2003F763;
+	Mon, 23 Nov 2026 10:54:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795460082; bh=KBj2RreVlKeNnFDTM1L6+3NBD7uGNn8uIi6vqvj5hOc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DpOMEAqLprlXADevvML5TdqeEd1ZjIXSfm3e8eAMLiVg31HW93XTJMwDlVRLK6yBQ
+	 szl/Px0I/yh7C98FfCLq38MVoUWyuPfLWLOCjmXeZ5+LPiwcedW4xjd3t0oHgc3jWs
+	 v923uc/ClVoNwttizcJzuNR/My8eAzGiuKw17Z7g=
+Message-ID: <74b99755-bc3d-4cad-9678-c2de740fe20a@arm.com>
+Date: Mon, 23 Nov 2026 18:54:39 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,38 +53,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: mm: Don't defer the barriers when installing a
+ fixmap entry
+To: Kevin Brodsky <kevin.brodsky@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261120121638.194154-1-fuad.tabba@linux.dev>
+ <20261120121638.194154-4-fuad.tabba@linux.dev>
+ <6782b5ee-3dfe-4076-a79c-fbeb2c2ac7da@arm.com>
+ <CA+EHjTziXrRdR+guikKbj93Az96T+AMx_=0sVeyWG5C4fwaaTg@mail.gmail.com>
+ <5b0a26ee-30b0-4a79-9cca-9848dc9d65c5@arm.com>
+ <f543aea2-3a21-44ce-bb44-c84bd66b0a76@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <f543aea2-3a21-44ce-bb44-c84bd66b0a76@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Wei Jie,
+On 23/11/2026 13:08, Kevin Brodsky wrote:
+> On 23/11/2026 11:36, Ryan Roberts wrote:
+>>>
+>>>>> @@ -127,7 +127,9 @@ void __set_fixmap(enum fixed_addresses idx,
+>>>>>          ptep = fixmap_pte(addr);
+>>>>>
+>>>>>          if (pgprot_val(flags)) {
+>>>>> -                __set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+>>>>> +                /* The slot must be usable on return, even in lazy MMU mode. */
+>>>>> +                __set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+>>>>> +                emit_pte_barriers();
+>>>> I wonder if it would be clearer to wrap __set_ptes():
+>>>>
+>>>> lazy_mmu_mode_pause()
+>>>> __set_ptes()
+>>>> lazy_mmu_mode_resume()
+>>> That would work. However, there's the stable backport. 6.18 has the
+>>> bug, but lazy_mmu_mode_pause() was added in 7.0, so 6.18.y would need
+>>> its own patch. This patch applies to 6.18 unchanged.
+>>>
+>>> I'm happy with either, or with a followup patch in the same series.
+>> I'd personally prefer to use pause/resume since it's makes it very clear what's
+>> going on and avoids the layer violation. Perhaps your approach as the back
+>> portable one, then pause/resume as follow up (along with ptep_try_set() tidy
+>> up)? Others might think differently though...
+> 
+> Using pause/resume does work, but it is a bigger hammer than necessary.
+> If other features make use of lazy MMU mode, then we may end up paying
+> extra cost by leaving/re-entering the mode.
+> 
+> For instance, with page table hardening [1], using the pause/resume
+> approach means 4 extra ISBs:
+> - 1 when pause() leaves lazy MMU mode: restoring default kpkeys context
+> - 2 in __set_pte(): switching to page table update kpkeys context, and
+> then back to default
+> - 1 when resume() enters lazy MMU mode: entering page table update
+> kpkeys context
+> 
+> An explicit __set_pte_nosync() + emit_pte_barriers() achieves exactly
+> what we're after (immediately visible PTE update) and doesn't disrupt
+> lazy MMU mode - we don't unnecessarily set TIF_LAZY_MMU_PENDING. 
 
-On Thu, Nov 19, 2026 at 02:43:02PM +0800, Wei Jie Law wrote:
-...
-> I was auditing some HID drivers and found this exact same use-after-free.
-> My analysis agrees with yours, but I am replying as I think there is
-> a stable-tree gap -- this patch does not have Cc: stable and your cover
-> letter also only explicitly mentions the "first 14 patches". This UAF is
-> worse than a crash and can lead to LPE if exploited.
-...
-> If you'd like, I already have a patch for stable trees that I can
-> contribute. Let me know your thoughts, thanks!
+It's so ugly to spill this stuff everywhere though.
 
-I actually dropped this patch in v3 in favor of fixing the lifetime in
-input core across all force-feedback drivers: see commit 2ae35f090d02
-("Input: destroy force-feedback device on input unregistration") in
-v7.4-rc4, which is marked for stable.
+How about a nested lazy mmu section?
 
-With input_ff_destroy() called from __input_unregister_device(),
-hidpp_ff_destroy() runs synchronously during hidinput_disconnect() while
-the driver and HID device state are still alive, so no G920-specific
-stable workaround is needed.
+lazy_mmu_mode_enable()
+__set_ptes()
+lazy_mmu_mode_disable()
 
-2ae35f090d02 will apply cleanly to 7.3.y, and for 6.18.y and older LTS
-trees (which do not have ef166ce08801 and ff->stop) it will just need a
-trivial backport dropping the ff->stop removal hunks.
+If it's nested the enable() is essentially nop, and the disable is a flush,
+which emits the barriers. If it's the first enable, we still set
+TIF_LAZY_MMU_PENDING though...
 
-Thanks.
+> 
+> An alternative approach that addresses your point about layer violation
+> is to call arch_flush_lazy_mmu_mode() and leave the __set_pte() call
+> unchanged. This is slightly slower as we still end up setting/clearing
+> the TIF flag in that case. Not sure this is worth it - ultimately we
+> have to be mindful of what lazy MMU mode is doing to ensure this code is
+> correct. I'm happy with the current approach.
+> 
+> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> 
+> - Kevin
+> 
+> [1] https://lore.kernel.org/r/20261109-kpkeys-v10-0-aa6c4d9603bc@arm.com
 
--- 
-Dmitry
