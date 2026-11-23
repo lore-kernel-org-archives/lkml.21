@@ -1,54 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.165
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455895;
-	b=lt8owypuKz7NiGP3ZErofahHkMXgfNJAdh2KVsSs7qBUxl0lUDVj0bfdTiS5mPg1eJZa
-	 DiA3wgu1hadylTIXB6tASp5NH9Awnqd7WgyM8ptRfCLE3COZ2YYshrKjG3cwO4jQiEJ0W
-	 nDpCRo2nYdHtiWsa+W1jd5/DsQwa2nU4ek6iPkwCRHKmNU4VSrmXiIrOrzRlKDbf3hAs5
-	 ngruIgOsiJ8e8m39A+llKFCBLbn+UPfhWVS34fKM5fAiCq83E6viTl402mG40W4xjW72r
-	 A8e9LmHNy5As23JX3Ov9Nx3N0PiBWMOpVUq1zfMHrO15DtOdduIbRQWSm/6BSZNo49g==
+	t=1795455906;
+	b=uhYSXBJb3pMaMANxgsXxJtX9y3azrXg7drkB2CqJX/rskSjSmUC45PjlYDrI5H5+M9qM
+	 C49ohfArQ8/608LWLJIXq2FDvPM5WyfyjE9GQlKYKy6ztwZcCYev6bI2kHOs17HlaeKYW
+	 L+FFVgl+wMv+skYD+wB3tiU/qQkWheC6W1By3JNojab2KdlO904G6Hy5xbBVoLYR7mcyY
+	 J9L9N7FhqJiOnRtnqydt5QOJD5qH+0x8dHoewPTTlWsrBkFEq/djjM7t94Tjo6264ZW05
+	 cVFO3H//AqqEG7ojauquoQf44gQUmi0VPEomsSmWd/xKOECgxHSFozX5pq5EJlH8K4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455895;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=27WmAjSob6zP6gYk4hcXOA3sghxa7IPp+OrXD2/+M+Q=;
-	b=Jz30ZNUXFamDFhcVSEpYM2ENom3eTvam/VqvOOQFGAB77s+h+vthGYg55SLuaYAbYptK
-	 9KUrORTriffNwIC17c4MAOoePt7jOA6t4w0JVyxyV4urSZJmmAPuW5L+6sDgBxO98BYBj
-	 RHbnVH4Wyfa18nB3pyz/GMr78RkxKDrmsSzSN5z47eCZ1cjg30/jnsWf9nF2hwKX+nysz
-	 V2PJ1srMRibhsMcFOF5OmttMQA6ETng5xI2k92ei2YueJ8boILEQASa7vmlyIcFw+sgAb
-	 0VEeKJVBLf/lneyViQgd3JmS51p7Z76svuyEc6BOz6IFI/rCUKZcK/qsq9dex6717Ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455906;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=nLNqxhvAVwdAw8dAHf99r/lF3vOgN6havsFWG39HPFs=;
+	b=AOIPLytQXGA4sGlMW0Ykw9lrFN7DmePxOZoBIAXoiN3NER39v3mrPnIGrpRaA5lBuhsd
+	 JGLWmg4ddDNtIXSic0r5EOpwXL+SNO/T/LcScVc+dD6Cgm7cg/PGJmIS8AM7zZmibLgWl
+	 3N7fwN8Gw+XewGUo0tHfuA+r+w/attqzn9xwZJELBRNeucgvZ9BW8dtTAmmhM+PQwvE25
+	 SE9TYaRlaMN8kis+8YEUmmu7yyqTaQSxc4rBzq3Minh/bkTDV4+E8RI59hUmkrxxCrvVk
+	 AOg+97v5uGtho8+zCzqLtTKRsceZtg/2mkp0bCZjnZzKfIoufArZ/Eb+HJ1YpKWkSMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=kfgN8Gup;
-	arc=none smtp.remote-ip=95.215.58.165
-Received: from mta1.migadu.com (out-165.mta1.migadu.com [95.215.58.165])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="DNok/Xj+";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E1B2606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:44:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E1B2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5392606A31A;
+	Mon, 23 Nov 2026 17:45:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=kfgN8Gup
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=3y/flRugDbB2r8GNLKzFkQ+01L/n3n4yEfzM8gw2f0A=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795455892; v=1; x=1796060692;
- b=kfgN8Gup134i96SxfDANCNtc/IOJFMvY65A8ST7TyQ6JH3JfwOcWQvU5iU4yW10wAq4zk6rE
- VVNSOjUbYqdoh5njFfzCXte9e43VWU23RPZ7o8/dalarir0JSeRaSQwPWqLhLusTDZChG20xatd
- +6O+3ngaNIq2OO0sFJZcH2Cg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f4a296c957b79296;
-	Mon, 23 Nov 2026 17:44:52 +0000
-X-Mizu-Trace-ID: f4a296c957b79296
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <faecfef3-ac9f-41be-8bc3-83a66572066a@linux.dev>
-Date: Mon, 23 Nov 2026 10:44:46 -0700
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DNok/Xj+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 357AA1F000E1;
+	Mon, 23 Nov 2026 17:45:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795455906;
+	bh=nLNqxhvAVwdAw8dAHf99r/lF3vOgN6havsFWG39HPFs=;
+	h=Date:From:To:Cc:Subject;
+	b=DNok/Xj+as6Zve1Lal2pZqqRF4jL50kBlQ4/vZkt8zMNeyNRa0F7+6GP3UOdevG2W
+	 r7qhs9X/PT2HQ3BtCjGM4HYQ59VNImMso8YxEBe+YhClSSH9UJGRRwkHkeKkhCf5sw
+	 7XfHbOVkEU1KOFwKMSkG9KrP5fxijy6iCbE1WmOCIc2VVTDvk5Cmj8mVFNIk+lQQmA
+	 03UbM0geD86nZZ6btyT5IVdGpvA8hHSWJ08Q7JSttWhY8Ryz6R1JV4Ko8sAg7A7Mva
+	 nm82i2zvGRcpMgUALh6FSc+DHFdTMrhKBTrdyXEBzJ1SdQqvdHUMkl+4I76cql0/rp
+	 wAA1o6FrAh8Ew==
+Date: Mon, 23 Nov 2026 17:45:01 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-phy@lists.infradead.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: linux-next: build failure in the final build
+Message-ID: <awR7nSOWkxRm-iP6@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,68 +61,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 1/6] libbpf: Separate interfaces shared with
- in-tree tools
-To: Quentin Monnet <qmo@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Alan Maguire <alan.maguire@oracle.com>,
- Emil Tsalapatis <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>,
- Song Liu <song@kernel.org>, Tejun Heo <tj@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
-References: <20261121003403.2928928-1-ihor.solodrai@linux.dev>
- <20261121003403.2928928-2-ihor.solodrai@linux.dev>
- <adf5a84b-5d80-4c02-91f5-12def2c37304@kernel.org>
-Content-Language: en-US
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-In-Reply-To: <adf5a84b-5d80-4c02-91f5-12def2c37304@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Vve03y81vknTHsUY"
+Content-Disposition: inline
 
-On 2026-11-23 7:55 a.m., Quentin Monnet wrote:
-> 2026-11-20 17:33 UTC-0700 ~ Ihor Solodrai <ihor.solodrai@linux.dev>
->> resolve_btfids links libbpf statically and uses its BTF header
->> accessor, field iterator and SHA-256 helper. libbpf_internal.h
->> also defines logging macros and poisons kernel integer typedefs,
->> so resolve_btfids wraps the hash helper in a separate source file.
->>
->> Move the shared declarations to libbpf_tools.h and use them
->> directly in resolve_btfids. The header is for in-tree tools and
->> stays uninstalled. No shared-library symbols change.
-> 
-> 
-> Hi Ihor, the change in bpftool's Makefile looks OK and I understand the
-> motivation for libbpf_tools.h for resolve_btfids. But I find it a bit
-> confusing to move away from libbpf_internal.h only partially for
-> bpftool, and to have a split dependency on both libbpf_internal.h and
-> libbpf_tools.h. Have you considered moving the other objects that
-> bpftool requires from libbpf_internal.h to libbpf_tools.h as well?
 
-Hi Quentin, thank you for taking a look.
+--Vve03y81vknTHsUY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I haven't considered that, and it seems like a good idea to me.
+Hi all,
 
-The way I thought about this is that in practice libbpf has at least
-three levels of (userspace, non-BPF) API:
-   - public API defined in the symbols map
-   - internal API, shared helpers and such
-   - API for the in-tree users, that doesn't make sense to make
-     public
+Today's -next has a build failure in the final build for arm64
+allyesconfig:
 
-I felt like the last one needs a header to reduce the amount of
-copy-paste. I don't like "libbpf_tools.h", it gives me "10k loc
-utils file" vibes, but I couldn't come up with a better name. Open
-to suggestions.
+In file included from /tmp/next/build/include/linux/phy/phy.h:25,
+                 from /tmp/next/build/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:15:
+/tmp/next/build/include/dt-bindings/phy/phy.h:15:33: error: expected identifier before numeric constant
+   15 | #define PHY_TYPE_PCIE           2
+      |                                 ^
+/tmp/next/build/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:47:9: note: in expansion of macro 'PHY_TYPE_PCIE'
+   47 |         PHY_TYPE_PCIE = 1,
+      |         ^~~~~~~~~~~~~
+/tmp/next/build/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:127:27: error: 'PHY_TYPE_PCIE_GEN2' undeclared here (not in a function); did you mean 'PHY_TYPE_PCIE'?
+  127 |         .phy_type       = PHY_TYPE_PCIE_GEN2,
+      |                           ^~~~~~~~~~~~~~~~~~
+      |                           PHY_TYPE_PCIE
+/tmp/next/build/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:135:27: error: 'PHY_TYPE_PCIE_GEN3' undeclared here (not in a function); did you mean 'PHY_TYPE_PCIE'?
+  135 |         .phy_type       = PHY_TYPE_PCIE_GEN3,
+      |                           ^~~~~~~~~~~~~~~~~~
+      |                           PHY_TYPE_PCIE
 
-I need to look into bots' feedback, and I expect there will be a v3,
-so I'll see what bpftool parts can be moved to the new header as well.
+I did not specifically identify the commit that triggered this, it will
+be some include file reorganisation which causes PHY_TYPE_PCIE from the
+DT headers to become visible to the driver, clearly there is a
+namespacing issue going on here.  I have ignored this for today.
 
-Thanks!
+--Vve03y81vknTHsUY
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> 
-> Thanks,
-> Quentin
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsEe5wACgkQJNaLcl1U
+h9CHYwf7BluoM2ZZkp7ju7XWqJPpH5doRn8uawa/wjWWNvbQIETwbjA0HP4RcjG0
+iylw9YZk4+Zh5da2lV1vCPRKZN86JAU5QQYcs1XYb04KyU3uPOSurh7EBNFVrI+B
+N4rt8wnYvqd8IImHy2Zb3O6tXuPk5X5X3t9rynM8XDklrkdFsJQYUjQ6/el9Z5wf
+hT5uppcWUDF0H1e+eFnMbK/+1NH3jXl7+9qurBUTyuT11lUqo0g9vxDmAvxuzmbp
+ft6Qjki6OnNAex1qH/7eAQvm2X3omAbb+f+9NjhRiHZkeARqfEomWG0JF2/73Vnb
+JDKec3bF8uELGhjSzTH1O48hmaTnFw==
+=udOF
+-----END PGP SIGNATURE-----
+
+--Vve03y81vknTHsUY--
