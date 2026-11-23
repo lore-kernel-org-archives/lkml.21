@@ -1,88 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432742;
-	b=QpW/2KbGROtpzLe0HqQkXW5L+nv3AIddyCHRUTpHqTgIL4WSlLLJAjVttipv+ZjMzEa2
-	 AJDzhkCQSB/zBa8f4pmp4nhW89iKzGo5tN4wv3w6NbzX3DG7OZ9+gt+RGYRFyHEcxt1gi
-	 kmcJv6aTk0gyYJH5x+omdwK9NhzLykyrkA22qokLhrGeEjmw4eUMoneZrgx9QBheHSE6H
-	 sC/BxGPR5QiaE3tA79JZJtRcXqxMVgMhZnJ93QRxCec3H/RiuMTzH3vXrXZvC9pvH7lF7
-	 QaQKT5c/2GM2DDMZDQVcrqfFpuRGqxHEDjSfBNe8keuIRaK/dTC49GVB7J/yQi1L2Kg==
+	t=1795432743;
+	b=tIZ4pSA3OltrRYyUhMWi3QoWfMUc8eioM20MYi0Kb0I8CAOt9lLhmoyHmoYsTl8VwmPi
+	 242c6c41Jyoa9f4uLZZn+HYFeq1XduYiG2eTJ9vwzK/OnG/vXPY6TW2vaF6z+z3JXncc0
+	 8exiHteX4k9xK96Td99stQFeZnMK9jDhDeBdtbu5CuTjRfOFYOvkLi/Yj2J820zeVrhuC
+	 TgnEWXIgE7IZv6dby1EhvLG4ACcqH+7aSPY+Kv8V+AFnIzyDQaplSjJNWZv/sR8eh9FTG
+	 fojlsD8E3zsR6PU9IhABoZe9QFQc3njaKnAJHrrcYVU5qtszaNjzPxv1wRenNueu3vQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432742;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432743;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=YQ8N9lrkCBm6g5O+8A22MhXclICDJr3w2WLdfhFanRo=;
-	b=2h3yjWfqzHigbjaCi+SfB6djy9zlIk/Iw63hDa5p+1JeKbZN5jw1DcE5iYFVLnpZ4/xT
-	 q8Lo3dcaoUDRuuxr121XfZPT8RyKnBakgELFM8mPBh8f9L8gZY2lPh1KatZuG9kF6H6+f
-	 Mta+FIezWoH3QtR0o11wwTaYLckB+A8G59DLASg+KGP+Fv9393YSzqKTwC8jMUoLRFh2w
-	 g76hyY9QA+DlWWU9GIb9vBK6WKP6H0R0b+cq4Z1uHIUBpba6XYtd3Ht2AbuNWvkZvDc6J
-	 Nz4dOv1tU8tebRV5I3j+XholWvh8SKvr6hU5u7Gvz2T2Du2G3u0R+fLChGOvCvulLjQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
+	 Content-Transfer-Encoding;
+	bh=wfoqPgqjOoBEdt77NL+di01ivSMv9tm+04A93YFGYZ0=;
+	b=pB0yMWQ9+giiljKpRRW1Nvyia7/AJx0+XRz+iE+lfpmtVwwOo+Gb+W1fEvNPePsPbW4Z
+	 zX1naq1uGBHFqn6PosloqBIEFZIxthcb7O40tuzJ4RKeEznJZLqytdPoDgfS3LQ+PbAs/
+	 B2mHucHgZBH3DkqhSgosbWTm7bFCuiuJiH/GMwWy1bMdnvCjZMqNrhAuRz56a+P2qPoCb
+	 AIBqjPfisaWuNDAM31rJ8HTHlu9GsVfXivCd3qZCFbMNa7VHOo4SMUqNhXnk0arUvtm9U
+	 +g301qjuAl6HNLSbUX1j8wc+e4qUMDsT0p+RKm5qLep0WHJjhyccaog/83kWqamjSyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JK7SjlHS;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=OFIe4O1a;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8286F606A683
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73DA5606A680
 	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:19:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8286F606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73DA5606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JK7SjlHS
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c4d581da0aaso411972066b.2
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=OFIe4O1a
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-492690dd5daso2377293f8f.1
         for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:19:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795432741; x=1796037541; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YQ8N9lrkCBm6g5O+8A22MhXclICDJr3w2WLdfhFanRo=;
-        b=JK7SjlHShqGKrK0MfBGja0a0+74eIVz0GikP/sp5w8+YnuWmehFbl5uiXQUjtJ5tiv
-         tW2CXRUpyk7pKWHsifd/MUE+XHb49uhymcmyVz5d7wqN06KCa8HiFfLD+tRWDGplid5J
-         lnDwwrCR3VsKX3Yxc16haWUr1L//I9LYp4XX/wkMBgZGlsyBf84J4pwNww6hnyGnd+Hu
-         zMOgQk4NgPVyI85Hy+cZCo3R8HqtGjI+EoM7xtjaSUqiTDPi9nbBeaWxE02L6A8QQC2S
-         ZYtQ36mx0ABEdHAAUuiQiYaBuO5AlXK+BFvFoojQxooRVUvAtKnl13KkH7qn6sxgkzAT
-         jJKA==
+        d=baylibre.com; s=google; t=1795432741; x=1796037541; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wfoqPgqjOoBEdt77NL+di01ivSMv9tm+04A93YFGYZ0=;
+        b=OFIe4O1aA9DbyzRnUSGucPScKQ2/ZwWCon/qhk9auS0UXGixfi1OjPfKtynj9zI/Z1
+         Yqwzhu8Lfwe3hFuEbQZY117lLoA0SlPbimMswnC6444nDPAH+jglg4kxexrRYg75gmF7
+         RDla4LE66yFYVXsISd4gqtfviX3JDnO03FJm3DtOBVgbt8iONPpsRIj5Jl0poIM9fjef
+         Aa5fYegji1A97pQKtjsi8i8LdjNxWJPqxBCbPKKvzVagAvnLyQx7R98BciMIhmaX8Adz
+         dOOUpCqbecy1GuNUg1mS852LxtvnzUDiUPDOtXIvtBjGMn70Ab2oYgXd9T2ZUmPoEhyd
+         YiEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795432741; x=1796037541;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=YQ8N9lrkCBm6g5O+8A22MhXclICDJr3w2WLdfhFanRo=;
-        b=Rubw2Jbc9YNbm7ssHNkQSfbBuak0TH6Hj+1uql0uQ9r02hhg8FQL4+pZVYLF/NeGqd
-         hA2IkbbAN7hfjrUZGTr607rtsUVMluKPM4Im8CxMPd2cl1w1EgF2TJKY4Bd/nOqb76B7
-         Zpf7OqD86YNp/93H7RnhaVFlkKq8LZvPPOoWmL3l15WTk+KTH4rgDig/+HgE7xTgJzZK
-         sHuuq3JikLNYRsFqSmCuI6pVUcphofkFeoS0VV/zfMePYQ8klL6jWCqNAqiJWrCeprdx
-         vHCu4sBgCTl54mmcS2FDszvn3RULyLRKNr3eJZrByDY27PJTclG9UZDv5AFNXLlJ+I0j
-         XjUg==
-X-Forwarded-Encrypted: i=1; AL+hErHwbH0FZuzNYW4PiZJRIflw7abYdejCKTD8ylFMsvKa7WuA5qS02zN/tEYfX9dR0tRZiJKyR63E4Fg8XrM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/aPqZvb0q+oE7XNZiBIX4GRnGLqCJcmxGbJSEp9hGWr7+2AknJ
-	W+DUy8mPyEonklra/LY1wxy+a3/Dd8ixz2zq9nbq2IK7rji4ERy/AOWs
-X-Gm-Gg: AZFdTZcq7Sbvj2qhEsXAejOuTt3rc38EiggTpbBN8+wZ3o1ihWZvl6Eystrc9M+SK+4
-	XpYmhPMbN5yP4ilZKz4QdAbxeXfbeObnP04YM1jPULZXMHKoF2xVxSOTX7nInbRinq19ETqtAXv
-	eSHVibe0IYEPvPfkqH3z+oOk3S+WpuxNGk5rINRLhi5b8fwnJBf+1m3xp46d2zKoQytzh1VTeHe
-	sH2ObWrQcrM9jLyhh65BkrGlNy7RxYb1zwkVi1NOA37BE0yc3RhgeFaC9uu0XQx4vYdTWGpOAsf
-	3jVswwq/KcDQ8DnYHPexoEK0AOGEcHMOQbh2Mb3T8uZCTbADcyluqOQ++blsWuFxMd4lKt8S3yD
-	oBc/9yVV/WFBVLjxX8E5LN02An4lioCJ7sAxz1XqSD8l74EvYmwck+53XFL70tQHd1/ou7QjkEt
-	laorGOpF+ot3PIOkzr+TfXSPLhQtMriX3oFyzfOASkIIh7fD5I5//c8XKHgv3DIT8RRneGSwnnQ
-	/U6k20QhM56h768ySjnL2/g2c5Yv6+bsEDPTQ688aXIa1vv7ZtN7iB2eVwt+264hUnU41neX1m0
-	S6GAl9xMF7wiUQ5XvJKUUqS1XBMicio7t4iF/nMZjmxd4Zi7a4oIkP0EyBzymj3w3g==
-X-Received: by 2002:a17:907:3e1c:b0:c51:53bb:8d70 with SMTP id a640c23a62f3a-c5153bb8ed8mr586385266b.16.1795432740595;
+        bh=wfoqPgqjOoBEdt77NL+di01ivSMv9tm+04A93YFGYZ0=;
+        b=iwcNzFdyGqOBNLuXNjdd7xsTAFQYgXrLtvvF8Lu30LFQHrntTwZy+TrenS9bZRyM8e
+         pfnHgVJCjtXnbn8sBlPChYUH1Dn2jf7/4kmu3Jyzs0rf488GcJ7ML94U5rWvIEj504HV
+         DovF7XlcrkAP+BJ6psvxPv8NJpFVJHvdbwFmi5uCor0PDxwCicCRJKK7e3EcTgI/9k1g
+         cvRqls6voUIO6yuEK7wIymetTpw021PVNJH1zRHGVD1KppxEPa6p68iiherKxFl7hz/X
+         6K+BvkDjN+e0PQ0Wic0PzU7jnwS6WZJcluUbkDJjuMYPkNef5jlFpmL2kole9tz5h2H9
+         DYIw==
+X-Forwarded-Encrypted: i=1; AL+hErEboEDEz0BppAV3DGPgKG+p1xopi5olFRm0N6QTFI8mbb8J60Uv0U2e+lOi7wr7zTvjHon0Yc4OqJ2KStE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8X1bh1U5KhSost/Asn8OP3/zle8NS1wyP+Hv0kEz+KxFW/GPOl
+	0PHpb+L+ddjE8X9M2QHEnC4FEbUG8V6vd98VmlcdgYzpcR52dZiMWesLyS16+1a+vo8=
+X-Gm-Gg: AZFdTZddFqDUKeRU91v3fgUijbCvqkFF6tpLFGqKMbWzEFV6ETS9BlYotoygwD+pQUQ
+	YOrypjRUyAt31bOkDNUPPKO4jC70ioo3GYrGFZjwEE4z2rGYVTbPwkd1ZI+4I4fdgL+qhe4reMp
+	0B6YTW0Mb58EZYREjcpdQ48WDmGXyfsm/ZoIdYWjQKEu1zs5hbmvQWcUKOTdb3HNz7oNjeqvsXl
+	xDl3ZIkmYBj7hHGHKkQI2AEf1aWKsPj1kCyIH7fUEJy/a7qxUMEA3US1zzGZG8BkKAvFx7yj127
+	MVbzTBr9FU8n0rOOg/ivJYCzXP8nZzvLfIc7xj3BgJ1MkekCUwtbyRkwgqvXanRdXuh9aHJvFIg
+	mE21wJBpYz9wFMHFjncQZvL6knNPWw6BxHxU++PXS+HBWollXkO1Y3LIVPdVpKu5PNpbrC5GObn
+	CwW0aRbTGSTWYHUhgqmj0YrzLBJnyQfVt2HD/JDpugwK9jcQT0iKbC1WmQ2vGhhzBEQa1zLmVwc
+	3jp07F6ep1pB3EX+csdgekEoxWXdm1JVkjZ0VqupzLWL+h3luC/EzaagUa2G/FBiCqPetFX4cBy
+	Hz2ZAiKH45rTXxW6tSMflhyGYDpgT/KrTvSpXxlklIqPqyVJyqXUYD+JQNOjZVS/Lkz0Jp6580J
+	XHzrloZvmk6PYCLbM
+X-Received: by 2002:a05:600c:6749:b0:4a2:1867:10e8 with SMTP id 5b1f17b1804b1-4bb8881a294mr230949095e9.25.1795432740837;
         Mon, 23 Nov 2026 03:19:00 -0800 (PST)
-Received: from [10.120.183.232] ([50.7.123.82])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc679bsm392442266b.63.2026.11.23.03.18.58
+Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb8526cbd0sm451761005e9.0.2026.11.23.03.19.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Mon, 23 Nov 2026 03:19:00 -0800 (PST)
-From: Alexander Letuchiy <asalde.le1@gmail.com>
-Date: Mon, 23 Nov 2026 14:18:34 +0300
-Subject: [PATCH v3 1/7] dt-bindings: arm: mediatek: Add MT6895 and Xiaomi
- Poco X4 GT
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Lee Jones <lee@kernel.org>
+Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	mfd@lists.linux.dev,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>
+Subject: [PATCH v5 02/17] mfd: bcm2835-pm: Drop unused header
+Date: Mon, 23 Nov 2026 12:18:00 +0100
+Message-ID:  <a9189a77d973c1de0919e677b3aa2356987cd189.1795431460.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
+References: <cover.1795431460.git.u.kleine-koenig@baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,58 +107,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-initial-mt6895-v3-1-95c46597e63d@gmail.com>
-References: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
-In-Reply-To: <20261123-initial-mt6895-v3-0-95c46597e63d@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Mattijs Korpershoek <mkorpershoek@kernel.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, 
- Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-serial@vger.kernel.org, linux-input@vger.kernel.org, 
- phone-devel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Alexander Letuchiy <asalde.le1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=861; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=NEe9YBbMZXMEbXYJMX3Yb/1ndoZ/Dmuud2fnIKbLu4s=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBCDsN9DaGbH4sRvm1kmMVMoZQoYD+THO7sMJq c5fvKlpPEWJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawQg7AAKCRCPgPtYfRL+ TohNCACV8HRlC7pWjZBnU0TL84vAdSWAfOva9050R6uNV8ih8XuaoI0NfZEX0PGyUeuRt8bs4dM v2XA5PW6cc1tr1+JGiM70igioPAzQU7KobIh0gdtSGT2PiITyNZY7ZlAwcDS69V/EIqrOPvUJ8G iXXu2csZXsOmU//uNaOz/GnDIqoJjl4hQkzXnvBiIwRbv453hOVxYR1Gv3GQCRSZ0160OxLIjPr JsbSXt4Vu2XINOJwlB4uDWvQRb7Hb1Q5aTPXdXUYm6IGCcKVhFBLGLPzGyBKCC7KbQofxcwzj0W 0zirKNJvCxvPazYCUkPlfQT0E7koHud2EKIx+tnvDU4Fke5i
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 
-Add the compatible for the MediaTek MT6895 (Dimensity 8000/8100) SoC,
-along with the Xiaomi xaga board based on it, which is sold as Xiaomi
-Poco X4 GT, Redmi Note 11T Pro/Pro+ and Redmi K50i.
+From: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
+<linux/mfd/bcm2835-pm.h> doesn't use any symbols provided by
+<linux/regmap.h>, and neither does any of its users (i.e.
+drivers/mfd/bcm2835-pm.c, drivers/pmdomain/bcm/bcm2835-power.c,
+drivers/watchdog/bcm2835_wdt.c).
+
+So the header is unused and can be dropped.
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
 ---
- Documentation/devicetree/bindings/arm/mediatek.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ include/linux/mfd/bcm2835-pm.h | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
-index 26f096587631..13e5c31cecba 100644
---- a/Documentation/devicetree/bindings/arm/mediatek.yaml
-+++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
-@@ -72,6 +72,10 @@ properties:
-               - archermind,mt6797-x20-dev
-               - mediatek,mt6797-evb
-           - const: mediatek,mt6797
-+      - items:
-+          - enum:
-+              - xiaomi,xaga
-+          - const: mediatek,mt6895
-       - items:
-           - enum:
-               - bananapi,bpi-r64
-
+diff --git a/include/linux/mfd/bcm2835-pm.h b/include/linux/mfd/bcm2835-pm.h
+index f70a810c55f7..12bb6bc2c07f 100644
+--- a/include/linux/mfd/bcm2835-pm.h
++++ b/include/linux/mfd/bcm2835-pm.h
+@@ -3,8 +3,6 @@
+ #ifndef BCM2835_MFD_PM_H
+ #define BCM2835_MFD_PM_H
+ 
+-#include <linux/regmap.h>
+-
+ struct bcm2835_pm {
+ 	struct device *dev;
+ 	void __iomem *base;
 -- 
-2.56.0
+2.47.3
 
