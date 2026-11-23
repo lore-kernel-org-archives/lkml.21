@@ -1,80 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.194.254.142
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795413243;
-	b=bvUlJefaazsPtNAJbBgw6p0vx1RZUY2kO0oSAjtOzdDGmxMiMyVCX8GxGK9KO6BWoHd5
-	 VyxXBR9jlHM3rIUPAtU9fYl2pCkuD/S6sj8F+SGaWACBo6B40ggUoyxTEoYgxk8Wacebb
-	 FqcppmX9DRfq0/vx/OdIX1fl3PyJBUsLqC0FV2AXIBvsaDcw6Y/T6S9BYYM6OnutwURIc
-	 STmnrrhQ3DnjrVR+K2IR0hsSJ98RnXpmbj7yiEb+RvG0AkIB3Q6mZFr3+5jmkg8kOEevB
-	 7nvXFiCRAa3jsHjc9hYd3TGID2KDlkeyrolvzfvT5jfdAtzhMbNc6kJjYZZMlUoqjag==
+	t=1795413287;
+	b=kiz1SwJVltL8Lr4Mj7DuAZQTn1IQ3b8U4klS3ryKTOQJOmirBIm3+gE4J+hTJA/z+GEQ
+	 Uxu4RZypFVpuiM7E69ehMcrQPfIgatPR3U0xYbXmnv1JhL5YqfpVeuC7sDwZtrSTPVmYo
+	 JWX7EumbEI1BzRKJOUIOtwUy0m6F1wljPXwlkO6dCu6k6/BqBJK2uAb9AtcpN2ipl/Tfl
+	 dL7MRisTYFiewyzbxKLTODO3l43kUyfTOTraKUi2otCNKL35vyefhhTodLFHUAt86+OjG
+	 Gmafnuk2Lb6Td1Xm2JOwXVf9qmtsVgJsEHxDlLSpkHPILGjaQZUyg7hsZ7lIXkhfqqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413243;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=2ZYHfF1YmBiOZ58ksE/J8SWBppRgmZzYpJ9dQMiFZiU=;
-	b=bsvCEDLjyq5qXz8hGu4CzXxsrc4pl7ON1TuzqlRXGMxIazbc38K39C6I0GxpFEZNxj6m
-	 hdFtvQESTy//sLPNf3PimDIsk+hLurf++vPoQZSXYxEhcGOQqCgmB/fRkjdle3ZqVWpBm
-	 zI4oUBKRZTv8m1ZA7U64G9/D+kZyT31tR7vp8yLguZP0Vsseiq+65FMmGR5T7UL5wfG53
-	 tjjzesF9bFKTuShVDLiwgK1gkDA6Vb0d3LpWmGSW7ZrdhLjgh6SXGOGSJMEMIBZPOx0i7
-	 PBnRBfraaAn1gNHomLR/NK1kvubkaxaE5+9wTDFLaqijWpjA9u/wtb8GT72QZwXtViA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795413287;
+	h=DMARC-Filter:EX-QQ-RecipientCnt:X-QQ-GoodBg:X-QQ-SSF:X-QQ-FEAT:
+	 X-QQ-BUSINESS-ORIGIN:X-QQ-Originating-IP:X-Originating-IP:X-QQ-STYLE:
+	 X-QQ-mid:From:To:Cc:Subject:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding:Date:X-Priority:Message-ID:X-QQ-MIME:
+	 X-Mailer:X-QQ-Mailer:X-BIZMAIL-ID:X-Address-Ticket:X-QQ-SENDSIZE:
+	 Received:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=5IyhzGyIxYOi3t2YGcbqYhYuriy/+clO3cBCQRk/OnU=;
+	b=rQet72rHwgUiV6W1MRCGc+gF/8TfSjsanjVuWhYFFjpC8qxiAikAf8TlnN1f1Yz1NQJW
+	 K3tx9V4vNI0Y1nUJLJTlqm5lUEok93goR9H7i2MZ4s12ljh/1QU3nuoBTD30TAa59mz65
+	 CXpvxvLoyZTb4LoapKo+4xWIYzdCey5s7NQXiMMbgISx7EpDL/6m+C6dyPy/VvIsmA5GT
+	 K5PiWwizAoPOOWDyUG7JgbPtM4JA/uxJY75w4Xq4yHoKooX+54jF6DEIRa4HpzIkyYxUi
+	 x0iQolloxeUrIfA24CSe2M2HYCDNVzRZ6PwBGzI4L86WNlRzqBfAQSEcDNOp0Oa4Huw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GYTqvO+W;
-	arc=none smtp.remote-ip=192.198.163.8
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	dmarc=none header.from=e.gzhu.edu.cn;
+	spf=pass smtp.mailfrom=e.gzhu.edu.cn;
+	arc=none smtp.remote-ip=18.194.254.142
+Received: from smtpbgeu2.qq.com (smtpbgeu2.qq.com [18.194.254.142])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45683606A31A;
-	Mon, 23 Nov 2026 05:54:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45683606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GYTqvO+W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795413242; x=1826949242;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bew3rUpuBQA3+G+GX9OOIQ+QQj7THEQGuewbkVg8l6Q=;
-  b=GYTqvO+WhLxcHQhzG5RYEQ1t0eXblaMLeJvHF5RauQm55qhtnBLdpSeQ
-   mfuO2DGc7Z21IDHaJRIP60rgim7j12KFqs49mQRYat7lUDGhKk9d6FgSp
-   MKdd1cHapxXt/vfGqm4xBdvIyfz73ksj81W2TTwyBBNNbUo9Cq9ADghYP
-   qa4aWSBqjmoGv3snqzPyoL3Dz1vl9gF9/44LpcdSljZbJrCX1ddcFJ7Mv
-   AR/JF7+fR3o7gHWAIhfSERjLkMOq2yG4Eh3W6fCYSxP3fxz99Q4LadYwD
-   mIdACk7Lu/8m8vQru5iTNNAMaHhI5NhffBZE7VDDip43vpfxCOm2H7mCn
-   g==;
-X-CSE-ConnectionGUID: eF/zh0ECQ2G/vVmtbcHF0Q==
-X-CSE-MsgGUID: HDQYSkUERPOaUBbeOk7vMw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4106920"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4106920"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 21:52:43 -0800
-X-CSE-ConnectionGUID: ndtbvU++Sm69sXsaxZcUDw==
-X-CSE-MsgGUID: YPG0Dr0tSESagiw0RoU5AQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="13196862"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa013.fm.intel.com with ESMTP; 22 Nov 2026 21:52:42 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 45A2799; Mon, 23 Nov 2026 06:52:40 +0100 (CET)
-Date: Mon, 23 Nov 2026 06:52:40 +0100
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Yaohan Li <shunsheng1218@gmail.com>
-Cc: Mika Westerberg <westeri@kernel.org>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v3] thunderbolt: cancel the queued control requests
- on teardown
-Message-ID: <20261123055240.GN229695@black.igk.intel.com>
-References: <20261119111907.3616041-1-shunsheng1218@gmail.com>
- <20261120042721.420468-1-shunsheng1218@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 589B1606A31A;
+	Mon, 23 Nov 2026 05:54:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 589B1606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=e.gzhu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=e.gzhu.edu.cn
+EX-QQ-RecipientCnt: 9
+X-QQ-GoodBg: 2
+X-QQ-SSF: 0040000000000040
+X-QQ-FEAT: D4aqtcRDiqSC4cSopMKx95/hNecL9n5F2uEmFqbUjlE=
+X-QQ-BUSINESS-ORIGIN: 2
+X-QQ-Originating-IP: EQlCO5nOxNv9I/hMmIffUYxB9JojWH184R09rMRmxrQ=
+X-QQ-STYLE: 
+X-QQ-mid: v3sz3b-12t1795413222ta0bb2a36
+From: "=?utf-8?B?6buE5Y2O5oiQ?=" <1112433017@e.gzhu.edu.cn>
+To: "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>
+Cc: "=?utf-8?B?Y2F0YWxpbi5tYXJpbmFz?=" <catalin.marinas@arm.com>, "=?utf-8?B?d2lsbA==?=" <will@kernel.org>, "=?utf-8?B?bWFyay5ydXRsYW5k?=" <mark.rutland@arm.com>, "=?utf-8?B?YnJvb25pZQ==?=" <broonie@kernel.org>, "=?utf-8?B?c3phYm9sY3MubmFneQ==?=" <szabolcs.nagy@arm.com>, "=?utf-8?B?eXVyeS5raHJ1c3RhbGV2?=" <yury.khrustalev@arm.com>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>
+Subject: [PATCH 0/1] arm64: gcs: bind signal GCS restore to the live GCSPR_EL0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,173 +52,115 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120042721.420468-1-shunsheng1218@gmail.com>
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Mon, 23 Nov 2026 13:53:42 +0800
+X-Priority: 3
+Message-ID: <tencent_6173029B43F227BE37E581FB@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+X-BIZMAIL-ID: 7685960821630635312
+X-Address-Ticket:version=;type=;ticket_id=;id_list=;display_name=;session_id=;
+X-QQ-SENDSIZE: 520
+Received: from qq.com (unknown [127.0.0.1])
+	by smtp.qq.com (ESMTP) with SMTP
+	id ; Mon, 23 Nov 2026 13:53:43 +0800 (CST)
+Feedback-ID: v:e.gzhu.edu.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OQm4EXGVKR2OM3m5Ss1r3vtoh/ta2tsyuwWU3YjjDsnqYgmPDDozM2nT
+	almSglRmRT5Hq1Pf9fUEe37krdnm+yY9fMcH1PqqqWUSpAwSmHYSgxSWaxvvZByOz7rZsUC
+	ULpFjd3+tILtoS2NFTMS3C+cr3/IUjx/e3u1CfniVWhl7zOVQ9zcpdP2/XrkLvoir/sCiTi
+	/DwK0JlqxVqlwZvVk+hihiFm+guJ6oKS4pi33MOo0INmrP05i+TtZ47+oK0JmwAqjWmhoXe
+	hTcZIvqqMO6SJFqZB+FDfwIfv+j4Dl/h9h4LEWJpf6YR6Pq5NhgEddeU3h5RPEZ5RZpwRui
+	9nM/MumQu39wWlR0x1ph2LI22hKnf8xonvH5Izk/7A7FQu63zjSwGe4N/CzKeAzMvlK1P1f
+	klScjF5amV+B8BI4gQ5aKiGJDwPfKndiiWVIzW276w929UFwZlIZeWzIk/vP/7cPvijuDe0
+	qXV5WOoWDcbJ9EaOEipYNRtrwfZ7AbUlt5XiqbZjIl5SRUQPtO27fvAOJhTKI/o+rK6OR3X
+	9ixhNUW5p5DS52LOE93ER4iSVt9lzukFFqVvSo6a09vN31NitRRuuuiaqm2nAndSJvfG2yp
+	hesVaDkVuO5ObmFo81uo6PhRNWrm5+T1BRMg3hUCVCdzZos9tXCzzYGfdJLrcnGtvdEC+7J
+	A/Kaw6yIW2L9ZLKZr2aqVXrK0uvICwbT5FKVzBIa2EuHEhWnoVQXzgcPhRkgYDU9I/meawE
+	vpWbFoks60J0720d4ejmH/4xtP4EVGoeH6+yIpwO7FQ0JDPOeBdigvIS26/4BsUc54TKqj4
+	k+IODE7pchynWG2L8yqoSIqcJWrXTDU2Gs0fMmhTAQ0prD/w3KDh1RD7o4rcUlNBI0jIQTo
+	WI6hZ/Dm22F3CWhSh5fQX24fZgS78uXokFGE5dQp0pLBFu6FFwuo3M4um5/95EZBdH8qOgK
+	mzgqai7WoVgWkLnoq0iDGt7quGBB7MKuebrVhTvpvAg91aA==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 
-Hi,
+SGVsbG8sDQpXZSBhdWRpdGVkIHRoZSBhcm02NCBHQ1Mgc2lnbmFsLXJlc3RvcmUgcHJvdG9j
+b2wgYWdhaW5zdCB4ODYgQ0VUIGFuZCB0aGUgUklTQy1WIHVzZXJjZmkgaW1wbGVtZW50YXRp
+b24gYW5kIGZvdW5kIHRoYXQgcmVzdG9yZV9nY3NfY29udGV4dCgpIGFjY2VwdHMgYW55IGdj
+c3ByIGZyb20gdGhlIHVzZXIgc2lnbmFsIGZyYW1lICh0aGUgaW4tdHJlZSBjb21tZW50IHN0
+YXRlcyAiV2UgbGV0IHVzZXJzcGFjZSBzZXQgR0NTUFJfRUwwIHRvIGFueXRoaW5nIGhlcmUs
+IHdlIHdpbGwgdmFsaWRhdGUgbGF0ZXIiKSwgYW5kIGdjc19yZXN0b3JlX3NpZ25hbCgpIHRo
+ZW4gdmFsaWRhdGVzIG9ubHkgYSBzZWxmLXJlZmVyZW50aWFsIHZhbHVlIHJlbGF0aW9uIGF0
+IHRoYXQgYWRkcmVzczpjYXAgPT0gR0NTX1NJR05BTF9DQVAoZ2NzcHIpLiAgQSBzdGlsbC1s
+aXZlIHNpZ25hbCBjYXAgYmVsb25naW5nIHRvIGEgZGlmZmVyZW50LCBuZXZlci1yZXN0b3Jl
+ZCBzaWduYWwgY29udGV4dCBzYXRpc2ZpZXMgdGhpcyBieSBjb25zdHJ1Y3Rpb24uDQoNCkNv
+bnNlcXVlbmNlOiB3aXRoIGEgbWVtb3J5LWNvcnJ1cHRpb24gcHJpbWl0aXZlIHN1ZmZpY2ll
+bnQgdG8gY29ycnVwdCBhIHNpZ2ZyYW1lICh0aGUgdGhyZWF0IG1vZGVsIHNoYWRvdyBzdGFj
+a3MgZXhpc3QgZm9yKSwgYSBuZXN0ZWQgaGFuZGxlciBjYW4gcG9pbnQgaXRzIG93biBmcmFt
+ZSdzIGdjc3ByIGF0IHRoZSBvdXRlciBoYW5kbGVyJ3MgbGl2ZSBjYXAuICBUaGUga2VybmVs
+IGFjY2VwdHMgaXQsIHplcm9lcyB0aGUgb3V0ZXIgY29udGV4dCdzIGNhcCwgYW5kIHJlc3Rv
+cmVzIEdDU1BSX0VMMCB0byB0aGUgYXR0YWNrZXItY2hvc2VuIHBvc2l0aW9uICsgOCAtIGEg
+a2VybmVsLW1lZGlhdGVkIHJld2luZCB0byBhIGhpc3RvcmljYWwgZGVwdGguICBXZSBkZW1v
+bnN0cmF0ZWQgdGhlIGZ1bGwgY2hhaW4gb24gUUVNVSBUQ0cgRkVBVF9HQ1Mgd2l0aCB0aGlz
+IGtlcm5lbCB0cmVlICg5LWFybSBwcm9iZSwgNSBydW5zIGVhY2gsIGZ1bGx5DQpkZXRlcm1p
+bmlzdGljKToNCg0KICBBMS9BM0MgIG5vcm1hbCArIG5lc3RlZCBsZWdpdGltYXRlIHJvdW5k
+LXRyaXBzICAgICAgICAgICAgOiBQQVNTDQogIEEyICAgICAgZnJhbWUuZ2NzcHIgKzggdG8g
+YSBjYXBsZXNzIGFkZHJlc3MgICAgICAgICAgICAgICA6IGtpbGxlZA0KICAgICAgICAgICh0
+aGUgdmFsdWUgY2hlY2sgZXhpc3RzIGFuZCB3b3JrcykNCiAgQTMvQTUgICBjcm9zcy1jb250
+ZXh0IHN0YWxlLWNhcCByZXdyaXRlIChBNSBsb2NhdGVzIGl0cyBvd24NCiAgICAgICAgICBm
+cmFtZSBieSBzdGFjayBzY2FuIG9ubHkgLSBubyBwcml2aWxlZ2VkIHVjb250ZXh0DQogICAg
+ICAgICAgcG9pbnRlciwgdGhlIHJlYWxpc3RpYyBhdHRhY2tlciBtb2RlbCkgICAgICAgICAg
+ICA6IEdDU1BSDQogICAgICAgICAgcmV3b3VuZCwgY29udHJvbCByZXN1bWVzIGF0IHRoZSBh
+dHRhY2tlciBkZXB0aCwgNS81DQogIEE0ICAgICAgdGhlIHN0b2xlbi1mcm9tIG91dGVyIGhh
+bmRsZXIncyBsYXRlciBzaWdyZXR1cm4gICA6IGtpbGxlZA0KICAgICAgICAgIChpdHMgY2Fw
+IHdhcyBjb25zdW1lZCBieSB0aGUgdGhpZWYpDQogIEE2ICAgICAgZnVsbCBDRkkgYnlwYXNz
+OiBhZnRlciB0aGUgcmV3aW5kLCBhIGRlbGliZXJhdGUNCiAgICAgICAgICBsZHIgeDMwLzxS
+QT47IHJldCBwb3BzIHRoZSByZXdvdW5kIHNsb3QgYW5kIGlzDQogICAgICAgICAgQUNDRVBU
+RUQsIHJldHVybmluZyBhdCBhIGhpc3RvcmljYWwgcmV0dXJuIGFkZHJlc3MNCiAgICAgICAg
+ICBhbmQgc2tpcHBpbmcgdGhlIHJlc3Qgb2YgdGhlIGFuY2hvciBmdW5jdGlvbiAtIDUvNSwN
+CiAgICAgICAgICB3aGlsZSB0aGUgaWRlbnRpY2FsIHJldCB3aXRob3V0IHRoZSByZXdpbmQg
+aXMga2lsbGVkLg0KDQp4ODYgQ0VUIGRvZXMgbm90IGhhdmUgdGhpcyBzaGFwZSAoaXRzIHNp
+Z2ZyYW1lIGNhcnJpZXMgbm8gU1NQIGZpZWxkKTsgUklTQy1WIHVzZXJjZmkgaGFkIHRoZSBz
+YW1lIHNoYXBlIGFuZCBhbiBlcXVpdmFsZW50IHNpeC1saW5lIGJpbmRpbmcgaGFzIGJlZW4g
+cHJvcG9zZWQgdGhlcmUgaW4gcGFyYWxsZWwuDQoNClRoZSBwYXRjaCBiaW5kcyB0aGUgZnJh
+bWUncyBnY3NwciB0byB0aGUgbGl2ZSBHQ1NQUl9FTDAgKGVxdWFsaXR5OyBwaW5uZWQgZW1w
+aXJpY2FsbHkgYXQgemVybyBkZWx0YSBmb3IgZXZlcnkgbGVnaXRpbWF0ZSByZXN0b3JlIGF0
+IGV2ZXJ5IG5lc3RpbmcgZGVwdGggLSB0aGUgaGFuZGxyJ3MgcmV0dXJuIHBvcHMgaXRzIHRy
+YW1wb2xpbmUgcmVjb3JkIGJlZm9yZSBydF9zaWdyZXR1cm4pLiAgVXNlcnNwYWNlIGNhbm5v
+dCBtb3ZlIHRoZSBsaXZlIEdDU1BSX0VMMCB3aXRob3V0DQpleGVjdXRpbmcgR0NTIGluc3Ry
+dWN0aW9ucywgd2hpY2ggYXJlIHRoZW1zZWx2ZXMgcG9saWNlZC4NCg0KQ29tcGF0aWJpbGl0
+eSBldmlkZW5jZSAodGhlIHF1ZXN0aW9uIHdlIGV4cGVjdCBmaXJzdCk6DQoNCiAgUjEtUjMg
+IG5vcm1hbCAvIG5lc3RlZCAvIHNpZ2FsdHN0YWNrIHJvdW5kLXRyaXBzICAgICAgICAgICA6
+IFBBU1MgYm90aA0KICBSNC1SNiAgcmF3IChub24tR0NTLWF3YXJlKSBsb25nam1wL3NldGNv
+bnRleHQvc3dhcGNvbnRleHQgIDoga2lsbGVkDQogICAgICAgICBvbiBCT1RIIHVucGF0Y2hl
+ZCBhbmQgcGF0Y2hlZCBrZXJuZWxzIC0gYXJjaGl0ZWN0dXJhbA0KICAgICAgICAgR0NTIGJl
+aGF2aW9yIChyYXcganVtcHMgdGhhdCBza2lwIHNpZ3JldHVybiBhcmUgZXhhY3RseQ0KICAg
+ICAgICAgd2hhdCBHQ1MgcmVqZWN0cyk7IHRoZSBwYXRjaCBhZGRzIHplcm8gYmVoYXZpb3Jh
+bCBkZWx0YQ0KICBSNyAgICAgR0NTUE9QTSB1c2Vyc3BhY2UgdW53aW5kIC0gdGhlIHByaW1p
+dGl2ZSBnbGliYydzIEdDUw0KICAgICAgICAgc2VyaWVzIGFjdHVhbGx5IHVzZXMgZm9yIF9f
+bG9uZ2ptcCAodjksIEtocnVzdGFsZXY6DQogICAgICAgICBNUlNfR0NTUFIgc2F2ZSArIEdD
+U1BPUE0gcG9wIGxvb3AgKyBHQ1NTUzEvR0NTU1MyDQogICAgICAgICBjcm9zcy1zdGFjayBz
+d2l0Y2gsIG5vIHJ0X3NpZ3JldHVybiBkZXBlbmRlbmN5KTogUEFTUyBvbg0KICAgICAgICAg
+Ym90aCBrZXJuZWxzOyBvcmRpbmFyeSBsb25nam1wIGlzIG9ydGhvZ29uYWwgdG8gdGhpcyBw
+YXRjaA0KICBSOCAgICAgR0NTUE9QTSBhdHRlbXB0ZWQgYWNyb3NzIGEgc2lnbmFsIGNhcDog
+a2lsbGVkIG9uIGJvdGggLQ0KICAgICAgICAgdGhlIGFyY2hpdGVjdHVyZSBmb3JiaWRzIHVz
+ZXJzcGFjZSBjYXAtY3Jvc3NpbmcsIHNvIG5vDQogICAgICAgICBsaWJjIGNhbiBieXBhc3Mg
+c2lncmV0dXJuIHZpYSBHQ1NQT1BNOyB0aGUgb25seSBzYW5jdGlvbmVkDQogICAgICAgICBy
+ZXN0b3JlIHBhdGggaXMgdGhlIGtlcm5lbCdzLCB3aG9zZSBsZWdpdGltYXRlIGZvcm1zIGFs
+bA0KICAgICAgICAgc2F0aXNmeSB0aGUgYmluZGluZw0KDQpPbmUgc2VtYW50aWMgYm91bmRh
+cnkgd29ydGggbmFtaW5nOiBhIHNpZ2xvbmdqbXAgdGhhdCBhYmFuZG9ucyBhIHN0aWxsLXBl
+bmRpbmcgb3V0ZXIgaGFuZGxlciBmcmFtZSBsZWF2ZXMgbGl2ZSBHQ1NQUiBpbmNvbnNpc3Rl
+bnQgd2l0aCB0aGF0IG91dGVyIGZyYW1lOyB3aXRoIHRoaXMgcGF0Y2ggc3VjaCBhIGZyYW1l
+J3MgbGF0ZXIgc2lncmV0dXJuIGZhaWxzIHdpdGggLUVJTlZBTCBpbnN0ZWFkIG9mIHNpbGVu
+dGx5IHJld2luZGluZyB0byBhbiBhcmJpdHJhcnkgcG9zaXRpb24uIFdlIGJlbGlldmUgcmVq
+ZWN0LWJ5LWRlZmF1bHQgaXMgdGhlIGNvcnJlY3Qgc2lkZSBvZiB0aGF0IHRyYWRlLCBidXQg
+ZmxhZyBpdCBmb3IgZGlzY3Vzc2lvbjsgYSBwZXItc2lnbmFsLWRlcHRoIHRva2VuIHN0YWNr
+IHdvdWxkIGFsc28gY2xvc2UgdGhlIGF0dGFjayBhbmQgYXZvaWQgdGhlIHF1ZXN0aW9uIGF0
+IGhpZ2hlciBib29ra2VlcGluZyBjb3N0Lg0KDQpSZXByb2R1Y2VyIChwcm9iZSwgc2NyaXB0
+cywgcGlubmVkIGtlcm5lbC1pbWFnZSBoYXNoZXMsIGxvZ3MpIGF2YWlsYWJsZSBvbiByZXF1
+ZXN0IG9yIHZpYSBhIGJyYW5jaC4NCg0KVGhhbmtzLA0KTG9va2luZyBmb3J3YXJkIHRvIHlv
+dXIgcmVwbHkh
 
-On Fri, Nov 20, 2026 at 12:27:21PM +0800, Yaohan Li wrote:
-> tb_domain_remove() stops the control channel but nothing cancels the
-> requests still in its queue.  Their completion work is already scheduled
-> and the queue itself holds a reference, so tb_ctl_free() releases the
-> channel, the rings and the frame pool while that work is still pending.
-> 
-> Splice the queue instead, cancel the work and release the callback data
-> with -ENOTCONN.  The reference the queue held is taken before the request
-> becomes unprotected, so a completion that runs in the meantime cannot
-> free it under the loop.
-> 
-> The terminal state is published once.  A request can be canceled by its
-> owner after a timeout and by the teardown at the same time, so the error
-> and the cancellation hook run under one small lock, and only for a request
-> whose completion work has not finished: both callers reach this after
-> cancel_work_sync(), so a request whose callback already ran keeps the
-> result it published instead of being turned into -ENOTCONN.
-> 
-> A synchronous request waits on a completion that it passes as the callback
-> data, and a canceled request never runs its callback.  It installs that
-> same completion as its cancel hook so the teardown wakes it.  The hook runs
-> under the same lock, and the owner takes that lock before its stack
-> completion goes away and clears the hook, so a hook that is still running
-> on another thread has finished by the time the waiter returns.
-> 
-> The callback data can be the request itself: __tb_xdomain_response() hands
-> its reference to response_ready(), which is the callback.  A request that
-> is canceled instead never runs it, so the same function is installed as the
-> cancel hook and releases the reference from there.  The submission failure
-> path already drops it and keeps doing so.
-> 
-> Two windows have to be covered and one counter cannot cover both.  The
-> first is the request that has been admitted and queued but has not been
-> handed to the TX ring yet: the teardown cancels it, but the submitter
-> still dereferences the channel to send it.  The second is the synchronous
-> user that keeps using the channel after the send, through the wait, the
-> timeout and the cancel, and the teardown can run in between; the retry
-> loops in tb_cfg_read_raw(), tb_cfg_write_raw() and icm_request() keep
-> using it after one request has finished, and so do tb_cfg_read() and
-> tb_cfg_write() when they report the result.  Every user is therefore
-> registered on the channel with two counters, both taken under
-> request_queue_lock - the lock tb_ctl_stop() uses to clear @running, so no
-> user can appear once the channel has been stopped.  @submitting covers
-> the first window, and the rings are not stopped before it drops to zero;
-> @sync_users covers the second from the first access to the last one, and
-> tb_ctl_cancel_requests() waits for it before the channel may be freed.
-> 
-> Dropping the counter is not enough.  The thread that drops the last one
-> still holds @request_queue_lock until its ..._exit() returns, so both
-> waits are followed by taking and releasing that lock: after that the last
-> user has left the channel, not just the count.
-> 
-> A config access that is rejected or canceled because the channel is going
-> away now returns -ENOTCONN from tb_cfg_read() and tb_cfg_write() instead
-> of falling into their default branch and warning.
-> 
-> tb_ctl_stop() no longer warns about requests left in the queue.  They are
-> expected to be there: they are what tb_ctl_cancel_requests() runs on next,
-> and the unlocked list_empty() check did not match a queue that is modified
-> under request_queue_lock.
-> 
-> tb_domain_add() calls tb_ctl_cancel_requests() on its error path as
-> well: a failing driver_ready() or start() leaves requests behind and that
-> domain is released without tb_domain_remove().
-
-I recommend writing the changelogs yourself, not taking whatever the LLM
-generates verbatim.
-
-> Fixes: d7f781bfdbf4 ("thunderbolt: Rework control channel to be more reliable")
-> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-> 
-> ---
-> Prepared against v7.4-rc1-1969-g666539eecdf4.
-> 
-> Tested with a controlled interleaving test: drivers/thunderbolt/ctl.c is
-> compiled verbatim into a module on a KASAN kernel built from this tree
-> (x86_64, QEMU/KVM), with only the NHI ring backend replaced.  The test parks
-> a submitter inside tb_ctl_tx() with a completion, calls tb_ctl_stop() from
-> another thread and checks that the rings are stopped only after the submitter
-> returned; it also checks that a synchronous waiter is woken by
-> tb_ctl_cancel_requests() with -ENOTCONN, that an owner cancel racing the
-> teardown cancel releases callback_data once and publishes one terminal error,
-> and that a submitter arriving after the stop is rejected without touching the
-> ring.
-> 
-> All 47 assertions pass on this patch.  Against 666539eecdf4 the same
-> scenarios fail (the ring is stopped before the submitter returns, tx=2
-> stop=1).  The additional controlled interleavings cover:
-> 
->  - a cancel hook that is parked inside the lock blocks the second canceller
->    until it returns, and the hook runs exactly once;
->  - a synchronous owner that is woken by the teardown clears its stack
->    completion hook before it returns, and reads the published result;
->  - a request whose callback already ran keeps its result when the teardown
->    cancels it afterwards, and its cancel hook is not called;
->  - a request whose callback and cancel hook hand over the same reference
->    (the __tb_xdomain_response() pattern) releases it when it is canceled,
->    which the test checks through a reference it keeps itself;
->  - the worst case of the two: the synchronous owner runs into its timeout
->    while the teardown's hook is parked inside the lock just before it wakes
->    the owner.  The owner must not return before that hook finishes, and the
->    result it reads is the one the teardown published;
->  - a config read that is inside its retry loop when the channel is stopped:
->    the teardown returns only after the whole read has left the channel, the
->    read ends with -ENOTCONN, and the admission counter is back to zero;
->  - tb_cfg_read() on a torn down channel returns -ENOTCONN and the log has no
->    warning from it.
-> 
-> The read that is inside its retry loop is also the only case that observes
-> the wait itself; the moment between its decrement of @sync_users and the
-> release of @request_queue_lock cannot be parked in from the test, so that
-> ordering rests on the code and not on a reproduced interleaving.
-> 
-> The remaining callers that submit on the TX ring were audited instead of
-> being admitted, because each already sits behind an outer guarantee.
-> tb_cfg_ack_notification() and tb_cfg_ack_plug() are called only from the
-> control channel callback, which runs in ring_work() and is therefore
-> finished when tb_ring_stop(ctl->rx) returns; tb_ctl_stop() stops the RX ring
-> before the TX ring, so those acks cannot reach a stopped TX ring.
-> tb_cfg_reset() reads ctl->timeout_msec before tb_cfg_request_sync() admits
-> the user, but both of its callers (tb_start() and tb_resume_noirq()) hold
-> tb->lock for the whole call, and the channel is released from
-> tb_domain_remove(), which takes the same lock; the request that follows is
-> then either admitted or refused by tb_cfg_request_sync().
-> 
-> The Thunderbolt controller itself was not available, so no hardware timing
-> was exercised.
-> 
-> The initialisation failure, suspend and cancellation paths were audited
-> rather than run.  tb_ctl_alloc() hands partially initialised pointers to
-> tb_ctl_free(), which is safe: dma_pool_destroy() returns early for a NULL
-> pool and tb_ctl_pkg_free() accepts a NULL package.  tb_domain_suspend() and
-> tb_domain_suspend_noirq() call tb_ctl_stop() with tb->lock held and leave the
-> queued requests for the resume, which is unchanged, and no submitter takes
-> tb->lock, so the new wait cannot invert against it.  The owner-cancel and
-> teardown-cancel race is the one the test drives.
-> 
-> Checked against mainline 21a7f44fd076, where the patch applies, and against
-> the list traffic: no fix for this teardown is in flight.  The AMD USB4 router
-> work from 2026-10 ("Fix tb->lock deadlock during hot-unplug on AMD USB4
-> routers") moves the router reset and does not cancel control requests, so the
-> two do not overlap.
-> 
-> AI assistance: the analysis, the change and its review notes were
-> prepared with Claude (Anthropic) as a coding assistant.  The author
-> reviewed the reasoning and takes responsibility for the content.
-> ---
->  drivers/thunderbolt/ctl.c     | 362 ++++++++++++++++++++++++++++++----
->  drivers/thunderbolt/ctl.h     |  20 ++
->  drivers/thunderbolt/domain.c  |  14 ++
->  drivers/thunderbolt/icm.c     |  38 +++-
->  drivers/thunderbolt/xdomain.c |   6 +
->  5 files changed, 404 insertions(+), 36 deletions(-)
-
-Same comment applies here. This is huge change for a case that has not run
-on a real hardware. I don't feel comfortable taking anything like this
-until it has been first proven that the problem exists (on real hardware)
-and then that the fix actually works and does not cause any side-effects.
-So far I don't remember anybody reporting any issue like this.
-
-Also if possible please try to make the fixes as small as possible so that
-they are easy to back port to stable trees (sometimes that's not possible
-and then its okay).
