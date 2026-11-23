@@ -1,88 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441306;
-	b=Z+rDZRh3btMZ1ptQm6/uv2o/UwbtnEErWWRFaX3w+J355mD13zDMEE0kmtKFODXQtJly
-	 Bar9nDvMXvZMkiOy027oY2tSNFAcWjcjSDpx+7B9q87K4FLQBQCAU9iThGl4nyaj+LFrY
-	 KoEKWlWbfPoo6ovVghQREXvYG8qrbR9oGobC0AA7Eg3FlqlS3WRTwEBYQjUnnnxdd1iTy
-	 D/t6mFso0Q5YNasmGpnB7qGpALRuhvwZsz4ew7p8dkC8hoBFTaI1Ug0YR4f+SWd5AlyJ4
-	 dkkrm/lFi0GPQPOSQz/n9dAU4nbnaxEgZMD0gzjLOhNX3TxmiFkuYxF9UP6rPZnEKsQ==
+	t=1795441301;
+	b=5uEvk6oeCrkqom+ZZe9NXJMsWCGu3vWoQCdLoVeWbpJ+h5XvpWpJyfMZNdjRifIqkfUu
+	 bAwV2GVe9RkV+kmYAIfRPXB8NfMpmFXEp61U53TwirsChEeIaoQ4t37VUZkVE/Bp5AkVH
+	 OXbYd+GcYb9WdLNZPKdbjR6MXmI2QSm0/CJdR+hqfPIITW5xuZJzuHCkhMAe7wdPEkmzn
+	 zBEmwu52lEgveBmxT+Kotid9U0HAnyNWvuPjgrde2v/bqXsZtfQ3iiY7jHEt5e2u/2/ma
+	 Bipo06ndOo4YQr6Aj5zAIcChti3ksw14fH+8IWLOzN0LpwufRpMANWU03tR+t+5uz+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441306;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441301;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=4MEsM5IzBbjIGBRXvKMxihftpdxum4eZahIiTlpBLrk=;
-	b=eCDaVQqt9VjdxwmHkc2oouVIzmk0SZv3utXIRzQ3mi8YWtKEuG1pTO0y+UeRFHewB0dm
-	 j7T0Jx8s0LIqFDTbzupLLa3YSUCR5j5SJnMQ1GPosw75Pf+0Y1ao5AeY1yyXqVyeLu/sO
-	 fsrLtzTRSoB3TlA8dk7rFSJIjQL+6XTm2WFMplgDzU0Ms0HQbLxrZXD621d152dCNSEFc
-	 QLJFfv/A8GXwk9d05YhQ9QTxbHrt+unH9zldD4n/oMOvW3yM0FkpPgRNdtOuQWYpwsK0d
-	 LZ8VQ6EiVIMEe8ltQ/F/fHazyj3LU0N+WapSPSmI7aaN8e6kB1noOOyPzTVf/u5eKTw==
+	bh=wWUon97vTJTRISIOUEFFYAZHy2rS/9m/ivsdCH0vErk=;
+	b=0NjyfBPJq930+Kb96gS5qruHv1Mk/WsuOkmzdb2xVmBWqU+kcgj9ogmYNf8bonZvAORy
+	 24Pxyf5hOdlrAUIR87v+jRwhcyoFv9sr1Aq9ux3efCyirhJ3wxAcot7Q4v4C0Lv4TMCqW
+	 o3cAAMkLUX7AdD+pRtJL7Qb5/gap0hqKsJOpfUvF22WAv2p8AvB16/He6+OkM080bfQ1o
+	 iGLJ39pu3BRhDBNsBaUU+cI3PSk5FJKkGgw4tic5OzUK2U7ymKnSTXywc3ZsXbjcsbmYa
+	 dKAojQEq3NhPanGR9UscsIgwTpKdeBq3wfnkGlUZecg/g3OzN0nOLKXtQLmQWWC6TUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=iVDwr5J6;
-	arc=none smtp.remote-ip=209.85.208.53
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=Wq6P1Nww;
+	arc=none smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DC99606A684
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DC99606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FBB860A5BC2
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FBB860A5BC2
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=iVDwr5J6
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b88bc47e23so4032901a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=Wq6P1Nww
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so4996469a12.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795441304; x=1796046104; darn=vger.kernel.org;
+        d=bairaktaris.de; s=google; t=1795441299; x=1796046099; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4MEsM5IzBbjIGBRXvKMxihftpdxum4eZahIiTlpBLrk=;
-        b=iVDwr5J6LAWlo3ns1CFFFZKFkoBL6Uzm4H+AxvKmdAEfL04oN06PAgWvrG2yvXHA86
-         dRzfn224UEK3CCHrIIOWsjSvcy4WDhcvzttVN+YxX5q6SB40tOujsH+ab1eGycVWjLVL
-         KhVVWUUgwHCXIE3Riw/I7I360ZSq+Nn+l4IiMaqU4xoZE0kQwjUiDv8TgBe1qBSb2CNk
-         3Hs0WxE0OiBKLKLwktckFXjyNCaVYXLXDeYs0kEblTvMqcjdWLs4Uv28PPRbNfbZckdf
-         AornlaLZ8EQFpgFItjbPmzzuIBFTAy4MwTFkupe/tJbgDia4rmG8te8GI/+oPE+jSSEC
-         iG0Q==
+        bh=wWUon97vTJTRISIOUEFFYAZHy2rS/9m/ivsdCH0vErk=;
+        b=Wq6P1NwwtXB8kVDVXMe9631U0Y2V8rYQeXWE7SsCTLM/WbZzrHm/APa4zsbSLCSTSJ
+         IB6DEfxRBfLHPNRz5QXCTlS4fEAobk0Y8xiJHFRAwhEnl7z670opnobsrArx5ty0Ayw9
+         pcPgfsp/YVWQuLgbQ4d8eLe0XAIgNeF1mUSg+L866W6yEeElEWpAtu6c67pc/+TmukJ7
+         5pEEae+GWMRiVid0QYipwvbAVTyDtrM3SphhLdI/tQcegeyA2OejtsWrphPcgyYqQZhS
+         ZR3J8SPZRpZRiy98XoNVp2/XpQOvu0M0Krp9gBRolg+Tj05geRYT8DBJvpFaiSaEILPR
+         vG5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441304; x=1796046104;
+        d=1e100.net; s=20260707; t=1795441299; x=1796046099;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4MEsM5IzBbjIGBRXvKMxihftpdxum4eZahIiTlpBLrk=;
-        b=jzq0sQcEgpzAuljdXCNCcX13qV6hQ0jcAbkMOyVoMZZYnIm/7yfEcj+EQrEO3F4P/Y
-         sCt4SQBACB0tUg8K41U/E1i+0tHmYWw/2ECvMdhzpNgCkjJ0iX4ZmtNsDke+YNqRbQtw
-         BsYJWxLQh8G7IqGTkzTCf5J/EicoD6IwIQfqTT+wxIyQhmVEL8JJK4nwEt24fhxfRBMK
-         iUWH9Pe1jJQmup6BAQ6Gho0UIOYsHwGwVjjQ9V202wuMJa1y56lICrXPWeYNN1M9JJR2
-         Pl1zM2nyIxAssQ19Gp3cFs86MqSxyPkaUrpnbVQKh5Cp0P2RswmoK9wrHDIPhQP19LtN
-         bMNQ==
-X-Forwarded-Encrypted: i=1; AL+hErHBmd+VGEmj2LoXHa2gyxnf9PdylUfC+VfYbJJJHW57mz5qKxroeKu3uP7q/bst50tPQ7i7MJ6Ax9evPa8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+uXwW+pxONSDDtOg88xATSE4KRMn98bI4t052Dcwc7W/xEDFmD
-	xCnX32e3wRIG6SmLAzHC909WpoX6tsUgKvudFlxRYUNR2E98eR2D5X1OdCFwqU/ZoQ==
-X-Gm-Gg: AZFdTZelP/0ECPRjIYO8Qd3bhSbqnqN+z7RRiWScPACkCsh1DRbpeohcnmv1ueFRP0b
-	OI0unETXruDceKAjgIchFrZJsSnOJdcoWwMLYdOfe+4fRWCjA/fGZwhHx1LMfkZQA9RH4A3hyCq
-	KUgbZ7Kbl05xARriJ5+voBjI+BIIkR8Mzk+DjA4fRt3t1tXaCT/lP8UC/khtUObHoPhfrxGGtL9
-	33sUFFR7K7hwDswrsjGCIqQzrtBGlKDUnX09iPWYfEL1EsIQpXYjImiDeAazIe9rc5zVi/YeJnw
-	o7d5lWQwSzP8cdpTZHfz7MaMyh1XQ77Qo5yK91VfkCNhdnR+5gp0zW0IXRtBJaunZl5ix6MnWcz
-	NH5c1p9A0fPF4d8uNHCOw8TUsPeKPz4Cmgweu8Dr2HRMPbTxz9ZV0ucpHUysFlUUaaWfKOJfCE2
-	SSW7ijmb2JFSsTm7T39Uu/W67ObWgp/XX+xDp8t36chZSf5AODFy2LcyTxl/mzSOEvQJagGrWVS
-	cpdyM6kFcIofSEbf/I030Vjias2BmTrMBlGTr8boTTY7HDW3QvHEAsfwECND5byHYbOhwRpjYrt
-	oYBBFGBuW6seklC5dIacQqTO6qgLRG/+jRfN6IuDn/1aOWVr64B9bwbAyUHs1L6haP/Nhyl/uww
-	D3rNrc7JVNcZI3zaBeyQHaIMM23e6PedMmJEXglBwfALJfjFinUPn71Qlf6HVVAAt86q1SFU+Zf
-	rHTeGaJRslliz/4SFG4mtGD4xT4kukwrlYUkGG8s5LFaRVWrgNKgBIoHEqO82TwNYEziwBWo0ec
-	bHawYW+RQy76/cmy+BeDtagKVaMP/OE6o0KFeptxstf0oPTyW5SVFkToS03/o/y+qv+Ks4DujCs
-	ANVJ2+151DtEIXvthdOp08wwUXqgE7PGT8VTRWJzq1bY/yRVnncx4vVOrNcQjJ2/arMMnQBPCFp
-	9oa7PJtLF28msSTTrPW8=
-X-Received: by 2002:a05:6402:1f07:b0:6b6:e808:9711 with SMTP id 4fb4d7f45d1cf-6ba37eae2f5mr7555038a12.29.1795441304531;
-        Mon, 23 Nov 2026 05:41:44 -0800 (PST)
+        bh=wWUon97vTJTRISIOUEFFYAZHy2rS/9m/ivsdCH0vErk=;
+        b=YLj6ZYn+oQKijedZZoNO8wQvgmWmNYPhH9xEMqzL63YUDfMmKWKveYG1XGDPRZ7u/U
+         jC6HHLEPtGJ3ykTPxSzkp8M3dweEaIPZduE2EZi3tegw3OWnvTid316a95XLM+m+GSpC
+         V44Gzuxxy+cPlZYaGefyua99sd5fSHWetK5jZr9FgmpAU8nvnVmjpDT2RQA0nsvw41G+
+         GmKFLKnYsiKMmQ9/J+vVzUxXKk3iBsnVJ1QpZnRTXenWYyYuf2YKa+I/eQljZaMzF2Y5
+         +kEIKlkCOzuVcVoPH+E0xbUKMPDJXre9IfotPWFicJd3uN7bN8IMmt1orEobWqcP8Q18
+         B4Ug==
+X-Forwarded-Encrypted: i=1; AL+hErFtwwrZkVeJ8Pep9ELeUpFBuC07o5XeeJRiqF/lSIxEqOPlVFGWGYOJd1Bu0iJ1XhSq7GaAoVTF+op3oL0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+UtgwyRyJ8dHqP2gg7eV9cT/F/Et+50nxmCyuNC6NyazM8qjKR
+	T7JYeZkJKec9ol19QewiMPvcAtWIXiZ1rLHaVgSX7dPg4WBnb1QGxeorsp68YUDl8BxIe/kFPiK
+	C4g2wqFE/
+X-Gm-Gg: AZFdTZeGxOawOwNCbnOpf0camBEkLvg5HfAU0WkbWgfqDFKK+X2CXDJ7Z5ZhOBn9LMw
+	MEyOWNVM9FHwGvGpEIQA/zO7Pj5HFvNKf1/wQrHtp+YGPy2GbQLPMSVe3IwYsHCDOiDa7VWkSkK
+	nbf76jgLJ0EbmQ4Mhfz43+j5mhrC/V6LvCoY49BgD8Xks8FWIkxgAZPROZGrDvHog3zD+PKJBdz
+	II9CIQjcF2/q3uDjzPXPy0XrlXtIJ3MRmnezV1oOusyR4VSTPVNu/28XSSIM/ngol7oLDgeOiit
+	W1AEoF6JgHobtWhspa/RFq310tq7s9CMOC7mNNTMv97R9GAYuoNV7dOrendt4mVDb/om6G1IKfs
+	18POh8Xl6lVt4WLiC0rQ6vK0RgL7Hh6NUteX65iv4y407qTieb17Jhj393Nwo30fyErfoN8m7Aj
+	IyxO51zQPGtoMBypOBwZeX7edrqSE/NFeqLXfVRSSJwKu5G+5z2pKVH+e/u9NO9Duq/9rp1pHXj
+	/+yxLDew0jeRyWNY7M/n2qedHgzCCsrTYgxP/O6lrNjpN7qhZOoOH+9x6ZF7XpEwuev5cjFlmS2
+	pRqIf2DWXNSOpP4S7EZiKepvLZGGiD+4dZOBDpRC6I1OMbMl/wRGosP8KaYOm+UvcMGTvDPZ7AZ
+	20ehMQvE0aYKfXv/1QErJjq4Stj1Mw+Z2AYJxk0K9VgZQtMalEF9SnWq9WS4szmrEBDIn3NDY5D
+	R/qgL+GAT9X+NYY1pE2f9IA6GBEy7wWNZzqKuidye2yDMeFYt6waoe58GcA/gekIumu31azBEMz
+	CROFSUKvneo+yLjKPy3xZbohTCPbxDLle3o7AcA4hxD84RBbTXIF4Hc3Z4Fgd3pL8FBDPRoTT+W
+	Kkj+boxZDayTs96tBhcdB7KrfUrhQjPZZLR+NgdJvknEeB0BcDIeg4Ial5QY0m7gjZClBTUNAg=
+	=
+X-Received: by 2002:a05:6402:2745:b0:6ba:9d0c:cca4 with SMTP id 4fb4d7f45d1cf-6ba9d0cced2mr3125038a12.33.1795441299335;
+        Mon, 23 Nov 2026 05:41:39 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f247012000e9a6b19fb24a0d13.dip0.t-ipconnect.de. [2003:f2:4701:2000:e9a6:b19f:b24a:d13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.43
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:41:44 -0800 (PST)
+        Mon, 23 Nov 2026 05:41:38 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Jeff Johnson <jjohnson@kernel.org>
 Cc: ath11k@lists.infradead.org,
@@ -95,9 +96,9 @@ Cc: ath11k@lists.infradead.org,
 	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
 	Mark Ruvald Pedersen <wabsie@gmail.com>,
 	Rosen Penev <rosenp@gmail.com>
-Subject: [PATCH ath-next v1 06/10] wifi: ath11k: prefetch the buffers of the REO entries ahead of their reap
-Date: Mon, 23 Nov 2026 14:41:33 +0100
-Message-ID: <20261123134137.718575-7-julius@bairaktaris.de>
+Subject: [PATCH ath-next v1 01/10] wifi: ath11k: use page_pool for the RX refill ring
+Date: Mon, 23 Nov 2026 14:41:28 +0100
+Message-ID: <20261123134137.718575-2-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261123134137.718575-1-julius@bairaktaris.de>
 References: <20261123134137.718575-1-julius@bairaktaris.de>
@@ -112,221 +113,409 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The REO reap loads, for each frame, the buffer table entry its cookie
-names, then the sk_buff the entry holds, and after the reap the
-processing of the frame loads the descriptor TLVs and headers the device
-wrote. Each is a cache miss, taken one after the other: the table entry
-and the sk_buff were written when the buffer was posted and are cold when
-the frame comes back, and the frame's lines were just invalidated. In a
-profile of bridged uplink at 900 Mbit/s (IPQ8074, one run) the
-instruction after the table load in ath11k_dp_process_rx() takes 0.72 %
-of all samples, the ones after the first sk_buff loads in
-ath11k_dp_rx_unmap_buf() 2.26 %, after the attention load in
-ath11k_dp_rx_h_attn_mpdu_err() 1.10 %, after the source address load in
-ath11k_dp_rx_h_mpdu() 1.01 % and after the load of the data pointer in
-ath11k_dp_rx_process_msdu() 1.05 %.
+The RX refill ring takes every buffer from dev_alloc_skb(), maps it with
+dma_map_single() and unmaps it again when the frame is reaped, so each
+received frame costs one allocation from the per-CPU page-frag cache and
+one map and unmap. Buffers of the ring also share that cache with
+unrelated allocations, so one long-lived skb pins a whole high-order
+page.
 
-On a cached REO ring the entries ahead and their cookies are already in
-the cache, so start these loads early: as each entry is reaped, prefetch
-the table entry of the one after the next and the four lines of the next
-one's sk_buff, whose table entry the entry before prefetched; once a
-frame is handed to the CPU, prefetch the first three lines of its
-descriptor and the first two lines of the frame behind it.
-ath11k_hal_srng_dst_peek_ahead() returns an entry below the head pointer
-read last. The table is read for an address only, without its lock: a
-buffer the table no longer holds costs a prefetch to nothing. Rings in
-coherent memory, where each entry read is a read from uncached memory,
-are left as they are.
+Give the refill ring of each radio its own page_pool. The pool keeps the
+DMA mapping of its pages, the reap paths sync the buffer for the CPU
+instead of unmapping it, and a freed skb returns its page to the pool.
+Each order-1 page carries three 128-byte aligned buffers, about the
+memory the page-frag allocation took for the same three. The pool holds
+as many pages as the ring has entries. The monitor rings keep
+dev_alloc_skb().
 
+A defragmented frame that is reinjected into the refill ring is synced
+for the device when it comes from the pool, and mapped as before
+otherwise.
+
+Mark Ruvald Pedersen's RFC proposed private page-frag caches for these
+rings.
+
+Link: https://lore.kernel.org/linux-wireless/20260719215817.2468580-1-wabsie@gmail.com/
+Link: https://lore.kernel.org/linux-wireless/20261008-ath12k-pp-v1-0-68f888cd7eec@oss.qualcomm.com/
 Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- drivers/net/wireless/ath/ath11k/dp_rx.c | 93 +++++++++++++++++++++++++
- drivers/net/wireless/ath/ath11k/hal.c   | 27 +++++++
- drivers/net/wireless/ath/ath11k/hal.h   |  1 +
- 3 files changed, 121 insertions(+)
+ drivers/net/wireless/ath/ath11k/Kconfig |   1 +
+ drivers/net/wireless/ath/ath11k/dp.h    |   4 +
+ drivers/net/wireless/ath/ath11k/dp_rx.c | 191 +++++++++++++++++-------
+ 3 files changed, 138 insertions(+), 58 deletions(-)
 
+diff --git a/drivers/net/wireless/ath/ath11k/Kconfig b/drivers/net/wireless/ath/ath11k/Kconfig
+index 99f625b82fe1..5c949e856649 100644
+--- a/drivers/net/wireless/ath/ath11k/Kconfig
++++ b/drivers/net/wireless/ath/ath11k/Kconfig
+@@ -3,6 +3,7 @@ config ATH11K
+ 	tristate "Qualcomm 802.11ax chipset support"
+ 	depends on MAC80211 && HAS_DMA
+ 	select QCOM_QMI_HELPERS
++	select PAGE_POOL
+ 	help
+ 	  This module adds support for Qualcomm Technologies 802.11ax family of
+ 	  chipsets.
+diff --git a/drivers/net/wireless/ath/ath11k/dp.h b/drivers/net/wireless/ath/ath11k/dp.h
+index 84f66839f0c6..357185e45ae6 100644
+--- a/drivers/net/wireless/ath/ath11k/dp.h
++++ b/drivers/net/wireless/ath/ath11k/dp.h
+@@ -72,6 +72,7 @@ struct dp_srng {
+ 
+ struct dp_rxdma_ring {
+ 	struct dp_srng refill_buf_ring;
++	struct page_pool *page_pool;
+ 	struct idr bufs_idr;
+ 	/* Protects bufs_idr */
+ 	spinlock_t idr_lock;
+@@ -229,6 +230,9 @@ struct ath11k_pdev_dp {
+ #define DP_RX_BUFFER_SIZE	2048
+ #define	DP_RX_BUFFER_SIZE_LITE  1024
+ #define DP_RX_BUFFER_ALIGN_SIZE	128
++#define DP_RX_PP_ORDER		1
++#define DP_RX_PP_FRAG_SIZE	ALIGN(SKB_HEAD_ALIGN(DP_RX_BUFFER_SIZE), \
++				      DP_RX_BUFFER_ALIGN_SIZE)
+ 
+ #define DP_RXDMA_BUF_COOKIE_BUF_ID	GENMASK(17, 0)
+ #define DP_RXDMA_BUF_COOKIE_PDEV_ID	GENMASK(20, 18)
 diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
-index b027b76ea3f3..e8226b2b832c 100644
+index 6fdcd2aed7dc..bad5c58dfafa 100644
 --- a/drivers/net/wireless/ath/ath11k/dp_rx.c
 +++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
-@@ -2919,6 +2919,92 @@ static void ath11k_dp_rx_process_received_packets(struct ath11k_base *ab,
- 	}
+@@ -8,6 +8,7 @@
+ #include <linux/ieee80211.h>
+ #include <linux/kernel.h>
+ #include <linux/skbuff.h>
++#include <net/page_pool/helpers.h>
+ #include "core.h"
+ #include "debug.h"
+ #include "debugfs_htt_stats.h"
+@@ -340,6 +341,56 @@ static int ath11k_dp_purge_mon_ring(struct ath11k_base *ab)
+ 	return -ETIMEDOUT;
  }
  
-+/*
-+ * The refill buffer table entry a REO entry names, or NULL for a cookie that
-+ * names none.
-+ */
-+static struct sk_buff **
-+ath11k_dp_rx_reo_buf_slot(struct ath11k_base *ab,
-+			  const struct hal_reo_dest_ring *desc)
++static bool ath11k_dp_rx_buf_is_pp(struct sk_buff *skb)
 +{
-+	u32 cookie = FIELD_GET(BUFFER_ADDR_INFO1_SW_COOKIE,
-+			       desc->buf_addr_info.info1);
-+	u32 buf_id = FIELD_GET(DP_RXDMA_BUF_COOKIE_BUF_ID, cookie);
-+	u32 mac_id = FIELD_GET(DP_RXDMA_BUF_COOKIE_PDEV_ID, cookie);
-+	struct dp_rxdma_ring *rx_ring;
-+	struct ath11k *ar;
-+
-+	if (!buf_id || mac_id >= ab->num_radios)
-+		return NULL;
-+
-+	ar = ab->pdevs[mac_id].ar;
-+	if (!ar)
-+		return NULL;
-+
-+	rx_ring = &ar->dp.rx_refill_buf_ring;
-+	if (buf_id >= rx_ring->num_ids)
-+		return NULL;
-+
-+	return &rx_ring->bufs[buf_id];
++	return skb->pp_recycle && skb->head_frag;
 +}
 +
-+/*
-+ * Starts the loads of the reap of the next REO entries, which are cold by
-+ * the time the frames come back: the buffer table entry of the entry after
-+ * the next one, and the sk_buff of the next one, whose table entry the reap
-+ * before prefetched. Only an address is read from the table, without its
-+ * lock: a buffer it no longer holds costs a prefetch to nothing.
-+ */
-+static void ath11k_dp_rx_reo_prefetch(struct ath11k_base *ab,
-+				      struct hal_srng *srng)
++static void ath11k_dp_rx_unmap_buf(struct ath11k_base *ab, struct sk_buff *skb,
++				   enum dma_data_direction dir)
 +{
-+	struct sk_buff **slot;
++	struct ath11k_skb_rxcb *rxcb = ATH11K_SKB_RXCB(skb);
++	unsigned int len = skb->len + skb_tailroom(skb);
++
++	if (ath11k_dp_rx_buf_is_pp(skb))
++		dma_sync_single_for_cpu(ab->dev, rxcb->paddr, len,
++					DMA_BIDIRECTIONAL);
++	else
++		dma_unmap_single(ab->dev, rxcb->paddr, len, dir);
++}
++
++static dma_addr_t ath11k_dp_rx_pp_dma_addr(struct sk_buff *skb)
++{
++	struct page *page = virt_to_head_page(skb->data);
++
++	return page_pool_get_dma_addr(page) +
++	       (skb->data - (u8 *)page_address(page));
++}
++
++static struct sk_buff *ath11k_dp_rx_pp_alloc_skb(struct dp_rxdma_ring *rx_ring)
++{
 +	struct sk_buff *skb;
-+	void *desc;
++	unsigned int offset;
++	struct page *page;
++	void *va;
 +
-+	desc = ath11k_hal_srng_dst_peek_ahead(srng, 1);
-+	if (desc) {
-+		slot = ath11k_dp_rx_reo_buf_slot(ab, desc);
-+		if (slot)
-+			prefetch(slot);
++	page = page_pool_dev_alloc_frag(rx_ring->page_pool, &offset,
++					DP_RX_PP_FRAG_SIZE);
++	if (!page)
++		return NULL;
++
++	va = page_address(page) + offset;
++	skb = build_skb(va, DP_RX_PP_FRAG_SIZE);
++	if (!skb) {
++		page_pool_put_full_page(rx_ring->page_pool, page, false);
++		return NULL;
 +	}
 +
-+	desc = ath11k_hal_srng_dst_peek_ahead(srng, 0);
-+	if (!desc)
-+		return;
++	skb_mark_for_recycle(skb);
 +
-+	slot = ath11k_dp_rx_reo_buf_slot(ab, desc);
-+	if (!slot)
-+		return;
++	return skb;
++}
 +
-+	skb = READ_ONCE(*slot);
-+	if (skb) {
-+		prefetchw(skb);
-+		prefetchw((u8 *)skb + L1_CACHE_BYTES);
-+		prefetchw((u8 *)skb + 2 * L1_CACHE_BYTES);
-+		prefetchw((u8 *)skb + 3 * L1_CACHE_BYTES);
+ /* Returns number of Rx buffers replenished */
+ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
+ 			       struct dp_rxdma_ring *rx_ring,
+@@ -371,23 +422,32 @@ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
+ 	num_remain = req_entries;
+ 
+ 	while (num_remain > 0) {
+-		skb = dev_alloc_skb(DP_RX_BUFFER_SIZE +
+-				    DP_RX_BUFFER_ALIGN_SIZE);
+-		if (!skb)
+-			break;
++		if (rx_ring->page_pool) {
++			skb = ath11k_dp_rx_pp_alloc_skb(rx_ring);
++			if (!skb)
++				break;
+ 
+-		if (!IS_ALIGNED((unsigned long)skb->data,
+-				DP_RX_BUFFER_ALIGN_SIZE)) {
+-			skb_pull(skb,
+-				 PTR_ALIGN(skb->data, DP_RX_BUFFER_ALIGN_SIZE) -
+-				 skb->data);
+-		}
++			paddr = ath11k_dp_rx_pp_dma_addr(skb);
++		} else {
++			skb = dev_alloc_skb(DP_RX_BUFFER_SIZE +
++					    DP_RX_BUFFER_ALIGN_SIZE);
++			if (!skb)
++				break;
+ 
+-		paddr = dma_map_single(ab->dev, skb->data,
+-				       skb->len + skb_tailroom(skb),
+-				       DMA_FROM_DEVICE);
+-		if (dma_mapping_error(ab->dev, paddr))
+-			goto fail_free_skb;
++			if (!IS_ALIGNED((unsigned long)skb->data,
++					DP_RX_BUFFER_ALIGN_SIZE)) {
++				skb_pull(skb,
++					 PTR_ALIGN(skb->data,
++						   DP_RX_BUFFER_ALIGN_SIZE) -
++					 skb->data);
++			}
++
++			paddr = dma_map_single(ab->dev, skb->data,
++					       skb->len + skb_tailroom(skb),
++					       DMA_FROM_DEVICE);
++			if (dma_mapping_error(ab->dev, paddr))
++				goto fail_free_skb;
++		}
+ 
+ 		spin_lock_bh(&rx_ring->idr_lock);
+ 		buf_id = idr_alloc(&rx_ring->bufs_idr, skb, 1,
+@@ -421,8 +481,9 @@ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
+ 	idr_remove(&rx_ring->bufs_idr, buf_id);
+ 	spin_unlock_bh(&rx_ring->idr_lock);
+ fail_dma_unmap:
+-	dma_unmap_single(ab->dev, paddr, skb->len + skb_tailroom(skb),
+-			 DMA_FROM_DEVICE);
++	if (!rx_ring->page_pool)
++		dma_unmap_single(ab->dev, paddr, skb->len + skb_tailroom(skb),
++				 DMA_FROM_DEVICE);
+ fail_free_skb:
+ 	dev_kfree_skb_any(skb);
+ 
+@@ -445,14 +506,18 @@ static int ath11k_dp_rxdma_buf_ring_free(struct ath11k *ar,
+ 		/* TODO: Understand where internal driver does this dma_unmap
+ 		 * of rxdma_buffer.
+ 		 */
+-		dma_unmap_single(ar->ab->dev, ATH11K_SKB_RXCB(skb)->paddr,
+-				 skb->len + skb_tailroom(skb), DMA_FROM_DEVICE);
++		ath11k_dp_rx_unmap_buf(ar->ab, skb, DMA_FROM_DEVICE);
+ 		dev_kfree_skb_any(skb);
+ 	}
+ 
+ 	idr_destroy(&rx_ring->bufs_idr);
+ 	spin_unlock_bh(&rx_ring->idr_lock);
+ 
++	if (rx_ring->page_pool) {
++		page_pool_destroy(rx_ring->page_pool);
++		rx_ring->page_pool = NULL;
 +	}
-+}
 +
-+/*
-+ * Starts the loads of the descriptor TLVs and the headers of a frame the
-+ * device has handed back, which its processing reads once the reap is done:
-+ * the first three lines of the descriptor, where its end, attention and start
-+ * TLVs begin, and the first two lines past it. A line past what the device
-+ * wrote is not read.
-+ */
-+static void ath11k_dp_rx_prefetch_frame(struct ath11k_base *ab,
-+					struct sk_buff *msdu)
-+{
-+	u8 *data = msdu->data, *hdr = data + ab->hw_params.hal_desc_sz;
+ 	return 0;
+ }
+ 
+@@ -486,6 +551,25 @@ static int ath11k_dp_rxdma_ring_buf_setup(struct ath11k *ar,
+ 	num_entries = rx_ring->refill_buf_ring.size /
+ 		ath11k_hal_srng_get_entrysize(ar->ab, ringtype);
+ 
++	if (ringtype == HAL_RXDMA_BUF) {
++		struct page_pool_params pp_params = {
++			.order = DP_RX_PP_ORDER,
++			.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV,
++			.pool_size = num_entries,
++			.nid = NUMA_NO_NODE,
++			.dev = ar->ab->dev,
++			.dma_dir = DMA_BIDIRECTIONAL,
++			.max_len = PAGE_SIZE << DP_RX_PP_ORDER,
++		};
++		struct page_pool *pp;
 +
-+	prefetch(data);
-+	prefetch(data + L1_CACHE_BYTES);
-+	prefetch(data + 2 * L1_CACHE_BYTES);
-+	prefetch(hdr);
-+	prefetch(hdr + L1_CACHE_BYTES);
-+}
++		pp = page_pool_create(&pp_params);
++		if (IS_ERR(pp))
++			return PTR_ERR(pp);
 +
- int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
- 			 struct napi_struct *napi, int budget)
- {
-@@ -2936,12 +3022,14 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
- 	struct hal_reo_dest_ring *desc;
- 	enum hal_reo_dest_ring_push_reason push_reason;
- 	u32 cookie;
-+	bool cached;
- 	int i;
- 
- 	for (i = 0; i < MAX_RADIOS; i++)
- 		__skb_queue_head_init(&msdu_list[i]);
- 
- 	srng = &ab->hal.srng_list[dp->reo_dst_ring[ring_id].ring_id];
-+	cached = srng->flags & HAL_SRNG_FLAGS_CACHED;
- 
- 	spin_lock_bh(&srng->lock);
- 
-@@ -2951,6 +3039,9 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
- 	while (likely(desc =
- 	      (struct hal_reo_dest_ring *)ath11k_hal_srng_dst_get_next_entry(ab,
- 									     srng))) {
-+		if (cached)
-+			ath11k_dp_rx_reo_prefetch(ab, srng);
++		rx_ring->page_pool = pp;
++	}
 +
- 		cookie = FIELD_GET(BUFFER_ADDR_INFO1_SW_COOKIE,
- 				   desc->buf_addr_info.info1);
- 		buf_id = FIELD_GET(DP_RXDMA_BUF_COOKIE_BUF_ID,
-@@ -2976,6 +3067,8 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
+ 	rx_ring->bufs_max = num_entries;
+ 	ath11k_dp_rxbufs_replenish(ar->ab, dp->mac_id, rx_ring, num_entries,
+ 				   ar->ab->hw_params.hal_params->rx_buf_rbm);
+@@ -497,9 +581,11 @@ static int ath11k_dp_rxdma_pdev_buf_setup(struct ath11k *ar)
+ 	struct ath11k_pdev_dp *dp = &ar->dp;
+ 	struct ath11k_base *ab = ar->ab;
+ 	struct dp_rxdma_ring *rx_ring = &dp->rx_refill_buf_ring;
+-	int i;
++	int i, ret;
+ 
+-	ath11k_dp_rxdma_ring_buf_setup(ar, rx_ring, HAL_RXDMA_BUF);
++	ret = ath11k_dp_rxdma_ring_buf_setup(ar, rx_ring, HAL_RXDMA_BUF);
++	if (ret)
++		return ret;
+ 
+ 	if (ar->ab->hw_params.rxdma1_enable) {
+ 		rx_ring = &dp->rxdma_mon_buf_ring;
+@@ -2775,9 +2861,7 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
+ 		spin_unlock_bh(&rx_ring->idr_lock);
  
  		rxcb = ATH11K_SKB_RXCB(msdu);
- 		ath11k_dp_rx_unmap_buf(ab, msdu, DMA_FROM_DEVICE);
-+		if (cached)
-+			ath11k_dp_rx_prefetch_frame(ab, msdu);
+-		dma_unmap_single(ab->dev, rxcb->paddr,
+-				 msdu->len + skb_tailroom(msdu),
+-				 DMA_FROM_DEVICE);
++		ath11k_dp_rx_unmap_buf(ab, msdu, DMA_FROM_DEVICE);
  
  		num_buffs_reaped[mac_id]++;
  
-diff --git a/drivers/net/wireless/ath/ath11k/hal.c b/drivers/net/wireless/ath/ath11k/hal.c
-index e5c35647a136..fffecc077eac 100644
---- a/drivers/net/wireless/ath/ath11k/hal.c
-+++ b/drivers/net/wireless/ath/ath11k/hal.c
-@@ -627,6 +627,33 @@ u32 *ath11k_hal_srng_dst_peek(struct ath11k_base *ab, struct hal_srng *srng)
- 	return NULL;
+@@ -3209,9 +3293,7 @@ static int ath11k_dp_rx_reap_mon_status_ring(struct ath11k_base *ab, int mac_id,
+ 				idr_remove(&rx_ring->bufs_idr, buf_id);
+ 				spin_unlock_bh(&rx_ring->idr_lock);
+ 
+-				dma_unmap_single(ab->dev, rxcb->paddr,
+-						 skb->len + skb_tailroom(skb),
+-						 DMA_FROM_DEVICE);
++				ath11k_dp_rx_unmap_buf(ab, skb, DMA_FROM_DEVICE);
+ 
+ 				dev_kfree_skb_any(skb);
+ 				pmon->buf_state = DP_MON_STATUS_REPLINISH;
+@@ -3227,9 +3309,7 @@ static int ath11k_dp_rx_reap_mon_status_ring(struct ath11k_base *ab, int mac_id,
+ 					pmon->buf_state = DP_MON_STATUS_MATCH;
+ 			}
+ 
+-			dma_unmap_single(ab->dev, rxcb->paddr,
+-					 skb->len + skb_tailroom(skb),
+-					 DMA_FROM_DEVICE);
++			ath11k_dp_rx_unmap_buf(ab, skb, DMA_FROM_DEVICE);
+ 
+ 			__skb_queue_tail(skb_list, skb);
+ 		} else {
+@@ -3516,11 +3596,20 @@ static int ath11k_dp_rx_h_defrag_reo_reinject(struct ath11k *ar, struct dp_rx_ti
+ 	/* change msdu len in hal rx desc */
+ 	ath11k_dp_rxdesc_set_msdu_len(ab, rx_desc, defrag_skb->len - hal_rx_desc_sz);
+ 
+-	paddr = dma_map_single(ab->dev, defrag_skb->data,
+-			       defrag_skb->len + skb_tailroom(defrag_skb),
+-			       DMA_TO_DEVICE);
+-	if (dma_mapping_error(ab->dev, paddr))
+-		return -ENOMEM;
++	if (ath11k_dp_rx_buf_is_pp(defrag_skb)) {
++		paddr = ath11k_dp_rx_pp_dma_addr(defrag_skb);
++		dma_sync_single_for_device(ab->dev, paddr,
++					   defrag_skb->len +
++					   skb_tailroom(defrag_skb),
++					   DMA_BIDIRECTIONAL);
++	} else {
++		paddr = dma_map_single(ab->dev, defrag_skb->data,
++				       defrag_skb->len +
++				       skb_tailroom(defrag_skb),
++				       DMA_TO_DEVICE);
++		if (dma_mapping_error(ab->dev, paddr))
++			return -ENOMEM;
++	}
+ 
+ 	spin_lock_bh(&rx_refill_ring->idr_lock);
+ 	buf_id = idr_alloc(&rx_refill_ring->bufs_idr, defrag_skb, 0,
+@@ -3583,8 +3672,10 @@ static int ath11k_dp_rx_h_defrag_reo_reinject(struct ath11k *ar, struct dp_rx_ti
+ 	idr_remove(&rx_refill_ring->bufs_idr, buf_id);
+ 	spin_unlock_bh(&rx_refill_ring->idr_lock);
+ err_unmap_dma:
+-	dma_unmap_single(ab->dev, paddr, defrag_skb->len + skb_tailroom(defrag_skb),
+-			 DMA_TO_DEVICE);
++	if (!ath11k_dp_rx_buf_is_pp(defrag_skb))
++		dma_unmap_single(ab->dev, paddr,
++				 defrag_skb->len + skb_tailroom(defrag_skb),
++				 DMA_TO_DEVICE);
+ 	return ret;
  }
  
-+/**
-+ * ath11k_hal_srng_dst_peek_ahead() - an entry of a destination ring past the next
-+ * @srng: the ring, whose lock the caller holds
-+ * @n: how many entries past the one ath11k_hal_srng_dst_get_next_entry()
-+ *	returns next
-+ *
-+ * Return: the entry, or NULL when the head pointer read last does not
-+ * reach it.
-+ */
-+u32 *ath11k_hal_srng_dst_peek_ahead(struct hal_srng *srng, u32 n)
-+{
-+	u32 tp = srng->u.dst_ring.tp, hp = srng->u.dst_ring.cached_hp;
-+	u32 avail, off = n * srng->entry_size;
-+
-+	lockdep_assert_held(&srng->lock);
-+
-+	avail = hp >= tp ? hp - tp : srng->ring_size - tp + hp;
-+	if (off >= avail)
-+		return NULL;
-+
-+	tp += off;
-+	if (tp >= srng->ring_size)
-+		tp -= srng->ring_size;
-+
-+	return srng->ring_base_vaddr + tp;
-+}
-+
- /*
-  * Hands the CPU the entries of a cached destination ring from word @from up
-  * to word @to, which the head pointer the caller just read shows the device
-diff --git a/drivers/net/wireless/ath/ath11k/hal.h b/drivers/net/wireless/ath/ath11k/hal.h
-index 82603a389bb9..45ac2391abd8 100644
---- a/drivers/net/wireless/ath/ath11k/hal.h
-+++ b/drivers/net/wireless/ath/ath11k/hal.h
-@@ -944,6 +944,7 @@ void ath11k_hal_srng_get_params(struct ath11k_base *ab, struct hal_srng *srng,
- u32 *ath11k_hal_srng_dst_get_next_entry(struct ath11k_base *ab,
- 					struct hal_srng *srng);
- u32 *ath11k_hal_srng_dst_peek(struct ath11k_base *ab, struct hal_srng *srng);
-+u32 *ath11k_hal_srng_dst_peek_ahead(struct hal_srng *srng, u32 n);
- int ath11k_hal_srng_dst_num_free(struct ath11k_base *ab, struct hal_srng *srng,
- 				 bool sync_hw_ptr);
- u32 *ath11k_hal_srng_src_peek(struct ath11k_base *ab, struct hal_srng *srng);
+@@ -3805,7 +3896,6 @@ ath11k_dp_process_rx_err_buf(struct ath11k *ar, u32 *ring_desc, int buf_id, bool
+ 	struct ath11k_pdev_dp *dp = &ar->dp;
+ 	struct dp_rxdma_ring *rx_ring = &dp->rx_refill_buf_ring;
+ 	struct sk_buff *msdu;
+-	struct ath11k_skb_rxcb *rxcb;
+ 	struct hal_rx_desc *rx_desc;
+ 	u8 *hdr_status;
+ 	u16 msdu_len;
+@@ -3823,10 +3913,7 @@ ath11k_dp_process_rx_err_buf(struct ath11k *ar, u32 *ring_desc, int buf_id, bool
+ 	idr_remove(&rx_ring->bufs_idr, buf_id);
+ 	spin_unlock_bh(&rx_ring->idr_lock);
+ 
+-	rxcb = ATH11K_SKB_RXCB(msdu);
+-	dma_unmap_single(ar->ab->dev, rxcb->paddr,
+-			 msdu->len + skb_tailroom(msdu),
+-			 DMA_FROM_DEVICE);
++	ath11k_dp_rx_unmap_buf(ar->ab, msdu, DMA_FROM_DEVICE);
+ 
+ 	if (drop) {
+ 		dev_kfree_skb_any(msdu);
+@@ -4258,9 +4345,7 @@ int ath11k_dp_rx_process_wbm_err(struct ath11k_base *ab,
+ 		spin_unlock_bh(&rx_ring->idr_lock);
+ 
+ 		rxcb = ATH11K_SKB_RXCB(msdu);
+-		dma_unmap_single(ab->dev, rxcb->paddr,
+-				 msdu->len + skb_tailroom(msdu),
+-				 DMA_FROM_DEVICE);
++		ath11k_dp_rx_unmap_buf(ab, msdu, DMA_FROM_DEVICE);
+ 
+ 		num_buffs_reaped[mac_id]++;
+ 		total_num_buffs_reaped++;
+@@ -4328,7 +4413,6 @@ int ath11k_dp_process_rxdma_err(struct ath11k_base *ab, int mac_id, int budget)
+ 	u32 msdu_cookies[HAL_NUM_RX_MSDUS_PER_LINK_DESC];
+ 	enum hal_rx_buf_return_buf_manager rbm;
+ 	enum hal_reo_entr_rxdma_ecode rxdma_err_code;
+-	struct ath11k_skb_rxcb *rxcb;
+ 	struct sk_buff *skb;
+ 	struct hal_reo_entrance_ring *entr_ring;
+ 	void *desc;
+@@ -4383,10 +4467,7 @@ int ath11k_dp_process_rxdma_err(struct ath11k_base *ab, int mac_id, int budget)
+ 			idr_remove(&rx_ring->bufs_idr, buf_id);
+ 			spin_unlock_bh(&rx_ring->idr_lock);
+ 
+-			rxcb = ATH11K_SKB_RXCB(skb);
+-			dma_unmap_single(ab->dev, rxcb->paddr,
+-					 skb->len + skb_tailroom(skb),
+-					 DMA_FROM_DEVICE);
++			ath11k_dp_rx_unmap_buf(ab, skb, DMA_FROM_DEVICE);
+ 			dev_kfree_skb_any(skb);
+ 
+ 			num_buf_freed++;
+@@ -4857,10 +4938,7 @@ u32 ath11k_dp_rx_mon_mpdu_pop(struct ath11k *ar, int mac_id,
+ 			}
+ 			rxcb = ATH11K_SKB_RXCB(msdu);
+ 			if (!rxcb->unmapped) {
+-				dma_unmap_single(ar->ab->dev, rxcb->paddr,
+-						 msdu->len +
+-						 skb_tailroom(msdu),
+-						 DMA_FROM_DEVICE);
++				ath11k_dp_rx_unmap_buf(ar->ab, msdu, DMA_FROM_DEVICE);
+ 				rxcb->unmapped = 1;
+ 			}
+ 			if (drop_mpdu) {
+@@ -5489,10 +5567,7 @@ ath11k_dp_rx_full_mon_mpdu_pop(struct ath11k *ar,
+ 
+ 			rxcb = ATH11K_SKB_RXCB(msdu);
+ 			if (!rxcb->unmapped) {
+-				dma_unmap_single(ar->ab->dev, rxcb->paddr,
+-						 msdu->len +
+-						 skb_tailroom(msdu),
+-						 DMA_FROM_DEVICE);
++				ath11k_dp_rx_unmap_buf(ar->ab, msdu, DMA_FROM_DEVICE);
+ 				rxcb->unmapped = 1;
+ 			}
+ 			if (drop_mpdu) {
 -- 
 2.53.0
 
