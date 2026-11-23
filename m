@@ -1,54 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.72
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795457679;
-	b=HGLfKSrnsvIX6YR08PKJkNdkwdJuFIXRlw2IP++a338mPqT1hhD/sswd/Wvhyl5PVyy8
-	 wXjRZoCBTcy+529rRJo1l/Sk8vL8MXqMANDXdFKgXTzkaYOLx98p8MiWPbj3ui40B17XA
-	 PKI73FVJmxgWJ6dDsqVBJ+rTo1wWXGgeiKDA0iIm4lcdBcCcMDBUiMvdMzAVF5JRsIyKL
-	 0ErdUQpXcoHWkdHn4aqoC2vefsAy7ZtNi0x04zxP+51I9UoVjJFYxHz15neRcGu/3luV0
-	 hGO0l4vhzOIjRZYPRg5xoi5fpjF1Ht3gX0Ojb2sLvO8W8ILk56AJ7fPslCL6Kw68KbA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795457679;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=KZh03sQcNOrqV7JEiw95hkpukQ6zvsmGeYXVI4FeVzw=;
-	b=VcnkKaYZKkFTuuKql0HyRMTUDp6Yd00PgPzb3y1Ft+PdqYkUXrCE22lGZTvrnY/0Uvvy
-	 N8yWQAU7J3Fo5ah2Gmd6Lf/oGfXiBCGJiJmCCAt8chpzIx09SRSprCRUActmZhNobP7jG
-	 IpIY16i1Ws0+a2eshsaSJzo5Pe+ONrguStEiprB3ZIOtRfG1p02HI+P+t3Zn/L2nPT/uD
-	 WE/LiUdJ7u3r9EoR7vGc/WFw2PywmeY0clmaca0JwtLXVtekTakStysPC3lH0daD0Vgp+
-	 +8KI2v0ar+yhlDa19hZOl7ygbALdJMLQ7EZ8xI6sUygh+HbBtUEYasP9HFAS9YQCX3g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.160.72
-Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795457684;
+	b=nbIE6ozgHuIxe0sRhj44xyOMGKoziueiBSDxluBEDwgZHlR+pTg4gSD2Qreg1L9U/XBB
+	 kyvUIgfqtk5OqFBJx2oD0CX/+f5iHSjG8lWa3c0fxYpHIWW456wYeHOXO68VCq08dXieb
+	 VmO6lQKsrxdXlyWFKV20Cy9PlObRc4g3rAiSIWxBW86XiH3j2X9azdCRNCRQJNmJHpnLn
+	 ER6GTTB8Q5RSKJyBuiUzJZm1+gGFFg+gnzk3FPBLgMk8MELzDy1LDOY2MzgGfNLK16eTB
+	 i9TvxmxZuxc/oml+5o7mf6tVysXgZxlrSSZTdXlMQ7WGeyEq2r8eMJdUNP9kQGEnGmw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795457684;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-ZohoMailClient;
+	bh=yOy40zyrDNkufLfX1+5C1rSlLdTXQCSrlMTkU/yGIbE=;
+	b=kxNu6xUoBJwWoOhPdgksddAZjI4E7g2CDNpCHvlWmQJG8zmR5332m3sSUiQaWETveVuw
+	 5vIOwKbtAgFnZRBR7aKkTmQpxrzbRbLFf8OQqBqfOaUItJRRiIPL+i8lBwzFCw5GAuzle
+	 lLyAWTJUoIbAGNB0MzQlHDkFaCrbDT6/opCnF0OEzbeAaQAi3WO6SpmoISPUalSvHfdiV
+	 5Ohc191kBfeKX3kBA/Ti6fITS/Hz5YraL+eTliA/DZSZXkhs0GX8ZqT/UPA+VfiziQdmK
+	 5A0UUF+09LCjwW7G96QcAFMrh19nu5eWTr8jqGe2Qd6aOvPh+R9ApoCe3FVO2omzaEg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=laveeshbansal.com;
+	spf=pass smtp.mailfrom=laveeshbansal.com;
+	dkim=pass header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b="WUZJWl/W";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.15
+Received: from sender5-op-o15.zoho.com (sender5-op-o15.zoho.com [165.173.182.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C8D606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:14:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90C8D606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-45e6091d8a1so2634876fac.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:14:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795457677; x=1796062477;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KZh03sQcNOrqV7JEiw95hkpukQ6zvsmGeYXVI4FeVzw=;
-        b=s3OrQMK8iEsdPPeS4jh6wv8DhRy5J6lpmxGUec3KWE0KgRpeNMhylZhe8cLgP3ScQw
-         7JH20dlDx1DSelBmyFSfoaiKAffXASX0Efqo0uHPi5j5V4TL7St4CK9NR4mPEufSVwbT
-         yRzdzKgaNcnkSgMKuAMg4rUqzOlwVEb2i+zgjuk4ZaPJLSe8MtMYtYKZI7u/9tvR8EgS
-         NvyzdPvKpMNOl963iBdCE7Zr7ctzm6mpox+u+GI/bv7cKd+hbR09Ghvd7EFHoSFJSPsx
-         irL++XRiN+pail9T2lwQDktGlGSd8IDLAXxgisN/Pg5mnrafzkdruW6KI+qmZ9tcSvS7
-         0LVQ==
-X-Forwarded-Encrypted: i=1; AL+hErHpybU2kuDjJDPR0SX1OUis4VDtKMIFYgQFfcjx2rjFTeaZUEm0LH4F3lOEa8JiCAr+G8IA6QHGsKWGEew=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++qUh2GBkMYyWDLlabIGvs1X7bwmma7DUHxH31k5iBF0sTkKeV
-	I8QUG/6YLi4VI130b9gDqsWNV0q6Fsa6f+8xrb0Vivo6gZ2Tfmr5TubH1JBeTIVCH74Z1cMIJQ+
-	5YSQFfr4wg6R6jgzg2ftGmY3kDtchpm61SYsQIBgJjZYUNKmQRy59CfWcRBQ=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74173606A31A;
+	Mon, 23 Nov 2026 18:14:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74173606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=laveeshbansal.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=laveeshbansal.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=laveeshbansal.com header.i=@laveeshbansal.com header.a=rsa-sha256 header.s=zoho header.b=WUZJWl/W
+ARC-Seal: i=1; a=rsa-sha256; t=1795457656; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=GO/PQr/knQKRwutlrxpwmQnlF4ufiC1/MxPjTAEzuUQ1JguR57eiMoVdXUD1X0AUduAakU6A5sLNMSyGaFSYW7Sp4oR8jNmF2f5WP04t0LCn25Up5MlHbWvURM+l4L9OwnxpM9F/ALmJf7zgJXHXmzEk04rjIWqUagq70iDzuFw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795457656; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=yOy40zyrDNkufLfX1+5C1rSlLdTXQCSrlMTkU/yGIbE=; 
+	b=awhHWwnYOwCb3N6C0YPM59LdRm3Y5BtyaYEuTOhHe7hijdDD+gIFhTAMqLfheZiDkFuQdnb0E/xEh03lFogFBLQx3zcoKpGGK+gX2/GEiP3POJFhYC0VQw8BFzCIzGQc7bpnmV4r6dAmaOrNqa72f56FOXjS9zSU0veebSdWEc0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=laveeshbansal.com;
+	spf=pass  smtp.mailfrom=laveeshb@laveeshbansal.com;
+	dmarc=pass header.from=<laveeshb@laveeshbansal.com>
+DKIM-Signature: a=rsa-sha256; b=WUZJWl/WqOw+OCdZAhZQPiZ+P3MWrUa09CnEksyxXKsCB/Am4F1s50PJq0XhRWHTAPRz+UgEEK3KWCFOlcBNZ/xAFnk4XDXHVjt5GNseG/05CMmBT1aXVCLIhdsUht96tV/TvlU4ZfIVrSNekJMUVAR2wWzv/mHlX1xFmtcjGQk=; c=relaxed/relaxed; s=zoho; d=laveeshbansal.com; v=1; bh=yOy40zyrDNkufLfX1+5C1rSlLdTXQCSrlMTkU/yGIbE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795457654842487.56845822427283;
+	Mon, 23 Nov 2026 10:14:14 -0800 (PST)
+From: Laveesh Bansal <laveeshb@laveeshbansal.com>
+To: Jens Axboe <axboe@kernel.dk>,
+	Eric Biggers <ebiggers@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>,
+	"Theodore Y. Ts'o" <tytso@mit.edu>,
+	Jaegeuk Kim <jaegeuk@kernel.org>,
+	syzbot+20d60aafd9a0d1f2a380@syzkaller.appspotmail.com,
+	linux-block@vger.kernel.org,
+	linux-fscrypt@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] blk-crypto: use a NOIO scope while holding profile->lock
+Date: Mon, 23 Nov 2026 10:14:08 -0800
+Message-ID: <20261123181408.62972-1-laveeshb@laveeshbansal.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,153 +72,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:11c4:b0:55c:8ee:a9c4 with SMTP id
- 5614622812f47-57a0b6440efmr13263691b6e.43.1795457677642; Mon, 23 Nov 2026
- 10:14:37 -0800 (PST)
-Date: Mon, 23 Nov 2026 10:14:37 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b04828d.71deaa98.2984e6.000b.GAE@google.com>
-Subject: [syzbot] [net?] KCSAN: data-race in fq_pie_reset / pie_calculate_probability
-From: syzbot <syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com>
-To: davem@davemloft.net, edumazet@kernel.org, horms@kernel.org, 
-	jhs@mojatatu.com, jiri@resnulli.us, kuba@kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 
-Hello,
+Setting a key in blk-crypto-fallback can deadlock on profile->lock.
+blk_crypto_get_keyslot() holds it across keyslot_program, whose setkey
+allocates with GFP_KERNEL (Adiantum); direct reclaim can evict an fscrypt
+inode, and blk_crypto_evict_key() then takes profile->lock again. syzbot
+reports it as an fs_reclaim vs profile->lock cycle. Since
+commit 5acc6f649a68 ("fscrypt: Always use blk-crypto for contents on
+block-based filesystems") hitting it no longer needs -o inlinecrypt.
 
-syzbot found the following issue on:
+Enter a NOIO scope in blk_crypto_hw_enter() and leave it in
+blk_crypto_hw_exit(), so allocations made under the lock, by the
+fallback or a hardware driver, can't recurse into the filesystem. The
+saved flags live in the profile. blk_crypto_reprogram_all_keys() takes
+the lock directly, so it gets the same scope.
 
-HEAD commit:    b6a9fa34ce41 Linux 7.4-rc4
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=118e58e9580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
-dashboard link: https://syzkaller.appspot.com/bug?extid=00f5a4ef4bcb8f4d19f1
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/1cd533522ae8/disk-b6a9fa34.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/19d6c1c369e3/vmlinux-b6a9fa34.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/dfb541770724/bzImage-b6a9fa34.xz
-
-AI-generated root cause summary:
-During qdisc teardown in `dev_shutdown()` -> `qdisc_put()` ->
-`__qdisc_destroy()`, `qdisc_reset()` calls `fq_pie_reset()` without holding any
-qdisc lock and before `fq_pie_destroy()` stops `q->adapt_timer`. Moreover,
-`shutdown_scheduler_queue()` has already replaced `dev_queue->qdisc_sleeping`
-with `&noop_qdisc`, so `fq_pie_timer()`'s call to
-`qdisc_lock(qdisc_root_sleeping(sch))` acquires `noop_qdisc`'s lock rather than
-`sch`'s lock. As a result, `fq_pie_timer()` -> `pie_calculate_probability()`
-runs concurrently with `fq_pie_reset()`, racing on `pie_vars_init()` writes to
-`flow->vars` (specifically `vars->accu_prob` and `vars->avg_dq_rate`).
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=00f5a4ef4bcb8f4d19f1
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
-
-==================================================================
-BUG: KCSAN: data-race in fq_pie_reset / pie_calculate_probability
-
-write to 0xffff88811d293640 of 8 bytes by task 13 on cpu 1:
- pie_vars_init include/net/pie.h:103 [inline]
- fq_pie_reset+0x11e/0x1d0 net/sched/sch_fq_pie.c:552
- qdisc_reset+0x51/0x2e0 net/sched/sch_generic.c:1118
- __qdisc_destroy+0x60/0x220 net/sched/sch_generic.c:1157
- qdisc_put net/sched/sch_generic.c:1189 [inline]
- dev_shutdown+0x2e0/0x390 net/sched/sch_generic.c:1558
- unregister_netdevice_many_notify+0x999/0x15e0 net/core/dev.c:12761
- unregister_netdevice_many+0x19/0x20 net/core/dev.c:12845
- ops_exit_rtnl_list net/core/net_namespace.c:188 [inline]
- ops_undo_list+0x21d/0x410 net/core/net_namespace.c:249
- cleanup_net+0x38d/0x5e0 net/core/net_namespace.c:713
- process_one_work kernel/workqueue.c:3495 [inline]
- process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
- worker_thread+0x56c/0x770 kernel/workqueue.c:3659
- kthread+0x248/0x2a0 kernel/kthread.c:436
- ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-write to 0xffff88811d293640 of 8 bytes by interrupt on cpu 0:
- pie_vars_init include/net/pie.h:103 [inline]
- pie_calculate_probability+0x425/0x4c0 net/sched/sch_pie.c:417
- fq_pie_timer+0xf6/0x1d0 net/sched/sch_fq_pie.c:403
- call_timer_fn+0x36/0x280 kernel/time/timer.c:1749
- expire_timers kernel/time/timer.c:1800 [inline]
- __run_timers kernel/time/timer.c:2375 [inline]
- __run_timer_base+0x40c/0x610 kernel/time/timer.c:2387
- run_timer_base kernel/time/timer.c:2396 [inline]
- run_timer_softirq+0x31/0x70 kernel/time/timer.c:2406
- handle_softirqs+0x109/0x310 kernel/softirq.c:669
- __do_softirq kernel/softirq.c:703 [inline]
- invoke_softirq kernel/softirq.c:542 [inline]
- __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
- instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
- sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
- asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
- __preempt_count_dec_and_test arch/x86/include/asm/preempt.h:123 [inline]
- __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inline]
- _raw_spin_unlock_irqrestore+0x1a/0x30 kernel/locking/spinlock.c:221
- free_frozen_page_commit+0x223/0x3a0 mm/page_alloc.c:2909
- free_unref_folios+0x8c0/0x980 mm/page_alloc.c:3099
- folios_put_refs+0x2cd/0x320 mm/folio.c:1065
- folios_put include/linux/mm.h:2429 [inline]
- __folio_batch_release+0x8e/0xb0 mm/folio.c:1125
- folio_batch_release include/linux/folio_batch.h:101 [inline]
- truncate_inode_pages_range+0x287/0x780 mm/truncate.c:452
- truncate_inode_pages mm/truncate.c:530 [inline]
- truncate_inode_pages_final+0x68/0x80 mm/truncate.c:565
- ext4_evict_inode+0x459/0xea0 fs/ext4/inode.c:273
- evict+0x301/0x570 fs/inode.c:829
- iput_final fs/inode.c:2036 [inline]
- iput+0x44f/0x5d0 fs/inode.c:2085
- dentry_unlink_inode+0x29a/0x2b0 fs/dcache.c:510
- dentry_kill+0x135/0x4f0 fs/dcache.c:857
- finish_dput+0x16/0x1d0 fs/dcache.c:1032
- dput+0x43/0x50 fs/dcache.c:1073
- __fput+0x45c/0x660 fs/file_table.c:520
- ____fput+0x1c/0x30 fs/file_table.c:541
- task_work_run+0x145/0x1a0 kernel/task_work.c:233
- exit_task_work include/linux/task_work.h:40 [inline]
- do_exit+0x4a7/0x1530 kernel/exit.c:980
- do_group_exit+0xfe/0x140 kernel/exit.c:1123
- get_signal+0xc49/0xd30 kernel/signal.c:3113
- arch_do_signal_or_restart+0x96/0x480 arch/x86/kernel/signal.c:337
- __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
- exit_to_user_mode_loop+0x161/0x940 kernel/entry/common.c:101
- __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
- syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
- syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
- do_syscall_64+0x23b/0x3a0 arch/x86/entry/syscall_64.c:107
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-Reported by Kernel Concurrency Sanitizer on:
-CPU: 0 UID: 0 PID: 6734 Comm: syz.1.1114 Not tainted syzkaller #0 PREEMPT(lazy) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-==================================================================
-
-
+Fixes: 488f6682c832 ("block: blk-crypto-fallback for Inline Encryption")
+Cc: stable@vger.kernel.org # v7.3+
+Reported-by: syzbot+20d60aafd9a0d1f2a380@syzkaller.appspotmail.com
+Closes: https://lore.kernel.org/r/6a9b25c3.b5d4176b.238c3e.0004.GAE@google.com
+Signed-off-by: Laveesh Bansal <laveeshb@laveeshbansal.com>
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+I used an LLM for the analysis, the patch and the test runs.
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+Changes in v2:
+ - Moved the NOIO scope from the two setkey calls into
+   blk_crypto_hw_enter()/blk_crypto_hw_exit(), as Christoph suggested,
+   and added it to blk_crypto_reprogram_all_keys().
+ - The scope now also covers the hardware drivers' keyslot callbacks. I
+   could not test those; it only narrows reclaim for them.
+v1: https://lore.kernel.org/r/20261122213120.20974-1-laveeshb@laveeshbansal.com
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+Tested on arm64 and x86_64 (QEMU, base c44104f3642d, KASAN and lockdep;
+patched runs include comment-only revisions): f2fs with an Adiantum
+policy, creating encrypted files and reading them back with O_DIRECT
+under a memory hog, about a minute per run. Runs showing each symptom:
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
+                                              base      v2
+  lockdep cycle warning, arm64                2 of 2    0 of 8
+  lockdep cycle warning, x86_64               6 of 6    0 of 12
+  task deadlocked on its own lock, arm64      0 of 2    0 of 8
+  task deadlocked on its own lock, x86_64     5 of 6    0 of 12
+  lockdep cycle warning, x86_64 as uid 65534  2 of 2    0 of 2
+  task deadlocked, x86_64 as uid 65534        1 of 2    0 of 2
+  profile->lock -> fs_reclaim edge in
+    lockdep's dump (runs that got to it)      3 of 3    0 of 18
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
+No KASAN reports. Under the hog memory runs out, and 3 of the 12 x86 runs
+stalled in page allocation, two without finishing; base stalls the same
+way. In one, the task holding profile->lock was waiting in the setkey
+allocation with kswapd queued behind it. That stall began earlier, in the
+RAM-backed disk's own allocation, and lockdep reported nothing: NOIO stops
+the allocation recursing into key eviction, not a wait for free memory.
 
-If you want to undo deduplication, reply with:
-#syz undup
+fstests -g encrypt on arm64 passes on f2fs and ext4. Could not reproduce
+on ext4; fstests not run on x86_64.
+
+ block/blk-crypto-profile.c         | 7 +++++++
+ include/linux/blk-crypto-profile.h | 1 +
+ 2 files changed, 8 insertions(+)
+
+diff --git a/block/blk-crypto-profile.c b/block/blk-crypto-profile.c
+index 53126c091b0b..395829fe7bcc 100644
+--- a/block/blk-crypto-profile.c
++++ b/block/blk-crypto-profile.c
+@@ -29,6 +29,7 @@
+ #include <linux/atomic.h>
+ #include <linux/mutex.h>
+ #include <linux/pm_runtime.h>
++#include <linux/sched/mm.h>
+ #include <linux/wait.h>
+ #include <linux/blkdev.h>
+ #include <linux/blk-integrity.h>
+@@ -53,11 +54,14 @@ static inline void blk_crypto_hw_enter(struct blk_crypto_profile *profile)
+ 	if (profile->dev)
+ 		pm_runtime_get_sync(profile->dev);
+ 	down_write(&profile->lock);
++	/* Reclaim evicts keys under this lock; don't recurse into the fs. */
++	profile->memflags = memalloc_noio_save();
+ }
+ 
+ static inline void blk_crypto_hw_exit(struct blk_crypto_profile *profile)
+ 	__releases(&profile->lock)
+ {
++	memalloc_noio_restore(profile->memflags);
+ 	up_write(&profile->lock);
+ 	if (profile->dev)
+ 		pm_runtime_put_sync(profile->dev);
+@@ -397,6 +401,7 @@ int __blk_crypto_evict_key(struct blk_crypto_profile *profile,
+  */
+ void blk_crypto_reprogram_all_keys(struct blk_crypto_profile *profile)
+ {
++	unsigned int memflags;
+ 	unsigned int slot;
+ 
+ 	if (profile->num_slots == 0)
+@@ -404,6 +409,7 @@ void blk_crypto_reprogram_all_keys(struct blk_crypto_profile *profile)
+ 
+ 	/* This is for device initialization, so don't resume the device */
+ 	down_write(&profile->lock);
++	memflags = memalloc_noio_save();
+ 	for (slot = 0; slot < profile->num_slots; slot++) {
+ 		const struct blk_crypto_key *key = profile->slots[slot].key;
+ 		int err;
+@@ -414,6 +420,7 @@ void blk_crypto_reprogram_all_keys(struct blk_crypto_profile *profile)
+ 		err = profile->ll_ops.keyslot_program(profile, key, slot);
+ 		WARN_ON(err);
+ 	}
++	memalloc_noio_restore(memflags);
+ 	up_write(&profile->lock);
+ }
+ EXPORT_SYMBOL_GPL(blk_crypto_reprogram_all_keys);
+diff --git a/include/linux/blk-crypto-profile.h b/include/linux/blk-crypto-profile.h
+index 4f39e9cd7576..9209b6a14b98 100644
+--- a/include/linux/blk-crypto-profile.h
++++ b/include/linux/blk-crypto-profile.h
+@@ -174,6 +174,7 @@ struct blk_crypto_profile {
+ 	 */
+ 	struct rw_semaphore lock;
+ 	struct lock_class_key lockdep_key;
++	unsigned int memflags;
+ 
+ 	/* List of idle slots, with least recently used slot at front */
+ 	wait_queue_head_t idle_slots_wait_queue;
+-- 
+2.43.0
+
