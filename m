@@ -1,75 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.199
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795448989;
+	b=NaQdXdyKj0G00+dSd9XOSBEVFrFr7hgfuqQTodiSDKevPGVdqKInn2I3dAnCjTGzpTj3
+	 jc9zxSwgxYPGDeVYI4/gDnb/yivQxjdCYkTTKgowLGMzLt43ncvY8U2UwaDtm/UEwRxoH
+	 EYSXtrjxISW1PTgGZh7iX6+4CRAaQw/oGSTUwM13zSSlBiOYyuywOJuX/8201UYMBXcDV
+	 cDtHFtGrlFR/uNIpyoYzDefitzUeDMXIr28l8RIQ7A3dFBJFYYySkOLz/3sipZLqApa2F
+	 +Kr3dDCM+hFvLAsOYVtgkPxWzr+SMxNcl6gl33tQ4IuKJqbXEwZDitdUDZA4FlvVnfA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448989;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=SsprNxER7rWrNC4xxq5CyciPLkOiWe7dS04Yu1+ZCyU=;
+	b=H060Ym8ycrwjSzNYnJlLl8pqtj3Y6N8aIn+qjM9alPkZERyeqOPnHj8AO6XcgfY4f7e3
+	 llQiwJu2TcB1X/PVVapr/F91PrLne6hnhQgdNfhz/H5h0vATkxncUCGy9BWu3hXt+wmRB
+	 U3641Wa5HmBI81Sce62eHVwkBXRetgb3Zx3FipHzyYoHAxf2EgZA5hOZBzGBjEaGUbVjH
+	 I2n8PiqfRk90xGpPHfGk5FA77jffthLYU3ZuIx5hG+uz5/x38e91jG3HPIkLJ2y1X/0hy
+	 ipd0YHW/JNSLyeywy38JBlSpPWQzR0HO/D4jLT7qtagcizpwB6RxtsKycZyLGbFOrwg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bjeqkm4E;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9C91606A32E;
+	Mon, 23 Nov 2026 15:49:48 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bjeqkm4E
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795448988;
-	b=M17r7zRmdHA1X7FtcVwPD68kn1NFbUZtToeKQC7UaMx7V2uXK1u4Z5BUgbpBEbz6HGTi
-	 vNJU4qtbeXCS9djP2TC4jCw/yXhm3jJLNHRmLqPf3db7w2XZnQ/3XtQVKsmwTNC4FgO73
-	 S36KHrrRa7/1gNXAruxSuD2ebvstozX2vBgB9k5CxR+olUwt8ogK16dpRn+DxXgE3nzBP
-	 KMgFOg0SDuIA3gqGb0u3I8Dz359kwHAa1x8IoofSSWEu9dVHsGABs1txloIMicYFsvE17
-	 /DcBBUI6Q6JZukDX6cN8ugLC+5zYClV0uoczhR6YPh0h25QPrb1flTgPHXHaI74ti4Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448988;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=ampCWU9YaRxYyU/2VqzGl7j5fZT5bJdrecIR7kU5Uc4=;
-	b=uswjC0ghfYNDujRzXbNPWAkQmNKFZYOFYcMy4MiBFNa3iC1Kk5hNNGkpBEC2MUEfbqj9
-	 nI2o5XkVRnFDBNRe96Cyr/0IeK40jxcMhPljX58nd8P6IrpKP2Zg91s03WYdYdNFGICPA
-	 EDbA+Sm0jkGkTDku1kWlWXlIR45J0heKxnxc9EJXjkeoStu4PrRRs5xXU079WA3Y5Zl1X
-	 dIrvU5hzjDRtlqUD311cJH/lW+PTS/ET86YNUpi4kNDa0yzlUqVTtoqwPO55zYPqZ3IpO
-	 kzzLuVMjSaUcyuAzlXnJzDu9PAcTBLjrQt1xkwfwAPY7F8QfxfW6Z45Eb10uUqE6Yfw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--praan.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SpWPTY4F;
-	arc=none smtp.remote-ip=209.85.215.199
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	b=Wo5fYnT1TyqT47MM/VEeGRXB1GD74+qb7NGBGb41NDZlo6zEjkRkubKruaHYMO7dlk5Z
+	 3P0kfLGxgQv6HZNQimCOLBKwdPahqCjlCIyWyRqWMEZPh298jx/ovP1xtto6SX4suVI5O
+	 Hv4ho7QyW24ndDvZWYqdvkqpmvNNwGnG2cy8MXvK+YFiT4NH+pyXHxM/QBwzi5cRE0SD+
+	 yJGm1TJQ+iVHM5uN03iDTvho0j4PQS0DcYrvODizKNoj7Vh5lB6VF85ssA12gvTEBV7jo
+	 m4VJ2MCA6fIgC6WoL4MPl3B3yhkJ25CrpxsGXBOXDJRIi/OGsFtBHwdP8jF9RgsneHA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795448988;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=SsprNxER7rWrNC4xxq5CyciPLkOiWe7dS04Yu1+ZCyU=;
+	b=BUYsFNi7A4EYlw8gPXhAGGA7h7VjKBRcg8YLT901wqAdxrm+6Vh+0+u+o7aUBUQV+P+g
+	 dWffWzzgdUtnpDvi6Rf8iP9x+cqOl77ASm4aNmKIjCgDRwZmh4H30pougFzszcSJ0W6Xj
+	 guZ6+8QbZcXTtQ3xgWElcEhcH1f9Y+haQ+nA9K/LdM/jjL3bINCa0kFb0UevMBTBl3ab9
+	 lrJGnFsK11OVv0ccSDEPZ/PryCueIgJJ4vmYUx6jLifIHaaAjiXC3KnpWXsmVZMti93Yo
+	 CgDpRKV0Gx4PVAVQcXbhKbbqK67lQuIZDtFAjYAnsYrcDbdvw1cWDxCD0jO8s2ivH8w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AE52606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:49:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AE52606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--praan.bounces.google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SpWPTY4F
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cd5ca3840c5so3628098a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:49:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795448987; x=1796053787; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ampCWU9YaRxYyU/2VqzGl7j5fZT5bJdrecIR7kU5Uc4=;
-        b=SpWPTY4F85dNRzaA70ukgpGaruaayL5uwoejzjZXWeXrnVdALfaRO9aeIHNqKdfqcx
-         UlZg3TElsIYRS+zI8Zsn1EHYrbHlgCqvWTrrScw5fOC6CCLpgPTtQI1IIG6IwmJCuptO
-         vl7LsV5z5YCefT7j4obKQu7iD4hfW1MxwRD5ir3drwQTnMnyKE47c3nNuAo0aI/3n3ye
-         8B5Xee+dry5LT748usG9YjeBrYdEVOKVApf11uKwxNMZ/xY80b6XPUL6ulA39k7Ht2vL
-         53oltTwnRiR2qoeri0py6WEat7ZQosCwfVcql7+EqnAAOvYgQY9tPKbG7MGGZBS+QfLI
-         DQWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795448987; x=1796053787;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ampCWU9YaRxYyU/2VqzGl7j5fZT5bJdrecIR7kU5Uc4=;
-        b=oy2djIq1CxQr4WZJ0uX+r5BBQrJd2b/H8+4XO7gaqQ8aURhDVpp1zFDZDv+6pwvSVK
-         fj2mD/ib633+qQjJI2aN1PJDopMg6E6AllSBtePSNKFVbQrhLsOyYKZcfDXV78+SDvW9
-         /eHfPHYKsZIOdKyQHjbTZLfbaEgfRv4ihgmYcdhNPOCQstU3Wp+ZdPOEPJos3Ox3aCmE
-         9jhBHFIIpb1cWFGnAVvJXbfflo4g644TwkMJeLCXCvr3M7zgyOzzMO0b0bJFP2kMBDAe
-         jN5wVTwfjxt7v32tAuO+RfR6aZ89U4vPePSDUxVOhfmEp1tYkJTseSPLJp6ahBfV+5+J
-         36Gw==
-X-Forwarded-Encrypted: i=1; AL+hErHYFY6JIBaHWtEsHl7eIyhqxemkk4y+PUKhfwuNT/8fOYAbDOcNkeBj0jqcIzoih8sD1E7M24iGg+QSkS8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+scMmrtsqv8GiLS0rkSGSGFUWCLJtRI0+bFwCFydhrzFTUKDlx
-	Vc8zOJD/DugjLp386a/a+28IV9uwhfYmewafMLvF2+F+S5IMoswt/xQAUa1/8w+/3mINE/KD95/
-	dFw==
-X-Received: from pfbfd26.prod.google.com ([2002:a05:6a00:2e9a:b0:8a0:70d8:a2ef])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:218b:b0:3f8:f0b1:e7c0
- with SMTP id adf61e73a8af0-4014da5fc3emr11235211637.59.1795448987022; Mon, 23
- Nov 2026 07:49:47 -0800 (PST)
-Date: Mon, 23 Nov 2026 15:49:45 +0000
-In-Reply-To: <20261118101913.3135869-3-amitamishra@google.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 4EDBB1F000C4;
+	Mon, 23 Nov 2026 15:49:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795448988;
+	bh=SsprNxER7rWrNC4xxq5CyciPLkOiWe7dS04Yu1+ZCyU=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=bjeqkm4ECe+QYZ91rsr8bB8d7GAtoGzQ18sU4QYoDXrJEwmZB34wSwKY37Hm1h8Lk
+	 d6P3endgrPA7mYRtG/YvwF//VfMPTqlznQ8lPTOE3vs69EliOBbAJpoxP7NL/yfvRB
+	 Z4x2yJbtcQwfiIgQGLHkv8ZE8LBMxFL5+UN0ZnEIqYopngIqWEaxzVCxabshU8biKl
+	 zRN9dBgugv4ju2/ljPnUKUmuuxU1b0+6bCDu+hmk3J0+TPVwcRpskLk47T9yUxEDXd
+	 /+WLcjIb5KUuV1gmr2ZgEYKLSyPTnBeznVRbCfciGMTcT+0rYth5bYvPTMT4Es3ybG
+	 q0r1VNPQQearA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BEF1F4C535;
+	Mon, 23 Nov 2026 15:49:29 +0000 (UTC)
+From: Erlend Jacobsen via B4 Relay <devnull+erlendjacobsen.pm.me@kernel.org>
+Date: Mon, 23 Nov 2026 16:49:30 +0100
+Subject: [PATCH v2] HID: rdmctmzt: add RDMCTMZT keyboard battery driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,139 +81,826 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118101913.3135869-3-amitamishra@google.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261123154945.3083888-1-praan@google.com>
-Subject: Re: [PATCH 2/2] perf/smmuv3: Add runtime PM support
-From: Pranjal Shrivastava <praan@google.com>
-To: amitamishra@google.com
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, mark.rutland@arm.com, robh@kernel.org, 
-	robin.murphy@arm.com, will@kernel.org, iommu@lists.linux.dev, 
-	smostafa@google.com
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-b4-rdmctmzt-v2-1-8c18d7dac4bc@pm.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/23NQQ6CMBCF4as0s6bGmSIBVt7DsAA6lZoUSFuJS
+ np3U9y6fMmf7+0Q2FsO0IodPG822GWGVlAhYJz6+c7SamgF0JkqRCI5lNJrN0b3ibLCplG91sS
+ GoBCwejb2dWi37rfDc3jwGDORi8mGuPj3cbdh7v7LG0qUurzUtWI0rNR1dSfH0KWUviMXKYq0A
+ AAA
+X-Change-ID: 20261122-b4-rdmctmzt-61993add2ef2
+To: linux-input@vger.kernel.org
+Cc: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+ linux-kernel@vger.kernel.org, Erlend Jacobsen <erlendjacobsen@pm.me>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795448969; l=25449;
+ i=erlendjacobsen@pm.me; s=20261122; h=from:subject:message-id;
+ bh=+p7o13s39A2nxHpwELaGH1o6VCOb7lRVOe5srtrwbQ0=;
+ b=pRkZc11cKLghx9mKJB+EXfMQK6QNIdu75TNOUjuw9h93ssgyYG5JilRNSmldJVIfPsHRkjER8
+ upR9zeR6aCwA/DkE/IUiBbd7rKloUzicIafC4YJqfDGEp1lGLGbBeL6
+X-Developer-Key: i=erlendjacobsen@pm.me; a=ed25519;
+ pk=SkKXYooGBruZNtA629wl2v9ZJA3VdxTcmrehQAecfrc=
+X-Endpoint-Received: by B4 Relay for erlendjacobsen@pm.me/20261122 with
+ auth_id=1609
+X-Original-From: Erlend Jacobsen <erlendjacobsen@pm.me>
+Reply-To: erlendjacobsen@pm.me
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 10:19:13AM +0000, Amita Mishra wrote:
+From: Erlend Jacobsen <erlendjacobsen@pm.me>
 
-Hi Amita,
+Keyboards with the USB vendor ID 0x36b0 (manufacturer string
+"RDMCTMZT"), such as the Focus Lab CTRL87, report their battery level
+only on a vendor channel: the HID interface with the raw-HID application
+collection (usage page 0xff60, usage 0x61). The 2.4 GHz dongle (0x2002)
+forwards the query to the keyboard over the air; the keyboard (0x2009)
+answers it directly over USB. The query is a request/response session,
+so neither hid-input's battery strength usage nor a report descriptor
+fixup can expose it.
 
-+iommu@lists.linux.dev
-Please CC the iommu list as well.
+Query the battery once a minute (session start 0xaa 0x10, battery status
+0xaa 0x30, session end 0xaa 0x11) and register a device-scope
+power_supply once the keyboard has answered, so that user space does not
+see a battery whose capacity cannot be read. A lost answer is retried
+after 5 s; the battery is marked not present after three polls in a row
+without the battery status, or at once when the dongle reports no link.
+The battery is named after the USB product ID and serial number, as
+hid-asus does, so that its name survives a replug; the keyboard and its
+dongle share a serial number.
 
-> On SoCs where an SMMUv3 PMCG resides in a switchable power domain,
-> probing the PMCG attaches and powers on the domain, but without runtime
-> PM support the domain remains permanently powered on even when no perf
-> events are active.
+On the dongle, also read its link status (0xaa 0xd0), which it sends by
+itself on each link change, and report the link as the USB interface's
+wireless_status, as hid-logitech-hidpp and hid-corsair-void do. Byte 13
+of that report is 0x02 while the dongle has no link, but no other value
+proves an active link (the dongle with bcdDevice 0x0102 reports 0x00
+both when connected and when no connection has succeeded since
+power-up), so the link is taken as up only once the keyboard answers.
 
-I'm interested to know which PMCGs are these? Upstream arm-smmu-v3 
-doesn't have runtime PM yet, thus, a PMCG that shares its SMMU's power 
-domain gains nothing from this today: the SMMU keeps the domain on anyway
+All other interfaces are handled as by hid-generic.
 
-With my arm-smmu-v3 runtime PM series [1], the SMMU lets go of the domain
-once it has no active clients, and then a PMCG without runtime PM would be
-the one keeping it on, the two series seem to fit together. For TBU PMCGs
-in a subsystem's domain this matters either way.
+Tested with keyboard firmware 1.13 over USB and through the dongle
+(bcdDevice 0x0102 and 0x0105), including a switch between the two and
+the vendor's WebHID configurator in use on the same interface; and
+through the dongle with an open-source keyboard firmware: module reload,
+replug and system suspend/resume.
 
-I'm wondering if you have PMCGs in power-domains that are neither tied to
-the SMMU power-domain and nor it's clients' power-domain? 
-(That'd be a bit odd but possible).
+Signed-off-by: Erlend Jacobsen <erlendjacobsen@pm.me>
+---
+Known dongle issue, not handled by the driver: a USB reset while the dongle
+(bcdDevice 0x0102 and 0x0105) holds an unread report on its vendor
+interface stops that interface until the dongle is replugged; keys still
+work.
+---
+Changes in v2:
+- End the polling only on the driver's own stop (-ESHUTDOWN); any
+  transport error, -ENODEV included, is a lost poll (Sashiko review).
+- Reset the poll counters while the dongle reports no link, so a
+  reconnected keyboard is retried after 5 s, not 60 s (Sashiko review).
+- Link to v1: https://patch.msgid.link/20261122-b4-rdmctmzt-v1-1-d45883e1fe33@pm.me
+---
+ MAINTAINERS                |   6 +
+ drivers/hid/Kconfig        |  12 +
+ drivers/hid/Makefile       |   1 +
+ drivers/hid/hid-ids.h      |   4 +
+ drivers/hid/hid-rdmctmzt.c | 657 +++++++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 680 insertions(+)
 
-[...]
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4a69da715c58..d3adacc5053f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -11703,6 +11703,12 @@ L:	linux-input@vger.kernel.org
+ S:	Maintained
+ F:	drivers/hid/hid-pulsar.c
+ 
++HID RDMCTMZT DRIVER
++M:	Erlend Jacobsen <erlendjacobsen@pm.me>
++L:	linux-input@vger.kernel.org
++S:	Maintained
++F:	drivers/hid/hid-rdmctmzt.c
++
+ HID SENSOR HUB DRIVERS
+ M:	Jiri Kosina <jikos@kernel.org>
+ M:	Jonathan Cameron <jic23@kernel.org>
+diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
+index d17d960ab5e2..c3aeee7e71db 100644
+--- a/drivers/hid/Kconfig
++++ b/drivers/hid/Kconfig
+@@ -1105,6 +1105,18 @@ config HID_RAZER
+ 	Support for Razer devices that are not fully compliant with the
+ 	HID standard.
+ 
++config HID_RDMCTMZT
++	tristate "RDMCTMZT keyboards and 2.4 GHz dongles"
++	depends on USB_HID
++	select POWER_SUPPLY
++	help
++	  Support for the battery level and wireless link status of RDMCTMZT
++	  keyboards (USB vendor ID 0x36b0), such as the Focus Lab CTRL87,
++	  over USB and through their 2.4 GHz dongle.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called hid-rdmctmzt.
++
+ config HID_PRIMAX
+ 	tristate "Primax non-fully HID-compliant devices"
+ 	help
+diff --git a/drivers/hid/Makefile b/drivers/hid/Makefile
+index dc30faaac969..d0ca9933eb95 100644
+--- a/drivers/hid/Makefile
++++ b/drivers/hid/Makefile
+@@ -123,6 +123,7 @@ obj-$(CONFIG_HID_PXRC)		+= hid-pxrc.o
+ obj-$(CONFIG_HID_RAKK)		+= hid-rakk.o
+ obj-$(CONFIG_HID_RAPOO) += hid-rapoo.o
+ obj-$(CONFIG_HID_RAZER)	+= hid-razer.o
++obj-$(CONFIG_HID_RDMCTMZT)	+= hid-rdmctmzt.o
+ obj-$(CONFIG_HID_REDRAGON)	+= hid-redragon.o
+ obj-$(CONFIG_HID_RETRODE)	+= hid-retrode.o
+ obj-$(CONFIG_HID_ROCCAT)	+= hid-roccat.o hid-roccat-common.o \
+diff --git a/drivers/hid/hid-ids.h b/drivers/hid/hid-ids.h
+index c40d818417a2..59549ff57583 100644
+--- a/drivers/hid/hid-ids.h
++++ b/drivers/hid/hid-ids.h
+@@ -1275,6 +1275,10 @@
+ #define USB_DEVICE_ID_RAZER_BLACKWIDOW_CLASSIC    0x011b
+ #define USB_DEVICE_ID_RAZER_BLADE_14   0x011D
+ 
++#define USB_VENDOR_ID_RDMCTMZT			0x36b0
++#define USB_DEVICE_ID_RDMCTMZT_DONGLE		0x2002
++#define USB_DEVICE_ID_RDMCTMZT_CTRL87		0x2009
++
+ #define USB_VENDOR_ID_REALTEK		0x0bda
+ #define USB_DEVICE_ID_REALTEK_READER	0x0152
+ 
+diff --git a/drivers/hid/hid-rdmctmzt.c b/drivers/hid/hid-rdmctmzt.c
+new file mode 100644
+index 000000000000..cad89c22577d
+--- /dev/null
++++ b/drivers/hid/hid-rdmctmzt.c
+@@ -0,0 +1,657 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * HID driver for RDMCTMZT keyboards and their 2.4 GHz dongles (USB vendor
++ * ID 0x36b0): the battery level.
++ *
++ * The keyboard firmware answers a battery query on its vendor channel, the
++ * HID interface with the raw-HID application collection (usage page 0xff60,
++ * usage 0x61, no report IDs): 32-byte reports on the dongle, 64-byte reports
++ * on the keyboard over USB. The dongle passes the query to the keyboard over
++ * the air and the answer back.
++ *
++ * Every request and answer starts with 0xaa and the command byte:
++ *   0x10  start a session; other commands are only answered within one
++ *   0x30  battery status
++ *   0x11  end the session
++ * Byte 4 of a request is the report size. An answer repeats the request up to
++ * byte 6; byte 7 is 0x55 when the command was carried out (0x0f when it was
++ * refused, for instance before the keyboard has measured its battery). The
++ * battery status has the charge (0-100 %) in byte 8 and the charger state in
++ * byte 9 (0 on battery, 1 charging, 2 full).
++ *
++ * The dongle answers 0xd0 itself, and sends one by itself when its link state
++ * changes: byte 13 is 0x02 while it has no link to the keyboard (keyboard off,
++ * or on USB). Any other value does not prove a link: dongle firmware 0x0102
++ * reports 0x00 when connected, after a failed reconnect, and when the keyboard
++ * has never connected since power-up. So the driver takes the link as up only
++ * once the keyboard answers, and as down when byte 13 is 0x02 or after
++ * RDM_MAX_FAILS polls without any answer. It reports this as the USB
++ * interface's wireless_status, so user space hides the battery of a keyboard
++ * that is not connected.
++ *
++ * A lost answer does not hide the battery: it is retried after RDM_RETRY_MS,
++ * and the battery is marked not present only after RDM_MAX_FAILS polls in a
++ * row without the battery status, or at once when the dongle reports no link.
++ */
++
++#include <linux/cleanup.h>
++#include <linux/completion.h>
++#include <linux/device.h>
++#include <linux/hid.h>
++#include <linux/jiffies.h>
++#include <linux/limits.h>
++#include <linux/minmax.h>
++#include <linux/module.h>
++#include <linux/power_supply.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++#include <linux/string.h>
++#include <linux/usb.h>
++#include <linux/workqueue.h>
++
++#include "hid-ids.h"
++
++#define RDM_VENDOR_USAGE		0xff600061
++#define RDM_VENDOR_PREFIX		"RDMCTMZT "
++
++#define RDM_PREFIX			0xaa
++#define RDM_CMD_START			0x10
++#define RDM_CMD_STOP			0x11
++#define RDM_CMD_BATTERY			0x30
++/* The dongle's own link status, sent when the link changes */
++#define RDM_DONGLE_STATUS		0xd0
++
++#define RDM_PREFIX_BYTE			0
++#define RDM_CMD_BYTE			1
++#define RDM_SIZE_BYTE			4
++#define RDM_STATUS_BYTE			7
++#define RDM_CAPACITY_BYTE		8
++#define RDM_CHARGE_BYTE			9
++#define RDM_LINK_BYTE			13
++#define RDM_ANSWER_LEN			(RDM_LINK_BYTE + 1)
++
++#define RDM_STATUS_OK			0x55
++#define RDM_MAX_CAPACITY		100
++
++#define RDM_LINK_NONE			0x02
++#define RDM_LINK_UNKNOWN		0xff
++
++enum rdm_charge_state {
++	RDM_CHARGE_DISCHARGING	= 0,
++	RDM_CHARGE_CHARGING	= 1,
++	RDM_CHARGE_FULL		= 2,
++};
++
++/* Over the air an answer takes up to two connection events of 100 ms */
++#define RDM_TIMEOUT_MS			1000
++#define RDM_FIRST_POLL_MS		2000
++/* After a poll without the battery status */
++#define RDM_RETRY_MS			5000
++/* While the dongle's link byte allows a link, but the keyboard is silent */
++#define RDM_SEARCH_MS			10000
++#define RDM_POLL_MS			60000
++#define RDM_MAX_FAILS			3
++
++struct rdm_device {
++	struct hid_device *hdev;
++	const char *model_name;
++	/* Registered once the keyboard first answers */
++	struct power_supply *battery;
++	struct power_supply_desc battery_desc;
++	struct delayed_work work;
++	struct completion done;
++	/* The dongle: report the radio link as wireless_status */
++	bool dongle;
++	/*
++	 * Protects expect, answer, link, present, status, capacity,
++	 * and stopping.
++	 */
++	spinlock_t lock;
++	u8 *buf;
++	size_t len;
++	u8 expect;
++	u8 answer[RDM_ANSWER_LEN];
++	/* Byte 13 of the dongle's last 0xd0 */
++	u8 link;
++	bool present;
++	int status;
++	u8 capacity;
++	bool stopping;
++	/* Only used by the work; both count only polls with a link */
++	unsigned int fails;	/* polls in a row without the battery status */
++	unsigned int silent;	/* polls in a row without any answer */
++	enum usb_wireless_status wireless;
++};
++
++static const enum power_supply_property rdm_battery_props[] = {
++	POWER_SUPPLY_PROP_PRESENT,
++	POWER_SUPPLY_PROP_STATUS,
++	POWER_SUPPLY_PROP_CAPACITY,
++	POWER_SUPPLY_PROP_SCOPE,
++	POWER_SUPPLY_PROP_MODEL_NAME,
++	POWER_SUPPLY_PROP_MANUFACTURER,
++};
++
++static int rdm_battery_get_property(struct power_supply *psy,
++				    enum power_supply_property psp,
++				    union power_supply_propval *val)
++{
++	struct rdm_device *rdm = power_supply_get_drvdata(psy);
++
++	switch (psp) {
++	case POWER_SUPPLY_PROP_PRESENT:
++		scoped_guard(spinlock_irqsave, &rdm->lock)
++			val->intval = rdm->present;
++		return 0;
++	case POWER_SUPPLY_PROP_STATUS:
++		scoped_guard(spinlock_irqsave, &rdm->lock)
++			val->intval = rdm->present ? rdm->status :
++						     POWER_SUPPLY_STATUS_UNKNOWN;
++		return 0;
++	case POWER_SUPPLY_PROP_CAPACITY:
++		scoped_guard(spinlock_irqsave, &rdm->lock) {
++			if (!rdm->present)
++				return -ENODATA;
++			val->intval = rdm->capacity;
++		}
++		return 0;
++	case POWER_SUPPLY_PROP_SCOPE:
++		val->intval = POWER_SUPPLY_SCOPE_DEVICE;
++		return 0;
++	case POWER_SUPPLY_PROP_MODEL_NAME:
++		val->strval = rdm->model_name;
++		return 0;
++	case POWER_SUPPLY_PROP_MANUFACTURER:
++		val->strval = "RDMCTMZT";
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++/* Only 0x02 rules out a link; the keyboard's answers decide the rest */
++static bool rdm_link_may_be_up(u8 link)
++{
++	return link != RDM_LINK_NONE && link != RDM_LINK_UNKNOWN;
++}
++
++static int rdm_decode_status(struct rdm_device *rdm, u8 charge)
++{
++	switch (charge) {
++	case RDM_CHARGE_DISCHARGING:
++		return POWER_SUPPLY_STATUS_DISCHARGING;
++	case RDM_CHARGE_CHARGING:
++		return POWER_SUPPLY_STATUS_CHARGING;
++	case RDM_CHARGE_FULL:
++		return POWER_SUPPLY_STATUS_FULL;
++	default:
++		hid_dbg(rdm->hdev, "unknown charger state: %u\n", charge);
++		return POWER_SUPPLY_STATUS_UNKNOWN;
++	}
++}
++
++/* Send one command; its answer arrives in rdm_raw_event() */
++static int rdm_send(struct rdm_device *rdm, u8 cmd)
++{
++	size_t raw_len = rdm->len + 1;
++	int ret;
++
++	memset(rdm->buf, 0, raw_len);
++	rdm->buf[0] = 0x00; /* unnumbered report ID */
++	rdm->buf[1 + RDM_PREFIX_BYTE] = RDM_PREFIX;
++	rdm->buf[1 + RDM_CMD_BYTE] = cmd;
++	rdm->buf[1 + RDM_SIZE_BYTE] = rdm->len;
++
++	ret = hid_hw_output_report(rdm->hdev, rdm->buf, raw_len);
++	/*
++	 * -ESHUTDOWN from the transport (an endpoint flushed by a USB reset)
++	 * is a lost poll; only rdm->stopping may end the polling.
++	 */
++	if (ret == -ESHUTDOWN)
++		return -EIO;
++	if (ret < 0)
++		return ret;
++	if (ret != raw_len)
++		return -EIO;
++
++	return 0;
++}
++
++/*
++ * Send one command and wait for its answer: 0 once it is copied into @reply
++ * (carried out or refused, checked via RDM_STATUS_BYTE).
++ */
++static int rdm_command(struct rdm_device *rdm, u8 cmd, u8 *reply)
++{
++	long time_left;
++	int ret;
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		if (rdm->stopping)
++			return -ESHUTDOWN;
++		rdm->expect = cmd;
++		rdm->answer[RDM_CMD_BYTE] = 0;
++		reinit_completion(&rdm->done);
++	}
++
++	ret = rdm_send(rdm, cmd);
++	if (ret)
++		goto out_clear;
++
++	time_left = wait_for_completion_interruptible_timeout(&rdm->done,
++							      msecs_to_jiffies(RDM_TIMEOUT_MS));
++	if (time_left <= 0) {
++		ret = time_left ? (int)time_left : -ETIMEDOUT;
++		goto out_clear;
++	}
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->expect = 0;
++		if (rdm->stopping)
++			return -ESHUTDOWN;
++		if (rdm->answer[RDM_CMD_BYTE] != cmd)
++			return -ENOLINK;
++		memcpy(reply, rdm->answer, RDM_ANSWER_LEN);
++	}
++	return 0;
++
++out_clear:
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->expect = 0;
++		if (rdm->stopping)
++			ret = -ESHUTDOWN;
++	}
++	return ret;
++}
++
++/*
++ * Register the battery once the keyboard has answered: user space (UPower)
++ * ignores a device battery whose capacity cannot be read when it appears.
++ * Without an answer (the dongle with the keyboard on USB) there is none.
++ */
++static void rdm_battery_register(struct rdm_device *rdm)
++{
++	struct power_supply_config cfg = { .drv_data = rdm };
++	struct power_supply *battery;
++	int ret;
++
++	battery = devm_power_supply_register(&rdm->hdev->dev,
++					     &rdm->battery_desc, &cfg);
++	if (IS_ERR(battery)) {
++		hid_err_ratelimited(rdm->hdev,
++				    "cannot register the battery: %pe\n",
++				    battery);
++		return;
++	}
++
++	ret = power_supply_powers(battery, &rdm->hdev->dev);
++	if (ret)
++		hid_warn(rdm->hdev, "cannot link battery to device: %d\n", ret);
++
++	rdm->battery = battery;
++}
++
++/* The dongle's link byte, asked for now: an 0xd0 may have been missed */
++static int rdm_dongle_linked(struct rdm_device *rdm, bool *linked)
++{
++	u8 reply[RDM_ANSWER_LEN];
++	int ret;
++
++	ret = rdm_command(rdm, RDM_DONGLE_STATUS, reply);
++	if (ret == -ESHUTDOWN)
++		return ret;
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		if (!ret)
++			rdm->link = reply[RDM_LINK_BYTE];
++		*linked = rdm_link_may_be_up(rdm->link);
++	}
++	if (ret)
++		hid_dbg(rdm->hdev, "no link status: %d\n", ret);
++	return 0;
++}
++
++static int rdm_poll_keyboard(struct rdm_device *rdm, bool *linked,
++			     bool *answered, bool *got, u8 *capacity,
++			     int *status)
++{
++	u8 reply[RDM_ANSWER_LEN];
++	int ret;
++
++	ret = rdm_command(rdm, RDM_CMD_START, reply);
++	if (ret == -ESHUTDOWN)
++		return ret;
++	if (ret == -ENOLINK) {
++		*linked = false;
++		return 0;
++	}
++	if (ret)
++		return 0;
++
++	/* Any answer, even a refusal, shows that the keyboard is linked */
++	*answered = true;
++	if (reply[RDM_STATUS_BYTE] == RDM_STATUS_OK) {
++		ret = rdm_command(rdm, RDM_CMD_BATTERY, reply);
++		if (ret == -ESHUTDOWN)
++			return ret;
++		if (ret == -ENOLINK) {
++			*linked = false;
++			return 0;
++		}
++		if (!ret && reply[RDM_STATUS_BYTE] == RDM_STATUS_OK) {
++			*got = true;
++			*capacity = min_t(u8, reply[RDM_CAPACITY_BYTE],
++					  RDM_MAX_CAPACITY);
++			*status = rdm_decode_status(rdm, reply[RDM_CHARGE_BYTE]);
++		}
++	}
++
++	ret = rdm_command(rdm, RDM_CMD_STOP, reply);
++	if (ret == -ESHUTDOWN)
++		return ret;
++	if (ret == -ENOLINK)
++		*linked = false;
++
++	return 0;
++}
++
++static void rdm_battery_work(struct work_struct *work)
++{
++	struct rdm_device *rdm = container_of(to_delayed_work(work),
++					      struct rdm_device, work);
++	enum usb_wireless_status wireless = rdm->wireless;
++	bool linked = true, answered = false, got = false;
++	bool changed, present;
++	unsigned int delay;
++	u8 capacity = 0;
++	int status = 0;
++
++	if (rdm->dongle && rdm_dongle_linked(rdm, &linked))
++		return;
++
++	if (linked && rdm_poll_keyboard(rdm, &linked, &answered, &got,
++					&capacity, &status))
++		return;
++
++	if (!got)
++		hid_dbg(rdm->hdev, "no battery status (linked %d, answered %d)\n",
++			linked, answered);
++
++	if (!linked) {
++		/* A keyboard that comes back starts with fresh counts */
++		rdm->silent = 0;
++		rdm->fails = 0;
++		wireless = USB_WIRELESS_STATUS_DISCONNECTED;
++	} else {
++		rdm->silent = answered ? 0 : min(rdm->silent + 1, RDM_MAX_FAILS);
++		rdm->fails = got ? 0 : min(rdm->fails + 1, RDM_MAX_FAILS);
++		if (answered)
++			wireless = USB_WIRELESS_STATUS_CONNECTED;
++		else if (rdm->silent >= RDM_MAX_FAILS ||
++			 rdm->wireless == USB_WIRELESS_STATUS_NA)
++			wireless = USB_WIRELESS_STATUS_DISCONNECTED;
++	}
++
++	/* Without a link the dongle reports when it comes back */
++	if (got || !linked)
++		delay = RDM_POLL_MS;
++	else if (rdm->fails < RDM_MAX_FAILS)
++		delay = RDM_RETRY_MS;
++	else if (rdm->dongle && rdm->silent >= RDM_MAX_FAILS)
++		delay = RDM_SEARCH_MS;
++	else
++		delay = RDM_POLL_MS;
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		if (rdm->stopping)
++			return;
++		present = linked &&
++			  (got || (rdm->present && rdm->fails < RDM_MAX_FAILS));
++		changed = rdm->present != present ||
++			  (got && (rdm->capacity != capacity ||
++				   rdm->status != status));
++		rdm->present = present;
++		if (got) {
++			rdm->capacity = capacity;
++			rdm->status = status;
++		}
++		queue_delayed_work(system_dfl_wq, &rdm->work,
++				   msecs_to_jiffies(delay));
++	}
++
++	if (rdm->dongle && wireless != rdm->wireless) {
++		rdm->wireless = wireless;
++		usb_set_wireless_status(to_usb_interface(rdm->hdev->dev.parent),
++					wireless);
++	}
++
++	if (present && got && !rdm->battery)
++		rdm_battery_register(rdm);
++	else if (changed && rdm->battery)
++		power_supply_changed(rdm->battery);
++}
++
++static int rdm_raw_event(struct hid_device *hdev, struct hid_report *report,
++			 u8 *data, int size)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++
++	if (!rdm || size < RDM_ANSWER_LEN || data[RDM_PREFIX_BYTE] != RDM_PREFIX)
++		return 0;
++
++	guard(spinlock_irqsave)(&rdm->lock);
++	if (rdm->expect && data[RDM_CMD_BYTE] == rdm->expect) {
++		memcpy(rdm->answer, data, RDM_ANSWER_LEN);
++		rdm->expect = 0;
++		complete(&rdm->done);
++	} else if (data[RDM_CMD_BYTE] == RDM_DONGLE_STATUS && rdm->dongle &&
++		   data[RDM_LINK_BYTE] != rdm->link) {
++		/* The link to the keyboard came or went: ask now */
++		rdm->link = data[RDM_LINK_BYTE];
++		if (rdm->expect && !rdm_link_may_be_up(rdm->link)) {
++			rdm->expect = 0;
++			complete(&rdm->done);
++		}
++		if (!rdm->stopping)
++			mod_delayed_work(system_dfl_wq, &rdm->work, 0);
++	}
++	return 0;
++}
++
++static bool rdm_is_vendor_interface(struct hid_device *hdev)
++{
++	for (unsigned int i = 0; i < hdev->maxcollection; i++) {
++		if (hdev->collection[i].type == HID_COLLECTION_APPLICATION &&
++		    hdev->collection[i].usage == RDM_VENDOR_USAGE)
++			return true;
++	}
++	return false;
++}
++
++/* End the work and any wait; rdm_resume_common() restarts it */
++static void rdm_stop_polling(struct rdm_device *rdm)
++{
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->stopping = true;
++		complete_all(&rdm->done);
++	}
++	cancel_delayed_work_sync(&rdm->work);
++}
++
++static int rdm_probe(struct hid_device *hdev, const struct hid_device_id *id)
++{
++	struct hid_report *report_in, *report_out;
++	struct rdm_device *rdm;
++	size_t prefix_len;
++	u32 report_len;
++	int ret;
++
++	hdev->quirks |= HID_QUIRK_INPUT_PER_APP;
++
++	ret = hid_parse(hdev);
++	if (ret)
++		return ret;
++
++	/* Only the vendor interface has the query; the others work as usual */
++	if (!rdm_is_vendor_interface(hdev))
++		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++
++	report_in = hdev->report_enum[HID_INPUT_REPORT].report_id_hash[0];
++	report_out = hdev->report_enum[HID_OUTPUT_REPORT].report_id_hash[0];
++	if (!report_in || !report_out ||
++	    hdev->report_enum[HID_INPUT_REPORT].numbered ||
++	    hdev->report_enum[HID_OUTPUT_REPORT].numbered) {
++		hid_warn(hdev, "missing unnumbered vendor reports\n");
++		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++	}
++
++	report_len = hid_report_len(report_out);
++	if (hid_report_len(report_in) < RDM_ANSWER_LEN ||
++	    report_len < RDM_ANSWER_LEN || report_len > U8_MAX) {
++		hid_warn(hdev, "unexpected vendor report length\n");
++		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++	}
++
++	rdm = devm_kzalloc(&hdev->dev, sizeof(*rdm), GFP_KERNEL);
++	if (!rdm)
++		return -ENOMEM;
++
++	rdm->len = report_len;
++	/* Leading byte 0 holds the unnumbered report ID (0x00) */
++	rdm->buf = devm_kzalloc(&hdev->dev, rdm->len + 1, GFP_KERNEL);
++	if (!rdm->buf)
++		return -ENOMEM;
++
++	rdm->hdev = hdev;
++	prefix_len = str_has_prefix(hdev->name, RDM_VENDOR_PREFIX);
++	rdm->model_name = hdev->name[prefix_len] ? hdev->name + prefix_len :
++						   hdev->name;
++	rdm->dongle = hid_is_usb(hdev) &&
++		      hdev->product == USB_DEVICE_ID_RDMCTMZT_DONGLE;
++	rdm->link = RDM_LINK_UNKNOWN;
++	rdm->wireless = USB_WIRELESS_STATUS_NA;
++	spin_lock_init(&rdm->lock);
++	init_completion(&rdm->done);
++	INIT_DELAYED_WORK(&rdm->work, rdm_battery_work);
++
++	/*
++	 * Name the battery after the USB product ID and serial number, as
++	 * hid-asus does: the HID device name changes with every replug, and
++	 * user space keeps per-battery settings by name. The keyboard and its
++	 * dongle share a serial number, so the product ID keeps them apart.
++	 */
++	if (hdev->uniq[0])
++		rdm->battery_desc.name = devm_kasprintf(&hdev->dev, GFP_KERNEL,
++							"rdmctmzt-%04x-%s-battery",
++							hdev->product, hdev->uniq);
++	else
++		rdm->battery_desc.name = devm_kasprintf(&hdev->dev, GFP_KERNEL,
++							"rdmctmzt-%s-battery",
++							dev_name(&hdev->dev));
++	if (!rdm->battery_desc.name)
++		return -ENOMEM;
++
++	rdm->battery_desc.type = POWER_SUPPLY_TYPE_BATTERY;
++	rdm->battery_desc.properties = rdm_battery_props;
++	rdm->battery_desc.num_properties = ARRAY_SIZE(rdm_battery_props);
++	rdm->battery_desc.get_property = rdm_battery_get_property;
++
++	hid_set_drvdata(hdev, rdm);
++
++	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++	if (ret)
++		goto err_clear_drvdata;
++
++	/* Answers arrive as input reports, so keep the interface open */
++	ret = hid_hw_open(hdev);
++	if (ret)
++		goto err_stop;
++
++	queue_delayed_work(system_dfl_wq, &rdm->work,
++			   msecs_to_jiffies(RDM_FIRST_POLL_MS));
++	return 0;
++
++err_stop:
++	/* A dongle status may already have queued the work */
++	rdm_stop_polling(rdm);
++	hid_hw_stop(hdev);
++err_clear_drvdata:
++	hid_set_drvdata(hdev, NULL);
++	return ret;
++}
++
++static void rdm_remove(struct hid_device *hdev)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++
++	if (rdm) {
++		rdm_stop_polling(rdm);
++		if (rdm->dongle && rdm->wireless != USB_WIRELESS_STATUS_NA)
++			usb_set_wireless_status(to_usb_interface(hdev->dev.parent),
++						USB_WIRELESS_STATUS_NA);
++		hid_hw_close(hdev);
++	}
++	hid_hw_stop(hdev);
++}
++
++static int rdm_suspend(struct hid_device *hdev, pm_message_t message)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++
++	if (rdm)
++		rdm_stop_polling(rdm);
++	return 0;
++}
++
++static int rdm_resume_common(struct hid_device *hdev, bool reset)
++{
++	struct rdm_device *rdm = hid_get_drvdata(hdev);
++
++	if (!rdm)
++		return 0;
++
++	scoped_guard(spinlock_irqsave, &rdm->lock) {
++		rdm->stopping = false;
++		if (reset)
++			rdm->link = RDM_LINK_UNKNOWN;
++		queue_delayed_work(system_dfl_wq, &rdm->work, 0);
++	}
++	return 0;
++}
++
++static int rdm_resume(struct hid_device *hdev)
++{
++	return rdm_resume_common(hdev, false);
++}
++
++static int rdm_reset_resume(struct hid_device *hdev)
++{
++	if (hdev->claimed & HID_CLAIMED_INPUT)
++		hidinput_reset_resume(hdev);
++
++	return rdm_resume_common(hdev, true);
++}
++
++static const struct hid_device_id rdm_devices[] = {
++	{ HID_USB_DEVICE(USB_VENDOR_ID_RDMCTMZT,
++			 USB_DEVICE_ID_RDMCTMZT_DONGLE) },
++	{ HID_USB_DEVICE(USB_VENDOR_ID_RDMCTMZT,
++			 USB_DEVICE_ID_RDMCTMZT_CTRL87) },
++	{ }
++};
++MODULE_DEVICE_TABLE(hid, rdm_devices);
++
++static struct hid_driver rdm_driver = {
++	.name = "rdmctmzt",
++	.id_table = rdm_devices,
++	.probe = rdm_probe,
++	.remove = rdm_remove,
++	.raw_event = rdm_raw_event,
++	.suspend = pm_ptr(rdm_suspend),
++	.resume = pm_ptr(rdm_resume),
++	.reset_resume = pm_ptr(rdm_reset_resume),
++};
++module_hid_driver(rdm_driver);
++
++MODULE_DESCRIPTION("HID driver for RDMCTMZT keyboards: battery level and link status");
++MODULE_LICENSE("GPL");
 
-> +    /* The same condition smmu_pmu_probe() enables runtime PM on. */
-> +    if (dev->pm_domain) {
-> +        int ret = pm_runtime_resume_and_get(dev);
-> +
-> +        if (ret < 0)
-> +            return ret;
-> +        event->destroy = smmu_pmu_event_destroy;
->      }
+---
+base-commit: 4a30b295fc34467e0468a0c8aeef73ecbe876d07
+change-id: 20261122-b4-rdmctmzt-61993add2ef2
 
-This keeps the domain powered for as long as the event exists, even
-while it is disabled or not scheduled. I'd be surprised if the 
-production devices that use runtime PM keep a PMCG event open requiring
-this? 
+Best regards,
+--  
+Erlend Jacobsen <erlendjacobsen@pm.me>
 
-For a PMCG in the SMMU's domain, with [1] that means a perf event keeps
-the domain on while the SMMU itself is suspended (SMMUEN=0, GBPA=Abort).
-The SMMU only suspends once all its clients are idle, so apart from
-cycles there's nothing meaningful to count.
 
-For a TBU PMCG, it keeps the subsystem's domain powered, which changes
-what's being measured: the TBU's TLBs and config caches survive what
-would otherwise be power-offs, so tlb_miss and config_cache_miss can
-under-report compared to the unmonitored system.
-
-Which makes me question whether the PMCG needs runtime PM at all. It's
-a profiling tool, and I'd be surprised if production devices that use
-runtime PM keep PMCG events open. Without events nothing needs the PMCG
-powered, so all this buys is not pinning the domain while the driver is
-probed but unused..
-
-Do you probe the PMCGs on production devices? If they're only used for
-profiling and not in-field, not loading the driver there (or leaving the
-node disabled) avoids the problem without runtime PM in the driver.
-
-If we do need it, a couple of issues with the implementation below:
-
-[...]
-
-> @@ -975,15 +1040,45 @@ static void smmu_pmu_remove(struct platform_device *pdev)
->
->      perf_pmu_unregister(&smmu_pmu->pmu);
->      cpuhp_state_remove_instance_nocalls(cpuhp_state_num, &smmu_pmu->node);
-> +    if (pdev->dev.pm_domain)
-> +        pm_runtime_disable(&pdev->dev);
->  }
-
-Events hold a module reference and bind/unbind is suppressed, so this
-only runs with no events, i.e. normally with the PMCG runtime-suspended.
-devres then frees the IRQ: free_irq() -> msi_domain_deactivate() ->
-smmu_pmu_write_msi_msg() writes to the unpowered PMCG, since the PM
-domain is only detached after devres in device_unbind_cleanup(). Wired
-interrupts are fine, and the CPU hotplug path Sashiko mentioned
-shouldn't rewrite the message with a GICv3 ITS parent, so in practice
-this is MSIs plus module unload.
-
-With the MSI message cached by the core (see below),
-smmu_pmu_write_msi_msg() could simply skip the MMIO while the PMCG is
-suspended and leave it to resume. Note it would have to check
-pm_runtime_status_suspended(), since runtime PM is already disabled by
-the time devres runs. Alternatively, keep the PMCG resumed across the
-devres teardown.
-
-[...]
-
-> +static int smmu_pmu_runtime_resume(struct device *dev)
-> +{
-> +    struct smmu_pmu *smmu_pmu = dev_get_drvdata(dev);
-> +
-> +    smmu_pmu_reset(smmu_pmu);
-> +    return 0;
-> +}
-
-Sashiko flagged this too: after a power-off the IRQ configuration is
-gone, and smmu_pmu_reset() doesn't put it back. With MSIs, overflow
-interrupts stop arriving and counters wrap unnoticed. With a wired
-interrupt on an MSI-capable PMCG, IRQ_CFG0 comes back UNKNOWN, so an
-overflow can send an MSI write to a garbage address, which is exactly
-why probe clears it.
-
-This is the same problem I had to solve for the SMMU in [1]: patches
-7-8 make the genirq/msi core cache the message in
-irq_chip_write_msi_msg() and add msi_device_domain_restore_msi_msgs(),
-and arm_smmu_resume_msis() in patch 9 clears the IRQ_CFG0 registers and
-then calls it (a no-op for wired IRQs). The PMCG resume needs the same:
-
-    writeq_relaxed(0, smmu_pmu->reg_base + SMMU_PMCG_IRQ_CFG0);
-    msi_device_domain_restore_msi_msgs(dev, MSI_DEFAULT_DOMAIN);
-
-Minor: an autosuspend delay would avoid powering the domain on and off
-for every event open/close.
-
-Thanks,
-Praan
-
-[1] https://lore.kernel.org/all/20260929034510.2023173-1-praan@google.com/
