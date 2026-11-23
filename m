@@ -1,59 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795420532;
-	b=0cMJNGkRcwRlPoKXtVPMYkpZMqGutGI4tcx5ph5o0j6Pm/+LE1Zt1lsWR3koO0oySWb+
-	 welkdTECh1vAb0dfPTN2HMVGY3y1QrTrUW4ZAhwYhz4Y/WnJGXIJhL9KAmIb92xhbKaSr
-	 /0Qb+ME7VGOEOZ9rZXVEyaSx8aQcwADBsNWFkFmlHCXW88tZ84QmVYVRhEFuqrnlJ6rqI
-	 eeBt9pJDXjCCmQWYd2ZwHhIUpD0FkzIZwTdp+WTRNbp7hyP/dtb7sMWinwRc58TIMIh8b
-	 N/wYsV6yvrlXzR/tnenu8qylZQmeDFN2KGbRXv+hRZc3mExg83nspj5P3S2pHhV3wfQ==
+	t=1795420542;
+	b=T/PTwkaMAaB5kKlsSPbAEP0i0GjCOaDaC6dgBIAKxdwnHaVzEg6rrMF04qLj87XAZj9u
+	 w6YnClrDnYv0i4IzMCqh6r+hDZJQFJZwVrnZHITP3tVyHnX9uZhgZAegjEoLs69ZoTo99
+	 AH+Yv0R9wXd0S+gOw9Yd/DuFxdY+/iZZRXhBJscdts/YtLhi8nqfl8sqf40QQ8zS5dPA9
+	 7QSWfalVJeWEVBwL/TAp+jDZO7SJio0iJ4i1MOoQrzKX601Vdc8gH0y+gJrVbcNFR3u6z
+	 wd/CyFBqW5ub/1ZX4xo++TMfNEa+cG+YdOTbfbeUAfqIY/EirTCproSapNFiX8k/K0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795420532;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=Js4FoDVmwbZeydt2g600qtY74Tqckgc0nauAzvTfVnU=;
-	b=TBUYBpj3CWsqd207iA4qVf7oJO4dJUyXnPVrqkknV1M733p3iOOjecYpND0NsMd6zNwE
-	 1Rlq8oZF2NIVlUlzk7bRQdYj36j/1O8V8h4ReSEPZRAk9jAtwPFErBEQl3Nu1clqTLW/i
-	 w0HHOCoJD1VyVlL+hCiFzt7KtRNVBTSgvkF5gcsmlhxuQR0BARk+HOWACfOgxWdu8RVAs
-	 eMHx84jHg79kRnYVVbhzLDm/GKD2TfRL4Fxoqe690SRxGiFCKMG3dYqHvlEUoK4peWnX6
-	 4HuA3tdFs9AOtGEFPcJk9Idy2N26DMrvcK0b8oIDBBK+qF25aJKq+NGrfF2cPAyBdDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420542;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=g1OJLAd7B+ngwjUpS8FrwuA0SCFmBnAon/YjAp5e5cs=;
+	b=WqY8EBzhrTpQ0M/0/Dc0FA31GMiZg7Ea5gO4g+IWPE0iKXgH9msdXevpE4aYQYJJ9hVu
+	 GaTuZYBsaMcbAkAxgVrOOohmJg3s3nQm9WyDo1e8OGWjgQwTjwkc5zFXGybXvaFV812K7
+	 LKxMg4SITa4swpqoN1JfLKuDxXeS7McIhh3O/vJ71JzM557XbzWzZqQapd0AsO1pRyXH3
+	 OhNZBeSI5pEAlQBuTWezEUKAek55B1bIzRi36tcA1nVA+ovLL0U8sAyijUsunHPDrVN8R
+	 YkCGA5Pa6qkbF7S8LKLnVXw+5qaAzkTSuOkBIUdxOw3mg4gOPrZC44Q4Y5JFFg8y8sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N8eMZr+v;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB564606A31E;
-	Mon, 23 Nov 2026 07:55:32 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N8eMZr+v
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E3EA1F000CF;
-	Mon, 23 Nov 2026 07:55:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795420532;
-	bh=Js4FoDVmwbZeydt2g600qtY74Tqckgc0nauAzvTfVnU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=N8eMZr+vGUKK+O4llMNJft5RXVIvmIut2pAhL0QQLTa46intdJWMfEh2Xw1EFDFh/
-	 NLhVl9XdCRrMV1jK8r/+h0YM6paE/vB7CdoX7V/CUkQ8fpjLGfwwzuoTkyfW7R5GYL
-	 lN6g78VQv7Ou8SrIPC4cJARUPaPjSXtJIyi7vctTmzwGMG5oS3q21hBwrmdOf0nr7V
-	 fdBdTBQtFY4BFNPFD+66RdQb/C8/G4dnAB8+bF91c4cZ6HwZFFAOoaxE0F4Q58tce4
-	 FNvjXLQdL/4141SP+Y2UTWAY/A6Z8w9znXyfCx/8PTKuEz2VZaAM69QLp0G93WI6fq
-	 qrNZ1+ZnAFpNA==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Vinod Koul <vkoul@kernel.org>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Charles Keepax <ckeepax@opensource.cirrus.com>,
-	HyeongJun An <sammiee5311@gmail.com>
-Subject: [PATCH v3 01/10] soundwire: bus: Hold bus_lock when looking up slave devices
-Date: Mon, 23 Nov 2026 07:54:22 +0000
-Message-ID: <20261123075522.405347-2-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261123075522.405347-1-lee@kernel.org>
-References: <20261123075522.405347-1-lee@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 038F0606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:55:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 038F0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4ea2c058e67so3293852b6e.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:55:41 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795420541; x=1796025341;
+        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=g1OJLAd7B+ngwjUpS8FrwuA0SCFmBnAon/YjAp5e5cs=;
+        b=mBokYRNNDxaBkYISBr1hz33K+te6Y9+jNqhAsK8wOdvZQy2ut85acQuP4kg/rF+giU
+         TVN486JUy3ue3DUmPS4X0H0fNILtvg98AClsNV54pC9lHiu7a+Zijh7trxjRqBmCVnCb
+         VIjhkObY4Wq8o2EyxTgqzQ5eojc9E2jDXhdotuVTblcBOfKWZNjp4rLkGPwfKh37zspM
+         1Mwl4jR8AIf0VkBJFRCiI2a+v2xrBWSUhLda6UDRhdU6JAef24ULZsD1rg0jwWh7Ml1Q
+         Ct7b9Qf6G/iP5PbTxBpAhSt39pch/GJiVEKxFp1Ezac3ddlmT9EFvfnOpGQxmXogl8/G
+         D1QA==
+X-Forwarded-Encrypted: i=1; AL+hErEP1HhRGxqPMTunkFMr2GKg1LXsDJn/4AEvuyCTzLKhIhhJ+SdcokUSo1OX4M38Et5W22ArU4vUUNYRQ+Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++sWg3/Xiw7jUIYaoXOXcCLgLiubrL1VbGFiKFy2Qf1152PUvS
+	fj7lYLVrdFdf9IoNqR3kecAfWvEWVXFJWshocJOQRWLYXz/mZNBPyujdg7x+me+l8jEWCFXziFc
+	yvW3+9r08zF06LKJfPlbOILVs1/wJ0u4LbNfnk4R/7Ddn/2EgAWx+dHmINpQ=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,72 +58,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6808:5147:b0:539:ad19:d0af with SMTP id
+ 5614622812f47-57a09c11044mr11176189b6e.11.1795420541066; Sun, 22 Nov 2026
+ 23:55:41 -0800 (PST)
+Date: Sun, 22 Nov 2026 23:55:41 -0800
+In-Reply-To: <14e3c0f8a63e4e094a8f3d1a5d145eab@dev.tdt.de>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b03f17d.44b41460.34b83f.0027.GAE@google.com>
+Subject: Re: [syzbot] [x25?] inconsistent lock state in x25_kill_by_neigh (2)
+From: syzbot <syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com>
+To: ms@dev.tdt.de
+Cc: ms@dev.tdt.de, syzkaller-bugs@googlegroups.com, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-sdw_get_slave() iterates over bus->slaves and requires bus->bus_lock to
-be held by the caller.  However, sdw_handle_slave_status() and
-sdw_clear_slave_status() drop bus->bus_lock immediately before calling
-sdw_get_slave().  If a concurrent slave teardown unlinks the node via
-list_del_init() and frees the slave while bus->bus_lock is dropped,
-sdw_get_slave() can spin forever on the self-referential list entry or
-dereference freed memory.
+> #syz test: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git 
 
-Keep bus->bus_lock held across the sdw_get_slave() lookup in
-sdw_handle_slave_status() and sdw_clear_slave_status().
+Patch testing via #syz test is temporarily disabled.
+See https://github.com/google/syzkaller/issues/8122 for details.
 
-Closes: https://sashiko.dev/#/bug/linux-b0e65a93-dfd4-4e3d-a96c-8f13ba0aafd2
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
-Tested-by: Charles Keepax <ckeepax@opensource.cirrus.com>
-Tested-by: HyeongJun An <sammiee5311@gmail.com>
-Signed-off-by: Lee Jones <lee@kernel.org>
----
-
-v2 => v3:
- - Collect Reviewed-by and Tested-by tags (Charles, HyeongJun)
-
-v1 => v2:
- - Drop Fixes and Stable tags
-
- drivers/soundwire/bus.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/soundwire/bus.c b/drivers/soundwire/bus.c
-index aeaae5a57c89..15c66effbf4f 100644
---- a/drivers/soundwire/bus.c
-+++ b/drivers/soundwire/bus.c
-@@ -1907,9 +1907,9 @@ int sdw_handle_slave_status(struct sdw_bus *bus,
- 			mutex_unlock(&bus->bus_lock);
- 			continue;
- 		}
--		mutex_unlock(&bus->bus_lock);
- 
- 		slave = sdw_get_slave(bus, i);
-+		mutex_unlock(&bus->bus_lock);
- 		if (!slave)
- 			continue;
- 
-@@ -1954,9 +1954,9 @@ int sdw_handle_slave_status(struct sdw_bus *bus,
- 			mutex_unlock(&bus->bus_lock);
- 			continue;
- 		}
--		mutex_unlock(&bus->bus_lock);
- 
- 		slave = sdw_get_slave(bus, i);
-+		mutex_unlock(&bus->bus_lock);
- 		if (!slave)
- 			continue;
- 
-@@ -2052,9 +2052,9 @@ void sdw_clear_slave_status(struct sdw_bus *bus, u32 request)
- 			mutex_unlock(&bus->bus_lock);
- 			continue;
- 		}
--		mutex_unlock(&bus->bus_lock);
- 
- 		slave = sdw_get_slave(bus, i);
-+		mutex_unlock(&bus->bus_lock);
- 		if (!slave)
- 			continue;
- 
--- 
-2.56.1.750.gf70dc682cf-goog
-
+> main
