@@ -1,94 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424069;
-	b=mlSoml98CJKKLITvlmqTbAHkxkHlGC8DhpW0OYGgGXsmGqaNdxp2t0+TOGaI8znHfZdb
-	 nrMipd2+LDQSuyOrD+VCWoqpqB50K7m9xEprvtCUs34Tz0t2KYUpT56HX3zGTJMPgIsz3
-	 axL4UW9DLA5eHaQWhWs+LdZPYG2JnscB8UEvQvIMJpd8gR4097KmqyeLdzfCl+8zgz8PO
-	 VoM7T+UP+2hFya8nk3rGbhJTCPZ1YBl0L2CsdTBhzYfeNiGNp2iy7SS5Bn8PvLsLLrb+n
-	 0KNqsK4FjNS6BMUgfwsN7hypvIDpMWzwQFIaj4dYCtmxJS2l3xiRCpoTCpSIMiRxchw==
+	t=1795424070;
+	b=HR1A2Lyxi/dApAzdAFL/AsHe6cxIYvcBFMyMdiE82Cxyv6A1J5V/VTPlorDaNOE5NMmM
+	 QVos9yQigQihk8el8oBNdzl3c8nRB82StKsNxVhO48zvjOuL2prruXdT8Z9fWgUek8KMo
+	 hVZkbZv6JNDOun3m9i2QvKoPOmCovzLvWYoMrzUCp+5DNDpIJ47NTaXrXhgAen//WefRB
+	 kbCzgy5267adnNCw8DQ3TQ64P3/uxsoo1tlzDxFVvCLuNLg/0PrRdBVfofWYFUSYYNIWr
+	 5Utl/ZDIotCleDmngDP9VTMFxX2LiP6HDZAem0UrQzvuj6mWhA0FQ+YV4kS5uOd5feA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424069;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vnRwo/ZsMPpWSsncariS2yc/xAKn3Nxe+Kux6J8DtAg=;
-	b=xioKCbAmhOp8ur8QSdJMSSX2tufuXW9iDiiS4fihcYQFfO0HLgjnZ9mq8iPYDHBGjL24
-	 xrvGrfq1AqVDZZAUE4aprvR1Ne6hci5K5J2RpYI1rIvXXivAidfhhAVkSQoP02KLcVr49
-	 CxXDq5QP/oLnN2T6pD2SKxpPsDwk9Ixy7/XyeSMlf0cnZm8FmiQ4y98SLs02w+nOeJxDS
-	 SmtPIrXORMs3Ag8ZsCbb0xPyxdA1aAuxFRbpntjOKZx1iZz/tMdzKmqMW7KSaSmGQur+E
-	 ElqvZsZc39nxeObnFH17FcKtiw+nUIEVSnD2duAAE6hIhFHgbg+HIzcm97pTcXMsOKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424070;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=3l2+EYB5IAhRg1PJ4Js44zono8mAKRvWJrn0noFOBos=;
+	b=IWJruHu6TUDk42+x354TGp8LkgR8r8jWH5TuEzgNkd7D4PIlh5vI+41n/5Exdz45jZdw
+	 1I7i5wvsGpjtgNn5Is7/3Vpt33NRAq/Xy8pMubcuSfX9wgb3JsrRhECKfh+iYi2ZS61EO
+	 10niWt/N4FEilj3rE9bEUqqQp05eMh5A+CBwfT8o7CHGTmuFI9YFVOIsIWYyyrwf/G0sA
+	 fOQOBi+bnwPzzHUeP8fS9NJ7k8eQzK5NCRHc/yEVXbTH9l1tyP9US6lP1VMIdzsD/LseE
+	 mn/3vPHsAxSMIkX595SCC6WxLENFxDbOdYiJd2jFvGEp6MzKGgrlO7aU+hLyq4I6BUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dkd5DuMj;
-	arc=none smtp.remote-ip=74.125.228.138
-Received: from mail-ej2-f10.google.com (mail-ej2-f10.google.com [74.125.228.138])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50D98606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:54:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50D98606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="b8CCq/Qj";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C38DA606A327;
+	Mon, 23 Nov 2026 08:54:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C38DA606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dkd5DuMj
-Received: by mail-ej2-f10.google.com with SMTP id a640c23a62f3a-c5093617c7aso123762566b.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:54:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795424068; x=1796028868; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vnRwo/ZsMPpWSsncariS2yc/xAKn3Nxe+Kux6J8DtAg=;
-        b=dkd5DuMjnT1Zg0XpG6+AvbHgqKji7n8v+2tMSLraDoy9z9u7GIDQ5GX+/LUkq1svfS
-         zoVj4VWJRHLseKMmjRBn3rybbwpcEeBT62LGYFtJ8U/Q3dFbxSrt45GBzgPp/pWz92Da
-         sSp6pvMANDwhvmi3V8aNC3UWrQbQMPUH1Yx6j5nnjZJAgbS9CT9Xi/d/wdNU9prxwanZ
-         orwNq3KnNbdBV/7yJrETQbJub+HCBeLukgUMDuJET/B96xRQtwgB8RR9xSBWpPyL22I8
-         KaFfuFcuNtXYsxTIwbGNtPgFF7rrqH5kJOWNyReKT1e7nr5trS6Y1ebcZB7IT4BHge/K
-         UEMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795424068; x=1796028868;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vnRwo/ZsMPpWSsncariS2yc/xAKn3Nxe+Kux6J8DtAg=;
-        b=SOdO/hChg5QcnD4rLbx41OWA0Gneu4x4aLlphVb0VcO+KAzrOyyUECSqwE3TXQDIhv
-         xT9bZj3qn2xvZsjI2XY7MwUN2q3WS9LaCAy4ZfRd2uY97IW7kysFULuaAR1u5z9TsPcI
-         cKIVXxhoZ2L/8VevjJN+lDoh4uze6uSGlCXVz2HEqzg760lsQDuTB84bteB/F8Fe7fmZ
-         vdp0ffLlYR4W32xFbmCwuuk0UkZyS+9DYXo4eRYverExGv7CNJkQusPItmNyq/DW3p+t
-         n+9eMR414zw6ro8gL7bDBttMASXHe1lqngt5IyLwfxLriCOf8TTz69kxn7wjE48LaHzv
-         ShZA==
-X-Forwarded-Encrypted: i=1; AL+hErELvw0xJpE46fQrXdMKTiBR7uJka7eOprjuzWhm8A7edpxkSR/KBZ+JTXsUAgsdiNhaMw+AJ1RKrbf7Iyg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CXstQb91ReHyvVdLyq9FwVpPsqaqBDU9YsXhWDrVCgLDegp5z
-	7jiM818NYqq/WJplgZiFAPsbryffCfc7iLP3+hQFWtVzdH4YHcpZG2Eh
-X-Gm-Gg: AZFdTZfo9NXFEirXFPHJoAn1RCApSQpbEd43Rw03jwR2xC972D9ZOYEhzbHgixve5kv
-	nkIER78KGQaRyOSHVdNGxpUD/zsAEbQGSsQa/xHz1VrOBAZaW0cdmAi23uhG/J/stmWUNHcwZs3
-	cd1iJPsdITDcmczYlcyNuDy3JayPHXedLRSaxfdZeetgKn3953gSbLA7O/4hzsTc21nCp8JPEpO
-	FO/vEUoLxJ+AWf8e+PPsWdc8xHpPmIirKRDOm9OWb6tjvD6Lot0VhHz3/7idNMFE9mWd3lm8RVe
-	QoAMIY8oF8A1RCxvlE37mDc4g36fqcFNBxKjvsH4f4ySoBpKAV2bBkRcZWeWwr8ZMDRLTF8VOmR
-	fkJt9IhzEMF3dVnkWP8mqDPa/QV7ok2r/yIW03dLNKG4vXSQHwLNemxhAaGjiAPheUhr+ge8NTi
-	PMi2iU2EuQtI91SVtk4qfqT3MuZIEVnunz0gBUQWe7IntXeS1zxnJIlmjkbf+c3rHPxonON6vL+
-	ciVBwUqKkC1i6sCnbMwWQfEtYj6mhNx03GBeEl6pDmvfs+tm7RU5bmVGv59ZIiyiDmOHDhgF4pK
-	7VbZM8TwQY7fI2gP9bkESyRMU81Lw+EVYzXIgXOPQ+dj45BecCAdN7+4exnRHb5Rwdj+v8tycOF
-	d2g90zXHh4aTFQo/cVWblDFSZPx72Cw9zcVAydItDGXT/zZ4jXCIWAVs=
-X-Received: by 2002:a17:907:da0c:b0:c50:5545:b66f with SMTP id a640c23a62f3a-c513a803353mr781995666b.23.1795424067352;
-        Mon, 23 Nov 2026 00:54:27 -0800 (PST)
-Received: from thi-server.fritz.box (dslb-092-076-092-047.092.076.pools.vodafone-ip.de. [92.76.92.47])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdf022sm377880166b.67.2026.11.23.00.54.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 00:54:26 -0800 (PST)
-From: Thilo Zirnstein <thi.zirnstein@gmail.com>
-To: michal.simek@amd.com,
-	andi.shyti@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Thilo Zirnstein <thi.zirnstein@gmail.com>
-Subject: [PATCH v5 0/2] i2c: i2c-xiic: fix clearing of bnb irq and waiting/ clearing while atomic
-Date: Mon, 23 Nov 2026 09:53:50 +0100
-Message-ID: <20261123085351.3415122-2-thi.zirnstein@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=b8CCq/Qj
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A96BB1476;
+	Mon, 23 Nov 2026 00:54:20 -0800 (PST)
+Received: from [10.57.91.245] (unknown [10.57.91.245])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5EDE83F882;
+	Mon, 23 Nov 2026 00:54:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795424063; bh=ykI/c43VekHLh4s+DX69UMu73TIR/+eRfarVxHM0qgA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b8CCq/QjFlgDBE/HQ51/le1Tvx6bIj3ok6U20/6tBMHepTzBZ0epejSL7lohPcGE5
+	 TccmXxaTX1nOgvhWwz/yDQDmKLfY9hIOwx+ymd8SYuvACzj45XaT4fYDvGJ38LAJvQ
+	 3Ws6uekPCDvBC0r165mQR+Op1SCVMfoJdRpjUC4I=
+Message-ID: <d7dae0fd-a4bd-404b-954e-99236dfca560@arm.com>
+Date: Mon, 23 Nov 2026 08:54:11 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,67 +53,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] mm: kasan: skip KASAN for GFP_HIGHUSER
+To: Jeff Xu <jeffxu@chromium.org>, Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett"
+ <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, Marco Elver
+ <elver@google.com>, Boris Brezillon <boris.brezillon@collabora.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Chia-I Wu <olvaffe@gmail.com>,
+ Dev Jain <dev.jain@arm.com>, Ian Rickards <ian.rickards@arm.com>,
+ Jann Horn <jannh@google.com>, Jeff Vander Stoep <jeffv@google.com>,
+ Jeff Xu <jeffxu@google.com>, Kees Cook <kees@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Peter Collingbourne <peter@pcc.me.uk>,
+ =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
+ Tomasz Figa <tfiga@chromium.org>, Will Deacon <will@kernel.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Miklos Szeredi <miklos@szeredi.hu>, Baoquan He <baoquan.he@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Allison Henderson
+ <achender@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ linux-mm@kvack.org, kasan-dev@googlegroups.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ fuse-devel@lists.linux.dev, kexec@lists.infradead.org,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ rds-devel@oss.oracle.com, linux-kernel@vger.kernel.org
+References: <20261123033111.2349160-1-jeffxu@chromium.org>
+ <20261123033111.2349160-2-jeffxu@chromium.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261123033111.2349160-2-jeffxu@chromium.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Dear all,
+On 23/11/2026 03:31, Jeff Xu wrote:
+> Move __GFP_SKIP_KASAN from GFP_HIGHUSER_MOVABLE to GFP_HIGHUSER so
+> non-movable userspace page allocations also skip KASAN tagging on
+> allocation and poisoning on free under CONFIG_KASAN_HW_TAGS.
+> 
+> GFP_HIGHUSER_MOVABLE already skips KASAN because user pages do not hold
+> kernel data structures and tagging every 16-byte MTE granule on
+> allocation and free is expensive. GFP_HIGHUSER has the same contract and
+> differs only in being non-movable, used mainly by DMA-BUF, DRM/GPU
+> buffers, and non-movable HugeTLB.
+> 
+> On an Armv9.2-A device (6.12 kernel, kasan.mode=sync), this reduces
+> 32 MB /dev/dma_heap/system alloc+free latency by ~80% (~59% alloc, ~98%
+> close) and improves an app-loading OpenGL benchmark by 15-23%.
+> 
+> Callers that access GFP_HIGHUSER pages through kmap_local_page() or
+> page_address() (such as ramfs, pipe/FUSE buffers, kexec, and RDS) lose
+> HW_TAGS checking on those pages. None of them store kernel structs
+> there; this matches the trade-off already made for GFP_HIGHUSER_MOVABLE.
+> Generic and SW_TAGS KASAN are unaffected.
+> 
+> Signed-off-by: Jeff Xu <jeffxu@chromium.org>
 
-This patch-series fixes the clearing routine for the bus not busy (bnb) irq
-plus the waiting and clearing routines while in atomic context.
+LGTM; I agree with your assessment of the risk.
 
-The bnb is used to indicate that the current transfer is done.
-A high level view of the software flow for tx:
+We have seen poisoning pages at free-time being a performance bottleneck because
+the tags are kept inline with data in the cache, and setting the tags therefore
+causes hot data to be evicted to bring in the cold data just to set the tags. We
+had been experimenting with the concept of "elide poison on free" for "in-kernel
+MTE enabled in production" use cases to solve this. But the security analysis is
+a bit complex.
 
-* init i2c controller
-* prepare all registers ( fill fifo, enable irqs, ... )
-* start i2c txfer
-* clear and enable bnb
-* wait for completion
-* ( serve interrupts )
-* ( bnb interrupt ): complete completion
+I anticipate that your change is probably solving most of the same performance
+cost in a much more straightforward manner. I'm guessing these DMA/DRM/GPU
+buffers are the largest in-kernel memory allocators for the Android app start
+use case.
 
-The datasheet ( pg090-axi-iic, Interrupt-Status-Register ISR)
-states that the bnb bit can only be cleared if
-the bus busy bit in the status register is set.
-So the iic controller must have recognized that their is some activity
-on the bus. ( Start condition )
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Currently the bnb bit is cleared without checking or waiting for this
-condition. This can lead to spurious bnb interrupts.
-
-Andi suggested to use an atomic-save function to wait for bnb.
-This was applied for other waiting/ clearing functions, too.
-
-Kind regards,
-
-Thilo Zirnstein
----
-
-Changes in v5
-- Fix timeout for polling bnb bit, set to 4us
-- Link to RESEND v4: https://lore.kernel.org/all/20261118101147.3350796-1-thi.zirnstein@gmail.com/
-
-RESEND v4
-- Add Reviewed-by Tag
-
-Changes in v4
-- Fix timeout argument of polling in atomic context
-
-Changes in v3
-- Use atomic-save functions for waiting and clearing.
-- Fix intendation
-- Unintentional changes removed
-
-Changes in v2:
-- Unintentional changes removed.
----
-
-Thilo Zirnstein (2):
-  i2c: i2c-xiic: fix clearing of bnb irq
-  i2c: i2c-xiic: fix waiting/clearing while atomic
-
- drivers/i2c/busses/i2c-xiic.c | 70 ++++++++++++++++++++++++++++-------
- 1 file changed, 57 insertions(+), 13 deletions(-)
-
---
-2.43.0
+> ---
+>  include/linux/gfp_types.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+> index c1331bf0b239..bb54c7abfb02 100644
+> --- a/include/linux/gfp_types.h
+> +++ b/include/linux/gfp_types.h
+> @@ -376,8 +376,8 @@ enum {
+>  #define GFP_USER	(__GFP_RECLAIM | __GFP_IO | __GFP_FS | __GFP_HARDWALL)
+>  #define GFP_DMA		__GFP_DMA
+>  #define GFP_DMA32	__GFP_DMA32
+> -#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM)
+> -#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE | __GFP_SKIP_KASAN)
+> +#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM | __GFP_SKIP_KASAN)
+> +#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE)
+>  #define GFP_TRANSHUGE_LIGHT	((GFP_HIGHUSER_MOVABLE | __GFP_COMP | \
+>  			 __GFP_NOMEMALLOC | __GFP_NOWARN) & ~__GFP_RECLAIM)
+>  #define GFP_TRANSHUGE	(GFP_TRANSHUGE_LIGHT | __GFP_DIRECT_RECLAIM)
+> 
+> base-commit: d12eccbcb79a4fa35c3aa588eb79056af62eb859
 
