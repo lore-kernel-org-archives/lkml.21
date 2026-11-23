@@ -1,89 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795466057;
-	b=xXPbs84s1zE3iZzXhYJFOxkfddpSNYXEenW3Y2+pUvzwo95uy1/M4F4wD///teHBIfeg
-	 jY/tUtW68KQ/J+qtW2RTjLPjhlyTHmMt3wOdLKD7JtMPCuKTHuTLCFbwlwDUwH72crT4t
-	 BxyYclDhl+d8P0JtKOWxkxHXyg5ujZINKh9ShhvOiTZ0UcIXT2or2fE/922iup1cAw8Ly
-	 Dj1+kW26m5H7nmKoTNlmDUP380eX328m4QMrPHnJuQsCFeiu4SrNS7BrXTD7IRUgAUtO2
-	 8IZbwy50IoIPyAWsB/uWNFjSOsWUXB0NgSdlDeCPaxig1WLEIY7xNAdna8sglgSj+HA==
+	t=1795466077;
+	b=ue+liEgF6Jcijvd6dHoWa4UEEO0yoDdz/T8ewg/LiSthriufYR1AvtWC6n/bm9AH7ZH9
+	 dx+HrP6LgjMhii2TWuxkWGW3GfSNmOhx0SBIz9MJ+YKZjVY8rsIbKS4ZUPOeQtH8+/ZI+
+	 otDbTIbfsRu3a8ITRpPO4Q919ZVFakUUSRrFFLP8KEQ0MTxc5aYc09LigVkDH2VkE0m3A
+	 allD/xW7WwbZikNru8w/XyBvAxmPMpNdUi+PY0/7ZCx/WSsjYCAOM5CJSRBPctNNfzWs+
+	 b2LqQKf6b8sqre2ClRae+QoCRehOsTlDpCVZdIIxgNjkEMsFU8RwsjdFxXj1Y37NAwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795466057;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=hPT/ypmWmLMxLtJbyhU72b/6yrEAVjSw6rFwMDxvsHg=;
-	b=hZO970FlXxIEMFhndAdGqNeHaEVWTcQszvQKOLRTthhltSNja7/g9vRgeCgDIbJVcsUc
-	 yEMeOXRhEdabR2GRECWH/Wsfo2PxA7iEvAzY0vjm0TIpzHfaaOjq2hmn4FgWxaLxh/8QF
-	 Zpi37PTTP16uWySgfXWjkZxOZpAMPVDPocWTLzzIpjZII8YT74c3c/eAx2wkSvq4tNQS1
-	 ClJY5vizf+cjvgW6Sp+0xjmxwPcJ5pBW/nbqnodUaEItDK/bxYdnt2kJQ/rdZC9+5oAGh
-	 EAWXUWI059Tszet3X1pcDXpOCHYGe8a/3x40IkR9u4fErqAZRthHZ49nPvHb+Q2SvYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795466077;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=6D1L1HWYJhyUpOeTtQIUZeke2hr8L4TI6fulnbgEFlU=;
+	b=3AIcEKjeh7mZZBrDsTKRMiZMuImok4y1Wwhg9+Ct+Uy1SOcffBOdKf69WQkSJpE8Fv0n
+	 PyMt+M/vf6a+dETCMBrzZPKiIMqA7XsSFmMu+p6Gye8Fe9KscqEtAj2dWQtITCetnU1Lj
+	 fY9Ud3nKkuORXXUBsA+2G0x3V4EgPtiGlGPuBp6SVFMbeLKwa2ANxT04VTaMrDtCTowNO
+	 f3dG21gofjPonWlv4TvXKnEG6zqS4DrkWguy6t/ysJrqccOBZUKP1S45sMg32I6mDr2jf
+	 ccM+bESd50b3N6YzRD0MANxzFiS3RV06XQKEQKH3MjSW9/+0QPopenul+UTembPXQDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+	dmarc=none header.from=jakejoyner.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VNYlOwFm;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ACBC60A262D
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:34:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ACBC60A262D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D18F6606A32C
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:34:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D18F6606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jakejoyner.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VNYlOwFm
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so37040545e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:34:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795466055; x=1796070855; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hPT/ypmWmLMxLtJbyhU72b/6yrEAVjSw6rFwMDxvsHg=;
-        b=VNYlOwFmrm+wLhEGoOMDJnlhb33JACLnJI2PJY6WoDx/+lw/0L8iwubY+Fe1T5seGq
-         uZOpHDJ8XNVSvY0CRcJTzls5ESPF9EJEteQRXiQCQXzG5DSRDqmPkOfoqugitUOKR8ti
-         h88EGkLgbTcUZz5hMLVudh2rLEHCHdcx2s0zsG6oPyJk/ijyqvJBXe0CJGxMIoIKJsXv
-         ucw/jA1j/R0pu+1/mT5GuEZdh23/cy6/Hp8C50+7ByE2ZlF3+vtEl340GDeE5NaXFKfS
-         wCVXj4rqIfT7XGkND+GsqDdX1A8i8BuGw5pjL+cury/90Nswk4eah2cqRYyqMffqhhpi
-         mh+g==
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-35159e0092aso239400eec.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:34:36 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795466055; x=1796070855;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hPT/ypmWmLMxLtJbyhU72b/6yrEAVjSw6rFwMDxvsHg=;
-        b=F0O2N6eMWH5NjKu4UJkhqgPeBhIWPlpuuCI2HAzijElhztdcJTd+EfBdCb4pUacVjc
-         U0pIkkb4cq0eWjrbEATXdBT0eqXHtPEjCGjWwxp4Gsiy/LoEXjUI/QsFUF+gSzowbS3q
-         LDqGFPNTR2kzeHyPLUKeYFcEU2ClnFL6zKf9Sd7hj/OIfGQ2wCGs0kCSuGjdI4HlpyXn
-         8hTUU7k5hOKtBU3pvTM9KBxUJ5bNUIabx1KDjzfge0oMM6pUqwmOhgdDoec0LTGG2V2A
-         KuHSe2jWwWS1ZFv2oH8MV8U4H56VfFNiz1FIVdvOODJilR6S3dDjrQbTXrHUmwVWkp3K
-         X6jw==
-X-Forwarded-Encrypted: i=1; AL+hErGYTgIZFpA/8IZt8mXdUD0sTgcEdGEiyDzJ4HtDXzG950dzFhv5gvfaboR/9DoXlynkSMAUEls2IPu9P6c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+V3dg4TRdEaAmubrRUJIDJxum84yUb9JXB2BQOjRs98AM9aVjx
-	jsdJhxXEXGHUGi4OUYxXVd2gYY97AmkPH5hKAhhMNY6xX1dQxCWv/P52
-X-Gm-Gg: AZFdTZc5geEEQLJAwaS3Y9xiuy5PmjQo+MuBTEK0Yg7KV2zunYHhv3T7QLvqrdnD4dG
-	VFrWBEvm/MkdhwDvW7FUoW8HxpW1bEFLIg73eDI0fyPFd/UFUmIunXtC3wG/wIRStwyIlQPMzZj
-	3F3bHeuuOwQjLbEG8nOfXB9xQYHdnCMj1FniHUCu2TUhgkTKtQdQvjaGp9HplZHoWeQ5X+JWVhW
-	jOwvJ03zcTyqGrL0yNw8TUKgwAFDIjaa48M6icUPaLXZIDXaPqHvyY6KZj3PdoJ691XwiFhMHti
-	7Qq+HYOXcZTGJsn5H00Oz9dvcgIRGNGn761PsjhVk+o0cDYF0TICC++72Cu0sB3SSLs5vRpkZNl
-	o3fw2Z3ZmFAnWEQDwcLxE8eykh9ijOgV9L/UBypnHPQWRTA6d6ky0qfJYacNiQiS5hd7n7NBVze
-	P0iL34oumWYQ7boKqVZ0pCgp5th3nLVshIaEmSQurZJvZ/jobntQa9DPny51/ujQ3U6a5VSy6sd
-	5p1xLTmN5K3Detsg/UudyMWbtZ3nf2AiKO954roPvFejijRXOxxd7zbarzVg2iqT8CBNsWjoW7p
-	l2wpAGisPjYgw+ZjbJ8fxSsIWGPBlg==
-X-Received: by 2002:a05:600c:4e0b:b0:49f:e772:6ddf with SMTP id 5b1f17b1804b1-4bb8881ae90mr271461095e9.32.1795466055465;
-        Mon, 23 Nov 2026 12:34:15 -0800 (PST)
-Received: from unknown.local ([151.34.53.154])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm515946805e9.13.2026.11.23.12.34.14
+        d=1e100.net; s=20260707; t=1795466076; x=1796070876;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6D1L1HWYJhyUpOeTtQIUZeke2hr8L4TI6fulnbgEFlU=;
+        b=mhTdV38DawXn1y4TDPBqqqVksm+FwoY+ClTKdkocn9Wmu6rrme947WtzfX8Ruhl3VD
+         yMXeMEwx+nfDGcvJ3+14/PFeGgt7fVN/cA1NdLYZMMLNPWbrmU3xz3eEIz7dOYHvWI6b
+         yGT4HobuAMNQd7edUYaviHNNM1avHSVI9nPFuSCFFAh35gRfBxQswx4Sd7UoQ456pth7
+         O3edtWFGCHyswJ+sGUqZirSp45hFbu6fk0Q2wo3BQCZQU6yuFm+cNMLJ0to0YaaGedr7
+         ALTtBtdJYNJaHtNDiC+ok+wuT1HKdCuEokweutljPByqRevmUfbjxxB+eLmQ8UqaYeoh
+         wgMA==
+X-Forwarded-Encrypted: i=1; AL+hErEK63Gtt0orkQNB44L8YzSJbnPFWXnsMfg11Y2sWm3UczFgn/D+ABdJLIJ/mRbCFpDtzvuHOfctZ2BtYgE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/RWl7n8qiTguWivVaoee8JxebuSl61dJeKbRkopDK3hvPLhDOa
+	bdhGtmP4SOPJ6VWAQbhDGlI5i25o8O4CljxFZ4ai+FJ/N+SM1gpatXFA
+X-Gm-Gg: AZFdTZdF3iFjXEXszKuP7P96RPRXiUsaCUaZM2vIurrWxbt2nLVwZkzsCQ3ZmvkGR8E
+	CSQ+eGUrGyTv/oQn49MJ055aoYbmctZHg5NJCWYVVgxh5dPJJyk3tJRm3Pl4eF6KWLl5GJu9284
+	udPvxLXT3PSD4nly5i+jyWzR8OTNUC+AHHK8IbWU+O8oFFfuVBE08aHkmK6U7ygNskWU39Rsk+u
+	ScahKK8NPXZZKTk4mLLF2NnokEIxrR2cT9DZ9LyHIlMv92nStlCjNo29J1jWvidNowvxyCagOOX
+	R7r6WQLgEGoxZXtRUeSXJgXFaI1hrFyNOWTrpvZQahe6C/4zbPUFjDGvFQi7KF5jeFOrGY9Wmop
+	/Pb6dDkxwf5S1plCu+v//gFMOlDtl+cK9YEx/eqRnO23eOghnV0ulkexG8+vWzr5MM9UwOt8gtO
+	ZnD7LLJXQ+7m1RafhJ+PqMr67QqM1dmdk8GbKZcncbPDgXrEGFeJpL0+wLEXfV4xxaISUZT/x7m
+	YyQBqctzusMcLcFe1DHLo3HMyC0p8SrzdhZX194RtI5M6aA9d0Dl6Q4nxj2B/UggmQtl3zOEWJK
+	X6YB7dIL2C9CQzl8OygV7ZD8X9oSanT3x55Rvu48vjSY4Tt0KRYGKSO7yw==
+X-Received: by 2002:a05:7301:2624:b0:385:1a45:47b3 with SMTP id 5a478bee46e88-3856e24682amr20580204eec.1.1795466075720;
+        Mon, 23 Nov 2026 12:34:35 -0800 (PST)
+Received: from localhost ([47.156.153.166])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567ea2cc5sm36001274eec.29.2026.11.23.12.34.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 12:34:15 -0800 (PST)
-From: Gianluca Boiano <morf3089@gmail.com>
-Date: Mon, 23 Nov 2026 21:33:57 +0100
-Subject: [PATCH 5/5] media: ccs: Apply rule-based manufacturer register
- blocks at stream start
+        Mon, 23 Nov 2026 12:34:35 -0800 (PST)
+From: Jake Joyner <jake@jakejoyner.com>
+To: Alasdair Kergon <agk@redhat.com>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Benjamin Marzinski <bmarzins@redhat.com>
+Cc: dm-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jake Joyner <jake@jakejoyner.com>,
+	syzbot+3f8f5b65af8de862dcec@syzkaller.appspotmail.com
+Subject: [PATCH] dm-verity: fix shift-out-of-bounds when computing hash level sizes
+Date: Mon, 23 Nov 2026 12:34:13 -0800
+Message-ID: <20261123203413.145298-1-jake@jakejoyner.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,137 +84,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-b4-ccs-imx376-v1-5-2b26850a6f11@gmail.com>
-References: <20261123-b4-ccs-imx376-v1-0-2b26850a6f11@gmail.com>
-In-Reply-To: <20261123-b4-ccs-imx376-v1-0-2b26850a6f11@gmail.com>
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, phone-devel@vger.kernel.org, 
- David Heidelberg <david@ixit.cz>, Gianluca Boiano <morf3089@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795466045; l=3499;
- i=morf3089@gmail.com; s=20240402; h=from:subject:message-id;
- bh=VfDCx66Bt9Q8ssDuqyaFOOZuxp5MaGCTsBGPv8t+RG8=;
- b=NAftwknVuWdeZhsZgh/6X5zyWUZbkl202qCbHJEL29BwWA0IUWx/7BgmqO5i80iqHzD4qKiJ6
- 6mHO0e+HqvVDk176PadruzQefMIA//D4e/+mM70fA0XvtZsNzGlkz6V
-X-Developer-Key: i=morf3089@gmail.com; a=ed25519;
- pk=HsGrEQ3ia8BGGGO8/nUM2K2UX9JKvRPV+nbrVDGrYhA=
+Content-Transfer-Encoding: 8bit
 
-The static data rule based blocks were parsed but never used. Before
-streaming, write the base manufacturer register set again (undoing any
-earlier rule) and then the manufacturer registers of each sensor and
-module rule whose if-rules all match the current register values, e.g.
-binning_mode, which is already written at that point. This lets one
-static file carry settings that depend on the readout mode.
+verity_ctr() computes the number of hash blocks at each level of the
+hash tree as
 
-Tested on a Xiaomi Mi A2 (Sony IMX376) with a static file whose base set
-is the 2x2 binned mode and whose rule on binning_mode 0 holds the full
-resolution deltas: both 2592x1940 and 5184x3880 stream correctly from the
-same file. Without the rule application full resolution output is corrupt.
+	s = (data_blocks + (1 << n) - 1) >> n
 
-Signed-off-by: Gianluca Boiano <morf3089@gmail.com>
+where n = (i + 1) * hash_per_block_bits, i.e. data_blocks / 2^n rounded
+up.
+
+The loop that counts the levels only stops once
+hash_per_block_bits * levels is 64 or more, so n can be 64 or larger for
+the top level. For example, with 1024-byte hash blocks and sha512,
+hash_per_block_bits is 4, and a large enough number of data blocks gives
+16 levels and n = 64. Shifting a 64-bit value by 64 or more is undefined
+behaviour, and UBSAN reports:
+
+  UBSAN: shift-out-of-bounds in drivers/md/dm-verity-target.c:1598:38
+  shift exponent 64 is too large for 64-bit type 'long long unsigned int'
+
+data_blocks is non-zero here (levels is 0 otherwise) and smaller than
+2^64, so data_blocks / 2^n rounded up is 1 whenever n >= 64. Use that
+value directly instead of shifting.
+
+With this change the syzbot reproducer no longer triggers the report on
+v7.4-rc4 in QEMU, and the table is still rejected with "Hash device is
+too small".
+
+Fixes: b1bf2de07271 ("dm verity: fix inability to use a few specific devices sizes")
+Reported-by: syzbot+3f8f5b65af8de862dcec@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=3f8f5b65af8de862dcec
+Signed-off-by: Jake Joyner <jake@jakejoyner.com>
 ---
- drivers/media/i2c/ccs/ccs-core.c | 72 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 72 insertions(+)
+The code change is mine. An AI assistant (Claude) helped me reproduce
+the syzbot report, reviewed the change and helped word this description.
 
-diff --git a/drivers/media/i2c/ccs/ccs-core.c b/drivers/media/i2c/ccs/ccs-core.c
-index acea07d906f3..db98590c1ed6 100644
---- a/drivers/media/i2c/ccs/ccs-core.c
-+++ b/drivers/media/i2c/ccs/ccs-core.c
-@@ -1620,6 +1620,72 @@ static int ccs_write_msr_regs(struct ccs_sensor *sensor)
- 				   sensor->mdata.num_module_manufacturer_regs);
- }
- 
-+static int ccs_rule_matches(struct ccs_sensor *sensor,
-+			    const struct ccs_rule *rule)
-+{
-+	for (unsigned int i = 0; i < rule->num_if_rules; i++) {
-+		const struct ccs_if_rule *if_rule = &rule->if_rules[i];
-+		u32 val;
-+		int rval;
-+
-+		rval = ccs_read_addr_8only(sensor, CCI_REG8(if_rule->addr),
-+					   &val);
-+		if (rval)
-+			return rval;
-+
-+		if ((val & if_rule->mask) != (if_rule->value & if_rule->mask))
-+			return 0;
-+	}
-+
-+	return 1;
-+}
-+
-+static int ccs_apply_rule_list(struct ccs_sensor *sensor,
-+			       const struct ccs_rule *rules, size_t num_rules)
-+{
-+	for (unsigned int i = 0; i < num_rules; i++) {
-+		int rval = ccs_rule_matches(sensor, &rules[i]);
-+
-+		if (rval < 0)
-+			return rval;
-+		if (!rval)
-+			continue;
-+
-+		rval = ccs_write_data_regs(sensor, rules[i].manufacturer_regs,
-+					   rules[i].num_manufacturer_regs);
-+		if (rval)
-+			return rval;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * Apply the manufacturer-specific registers of the matching rule based
-+ * blocks. The conditions refer to registers that are already set for this
-+ * stream (e.g. binning_mode). The base set is written first, undoing what a
-+ * previous stream's rules may have left in the sensor.
-+ */
-+static int ccs_apply_rules(struct ccs_sensor *sensor)
-+{
-+	int rval;
-+
-+	if (!sensor->sdata.num_sensor_rules && !sensor->mdata.num_module_rules)
-+		return 0;
-+
-+	rval = ccs_write_msr_regs(sensor);
-+	if (rval)
-+		return rval;
-+
-+	rval = ccs_apply_rule_list(sensor, sensor->sdata.sensor_rules,
-+				   sensor->sdata.num_sensor_rules);
-+	if (rval)
-+		return rval;
-+
-+	return ccs_apply_rule_list(sensor, sensor->mdata.module_rules,
-+				   sensor->mdata.num_module_rules);
-+}
-+
- static int ccs_update_phy_ctrl(struct ccs_sensor *sensor)
- {
- 	struct i2c_client *client = v4l2_get_subdevdata(&sensor->src->sd);
-@@ -1993,6 +2059,12 @@ static int ccs_enable_streams(struct v4l2_subdev *subdev,
- 			goto err_pm_put;
- 	}
- 
-+	rval = ccs_apply_rules(sensor);
-+	if (rval) {
-+		dev_err(&client->dev, "applying rules failed (%d)\n", rval);
-+		goto err_pm_put;
-+	}
-+
- 	rval = ccs_call_quirk(sensor, pre_streamon);
- 	if (rval) {
- 		dev_err(&client->dev, "pre_streamon quirks failed\n");
+ drivers/md/dm-verity-target.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/md/dm-verity-target.c b/drivers/md/dm-verity-target.c
+index 306ed1f6c118..78fe3c8f23b4 100644
+--- a/drivers/md/dm-verity-target.c
++++ b/drivers/md/dm-verity-target.c
+@@ -1593,10 +1593,13 @@ static int verity_ctr(struct dm_target *ti, unsigned int argc, char **argv)
+ 	hash_position = v->hash_start;
+ 	for (i = v->levels - 1; i >= 0; i--) {
+ 		sector_t s;
++		unsigned int shift = (i + 1) * v->hash_per_block_bits;
+ 
+ 		v->hash_level_block[i] = hash_position;
+-		s = (v->data_blocks + ((sector_t)1 << ((i + 1) * v->hash_per_block_bits)) - 1)
+-					>> ((i + 1) * v->hash_per_block_bits);
++		if (shift >= 64)
++			s = 1;
++		else
++			s = (v->data_blocks + ((sector_t)1 << shift) - 1) >> shift;
+ 		if (hash_position + s < hash_position) {
+ 			ti->error = "Hash device offset overflow";
+ 			r = -E2BIG;
 -- 
-2.56.1
+2.56.0
 
