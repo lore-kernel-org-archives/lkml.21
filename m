@@ -1,58 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795453720;
-	b=EKMIoynehm7F+TohzlposUiWOhzgPWDqj298/ac0Zjg7q/OOWXIkaV3ddcgz8cpSnFSl
-	 4PoTUiZaCi0EIUawVabRtEQaSyrK4cUwp9ieGAR8pki7zM/uOzaU8ad0xZAlmNXZVO4Ac
-	 mFuO0k35vSe26FRuUA0oBZXIH7zDJu/CSj0vPjrogwQJo1RSB16wai7a7vlu6MSECgq9i
-	 95Alhe8/LxqgxZ0YaJC0HUyS9620BK/2hO8EIQmwW4fqoWUiw1lBycpTGg2Tk/3L8jwar
-	 hAyWL5SSDMsBvatiC64ol35Wu7BwrLU38ayySN8tli1vvWE2gXaTCZnNC9/jdmt21kw==
+	t=1795453723;
+	b=plSS0SKGxSEaI+DPKwRxo1WK3EIi/URJi0eI23HcZ5+0WAgR4NNZaLtKBddZFWE1c387
+	 tghuf4uQbfZ2iYGv7H41218jmvG+F3ETt3Hjxr/gZ5v8JIpgHGTh81y1hH34hfiVcfMPy
+	 +4AUwi6HnYtrMjaLk6/m2dHShh7EMAOEN+ai5vAob1HL+hxtv0FMmz4o4lNG0QSqY9UFO
+	 QT09naIMuEDeoU+cJHUERTSOFG/7csMGhhhBcK0Q8TYlVK9PJl0TZTnHqJ6pM7t+6zDgt
+	 Ozuxq6Ac2+d5AByPtwJYV5IUzaGooJjoY0GKV/EJl20lF94nEHeDG3HpZEafKhGVQNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795453720;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=cL9vBT6ZuL5TOgkTGtoE9gmW4pTirVtFcsIhcarMIcI=;
-	b=ADSz37TASvM/vMNLzur+HpfqS6OOMrYLfCdV6AL1a90fGi894ljRKInKyyY2bdbrfHmn
-	 GSiiNzi9BZ6ayM4Yo68AnSDy3UItyxnJsPpY6eB4VNW25GWCK+oVlrRhcGNzxqe2pCFHS
-	 1uBpwm2fAi2brbYV5TRyRfM0da4R55yIfVODGDtI4hXgiILWvTpN/noCGc2eYFEfgHUa5
-	 NiAuhPynZc9QyQLoPdZB7yu13tKfRi4/+rVmQcA6dMYO7AsM7S4daC8I8NTvMhiREaUa/
-	 kjixjqc+QFMZmaAyJcieFMHoGW8L/HPFcGGqeXsg7z/ptrEcnml4n3mCsykKBZSAylw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795453723;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=5AZ3wJIcIDF0hin1xvRtzHH3mRRXga9TRyYlNiEm5a4=;
+	b=UWNk3f9gcXU4pe7LUVs2NwSoocsz6H6K5rQGYDEZfpLNSXoTkx/rDdbz8AgBKGtWApPq
+	 8fiPT3KyNaPG/7Fn2YxY4C4re2WWzQnc351yhS/DAAuUovzToMnSo+5GiaP1DpeXUak+M
+	 upnTTSq8nigNgwpy72GWYCO4DCkksqv41Vuz1GqCkIDMC13TLAsuWjtiQ4hk53OsR31/Y
+	 lwIhJAsvQlHmvQY8sHMOmnMMrItNHJiZKDaVigRL0gs+5Mb34xsVSbxGkrm7Glgx/60LG
+	 KxZ8QcqtaIwBT+xy5DimNYKoQnVhi+RVmstRCwak8EESDvsVV1fAP+Guk+VLirpJVEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=vYMFvyC5;
-	arc=none smtp.remote-ip=115.124.28.197
-Received: from out28-197.mail.aliyun.com (out28-197.mail.aliyun.com [115.124.28.197])
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b="ZkWH/yU0";
+	arc=none smtp.remote-ip=199.89.1.16
+Received: from 013.lax.mailroute.net (013.lax.mailroute.net [199.89.1.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E69D4606A331;
-	Mon, 23 Nov 2026 17:08:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E69D4606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98848606A6A2
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:08:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98848606A6A2
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=vYMFvyC5
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795453715; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=cL9vBT6ZuL5TOgkTGtoE9gmW4pTirVtFcsIhcarMIcI=;
-	b=vYMFvyC5LQhBHQUZaiwLpCvmy1jHM9/4Sp7fkrllinfgm+eO5/+Qo1yuMSY0rInP5SsCf9GTEMqRfpwdMwtfaENRSeoCl/uEFyOEhE/WhTJ76cXM+MwlYsvcVpvQ34X4jwSf0qSUm6/h2nY3//YIK/sECLTq0+JACsAS+V4fV+k=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.1320586|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0317077-0.000739525-0.967553;FP=6287656475449986165|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032065030;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=4;RT=4;SR=0;TI=SMTPD_---.k8X3lp5_1795453714;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8X3lp5_1795453714 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Tue, 24 Nov 2026 01:08:34 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] asm-generic: bitsperlong: Remove the disabled BITS_PER_LONG check
-Date: Tue, 24 Nov 2026 01:08:33 +0800
-Message-ID: <20261123170833.30158-1-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261123104512.58227-1-fangxy@xiaopeng.com>
-References: <20261123104512.58227-1-fangxy@xiaopeng.com>
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=ZkWH/yU0
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jYC8B0nlhzlpJ4Y;
+	Mon, 23 Nov 2026 17:08:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1795453720; x=1798045721; bh=5AZ3wJIcIDF0hin1xvRtzHH3
+	mRRXga9TRyYlNiEm5a4=; b=ZkWH/yU0wz1gMhn2rdL3BPv8sAH3GjyO5L23MMaf
+	9Sbd/hjZ3RnPWxIu3tjQLQcrQ7+uAPgUWV8JqIMLkp+BZQiSpDOHEeuXeJDKJkHy
+	WkFfMg23MFvLYS+APev1AIRnnp8WRstfPeDUT1W8hjVVJYHogMgQhkrXspOLy/Sk
+	qPtcoR20r3gL0BO1DxyUiT4sn9Zjnf7CI3h78SJOXx05IR1iGUwgSHGM9R63NdWt
+	rbKp92qAw2ZVRJ4vik/bdJRJPoI3KZsBZyIM2atyLBNzsLHferUXSYRvR0gLEvIa
+	y/Wb2mDDaf0MznEisU/Ux9axzPyB09mpLqSbjeXemZdzcw==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id NZ-Sy4hLP2mE; Mon, 23 Nov 2026 17:08:40 +0000 (UTC)
+Received: from [IPV6:2a00:79e0:2ed2:d:ea1d:378e:4edd:cc5e] (unknown [104.135.182.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jYC882KZ5zlfvqH;
+	Mon, 23 Nov 2026 17:08:40 +0000 (UTC)
+Message-ID: <e19b049b-330b-4cc0-ae9d-1936a44a6979@acm.org>
+Date: Mon, 23 Nov 2026 09:08:36 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,50 +70,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] coccinelle: locks: Add must_hold.cocci
+To: Marco Elver <elver@google.com>
+Cc: Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>, linux-kernel@vger.kernel.org,
+ cocci@inria.fr, kasan-dev@googlegroups.com
+References: <20261123104616.226112-1-elver@google.com>
+ <4f7c329e-d722-427e-8279-14c55fce7d71@acm.org>
+ <CANpmjNP5DqQwUuO5jKOK=KM9njyBNnY5xHbL--QF=r3ZjfRELA@mail.gmail.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <CANpmjNP5DqQwUuO5jKOK=KM9njyBNnY5xHbL--QF=r3ZjfRELA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Arnd, Thomas,
+On 11/23/26 8:27 AM, Marco Elver wrote:
+> Thanks!
+> Ack or Reviewed-by?
 
-A follow-up with the build evidence I promised.
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
 
-I temporarily re-enabled the check and replayed the exact saved
-compile commands for each x86-64 build scenario:
+> Aside, do coccinelle scripts go through a specific tree?
+> Otherwise, I might just take it through the -kcsan tree.
 
-  - The check fails for 23 objects in arch/x86/boot and 12 objects
-    in arch/x86/realmode. They are compiled with -m16 (which uses
-    the 32-bit C data model) but retain the actual 64-bit kernel
-    configuration, so BITS_PER_LONG is 64 while __BITS_PER_LONG is
-    32. Both paths reach the header via <linux/types.h>: boot.h
-    includes it directly, while the realmode path reaches it
-    through <linux/linkage.h> -> <asm/ibt.h>.
-  - boot/compressed (-m64) and vdso64 pass. vdso32 also passes
-    because its build force-includes fake_32bit_build.h, which
-    undefines CONFIG_64BIT and defines CONFIG_X86_32.
-
-One correction to my earlier reply: boot fails as well, not just
-realmode. I missed it because bzImage is only built after vmlinux,
-and the realmode failure stopped the build before boot was reached.
-
-So there seem to be two separate issues:
-
-  1. boot/realmode: 32-bit C code compiled with -m16 while
-     retaining the 64-bit kernel configuration.
-  2. vDSO header isolation: the sanctioned include/vdso headers
-     still include <linux/types.h>, and the <linux/types.h>
-     dependency chain eventually reaches the kernel-internal
-     include/asm-generic/bitsperlong.h. I verified this with
-     compiler -H traces.
-
-Would you treat these as separate issues? In particular, should
-the BITS_PER_LONG check be scoped to native kernel compilation,
-with boot/realmode handled separately?
-
-For the vDSO, would you prefer VDSO-specific basic type
-definitions, or a sanitized subset of UAPI types that can be used
-without pulling in kernel-internal headers?
-
-Thomas, is there any ongoing work in this area?
+I assume the above question is for Julia?
 
 Thanks,
-Fang Xieyan
+
+Bart.
