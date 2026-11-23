@@ -1,84 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795421527;
-	b=JsaPoNhz3V+Luwqkt7xB4qTNqI1Hjc1C4D0JnumPZw6nVgR+EqNMO4rKl+oGGTJ+n7pE
-	 1AKK/A7J3p6rmOPVZOcFNM8Bgkk9KqK7SM8bEosA+m3Y/1ZGNikDnO62667gx3sApUIUq
-	 OIhJndF+n1AX9jDER4ateXxRjriudwtqw+tf0wW+kx4faQeEE3xVD3h7IVeiZrBFFiepJ
-	 7HeBo9PM32d9K4nhhG7C8curaEa/CliMyB/O/mBOcAXrPNBwv8LojXxF+QOJBgKgl04n1
-	 tpqyCg04AfM/6o0FaOC5uGJvALdbLOharc50oAklsczaOabSVptBRv+bQU4gC3ycIsg==
+	t=1795421549;
+	b=BnthYkMGLQCi24jCZPS+60CanmAS5fcTt6FA1IiMZg4m3kuTlSqbNmL/BicB9yPr5BQO
+	 YcMWbD9qn1aqF5HCNj3mcRtR+avGbZ21WH015hZA/kmVp3rqWOUitf+Blg2v/NvMMC4Ge
+	 mO3rg+5CxwjJH2hTthIl+rueIVDtoTDzCIWR1BOhqC2Qo47cFt2WoZQQ2VwTgKR7/YNrm
+	 d1nW78laq5+END1SCsLYd3ih4hyiopUQ2af+hiKAOcfTG4V2aouvexpsiBsvsVYJyGCEF
+	 WXmxvbwlw9a8gdDPpZZ9qoXJ7z4YMgPdxocYjrhj4anjQnT0YAQzF8P8VjNT6F0y6Ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421527;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=XLAuBIKfob1J9x8C36vMT2lkZXWcEt7KCOMBh++G9ao=;
-	b=YYZ9Zctb1IURgiktgCgwfZtZpoiFe85g+vim96KOiUI55QGDdXxo3bd51YBq8JjRY/43
-	 jfa+5hp0+jREvYhtGRudJygDrb67ZgqYaLgoIEUCpSUWcVw1wp46JfyUkuOSGAO8XQsNS
-	 87bGRhi746LI4zIyhwBVsWuPMG5WZLJDarELa7Av2DSg3sPNfh56RAKf2WAJCayeiaNeX
-	 UIYTGhhSaOQoK2oQSTGIPeiEX/tsLyUiHeE3CTzOI2JYexOesa6R8svSrky5y5TElIrmF
-	 63Vx8cHkg+qaWevmvNzNO7E8baX2UnzpOjwckzon3zLM3+GK7kRSwXvHWsQBAj0yCaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421549;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=2szI1ZqQtgYM2qe1Z1F3aOmh0lr8LS1pFbMyBrHQw58=;
+	b=Xx5UHjayOR8wMg7xVsExZt5GlgMBPdOnmgdpXhxsDCZzcKsP9UYFx6w4RwahmFDFhkFY
+	 cfEC2cAPudofaVbwUROIGS4IsUmuZs3QRQoR3LTplEZmKbjLHkNx8J5GeMj57owrUDKKi
+	 4CL1Q8sL3ZWlpPGtNfnO1olnihPQIo4haZW052eHNVQnEHcnd2KLDfY8FylJwT7hoSeo2
+	 bzJX0bhYANk0WgztwA3NXvtcnYC01qE7WdYy+xTVOB5QB2TOfqOFoR5r59zSFNXgkYIop
+	 W6Nos/TBVv6en3RI+Gn3LTFdr6FoKuYOGenLWerS5JzAskRcWncqIfwmSlc86l7NHHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lj+HJn7x;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=gourry.net;
+	spf=pass smtp.mailfrom=gourry.net;
+	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b="TYuAlc/U";
+	arc=none smtp.remote-ip=209.85.222.180
+Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com [209.85.222.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7D68606A31E;
-	Mon, 23 Nov 2026 08:12:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7D68606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D6AE606A31F
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:12:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D6AE606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lj+HJn7x
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795421527; x=1826957527;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=LGu03Ma0njqi8IqJpARzmb5dwjfkGt3tjqz+4ZsTuTY=;
-  b=lj+HJn7xK42Z0wJxxAACrD677uxSnjrireFdx1lzl1GOKpvLSq3YwBRw
-   qTVV8N8RMSQZMj906Xk1cNwK1kun/+CzlwEF2YN7xmfGK/7zrkml+blWG
-   dpQ9YsbsChNOroL6irrYooKuMtVqYc+BuNciKGfqnJNtpI2Gka3GBL3Jr
-   q4kBHEyFjYASOCq93U+Bp+A713Afka5r2otHqrMvQohACz9iEbsYe69cP
-   3i8wo0lH1IOqJ6aBk8SXYgrxWzjwa3f8qKx2CyZh0oTStgHIP6xUPhBWR
-   +fmpzcVd95svtHHexYHqdkX8VZgDJpEU2ogEWvoaeI5S2NrCTzBkH1X3E
-   g==;
-X-CSE-ConnectionGUID: J2HIPAxcTeyV8+gIf+IQ8Q==
-X-CSE-MsgGUID: OljOch8RTQ2HYghyuTYmGw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4269490"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4269490"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:12:06 -0800
-X-CSE-ConnectionGUID: w+m0IF5cTVObRiwBOKziKQ==
-X-CSE-MsgGUID: c2HtbD4/TJmYgKEZbA0l2A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11652541"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:12:04 -0800
-Date: Mon, 23 Nov 2026 10:12:01 +0200
-From: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
-To: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>
-Cc: "bhelgaas@google.com" <bhelgaas@google.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v2 4/4] x86/quirks: Use pci_power_eq() in
- apple_airport_reset()
-Message-ID: <awP1Uc-zyiawX3Dw@ashevche-desk.local>
-References: <av8uhCdgJ9hX4eLT@ashevche-desk.local>
- <20261121113835.43201-1-habilerenturker@hotmail.com>
+	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=TYuAlc/U
+Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-94960131b30so300707485a.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:12:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gourry.net; s=google; t=1795421548; x=1796026348; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=2szI1ZqQtgYM2qe1Z1F3aOmh0lr8LS1pFbMyBrHQw58=;
+        b=TYuAlc/Uck7EToK7F8qMvGOp14+Y3Z9Lo2bo1rUhwf0BXJGtH/DG9/KyjSTwYgUHAw
+         LQgslvJox3M6GBzEsjDqWUxJSbrlO8Lu1FPNG6yAquVXhkeB8t2RdzhYa1eZ2Xkk14Yi
+         gu4GQ30Rx0Edf76fRKnZYFcB03FkhfRtiCdWSc+GKN/W7LDj10DA6PqozQ6UZvsv7o7F
+         hxCoNkCWBDRQ58Tv6ve9iSyrQ2ORJHXiZbqvNk7ApWUfFAv2KdaKRoBTmd9KL+KxmLKA
+         degB3wsknJY2pnMbbTSyG6xlQfv6x+AgfNL7FBuTz/ntTlMZvmqXeZGXCOgpL8HZaftR
+         mT7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795421548; x=1796026348;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2szI1ZqQtgYM2qe1Z1F3aOmh0lr8LS1pFbMyBrHQw58=;
+        b=bkGlW2Ddavf6gIfmDA58D06F+uKgY2VrbEuCMs8bvrIObd2LSmWBttFQ3WQrnIP2LH
+         XnEpObBNGLo6AoMKRFD7usp8pwZU9Q6OLLPOLZMhUuGYTMFMgVKieCqxHMdRJbj8gNXr
+         zqUnNyZ/3miW95TgjRjjioXsa3M6fElSkk2rz1xjWe1vQwCWdJ80fKPsKM6Pk+HPKlud
+         fjtlgjw5RpGpMhMrmEP/+5OhPu07QEZ7M+6j0DrtTmmxyYa+vuj6rBr13vRkqSTFvMCW
+         cXr3ZijBny8Ii0oQ0n21YuzJ+599trX/ESQdvHKaKJZ4xN5QFYsVbDYOgazZD/g8vbXD
+         elBg==
+X-Forwarded-Encrypted: i=1; AL+hErGetAvXhUSC3munkXM/T0IW3WE5WFdwMeBzjY9RkguYjzHgnN+8He9sB5tr9T3JsY748x5VF7IAjDLoK/w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z857U3EcLR6MYQd3gfPz0bOL0VuqrdvsVqeOsXg52JNvykQnkvz
+	1kplCKBAc7/Z/kuVsheKT25mhhViB2cavFxPOpcBQE3tWpcksrQ1ObdDCWiQyTmn7CY=
+X-Gm-Gg: AZFdTZeUvErGSi/hOtN13O5ZNNAxlbyHEngN0mKkihX8i8E+qfuHlDb4T4S6uEIylOz
+	Zg1ufKBvWUaOt5s5Fi9Tjbv2D3VN7hVl/hk+T6UXk2ic+ehHZUQeGqYYmediUI7B46sUgDiQq1+
+	2UDLRrYAB9qU5aA3EmrlICSuAcMpZJPnvIi6K92wWUpPo2/JJISJUTJzIns3t4FNW7+MTe/F8iC
+	ttULCEI/tsvKzbaFZPcrBDjRNFD5et39La76Dkx1p5W0o8fXiDv91sCiMl56BWPLQ+MusAm0EnN
+	Gi6LEhj+adbWqxHMmxD+7DwDZWGzC+x8IrmZgfETS1wBH9ixm5nU9/elgWGyI+E8XoioFB2KOsr
+	mzA4q13b4fyrsfXcXTy9DByDLrn1u9rB2s8ypWxiK9JgXKJn9OXhUbM4x+jRQY4V0nbdlBbZR48
+	vaH7vq1F1PnAauvkQ+J0h6DpC86/VfpbGtdNxu/uW/v8aKehKbZC3J0AbmntXCzCY6O862lfNFL
+	GBtk35ttI/zG6Yvu4Sp8kzMjeiGn130OsWm/8YW357MdxcZavQOFZGUh3B2FghJBe0k1i351Cum
+	jww+p1n2rbt0Y2XOv3jtYiOS8o2qahD2oRBBTObEadR9DQ/j3oJmFOxT1pcTceby85QfSWlXBP6
+	/46pG2bA=
+X-Received: by 2002:a05:620a:2956:b0:949:70ec:7e76 with SMTP id af79cd13be357-949ba80f78dmr1737529485a.1.1795421547930;
+        Mon, 23 Nov 2026 00:12:27 -0800 (PST)
+Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41a341sm752293485a.37.2026.11.23.00.12.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:12:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,29 +89,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261121113835.43201-1-habilerenturker@hotmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Subject: Re: [PATCH 1/2] mm/huge_memory: use NOFS when allocating while
+ splitting folios
+From: "Gregory Price (Meta)" <gourry@gourry.net>
+To: Barry Song <baohua@kernel.org>
+Cc: "Gregory Price (Meta)" <gourry@gourry.net>, 
+ "David Hildenbrand (Arm)" <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Kiryl Shutsemau <kas@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ William Kucharski <william.kucharski@oracle.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+ Johannes Weiner <hannes@cmpxchg.org>, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+ Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+ Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>, 
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, stable@vger.kernel.org, 
+ Chris Mason <mason@kernel.org>
+In-Reply-To: <CAGsJ_4yEeORJw8dQEH0U-JjWih3+3ZVx=1Va5F_9qsVbPzCLvQ@mail.gmail.com>
+References: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
+ <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org>
+ <179537313704.412063.6683001223228002260.b4-reply@b4>
+ <CAGsJ_4yEeORJw8dQEH0U-JjWih3+3ZVx=1Va5F_9qsVbPzCLvQ@mail.gmail.com>
+Date: Mon, 23 Nov 2026 03:12:26 -0500
+Message-Id: <179542154647.412063.5153407036844671374.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-On Sat, Nov 21, 2026 at 11:38:35AM +0000, Habil Eren Türker wrote:
-> Hi Andy,
+On 2026-11-23 09:14 +0800, Barry Song wrote:
+> On Mon, Nov 23, 2026 at 2:46â€¯AM Gregory Price (Meta) <gourry@gourry.net> wrote:
+> > Reproduced the hang determnistically.
+> > Base deadlocked.
+> > With patch 1: -ENOMEM (safe)
 > 
-> Thanks for the suggestion.
+> Hi Gregory,
 > 
-> I have considered using `pci_power_t_update()` helper in the code.
-> However, there aren't many places in the code where this function could
-> be used (there is only one place that is suitable).
+> Just curious how those -ENOMEM failures occur. With GFP_NOFS, we
+> should still be able to reclaim anonymous folios (except in
+> SWAP_OPS_F_REQUIRE_NOFS cases) and clean page cache folios, right?
+> 
 
-It's one place in _your_ code, but have you checked if there are other
-potential users elsewhere in the kernel?
+Ah this is a little dumb, but i set memory.max=0 to force charge
+failures.  The -ENOMEM is basically expected in this scenario.
 
-> Therefore, I believe it's better not to include it.
+Not really something you have to address.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+~Gregory
 
