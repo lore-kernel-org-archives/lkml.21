@@ -1,79 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795465346;
-	b=tKX+JVysR6Pr7cUVyak+ZO38uo5oirngFU1l+XTY7iHO03uLg4vmaELxowXIRm7X3xNt
-	 7dbQ9hOOk62jy2yfOcJfYkt9FVLXeWgw23YkNBKPpTjlj+4qb8OiCOtjph6HBWog1wGjR
-	 Of9ihCLsYs8yurhUHhO1xU3+ZdsLSmM+iT3MJ0dUZ+tmmtbsMWV4sMBtVBHlwj1Iot8Nt
-	 rM1jzhQ385PLWCJikBH5QuJp/LYbWCtX/2erq5b7lBJgWZx8tKSS7gQpCXKC70hLF833A
-	 swsUy8mRw5tatQUn90O0KpM+Mj2P75+SRyO4gRbsVkTOsAqhb8JYjrsNf/7g5YS9lqw==
+	t=1795465359;
+	b=CRD3dio/edq7C6/Qffvsjit8xIHhvmR0KDzphfxrgiFkW1zxRiVsly3KA5QHWULkg2Q+
+	 JcHb9Czocqqa11NrM9OMCBdFukAgtGQl43vAV1dLJFKPJZnMdZwkDhiV9FkcBH0H1BioN
+	 s9+lpGdFgDGUvpGZVkFyv+kgzyWNpl+ZmmKOT+4f7t0cZffYWIlRcs9oUIBSF7ruZ0znM
+	 3c4rMnVvQdtomr3vQo1mZkDNfgZm5RoQiNE4sCcE40qo/ohiS1vrMBOgFqxGLdaTxTvF4
+	 2DRqRh/fmNtq42IpKD8sqZEzu20TcEuRj/He8mWua2sSOd236SDKpGZTtbZU9w3fbng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795465346;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=25UVLybwoRnEcpbdXV2pFcFQ0Vqv+61x2so2s19OgUM=;
-	b=jaD2Boq/m0vTissas0mSgLSUOuJY8lUmnI3t14SMnwZJHbQeH0/bWRTS8yxvTgUu2PwQ
-	 24jGpSk2qwxnXFbUT72BdvpT/CtKIu6f6vjA3nopx5zYebiRVAb/Xg8W8LrfxLJxeN5jH
-	 vZu/S6U6uUN1Pdln9Oi+YzI5xCzRM3T6mB64xN/o2U9XTE17zPJJmvxa1SBWAb0TsOv13
-	 BRL84MTnkiorTpefRLJ1n63aJ/mSpU5eUdjsIBD4TcdUZLzm03FqXXRh60wc/XfKg5Hpb
-	 Th1hcah9aA/yT7m3hOCo98DUIFU41m/n2Z6Yp0RmeA5WjB7JgnNQaqFoQgKaabfk9PQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795465359;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=gCLRRKTFKXK2HkutDnNQ0o/EWQjNEj+82Vy1QomspIo=;
+	b=utQ4pTV3NHpBwTb2jbznwR19et+2YaJQWM+rEUvUi5pO9bzBtXhXCV3UxiXmfBGp/Xtq
+	 yNLwfSyIxtb4jf54DzSwGYmD2mKme29E37JFp0UvJ4NSFbWxHQPoMLK2Vya7bctnZ7bXR
+	 dxIAYcbuFfZBh4EWVKv/pj7vMOfAoXcfYLd+7OLZHqLySHmxfU359XtIdDIitU2FB5OJx
+	 wnnMUwTuzmUi6eHfjNDOJiIQS8wJibI0BfUBhhXjUPtzWfP9hB9hCwpqPyQIeOJyfqWdc
+	 WlRCAgkMwZOSHvhFo6aIxKYV0LeMFdBMwab3LT1j7KIAqpqKNladXOJalwdb8ZPGoDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=DwAC8cHH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ppqht/oh";
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90CCB606A31E;
-	Mon, 23 Nov 2026 20:22:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D063606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:22:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D063606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=DwAC8cHH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04ACC1F000EB;
-	Mon, 23 Nov 2026 20:22:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ppqht/oh
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-3282db206d3so456646eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:22:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795465346;
-	bh=25UVLybwoRnEcpbdXV2pFcFQ0Vqv+61x2so2s19OgUM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=DwAC8cHHY+5qU8NdK2ZbrsvhxFqopogKwAxsWk8kEnCCVT6Hmbtw0V6XziVvGOJFl
-	 UqXnmynokZ9RofSYPre5yp5SaL+eP7gD+iVzbExurknf8l0NwCrdN3RTO1xJ6LK71f
-	 8PNPmpHS6+1C0lJh+4nQoWqAlcS3s5LQourJH+QE=
-Date: Mon, 23 Nov 2026 12:22:23 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: kasong@tencent.com
-Cc: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>,
- linux-mm@kvack.org, Johannes Weiner <hannes@cmpxchg.org>, Muchun Song
- <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, Ying Huang
- <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, Baoquan He
- <baoquan.he@linux.dev>, Nico Pache <nico.pache@linux.dev>, Usama Arif
- <usama.arif@linux.dev>, Michal Hocko <mhocko@kernel.org>, Roman Gushchin
- <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, David
- Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie
- <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka
- <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Nhat Pham
- <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>, Zi Yan
- <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang
- <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, Dev
- Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins
- <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes
- <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, Vernon Yang
- <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, Tal Zussman
- <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, Xiang Liu
- <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, Zhao
- Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>,
- Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>,
- Hui Zhu <hui.zhu@linux.dev>, Maxim Muzafarov <maxmuzaf@gmail.com>,
- linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
- damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen
- <hi@tychen.cc>, Ridong Chen <ridong.chen@linux.dev>
-Subject: Re: [PATCH v6 00/18] mm/mglru: frequency guided promotion
- (MGLRU-FG) and flag cleanup
-Message-Id: <20261123122223.ea225d3b6424c274679b41de@linux-foundation.org>
-In-Reply-To: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+        d=gmail.com; s=20260707; t=1795465359; x=1796070159; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gCLRRKTFKXK2HkutDnNQ0o/EWQjNEj+82Vy1QomspIo=;
+        b=ppqht/ohwWl2aULz1yr6gbfVi6RFEHnBDhC+ETkHvKC8uwFFxj3pwj67/MkPMLnmrG
+         NQc+56GMEIAKsTSB6tqvcnHnpR8+RqLBG3esAvqmB2z3Qr/GOkV76vRPQq0wdfLTgcEB
+         3V0qbatuXHoaxwYxrkidodjS661LvtWMIRO7zbwZy6nckja0r0K25Tr+SiHlDETxpTm1
+         HHUPJ54w+YijJDyvsTXu4qNNgHvEmqqDeb4bpiumh/WwXBlM+3PZ/qWaQ9OwEnSxms1v
+         J6u7s+jvmvR9CUP3AwZQtUZNHx/NuPXnB+n83AuV6rF4RDD4eqD5OAm3HT2JUgqUAtC6
+         +fqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795465359; x=1796070159;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gCLRRKTFKXK2HkutDnNQ0o/EWQjNEj+82Vy1QomspIo=;
+        b=ovfGhQqr3AJwLVmbh/tN22s9FX8BjJ9st1EW2G9MJazRRMDdvwoIhO4/v0i2ajBDw3
+         5AXvFuuonyGImjRl6Tve+Py0Rd2+uXms7n+z28OzIjHDXp6BC9ELRSilvsOnpBbfhrBL
+         BOpAwKzYRAd2kCWBvkmWGKQLi7oZxGYziO669xvPiWnTynoOQ5dJU/eJ0OT+RgbwljwR
+         lxHTm3BsnIEuJMdflVts9e9gxd/70staUNMWQr457WSqk1AEilyjIKE1WCAoRtHUpX0f
+         QyHN7AbmxA5X3wV42WpPTLIvQ+UwtKsOpg3OuQe7F6/SVj2pmHzCVy0fL6kkfuHNDv8v
+         BPhg==
+X-Forwarded-Encrypted: i=1; AL+hErFTMt0NIEUZHyBrDNw0BWkzvIEAOZ9YhmlETaPolImiz8M/7uNAn/pfXfw56Z66KPr5uQN7kMWvXBflyeE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9opslIDbl804iFLNiMB4n7PgctkXhnAj5RHEuJftqK1lHfwjaH
+	NFCHRIN631TSnOMJE6hiPPkfrgrzXDIN1F9qYEFMNS2GzkI37rUcnqibTNEXhx6y
+X-Gm-Gg: AZFdTZc+ERkJ6A+7OS/IcG6wj/8VUgM1wjFcpsLWsBAFag+EDSOj/1FbV3LqJPUgUOT
+	0iioDIHaVsX5WMX50hlnmOoSb+4Y57xngf+BSFzsOSETLZEcN9rSahTZp54Yh13ao70yCPnEEni
+	vNaxuyyXS2++OmFe6axQRyzw5+VDHpW1z4VB+m/B1xpKiYQHmFd/Vh76AZRXeYsFS6Txobk7QyF
+	3Rj2aUafnsoD57FzEvjTtJO5I+q7FHrl0aRKCZ6AOe5bN3sJyIf4b75oVtsSC3yq16K2xCmxKqG
+	YGR8YCC4++BF7b0hAD37t/tXSi8/hKA5ap7LgD3tz8moQNWDXLGWoydLL7gz1C1TBmO9F4wsnLN
+	z13ks4iNlOc1rIQd0CjIlTKKarCoDCFgCnFHSEQlqkrtXEGOD1YwI4hQnJpd6URX+yEJOEOztZX
+	qURo/WzUyCMqxBzr36RU42Es14OKn655unAgVq/As0I/iS/pXtLUxcqNcu7kKIOVFOlRZc6aB/S
+	811Zbh5GaMW4Rh615wXrtzctOPItzMf3mYAJWVgg5cp+wTTZWMPl69LWgIB25quBcRXON3/Manh
+	VEVTRT7U2+Z2sOpysckULrAN+2hyyyhULSAQf11mQQd+bCFSfIDkReQ+alhOmLuzawjhcV4=
+X-Received: by 2002:a05:7300:b597:b0:386:9e36:df0a with SMTP id 5a478bee46e88-3869e36e011mr13076842eec.13.1795465358637;
+        Mon, 23 Nov 2026 12:22:38 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm32126987eec.25.2026.11.23.12.22.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 12:22:37 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:22:35 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Carlo Caione <carlo@caione.org>, 
+	Hans de Goede <hansg@kernel.org>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH 07/10] Input: axp20x-pek - skip IRQ handling during sleep
+ without input device
+Message-ID: <awSgh5DW3V1cLYCa@google.com>
+References: <20261123183200.3900004-1-lee@kernel.org>
+ <20261123183200.3900004-8-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,38 +98,31 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123183200.3900004-8-lee@kernel.org>
 
-On Tue, 24 Nov 2026 02:52:52 +0800 Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org> wrote:
-
-> This series implements MGLRU-FG following the idea proposed at LSF/MM/BPF
-> this year [1], based on current mm-new. Depending on the workload, it
-> improves the performance or reduces IO by roughly 10% to over 50%,
-> fixes multiple long-standing issues with MGLRU metrics, and drops one
-> page flag.
-
-Great, I'll add this to mm-new and shall move it into mm-unstable
-(hence linux-next) promptly.
-
-I tested v4 quite hard last week and I view the risk of breaking
-linux-next to be low.
-
-> The series has been tested on multiple platforms (desktop, large server,
-> Android phone, x86_64 and arm64 VM boxes) covering many typical benchmarks,
-> databases and real applications, so far everything looks nice, with good
-> test reports from other individual testers too.
+On Mon, Nov 23, 2026 at 06:31:13PM +0000, Lee Jones wrote:
+> On Cherry Trail systems where an ACPI GPIO button device already handles
+> the power button, axp20x_pek_should_register_input() returns false and
+> axp20x_pek_probe() skips axp20x_pek_probe_input_device().  This leaves
+> axp20x_pek->input NULL and both irq_dbr and irq_dbf zero-initialised.
 > 
-> Different workloads may get a flat, minor or dramatic improvement, the
-> gain here is mostly from real improvement of LRU's ability to distinguish
-> the hotter workingset.
+> axp20x_pek_suspend() and axp20x_pek_resume() nevertheless pass irq_dbf
+> and irq_dbr unconditionally to disable_irq(), enable_irq(), and their
+> wakeup counterparts, manipulating IRQ 0 (the legacy x86 system timer)
+> across suspend and resume.
+> 
+> Skip interrupt management in axp20x_pek_suspend() and
+> axp20x_pek_resume() when no input device was registered.
+> 
+> Fixes: 8a78050ee257 ("Input: axp20x-pek - revert "always register interrupt handlers" change")
+> Closes: https://sashiko.dev/#/bug/linux-5ae6851f-784e-481c-900b-2e1686578c89
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
 
-Well, the hunt is on to find something which got slower.  No luck so far!
+Applied, thank you.
 
-> - Minor optimization for clearing refs:
->  https://lore.kernel.org/all/CAMgjq7Dd=Y+GekSD9WO5oGdoa+S1eG3T-U=VsCexopvb723zFA@mail.gmail.com/
-
-Right.  That was the only question mark I could find and it sounds like
-you erased that one.
-
+-- 
+Dmitry
