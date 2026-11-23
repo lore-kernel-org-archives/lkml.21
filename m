@@ -1,57 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=219.143.121.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396943;
-	b=GopmGnkCgDMe5mMP9qyzJJkuvDsPE9P9NDJUQijFegM6cAUFnzBT/jkuPDROmfBhsMwR
-	 HI/PyyjzUL+5m/w2y3dK2NaBAEg0R8m/JEQk7A8JTjY5xPEMvNAomq/y+nUJAkrvdJDs7
-	 5UqtH+dXFOjsBu3TtlloT/CErImZcL72GuJvmPAcGu4pnNij0Ui0kh5g8xdPr2UGlq2yL
-	 R1Ol4BUNWelZPjUqqKAYV1HLvYoYK+8PcbJMKmBmTCoNwGfY43iRKNqurg8ZvfD1lSQDg
-	 FjzyW4LqJe23jHV+BQmKfE3dAUaAoeKOUyBBbaBu0iWXIZmUhWCFb+MZaXLGckBtkQg==
+	t=1795396694;
+	b=gFy7jL0MD9OaDcFZYhORZmsCvyBWuTFFJ/NBjR6Fy/rEAVjsD5q678plHfiZAu7mc5Fk
+	 HywNccHhD3SURl55zf7J7cjLw2u7i+016bwk09u6mjvXMB4mL0R7856lt3eTruRO8sb7K
+	 1LUGj6+sr3YD/h+QPJhdLylfGin1y0KVJf9esM7CJN3bJZnxjMBXINeu8vRzlGx4H4Z4j
+	 ZlhcRvwpPeqymUkczo3rfibLVl/NEEOTb1dB0UUnqOyfgg/rSahx1IKHDWjnA45ZEkaUh
+	 UEBJ0yboUcBNaqCmA7vzsP9jdg6E3S0XKDN38zlEVuXycbLJS08Zkk7+bJ5nqsYL5gA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396943;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:X-TLS:
-	 X-ENVELOPE-SENDER:X-SOURCE-IP:X-FangMail-Miltered:X-FangMail-Envelope:
-	 X-FangMail-Bounce-Flag:X-FangMail-Outinfo:X-CLEAN:Message-Id:
-	 X-Fangmail-Anti-Spam-Filtered:X-Fangmail-MID-QID;
-	bh=hTSrzLpFQ4K6bpwZbZ08NkeidSei6B/cgppw/fPpF58=;
-	b=dY8YxROAlejU1QqSKA7BZmYcKvJ6xn8oaOGwScMOQO1i007jI93P+rHSha28qTNiKjtQ
-	 MGH5qs0GhFHi42f4RAlFBQpr6nCo+6R4Ys6iNakcPgTUzFdn4QW1BvJo8rhTIuHLz8fko
-	 1AB8UtDus3USv7Nm99AnBHq7xcBb+oqhdQwDyahCfnwE1pw/Y1JEuxZa02rCBjPCQCG/2
-	 cMF47m5Wr1JmXdzTCOqzYGp1omV0jOJ+xwePta93PrSB97wrGbdn6OFRwK+DYFodNQcaQ
-	 3xLVWHJ1LPdKyK54cOIcatncXEDsXVgGuO3Zgxi4nph0ShEowNpoa9+BXEdNYvBTf2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795396694;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=xtW2k1ILTZk6SZgInS9ZTOwHcWM7IUrJ3JhIcEADImc=;
+	b=O0MaDhMk99PAr5VmJkNaR/lw3EwDsCY/lZ3mn7TOc1MtOgvsMG9CM402Ng/iMlf6OZz9
+	 QdB8Hbc3KZRAR+pf5I14v4YggMopYrIyqngTbPdTI2EoY+T+ceFpI/g65TcS/RG24B+0H
+	 an8sdi4cmWm/Df62h6359LoHQDWEaL5MUPUdKC4SFg//Ghe8ITf1skWH4l3WZnvjrpKLh
+	 DdRI07+EZetoGB2IZW7uoQ2l7UmXw6htr9mxoF2bcJMYjMbhC4iHACcZ8lDfcjXZhCKA2
+	 zsjuID9+G/Vy19FtygAVa6oO4N2GFIptkb3i3p0xsX6wXOlxoRWbXMu8Rl7haMufcGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=isoftstone.com;
-	spf=pass smtp.mailfrom=isoftstone.com;
-	arc=none smtp.remote-ip=219.143.121.9
-Received: from spam.isoftstone.com (smg.isoftstone.com [219.143.121.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mFuLSLXt;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF10A606A333;
-	Mon, 23 Nov 2026 01:22:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF10A606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=isoftstone.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=isoftstone.com
-Received: from ldzh.. (unknown [221.226.109.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlzhangak@isoftstone.com)
-	by spam.isoftstone.com (FangMail) with ESMTPSA id 4jXp835gJkz40Rf;
-	Mon, 23 Nov 2026 09:22:11 +0800 (CST)
-From: Daolong Zhang <dlzhangak@isoftstone.com>
-To: Alex Markuze <amarkuze@redhat.com>,
-	Ilya Dryomov <idryomov@gmail.com>,
-	Viacheslav Dubeyko <slava@dubeyko.com>
-Cc: ceph-devel@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A81A606A31D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:18:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A81A606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mFuLSLXt
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b49a6e8212so179140a91.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:18:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795396694; x=1796001494; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xtW2k1ILTZk6SZgInS9ZTOwHcWM7IUrJ3JhIcEADImc=;
+        b=mFuLSLXtsbG1j5GBjZAp2dz00pCISwAyPBLpBJZxuDDCE+673i7dcVkcarADldh5q0
+         r6juszeA7rUoVaRPm88wToW9tXkRk8vyMM00ZQTO3t8z7KT/R12IZ0rMxOH4DXcE1RR8
+         AgQ00DY6J3+VecuyeQ5TNBVJJZhuqib7k1zjK+MrI6KxyNdUTLgYTy9S4F48ds6H/wds
+         c6NRzAhKmuN1fLXIvgUuYV2Dm3u/xz9JPfYloc/y8BuCSzTrAbPZEW57Ajaml1rK8T9/
+         qB70xVK1krW1l3+paiT+pgZ7UO6czZc6XFSaNlNMAW5fIwLG8mR9f/+anMsS+ShhPFJZ
+         DjJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795396694; x=1796001494;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xtW2k1ILTZk6SZgInS9ZTOwHcWM7IUrJ3JhIcEADImc=;
+        b=n/BzLscnX6QFCMCa/2m69EgXSCCiRBELIAvsM/rPtooAo+ADIzprvR6UdXoOGfa2IC
+         uPjVJ7M3cx85zHDtyb3IPFiy5pGqTV+xeDFx4Dd1itcU3YIqo23t4qcwnGZaScJm6RgK
+         Ib6GZaUrhjRWOQwUmGBafoHScMBW+PGGOwlIo2ibfdWly/tXQ5gM6dsHqcka7Vvcz0/a
+         YR0UtVPb+mfi35jVDiRcUXciBUzrHpK7N+BkNkutKU9eTrwNCJLRGpC9PNgRQ5tkeZ0b
+         H1+G+rVW+g9KR5BqR9aivJ9qCEJ/0q/pGqvcry3hsh3eXwl+4wBTeISdK3BsD27xYv7N
+         W98g==
+X-Forwarded-Encrypted: i=1; AL+hErEJnkYMKe2NHgBrD7y7qtKjjddmDUY19ul+FSxJybjqe6rSJsILKCIBa3a3+JeEW/Rsnu3Ffnolca8ya6U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+YNt8TYhZvSfzhlb+KnpHWzAV8Uy0y/bGUNwUxhMPSv2/ymFyK
+	1RbiT2OjyEwlXIQHTUKZnkI/BTMpKwVDL2GWD9J/agdFuUqKmk0EgjV1
+X-Gm-Gg: AZFdTZdFCPOYu6tLuPlhZSOo47b7Uy4nYKrkOigYxt6UFRVJ2a2HsEDvvmVfgTIoP2f
+	565AVWCodWjOXEtsZuTaORUJMGgXi7kHvNZCL+Ub1t2GPWgPIWakUSPlnuvJlLCFXQh39o5/HgL
+	GfRw4q6iJftRjcuqOpV18d7vbG2omuXt0Q+pgVbXrSrZLqou7QDqFFX1rPfePHQ1oSloU3wEc3a
+	SIQb4jVCsTuSmcOkRGcKEr+2XFqTbWwFtk1GtW9SWJf0LnQU7dkH/uISiVft/8hwTSCAoX9eOuo
+	k5kPoAmwElPUxzzS00bhQvyQ4xW7x2oG2UNZBQCIJcCDca6cmGrJGemVLjigGIZN5frOz1zcGvp
+	A+LZbnU0gOu8Uj0dcgouuQNVmKFqDmxk6MEcnZ8WNhSPcgRG5o2EEETbcYuFOz7Q2zpsSCaGqer
+	/Z/nbWIesWmSJC1NSkOSpT6udZOzQvUTGpxBnJauR75c+wIE0+7EePJzGt3caqknJQelqQ9IUVd
+	tRSwu5c35POnD/itBWVpgdGACcXs/c3vQNtS/k03Oy785tTFPuD3x8EnZca/HijrTB5ZZswfq94
+	fCazuKqUkUZBnaEQf+qk3RYumJ7kgoBappbo
+X-Received: by 2002:a17:90a:e7d0:b0:3ac:b2e6:317d with SMTP id 98e67ed59e1d1-3b41c9e52f6mr9596827a91.35.1795396693715;
+        Sun, 22 Nov 2026 17:18:13 -0800 (PST)
+Received: from hanzj-mi.. ([157.185.136.247])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm15587206a91.1.2026.11.22.17.18.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 17:18:13 -0800 (PST)
+From: Zhijian Han <hanzhijian1991@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: andreyknvl@gmail.com,
+	linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Daolong Zhang <dlzhangak@isoftstone.com>
-Subject: [PATCH v2] ceph: fix inode and i_filelock_ref leak on file lock rollback
-Date: Mon, 23 Nov 2026 09:22:11 +0800
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20261122193828.1324376-1-amarkuze@redhat.com>
-References: <20261122193828.1324376-1-amarkuze@redhat.com>
+	syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com,
+	Zhijian Han <hanzhijian1991@gmail.com>
+Subject: Re: [PATCH 2/2] usb: gadget: raw_gadget: fix memory leak on connect event failure
+Date: Mon, 23 Nov 2026 09:18:09 +0800
+Message-ID: <20261123011809.1033045-1-hanzhijian1991@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <2026112020-sesame-uncut-fc8b@gregkh>
+References: <2026112020-sesame-uncut-fc8b@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,68 +101,24 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TLS: YES
-X-ENVELOPE-SENDER: dlzhangak@isoftstone.com
-X-SOURCE-IP: 221.226.109.28 unknown Mon, 23 Nov 2026 09:22:12 +0800
-X-FangMail-Miltered: at fangwg01 with ID 6B039543.003 by FangMail milter!
-X-FangMail-Envelope: 1795396932/4jXp835gJkz40Rf/6B039543.003/221.226.109.28/[221.226.109.28]/ldzh../<dlzhangak@isoftstone.com>
-X-FangMail-Bounce-Flag: 1795396932.6B039543.003
-X-FangMail-Outinfo: 1795396932/6B039543.003/4jXp835gJkz40Rf/dlzhangak@isoftstone.com/1
-X-CLEAN: YES
-Message-Id: <1795396934.6B039543.003.4jXp835gJkz40Rf@fangwg01>
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6B039543.003/4jXp835gJkz40Rf
 
-When ceph_lock() or ceph_flock() succeeds in acquiring a file lock on
-the MDS via ceph_lock_message() but fails to install the lock locally in
-VFS (for example when posix_lock_file() returns -EAGAIN or -EDEADLK, or
-locks_lock_file_wait() is interrupted), it sends a CEPH_LOCK_UNLOCK
-rollback request to the MDS reusing the same struct file_lock instance.
+On Fri, Nov 20, 2026 at 09:17:32PM +0800, Greg Kroah-Hartman wrote:
+> On Sat, Aug 22, 2026 at 10:48:50AM +0800, hanzhijian wrote:
+> > gadget_bind() allocates an ep0 request and stores it in dev->req. If
+> > raw_queue_event() fails to queue the connect event, the function
+> > returns without releasing the request, leaking it.
+> >
+> > Release the request before returning in that case.
+> >
+> > Reported-by: syzbot+d83b3c49738aea97c0e5@syzkaller.appspotmail.com
+> > Link: https://syzkaller.appspot.com/bug?extid=d83b3c49738aea97c0e5
+> > Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
+>
+> Full name please.
 
-Because ceph_lock_message() invokes fl->fl_ops->fl_copy_lock(fl, NULL)
-for every CEPH_MDS_OP_SETFILELOCK operation, the rollback call
-increments ci->i_filelock_ref a second time and overwrites
-fl->fl_u.ceph.inode with a second igrab(inode) reference. When the
-caller subsequently frees or releases the request file_lock,
-ceph_fl_release_lock() only runs once, permanently leaking one
-i_filelock_ref count and one inode reference per rollback and causing
-'VFS: Busy inodes after unmount of ceph' on unmount.
+Apologies. Please use:
 
-Fix this by guarding ceph_fl_copy_lock() against being called when
-dst->fl_u.ceph.inode is already set, ensuring a single file_lock never
-acquires multiple inode references across retries or rollbacks while
-preserving the temporary reference held during ordinary unlocks.
+Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
 
-Fixes: 89aa59301013 ("ceph: keep auth cap when inode has flocks or posix locks")
-Fixes: 8e1858710d9a ("ceph: avoid use-after-free in ceph_fl_release_lock()")
-Cc: stable@vger.kernel.org
-Link: https://tracker.ceph.com/issues/81372
-Signed-off-by: Daolong Zhang <dlzhangak@isoftstone.com>
----
-v2:
-- Keep fl_copy_lock() for ordinary CEPH_LOCK_UNLOCK in ceph_lock_message()
-  so i_filelock_ref prevents auth cap trimming while the unlock request
-  is in flight after try_unlock_file() (Alex Markuze).
-- Keep only the dst->fl_u.ceph.inode guard in ceph_fl_copy_lock().
-
- fs/ceph/locks.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/fs/ceph/locks.c b/fs/ceph/locks.c
-index 677221bd64e0..4d70a0e8381c 100644
---- a/fs/ceph/locks.c
-+++ b/fs/ceph/locks.c
-@@ -34,6 +34,10 @@ void __init ceph_flock_init(void)
- static void ceph_fl_copy_lock(struct file_lock *dst, struct file_lock *src)
- {
- 	struct inode *inode = file_inode(dst->c.flc_file);
-+
-+	if (dst->fl_u.ceph.inode)
-+		return;
-+
- 	atomic_inc(&ceph_inode(inode)->i_filelock_ref);
- 	dst->fl_u.ceph.inode = igrab(inode);
- }
--- 
-2.48.1
-
+Best regards,
+Zhijian Han
