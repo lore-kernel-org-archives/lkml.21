@@ -1,97 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795416165;
-	b=a3bEBh+YC0T5uFOZfXdrF+HK6hhKlwpyOf/rZ+HFh9lnKOfU6jP2aiUz/Y4qsn27bRE5
-	 0Su4YBQBVmugoaWfyi4tuRLYBA9XVCtc5aJdC3dRTHCyCimPpCFQeOnw3uwQBjOtCA7M6
-	 F4STU5M0RwOD1DvfeGyx6IxBuRuqiUpV91BmLgowkF9GysHa70XraZRi45ly77mO43BBm
-	 e+lAiuTtgo6zxszYNpjvefL3qm/a86WlvjPblGRxvGm/2OSij6dGkwsmaSM6gJG+k/tbk
-	 8gCng/JLyO77ZDeNz0fB/L+wFYfTi8orFuFkgMaZ2i7oSPkLhKnmdXumGjwQHo3lItQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795416165;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=naTtgcRj/MertQfpVKpr5lkSMEaf2WtEA0kcdQKCaus=;
-	b=G9uIj54g6ggragBNQWzW5STRBeJ/VUjkTie1HijtJFB7OOrtFhCi0cWrNC9cLvSt448b
-	 Myo12jaVwhFhuO75b3HYU94h5ntG15t47zlD83uUZRfmj/EpqrQqObKEMI2V2yIwjEK/m
-	 qKpLOFalDmNKEhX91zlWDGyTp7F4/AK1pXuMAV7orslxDpPxKoB7qGaM5B4k9pUmKeOQp
-	 +YJ35G5U2+9GvqviwZ1sD1QFrt5TFgr9WleNAXicm7I6l0WSv3lZktHgTAbvZxVrY9wHs
-	 zw/0aURJDvRrs9rlsNOEtw73pslDfIHzaxbNu6PcrpnjteUXGYOvJLjjjGwExeTSt6A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ScVPpVXT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.41
-Received: from mail-yx1-f41.google.com (mail-yx1-f41.google.com [74.125.224.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795416210;
+	b=txIPqIZwNv23qC1cMcKasFVcx5vQZHnv6LTUoV6R6HcurGtdMZ/ITNUzq1ldyGGfXtG7
+	 k0eOY7QMs3uP71gngzGyQ8GB9NItQltNOVArLHfrkkO+sZ5gJhdgUIt8A5wyzUgN60Pfh
+	 r7Hi+2F/wpHx9gmUA5mWbDpoc/TcYRprbgmH/oLlbo/V7Q5osbpmdHT290LOyl5PJkMml
+	 +wrUyOzZATNyF8pWyb2JYVrvjfw88vQI8WkSUkqKspN0UufF8OUd9F1W6eow30rf/Nlgg
+	 wkCO30PNcgPNYQt0XsYhrL23hq7TMaepCDgEiayDoFJ3WaW8+mLrZUsHiODEpsVxcQg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795416210;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=uy0WlflLH6QHFv/yWoP0KCCQBEY8SNVxzM9gBNFu+LE=;
+	b=SMMd7YTSB0JjEJk7mQxlXhk6uSD4S9T2hpG0YludKUhuGTtPV0KrOhBcfAVsT1yxT//I
+	 ydu+7jDHxGsgXT5QsXc7TfDkGG7nhowXQIv/kZMoV6ZAg6dT/fTbgBVSSOZUBpucK2MYF
+	 RgfGxbfH380Tqug93LLrTv8pZoc97Izw139OnMM+9y6ZDkfPcWiWrBaKM3M5108+g/yJx
+	 nLYpls06FnuoJj0MdOZv48MdPp1cRNuqRdRDk5f6DjpVBzOghyDfwaVssZht8Cc3YSrjc
+	 L+sT7AeS7lwQDN+wrxY3tgtzxgxF28LuMI0F2ZW/k+QSXCfB9iN61o8Lvo/R3uj3cWQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vkjl4cTA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6419606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:42:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6419606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18F9A606A31A;
+	Mon, 23 Nov 2026 06:43:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ScVPpVXT
-Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-67db1f6f50eso2907585d50.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:42:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795416164; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ewHfGOQHa++7cyGSmL36xScyuPiQOzuW1uUYja0hj8wZlTs7Ug+2Po1AQ2It3wFyjo
-         rEZ2dPEOOmqw4Nr669gYk4VLYJ+6fTzXSHIRr1sSkqI07seXolZd4RpuJs1LX/XowTLT
-         AwPBeHrRjoq7PeukCUTySpGce199tLJnTEewRkrjNbMPdBjelDjdOFuPLPI3+SYeAGbb
-         3jY/odbPFwMphIjk5627Q3PVyT71V+RhDRXMxLa1iVC7y9S+BBfSu4GiKdHjgpdOs843
-         feWLj2oA3xeZh2mnYa2wtRLduwKgGYTsop1odudnxLtTSaRBR9wX5QBclyi/3vpd1uYM
-         1ciA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=naTtgcRj/MertQfpVKpr5lkSMEaf2WtEA0kcdQKCaus=;
-        fh=3piNZ+66mH8l+132tRexbJ6uXiqpKmSyyt+2m+Wnb5E=;
-        b=R9HZMDlEZ4YPfmVBQb63aJEhTGX5tRhbqwayYJ/c9G7b3GgbYPL01IwjDYLa0CXako
-         YaXKABPZe/GGr1SrA/TJbFTm/WJ0QORCrvouo2p9ih8ynNBL5Dbv78AfaDOoGWYLHHAk
-         sHP9kFqWJgqJ9rr4PycJ36nNw1RjPYTCvkxVb418Om3Ddwa23usAZcOht2SCEoVnd/cG
-         N3vQSI3kVx0TLddCBj/oanu3hXKrinvXIa+2TMYHl9DAHd5n8yHWuhpa8tmFThHeuOrF
-         VrCheMKmpNTpGbiACrCmG/Ap1OjC9ROdmeeB9ImUrpQcfmo/UzE5F2ZjBylXBhQlnFBj
-         VNfw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795416164; x=1796020964; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=naTtgcRj/MertQfpVKpr5lkSMEaf2WtEA0kcdQKCaus=;
-        b=ScVPpVXTZPlEkXMOVmOrpFrbcx18M4yy08hKdSrknGePgEsA0KYlK1JTjkk8liiJLi
-         en8EFA/UOSUydUn7tdFUr0OTU53c8TrzHtfc7GJjHfLX4Ohd6yADP8zoasW3nR5u+PZq
-         yi2p9rTbYLEFcbTnKsp7Phu5W6LA/kca/ozPA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795416164; x=1796020964;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=naTtgcRj/MertQfpVKpr5lkSMEaf2WtEA0kcdQKCaus=;
-        b=whGjXU00eyZl5KRJKYqIWxgSU0wmZH1d9WXlNHBbCerggVWqU3pmDYGfs9yMt7C7JP
-         o6yt7Vaq0/cOa9lH6CC50fyC0QKPNvh8OXgI9ufhvMTWsGJ9ZNKRxw1DCcP6rLZ0IGT5
-         /cnO/zlPBp101wr6Vl1nXzmt0zDWHQFckPy05ZeR8GafJDLj9mKAYHJFXJNqeeCGF7j8
-         KKCrw/bPh7JRbB5cpcaEFH7Nob199RhKzeO106tFX/2Dh0Uz5z8hGUSWcvo3DJLM/z73
-         98pL/bjbl26rqDx/pn0Q/ZbWid1TQZ8Ll7X+ja4geKdcq225d++b6Rwrag4aUudAfS0K
-         GtzA==
-X-Forwarded-Encrypted: i=1; AL+hErFd1SqaXAf1s7A526+XyVP0L3qGZhHr9LLgkaixqkVsbtKsW829gdAhAK/9GB6u8YG5cbBHyskxNdvLAew=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+PaCxWL4GY1d/SPviZ22pXxKOW9V56T4HHQe86ys0I3zz095pX
-	3NN9/4JGMXEpyg4XXIWtIZiYqcMlBJKeYuv0K/FwbXD2CPSNVhzFBNleKznubmnvfFSOmy8LKje
-	7khj+LCStDLQfA9E4NzpXBt5ZoLhfE+O7hKXQxZ9d
-X-Gm-Gg: AZFdTZeLD9GSQo5eDjAFw7jiz8kYar6XtoZjePMnRIryjhcqEIeCpG2QahNKJVUSJ7M
-	64lN3WfpskrxVqQg5ZYEdDCZ5YFIoyIP/PLoSvoEHH5WB+Z4tswyNoKmSIPt9Lw5jCh6S+Il5pd
-	pPEP0dS/bKQMEzGXq3nv++wr0CGthlETtqiDcjOOws5QCTGRTwzSF2l/I3BbUbolg1oGvnFzQoI
-	KOcuIW/8jb0jiN01JFLtQGxteWonA70Pof5PNO3OYUltXaaz84t8hlCrLCEpy+TMBNkXVn/FWYr
-	ViiIm/iEOen/WnxtL+B3qzLw1RxpcaEAT4lhtWuh+18i3IVaDNOzE+u2hsYeLB6ayZ4lTJRu8Nv
-	gra3wILP0lvOKzQ9imYVnaC6YdqxSmRv35uOhCVgLz3wv56ZKatJQyvHWaGafpcUTYI0=
-X-Received: by 2002:a05:690c:9c02:b0:8b2:bb94:8cb2 with SMTP id
- 00721157ae682-8b5204ac257mr41593057b3.35.1795416164019; Sun, 22 Nov 2026
- 22:42:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vkjl4cTA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D04C41F000C0;
+	Mon, 23 Nov 2026 06:43:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795416209;
+	bh=uy0WlflLH6QHFv/yWoP0KCCQBEY8SNVxzM9gBNFu+LE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Vkjl4cTAk8rbkGm5XRTHyhixfdopm/CLaFrX4UH9DlL9sg3SgxNujn7Z/SB2QHYiR
+	 dkMfrJd8xS51XdYPS8/iXQXCMCbkhQmNZ7sFXL6iv+oZmYFGCeO88cgTwXjzM3PmLX
+	 nZK4i/Ga4KkK5Z9XhyAubienMoXmD4hcceg7fyOmcDECufArxkwvUo3DQVdgbrOvg2
+	 T4IG8+m+hXOBs12NES8DOllVCWdKPJQVCBRleqe2ndVXs/5ECD5cWhZ9W5oZHCTZUb
+	 V14b0s+AiTT/QhUKO9vWLvPPFwdYM4IlFRPXanzd7WKZO1W65LEEUKwSRywFCnjmS9
+	 G8J1rqD4+K1sA==
+Date: Sun, 22 Nov 2026 22:43:27 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, arnd@arndb.de,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Leonardo Bras <leobras@redhat.com>,
+	Inochi Amaoto <inochiama@gmail.com>, Han Gao <gaohan@iscas.ac.cn>,
+	Yao Zi <me@ziyao.cc>, Chen Wang <unicorn_wang@outlook.com>,
+	Xiaoguang Xing <xiaoguang.xing@sophgo.com>,
+	Paul Walmsley <pjw@kernel.org>
+Subject: Re: [PATCH V6] riscv: errata: Add ERRATA WRITE_ONCE fixup
+Message-ID: <awPgjwuswbjeDftg@thelio>
+References: <20261120012712.1957564-1-guoren@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,63 +63,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261103043734.2179858-1-wenst@chromium.org> <20261103043734.2179858-5-wenst@chromium.org>
- <avLw2AiqcnO9Blun@shikoro>
-In-Reply-To: <avLw2AiqcnO9Blun@shikoro>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 23 Nov 2026 14:42:31 +0800
-X-Gm-Features: Aa3M54qFQQaP0XRNtPCyFnaJIa2pdaKUHFg7uIqYmbd3iYo_i21tDqRJOm5IHRA
-Message-ID: <CAGXv+5F5hf_8U6j6tJ1WcS6gUCiA82ny+6DXPv12g=vUjwYUhw@mail.gmail.com>
-Subject: Re: [PATCH v7 4/8] i2c: of-prober: skip post-power-on delay if
- powered on sufficiently long
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
-	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
-	linux-input@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Wolfram Sang <wsa+renesas@sang-engineering.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120012712.1957564-1-guoren@kernel.org>
 
-Hi Andi,
+On Thu, Nov 19, 2026 at 08:27:12PM -0500, guoren@kernel.org wrote:
+> From: "GUO Ren (XuanTie)" <guoren@kernel.org>
+> 
+> The early version of XuanTie C910 core has a store merge buffer
+> delay problem. The store merge buffer could improve the store queue
+> performance by merging multi-store requests, but when there are not
+> continued store requests, the prior single store request would be
+> waiting in the store queue for a long time. That would cause
+> significant problems for communication between multi-cores. This
+> problem was found on sg2042 platform with the qspinlock lock torture
+> test.
+> 
+> So appending a fence w.o could immediately flush the store merge
+> buffer and let other cores see the write result.
+> 
+> This will apply the WRITE_ONCE errata to handle the non-standard
+> behavior via appending a fence w.o instruction for WRITE_ONCE().
+> 
+> This problem is only observed on the sg2042 hardware platform by
+> running the lock_torture test program for half an hour. The problem
+> was not found in the user space application, because interrupt can
+> break the livelock.
+> 
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Leonardo Bras <leobras@redhat.com>
+> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+> Tested-by: Han Gao <gaohan@iscas.ac.cn>
+> Tested-by: Yao Zi <me@ziyao.cc>
+> Cc: Chen Wang <unicorn_wang@outlook.com>
+> Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> Cc: Paul Walmsley <pjw@kernel.org>
+> Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+[..]
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index 6f1c683f0ec0..64683882d50b 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
+>  	return true;
+>  }
+>  
+> +static bool errata_probe_write_once(unsigned int stage,
+> +				    unsigned long arch_id, unsigned long impid)
+> +{
+> +	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
+> +		return false;
+> +
+> +	/* target-c9xx cores report arch_id and impid as 0 */
+> +	if (arch_id != 0 || impid != 0)
+> +		return false;
 
-On Tue, Nov 10, 2026 at 6:24=E2=80=AFPM Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
->
-> On Tue, Nov 03, 2026 at 12:37:28PM +0800, Chen-Yu Tsai wrote:
-> > On some devices the I2C component is powered from an always-on power
-> > rail, or the power rail has been left on by either POR defaults or
-> > the bootloader. By the time the prober probes the device, the device
-> > most certainly has finished initializing and can respond. There is no
-> > need for the delay.
-> >
-> > In such designs, the system integrators tend to work around the delay
-> > to avoid the boot time penalty by simply omitting it from the device
-> > tree and the component prober. This is undesired, as the device tree
-> > is not fully describing the hardware.
-> >
-> > Switch to the new regulator_enable_and_wait() function that makes sure
-> > a certain amount of time has passed since the regulator supply was
-> > actually enabled.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
->
-> Acked-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
->
-> @Andi: Chen-Yu is the maintainer of the of-prober, so I suggest these
-> changes just go in together with this series.
+Doesn't this match more SoCs than just the SG2042 and TH1520 like the
+commit message mentions?
 
-For this series, you'll need to first merge in a tag from Mark's tree:
+[..]
 
-https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git
-    tags/regulator-enable-wait
+> +#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
+> +
+> +#define write_once_fence()				\
+> +do {							\
+> +	asm volatile(ALTERNATIVE(			\
+> +		"nop",					\
+> +		"fence w, o",				\
 
-This tag provides the new regulator_enable_and_wait() function this patch
-depends on.
+I tried this on v7.4-rc3 in qemu with -cpu thead-c906 which matches this
+errata, and I discovered boot fails when CONFIG_DEBUG_VIRTUAL=y.
 
+  kernel BUG at mm/vmalloc.c:879!
+  epc : vmalloc_to_page+0x212/0x260
+   ra : patch_insn_write+0x1a2/0x414
+  [...]
+  [<ffffffff8026ba1a>] vmalloc_to_page+0x212/0x260
+  [<ffffffff8000fa76>] patch_insn_write+0x1a2/0x414
+  [<ffffffff8000fcf6>] patch_text_nosync+0xe/0x22
+  [<ffffffff8001b886>] thead_errata_patch_func+0xac/0x144
+  [<ffffffff80009548>] _apply_alternatives+0x76/0x96
+  [<ffffffff80e038a4>] apply_boot_alternatives+0x48/0x54
+  [<ffffffff80e04d4a>] setup_arch+0x92/0xe8
 
-Thanks
-ChenYu
+The vdso getrandom code uses WRITE_ONCE(), so it now has entries in
+.alternative. patch_map() ends up calling vmalloc_to_page() on an
+address in the vdso and triggers VIRTUAL_BUG_ON().
+
+Thanks,
+Drew
