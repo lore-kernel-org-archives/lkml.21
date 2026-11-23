@@ -1,102 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415460;
-	b=KB4sl23N45bXijxlQ6knwO7ZFRI2tgzSQWB9fQejzjOkQyq3yuQHG/KY2ASBF9jb5CWT
-	 EWTvlZn+h97tZwVnC00/Fp6zBGLcQz6YP/3YvG9uoLrvUdktptogAH6tM+OH6hL+e/K0T
-	 +KhWPL5eqvkp62Msr++llDQ8jEcRwmMffNIMl+zs7OvjGbEsQMKoEVsvb3+6k6Jx2axqa
-	 dZdUfgqD+1RCk1+TJNnT7R+YgpB5fjImtmG86O8MsXC/5hkSA/puJnQnNj+R4FT42QVWU
-	 JMpMX3AcsYkvv2JwefKzX8O0tSTzjMwZx0Iu4QUtO/j8PWLC0t1w+Q33Gv+NzpWrEdA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415460;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=FC41BXf4VJWZQyWR3Sgt6XorZQrlBJJIAm976pUKW8M=;
-	b=HAkXH5ILC8BYLC5DEH6Ed1XdAzvXd4sv7nHmOZIjQEjVWOPyIgJVS0MPkTfaEuDsd6PF
-	 fhVOWKgqsIDUQoCPcvwrPvenL+11GOzdDbXE17DMZUx9lb2QC+0SZ7L8K6Nrx+IzmLhEA
-	 CIoQybnV8sZ4ReIMXw0IwPxNjczcKlViQ4dv+//cdZcyS9C31sF+LO2ilDqGMj3Aqx29+
-	 RFdxn+95b+dOoRDHtRyXyhDGgbSXo2A2Ax+IIwTtmI+IS3kHKNuHym7RkNthVsDCS+xGt
-	 duobCwNKq/dzI58rsV2bCY96C0D6LYIh2rzeSzB8veM3uEumU7Nx9VRkve8a0YaUVKg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="MCV/B79T";
-	arc=none smtp.remote-ip=209.85.217.48
-Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com [209.85.217.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795415576;
+	b=aRB5HlML8Cs0a4OO47s4VORLFpoY5J3tqyiTr1rVQ5QCBkutsmVK6DHgs4SO8rKqX1mt
+	 xEUoSspXdqkn/YTNOnedVwPG0De+KpK96z/IopBWCld9wgRcGhpLw7QabZtmrwG4aylBL
+	 jK0AHhp39BLK+7P7EC6q/FTnA7EHPpruCs1qHeF4nNVuBbOEUNg9L8kXvqsklUKHp4LZ3
+	 10zTlb116uDM9PsHekP97S3WFQeXlAPNnr5hjp4mQbc7bywtAGl6Sz5oGKK9Ydsi+tmkb
+	 AfRXrq3Eyf0Y8iJFUvlkI9/FfVRDkNJrVRJto03LfrqZ7QgmQPV2emBWpcbMFwry5nw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415576;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=jJ5HTt6plunxin31vtC4rDMiI3PR3fN6iuRHRpNNp8k=;
+	b=TaD/J3VjknLbTP9MLY8LJKVCqM8Os5fdmhYetIUq3YHU2SrQ4f1WGNLvFnIjCYTGhA3A
+	 RpeE2Hgsjmb/j4kr6c8i7EWoBOiJ8Ln7HoLArGUNegUYccj5bizBN801HxN3z0SVRxQhJ
+	 w40Q9N1uIdsPit3k8E0sfx53G17f/yVjPvJzX/abBE2BJGHZ+QoAk8pTqxkJvMmgMBZQ/
+	 wAUlNJx/yyGOZwppBtleiyeDO2cj2vBm4LxL80sL/D4wYOMD+rroZjWs1xVRTRd7dmztI
+	 Wll9KfBgztKdwmlK64XFGMcGA2xhQ6SiZAmRlJ7wSFqm+hKVOPiubhe4VyZYecWsNOA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mO4UuqUH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC77606A31A;
+	Mon, 23 Nov 2026 06:32:56 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mO4UuqUH
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795415576;
+	b=v+wDBH3k6afTKz7auXzC1E2PhpSZNF13SLI0fO8iRuSdDQJLTeG6uOarnQ6wR8hM2XGd
+	 S658toaYmIByvkFUA5OKpSl8+KD1urv3ijvNQgeLDFaPa67kOzkC+7qOZxBR0U16Dk1Mb
+	 U3teCoRPcetyZ0z026l1PuWu/kM26+ZpFT0LTLP3VB27FOaFdeyyPER/0b7oo4LRHIlUE
+	 GfGlWIo1b24KRLybdWDCrAJxrw1RtodVW1Cerdpi3o1XF2U6eXNBG/kxJKNMt4k/2styY
+	 Ri3jIxjYVZaxuP5x/I1ErveiFVlEoZCS1W9FTjh0xo3w9T3YEROOccz2L7Sh54eNWQg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795415576;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=jJ5HTt6plunxin31vtC4rDMiI3PR3fN6iuRHRpNNp8k=;
+	b=u1IhZPFzwmUuNNdkgRTiy0WvdHRi11B8jBUCnbnDnIGQzb/sdg1dQPfmLu+kX2tM7bQV
+	 1stEgfCCzhH4cjTlIaUW7uRewnh1Dqt5Xxrc21HeMPA8hZbQAQ/cl0KO1V4SB9HTZdTXJ
+	 /6HPz804n22ACQ/jKhhUa7FFne2c3vp2TEWVBTuSvp8tSSSPjZevRrxVjQLdOGTDHqOLv
+	 FVQ8NtTnwj48+2UGl+ZvDfLjblbdxkizyZA2fmShjj5DnJjATz/LQj0WxLk+NyRxIwNTm
+	 HUJ6E9VvXYBwCHr8X7QJtegX/REYSrnADnn/bemt1t0VVHKUPBXY0XsJnHy1UtApg4g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAF1B606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:30:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAF1B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MCV/B79T
-Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-77bf892b496so938509137.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:30:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795415459; x=1796020259; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FC41BXf4VJWZQyWR3Sgt6XorZQrlBJJIAm976pUKW8M=;
-        b=MCV/B79TQ3wl1OdvCn+/05GbGxrnVvp2GCl6elyGMM5cDPlxm2MBVUl8bcJfQDByqF
-         lmvHk/8pHxIp+YJE2XJKD8h0Nr6+Pd4DqEr5K9dpkOoPI3v7nWIlY931RtjgledVuQZ+
-         /tEC+dmRnWEVAoVyYXKuLj05ole/RaCJ0u4XtErdhr+Js4VXQ3NlvwBJ8rJIKYwRo3lj
-         Xk8uyGtHpzrzzw33YW/TGHQgGQEdja04pW39IadJ03Zvd2XtAsi8DCimddQuy/AkVHxs
-         LtSIypsXCTyVkipJWvcQbBBKZ4WehbcQ4lu5569txprj4HeyGNLejCAtWTOl3X8Birj0
-         D2/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795415459; x=1796020259;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FC41BXf4VJWZQyWR3Sgt6XorZQrlBJJIAm976pUKW8M=;
-        b=GuAoFyhyp0AirUH46NsPCuQ/L4SaOd1cQG384AecFtsQUWbKanV2QdJlbFYzcDlalB
-         Sal7PxHiKONwf4l4ngwHFf0WbIYQVAAlwu382QL0GkRDXJ8gmoguUtLu1PSfr+Mcs3k4
-         9t6XVND5nMDgdfPj627QzIDq30kicmaNV+PJGlRxueOOmXbmZdUwHbk1KKxtpfF+3ch4
-         1g/mg6oudbkW9XsWdldwLjfcqbhueUOtYopmq94vc2LUfjylEKs0vrHMxSgM/BG+7khZ
-         AfXOF0cGkveTvFb2dw2zwFgUorqIXN16bNxBqOXHFPhjD10DwVkrhRktLXDpQMCCK/Nk
-         N2Zg==
-X-Forwarded-Encrypted: i=1; AL+hErEQfgBGSJfKr5QBt4CRB1l3fdqs6R/TTdke5l1i8uA6rjbUJWg3Iw2yUU2Wj48g7D748kTR0sj6xDjDFzM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OqeKncF/L4q+KiusebCjY4FP7J+cSJjAwKmNAcqdwR5C8nnqr
-	AfHeYmeI7XG90s5+kStfLM6lKRtS3lXwSs4J98TVGGlpKrCk7uIdRNiI
-X-Gm-Gg: AZFdTZdWglB958Z2TcwkCT5shfOH63OIMncebrIj2/ZaN1dVzLqTx7kanUPn6V0ZK2j
-	8TSjZJev1uZ2QCj2z/G6nB5OQk0euhPoI0VTyIwZz+aKFG3QrfI+dPFO7VaidZ0JQDFvmd2JT2n
-	xC25VDQYw6A+tPbbB5wSO1oA8uLuwymJWbpJLYbyE3QGffkv9hY6bwgqXgn5YCtbxwNVDQRlsE9
-	9ARG0nKpoMFeZGvVXdPt/aaFMUoipawv58+rLSWXqbb2ImqlWiTk3GfmAoD6io/ZbLLcV1nkeYs
-	eDhwjWOoP5mDcKYo+QudtrIYCLifH4QuZAeXMXbjkWke7Leo4oLk36Hsk1W9LzrbXkvLHjuI1iV
-	LOdbZ6QlraJdf1J49kgQ93RBlvERoW/WlhDL0gllOPxRkz6OlCOIGWnwbeNgdUCMYAZj5flsmzF
-	1dEgjO26KmnmXPIYzI6v2rp0Fmxrf1ABJYIzz0vVdQW1ZjyuJMyF8biXpjChBUKsbYtnrdjt9Zh
-	rGBB+hxNY78uCHIRkQ7TsyknblW4O0sdwtCobh8SNMYU50ccgQDfeV3K6bFf7jHFeF8MvGI0Uui
-	54TszNWkcYTvbVegDhxmZNQg6kRzwgBuRuy/7XThp123DgU1ote0yMXy8PKAIml0ZI4=
-X-Received: by 2002:a05:6102:8097:b0:7c1:bc57:c7f5 with SMTP id ada2fe7eead31-7d7393c9b97mr4057528137.12.1795415458558;
-        Sun, 22 Nov 2026 22:30:58 -0800 (PST)
-Received: from MacBook-Air-91.lan ([2603:9000:d440:53a:10be:9c04:cd21:d4ba])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e822a085sm10595144137.10.2026.11.22.22.30.55
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 22:30:57 -0800 (PST)
-From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: netdev@vger.kernel.org,
-	Eddy Tsalolikhin <eddsterxyz@gmail.com>,
-	Kyle Zeng <kylebot@openai.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v1] tls: fix ring wrap in sk_msg_memcopy_from_iter() after splice
-Date: Mon, 23 Nov 2026 01:30:55 -0500
-Message-ID: <20261123063055.58813-1-juanagusnicco@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120225720.89044-1-jiayuan.chen@linux.dev>
-References: <20261120225720.89044-1-jiayuan.chen@linux.dev>
+	by smtp.kernel.org (Postfix) with ESMTPS id 2FCEB1F000CA;
+	Mon, 23 Nov 2026 06:32:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795415575;
+	bh=jJ5HTt6plunxin31vtC4rDMiI3PR3fN6iuRHRpNNp8k=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=mO4UuqUHklj3xa2LjzYeh5smm+9jQgMuQ7AkfEqt6jFk+DhFTuKbYagt1YvjPUdob
+	 +jE4jmmMMz6kLRKj4sWOxVRI3nt6+aZdr2P3qmOwNmdMVs+Oe/cfwhwbTR9lRd0SGL
+	 0/CQAM4Tw5JPbVOLl3X9NyGHDQwXHtszfKR2tlw1BBzgQ4cNfDeQjF9RuTcVVXDZwn
+	 n7fJWN3ekBPu8quGHK0DCEwQKuYI5jg6jnGlvRnVwtYBU98Eqt1FqEM3dLpZZy9i9a
+	 BW3X6+D7RqsJFqC/cXzhNdky5aybvsfWjiB796nn+r+PG3OX2mclWzwli2ZUD5cwGF
+	 et4gx/rCyhrJQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 42DB04C38F;
+	Mon, 23 Nov 2026 06:32:45 +0000 (UTC)
+From: Markus Haberlander via B4 Relay <devnull+markus.haberlander.rosenberger.com@kernel.org>
+Date: Mon, 23 Nov 2026 07:32:28 +0100
+Subject: [PATCH] mfd: cgbc-core: Add support for conga-PA7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,42 +82,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-cgbc-conga-pa7-v1-1-f3d17fb02e43@rosenberger.com>
+X-B4-Tracking: v=1; b=H4sIAPvdA2sC/yXMQQrDIBBA0auEWWegKhjoVUoXZpza6UJFkxCQ3
+ D0mXb7F/w0qF+EKz6FB4U2qpNihxgHo62JgFN8N+qGtUtoghZmQUgwOs5vQk528Yc3eWOhRLvy
+ R/R6+3n/Xdf4xLdcFjuMEGVKK8HIAAAA=
+X-Change-ID: 20261123-cgbc-conga-pa7-dc67d3e2ed36
+To: Thomas Richard <thomas.richard@bootlin.com>, Lee Jones <lee@kernel.org>
+Cc: mfd@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, 
+ Markus Haberlander <markus.haberlander@rosenberger.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795415564; l=1513;
+ i=markus.haberlander@rosenberger.com; s=20261123;
+ h=from:subject:message-id;
+ bh=v1CPWN/2XkF2f1MoPpYxZuyNZds9qyQfrKK/LTczYvU=;
+ b=Y2uothSjoELTvG4Mb6hN5yuCH4QqU5F6vr3ENRqv1VUiWrYP30Km46XE/zr7onLPqOz4YGiws
+ 1b2VGJMzJ4cCHecyB24R07WlKZv9zD5RwgXp7oSmw/ppYxk8Rz8iFC9
+X-Developer-Key: i=markus.haberlander@rosenberger.com; a=ed25519;
+ pk=baNIWlZCf58g17gE2FS6ir0ymNwyBXguoQENSJkXdeQ=
+X-Endpoint-Received: by B4 Relay for
+ markus.haberlander@rosenberger.com/20261123 with auth_id=1612
+X-Original-From: Markus Haberlander <markus.haberlander@rosenberger.com>
+Reply-To: markus.haberlander@rosenberger.com
+Content-Transfer-Encoding: 7bit
 
-On Sat, 21 Nov 2026 06:57:19 +0800, Jiayuan Chen wrote:
-> tls_sw_sendmsg_splice() forces sg.curr = sg.end after adding the
-> spliced page.
->
-> The following non-splice sk_msg_memcopy_from_iter() is a do-while
-> loop: it advances i with sk_msg_iter_var_next() and only then tests
-> i != sg.end, so starting from sg.curr == sg.end it wraps the ring.
+From: Markus Haberlander <markus.haberlander@rosenberger.com>
 
-I don't think this addresses the root cause. The copy path in
-tls_sw_sendmsg_locked() starts writing at whatever cursor the last
-producer left behind, and this is the second time the splice line has
-been fixed because of that: c5a595000e26 made it move sg.curr because
-the copy was writing into the spliced page, and that change is what
-introduced this bug.
+The conga-PA7 is a Pico-ITX board with an Intel Elkhart Lake SoC, like
+the conga-SA7 SMARC module. Its board controller is of the same
+generation and is accessed through the same I/O ports, so the existing
+driver works with it once the board is matched.
 
-This patch does close the splice route on mainline but doesn't touch
-multiple producers that leave the scatterlist cursor in a bad state
-for the next copy:
+Match the board vendor and name, as for the other boards: the system
+vendor and product name are empty on this board.
 
-- tls_sw_do_sendpage() on 6.1, 5.15 and 5.10, where this patch does
-  not apply. The bug is reachable there too, as a race rather than
-  deterministically (won within a second in my tests).
-- the record split in tls_push_record() on 7.1 and older.
+Tested on a conga-PA7 (board revision A.2, BIOS PA70R026): the core
+driver loads through its DMI alias and adds its GPIO, I2C and hwmon
+cells.
 
-The copy path always appends after the data already in the record, so
-it can set the cursor itself, in tls_clone_plaintext_msg(), before
-cloning: on the last element with copybreak at its length, or at
-sg.start when the record is empty, as sk_msg_reset_curr() does. That
-holds whether the clone grows the last element or adds a new one,
-covers every producer, would have made c5a595000e26 unnecessary, and
-applies unchanged to every stable branch.
+The patch and this changelog were drafted with the help of Claude
+Opus 5.5 and reviewed and tested by me.
 
-I'll send it as a separate patch that tags d829e9c4112b which caused the
-symptom that c5a595000e26 fixed but introduced this bug.
+Cc: stable@vger.kernel.org # 6.13.x
+Signed-off-by: Markus Haberlander <markus.haberlander@rosenberger.com>
+---
+ drivers/mfd/cgbc-core.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Best,
-Agustin
+diff --git a/drivers/mfd/cgbc-core.c b/drivers/mfd/cgbc-core.c
+index 8a63923d1..cd68d396d 100644
+--- a/drivers/mfd/cgbc-core.c
++++ b/drivers/mfd/cgbc-core.c
+@@ -379,6 +379,13 @@ static struct platform_driver cgbc_driver = {
+ };
+ 
+ static const struct dmi_system_id cgbc_dmi_table[] __initconst = {
++	{
++		.ident = "PA7",
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "congatec"),
++			DMI_MATCH(DMI_BOARD_NAME, "conga-PA7"),
++		},
++	},
+ 	{
+ 		.ident = "SA7",
+ 		.matches = {
+
+---
+base-commit: 1cb7268b6638c411fc32f373e965eb8ba9e9b2b4
+change-id: 20261123-cgbc-conga-pa7-dc67d3e2ed36
+
+Best regards,
+--  
+Markus Haberlander <markus.haberlander@rosenberger.com>
+
+
