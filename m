@@ -1,87 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441300;
-	b=vx/SZpb1t4pNK6SUO44Mpr6WR3O2CkEfzswnr55dRSjljc9WK7Xsgs6n7S3VGVIbWOPZ
-	 lhqj5SfSOV7Yj5/2FqsFjBtLudY8bVbfg4qOJCqswdJ5M+QeM9zD+fy8GIhOsnEcUyDWw
-	 uKYldT8ZQDu3/ohJeLeimzGVOPHIHCDpDaRn33oQjj8GINC4GcrQIEAIF8EHd2owp8KFE
-	 IRJjkamdWsEsLhAsD1PVGitNlGcA/bwFFbF71aWSdFfXhdM7eAajYe0+gDX6noVyNAjYF
-	 2OaxGKk2Ti/PnJafRAml6IoVHaGMm+G/RUCNKY1+QyYClLeocRW2Ep/zuh5+4YkR9rg==
+	t=1795441307;
+	b=wre+6rGbbHx+yPZZOJmEFnnoCEx40yLTISDMCKaKMWAmlFYffujstdX5c8Lgrkjg9MYJ
+	 y/5lqWsG3SAbRTTdE+MRMjjPEFlgmg6F1EjS10zzdaMMoBbTvgJUlwH2drU0GV67O1tSL
+	 rtguy22EUjZ1xg1qQzBTmZPWym+DNYh/02T0S+yTv14tYVQEkq4Nq2j/d/2vQHZ6a0snV
+	 mKdZ+xTwO/0Fqfqvk5JqxqK1M8gToLdNJ4ZNPRbpHHSsiQoIjIXb257iK93SV9r/uiQEz
+	 4ZsxBYYdgfM5Qefvx14Pxc9g7Uxf06m5UtsZ0QPIUEeH63gpOLbkoVON0t5uUFHs5BA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441300;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441307;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dojWJPFgnKNqylC7XUFb1f1eXTEneh88WiZp95WzBxo=;
-	b=HTnSXEXircBu5f1gO7yvDdjsVjYImgHIaBRWGMfkvW2L2K/Hy7HPBCXRHsapqcR3a30/
-	 X6U4mN1ZsBK+5WaTAqnvx3sEskBTAFhvXuJPaOQHgHgNT+sjpR3KsgAH9j68hez4LYKrf
-	 gefbn/Rpr7jsO6/0QtBSsrp6ChOCMFENSGuIcZzNttRu3CQZ3wDZIq4j3/3sktyk4iMaC
-	 w/hXOd6OXUBaOn14Xci29JQSYc1fFws8YNS9Ee0c7YtF13NO2haFLhoiZLTTvkvzCyQmB
-	 lwzLYbNdGAFpoDw3z4zpk6LiYWmpX0wmYDaN/WCOA3NXR91LK2C4QrvzRd+fPqZjzMw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=hZNZFDMt84el0uzbl7Y+L0/EjDGNQFFEF3vsJXRqTkI=;
+	b=iOOQjrkHfnJlXQgxnVMJrfZpGKyZxBG6n0c5/TU0WsJVbR9BPmlFwEWmaZSa6+4d5sgN
+	 2Sl7kbqiDuxH+Xg51zvmDHdt500WEVeR/N6CNojcbgIbf+VuR76hOUjUJIFgaul+OAjwl
+	 AfGV0X0ggtGALu1TEXh3LOg4YTX3WvKmE+sHIaGGgptWluMSZ3z+jimXkxlsvpJgpqbzV
+	 PmSUTy/MtrAakHGeRLFMN1YjcYYoxN5v3ssXc0ZZEz8nzz2CLAsWdqe6RwmVnqWF6EIM5
+	 TB2GIoD0oE/gr6nQ4T3GAoKmbPLUZgYMwsFAcLAh93h/9HgSMo2zpHR+NQ76k5U5xZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=uDKHM7Ss;
-	arc=none smtp.remote-ip=209.85.208.54
-Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=u8fDyLOq;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7482A60A383B
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7482A60A383B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED4CB60A261B
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED4CB60A261B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=uDKHM7Ss
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so3592260a12.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=u8fDyLOq
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6baa6f27904so1485765a12.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795441299; x=1796046099; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dojWJPFgnKNqylC7XUFb1f1eXTEneh88WiZp95WzBxo=;
-        b=uDKHM7SsB0qkc2HpeKUX7LIJrt0OPC2vI4JaokDuAKG/PNYS7w6pz7a2sOI/jjkjCW
-         kvXsFGiyVd+CAnDBUWBFfnV4jHsgfXCkvaOpd92pAAcxYpzvlAZL5KiKc7AeXnH+Dsrv
-         qltcajAUj5EpoljOmtCbj/EEfZT5bvaKL++xwxICwz9Gfoq8LylOmAc9i0Os+Yqa1b9s
-         JM9Y7Fmf3APXsII+6cmuoEp7pvuqhyKSLT2F/6swr82993KJ6SyLKW69iygNOOQ5NkWv
-         9GrChOsjErSifiTBO9kLiphjmlOqHDODHiOIy5Fcp2Fzz85Cp+hFmEz6LPQ0mnv5Ceov
-         55pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441299; x=1796046099;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=bairaktaris.de; s=google; t=1795441305; x=1796046105; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dojWJPFgnKNqylC7XUFb1f1eXTEneh88WiZp95WzBxo=;
-        b=Lx5zHgiBqbvplGY7QMwOJuZ8WR/9q0EvHwrBIqQFSD4eX1nUwg11qtU+kabq/dXRav
-         BptRMt7ihCYNE7W/aYXfucfLF0fyACArvmH0ZvQ7nGWS66yaWu/CSaGKPJj2KjawkGjh
-         8AdIVILxxCMMQ2U9ZfjnfzTFg2deR6kuCA3cHwLxqMdjC8jwaM6aY7ZRpB/opgUGO3TG
-         DiiUP0Ngzj79mUbxkY/jCQ7/ojESI/+5s7S4LQMsakAsYndxLXDEAAu98cHpvpmqCTAN
-         pnh7G7xe/P07Hs08Hy/Of2i6TtgIfp1NQ62l/qEs62QobG7V+zLb0uro/HzIcFKogctg
-         TzVw==
-X-Forwarded-Encrypted: i=1; AL+hErHDe95ctFr3ctSZ+3UqAqZLlkHpnGZCb1WzkLZcGGZVSyjOdQL7BIiP4ZiIxr25BPNzeVV44JRvaV/KuCs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84RDU9z3iAo8VhxckBy8t/c4DiuUuPz4dC7TsA/zitBPUBwtN/
-	w6f/kBLpirUGDu1cYD6894Wc4ZKzmcF/z40obAT8tPY66B99RowBkbpEp4GgLIATSQ==
-X-Gm-Gg: AZFdTZf3arvQxBgpe+GemTzLsMHTLHAuAliPSSAYvnjuD3gs9f0lKambUi9/+v5VenS
-	qgwQSmbBpeMQzlBA1linS+cHcN43imKvJ/WszoQRd8EYTzcm6ydsw3inJTa94kaLYZ14MXdlSDf
-	S9ZsWEBrnqzEuPpNoYxA+bpltrdGlXuDsb0yngfYMQifcban0m73ZPDcE+9ECqQoye+it2IXsrT
-	0KdkKJwY84EuWtZpSvx+/ZwJfqoQwWD2sJzcl7KJAmdxByAr+FXcFq2tqAFEVWhG55VFoMWG8Iz
-	shd4O5da9nTPQP0AZ/9JUQ2ialFVzNvfpr53fUEC1aGvQPfhwzTOEdj1a6e8WJhUi4IO8NKmRtG
-	Ob/hnDizz2sh5SzFD9qxWLv12ZN1I+Vz+USgb414vYKOVIcHnrQ6R5a6ZBLUtNeXWIAVpt/uIKM
-	VEXPDzQlNN4req5WFTfmhuulCB13EvPYsxFyxb9i5QXw7G8O3iRcGHZwjz6B4qLmNrEUxroCRVP
-	wKEDIUcAwnI5finalWzjNcejp2kkoKG1sRofbbsHc4fNtGm/sS3EIr5jQY/hdUPHIXdJOl4Yp7y
-	Ijht+ROg5b/kZUBuSylJ4y2X/3NGeNR7RHLjZkCskfJk3UWNfo1NkIRqDamKmZ/sJgz+0anNqvk
-	fL3037WZiXlBCp24CR3q8FgReT81D0tGOXkehRvqeF129MSjKE4n0/UG4ZvMx1vrgHUhT0qpTef
-	q+1rbMPELqHXJE419MrtPEQwqIJT7VAmWNWocC0h/MHaw6GGjihjze/F8qyVr3lpd0fR6vVFL6Y
-	IDZRj1SZjawKCTwZCunVvO6pc+8zHqBGK94NShnGL755enokB9FBYy0IYGaCT9TGuVncmcpe1Yn
-	uguQAenZrSbdyTY79/vbaGN27DObWkG7zJK2FU6nuhl9h6Kqa8aA2wvTKaCgRN3zc3bsyp1bKg=
-	=
-X-Received: by 2002:a05:6402:4501:b0:6b7:b872:27a0 with SMTP id 4fb4d7f45d1cf-6ba37e84aa9mr7855224a12.21.1795441298551;
-        Mon, 23 Nov 2026 05:41:38 -0800 (PST)
+        bh=hZNZFDMt84el0uzbl7Y+L0/EjDGNQFFEF3vsJXRqTkI=;
+        b=u8fDyLOqoaxqxbghlrnzaVe1E7NZfmkNngR3kZEgNvq3M54QAnHbg0VPyvHcK3bJKt
+         0ZSxJ1gRr5Xn9L8QWkmcFSTckVu+1xcdDEZvCBYDkq9lRtuQkV/Ha3NWfbvA2sHXe7Yd
+         vfwloIzWz3egdQ9oo/ecZ/aa+wXfoGn/8SSBbJCnNeSMC1a6Xdv7sjaf21XBq3GZnEDo
+         1lkcL/+cesQhViAyf5X/GLalLD4IY83ojfb3z38FFBNo9VxvlHElvj+bUush/jHaBOe0
+         ZPIYAHsv8QdBnWhi1U9FQN6Xwz4RjIPBoCUUeKFngbx3s16qw3x7seBKBecX/+XY2hlv
+         HfBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795441305; x=1796046105;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hZNZFDMt84el0uzbl7Y+L0/EjDGNQFFEF3vsJXRqTkI=;
+        b=xQXU+UvY4FOUi3GrZVF2kRxwyf/8LD9tfHNTMDx2YemWkde2eCjyZOuwMWdoY044jU
+         Wyt0u4V+82WVvMVumougmN/5TmeGlvlJsneqmJyaYDSWlHInmAc35FqBl2RTIlHM01Sk
+         2uLpI53qCmDqg/Lo/fi5jW6+NhA+qLtyxfwe5cS/1lMT9+ADVPvnocauuGPOyhTnDiCg
+         Mty3kt5WfXlMuC/edLF3VGYEVj6VpkXPAfBqWorcUil9J3ADtMwkLemjSFuwmG8oXA4w
+         Q+Qpgm0QiXZx7IgM6H2PkFqKY4NdIxUdPKsdzSsd264M5rXqO/Mvnq4ia0b6fORfzxYj
+         9iLg==
+X-Forwarded-Encrypted: i=1; AL+hErF9faQ1bZ4KhvpJl+/EtWnyvyESrvdvWMivUEflBhd2+AEqQNCHOHhzCbovX7P7HYECsaKYDPLfoJk0O9k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9XdFKMeF+tO6Pg+i9l955fr6YLRFlPHAzOOMp7jMWCRkvOKlSY
+	4aAIBSP6XD/i4hLS/55zsrSzCJMDaE1liKitZifR/4z46v/foa/LsheXUsRutWu+OA==
+X-Gm-Gg: AZFdTZd96pqXKfl2ErB/90pH4uC1+KvhTxroWf/L8x54W/exRkBMpzBr2fF6kSq2W3E
+	InAkvH1KxIRHy+dFceRMEfEB2khZe587Q+RSHCgEE8U42IM4HKReEahI8mLcdiei/n86iZSnlSq
+	ryz3Da8GIsnWOjSnPDQg/+9qJrewzo04jABxuYr+qQCevW1tyt09oRFElC6PlRoCDjnOF/Y9hi1
+	TfM/RkLCEnnqKOjxPHSIIbQPmx6B7yxg4mMpbQb7pti0V4FZ9gRpYpqZ/bqf3P6xOCOQn6WAC9B
+	NkMXFM86ni/45ObTuSWJV+ShwPVKpHZXR+mypMRabi/R+8GfN4RLmns//ZZxz+dP46ASocjEUhs
+	azRRjXFhapKeIeL43P5iAS/1RipzJg6EL5zaPpe86H5oskV4aFo5ctvQ5Ds5BBPyisdjL+XJdmq
+	gmwZjwyYHbarDkaBLMC++w40DmkoN8cvnObP30yDZFDTtJ3nbqyMsEXhWP7jatMlQ0HgLpl0mJ2
+	OOqNLhjxdtp3J4DPebNj8gUFM6mCfzxtbTAtFl+MoADz2j5J3wmNFXjkofwmC998LEY+QRUJZWU
+	50eXk0l2h3QSC/4yw4wqDrqYt9ng6eYjOZZKl40HZq9YqCrCccfSX3lLMNTRusFrJhSE04jep0o
+	mUNZ6PUoIWkBJkjOXXJqWquyY+Wx/BX75msRiUQ2omwCBsj0Kgm4lc9ntxoybCTyK41EoidUG7m
+	DJ9PXRMiveud5LD+yyS5dthPwofCkPP8/AOYhWuWmILOXPw8ldzMg1spWrCK4LGF8kuH5cFywIy
+	vD4Iv8G3xtFXZYLfILvvkQfvl/4RGIz7oLT2CPs5jkWZb1d371gK8URAMhsQnrpo4dknzarPi7m
+	l27VDPf+lsrWUxqIShAUtYf/Njs4FcfAmDqtnLUsH5XqiRMH5eKsiIiAzAl/Sj/Np///t9K7VQS
+	YC8NH4/9qmphWtvLe8wk=
+X-Received: by 2002:aa7:cccf:0:b0:6b7:cc0c:945e with SMTP id 4fb4d7f45d1cf-6ba37e84fbemr6637619a12.23.1795441305235;
+        Mon, 23 Nov 2026 05:41:45 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f247012000e9a6b19fb24a0d13.dip0.t-ipconnect.de. [2003:f2:4701:2000:e9a6:b19f:b24a:d13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.37
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:41:38 -0800 (PST)
+        Mon, 23 Nov 2026 05:41:44 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Jeff Johnson <jjohnson@kernel.org>
 Cc: ath11k@lists.infradead.org,
@@ -94,10 +95,12 @@ Cc: ath11k@lists.infradead.org,
 	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
 	Mark Ruvald Pedersen <wabsie@gmail.com>,
 	Rosen Penev <rosenp@gmail.com>
-Subject: [PATCH ath-next v1 00/10] wifi: ath11k: cut the per-packet cost of the RX path
-Date: Mon, 23 Nov 2026 14:41:27 +0100
-Message-ID: <20261123134137.718575-1-julius@bairaktaris.de>
+Subject: [PATCH ath-next v1 07/10] wifi: ath11k: look the peer of a received MSDU up once
+Date: Mon, 23 Nov 2026 14:41:34 +0100
+Message-ID: <20261123134137.718575-8-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261123134137.718575-1-julius@bairaktaris.de>
+References: <20261123134137.718575-1-julius@bairaktaris.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,91 +112,130 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The ath11k RX path spends a part of its time per received frame on work
-that the hardware or a cheaper structure already provides: an allocation,
-a DMA map and unmap and an IDR walk per buffer, a peer lookup done twice,
-a cache invalidation per ring entry and per full buffer, bottom-half
-toggles inside a region that already has them off, PPDU stats TLVs nobody
-parses, and a flow hash computed again in software. This series removes
-these one at a time:
+ath11k_dp_rx_h_mpdu() looks up the peer of each MSDU by its peer id in the
+rhashtable, under base_lock, for the cipher, and
+ath11k_dp_rx_deliver_msdu() looks it up again for the station it hands to
+mac80211, under a second hold of the lock. In a profile of bridged uplink
+at 900 Mbit/s (IPQ8074, one run) the lookup and its hash take 1.7 % of
+all samples (ath11k_peer_find_by_id() 1.12 %, rhashtable_jhash2()
+0.62 %).
 
-1-2 give the refill ring a page_pool and replace the buffer IDR with a
-    table of ids;
-3   asks the firmware only for the PPDU stats TLVs the driver parses;
-4   sets the skb hash from the receive engine's Toeplitz hash;
-5-6 sync the new entries of a cached ring once per head read and
-    prefetch the buffers of the entries ahead (cached rings only, that is
-    IPQ8074, IPQ6018, QCN9074 and IPQ5018);
-7   looks the peer of an MSDU up once;
-8   drops a nested bottom-half disable in the reap and refill loops;
-9   invalidates only the part of a page pool buffer the device wrote;
-10  takes the buffer table lock once per chunk of refill buffers.
+Keep the station ath11k_dp_rx_h_mpdu() found in the frame's control
+block, and have ath11k_dp_rx_deliver_msdu() take it from there. mac80211
+then gets the station of the peer whose cipher the frame was handled
+with, where two lookups could find different peers if the peer table
+changed between them. The station is used after the lock and in the same
+NAPI poll, as ath11k_dp_rx_deliver_msdu() used the station of its own
+lookup after the lock. A frame that does not pass ath11k_dp_rx_h_mpdu(),
+from the monitor and error paths, still looks its peer up; the mark is
+cleared where those frames are reaped and when it is read. The debug
+message prints the station's address.
 
-None of them changes interrupt placement or adds work on another CPU;
-each takes work away from the CPU that already handles the frame.
+Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
+Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
+---
+ drivers/net/wireless/ath/ath11k/core.h  |  3 +++
+ drivers/net/wireless/ath/ath11k/dp_rx.c | 33 ++++++++++++++++++++-----
+ 2 files changed, 30 insertions(+), 6 deletions(-)
 
-The profile shares in the commit messages come from perf on an IPQ8074
-access point (Xiaomi AX3600, 4x Cortex-A53, 5 GHz HE160, one station at
-850-900 Mbit/s TCP), one run each, with OpenWrt's version of these
-patches.
-
-On a Xiaomi AX3600 (IPQ8074 hw2.0, firmware
-WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1) running OpenWrt's wireless
-backports with the RX fixes, with one HE160 station at 830-940 Mbit/s
-TCP and 3 runs per cell, the series lowered the share of the four
-cores the traffic takes in the cells where the station sends: bridged
-IPv4 33.0 -> 27.6 %, bridged IPv6 32.8 -> 27.7 %, routed IPv4
-33.7 -> 27.6 %, and routed IPv6 31.2 -> 27.9 %, which is within the
-spread between runs. Where the station receives, the change was
-between -1.4 and +0.8 points, also within that spread. The share is the time idle-priority spinners lose
-on each core. Switching pktlog (lite and full) and the extended TX
-stats on and off, adding and removing a monitor interface on both
-radios, and unloading and reloading the modules left traffic and dmesg
-clean.
-
-The series applies on top of the RX correctness fixes https://lore.kernel.org/all/20261122210525.2076058-1-julius@bairaktaris.de/: its
-4/10 uses the msdu_start_info2 accessor that series adds.
-
-I used Claude (Anthropic) to help write these patches.
-
-Julius Bairaktaris (10):
-  wifi: ath11k: use page_pool for the RX refill ring
-  wifi: ath11k: replace the RX buffer IDR with a table
-  wifi: ath11k: request only the PPDU stats TLVs it reads
-  wifi: ath11k: set the skb hash of a received frame from the hardware
-  wifi: ath11k: sync a cached ring's new entries once per head read
-  wifi: ath11k: prefetch the buffers of the REO entries ahead of their
-    reap
-  wifi: ath11k: look the peer of a received MSDU up once
-  wifi: ath11k: take the refill buffer lock without a second BH disable
-  wifi: ath11k: hand the CPU only the part of a REO buffer the device
-    wrote
-  wifi: ath11k: give the refill buffers their ids a chunk at a time
-
- drivers/net/wireless/ath/ath11k/Kconfig   |   1 +
- drivers/net/wireless/ath/ath11k/core.h    |   5 +
- drivers/net/wireless/ath/ath11k/debugfs.c |  15 +-
- drivers/net/wireless/ath/ath11k/debugfs.h |  10 +
- drivers/net/wireless/ath/ath11k/dp.c      |   9 +-
- drivers/net/wireless/ath/ath11k/dp.h      |  27 +-
- drivers/net/wireless/ath/ath11k/dp_rx.c   | 712 +++++++++++++++++-----
- drivers/net/wireless/ath/ath11k/dp_tx.c   |  34 ++
- drivers/net/wireless/ath/ath11k/dp_tx.h   |   1 +
- drivers/net/wireless/ath/ath11k/hal.c     | 107 +++-
- drivers/net/wireless/ath/ath11k/hal.h     |   1 +
- drivers/net/wireless/ath/ath11k/hw.c      |  22 +
- drivers/net/wireless/ath/ath11k/hw.h      |   1 +
- drivers/net/wireless/ath/ath11k/mac.c     |  13 +-
- 14 files changed, 765 insertions(+), 193 deletions(-)
-
-
-base-commit: 1983b40acfcb3c3464b291c85977290a785bcfdc
-prerequisite-patch-id: ed566369a9bbda0ac9a48357261e8cfe1cc0f1d1
-prerequisite-patch-id: 726d7737c833da0842192eccececad4a0dedb1a6
-prerequisite-patch-id: cf0b8ff1ac6cef681433247e4b937a3e23af78a3
-prerequisite-patch-id: 03c89df01745ac9a80653431261f9a003dbca7db
-prerequisite-patch-id: cb48c0eddbe0c2fe176e8edc94c6bc40be3c48a9
-prerequisite-patch-id: 1956ec85ad80b68868538070fc0e89c29603467a
+diff --git a/drivers/net/wireless/ath/ath11k/core.h b/drivers/net/wireless/ath/ath11k/core.h
+index a0d725923ef2..4eb40e674c14 100644
+--- a/drivers/net/wireless/ath/ath11k/core.h
++++ b/drivers/net/wireless/ath/ath11k/core.h
+@@ -131,6 +131,8 @@ struct ath11k_skb_rxcb {
+ 	bool is_continuation;
+ 	bool is_mcbc;
+ 	bool is_eapol;
++	/* sta holds the station of the peer ath11k_dp_rx_h_mpdu() found */
++	bool sta_valid;
+ 	struct hal_rx_desc *rx_desc;
+ 	u8 err_rel_src;
+ 	u8 err_code;
+@@ -140,6 +142,7 @@ struct ath11k_skb_rxcb {
+ 	u8 tid;
+ 	u16 peer_id;
+ 	u16 seq_no;
++	struct ieee80211_sta *sta;
+ };
+ 
+ enum ath11k_hw_rev {
+diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
+index e8226b2b832c..ff09463d829f 100644
+--- a/drivers/net/wireless/ath/ath11k/dp_rx.c
++++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
+@@ -2512,6 +2512,14 @@ static int ath11k_dp_rx_h_mpdu(struct ath11k *ar,
+ 
+ 	spin_lock_bh(&ar->ab->base_lock);
+ 	peer = ath11k_dp_rx_h_find_peer(ar->ab, msdu);
++	/*
++	 * For ath11k_dp_rx_deliver_msdu(): the station of the peer whose
++	 * cipher the frame is handled with, from the same hold of the lock.
++	 */
++	BUILD_BUG_ON(sizeof(struct ath11k_skb_rxcb) >
++		     sizeof_field(struct sk_buff, cb));
++	rxcb->sta = peer ? peer->sta : NULL;
++	rxcb->sta_valid = true;
+ 	if (peer) {
+ 		if (rxcb->is_mcbc)
+ 			enctype = peer->sec_type_grp;
+@@ -2721,17 +2729,27 @@ static void ath11k_dp_rx_deliver_msdu(struct ath11k *ar, struct napi_struct *nap
+ 	if (!(status->flag & RX_FLAG_ONLY_MONITOR))
+ 		decap = ath11k_dp_rx_h_msdu_start_decap_type(ar->ab, rxcb->rx_desc);
+ 
+-	spin_lock_bh(&ar->ab->base_lock);
+-	peer = ath11k_dp_rx_h_find_peer(ar->ab, msdu);
+-	if (peer && peer->sta)
+-		pubsta = peer->sta;
+-	spin_unlock_bh(&ar->ab->base_lock);
++	/*
++	 * The station ath11k_dp_rx_h_mpdu() found for the frame, if it ran,
++	 * so that mac80211 gets the station whose cipher the frame was
++	 * handled with.
++	 */
++	if (rxcb->sta_valid) {
++		rxcb->sta_valid = false;
++		pubsta = rxcb->sta;
++	} else {
++		spin_lock_bh(&ar->ab->base_lock);
++		peer = ath11k_dp_rx_h_find_peer(ar->ab, msdu);
++		if (peer && peer->sta)
++			pubsta = peer->sta;
++		spin_unlock_bh(&ar->ab->base_lock);
++	}
+ 
+ 	ath11k_dbg(ar->ab, ATH11K_DBG_DATA,
+ 		   "rx skb %p len %u peer %pM %d %s sn %u %s%s%s%s%s%s%s %srate_idx %u vht_nss %u freq %u band %u flag 0x%x fcs-err %i mic-err %i amsdu-more %i\n",
+ 		   msdu,
+ 		   msdu->len,
+-		   peer ? peer->addr : NULL,
++		   pubsta ? pubsta->addr : NULL,
+ 		   rxcb->tid,
+ 		   is_mcbc ? "mcast" : "ucast",
+ 		   rxcb->seq_no,
+@@ -3081,6 +3099,7 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
+ 			continue;
+ 		}
+ 
++		rxcb->sta_valid = false;
+ 		rxcb->is_first_msdu = !!(desc->rx_msdu_info.info0 &
+ 					 RX_MSDU_DESC_INFO0_FIRST_MSDU_IN_MPDU);
+ 		rxcb->is_last_msdu = !!(desc->rx_msdu_info.info0 &
+@@ -4562,6 +4581,7 @@ int ath11k_dp_rx_process_wbm_err(struct ath11k_base *ab,
+ 			continue;
+ 		}
+ 
++		rxcb->sta_valid = false;
+ 		rxcb->err_rel_src = err_info.err_rel_src;
+ 		rxcb->err_code = err_info.err_code;
+ 		rxcb->rx_desc = (struct hal_rx_desc *)msdu->data;
+@@ -5471,6 +5491,7 @@ static int ath11k_dp_rx_mon_deliver(struct ath11k *ar, u32 mac_id,
+ 		rxs->flag |= RX_FLAG_ONLY_MONITOR;
+ 		ath11k_update_radiotap(ar, ppduinfo, mon_skb, rxs);
+ 
++		ATH11K_SKB_RXCB(mon_skb)->sta_valid = false;
+ 		ath11k_dp_rx_deliver_msdu(ar, napi, mon_skb, rxs);
+ 		mon_skb = skb_next;
+ 	} while (mon_skb);
 -- 
 2.53.0
 
