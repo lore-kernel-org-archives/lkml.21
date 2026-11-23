@@ -1,48 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795436122;
-	b=SCCLD3DGXtYZR3Wnyd85lcvbmGJGq2ViLwcTY1Er+Q6fimgTclH9Q8wbfZXF9XWGBGNs
-	 cYCMLUiBL9JRDN6YvPV1OsshJQqgwrvnUgvuJoQ8V0dxiHzJu6o4Eg2iXpgwS5GWkY5dY
-	 S9uqJ/RZblydRIwGbEhkiCb7DfpoSLX8sUVPm4KTsOGBvF6xo062OtqkfGBhWIfspHKX6
-	 O19kd4zHI/9jFvondVHVjzDfEwF1FpNwLJvKRDqquQLjAMoIqHnZN2CF0bbN6145pppC8
-	 JMMImNsnux5nltI3R3NaLUk7CZlu4Zg/cBUx98SEIR8HWBn1+7hOpIfu6Z51lxkOSpw==
+	t=1795436153;
+	b=wb54nly5ulKzhEOlRGsasc4qlD32s+xSyOwMsKMWSwJOz4hqeuGo0kIp2P7O83j8MNbw
+	 1T7m3cWwQ3v8+/VHdiqQ6ZI2XWqgRMTZBEicmMWLeVvuTOBQJnKsaTckZWunQkv9VmtWa
+	 mHV2dNmupbdyyhgYME0gVQhW1+scPkzwh+sOC9fXtI81gSBVZenJWUyXmYlw26GckooRY
+	 8DNgY5rRmLhufWg7t4Ws/3QLZsJaak0Xo7cH1sUprwjuLpFE8sTawZhdRJSfbNXrbaaLm
+	 QsIKLpwr4y+m1PwmR5f9ZtP1+AcbpcyVtVoLSXchkNIyeS36pAGby/w8Kr//ohT05oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436122;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=0A1HxPCZgktUb1uEsmTz8nm5mXUnvFpX0/TSq8lRGL4=;
-	b=JSHKbqHfU56SuBEnZUzvVtxAhorC93FcJ226MACmcSt8XjMxkeFta2yqouFvVsP/29My
-	 tsBkm5z0dPvKmMS1tmRmLXSI8Bfylf3oNcYWiZi/g01RsvSC/FIU2SCkDYJCOo4qyy5RC
-	 ZwHg7WuJqZuRWBEx9uhTsBLGJavQYQ6fuHbKUx4+oPEeWPKedlpk1YxfAjgLH0CCxy/yV
-	 kunga2G4sYQvt+IPiql4tJSPZAVPqVvxT5E+RoW+U1thDkTySBH0sYf5ZmPsmWYKMCanw
-	 slPosg0TGJFs7AZTSGWqWMTgKohHrlcTYKX0SIiqQ5AE6vh++grk5e6ZYco+Gt4PyVA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436153;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=8jk8/lTikrKaWneRtmXjwH328v4u5+a7u543uK0spzc=;
+	b=E+ZdmVk79BuFgzGQXf7hdjGWUxW352vBLTmrk5yvJl46hUP4owItUX0lCj0I1miVdNP3
+	 4W0w0htlFaI4UvGPaDszFHwcBXGklLB9BcfqOTqH5jp37A0fOmkSTa8KRdLRk1h/qMMdo
+	 yMRLzP4D39GAHeeEXe1P4jjmywMR8pxKaByFLJoOt3hfjPYILfDrB1pyETgF26JcXeY1s
+	 VVJybQ1WrJsqT1v4h2uCQxtWjCL54kpib7W5QdmBCx2VEa75Tel76+WoN0CIYF7xNjuq8
+	 MFRBljogR0bRW2ViZ0xMkm4iPYB6k94ITavAYJ2b5Q0uLNT7ntWeKjtOWJ775SKlJvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F+jInvKl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fvJjDiST;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 834EA606A31F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:15:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D9BC606A32E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:15:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D9BC606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F+jInvKl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5171F000C4;
-	Mon, 23 Nov 2026 12:15:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795436122;
-	bh=0A1HxPCZgktUb1uEsmTz8nm5mXUnvFpX0/TSq8lRGL4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=F+jInvKlucvFjbPWgfkDtngrdHsyleLMAelHvMDYDjrcBzHrn7yCIAe3KemPJ6cMj
-	 7dONviRhWOf/CA6Bf2nc83qQ0i6hLbC9kwGTFra8FEyFXvYjK3OnnlGDR9+vBIbsMe
-	 NROLJvv3mFIDo90AVGDH7vHQDL20ivZJGs+Bvpozg+zuGFDexE+yh/tr+EgNruZFO6
-	 fNNwtcyod7o1XwF0qsZVJWPYghhXqacZnh28LBNqGLxp/pY8V0MDJ6qsyoIoTkTscT
-	 qI++L1Oc7rEVTOYJrSjk1Nym9ZK1GAB7uXAAhT3EXZQQVGgw4gfVryp/OS6QVALW2o
-	 fBXsvY99MPLmg==
-From: Hannes Reinecke <hare@kernel.org>
-Date: Mon, 23 Nov 2026 13:14:54 +0100
-Subject: [PATCH v5 9/9] nvmet: add configfs attribute 'dhchap_keyring'
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fvJjDiST
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so24351835e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:15:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795436151; x=1796040951; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8jk8/lTikrKaWneRtmXjwH328v4u5+a7u543uK0spzc=;
+        b=fvJjDiSTwTAsXhI753fJVkY1MBn1pUvJ0gJuurvjw0KQgCZ9IckfQTuAmmCSGiMNX/
+         UPEuyDjvoRrXjd6mqHrINIcD07l32C20iZKkT8ug8ERpgNx0VRAXL9gs0iYoR01bXNVi
+         bpkq3azTee/na4BrvTNyeLio0RqUd9VHjj8rGLkkSEuQjUb6UXOO8KIxMAGHHCk147II
+         IaxX5cHmXu6bZp9OWaW73pmHThnDCHfbay5+352W0lV/eE/K+NwYlMb9qvf2Q9nS9HA8
+         E+pcLOS2063hbQwW0bGoOOy8GZ8Y2NL2M6/QksSunGfTrEod7Eqnsc7+zp59BUwKoCnC
+         qc3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795436151; x=1796040951;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8jk8/lTikrKaWneRtmXjwH328v4u5+a7u543uK0spzc=;
+        b=rmFZdutYCT8Rk0ZX+Wfj5xBopepykgKw46zK9enIFYfL+JV7zTLZDQN03AMHrVIf2k
+         GW53jDn5OmVRKTXVj9ikKoUv5MyJFkp0l2VBfOBsi8GuR/a47Z5NzxJrt30Eun0o2e4m
+         FoEwgrVGiQV5E7dKyXc/vNXtTB8T4XaD2iDxk6KKRYS37abdgyelhU+hGJzMZhG6HJex
+         ZQs+B32mUKDGIztvmKP1uxontcW/kwEy2KldNL4PvgdwI7Sz+wL46IaAw5SpEpAsG2t6
+         0gcjExWs/cBdX+sVggWtTdNeL6Zr/ybN3eL8fQ55G/fsmFVsOO95Ig7im0flfp4za3kS
+         Uz4Q==
+X-Forwarded-Encrypted: i=1; AL+hErHVgvSgcPZkxaVttj5lpVRw8+fgnlmk4hhFvI24lLEC0X7Ztgrn+lSvuEfEYXpfDxjBI8AOiDwJHF2NnfU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SVkdbqcKcBQoeoz6kunSeLmpbrMEYf+RCJPQKXZ+bsT3H5Jsk
+	VgUgGfoYD7d9P9cCd4dbKc6gPEHPYRNQMweDIeBZBGeOI/fNMiPPZ6hb
+X-Gm-Gg: AZFdTZfAXNbuWg3W7jvPW6bXlYc08pW3tpBJ3VxmnEF3bcp5JxjeGm1pEmuoreGCfdV
+	7sk5LINAx+5Sz3ptIZXlbc65UPd24Ns+vo6g7T1gPEg9HideUXoGFSiUSma1JWKoBNrE9IHVViv
+	0DTJQxEWz300tHLyuwDJCvNsWSRswRj1E6c+ZFKtj2k0NIpsW0O/TaRZjmkR3BFFi/oPKAQmR/l
+	T7ReZZTjmAPQq3JbbW9ZFjaSqZoD19rRWkFVrHOv7DwmY1gGzRhAe1g0DWulI+G8yvD0KBEBWBj
+	yaqkCbYHNLJQJOSEdXIPSqlxuAZZrriE6dvX6k+Hoy+zGdZAMHQPv8e/wIxzKzJgFz6dk6/GthA
+	NnL/QHw8AbWsgxJCTzHoucED9l02lH6r3YyldohI7WuHRT5WB6Fq0i6iOeChvHPIaAzg1RylABq
+	OKy26dsKf4G+Er4piypuVrpkIh/wE6lDDdS3fa4hpXTaBI3NludWNSM2sA0Hl6dcnVZvEMqw3+L
+	9vTLl9mupj91iAdTkoUJB2+B0oCyUueAuZ1XJ6ik9E81tyBMhndLsAtF73v0/DZy5K78oB539uk
+	Ituo4/HLL2roew03XJ0LX5OOnFEa4PM8xR5WaHukAxB+caAOGlKsNyc3z3+Dosk=
+X-Received: by 2002:a05:600c:6218:b0:4a0:1b14:e283 with SMTP id 5b1f17b1804b1-4bb887c341dmr250840055e9.1.1795436151318;
+        Mon, 23 Nov 2026 04:15:51 -0800 (PST)
+Received: from localhost.localdomain ([102.187.134.136])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm408975775e9.11.2026.11.23.04.15.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 04:15:50 -0800 (PST)
+From: Mohamed Dawod <mhm.dawod@gmail.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org,
+	vinicius.gomes@intel.com,
+	jhs@mojatatu.com,
+	jiri@resnulli.us,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	ye.zh-yuan@socionext.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net/sched: cbs: fix 32-bit overflow in transmission time estimate
+Date: Mon, 23 Nov 2026 14:15:13 +0200
+Message-Id: <20261123121513.2112743-1-mhm.dawod@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261122064155.2094434-1-mhm.dawod@gmail.com>
+References: <20261122064155.2094434-1-mhm.dawod@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,161 +106,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-dhchap-keyring-v4-v5-9-81eefb4c0724@kernel.org>
-References: <20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org>
-In-Reply-To: <20261123-dhchap-keyring-v4-v5-0-81eefb4c0724@kernel.org>
-To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
- Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
- Hannes Reinecke <hare@suse.de>, Chaitanya Kulkarni <kch@nvidia.com>
-Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Hannes Reinecke <hare@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795436094; l=4583;
- i=hare@kernel.org; s=20260619; h=from:subject:message-id;
- bh=2QeKje07TRqRAHvADLlnR5xZ61GdGqKA9Y/L4hYiRz0=;
- b=fJsSFOsTUZZkt8kMofdk46nWUKnX/5HpwgQkhom1HTQ3VHuvqNgsUEvejyI/5fXhs3Jwqcxm1
- gQyoShrGhb1Bb0U3XIs5eG+k8CAfEbd/8j3tyDzeTD4iwBhCpbz6zh2
-X-Developer-Key: i=hare@kernel.org; a=ed25519;
- pk=iekPF4ZZFva3sutm7d1ryPNR1G/WFfUgHaDB423JXho=
+Content-Transfer-Encoding: 8bit
 
-The authentication code now fetches the key from the kernel keystore, so
-we should be able to specify which keyring to use for looking up keys.
-So add a configfs attribute 'dhchap_keyring' for the 'host' directory
-to specify the keyring to use.
+Thank you for the review.
 
-Signed-off-by: Hannes Reinecke <hare@kernel.org>
-Reviewed-by: Sagi Grimberg <sagi@grimberg.me>
----
- drivers/nvme/target/auth.c     |  4 ++-
- drivers/nvme/target/configfs.c | 63 ++++++++++++++++++++++++++++++++++++++++++
- drivers/nvme/target/nvmet.h    |  1 +
- 3 files changed, 67 insertions(+), 1 deletion(-)
+I agree with the concern that my patch alone does not guarantee idleslope-limited throughput on 32-bit kernels affected by the signed/unsigned rate-conversion issue.
 
-diff --git a/drivers/nvme/target/auth.c b/drivers/nvme/target/auth.c
-index 7204ace149565205241b7a85ab62389dafa980b6..84091803af300f840aa00c593eb41c1874450183 100644
---- a/drivers/nvme/target/auth.c
-+++ b/drivers/nvme/target/auth.c
-@@ -68,7 +68,9 @@ int nvmet_auth_set_key(struct nvmet_host *host, const char *secret,
- 		return 0;
- 	}
- 	len = strcspn(secret, "\n");
--	key = nvme_auth_extract_key(NULL, secret, len, &generated);
-+	down_read(&nvmet_config_sem);
-+	key = nvme_auth_extract_key(host->dhchap_keyring, secret, len, &generated);
-+	up_read(&nvmet_config_sem);
- 	if (IS_ERR(key)) {
- 		pr_debug("%s: invalid key specification\n", __func__);
- 		return PTR_ERR(key);
-diff --git a/drivers/nvme/target/configfs.c b/drivers/nvme/target/configfs.c
-index bc46d760aaa4a3316e6c62390cebf32092e5062f..eb20599cf372d23f27b53dc6c1cd070b61d0977f 100644
---- a/drivers/nvme/target/configfs.c
-+++ b/drivers/nvme/target/configfs.c
-@@ -2348,6 +2348,62 @@ static ssize_t nvmet_host_dhchap_ctrl_key_store(struct config_item *item,
- 
- CONFIGFS_ATTR(nvmet_host_, dhchap_ctrl_key);
- 
-+static ssize_t nvmet_host_dhchap_keyring_show(struct config_item *item,
-+		char *page)
-+{
-+	struct nvmet_host *host = to_host(item);
-+	struct key *keyring;
-+	ssize_t ret;
-+
-+	down_read(&nvmet_config_sem);
-+	keyring = key_get(host->dhchap_keyring);
-+	if (!keyring) {
-+		page[0] = '\0';
-+		ret = 0;
-+	} else {
-+		down_read(&keyring->sem);
-+		if (key_validate(keyring))
-+			ret = sprintf(page, "<invalidated>\n");
-+		else
-+			ret = sprintf(page, "%s\n", keyring->description);
-+		up_read(&keyring->sem);
-+		key_put(keyring);
-+	}
-+	up_read(&nvmet_config_sem);
-+	return ret;
-+}
-+
-+static ssize_t nvmet_host_dhchap_keyring_store(struct config_item *item,
-+		const char *page, size_t count)
-+{
-+	struct nvmet_host *host = to_host(item);
-+	struct key *keyring;
-+	char *desc;
-+	size_t len;
-+	int ret = 0;
-+
-+	len = strcspn(page, "\n");
-+	if (!len)
-+		return -EINVAL;
-+	desc = kstrndup(page, len, GFP_KERNEL);
-+	if (!desc)
-+		return -ENOMEM;
-+	keyring = request_key(&key_type_keyring, desc, NULL);
-+	if (IS_ERR(keyring)) {
-+		ret = PTR_ERR(keyring);
-+	} else {
-+		down_write(&nvmet_config_sem);
-+		key_put(host->dhchap_keyring);
-+		host->dhchap_keyring = keyring;
-+		up_write(&nvmet_config_sem);
-+	}
-+	kfree(desc);
-+
-+	return ret < 0 ? ret : count;
-+}
-+
-+CONFIGFS_ATTR(nvmet_host_, dhchap_keyring);
-+
- static ssize_t nvmet_host_dhchap_hash_show(struct config_item *item,
- 		char *page)
- {
-@@ -2405,6 +2461,7 @@ CONFIGFS_ATTR(nvmet_host_, dhchap_dhgroup);
- static struct configfs_attribute *nvmet_host_attrs[] = {
- 	&nvmet_host_attr_dhchap_key,
- 	&nvmet_host_attr_dhchap_ctrl_key,
-+	&nvmet_host_attr_dhchap_keyring,
- 	&nvmet_host_attr_dhchap_hash,
- 	&nvmet_host_attr_dhchap_dhgroup,
- 	NULL,
-@@ -2418,6 +2475,7 @@ static void nvmet_host_release(struct config_item *item)
- #ifdef CONFIG_NVME_TARGET_AUTH
- 	nvmet_auth_revoke_key(host, false);
- 	nvmet_auth_revoke_key(host, true);
-+	key_put(host->dhchap_keyring);
- #endif
- 	kfree(host);
- }
-@@ -2446,6 +2504,11 @@ static struct config_group *nvmet_hosts_make_group(struct config_group *group,
- #ifdef CONFIG_NVME_TARGET_AUTH
- 	/* Default to SHA256 */
- 	host->dhchap_hash_id = NVME_AUTH_HASH_SHA256;
-+	host->dhchap_keyring = key_lookup(nvme_keyring_id());
-+	if (IS_ERR(host->dhchap_keyring)) {
-+		kfree(host);
-+		return ERR_PTR(-ENOKEY);
-+	}
- #endif
- 
- 	config_group_init_type_name(&host->group, name, &nvmet_host_type);
-diff --git a/drivers/nvme/target/nvmet.h b/drivers/nvme/target/nvmet.h
-index c8757cedcd841742ff79c830335cfab6e9fc2401..0f76633c6aa65cec26516bd7f0c55dea815a57f5 100644
---- a/drivers/nvme/target/nvmet.h
-+++ b/drivers/nvme/target/nvmet.h
-@@ -403,6 +403,7 @@ struct nvmet_host {
- 	bool			dhchap_key_generated;
- 	struct key		*dhchap_ctrl_key;
- 	bool			dhchap_ctrl_key_generated;
-+	struct key		*dhchap_keyring;
- 	u8			dhchap_hash_id;
- 	u8			dhchap_dhgroup_id;
- };
+However, this is a separate issue that is already addressed by Jack Wang's patch series:
 
--- 
-2.51.0
+[PATCH net v3] net/sched: cbs: perform rate conversions in signed 64-bit arithmetic
 
+https://lkml.iu.edu/2608.1/09680.html
+
+My patch fixes the overflow in the transmission-time calculation in cbs_dequeue_soft(), while Jack's patch fixes the rate conversions in cbs_change() and cbs_set_port_rate().
+
+Both fixes are needed for correct software CBS operation on affected 32-bit kernels.
+
+I believe these changes should be integrated in the appropriate order, with the rate-conversion fix applied before my patch, so that the complete CBS functionality is restored.
