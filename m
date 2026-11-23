@@ -1,116 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795452988;
-	b=LnIkbKIX40y/y2J37R8TL+89RO1JTWtjDqiSaJslsCGkon9SPy8g/J7cTYJRnNa7NWKb
-	 vVZbmhLsKwoi0RlQsUYFh+OJM3fk/cE9E64O4NZ6nb+7tzta3DJfK4qdka0zw5YPLwKxb
-	 x9N5uBcr7ESQjbjA3x4hDbw/E2ek7RU/lTNn84GGCRF2c+gwn3CA/igQ9vtUAWnZYfXtB
-	 SQ0w0g+VyPpZ064VD3Lui9SA6JVVwa6yDQSG8Bg3FYu5MddAwLcJojkLgphT9PiuVJh6P
-	 uolKz3mcY5Z3brWdgr6hRTP1o+lemZljwH1eF/ZmtNstcr8P+L4vFTlgYUin9ltWVcQ==
+	t=1795453031;
+	b=TLjXjr2CwkiE0qtbIOKxZlHWx1aESxOaG75wRePLoWT9moEWrFrNb+wD0Pshc/+mUAKA
+	 vnhYkXzRYltQQP7Fx49dtXRGQf6kw5NEg1rexLY6IHCv0wI7khKPH1XVMtuL4dJNdHvzD
+	 7qD2nM+kjrIuT2bsgJA0hOywpmW4se90+HTScN0vYgMcitwPWaRuTC503h7CzYMs+/W6h
+	 GIDUhP/VZueQzpKd+ZY/k8z4/OCUXJwDrXQ/WT/PFmkMwsu2O0X2QFUBVyESLq8HvCKkf
+	 8vYMZ7eGAK5KVKych+67rzO35+Nd+CEVXVn5Lq/fOKinnJf3jmdyty8aIfNHrd6nt8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452988;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=CGVPPrBmIbSMP3ik97JAyLMMvXQoK/X87ePEsEfxJRM=;
-	b=EUV1ZCXnoHT+8H2u9l858XHe8vC9ShYrjUMelnf3TQxDXXRFdgqk7Wpf/nWt5P9ASE2v
-	 3aZgqxfb3X/uDIjSlQXBZYrwmnDI9cpnWU5ezQowv2nc2Rk1WR6kDz+KSyaEmvOJJs5qO
-	 C9vPM5NoHNAaDeWXV+NioHuBoa4JGaMCcqyv/2QT/jlfqmCglq/02Fj/yATYrZdpxyV2L
-	 vRgkQi8oaWy3o4kbxamZ0Di+w+qX3A8vAJAOy3RjsfsNvOg5JufI+VbBJJ4kb/Ic2kBwo
-	 C/8NgWhnUvy8m5gvIdpQDJoHjJc3OYUjSoHthEqIu9N5QD08L33rXkgIXTvAy5GDAMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795453031;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=P3fBfqcM/kPnuGqsw8lNwmYfAv37CdYTr0usYr/iDGc=;
+	b=in2xKCrRjeV5WLXxweQob4uEKZXX0Swb/R6rKzVYFqIUZeFSK6fI/ZzgUj+9VKUZ+Yv4
+	 FAyfhMl0f4JBOA6czgl8DsaiIypW92gpxq2SeLUzhHKkjqAKRQEs2dOIcLp8T2zYGibag
+	 A2By4evWGSH/Sc5jGfjXDhRaMqzQHiZ9/86V//59SOM1wr67AAvO47Bxl17rKrP6Hc+/d
+	 7qLREXivTo+b5YXw/As5kI+nxmYVfC/D2V1HOuTFs0DTw0FeNDnOF/siuAMoEkFO1qnyr
+	 gzuw3EZ0jmnAuJERd94lf06SVmWuGn1IXmi9V/L36IOipSZ1JYJM/RO5dsgMO3p8hOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lKK0SyD6;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dZVrCwXv;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b="DUN3iN/H";
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93AF7606A689
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:56:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93AF7606A689
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE8B6606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:57:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE8B6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lKK0SyD6;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dZVrCwXv
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGGjvU3025217
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:56:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=CGVPPrBmIbSMP3ik97JAyLMMvXQoK/X87eP
-	EsEfxJRM=; b=lKK0SyD6HHRAYUGGP1YMe71pS2wfClCPY1HjPf9453NXyJECyT4
-	ynu4cEIW0+qrtE0n+ymBljvnCtRVXfnm8z1NKfdtRpOguchkeHfysBcWJLTESjRX
-	M/8bNjEyfDodBNZ2d1TJsEoLIuB6DXn6wF+oBLWxJPLch0XfKxBKwyHIhhE01YYk
-	BfHMPQz1d+tNj5yRUaSGjcm3L2pgYjaOi2h9eOxAqbiNoGvDKbCAie+E2fi0/rZa
-	StOt9G/hp2D7DmLfDObD0uNLCewu8udte9VZp969MVrwsav/2DV3gWX2n3d1DQqy
-	HqpYPssyjgfx6FqvVOQ6EzaYJwxNJULaBFw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g1pafst-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:56:25 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-944138ed63fso47382985a.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:56:25 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=DUN3iN/H
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8b5c3288e6cso1339519b3a.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:57:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795452985; x=1796057785; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CGVPPrBmIbSMP3ik97JAyLMMvXQoK/X87ePEsEfxJRM=;
-        b=dZVrCwXvcdZCjL/B7BePaWrwPtTKkgiEcrrXAJRqL+Ev1uuc3YFlj7DUvBNtYHlEMW
-         K+b3XsDLBG4v6FkaQWNz0NUqhqtzHonNNonX69+mw209kVCtN8ssxBbWwSGCcNre3VVL
-         uFrZ75Nw+3FSu0Z87KjD63F5zrmKzFzNruAYf50QQ2F7KKvZCfAvEhiKEircq6NC6I9w
-         LAXzgFSFMkwCtQapE4nW1mCRRgeYNbhxr73AyHzQwVQCGZ64VecR4JVcTrKIg4qqMXBh
-         9ZcRUXqhcbi/pwIqXsrtX+Le22cAOI3mcbuazF88jJTEn9ub83vsAD8xrmyzzY3FcGzP
-         NKaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795452985; x=1796057785;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=cloudlinux.com; s=google; t=1795453030; x=1796057830; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CGVPPrBmIbSMP3ik97JAyLMMvXQoK/X87ePEsEfxJRM=;
-        b=yED/ijpB7tWT3Ga2bjuxSzz/4PiV84m8OL62pCHfi1rTw8epfRswXpHYzdHoN4+Zqf
-         MFFMLdTyd3Sze7L2HRdO87/WeJxIJd41ILOKz+PaDwtlmAdkVH625Fp7nHn5L6G4xtMY
-         fiLGsu9FkO78BAm6jGpmkBWYJ+TZBrsSognY6GZuet2hXIL/ZOV22lGfN9Rd2NVowuRG
-         Bpmo5ZStz3far/jCWKEjHhdXgJ3lisFd1tg6zG8LXql33CWc5qexquhnR7icYqvqbto7
-         cSWn0UT8AxPF84oZRKvzLJnIDzrN4882RqIhp4OfSrktp/ZO9xz1VwkUzI90Q+y8ZGD/
-         NyAA==
-X-Forwarded-Encrypted: i=1; AL+hErESqND2cZAx5tCsQv68A9bJ3wJVI5RRaRhvc/PGNffe0g+nQWaP1OYSujFd4ydDwX07p8pybYanZsemMfs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+v+fN7FTbMxi8twbeo36yPScf9KlgpuCS1cDY/RjKDsLfVXBhU
-	xi6ylO3bqElmmE91/wMU7BsHjKH4fYoqGe8h9gGZUWWYraW/e04VXIwZ7JPtD2VP1cYP2QpiInJ
-	aAcOjNfsOYwHJmK43Y1XfCqj8KpXCGlEKn78Zh/tAExKKZmOCRDtyAMkhMLURX3CGKVk=
-X-Gm-Gg: AZFdTZc7n3HtDG4vFUisacAUTroo6mTUWK7DW6kBJl9dWqr207kRfaYJ0WJ4qgzFJ4Q
-	L/FzSQz/RsuiQlpCdxeI2Qd7dkjIAGv4friyOi/RM/ZzjViBm78h1iofPLmVspxQz7OwO32gGqL
-	do7zXzUVz7y96Si8iu+yHoxZWtBvbef+gOB6zsW0WjDGEX4qbXnht9PV77i2cJuvvirMErIImMH
-	XSmKZNnkF2OWPBU8+pA3ncSTV2XeGKxITHdhdKE7/8ORvsFFjyjOiYEN/2G1Uru3OCLQqhrywJ3
-	bWtXotDVsK+HooaZMwX0qZJO5Losusoz2UZDl3jS+OpSg/pmD+PSyHXyaMPXkqZvv/n1mi9uddS
-	NQW7p0/IJosV32R1LSnci+LvOi8N2QtX14SI5qk3QguHAI4a3nNkwjwJ5aOtHL2B6
-X-Received: by 2002:a05:620a:2615:b0:947:9faa:af29 with SMTP id af79cd13be357-949bab1ceadmr1956510285a.54.1795452984679;
-        Mon, 23 Nov 2026 08:56:24 -0800 (PST)
-X-Received: by 2002:a05:620a:2615:b0:947:9faa:af29 with SMTP id af79cd13be357-949bab1ceadmr1956504285a.54.1795452984115;
-        Mon, 23 Nov 2026 08:56:24 -0800 (PST)
-Received: from debian ([5.133.47.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm498217885e9.13.2026.11.23.08.56.22
+        bh=P3fBfqcM/kPnuGqsw8lNwmYfAv37CdYTr0usYr/iDGc=;
+        b=DUN3iN/HfssMy9FBnHOp0jw8X/UvorwDf/wnBMkzu2sCTcfHwcO9tM4pSVDz/09zEC
+         JSw3qnUDgSIwaYAcGhou5ipjYT9hT+InvMpWId95Xmmi4nRtRTBicIHh6iFZoCkuPyp5
+         Y1P/GYUKfqni3d1j8lW8uj13iNVdiRLLecxWhg1gaUoJ6B4pX1tCQUlvokO8GkAsX9TM
+         ru6W41nsVPGwZQf4eZOXJTx6KqSc7AYoUMNdxyTfTml3R1Gb+9c81Qf2Q9jTQlJOzo0g
+         JE67H28luNkgmf4+1geMQYcK1NRfFNGmCl6imh/fcOcj56uW2RXSvEVRiGxO0Z2d6L3x
+         u9Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795453030; x=1796057830;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=P3fBfqcM/kPnuGqsw8lNwmYfAv37CdYTr0usYr/iDGc=;
+        b=eCtvStFXEApQRzGZtRmbsuf3TfuRDoG3gVo3817mUmXt3jQYBarxcrmvegCFUkH0pL
+         37kc+WEy2V4zrAHYa0htaaka0eAvqhq8xsExhu+gIYU4N8JdYnapM1ng5tfcaPHv+lmi
+         ry98YxhS0HU7LCYCaV8B254ZjlhUEmmN/D0ztTmW74kJqoFgSWsOf7wQU2rr99aC+PJ6
+         aFF/+zzkbLSau8xUDaJve+k2BRVfRaAsTN3opHxYO551dr84E5OC5UYkT9nwwZ9LW0Ca
+         GtKhEw9I5oZc/9WJn1b6RlDOLpYiCt7i5/2i7QPv8f6PtMx8OxIyCOOYYGjqYdHTKaAy
+         /w2g==
+X-Forwarded-Encrypted: i=1; AL+hErFPATUCxZTBXMt/8PSVBan7aRYMrYw5w2seD7vIEU4ixDFvZWINOZWQ2c7PoJdU3jyCUYcs2SzNAqXRel4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ecoDX16D37/zpZ9TFBwDVkDq9zEBdfAe8Tl3uvBFWQxdLQ0fG
+	uio6DxBYwL5jwCT6uFuzpm0XZdK7p7l0PzJxCM8K+us3nIbDJ/24kZMA3LMltjCyrk9PcCwVAFn
+	ALFmE5/c=
+X-Gm-Gg: AZFdTZfCPGpa3wVm4Fb9JFRhkm6HghsziFs5+76T+HVuRLlv+9GhMJebl7Tk7tyQ3mo
+	Q5o1B/F6NDMjFQHJT1OrKByI3SVwJtuioFX2tnoJNArX2uUpJqPbirfIlihenJEWfmUhx6LRzfn
+	TKAvtA9Vg4sDoCVQ+DFuLefxxXEqn/9aLYXp2HbiHgTZfaoCa0VObWGSO+wxaSLNC1QHQaFxraC
+	JsIlE0exGOFo5mAEAgGr1UZVdl1Qi5FzlsFf1Xuu+VJ8KkWAjdTdc8oURghF1tVLGeMDkuG7jMN
+	GjCB9MOFG97RIIP9zzVDZXDKxj8jYgA1qF6Bly17nS2utxwDnJ/vwmdjC34W5nNe5iyYSzaRr37
+	9n75dGzHM8s/+6W4Jc89AneXrOrt5pJ9xT4xftA9cH/+U4PusZiUB9O8bxFy9Yr/ICfQPCmoDrg
+	TJPDnarjgemeQ/f0ifN1QbuTK8xM9C613yll6DdiDFDqDdZtn5zhNheAuu2sitlCa/p1ZP6CYAR
+	zt63CX5ILHWnrhsA7cX8tA7XbzpiiflmhTNYpZsXEhwznXp2qzB6ZfZM2QfaaPYW0fGfoY2dfzv
+	heJEjGWS9z66Q7Dq4Tru4WhfDFW2mONok88c
+X-Received: by 2002:a05:6a20:7d8b:b0:3eb:a7ca:4d71 with SMTP id adf61e73a8af0-4014e0636damr15757562637.43.1795453030085;
+        Mon, 23 Nov 2026 08:57:10 -0800 (PST)
+Received: from rmustafin-laptop ([27.79.41.63])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8cb6640429fsm2943198b3a.38.2026.11.23.08.57.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 08:56:23 -0800 (PST)
-From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-To: Charles Keepax <ckeepax@opensource.cirrus.com>,
-        Mark Brown <broonie@kernel.org>
-Cc: Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-        Vinod Koul <vkoul@kernel.org>,
-        Bard Liao <yung-chuan.liao@linux.intel.com>,
-        linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-Subject: [PATCH] ASoC: SDCA: skip port channel mask for Output Terminals
-Date: Mon, 23 Nov 2026 16:56:12 +0000
-Message-ID: <20261123165612.440542-1-srinivas.kandagatla@oss.qualcomm.com>
-X-Mailer: git-send-email 2.53.0
+        Mon, 23 Nov 2026 08:57:09 -0800 (PST)
+From: Rustam Mustafin <rmustafin@cloudlinux.com>
+To: Peter Huewe <peterhuewe@gmx.de>,
+	Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>,
+	Shuah Khan <shuah@kernel.org>,
+	Jaewon Yang <yong010301@gmail.com>,
+	linux-integrity@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Rustam Mustafin <rmustafin@cloudlinux.com>
+Subject: [PATCH v3] selftests: tpm2: test that io_uring reads ignore the file offset
+Date: Mon, 23 Nov 2026 23:56:38 +0700
+Message-ID: <20261123165638.2161305-1-rmustafin@cloudlinux.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <awGr_tB3QXwnW1G2@kernel.org>
+References: <awGr_tB3QXwnW1G2@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,83 +105,139 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: u-XhNDXUw6XIMDsryE3vbfuQAZ4zqszK
-X-Authority-Analysis: v=2.4 cv=K+O3jCWI c=1 sm=1 tr=0 ts=6b047039 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=EUspDBNiAAAA:8
- a=JbQxR-g00cxq26BlPqcA:9 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2NyBTYWx0ZWRfX+0iNF4b0riq/
- 0rl7YJXRu1bW2+9McN19ry+1jpAcj1cIvJ0hvtKi6AAWOJylKrXUFsMwLXvqoS7SmEyFmlaNF71
- KNV6XGfJbZfgHmxSZl5ru3LoSms0t1w=
-X-Proofpoint-ORIG-GUID: u-XhNDXUw6XIMDsryE3vbfuQAZ4zqszK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2NyBTYWx0ZWRfX7Oz5Qqnq+shk
- f+TqbpQ1HvSiIo0stIcW31xuJXYiNw0wDdWoqI0hoAWHTD3UlI53GHvUYhOMqURrdeHcmdIugEv
- +zz3ORmka+omFscqYCfT5hVbHlXp9PPgjbyc15kGiHqVmKsis28brVaMRJzEAbQSxaJjfzj+/qy
- fQ+0BwUnpqlmHuF+Bv9TS9zK0i3xvp2M2saj6CtPwnRLQqnQWeiiy5K8Ktr60Pc6onBsIYVhcyY
- CUM2mSJrD7Y57Pb7pkYqG/RTgDHzpHLhdUGNTfU/HNdbFOjrdgvecSexQ1z/5SGow1UMkgXWzuM
- UOZAbtySQ1wmAiPrnM7Qasf+fW9fG/VREArlrdrf9s1FiJfx6pAyBaFcK6XMhTJKkbXmKBswa6V
- o2NBDRh8vTLsh8Tn0T28fmaVnn4Dz8lm3Pt69kPfI+ao/ivnnUlR5UXN8Q7MWXTAUouRsUC+vRN
- 7/Pb7UZhU1HxP1+RWPQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 spamscore=0 adultscore=0 clxscore=1015
- lowpriorityscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230067
 
-Commit 8bb24d87078f ("ASoC: SDCA: Add port constraints into
-sdca_asoc_set_constraints()") started intersecting the DAI channel
-mask with the SoundWire DP port min_ch/max_ch for both Input and
-Output Terminals, installed via snd_pcm_hw_constraint_list() from
-startup().
+Test that an IORING_OP_READ request on /dev/tpm0 and /dev/tpmrm0
+returns the whole pending response from its start, although sqe->off
+points past the response header. The offset stays inside
+priv->data_buffer, so an unpatched kernel fails the test on the
+returned header without an out-of-bounds access.
 
-In DPCM dpcm_be_dai_startup() aliases be_substream->runtime to
-fe_substream->runtime, so the per-substream rule lands on the FE
-and narrows its hw_refine().
-
-For Output Terminals the port sits below the DSP capture graph,
-which can present an FE PCM with a channel count different from
-the wire. WCD9378's headset mic is single-channel on DP2 but is
-exposed as a stereo FE capture by Qualcomm LPASS; port_ch_mask is
-0x1 and any arecord with channels_min > 1 fails with "Slave PCM
-not usable".
-
-Only intersect with port_ch_mask for Input Terminals and leave
-Output Terminals on the cluster mask, restoring the behaviour
-there to what it was before 8bb24d87078f.
-
-Fixes: 8bb24d87078f ("ASoC: SDCA: Add port constraints into sdca_asoc_set_constraints()")
-Signed-off-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
 ---
- sound/soc/sdca/sdca_asoc.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+Changes in v3:
+- rewrite in Python as tpm2_tests.UringTest, run by test_uring.sh
+  (Jarkko)
+- io_uring through liburing-ffi (liburing 2.4+)
+- test_uring.sh skips when liburing-ffi is missing or
+  io_uring_queue_init() fails
 
-diff --git a/sound/soc/sdca/sdca_asoc.c b/sound/soc/sdca/sdca_asoc.c
-index aaa84156f20a..6e42f5262aa7 100644
---- a/sound/soc/sdca/sdca_asoc.c
-+++ b/sound/soc/sdca/sdca_asoc.c
-@@ -1645,7 +1645,14 @@ int sdca_asoc_set_constraints(struct device *dev, struct sdw_slave *sdw,
- 
- 	constraints->channels.count = ARRAY_SIZE(channel_list);
- 	constraints->channels.list = channel_list;
--	constraints->channels.mask = cluster_ch_mask & port_ch_mask;
-+	/*
-+	 * OT paths may re-channelize downstream of the port, so only
-+	 * narrow with port_ch_mask for Input Terminals.
-+	 */
-+	if (entity->type == SDCA_ENTITY_TYPE_IT)
-+		constraints->channels.mask = cluster_ch_mask & port_ch_mask;
-+	else
-+		constraints->channels.mask = cluster_ch_mask;
- 
- 	if (!constraints->channels.mask || !constraints->width) {
- 		dev_err(dev, "%s: no valid constraint masks channel: %#x,%#x width: %#llx\n",
+ tools/testing/selftests/tpm2/Makefile      |  2 +-
+ tools/testing/selftests/tpm2/test_uring.sh | 15 +++++
+ tools/testing/selftests/tpm2/tpm2_tests.py | 71 ++++++++++++++++++++++
+ 3 files changed, 87 insertions(+), 1 deletion(-)
+ create mode 100755 tools/testing/selftests/tpm2/test_uring.sh
 
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+diff --git a/tools/testing/selftests/tpm2/Makefile b/tools/testing/selftests/tpm2/Makefile
+index a9bf9459fb25..44630fb980fa 100644
+--- a/tools/testing/selftests/tpm2/Makefile
++++ b/tools/testing/selftests/tpm2/Makefile
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+ include ../lib.mk
+ 
+-TEST_PROGS := test_smoke.sh test_space.sh test_async.sh
++TEST_PROGS := test_smoke.sh test_space.sh test_async.sh test_uring.sh
+ TEST_PROGS_EXTENDED := tpm2.py tpm2_tests.py
+diff --git a/tools/testing/selftests/tpm2/test_uring.sh b/tools/testing/selftests/tpm2/test_uring.sh
+new file mode 100755
+index 000000000000..bb6e2e10162e
+--- /dev/null
++++ b/tools/testing/selftests/tpm2/test_uring.sh
+@@ -0,0 +1,15 @@
++#!/bin/sh
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
++
++# Kselftest framework requirement - SKIP code is 4.
++ksft_skip=4
++
++[ -e /dev/tpm0 ] || exit $ksft_skip
++[ -e /dev/tpmrm0 ] || exit $ksft_skip
++read tpm_version < /sys/class/tpm/tpm0/tpm_version_major
++[ "$tpm_version" = 2 ] || exit $ksft_skip
++
++python3 -c 'import sys, tpm2_tests
++sys.exit(not tpm2_tests.uring_available())' || exit $ksft_skip
++
++python3 -m unittest -v tpm2_tests.UringTest 2>&1
+diff --git a/tools/testing/selftests/tpm2/tpm2_tests.py b/tools/testing/selftests/tpm2/tpm2_tests.py
+index ffe98b5c8d22..dc4e642450d6 100644
+--- a/tools/testing/selftests/tpm2/tpm2_tests.py
++++ b/tools/testing/selftests/tpm2/tpm2_tests.py
+@@ -331,3 +331,74 @@ class AsyncTest(unittest.TestCase):
+ 
+         self.assertEqual(rc, 22)
+         async_client.close()
++
++def uring_available():
++    import ctypes.util
++
++    name = ctypes.util.find_library('uring-ffi')
++    if not name:
++        return False
++    lib = ctypes.CDLL(name)
++    ring = ctypes.create_string_buffer(1024)
++    if lib.io_uring_queue_init(1, ring, 0) < 0:
++        return False
++    lib.io_uring_queue_exit(ring)
++    return True
++
++def uring_read(fd, size, off):
++    import ctypes.util
++
++    lib = ctypes.CDLL(ctypes.util.find_library('uring-ffi'))
++    lib.io_uring_get_sqe.restype = ctypes.c_void_p
++    lib.io_uring_prep_read.argtypes = [ctypes.c_void_p, ctypes.c_int,
++                                       ctypes.c_void_p, ctypes.c_uint,
++                                       ctypes.c_uint64]
++    ring = ctypes.create_string_buffer(1024)
++    ret = lib.io_uring_queue_init(1, ring, 0)
++    if ret < 0:
++        raise OSError(-ret, 'io_uring_queue_init')
++    try:
++        buf = ctypes.create_string_buffer(size)
++        lib.io_uring_prep_read(lib.io_uring_get_sqe(ring), fd, buf, size, off)
++        ret = lib.io_uring_submit(ring)
++        if ret < 0:
++            raise OSError(-ret, 'io_uring_submit')
++        cqe = ctypes.c_void_p()
++        ret = lib.io_uring_wait_cqe(ring, ctypes.byref(cqe))
++        if ret < 0:
++            raise OSError(-ret, 'io_uring_wait_cqe')
++        # cqe->res follows the 64-bit user_data
++        res = ctypes.c_int.from_address(cqe.value + 8).value
++    finally:
++        lib.io_uring_queue_exit(ring)
++
++    return res, buf.raw
++
++class UringTest(unittest.TestCase):
++    def read_response(self, flags):
++        client = tpm2.Client(flags)
++        fmt = '>HII III'
++        cmd = struct.pack(fmt,
++                          tpm2.TPM2_ST_NO_SESSIONS,
++                          struct.calcsize(fmt),
++                          tpm2.TPM2_CC_GET_CAPABILITY,
++                          tpm2.TPM2_CAP_TPM_PROPERTIES,
++                          tpm2.TPM2_PT_FIXED, 1)
++        try:
++            client.tpm.write(cmd)
++            # Offset 10 stays inside the response, so an unpatched kernel
++            # skips the header instead of reading out of bounds
++            res, rsp = uring_read(client.tpm.fileno(), 4096, 10)
++        finally:
++            client.close()
++
++        self.assertGreaterEqual(res, 10)
++        sz, rc = struct.unpack('>II', rsp[2:10])
++        self.assertEqual(sz, res)
++        self.assertEqual(rc, 0)
++
++    def test_read_tpm(self):
++        self.read_response(0)
++
++    def test_read_tpmrm(self):
++        self.read_response(tpm2.Client.FLAG_SPACE)
 -- 
-2.53.0
+2.52.0
 
