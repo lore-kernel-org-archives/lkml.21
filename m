@@ -1,54 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795460751;
-	b=VujINXH6jMcmEUrnrTb7FDEdNmOdch1nrqAkHMwkOWr+2H8J3Z8KEAdUg+IyrDwCXogI
-	 h0myijC31VjQOKOK7FM+C2nqQ9urVLkxlD7cqy3h4z8hfgy+wcKE+D8Fk/fD8gLSb0JMJ
-	 nIgOj0VKrEuuWWU0v72qHA+FjI9nRlukw8xNO5U73f+WKiL/F2NgW+BIojQslbu2RgwP0
-	 3sHRkympVYN35+LRdJgkN+HtnaxbUgI70FekG/EG0J7q83RkPS96YTtncA0d8WZ3pF0Ru
-	 E+h28jZwyampeeytHWGIbyeaTdRXdzJ9f6OGbGaxR+RxUCnQgEoIoZpxmmrJTkO09AA==
+	b=MeiRSBkIwneM+xgtmLoD/vYxX3olCyal1z1I5xcsFT/75/oj31XTydNK68cGqJmrhgaZ
+	 ev1en09g/+34+VHvvYidVbcfxtLXXDG+HOMEGyQXcnkCHSybOtdyK/oeCheTDWUp69NTu
+	 Dr4NmlKTgyCsyl5rG7fAaEIiuS6RzBg7qbExUEq6eukXzuESFY+qLAqAtZS0sOU1It+O+
+	 JQJWLH06pFRB/pljiYGNp21y7p2WCjl8Wi6K8psmphpf2sSFHgsThlCPih1bheGcORwRt
+	 /Gaz0huhLqhVtlkhBn2c+SSkRW9rO7JKhBCOs5UlTYE2ugSOlSGM/svX3eh1sNcpobA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795460751;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=FapoBdtE6dpS5OngMDMUrCMDlakW/qoOLk+qWyJob5c=;
-	b=O9fapenATGh0+nUvlokshENJjJhzCFfEbIa6w0X67C9bbZZOGWqheP5qKD/2Y25bgZa4
-	 kQrILXMbS7fia/HaNxukV7nk4Iaqhd7E3UMs284ZCCTyqtPGnqOZzEH/0SomPCrg+lPlp
-	 QpC0Uz1hAZe0iPTx6QRoilQGAUhBGAb6fMyT1RIufxp9BZI9a/fe10DIL9JJNGcVigHGt
-	 Pmy0cjQf341YMeJJQSaxcVHmxiP+/AnrShbNuw4Nn4RUGHe5dzhLWRyewPbP8ztiOAXF8
-	 uQyFOATUkJhMNwFfxRV+zB1WzJTWWNCK/+gl38aq50FZUB0tZwme0+kRwE0KwJjHYbA==
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=EBzO6kW6isUCcKf/9l8tTod3oC/9E7aGgdz6lYKkWGE=;
+	b=sFHwAeBoV3M5DEyUHNr+KsCUPOkHFsZUFyHPy2QmGD1qWrn4YR/GDFn+4wSathPZKfyk
+	 Ys/u1bZVhgoke3yJXuJ2a8jQbQGwuxfbuK1W4DasUP0Ho7Fh82UMAnaxx8ZpcC95/J1z4
+	 br4MWguDYq4QKoaquxHucDTQ2CWX1DfBHdafktsNNqDUvlN+XrBTR8U1JgS2ciBbWzD3V
+	 PgyQG+4RbFXgJ0hnsB2Zn6SGxF0fuVKttFH6PkA6yZ8W6lNna6AyeaLglbCjW48TjgkT5
+	 KktpOKQ6OmGYBhGAMYJytLpM7K0e4X3VbFpS3Nzh4x9ria8ASeVEoJ/9p4+h5xWVaQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LYrU8x2A;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A85D4606A336
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:05:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A85D4606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4c467e19391so5556494b6e.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:05:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795460749; x=1796065549;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FapoBdtE6dpS5OngMDMUrCMDlakW/qoOLk+qWyJob5c=;
-        b=J/A8sty3wm4JolRrg0LBRbZkamZ3I/QGsUEVgB7VZeXqrlBOiDBCgj2zkZjCvXLT+T
-         cCNkANpRE62//drpLaYFgJfXV2yMGMk49zcXr3maC/uRrvxsjEtyatUl2X2wkiuwvZ2R
-         Az697hm82UDf6lORz9oCDIsjxaUfE7vKDqJIQWdMY9+2jpj+XT92PrjSrDz+xT2Dop8P
-         7raZmaOAM2ZbDH7ML8Q9WV/IFCbjTx98YENntmbWXkBfPwFFu0kEDrNbe6Ed4IC3gjZP
-         swyyhy0uiMLudE8uNsvgZzYvDthfj8y1psIQK705Dgw+BHumWFph4HXXQsGAqjE+BHJR
-         5HNw==
-X-Forwarded-Encrypted: i=1; AL+hErH66e5eZMvy2r1ZIC8Zck1OqtOlzGpE9BRgQp+pU5IBEoQzFfU7dDlXGc1v6sIWg8rAdj8dMmLrsKPylf4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/5w57fK0ts7JtESmdrKZit0V0iZfzzs09GnJCHz6m5ZBnGtQ1x
-	9A9w0kwNGan8wyEfXMnbJKuvr4+eljGs5xn8KD5uTeiBslYFt+fe9bjJLN7eaK4z32qPoFIlJfS
-	6hceDbvaMuBLbCS/hB9JT13MaReUMvu+XmgsAE7I9mAU1n9yRXrdcAz2mwAc=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE592606A337;
+	Mon, 23 Nov 2026 19:05:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE592606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LYrU8x2A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795460751; x=1826996751;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=HjLAv4JJx7rlNuC2NaLWJe74a46siPB2FTLvrm4JVew=;
+  b=LYrU8x2ALA7mf5JQXKDQko9Lpr6JGT3fKmZBCVDqQP9aiMXHVKBfLCOS
+   RdQgRk5V/gddXjmiioTAO1wVkUa6TfQBbKEI29LTq1q5PZVGJ4hsPs3Yu
+   va0cbk4GyQGLl5DUZpT74HAso0SdEkLiomhqX/rOwPTk16KJYDO4+4cBb
+   BnbZFK5Gh8rxVVeTjj1x0IcLZ25h4+Th1GKR6xHN/wtLE+twpm7ZDxyXS
+   x8pGXszBRPuRuRG9PwXRsCgKCRohOBjTGom48XBNjLGDd2dIE0t31xrJQ
+   HSg4yZ6faejnTzyBNDITlNkPr+RKNI3miazlmCAaOvhbVl9EjFAirM2hJ
+   g==;
+X-CSE-ConnectionGUID: R60sluLwTE2oMNdv2GiR0Q==
+X-CSE-MsgGUID: k87JItS7Rpy/WmE5mgO9Gg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4130892"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4130892"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:05:50 -0800
+X-CSE-ConnectionGUID: Hyu/YX85SRm8QsukIAo8Pw==
+X-CSE-MsgGUID: PCr81zIwQoaSB+z2enfJSw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11780883"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:05:48 -0800
+Date: Mon, 23 Nov 2026 21:05:45 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
+Cc: jic23@kernel.org, marius.cristea@microchip.com, crofts@kernel.org,
+	dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] iio: adc: mcp3564: Use guard() and scoped_guard()
+ to manage mutex
+Message-ID: <awSOicGtjjU7-tXz@ashevche-desk.local>
+References: <20261123070802.14487-1-vaibhav.chahar26@gmail.com>
+ <20261123172836.130440-1-vaibhav.chahar26@gmail.com>
+ <20261123172836.130440-2-vaibhav.chahar26@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,151 +82,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1383:b0:55b:f88d:6ed4 with SMTP id
- 5614622812f47-57a09c0f646mr13201052b6e.22.1795460749697; Mon, 23 Nov 2026
- 11:05:49 -0800 (PST)
-Date: Mon, 23 Nov 2026 11:05:49 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b048e8d.71deaa98.2984e6.000f.GAE@google.com>
-Subject: [syzbot] [dm?] UBSAN: shift-out-of-bounds in verity_ctr
-From: syzbot <syzbot+3f8f5b65af8de862dcec@syzkaller.appspotmail.com>
-To: agk@redhat.com, bmarzins@redhat.com, dm-devel@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, mpatocka@redhat.com, snitzer@kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123172836.130440-2-vaibhav.chahar26@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hello,
+On Mon, Nov 23, 2026 at 10:58:35PM +0530, Vaibhav Chahar wrote:
+> Use guard(mutex) and scoped_guard() instead of manual mutex_lock() and
+> mutex_unlock() calls to modernize the driver and improve mutex handling.
 
-syzbot found the following issue on:
+...
 
-HEAD commit:    a041bdbe1f3a arm64: Drop stdint.h type overrides from asm/..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-kernelci
-console output: https://syzkaller.appspot.com/x/log.txt?x=141908e9580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=4e8e6c1701ad8af2
-dashboard link: https://syzkaller.appspot.com/bug?extid=3f8f5b65af8de862dcec
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-userspace arch: arm64
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1437db63580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=109d0763580000
+>  	dev_dbg(&indio_dev->dev, "%s: %d\n", __func__, mode);
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/ed0e5cdd75d2/disk-a041bdbe.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/219ccd252cd7/vmlinux-a041bdbe.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/adb21ff27181/Image-a041bdbe.gz.xz
+Consider the patch to drop __func__ in dev_dbg() calls. If required with
+Dynamic Debug it may be switched at run-rime.
 
-The issue was bisected by AI to:
+...
 
-commit b1bf2de07271932326af847a3c6a01fdfd29d4be
-Author: Mikulas Patocka <mpatocka@redhat.com>
-Date:   Wed Jul 10 22:41:16 2013 +0000
+> static int mcp3564_set_current_boost_mode(struct iio_dev *indio_dev,
 
-    dm verity: fix inability to use a few specific devices sizes
+>  	else
+>  		adc->current_boost_mode = mode;
+>  
+> -	mutex_unlock(&adc->lock);
+>  
+>  	return ret;
 
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=8e0ed690-e35a-4012-88f9-7dc58c455e6c
+Now you will have double blank line(s) here and elsewhere.
 
-AI-generated root cause summary:
-In verity_ctr() in drivers/md/dm-verity-target.c, the loop computing v->levels
-checks `v->hash_per_block_bits * v->levels < 64` before incrementing v->levels,
-allowing `v->levels * v->hash_per_block_bits` to reach 64 or more while still
-passing the `DM_VERITY_MAX_LEVELS` (63) check. When computing the block count
-`s` for the top Merkle tree level (`i = v->levels - 1`), `verity_ctr()` shifts
-64-bit `sector_t` values by `(i + 1) * v->hash_per_block_bits` (>= 64),
-triggering UBSAN shift-out-of-bounds. Additionally, the numerator
-`v->data_blocks + ((sector_t)1 << shift) - 1` is not protected against 64-bit
-`sector_t` overflow.
+...
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3f8f5b65af8de862dcec
+> static ssize_t mcp3564_auto_zeroing_mux_store(struct device *dev,
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+3f8f5b65af8de862dcec@syzkaller.appspotmail.com
+>  	else
+>  		adc->auto_zeroing_mux = auto_zero;
+>  
+> -	mutex_unlock(&adc->lock);
+>  
+>  	return ret ? ret : len;
 
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: b1bf2de07271 ("dm verity: fix inability to use a few specific devices sizes")
+Consider going further and unwind this to return as soon as possible.
+As you understand the whole patch has to be revisited for all of the comments.
 
-------------[ cut here ]------------
-UBSAN: shift-out-of-bounds in drivers/md/dm-verity-target.c:1590:38
-shift exponent 64 is too large for 64-bit type 'sector_t' (aka 'unsigned long long')
-CPU: 1 UID: 0 PID: 4949 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-Call trace:
- show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:499 (C)
- __dump_stack+0x30/0x40 lib/dump_stack.c:94
- dump_stack_lvl+0xd8/0x12c lib/dump_stack.c:120
- dump_stack+0x1c/0x28 lib/dump_stack.c:129
- ubsan_epilogue+0x14/0x48 lib/ubsan.c:233
- __ubsan_handle_shift_out_of_bounds+0x224/0x264 lib/ubsan.c:494
- verity_ctr+0xfc8/0x1660 drivers/md/dm-verity-target.c:1590
- dm_table_add_target+0x44c/0xb18 drivers/md/dm-table.c:749
- populate_table drivers/md/dm-ioctl.c:1602 [inline]
- table_load+0x27c/0x764 drivers/md/dm-ioctl.c:1645
- ctl_ioctl drivers/md/dm-ioctl.c:2221 [inline]
- dm_ctl_ioctl+0x884/0xbbc drivers/md/dm-ioctl.c:2243
- vfs_ioctl fs/ioctl.c:51 [inline]
- __do_sys_ioctl fs/ioctl.c:597 [inline]
- __se_sys_ioctl fs/ioctl.c:583 [inline]
- __arm64_sys_ioctl+0x154/0x1cc fs/ioctl.c:583
- __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
- invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
- el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:121
- do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
- el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
- el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry-common.c:816
- el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
----[ end trace ]---
-------------[ cut here ]------------
-UBSAN: shift-out-of-bounds in drivers/md/dm-verity-target.c:1591:6
-shift exponent 64 is too large for 64-bit type 'sector_t' (aka 'unsigned long long')
-CPU: 1 UID: 0 PID: 4949 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-Call trace:
- show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:499 (C)
- __dump_stack+0x30/0x40 lib/dump_stack.c:94
- dump_stack_lvl+0xd8/0x12c lib/dump_stack.c:120
- dump_stack+0x1c/0x28 lib/dump_stack.c:129
- ubsan_epilogue+0x14/0x48 lib/ubsan.c:233
- __ubsan_handle_shift_out_of_bounds+0x224/0x264 lib/ubsan.c:494
- verity_ctr+0x1000/0x1660 drivers/md/dm-verity-target.c:1591
- dm_table_add_target+0x44c/0xb18 drivers/md/dm-table.c:749
- populate_table drivers/md/dm-ioctl.c:1602 [inline]
- table_load+0x27c/0x764 drivers/md/dm-ioctl.c:1645
- ctl_ioctl drivers/md/dm-ioctl.c:2221 [inline]
- dm_ctl_ioctl+0x884/0xbbc drivers/md/dm-ioctl.c:2243
- vfs_ioctl fs/ioctl.c:51 [inline]
- __do_sys_ioctl fs/ioctl.c:597 [inline]
- __se_sys_ioctl fs/ioctl.c:583 [inline]
- __arm64_sys_ioctl+0x154/0x1cc fs/ioctl.c:583
- __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
- invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
- el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:121
- do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
- el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
- el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry-common.c:816
- el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
----[ end trace ]---
-device-mapper: table: 248:0: verity: Hash device is too small (-E2BIG)
-device-mapper: ioctl: error adding target to table
+...
+
+>  		if (channel->output) {
+> -			mutex_lock(&adc->lock);
+> +			guard(mutex)(&adc->lock);
+> +
+>  			*val = mcp3564_burnout_avail[adc->burnout_mode][0];
+>  			*val2 = mcp3564_burnout_avail[adc->burnout_mode][1];
+> -			mutex_unlock(&adc->lock);
+>  			return IIO_VAL_INT_PLUS_MICRO;
+> +
+
+Stray change.
+
+>  		}
+
+...
+
+>  	case IIO_CHAN_INFO_SCALE:
+> -		mutex_lock(&adc->lock);
+> -		*val = adc->scale_tbls[adc->hwgain][0];
+> -		*val2 = adc->scale_tbls[adc->hwgain][1];
+> -		mutex_unlock(&adc->lock);
+> +			scoped_guard(mutex, &adc->lock) {
+> +				*val = adc->scale_tbls[adc->hwgain][0];
+> +				*val2 = adc->scale_tbls[adc->hwgain][1];
+> +			}
+
+Indentation issues.
+
+>  		return IIO_VAL_INT_PLUS_NANO;
+
+...
+
+I stopped here. You must read what you send. Do not blindly copy'n'paste
+AI slops!
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
