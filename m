@@ -1,81 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424455;
-	b=a7sbsJ+XrAvbsUYwlxyEsVU/BaYQXeUFu96kZNAZsSq3DlStp5RHsZisRi8YRH5NYekN
-	 cPa1cZQ6X/rIF5UkK4X7NYPyaq7fxfYzJ/JFTnaIQalPLuJ5IyMA3u1et/564C9FVkyqf
-	 DMNSAv+8uJ6X7Ghu4v1ywlBvlh7NhIZKTLkC9nHBBxGM7eTcm1gx5sLNOLt/86UVuEIkN
-	 mPe229ufaSQ2zxLcwcckutwXJWR0+K+RFWMEn+Q/8/dpje7lJ9+JtK3EXenhAsBWEMJg+
-	 pcmJ7k6w0jfAH84CR0e+PdkFOn4DTeF11ohDkBbDqZRNctljlq5dBzpTjgoYAG7b24g==
+	t=1795424471;
+	b=KQbon5Jzzp8mWuTwF+apbbSpwn8lsDWy2KaL1tytXMbLgubRbKg0HCy+Y7++PhyxLPR3
+	 c83bewG2isbMLsyolbw2BbF7oNeGnN1UjGK4C/dKlz8Ss/OYBsx+KpIvuznLQm1P1687s
+	 ZMzW708UfAcP9ISLSuZRHqoZdZDgdd/2HBledcJReKyO6HeEAoPbuvtGxwJa3DLe6+ALq
+	 kPt3JTPn+cbUBowCzOGa+BBNjyOKFbCETxbCj4vX+bQDHvLaNsOPvkjcqbMW8198YUkmB
+	 W/SDi9VeN5sWDLiI1K4HT7SL1790/I0ipV5U4461TcuoJ4JWFpeDprMPZ0qVPNsbeuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424455;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=wK56nV5dj6BN9DnAzwC2it7nIfhccBMyPksEVfxk8L4=;
-	b=ayXf4zjqCXW/DCMPw6IxOFwlyB7yQwTSxtStZ5lK+oFTYPUDg4gEXdrWxbZylxat0/5Q
-	 FBbqdWyJ2LptLgR4Y6XNt6DBrm1tOSZzPtrEaGYKcfcYD1FkrPQVxyo/GrGVn7BcAmjUs
-	 9GKTjiGdwf80Xtzgo9rx7a/FhdG3aYSzIjTxwVgwVTL5U37Mc6BlHez587PCPHkK+udWn
-	 BuLr93+B5yy+Xnh5fq2K4ecGOa/BVDBoR9GEhBr4T+OPmr/bSwY2Xt+BRa4awC4JNxgqY
-	 Lsuv2Dcmzc521JJys/te9ebc7zA8M5r24c6u+s0grEfSdiQHjiLV2o2LrTiGfs3ADPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424471;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ko4lHFMO6rgY5vkIo91sJE054+t6Rp7aGh4qjpiyKKI=;
+	b=k1bFHUwYGMLoz0jRSl32XGIHKrpAUxQNP4FuDlU8NoxmIuhisAmcAYQ23c1QHk+tMh/Y
+	 yV318XN0P80DOFXEWunEJ/F6SCjV6JnQGx+scC2fswTZdjN3sOGdELuhkugAlXYOOOrVm
+	 1eN9aapfk1yjZWLiBUIajzUfsBaWN8UpurHZ1O0h1O/NxH1ltgNfu/An1GSwZhwZVmK8b
+	 txMJ5tOvyRSyQUdf4sK/on4nIuG0i9NTaVZl16IlNLHf5pWnkHNM8Oo+4gOHB3rn4FtT0
+	 J6+j0pnEab/fRqXIWlAuuYgI9Y8lw4ZEA7hi3J0akZR9rE+BbdnxxbIcOhQM2Oa4m1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=ThYvsDtQ;
-	arc=none smtp.remote-ip=68.232.153.233
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9567B606A31A;
-	Mon, 23 Nov 2026 09:00:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9567B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Hftv1M8s;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CF88460A2613;
+	Mon, 23 Nov 2026 09:01:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF88460A2613
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=ThYvsDtQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795424463; x=1826960463;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vVIT0KjQxjO+p+ys4Bw721gnr410olPHzZc14uULyqU=;
-  b=ThYvsDtQwp+r566AhDWYFcHwQE+ofdFWmZRRYroQ4ATDfVHrSFHikScv
-   QZgf7sbvuZFs6xcY3VRyIzdG4wWbfXSdWwYDSfck+YK6DkjtE+rzDIyur
-   1EfllIzgEyzN3BHClSKd2uWM9makInbzQNqHi1kntMI4CEgkWjjNg8bdZ
-   +7Ymdhv7Igz7/72/GbeTKl7etgpEeIdqNaBpQ5XDO3O7HlWFgA18gkVZy
-   xQHxwX4bCAVJOdvvc8b80sjFLo4klIlh1yqM53tv1cX4jkdCScC6Gk7Hw
-   6MaffLMfbkVgiCseeheVOMWvSfACeiwFy5p57Y6LvYrv2vAsp5wNQHncy
-   w==;
-X-CSE-ConnectionGUID: fjHc7KbqRG+GFgtrW5tWDg==
-X-CSE-MsgGUID: idz3Yb9QRXKumrLi0BSZhQ==
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="298321523"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 02:01:01 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.57; Mon, 23 Nov 2026 02:00:52 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 23 Nov 2026 02:00:49 -0700
-Date: Mon, 23 Nov 2026 10:00:49 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Zhao Li <enderaoelyther@gmail.com>
-CC: Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Mark
- Bloch <mbloch@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Moshe Shemesh <moshe@nvidia.com>, Shay Drory
-	<shayd@nvidia.com>, Akiva Goldberger <agoldberger@nvidia.com>,
-	<netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] net/mlx5e: TC, fix a NULL pointer write in the peer
- flow error path
-Message-ID: <20261123090049.hkhclpdiljjfptff@DEN-DL-M70577>
-References: <20261118025708.86215-1-enderaoelyther@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Hftv1M8s
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=Hftv1M8ss6n39NIvNg2Ecva2/Am+8SSbMcStum04UEMOJ2G9osH3uUBDX5EKDCbGK3+Rbh7K1xq18
+	 fcjHJW6AWx4WbHORMr0v0DDu4FYQN6xPU4S1WPfvFXk0Oc2ExsAplG8ZvbWlH9magUyd7dtYo/t02w
+	 HfNy6uz8mjIDKszg=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96b0400ce608-421d0;
+	Mon, 23 Nov 2026 17:01:05 +0800 (CST)
+X-RM-TRANSID:2ee96b0400ce608-421d0
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHB-W5100250 (unknown[36.137.216.21])
+	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46b0400c9c2f-8f361;
+	Mon, 23 Nov 2026 17:01:05 +0800 (CST)
+X-RM-TRANSID:2ee46b0400c9c2f-8f361
+From: Gu Bin <gubin@cmss.chinamobile.com>
+To: lee@kernel.org
+Cc: pavel@kernel.org,
+	david@lechnology.com,
+	linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] tools/leds/uledmon: reject device names that are too long
+Date: Mon, 23 Nov 2026 17:00:54 +0800
+Message-ID: <20261123090055.2508-1-gubin@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <179442104215.44545.2144163087581820120@kernel.org>
+References: <179442104215.44545.2144163087581820120@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,29 +71,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261118025708.86215-1-enderaoelyther@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-> The peer flow add path hands the duplicated flow over to the origin
-> flow before it looks up the peer entry for the peer vhca_id. When
-> that entry is missing, the function returns -ENODEV, and the caller
-> then deletes the duplicated flow with list_del() on its peer node, a
-> list head that was never initialised and never linked. list_del() on
-> such a node writes through the NULL page.
-> 
-> Look the peer entry up before the duplicated flow is created and
-> handed over, so that a missing entry is reported without leaving a
-> duplicated flow behind. The entry cannot change in between: the peer
-> loop in mlx5e_add_fdb_flow() holds the devcom component's read lock,
-> and peer_flows entries are only stored and erased by the pair and
-> unpair events, under its write lock.
-> 
-> Found by code review and not reproduced; compile-tested only.
-> 
-> AI assistance was used.
-> 
-> Fixes: 9d608a40c2d4 ("net/mlx5e: TC, track peer flows in a vhca_id xarray")
-> Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
+strncpy() does not NUL-terminate when the source is at least as long
+as the bound. uleds_dev.name is passed to the kernel with
+write(fd, &uleds_dev, sizeof(uleds_dev)), so a >= LED_MAX_NAME_SIZE
+byte argv[1] leaves name without a terminator and the write sends
+trailing bytes that are not part of a valid device name.
 
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Silently truncating such a name would create a device the user did
+not ask for, so error out instead, like the other argument checks
+already do.
+
+Fixes: fa7f32422ea1 ("tools/leds: Add uledmon program for monitoring userspace LEDs")
+Suggested-by: David Lechner <david@lechnology.com>
+Signed-off-by: Gu Bin <gubin@cmss.chinamobile.com>
+---
+Changes in v3: keep strncpy() instead of switching to strcpy(), since
+strcpy() would leave the tail of uleds_dev.name uninitialised and the
+whole struct is passed to write(), leaking stack memory to the kernel,
+as pointed out by Lee Jones.
+ tools/leds/uledmon.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/tools/leds/uledmon.c b/tools/leds/uledmon.c
+index c15a39c1f2714..4b40729a13e93 100644
+--- a/tools/leds/uledmon.c
++++ b/tools/leds/uledmon.c
+@@ -31,6 +31,12 @@ int main(int argc, char const *argv[])
+ 		return 1;
+ 	}
+ 
++	if (strlen(argv[1]) >= LED_MAX_NAME_SIZE) {
++		fprintf(stderr, "Device name too long (max %d bytes)\n",
++			LED_MAX_NAME_SIZE - 1);
++		return 1;
++	}
++
+ 	strncpy(uleds_dev.name, argv[1], LED_MAX_NAME_SIZE);
+ 	uleds_dev.max_brightness = 100;
+ 
+-- 
+2.50.1.windows.1
+
+
+
