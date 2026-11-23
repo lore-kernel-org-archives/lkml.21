@@ -1,96 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.108
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795442527;
-	b=gppLvZkrkY0PYrPmHnvUTu+XNZmKUrwRgw6PvdKofhwi4+uHuMQPuSP43DxBEiaiC2kw
-	 yGNYjCRUkTCcNQdvcJM47/9diocu6mop1TVa/UNVqRb3NQuwYXhP8CP4y897nGvTWJiul
-	 S/3HvG6K0sKR0xgEpFPbD5T6+aRZ2DZQICsnuAWrgnwV7IdlUfGw1YoMC7CYlHzoAktbZ
-	 jajERklSz0vdbaxEH4rbTEjMT+7KBtOd8YKI4ubGvukmvAAZ07/hR+fTon+jRgel8J7hV
-	 NXAJYkztZdQbFvjo3ve06P1v0fWYcBfH2TL5YlfLH3zZ1bDyduPX4RKOv7HjVGQGdDw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442527;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=2SD7j5QwJfYvyL+maKbFg4gKBF3uH2T1LNyFyTT0oE8=;
-	b=lLJ3WKYyDXrIQzERXlwHi7r57RtudDE+Utkbx2zrYulP8JfIjD1bPFelVTOpVTyo7c1q
-	 BuxEMe149xQPG53hNtmYaxb1AjmctyDO8bJ0ns8O+Omwa8W6WXWNrloNEwLTaK75sqrto
-	 2ee7kzIcEVXmrydT5t7HMFnBoS5xY/TkPene/c4Yi3j7GG5pWcUhblWeS6FMQRr7dYFiB
-	 t3gD6+OqwQJvLUgRgW+X01HEXcKYc/ugZzeoWtyLrzHkdCEEa9kN2qhcxe/+7fbeDdw/u
-	 HP0DdckrOK/iuaRWuiTH+MSCwwYVh5s/UnLKhg4VG7AHk3W/3RZJBuhPDUEVuAuHCMg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=N08jEpGl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.108
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022108.outbound.protection.outlook.com [40.107.193.108])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=37.230.196.243
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795442545;
+	b=QpUWVnF6abijSGrlDSqPsxw2u1fm6GLeNUHgeRX0wCbtQRDZxn1lyge91S2+IWW7NSBC
+	 Ab2vsJzKR+0THDm/woLlDmPGV57+DFYecrCOYr2i3TjLlckkOCM2a3OTuwileyxy5Ihgk
+	 mVYd5i3MhA6IvHMMvwDPVGpgeqz7fHx40Pfpanfgu8ik+hiKTp7RSJCVPmPQejQ3HZiHL
+	 TjY6n3mgHB1rETYdUpZ3cvVrWGfMqglSSv28KNU7TRfHw3iSNQS8nUGHBwt23dsrI37w7
+	 eAWlMlZGV6wnFGWBrCu+F1Dh0YaHzbJA/iEsYCBzUjuD+S4HOP1UZ66jQEj+ZXyb/zg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442545;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-KSMG-AntiPhishing:X-KSMG-AntiSpam-Auth:
+	 X-KSMG-AntiSpam-Envelope-From:X-KSMG-AntiSpam-Info:
+	 X-KSMG-AntiSpam-Interceptor-Info:X-KSMG-AntiSpam-Lua-Profiles:
+	 X-KSMG-AntiSpam-Method:X-KSMG-AntiSpam-Rate:X-KSMG-AntiSpam-Status:
+	 X-KSMG-AntiSpam-Version:X-KSMG-AntiVirus:X-KSMG-AntiVirus-Status:
+	 X-KSMG-LinksScanning:X-KSMG-Message-Action:X-KSMG-Rule-ID;
+	bh=R42Gma2O/hvCvmP2Zz+AKYDbi1g8qtI0eo0ui3Ob20U=;
+	b=tXTYFn3/NuH0Elqt6SshFzugueXutT6Ec6/PL95Pny80hrSZYgqaKnqj39aBRdM4dNp/
+	 ZSEItpzXr7a2jv1ONiSPcRrviG2EJoIGqeRHG0yPJ8WmuKlQno2xRCF0Y2g9nd45D5ahS
+	 1EHPS4bxBAbmJVQbVXUSlNyQhduv2bClaOU+3CaM1nzqQGCwN/3AUAsLNAYqr8ZKKobNy
+	 0gL3pFZHJwYnPEfL1L0jxaCt0w5Gn50tMn8I3LwV4H6EvQYh/DVQRZ3Tky06HDOpWc+mz
+	 l0iWNSbLEzg74Gl9CMbmVwIMIUu5IedpDZIeL7RC5QG/sYeQEbMfbAmr4I2SxO3vtOA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=astralinux.ru;
+	spf=pass smtp.mailfrom=astralinux.ru;
+	dkim=pass header.d=astralinux.ru header.i=@astralinux.ru header.a=rsa-sha256 header.s=mail header.b=jw+IkZ5d;
+	arc=none smtp.remote-ip=37.230.196.243
+Received: from mail-gw01.astralinux.ru (mail-gw01.astralinux.ru [37.230.196.243])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED595606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 14:02:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED595606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD025606A31F;
+	Mon, 23 Nov 2026 14:02:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD025606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=astralinux.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=astralinux.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=N08jEpGl
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V6qRyyaxrd2g6myoWUokHGoMd0Q579V2WJCKEyicUubOF+p7FWjvGwg0ilqnpb9Q2WU1WE2WKJ1OLKt515gEI+gecPjmdknFEBOahCQavXnRazz9Ab6o2Nrme7FogzQO+FlQ1OziuxYRjaLnwRqNzkbj/TVdwe/ps2YPROLMaRbkFJCJZuG8PXbOnkrp+YX9tOy+1HYjmKwGDTVLXPv/nscUOv49V4CHnjQDd+lCly4B1FUI8SPEHLF+0uUpUPulT9YgohbG5yrb9VuT0pvbyFwxCOuax9wbsHBFJlwMQw1KDlZbo3ZiViGOnawUwUBxiX1BIM7AJdKkHKyVYfe/rA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2SD7j5QwJfYvyL+maKbFg4gKBF3uH2T1LNyFyTT0oE8=;
- b=YAi79exwzRTjrROEXCy7txxdUmoxuWr+yrbOtkNK6a70QAalBs+HLRrRrVK0CI6l073CMj17gDDvCnSOnOpyO3SxiVzAscEKZ0Non13jlULuhU/4gIH9uXzV8tk4yXc6QgpN15254BMD950st+eVwYmEYGMfkrRumYcyyr1qQIBF+MI7fsoELtUqOgsRyfygbH3K1LxdF/dnHjsmugJ7Ptz+gb7iIs6tGgRXqr79RB/6Nt86wJuAPQSU4JpwVFXYSXfnl4YdLd6ofilXXSDOanVHRgQSktaF/GlXmOdlKIvnKS2d3i/7dGZt6pMz2eCuhBzs62sRAG+iwIbaB0M/IA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2SD7j5QwJfYvyL+maKbFg4gKBF3uH2T1LNyFyTT0oE8=;
- b=N08jEpGlVHmCsYCffLjefWZj0AG6Vw70yWuV2Ji+J6EIGuElcvilSs5Y56Ic1nx6F9OAZR+UUput+N8e/fxXmkOi4PCETUWrl4Pz+sHUkcwgg9lpooYSP90XnBcFo26wZSm/OL84gMHnClgEGvDR5vYUFScLfl/Lsgf72XFmS5K4FC8XdE9nZ2mRMwoejrscY6b0zWMPU5nbh6tEUVgxlHqAtCtIf289cw4SK1mpyKpdjO8PFhgVPaAePNjY3LB9G+ddzMu2bTjKfmmHdyZD/IBlpYn7LmJ1KwveewIXEEEEpPC2eZ34BF6ITijG++ZEcezskmVTkT+CBg2m36k+Cg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YQYPR01MB11558.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:a6::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 14:02:03 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 14:02:03 +0000
-Message-ID: <6a09b614-b136-4fff-931a-f169a530ae5f@efficios.com>
-Date: Mon, 23 Nov 2026 09:02:02 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 38/40] sched/deadline: Boost an owner that cannot run
- on its own reservation
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
- <297755d1d8dde37f65e12a4cd502c6332011f44c.1795207233.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-226195@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-226195@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0336.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:6b::13) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=astralinux.ru header.i=@astralinux.ru header.a=rsa-sha256 header.s=mail header.b=jw+IkZ5d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=astralinux.ru;
+	s=mail; t=1795442543;
+	bh=T7WYrw9/LA5Yjlx7L6S4/nWrfFc3WoU4bhhoqe/9Efc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=jw+IkZ5dLPVMlePlKJKf0S/5LqR+ebUPZsxB0htyMiTibA64PbuxyEBGfZ4SJpo6v
+	 Yu7ERRPLXhwCHy/SVlZgGqorG2ctLpuZDpSGVNV4Od7Eo8S5F38lNMujo8HwMkOrSX
+	 FrISyGHsuOb1aBykn2UgFzqigWXJNYjFWvZ2K69SYox/EMAjs2t2AwhrSKq8z0CNKg
+	 m91j98q71m1C5cChRMtA6F/5d1JZOf0IfHU9Kogbg1Uo4GCmmDhDOTPkePOXz9674G
+	 hOvpnnEwXrlZxirxkjnlyYO6SgXAM3bzrt7Do5noIEW1ItM9Ft2M/MhSwHZaM0Cqi0
+	 lggA5DUhIFhuA==
+Received: from gca-sc-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
+	by mail-gw01.astralinux.ru (Postfix) with ESMTP id 0CD8926B14;
+	Mon, 23 Nov 2026 17:02:23 +0300 (MSK)
+Received: from mail.astralinux.ru (unknown [10.205.207.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-gw01.astralinux.ru (Postfix) with ESMTPS;
+	Mon, 23 Nov 2026 17:02:20 +0300 (MSK)
+Received: from DESKTOP-D46TNHI (unknown [10.198.55.149])
+	by mail.astralinux.ru (Postfix) with ESMTPA id 4jY7176kcYz1FqD;
+	Mon, 23 Nov 2026 17:02:19 +0300 (MSK)
+From: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>,
+	Dmitry Antipov <dmantipov@yandex.ru>,
+	ZhengYuan Huang <gality369@gmail.com>,
+	Mark Fasheh <mark@fasheh.com>,
+	Joel Becker <jlbec@evilplan.org>,
+	Joseph Qi <joseph.qi@linux.alibaba.com>,
+	Heming Zhao <heming.zhao@suse.com>,
+	Junxiao Bi <junxiao.bi@oracle.com>,
+	Changwei Ge <gechangwei@live.cn>,
+	Jun Piao <piaojun@huawei.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	ocfs2-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
+	syzbot+900962ac9bf1860033f2@syzkaller.appspotmail.com
+Subject: [PATCH 5.10/5.15 v2 1/4] ocfs2: add suballoc slot check in ocfs2_validate_inode_block()
+Date: Mon, 23 Nov 2026 16:59:34 +0300
+Message-ID: <20261123143419.ocfs2-slot-validation-v2-1-mdmitrichenko@astralinux.ru>
+X-Mailer: git-send-email 2.54.0.windows.1
+In-Reply-To: <20261123143419.ocfs2-slot-validation-v2-0-mdmitrichenko@astralinux.ru>
+References: <20261106104249.1811-1-mdmitrichenko@astralinux.ru> <20261123143419.ocfs2-slot-validation-v2-0-mdmitrichenko@astralinux.ru>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,127 +93,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQYPR01MB11558:EE_
-X-MS-Office365-Filtering-Correlation-Id: 818df6e6-76dc-4d35-1892-08df496a59e7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|6133799003|18002099003|22082099003|7136999003|261009223027099003|261021121427099003|261022105027099003|261026140227099003|261026121527099003|261102123227099003|261022075727099003|261028144727099003|4143699003|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	gQGvBiE8uuEvtwTm6NZ8pQOzmZgmnyEhgynSe/Fd7obQ+R1UOrER36m9n5CRdZMxN8VoGcM2+6UYKCSjgaz33wPDiND4JmdRSkmMkUUmVUUUUWJ67I1qFE7AN8ANrASdIpI28aOFGTIthz97EMQrvsYxnOHIxGgOJEJvzyzwwExB/zmQpL66luqGOeZavpJM755UQpV9TPK9bufpOu34Tj95Ae76+ZSdbe3y5gT6Pso+TB3rkEZkXQSajQeOptBx0X4ZuT3C+JCVM5em9LEuXf9Z89z8BPanhHwzA6cxmpbjIEwkGUiJJUuUawNd3UaTK2Aqajq5VJStdXis/MGzR/ZJIBNzYMVL3abfnG5Qa+MSiCLynq07H2nlUuZR5Z5fCYMYy3/j5+ZljskhEh4GD9eOXbNY6x1OLCcV30gWyp9XkZlo0aI6yITOq5YDhfNVpvY/xTpxoEF/VacORuTGiOlBt/+3o/M+VUKUbHAjey72xrBFR1FdEbkXFHl10pQMvgbtaIpLvbRPZGfPqeKlDZF/T/2RQxZZFiZx0SXL28+T8wUrHjZzc7NVqDDnQOScVH3N4m5ugEAlMNGWXYCNddsyXtU9+UCv7nzQ8H+aCB0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(7136999003)(261009223027099003)(261021121427099003)(261022105027099003)(261026140227099003)(261026121527099003)(261102123227099003)(261022075727099003)(261028144727099003)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?RDRha1Babk9QZWtxak9HUUVWR01XNGZ1M21vUlhjY2Jtc1QweXNNd3hrNThk?=
- =?utf-8?B?Y3FhbnZnaG9zZGo1ZDduVHlXTURCVmpLWHFKVnU4NnUxWWQ5MFBsMmpjVG5i?=
- =?utf-8?B?SDRvTjc3dXhtMktwSlE0V0g0U05TTTYyQnIvUUNnbllkMDlLUVY5Qmt6MGEv?=
- =?utf-8?B?QVFSS3lRcFZtQmJMdm1aSHNGMTByYUJmcUhNQVdiTHhReWFOQVcrTTBDVzRN?=
- =?utf-8?B?YWJuK04rdmVvQ0QxZFZxRGJUWGdaaXZFZ0xrM2NJdjNwZ1V5MGEvM3p2eHhw?=
- =?utf-8?B?WllJZjBsdDlFWE4wcFY2MkFvWUxVSUdMYS9OWXFJTVBLaFdTQUhMOVRrN2x3?=
- =?utf-8?B?THlQN2R1NGhnT2o3VHl6UjQ2T3JPQjJ2RUNKMGhYcXN4ZGRLWmdWc0UzQlhj?=
- =?utf-8?B?cVVsQ3hzNk1lRElYSmNkZG1pMXM0eGIzRDBBVmNSSnVjSHFlZ1gyT1VzaEF2?=
- =?utf-8?B?dWlPN1pWMm5RSkZmTXdWUFZOTkZxR1p4dlppSWIvcG1jcmtielNqbGJDRkxa?=
- =?utf-8?B?SlgyQUpwRGQ2TWJwaFYzVlhuSlJIcHExZytTTjRXVm4yQ2hEbk5KTTI3dDNK?=
- =?utf-8?B?L21ZY1ErU2Y1RzZtOFYrYVA4cjU4QlN2N2FmekplTnZXeURnMWIvQ3hadHZY?=
- =?utf-8?B?dDhHVkV3cDNHaFdRTXRkMGxzNDRIYnpsRmFlRGdNeWE3OFZJSllJeWVITms0?=
- =?utf-8?B?MXRHYUNyRXFITnZrUDg0QTV1UGJaNVZ4ZjBzSDZ5amE1b0M5eXA2dmxBbGcy?=
- =?utf-8?B?amVRc2U4anlhcys0VHQ0TnJXbmNRNElNNnFyZWp3THhXV24xMngxZ0Z0V0s3?=
- =?utf-8?B?YVI2SjJYckJON1FBam5ldE5sT0JlNG5PdG5YQkxYR250c013UzJMSFdsWUNo?=
- =?utf-8?B?SGJMTDNTbytZWUN3SnJoUllDTFArVGtUVk9mNnpaVlRydmRjVGxsUytFZ2Iv?=
- =?utf-8?B?UkpCa2JuVi91TlRORC83bzBFUVdPZmx5S1ZsVGVkT2RMdVgvWnRBZWZIc1pj?=
- =?utf-8?B?UzlrTHF0RkYycDdmaSt5RkxOcDhaQVJ0SGxFUi9JZGZqZ2hBdFZjZjRkaHJB?=
- =?utf-8?B?SjRNc05JTzBVOGZCOHplajh0VXAwQVdldTNMZWdLei8xbGdobkhHenp5UUJh?=
- =?utf-8?B?ZFBVczFoNXRrZGZqRExpNFoxS0VMTTlsZ3hnRnU1VmxNUE8wdGg2dWJ0WnVX?=
- =?utf-8?B?MDdvcWtkdnlCTjdYRitLUlhTZ2ducTVweWcvUXloT2xWQ3BvTUxtNy9JeU9m?=
- =?utf-8?B?ZGVHMmZ6K01yemY4aFBXazFpcjdac1pkQ1hhdjhGb1V6ZUkzNE9BdnN4YU1F?=
- =?utf-8?B?eWJYanB2Tnc1N3doT3JGc0JOSy8zeE44THJDQmZnQlA4TDMrekxXT1MyazY1?=
- =?utf-8?B?NnRreVVKUStHaGpZUDNRRjB4akNwUC9SNC9BaUtIdEcwZWJPRnkvc1UvSjFR?=
- =?utf-8?B?cHFZZktuZWRTUjA1ZFdFY3QySTErTWZBbFEzQkl0MldwZ0VQbjJ1N0dYc0x4?=
- =?utf-8?B?T3lLZytpelo3L0k0UTVnUnNieXllT1lCMWlFNVM4eEtreTQ2QTZxZEFPVGV2?=
- =?utf-8?B?YlNyaTZwTE90Um5Ud3V2Ulo2UDJLNnhST2RxU0toMDBhWS9YR3ZxNVlCcHNO?=
- =?utf-8?B?RS9MVm1UYXluTTZ0WEFFelRuOFoxZ21WczVVejE0T1BqNHdkamxZdC9ROFcy?=
- =?utf-8?B?TElNL0phM2l4WVEvTlJudHFMSVFBYWNxVms2VnA1MGZjRFR1cU0xTDd2Vm5B?=
- =?utf-8?B?WmFRYVdzV0NucDkrcDFMN1hsK1hXZDVoQm5BUnlYZEM0bmdMekdIczRCQmNN?=
- =?utf-8?B?RFJSVTZoTkFNUTkzMm05S2hDQ3dRNTFtOTJ6VzFDL0lXNTE1VUtPQm5lc2N2?=
- =?utf-8?B?UTlaMG1saFVwU25QazN0STQxeXY3akw2Zng2ck5yRUhpRm5UTithcHdqTU1p?=
- =?utf-8?B?MU1Cano5VzFWSHFEUVBvM3N2QTFVbGdBV0dzWVVYRzB1QzB3R09wKzZqNzNM?=
- =?utf-8?B?bkRma2o3ZVlUS05VcjBPTzVkYUNiREk2bTVVSWpzK0U0N3VXVFlKRjkwYlVE?=
- =?utf-8?B?a2VDZzFHUnZncy9qeGN0WGpaUlg2MkxSOTZ1RjNTMytBd2wrd0pIMXBOMlpp?=
- =?utf-8?B?WGxNeFZwcTlTdkNFWlJ1dVM3RW5hL280b29pcVBHS1B4Q2lZZ1Z5cjBobFBv?=
- =?utf-8?B?NWZWanA0K2V0b3VVNkRYSVZmK0pVZzBJWFRPZkpsanU4L2RpcDRPdFVVbWpI?=
- =?utf-8?B?L3RQaVgzNXFBRlZqamZsLzRPanduNmpJa2JVNnVkQnFMcURnc04xMzc4U1RI?=
- =?utf-8?B?b0lrSHg2c2l1Q3hyTjE5SVNxSjQ3U09NL2FxZUloQlZITDBkZHN0b3Z4RlI1?=
- =?utf-8?Q?M/nSw7mO72NCtvVzxf720vDEGLZgLMvbbYGBs?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 818df6e6-76dc-4d35-1892-08df496a59e7
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 14:02:03.4282
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4pkLWOf8pW9NyZxxRCpdfzPNXo8vqEQii/DU6IPJjFOvCJx0HDja9+WCDWjKlnxvPHwRh0T2sDD3sSFlhD0ltk05ydb5LxDODRatr4sZAiM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQYPR01MB11558
+Content-Transfer-Encoding: 8bit
+X-KSMG-AntiPhishing: NotDetected, bases: 2026/11/23 12:55:00
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Envelope-From: mdmitrichenko@astralinux.ru
+X-KSMG-AntiSpam-Info: LuaCore: 135 0.3.135 58dcfca10e9e4d27990d8f7387f1467d65061802, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;mail.astralinux.ru:7.1.1;syzkaller.appspot.com:7.1.1,5.0.1;127.0.0.199:7.1.2;astralinux.ru:7.1.1;lkml.kernel.org:7.1.1, FromAlignment: s
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiSpam-Lua-Profiles: 207749 [Nov 23 2026]
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Version: 6.1.1.27
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2026/11/23 09:07:00 #28960424
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-LinksScanning: NotDetected, bases: 2026/11/23 12:55:00
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 1
 
-> When p is a deadline task blocked on another rt_mutex (!scope->queued),
-> does dl_boost_blocked(p) leave p->dl.deadline stale for the rest of the PI
-> chain walk?
+From: Dmitry Antipov <dmantipov@yandex.ru>
 
-p keeps its own deadline in its waiter node. A boost never gives the
-owner the deadline of its waiter. For an owner that cannot run on its
-own reservation, v11 will start a period of the donor at the boost. Its
-waiter node then gets that deadline.
+commit fe7a283b39160153b6d1bd7f61b0a9d5d44987a8 upstream.
 
-> When a task that was boosted while throttled (own_runtime <= 0) is
-> deboosted before own_deadline, does restoring own_runtime without restoring
-> dl_throttled leave the task runnable on dl_rq with exhausted runtime?
+In 'ocfs2_validate_inode_block()', add suballoc slot check similar to one
+in 'ocfs2_get_suballoc_slot_bit()', thus preventing an out-of-bounds
+accesses for 'local_system_inodes' in 'get_local_system_inode()'.
 
-Yes. In v11, the deboost will throttle it again until its own next
-period, and reschedule it if it runs. A new case,
-pi_owner_held_new_params, will test it. In testing without the fix, the
-waiter got the lock at 103ms, instead of before 60ms.
+Most likely this fixes
+https://syzkaller.appspot.com/bug?extid=a77d690840e60bc2ddd8 as well.
 
-> Should switched_from_dl() also restore own_deadline, own_runtime and
-> own_period_start when dl_boost_held is set?
+Link: https://lkml.kernel.org/r/20250826095106.666980-1-dmantipov@yandex.ru
+Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
+Reported-by: syzbot+900962ac9bf1860033f2@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=900962ac9bf1860033f2
+Reviewed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+Cc: Mark Fasheh <mark@fasheh.com>
+Cc: Joel Becker <jlbec@evilplan.org>
+Cc: Junxiao Bi <junxiao.bi@oracle.com>
+Cc: Changwei Ge <gechangwei@live.cn>
+Cc: Jun Piao <piaojun@huawei.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Stable-dep-of: 25bf9e549360 ("ocfs2: restrict OCFS2_INVALID_SLOT suballoc slot to system inodes")
+Stable-dep-of: b2d31acbd3b1 ("ocfs2: validate orphan slot during inode read")
+[mdmitrichenko: Resolve the overlap with existing dinode checks by
+ inserting the suballoc slot check before i_mode validation.]
+Signed-off-by: Mikhail Dmitrichenko <mdmitrichenko@astralinux.ru>
+---
+ fs/ocfs2/inode.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Yes. In v11, it will put back the saved values, as dl_deboost() does.
-
-> Once now reaches own_period_start + dl_period, dl_waiter_boosts() compares
-> pi_task against now + dl_se->dl_deadline, but if it returns false and
-> triggers a deboost while p is pi-blocked on another rt_mutex, does
-> dl_deboost() restore the expired own_deadline instead of starting a new
-> period?
-
-Yes. In v11, the deboost will start a period of the task's own once its
-saved period has ended. A new case, pi_owner_held_long, will test it.
-Without the fix, the refill prints "sched: DL replenish lagged too
-much".
-
-> If an owner is throttled while going to sleep, boosted while asleep, and
-> then wakes up before own_deadline while still boosted, does
-> enqueue_task_dl() fail to replenish it from the donor?
-
-Yes in v10. In v11, it gets runtime from the donor period that the
-boost starts: see your last point.
-
-> When a runnable throttled owner (runtime <= 0) is boosted, does the
-> while (dl_se->runtime <= 0) loop right above this check advance
-> dl_se->deadline from own_deadline by the donor's period instead of
-> starting a donor period at rq_clock(rq)?
-
-Yes. In v11, dl_boost_start() will start a period of the donor. A new
-case, pi_owner_throttled_rival, will test it. In testing without the
-fix, a deadline task between the two deadlines ran first. The waiter
-got the lock at 53ms, instead of before 35ms.
-
-Thanks,
-
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+diff --git a/fs/ocfs2/inode.c b/fs/ocfs2/inode.c
+index 2ffa3571d15b..b6fa3c8c6663 100644
+--- a/fs/ocfs2/inode.c
++++ b/fs/ocfs2/inode.c
+@@ -1452,6 +1452,14 @@ int ocfs2_validate_inode_block(struct super_block *sb,
+ 		goto bail;
+ 	}
+ 
++	if (le16_to_cpu(di->i_suballoc_slot) != (u16)OCFS2_INVALID_SLOT &&
++	    (u32)le16_to_cpu(di->i_suballoc_slot) > OCFS2_SB(sb)->max_slots - 1) {
++		rc = ocfs2_error(sb, "Invalid dinode %llu: suballoc slot %u\n",
++				 (unsigned long long)bh->b_blocknr,
++				 le16_to_cpu(di->i_suballoc_slot));
++		goto bail;
++	}
++
+ 	/*
+ 	 * Reject dinodes whose i_mode does not name one of the seven
+ 	 * canonical POSIX file types.  ocfs2_populate_inode() copies
