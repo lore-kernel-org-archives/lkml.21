@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476027;
-	b=yv/0et9Eu95FzRDn95W1OetwvFL30zGFgc2dp+uOxDVEd5ZtIPXCqcpYKDOjkZ+mzoa0
-	 zGtqMF7j7mxYiSp9selvyxYifOnIOL5g9l5aza5KDfCJD/OlYVW/3w2ln0e4uHQCKSi6i
-	 LGUsgOUhAq1drKpZcSl2xAZP9I5HpYuF10HlpaJnuqW4621XBy1gizaPu67A8nF30Nz7n
-	 WfGVnJhAL8p8SQW1PHDZVcJp/eqHZtECOvpd2+fUNYI46WjqOzvGoFyoao1nc4a3mS/hB
-	 QJIwX4QVDEV2qFJgdEzEHlZHKmvrhi6WQJK/RNCRbkldaWhrU6XI51xIFuhNcFyP/pA==
+	t=1795476029;
+	b=gjjfg5YU14gjopVJA+3kIXZGkH2o6w96r5TUFITN6kqHMu/k0Naf/rJek0zoMjS0VB6L
+	 UCB7lTtbRlMT6vC4XtcUY+0icX1s27sTpi8rXl8GuDX7Dy5F4EJeW+YoEhJkJpqR50ipI
+	 26crZse+YqlvksiY98NLqSE5j2gMBfSCW68lZH6QD1Wsh7k6CfxrTH0iCWe/3unz+bpb/
+	 3xge0/i7msxZYMdrk1fbSoDxfjUtlUcizuNbovmFGH6FD/KR4tmXy4B1/ZgXhGjF01ZKR
+	 L1y6SE9MEZT4Ptx7qUwYzWqo+dDT7TPVtMHxn/iKrw8cic6ccLVnckCtKE/NMkt4+tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476027;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476029;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=z3KSegTVE9SgyByXf1zFPzjhXJqm7igxjtwN/fq9qek=;
-	b=lEx0oFPRO1NStJboznlFwLq/y0KE9YrW5Snuc+4+PnpGL49+CnrRLbESH/4YEgVrKJcj
-	 InRN64YLuX2rR7QIGgDmaCSkbjQNay2jzFwmFsMja6mnUgYF453yV3t4IQfBu44P/UYUN
-	 ROh02mL8phnpNDsymBiHGnRi/V2ePiuSkB4+8D6s+XkCPSW4KjUpgTGQblyEZl7aM37+Y
-	 +/9Dqu/d3pWLJsH22KQu8tOPEGDkyV+Bzh58EwLBTmxkNEJYfApaMt9+7Sf6+ASMQoStx
-	 VV8X2Upxoi33awHQjtgQO9XOmNtVwbRFYkfG5V4wCH3eAbaaUYgOAeX9EpPPRXrPM1w==
+	bh=2nV6Pwe4KyMCUzXZTz3btMM6HejHFNSIy8FvzNgAtOU=;
+	b=YtNBtLeuswg/FE62ZzruLi+iYa317XN7JWQS6NjpmYsNpGKSGXvHLG3UCptbFpqvjJ29
+	 OtHR5xCSbJkOJXkIe/dKrQ3Y3IQwd7m3MXQ7dLpYx5p2noMTUmKTVgH0r1DqOt9bDYuUH
+	 AjH+OJsCtS0BkaYn0DQzFbhe5yzNxhSR0Q0pgezxB5w+R5C4hZrT9dzzOw1k14JTeVZsb
+	 OJWq+MC1tNqO6d+EPVeoL5ZhPn+0PrBjfYngG/TlUESgYHHFVphmsMa0ArNBZodhgTM83
+	 xAbpPxlUZGdkkFuSBNe8FfbqdRFEK1k2y39t2b+pU7q9ndc/NgrtTMNFtcd/rqEU/Kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lijSKj2R;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luq+aUNS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80ACB606A326;
-	Mon, 23 Nov 2026 23:20:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38C61606A337;
+	Mon, 23 Nov 2026 23:20:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lijSKj2R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F1F61F000CA;
-	Mon, 23 Nov 2026 23:20:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luq+aUNS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72D501F000C0;
+	Mon, 23 Nov 2026 23:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795476026;
-	bh=z3KSegTVE9SgyByXf1zFPzjhXJqm7igxjtwN/fq9qek=;
+	s=k20260515; t=1795476028;
+	bh=2nV6Pwe4KyMCUzXZTz3btMM6HejHFNSIy8FvzNgAtOU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lijSKj2RPUE5CJ+mbmuI4puebqXGW7odQBPGRQoxAwuQeje1BP78ER8u4JVp1C8KX
-	 ia+DTSNWZ6fmTVudNQguiiOdqkG1D1sQS56I1uUvjyJopJ7y3PnBeU85Yt++dGxdUW
-	 CN8S5UOvy/jfSWEd8OhNWAHhSUAe4uALb8uTKLznKwSbGlXzCCMrwLZcdt6rKHjReh
-	 Nw3UXzVYz3VAcneFDFVOtxTk4hCCi8RVoJPtw4geTVQgsHI1nz+oL9oP7csEWXQv5K
-	 hiVcGbFmxXUaOiw0gFWj2275AKlGw2Lpfc813fykVZ1ZfywVpOr+UEBs4Nj9QDzZQo
-	 /u2yA+Ax3L0PQ==
+	b=luq+aUNS75fy8CCF49Bh3wKna+7+0nOgggQxbViLSiaUsKDzNVFUZPWyUNeueQHH9
+	 qurufk2YL8nbtfaAnaryUvTmgkCxjaNZVprg2gyEtvRP4i5jCZqFden2Y3TDRXJrDk
+	 iuE5FVq45Ur+2ST1a46u3IwkHSpDIDitPRzQuqeqxVr2/ZuIJKnkueE0rhyVXxrH4f
+	 wgiSkLKAWfpSINFn2kGaPTZYGTqsI4hBcbx7ZxvnaonZ8VqGjPcZDOZ+A+pyOlRU1X
+	 9CfHJYFba26gnrVFme9rC/KEz3fL9C4YvlwOfdswWgsxaNkCwH4DkA7dJ4iXNj/9Mx
+	 ThnOvFUD+TBhw==
 From: Namhyung Kim <namhyung@kernel.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>
 Cc: Ian Rogers <irogers@google.com>,
@@ -49,9 +49,9 @@ Cc: Ian Rogers <irogers@google.com>,
 	Ingo Molnar <mingo@kernel.org>,
 	LKML <linux-kernel@vger.kernel.org>,
 	linux-perf-users@vger.kernel.org
-Subject: [PATCH v3 01/11] perf tools: Add HEADER_BOOT_ID feature
-Date: Mon, 23 Nov 2026 15:20:15 -0800
-Message-ID: <20261123232025.1406560-2-namhyung@kernel.org>
+Subject: [PATCH v3 03/11] perf tools: Add nsinfo__new_thread() to track tid
+Date: Mon, 23 Nov 2026 15:20:17 -0800
+Message-ID: <20261123232025.1406560-4-namhyung@kernel.org>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
 In-Reply-To: <20261123232025.1406560-1-namhyung@kernel.org>
 References: <20261123232025.1406560-1-namhyung@kernel.org>
@@ -66,230 +66,159 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Save /proc/sys/kernel/random/boot_id in the perf.data header and
-struct perf_env so post-processing tools can identify if it's the
-same kernel boot on which the data was recorded.
+Record the thread ID (tid) in struct nsinfo via nsinfo__new_thread() and
+access /proc/<pid>/task/<tid>/ status and ns/mnt paths instead of only
+/proc/<pid>/.  Also recreate thread->nsinfo when the pid of the thread
+is updated.
 
 Signed-off-by: Namhyung Kim <namhyung@kernel.org>
 ---
- .../Documentation/perf.data-file-format.txt   |  5 +++
- tools/perf/builtin-inject.c                   |  1 +
- tools/perf/util/env.c                         | 44 +++++++++++++++++++
- tools/perf/util/env.h                         |  3 ++
- tools/perf/util/header.c                      | 28 ++++++++++++
- tools/perf/util/header.h                      |  1 +
- tools/perf/util/session.c                     |  1 +
- 7 files changed, 83 insertions(+)
+ tools/perf/util/machine.c    |  3 +++
+ tools/perf/util/namespaces.c | 22 ++++++++++++++++++----
+ tools/perf/util/namespaces.h |  3 +++
+ tools/perf/util/thread.c     |  2 +-
+ 4 files changed, 25 insertions(+), 5 deletions(-)
 
-diff --git a/tools/perf/Documentation/perf.data-file-format.txt b/tools/perf/Documentation/perf.data-file-format.txt
-index 1f8e7d8e9ae21d73..359d6ef0c80aac26 100644
---- a/tools/perf/Documentation/perf.data-file-format.txt
-+++ b/tools/perf/Documentation/perf.data-file-format.txt
-@@ -491,6 +491,11 @@ struct memory_range {
- 	u8 remote_region_id;
- }; [nr_memory_ranges]
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 3c206c26bd62163e..62f3ee8488548ef6 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -19,6 +19,7 @@
+ #include "branch.h"
+ #include "mem-events.h"
+ #include "mem-info.h"
++#include "namespaces.h"
+ #include "path.h"
+ #include "srcline.h"
+ #include "symbol.h"
+@@ -517,6 +518,8 @@ static void machine__update_thread_pid(struct machine *machine,
+ 		return;
  
-+	HEADER_BOOT_ID = 36,
-+
-+	A perf_header_string with the kernel boot ID read from
-+	/proc/sys/kernel/random/boot_id.
-+
- 	other bits are reserved and should be ignored for now
- 	HEADER_FEAT_BITS	= 256,
+ 	thread__set_pid(th, pid);
++	nsinfo__zput(RC_CHK_ACCESS(th)->nsinfo);
++	RC_CHK_ACCESS(th)->nsinfo = nsinfo__new_thread(pid, thread__tid(th));
  
-diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
-index 3f3108fd39811017..0e01b14fa51676ab 100644
---- a/tools/perf/builtin-inject.c
-+++ b/tools/perf/builtin-inject.c
-@@ -2307,6 +2307,7 @@ static bool keep_feat(struct perf_inject *inject, int feat)
- 	case HEADER_CPU_DOMAIN_INFO:
- 	case HEADER_CLN_SIZE:
- 	case HEADER_MEMORY_RANGES:
-+	case HEADER_BOOT_ID:
- 		return true;
- 	/* Information that can be updated */
- 	case HEADER_BUILD_ID:
-diff --git a/tools/perf/util/env.c b/tools/perf/util/env.c
-index 9e8e5d1d822a55a6..f624ba98e23c6a77 100644
---- a/tools/perf/util/env.c
-+++ b/tools/perf/util/env.c
-@@ -12,6 +12,7 @@
- #include <linux/string.h>
- #include <linux/zalloc.h>
- #include "cgroup.h"
-+#include <api/fs/fs.h>
- #include <errno.h>
- #include <sys/utsname.h>
- #include <stdlib.h>
-@@ -258,6 +259,7 @@ void perf_env__exit(struct perf_env *env)
- 	zfree(&env->os_release);
- 	zfree(&env->version);
- 	zfree(&env->arch);
-+	zfree(&env->boot_id);
- 	zfree(&env->cpu_desc);
- 	zfree(&env->cpuid);
- 	zfree(&env->cmdline);
-@@ -401,6 +403,48 @@ const char *perf_env__os_release(struct perf_env *env)
- 	return release;
+ 	if (thread__pid(th) == thread__tid(th))
+ 		return;
+diff --git a/tools/perf/util/namespaces.c b/tools/perf/util/namespaces.c
+index 01502570b32d02ab..f426eba04d6ef449 100644
+--- a/tools/perf/util/namespaces.c
++++ b/tools/perf/util/namespaces.c
+@@ -106,7 +106,8 @@ int nsinfo__init(struct nsinfo *nsi)
+ 	if (snprintf(oldns, PATH_MAX, "/proc/self/ns/mnt") >= PATH_MAX)
+ 		return rv;
+ 
+-	if (asprintf(&newns, "/proc/%d/ns/mnt", nsinfo__pid(nsi)) == -1)
++	if (asprintf(&newns, "/proc/%d/task/%d/ns/mnt",
++		     nsinfo__pid(nsi), nsinfo__tid(nsi)) == -1)
+ 		return rv;
+ 
+ 	if (stat(oldns, &old_stat) < 0)
+@@ -127,7 +128,8 @@ int nsinfo__init(struct nsinfo *nsi)
+ 	/* If we're dealing with a process that is in a different PID namespace,
+ 	 * attempt to work out the innermost tgid for the process.
+ 	 */
+-	if (snprintf(spath, PATH_MAX, "/proc/%d/status", nsinfo__pid(nsi)) >= PATH_MAX)
++	if (snprintf(spath, PATH_MAX, "/proc/%d/task/%d/status",
++		     nsinfo__pid(nsi), nsinfo__tid(nsi)) >= PATH_MAX)
+ 		goto out;
+ 
+ 	rv = nsinfo__get_nspid(&RC_CHK_ACCESS(nsi)->tgid, &RC_CHK_ACCESS(nsi)->nstgid,
+@@ -150,11 +152,11 @@ static struct nsinfo *nsinfo__alloc(void)
+ 	return res;
  }
  
-+static char *read_host_boot_id(void)
-+{
-+	char *buf = NULL;
-+	size_t sz;
-+
-+	if (procfs__read_str("sys/kernel/random/boot_id", &buf, &sz) < 0)
-+		return NULL;
-+
-+	strim(buf);
-+	return buf;
-+}
-+
-+const char *perf_env__boot_id(struct perf_env *env)
-+{
-+	const char *boot_id;
-+
-+	if (!env)
-+		return NULL;
-+
-+	mutex_lock(&env->lock);
-+	if (env->boot_id) {
-+		boot_id = env->boot_id;
-+		goto out;
-+	}
-+
-+	/*
-+	 * If this is an offline target environment (set by perf_session on
-+	 * read or via HEADER_ARCH / HEADER_HOSTNAME), do not fall back to the
-+	 * host's boot_id when boot_id is not populated in the file.
-+	 */
-+	if (env->offline || env->arch || env->hostname) {
-+		boot_id = NULL;
-+		goto out;
-+	}
-+
-+	env->boot_id = read_host_boot_id();
-+	boot_id = env->boot_id;
-+out:
-+	mutex_unlock(&env->lock);
-+	return boot_id;
-+}
-+
- int perf_env__set_cmdline(struct perf_env *env, int argc, const char *argv[])
+-struct nsinfo *nsinfo__new(pid_t pid)
++struct nsinfo *nsinfo__new_thread(pid_t pid, pid_t tid)
  {
- 	int i;
-diff --git a/tools/perf/util/env.h b/tools/perf/util/env.h
-index 6b2083e3640c375e..4180380f4533790a 100644
---- a/tools/perf/util/env.h
-+++ b/tools/perf/util/env.h
-@@ -81,6 +81,7 @@ struct perf_env {
- 	char			*os_release;
- 	char			*version;
- 	char			*arch;
-+	char			*boot_id;
- 	/* e_machine expanded from 16 to 32-bits for alignment. */
- 	u32			e_machine;
- 	u32			e_flags;
-@@ -154,6 +155,7 @@ struct perf_env {
- 	/* For fast cpu to numa node lookup via perf_env__numa_node */
- 	int			*numa_map;
- 	int			 nr_numa_map;
-+	bool			 offline;
+ 	struct nsinfo *nsi;
  
- 	/* For real clock time reference. */
- 	struct {
-@@ -187,6 +189,7 @@ void perf_env__exit(struct perf_env *env);
- int perf_env__kernel_is_64_bit(struct perf_env *env);
- bool perf_arch_is_big_endian(const char *arch);
- const char *perf_env__os_release(struct perf_env *env);
-+const char *perf_env__boot_id(struct perf_env *env);
+-	if (pid == 0)
++	if (pid <= 0 || tid <= 0)
+ 		return NULL;
  
- int perf_env__set_cmdline(struct perf_env *env, int argc, const char *argv[]);
+ 	nsi = nsinfo__alloc();
+@@ -162,6 +164,7 @@ struct nsinfo *nsinfo__new(pid_t pid)
+ 		return NULL;
  
-diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
-index 9eec6deee190ff21..80fa9a896933a6ed 100644
---- a/tools/perf/util/header.c
-+++ b/tools/perf/util/header.c
-@@ -494,6 +494,27 @@ static int write_version(struct feat_fd *ff,
- 	return do_write_string(ff, perf_version_string);
+ 	RC_CHK_ACCESS(nsi)->pid = pid;
++	RC_CHK_ACCESS(nsi)->tid = tid;
+ 	RC_CHK_ACCESS(nsi)->tgid = pid;
+ 	RC_CHK_ACCESS(nsi)->nstgid = pid;
+ 	nsinfo__clear_need_setns(nsi);
+@@ -176,6 +179,11 @@ struct nsinfo *nsinfo__new(pid_t pid)
+ 	return nsi;
  }
  
-+static int write_boot_id(struct feat_fd *ff, struct evlist *evlist)
++struct nsinfo *nsinfo__new(pid_t pid)
 +{
-+	const char *boot_id = NULL;
-+	char *buf = NULL;
-+	size_t sz;
-+	int ret;
-+
-+	if (evlist && evlist__session(evlist))
-+		boot_id = perf_env__boot_id(perf_session__env(evlist__session(evlist)));
-+
-+	if (!boot_id) {
-+		if (procfs__read_str("sys/kernel/random/boot_id", &buf, &sz) < 0)
-+			return -1;
-+		boot_id = strim(buf);
-+	}
-+
-+	ret = do_write_string(ff, boot_id);
-+	free(buf);
-+	return ret;
++	return nsinfo__new_thread(pid, pid);
 +}
 +
- static int __write_cpudesc(struct feat_fd *ff, const char *cpuinfo_proc)
+ static const char *nsinfo__mntns_path(const struct nsinfo *nsi)
  {
- 	FILE *file;
-@@ -2079,6 +2100,11 @@ static void print_version(struct feat_fd *ff, FILE *fp)
- 	fprintf(fp, "# perf version : %s\n", ff->ph->env.version);
+ 	return RC_CHK_ACCESS(nsi)->mntns_path;
+@@ -193,6 +201,7 @@ struct nsinfo *nsinfo__copy(const struct nsinfo *nsi)
+ 		return NULL;
+ 
+ 	RC_CHK_ACCESS(nnsi)->pid = nsinfo__pid(nsi);
++	RC_CHK_ACCESS(nnsi)->tid = nsinfo__tid(nsi);
+ 	RC_CHK_ACCESS(nnsi)->tgid = nsinfo__tgid(nsi);
+ 	RC_CHK_ACCESS(nnsi)->nstgid = nsinfo__nstgid(nsi);
+ 	RC_CHK_ACCESS(nnsi)->need_setns = nsinfo__need_setns(nsi);
+@@ -265,6 +274,11 @@ pid_t nsinfo__pid(const struct nsinfo  *nsi)
+ 	return RC_CHK_ACCESS(nsi)->pid;
  }
  
-+static void print_boot_id(struct feat_fd *ff, FILE *fp)
++pid_t nsinfo__tid(const struct nsinfo  *nsi)
 +{
-+	fprintf(fp, "# boot id : %s\n", ff->ph->env.boot_id);
++	return RC_CHK_ACCESS(nsi)->tid;
 +}
 +
- static void print_cmdline(struct feat_fd *ff, FILE *fp)
+ bool nsinfo__in_pidns(const struct nsinfo *nsi)
  {
- 	int nr, i;
-@@ -3022,6 +3048,7 @@ FEAT_PROCESS_STR_FUN(osrelease, os_release);
- FEAT_PROCESS_STR_FUN(version, version);
- FEAT_PROCESS_STR_FUN(cpudesc, cpu_desc);
- FEAT_PROCESS_STR_FUN(cpuid, cpuid);
-+FEAT_PROCESS_STR_FUN(boot_id, boot_id);
+ 	return RC_CHK_ACCESS(nsi)->in_pidns;
+diff --git a/tools/perf/util/namespaces.h b/tools/perf/util/namespaces.h
+index e95c79b80e27c8fc..ea645954944de4be 100644
+--- a/tools/perf/util/namespaces.h
++++ b/tools/perf/util/namespaces.h
+@@ -32,6 +32,7 @@ void namespaces__free(struct namespaces *namespaces);
  
- static int process_arch(struct feat_fd *ff, void *data __maybe_unused)
- {
-@@ -4496,6 +4523,7 @@ const struct perf_header_feature_ops feat_ops[HEADER_LAST_FEATURE] = {
- 	FEAT_OPR(E_MACHINE,	e_machine,	false),
- 	FEAT_OPR(CLN_SIZE,	cln_size,	false),
- 	FEAT_OPR(MEMORY_RANGES,	memory_ranges,	false),
-+	FEAT_OPR(BOOT_ID,	boot_id,	false),
- };
+ DECLARE_RC_STRUCT(nsinfo) {
+ 	pid_t			pid;
++	pid_t			tid;
+ 	pid_t			tgid;
+ 	pid_t			nstgid;
+ 	bool			need_setns;
+@@ -48,6 +49,7 @@ struct nscookie {
  
- struct header_print_data {
-diff --git a/tools/perf/util/header.h b/tools/perf/util/header.h
-index 765037762758ca11..5bbf16342b4d26d8 100644
---- a/tools/perf/util/header.h
-+++ b/tools/perf/util/header.h
-@@ -57,6 +57,7 @@ enum {
- 	HEADER_E_MACHINE,
- 	HEADER_CLN_SIZE,
- 	HEADER_MEMORY_RANGES,
-+	HEADER_BOOT_ID,
- 	HEADER_LAST_FEATURE,
- 	HEADER_FEAT_BITS	= 256,
- };
-diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
-index 4e11eabbbe6fde1b..4d9450ef5df8e9ce 100644
---- a/tools/perf/util/session.c
-+++ b/tools/perf/util/session.c
-@@ -179,6 +179,7 @@ struct perf_session *__perf_session__new(struct perf_data *data,
- 		session->data = data;
+ int nsinfo__init(struct nsinfo *nsi);
+ struct nsinfo *nsinfo__new(pid_t pid);
++struct nsinfo *nsinfo__new_thread(pid_t pid, pid_t tid);
+ struct nsinfo *nsinfo__copy(const struct nsinfo *nsi);
  
- 		if (perf_data__is_read(data)) {
-+			session->header.env.offline = true;
- 			ret = perf_session__open(session);
- 			if (ret < 0)
- 				goto out_delete;
+ struct nsinfo *nsinfo__get(struct nsinfo *nsi);
+@@ -58,6 +60,7 @@ void nsinfo__clear_need_setns(struct nsinfo *nsi);
+ pid_t nsinfo__tgid(const struct nsinfo  *nsi);
+ pid_t nsinfo__nstgid(const struct nsinfo  *nsi);
+ pid_t nsinfo__pid(const struct nsinfo  *nsi);
++pid_t nsinfo__tid(const struct nsinfo  *nsi);
+ bool nsinfo__in_pidns(const struct nsinfo  *nsi);
+ void nsinfo__set_in_pidns(struct nsinfo *nsi);
+ 
+diff --git a/tools/perf/util/thread.c b/tools/perf/util/thread.c
+index af761b1fc5d57649..8d8427b561ddde11 100644
+--- a/tools/perf/util/thread.c
++++ b/tools/perf/util/thread.c
+@@ -71,7 +71,7 @@ struct thread *thread__new(pid_t pid, pid_t tid)
+ 		list_add(&comm->list, thread__comm_list(thread));
+ 		refcount_set(thread__refcnt(thread), 1);
+ 		/* Thread holds first ref to nsdata. */
+-		RC_CHK_ACCESS(thread)->nsinfo = nsinfo__new(pid);
++		RC_CHK_ACCESS(thread)->nsinfo = nsinfo__new_thread(pid, tid);
+ 		srccode_state_init(thread__srccode_state(thread));
+ 	}
+ 
 -- 
 2.56.1.809.ga0b61035b5-goog
 
