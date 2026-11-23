@@ -1,124 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795450876;
-	b=AVjBawwD4p84gZbxnqU/l5rbWny8WebLHwMlqYqxm0bFn5+viKD2TGfVROwsrZRmfFRV
-	 Ecb/jllphtNpJcMDjAOu1tCI3cPf6dnVsmlwwSh9ETjuNdDoidrcjkWBBoKpvpu2C/xVy
-	 79fjozgwgUZ3nqq/t3hbl3eRXYBVeg8tVyuwkdh+EaXnV5/qUNwDMmpnjQo/nuIDbWJca
-	 uojphhAZTovvmAK19RMGhvy5geD4o2H2MBBN5yA+PDS3OfOwhz89ZCJS/ee4A6l+KTtob
-	 Gh1EXtgr5xy2hWTCle3yc43y0F/1bc/bnpW5JP30+yQqvuHDqWQp0Ql0Q4Dw2djpNaA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450876;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=pk67/hXS9CWh4vlTcztHypEGoxMFfpG8vfbm7E4XmBY=;
-	b=evCNhLWqjl6UTUdctMiHVM9v9i2f3X1tAN/gA0lsWuOPwk83iyYWciv9qUh7KXpaTEDX
-	 kmgAKiDkei0dcHnJ4xDIGexLKWLfTzbOGfSjYgDJ7L59VbcXV9WIXXeZo2X1u9dtdaGST
-	 bIWe2r3HxFITxQ/FB0vwvv2318dlZ/9fBqr/5zhJ8Nabh+qgMHCKAHXT0aPT4nddr7TLC
-	 oUbZvF8+CqKSwePANAlOcwXR9ZaviUaOJ0aaEd1zYK75i0O2KtfN5YkowypbdhSQI6R4K
-	 OakaTnOwC6JcdjQ/5HqH0AyDpNfuTJGxWdrLTAL32WWGhyG/4jj7DX5ls+x9XyVzrGg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SUNHin0O;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=A1zHvwHu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795450880;
+	b=wIkgQMGw3/Jqr80MbGFYpugJ2ZbcqaRBlTIUjUf76YEMggHAmlE+MU4f8jQ89xw7mUJQ
+	 eXlTKtoM3VNowcN/5inCds4aBUHatmdqIRhEiipw3ZWLmE7+Tr/qL/ccRMKDfOYSy8u+l
+	 X8HD6p57pUO/khVFi5C0+7NraX3YvX58eLnFXhgFdvO6f5T56impk9cPJo0n3iuvqfwrk
+	 Dcu54Lz7ucXyCyiYrZgDmYJE9U2JDQFCcPUXZR1YyMVBbbzUOpamUMp4J0Yx5CmjHkhCu
+	 qcnN0bB9Mfexd6puhuG2WqfooCBMGzcnSp6+cLAweL7eTnNuWeUeQybpWJ7rFQRgv/w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450880;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=SZTWBMmt2DFM0xgpeL4tW3LgzfUZb1ELoVM7m/gJHa0=;
+	b=acwBMZShSNvSaHCuIrQHZeQTBJvPJ2BxsnD7+DrloAfGOyJOgM02QLKzq9qNvs0tZvdX
+	 5SCwD5jqjrHtssUeC5vhZqhrb55aruBrnnx+96O2QXbf71gJm5MoWUgigJc/PY0mKmWN9
+	 y/j2/guW71T8YANXuAlSekYChl8TUTp9x4lb4VHJvd9APqJj8otW2q29bpQ8ZjN3ITzET
+	 MjLDJQHFut2aarZ+cEYmAwFXBSg/ywZXqPKtjHiMAcac4vbnYPorXV5Q5r2LGnse4KjZ8
+	 kiIkO2D16WriF6G5u5OZTgJnwmpQ8+8crjP+aeKc3w9FWt/UvXhqOVgMaIviyq3WZcg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KOML2vYa;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A10E606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:21:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A10E606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23EF2606A327
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:21:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23EF2606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SUNHin0O;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=A1zHvwHu
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANGGltm3730153
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:21:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	pk67/hXS9CWh4vlTcztHypEGoxMFfpG8vfbm7E4XmBY=; b=SUNHin0OhRr3bhDm
-	CtAfmREiUshcu9bxq7PMGoMcyYoE03SfrDgJ0hqiASjaqsLtV1Jk+mAWywtR4czA
-	KjbVxkG3VQjfS/SIxkPyhKpqGcXWkcispE/n8DM5ZKQGHqtrIXBmOW4eEmoDPzOZ
-	XSTgJF0cl55LL4iL2Pv3Szag3X3IrqvoWxzvfvISb1sxffxe0WFQtEkLHyPx2GMm
-	wzD2BHy0v+CQ1NM1JPKZ8C72CY3+G2+Ht9/2yfD0EZrrX5Ty3HPOdbqGzPFrpqNH
-	tpZ6hSMGUHFb7Z/MPEQ8es5Wj1roZsmWcqqbNE8LQvyY90Ahv96yLSjB0wIPxgTk
-	eOGPBQ==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyd2bqu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:21:14 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cd5fd34fee0so1905947a12.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:21:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795450874; cv=none;
-        d=google.com; s=arc-20260327;
-        b=j6Q93JwgZ4wBYL+XNIJT5+bq89B1A5HwDHMMvh46drpbWZ3jYg388Eu4i64VbM25pJ
-         NE3L/byiO3B7sKKaoSl63Eziq3TZ9MCV/llCmYWgkxy80gqvvsnG6HEKRusM5ihfjBIv
-         2iQRWC3XR5KId9fpxqLmFtB8XZS6kO8PG/BjjGthcsx5fPky3NSQJ0nJkWkg7x4sZSa/
-         yPdMqEWyeN4K0vRTaYI6tjWerin5dyYaNmPS1FVNCF8iV6kgptgXv4x9WDJc9B/+5pZ4
-         BhBov6uGDHroVjfKOiHfXT9g0lx2VGL2mdD9hRyyTlCrf2lcZK14fZqSb1/ifKkOlG1T
-         iGng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pk67/hXS9CWh4vlTcztHypEGoxMFfpG8vfbm7E4XmBY=;
-        fh=v1WJ1YAhaOvhxuLNgevSuOlrG02RQPZzY57ueDYzz2c=;
-        b=Bu17BXOa2OGqtVNc+ZKG92ympyGUQRmDm41uimKNTHSiK4b3bpDg2+Ojfl1HRpmMbN
-         uUzj0P67tgwqfFNH7Iwlkk36W4yF5+bn2vlkqOxL1lQG0GteRjjk7RzwesxXN0PpKGVX
-         HCxMu5vwAWN3QwCOtA+aNti+DlzsoKxXESxoWoiU1Db+diUWRN4iK9Q5NupWeP1SIVgx
-         OFEL7IsXtBoHYIeEDenXkHmPlsG51lwstZHQ0tdSUctqxboMNP06XdwxTwVngpjQCYki
-         PesUSwvh6ppO6q3JeXVWbWa/pW1xlVinx39q/Niu3FJaIz2KpWsXJ4m2hz2w3TeUl2pt
-         Tzzw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KOML2vYa
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a210470b49so33810225e9.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:21:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795450874; x=1796055674; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pk67/hXS9CWh4vlTcztHypEGoxMFfpG8vfbm7E4XmBY=;
-        b=A1zHvwHu4ho0BioIlPVNcen6by5M+AaLJb76KigsDbRNdWIHWFf1TJjLjd4BliJq0S
-         7up/DPRjMjD33DcY/1bM9BJUf0JLWttTbM1uTedLKAsz54rhcN6TaXj82mJaHzFmaE2b
-         nxkaVmRjX/d1EH3tptP+qKqpOFHtnMTmwU+C8ZqLxJvxdvb/M9w367ypqDkdWYCHDU8v
-         hHD+Cnw9Ivd1P70Q5PfKE37yc84AkTHjxvzUGQVnWUGrFZ/mPzSokB49FrF4EykYqK4v
-         HrC3Pkri7BLiPerw9B2GksKphl3BF4/TOc0MhPf9ohLN9pKsyJZJPtTvPcFdXLKMdAhP
-         UGEQ==
+        d=gmail.com; s=20260707; t=1795450878; x=1796055678; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SZTWBMmt2DFM0xgpeL4tW3LgzfUZb1ELoVM7m/gJHa0=;
+        b=KOML2vYaelXNlkRN8Zge+di5AQ/UsrV4XQ+aBRJsObDKZRi8BBqKuEm13FlwB5U9mu
+         WslDUJDsa+EVlPtgsU4ADvYAYWuM/Nars+Tkvz0A1xGkoTVYBQlqGHbrRkT3HYMmNSb/
+         000GCvqsXAqsA3zgUeOehOOks7QoNSFiqHnKwB53mn6hzNw/OzHflxiUobNY6H0rTaQn
+         RhNFVQqZQDbMXJN2RkCdMklI8yVBO8he3OZRNCnBvvGo7qEZLl44v0S1nYKhZ16dxHqT
+         u2eA1oLXj3E8Jiv1Ad7ttGApwaE+fytw4RjHmqeLhxiDkdRTkx+FEqHz7CZrPEFCd7vU
+         qtiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795450874; x=1796055674;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795450878; x=1796055678;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pk67/hXS9CWh4vlTcztHypEGoxMFfpG8vfbm7E4XmBY=;
-        b=c8nUnDodTM4ssrwiTA4bYSrPVF3gJvYarwgtQOjA+0Nh+Z7kVrhW+Zg1V3++OudGyC
-         RSpvUtvxelc/kuKHLrhvMlgDldjp99/x8NBd9MZJrrSU2EJb3QRWyETThS61q1WCSO+s
-         neQ5Yy/paiZwrtJFtwE8uv8lnhJUN/ISrtPCuxqlxUcWvGvhdWa2BoDzxKTCuNGaJud0
-         2Ig6wU+Vaq+HlidpAOTWUEAbv37wvQokZIGYogqlBKGgS+9rI/a5j9zr1b7m1exYKnm7
-         W82ENGR+eUMozxlnGpjwREbm+TmX2iUpZyqDIGfDa8z7qlHkZPtDA7B+0cPHkHY07BLe
-         IEKg==
-X-Forwarded-Encrypted: i=1; AL+hErE4GvxNBYnl1MJc5X1FFEXiRJZ7JK0WMz7NBLaG3jDB5T+JdVYv/L9n+Rr7B/0cpzmpX4vEzbQZ2/CY8aY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+MXy/kaHXcvjxUBw5PyShCt2LG+IfYVBeVfg1VAl35sSIibuT/
-	SXfZyjLk2doCBf53aDnSayc56vB2GKkjxPpOGyccSIureQeYj8HjXZPHBFcwE0lLKloaVBoNw9M
-	NqQZgnoc92k2KLjSU6cmLA9v8Z7NMyh/AJqkfsic3yGSm8iudrZGD8sLpwt9PL8UYtc6fl3PRyi
-	nAooaFF1b2yCGltkU5to5NtYvGs4xD9T4ES9GuTkRzTbuJyDlQqg==
-X-Gm-Gg: AZFdTZeTE35DydoIxTvorF3UVxLkOXkrv5YRjeRrEbg8gdfTmTDsN2pxJ7+OdJIna6e
-	vTe5zPw500UlX/BDS7n8UG81qRmu6OgaQtBuCKdzaFsMVj2/V+GPIEntDjIFTHQNAU7Vi6u7u2d
-	/2SmEghxtKdil0ToI11VUc3+X7s+BbP0Q76LIpyo6B+5Cx3gkVi+YCpQ+SFc/0s08UIidIRL6Dq
-	E5NzrQHh+u/XZLy
-X-Received: by 2002:a17:90b:3b49:b0:3ac:b048:fa13 with SMTP id 98e67ed59e1d1-3b41c9beaefmr11525932a91.67.1795450874068;
-        Mon, 23 Nov 2026 08:21:14 -0800 (PST)
-X-Received: by 2002:a17:90b:3b49:b0:3ac:b048:fa13 with SMTP id
- 98e67ed59e1d1-3b41c9beaefmr11525901a91.67.1795450873365; Mon, 23 Nov 2026
- 08:21:13 -0800 (PST)
+        bh=SZTWBMmt2DFM0xgpeL4tW3LgzfUZb1ELoVM7m/gJHa0=;
+        b=q+yuycmThY22xqP6KHSunDj/fB9PEnziLvcaMvBIDktiVBLCgjTWqJCMcX991pEWsY
+         vt1oIkVItGFBN8NOY62C2y+lBc3SpFu3bB1FBJPVvwYJDg/G8riY15m0OalcsgH1Bh9H
+         1NqxJpy7uhOGClJ4PF5pSS8Nz9XO0XBbM7Pkwu4TQvYcwQYfigXixvBUlLGmLO+jKrAa
+         OMOYyYHVsVfIqCHBcCV1LpnvaSH2B80qz8P5tRBYqjMxKdP/UxExocu/BLfW8j7Zpa1a
+         ttH9deBwt4ecdIBjabHBDRcMTpqgAvftpR8NEe1QAj6eM21hZp4XuSkOXzq+AWOgrhzG
+         cqAQ==
+X-Forwarded-Encrypted: i=1; AL+hErFS/MAvW9byxZFguyRdt6kLE8KSV/72Q01oPBwSD8X+9XqMKJH/DcOoTynsBvc24freMFJ+cIKrkkZaydk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9viuisve0AZZFqSU23qrY5BFRqwKe4N8KjY/r4cvZln8eYHRkq
+	JJ4ydyDDrhJsMDbIw04yEfPm5N/Wbmj5uIqvwkVi9HCnTY/KVYwGrSaO
+X-Gm-Gg: AZFdTZfpIadrTwVpyV7LQjv0i/FATFXc/WkmVzL9EHxVpLQzfzBtA3l/X8jEZNOQ8CW
+	jdTDvkdIBClds51HcDH3z1q2LiNhPG+OL80RU0vvZNNiwW1dytRKVc9Rg/YwSKxikbatTPsfGql
+	v6zmTLLEhbsqEEC0bW7Tl12L8+TIbXh2lQeyKCjaf6KARLChmi5HD+YTEcJ1T0T9OMEG0VxTEhm
+	YhdB8Z94XVvNKjNZzMXkx5OACpZnAYuwFvJK4kMjfkC0jBldM/8x78SWQ3Bpv2k/R3INa9BdbyF
+	sh4RxzzsWpvLt7+NOIDUy+57n8aHgRuB+qR0hyGhUKIqDn+s7HUUp8HTKU9rJvjlmoPIl1F8ReF
+	2tqTuKsaFi895o88+UQPYyk6xRAntzpJJICjFORak9SWQCSfxBYz+X4xQf1FEbmJdnu+BGLNRfT
+	qvCQdLEQHJCYpoHD45xcWsJUFaVqZTuUb1I6iv57BZZ+IWPeLD7mR0syVWfsEE0yxgrGwQf7VSI
+	lRAF3Sc2Sui8YWMEdvlF0bE15BeEin+t5nXsEqYg6qoB1E6VqmraVW/GtbiUNz8+DbKi+21pDqY
+	hXnRkR9wRsNVZD858x8MjzD90GL9h+HQfbikb2jJ
+X-Received: by 2002:a05:600c:190d:b0:4ba:2bfc:c8b5 with SMTP id 5b1f17b1804b1-4bb888267aemr244134215e9.10.1795450878450;
+        Mon, 23 Nov 2026 08:21:18 -0800 (PST)
+Received: from [10.56.169.198] ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110ba3sm18863696f8f.35.2026.11.23.08.21.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 08:21:17 -0800 (PST)
+From: Oarora Etimis <oaroraetimis@gmail.com>
+Date: Mon, 23 Nov 2026 17:20:28 +0100
+Subject: [PATCH RESEND 3/4] drm/vkms: add a KUnit test for the precomputed
+ LUT table
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,105 +92,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179259111932.19580.13027750156272888992@gmail.com>
-In-Reply-To: <179259111932.19580.13027750156272888992@gmail.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 17:21:01 +0100
-X-Gm-Features: Aa3M54p5hRWYEEHgjaTJlT9_Lb0ZXa0hS2O8Lw6qo7tyI0uEXYOUPeVJEQxKehY
-Message-ID: <CAPx+jO8xT3thJqDfTGNDdEe_EZ7fL5HHP-gjy3uZJtvemmNeyg@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: core: clear states after freeing them
-To: Anfernee Cao <anferneemelokc5@gmail.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-ORIG-GUID: Ez_QVSRaSEhZCSqAqlhDPKrHjC2kAMX2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2NSBTYWx0ZWRfX//zZpBCmTRfS
- p8BXikkh+eiZDcWXvszCnWOS1vooj7l9rdNoyT52M6gzwMVhdwV/RgiOVDg7zvG00ytazkB28hW
- P0eZcPOTsE74caQjhZrtyye2nNXPaXt3tp62lavsZbH6i1zbhW5su48FqxVrW/K1ocgF2P3rCjK
- /CroMDmAz6RVt6bMjpm644z1Vggv94e8asnm0Bp+Ldi6e8k8nbacZdnZ44Y630EnFXNQ9G9dIQA
- CMqYgkzCBZHGzs/6759AGE3+ghavTZoL8oa+RL0a/NpPIJ1gvK88/zK0VDTOIHKHnoMsGAfTP+5
- bJvPo8zX/1h8r3EGydfP3rBBSU+S1D1QQBs7xgjW60gv97bYViLiDQt500Om7Pole2BRzTVz0nL
- SSsl21r6PzmG9MZGq89AKcQgOdDdimeDZmM5FTRDB2KPR18nGaXTJxi0e83AIk6CA4bWOUQSYYE
- J5FnUSZy7WLrevmO/Aw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2NSBTYWx0ZWRfX4RTibGheDl2g
- QNEwslR/7eYCp7uJKisjjIDFVrPap2GLyJT8HVLKgsjnfr95TTL13PKFoEmOFybhVcWopyuhMcP
- 35UokFoOxQ0BXIXaMnCGH7X5nVnaETA=
-X-Proofpoint-GUID: Ez_QVSRaSEhZCSqAqlhDPKrHjC2kAMX2
-X-Authority-Analysis: v=2.4 cv=Aol7T+9P c=1 sm=1 tr=0 ts=6b0467fa cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=eoimf2acIAo5FJnRuUoq:22 a=pGLkceISAAAA:8 a=VwQbUJbxAAAA:8
- a=gKRGjSYNajUN44eR1FMA:9 a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- spamscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230065
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-lut-v1-3-5556c89a2ebd@gmail.com>
+References: <20261123-lut-v1-0-5556c89a2ebd@gmail.com>
+In-Reply-To: <20261123-lut-v1-0-5556c89a2ebd@gmail.com>
+To: Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mairacanal@riseup.net>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Pekka Paalanen <pekka.paalanen@collabora.com>, 
+ Arthur Grillo <arthurgrillo@riseup.net>, 
+ Helen Koike <helen.fornazier@gmail.com>, 
+ Vignesh Raman <vignesh.raman@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Oarora Etimis <oaroraetimis@gmail.com>
+X-Mailer: b4 0.15.2
 
-On Wed, Oct 21, 2026 at 3:58=E2=80=AFPM Anfernee Cao <anferneemelokc5@gmail=
-.com> wrote:
->
-> genpd_free_data() frees the genpd power states through the ->free_states(=
-)
-> callback, but leaves genpd->states and genpd->state_count pointing at the
-> freed memory.
->
-> Providers that allocate the states themselves hand them over to genpd by
-> setting ->free_states().  When they fail after genpd has taken over, they
-> still run their own free helper, as psci_pd_init() and the RISC-V SBI idl=
-e
-> driver do:
->
->     remove_pd:
->             pm_genpd_remove(pd);  /* frees states via ->free_states() */
->     ...
->             dt_idle_pd_free(pd);  /* frees them again */
->
-> The second call dereferences the freed states array and frees it again,
-> causing a use-after-free and a double free.
->
-> Clear genpd->states and genpd->state_count once the states have been
-> freed, so that a later free helper becomes a no-op.
->
-> This issue was found by manual code inspection.
->
-> Fixes: 9d976d6721df ("cpuidle: Factor-out power domain related code from =
-PSCI domain driver")
-> Cc: stable@vger.kernel.org # v5.18+
-> Signed-off-by: Anfernee Cao <anferneemelokc5@gmail.com>
+build_lut_table() turns a per-pixel interpolation into a table lookup, so
+a wrong entry changes the composed output with no other symptom.
 
-Applied for fixes, thanks!
+Compare every entry against apply_lut_to_channel_value() for the same
+channel and value, for a 4-entry LUT whose channels differ and for the
+256-entry sRGB one. The check stops at the first mismatch and prints its
+channel, value and both results.
 
-Kind regards
-Uffe
+The tables are built with apply_lut_to_channel_value(), so this proves the
+lookup matches the interpolation, not that the LUT arithmetic is right;
+vkms_color_srgb_inv_srgb() covers the latter.
 
+Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
+---
+ drivers/gpu/drm/vkms/tests/vkms_color_test.c | 54 ++++++++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
 
-> ---
->  drivers/pmdomain/core.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index 052ec478dfcc..12db69f53aee 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -2353,8 +2353,11 @@ static void genpd_free_data(struct generic_pm_doma=
-in *genpd)
->                 ida_free(&genpd_ida, genpd->device_id);
->         if (genpd_is_cpu_domain(genpd))
->                 free_cpumask_var(genpd->cpus);
-> -       if (genpd->free_states)
-> +       if (genpd->free_states) {
->                 genpd->free_states(genpd->states, genpd->state_count);
-> +               genpd->states =3D NULL;
-> +               genpd->state_count =3D 0;
-> +       }
->         kfree(genpd->gd);
->  }
->
-> --
-> 2.54.0.windows.1
->
+diff --git a/drivers/gpu/drm/vkms/tests/vkms_color_test.c b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
+index 1a1c7cac2f15..cdbb74d16b5e 100644
+--- a/drivers/gpu/drm/vkms/tests/vkms_color_test.c
++++ b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
+@@ -88,6 +88,21 @@ static const struct vkms_color_lut test_linear_lut = {
+ 	.channel_value2index_ratio = 0xf000fll
+ };
+ 
++/* Channels differ, so a table built with the wrong channel does not match. */
++static struct drm_color_lut test_distinct_array[] = {
++	{ 0x0000, 0x0000, 0x0000, 0 },
++	{ 0x1000, 0x6000, 0xb000, 0 },
++	{ 0x2000, 0x4000, 0x9000, 0 },
++	{ 0xffff, 0xffff, 0xffff, 0 },
++};
++
++static const struct vkms_color_lut test_distinct_lut = {
++	.base = test_distinct_array,
++	.lut_length = ARRAY_SIZE(test_distinct_array),
++	/* drm_fixp_div(drm_int2fixp(lut_length - 1), drm_int2fixp(0xffff)) */
++	.channel_value2index_ratio = 0x30003ll
++};
++
+ static void vkms_color_test_get_lut_index(struct kunit *test)
+ {
+ 	s64 lut_index;
+@@ -393,6 +408,44 @@ static void vkms_color_ctm_3x4_bt709(struct kunit *test)
+ 	KUNIT_EXPECT_LT(test, out.b, 0x100);
+ }
+ 
++static void vkms_color_test_check_lut_table(struct kunit *test,
++					    const struct vkms_color_lut *lut,
++					    const u16 *table)
++{
++	int i;
++
++	for (i = 0; i < LUT_RESERVED * LUT_TABLE_ENTRIES; i++) {
++		enum lut_channel channel = i / LUT_TABLE_ENTRIES;
++		u16 value = i % LUT_TABLE_ENTRIES;
++		u16 expected = apply_lut_to_channel_value(lut, value, channel);
++
++		if (table[i] != expected) {
++			KUNIT_FAIL(test, "channel %d, value %#06x: 0x%04x != 0x%04x",
++				   channel, value, table[i], expected);
++			return;
++		}
++	}
++}
++
++static void vkms_color_test_build_lut_table(struct kunit *test)
++{
++	const struct vkms_color_lut *luts[] = {
++		&test_distinct_lut,
++		&srgb_eotf,
++	};
++	u16 *table;
++	int l;
++
++	table = kunit_kzalloc(test, LUT_RESERVED * LUT_TABLE_ENTRIES * sizeof(*table),
++			      GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, table);
++
++	for (l = 0; l < ARRAY_SIZE(luts); l++) {
++		build_lut_table(luts[l], table);
++		vkms_color_test_check_lut_table(test, luts[l], table);
++	}
++}
++
+ static struct kunit_case vkms_color_test_cases[] = {
+ 	KUNIT_CASE(vkms_color_test_get_lut_index),
+ 	KUNIT_CASE(vkms_color_test_lerp),
+@@ -400,6 +453,7 @@ static struct kunit_case vkms_color_test_cases[] = {
+ 	KUNIT_CASE(vkms_color_srgb_inv_srgb),
+ 	KUNIT_CASE(vkms_color_ctm_3x4_50_desat),
+ 	KUNIT_CASE(vkms_color_ctm_3x4_bt709),
++	KUNIT_CASE(vkms_color_test_build_lut_table),
+ 	{}
+ };
+ 
+
+-- 
+2.56.1
+
