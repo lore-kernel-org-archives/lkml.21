@@ -1,112 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795413362;
-	b=0gi/8QamqVKc7C24IWOb3vBAPmPdcgZrUjdDCp1JdojiJHdvfRp7seAu58Z4w0J6XPfQ
-	 T5uf7yQbu4Ek9vLuVE/13yx28vG9x3nU3kp/CveEXlMS0WlythJ5Dt1LlHw/tiU1HCwGh
-	 mVbZH13LrMhHhpAfwHBrVL+ZitIRu4oL2nSUNq9AGLEoBy9UN4PwcOt5I15vo4V4a0Fpp
-	 4SH9jaqLM5UAxZnWIj8nuvQ0Q5/uwEmkTQl4YVt7bt7U2L8LNk9IHaAC//AgJYIySx+Jo
-	 lcUBoj9Q9mUDSpb0PDKwQYzx5X11MYY0taMNDfBF8rOrJ6KFzVU5OwEqMmhX/eRbvnw==
+	t=1795413429;
+	b=A2rBCjy3VIYqfwnsVPEb0sj+4nxMtpnsdBzmHTc7sgVTyVs9AcFXYGErID9IZPkwB36I
+	 q2tuoduMQoPiK1yBUNeEgF7xLNP4i3/Ak9E1tcPrcbz6c4zTOxHeD1KLLaOXMyQGTKgRc
+	 GT0xOa5JNHESTEM7ZXqQ+bl+AhS7BVr5wag0zYZnRklpfYVg62ZhKMrl1z2mb29PQ6+hm
+	 TC3kg1BmbF+4sDyMJ5/5oBTOw3Jgh2S56PdcsBF0gRozo/NEGuA0PzDHtc1eOk3wPK4tV
+	 rlIFJuKFmQNnHLchgIGn5rRI7ENBpUuT7qW4NdK1UoNS1SN7qZsv4lFDh4szMha0QyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795413362;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=5basTFPtiDVsIBK7tkiyX6tmMYMBDsQH8lQ+yyXIwfE=;
-	b=4FssJGLRp7TNtUtXj0KlWhyh+LIZ6mySvgL4WvvNe7RNx9PRLL+SlHLpSZyTw8T55jJM
-	 g0cLSwMYwBtfd8IxSuGM2c0ewPNtyL7d3oTaq9IxzIZHaRGDJuTC9Qdv8YEdksDD5ZhR6
-	 kzJ3xLKKryuj6oZBzh1zJ6P4i/KzGQaApgIZjoFYiw+f5OLwdjLs29/5Nr7YxlBVGQRTw
-	 pZICx13/sOIeYsTSc6kArO/TPjOGGaOZWlbDC8QUYwUJjUqMYw4sfPGvCE0rYMY+TPshS
-	 YHjWXHxRStbcCRTPdegcGWbn9o155S3MAIgzvfLTZp/To8akb9pa+iJ+detFXRaA9pQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795413429;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
+	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=VLBfrvYTChA3dFqQBP/M2npRQQ8sZ+YNEJQyuYJmyF0=;
+	b=zDSjxi6sr0/5+NFs+j7+1AJnFAfNGOdTXBWycVNCECDjcV4N5ECJnh5rzV443AeTpyJY
+	 cj1ap1JL05AZ6LHkdvQhTD3YcfmR8KA9i4Duspq2TZk7SVM9yPaMrdCCmIqHv5C6szxGu
+	 4N/6Fn7JSrGVlEUzfMPrC0D4n4xX9qTbYggXT0ei5mn4gtC1DZ4i52UX/L5kKMbKMPP23
+	 XFQsJYBsxN0rjC2Rk/Mdw/+FtwoOXHDiesJAj9llo39SM5YmZ4MVeX+Hc118cOT3qNft9
+	 xmUvdz+fOmr1+wXAcAHuLJ0q7uw7GM+urSgA2Mhi+1AuTNTYDusg/nQi184IBABKX9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=eOE0gCfq;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=fzwss8ob;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=none header.from=open-hieco.net;
+	spf=pass smtp.mailfrom=open-hieco.net;
+	arc=none smtp.remote-ip=115.124.28.49
+Received: from out28-49.mail.aliyun.com (out28-49.mail.aliyun.com [115.124.28.49])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D441606A321
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D441606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=eOE0gCfq;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=fzwss8ob
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN51AuW3528074
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5basTFPtiDVsIBK7tkiyX6tmMYMBDsQH8lQ+yyXIwfE=; b=eOE0gCfqpxyV5Qso
-	NqjyiJlOEjj6QZP03opjEcqTIIF3/iUfHD23DRD7g5EN84ZeYG8I9c38ZB2x8hGs
-	ybK+DOGS4oQ9XZwhNH3EtCCUjOc5Fi3pbbBGeaqwTP2GdaEAbiMkNuNYuBrVjLbx
-	HnBoZkXB5KPipz7ZBrnSrWJkhXWg7RvBvZ7jAJwv/OMFUyK6JcrXIpKpDe6kidX3
-	55XgWd6oaHPkRHQOOIYEJJyyDqpjJhuAXGG9QaACzBLFiMp184CSqS5O22hXfpnX
-	VIVH4aeoVUrMBBgtQY6074VBR2Fyt0i1963xQiNoFGIEiOoyfV+n0NM+ob7CCoPw
-	bgQfkw==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j30nnwrds-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:56:01 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f052777c7cso26146445ad.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:56:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795413360; x=1796018160; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5basTFPtiDVsIBK7tkiyX6tmMYMBDsQH8lQ+yyXIwfE=;
-        b=fzwss8obbkxIFCEOKHiMc6eaZiNBCNNSrqlpvZi5UEPoPQcArnsdchO49GpiXFz73X
-         +59TzXQMFbX9W5hDhzBnzCIfRAZxBwQUfbb0jMOVqxN5BW3+CPDN8qRP09pfWw0AXhvP
-         3k0PI2od8zL575EVO7UMC+qfXQ94VKlG4daCPbTUuebx/leqbPDyaXCrt5YijDxW05P/
-         6GM6Br0FS5Y3NPij9d9pJvT8lauNC5ob5P44vKy/5ussCPjBl0I8cTTZL3FDnkkadx1P
-         l9of+InPcOLDTmrLSoV1oyjAI0S/yEkG7jrElIW/WNb9A5+1cr9REio93+GsKlSspFgK
-         vQzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795413360; x=1796018160;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5basTFPtiDVsIBK7tkiyX6tmMYMBDsQH8lQ+yyXIwfE=;
-        b=2QQ3QdlyhOpWByteK074vPy0qKU+P47ET2rICEmkDkTLl2aq3ua4ebaesPctMMyqw8
-         KDEeJ+yC6ZA3dw65nD+WN3q0plsXZi2ytmtaIe3TC2Ca+NbhuEBPEUppO50zGHgF7vJj
-         jnPsux6+0cfbBi3QMLEplSUEZI6iHvwN6xMA/guDDXNTtmLJb6kV5f8rX6zAr7wiYg1y
-         zN2S+yPM5uR7RRAUAIJM9eW8EIzMOTwqnYcqcV5GNjaBRt0LWWyFI0aRIIcCd6gUbky1
-         wNOnTL8SBskXcEXgi1ZxRRn42WKE15GzMtza6I8kbOReSHWnXU4tcM8iOHIrtunkOChY
-         pVwg==
-X-Forwarded-Encrypted: i=1; AL+hErHTEExBFDu3RLiZigsCa2wCdkYMPwKZ3gefwL3LUxKbCrc22enoX/d8J75FsrY9onKMdCsySAC9luRtI/M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/tVqU0nUzz4vxIvTxO59waXIcCnKQyZoT8qhrYmLLve1V1fTB+
-	l1dMRtDolVlJL8rxL4XkMO7nfyTa7UQUw1baKbD7zesVWXQsYzbfhDfA0UIPuFghhNNsMkq2CxE
-	nn2185weYTtME0B/EqxgtJm9KqaT4B9rP4eaquGyechhlMuzzh1llcbDdoQPhFhnRQRc=
-X-Gm-Gg: AZFdTZcngVTuxDz6bk4Vcj3SGv6hetCTy037tZeYRo6ctVOOWaOTIln1MDA5MByg+bl
-	2zxHkxX9nFFrEuWrsGKqafeQ4oipuJjbkdcsA1CP3ZkdlVUZ/4N8og2ELzJGkAru28kx+bOMihy
-	LEJM854oFGgm5cwko8kZcYvYCIRYdurQf+eYy711IYtIGJGsdIemr8bA/Cg1Dw74ZMPgaS0sJM9
-	BeIpS69MkI3MO4NPigVVRNmK/xUgApNJZROC13Cyxa2NU0Ze1eA56gQcjH7wCmXyNV4SDl/U8iS
-	+dXpId5HFICyc9ikVOBU69ze+5ax50pLcNHGeMFwfXdZ+vSau7qXoPjM7f6iN1v52dHODZO7lk6
-	jqVPW7tWfFJnVkmxBCWcvbb095b4zGn9RPuwtt5TjZ/zOEQwoiDpuq6iJsXWIqFQTDcqx3FX++X
-	Zf8A==
-X-Received: by 2002:a17:902:cecb:b0:2f0:45a7:5d10 with SMTP id d9443c01a7336-2f045a76530mr96395635ad.8.1795413360127;
-        Sun, 22 Nov 2026 21:56:00 -0800 (PST)
-X-Received: by 2002:a17:902:cecb:b0:2f0:45a7:5d10 with SMTP id d9443c01a7336-2f045a76530mr96395405ad.8.1795413359684;
-        Sun, 22 Nov 2026 21:55:59 -0800 (PST)
-Received: from [10.206.111.19] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215d7sm45538685ad.65.2026.11.22.21.55.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 21:55:59 -0800 (PST)
-Message-ID: <a643aca3-e1de-468c-96ad-d87745c40574@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 11:25:54 +0530
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 345DA606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:57:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 345DA606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.09214134|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.0467983-0.000864812-0.952337;FP=10292264724248510578|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034017;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k87d-Ke_1795413413;
+Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.k87d-Ke_1795413413 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 13:56:55 +0800
+Subject: Re: [PATCH v3 1/3] sched: Give root domain moves their own
+ sched_class callbacks
+To: Qiliang Yuan <qiliang.yuan@linux.dev>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: linux-kernel@vger.kernel.org
+References: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
+ <20261120-bug-sched-fair-offline-active-v3-1-325e9eefa56d@linux.dev>
+From: Li kunyu <likunyu@open-hieco.net>
+Message-ID: <a8196fdd-9b96-2479-9b5d-9bdc8be3cf7f@open-hieco.net>
+Date: Mon, 23 Nov 2026 13:56:55 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,77 +60,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] media: qcom: camss: Add Glymur-specific resources
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Bryan O'Donoghue <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Suresh Vankadara <svankada@qti.qualcomm.com>,
-        Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-References: <20261119-glymur_camss-v3-0-71ab966c41c9@oss.qualcomm.com>
- <20261119-glymur_camss-v3-2-71ab966c41c9@oss.qualcomm.com>
- <e707a3ce-7e3f-480f-9166-3f048b02e7e3@linaro.org>
-Content-Language: en-US
-From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-In-Reply-To: <e707a3ce-7e3f-480f-9166-3f048b02e7e3@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20261120-bug-sched-fair-offline-active-v3-1-325e9eefa56d@linux.dev>
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAyMyBTYWx0ZWRfX6aR1H1fqpkaY
- myoGBJqvhpIajnPNUYrmISYua1e65aIGjfWE5t9KHbGva4peld9LWFs1hJqoJ6SuTfTx73rDaH+
- az7WEvBsJakRc1JAxWrSBs9XcetkKWspZtPYJFTfjp5wU6wUO0rAsSBfX7boIh2Pa10bT52a785
- uvP3n1vNINbcS2LpNQrHvdsdinYwhNa6Uxu/cNTOXAZHfjHbXiD5NSufXi9HgLu4YKKgAdhNSn8
- jgdAOnmezMxR2pCklqyvSKM12TLpNyV83G5rz1bT9SqSQcCQzNfahIdrqK30HsdnlMnB7FIbRA0
- DGgjqP7CfChBDhTL/KKXm/npSdSpgAYHO8JP+k0RNY8Cr+8uHh2W4TCRRzipqYQQLWT5XUWQF+G
- B+5gNcXh56fMHG4ovAHkN9BYQN39VdjE2oWIiL819LV3U/mbFPRLWMpm7MtXA4Bxwv600VHGgBy
- dZNGM85Y9KnfnmV1H2g==
-X-Proofpoint-ORIG-GUID: J74y6AsE3q4ID9KSHESTpG-v-WYrrgBK
-X-Authority-Analysis: v=2.4 cv=LITz05W9 c=1 sm=1 tr=0 ts=6b03d571 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=ZqXg7yOw1P01-A-HOdwA:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAyMyBTYWx0ZWRfX0PuSi+ZZA1t/
- 4y+LjZdl8v0qGdOu6jV6MFHjJoihE5M3RLqFAA2r1KWI7TOq4tgVNpQ/Wdm67fal5z582D6y5jD
- P38f4RqW8bgOnCPcUKZWPmLcwD46cX4=
-X-Proofpoint-GUID: J74y6AsE3q4ID9KSHESTpG-v-WYrrgBK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 phishscore=0 bulkscore=0 adultscore=0
- clxscore=1015 lowpriorityscore=0 impostorscore=0 spamscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230023
 
+Hi Qiliang,
 
+On 2026/11/21 10:57, Qiliang Yuan wrote:
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -8553,6 +8553,8 @@ void set_rq_online(struct rq *rq)
+>  		rq->online = 1;
+>  
+>  		for_each_class(class) {
+> +			if (class->rq_attach_root)
+> +				class->rq_attach_root(rq);
+>  			if (class->rq_online)
+>  				class->rq_online(rq);
+>  		}
+> @@ -8569,6 +8571,8 @@ void set_rq_offline(struct rq *rq)
+>  		for_each_class(class) {
+>  			if (class->rq_offline)
+>  				class->rq_offline(rq);
+> +			if (class->rq_detach_root)
+> +				class->rq_detach_root(rq);
+>  		}
+>  
+> 
+>  /* Assumes rq->lock is held */
+> -static void rq_offline_dl(struct rq *rq)
+> +static void rq_detach_root_dl(struct rq *rq)
+>  {
+>  	if (rq->dl.overloaded)
+>  		dl_clear_overload(rq);
+> @@ -3664,8 +3664,8 @@ DEFINE_SCHED_CLASS(dl) = {
+>  	.select_task_rq		= select_task_rq_dl,
+>  	.migrate_task_rq	= migrate_task_rq_dl,
+>  	.set_cpus_allowed       = set_cpus_allowed_dl,
+> -	.rq_online              = rq_online_dl,
+> -	.rq_offline             = rq_offline_dl,
+> +	.rq_attach_root		= rq_attach_root_dl,
+> +	.rq_detach_root		= rq_detach_root_dl,
+>  	.task_woken		= task_woken_dl,
+>  	.find_lock_rq		= find_lock_later_rq,
+>  
+> 
+> diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+> index 81a71aa5f094a..45d10334f7253 100644
+> --- a/kernel/sched/rt.c
+> +++ b/kernel/sched/rt.c
+> @@ -2398,7 +2398,7 @@ static void task_woken_rt(struct rq *rq, struct task_struct *p)
+>  }
+>  
+>  /* Assumes rq->lock is held */
+> -static void rq_online_rt(struct rq *rq)
+> +static void rq_attach_root_rt(struct rq *rq)
+>  {
+>  	if (rq->rt.overloaded)
+>  		rt_set_overload(rq);
+> @@ -2409,7 +2409,7 @@ static void rq_online_rt(struct rq *rq)
+>  }
+>  
+>  /* Assumes rq->lock is held */
+> -static void rq_offline_rt(struct rq *rq)
+> +static void rq_detach_root_rt(struct rq *rq)
+>  {
+>  	if (rq->rt.overloaded)
+>  		rt_clear_overload(rq);
+> @@ -2626,8 +2626,8 @@ DEFINE_SCHED_CLASS(rt) = {
+>  	.balance		= balance_rt,
+>  	.select_task_rq		= select_task_rq_rt,
+>  	.set_cpus_allowed       = set_cpus_allowed_common,
+> -	.rq_online              = rq_online_rt,
+> -	.rq_offline             = rq_offline_rt,
+> +	.rq_attach_root		= rq_attach_root_rt,
+> +	.rq_detach_root		= rq_detach_root_rt,
+> 
+> +	/*
+> +	 * Move an online rq to or from a root domain: rq->lock
+> +	 */
+> +	void (*rq_attach_root)(struct rq *rq);
+> +	void (*rq_detach_root)(struct rq *rq);
+> +
 
-On 23-11-2026 07:16, Bryan O'Donoghue wrote:
->> Add Glymur-specific CSIPHY resources so ports 0, 1 and 2 map to hardware
->> PHY ids 0, 1 and 4. The remaining CAMSS resources continue to reuse the
->> X1E80100 CAMSS resources.
->>
->> Signed-off-by: Nihal Kumar Gupta<nihal.gupta@oss.qualcomm.com>
-> 
-> I mean this is a bit of a convoluted way of describing this.
-> 
-> You have one less CSIPHY Hamoa has four Glymur has three according to this patch.
-> 
-> => Fixes: tag
-> => A commit log that says this
-> 
-> Talking about the ports doesn't really describe what this patch is doing.
-Agreed, I will simplify the commit log and describe the actual resource
-difference. I will also add the Fixes tag.
+The newly introduced abstraction function cleanly separates the RT and DL
+handling of the root domain, while leaving the CFS scheduling class entirely
+unaffected, resulting in a well-structured design.
 
 -- 
-Regards,
-Nihal Kumar Gupta
-
+thanks,
+kunyu
