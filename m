@@ -1,80 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438068;
-	b=tvzOUYSGr/ylnR7jSUqvu+7rnXVcGCRCZ6b6rX+GPcOnA09H7CKtBX/NbZ4F1203V9Vh
-	 3P23FNHQMluPLksrBBdsgWoQplrSZx8JAtUvzaDRrvg16HR1VnZ/EdIH/FwXVpRiS4Du7
-	 oSDMImuR5caUPUeB1nHKSyQnNyW/JUoTxCtnwRBycHevvwVRbiqyLKmwo+KildKgjR2gx
-	 nyd97+qGr/54i46wzIuq5QpmQ8lh96TJUyfmzz9hEdp586JJrYWWbfYv+tLZ99v7OznQe
-	 vVr4piDCqf7UYRfUXDJe6nIv6Wq8UxA8eiDYrGMG1b+1i/FtbmTTS4A9q1ITdNulTvg==
+	t=1795438092;
+	b=Je70aEjBK5sYETGhJ19dk3wK+z/EXfXRL6CIbFwNNyU2GlG5262r1USqeLT1mZgItPre
+	 ZATpbafHV5xiO2+J2k7TmKV1B9C/vTsBaPG20Pq4FUWjfjJQcWTiuXi9AEjOHyyiptl/p
+	 SGAEk1efcmiu9MZiEmeHEqTYOO9sQ9/5zuNTLJUw1aFAR31ZoWk3VWK/GoRPTCB5QBXFm
+	 necZOn99Us40SMyb1Rv7HYjw6rrTdjSIUJd8SZrSfOp/Uq5QC1eLWobXA7m9kbKy9uuJ6
+	 PdUNW+sjzs5HG0d2ybsiEcpzhBV92/9vwP3J/DvWq7a1w3y76uRSAVOkhyjYd12vWBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438068;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=orrWhwI38eNtu/8XCVAnDu9Zutnik9Tw9G8jO+qCzzg=;
-	b=1ckiQfvtsF5Of9GI8R77SlUBAXbaN0w7eB1ZAYmeLUdb6qPaMxftZerbpcAXaGsHlisY
-	 3XWlfWu9II0aTeW0MgX5NEgAUl88Kw+WbB/aBrQ+6/m7d20ee80CRhQaK9nVGCAHTTpGC
-	 /ZM8uBzFbX3V2Wp1IMnA4co3Tyxb/2dXfQPtmgDQmHJpFoVdxdcSXRkkknFce9vNnRfyM
-	 oYHFbwVDyOoMlHJMgrfIqYuK0e9SaipCRW2GO7wrQAKIz7tBhJtjUCR86xT8ReRi3bUHS
-	 gZXClo4QLpxImqrvdD2Y0VdGmYxOSKgVUYDPGie4ahlkjXeU6v/AZZ3u7z310R+nfKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438092;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=d/Z0vUg/xEbWIM0w4egf1KXaQZ+WOY8AjsMj/fZc1b0=;
+	b=WZ2kD1jUhRZuj9vp7RoUKKvPCoB8sGcnX0kST3QEMW6NWTdCxBVPhBHvtnMhZ00W4d04
+	 OXyEMCqlJBAAh0SkWogF3r7HMeA/37gDRLUog9SAmXWlSwHyLd3JrTmsBd6fihtZSMKIG
+	 +C0+erIjN03u4irCwk8oy84uGpKnhokdFM9qRFbfV2nQoWXA/I1wIUWzGl4gsXTmJGCUK
+	 XOkXQjkYf78UL0OVO4go9PgWJgMPbfEMvaRpc8imEX0z+G/8yphX5BDj/cJSayrQzjDZa
+	 VMCEJy6J3q8jw+LLrXLhvmOU8dqxlF3wjAKsuqpmYHOVJUNbhn9G3acNiWzJQvXHmWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b="ceLpo/QP";
-	arc=none smtp.remote-ip=66.163.184.45
-Received: from sonic317-34.consmr.mail.ne1.yahoo.com (sonic317-34.consmr.mail.ne1.yahoo.com [66.163.184.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=BUwZHsMM;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5727B606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:47:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5727B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 281D5606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:48:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 281D5606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=ceLpo/QP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795438067; bh=orrWhwI38eNtu/8XCVAnDu9Zutnik9Tw9G8jO+qCzzg=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=ceLpo/QPIXDkwQNFAnKkgbqcLWlpZ+XSwk9MrjcKuZ5mj2ig01ryEOcdqVQ/TDqSyK9JPmd9Dmpdv2Au4FM/Yj4+2JzhHvI02HuLHAvaUrL1Cdb56apNYCp+3VEktfO/BXw9BhrHMMiOgjMoJeURWHLQ8peeaZ8w8ava6OBe6bN0z7FpHSHRFaVvin6esq0S0kTVsQijXLmems/79HqPc25YcHTHwb6JeCjGTJISJCaz7QRJuBt8PzOTA/2V8jFULRVRAg2JUZcfkdlLeKKzP5LxkukooBhcOHxekl/a9fSG9ak5FBT+w+G+xuojsmvSmAx131n+UruunU7Q/pCr7w==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795438067; bh=3LMuNOxW8zKYTBKQm3BNccZdU2n9C5W1yY55HXhrbvd=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=Lb/8jBMmBAup5ZYuUOYgqUqY9JrAIgx58OJXgm8XlvyHUeWz2LYxfPOkSz2qiWejstrP59eQ3utPj6p/OZgr8UrornEiLjnElmvvdoDSMUmjDz3In5V1FFV5IVm8XPJg2fDgWX7jpWODQXkaQ6bAySmf1fHV3SVVZOGsD5bBNZb9QXvh6ElNiBV3AFWk/KQEz0GTc4clGmsdqqB+strcc823l8w/jss+5T5mSiqFioext1ab19Zrfh5LWg2sEBJpFWAwseyx5y8DUlIoU+lFdSFqyZrAXk8btOUKT0itHAWuVV1pjW2m7OOW7hKlRlvjRkPb30Ktq64F2LEIT0ve/w==
-X-YMail-OSG: a93BEHcVM1lwrnw8poiQoAhNQqt0NJ4tAKAVlTdTwoDNeMs50BxComSCYx8Xl9Q
- Ap0jQXw7doCu7HpYFgABDH7lxT8IZMBeWpcVEYeuuoRqn._aR.HHncWa5hBmEC3Dl2RXA5st_EgS
- Nnzjxo5XNQBYUSYtnWDIUJbHxbfqb09QzbdyJOljdd7ebC1mEX3ieCICyIr1NBFbAe_ugjbhjuMK
- fcDRBqyWK2X5NZyf4fHi8FypUJCTfMLwigp075gIU03WjiDp8fUzfxLShqNi1_Ai1JiI82_ImJnD
- jfPyUheLevr6sqxLs73WwfFT6zdnEikiH4wzD5PXrueTzDsw2HEeswUfpQKOp.wZ4ub6AsKE.zhQ
- 4gqBiMJo8.klOMfmHOkZHmxBokRGcwfaUoivQVmWq.qk9Cf0gzPzCasVh1uPMcD5o0kLs1W6Nrcd
- 63s.ooAoVCfYgRBF9Uy9VfV5B0tbflsWjjnJLr8yu7a9C_m382JjiF3L_f8Z.QdcWb7ls1oVLF9H
- D6Zl15RczWdYhmPZfKK_ozzQNQdchHB3srTl1vEdRsSS9ezrQovYZCC7MUiXYyRC72kDu67x0psK
- N3lf_LRhftoQ6uu.7kDht00KcciXcyombKjlVSDqqPzjMw4jivTGvLdX09e4xAz908yZfR.EvxS1
- YqPoBM__d_9ndN9CEP6uNW7caV.xqIg56Xy1.43mf2NhhH9EHHo3GlyEa0atVVupLQE2Ae4aR.Kb
- HI_1Rev4fsyVTUZdP4jxqjj_SpQiAdiWqKiQq1sw5i_RtyUsBZx3YOXfIvZ5jOKAAf_NMBCeyUTg
- jJwZ_MRODW45GwWDAaxPKVx0L7xi2thX15KgoCvszWmiZmzWrV98XSohKVJ7SMA.KavzpPbGQDYp
- fG54Upbo1jK..bq1c8Jtdb1cOmg3gAmYgBF7M97Pf3XAbcLnDrL9BaOKajHbHuKPpmPylNbxXbmW
- aMM5kLn9BSLbLxgNe53CS1WewdsRy36KraocT6UxaJ5QbVpKuFDn.YFCgvELdyznhlQic3O2FAis
- DA.r5Pg1qlqfQ.rsgcvvhVACCKB9muQQh5yzgC8AYQoWb9riXEKRmTrrb1rb2NoDY.LYp2zt2C1w
- o4Pqos9JFERZv8Rm_ZoXHdpWvNnyXlN6ZOsNLX1FxPvt28QQ7OkEA9WY9cYFGE0fWiGFdDuxZpIn
- IDctyLp8jt9A9ySmS8sUchEStUuQiw49U1tzLERFuOF6g7x8.IMAOcFNGEy_lT9F2IvdvgzNYm5D
- 1dveduYEqApWdMw.1XlpekBxXWz_vtqnW02ZV0j_CUYcUUAF.lCWy3LWfkiVXsuPwwnw9u15fzZ7
- ku2jGNZ8KdS8FnSycJo3LoZvG3tfCCwI5ioRyb.n4IOErDhF_jGRkGrr1tOwGlGcHqG2qUX2I4Ux
- hhORGNI8H0grbl7.phtx3Y.f90ATMo2wtClorZq670G_afF3UuIquMHR9ohNjac3oUP60qpA3MCQ
- gayt6ycrwtMGDLV7u3a4pG8wMR3TS30RDK5AQZFKBjlUAelD9U6wrZg1EAhitA9nAYI.uj02fMxH
- 4m767jgHTV7DHdSY.ShbXSQRZywS6unbVmte5VLg4aRgmbFXyltmAilzGyPgD1siQ3hCMWmapXC3
- CvRPFNRKZYsvP5WLAMz.kv7Mk1iKmNN.YyCHYNUdnJqlS1K.2YPQsbMt53rmHnZH1Y.DnXCBZ0Q3
- MpwlQEdHOAJX469r7EwEYjNq4aZLYiW4SNA6g59gLbVJeFUq7DhzECJekNsFqHq75HXBPFdN028E
- iH0ajBcKB2pg2MYh_l_0BX8If07m82NHbbK5li5rLanvID0m1psL56nHBMpQA813YWfsQoyjggW5
- NX0f0cX2Mj031xEx14yvv5Aoc99TaaXC._a.ucPG6.0u5Lt_eLQN9MGfkY2.n4FrrYK8Tbijeoln
- pZgs94ZkktPioOcWuIcFNLqf5jqJ_yGqCjbF6r35DKscprUnzGxhytlowx0z08TAVuipf9UGjzxT
- Us4iMRiMbOxRt5F3i82Y_62r0n9WOxEI7hzVVlgUJCeL67qEzrd7e2DvZyyU_aQq44t1yZE0wiiv
- k_mISmXt97DhNNnwsCPfh2LmU_8f7FF7fNNG1InJdB7L1tKpDrpZhliizbPEXR0HSoDd2UEvtuRx
- NQPwZn2vExE3Hqwf6Qn84ldrTsI7tOF_i7xnQ5RifBHUAzYs7KAKC9VNk7Ick6Lg6aImbPDa_Ksh
- qJGsTe3uP2TsewCrWb9f5TtAlXMiR3iHhy8Yp5K5tw78yrOF83BhTSzIJB13fMgDtnrVZMekpPUz
- SwPOsY6OUwenXexuNHRTmCdY-
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: eef3ac1d-69b4-426f-8e94-9319f1c7c173
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Mon, 23 Nov 2026 12:47:47 +0000
-Received: by hermes--production-ir2-7c4859dc89-9kgzz (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 3522ec87fe67852f4cc02edda797809b;
-          Mon, 23 Nov 2026 12:47:44 +0000 (UTC)
-Message-ID: <b9f22af1-f0d0-4beb-8a4b-f4e0cf225363@yahoo.com>
-Date: Mon, 23 Nov 2026 13:47:44 +0100
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=BUwZHsMM
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCZB2X1981967;
+	Mon, 23 Nov 2026 12:47:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=d/Z0vUg/xEbWIM0w4egf1KXaQZ+WOY8AjsMj/fZc1
+	b0=; b=BUwZHsMMEs49L/zwmB12uvhbfzlOw7GR/6xdhzOYPEQphOy5blUjBKL4S
+	QWhORBl2BXfCuBoblrRcJuPsfTKVYUzC7oOh1Q8pueAoeesEaswpJ41nl6x8vELK
+	ud7Yw3HYxdgj2Rd5VQtCstCnrcA0xa9JCKnQ1eqbjaEKNSnlnbglfBe5Bifvtvy5
+	AaXbv21i6O6RaNpcCpjRtqvRv+76SpRBUkTPzGvnFF95jz3R2aTN1MPOz64ShhDK
+	zUKZdc35vVQMYFhMqMF7ikuEluXCjBsEOYGgBWT+jNiQd3vZ8N54j4qUNqsIqixz
+	pfMYg2Tv5IWB0q9duQ/bRdV3isqwQ==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g336nu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 12:47:46 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANCJeQb1159456;
+	Mon, 23 Nov 2026 12:47:45 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0vex9n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 12:47:45 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6ANClfuG51380670
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 12:47:41 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 606CE2004E;
+	Mon, 23 Nov 2026 12:47:40 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5810D20040;
+	Mon, 23 Nov 2026 12:47:35 +0000 (GMT)
+Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.24.192])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 23 Nov 2026 12:47:35 +0000 (GMT)
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+To: maddy@linux.ibm.com, linuxppc-dev@lists.ozlabs.org, peterz@infradead.org,
+        tim.c.chen@linux.intel.com
+Cc: sshegde@linux.ibm.com, christophe.leroy@csgroup.eu,
+        linux-kernel@vger.kernel.org, ritesh.list@gmail.com,
+        kprateek.nayak@amd.com, yu.c.chen@intel.com, vineethr@linux.ibm.com,
+        vincent.guittot@linaro.org, srikar@linux.ibm.com, npiggin@gmail.com,
+        mpe@ellerman.id.au
+Subject: [PATCH v3 0/4] powerpc/topology: Introduce llc_override kernel parameter
+Date: Mon, 23 Nov 2026 18:17:26 +0530
+Message-ID: <20261123124730.1466978-1-sshegde@linux.ibm.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,77 +94,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add
- support for RTL8367S-VB
-To: Oleksij Rempel <o.rempel@pengutronix.de>,
- Gustavo Foletto Mora <gusfmora@gmail.com>
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com,
- gabonpivovich@gmail.com, contact@c127.dev
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
- <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
- <CAK+kzgzzcGPWVoXQ=VKFeojk+-=9S_mWBhMdcN44M9QXkihn-g@mail.gmail.com>
- <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
- <CAK+kzgxmgdFoBhzNhfxB29yS_Hz13LOm7rZvKb6fpyVKb8kwdw@mail.gmail.com>
- <awPy7Wxq-_ukUNfG@pengutronix.de>
-Content-Language: pl
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-In-Reply-To: <awPy7Wxq-_ukUNfG@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b0435f3 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=dBynatHyQikd6B6G4x0A:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfXxMLLHAugSTZP
+ GlttXXSOvd4EeTpFHnTzDEENZUoj6IoNctfj0moCOjSYGVenps/mY1cwoMcB+S+sfyEDnV3HHhd
+ 3MxmgJa3LUBBD5UuUgTIpayT4VIOYI4=
+X-Proofpoint-ORIG-GUID: PwNgRZtd7mRzn3KWQasn2k6X2BBOy3rN
+X-Proofpoint-GUID: 1atbfizsNdZfmjtDsIBaCNZF_Zlc4sOH
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1MCBTYWx0ZWRfX1k4Bf+sTuA/d
+ Gj1dEyj5UYg8LAU9WAxMvogYipU/KQLpxfw7KqHvaUWFbHKtQBOY5faWPQPcIaJnubHZtKnhLI0
+ GHw3YhC3zsstuioEdQXujCOSSUp9DCjnk1oywwuUKB7JInOt4ZRe5ZwZ0f3Edk4Ujr8uo9JVG6/
+ n8FxbGZyWtSbu1OmVNQQw9DdXpWJg6AkDdRQ2kAx3HVNAD4C8SrUprua+e3HvgZ9dnHLj+ExfF6
+ 3Lz11LjQwcrRfKho0mBHjFz9TdB2ApYXH2haywV8xvQjwYmx6NS6M8JXsBFFF8ZeVZVzpD4mvqe
+ o8brmjLZAEZMc2kaL5Zif8DVLmPYm8HYPJyrhL206yqqX63xu141YqF/ldztG382n9kmKIvjF0K
+ iRyxtWCGrtugw+q0KJ/Ya7+9XEJKZ0DaywSzV2JlpSXghiu0+Tz5D1wz16P8/bolcLgvH1hr6Pu
+ 8Vxmh8D8t3zSlquWw1Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
+ lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230050
 
-Hi Oleksij,
+Depends on generic cacheinfo series[1] to be applied,
+[1]: https://lore.kernel.org/all/20261118163639.890546-1-sshegde@linux.ibm.com/
+That patch is under discussion and likely need some changes specially
+for DLPAR related stuff. Meanwhile, sending this updated series out.
 
-On Mon, Nov 23, 2026 at 01:46:00PM +0100, Oleksij Rempel wrote:
- > Hi Gustavo, Mieczyslaw,
- >
- > thank you. I have no family D hardware, so only some pointers from
- > family C.
- >
- > On 21/11/2026 Gustavo Foletto Mora wrote:
- > > On 21/11/2026 Mieczyslaw Nalewaj wrote:
- > >> 1. Does a non-zero value written to 0x0851 on your board change
- > >>    anything (PCP of untagged frames, or the register reading back)?
- > >
- > > Not yet answered: on my test image the switch registers are read-only
- >
- > On family C the added tag takes its PCP from 0x0851/0x0852. If family
- > D ignores that field, the tag probably carries the internal priority
- > unconverted.
+Provide an option for users to enable cache aware scheduling on powerpc
+via a command line parameter.
 
-That matches what Gustavo observed on the RTL8367S-VB: without
-0x0851/0x0852, newly inserted 802.1Q tags take their PCP directly from
-the frame's internal priority.
+Verified that cache aware scheduling is taking effecting by observing that
+llc_balance happens and mm_sched_llc is pointing to the right llc id after
+running threads and size checks succeed.
 
- > Other places that can set this PCP on family C, in case they matter
- > on family D:
- >
- > - remarking, bit 12 of 0x000e + 0x20 * port (off after reset)
- > - 0x093a bit 0: when set, an untagged IPv4 frame takes its PCP from
- >   the DSCP table
+More details of the problem and context is in cover-letter of v1.
+v1: https://lore.kernel.org/all/20261012102037.2477378-1-sshegde@linux.ibm.com/
+v2: https://lore.kernel.org/all/20261023131646.2907938-1-sshegde@linux.ibm.com/
 
-Good to know, thanks. Numbering the internal priorities like PCP values
-on family D (matching the vendor RTL8367D API) makes the newly inserted
-tag match the traffic type without needing remarking.
+v2->v3:
+- Move to generic cacheinfo so that get_effective_llc_bytes populates
+  the right value. Thanks to Chen Yu, Tim Chen for pointing out that
+  llc_bytes was 0.
+- Make llc_override __ro_after_init and remove READ/WRITE_ONCE
+  (Chen Yu, Tim Chen)
+- Merge patches around domain flags and arch_llc_mask (Tim Chen)
+- Ensure parameter is of nop on shared processor LPAR (New patch)
 
- > > [...] so an inverse table would also turn tagged PCP 5 into PCP 0
- >
- > Agreed, without PCP trust that table would change tagged frames too.
- >
- > Family D is not merged, so the DCB code has no bug in net-next and
- > needs no Fixes: tag. I think the family D part belongs behind a hook
- > in rtl8365mb_family_info, like VLAN, PVID and L2 in v12.
+v1->v2:
+- Move to kernel parameters from debugfs. This helps to keep
+  llc_id consistent which doesn't change across sched domain
+  rebuilds. (Tim Chen)
+- Update arch_llc_mask to reflect the override (Tim Chen)
+- Limit only to mc, pkg (Srikar Dronamraju)
 
-Agreed. I have refactored the QoS priority handling behind
-rtl8365mb_family_info hooks (qos_iprio_to_hw, qos_hw_to_iprio and
-qos_set_untag_pcp) and implemented the PCP-numbered family D hooks on
-top of that in v14, which I will send shortly.
+PS: Selftests related to Cache aware Scheduling will be taken up
+subsequently, as that is more complicated.
 
-Regards,
-Mieczyslaw
+Shrikanth Hegde (4):
+  powerpc/topology: Introduce llc_override kernel parameter
+  powerpc/topology: Update flags and llc_mask based on llc_override
+  Documentation/powerpc: Add details about llc_override
+  powerpc: Skip llc_override on SPLPAR
+
+ .../admin-guide/kernel-parameters.txt         | 15 ++++
+ arch/powerpc/include/asm/topology.h           |  8 +-
+ arch/powerpc/kernel/smp.c                     | 74 +++++++++++++++++--
+ 3 files changed, 86 insertions(+), 11 deletions(-)
+
+-- 
+2.52.0
 
