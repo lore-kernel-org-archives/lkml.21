@@ -1,83 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.93
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447690;
-	b=TPn+nIYJuzbKP5sTNul9nOzON6SP3TR0F2g3Um5FLw8t005a4TDR/SceK4tSHcvTKfoF
-	 iYKGx8JKsADtDGQ0kEkGYilO8zfdpaheoLz581z+Sm0r116A66DsPJfSHXvtCbBcZFDkf
-	 AMk9GAJRxPRYj6ATpBPmXjIsY8DjgFnOhNY4tT8ZbXp6T8rWZ/KGIJ+OBzu+vpVG6rpHm
-	 3KSod+1mQaobOe1AeNF58/GxZofntW0PU7ecvRAIEewwKvjTs54HQZXxo4vPYvl73u3A2
-	 IVA/wr6bZ9P+WRDvUEMcwqJaZdow9KVAjUuNWuTRRn/Q4ysOB5k2z2wxWHKbCXkYAGA==
+	t=1795447693;
+	b=vfPDTCsFQmkWQUBtYUKZCbNpPp7Rz1Odjg505UsK0wX9AHjHKxV+bMc5GPsjxfmUWcFE
+	 Dr0OlSn2g6PiPrZxj+LEIZgXqX4DuNEZv3iFTC7NUGbuS+QcHU3NMpBW8xnXk29TsNzZJ
+	 kWOQHpf14P4Tfeze6c17lgXo+KTFto6aKCJsBRFpF0bkvvIrjYhFBf3BdFiuU6vw6Vvd3
+	 Z5eN9hraNdkI5enW22AvViC7cZj8zMXEfLctx63zrxjfR4F4TCrqF7UMzGlRBjS9vMSO5
+	 OyPP8qUrmqjWqhRmy/wzbpoXznndPyp6yNT4un/DC5z/0ymDzFZaWLSxLQ5CO3eZWKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447690;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=d7/M+v/43NPI43ZKQtCCYrkBuY9v8LpkrE5U7OdayQU=;
-	b=i9mS/XJ5gUClTsrxjEtf2D1Zp/SNvQS+E4ecGSd33P7VkRZE5OlmK4z/oEd1nLcm8yMf
-	 4ZW0wR6CsevKZKg1c7lmcg7o6Ecz1Tn5cXNRZXNyUTT2XaIbI7HZEpm/QQin9Cr3PHduZ
-	 djTFsmhXl3nGHRgnE0yDQbpIoWwGhDv1NXsu1Bu957Fu7UjOB4CaR7BGxlX3qH/vo0jHL
-	 /STjg9iFPdh1X20gVZ7E4rTQg2UgZKhVhIQpXKPA/qOD5jDrp2WY/6AYJFqhGatuqQDZF
-	 +yQG8UU9aE9ssS1x91y4F5Q2lEI4UEmp7wDzl4JOgW3W52Y1VLxU167W1MH1MAsd24Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447693;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=JHQcxU+wIWklcmL8z5l9MQwsDbaWbhPYpwQ5MUgrJqU=;
+	b=f7phRyNEo3spnnAwBDWB3gSttMitRM4ncBeV3zOVLDucjMFaQcW+Pf19+BGPQ9G51EYv
+	 zFLmODBoxCMVGEwz1qkS00dy9F+vAUA672EcQdZ/Xa97TieZ1vr9J2xEsH+DY/GzXIgho
+	 UsBzKDifXimy8HpScK9bGGwYESLIfr4wsYsrMh/RUwDPNM40FUPTH/4rAPfs5+r3p9aHa
+	 QuBkfyASGP/0/6gvk+GJGj8yXR4FKtu3IdimEQNDMuTLSKCBuDH1h3d6+NdsrJ4Neo6fl
+	 rc2XpD14puO/fd4R+C37LkZXzhgGoCPs/OfLwbObqPmadQ6f/U3RNeo98xrwrsjx8hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hp9K9qE9;
-	arc=none smtp.remote-ip=95.215.58.93
-Received: from mta1.migadu.com (out-93.mta1.migadu.com [95.215.58.93])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fuKkteo1;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D247B606A327
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D247B606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C15DE606A337
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:28:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C15DE606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hp9K9qE9
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=KLnIZve27TacRpIsHu1MegafKzF18Ee+BKLeaSkTvv4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795447687; v=1; x=1796052487;
- b=hp9K9qE95AEmJktdBgr6nEtXQs+iPK5dnFdfVPdd+ORgJaK/CZ5KVYB3BNrrG2vqXBEGAviN
- aOEnXucwR+WWGrpk6Bot5cDtENpAJ0LJBvt68OIr63ZrLKFRTLngoZ0M6q+n2LqbmVC2vYepW8B
- Ck1I2/mioOM7bvy9mWwUzXpo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 41213eef0cfc78fe;
-	Mon, 23 Nov 2026 15:28:06 +0000
-X-Mizu-Trace-ID: 41213eef0cfc78fe
-X-Migadu-Flow: FLOW_OUT
-From: Leon Hwang <leon.hwang@linux.dev>
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Matt Bobrowski <matt@bobrowski.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Leon Hwang <leon.hwang@linux.dev>,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fuKkteo1
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-36a315ed211so4367724eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:28:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795447692; x=1796052492; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JHQcxU+wIWklcmL8z5l9MQwsDbaWbhPYpwQ5MUgrJqU=;
+        b=fuKkteo1U3dppxRP2dfHZJlaJGXVfzk7FUDnXt8LXhm8fvRhvljLUCN7f18PvukRPU
+         WWDpbqYrzmrS5+PO9OZTwcY/Y+zcoZbDol2fisOndc8AkOhk4n63tiyyp8khhsZbSFYz
+         Uk20qp+Ms6uRkWeEuv1pAZOzSg8x3zA0PNd6YMcfxGvwxLCQar58MFTeiqu5hvr94TaH
+         P0p1/W7tMLT7DLuBxYK6tVAoIIeP2XxRCOXdyHU6uJwrTVyiDpqMLFS7Y+hAnrJO2pKR
+         LOU3lWmb0cQJnm9tz32aC3NKKysBMksBDm66doIzP+z2/Ai9KT/lYg6QBoD3jW11k27I
+         uE0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795447692; x=1796052492;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JHQcxU+wIWklcmL8z5l9MQwsDbaWbhPYpwQ5MUgrJqU=;
+        b=cDYHwCdgDcW255YKynBDeDlJUyDhRusbxSyRvu2hjA5H2XPbOsEJ/+HfcVa/59w9N1
+         dUCMvO12elpOA2fdvKxsnnE+6VRFz7+Ol3KwrKhtJwk2HGz/GDHjBlhZmnPBekvvfoBe
+         iBDFmHH+4CIrxEiYcI5ZbPBdPmEboT/Zf9o+u5KJX1KRj60V5Jfwhcj/2vshIwLNtQSa
+         xYxiXNCHAiHFUdNzmmSLenLsNNvSFdaG41A3h0TmR5DpZI2Y8O4jdb0gV9HZk6QVJtqb
+         3PZLSb6oBl9TL9yW3suZb1u8R8pGAiub2JoRIDOfoZ71KeqCdD3uB0mrUy4ux0ob6LW1
+         jVJg==
+X-Forwarded-Encrypted: i=1; AL+hErGS1YEwbI6IYFC19Kp2YamzuCfGr6xwqc0ZPG1h3l2Wm6TlGFhcgXAKpWRlOAaZgZYmG6sWuz17ng/+UEk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fnRmHb6PPYqiNnPukM9gK5rt76PBjW6Dj+rrbVwgNVDu9s8Bp
+	Ns00jvjZCgmywIG3vziv3Ss5u4fsqPB5mT4/hyQ2QKW9M5yepeZUxLte
+X-Gm-Gg: AZFdTZeC+KHP98tNCL4JuKRnYcbzO0j9wLajSORCqT957UZlrMleQBgjH3i4GKtQMXH
+	utE7lsD7VNJ0A2VeBd6k/fQdDvqZLD5UH/IDTb4nuckR84/xCoCMQTbgEN4iHUlbBTQWo47XXln
+	VfzdHhaxJiCXg9qBRgAC0Uqz2dn2a+NojCtBkpUzHc09zKE4kArS+R7VxRhBwGY8/4LTobZ4NST
+	BOu4s/rSloe+1EYVc0gcNgo8M/LV6waG+CYHPFw7brC5HUGk8PsfSbKrzYvjjiR0SC+Aw08Xjvt
+	TbxZ2Q2hg1kAtdRSSXUW2tU/4z8Kqjsh+OUq6WzjWH182rFlhM4rM0BdIXn4gU4mG9OLj76wacM
+	sMMe/wR2WQp/zs8wivlSm9IlLHtVOHe23kYI0MBWj0AeKMIptrXUuOxoQuQj93A7FD7LN4M04mM
+	mO3xNxdhWhb8Z+8fFwu6GIaZrnxP2ZMz5dKfzbnmvpjGWFodze3n2pkXfP8cC+ZARxVdGpd5exx
+	7uR4DhpkS/lqMk8H77Br5gOz34eadh19z0izTVdC66KfsbWkyLtYidQa9dz5gKpow9R3wBAY6Cn
+	VzEZlSdAKUQ9d+5Pe3bduia45u9s9ehpJcoaGJdRvWLrJg==
+X-Received: by 2002:a05:7301:4283:b0:386:96fb:28c with SMTP id 5a478bee46e88-38696fb2022mr10401298eec.18.1795447691706;
+        Mon, 23 Nov 2026 07:28:11 -0800 (PST)
+Received: from localhost.localdomain ([2404:c0:aa07:12b3:e89:dfdd:d14b:d911])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm46569087eec.5.2026.11.23.07.28.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 07:28:11 -0800 (PST)
+From: Hikmah Gumelar <hikmahgumelar@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Hikmah Gumelar <hikmahgumelar@gmail.com>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH bpf-next v3 1/9] bpf: Add log support for tracing link_create
-Date: Mon, 23 Nov 2026 23:27:35 +0800
-Message-ID: <20261123152743.19629-2-leon.hwang@linux.dev>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
-References: <20261123152743.19629-1-leon.hwang@linux.dev>
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: [PATCH v3 2/7] media: dt-bindings: media: i2c: add Samsung S5K5E8
+Date: Mon, 23 Nov 2026 22:27:17 +0700
+Message-ID: <20261123152722.168879-3-hikmahgumelar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261123152722.168879-1-hikmahgumelar@gmail.com>
+References: <20261123123546.152162-1-hikmahgumelar@gmail.com>
+ <20261123152722.168879-1-hikmahgumelar@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,155 +115,123 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Tracing BPF_LINK_CREATE returns errors for invalid attach parameters
-without explaining which check failed.
+Add Devicetree binding schema for the Samsung S5K5E8 5-megapixel MIPI CSI-2 CMOS image sensor.
 
-Report parameter and reattachment errors through the link creation log.
-Pass the log to bpf_check_attach_target() so freplace attachment to a new
-target also reports target-check failures.
-
-Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+Signed-off-by: Hikmah Gumelar <hikmahgumelar@gmail.com>
 ---
- kernel/bpf/syscall.c  | 22 +++++++++++++++++-----
- kernel/bpf/verifier.c |  6 ++++--
- 2 files changed, 21 insertions(+), 7 deletions(-)
+ .../bindings/media/i2c/samsung,s5k5e8.yaml    | 103 ++++++++++++++++++
+ 1 file changed, 103 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/i2c/samsung,s5k5e8.yaml
 
-diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
-index ec8e78792911..80504011403f 100644
---- a/kernel/bpf/syscall.c
-+++ b/kernel/bpf/syscall.c
-@@ -3677,7 +3677,8 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
- 				   int tgt_prog_fd,
- 				   u32 btf_id,
- 				   u64 bpf_cookie,
--				   enum bpf_attach_type attach_type)
-+				   enum bpf_attach_type attach_type,
-+				   struct bpf_verifier_log *log)
- {
- 	struct bpf_link_primer link_primer;
- 	struct bpf_prog *tgt_prog = NULL;
-@@ -3714,6 +3715,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
- 	}
- 
- 	if (!!tgt_prog_fd != !!btf_id) {
-+		bpf_log(log, "target_fd and target_btf_id must be both set or both unset.\n");
- 		err = -EINVAL;
- 		goto out_put_prog;
- 	}
-@@ -3726,12 +3728,14 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
- 		 * attach_tracing_prog flag is set.
- 		 */
- 		if (prog->type != BPF_PROG_TYPE_EXT) {
-+			bpf_log(log, "target_fd is only allowed for freplace prog.\n");
- 			err = -EINVAL;
- 			goto out_put_prog;
- 		}
- 
- 		tgt_prog = bpf_prog_get(tgt_prog_fd);
- 		if (IS_ERR(tgt_prog)) {
-+			bpf_log(log, "Invalid tgt_fd.\n");
- 			err = PTR_ERR(tgt_prog);
- 			tgt_prog = NULL;
- 			goto out_put_prog;
-@@ -3786,11 +3790,14 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
- 		 */
- 		if (prog->type != BPF_PROG_TYPE_TRACING &&
- 		    prog->type != BPF_PROG_TYPE_LSM) {
-+			bpf_log(log,
-+				"Re-attach of freplace prog needs target_fd and target_btf_id.\n");
- 			err = -EINVAL;
- 			goto out_unlock;
- 		}
- 		/* We can allow re-attach only if we have valid attach_btf. */
- 		if (!prog->aux->attach_btf) {
-+			bpf_log(log, "Cannot re-attach a prog that was attached to a bpf prog.\n");
- 			err = -EINVAL;
- 			goto out_unlock;
- 		}
-@@ -3806,7 +3813,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
- 		 */
- 		struct bpf_attach_target_info tgt_info = {};
- 
--		err = bpf_check_attach_target(NULL, prog, tgt_prog, btf_id,
-+		err = bpf_check_attach_target(log, prog, tgt_prog, btf_id,
- 					      &tgt_info);
- 		if (err)
- 			goto out_unlock;
-@@ -3846,6 +3853,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
- 	 */
- 	if (prog->type == BPF_PROG_TYPE_EXT &&
- 	    prog->aux->kprobe_write_ctx != tgt_prog->aux->kprobe_write_ctx) {
-+		bpf_log(log, "Only one of freplace prog and its target writes to pt_regs.\n");
- 		err = -EINVAL;
- 		goto out_unlock;
- 	}
-@@ -3859,6 +3867,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
- 	     tgt_prog->type == BPF_PROG_TYPE_TRACEPOINT ||
- 	     tgt_prog->type == BPF_PROG_TYPE_SYSCALL) &&
- 	    prog->aux->max_ctx_offset > tgt_prog->aux->max_ctx_offset) {
-+		bpf_log(log, "Freplace prog accesses more ctx than its target.\n");
- 		err = -EINVAL;
- 		goto out_unlock;
- 	}
-@@ -4383,7 +4392,7 @@ static int bpf_raw_tp_link_attach(struct bpf_prog *prog,
- 			tp_name = prog->aux->attach_func_name;
- 			break;
- 		}
--		return bpf_tracing_prog_attach(prog, 0, 0, 0, attach_type);
-+		return bpf_tracing_prog_attach(prog, 0, 0, 0, attach_type, NULL);
- 	case BPF_PROG_TYPE_RAW_TRACEPOINT:
- 	case BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE:
- 		if (strncpy_from_user(buf, user_tp_name, sizeof(buf) - 1) < 0)
-@@ -5927,11 +5936,13 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
- 					      attr->link_create.target_fd,
- 					      attr->link_create.target_btf_id,
- 					      attr->link_create.tracing.cookie,
--					      attr->link_create.attach_type);
-+					      attr->link_create.attach_type,
-+					      log);
- 		break;
- 	case BPF_PROG_TYPE_LSM:
- 	case BPF_PROG_TYPE_TRACING:
- 		if (attr->link_create.attach_type != prog->expected_attach_type) {
-+			bpf_log(log, "attach_type is not expected_attach_type of the prog.\n");
- 			ret = -EINVAL;
- 			goto out;
- 		}
-@@ -5949,7 +5960,8 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
- 						      attr->link_create.target_fd,
- 						      attr->link_create.target_btf_id,
- 						      attr->link_create.tracing.cookie,
--						      attr->link_create.attach_type);
-+						      attr->link_create.attach_type,
-+						      log);
- 		break;
- 	case BPF_PROG_TYPE_FLOW_DISSECTOR:
- 	case BPF_PROG_TYPE_SK_LOOKUP:
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index dea18409f480..58d3588ffc84 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -24345,7 +24345,7 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
- 
- 		if (bpf_prog_is_dev_bound(prog->aux) &&
- 		    !bpf_prog_dev_bound_match(prog, tgt_prog)) {
--			bpf_log(log, "Target program bound device mismatch");
-+			bpf_log(log, "Target program bound device mismatch\n");
- 			return -EINVAL;
- 		}
- 
-@@ -24605,8 +24605,10 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
- 
- 		if ((prog->aux->saved_dst_prog_type || prog->aux->saved_dst_attach_type) &&
- 		    (!tgt_prog || prog->aux->saved_dst_prog_type != tgt_prog->type ||
--		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type))
-+		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type)) {
-+			bpf_log(log, "Target differs in type from the target at load time\n");
- 			return -EINVAL;
-+		}
- 
- 		if (tgt_prog && conservative) {
- 			/*
+diff --git a/Documentation/devicetree/bindings/media/i2c/samsung,s5k5e8.yaml b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5e8.yaml
+new file mode 100644
+index 000000000000..7c538e48ca25
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5e8.yaml
+@@ -0,0 +1,103 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/i2c/samsung,s5k5e8.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Samsung S5K5E8 1/5-inch 5Mp CMOS Image Sensor
++
++maintainers:
++  - Hikmah Gumelar <hikmahgumelar@gmail.com>
++
++description:
++  Samsung S5K5E8 is a 1/5-inch 5-megapixel CMOS active-pixel digital image
++  sensor with a 2-lane MIPI CSI-2 interface and I2C control bus.
++
++allOf:
++  - $ref: /schemas/media/video-interface-devices.yaml#
++
++properties:
++  compatible:
++    const: samsung,s5k5e8
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  reset-gpios:
++    description: Active-low reset GPIO.
++    maxItems: 1
++
++  avdd-supply:
++    description: Analog power supply (2.8V).
++
++  dvdd-supply:
++    description: Digital core power supply (1.2V).
++
++  dovdd-supply:
++    description: Digital I/O power supply (1.8V).
++
++  port:
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    additionalProperties: false
++
++    properties:
++      endpoint:
++        $ref: /schemas/media/video-interfaces.yaml#
++        unevaluatedProperties: false
++
++        properties:
++          data-lanes:
++            items:
++              - const: 1
++              - const: 2
++
++          link-frequencies: true
++
++        required:
++          - data-lanes
++          - link-frequencies
++
++    required:
++      - endpoint
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - avdd-supply
++  - dvdd-supply
++  - dovdd-supply
++  - port
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        camera-sensor@2d {
++            compatible = "samsung,s5k5e8";
++            reg = <0x2d>;
++            clocks = <&camss_mclk1>;
++            reset-gpios = <&tlmm 129 GPIO_ACTIVE_LOW>;
++            avdd-supply = <&pm8953_l22>;
++            dvdd-supply = <&pm8953_l23>;
++            dovdd-supply = <&pm8953_l6>;
++
++            port {
++                endpoint {
++                    data-lanes = <1 2>;
++                    remote-endpoint = <&csiphy2_ep>;
++                    link-frequencies = /bits/ 64 <418000000>;
++                };
++            };
++        };
++    };
++...
 -- 
-2.55.0
+2.47.3
 
