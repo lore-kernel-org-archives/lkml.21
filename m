@@ -1,106 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795441308;
-	b=iNAKSkGTLT7+bUAN0P8cPT1H+f8XS+xDuWOtX8NLIh+f6LEGlb6WHQIJi65QbP2BscmG
-	 ZdJ3UlRMm8gikQffdT6ds1e+jTkg6e6QopwBdOTmrOcWAR8Ld6PSUfxfWO9LuoS3rQomp
-	 GqiOm9XVM4LBA/sTRNiWG9WEvbRf8fAIZZf8kBcGKZCH9I3ZpBgjgarxA6V4jLnMWb66c
-	 3p3NmNFqopcYtj1+UGcvZjm3BeVk5v1zSs34BWz95I/O1v7Ja+K6+d74b4D+9XaAUcgL+
-	 AA5YZ0RZOCpamsqEHYxrioKARjwI/j8LpDbPjqwzkgaghggpULKLVcVOYWxO3noJtmA==
+	t=1795441309;
+	b=ATFdZUgT4akaXB/8JYWDCLltqCU3VTSo49nId1I98/k3c5Vpet7VXy+2JzOsoLpXsLap
+	 hTFjVcBCVstghSzQET3mISZrzUXNnSfI9luQY+cAVWjisv4GZaJUseU6Hqw1uer2ArS1O
+	 bjB1rKIaezi+CAPeQpAR8YwbOQrt4Uj4cJp0SQGdWWUDjRyTImUzLfTYaUEf4ia785SpY
+	 Xh3FkV5r2Uemwe/u7p9kJ4XZb0hFWcsImzECdYYOLUgpQrKn9VqfMvKff3sRVG6XPKJzR
+	 dJ0vtLS83BNADA0FbHJsFMl+WOYNchOUGD71eB9UA1kEIPMhr4dGyoGxvO5T/Ey5qAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795441308;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=nwwBBeDfE3bOmk9i9h8bqwu9NkavUmtOUddaayOfYs8=;
-	b=TipiC/bsFa/BUCT96BuCHnGKyfkAHTg9ujgNKvsDNxP+bCE03Otq4PE0BaNxGlRhbB47
-	 yxwOfv22xKM+jEZL1c4lmT38PyhHHfLl45qT1TYQxqEM2nn7dtp1IjEmJaM2Fh/H8bBiS
-	 0Du1h6MsjPTS0f5XQeoQ89zL0xyFK42zgPXzm1r/Q1pWQDBrzwqFMDm4HRTd8IUzSlBkP
-	 wozYt50FDegNLtUMKGUxg2iO+IU4C1cQT0XS7N3itGu9DUx88YkM9HTLDeqr6tkH+F2bF
-	 9ePqYD88dlqBb0V4gYscMDdJmuj+sM7EGO/rM0qIk2jfSxwpSCGc+lOMZ8a4n69cYZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795441309;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=OfUQG0hIlRCU2lWDqx8AQM7i0FOxlUbopxLtGav1S8I=;
+	b=QF94kiDBtwhdWQLSgSL7tM6MtzAAj53Q0kktiD/yW2a4XjqkdoTi3adwfa5vjuKZXz2C
+	 dfD9pNIYpaaE31zUxD87ZGzV48TTutWt0EEXiFZYn+F8BElahh7D3U3n4xu4FWG76CzC7
+	 DiRq7CKyFZdWcG3GUNWM0Yvj5l5bFXiXI1OQdsisFxh7Byg2kiRVrmvH6pFXwpDWQ4kf2
+	 47hzNJw36QzhEhXxNm1USzVmIfrubJuFXA9Ac5M1HFFweZJz66ZLYX2b3pECC4wATtC2e
+	 QNM2YSMqes3H5H3E4LjXLX0VPh4jAVpxBWJrstKDX58nFSzb2LhH8/V/MFsEyp7NhdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=fVmopC5A;
-	arc=none smtp.remote-ip=209.85.208.51
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ph0NGALv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C09B606B51A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:41:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C09B606B51A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 9E4EB606B53B;
+	Mon, 23 Nov 2026 13:41:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=fVmopC5A
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b894a5ce3dso4377788a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:41:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795441307; x=1796046107; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nwwBBeDfE3bOmk9i9h8bqwu9NkavUmtOUddaayOfYs8=;
-        b=fVmopC5Azv7G2zqhIkMkG48pulMJ8nqmwqWT8jou9lPde0nGHp+eKYvDALdohtChZz
-         /+jUzZe+/Hjh9+F1OVnCJfjglbpb6Z8YaP7v3VTTkDZdiAGXYCwB2UcCIU+3S5y+B5+6
-         bQn5rsWQLq3anrPZ8EWMKlm846VCCGLVTrzRdLZk902bGjNuPmNIg5JF4rx56YB8bemh
-         a0wz2+S+paEVRLyGrsdXUNjRPH7VJlWBnuxXxm6CxciV9C5vX0BYJRk9YQb+7LS/kZ5k
-         GTxANncZECW4Rde+hpp76PjixjaCIkz6frcjxAkY0Syx0EzfhTmeuxzBfY9ITNoj91X5
-         bOOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795441307; x=1796046107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nwwBBeDfE3bOmk9i9h8bqwu9NkavUmtOUddaayOfYs8=;
-        b=NqcD3J5FpkjRgMbp2+59gbmGiUp/GF1271Md5bVd7RXP9WRWCOHzlboQ0/v7uA/6yP
-         EohGkfAeUfuVwIE+MHFGBIYeT8h1pzwttstex3TsuiBzMvhwqpOKkItNVKkuP0jFA9cO
-         z48Wk97kKxJUlPH4/U4JhVkx/FlcHCg1UpkuIaxvem1xFmMIccYYSRGm5g1kw7tSjR3d
-         /qyDXvfeEyVkHWz0QORpamqyWDrAw+otkPt7aKaMviaVHxp91w0e5Hb3Nbc5NAoSOXmL
-         UuNtehR9+CaBgFRIJH+klPoD8bqjyKqv0hyaxJTxgvb97rA8OFRnBN3lb6Zrd3kkZEVH
-         zBUg==
-X-Forwarded-Encrypted: i=1; AL+hErEIFKU3Z9gAVfK2s6y8pDL0o1DhNUH/nvpDzaBvy+1b6rIRhPjTDK3ug6su+cX/dgDY4IcNGy3FwJwv6Z4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Lw+Nx2qHg7s+IDQR6mtAwbptkU067TWbjbDElrbRggyidN9ex
-	Txab3FJdevYX8krlZOhWJ2rr3VCoK9m3HHvTOa2Ns1cT9P+N/nt9gl6vYiOABApkuA==
-X-Gm-Gg: AZFdTZePBG2Z+NsE1YFXAZ21x3F84t5nINm0Nkxbu31IoxeQSKnrCi3Bt7S/+UZ4XMg
-	VmsLLLgZOXG60KAQtAKnZM+dbDm502qIPvaDDjqoVbsYE+MAaN+vHPmzKbPSzeBsyhB2xn1y/hr
-	VGSmwQgM3PAJ2MespNXTCTas1hjk+rj9ZKMwJ2EXnqgGF8RJwesjzglltPeXzUpcZSYfJEI5Zpc
-	royGutJYoMBKZ8zPeZKu6ySJWodH2SAjphwI7l1UVyI9OKvmB3dtuPqwtLV93YuocpmiiFYsj0d
-	sYy0a1aMOEDE1586MrW/gXUTmmJtQvtGzkuG7iVTEF5atCvuU3SLr1xmb2IICTZEBT18g+tE2si
-	I1CDo75oJD24xqyoRbQtccWeOP8/6VJflqRsdjLsm4iwci2dFkJ3abGXoXx9aG+hw9DlgEDcj8K
-	81J7t5x6yEwJXOYo+rdqI4QxdBLiD9EHUW5u2miEuX/Tb6TNwn7VmKcAy/l7I2hRCLqI13u1qq4
-	NrSXjn185p5cePAvrn8R1hq65rlGf7UGRAFuFfi+8oHeK6ISJPsMnDpmJTSCn1E4XDLp/eL5BxW
-	2VhqZwcR7N7L84PI5367IqBZJ/vKAc89PAvvW/+Skb0mPNrn0r8wwet4jl/+xkLMOHyIpeLounG
-	j24aYogB81Y2C2ZTrCXkPCeDm0K2+5PkQQYeA8w2GbA2uDST0Z6IGRK70mjE1t0zZmx5j+KwxBL
-	ZJrqzjXLvbRiVZKLBtXFNfIBskJNRnANNMKGtznAC0MSuk371h9BYw8AhzQ/PWz28wgWGbCl+b0
-	RZZxNMaaK/MEq0b07aLOBeFrGjVMbCqxaplVVSWAOloCVWWsox5q6a8GrfsLNyRXdp/86TAplDV
-	AActS8jYHVI0qAEI1GtE828Xi4XBk67I9vStUGGRjffbAs8g1LvdG4+/ZrvPE/+evm26y4etgjY
-	nI9tGjen74rM+PgPcSHc=
-X-Received: by 2002:a05:6402:13d2:b0:6b7:e902:5e23 with SMTP id 4fb4d7f45d1cf-6ba37ea6d00mr8878197a12.33.1795441306709;
-        Mon, 23 Nov 2026 05:41:46 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f247012000e9a6b19fb24a0d13.dip0.t-ipconnect.de. [2003:f2:4701:2000:e9a6:b19f:b24a:d13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fbf0esm5339576a12.23.2026.11.23.05.41.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:41:46 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: Jeff Johnson <jjohnson@kernel.org>
-Cc: ath11k@lists.infradead.org,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-	Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>,
-	Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>,
-	Praneesh P <praneesh.p@oss.qualcomm.com>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Mark Ruvald Pedersen <wabsie@gmail.com>,
-	Rosen Penev <rosenp@gmail.com>
-Subject: [PATCH ath-next v1 08/10] wifi: ath11k: take the refill buffer lock without a second BH disable
-Date: Mon, 23 Nov 2026 14:41:35 +0100
-Message-ID: <20261123134137.718575-9-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261123134137.718575-1-julius@bairaktaris.de>
-References: <20261123134137.718575-1-julius@bairaktaris.de>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ph0NGALv
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 6F91C1F000D3;
+	Mon, 23 Nov 2026 13:41:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795441309;
+	bh=OfUQG0hIlRCU2lWDqx8AQM7i0FOxlUbopxLtGav1S8I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ph0NGALvgJ6621gLVBUDxpyOtR116nbgvX0Xz+SeVGMmN1mSDrPPpPOqxov/QpsOm
+	 5dzSMOVvNtZkEWuhmlNi/oEqaavEHtHc7n0aJDHdESU5SgbtP6Fx2benaJ9YeWvUUH
+	 lm1zomPR7U6eJhzvjGS+m//YQtH+lU7uVAETCFwuczLPZMZF9G5lNSiS1xLnscDeW4
+	 AvlF1blkqjClLo06CrxhCkkb25CmgU5neVR1wv/vkeq7YAiT2oWrvZGD4q/jSKMMRr
+	 uHgRlSYYigdYK2Dh+2qwuGi3NXMbk6D9wbaqOSBGWpqeUAtqVwtg/G0yYHo30HObQT
+	 we9Cku3bTx1UA==
+Date: Mon, 23 Nov 2026 14:41:46 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Nicolae-Daniel Deaconescu <Nicolae-daniel.Deaconescu@analog.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Rob Herring <robh@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, 
+	Michael Hennerich <michael.hennerich@analog.com>, Trevor Gamblin <tgamblin@baylibre.com>, 
+	Joshua Crofts <crofts@kernel.org>, Sergiu Cuciurean <sergiu.cuciurean@analog.com>, 
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/6] pwm: core: add pwm_get_waveform_step_might_sleep()
+Message-ID: <awQ9oGse6orrsCDj@monoceros>
+References: <20261119112437.197306-1-Nicolae-daniel.Deaconescu@analog.com>
+ <20261119112437.197306-2-Nicolae-daniel.Deaconescu@analog.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,80 +63,271 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="piy3wfen7flpu6zb"
+Content-Disposition: inline
+In-Reply-To: <20261119112437.197306-2-Nicolae-daniel.Deaconescu@analog.com>
 
-The REO reap and the refill take the buffer table lock of the refill
-ring once per frame with spin_lock_bh(), inside their hold of the ring
-lock, which they take with spin_lock_bh() and which keeps bottom halves
-off for the whole loop. Each unlock then goes through
-__local_bh_enable_ip() for nothing: in a profile of bridged uplink at
-900 Mbit/s (IPQ8074, one run) the instruction after that call in
-ath11k_dp_rxbufs_replenish() takes 0.43 % of all samples and the one in
-ath11k_dp_process_rx() 0.13 %, and __local_bh_enable_ip() itself 1.23 %
-from all its callers.
 
-Take the table lock with spin_lock() in these two loops and in the
-refill's error path, which all run under the ring lock. The other holders
-of the table lock still disable bottom halves themselves, and none takes
-it from hard interrupt context.
+--piy3wfen7flpu6zb
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 1/6] pwm: core: add pwm_get_waveform_step_might_sleep()
+MIME-Version: 1.0
 
-Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
- drivers/net/wireless/ath/ath11k/dp_rx.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+On Thu, Nov 19, 2026 at 01:24:15PM +0200, Nicolae-Daniel Deaconescu wrote:
+> A consumer that must meet minimum times, or place an edge relative to the
+> cycles of a clock a PWM gates, can't do that with the waveform API alone:
+> rounding goes down, and the margin a minimum needs is the PWM step, known
+> only to the provider.
+>=20
+> Let the provider report the rate of the clock its timing derives from and
+> the clock cycles per step. A consumer then works in whole steps and rounds
+> up when converting to nanoseconds, instead of reading the rate from a clo=
+ck
+> it gets on its own, which breaks if the PWM divides its clock.
+>=20
+> Signed-off-by: Nicolae-Daniel Deaconescu <Nicolae-daniel.Deaconescu@analo=
+g.com>
+> ---
+>  drivers/pwm/core.c  | 69 +++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/pwm.h | 34 ++++++++++++++++++++++
+>  2 files changed, 103 insertions(+)
+>=20
+> diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
+> index 2a050ff4608b..a63b8f65a43d 100644
+> --- a/drivers/pwm/core.c
+> +++ b/drivers/pwm/core.c
+> @@ -14,6 +14,7 @@
+>  #include <linux/of.h>
+>  #include <linux/pwm.h>
+>  #include <linux/list.h>
+> +#include <linux/math64.h>
+>  #include <linux/mutex.h>
+>  #include <linux/err.h>
+>  #include <linux/slab.h>
+> @@ -325,6 +326,68 @@ int pwm_get_waveform_might_sleep(struct pwm_device *=
+pwm, struct pwm_waveform *wf
+>  }
+>  EXPORT_SYMBOL_GPL(pwm_get_waveform_might_sleep);
+> =20
+> +/**
+> + * pwm_get_waveform_step_might_sleep - Query the granularity of the wave=
+forms
+> + * Cannot be used in atomic context.
+> + * @pwm: PWM device
+> + * @step: output parameter
+> + *
+> + * Stores in @step the clock rate the timing of @pwm is derived from and=
+ how
+> + * many cycles of that clock one step lasts. Period, duty length and duty
+> + * offset are multiples of that step, so a waveform that is asked for in=
+ whole
+> + * steps, and is within the range of the hardware, is not changed by rou=
+nding.
+> + * Compute the length of n steps in nanoseconds as
+> + * n * @step->clk_cycles_per_step * NSEC_PER_SEC / @step->clk_rate_Hz an=
+d round
+> + * it up, because pwm_round_waveform_might_sleep() and
+> + * pwm_set_waveform_might_sleep() round down. The product can exceed 64 =
+bits, so
+> + * compute it with mul_u64_u64_div_u64_roundup().
+> + *
+> + * The values can change when a clock changes its rate, so they are only=
+ valid
+> + * as long as the provider's input clocks are not reconfigured.
 
-diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
-index ff09463d829f..dd5bc35581f7 100644
---- a/drivers/net/wireless/ath/ath11k/dp_rx.c
-+++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
-@@ -513,9 +513,10 @@ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
- 				goto fail_free_skb;
- 		}
- 
--		spin_lock_bh(&rx_ring->bufs_lock);
-+		/* bottom halves are off with the ring lock */
-+		spin_lock(&rx_ring->bufs_lock);
- 		buf_id = ath11k_dp_rx_buf_get_id(rx_ring, skb);
--		spin_unlock_bh(&rx_ring->bufs_lock);
-+		spin_unlock(&rx_ring->bufs_lock);
- 		if (buf_id <= 0)
- 			goto fail_dma_unmap;
- 
-@@ -540,9 +541,9 @@ int ath11k_dp_rxbufs_replenish(struct ath11k_base *ab, int mac_id,
- 	return req_entries - num_remain;
- 
- fail_idr_remove:
--	spin_lock_bh(&rx_ring->bufs_lock);
-+	spin_lock(&rx_ring->bufs_lock);
- 	ath11k_dp_rx_buf_put_id(rx_ring, buf_id);
--	spin_unlock_bh(&rx_ring->bufs_lock);
-+	spin_unlock(&rx_ring->bufs_lock);
- fail_dma_unmap:
- 	if (!rx_ring->page_pool)
- 		dma_unmap_single(ab->dev, paddr, skb->len + skb_tailroom(skb),
-@@ -3071,17 +3072,18 @@ int ath11k_dp_process_rx(struct ath11k_base *ab, int ring_id,
- 
- 		ar = ab->pdevs[mac_id].ar;
- 		rx_ring = &ar->dp.rx_refill_buf_ring;
--		spin_lock_bh(&rx_ring->bufs_lock);
-+		/* bottom halves are off with the ring lock */
-+		spin_lock(&rx_ring->bufs_lock);
- 		msdu = ath11k_dp_rx_buf_lookup(rx_ring, buf_id);
- 		if (unlikely(!msdu)) {
- 			ath11k_warn(ab, "frame rx with invalid buf_id %d\n",
- 				    buf_id);
--			spin_unlock_bh(&rx_ring->bufs_lock);
-+			spin_unlock(&rx_ring->bufs_lock);
- 			continue;
- 		}
- 
- 		ath11k_dp_rx_buf_put_id(rx_ring, buf_id);
--		spin_unlock_bh(&rx_ring->bufs_lock);
-+		spin_unlock(&rx_ring->bufs_lock);
- 
- 		rxcb = ATH11K_SKB_RXCB(msdu);
- 		ath11k_dp_rx_unmap_buf(ab, msdu, DMA_FROM_DEVICE);
--- 
-2.53.0
+That function seems to be conceptually bogous. Some drivers change their
+input clock when configuring a given setting. Also not all hardware
+implementations have such a step value (see e.g. the tegra driver. There
+the duty can be configured to i/256 * period (for i in 0..256), so the
+step value for duty differs from the step value for period).
 
+> + *
+> + * Context: May sleep.
+> + * Returns: 0 on success, -EOPNOTSUPP if the provider doesn't report it =
+or a
+> + * negative errno.
+> + */
+> +int pwm_get_waveform_step_might_sleep(struct pwm_device *pwm,
+> +				      struct pwm_waveform_step *step)
+> +{
+> +	struct pwm_chip *chip =3D pwm->chip;
+> +	const struct pwm_ops *ops =3D chip->ops;
+> +	int ret;
+> +
+> +	might_sleep();
+> +
+> +	if (!pwmchip_supports_waveform(chip) || !ops->get_waveform_step)
+> +		return -EOPNOTSUPP;
+> +
+> +	guard(pwmchip)(chip);
+> +
+> +	if (!chip->operational)
+> +		return -ENODEV;
+> +
+> +	if (IS_ENABLED(CONFIG_PWM_DEBUG) && chip->atomic) {
+> +		/*
+> +		 * Catch any drivers that have been marked as atomic but
+> +		 * that will sleep anyway.
+> +		 */
+> +		non_block_start();
+> +		ret =3D ops->get_waveform_step(chip, pwm, step);
+> +		non_block_end();
+> +	} else {
+> +		ret =3D ops->get_waveform_step(chip, pwm, step);
+> +	}
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!step->clk_rate_Hz ||
+> +	    step->clk_rate_Hz > mul_u32_u32(step->clk_cycles_per_step, NSEC_PER=
+_SEC))
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(pwm_get_waveform_step_might_sleep);
+> +
+>  /* Called with the pwmchip lock held */
+>  static int __pwm_set_waveform(struct pwm_device *pwm,
+>  			      const struct pwm_waveform *wf,
+> @@ -1710,6 +1773,12 @@ static bool pwm_ops_check(const struct pwm_chip *c=
+hip)
+>  		if (!ops->apply)
+>  			return false;
+> =20
+> +		if (ops->get_waveform_step) {
+> +			dev_warn(pwmchip_parent(chip),
+> +				 ".get_waveform_step() needs .write_waveform()\n");
+> +			return false;
+> +		}
+> +
+>  		if (IS_ENABLED(CONFIG_PWM_DEBUG) && !ops->get_state)
+>  			dev_warn(pwmchip_parent(chip),
+>  				 "Please implement the .get_state() callback\n");
+> diff --git a/include/linux/pwm.h b/include/linux/pwm.h
+> index b11ae91723f8..c52f4c9153c2 100644
+> --- a/include/linux/pwm.h
+> +++ b/include/linux/pwm.h
+> @@ -76,6 +76,34 @@ struct pwm_waveform {
+>  	u64 duty_offset_ns;
+>  };
+> =20
+> +/**
+> + * struct pwm_waveform_step - granularity of the waveforms a PWM can gen=
+erate
+> + * @clk_rate_Hz: rate of the clock the PWM's timing is derived from
+> + * @clk_cycles_per_step: number of those clock cycles one step lasts
+> + *
+> + * The period, the duty length and the duty offset of a waveform are mul=
+tiples
+> + * of one step, which lasts @clk_cycles_per_step / @clk_rate_Hz seconds.=
+ A PWM
+> + * that divides its input clock in hardware has @clk_cycles_per_step > 1=
+=2E A
+> + * waveform that is asked for in whole steps, and is within the range of=
+ the
+> + * hardware, is not changed by rounding.
+> + *
+> + * The step is the same for every waveform and for the period, the duty =
+length
+> + * and the duty offset, so a provider whose granularity depends on the
+> + * requested period (for example through a prescaler) can't describe its=
+elf
+> + * with it. One step also has to last at least 1 ns, otherwise rounding a
+> + * length in nanoseconds up can add a whole step.
+> + *
+> + * A consumer that needs a minimum time, or that has to place an edge re=
+lative
+> + * to the cycles of the clock a PWM channel gates, can use this to ask f=
+or
+> + * the next possible value instead of one that is rounded down, and to c=
+ompute
+> + * the frequency a rounded period results in without the error of the
+> + * nanosecond resolution of struct pwm_waveform.
+> + */
+> +struct pwm_waveform_step {
+> +	unsigned long clk_rate_Hz;
+> +	unsigned int clk_cycles_per_step;
+> +};
+> +
+>  /*
+>   * struct pwm_state - state of a PWM channel
+>   * @period: PWM period (in nanoseconds)
+> @@ -287,6 +315,9 @@ struct pwm_capture {
+>   * @round_waveform_fromhw: convert a driver specific waveform presentati=
+on to struct pwm_waveform
+>   * @read_waveform: read driver specific waveform presentation from hardw=
+are
+>   * @write_waveform: write driver specific waveform presentation to hardw=
+are
+> + * @get_waveform_step: optional, report the granularity of the waveforms=
+=2E Called
+> + *	with the chip locked, so it must not sleep on an atomic chip and shou=
+ld
+> + *	report a cached clock rate instead of calling clk_get_rate()
+
+The part about clk_get_rate() is an implementation detail that doesn't
+need to be mentioned after "must not sleep" was stated.
+
+>   * @apply: atomically apply a new PWM config
+>   * @get_state: get the current PWM state.
+>   */
+> @@ -305,6 +336,8 @@ struct pwm_ops {
+>  			    void *wfhw);
+>  	int (*write_waveform)(struct pwm_chip *chip, struct pwm_device *pwm,
+>  			      const void *wfhw);
+> +	int (*get_waveform_step)(struct pwm_chip *chip, struct pwm_device *pwm,
+> +				 struct pwm_waveform_step *step);
+> =20
+>  	int (*apply)(struct pwm_chip *chip, struct pwm_device *pwm,
+>  		     const struct pwm_state *state);
+> @@ -394,6 +427,7 @@ static inline void pwmchip_set_drvdata(struct pwm_chi=
+p *chip, void *data)
+>  /* PWM consumer APIs */
+>  int pwm_round_waveform_might_sleep(struct pwm_device *pwm, struct pwm_wa=
+veform *wf);
+>  int pwm_get_waveform_might_sleep(struct pwm_device *pwm, struct pwm_wave=
+form *wf);
+> +int pwm_get_waveform_step_might_sleep(struct pwm_device *pwm, struct pwm=
+_waveform_step *step);
+>  int pwm_set_waveform_might_sleep(struct pwm_device *pwm, const struct pw=
+m_waveform *wf, bool exact);
+>  int pwm_apply_might_sleep(struct pwm_device *pwm, const struct pwm_state=
+ *state);
+>  int pwm_apply_atomic(struct pwm_device *pwm, const struct pwm_state *sta=
+te);
+
+I didn't understand what you want to achieve with this function. For
+some PWMs it might help to select a configuration matching your needs.
+"some" and "might" in the previous sentence are bad, so you need to fall
+back to the already existing rounding functions to make your driver
+generic. And then please use the existing functions already now. (That
+doesn't mean I oppose extending the pwm core for that, new helpers are
+fine iff they work independant of the underlying hardware.)
+
+For example the already existing callbacks allow to compute for a given
+period P and duty_cycle D the next bigger implementable duty cycle value
+D' such that configuring D' and P yields a duty_cycle bigger than D.
+
+Best regards
+Uwe
+
+--piy3wfen7flpu6zb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsEQpcACgkQj4D7WH0S
+/k5n/wf/Z4nW6w8kpUfDZfFpHvhb3vn+jXJ4YZImAJhcfFLWVyhnttqXVirhK5zp
+JfWhz7f5pqU1uQcoDGWoBnNQ22WY5ZKqg07nDqBoWrUvSscV+LFZdmbIRmwGlJT3
+dUPkx4EF38FGdIvIlgolVwalmtbagh0SyPMWp+jM7ACf9gCjzA2+Ndt72SqzQ1ft
+iSOoepiQengajmqlz8mxFgZFi/YyX6L/lrc0S2/ZeZA05G5sYcdoJK/nahb369F9
+6pZ0fd5KdYSbyq3tgdIB5Xi7WELZctT8OPWGD0kZ1bEZo17hvUlrHyoUB0idWY0D
+hC4OE3FZIuC1n4ErtVypFEmgdk75oQ==
+=NSy7
+-----END PGP SIGNATURE-----
+
+--piy3wfen7flpu6zb--
