@@ -1,75 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427740;
-	b=MqTrWNihTR/LTW9/GpyQTiSieytCAveNiihsqDjgcO3Mjt4Ylflx3ZFmQ+hbdnOL0S+u
-	 1eZvoEflJs287Ci1N2HGKbVGCTeNHuDAHp6CDyhkGiwRQBbKDLDLCCjGE9GMtbDmuubOC
-	 YfmUPGG0J6QCUC48hj2AGlYZrQd9e36SHjVJBgyQhUoNfIuRr7qbMyEKCqCRZnTk6Kxo4
-	 vTYXoO20xVxdyCT4dn1NjIKjh2vMNdV6Ngnhjv87XY6FaANTfuk5Xq8AUTG5xKVoq3VdD
-	 RgVAMXAl3SlFT43kSL99UWQSd8N+7Wh5T2o5e8rlJdi1c4uwPCafqTWRxm6BVL+wg5Q==
+	t=1795427744;
+	b=L40utZimWoQvWxWQFWM9/5dKkRDQCjNG9cGDmUP9/4vIdeuy/we0TbyRzhu7QaTh71cN
+	 clzlzWLYjgcFkboiMdQfL2T9jHwYAukOynB/0sGXO/79Z6qG6sJQM4rayw3ffemImSPfb
+	 6BnK3R+2QHhb1Cm+Ei1nHn9QwVeh4Whh4UM0aiaHNkhyjJvE4zKP4XK+JoxUUhMUOk7hp
+	 d3cZ5HWDE7C1ezEOlPdW9DGAdilr/N3ToFkBFb0PNseN8EjVw+0z04PP1w0JF3Xw6vgtL
+	 iTbxEWfAoBeJhHGplly3KWjNoeBN7IcHIOpklXrOWezha13NwuWs1JFCBX5ziyzp+Vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427740;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=8iR8eZjq+ITJI+3ZgUVvAbOsPm/AOq+IfCArO9x+3ZM=;
-	b=UAqrH3JbTiIVFDjwmrR9Xn7m99EyAHky4GaWx65a5TiZAMSH1fUt8TQz9EiuanF/+oY3
-	 6PuhQIdis9v7sAIe/SF9d0pKgxxNsxIVO6EIa3bAhnKVwGienjDPxr99/VbBPH0inekop
-	 eaLg152ImphPprYdzN7ffEPc9oBYNQ3xCRIdAvXgUWdR1M2kyxUnmA/gMYgGrI5qLdT85
-	 DACg4MH7LGLIOsHRAzp4vEa6GCHjnLJmKJlOHcAuJry+l6AXImigyGKg+gqaPIlUDvkzm
-	 IxBdO6tE0u3ZgBSz57qx1ePqXdFai3cNgv5mNEe9U/1cV2Bk++MDFcjDF3WC5jvEkIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427744;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
+	b=AsqsnMlkqiZ3AZE13vaSQowaMuc3uV1ayHy++NmlHVOg5eZdUUP+QIMEuTa8TRlM8XiF
+	 kp/WGVEnSxGRpDdJi7ZeMIoecLVRMC4MT7gl2v62GJColTyOK0u0v2uIS//2iBThWkPMB
+	 mYtAtGNSBtnY1wKa4fFTMpot3rurToAVXY1Un2rRu8Ovdqsta7VmY+RPGLIvBAIfpDB/I
+	 WOeoR+d037iZdQbW3ynAQAtvA2ymCAxQgwT+Gbmo92cLa3IcI1cyGF7KutqwEpFh0GBXA
+	 6/1BLBHD+KkTP0p/Pj1euHCkvlW97QKMtyAAWDdgoxKBQBk77msAtDrbeD47+Ow4how==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="LHQrf/9c";
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=OYwTCfQy;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=1DCNN3MZ;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=k1jEXeog;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=MPxohavb;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=K79Y+slm;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63FDD606A327;
-	Mon, 23 Nov 2026 09:55:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63FDD606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99801606A321;
+	Mon, 23 Nov 2026 09:55:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99801606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=LHQrf/9c;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=OYwTCfQy
-Date: Mon, 23 Nov 2026 09:55:37 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795427738;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=1DCNN3MZ;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=k1jEXeog;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=MPxohavb;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=K79Y+slm
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 5383321F63;
+	Mon, 23 Nov 2026 09:55:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795427741; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8iR8eZjq+ITJI+3ZgUVvAbOsPm/AOq+IfCArO9x+3ZM=;
-	b=LHQrf/9cLk3LiICngxMfl8yqpA0hEWq5ltC2c4BTVJ0Jl8m8qnaNp1yLhaCsXG3/ruQ/nJ
-	f49cZzDJRj1HrIqpPKrbVj5CEbaVKMOzYNHhzTPQc/fDvJizsVC23LtvV/E0se/SXsDNQw
-	RG+0aQu66nzG3n1Gh/yX4orgkuA4gGS94huW4SZU4fALzg27InMMSeXvKD/GAdVmIOeA8u
-	jNiJoTJwylomk1jiK73Gs0iH7HPo4FZJCf+SFIY6xMclmIt5fV3rJZxHn4k/dANziNJ4+K
-	PcjHvv7rcBfgYup6LCoiNECsnekqISIaIdvp6D5QiAKCD2V8lZDSwz8fXUm25w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795427738;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
+	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
+	b=1DCNN3MZ4B6aQWFnfDJNKAtwTT7/VOuCv/ueinYT5R3cM91RXG6G9Sjjmw7jGqzZ1u/5DJ
+	HF+7+MfJedw4sZIGpeClfjwWlWqV6plYC+0sIKIhpWX1bWcm9l9tGd+kN21KrBdsUnjQTZ
+	hAMvh39nXsDB0z/PmzMjcgU3IbOS7Ls=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795427741;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8iR8eZjq+ITJI+3ZgUVvAbOsPm/AOq+IfCArO9x+3ZM=;
-	b=OYwTCfQyfwDvQXWCsSgoe2IhG1Ph52wlV4EXiBgrqYaEhGi6Mm+uxqjXBFBxD8b6QVAubT
-	txh8mKMZUKYSrRBg==
-From: "tip-bot2 for Fernand Sieber" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/core] sched/core: Rank DL server picks as deadline in the
- core-wide pick
-Cc: Fernand Sieber <sieberf@amazon.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Ingo Molnar <mingo@kernel.org>, x86@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261112161548.78189-4-sieberf@amazon.com>
-References: <20261112161548.78189-4-sieberf@amazon.com>
+	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
+	b=k1jEXeogzPNadSptgKWUibxBmXqgQcqUixgz2as2tHyyIH0P0ZOUGE32goJrY4pJhEg2AX
+	NiM3C7nFUHZ/coDA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=MPxohavb;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=K79Y+slm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795427740; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
+	b=MPxohavb+35oUD0xZZNVF4sXIA3YwiyZq+me2KnEwyj1k0BVsGnP8ugaPhsJmzvtyJ3FJ5
+	/ylobmZRXJy28sK3tBtxSpI5+Wrt+IEyYt6ED4evaUU5Q3+BOY9Fcv2Kch/jAqSIt4OXTR
+	epnn6T/M1tAECMcIs1+NRyEfZlT8f1U=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795427740;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rgoNuDkqEE6/XLCYK+MqMrq9yvTsYpNIi/CFbubIxQs=;
+	b=K79Y+slmsPJfxExDcsEktpUpRHZV6QwT5R9gxUalDh9VEw5Yg2STMUT3lx2QDMVyhOJ+Er
+	Z7UxGpVTTDZ7keAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2D9F113510;
+	Mon, 23 Nov 2026 09:55:40 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id WJPqApwNBGvEPgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 23 Nov 2026 09:55:40 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id B574427634; Mon, 23 Nov 2026 10:55:39 +0100 (CET)
+Date: Mon, 23 Nov 2026 10:55:39 +0100
+From: Jan Kara <jack@suse.cz>
+To: NeilBrown <neil@brown.name>
+Cc: Jan Kara <jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Amir Goldstein <amir73il@gmail.com>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
+	Jake Edge <jake@lwn.net>
+Subject: Re: [PATCH v5 2/5] fsnotify: update children flags only when adding
+ mask bits
+Message-ID: <gm4htzbmvnabg7pvvkzge4atqxgwjy7zlrbmofpx4ahuujw67e@excduwsuxzaz>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+ <20261119025942.2848130-3-neilb@ownmail.net>
+ <mk7u4brorzgbyol7x4nyolufk3s3piqwqd5hnya3nhoq43d5ui@x5sdqeyrhde6>
+ <179539972541.1728055.8282722306710793371@noble.neil.brown.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,167 +117,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179542773720.92412.4774760214632371644.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179539972541.1728055.8282722306710793371@noble.neil.brown.name>
+X-Rspamd-Queue-Id: 5383321F63
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_CC(0.00)[suse.cz,zeniv.linux.org.uk,kernel.org,gmail.com,vger.kernel.org,themaw.net,lwn.net];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,brown.name:email,suse.com:email]
+X-Spam-Score: -13.01
 
-The following commit has been merged into the sched/core branch of tip:
+On Mon 23-11-26 13:08:45, NeilBrown wrote:
+> On Fri, 20 Nov 2026, Jan Kara wrote:
+> > On Thu 19-11-26 13:57:02, NeilBrown wrote:
+> > > From: Amir Goldstein <amir73il@gmail.com>
+> > > 
+> > > Since we only ever set the PARENT_WATCHED flag from
+> > > fsnotify_recalc_mask(), there is never a need to update children flags
+> > > when removing mark mask bits only when adding them.
+> > > 
+> > > Add a helper fsnotify_recalc_mask_and_update_children() to be called
+> > > in cases where updating children flags may be needed (i.e. add mark).
+> > > 
+> > > Also avoid update children walk with mark spinlock held.
+> > > This was only done by dnotify and can be easily avoided.
+> > > 
+> > > neilb: added update_children flag in fcntl_dirnotify() so we only
+> > >   do the update when needed.
+> > > 
+> > > Fixes: 172e422ffea20 ("fsnotify: clear PARENT_WATCHED flags lazily")
+> > > Signed-off-by: Amir Goldstein <amir73il@gmail.com>
+> > > Signed-off-by: NeilBrown <neil@brown.name>
+> > 
+> > One question to Amir below. Otherwise I like it.
+> > 
+> > > +/*
+> > > + * Recalculate mask and update children dentry PARENT_WATCHED flags if the
+> > > + * connector started watching children.  When parent stops watching, we
+> > > + * clear false positive PARENT_WATCHED flags lazily in __fsnotify_parent().
+> > > + *
+> > > + * The caller must make sure connector and connector->obj cannot disappear
+> > > + * under us.  This is achieved by holding mark->group->mark_mutex for a
+> > > + * mark on this list.  mark->lock must not be held by the caller.
+> > > + */
+> > > +void fsnotify_recalc_mask_and_update_children(
+> > > +					struct fsnotify_mark_connector *conn)
+> > > +{
+> > > +	if (fsnotify_recalc_mask(conn))
+> > >  		fsnotify_conn_set_children_dentry_flags(conn);
+> > >  }
+> > >  
+> > > @@ -367,8 +383,8 @@ void fsnotify_modify_mark_mask(struct fsnotify_mark *mark, u32 set, u32 clear)
+> > >  		recalc = true;
+> > >  	spin_unlock(&mark->lock);
+> > >  
+> > > -	if (recalc)
+> > > -		fsnotify_recalc_mask(mark->connector);
+> > > +	if (recalc && fsnotify_recalc_mask(mark->connector) && set)
+> > 
+> > Amir, why is the '&& set' check here? Under normal circumstances if
+> > fsnotify_recalc_mask() return's true, 'set' is true as well. We can be
+> > racing with other updates to the connector list of marks and in that case our
+> > fsnotify_recalc_mask() call could be the first one that noticed the marks
+> > attached to the inode are now watching children and is thus resposible for
+> > setting children dentry flags even if 'set' was false. So I think it can do
+> > only harm...
+> > 
+> > And for similar reasons I believe fsnotify_recalc_mask() call in
+> > fanotify_remove_mark() needs to be updated to
+> > fsnotify_recalc_mask_and_update_children() as well. Standalone
+> > fsnotify_recalc_mask() is simply never safe unless it is followed by the
+> > update children later - perhaps make it __must_check?
+> 
+> Hmmm.... I had thought that the group lock would prevent these races but
+> I guess not.  Maybe one mark can be in multiple groups???
 
-Commit-ID:     87a825f3c680474eeb5c2a28398ad625bb69319e
-Gitweb:        https://git.kernel.org/tip/87a825f3c680474eeb5c2a28398ad625bb6=
-9319e
-Author:        Fernand Sieber <sieberf@amazon.com>
-AuthorDate:    Thu, 12 Nov 2026 18:15:46 +02:00
-Committer:     Ingo Molnar <mingo@kernel.org>
-CommitterDate: Mon, 23 Nov 2026 10:45:41 +01:00
+Mark belongs to a single group. But fsnotify_recalc_mask() calculates mask
+from all marks attached to an inode and different marks can belong to
+different groups. So group->lock indeed doesn't protect us from parallel
+changes to the list.
 
-sched/core: Rank DL server picks as deadline in the core-wide pick
+> Given that, I don't think I can form a sensible opinion on Amir's
+> revised patch.  It looks OK and I think I can see what it is trying to
+> achieve and how it achieves it, but I'm less confident that I can see if
+> that is the thing that needs to be achieved.
+> 
+> So Jan - if you could review that so I can add your reviewed-by when I
+> repost, that would be great.
 
-Commit 4b26cfdd3956 ("sched/core: Fix priority checking for DL server
-picks") made the core-wide selection rank a task picked through a DL
-server as deadline, so that a fair task competing with RT tasks under
-core scheduling still gets its server's bandwidth. It keys on
-p->dl_server, which pick_task() used to set.
+Yes, the patch looks good to me now.
 
-Since commit bd9bbc96e835 ("sched: Rework dl_server"), pick_task()
-records the server in rq->dl_server and p->dl_server is only set once
-the task is switched in. The core-wide selection still ranks each
-sibling's pick with prio_less(), so a task the sibling's server has
-just picked ranks as a plain fair or ext task and loses to an RT task
-on another sibling. The server's CPU then runs a task with the RT
-task's cookie or is forced idle, and the fair task gets none of the
-server's bandwidth for as long as the RT task runs.
-
-Rank each sibling's pick by the server it came through, rq_i->dl_server.
-prio_less() keeps using p->dl_server for the core tree, whose tasks are
-not being picked.
-
-Fixes: bd9bbc96e835 ("sched: Rework dl_server")
-Signed-off-by: Fernand Sieber <sieberf@amazon.com>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Link: https://patch.msgid.link/20261112161548.78189-4-sieberf@amazon.com
----
- kernel/sched/core.c | 51 ++++++++++++++++++++++++++++++--------------
- 1 file changed, 35 insertions(+), 16 deletions(-)
-
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 46ccaa8..ea89471 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -196,12 +196,13 @@ __read_mostly int scheduler_running;
- DEFINE_STATIC_KEY_FALSE(__sched_core_enabled);
-=20
- /* kernel prio, less is more */
--static inline int __task_prio(const struct task_struct *p)
-+static inline int __task_prio(const struct task_struct *p,
-+			      const struct sched_dl_entity *dl_server)
- {
- 	if (p->sched_class =3D=3D &stop_sched_class) /* trumps deadline */
- 		return -2;
-=20
--	if (p->dl_server)
-+	if (dl_server)
- 		return -1; /* deadline */
-=20
- 	if (rt_or_dl_prio(p->prio))
-@@ -223,12 +224,19 @@ static inline int __task_prio(const struct task_struct =
-*p)
-  * ge(a,b) :=3D !l(a,b)
-  */
-=20
--/* real prio, less is less */
--static inline bool prio_less(const struct task_struct *a,
--			     const struct task_struct *b, bool in_fi)
-+/*
-+ * real prio, less is less
-+ *
-+ * @a_dl_server and @b_dl_server are the DL servers @a and @b run on
-+ * behalf of, if any.
-+ */
-+static inline bool __prio_less(const struct task_struct *a,
-+			       const struct sched_dl_entity *a_dl_server,
-+			       const struct task_struct *b,
-+			       const struct sched_dl_entity *b_dl_server,
-+			       bool in_fi)
- {
--
--	int pa =3D __task_prio(a), pb =3D __task_prio(b);
-+	int pa =3D __task_prio(a, a_dl_server), pb =3D __task_prio(b, b_dl_server);
-=20
- 	if (-pa < -pb)
- 		return true;
-@@ -239,18 +247,13 @@ static inline bool prio_less(const struct task_struct *=
-a,
- 	if (pa =3D=3D -1) { /* dl_prio() doesn't work because of stop_class above */
- 		const struct sched_dl_entity *a_dl, *b_dl;
-=20
--		a_dl =3D &a->dl;
- 		/*
--		 * Since,'a' and 'b' can be CFS tasks served by DL server,
-+		 * Since 'a' and 'b' can be tasks served by a DL server,
- 		 * __task_prio() can return -1 (for DL) even for those. In that
- 		 * case, get to the dl_server's DL entity.
- 		 */
--		if (a->dl_server)
--			a_dl =3D a->dl_server;
--
--		b_dl =3D &b->dl;
--		if (b->dl_server)
--			b_dl =3D b->dl_server;
-+		a_dl =3D a_dl_server ?: &a->dl;
-+		b_dl =3D b_dl_server ?: &b->dl;
-=20
- 		return !dl_time_before(a_dl->deadline, b_dl->deadline);
- 	}
-@@ -266,6 +269,12 @@ static inline bool prio_less(const struct task_struct *a,
- 	return false;
- }
-=20
-+static inline bool prio_less(const struct task_struct *a,
-+			     const struct task_struct *b, bool in_fi)
-+{
-+	return __prio_less(a, a->dl_server, b, b->dl_server, in_fi);
-+}
-+
- static inline bool __sched_core_less(const struct task_struct *a,
- 				     const struct task_struct *b)
- {
-@@ -6316,6 +6325,7 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
- 	__must_hold(__rq_lockp(rq))
- {
- 	struct task_struct *next, *p, *max;
-+	struct sched_dl_entity *max_dl_server;
- 	bool fi_before =3D false;
- 	bool core_clock_updated =3D (rq =3D=3D rq->core);
- 	unsigned long cookie;
-@@ -6429,6 +6439,7 @@ restart:
- 	 * Tie-break prio towards the current CPU
- 	 */
- 	max =3D NULL;
-+	max_dl_server =3D NULL;
- 	for_each_core_cpu_wrap(i, rq) {
- 		rq_i =3D cpu_rq(i);
-=20
-@@ -6452,8 +6463,16 @@ restart:
- 		rq_i->core_pick =3D p;
- 		rq_i->core_dl_server =3D rq_i->dl_server;
-=20
--		if (!max || prio_less(max, p, fi_before))
-+		/*
-+		 * p->dl_server is only set once @p runs; rank a pick that
-+		 * came through a DL server by that server.
-+		 */
-+		if (!max || __prio_less(max, max_dl_server,
-+					p, rq_i->dl_server,
-+					fi_before)) {
- 			max =3D p;
-+			max_dl_server =3D rq_i->dl_server;
-+		}
- 	}
-=20
- 	cookie =3D rq->core->core_cookie =3D max->core_cookie;
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
