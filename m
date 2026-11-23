@@ -1,78 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.126.187
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431835;
-	b=z03X3X2QewjKOzisr4uhVAzBquG11Q/KJiu57hRrbke0IGli6K0OxX1EIOU+9bCA0TBE
-	 6j0xxy2K8a+9f9grqFyBU19HwCXVioVafLmIKIoSfvrHCNsoopvmh4/hWvD0pcEoFGqCv
-	 XtYPvXpkwHpCcmAJbduMOuOeY6/27rz3iKc8baL0g2PA0GU1JIJm/KY2T0y/6lggpqhtG
-	 rLj10id13d9Yld+T/29v5YtlUfFzAUPLD3t7ZUbI8CU0OoSK2qs7Oghn8BwnWfBeS7OFW
-	 qiRqURXqrrxn0Rn4PEnsFy0M602r/7QQMOj81Ri7pzkIL9SWLjf3EVxmz7DupaXgRfg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431835;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=Hk6rTRz6/QNazFIRGMhV7PaLo3a5ytEMm3RVpwQoqok=;
-	b=nyacWmkv1gCI6av7oreprXOefqyuOfrq3aTUFkgg0aJ8ZPLin4z0Y5m1xGpdO46/zyTC
-	 W/f71E3PZp+gaXTAEXZ0f5p1PlgRdYDJUmNfzZ/maZc0Xhvmb9aA18zFUY3lL5G3Aoaa3
-	 JWw8+G66ZWalxEHwyJ4svMci8dqJmYTZQCXmkTUeqCv/fu0cIUPa2tYTCvqTPqtR+c0kW
-	 r96wyNhsmQV6xmEL9CSWMQ7serVfjR1ezcJ55OsbMK4iaOmsZ4GXKREdeMxnVQZedA7b9
-	 qTcD/f0RfSYHAgKPWB7NOyifnb9cc69TM89TqjAJxaZn2ynD4V5/kHBqGnOb20/e97A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oldschoolsolutions.biz;
-	spf=pass smtp.mailfrom=oldschoolsolutions.biz;
-	dkim=pass header.d=oldschoolsolutions.biz header.i=jens.glathe@oldschoolsolutions.biz header.a=rsa-sha256 header.s=s1-ionos header.b=Pw3Ey0tn;
-	arc=none smtp.remote-ip=212.227.126.187
-Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.126.187])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795431838;
+	b=R4AL5bDm7nOEPbiodSfGE9/17hUntEkjNRuMHVZoEr8p8VzSUP8nDFT+9CAKQoooIK80
+	 PywBcwiEkZY+vT81K3c9CReAIND88pLB9HmL6Ph/wtZRqFW8pyURCTtkCN+MMaSYDeoIk
+	 T5cyw+IhlvYowt8QmYZi2vNO89G0KegQGyqEQxkhjUrjH0GKUQNFThJCqaLUaLcKyoWB3
+	 DCwUeTezDMWpP0x4sntRYU3suAruGlHocpSoo72yViAbuUE32Ry+mPISG5gzhEUk5yoBp
+	 1IE/g5xDFGqaNsM1gjnC3QJT/FcAr99ea/BYPTNCdaWC1PhdPDayh5VDCBz7hf7Yq2g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431838;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=S23ZLX2KEU86gBUAwKA4pr9N6R5ElnEsSeiEDZ5cPMg=;
+	b=ChJvec8H5JfmFTJz96G93U71n4hLY6EOV5IqNt68ymLp+oVRNHA/Wywcnb32uPwq7G63
+	 wMDYBZz66rezLuwgo1LA/IFRAwXsY7wBv2xQG0grkSNjKFLX1yu/YeyMwhQ9cdrjOBeq0
+	 koNF9L3IlI46+YoRiafiWhnHrSQFRpZVzlj1YC/q/6s2vJ0KQqi4Lxgc77J6E8QXwrhj7
+	 PeiBu6Gjve+LlWACmNssuDN19Gco8hwq+nTvTi3ajpSTf28JLldPfgvHgUrJB0X03kjzh
+	 /W+pnZ08tlPXl3/xslFmvb+ua+dw/XsFJwmVcPExjv9JAzP0V92xfNImXAp4h/UQ3wA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ie/VY50y";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65A30606A331
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:03:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65A30606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oldschoolsolutions.biz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oldschoolsolutions.biz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C4F7606A683
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 11:03:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=oldschoolsolutions.biz header.i=jens.glathe@oldschoolsolutions.biz header.a=rsa-sha256 header.s=s1-ionos header.b=Pw3Ey0tn
-DKIM2-Signature:  i=1; m=1; t=1795431832;
- mf=PGplbnMuZ2xhdGhlQG9sZHNjaG9vbHNvbHV0aW9ucy5iaXo+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=oldschoolsolutions.biz;
- s=s1-ionos:rsa-sha256:I/iDUALuua6jG6s1xdhIWZtvQGr8
-   nESfCyfmqkiT/YAkZSjAq3T89u/aHXNTa0TUa/JyGZP1u0lvh6CQnsQB2sCYxwNQSsILaT5tvLt
-   lDSdvZ5HZ2Legz9eB2kxciOpvQOavxoQexDTyoLpJgwsvuJSYN3g43A9v5lo1K1AvM1wWdBUVps
-   z8D/jZu6eFfNY0USb5VLBNY5Dkm0jlZfmEwHh5D2JTbQ62iQTzmGDzIcUEGK0aigmf2Gz8aTmhH
-   g8CbUI6Kw4P9X7NAOEae4k8WLGUZIG9fdzAemk5pgburuwq8HdDKwJxc9hjR51ZXtFOLYMtsOlC
-   Uk7QfDVGQGGN6A==;
-Message-Instance:  m=1;
- h=sha256:
-   lqNPRz6NeQZHbjKq6rg5bpdcpbAy6mQOWMisYwDH5qQ=:
-   Hk6rTRz6/QNazFIRGMhV7PaLo3a5ytEMm3RVpwQoqok=,
-  sha512:
-   aZoLGV/X4KFS+geZSXtlouKnUe7sIOZB+kzVe4M/DwCK5E80JIfcSyvJABveQIoxHcM1Mq8Aw8MjxVr8WE5Hog==:
-   qBxQPoOSL+IvUaNDS7i5l2FOqPVzP8d2UqJF7c/VI6FUMZfRKmh9yipoiiY5VEuBczH6usGgCieXByTKjz45YQ==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=oldschoolsolutions.biz; s=s1-ionos; t=1795431778; x=1796036578;
-	i=jens.glathe@oldschoolsolutions.biz;
-	bh=Hk6rTRz6/QNazFIRGMhV7PaLo3a5ytEMm3RVpwQoqok=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Pw3Ey0tnEjoPomYjr4IqYFc4/i1pOH8V7opyhZ32oXe6rIpGngU3o7qmBLrNLiqP
-	 fujzeX4mS21d9BRxMJNvd7hgdKB9pMhgiZ4wyFUKGIMSF0xNH03NiqGypQaPLDVdH
-	 GoO+cfIi6RxCFvbl+bjV9jDRln28TGe6Zid2b4neVU1P+LnVMA9SG7YPEoW+1FG8i
-	 Lll1Lz/yJ6diBvHoqW9nEC9XTVpbb7+jqML5Krpf1TGR1n3RS1cw0BR96Ftk1B0QY
-	 BrBd8eFVsQihJG1IU3NnK0ysPW9fybEFjxQkr1xu1coVUYDmKWQP6k9mvr7wxnUGv
-	 r0RLJu+gbY6kOFTOhQ==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue011
- [212.227.15.167]) with ESMTPSA (Nemesis) id 1MF3Y8-1xkr5l34oa-00CMz5; Mon, 23
- Nov 2026 12:02:57 +0100
-Message-ID: <6298b3d0-db8e-4342-9abd-4c104bac8e27@oldschoolsolutions.biz>
-Date: Mon, 23 Nov 2026 12:02:55 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ie/VY50y
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795431838;
+	b=TU9wGs5H0GjHcbCV9lZC4pt9JnzeJF00FYJyHN7ZtTAzH100OeIfEGe8Bnl6H7i4gfT1
+	 ur/jkVtJMmFNxFAUXlTRDL3TwC2/abRY6YULXb7E/x/s5W7O28mpJwSwTDYtsTfYBy5Ii
+	 kTwkz8lQjOrtich18M3OYtjcXtwut0BO4jLBpueUD7Sr6J1nhchy8Uch45l5c099ijW11
+	 KXxOVGgLdlsqQqUvZ1F7SxT3BX8GbTXBXYJmRsaFR1p6sHwTy1xthTOGqoqvKue34qndO
+	 2NOzIev7rE99lTz3Srz/tfmPEpIVNwfoUf7yFdA1fvcC3qfhp7q6WR3SJPrfSTofquA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795431838;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=S23ZLX2KEU86gBUAwKA4pr9N6R5ElnEsSeiEDZ5cPMg=;
+	b=tQMO4EoVE2wmBSc8KpAtUMf+16KWiOXOtDBWZzktjkd9ypFthUyh63L9I72E03isDpx/
+	 VqYwks4Equ/l5CgXeVl3o/AwYGLXPz6IJWSlY6FeZwphdkoWhEM0LDyW6AD3tZphgsakC
+	 Oeqn2GojmPN+s0CRX2wA3XTvevhBVpeX7/CqGT+znoJGBz+nCeeIueoLxa/unQkRmkqYp
+	 wrvXXIsTy4jMlLd8t0plf+jdZo0fJEQd3059vpyHpzqtvkeYxzwuOVTjikf6DAsNHstCE
+	 X2FS00KAlcLe/oZp8ug78SDnyU0Jn2jxFihe7vDPn8qicUtJmwm4k2sduztvczAbjhA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 7CF381F000C4;
+	Mon, 23 Nov 2026 11:03:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795431837;
+	bh=S23ZLX2KEU86gBUAwKA4pr9N6R5ElnEsSeiEDZ5cPMg=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=ie/VY50yitZHMUdIibUeGcLX6VKWxiXzi1mPOuwIXj7cIS/Ew4NQRx6kFpMkbcRvB
+	 R7wLNiN73sanhj3CYUuq1EiN1OuZnzmlwPDnklIF5AKLV2qfXaatlpcmvZ8mntzZ96
+	 lxkd8PgdxH3RbJT3BbG+RWHu9fxkouBGmm4hcLGAlkxUBm04L23AoQViCwTUsXusOV
+	 mtwk/USG25cv/KCMU1AGdIrgGOBWDGRrhX2ffxlIF2XvCAmif9+vJiDyr+3NJtAhd5
+	 W/uX9LD5WhQtdcnFyLnK6mi/g31a/0xpPN17dcfxaQyiV9kIxy1jOuH5Jv3GYgojn6
+	 mdMZZbeJ+Fh7A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D85164C42A;
+	Mon, 23 Nov 2026 11:03:46 +0000 (UTC)
+From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
+Date: Mon, 23 Nov 2026 13:03:46 +0200
+Subject: [PATCH v2] x86/apic: Use the physical address for the local APIC
+ resource
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,140 +83,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] drm/msm/dp: fix DisplayPort hotplug, link training,
- and multi-lane PHY setup
-To: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
- Konrad Dybcio <konradybcio@kernel.org>, Dale Whinham <daleyo@gmail.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
- freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261121214105.32596-1-gianfranco.mariotti94@gmail.com>
-Content-Language: en-US
-From: Jens Glathe <jens.glathe@oldschoolsolutions.biz>
-In-Reply-To: <20261121214105.32596-1-gianfranco.mariotti94@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:9NpQ9UOLW0+S3urrZosyOPkiAsn7T16Tq8t28v3DxpnaZnKc1AY
- VEqpfwb+U/gubW7i65oR9kA2JYLGCOyM8MptoAB0gj9V/jPf6jguLNrIZMjP3WNPXgrgDtF
- i8RiS+2mNPam+z4Oxcdt/+cYqo7UIaYplPTMFJ2riMQf0dIJrUJsFE9MvX4kQtYv0L6xYpT
- b0OuDCzQ64OKFCQhNR0CA==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:jVxgy0I/4IY=;lxRoizUlv6JcYxOH4mx2X4fddCB
- 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
- YafQTso6I/fg==
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-x86-apic-lapic-resource-v2-1-4474a572aaaf@ahmedabdelfattah.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6DIBREr2JYl0Zoo6Sr3qNx8YFP+Y1VA0hsj
+ Hcv2gN0M8lLZuatLGIgjOxWrSxgpkjjUECeKmY8DE/kZAszWctGiLrli2o4TGR4f2TAOM7BIEf
+ plAILqmlbVtZTQEfL8fzofhxn/UKT9ru94SmmMXwOdRZ7778lCy64VBavRl+cFngH/0YL2mLvI
+ CXwZ4uZddu2fQFRb2fD2wAAAA==
+X-Change-ID: 20261107-x86-apic-lapic-resource-e2f88ada8677
+To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>
+Cc: Chao Gao <chao.gao@intel.com>, linux-kernel@vger.kernel.org, 
+ Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795431826; l=3170;
+ i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
+ bh=p400VXiAp13U+yYuNFSSnKSaZgbslssngT6wil6wIzw=;
+ b=2VnWAHyFn4bRSQqUqBq272f3f0aqF0rnYaPnO+bTpi3hzRguU1BCUmjeLyHFKBowiGaApwyQn
+ Pin5t8PR8dpC8QTErelHwpZ+rjI/RM/Re9KzHJuZLN4H/ZLE4dKJYBk
+X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
+ pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
+X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
+ auth_id=1438
+X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+Reply-To: me@ahmedabdelfattah.dev
+Content-Transfer-Encoding: 7bit
 
-On 11/21/26 22:40, Gianfranco Mariotti wrote:
+From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
 
-> On platforms with a native DisplayPort connector using direct HPD
-> interrupts, DisplayPort initializes on cold boot, but physical cable
-> unplug and re-plug cycles leave the display blank even though link
-> training and stream enable callbacks report success.
->
-> This series fixes the underlying PHY lane setup, DPCD link-rate caching,
-> SST training-pattern handover, link maintenance BPC restoration, and
-> HPD / runtime-PM state tracking issues:
+Since v6.6 the "Local APIC" entry is missing from /proc/iomem whenever
+the kernel maps the xAPIC itself.
 
-Hi Gianfranco,
+lapic_insert_resource() takes the start of the resource from apic_phys,
+which used to hold mp_lapic_addr. Commit 81287ad65da5 ("x86/apic:
+Sanitize APIC address setup") moved that assignment to
+apic_set_fixmap(), where it became the fixmap virtual address:
 
-thanks for this series. I backported it to 7.3.y [1] and tested it on a
-Lenovo IdeaCentre Mini 01Q8X10 (X1P42100) with 50 rounds of DPMS
-off/on, first HDMI only (Parade PS186 branch), then HDMI plus a second
-display behind a Lenovo USB-C dock (40B0, DP alt mode pin D, 2 lanes
-through two LTTPRs).
+	apic_phys = apic_mmio_base = APIC_BASE;
 
-Before, external displays behind the HDMI bridge regularly failed to
-retrain after DPMS wake on 7.2+. With the series, every wake trained
-once at HBR2, CR/EQ passed on both links, and video came up every
-round on both outputs. No "already disabled" or PHY power_count issues.
+Commit 78c32000848c ("x86/apic: Get rid of apic_phys") then replaced
+apic_phys with apic_mmio_base, which holds the same value:
 
-Notes on the backport:
-- 2/7 is covered in 7.3 by the link_info memset from Anthony Ruhier's
- =C2=A0 172c1648222e ("drm/msm/dp: recompute the link capabilities on ever=
-y
- =C2=A0 sink read"), so I dropped it.
-- 5/7: 7.3 already routes native IRQ_HPD via 216110888698 ("drm/msm/dp:
- =C2=A0 Handle IRQ HPD as a sink request"), so I only carried over the
- =C2=A0 pm_runtime_put() change there.
-- 7/7: 7.3 lacks 1bda647ce61b ("drm/msm/dp: move link-level teardown
- =C2=A0 from display_disable to display_unprepare"), so the teardown still=
-=20
-lives in
- =C2=A0 msm_dp_display_disable(); I applied the dp->plugged gating there
- =C2=A0 instead of in unprepare.
+  APIC: Mapped APIC to ffffffffff5fc000 (        fee00000)
 
-One observation: on DPMS off, the PS186 still raises an HPD IRQ about
-100 ms after the link is disabled, which sends a hotplug uevent per
-connector, with get_modes reporting "No sink connected". It's harmless
-here, but some debouncing may be worth adding on top later.
+insert_resource() rejects that range because it lies outside
+iomem_resource, and as the return value is not checked, the failure
+goes unnoticed.
 
-For the series, as tested on X1P42100:
+Without the resource the local APIC page is no longer marked busy. So
+apart from the line missing in /proc/iomem, CONFIG_IO_STRICT_DEVMEM
+does not stop /dev/mem from mapping the page any more, and in xAPIC
+mode the APIC registers can be read and written through it.
 
-Tested-by: Jens Glathe <jens.glathe@oldschoolsolutions.biz> #=20
-x1p42100-lenovo-ideacentre-mini
+Use mp_lapic_addr, which is the address apic_set_fixmap() maps. Keep
+the apic_mmio_base check, so the resource is still only added when the
+APIC was actually mapped.
 
-[1]=20
-https://github.com/jglathe/linux_ms_dev_kit/tree/jg/ubuntu-qcom-x1e-7.3.y
+Fixes: 81287ad65da5 ("x86/apic: Sanitize APIC address setup")
+Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+---
+This showed up while comparing /proc/iomem with the memory map of a
+QEMU guest.
+
+Tested on QEMU q35 with KVM (x86_64_defconfig + kvm_guest.config),
+booting with and without nox2apic. Without the patch there is no
+"Local APIC" entry in either case; with it both show
+
+  fee00000-fee00fff : Local APIC
+
+For the /dev/mem part I used v7.4-rc3+ (4405c18c95d2) with a
+distribution config that has CONFIG_IO_STRICT_DEVMEM=y, and a small
+program that maps one page of /dev/mem. Without the patch the page at
+0xfee00000 can be mapped. Booted with nox2apic, the APIC version
+register reads 0x00050014 through it and a write to the task priority
+register is accepted. With the patch the mmap() fails with EPERM in
+both boots, as it does for the IOAPIC page.
+---
+Changes in v2:
+- Fixes: now names the commit that made apic_phys a virtual address
+  (Chao Gao)
+- Say what the missing resource changes for users (Chao Gao)
+- Link to v1: https://patch.msgid.link/20261107-x86-apic-lapic-resource-v1-1-28de4cb3fb1e@ahmedabdelfattah.dev
+---
+ arch/x86/kernel/apic/apic.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/x86/kernel/apic/apic.c b/arch/x86/kernel/apic/apic.c
+index 90025451ace2..17525b5daa0d 100644
+--- a/arch/x86/kernel/apic/apic.c
++++ b/arch/x86/kernel/apic/apic.c
+@@ -2667,7 +2667,7 @@ static int __init lapic_insert_resource(void)
+ 		return -1;
+ 
+ 	/* Put local APIC into the resource map. */
+-	lapic_resource.start = apic_mmio_base;
++	lapic_resource.start = mp_lapic_addr;
+ 	lapic_resource.end = lapic_resource.start + PAGE_SIZE - 1;
+ 	insert_resource(&iomem_resource, &lapic_resource);
+ 
+
+---
+base-commit: d48723711bae9b8cdc56719c448ba42fef28cbee
+change-id: 20261107-x86-apic-lapic-resource-e2f88ada8677
 
 Best regards,
-Jens
+--  
+Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+
 
