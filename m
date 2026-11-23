@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795462809;
-	b=psbMnx21AXxgEf9ZE31qDdLV9shtCuqtI31yHKCuTrldTHOABQvYfTTS3pw7XplYRoVV
-	 Q9qpf/OMN8UuqNBnAzZVaYEKXZ1TXgJKr4X/gZ0yv1DZekMtiU8X+BsgrUoLeENQJlJ1w
-	 qjC1Wvj2RfOnf8SBgbvnz3FMp68SMwKrelVDtYHKttEf9qX7RnvXHF8gQNflKxWgxNzmP
-	 n7c5FIrbSP/91kNMmRydRtoR368nFaUv62VyTGHcJ0ilPTU8NeQYcwP/FbF5+Sl0KtCNG
-	 dAwVTungyo4ctNatISdSXkKN5R1M/H7afVBO1GsOxHHkNP0B4cvBDoDRzZzjQMWpf9w==
+	t=1795462812;
+	b=NdvhIY1tsWVkAMJ88dlM7UKaR4NiikU1eTMGV4ejvRGZywcw7H6ptuyIIRCqL4U42ImD
+	 u6RbtflFaa/i16quhInYNl5hK0Q7JhTZJo9cJ7Mi1sdfJdH6hHx01XFKprk8k29Bg9Cg2
+	 Zlhsy1Y+ulDChrYpdayvRdVhB1Ru7ufC3DvfjPSI7EfKjS5P3rBRrHqRUfXJ4RDnbw6dt
+	 US785QugvQj2qfXuSpriSgagBpG43aG7fnKbH8RSNZRytTfoMSIR4Z/Myegbl/zhgC0p9
+	 h+lMKAH7Unmx5xZx3AM7pnm/ur3m++p/mRIM4pD25P0NamU3kMvSw7s9pHS4dSxgqNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795462809;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795462812;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=GENkBhjt9jCQL9ztMCG1lg3AsyAfCt88HgVI5C9B0qU=;
-	b=j7DrObTorOtLvpJ3pBNbz1K6gkDgwtI8n93WAeH10QYzxc98lBLMPI2VP+GropmAgkZM
-	 wpWrS3nkDIMbzHEge04MEVey8qxodK/HYXQ1oaXOZazhFaWBvfOsfrOGyCgx/mJq2erLN
-	 Cg7eUdTCqwr16qfTblIZrTYWVd5hhDnXGnmeWp9+HqpnF6ZH76w6GpwNU038ntqXnSBRa
-	 jXzSSrX/mGjrIYalue1mh/VKzWhNTv0/ECP99tuhuGVh8q6pmyBW/TMfNr43XkWTIeyLV
-	 iVXHxPEsMuixI4POX0ljoFLYl6CKdMI6V2a9UDgxLw5iFcmN4J0HbuKTZA6UChFRfeQ==
+	bh=AFBoJzQQ4+aNW+F2g6PdB2mjnLlLQvHcVLCNKGs5k4U=;
+	b=VJchGFJ5zNc+JXAQ1wfXtH4tqaIu1ZgbMC2zOWpAkCLR8KortVeCLj7FR2To8vwfEool
+	 RPzuR8pHy23Fvy+LHSCkJ3XgjLam3PsvHpEtPa8o8KTWbBpqR2HUfrGbgzD28G+rjBjaW
+	 yMB3+Lycw3rbggMcGCDxbh2h+iDma2I6bBqEpfjPeGQyaVou/5klb6K3a4PWe81cxDdT3
+	 FvVV2MKfyk2xjF3m6uIz+hM5s2PFyFQFOZQKInertzJnOQRVw2OG2ZiDDLHUnGq3gN5tY
+	 24hfFiGzHTo+6KdF9JMPp6u4hrxCmB2SyVRxC739cKTUXHnFdLUyprftUwlX/JiP80g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H0cBGp6Z;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OzxatAwm;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8785C606A31A;
-	Mon, 23 Nov 2026 19:40:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34BF4606A681;
+	Mon, 23 Nov 2026 19:40:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H0cBGp6Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD7A71F000CF;
-	Mon, 23 Nov 2026 19:40:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OzxatAwm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C083F1F00AD4;
+	Mon, 23 Nov 2026 19:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795462808;
-	bh=GENkBhjt9jCQL9ztMCG1lg3AsyAfCt88HgVI5C9B0qU=;
+	s=k20260515; t=1795462811;
+	bh=AFBoJzQQ4+aNW+F2g6PdB2mjnLlLQvHcVLCNKGs5k4U=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=H0cBGp6ZHsm7VRxM/OEEGivd1KW31o2+Vg/7savaCiwopM0qP+GuWSzMMifgK5Cid
-	 y5nrkGqUxQ+KVkzgVcHa+8S9crSPrDrhH0/TPYBkepn/AKJ94abJAETKoB5n7jm8mk
-	 Cma42wRrtnBqPkUL9jKKx5hI4yTHiauLBerwgZL44EzKy4adx1ysdnMmMQg0F23Vvc
-	 xvfffr8j4ix3JkQeQwsWGN+lXCtTYEr8wMDkveQrvk6lCPEOae/Hkxc5imRArXqaud
-	 IxuaXXcZYOWVfy1ZkMSxUDu9HXdERUTDVr8sTE2cAgl29EO8a0uRTva9pQ3kaV5PMq
-	 ZuCQnH6NN3RlA==
+	b=OzxatAwmvVCC09YTX3UL5HSzv9KyzUAcr6SqY9F9XfNFFbh+99kPY6Dc1P9ktjLpo
+	 elUudpZKad9403hBrN6hz6f2zqQetPzlqJBblAFp8azf+VuRLUwwdLBfjzaAz2fRN+
+	 4NPBWIx6rCpzycLPqF7oStS66FXzrV9rXZdb9kIPQIn3sC56cxPDkjexENgnKVn3QH
+	 prDH1sCbipxH251p/14gZa7zVIyvMmb6lQ8sAuOr7PQ0FrJCANoxvhASOdg+lCzm/F
+	 d4e9oznOf8if+gJk8PmNs5BNOzLAT4xy69+LSy2uO7X4w2Y3ydK1gRQw+TGFkH4dXJ
+	 3tAqmsQBoqwKA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4447392EE3B;
-	Mon, 23 Nov 2026 19:40:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44E9392EE3B;
+	Mon, 23 Nov 2026 19:40:11 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,59 +54,38 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v9 0/8] arm64: dts: monaco-arduino-monza: Add support for
- LGA WiFi/BT module
+Subject: Re: [PATCH v2] Bluetooth: btbcm: Add entries for BCM4364B3 UART
+ Bluetooth
 From: patchwork-bot+bluetooth@kernel.org
 Message-Id: 
- <179546280752.3078240.14805483957076909592.git-patchwork-notify@kernel.org>
-Date: Mon, 23 Nov 2026 19:40:07 +0000
-References: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
-In-Reply-To: <20261123-monza-wireless-v9-0-450d7d764aea@oss.qualcomm.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: mani@kernel.org, brgl@kernel.org, marcel@holtmann.org,
- luiz.dentz@gmail.com, andersson@kernel.org, konradybcio@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-bluetooth@vger.kernel.org, devicetree@vger.kernel.org,
- manivannan.sadhasivam@oss.qualcomm.com, bartosz.golaszewski@oss.qualcomm.com,
- dmitry.baryshkov@oss.qualcomm.com, wei.deng@oss.qualcomm.com,
- jesse.casco@gmail.com, krzysztof.kozlowski@oss.qualcomm.com,
- konrad.dybcio@oss.qualcomm.com
+ <179546281026.3078240.5509562284219485596.git-patchwork-notify@kernel.org>
+Date: Mon, 23 Nov 2026 19:40:10 +0000
+References: <20261122165132.14015-1-jperlow@gmail.com>
+In-Reply-To: <20261122165132.14015-1-jperlow@gmail.com>
+To: Jason Perlow <jperlow@gmail.com>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+ pmenzel@molgen.mpg.de
 
 Hello:
 
-This series was applied to bluetooth/bluetooth-next.git (master)
+This patch was applied to bluetooth/bluetooth-next.git (master)
 by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
-On Mon, 23 Nov 2026 14:56:07 +0100 you wrote:
-> This series describes support for the onboard WiFi/Bluetooth module
-> present on the Arduino VENTUNO Q (monaco) platform.
+On Sun, 22 Nov 2026 11:51:32 -0500 you wrote:
+> The BCM4364B3 combo chip on Apple T2 Macs, e.g. the MacBookPro16,1, has a
+> UART Bluetooth controller that reports LMP subversion 0x3032 (001.016.050)
+> on some units and 0x305b (001.016.091) on others.  Neither has an entry in
+> bcm_uart_subver_table, so the controller is logged without a name:
 > 
-> The board provides LGA pads for a wireless module. On the VENTUNO Q
-> these pads are populated with an NFA725B module featuring the
-> QCA2066 WiFi/BT combo chip. While implemented as an LGA footprint,
-> the design is functionally compatible with the M.2 Key E.
+>   Bluetooth: hci0: BCM4364B3 Trinidad Olympic GEN (MFG)
+>   Bluetooth: hci0: BCM (001.016.091) build 0115
 > 
 > [...]
 
 Here is the summary with links:
-  - [v9,1/8] Bluetooth: hci_qca: Add M.2 Bluetooth device support using pwrseq
-    https://git.kernel.org/bluetooth/bluetooth-next/c/7fea07497112
-  - [v9,2/8] Bluetooth: hci_qca: Rename 'power_ctrl_enabled' to 'bt_en_available'
-    https://git.kernel.org/bluetooth/bluetooth-next/c/139c8e574116
-  - [v9,3/8] Bluetooth: hci_qca: Set 'bt_en_available' from pwrseq controllability
-    https://git.kernel.org/bluetooth/bluetooth-next/c/a9783ebd40da
-  - [v9,4/8] Bluetooth: hci_qca: Embed bt_power in struct qca_serdev
-    https://git.kernel.org/bluetooth/bluetooth-next/c/a482935cee71
-  - [v9,5/8] Bluetooth: hci_qca: Support QCA2066 on M.2 connector via pwrseq
-    https://git.kernel.org/bluetooth/bluetooth-next/c/f6fdb04bfc1e
-  - [v9,6/8] Bluetooth: hci_qca: Flatten struct qca_power into struct qca_serdev
-    https://git.kernel.org/bluetooth/bluetooth-next/c/ca2e671a82f0
-  - [v9,7/8] dt-bindings: connector: pcie-m2-e: Add vendor LGA connector compatible
-    https://git.kernel.org/bluetooth/bluetooth-next/c/d10bd5678905
-  - [v9,8/8] arm64: dts: qcom: monaco-arduino-monza: Add QCA2066 M.2 WiFi/BT support
-    https://git.kernel.org/bluetooth/bluetooth-next/c/ac2cf809626d
+  - [v2] Bluetooth: btbcm: Add entries for BCM4364B3 UART Bluetooth
+    https://git.kernel.org/bluetooth/bluetooth-next/c/fe88794c9e0f
 
 You are awesome, thank you!
 -- 
