@@ -1,101 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.172
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795436984;
-	b=romc3eRfoahuHa3B6GCXnEU0W0stw69nTscSR/Ymp/fO4Xd6H/YhufwLH0rYFj7ZCZkf
-	 2I0AH3qT48SO5VvUrGowrg2anEn0BUoFlJo3+Dse9Cp67Titqc+Br2eOWJ/grGqgF/AsW
-	 BBGMkwgFhjpGKGj6gKeYsTZmnzVDgaJ46l/ZLa7j+/ccvDjnCFAAe9k/0zCBDMKfjtqNY
-	 POvVoQREoUODwhFdj6Dw6wIwCopYGq12u0XtiLnyeI2dDeUkxgllLCVPm7dtDmiBCSHge
-	 iKhqOAtGgm7tazXNo0w8xyI5MQXJP4xs16flgeGzwGThjprAIqeD42P5qJ+nvDdLcrw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795436984;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=769kmgvvE4NJNYBz1ky6Ntqci2z1yIp0iuj4i3YhtVI=;
-	b=fmRsN974S6p3TXf+4SQolQnlOW1+fbTwOkIRvYcA5XIcIpq/IGfaDypww9X9gMhb38AN
-	 j/Hi+CGc8nSwcXid/yswltXT1QhF/B1WeMrwyv9YHe5r05rT0cvhZyR8d2N8wpYSZ+4KO
-	 jz20iPyFjYsXsKUxoPo72edf2unSTSkd4CIU52B/4W+VlWuPdm4KZK8MEaq/XyEZXc80E
-	 NfXjqQjnoMKiLSirIuj+RH5bnd68m12w/galjDFpeDZR8nftcqxJF22e0fXTm3eBQAWf+
-	 3B7B4JitnbQI94exbQWpYBJPbjD3aypg0v3FBJnjPvIZ/Y/1EB+6XMYgnZwUHGkk6CQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BGHjuIpH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.226
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795436998;
+	b=1HRQQtrbnSf32sPhbzurVP7K78gYpW7ee68RXyI1HP74Vpp5GJWmfqaF09TyBCG5HNNM
+	 5bqUyvNzQhLmLqEBcxkz3pKEtLN2J+9glkpw0+4XSicfMdJDpHAcbW7rBURfluzOwPhJS
+	 c0sOF1YvEBI0IxBsynm4JYLqN8dnl/wZYAfwsHEq2K0pMUcxu83eWCDKIYg26i3rHaVO5
+	 9gI+t41+bzfZYU8L03Knz/048HoFdVjk19gSkg4xIgmiaM/qHX5Fd0mIn6rm51Dm+mPXe
+	 DIH6doDZqk5HZD7tVvAuGGNq8uYoTrLgtYA4w9Q80jdbqPmQEq23NPIPNyq7ZEwWCCQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795436998;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Subject:To:CC:
+	 References:From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:
+	 Content-Type:Content-Language:Content-Transfer-Encoding:
+	 X-Originating-IP:X-ClientProxiedBy;
+	bh=zEnsmGCryXnOeH+9qoc2fAxJs1iEo3LTRsGgU6sdHgI=;
+	b=026aIH8DRYfjyURlwOkuc4PfkKNYZYEUAikKOVrNai350Mo+Z6jX9EA8Mv6PMRr+toJu
+	 jHvVnxBVZMs3K1tdOpKHz2e4Z8UQ5x2TplpUVTrg702Z3B9mRypd9sBk/i/yNq0POnbkt
+	 77LIESBmenbkCTM8wvNrPoLIWjyw5oD98aquHrk/GU0kTPR//QT4R4EdBJ0KIqlQk7Crw
+	 VaOIUaQcABWWMR5Fxg9g6AYQLds4Gq8QiRZXPSNTRDZcWc7UrdRgrSjBqZ1zj12aMvwpI
+	 RStxOUHxcilfqg+sWkNmt9giByf1MLcQwAuCQOukwkpfvWSK7jrhaKyoCtBrlne2jYA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Qv9lI8SG;
+	arc=none smtp.remote-ip=113.46.200.226
+Received: from canpmsgout11.his.huawei.com (canpmsgout11.his.huawei.com [113.46.200.226])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AD5D606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:29:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AD5D606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95570606A31E;
+	Mon, 23 Nov 2026 12:29:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95570606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BGHjuIpH
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-380b40312e2so7811980eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 04:29:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795436983; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Mf7JUQ2QcPsb9+bhfAQQHtKs/ie2Jhalmp0MWx5SP6AfYr/eTUoOaPW+aO8bIlDNk+
-         //c6auKABIn/J7iRfjCvisWP9xKo+XA5Q4QkSleVD73qW1kY2LL0mkn1pWlgD1gUc30z
-         xR0807Mb5RwLQhZNPl9JdAWEFJJSrZDf6SYp/XQQHkym+GCnfNFY9jrXpmP8J+V+DMVB
-         BMJhv4t05hkX0uqmeidpsi5+JUfVTD6J3NYuBjZqe/j1/G1tWX5shJnIOyVygzundLIm
-         FLK4vF2/PKAHnV+9BIvmawvNIPkLzEMfaqqXkEjtFy69GtQSPbI7cz2Vw9EszW/pp/ls
-         N3xA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=769kmgvvE4NJNYBz1ky6Ntqci2z1yIp0iuj4i3YhtVI=;
-        fh=Zx0gO5rZAuK+f19xZcv+ejyBK5DrhI2dDiAxy6yuxB8=;
-        b=A0TtZQYAGwUazZ9U0Jfi1oZymeAw/zRRAz2NkT2+WIVf+310i7bvk8ms3vhuPJQA0+
-         aqGyQfrOIYvywZ5mFmL6NDwlG8zq/Bg7uACxG+XFl2N5gGGDxPQjVrPeVzsGFO+a6QUP
-         BDHwkFi+o/FgwHAOEFC0KkHtNaRgWCj5JHxtlA46/H5qMB/W7Kl8L3aTrQvJyI8UCkNt
-         oX8bNU8ZvQBo08Sr+dY+jy7ejBrB08NFfNnF/8VnUVapzaZxO+s6/+cFwgNxt20iGgnR
-         1l40TTzN7/r8TXBZEIAd7XTmJw93BPCYEV+g7jtfI50beCmdm1G7Gyiv8+KUbAe782Tp
-         gfKg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795436983; x=1796041783; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=769kmgvvE4NJNYBz1ky6Ntqci2z1yIp0iuj4i3YhtVI=;
-        b=BGHjuIpHKx1HmZeK4dAx1dqiNlSjkCcoIWx2fVvjB5cchTDfvhJ912m0xoDTR2SVJx
-         3sx0IyYFcmXLHbLBpSfugKiXFSDAZmn/8ccDNz0OaI9SNYR25/fIhnZsoJxS1y0cgiUl
-         91FUUtgiT66UoTBLIc7l84l+bVGYYMWvomsVYXclcdTZnugp5VNVOyCs1poFTBTsPTDt
-         OUEDN3njepH95rBYr/ETQoXcPjwlZGKAL1JPd5OGXB3xJV2T+tLV5pLNBn/B6PnB+aZz
-         4pwkDVmP1CJH0AUcCLZAfLLFjxRqPBEAfWmGhayayLNX+HHslD+Th/QbJ+Ix0MPMIb2i
-         PXfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795436983; x=1796041783;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=769kmgvvE4NJNYBz1ky6Ntqci2z1yIp0iuj4i3YhtVI=;
-        b=kzoNdaqzp6jJRRerC+Vdlj5PqEJyPQ5nfjjbZJBrnmyYRn0tknTER5jCzpgabWdLhu
-         Xg7+JY8QApv4C4lMTLAobRSCcOvCxlhsfo40bKrddkrU4tbCFtKXHYGAEHIp4SoBE+FJ
-         AVAv7IiuJ3EbmQZ4+/OGCYYvdEnU1mP/ysI2Gnf+RnyP1A/FInS7FfJQNadquE0ezKsS
-         t7y2lbc6ceN9FGPwKXkfh1xSFaAbEXkngjcPdIP4+c3bTVuxfozxz1TXfV5USk8QPxsJ
-         3xytVKR7/J4JaSmmLJcau8QgSTrr7vWeMdbHX3tjLPqkepm7i3F83xyTTHXH1auFG2VD
-         sqog==
-X-Forwarded-Encrypted: i=1; AL+hErET1NLDF72B9yb3UMsSR6k5glyDdf1Gik9/pmlKD/+B4l5qBEyysazVVmcfSV3oTRt9AjZDX4rKVXX9Qac=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+uInr93WLW4ysmfkf3ZYNnUYQ+vA/Npkpu68+eYR0gdXNOJmfm
-	ZUQXCEivc+1znUAGtbgZj82qBEF3Tx9tt0x3ATKpMdajBlHd0/CjAR7f0E1a7Do1xp9ZvCRTjSN
-	LNBSkRRkM34dP78JABO7bVq+4OS263HrRug==
-X-Gm-Gg: AZFdTZfgrSxfInpiGe66R96ab73SHnKcU7qPNaeHMLuAh0APr+S8u0SCAEXr107qVPV
-	PBN02bECG3Bsg/UccVRamvIhx7zLfKatWawLxMasM6Ce/ZAiVlxrlQv7XjFQ9DNDG2i7p3vYrBj
-	Yczl0rSyw8I/EZPRc6fubrsk3YHfPwlfu54dn5o8dLtva8z1n59Bs7leJQJTPYMTnTtc+R5h49B
-	f5eDL+X7JW2VRAND42JwzdoiyeTDZHCGNE5gY2t2EIFQrrU8s6/FQyD9+41otbwX4y0aL6A6JHE
-	FynMZiiNX0qU2BMNaKK8WSJeCEHTnt6k6KDYqtBcoU35Ek8k0UmxiTzX0k7IbqVTtpT2OXKNLPp
-	l80rz1pAwJw792FZLYM5ha+9179lBmzSNc+L8M2r7EIt2sk2QS2Vr5aOqaxFH/EbZ2xqw3qyx3T
-	3x644dAOKVZV5RKZXZuMY2VOWdsST9wA==
-X-Received: by 2002:a05:7301:416:b0:356:7ddb:2e54 with SMTP id
- 5a478bee46e88-38570f27b33mr12240392eec.29.1795436982705; Mon, 23 Nov 2026
- 04:29:42 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Qv9lI8SG
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=zEnsmGCryXnOeH+9qoc2fAxJs1iEo3LTRsGgU6sdHgI=;
+	b=Qv9lI8SGarj7tyxX2ZTUa5kwvdsgQWW+LWBM7cKDNkVy527R3LeocZcROxI6Uh75mblaGSOmY
+	/V+qHOIUJA2g6fMtIRC4yUVtCgB6WwORCc3vrQof6ycRPQp4sf5XzQGWxaFV7wIU4wfOiv9Y+7K
+	/CX0stmKvqXhi73s6/AfHvk=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4jY4y36vhpzKm4D;
+	Mon, 23 Nov 2026 20:29:31 +0800 (CST)
+Received: from whupemk100004.china.huawei.com (unknown [7.152.185.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7E6D140563;
+	Mon, 23 Nov 2026 20:29:49 +0800 (CST)
+Received: from [10.173.98.163] (10.173.98.163) by
+ whupemk100004.china.huawei.com (7.152.185.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 20:29:47 +0800
+Subject: Re: [PATCH v2] mm/memory_hotplug: don't offline a hwpoisoned page
+ still in the page cache
+To: <mt4022@columbia.edu>
+CC: Naoya Horiguchi <nao.horiguchi@gmail.com>, Vlastimil Babka
+	<vbabka@kernel.org>, Gregory Price <gourry@gourry.net>, <linux-mm@kvack.org>,
+	<linux-cxl@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<tz2294@columbia.edu>, <stable@vger.kernel.org>, David Hildenbrand
+	<david@kernel.org>, Oscar Salvador <osalvador@suse.de>, Andrew Morton
+	<akpm@linux-foundation.org>
+References: <20261105-memhp-hwpoison-pagecache-v2-1-029d35634d42@columbia.edu>
+From: Miaohe Lin <linmiaohe@huawei.com>
+Message-ID: <cec355cc-46ba-9190-b0fb-efd634498581@huawei.com>
+Date: Mon, 23 Nov 2026 20:29:47 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,46 +75,167 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123100228.77797-1-clamor95@gmail.com>
-In-Reply-To: <20261123100228.77797-1-clamor95@gmail.com>
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-Date: Mon, 23 Nov 2026 14:29:31 +0200
-X-Gm-Features: Aa3M54qdKM7FZvWtT8WQZcdWMo3hSwhK3iAkQqlt8iIEs-0xQqheq2rc7TEhDHk
-Message-ID: <CAPVz0n0r7NTVwhWwkWNv21Fjy_pjmWiN+N4HbC0x0++-nOxF9g@mail.gmail.com>
-Subject: Re: [PATCH v1] ASoC: tegra: Add support for mono channel to
- Tegra20/Tegra30 I2S DAIs
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: linux-sound@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261105-memhp-hwpoison-pagecache-v2-1-029d35634d42@columbia.edu>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ whupemk100004.china.huawei.com (7.152.185.74)
 
-=D0=BF=D0=BD, 23 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 12:0=
-2 Svyatoslav Ryhel <clamor95@gmail.com> =D0=BF=D0=B8=D1=88=D0=B5:
->
-> According to the TRM, both Tegra20 and Tegra30 I2S should be able to
-> support a mono channel for non-DSP formats, while the number of channels
-> for the DSP (FSYNC) format should remain restricted to a minimum of two
-> for Tegra30+.
->
-> Implement support for mono audio by adjusting the I2S clock and divider
-> calculation logic for both Tegra20 and Tegra30+.
->
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+On 2026/11/6 4:50, Mani Tofigh via B4 Relay wrote:
+> From: Mani Tofigh <mt4022@columbia.edu>
+> 
+> Memory offline skips hwpoisoned pages, assuming nobody uses them
+> anymore.  memory_failure() however sets PG_hwpoison before it takes the
+> page, and taking it waits on pcp_batch_high_lock, which offline_pages()
+> holds for the whole offline.  A memory error during the offline thus
+> marks the page and then waits while the offline skips it:
+> 
+>   Task A (offline_pages)               Task B (memory_failure)
+>   zone_pcp_disable()
+>                                        TestSetPageHWPoison(P)
+>                                        get_hwpoison_page()
+>                                          /* waits for Task A */
+>   do_migrate_range()
+>     /* P is poisoned (not migrated) */
+>   test_pages_isolated()
+>     /* P is poisoned (accepted) */
+>   zone_pcp_enable()
+>                                        /* P is off the LRU (Ignored) */
+> 
+> The block goes offline while the file still points to P, and the next
+> walk of the file's pages (here drop_caches on ext4) crashes on a struct
+> page of offlined memory:
+> 
+>   [   11.710348] Memory failure: 0x24224: unhandlable page.
+>   [   11.710372] Memory failure: 0x24224: recovery action for get hwpoison page: Ignored
+>   [   11.765371] page:000000008c304eee is uninitialized and poisoned
+>   [   11.765389] page dumped because: VM_BUG_ON_PAGE(page_ref_count(page) == 0)
+>   [   11.765440] kernel BUG at include/linux/mm.h:1990!
+>   [   11.765458] Oops: invalid opcode: 0000 [#1] SMP KASAN NOPTI
+>   [   11.772284] CPU: 3 UID: 0 PID: 85 Comm: mfoffline Tainted: G        W            7.3.0-17087-gd865f2677c44 #1 PREEMPT
+>   [   11.777970] RIP: 0010:find_lock_entries+0x8ee/0xad0
+>   [   11.798761] Call Trace:
+>   [   11.799297]  <TASK>
+>   [   11.803284]  mapping_try_invalidate+0xfd/0x2c0
+>   [   11.810571]  drop_pagecache_sb+0x111/0x330
+>   [   11.811572]  __iterate_supers+0x2e2/0x370
+>   [   11.815863]  drop_caches_sysctl_handler+0x74/0xb0
+>   [   11.816994]  proc_sys_call_handler+0x2ec/0x440
+>   [   11.821360]  vfs_write+0x545/0x1250
+>   [   11.825220]  ksys_write+0xfa/0x200
+>   [   11.830202]  do_syscall_64+0xfb/0x590
+>   [   11.832084]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>   [   11.848423]  </TASK>
+> 
+> Once the memory is also removed it's a use-after-free of the memory map.
+> tmpfs and the swap cache can end up the same way without the race.
+> Since commit a76054266661 ("mm: shmem: don't truncate page if memory
+> failure happens"), memory_failure() leaves a poisoned tmpfs folio in the
+> page cache on purpose, and it does the same for a dirty folio in the
+> swap cache.
+> 
+> Treat a hwpoisoned page whose folio is still in a page cache or swap
+> cache as busy in scan_movable_pages() and
+> __test_page_isolated_in_pageblock() so that the offline fails and a
+> waiting memory_failure() can go on.  Also have do_migrate_range() leave
+> such a folio alone instead of taking it off the LRU, so that
+> memory_failure() can still remove it from the cache.  A later offline
+> succeeds once the page is out of the cache.  With the fix, the offline
+> fails with -EBUSY and the file doesn't point to offlined memory anymore.
+> 
+> This bug was identified and confirmed with the help of a deterministic
+> hypervisor currently under development.  The C reproducer below however
+> hits it within about 10s.
+> 
+> Fixes: b023f46813cd ("memory-hotplug: skip HWPoisoned page when offlining pages")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
 > ---
-> I2S clock calculations were adjusted to match those found in downstream
-> sources for Tegra20 up to Tegra124. This change was tested on the LG
-> Optimus Vu (P895), and sound was consistent with both mono and dual
-> channels, with no distortion.
+> Changes in v2:
+> - Leave a hwpoisoned folio that is still in a page cache or swap cache
+>   alone in do_migrate_range(), so that a waiting memory_failure() can
+>   still remove it from the cache (Sashiko)
+> - Rebase onto current mm-new
+> - Link to v1: https://lore.kernel.org/all/20261101-memhp-hwpoison-pagecache-v1-1-ed8785ca44eb@columbia.edu/
+> 
+> A pinned hwpoisoned page still isn't covered.  I'll send the refcount
+> check David suggested as a follow-up.
+> 
+> Taking get_online_mems() in memory_failure(), as in Gregory's series
+> [1], would close only the race and not the tmpfs or swap cache case.
+> 
+> [1] https://lore.kernel.org/all/20261027042204.3741307-4-gourry@gourry.net/
+> 
+> Reproducer: https://github.com/manitofigh/files/blob/main/linux-repros/mfoffline.c
 > ---
->  sound/soc/tegra/tegra20_i2s.c | 21 ++++++++++++++++-----
->  sound/soc/tegra/tegra30_i2s.c | 31 +++++++++++++++++++++----------
->  2 files changed, 37 insertions(+), 15 deletions(-)
->
+>  mm/internal.h       | 9 +++++++++
+>  mm/memory_hotplug.c | 5 +++++
+>  mm/page_isolation.c | 2 +-
+>  3 files changed, 15 insertions(+), 1 deletion(-)
+> 
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 78a7f17b9934..35c6d30537f0 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1168,6 +1168,15 @@ static inline bool node_reclaim_enabled(void)
+>  	return node_reclaim_mode & (RECLAIM_ZONE|RECLAIM_WRITE|RECLAIM_UNMAP);
+>  }
+>  
+> +/*
+> + * A hwpoisoned page can be skipped by memory offline only once no page
+> + * cache or swap cache can find it anymore.
+> + */
+> +static inline bool hwpoison_page_offlineable(const struct page *page)
 
-This seems to be unneeded, additionally, according to downstream
-tegra20 i2s format does not support mono channel. Sorry for
-disturbing.
+Would it be better to pass in folio?
+
+> +{
+> +	return !folio_mapping(page_folio(page));
+> +}
+> +
+>  extern unsigned long  __must_check vm_mmap_pgoff(struct file *, unsigned long,
+>          unsigned long, unsigned long,
+>          unsigned long, unsigned long);
+> diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
+> index 1bfd1f4daeb2..c5cfaa24b41b 100644
+> --- a/mm/memory_hotplug.c
+> +++ b/mm/memory_hotplug.c
+> @@ -1821,6 +1821,8 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
+>  		struct folio *folio;
+>  
+>  		page = pfn_to_page(pfn);
+> +		if (PageHWPoison(page) && !hwpoison_page_offlineable(page))
+
+Should we use folio_contain_hwpoisoned_page here?
+
+> +			return -EBUSY;
+>  		if (PageLRU(page) || page_has_movable_ops(page))
+>  			goto found;
+>  
+> @@ -1887,6 +1889,9 @@ static void do_migrate_range(unsigned long start_pfn, unsigned long end_pfn)
+>  			 */
+>  			if (folio_test_large(folio) && !folio_test_hugetlb(folio))
+>  				goto put_folio;
+> +			/* The offline fails on it anyway, leave it to memory_failure() */
+> +			if (!hwpoison_page_offlineable(page))
+> +				goto put_folio;
+>  			if (folio_test_lru(folio) && !folio_isolate_lru(folio))
+>  				goto put_folio;
+>  			if (folio_mapped(folio)) {
+> diff --git a/mm/page_isolation.c b/mm/page_isolation.c
+> index 5aaad037384e..beb09ef345ee 100644
+> --- a/mm/page_isolation.c
+> +++ b/mm/page_isolation.c
+> @@ -593,7 +593,7 @@ __test_page_isolated_in_pageblock(unsigned long pfn, unsigned long end_pfn,
+>  			 */
+>  			pfn += 1 << buddy_order(page);
+>  		else if ((mode == PB_ISOLATE_MODE_MEM_OFFLINE) &&
+> -			 PageHWPoison(page))
+> +			 PageHWPoison(page) && hwpoison_page_offlineable(page))
+
+Again, should we use folio_contain_hwpoisoned_page here?
+
+Thanks.
+.
+
