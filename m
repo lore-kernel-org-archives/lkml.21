@@ -1,65 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440123;
-	b=dLTOiFqrMWM/ZtKfLXo6JdK6JKZPOscFmEEskEdGPkO7NX/+BJDzYlze0BnmlJSeoQXh
-	 TCRXicO/x4+SsMD5BvK6Fmteap4s4D6wObO45VbvpFhuffmK/COUlGqwXejl3Vcr0eZCC
-	 YpJoGds3WJ5AV2iu8ldoOP0jhafaYOiQ6GI5BTQKqvZHX+DzXY5ebM/zXK5XVme+lKooO
-	 SfAHPCHm6GexKdDYH8YCjKw+/jQdYwJJxrSD2S0cDi3bwnugS6axliYJcMqzhulXQROuP
-	 mQfi9iiZ3QvrjVYndjQOTpAo2ZGmgtS0fVEWs2NeZMdkQZLhBCPVNZj4YiWPAAf/Fnw==
+	t=1795440185;
+	b=4Pl3EjpPPP3KoKTDxcCrnzUNtp7AkwMGEuiaROOw2FE9ZiPjePQxD4FySndf04RCR2j8
+	 W1A8CMhzKfOiCZqEhsca7CxmBFd0UvDWUJzFbRY1Bs/gXRtDGEVNIgQBcbTOK8pCBevCL
+	 kIzCeAYcjE1tIPP9xymt7kLLHAEkHveivfULn3yFLrnsm1Ubt4YhjedyONtJ0Ofu1mKl6
+	 TyGA061SgOM1GFdaVDWaC+A3Tn75nn/+P1ix+UntIAworC4Zfj7k7hpf0JDi1U8SXJ7Ts
+	 0JXrwg+2o9UUI+nKijCsYlwE6ahCyaygr9F4QLY4dKYenpNCbzeCrZglqmHTj/irzlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440123;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=KZfX+ZF6d3jxSf9WpYrXx6unSUfJtLVOGgikrC1kH6U=;
-	b=kxP1WuJooXVlqecEBBqWXP23uS+UeNkaHGxPzUvt8kYao2XfKlncETsdUR/kSaEipmOV
-	 oV4Er11Qi2NkmC/DysPW2beusVhmK8h91sMHB9pisSz4GHV+hvEYMsoN38o97k3XOo01e
-	 KDdQmi7KXJZuvOOhmGOp+gJGC21J69ihuav7j5VIsFtv1feslXXz/WbGPB6i4mEU98PNu
-	 x4Ri8+YvffDLeMKUkI9zFd52OhQeDXrLp2xnYs92E/BlClWg2phcsrsTvTEgmYi/tp+C7
-	 4BtBPwHFKVi+v3ssWNZsPK/og09+RS4uBaRZASbDAUnm4rq5/jZYvtYzff56EY8tLMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440185;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=nbErdJW+SNaylfayVOIrJtXlUrIgwuZjphA4JlETuDE=;
+	b=KoAy4OGyIU9IvPXcK06rB6WMQTTt7PIQjSXAsVLtG1hY17JgUv/TSjvJIyk6XPk+Zg5R
+	 ZGD/cB54JSNvcvcDjno7mgLZ/6Nc6rEEHo5IeajDrYJPa1Cfr255HumLyASN0PZMhG1yW
+	 5l92uDhIxQy8Pr0P41Z5qpulMjaVjOPtusjkp0ZcdtKg8DS/J27Yn/qxpbUmDzqKAoiqz
+	 iGfcFq6rPqNjVqtt12CHfp5eqTkOr7twRKT2lcMwQPeH754KVAFubDjjh3UyPI2Ab1mkf
+	 dJgYU+zpfr5liSLMwCaPbLf9Jslg5EJeWZ16XRP08R/tGh0tICJsWW1fFIgd7lUOe8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TMGgafaP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KvKduVVF;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C03DF606A31A;
-	Mon, 23 Nov 2026 13:22:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 444E2606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 13:23:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 444E2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TMGgafaP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D687A1F000C0;
-	Mon, 23 Nov 2026 13:21:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440123;
-	bh=KZfX+ZF6d3jxSf9WpYrXx6unSUfJtLVOGgikrC1kH6U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TMGgafaPHDfKrZrodW+958mBFtGiFovNSmKRRX3mzyYR+/UORFpEttx/f+kDZn2xd
-	 QjD8bvURHYb75aSBEz3uIb23mWlLOwfcBOnObmFKGvzQMYHVmBG00LBl4CgM/7+z80
-	 Ec//Y1Z4SzUEKwmzZ3zWebqjccK8P++vImIEz8kTys/hyjl86N/SWsE3vvW/A52swj
-	 +dLefTXln+SHLtCt1Oe/jvYTP9poeKBS8aEUz6JHxc3ikl5TgfOdM1R398BjxG7EKx
-	 s1nn8g+AQB5aQo1KEAfEociw01ShjHDkYOiWTZoAaquGWYwqyQ5vzAjJjbpVvYYObu
-	 CEXOexUivKJGw==
-Date: Mon, 23 Nov 2026 21:01:37 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Richard GENOUD <richard.genoud@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] arm64: add Synaptics SL2610 SoCs and RDK boards
-Message-ID: <awQ5MYARkTBxQpjC@xhacker>
-References: <20261115102401.3520-1-jszhang@kernel.org>
- <avrx2EhgZ10ED40P@xhacker>
- <26aa0b74-e3f8-4405-ab87-743f5f8ef197@bootlin.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KvKduVVF
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so20967965e9.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 05:23:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795440184; x=1796044984; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nbErdJW+SNaylfayVOIrJtXlUrIgwuZjphA4JlETuDE=;
+        b=KvKduVVFXzelvUDiuGnGWupo8HvzrM9HWqhgSRthzl8L1HX7caDKwnzo53b83q3jkz
+         cU3lM1pp876wIA6ggBhj8hZ4IfUZeilO64ZQ1YB9wnLJWP73VgM1pDjGK5cFNIP9hhW/
+         E9PLUIauKlYPAYh+153uSjvZjmpQfZgQqaPEdL4NYnrXVRYO0XgnVZnGkPcmh2q/wW6A
+         Q0x6zzK2q1ktEAZ5aCmKD+Wt3x7J0Vw3CIiZpbpYOjsiZ6qODqfVuJB+5LEZQknku2yl
+         y4IZKRYn0uoon7KUJcvVTV/xFahtWuwRLWD2VJIndyHvQ6KeOhWk+qTE+vcHQQQnVZ4y
+         SNTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795440184; x=1796044984;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nbErdJW+SNaylfayVOIrJtXlUrIgwuZjphA4JlETuDE=;
+        b=YrUzKtybTK5xWQMoq+QDsPRGTzx95+OphEd/yTll292zosAHpjIJd05Jh1gOZvgHq+
+         9Li8++kQkqeSlxr0WcBZx0Yda7nbH8ZHix/EYMvjfAXl/ezyWddKqpbRBpITl6dRWsUX
+         Xv/dzyEdXQNDabL9kAM8VK+xgGo/TJGWjLf/0K6FDCsMNwy6PKTj55bAbxsfomMcTMWG
+         aNJsEFXlF+FhsgJrc94j8qYHSWpWYjaaSkBJLHh9cMrefyQlI3LcTbu6aWEtw+DmuBNJ
+         /1W1PZuX+byqSqwIWk/7vDZ//PSwKvmESSYKaQv5I31UZcqVHbYrYrrvgEZhJK4h71/g
+         M+Rg==
+X-Forwarded-Encrypted: i=1; AL+hErEuGxkGqwKrIwNZfbbYon6wrWYUAUKKcDugh4s+eqHyAa5vYNX5LEZUFzHE8EKBmCS9GNBBfo/f/r0k0PY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9jd660yGhbtvd21SyybGjniLgs4jRggx5J644zbh9iTto5REMJ
+	i6/ur8nG4QLn9bzCV6CXGe884MmC2qvHE4n58U1VwPLZ3b9o5LGGKQ/0
+X-Gm-Gg: AZFdTZfKJXNzivcLb14sHRt+M7GDgvMGgx/JkvlLLv5AIIZnZUI7crUaWh78478kued
+	pvPz3IAP3FZ12DSn6SvKolDh/IKCF+PNbJ1r8qeL5hXbEKetNBGTB87qIuZoCrSxZ7n5fAvuszQ
+	YKAtKdHKYf7sutChxsR5+lPSZLF2djF8pxlp+Z8pPh6zDCFUEFUVIeTxpnTzDnlJkmvD3+/0V8p
+	+bSzch8adKMW2AvlG7tHcpFpht5TQ19FVdesV8U3n62RsV2C84NIT2xhK1Tg9Fn/VJi1/8TBKh9
+	lkeSjitzu1xclsUB8p7rVz4Dzym1FZighfLCCsCmXqOV9+ZFZmWOCdExpErwcFRh6Qu1F6e5v6e
+	Xx+awcWdHq9mnarNDH/nDGIK/v8L9TrhwJSIkkhqpzv38D5THf/ep72byoVF8PmUIKPYXpqBoFL
+	fOA8okbJzK/PYMd+66JsP4rKQM1S+6969i5L95jvagfnd0apcdqCphKSSezcskafGse8lV1O9uW
+	2FCEQsb6zubGfRUdvVyYwM8ZNHDaJx/1qcQizpvzRuySiA8SCzCLxuXSpr67NsiQ0ZL/4RWk1+v
+	XVZgTI2bINz61mo7eVOi4q0JeouAN/LrbmfQCwWrGpk/0eI=
+X-Received: by 2002:a05:600c:4f4a:b0:4bb:6752:8413 with SMTP id 5b1f17b1804b1-4bb8880015bmr267550845e9.8.1795440183501;
+        Mon, 23 Nov 2026 05:23:03 -0800 (PST)
+Received: from metepc ([46.197.185.3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm546674425e9.14.2026.11.23.05.23.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 05:23:03 -0800 (PST)
+From: =?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
+To: gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	dakr@kernel.org
+Cc: akpm@linux-foundation.org,
+	edumazet@google.com,
+	brauner@kernel.org,
+	driver-core@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?=C3=96mer=20Mete=20Kaya?= <omermetekaya0@gmail.com>
+Subject: [PATCH v2] kobject: fix use-after-free in tagged uevent broadcast
+Date: Mon, 23 Nov 2026 16:16:50 +0300
+Message-ID: <20261123132246.220476-1-omermetekaya0@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,163 +101,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <26aa0b74-e3f8-4405-ab87-743f5f8ef197@bootlin.com>
 
-On Wed, Nov 18, 2026 at 08:54:05AM +0100, Richard GENOUD wrote:
-> Le 16/11/2026 à 13:06, Jisheng Zhang a écrit :
-> > On Sun, Nov 15, 2026 at 06:23:39PM +0800, Jisheng Zhang wrote:
-> > > Add initial support for the Synaptics SL261X SoCs and corresponding
-> > > RDK boards.
-> > > 
-> > > The SL261X SoCs include five pin-to-pin compatible SoCs: SL2611, SL2613,
-> > > SL2615, SL2617, and SL2619.
-> > > 
-> > > Only reset, pinctrl, clk/pll, uart, gpio, i2c, spi, i3c are included in
-> > > this series. The support for Ethernet, USB, SDHCI, CAN, DMAC, XSPI will
-> > > be submitted after this series is merged.
-> > > 
-> > > since v1:
-> > >   - rebase on latest rcN
-> > >   - drop some patches which have been merged
-> > >   - let the "gbl" node export pinctrl/reset/clk devices with
-> > >     MFD_CELL_NAME()
-> > >   - use <linux/platform_device.h> instead of <linux/mod_devicetable.h>
-> > >   - adopt some coding suggestions from Uwe
-> > >   - Use 0 and 1 to select normal and strong pull-up on 10-bit pads
-> > 
-> > Other SoCs doesn't use this defintion for pull up or strong pull up.
-> > After consulting our HW people, the strong pull up isn't used at
-> > all, so I will remove strong pull up support in newer version. We can
-> > add back its support when it's really needed in the future, nothing
-> > breaks.
-> I've found a similar definition here:
-> https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml#L73-L78
+kobject_uevent_net_broadcast() accesses net->uevent_sock->sk without
+protection in the tagged (namespace-aware) path. During network namespace
+teardown, uevent_net_exit() frees the uevent_sock while a concurrent
+kobject_uevent_env() call can still reference it, causing a
+use-after-free.
 
-This one looks strange, and changes the meaning of bias-pull-up, I.E
-if adding "bias-pull-up" to any pin node, then it means strong pull up
-because the pinctrl subsys framework adds 1 by default. To use normal
-pull up, this binding needs "bias-pull-up = <0>;", which looks ugly
-IMHO.
+Extend uevent_sock_mutex to cover the tagged broadcast path and the
+netlink receive path, serializing them with teardown: in
+uevent_net_exit(), set net->uevent_sock to NULL under the mutex before
+releasing the socket. In the tagged broadcast path and in
+uevent_net_rcv_skb(), check for NULL under the same mutex before
+accessing the socket.
 
-> But also a plain new property here:
-> https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml#L153-L155
+Closes: https://syzkaller.appspot.com/bug?extid=7db35adbc02c5b86d4e0
+Fixes: 5c0941c55e5f ("kobject: reduce uevent_sock_mutex scope")
+Signed-off-by: Ömer Mete Kaya <omermetekaya0@gmail.com>
+---
+v2: Add Closes: tag.
 
-I like this. But I'm not sure whether it's accepted or not.
+ lib/kobject_uevent.c | 30 ++++++++++++++++++++++--------
+ 1 file changed, 22 insertions(+), 8 deletions(-)
 
-> And another with the real strong pull-up value:
-> https://elixir.bootlin.com/linux/v7.3.1/source/Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml#L94-L99
+diff --git a/lib/kobject_uevent.c b/lib/kobject_uevent.c
+index ddbc4d7482d2..fd61307c045e 100644
+--- a/lib/kobject_uevent.c
++++ b/lib/kobject_uevent.c
+@@ -411,9 +411,15 @@ static int kobject_uevent_net_broadcast(struct kobject *kobj,
+ 						    devpath);
+ 	else {
+ 		const struct net *net = container_of(ns, struct net, ns);
++		struct uevent_sock *ue_sk;
+ 
+-		ret = uevent_net_broadcast_tagged(net->uevent_sock->sk, env,
+-						  action_string, devpath);
++		mutex_lock(&uevent_sock_mutex);
++		ue_sk = net->uevent_sock;
++		if (ue_sk)
++			ret = uevent_net_broadcast_tagged(ue_sk->sk, env,
++							     action_string,
++							     devpath);
++		mutex_unlock(&uevent_sock_mutex);
+ 	}
+ #endif
+ 
+@@ -743,6 +749,7 @@ static int uevent_net_broadcast(struct sock *usk, struct sk_buff *skb,
+ static int uevent_net_rcv_skb(struct sk_buff *skb, struct nlmsghdr *nlh,
+ 			      struct netlink_ext_ack *extack)
+ {
++	struct uevent_sock *ue_sk;
+ 	struct net *net;
+ 	int ret;
+ 
+@@ -760,7 +767,13 @@ static int uevent_net_rcv_skb(struct sk_buff *skb, struct nlmsghdr *nlh,
+ 		return -EPERM;
+ 	}
+ 
+-	ret = uevent_net_broadcast(net->uevent_sock->sk, skb, extack);
++	mutex_lock(&uevent_sock_mutex);
++	ue_sk = net->uevent_sock;
++	if (ue_sk)
++		ret = uevent_net_broadcast(ue_sk->sk, skb, extack);
++	else
++		ret = -ENODEV;
++	mutex_unlock(&uevent_sock_mutex);
+ 
+ 	return ret;
+ }
+@@ -804,13 +817,14 @@ static int uevent_net_init(struct net *net)
+ 
+ static void uevent_net_exit(struct net *net)
+ {
+-	struct uevent_sock *ue_sk = net->uevent_sock;
++	struct uevent_sock *ue_sk;
+ 
+-	if (sock_net(ue_sk->sk)->user_ns == &init_user_ns) {
+-		mutex_lock(&uevent_sock_mutex);
++	mutex_lock(&uevent_sock_mutex);
++	ue_sk = net->uevent_sock;
++	net->uevent_sock = NULL;
++	if (sock_net(ue_sk->sk)->user_ns == &init_user_ns)
+ 		list_del(&ue_sk->list);
+-		mutex_unlock(&uevent_sock_mutex);
+-	}
++	mutex_unlock(&uevent_sock_mutex);
+ 
+ 	netlink_kernel_release(ue_sk->sk);
+ 	kfree(ue_sk);
+-- 
+2.56.0
 
-This is standard solution.
-
-> As you said, if it's not used, we can skip it and add a property in
-> the future (or the real value if we have it).
-
-skipping it makes sense now.
-
-> 
-> But we won't be able to use 1 for strong and 0 for normal.
-> 
-> Regards,
-> Richard
-> > 
-> > >   - collect Acked-by tag
-> > > 
-> > > Jisheng Zhang (13):
-> > >    arm64: kconfig: let ARCH_BERLIN cover Synaptics arm64 SoCs
-> > >    pinctrl: berlin: use u16 instead of u8 for the offset
-> > >    pinctrl: berlin: enable module build support
-> > >    pinctrl: berlin: add optional pinconf support
-> > >    dt-bindings: soc: synaptics: add SL2610 system controllers
-> > >    soc: synaptics: add SL2610 system controller support
-> > >    reset: add Synaptics SL2610 reset controller support
-> > >    pinctrl: berlin: add Synaptics SL2610 pin controller support
-> > >    clk: berlin: add Synaptics clock controller helpers
-> > >    clk: berlin: add Synaptics SL2610 clocks and PLLs
-> > >    dt-bindings: arm: berlin: add Synaptics SL2610 SoCs and RDK boards
-> > >    arm64: dts: synaptics: add SL2610 family SoCs
-> > >    arm64: dts: synaptics: add SL2610 family RDK boards
-> > > 
-> > >   .../bindings/arm/marvell,berlin.yaml          |  20 +
-> > >   .../soc/synaptics/syna,sl2610-soc-syscon.yaml | 178 ++++
-> > >   MAINTAINERS                                   |   8 +
-> > >   arch/arm64/Kconfig.platforms                  |   4 +-
-> > >   arch/arm64/boot/dts/synaptics/Makefile        |   5 +
-> > >   arch/arm64/boot/dts/synaptics/sl2611-rdk.dts  |  16 +
-> > >   arch/arm64/boot/dts/synaptics/sl2611.dtsi     | 457 +++++++++++
-> > >   arch/arm64/boot/dts/synaptics/sl2613-rdk.dts  |  16 +
-> > >   arch/arm64/boot/dts/synaptics/sl2613.dtsi     |  12 +
-> > >   arch/arm64/boot/dts/synaptics/sl2615-rdk.dts  |  16 +
-> > >   arch/arm64/boot/dts/synaptics/sl2615.dtsi     |  46 ++
-> > >   arch/arm64/boot/dts/synaptics/sl2617-rdk.dts  |  16 +
-> > >   arch/arm64/boot/dts/synaptics/sl2617.dtsi     |  46 ++
-> > >   arch/arm64/boot/dts/synaptics/sl2619-rdk.dts  |  16 +
-> > >   arch/arm64/boot/dts/synaptics/sl2619.dtsi     |  44 +
-> > >   .../boot/dts/synaptics/sl261x-rdk-common.dtsi | 135 ++++
-> > >   drivers/clk/Kconfig                           |   1 +
-> > >   drivers/clk/berlin/Kconfig                    |  34 +
-> > >   drivers/clk/berlin/Makefile                   |   4 +
-> > >   drivers/clk/berlin/clk-sl2610.c               | 360 +++++++++
-> > >   drivers/clk/berlin/sl-clk.c                   | 279 +++++++
-> > >   drivers/clk/berlin/sl-clk.h                   |  31 +
-> > >   drivers/clk/berlin/sl-sysmgr-clk.c            | 241 ++++++
-> > >   drivers/clk/berlin/sl-sysmgr-clk.h            |  44 +
-> > >   drivers/clk/berlin/sl2610-pll.c               | 145 ++++
-> > >   drivers/clk/berlin/sl2610-pll.h               |  14 +
-> > >   drivers/pinctrl/berlin/Kconfig                |  16 +
-> > >   drivers/pinctrl/berlin/Makefile               |   1 +
-> > >   drivers/pinctrl/berlin/berlin.c               | 259 +++++-
-> > >   drivers/pinctrl/berlin/berlin.h               |  17 +-
-> > >   drivers/pinctrl/berlin/pinctrl-sl2610.c       | 759 ++++++++++++++++++
-> > >   drivers/reset/Kconfig                         |  13 +
-> > >   drivers/reset/Makefile                        |   1 +
-> > >   drivers/reset/reset-sl2610.c                  | 224 ++++++
-> > >   drivers/soc/Kconfig                           |   1 +
-> > >   drivers/soc/Makefile                          |   1 +
-> > >   drivers/soc/synaptics/Kconfig                 |  14 +
-> > >   drivers/soc/synaptics/Makefile                |   2 +
-> > >   drivers/soc/synaptics/sl2610-syscon.c         |  84 ++
-> > >   include/dt-bindings/clock/syna,sl2610.h       | 131 +++
-> > >   include/dt-bindings/reset/syna,sl2610-reset.h |  80 ++
-> > >   41 files changed, 3771 insertions(+), 20 deletions(-)
-> > >   create mode 100644 Documentation/devicetree/bindings/soc/synaptics/syna,sl2610-soc-syscon.yaml
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2611.dtsi
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2613.dtsi
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2615.dtsi
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2617.dtsi
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl2619.dtsi
-> > >   create mode 100644 arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
-> > >   create mode 100644 drivers/clk/berlin/Kconfig
-> > >   create mode 100644 drivers/clk/berlin/clk-sl2610.c
-> > >   create mode 100644 drivers/clk/berlin/sl-clk.c
-> > >   create mode 100644 drivers/clk/berlin/sl-clk.h
-> > >   create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.c
-> > >   create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.h
-> > >   create mode 100644 drivers/clk/berlin/sl2610-pll.c
-> > >   create mode 100644 drivers/clk/berlin/sl2610-pll.h
-> > >   create mode 100644 drivers/pinctrl/berlin/pinctrl-sl2610.c
-> > >   create mode 100644 drivers/reset/reset-sl2610.c
-> > >   create mode 100644 drivers/soc/synaptics/Kconfig
-> > >   create mode 100644 drivers/soc/synaptics/Makefile
-> > >   create mode 100644 drivers/soc/synaptics/sl2610-syscon.c
-> > >   create mode 100644 include/dt-bindings/clock/syna,sl2610.h
-> > >   create mode 100644 include/dt-bindings/reset/syna,sl2610-reset.h
-> > > 
-> > > -- 
-> > > 2.55.0
-> > > 
-> > > 
-> > 
-> 
-> 
-> -- 
-> Richard Genoud, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
