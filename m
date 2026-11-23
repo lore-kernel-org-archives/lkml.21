@@ -1,92 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795393864;
-	b=MQB2f703rNi+1kOEb3xIjU2YJYqX4JlhUugyNfaqt3QRh2oBSjGW3fN7P4gwBreIJHMe
-	 s3GjSNm2uG0a4ncNJ9dSGZpeu5Aaik6CncppviVGQA87gpGWptYpGgOC8yEWqsn2x5p4W
-	 /skwBMRKPy79F5gr5DURJSUIn4KA2ciLWttIYkcMu7+hdQ62Av1N6iF3zW7AZKMPHSmoJ
-	 ZXNyZoJE132UeQTe8MjiepOsptP3Px1TBn/ee/HmoJ7orBYZfZYv8bLSIOceZ1OLgGuMu
-	 Bgc+uGF8b1QiWHsqd8Q1IxpQrXDbI1joprlFjd56YfUNVgdp9q/hu7pqtt65yiMnNgg==
+	t=1795393887;
+	b=dVPao1v675vln/n366flvys6zNBZpFA7vieOEQ2PXG39rFugN1qnQZhZcQDKzTGVDa+F
+	 j374LnGzD3/NVNriTj725IoqyQKaengLl5KZ9dKaITBAfxjCdPW9Kgtly/BlTeDZmMskA
+	 Mhvas+iYOKIUbvKr8YEchtqjbqThoKIgzvgQwu8fGe5Q8iMlinCSNVGDJYiqlU8+Ycw6Y
+	 yhjYgbd6xRDA/mRmvS15iRZYBJphe4oIcWiBBaTEYvhFxxpJ4+u9xFawbCXAg8VbJIraA
+	 5iyOKJrsCANNyVhk2t+oH2S5kubuKahkd0x1/20AVndn5UoGUu/yLMyuRX7ySNfNOeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795393864;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=xeQmcAZxQUTWqI1wKM3X0FAeTjCnZYEkIZfRrsQaagk=;
-	b=Ecyuh10bL9C0ow1eLP+cNjD/8qH72STsty48qBIi2vGY+t7W9TzXZJHtaC0WfvkUMSWz
-	 pK+WP7/bPbpmUlyOjtUFkAvQnnxr5sgwXkDKfGaFyr8h9xICTbmt8E46igLOswOcgZT5z
-	 L2UPqqKoVvfYLSa0tPOzWW+CMSi1bBalffK2lc1JgMYsD6mWzTwsPunCjc45rYpVy+Byd
-	 M3gPYqPvia9Em0Wg2Lmi8NK4Qx+14fUW3E1i441m4AJcGn4faOFBQ5uJzvpNdcq+LC7wH
-	 pO58rTgP96kAtVoBBBwmL+r0Ju1Ac6MwetzBDoqSlqrdJ9lqXDZKgfo13PWLPRr2yyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393887;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=e39tlZHzmx/bxiI/iUdemmQRs6p1buIjK2wE6pNqiSc=;
+	b=YtNBRnvkxfSg0RN/mtV6kUg9qQCE5WfAG6hUWNmXVLu5OXSSx3M89p+zFko1Su7sDX16
+	 iw6rNmR7njRX1TfLSrISNeqvVKtf1txPGWAQ8gEwC2Vpj9TrZT+JR1rdRxf9FqbBnaiH8
+	 SlKZpXEATQ36c2GS/JPCh9vitjAZanrPjIFuQmhZcmSNecr+9x1/780BWkDm+OF40H+io
+	 TlCdg08OBcbZquVqTos3ck0SzaobZD23stIjeBPa/O/1fcdoJtZHs0y1TXwamq89gtMPU
+	 2aGwFyNAK6jfZ690707mY+T9DN5oDo//NKeaS2Hc3r42qtsEjDDYqOtPZkWjAo5O+xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=OBUmdcPt;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="bHZ4/Ixb";
+	arc=none smtp.remote-ip=209.85.210.182
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC66606A320;
-	Mon, 23 Nov 2026 00:31:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC66606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0092606A31D
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:31:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0092606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=OBUmdcPt
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id BF7B340E021D;
-	Mon, 23 Nov 2026 00:31:01 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id MsE8HQ7xTj5Y; Mon, 23 Nov 2026 00:30:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795393858; bh=xeQmcAZxQUTWqI1wKM3X0FAeTjCnZYEkIZfRrsQaagk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OBUmdcPt/vi1t+PbVbpO09tSAcJ/gINEFuY00drnFzREjFXPPj5xyjURBbx7xHQAM
-	 9/VhlvdKtBElxjOEJYmXNAZAJXTtVUykQy9VW/WQU9t2OtL4bJUh6UjbojcZi9Jtr6
-	 /ZKb3K3W+EOznrdkjYHeCqjo3oJ1c8g9YMJTsVv7hMUTSdq4/9nWUeArhx8p4c1JL9
-	 59FnF6FNySZaIulKH5/TXDllVkyFDvbF+i7RDWwybiQgIUK5BidMSV8j/Tw63OWzcy
-	 fM9h7ZAe2XGqOlQOwYx2cl6ZT4UVowMkm4RnWOXuguCKPkvFFpOdFbWuvxHrt+lbqd
-	 6g9jP0bg1HIKpEUpT8ihgpTonZ7hyVlPyx0PRMHdHt1UG2At6Rm1d79PqUosbR0LJO
-	 QO0LgyeAr6f77jxFkp3RkVLkcAN0/2k+UBo1+q+JE2XnF3w3Eo+AxuU37erO8pWoXg
-	 WJKiszjPZoUBpyq/BTWgrdvxmjHhIIwsvI7xKauiwGIs/DIm0AXG052AYnUd2rxGdn
-	 jt4R4eQHn1G0VvzPB2AqPT9nKXfwjtYhKeDds8Yf7jr3h9Tc1znFWXPOvJlVS0DZqN
-	 xomlTsMJ6ZsNQJxVy9xN+feJnT6eFgvFP9jSxhLkpKrYrTUPjwgUnSomV52srzGnV9
-	 ZT5YXXsodcJ6OQK6zwYYqQ7k=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id E9BD240E0219;
-	Mon, 23 Nov 2026 00:30:39 +0000 (UTC)
-Date: Sun, 22 Nov 2026 16:30:36 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	kkd@meta.com, kernel-team@meta.com, x86@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
- user address faults under SMAP
-Message-ID: <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local>
-References: <20261009024925.3169077-1-memxor@gmail.com>
- <20261009024925.3169077-2-memxor@gmail.com>
- <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local>
- <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
- <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
- <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bHZ4/Ixb
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8a05b210703so1186796b3a.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:31:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795393886; x=1795998686; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=e39tlZHzmx/bxiI/iUdemmQRs6p1buIjK2wE6pNqiSc=;
+        b=bHZ4/IxbDhS68IOlYgZmMgFojKTMzxAN8Oafo5xjlPz5S1nfgxrvHkr938IUhthyZt
+         zvjUMkv+vv++wjf7Fn0Kd7iVR957Rdtq5neZ82Zo2iHSq8ACz3OslATAZYrtXfhh4KFy
+         AQt32KGkxGQGnE76bebO/p3NkGo73QgFvzQF0vtWQyEU/prsbsVQP3r6UlsqTsxwvkZ1
+         9T30r6168y/Zjs4+UYUav4wUV+ZnmCeS5KEdppOtUqw5bweII93U3fh0jbvHLvRcVYIZ
+         vEeklZr1LyEl58BElyaobwMHawaDFsRBC3HN+f0UZ7HMz0lgysdmpdZvQt8K+onNOnUP
+         IDhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795393886; x=1795998686;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=e39tlZHzmx/bxiI/iUdemmQRs6p1buIjK2wE6pNqiSc=;
+        b=Ldam7xyUaPZCknd7BMkZKOKGoH39cyXytn1OFidNMuD9N7kIyND9YPoFxnzKR/XrV/
+         5iJPvALy+SYUEif3biMKEyznDsqZK6CJb2eA/GNF+nQNJVx3lEhEb1T4XHds+Ev9LV+i
+         HbOIyJhoo2jHNTwY4CfKEf4DZcTXd/CH92rxhyExohJ0tg586ptQlFKjgLuy+SR7aeTX
+         HDR80qqdyeKBZrn9MbdN9ggSSdvYTybaWrG+G6MY5LLWLqXpEYfWRdTScVpPF7X8f5Qv
+         h9DQaZ9FRdRCbilULXN/RYe9x/yMOHgRMmkWWFxuox8SiK3Vp++EOPpv8PQB4uqVsXhD
+         Xw7g==
+X-Forwarded-Encrypted: i=1; AL+hErFz1b3xsc3Ik8Z7k2WY0au9WTlwX+OIowB+fgzADw/g6Hk6c0uFuS7tEefOGIgbP47wNCyCjdO6lJowvFc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8tFyUV9J5I+HN05JfNe0exSRYGMTEgUZfGHCVTXjNQKa3nQofH
+	U5LERKdyuWRdzdOStctEtYcZcwDzbjUrYhrYv8wxG2xYcNPzbpFwlPIn
+X-Gm-Gg: AZFdTZdvRkeGWlaHHk8uPfIkgp8TYoc1nXuo2ECYBoO+2BWYiehywdYVtU+41iINFee
+	ybGyejHN6B++qwMaPz4iGhVF7VRa4MkZHlEFISPaKg+CaU8irhpskuTsIFd1IX798OzFcpl3kZ4
+	JK+zjkKYcFcFcsug0PEgbjqQJnYhZVSDGYdF10KHdgz7UG76TM4f44q07eRZQxZq3I3iHZGGvux
+	PfC8j3CM5aU2i3uVC9CVLO7juN+5ymrbn4cfeYYLfMnn8AnF+GbjXMfp2/3TUTIKWYsoqHtiLs0
+	M/siccbvxjpQayolHloV5F/EqOgp2k4ULSiZ4ujHp3+Kx2RZfCfjXwQWD3Rj9mKzUODC72a+tNS
+	zUjzZXIWz7SvOIdSjd3lOiz/ucjMkqxNmxhF8XGZI+5l1zoDGubzegAO5Zak2Yof8cxnUNRExSn
+	DfJz3cgareNAOVeoh9TUnq4hCOlGao/aNykIez0nVJjTmO/9xrCqsJQ+i9d54FOwaQaNU/gejg/
+	SrvIcaCl6781Vj5JFMtb+hKM6ffssnKzUcKmTSPRwinyhEG/Ow75ma2bOzPadW5O0xxKrmmZ1jv
+	pKsdKxp0weQrux51nUyqoPuavq7/qnCYgV4zbgz7+DSRApQ=
+X-Received: by 2002:a05:6a00:b43:b0:878:38af:1970 with SMTP id d2e1a72fcca58-8c87dce532cmr8545457b3a.60.1795393886071;
+        Sun, 22 Nov 2026 16:31:26 -0800 (PST)
+Received: from localhost ([2001:8004:6b00:7582:da58:72e4:4f6:67f3])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8707792e8sm4589844b3a.7.2026.11.22.16.31.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 16:31:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,35 +87,93 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 08:31:11 +0800
+Message-Id: <DN260E1QVCJA.2PKN1JODEAOB0@gmail.com>
+Cc: "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
+ "Gary Guo" <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Trevor Gross" <tmgross@umich.edu>, "Danilo Krummrich" <dakr@kernel.org>,
+ "Daniel Almeida" <daniel.almeida@collabora.com>, "Tamir Duberstein"
+ <tamird@kernel.org>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, "Jean Delvare"
+ <jdelvare@suse.com>, <linux-kernel@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>
+Subject: Re: [PATCH] rust: dmi: add basic DMI matching abstraction
+From: "Nick Dowsett" <nick42d@gmail.com>
+To: "Miguel Ojeda" <miguel.ojeda.sandonis@gmail.com>, <nick42d@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261122-rust-dmi-v1-1-4ace9449f872@gmail.com>
+ <CANiq72mFCq01A_=B0gyaut1rPWeECOdDwP6pD3FBv7n4oH6TWg@mail.gmail.com>
+In-Reply-To: <CANiq72mFCq01A_=B0gyaut1rPWeECOdDwP6pD3FBv7n4oH6TWg@mail.gmail.com>
 
-On Sun, Nov 22, 2026 at 10:59:33PM +0100, Kumar Kartikeya Dwivedi wrote:
-> So I am not sure I see how this risks making things worse for anyone
-> else. It's not about saving some bytes, if you look at the cover
-> letter, we reduce significant amount of code and associated overhead
-> from programs running in hot paths.
+Hi Miguel,
 
-Lemme summarize our "discussion":
+Thanks very much for taking a look!
 
-Boris: you're subverting SMAP security.
+On Sun Nov 22, 2026 at 6:37 PM AWST, Miguel Ojeda wrote:
+> On Sun, Nov 22, 2026 at 5:28=E2=80=AFAM Nick Dowsett via B4 Relay
+> <devnull+nick42d.gmail.com@kernel.org> wrote:
+>>
+>> `dmi::get_system_info` is currently marked safe under the assumption tha=
+t
+>> Rust code is always called after DMI is initialised. Would be keen to
+>> have this validated. Alternatively I think a minimal patch to C could
+>> actually make this safe earlier if required.
+>
+> Please avoid soundness holes unless there is really no other way out
+> and/or it would be very, very onerous to do. The bar is really high
+> here, i.e. if this is just an `unsafe` function, then please simply
+> mark it as such, which in turns allows us to document why and to force
+> others to ensure it is correct when calling it etc.
+>
+> Of course, if there is a way to make it safe (whether with a change on
+> the C side or with API design on the Rust side etc.), then that is
+> even better.
 
-Kumar: but but, performance. And we're special.
+Sounds good from my side. I think initially it's OK to mark this unsafe
+- the precondition will be easy to satisfy for the callers. Seperately
+I can then investigate a C patch (I think using atomics for
+dmi_available).
 
-Nope, not good enough.
+>> +/// # use kernel::dmi::{self, Field};
+>
+> Vertical formatting.
 
-You need to go back to the drawing board and massage your bpf program until it
-doesn't need any hackery like that.
+Just checking here - is this still applicable for doctests? I copied
+some of the example from another subsystem. There could be some
+conciseness benefits from not doing this here?
 
-I dunno, tag the pointer, massage it so that it causes a "normal" page fault
-like it would happen for any other userspace program, whatever. Just not this.
+>> +pub fn get_system_info(field: Field) -> Option<&'static CStr> {
+>> +    // NOTE: This can be upgraded to cfg-select post Rust 1.95.
+>
+> `cfg_select!`
+>
+> Though I am not convinced we want this sort of comment -- it is true
+> that we have similar comments for explicit workarounds we want to
+> remove later on, but in a case like this it is the "standard" way of
+> writing the code at least at the moment, rather than an actual
+> workaround. And we can always grep/LLM for these improvements when we
+> bump the minimum version.
+>
+>> +        if ptr.is_null() {
+>> +            return None;
+>> +        }
+>
+> Newline after this?
+>
+>> +        // SAFETY: If non-null, `dmi_get_system_info` returns a C strin=
+g that
+>> +        // lives for the life of the kernel.
+>
+> I would word sentences like this stating what is known to be true and
+> why (since that adds information), rather than conditionally (since
+> that "repeats" the contract of the callee), e.g.
 
-HTH.
+All ok with me, I shall address in v2 within the next couple of days.
 
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Cheers,
+Nick
