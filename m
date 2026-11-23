@@ -1,85 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.90.104.144
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433865;
-	b=ol/mH1yZD4maOne1Eo/WJIFQMBl5bTbNXBn2KYByR6HC+Mlt6k919D3z0n+1gtkWbbRb
-	 ENh3/1plVumQycdcPX7MiroPDS6+ebzn2c9ZLqux57DaQe5D0PynRlflogst3WkiCeSzC
-	 16LV3eHfhO/Y2QbfmXl8q+QJl3CO0pLi4M8kTQ2mM76LHDPr4dKHBRSv5gsCIbCFGzLAm
-	 VV1C3eXQI2hzE8R4indtfzq1CN7IR8MWoedQvEp6jwrzyyOTJxWMWlzO1gRt9PvdPv5iH
-	 FpWOH8j0XdSNix6cC3qOL0osCapeifRIpfljQK1HfBzSGfPzKRwgJnvTJdirewnF0hw==
+	t=1795433862;
+	b=rnCIQ5Oxa6CyszQF0GbVjgag+lciIWxovsov+66hPp1Xc0mD7MtRJu5DQrDHFoMMXoP9
+	 E4CGOTsefCZWmWWEelOhoQFMU60GAVAFu6/d1VEdG4NHmbGHbUrQxk90OxVmsm93qwUAX
+	 KQGBznIkYJxze2PEMQ1o5dtORMqRqkGug3b9ILp3XfnSE7VvTw7NT+iUm9kJIZQDx2UmC
+	 AAmmw3E6XKDjsKrvN3SPEHeU0COsW7fUCfxMWfXSPABn1/NgIwMcz8eiQaerGf/kkxOe2
+	 Y2Ls9kQ/JmhmaNYpHcNTkibMyzDRHcviMWdoMb1vIzlSuP7cEmfFeXhqzo/QW3/lHZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433865;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-CACHE:X-CID-P-RULE:
-	 X-CID-O-INFO:X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:
-	 X-UUID:Received:Received:Received:From:To:CC:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-MTK;
-	bh=PRXvGXWiLhUZfSPTLsYZVP3/cuMLTt0j/3uv3gxjm5I=;
-	b=hOAtGvZT5/cmuilXsDy/zXkZ4tPJXEAkKwO76BhJr+QKnrJi0P/VPyB0zjI9YxuFeOiy
-	 N8IVQYhRaBA6I1BM1q4Q5wdBt3RKFbho2hZCc06Fd4r4yw3qmO7rnd0ee4c7QLSMx70k+
-	 Ax6DydJig+12n3BtqAYdMVIytQKM2Mv6VcQjPSYqK1aSlJOJz02YkNiG8kVnWZ69BAT3h
-	 jzEHUvr9pIA9L2X7hup/3Yqn6XwoQmJDfpkYDhWjcl9Cj6a6R6vlG0/5t0tbBInqKlq/R
-	 DMm6VNRnfih++Bb41Ily/2WZRo/UsYnJMBomQF8MrrdpOGol4zUX4mcIdkmJP3bHKig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433862;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-Amp-Result:X-Amp-File-Uploaded:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:Received:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=8VjKfFnIZSkrCLXCygsuoSQMlE9SiraWmXyOrGKYFrE=;
+	b=jbtdt/fkvi5L4IdbztnLSQ+xr9UAToyVIDZvWE84hpE6iCeMdn7Wtf1SU1dLg5KNZ0gf
+	 ZWGu2jvFUoXSpgaFA4uziTN4ksKwz2k4jDr3a8Zkp8KxBJXPm0TWeTPJ9nEMN0To4tmQh
+	 QtP9GNS6l90Mu0m4LC7yhmUAFsmd58iVOlTOijr0T3fMIz29Tkb7bcySuS1nOgvca4RDr
+	 jXnGe2RexcV+mASEWtku2OKSgVFjCgLgWMTWApQ/yPgos+d147yE1582HEoVUYvL3cqIe
+	 pF/x1vRDiJQ4K6jUgpTqaIt+0hssXL7xjEZwDI+FrH2SlLQxAqrSjbHORLh4LEnYbWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=I4aNr1yC;
-	arc=none smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC97D60A3827;
-	Mon, 23 Nov 2026 11:37:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC97D60A3827
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=I4aNr1yC
-X-UUID: 4a66a70ee73211f18dc8c9802ae25ab1-20261123
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=PRXvGXWiLhUZfSPTLsYZVP3/cuMLTt0j/3uv3gxjm5I=;
-	b=I4aNr1yCX8n2yzkvnTC2WVDMur+VTmQ+9pqizbn8iNIATfBYDgxvwRgjfkuildE5Vb4PxesxU8bztSsaLFKQM7KPEk9MYbboMgvJgnKvx6uirP3aOARqoNlb4RvlLcd5szoZ2+HahZ4DqPUox4kT2sw7s4GoHFAhflBz4fkskG4=;
-X-CID-CACHE: Type:Local,Time:202611231937+08,HitQuantity:1
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:d8926046-49d1-4a3c-b335-9b3866415dcf,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:b0318ac,CLOUDID:1e75ad66-4b51-4c95-bb1b-80ac6aad9c96,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 4a66a70ee73211f18dc8c9802ae25ab1-20261123
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <chunfeng.yun@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 833396524; Mon, 23 Nov 2026 19:37:40 +0800
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 19:37:39 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.53 via Frontend Transport; Mon, 23 Nov 2026 19:37:38 +0800
-From: Chunfeng Yun <chunfeng.yun@mediatek.com>
-To: Mika Westerberg <westeri@kernel.org>
-CC: Andreas Noever <andreas.noever@gmail.com>, Konrad Dybcio
-	<konrad.dybcio@oss.qualcomm.com>, Sven Peter <sven@kernel.org>, Yehezkel
- Bernat <YehezkelShB@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, <linux-kernel@vger.kernel.org>,
-	<linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Chunfeng Yun
-	<chunfeng.yun@mediatek.com>
-Subject: [PATCH v3 7/8] thunderbolt: Decouple the waiting time of TB_PORT_UNPLUGGED and TB_PORT_UP
-Date: Mon, 23 Nov 2026 19:36:54 +0800
-Message-ID: <20261123113705.2297329-8-chunfeng.yun@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
-References: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
+	dmarc=pass header.from=mobileye.com;
+	spf=pass smtp.mailfrom=mobileye.com;
+	arc=none smtp.remote-ip=23.90.104.144
+Received: from esa1.hc555-34.eu.iphmx.com (esa1.hc555-34.eu.iphmx.com [23.90.104.144])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6475E606A680;
+	Mon, 23 Nov 2026 11:37:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6475E606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mobileye.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mobileye.com
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1795433860; x=1826969860;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=6HSsbhIJ2/LzJaFX+VzpT4jqVpYrVahm8NgRsq5w1c0=;
+  b=cu9BtLwI6zIh04aRe5oEXBgHu5pcphEXdRGUYCtUMyzXNC+jTY63RDyS
+   pzUXhZXRng/4U57+yPE7RmStto7apnesYa8VGlNx76U6JZRhh2PJHsvV+
+   s0ivypm0fZdaMv5j2QfGjjEBSgzuN+Ok5IwBfhOpEmqwNG36y/sd/wEvU
+   d3BNb3XT7qAnwf9o5K7hO4IiOhiBddTNSQk4jJttKSO3TTGI4EuKR3s4b
+   XH1DmnScMv1w7AdQCpHHfS9IsNh5ssGQ+u5slIP5J5AmURB/PTiasm9TM
+   pV7KsdJ/o03vvEQNwtIn2OYIDsIpYW5hVXPAYgE5amIRLGNelCOKlCnLi
+   A==;
+X-CSE-ConnectionGUID: aFHaIcV+S7aBTvYTrtdGmA==
+X-CSE-MsgGUID: hSra9YUxSG28GnS0+iynEw==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 13:37:29 +0200
+X-CSE-ConnectionGUID: wwCti2eIQNyQPVs2zMcl2w==
+X-CSE-MsgGUID: zZwA3l2rQHeuaw3KjWwvFQ==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
+  by ces04_data.me-crop.lan with SMTP; 23 Nov 2026 13:45:49 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 23 Nov 2026 13:37:28 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Date: Mon, 23 Nov 2026 13:37:11 +0200
+Subject: [PATCH v4 1/6] mips: {cm,cpc}: Make cm_core_lock, cpc_core_lock
+ raw spinlocks
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,55 +66,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-i6500-cm3-pmu-v4-1-5a9f5351688f@mobileye.com>
+References: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
+In-Reply-To: <20261123-i6500-cm3-pmu-v4-0-5a9f5351688f@mobileye.com>
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Fu Chao-Ying <chao-ying.fu@globalfoundries.com>
+Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, Paul Burton <paulburton@kernel.org>
+X-Mailer: b4 0.16.0
 
-When USB4 is woke up by device disconnect, no need wait for 2s,
-usually the phase2~4 takes at most about 200ms, and enters to
-TB_PORT_CONNECTING, if it is still in TB_PORT_UNPLUGGED after 400ms,
-treat it as disconnected.
+From: Paul Burton <paul.burton@mips.com>
 
-Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
+cm_core_lock and cpc_core_lock are used to protect access to a CPU's
+core-other/redirect CM and CPC register blocks. Since each CPU sees
+its own copy of this block, we need to ensure that critical sections
+holding a cm_core_lock run on one CPU - ie. we need to disable
+preemption.
+
+Use raw_spinlock_t to implement cm_core_lock and cpc_core_lock in
+order to provide the guarantees we need on PREEMPT_RT systems.
+
+Signed-off-by: Paul Burton <paul.burton@mips.com>
+[added CPC part]
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 ---
-v3: fix code style
----
- drivers/thunderbolt/switch.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ arch/mips/kernel/mips-cm.c  | 20 ++++++++++----------
+ arch/mips/kernel/mips-cpc.c | 12 ++++++------
+ 2 files changed, 16 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/thunderbolt/switch.c b/drivers/thunderbolt/switch.c
-index 97e3fd8cdc0c..0da5b7ee4c29 100644
---- a/drivers/thunderbolt/switch.c
-+++ b/drivers/thunderbolt/switch.c
-@@ -489,8 +489,9 @@ int tb_port_state(struct tb_port *port)
-  * Wait up to 2 seconds for a port to reach state TB_PORT_UP. If
-  * wait_if_unplugged is set then we also wait if the port is in state
-  * TB_PORT_UNPLUGGED (it takes a while for the device to be registered after
-- * switch resume). Otherwise we only wait if a device is registered but the link
-- * has not yet been established.
-+ * router resume, Wait at most 400 ms for link to start connecting,
-+ * if timeout, means the device is disconnected). Otherwise we only wait
-+ * if a device is registered but the link has not yet been established.
-  *
-  * Return:
-  * * %0 - If the port is not connected or failed to reach
-@@ -500,6 +501,7 @@ int tb_port_state(struct tb_port *port)
-  */
- int tb_wait_for_port(struct tb_port *port, bool wait_if_unplugged)
- {
-+	int unplugged_retries = 4;
- 	int retries = 20;
- 	int state;
- 	if (!port->cap_phy) {
-@@ -519,7 +521,7 @@ int tb_wait_for_port(struct tb_port *port, bool wait_if_unplugged)
- 			return 0;
+diff --git a/arch/mips/kernel/mips-cm.c b/arch/mips/kernel/mips-cm.c
+index 7c9c5dc38823..3bfe85e86a9a 100644
+--- a/arch/mips/kernel/mips-cm.c
++++ b/arch/mips/kernel/mips-cm.c
+@@ -179,7 +179,7 @@ static char *cm3_causes[32] = {
+ 	"0x19", "0x1a", "0x1b", "0x1c", "0x1d", "0x1e", "0x1f"
+ };
  
- 		case TB_PORT_UNPLUGGED:
--			if (wait_if_unplugged) {
-+			if (wait_if_unplugged && unplugged_retries--) {
- 				/* used during resume */
- 				tb_port_dbg(port,
- 					    "is unplugged (state: 7), retrying...\n");
+-static DEFINE_PER_CPU_ALIGNED(spinlock_t, cm_core_lock);
++static DEFINE_PER_CPU_ALIGNED(raw_spinlock_t, cm_core_lock);
+ static DEFINE_PER_CPU_ALIGNED(unsigned long, cm_core_lock_flags);
+ 
+ phys_addr_t __weak mips_cm_phys_base(void)
+@@ -309,7 +309,7 @@ int mips_cm_probe(void)
+ 	mips_cm_is64 = IS_ENABLED(CONFIG_64BIT) && (mips_cm_revision() >= CM_REV_CM3);
+ 
+ 	for_each_possible_cpu(cpu)
+-		spin_lock_init(&per_cpu(cm_core_lock, cpu));
++		raw_spin_lock_init(&per_cpu(cm_core_lock, cpu));
+ 
+ 	return 0;
+ }
+@@ -347,8 +347,8 @@ void mips_cm_lock_other(unsigned int cluster, unsigned int core,
+ 		 * mips_cm_lock_other() leading to a deadlock or a nice warning
+ 		 * with lockdep enabled.
+ 		 */
+-		spin_lock_irqsave(this_cpu_ptr(&cm_core_lock),
+-				  *this_cpu_ptr(&cm_core_lock_flags));
++		raw_spin_lock_irqsave(this_cpu_ptr(&cm_core_lock),
++				      *this_cpu_ptr(&cm_core_lock_flags));
+ 	} else {
+ 		WARN_ON(cluster != 0);
+ 		WARN_ON(block != CM_GCR_Cx_OTHER_BLOCK_LOCAL);
+@@ -359,8 +359,8 @@ void mips_cm_lock_other(unsigned int cluster, unsigned int core,
+ 		 * race with us.
+ 		 */
+ 		curr_core = cpu_core(&current_cpu_data);
+-		spin_lock_irqsave(&per_cpu(cm_core_lock, curr_core),
+-				  per_cpu(cm_core_lock_flags, curr_core));
++		raw_spin_lock_irqsave(&per_cpu(cm_core_lock, curr_core),
++				      per_cpu(cm_core_lock_flags, curr_core));
+ 
+ 		val = FIELD_PREP(CM_GCR_Cx_OTHER_CORENUM, core);
+ 	}
+@@ -380,11 +380,11 @@ void mips_cm_unlock_other(void)
+ 
+ 	if (mips_cm_revision() < CM_REV_CM3) {
+ 		curr_core = cpu_core(&current_cpu_data);
+-		spin_unlock_irqrestore(&per_cpu(cm_core_lock, curr_core),
+-				       per_cpu(cm_core_lock_flags, curr_core));
++		raw_spin_unlock_irqrestore(&per_cpu(cm_core_lock, curr_core),
++					   per_cpu(cm_core_lock_flags, curr_core));
+ 	} else {
+-		spin_unlock_irqrestore(this_cpu_ptr(&cm_core_lock),
+-				       *this_cpu_ptr(&cm_core_lock_flags));
++		raw_spin_unlock_irqrestore(this_cpu_ptr(&cm_core_lock),
++					   *this_cpu_ptr(&cm_core_lock_flags));
+ 	}
+ 
+ 	preempt_enable();
+diff --git a/arch/mips/kernel/mips-cpc.c b/arch/mips/kernel/mips-cpc.c
+index 3e386f7e1545..4b50c58628dc 100644
+--- a/arch/mips/kernel/mips-cpc.c
++++ b/arch/mips/kernel/mips-cpc.c
+@@ -15,7 +15,7 @@
+ 
+ void __iomem *mips_cpc_base;
+ 
+-static DEFINE_PER_CPU_ALIGNED(spinlock_t, cpc_core_lock);
++static DEFINE_PER_CPU_ALIGNED(raw_spinlock_t, cpc_core_lock);
+ 
+ static DEFINE_PER_CPU_ALIGNED(unsigned long, cpc_core_lock_flags);
+ 
+@@ -74,7 +74,7 @@ int mips_cpc_probe(void)
+ 	unsigned int cpu;
+ 
+ 	for_each_possible_cpu(cpu)
+-		spin_lock_init(&per_cpu(cpc_core_lock, cpu));
++		raw_spin_lock_init(&per_cpu(cpc_core_lock, cpu));
+ 
+ 	addr = mips_cpc_phys_base();
+ 	if (!addr)
+@@ -97,8 +97,8 @@ void mips_cpc_lock_other(unsigned int core)
+ 
+ 	preempt_disable();
+ 	curr_core = cpu_core(&current_cpu_data);
+-	spin_lock_irqsave(&per_cpu(cpc_core_lock, curr_core),
+-			  per_cpu(cpc_core_lock_flags, curr_core));
++	raw_spin_lock_irqsave(&per_cpu(cpc_core_lock, curr_core),
++			      per_cpu(cpc_core_lock_flags, curr_core));
+ 	write_cpc_cl_other(FIELD_PREP(CPC_Cx_OTHER_CORENUM, core));
+ 
+ 	/*
+@@ -117,7 +117,7 @@ void mips_cpc_unlock_other(void)
+ 		return;
+ 
+ 	curr_core = cpu_core(&current_cpu_data);
+-	spin_unlock_irqrestore(&per_cpu(cpc_core_lock, curr_core),
+-			       per_cpu(cpc_core_lock_flags, curr_core));
++	raw_spin_unlock_irqrestore(&per_cpu(cpc_core_lock, curr_core),
++				   per_cpu(cpc_core_lock_flags, curr_core));
+ 	preempt_enable();
+ }
+
 -- 
-2.45.2
+2.43.0
 
