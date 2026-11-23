@@ -1,110 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.250.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795424796;
-	b=gKtMLe9O9XBKyX0timOy/K3RU6SIWDxX84TOnveeL5UhqgHiWQlNdlqgCMTWmuv5w8r+
-	 hUlXBraX7u/zPVzh8W4mH2y3tQRGdbE4IVu6QRzWJWWsNzQg9Nj/wIKNgQY+/YKcqqbDX
-	 j9EL9FO8v2f16GFlLTbKUeXCJkfgG14FGdaCNsDThUDjSLzdWB+MDytnLL08zBKzUveWo
-	 WBO1lKes/xWv4v5ptenStFEOhp0VPyA1RVmUykSxLrU+oUr2eJ0cA8RP+sqJbuA+5hOi4
-	 lZ/YwnmCvZ/V+7D+3uTkiER6GFgJudARpg2186kHqCxUCJadMm2chAAs9Shy7V3lzHg==
+	t=1795424804;
+	b=zJ/XVQN0SnMp4aThWjVjhGt51ivgn6tDniaFAem86oJF3z80j1tFMd976ysRvYwbONUm
+	 wrggsJbVNVul+XQs2ruUfYXDeMBUlAoE3QYuuZQFJb4QLMTF+XXyCfKS+idrjpheOJ5nA
+	 zue5U3+o9+sEMCwA2LVEq1k4DWmgNeVZ50eIKw94GMJdElV2vttc6gv24wQG3z72VIO/v
+	 B6+2fbZ6rwG3T0n1Oas8/j15uVxxihygLWVGxOOLdmkIUSeiSg0vAB6LLx/XSY0MPQeZI
+	 c5KN8lLQlQaOOgm3Uhxyc9/86CKbg0hrehqtxyQN0Ufgu9okxr10cz/THqHswP/ZR7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795424796;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=15Ht46g1Fi4jbVj8JCWcJmUreEdiS3C7u0Rehkt5Jo8=;
-	b=Ey1qGW7vwGIyVLNi9CF8mk1uL+k+6E2ZDjDsG8JqANB01VpLRB62xMJ/xQv+FWm4IFN1
-	 0fAsPmqNVT/AJ5RHc6PqxhPUbKM4vAkHAybiGaqG1E8m2OJy/05GfDqi8+dC0WkwdX+NI
-	 NLgDXX3QQ9uDz/qIGB6cfCvodLfb20aWIqMjVTGdoRcImz7Jm1G4W+Ka3no7PxOFLnP9M
-	 FP3ODnCjHrxJy0pXwVXdiGsrtrMIZClj/lCy/e9V6D0XxcpPEtIqBFGq0qtlx0OkWklm8
-	 7EgIn/xwQBcuSzUttXzDGvIeUBNlT9vnhqQvt7cxhcpEf/rMcLpyW+jxvtFU00r3cLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795424804;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qfVG+9159819Kzvw9diB4DBZrJSQoGD8HuiVS/PJANk=;
+	b=46CZVRAOcDj/7qVl9gZgptea27Dp5oKi+A7CD34smIIV+vH+xEMIZF/dfmSyz4ZRXxvz
+	 hhjm7UgHvlWA6UZ9DaLEy4qQP3NoU3OCOZh1hWg0zylBPKVSL8t2KOmbXr5FL6UmvmVzZ
+	 g353vmb7kALNuzUQB3DpNxyPTurkoRTTcbiq1q0Y77ZxWXc9hiJPgLO1JG3C7uXT8TUzy
+	 mMykRyaoDqm02AlSennKtGK/Tusr37WStcdA2c7YD5VXySpIJ2n5/tibJzSK7FY8SZNjq
+	 1TOBRZDEqYiwCg64NDufOjTkZ3uG2a1BMY5IvExNM1ykuB+13lWVwpjkWqCJBoAMGWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=UYkdOdWm;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Loj1Wq1q;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wXQMwfa+;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=zYZ0mDRE;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=none header.from=8bytes.org;
+	spf=pass smtp.mailfrom=8bytes.org;
+	arc=none smtp.remote-ip=85.214.250.239
+Received: from mail.8bytes.org (mail.8bytes.org [85.214.250.239])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id F2BDD606A32A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:06:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2BDD606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=8bytes.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=8bytes.org
+Received: from 8bytes.org (p549216fa.dip0.t-ipconnect.de [84.146.22.250])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8041C606A327;
-	Mon, 23 Nov 2026 09:06:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8041C606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=UYkdOdWm;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Loj1Wq1q;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wXQMwfa+;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=zYZ0mDRE
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BF84D2202D;
-	Mon, 23 Nov 2026 09:06:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795424793; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=15Ht46g1Fi4jbVj8JCWcJmUreEdiS3C7u0Rehkt5Jo8=;
-	b=UYkdOdWm5DVMqIBoabCMneMs/9fc0q22E7PrhHFWwYD+plWFnuYeUmsoUCaGCizRttdTgE
-	RgiHZGN2WIY36dHPde1NipXUxLqE1iiSHzDVTu/DELHtxhJL6C7PrVLDe/WsWShfMEPvSS
-	xUKhll+vAWkGK9vswCMg5ImXiB3ipBg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795424793;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=15Ht46g1Fi4jbVj8JCWcJmUreEdiS3C7u0Rehkt5Jo8=;
-	b=Loj1Wq1q5CJ2ZMC24+O7a//o1TdpL9FERsJ0Mj+jK7yP85MHCFFevjmN4QdYfl5aq8mwya
-	XY8bU5ieXL/zIdBA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795424792; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=15Ht46g1Fi4jbVj8JCWcJmUreEdiS3C7u0Rehkt5Jo8=;
-	b=wXQMwfa+rOsy0CL49zSxGW5rYxSe5oXzJUsjnFzrkIUda/78Y5XTbZAKvUmESpflGU39R+
-	vLd6vCDkEPc3LhlySJk1unes4C/VauERrKlvULvaPpwzVZyimJcZ5ND/SENnomlnMXEQDZ
-	ofb0WtnDbVZQVcqsUIRFKAjSSwhMBEY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795424792;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=15Ht46g1Fi4jbVj8JCWcJmUreEdiS3C7u0Rehkt5Jo8=;
-	b=zYZ0mDREy3zRaJ8AQrhDDcimAh9NGWGOC7IwcJQuspcBLfBvUiJ7OfWaWUcBlXAAtyiC4f
-	jqryDnc+SBnrAnAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 659F313532;
-	Mon, 23 Nov 2026 09:06:32 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id fHbIDRgCBGs5DAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Mon, 23 Nov 2026 09:06:32 +0000
-Date: Mon, 23 Nov 2026 10:06:31 +0100
-Message-ID: <87mrqzdii0.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: HyeongJun An <sammiee5311@gmail.com>
-Cc: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Mark Brown <broonie@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-sound@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] ALSA: seq: ump: Convert MIDI 2.0 RPN and NRPN for MIDI 1.0 clients
-In-Reply-To: <20261122103611.3264343-1-sammiee5311@gmail.com>
-References: <20261122103611.3264343-1-sammiee5311@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	by mail.8bytes.org (Postfix) with ESMTPSA id 74CE4244C20;
+	Mon, 23 Nov 2026 10:06:42 +0100 (CET)
+Date: Mon, 23 Nov 2026 10:06:41 +0100
+From: Joerg Roedel <joro@8bytes.org>
+To: Yuho Choi <oss.patchbox@gmail.com>
+Cc: Will Deacon <will@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] iommu/sun50i: Report TLB invalidation timeouts from
+ iotlb_sync_map
+Message-ID: <awQCEz3ip1AwDBjR@8bytes.org>
+References: <20261020170324.1223144-2-oss.patchbox@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,57 +51,14 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-12.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_TO(0.00)[gmail.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.30
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261020170324.1223144-2-oss.patchbox@gmail.com>
 
-On Sun, 22 Nov 2026 11:36:09 +0100,
-HyeongJun An wrote:
-> 
-> A UMP MIDI 1.0 client gets nothing when a UMP MIDI 2.0 client sends an
-> RPN or NRPN. Patch 1 converts them to CCs the way the core converter
-> does, and patch 2 adds a test.
-> 
-> A related question. In the other direction, CC 101, 100, 6 and 38 from
-> a UMP MIDI 1.0 client reach a MIDI 2.0 client as four MIDI 2.0 CC
-> messages. The same CCs from a legacy client are combined into one RPN
-> message by cc_ev_to_ump_midi2(). Should cvt_ump_midi1_to_midi2() do
-> that too? I can send it if you want it.
-> 
-> Tested in QEMU (x86_64) on sound/for-next 1afd6b7547b2. seq-ump-test
-> passes 28 of 29 without patch 1, where the new test gets no packets,
-> and 29 of 29 with it.
-> 
-> Prepared with Claude Code (Claude Opus 5.5).
-> 
-> HyeongJun An (2):
->   ALSA: seq: ump: Don't drop MIDI 2.0 RPN and NRPN for MIDI 1.0 clients
->   selftests/alsa: Test the sequencer UMP MIDI 2.0 RPN conversion
+On Tue, Oct 20, 2026 at 01:03:11PM -0400, Yuho Choi wrote:
+>  drivers/iommu/sun50i-iommu.c | 42 ++++++++++++++++++++++--------------
+>  1 file changed, 26 insertions(+), 16 deletions(-)
 
-Applied both patches to for-next branch.  Thanks.
+Applied, thanks.
 
-
-Takashi
