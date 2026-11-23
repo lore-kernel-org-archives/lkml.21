@@ -1,58 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.157
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795399460;
-	b=JhVcXtV32Raf1p+HZRnB13WJf7DS4GgpwVtNRPBhaw8350F/bmU1wjHGaCBuc45KHwDY
-	 yRe6bxbS5VazfqO82PFZ9KzGAtO6qYYur/OdtIAbABhz4n9Rg1QCwFut/ws4E5V/D/5xR
-	 i+DLCXAhITfIS/JLL2w0Q7nXezO9DJ0kA6xh6eFTrFg99swJ4FEBlz48njbbIkP431T0q
-	 yNvQY2gUTpMWb4vOhcxqGQN52oo7mTqqwEg4b7QbHG4/EEu+nZIYrMrtC0fVPbsvlbcfX
-	 CVq4kL0mi10KjxAMqIgSN5o7u4g4gR74iYcq8d01ZuW4d6a3bgluXWraPBhRU22oTLQ==
+	t=1795399734;
+	b=QGNS+4Kkc3Dvtv41l3TUOPaECqMAKEk0Z1/JN97hl8siVuIwDmW386Gn9uzb7ND2Xe9S
+	 iAAfFc8B1yrigVsN1pILJwfvDDg58sfhwRRR26Q5ps8BXTWEeZ6YM3buozWp/5K1ksvRS
+	 v1cPiZA3trg3VQOtq9ONxzqC0r7cegQEf9wjOovc+lacm70LqX3sgMsR+j/g+SNCx8DIK
+	 E9MA2EpBtLDeQjyp/DapXRGMHkC2Pkg6a7k096Gqs9yrX70UGZx4zgDMduyfcY9v6CkjD
+	 dLswpC5Eup9VdZFBxMH4kWgW7ikjKje51DC+6ch5hcYp8wYSUjRNA/7u8kWW3/W6jSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795399460;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=PG7NbfVZS95X4OeWZBdwOuqcV1WLko1jrGjZoh7koWc=;
-	b=efvLDEvLIvOIqkikDB+z0dKppOqC+w+StErjFAW6K4fqXLjH5u1OD/5oGlQ2tPYhfT9o
-	 sbEkqYS6joC3A8Iu/WT5RWhp9gQaIIj2iBfnEUA2WnCoSqCXW6xSawZbRR6yt6hpFkMyg
-	 cBG2XwwQrz/SLRawjJtJluDAh+wIzeq3qksIkFRG4Sd2rQrz38RNzCSHLblXfYhzL8wvh
-	 BonZkCrFDFJLE6dqYkXbNOQjDi9oKuf/8wVliyUT8PqgUZiMPGnxqs8+VaZADGgUDVksG
-	 eV6YyOWDUmc1WZEvchSLXS1rjzoL/H+zU5dQndDnK+TWhNL/A7a/hC+4Ww0joWZsWlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795399734;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
+	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
+	bh=ooxMvdZXMju3msGTAmKvtfVxQuizzxh7ftVHrTzzQ/c=;
+	b=kdGy7Uu/Q/BtMSVC5i+6nmz6sGLTp1xkYVtipITLXs4a9/COPbkpz9RUY5jIXCOTyIT0
+	 htUaIHO8alChTxI6gdwlu9+rap0zKwR/zVTvQn8hXS/fJ3zAFqIxZRrdskXpOdadOBLs8
+	 gtN7yMgoE16R/2veC7lo19geWTwHH+gJk5y1B+V46iIhdAVq+Qr1B05IABmLHF2lxXwUs
+	 9iHiY/zWg3YjsLmHnlZ19AM9cWuiKCuhN1+77hvTCyj2q/4M1tqvB8Wep3nLRvY5QB3G7
+	 /R+GBsO4osjJGD+4JPqpw2qYPK06t/bEMXgnoOsogcRSl4IVA4sia4Rhi2MosmGLcww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lldiyV6s;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=n9gueB8s;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=czXj2zpV;
+	arc=none smtp.remote-ip=202.12.124.157
+Received: from fhigh-b6-smtp.messagingengine.com (fhigh-b6-smtp.messagingengine.com [202.12.124.157])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0B89606A31A;
-	Mon, 23 Nov 2026 02:04:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48CFB606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:08:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48CFB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lldiyV6s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DA4C1F000C0;
-	Mon, 23 Nov 2026 02:04:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795399460;
-	bh=PG7NbfVZS95X4OeWZBdwOuqcV1WLko1jrGjZoh7koWc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lldiyV6sFlKm5Vn0TclvkXCY+LbOaZqfv9QS0PHA/2jE95tU/+G30wZ5EZtqP1ruK
-	 3rGIxw1NsNZbcG9/6qfj13c/mJmGG2VoMOIig0xwzNinwdxUsm1Cfi/C0UgiU8oPsO
-	 40qdqIJ4Gjx7E8Xr3w2PvpMRPARDoQigWZNE3KWT+RV8GcB3xwVdDbbeZO/qo9NgVz
-	 N93wFS/zSNwif4ewDCEfCW3Ut4JJT/BSWeiEbDKSLje/CSpmV7QKe3YtKhBZjz7H/u
-	 7uLtIJmIhavhaL63RWI33DGkd7PQXcJCKuhwPgtDgi8h0Dp5Jc2AwHzsnumtqf+egI
-	 E7v3+TPoRJtJg==
-Date: Sun, 22 Nov 2026 18:04:18 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: haghdoost@uber.com
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 0/7] perf script: Lazy symbol loading
-Message-ID: <awOfIqFfrbwmnwRP@google.com>
-References: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=n9gueB8s;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=czXj2zpV
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 8E2B77A03A8
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:08:52 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Sun, 22 Nov 2026 21:08:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
+	1795399732; x=1795486132; bh=ooxMvdZXMju3msGTAmKvtfVxQuizzxh7ftV
+	HrTzzQ/c=; b=n9gueB8s+iA5PrAg5jMelWY8XRukOio5KrRUwwI9Ud2G7rTSwpo
+	RzczQNwexLuZmOEYHUpEsasseI9sgfLWd8ZrRICcDI6tISgtbQzoQCMlAm9R+I7B
+	bipBFkGKektYI8X7qh1Nu5TmuYIx0/BOsevC/0/err2z2LqFwP6mk8wQ2sXgm4bQ
+	NBa5FjMZEPogS5RWH9va/sHX5QOVVFbunyIn2BmybaFfuP5LDqUOKFaH4PK1bwnj
+	JOgefS4JVDZEc0lDCpxTrBIOnN3gI4QR+znrbVUb5drUxwR9KEGZDplCPpI2ELnP
+	ENZQmWoTKIEve0hU4/MVZWfcEFDRoaN3IWw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795399732; x=
+	1795486132; bh=ooxMvdZXMju3msGTAmKvtfVxQuizzxh7ftVHrTzzQ/c=; b=c
+	zXj2zpVAFo7XiFvd7wg3JGx1iWKro9ncdau6Eboa/p44ZNV2lZYai0Jyv2qVztNq
+	DTr5Qg4ClFTNVrpB7LYxeHI3jh9EuGNnljzbLcFJnJQdJWrFdcMXG5IsWM6wjYFD
+	m0pF0Nkf7hmfpmW9PmAIZm7OBWopX4VMKmu3aTStpTNxPvcGTPnnublfrCOSTIos
+	Bd7A94a2vdaV6qLrmSfxv+yF88kqkq6Qas6ANx+o1M4wyu55G88RcyfIFz2C9ds7
+	iWPo8FowLbszC1nPoRxJ+muXRvozZ60sMP+1F53Ma9SqCheCv8mXlCxKVfVRYsXY
+	Cck0Nnl58LhoDBsk/X85A==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795399732; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:HkH5KfldejueMWnsWXXkbATM+GZYDjw0wGrjX6gvlztHlJ1
+	9DWD7BeQZiVDMRaAiSIpBwRPPsyI8mBaBQbd0pIcXyr+2AjT3hMRQJDZUNdqLFwQ
+	NTNTPGoENKun6TwTdBh5RPfCiejq8Sb+vHXl2ya5mH0L0CO74yQ6/RaTN708wMKy
+	oY5mahOrS8qBsqg+yNGF2EsQHppD7nfGQRbLYY1HWAvZ6qsxsvJZT07ClupwLs/s
+	gRFe9zm0fUVEYrvQoCOrZqLHKHMlWtycreWIpKMxSRCbjLVOUQG7j6BpY5iLfII2
+	uZZnRAIfrygfqCq+ucU1JnhVZI2C/RZWT/lSSgQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,reply-to,
+	subject,to;
+Message-Instance: m=1; h=sha256:fSkPfXsYE/29bpqoux9Sb00xe2WdRT5y5ocHkmMVaDY=:0B0R4a0Uxs8mO8xU1NS2W7JyQlf1V5qQb/qqBvheRXY=;
+X-ME-Sender: <xms:M6ADaz-D_um56qWNVRdxKN30k79sV_iKSs-NFcJpaZrKh_4_yDsEqQ>
+    <xme:M6ADayRcEB6m7TXohpNNDK3sUgGxN8r2VnqZBm__lEhBRDtSTcq3MYl9ViU7HOMm8
+    7pKs43jwLB54StrpVYxainx1l2BsIWnctgLErqx_AG2XJrXklQ>
+X-ME-Received: <xmr:M6ADa0poDTA0vo-yeUGL-WEteC_sQ_1GQYVEADdtGb-mRH9XxjXZrF_zGTAe69ZgiSBuVeKDvgUGC5bxnyEx5dv6a2k3bTQ>
+X-ME-Proxy-Cause: dmFkZTGZpma1LXTEdkMh92n9ALRzM3tfBPhC16pjSbsHa8ntcNq6/iu1QYyKVgIRZnL8AQ
+    9FPgZC5un1n7N8IyLHFWo4O0ZY0vUbzbSVAuOYxyM8uZzPGSqW+z+pedlPQJ6dFOUtjcT7
+    MmNPrfqwhsPqiAO9I6CZ5EzdkBqbcZz8lGd5d9pDzEqVuYBDSLcuM8GXMDEcvHWbJ75zCa
+    RoT9dMREvK9wYnKfls6MmDH/BaiIr76vcpSIR5zvpQkc3Hy5zXXn5+lC/s8tQIcOr/GwUb
+    WGQxO1f4FpGKQfxWQ+pN7AI4mLv/R0txYCiy7H1U/smXSpicCMZh+xVLNsVyMvx3GG0sXL
+    tdMu5rXD82dAUcZaQrkJYmBcKOYxu2tFl2J4Hid/z1BXGg6kAPEtk2ZPGiMgraEyWtBns6
+    V94C3evkxsuL4BI/TVI6RpYPH6JNH/1f8UDKNGak9syxmYnHU/PaY0JDaV7Vl2zpmzN05x
+    K7/tDVpp7YP/LYG0pireBRmhM3MeiYQuqQXFSxMHAHcIjazhQgjdtspBmSl7oqclQoX1d6
+    475BCn0cgteeYJoMKSJ3NAnfuUyvPCKzIO3MsH1o1Fe82OUVLNLcUfu8TJlIIctLf+iNqv
+    G1CSZs55B47/GVbvmuAWzfB1u37eycJcE2DyZ7OHJeA8kHTv+DDsgsDwuIhA
+X-ME-Proxy: <xmx:M6ADa_mYLN_N7btLPMlFZYMGnEFqqz7FFBnGjSLYS3kRvBYBpBdktg>
+    <xmx:M6ADa9cHeYwanuJr2aFP98v2Ot2rcUX6dYKkfcKzu6ndUdBGiA6hlw>
+    <xmx:M6ADa7o2aUoM_craC8bz0ilazehW-VPwZdl2Zq2ajzl9CUrH01H63A>
+    <xmx:M6ADa3Nldr6lsNU12PlGlFXnXljmOeHcFXiIF63ITP21g6FuzBiX2A>
+    <xmx:NKADa1taq4Wj8x2Evp11SNBmAnzr4JPTi2wJbltVwb40xFGMfPFnq6zf>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 22 Nov 2026 21:08:49 -0500 (EST)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,158 +118,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
+From: NeilBrown <neilb@ownmail.net>
+To: "Jan Kara" <jack@suse.cz>
+Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Christian Brauner" <brauner@kernel.org>, "Jan Kara" <jack@suse.cz>,
+ "Amir Goldstein" <amir73il@gmail.com>, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, "Ian Kent" <raven@themaw.net>,
+ "Jake Edge" <jake@lwn.net>
+Subject:
+ Re: [PATCH v5 2/5] fsnotify: update children flags only when adding mask bits
+In-reply-to: <mk7u4brorzgbyol7x4nyolufk3s3piqwqd5hnya3nhoq43d5ui@x5sdqeyrhde6>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+  <20261119025942.2848130-3-neilb@ownmail.net>
+  <mk7u4brorzgbyol7x4nyolufk3s3piqwqd5hnya3nhoq43d5ui@x5sdqeyrhde6>
+Date: Mon, 23 Nov 2026 13:08:45 +1100
+Message-id: <179539972541.1728055.8282722306710793371@noble.neil.brown.name>
+Reply-To: NeilBrown <neil@brown.name>
 
-On Sat, Nov 21, 2026 at 08:41:00AM -0800, Alireza Haghdoost via B4 Relay wrote:
-> perf script loads the entire ELF symbol table of every DSO that appears
-> in a sample, and keeps each symbol, with its demangled name, until
-> process exit. Most of those symbols are never sampled. On a large
-> profile this turns symbol loading into the main memory cost of perf
-> script, and in a memory-constrained cgroup into an OOM kill.
-> 
-> With this series, perf script --lazy-load-symbols reads a symbol name
-> only when a sample needs it. On a perf script run over a 45,073-sample
-> callchain profile of a large C++ service (about 1M symbols), the output
-> is identical in all three cases (medians of eleven runs):
-> 
->                                       time    max RSS
->   perf-tools-next                     3.70 s  319 MiB
->   v8                                  3.75 s  327 MiB
->   v8 --lazy-load-symbols              3.56 s  174 MiB
-> 
-> Eager loading remains the default, and costs 8 more bytes per symbol for
-> the name pointer. Lazy loading covers userspace ELF .symtab and .dynsym.
-> The kernel, modules, PPC64 .opd and .gnu_debugdata still load names
-> eagerly.
-> 
-> The patches:
-> 
->   [1/7] Split the size, type and binding checks out of
->         choose_best_symbol(), so that the loader can tell which aliases
->         need their names. No functional change. Unchanged from v7,
->         reviewed by Ian.
-> 
->   [2/7] Make the symbol name a pointer instead of a flexible array, so
->         that a name can be set after the symbol is in the rb-tree.
->         Unchanged from v7, reviewed by Ian.
-> 
->   [3/7] Add lazy symbol names to the symbol code: the DSO lookups read
->         the name of the symbol they return. Nothing creates such
->         symbols yet.
-> 
->   [4/7] Check that the symbol table file is still the one perf loaded
->         before reading names from it. Nothing records a file yet.
-> 
->   [5/7] Add --lazy-load-symbols, which makes the ELF loader create
->         symbols with lazy names and record the file for the check.
-> 
->   [6/7] Unit tests for lazy names and for the file check.
-> 
->   [7/7] Shell tests, including parity with eager loading.
-> 
-> perf-tools-next now has the first three patches of Ian's series [1].
-> Its later patches replace the symbol rb-tree with an array, which would
-> shrink each symbol further. They conflict with this series, since the
-> name loading in 3/7 and the alias name loading in 5/7 walk that
-> rb-tree. This series does not depend on them, and I'll rebase on them
-> if they land first.
+On Fri, 20 Nov 2026, Jan Kara wrote:
+> On Thu 19-11-26 13:57:02, NeilBrown wrote:
+> > From: Amir Goldstein <amir73il@gmail.com>
+> >=20
+> > Since we only ever set the PARENT_WATCHED flag from
+> > fsnotify_recalc_mask(), there is never a need to update children flags
+> > when removing mark mask bits only when adding them.
+> >=20
+> > Add a helper fsnotify_recalc_mask_and_update_children() to be called
+> > in cases where updating children flags may be needed (i.e. add mark).
+> >=20
+> > Also avoid update children walk with mark spinlock held.
+> > This was only done by dnotify and can be easily avoided.
+> >=20
+> > neilb: added update_children flag in fcntl_dirnotify() so we only
+> >   do the update when needed.
+> >=20
+> > Fixes: 172e422ffea20 ("fsnotify: clear PARENT_WATCHED flags lazily")
+> > Signed-off-by: Amir Goldstein <amir73il@gmail.com>
+> > Signed-off-by: NeilBrown <neil@brown.name>
+>=20
+> One question to Amir below. Otherwise I like it.
+>=20
+> > +/*
+> > + * Recalculate mask and update children dentry PARENT_WATCHED flags if t=
+he
+> > + * connector started watching children.  When parent stops watching, we
+> > + * clear false positive PARENT_WATCHED flags lazily in __fsnotify_parent=
+().
+> > + *
+> > + * The caller must make sure connector and connector->obj cannot disappe=
+ar
+> > + * under us.  This is achieved by holding mark->group->mark_mutex for a
+> > + * mark on this list.  mark->lock must not be held by the caller.
+> > + */
+> > +void fsnotify_recalc_mask_and_update_children(
+> > +					struct fsnotify_mark_connector *conn)
+> > +{
+> > +	if (fsnotify_recalc_mask(conn))
+> >  		fsnotify_conn_set_children_dentry_flags(conn);
+> >  }
+> > =20
+> > @@ -367,8 +383,8 @@ void fsnotify_modify_mark_mask(struct fsnotify_mark *=
+mark, u32 set, u32 clear)
+> >  		recalc =3D true;
+> >  	spin_unlock(&mark->lock);
+> > =20
+> > -	if (recalc)
+> > -		fsnotify_recalc_mask(mark->connector);
+> > +	if (recalc && fsnotify_recalc_mask(mark->connector) && set)
+>=20
+> Amir, why is the '&& set' check here? Under normal circumstances if
+> fsnotify_recalc_mask() return's true, 'set' is true as well. We can be
+> racing with other updates to the connector list of marks and in that case o=
+ur
+> fsnotify_recalc_mask() call could be the first one that noticed the marks
+> attached to the inode are now watching children and is thus resposible for
+> setting children dentry flags even if 'set' was false. So I think it can do
+> only harm...
+>=20
+> And for similar reasons I believe fsnotify_recalc_mask() call in
+> fanotify_remove_mark() needs to be updated to
+> fsnotify_recalc_mask_and_update_children() as well. Standalone
+> fsnotify_recalc_mask() is simply never safe unless it is followed by the
+> update children later - perhaps make it __must_check?
 
-I'm about to merge Ian's series first.  Please rebase accordingly after
-it's landed.  I hope it'll make your change a bit easier.
+Hmmm.... I had thought that the group lock would prevent these races but
+I guess not.  Maybe one mark can be in multiple groups???
 
-Also please add the option to the perf report and perf top too.
+Given that, I don't think I can form a sensible opinion on Amir's
+revised patch.  It looks OK and I think I can see what it is trying to
+achieve and how it achieves it, but I'm less confident that I can see if
+that is the thing that needs to be achieved.
+
+So Jan - if you could review that so I can add your reviewed-by when I
+repost, that would be great.
 
 Thanks,
-Namhyung
+NeilBrown
 
-> 
-> [1] https://lore.kernel.org/all/20261117185305.108003-1-irogers@google.com/
-> 
-> Changes in v8:
-> 
-> - Rebase onto current perf-tools-next, which has Ian's annotation and
->   ELF loader changes.
-> - Split v7 3/4 for review (Namhyung): 3/7 adds lazy names to the symbol
->   code, 4/7 adds the check of the symbol table file, and 5/7 adds the
->   option and makes the ELF loader create lazy names. The tests are in
->   6/7 (unit) and 7/7 (shell).
-> - 4/7: Also accept a file whose device, inode, size, mtime or ctime
->   changed if it has the build ID of the DSO and its .strtab and .dynstr
->   did not move, such as a copy of the same build (Namhyung). The
->   identity is still checked first, since reading the build ID at each
->   reopen more than doubles the time of the worst case.
-> - 4/7: Compare the ctime too, so a file copied over in place with its
->   size and mtime kept (cp -p) is not taken for the same file. Treat a
->   string table section that no longer exists or is compressed as
->   another file.
-> - 4/7: Warn once when the file cannot be opened or checked, rather than
->   only in debug output, and try again for later names, since the
->   failure can be temporary.
-> - 5/7: Do not skip the .dynsym copies of lazy .symtab symbols. Skipping
->   them changed the shape of the rb-tree, which broke lookups past a
->   nested entry point and the PLT name of an exported IFUNC. This
->   replaces the v7 fix for a zero-size symbol before a copy (Sashiko).
->   Duplicate selection now reads the names of each copy, so on the
->   profile above, where one binary exports most of its symbols, lazy
->   loading keeps its memory saving but loses most of the run time it
->   saved in v7. Most of that time goes to reading each name with its own
->   pread(). As discussed with Namhyung, a later series will let the DSO
->   data cache read the symbol table file, and names will be read through
->   it. A prototype with a small read cache gets back about two thirds of
->   the v7 speedup for about 1.5 MiB more RSS.
-> - 6/7: Add tests for a file overwritten in place, for a copy with the
->   same build, with moved or missing string tables, and of another build,
->   for a failed open, and for a copy whose build ID cannot be read.
-> - 7/7: Add parity cases for a zero-size symbol before a copy, nested
->   entry points, and an exported IFUNC with aliases.
-> 
-> Previous versions:
-> 
-> v7: https://lore.kernel.org/all/20261113-perf-symbol-memory-send-v7-0-d992eced9f9c@uber.com/
-> v6: https://lore.kernel.org/all/20261028-perf-symbol-memory-send-v6-0-7e90415f0101@uber.com/
-> v5: https://lore.kernel.org/all/20261005-perf-symbol-memory-send-v5-0-165dceb2b049@uber.com/
-> v4: https://lore.kernel.org/all/20261002-perf-symbol-memory-send-v4-0-0a592bb2539e@uber.com/
-> v3: https://lore.kernel.org/all/20260925-perf-symbol-memory-send-v3-0-3e4e234c363b@uber.com/
-> v2: https://lore.kernel.org/all/20260919-perf-symbol-memory-send-v2-0-495b8f00ad7c@uber.com/
-> v1: https://lore.kernel.org/all/20260915-perf-symbol-memory-send-v1-0-1d3360e21f07@uber.com/
-> 
-> ---
-> Alireza Haghdoost (7):
->       perf symbols: Split out name-independent duplicate symbol selection
->       perf symbols: Point to the symbol name instead of embedding it
->       perf symbols: Add lazy symbol names
->       perf symbols: Check the file before reading lazy symbol names
->       perf script: Add --lazy-load-symbols to load symbol names lazily
->       perf test: Add lazy symbol loading unit tests
->       perf test: Add lazy symbol loading shell tests
-> 
->  tools/perf/Documentation/perf-script.txt           |  11 +
->  tools/perf/builtin-script.c                        |   2 +
->  tools/perf/tests/Build                             |   1 +
->  tools/perf/tests/builtin-test.c                    |   1 +
->  tools/perf/tests/shell/lazy_load_symbols_parity.sh | 447 ++++++++++
->  tools/perf/tests/shell/lib/lazy_names.sh           |  20 +
->  tools/perf/tests/shell/script_lazy_load_symbols.sh | 190 ++++
->  tools/perf/tests/symbol-lazy.c                     | 963 +++++++++++++++++++++
->  tools/perf/tests/tests.h                           |   1 +
->  tools/perf/ui/browsers/map.c                       |   2 +-
->  tools/perf/ui/stdio/hist.c                         |   1 +
->  tools/perf/util/dso.c                              |   2 +-
->  tools/perf/util/dso.h                              |  36 +-
->  tools/perf/util/symbol-elf.c                       | 355 +++++++-
->  tools/perf/util/symbol-minimal.c                   |   6 +
->  tools/perf/util/symbol.c                           | 141 ++-
->  tools/perf/util/symbol.h                           |  31 +-
->  tools/perf/util/symbol_conf.h                      |   1 +
->  18 files changed, 2183 insertions(+), 28 deletions(-)
-> ---
-> base-commit: bb27ddbaee56536fb8df0a24f07b526766dfe131
-> change-id: 20260915-perf-symbol-memory-send-e7cfca1ac3d9
-> 
-> Best regards,
-> --  
-> Alireza Haghdoost <haghdoost@uber.com>
-> 
-> 
+
+>=20
+> 								Honza
+>=20
+> --=20
+> Jan Kara <jack@suse.com>
+> SUSE Labs, CR
+>=20
+
