@@ -1,57 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=157.90.84.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795442745;
-	b=2xhyEgMeub+uuzYZ6JWyJPfZiTBOTpVu6Q9S7F1E5RpOUT/T5uNW0W5L1ySgsA0xKOWb
-	 TaCiQbV0tyc1vwe8MIMdOUemrhUycASMwmhEBtJToY5Jw9swizjYH++PWAS0OsxBcJUmO
-	 FlcNquVz9Fnp5xCyUZADL6+jys5skipasBkjPPaPV8Fb9Qneu6iRPH7s5YOs43yj2c42s
-	 ZkDwEOSLK8BAAHcppOJ5bl2wVLrrrfVVOT625fbZEmdXyja3xdAq0KXZ7e7JEbyeZp/KK
-	 Tw6pkDQBJT8+l16sks0UDKItcyVO9wPazSIFJI2G53xBGky/pk5JpkU6c5FtUTFmrSg==
+	t=1795442763;
+	b=HteVB1HhEutf87ilxpD5kpg5PuC/OE7/9Yf2TnACs95+KhJggJz6I6Q47tRnUAmcejvx
+	 wRyEmFweEh6uCMHabSaf8LYSipq8R2Rj+HMFzlRyojM1gjl+DlRpjtFGA51utvWFmbNFu
+	 wn4Il1WFxKA/GDkxaBGNILnoH6hjLuKCZzc0cYi9e6fOreuOmKXAFQMLHLa/8K7me4WfL
+	 IorkaSKlpHZ6zOLT3JenhxXieB9iQ4rxREesa0vy67lGYV53BUAGka7NOF7AYQBMlzfRy
+	 /lqJLD7xwmdPtPm+OfjOlHPslFJ8OH/Vz+E4Ds5sljTybXhjWY3TwrYSilcSB+LUhmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795442745;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer;
-	bh=cwp+Lcsy6Zsi8JyfFm3sAAth81i45T++9rhKgYespsw=;
-	b=iyZ6L7Uc21jy/71GH0XdHbM3ypheSFHF8qz7Bx8aBkDLnOFbEKIixG7tIDqJSmJHz6Rr
-	 sWaf+S8PmZoxla7z10x6Cv+8jzKSO6XqiOjuy7zbT90XZfb9QUdfR4xvuAWcuWbmifp32
-	 bkN+sZ0HsFN9YzE+gDL8m5h05265n4wWn78UQZVPNZxeqptDLt1+a7Melu8NGrzWaU0CJ
-	 5+lf0HyzPZsSNVRhRB801Y3uzU6wZJmomsaqKkP70cCFycWbcwF/PCyxxDrmyLL3BXdRm
-	 ls5q4SOQC/pOdCNsVl2cHMbZ5VgBuT0A/LWPc5GRropq6k+W/Z0GmSMuB7ibw9dh70w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795442763;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZhrfZY0fbfvRqh4m81PmC72i9FRlptZs7yDrySCwPr4=;
+	b=SYtFgVqelkAzocufmb4qojWHGB8xkuvXRGmKrM6PPGSK35VaDLCnoDSC4QGgt/nek7/o
+	 qHfjOlW2H+PscwYdVzezYjdNvL6Wrua5wLeyl46JTlzhYzr1ZlxZmeZBr+P9moG0aaGqq
+	 qlMLfhWNTEb1Z+pSrQtBsHud9zP+ylMlZk6sJaIDJEAL5aUCXGxi11jsGfrWQ0yc07bii
+	 kP4T505oFx8IotoZgBUQUf+dYi29rZh5N9tJGFNgdK2ktGtFYhTuiFyL/wGn7ARAtcAEp
+	 CpdMGqbIdyHwj3yRub7uzfaoxVlpz7+vBtbwmPuZSQKAfrQGMRaUihRenvFomFD3Hrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tuxedocomputers.com;
-	spf=pass smtp.mailfrom=tuxedocomputers.com;
-	dkim=pass header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=Jk3HQata;
-	arc=none smtp.remote-ip=157.90.84.7
-Received: from mail.tuxedocomputers.com (mail.tuxedocomputers.com [157.90.84.7])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RNxcIodY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6D63606A31F;
-	Mon, 23 Nov 2026 14:05:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6D63606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tuxedocomputers.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tuxedocomputers.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F0193606A32A;
+	Mon, 23 Nov 2026 14:06:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=Jk3HQata
-Received: from [127.0.1.1] (business-024-134-105-141.24.134.pools.vodafone-ip.de [24.134.105.141])
-	(Authenticated sender: a.erhardt@tuxedocomputers.com)
-	by mail.tuxedocomputers.com (Postfix) with ESMTPSA id 8B8E42FC004A;
-	Mon, 23 Nov 2026 15:05:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tuxedocomputers.com;
-	s=default; t=1795442742;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=cwp+Lcsy6Zsi8JyfFm3sAAth81i45T++9rhKgYespsw=;
-	b=Jk3HQataaU4L2APWM0aqqQkKU9OmdS5bKb7/BPf72tRZzSuPvi2WNK2Gxa6u1sAJEiO49q
-	3LBeX43D58OVdP2PEcGDNTMJs2CBHzMvDXd+9nyC4bzpG9B2401fh3NJlh34xe+fivTQb7
-	V5VvJaLt34bmojuKB50gctPcOMLDVGc=
-Authentication-Results: mail.tuxedocomputers.com;
-	auth=pass smtp.auth=a.erhardt@tuxedocomputers.com smtp.mailfrom=aer@tuxedocomputers.com
-From: Aaron Erhardt <aer@tuxedocomputers.com>
-Date: Mon, 23 Nov 2026 15:05:10 +0100
-Subject: [PATCH v2] platform/x86/tuxedo: Handle LampUpdateFlags in
- LampRangeUpdateReport
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RNxcIodY
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D36961F000CF;
+	Mon, 23 Nov 2026 14:06:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795442762;
+	bh=ZhrfZY0fbfvRqh4m81PmC72i9FRlptZs7yDrySCwPr4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RNxcIodYicyykOWzJV9ac41R/wLtMtTMT0f/m7QOJ6ld+W2V4NCjmrvht5+ezWSqk
+	 Dy3cclszSYRA92VabFyR/cC0uPGOyYPHssIDBCdfY+KgqULwwUey6pUnHB73Wz2LlR
+	 hkvMBoXjf7CrpiBPOawkWFvKWPg3qpI0I0BA69XEEhog6RMMjCMYfTFgbRasThroj3
+	 3VZZgT2wtToaSR3IXgQGEzMZxs3Ms6FWViRaFd9Loduz7vVzijOuh6nSFxj66HY9ck
+	 NEhojYrvdZmhi6MyoIHwjX3SFqytTuELhGvYjoQLWNYl5Hp0HF12MLor0raNKqJDPd
+	 nl02fB8BrjaLw==
+Date: Mon, 23 Nov 2026 16:05:58 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: bot+bpf-ci@kernel.org
+Cc: linux-fsdevel@vger.kernel.org, bpf@vger.kernel.org,
+	containers@lists.linux.dev, linux-api@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	aleksa@amutable.com, alex@amutable.com, viro@zeniv.linux.org.uk,
+	luto@amacapital.net, arnd@arndb.de, brauner@kernel.org,
+	dhowells@redhat.com, ebiggers@kernel.org, giuseppe@scrivano.org,
+	hughd@google.com, jack@suse.cz, jlayton@kernel.org, corbet@lwn.net,
+	josef@toxicpanda.com, kees@kernel.org, kpsingh@kernel.org,
+	lennart@poettering.net, neal@gompa.dev, oleg@redhat.com,
+	paul@paul-moore.com, ptikhomirov@virtuozzo.com, sergeh@kernel.org,
+	skhan@linuxfoundation.org, zygmunt.krynicki@canonical.com,
+	ast@kernel.org, andrii@kernel.org, daniel@iogearbox.net,
+	martin.lau@kernel.org, eddyz87@gmail.com, yonghong.song@linux.dev,
+	mason@kernel.org, ihor.solodrai@linux.dev
+Subject: Re: [RFC PATCH v7 07/26] mount: Support MOVE_MOUNT_CLONE with
+ MOVE_MOUNT_T_MNTNS
+Message-ID: <awRIRrGwOi97H15D@kernel.org>
+References: <20261122193539.3334213-8-jarkko@kernel.org>
+ <cac1fa0b133e15e7c67629319df17a0d25747093535aa246f44a75cb1073e2ed@mail.kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,71 +72,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-nb04-fixes-v2-1-973e569381ba@tuxedocomputers.com>
-X-B4-Tracking: v=1; b=H4sIABVIBGsC/01Py3KDMAz8FcbnGmMgHuDU/+jk4IcCbsFQy2boZ
- Pj3GMihN612tat9EgRvAUmXPYmH1aKdXQLlR0b0IF0P1JqESVmUghdlQ50qavqwGyAV5makEm3
- TSknSweLhJJL+635hjOobdDgc3goPvzGlhEtGlESgwQN02RDCgh1jvQ35D3gHYz77ni1RMdQTG
- 62LG7uIQ8PC7Fc5GryYPK2ySWIAfySdvnqeJhu6THMhFOi2qitNjs8Gi+n672y98vORd8H2f8G
- VU04Fr41sKmVE8fgMcQMzJ98lpiDM00Tu+76/AF4SFZRIAQAA
-X-Change-ID: 20261028-nb04-fixes-6d5dab6989aa
-To: Werner Sembach <wse@tuxedocomputers.com>, 
- Aaron Erhardt <aer@tuxedocomputers.com>, Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cac1fa0b133e15e7c67629319df17a0d25747093535aa246f44a75cb1073e2ed@mail.kernel.org>
 
-According to HID Usage Tables v1.7 "Lighting And Illumination Page", the
-LampUpdateComplete flag marks an update report as the last of a batch. A
-device must apply all prior changes at once when it receives a report
-with this flag set.
+On Sun, Nov 22, 2026 at 08:28:11PM +0000, bot+bpf-ci@kernel.org wrote:
+> Should the clone be reported to LSMs as a bind, for example through a
+> separate hook, a flag passed to security_move_mount(), or a call to the
+> bind-mount mediation?
 
-The handler for LampMultiUpdateReport already honors LampUpdateFlags,
-but the handler for LampRangeUpdateReport did not. It always set
-LampUpdateComplete on the final chunk, so every range update flushed the
-internal color state regardless of what the host requested. This reduced
-efficiency and caused unwanted intermediate states for software that
-batches updates using the flag.
+Mediation can be trivially achieved:
 
-While splitting the update into several LampMultiUpdateReports, forward
-the flags from the range report on the final chunk. Intermediate chunks
-continue to carry no flags.
+diff --git a/security/apparmor/include/mount.h b/security/apparmor/include/mount.h
+index 46834f828179..d771ee240d42 100644
+--- a/security/apparmor/include/mount.h
++++ b/security/apparmor/include/mount.h
+@@ -43,7 +43,7 @@ int aa_move_mount_old(const struct cred *subj_cred,
+                      const char *old_name);
+ int aa_move_mount(const struct cred *subj_cred,
+                  struct aa_label *label, const struct path *from_path,
+-                 const struct path *to_path);
++                 const struct path *to_path, unsigned int flags);
 
-Fixes: cfd84b3f419b ("platform/x86/tuxedo: Add virtual LampArray for TUXEDO NB04 devices")
-Cc: stable@vger.kernel.org
-Signed-off-by: Aaron Erhardt <aer@tuxedocomputers.com>
----
-Changes in v2:
-- Fix formatting
----
-Tested userspace software:
-- OpenRGB (aac7e55114)
-- lampctl (https://github.com/tuxedo-aer/lampctl 5da2aff)
----
- drivers/platform/x86/tuxedo/nb04/wmi_ab.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ int aa_new_mount(const struct cred *subj_cred,
+                 struct aa_label *label, const char *dev_name,
+diff --git a/security/apparmor/lsm.c b/security/apparmor/lsm.c
+index aefa71bc1cd2..797944de8273 100644
+--- a/security/apparmor/lsm.c
++++ b/security/apparmor/lsm.c
+@@ -751,7 +751,7 @@ static int apparmor_move_mount(const struct path *from_path,
+        label = __begin_current_label_crit_section(&needput);
+        if (!unconfined(label))
+                error = aa_move_mount(current_cred(), label, from_path,
+-                                     to_path);
++                                     to_path, flags);
+        __end_current_label_crit_section(label, needput);
 
-diff --git a/drivers/platform/x86/tuxedo/nb04/wmi_ab.c b/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
-index 5c56c6b1a85e..5bb9f992f6e3 100644
---- a/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
-+++ b/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
-@@ -723,8 +723,7 @@ static int handle_lamp_range_update_report(struct hid_device *hdev,
- 			    LAMP_MULTI_UPDATE_REPORT_LAMP_COUNT_MAX);
- 		lamp_multi_update_report.lamp_update_flags =
- 			i + LAMP_MULTI_UPDATE_REPORT_LAMP_COUNT_MAX >=
--			rep->lamp_id_end + 1 ?
--				LAMP_UPDATE_FLAGS_LAMP_UPDATE_COMPLETE : 0;
-+			rep->lamp_id_end + 1 ? rep->lamp_update_flags : 0;
- 
- 		for (unsigned int j = 0; j < lamp_multi_update_report.lamp_count; ++j) {
- 			lamp_multi_update_report.lamp_id[j] = i + j;
+        return error;
+diff --git a/security/apparmor/mount.c b/security/apparmor/mount.c
+index 4ed7b9136beb..8d3db6bfdfb6 100644
+--- a/security/apparmor/mount.c
++++ b/security/apparmor/mount.c
+@@ -423,13 +423,15 @@ int aa_mount_change_type(const struct cred *subj_cred,
 
----
-base-commit: c166bec9343c8b50e4c2acb78b1424c23d98841f
-change-id: 20261028-nb04-fixes-6d5dab6989aa
+ int aa_move_mount(const struct cred *subj_cred,
+                  struct aa_label *label, const struct path *from_path,
+-                 const struct path *to_path)
++                 const struct path *to_path, unsigned int flags)
+ {
+        struct aa_profile *profile;
+        char *to_buffer = NULL, *from_buffer = NULL;
++       unsigned long mnt_flags = (flags & MOVE_MOUNT_CLONE) ?
++                                 (MS_BIND | MS_REC) : MS_MOVE;
+        int error;
+        DEFINE_AUDIT_MOUNT(ad, OP_MOUNT, subj_cred);
+-       ad.mnt.flags = MS_MOVE;
++       ad.mnt.flags = mnt_flags;
 
-Best regards,
---  
-Aaron Erhardt <aer@tuxedocomputers.com>
+        AA_BUG(!label);
+        AA_BUG(!from_path);
+@@ -441,12 +443,12 @@ int aa_move_mount(const struct cred *subj_cred,
+        if (!to_buffer || !from_buffer)
+                goto out;
 
+-       if (!our_mnt(from_path->mnt))
++       if (!(flags & MOVE_MOUNT_CLONE) && !our_mnt(from_path->mnt))
+                /* moving a mount detached from the namespace */
+                from_path = NULL;
+        error = fn_for_each(label, profile,
+                        match_mnt(profile, to_path, to_buffer, from_path,
+-                                 from_buffer, NULL, MS_MOVE, NULL, false,
++                                 from_buffer, NULL, mnt_flags, NULL, false,
+                                  &ad));
+ out:
+        aa_put_buffer(to_buffer);
+@@ -467,7 +469,7 @@ int aa_move_mount_old(const struct cred *subj_cred, struct aa_label *label,
+        if (error)
+                return error;
+
+-       error = aa_move_mount(subj_cred, label, &old_path, path);
++       error = aa_move_mount(subj_cred, label, &old_path, path, 0);
+        path_put(&old_path);
+
+        return error;
+
+Br, Jarkko
