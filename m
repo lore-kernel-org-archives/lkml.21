@@ -1,96 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.74
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795418702;
-	b=IomCKVEOu66NqwX8ujo3KnWZ66wGQwSaueSf7RLM3TAUTmT40f+EAipc7VlLlTu6S82C
-	 BFAXPdboMWP89H5wcWA+tZCE+zG1f/paOxC6vXE+IrQ85TC55JXy9f08Vcd2Uc+uOjw68
-	 hhp57Y27Pvgef58E5/560/cKnUu+OjtExi+JAd3KZ+bSa/EVyUbfG5NPDDSAjju8cUJG8
-	 CR/8HaNx0PdKcex5sdO8/bjjGezoI7zeEN4cUc6b1rXzbesv1yKqVO+1CE/XIeGrRSegs
-	 HUTYpQr7GsUt7iGAKKw6LjlE683wqocsZ4I1cgs6IdHybmCkd9aVnOtjcPJCwzrHRDw==
+	t=1795418731;
+	b=flZx3X9RokqLnRtc034v3Gi4imJKQgYb+bJH2i2r1dUlNAHN752DTOquqL9PTe001R6y
+	 DUXGCJ1FdDHOtSPm7KRdmIPEhPzkPUYaczvEmkK2fFRuB84F9kngSp0VsOp/WjteGWcnA
+	 U+cjeRRndyfbe48nZHPfjuCYBjhvtZIgdjy2TNxbY0SJWFh8KRQZ+U2qj85p/BYNqSss1
+	 3Xbnkszk8KKfBe0s8P1a33gd0uI1mcL3YBT02H+8htLeNcjUrA8eyGVQYN5vWfrfTcAfy
+	 ncUyAX0drUUd8PSiY1LwLgkOaJEUvs/+8R5j1+efInkw5oS86MPXXzbyDUfTfoMgoaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795418702;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795418731;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
+	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=rsARERdZD46Vb5O4JLoK8Z3OY4IcI9MHjMKxLTV0Ng0=;
-	b=FV4Lyqf2BJn01aUOQcPn1x2gkbTUDhpC0Qv7RymWreWOL8ZMxJ6e+T1FI2SOoD9/gHJ2
-	 XXsyYADXpKuF5x+ap0noGApVjLN6HPNvfBKh99NpVYASdTq9PDPbShHX+N5nxNoq1xvYv
-	 9dnuwns+XE9Gs8pb7kuBSJQMx7sJhhJorIJ4ZxJxY6BRyl34ghZ0KDFzHiFEWrSpZdjZ3
-	 4iLA4M7BTmFQ/LCpI8VqdEt4s0NBVY4j10qGD/4kevoNiMuW2m7sgCvwk7QJKehEsm1uW
-	 +y5pIMlnLrnKqX5QZTvvjzD3H9Ec6BZYMFNDcdmUFKWjVrY5s9dX02dK2Nnruy9i0yA==
+	bh=EMZuz1Kzpi8YnsNKCYHbI4Zr1dhvmEYlryo7hYA+IlM=;
+	b=CRp20DDPwq8EYNkchuja6HikE/6stXNeKdECtabvEGB+uAovp5rzDgzttBLPsXwiU11A
+	 yKtNB6vo3MpEO3iTIS2JL7Yn+B2p/nh1bKuzsxA2F0Ot7IDU6Y3YF0xhdvY9xxUiseXuj
+	 2ZKC8Eh9EzZwly1z+mWRbOUWhsX1YfqpdsE/fS9p4dkKiXQAW62F3eM49xOpriDLIxBv8
+	 AjUIVfq5O6dacl0zzCOCymD7Ex/0ccdkIhX2ZsaKcPu/v3nLtTtK4g6aqYuF8Hq3lugtZ
+	 psIlB0RR9deJPe3+LEMFjJ32BtkcpSV3xI4f7yANON3dWBmc0Wp2ZYu1eb/aGx6ThaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=fZvI2ggW;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=open-hieco.net;
+	spf=pass smtp.mailfrom=open-hieco.net;
+	arc=none smtp.remote-ip=115.124.28.74
+Received: from out28-74.mail.aliyun.com (out28-74.mail.aliyun.com [115.124.28.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D6A9606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:25:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D6A9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=fZvI2ggW
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f0621eec70so15473855ad.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:25:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795418701; x=1796023501; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rsARERdZD46Vb5O4JLoK8Z3OY4IcI9MHjMKxLTV0Ng0=;
-        b=fZvI2ggWZDeuzqAZ/ZjEAMAhzf5E/YLJLMwUG2gIB+ka6EyBpyUHEZIrsni9eJNf8E
-         Uvaw/dkgfluINPC/XL2I5EWUjAQg6sgvaYn1ld1V1apEtUK9uyD6eOaVa4021lQy0VLv
-         JCNTZSQHzoYZnkqmZ8tpvPSVtFIxZ99pPVQ+4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795418701; x=1796023501;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rsARERdZD46Vb5O4JLoK8Z3OY4IcI9MHjMKxLTV0Ng0=;
-        b=cvQCsg70paNV7Ft6fQrCnWqWF7rbNTIoci1eaOr9csNOIRlDfWjDdK5YOdw5sjwcIa
-         fc1vY7CaIODc+QaS0548E5tPitzVaML4AwyN+IAEkzENn1ZxAr2d0bfQ6MIYOAm8rvQh
-         MybCQimn4HugEEcwXRr/qdztBln3HjFLCA2lu7FWhr4nYG50g3PKFRF44cOFLkdNwdZm
-         ZvOKVZ1EOX4KTU876cupxMq70zBtPsHzophbiOLKTDzjpSO0LBt6HqS/BcTjhqsXClDG
-         yOC4WMw7Gwdst7j+jyMfCEHSDGnJRy6Ydo3cprmVqHsjibDqskwER3yPQIVJIF6HWSnu
-         7d/w==
-X-Forwarded-Encrypted: i=1; AL+hErGrodZvLFZoDFf5tSEdEz1zCD6JaDrkQ1azCm/efqfOPPVhK3qVkR2PozfWNOvtuHgm2j8K/aQq02yakuk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xB786B46unLK3FUpX4XVNAC76HMoq3B5Ix3SdFtHdCHMft4sY
-	xQD0vF3k9627N+mt4MeoizmyTuwT3OHJUaaTONGrwYGlZwsq3KAo9ECpCfLAmvskQg==
-X-Gm-Gg: AZFdTZd52G6lxgxq5m62NFyCnMCZvXdXuScK4HosJOAZWzZRN5vGjTTvP4Vl9eqAxUb
-	9weW2qlZ65YIkMrnm5wn+EqVA9ctUQQdgVnURfh1AT/pl7TaEYKYaU+w1hsALMVsu7I8K/gv4u3
-	JptKGzAVZ3yXCWlQ3u7Ba/VOp9vr3tqWz/H4UeQyaGCZ6S8/A4Cp29uh04dDkrvTIX492oZeuYM
-	XTnW5bqD9LXnuo2eymWHAZ+pupQVHdWovGT/SQFFLsDJYQI/3HTlM6F7mlCKWrhMmqDI1ptT+Fp
-	nNZZKch80TJVPsuiL8Z//GBGAmkwsHot9elSwIftrxNEsy5q+hJYlfTMAfNdSdnrZsPgv5OclB+
-	9xbU4pEc0XLjbhQYOVXt+E+vQ3z17FqTL+rW2oKuXDdiFNY5Uievgci9O7NcR9chQ0E/UL/AAPv
-	a1NXhUeazPQZQfLCXVRF0sUULHd+h2SDo50nJ0CrjfFrOCtbUtG6AuqPK+j0nhSvzHrdQXcjIZj
-	X5wOLwhSYiDqBATlCDZLJQfDU3Nc1OudVOuPqyMYlyO1NI5DC9JwWifgUzIvZq6ZT9MKVSiemgk
-	jEx4cP0Hgl6bfSypxpvhyAl57VuaPTXLeYJUlYUpluHkQdaz2preRfA/+hl6
-X-Received: by 2002:a17:903:1acc:b0:2f0:a113:4e46 with SMTP id d9443c01a7336-2f0a1134e76mr11816085ad.48.1795418701534;
-        Sun, 22 Nov 2026 23:25:01 -0800 (PST)
-Received: from localhost ([2a00:79e0:203d:7:fde8:799d:8c83:f2ab])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2f03ee84294sm47180345ad.9.2026.11.22.23.24.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 23:25:01 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] drm/exynos: Set supported modifiers during plane init
-Date: Mon, 23 Nov 2026 15:24:54 +0800
-Message-ID: <20261123072455.2221408-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10559606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:25:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10559606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07444257|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.180538-0.00332074-0.816141;FP=850186494572872926|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037071049;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k881Slu_1795418711;
+Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.k881Slu_1795418711 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Mon, 23 Nov 2026 15:25:15 +0800
+Subject: Re: [PATCH v3 2/3] sched: Keep CPUs that stay active online across
+ root domain moves
+To: Qiliang Yuan <qiliang.yuan@linux.dev>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: linux-kernel@vger.kernel.org
+References: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
+ <20261120-bug-sched-fair-offline-active-v3-2-325e9eefa56d@linux.dev>
+From: Li kunyu <likunyu@open-hieco.net>
+Message-ID: <a0be247c-24be-5b13-ce39-48ed45d2eb64@open-hieco.net>
+Date: Mon, 23 Nov 2026 15:25:14 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,180 +60,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261120-bug-sched-fair-offline-active-v3-2-325e9eefa56d@linux.dev>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-The exynos driver currently checks the modifier in a helper called by
-the plane atomic check helper callback. This check only concerns whether
-the selected plane supports the tiled format or not. This is tied to
-the plane's hardware capability.
 
-Turns out the tiled support was added around the same time modifiers
-were being plumbed through DRM planes. The latter provided a way to
-describe per-plane modifier support.
 
-Add a field to the hardware plane capability struct to allow adding
-an optional list of supported modifiers. This is passed to
-drm_universal_plane_init(). This also allows the core to generate
-and pass to userspace a list of supported modifiers for each plane.
+On 2026/11/21 10:57, Qiliang Yuan wrote:
+> +void rq_attach_root_domain(struct rq *rq)
+> +{
+> +	struct root_domain *rd = rcu_dereference_root_domain(rq->rd);
+> +	const struct sched_class *class;
+> +
+> +	cpumask_set_cpu(rq->cpu, rd->online);
+> +
+> +	for_each_class(class) {
+> +		if (class->rq_attach_root)
+> +			class->rq_attach_root(rq);
+> +	}
+> +}
+> +
+> +void rq_detach_root_domain(struct rq *rq)
+> +{
+> +	struct root_domain *rd = rcu_dereference_root_domain(rq->rd);
+> +	const struct sched_class *class;
+> +
+> +	update_rq_clock(rq);
+> +	for_each_class(class) {
+> +		if (class->rq_detach_root)
+> +			class->rq_detach_root(rq);
+> +	}
+> +
+> +	cpumask_clear_cpu(rq->cpu, rd->online);
+> +}
+> +
+> 
+> diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+> index 99878da03bce7..cc2bc832dad1a 100644
+> --- a/kernel/sched/topology.c
+> +++ b/kernel/sched/topology.c
+> @@ -488,14 +488,26 @@ static void free_rootdomain(struct rcu_head *rcu)
+>  void rq_attach_root(struct rq *rq, struct root_domain *rd)
+>  {
+>  	struct root_domain *old_rd = NULL;
+> +	bool active, move = false;
+>  	struct rq_flags rf;
+>  
+>  	rq_lock_irqsave(rq, &rf);
+>  
+> +	active = cpumask_test_cpu(rq->cpu, cpu_active_mask);
+> +
+>  	old_rd = rcu_dereference_root_domain(rq->rd);
+>  	if (old_rd) {
+> -		if (cpumask_test_cpu(rq->cpu, old_rd->online))
+> -			set_rq_offline(rq);
+> +		if (cpumask_test_cpu(rq->cpu, old_rd->online)) {
+> +			/*
+> +			 * Keep an online CPU that stays active online and move
+> +			 * only its root domain state.
+> +			 */
+> +			move = active;
+> +			if (move)
+> +				rq_detach_root_domain(rq);
+> +			else
+> +				set_rq_offline(rq);
 
-Also provide a .format_mod_supported callback to restrict
-DRM_FORMAT_MOD_SAMSUNG_64_32_TILE to DRM_FORMAT_NV12, matching
-framebuffer_check() so the mixer VP plane does not advertise the tiled
-modifier for DRM_FORMAT_NV21, and validate modifiers against the plane's
-modifier list.
+Check whether rq->cpu is active. This approach effectively prevents a series of
+issues such as the active CPU going offline and then back online (after the rd
+root domain is updated). It also invokes the abstraction function for rd root
+domain updates implemented for RT and DL, thereby ensuring the overall logic
+remains correct.
 
-EXYNOS_DRM_PLANE_CAP_TILE and the existing helper are removed, as the
-check is now done by the DRM atomic check.
+> +		}
+> 
+> @@ -512,7 +524,9 @@ void rq_attach_root(struct rq *rq, struct root_domain *rd)
+>  	rcu_assign_pointer(rq->rd, rd);
+>  
+>  	cpumask_set_cpu(rq->cpu, rd->span);
+> -	if (cpumask_test_cpu(rq->cpu, cpu_active_mask))
+> +	if (move)
+> +		rq_attach_root_domain(rq);
+> +	else if (active)
+>  		set_rq_online(rq);
+>  
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Changes since v1:
-- Add .format_mod_supported callback to restrict
-  DRM_FORMAT_MOD_SAMSUNG_64_32_TILE to DRM_FORMAT_NV12 (Inki)
-- Fix typo in commit message ("down" -> "done")
----
- drivers/gpu/drm/exynos/exynos_drm_drv.h   |  2 +-
- drivers/gpu/drm/exynos/exynos_drm_plane.c | 49 +++++++++--------------
- drivers/gpu/drm/exynos/exynos_mixer.c     |  8 +++-
- 3 files changed, 28 insertions(+), 31 deletions(-)
+By the way, does "base-commit: b251360cb2e6c7b74d962831f5797a4520511b36" point
+to a specific development branch of the kernel (such as tip/sched/core)? The
+code in the rq_attach_root function appears to differ slightly from what is
+currently in mainline.
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-index b126cd129944..ab0edb826261 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-@@ -92,7 +92,6 @@ struct exynos_drm_plane {
- #define EXYNOS_DRM_PLANE_CAP_DOUBLE	(1 << 0)
- #define EXYNOS_DRM_PLANE_CAP_SCALE	(1 << 1)
- #define EXYNOS_DRM_PLANE_CAP_ZPOS	(1 << 2)
--#define EXYNOS_DRM_PLANE_CAP_TILE	(1 << 3)
- #define EXYNOS_DRM_PLANE_CAP_PIX_BLEND	(1 << 4)
- #define EXYNOS_DRM_PLANE_CAP_WIN_BLEND	(1 << 5)
- 
-@@ -112,6 +111,7 @@ struct exynos_drm_plane_config {
- 	const uint32_t *pixel_formats;
- 	unsigned int num_pixel_formats;
- 	unsigned int capabilities;
-+	const uint64_t *modifiers;
- };
- 
- /*
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-index 020e8c9cf7de..92ed00e2b6f9 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-@@ -8,6 +8,7 @@
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_blend.h>
-+#include <drm/drm_fourcc.h>
- #include <drm/drm_framebuffer.h>
- #include <drm/drm_print.h>
- #include <drm/exynos_drm.h>
-@@ -161,6 +162,23 @@ static void exynos_drm_plane_destroy_state(struct drm_plane *plane,
- 	kfree(old_exynos_state);
- }
- 
-+static bool exynos_plane_format_mod_supported(struct drm_plane *plane,
-+					      u32 format, u64 modifier)
-+{
-+	unsigned int i;
-+
-+	if (modifier == DRM_FORMAT_MOD_SAMSUNG_64_32_TILE &&
-+	    format != DRM_FORMAT_NV12)
-+		return false;
-+
-+	for (i = 0; i < plane->modifier_count; i++) {
-+		if (plane->modifiers[i] == modifier)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- static struct drm_plane_funcs exynos_plane_funcs = {
- 	.update_plane	= drm_atomic_helper_update_plane,
- 	.disable_plane	= drm_atomic_helper_disable_plane,
-@@ -168,32 +186,9 @@ static struct drm_plane_funcs exynos_plane_funcs = {
- 	.atomic_create_state = exynos_drm_plane_create_state,
- 	.atomic_duplicate_state = exynos_drm_plane_duplicate_state,
- 	.atomic_destroy_state = exynos_drm_plane_destroy_state,
-+	.format_mod_supported = exynos_plane_format_mod_supported,
- };
- 
--static int
--exynos_drm_plane_check_format(const struct exynos_drm_plane_config *config,
--			      struct exynos_drm_plane_state *state)
--{
--	struct drm_framebuffer *fb = state->base.fb;
--	struct drm_device *dev = fb->dev;
--
--	switch (fb->modifier) {
--	case DRM_FORMAT_MOD_SAMSUNG_64_32_TILE:
--		if (!(config->capabilities & EXYNOS_DRM_PLANE_CAP_TILE))
--			return -ENOTSUPP;
--		break;
--
--	case DRM_FORMAT_MOD_LINEAR:
--		break;
--
--	default:
--		DRM_DEV_ERROR(dev->dev, "unsupported pixel format modifier");
--		return -ENOTSUPP;
--	}
--
--	return 0;
--}
--
- static int
- exynos_drm_plane_check_size(const struct exynos_drm_plane_config *config,
- 			    struct exynos_drm_plane_state *state)
-@@ -241,10 +236,6 @@ static int exynos_plane_atomic_check(struct drm_plane *plane,
- 	/* translate state into exynos_state */
- 	exynos_plane_mode_set(exynos_state);
- 
--	ret = exynos_drm_plane_check_format(exynos_plane->config, exynos_state);
--	if (ret)
--		return ret;
--
- 	ret = exynos_drm_plane_check_size(exynos_plane->config, exynos_state);
- 	return ret;
- }
-@@ -308,7 +299,7 @@ int exynos_plane_init(struct drm_device *dev,
- 				       &exynos_plane_funcs,
- 				       config->pixel_formats,
- 				       config->num_pixel_formats,
--				       NULL, config->type, NULL);
-+				       config->modifiers, config->type, NULL);
- 	if (err) {
- 		DRM_DEV_ERROR(dev->dev, "failed to initialize plane\n");
- 		return err;
-diff --git a/drivers/gpu/drm/exynos/exynos_mixer.c b/drivers/gpu/drm/exynos/exynos_mixer.c
-index 9b210ff7449f..5da871e5ac9c 100644
---- a/drivers/gpu/drm/exynos/exynos_mixer.c
-+++ b/drivers/gpu/drm/exynos/exynos_mixer.c
-@@ -93,6 +93,12 @@ static const uint32_t vp_formats[] = {
- 	DRM_FORMAT_NV21,
- };
- 
-+static const uint64_t vp_modifiers[] = {
-+	DRM_FORMAT_MOD_LINEAR,
-+	DRM_FORMAT_MOD_SAMSUNG_64_32_TILE,
-+	DRM_FORMAT_MOD_INVALID
-+};
-+
- struct mixer_context {
- 	struct platform_device *pdev;
- 	struct device		*dev;
-@@ -148,8 +154,8 @@ static const struct exynos_drm_plane_config plane_configs[MIXER_WIN_NR] = {
- 		.num_pixel_formats = ARRAY_SIZE(vp_formats),
- 		.capabilities = EXYNOS_DRM_PLANE_CAP_SCALE |
- 				EXYNOS_DRM_PLANE_CAP_ZPOS |
--				EXYNOS_DRM_PLANE_CAP_TILE |
- 				EXYNOS_DRM_PLANE_CAP_WIN_BLEND,
-+		.modifiers = vp_modifiers,
- 	},
- };
- 
 -- 
-2.56.1.831.g720f3f5937-goog
-
+thanks,
+kunyu
