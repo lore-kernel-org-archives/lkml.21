@@ -1,54 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.122
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795417219;
-	b=pB+Nk39ASvMXeQuLXSbeCjKtM5d3gOvnTcF8XA5tT8qfAWLh3GszFXRMFDApZVUncIzF
-	 Cb03eI8WMOpcm/jAQAhXei3hu6zgsaUDCyQXAYdjjzok1sVya19rl4Nu3IY1sXXtf27eC
-	 UQ9w2N9V+PpdwROi/TzFQH4BCkUHI3A8zhsQkxpd8sS+Pl+FaLmnvf3yt4Jrmgygqhadf
-	 E+ueYrElNBvLsnSmj4JHMA44ulOukJUt1B+EP+pC9l9Xe/OWYr+QlyhL20PWC0fyqLhO7
-	 5LMQjHG5E/HkLpkhEU1UDuAei8S3pc8ngszyXDQaYnH42xW0YT7QTxlEY8R7K2TcJFg==
+	t=1795417276;
+	b=pDGFgtMqJf5WkbJhkVBm9Q5t/GfTJsUe76WfJ/3ge05apSwscWjh9Hc/xXHABIlvVd2S
+	 wiv+jg6k51K12b63BJxFITji+b1QQskXUArULX3fKqLAOadlnV1M7g3OMaLJPDVeiJI78
+	 KEiu1wkquwLGxbI73cdQOvK8fywCwx/k6e14FxWH2Ya3O6m+9A57PjXyF80iIw6fgeqKv
+	 Yh2dlovwxqoIXeY45plyIGaSDxISmO/GN9dsdaOA5A76DU2NaKFgxPI+dOjrNqw2us08a
+	 +QNN2isv7pOCbkBDAzEdV5JWTO4M3PrClH9zzIBEGW5Dbt0bWxhC06cTwEEcKbwFxYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795417219;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=wz61PR6m+Hv4KIDjJgpzt68ZFn1R+shrC/4PW4HJ6X8=;
-	b=mDiWwFprF5bLQ8vuNC2wkc/sMKVmW2nI1hR7bR8ynk+De50g1WbPMuYB0pKcPms2QDJX
-	 7RqXyXjQcrYWb5UfHhDs6pdF+JQGPIsrKtbEgLOWkZlIN52Xza4BaeLxLabBk+NBWHqEo
-	 G7xlt/KWZip21fEwz7NM/xNzSLYU3ssZW53dF32IUvXFzUadt7wo//F8uKHX6sg1cELt5
-	 qIcB9RHj/5GOtOCdutmnFZK9mKSwuy81wzStDgk3rv3zXwZxmsUHVOlPntNSUvcYcx3lm
-	 j8+mq7cDF75QR+53uhV4QUlOW0nu1dknR4jupRLFqa+6oSSQhOvQBD6G9ntnkiU6nBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795417276;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=wOsuRVgpL9gZBTN3yhy3WmQv6nl7mKO4w5iI9O9n2S8=;
+	b=XVAn9JW0NAd9brrN3jUqFVQWcYRg3a1GiezDMeKXisX4QYxhZuZf3ULinNL4YMH0bD67
+	 8Mdi57sInLe2qsZV9/J3+QNacvkY/CXbw821WLDbpk+ayghKr1lm1i0so46di9N7VfMOp
+	 Stl2hKJ97F55hYAQMlcbZKE5ULYYDAc8EMJ2c1b+1CDB5DUxBYpnvNqHUBDvBCQPLcJnZ
+	 rpC+sw0m5u9ZX0OzpIAnDowX7ZEfCMdLpDPwpdfAODs65Qtpw8tsYcGY7E2XbcA/SW6HK
+	 jjg2KQNOzy2hGnYuFc4bUhYTJzoDU1iCRrU4ZW8VgH96CtaMZBLcipGkN1uZuKhPnug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LFO5kG6Y;
-	arc=none smtp.remote-ip=95.215.58.122
-Received: from mta1.migadu.com (out-122.mta1.migadu.com [95.215.58.122])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RphP6QPa;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54204606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:00:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54204606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52B67606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:01:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52B67606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LFO5kG6Y
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=y6IFXvtm+aIMH3lUM18yqu4CvE/ZO2f55GMqbnpqCPA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795417215; v=1; x=1796022015;
- b=LFO5kG6YIw05GsVw8di3zyy/dHt3+da6fDxo6VYUV2g3lNk9Y3crl4iFetc0riIlFd+Cjkyw
- 4Lx2EBBqCCYLAfy2tL84QauWVI11AOAdVxeCnZE57Qlybmv2sfzljdWAqWCeb3V08klUk+AM07l
- M4/4WTlLtMW7qkIupbEVPHCE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f0ff690aa2f0d91c;
-	Mon, 23 Nov 2026 07:00:13 +0000
-X-Mizu-Trace-ID: f0ff690aa2f0d91c
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <a3add5b9-a69e-4e06-b91c-c23db9b6e1ca@linux.dev>
-Date: Mon, 23 Nov 2026 15:00:04 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RphP6QPa
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b5786e099cso205254c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:01:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795417275; x=1796022075; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wOsuRVgpL9gZBTN3yhy3WmQv6nl7mKO4w5iI9O9n2S8=;
+        b=RphP6QPaPtA0raybonBWMXDqrJQc7DtgmWQXv/+2D14H0VkMcsmEiUy7JjA2UDr97J
+         b/FLvGpFg3oypeEjsFTumWnuYa8IOZ8VI23cAOCMd99urJkb0SAkYmIxzt+DHdtK4jjs
+         Ima0anPotykxxv+Y7tF7Lkblz6PHe7oHnMo1JwZ10AZn530XRrz8IuvW2WjhkNH6VQkc
+         k0rSEEoNQsckYzqAiAz8ljZhPRVs28eD0CKLwz2eBlqhqccKQ+cQwNg/kOrNguocBQue
+         H5VqtU/dEmu5XweP7HK0AOPnzNMK5jT5uNcaqf3tmDq17WYB72QfEWhGtNJsWBFItLAl
+         J+JQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795417275; x=1796022075;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wOsuRVgpL9gZBTN3yhy3WmQv6nl7mKO4w5iI9O9n2S8=;
+        b=KC8lv6trtaUP0BGZ5D2gBX3DJzzB+MOvn97nSoVPTvWS6tZtwUNrhZcX1PL0TMU9Gu
+         Mu/lZhMIB1nZBroLD9KmNJTwweosGlePbzKjgp9Ogqf85XhuREbmpQMIPNfl67Q3kc3A
+         zHJrFuNztiO5npQeZEgUJq0EIg3M9q4HWyxafUtKIOzP3wzSdY+JjbJ32bm9oZ9pVfiv
+         2XbTb1fA32lW6xP4+TKlxYepVugRTORm0HWqSPjW+jl9/PRBfcXtfSF61AkENsGln215
+         seBVHqMJXoDAu6/V2ZmuDJzRznYAom6dUHxTOR25tarjbvPzCqNjUgU5DN8H1g2ghavN
+         gCeg==
+X-Forwarded-Encrypted: i=1; AL+hErGH6xwrnEmVHEx2ZMdcuIu9DkxJ/2dytxwTGVMriRIav2zP6rtB2lD7GUHqcSH8MWAuw52S2EXtoAHc9Lc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91ybrADhsvTuu8wzW83QuT8k108R8dHr9raPrL5+FRjljboYQ8
+	yLI8aM9zrq3+qYIHQcHnFKYPt0nvUR1dGa/3XCfZ43IeK51KAjm6C1Q=
+X-Gm-Gg: AZFdTZf111kUeqJJM5w9jva3WcdlBoLzxu5rQXjzXfkNGok457M+6F5QPSx4GSfR4Tz
+	QP06oBGojbOtUlSc+7p7CXyEyqHXqRHU9EQNapBvRj+Pmf5XdmdBBzdZN3uP8snx76cGFZ+DTKr
+	Xq6MH7Z//EB41QzdY786XvnCUSeNO28u+4pQlZixJkpGYh7cDTQ3VRwHxZdODXAizlu/SYdm/57
+	bh1Cj3sPtX3m8yUHZBGRrXV5CHE8SDwLyCQ8uwmVI63xxY22BrzEsbshkA250CKzgPTVWze1DK6
+	RV4Dbek1gfXUQHyZMB+IiO1GBBMZYpALuRuNQftZCo1XvO/s/gl7iVWnGpa+U/E7+D3vOUUOScK
+	GLpwBMMhZIfmUrCcBgWuxlnhci4d9o7+TozbNVYMqJKwCymH6YZifV6foalzVGyNB4RLUx/5ObB
+	kfKLf0FnWEp2TLXXA2bWCmL76xqNe6vJ/daB2gpI0ymV3FqAREsSUrqtGuRjIlwfJsLPbuO04ZH
+	ZdLB+qxx2KNFBIc89/9ufn/1zEpKWL4OBDtkV4n0T6evlVCjnhmkM3p4I6nDD+vFs8YQblXqWkm
+	DWln0Q7+ugx4eIURHliToEs/NDrGSNheb/haOvD2lxa40Cg73ZwmCBSfAp2TAErfRxC7vb3OajP
+	JpFvFx1SW
+X-Received: by 2002:a05:701b:4583:10b0:1b5:5915:bb34 with SMTP id a92af1059eb24-1b55915bd9amr9227327c88.4.1795417275345;
+        Sun, 22 Nov 2026 23:01:15 -0800 (PST)
+Received: from at-Standard-PC-Q35-ICH9-2009.tailbdca44.ts.net ([27.60.27.67])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5568592adsm25283608c88.15.2026.11.22.23.01.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 23:01:15 -0800 (PST)
+From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: atharvatiwarilinuxdev@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org
+Subject: Re: [PATCH v2] usb: acpi: Get correct location data for Apple macs
+Date: Mon, 23 Nov 2026 02:01:09 -0500
+Message-ID: <20261123070110.11736-1-atharvatiwarilinuxdev@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <2026112344-jaybird-glancing-b56a@gregkh>
+References: <2026112344-jaybird-glancing-b56a@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,119 +99,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/11] mm/mm_init: factor out common struct page
- initialization
-To: Muchun Song <songmuchun@bytedance.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Oscar Salvador <osalvador@suse.de>,
- Mike Rapoport <rppt@kernel.org>
-Cc: "Liam R . Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Michal Hocko <mhocko@suse.com>,
- Muchun Song <muchun.song@linux.dev>, Li Zhe <lizhe.67@bytedance.com>,
- Andrew Popple <apopple@nvidia.com>, Balbir Singh <balbirs@nvidia.com>,
- Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- James Houghton <jthoughton@google.com>, Lance Yang <lance.yang@linux.dev>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
- <20261120100856.16929-3-songmuchun@bytedance.com>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <20261120100856.16929-3-songmuchun@bytedance.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+> Please slow down, there is no rush.  One patch per 24 hours max.
 
+K, i did not know this, sorry.
 
-On 11/20/26 6:08 PM, Muchun Song wrote:
-> Several struct page fields have the same initial values for every page in
-> a zone. __init_single_page() initializes this state as part of its
-> per-page setup, while the shared vmemmap tail path open-codes only a
-> subset.
-> 
-> Factor the PFN-independent state into memmap_init_page() and use it for
-> both regular and shared tail struct pages. Keep section-, PFN- and
-> instance-specific initialization in __init_single_page().
-> 
-> This also initializes the last cpupid and KASAN tag for shared tail
-> struct pages consistently with regular struct pages. Since
-> memmap_init_page() marks ZONE_DEVICE pages reserved, remove the redundant
-> update from the memory hotplug path.
-> 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> ---
-> v3:
-> - Rename memmap_init_page_common() to memmap_init_page() (suggested by
->    Mike Rapoport)
-> - Remove redundant ZONE_DEVICE reserved-page initialization (suggested by
->    Mike Rapoport)
-> 
-> v2:
-> - Remove __meminit from memmap_init_page_common() so HVO shared tail
->    pages can call it after init text is freed (reported by Sashiko).
-> ---
->   include/linux/mm.h  |  8 --------
->   mm/mm_init.c        | 37 +++++++++++++++++++++----------------
->   mm/mm_init.h        |  1 +
->   mm/sparse-vmemmap.c |  7 +------
->   4 files changed, 23 insertions(+), 30 deletions(-)
+> Again, why is this needed and not just calculated at the one place you
+actually use it?
 
-Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
+So i use it here:
 
-One nit below.
+static struct acpi_device *
+usb_acpi_find_companion_for_port(struct usb_port *port_dev)
+{
+        struct acpi_device *adev;
+        
+        adev = usb_acpi_get_companion_for_port(port_dev);
+        if (!adev)
+                return NULL; 
+        
+        usb_acpi_get_connect_type(port_dev, adev->handle);
+        
+        /* Apple's location overrides the _PLD derived one */
+        if (is_apple_location)
+                usb_acpi_apple_get_location(port_dev, adev);
 
-> 
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 8883b780b76d..d8bafcd92791 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -3096,14 +3096,6 @@ static inline void set_page_node(struct page *page, unsigned long node)
->   	page->flags.f |= (node & NODES_MASK) << NODES_PGSHIFT;
->   }
->   
-> -static inline void set_page_links(struct page *page, enum zone_type zone,
-> -	unsigned long node, unsigned long pfn)
-> -{
-> -	set_page_zone(page, zone);
-> -	set_page_node(page, node);
-> -	set_page_section_from_pfn(page, pfn);
-> -}
-> -
->   /**
->    * folio_nr_pages - The number of pages in the folio.
->    * @folio: The folio.
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index 0129152b74d8..08d6e47bde22 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -602,15 +602,27 @@ static inline void vmemmap_optimization_verify_zone(struct page *page)
->   			page_zone_id(page));
->   }
->   
-> -void __meminit __init_single_page(struct page *page, unsigned long pfn,
-> -				unsigned long zone, int nid)
-> +/* Initialize PFN-independent fields common to pages in the same zone. */
-> +void memmap_init_page(struct page *page, enum zone_type zone, int nid)
->   {
->   	mm_zero_struct_page(page);
-> -	set_page_links(page, zone, nid, pfn);
-> -	init_page_count(page);
-> -	atomic_set(&page->_mapcount, -1);
-> +	set_page_zone(page, zone);
-> +	set_page_node(page, nid);
->   	page_cpupid_reset_last(page);
->   	page_kasan_tag_reset(page);
-> +	atomic_set(&page->_mapcount, -1);
-> +#ifdef CONFIG_ZONE_DEVICE
-> +	if (zone == ZONE_DEVICE)
-> +		__SetPageReserved(page);
-> +#endif
-> +}
-> +
-> +void __meminit __init_single_page(struct page *page, unsigned long pfn,
-> +		unsigned long zone, int nid)
+        return adev;
+}
 
-                 ^ enum zone_type zone?
+And its calculated it here:
+static void usb_acpi_apple_detect_ssp(acpi_handle xhc1)
+{       
+        bool found = false;
 
+        acpi_walk_namespace(ACPI_TYPE_DEVICE, xhc1, ACPI_UINT32_MAX,
+                            usb_acpi_apple_ssp_cb, NULL, &found, NULL);
+        is_apple_location = found;
+}
 
-Thanks,
-Qi
+so its used PER port, so if there are 7 HS and 6 SS ports
+
+And you suggest that i calculated at the one place i use it, so
+i would have to walk the acpi namespace 11 times in that scenario
+
+instead i can just cache it in a global variable like is_apple_location
+so i only have to walk the acpi namespace 1 time.
