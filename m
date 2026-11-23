@@ -1,123 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448202;
-	b=Ens2V8vViTSuc9X2t8LQQA/RPoLT6AX5k9w+G3WpUR3sTiBV6WFfQk1g4ItGHCu/CbLJ
-	 EYUvf9Ls0KB2DCGGVwzNHW9NKQ2tDQPpIMdRqgt0hyFwF1WhwWQLsQ5TI7LqOOiEgEjHv
-	 NssV3KdVxPKBYaSS8zM3dlyddcNj6XBhx4W2Pk4bKWmuuBosxoK/k3CavMo0A1wRKIrrn
-	 NMeH29irulotpIWgrX3TxOxJj0Sme8GnraU4FiVzN0V2+ABaR16vXW9KiQzpDiMyvmEz8
-	 ievtUejByUPlTrJr5TYr1yZsdAco2nJO1KLwAjHqtZNFP6q4Oxekt8qhw+HWIUrAr+w==
+	t=1795448203;
+	b=zAYEIZXNJMai67mKEFlnIrK8RqMclCfYOqsBui4zajxipUFUzEri+E/kQT6/NXYb4Rq3
+	 b81x0PWWwHsLtAeWo8bWdYT5iXORsBG/HEcw9ZQ9C8h6ZogG3W5tY7r1LKGZrLj2zRYcl
+	 0uFAGPD0uchfcV5GsYt4RbJxH8AL+IgFtE6u0wiXtC1skkYeorN6ES6aT6pm/gfnRh3uI
+	 aN610nxxyMbJxM5kR4c+Q4tFozL2vcMz2VdeFSDXzGKxgWOI0HasT/KnWHHufj1MyzZm5
+	 GzA599adzZUZfmycxK8Zc5pSc/KRSfPuBr2gaKfBk2xAFlMgyHrhrXsVU/dtPlDHPCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448202;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=iMj2t4hUan0LrC5voc+bXHqikDQMoVSMga8MiF5GiH8=;
-	b=hRSwhi2hfhy+wmwRE2ap6wG70KxY9KldFHnFgSvReowa5+miMnWBBRwLnJv7qOFppufY
-	 5yND8YnuMbQVT+DbPeglnXBjRIv16/EYS4B4N/23LYF1W/RbnBHgaY1rah95Wg0NPP8iM
-	 DViHRrQtFMhtlCfHn6iPuJQHVXCFrr4F19FvR0ip0D1frHURR9UrU1s3Yb/XwQwVbebpW
-	 7mHoXlz9pdsAlzMFO1tCTYJzysho0hEG+6lyRXYqQ+3LWlqTq1InvfgjF+CCcTwaRa5jB
-	 ndqeRNhV7LEZnX1hcnotgmpi6+c5P9payYtL1UdlRUPvPRy/YOAhu9Cw0ntop4/+mHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448203;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=iH9Osx1WH1Y/KQi30hi+nTRPfYUPETmiCdl6TuZB0IY=;
+	b=v8z6n1yZOwbDQ6UXCaYBW7rMh/ttN/US7lFKyfx+53KK9P+HGbsn5avYf5qxrHPJdQzR
+	 tx8BKRrnvUDJQ6oX7TGu/+oOebsbX4ix8asaG3nz1fvEENz4GH2TLX/bk5aDkN4/FceQM
+	 kNuuQ1om8fT6L1dGVvBisRcc75nD+ZDGkPqYhr89JeJ9AtT8vyV87CNqcTgJ9EJdMo5Hc
+	 HGwEw3CUDgG6DNoxBMl8sfIY/jxoSfQHylWrpLTbJxreUrIqAdIfvOJUAN42/ehWSUWM7
+	 vjdWdpHNqkEJEHvskUbSQkGlt7nuhXYwOeWAUBtALQKQI6HzHTr4LtBpdIKIZLGle4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nWFZkm4v;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="LWoxj+/P";
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F25B1606A32A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:36:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F25B1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDF14606A337;
+	Mon, 23 Nov 2026 15:36:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDF14606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nWFZkm4v
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so15316275e9.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:36:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795448200; x=1796053000; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iMj2t4hUan0LrC5voc+bXHqikDQMoVSMga8MiF5GiH8=;
-        b=nWFZkm4vqoVPoLJ5bAeqhCFLP/tMnyvJhuj/5vvKe4j5l0OYyDIp3QnpbxR774+uUA
-         cMSqdoyHbh2ISX5DOL1Q7rK0RsOYS1sPmQZgfclXSYAK5DTgR1SVx0nBiqzi+vVkudgg
-         HrOFDUz3zsFRUvr7YppSpn5CpWrQKEuaz2LxjZ4PFQbiU+AZxKKWS1bEUMDPHcYGqv8Q
-         VUR3dfV/wtMpc7EJ6MZU4Z4UKukOcZnbgYij9jFOg7IDeGqq6V3WC830bPd6xQ8YYVOZ
-         U5gbJ6bznHFjK6Ss1AjwX/krdJ/TBP1dINwPVOO/PHu5YVWD5kJresWc9JzDbcGp/jOq
-         bJaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795448200; x=1796053000;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=iMj2t4hUan0LrC5voc+bXHqikDQMoVSMga8MiF5GiH8=;
-        b=WWYAZA8aWzNdkU6ZCLCKJIzZAJxmCc8PvYiHToYVsghmdEA6DKiOABlnby0zD3UqE3
-         dZo3EnzDpsv0bg/Eas7QpQQRVjjMwXCcIzJNc5O7j0IFLL0JmtV94ytHPH2Qbn4e+N+l
-         jxfdTgAFXYI5/FcTtAxJ3V6uXOsZY9eT7INavGCEOZMZbBJ00OTyUiZwSyHukr2cAOG5
-         V92d7je9g4hYSS7XkE2oATGcoR5of5xMdYgzzhUn6M0bP16CZ1aETuJK0CB+ZKzV5Dgs
-         I9lvaCYJArZFIevied4KV07/93kGC2ujN4UMfTliFQR+mjwwYNbOe2gyoOGrAy/HmfvW
-         aIQQ==
-X-Forwarded-Encrypted: i=1; AL+hErFPMyve2Fp6KO44sU1ROEQPZw9e0oJYPAufMhcQ890eEtMuQXrA3jHGzd5o/dY84MRkx+vOtGc36/iFu4k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9NdvBadEuL6CZH3gCtWu9MC2R/TIxHCbwEcbEkJczdyTzwl3yd
-	xsAesnjd6a7tX7kgGJqP+GKAtBjUakTXYJm+LLF+S2r6ausnA9pvkxYh
-X-Gm-Gg: AZFdTZepHJe7Q/PSER40X/JmbuERwPScJIgoBbcWbxhZFQL1RJ8sbHqwjNl6hgbkdfd
-	xZgzdnUp3LomAErpUKiy+/wE3ONH80PosX81+uEgpq+jH6Cz6QGL7Tuz+ojbKnPuUOmafgaJ0ZO
-	2MZoSPK+QYCmVqOyeDrTssxqWDwDWtrV7Rc8IyhuR71gsxpAqxoHVUijD0XDIhy2TfavP+kjPvd
-	c+8JJJ/KoArtJ5zaKYY5MKdKmyPPpzPk31dF9Tv7k7MqtPm0VSTLap5EPrxnJtlRP9B5VYTCRTx
-	vlLOxYIbd8a40bFTBQKcOnXietsLLafdascA93WPdxKoWQ5PwrQqNzAl39vHrO8IeK3lXr2HBPz
-	TfoYPheeVnHdYOLKdDo1WkoloVIqt7/tvamLTCb76Nd6XpKsEUFPR6UqV7adLy0I4B6FbKTZGpU
-	/aWwYHW/FdXyAfo9tpX4JvQ4Fz9c7KM7YaOxZc+kZsiIQRtfAEiKJ1JQqCb2PoPZLeTRxQvaFXO
-	AN1CahX7RS9i6zVxYghowoH4DcymoXcaACvKjfoNRvFC0+hEZPeqGIgmq2QCWB868WAz3UCeiyJ
-	YivIAScjbT5n1C2ch4be11YHv6r2I6/0nA==
-X-Received: by 2002:a05:600c:3b88:b0:4a2:191f:7cbd with SMTP id 5b1f17b1804b1-4bb888078a8mr280286605e9.11.1795448200216;
-        Mon, 23 Nov 2026 07:36:40 -0800 (PST)
-Received: from ArchOarora ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90655f5asm193318255e9.1.2026.11.23.07.36.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 07:36:39 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v6 19/43] drm/vkms: Use plane folder name as plane name
-Date: Mon, 23 Nov 2026 16:36:17 +0100
-Message-ID: <awRbCaRRole752Pk@Oarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120-vkms-all-config-v6-19-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-19-78ace90f4fc1@bootlin.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LWoxj+/P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795448203; x=1826984203;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WhGM7Q5iFOyHC9FRsJORCHpMZE6hReH187ed9xveTVU=;
+  b=LWoxj+/PZgqkqoAGQygDUL+kwEzoqo5FS/dZbTL8iDbjZB2FIqtHAezN
+   WoEyfxBT9K/5/uO8XUy6It163QFfBpyJwqeeLLGub0E+DemetkF78raqs
+   m4JiSZL3AYQfWQxgeu9RWPaP/11P5VKILpAIbfW1Cw3dSgCNMWOGQqkm1
+   KFWNGA1VggMPGJBuLBP9UaqxRQCUovqQMEDNCuckMKXAAaXVvrUFn19FM
+   lp99Bb4WrjRutTChREiJoGDL7+1Gh4VGI6usilH64NI5uzo/UovxKTTfi
+   vVSUiAea04dE1808+qlT4tBblfqLD9/3IbZZK6dSmO2/oxov98jt2q059
+   A==;
+X-CSE-ConnectionGUID: mpP014XzQ9OATmruIjUZRA==
+X-CSE-MsgGUID: /NWiMtYoRymz/uE4XkGyog==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4302208"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4302208"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 07:36:43 -0800
+X-CSE-ConnectionGUID: 7k4dpiovR3GnGfD99An42Q==
+X-CSE-MsgGUID: 95HMssZDQvyPyiyiMzxrIA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11684225"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by fmviesa009.fm.intel.com with ESMTP; 23 Nov 2026 07:36:40 -0800
+Date: Mon, 23 Nov 2026 23:26:58 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: Chao Gao <chao.gao@intel.com>, iommu@lists.linux.dev, x86@kernel.org,
+	linux-coco@lists.linux.dev, kvm@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, xiaoyao.li@intel.com,
+	Binbin Wu <binbin.wu@linux.intel.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 7/9] coco/tdx-host: Add skeleton to support PCI link
+ encryption
+Message-ID: <awRbQhb3HBfulvfC@yilunxu-OptiPlex-7050>
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-8-baolu.lu@linux.intel.com>
+ <av1QxRYY9sXtC--P@intel.com>
+ <d9f3eecf-5655-4779-9e8a-b3ff4cbdb667@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,28 +86,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <d9f3eecf-5655-4779-9e8a-b3ff4cbdb667@linux.intel.com>
 
- 
-> diff --git a/drivers/gpu/drm/vkms/vkms_configfs.c b/drivers/gpu/drm/vkms/vkms_configfs.c
-> index a7ddcfd4e86e..3a1a34643cce 100644
-> --- a/drivers/gpu/drm/vkms/vkms_configfs.c
-> +++ b/drivers/gpu/drm/vkms/vkms_configfs.c
-> @@ -375,6 +375,12 @@ static struct config_group *make_plane_group(struct config_group *group,
->  			return ERR_PTR(ret);
->  		}
->  
-> +		ret = vkms_config_plane_set_name(plane->config, name, strlen(name));
-> +		if (ret) {
-> +			vkms_config_destroy_plane(plane->config);
-> +			return ERR_PTR(ret);
-> +		}
-> +
->  		config_group_init_type_name(&plane->group, name, &plane_item_type);
->  
->  		config_group_init_type_name(&plane->possible_crtcs_group,
->
+> > > +static inline bool tdx_supports_tdisp(const struct tdx_sys_info *sysinfo)
+> > > +{
+> > > +	if (!(sysinfo->features.tdx_features0 & TDX_FEATURES0_TDXCONNECT))
+> > > +		return false;
+> > > +
+> > > +	return false; /* To be enabled when kernel is ready */
+> > > +}
+> > 
+> > Patch 2 open-codes the same TDX_FEATURES0_TDXCONNECT check. Can this
+> > helper be moved to patch 2 and used there?
+> 
+> These checks serve different purposes: the metadata patch checks whether
+> the TDX module supports TDX Connect; tdx_supports_tdisp() decides
+> whether the kernel is ready to register the link tsm. The latter may
+> include additional checks, such as quirks, so I would like to keep the
 
-Oops, looks like this leaks the plane allocated by kzalloc_obj() above :)
+But I don't see the need to distinguish them. Any case the kernel is not
+ready to handle TDX Trusted I/O, but must read its metadata?
+
+> helper for the tsm registration.
