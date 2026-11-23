@@ -1,60 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795426035;
-	b=iwMI5W5eVX2SneRNPch5lA+HHu57h1kTYQ6cPoLiD3DarMZTxgBW+k3hgLXlCYTBQ2+R
-	 BnbWQaZlKt4oTbmPt0hJFCXEVk14qBrabDXb2AK/NLv+Z651ZuvtaDAsJ7eolx5mMBM53
-	 orxJr0DK7fpKVP9bX0w82GXBzNtxEzUujNWrKph411KKOd3b0wN+LVZ8pg/+H/RrUna3U
-	 CKlEEG4r8AHJ63VCZ39XViXjAg7s6yyfpoDZhQe4itKdbVd43DN1OkOnXoAAvBq/bONon
-	 XoWOIGjcOp2+wVOJHl3UsFJmRfsDluADJvoOhmZ6ZJIPGfBdW9m0J9LLEqoeeFkfWFQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795426035;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ti+jiiYqKb/fJoked6vO8ZSZi7IUQ+nKa0N05q9OVjk=;
-	b=jhLVwRFpaRojoOaKGMMsaEEgV93k9GgxcQmGyiFQn3mmH3RB4ghAoAeqtJf+TL8o96eV
-	 9Tz5hXUuokT1F2RD/J9/nBBi8s4XD5GeIz/J9c4EORqijGJdFpjGx3kcU5p4BPOYu4fIZ
-	 Fi3jfGq7FHQC0ISLTcjZ5jzjXTNRxrraO10Q/TCjtDH2+5bkbLEnytam4TCw2mMSoRk0o
-	 lKWOtxnXghECU6zeCpmFYPaSZadkX6Rjd8OVd0TFb0/ns02glgRhzYAhbMhuenx7j5FXD
-	 QJ+/2WqXKrllgWmT/pv/scwzGfhwsNYPR2W9nCaJ/q1oiFKBUBTNvBjfbEQjMNdol4Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nU3bOcyK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795426055;
+	b=ye5ydywIZoqq58ruzmnH8cPu6QfjCmHu/CvAHIMCLmHFxf6YM9wDvia75bDYA3VEOwXv
+	 vhJeL5pI3KtaxjLqA4gnxY1ub0h6ayO7RrKhHPlEcVU2chencYU9vx4wvZvAfBiCN+iLU
+	 X37U1hZZFcwWcto5v3uD8HuERFr6BKLHagEq59Tw/tSJi0N2zNIYKxqqB8YkaHsWAO+Ae
+	 IP0HfehImWVrLhsV2aOPGqUI7SgUlgRJY4S02XCw+beX2K0rSXzXGNtbwRXiQSgJMwXzj
+	 m1X+eJFVmTxC8Wi0/nGUrITprRa6o5Gw7xiBbzTud4gliRmh53bv+3HYOVjq4PDxFSA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795426055;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=O9WYOpMy3rGcu2QFyMreqnCz0RC3LAV/SW4SChJTtnQ=;
+	b=CisWB3cr/JEa50T94kynepseFSYDO5Hlq6YkPjo/YH5QTuimub+jKNexTDCMiwkEVH4A
+	 m9rsTNu94v+USwUbrifIjj2orR6guNtqlcIrBhKGTlAZ34GBK41VhwXcG3BscW+d/5oWt
+	 +5BHoe0qjuzUDyOUZNQQZ9ulrVpdDjw3Ue11CtJP/gN2KnBbGoHLYOtmsRYHAhgelCpUg
+	 cjIJ/0Y/68xA6PqUiJvWJ8lh5ccsxOZ61pBHMojfOP1bi7AOa3Z3hguhs5zufrX83fT57
+	 l99h5PSf4kNlQs2/VA28Fio5PHySt6YZXaJJBeAZ6gQWnNQ9cAigYyb4jUPolyLztrQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Lq8kSUT0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C1C7606A321;
-	Mon, 23 Nov 2026 09:27:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2049606A31E;
+	Mon, 23 Nov 2026 09:27:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2049606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nU3bOcyK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5EB1F000CA;
-	Mon, 23 Nov 2026 09:27:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795426035;
-	bh=ti+jiiYqKb/fJoked6vO8ZSZi7IUQ+nKa0N05q9OVjk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nU3bOcyKca/51xcJnkNERwuGkKnggiNMNd/wUd+XvfBV2pRoCFrMkikcjbOBFYS3Q
-	 fBqME1gT2K5baPW7dG4/RjU8qE1GfJwy+5gKm0ue36koAdHZPV0oBLMhgobmP41RA+
-	 MnzIU9/789ESMUsk3H5/ZbNjQkybKVCIEPdCE9jT9X8COYzpV7NCopvB0WgXaU3kxn
-	 J5wmeYnDTAJx2wp83jLwiP26Lyvplbd+8EI4uqL+H36f54pOC2NEDJG10kH6yhh58T
-	 GN/SPXe3kWgdikngRNa5whkRiJnPK+wOyS9uRO8MFzqThf9V+kJpWoYWCCQfHzYIO7
-	 03KV2HhHmOIWw==
-Received: from johan by xi.lan with local (Exim 4.100.1)
-	(envelope-from <johan@kernel.org>)
-	id 1xVQKO-00000007dVY-3xed;
-	Mon, 23 Nov 2026 10:27:12 +0100
-Date: Mon, 23 Nov 2026 10:27:12 +0100
-From: Johan Hovold <johan@kernel.org>
-To: "William A. Kennington III" <william@wkennington.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Oliver Neukum <oneukum@suse.com>,
-	Havard Skinnemoen <hskinnemoen@google.com>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] USB: cdc-acm: refuse writes after disconnect
-Message-ID: <awQG8FhptjLFG21T@hovoldconsulting.com>
-References: <20261118145636.3534234-1-william@wkennington.com>
- <awAtdlEpSLc1ges1@hovoldconsulting.com>
- <20261121081843.4065887-1-william@wkennington.com>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Lq8kSUT0
+ARC-Seal: i=1; a=rsa-sha256; t=1795426001; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lULQlH/iWZZAdHdVhCjEwlcIzQA41m4SqeNp1MPnq9Jt/tYdxzg3aHTgGj1D2rz+KsuCUGwWnaVUvosX47EyOBrDbAiRBsYZxxwyIk7N28IBwB/qIZbt0oHJQb7YCfzbN+/0X/vCy6DZt97F/biYn2YeSVTsI/G2hWO9GPU6IzY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795426001; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=O9WYOpMy3rGcu2QFyMreqnCz0RC3LAV/SW4SChJTtnQ=; 
+	b=Vd2ywhMpqKj7PqWkZl2NRUcPuWD5TwNdurhTts1g7C9OI3IlVBXUkByYjeBXo+DMs3X/V74YIyp1KYAV1tCnS1Fcgm1IOqY+D3aGt6r1r3PoN3fPTs0rIxBZi6h7khs/Lgol0aJ+k6PzcYR6ijxXRgTFbD16sYrLLTXP3emy6GI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=Lq8kSUT0J+v9ygmmcSasd3NU78h95TZpZxPHb+q8M9V34UAys8cfLKpk78g6OMR0k0Tr3dwBNTdK/2MN3UtIZfH/i4xwvvn5zc+9mqrh/acmWBugjARWoaC/mLFSVdmxrSvVEA//lCYB2L2TmkaREdzX42092zNRrBzhUiYCxq8=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=O9WYOpMy3rGcu2QFyMreqnCz0RC3LAV/SW4SChJTtnQ=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795425996155774.0498302105844;
+	Mon, 23 Nov 2026 01:26:36 -0800 (PST)
+Message-ID: <793eccf2-712b-44b8-8d71-5c69460cd5b8@collabora.com>
+Date: Mon, 23 Nov 2026 10:26:31 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,18 +58,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121081843.4065887-1-william@wkennington.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] media: verisilicon: Size the VP8 segment map for
+ the largest frame
+To: aiyengar1990@gmail.com, Nicolas Dufresne
+ <nicolas.dufresne@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Andrzej Pietrasiewicz <andrzej.p@collabora.com>,
+ Hans Verkuil <hverkuil@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261115-hantro-fixes-v2-0-bfecfb07a3e7@gmail.com>
+ <20261115-hantro-fixes-v2-1-bfecfb07a3e7@gmail.com>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <20261115-hantro-fixes-v2-1-bfecfb07a3e7@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 08:18:43AM +0000, William A. Kennington III wrote:
-> On Fri, Nov 20, 2026 at 12:22:30PM +0100, Johan Hovold wrote:
-> > Thanks for reporting this. I assume this is not something you actually
-> > hit yourself but rather something flagged by an LLM?
-> 
-> We actually hit this twice in a kdump I got from a machine doing some
-> usb reset testing. An LLM was used to squash the bug.
 
-Thanks for clarifying.
+Le 15/11/2026 à 09:39, Arun Iyengar via B4 Relay a écrit :
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+>
+> The segment map is sized at STREAMON, but the CAPTURE format can grow
+> while streaming and overrun it. Size it for the largest frame, as VP9
+> does.
+>
+> Fixes: bbd267daf4fc ("media: verisilicon: vp9: Allow to change resolution while streaming")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
-Johan
+Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+
+> ---
+>   drivers/media/platform/verisilicon/hantro_vp8.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/media/platform/verisilicon/hantro_vp8.c b/drivers/media/platform/verisilicon/hantro_vp8.c
+> index 381bc1d3bfda..98ad86269bc3 100644
+> --- a/drivers/media/platform/verisilicon/hantro_vp8.c
+> +++ b/drivers/media/platform/verisilicon/hantro_vp8.c
+> @@ -151,8 +151,8 @@ int hantro_vp8_dec_init(struct hantro_ctx *ctx)
+>   	int ret;
+>   
+>   	/* segment map table size calculation */
+> -	mb_width = DIV_ROUND_UP(ctx->dst_fmt.width, 16);
+> -	mb_height = DIV_ROUND_UP(ctx->dst_fmt.height, 16);
+> +	mb_width = DIV_ROUND_UP(ctx->vpu_src_fmt->frmsize.max_width, 16);
+> +	mb_height = DIV_ROUND_UP(ctx->vpu_src_fmt->frmsize.max_height, 16);
+>   	segment_map_size = round_up(DIV_ROUND_UP(mb_width * mb_height, 4), 64);
+>   
+>   	/*
+>
