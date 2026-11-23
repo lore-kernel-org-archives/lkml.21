@@ -1,94 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795414436;
-	b=GFQIK78UbI+24KLnprCFEBlOs4+pQYEMQkzDCZSMr3hoKXt050xypU5SFjeOUl/nZZa0
-	 3C2PSZbJp8zcuS1nzq3ef/kDV6Q7Yp8c8IX/khDyPZER2YtmyqxhN79JFGqfdDVu6X3Ad
-	 /sIt74O5c7MZ5n9L9k1URL5O/yiWdKBjeNwpZfhjb+JK3I8vO0Ov7wLLHW0JCM7aRSVou
-	 E1BXmcCV/lLoi0UFpDO4HrZfCg2IXJ3N78wzvXGpWo0cxED9LtdkaqUjZHKs6Mp+ihPD/
-	 Drv0O+8zYZayAi5KG67qM5I3K6f+xluMujLIM3enUccT1jWvomGLgMAPAPQyuI17eAw==
+	t=1795414447;
+	b=f3StJMMNL74/0C7wNkKERThsusqdYqpkdutZ3EW34mRplY9MnKQWv50pNClmvC4whTdb
+	 fXRM10FJM9tkmdNM+6P2UkG1HkrTzSgHcOBNOOIhcf7fdrf1Ax2I/S6tiZCERoKi0QtZm
+	 YlPBG16LEVldgu5tTCeRm71UmnL+IBgyqv+XcieRkU4GKqNRwqakFc6hQY8Yh7iliRcj9
+	 M7wHsaZaZ4O69Jr4aysjyONO41KFReTb+vp3zHzWNgBDxphS97+ns7fgjBNIAkx/nUHlp
+	 h4IEvnDT8gJB+i9IzPjUVYmxrJDnyveupG+LmWXEYKMTi/PIAIWHdmjKi1IYT79dG7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795414436;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Subject:From:To:Cc:Date:Message-Id:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=cC9gVRTaITRF0x2YlnTwc7AlwbCdAsD7C4t5cMZ3xTI=;
-	b=ekciTYXDih6iffq0YqiNljU0uZau/y0v4gG3vvOw8t47dMTvBa6v+pzlHFAoQtRewkPE
-	 99D+wUpGpwg4T1KeRcywiNmnVnSG9bZMuX064m1sFbVEatixHOAWHEyHRv5IhB/O3AwiL
-	 Wm46i2iOhs5SXYrD7OqXhl6fkJMknCZVo0U1XGMhixRkks2SplD+1PHxV4crbLp348W6o
-	 3J4oQlEL9dCJo97+pPX2IpLbVhz97MGE02N0bouzPII6pigWLVVtlXli5jq3o0J+f2ht1
-	 8owhTOJ4TL44UoKtNpRIpjBNeoBn1weMAtmUmQJmTu3yUT667TudcM3UGOvhcgo5VSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414447;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Proofpoint-Reinject:
+	 X-QCInternal:X-QCInternal:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=UUSdb7GhbdJGsEth6SJ34W7vHVCnsU2vlRUxl4txdnY=;
+	b=PRDvEseOw9MoFQjjf9e7KuEFvstv019jxBgtMybl60Dlx2s+0g86Naa6Wmgz6yTh3bbP
+	 fSS5xtPoaHEpMKNE/nFsbI1ygUr8e4qKXR2wfsUp6f1DXI12pCeCHQV9ALMKTMfGN+h/e
+	 dv9gq0SStFWOPlvu0ynrplJFCTzpf486c/VhI7c9ExviHsF4RzZsjWCMqozVI0Z2hPj2a
+	 VUH82BqJHuhHSpZLror+MTCqtmnz/oNHDOizXg6a1av4hnDsD7wmlaxnTxsRTK8dnnHP5
+	 mMdxwLtJA3CgJfb1ezV0meIdZF2zidPxXD4k5L+YZWZvFOBj3RYERqfXZ9Hna5oyfIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nfcm9uwZ;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZDYVgXgb;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB4CD606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:13:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB4CD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5B13606A31A;
+	Mon, 23 Nov 2026 06:14:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5B13606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nfcm9uwZ
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8c20d68c83fso2154411b3a.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:13:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795414435; x=1796019235; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :cc:to:from:subject:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cC9gVRTaITRF0x2YlnTwc7AlwbCdAsD7C4t5cMZ3xTI=;
-        b=Nfcm9uwZJ8n5gEGg+pvKMQq7yLjdaz0k6PcdsLDvEmFg37CbvZqRWaGY5r0PDHxXwU
-         HsKQUpGpOKiLpXqf/PAtIf96QWp25TVb4LAsv1Ckp7YYgDSJvlv9DRHbZ0BgIyhB5Uya
-         00H6ZVRavUqozJnV3fLy2LLGvOss3YSXaq9pyqRop2uo/x8ceWhpiUTmbfVE4ItiKAHC
-         E2oN0qhve7mLPB/dJZRNhpUfDP6QijgI5JRYinK3FCxWvWXQXLWtTz/UnpF2uWQuzRFr
-         BVyvnVHbt6MhmUz39tLmgz7GFQi8BEgd1xvVjIsSsIn8M0p/vX8OSbMavRMDRqZeFqZI
-         iVqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795414435; x=1796019235;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :cc:to:from:subject:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cC9gVRTaITRF0x2YlnTwc7AlwbCdAsD7C4t5cMZ3xTI=;
-        b=T9cO/DuwZyO+Mhjn5ubQSveuHaVEHCUbCyDpX3ECQ/vopwrObiGTIzsnRjUW9Ry/Tm
-         rk7mmHaenqsqKVkdMoVP3wENk3TwTXl8jp2/vpPViP+eO7SMK+PzG0kGlqR2GgRmfBDs
-         zD4Vq0NDG1c/bX4AttUZqUoLYwQM5hjXnsc9DP729l/ZXpABx1wD3Qqab5UcFp4QBa8j
-         IXfZTnMw8Rq52IrLe7mkJy1OhN6/MciDkP7hc/kvaemePs2Dqi/kVHYr9oKLcagFd7vw
-         3FuK2OfvuJ6kbTn4s0AJA6z6ObOQH/mJHpzEHUF6q1E9pQGYEmnE4Z+OFJt3QxjO5m2B
-         MhiQ==
-X-Forwarded-Encrypted: i=1; AL+hErFPw4nEFfn9lgEv4367ejvPyalGC/zBvw1659N08OKxZ2GEMLMhUcKmTUSDNvzvNvTb8F85wfjsGLJ3W58=@vger.kernel.org
-X-Gm-Message-State: APuU4Z808r3DTWRBWDsDNwvqvXsILSOAeyR9MA/sgiq4VFFfL3+tsxDF
-	fQSRQXMpT0zh5tPMZdXeS+8BXa+ZY0/tVTbZscbEtIcMbGRTDfAWVUkK
-X-Gm-Gg: AZFdTZeWgU1f58jTjgV6eNc56k25RP9eiwEv1CbmWgOXHJXYArx/c7RPk5EpZtlDLEM
-	v+Xqy2iK7/KkmLhWcURllnQeemQlz2A1SFZ5Ljn+1zszN86DoTSEW2l9PGS6AnTVcZbOFq5lq3I
-	TEmIhdT72af4B58+ZCQBCFOJ4qhTA3kPSHM6hTtzR9iGnVVAUvh7DsaSsxysPDgDEnRz8KU1S1m
-	5ch4kRSZDNPmbe20iL5ZuBsIZWQ1jlZ964Xxg8Ue75HhZUqv49B3VqS1EzkufkgFmK6yYxVJwQP
-	Azdr4nO1m3ImdXQ68ZYkqXc05ZzMaKhYI4qEhukpTGyR4qpB+1FoVfEf/S6glo9UdLY5/2bp7fr
-	TcV1pruPxe1Bx9Vjg9y13D+wlBDSiP5WqVt8ILlwJu9LDvzZp8Utxz2y0POPJswVI8zLevU34HD
-	3ab631H/9wJB9UgY7BknAWH7AlohKTVxLY9wwmlcteZHOT3ujXVq78h9tki/IukToiiBda+UUot
-	2RS5Fs7SAbPwRnKMRzIt8SlhyEohiZHdtzAVYY7kPnM8Owd1lHtRND08GNDknqNfVxIsc8OHNZS
-	T56VFvJyrFzHGj731HGCBvfd54ie5CylhwzF8I32N5akHQQEjrlbrjvxGB9fQ4sbQhJAgCFr5SP
-	/cFBxEttEyYQMiAcPV9tTSXg=
-X-Received: by 2002:a05:6a20:7f8e:b0:3e2:81f5:a864 with SMTP id adf61e73a8af0-400aea11bf9mr8689588637.41.1795414435189;
-        Sun, 22 Nov 2026 22:13:55 -0800 (PST)
-Received: from runnervm0hi8g.cxrikbqfcygehnd5bg50p3ctfh.dx.internal.cloudapp.net ([13.83.233.98])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d05c0cfsm4644962a12.26.2026.11.22.22.13.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:13:54 -0800 (PST)
-Subject: [PATCH v3] dm-integrity: reject recalculation when recalc_wq was
- never allocated
-From: Yang Luohan <ylh440104@gmail.com>
-To: Mikulas Patocka <mpatocka@redhat.com>
-Cc: dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
- Mike Snitzer <snitzer@kernel.org>, Benjamin Marzinski <bmarzins@redhat.com>
-Date: Mon, 23 Nov 2026 06:13:52 +0000
-Message-Id: <179541443270.2416.6401739253063141536@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZDYVgXgb
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN69C5X1011315;
+	Mon, 23 Nov 2026 06:13:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UUSdb7GhbdJGsEth6SJ34W7vHVCnsU2vlRUxl4txdnY=; b=ZDYVgXgbWt+lHxj0
+	KSw4pGlhuIL4YtmZYy7pVwxJKc301vuxOafKBipsAmMZHH7jql95NJ7LIXMAfdAi
+	+7LkKVqRgm9kJR6OqMhlM82kiIAk4hQTecszB4g1LpAoQpKCv8D5fqY+AD7TqF+p
+	ASZX2999SYhsI8UMIEosZoWQbqUgD1cpULvz2AcXAMB4YsAEu6arCy2lJMrZmoza
+	miwQ1yZrT0hgXj37GGnsvhLBC0rPCGnfXO/5t4bz5KfvX1uMWM1XKK5KXv99P0Xh
+	oirPRdsw03LwDEzqZNfAzePjSo/7oR4/hOFftMF4BRXD5Q7ZKNzSO0nUwmRqTChV
+	zgi8+w==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fyh00e6-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 06:13:27 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN695Zv4100829;
+	Mon, 23 Nov 2026 06:09:05 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mdsor-hyd.qualcomm.com [10.147.243.209])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AN695Y54100817
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 06:09:05 +0000 (GMT)
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4770534)
+	id 2CD4AC1E; Mon, 23 Nov 2026 11:39:04 +0530 (+0530)
+From: mohit.dsor@oss.qualcomm.com
+Date: Mon, 23 Nov 2026 11:39:02 +0530
+Subject: [PATCH v19 1/2] dt-bindings: bridge: Add Lontium LT9611C(EX/UXD)
+ MIPI DSI to HDMI driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,118 +77,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-lt9611c-v7-v19-1-1fbe2b7b5211@oss.qualcomm.com>
+References: <20261123-lt9611c-v7-v19-0-1fbe2b7b5211@oss.qualcomm.com>
+In-Reply-To: <20261123-lt9611c-v7-v19-0-1fbe2b7b5211@oss.qualcomm.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>
+Cc: Mohit Dsor <mohit.dsor@oss.qualcomm.com>, dri-devel@lists.freedesktop.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        venkata.valluru@oss.qualcomm.com,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Sunyun Yang <syyang@lontium.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795414144; l=2049;
+ i=mohit.dsor@oss.qualcomm.com; s=20260808; h=from:subject:message-id;
+ bh=ut+CndQz/jrWa/IvwRM0rWOCvN47R5Wgsw+GSTdue28=;
+ b=7aoCwFckUAaAd/b8vDdnYGNFu5MK8GsUisGfq0MNw4KSgjSu3zxmNft34aL6vsprUD1um/n2v
+ HEREkTIWhULCmCrbpxV9OfPTwYhkSX45lpZ8+9SXPGxAfdNj8PxvILB
+X-Developer-Key: i=mohit.dsor@oss.qualcomm.com; a=ed25519;
+ pk=outHVBN53JhozDw1xkj3G1qrqqE5scMBP7M4WL3aHQQ=
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Authority-Analysis: v=2.4 cv=NM1AaE6g c=1 sm=1 tr=0 ts=6b03d987 cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=gEfo2CItAAAA:8
+ a=Kz8-B0t5AAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=SdC2vBNBQt3qShdCGKMA:9
+ a=QEXdDO2ut3YA:10 a=sptkURWiP4Gy88Gu7hUp:22 a=RuZk68QooNbwfxovefhk:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAyNCBTYWx0ZWRfX71Zj1iMqzMzE
+ Yg98Ve+leU0p8DKHS1JSe3lGmRzFLX86BiRHSJAUFqqhSsA0I3nRNMoy5b4r6jvEkPh7AYVtDl7
+ KqFZuJO0pjqJiVqvduw0FqhqQ3Go6jE=
+X-Proofpoint-ORIG-GUID: SYhAx70y2--jGpi22dF0UUur6-DjE0mN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAyNCBTYWx0ZWRfX+TUbEOODT1Ja
+ TJ5d2U+RPPmKwKZwDn6lQR/AGVDtgPvC/DbKT2Fduq5a2Hq/6vN1zec4K/9ZdnxjyyfNfv4YEQb
+ 1AvLu6euWjLwHeTv9O02qjgqIGzttE29XiJ3v6RflrAcaEizAu39R+1Mmy5Vtc+tlvGNTmzLXjK
+ IPt6xX3fFt9jZp4SPiIVVDAESABUSPID4mAmVNHEN5lyWkYbAIAlG6NT2hSM/mu1j1xwJQ7wJzU
+ Z4G8xgKc1bIsx2tIS2jt90qc05dwe3fWjSgM1UmvK9sJpvI6SSqRSmTNc3kn0cSYidp74gZPMPe
+ yx86tP0+S9KP+z1qtA+TjCIOiVy+9TANKh/ChcFoX3Kav1YIjEL0epyq6nE9rY8CynfnM0ZLccw
+ 7olB3LthLAWyQMR8YBr9EVBcMhbQ0WiL/ePwrYmMG0EKvyCc2Cc2+OiHmAlNsaT/+TthurI+5h6
+ gKQZ0nn6JVO7ubWSsvw==
+X-Proofpoint-GUID: SYhAx70y2--jGpi22dF0UUur6-DjE0mN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 bulkscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ adultscore=0 impostorscore=0 phishscore=0 malwarescore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230024
 
-dm_integrity_resume() re-reads the superblock from the underlying device
-so that it picks up the flags and the recalculation position.  The
-constructor refuses a superblock that carries SB_FLAG_RECALCULATING when
-no internal hash is configured, because recalculation needs
-ic->recalc_work and ic->recalc_wq is only allocated when
-ic->internal_hash is set:
+From: Sunyun Yang <syyang@lontium.com>
 
-	} else {
-		if (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)) {
-			ti->error =3D "Recalculate can only be specified with internal_hash";
-			r =3D -EINVAL;
-			goto bad;
-		}
-	}
+LT9611C(EX/UXD) is an I2C-controlled chip that Receiver signal/dual port
+mipi dsi and output hdmi, differences in hardware features:
+- LT9611C: supports 1-port mipi dsi to hdmi 1.4
+- LT9611EX: supports 2-port mipi dsi to hdmi 1.4
+- LT9611UXD: supports 2-port mipi dsi to hdmi 1.4/2.0
 
-The superblock that is read back on resume is not subject to that check.
-superblock_changed() only compares magic, log2_interleave_sectors,
-integrity_tag_size, journal_sections, log2_sectors_per_block, the salt
-and the SB_FLAG_HAVE_JOURNAL_MAC, SB_FLAG_FIXED_PADDING,
-SB_FLAG_FIXED_HMAC and SB_FLAG_INLINE flags, so SB_FLAG_RECALCULATING
-can be added to the on-disk superblock while the device is suspended.
-Resume then reaches
-
-	if (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)) {
-		__u64 recalc_pos =3D le64_to_cpu(ic->sb->recalc_sector);
-
-		if (recalc_pos < ic->provided_data_sectors) {
-			queue_work(ic->recalc_wq, &ic->recalc_work);
-
-with ic->recalc_wq =3D=3D NULL and dereferences a null pointer.
-
-When the recalculation support was introduced, the call was guarded:
-
-	if (ic->recalc_wq && ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING))
-
-commit 468dfca38b1a ("dm integrity: add a bitmap mode") dropped the
-ic->recalc_wq part of the condition while restructuring the surrounding
-code, so the null dereference has been reachable since that commit.
-
-commit 875a7161fe15 ("dm-integrity: don't recalculate with HMAC because
-of a dirty bitmap") re-applied the constructor's policy inside the
-SB_FLAG_DIRTY_BITMAP branch, which avoids the null dereference for a
-superblock that gets SB_FLAG_RECALCULATING set by resume itself, but the
-standalone SB_FLAG_RECALCULATING branch further down in the same function
-still queues the work unconditionally.
-
-Reject the superblock next to superblock_changed() instead, before the
-journal is replayed and before any superblock write, and restore the copy
-that the constructor validated.  Checking it at the point where the work
-is queued would leave SB_FLAG_RECALCULATING in the in-memory superblock,
-so dm_integrity_status() would report recalculation as enabled on a
-device that has no internal hash, and a later resume would take the
-stale flag from ic->sb and write it back to the device.
-
-No path inside dm_integrity_resume() sets SB_FLAG_RECALCULATING without
-an internal hash: the bitmap mode branch requires internal_hash in the
-constructor, dm_integrity_may_recalc_dirty_bitmap() rejects it, and
-reset_recalculate is rejected by the constructor as well.  The flag can
-therefore only arrive from the device, and rejecting it after the read
-is enough to keep the work queue call safe.
-
-Reproduced on 7.3.0 by loading a dm-integrity target in J mode without
-internal_hash, suspending it, writing SB_FLAG_RECALCULATING with
-recalc_sector =3D 0 into the on-disk superblock of the backing device, and
-resuming:
-
-	Oops: general protection fault, probably for non-canonical address 0xdffffc0=
-000000020
-	KASAN: null-ptr-deref in range [0x0000000000000100-0x0000000000000107]
-	RIP: 0010:__queue_work+0x95/0x1030
-	Call Trace:
-	 queue_work_on
-	 dm_integrity_resume
-	 dm_table_resume_targets
-	 __dm_resume
-	 dm_resume
-	 dev_suspend
-	 ctl_ioctl
-	Kernel panic - not syncing: Fatal exception
-
-Fixes: 468dfca38b1a ("dm integrity: add a bitmap mode")
-Cc: stable@vger.kernel.org
-Reported-by: Yang Luohan <ylh440104@gmail.com>
-Signed-off-by: Yang Luohan <ylh440104@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Sunyun Yang <syyang@lontium.com>
+Signed-off-by: Mohit Dsor <mohit.dsor@oss.qualcomm.com>
 ---
-Changes in v3:
-- the v1 patch checked ic->recalc_wq where the work is queued, which is
-  too late: the journal has been replayed and the superblock may have
-  been written already.  Move the rejection right after the superblock
-  is read, next to superblock_changed(), and restore ic->sb from
-  ic->sb_copy.
-- the v2 mail carried the diff twice by mistake, so the same hunk showed
-  up twice.  This version sends it once.
+ .../bindings/display/bridge/lontium,lt9611.yaml        | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-drivers/md/dm-integrity.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+diff --git a/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml b/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml
+index 429a06057ae8..194aeaac601f 100644
+--- a/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/lontium,lt9611.yaml
+@@ -4,19 +4,23 @@
+ $id: http://devicetree.org/schemas/display/bridge/lontium,lt9611.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Lontium LT9611(UXC) 2 Port MIPI to HDMI Bridge
++title: Lontium LT9611(UXC/C/EX/UXD) 2 Port MIPI DSI to HDMI Bridge
+ 
+ maintainers:
+   - Vinod Koul <vkoul@kernel.org>
+ 
+ description: |
+-  The LT9611 and LT9611UXC are bridge devices which convert DSI to HDMI
++  The LT9611, LT9611UXC, LT9611C, LT9611EX, and LT9611UXD
++  are bridge devices which convert DSI to HDMI
+ 
+ properties:
+   compatible:
+     enum:
+       - lontium,lt9611
++      - lontium,lt9611c
++      - lontium,lt9611ex
+       - lontium,lt9611uxc
++      - lontium,lt9611uxd
+ 
+   reg:
+     maxItems: 1
+@@ -78,6 +82,16 @@ required:
+ 
+ allOf:
+   - $ref: /schemas/sound/dai-common.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: lontium,lt9611c
++    then:
++      properties:
++        ports:
++          properties:
++            port@1: false
+ 
+ unevaluatedProperties: false
+ 
 
---- a/drivers/md/dm-integrity.c
-+++ b/drivers/md/dm-integrity.c
-@@ -3941,6 +3941,14 @@ static void dm_integrity_resume(struct dm_target *ti)
- 		goto skip_writes;
- 	}
-=20
-+	if (unlikely(!ic->recalc_wq &&
-+		     (ic->sb->flags & cpu_to_le32(SB_FLAG_RECALCULATING)))) {
-+		memcpy(ic->sb, ic->sb_copy, sizeof(struct superblock));
-+		DMERR("Recalculate requested, but internal_hash is not used");
-+		dm_integrity_io_error(ic, "inconsistent superblock", -EINVAL);
-+		goto skip_writes;
-+	}
-+
- 	if (ic->mode =3D=3D 'R')
- 		goto skip_writes;
-=20
+-- 
+2.34.1
+
