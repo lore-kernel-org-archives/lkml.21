@@ -1,120 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795428656;
-	b=kDGjPtf5qV/om2t/zeL3mRUOBFdzij3GvB5Hj15dB55UMrIQKwpxJ2h67y5ct8l9JpEP
-	 GDOBgtSyFcSkSXxY6vpicObHzaN/8kOm3kIrlEMig8zQq8257IByoMMnrJph/NOhtopWE
-	 D5qhyG2GLP+wrE9Fah2UPAuG8UhnIWPr9dDgItEUsDqIdL8q+aair2OvEO+BbOyCyiV8F
-	 Iueh9zLQZLTq+wMRMGcvqpfN/c5DZfIU4XhcZUE31vl9QdfCrXRSb/HwSc3gCRieb5DDd
-	 SKuxmjGMoNd2/maDF2/jmz7zCC/MixDug5yqHniN9X3/ZrI4Gl2hrQ1XLPIzC3fgfsQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428656;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=rSIEZcCmE8wfKBYee1PB/mZPx7D6ZfxybOWWwa5yU5c=;
-	b=x6jX+m7mW6LpjRzUiXXNIbIwFC3klF4NeJcLS7fg+0GnqJBlqxSV4e1v3pssprYY188G
-	 z7Pyi7I1nkyFGeL4xStVePdiSvD9CQgjdc4NSLkRywqkBYMvoANFyHUj5racEABPeXkyi
-	 Hea9gsRS6blRuSBQqSviH8vWRcj7xZ/dlAsdlZUdaaPaJdN7aCZJYkl8AXZhFlbtSIUYI
-	 s6tiIYpL9O9BHPQpupwo7XKTV0hwgxHmj8ZIqvHengeSGWaiOrp81ahSdJPaWyfe+WANO
-	 S+bYRRO5c9F/EPXE0y3y7YfOlKcVpkFnPVtUI5Y3KHAhxnPXuJu2xwDZDQepVkXVuSg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=LW6yudfu;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795428655;
+	b=L/lFsbbG8Vd1BplVq63Nfd2rWDg6h5mI8Q6ozNpwjOofq3amjXOjj+fP6Dqr/vG+mvsR
+	 v1jRNUM1tWLcLGMtlMdXwN9LRB9HKgIORtQGyA0y6ytF/i6nll/sM9hiXT8Mr45+ZX58R
+	 7eDw4z3O7nFHlCMZnzwPYuOS9KTraQtu4ESRDQ85DWEkQVq/pTjVt501Y5/CBEayil0fy
+	 dmbhLQsJpLFzMKyUND9PJ4G5yZ6oS23mIvY01UPUxCQmOVk8CxhK4v0VYfAJI1MNqSrVm
+	 XSJFw/M4nLdkl8c6dt6klE1pfSyVpzappfL5iX0AvyQJFkUkTO70p4qM2YDizdHDBFw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428655;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=CU2Ol3e2ETvYiNKS8DMRqokxdRqY4DHV+b03CeEi2hA=;
+	b=eJnsxe8setGL/IuKYnYQSSMTeYxTk+NkJ8tsunyNQ9Tn0tYtU+wZZXHAe77arSHupngQ
+	 WUJHe3HdEczh5qvXKqBXcLvN2Js6zr/qMce/wDdht8CBF29FvmlXAhvgnBrxokfIqlBiT
+	 dXT9k7ORGynwZdM0fj9HZK9rodM/PBMgWWvlLe0f9rKInH46RytKq31985KTwN3obbqAx
+	 Fl/l3r0z06/E/xhT37vFGFmhVR5yb42S9UCGAJ+/o/RwGLtWfT/HB8SN0Gq2OWtsd5Kiu
+	 uXS6NoeQoYykO2mi3cRxoA8E6KDjNzb3kFTBNfOvQUkY6dUN+xY1Bd89uPYDCJ6hKwQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=oNfTy0hW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.17
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010017.outbound.protection.outlook.com [52.101.61.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 759BC606A334
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 10:10:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 759BC606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B774606A332;
+	Mon, 23 Nov 2026 10:10:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B774606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=LW6yudfu
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cc758830601so2458169a12.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:10:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795428655; x=1796033455;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rSIEZcCmE8wfKBYee1PB/mZPx7D6ZfxybOWWwa5yU5c=;
-        b=EAa+F/VtIO1WMQDn5gmvg+hGUNAb0zQRQq+apKLeChnsnN/enUNd3HYjwLe53bvMV0
-         IgpLW6XnkbrylUySOp7EW47umvX5LPw/zYAzjkYdF6fgcquuJ5D6M7S/mg7TGKgg5BTy
-         r/UTleQvr9RCXlMTRfsiJnKvOLQpxgwnfmYPgpTsAJjTUGFLDEkY94ckRWJ9tygC24mw
-         ICeHRQVbSe839KmjEpO4Exge9+Ng1x3pG2VbsugfFWF9WfVjrnIqZpdB+BbZC7JSeXql
-         YDzyDMwRktm4RsN9XIrT7t6X+fi78Uz8n1XjhGfEx/V46Go9wUbrHn15157cJTHEsn1H
-         NQxA==
-X-Forwarded-Encrypted: i=1; AL+hErEfTNfzKI4OvUpzceZkFVmVVfhyafldiHSqqBL72WN0y6b/1BUta5SjUOl7SskCQr6wn6m3DwBzKbUFX48=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Hd2FfZvwBFDP7cBup13YKjX17k7sLJ9eXDZi+9EN+sb8mhbMp
-	MUmVwmRXr+0B83FlQXW59mf1G6OcddZ4cypQdCEBtRahmgefW6e6wq4KVHF9J0+AvWSS5uzH7ue
-	ycOcB4BfOyWnmGlfRWOj50lNlFhonmj/v42C7Xuf3iWZ8OZuU2dncnpC7ZjHswt/8HjrN5GsO9T
-	icOAH5uWFY9gRQhLdAmAtW+8FLUqtb0ffDxaQWCkjvQj5G2+C9xvsPou8479vYXcgGyyCpgWPUy
-	T31UtTybTrMNXGRyA==
-X-Gm-Gg: AZFdTZfpCMwtyTSxZlXZT+K1mz4j2HQ+gEABkM7GegC1J8b+4dAu1DgslG7L7c+RMqr
-	JH98K51lpmPNJ2H5QIVgmH6OGOKg1PrjEod/MHoAQ+vtnAWJsSBwNOkkj6I20qZQLFAFW5TQYFX
-	wx1CSULzJX1VLfNKXBkobIe67irswRBR9Xi9c4CNzIGmoEqchbGDBB0z4bZ17tzhk2iuz43d5yt
-	/GiMi04HHt2NxoNrKx3i/TNqk2lkLgwtv/WvE+lPiyK5xYCyt+coQDressg5bNdWv02BDXdl2VL
-	WipnQJrGE/2d7Oq7yMgMiwUnPiERPgWukJYdKnrIFMjWqYVXlVoZfQyYZ46wkDx4dH43bGX3I1q
-	+HERnWz6VC30bouAWTqDloQX4j9cmGTBcl5GFgJoNw39YvVOLDai6QK8a6JW7rCUmo2FcyjcqZ9
-	pLJIKW/Vl6UvoYH/LMFI5Uomr23xvFFkfhz3AT
-X-Received: by 2002:a17:90b:3f43:b0:3b4:1621:ba74 with SMTP id 98e67ed59e1d1-3b41c8fe3a5mr11146010a91.17.1795428654784;
-        Mon, 23 Nov 2026 02:10:54 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41ffe5f2csm3471649a91.2.2026.11.23.02.10.53
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 23 Nov 2026 02:10:54 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386ad819860so2446019eec.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 02:10:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795428653; x=1796033453; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rSIEZcCmE8wfKBYee1PB/mZPx7D6ZfxybOWWwa5yU5c=;
-        b=LW6yudfut9hZ7zLK5sGW6S0zU2ZST9UhAdKD4nelA3XjnSEKicHaXXHC9bL8fbNdFA
-         GSfligbSqkQAXuovM6q5W3tN4/hbrM6D7berxYVINauDZxh4dNlZk1ftcWaeUh16AMoa
-         cndykJ5GhRXvybMSnq/WhgfZEWkqvBUf/Q618=
-X-Forwarded-Encrypted: i=1; AL+hErEtEVWTRcBzfNeBiHBLCOBKhDf93gOdm55cqjWZ0bFxZIUj7J2X7rIiPN6tXE6jLiEcKW/wssfw46/qKwQ=@vger.kernel.org
-X-Received: by 2002:a05:7301:6a03:b0:385:556b:4df5 with SMTP id 5a478bee46e88-3856f94dbd3mr16337352eec.26.1795428652432;
-        Mon, 23 Nov 2026 02:10:52 -0800 (PST)
-X-Received: by 2002:a05:7301:6a03:b0:385:556b:4df5 with SMTP id 5a478bee46e88-3856f94dbd3mr16337306eec.26.1795428651754;
-        Mon, 23 Nov 2026 02:10:51 -0800 (PST)
-Received: from H5-S1 ([192.19.203.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm1084358eec.9.2026.11.23.02.10.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:10:51 -0800 (PST)
-From: Vikas Gupta <vikas.gupta@broadcom.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bhargava.marreddy@broadcom.com,
-	rahul-rg.gupta@broadcom.com,
-	vsrama-krishna.nemani@broadcom.com,
-	rajashekar.hudumula@broadcom.com,
-	dharmender.garg@broadcom.com,
-	ajit.khaparde@broadcom.com,
-	Vikas Gupta <vikas.gupta@broadcom.com>
-Subject: [PATCH net-next v9 03/10] bnge: add helper functions for multi RSS contexts
-Date: Mon, 23 Nov 2026 15:37:39 +0530
-Message-ID: <20261123100746.1975030-4-vikas.gupta@broadcom.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261123100746.1975030-1-vikas.gupta@broadcom.com>
-References: <20261123100746.1975030-1-vikas.gupta@broadcom.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=oNfTy0hW
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JabmtaroAgqSnDNPFFCX4K3KuSAweSF2j7RVQvFdVKEQfteCU8IxtWNaWOficO47KHqUEEj+v5TEquFBlLN89V8MuBV/R5SeJq/WdyAsIbfK3V9I9TKNgtZjwTBJqHjdjCfYket/19Sg4ClJdYrHXB/0Lnhg2+pZL/TOBv8wBcUGFS1R7aDYfmDe8XQE6fbpTJZyIVdrsdj+mat3ZfMk5gQicHLIIiFuAzFuPUP7QTR4Dj6DqGyZxwIwATGi9b+76kA+eLRsnxNpRbZzGB2CjQrNqqRIMbT1vteyMMXyW4C/sk2jARdrBUosxcgZ5WkibClT4+dPZTyXNfmuA1eF+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CU2Ol3e2ETvYiNKS8DMRqokxdRqY4DHV+b03CeEi2hA=;
+ b=xZvmygPtcj4D9Y/m3YRuvUajdwKn/PHtG+4BGO1kyhkwvuQ3wXPX7nKjGjfaQiTwLvAwkjFzmP1s+vnuiGr83UQrQ4d4pZlrf6Z9W4GlsmzBARGmlXeDspFfBvVTRUVCS6WNmYGeWGFa9jHTQyPusiL9X5H1SlBCkQbU7Uqim7wujSc6Cnm8+9mmH8IVo0c6w+vTPmClKkoLEF+I2W+Fpl/Vo0dvnho1NeiEna7h7n/Ckmcuf7cjqpLQ91oym+NN7ZecFKnt2cTb/xyImIbE1/+e5egynQqNshIYh5Z3GGQoHz8u4HTRJWwXThVD+AkOqW6952xSzxqkHdD0l2aeeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CU2Ol3e2ETvYiNKS8DMRqokxdRqY4DHV+b03CeEi2hA=;
+ b=oNfTy0hWw4qGRvob4JfRS45lNbn+5xoKNGNGXNJ8D8N2AGeQufsm8UlhwTdmVTM2Jhoh6YKOPcimMmx6q8BS11L/+I67lPWMVXbQKPhU5xrAqJ3wmdnX/da2kdJ3vLItsVhYg+WYwlhEDRKWP8AmCmi9/MXrYTQO1UvIDl+PHKaRrFGsGACD+Bo/p8gjuXE4baMjPGerIuyEmHJMe50P8s03pdR4s0n9mrRQcP7VEf2haAqUMCjS0ZgiKE9IQKjKHwM0DwWOGlcxF3f/uWBjBY1jBVSB2X0DqbLDF0d78Vty4FYSsazrM43Y3YdX6zxnjs6JhkhFML0x/po7zbD9tA==
+Received: from BY1P220CA0009.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::7)
+ by PH7PR12MB8107.namprd12.prod.outlook.com (2603:10b6:510:2bb::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
+ 2026 10:10:41 +0000
+Received: from MWH0EPF000C6186.namprd02.prod.outlook.com
+ (2603:10b6:a03:59d:cafe::64) by BY1P220CA0009.outlook.office365.com
+ (2603:10b6:a03:59d::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 10:10:41 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MWH0EPF000C6186.mail.protection.outlook.com (10.167.249.118) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 10:10:41 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 02:10:25 -0800
+Received: from [10.221.229.87] (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 02:10:19 -0800
+Message-ID: <f765cd8b-0624-4ccb-90c5-417563c3d229@nvidia.com>
+Date: Mon, 23 Nov 2026 12:10:16 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,219 +104,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net/mlx5e: TC, fix a NULL pointer write in the peer
+ flow error path
+To: Zhao Li <enderaoelyther@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>, "Leon
+ Romanovsky" <leon@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Moshe Shemesh
+	<moshe@nvidia.com>, Akiva Goldberger <agoldberger@nvidia.com>,
+	<netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261118025708.86215-1-enderaoelyther@gmail.com>
+Content-Language: en-US
+From: Shay Drori <shayd@nvidia.com>
+In-Reply-To: <20261118025708.86215-1-enderaoelyther@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6186:EE_|PH7PR12MB8107:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb4c8ece-cab8-44c5-cc79-08df494a07a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|23010399003|11063799006|261021123027099003|10067099003|261022105027099003|261028144727099003|261022075727099003|261026140227099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	qIP6HNgQqbSHivIAluVmW7McWX9VQK8qlpyOuh0r/OPw96rBhSk3Cib1vo+Zqc9D4wClA7+xy35vcavyY2mPFSOF3e5AmejZ2Xv0EQ2ml9PhgnERj6jAHS6Vwymf5eO+uaQsCjK981x5BFib2zqu1fi523dC1O5ZmY8AZpeVVVs+aW1lvWhzSFXv5V5HuwSjwebjr8Ru9UiKX/OfDdw9wiBa2eMoC/FSHibjdgRySvuCJEJlua0msJ8RtXy6lY0O1geVi+0wdsxPDwDHQkBgEShQy5Dh3GjEgygvr+vr6MP+goiUSO6hAhGrsb6lTDYgHF+3tai0rSQ8SbFXgWCgdWTyoKPTf6gD1QY3j1Yk9nlxiy49eN4dFqZ0YvZK9Kd7ATHBjxJudoaSMjN6Ii67Wo0/5ofEWFCissmnHfn5CWKiREkHh9vppDUJYfv2a8N7/b4Q9XF1oslgi31UqwpcpbUWqVHsllXT6WdYEZ6QAlvC7ObUYJ3GP8c1XK/ezYcf5LFY6JKkkRdVmCogMpySsW7J93I4l/+WB4wu/OZwRn2/vD9Wv4wJOCvgfvSXcKo0zUX/V8qMsS05egRRrYU55PFn3QfH0ltNoNTwDjbOhShUlxOtRfWjnDGVEsusMIENRWPU4v0miFdZ/LcKePWJ89mnQOzvsnjFJSp7XUIdq2jGQgzOGJk+rAZAniPVG+URYNnPX4NAR4TJoDfI/jMKOA==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(23010399003)(11063799006)(261021123027099003)(10067099003)(261022105027099003)(261028144727099003)(261022075727099003)(261026140227099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	Lc4JZrfi9VmftamvyR7kLJaObzIgr8Cc8Aha9XU4zTyFZBwKDQd1ykLx6KZdU/zGgoHH1oUkMGolC/lshH5MIY3BbX2ARIkkYZIxA1aQlz7qocLDhjrgw5hXJJlEik9aTdkyaqKIWKtFjriys1bpjJtpsI1Ma7SupDOHnrHLx2Ov/CiK9cE9hG+/hiE0hen+LwQ8tzL5lt7AGUfMXMTAJWxSKNF1byx/BlFvu5aHn38bo9X29w9tuJRltzRmOfN4oCwNOeKbFSdyjzsUPKsSooE/7A1QZ4+WOV2YcKUEYzueO6UkPUFK2IpOFp4PDNFfTIObmvTz3b6ooY/2BPHMBG5IFSY+byfxW49HoFaAZDeLhwDXooLh0u3J/8DLZhJbwYbdNxubcK8WYf7gQsP/IPuljOvOGqVxTrME7LXKnHb/VppZ11BQXXx808u1lGzp
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 10:10:41.3655
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb4c8ece-cab8-44c5-cc79-08df494a07a5
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MWH0EPF000C6186.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8107
 
-Add infrastructure for creating, modifying, and deleting user-defined
-RSS contexts. This helps the next patch implement commands for ethtool.
-For each user RSS context, a VNIC is allocated.
 
-Signed-off-by: Vikas Gupta <vikas.gupta@broadcom.com>
-Reviewed-by: Dharmender Garg <dharmender.garg@broadcom.com>
----
- .../net/ethernet/broadcom/bnge/bnge_netdev.c  |  14 +--
- .../net/ethernet/broadcom/bnge/bnge_netdev.h  |   2 +
- .../net/ethernet/broadcom/bnge/bnge_vnic.c    | 113 ++++++++++++++++++
- .../net/ethernet/broadcom/bnge/bnge_vnic.h    |  15 +++
- 4 files changed, 132 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-index fef45dfa9179..45996d91dc55 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-@@ -1126,7 +1126,7 @@ static int bnge_alloc_vnic_attributes(struct bnge_net *bn)
- {
- 	struct bnge_dev *bd = bn->bd;
- 	struct bnge_vnic_info *vnic;
--	int i, size;
-+	int i;
- 
- 	for (i = 0; i < bn->nr_vnics; i++) {
- 		vnic = &bn->vnic_info[i];
-@@ -1151,18 +1151,8 @@ static int bnge_alloc_vnic_attributes(struct bnge_net *bn)
- 		}
- 
- 		/* Allocate rss table and hash key */
--		size = L1_CACHE_ALIGN(BNGE_MAX_RSS_TABLE_SIZE);
--
--		vnic->rss_table_size = size + HW_HASH_KEY_SIZE;
--		vnic->rss_table = dma_alloc_coherent(bd->dev,
--						     vnic->rss_table_size,
--						     &vnic->rss_table_dma_addr,
--						     GFP_KERNEL);
--		if (!vnic->rss_table)
-+		if (bnge_alloc_vnic_rss_table(bn, vnic))
- 			goto err_free_vnic_attributes;
--
--		vnic->rss_hash_key = ((void *)vnic->rss_table) + size;
--		vnic->rss_hash_key_dma_addr = vnic->rss_table_dma_addr + size;
- 	}
- 	return 0;
- 
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-index 13871d3d8286..e0462a0f4f2c 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-@@ -376,6 +376,8 @@ struct bnge_net {
- 
- 	u8			pri2cos_idx[8];
- 	bool			pri2cos_valid;
-+
-+	u16			num_rss_ctx;
- };
- 
- #define BNGE_DEFAULT_RX_RING_SIZE	511
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-index d98a6196c859..a44971a7c74d 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-@@ -129,3 +129,116 @@ int bnge_alloc_rfs_vnic(struct bnge_net *bn)
- 	vnic = &bn->vnic_info[BNGE_VNIC_NTUPLE];
- 	return bnge_alloc_and_setup_vnic(bn, vnic, bn->bd->rx_nr_rings);
- }
-+
-+void bnge_modify_rss(struct bnge_net *bn, struct ethtool_rxfh_context *ctx,
-+		     struct bnge_rss_ctx *rss_ctx,
-+		     const struct ethtool_rxfh_param *rxfh)
-+{
-+	struct bnge_dev *bd = bn->bd;
-+
-+	if (rxfh->key) {
-+		if (rss_ctx) {
-+			memcpy(rss_ctx->vnic.rss_hash_key, rxfh->key,
-+			       HW_HASH_KEY_SIZE);
-+		} else {
-+			memcpy(bn->rss_hash_key, rxfh->key, HW_HASH_KEY_SIZE);
-+			bn->rss_hash_key_updated = true;
-+		}
-+	}
-+
-+	if (rxfh->indir) {
-+		u32 i, pad, tbl_size = bnge_get_rxfh_indir_size(bd);
-+		u32 *indir_tbl = bd->rss_indir_tbl;
-+
-+		if (rss_ctx)
-+			indir_tbl = ethtool_rxfh_context_indir(ctx);
-+		for (i = 0; i < tbl_size; i++)
-+			indir_tbl[i] = rxfh->indir[i];
-+		pad = bd->rss_indir_tbl_entries - tbl_size;
-+		if (pad)
-+			memset(&indir_tbl[i], 0, pad * sizeof(*indir_tbl));
-+	}
-+}
-+
-+void bnge_del_one_rss_ctx(struct bnge_net *bn, struct bnge_rss_ctx *rss_ctx,
-+			  bool all)
-+{
-+	struct bnge_vnic_info *vnic = &rss_ctx->vnic;
-+	int i;
-+
-+	bnge_hwrm_vnic_free_one(bn->bd, &rss_ctx->vnic);
-+	for (i = 0; i < BNGE_MAX_CTX_PER_VNIC; i++) {
-+		if (vnic->fw_rss_cos_lb_ctx[i] != INVALID_HW_RING_ID)
-+			bnge_hwrm_vnic_ctx_free_one(bn->bd, vnic, i);
-+	}
-+
-+	if (!all)
-+		return;
-+
-+	if (vnic->rss_table)
-+		dma_free_coherent(bn->bd->dev, vnic->rss_table_size,
-+				  vnic->rss_table,
-+				  vnic->rss_table_dma_addr);
-+	bn->num_rss_ctx--;
-+}
-+
-+void bnge_hwrm_realloc_rss_ctx_vnic(struct bnge_net *bn)
-+{
-+	u32 tpa_flags = bn->priv_flags & BNGE_NET_EN_TPA;
-+	struct ethtool_rxfh_context *ctx;
-+	unsigned long context;
-+
-+	xa_for_each(&bn->netdev->ethtool->rss_ctx, context, ctx) {
-+		struct bnge_rss_ctx *rss_ctx = ethtool_rxfh_context_priv(ctx);
-+		struct bnge_vnic_info *vnic = &rss_ctx->vnic;
-+
-+		if (bnge_hwrm_vnic_alloc(bn->bd, vnic, bn->bd->rx_nr_rings) ||
-+		    bnge_hwrm_vnic_set_tpa(bn->bd, vnic, tpa_flags) ||
-+		    bnge_setup_vnic(bn, vnic)) {
-+			netdev_err(bn->netdev, "Failed to restore RSS ctx %d\n",
-+				   rss_ctx->index);
-+			bnge_del_one_rss_ctx(bn, rss_ctx, true);
-+			ethtool_rxfh_context_lost(bn->netdev, rss_ctx->index);
-+		}
-+	}
-+}
-+
-+void bnge_clear_rss_ctxs(struct bnge_net *bn)
-+{
-+	struct ethtool_rxfh_context *ctx;
-+	unsigned long context;
-+
-+	xa_for_each(&bn->netdev->ethtool->rss_ctx, context, ctx) {
-+		struct bnge_rss_ctx *rss_ctx = ethtool_rxfh_context_priv(ctx);
-+
-+		bnge_del_one_rss_ctx(bn, rss_ctx, false);
-+	}
-+}
-+
-+struct bnge_rss_ctx *bnge_get_rss_ctx_from_index(struct bnge_net *bn, u32 idx)
-+{
-+	struct ethtool_rxfh_context *ctx;
-+
-+	ctx = xa_load(&bn->netdev->ethtool->rss_ctx, idx);
-+	if (!ctx)
-+		return NULL;
-+	return ethtool_rxfh_context_priv(ctx);
-+}
-+
-+int bnge_alloc_vnic_rss_table(struct bnge_net *bn,
-+			      struct bnge_vnic_info *vnic)
-+{
-+	unsigned int size = L1_CACHE_ALIGN(BNGE_MAX_RSS_TABLE_SIZE);
-+
-+	vnic->rss_table_size = size + HW_HASH_KEY_SIZE;
-+	vnic->rss_table = dma_alloc_coherent(bn->bd->dev,
-+					     vnic->rss_table_size,
-+					     &vnic->rss_table_dma_addr,
-+					     GFP_KERNEL);
-+	if (!vnic->rss_table)
-+		return -ENOMEM;
-+
-+	vnic->rss_hash_key = ((void *)vnic->rss_table) + size;
-+	vnic->rss_hash_key_dma_addr = vnic->rss_table_dma_addr + size;
-+	return 0;
-+}
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-index 72357e0b37ac..382df442789e 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-@@ -58,10 +58,25 @@ struct bnge_vnic_info {
- 	u32		vnic_id;
- };
- 
-+struct bnge_rss_ctx {
-+	struct bnge_vnic_info vnic;
-+	u32 index;
-+};
-+
- void bnge_fill_hw_rss_tbl(struct bnge_net *bn, struct bnge_vnic_info *vnic);
- int bnge_hwrm_vnic_rss_cfg(struct bnge_net *bn,
- 			   struct bnge_vnic_info *vnic);
- int bnge_setup_vnic(struct bnge_net *bn, struct bnge_vnic_info *vnic);
- void bnge_set_dflt_rss_indir_tbl(struct bnge_dev *bd);
- int bnge_alloc_rfs_vnic(struct bnge_net *bn);
-+int bnge_alloc_vnic_rss_table(struct bnge_net *bn,
-+			      struct bnge_vnic_info *vnic);
-+struct bnge_rss_ctx *bnge_get_rss_ctx_from_index(struct bnge_net *bn, u32 idx);
-+void bnge_modify_rss(struct bnge_net *bn, struct ethtool_rxfh_context *ctx,
-+		     struct bnge_rss_ctx *rss_ctx,
-+		     const struct ethtool_rxfh_param *rxfh);
-+void bnge_del_one_rss_ctx(struct bnge_net *bn, struct bnge_rss_ctx *rss_ctx,
-+			  bool all);
-+void bnge_hwrm_realloc_rss_ctx_vnic(struct bnge_net *bn);
-+void bnge_clear_rss_ctxs(struct bnge_net *bn);
- #endif /* _BNGE_VNIC_H_ */
--- 
-2.52.0
+On 18/11/2026 4:57, Zhao Li wrote:
+> External email: Use caution opening links or attachments
+> 
+> 
+> The peer flow add path hands the duplicated flow over to the origin
+> flow before it looks up the peer entry for the peer vhca_id. When
+> that entry is missing, the function returns -ENODEV, and the caller
+> then deletes the duplicated flow with list_del() on its peer node, a
+> list head that was never initialised and never linked. list_del() on
+> such a node writes through the NULL page.
+> 
+> Look the peer entry up before the duplicated flow is created and
+> handed over, so that a missing entry is reported without leaving a
+> duplicated flow behind. The entry cannot change in between: the peer
+> loop in mlx5e_add_fdb_flow() holds the devcom component's read lock,
+> and peer_flows entries are only stored and erased by the pair and
+> unpair events, under its write lock.
+> 
+> Found by code review and not reproduced; compile-tested only.
+> 
+> AI assistance was used.
+> 
+> Fixes: 9d608a40c2d4 ("net/mlx5e: TC, track peer flows in a vhca_id xarray")
+> Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
 
+
+Reviewed-by: Shay Drory <shayd@nvidia.com>
