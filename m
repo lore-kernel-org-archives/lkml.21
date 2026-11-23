@@ -1,107 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795475410;
-	b=1ooUGxh2Fx2GSidUj5bJbQNWeccMOTdcOg8uB4oPeR9NT6vyuYKuMwN0Z+VpX5V4QWLS
-	 SD5X8iE2XujSFJWt1yzBc88MzirJnyJd+GF+3/BCbv5wU3IoTVNNnTGQvERhT6SQis9Wd
-	 bSHb9CjmjuOu79up8FhmJerRRHvsEqz5EInFETfqXRbDuBxgsAeE69P2wQD2aP9Hm1hsV
-	 bRUuAWIOgiXQqc/at/IRf4EhRWySCHeruC9g0Ek5nSAXPcKFK7fvlM9bLR56zjUZPej0G
-	 3ChgLLnSUNAoS9TNhU3RBRxdni9N1zTtx30RhAAgchFNfpqSlNBSJkXywFhv9sMbKvQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795475410;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=07V7ZQy5TQefvaDTPvsZaO025LiJXKlvb9dqDNfJ8YI=;
-	b=vLVupPZGFHHy82BQhCAThRthc6OJVDPOTks8YziZZLckSwXYG/XzLkwds5iqVe2/IRSq
-	 yMJ5mQGliWf4AJm5T70NYjmPdBxk/fSlglWG18gJQHhYgHcJqT5mv6tvf4ZUwiCdDHezV
-	 +J4cbsI2xpvOjdWDSR6KpdNHLj9tojs8eVevHc/mq0chuvjchfgW/huYBPfIKwtYqlAmQ
-	 AiEbv+TIuvGpoWYHO+AK4EuVuKpOeN439cQXsOVL8gRnNHtpcdEOWCVJokxsLQ+G4rIsM
-	 EGaAu31WRj1D5O1y0aCKCA/E7FcF7y8nFyyGirqMnShdqy9YOVTD/gjqeXnIryuT9qg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=YxBEwfH6;
-	arc=none smtp.remote-ip=209.85.214.177
-Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795475415;
+	b=iqAkddnWD9oV0DOmrtU6tEstN7RhDT0ACs2TZNWuCQdKtcSGKAu1lxCCB1aJw/tKcgMr
+	 yTDwkvfxuWc01ZQaFjEYI5q2hEEuqmOpTWaEOAd3CfMbIo+65Qj1QNHx9c5cwwifeBiST
+	 N1W5youZolzXzgEiMBKehs8F/LOFh99XCF/erjnHu1ICdIKoHusIcG9HGtJCPIsQNWbWO
+	 ygFGcCx9WzyxJeMKHmGC2N9byO74xH1osP0jehBpVkxhlKeswtSdWCDCPdiOVyGNnYTJE
+	 52qRfGaALLCdu+o79oe35BMgtR0Ok1xMD90ZO23Fc5XMhHpWrx2T7LSrGXXgYzNVMqg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795475415;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=YeoCvFTZNqPy5k9pXMBXCQAzeP289ui3FAX4MWI07rA=;
+	b=otRGUSANOCo+D4MEVVYaKgXzBkivvg7RpDxt+H5UPo48OkxBNMwxkikJiRDqNFiUI/mN
+	 EviwP+MG96wwVx0Rt8ZxJIuvf4ZIVRjySCdDcwGRUB3k8E1U70Iv3JREy2LwQDxrTpmb+
+	 5CZhQ+TRMXQVYPw/Hwizu+gpHrIIi5d87edF+UM+h0N7TlIH9n2qn/Fbsu04E8eNeLIbq
+	 DHvymn4uxucIy1/SuxRGLdT1s+/PQ0vPIwloHGjDY5q6LQaFK9VESX/h9Cr7pSHhIXzyf
+	 Tw/foiNDHzVElPh2Z28xt1Wzn9ziNAPOlRVZYOzMoARBDKD4ccFvtHQkTTu/5wlNc6Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=TnNAqRcZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.34
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012034.outbound.protection.outlook.com [40.107.209.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20A10606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:10:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20A10606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC017606A69F;
+	Mon, 23 Nov 2026 23:10:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC017606A69F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=YxBEwfH6
-Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f04f61282dso15020765ad.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:10:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795475409; x=1796080209; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=07V7ZQy5TQefvaDTPvsZaO025LiJXKlvb9dqDNfJ8YI=;
-        b=YxBEwfH6aJwBoS/MAjoc1wWhGI6bDdr5EVmt7tv9RBylFV7K+wtTxDOkF0NTDW1xLx
-         tsMepLIey4LfgTpqKV7ZdoV+s8logqvxFVd8fDKaPxIuevdPb/5YexRnb7+JTbOy3uFB
-         vGpTnCOsxf5F+VOzjhdqcrLb1dJ/RPgmXOPhhMIZH3KSWH0wDoriHXooLoxKSPlZuNVt
-         wrwq3cdP4hdCknvefETdCTTrindEVP0xZYh5narZJPzmMEZyRZTtrQzG+KHJkneXdHMH
-         U6X0aGWsycMbVh/7DNYYtq36oZ8D5cYcc7j1v2+hh2Nhsl2EamaXbx5xWw9EJfIWp2R6
-         zd/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795475409; x=1796080209;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=07V7ZQy5TQefvaDTPvsZaO025LiJXKlvb9dqDNfJ8YI=;
-        b=z4vVHgpYpkKHpvSUa+kA5BlJ849nn3PByichvNv0yRNj7rLf+Q6aGgk9ZIacVqt1R9
-         AlETJuVze/wRl8Qjw4mhAyaVyinmPdIJNXal8emqpFLYguqjEBe1yKGhoo6hnuqkZlly
-         7VNhWqEgmNH+rQUNcM1pomYCLludQi2V1srN9V5vpyA6OYj1z6PUiHCiRHluRxk3Nqrp
-         l58eKii9qrh3QiF/X7x/a7T4rVhOYGT7/Qjsc1ry/Upr+bLk86J1kFoAdqx+40TBcCdb
-         xdR4DdIuuYIzrGEEuKGzQJxDZlsWsz43eitwxAYCeoEcUxlxtVL2xOV5qRuBexzcB97e
-         /s8Q==
-X-Forwarded-Encrypted: i=1; AL+hErEgFpSnIjcwEJi3LAz4M7bdPtrX/rn3xT8n8LVAMGZ/rLT/b00o2wGO66PWg7s5/Dkt3DsTag0CF7wos8U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/opK/RUKXeu0NGNdd9nu3jfPlWT0Muvr/mLI/pYKrbnQtZMn7L
-	RZeVra8EJiPtk9kPd9/PVJP/IMxdSGUYodphv0BsLK58LWPtD3fao6125r+Y53+tyc4=
-X-Gm-Gg: AZFdTZfFToGdsk56UxQxT483mVuK9fMv81RPVo5Xfy/rGTvodr4XMvnbR+gQhMvNpKR
-	PVkFLMGf/YWpjsCWn48QvapAblZieXO6mdKBF4xGtq605jS9TD6wW8J8AuzpgMLyhyJJ0uDgHT8
-	FJe5VJNRFMkRefN4bXWHXXIGKzhNfzMCpiBL3ks715NUBio3/eWcQ5C8jG7unECtW5mQGjj2W6u
-	WnRL6dmHgWPEcmOxvSaIFo6nrOKDx/wN07QlIb/qu37d/2C6sPLyt0jkZT4kXNFtUzhnhQGegp6
-	sd99P8QMu+oRCtOrwItVAeDLlJwjNdlYr6xke8olefjcFuv31NmIIfDPkpzqgWQ7xD0lPbXXGrK
-	SL3wJ0oAXGBLW12WwcUC0f3wFklJXWAcEzFZ36AmcarrOjgt3gD2n5+moVe8bN5kVUoBrWnUGUw
-	DBdE2YqwvbH62Ev9rRiL5onuaRE+Dv3bILJH1AyOPwr+41Zrm7eTMbHUJUBtnyvmmRx+ZlzjnVN
-	Tno53Ue7/j8Wd0Q/1j63fdxlywju0dXinGwpGyKD7R6sxx2quOZQugDnO+hPDxEw/geY6sc624t
-	2SQO2bnKxeolRfVn+l1H5dky+kq6D8pZcTo+Z9iaUeQ=
-X-Received: by 2002:a17:90b:2688:b0:3b3:b71e:b2e7 with SMTP id 98e67ed59e1d1-3b41c92a209mr10661945a91.36.1795475409368;
-        Mon, 23 Nov 2026 15:10:09 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:72::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm19717040a91.4.2026.11.23.15.10.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:10:07 -0800 (PST)
-Date: Mon, 23 Nov 2026 15:10:06 -0800
-From: Joe Damato <joe@dama.to>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
-	horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v6 4/5] bnxt_en: refuse to open a device with stopped
- DMA
-Message-ID: <awTHzto2KqruYx78@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org,
-	netdev@vger.kernel.org, michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
-	horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-References: <20261120152830.699712-5-joe@dama.to>
- <179545866233.3135.17505837220604349272@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=TnNAqRcZ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rvAuby2y+tvKNDvk19ZuZM+NCHM7NUg8kAv0fJsY+jfdJZqvqG/QDbAjd1L+GrT88SxbIhB1QwcZqnFzS01trWI0exD8gztSqIjpKS4EaUuIFMDHCWwTLFaTtWjlrSuO6Ual4sqrxOGh6nSRJBmMvP85UcX9ZJhke+bgVE2q+xUxn4eVq7WxZGEb8F+V2JeYhthjpzs3OJMcoblyY00LI8fnyPRiQGpzGNXN/dgo4ZloWp/aZMAPDOp2jp48stURqeI9tP62x7XgCDgeKwemWgZbCBQQmaNS4y/yP8rAMp7HwlvROD10I1nnnw2CRcbEqLXDiWRIEwG5Zaie6W/C/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YeoCvFTZNqPy5k9pXMBXCQAzeP289ui3FAX4MWI07rA=;
+ b=fHpfYpbxeSXMsctVS5Ar8RzJN+n4hpoEIr+9iTM6GTwec83ptqjvUx9PEPQ9fGl83Qd8EmHUnPeNjngeKOTkZePCioeae42X94LpV4T201YNxQtnMpXXZFliyr/zLrzUdz0/DMIx6h5DYFnu8M1H826oVAKQU+O3x5dAvA7Y1zpq0OxyPk6hwqyy+t51qrwbMri68AjRU/aukZcnQNKg4Ljmnx+uzyNjjXaDtSkzfiQ7CUWA2XGaGrcfnkjHKy5gmoQWl8I8EpQW+N+Mv0VlxcJEx3v8pkEZOstjfU9IIPRZOMJpmfygdbbC0ccxY5L3JISb/AsoML7WSRswxhazDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YeoCvFTZNqPy5k9pXMBXCQAzeP289ui3FAX4MWI07rA=;
+ b=TnNAqRcZqgF/V31945oWoiwpiCQ8YqArDwey6VQp1f9tBKiiZFqnDTcxbdfDv/Ha60WOBULpBboVm/HiJL2Kflgs6jyZ98xAl647DkQGaTRw0sY5oL4XDl35mowJItjpZZk/gBcPOUIq0w+vXcUbEq0weWSaUbT5KbiB6qknYrd9ZWxmaiEaaFPc6Umbn8z1tphHG9ABCdZZsTCl2n/ROTIcvlg0MZkXchZiEzqeQ6Dx/wm/oaxF+aCMsxQo7SKcVt0heFV9tK3PrFEKmnc0sbfL5FQSSMwpTGA3zPSeOH92RClWbUX+MbZsrcG6O2pW7xyoat/5PbVVsFHaMJTKzw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN0PR12MB5786.namprd12.prod.outlook.com (2603:10b6:208:375::13)
+ by CH3PR12MB8459.namprd12.prod.outlook.com (2603:10b6:610:139::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
+ 2026 23:10:08 +0000
+Received: from MN0PR12MB5786.namprd12.prod.outlook.com
+ ([fe80::ae61:c9b4:847b:4854]) by MN0PR12MB5786.namprd12.prod.outlook.com
+ ([fe80::ae61:c9b4:847b:4854%5]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 23:10:08 +0000
+From: Brian Mak <bmak@nvidia.com>
+To: Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: David Cemin <dcemin@nvidia.com>,
+	Lucas De Marchi <ldemarchi@nvidia.com>,
+	Kurt Borja <kuurtb@gmail.com>,
+	Stuart Hayes <stuart.w.hayes@gmail.com>,
+	Matthew Garrett <mjg59@srcf.ucam.org>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	Lyndon Sanche <lsanche@lyndeno.ca>,
+	Armin Wolf <W_Armin@gmx.de>,
+	Prasanth Ksr <prasanth.ksr@dell.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	platform-driver-x86@vger.kernel.org,
+	Dell.Client.Kernel@dell.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Brian Mak <bmak@nvidia.com>
+Subject: [PATCH v2 04/10] MAINTAINERS: Add Dell platform drivers entry
+Date: Mon, 23 Nov 2026 15:08:55 -0800
+Message-ID: <20261123230905.13899-5-bmak@nvidia.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261123230905.13899-1-bmak@nvidia.com>
+References: <20261123230905.13899-1-bmak@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR03CA0385.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a1::30) To MN0PR12MB5786.namprd12.prod.outlook.com
+ (2603:10b6:208:375::13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,228 +112,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179545866233.3135.17505837220604349272@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN0PR12MB5786:EE_|CH3PR12MB8459:EE_
+X-MS-Office365-Filtering-Correlation-Id: e659afe6-fe4a-4e82-0750-08df49b6ea8d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|366016|7416014|23010399003|10067099003|11063799006|56012099006|261009223027099003|261021123027099003|261021121427099003|261022105027099003|261026140227099003|261028144727099003|261102123227099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	J79tw1OPyUPTuERDl2V/hhhjcO2/i4ZCo/ix1cv/z7iiN2lQsYOcXIUBfFjR6r3Ze3+muf8ID3iO+neRL2vh58AiZLgKvOCqL6XoHjiARZKhIGwQuGA1UW8WhsspMgs4GnYfC0txVVGQAiW+LHjSSf0TzKuvdPUVNaODGCVnm1v9nJFxDtkys1KM752+SicyFt8HWA9dT7N2xSnFCxcm9srp0wDus1o8zb/WMcRgs8tlWGALNBOl5Dxi1CizhiZigQJA5THRcxdSvWmZHzh0PWSCC33oN3n6GMlca7H6j17gHmZDXlGTcJtE2ApJc1v3SvRm64elCQ+b1JNhVzrkWPyg4mdN5xW1MKyIiSOvsL1JCZ15JIOOu5A6IPfSDrLQWgZk1Vc78gjb7vH6gCA/9BW+47LM1y+uGUHGI1QkDlDad+n9PTiiUrFLP/JTMLRS96cVHkbtZaQcHrzMI6m40pZvsObesgynfT9DvPdxO/Zhmz41opPvOLihQ56C5GTiF9Ma2kemmDDCZJuPSh1MJ9XriEc0752uW1qeuto22uSOS/6A8XTqkd4ugKyf9t3TqgDz56XP8Nf0iupUr+ixsg4G+T9nLXJ71RMi2SG/zP2FdkpSavja9fpQZw0Z86ROA6InmFELsf9CxCO/r1CcpMA4yaRh8yn0YNW/R+X3zG0=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5786.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(23010399003)(10067099003)(11063799006)(56012099006)(261009223027099003)(261021123027099003)(261021121427099003)(261022105027099003)(261026140227099003)(261028144727099003)(261102123227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?J/KmV/lpA1S/XLq5SsECRO7wGRMORDJ/gWQAkCAwoX+dEuWMiDKU6MrLMFXM?=
+ =?us-ascii?Q?eom/1rf0H+yW9fxnjFIA6unYOsyIvHg1/COa8k69vcvAukIx0y2w0RlfKDXj?=
+ =?us-ascii?Q?lrB+3CN1RfHG/AN9lbZ3AaYMJid6WtEEO+bl2D752BrtLzX7Zs2HLiXuMkEy?=
+ =?us-ascii?Q?91EDA41vyRTq0F/sJkLWYBz9ASspjs4ILsjDwE4gZpirVpi0Jw+rJOUq69JK?=
+ =?us-ascii?Q?FwLESRktYAo2mnFD0iGOAv87u5LTiHDXhLOCyhlBDI+tFP/ZBnGSpFXO0WVN?=
+ =?us-ascii?Q?obmBU9Rcp2BCI+oUukEAdd5DeIMwJAcV0hupwcE3LyYIJfzgPfqLn9V7rZ6U?=
+ =?us-ascii?Q?42UbBgciMxcSjmKfIZUvWZsc7zRmtB+nhSxBfmatP9dH2az37QyyQnM0gjef?=
+ =?us-ascii?Q?IRPTZavvy4U8S5BRcE52yG1P/eF5KnNeEAgnhOAizrmZuQs+iLBbZYzvsYk7?=
+ =?us-ascii?Q?W5jK+7uRavorqgCpDTMsbocV71rk1ZAsFR8luuv723Pq7cvpa5c/8Eh39RBI?=
+ =?us-ascii?Q?YNSXSXexxwMXNZbgtsvq/WqzaAHWpiP6CP7OE0vwGxwFEpbgzOaJCK/D0OuL?=
+ =?us-ascii?Q?OPodSmgnzUvgSYoLVRzF6qIRq4FmFHZvlSvqDCyYStQOc1jtzQwKVETBvpZy?=
+ =?us-ascii?Q?++LSVnnftn0ftVEEYerykgB+cPV96B2NO7f2Li3D1VpqkJBWZtKcwaxAOR/D?=
+ =?us-ascii?Q?M3cOtbW95VuuMpwxbVMZtsR/LKbkVT5K0Q7kJyQzpZhcK/u3dXOHnQ6nBAsi?=
+ =?us-ascii?Q?ExECpLolED0mhpcKkuI7ORD6pzCDNQVKLZhkdH3nuuRit6GaY4pZb8XWE+x7?=
+ =?us-ascii?Q?XrRbjMHu4S4u9OqRgh4t503p94OumX1Fot9i2+OrpkBux2V3KUk/K37i+zYU?=
+ =?us-ascii?Q?phhcKN6/H0eOhhDaSff1UEPosOO/fqeeNDChPFIuxLfd5+9xf2FNsRwdRAYU?=
+ =?us-ascii?Q?0cxy8oY3cF1HKnsGWa6/U5NJo+eJ6oy/0An9uY+S3Wi0H9NByCtiSx/8kqzG?=
+ =?us-ascii?Q?3yZSUpdC32OZSVoAmAxwKfM/WEmqqr+1jIbYBm9xkDYY2LAlOeHgS55SwRce?=
+ =?us-ascii?Q?tQCSw32EN9SQvIHf7B0tIqrSXmVIn8IAXnaDt/C04Rp9dILqZ4q/3YyB/+Px?=
+ =?us-ascii?Q?JV4/BxB9aYTme1gsEQzNbhP69stVrHJ2Udbbs8t4kpGLmqYKOYqihOH6V1Ul?=
+ =?us-ascii?Q?cn8w2wr8Hk0vdqjTg1XTqxlrIhhTqSKSpB93D+2HocoLi9dKzsT8Nno7gw8V?=
+ =?us-ascii?Q?nka4oBbvMAO6uFao253xtAP4pC3s82lEGMAQDohqlY48p++I4T/0Hu3TmATu?=
+ =?us-ascii?Q?zZNq0PcnR0RxNI8vriypbXzw7Rvzj8A5B4MLRbI9WS4jn9qqjVTX7S6U8Opo?=
+ =?us-ascii?Q?hBkyelHqi0kx9PWW0ymz2aQmREZ4XlYFevkoudF4GGqjyCCZ0lwBDqH+MByf?=
+ =?us-ascii?Q?wV61Dg6hBCBW9Z407O5GIGfazOZEXw7yd6DvpkU8pAz1tqVBaGOjfqQlZuVA?=
+ =?us-ascii?Q?BltUDaTxJbHkdy+5xKtr8TrRQOf1xAhqk3d9xqvoEL/Wj1Sk0xRf9vHXVRn0?=
+ =?us-ascii?Q?/wvQsPxS8RxdsHcnWnCrM2phs8h/ZGjjjfSToVH3b3YC1hODgGjo5FFXcQex?=
+ =?us-ascii?Q?G6TkbIWOxmHEohtNtmlM6iMFN+oE18MvJ0ExkgJ/RCx73hGMSs9Yf4JIuDgu?=
+ =?us-ascii?Q?N3/2DIJA7DcfHlLw0ey4okvLsUn3tOQUH7DpZm4/OBnxJDQIkxhHSnOJVS5F?=
+ =?us-ascii?Q?ZDOOzPfp9Q=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e659afe6-fe4a-4e82-0750-08df49b6ea8d
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5786.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 23:10:07.9776
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0D/7FwmefT+s3+ySJfNXTqNeR8k9AqgFLT8shWkZ0p7oLFzZcJ/1jf7dvOlTm1xc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8459
 
-On Mon, Nov 23, 2026 at 06:31:02PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 3 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] BNXT_STATE_DMA_STOPPED is set once in bnxt_stop_dma()
->   (bnxt.c:7850) and never cleared.
-> - [Medium] The commit message says DMA_STOPPED is added to
->   BNXT_NO_FW_ACCESS() "so HWRM commands sent after DMA is stopped fail…
-> - [Medium] BNXT_STATE_DMA_STOPPED records a specific hazard: firmware did
->   not free its rings, so the device may still hold DMA addresses of…
-> 
-> --
-> 
-> bnxt_en: refuse to open a device with stopped DMA
-> 
-> This patch adds BNXT_STATE_DMA_STOPPED. The bit is set in bnxt_stop_dma(),
-> and bnxt_open(), bnxt_open_nic() and bnxt_half_open_nic() refuse to open
-> the device while it is set. The bit is also added to BNXT_NO_FW_ACCESS()
-> so that HWRM commands fail fast once DMA has been stopped.
-> 
-> > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > index 600a8c866f3c3..9daf053293a42 100644
-> > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > @@ -7847,9 +7847,20 @@ static void bnxt_stop_dma(struct bnxt *bp)
-> >  
-> >  	netdev_err(bp->dev,
-> >  		   "Disabling DMA before releasing ring memory, the driver must be rebound to recover\n");
-> > +	set_bit(BNXT_STATE_DMA_STOPPED, &bp->state);
-> >  	pci_clear_master(bp->pdev);
-> >  }
-> 
-> [Severity: Medium]
-> Is BNXT_STATE_DMA_STOPPED ever cleared? This set_bit() and the test_bit()
-> calls are the only places that touch it. Once set, it stays set even
-> after the PCI function or slot has been reset and bus mastering has been
-> turned back on.
-> 
-> The comment at the top of bnxt_stop_dma() says "A firmware reset resets
-> the device". Even so, two recovery paths that reset the function now fail
-> partway because the bit is stale.
-> 
-> In bnxt_resume():
-> 
->     pci_set_master(bp->pdev);
->     ...
->     if (bnxt_hwrm_ver_get(bp)) {
->     ...
->     rc = bnxt_hwrm_func_reset(bp);
->     ...
->     rc = bnxt_hwrm_func_qcaps(bp);
->     if (rc)
->         goto resume_exit;
-> 
-> __hwrm_send() exempts VER_GET and FUNC_RESET, so both reach the firmware
-> and the function is reset. BNXT_NO_FW_ACCESS() then skips
-> bnxt_hwrm_func_qcaps(), which returns -EBUSY. Resume fails with bus
-> mastering on, HWRM_FUNC_DRV_RGTR is never sent, and the netdev stays
-> detached.
-> 
-> One way to reach this is through the suspend path, when
-> bnxt_shutdown_nic() fails:
-> 
-> bnxt_suspend()->bnxt_close()->__bnxt_close_nic()->bnxt_stop_dma()
-> 
-> AER recovery has the same problem. bnxt_io_slot_reset() calls
-> pci_set_master(), bnxt_try_recover_fw() and bnxt_hwrm_func_reset(), then
-> returns PCI_ERS_RESULT_RECOVERED. bnxt_io_resume() then fails in one of
-> two places:
-> 
->     err = bnxt_hwrm_func_qcaps(bp);
->     if (!err) {
->         if (netif_running(netdev)) {
->             err = bnxt_open(netdev);
-> 
-> It fails either in bnxt_hwrm_func_qcaps() or in
-> bnxt_open()->bnxt_check_dma_stopped(), so the device never reattaches.
-> 
-> Before this patch, with the earlier "stop DMA before releasing rings"
-> change applied, both paths re-initialized the device. Also,
-> bnxt_check_dma_stopped() would then print "DMA was disabled ..." even
-> though bus mastering has been turned back on.
-> 
-> Should the bit be cleared once the function has actually been reset?
+Add an entry for the now-moved Dell platform drivers, so that misc files
+like the Kconfig and Makefile are covered.
 
-No, this is intentional. Recovery is rebind only. The device gets into
-this state because the firmware stopped answering. I don't want resume
-or AER recovery to turn the device back on without knowing the stale
-ring state is gone.
+Signed-off-by: Brian Mak <bmak@nvidia.com>
+---
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Resume and AER only fail if a RING_FREE has already failed before them.
-I haven't seen that. If it happens, the device stays down and has to be
-rebound.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bfbe3d748e7c..cc21d9cd7426 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -7476,6 +7476,12 @@ L:	platform-driver-x86@vger.kernel.org
+ S:	Maintained
+ F:	drivers/platform/dell/dell-pc.c
+ 
++DELL PLATFORM DRIVERS
++L:	Dell.Client.Kernel@dell.com
++L:	platform-driver-x86@vger.kernel.org
++S:	Maintained
++F:	drivers/platform/dell/
++
+ DELL REMOTE BIOS UPDATE DRIVER
+ M:	Stuart Hayes <stuart.w.hayes@gmail.com>
+ L:	platform-driver-x86@vger.kernel.org
+-- 
+2.53.0
 
-> [ ... ]
-> 
-> > @@ -13519,6 +13535,10 @@ static int bnxt_open(struct net_device *dev)
-> >  	struct bnxt *bp = netdev_priv(dev);
-> >  	int rc;
-> >  
-> > +	rc = bnxt_check_dma_stopped(bp);
-> > +	if (rc)
-> > +		return rc;
-> > +
-> 
-> [Severity: Medium]
-> The new bit is only checked in the three open functions. Can
-> bnxt_resume() turn DMA back on while the device still holds stale ring
-> addresses?
-> 
-> The bit is set because the firmware did not free its rings. Clearing bus
-> mastering is the only thing that stops the device from writing into ring,
-> RX buffer and stats memory after __bnxt_close_nic() frees it.
-> bnxt_suspend() runs bnxt_close(), which may set the bit. bnxt_resume()
-> then does this without looking at BNXT_STATE_DMA_STOPPED:
-> 
->     pci_set_master(bp->pdev);
->     if (BNXT_VF(bp)) {
->         for (i = 0; i < BNXT_RESUME_MAX_RETRY; i++) {
->             rc = bnxt_hwrm_poll(bp);
->     ...
->     if (bnxt_hwrm_ver_get(bp)) {
->         rc = -ENODEV;
->         goto resume_exit;
->     }
->     rc = bnxt_hwrm_func_reset(bp);
->     if (rc) {
->         rc = -EBUSY;
->         goto resume_exit;
->     }
-> 
-> Suppose the function's firmware ring state survives suspend, for example
-> with s2idle or D3hot with No_Soft_Reset. The device can then do
-> bus-master DMA from pci_set_master() until FUNC_RESET completes. For a
-> VF, that window also covers the bnxt_hwrm_poll() retries and their
-> sleeps. Whether this happens depends on platform and firmware behavior.
-> 
-> VER_GET or FUNC_RESET may well fail here, since the firmware has already
-> stopped answering RING_FREE. If they do, resume jumps to resume_exit with
-> bus mastering still on and the stale rings still live. Because the flag
-> is stale (see the comment above), resume then gives up anyway.
-> 
-> The rebind recovery that the commit message prescribes uses the same
-> order. bnxt_init_board() calls pci_set_master() before
-> bnxt_fw_init_one_p1() sends FUNC_RESET. In the kdump case,
-> bnxt_init_one() calls bnxt_kdump_reset() (pcie_flr()) before probing, to
-> avoid this kind of stale DMA.
-> 
-> Should bnxt_resume() check BNXT_STATE_DMA_STOPPED, or reset the function
-> with something like an FLR, before it turns bus mastering back on?
-
-This is in the "leaving out" section of the cover letter.
-
-> [ ... ]
-> 
-> > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.h b/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-> > index 41d05efd6307a..50c024dd3c6c4 100644
-> > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-> > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-> > @@ -2474,9 +2474,11 @@ struct bnxt {
-> >  #define BNXT_STATE_FW_NON_FATAL_COND	13
-> >  #define BNXT_STATE_FW_ACTIVATE_RESET	14
-> >  #define BNXT_STATE_HALF_OPEN		15	/* For offline ethtool tests */
-> > +#define BNXT_STATE_DMA_STOPPED		16
-> >  
-> >  #define BNXT_NO_FW_ACCESS(bp)					\
-> >  	(test_bit(BNXT_STATE_FW_FATAL_COND, &(bp)->state) ||	\
-> > +	 test_bit(BNXT_STATE_DMA_STOPPED, &(bp)->state) ||	\
-> >  	 pci_channel_offline((bp)->pdev))
-> 
-> [Severity: Medium]
-> The commit message says:
-> 
->     Also add the bit to BNXT_NO_FW_ACCESS() so HWRM commands sent after
->     DMA is stopped fail right away instead of waiting for the timeout.
-> 
-> Does that hold for every command? __hwrm_send() still lets two request
-> types through when BNXT_NO_FW_ACCESS() is true:
-> 
->     if (BNXT_NO_FW_ACCESS(bp) &&
->         (req_type != HWRM_FUNC_RESET && req_type != HWRM_VER_GET)) {
-> 
-> The device writes HWRM responses into ctx->resp by DMA. With bus
-> mastering cleared, HWRM_VER_GET and HWRM_FUNC_RESET cannot complete, so
-> they still wait for the full timeout. The exemption list was written for
-> fatal-error and channel-offline recovery, where bus mastering is or will
-> be enabled again.
-> 
-> Devlink reload can reach this. The first reload fails in
-> bnxt_dl_reload_down(): bnxt_hwrm_func_drv_unrgtr() clears
-> BNXT_STATE_DRV_REGISTERED and then gets -EBUSY. On a second reload,
-> unrgtr returns 0 and devlink calls bnxt_dl_reload_up():
-> 
-> bnxt_dl_reload_up()
->   bnxt_fw_init_one()
->     bnxt_fw_init_one_p1()
->       bnxt_hwrm_ver_get()       <- waits for the timeout, then msleep(100)
->       bnxt_try_recover_fw()
->         bnxt_hwrm_poll()        <- another VER_GET
->       bnxt_hwrm_ver_get()
->       bnxt_hwrm_func_reset()
-> 
-> Nothing on this path checks BNXT_STATE_DMA_STOPPED. Only bnxt_open_nic(),
-> which runs later, does. Each exempt command sent along the way waits for
-> the full HWRM timeout.
-> 
-> Should __hwrm_send() also refuse these two commands while
-> BNXT_STATE_DMA_STOPPED is set, or should the commit message be reworded?
-
-Yea the commit message could be reworded. I don't know if it's worth a respin
-just for that. Like I said in response to an earlier patch (I think patch 1?)
-if I need to send a v7, I'll include a commit message update.
