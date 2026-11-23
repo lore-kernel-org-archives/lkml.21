@@ -1,62 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795475709;
-	b=4Cm3DwWZlDFMQx5AHblO3Pi91LvyVbVrv0zpxzzlB34Qpkmsr0j01F9WYOZqNfc8G8Br
-	 c9U9Xg/ppUc7fP4rT7G/u7swdZg2usp8PSoWL4VBXefP540nUuABAVSyeLdZVZZ4I19Dt
-	 qxDtj9u678o6ypRI/xkoiLuU5HiUxM4J5yFnWxwjeMfPYlCCPXxcmowIAxKiwp7nFGxzN
-	 cDSuFP/4AH8Zv8mTJM8jb+buRMwWmOKgGHk7UX7NgzfcOwff1lqZ70owcUI27AuI2CmQC
-	 F2puqNdUp2LOVV2D6oOrmAaakjopkXsY/Z4AZd2B9rgqbTZ+6LRYrG0fngLb3p0z8TA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795475709;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oLmGWtI2ku8OobUX8IXzT/SJezeWZOgyXUpkYddicFI=;
-	b=5Va4LMBCtT3JBLDgMGZgm93xHMSH0rsyR5XCU4V03oag89FolUrgiWXf1+PGwSCTpXyz
-	 HCkufKd/QTEGsyOCts1rDo655oIxMPMR6q2VEmGZowa3PGkW3j3d0WpQYdYpaNr1ttQGI
-	 pV1medl7DLsQ7UnbnMV+rJYkorM6R7TxACFEx7KDbb32H6+tVpHsph0uQA7iPRV2s6Vmn
-	 FSsPtaSTICLirbSOfsnyr404GLGjgDlhp01qAMuuqpjLvH18nTszpapyjtqrWsgO4pjYY
-	 AU3ZtI05q272ys9Y3lHLLyxfzIbu/oVyJ/ws+mgmYXwMu0UZ/EJCyHAKtLY+z9DqH0A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WL/K8FUm";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.38
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795475705;
+	b=ACdUesNcTBb9jIwb1LHkz3vsA/TM2B3a6/sFb+hDeWo0kd3WHNnn1oNpsKIDM66wGQPa
+	 +vIQJJV2QL9w6ynDpB/lFG49BLFiRbR7U2ON4WSjedCD9fRBHoUBuQ4SasLJnTZaSCXZM
+	 TsnSL6O8257mJ1IkcmN7Qu6f2qzb4lAfQO/AmJTmwqZKGka8PjKqRU+guRrSZ5hQ4edN3
+	 z3aXi9cYRbRgr/XivJni1quXtLF0uoYDh9sRIiIM+lyDktMfQVF2RrijCnL5GUcvHk9Jr
+	 4gPfIjkWB1DStpTejx1z3gBYMumysNysi2ompI6JbjKJRASPnf7M3232ppzSNucIBtw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795475705;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=47MNfDe86I2wbOebD6g7jBIVomlr9v38Y8J5WaQuAqM=;
+	b=OZ2kHJpvjkD3+rd5HZ253aGsV8mN1Sf/UzsmPpfz+QglieAq4nRRT0UBVekLAWaQbU7u
+	 wnVKOqmAg6jeTs0hE+inbPagrOn8CsXUbHZOOCrJUwQ9mOaUEeZy85NVdbc2TA3xb1RTu
+	 j4W7dM9TN4LNcXpypZWfHVJGCe21HMYhPZij1oukCCqd2sJdcsdTIaYyrrWQebPMCaUP2
+	 zMsCi73w5o14DzPAMONU40HqMndURvjPyzkMaN8PZCOawOInOCFm4wrFbOkLD81R3kzJ/
+	 v/LNj+7MYwPs4QRYH/h57Sfa2Ps5mVlaWiwZtswHs/GNbM2IKWFDw1cTtniH66YN7HA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dnXp31HF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.38
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010038.outbound.protection.outlook.com [52.101.193.38])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC4C8606A69F;
-	Mon, 23 Nov 2026 23:15:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD79C606A680;
+	Mon, 23 Nov 2026 23:15:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD79C606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WL/K8FUm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 479D41F000EC;
-	Mon, 23 Nov 2026 23:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795475709;
-	bh=oLmGWtI2ku8OobUX8IXzT/SJezeWZOgyXUpkYddicFI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WL/K8FUmm1dMW/4d2llwALEo0FOmpVizKKKd6aD2dyCjTXUlvaJbYZye3V8+Y5P+z
-	 t4M0MA0AbfSHMdOugXQMn5pr6vvWSmdyT1CFG/4zzHnoMaQuFkBo4XheqBwMczk1Sx
-	 9jBdjjuA20bKDEGEgk/S2TKQvx+oGqMv6uJg0Z7xxuo/WaU7cKRvAOL0LD8g6TOA0+
-	 JifjNFKTIQ9umv2H7RRWj5jFb/0WCsLknPhu8PPraDoQpN/VATYnGGj4IWs9rpgAJS
-	 k0dRaGhoMp1rjwNuXoSwo3NdMO9gyayBANipG+QUJOVnL7SPjCGHPWLGrc8DlVvG4d
-	 Chg9dFveUWnVQ==
-Subject: Re: [PATCH net-next v8 3/3] net: ethernet: mtk_eth_soc: add 9K jumbo
-From: netdev-bot+sashiko@kernel.org
-To: sandeeph@loljews.com
-Cc: netdev@vger.kernel.org, nbd@nbd.name, lorenzo@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux@armlinux.org.uk,
- daniel@makrotopia.org, mason-cw.chang@mediatek.com, frank-w@public-files.de,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 23:15:07 +0000
-Message-ID: <179547570786.3135.14102312432224479446@kernel.org>
-In-Reply-To: <patch-33f903552b0fbd7330e1165ec70bbb39@loljews.com>
-References: <patch-33f903552b0fbd7330e1165ec70bbb39@loljews.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dnXp31HF
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Be9lTL4iwOoBaCymlPiSkP9jdu/12Z/5F5pXYuOGLkYstdO7HiuaDia/vmnynN/+YcxjXMrA8QtcbcglDRST4NhS2VXJBAROpidBOUE3V41tccACB7gVroY9pcqPNCUik6BCj1WGD3uARbw+hMa9fhbaaY4/a2fUYs045VrFe7g1SEWbtOAKHc8DZmGs50igb3geZ0z3sQHotnjr6GABkZ6vjV6IOYmoTbP0pvxqq+kudjkpyzYqvABL4rvJTlnhIIgUOppMSfgx9p46qOKFeiVrrHYX0kQBTpLptcUidKLRDMJAdObWlC8SzTIKfzaw111i9QeYpYKf2UiOw6jkFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=47MNfDe86I2wbOebD6g7jBIVomlr9v38Y8J5WaQuAqM=;
+ b=hhx/6MpPKUM6ciPXBBIVPOVASy3bNMNmSNd/gM0egnSaLO/6C5d3QIaliFOo7N/O997w6aqStG54ldh1tQw1HtvxcwJIACVXYsGiEMoGNSpYUyj9Tfaj+WHZjaxLVWGJo1bL1wHKJjYC+A0Ulr5aVgQkCrfKiJUuiwNMj5kfnki6PVdta3kRkR/D+qUxtA/siyLCL0N5cdck5ZQ8cPC9/6KQl/6b6jZDBFmZxvzVYIwJrOU8WUPqx3h+3KN6HD7EYkmgnCtNeZDM1HBc8SIc7D0OetVrtqokNFSgzSE9NAtDBBLTHhIyqw2BqQth0z5m8QzlSuGKrZnWexxM8cKIBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=47MNfDe86I2wbOebD6g7jBIVomlr9v38Y8J5WaQuAqM=;
+ b=dnXp31HFbBJXwcxHX0Om7hRJR2n+UYtMKybbbWEcGfw0EPaAF4VHiRsvxT8p+Q+xskqeA+6ghNIRh3izcw5vpyUYvJnfCQ/0UMwseCNyCaA/TlsrmH0dWGOuW5OiQTsKtI/sBF1BJGNTRsnyTwn+y/9JQB+EdCBrJuvEBF0TM7Y=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from MN2PR12MB3485.namprd12.prod.outlook.com (2603:10b6:208:c9::22)
+ by DM4PR12MB8572.namprd12.prod.outlook.com (2603:10b6:8:17d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
+ 2026 23:15:01 +0000
+Received: from MN2PR12MB3485.namprd12.prod.outlook.com
+ ([fe80::7ac:5acc:f8b7:65c9]) by MN2PR12MB3485.namprd12.prod.outlook.com
+ ([fe80::7ac:5acc:f8b7:65c9%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 23:14:48 +0000
+Message-ID: <1120d8eb-023d-4fa1-823e-0f8d05b4d869@amd.com>
+Date: Mon, 23 Nov 2026 15:14:45 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 3/3] ionic: add devlink param for command
+ timeout
+To: netdev-bot+sashiko@kernel.org, nikhil.rao@amd.com
+Cc: brett.creeley@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ abhijit.gangurde@amd.com, allen.hubbe@amd.com, jgg@ziepe.ca,
+ leon@kernel.org, jiri@resnulli.us, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-doc@vger.kernel.org, eric.joyner@amd.com, ArunKumar.Prakash@amd.com
+References: <20261119-b4-ionic-cmd-timeout-v3-3-2cdb8fca15fd@amd.com>
+ <179539559673.3135.12079878343644861835@kernel.org>
+Content-Language: en-US
+From: "Rao, Nikhil" <nikhirao@amd.com>
+In-Reply-To: <179539559673.3135.12079878343644861835@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR03CA0186.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::11) To MN2PR12MB3485.namprd12.prod.outlook.com
+ (2603:10b6:208:c9::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,400 +103,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3485:EE_|DM4PR12MB8572:EE_
+X-MS-Office365-Filtering-Correlation-Id: a5a5c74f-7907-49f1-f6ca-08df49b791f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261028144727099003|4143699003|261102123227099003|261021121427099003|261021135927099003|261026121527099003|261026140227099003|261022105027099003|11063799006|5023799004|56012099006|10067099003|22082099003|261009223027099003|18002099003|261022075727099003;
+X-Microsoft-Antispam-Message-Info:
+	MQuXKomY5myTsGNmFaL50yexky0IpSNDPL5BdaRD3+yvoSXJsKLmmq/oFTw0dR2Xm2HLiSlw8XnYFA5AhRT9FfuUqE51dALPGcf83S4Q1Q2fGWBfPSWAs0h3usylEAWVFfm/KL/Bp0tyE2XRvH1WGTG+XIu9fjT6bKJE/dIlu1D4lwTw3Z/IDphR8OSBrPG1uMzlibnnGXi+Va/8tha/7U5hCF7hn+scY9GbDrY2fbx0ngOLtZyeSvEa0kk0OYHsx5AqQtuRAVehxffwqmLJOi1xYyt/hhYBopclZwcpjLWOLZDxdR1i7GqqYmJdfHwdnrwl3nlGNhYjgC8IHGBweU0Y4ueC4fHgAMhv6HVEwTR88NW6IndvqKxRQvMUcVXfZzsK/80GLCs6F3Z+jlcPfXZ9vKL3+JVogSyh9Rt7Lvo7kT9J03jD9btRrvyLxExpX3VPXPUkFk1OzDilaPyOY9Hg2xv7wveVG9dRfJEnpqtCfLEGck+PiaySV4Ur+Y0MWjbTgSBG8RvEExdctpOc9ZgpCB/ewWRN0ySzAhHIuaFISM+6iI/lSJSGw8x5jZDXO72WOJ17lvRYvJ1oPb8reanjg0dIT4hJYkFpwCldC5ln7aWX63EuflZGdvbNAr9tzXsvYLOMW7roo+jjHFeQ0Vi1a0zrBiF0VLOLzK7iN10=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3485.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261028144727099003)(4143699003)(261102123227099003)(261021121427099003)(261021135927099003)(261026121527099003)(261026140227099003)(261022105027099003)(11063799006)(5023799004)(56012099006)(10067099003)(22082099003)(261009223027099003)(18002099003)(261022075727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?aWZ4VUdsR2swd3ArUFpXd2x6MjliZFRBaW5lbC9TMGRlWERPY0FFdmRaNFd3?=
+ =?utf-8?B?UUZXY2JVYm5kTllKWXVMYWR6S3pBbkV5LzkxU1FiRUszMkJGMWlaL2hOSVBZ?=
+ =?utf-8?B?b3kyNEI0RlNYNitZcktIQUFKOHpqcWg2L1owUVR3REt5MC9XM1kzSGdZakNv?=
+ =?utf-8?B?VG4wUWpOWU1GaU9QenlnQXFqSklvTUVmUDQzQ3UrWlZ0TFZXS2hnUFJZQStV?=
+ =?utf-8?B?b3M0ZHRTeTJ6c1k2bkxhNXJ2Mkp5MTVkUG1Cc3pqRksrSHpFNWJ4L0FvMkZB?=
+ =?utf-8?B?YW1BSmN0MVJ5ekpnNHNRWnpHYlVpeE40UUgzQ0JnVy81TTluOGxSSit5KzBy?=
+ =?utf-8?B?ZU95UnpaUFlLd2ZJWGRvdCtqTW4yRmJhaXlBQzBrcDVna0JlSUlWcTVPM2Zv?=
+ =?utf-8?B?czFtN3piQkh2bndHSExrRG9ISDA2UGdjakZINDdvVTZCandvS3JuWTBBVVhU?=
+ =?utf-8?B?elZ3VE5BcVVvd3hXR0hJVEJ5RDNkNlFUb1VPc1pzRi8rTDdEdldKY2lVSkl1?=
+ =?utf-8?B?elRaRmlyQ3ZKTC9IckV1TUdQT2hUeEI4MmZGTFVMSURUelFlQWg3eEcrbkQx?=
+ =?utf-8?B?U2x2Skt0ZVd0bXJkY1JBcVVQNXlVSi9iWXVoQ2ZYbE1JMlpuREpZcmZmUHQ2?=
+ =?utf-8?B?WWg5WFZYVHdLakg5WGhSampObDdDcUVJVFJJeWZQZUYwWmhCZmwrd0x1cjRE?=
+ =?utf-8?B?dHVqL1BmYmVGRHRDbVVpU0ZyOGRaMTQzZEhRUm1ML0F4QndkNy9CUURmN1Rt?=
+ =?utf-8?B?MWhIVnpScGg5ZnRiTFVuVlRDclNhR2FpSE4xOXhCTFhSQjVhdGNYTWhLMmdI?=
+ =?utf-8?B?cjZrdE5CQ3VQVFdxUU5jb000SlUvSGZCeVV0RURwaU1QRDhFNHNQK2JPcFFk?=
+ =?utf-8?B?djE1TVAxWjF0dWZ6SURQL1I1WUxzakk0VmtFazFocDB6MzBsMko5Ri9mdEp5?=
+ =?utf-8?B?SXBJWEdKWjFGTzBRMEFJbEtKYWY3Um9CKzJaQU1IcnBrb0ZIYUVFSkV1aExa?=
+ =?utf-8?B?RjRqdWo4WGZTK2tSUjg4ZE5TSU9BdFVnQWxlUUJyc2c1eVN4R2d2YVc0blIr?=
+ =?utf-8?B?UDRhMXBjbFRRVUJhU3JWRnNadm1zOGZQMDdwS3llSW5vd1VmaTYxTGpnRXlH?=
+ =?utf-8?B?KzNobmR0SE9PSXYxdnhYUFFYTDZGS1ZnU05SczZzWnFJY0YvbnNINHgyNUlX?=
+ =?utf-8?B?ajJOZXZuMnFqblFTRjRySkVPeGhUNXl4V2RGd0dNQUZHWmE0ZS9Bb1kxY0xw?=
+ =?utf-8?B?NTlPRUw2MzgzaWlPbGhSQlNMVHNGY2JjRUVyTTFYQXoyVEtCQzB3alRqZjVm?=
+ =?utf-8?B?bklPdDdheEg5RlNod3NkTnZ6Wnc2cmlmU3lIR1hDTE9TYUVDa042Mk9yOGNW?=
+ =?utf-8?B?YXFNZ0hadDd6WTY1Zis1ZEFkUG9WOTg1S3Y2WWx2bHRaZkZvVkd2UFF1YW9H?=
+ =?utf-8?B?a3pFYVczK010blFES0R2SjVKemJ2UUUwVDBoODNGaFZFRCtYemFlUDVHVm9S?=
+ =?utf-8?B?dkZRK1RYYmlDWjVXdXQvRVE3QlR1WWpUNDRjZHpvd1kwc1RsOWs2MDVBNlBS?=
+ =?utf-8?B?U2FsVXhySHJKdnRCTU1QUzhsK2hnelRLSExVd0JSUnoxM28xYkgzaEE3K2xY?=
+ =?utf-8?B?YWhWUERvb0VTcC83d2Z4b0NmM284Rkk1NkUzYWVpSUlyZGVXV3RFT1Btd3FN?=
+ =?utf-8?B?VTlVZkJObnY3Z0U0Z0huVGthRGtVL1FiQVREcytEV25XY3RiVTFVNS9GYnNC?=
+ =?utf-8?B?TjBPdXptU1hKNXJHRStMMDdITUlBWEFhS3QvZFlMMm9iZ1hhclcrU2V2elRW?=
+ =?utf-8?B?Vm1xVWRKaDlOTzZrV0prNVAxWHVEazdzN0FSNFFjb3UxeFNXaEV6TzhFRFVm?=
+ =?utf-8?B?UER5MHo2cmNGK0JLUnlzeStVZ1VLYjJVOFJUMFZOdjJaeUxCUkZVMXU0bkI3?=
+ =?utf-8?B?OUd6elo4NWJWTEJZK0VJTG5CWlhIK0NVV1FNbGI3NUR1aEZzb3hsK2h2STBx?=
+ =?utf-8?B?MHFqTDErMkZhZnMxNnd4UWUreW8zRGhhWDJWREdIOUcxeTNkNzhiQktTYklY?=
+ =?utf-8?B?aXFqN25YZGFaQ3I4M0g5M1Q5UG9vOUI4QzVQWlVCR0RqZXV2ZVVYYnF2V0Ns?=
+ =?utf-8?B?YU5mRHhnZHM1aFpYTFdpWnV3L2dtbDRkcnFJNFJKM2k1aFpsWldKdm9UWldF?=
+ =?utf-8?B?MCtOdmxmYy9aVkhHcGtmbTg5U0RDWHo5Sm1GWFVHSHgvYWZwWDJZQ0xPYjFX?=
+ =?utf-8?B?S3V1UFNMZmxFLzVIeTNlUEZ2ci8zR2Qzd1cwcGc5NnNsbFNQR1BKdVNpZVJm?=
+ =?utf-8?B?UnMzcXVEMmNTWWxuWmN0QjFEVWVJRUt2ejdzUFdWLytYVWxyMi9pUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a5a5c74f-7907-49f1-f6ca-08df49b791f0
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3485.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 23:14:48.8099
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YmqcCon9EETZU6lTNGZEF2nDER2A3aE+BqekZuv++HftiCKSWKnOPXi9G7L5lTphYaeJrrFOohzOiIf3EbmxvA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8572
+
+
+
+On 11/22/2026 4:59 PM, netdev-bot+sashiko@kernel.org wrote:
+[...]
+> Doesn't that leave the user unable to see or raise cmd_timeout until the
+> next FW-up or PCI reset? That would happen on exactly the slow-firmware
+> device this parameter is meant for. The -EOPNOTSUPP also hides the fact
+> that the query itself failed.
+Yes, a GETATTR failing at probe on firmware that supports it is rare 
+enough that I would rather not add a separate state for it.
+
+> On the fw_up path, after an earlier query succeeded, the same failure
+> leaves a stale positive value instead. 
+It is the value last read or set, which differs from the stored one only
+if something other than this parameter changed it, such as a firmware
+update across the reset versus probe where nothing has been read yet
+
+> If the slow firmware still commits the NVM write, would
+> ionic_dl_cmd_timeout_get() keep reporting the old cached value while the
+> device holds the new one? The new value would then take effect without
+> notice at the next probe or reset, when ionic_update_cmd_timeout() reads
+> it again.
+Yes, get reports the last value read or set rather than querying the 
+firmware,
+as any user can call it and a query would hold the device command mailbox.
+
+> Could a reset during that msleep() cause a NULL+offset MMIO write, or an
+> access to unmapped I/O memory?
+> 
+> The missing serialisation between reset teardown and dev_cmd users
+> predates this patch.
+Yes, this predates the patch and affects every dev_cmd user.
+It will be fixed separately for net.
+
+Thanks,
+Nikhil
 
-Thank you for your contribution! Sashiko AI review found 9 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 5 · Low: 4
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The commit message's case for GMAC1, the built-in switch port
-  and the only 10G MAC, contradicts itself and does not support the…
-- [Medium] mtk_pdma_set_sdl() writes ADMA_RX_CFG[31:16] (pdma.rx_cfg =
-  0x6a10) with MTK_PDMA_LRO_SDL + eth->rx_buf_len, i.e. 0x3000 +…
-- [Medium] mtk_poll_rx() now counts over-long descriptors in
-  netdev->stats.rx_length_errors, and mtk_get_stats64() adds that into…
-- [Medium] In mtk_set_mcr_max_rx(), the MCR jumbo field (bits 31:28) is
-  written whenever the SoC has MTK_NETSYS_RX_9K and val > 1552.
-- [Medium] On MT7988, mtk_change_mtu() (called under RTNL) now calls
-  mtk_set_all_macs_max_rx(), which reads every other MAC's…
-- [Low] The commit message says 9K is enabled on "the 10G XGMII MACs" and
-  that XMAC_RX_CFG2 is programmed "on the XGMII MACs, so a tagged…
-- [Low] mtk_poll_rx() gains a `pktlen > ring->buf_size` drop, justified
-  by a comment that states as fact that "The engine can report a length…
-- [Low] The commit message describes the patch as "a forward-port of the
-  MediaTek downstream jumbo work: Mason Chang's \"change default rx…
-- [Low] mtk_xgdm_mac_link_up() calls mtk_set_mcr_max_rx(mac,
-  mac->hw->rx_buf_len) unconditionally.
-
---
-
-net: ethernet: mtk_eth_soc: add 9K jumbo
-
-This adds an MTK_NETSYS_RX_9K capability for MT7988. It raises max_mtu on
-the XGMII MACs to 9194 and sizes the shared RX rings from the largest MTU
-of any MAC. The MAC limits (MCR, XMAC_RX_CFG2) and the ADMA_RX_CFG SDL
-field are reprogrammed from that shared length, and mtk_poll_rx() now
-drops descriptors whose PLEN0 exceeds the posted buffer.
-
-Link: https://github.com/frank-w/BPI-Router-Linux/commit/b4c6cb1d5532
-Link: https://github.com/mediatek/mtk-openwrt-feeds
-
-> This is a forward-port of the MediaTek downstream jumbo work: Mason
-> Chang's "change default rx buffer length" and "add 9k jumbo frame
-> support" (MediaTek OpenWrt feed 999-eth-30/31, carried in
-> frank-w/BPI-Router-Linux), plus Frank Wunderlich's "try to fix crash
-> the right way".
-
-[ ... ]
-
-> Signed-off-by: Sandeep Haemoon <sandeeph@loljews.com>
-
-[Severity: Low]
-The message credits the code to Mason Chang and Frank Wunderlich, but the
-only trailer is the submitter's Signed-off-by.
-
-Should the original Signed-off-by chain be kept here, or Co-developed-by
-plus Signed-off-by tags added, as described in
-Documentation/process/submitting-patches.rst?
-
-> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> index b3a6e5703538e..bc0295f95203b 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-
-[ ... ]
-
-> @@ -554,6 +555,98 @@ static int mtk_mac_prepare(struct phylink_config *config, unsigned int mode,
->  	return 0;
->  }
->  
-> +/* The MACs are fed from the shared RX rings, so the maximum frame they may
-> + * accept is a property of the ring buffer length.  GMAC1 on netsys v3+ is
-> + * the built-in switch port: it has no XMAC_RX_CFG2 limit register, so it
-> + * keeps the MCR programming the other SoCs use, extended with the MCR
-> + * jumbo field so its limit can grow with the rings like the XGMII MACs'.
-> + */
-> +static void mtk_set_mcr_max_rx(struct mtk_mac *mac, u32 val)
-> +{
-> +	struct mtk_eth *eth = mac->hw;
-> +	u32 mcr_cur, mcr_new;
-> +
-> +	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
-> +		return;
-> +
-> +	if (!mtk_interface_mode_is_xgmii(eth, mac->interface) ||
-> +	    mac->id == MTK_GMAC1_ID) {
-> +		mcr_cur = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
-> +		mcr_new = mcr_cur & ~MAC_MCR_MAX_RX_MASK;
-> +
-
-[ ... ]
-
-> +		/* The bucket encodes at most 2048; the SoCs with the 9K
-> +		 * capability need the jumbo field, in 1024-byte units, for
-> +		 * anything larger.  The MT7988A reference manual defines
-> +		 * only 4'h2 (2 Kbytes) for that field and marks the rest
-> +		 * reserved, while the MediaTek downstream driver programs
-> +		 * the length there and jumbo passes on its reference
-> +		 * hardware; the vendor encoding is kept for the internal
-> +		 * switch port.  Clearing it together with the bucket keeps
-> +		 * a later MTU shrink from leaving a stale larger limit
-> +		 * behind.
-> +		 */
-> +		if (MTK_HAS_CAPS(eth->soc->caps, MTK_NETSYS_RX_9K)) {
-> +			u32 jumbo = DIV_ROUND_UP(val, MTK_MAX_RX_LENGTH_UNIT);
-> +
-> +			mcr_new &= ~MAC_MCR_MAX_RX_JUMBO_MASK;
-> +
-> +			if (val > 1552)
-> +				mcr_new |= MAC_MCR_MAX_RX_JUMBO(jumbo);
-> +		}
-
-[Severity: Medium]
-The commit message describes what the vendor driver does for GMAC1 in two
-places, and the two descriptions seem to contradict each other:
-
-  "the vendor driver programs the length there and jumbo passes on its
-  reference hardware, so the vendor encoding is kept for the internal
-  switch port."
-
-and:
-
-  "the downstream reference programs no limit for GMAC1 and jumbo frames
-  pass the switch on the reference hardware, which suggests the field
-  is not enforced there"
-
-If the vendor driver does not program GMAC1, what justifies writing the
-reserved encodings (3..9 in MCR[31:28]) into GMAC1's MTK_MAC_MCR?
-
-If the field is not enforced for switch-side frames, is the claim "so no
-MAC accepts a frame the rings cannot hold" accurate for GMAC1?
-
-The current code already suggests the field is not enforced.
-mtk_mac_config() does a full-register write for the XGMII modes:
-
-    mtk_w32(mac->hw, MAC_MCR_FORCE_LINK_DOWN, MTK_MAC_MCR(mac->id));
-
-That leaves GMAC1 in the 1518 bucket, yet tagged 1522-byte DSA frames
-already pass on MT7988. If so, the per-descriptor PLEN0 bound would be the
-only real protection on GMAC1.
-
-There is no Tested-by, and the message does not say whether 9K frames
-through GMAC1 and DSA were tested. Could that be clarified?
-
-[Severity: Medium]
-The jumbo field is gated only on MTK_NETSYS_RX_9K, not on
-mac->id == MTK_GMAC1_ID. The comment, however, limits the vendor encoding
-to the internal switch port.
-
-The MCR branch is taken by any MAC whose mac->interface is not XGMII. On
-MT7988 that means GMAC2/GMAC3 in MII or GMII mode, and later any
-SGMII/2500BASE-X MAC once those modes are supported.
-
-mtk_set_all_macs_max_rx(), mtk_mac_config() and mtk_hw_init() all pass
-the shared eth->rx_buf_len. Once any XGMII MAC's MTU goes above 2030,
-rx_buf_len becomes 3072..9216.
-
-Would these GDM MACs, whose max_mtu stays at 2030, then be programmed
-with MAC_MCR_MAX_RX_JUMBO(3..9), the encodings the manual marks reserved?
-Their RX length handling would then depend on another netdev's MTU.
-
-Should the jumbo write be limited to GMAC1?
-
-[ ... ]
-
-> @@ -877,6 +982,12 @@ static void mtk_xgdm_mac_link_up(struct mtk_mac *mac,
->  		mcr |= XMAC_MCR_FORCE_RX_FC;
->  
->  	mtk_w32(mac->hw, mcr, MTK_XMAC_MCR(mac->id));
-> +
-> +	/* The logic reset above can clear the RX size limit programmed from
-> +	 * mtk_mac_config(), so set it again now that the logic is out of
-> +	 * reset and the interface mode is known.
-> +	 */
-> +	mtk_set_mcr_max_rx(mac, mac->hw->rx_buf_len);
->  }
-
-[Severity: Low]
-mtk_set_mcr_max_rx() picks the register from the cached mac->interface,
-not from the interface argument phylink passes here. This call site also
-has no PHY_INTERFACE_MODE_NA guard, unlike mtk_set_all_macs_max_rx() and
-mtk_hw_init().
-
-mtk_mac_config() can exit through init_err before it sets mac->interface,
-for example when mtk_gmac_2p5gphy_path_setup() fails for GMAC2 INTERNAL.
-In that case mac->interface stays NA. Because mac_config returns void,
-phylink still calls mac_link_up, and mtk_mac_link_up() dispatches here
-based on the interface argument.
-
-Would mtk_set_mcr_max_rx() then read-modify-write the GDM MTK_MAC_MCR of
-an XGDM MAC and leave XMAC_RX_CFG2 at its 0x800 reset value?
-
-Should this call use the same NA guard as the other call sites, or pick
-the register from the interface argument?
-
-> @@ -1239,29 +1350,40 @@ static void mtk_get_stats64(struct net_device *dev,
->  
->  	storage->tx_errors = dev->stats.tx_errors;
->  	storage->rx_dropped = dev->stats.rx_dropped;
-> +	storage->rx_length_errors += dev->stats.rx_length_errors;
->  	storage->tx_dropped = dev->stats.tx_dropped;
->  }
-
-[Severity: Medium]
-The new software drops are added to rx_length_errors. Earlier in this
-function, storage->rx_errors is still set only from the checksum counter:
-
-    storage->rx_errors = hw_stats->rx_checksum_errors;
-
-The kernel-doc for struct rtnl_link_stats64 in
-include/uapi/linux/if_link.h says:
-
-    @rx_errors: Total number of bad packets received on this network
-    device. This counter must include events counted by
-    @rx_length_errors,
-
-Should rx_errors also include dev->stats.rx_length_errors? Otherwise the
-new drops will not show up in the error totals reported by ip -s link
-and /proc/net/dev.
-
-[ ... ]
-
-> @@ -2268,6 +2398,15 @@ static int mtk_poll_rx(struct napi_struct *napi, int budget,
->  
->  		pktlen = RX_DMA_GET_PLEN0(trxd.rxd2);
->  
-> +		/* The engine can report a length larger than the posted
-> +		 * buffer; never pass the unwritten remainder of the buffer
-> +		 * up the stack.
-> +		 */
-> +		if (unlikely(pktlen > ring->buf_size)) {
-> +			netdev->stats.rx_length_errors++;
-> +			goto release_desc;
-> +		}
-
-[Severity: Low]
-The comment states that the engine can report a PLEN0 larger than the
-posted buffer. If that is true, does the current code already crash on
-every SoC?
-
-On the non-page_pool path, build_skb(data, ring->frag_size) plus
-skb_reserve(NET_SKB_PAD + NET_IP_ALIGN) leaves exactly buf_size of room.
-skb_put(skb, pktlen) with a larger pktlen would then reach
-skb_over_panic().
-
-If so, should this check go out as a separate fix with a Fixes: tag, so it
-can be applied to net and stable instead of only arriving with the MT7988
-feature work?
-
-The check is also required by the build_skb(data, alloc_size) change
-further down, which extends tailroom to the whole compound page. Without
-the check, an over-long PLEN0 would pass non-zeroed memory from
-__get_free_pages() up the stack instead of crashing. Could the commit
-message explain that dependency?
-
-[ ... ]
-
-> @@ -3259,6 +3416,71 @@ static int mtk_dma_busy_wait(struct mtk_eth *eth)
-
-[ ... ]
-
-> +/* Program ADMA_RX_CFG[31:16], "ADMA LRO free buffer SDL" in the MT7988A
-> + * reference manual: the capacity of the buffer the ADMA is handed,
-> + * encoded the way the MediaTek downstream driver does it
-> + * (MTK_PDMA_LRO_SDL plus the frame area).  It is not the RX frame-length
-> + * limit; that is the per-descriptor PLEN0 together with the MAC limit.
-> + */
-> +static void mtk_pdma_set_sdl(struct mtk_eth *eth)
-> +{
-> +	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
-> +	u32 val;
-> +
-> +	if (!mtk_is_netsys_v3_or_greater(eth))
-> +		return;
-> +
-> +	val = mtk_r32(eth, reg_map->pdma.rx_cfg);
-> +	val &= ~MTK_RX_CFG_SDL_MASK;
-> +	val |= FIELD_PREP(MTK_RX_CFG_SDL_MASK,
-> +			  MTK_PDMA_LRO_SDL + eth->rx_buf_len);
-> +	mtk_w32(eth, val, reg_map->pdma.rx_cfg);
-> +}
-
-[Severity: Medium]
-This writes 0x3000 + rx_buf_len into ADMA_RX_CFG[31:16]. That is 14336 at
-the default MTU and 21504 at 9K. mtk_dma_init() calls it on every DMA
-bring-up on MT7988, including at MTU 1500. MTK_PDMA_LRO_SDL was unused
-until now, so this register used to stay at its reset default.
-
-The comment calls this field "the capacity of the buffer the ADMA is
-handed". MT7988 has no MTK_HWLRO, so there are no LRO rings.
-
-The ADMA only gets normal-ring buffers of ring->buf_size (about
-rx_buf_len, or order-0 page_pool pages at 2K) and the 2K QDMA buffers.
-The programmed value is about 12 KiB larger than any buffer that is
-actually posted.
-
-If the comment is accurate and the engine treats this field as buffer
-capacity, can it DMA past the end of the page_pool pages or the 2K QDMA
-buffers?
-
-If PLEN0 is the real bound, as the commit message argues, is the comment
-wrong? And is this write needed at all on a SoC without HW LRO?
-
-[ ... ]
-
-> @@ -4360,15 +4585,53 @@ static int mtk_change_mtu(struct net_device *dev, int new_mtu)
-
-[ ... ]
-
-> +	/* On the SoCs whose rings grow with the MTU every MAC has to be
-> +	 * narrowed or widened together, because they share the buffers;
-> +	 * the other SoCs keep the per-device limit they always had.
-> +	 */
-> +	if (MTK_HAS_CAPS(eth->soc->caps, MTK_NETSYS_RX_9K))
-> +		mtk_set_all_macs_max_rx(eth);
-> +	else
-> +		mtk_set_mcr_max_rx(mac, length);
-
-[Severity: Medium]
-Can this race with another MAC's phylink resolve worker?
-
-mtk_change_mtu() runs under RTNL. mtk_set_all_macs_max_rx() reads every
-other MAC's mac->interface without a lock, then does a plain
-mtk_r32()/mtk_w32() read-modify-write of that MAC's MTK_MAC_MCR.
-
-The other MAC's phylink resolve worker holds only its own phylink
-state_mutex. It writes mac->interface in mtk_mac_config(). It also
-read-modify-writes the same MCR in mtk_mac_config(), mtk_mac_finish(),
-mtk_gdm_mac_link_up() and mtk_mac_link_down().
-
-One possible interleaving, where MAC B's link is still being set up and
-CPU0 computes a new max-rx value for it:
-
-CPU0 (RTNL, MTU change on MAC A)
-mtk_set_all_macs_max_rx()
-  mtk_set_mcr_max_rx(B)
-    mcr_cur = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
-
-                     CPU1 (MAC B resolve worker)
-                     mtk_gdm_mac_link_up()
-                       mcr |= MAC_MCR_TX_EN | MAC_MCR_RX_EN |
-                              MAC_MCR_FORCE_LINK;
-                       mtk_w32(mac->hw, mcr, MTK_MAC_MCR(mac->id));
-
-    mtk_w32(mac->hw, mcr_new, MTK_MAC_MCR(mac->id));
-
-Would MAC B then be left with TX/RX disabled and FORCE_LINK cleared,
-while phylink reports carrier up until the next link flap?
-
-Before this patch, mtk_change_mtu() only touched the MCR of the device
-being changed.
-
-rx_buf_len does not change while DMA is running, and all phylinks are
-stopped when DMA is down. Would calling mtk_set_all_macs_max_rx() only
-when !running avoid this race?
-
-[ ... ]
-
-> @@ -5018,8 +5281,17 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
->  	eth->netdev[id]->irq = eth->irq[MTK_FE_IRQ_SHARED];
->  	eth->netdev[id]->dev.of_node = np;
->  
-> +	/* DSA sets the conduit MTU (user MTU + tag) before the netdev is
-> +	 * opened, so max_mtu must already be final here.  Deriving it only
-> +	 * in mtk_open() leaves the conduit at its 1504 default and blocks
-> +	 * 9K frames on the DSA user ports.
-> +	 */
->  	if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
->  		eth->netdev[id]->max_mtu = MTK_MAX_RX_LENGTH - MTK_RX_ETH_HLEN;
-> +	else if (MTK_HAS_CAPS(eth->soc->caps, MTK_NETSYS_RX_9K) &&
-> +		 mtk_interface_mode_is_xgmii(eth, phy_mode))
-> +		eth->netdev[id]->max_mtu =
-> +			MTK_MAX_RX_LENGTH_9K - MTK_RX_ETH_HLEN - VLAN_HLEN;
-
-[Severity: Low]
-The commit message says 9K is enabled on "the 10G XGMII MACs". It also
-says XMAC_RX_CFG2 is programmed "on the XGMII MACs, so a tagged
-maximum-size frame fits from the first 3K class up".
-
-In this tree, mtk_add_mac() never adds USXGMII, 10GBASE-R or 5GBASE-R to
-supported_interfaces for any MAC. Those modes only appear inside
-mtk_interface_mode_is_xgmii(). MT7988_CAPS also has no MTK_SGMII.
-
-On MT7988, the only reachable mode that counts as XGMII is
-PHY_INTERFACE_MODE_INTERNAL. GMAC1 (ESW) and GMAC2 (2P5GPHY) use it.
-
-GMAC1, the only 10G MAC, takes the MCR branch in mtk_set_mcr_max_rx(). The
-XMAC_RX_CFG2 path therefore only runs on GMAC2, the internal 2.5G PHY
-port.
-
-Could the commit message say which MACs use which limit register?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/patch-51fa5ed3bc801edb3f29b61ca7888382%40loljews.com
