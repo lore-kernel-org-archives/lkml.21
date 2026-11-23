@@ -1,126 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423699;
-	b=QjnI2K9egm6L+CuBZmSqlyKm9kqSFaeRBqDdDm30zf33l1IlYTPNYZrLkE3LKfwi95oa
-	 zpcyLXEPwSmpMViln/wHQe4H7r/xWJ6cJAh94Bx+l2MBNqpSzoB7DdMdc2f6KO5svtUuT
-	 Dm2dNNNzwh+jU3C2kx5j7vqKurBajS8etImHyeblXE1cVh+pD+tL1+lmww0xrtgNNLRDr
-	 kmav1Mc3ZlMC1CjEQ3QpIJErhM58bArQOTnp7bUMb7yBDxNG+WbloQiXnp1HJGr8AqGz1
-	 E7meslWhnC1StMpPUEx1UaFVD0d8eGIkHa6kPsbYmSh7msH17tk15qoGhZ4IDfwsPZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423699;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:From:To:Cc:Subject:In-Reply-To:References:Date:
-	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
-	b=xFv0jRHHc2HzE7o6HOTjfXO0g1PIu0zmBqx1vgO9yFcsq95BN5kZ4qHBCgoJbTsQFij6
-	 Rd8qdN875ANnLH6TMmJ7y1H99wML+IlWWTrp7Pwe2MWis9+NNpm31IbqjggtoaDoK7/qK
-	 3lPqS9HVwqXBfOFl3KUrQiMZ6308g6EIYKwc39uXCVK67UmrsoXefJkdVJYnYT5L91WCE
-	 2mBlpsGEQtkFi6OeUt4X1hGaFNBiRHBn6+SaMRfyHQwIXANW11HtExfPZBvDMwGRTmGA8
-	 btiJiH5Y9we9+KnCN2nZbadYyJhIza3EBBXzR/JAohuJWTLpz46OGmmbxMKFM/S+XeQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QJ8RNZBv;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Go5Od3++;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.36
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795423703;
+	b=eo5Y5rYdASsCHpgvHovseD//Mk2SStOKbbuz73cZCjiuoM4r4fTRYrFWsvmDd0/DVhcC
+	 3/xTE//npOo8w7ScjgP4K+XpukVgohp9gJ/I39DE4rJVoW9Aq+nryRQPR0IFE7C+Ozyyz
+	 9Fem0v23aXCU8B2wblUvzjJjQbtzk4kbIOaSDUHX+wi+PprizAcMm2xkSgOU+ETv77lDi
+	 wJMHYL7809J51b199BiOkuLC5HCRTR7paiC4O1mVmpcV2Rai26C/2o3XxEJQTg1rsFS9U
+	 QETqQTh4SjAwnOg+sii7cvyyAV+ArmpdYSPqpVQi+/HSHJGMO4DC1y/HwKwHget5gZw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423703;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=pp6HdMEH1gMxSpJq8g6sD6eJNtHXoCNpIkAG2W+zxRU=;
+	b=1jYngysl4DWBqdXwBUJnM24CRZdyEVT7Z9wpI7uX+weAD200qxZfxMb1w3wu6EBl9I8c
+	 DKhKZ4C2DbzVWaji9sJOW9ncI7IV5PIdM/jlnjGN1fgQBnJx/e2UiXUVl61y6QYyzBw3u
+	 vkLq2cImxPHmd0Dzflh3/nj6oSN6BLsRTV8L7RCqfuHghFBqZpNv4/Hd1mk3h7yQBpGVt
+	 khIBAp7sYMsopQLJoIvMfpmQM+l1NTfBhFIDEKy12wEnttY2JU17p1lceaUUVwlDW2ZqP
+	 5jGuqx1Lrs6CI1oDXuAQ9duKNGDxhP5vCgwkawZTVMMBoOx0BERi68kNjABiCOSK4Hg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=INBsweF+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.36
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010036.outbound.protection.outlook.com [52.101.201.36])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CDBD606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:48:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CDBD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38639606A31A;
+	Mon, 23 Nov 2026 08:48:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38639606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QJ8RNZBv;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Go5Od3++
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795423697;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
-	b=QJ8RNZBv53FuzqsrbggTvFbUHeAYROB6Cop7wZk3NO8pGL1jqiMio6DDhkho1g2e75mctk
-	64aaQZbAs1zi/dVDAHYipeFdG3+ACWBqmpiVkE1FYMJDA/yxXYMIkfev0G0+twG/3WjOF8
-	DTnMF8vCQWH4DETrH9lOrWj+8bA79RI=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-597-GPKNjP5dMFWxhLPkRMidFw-1; Mon, 23 Nov 2026 08:48:15 +0000
-X-MC-Unique: GPKNjP5dMFWxhLPkRMidFw-1
-X-Mimecast-MFC-AGG-ID: GPKNjP5dMFWxhLPkRMidFw_1795423694
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4994d67d0e3so17426485e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 00:48:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795423694; x=1796028494; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
-        b=Go5Od3++Y9wqdnHvtXU1a6dWMk2IRR2t3poBk31YzEKdVcItlfdbnDECdZEVDPu6lT
-         D3kAWNnLwetJKeBxqAZYeNJI36uR3eDe/+0EiBv3/rAaQ7rpoPAWshTQAwWxhk/RoEIE
-         evBtTFQwPVEU2xA8l8O+AKgkE+Df+p4rinXzly5619U8IkMySa3B8+XOQr9uumcTZVPO
-         FXJCja9nSqWDzDw8NPclPpk6CiJ0S3LpTyBuMKQquXYAb1daszWgBeUzoemBYYm8K9Vu
-         Ron9HnTBuYJQ4BsariTIMNydsLlDn1CFwFpZfW5KVff84L5I2++YdtcIcnQ7zLyd47cb
-         QHcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795423694; x=1796028494;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZIoXELwpYh1o5DnGcjLjeH54OjVLR8OUMZ7+fanJt4Q=;
-        b=bhofqpJnwlsEh2bpPOG5SUDJF2oweKRxYVpSPeKfmpuLqc2kqeI1vM47ISG/qu3mnQ
-         ZbpOoxKY40ooOwZd+Aa0cywjx9QeehogiJ6Tjk5SOxS/gmmIij5as4cPmdekG3xf7E71
-         F2/99MuIPu3OlvqE6PfSWSG/g/x0SSL/7E0AJnPxOe8paDgYnk8dkFoTrJnO+lDKvW9R
-         pKO0OhP5KDh1SxyCJqaFxqGD8ZCTuu9px/L2vnfwJ9gTRdsuXCZtyzl3t1HeP4bHr7VH
-         PO8BGYuOfC8IUln82ZtUxGjkjAp/CU3ktc9bpaD+jPh89ai/Q2FgazIj51hzEqBVC0Pt
-         Ojzg==
-X-Forwarded-Encrypted: i=1; AL+hErEoZByYXC+mEd8F3rpGt4Y04wXYHig0zyDUp20RkrCQS09Ls4Jl1BdwGcRL/502xB04MQXp9NnDEu/Bgfc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8WRy3Ol4/Y9QnYrGoVutVcQ+eYr96NiBa4bfG+1ZjrWqRh075p
-	QTAVz9TTLg6naM4gSO/NtHdSBZyRk3CJqnclYWxkt91m+rVuEM+w524Hy2oJ4Ej3/GRH78k0wXC
-	CMge9EDWBkRYqRDlGtCSD/slx9d2xR//GfpqHtXmauDTY9Ku5TWnXgJXcFqgcJqfMBA==
-X-Gm-Gg: AZFdTZdtG+8L1UGKZ+ftp1Jotz9eq7/hzMSTwYfkJv1Z0hEybVE26rJ/72fCtkuH5wR
-	Bi1cwV0p2PPD2hfKO3x6HqYCcPH28CGeRPQ0EW0sXqlKthAdgtypcuWTNBOmIrMXF8D0BZPTkLW
-	u64EqKHIqkxQx6Kuudy8XWqqNo6gDga/cjWlnswXZdaKTlnBVPw/rL8N9+uP731j88lH2l4DzEU
-	bADsM4MCzahQAJ3g/ky1+3B3EcLuihFLJX1fLLT3yo5LacgbvPmvP0UQuSuF3drG3nUK3UkpcE8
-	S8NqrGy4G2gFGnI+Wpglq8PcvPtkcKBZ6Wp+6llKmdVycu+GP8jidwqIS5RTjM/OYXagctetRn0
-	341fVxDydLU+s4vMRKIhj5qn2dBPjSBVrFtd8vHHVIf4H2jwTYcozacXPHXoAxt+fKiBztTH9Um
-	Evn438fyZ07Qz+oUWtFsRPO6zYiPFaIgsWyNryQhA=
-X-Received: by 2002:a05:600c:64c6:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4bb887c2c98mr206908945e9.4.1795423693852;
-        Mon, 23 Nov 2026 00:48:13 -0800 (PST)
-X-Received: by 2002:a05:600c:64c6:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4bb887c2c98mr206908455e9.4.1795423693410;
-        Mon, 23 Nov 2026 00:48:13 -0800 (PST)
-Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906d6a13sm155883195e9.3.2026.11.23.00.48.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 00:48:12 -0800 (PST)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Maxime Ripard <mripard@kernel.org>, Ville =?utf-8?B?U3lyasOkbMOk?=
- <ville.syrjala@linux.intel.com>
-Cc: Mario Limonciello <mario.limonciello@amd.com>, Alex Deucher
- <alexander.deucher@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>, Leo Li
- <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, Mario
- Limonciello <superm1@kernel.org>, Xaver Hugl <xaver.hugl@gmail.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org
-Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
-In-Reply-To: <awP0nasqAc4pAeMR@houat>
-References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
- <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
- <awB4Qe83u0l0XPKA@intel.com>
- <8713bae1-9782-41d4-b09c-f14031203e88@amd.com> <awPvoLCDeq1YFLE_@houat>
- <awPzsMWZ7e0i6i54@intel.com> <awP0nasqAc4pAeMR@houat>
-Date: Mon, 23 Nov 2026 09:48:11 +0100
-Message-ID: <xlv14id8rl10.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=INBsweF+
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HsQOHhiIQssGNQK/v6NRhGoNxsUYbNtovNGEPYXjxxZXb/boaF0Ejvx/ubMJeezYGSpi3cZ/mA1h9sDEardzLQT6v2yzg3bTw+EJ1XSGlVrQztgbTx2XTfs0eP1dRiR3Qkf4UKaOk19aLNVqjCvG43p6wbHYZkD4GkEvjeXj7JJ6HzY1n7DB7mz2g9JbtFJ3KQj9w8TNiGoS9ANmDR8pz3nebGCy9nbL5gGLuJRnQaylTJ2LZTz/FrLcsjoqumRRRNoMUJ2L/Zb2gHRrLAr6tgvBcvnYO6Q3Kh/NaZMPKKo5sdGByZy6NwZtincUzKcuvZURJyHkmXCMwEV3dFZn8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pp6HdMEH1gMxSpJq8g6sD6eJNtHXoCNpIkAG2W+zxRU=;
+ b=lCJt/16DL9jdxL0oMlH5ScnAdeU8uIIc1UQEhKGAIC4sCU0rxg6I92IZbuUiJFl4SkOF8TyVcvtGG5I5/jqPY3YLz69IoGZiD+OrjtQJFAMoKSXJ8dJtvVLpAkMoExhoXy71cYHLdm0O6mezmaQylxyAgAB3deljoC3Gt3vKtsDL5fPyFGra20oGdiN7qal1CZnYkNqkz5TOuVLA+2c4i0FFC0ge9vjh2FZtnwtn3TDugqS1TtNqfuULfOlUA88S3jmixCtXQMtJpS2ARfG92H6TWLAqLakSB/BYJDimWrsOcpV3TdxqemH2En1//rfoOfrg2y/meKcs8S40hi99JQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pp6HdMEH1gMxSpJq8g6sD6eJNtHXoCNpIkAG2W+zxRU=;
+ b=INBsweF+8121XdRKH2J96zGlEmrw1X+2Oom3U90/mcSvPoUffAoo4V/2fmFjYApcrVb4kO9X+voDAQiVnjpcf1GqXfj0RALz19imxfFB7qR6hGv/jfu3W4tecMMH4jLKW6ngLInUhxbZrBjZtG+LPr+qZ1DhCNDv8CJRFTzUByo=
+Received: from BN0PR08CA0017.namprd08.prod.outlook.com (2603:10b6:408:142::24)
+ by DS1PR12MB999190.namprd12.prod.outlook.com (2603:10b6:8:495::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 08:48:17 +0000
+Received: from BN7PEPF000000A2.namprd04.prod.outlook.com
+ (2603:10b6:408:142:cafe::d) by BN0PR08CA0017.outlook.office365.com
+ (2603:10b6:408:142::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 08:48:17 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN7PEPF000000A2.mail.protection.outlook.com (10.167.248.154) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 08:48:17 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 02:48:17 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
+ 2026 02:48:17 -0600
+Received: from localhost.amd.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Mon, 23 Nov 2026 02:48:15 -0600
+From: Baorui.Liu <baorliu@amd.com>
+To: "Rafael J . Wysocki" <rafael@kernel.org>
+CC: Len Brown <lenb@kernel.org>, Robert Moore <robert.moore@intel.com>,
+	<linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<acpica-devel@lists.linuxfoundation.org>, kernel test robot <lkp@intel.com>,
+	Baorui.Liu <baorliu@amd.com>
+Subject: [PATCH v9] ACPI: button: Report wakeup key only for power button wakeups
+Date: Mon, 23 Nov 2026 16:48:09 +0800
+Message-ID: <20261123084809.428-1-baorliu@amd.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -130,88 +113,379 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF000000A2:EE_|DS1PR12MB999190:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f11fdd5-3ced-40ca-2f97-08df493e84f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021123027099003|261021121427099003|261102123227099003|261102130727099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|6133799003|13003099007;
+X-Microsoft-Antispam-Message-Info:
+	N6DYtPkvwIcyFKjkm6v80UNi/TZwGgq2bZMD8e9T86kVUUFJV5kjXDJqJ1qw6wM/lSUwfD43HIw48FkKenoQXtLX5ql0QvAYQx19OAqIwNzEvxVcywTlaeVk4UKAILSu4SSOFjxUVGH967+fbW2tWDemfmVPwsPf6QHA4mP7YP/LHS5QzT1AktLGXu1QVDE8hMdiyr67i2p5pNcPio1fEOxZUXEoiTNYtl06BPIz/iv2VCueezYjcf+zOi7xyyT/0S+6saKOV6tay65BKumH1wu5T0wD68ppEehswWW8yGoIJtKfhCRtqdm1tsZZ4WAt5nEWFYE6ktWXS30tLrgowap9P3XFqoZy95wT4aFlBmcPSd6AunOanxLJ68zz60BO4brvSNYJvzMedHIdAaVX+TS+lezKsd9xQWcaactsBCykrBUe4Mjqg43AkgDTo+D5Gjw2I4HDvuGYFYwYEhcg5VejXTGETC1dOAN/fUY+K5IyBxd1JXrScJY9Io1i0lkcIFcTjWHIvLa0p9xaGm6+S2FF1BSo9I26giQz2bnPX9oEFrC7s+/JEQQ4DWUkzzIdZAuTwMu0HkM41Mw1vJ9wQhoEicm+yvldbKgbFKBxCesPmmZ+tcb5oMKQN17X2I0P+eHyWgl8hogdDDdDRuPMSw==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021123027099003)(261021121427099003)(261102123227099003)(261102130727099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	t8TfUej/lvDT1u9chZOrBc2Z2Xzcp2l9/1t8C/mJXogPDG3k0ZCoHMwBxULjnb34BXATyTtPcwE2HfstnKkfV/koLoU3dJxBRCxPOczeHSzwyWADYRpKmXt5ZB0FatCH6Jp2G24DisIfUglDitK5H6nyV4Uj18tG0X6yWuuMw/dPudvgzcs0zum+0HG0krEGJv57Yk+QLOmKZ6CLaDXmPGvVsQWNvb6aLsEDJA7oKEi9gcWVUwrxrm7W6f4yNshT6GaIRHcSnhm9/2d8djTeCwGo8mHB78FCMstLR78FbLSpllzg3ewGVtoYdNfScEke1JhievEJastQqReMBUGoo5ymod4q4Z/LB4eeWcf5MLQrp2v0amzMHWU9q6U499F2IQ3HyyQoUr4N9viuk7CArmccDHLEC6LXHTYZwcyVJpzOzf0vdesu5bUUYi/6nrMK
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:48:17.7001
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f11fdd5-3ced-40ca-2f97-08df493e84f6
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN7PEPF000000A2.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS1PR12MB999190
 
-Maxime Ripard <mripard@kernel.org> writes:
+The ACPI button driver reports KEY_WAKEUP from the Power Button input
+device to let userspace know that the system was resumed by a power
+button wakeup.
 
-> On Mon, Nov 23, 2026 at 10:05:04AM +0200, Ville Syrj=C3=A4l=C3=A4 wrote:
->> On Mon, Nov 23, 2026 at 08:50:29AM +0100, Maxime Ripard wrote:
->> > On Fri, Nov 20, 2026 at 11:19:13AM -0600, Mario Limonciello wrote:
->> > >=20
->> > >=20
->> > > On 11/20/26 10:41, Ville Syrj=C3=A4l=C3=A4 wrote:
->> > > > On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello wrote:
+However, reporting KEY_WAKEUP from generic system resume paths can make
+userspace observe a Power Button wakeup even when the system was resumed
+by a different wake source.
 
-[...]
+This is reproducible on an AMD Android 15 Xen guest. With a kernel
+without this fix, a non-power-button S3 resume:
 
->> > > > > +config DRM_LUMINANCE
->> > > > > +	bool "DRM connector luminance support"
->> > > > > +	help
->> > > > > +	  Expose relative luminance as an atomic DRM connector propert=
-y. Values
->> > > > > +	  are driver-defined levels rather than absolute luminance in =
-cd/m^2.
->> > > > > +	  Drivers provide connector helper callbacks to program their =
-hardware;
->> > > > > +	  the DRM core does not depend on a particular backend.
->> > > > > +
->> > > > > +	  Drivers migrated to this interface will use it instead of re=
-gistering
->> > > > > +	  a legacy backlight class device. Leave this disabled to pres=
-erve the
->> > > > > +	  de-facto userspace ABI in /sys/class/backlight.
->> > > >=20
->> > > > I don't think this will fly if it breaks the backlight class inter=
-face.
->> > > > No one can actually enable this outside of some niche embedded use
->> > > > cases where backwards compatibility is not an issue. I think what
->> > > > you need is a generic backlight class implementation on top of thi=
-s.
->> > > >=20
->> > >=20
->> > > The idea with this was:
->> > > 1) to get the series landed
->> > > 2) let compositors merge solutions around it.
->> > > 3) Then add backwards compatibility to kernel so we can flip the Kco=
-nfig
->> > > default.
->> >=20
->> > I said this a few times already, but we keep having those discussions
->> > while the backlight sysfs handling is far from being the main point. Y=
-ou
->> > should *really* consider adding support for the luminance property for
->> > something that isn't tied to that interface (like DDC/CI for HDMI), and
->> > treat the sysfs API as a sysfs series.
->> >=20
->> > It looks like people just have conflicting opinions on this particular
->> > part that isn't going to solve itself easily. You should not treat this
->> > sysfs discussion as a blocker for the infrastructure work.
->>=20
->> You want to be sure backwards compatibility with the backlight
->> class is a solvable problem before you land *anything*. Otherwise
->> you might just paint yourself into a corner with no way out.
->
-> I disagree. The luminance property is more useful than *just* for
-> backlights but is also useful for HDMI, DP, and MIPI-DSI that would all
-> use it.
->
-> If that's the corner we paint ourselves into, it's still a pretty nice
-> corner.
->
+  echo mem > /sys/power/state
+  xl trigger android s3resume
 
-I agree with Maxime. Drivers can choose to not expose the luminance property
-until the sysfs backward compatiblity is sorted. But this shouldn't block t=
-he
-core infrastructure to land, given that's useful for other drivers/use case=
-s.
+makes the Power Button input device report KEY_WAKEUP. The same test on
+a kernel with this fix no longer reports KEY_WAKEUP from the Power Button
+input device.
 
-> Maxime
+Track whether a power button event/notify is observed while the ACPI
+button device is suspended, and report KEY_WAKEUP on resume only in that
+case.
 
---=20
-Best regards,
+When the fixed power-button status bit is set during early S3 resume,
+clear it to avoid a deferred KEY_POWER delivery to userspace, and set a
+sleep.c-owned flag so button resume can still report KEY_WAKEUP. Do not
+call into the button driver from that IRQ-disabled path. Only the fixed
+power button (ACPI_BUS_TYPE_POWER_BUTTON) consumes that flag. Sample the
+button driver's wakeup_pending separately and call the helper even when
+wakeup_pending is already set, so a short-circuit does not leave the flag
+set.
 
-Javier Martinez Canillas
-Core Platforms
-Red Hat
+Order the suspended and wakeup_pending updates with SMP barriers. Clear
+wakeup_pending before setting suspended, and publish suspended == false
+with a release store before dropping a wakeup_pending that arrived in
+between. Sample suspended once in the notify path so the handler cannot
+emit both KEY_WAKEUP and KEY_POWER for one event. Drain ACPI notify work
+before sampling on resume.
+
+Fixes: 16f70feaabe9 ("ACPI: button: trigger wakeup key events")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/r/202609290454.LJrhMCb3-lkp@intel.com/
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202611030112.cVsBZFFE-lkp@intel.com/
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202611030545.3st9p1ha-lkp@intel.com/
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202611100542.1xljQv20-lkp@intel.com/
+Signed-off-by: Baorui.Liu <baorliu@amd.com>
+---
+Changes since v8:
+- Consume acpi_sleep_pwr_btn_wakeup_pending() before combining it with
+  wakeup_pending, and only from the fixed power button, so the sleep.c
+  flag cannot stay set or be taken by a control-method power button.
+- Pair suspended and wakeup_pending with smp_load_acquire,
+  smp_store_release, smp_wmb, and smp_mb. Sample suspended once in
+  acpi_button_notify.
+- Add Fixes: 16f70feaabe9 ("ACPI: button: trigger wakeup key events")
+  and keep the version changelog below ---.
+
+Changes since v7:
+- Guard acpi_sleep_pwr_btn_wakeup_pending() with CONFIG_ACPI_SLEEP,
+  matching its definition in sleep.c, so button resume does not link
+  against a missing symbol when CONFIG_PM_SLEEP=y and CONFIG_ACPI_SLEEP
+  is unset (0day/LKP ERROR on x86_64 randconfig).
+
+Changes since v6:
+- Include <linux/types.h> in include/acpi/button.h so the bool
+  declaration/stub of acpi_sleep_pwr_btn_wakeup_pending() builds when
+  the header is included without prior bool typedefs (0day/LKP ERROR
+  via nouveau_connector.c on parisc64-defconfig and arm64-randconfig).
+---
+ drivers/acpi/button.c | 83 ++++++++++++++++++++++++++++++++++++++-----
+ drivers/acpi/sleep.c  | 47 ++++++++++++++++--------
+ include/acpi/button.h | 19 ++++++++++
+ 3 files changed, 126 insertions(+), 23 deletions(-)
+
+diff --git a/drivers/acpi/button.c b/drivers/acpi/button.c
+index c41fba556030..088d8e80c8b7 100644
+--- a/drivers/acpi/button.c
++++ b/drivers/acpi/button.c
+@@ -17,6 +17,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/input.h>
+ #include <linux/slab.h>
++#include <linux/spinlock.h>
+ #include <linux/acpi.h>
+ #include <linux/dmi.h>
+ #include <linux/platform_device.h>
+@@ -203,6 +204,7 @@ struct acpi_button {
+ 	bool last_state;
+ 	ktime_t last_time;
+ 	bool suspended;
++	bool wakeup_pending;
+ 	bool lid_state_initialized;
+ 	bool gpe_enabled;
+ };
+@@ -474,6 +476,7 @@ static void acpi_button_notify(acpi_handle handle, u32 event, void *data)
+ 	struct acpi_device *device = button->adev;
+ 	struct input_dev *input;
+ 	int keycode;
++	bool suspended;
+ 
+ 	switch (event) {
+ 	case ACPI_BUTTON_NOTIFY_STATUS:
+@@ -488,7 +491,16 @@ static void acpi_button_notify(acpi_handle handle, u32 event, void *data)
+ 
+ 	acpi_pm_wakeup_event(button->dev);
+ 
+-	if (button->suspended || event == ACPI_BUTTON_NOTIFY_WAKE)
++	/*
++	 * Sample suspended once. Two separate READ_ONCE() calls can observe
++	 * different values if resume runs on another CPU, and then this path
++	 * either drops the event or emits both KEY_WAKEUP and KEY_POWER.
++	 */
++	suspended = smp_load_acquire(&button->suspended);
++	if (button->type == ACPI_BUTTON_TYPE_POWER && suspended)
++		smp_store_release(&button->wakeup_pending, true);
++
++	if (suspended || event == ACPI_BUTTON_NOTIFY_WAKE)
+ 		return;
+ 
+ 	input = button->input;
+@@ -510,6 +522,12 @@ static void acpi_button_notify_run(void *data)
+ 
+ static u32 acpi_button_event(void *data)
+ {
++	struct acpi_button *button = data;
++
++	if (button->type == ACPI_BUTTON_TYPE_POWER &&
++	    smp_load_acquire(&button->suspended))
++		smp_store_release(&button->wakeup_pending, true);
++
+ 	acpi_os_execute(OSL_NOTIFY_HANDLER, acpi_button_notify_run, data);
+ 	return ACPI_INTERRUPT_HANDLED;
+ }
+@@ -519,7 +537,15 @@ static int acpi_button_suspend(struct device *dev)
+ {
+ 	struct acpi_button *button = dev_get_drvdata(dev);
+ 
+-	button->suspended = true;
++	/*
++	 * Clear wakeup_pending before marking suspended. Otherwise a power
++	 * button SCI between the two stores could set wakeup_pending and then
++	 * be overwritten here, losing a real wakeup. smp_wmb() makes that
++	 * order visible to the SCI and notify handlers on other CPUs.
++	 */
++	WRITE_ONCE(button->wakeup_pending, false);
++	smp_wmb();
++	WRITE_ONCE(button->suspended, true);
+ 	return 0;
+ }
+ 
+@@ -528,20 +554,61 @@ static int acpi_button_resume(struct device *dev)
+ 	struct acpi_button *button = dev_get_drvdata(dev);
+ 	struct input_dev *input;
+ 
+-	button->suspended = false;
+-	if (button->type == ACPI_BUTTON_TYPE_LID) {
+-		button->last_state = !!acpi_lid_evaluate_state(ACPI_HANDLE(dev));
+-		button->last_time = ktime_get();
+-		acpi_lid_initialize_state(button);
+-	}
++	/*
++	 * Drain notify work queued while suspended so a late power-button
++	 * notify still observes suspended == true, sets wakeup_pending, and
++	 * does not synthesize KEY_POWER for userspace.
++	 */
++	acpi_os_wait_events_complete();
+ 
++	/*
++	 * Consume the fixed-button flag before combining it with
++	 * wakeup_pending. A short-circuit || would skip
++	 * acpi_sleep_pwr_btn_wakeup_pending() when wakeup_pending is already
++	 * true and leave the flag set for a later non-button resume. Only the
++	 * fixed power button owns that flag.
++	 *
++	 * Publish suspended == false with a release store, then sample
++	 * wakeup_pending again. A press that arrived after the first sample
++	 * still observed suspended == true and must be reported as KEY_WAKEUP
++	 * before the flag is cleared.
++	 */
+ 	if (button->type == ACPI_BUTTON_TYPE_POWER) {
++		bool from_button = READ_ONCE(button->wakeup_pending);
++		bool from_fixed = false;
++
++		if (button->adev->device_type == ACPI_BUS_TYPE_POWER_BUTTON)
++			from_fixed = acpi_sleep_pwr_btn_wakeup_pending();
++
++		if (from_button || from_fixed) {
++			input = button->input;
++			input_report_key(input, KEY_WAKEUP, 1);
++			input_sync(input);
++			input_report_key(input, KEY_WAKEUP, 0);
++			input_sync(input);
++		}
++		/* Drop the sample already reported, before publishing resume. */
++		WRITE_ONCE(button->wakeup_pending, false);
++	}
++
++	smp_store_release(&button->suspended, false);
++	smp_mb();
++	if (button->type == ACPI_BUTTON_TYPE_POWER &&
++	    smp_load_acquire(&button->wakeup_pending)) {
+ 		input = button->input;
+ 		input_report_key(input, KEY_WAKEUP, 1);
+ 		input_sync(input);
+ 		input_report_key(input, KEY_WAKEUP, 0);
+ 		input_sync(input);
++		WRITE_ONCE(button->wakeup_pending, false);
+ 	}
++
++	if (button->type == ACPI_BUTTON_TYPE_LID) {
++		button->last_state = !!acpi_lid_evaluate_state(ACPI_HANDLE(dev));
++		button->last_time = ktime_get();
++		acpi_lid_initialize_state(button);
++	}
++
+ 	return 0;
+ }
+ #endif
+diff --git a/drivers/acpi/sleep.c b/drivers/acpi/sleep.c
+index 7c1fb5b844be..a17318a7a3d6 100644
+--- a/drivers/acpi/sleep.c
++++ b/drivers/acpi/sleep.c
+@@ -22,6 +22,7 @@
+ #include <linux/syscore_ops.h>
+ #include <asm/io.h>
+ #include <trace/events/power.h>
++#include <acpi/button.h>
+ 
+ #include "internal.h"
+ #include "sleep.h"
+@@ -105,6 +106,23 @@ u32 acpi_target_system_state(void)
+ EXPORT_SYMBOL_GPL(acpi_target_system_state);
+ 
+ static bool pwr_btn_event_pending;
++static bool pwr_btn_wakeup_pending;
++
++/**
++ * acpi_sleep_pwr_btn_wakeup_pending - Consume fixed power-button wake hint.
++ *
++ * Returns true once if acpi_suspend_enter() observed and cleared the fixed
++ * power-button status bit during early S3 resume. Used by the button driver
++ * to report KEY_WAKEUP without sleeping in that IRQ-disabled path.
++ */
++bool acpi_sleep_pwr_btn_wakeup_pending(void)
++{
++	bool pending = READ_ONCE(pwr_btn_wakeup_pending);
++
++	WRITE_ONCE(pwr_btn_wakeup_pending, false);
++	return pending;
++}
++EXPORT_SYMBOL_GPL(acpi_sleep_pwr_btn_wakeup_pending);
+ 
+ /*
+  * The ACPI specification wants us to save NVS memory regions during hibernation
+@@ -504,12 +522,12 @@ static void acpi_pm_finish(void)
+ 
+ 	acpi_resume_power_resources();
+ 
+-	/* If we were woken with the fixed power button, provide a small
+-	 * hint to userspace in the form of a wakeup event on the fixed power
+-	 * button device (if it can be found).
+-	 *
+-	 * We delay the event generation til now, as the PM layer requires
+-	 * timekeeping to be running before we generate events. */
++	/*
++	 * If woken by the fixed power button, provide a wakeup event on that
++	 * device. KEY_WAKEUP input reporting is handled by the button driver
++	 * via acpi_sleep_pwr_btn_wakeup_pending() / wakeup_pending; do not
++	 * synthesize KEY_POWER here.
++	 */
+ 	if (!pwr_btn_event_pending)
+ 		return;
+ 
+@@ -625,14 +643,13 @@ static int acpi_suspend_enter(suspend_state_t pm_state)
+ 	/* Reprogram control registers */
+ 	acpi_leave_sleep_state_prep(acpi_state);
+ 
+-	/* ACPI 3.0 specs (P62) says that it's the responsibility
+-	 * of the OSPM to clear the status bit [ implying that the
+-	 * POWER_BUTTON event should not reach userspace ]
+-	 *
+-	 * However, we do generate a small hint for userspace in the form of
+-	 * a wakeup event. We flag this condition for now and generate the
+-	 * event later, as we're currently too early in resume to be able to
+-	 * generate wakeup events.
++	/*
++	 * ACPI 3.0 (P62): OSPM should clear the fixed power-button status bit
++	 * so the event does not reach userspace as KEY_POWER. Only set plain
++	 * flags here: this path runs with IRQs disabled, so do not call into
++	 * the button driver (it may take sleeping locks). Button resume later
++	 * consumes pwr_btn_wakeup_pending for KEY_WAKEUP; acpi_pm_finish()
++	 * uses pwr_btn_event_pending for the PM wakeup event.
+ 	 */
+ 	if (ACPI_SUCCESS(status) && (acpi_state == ACPI_STATE_S3)) {
+ 		acpi_event_status pwr_btn_status = ACPI_EVENT_FLAG_DISABLED;
+@@ -641,8 +658,8 @@ static int acpi_suspend_enter(suspend_state_t pm_state)
+ 
+ 		if (pwr_btn_status & ACPI_EVENT_FLAG_STATUS_SET) {
+ 			acpi_clear_event(ACPI_EVENT_POWER_BUTTON);
+-			/* Flag for later */
+ 			pwr_btn_event_pending = true;
++			WRITE_ONCE(pwr_btn_wakeup_pending, true);
+ 		}
+ 	}
+ 
+diff --git a/include/acpi/button.h b/include/acpi/button.h
+index af2fce5d2ee3..83f5dd373f39 100644
+--- a/include/acpi/button.h
++++ b/include/acpi/button.h
+@@ -2,6 +2,8 @@
+ #ifndef ACPI_BUTTON_H
+ #define ACPI_BUTTON_H
+ 
++#include <linux/types.h> /* for bool */
++
+ #define ACPI_BUTTON_HID_POWER	"PNP0C0C"
+ #define ACPI_BUTTON_HID_LID	"PNP0C0D"
+ #define ACPI_BUTTON_HID_SLEEP	"PNP0C0E"
+@@ -15,4 +17,21 @@ static inline int acpi_lid_open(void)
+ }
+ #endif /* IS_ENABLED(CONFIG_ACPI_BUTTON) */
+ 
++/*
++ * Set in acpi_suspend_enter() when the fixed power-button status bit is
++ * observed (IRQ-disabled context). Consumed by the button driver on resume
++ * so KEY_WAKEUP can be reported without calling into the button driver from
++ * that early path. Defined in sleep.c under CONFIG_ACPI_SLEEP. CONFIG_PM_SLEEP
++ * can be enabled without CONFIG_ACPI_SLEEP, so the stub keeps button.o
++ * linkable in that case. Safe when CONFIG_ACPI_BUTTON=m.
++ */
++#if IS_ENABLED(CONFIG_ACPI_SLEEP)
++bool acpi_sleep_pwr_btn_wakeup_pending(void);
++#else
++static inline bool acpi_sleep_pwr_btn_wakeup_pending(void)
++{
++	return false;
++}
++#endif
++
+ #endif /* ACPI_BUTTON_H */
+
+base-commit: 0889fa4ceb57abcd36535bd17cfcadce893e6e13
+-- 
+2.34.1
 
