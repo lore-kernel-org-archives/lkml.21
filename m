@@ -1,111 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795447598;
-	b=CScDRajfQMGnYLOJZIusUAy5Y/LqgeyXu1g+UQg2fkfUDxV6VZ9FWt49fVXvte+JGNWX
-	 Y3G6WFYdrQ6AqW+0wGJ71SvDZJhN6Lic9a6RyqeE6f/XwvbjO5QiBKMW2P3Tfbi190jsY
-	 bKwjRUopdrwni7U+StoKfdt+EtFuFu+3FMg8GdZsp1lv+IK+71NtAkzbzdxhAVKujLIA6
-	 4Xr9wqTbY38jNGa0/P0KJEDVA1OXSfoNuHDqth9vFxaswnb6JxwVxFWosBy9tKkIU3+DE
-	 ivBnHbQlcj/bqMo2/0jIZuZ8hkJdUqdetW6xuGV4dh5lxZfTojlbUcUlnyOpotlBa/g==
+	t=1795447615;
+	b=wIxmwTdoJNPen4j6wVQY/H7hmXil01GKxbDtKS/CWq19AzDPo1SlhywcjCd9lfhGnltU
+	 H9exdCW+2gXRSlTzwGhHp3vfMQSfKZ9YAnGnJLJjr9UyK1UEceguA2ggYoss9l3bYWp21
+	 Eus/oF+1FBgFV47/olFd0HbzZ6q5AsnlgOPcMORdg+hzXSf8answm4+MT4TAfHerxjNLt
+	 tiuFJJ4ulwmwojMu1Y+sEQ3MlcKWXDJUVGSZnV3sNinB/gr4UAuXqLagbw80DjN9okwPZ
+	 CUK8DRvMqUW8ZrThyYi/6/0ZwZeb4dp99MmEX8R5DVgw3N42AapvD7vjoeNy9vPIqNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795447598;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=;
-	b=wfpxD680sYnz7mLLfSvQn5yL3qPdocThbTARuYKMY6qq7w6dXneQQFfzexPD3OmEcUII
-	 sZ3ZG06GPTVBB3Fo1eJ7ZaE/9fKdyToMaJdCVXissget/UW7Yfc7tgmIIEDBP0X0Zz0N/
-	 C9p7WpHgNvuDjXDNguLv5J8N0odx5v1QOyombDtp66DZN1zmVpVKXyJvcL3RIZRgTq+Zw
-	 RLsbB5AidefED7GbFz7y3uZk2jcACQBa9y/gziGfIMO2qkln/1GDyHzRcRTYYqVJYMsV9
-	 5NYgFIAg8wmp3x/nTuPq0xYdI6t8VxIuU3jaPiwep7RVw+t4qRcnkGnkLx/IoYK06cw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795447615;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=uQJJzGiJFbu5GqtKUpKzK6SjWyz/RV7/Tzi0AWNe2OQ=;
+	b=Rp5KVoemfFsbr8M2+3RTz0eeJn8ZdYsa8E8XGXFH4jMSAaux19b62bbshG2PXthS1WUD
+	 zKW8LvW53e5HW8vECbpCVf584BHaUedvC5P5D6sk673OkzcVT1vdZjFPvG5jWo9n6cAPy
+	 xZC2TY1D1YDpjdQZA00TSg/1pQXRNx6UJWNtxVeKCAnwZglPb74RqVKHN/nRqMHrqxT31
+	 TUhAw6mUstR5tjHrO8bRs/Ls1jPD+vg1K5UnwzxFK9rugjQtSaqAx3ciQBJpUgHU2c4ZP
+	 i3Qmtw1oKlZ1MuMmCi+ZxoB74PR6OS9xSeTj3mqZfZxs8poVdTLDz6wHjuRn33xF3Mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dW4qkRhD;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V28LrlRp;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hdHS7SmF;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hF5hXOlS;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0EDF606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0EDF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05EFE606A31E
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05EFE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=dW4qkRhD;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V28LrlRp
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDL2OC3072544
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=; b=dW4qkRhD6imxWpO8
-	u5HFt+cbJ2A5mj1c1Ds7HXJFBiwHhG8/isQUmEVOmN7Q5yCgvPESuKphzSseuY4X
-	F9YEIBVBT1rILBMztZWXjiPF+1SnhEwm5opt4/mrlJNr0M6zeY/dB36oxtnRyUoM
-	tDMuRHv5ZaVAwy8If3ybdWC85Fbh0ZVD+q6ZeC2t2NuTIqYUGrLY3sdwXP2lBrbd
-	Z9w4j5qU5t1595g8SPztX96GWeNFLLPFKdg3McdjKgraKLdhZahNnueNV0togGOP
-	KfoZa9K1/Q+EdN7BO+S9pKid3qQllXMCtbsoH4td8IOMjY46VyK6qcXYVJWcNfBV
-	OubzFg==
-Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4hn7speq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 15:26:36 +0000 (GMT)
-Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5ee433ab272so94089e0c.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:26:36 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hdHS7SmF;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hF5hXOlS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795447612;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uQJJzGiJFbu5GqtKUpKzK6SjWyz/RV7/Tzi0AWNe2OQ=;
+	b=hdHS7SmFkhREzSUTzdLJbgkkn0FcyIxCbLJluVXfVbkPi+syLKvVJSLdTGvdc0sdrMYEIY
+	CULqV5E9I+UwLnIRUxvEN1Mki2XCvJro6fmCpwLFhVCauTMJxLUnA/fqS2Ec+DEpjkQo5r
+	HS4V2eWBIuvlf7QxcOefQdZ13PCWWn4=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-673-zmeXU_NLMRqRvv2o29MHtw-1; Mon, 23 Nov 2026 15:26:51 +0000
+X-MC-Unique: zmeXU_NLMRqRvv2o29MHtw-1
+X-Mimecast-MFC-AGG-ID: zmeXU_NLMRqRvv2o29MHtw_1795447610
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-492b5408dedso1985707f8f.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:26:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795447595; x=1796052395; darn=vger.kernel.org;
+        d=redhat.com; s=google; t=1795447609; x=1796052409; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=;
-        b=V28LrlRpTMct+D7dJUYrxLp+GV9hljsC7Ycb/Y/2lV4SnqzeNTcg6agujnLiybBWd2
-         +D2gBxOFCN9ED11KMHk9/0QY4nn3OBua/8nRzDMb8cTthUiriTMfVEQgK79ZZgaWycaF
-         EMZUQSg7aeq21h7eeeQ7+NOfHYu/0otDFJhbd+hwdA8h0svBSqTZcRzy59mhDSGuT9E1
-         Jm1b94HBwAJ8fzlA3rmRMDUCePcBI+diNUgg0Y5VQrTk9I4RjtnjhLA2H5hkyQ5I9stT
-         sHDgK2RCEAVtVFQaMEkWU1vLzbFGL6wJiOueervUx8+sjMwq2qWApiEjtQ0w34UcgFSV
-         PW/w==
+        bh=uQJJzGiJFbu5GqtKUpKzK6SjWyz/RV7/Tzi0AWNe2OQ=;
+        b=hF5hXOlS/r53HlAUexTYyuZCe6q+EPACFaEn07MBUB3FUgImxS8OGvnUnFynC/+Kmw
+         MZwpliHGKotqh8eHVnyXGSBMvpE35CRKis60/xzUiJrRPjl+xWjq0CSYIVDxDxZxa7cP
+         oat3Or1LS4+AuREgizvIEhymggWOTvt20x6mfs33HhOcMhxRuQwNka3lJK6W8TzXwcYx
+         wxj5Nu8QCVDeWyO0FqPQ1bAUopPnKZWC2dfZ16uj1PTBXd31+AWF6H7lzBc7/5iSrJeY
+         UGUGDi9dHYLslbohZIGmcmJw48h8lxk2DswnbuPX/Qm6B15rO0SFUMi8UgzcOggKsDwJ
+         LvPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795447595; x=1796052395;
+        d=1e100.net; s=20260707; t=1795447609; x=1796052409;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=WuUxIXOTitidaH3hOzfbjH0n5miOrk3cJGjFf9YeLq4=;
-        b=JtXTmDek08HMQ520eYvqVlRUHRrVJmqDFPb4v0UOHuhsMXt+wHZ8r1sTa4e72BRQx0
-         rOQ5/2s5qTK9WlqVmFa9m5yhRDP5Ab+TnZ1j1cpjolS+w2TNpqJdp2w/hLpgeQe7yLJs
-         7WiGg8q9TjA649kEaKFwH7MgvI6ckfA4ED3KTkR1pU3CaRVdFLHd8+GPPk4DU6ZyYgTZ
-         /og9ELdjB56rvq+APxhTtedD9ycK5wBS7V29dsfbOSud4qpIIzlkNDcm6+hLWMJ8wIdr
-         Q8weQTblqPOqDNgMtFSg/fzZQ65fOy+NC+CPxjn7D5vK7oHSpy+3g1RIANT0W2gGruJV
-         Gklw==
-X-Forwarded-Encrypted: i=1; AL+hErHTGed7xHMDs1XMa78q5lzLMGeopAIz9uBN+XbFlbuF4P87iXTSSxP3n16JixsGHHonbSZV6BEDk5BUcCg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8gYit17Cnh0jjFarYBRVtJKciAMhj5/bXTny/NjFrCKQpQlmuo
-	zb8M2pC7IqUwMyd3N1lIsubjsUVYq7mXWovxkeXdCaMREnqPAfslfY5L41CkSo1VPhqGQYyVKTJ
-	rVg4vYIFHvXLes5qRuzwN/cHObf4AcQz88P6fbGvJti/cD5ykWZ3jzA7C4qezoCI0sfQ=
-X-Gm-Gg: AZFdTZfA52fztZYMqVIlALMqqOZRin9Mi+Crqwl4EYp91txwZzXAU3rArPKXEjS4zTC
-	ZpFnv6U1QzHDbYP5/yQklmd4zl6G1kDilBppW6QdcMLgHBN5olWoGCQJ/eOdUjAs9TALkkdb+4X
-	RWT0BENokpCsdIydiJKMwPMT04iG9LTBugFauWGUtyt9zSikkzjFNQV6WlwCm8akUs+srrdRjRI
-	IBdr7JhdBGhS8I7aSQOI9LZewTfpl7JcT68MjJeXu/kxIXd5Kn/wA3LjzLPgV4KsWGNQhVXrRaX
-	B/YfjIM/z/hqljezN3UeV1eFEjrJj3ORMqTJgRVUj4UC03qb/HQKbKPTDaEX+2/ClqrSCyDktJ+
-	68CsgOVFJo5ZUX3AyZW5P6L6lHsmf6CZ0Off7XJ1UD6TgxhWHpGOYJbpuJvJWYvlMP3+5O9M=
-X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr7291731e0c.4.1795447595301;
-        Mon, 23 Nov 2026 07:26:35 -0800 (PST)
-X-Received: by 2002:a05:6122:c20f:b0:5ec:b681:f4ca with SMTP id 71dfb90a1353d-5ee8afd6c93mr7291684e0c.4.1795447594833;
-        Mon, 23 Nov 2026 07:26:34 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe25asm420926666b.11.2026.11.23.07.26.32
+        bh=uQJJzGiJFbu5GqtKUpKzK6SjWyz/RV7/Tzi0AWNe2OQ=;
+        b=k13l97MlljyVLJP78LyG1MOxQesJUDdVupQ+fMjBun9W9xWTu6lXyDDVUBnr/nwJly
+         hYuLwoSzdgW5XbKpVY8yuPx9IeRYeSAz5V0tpvf2wMAVBI5Q+cJM1t+DepF1ITS48/Ag
+         atYC4eqXeNYeS4Y+25htU4iEXYe0GQ0MHdlF7Cv4TrXJisdJdV9qKydGnqfhmMvb7TpZ
+         qknpTtPA56x1e6V9VSuKIu7TAiChTxkawQxmrazbXrMG8F2MgKdnGmarL0hD87JbdNwK
+         /Nee7m57c12XQCOnkKiGUafMo3qaPsGyELBRUwfpzZ/kk1GAezXsrvtP0CkGHjZG4kUs
+         PEww==
+X-Forwarded-Encrypted: i=1; AL+hErEDwNKd3iYOdN6Bztl54DzDZyxBeDQMSevjFTiQW+rW+v91hQQs8Pmtq9yYd6kt69npVEx0grDwEJMCB/E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+551xkoHItdr5x2iS6BjyStcvUrDlbcwBJ0tcUTMVBACVIlXyx
+	HdkSlYgk7WOTxLRVKjqYsl6UFFBq48PSXtYTTQJ4BCEudV/s4isUlgCpr2rjMswFi5PaoSkYOTd
+	JRikR6TACheodrqYoX7JQaz9lS52AbYpYcmd3mmezc7KactJFGHSQB1nTU/59V52fdg==
+X-Gm-Gg: AZFdTZfkLP3IGp3VDpTBq2k/GxcI81qoQ9DM+lKwbAnG1H6KGVwhU7U0p1logtHPgHC
+	hmEevGvmmKPcXr1zL+y+sotsw7UJXZOMByY+kiqP4cdDtZHqwnBzV/VEiEynLbZpXZeIRfCFC+u
+	ImpQvJQ/SCq/PRcvChPvUAwI7fmOfARfEs4aHlz+s7NMU0fLRYj6biUqxakQOjzPQZCIITrUOKz
+	J1ISmEvyX9psfsXnwWB2fVMne/oCacDF/c2bXyzZNXcDF9ijaPrlsZLvn/PYaoI1x27bwiZg8L1
+	SAk9eUOD//HfrcmWxM66+kg/QwrbZYUVBbkCA+d1GlPyBaAIUdV5rvUBtvvr8ibzOcv6qdHJN+I
+	gtpRTZ3WGHMnuyNQ7GOrqcRd8S9HMaK24iQDccWqPz4fG1DjdTCtbMUCN0aPbhPHyA0PbWy9pCW
+	5TaboZ9vjivrcAo7+VjUngxdH4xZu1IMwHXcLVgtVG6dpn
+X-Received: by 2002:a05:600c:1547:b0:4a2:397:73f6 with SMTP id 5b1f17b1804b1-4bb8880974amr273241945e9.8.1795447609625;
+        Mon, 23 Nov 2026 07:26:49 -0800 (PST)
+X-Received: by 2002:a05:600c:1547:b0:4a2:397:73f6 with SMTP id 5b1f17b1804b1-4bb8880974amr273241195e9.8.1795447609102;
+        Mon, 23 Nov 2026 07:26:49 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm24250026f8f.11.2026.11.23.07.26.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 07:26:34 -0800 (PST)
-Message-ID: <8560f4a8-41e4-4f78-bd0f-3aabe731b79a@oss.qualcomm.com>
-Date: Mon, 23 Nov 2026 16:26:32 +0100
+        Mon, 23 Nov 2026 07:26:48 -0800 (PST)
+Message-ID: <781ac9ed-a6d5-4b6e-8598-36938e76c34a@redhat.com>
+Date: Mon, 23 Nov 2026 16:26:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,69 +113,41 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/qcom: Disable clocks if restoring the secure config
- fails
-To: shyckless@gmail.com, joro@8bytes.org, will@kernel.org,
-        robin.clark@oss.qualcomm.com
-Cc: iommu@lists.linux.dev, robin.murphy@arm.com, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261122-qcom-iommu-v1-1-ecb20a28871f@gmail.com>
+Subject: Re: [PATCH net] net: openvswitch: don't WARN on a non-IP packet that
+ needs fragmenting
+To: Kyuwon Cho <kyuwoncho18@gmail.com>, Aaron Conole <aconole@redhat.com>
+Cc: Eelco Chaudron <echaudro@redhat.com>, Ilya Maximets <i.maximets@ovn.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
+ netdev@vger.kernel.org, dev@openvswitch.org, linux-kernel@vger.kernel.org
+References: <179492834266.3639154.14679778183890331729@gmail.com>
+ <f7to6bmjayg.fsf@aconole-thinkpadt14gen4.rmtusnh.csb>
+ <179502509517.2983267.1652158471891914135@gmail.com>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261122-qcom-iommu-v1-1-ecb20a28871f@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <179502509517.2983267.1652158471891914135@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=Ls0HWXdc c=1 sm=1 tr=0 ts=6b045b2c cx=c_pps
- a=wuOIiItHwq1biOnFUQQHKA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=_2H1bLmklXDtjbdw0hQA:9 a=QEXdDO2ut3YA:10
- a=ZXulRonScM0A:10 a=XD7yVLdPMpWraOa8Un9W:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA2MSBTYWx0ZWRfX1t8PxOGf5vyi
- J4SP5f/IyYGG/628/dhxA9gMn48ex+VOqikSZxP+2xqSfaSBSDLggP79GskIBdKAKreu9a13PJB
- IvAClC4KofDDJSDjfOgrAe+TAtOg5RCTAGk9NnN8dx53pU0dwkzcBUwh3OpVlYro/ZOE44w4xpg
- nLTwta8SQE4/4BjiGRfG5AKr6fq8CslKHGnflWYdKX4e6j/7dC0iP1k5/io7MjbOSedMfU4hgG/
- Di8a3j4/03UhoudmL59A4ZwGzwwQJxQwBojgTId+oud1JBOsVfbcANRxthpGwCnE72hbXRjFcfw
- lKj/MOaJfu1NxbiuN2mYFZVjW62bpGF9RFn++DPop4NOBTmBflOj5BavcHW4w1elfTTQI6y9Lfg
- kcjGyocttEnSvRjQKUttEJzTEz/yaok0SzcVNkZ/nwU9mkaM59ER3sNyzdhgnfqT1XzZt/ACZAK
- p+aB/hqbkbzHISlwjIw==
-X-Proofpoint-GUID: BfmAwJB7YkM5kn53F1S4wC8oPwIRmQjm
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA2MSBTYWx0ZWRfX+2FUc0/DuaCb
- GaiJ6+ffFQ24BTOVGLguMgDU1qfacGH36y71e5WSqbsQCj6s47TJ+eJfod7X6m++s0pyghXmQjW
- +5RDiOyLUfTFVTl1j7gVbP0E+4gO3WU=
-X-Proofpoint-ORIG-GUID: BfmAwJB7YkM5kn53F1S4wC8oPwIRmQjm
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230061
 
-On 11/22/26 11:11 AM, Suyuan Wang via B4 Relay wrote:
-> From: Suyuan Wang <stevewong@hust.edu.cn>
+On 11/18/26 19:06, Kyuwon Cho wrote:
+> ovs_fragment() only handles IPv4 and IPv6 and drops any other packet
+> with a WARN_ONCE(). Since OVS_PACKET_CMD_EXECUTE takes the MRU from
+> userspace, any ethertype can get there, e.g. an MPLS packet executed by
+> an unprivileged user in its own user and network namespace:
 > 
-> qcom_iommu_resume() enables the clocks and then, for an IOMMU with a
-> power domain, calls qcom_scm_restore_sec_cfg(). If that call fails, the
-> error is returned but the clocks stay enabled. The PM core then treats
-> the device as still suspended, so qcom_iommu_suspend() will not run to
-> turn them off.
+>    Failed fragment ->ovs0: eth=8847, MRU=500, MTU=1500.
+>    WARNING: net/openvswitch/actions.c:831 at ovs_fragment+0x239/0x840, CPU#1: test/106
+>    Call Trace:
+>     do_execute_actions+0x580e/0x7380
+>     ovs_execute_actions+0xd3/0x3e0
+>     ovs_packet_cmd_execute+0xc21/0x13c0
 > 
-> Disable the clocks again when qcom_scm_restore_sec_cfg() fails.
+> The packet is dropped either way, so use a rate-limited warning instead.
 > 
-> Found with a static analysis tool and checked by hand.
-> 
-> Fixes: 268dd4edb748 ("iommu/qcom: restore IOMMU state if needed")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
-> ---
-> Compile tested on arm64 (W=1). I don't have the hardware.
-> ---
+> Fixes: 7f8a436eaa2c ("openvswitch: Add conntrack action")
+> Closes: https://lore.kernel.org/netdev/179492834266.3639154.14679778183890331729@gmail.com/
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+I think this better suited for net-next. No need to re-submit.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+/P
 
-Konrad
