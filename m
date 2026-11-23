@@ -1,54 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795414657;
-	b=J1N4OH/7xGE7A66Tgir0Q2DLPYnwX65eJ1A2lNlDvUdc8OQiJjCnYVAu5CGLWNXW3qoh
-	 VCnEGyBWP8BS7IXMv+iuOEhfYf/jklavponKA5kDoF/PDeFxPk6suhuBW23DBorLKEdSl
-	 zUcB3x7YjbumMtVpJtrpEtooiWHXgtHxVtmS0QIWwPHz6mAOrdk2LYT3swn0gIwQlud+6
-	 TuJAY4Pm4+rzTpysNWaGM8uyXvuynkjPpbwTgbmeX/u4nMXX4HVpk7xVXpp8+p3vHh2Aw
-	 stWwnynWto476METh1EUd9pPtMCC5unhxU0w8YBAPdo67CCeQakzClXjfyle1rGI44A==
+	t=1795414700;
+	b=Pq6cATgPykWEVKYiS/6qz8H6mRS7VSZ9VKNaTrwuu3WWUORies0C5GzAaMeUCSblJGTU
+	 bgrizJvtvLviGJRh5nnMYJs0q4V5q23Jtt9D3HxfzWtpJz7XjHMtVPlmjPiAwVuGbthiu
+	 z4RaJhPRWR7NTQ1dHq+UHDmorK76Y/lvE6Ldp8Xu3zspHmbsBklsRJu8Qn1+2KgJp7E7S
+	 /P1dRd96Vkq7COlLrHsVc1j2gdxT+PlulkpSjIo3rHR6KYt0t3EkkQIx5ETM9Qvi0BGl4
+	 0EJ+9lK0ntGEN8SL3Q2zW39I6Iij89P4OpQ9c5bLv/5AvjXZ/Ww7RunjIkYN+Nx0rMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795414657;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=GOBYmPtzam1T+nLf6ejQStpL9HX+CL/GMBMiRQwuJ6c=;
-	b=FGCmSFaU7Xnx/WgOxg/zjNdRddiKVi819VV+doMheyXcopKia0ltxWVQLOzuDxRCmIh/
-	 yAnKAMnMJP1Ud9qGjVNNLxOaT5pmZJTq6l1XTOC7S7EGIrIyfx3z83rafxRfi4ySlI0cL
-	 dOLf2WdxbHkxJQxPYT3Jd43DvmXrQJrDf3osgYVpq+VPS04cteQtH45qOVxkPZkzMn1Lq
-	 WpcM3x5Wg/2Mt5VR0MxP17Ulu6ahPPmgqVFuORaUlMNUh7bXHerQHTgdIsK3uukqCj6+R
-	 fpgkQgdWN8NSg3lRuZ/nhPjNQ4FPoYp+1Q3EAO4OiXltPMSJIVaN6tLweMVC14KadUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795414700;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qegEcjJZDluSirF3Yp5SHdiF1Bt5r3HGLhrlQkTtEGE=;
+	b=Hpbbb+LZ1kK7eBz8y/u0AmF3dik8X2H7EP/T54lFD7y3r2UQvDrZFZERBNmqKmJjNs4Q
+	 NuavW484JBSNRgI41VhH+wSWtGDVikmUCgw7xCXJWcqirJ1v5dJ+HNhjy61Y2ofTpJBgn
+	 DHsNvxNJXYRCENs+GSHSghDHfrMqgsQGlCTimZAFHinsqjkeh8SR5MoLNgCwlTaw56r3o
+	 5JX1O+K9r+nsZWsCoq0nE+P+aVeJoP5LqWr/JIkDIijOuAQ5ZY65dwGnSQQZm5SeAUsN6
+	 mGqEIjn996U6TiAoP+8k4LZMaC6d8Sxoi8rxvMH28IlHjnD+fZpThN3JBXS9weAdMrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hUDhkCJR;
-	arc=none smtp.remote-ip=91.218.175.44
-Received: from mta0.migadu.com (out-44.mta0.migadu.com [91.218.175.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EqJKoCyF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D826F606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 06:17:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D826F606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32F5F606A31A;
+	Mon, 23 Nov 2026 06:18:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hUDhkCJR
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=rT8PoeGFDS38g2QMBHWcyADCpxGK0iuLhNyiv06a55Q=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795414655; v=1; x=1796019455;
- b=hUDhkCJRJuq6GeK9Zq6uh6m/zJKtkdGuFCnx04R25XKiQCL5rCaV9TdCjE9O4YyqH5jQPyG6
- BVTlf03uMu+fI49r44TjKeRqNnnE0rqJeaTU04+25Y6ExypoKD7AF0avjsGnjNnLyF4dyrnDSSV
- kcL2eULvkj4+ZwXExaD5w7uA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7ae97a7f2b73cb9e;
-	Mon, 23 Nov 2026 06:17:34 +0000
-X-Mizu-Trace-ID: 7ae97a7f2b73cb9e
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <cb8d8dc5-4ccc-408f-acaf-2f1faa0a1983@linux.dev>
-Date: Mon, 23 Nov 2026 14:17:17 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EqJKoCyF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5564C1F000CF;
+	Mon, 23 Nov 2026 06:18:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795414699;
+	bh=qegEcjJZDluSirF3Yp5SHdiF1Bt5r3HGLhrlQkTtEGE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=EqJKoCyF71lESyBjFsnn/TepqM1E5BCjOIFmhmZNQzcRwXXakFoxnpW7UoqwlSgy3
+	 Op3A24qIIshi5ZLT3nk5NthkR5/5KiJOnsbXzYQ1vkfZWtDzm4DRuDRDc3c+CJfEDo
+	 lk0SxJ/PoWR6M7eJztxdhoPQoPNswlQwlIKj57H76yFBh0PFt9wi+ruJeqm5eduCrw
+	 AEHFZuy1M3++vyqrokNHomeJ6QGwXc5NGI6//6gYLEv6XLVYWSRcCiIYV3dZonOghn
+	 DaHCdT5OOFZ0pwd0d/RLqgtjCahaUUk7QpNSry2vrQFHs2qYfo76XgiYidxuJGl+zQ
+	 tPgvp5ahwUQFA==
+Subject: Re: [PATCH v2] net: dsa: mt7530: fix regulator leak in mt7530_setup()
+From: netdev-bot+sashiko@kernel.org
+To: laixiangwu@cmss.chinamobile.com
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, sean.wang@mediatek.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kuba@kernel.org
+Date: Mon, 23 Nov 2026 06:18:18 +0000
+Message-ID: <179541469889.3135.11276449301186567298@kernel.org>
+In-Reply-To: <20261119060424.1476-1-laixiangwu@cmss.chinamobile.com>
+References: <20261119060424.1476-1-laixiangwu@cmss.chinamobile.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,260 +62,209 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/11] mm/vmalloc: skip cond_resched() in the vmap
- unmap paths when atomic
-To: Suren Baghdasaryan <surenb@google.com>, Dev Jain <dev.jain@arm.com>
-Cc: Uladzislau Rezki <urezki@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, Dennis Zhou <dennis@kernel.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, linux-mm@kvack.org, stable@vger.kernel.org,
- Sashiko <sashiko-bot@kernel.org>
-References: <20261116071325.263682-1-hao.ge@linux.dev>
- <20261116071325.263682-2-hao.ge@linux.dev>
- <1020e36e-83bb-407b-8a6b-7669f04c26c3@arm.com>
- <CAJuCfpHtWJvs4F2L+QCMe9gMJ-qmcj4Q1G4hqVqFe6Z6gPoQ1Q@mail.gmail.com>
-Content-Language: en-US
-From: Hao Ge <hao.ge@linux.dev>
-In-Reply-To: <CAJuCfpHtWJvs4F2L+QCMe9gMJ-qmcj4Q1G4hqVqFe6Z6gPoQ1Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-Hi Suren and Dev
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Thanks for the review.
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
-On 2026/11/21 05:07, Suren Baghdasaryan wrote:
-> On Thu, Nov 19, 2026 at 5:02 AM Dev Jain <dev.jain@arm.com> wrote:
->>
->>
->>
->> On 16/11/26 12:43 pm, Hao Ge wrote:
->>> The vmap failure paths can be reached with GFP_ATOMIC or GFP_NOWAIT
->>> since commit b186a94227b7 ("kmsan: remove hard-coded GFP_KERNEL
->>> flags") and commit 8da89ba18ed4 ("mm/vmalloc: handle non-blocking
->>> GFP in __vmalloc_area_node()"), so an undo of a partially installed
->>
->> You mention this commit too, implying that vunmap_range_noflush() can
->> be called in atomic context right now, but in this patch in
->> vunmap_range_noflush() you pass 'true' unconditionally to
->> __vunmap_range_noflush()?
->>
->> Can you give me the call chain existing in current kernel which makes
->> this bug trigger? In case it does not exist but is only triggered when
->> you add the rollback code later, then this patch is not fixing a bug.
-> 
-> Yeah, IIUC this is a prep patch for later changes and does not fix any
-> existing issues, therefore should not have any Fixes tags and should
-> not be CC'ed to stable.
-> 
-> Other than that LGTM.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Right, this is a prep patch for later changes. I will drop the
-Fixes tag, this patch fixes nothing by itself. 
+- [High] The fix is incomplete: the regulator leak the commit message
+  describes can still happen.
+- [Medium] Possible double disable: the new error labels in
+  mt7530_setup() disable core_pwr/io_pwr, but mt7530_remove() still…
+- [Low] Possible power-down ordering problem (speculative): the new
+  err_powers / err_disable_core_pwr rollback in mt7530_setup() disables…
 
-I would keep the stable Cc though. The next patch, "mm/kmsan: undo
-the shadow mapping when the origin mapping fails", is the real fix
-and it depends on this one. Per stable-kernel-rules.rst, patch1 in
-a series should be marked for stable inclusion when patch2 depends
-on it, otherwise the fix lands in stable without its prerequisite.
+--
 
-Or did I misread the rules?
+net: dsa: mt7530: fix regulator leak in mt7530_setup()
 
-Thanks
-Best Regards
-Hao
+This patch adds chained error labels to mt7530_setup(). When a later step
+in the function fails, the MT7530 core and io regulators are now disabled
+again. Both labels check priv->id, so MT7621 is left alone because it
+skips the regulator section.
 
-> 
->>
->>
->>> mapping may have to run in atomic context, where the cond_resched()
->>> in vunmap_pmd_range() cannot schedule.
->>>
->>> Give __vunmap_range_noflush() and kmsan_vunmap_range_noflush() a
->>> can_resched argument and skip the cond_resched() when it is false.
->>> The existing callers are on sleepable paths and pass true, so nothing
->>> changes for them.
->>>
->>> Fixes: 47ebd0310e89 ("mm: kmsan: handle alloc failures in kmsan_vmap_pages_range_noflush()")
->>> Cc: stable@vger.kernel.org
->>> Reported-by: Sashiko <sashiko-bot@kernel.org>
->>> Closes: https://lore.kernel.org/all/sashiko-outbox-178439@kernel.org/
->>> Signed-off-by: Hao Ge <hao.ge@linux.dev>
->>> ---
->>>  include/linux/kmsan.h |  8 ++++++--
->>>  mm/kmsan/hooks.c      | 14 +++++++++-----
->>>  mm/vmalloc.c          | 24 ++++++++++++++----------
->>>  mm/vmalloc.h          |  3 ++-
->>>  4 files changed, 31 insertions(+), 18 deletions(-)
->>>
->>> diff --git a/include/linux/kmsan.h b/include/linux/kmsan.h
->>> index 7da9fd506b39..0016c032d1e7 100644
->>> --- a/include/linux/kmsan.h
->>> +++ b/include/linux/kmsan.h
->>> @@ -150,11 +150,14 @@ int __must_check kmsan_vmap_pages_range_noflush(unsigned long start,
->>>   * kmsan_vunmap_kernel_range_noflush() - Notify KMSAN about a vunmap.
->>>   * @start: start of vunmapped range.
->>>   * @end:   end of vunmapped range.
->>> + * @can_resched: whether the unmap walk may call cond_resched(); pass
->>> + * false from atomic context.
->>>   *
->>>   * KMSAN unmaps the contiguous metadata ranges created by
->>>   * kmsan_map_kernel_range_noflush().
->>>   */
->>> -void kmsan_vunmap_range_noflush(unsigned long start, unsigned long end);
->>> +void kmsan_vunmap_range_noflush(unsigned long start, unsigned long end,
->>> +                             bool can_resched);
->>>
->>>  /**
->>>   * kmsan_ioremap_page_range() - Notify KMSAN about a ioremap_page_range() call.
->>> @@ -355,7 +358,8 @@ static inline int __must_check kmsan_vmap_pages_range_noflush(
->>>  }
->>>
->>>  static inline void kmsan_vunmap_range_noflush(unsigned long start,
->>> -                                           unsigned long end)
->>> +                                           unsigned long end,
->>> +                                           bool can_resched)
->>>  {
->>>  }
->>>
->>> diff --git a/mm/kmsan/hooks.c b/mm/kmsan/hooks.c
->>> index a706666db097..69008b085658 100644
->>> --- a/mm/kmsan/hooks.c
->>> +++ b/mm/kmsan/hooks.c
->>> @@ -136,10 +136,13 @@ static unsigned long vmalloc_origin(unsigned long addr)
->>>                                                KMSAN_META_ORIGIN);
->>>  }
->>>
->>> -void kmsan_vunmap_range_noflush(unsigned long start, unsigned long end)
->>> +void kmsan_vunmap_range_noflush(unsigned long start, unsigned long end,
->>> +                             bool can_resched)
->>>  {
->>> -     __vunmap_range_noflush(vmalloc_shadow(start), vmalloc_shadow(end));
->>> -     __vunmap_range_noflush(vmalloc_origin(start), vmalloc_origin(end));
->>> +     __vunmap_range_noflush(vmalloc_shadow(start), vmalloc_shadow(end),
->>> +                            can_resched);
->>> +     __vunmap_range_noflush(vmalloc_origin(start), vmalloc_origin(end),
->>> +                            can_resched);
->>>       flush_cache_vmap(vmalloc_shadow(start), vmalloc_shadow(end));
->>>       flush_cache_vmap(vmalloc_origin(start), vmalloc_origin(end));
->>>  }
->>> @@ -168,8 +171,9 @@ static void kmsan_iounmap_pages(unsigned long start, unsigned long end)
->>>               if (origin)
->>>                       __free_pages(origin, KMSAN_IOREMAP_META_ORDER);
->>>       }
->>> -     __vunmap_range_noflush(shadow_start, shadow_end);
->>> -     __vunmap_range_noflush(origin_start, origin_end);
->>> +     /* ioremap metadata mappings are always GFP_KERNEL, so resched is safe. */
->>> +     __vunmap_range_noflush(shadow_start, shadow_end, true);
->>> +     __vunmap_range_noflush(origin_start, origin_end, true);
->>>       flush_tlb_kernel_range(shadow_start, shadow_end);
->>>       flush_tlb_kernel_range(origin_start, origin_end);
->>>  }
->>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->>> index ccaf158c5b7f..3c0d9e69b886 100644
->>> --- a/mm/vmalloc.c
->>> +++ b/mm/vmalloc.c
->>> @@ -429,7 +429,7 @@ static void vunmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
->>>  }
->>>
->>>  static void vunmap_pmd_range(pud_t *pud, unsigned long addr, unsigned long end,
->>> -                          pgtbl_mod_mask *mask)
->>> +                          pgtbl_mod_mask *mask, bool can_resched)
->>>  {
->>>       pmd_t *pmd;
->>>       unsigned long next;
->>> @@ -451,12 +451,14 @@ static void vunmap_pmd_range(pud_t *pud, unsigned long addr, unsigned long end,
->>>                       continue;
->>>               vunmap_pte_range(pmd, addr, next, mask);
->>>
->>> -             cond_resched();
->>> +             /* The undo path may run in atomic context. */
->>> +             if (can_resched)
->>> +                     cond_resched();
->>>       } while (pmd++, addr = next, addr != end);
->>>  }
->>>
->>>  static void vunmap_pud_range(p4d_t *p4d, unsigned long addr, unsigned long end,
->>> -                          pgtbl_mod_mask *mask)
->>> +                          pgtbl_mod_mask *mask, bool can_resched)
->>>  {
->>>       pud_t *pud;
->>>       unsigned long next;
->>> @@ -476,12 +478,12 @@ static void vunmap_pud_range(p4d_t *p4d, unsigned long addr, unsigned long end,
->>>               }
->>>               if (pud_none_or_clear_bad(pud))
->>>                       continue;
->>> -             vunmap_pmd_range(pud, addr, next, mask);
->>> +             vunmap_pmd_range(pud, addr, next, mask, can_resched);
->>>       } while (pud++, addr = next, addr != end);
->>>  }
->>>
->>>  static void vunmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
->>> -                          pgtbl_mod_mask *mask)
->>> +                          pgtbl_mod_mask *mask, bool can_resched)
->>>  {
->>>       p4d_t *p4d;
->>>       unsigned long next;
->>> @@ -496,7 +498,7 @@ static void vunmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
->>>
->>>               if (p4d_none_or_clear_bad(p4d))
->>>                       continue;
->>> -             vunmap_pud_range(p4d, addr, next, mask);
->>> +             vunmap_pud_range(p4d, addr, next, mask, can_resched);
->>>       } while (p4d++, addr = next, addr != end);
->>>  }
->>>
->>> @@ -512,7 +514,8 @@ static void vunmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
->>>   *
->>>   * This is an internal function only. Do not use outside mm/.
->>>   */
->>> -void __vunmap_range_noflush(unsigned long start, unsigned long end)
->>> +void __vunmap_range_noflush(unsigned long start, unsigned long end,
->>> +                         bool can_resched)
->>>  {
->>>       unsigned long next;
->>>       pgd_t *pgd;
->>> @@ -527,7 +530,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
->>>                       mask |= PGTBL_PGD_MODIFIED;
->>>               if (pgd_none_or_clear_bad(pgd))
->>>                       continue;
->>> -             vunmap_p4d_range(pgd, addr, next, &mask);
->>> +             vunmap_p4d_range(pgd, addr, next, &mask, can_resched);
->>>       } while (pgd++, addr = next, addr != end);
->>>
->>>       if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
->>> @@ -536,8 +539,9 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
->>>
->>>  void vunmap_range_noflush(unsigned long start, unsigned long end)
->>>  {
->>> -     kmsan_vunmap_range_noflush(start, end);
->>> -     __vunmap_range_noflush(start, end);
->>> +     /* The unmap paths are sleepable, keep the resched point. */
->>> +     kmsan_vunmap_range_noflush(start, end, true);
->>> +     __vunmap_range_noflush(start, end, true);
->>>  }
->>>
->>>  /**
->>> diff --git a/mm/vmalloc.h b/mm/vmalloc.h
->>> index d8372a4f65c4..4ec114a75f04 100644
->>> --- a/mm/vmalloc.h
->>> +++ b/mm/vmalloc.h
->>> @@ -44,6 +44,7 @@ int __must_check __vmap_pages_range_noflush(unsigned long addr,
->>>
->>>  void vunmap_range_noflush(unsigned long start, unsigned long end);
->>>
->>> -void __vunmap_range_noflush(unsigned long start, unsigned long end);
->>> +void __vunmap_range_noflush(unsigned long start, unsigned long end,
->>> +                         bool can_resched);
->>>
->>>  #endif /* __MM_VMALLOC_H */
->>
+Link: https://lore.kernel.org/all/20261118014114.1855-1-laixiangwu@cmss.chinamobile.com/
+
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index d5a199293f78a..988f236548dfc 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+
+[ ... ]
+
+> @@ -2579,16 +2581,24 @@ mt7530_setup(struct dsa_switch *ds)
+>  	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
+>  		ret = mt7530_setup_gpio(priv);
+>  		if (ret)
+> -			return ret;
+> +			goto err_powers;
+>  	}
+>  #endif /* CONFIG_GPIOLIB */
+>  
+>  	/* Flush the FDB table */
+>  	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+>  	if (ret < 0)
+> -		return ret;
+> +		goto err_powers;
+>  
+>  	return 0;
+
+[Severity: High]
+Does this fully close the leak described in the commit message?
+
+mt7530_setup() is only the sw_setup step of mt753x_setup(). It returns 0
+here with both regulators still enabled. After that, mt753x_setup() can
+fail without disabling them:
+
+drivers/net/dsa/mt7530.c:mt753x_setup() {
+	int ret = priv->info->sw_setup(ds);
+	...
+	ret = mt7530_setup_irq(priv);
+	if (ret)
+		return ret;
+
+	ret = mt7530_setup_mdio(priv);
+	if (ret)
+		return ret;
+	...
+}
+
+mt7530_setup_irq() fails in two cases:
+
+- of_irq_get() returns <= 0. This includes -EPROBE_DEFER when the parent
+  irqchip has not probed yet.
+- devm_regmap_add_irq_chip_fwnode() fails.
+
+mt7530_setup_mdio() fails if devm_mdiobus_alloc() returns NULL or if
+devm_of_mdiobus_register() returns an error.
+
+If ops->setup fails, dsa_switch_setup() jumps to unregister_notifier and
+does not call ->teardown.
+
+If ops->setup succeeds but a later step fails (tag protocol setup, user
+MII bus registration, port or conduit setup), the teardown that does run
+only does this:
+
+drivers/net/dsa/mt7530.c:mt753x_teardown() {
+	if (priv->bus)
+		cancel_delayed_work_sync(&priv->stats_work);
+}
+
+Either way, dsa_register_switch() fails and mt7530_probe() fails. That
+means mt7530_remove() never runs, and it is the only other place that
+disables these supplies.
+
+devm then releases the regulator handles while their enable count is
+still nonzero. This hits WARN_ON(regulator->enable_count) in
+_regulator_put(). The supplies also stay on, because rdev->use_count is
+never decremented.
+
+With -EPROBE_DEFER, each deferred probe retry runs mt7530_setup() again
+and leaks one more enable.
+
+These look like the symptoms the commit message describes: "both
+regulators staying powered after a failed probe and a WARN_ON(enable_count)
+splat".
+
+Would it be better to also unwind in mt753x_setup() and the teardown
+path? Another option is to move the enable/disable into a properly paired
+place, such as probe with a devm action, or setup/teardown.
+
+> +
+> +err_powers:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->io_pwr);
+> +err_disable_core_pwr:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->core_pwr);
+> +	return ret;
+>  }
+
+[Severity: Medium]
+Can these labels combine with mt7530_remove() to disable the supplies
+twice?
+
+mt7530_remove() still disables both supplies unconditionally:
+
+drivers/net/dsa/mt7530-mdio.c:mt7530_remove() {
+	if (priv->id == ID_MT7530) {
+		ret = regulator_disable(priv->core_pwr);
+		...
+		ret = regulator_disable(priv->io_pwr);
+		...
+	}
+}
+
+Take a multi-switch DSA tree where the MT7530 has DSA link ports and is
+not the last member to probe. Its probe succeeds, because
+dsa_tree_setup() returns early without running ops->setup:
+
+net/dsa/dsa.c:dsa_tree_setup() {
+	complete = dsa_tree_setup_routing_table(dst);
+	if (!complete)
+		return 0;
+	...
+}
+
+When a later switch completes the tree, this runs:
+
+dsa_tree_setup_switches()
+  dsa_switch_setup()
+    mt753x_setup()
+      mt7530_setup()
+
+Suppose mt7530_setup() then fails after the regulators were enabled, for
+example on a reset timeout, a chip ID mismatch, a 20MHz XTAL, or a VLAN0
+or FDB command failure. These new labels bring the enable count back to
+zero.
+
+The other switch's probe fails, but the MT7530 stays bound. When it is
+unbound later, mt7530_remove() disables both supplies again. That
+triggers the "unbalanced disables" WARN in _regulator_disable(), and the
+driver logs "Failed to disable core power" and "Failed to disable io
+pwr".
+
+Before this patch the sequence happened to balance: the failed setup
+left the regulators enabled, and remove disabled them.
+
+[Severity: Low]
+This is speculative, but should the chip go back into reset before its
+supplies are cut here?
+
+Earlier in mt7530_setup(), reset is released:
+
+drivers/net/dsa/mt7530.c:mt7530_setup() {
+	...
+	} else {
+		gpiod_set_value_cansleep(priv->reset, 0);
+		usleep_range(5000, 5100);
+		gpiod_set_value_cansleep(priv->reset, 1);
+	}
+	...
+}
+
+mt7530_probe() requests the line as GPIOD_OUT_LOW, which holds the chip
+in reset. The new err_powers path, however, disables io_pwr and core_pwr
+while reset is still released.
+
+On boards with switchable supplies, the host would then drive RESET_N
+into an unpowered IO domain. That could back-power the chip through its
+input protection diodes.
+
+Before this patch, these error paths left the chip fully powered.
+mt7530_remove() also disables the supplies without asserting reset, so
+this ordering already exists elsewhere in the driver.
+
+Would it be safer to mirror the setup order? That would mean asserting
+reset first, with gpiod_set_value_cansleep(priv->reset, 0) or
+reset_control_assert() for MCM, and only then disabling the regulators.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119060424.1476-1-laixiangwu%40cmss.chinamobile.com
