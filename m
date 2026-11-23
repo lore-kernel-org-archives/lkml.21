@@ -1,57 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401723;
-	b=lzarU4CAHKZXAmkgxU/pMLxQyDAzp7RHgzvJH4VChyYIa2Np+NDZ4O4yt9UgMz0oXrFV
-	 I9ub4HQVbXSGJZ9G2Aa4bT8Zr27o3uT2/2O+NY4bg4qwdHSssasepEI7ZTxgQq+eJFzX2
-	 y5on5vRKIAdaDgG5Ik59n6LUk+l2U/U4CsfIKB0EKUG5pmHH/vkXgQb+lg6PW36obEbSy
-	 Bjx8oHpcou+F3AyN3JstQrni4rMJwRwo6UvjuvHuj9zbfkYcUV5w74N/sHi27+mAHx8OF
-	 AnfStDQG6zZCVGb7oVwAbJolQpqFWxEB1I8LsDU4zjtk8B4fcLmgRSX35czGq3H4G6Q==
+	t=1795401827;
+	b=2RukMI6NkFMzeNYhy0CU/p/L6UznNpLygtK8u1geWvILD8Fs0Tmb5q0raY9ykTuf2MZl
+	 QW7ytLttCDh1aUgdvPlPPRNq+ysWEysrMf1kOLUkBHcxcpG6cC3sYSSMOIQRrUGImS0ST
+	 Y3hth2TMOuXaSgc5JI4QYR0ey8zEd2wu301apq2PByHioubEuqKxL4MSmwNVZIhWv3oNq
+	 QMG59ycuq8sJ02XKTMXsYIaarFtgJ/vsusr5y6QQVrQI+8FYAYcHn8+l4EqKNRoLCHSps
+	 gzuITziULtZfgaoICyTg4hBlBgefYM20nefJNYCDQtL/WSNOhIiY4nfwU6nxxmjyDnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401723;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=mfL5Wgk6pZ0N+3mT3cQv6ztLBcyTk1MQkPmbfooOQOQ=;
-	b=Wpwm8yAWfw6KIIHOLkg0NeAni8nwko1OInNmUOgD4zLZy3XOnZcJyt7fmkhOSNgq7qI5
-	 U3LX8Dd7A6clMncuiyAYAIoloGNfqG9B/DTPERZEwE2itG2ickMZ0Ixq8OUTjC4vDH37X
-	 L6W8t87LIPGA43zjrjCEtAZNADtvkwxGECB+Knm0/ituCFpYbJRTX/QIl6EKqqY3xxqtM
-	 Jlj1EmEXoN6obR8J93RmlMB/zielYEzinN1SJJthBjcWImhHvKYmyKTOk5m3o7moWqgP0
-	 GeOo1byX6OZ0ogLnBkGPXhaH+AUJUIsYmOaga9jrAhy9cfahVCh7V7U2WSUR3IU9YQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401827;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=yd5fH2AProMUuE+LUBrS93lMr/XlRRxFbHWMpgM+ObM=;
+	b=Ug1RJdoabIAk5ebc3d/sPFOA9NthA9hI/SMcPwSDHXnCvEek7jHv1Dx5F/apWIt2rkLc
+	 tUg+RK5Ga5O5d5UvbfBKvmUDuWGuAk9Srf1jFal1HmtH2vK6BSjjf2X3oDi/XlWw23buw
+	 fhA1xDJ4vVdtMNqaK55jMt4iZjK+nHr14NI8mUoB1ytaWRPiZNDnacZV8WvVgUScoB0bW
+	 Z2eah2hLWfItkELFBJJcjW2Qof5mj9tRlwtIoN3LehGxnKYTyMZ0bxiqlhPkEUmD0tLqh
+	 LNxvZWeAAsLy4s0skmQvGmYAAvyW+YwnwHh/bCu2T2kMDM0AgVOFXRJfRYPrkHxNQmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mucse.com;
-	spf=pass smtp.mailfrom=mucse.com;
-	arc=none smtp.remote-ip=54.206.34.216
-Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FEE6606A31A;
-	Mon, 23 Nov 2026 02:41:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FEE6606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
-X-QQ-mid: esmtpsz10t1795401610t2ee855ed
-X-QQ-Originating-IP: xqRzMGlNuotEU1WUJME9cGTUhHEAQ9meuvI+SdzLkks=
-Received: from localhost ( [203.174.112.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 23 Nov 2026 10:40:08 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6404561023919649307
-EX-QQ-RecipientCnt: 10
-Date: Mon, 23 Nov 2026 10:40:07 +0800
-From: Yibo Dong <dong100@mucse.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	yaojun@mucse.com
-Subject: Re: [PATCH net-next v2 5/5] net: rnpgbe: Add hardware and queue
- statistics
-Message-ID: <9D6BBC7AB42EE9D4+20261123024007.GA35839@nic-Precision-5820-Tower>
-References: <65EB247A8B937B64+20261116031055.1330377-1-dong100@mucse.com>
- <179510098686.3136.4654059971237578202@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67C30606A31E;
+	Mon, 23 Nov 2026 02:43:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67C30606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: abe03dece6e711f19a56ed5b684f684d-20261123
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:87b57ca8-9352-4006-9045-7befbe19131c,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:8ab76f97b73cc3ed65a6849a00b17523,BulkI
+	D:nil,BulkQuantity:0,SF:80|81|82|83|102|850|865|898,TC:nil,Content:0|15|50
+	|99,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
+	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: abe03dece6e711f19a56ed5b684f684d-20261123
+X-User: huangwei@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <huangwei@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1960239668; Mon, 23 Nov 2026 10:43:32 +0800
+From: Huang Wei <huangwei@kylinos.cn>
+To: Bertrand Jacquin <bertrand@jacquin.bzh>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Venkat Jayaraman <venkat.jayaraman@intel.com>,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	huangwei@kylinos.cn
+Subject: Re: [PATCH] usb: typec: ucsi: Fix NULL pointer dereference in power level debugfs
+Date: Mon, 23 Nov 2026 10:43:26 +0800
+Message-Id: <20261123024326.2693527-1-huangwei@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <awHB7a-zLM3GpC9C@lady-voodoo.lan>
+References: <20261010120357.4937-1-bertrand@jacquin.bzh> <2026112040-splashy-power-2d46@gregkh> <awHB7a-zLM3GpC9C@lady-voodoo.lan>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,158 +74,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179510098686.3136.4654059971237578202@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: NAYFIXJ3sbUsJGws8Ctu4wc5qcVT679qDmqUbcMZE4SWbHIPhJRwGvlQ
-	sxB5GMEnVGwLwzqkOOFWgN9cs+IgAZ7VJVYC/6M/Q10cVwMtOwlwLai7e4t7UFZujhUlm56
-	V89hQEegsPE2UxrXsxXySxEzg7ipP0/jYyKjOV6LP2P6O4n6V1vdGt8Gw3y2lhUNhGPNohv
-	IBSqdGAKOHTCr664pjN9flOtuDTuEqTbjgb3SpOW5q+3z/wQudutICr9TNn5FuhdGQxPV8U
-	4zt25r/yaRQo8oooipBAgCXzHSy3YNC1qKGeul/TvNHvnTtwqkl3YmA5FxQhTtQYPfGGjjv
-	61I/7iTTNe/2nLQMyj2iRRKii2syMDFUEuJcuxO6bH9lO1Og19r3xsmIx5QY3rOU0AM6Us3
-	sdxpqlKmzQ9YbHn6o0YT+daaq86+LJwBWGdw2JGE75w5hPyIx4L/oxXrptbAT1pCT/b190e
-	/i94aK/2ojvXn5bGfzdSjiDsNzYPbMNBG/5UUH+/69YdaN6v6lhoZD7YPa9JzDy5MeEVUVZ
-	y3oVQ/aCE+rGpX437rqoM7pmvf0YRAj6AbI4JGSwVpVLLqhvPE7ESZxkczzN8ouPBBEe+rj
-	WxxmtKfGdybramqnYX8PKCjFPfYBsLQ1kToFYMbj8ZMzCMmaX0cE3ma0+EG2TCMp2DkVSxD
-	2tm/4CsyIEzRt6YJ2ZJkzgluVypgxsFwydoPOExZ8A10IBX8Ghn9ZOZgYokSpasVcmvc9b5
-	TwtJWmOX4l4uCH2YiZ1QKfLaYAlNjThAjHJb+uD+hjC2BSQ98K4mlcQlwHSeiHINgDv/7Mu
-	B2XBtST6K29M6F2Y1bzE7AiWust50r+kuSfAn69XEspRbtkUgWSLA5V7YcmzCplzxrOGcN8
-	/qZyMMohFk7TtRDDXMsPTj/qYp69Sl+R2x1L5AIl/jNmbyvHxxCwp39k9GNt5buvAXoyjL9
-	9LDhzkDkInVFeEGU8FpSzk5pg+reLdo9cA9QAEtOHFF6oOXcG6SaGEHAj6DJiaHe0CqHIdb
-	GoYpqfpysd3FysIKqkbdxHOj36vHaooYuen3HqZ3i1yBLtIDiaSPj/RWcN7d/5qv+Aem8W5
-	CFQn4FLhA0BhV0ixxXc3PmGIM4jWfYVQLKrrocDUqHvLuLZRPrn3d4=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
 
-On Thu, Nov 19, 2026 at 03:09:46PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The patch makes the device-level RX packet and byte counts in
->   netdev qstats disagree with the rtnl stats64 counts, so the in-tree…
-> 
-> --
-> 
-> net: rnpgbe: Add hardware and queue statistics
-> 
-> This commit adds the hardware RX CRC-error and multicast counters to
-> ndo_get_stats64. It also reports per-queue RX and TX packet and byte
-> counters through netdev queue statistics, and exposes per-queue TX DMA
-> mapping failures through ethtool statistics.
-> 
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
-> > index b7b0c45a0f664..fe320c4f389ba 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
-> 
-> [ ... ]
-> 
-> > @@ -615,6 +620,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
-> >  
-> >  		/* probably a little skewed due to removing CRC */
-> >  		total_rx_bytes += skb->len;
-> > +		delivered_bytes += skb->len;
-> > +		delivered_packets++;
-> >  		rnpgbe_process_skb_fields(rx_ring, skb);
-> >  		rx_desc->wb.cmd = 0;
-> >  		napi_gro_receive(&q_vector->napi, skb);
-> 
-> [ ... ]
-> 
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
-> > new file mode 100644
-> > index 0000000000000..efd2284fd93af
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
-> 
-> [ ... ]
-> 
-> > +static void rnpgbe_get_queue_stats_rx(struct net_device *netdev, int idx,
-> > +				      struct netdev_queue_stats_rx *stats)
-> > +{
-> > +	struct mucse *mucse = netdev_priv(netdev);
-> > +	const struct mucse_queue_stats *queue;
-> > +	unsigned int start;
-> > +
-> > +	queue = &mucse->rx_stats[idx];
-> > +	do {
-> > +		start = u64_stats_fetch_begin(&queue->syncp);
-> > +		stats->packets = queue->delivered_packets;
-> > +		stats->bytes = queue->delivered_bytes;
-> > +	} while (u64_stats_fetch_retry(&queue->syncp, start));
-> 
-> [Severity: Medium]
-> 
-> Will the qstat rx-packets and rx-bytes reported here ever match the
-> rx_packets and rx_bytes that rnpgbe_get_stats64() reports?
-> 
-> rnpgbe_get_stats64() reads queue_stats->packets and queue_stats->bytes.
-> rnpgbe_clean_rx_irq() also increments those for good packets that the
-> driver drops. One example is the skb build failure path:
-> 
-> 	if (!skb) {
-> 		atomic64_inc(&rx_ring->stats->skb_alloc_failures);
-> 		...
-> 			if (rnpgbe_test_staterr(rx_desc, M_RXD_STAT_EOP)) {
-> 				total_rx_bytes += size;
-> 				total_rx_packets++;
-> 				total_rx_dropped++;
-> 
-> The same thing happens when a MUCSE_RX_DROP_RESOURCE frame reaches EOP,
-> and when rnpgbe_cleanup_headers() fails with size >= ETH_HLEN. None of
-> these paths update delivered_packets or delivered_bytes.
-> 
-> rnpgbe_get_stats64() covers all RNPGBE_MAX_QUEUES. So do the qstat device
-> totals, which pick up inactive queues through rnpgbe_get_base_stats().
-> That means after the first such drop, the rtnl RX counts stay above the
-> qstat RX counts for good.
-> 
-> tools/testing/selftests/drivers/net/stats.py pkt_byte_sum() expects the
-> two to match:
-> 
->     # Compare stats, rtnl stats and qstats must match,
->     ...
->         if stat_cmp(rtstat, qstat) > 0:
->             raise KsftFailEx("Qstats are lower, fetched later")
-> 
-> Once any RX drop has happened, wouldn't this test fail on rnpgbe? The
-> commit message describes the split: "RX queue counters cover packets
-> delivered to the networking stack, while interface RX totals also include
-> good packets dropped by the driver".
-> 
-> Could both interfaces report the same packets and bytes? Alternatively,
-> could driver drops be counted only in rx_dropped, and not in the rtnl
-> rx_packets and rx_bytes?
-> 
-After checking the documented semantics, I think these counters need to
-remain different when the driver drops a received packet.
+On Sat, Nov 21, 2026 at 04:08:13PM +0000, Bertrand Jacquin wrote:
+> ucsi->connector never transitions back to NULL. only ucsi_init() writes to
+> it through ucsi->work where it's assigned only once, after all ports are
+> registered. Every failure path before that assignment leaves it NULL and
+> never cleared afterwards.
 
-include/uapi/linux/if_link.h defines rx_packets as including good packets
-received by the host but subsequently dropped, even within the driver.
-In contrast, Documentation/netlink/specs/netdev.yaml defines qstats
-rx-packets as packets successfully received and passed to the stack.
+I re-verified this in the current source and it checks out, including
+the -EPROBE_DEFER retry path: each ucsi_init() run works on a local
+allocation, and ucsi->connector is only assigned once all ports have
+registered, so a retry cannot leave a stale pointer either.
 
-The pkt_byte_sum selftest can consequently fail after such a drop. I do
-not think changing the driver counters solely to satisfy that equality
-would preserve the documented semantics.
+> The only end of its lifetime is ucsi_unregister(), which calls
+> ucsi_debugfs_unregister() before kfree(ucsi->connector).
 
-> > +	stats->alloc_fail = atomic64_read(&queue->page_alloc_failures) +
-> > +			    atomic64_read(&queue->skb_alloc_failures);
-> > +}
-> 
-> [ ... ]
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/BD205A7832D36E7D%2B20261116030917.1329989-1-dong100%40mucse.com
-> 
+Confirmed. ucsi_unregister() cancels the init work first, then calls
+ucsi_debugfs_unregister() before kfree(ucsi->connector), and the
+debugfs SRCU drain makes sure a show callback has either finished
+before the array is freed, or fails with -EIO afterwards.
+
+So the only transition a reader can race with is NULL -> valid, and
+for that direction the check is enough. My Reviewed-by stands.
