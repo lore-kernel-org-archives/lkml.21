@@ -1,54 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.204.81.208
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404167;
-	b=m42mggUzU3LDjqf+1DPgjrFKqy8LPJe9Nsnut333xErnm21tlSqPYDELV8Wjw1sP60wn
-	 c0G8yfGhM7hWTc5blWlyoAvbhSPfhRCRzzdDUypZRjK9W36zrMZqlQ0quft7LMIbcwT4R
-	 AYNp1ZDIze1iYXBiFC2b+RApag0cY42BA3zJsQjJxKA/lcs+pQjkpCU1LcXX3aSIewlxM
-	 yM9vjZEDuDZIU9Xs0CKpMmX0sB5fLIt5dOKlXWHUvyzPV4he5MXYV4be8ZhuIQevP2sH5
-	 ZaE0WeXZwrrx8KVBQ1W7UJ7xgvKXSHJ9hNKUvnVGT8whN97c8+PkhpVxk/3jAJ5JOow==
+	t=1795404260;
+	b=G8a/oSU69WsBH+RO1/m+GBFM4qLcvUjxld3K98e39AsVnXK1FPszuRNXOIQWK/CD8053
+	 Y7WE04ZT1xyE3yW32+AecbyQ4IshhGrhALFNobUEaWPKTU/tOip2K3mblI9J3ezhXUvOn
+	 VhnQErMFKZ1agaiNJX7lYAF15lXceqw3kgMW+a3GiGjGEdJeKrSB8hFblMGWmcJGjYXmr
+	 6wBSKNXj4IM73+Mn/viBQMUI1Gup1+2qxJnN8IAQfksU8NkIQ2Cg8h2vNVUYkkwvcuSZT
+	 76FVI9d3yg8KFV8HK3cmamIebXaAlzne2uDQVAvJuRjPFx1JPo3wdbqDwcQkHktAVAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404167;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=mmVRvdK02N6AgoL3Fkb1Slsd4s0/SBaF5vDPeDu6iRw=;
-	b=C2bwXJBc/nen1rQz+nvPkjzpN881x87w2ABaL4dnk/t6o6yoR/q9Y57RD6/OeaCaoXvw
-	 77oTB6JmDAk7mC1PVWUPhjv2OA1BMK2GPxhAnRbgCuNFb7KvSI6Gty3sicrpuOwKnEJUG
-	 y1eXxp16U9xYay9DPYr5JnG7QSeDR48VsrT+mYWqSTVf6mtMU6dxnaOQRfGqQ5nWxDorG
-	 +Gll3VbAbJHK186zAaPSdXqaAnLcITHiDcPVnygkYYxlwRPtaauBBN9ubhbDoG9BzrtRj
-	 RJSCAr2wSz4/bsOXXeF+Uk6K1CiikQc4hDrl3YGoRBJ09WFXig5RDCVT1c8tx2esuew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404260;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:X-CMAE-Analysis:
+	 Feedback-ID:X-SECURESERVER-ACCT:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding:X-CMAE-Envelope;
+	bh=fb5F1+HV0OZbPTxdQ7/3f15ugGB/LMdBqtkFJnN7Nm8=;
+	b=Zbse3zA74BsXdVhRSnAv2XnAalIUeMyJAJxLN74eTOyK6E1tPGK+hW2gnM83Og4yK2bj
+	 2S4JWN/8/pUCS1Nlj4cOKvdQj88p8tpGpd5/k6eyFX0CwhzNZEaby27aPEzkngOe5IhFQ
+	 ZyA9RIergg0TO6uOi+L63fTObD+7F+cgueR1gbE7RtdoOuokSBhjq3ISlBXQvo0Kp4tQi
+	 L9afM0blmJpZ8mv99sHlvZUYM8w/LUfcU2OmRKegA+Th9t25AkbxYrMrTsdAFtykIH61X
+	 HnCy7x0azcHNMMMSms3vVyX9RnIr3HYAE3e6jfTHnikOtAJZa4/MKOfEWRKkufg80ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MbmIxTcQ;
-	arc=none smtp.remote-ip=95.215.58.3
-Received: from mta1.migadu.com (out-3.mta1.migadu.com [95.215.58.3])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=squashfs.org.uk;
+	spf=pass smtp.mailfrom=squashfs.org.uk;
+	dkim=pass header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=IqzxPLnf;
+	dkim=pass header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=VBdxXJQj;
+	arc=none smtp.remote-ip=92.204.81.208
+Received: from sxplsmtpa04-06.prod.sxb1.secureserver.net (sxplsmtpa04-06.prod.sxb1.secureserver.net [92.204.81.208])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A40D7606A31A
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:22:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A40D7606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE1C9606A31A
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 03:24:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE1C9606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=squashfs.org.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squashfs.org.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MbmIxTcQ
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/mnPk6TbiEx963fDemDdeJymjABb+Fn9UESDkxFlWro=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795404164; v=1; x=1796008964;
- b=MbmIxTcQ3G8tt5wpa6I92LbDuMVfs1806E7cCC5PBI2vMou21aB8rNHj0nuJts8H03VVD2PI
- 9TAupc99w0fWffVFDQy168Kz8ejfAY9iYpPuItzqQ6Uyb/Izcz9NyUgvR3SABuMbZKKvSgRXEae
- vJQh1W78cvOAENKbObhR4Edc=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a40b5ee157b951a8;
-	Mon, 23 Nov 2026 03:22:43 +0000
-X-Mizu-Trace-ID: a40b5ee157b951a8
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key, unprotected) header.d=secureserver.net header.i=@secureserver.net header.a=rsa-sha256 header.s=secureserver2 header.b=IqzxPLnf;
+	dkim=pass (2048-bit key, unprotected) header.d=squashfs.org.uk header.i=@squashfs.org.uk header.a=rsa-sha256 header.s=secureserver1 header.b=VBdxXJQj
+Received: from ravalox ([82.69.79.175])
+	by :SMTPAUTH: with ESMTPSA
+	id VKewx1zMZpVcJVKeyxeBLr; Mon, 23 Nov 2026 03:24:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secureserver.net;
+	s=secureserver2; t=1795404246;
+	bh=fb5F1+HV0OZbPTxdQ7/3f15ugGB/LMdBqtkFJnN7Nm8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=IqzxPLnfYggvmqvmgLzhq/FzVr5nMJsqFSZnyLq6x46UD6/7MVXa/Hl7rErhqx4hZ
+	 EPJvGcOejfRZQwXrhjVXgkB0flxCviiauWQ/wwvTVtTLrcpDg6YxV9qBh72PHR2RTX
+	 99E1mOTUDqSQJnrMJF1jHfvL7Lta5FebpsOghOHBMozjeDIYiMeak3vdMoQ1wrOCfZ
+	 iVx3UntBM8IFNLupbEKyfP1buoOXtdeM+2QMDEdDnbqVnDAjwpeCVmCZ2QJwo+sP8m
+	 svKTtsyw8KU8aQLJ/snr6xyuQpnVeYnWypclG40m4WyAS8i138eOJ9x2mRuL6fyUkP
+	 chghFlENBMtkA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squashfs.org.uk;
+	s=secureserver1; t=1795404246;
+	bh=fb5F1+HV0OZbPTxdQ7/3f15ugGB/LMdBqtkFJnN7Nm8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VBdxXJQjrwgcvVF37/rAknxuPMbxxB1xKNr+g5scrRKFnxGDAngFc+pb3lJuIWYpY
+	 zUKw5q4yYOINMO7EBCgPi3YOvCQWn9bVa6jzW9q16uYVMtMD8YduBQIWkfDFslAD9+
+	 YrPOxryswsCOHmUCJQpLwkpT+IjRSmaEgcisjhqYYyiQOLkZXhkvpXUfmUhYjCTOHT
+	 78YytrikBdrS697gmsNvErzmsXCp2ofYY/FVQRV5TrrJ050HQRZuraMOWCmNHIo90j
+	 E9wJw5DbnWfusWZFFN95xWs4IOu0jDNJL6uMKNj3NLiqNMtupcRc2ncM5s0Rhi4x7b
+	 L8T540VfX9/nQ==
+X-CMAE-Analysis: v=2.4 cv=D7/SufRj c=1 sm=1 tr=0 ts=6b03b1d5
+ a=84ok6UeoqCVsigPHarzEiQ==:117 a=84ok6UeoqCVsigPHarzEiQ==:17
+ a=kj9zAlcOel0A:10 a=Z4Rwk6OoAAAA:8 a=FXvPX3liAAAA:8 a=OM4U-40VTx3VScZtlVYA:9
+ a=CjuIK1q_8ugA:10 a=HkZW87K1Qel5hWWM3VKY:22 a=UObqyxdv-6Yh2QiB9mM_:22
+Feedback-ID: ddafcf7f7eb0c3020a2d92e6b9fb169e:squashfs.org.uk:ssnet
+X-SECURESERVER-ACCT: phillip@squashfs.org.uk
+Date: Mon, 23 Nov 2026 03:24:02 +0000
+From: Phillip Lougher <phillip@squashfs.org.uk>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, Christian
+ Loehle <christian.loehle@arm.com>
+Subject: Re: [PATCH v2 17/22] Squashfs: don't store large export table
+ indexes in memory
+Message-Id: <20261123032402.2ef0f237cbc3fd677b048a11@squashfs.org.uk>
+In-Reply-To: <20261112110927.6add17b0552922c5b6b93515@linux-foundation.org>
+References: <20261111234402.252354-1-phillip@squashfs.org.uk>
+	<20261111234402.252354-18-phillip@squashfs.org.uk>
+	<20261112110927.6add17b0552922c5b6b93515@linux-foundation.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; aarch64-unknown-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,129 +86,46 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v3 11/19] arm64/mm: Align vmemmap to maximal folio size
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261122184453.2668189-12-jthoughton@google.com>
-Date: Mon, 23 Nov 2026 11:22:18 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Oscar Salvador <osalvador@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Nikos Nikoleris <nikos.nikoleris@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- David Hildenbrand <david@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Nanyong Sun <sunnanyong@huawei.com>,
- Yu Zhao <yuzhao@google.com>,
- Frank van der Linden <fvdl@google.com>,
- David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <ED44F18E-E7FF-4B53-9B5B-3201F1100154@linux.dev>
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-12-jthoughton@google.com>
-To: James Houghton <jthoughton@google.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CMAE-Envelope: MS4xfBN1rCv2VaseG8nBDIX9nmiVQAAWYxNtgqza7MtGnU7b7zCjwTr1DNXfRjlbmPDUoORJz0frV/y7bHWvtH1+Xlg1Fw+zGPaWBeb4T2K/zx+GuAI2ZyYA
+ nioFcL38IcE1tpSbdhFZn4DgOlP607Dc6slOlGRWa2RhRpTfQ7uOQaRx3wmJYSV4rZccyRp04jqo5t4Fdbeo6xJPPUi+YtQLOvxFycnOc5U0amj02V37BmCK
+ 6Pse1p0Snl0qLbIcIkSnpleqjRSt65hWEJYYjDiGcDF7gQ9lAeaANsbGtwWgEjzfK1B2u6R5kPvhu11y03jG7w==
 
+On Thu, 12 Nov 2026 11:09:27 -0800
+Andrew Morton <akpm@linux-foundation.org> wrote:
 
+> On Wed, 11 Nov 2026 23:43:57 +0000 Phillip Lougher <phillip@squashfs.org.uk> wrote:
+> 
+> > When mounting a Squashfs filesystem, the code reads the entire
+> > export table indexes into memory.  Their size is determined by the
+> > number of inodes in the filesystem.  For the maximum inode
+> > count of 2^32, this will allocate and read 32 MiB.
+> > 
+> > This is an excessive and unnecessary amount of memory because the
+> > indexes do not need to be read into memory in their entirety.  In
+> > addition kmalloc() is used to allocate memory, and this can fail when
+> > large amounts of memory are requested.  Kmalloc() on modern kernels is
+> > usually limited to 4096 KiB.  If panic-on-warn is set, then failure to
+> > allocate memory will result in a kernel panic.
+> > 
+> > This commit uses a 4 page cache if the size of the export table indexes
+> > are 4 pages in size or larger.  A simple and fast lookup array is
+> > retained where the total index size is less than 4 pages in size, which
+> > is the vast majority of Squashfs filesystems.
+> 
+> Thanks.  This patch didn't anticipate the presence of Christian's
+> "squashfs: identify device in mount errors".  To make life easier I've
+> staged Christian's patch behind this 22-patch series.
+> 
+> This required a bit of rework of Christian's patch.  While in there I
+> filled in a few more places which needed Christian's treatment and I
+> made the whole thing more 80-column friendly where that made sense.
+> 
+> Please check:
 
-> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
-wrote:
->=20
-> With CONFIG_VMEMMAP_OPTIMIZATION, compound_head() derives a tail =
-page's
-> head by masking its address. This requires the head struct page of =
-every
-> folio to be naturally aligned to the folio's vmemmap size, up to
-> MAX_FOLIO_VMEMMAP_ALIGN.
->=20
-> On arm64, the vmemmap is offset by memstart_addr, which is only =
-aligned
-> to ARM64_MEMSTART_ALIGN: as little as 512M with 64K pages, where 16G
-> CONT_PMD hugetlb folios exist. VMEMMAP_START itself is sufficiently
-> aligned for all supported page sizes and VA sizes.
->=20
-> Raise ARM64_MEMSTART_ALIGN to cover MAX_FOLIO_VMEMMAP_ALIGN, and =
-assert
-> at build time that VMEMMAP_START is suitably aligned. This is a no-op
-> until arm64 enables HVO, which selects CONFIG_VMEMMAP_OPTIMIZATION.
->=20
-> Signed-off-by: James Houghton <jthoughton@google.com>
-> ---
-> arch/arm64/mm/init.c | 18 ++++++++++++++++--
-> 1 file changed, 16 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 4e7682dfe366..7186d86afc41 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -35,6 +35,7 @@
-> #include <linux/kmemleak.h>
-> #include <linux/execmem.h>
-> #include <linux/arm-rsi-cmds.h>
-> +#include <linux/vmemmap-optimization.h>
->=20
->=20
-> #include <asm/boot.h>
-> @@ -92,11 +93,22 @@ phys_addr_t __ro_after_init arm64_dma_phys_limit;
->  * in the virtual address space.
->  */
-> #if ARM64_MEMSTART_SHIFT < SECTION_SIZE_BITS
-> -#define ARM64_MEMSTART_ALIGN	(1UL << SECTION_SIZE_BITS)
-> +#define ARM64_MEMSTART_BASE_ALIGN	(1UL << SECTION_SIZE_BITS)
-> #else
-> -#define ARM64_MEMSTART_ALIGN	(1UL << ARM64_MEMSTART_SHIFT)
-> +#define ARM64_MEMSTART_BASE_ALIGN	(1UL << ARM64_MEMSTART_SHIFT)
-> #endif
->=20
-> +/*
-> + * With CONFIG_VMEMMAP_OPTIMIZATION, compound_head() masks the =
-address of a
-> + * tail page to find its head, so the head struct page of every folio =
-must be
-> + * naturally aligned to the folio's vmemmap size. The vmemmap is =
-offset by
-> + * memstart_addr, so memstart_addr must be aligned to the largest =
-folio size.
-> + */
-> +#define ARM64_VMEMMAP_OPT_ALIGN						=
-\
-> +	PFN_PHYS(MAX_FOLIO_VMEMMAP_ALIGN / sizeof(struct page))
-> +#define ARM64_MEMSTART_ALIGN						=
-\
-> +	max_t(phys_addr_t, ARM64_MEMSTART_BASE_ALIGN, =
-ARM64_VMEMMAP_OPT_ALIGN)
-> +
-> static void __init arch_reserve_crashkernel(void)
-> {
-> 	unsigned long long crash_base, crash_size, cma_size =3D 0;
-> @@ -218,6 +230,8 @@ void __init arm64_memblock_init(void)
-> 	/*
-> 	 * Select a suitable value for the base of physical memory.
-> 	 */
-> +	BUILD_BUG_ON(MAX_FOLIO_VMEMMAP_ALIGN &&
-> +		     !IS_ALIGNED(VMEMMAP_START, =
-MAX_FOLIO_VMEMMAP_ALIGN));
+Thanks.  It looks good to me.
 
-We already have a sanity check in spares_init(). Doesn't it work? If we =
-really
-need a check here, I think we should use compound_info_has_mask() for =
-the guard
-instead of MAX_FOLIO_VMEMMAP_ALIGN.
-
-Thanks,
-Muchun
-
-> 	memstart_addr =3D round_down(memblock_start_of_DRAM(),
-> 				   ARM64_MEMSTART_ALIGN);
->=20
-> --=20
-> 2.56.1.809.ga0b61035b5-goog
->=20
+Phillip
 
