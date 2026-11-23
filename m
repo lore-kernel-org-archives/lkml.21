@@ -1,73 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438707;
-	b=gjfdxgvJkNkVaC6vOiX69m4BKN1hINL99UCqgMLclwm1gJ4MCF8MChF1dReu6e0fPRPG
-	 gvhJJ2VSsWNzwU0vGaiWbOQdj20eApOCPv2WGpfDLIwEnn/M2HO36eNNvGs/VuOXCSlhl
-	 2lsbExN0ZBtJcFTKJjOTe5xNDZeQi/bFg8Jood2CO29qMY7vB2zfZvl3ZVwq8ZYeA6GCb
-	 M71CRgWQGYw1gigVe8NHd2W7dJSwl3vNfLEl+fVlGc2KpdtrvDSghZrwgq8b3wpPyFdZQ
-	 7GNd+LE/9wFQxDbl/5i85iQ14QcovIy//n7iNYJlHA9pGhEcVc3ITMiSQ4DOzJdFDcQ==
+	t=1795438729;
+	b=aZPgKgBdZvr6KfGnc/Yg3z+E64aFNsvO0pfxeqxra/uMtzbzRv3j++HAjfJzXC3JTkN7
+	 KqHaXP5nA1Xhj/Ar1hAGqTUhfQLYl74UGTs6DrhPqWBHEEcmlFsvwBRrA1unaTHzzjD4e
+	 OAfxlkBTawbUYcXTXZbkmm/slnZjzR7OAQDN7qIQbQVFVuxrB2lhk6LAV8dHfHTkPIif/
+	 f0LwFZuBTXSl4DBbQ8v6TB2wLCegvUVbhPHMDuPMWWSuSv+ooU3DH7NJ6ZkKA2aKKP8Sh
+	 xZx5SPohDYCZqOWrkL/8ZgNS+6uqquWdkRQVqxs7ACzNiwv1P06Zl37Io02S7AFWs0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438707;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Subject:From:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:
-	 X-Last-TLS-Session-Version;
-	bh=mzLYYjAmydjw3H3/oXbJ9XiThuY+ICSqgnzPmYbDz08=;
-	b=hVAVGRvDrXZscpKF6COdxCjaHinIEGtk5X70mo2C2NX2fnkUVvtz5Rxncm4664++aTht
-	 qwkig4dw/j35JNWqMfxm8wd61SLzN8ixnVS6VaLNui4UrijdEYfyJu21z8OrBKphFyk4q
-	 KQGPerKxe56SPSlwArlCXbgqQ2vaxvGbDHa7B4idMmuTaTQmHt87rKVYAlFmg/pUa6pM1
-	 CleDzsMdc9JmzsnHvHZ2SexYHIMqY2daoKqd1k9kBly4oeTdlK1ZZ9dtdOB41BaZbAUXF
-	 QlHP/Ad2ZgswlfufTULnS7xVQeW/n4Q72I+LcYSXz08BaksPH3C7TP5B3CTfG6jcohQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438729;
+	h=Received:DKIM-Signature:Message-ID:Date:From:To:Subject:In-Reply-To:
+	 References:Cc:Content-Transfer-Encoding;
+	bh=/iMdDPOlUrYpb8pfDUfC/X2GGru3CmJD7BQ2/aFt7vo=;
+	b=VMP+/CF8JmIpW897eNllYTQ+OuXgSo0S92jfY3FKlJRREwsHXio+HHGKv5Ai0RfNCVTU
+	 rY3quM8UZRoqSCdJ0lcbTpw7zMHQ3sUvPUZIuWbRfNuz2bSEKbLGqKjqG49Jz/YRCD76r
+	 EMrRT/+cGPj7AMv78hAmsCst5sIO9OXL/l1zfuyh2QsneWghK7MRjsUOFdWwwAVw1qDSf
+	 YZcmdOxZXb3QQcfdwGB+ZlKD9dtXszm/QDYcDQKgBts7Pcj59sqbbEaQCKjwqVpCVWUU4
+	 EiD+vuA0h1r2wd+Ns0qA0GOMwMMGJVauHnPYetfU7BEBXEhZUJzALHSSjjzggZbtZ3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=E2wByWoI;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8Fh3daD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E6D9606A31A;
-	Mon, 23 Nov 2026 12:58:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E6D9606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B39FB606A31A;
+	Mon, 23 Nov 2026 12:58:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=E2wByWoI
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 92D26C69149;
-	Mon, 23 Nov 2026 12:58:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 789EC601E1;
-	Mon, 23 Nov 2026 12:58:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AC4DD11E6A3A5;
-	Mon, 23 Nov 2026 13:58:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795438699; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=mzLYYjAmydjw3H3/oXbJ9XiThuY+ICSqgnzPmYbDz08=;
-	b=E2wByWoIaY23R3puLatDPLo+z5PjWAi3kGCZP04B8GCWr6Dok1SfsugOIwgjs+AkYSKDyW
-	KNTYfB88hg0gjngpo3M7nMivD18NdaY3VhTAyZsKoF3juKCkcs7Z/exBx0ZmbaGByFSM7R
-	1dx/wKuXAqt5pUu0R09OV8nnvcKjifsRzeY9NK7vCLWKSZvFXndD7bmoXiptzSzj8+E9l2
-	PhPoAxhtguoqFKNS1DafeaB6+aSE+akKEXUcUrEVw6BfWExwvdRAiEHVPgE5C4neoG+/Bx
-	QAzh5nMAmFCgeO7/MfNmRuABYaLeph1JZZqCGfIw4wROAycRqoNMaBlD2xMDIQ==
-Message-ID: <5879612808355316fb7ac7a0a7749f6ea96484cd.camel@bootlin.com>
-Subject: Re: [PATCH v2 1/4] i2c: octeon: Fix infinite loop in clock divisor
- calculation
-From: Paul Cercueil <paul.cercueil@bootlin.com>
-To: Robert Richter <rric@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, Thomas
- Petazzoni	 <thomas.petazzoni@bootlin.com>, Sunil Kovvuri Goutham
- <sgoutham@marvell.com>,  Umesh Kumar <ukumar@marvell.com>, Shashank Gupta
- <shashankg@marvell.com>, Tanmay Jagdale	 <tanmay@marvell.com>,
- stable@vger.kernel.org
-Date: Mon, 23 Nov 2026 13:58:14 +0100
-In-Reply-To: <20261113134128.58826-2-paul.cercueil@bootlin.com>
-References: <20261113134128.58826-1-paul.cercueil@bootlin.com>
-	 <20261113134128.58826-2-paul.cercueil@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8Fh3daD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7681F000C0;
+	Mon, 23 Nov 2026 12:58:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795438729;
+	bh=/iMdDPOlUrYpb8pfDUfC/X2GGru3CmJD7BQ2/aFt7vo=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=g8Fh3daD3xH+mbm/mrxKESnZNu3kBwJ2o5nRb+HFA7we1T/7H+YEdvL42tRd/YLav
+	 YAWkg4Zb10Odzmg1d1hRv3d0ym6GOvra3iFAPMQkMpYB1X2wcBeiy6KXpNczXRF3Tq
+	 pRvSLxkYjPjEVlA9dMhEprbZGDEU1Y2JqMOVx67JrgwlsPG2Gg4G9ylnjhV5LRUXwv
+	 aMKQvMIKBK1CxR58eT6uRB9sARJn0Jq5sO7gYYLk2BB86r2Iv7eDzt0vIyxrCar8qm
+	 WICwTayWsG7YpMqKWwX8Db/paUAu/YhXjdSSzagWk8MLm2qQf6ac3SO4A4FEa6alXG
+	 S+pWvq8+AJP3w==
+Message-ID: <28fb51fd6287f4b2faf996b696724c7e@kernel.org>
+Date: Mon, 23 Nov 2026 12:58:46 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH 06/25] drm/tests: hdmi: Convert to
+ drmm_connector_hdmi_init()
+In-Reply-To: <20261114-drm-conn-hdmi-cleanup-v1-6-20e8a33a2286@collabora.com>
+References: <20261114-drm-conn-hdmi-cleanup-v1-6-20e8a33a2286@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, "David
+ Airlie" <airlied@gmail.com>, "Hans Verkuil" <hverkuil@kernel.org>, "Helge
+ Deller" <deller@gmx.de>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Martin
+ Bugge" <marbugge@cisco.com>, "Mauro Carvalho Chehab" <mchehab@kernel.org>, "Maxime
+ Ripard" <mripard@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thierry
+ Reding" <treding@nvidia.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,68 +62,17 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Robert, Andi,
+On Sat, 14 Nov 2026 20:03:30 +0200, Cristian Ciocaltea wrote:
+> Switch tests over to the new drmm_connector_hdmi_init() signature, where
+> the vendor, product, supported_formats and max_bpc values previously
+> passed as arguments are now provided through struct
+> drm_connector_hdmi_funcs.
+> 
+> 
+> [ ... ]
 
-Le vendredi 13 novembre 2026 =C3=A0 14:41 +0100, Paul Cercueil a =C3=A9crit=
-=C2=A0:
-> From: Tanmay Jagdale <tanmay@marvell.com>
->=20
-> When mdiv_min is unsigned, the signed mdiv_idx variable is cast to
-> unsigned as well in the inner loop condition comparison, leading to an
-> infinite loop.
->=20
-> Fixes: 03240f826b02 ("i2c: thunderx: Support for High speed mode")
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
-I get only one complaint from Sashiko on this patchset, which is that the F=
-ixes:
-tag should actually point to 114c69f4be3f ("i2c: thunderx: Clock
-divisor logic changes").
-
-Do you want a v3 with that addressed?
-
-Cheers,
--Paul
-
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
-> Co-developed-by: Paul Cercueil <paul.cercueil@bootlin.com>
-> Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
->=20
-> ---
->=20
-> v2: New patch
-> ---
-> =C2=A0drivers/i2c/busses/i2c-octeon-core.c | 4 ++--
-> =C2=A01 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/i2c/busses/i2c-octeon-core.c b/drivers/i2c/busses/i2=
-c-
-> octeon-core.c
-> index 93a49e4637ec..85e18ca2410e 100644
-> --- a/drivers/i2c/busses/i2c-octeon-core.c
-> +++ b/drivers/i2c/busses/i2c-octeon-core.c
-> @@ -823,14 +823,14 @@ int octeon_i2c_xfer(struct i2c_adapter *adap, struc=
-t
-> i2c_msg *msgs, int num)
-> =C2=A0/* calculate and set clock divisors */
-> =C2=A0void octeon_i2c_set_clock(struct octeon_i2c *i2c)
-> =C2=A0{
-> -	int tclk, thp_base, inc, thp_idx, mdiv_idx, ndiv_idx, foscl, diff;
-> +	int tclk, thp_base, inc, thp_idx, mdiv_idx, mdiv_min, ndiv_idx,
-> foscl, diff;
-> =C2=A0	bool is_plat_otx2;
-> =C2=A0	/*
-> =C2=A0	 * Find divisors to produce target frequency, start with large del=
-ta
-> =C2=A0	 * to cover wider range of divisors, note thp =3D TCLK half period=
- and
-> =C2=A0	 * ds is OSCL output frequency divisor.
-> =C2=A0	 */
-> -	unsigned int thp, mdiv_min, mdiv =3D 2, ndiv =3D 0, ds =3D 10;
-> +	unsigned int thp, mdiv =3D 2, ndiv =3D 0, ds =3D 10;
-> =C2=A0	unsigned int delta_hz =3D INITIAL_DELTA_HZ;
-> =C2=A0
-> =C2=A0	is_plat_otx2 =3D octeon_i2c_is_otx2(to_pci_dev(i2c->dev));
+Thanks!
+Maxime
