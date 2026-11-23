@@ -1,97 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795417503;
-	b=j1tiGv5uaflriZGTHj8iUKfTJV2LQHwnA939L7k9n02RTaYw5q2stoMxBpVtLa6uoqVg
-	 v0P9muuvHziVm6352wXcvC4dDbN1pucOuytreP+h2+mFD/18s0weFKIPV2SDdEJolJiyL
-	 RSmklRGZdupZRBlqeVHhBQddFTlobVE8JA3dAcdWv4XDxS7/wI6HBoQl1h+iWl/yN3oPX
-	 SorFAo9twLml/Zajs6Hqe1ITtnnMbLy2xBVT6jl1hgXEdmQ/dmPODUj9alccGk8hKnvyk
-	 3U1VY1Fx/EyeMPmIp00VPR9JbQtrXaEi0l1Yn7JrKl7Cg15tE+MYdG6VJAUtjCtKC4g==
+	t=1795417541;
+	b=KH2gDAC1x7bI8i/9TkpW56tSBlTuPAa54PAh6rzYnaz7FveD7UuoZqlTTtxtpzeKMmcu
+	 mB9xv8GGCbS2GhHAAB2S6hoO91lNZnbGo3WQ0yy5oRSGvJHueYLYihkmBUVNO3cV+lqqI
+	 xhltCqlbqRm0344ofVKOWYJDG4zOJawEjBq/AIJSARFQM7iqtmrjtdfzV6BvAohFVMsEX
+	 aWVFVfO7nSleH2X4m+GASlCJHweMulDp+RCMRyoG9749CEdCYLnRUNbELGbPWyC04YA8c
+	 fFKGuyfZ6dF1Mx84dZw/Q97e3CPCm7SKt99O1ts3/KjqIkyXTSghqOve0lfLFnjgQQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795417503;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=eT8QnuufkN4rAqAjynMD8IPwDRm8B3Z1LQZ8ZX2eiyE=;
-	b=EuqZSWzaDP+dTK2UtvuK0+NBhaqRlsfsnoYbvO9EUk1kBvthTR9HLrep1xxZASvRo7ab
-	 eku3WESwYvpxwHbI9kYHCgjzAAjyudRvDr+JenFdpKsHA4STeUmGF3RlNp00jHuk1eBGd
-	 eEGEXmLFMQt/IQ0R3UI3fo5lbmtiJwOPgoptuKI7pbC+wV8mYQG/NMI3kOVvWzWT2zMIF
-	 iCad8pwHss2UN/vHFeX1e85er6J10sBW8nKs+tFCeazZJu1H4hGOzpoRUoglaWkEicoWp
-	 xB+Lj0JPoH3snqm2tcqbOMqjUyuNm3HdKK/UdM7l5U1cNpbuU5LvcXWs1hcfM7AFA4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795417541;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:From:
+	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=p6K6BHA8f60tUUn0BXpwoKTl1UjqiSlQvS+aUVZvn0M=;
+	b=aw98yWy1zlV1DeriMCB5PlQu6w9a4ERuYNy7Gq+jwmBaAYP9ru+dq/045jj5mSa+Cgrj
+	 929wC3sF52TrH2f5MwKgMzeByZ9Q7U9LnGUVSeu1MKjHgAQaprxQ2cCOodjcn6yLRyiS3
+	 zeoJo4gklZGSWUnSos1OrqQUOX5bKc+lKl7XXS5ybADW+zfq/RvyJW+YSKqqlkjdhTnhC
+	 acFYWCcVkRjlo/7zcOyusKtv/PmNmwSJ62uFcpmJaOtFnQOcri/fWF9VKeCM95qGtDeLK
+	 y7f1wWFAXAaJpeJJWTlIxwNCOASEVU+nZMQg7lQepu/UV4vZzbm3k8pXK1J+3aYEqtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HcBSyWAd;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MKeyK6oU;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 575C7606A31E
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 07:05:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 575C7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4988C606A31A;
+	Mon, 23 Nov 2026 07:05:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4988C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HcBSyWAd
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b3e85baf7cso1641429a91.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:05:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795417502; x=1796022302; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eT8QnuufkN4rAqAjynMD8IPwDRm8B3Z1LQZ8ZX2eiyE=;
-        b=HcBSyWAdszflgG9bIJGgkRKL8xy1RExGh1/vb9xvnX9Zv7Jh8ABLd2JI6GcfXbay6d
-         ttzZnUYAiP0WS5PHkSDNqjYy1QVcDT5W2TWXO2TvYgXQi5zEdv7FgRox3ZOBVxK8hZaD
-         XJSnT5SwB6ElD5Rxjg5Qek3T7s6XD0hMX4u3H+yFZi86hWlNRe2oJWyLRgW+wtnmYufu
-         sqdjl4nD0AmcAaVK4L9xtcyqGLRB49Ud3EFBBKwKrAQUvfQCTX0iK5+0PtTURezPhvOn
-         TmLRSFMlOfrvg7K5//dNYuh0nLdCImwpwTIseAPngYmc7ztj/f7RCZx1QMbV1a1OvZTJ
-         q7HQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795417502; x=1796022302;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eT8QnuufkN4rAqAjynMD8IPwDRm8B3Z1LQZ8ZX2eiyE=;
-        b=ouqemqkDBArPJm4q02Q0Vy0qch40d9PzaVxrL2yDr5y7Bt3X9wMAXvEGc7Lb1EGzq/
-         y0lulHIdAHSpLp9p95/PMe4pYg/mPretAO2XSVro3hyi0cxprq2Pbcx6ZJk7OEwONeGp
-         ftm5kPDVz6v72Q01QtDShK8sTbNmpI4w8RSWqTRYOMcM46ahc4xGjcaNMaPfxMNlGB19
-         doXFHA2enNk1/41VrBRIGVodhZJYtbDk+BfZB8PEdM66QwIa9SkBR60ZJGZBSkbpRwWz
-         HUaSX212+pccuJST8DsRb6Dw2RfImLxvli651yDnjgxlRR5bpdJx3VdHG9Fd/Y3YbPve
-         9wOQ==
-X-Forwarded-Encrypted: i=1; AL+hErEYX+z0YtfwbtrlUORmI42vI3YlcB5TOb/K2M7UIAlqq48kRgUi1kTO1QO5vKmNhFvHtxs/5Jc7FqBCIlw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/1ctiStOYlZwqr/3O0kIKwgk2MWxf9OltWaGn6sWpW2NI9pj7+
-	dl7gRDmNbLmAOiq3SalykmKxHq9kolVVZeR92YUHfqOMgfC06WH4+0lZ
-X-Gm-Gg: AZFdTZdmbwp5SDY94ahT+S6Q275nIphWfKc3PIC/2+1bCrb9aw7Y4YMt5bsW7DoJ3Fo
-	2CFzx5ShM74SDgeFBAMDcmV73ugpaDBYXL4RNe7Tgztp4XkweTxI/+G4bxt99VsneZXCfB9xyCy
-	fNDz6HkMg0mlZaKNtbauBNbvAXPZ5hnkh3DW+j6DCurRE4SCKl7XiMjK04Y0yc+ghaz5bBqGoJv
-	Wv9DPZaJFo0dEjxEmld+cBRGWfw68toT75miZNpQmP+J7Trl8I175rHLi2CGXN+1GT3RrgZwXSs
-	6J5EqRMK6wdf+W5m5qtiue/qjHFOMJn0pYrQ0DtMoPeTYrIfGKfgg4rTvwplAWK8dLa4huJfsVz
-	2G9hL0r52xJB4JmdQY7Vm2G/rh3HEivwIzZu82eNxUfh+p8WyluNsMZdlQge+GWLHtFqBcjri1U
-	MMBS7rPs9eNqMcs37w9DGvHzi22oFQkYb4QMZQgkRWc1/FqBdYx6s5znITfRlZ7ynCb+WgylQmx
-	QmFkL3JGp4heFYAd0OnNA3Qo9GVJ/SaGJRepE89Os7+h1f+17g4c0fCFYBpq+bRzORddCQ5wDY9
-	ra6HpIvP3jTDSo6DHGHF1krBGffCXx/TVA==
-X-Received: by 2002:a17:90a:c10e:b0:3b3:b0f4:1bf6 with SMTP id 98e67ed59e1d1-3b41c8ff7b3mr10083555a91.22.1795417502578;
-        Sun, 22 Nov 2026 23:05:02 -0800 (PST)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm19763094a91.2.2026.11.22.23.05.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 23:05:02 -0800 (PST)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com
-Cc: linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH v2 3/3] mtd: rawnand: r852: bounce non-linear-map buffers
-Date: Mon, 23 Nov 2026 15:04:40 +0800
-Message-Id: <20261123070440.3060882-4-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123070440.3060882-1-leeonion.muyu@gmail.com>
-References: <20261123055020.1995251-1-ping.li@horizon.auto>
- <20261123070440.3060882-1-leeonion.muyu@gmail.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MKeyK6oU
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN6PZP83713062;
+	Mon, 23 Nov 2026 07:05:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	p6K6BHA8f60tUUn0BXpwoKTl1UjqiSlQvS+aUVZvn0M=; b=MKeyK6oU+KNsKJgD
+	I1bakOOX+ujXmshp4r9OcPex82Bdo3u6cX7ydKC8Wk1mX8ceJJDV3TcHGsHX87ar
+	6dQMfb0r1T82t0kq33/B0Db6zgRe8s/3XWFzvXwBO0DslcnqIHdjcMiRAGXheE20
+	V9nb/+D3dwPNVIODYbfRJ9vYP4+/YuGBiQSNnlYz5DCUi+rug9vTOwaUL588H2IO
+	1HzUGoUw6nSo/LaEvpGLBYPx6kkoAkhjAhLOjBEtw92a4xbTYEU0lSZNtVW9L/+4
+	UZ/pzMxAP61w6+BH8E9BhtbZKJVEBRexNcJlOPaqk+TWOL14gpEz8Frem5OsyMR5
+	rGv/SQ==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g740500-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 07:05:07 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN72cFi4179942;
+	Mon, 23 Nov 2026 07:05:04 GMT
+Received: from hu-ffaruque-hyd.qualcomm.com (hu-ffaruque-hyd.qualcomm.com [10.147.245.31])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTP id 6AN753Q34185090;
+	Mon, 23 Nov 2026 07:05:04 +0000 (GMT)
+From: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 12:34:53 +0530
+Subject: [PATCH v5 1/5] power: reset: pscrr: add kernel panic reason
+ tracking
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,39 +73,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-pscrr-reboot-reason-v5-1-fbf3c7c92772@oss.qualcomm.com>
+References: <20261123-pscrr-reboot-reason-v5-0-fbf3c7c92772@oss.qualcomm.com>
+In-Reply-To: <20261123-pscrr-reboot-reason-v5-0-fbf3c7c92772@oss.qualcomm.com>
+To: Sebastian Reichel <sre@kernel.org>,
+        Wim Van Sebroeck <wim@linux-watchdog.org>,
+        Guenter Roeck <linux@roeck-us.net>, Benson Leung <bleung@chromium.org>,
+        Tzung-Bi Shih <tzungbi@kernel.org>,
+        Oleksij Rempel <o.rempel@pengutronix.de>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-watchdog@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        kernel@pengutronix.de, Liam Girdwood <lgirdwood@gmail.com>,
+        Mark Brown <broonie@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+        =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>,
+        Guenter Roeck <groeck@chromium.org>,
+        Matti Vaittinen <mazziesaccount@gmail.com>,
+        Ahmad Fatoum <a.fatoum@pengutronix.de>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        avaneesh.dwivedi@oss.qualcomm.com,
+        Umang Chheda <umang.chheda@oss.qualcomm.com>,
+        Faruque Ansari <faruque.ansari@oss.qualcomm.com>,
+        Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-GUID: kg99tHVNhU9lTIAZgMBhrsM9W3Mtufw2
+X-Proofpoint-ORIG-GUID: kg99tHVNhU9lTIAZgMBhrsM9W3Mtufw2
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAyNyBTYWx0ZWRfX61+4L7qx1w8C
+ Z0aqJ2v1FvfXoW6lfSs2D5KUz8L6+sH/3SbmGRq3PVJn4+9zKGXeH/j1H14Jp3TwSwI6iEZ7Brp
+ 6BuRX/uujMhiVnXvSF/yCl99xpl7Usc=
+X-Authority-Analysis: v=2.4 cv=T/cZ3PKQ c=1 sm=1 tr=0 ts=6b03e5a3 cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=opvmgqTE--nunqmWsLMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAyNyBTYWx0ZWRfX7rMQa4F2/tqz
+ 0s42MnDofvUEhm5HIdh//NbJgExe1qiUrYc4meUcdE+cDFgUb/hJ1cXew53JX9cFkNR/box2mH1
+ DpXuMesTxorsuVBscJ6iGC9EZcS4nR64p2v0jsjjX+B13g3gIX2TqTjN/HGz71MCnEk9Ub9YQqm
+ LpjHl1I4NjQ476wqAfqEx1KzE5LqLG3R6U4Dnp5kVoUIJ9QtjlE/tdRFXaFNtRg56NeIWlbuhc8
+ qsNGJcgJzjejcBzszetRqylg82qbkFriFsa+CEEHYi8pk/ReLtw5bVxLTwQD8i/G2tkEtFaxY53
+ QUQo37oWjoaDGJQIHUsLD8dmw2qxKN39xTZhQ3EHoxu/jVBPTCv5yNgWDDRlnG8WmYBDsOHetu4
+ qyD4CcUtp4yEu6S3Yhks9dhBtH2nT+lNJGaGFQ4fInikNaxNRNBC8CVngLFMyohg8FZOjXNqkvT
+ +QKcWGLcR1F3WzCpHqg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1011 bulkscore=0 suspectscore=0 lowpriorityscore=0
+ impostorscore=0 priorityscore=1501 adultscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230027
 
-r852_do_dma() only bounces buffers that are not R852_DMA_LEN
-aligned.  An aligned vmalloc'd buffer passes this check and gets
-fed to dma_map_single(), which is only valid for linear-map
-addresses.  Such buffers are not hypothetical: mtdblock's write
-cache is vmalloc'ed, and UBIFS passes vmalloc'ed LPT buffers.
+Kernel panic resets are not recorded in NVMEM, causing subsequent
+boots to report PSCR_UNKNOWN and making post-mortem analysis more
+difficult.
 
-Extend the bounce condition with a virt_addr_valid() check so
-that non-linear-map buffers go through the existing internal
-bounce buffer instead.
+Register a panic notifier to preserve the shutdown reason across
+panic-triggered resets. Add PSCR_KERNEL_PANIC as a dedicated reset
+reason code and its corresponding reason string to identify kernel
+panic resets on subsequent boots.
 
-Fixes: 67e054e919248 ("mtd: nand: Add driver for Ricoh xD/SmartMedia reader")
-Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+Reviewed-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Signed-off-by: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
 ---
- drivers/mtd/nand/raw/r852.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/power/reset/pscrr/pscrr.c     | 27 +++++++++++++++++++++++++++
+ include/linux/power/power_on_reason.h |  1 +
+ include/linux/reboot.h                |  3 +++
+ kernel/reboot.c                       |  1 +
+ 4 files changed, 32 insertions(+)
 
-diff --git a/drivers/mtd/nand/raw/r852.c b/drivers/mtd/nand/raw/r852.c
-index 92c47d351c27..4dbfc053fb21 100644
---- a/drivers/mtd/nand/raw/r852.c
-+++ b/drivers/mtd/nand/raw/r852.c
-@@ -188,8 +188,8 @@ static void r852_do_dma(struct r852_device *dev, uint8_t *buf, int do_read)
- 	  from device, for writes first fill the buffer  from memory*/
- 	dev->dma_state = do_read ? DMA_INTERNAL : DMA_MEMORY;
+diff --git a/drivers/power/reset/pscrr/pscrr.c b/drivers/power/reset/pscrr/pscrr.c
+index 6f23f4c4f590..8c45b84059a9 100644
+--- a/drivers/power/reset/pscrr/pscrr.c
++++ b/drivers/power/reset/pscrr/pscrr.c
+@@ -41,6 +41,7 @@
+ #include <linux/mutex.h>
+ #include <linux/notifier.h>
+ #include <linux/of.h>
++#include <linux/panic_notifier.h>
+ #include <linux/pscrr.h>
+ #include <linux/reboot.h>
+ #include <linux/slab.h>
+@@ -519,6 +520,29 @@ static struct notifier_block pscrr_reboot_nb = {
+ 	.notifier_call = pscrr_reboot_notifier,
+ };
  
--	/* if incoming buffer is not page aligned, we should do bounce */
--	if ((unsigned long)buf & (R852_DMA_LEN-1))
-+	/* if incoming buffer is not usable for DMA, we should do bounce */
-+	if (!virt_addr_valid(buf) || (unsigned long)buf & (R852_DMA_LEN - 1))
- 		bounce = 1;
++/*
++ * Panic notifier: record that the machine went down through a kernel panic, so
++ * the cause is visible on the next boot. Runs in atomic panic context, so the
++ * provider list is walked without pscrr_lock - providers no longer come or go
++ * once the machine is going down.
++ */
++static int pscrr_panic_notifier(struct notifier_block *nb,
++				unsigned long action, void *unused)
++{
++	struct pscrr_provider_dir *dir;
++
++	set_psc_reason(PSCR_KERNEL_PANIC);
++
++	list_for_each_entry(dir, &pscrr_dirs, node)
++		pscrr_do_record(dir, get_psc_reason());
++
++	return NOTIFY_DONE;
++}
++
++static struct notifier_block pscrr_panic_nb = {
++	.notifier_call = pscrr_panic_notifier,
++};
++
+ /*----------------------------------------------------------------------*/
+ /* Built-in provider: device-tree /chosen/reset-source                  */
+ /*----------------------------------------------------------------------*/
+@@ -611,6 +635,8 @@ static int __init pscrr_core_init(void)
+ 		return ret;
+ 	}
  
- 	if (!bounce) {
++	atomic_notifier_chain_register(&panic_notifier_list, &pscrr_panic_nb);
++
+ 	pscrr_register_reset_source();
+ 
+ 	return 0;
+@@ -619,6 +645,7 @@ static int __init pscrr_core_init(void)
+ static void __exit pscrr_core_exit(void)
+ {
+ 	pscrr_provider_unregister(&pscrr_reset_source_provider);
++	atomic_notifier_chain_unregister(&panic_notifier_list, &pscrr_panic_nb);
+ 	unregister_reboot_notifier(&pscrr_reboot_nb);
+ 	kobject_put(pscrr_root);
+ 	pscrr_root = NULL;
+diff --git a/include/linux/power/power_on_reason.h b/include/linux/power/power_on_reason.h
+index 13e61ace14f5..8c99bdd75021 100644
+--- a/include/linux/power/power_on_reason.h
++++ b/include/linux/power/power_on_reason.h
+@@ -20,5 +20,6 @@
+ #define POWER_ON_REASON_OVER_TEMPERATURE "over temperature"
+ #define POWER_ON_REASON_EC_PANIC "EC panic"
+ #define POWER_ON_REASON_EXTERNAL "external reset"
++#define POWER_ON_REASON_KERNEL_PANIC "kernel panic"
+ 
+ #endif /* POWER_ON_REASON_H */
+diff --git a/include/linux/reboot.h b/include/linux/reboot.h
+index 13f004ad1066..a117dd5eaecd 100644
+--- a/include/linux/reboot.h
++++ b/include/linux/reboot.h
+@@ -241,6 +241,8 @@ extern void orderly_reboot(void);
+  *
+  * @PSCR_XTAL_FAIL: Reset caused by a crystal oscillator failure.
+  *
++ * @PSCR_KERNEL_PANIC: Reset that followed a kernel panic.
++ *
+  * @PSCR_REASON_COUNT: Number of defined power state change reasons. This
+  *	value is useful for range checking and potential future extensions
+  *	while maintaining compatibility.
+@@ -264,6 +266,7 @@ enum psc_reason {
+ 	PSCR_RESET_BUTTON,
+ 	PSCR_CPU_CLK_FAIL,
+ 	PSCR_XTAL_FAIL,
++	PSCR_KERNEL_PANIC,
+ 
+ 	/* Number of reasons */
+ 	PSCR_REASON_COUNT,
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index 75af5d763465..979ecf3b093c 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -1109,6 +1109,7 @@ static const struct psc_reason_desc psc_reason_descs[] = {
+ 	[PSCR_RESET_BUTTON]	 = { "reset-button",	  POWER_ON_REASON_RST_BTN },
+ 	[PSCR_CPU_CLK_FAIL]	 = { "cpu-clock-failure", POWER_ON_REASON_CPU_CLK_FAIL },
+ 	[PSCR_XTAL_FAIL]	 = { "crystal-failure",	  POWER_ON_REASON_XTAL_FAIL },
++	[PSCR_KERNEL_PANIC]	 = { "kernel-panic",	  POWER_ON_REASON_KERNEL_PANIC },
+ };
+ 
+ /**
+
 -- 
 2.34.1
 
