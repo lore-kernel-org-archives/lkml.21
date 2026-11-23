@@ -1,102 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795465585;
-	b=XNE/8GCpeosF3RRKps7WeMIAIzMeNp4QWiSXpul1hRl8UMqCdDrRIoFLe5jTnxpmED6Q
-	 /xxtlBa1S7qSqxx2j5Vjc7T8oTJ4dEhF0kn7LkNITiSxUucQBUAiz/RzrNm24gRu2ur0/
-	 UQ7uMsLlyvjiitDbK58JYj2E8q7yXCxgk5wWH8uqJ7P2kSp6RMlX24X2ZEb62h4jDBvF3
-	 8aRTsxRK3G5S2Xc+gsxXM19HCcaCIUZg+7wUx+MpU58UZFb4HKuJM4lap4f9NOzbMzoT1
-	 yfAK707PKK1hIdFkm2BOKCBzdrvHKbXKJ2vdB+AyAs4P1/tsMNZ96Nvg6FGiGVPazJA==
+	t=1795465597;
+	b=cfKlXEiJf4crVI2tKBAssXwN0BoF+E2q6JGmaOXZGd5ahDysIS9ms1LBygG4p8p5N0i0
+	 NbApSJ9N8jPP/aAdQKmmXw7B0IS3xN8HIoAx0o0rV+Pu9ywMD+Krg5O/CpmTLXopo8bo5
+	 j1jL39AhGax9O6xfsxdownJr4tGlPsxVJXGQl0iKykRxgepWtrIsMfphF1CrKtMydlvJB
+	 3x58M32OSAFYCr5sqKhZ9KZNg2SHTTYWjsk6/unSZyK/w1KRVFkO1x087l/7UxmS9aypM
+	 4RAJUoMy92qp1bMZBXn8RvEUQ0cbcGPyP0sNjY38AamQOtgeziHoUXdVs+vMWPElqRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795465585;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795465597;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=NQ48N7WWkZ+c+s4V0T47yLDwNjedp7a0tZsuMHqD3Go=;
-	b=1VSxcqX8nB7oOdfF4OKHCkQY08bypyY4eZR+/Ui1CW/PX+7JKoDkmKQXUFcLfPuz9173
-	 KFSf+To2gdXOHz5640jjkhyoq4bt2A/B86HEHLAZqoxg9WR7oga7MzgSM/3xSU8aedtWD
-	 TS83pMaloGE7C1scXHFQmEAf+U23rolp0buyf+yKR+XyRal28SNsb3WPhLWWUnIQYtGhM
-	 PhZv4mq4aXphPlsQQd2U4ahEuoive5aqoGUuCZKU8gSSCCSsJXScGyZodes2eHMDG8LEc
-	 VsS5qDCo74bqORS6U+ttAW2jaRxgy5PdSo5HCYMpzV0u34KosuHoqtaKv569idUqWTg==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=HF7kC7ehUvjMLFdO+wj8zalglx6VqyJuBB04EXzZxKg=;
+	b=gLoceqDIoRGayKoQZfhtFgPD7Ujkt6ZQT1J0hP966X9xiYQauvvBXV3dv95lSslcwWmh
+	 JWJm4Ab+MHHb7ApggF49UNz4HJZNxJkfq//doCjPBW8gE/InXL95uBROXw1R6QZGkV77F
+	 Ymz0IFV7HOdANSRK0NpJRvb3CRKkKKf6RkTQL6xlU34IoTTLORQlfV+ZBaAJEvniRBVuI
+	 9J42oCiYa32JL1uNJzSbd65NE1jErRMLV/bfdNT9I1A3LGj6kLdfGzEk3I4i0fCKFIAw7
+	 pmOJB0c5tFfWw9aosftTULr5qiJVdXKbCvtSLDO4lgNlkZFiB2Itd8z4/Aex6Czt75Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=teslabs.com;
-	spf=fail smtp.mailfrom=teslabs.com;
-	dkim=pass header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=j9nSIYwX;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JDQEEOjt;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 503A7606A689
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:26:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 503A7606A689
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=teslabs.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=teslabs.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6A97606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:26:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6A97606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=j9nSIYwX
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso1769900f8f.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:26:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JDQEEOjt
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-38692f62b22so2817225eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 12:26:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=teslabs-com.20260707.gappssmtp.com; s=20260707; t=1795465584; x=1796070384; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NQ48N7WWkZ+c+s4V0T47yLDwNjedp7a0tZsuMHqD3Go=;
-        b=j9nSIYwX9ihcFMpmtUR6hNHIo1cHJ+LzzBhJnKdh9hkVA5oFY8tlzk4B/vc3G2Yerv
-         KSRQPxgPsRMPTHbYh5GO9VFH5+0CBFOHVSUNNNanJVhYBP96/JWeB2Y2o2gxpIgNeJic
-         RR0DQOcaY2imOtd39OuMfZOivZNm79jP+pOQKUU2hI/QEtlgfn3hhPcuxiIKlGJWQuGu
-         ZHXx+SpBkHrRm0xHzx9ZG0I9ima2b0hPzKu0FEigvCFTa2uGGDu9qF9J4TIvghjNw9SN
-         xvAFvd3VaEAMWl53kjYY9jh4VNtdt7u3Lx0q0OGAZPqhUI2QLd06TJoeKip/5Jol1eNY
-         zzQA==
+        d=gmail.com; s=20260707; t=1795465596; x=1796070396; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HF7kC7ehUvjMLFdO+wj8zalglx6VqyJuBB04EXzZxKg=;
+        b=JDQEEOjtQi4j7/aQ9NeZ5rJt2c9HVesTmaMZZFOcX4uaBY92kBL95IIrzoq0Ax30pr
+         gLAHUHeWc2ooegw/GHvR3MNLB1ifvcF/Rb+AMj6GqueKAlA0shXumJ2NoRRMxxTwrH+1
+         tg/zyLFCAvTi8L+5EVNsgXz/lb31rjVOip6dDi9mR5MkpS6APLMmUbbjVP2mKNbCTCaN
+         ZaGVkza5xa2VByAMUz7668CZBKKugWiOUn/TL9N/OUPqxvTs/m52ZQf09LzwrJwS4B29
+         8+Te87KL9Xzl0WvEq4cDDttiIo39RvGFfEeL17zFbFGZfjFA3Vtnvz+2eSnH6Jgglvtv
+         DTqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795465584; x=1796070384;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NQ48N7WWkZ+c+s4V0T47yLDwNjedp7a0tZsuMHqD3Go=;
-        b=P/i6ak86+X35uc+aVCliJH1s4KwkNhT4dfGLT3HxS2KYo69/EffBcukGeE230BtXm9
-         MX+rdVGRItmPHQmzbmWFAND5FX2PGyIPiI4VzGyF8+grjUYtFCHXyapQW49Bl4PuNVZj
-         4TCu2Jhewd2SPlw8wjpyarFMZ03mSnJEcKrA8Pk1m8/hDFnyxVrmaTXmFrQz7HFv83P6
-         qZDnVhhg2c/0sKHn0mQtpfrntBuNTrO6mIzdOZMfp9lNMNTMP4lB1ckTcMzMvA91B3pQ
-         hUWQfdKYIFIza0dRkYe/mOCXU2VjHXG+oZyK5uqf5pixVO7a9HVvnBwAE7SxVmLCSDFm
-         pXjA==
-X-Forwarded-Encrypted: i=1; AL+hErHBqKgJA3RLtPb7QL9GwBN0ndOrdRL/Q/lw2M2qEyl9jBcv0s1crHEJe1CMwHAbiiT5IU9hPuvxWyYD9Ng=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+iClkfaHEJ/pLoOe2xjHrkG4EsIGQKrSlBBXB4reywvrGa5gPY
-	oHLc8+IEYoa9Zy5h7Hhr8MzpIPTBvvsD6iDySn7gqqUcZWl8hZR2DdvKW4RMuRAuo7I=
-X-Gm-Gg: AZFdTZcdHXTVVnNAej4oCa68xYh9ow0tRdAbKreFQvznq64dkysxqiZ0sKAyotv3rEZ
-	CTTdEORVMV7k1KNRhxrBXQP4p/Hz5u3pdLwFiWhDESlNPnUMVdYYZnPCztpL4L/EjlIcR7rj43n
-	TuKOyWT4GvBPMapSsayfUonGDeNHA75VEBuVg48zUG2LbYNGl7SsSa75zW4eB/pyrspEmk7oVsk
-	h4u4jsSeu8YNJBLIntFcX0Ywtjk64P8gtJA5BTdLw6/3+AEEEYKY0L4BZWyXNHc4M6CDckMx8fP
-	1uekzDvxM7GYmpeUHBgsmFYSPYQzYC8hLS0M7kHbUGk6+1MI2nndS3nEtOAucY3fZRfS8c/wirj
-	Fy116EZ/B6c7sntw7nNQiePsfThvccEdOMKkYw1tx1PbAseTvCcFW59e1YvQAU2oeAECsdAS3LS
-	S9Pnt5jBBoTBfRTj2rAhKruC/c6niANv74fh7oI9NmzI8IlfY1N3zxPkFk3yApIFpoqGqNqlQst
-	nI916aodCNTLiFpfgX3tpw9v2u2bhNMHQ1L9/A4O728qQDVg+LzVNwhHTCmfJr2aMARuPEbcRsU
-	XuRGQQpX4vxMGH388vZNfeoXoygL2e612WDSsgnORR+qMNiubf7KQhwmTHXuzwB+PX6EPRAcS8m
-	4GlBBuHcxTnA=
-X-Received: by 2002:a05:6000:46cb:b0:48d:ecba:3cf8 with SMTP id ffacd0b85a97d-4abb3956786mr18544591f8f.43.1795465583237;
-        Mon, 23 Nov 2026 12:26:23 -0800 (PST)
-Received: from localhost.localdomain ([139.47.121.129])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm20108713f8f.46.2026.11.23.12.26.22
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 12:26:22 -0800 (PST)
-From: Gerard Marull-Paretas <gerard@teslabs.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Frank Li <Frank.li@nxp.com>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 4/4] iio: magnetometer: mmc5633: Add mount matrix support
-Date: Mon, 23 Nov 2026 21:26:15 +0100
-Message-ID: <20261123202616.17334-5-gerard@teslabs.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20261123202616.17334-1-gerard@teslabs.com>
-References: <20261123202616.17334-1-gerard@teslabs.com>
+        d=1e100.net; s=20260707; t=1795465596; x=1796070396;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HF7kC7ehUvjMLFdO+wj8zalglx6VqyJuBB04EXzZxKg=;
+        b=PKl4iqkFIBxv/kFT7kuCom9MtP5Gw1zlmE9jWufvFZN++uJMWtCBAeCjvX+5LXbTO7
+         hQ+inDA4DpabFqTOhPoPAPX1gqQU8HDgZhzjd6xcRcT+HgO3TvehEpuSt3zg21s+ditR
+         gekiWGMUn4JDbL1uFPtGQu+w047XYKsRgJZK+kmpJQF5JxuP+gx4w8TMcIWqZ2ViwVUK
+         WIcm27pwLGkcxdMmxqfEuIsjOzwNDr5pvC2fsUsHFJTbUCxw08+DCQ52GdJpQW33kG0L
+         +1ZeaXQMc1jaaVm6ueoGijpSvPZbNcJuAzdJ3brhByLWaijgOytU2mgDLTKCZ/0S2PuK
+         eQQg==
+X-Forwarded-Encrypted: i=1; AL+hErHgIMk6PMp/VBYp2vD525YEEGMS6PYfTt5y+iyIpruRk3W12s8CMWORBCneBxUoaN30zCPaakc0J1bLiC0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+pDRMatWsNEYMNdqi2xlyQjnEOCUkIQApxm05VFZm0K2a5dgK8
+	Fdy/eizt2M6Qw+0LsAJaPCf+TcamfZZ2oaXj5K3S/0099EZMdH9i0CDFTbfuonTD
+X-Gm-Gg: AZFdTZfI7F1rBxU22/cs/JGfraseEmPnu9W1a0QfAb9V/mEO4toxqm8yf7XWxEESpqO
+	Hpl3mSkmjEKVnkvqQqzHcYqXWs8WRCVEZ1lPgz5te9cllJ5EvnSNEaRgPY2odTzbQQleYTHYdGR
+	DeWMnPhEJzip99mJmVhtBP5y9Mzk1eTAAn625HVQZnbfs8SuVx+IiUV8YhYErsKI9Z0pCMyG4P9
+	nP7XZBnjA669lWSaI0d5fRPJgal3FkTRq22zrmEFwzlzXlbSxkP15jvD7OFg3eE7TxxsBk0AwUA
+	lEZKHKrJrfMA33QyTLIkUqng+xBgIGg3KEeh8B2jzZrzz9txsgDjACx8/hD+3Xn3UWI5ghqbmYH
+	ValXaMKU8QwyxKkAeyVEhr/Wl/2mA8zXFzj3B/vN9/J4nf7+q5oA5WZx5uFL9Ek/Jyt6o7On0ty
+	lgyFQaNI9wkb9b0iZrPoZYtBmv2TA1L9Zg08uFXIIWxWqURJGlp8EXPyX0VnIJzJtLWBy8bIR++
+	p2qMJRcoR110wy6R78nVAZBesLiCwY9nDfZjzGc8+/wSHsBKJCZiRD39z64Gx4k1l4GAsBD4/u+
+	NPgzV0srwHMdiOCJ3l3B915nU4RF/kllsXbMiGDyhhNntX3xsxLQR1TTBZVo3EAQj24+6qs=
+X-Received: by 2002:a05:7300:ce11:b0:381:a037:b060 with SMTP id 5a478bee46e88-3856e63b3dfmr13805896eec.9.1795465595743;
+        Mon, 23 Nov 2026 12:26:35 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm36533049eec.7.2026.11.23.12.26.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 12:26:34 -0800 (PST)
+Date: Mon, 23 Nov 2026 12:26:32 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Ian Bridges <icb@fastmail.org>, "Cheng, Wacom" <pingc@wacom.com>, 
+	Jaya Kumar <jayakumar.lkml@gmail.com>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH 10/10] Input: wacom_w8001 - use reinit_completion() in
+ w8001_command()
+Message-ID: <awShdGUZ-Ur-nLtp@google.com>
+References: <20261123183200.3900004-1-lee@kernel.org>
+ <20261123183200.3900004-11-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,68 +99,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123183200.3900004-11-lee@kernel.org>
 
-Read the mount matrix from the firmware and expose it, so that user
-space can account for how the sensor is oriented on the board.
+On Mon, Nov 23, 2026 at 06:31:16PM +0000, Lee Jones wrote:
+> w8001->cmd_done is already initialised in w8001_connect() before opening
+> the serio port, yet w8001_command() calls init_completion() again for
+> each command.
+> 
+> Calling init_completion() on an active completion reinitialises its
+> internal waitqueue spinlock, triggering lockdep warnings and racing with
+> complete() in w8001_interrupt() if a late response to a previously
+> timed-out command arrives concurrently.
+> 
+> Use reinit_completion() in w8001_command() instead.
+> 
+> Fixes: 3eb1aa43ef5c ("Input: add support for Wacom W8001 penabled serial touchscreen")
+> Closes: https://sashiko.dev/#/bug/linux-002efaac-c345-4827-8f1c-7b9d9226c713
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
 
-Signed-off-by: Gerard Marull-Paretas <gerard@teslabs.com>
----
- drivers/iio/magnetometer/mmc5633.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+Applied, thank you.
 
-diff --git a/drivers/iio/magnetometer/mmc5633.c b/drivers/iio/magnetometer/mmc5633.c
-index 316b431477dd..adc08cb28600 100644
---- a/drivers/iio/magnetometer/mmc5633.c
-+++ b/drivers/iio/magnetometer/mmc5633.c
-@@ -92,6 +92,7 @@ struct mmc5633_data {
- 	struct regmap *regmap;
- 	struct i3c_device *i3cdev;
- 	struct mutex mutex; /* protect to finish one whole measurement */
-+	struct iio_mount_matrix orientation;
- };
- 
- static int mmc5633_samp_freq[][2] = {
-@@ -101,6 +102,20 @@ static int mmc5633_samp_freq[][2] = {
- 	{ 6, 600000 },
- };
- 
-+static const struct iio_mount_matrix *
-+mmc5633_get_mount_matrix(const struct iio_dev *indio_dev,
-+			 const struct iio_chan_spec *chan)
-+{
-+	struct mmc5633_data *data = iio_priv(indio_dev);
-+
-+	return &data->orientation;
-+}
-+
-+static const struct iio_chan_spec_ext_info mmc5633_ext_info[] = {
-+	IIO_MOUNT_MATRIX(IIO_SHARED_BY_DIR, mmc5633_get_mount_matrix),
-+	{ }
-+};
-+
- #define MMC5633_CHANNEL(_axis) { \
- 	.type = IIO_MAGN, \
- 	.modified = 1, \
-@@ -109,6 +124,7 @@ static int mmc5633_samp_freq[][2] = {
- 	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW), \
- 	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SAMP_FREQ) | \
- 				    BIT(IIO_CHAN_INFO_SCALE), \
-+	.ext_info = mmc5633_ext_info, \
- }
- 
- static const struct iio_chan_spec mmc5633_channels[] = {
-@@ -485,6 +501,10 @@ static int mmc5633_common_probe(struct regmap *regmap, char *name,
- 
- 	fsleep(MMC5633_POWER_ON_US);
- 
-+	ret = iio_read_mount_matrix(dev, &data->orientation);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to read mount matrix\n");
-+
- 	indio_dev->info = &mmc5633_info;
- 	indio_dev->name = name;
- 	indio_dev->channels = mmc5633_channels;
 -- 
-2.45.2
-
+Dmitry
