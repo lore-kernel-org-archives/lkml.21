@@ -1,66 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450315;
-	b=LpKpJ6rP/3xYQElJZtaEEgIR1DNHBbl3oMDzOcKd5sD1dAkMoYnVBDIuCZjj9tp9dS7N
-	 S8ihBgy6a4jqpE/87CxkWb8/TEVEMZuS6DJoYDiL8518HlFWezFn/fQuNBtzZzMYnxuER
-	 LDUOcNcVvCEO1dVS9JxIfsOav2GH4LIREjnOmsyB5lcgbGZa8MnRCr0MgWn9mzjRjIbfW
-	 GFVh3Se9VxaQ7iBS7IurskXLVdTOcX4/dhWtoZcJzHd8Mp8iuK4xujJOPkKr5oZw0G1fP
-	 3FYT1vqPxrXHDohO2efDo22597ftWpKogvlAxwG39g8LPbcb9XYo4XQ52wCsc0+oNZA==
+	t=1795450323;
+	b=kVHl+726ei6//XQCkoBhkzzVJw5wzhQSSy+QO0igPaBmrYAMvTAzqbKD2DPOR81pW+2q
+	 Ly9UawHWuoJuir70DKZq9JOTjVtveba2SYfK9Ft4RA64AE3qLau237wT6YB4aoKw9wbNo
+	 MD4P5Jj9wlP2i/TW1namLNQU+Sct9O+vxozMMTFKt9n+4+2YXP5q0XC2n+Yo/PCfgKwnr
+	 phfpQSOChDf6OlwI3MVeDTkOt2w23YFrJVmmwy5fqgdxurrXeGeeGer5Aik2nYIg4QVgv
+	 dYvkT2FSYs3yfqmW+Zc1MfrmcXZqhPITBLsqvefyyTQXpjjfJU57UG7/XX11f387r6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450315;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=CuV1HgSyHeqmHnQ6X0W8EKjH6rdyvaViJZVeUHENJ3o=;
-	b=e2YtJA1QKnM4f8B0lZtFJ3pST8l9DAIoZrvws5ZG1nsAOmkGUIAtHpLTSxAnzbtA1z9b
-	 Ln4IyGARcdDR8uAdbQ1tUzzugnNpGAkYTmDEeIstDyYdtEqB6BzEyWHqMTasCtHFyTGsX
-	 UZXwd6pxeNekLj/R+b0PCCYldOXANNsEzF/qn3N5M4MryxfkS2JsZO4ouhsaaJotm7+Eq
-	 CngijahIGCgD994OwXEBaKqoABkT5MpqqhgHDYBQ2wGKS5adZsbkZLFMocIaHc0tinAhR
-	 H9R4FxhHeJJApUPhD0wi5m+gPf+2tbc3HXDrC2cjdEYSJU+Iyn/l7zWt99mFzQFwKGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450323;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=KvjiNW3TS27m9wLQHM/oyg+Q1ZCOp5FpRA0DIG7gD6A=;
+	b=Sxhrl4LqbTUFIlVdBdQGkjdomGTK5TR96mO6v29gn1zuJt6U/AO/UjtvwLyYXyBlcQpS
+	 MvG7y1/FuMUyOX3TE+KK+Z9ki1VPiYQoK+BanN+QLEGUGO81Ct2mq+ideCKCCXA1yFQLg
+	 34WZMZyY3eBpVovQiNRVwvrP6VVx8ut/kLMAntSb0MQXj9ySkOWWdvF7liZcsQF3jNY/j
+	 KkTOa0wn6LLZjQ3j863HOFbTJvDu5cJxjhagX/11TatrN+Rqagk+cQXV2nohvZ0x+coVq
+	 fWBEC8Tueelh80qOBga6VXxQEWlieh3i6F3JnKSwROyuzQBF8ntizu5iasC6Eb4/bHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I7cdb4vd;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eKf7Yspo;
+	arc=none smtp.remote-ip=198.175.65.18
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B443606A31E;
-	Mon, 23 Nov 2026 16:11:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3208B606A337
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:12:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3208B606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I7cdb4vd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A5E1F000C0;
-	Mon, 23 Nov 2026 16:11:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795450315;
-	bh=CuV1HgSyHeqmHnQ6X0W8EKjH6rdyvaViJZVeUHENJ3o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I7cdb4vdNUK3v3piY+BZlJjEe9R4MEyMtBgnxanHlmElStgvqGfQY7m05L2McBrOR
-	 VP+sk9kRQ+s6g7KtRfwY1IGa/cRy5HXcbrKutTfHWiHSdpSGmhzT2snp63v0kVxoPP
-	 D61kJ8ra9i6aLDn7pdM82YRC39mtoLm+pEdt28w6iLFn2sYZknfRXOwISv/FM3j447
-	 d8OreZirnkqEWu7JNN9y41OAQcEAUcPYoV2mGz3YuP8hvByYVXaDF5jhMXpDRAwBDK
-	 98UKa8QcdVSbM0GLaB87W8AMcxgfQMC03x9D4Rc++I920eQzGHmX5MGcXkTqRzy2mZ
-	 WIcA6ugK5QGbA==
-Subject: Re: [PATCH net-next 2/2] dt-bindings: net: dsa: Flag unexpected
- ethernet ports
-From: netdev-bot+sashiko@kernel.org
-To: krzysztof.kozlowski@oss.qualcomm.com
-Cc: hauke@hauke-m.de, andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, woojung.huh@microchip.com,
- UNGLinuxDriver@microchip.com, jensemil.schulzostergaard@microchip.com,
- ansuelsmth@gmail.com, arinc.unal@arinc9.com, Landen.Chao@mediatek.com,
- dqfext@gmail.com, sean.wang@mediatek.com, daniel@makrotopia.org,
- marex@denx.de, john@phrozen.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Mon, 23 Nov 2026 16:11:53 +0000
-Message-ID: <179545031306.3135.11482802242328622537@kernel.org>
-In-Reply-To: <20261122160907.200727-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20261122160907.200727-4-krzysztof.kozlowski@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eKf7Yspo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795450322; x=1826986322;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=8TcLp63m/snZiD+cyGttYD2ZaK+RTvLVYta3+/wk4l0=;
+  b=eKf7YspoVGDN+5yWj6K2X3FWOS9DDkOiRq7BlmK/JtXk1vlOJh8soIMR
+   tpG1zntxk/kzMhfavHx/U73nHff/K+bpOCq5wzsjKKRRLHycNSSEeeXKv
+   WV+ItiUwR8la6Lsk2Cn7lGPzRwR/Y0MD9QXPfe27jOvok9MjPqp5tyKEW
+   /NmnGfoBq8iQoogDa9nppCG2GjLQul7WOtn33ULE+GAo6/xFXYCVfsIGe
+   A+scwBr9mvGerYuQ5FEVMdro391nU8KR4J7Zyjr6ykrh/DHXoETeRONuf
+   q9Ri0VI+aqfT+CGZh2D87qW1NQSHDTOeqzWIQMHsAgvqoGH67+Ikk8hvI
+   g==;
+X-CSE-ConnectionGUID: PhaZYDVTTT+0kz+0mO1bLQ==
+X-CSE-MsgGUID: 3WVYOzBDRryyfhDgf/1p3g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4277886"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4277886"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 07:59:57 -0800
+X-CSE-ConnectionGUID: OQeyHs/VRguIxGUzd+wCwA==
+X-CSE-MsgGUID: S4gAHbelR1OkPgCkRSHBmg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11647047"
+Received: from smithj1-mobl2.amr.corp.intel.com (HELO [10.125.109.217]) ([10.125.109.217])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 07:59:58 -0800
+Message-ID: <57ca9082-af96-43ad-9f7e-f3969ea4a5ae@intel.com>
+Date: Mon, 23 Nov 2026 07:59:56 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,97 +73,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] x86/fpu: hold fpregs_lock() across fpstate_reset() in
+ fpu_flush_thread()
+To: =?UTF-8?Q?=C3=96mer_Mete_Kaya?= <omermetekaya0@gmail.com>,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com
+Cc: x86@kernel.org, hpa@zytor.com, chang.seok.bae@intel.com,
+ linux-kernel@vger.kernel.org
+References: <20261123131836.220685-1-omermetekaya0@gmail.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20261123131836.220685-1-omermetekaya0@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 11/23/26 05:17, Ömer Mete Kaya wrote:
+> fpstate_reset() updates the fpstate pointer before resetting its size
+> and feature metadata without holding fpregs_lock(). If the task is
+> preempted during this transition, switch_fpu_prepare() can save the FPU
+> registers using the stale feature configuration into the newly selected,
+> smaller buffer, potentially causing an out-of-bounds write into the
+> embedded fpstate buffer.
+> 
+> Hold fpregs_lock() across fpstate_reset() to prevent a context switch
+> or softirq from accessing the partially updated FPU state.
+> 
+> Closes: https://syzkaller.appspot.com/bug?extid=58cbd7974a103b8b8916
+> Fixes: e61d6310a0f8 ("x86/fpu: Reset permission and fpstate on exec()")
+> Signed-off-by: Ömer Mete Kaya <omermetekaya0@gmail.com>
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Hi Omer,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I'm genuinely curious how you came across this issue and decided to send
+a patch for it.
 
-- [High] The fix is incomplete because it skips a sibling DSA binding
-  that has the exact defect described in the commit message.
+Did you happen to read the other (brief) conversation on it?
 
---
-
-dt-bindings: net: dsa: Flag unexpected ethernet ports
-
-Several DSA bindings reference dsa.yaml ports, use "additionalProperties:
-true", and limit their port node pattern to a subset of unit addresses.
-Because of that, port nodes with any other unit address pass validation
-without a warning. The patch drops the unit address from the pattern and
-limits the port reg value with a maximum instead.
-
-[ ... ]
-
-> diff --git a/Documentation/devicetree/bindings/net/dsa/qca8k.yaml b/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
-> index 167398ab253aa..3840b336bdb93 100644
-> --- a/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
-> +++ b/Documentation/devicetree/bindings/net/dsa/qca8k.yaml
-> @@ -75,13 +75,15 @@ patternProperties:
->      type: object
->      additionalProperties: true
->      patternProperties:
-> -      "^(ethernet-)?port@[0-6]$":
-> +      "^(ethernet-)?port@":
->          type: object
->          description: Ethernet switch ports
->  
->          $ref: dsa-port.yaml#
->  
->          properties:
-> +          reg:
-> +            maximum: 6
-
-[Severity: High]
-Was renesas,rzn1-a5psw.yaml left out of this conversion on purpose? It
-looks like it has the same problem the commit message describes. It
-references dsa.yaml ports, its ethernet-ports node uses
-additionalProperties: true, and its port pattern still limits the unit
-address:
-
-Documentation/devicetree/bindings/net/dsa/renesas,rzn1-a5psw.yaml:
-
-allOf:
-  - $ref: dsa.yaml#/$defs/ethernet-ports
-...
-  ethernet-ports:
-    type: object
-    additionalProperties: true
-    patternProperties:
-      "^(ethernet-)?port@[0-4]$":
-
-Under a renesas,rzn1-a5psw switch, a node such as port@5 or port@7 does
-not match this pattern. It does match the generic
-"^(ethernet-)?port@[0-9a-f]+$" pattern in dsa.yaml, so only the generic
-dsa-port.yaml checks apply and it passes validation. This hardware only
-has ports 0-4 (4 ports plus 1 CPU port).
-
-Would the same change used here for qca8k.yaml work for that file too,
-i.e. "^(ethernet-)?port@" plus reg: maximum: 4?
-
-nxp,netc-switch.yaml has a weaker form of the same gap:
-
-  ethernet-ports:
-    type: object
-    patternProperties:
-      "^ethernet-port@[0-9a-f]$":
-        type: object
-        $ref: dsa-port.yaml#
-
-A node named port@1 (no ethernet- prefix) or ethernet-port@10 does not
-match this pattern. Instead it matches the
-'^(ethernet-)?port@[0-9a-f]+$' pattern in ethernet-switch.yaml, which is
-reached through $ref: dsa.yaml# and only applies type: object.
-
-Such a node skips the NETC port schema, including dsa-port.yaml and its
-unevaluatedProperties: false, and passes without a warning.
-
-Should this patch cover nxp,netc-switch.yaml as well?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122160907.200727-3-krzysztof.kozlowski%40oss.qualcomm.com
+https://lore.kernel.org/lkml/6aff5b8e.4ea6388a.d0c9.0001.GAE@google.com/
