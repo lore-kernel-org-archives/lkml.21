@@ -1,79 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432894;
-	b=Qd9i2Y49EU+EszdqyXHJUOd60IIYZ6uAbrsEoRKGw9NqzxNDTF/Oifbq0SbmLov694PI
-	 0zFSfbWdfBEkvjN7VMOsyLoAAT/6o5yU1M1tzNUqXNCCEd8FjYlSD4wM2z/SA7avDL6Kv
-	 SDmzSymuVTqh2vL+ZpZ/Ryt47fneL+OLZy2Kpz2UdLOStwOFdcRkJS6/31BqZWC1xCK+3
-	 CvAs7H992yW/Mj8huC+dy9Nnko96vzsXlQMvfOCoyoTdMfX1mu2RdTkmwygTPqDWxLrH7
-	 7PksB/J+FHpK8A0c1VJrk9R0tkX/rEZssz3+5PgRisp3Fne8fI4BKy+Y2bWNflHM/mA==
+	t=1795432925;
+	b=1o9Ga/RiFpCDnkugqA4r8Tptx7NEmpi6feQeEmh31wIdHITSKx/Hto57qOVk9myXn7zt
+	 wNxAeyC7eLT8pmeUNsCRY9v0B9FGTIsj7G7z2jNZ9hIiZ9V25ylksX4cWY5RB7EWGTBVG
+	 4lqQ5i3EL2kPd+BhhFm4bwE2W88zPjtpeJOrP13MlakKjj7EIk55WUk0dTgDm6Fr70/gL
+	 SES2Zk6zGmS0+HIIjPpMI34PNqldpbJibmCdPr/LRtVo+NOavpx8tDMgKOtIkNN8ufO3x
+	 5Fb6sRLW7vXa1agfdtvSHW+uSmZswClrqiOrsDeP3LH5z/e94QPJxJ5nLH3n8MBgliw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432894;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=GbX6flQ02VkAIB6vD/jZQgC2nDjC28v9tILnTQJqHIs=;
-	b=NznEXx3f7fuB3yReGeHXg6Ky+TlR58gNGKJ0KED9I57Uj8MBI3iOiUHwVRvOnyi64Lfc
-	 xEe/0966VtyQo7Q29+D8+5LR/y/fVsJMWHGB/0qAx7343E6dUjGzUvBfKHC041Pz7xF3O
-	 O6HdDa+JIQNoKrHffP6ZYjfS1HNfWfl73jv/fpUGqsbqA6CbFq1XrNxvjLQ+/GaeLzchk
-	 zwXoDfpqSGL+Dr37korzDsbAKqDivFc/xXE0DjY0Rm88p3MVfWRzjhvY9NRwf9nLH4dQJ
-	 DSB/MSvljUE31JChF2L/W2Xv7T4nA1I5phN/37PgusBc3yipYDFY1ZfsmNC1ftOC8yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432925;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=vGo5Rr0biOUzRbqTgcdqL0cPEhygXKXc6hTCMqPuRJs=;
+	b=gJX4ZVSTPYtnNe7MjsDCwUAZ4FpXVBPIir7IjJvD86HZjot+YEFpJRk2HIULs+zYYSmq
+	 I4IVGWKXN8xlC5AKNocCwBoRytRHe4xAMCTTFzyi0Ad8ANg39ubkbkkNs70WUiDKkQ34z
+	 +AXwRz6FlxW72Z5dYBvZ9nRnhvDU8dW6xSHtjMwHsS2QjTQBj2jX8HRqT+CybNYICzNk3
+	 cqn/Pes0SWQQ5Gok29di3FZu7FUsCUEUo/J7piilrFNDXLZntLk6n6+BYM015bw32aPUQ
+	 g5MMla77PpkQuRpIqaG+Wo7sT3XKstm3g0jdMC0ThryLoa95MT4v0xdfcKfn4ZSiWlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Wq99awHH;
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TaEAGtfb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8E42606A321;
-	Mon, 23 Nov 2026 11:21:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8E42606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BCC0606A31A;
+	Mon, 23 Nov 2026 11:22:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Wq99awHH
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795432894; x=1826968894;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=k2mj3EEzXAMHzvPUuw/LfMnrNEHeM3dh64V7wG35asc=;
-  b=Wq99awHHFDoOBrbujzjmUW5d3rF05lfbQpwzrQnps5GvT5p8t8X4g4fR
-   ZC2YJSxq/ZXtwVSKXUpcOH5zwFULivsd8v+8Rt9kD6tSHXxQbutjzcqhQ
-   eheGSRahcSGLuRkJb37lgJjgmm3AHmfXAyjRX97Kr67iNjm1TGJK7Nvlg
-   pZb29iObD4tcMIh/GovDb6rMQo8WRHhZZzlRvRQmmk/ffwS2ibb/j7iBy
-   Rna5ae+ZOi3mJa0JYHdPnwb2ejAx+/efbTP7ck70EtUXMlrpWRz34stV6
-   gtuAU9KB1GSlAiMPkKIXWuQTIXAXzYBuD05mQtXkkjSZlw7YUuspTepDn
-   w==;
-X-CSE-ConnectionGUID: HyePCJpnRDme04Hap37bIQ==
-X-CSE-MsgGUID: SA8lzbv/S0+d1R3sLaAfKg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4073290"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4073290"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:21:32 -0800
-X-CSE-ConnectionGUID: fT2OWFF3S56AIDaFfS8yiw==
-X-CSE-MsgGUID: pzLlHaqQTrGMBWsUeYuNiQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11590559"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.204])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 03:21:29 -0800
-Date: Mon, 23 Nov 2026 13:21:27 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Avishek Chaulagain <chaulagainavishek14@gmail.com>
-Cc: Hans de Goede <hansg@kernel.org>, Andy Shevchenko <andy@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: atomisp: Remove unused ISP vmem load/store
- functions
-Message-ID: <awQht2Avu-PHs4l_@ashevche-desk.local>
-References: <20261122074552.545-1-chaulagainavishek14@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TaEAGtfb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E6E71F000C0;
+	Mon, 23 Nov 2026 11:22:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795432925;
+	bh=vGo5Rr0biOUzRbqTgcdqL0cPEhygXKXc6hTCMqPuRJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TaEAGtfb1D0eMiLppFjMfL2pfXlRlJ3/3z+jlWljMxV/TbpZTKRwWyknjQLNr/AO3
+	 OaUwdmfBmImt98xPKAoI4t0TNxr521PoFDPjzDSWD2tJ70wUgLfaHPqKTalEIFn8oj
+	 Ij9uvOUdN8jRITkjCClWXYyAN0qJvIJoIB08KH2pDKDtxrfNcOcpfG7BPwUyESRWng
+	 uaK4lGcnsta2D3EWdAFhFsldfHRPT3yMWJ+vNbHFblZcw05AC/c4AyOG50REHz1SOw
+	 74nmuw1vWsmy0YL9cl5M7XQmjTPHR4WgsSZfnC28cCEZgl+QvML5PHa6OAaSSXIAdp
+	 IjeIy4qCkDygw==
+Date: Mon, 23 Nov 2026 12:22:01 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/8] dt-bindings: net: Add Synaptics SL2610 DWMAC
+Message-ID: <20261123-aromatic-feathered-whale-bfc874@quoll>
+References: <20261116135442.4827-1-jszhang@kernel.org>
+ <20261116135442.4827-4-jszhang@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,31 +64,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261122074552.545-1-chaulagainavishek14@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261116135442.4827-4-jszhang@kernel.org>
 
-On Sun, Nov 22, 2026 at 07:45:52AM +0000, Avishek Chaulagain wrote:
-> 
-> isp_vmem_load(), isp_vmem_store(), isp_vmem_2d_load() and
-> isp_vmem_2d_store() are the only external functions provided by
-> vmem.c, and none of them has a caller anywhere in the tree. Every
-> other function in the file (load_vector()/store_vector() and the
-> hive_sim_wide pack/unpack helpers) exists solely to implement those
-> four, so the whole translation unit is dead.
-> 
-> Remove vmem.c along with its Makefile entry and the four prototypes
-> in vmem_local.h. The t_vmem_elem/t_svmem_elem typedefs and the
-> VMEM_ARRAY/SVMEM_ARRAY macros in that header are used elsewhere and
-> are kept.
+On Mon, Nov 16, 2026 at 09:54:37PM +0800, Jisheng Zhang wrote:
+> +  phy-mode:
+> +    enum:
+> +      - rmii
+> +      - rgmii
+> +      - rgmii-id
+> +      - rgmii-rxid
+> +      - rgmii-txid
 
-Looks legit, if it compiles,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Missing constraints for interrupts, clocks, resets, domains and so on.
 
--- 
-With Best Regards,
-Andy Shevchenko
+> +
+> +required:
+> +  - compatible
+> +  - syna,syscon
+> +  - phy-mode
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    chip: syscon@f7e10000 {
+> +        compatible = "syna,sl2610-soc-syscon", "syscon";
+> +        reg = <0xf7e10000 0x10000>;
+> +        clocks = <&osc>;
+> +        #clock-cells = <1>;
+> +        #reset-cells = <1>;
+> +    };
 
+Not relevant, drop entire node.
+
+
+Best regards,
+Krzysztof
 
