@@ -1,79 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795440344;
-	b=4hjESBOot8J3gNE380fTFpdTkPrarBxdKpneFpEZljdcyRlGE6P/FfD5RlUUnxLKtU6l
-	 1ump1fX/JECoTr7nb6XkWD+zuH7RNZHaKGiB5KeV0/YCd1qBSMnX9eEmNhp2e/rU2uOZO
-	 2rGn8dKnVbn+Bw6As9gc+SObzN/AKpO8MOi22r/mCnZ3aIHwun2jJvoLO/IiG/S+2mAmM
-	 BqqUKdTE9d3coOCAb72VWUE4BjL8yS0uvfc9BpphFF6vw+ScSXs9bzrUKs/6sroJsOLXn
-	 ndecNWQikD60af5wNffJ6nEbg26dQfkD4uz97k/CSZKDjkK4xfy/ISRWOI1mJmGe3ZA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440344;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ghLbjIWrwX99A63ayhLT6wXwasSJ5NHBxrxpfq9NcCM=;
-	b=GulGz3iP4RVQqCMMpBK1FlHSdATbdjM6f0ldwmV4ujiadQIUit9Hu77FOYxOjhpqCRFT
-	 zcckK9plSyl60VfZYQ49nlp5lX1zMDM+0UtHl5BFwoNpSG7/MdNNQzJgXXukqJWVBpFtg
-	 vRSE3jJBiJDDqYDgbU6Xs51Y/ZAhClY5WUZKi0vwXIpngke8wMmt09Q9iQPa0ZW6s2xmN
-	 BwNSrzNC62WHnRLvv7HNKSP4T+q1Ug6SgGooq5QPh+w2z5GITyvokQvr+6TiLyg24dobi
-	 rYDcewZKo6bbXQ6k9OGFPfwe4805oo+Pxl23FGn85jI41qyM/Pb8se8etQW3vBmTT7g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMWObjSj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9290C60A2601;
-	Mon, 23 Nov 2026 13:25:44 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fMWObjSj
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795440344;
-	b=nW6uRY8C1D3N22ngiuBpoM4pecAPcJtFwh3FrU+BxZQFgXNnokN6J5jVIZuW5iHBXSaP
-	 yWvuLbMIyawRJ6i121591xl7o1qf9jzmFXRmZSW2JZzBkPtUsJA6hJgi6cpSSgzw5xMhb
-	 Ep/5El954aykvEpM+K9d3W5x8Rx1B+oM7VIzm006gO7EAF+DuxLncRlkR0hj3bTF8Ui8r
-	 pM6CC5v8HiP9UvLMoWhoX8W0ZuVhNIWEIJnNpYrd95raquCbV3wGKpHnm8FErp1W950S3
-	 iOXY9nOa57mbopHZq4nXUK+vlV59m5+cdBB2wFXgxdVGSIJ6oUiatK/wLQZnlWB+ddg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795440344;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ghLbjIWrwX99A63ayhLT6wXwasSJ5NHBxrxpfq9NcCM=;
-	b=NtCgoMCSvRO8Jgguxkt9YeTUy5R1luNuAD2wvjwtY2dd/OC7dOgHPxN+yRflfn2rcSgU
-	 RfRqDw4LFzrNI/WiQqk6XVgffiUdLfi2/YAyopOUGqgg9hsrLSPeA29NT8DvyFLJeYj8B
-	 m98ilhqoxHu59YlX53ilQRiPCcwUAz/eyXkXsdu8FShjUVY31J/pEjMqSQN/i7WjZT7BS
-	 zdZLikCA+8SsWrx2sowR69c9L84iIozSKr4ieFX0O9aDgNgNNdgJVV9DUyeudenms7wWk
-	 WBWEhZOLcul7oHvttiRo+T9BcabBSouGl2tB/14ok06SY93DCQJsDERRJ9xSHOMbYjg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795440350;
+	b=fbdZh4VzIe3d6ryMf8ojk8htv9y4aHzS8dnxPwsHL5EtFFG4Ey9fAgZUXHGCiDQfevr1
+	 JymWShnN+2EpLMrrJu5IPktPb9jgXFjMoIDmHWqdPQ/wZQyvq225s/Wm3IBhFhiBpH3PC
+	 ZkMD3E/Ia5gEv2kLHKoWfXI6Hh5tOKfGNhVOXshJ+y9pTw375OmJZ2mE84bJ6W75HuSWH
+	 Vj1atV/faXVFhjel5XLICf7SvoHDu+cR6uCQ7B7urUTnSP515U56KuHJnYLAw4deZka9j
+	 824OK6kUihRWNFxkywLzegPwTIy6h4ps0HosTpwY1btEW1Vtt51Wg5MJUlv3Vpk5L1w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440350;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
+	bh=DBCFU9vOrJdstCRij3rT/Hl2Y7D7MQX+Hld/OsjMT7U=;
+	b=A6Gaa4mYVQr7hiUfd9EcHl6vb/V3v07Hm77JjTFL0azlFICb6yGBtKUvDotPKpr4B1ZQ
+	 1l4o9/7NZzpmce59nqq0sJPONVl7RgZkVZ45OccYgWCNlXjBkHUws2VWDCPQ5xgr1H/mm
+	 1nTSo4eTTRUMUrO7E5/tgGGaM/ZHkp2jR6+h/6+TDdRtMt0+X+haetZfJydUzmvhVk47/
+	 1JHZPGJR8tC64gVhtk9atYwGuk3CXfnC2elaTsaIHny05ZPf/E6vSff/aP61FxSUwMyTD
+	 tqnYizXwPV7rTtiLfMTfSxMMb0oseqk0NjZF+eZUQw6ZXqDoj6JkGnQ9PLgBwCOW03A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="rxywaiJ/";
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 41BD21F000ED;
-	Mon, 23 Nov 2026 13:25:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440344;
-	bh=ghLbjIWrwX99A63ayhLT6wXwasSJ5NHBxrxpfq9NcCM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=fMWObjSjofaOM4Vgb9KuDjPxBK7L2ID3l7Y5NK4tL5kLbBBe55QepI8XvEJq+29pc
-	 mHhnJCqBE1Ss9d4MVHsSV2z+7kbWsgyKI1I/nHks/0dmILOw4dLoEHQBbdMJx6vRQI
-	 CrKYoJF0qimmH12NDBTRp0IwBGs8ujymRXOJaE4sWBz/d8PXct9EBxO76yM7jocHRO
-	 t9+dwoA3Zk5ltg63709eZZq/crJEGJFXrepOm5eR0UVJU3v5zYwvKr99ooV9EbT8kk
-	 Z/aQ/0/edeUSNBvqSmasdtaihW/BDqaVakrqWv3c4+CxdCOl4xYjI0D6oQGJssS3C7
-	 cO1kct8TdlqmA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id BF0764C49D;
-	Mon, 23 Nov 2026 13:25:28 +0000 (UTC)
-From: Radu Sabau via B4 Relay <devnull+radu.sabau.analog.com@kernel.org>
-Date: Mon, 23 Nov 2026 15:25:28 +0200
-Subject: [PATCH 4/7] iio: imu: adis16475: Use a kfifo buffer for the
- devices with a FIFO
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2F3560A382D;
+	Mon, 23 Nov 2026 13:25:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2F3560A382D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=rxywaiJ/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795440350; x=1826976350;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=bBo0I05VdlQLgenPhmy0GmOEtXQJWt5VHRNZsb0qbBg=;
+  b=rxywaiJ/39syUj/eB3FAWCkthnE5JixUS8toA+l7qkYsj1BuTJKlGCPY
+   CNMpcOI9WJuXyxqhWV6XeLWcw4STdO+/i2iKyQx7Js+9EHsfgR4Qr9dgi
+   FiWt8bQwJg81A3r0z/PAZ+T6LgyDsP/TDyr1i6vba2Bzc0TfjfvEnc6ke
+   aVtDnvock/oAmrWNwRoHzq4he3/P13pGzDspiLI5vNEQ3Nvte66a5Uko+
+   qv1fdmsklnOuw0/kM14+smMaVvrWSBQhW9iF/DjEQ85BByxvnZ6vARTDZ
+   DTIIDNC5iKgjt6p5sEd0H10KTPjaxLIytyg9u1UeuXdbbOcJNiyYxhv0a
+   g==;
+X-CSE-ConnectionGUID: NDR+tIaTRs+D6MAlDHcSbg==
+X-CSE-MsgGUID: C0Yj1zaZTvqvnj4ZU5YucQ==
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="67154024"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 06:25:49 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 23 Nov 2026 06:25:49 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Mon, 23 Nov 2026 06:25:47 -0700
+From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+Date: Mon, 23 Nov 2026 14:25:08 +0100
+Subject: [PATCH 4/4] mfd: ocelot: Read LAN9645x registers in a single SPI
+ transfer
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,183 +77,212 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-adis-fifo-v1-4-f6ad9e493e19@analog.com>
-References: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
-In-Reply-To: <20261123-adis-fifo-v1-0-f6ad9e493e19@analog.com>
-To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Michael Hennerich <Michael.Hennerich@analog.com>, 
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- Andy Shevchenko <andy@kernel.org>, 
- Ramona Gradinariu <ramona.bolboaca13@gmail.com>, 
- Radu Sabau <radu.sabau@analog.com>
-Cc: linux-iio@vger.kernel.org, linux@analog.com, 
- linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795440327; l=5523;
- i=radu.sabau@analog.com; s=20261001; h=from:subject:message-id;
- bh=DKqWxjSownX7PQ6rmCCXSFYEawwf4xKEOAeGkoBi/ig=;
- b=+k0pd6ke7ueV2GuH5FZRikSHH2Wi9y+NlqJuVUoakK6bNCyv+S47IJTvfc+Z7JoAfdgN5UTOh
- vrOuMZc8DG9ClH3HZgS0+NpEGF2FPQ0Q0nZ8rE0a5pCLHvwf57HhgQC
-X-Developer-Key: i=radu.sabau@analog.com; a=ed25519;
- pk=XOZSO/Ut8qfYw7khL8lUF65Pgl+VLihISyS+Iy9jY8c=
-X-Endpoint-Received: by B4 Relay for radu.sabau@analog.com/20261001 with
- auth_id=1094
-X-Original-From: Radu Sabau <radu.sabau@analog.com>
-Reply-To: radu.sabau@analog.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Message-ID: <20261123-mfd-ocelot-add-lan9645x-support-v1-4-567d811fe1de@microchip.com>
+References: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+In-Reply-To: <20261123-mfd-ocelot-add-lan9645x-support-v1-0-567d811fe1de@microchip.com>
+To: Colin Foster <colin.foster@in-advantage.com>, Lee Jones <lee@kernel.org>,
+	<UNGLinuxDriver@microchip.com>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Richard
+ Cochran" <richardcochran@gmail.com>
+CC: <mfd@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+X-Mailer: b4 0.15-dev
 
-From: Radu Sabau <radu.sabau@analog.com>
+A register read is three SPI transfers: the address, the padding bytes
+and the value. The SPI controller handles each transfer separately, with
+its own setup and interrupt.
 
-The ADIS1657x variants read their FIFO from a trigger handler, which runs
-from iio_trigger_poll() called in the FIFO interrupt thread, and the
-capture depends on the selected trigger.
+Read the address, the padding bytes and the value of a LAN9645x register
+in one full duplex transfer instead, which removes the handling of two
+transfers from every read. The three transfer read works on the
+LAN9645x as well, this only reduces the cost of a read. The transfer
+buffer is allocated per regmap, so the regmap lock serializes its use.
 
-Switch them to devm_adis_setup_kfifo_buffer(): the FIFO interrupt thread
-now reads the FIFO and pushes the samples to a kfifo buffer. The interrupt
-is requested disabled and is enabled once the device FIFO is running, and
-disabled before it is stopped, from the buffer setup functions. This
-replaces the trigger's set_trigger_state(), which did the same through
-adis_enable_irq().
+With the interrupt driven Atmel SPI controller of a LAN966x host at
+25 MHz and a GPIO chip select, a register read takes 35.8 us instead of
+62.2 us, with a standard deviation below 0.1 us over seven runs of
+13800 reads.
 
-The trigger is still registered and trigger/current_trigger is unchanged
-for users: the buffer simply does not use it any more, so writing it has
-no effect and a buffer can now also be enabled without selecting one.
+Half duplex controllers and devices in 3-wire mode cannot transmit and
+receive in one transfer, so fall back to the three transfer read for
+them.
 
-Signed-off-by: Radu Sabau <radu.sabau@analog.com>
+Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 ---
- drivers/iio/imu/adis16475.c | 55 ++++++++++++++++++++++++++++++---------------
- 1 file changed, 37 insertions(+), 18 deletions(-)
+ drivers/mfd/ocelot-spi.c | 92 ++++++++++++++++++++++++++++++++++++++++++++++--
+ drivers/mfd/ocelot.h     |  3 +-
+ 2 files changed, 92 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/iio/imu/adis16475.c b/drivers/iio/imu/adis16475.c
-index 6922ffb48516..394b13431ae8 100644
---- a/drivers/iio/imu/adis16475.c
-+++ b/drivers/iio/imu/adis16475.c
-@@ -517,9 +517,26 @@ static int adis16475_buffer_postenable(struct iio_dev *indio_dev)
- {
- 	struct adis16475 *st = iio_priv(indio_dev);
- 	struct adis *adis = &st->adis;
-+	int ret;
-+
-+	ret = adis_update_bits(adis, ADIS16475_REG_FIFO_CTRL,
-+			       ADIS16575_FIFO_EN_MASK, (u16)ADIS16575_FIFO_EN(1));
-+	if (ret)
-+		return ret;
-+
-+	enable_irq(adis->spi->irq);
+diff --git a/drivers/mfd/ocelot-spi.c b/drivers/mfd/ocelot-spi.c
+index 6d405627136d..4f2ef847c909 100644
+--- a/drivers/mfd/ocelot-spi.c
++++ b/drivers/mfd/ocelot-spi.c
+@@ -13,6 +13,7 @@
+  * Author: Colin Foster <colin.foster@in-advantage.com>
+  */
  
--	return adis_update_bits(adis, ADIS16475_REG_FIFO_CTRL,
--				ADIS16575_FIFO_EN_MASK, (u16)ADIS16575_FIFO_EN(1));
++#include <linux/cache.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/errno.h>
+@@ -45,7 +46,12 @@
+ #define LAN9645X_RESET_PADDING_BYTES	15
+ #define LAN9645X_REG_ACCESS_TIME_US	2
+ 
++#define OCELOT_SPI_ADDR_SIZE		3
+ #define OCELOT_SPI_MAX_PADDING_BYTES	15
++#define OCELOT_SPI_VAL_SIZE		4
++#define OCELOT_SPI_XFER_BUF_SIZE	(OCELOT_SPI_ADDR_SIZE + \
++					 OCELOT_SPI_MAX_PADDING_BYTES + \
++					 OCELOT_SPI_VAL_SIZE)
+ 
+ static const struct resource vsc7512_dev_cpuorg_resource =
+ 	DEFINE_RES_REG_NAMED(VSC7512_DEVCPU_ORG_RES_START,
+@@ -70,6 +76,12 @@ struct ocelot_spi_data {
+ 	const struct resource *gcb_res;
+ 	int reset_padding_bytes;
+ 	int (*padding_bytes)(u32 max_speed_hz);
++	bool single_xfer_read;
++};
++
++struct ocelot_spi_regmap_ctx {
++	struct device *dev;
++	u8 buf[OCELOT_SPI_XFER_BUF_SIZE] __aligned(ARCH_DMA_MINALIGN);
+ };
+ 
+ static int vsc7512_spi_padding_bytes(u32 max_speed_hz)
+@@ -105,6 +117,7 @@ static const struct ocelot_spi_data lan9645x_spi_data = {
+ 	.gcb_res = &lan9645x_gcb_resource,
+ 	.reset_padding_bytes = LAN9645X_RESET_PADDING_BYTES,
+ 	.padding_bytes = lan9645x_spi_padding_bytes,
++	.single_xfer_read = true,
+ };
+ 
+ static const struct ocelot_spi_data vsc7512_spi_data = {
+@@ -249,12 +262,78 @@ static const struct regmap_bus ocelot_spi_regmap_bus = {
+ 	.read = ocelot_spi_regmap_bus_read,
+ };
+ 
++static int ocelot_spi_regmap_xfer_read(void *context, const void *reg,
++				       size_t reg_size, void *val,
++				       size_t val_size)
++{
++	struct ocelot_spi_regmap_ctx *ctx = context;
++	struct spi_transfer xfer = {};
++	struct ocelot_ddata *ddata;
++	const u8 *regu8 = reg;
++	u8 *buf = ctx->buf;
++	u8 *valu8 = val;
++	size_t off;
++	int err;
++
++	ddata = dev_get_drvdata(ctx->dev);
++
++	if (reg_size != OCELOT_SPI_ADDR_SIZE || val_size != OCELOT_SPI_VAL_SIZE ||
++	    ddata->spi_padding_bytes > OCELOT_SPI_MAX_PADDING_BYTES)
++		return -EINVAL;
++
++	off = OCELOT_SPI_ADDR_SIZE + ddata->spi_padding_bytes;
++
++	buf[0] = regu8[0];
++	buf[1] = regu8[1];
++	buf[2] = regu8[2];
++	memset(&buf[OCELOT_SPI_ADDR_SIZE], 0,
++	       ddata->spi_padding_bytes + OCELOT_SPI_VAL_SIZE);
++
++	xfer.tx_buf = buf;
++	xfer.rx_buf = buf;
++	xfer.len = off + OCELOT_SPI_VAL_SIZE;
++
++	err = spi_sync_transfer(to_spi_device(ctx->dev), &xfer, 1);
++	if (err)
++		return err;
++
++	valu8[0] = buf[off + 0];
++	valu8[1] = buf[off + 1];
++	valu8[2] = buf[off + 2];
++	valu8[3] = buf[off + 3];
++
 +	return 0;
 +}
 +
-+static int adis16475_buffer_predisable(struct iio_dev *indio_dev)
++static int ocelot_spi_regmap_xfer_write(void *context, const void *data,
++					size_t count)
 +{
-+	struct adis16475 *st = iio_priv(indio_dev);
++	struct ocelot_spi_regmap_ctx *ctx = context;
 +
-+	/* Not under the adis lock: this waits for the IRQ thread, which takes it */
-+	disable_irq(st->adis.spi->irq);
++	return spi_write(to_spi_device(ctx->dev), data, count);
++}
 +
-+	return 0;
- }
- 
- static int adis16475_buffer_postdisable(struct iio_dev *indio_dev)
-@@ -541,6 +558,7 @@ static int adis16475_buffer_postdisable(struct iio_dev *indio_dev)
- 
- static const struct iio_buffer_setup_ops adis16475_buffer_ops = {
- 	.postenable = adis16475_buffer_postenable,
-+	.predisable = adis16475_buffer_predisable,
- 	.postdisable = adis16475_buffer_postdisable,
- };
- 
-@@ -1708,7 +1726,7 @@ static int adis16575_custom_burst_read(struct iio_dev *indio_dev, u8 burst_req,
- }
- 
- /*
-- * This handler is meant to be used for devices which support burst readings
-+ * This IRQ thread is meant to be used for devices which support burst readings
-  * from FIFO (namely devices from adis1657x family).
-  * In order to pop the FIFO the 0x68 0x00 FIFO pop burst request has to be sent.
-  * If the previous device command was not a FIFO pop burst request, the FIFO pop
-@@ -1721,12 +1739,12 @@ static int adis16575_custom_burst_read(struct iio_dev *indio_dev, u8 burst_req,
-  * different from a 0x68 0x00 or a 0x00 0x00 burst request, the FIFO data popped
-  * previously will be lost.
-  */
--static irqreturn_t adis16475_trigger_handler_with_fifo(int irq, void *p)
-+static irqreturn_t adis16475_fifo_irq_thread(int irq, void *p)
++static const struct regmap_bus ocelot_spi_regmap_xfer_bus = {
++	.write = ocelot_spi_regmap_xfer_write,
++	.read = ocelot_spi_regmap_xfer_read,
++};
++
++static bool ocelot_spi_single_xfer_read(struct spi_device *spi,
++					const struct ocelot_spi_data *data)
++{
++	return data->single_xfer_read &&
++	       !(spi->controller->flags & SPI_CONTROLLER_HALF_DUPLEX) &&
++	       !(spi->mode & SPI_3WIRE);
++}
++
+ struct regmap *ocelot_spi_init_regmap(struct device *dev,
+ 				      const struct resource *res,
+ 				      const struct regmap_access_table *rd_table,
+ 				      const struct regmap_access_table *wr_table)
  {
--	struct iio_poll_func *pf = p;
--	struct iio_dev *indio_dev = pf->indio_dev;
-+	struct iio_dev *indio_dev = p;
- 	struct adis16475 *st = iio_priv(indio_dev);
- 	struct adis *adis = &st->adis;
-+	s64 timestamp = iio_get_time_ns(indio_dev);
- 	int ret;
- 	u16 fifo_cnt, i;
++	struct spi_device *spi = to_spi_device(dev);
+ 	struct regmap_config regmap_config;
++	struct ocelot_spi_regmap_ctx *ctx;
  
-@@ -1736,10 +1754,7 @@ static irqreturn_t adis16475_trigger_handler_with_fifo(int irq, void *p)
- 	if (ret)
- 		goto unlock;
+ 	memcpy(&regmap_config, &ocelot_spi_regmap_config, sizeof(regmap_config));
  
--	/*
--	 * If no sample is available, nothing can be read. This can happen if
--	 * a the used trigger has a higher frequency than the selected sample rate.
--	 */
-+	/* If no sample is available, nothing can be read. */
- 	if (!fifo_cnt)
- 		goto unlock;
+@@ -264,7 +343,16 @@ struct regmap *ocelot_spi_init_regmap(struct device *dev,
+ 	regmap_config.rd_table = rd_table;
+ 	regmap_config.wr_table = wr_table;
  
-@@ -1748,18 +1763,18 @@ static irqreturn_t adis16475_trigger_handler_with_fifo(int irq, void *p)
- 	 * next burst request.
- 	 */
- 	ret = adis16575_custom_burst_read(indio_dev, adis->data->burst_reg_cmd,
--					  pf->timestamp);
-+					  timestamp);
- 	if (ret)
- 		goto unlock;
- 
- 	for (i = 0; i < fifo_cnt - 1; i++) {
--		ret = adis16475_push_single_sample(indio_dev, pf->timestamp);
-+		ret = adis16475_push_single_sample(indio_dev, timestamp);
- 		if (ret)
- 			goto unlock;
- 	}
- 
- 	/* FIFO read without popping */
--	ret = adis16575_custom_burst_read(indio_dev, 0, pf->timestamp);
-+	ret = adis16575_custom_burst_read(indio_dev, 0, timestamp);
- 
- unlock:
- 	/*
-@@ -1767,7 +1782,6 @@ static irqreturn_t adis16475_trigger_handler_with_fifo(int irq, void *p)
- 	 * reading data from registers will impact the FIFO reading.
- 	 */
- 	adis16475_burst32_check(st);
--	iio_trigger_notify_done(indio_dev->trig);
- 
- 	return IRQ_HANDLED;
- }
-@@ -1978,10 +1992,15 @@ static int adis16475_probe(struct spi_device *spi)
- 		return ret;
- 
- 	if (st->adis.data->has_fifo) {
--		ret = devm_adis_setup_buffer_and_trigger_with_attrs(&st->adis, indio_dev,
--								    adis16475_trigger_handler_with_fifo,
--								    &adis16475_buffer_ops,
--								    adis16475_fifo_attributes);
-+		ret = devm_adis_setup_kfifo_buffer(&st->adis, indio_dev,
-+						   adis16475_fifo_irq_thread,
-+						   &adis16475_buffer_ops,
-+						   adis16475_fifo_attributes);
-+		if (ret)
-+			return ret;
+-	return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
++	if (!ocelot_spi_single_xfer_read(spi, spi_get_device_match_data(spi)))
++		return devm_regmap_init(dev, &ocelot_spi_regmap_bus, dev, &regmap_config);
 +
-+		/* Keep the trigger/current_trigger interface of these devices */
-+		ret = devm_adis_register_fifo_trigger(&st->adis, indio_dev);
- 		if (ret)
- 			return ret;
++	ctx = devm_kzalloc_obj(dev, *ctx);
++	if (!ctx)
++		return ERR_PTR(-ENOMEM);
++
++	ctx->dev = dev;
++
++	return devm_regmap_init(dev, &ocelot_spi_regmap_xfer_bus, ctx, &regmap_config);
+ }
+ EXPORT_SYMBOL_NS(ocelot_spi_init_regmap, "MFD_OCELOT_SPI");
  
+@@ -296,7 +384,7 @@ static int ocelot_spi_probe(struct spi_device *spi)
+ 				     spi->max_speed_hz, OCELOT_SPI_MAX_PADDING_BYTES);
+ 
+ 	dummy_len = max(padding, data->reset_padding_bytes);
+-	if (dummy_len) {
++	if (!ocelot_spi_single_xfer_read(spi, data) && dummy_len) {
+ 		ddata->dummy_buf = devm_kzalloc(dev, dummy_len, GFP_KERNEL);
+ 		if (!ddata->dummy_buf)
+ 			return -ENOMEM;
+diff --git a/drivers/mfd/ocelot.h b/drivers/mfd/ocelot.h
+index fa02590a5026..5d0301f0b194 100644
+--- a/drivers/mfd/ocelot.h
++++ b/drivers/mfd/ocelot.h
+@@ -32,7 +32,8 @@ enum ocelot_chip {
+  *			reset default of the chip around a chip reset.
+  * @dummy_buf:		Zero-filled buffer of at least spi_padding_bytes size.
+  *			The dummy bytes that will be sent out between the
+- *			address and data of a SPI read operation.
++ *			address and data of a SPI read operation. Not
++ *			allocated when reads are done in a single transfer.
+  */
+ struct ocelot_ddata {
+ 	enum ocelot_chip chip;
 
 -- 
-2.43.0
-
+2.52.0
 
