@@ -1,60 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795432384;
-	b=a94A/8TjscYCBZez/g5uewHDOFpDZ4gTfD6N9sZ3lvXYqdDC+sfNXMbF++4cvTLgtXxL
-	 WsGd6aLclUCxeX85rIi8CTFYd1pgIG37LzShzXU/cWaJf+kwpVFydX6hsLUblDJ0oDtvU
-	 gmxWesvBABOnWrYeGw2dd6MVKHrfwjC4SL8aSsyklSIH0SKlpWUlTYcolTVmVUqy9XEYA
-	 cImAu4IKQ0YnqaNnL0xsjAdk/urvgueIz+e/0c5E0M3nulSATwy8eGdmxa+d4lQYGMLNX
-	 fbbHNM+lAZjJ6mylrkLdh3RfWDkamma8FnWZCVDz5iw1TaTjHKulA1hZ+VdZ08s2itA==
+	t=1795432407;
+	b=z19Qa4cK+O6Kh2oIOSOMUUde+jPV5rraHgeRsLgD6BkOrrUdTB6oV56898yh1fQob3Eb
+	 1k5JnjqVQ56whjmfrOEM0hqybTcAI3p4WasGKdjOT24k5w8t73ChtLplKG8MRQWNx68g1
+	 ZvKipuc4MXlJ0uzA90+C14FxJx9NQ6qckzi4H4xh/Ruu8gIK0vUb5wfcUxz27zncvykLh
+	 H1Pdjk2Bn0CUXhKJXBoFlrgDTMXFBRur+/Mal538+64Ng1z5IQXKarthrSPrYEYUz5i9v
+	 C979GOxbnX78YJlghUU5MWAnasBu3sXrpGdcY3ZDq+90DXmXDeX7CPaHt6YxWm2txKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795432384;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=gXtppw2VGScP46e4T0icLwB377Wg2zh32ul4GnIcj4c=;
-	b=UbRT5pIOA/NDn3FCLWuwFtq6N49+WH13ofplPKXXJrGHN/jLP0etyQ1gCHo9BInOhV1M
-	 7QwPgVYzRpszdASvV5kKQYSw7XLycaRrl34GvceOACifGLP92QEa+cWLpagiEUH5ndci5
-	 xpSwVZEELp57tdDwDC4OgpEGAQ0oQHcaPDZEwHGJqkEcHm/aALzWjwjWkUIqO0ElIBPh2
-	 /BRx0BSK31qIw+1tzCwWy1OMAnYiQI3PelkenGcqdRESSdvgBdq+RyQsVcTQ9B94q6t5T
-	 YTF4ZqzxG9T+d37+0JVVfgcdY4iL2ETIWPCp/qPGLqkLWyRYi+XRErqhjXD9OboAghA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795432407;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=FSNPqJ2wns2AgHtQuJTveAPlZdwvlJJAYiPAVLO7n6w=;
+	b=HxmG3SS1gRTLGw89Ydyq9y6rTEz6DMXgtYI2yPeNtnXfCsRY6HtH0bB2CcdW/0s1RQNU
+	 rOIynWQAYGQfNtJyuJHp+NjMzngqwuYIzB92bJb1SQdtwOXu4T4CkgHS7sz08YSjyPXxA
+	 vB7LBbWixCW5aXCJCze6zYJ5KALuP/6iAjjVGAZkd25iMZc7jM4LinWtLhE016N06RY7/
+	 9JVrRFTqxu5HwC7v6n2CXWf+wekGeayQXB/VSjOZdzt3aCnGAB2+T0z8nK34LaqO6ok+o
+	 7LPmw3HjJ5evTOMVU27usTOAKHkqc7u9+5OGDQ/it94z7WsWKdwsI06VwAwzR2NNdWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BckXcxSR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpMah2Ts;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A2EE606A31A;
-	Mon, 23 Nov 2026 11:13:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A8E7606A31A;
+	Mon, 23 Nov 2026 11:13:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BckXcxSR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5AD81F000D0;
-	Mon, 23 Nov 2026 11:13:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpMah2Ts
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AAFD1F000CA;
+	Mon, 23 Nov 2026 11:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795432383;
-	bh=gXtppw2VGScP46e4T0icLwB377Wg2zh32ul4GnIcj4c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BckXcxSREsY3Qbjdy957VDgJhhX1RVhHqnPr862zpPKKKrcUQY/1VWBhjtG5X++AY
-	 a8C6GIICTykhk2LkMAPSCdNWR4j/zAo/wT1jjJEMMnaM5Xp6rDVk6+7eRKFrQMh68S
-	 U87xtYe3KgvXuzzIP29PdMyrR0HBVOQRHlRDe2ooIYSn4i2W2KXqjDvmvfGGq4TGW5
-	 hCtHfc1efqCF4PrmX9EcKS0zYnOAd9xRVQU4Rbes/TMX0/mnf4ZRh7ML3420zlTXLZ
-	 RX9XEptbT/qwY0O/k6b7qExgcGzSYWCkKBaw7mfPzvSMamnrL25q0PtYtqLZ5aGYcS
-	 +L8r+Rg9S+QKA==
-Date: Mon, 23 Nov 2026 12:13:00 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Andre Przywara <andre.przywara@arm.com>, Xu Rao <raoxu@uniontech.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: phy: document Allwinner A733 USB-2.0
- PHY
-Message-ID: <20261123-international-brown-kakapo-257aec@quoll>
-References: <20261116105544.669029-1-vinicius.eduardo.pedrosa@gmail.com>
- <20261116105544.669029-2-vinicius.eduardo.pedrosa@gmail.com>
+	s=k20260515; t=1795432406;
+	bh=FSNPqJ2wns2AgHtQuJTveAPlZdwvlJJAYiPAVLO7n6w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=IpMah2TsMZXWQGbxBbVtoMVRvzKKgY5TUI+7S5hzuVspiJkOSMgC6069CBNRxbWlf
+	 +FwwxKYKTg+K9NB0e/SLP0XvcwUjk6RhzDdnDxBKwG97bQacxHsYibYeu7aI8AvyA3
+	 ytxRK01EN5fypqN/gzAPM7AnqFH0+ssbzHQlPZ41qmNfNQqV43iFqkzgpycCwNFB21
+	 0+4C0p5w0OTTl3RwCFzL+4sh0DFZs/QI77MMWjvDkZWtigi9ptTNQVIrqw3N2lmbqE
+	 F/nihpuJXymI3GgwxdWoaqv1eiuozJ0J10Tq4RTiXC4aCQLcBL9EoAjrU0btyHc/rD
+	 KVcVR9YIvldEw==
+Date: Mon, 23 Nov 2026 01:13:25 -1000
+Message-ID: <305c5803b904a57c188b505d6ed9e1e4@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Michal Hocko <mhocko@suse.com>
+Cc: Zhan Xusheng <zhanxusheng1024@gmail.com>, akpm@linux-foundation.org, hannes@cmpxchg.org, roman.gushchin@linux.dev, shakeel.butt@linux.dev, muchun.song@linux.dev, penguin-kernel@i-love.sakura.ne.jp, mkoutny@suse.com, chris@chrisdown.name, cui.tao@linux.dev, cgroups@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, zhanxusheng@xiaomi.com
+Subject: Re: [PATCH v3] mm: memcontrol: don't miss processes whose leader has exited in OOM scans
+In-Reply-To: <awQRT7InNqEF-K8-@tiehlicka>
+References: <20261121073222.834282-1-zhanxusheng1024@gmail.com> <awQRT7InNqEF-K8-@tiehlicka>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,23 +57,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261116105544.669029-2-vinicius.eduardo.pedrosa@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 16, 2026 at 07:55:43AM -0300, Vinicius Pedrosa wrote:
-> The Allwinner A733 USB 2.0 PHY uses the same configuration as the D1,
-> so add its compatible with the D1 fallback. The A733-specific
-> compatible lets the driver clear SIDDQ before releasing the PHY reset,
-> without changing the PHY configuration.
-> 
-> Signed-off-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-> ---
->  .../devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml    | 1 +
->  1 file changed, 1 insertion(+)
+Hello, Michal.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Mon, Nov 23, 2026 at 11:11:27AM +0100, Michal Hocko wrote:
+> Tejun, is there any strong reason to keep the exiting thread group
+> leader in the original cgroup? This makes CSS_TASK_ITER_PROCS iteration
+> really tricky and error prone as above examples show.
 
-Best regards,
-Krzysztof
+No, and I agree that the leader should follow the rest of the process on
+cgroup.procs migrations. It's this way because controllers primarily care
+about resources and exiting and zombie tasks don't matter much in that
+regard, so migration skips them and controllers don't have to deal with
+them. I don't want to change that. It doesn't make much sense to teach
+all controllers about them.
 
+That rules out the full migration path for the leader, and moving it
+without one looks fragile. If cgroup core switches its css_set without
+involving the controllers, ->release() sees a different css from the one
+the task exited in, which breaks e.g. pids uncharging, and that still
+doesn't work for a leader which is exiting but not dead yet as it's still
+running.
+
+Maybe the leader can pretend to be in the new cgroup instead. On
+cgroup.procs migrations, record the destination css_set in an exiting or
+dead leader without touching the css_set it's actually on. When a
+CSS_TASK_ITER_PROCS iteration finds the first live thread of a process
+whose leader is exiting or dead, it looks at the leader and visits it
+there if the recorded css_set agrees.
+
+That leaves the leader's actual css_set and everything that the
+controllers see as they are now. Only the iteration changes, and exiting
+and dead leaders are handled the same way.
+
+Thanks.
+
+--
+tejun
