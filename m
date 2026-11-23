@@ -1,86 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425388;
-	b=H7rmOCymA1c0if58ynm+HUiA3pk+8T81PsDQwq5zrtW/X94W8WOeIxGR/UNwsAXjiYVI
-	 p8Uu1dV8c/NmDb8acExJKr2mZ5rryW2ecbSOPNwkfaerq0qqJFAq7hyh/hP1AdX/ZA6AQ
-	 OtS3o7kY0n5Q8z8QjpyJTI+vgm7oGwQqJeIXbeyCenKl+m18Qit6AVo1KSDf8av+3sub0
-	 AWRsI1j7S0WwIsN0ISY9VqKFyPm5jsgZlRHd4uMPZNmL8lgbBmb1TMtPTcdlRsI5SAJTw
-	 +8QAHT5YQyS9vixhArxzjq35sGq5jaOMUh7G0FWcpF/6SC87HLEzOYC1CmHq5Qi7y4g==
+	t=1795425421;
+	b=AyjR3SsnnosZ1drzumVTk08ME5CELeK5++HdfSiZN/hnVR4WlCgcylKEpwpaTyLSpWvD
+	 sQWx1ZevF3BsGqtHUD0Po/gqJxZBbtAdWoj+w1GasAnRGyHoCKCcnJuH9kap+nCDnT5T7
+	 /ngMo1EqI91Pmj+xxSDYSjpNzF7cKwsRh+a/CpVlzYSTkxC+Zr+5HozzYlPafWdrtGk3z
+	 3PQk8RTEBRsgbQVuX+atq3dgQsluY9wGt+8jvg6ojVwXK2kmb4Fv3wbzkXKnOEO16fFZd
+	 W9T5CBEU8sqriiVZGA23e4FlZdXpEzUxEJK8Y7dLg/OMQh7qUNJiuzKy3egYsIvAYhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425388;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-MTK;
-	bh=L8vupdzGKc/JWjB/Cv3SKPopaesoBrBY+lWXbZ8JGJM=;
-	b=4/CQ+roFdkPYMFcJyrW/6rwZmHyo0UFT6qmRSNBzqgkMoJ1XGJhZDuFfu/rLga3eKqHe
-	 Ffmtg6AXfvOc980sEyLKnSPFPuFTplcqAszU5N6bBJu4ffb36N4B/K5io42cL3VdAu5lB
-	 bbMOyb6N3yo7KyqlMKQNJORf2DZ0EJwY1kY94u41uGl4DW7cgjL9doev+Uy0YZGBOUi8s
-	 MhtUZJlYSH7EeZoD3AEpXNMs/sv/UQ+jrtvkFYX4kh3BxzXMVvrhP8eFGW8KFTTNvAz24
-	 7idWe/xw/nEm+XAj9thV07t/ttptxfEvo7kJDy3lMSc6BzN9Nso/uwmpCVqphsTvxlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425421;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=KntknVNj068zKgAq+zdLaDv094kaGVDF9/OJXVQRtwA=;
+	b=5fNvyDCovjC7qwIb8IFzQLi7J57NVZclDAQbkOCiSqrT6wBgVSB4lWzYy1IhXR7qgfVi
+	 n5bQ228d6VoKJSfjeowjX3AK8f4N1cvaphIA8Bxu0YzN6o5xU9Dl7bEWI+wzQqrjpJA1Y
+	 RMOuG1OE2JTMN4dsfywqHTLJlNlG6QjBrj3e5tjb/wpHdlif0hwq2jB/zB65coemjX7eN
+	 QS5bTv6vV0zmOoUtCFyWqgLYVcEfb53V2U6/uE2o/Bh1vSKTe5rGl7cOwPQUwymdOWB+O
+	 4c7U3LUEVvF7IeEp/ubvlzx8yiWVSTbv0/KNEfq4uNmJr0CXRzanMY6VaIHwNJHAflw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=RA8BmyPS;
-	arc=none smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=SujOSC3b;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CB6B606A31A;
-	Mon, 23 Nov 2026 09:16:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CB6B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 682D8606A321
+	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 09:17:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 682D8606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=RA8BmyPS
-X-UUID: 8c5457d8e71e11f1b1788b6acf885367-20261123
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=L8vupdzGKc/JWjB/Cv3SKPopaesoBrBY+lWXbZ8JGJM=;
-	b=RA8BmyPSJBYICBg7pvp/9klq+z+b6kQOQLgFXRjt+HC7CM4EPaczqxtVUbNCur4e7+gLzbb7lr5fr9r9SEs53U7Ra7qKcQLQYOZxAMAK5IybxLDOsfx6VFdMRHUw19No4tgXHGKMMfdUEMyecf2T59SJpg9T+PwHRRIdTV1F4qI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:04f2c856-eb10-4ccf-a561-00ad6cd9957c,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:ce9ff219-ae4c-4a2b-b1c4-72e411efd0c9,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
-	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:
-	nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8c5457d8e71e11f1b1788b6acf885367-20261123
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 472569656; Mon, 23 Nov 2026 17:16:21 +0800
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.53; Mon, 23 Nov 2026 17:16:20 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
- Transport; Mon, 23 Nov 2026 17:16:20 +0800
-Message-ID: <ae435d4948680bd8e1465a4888b4edb3a8a2c116.camel@mediatek.com>
-Subject: Re: [PATCH] scsi: ufs: core: Add debugfs for PA TFS/FEC error
- counters
-From: Peter Wang <peter.wang@mediatek.com>
-To: Po-Wen Kao <powenkao@google.com>, <linux-scsi@vger.kernel.org>
-CC: Konstantin Vyshetsky <vkon@google.com>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, Bean Huo
-	<beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
-	<mkp@kernel.org>, Can Guo <can.guo@oss.qualcomm.com>, John Garry
-	<john.garry@linux.dev>, Li Qiang <liqiang01@kylinos.cn>, open list
-	<linux-kernel@vger.kernel.org>
-Date: Mon, 23 Nov 2026 17:16:20 +0800
-In-Reply-To: <20261123025745.1743640-1-powenkao@google.com>
-References: <20261123025745.1743640-1-powenkao@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=SujOSC3b
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a9be758734so1788686f8f.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 01:17:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795425419; x=1796030219; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=KntknVNj068zKgAq+zdLaDv094kaGVDF9/OJXVQRtwA=;
+        b=SujOSC3bJ6T5qZYnGcOUlGfGb/XPzEz/mcEywcTIoGYC/v/096w5zQui8EIrk/p2Cv
+         cKCrDJV3hNKyi4Q+XaH1MbeqOl2FjAJPbqvclju5ti9weuviulXhw7yJ6g9cD8SnB+EY
+         NiRHE6rL1xTY7zHCjnfM8vjPsa+ffWVQI+MXLuMxh6zoIGTMDPrOFTgpO0ErILuJt+pE
+         Eq2bhuFgPdWjpQq+YtoYvEh8QCknNuwPr/4YslboIRW6Tb6Q0WlwOiizJDnAwN30eCzO
+         yJ09eoWNrpIrDwPh1vIqEcRloBzHouFWuo6mGf1X0BK+tC7e3DB6KWGRuwLm+GgwrSnW
+         o16Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795425419; x=1796030219;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KntknVNj068zKgAq+zdLaDv094kaGVDF9/OJXVQRtwA=;
+        b=O/YDBzxRe7tEXcLki8qQlrkXQfb3AzapLvVR4jd9vQpjSRQJm2DlfE8VhQKtY8Tgg3
+         hh8wIfU0Jzy1lUqRZ1abfKe8Z3vlneKa+DyfPSP8RKPVNkm/UrwodlGG1YekKaHFDYna
+         thEI6dCwDSHXWi5kzzI4H0TMxcYmfe2jPTzOSrmNaF8EyFwXnT4lriKrqwh5zFE6Bf66
+         nRlkZPvOrVV2GCStyXMeUsBns3wrKLM4Cznvy4Ly/Ac4yz6zsIgdnFrvUcot8O4f3hhO
+         dmks/MhYjh6cqQtMb1yC9xb1uC3xCrHO8rPEErL4bFjbB8lr1eD3gyo2mHfsPCeeGoEz
+         cDtQ==
+X-Forwarded-Encrypted: i=1; AL+hErFbrwNY7CpdM2FgInWm3hoeEClT5qguzhLajTZ5Dqy944gisNr68FcrctMrb7ZIZwfH7nJ/ZsNxkd/H6NM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/G2T+LrptqZfaBv8Z8BUF2adE6YuzQOtHdIXpMC/66dpX/9Ewq
+	+9mqOkdwiwr/cIUrUkFaqaO5l0OrJB1OiLynF7QFharJILCHYl7iRtr5N0ULnKLNuUw=
+X-Gm-Gg: AZFdTZckDdzDZLwFhJzqaelLTEp3YnBn5ZpBzaJntI/UPBYobMbGgI5yA+igUnvT7vx
+	Lfn8XFcRKchxfgt/m6O7CLhqd7G7/LR+8MBvVQ3TlTGuKtjcxb/QrkHZa42v1yFAL/6/YMaFuIf
+	4LRSvO/2tJ4Hbs6B5Wlfq6+TjCe9vlWeIp0JhEZ+yHLowONUGxB3kJGv8kOKakCP06zkVJGcmtm
+	oGVEGYwSEPXyRXSuKhwGFM7GFfLaae4RulnEOfICbSAL9Q4qGLCcLoKLsXu7LTYXJ9fzc1g3tih
+	gjmeUdZ4v+l+bts61LBcSzztsau7Pe8Ks9ksMijgJWBsICZivQ7SVmoZIIUaaV6gm8BpVm3pOCU
+	lkt3CgWSsDNTrYvtrq0lG+j4QVsO8sUGN56qZnP8hHjo6vQYjZv38TWbNZxQiCqwmuKD7eJE1rw
+	UVHnG5wnKQwAUsyocMBv0bWOoH+UhOoT985MZLtJxbfg7QjtoVbCPao+9lgoLrzWem+LniWtdfX
+	uR7SFMtfLjT3Ke/ngdy94jNztHDSF+cAIUDtQjI1XzCaPSEmCVWdu//2FpnQg/NQvtLitewDKLT
+	O7O/4KeG0CWs3uHYUdkoFh7Vk+/ny2pQ1aGL7aMe4S15qhe72L/fBmgYV6x8oO3bb0jgwSThwHA
+	4Ef/qN5YMWx9BkayHbD8dY9QjEJyOSTjlGAxGMg==
+X-Received: by 2002:a5d:64c9:0:b0:4a7:69c3:94d5 with SMTP id ffacd0b85a97d-4abb0e469cfmr20062459f8f.28.1795425418389;
+        Mon, 23 Nov 2026 01:16:58 -0800 (PST)
+Received: from localhost (p200300f65f19a90438645cebc2ee104e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3864:5ceb:c2ee:104e])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab69bf61e8sm22313933f8f.11.2026.11.23.01.16.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 01:16:57 -0800 (PST)
+Date: Mon, 23 Nov 2026 10:16:56 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: yogo.0917.sabu@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Russell King <linux@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-mmc@vger.kernel.org, linux-doc@vger.kernel.org, 
+	soc@lists.linux.dev
+Subject: Re: [PATCH RFC v2 08/13] Input: add polled SiRF AT550 resistive
+ touchscreen driver
+Message-ID: <awQEP9bHA0RPfRUA@monoceros>
+References: <20261121-at550-rfc-v1-v2-0-b0309d0789b2@gmail.com>
+ <20261121-at550-rfc-v1-v2-8-b0309d0789b2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,20 +108,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MTK: N
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="o4xfpqjjox3khpoi"
+Content-Disposition: inline
+In-Reply-To: <20261121-at550-rfc-v1-v2-8-b0309d0789b2@gmail.com>
 
-On Mon, 2026-11-23 at 10:57 +0800, Po-Wen Kao wrote:
-> Because ufs_debugfs_hba_init() runs before hba->ufs_version and the
-> device descriptor are probed, support is checked at access time
-> (attached device W-LUN, UFSHCI >=3D 5.0, UFS device >=3D 5.0 for peer
-> entries, and UFSHCD_STATE_OPERATIONAL under host_sem). Positive
-> UniPro
 
-Hi Brian,
+--o4xfpqjjox3khpoi
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH RFC v2 08/13] Input: add polled SiRF AT550 resistive
+ touchscreen driver
+MIME-Version: 1.0
 
-Have you considered moving ufs_debugfs_hba_init() to after
-device init (i.e. once hba->ufs_version and the device=20
-descriptor are available)?
+Hello,
 
-Thanks
-Peter
+On Sat, Nov 21, 2026 at 09:43:18PM +0900, Yuugo Yoneda via B4 Relay wrote:
+> diff --git a/drivers/input/touchscreen/at550-ts.c b/drivers/input/touchscreen/at550-ts.c
+> new file mode 100644
+> index 000000000..89c2d2701
+> --- /dev/null
+> +++ b/drivers/input/touchscreen/at550-ts.c
+> @@ -0,0 +1,124 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/* SiRF AT550 coordinate acquisition. Layout cross-checked with AT551 draft. */
+> +#include <linux/bits.h>
+> +#include <linux/input.h>
+> +#include <linux/input/touchscreen.h>
+> +#include <linux/io.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+
+<linux/platform_device.h> already provides of_device_id without the
+implied dependencies you get by including <linux/mod_devicetable.h>. So
+please drop the latter.
+
+Best regards
+Uwe
+
+--o4xfpqjjox3khpoi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsEBIYACgkQj4D7WH0S
+/k6Mogf+I4t6gj7ob8tkta5kHm+YP96+f6rsROw+nYQ5NXBDBTwdaHgtuxTw/3u3
+9TSFi59BI6mt1CJkV2ldOhel8Do0lFyFlVyx1+tlaLGNAjrt3f8m2IWJcvQU4hQK
+qCxr790Ac2+n+6M13QHVHO8E7+V5Kxu109uuNUNUWIsrjawNdIUx+lqOywM9o/JT
+s7dUkwPF41vgxb8gPn3Hr9uAImmkTspc70TUfxqNtGVNmQlizkBCtSCoABv5QCdW
+mXZx4sl+NJUJpqZ/jj0ehbdZ1DT8xVBRF1ZDrDU0AdqO6EAWVEnOx3tb5+7JsaKI
+HSj3Bm7869/tgf+jXQ3QF1Uu7I1vmA==
+=UpFb
+-----END PGP SIGNATURE-----
+
+--o4xfpqjjox3khpoi--
