@@ -1,78 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423545;
-	b=YDlIt0jBHlapmBKq+qViHbT/ek61Gf4YTKj7Br7qPlT3vpH/zU6IHbc7E0a1u9tIbFRV
-	 HcbcCw929zkj6jgrlMDApLnKjuZyxtHlxjL9X53iTGlMbTU76A/k9GPN3W5detraR8D1t
-	 rmrvLCWAhuDkFiWPDxOYFiY8b2DK6eRAN5/QFPCY0xUcox0GtFilzwK4d61Kl4fBpcdTO
-	 y1iQDbfHEkKaAZmu+StlqPpaYGORFEJ10ROG2yqcnpycuZVPEWifT279svzPjVWDhQ2HP
-	 WJZUAcTBJ9Xu/IAozhS8b8/Wiua3SIo142BCL/XwNKUBxHKtsG0QmYtRTfgt4VPErfQ==
+	t=1795423623;
+	b=r/R7lbVR+KEOwV3Pq9nd+SE8sy68vOPwdPKfP7BlQgtAEzTU1Kvs8xhFIEQFOkUzyHei
+	 dSLc1q7fhdcQQoLQeDs+wJ9WUqEG76bySeL1YTdyMdyoO4zBfK1iGqe45gsFDEUB9/R1c
+	 hmH3OJtvIbE27BEzl6eT7IN4nCajKD7KmZCFQHibzejeZMho1nMJvmHq/TG23AR8kZLjC
+	 eWXManh/lijbFoyU88rV5ZqbtCdV0WoW+3QuiwVp8c2Mz66qJVjRXAloaVc3RvbnMzmzt
+	 1GrxBNe6PtbCmwvOdbrzm9nDYE1vDuwjNO1/gD75iqxzaM4fiMHr+2QOri+g+0mpvwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423545;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=/Hgc+pAKMaP9FmTtcl1kKyQ25NZRhB37bUz/okZNCiQ=;
-	b=Sazrsrk8qSdEgjIUlyQohKP+UoENNXrPjPCboofmUpDah5//QwUN36BtZgRSUBPruHGC
-	 DtdlkpcaeKZ4m0JdTxkigdAHpLaP1VjuqJpOWo3ZpPgZttW/buJwLxCxDfJAdmD+bwJbq
-	 jmceI823MGuDZkE+wQm1xFzj1W3ukdLkRKzg79P8z8gUTcofwImNpvxUoX56WtJYOj3y7
-	 BDSTdZ1vC3nQB6goV39Su2j+d+bMG8xZy68igSag/si0NuIrMuvqxouD/LmBlvIcCD+1o
-	 8SS+g0WKuBIJ2YbCkk7/jLd6ABvtZzbh7UaX7Ys3cmKt8SHiSA/aEx6Ikq/egOwo4zA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423623;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=XKs3ZboUJb81K6jYdxKiscT4UE5YzLnyDfc+uI4E3Uc=;
+	b=b/nPEMGpmpj+avO/o45CeUuOTnVcXm6QQtNh6jVToMbf/incjz8ehFnkL0txz769BuG0
+	 qD7Ce/g/udBAsW+MuLBSO4onZbMcKmCSjV0Iij2CS7ANhqVetFtrxOfwxMz7K3AZbAwLF
+	 +jtG+Kmgj7Jn+x1l9TWg2wHh1nBeWdMFytUE/463n0FgvKVSrSTWjmYriJBA4KoGCeSCg
+	 i7zUp58Yp5qPddfllk4j1E/q7jso92LWYdoYA27teMbVjElB2rTmJUNCNKmz/5LHOwJPO
+	 Hpvct5X2/OI59lbt7kA4JlRx4Mw2HxiZHCBhlN/yXRKtoO2aNuqKkSZ2N0cjMexpSYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fiqtUFTK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aKgEMsXw;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82024606A337
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 08:45:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D04FD606A31A;
+	Mon, 23 Nov 2026 08:47:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D04FD606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fiqtUFTK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51CFF1F000D0;
-	Mon, 23 Nov 2026 08:45:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795423545;
-	bh=/Hgc+pAKMaP9FmTtcl1kKyQ25NZRhB37bUz/okZNCiQ=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=fiqtUFTKO55WLaOP9pAFLyzpGOrbeS6uhs230g3TsoWX9YmBUOx4cDIzABEm19Ku4
-	 OCUst/NvZSUKZyLresoo1udqBRBdlyv3NRRrOthkXFss0192rhjka/aezz7wDYmvL1
-	 gQxuclUNo2umSiycr7eXsNgtfX7Nhvv3NlIY71dGiLLhWFJGAPVFzOQM+NnL7O1EzX
-	 dzRSySkmfdaPhNUAZXHLn2ybHUq7TwWjQTIFmt/scmMvj08er0WguF+0ZAjUSgU6JE
-	 mcYEtWahIiF0bDOO7TFPifJvm6xbXGV23q6PnX1nt0t/q+/5R2PrSDLugz/7nWn4lS
-	 OPvC854MzKG6Q==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 813A8198003A;
-	Mon, 23 Nov 2026 03:45:42 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Mon, 23 Nov 2026 03:45:42 -0500
-X-ME-Sender: <xms:M_0Da8s6-Vjm_ehY0feG1wVsML9MnjDGLOP7N8DSVkTMDpkrlNadgw>
-    <xme:M_0Da0Q-o-U-rGQagsWhcGOOUER4LWK9yHhQEZJjT7E0SYj422TM0ZzsDro8P0UMc
-    eKMF9d4HAPIiPuYZK4XH04EA-bN7vZMP4swUNRraZpGq9C8LYPrMv40zg>
-X-ME-Proxy-Cause: dmFkZTFWBu9gCpKA/cqYsbbQXSqmPgKHrSSMwjz504DssOqrr8eAAL++nqiamc/VPV9J60
-    3I7yhx1ndCLqHw/fVcckLlizUwscfRmR55drXaG0ncsX0/G0USPDsc0QHn/ptBUYHq+L0d
-    aHg8nyNIRmYgvUcrItOvbNmKi4RR//wyBbluSitDqWVXLMGtsy/g4iMehAmRC2tK7wQIyA
-    m7B2+j+u5duYNSBGD+PjeE/o0cls4dn03R6W5MJ4ns6PbCXq5bt/w5V+3KPBzq6lappp97
-    O9GkiNGQllY2eQsCoqUfzy64IG4wi43GgVBksoMdB7WokYlzcUcvtJvhSYGBjmqIq+WItG
-    iYFQG2Hs/o9RlKDUTqb9Espy+/kTIXNqTWH6/2bF9e2eadFurEu/ZX6mdxbKptYC3X0eyC
-    6bj6P2Gbw5cDD4Ns56vwcAfsvKErKQnCSfguYZLmxffmgZBFuu99JzA3UvySsubyDx1M/k
-    QhFYUTuL+eprryXyign4PuytqD7JL4xQkAswJzSokIUJIk/Z2yAcNIKQMpmR9AyYaCmag9
-    ndwMc36eHIQC8Jjh/1CgzEEGHKsLrdW8sBECqnN3EfDls6usvT+H0qQ8PJCBgbq62mxyvk
-    bSPQG0kID1L1flSIWtcIma8kCu7mBnktYV8p5Bb2HeHdCfgRnxltOFEXVzMXGZ/CEG6wSu
-    uB1FXMyBYTDBoNXgKiFm+1V7BPiTWD7w/4CZwW7v0gpykt7fTEEpjkeK8lErJtyj/2Mn7E
-    ka2646vvB6g75PjmGbMPlMOBU56+gxxxCakCB4xDuvCExkB1qQF2NV+gno/Cogrl+9Vns7
-    hFvmjp9BlbkKOE9i/fFTJqxupdVMHwGJTdrFf0jUNh4LWDD8/2kVxm8JbDdoJMts8mg5Uo
-    uXTYBNtiNjxP0/vVaGVeb+pJy8LRIu+9PJlnBqMv0tkVMWLvacmszgMOgPC+bt646pMODJ
-    NEZdqz3E/tUpqv+NjzBT2cZcltph9yBRHBrdSaEtPFJTyb6wdoo
-X-ME-Proxy: <xmx:Nv0DawrauUgSF8boyxgPKR9EXCM97yUXGnVZPHBagXVJuqCXDxVrGw>
-    <xmx:Nv0Da2H2pbnL5K0_dBRkJFq1yZQzVWCwO5AdWCmBZf0gO47gs75JXg>
-    <xmx:Nv0Da2QSnPo2AU-pHIT8tBNjNmBWrFVmiL8xbOlz9a-0bzMeyOwugA>
-    <xmx:Nv0Da8Mf1Mxvh6zFXYVgQ2O8-NCujddoa5uHKe-QA_czaPOSQ3ngIQ>
-    <xmx:Nv0Dazkogo2b8v_Uy7oo9YHVWNvCqSxaRV0bFMUpU4p5y3W_EplqDchi>
-Feedback-ID: i36794607:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id DB4AA32A009C; Mon, 23 Nov 2026 03:45:39 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aKgEMsXw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795423623; x=1826959623;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=7OxixJdbq+kdjcr4VURCC1HEh52of1vBNIlLajwhFHw=;
+  b=aKgEMsXwKmWJ3zfjsgLvgP2sFyYQY1uKihaYcVPDzgodYj/KK3vrJNeJ
+   MHQqgfkS7dgSTmyDw+zD/NzhBTcnI0PwKorUoFzJOHPtI8v69dTK2Zsqf
+   Fcrt+H8Gym0Yw2Cu7CwPKA7kY6tRjnYj/YnzE1XJ26YF8XSRSfDheMuLo
+   l5184gZho1kba3mugyktiNSBezdkP+GtBnjZZiZUr5oFBc+LfTV5U4dVp
+   sB45Oq902YTGzpX0Fh8EnijuG6JfoelqG2PpJdAB6W5YZk/2rwwk/5iKw
+   6ULB1vReFNbSZL5PODoigFHNqKl19ppo0BB5+sMZLjsON5TsNg84k0oBL
+   w==;
+X-CSE-ConnectionGUID: rFSHJkcOTH6FZoVUDNM4mw==
+X-CSE-MsgGUID: llEO4COhT7Kdhtg0ZlNO3g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4273104"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4273104"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:47:03 -0800
+X-CSE-ConnectionGUID: JSCPwAj7TT2d882AAVgQDw==
+X-CSE-MsgGUID: nrj/kHBaSTa94iFNUsOHNg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11329815"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.225])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:47:01 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Mon, 23 Nov 2026 10:46:57 +0200 (EET)
+To: Sourav Nayak <nonameblank007@gmail.com>
+cc: LKML <linux-kernel@vger.kernel.org>, platform-driver-x86@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] platform/x86: hp-wmi: fix fan freeze during load
+ for Victus 15-fb0xxx (8A3D)
+In-Reply-To: <20261121071534.28473-3-nonameblank007@gmail.com>
+Message-ID: <47c9dd58-774b-20ea-b78e-0d3453be0a42@linux.intel.com>
+References: <1061c0e1-9e05-a09f-3eb6-5702f4fbcf08@linux.intel.com> <20261121071534.28473-1-nonameblank007@gmail.com> <20261121071534.28473-3-nonameblank007@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,67 +78,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A1EAYUxGQhrR
-Date: Mon, 23 Nov 2026 09:45:19 +0100
-From: "Arnd Bergmann" <arnd@kernel.org>
-To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>
-Cc: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
- "Rich Felker" <dalias@libc.org>,
- "Yoshinori Sato" <ysato@users.sourceforge.jp>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Linus Walleij" <linusw@kernel.org>, "Bartosz Golaszewski" <brgl@kernel.org>,
- "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
- linux-sh@vger.kernel.org, Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-kernel@vger.kernel.org
-Message-Id: <6575adac-fb6f-4080-a69b-46e71a3f0bfe@app.fastmail.com>
-In-Reply-To: <dea00f90c205f8359baca729d8b0f31a@gmail.com>
-References: <20260929-rsk7203-properties-v3-0-02f84aeb8e47@gmail.com>
- <3a51385d-9649-4bd7-87b3-0caf9e462b2e@app.fastmail.com>
- <arzKNhmoL6yiGrzH@ashevche-desk.local>
- <dea00f90c205f8359baca729d8b0f31a@gmail.com>
-Subject: Re: [PATCH v3 0/5] sh: mach-rsk: rsk7203: switch to using static device
- property, drop legacy gpio API
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
 
-On Mon, Nov 23, 2026, at 07:44, Dmitry Torokhov wrote:
-> On Wed, Sep 30, 2026 at 11:37:10AM +0300, Andy Shevchenko wrote:
->> On Wed, Sep 30, 2026 at 09:23:21AM +0200, Arnd Bergmann wrote:
-> ...
->> > The patches look good to me. I have build-tested this with the snippet
->> > below and my series from
->> > https://lore.kernel.org/all/20260907090956.2825703-2-arnd@kernel.org/
->> > to check that no use of the legacy interfaces remain.
->> > You can probably fold my one-liner into your last patch.
-> ...
->> > I would guess even with access to hardware testing is going to be
->> > challenging, I noticed that the defconfig kernel does not fit on the
->> > 4MB flash any more (even without rootfs), and the USB support was
->> > never added for rsk7203, only for 7264/7269.
->>
->> ...which induces a practical question, shouldn't we just drop the whole thing
->> for good?
->
-> Gentle ping on this series. Will you be applying these patches (possibly
-> with Arnd's Kconfig tweak folded in), or would you prefer patches
-> removing rsk7203 support altogether since it is not working anyway?
+On Sat, 21 Nov 2026, Sourav Nayak wrote:
 
-Hi Dmitry,
+Thanks for the update.
 
-I just noticed that neither your series nor mine [1] has made it into
-v7.4, so we have the same conflict again for 7.5. 
+This looks better but the changelog needs work.
 
-I would suggest that in order to get it moving, I'll send my patches
-as v8 without the rsk7203 oneliner so we can merge that through the
-gpio tree.
+> hp_wmi_fan_speed_max_reset() caused fans to freeze during loads at 0RPM,
 
-If you rebase yours to drop both the '#include linux/gpio.h' and
-'select GPIOLIB_LEGACY', then your patch is correct both with and
-without mine and there is no conflict other than rsk7203 having
-an intermittent build failure that I hope nobody cares about.
+This reads badly, as if something is missing. Do not assume shortlog 
+preceeds the changelog body, the body should be totally independent from 
+shortlog and fully readable on its own.
 
-     Arnd
+It think you want to tell right from the start that is happens on a 
+particular HW.
 
-[1] https://lore.kernel.org/all/CAMRc=McRc9Aw-5WBipW5QhqqHp4+UKch15ui3E8a0srk2CUN7g@mail.gmail.com/
+> So, assign a custom victus_s_ec_fan_profile_params for 8A3D,
+> introduce a 'if' statement with hp_wmi_fan_speed_auto_reapply to resolve it by
+
+No need to tell you 'introduce a 'if' statement'. Please write with the 
+changelog with assumption that the readers are experienced kernel 
+developers, but not necessarily familiar with this driver or HW).
+
+You should instead be telling that you add "fan_speed_auto_reapply", what 
+it does on a high-level (the code details about if statements are too 
+low-level and can be easily read from the diff below), and mention "use 
+fan_speed_auto_reapply for board 8A3D.
+
+Any function name quoted should have () added to it.
+
+> calling hp_wmi_fan_speed_max_set(0), and passing platform active again to reactive curves.
+
+Please reflow the paragraph to up to 72 chars.
+
+> Test data:
+> 
+> auto/max:
+> hp-isa-0000
+> Adapter: ISA adapter
+> fan1: 5400 RPM
+> fan2: 5200 RPM
+> 
+> mannual[255]:
+> hp-isa-0000
+> Adapter: ISA adapter
+> fan1: 5800 RPM
+> fan2: 5800 RPM
+> 
+> Tested-by: Sourav Nayak <nonameblank007@gmail.com>
+
+The assumption is that you've tested the patches you create :-) so these 
+tested-by tags can be dropped.
+
+> Signed-off-by: Sourav Nayak <nonameblank007@gmail.com>
+> ---
+>  drivers/platform/x86/hp/hp-wmi.c | 28 ++++++++++++++++++++++++++--
+>  1 file changed, 26 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/platform/x86/hp/hp-wmi.c b/drivers/platform/x86/hp/hp-wmi.c
+> index 0166b9cc4d9e..583e1c0dda07 100644
+> --- a/drivers/platform/x86/hp/hp-wmi.c
+> +++ b/drivers/platform/x86/hp/hp-wmi.c
+> @@ -155,6 +155,7 @@ static const struct thermal_profile_params omen_v1_no_ec_thermal_params = {
+>  
+>  struct hp_wmi_fan_profile_params {
+>  	int (*get_fan_speed)(int fan);
+> +	bool fan_speed_auto_reapply;
+>  	bool fan_table;
+>  };
+>  
+> @@ -170,6 +171,12 @@ static const struct hp_wmi_fan_profile_params victus_s_fan_profile_params = {
+>  	.fan_table	= true,
+>  };
+>  
+> +static const struct hp_wmi_fan_profile_params victus_s_ec_fan_profile_params = {
+> +	.get_fan_speed	= hp_wmi_get_fan_speed_victus_s,
+> +	.fan_speed_auto_reapply = true,
+> +	.fan_table	= true,
+> +};
+> +
+>  static const struct hp_wmi_board_params victus_s_board_params = {
+>  	.thermal_profile	= &victus_s_thermal_params,
+>  	.fan_profile		= &victus_s_fan_profile_params,
+> @@ -177,7 +184,7 @@ static const struct hp_wmi_board_params victus_s_board_params = {
+>  
+>  static const struct hp_wmi_board_params victus_s_ec_board_params = {
+>  	.thermal_profile	= &victus_s_ec_thermal_params,
+> -	.fan_profile		= &victus_s_fan_profile_params,
+> +	.fan_profile		= &victus_s_ec_fan_profile_params,
+>  };
+>  
+>  static const struct hp_wmi_board_params omen_v1_board_params = {
+> @@ -2286,6 +2293,13 @@ static bool hp_wmi_fan_control_supported(void)
+>  	return params && params->get_fan_speed;
+>  }
+>  
+> +static bool hp_wmi_fan_speed_auto_reapply(void)
+> +{
+> +	const struct hp_wmi_fan_profile_params *params = hp_wmi_fan_profile();
+> +
+> +	return params && params->fan_speed_auto_reapply;
+> +}
+> +
+>  static bool hp_wmi_fan_table_supported(void)
+>  {
+>  	const struct hp_wmi_fan_profile_params *params = hp_wmi_fan_profile();
+> @@ -2945,7 +2959,17 @@ static int hp_wmi_apply_fan_settings(struct hp_wmi_hwmon_priv *priv)
+>  				 secs_to_jiffies(KEEP_ALIVE_DELAY_SECS));
+>  		return 0;
+>  	case PWM_MODE_AUTO:
+> -		if (hp_wmi_fan_control_supported()) {
+> +		/*
+> +		 * Victus models like 8A3D, calling hp_wmi_fan_speed_max_reset()
+> +		 * freezes fans at 0 RPM under load. Instead, disable max fans and re-apply
+> +		 * the active platform profile, so the EC firmware thermal curves regain control.
+
+Please limit comments to 80 chars per line.
+
+> +		 */
+> +		if (hp_wmi_fan_speed_auto_reapply()) {
+> +			ret = hp_wmi_fan_speed_max_set(0);
+> +			if (ret < 0)
+> +				return ret;
+> +			ret = platform_profile_victus_s_set_ec(active_platform_profile);
+> +		} else if (hp_wmi_fan_control_supported()) {
+>  			ret = hp_wmi_get_fan_count_userdefine_trigger();
+>  			if (ret < 0)
+>  				return ret;
+> 
+
+-- 
+ i.
+
